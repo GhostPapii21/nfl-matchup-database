@@ -1,6 +1,6 @@
 # NFL matchup database
 
-Public research snapshot, built October 26, 2026. Download the database and query it locally with Python or SQLite. This is a snapshot; updates are not automatically synchronized.
+Public research snapshots; `manifest.json` records the current build time, coverage and table counts. Download the database and query it locally with Python or SQLite. The maintainer’s local automation checks for changed data daily at 9:00 AM Eastern. See [SYNC.md](SYNC.md) for operation and availability limits.
 
 ## Get the data
 
@@ -16,11 +16,11 @@ Or download **nfl_matchups.sqlite.gz** from this repository and decompress it. `
 
 ## Coverage
 
-106 ingested games: all 93 games in Weeks 1–6 and 13 Week 7 games, including all 12 October 25 games. Layers include ESPN play-by-play and player/box-score statistics, offensive and defensive profiles, external observations and gaps, supplemental public datasets, and official NGS chart URL indexes.
+The initial release covers all 93 games in Weeks 1–6 and 13 Week 7 games, including all 12 October 25 games. Consult `manifest.json` for the latest game counts and dates. Layers include ESPN play-by-play and player/box-score statistics, offensive and defensive profiles, external observations and gaps, supplemental public datasets, and official NGS chart URL indexes.
 
 Supplemental coverage is strongest for Weeks 1–6: FTN charting, snap counts, PFR advanced statistics, weekly injuries, NGS aggregate statistics, pregame depth charts and Sharp advanced box scores. Do not assume every layer covers every game. Query tables and inspect source timestamps before combining records.
 
-NGS indexes contain 187 targeted receiving charts and 182 carry charts. Targeted charts are not complete route trees. NFL chart images, user video, screenshots and raw webpage archives are not bundled; original source links remain available. Local filesystem paths have been removed from this public copy. Original private working files remain separate.
+The initial NGS indexes include 187 targeted receiving charts and 182 carry charts; current counts are in `manifest.json`. Targeted charts are not complete route trees. NFL chart images, user video, screenshots and raw webpage archives are not bundled; original source links remain available. Local filesystem paths have been removed from this public copy. Original private working files remain separate.
 
 ## Interpretation and gaps
 
