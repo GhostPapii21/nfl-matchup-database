@@ -21,3 +21,8 @@ All source families are checked independently. Historical/stale evidence is reta
 Detailed gap records and raw snapshot paths are in external_sources_status.json and SQLite external_gaps. No-source and missing metric cells remain INSUFFICIENT DATA.
 
 Latest provider snapshots and original masters are separate. The profile links label season aggregates as scouting context, not game measurements. Full Phases 1–10 green-card readiness is not certified by this pipeline.
+
+
+## Incremental verified Sharp update — 2026-10-28T12:08:52.932600+00:00
+
+Imported 84 verified Week 7 observations (EPA per play, success rate, pressure rate allowed) across 28 team-game rows through the existing Phase 10 parser/persist/export path. Publisher update: 2026-10-27T13:34:45Z. Exact data-through cutoff remains unstated beyond Week 7. Other source families were not newly ingested; earlier gaps remain open. Detailed requested-column gaps remain in external_sources_status.json. Raw evidence is publisher-rendered text with documented transport. No model weights or schedules changed.
