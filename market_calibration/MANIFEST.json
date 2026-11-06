@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "package": "research.market_calibration",
+  "branch": "betguru-market-calibration-2026-11-06",
+  "base_commit": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+  "implementation_status": "IMPLEMENTED_UNIT_TESTED_RESEARCH_ONLY",
+  "quotes": {
+    "status": "SAVED_ONLY",
+    "network": false,
+    "books": [
+      "fanduel",
+      "draftkings",
+      "pinnacle"
+    ],
+    "pinnacle_q2_q3_q4_spreads": "NOLINE",
+    "identity_namespace": "SOURCE_EVENT_ALIAS_UNMAPPED",
+    "canonical_crosswalk": "ABSENT_NO_CANONICAL_JOIN_CLAIM",
+    "rule_compatibility": "UNVERIFIED_RESEARCH_PAIRING_ONLY",
+    "actionable_status": "NOLINE"
+  },
+  "calibration": {
+    "status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+    "fitted": false,
+    "coefficients": null
+  },
+  "anchored": {
+    "status": "PENDING_VALIDATION",
+    "edge_eligible": false,
+    "predictions_provided": false
+  },
+  "validation": {
+    "status": "NO_UNTOUCHED_HOLDOUT_VALIDATION",
+    "model_performance_claim": "NONE"
+  },
+  "adapter": {
+    "status": "CONTRACT_SCORE_TRANSPORT_ONLY",
+    "wire_agreement_id": "market-producer-wire-v1.0.1",
+    "wire_agreement_path": "tracking/WIRE_AGREEMENT_v1.0.1.md",
+    "contract_path": "research/nfl_sim_integration_2026-11-06/core_contract.md",
+    "player_targets": "NOT_DEFINED",
+    "contract_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+    "contract_binding_authorization_path": "research/nfl_sim_integration_2026-11-06/integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md",
+    "full_core_acceptance": "NOT_RUN",
+    "producer_simulations": "NOT_RUN"
+  },
+  "data_policy": {
+    "weeks_1_8_2026": "development_inspected",
+    "tnf_jax_bal": "development_inspected",
+    "fit_on_holdout": "FORBIDDEN"
+  },
+  "scoring_labels": [
+    "baseline",
+    "hindsight"
+  ],
+  "artifacts": [
+    "artifacts/raw_model_outputs.json",
+    "artifacts/market_anchored_outputs.json",
+    "artifacts/saved_quote_audit.json"
+  ],
+  "raw_outputs": {
+    "status": "NO_RAW_MODEL_OUTPUT_PROVIDED",
+    "artifact": "artifacts/raw_model_outputs.json"
+  }
+}

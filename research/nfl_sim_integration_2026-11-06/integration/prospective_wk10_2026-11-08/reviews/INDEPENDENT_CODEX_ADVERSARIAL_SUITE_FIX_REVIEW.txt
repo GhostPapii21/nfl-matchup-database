@@ -1,0 +1,58 @@
+**Verdict: accept a limited research repair; reject claims of leak-safe promotion, complete invariance, or full NFL engineering acceptance.** The strongest defect is that inspected W7–8 results directly affect policy acceptance.
+
+Read-only review completed. No edits or picks. I inspected the requested artifacts and supporting source/tests; I did not rerun simulations or pytest.
+
+1. **“All 36 missing fixture / 0 real regression” is defensible only for the original failure cohort.**
+
+   The original symptoms are consistent with absent PBP: direct file errors plus downstream missing keys and `NoneType` failures. The fixture-restored log records **161 passed, one failed**; the remaining failure is `runtime code differs from frozen source`, rather than one of the listed missing-history failures. That supports recovery of the original 36, but contradicts any suggestion that the intermediate suite was wholly green.
+
+   The final log records **167 passed**. That establishes a passing engine test suite under the final environment, not universal API compatibility. `FAILURE_CLASSIFICATION.json` separately acknowledges actual hardening changes: missing-history handling, null adjustments, seed derivation, and previously ignored return yards. Calling the entire repair “fixture only” would conceal those behavior changes.
+
+   The missing-history branch of `simulate_games` still returns a reduced error envelope without normal success keys. Consumers must check status. The new joint-producer branch also returns a different result structure. Neither is necessarily an accidental break, but “legacy APIs retained” needs that scope qualification.
+
+   **Finding:** no demonstrated hidden success-path API regression among the original 36; insufficient evidence for a blanket “zero regressions” claim.
+
+2. **`mix_equal_0.25` promotion is not independent of inspected W7–8.**
+
+   The dev calculation genuinely selects the mixture under the recorded minimax-KL criterion: worst-cell KL **0.275526**, versus **0.281193** for the next candidate. I found no arithmetic contradiction there.
+
+   However, [validate.py](/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py:45) explicitly requires the selected candidate’s **W7–8 IND carry KL** to satisfy a threshold before accepting it; otherwise, the script falls back to equal weights. Thus W7–8 participates in the final policy decision. It is more than reporting an inspected holdout.
+
+   A preregistered gate still uses its evaluation data for acceptance. Moreover, preregistration within a repair after W7–8 was already inspected cannot establish freedom from analyst adaptation in candidate choice, objective, threshold, or singled-out role.
+
+   Historical evaluation also filters identities through the prospective availability roster before counting events. The train-only-universe audit improves the W6 evidence, but does not redo the original candidate selection under historically valid identity support.
+
+   **Finding:** reproducible retrospective selection, with disclosed contamination; **not leak-safe prospective validation**. The self-check’s characterization of W7–8 as reporting-only is too strong.
+
+3. **Team-score invariance has credible architectural support, but incomplete coverage.**
+
+   Separating attribution RNG from team RNG addresses the identified input-hash reseeding confound. The real paired runs compare team-period statistics per trial, which is stronger than comparing means. The synthetic test also requires changed player credits with unchanged team paths.
+
+   Nevertheless, the empirical evidence is **five common trial indices**, across three variants, plus identical repeats. Those repeats establish reproducibility; they add no independent scenario coverage.
+
+   The synthetic test changes passer/target weights for a targeted-pass fixture. The real comparison removes half overrides consistently. Neither establishes coverage across carry changes, half overrides, all terminals, overtime, availability edge cases, or multiple role-state structures.
+
+   **Finding:** supported invariance for the tested rotation-weight perturbations. “This establishes engineering invariance” needs a scoped qualifier. It does not establish predictive accuracy or invariance under every role-related model change.
+
+4. **`UNSUPPORTED` is adequate containment for research, not completed semantics.**
+
+   Rejecting nonzero penalty and return fields is a useful safeguard. Declaring official overtime unsupported is honest. Conservation tests then verify internal accounting under the implemented model.
+
+   Those safeguards do not establish that the resulting score distribution adequately represents games containing omitted events. Absence or rejection of an explicit field does not resolve how historical effects enter fitted outcome distributions.
+
+   Overtime remains especially consequential: the engine executes an acknowledged approximation while declaring official overtime unsupported. A limitation label documents that behavior; it does not validate it.
+
+   **Finding:** acceptable restricted research acceptance with explicit limitations. **Insufficient for official-rules acceptance or unrestricted forecast certification.** Keeping `DEFERRED_100K` is justified; greater simulation volume would not repair these semantics.
+
+5. **Remaining genuine blockers**
+
+   - **Independent predictive evaluation:** freeze the complete policy, eligibility procedure, acceptance criteria, and implementation before evaluating genuinely unseen games.
+   - **Historical eligibility validity:** extend the train-only support approach to selection and broader validation; report excluded and unseen-event mass.
+   - **Compatibility and replay:** demonstrate consumer handling of legacy error envelopes, joint results, and seed-version migration. Frozen-source hash preservation alone does not prove old artifacts replay successfully.
+   - **Broader invariance coverage:** exercise relevant terminal, half, role, and overtime paths with paired comparisons.
+   - **Rules and distribution validity:** implement or justify omitted semantics and quantify predictive consequences.
+   - **Activation remains outstanding:** staging inputs and documenting copy commands do not demonstrate external deployment.
+
+The protected-artifact inventory supports frozen-source integrity against recorded manifests. Its disclosed lack of a complete pre-work inventory prevents a stronger claim that every protected artifact is unchanged.
+
+I disagree with the Grok review’s unqualified acceptance of train/dev-only selection: **candidate ranking is train/dev-only, but final acceptance explicitly depends on inspected W7–8.** I also would not classify `NOLINE`, Phase15 metadata, or disabled coverage effects as automatic blockers to this research repair; they become blockers only where the intended downstream use requires them.

@@ -1,0 +1,16 @@
+You are an INDEPENDENT Codex reviewer for BetGuru market_calibration (not the implementer).
+
+WORKTREE: /workspace/wt-market-calibration branch betguru-market-calibration-2026-11-06 @ 3448ad7
+SCOPE: research/market_calibration/ only. Do NOT edit Blitz CORE (/workspace/wt-nfl-sim-core-2026-11-06) or overwrite /workspace/research/nfl_sim_integration_2026-11-06/core_contract.md or source_run_gate owned files.
+
+MODE: Prefer read-only analysis. You MAY write ONLY under research/market_calibration/reviews/ and research/market_calibration/tracking/ (review + handoff docs). Do not change production .py unless you find a TRUE bug that makes existing pytest false-PASS; if so, fix via TDD (failing test first) then re-pytest — still only under market_calibration/.
+
+TASK:
+1) Independent code review of quotes.py, settlement.py, calibration.py, joint_trial_adapter.py, manifest.py, audit.py, MANIFEST.json, tests/. Rubric: leakage, false PASS, raw vs anchored separation, NOLINE honesty, TNF/holdout contamination, invented prices/defenders, trial_id/seed retention, contract score-transport only claims.
+2) Re-run: export PYTHONDONTWRITEBYTECODE=1; python(){ python3 "$@"; }; python -m pytest research/market_calibration/tests -q  — record exact output.
+3) Cross-check against core_contract.md (read-only) and source_run_gate REQUIREMENT if present under /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/ — market adapter COOPERATES, does NOT duplicate Blitz run_gate entrypoint.
+4) Write reviews/INDEPENDENT_CODEX_REVIEW.md with: findings (severity), what is honestly UNIMPLEMENTED, Ghost integration checklist, same-set metrics IMPROVED/HURT/MIXED/NOT MEASURED with evidence (pytest counts only — no forecast accuracy claims).
+5) Write tracking/GHOST_HANDOFF_MARKET_ADAPTER.md: how Ghost should call the adapter, required Blitz joint-trial fields, SAVED_ONLY quote paths, blockers (crosswalk, book_rules_verified, Pin Q2-Q4 NOLINE, Bias unfitted).
+6) Write reviews/codex_independent_review_evidence.json with cli, pytest summary, files written, network_requests=0, simulations_run=0.
+
+No paid odds pulls. No heavy sims. No fabricated calibration. Rico t353u: substantial work stays in Codex.

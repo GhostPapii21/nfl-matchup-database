@@ -1,0 +1,26 @@
+{
+  "document_type": "parent_verify_post_rebind",
+  "generated_et": "2026-11-06 07:10:06 ET",
+  "DIRECT": {
+    "passed": 1,
+    "failed": 0,
+    "log": "integration/wire/parent_verify_DIRECT_post_rebind.log"
+  },
+  "adversarial_full": {
+    "passed": 51,
+    "failed": 9,
+    "note": "pytest exit via pipeline masked; counts from log summary",
+    "log": "integration/wire/parent_verify_adversarial_post_rebind.log"
+  },
+  "failure_classes": [
+    "stale CONTRACT_HASH in integration tests still expects d6a4689f",
+    "stale market_calibration_file_hashes inventory pre-rebind",
+    "stale CORE files_touched hash for test_joint_producer.py after wire pin tests",
+    "diagnostic_wire_blockers expected old missing-field rejections; adapter now accepts producer wire",
+    "diagnostic_score_sensitivity uses flat points while nested stats.points conflict under new agreement"
+  ],
+  "ghost_final_acceptance": "NOT_CLAIMED",
+  "direct_transport": "GREEN",
+  "source_readiness": "IN_PROGRESS",
+  "impact": "NOT_MEASURED"
+}

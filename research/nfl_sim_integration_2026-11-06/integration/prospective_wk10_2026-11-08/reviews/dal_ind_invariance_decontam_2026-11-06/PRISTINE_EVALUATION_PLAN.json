@@ -1,0 +1,25 @@
+{
+  "status": "REGISTERED_FUTURE_ONLY_NOT_EXECUTED",
+  "policy_status": "RESEARCH_PROVISIONAL_NOT_PROMOTED",
+  "policy": "mix_equal_0.25",
+  "frozen_policy_path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/inputs/selected_robust/model.json",
+  "frozen_policy_sha256": "5f8183a83eddaa064f6dd738732532e6b0c1b470fadbdcfd15b962abefddd122",
+  "registration_date": "2026-11-06",
+  "evaluation_universe": "DAL and IND regular-season games with kickoff strictly after 2026-11-08T23:59:59Z; evaluate all eligible games through end of 2026 regular season, no optional stopping",
+  "exclude": [
+    "all W1-8 2026 games",
+    "2026_09_DAL_IND explicitly excluded; W1-8 role fit is not a pristine same-season role test"
+  ],
+  "selection": "W1-3 train/W4-5 dev only",
+  "inspected": "W7-8 INSPECTED_DEV_REPORTING_ONLY, never gate",
+  "W6": "secondary audit only; no promotion; untouched status not proven",
+  "historical_pristine_claim": false,
+  "evaluation": "role counts and KL/MAE for target/carry/passer, both teams; report zero-count cells explicitly; compare frozen equal_eligible and legacy_depth; report roster changes and unavailable players separately, never refit weights",
+  "promotion": "NONE authorized by this plan; future evidence requires independent review and a new preregistered promotion decision",
+  "freeze_timing": "hash registered before future games; no future outcomes read in this work",
+  "frozen_comparator_models": {
+    "research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/inputs/equal_eligible/model.json": "41da593b2e347d50b76f732c3dcd777ea85d2a99cef8931c178365e1ccb248dd",
+    "research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/inputs/legacy_depth/model.json": "0d6d9617cb62cdf2dd3d274a01bed7030290795183e2e85a81518e64d56a9eeb"
+  },
+  "policy_freeze_scope": "fixed per-player weights; registry changes reported as distribution shift, no imputed player weights; unscorable cells excluded with counts and reasons, never silently renormalized"
+}

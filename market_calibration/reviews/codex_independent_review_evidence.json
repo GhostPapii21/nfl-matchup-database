@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "review_role": "INDEPENDENT_CODEX_REVIEWER",
+  "worktree": "/workspace/wt-market-calibration",
+  "branch": "betguru-market-calibration-2026-11-06",
+  "head": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+  "scope": "research/market_calibration/",
+  "working_tree_status": "MARKET_SUBTREE_UNTRACKED_NO_COMMIT_CREATED",
+  "cli": "export PYTHONDONTWRITEBYTECODE=1\npython(){ python3 \"$@\"; }\npython -m pytest research/market_calibration/tests -q",
+  "pytest_summary": "97 passed in 0.21s",
+  "pytest_output": "........................................................................ [ 74%]\n.........................                                                [100%]\n97 passed in 0.21s\n",
+  "pytest_runs": [
+    {
+      "stage": "reviewed_code_baseline",
+      "cli": "export PYTHONDONTWRITEBYTECODE=1\npython(){ python3 \"$@\"; }\npython -m pytest research/market_calibration/tests -q",
+      "exit_code": 0,
+      "summary": "97 passed in 0.15s",
+      "log": "reviews/pytest_independent_baseline.txt"
+    },
+    {
+      "stage": "red",
+      "cli": "export PYTHONDONTWRITEBYTECODE=1\npython(){ python3 \"$@\"; }\npython -m pytest -c research/market_calibration/tests/pytest.ini research/market_calibration/reviews/test_independent_false_pass.py -q",
+      "exit_code": 1,
+      "summary": "11 failed in 0.05s",
+      "log": "reviews/pytest_independent_red.txt"
+    },
+    {
+      "stage": "green",
+      "cli": "export PYTHONDONTWRITEBYTECODE=1\npython(){ python3 \"$@\"; }\npython -m pytest -c research/market_calibration/tests/pytest.ini research/market_calibration/reviews/test_independent_false_pass.py -q",
+      "exit_code": 0,
+      "summary": "11 passed in 0.03s",
+      "log": "reviews/pytest_independent_green.txt"
+    },
+    {
+      "stage": "final",
+      "cli": "export PYTHONDONTWRITEBYTECODE=1\npython(){ python3 \"$@\"; }\npython -m pytest research/market_calibration/tests -q",
+      "exit_code": 0,
+      "summary": "97 passed in 0.21s",
+      "log": "reviews/pytest_independent_required.txt"
+    },
+    {
+      "stage": "combined",
+      "cli": "export PYTHONDONTWRITEBYTECODE=1\npython(){ python3 \"$@\"; }\npython -m pytest -c research/market_calibration/tests/pytest.ini research/market_calibration/tests research/market_calibration/reviews/test_independent_false_pass.py -q",
+      "exit_code": 0,
+      "summary": "108 passed in 0.16s",
+      "log": "reviews/pytest_independent_combined.txt"
+    }
+  ],
+  "network_requests": 0,
+  "simulations_run": 0,
+  "paid_odds_pulls": 0,
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "P1",
+      "status": "FIXED_TDD",
+      "description": "Manifest accepted contradictory secondary success claims",
+      "regression_cases": 9
+    },
+    {
+      "id": "F2",
+      "severity": "P2",
+      "status": "FIXED_TDD",
+      "description": "Research pairing ignored explicit snapshot_id",
+      "regression_cases": 2
+    },
+    {
+      "id": "F3",
+      "severity": "P2",
+      "status": "OPEN_OWNER_ARTIFACT_REGENERATION",
+      "description": "Persisted audit has 76 obsolete pair_id references after stricter snapshot grouping; all other compared leaves unchanged"
+    },
+    {
+      "id": "F4",
+      "severity": "P2_INTEGRATION_BOUNDARY",
+      "status": "UNIMPLEMENTED_NONACTIONABLE",
+      "description": "Canonical joins, alias-wide split lineage, immutable freeze verification and producer acceptance are external prerequisites"
+    }
+  ],
+  "same_set_metrics": {
+    "improved": {
+      "set": "11 independent regression cases",
+      "before": {
+        "passed": 0,
+        "failed": 11
+      },
+      "after": {
+        "passed": 11,
+        "failed": 0
+      }
+    },
+    "hurt": {
+      "set": "97 existing tests",
+      "before": {
+        "passed": 97,
+        "failed": 0
+      },
+      "after": {
+        "passed": 97,
+        "failed": 0
+      },
+      "pass_losses": 0
+    },
+    "mixed": "NOT_ESTABLISHED_BY_COUNTS",
+    "not_measured": [
+      "predictive_accuracy",
+      "calibration_quality",
+      "ROI",
+      "full_core_acceptance",
+      "projection_readiness"
+    ]
+  },
+  "production_write_exception": {
+    "reason": "True false-PASS bugs reproduced before edit; regression tests failed first",
+    "files": [
+      "research/market_calibration/quotes.py",
+      "research/market_calibration/manifest.py"
+    ],
+    "original_tests_edited": false,
+    "artifacts_edited": false
+  },
+  "protected_files_written": [],
+  "external_concurrent_change": {
+    "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/REQUIREMENT.md",
+    "authored_by_reviewer": false,
+    "observed_versions": [
+      "1.0.0",
+      "1.1.0"
+    ],
+    "latest_reread": true
+  },
+  "environment_skill": {
+    "path": "/home/box/.codex/plugins/cache/openai-curated-remote/cloud-environment/0.1.2/skills/runtime/SKILL.md",
+    "environment_status_tool_available": false,
+    "no_network_work_attempted": true
+  },
+  "recorded_at_utc": "2026-11-06T11:32:00.618119+00:00",
+  "files_written": [
+    "research/market_calibration/quotes.py",
+    "research/market_calibration/manifest.py",
+    "research/market_calibration/reviews/INDEPENDENT_CODEX_REVIEW.md",
+    "research/market_calibration/tracking/GHOST_HANDOFF_MARKET_ADAPTER.md",
+    "research/market_calibration/reviews/test_independent_false_pass.py",
+    "research/market_calibration/reviews/codex_independent_before_hashes.json",
+    "research/market_calibration/reviews/pytest_independent_baseline.txt",
+    "research/market_calibration/reviews/pytest_independent_red.txt",
+    "research/market_calibration/reviews/pytest_independent_green.txt",
+    "research/market_calibration/reviews/pytest_independent_required.txt",
+    "research/market_calibration/reviews/pytest_independent_combined.txt",
+    "research/market_calibration/reviews/codex_independent_review_evidence.json"
+  ],
+  "file_sha256": {
+    "research/market_calibration/quotes.py": "715e7ed8ef3d4f4b2d6000463af22f7d8a4624cc1aa00658a753fd35169872fd",
+    "research/market_calibration/manifest.py": "cf33932cb1f72826757e5ba289974762e4cdd4978816d286a2e01dfbe44e48a0",
+    "research/market_calibration/reviews/INDEPENDENT_CODEX_REVIEW.md": "432c3ca4a4c53341b1a46ff7fcb024c207e6ef26d75b42c9273863516a7cba53",
+    "research/market_calibration/tracking/GHOST_HANDOFF_MARKET_ADAPTER.md": "98892f4db5493515f4d3d0179bf48474f984ecfcef0122b063696a74c1664b60",
+    "research/market_calibration/reviews/test_independent_false_pass.py": "7407291a463a387e0993b4095d82585c21418ddc98d55a148b77d193100d4493",
+    "research/market_calibration/reviews/codex_independent_before_hashes.json": "a1ebac008647ea189f0c0ea0fc05f248dc2291d8be037f981d501622f96232fb",
+    "research/market_calibration/reviews/pytest_independent_baseline.txt": "3c09fd8f61bc40fab0407babac3524152cff226277ccce2859ffe70aadd60634",
+    "research/market_calibration/reviews/pytest_independent_red.txt": "c02eb4f98e54b7d1dfcd272e87d7deabed1a54486eb0cf2995b46ee7f512c134",
+    "research/market_calibration/reviews/pytest_independent_green.txt": "a4ba6a0b833ef7026d4d291578c1a66aa7b84a732bb259d96dc88bdb89ae3418",
+    "research/market_calibration/reviews/pytest_independent_required.txt": "779cf75a1ab500c37d652d94abef75ad8d97f5c717f96b21655bfb6834fd7255",
+    "research/market_calibration/reviews/pytest_independent_combined.txt": "7c44f54c3a57951fa52d3a0c75a7ef59039242d9b1eb54a372d36e8fe28045f4"
+  },
+  "observed_changes_to_preexisting_files": {
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/REQUIREMENT.md": {
+      "before_sha256": "c72093087791cc93c7baf6d53a61dbb8b3799548430a5d9e859fadc60af9776e",
+      "after_sha256": "ae132e50c85e825a8869d65eb239bcf7cfa7b09c40a9b8a1d14071766762ea90"
+    },
+    "research/market_calibration/manifest.py": {
+      "before_sha256": "732cdb6e3589288f5108f5685380a903eeaed8eca4aa23728d226afcc401a2c4",
+      "after_sha256": "cf33932cb1f72826757e5ba289974762e4cdd4978816d286a2e01dfbe44e48a0"
+    },
+    "research/market_calibration/quotes.py": {
+      "before_sha256": "a69574156f47ebc247f63263edd154baeadc7c99cabad950b73e729c9b9176d3",
+      "after_sha256": "715e7ed8ef3d4f4b2d6000463af22f7d8a4624cc1aa00658a753fd35169872fd"
+    }
+  },
+  "source_files": [
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_jaxbal_game.csv",
+      "sha256": "51244731295a2a45af029b5985b3c4cb29e64448090e32d49437c5350c52690c"
+    },
+    {
+      "path": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/period_q1_q2_q3_fd_dk_cleared.csv",
+      "sha256": "d0000e66db3cbfe3a8831a4d4ff651626718496b142697e88e46d535ed41118d"
+    },
+    {
+      "path": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/period_line_grades.csv",
+      "sha256": "6a8deb2b30ecf699a543d8a32fc000f6d1977f335914cfd468a3786633fea96a"
+    }
+  ],
+  "saved_audit_comparison": {
+    "exact_json_equality": false,
+    "changed_leaf_count": 76,
+    "changed_leaf_names": {
+      "pair_id": 76
+    },
+    "artifact_written": false,
+    "quote_count": 132,
+    "pair_status_counts": {
+      "MATCHED": 132
+    },
+    "grade_status_counts": {
+      "NOT_PRESENT": 32,
+      "PASS": 100
+    }
+  },
+  "protected_core_contract_sha256": "d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9",
+  "hash_exclusions": [
+    "reviews/codex_independent_review_evidence.json (self-reference)"
+  ]
+}

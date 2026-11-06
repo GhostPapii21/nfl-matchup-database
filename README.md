@@ -41,3 +41,29 @@ The October 29 publication review also records open credited-play-yardage, retur
 ## Sources and reuse
 
 See [SOURCES.md](SOURCES.md). Third-party data retain their original ownership and applicable source terms; this repository does not relicense those data. In particular FTN charting distributed through nflverse requires its source attribution and applicable share-alike license. Cite original providers and this snapshot when using derived results.
+
+## Model checkpoint (not production-validated)
+
+The matchup snapshot above is unchanged. A portable research checkpoint of the possession and period engines is added beside it. **`projection_ready` is false.** This is not a betting engine, and it does not produce picks.
+
+| Claim | Current state |
+| --- | --- |
+| Production validation | Not validated. Acceptance is fail-closed. |
+| `projection_ready` | false |
+| Validation entrypoint | Not enforced. `core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py` is the historical contaminated validator (`sha256 29b6b0c2644f256a705b09b5e1a56716dd355d79eb07a6187b9c3df495ff93e9`). Do not promote it. See NFL-42. |
+| Penalties, returns, official overtime | Unsupported. See NFL-43. |
+| Calibration | Not fitted. Quotes are `NOLINE` until authenticated book access exists. See NFL-45. |
+| Pristine evaluation | Protocol incomplete. Weeks already inspected are development evidence, not an untouched holdout. See NFL-44. |
+| 100k trials and the 15-phase ledger | Deferred. Phase 15 inactives are `NOT_YET`. NFL-56 records the source-of-truth goal. Those workflows are not implemented here. |
+| ORCA / FTN model mirrors | `ACCESS_UNKNOWN`. No quotes are invented. NFL-53, NFL-54, NFL-55. |
+| Pinnacle and other books | No actionable lines are published. Pinnacle Q2–Q4 spreads were already absent in the saved research set. Odds-bridge still needs authentication. NFL-25, NFL-45. |
+
+Open work, with live issue URLs, is in [OPEN_LINEAR_ITEMS.md](OPEN_LINEAR_ITEMS.md) (22 items, including NFL-16 and NFL-54). Source access and the public refresh steps are in [docs/SOURCE_STATUS.md](docs/SOURCE_STATUS.md) and [docs/DATA_UPDATE.md](docs/DATA_UPDATE.md). The proposed routine is documentation only: [docs/PROPOSED_ROUTINE_BOOTSTRAP.md](docs/PROPOSED_ROUTINE_BOOTSTRAP.md). The parent applies any saved routine after this commit is verified. Nothing in this repository runs on a loop.
+
+Bounded check, after `python3 -m pip install -r requirements-smoke.txt`:
+
+```sh
+bash scripts/smoke_offline.sh
+```
+
+That runs two offline pytest modules. It does not fetch data, fit a model, or certify the 15-phase or 100k workflows. The security review and the hash-only exclusion list are `inventory/PUBLIC_SECURITY_REVIEW.md` and `inventory/EXCLUSIONS.json`. Archive hashes are in `inventory/RESTORE_VERIFICATION.json`.

@@ -1,0 +1,32 @@
+Independent review of CORE producer wire freeze + asof scaffolding + BetGuru B01 SHA-block status. DO NOT edit files. DO NOT run pytest or network. READ only.
+
+Read these paths:
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CORE_WIRE_LOCK.md
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/BETGURU_WIRE_COORDINATION.md
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/WIRE_SCHEMA_V1_META.json
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/INTEGRATION_WIRE_EVIDENCE.json
+- /workspace/research/nfl_sim_integration_2026-11-06/core_contract_wire_v1.md
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/GHOST_ACCEPTANCE_PACKET.md (esp. wire addendum)
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/asof_sources/README.md
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/asof_sources/readiness_live_run.json
+- /workspace/wt-market-calibration/research/market_calibration/tracking/WIRE_AGREEMENT_v1.0.1.md
+- /workspace/wt-market-calibration/research/market_calibration/reviews/B01_WIRE_FIX_COMPLETION.md
+
+Facts to verify in your judgment (cite hashes from docs, do not recompute via shell if avoidable):
+1) Producer wire_version remains 1.0.0-producer; immutable example sha256 50be826a… claimed unchanged; CORE did not rename fields.
+2) core_contract current sha 6471e69b… is additive link only; historical d6a4689f… documented; CONTRACT_BINDING_AUTHORIZATION authorizes adapter rebind.
+3) asof scaffold: projection_ready false; NOT_COMPLETE; SAVED_ONLY quotes; NOLINE; Bias UNIMPLEMENTED.
+4) BetGuru adapter claims historical rehearsal 173 passed; current-env blocked on SHA guard — is that a fair residual blocker vs implementation defect?
+5) May Ghost claim final acceptance? (expect no)
+
+Write Markdown ONLY to stdout with sections:
+VERDICT: REJECT_FINAL_ACCEPTANCE | ACCEPT_WITH_GAPS | ACCEPT_INTEGRATION
+WIRE_LOCK_OK: yes/no + notes
+BINDING_AUTH_OK: yes/no + notes
+ASOF_HONEST: yes/no + notes
+B01_RESIDUAL: SHA_GUARD_ONLY | IMPLEMENTATION_DEFECT | MIXED
+GAPS
+FALSE_PASS_RISKS
+REQUIRED_BEFORE_GHOST_FINAL
+NOTES

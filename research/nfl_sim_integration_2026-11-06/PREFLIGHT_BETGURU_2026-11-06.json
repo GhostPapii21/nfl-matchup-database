@@ -1,0 +1,319 @@
+{
+  "skill": "nfl-projection-source-preflight",
+  "pulled_et": "2026-11-06 06:25 ET",
+  "task": "ENGINEERING_market_calibration_adapter",
+  "gate_ownership": "Blitz owns entrypoint/manifest enforcement; BetGuru market adapter cooperates only \u2014 no duplicate run_gate",
+  "policy": {
+    "paid_odds_pulls": "NONE",
+    "history_odds_pulls": "NONE",
+    "odds_bridge": "needsAuth_no_bypass"
+  },
+  "codex": {
+    "final_pytest_parent_verify": "97 passed in 0.14s",
+    "artifact": "reviews/pytest_parent_verify_final.txt",
+    "completion": "reviews/COMPLETION_CODEX.md",
+    "evidence": "reviews/codex_exec_evidence.json"
+  },
+  "connectors_endpoint_attempts": [
+    {
+      "id": "sports-leader",
+      "mcp": "connected",
+      "tool": "list_sports_and_leagues",
+      "result": "SUCCESS",
+      "evidence": "NFL league present among 30 curated leagues"
+    },
+    {
+      "id": "balldontlie",
+      "mcp": "connected",
+      "tool": "nfl_get_teams",
+      "args": {
+        "conference": "AFC"
+      },
+      "result": "SUCCESS",
+      "evidence": "16 AFC teams incl BAL/JAX returned"
+    },
+    {
+      "id": "statshawk",
+      "mcp": "connected",
+      "tool": "get_account_usage",
+      "result": "SUCCESS",
+      "tier": "free",
+      "units_remaining": 4997,
+      "resets_at": "2026-12-01T00:00:00Z"
+    },
+    {
+      "id": "open-leagues",
+      "mcp": "connected",
+      "tool": "getSources",
+      "result": "MIXED",
+      "evidence": {
+        "sleeper": "ok week9 2026",
+        "espn": "ok=false ESPN 403",
+        "nflverse": "ok 554 files updated 2025-07-31"
+      }
+    },
+    {
+      "id": "muffed",
+      "mcp": "connected",
+      "tool": "list_metrics",
+      "result": "SUCCESS",
+      "evidence": "804 metrics / 121 families; seasons through 2026"
+    },
+    {
+      "id": "prediction-markets-picks",
+      "mcp": "connected",
+      "tool": "nfl_power_ratings",
+      "args": {
+        "team": "BAL"
+      },
+      "result": "SUCCESS",
+      "evidence": "returned BAL PWR board (season 2026 label); free endpoint"
+    },
+    {
+      "id": "odds-bridge",
+      "mcp": "needsAuth",
+      "tool": null,
+      "result": "LOGIN_REQUIRED",
+      "evidence": "GetMcpServerStatus authentication_required; no bypass"
+    }
+  ],
+  "ghost_authoritative_routes": {
+    "pulled_et": "2026-11-06 06:24 ET",
+    "policy": "SAVED_ONLY_vs_current_no_paid_odds",
+    "rows": [
+      {
+        "path": "/workspace/DATA_REGISTRY.md",
+        "exists": true,
+        "mtime_et": "2026-10-29 06:03:36 ET",
+        "age_hours": 193.35,
+        "bytes": 3253,
+        "freshness": "STALE",
+        "sha256": "307006ba9724efc6b159606d53f7becd8bd99ea345966510dd3613327458005b",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/repo/SOURCES.md",
+        "exists": true,
+        "mtime_et": "2026-10-29 06:04:47 ET",
+        "age_hours": 193.33,
+        "bytes": 2069,
+        "freshness": "STALE",
+        "sha256": "cd80d73ecb833dba33d235824c8ccc5040105199dea3ce6333c0501f368440d9",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/audits/SOURCE_AUDIT_2026-11-01.md",
+        "exists": true,
+        "mtime_et": "2026-11-01 22:41:22 ET",
+        "age_hours": 103.72,
+        "bytes": 10064,
+        "freshness": "STALE",
+        "sha256": "190fd2a689ae95dd18f41467682c486587dfc78643641de1c2844198d016b7bf",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/sources/free_source_discovery_2026-11-01.md",
+        "exists": true,
+        "mtime_et": "2026-11-01 01:01:28 ET",
+        "age_hours": 125.39,
+        "bytes": 7365,
+        "freshness": "STALE",
+        "sha256": "b8c5d6ac8cf5d31bace32a4f283df8cfcb8cc26ab91956ded1898bdffa10f369",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/MASTER_PROMPT.md",
+        "exists": true,
+        "mtime_et": "2026-10-29 06:04:47 ET",
+        "age_hours": 193.33,
+        "bytes": 5730,
+        "freshness": "STALE",
+        "sha256": "1ffff1cf65d1f998333a44cc105b6d737f47ce1fd61c599745ecd4c256c0be8b",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-sim/data/ftn_charting_2026.parquet",
+        "exists": true,
+        "mtime_et": "2026-10-29 06:02:17 ET",
+        "age_hours": 193.37,
+        "bytes": 111031,
+        "freshness": "STALE",
+        "sha256": "6c64a604a9a81e8fed31cf6d2a54a45640e817dc763e46c05107d883686f00e5",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/tools/odds_pregame.py",
+        "exists": true,
+        "mtime_et": "2026-11-01 22:31:49 ET",
+        "age_hours": 103.88,
+        "bytes": 924,
+        "freshness": "STALE",
+        "sha256": "e5d88cab6e15a26d8ccc3b3d9a0e647f8d0c66303bf0e9af3299596733174938",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/tools/pull_odds.py",
+        "exists": true,
+        "mtime_et": "2026-11-03 00:49:31 ET",
+        "age_hours": 77.59,
+        "bytes": 8754,
+        "freshness": "STALE",
+        "sha256": "0d5fa83fc5385d6222092bb16f20446f7c8dd35ca892967de6cad05bafafce5c",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/tools/pull_props.py",
+        "status": "MISSING"
+      },
+      {
+        "path": "/workspace/nfl-database/tools/odds_quota.py",
+        "exists": true,
+        "mtime_et": "2026-11-03 00:49:16 ET",
+        "age_hours": 77.59,
+        "bytes": 2690,
+        "freshness": "STALE",
+        "sha256": "b248dfbb1d31628ebec12ac9603574ab88a940ed42a1dfa7be9367d64b05be93",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/tools/weather_forecast.py",
+        "exists": true,
+        "mtime_et": "2026-11-01 22:49:53 ET",
+        "age_hours": 103.58,
+        "bytes": 6515,
+        "freshness": "STALE",
+        "sha256": "10c3b9a0703becb755a0ea684797e15592ba92aae4374176f4e8246d1a058c01",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/tools/run_gate.py",
+        "exists": true,
+        "mtime_et": "2026-11-03 00:45:29 ET",
+        "age_hours": 77.65,
+        "bytes": 42918,
+        "freshness": "STALE",
+        "sha256": "d52655dda8cc8b217df7a19587d61b600ddb2a2cc9b81919a5b1003de46db3ee",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/pro-edge/edge_scan.py",
+        "exists": true,
+        "mtime_et": "2026-11-03 00:46:03 ET",
+        "age_hours": 77.64,
+        "bytes": 12901,
+        "freshness": "STALE",
+        "sha256": "cbc77b0ad438031cd0fa6f24a5424f445b22cb7884b5a620f71098bcde4b8ff7",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/period_lines_cleared_ledger.csv",
+        "exists": true,
+        "mtime_et": "2026-11-05 23:12:08 ET",
+        "age_hours": 7.21,
+        "bytes": 69267,
+        "freshness": "FRESH_CACHE",
+        "sha256": "3a1961f26ccfaea0cbc16e5b25d6d8eaac0a81dca3312806efc20a73c7652438",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/period_q1_q2_q3_fd_dk_cleared.csv",
+        "exists": true,
+        "mtime_et": "2026-11-05 23:13:47 ET",
+        "age_hours": 7.18,
+        "bytes": 11369,
+        "freshness": "FRESH_CACHE",
+        "sha256": "d0000e66db3cbfe3a8831a4d4ff651626718496b142697e88e46d535ed41118d",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/audit_findings.md",
+        "exists": true,
+        "mtime_et": "2026-11-05 23:14:40 ET",
+        "age_hours": 7.17,
+        "bytes": 9791,
+        "freshness": "FRESH_CACHE",
+        "sha256": "000c2343e95e489377037aab0d22fa45e45acec184e4fc4ec83ae67390ab1bc3",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/data_vault/FD_PROPS_HIST_2024_2025",
+        "exists": true,
+        "mtime_et": "2026-10-29 06:03:33 ET",
+        "age_hours": 193.35,
+        "bytes": 4096,
+        "freshness": "STALE",
+        "sha256": "SKIPPED_LARGE",
+        "status": "OK"
+      },
+      {
+        "path": "/workspace/nfl-database/sources/nflverse",
+        "exists": true,
+        "status": "DIR_OK",
+        "n_entries": 5
+      },
+      {
+        "path": "/workspace/nfl-sim/data/rb_usage",
+        "exists": true,
+        "status": "DIR_OK",
+        "n_entries": 8
+      },
+      {
+        "path": "/workspace/nfl-database/outlier",
+        "exists": true,
+        "status": "DIR_OK",
+        "n_entries": 8
+      }
+    ]
+  },
+  "saved_book_ledgers": {
+    "period_q1_q2_q3_fd_dk_cleared.csv": {
+      "status": "SAVED_ONLY",
+      "mtime_et": "2026-11-05 23:13:47 ET",
+      "age_hours": 7.2,
+      "role": "matcher input"
+    },
+    "period_lines_cleared_ledger.csv": {
+      "status": "SAVED_ONLY",
+      "mtime_et": "2026-11-05 23:12:08 ET",
+      "age_hours": 7.2
+    },
+    "audit_findings.md": {
+      "status": "SAVED_ONLY",
+      "mtime_et": "2026-11-05 23:14:40 ET"
+    },
+    "r6_odds_jaxbal_game.csv": {
+      "status": "SAVED_ONLY",
+      "mtime_et": "2026-11-04 15:00:37 ET",
+      "age_hours": 39.4,
+      "pinnacle_q2_q4_spreads": "NOLINE_ABSENT"
+    }
+  },
+  "dated_access_notes_not_current_promises": {
+    "PFR": "LIVE curl 403 this turn; prior cached PFR success remains dated evidence only",
+    "NGS": "LIVE homepage 200; route trees not claimed complete",
+    "NFLPro": "signed-out / not used this turn",
+    "PFF": "LIVE public 200; prior render unusable note retained \u2014 paid grades not pulled",
+    "Outlier": "SAVED_ONLY cache outlier_props_2026-11-05.csv rows=83; notes exist; historical partial~49/80 not re-audited as current",
+    "pull_props.py": "MISSING at /workspace/nfl-database/tools/pull_props.py (canonical path absent this box)"
+  },
+  "manifest_market_adapter": {
+    "status": "SAVED_ONLY",
+    "network": false,
+    "books": [
+      "fanduel",
+      "draftkings",
+      "pinnacle"
+    ],
+    "pinnacle_q2_q3_q4_spreads": "NOLINE",
+    "identity_namespace": "SOURCE_EVENT_ALIAS_UNMAPPED",
+    "canonical_crosswalk": "ABSENT_NO_CANONICAL_JOIN_CLAIM",
+    "rule_compatibility": "UNVERIFIED_RESEARCH_PAIRING_ONLY",
+    "actionable_status": "NOLINE"
+  },
+  "workflow_artifacts": [
+    "tracking/SOURCE_INVENTORY_2026-11-06.md",
+    "tracking/WORKFLOW_15PHASE_ENGINEERING_2026-11-06.md",
+    "tracking/GHOST_ROUTE_FRESHNESS_2026-11-06.json",
+    "tracking/PREFLIGHT_GHOST_ROUTES_2026-11-06.json"
+  ]
+}

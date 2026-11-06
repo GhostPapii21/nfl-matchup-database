@@ -1,0 +1,23 @@
+You are Codex refreshing Ghost integration adversarial expectations after BetGuru authorized rebind. DO NOT edit market_calibration production logic beyond what is already done by BetGuru. Prefer editing only:
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/** (tests, inventories, packet, evidence)
+- Optionally regenerate market hash inventory FILE if it lives under integration/ (market_calibration_file_hashes.json under research integration), not by changing adapter behavior.
+
+Facts (parent-verified):
+- DIRECT test_DIRECT_actual_producer_to_market_acceptance: 1 passed
+- Full adversarial: 51 passed / 9 failed
+- Failures are STALE EXPECTATIONS, not transport regressions:
+  1) test_contract_sha256_binding expects historical d6a4689f; authorized current is 6471e69b (additive wire companion link). See CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md
+  2) test_market_protected_hash_inventory uses pre-rebind hashes
+  3) test_actual_producer_artifacts_and_recomputed_validation: test_joint_producer.py hash changed for wire pin tests (0496d8b6…)
+  4) diagnostic_wire_blockers_* expected old missing-field rejects; adapter now accepts producer 1.0.0-producer natively — rewrite diagnostics to assert NEW rejection boundaries (alias conflicts, incomplete status, OT inconsistency, conflicting points) rather than obsolete first-blocker stages
+  5) diagnostic_score_sensitivity: flat points vs nested stats.points conflict now correctly rejected — update probe to mutate nested stats.points consistently OR assert conflict rejection as intended property
+
+Also:
+- Keep immutable example sha 50be826a… unchanged
+- Update GHOST_ACCEPTANCE_PACKET.md honestly: DIRECT green; full suite after refresh; source readiness still open; Ghost FINAL still NOT claimed; NOLINE; Bias UNIMPLEMENTED; impact NOT_MEASURED
+- Re-run full adversarial + DIRECT; capture logs under integration/wire/
+- Write INTEGRATION_EXPECTATION_REFRESH_EVIDENCE.json
+- Do NOT claim predictive improvement or projection_ready
+- Do NOT duplicate adapter field mapping work
+
+If market hash inventory path is under market_calibration artifacts that BetGuru owns, regenerate a NEW inventory snapshot under integration/ instead of editing their tree when possible.

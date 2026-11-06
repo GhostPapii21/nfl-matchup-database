@@ -1,0 +1,122 @@
+{
+  "pre_fix_commit": "9ebe892",
+  "pre_fix_artifact_means": {
+    "jax_bal_tnf_2026-11-05_data_only": {
+      "fg_home": 49.442,
+      "fg_away": 62.1935,
+      "reg_home": 49.395,
+      "reg_away": 62.092,
+      "p_ot": 0.024
+    },
+    "jax_bal_tnf_2026-11-05_script_adjusted": {
+      "fg_home": 39.9245,
+      "fg_away": 59.4285,
+      "reg_home": 39.8655,
+      "reg_away": 59.3565,
+      "p_ot": 0.0205
+    }
+  },
+  "post_fix": {
+    "jax_bal_tnf_2026-11-05_data_only": {
+      "n": 500,
+      "seed": 1833920529,
+      "runtime_sec": 8.306868128012866,
+      "fg_home_mean": 22.536,
+      "fg_away_mean": 29.692,
+      "total_mean": 52.228,
+      "fg_home_sd": 10.00223495024987,
+      "fg_away_sd": 10.86154390498883,
+      "p_ot": 0.052,
+      "sparse_rate": 1.0,
+      "status": "OK_WITH_SPARSE_FLAGS",
+      "sample_game": {
+        "H": 3,
+        "A": 51,
+        "n_td": 6,
+        "n_ko": 12,
+        "n_snap": 134,
+        "n_punt": 11,
+        "punt_yl_mean": 65.81818181818181
+      }
+    },
+    "jax_bal_tnf_2026-11-05_script_adjusted": {
+      "n": 500,
+      "seed": 261112694,
+      "runtime_sec": 8.070444223005325,
+      "fg_home_mean": 17.1,
+      "fg_away_mean": 28.71,
+      "total_mean": 45.81,
+      "fg_home_sd": 8.542013814083889,
+      "fg_away_sd": 10.10553808562414,
+      "p_ot": 0.024,
+      "sparse_rate": 1.0,
+      "status": "OK_WITH_SPARSE_FLAGS",
+      "sample_game": {
+        "H": 13,
+        "A": 17,
+        "n_td": 3,
+        "n_ko": 8,
+        "n_snap": 127,
+        "n_punt": 10,
+        "punt_yl_mean": 72.7
+      }
+    }
+  },
+  "diagnostics": {
+    "q3_clock": 900,
+    "pre_fix_diag": {
+      "hist_ppg": {
+        "JAX": {
+          "mean": 28.0,
+          "n": 7
+        },
+        "BAL": {
+          "mean": 22.375,
+          "n": 8
+        }
+      },
+      "q3_clock": 1800,
+      "punt_new_yl_mean": 27.702412868632706,
+      "punt_pct_le_40": 0.6702412868632708,
+      "false_td_40games": 244,
+      "geo_td_40games": 425,
+      "mean_scores_40_H_A": [
+        48.5,
+        62.925
+      ],
+      "game0": {
+        "H": 44,
+        "A": 61,
+        "n_td": 12,
+        "n_ko": 21,
+        "n_snap": 162
+      }
+    },
+    "mechanism": [
+      "BUG-1: historical touchdown flag scored from wrong yardline \u2014 fixed to geo reach only",
+      "BUG-2: punt set recv yl=yl-net (short field) \u2014 fixed to recv_yl=100-(yl-net)",
+      "BUG-3: Q3 clock 1800 \u2014 fixed to 900",
+      "BUG-4: historical first_down flag continued drives \u2014 fixed to yards>=ydstogo only"
+    ],
+    "residual_gaps": [
+      "sparse_rate still ~1.0",
+      "fixed clock-cost means",
+      "OT single-possession approx",
+      "offense-only catalog no opponent interaction",
+      "score means near hist PPG but not calibrated walk-forward",
+      "do not scale to 100k until drive-length/plays-per-game pass"
+    ]
+  },
+  "hist_ppg_w1_8": {
+    "JAX": {
+      "mean": 28.0,
+      "n": 7,
+      "sd": 10.263202878893768
+    },
+    "BAL": {
+      "mean": 22.375,
+      "n": 8,
+      "sd": 11.746580049407694
+    }
+  }
+}

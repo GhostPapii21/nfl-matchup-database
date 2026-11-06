@@ -1,0 +1,30 @@
+{
+  "label": "development_in_sample_diagnostic_not_accuracy",
+  "actual": {
+    "mean_offense_snaps_per_team_game": 59.86666666666667,
+    "median_offense_snaps_per_team_game": 58.0,
+    "n_team_games": 15,
+    "drive_length_plays": {
+      "mean": 7.540372670807454,
+      "median": 7.0,
+      "n_drives": 161
+    },
+    "by_team_mean_snaps": {
+      "JAX": 59.285714285714285,
+      "BAL": 60.375
+    }
+  },
+  "actual_both_offenses_snaps_approx": 119.73333333333333,
+  "sim": {
+    "mean_snaps_per_game": 133.42,
+    "median_snaps_per_game": 133.0,
+    "mean_punts": 9.435,
+    "mean_tds": 6.12,
+    "mean_possession_proxy": 20.75,
+    "n_sims": 200
+  },
+  "comparison": {
+    "sim_snaps_minus_2x_team_snaps": 13.686666666666653,
+    "note": "Sim snap count is joint (both teams); actual mean is per-team offense \u2014 compare to 2\u00d7 actual"
+  }
+}

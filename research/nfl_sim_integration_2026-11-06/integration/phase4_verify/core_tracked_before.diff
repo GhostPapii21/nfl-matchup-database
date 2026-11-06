@@ -1,0 +1,98 @@
+diff --git a/research/possession_engine_v0/README.md b/research/possession_engine_v0/README.md
+index f2c03ad..42381ba 100644
+--- a/research/possession_engine_v0/README.md
++++ b/research/possession_engine_v0/README.md
+@@ -4,6 +4,13 @@ Team-only (JAX/BAL 2026 W1–8) possession / PBP vertical slice. Preserves `peri
+ 
+ **Not a betting engine. No edge claims.**
+ 
++The opt-in [frozen joint CORE producer](JOINT_PRODUCER.md) generates targets and
++carries before yards and exports a checked event ledger. See
++[CORE_MANIFEST.json](CORE_MANIFEST.json) for implemented components and blockers.
++Only tiny synthetic trials have validated that path; real-game source inputs and
++consumer integration remain blocked. Legacy yard-row outputs are explicitly
++ineligible for shared-contract projection.
++
+ ## Configs (frozen, distinct)
+ - `config/jax_bal_tnf_2026-11-05_data_only.json` — empirical baseline, no QB adjustments, no market
+ - `config/jax_bal_tnf_2026-11-05_script_adjusted.json` — forward-only QB/injury filter (Fagnano; Lamar OUT)
+diff --git a/research/possession_engine_v0/config_load.py b/research/possession_engine_v0/config_load.py
+index 04c1831..687d976 100644
+--- a/research/possession_engine_v0/config_load.py
++++ b/research/possession_engine_v0/config_load.py
+@@ -7,6 +7,11 @@ from typing import Any
+ def load_config(path: str | Path) -> dict[str, Any]:
+     p = Path(path)
+     cfg = json.loads(p.read_text())
++    if "joint_producer" in cfg:
++        for key in ("config_id", "mode"):
++            if key not in cfg:
++                raise ValueError(f"config missing {key}")
++        return cfg
+     required = ["config_id", "mode", "game", "history", "min_n_state", "proposed_pooling", "adjustments", "seed_base"]
+     for k in required:
+         if k not in cfg:
+diff --git a/research/possession_engine_v0/simulate.py b/research/possession_engine_v0/simulate.py
+index 2c0385a..6c6425f 100644
+--- a/research/possession_engine_v0/simulate.py
++++ b/research/possession_engine_v0/simulate.py
+@@ -469,6 +469,15 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
+ 
+ 
+ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dict[str, Any]:
++    if "joint_producer" in cfg:
++        # The frozen model path owns its input reads, seed policy and ledger.
++        # Never reuse historical yard-row player assignments as opportunities.
++        from joint_producer import simulate_joint_games
++        joint = cfg["joint_producer"]
++        if joint["spec"]["mode"] != cfg["mode"] or joint["spec"]["config_id"] != cfg["config_id"]:
++            raise ValueError("joint producer config/mode mismatch")
++        return simulate_joint_games(joint["spec"], input_root=joint["input_root"], inputs=joint["inputs"],
++                                    n=n, seed=seed, output_root=joint["output_root"])
+     wk = (cfg.get("game") or {}).get("week_asof_exclusive")
+     if wk is not None and int(cfg["history"]["weeks_inclusive"][-1]) >= int(wk):
+         raise ValueError(f"history weeks {cfg['history']['weeks_inclusive']} not strictly before target week {wk}")
+@@ -547,6 +556,8 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
+     status = "OK_WITH_SPARSE_FLAGS" if sparse_counts else "OK"
+     return {
+         "status": status,
++        "shared_contract_status": "UNIMPLEMENTED_LEGACY_YARD_ROW_BOOTSTRAP",
++        "adapter_projection_allowed": False,
+         "n_completed": n,
+         "n_requested": n,
+         "seed": seed,
+diff --git a/research/possession_engine_v0/validation/accounting.py b/research/possession_engine_v0/validation/accounting.py
+index 15297b7..d3605d8 100644
+--- a/research/possession_engine_v0/validation/accounting.py
++++ b/research/possession_engine_v0/validation/accounting.py
+@@ -65,10 +65,14 @@ def run_accounting_checks(cfg: dict, *, pbp_path: str | Path, n: int = 50, seed:
+     def add(name, ok, detail):
+         checks.append({"name": name, "ok": bool(ok), "detail": detail})
+ 
+-    add("reg_clock_target_declared_3600", True, "engine uses 4x900; OT separate")
++    add("reg_clock_target_declared_3600", False,
++        "UNIMPLEMENTED in legacy diagnostic: a declared 4x900 target is not measured elapsed-clock reconciliation")
+     add("halftime_present_rate", float(np.mean([d["n_halftime"] >= 1 for d in details])) > 0.9,
+         f"halftime_rate={float(np.mean([d['n_halftime']>=1 for d in details])):.3f}")
+-    add("q_sum_reg_scores_recorded", True, "reg_home/reg_away arrays present")
++    add("q_sum_reg_scores_recorded", all(k in out.get("arrays", {}) for k in ("reg_home", "reg_away")),
++        "array presence only; measured reconciliation checked separately")
++    add("shared_contract_opportunity_and_player_accounting", False,
++        "UNIMPLEMENTED legacy yard-row bootstrap; use frozen joint_producer path for checked event ledger")
+     add("mean_snaps_in_band", 80 <= mean_plays <= 160, f"mean_snaps={mean_plays:.1f} (band 80-160 diagnostic)")
+     add("kickoffs_ge_tds", float(np.mean([d["n_kickoff"] >= d["n_td"] for d in details])) > 0.85,
+         "kickoff count should cover TDs+opening")
+@@ -82,7 +86,12 @@ def run_accounting_checks(cfg: dict, *, pbp_path: str | Path, n: int = 50, seed:
+         recon = bool(
+             np.array_equal(A["h1_home"], A["q1_home"]+A["q2_home"])
+             and np.array_equal(A["reg_home"], A["h1_home"]+A["h2_home"])
+-            and np.all(A["fg_home"] >= A["reg_home"])
++            and np.array_equal(A["h1_away"], A["q1_away"]+A["q2_away"])
++            and np.array_equal(A["h2_home"], A["q3_home"]+A["q4_home"])
++            and np.array_equal(A["h2_away"], A["q3_away"]+A["q4_away"])
++            and np.array_equal(A["reg_away"], A["h1_away"]+A["h2_away"])
++            and np.array_equal(A["fg_home"], A["reg_home"]+A["ot_home"])
++            and np.array_equal(A["fg_away"], A["reg_away"]+A["ot_away"])
+         )
+     add("period_quarter_scores_in_sim", has_q and recon, "Q1-Q4/H1/H2/reg/fg arrays + reconciliation")
+     add("ot_only_if_reg_tie", bool(np.all(~out["arrays"]["went_ot"] | (out["arrays"]["reg_home"] == out["arrays"]["reg_away"]))),

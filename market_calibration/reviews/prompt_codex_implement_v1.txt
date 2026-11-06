@@ -1,0 +1,78 @@
+You are implementing BetGuru's MARKET/CALIBRATION adapter for the NFL period/possession simulation stack.
+
+## Authority / constraints
+- Worktree: /workspace/wt-market-calibration on branch betguru-market-calibration-2026-11-06 @ HEAD 3448ad7.
+- ONLY create/edit under research/market_calibration/ (reserved exclusively for BetGuru). Do NOT modify research/possession_engine_v0/, research/period_engine_v0/monte_carlo.py, simulate.py, or other Blitz CORE files.
+- You MAY import/reuse helpers from research/period_engine_v0/market.py and settlement.py WITHOUT editing those files (or copy small pure helpers into market_calibration if import path is awkward — prefer import).
+- No new paid data pulls. No Odds API / historical odds pulls. Use ONLY already-saved quote files on disk.
+- No fabricating prices, defenders, coverage, or calibration coefficients. Missing → explicit NOLINE / MISSING / UNIMPLEMENTED with provenance.
+- Do NOT fit/tune parameters to TNF JAX@BAL (2026-11-05) and then claim validation. TNF may be used only as a fixture for plumbing/settlement identity tests, never as the holdout that "proves" calibration.
+- No heavy 50k/100k Monte Carlo jobs. Unit/regression tests with tiny synthetic trials only.
+- No git push/remote. Local commits OK if useful; prefer writing files + tests + a COMPLETION report.
+- Blitz shared contract will appear at /workspace/research/nfl_sim_integration_2026-11-06/core_contract.md — if present, READ and adapt to it; if absent, draft a provisional joint-trial adapter interface under market_calibration/joint_trial_adapter.py and document expected fields. Do NOT overwrite Blitz's contract file/dir.
+
+## Goal package: research/market_calibration/
+Implement a coherent adapter that:
+
+### 1) Quote matching (saved FD/DK/Pinnacle)
+- Load saved quote CSVs (read-only paths):
+  - /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_jaxbal_game.csv (has pinnacle + fd + dk)
+  - /workspace/nfl-database/live/2026-11-05_JAX_BAL/period_q1_q2_q3_fd_dk_cleared.csv
+  - /workspace/nfl-database/live/2026-11-05_JAX_BAL/period_line_grades.csv
+  - optional other already-on-disk odds under those run folders (no network)
+- Match quotes by: game_id, book, market/stat, period, side/selection, line/point, pulled/cutoff time.
+- Support cutoff filtering: reject quotes with pulled_ts after a provided asof/cutoff.
+- For two-sided no-vig: require genuine matching opposite side at the SAME line/period/book/settlement. If opposite missing, line differs, period differs, or one-sided only → status NOLINE (or LINE_MISMATCH / PERIOD_MISMATCH / ONE_SIDED) — never invent the other side, never drop Tie and renorm a 3-way.
+- Reuse novig_two_way / novig_three_way semantics from period_engine_v0.market.
+- Expose a clear API e.g. match_quote(...)-> MatchedQuote | NoLineResult with status codes and provenance (source_file, pulled_et, last_update).
+
+### 2) Period settlement coherence
+- Settle period markets including pushes and OT/FG distinctions using existing settlement helpers where possible.
+- Grades: win/lose/push for 2-way; side/opp/tie for 3-way winner.
+- Support Q1–Q4, H1, H2, REG, FG windows; document that H1 = Q1+Q2 standalone sum.
+- Include regression tests that false PASS cannot occur when period/line/settlement identity is broken (IDENTITY_BLOCKED / mismatch flags must fail the match, not silently grade).
+
+### 3) Calibration / Bias with train/dev/holdout separation
+- Implement a calibration module skeleton that:
+  - Accepts prediction rows with provenance (model_git_sha, seed, trial_id or aggregate id, asof, split label).
+  - Enforces split labels: train | development | holdout. Refuse to fit on holdout.
+  - Fitting functions may be UNIMPLEMENTED / identity passthrough for now BUT must record status UNIMPLEMENTED_NO_FITTED_CALIB and must NOT claim fitted bias.
+  - Walk-forward note: Weeks 1–8 2026 are development_inspected (see existing walkforward.py comments) — NOT an untouched holdout. Encode that constant explicitly.
+  - Separate artifacts for: (a) frozen pregame baseline scoring, (b) hindsight replay scoring. Never mix into one "accuracy" number without labels.
+- Scoring helpers: Brier, logloss for binary; MAE for period points; push-aware settlement hit rate. Tiny unit tests with handcrafted arrays.
+
+### 4) Joint trial adapter (provisional until Blitz contract lands)
+- joint_trial_adapter.py: accept Blitz joint trial records retaining trial_id + seed.
+- Expected/provisional fields (align if core_contract.md exists): game_id, input_cutoff, input_hash, version, trial_id, seed, period scores, optional player opportunity fields.
+- Market adapter consumes joint outcomes WITHOUT resampling independently (no independent marginal stacks).
+- If player targets/carries absent on trial → mark MARKET_STAT_UNSUPPORTED rather than inventing.
+
+### 5) Manifest + regression tests (prevent false PASS)
+- tests/ under market_calibration with pytest.
+- MANIFEST.json listing modules, statuses (IMPLEMENTED / UNIMPLEMENTED / BLOCKED), quote sources used, and explicit blockers (e.g. PINNACLE missing for Q2–Q4 period spreads in saved r6 file).
+- test_manifest_honesty.py: fails if MANIFEST claims OK for Pinnacle period markets that the loader finds absent; fails if calibration status is claimed FITTED without a coefficients file.
+- test_noline_and_identity.py: mismatch → NOLINE/IDENTITY_BLOCKED, not a silent probability.
+- test_settlement_pushes_ot.py: push + FG vs REG coherence on synthetic scores.
+- test_split_separation.py: attempting fit(holdout=...) raises; TNF single-game cannot be labeled holdout_validation.
+- test_joint_trial_ids.py: trial_id/seed preserved through adapter.
+- Keep tests fast (<30s total). No network. No 100k sims.
+
+### 6) Deliverables
+- Package code + tests + README.md + MANIFEST.json + reviews/COMPLETION_CODEX.md summarizing what was implemented, what remains BLOCKED, how Ghost should vet, and integration instructions for Blitz (how to call the adapter once core_contract is ready).
+- Run: `cd /workspace/wt-market-calibration && python -m pytest research/market_calibration/tests -q` and paste results into COMPLETION_CODEX.md.
+- Also write reviews/codex_exec_evidence.json with: cli invocation summary, git head, files touched, pytest summary, blockers.
+
+## Existing references (read, don't break)
+- research/period_engine_v0/market.py, settlement.py, tests/test_settlement_market.py, walkforward.py
+- /workspace/research/model_rerun_audit_2026-11-06/AUDIT_COMPLETION.json (bias_calib UNIMPLEMENTED; PINNACLE_MISSING for market_informed sampler)
+- Audit note: market_informed config blocker PINNACLE_MISSING_SCREENSHOT_ONLY_NOT_WIRED_TO_SAMPLER — wire the saved-file matcher; do not claim sampler is production-ready.
+
+## Definition of done for THIS Codex pass
+1. Package imports cleanly.
+2. Pytest green for new tests.
+3. Honest MANIFEST (no false PASS).
+4. Clear NOLINE behavior on missing Pinnacle Q2–Q4 if absent in saved files.
+5. No edits outside research/market_calibration/.
+6. COMPLETION_CODEX.md + evidence json written.
+
+Start by inspecting saved quote schemas and existing market/settlement APIs, then implement, then test.

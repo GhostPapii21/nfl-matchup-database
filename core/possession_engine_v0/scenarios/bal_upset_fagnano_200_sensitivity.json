@@ -1,0 +1,25 @@
+{
+  "scenario_id": "bal_upset_fagnano_200_sensitivity",
+  "label": "SCENARIO_ONLY_NOT_VERIFIED_PROBABILITY",
+  "as_of_et": "2026-11-05T14:00:00-05:00",
+  "description": "Research tail: BAL keeps game close (upset path) and/or Fagnano exceeds 200 passing yards.",
+  "auditable_parameters": {
+    "require_bal_pass_filter": "J.Fagnano_only_via_script_adjusted",
+    "fagnano_200_threshold": 200,
+    "upset_definition_options": [
+      "BAL_wins",
+      "BAL_covers_plus_spread_if_market_informed_separate",
+      "BAL_within_8_at_final"
+    ],
+    "sampling_change": "NONE_IN_ENGINE_YET — report historical/sim frequencies under existing configs only; do not invent completion boosts"
+  },
+  "forbidden": [
+    "fabricated_completion_percentage_boost",
+    "unsupported_fitted_replacement_coefficients",
+    "treating_scenario_rate_as_calibrated_probability"
+  ],
+  "evidence_limits": {
+    "fagnano_pass_attempts_w1_8": 24,
+    "status": "SPARSE"
+  }
+}

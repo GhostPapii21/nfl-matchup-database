@@ -1,0 +1,13 @@
+Independent adversarial review of NFL source_run_gate preflight alignment package. You did NOT author it.
+
+Read:
+- /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/REQUIREMENT.md
+- /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/source_ledger.schema.json
+- /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/readiness.py
+- /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests/test_readiness.py
+- /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/reviews/COMPLETION_PREFLIGHT_ALIGN.md
+- /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/MANIFEST.json
+- Skill criteria: status enum MUST be SUCCESS|SAVED_ONLY|MISSING|LOGIN_REQUIRED|STALE|ERROR|NOT_APPLICABLE(reason); vet-ready only with real source records + brainstorm + checklist 15 phases + report; infra success ≠ usable data; engineering unit tests ≠ projection readiness; weather/WR/edge auto-cuts must NOT be silently reenabled.
+
+Output Markdown: VERDICT (ACCEPT|ACCEPT_WITH_GAPS|REJECT), GAPS, FALSE-PASS RISKS, REQUIRED FIXES BEFORE GHOST VET, NOTES.
+Do not invent retrieved sources. Do not claim predictive metrics.

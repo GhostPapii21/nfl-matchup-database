@@ -1,0 +1,305 @@
+{
+  "acceptance_scope": "No direct adapter or final integration acceptance claimed; those are outside this verification.",
+  "artifacts": {
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/after_snapshot.json": {
+      "bytes": 145973,
+      "sha256": "f782daa3df2caca5223fc13ae1c0ee209ee92265a415849f6f70845b6383f9cb"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/before_snapshot.json": {
+      "bytes": 145516,
+      "sha256": "703d8b685f79332ca52e0680e1d6c2307a7b9b76603574eb93deee431fd4aac4"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/contract_companion_link_only.diff": {
+      "bytes": 467,
+      "sha256": "501e982469dcd3510f016754af58d5cdc04324beafac8bd30cdaeee1a18cdd09"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/core_tracked_after.diff": {
+      "bytes": 6157,
+      "sha256": "5158a429beb1a73bcf70ab842e6c41d3293cbaab3efe984ecc510eab8b31edee"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/core_tracked_before.diff": {
+      "bytes": 6157,
+      "sha256": "5158a429beb1a73bcf70ab842e6c41d3293cbaab3efe984ecc510eab8b31edee"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/core_untracked_inventory.json": {
+      "bytes": 1207,
+      "sha256": "52dfc8e52b54f38fac7dd42f2731e3af63f3b8c27aa336c4feddf325de4d2630"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/git_status_after.txt": {
+      "bytes": 512,
+      "sha256": "719821f83ce526e87a4dbf87e98b2d04018e82b70b0a619eb713948a338c97ae"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/git_status_before.txt": {
+      "bytes": 512,
+      "sha256": "719821f83ce526e87a4dbf87e98b2d04018e82b70b0a619eb713948a338c97ae"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/historical_core_comparison.json": {
+      "bytes": 384,
+      "sha256": "8bf9f08583d57b6546f8de3ca7d6b3861f2678a72ee059430d8ce27146c0dee4"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/joint_producer.log": {
+      "bytes": 179,
+      "sha256": "a3bb144b5a39d2e772f5e7caa63ea1f1fb417f1665b61bb180adce9329e3dd0c"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/joint_producer.xml": {
+      "bytes": 12723,
+      "sha256": "478499a1e750dcfce210d0a67f6b49f01763867f0c88a72c7862f5c03140ffd2"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/joint_producer_run.json": {
+      "bytes": 954,
+      "sha256": "c91dd9be0f3550dff1e55419bbae64e0d9316cb0cad204bc59518af060babfb8"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/source_run_gate.log": {
+      "bytes": 99,
+      "sha256": "2f11f41c757c6ef01754c018775300b2202f550b916fb4ac5a39dd36c91e82fd"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/source_run_gate.xml": {
+      "bytes": 11520,
+      "sha256": "82984a82df4cf0402278795433e8790d3289e6062075388f68370aafbd01646b"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/source_run_gate_run.json": {
+      "bytes": 972,
+      "sha256": "c75fea3dc3b8eee89a9f17fed1434cc1ad950cf968a550e8ef2bd8723d1f66da"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/test_joint_producer_phase4.diff": {
+      "bytes": 3613,
+      "sha256": "4a63bb9d86ae3a8c90eccb3a534cf263e4b7004136ed082ea2884c67fee2cb02"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/verify_phase4.py": {
+      "bytes": 14673,
+      "sha256": "25ed80a56cc2c9c6852588b1ef3c24f29e6c13ede794353bcdca5faf83c4bf95"
+    }
+  },
+  "checks": {
+    "core_unchanged_this_verification": true,
+    "current_contract_hash": true,
+    "git_diff_unchanged_this_verification": true,
+    "git_status_unchanged_this_verification": true,
+    "historical_contract_link_only_restore": true,
+    "immutable_example_hash": true,
+    "market_unchanged_this_verification": false,
+    "protected_unchanged_this_verification": true,
+    "pytest_all_passed": true,
+    "test_phase4_addition_only_matches_historical_hash": true
+  },
+  "constraints": {
+    "market_edits": false,
+    "market_edits_by_this_verifier": false,
+    "network_requests": 0,
+    "paid_pulls": 0,
+    "predictive_improvement_claim": false,
+    "projection_ready_claim": false,
+    "projection_runs": 0,
+    "spend": 0
+  },
+  "contract": {
+    "current_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+    "diff": "contract_companion_link_only.diff",
+    "expected_current_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+    "expected_historical_sha256": "d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9",
+    "historical_restored_in_memory_sha256": "d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9",
+    "path": "/workspace/research/nfl_sim_integration_2026-11-06/core_contract.md",
+    "removed_line_occurrences": 1,
+    "removed_line_utf8": "Producer export wire: [`1.0.0-producer`](core_contract_wire_v1.md), frozen example and field-name lock.  \n",
+    "restore_method": "Remove only companion-link line in memory; no contract file write"
+  },
+  "document_type": "CORE_PHASE4_VERIFY_EVIDENCE",
+  "finished_at_utc": "2026-11-06T12:11:12.970635+00:00",
+  "git": {
+    "head": {
+      "command": [
+        "git",
+        "-C",
+        "/workspace/wt-nfl-sim-core-2026-11-06",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6\n"
+    },
+    "limitation": "Joint producer and its tests are untracked; git diff alone cannot isolate phase4. Historical snapshot hash confirms exact insertion-only reconstruction.",
+    "status_after": {
+      "command": [
+        "git",
+        "-C",
+        "/workspace/wt-nfl-sim-core-2026-11-06",
+        "status",
+        "--short",
+        "--untracked-files=all"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": " M research/possession_engine_v0/README.md\n M research/possession_engine_v0/config_load.py\n M research/possession_engine_v0/simulate.py\n M research/possession_engine_v0/validation/accounting.py\n?? research/possession_engine_v0/CORE_MANIFEST.json\n?? research/possession_engine_v0/JOINT_PRODUCER.md\n?? research/possession_engine_v0/joint_accounting.py\n?? research/possession_engine_v0/joint_inputs.py\n?? research/possession_engine_v0/joint_producer.py\n?? research/possession_engine_v0/tests/test_joint_producer.py\n"
+    },
+    "status_before": {
+      "command": [
+        "git",
+        "-C",
+        "/workspace/wt-nfl-sim-core-2026-11-06",
+        "status",
+        "--short",
+        "--untracked-files=all"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": " M research/possession_engine_v0/README.md\n M research/possession_engine_v0/config_load.py\n M research/possession_engine_v0/simulate.py\n M research/possession_engine_v0/validation/accounting.py\n?? research/possession_engine_v0/CORE_MANIFEST.json\n?? research/possession_engine_v0/JOINT_PRODUCER.md\n?? research/possession_engine_v0/joint_accounting.py\n?? research/possession_engine_v0/joint_inputs.py\n?? research/possession_engine_v0/joint_producer.py\n?? research/possession_engine_v0/tests/test_joint_producer.py\n"
+    },
+    "tracked_diff_after": "core_tracked_after.diff",
+    "tracked_diff_before": "core_tracked_before.diff",
+    "untracked_inventory": "core_untracked_inventory.json"
+  },
+  "historical_core_comparison": {
+    "baseline": "/workspace/research/nfl_sim_integration_2026-11-06/integration/verification_post_snapshot.json",
+    "changes": [
+      {
+        "current": {
+          "bytes": 35353,
+          "sha256": "0496d8b619e29376c021973caec5b6ec1a0b50f70399539ab1c865c35c60f275"
+        },
+        "historical": {
+          "bytes": 32204,
+          "sha256": "3effe50027ff2a98de4d6c8386b253e4f94d96fea0c9f10c491ceb802c45c6ab"
+        },
+        "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_joint_producer.py"
+      }
+    ]
+  },
+  "immutable_example": {
+    "actual_sha256": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd",
+    "expected_sha256": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd",
+    "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/producer_joint_trial_example_v1.jsonl"
+  },
+  "market_observation": {
+    "assessment": "Two existing market review logs changed during the interval. This verifier wrote only inside integration/phase4_verify and made no market edits. Other writers were not audited; attribution is not established.",
+    "changed_files": [
+      {
+        "after": {
+          "bytes": 98,
+          "sha256": "c2c6b596f6326dec34c3110029f10ae752a6b80ef7dd9f3d368c2793a9363a31"
+        },
+        "before": null,
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_binding_local.txt"
+      },
+      {
+        "after": {
+          "bytes": 98,
+          "sha256": "8989a153a4f265bdf8bf8abfcbf7ce96cf91c69ee66d543244ebf0fc2c9d041d"
+        },
+        "before": null,
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_direct_post_rebind.txt"
+      }
+    ],
+    "inventory_scope_note": "The initial market snapshot also inventories the parent research directory of the external market worktree. Actual changed paths are both inside market_calibration/reviews; the core worktree market_calibration root is also included.",
+    "market_edits_by_this_verifier": false,
+    "tree_unchanged_during_interval": false
+  },
+  "model_predictive_metrics": {
+    "metrics": {
+      "accuracy": "NOT_MEASURED",
+      "bias": "NOT_MEASURED",
+      "calibration": "NOT_MEASURED",
+      "predictive_improvement": "NOT_MEASURED"
+    },
+    "reason": "No frozen forecast vs actual evaluation in this engineering pass; insufficient paired data for predictive metrics. Synthetic engineering test counts are not predictive evidence.",
+    "status": "NOT_MEASURED"
+  },
+  "pytest": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "research/possession_engine_v0/tests/test_joint_producer.py",
+        "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/tmp_joint_producer",
+        "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/joint_producer.xml"
+      ],
+      "counts": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 77
+      },
+      "cwd": "/workspace/wt-nfl-sim-core-2026-11-06",
+      "elapsed_seconds": 1.9079525779816322,
+      "finished_at_utc": "2026-11-06T12:11:11.043694+00:00",
+      "junit": "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/joint_producer.xml",
+      "log": "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/joint_producer.log",
+      "passed": 77,
+      "returncode": 0,
+      "started_at_utc": "2026-11-06T12:11:09.135628+00:00"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests",
+        "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/tmp_source_run_gate",
+        "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/source_run_gate.xml"
+      ],
+      "counts": {
+        "errors": 0,
+        "failures": 0,
+        "skipped": 0,
+        "tests": 66
+      },
+      "cwd": "/workspace/wt-nfl-sim-core-2026-11-06",
+      "elapsed_seconds": 1.8585143069503829,
+      "finished_at_utc": "2026-11-06T12:11:12.902995+00:00",
+      "junit": "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/source_run_gate.xml",
+      "log": "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/source_run_gate.log",
+      "passed": 66,
+      "returncode": 0,
+      "started_at_utc": "2026-11-06T12:11:11.044383+00:00"
+    }
+  ],
+  "report_finalized_at_utc": "2026-11-06T12:11:51.847961+00:00",
+  "scope": "CORE phase4 wire-lock engineering verification only",
+  "snapshots": {
+    "after": "after_snapshot.json",
+    "before": "before_snapshot.json",
+    "changes": {
+      "core_files": [],
+      "market_files": [
+        "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_binding_local.txt",
+        "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_direct_post_rebind.txt"
+      ],
+      "protected_files": []
+    },
+    "hash_algorithm": "sha256"
+  },
+  "started_at_utc": "2026-11-06T12:11:08.967973+00:00",
+  "test_diff": {
+    "added_lines": 58,
+    "added_tests": [
+      "test_frozen_producer_wire_v1_exact_bytes",
+      "test_export_preserves_documented_producer_wire_v1_shapes"
+    ],
+    "diff": "test_joint_producer_phase4.diff",
+    "field_renames": false,
+    "historical_sha256": "3effe50027ff2a98de4d6c8386b253e4f94d96fea0c9f10c491ceb802c45c6ab",
+    "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_joint_producer.py",
+    "phase4_sha256": "0496d8b619e29376c021973caec5b6ec1a0b50f70399539ab1c865c35c60f275",
+    "pins": [
+      "exact immutable fixture bytes and single JSONL row",
+      "schema/version and top-level keys",
+      "status object and nested fields/types",
+      "freeze.input_manifest_digest",
+      "engine.component_version and dependencies (python/numpy)",
+      "team_periods[].stats.points",
+      "exact canonical JSONL export bytes"
+    ],
+    "production_code_changed_for_phase4": false,
+    "reconstructed_historical_sha256": "3effe50027ff2a98de4d6c8386b253e4f94d96fea0c9f10c491ceb802c45c6ab",
+    "removed_lines": 0
+  },
+  "verification_disposition": "All CORE wire-lock, contract, fixture, test, and CORE/protected-integrity checks pass. The market tree-wide unchanged check is false due to two observed review-log changes; no claim of whole-market stability is made.",
+  "verification_status": "PASS_CORE_WITH_OBSERVED_MARKET_REVIEW_LOG_CHANGES"
+}

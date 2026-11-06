@@ -1,0 +1,17 @@
+..F..................................................................    [100%]
+=================================== FAILURES ===================================
+_____________________ test_market_protected_hash_inventory _____________________
+
+    def test_market_protected_hash_inventory():
+        inventory = json.loads((OUT / "market_calibration_file_hashes.json").read_text())
+        assert inventory["files"]
+        for entry in inventory["files"]:
+>           assert digest(entry["path"]) == entry["sha256"], f"BLOCKER MARKET_HASH_CHANGED {entry['path']}"
+E           AssertionError: BLOCKER MARKET_HASH_CHANGED /workspace/wt-market-calibration/research/market_calibration/__init__.py
+E           assert '600b6c5d5858...0570867b84e27' == '1c2208872af4...00217b4cbab5d'
+E             
+E             - 1c2208872af40848278e53e972bedb928c85ef6e448d446277200217b4cbab5d
+E             + 600b6c5d5858767ba1472b4d81e33544557da66a1ea596ad7380570867b84e27
+
+integration/integration_adversarial_tests.py:112: AssertionError
+1 failed, 68 passed in 1.72s

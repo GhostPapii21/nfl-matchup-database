@@ -1,0 +1,20 @@
+{
+  "status": "PASS_SHARED_SUBSET",
+  "extract_rows": 2665,
+  "empirical_source_rows": 2820,
+  "columns_verified": [
+    "game_id",
+    "play_id",
+    "posteam",
+    "down",
+    "play_type",
+    "yards_gained",
+    "complete_pass",
+    "interception"
+  ],
+  "extra_parquet_play_types": {
+    "no_play": 121,
+    "NULL": 34
+  },
+  "method": "All CSV extract rows equal matching empirical parquet rows; pre-cutoff season2026 weeks1-8 filters only. Extract is not whole empirical population."
+}

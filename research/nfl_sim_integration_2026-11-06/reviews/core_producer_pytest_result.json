@@ -1,0 +1,19 @@
+{
+  "cmd": [
+    "/usr/bin/python3",
+    "-m",
+    "pytest",
+    "research/possession_engine_v0/tests/test_joint_producer.py",
+    "research/possession_engine_v0/tests/test_adversarial_review.py",
+    "research/possession_engine_v0/tests/test_final_review.py",
+    "research/possession_engine_v0/tests/test_missing_feature_adapters.py",
+    "-q",
+    "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_pytest.xml"
+  ],
+  "started_at_utc": "2026-11-06T11:35:34.041953+00:00",
+  "exit_code": 0,
+  "stdout_log": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_pytest.log",
+  "selection": "Tiny synthetic CORE regressions only; no historical PBP or TNF simulation tests executed",
+  "git_head": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+  "impact": "NOT MEASURED"
+}

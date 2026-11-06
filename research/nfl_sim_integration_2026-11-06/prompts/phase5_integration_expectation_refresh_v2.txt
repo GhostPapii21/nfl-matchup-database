@@ -1,0 +1,27 @@
+You are Codex refreshing Ghost integration adversarial expectations after BetGuru authorized rebind. DO NOT edit market_calibration production adapter logic.
+
+Read first:
+- /workspace/wt-market-calibration/research/market_calibration/reviews/BINDING_REBIND_COMPLETION.md
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/PARENT_VERIFY_POST_REBIND.json
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/integration_adversarial_tests.py
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/parent_verify_adversarial_post_rebind.log
+
+Facts:
+- Authorized live contract SHA: 6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367
+- Immutable example unchanged: 50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd
+- BetGuru: market 179p, DIRECT B01 1p, binding 6p; no remap/override
+- Parent verify DIRECT 1p; full adversarial 51p/9f from STALE expectations outside market scope
+
+TASK — audited cleanup of integration/ only:
+1) Update live CONTRACT_HASH / binding assertions to authorized 6471e69b…
+2) Regenerate or relocate market protected hash inventory under integration/ to post-rebind hashes (do not rewrite adapter code).
+3) Update producer files_touched hash for test_joint_producer.py to 0496d8b6… (phase4 wire pins).
+4) Rewrite diagnostic_wire_blockers tests for CURRENT producer-wire acceptance: assert NEW rejection boundaries (alias conflicts, incomplete status, OT inconsistency, conflicting nested/flat points). Do NOT keep expecting obsolete first-blocker "missing trial fields" stages as the live path.
+5) CRITICAL: Preserve intentional HISTORICAL regression tests SEPARATELY (e.g. tests/historical/ or clearly marked test_historical_* module) that still document the pre-rebind SHA guard / old missing-field stages as historical record — these must not gate live acceptance; mark them so they can run as a separate historical suite or xfail/skip with explicit reason HISTORICAL_PRE_REBIND_RECORD.
+6) Fix diagnostic_score_sensitivity for nested stats.points agreement rules.
+7) Re-run DIRECT + full adversarial; capture logs under integration/wire/.
+8) Update GHOST_ACCEPTANCE_PACKET.md: DIRECT green; suite counts after refresh; source readiness still open; Ghost FINAL NOT claimed; NOLINE; Bias UNIMPLEMENTED; impact NOT_MEASURED.
+9) Write INTEGRATION_EXPECTATION_REFRESH_EVIDENCE.json with before/after hashes and pytest outputs.
+
+No projection_ready. No predictive claims. No market_calibration adapter edits. No spend.

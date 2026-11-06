@@ -1,0 +1,57 @@
+You are Codex on CORE possession_engine_v0 under existing authorization. No market_calibration edits. No Odds spend/auth bypass. No fabricated Phase15 inactives. No picks. No unapproved betting-rule changes. Keep old artifacts IMMUTABLE (do not rewrite sha256_* trees under runs/dal_ind_roles_unify or runs/dal_ind_usage_fit or certified_asof). Stage new work under research/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/.
+
+## Paths
+- Engine: /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0
+- Packet: /workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08
+- Run: /workspace/nfl-database/runs/2026-11-08_DAL@IND
+- Pre-suite log: packet/logs/pytest_full_suite_pre.txt (36 failed / 126 passed)
+- Before hashes: packet/reviews/NEXT_PASS_BEFORE_HASHES.json
+If packet/run unwritable, stage + DELIVERY.md with exact copy commands.
+
+## A. Full-suite 36 failures — classify then fix (PRIORITY)
+1. Produce FAILURE_CLASSIFICATION.json for each of the 36 with category:
+   - MISSING_DEPENDENCY_OR_FIXTURE (e.g. PBP path research/period_engine_v0/data/play_by_play_2026.parquet)
+   - REAL_REGRESSION (API/behavior broken vs test contract)
+   - LEGACY_CONTRACT_DRIFT (test expects old API; migrate with evidence)
+   - ENV_ONLY
+2. For MISSING_DEPENDENCY: install/link NORMAL runtime fixtures appropriately (symlink or copy from packet raw/play_by_play_2026.parquet or other approved local parquet into the expected period_engine_v0/data path; document hash). Do NOT delete tests. Do NOT skip/xfail merely to green.
+3. For REAL_REGRESSION: fix root causes (e.g. empirical.py NoneType when df None; adjustments None; missing player_samples / adjustments_meta keys on simulate_games return when PBP present). Preserve compatibility OR explicitly migrate with before/after regression evidence in MIGRATION_EVIDENCE.md.
+4. Re-run full suite; goal: green or only remaining classified ENV_ONLY/documented external blockers. Record pytest_full_after.txt.
+
+## B. IND carry heldout KL 0.45→2.26 is a REGRESSION
+Do NOT promote current empirical IND carry as better role forecast.
+1. Pre-register on TRAIN/dev ONLY (W1–6 or inner split) these simple alternatives BEFORE touching heldout W7–8 again:
+   - equal_eligible (baseline)
+   - legacy_depth
+   - empirical_mle (current)
+   - empirical_recent (last 2–3 games only within train)
+   - shrinkage grid on train/dev: Dirichlet prior strength ∈ {5,10,20,40} and/or pooled team+position prior
+   - optional: mix empirical with equal (λ∈{0.25,0.5}) chosen on train/dev only
+2. Mark W7–8 as INSPECTED_HOLDOUT (already peeked) — not pristine. Select candidate by train/dev robust criteria (e.g. min max(KL,MAE) or hierarchical risk), THEN report inspected-holdout honestly including hurts/mixed.
+3. Add ≥1 additional LEAK-SAFE validation window (e.g. train W1–5 hold W6; or leave-one-game-out on train games) that was NOT used for selection. Report metrics for IND carry and all roles.
+4. Same-set KL≈0 is TAUTOLOGICAL — never call it improvement.
+5. Update model role_states only if selected policy beats baselines on leak-safe window without catastrophic inspected-holdout; else keep safer robust policy and flag EMPIRICAL_IND_CARRY_REGRESSION / ROLES_POLICY_ROBUST. Write ROLE_POLICY_SELECTION.md + metrics JSON.
+
+## C. Score sensitivity DAL 27.2→18.8
+Investigate why mean DAL score moved ~8.4 with role-weight change.
+1. Apples-to-apples: identical seed 20261108, identical usage/outcome cells, only rotation_weights differ (equal_depth vs empirical vs selected robust).
+2. Ensure role allocation cannot alter TEAM play/terminal/yard draws unless an explicit justified efficiency coupling exists. If current code couples them unintentionally (e.g. shared RNG stream consumption order changing terminals when role sampling draws differ), FIX so team-level terminal/yard path is invariant to role weights when efficiency coupling disabled; player attribution may change.
+3. Add invariant/sensitivity tests: same seed+usage → identical team period scores & team play counts across role-weight variants when coupling=false; player targets/carries may differ.
+4. Document findings in SCORE_SENSITIVITY.md (RNG coupling vs true efficiency).
+
+## D. Penalties / returns / official OT — engineering acceptance (not pretend fitted)
+1. Encode official-rules / PBP-supported semantics as explicit model effects with status UNSUPPORTED or RULE_STUB — not fitted coefficients.
+2. When unsupported events occur in joint path: reject or route to explicit UNASSIGNED/UNSUPPORTED ledger with allows_sim_effect=false — never silent invent.
+3. Official OT: keep single_possession_approx labeled OR implement documented rule stub with limitations list; consumers must see NOT_VERIFIED_OFFICIAL_OT until real.
+4. If evidence supports game-state role dependence beyond half (e.g. score diff buckets) with adequate n, add with sparsity flags; else document deferred.
+5. Tests for unsupported penalty/return handling and OT profile declaration.
+
+## E. Fresh validation + adversarial review artifact
+1. Fresh full pytest suite after fixes.
+2. Real data_only shared_accounting path conservation n≥5 for DAL@IND with current packet inputs; seeded repeat.
+3. Write COMPLETION_SUITE_FIX.md + NFL16_METRICS.json (before/after fail counts, hashes, compatibility, next blockers).
+4. Write reviews/CODEX_SELFCHECK_SUITE_FIX.md.
+5. DEFERRED_100K until semantics justified.
+6. Phase15 NOT_YET; quotes NOLINE; coverage effects false — not stop reasons.
+
+Independent vs market-anchored preserved. External packet delivery via DELIVERY.md if needed.

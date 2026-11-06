@@ -1,0 +1,92 @@
+{
+  "approved_pick": false,
+  "evaluation_label": "development_w1_8_inspected_not_untouched_holdout",
+  "prior_artifacts_preserved": "artifacts/validation/pre_period_grade_12a7768/",
+  "n_sims": 150,
+  "runtime_sec": {
+    "asof_fg_grade": 27.045223052962683,
+    "period_grade": 29.630655886023305,
+    "realism": 2.852270861971192
+  },
+  "fg_grade_coverage": {
+    "graded_full": 13,
+    "denominator": 15
+  },
+  "period_metrics": {
+    "n_games_period_graded": 13,
+    "mae_q1_home": 3.0871794871794873,
+    "mae_q1_away": 3.1415384615384614,
+    "mae_h1_home": 6.061538461538462,
+    "mae_h1_away": 4.704102564102564,
+    "mae_h2_home": 7.537435897435898,
+    "mae_h2_away": 6.628205128205129,
+    "mae_reg_home": 9.345641025641028,
+    "mae_reg_away": 7.953846153846154,
+    "mae_fg_home": 9.343076923076923,
+    "mae_fg_away": 8.297948717948717,
+    "brier_h1_home_win": 0.22982905982905982,
+    "brier_h2_home_win": 0.29420854700854704,
+    "brier_reg_home_win": 0.3245059829059829,
+    "brier_fg_home_win": 0.3261675213675214,
+    "label": "development_w1_8_period_grade_not_untouched_holdout",
+    "note": "Period MAE/Brier reported separately from FG; ties count as home non-win for Brier"
+  },
+  "realism": {
+    "label": "development_in_sample_diagnostic_not_accuracy",
+    "actual_combined_offense_snaps": {
+      "n_games": 15,
+      "mean_combined_offense_snaps": 121.06666666666666,
+      "median_combined_offense_snaps": 120.0,
+      "mean_per_team_offense_snaps": 59.86666666666667,
+      "drive_length_plays": {
+        "mean": 7.540372670807454,
+        "median": 7.0,
+        "n_drives": 161
+      },
+      "definition": "combined = all pass/run/kneel/spike snaps in games involving listed teams (both offenses)"
+    },
+    "actual": {
+      "mean_offense_snaps_per_team_game": 59.86666666666667,
+      "n_team_games": 15,
+      "drive_length_plays": {
+        "mean": 7.540372670807454,
+        "median": 7.0,
+        "n_drives": 161
+      },
+      "note": "per-team offense snaps; prefer actual_combined_offense_snaps for apples-to-apples"
+    },
+    "actual_both_offenses_snaps_approx": 119.73333333333333,
+    "sim": {
+      "mean_snaps_per_game": 116.16,
+      "median_snaps_per_game": 116.0,
+      "mean_punts": 7.935,
+      "mean_tds": 4.72,
+      "sparse_game_rate": 0.0,
+      "n_sims": 200,
+      "empirical_clock": true,
+      "defense_conditioning": true
+    },
+    "comparison": {
+      "baseline": "combined_offense_snaps_per_involvement_game",
+      "sim_minus_actual_combined": -4.906666666666666,
+      "sim_snaps_minus_2x_team_snaps": -3.5733333333333377,
+      "note": "Primary: sim joint snaps vs actual both-offense snaps in involvement games; 2x retained as approx diagnostic only"
+    }
+  },
+  "weather": {
+    "status": "PENDING_NWS",
+    "source": null,
+    "as_of_et": null,
+    "wind_mph": null,
+    "precip": null,
+    "temp_f": null,
+    "auto_apply_to_props": false,
+    "notes": "Do not auto-downgrade props from DK article; wait for NWS cross-check"
+  },
+  "residual_matrix": {
+    "true_pressure_qbp": "MISSING_paid_FTN",
+    "man_zone_mofo_routes": "MISSING_free_FTN_29col",
+    "cb_s_dt_replacement_coeffs": "MISSING_UNVERIFIED_notes_only",
+    "weather_auto_prop_downgrade": "DISABLED_pending_NWS"
+  }
+}

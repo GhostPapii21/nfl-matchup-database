@@ -1,0 +1,60 @@
+...........F.......F.F.................................................. [ 97%]
+..                                                                       [100%]
+=================================== FAILURES ===================================
+_______ test_adapter_retains_joint_trial_and_seed_without_player_targets _______
+
+    def test_adapter_retains_joint_trial_and_seed_without_player_targets():
+        source = trial()
+>       rows = adapt_joint_trials([source])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/market_calibration/tests/test_contract_manifest.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'contract_version': '1.0.0', 'forecast_id': 'sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'trial_id': 'sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/trial/0', 'trial_index': 0, ...}]
+
+    def adapt_joint_trials(rows):
+        if contract_info()["status"] != "PROVISIONAL_NO_CORE_CONTRACT":
+>           raise ValueError("core contract appeared: align provisional interface before use")
+E           ValueError: core contract appeared: align provisional interface before use
+
+research/market_calibration/joint_trial_adapter.py:32: ValueError
+_________________ test_seed_derivation_and_forecast_population _________________
+
+    def test_seed_derivation_and_forecast_population():
+        row = trial()
+        row["rng"]["trial_seed"] = "0"
+        with pytest.raises(ValueError):
+            adapt_joint_trials([row])
+        with pytest.raises(ValueError):
+>           adapt_joint_trials([trial()], expected_trial_ids=["absent"])
+E           TypeError: adapt_joint_trials() got an unexpected keyword argument 'expected_trial_ids'
+
+research/market_calibration/tests/test_contract_manifest.py:82: TypeError
+________________________ test_actual_manifest_is_honest ________________________
+
+    def test_actual_manifest_is_honest():
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+>       validate_manifest(manifest, ROOT)
+
+research/market_calibration/tests/test_contract_manifest.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+manifest = {'schema_version': 1, 'package': 'research.market_calibration', 'branch': 'betguru-market-calibration-2026-11-06', 'base_commit': '3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6', ...}
+root = PosixPath('/workspace/wt-market-calibration/research/market_calibration')
+
+    def validate_manifest(manifest, root):
+        expected = {"calibration": UNFITTED, "anchored": "PENDING_VALIDATION",
+                    "validation": "NO_UNTOUCHED_HOLDOUT_VALIDATION",
+                    "adapter": contract_info()["status"]}
+        for section, status in expected.items():
+            if manifest.get(section, {}).get("status") != status:
+>               raise ValueError(f"unsupported {section} result claim")
+E               ValueError: unsupported adapter result claim
+
+research/market_calibration/manifest.py:14: ValueError
+=========================== short test summary info ============================
+FAILED research/market_calibration/tests/test_contract_manifest.py::test_adapter_retains_joint_trial_and_seed_without_player_targets
+FAILED research/market_calibration/tests/test_contract_manifest.py::test_seed_derivation_and_forecast_population
+FAILED research/market_calibration/tests/test_contract_manifest.py::test_actual_manifest_is_honest
+3 failed, 71 passed in 0.10s

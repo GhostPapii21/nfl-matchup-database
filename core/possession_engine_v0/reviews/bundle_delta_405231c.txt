@@ -1,0 +1,100 @@
+REVIEWED_COMMIT=405231c96c67ff2237e259846248041261d907bb. 75 tests pass.
+Review ONLY this diff for correctness of field-position spot fixes; report any CRITICAL/P1/P2 with reproducible pytest. No predictive claims.
+diff --git a/research/possession_engine_v0/simulate.py b/research/possession_engine_v0/simulate.py
+index 24d6154..9d2035c 100644
+--- a/research/possession_engine_v0/simulate.py
++++ b/research/possession_engine_v0/simulate.py
+@@ -306,8 +306,11 @@ def _punt_fixed(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -
+         net = int(max(1, yl - 20))  # implied net to own-20 spot
+     else:
+         # Ball advances net yards toward offense's EZ; receiving team's yardline_100 flips.
+-        ball_yl_from_kick_opp = int(np.clip(yl - net, 1, 99))
+-        recv_yl = int(np.clip(100 - ball_yl_from_kick_opp, 10, 90))
++        ball_yl_from_kick_opp = yl - net
++        if ball_yl_from_kick_opp <= 0:
++            ball_yl_from_kick_opp, recv_yl = 20, 80  # into end zone -> touchback
++        else:
++            recv_yl = int(np.clip(100 - ball_yl_from_kick_opp, 1, 99))
+     st.yardline_100 = recv_yl
+     st.down, st.ydstogo = 1, 10
+     st.events.append({
+@@ -328,10 +331,11 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
+     play_type = str(row["play_type"])
+     yards = float(row["yards_gained"]) if pd.notna(row["yards_gained"]) else 0.0
+     st.game_seconds_remaining -= _clock_cost(play_type, rng, getattr(catalog, "clock_map", None))
+-    # Always count the offensive play as a snap for pace/accounting (before early exits).
+-    st.events.append({"type": "snap", "play_type": play_type, "yards": yards, "down": st.down})
+-
++    hist_yards = yards
+     yards = float(min(yards, st.yardline_100)) if yards > 0 else float(max(yards, -(100 - st.yardline_100)))
++    # Always count the offensive play as a snap for pace/accounting (before early exits); realized yards.
++    st.events.append({"type": "snap", "play_type": play_type, "yards": yards, "hist_yards": hist_yards, "down": st.down})
++
+     def _i(c):
+         v = row.get(c)
+         return 0 if v is None or pd.isna(v) else int(v)
+@@ -345,7 +349,9 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
+     if _i("interception") == 1 or _i("fumble_lost") == 1:
+         st.events.append({"type": "turnover", "play_type": play_type, "team": st.possession})
+         st.possession = _other(st, st.possession)
+-        st.yardline_100 = int(np.clip(100 - max(st.yardline_100 - yards, 1), 10, 90))
++        spot = st.yardline_100 - yards
++        # Turnover in opp end zone -> touchback (return yardage not modeled; declared limitation)
++        st.yardline_100 = 80 if spot <= 0 else int(np.clip(100 - spot, 1, 99))
+         st.down, st.ydstogo = 1, 10
+         return
+ 
+@@ -381,7 +387,7 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
+         if st.down > 4:
+             st.events.append({"type": "turnover_on_downs", "team": st.possession})
+             st.possession = _other(st, st.possession)
+-            st.yardline_100 = int(np.clip(100 - st.yardline_100, 10, 90))
++            st.yardline_100 = int(np.clip(100 - st.yardline_100, 1, 99))
+             st.down, st.ydstogo = 1, 10
+             return
+ 
+diff --git a/research/possession_engine_v0/tests/test_final_review.py b/research/possession_engine_v0/tests/test_final_review.py
+new file mode 100644
+index 0000000..f8f450b
+--- /dev/null
++++ b/research/possession_engine_v0/tests/test_final_review.py
+@@ -0,0 +1,39 @@
++"""Regressions from Codex final review of 8a4ce01 (2026-11-05 18:45 EST)."""
++import sys
++from pathlib import Path
++ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / "tests"))
++import numpy as np
++import pandas as pd
++import simulate as sim
++from test_complete_pass2 import _row, _st
++from test_codex_p1_regressions import _mini_catalog_with_punts
++
++
++def test_turnover_on_downs_preserves_spot():
++    df = pd.DataFrame([_row(down=4, yards_gained=0) for _ in range(5)])
++    st = _st(down=4, ydstogo=1, yardline_100=1)
++    sim._apply_snap(np.random.default_rng(0), sim.PlayCatalog(df, 3), st, False)
++    assert (st.possession, st.yardline_100) == ("BBB", 99)
++
++
++def test_punt_preserves_inside_five_spot():
++    cat, _ = _mini_catalog_with_punts(kick_distance=45, return_yards=0)
++    st = _st(down=4, yardline_100=50)
++    sim._punt_fixed(np.random.default_rng(0), cat, st)
++    assert st.yardline_100 == 95
++
++
++def test_snap_event_uses_realized_yards():
++    df = pd.DataFrame([_row(yards_gained=60) for _ in range(5)])
++    st = _st(yardline_100=10)
++    sim._apply_snap(np.random.default_rng(0), sim.PlayCatalog(df, 3), st, False)
++    snap = next(e for e in st.events if e["type"] == "snap")
++    assert snap["yards"] == 10 and snap["hist_yards"] == 60
++
++
++def test_interception_spot_not_clipped_to_10():
++    df = pd.DataFrame([_row(play_type="pass", interception=1, yards_gained=0) for _ in range(5)])
++    st = _st(yardline_100=95)  # INT at own 5 -> opponent at its... yl 5
++    sim._apply_snap(np.random.default_rng(0), sim.PlayCatalog(df, 3), st, False)
++    assert st.possession == "BBB" and st.yardline_100 == 5

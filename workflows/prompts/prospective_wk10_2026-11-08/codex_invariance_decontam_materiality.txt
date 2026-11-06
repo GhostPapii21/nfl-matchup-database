@@ -1,0 +1,59 @@
+You are Codex on CORE possession_engine_v0 under existing authorization. External-first. No market_calibration edits. No Odds spend/auth bypass. No fabricated Phase15. No picks. No 100k sims. Keep ALL prior sha256 forecast trees / certified_asof / dal_ind_roles_unify / dal_ind_usage_fit / dal_ind_suite_fix_2026-11-06 frozen bytes IMMUTABLE. Stage NEW work under:
+  research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/
+
+Paths:
+- Engine: /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0
+- Packet: /workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08
+- Run: /workspace/nfl-database/runs/2026-11-08_DAL@IND
+- Contaminated validate.py: runs/dal_ind_suite_fix_2026-11-06/validate.py (DO NOT rewrite that file in place — copy/fix into NEW run dir)
+- Before hashes: packet/reviews/INVARIANCE_PASS_BEFORE_HASHES.json
+If packet/run unwritable: stage + DELIVERY.md.
+
+## A. Broader role-attribution invariance (PRIORITY)
+Certify that independent attribution RNG does not perturb team outcomes under role-only substitution.
+1. Expand tests beyond current n=5 / targeted-pass fixture:
+   - Multiple seeds (≥5 distinct seed bases)
+   - Game states: regulation Q1–Q4, lead/trail if modeled, half transitions
+   - OT path when trial reaches OT under single_possession_approx (force or find OT trials)
+   - Role-only substitution: equal_eligible vs mix_equal_0.25 vs empirical_mle vs legacy_depth with identical usage/outcome cells and coupling=false
+2. Assert identical: team period scores, team play/terminal counts, team yards aggregates, possession sequence lengths where applicable; player attribution MAY differ.
+3. Negative control: if role_efficiency_coupling forced true → must raise UNSUPPORTED (already); document.
+4. Write INVARIANCE_CERTIFICATION.md + metrics JSON (seeds, n_trials, pass/fail modes).
+5. If any failure: fix root RNG consumption order; do not weaken asserts.
+
+## B. Decontaminate validation / freeze provisional policy
+Adversarial finding: gate uses inspected W7–8 IND carry KL.
+1. NEW protocol (do not relabel W7–8 as pristine):
+   - Train/dev selection only on windows that were selection windows (e.g. W1–3 train / W4–5 dev) — already done.
+   - W7–8 = INSPECTED_DEV_REPORTING_ONLY — never acceptance gate; move any threshold that references inspected holdout OUT of promotion.
+   - W6 may remain a registered secondary audit if it was not used for candidate ranking; keep separate from promotion.
+2. Freeze current mix_equal_0.25 artifacts as RESEARCH_PROVISIONAL_NOT_PROMOTED (or demote packet model labeling). Do NOT promote based on contaminated gate or on inspected W7–8 metrics.
+3. Register PRISTINE_EVALUATION_PLAN.json:
+   - Future: next games after as-of with frozen policy bytes hashed before those games (DAL@IND week9 itself is NOT pristine for roles fitted on W1–8 of same season if roles use that data — be honest).
+   - OR verifiable untouched pre-asof history only if you can PROVE those games were never in selection/inspection (document evidence; never relabel inspected weeks).
+4. Update ROLE_POLICY_STATUS.md: provisional research only; EMPIRICAL_IND_CARRY_REGRESSION retained; no production promotion claim.
+5. If packet currently has selected_robust as active model: keep bytes for research continuity but stamp RESEARCH_PROVISIONAL in flags/readiness; do not claim promotion.
+
+## C. Penalties / returns / OT materiality + justified semantics
+1. Using W1–8 PBP (packet parquet), quantify materiality: frequency of penalty plays, return yards on punts/kicks, OT occurrence for DAL/IND and league; impact on scoring/yard accounting if ignored.
+2. Where feasible with official rules + PBP support, implement SUPPORTED narrow semantics (e.g. punt net already uses kick_distance−return_yards for field position — keep explicit). Do NOT invent player return-yard fantasy credits.
+3. Where not feasible: keep UNSUPPORTED with allows_sim_effect=false and MATERIALITY_SCOPE.md stating rates and residual risk.
+4. OT: either document why single_possession_approx remains research-only with materiality, or implement a clearer rule stub still labeled NOT_VERIFIED_OFFICIAL_OT — no pretend fitted official OT.
+5. Tests for any new supported path + still-reject unsupported invention.
+
+## D. External activation proof (narrow engineering, NOT readiness)
+1. Demonstrate a consumer can load frozen input_root + inputs manifest + seed and reproduce forecast_id / team means from staged selected_robust or equal_depth tree WITHOUT editing protected artifacts.
+2. Write ACTIVATION_ENGINEERING_CHECK.md: commands, hashes matched, what is NOT claimed (not projection_ready, not Ghost).
+3. If activation fails: fix packaging/paths only.
+
+## E. PFF
+Do NOT acquire/duplicate PFF. If /workspace/research/pff_* or period quarter collection is READY, note consume path; else record NOT_READY_NO_DUPLICATE.
+
+## F. Deliverables + suite
+- COMPLETION_INVARIANCE_DECONTAM.md, NFL16_METRICS.json, FAILURE_MODES.md
+- reviews/CODEX_SELFCHECK.md
+- Fresh pytest full suite must stay green (or classify new fails honestly)
+- DEFERRED_100K; quotes NOLINE; Phase15 NOT_YET
+- Independent vs anchored preserved
+
+After code: parent will run independent adversarial review.

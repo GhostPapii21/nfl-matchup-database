@@ -1,0 +1,18 @@
+**P2 — Inferred punt touchbacks emit incorrect event data** at [simulate.py:310](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:310).
+
+With `yardline_100=40` and sampled net `45`, the new branch correctly sets the receiving spot to `80`, but emits `touchback=False, net=45`. The realized net is `20`. Set `is_tb=True` and recompute `net` when this branch infers a touchback.
+
+Reproducible pytest using existing test helpers:
+
+```python
+def test_inferred_punt_touchback_event():
+    cat, _ = _mini_catalog_with_punts(kick_distance=45, return_yards=0)
+    st = _st(down=4, yardline_100=40)
+    sim._punt_fixed(np.random.default_rng(0), cat, st)
+
+    assert st.yardline_100 == 80
+    event = st.events[-1]
+    assert (event["touchback"], event["net"]) == (True, 20)
+```
+
+Executed against `405231c`: fails with `(False, 45)`. The four added regressions pass. No other CRITICAL/P1/P2 findings in the supplied diff.

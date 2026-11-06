@@ -1,0 +1,12 @@
+You are Codex verifying CORE phase4 wire work. DO NOT edit market_calibration.
+
+Verify:
+1) git/status diff under /workspace/wt-nfl-sim-core-2026-11-06 for possession_engine_v0 tests and any CORE files touched for wire lock (phase4). Record before/after file hashes.
+2) Confirm immutable example still sha256 50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd.
+3) Confirm core_contract current sha 6471e69b… and historical d6a4689f… restore by removing companion link only.
+4) Re-run: pytest research/possession_engine_v0/tests/test_joint_producer.py and source_run_gate tests; capture logs under /workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/.
+5) Diff summary of test_joint_producer.py changes (wire shape pins only; no field renames).
+6) Model predictive metrics: NOT_MEASURED (state why: no frozen forecast vs actual evaluation in this engineering pass / insufficient paired data).
+7) Write PHASE4_VERIFY_EVIDENCE.json + PHASE4_VERIFY.md.
+
+No market edits. No spend. No projection_ready claims.

@@ -1,0 +1,24 @@
+BetGuru MARKET/CALIBRATION implementation. Rico standing directive: autonomously fix→rerun→independent validate iteratively. Do not stop at issue lists.
+
+WORKTREE ONLY: /workspace/wt-market-calibration branch betguru-market-calibration-2026-11-06 @ 3448ad7.
+WRITE ONLY under research/market_calibration/. Do not edit possession_engine_v0, period_engine_v0 sources (may IMPORT market.py/settlement.py helpers). Do not touch Blitz worktree /workspace/wt-nfl-sim-core-2026-11-06 or overwrite /workspace/research/nfl_sim_integration_2026-11-06/*.
+
+TDD REQUIRED: write failing pytest first under research/market_calibration/tests/, watch fail, then minimal impl, rerun until green. Fix any failing test rather than only reporting it.
+
+REQUIREMENTS:
+1) Quote matcher for saved FD/DK/Pinnacle only (NO network/odds pulls):
+   - /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_jaxbal_game.csv
+   - /workspace/nfl-database/live/2026-11-05_JAX_BAL/period_q1_q2_q3_fd_dk_cleared.csv
+   - /workspace/nfl-database/live/2026-11-05_JAX_BAL/period_line_grades.csv
+   Match game/book/market/period/side/line/time/cutoff. Genuine two-sided no-vig only (reuse period_engine_v0.market novig_*). Missing/mismatched/one-sided → NOLINE or IDENTITY flags — never invent opposite side; never drop Tie renorm.
+2) Period settlement incl pushes + OT/FG vs REG; H1=Q1+Q2. Identity mismatches must not false-PASS.
+3) Calibration/Bias module with train|development|holdout separation + provenance. Fitting may be UNIMPLEMENTED_NO_FITTED_CALIB but MUST refuse fit on holdout. W1–8 2026 = development_inspected NOT untouched holdout. NEVER fit to TNF JAX@BAL then claim validation. Keep RAW model outputs and market-anchored outputs as SEPARATE fields/artifacts (anchored=PENDING_VALIDATION only).
+4) joint_trial_adapter retaining trial_id+seed. If /workspace/research/nfl_sim_integration_2026-11-06/core_contract.md exists, READ and align; else provisional interface — do not invent Blitz player targets.
+5) MANIFEST.json honesty + tests that fail if MANIFEST claims FITTED/OK when absent. Separate baseline vs hindsight scoring labels.
+6) Fast unit tests only (<30s). No 50k/100k sims. No fabricated prices/defenders/calibration coeffs.
+
+DELIVER: package modules, tests, README.md, MANIFEST.json, reviews/COMPLETION_CODEX.md, reviews/codex_exec_evidence.json.
+RUN: python -m pytest research/market_calibration/tests -q  and record output in COMPLETION.
+After green tests, run a second self-review pass for leakage, false PASS, and raw-vs-anchored separation; fix if needed and re-pytest.
+
+Prior interrupted session only inspected quotes (Pinnacle present for Q1/H1 h2h+spreads + team_totals; Q2–Q4 Pin period spreads ABSENT in r6 — must NOLINE). Start fresh implementation now.

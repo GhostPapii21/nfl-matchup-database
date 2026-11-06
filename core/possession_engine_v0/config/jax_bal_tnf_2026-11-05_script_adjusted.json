@@ -1,0 +1,102 @@
+{
+  "config_id": "jax_bal_tnf_2026-11-05_script_adjusted",
+  "frozen_at_et": "2026-11-05T13:55:00-05:00",
+  "mode": "script_adjusted",
+  "game": {
+    "home": "BAL",
+    "away": "JAX",
+    "season": 2026,
+    "week_asof_exclusive": 9
+  },
+  "history": {
+    "teams": [
+      "JAX",
+      "BAL"
+    ],
+    "season": 2026,
+    "weeks_inclusive": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "scope": "plays_from_games_involving_either_team_offense_when_posteam_in_teams",
+    "no_league_fallback": true,
+    "no_future_weeks": true
+  },
+  "min_n_state": 5,
+  "proposed_pooling": {
+    "enabled": false,
+    "policy": "backup_passers_same_team_PROPOSED_NOT_APPLIED",
+    "candidates": {
+      "BAL_pass": [
+        "J.Fagnano",
+        "T.Huntley"
+      ],
+      "note": "Fagnano n=24 dropbacks sparse; Huntley pool proposed only"
+    },
+    "note": "Do not silently enable; set enabled=true only after explicit research decision"
+  },
+  "adjustments": {
+    "enabled": true,
+    "asof_et": "2026-11-05T13:00:00-05:00",
+    "source": "local brainstorm_read.md ESPN/team notes 2026-11-03; forward-only for TNF JAX@BAL",
+    "forward_only": true,
+    "do_not_apply_retroactively_to_w1_8_history_rows": true,
+    "qb": {
+      "BAL": {
+        "starter": "J.Fagnano",
+        "out": [
+          "L.Jackson"
+        ],
+        "doubtful_excluded_from_starter_pool": [
+          "T.Huntley"
+        ],
+        "pass_play_filter": "starter_only_when_adjustments_enabled",
+        "fabricate_replacement_history": false
+      },
+      "JAX": {
+        "starter": "T.Lawrence",
+        "out": [],
+        "pass_play_filter": "no_change"
+      }
+    },
+    "injuries_workload": [
+      {
+        "team": "BAL",
+        "player": "L.Jackson",
+        "status": "OUT",
+        "effect": "exclude_from_forward_offense_passer_pool"
+      },
+      {
+        "team": "BAL",
+        "player": "T.Huntley",
+        "status": "Doubtful",
+        "effect": "exclude_from_default_starter_pool_propose_optional_backup_pool"
+      },
+      {
+        "team": "JAX",
+        "note": "Tuten DNP Mon/Tue per miss_audit \u2014 workload swap proposed not auto-applied",
+        "effect": "PROPOSED_ONLY_no_silent_rb_swap"
+      }
+    ]
+  },
+  "seed_base": 20261105,
+  "n_default": 10000,
+  "ot_rule": "single_possession_approx_declared_limitation",
+  "set_label": "development_w1_8_inspected_not_untouched_holdout",
+  "effects": {
+    "enable_blitz_strata": true,
+    "source": "local FTN free charting n_blitzers (2026 W1-8 joined)",
+    "added_et": "2026-11-05T18:20:00-05:00",
+    "semantics": "conditions called-pass outcome only"
+  },
+  "defense_interaction": {
+    "mode": "h2h_only",
+    "note": "opponent_allowed variant graded separately as STRUCTURAL_ASSUMPTION; not default"
+  }
+}

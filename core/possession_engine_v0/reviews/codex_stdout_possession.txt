@@ -1,0 +1,88 @@
+**Research-only verdict: useful scaffolding, but the simulator and validation need correction before their distributions are credible. No betting edge, market fit, or “three independent models” is established.**
+
+Reviewed branch `research-period-engine-2026-11-05`, HEAD/base `64b564b`, including local changes. I made no edits. Verification: **42 tests passed, 1 failed**, plus targeted reproductions.
+
+Local completion work is **uncommitted**: modified `simulate.py` and `validation/realism.py`; new missing-feature adapters, two test files, completion logs, archived validation artifacts, and review files. Separate `period_engine_v0/reviews/` changes also exist.
+
+**Prioritized defects — all remain open**
+
+1. **P1: Punt distance uses the wrong source field.**  
+   [_punt_fixed, simulate.py:183](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:183) samples punt `yards_gained`, takes its absolute value, and clips it to 25–60. All **59 historical punt rows have `yards_gained=0`**, so every sampled historical punt becomes **25 yards**. This systematically distorts field position and scoring opportunities. The existing punt regression tests the missing-history 40-yard default, so it misses the live-data defect.
+
+2. **P1: The advertised effects path is disconnected and now crashes in full-game simulation.**  
+   [simulate_games:330](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:330) constructs a plain `PlayCatalog`; it never joins FTN or installs `EffectsCatalog`. Passing an `EffectsCatalog` to `simulate_one` now raises:
+   ```text
+   AttributeError: 'EffectsCatalog' object has no attribute 'clock_map'
+   ```
+   The new assumptions originate at [simulate.py:279](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:279). Separately, [apply_supported.py:72](/workspace/wt-period-engine/research/possession_engine_v0/effects/apply_supported.py:72) samples exclusively from pass pools whenever strata activate, effectively forcing passes on eligible downs and discarding distance/field position. Thus the matrix’s “alters sim: Yes” claims exceed the integrated behavior.
+
+3. **P1: Pace remains an unequal comparison; the report generator is broken.**  
+   [realism.py:63](/workspace/wt-period-engine/research/possession_engine_v0/validation/realism.py:63) counts only `"snap"` events. But touchdowns, turnovers, and failed fourth-down snaps return before that event is emitted: [simulate.py:210](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:210), [226](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:226), [244](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:244). Actual snaps include those plays.
+
+   The local combined-offense baseline is an improvement, but “apples-to-apples” is still false. In one reproduced game, **107 counted snaps excluded 6 TD plays, 2 turnovers, and 1 turnover on downs**.
+
+   The changed return schema also breaks the existing test and [run_period_realism_grade.py:83](/workspace/wt-period-engine/research/possession_engine_v0/run_period_realism_grade.py:83), which still accesses `realism["actual"]`. The runner writes several artifacts before reaching this failure, risking mixed-generation results.
+
+4. **P1: Game-state decisions and clock lack essential conditioning.**  
+   Fourth-down decisions use team-wide probabilities, independent of field position, distance, score, or time; FG outcomes likewise ignore current kick distance: [simulate.py:129](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:129), [147](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:147). This permits implausible attempts and transfers historical make rates across distances.
+
+   The completion clock estimates play-type medians, then retains Gaussian costs and a three-second floor: [simulate.py:20](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:20), [78](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:78). It excludes deltas below 3 seconds or above 55, computes adjacency on already filtered offense/QB catalogs, charges PAT clock, and lacks timeout/incompletion/late-game clock state. It is **partly empirical**, not a fitted situational clock model.
+
+5. **P2: Sparse reporting improves cosmetically without improving state support.**  
+   Local changes rename state fallbacks to `COARSE_*` and exclude them from reported sparse failures: [simulate.py:118](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:118), [351](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:351). A reproduced game had **11 coarse fallbacks**; the current N=20 batch reported `sparse_rate=0`.
+
+   Consequently, the checked-in approximately-one rate and the new zero rate measure different things. Report separate per-play exact-cell, coarse, empty/default, and defense-conditioned rates. Also, `allow_pool` does not govern these catalog fallbacks; the no-pooling tests exercise the separate `lookup_plays` helper.
+
+6. **P2: “Defense conditioning” does not establish an offense–defense interaction model.**  
+   [simulate.py:104](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:104) only selects historical **head-to-head** offense/defense rows. There are **no JAX–BAL pools** in the W1–8 target catalog, so the new branch has no effect for that matchup. Where available, it bypasses distance and field position and can fall back across downs. It does not combine an offense’s history with the opponent defense’s performance against other offenses.
+
+7. **P2: Discrete score accounting is better, but scoring support and player accounting remain incomplete.**  
+   Period buckets reconcile, and geometric TD detection avoids copying historical TD flags. However, [simulate.py:237](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:237) clips end-zone losses to the 99-yard line. Reproduction: a five-yard loss from `yardline_100=98` produces **no safety**, preserves possession, and sets the ball to 99. Defensive return scores and two-point decisions are also absent.
+
+   [simulate.py:218](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:218) credits nonnegative pass-play yards to passers, losing negative completed-pass yardage; turnover plays return before player credit. `player_joint` is only an average accumulation, not an exported joint sample distribution.
+
+**Claims checked**
+
+| Claim | Finding |
+|---|---|
+| `sparse_rate≈1` | Verified in stored artifacts; current code changes its definition and reproduced zero. Sparsity is not resolved. |
+| Offense-only versus defense interaction | Baseline is offense resampling. New head-to-head conditioning is inactive for JAX–BAL; FTN effects are not integrated. |
+| Fixed versus empirical clock | Base uses fixed means. Local code derives pass **23s**, run **40s**, with other defaults retained; output limitation text still says fixed. |
+| Pace 133 versus `2×59.9` | Stored **133.42 versus 119.73** verified, but doubling focus-team offense averages is approximate. Actual combined baseline is **121.07**. Current N=200/seed=11 yields **107.87 counted events**, still undercounting snaps. |
+| OT approximation | Verified: away receives first; first made FG or TD ends simulation. Explicitly approximate: [state.py:98](/workspace/wt-period-engine/research/possession_engine_v0/state.py:98). |
+| Period grade 13/15, N=150 | Verified from CSV and recomputed metric means. Two skips; 13 graded games. **Coverage, not accuracy or a pass rate.** Results predate local simulator changes. |
+| True pressure/coverage missing | Supported by local extract/dossier and adapters. `qb_hit`/sack/scramble are proxies; blitz is not measured pressure. No replacement coefficients established. |
+
+**Concrete pytest regressions to add**
+
+These are proposed tests, not implemented:
+
+| Test name | Required assertion |
+|---|---|
+| `test_punt_uses_explicit_net_distance_not_yards_gained` | Fixture with `yards_gained=0`, documented net=40: from yardline 60, receiving yardline equals **80**. |
+| `test_each_offensive_play_emits_one_snap` | Parameterize ordinary/TD/interception/fumble/failed fourth down; each application emits exactly **one** snap. |
+| `test_effects_catalog_runs_complete_game` | `simulate_one(..., EffectsCatalog(...))` completes without exception and reconciles scores. |
+| `test_blitz_strata_preserves_play_selection` | With deterministic run selection, enabling blitz effects still selects a **run**. |
+| `test_coarse_support_is_reported_when_hard_sparse_zero` | Unsupported exact cell increments coarse-use count even when hard-failure rate equals zero. |
+| `test_no_head_to_head_reports_defense_conditioning_unused` | Target matchup without historical pair reports **zero conditioned samples**, not merely enabled=True. |
+| `test_pat_does_not_consume_game_clock` | PAT changes score as appropriate; game clock is unchanged. |
+| `test_backed_up_loss_scores_safety` | Loss crossing own goal credits opponent **2 points** and transitions possession appropriately. |
+| `test_period_report_accepts_current_realism_schema` | Render summary from current report; no `KeyError`; combined baseline appears. |
+| `test_future_rows_cannot_change_asof_predictions` | Append sentinel future/target-week rows; fixed-seed historical predictions remain identical. |
+
+**Rubric — 1 poor, 5 strong; current worktree**
+
+| Dimension | Score | Reason |
+|---|---:|---|
+| Math | 2 | Valid basic averaging/Brier calculation; faulty field-position and sampling mechanics. |
+| Game-state/clock | 1 | Unconditioned decisions, incomplete clock and OT. |
+| Leakage | 4 | Strict prior-week, same-season, both-team grading filters; development-set reuse is disclosed. |
+| Discrete scoring | 2 | Integer event scoring and period reconciliation; incomplete score mechanisms. |
+| Robustness | 2 | One failing test, effects crash, schema incompatibility, silent max-step completion. |
+| Feature-source honesty | 3 | Missing features honestly labeled; integrated effects overstated. |
+| Calibration honesty | 4 | Development/holdout limits explicit; no demonstrated calibration. |
+| Next sim steps | 2 | Several useful diagnostics, but their denominators and integration need repair first. |
+
+**Addressed versus open:** quarter accounting, halftime duration, historical-TD misuse, both-team as-of history, and missing-feature labels are addressed. Local clock and combined-baseline work is partial. Repair the defects above, regenerate artifacts with code/data hashes and explicit support counts, then evaluate on an untouched chronological set with baselines, uncertainty, and calibration diagnostics.
+
+The three configs are **baseline, a filtered scenario, and unwired market-conditioning configuration**—not three independently validated models. [run_jaxbal_demo.py:65](/workspace/wt-period-engine/research/possession_engine_v0/run_jaxbal_demo.py:65) explicitly confirms market conditioning is unwired. Neither model agreement nor market-fit claims follow.

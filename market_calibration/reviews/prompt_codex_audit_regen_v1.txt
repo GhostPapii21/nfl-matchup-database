@@ -1,0 +1,16 @@
+Coordinator follow-up after independent review. Fix OPEN P2 only.
+
+WORKTREE: /workspace/wt-market-calibration
+WRITE ONLY under research/market_calibration/
+
+CONTEXT: Independent review found snapshot-identity pairing fix changes 76 pair_id leaf values vs artifacts/saved_quote_audit.json. Review preserved old bytes. Owner must regenerate/version before use.
+
+DO:
+1) Preserve prior audit identity: copy current artifacts/saved_quote_audit.json to artifacts/saved_quote_audit.pre_snapshot_fix_2026-11-06.json (if not already).
+2) Regenerate saved audit via package's audit entrypoint (python -m research.market_calibration.audit or documented path) into artifacts/saved_quote_audit.json.
+3) Add/adjust regression test so persisted audit matches regeneration (or version field proves intentional regen) — TDD if needed.
+4) Re-run: PYTHONDONTWRITEBYTECODE=1; python(){ python3 "$@"; }; python -m pytest research/market_calibration/tests research/market_calibration/reviews/test_independent_false_pass.py -q
+5) Update reviews/AUDIT_REGEN_COMPLETION.md + append note to tracking/GHOST_HANDOFF_MARKET_ADAPTER.md that P2 is closed with hashes.
+6) Evidence json reviews/codex_audit_regen_evidence.json with before/after sha256, pytest summary, network=0, sims=0.
+
+Do not edit Blitz CORE, core_contract.md, or source_run_gate. No paid odds. No heavy sims. No forecast accuracy claims.

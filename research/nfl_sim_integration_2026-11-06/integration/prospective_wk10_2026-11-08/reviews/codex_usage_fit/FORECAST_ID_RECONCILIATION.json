@@ -1,0 +1,27 @@
+{
+  "updated_et": "2026-11-06 07:58 EST",
+  "authoritative_reproducibility": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_usage_fit/reproducibility.json",
+  "identical_forecast_id_and_score_means": true,
+  "before": {
+    "forecast_id": "sha256:95030358bf7828484619af6561febb9544390071a9f7602a1da9901264727481",
+    "score_means": {
+      "DAL": 22.0,
+      "IND": 30.4
+    }
+  },
+  "after_and_repeat": {
+    "forecast_id": "sha256:40c23caa5a0327c8ebc757520ad430e1401305518cd653549d542cc0300a3919",
+    "score_means": {
+      "DAL": 27.2,
+      "IND": 14.2
+    },
+    "input_content_hash": "sha256:85aa5f24cf6f2f7fa3bb5c93c3286489eba5594919c79029facc34e1dfee43c7"
+  },
+  "superseded_ids_from_earlier_engine_bytes": [
+    "sha256:32dfd895ce2b89ea8d1c499bbf09c9feff15c4244b68028a33a116ec556332d7",
+    "sha256:09f1c4336d5f62c61ffcc0c2c9771733f924e51d309b9841979369c665961403",
+    "sha256:3a418ca043c0f5d1cac2e6f008b42757d2cbaa27202546de1cf85c94f9616cb3"
+  ],
+  "note": "IDs changed when Codex excluded runs/ from source hash and stabilized validation set order. Means DAL 27.2 / IND 14.2 stable across after/repeat. Prefer reproducibility.json over earlier narrative cites.",
+  "pytest_joint_producer": "82 passed"
+}

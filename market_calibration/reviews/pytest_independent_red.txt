@@ -1,0 +1,256 @@
+FFFFFFFFFFF                                                              [100%]
+=================================== FAILURES ===================================
+____ test_no_pair_across_explicit_snapshot_identity[independent-fixture-B] _____
+
+other_snapshot = 'independent-fixture-B'
+
+    @pytest.mark.parametrize("other_snapshot", ["independent-fixture-B", None])
+    def test_no_pair_across_explicit_snapshot_identity(other_snapshot):
+        req = MatchRequest(GAME_ID, "pinnacle", "spreads", "Q1", "JAX", -2.5,
+                           "spread_2way", "2026-11-05T20:00:00Z", "2026-11-05T20:00:00Z")
+        pair = match_quote(load_saved_quotes(), req).quotes
+        changed = [replace(pair[0], snapshot_id="independent-fixture-A"),
+                   replace(pair[1], snapshot_id=other_snapshot)]
+        result = match_quote(changed, req)
+>       assert result.status != "MATCHED"
+E       AssertionError: assert 'MATCHED' != 'MATCHED'
+E        +  where 'MATCHED' = MatchResult(status='MATCHED', flags=(), probabilities={'JAX': 0.514597556593604, 'BAL': 0.48540244340639604}, quotes=(...patibility_flags=('CANONICAL_CROSSWALK_UNVERIFIED', 'SETTLEMENT_RULES_UNVERIFIED', 'CORE_TRIAL_POPULATION_NOT_JOINED')).status
+
+research/market_calibration/reviews/test_independent_false_pass.py:22: AssertionError
+_____________ test_no_pair_across_explicit_snapshot_identity[None] _____________
+
+other_snapshot = None
+
+    @pytest.mark.parametrize("other_snapshot", ["independent-fixture-B", None])
+    def test_no_pair_across_explicit_snapshot_identity(other_snapshot):
+        req = MatchRequest(GAME_ID, "pinnacle", "spreads", "Q1", "JAX", -2.5,
+                           "spread_2way", "2026-11-05T20:00:00Z", "2026-11-05T20:00:00Z")
+        pair = match_quote(load_saved_quotes(), req).quotes
+        changed = [replace(pair[0], snapshot_id="independent-fixture-A"),
+                   replace(pair[1], snapshot_id=other_snapshot)]
+        result = match_quote(changed, req)
+>       assert result.status != "MATCHED"
+E       AssertionError: assert 'MATCHED' != 'MATCHED'
+E        +  where 'MATCHED' = MatchResult(status='MATCHED', flags=(), probabilities={'JAX': 0.514597556593604, 'BAL': 0.48540244340639604}, quotes=(...patibility_flags=('CANONICAL_CROSSWALK_UNVERIFIED', 'SETTLEMENT_RULES_UNVERIFIED', 'CORE_TRIAL_POPULATION_NOT_JOINED')).status
+
+research/market_calibration/reviews/test_independent_false_pass.py:22: AssertionError
+_ test_manifest_rejects_contradictory_secondary_success_claims[quotes-network-True] _
+
+section = 'quotes', key = 'network', value = True
+
+    @pytest.mark.parametrize("section,key,value", [
+        ("quotes", "network", True),
+        ("quotes", "actionable_status", "MATCHED"),
+        ("quotes", "canonical_crosswalk", "VERIFIED"),
+        ("quotes", "rule_compatibility", "VERIFIED"),
+        ("quotes", "identity_namespace", "CANONICAL"),
+        ("quotes", "pinnacle_q2_q3_q4_spreads", "MATCHED"),
+        ("adapter", "producer_simulations", "COMPLETE"),
+        ("adapter", "player_targets", "IMPLEMENTED"),
+        ("raw_outputs", "status", "VALIDATED"),
+    ])
+    def test_manifest_rejects_contradictory_secondary_success_claims(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/reviews/test_independent_false_pass.py:42: Failed
+_ test_manifest_rejects_contradictory_secondary_success_claims[quotes-actionable_status-MATCHED] _
+
+section = 'quotes', key = 'actionable_status', value = 'MATCHED'
+
+    @pytest.mark.parametrize("section,key,value", [
+        ("quotes", "network", True),
+        ("quotes", "actionable_status", "MATCHED"),
+        ("quotes", "canonical_crosswalk", "VERIFIED"),
+        ("quotes", "rule_compatibility", "VERIFIED"),
+        ("quotes", "identity_namespace", "CANONICAL"),
+        ("quotes", "pinnacle_q2_q3_q4_spreads", "MATCHED"),
+        ("adapter", "producer_simulations", "COMPLETE"),
+        ("adapter", "player_targets", "IMPLEMENTED"),
+        ("raw_outputs", "status", "VALIDATED"),
+    ])
+    def test_manifest_rejects_contradictory_secondary_success_claims(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/reviews/test_independent_false_pass.py:42: Failed
+_ test_manifest_rejects_contradictory_secondary_success_claims[quotes-canonical_crosswalk-VERIFIED] _
+
+section = 'quotes', key = 'canonical_crosswalk', value = 'VERIFIED'
+
+    @pytest.mark.parametrize("section,key,value", [
+        ("quotes", "network", True),
+        ("quotes", "actionable_status", "MATCHED"),
+        ("quotes", "canonical_crosswalk", "VERIFIED"),
+        ("quotes", "rule_compatibility", "VERIFIED"),
+        ("quotes", "identity_namespace", "CANONICAL"),
+        ("quotes", "pinnacle_q2_q3_q4_spreads", "MATCHED"),
+        ("adapter", "producer_simulations", "COMPLETE"),
+        ("adapter", "player_targets", "IMPLEMENTED"),
+        ("raw_outputs", "status", "VALIDATED"),
+    ])
+    def test_manifest_rejects_contradictory_secondary_success_claims(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/reviews/test_independent_false_pass.py:42: Failed
+_ test_manifest_rejects_contradictory_secondary_success_claims[quotes-rule_compatibility-VERIFIED] _
+
+section = 'quotes', key = 'rule_compatibility', value = 'VERIFIED'
+
+    @pytest.mark.parametrize("section,key,value", [
+        ("quotes", "network", True),
+        ("quotes", "actionable_status", "MATCHED"),
+        ("quotes", "canonical_crosswalk", "VERIFIED"),
+        ("quotes", "rule_compatibility", "VERIFIED"),
+        ("quotes", "identity_namespace", "CANONICAL"),
+        ("quotes", "pinnacle_q2_q3_q4_spreads", "MATCHED"),
+        ("adapter", "producer_simulations", "COMPLETE"),
+        ("adapter", "player_targets", "IMPLEMENTED"),
+        ("raw_outputs", "status", "VALIDATED"),
+    ])
+    def test_manifest_rejects_contradictory_secondary_success_claims(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/reviews/test_independent_false_pass.py:42: Failed
+_ test_manifest_rejects_contradictory_secondary_success_claims[quotes-identity_namespace-CANONICAL] _
+
+section = 'quotes', key = 'identity_namespace', value = 'CANONICAL'
+
+    @pytest.mark.parametrize("section,key,value", [
+        ("quotes", "network", True),
+        ("quotes", "actionable_status", "MATCHED"),
+        ("quotes", "canonical_crosswalk", "VERIFIED"),
+        ("quotes", "rule_compatibility", "VERIFIED"),
+        ("quotes", "identity_namespace", "CANONICAL"),
+        ("quotes", "pinnacle_q2_q3_q4_spreads", "MATCHED"),
+        ("adapter", "producer_simulations", "COMPLETE"),
+        ("adapter", "player_targets", "IMPLEMENTED"),
+        ("raw_outputs", "status", "VALIDATED"),
+    ])
+    def test_manifest_rejects_contradictory_secondary_success_claims(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/reviews/test_independent_false_pass.py:42: Failed
+_ test_manifest_rejects_contradictory_secondary_success_claims[quotes-pinnacle_q2_q3_q4_spreads-MATCHED] _
+
+section = 'quotes', key = 'pinnacle_q2_q3_q4_spreads', value = 'MATCHED'
+
+    @pytest.mark.parametrize("section,key,value", [
+        ("quotes", "network", True),
+        ("quotes", "actionable_status", "MATCHED"),
+        ("quotes", "canonical_crosswalk", "VERIFIED"),
+        ("quotes", "rule_compatibility", "VERIFIED"),
+        ("quotes", "identity_namespace", "CANONICAL"),
+        ("quotes", "pinnacle_q2_q3_q4_spreads", "MATCHED"),
+        ("adapter", "producer_simulations", "COMPLETE"),
+        ("adapter", "player_targets", "IMPLEMENTED"),
+        ("raw_outputs", "status", "VALIDATED"),
+    ])
+    def test_manifest_rejects_contradictory_secondary_success_claims(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/reviews/test_independent_false_pass.py:42: Failed
+_ test_manifest_rejects_contradictory_secondary_success_claims[adapter-producer_simulations-COMPLETE] _
+
+section = 'adapter', key = 'producer_simulations', value = 'COMPLETE'
+
+    @pytest.mark.parametrize("section,key,value", [
+        ("quotes", "network", True),
+        ("quotes", "actionable_status", "MATCHED"),
+        ("quotes", "canonical_crosswalk", "VERIFIED"),
+        ("quotes", "rule_compatibility", "VERIFIED"),
+        ("quotes", "identity_namespace", "CANONICAL"),
+        ("quotes", "pinnacle_q2_q3_q4_spreads", "MATCHED"),
+        ("adapter", "producer_simulations", "COMPLETE"),
+        ("adapter", "player_targets", "IMPLEMENTED"),
+        ("raw_outputs", "status", "VALIDATED"),
+    ])
+    def test_manifest_rejects_contradictory_secondary_success_claims(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/reviews/test_independent_false_pass.py:42: Failed
+_ test_manifest_rejects_contradictory_secondary_success_claims[adapter-player_targets-IMPLEMENTED] _
+
+section = 'adapter', key = 'player_targets', value = 'IMPLEMENTED'
+
+    @pytest.mark.parametrize("section,key,value", [
+        ("quotes", "network", True),
+        ("quotes", "actionable_status", "MATCHED"),
+        ("quotes", "canonical_crosswalk", "VERIFIED"),
+        ("quotes", "rule_compatibility", "VERIFIED"),
+        ("quotes", "identity_namespace", "CANONICAL"),
+        ("quotes", "pinnacle_q2_q3_q4_spreads", "MATCHED"),
+        ("adapter", "producer_simulations", "COMPLETE"),
+        ("adapter", "player_targets", "IMPLEMENTED"),
+        ("raw_outputs", "status", "VALIDATED"),
+    ])
+    def test_manifest_rejects_contradictory_secondary_success_claims(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/reviews/test_independent_false_pass.py:42: Failed
+_ test_manifest_rejects_contradictory_secondary_success_claims[raw_outputs-status-VALIDATED] _
+
+section = 'raw_outputs', key = 'status', value = 'VALIDATED'
+
+    @pytest.mark.parametrize("section,key,value", [
+        ("quotes", "network", True),
+        ("quotes", "actionable_status", "MATCHED"),
+        ("quotes", "canonical_crosswalk", "VERIFIED"),
+        ("quotes", "rule_compatibility", "VERIFIED"),
+        ("quotes", "identity_namespace", "CANONICAL"),
+        ("quotes", "pinnacle_q2_q3_q4_spreads", "MATCHED"),
+        ("adapter", "producer_simulations", "COMPLETE"),
+        ("adapter", "player_targets", "IMPLEMENTED"),
+        ("raw_outputs", "status", "VALIDATED"),
+    ])
+    def test_manifest_rejects_contradictory_secondary_success_claims(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/reviews/test_independent_false_pass.py:42: Failed
+=========================== short test summary info ============================
+FAILED research/market_calibration/tests::test_no_pair_across_explicit_snapshot_identity[independent-fixture-B]
+FAILED research/market_calibration/tests::test_no_pair_across_explicit_snapshot_identity[None]
+FAILED research/market_calibration/tests::test_manifest_rejects_contradictory_secondary_success_claims[quotes-network-True]
+FAILED research/market_calibration/tests::test_manifest_rejects_contradictory_secondary_success_claims[quotes-actionable_status-MATCHED]
+FAILED research/market_calibration/tests::test_manifest_rejects_contradictory_secondary_success_claims[quotes-canonical_crosswalk-VERIFIED]
+FAILED research/market_calibration/tests::test_manifest_rejects_contradictory_secondary_success_claims[quotes-rule_compatibility-VERIFIED]
+FAILED research/market_calibration/tests::test_manifest_rejects_contradictory_secondary_success_claims[quotes-identity_namespace-CANONICAL]
+FAILED research/market_calibration/tests::test_manifest_rejects_contradictory_secondary_success_claims[quotes-pinnacle_q2_q3_q4_spreads-MATCHED]
+FAILED research/market_calibration/tests::test_manifest_rejects_contradictory_secondary_success_claims[adapter-producer_simulations-COMPLETE]
+FAILED research/market_calibration/tests::test_manifest_rejects_contradictory_secondary_success_claims[adapter-player_targets-IMPLEMENTED]
+FAILED research/market_calibration/tests::test_manifest_rejects_contradictory_secondary_success_claims[raw_outputs-status-VALIDATED]
+11 failed in 0.05s

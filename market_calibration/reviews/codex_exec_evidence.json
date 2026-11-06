@@ -1,0 +1,200 @@
+{
+  "base_commit": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+  "branch": "betguru-market-calibration-2026-11-06",
+  "claims": {
+    "anchored": "PENDING_VALIDATION",
+    "book_rules_verified": false,
+    "calibration": "UNIMPLEMENTED_NO_FITTED_CALIB",
+    "canonical_crosswalk": "NOT_SUPPLIED",
+    "full_core_acceptance": "NOT_RUN",
+    "model_validation": "NOT_RUN"
+  },
+  "core_contract": {
+    "path": "/workspace/research/nfl_sim_integration_2026-11-06/core_contract.md",
+    "sha256": "d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9",
+    "status": "CONTRACT_SCORE_TRANSPORT_ONLY"
+  },
+  "delivered_file_sha256": {
+    "MANIFEST.json": "37948790ca32ab0ebfedd5129ad9e10a286dd0f4e173f129dec4ab0e31edeeb2",
+    "README.md": "48455e6a29ea8efca4f56d226c49e28254a467490d464bb9a28ea00505c9a4f2",
+    "__init__.py": "1c2208872af40848278e53e972bedb928c85ef6e448d446277200217b4cbab5d",
+    "artifacts/market_anchored_outputs.json": "e0447a9c8f9e1e3f18a69202f2874739ddf1cfdddfc3ef7b72e81aa86f631613",
+    "artifacts/raw_model_outputs.json": "50c333540cb341609e1e192f5fe2457285940117bcecbfca0e0ed9f8e1a9eef1",
+    "artifacts/saved_quote_audit.json": "3d1ff2defa75b964b99278640429c1d21ff5b69fb635a144bec360073399cb89",
+    "audit.py": "506f374e91551edb3ae67afb4e07b0cbc5b0ae58d811f461dd6c0858de072766",
+    "calibration.py": "c49b742d9144b045f7676e2c18dc87e06a9188ebca25742add2d6ee3d1b447e2",
+    "joint_trial_adapter.py": "4dab7b5adfa9b6b335db76ddb0f950d8dfda9298c63a6de15806830f9c3e416e",
+    "manifest.py": "732cdb6e3589288f5108f5685380a903eeaed8eca4aa23728d226afcc401a2c4",
+    "quotes.py": "a69574156f47ebc247f63263edd154baeadc7c99cabad950b73e729c9b9176d3",
+    "reviews/COMPLETION_CODEX.md": "70057130201b05c57ef528e3a9422f3ef1b8efbfedc21dd764e0709486040793",
+    "settlement.py": "434db80bbf8b6b8d937750938956995d38ad2a34d382ba8dec030d78eb9f5fba",
+    "tests/conftest.py": "ec09fb9523c02ed5c890d8321a3a6240cd61a8acc4bd3c03725ff54d45d1bed7",
+    "tests/pytest.ini": "aaabed120d2fb059160bb38bf8843dc0bbb6abca5f013dffb5228bfffb9a3404",
+    "tests/test_calibration.py": "7d598a678037ff6d3377a2f397ab7d4cf71eb456a1b43a1f2260f0335875691e",
+    "tests/test_contract_manifest.py": "437a34a4a7478523f2fc972f84604d88b6d00938cb481070db08e16838a43374",
+    "tests/test_quotes.py": "b6cc879751fad3724562431458fcf89fe70677225e58675d4ad542228e2b18d4",
+    "tests/test_saved_audit.py": "7be0f388b5dcd8e47fd0694a58a4e0fe1e667411a8ede4300daf4b7e86c4fb05",
+    "tests/test_second_review.py": "b7a9ba047fec7fc86b58be3da4d6a4070878e683ff3c142793e7a54b73cc99f3",
+    "tests/test_settlement.py": "969df4ed0981e31816facf30a8298c724d3e28fabecb9b22def5902967d31571"
+  },
+  "final_output": "........................................................................ [ 74%]\n.........................                                                [100%]\n97 passed in 0.15s\n",
+  "hash_exclusions": [
+    "reviews/codex_exec_evidence.json (self-reference)",
+    "pre-existing interrupted-session logs and concurrently authored tracking/parent-review files"
+  ],
+  "independent_validation": {
+    "all_status_paths_in_scope": true,
+    "grades": "DIRECT_SCORE_ARITHMETIC_ALL_100_AVAILABLE_GRADES",
+    "manifest_validation": true,
+    "no_saved_grade": 32,
+    "novig": "DIRECT_IMPLIED_FORMULA_ALL_132_ROWS",
+    "pinnacle_q2_q3_q4_spreads": "NOLINE_ZERO_SOURCE_ROWS",
+    "saved_audit_regeneration": "EXACT_JSON_EQUALITY",
+    "tracked_diff_empty": true
+  },
+  "network_requests": 0,
+  "pytest_runs": [
+    {
+      "command": "python -m pytest research/market_calibration/tests -q",
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 2,
+      "interpreter": "/usr/bin/python3",
+      "log": "reviews/pytest_initial_red.txt",
+      "output_sha256": "509f32bc90dfe15317bce41b7bea46aef1337ed91dae2427b73c6d9e67a8bdbd",
+      "shell_wrapper": "python() { python3 \"$@\"; }",
+      "summary": "4 errors"
+    },
+    {
+      "command": "python -m pytest research/market_calibration/tests -q",
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 1,
+      "interpreter": "/usr/bin/python3",
+      "log": "reviews/pytest_implementation.txt",
+      "output_sha256": "488e67ed46f35c6a06ca7fbf083b8f9c68d3b1a32920d026219e65ca33082eb8",
+      "shell_wrapper": "python() { python3 \"$@\"; }",
+      "summary": "2 failed, 69 passed"
+    },
+    {
+      "command": "python -m pytest research/market_calibration/tests -q",
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 1,
+      "interpreter": "/usr/bin/python3",
+      "log": "reviews/pytest_contract_red.txt",
+      "output_sha256": "a686e76edda2625d68148d2993f5f5914f5671423cee5b8f1d0e0add14d3c2a1",
+      "shell_wrapper": "python() { python3 \"$@\"; }",
+      "summary": "3 failed, 71 passed"
+    },
+    {
+      "command": "python -m pytest research/market_calibration/tests -q",
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 0,
+      "interpreter": "/usr/bin/python3",
+      "log": "reviews/pytest_first_green.txt",
+      "output_sha256": "4b94edc5f4d4f61a1f71d08090eb328bdf725e529466fb7311df5a08cab90af8",
+      "shell_wrapper": "python() { python3 \"$@\"; }",
+      "summary": "74 passed"
+    },
+    {
+      "command": "python -m pytest research/market_calibration/tests -q",
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 1,
+      "interpreter": "/usr/bin/python3",
+      "log": "reviews/pytest_second_review_red.txt",
+      "output_sha256": "e8d192fc516f3ae505d3ebd77f8af8f1d90c4aebcb533435f94c4f207d6e8d63",
+      "shell_wrapper": "python() { python3 \"$@\"; }",
+      "summary": "17 failed, 76 passed"
+    },
+    {
+      "command": "python -m pytest research/market_calibration/tests -q",
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 0,
+      "interpreter": "/usr/bin/python3",
+      "log": "reviews/pytest_second_review_green.txt",
+      "output_sha256": "06f33091e99f856350880e2b80ca74003d868295b8217f455fc9aad6850a90e6",
+      "shell_wrapper": "python() { python3 \"$@\"; }",
+      "summary": "93 passed"
+    },
+    {
+      "command": "python -m pytest research/market_calibration/tests -q",
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 2,
+      "interpreter": "/usr/bin/python3",
+      "log": "reviews/pytest_saved_audit_red.txt",
+      "output_sha256": "15bfa33b9aa4dbbb4e1d02ad3c1e106884924555153d9253aafcb0c01bd50313",
+      "shell_wrapper": "python() { python3 \"$@\"; }",
+      "summary": "1 error"
+    },
+    {
+      "command": "python -m pytest research/market_calibration/tests -q",
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 0,
+      "interpreter": "/usr/bin/python3",
+      "log": "reviews/pytest_saved_audit_green.txt",
+      "output_sha256": "51ac3f573a2ead72e5fb3f27b420c60c2aef05a930142ed98080bb620b7102dd",
+      "shell_wrapper": "python() { python3 \"$@\"; }",
+      "summary": "96 passed"
+    },
+    {
+      "command": "python -m pytest research/market_calibration/tests -q",
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 0,
+      "interpreter": "/usr/bin/python3",
+      "log": "reviews/pytest_final.txt",
+      "output_sha256": "3c09fd8f61bc40fab0407babac3524152cff226277ccce2859ffe70aadd60634",
+      "shell_wrapper": "python() { python3 \"$@\"; }",
+      "summary": "97 passed"
+    }
+  ],
+  "python_version": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+  "recorded_at_utc": "2026-11-06T11:25:02.011798+00:00",
+  "schema_version": 1,
+  "second_review": {
+    "adversarial_failures_reproduced": 17,
+    "all_fixed": true,
+    "false_pass": "SCOPED_AND_RETESTED",
+    "leakage": "FIXED_AND_RETESTED",
+    "performed_after_first_green": true,
+    "raw_anchored_separation": "FIXED_AND_RETESTED"
+  },
+  "simulations_run": 0,
+  "source_files": [
+    {
+      "bytes": 2943,
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_jaxbal_game.csv",
+      "rows": 32,
+      "sha256": "51244731295a2a45af029b5985b3c4cb29e64448090e32d49437c5350c52690c"
+    },
+    {
+      "bytes": 11369,
+      "path": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/period_q1_q2_q3_fd_dk_cleared.csv",
+      "rows": 36,
+      "sha256": "d0000e66db3cbfe3a8831a4d4ff651626718496b142697e88e46d535ed41118d"
+    },
+    {
+      "bytes": 22813,
+      "path": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/period_line_grades.csv",
+      "rows": 64,
+      "sha256": "6a8deb2b30ecf699a543d8a32fc000f6d1977f335914cfd468a3786633fea96a"
+    }
+  ],
+  "worktree": "/workspace/wt-market-calibration",
+  "writes_scope": "research/market_calibration/"
+}

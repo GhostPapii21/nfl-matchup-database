@@ -1,0 +1,380 @@
+{
+  "started_et": "2026-11-05 18:34:22 EST",
+  "label": "development_w1_8_inspected_NOT_holdout",
+  "n_sims_per_game": 150,
+  "seed_base": 20261105,
+  "accounting": {
+    "checks": [
+      {
+        "name": "reg_clock_target_declared_3600",
+        "ok": true,
+        "detail": "engine uses 4x900; OT separate"
+      },
+      {
+        "name": "halftime_present_rate",
+        "ok": true,
+        "detail": "halftime_rate=1.000"
+      },
+      {
+        "name": "q_sum_reg_scores_recorded",
+        "ok": true,
+        "detail": "reg_home/reg_away arrays present"
+      },
+      {
+        "name": "mean_snaps_in_band",
+        "ok": true,
+        "detail": "mean_snaps=116.0 (band 80-160 diagnostic)"
+      },
+      {
+        "name": "kickoffs_ge_tds",
+        "ok": true,
+        "detail": "kickoff count should cover TDs+opening"
+      },
+      {
+        "name": "sparse_rate_reported",
+        "ok": true,
+        "detail": "sparse_rate=0.0"
+      },
+      {
+        "name": "player_joint_present",
+        "ok": true,
+        "detail": "player_joint dict"
+      },
+      {
+        "name": "period_quarter_scores_in_sim",
+        "ok": true,
+        "detail": "Q1-Q4/H1/H2/reg/fg arrays + reconciliation"
+      },
+      {
+        "name": "ot_only_if_reg_tie",
+        "ok": true,
+        "detail": "OT flag only when reg tied"
+      }
+    ],
+    "runtime_sec": 14.9
+  },
+  "jaxbal_data_only": {
+    "evidence_summary": {
+      "min_n_state": 5,
+      "games_with_sparse_flags": 0,
+      "sparse_rate": 0.0,
+      "games_with_coarse_flags": 300,
+      "coarse_rate": 1.0,
+      "defense_cond_flag_events": 0,
+      "def_interaction_events": 0,
+      "blitz_strata_events": 17574,
+      "blitz_coarse_down_events": 196,
+      "per_snap_coarse_fraction": 0.08292948699567,
+      "note": "sparse_rate = hard SPARSE/EMPTY/FALLBACK only; coarse_rate = COARSE_* support gaps"
+    },
+    "effects_provenance": {
+      "catalog_class": "EffectsCatalog",
+      "ftn_join": {
+        "ftn_path": "/workspace/nfl-database/runs/2026-11-05_matchup_run/src/ftn_charting_2026.parquet",
+        "status": "OK",
+        "man_zone_mofo_mofc_in_ftn": false,
+        "note": "FTN 2026 local extract has n_blitzers/n_pass_rushers; no man/zone/MOFO/MOFC/route columns",
+        "n_pbp": 1217,
+        "n_joined": 1196,
+        "join_rate": 0.9827444535743632,
+        "date_pulled_sample": "2026-11-01 12:01:32.054643+00:00"
+      },
+      "blitz_strata_enabled": true,
+      "blitz_semantics": "conditions yards on CALLED pass only; run/pass choice from base sampler",
+      "defense_blitz_rates": {
+        "ATL": 0.4594594594594595,
+        "BAL": 0.35231316725978645,
+        "BUF": 0.6666666666666666,
+        "CIN": 0.22727272727272727,
+        "CLE": 0.1724137931034483,
+        "DAL": 0.3,
+        "DEN": 0.22580645161290322,
+        "HOU": 0.3902439024390244,
+        "IND": 0.2826086956521739,
+        "JAX": 0.311284046692607,
+        "NE": 0.4827586206896552,
+        "NO": 0.42424242424242425,
+        "PHI": 0.36585365853658536,
+        "TEN": 0.22580645161290322
+      },
+      "defense_interaction": {
+        "mode": "h2h_only",
+        "label": "DISABLED_opponent_allowed (H2H DEF_COND only)"
+      },
+      "pressure_coverage": "NOT_EXECUTED_adapters_only (2026 participation unpublished)"
+    },
+    "mean_fg_home_BAL": 16.57,
+    "mean_fg_away_JAX": 19.76,
+    "mc_se_fg_home": 0.4661032990612313,
+    "n": 300,
+    "seed": 20261105,
+    "runtime_sec": 18.9
+  },
+  "pace_data_only": {
+    "label": "development_in_sample_diagnostic_not_accuracy",
+    "actual_combined_offense_snaps": {
+      "n_games": 15,
+      "n_team_games": 15,
+      "mean_combined_offense_snaps": 121.06666666666666,
+      "median_combined_offense_snaps": 120.0,
+      "mean_per_team_offense_snaps": 59.86666666666667,
+      "drive_length_plays": {
+        "mean": 7.540372670807454,
+        "median": 7.0,
+        "n_drives": 161
+      },
+      "definition": "combined = all pass/run/kneel/spike snaps in games involving listed teams (both offenses)"
+    },
+    "actual": {
+      "mean_offense_snaps_per_team_game": 59.86666666666667,
+      "n_team_games": 15,
+      "drive_length_plays": {
+        "mean": 7.540372670807454,
+        "median": 7.0,
+        "n_drives": 161
+      },
+      "note": "per-team offense snaps; prefer actual_combined_offense_snaps for apples-to-apples"
+    },
+    "actual_both_offenses_snaps_approx": 119.73333333333333,
+    "sim": {
+      "mean_snaps_per_game": 116.085,
+      "median_snaps_per_game": 115.0,
+      "mean_punts": 8.94,
+      "mean_tds": 4.17,
+      "approx_plays_per_drive": 6.604798261845754,
+      "drive_note": "approx = snaps / drive-ending events (half-end drives not counted as ends)",
+      "sparse_game_rate": 0.0,
+      "n_sims": 200,
+      "empirical_clock": true,
+      "defense_conditioning": true
+    },
+    "comparison": {
+      "baseline": "combined_offense_snaps_per_involvement_game",
+      "sim_minus_actual_combined": -4.981666666666669,
+      "sim_snaps_minus_2x_team_snaps": -3.6483333333333405,
+      "note": "Primary: sim joint snaps vs actual both-offense snaps in involvement games; 2x retained as approx diagnostic only"
+    },
+    "runtime_sec": 12.4
+  },
+  "asof_fg_data_only": {
+    "n_games": 15,
+    "n_graded": 13,
+    "skips": [
+      {
+        "game_id": "2026_01_BAL_IND",
+        "grade_status": "UNGRADEABLE_NO_OWN_SEASON_HISTORY"
+      },
+      {
+        "game_id": "2026_01_CLE_JAX",
+        "grade_status": "UNGRADEABLE_NO_OWN_SEASON_HISTORY"
+      }
+    ],
+    "mae_model": 9.739999999999998,
+    "mae_baseline_asof_ppg": 9.281776556776556,
+    "mae_diff_model_minus_baseline": 0.4582234432234437,
+    "diff_boot95_game_unit": [
+      -1.863866758241758,
+      2.995909798534798
+    ],
+    "runtime_sec": 133.0
+  },
+  "period_data_only": {
+    "n_games_period_graded": 13,
+    "mae_q1_home": 3.2051282051282053,
+    "mae_q1_away": 2.9646153846153847,
+    "mae_h1_home": 6.394358974358974,
+    "mae_h1_away": 4.316410256410257,
+    "mae_h2_home": 8.407179487179487,
+    "mae_h2_away": 7.236410256410257,
+    "mae_reg_home": 10.463076923076924,
+    "mae_reg_away": 9.021538461538462,
+    "mae_fg_home": 10.461538461538462,
+    "mae_fg_away": 9.513333333333334,
+    "brier_h1_home_win": 0.21392136752136756,
+    "brier_h2_home_win": 0.3337743589743589,
+    "brier_reg_home_win": 0.3140341880341881,
+    "brier_fg_home_win": 0.32208205128205136,
+    "label": "development_w1_8_period_grade_not_untouched_holdout",
+    "note": "Period MAE/Brier reported separately from FG; ties count as home non-win for Brier",
+    "mae_h1_baseline_ppg_half": 5.372298534798535,
+    "brier_baseline_coinflip": 0.25,
+    "brier_reg_boot95": [
+      0.15951760683760688,
+      0.4996548717948716
+    ],
+    "mae_h1_model": 5.355384615384616,
+    "runtime_sec": 132.8
+  },
+  "jaxbal_variant_def_allowed_w05": {
+    "evidence_summary": {
+      "min_n_state": 5,
+      "games_with_sparse_flags": 0,
+      "sparse_rate": 0.0,
+      "games_with_coarse_flags": 300,
+      "coarse_rate": 1.0,
+      "defense_cond_flag_events": 0,
+      "def_interaction_events": 17897,
+      "blitz_strata_events": 9162,
+      "blitz_coarse_down_events": 116,
+      "per_snap_coarse_fraction": 0.04496865905529438,
+      "note": "sparse_rate = hard SPARSE/EMPTY/FALLBACK only; coarse_rate = COARSE_* support gaps"
+    },
+    "effects_provenance": {
+      "catalog_class": "EffectsCatalog",
+      "ftn_join": {
+        "ftn_path": "/workspace/nfl-database/runs/2026-11-05_matchup_run/src/ftn_charting_2026.parquet",
+        "status": "OK",
+        "man_zone_mofo_mofc_in_ftn": false,
+        "note": "FTN 2026 local extract has n_blitzers/n_pass_rushers; no man/zone/MOFO/MOFC/route columns",
+        "n_pbp": 1217,
+        "n_joined": 1196,
+        "join_rate": 0.9827444535743632,
+        "date_pulled_sample": "2026-11-01 12:01:32.054643+00:00"
+      },
+      "blitz_strata_enabled": true,
+      "blitz_semantics": "conditions yards on CALLED pass only; run/pass choice from base sampler",
+      "defense_blitz_rates": {
+        "ATL": 0.4594594594594595,
+        "BAL": 0.35231316725978645,
+        "BUF": 0.6666666666666666,
+        "CIN": 0.22727272727272727,
+        "CLE": 0.1724137931034483,
+        "DAL": 0.3,
+        "DEN": 0.22580645161290322,
+        "HOU": 0.3902439024390244,
+        "IND": 0.2826086956521739,
+        "JAX": 0.311284046692607,
+        "NE": 0.4827586206896552,
+        "NO": 0.42424242424242425,
+        "PHI": 0.36585365853658536,
+        "TEN": 0.22580645161290322
+      },
+      "defense_interaction": {
+        "mode": "opponent_allowed",
+        "weight": 0.5,
+        "label": "STRUCTURAL_ASSUMPTION_mixture_weight_not_fitted",
+        "n_defenses_with_pools": 14
+      },
+      "pressure_coverage": "NOT_EXECUTED_adapters_only (2026 participation unpublished)"
+    },
+    "mean_fg_home_BAL": 15.836666666666666,
+    "mean_fg_away_JAX": 18.66,
+    "mc_se_fg_home": 0.4470265526328673,
+    "n": 300,
+    "seed": 20261105,
+    "runtime_sec": 14.2
+  },
+  "pace_variant_def_allowed_w05": {
+    "label": "development_in_sample_diagnostic_not_accuracy",
+    "actual_combined_offense_snaps": {
+      "n_games": 15,
+      "n_team_games": 15,
+      "mean_combined_offense_snaps": 121.06666666666666,
+      "median_combined_offense_snaps": 120.0,
+      "mean_per_team_offense_snaps": 59.86666666666667,
+      "drive_length_plays": {
+        "mean": 7.540372670807454,
+        "median": 7.0,
+        "n_drives": 161
+      },
+      "definition": "combined = all pass/run/kneel/spike snaps in games involving listed teams (both offenses)"
+    },
+    "actual": {
+      "mean_offense_snaps_per_team_game": 59.86666666666667,
+      "n_team_games": 15,
+      "drive_length_plays": {
+        "mean": 7.540372670807454,
+        "median": 7.0,
+        "n_drives": 161
+      },
+      "note": "per-team offense snaps; prefer actual_combined_offense_snaps for apples-to-apples"
+    },
+    "actual_both_offenses_snaps_approx": 119.73333333333333,
+    "sim": {
+      "mean_snaps_per_game": 119.02,
+      "median_snaps_per_game": 118.0,
+      "mean_punts": 9.675,
+      "mean_tds": 3.985,
+      "approx_plays_per_drive": 6.197305016158802,
+      "drive_note": "approx = snaps / drive-ending events (half-end drives not counted as ends)",
+      "sparse_game_rate": 0.0,
+      "n_sims": 200,
+      "empirical_clock": true,
+      "defense_conditioning": true
+    },
+    "comparison": {
+      "baseline": "combined_offense_snaps_per_involvement_game",
+      "sim_minus_actual_combined": -2.046666666666667,
+      "sim_snaps_minus_2x_team_snaps": -0.7133333333333383,
+      "note": "Primary: sim joint snaps vs actual both-offense snaps in involvement games; 2x retained as approx diagnostic only"
+    },
+    "runtime_sec": 9.5
+  },
+  "asof_fg_variant_def_allowed_w05": {
+    "n_games": 15,
+    "n_graded": 13,
+    "skips": [
+      {
+        "game_id": "2026_01_BAL_IND",
+        "grade_status": "UNGRADEABLE_NO_OWN_SEASON_HISTORY"
+      },
+      {
+        "game_id": "2026_01_CLE_JAX",
+        "grade_status": "UNGRADEABLE_NO_OWN_SEASON_HISTORY"
+      }
+    ],
+    "mae_model": 10.096410256410255,
+    "mae_baseline_asof_ppg": 9.281776556776556,
+    "mae_diff_model_minus_baseline": 0.8146336996336996,
+    "diff_boot95_game_unit": [
+      -2.240698260073261,
+      4.197442307692306
+    ],
+    "runtime_sec": 88.6
+  },
+  "period_variant_def_allowed_w05": {
+    "n_games_period_graded": 13,
+    "mae_q1_home": 3.548717948717948,
+    "mae_q1_away": 2.975897435897436,
+    "mae_h1_home": 6.594358974358974,
+    "mae_h1_away": 4.021538461538461,
+    "mae_h2_home": 8.074358974358974,
+    "mae_h2_away": 7.0600000000000005,
+    "mae_reg_home": 10.326153846153847,
+    "mae_reg_away": 9.167692307692308,
+    "mae_fg_home": 10.294871794871794,
+    "mae_fg_away": 9.691794871794873,
+    "brier_h1_home_win": 0.23085811965811967,
+    "brier_h2_home_win": 0.35024273504273506,
+    "brier_reg_home_win": 0.31043418803418804,
+    "brier_fg_home_win": 0.3140102564102565,
+    "label": "development_w1_8_period_grade_not_untouched_holdout",
+    "note": "Period MAE/Brier reported separately from FG; ties count as home non-win for Brier",
+    "mae_h1_baseline_ppg_half": 5.372298534798535,
+    "brier_baseline_coinflip": 0.25,
+    "brier_reg_boot95": [
+      0.18075982905982907,
+      0.454628547008547
+    ],
+    "mae_h1_model": 5.307948717948718,
+    "runtime_sec": 91.2
+  },
+  "prior_season_2025_participation_descriptive": {
+    "status": "DESCRIPTIVE_ONLY_NOT_EXECUTED",
+    "source": "nflverse pbp_participation_2025 (FTN, CC-BY-SA 4.0)",
+    "why_not_executed": "2026 participation not published until post-season; 2025 rosters/coaching differ; no fitted mapping",
+    "defense": {
+      "JAX": {
+        "n": 792,
+        "pressure_rate": 0.27939317319848295,
+        "man_rate": 0.2537878787878788
+      },
+      "BAL": {
+        "n": 726,
+        "pressure_rate": 0.2809917355371901,
+        "man_rate": 0.32920110192837465
+      }
+    }
+  },
+  "finished_et": "2026-11-05 18:42:57 EST"
+}

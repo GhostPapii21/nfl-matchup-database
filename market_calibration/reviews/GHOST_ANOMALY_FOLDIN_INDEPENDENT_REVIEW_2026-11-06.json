@@ -1,0 +1,56 @@
+{
+  "document_type": "independent_review_ghost_anomaly_foldin",
+  "folded_into": "INDEPENDENT_CODEX_REVIEW.md",
+  "duplicate_independent_runner": false,
+  "generated_et": "2026-11-06 07:37:01 ET",
+  "ghost_packet_path": "/workspace/wt-market-calibration/research/market_calibration/reviews/GHOST_INDEPENDENT_PACKET_ANOMALY_GUARD_2026-11-06.json",
+  "ghost_packet_sha256": "4ad9cdc0e9c780143c6382062d05ba1b60dd9a113929b42928a39fd74209f3fc",
+  "completion_md": "/workspace/wt-market-calibration/research/market_calibration/reviews/ANOMALY_DELIVERY_GUARD_COMPLETION.md",
+  "owner_reported_tests": {
+    "codex_market": {
+      "passed": 235,
+      "log": "reviews/pytest_anomaly_guard_market_suite.txt"
+    },
+    "parent_market_plus_independent": {
+      "passed": 246,
+      "log": "reviews/pytest_parent_verify_anomaly_guard.txt"
+    },
+    "guard_collected": 67
+  },
+  "post_consensus_guard_collect": 132,
+  "post_consensus_market_suite_log": "pytest_consensus_guard_market_suite.txt (300 passed)",
+  "targeted_reverify": {
+    "log": "pytest_ghost_foldin_verify_targeted.txt",
+    "passed": 63,
+    "deselected": 69,
+    "exit_code": 0
+  },
+  "verifications": {
+    "multi_book_consensus_required_default": true,
+    "min_consensus_books": 2,
+    "paired_single_book_cannot_satisfy_consensus": true,
+    "exact_40pp_inclusive_both_signs": true,
+    "negative_gaps_quarantine": true,
+    "missing_consensus_fail_closed": true,
+    "consumer_bypass_blocked_separate_outputs_and_direct_default": true,
+    "nov5_11pm_et_probe_research_only_noline": true,
+    "nov5_11pm_asof_utc": "2026-11-06T04:00:00Z",
+    "legacy_1230_holdout_insufficient_for_bias_fit": true,
+    "calibration_sufficiency": false,
+    "source_readiness": false,
+    "projection_ready": false,
+    "actionable_status": "NOLINE",
+    "bias_status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+    "ghost_final_acceptance": "NOT_CLAIMED",
+    "acceptance_from_test_counts": false,
+    "impact": "NOT_MEASURED"
+  },
+  "core_priority_blockers_unchanged": [
+    "projection_ready=false",
+    "source_gate BLOCKED",
+    "SUCCESS source rows = 0",
+    "odds-bridge needsAuth",
+    "PINNACLE_Q2_Q4_SPREADS_ABSENT_SAVED",
+    "NO_PACKAGE_PROVENANCE_TRAIN_ROWS_FOR_BIAS_FIT"
+  ]
+}

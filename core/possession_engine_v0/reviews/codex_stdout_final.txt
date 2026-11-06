@@ -1,0 +1,25 @@
+**The patch fixes several concrete defects, but does not close all prior P1s.** I independently ran the current test suite: **51 passed in 11.92s**.
+
+Fixed, with evidence:
+
+- **Snap undercount:** `simulate.py:_apply_snap` now emits one `snap` before TD, turnover, safety, and failed-fourth-down returns.
+- **Pace baseline and schema failure:** `validation/realism.py` counts both offenses in involvement games, retains the legacy `actual` key, and the report runner consumes the combined baseline. Diagnostics show **116.4 simulated versus 121.07 actual snaps**, Δ **−4.67**. The SUMMARY’s separate run reports Δ −4.9; these are consistent across different runs.
+- **EffectsCatalog crash:** clock attributes and clock/defense forwarding methods now exist. The full-game wrapper regression passes. This fixes compatibility, only part of the prior effects P1.
+- **Original punt source-field defect:** `pbp_filter.py` loads kick/return fields; `_punt_fixed` no longer turns historical `yards_gained=0` into uniform 25-yard punts. The explicit 40-yard-net regression passes. Punt handling remains partially defective below.
+- **Ordinary safety omission:** a non-turnover loss crossing the offense’s goal now awards two points and changes possession.
+- **PAT clock charge:** `_attempt_pat` no longer deducts game time.
+- **Sparse/coarse reporting:** separate counters are implemented. **`coarse_rate=1.0` alongside `sparse_rate=0` is intentional and valid.** It reports widespread coarsening without hard sparse/default events; it does not establish strong exact-state support.
+
+Still open, with file hints:
+
+| Finding | Evidence / location |
+|---|---|
+| **P1: Effects remain disconnected from the main simulation path** | `simulate.py:simulate_games` still constructs a plain `PlayCatalog`; no FTN join or `EffectsCatalog` installation. |
+| **P1: Blitz strata force passes** | `effects/apply_supported.py:EffectsCatalog.sample_snap` selects exclusively from pass pools whenever eligible, bypassing baseline run/pass selection and distance/field position. |
+| **P1: Fourth-down, FG, and clock conditioning remain inadequate** | `simulate.py:_fourth_down_decision`, `_attempt_fg`, `build_empirical_clock`, `_clock_cost`: team-wide decisions/make rates; clock medians derived from filtered-row adjacency, restricted deltas, Gaussian noise, and no situational clock state. Removing PAT clock fixes one component only. |
+| **Punt correction is incomplete** | `simulate.py:_punt_net_from_row`: the touchback branch literally does nothing; `_punt_fixed` clips receiving position instead of applying a touchback transition. Nullable flags also crash: I reproduced `ValueError: cannot convert float NaN to integer` with valid kick distance and `touchback=NaN`. |
+| **Defense interaction remains unestablished** | `PlayCatalog.sample_snap` uses historical head-to-head pools, bypassing distance/field position where available. Diagnostics report **zero defense-conditioned events** for JAX–BAL. `defense_conditioning=True` indicates enabled capability, not actual use. |
+| **Player/scoring limitations remain** | `_apply_snap` still clips negative passing/receiving yards and returns before player credit on turnovers; `player_joint` exports averages rather than joint simulation samples. OT and other omitted scoring mechanisms remain declared limitations. |
+| **Diagnostic metadata defect** | `validation/realism.py` sets legacy `n_team_games` to `n_games=15`, although its per-team mean uses team-game groups. Report the actual group count. |
+
+**Review completeness:** the final diff, diagnostics, SUMMARY, and prior review findings have been re-reviewed. **The bundle is review-complete for this pass, but not P1-closed or ready for defect-free sign-off.** Passing tests do not cover the remaining failures above. The 13/15 development grading is coverage, not validation of accuracy, calibration, or market edge.

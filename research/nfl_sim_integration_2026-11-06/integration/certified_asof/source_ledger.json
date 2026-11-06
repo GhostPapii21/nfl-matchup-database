@@ -1,0 +1,1328 @@
+[
+  {
+    "artifact_path": "records/ESPN_postgame.json",
+    "artifact_sha256": "41d38d0b79e436c091fa1b15c69aebf9abc5351e6c1685b02271adee27358864",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "event_alias",
+      "final_scores",
+      "kickoff_utc",
+      "season",
+      "source_snapshot",
+      "usable_for_frozen_pregame",
+      "usage",
+      "week"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-01",
+    "source_tool": "ESPN",
+    "status": "SAVED_ONLY",
+    "status_reason": "Verified final summary bytes/hash; postgame only. Public home 200 is not field coverage. Probe and meta pull times differ by 2 seconds.",
+    "unknown_reasons": {
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/nflverse_identity.json",
+    "artifact_sha256": "bd3ca5ab5948feed56a2d5d0b6709ab4093d63a980b52031a8e4f32216e58b35",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "aliases",
+      "canonical_id",
+      "canonical_id_status",
+      "canonical_namespace",
+      "full_name",
+      "jersey_number",
+      "position",
+      "status",
+      "team"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-02",
+    "source_tool": "nflverse",
+    "status": "SAVED_ONLY",
+    "status_reason": "Verified saved roster hash and exact player IDs. Release homepage 200/roster HEAD 302 do not establish pregame PBP/snaps/participation.",
+    "unknown_reasons": {
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-03",
+    "source_tool": "PFR",
+    "status": "ERROR",
+    "status_reason": "Observed public probe HTTP 403 challenge, not proven login requirement. No advanced-defense records retrieved.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/gamebooks.json",
+    "artifact_sha256": "0a88ea719df1225ce968372a0713b2316a78c14db3b0fdcc6936724e21ca79b4",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "source_paths",
+      "usage"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-04",
+    "source_tool": "gamebooks",
+    "status": "SAVED_ONLY",
+    "status_reason": "Saved PDF/text verified; postgame score/stat evidence only. Staged operations URL 404 does not negate saved book.",
+    "unknown_reasons": {
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-05",
+    "source_tool": "FTN via nflverse",
+    "status": "MISSING",
+    "status_reason": "No verified cutoff-eligible FTN/PBP join or man/zone, MOF, rushers and conditional targets. Saved registry reference is not retrieved scoped charting.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-06",
+    "source_tool": "NGS",
+    "status": "MISSING",
+    "status_reason": "Public shell HTTP 200 only; no required route/separation/time-to-throw records retrieved.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-07",
+    "source_tool": "PFF",
+    "status": "MISSING",
+    "status_reason": "Coordinator public shell 200; paid grades/matchups not retrieved. No observed login challenge to justify LOGIN_REQUIRED.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-08",
+    "source_tool": "Sharp",
+    "status": "MISSING",
+    "status_reason": "No dated schemes/positional coverage retrieved and no second-source corroboration; no Sharp-dependent effect.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-09",
+    "source_tool": "StatRankings",
+    "status": "MISSING",
+    "status_reason": "No per-defender or OL tables retrieved with dated scope, denominators and source availability.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-10",
+    "source_tool": "PropsMadness",
+    "status": "MISSING",
+    "status_reason": "No authorized scoped coverage/routes/matchup records retained; no login or account entitlement inferred.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-11",
+    "source_tool": "SumerSports",
+    "status": "MISSING",
+    "status_reason": "No dated team advanced metrics or denominator/sample records retrieved for this cutoff.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-12",
+    "source_tool": "FantasyPoints",
+    "status": "MISSING",
+    "status_reason": "No dated crosscheck records retrieved; cannot supply sole-source scheme evidence.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-13",
+    "source_tool": "NFLPro",
+    "status": "MISSING",
+    "status_reason": "Coordinator note says signed out; no authenticated required-field retrieval. Access barrier remains per saved note, not a fresh diagnosis.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/official_injury_depth.json",
+    "artifact_sha256": "ecb2be8222fe226c0b1e4a89473823ab9dde47e7b3c31145d1b75408c98aee0f",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "scope",
+      "source_paths",
+      "usable_for_frozen_pregame"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-14",
+    "source_tool": "official injury/depth",
+    "status": "SAVED_ONLY",
+    "status_reason": "Saved official-attributed inactive note/images only; full official depth, practice trends and original publication chain unverified.",
+    "unknown_reasons": {
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/ESPN_saved_availability.json",
+    "artifact_sha256": "f1abad37813bc2aa949f112b36c626cdda7d11d99267dfd99486649dbce16682",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "scope",
+      "source_paths",
+      "usable_for_frozen_pregame"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-15",
+    "source_tool": "ESPN availability/depth",
+    "status": "SAVED_ONLY",
+    "status_reason": "Saved roster and injury JSON inspected. Athlete ID scope is explicit; complete depth/workload and original pull certification absent.",
+    "unknown_reasons": {
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-16",
+    "source_tool": "Ourlads",
+    "status": "MISSING",
+    "status_reason": "No dated depth-chart snapshot retrieved for this game/cutoff.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-17",
+    "source_tool": "AP",
+    "status": "MISSING",
+    "status_reason": "No dated game-specific practice/news article retained in scoped evidence.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-18",
+    "source_tool": "RotoWire",
+    "status": "MISSING",
+    "status_reason": "No dated practice/workload reporting retrieved; access entitlement unverified.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/official_X.json",
+    "artifact_sha256": "ecb2be8222fe226c0b1e4a89473823ab9dde47e7b3c31145d1b75408c98aee0f",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "scope",
+      "source_paths",
+      "usable_for_frozen_pregame"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-19",
+    "source_tool": "official X",
+    "status": "SAVED_ONLY",
+    "status_reason": "Saved official-attributed inactive images/note held; original post bytes, publication chain and complete scope unverified.",
+    "unknown_reasons": {
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/NWS.json",
+    "artifact_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "scope",
+      "source_paths",
+      "usable_for_frozen_pregame"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-20",
+    "source_tool": "NWS",
+    "status": "SAVED_ONLY",
+    "status_reason": "Staged current /points 200 is grid discovery only. Held dated forecast saved; no certified complete kickoff weather freeze.",
+    "unknown_reasons": {
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/OpenMeteo.json",
+    "artifact_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "scope",
+      "source_paths",
+      "usable_for_frozen_pregame"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-21",
+    "source_tool": "OpenMeteo",
+    "status": "SAVED_ONLY",
+    "status_reason": "Staged postgame temperature-only forecast does not cover historic game weather; held dated response saved.",
+    "unknown_reasons": {
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/stadium tools.json",
+    "artifact_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "scope",
+      "source_paths",
+      "usable_for_frozen_pregame"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-22",
+    "source_tool": "stadium tools",
+    "status": "SAVED_ONLY",
+    "status_reason": "Held forecast venue/roof labels only; no authoritative dated roof/rest/travel tool output certified.",
+    "unknown_reasons": {
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/weather_forecast.py.json",
+    "artifact_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "scope",
+      "source_paths",
+      "usable_for_frozen_pregame"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-23",
+    "source_tool": "weather_forecast.py",
+    "status": "SAVED_ONLY",
+    "status_reason": "Saved weather runner output and source bytes inspected; script presence/output is not complete historical source certification.",
+    "unknown_reasons": {
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/FD_saved_quotes.json",
+    "artifact_sha256": "4cbe5d6bf14660947899ccb3e93a715f57dbcc6792ca58c07372ffcaa380ff51",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": "2026-11-06T01:12:25Z",
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "actionable_status",
+      "canonical_game_id",
+      "raw_quote_fields",
+      "snapshot",
+      "source_path",
+      "source_row_number",
+      "source_sha256",
+      "status",
+      "usable_for_run"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": "2026-11-06T01:12:42Z",
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-24",
+    "source_tool": "FD",
+    "status": "SAVED_ONLY",
+    "status_reason": "Public shell 403 in coordinator evidence. Saved quote fields exist; as-of/conflict and settlement checks block promotion. Row clocks describe selected close snapshot envelope; individual raw times retained. No SUCCESS declared.",
+    "unknown_reasons": {
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/DK_saved_quotes.json",
+    "artifact_sha256": "4651d335edb838d92857eeddfc5dd4c8a3cbcf3837164fdf4afbf302ff1f4413",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": "2026-11-06T01:12:01Z",
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "actionable_status",
+      "canonical_game_id",
+      "raw_quote_fields",
+      "snapshot",
+      "source_path",
+      "source_row_number",
+      "source_sha256",
+      "status",
+      "usable_for_run"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": "2026-11-06T01:12:42Z",
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-25",
+    "source_tool": "DK",
+    "status": "SAVED_ONLY",
+    "status_reason": "Public shell 200 not quotes. Saved quote fields exist; as-of/conflict and settlement checks block promotion. Row clocks describe selected close snapshot envelope; individual raw times retained. No SUCCESS declared.",
+    "unknown_reasons": {
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/Pinnacle_saved_quotes.json",
+    "artifact_sha256": "56dfc5258a6454e101959a3ac4a3bdbbc23e922d0e3c8ef6871149befdc9e68b",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": "2026-11-06T01:12:24Z",
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "actionable_status",
+      "canonical_game_id",
+      "raw_quote_fields",
+      "snapshot",
+      "source_path",
+      "source_row_number",
+      "source_sha256",
+      "status",
+      "usable_for_run"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": "2026-11-06T01:12:42Z",
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-26",
+    "source_tool": "Pinnacle",
+    "status": "SAVED_ONLY",
+    "status_reason": "Public shell 200 not quotes. Saved quote fields exist; as-of/conflict and settlement checks block promotion. Row clocks describe selected close snapshot envelope; individual raw times retained. No SUCCESS declared.",
+    "unknown_reasons": {
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/OddsAPI_saved_pull_assessment.json",
+    "artifact_sha256": "6ce58dbc8901182afd904ea09c675e23c05a3e72677a7f84fc5255307d990e03",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": "2026-11-06T01:12:25Z",
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "actionable_status",
+      "canonical_event_join",
+      "issues",
+      "meta_path",
+      "raw_sha256",
+      "row_count",
+      "settlement_compatibility",
+      "snapshot",
+      "source_path",
+      "status",
+      "timestamp_checks_pass",
+      "usable_for_frozen_pregame",
+      "usable_for_run"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": "2026-11-06T01:12:42Z",
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-27",
+    "source_tool": "OddsAPI",
+    "status": "SAVED_ONLY",
+    "status_reason": "Saved raw quote bytes/meta verified; no keyed network request. Week10/kickoff01:20 conflict; canonical mapping and settlement unverified. Row clocks describe selected close snapshot envelope; individual raw times retained. No SUCCESS declared.",
+    "unknown_reasons": {
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-28",
+    "source_tool": "Outlier",
+    "status": "MISSING",
+    "status_reason": "Coordinator reports saved cache but no scoped original quote records were selected/verified here; partial coverage note is not complete retrieval.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-29",
+    "source_tool": "PP",
+    "status": "MISSING",
+    "status_reason": "No scoped pick-em lines/rules/timestamps retrieved. Catalog mentions older PrizePicks book only; no required-fields claim.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-30",
+    "source_tool": "Polymarket",
+    "status": "MISSING",
+    "status_reason": "No exact scoped market/outcomes/settlement records retrieved; optional future scope does not establish present availability.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-31",
+    "source_tool": "official film reconciled to PBP",
+    "status": "MISSING",
+    "status_reason": "Saved highlight audit says TE catches omitted and no personnel/coverage proof; no official film-to-PBP event reconciliation completed.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": "records/local_evidence.json",
+    "artifact_sha256": "31254b9ec97d76c697a92a7b45503edb2bf86e73b20b0940055f7fa0f507e092",
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "retrieved",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [
+      "allows_sim_effect",
+      "coverage",
+      "personnel_11",
+      "personnel_12",
+      "personnel_13",
+      "receiving_credit_discrepancy",
+      "routes",
+      "source_paths",
+      "usage"
+    ],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-32",
+    "source_tool": "local DB",
+    "status": "SAVED_ONLY",
+    "status_reason": "Retained actual-role audit preserves missingness and receiving-credit discrepancy. No current complete database query verified.",
+    "unknown_reasons": {
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "reason": "Scoped offline source audit produces no model forecasts and executes no simulation engines; engine readiness remains unverified for future projections.",
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-33",
+    "source_tool": "local sim",
+    "status": "NOT_APPLICABLE",
+    "status_reason": "No simulation or engine output is required to inspect retained source bytes.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  },
+  {
+    "artifact_path": null,
+    "artifact_sha256": null,
+    "asof_status": "ASOF_UNVERIFIED",
+    "assessment": "attempted",
+    "attempt_timestamp": "2026-11-06T12:21:50Z",
+    "cutoff_utc": "2026-11-06T01:15:00Z",
+    "data_through_timestamp": null,
+    "document_type": "ledger_row",
+    "fallback": {
+      "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+      "kind": "blocked",
+      "source_refs": [
+        "attempts.json",
+        "SOURCE_INVENTORY_CORE_2026-11-06.md"
+      ]
+    },
+    "fields_retrieved": [],
+    "freshness_status": "not_assessed",
+    "pull_timestamp": null,
+    "reason": "Scoped offline source audit produces no model forecasts and executes no simulation engines; engine readiness remains unverified for future projections.",
+    "scope": "JAX@BAL source/readiness audit; historical cutoff eligibility required for any forecast input",
+    "season": 2026,
+    "source_available_timestamp": null,
+    "source_id": "inventory-34",
+    "source_tool": "local engines",
+    "status": "NOT_APPLICABLE",
+    "status_reason": "No simulation or engine output is required to inspect retained source bytes.",
+    "unknown_reasons": {
+      "artifact_path": "No verified provider artifact_path for this scoped input; local audit time is not a retrieval/publication clock.",
+      "artifact_sha256": "No verified provider artifact_sha256 for this scoped input; local audit time is not a retrieval/publication clock.",
+      "data_through_timestamp": "No verified provider data_through_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "pull_timestamp": "No verified provider pull_timestamp for this scoped input; local audit time is not a retrieval/publication clock.",
+      "source_available_timestamp": "No verified provider source_available_timestamp for this scoped input; local audit time is not a retrieval/publication clock."
+    },
+    "usable_for_run": false,
+    "week": 9
+  }
+]

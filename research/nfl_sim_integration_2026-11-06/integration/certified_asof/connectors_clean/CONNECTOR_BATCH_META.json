@@ -1,0 +1,68 @@
+{
+  "document_type": "connector_retrieval_batch",
+  "pulled_et": "2026-11-06 07:08:16 ET",
+  "kickoff_utc": "2026-11-06T01:15:00Z",
+  "spend": 0,
+  "auth_bypass": false,
+  "classification": "DIAGNOSTIC_OR_IDENTITY_ONLY",
+  "usable_for_frozen_pregame_forecast": false,
+  "reason": "Pulled after final; inventory/identity/diagnostic only",
+  "artifacts": [
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/connectors_clean/balldontlie_nfl_get_games_2026_wk9_10.json",
+      "sha256": "3dbce8d196fdaf6182b299195ebc3d18a54b2fc8144dcd0ca8f1f79e16e99a38",
+      "bytes": 33574,
+      "source_wrapped": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/connectors/balldontlie_nfl_get_games_2026_wk9_10.json"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/connectors_clean/balldontlie_nfl_get_teams_AFC.json",
+      "sha256": "aab6c76bf56383dddef2356a0c563b65056043e474012e2e5385a9c7b44ba2dc",
+      "bytes": 3300,
+      "source_wrapped": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/connectors/balldontlie_nfl_get_teams_AFC.json"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/connectors_clean/open_leagues_getGameLines_2026_wk9.json",
+      "sha256": "39b26f9449d84893b61804606d38d6e33e5754e22db70e6f353b5d701f066cff",
+      "bytes": 10887,
+      "source_wrapped": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/connectors/open_leagues_getGameLines_2026_wk9.json"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/connectors_clean/open_leagues_getSources.json",
+      "sha256": "e024b067c3117ffd218075fe9a06bacf50d53f1d313ac72d9a34c09da160a94c",
+      "bytes": 830,
+      "source_wrapped": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/connectors/open_leagues_getSources.json"
+    }
+  ],
+  "open_leagues_sources": [
+    {
+      "id": "sleeper",
+      "name": "Sleeper",
+      "role": "Leagues, rosters, matchups, players, unofficial stats",
+      "cost": "$0",
+      "license": "Free for personal / non-commercial use. No key.",
+      "ok": true,
+      "latencyMs": 0,
+      "detail": "2026 regular \u00b7 week 9"
+    },
+    {
+      "id": "espn",
+      "name": "ESPN public",
+      "role": "NFL scoreboard, status, headlines",
+      "cost": "$0",
+      "license": "Undocumented site API. Personal use only.",
+      "ok": false,
+      "latencyMs": 35,
+      "detail": "ESPN 403"
+    },
+    {
+      "id": "nflverse",
+      "name": "nflverse",
+      "role": "Open weekly stats, play-by-play, rosters (nightly)",
+      "cost": "$0",
+      "license": "Open data on GitHub. Best archive, not live scoring.",
+      "ok": true,
+      "latencyMs": 0,
+      "detail": "554 files \u00b7 updated 2025-07-31"
+    }
+  ]
+}

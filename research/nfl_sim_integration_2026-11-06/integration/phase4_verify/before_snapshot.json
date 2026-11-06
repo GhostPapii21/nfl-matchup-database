@@ -1,0 +1,2524 @@
+{
+  "core_files": {
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/COMPLETION_CHECKLIST.md": {
+      "bytes": 8502,
+      "sha256": "f41d0004bebe4b60c2ccf4f334214721977e7eaaefef18e73fd487f0eedfbb5a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/CORE_MANIFEST.json": {
+      "bytes": 5310,
+      "sha256": "2b420dedb4e02ed2ebac5d83758ab7b738b8c940e54015cc1bc5c59c3180edd0"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/EFFECTS_AND_COVERAGE_MATRIX.md": {
+      "bytes": 1335,
+      "sha256": "71d3a9caabc88d83c34be9bfe3510c27927ee7701e0f1894a32e511406fd5c12"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/FEATURE_EXECUTION_MATRIX.md": {
+      "bytes": 2354,
+      "sha256": "de30a0d189b2db206689f97844de868ec98f8079908a5badaa8d163628bfb468"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/FEATURE_MATRIX.md": {
+      "bytes": 4738,
+      "sha256": "356cfcc86c961a8b94d562dc78b714081cdaa52947b1265d2af9c01d7ebacf5f"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/JOINT_PRODUCER.md": {
+      "bytes": 8434,
+      "sha256": "f5b91c81a94150421ed568afda159c10c9e72a2b0a5546d8b9a81ea742f6db8c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/LICENSE_MANIFEST.md": {
+      "bytes": 1725,
+      "sha256": "ce6d35b77a2ecfcdab3f05163c0b77fe1951e5add45fe5615952c28ab538242a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/README.md": {
+      "bytes": 1400,
+      "sha256": "ea5dcc01b3e7fe0cbf3bb9d26b4d94c42b0f3396273070927028d4b55b18e1f6"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/__init__.py": {
+      "bytes": 123,
+      "sha256": "a112bc6903521e270c0c58ec66864bf105cdc5b1b962d98da18b27fa0683f986"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/adjustment_ledger.py": {
+      "bytes": 2867,
+      "sha256": "9604e12505b45fc9b750411e2cbd156122ba98a8672d646cb1897c0be21d2044"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/adjustments.py": {
+      "bytes": 2536,
+      "sha256": "47ddcc038795cf314c07dff156ddb49d207d126cfc19f28efd9baead7c903491"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/demo_run.log": {
+      "bytes": 454,
+      "sha256": "ddf338dafb942f61f088810329a3cd7b6eedf1728396b1e8da13e1afcf1c9246"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/green_scoring.txt": {
+      "bytes": 98,
+      "sha256": "7090f08e7db4483b025ca80df3fae7e3014bb32c25e0dc85e8e4dcd57cba462c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/input_provenance_registry.json": {
+      "bytes": 5380,
+      "sha256": "2d585e28ca20ae17a5c97a43e47d968725a1e98279a7253069ee59cbe933cfce"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/ledger_jax_bal_tnf_2026-11-05_data_only.json": {
+      "bytes": 2169,
+      "sha256": "966636969ff622dc5b48829c353fb6369b3a5c857ddd73d5999a55d22c43eeea"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/ledger_jax_bal_tnf_2026-11-05_market_informed.json": {
+      "bytes": 2214,
+      "sha256": "aa799ee3bbdc48beb8b14cc754306c46940b2754e4adb2230827addc13398057"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/ledger_jax_bal_tnf_2026-11-05_script_adjusted.json": {
+      "bytes": 2243,
+      "sha256": "7cac25c7e0b517fbb306fd1ebf76b3e023fa34937d8dcd336959ace14cc04547"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/period_engine_still_green.txt": {
+      "bytes": 99,
+      "sha256": "754dba6b00216136805107417d499ca3af9bcbdb9e1d61f775d6eb067776483f"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/period_engine_still_green_postfix.txt": {
+      "bytes": 99,
+      "sha256": "9883431b42ebc15698d5ab44d87dbd6a0cc067546064376e6c20747fbdca7cfa"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/postfix_score_means_n500.json": {
+      "bytes": 3061,
+      "sha256": "6a21ae4ce5f3f7c70b009c010cf5be39a58b884ccdeddc22b102238c00930bd4"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/pre_fix_9ebe892/demo_run.log": {
+      "bytes": 454,
+      "sha256": "ddf338dafb942f61f088810329a3cd7b6eedf1728396b1e8da13e1afcf1c9246"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/pre_fix_9ebe892/diag_reproduce.json": {
+      "bytes": 431,
+      "sha256": "0accbaf8a0b562c147b9ef5b45ab80cf161dc6d47e8d578fe6d19c30a40947b6"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/pre_fix_9ebe892/red_scoring.txt": {
+      "bytes": 2186,
+      "sha256": "c4914a981ef2de12b779298dc940f9097eb8465bd66d2a633095c6ebeae42ab7"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/pre_fix_9ebe892/sim_jaxbal_summary.json": {
+      "bytes": 6932,
+      "sha256": "d16bd29c247f4087c89e59766f2972690ae537fcd74827a1b730aa31ef80c118"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/pytest_final.txt": {
+      "bytes": 99,
+      "sha256": "7d7ee233d36fd5372b4b64e170cdccb2615acf9fab1ddc6e48987ec61b139520"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/pytest_full.txt": {
+      "bytes": 99,
+      "sha256": "17bdb09eccc7cd410c313260946cdc1f9b610ed3b0a9fec7f749bdb61dd0c470"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/pytest_postfix.txt": {
+      "bytes": 99,
+      "sha256": "43b0d683fb0d616d0509a4c20f8887bee2c6e92ed29a865c9b3cb03aea05296c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/pytest_v1.txt": {
+      "bytes": 9,
+      "sha256": "a350e9f897688140366f5f21456c728387e13fa74fa673a445a759bfb6a16747"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/pytest_v2.txt": {
+      "bytes": 490,
+      "sha256": "cc0cc29c0965b064ac7b12a6084961faf660d23b1216ee727b50f43c376ef433"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/pytest_v3.txt": {
+      "bytes": 99,
+      "sha256": "5044f3b29a2adca879d2389c1ecac017f05a24d17949cd6cc1375fe235acc67e"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/red_initial.txt": {
+      "bytes": 1600,
+      "sha256": "d53571dc8ca6831ca51acbd83520a1a46c6f3cfba11b9462fbabe645623945c9"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/sim_jaxbal_summary.json": {
+      "bytes": 6932,
+      "sha256": "d16bd29c247f4087c89e59766f2972690ae537fcd74827a1b730aa31ef80c118"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/situational_jax_bal_w1_8.json": {
+      "bytes": 4890,
+      "sha256": "514c005b2fa8092595e00a768676563799aba783d1f18af64515dffadc6aed9c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/MODEL_FREEZE.json": {
+      "bytes": 2464,
+      "sha256": "4d7d8e96235992b69cf8de9d7c6b148fd1f99465b7a692308da6c7a5a0d5aead"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/MODEL_FREEZE_POST_P1P2.json": {
+      "bytes": 1585,
+      "sha256": "3b41bb5f1157fccbb6095b611e874d42bd825dd6354777c7a5c1494066341982"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/SUMMARY.md": {
+      "bytes": 1196,
+      "sha256": "1968492430c275b1ef8ffb313f800ee23c57aec14f781c940b202cc477efed4c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/accounting_report.json": {
+      "bytes": 1560,
+      "sha256": "9e1b6e40d39faeb9045011b9a835562ea8f7b96dcd2fe3bd7088c4d9ab4d51e6"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/asof_grade_per_game.csv": {
+      "bytes": 4523,
+      "sha256": "b9538c3dd020fe648fb3ea03d8cb5098a168105ad6332b5cebd04ece69b42e5e"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/effects_explosive.json": {
+      "bytes": 4290,
+      "sha256": "900ae15f27306a16730bcc7817ec38f0d1ea2b5cc1ded38b7c7ddbfd8db47314"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/effects_ftn_join_meta.json": {
+      "bytes": 393,
+      "sha256": "2000db1537583def1b053b17516a901390871278fbc9ab28e339d3e80402813b"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/effects_qb_splits.json": {
+      "bytes": 8638,
+      "sha256": "de79a2b7a88a0eab2434311f85ff90e48256f2e82cbab6e60625f2b94b4ea93c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/effects_recent_form_audit.json": {
+      "bytes": 526,
+      "sha256": "73a516834f3bf879b64644f69405919ed3f2b96562070f4d58037cee1b28587e"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/green_completion.txt": {
+      "bytes": 100,
+      "sha256": "0688c7be2e118d6dba4a2e43e8300ac788a5fc8719bbb1bda75b463b840bb714"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/green_final.txt": {
+      "bytes": 100,
+      "sha256": "2b9ecab59a042d2afc490649bdc784a4578131894e68c477902b7c2c650deb4e"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/green_p1_p2.txt": {
+      "bytes": 564,
+      "sha256": "d2b2df69ef55f24f554c0ef6badca4b0de1c0522a5b170d11f9e08603b5929e4"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/green_p1_p2_p3.txt": {
+      "bytes": 99,
+      "sha256": "349f45ccbca96d9fa739474b34175a7ac546bab056ec0c700c9a1cacd5a07d38"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/green_pass2.txt": {
+      "bytes": 100,
+      "sha256": "b94a5ac0f10d6d0f3a432d1b76e21c4fdf66da16818e85f810a5536afd4703b3"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/green_period_realism.txt": {
+      "bytes": 98,
+      "sha256": "eaf4a628e50dce42984391813aeb2d488fa7426df26ad20ca1440c5929f4dc8a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/metrics.json": {
+      "bytes": 8121,
+      "sha256": "28d951f2418b48ec687b10537d5ea007417dd2f942177a4f6c8e5d5f2192fc44"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2/addendum_reporting_only.json": {
+      "bytes": 469,
+      "sha256": "8f2c8325c6675f999a2aa34ce0c238f07fdeaade6d0665510dc81a32451c0e29"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2/asof_fg_data_only.csv": {
+      "bytes": 4493,
+      "sha256": "891fd0b0bb00f4860e8eb8a75608cc22d98c7825278b99aeb576d35986337228"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2/asof_fg_variant_def_allowed_w05.csv": {
+      "bytes": 4662,
+      "sha256": "0814d5dbcd7d8e80b3152db023c07fb7044a0306dffa4689d3620e65c0cc4bae"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2/pass2_metrics.json": {
+      "bytes": 13024,
+      "sha256": "47d887578475b208e0dba48c3b003fe88b7ddae9ea6840289f13ee98b31e15f0"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2/period_data_only.csv": {
+      "bytes": 8221,
+      "sha256": "e41fd539827f3ceed3ff6191de203be09d9796984c7abc6dc2c3fd20e69ecd4a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2/period_variant_def_allowed_w05.csv": {
+      "bytes": 8382,
+      "sha256": "e83931525274c35a03ecc924940c82be4e8b0674b621f61cbc0aeb6e3777ba15"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/addendum_reporting_only.json": {
+      "bytes": 469,
+      "sha256": "8f2c8325c6675f999a2aa34ce0c238f07fdeaade6d0665510dc81a32451c0e29"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/asof_fg_data_only.csv": {
+      "bytes": 4558,
+      "sha256": "f17eeb6a7b1c1fdcfced3f52e005285b096f791f6b3bd50027470f35e5777631"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/asof_fg_variant_def_allowed_w05.csv": {
+      "bytes": 4532,
+      "sha256": "76d8f2b6e36141d773fe93708562d7dcd4367835b4d99203cee4941c11e28c22"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/pass2_metrics.json": {
+      "bytes": 12508,
+      "sha256": "35106d00c7bce777a2cfcb93d3878b6be2bf1566abcf1175c3cc633d21f1c84d"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/period_data_only.csv": {
+      "bytes": 8269,
+      "sha256": "fa9e222c2b40469674e6a0846dc5f3b68f2d5afa1bff64a00d8e32f0c991e23a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/period_variant_def_allowed_w05.csv": {
+      "bytes": 8098,
+      "sha256": "8e84a6c50807da5134e9fafcd71b48d1088afdb6562b2c050efe9bfc3f9bfb54"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/addendum_reporting_only.json": {
+      "bytes": 469,
+      "sha256": "8f2c8325c6675f999a2aa34ce0c238f07fdeaade6d0665510dc81a32451c0e29"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/asof_fg_data_only.csv": {
+      "bytes": 4558,
+      "sha256": "f17eeb6a7b1c1fdcfced3f52e005285b096f791f6b3bd50027470f35e5777631"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/asof_fg_variant_def_allowed_w05.csv": {
+      "bytes": 4532,
+      "sha256": "76d8f2b6e36141d773fe93708562d7dcd4367835b4d99203cee4941c11e28c22"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/pass2_metrics.json": {
+      "bytes": 13009,
+      "sha256": "42ed88a946b49f7ad441d4a55294e58af610aee1df5991b8026b3f5126a32a26"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/period_data_only.csv": {
+      "bytes": 8269,
+      "sha256": "fa9e222c2b40469674e6a0846dc5f3b68f2d5afa1bff64a00d8e32f0c991e23a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/period_variant_def_allowed_w05.csv": {
+      "bytes": 8098,
+      "sha256": "8e84a6c50807da5134e9fafcd71b48d1088afdb6562b2c050efe9bfc3f9bfb54"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pass2_run.log": {
+      "bytes": 8971,
+      "sha256": "1fa1ac0553623806ecfb5e325f168e10f99502c831b8e2fb5fb17fabbf5ad9be"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/period_grade_per_game.csv": {
+      "bytes": 8117,
+      "sha256": "eaff44007c180d642f8653e0656718bf3ead351d4bd34e4e2ae8a1abdeae2399"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/period_realism_metrics.json": {
+      "bytes": 3261,
+      "sha256": "e7ba8239ad6b770a1220e1bbcc41ec4481bfd43e8d7046c7d26bfd5bc974170f"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/period_realism_rerun.log": {
+      "bytes": 1197,
+      "sha256": "06d37d35597149bb955417e8a9e7972ed25bb9a98f19031890b9fe211ce6f37f"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/post_fix_diagnostics.json": {
+      "bytes": 2089,
+      "sha256": "a8ba4e7fd0c717f138b7a598e75ee7c412b97b356d90b246e6558611cb331014"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/MODEL_FREEZE.json": {
+      "bytes": 2464,
+      "sha256": "4d7d8e96235992b69cf8de9d7c6b148fd1f99465b7a692308da6c7a5a0d5aead"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/MODEL_FREEZE_POST_P1P2.json": {
+      "bytes": 1585,
+      "sha256": "3b41bb5f1157fccbb6095b611e874d42bd825dd6354777c7a5c1494066341982"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/SUMMARY.md": {
+      "bytes": 1075,
+      "sha256": "012e1ed13d4beca50275b103b61f28c07cc042f96f9132657586258d2ff430b9"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/accounting_report.json": {
+      "bytes": 1560,
+      "sha256": "9e1b6e40d39faeb9045011b9a835562ea8f7b96dcd2fe3bd7088c4d9ab4d51e6"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/asof_grade_per_game.csv": {
+      "bytes": 4573,
+      "sha256": "14ef8563e734253ece455408adcff6f8d8833bef8a0ec9f9b6ed6f8165b17d6b"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/effects_explosive.json": {
+      "bytes": 4290,
+      "sha256": "900ae15f27306a16730bcc7817ec38f0d1ea2b5cc1ded38b7c7ddbfd8db47314"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/effects_ftn_join_meta.json": {
+      "bytes": 393,
+      "sha256": "2000db1537583def1b053b17516a901390871278fbc9ab28e339d3e80402813b"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/effects_qb_splits.json": {
+      "bytes": 8638,
+      "sha256": "de79a2b7a88a0eab2434311f85ff90e48256f2e82cbab6e60625f2b94b4ea93c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/effects_recent_form_audit.json": {
+      "bytes": 526,
+      "sha256": "73a516834f3bf879b64644f69405919ed3f2b96562070f4d58037cee1b28587e"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/metrics.json": {
+      "bytes": 7494,
+      "sha256": "3e2ab651366e5da34d86e2c77c48f4899ff588b39d43081a0d2c2941385d7c98"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/period_grade_per_game.csv": {
+      "bytes": 8344,
+      "sha256": "d989a9cf2daad475d2a7382137dac79f6e57b1a83795b45f57b2734531e96865"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/period_realism_metrics.json": {
+      "bytes": 2658,
+      "sha256": "ea6931b8a3cd817a55400fde4173aed010b6e0bec59e48ca1a3375b27d0091aa"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/pressure_coverage_evidence_dossier.json": {
+      "bytes": 3035,
+      "sha256": "4db593e1d70530e0d18811a902d39895524e446769fafebdf79e59d59689d17e"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/realism_pace_diagnostics.json": {
+      "bytes": 855,
+      "sha256": "8b06e4bcf31e403c85470732b69e913ee0a5f18b4ae23359113970f7d62f412c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/weather_scenario_hook.json": {
+      "bytes": 240,
+      "sha256": "5db540b1e196ebdfd40dddd918396fe48ab48afd067e382d97e5c0fe16e07a9d"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/MODEL_FREEZE.json": {
+      "bytes": 2464,
+      "sha256": "4d7d8e96235992b69cf8de9d7c6b148fd1f99465b7a692308da6c7a5a0d5aead"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/SUMMARY.md": {
+      "bytes": 1247,
+      "sha256": "a6437ccdd81e1944f846112cf3e3eb0174a669876d6011cd69c944026fb62c9b"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/accounting_report.json": {
+      "bytes": 1574,
+      "sha256": "64e022474df768cf7213c255ff933956b978d115830d0e44a615048714ce4b6b"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/asof_grade_per_game.csv": {
+      "bytes": 4093,
+      "sha256": "b4362d345a0650cb1a734019d2e23ca379f6e8abaf60e04e3832af4de8cb5678"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/effects_explosive.json": {
+      "bytes": 4290,
+      "sha256": "900ae15f27306a16730bcc7817ec38f0d1ea2b5cc1ded38b7c7ddbfd8db47314"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/effects_ftn_join_meta.json": {
+      "bytes": 393,
+      "sha256": "2000db1537583def1b053b17516a901390871278fbc9ab28e339d3e80402813b"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/effects_qb_splits.json": {
+      "bytes": 8638,
+      "sha256": "de79a2b7a88a0eab2434311f85ff90e48256f2e82cbab6e60625f2b94b4ea93c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/effects_recent_form_audit.json": {
+      "bytes": 526,
+      "sha256": "73a516834f3bf879b64644f69405919ed3f2b96562070f4d58037cee1b28587e"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/metrics.json": {
+      "bytes": 5676,
+      "sha256": "bdc56b77a3563c6ea106ea7722c9593756d6c68b7e2d694bdb1c2b35958224c9"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/pytest_all.txt": {
+      "bytes": 99,
+      "sha256": "b1aca290a6acdcc83b5ab4f74da4a54335c0a6841445ff26d9a3cb4b9421d51c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/pytest_val_effects.txt": {
+      "bytes": 98,
+      "sha256": "0e0177d95805cd7e9ccb1859b562b7fe1d8ffaed73559d85239e8afb6ed7a331"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/red_validation.txt": {
+      "bytes": 958,
+      "sha256": "8832b5348080070eaefa460bfa03f9d00da275334f5bd7ae0f3e86fdabde65a0"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/run_log.txt": {
+      "bytes": 1248,
+      "sha256": "ef5452d336bae9ae9ab36540833eadc75f956f3e8fe06de4f0b6ef53e2aba73a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_period_grade_12a7768/SUMMARY.md": {
+      "bytes": 826,
+      "sha256": "b349343a6a3982c07a9e6adfe567e1dabd113a2ab898a613c072367a6e703d54"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_period_grade_12a7768/asof_grade_per_game.csv": {
+      "bytes": 4573,
+      "sha256": "14ef8563e734253ece455408adcff6f8d8833bef8a0ec9f9b6ed6f8165b17d6b"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pre_period_grade_12a7768/metrics.json": {
+      "bytes": 4596,
+      "sha256": "e70e977a05b037124c6f078645c56f6fd45fe929d53293f85fcbc6a8c15352bc"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pressure_coverage_evidence_dossier.json": {
+      "bytes": 3035,
+      "sha256": "4db593e1d70530e0d18811a902d39895524e446769fafebdf79e59d59689d17e"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pytest_all.txt": {
+      "bytes": 99,
+      "sha256": "b1aca290a6acdcc83b5ab4f74da4a54335c0a6841445ff26d9a3cb4b9421d51c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pytest_all_period.txt": {
+      "bytes": 100,
+      "sha256": "7babec9634d4b8485acf3170f3e27002add3a4ed74167b93a1e61a6c782ebd61"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pytest_all_postfix.txt": {
+      "bytes": 99,
+      "sha256": "6e46070827cd5433787a2a07f1c3fa5345d3f18bad32acb757d80f92cf9ff874"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/pytest_val_effects.txt": {
+      "bytes": 98,
+      "sha256": "0e0177d95805cd7e9ccb1859b562b7fe1d8ffaed73559d85239e8afb6ed7a331"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/realism_pace_diagnostics.json": {
+      "bytes": 1435,
+      "sha256": "198dbc7de073011789a883c7952db443795ce4916f8545aab4060efe5f5c0779"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/red_adversarial.txt": {
+      "bytes": 690,
+      "sha256": "7d871349091a1c7dae096159753258054e6121df755157f45f1bdb5115cb3850"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/red_completion.txt": {
+      "bytes": 1098,
+      "sha256": "136d58a0c0ed3a49023ec88c22e29a596c0d2d0d2bbc3d01550e44bb479df8a2"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/red_final_review.txt": {
+      "bytes": 418,
+      "sha256": "0fca574a5d31066863e62dcf34bfa7251e7faad452920cf38c2f4a1aacaacb45"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/red_p1_p2.txt": {
+      "bytes": 1107,
+      "sha256": "b07c1a5f224ac83900ba65335d60a665b1382bee2d5577620773fb1332112677"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/red_pass2.txt": {
+      "bytes": 1109,
+      "sha256": "248f5c059a5e9a681aca2d56f30bedb7d2847d005888a15d9a6bbb4f98254ee7"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/red_period_realism.txt": {
+      "bytes": 1680,
+      "sha256": "039d4ebdb1599f417ffc7e94efbc90d1b7d91aab52df35d92ea2b2bf6e1d5147"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/red_validation.txt": {
+      "bytes": 958,
+      "sha256": "8832b5348080070eaefa460bfa03f9d00da275334f5bd7ae0f3e86fdabde65a0"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/run_log.txt": {
+      "bytes": 1248,
+      "sha256": "ef5452d336bae9ae9ab36540833eadc75f956f3e8fe06de4f0b6ef53e2aba73a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/run_log_postfix.txt": {
+      "bytes": 827,
+      "sha256": "973df84e25abca3ce979fe29778265890817d7d5b5ff88e4027a9b64cb494591"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/run_period_realism.log": {
+      "bytes": 1076,
+      "sha256": "f3662fcaf1ff0fa7caa4b562730ff4224e363afb974b34baac4a7a473555e070"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/artifacts/validation/weather_scenario_hook.json": {
+      "bytes": 240,
+      "sha256": "5db540b1e196ebdfd40dddd918396fe48ab48afd067e382d97e5c0fe16e07a9d"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/config/jax_bal_tnf_2026-11-05_data_only.json": {
+      "bytes": 1324,
+      "sha256": "dd4938b109355362685a6cf9e6000df01c1218a443a3b553693ee483f0f908e6"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/config/jax_bal_tnf_2026-11-05_market_informed.json": {
+      "bytes": 1141,
+      "sha256": "af6fcf5db06f0bc32f1ae87e357558ad00b9822af535e459662d95457d97a888"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/config/jax_bal_tnf_2026-11-05_script_adjusted.json": {
+      "bytes": 2800,
+      "sha256": "d3b80405d76a06cb3ed0ef44c5637d3ae6708043c00b1bdaed283115a2f5ca28"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/config/research_variant_def_allowed_w05.json": {
+      "bytes": 1438,
+      "sha256": "9affa6461251b46d17df60453dee2ad483998baa78c3b05668ed853290fb7bc2"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/config_load.py": {
+      "bytes": 742,
+      "sha256": "824a5ca2ea6a05be3be5d12f5d1cc15feef5d4b6e8870fcd9362574d2bf2f687"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/docs/2026-11-05_possession_engine_v0_design.md": {
+      "bytes": 2295,
+      "sha256": "5a5f300e5dd1bc3b5534fffaae56ff78037b101c6164983b42edeb94d579052d"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/effects/__init__.py": {
+      "bytes": 76,
+      "sha256": "aa3d855c45fac0c504cda266fd6da1715a792cb17ee39b1320dcd06e7bfb19bd"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/effects/apply_supported.py": {
+      "bytes": 5505,
+      "sha256": "ebe8cbd678537aec702f2d0356476a5c402ba636d4570185c95befbee346db27"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/effects/definitions.py": {
+      "bytes": 392,
+      "sha256": "7acfd307efa5c9be033b2f97222b760ff6efb9ce221701698a4b5db055cf3e35"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/effects/evidence_tables.py": {
+      "bytes": 7569,
+      "sha256": "a2a5cbcbbb2a2cce458b4090597a4864875ba4a2069fcfa11533975489b31023"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/effects/missing_feature_adapters.py": {
+      "bytes": 2267,
+      "sha256": "80cc6dbe27ddf3e634adf8a63fa37ab2188f5f962f985d0ace36ce7638a6bcb5"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/empirical.py": {
+      "bytes": 4040,
+      "sha256": "75e221b36033eec80c0162d434af5d0b3e4b55caba4683ead70d56d22e388fa1"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_accounting.py": {
+      "bytes": 26166,
+      "sha256": "5aab91d930b82b8e9810964df5b19acb224366379647afaa2c2e7a86d70a3ee9"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_inputs.py": {
+      "bytes": 15135,
+      "sha256": "6543d9a1d7f1f1d73cd02087fa70e1f74945aafe1a8e2c2004bf907f75f55c7f"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_producer.py": {
+      "bytes": 30514,
+      "sha256": "626ad4bd44cc132db6c39a910ae7e4967160d883751126ba29f3a4087400223f"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/pbp_filter.py": {
+      "bytes": 3200,
+      "sha256": "b4ece8f099749896f235b2e813ef962a3a833602288c6cd48587492d611e1a4c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/provenance.py": {
+      "bytes": 6092,
+      "sha256": "58c1f7762d0ea9aedf19faa9f0f1c85d320f8401d63ea954e95eb48d733b2518"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/FINAL_DIFF_REVIEW_STATUS.md": {
+      "bytes": 1134,
+      "sha256": "da72fc572547c451c64208ba5393e435fcfe5e170dd4f0255f229710785eafe0"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/bundle_delta_405231c.txt": {
+      "bytes": 5258,
+      "sha256": "d4485531ecf8f137f97e091dccbcf8e663181afdf55590c896aaa0782a42b668"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/bundle_final_8a4ce01.txt": {
+      "bytes": 60636,
+      "sha256": "4e407b4f638d906aeea9b59890ba6dee24d51295bfb5f16284430cac36e20ad7"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/bundle_pass2_e041e95.txt": {
+      "bytes": 100558,
+      "sha256": "e2a9559161447d19521ff975258e7117723d918f38b349dfacf7c774e6688dce"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/code_bundle_64b564b.txt": {
+      "bytes": 148733,
+      "sha256": "4a110592bb79531ec362ef143ac7e0081ce5ec4c3e49321eba34bd958ffacf80"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_delta_405231c.txt": {
+      "bytes": 935,
+      "sha256": "d727678aab0d6d9b014536737ad6df2d73adc84fd6a90f6ae187205f308ad248"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_delta_405231c_stderr.txt": {
+      "bytes": 57626,
+      "sha256": "689c2c1f592ce0fc542cfa457e9cbbfce21412b7e3bee752535c417a60e073ba"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_final_8a4ce01.txt": {
+      "bytes": 5553,
+      "sha256": "e71a56817f505f4706fdb0d5ed27ae9bbf83429beaffeb0ae699e382be3f0c5d"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_final_8a4ce01_stderr.txt": {
+      "bytes": 192028,
+      "sha256": "2caddf1394490b2595b96d451af2b3a5cba78282c844c54975aaded4c5ddba88"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_meta_final.json": {
+      "bytes": 327,
+      "sha256": "bc292512517ab2ed2ea1a2ab94b34088e0eccd47b3ca1c05691d2601203e3a68"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_meta_possession.json": {
+      "bytes": 305,
+      "sha256": "cc1f832e2bbec2ed56e43288091a16e55d48b8de56c738536de9ae46dd91437e"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_pass2_e041e95.txt": {
+      "bytes": 12045,
+      "sha256": "b6b0cb8f8a5b1917e2170ffa166acb1f638700f36054aca1f7f5dc08f6f643ec"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_pass2_e041e95_stderr.txt": {
+      "bytes": 204519,
+      "sha256": "66403b59695c511f640e9c442835467408b2c494699e878a346c6af4206ccfd2"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_stderr_final.txt": {
+      "bytes": 128947,
+      "sha256": "957a4e6c2f8d4e0a667c03d7ec22245e42c859380d69d49410e629f2f79bb67b"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_stderr_possession.txt": {
+      "bytes": 241437,
+      "sha256": "a529e7475abc4f71ac3b3108e213b292256e3937fb8b699f9e7db47157e99f23"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_stdout_final.txt": {
+      "bytes": 3916,
+      "sha256": "c900b9ddd1d3baf66370fe5295493ab7da970fe2725df9c6e26534eb847cbf0a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/codex_stdout_possession.txt": {
+      "bytes": 11155,
+      "sha256": "4a7a3c1de6f463db43678cc691d522d421c4b29b123eead01e53818f877aeb60"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/final_patch_bundle.txt": {
+      "bytes": 30775,
+      "sha256": "6269ef2a220cb817ba590c1ef3ac557689ef1d0c959bb251b2e180483e527a9f"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/grok_delta_405231c.md": {
+      "bytes": 189,
+      "sha256": "0fd663668adfad6af91b89ae6524dff4406fdb9c151053f390d2334fa7c641cc"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/grok_delta_405231c_meta.json": {
+      "bytes": 107,
+      "sha256": "8bcf3a5a6975d1bbc75f4f1731c8122a8112009eff30bb3d503a7eea26ad963a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/grok_final_8a4ce01.md": {
+      "bytes": 1787,
+      "sha256": "aa988b9811cb49c27c27a0d37a3a21fce0c1710f9aab743bc54be1ffd2ddbd24"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/grok_final_8a4ce01_meta.json": {
+      "bytes": 552,
+      "sha256": "bd02912fbd683a59b8e78b7d1719276b4f3cbcb07a07dd04313ae98a137cfd57"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/grok_final_meta.json": {
+      "bytes": 652,
+      "sha256": "3115bc1c29ca41d0f576b0c85d016caace690195ebdd7f55bff26bf5724dd144"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/grok_meta_possession.json": {
+      "bytes": 686,
+      "sha256": "226cbf1c775e42fd1d114ab8bd1b1b4988f3e955ebc3460109a974c49bfef862"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/grok_pass2_e041e95.md": {
+      "bytes": 3835,
+      "sha256": "21f5d0276ac24db92be96626c9b0950a80d3aad2d72faa85743e35928c6a7cd0"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/grok_pass2_e041e95_meta.json": {
+      "bytes": 568,
+      "sha256": "56a36fc56d35374ae5fe289f657436034d41653da1592825beddacac5aa55d0d"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/grok_review_final.md": {
+      "bytes": 1861,
+      "sha256": "cc707898a06967cabde7be48a08e5c519c199300f252388a95b178a0b16828ad"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/grok_review_possession.md": {
+      "bytes": 4038,
+      "sha256": "2b39381d978e27c2d65dfaa16d3a6370835467800d19d3f208becd0c326209ec"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/prompt_codex_final.txt": {
+      "bytes": 428,
+      "sha256": "431389101b0678b0d3b817f085368af4be3c18fccc083f2ec2681e0292c6f57c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/prompt_codex_short.txt": {
+      "bytes": 875,
+      "sha256": "78a1f3aa3d15abc744a7504552aa9f201b7f992d38fad2e7e37338a35ba5f55a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/prompt_final.txt": {
+      "bytes": 603,
+      "sha256": "ac34286c0740baae27166ae8ba2a798b212611d3a7864d59bb3ddfb63e472570"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/prompt_pass2.txt": {
+      "bytes": 1144,
+      "sha256": "f37fcd7cfb15be29f1fef34aea05289a2e2f4d3fd46f70b8e30aea6f009f0fe4"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/reviews/prompt_possession_64b564b.txt": {
+      "bytes": 149746,
+      "sha256": "b6f68d46233c5f89d1726ab05691418712886e9b35d428a0be8bb7d46c7c13a7"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/run_complete_pass2.py": {
+      "bytes": 6496,
+      "sha256": "3a4b3dcbd6a3472a5b9fc973a96d919500d609328b4367bc4a4be7866371ced9"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/run_jaxbal_demo.py": {
+      "bytes": 4170,
+      "sha256": "f88646d64b70d8c6c616957903f687854e148847bbf8d9e646cfe38974cae9fa"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/run_period_realism_grade.py": {
+      "bytes": 5287,
+      "sha256": "2c7e2663c53a7bed268c96981203013ccefe1c99149a96fe172e14d311936670"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/run_validation_grade.py": {
+      "bytes": 8161,
+      "sha256": "4bfaf9d51ce6d284e0afc7eb770edd9a428ffaf861564a868b04ea55bd217303"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/scenarios/bal_upset_fagnano_200_sensitivity.json": {
+      "bytes": 955,
+      "sha256": "5d0090e944ea07f5d2243d70653112c7076d4fac89a77ae17200c5038beb6717"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/scenarios/nws_LWX_109_90_hourly_pulled_2026-11-05T1822EST.json": {
+      "bytes": 162389,
+      "sha256": "73d3a73f076df93ac1b9bc88ab17ad336728526470a9bfd688ed04d0d82ca002"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/simulate.py": {
+      "bytes": 32042,
+      "sha256": "073e228e6c45e961d8dde3a51b3fb8b79be3e22a4fb109cfb1d07d1a5f2f273d"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/situational.py": {
+      "bytes": 6250,
+      "sha256": "de33adae9d1ceb0f0abe4c6ddf5b94584cb00ed0be2d2b40c0cbc9166c7e1b7d"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/state.py": {
+      "bytes": 4105,
+      "sha256": "0083b012528fa679b23dfb049bf84d64afba18b94cc36e78f82d3a7eb279ba54"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_adversarial_review.py": {
+      "bytes": 2866,
+      "sha256": "c5d4565aceb570f427fd33ddbb8727b4527f6a773c6d99e1550d9613d86a9e42"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_asof_both_teams.py": {
+      "bytes": 1502,
+      "sha256": "3f1f171bd843b67bd31a5629d02cbe59fe19cd0564e3db309f45a5d58309b26a"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_audit_scoring_realism.py": {
+      "bytes": 3984,
+      "sha256": "0d02953662dbb8e12fc33af07aeeb0efddc7c1a809e19390f4e23f93ed36c91f"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_codex_p1_regressions.py": {
+      "bytes": 12351,
+      "sha256": "34f0354a0d4b0e83bcb6855b089d2bda9b1db573c70d9109c505be802e656390"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_complete_pass2.py": {
+      "bytes": 7578,
+      "sha256": "c0413146765ecba1b37f9fd71442dfbf70da40caa4406a23a0d63b58ece6e5cc"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_completion_fixes.py": {
+      "bytes": 2984,
+      "sha256": "b7d7e70e53e9e0e4e054da1e93812708855ac6ca94a9c3e85465da7755c3bae5"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_effects_supported.py": {
+      "bytes": 4915,
+      "sha256": "838c5300fb8459aa3cefec60583cbf6c49f5ea3adc9896c83aa38fd355631123"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_final_review.py": {
+      "bytes": 1967,
+      "sha256": "7587bf36e9d6e6a9cbe98dd337569c031fa3748835d8ad01a9935346cfaefda0"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_joint_producer.py": {
+      "bytes": 35353,
+      "sha256": "0496d8b619e29376c021973caec5b6ec1a0b50f70399539ab1c865c35c60f275"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_missing_feature_adapters.py": {
+      "bytes": 669,
+      "sha256": "faf11bd0432bfdce3aee4c4c1b5196711ef9e54c4380d68431afa0026bbd03f7"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_period_grading.py": {
+      "bytes": 1432,
+      "sha256": "36cf0d95080151b25fc6266c9cf0928c52d27227999f3cbf0647a564ac17b69c"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_period_scoreboards.py": {
+      "bytes": 2792,
+      "sha256": "c2ce572976124134292a36cb5e1404285bde8b7e3a7fefa1775434e73e0169c9"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_provenance_ledger_situational.py": {
+      "bytes": 3492,
+      "sha256": "a063f04d16d8fd26883487816601e5ea0d1e8b3c22e33880002c9fb6b16f716f"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_realism_diagnostics.py": {
+      "bytes": 862,
+      "sha256": "e1e6684e7f764b88cb77094c9d9f38aadeb2c6d27c756758a929770e640f5de9"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_sparse_and_config.py": {
+      "bytes": 3577,
+      "sha256": "4cf1a05792cd4f552bfc65da7fbe37cc4fc692cf426c15852b0ae39a4ab8b3a7"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_state_and_sim_slice.py": {
+      "bytes": 3743,
+      "sha256": "9e6b61ae8630e9db606e236058360456d93a9a9722d489ed9ee3df4b7b2194ef"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_validation_grading.py": {
+      "bytes": 2410,
+      "sha256": "590a2933cf47819b55a415c0f4996e1d78928f4228c0ac655f704adbfee13b8f"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_weather_nws_metadata.py": {
+      "bytes": 786,
+      "sha256": "3e022721feb86ffde572c356cb1ea07c244b96627e87ef658daeca141b358ddf"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/validation/__init__.py": {
+      "bytes": 103,
+      "sha256": "8035db2debcac801c60f7fae12384df83d84f3df516727ee9b9e31de965326a7"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/validation/accounting.py": {
+      "bytes": 6155,
+      "sha256": "1dc613891dbf5b9d5134567b18049783d95e9e2c2e20cf04e655ad6930a2557b"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/validation/asof_grade.py": {
+      "bytes": 8741,
+      "sha256": "d12d89cf25c244a2a137721e0cabdc852a27c8864c901ecd41fafe1de6058780"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/validation/period_grade.py": {
+      "bytes": 7378,
+      "sha256": "053be4e790818c0ff5988d870cae0c79382cea0227865df417adbafa09393a5d"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/validation/realism.py": {
+      "bytes": 5606,
+      "sha256": "23d31e7b779fb611ab4936a32866f3d2c6ebd68ea5816570c4b8b601dcb0436f"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/validation/weather_hook.py": {
+      "bytes": 2568,
+      "sha256": "1b6dc6956f643646c15a1924a9c63e45a964ff87e6fb5d7d3c22911cc914ad32"
+    }
+  },
+  "git_diff": {
+    "command": [
+      "git",
+      "-C",
+      "/workspace/wt-nfl-sim-core-2026-11-06",
+      "diff",
+      "HEAD",
+      "--",
+      "research/possession_engine_v0"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "diff --git a/research/possession_engine_v0/README.md b/research/possession_engine_v0/README.md\nindex f2c03ad..42381ba 100644\n--- a/research/possession_engine_v0/README.md\n+++ b/research/possession_engine_v0/README.md\n@@ -4,6 +4,13 @@ Team-only (JAX/BAL 2026 W1\u20138) possession / PBP vertical slice. Preserves `peri\n \n **Not a betting engine. No edge claims.**\n \n+The opt-in [frozen joint CORE producer](JOINT_PRODUCER.md) generates targets and\n+carries before yards and exports a checked event ledger. See\n+[CORE_MANIFEST.json](CORE_MANIFEST.json) for implemented components and blockers.\n+Only tiny synthetic trials have validated that path; real-game source inputs and\n+consumer integration remain blocked. Legacy yard-row outputs are explicitly\n+ineligible for shared-contract projection.\n+\n ## Configs (frozen, distinct)\n - `config/jax_bal_tnf_2026-11-05_data_only.json` \u2014 empirical baseline, no QB adjustments, no market\n - `config/jax_bal_tnf_2026-11-05_script_adjusted.json` \u2014 forward-only QB/injury filter (Fagnano; Lamar OUT)\ndiff --git a/research/possession_engine_v0/config_load.py b/research/possession_engine_v0/config_load.py\nindex 04c1831..687d976 100644\n--- a/research/possession_engine_v0/config_load.py\n+++ b/research/possession_engine_v0/config_load.py\n@@ -7,6 +7,11 @@ from typing import Any\n def load_config(path: str | Path) -> dict[str, Any]:\n     p = Path(path)\n     cfg = json.loads(p.read_text())\n+    if \"joint_producer\" in cfg:\n+        for key in (\"config_id\", \"mode\"):\n+            if key not in cfg:\n+                raise ValueError(f\"config missing {key}\")\n+        return cfg\n     required = [\"config_id\", \"mode\", \"game\", \"history\", \"min_n_state\", \"proposed_pooling\", \"adjustments\", \"seed_base\"]\n     for k in required:\n         if k not in cfg:\ndiff --git a/research/possession_engine_v0/simulate.py b/research/possession_engine_v0/simulate.py\nindex 2c0385a..6c6425f 100644\n--- a/research/possession_engine_v0/simulate.py\n+++ b/research/possession_engine_v0/simulate.py\n@@ -469,6 +469,15 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand\n \n \n def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dict[str, Any]:\n+    if \"joint_producer\" in cfg:\n+        # The frozen model path owns its input reads, seed policy and ledger.\n+        # Never reuse historical yard-row player assignments as opportunities.\n+        from joint_producer import simulate_joint_games\n+        joint = cfg[\"joint_producer\"]\n+        if joint[\"spec\"][\"mode\"] != cfg[\"mode\"] or joint[\"spec\"][\"config_id\"] != cfg[\"config_id\"]:\n+            raise ValueError(\"joint producer config/mode mismatch\")\n+        return simulate_joint_games(joint[\"spec\"], input_root=joint[\"input_root\"], inputs=joint[\"inputs\"],\n+                                    n=n, seed=seed, output_root=joint[\"output_root\"])\n     wk = (cfg.get(\"game\") or {}).get(\"week_asof_exclusive\")\n     if wk is not None and int(cfg[\"history\"][\"weeks_inclusive\"][-1]) >= int(wk):\n         raise ValueError(f\"history weeks {cfg['history']['weeks_inclusive']} not strictly before target week {wk}\")\n@@ -547,6 +556,8 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic\n     status = \"OK_WITH_SPARSE_FLAGS\" if sparse_counts else \"OK\"\n     return {\n         \"status\": status,\n+        \"shared_contract_status\": \"UNIMPLEMENTED_LEGACY_YARD_ROW_BOOTSTRAP\",\n+        \"adapter_projection_allowed\": False,\n         \"n_completed\": n,\n         \"n_requested\": n,\n         \"seed\": seed,\ndiff --git a/research/possession_engine_v0/validation/accounting.py b/research/possession_engine_v0/validation/accounting.py\nindex 15297b7..d3605d8 100644\n--- a/research/possession_engine_v0/validation/accounting.py\n+++ b/research/possession_engine_v0/validation/accounting.py\n@@ -65,10 +65,14 @@ def run_accounting_checks(cfg: dict, *, pbp_path: str | Path, n: int = 50, seed:\n     def add(name, ok, detail):\n         checks.append({\"name\": name, \"ok\": bool(ok), \"detail\": detail})\n \n-    add(\"reg_clock_target_declared_3600\", True, \"engine uses 4x900; OT separate\")\n+    add(\"reg_clock_target_declared_3600\", False,\n+        \"UNIMPLEMENTED in legacy diagnostic: a declared 4x900 target is not measured elapsed-clock reconciliation\")\n     add(\"halftime_present_rate\", float(np.mean([d[\"n_halftime\"] >= 1 for d in details])) > 0.9,\n         f\"halftime_rate={float(np.mean([d['n_halftime']>=1 for d in details])):.3f}\")\n-    add(\"q_sum_reg_scores_recorded\", True, \"reg_home/reg_away arrays present\")\n+    add(\"q_sum_reg_scores_recorded\", all(k in out.get(\"arrays\", {}) for k in (\"reg_home\", \"reg_away\")),\n+        \"array presence only; measured reconciliation checked separately\")\n+    add(\"shared_contract_opportunity_and_player_accounting\", False,\n+        \"UNIMPLEMENTED legacy yard-row bootstrap; use frozen joint_producer path for checked event ledger\")\n     add(\"mean_snaps_in_band\", 80 <= mean_plays <= 160, f\"mean_snaps={mean_plays:.1f} (band 80-160 diagnostic)\")\n     add(\"kickoffs_ge_tds\", float(np.mean([d[\"n_kickoff\"] >= d[\"n_td\"] for d in details])) > 0.85,\n         \"kickoff count should cover TDs+opening\")\n@@ -82,7 +86,12 @@ def run_accounting_checks(cfg: dict, *, pbp_path: str | Path, n: int = 50, seed:\n         recon = bool(\n             np.array_equal(A[\"h1_home\"], A[\"q1_home\"]+A[\"q2_home\"])\n             and np.array_equal(A[\"reg_home\"], A[\"h1_home\"]+A[\"h2_home\"])\n-            and np.all(A[\"fg_home\"] >= A[\"reg_home\"])\n+            and np.array_equal(A[\"h1_away\"], A[\"q1_away\"]+A[\"q2_away\"])\n+            and np.array_equal(A[\"h2_home\"], A[\"q3_home\"]+A[\"q4_home\"])\n+            and np.array_equal(A[\"h2_away\"], A[\"q3_away\"]+A[\"q4_away\"])\n+            and np.array_equal(A[\"reg_away\"], A[\"h1_away\"]+A[\"h2_away\"])\n+            and np.array_equal(A[\"fg_home\"], A[\"reg_home\"]+A[\"ot_home\"])\n+            and np.array_equal(A[\"fg_away\"], A[\"reg_away\"]+A[\"ot_away\"])\n         )\n     add(\"period_quarter_scores_in_sim\", has_q and recon, \"Q1-Q4/H1/H2/reg/fg arrays + reconciliation\")\n     add(\"ot_only_if_reg_tie\", bool(np.all(~out[\"arrays\"][\"went_ot\"] | (out[\"arrays\"][\"reg_home\"] == out[\"arrays\"][\"reg_away\"]))),\n"
+  },
+  "git_head": {
+    "command": [
+      "git",
+      "-C",
+      "/workspace/wt-nfl-sim-core-2026-11-06",
+      "rev-parse",
+      "HEAD"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6\n"
+  },
+  "git_status": {
+    "command": [
+      "git",
+      "-C",
+      "/workspace/wt-nfl-sim-core-2026-11-06",
+      "status",
+      "--short",
+      "--untracked-files=all"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": " M research/possession_engine_v0/README.md\n M research/possession_engine_v0/config_load.py\n M research/possession_engine_v0/simulate.py\n M research/possession_engine_v0/validation/accounting.py\n?? research/possession_engine_v0/CORE_MANIFEST.json\n?? research/possession_engine_v0/JOINT_PRODUCER.md\n?? research/possession_engine_v0/joint_accounting.py\n?? research/possession_engine_v0/joint_inputs.py\n?? research/possession_engine_v0/joint_producer.py\n?? research/possession_engine_v0/tests/test_joint_producer.py\n"
+  },
+  "market_files": {
+    "/workspace/wt-market-calibration/research/market_calibration/MANIFEST.json": {
+      "bytes": 2119,
+      "sha256": "c996299ca4cda5a1ed7e90a5958573798c9bf73ace4276bbc0e6346d721684bb"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/README.md": {
+      "bytes": 9040,
+      "sha256": "48455e6a29ea8efca4f56d226c49e28254a467490d464bb9a28ea00505c9a4f2"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/__init__.py": {
+      "bytes": 86,
+      "sha256": "1c2208872af40848278e53e972bedb928c85ef6e448d446277200217b4cbab5d"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/artifacts/market_anchored_outputs.json": {
+      "bytes": 215,
+      "sha256": "e0447a9c8f9e1e3f18a69202f2874739ddf1cfdddfc3ef7b72e81aa86f631613"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/artifacts/raw_model_outputs.json": {
+      "bytes": 174,
+      "sha256": "50c333540cb341609e1e192f5fe2457285940117bcecbfca0e0ed9f8e1a9eef1"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/artifacts/saved_quote_audit.json": {
+      "bytes": 164792,
+      "sha256": "a376a9ff4d445fce2b40964e27a0d72dfadb5d38eb53ca97d6e019f78a7f5e76"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/artifacts/saved_quote_audit.pre_snapshot_fix_2026-11-06.json": {
+      "bytes": 164792,
+      "sha256": "3d1ff2defa75b964b99278640429c1d21ff5b69fb635a144bec360073399cb89"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/audit.py": {
+      "bytes": 5147,
+      "sha256": "506f374e91551edb3ae67afb4e07b0cbc5b0ae58d811f461dd6c0858de072766"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/calibration.py": {
+      "bytes": 7150,
+      "sha256": "c49b742d9144b045f7676e2c18dc87e06a9188ebca25742add2d6ee3d1b447e2"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/joint_trial_adapter.py": {
+      "bytes": 12004,
+      "sha256": "f430b71834c5da8c59083218c7f0860cee7fd84c30460d9a167aa72af224384d"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/manifest.py": {
+      "bytes": 4317,
+      "sha256": "cf33932cb1f72826757e5ba289974762e4cdd4978816d286a2e01dfbe44e48a0"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/quotes.py": {
+      "bytes": 12629,
+      "sha256": "715e7ed8ef3d4f4b2d6000463af22f7d8a4624cc1aa00658a753fd35169872fd"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/AUDIT_REGEN_COMPLETION.md": {
+      "bytes": 1679,
+      "sha256": "635ddeb720edcd8f3896b0e10cbc8ca45ff795a69b7aff7d27ace9db27c00e98"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/B01_WIRE_FIX_COMPLETION.md": {
+      "bytes": 4600,
+      "sha256": "10a3fab88e000a0f371ac7a98e25fcbe6cb2b697fc776f5b582774cd1a3960f6"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/BINDING_REBIND_COMPLETION.md": {
+      "bytes": 6919,
+      "sha256": "79d8015798638e7c33c079fc677f6ee53137b17ee3ec055d5aab2ece3c1525fd"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/COMPLETION_CODEX.md": {
+      "bytes": 6094,
+      "sha256": "70057130201b05c57ef528e3a9422f3ef1b8efbfedc21dd764e0709486040793"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/INDEPENDENT_CODEX_REVIEW.md": {
+      "bytes": 11606,
+      "sha256": "432c3ca4a4c53341b1a46ff7fcb024c207e6ef26d75b42c9273863516a7cba53"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/audit_regen_execution.txt": {
+      "bytes": 227,
+      "sha256": "12ae836b95a9e313f9a061cb7e1a11ddf6fb334a40d31687b07934e014f98d47"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_audit_regen_evidence.json": {
+      "bytes": 5603,
+      "sha256": "a3657e1fb1313e09c949b8e147c5ab155c4bed78a0645bba0dc5b7d0b27e4681"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_audit_regen_last.txt": {
+      "bytes": 543,
+      "sha256": "ddf1eb8ce58a8fc0391e4645eec7b7859aa163e2b9b45ce1015b909ba1025dd4"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_audit_regen_stderr.txt": {
+      "bytes": 47946,
+      "sha256": "0d878f19f0bbaff6bd4253510815880bb14ee9977c09fb12db08669c587a66cb"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_audit_regen_stdout.txt": {
+      "bytes": 544,
+      "sha256": "17be4d643cd26690f91096150e8f2be529724495735e8afa20ff599e79c4219a"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_evidence.json": {
+      "bytes": 32521,
+      "sha256": "3e5454ca2704442653bd5770c140916611b81d5b93c4f0421d96e87078d35403"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_last.txt": {
+      "bytes": 697,
+      "sha256": "4d798b82feda094248d64cee110a0136c79085e27c54bf7add194b4e3129cb52"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_run_records.json": {
+      "bytes": 4879,
+      "sha256": "2d8fa8dc71aa5a784d9331a22ccfa2552b0fb0d57191c273a1c31c1975906432"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_stderr.txt": {
+      "bytes": 830677,
+      "sha256": "e6cf19694e4301a9864f55fe4732f3abe4ef26a3ed59c25175e68bb8ca897bba"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_stdout.txt": {
+      "bytes": 698,
+      "sha256": "f292a15a252feabd2c332dd545e10a6af15e86222c3e945892d00ba8f023a33d"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_evidence.json": {
+      "bytes": 17860,
+      "sha256": "a3d25d07f33a74fdc28befb0023cf66da424af6780696e5ed7a853d2920dec98"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_last.txt": {
+      "bytes": 645,
+      "sha256": "10e0ef8335f67f042fef411ad9b77f661f86b682446f6b58b420b2e4e341f152"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_stderr.txt": {
+      "bytes": 1022661,
+      "sha256": "2a0348ea557837a8793b1d9f0d04bc8fce6b4e0cf8db8b4aa3c7b66e834bce15"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_stdout.txt": {
+      "bytes": 646,
+      "sha256": "578931c206455c38147f0ac232888326af0cde394b4f654a8c043f4d18193f7d"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_exec_evidence.json": {
+      "bytes": 8716,
+      "sha256": "1ca55895fc019bc81fff52749db7ba14cd3be3b41de1a9f17a3ed80738bd15a8"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_independent_before_hashes.json": {
+      "bytes": 2736,
+      "sha256": "a1ebac008647ea189f0c0ea0fc05f248dc2291d8be037f981d501622f96232fb"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_independent_review_evidence.json": {
+      "bytes": 9332,
+      "sha256": "214b233ca18d821760e770c4ac00011b53bb5a7b4e4da3b5ba4f13b84b64d656"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_independent_review_last.txt": {
+      "bytes": 692,
+      "sha256": "5162fc6a745a1f19149172accc0e25042252b85cceea6fe8c78698dfd38974df"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_independent_review_stderr.txt": {
+      "bytes": 728352,
+      "sha256": "71cd496d2e6f227813313d7c00a2f260d321138d3777371f8b7d9b38e44b69b7"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_independent_review_stdout.txt": {
+      "bytes": 693,
+      "sha256": "a6c9d9aae9e3b9ebc24848dfdabc94e7254cfdbc00c252d909530bbdf0db3d40"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_last_message_v2.txt": {
+      "bytes": 689,
+      "sha256": "6a4555ba17698095d9258307cb562cdf3d1eb41028e81bc9af5a1452fb3c2262"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_stderr_v1.txt": {
+      "bytes": 54430,
+      "sha256": "96131fab2e82af2e75390fd0866d423ed62423a779f17d81e1c17df173f1c6e6"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_stderr_v2.txt": {
+      "bytes": 250318,
+      "sha256": "4d51aeae2ecbe6d54dc4b5e7494bfd9ffd7a5fa7f8c129d7cf179623a5d31ecf"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_stdout_v1.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_stdout_v2.txt": {
+      "bytes": 690,
+      "sha256": "b25059fe45cfe8c38a69ef3d074d9a7cfc6a80fbb7960b780fa8923e1e0ac535"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/prompt_codex_audit_regen_v1.txt": {
+      "bytes": 1378,
+      "sha256": "6719e5c9ced6aae99d0aaad4401eb72656ef8f9595b1512f4f24d5fea029aeec"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/prompt_codex_b01_wire_agreement_v1.txt": {
+      "bytes": 5146,
+      "sha256": "4e8eab7509a92a61afd1395cfeb3ce6c3e3cc3665ce929059ad11894f4c4828d"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/prompt_codex_binding_rebind_v1.txt": {
+      "bytes": 3213,
+      "sha256": "f5239697c34473c209dbdb79a2e6fdc33d90f92eed3ca0ebc89ecda691b9c1c6"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/prompt_codex_implement_v1.txt": {
+      "bytes": 7179,
+      "sha256": "c71934bbc7bfbe2e695bbff9ed6d463825129fc2e62b9ba7e03ffb6ec14c53b7"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/prompt_codex_implement_v2.txt": {
+      "bytes": 2776,
+      "sha256": "2b7261100e661e314f31bc22a491658bfc8902dc5677e350c39a63c013aff7f3"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/prompt_codex_independent_review_v1.txt": {
+      "bytes": 2217,
+      "sha256": "c8323030b22b37a18af91db72259dc5ea1eae044b1c8340113dd359e7b903a2d"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_audit_regen_combined.txt": {
+      "bytes": 180,
+      "sha256": "a55ee7a869c76a4b955de19058800c61e35be4e7b2b43caae6e9d099deb7e00d"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_audit_regen_red.txt": {
+      "bytes": 1407,
+      "sha256": "2dbe9ca574e52bb74f5579cc7f5cf4f7970e152483b941ec210b9e916bbbbc50"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_direct.txt": {
+      "bytes": 2155,
+      "sha256": "eb631c7b2f9799c8277b1dff3d9e2eb699b94c300c20688032d1b5f834ab988b"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_historical_contract_rehearsal.txt": {
+      "bytes": 428,
+      "sha256": "f7bd107ad81192cbced350ff5bfcbff063c3d2dfa1702ec2b63698ed58550cb6"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_integration_full.txt": {
+      "bytes": 54605,
+      "sha256": "190eb4768865fb466beea957a708bd9b5cd7b7bbf92190193142d4ac43e83d0e"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_market.txt": {
+      "bytes": 115029,
+      "sha256": "88cab337e9937cfb8cb9024681c0dddb6d3e2356b185f5dee89e6ade0d840a32"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_wire_cases_post_implementation_blocked.txt": {
+      "bytes": 110865,
+      "sha256": "b9c16937ce03069a01f85509f3bed015b0742baaa97c36fbcf9410e0905129d9"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_wire_cases_red.txt": {
+      "bytes": 110865,
+      "sha256": "ce9c426fafd12fb05793b5a6e4c4f7cb5ddc6b89445ac6779db98e5dc3a30942"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_wire_red.txt": {
+      "bytes": 2175,
+      "sha256": "daec6c904565b37366fbf90d354be3e27d1fdbbbbc26421be2798dda959d3b75"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_direct.txt": {
+      "bytes": 98,
+      "sha256": "fa8e3e1f0a4b084326a7027307e5cc3a94f799f9733ea598c3b878fa3c70f37c"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_local.txt": {
+      "bytes": 98,
+      "sha256": "c2c6b596f6326dec34c3110029f10ae752a6b80ef7dd9f3d368c2793a9363a31"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_market.txt": {
+      "bytes": 260,
+      "sha256": "038ade2b4642639bc7686315489b5a88567db86c4ff8ce68a19c17d596ebee7f"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_red.txt": {
+      "bytes": 4486,
+      "sha256": "2a9ecb02aa1d1e0ef68873713e2b513c1fd0abf205360915502bcf74d828f192"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_contract_red.txt": {
+      "bytes": 3490,
+      "sha256": "a686e76edda2625d68148d2993f5f5914f5671423cee5b8f1d0e0add14d3c2a1"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_final.txt": {
+      "bytes": 179,
+      "sha256": "3c09fd8f61bc40fab0407babac3524152cff226277ccce2859ffe70aadd60634"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_first_green.txt": {
+      "bytes": 179,
+      "sha256": "4b94edc5f4d4f61a1f71d08090eb328bdf725e529466fb7311df5a08cab90af8"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_implementation.txt": {
+      "bytes": 2551,
+      "sha256": "488e67ed46f35c6a06ca7fbf083b8f9c68d3b1a32920d026219e65ca33082eb8"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_independent_baseline.txt": {
+      "bytes": 179,
+      "sha256": "3c09fd8f61bc40fab0407babac3524152cff226277ccce2859ffe70aadd60634"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_independent_combined.txt": {
+      "bytes": 180,
+      "sha256": "7c44f54c3a57951fa52d3a0c75a7ef59039242d9b1eb54a372d36e8fe28045f4"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_independent_green.txt": {
+      "bytes": 99,
+      "sha256": "a4ba6a0b833ef7026d4d291578c1a66aa7b84a732bb259d96dc88bdb89ae3418"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_independent_red.txt": {
+      "bytes": 13838,
+      "sha256": "c02eb4f98e54b7d1dfcd272e87d7deabed1a54486eb0cf2995b46ee7f512c134"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_independent_required.txt": {
+      "bytes": 179,
+      "sha256": "779cf75a1ab500c37d652d94abef75ad8d97f5c717f96b21655bfb6834fd7255"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_initial_red.txt": {
+      "bytes": 3323,
+      "sha256": "509f32bc90dfe15317bce41b7bea46aef1337ed91dae2427b73c6d9e67a8bdbd"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_062048.txt": {
+      "bytes": 179,
+      "sha256": "06f33091e99f856350880e2b80ca74003d868295b8217f455fc9aad6850a90e6"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_final.txt": {
+      "bytes": 179,
+      "sha256": "a3fb67dfb217b0e64d35f5a563b081564454dfb2cebca3956493b93e4c4f159b"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_independent_combined.txt": {
+      "bytes": 180,
+      "sha256": "caea7a1854a52f67b5926459dac113d1995c147ca2a152c4d7e6d619eb1b3b4e"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_market_post_rebind.txt": {
+      "bytes": 260,
+      "sha256": "e26baf60b482e02d7c2aadef5a668db6e13b4d18d5726d48e536248c8131c9b2"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_post_audit_regen.txt": {
+      "bytes": 180,
+      "sha256": "a55ee7a869c76a4b955de19058800c61e35be4e7b2b43caae6e9d099deb7e00d"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_saved_audit_green.txt": {
+      "bytes": 179,
+      "sha256": "51ac3f573a2ead72e5fb3f27b420c60c2aef05a930142ed98080bb620b7102dd"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_saved_audit_red.txt": {
+      "bytes": 1016,
+      "sha256": "15bfa33b9aa4dbbb4e1d02ad3c1e106884924555153d9253aafcb0c01bd50313"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_second_review_green.txt": {
+      "bytes": 179,
+      "sha256": "06f33091e99f856350880e2b80ca74003d868295b8217f455fc9aad6850a90e6"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_second_review_red.txt": {
+      "bytes": 16289,
+      "sha256": "e8d192fc516f3ae505d3ebd77f8af8f1d90c4aebcb533435f94c4f207d6e8d63"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/saved_audit_execution.txt": {
+      "bytes": 227,
+      "sha256": "12ae836b95a9e313f9a061cb7e1a11ddf6fb334a40d31687b07934e014f98d47"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/test_independent_false_pass.py": {
+      "bytes": 1879,
+      "sha256": "7407291a463a387e0993b4095d82585c21418ddc98d55a148b77d193100d4493"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/settlement.py": {
+      "bytes": 3788,
+      "sha256": "434db80bbf8b6b8d937750938956995d38ad2a34d382ba8dec030d78eb9f5fba"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tests/conftest.py": {
+      "bytes": 129,
+      "sha256": "ec09fb9523c02ed5c890d8321a3a6240cd61a8acc4bd3c03725ff54d45d1bed7"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tests/pytest.ini": {
+      "bytes": 39,
+      "sha256": "aaabed120d2fb059160bb38bf8843dc0bbb6abca5f013dffb5228bfffb9a3404"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tests/test_calibration.py": {
+      "bytes": 4174,
+      "sha256": "7d598a678037ff6d3377a2f397ab7d4cf71eb456a1b43a1f2260f0335875691e"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tests/test_contract_binding.py": {
+      "bytes": 3942,
+      "sha256": "8acfb15af6a86dc703064dff6f8183c7b31ae688623aa1f080cd3271c4fa2dd1"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tests/test_contract_manifest.py": {
+      "bytes": 5849,
+      "sha256": "437a34a4a7478523f2fc972f84604d88b6d00938cb481070db08e16838a43374"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tests/test_producer_wire.py": {
+      "bytes": 9438,
+      "sha256": "a2c41a600f89710e4cf79b59fe8410f3809ee5f24c9d5bdd408d4460b6197611"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tests/test_quotes.py": {
+      "bytes": 5975,
+      "sha256": "b6cc879751fad3724562431458fcf89fe70677225e58675d4ad542228e2b18d4"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tests/test_saved_audit.py": {
+      "bytes": 4099,
+      "sha256": "4f62c197a2a6c1bb82a0fa0ea388c10559eab27c6b49311e29648662c4f1aad9"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tests/test_second_review.py": {
+      "bytes": 4986,
+      "sha256": "b7a9ba047fec7fc86b58be3da4d6a4070878e683ff3c142793e7a54b73cc99f3"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tests/test_settlement.py": {
+      "bytes": 2885,
+      "sha256": "969df4ed0981e31816facf30a8298c724d3e28fabecb9b22def5902967d31571"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tracking/GHOST_HANDOFF_MARKET_ADAPTER.md": {
+      "bytes": 11357,
+      "sha256": "28459c1acac67c12ead352f557d58f8a9a952db9f162fd79e5336d5b877d9bd2"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tracking/GHOST_ROUTE_FRESHNESS_2026-11-06.json": {
+      "bytes": 5821,
+      "sha256": "20e81c9575db72fe2cffd41ff33336a683dff2845f92bfad64c4aff49dadff1b"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tracking/NFL-16_TRACKING.md": {
+      "bytes": 7393,
+      "sha256": "c9f21314bb2598ddca1d0cd8a70b082e8bf3f55adb7495915861daa00ac75a0b"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tracking/PREFLIGHT_GHOST_ROUTES_2026-11-06.json": {
+      "bytes": 10389,
+      "sha256": "ec230d3c611deb4abdbeea89c9c0df0cbb888f82d9401b58acb2742755f5422f"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tracking/SOURCE_INVENTORY_2026-11-06.md": {
+      "bytes": 3313,
+      "sha256": "0b4da1371b5e9039d7175c9fa7aec735f1070ba19530b1d06c5a38d9eb437d33"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tracking/WIRE_AGREEMENT_v1.0.1.md": {
+      "bytes": 6207,
+      "sha256": "bd96a29ed1d18fdbf6b551b6c62a5db32b78ee0896bb9606fbd9e09abadbb2e7"
+    },
+    "/workspace/wt-market-calibration/research/market_calibration/tracking/WORKFLOW_15PHASE_ENGINEERING_2026-11-06.md": {
+      "bytes": 3830,
+      "sha256": "c139de57c3fe391868d433643747442b0c2e529594720e0e19fa61df3261ae19"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/PLAYER_EVIDENCE_SPEC.md": {
+      "bytes": 1499,
+      "sha256": "5a95220785e600c3d8066d33fe905f01c4ccfc50eb54976ba4357f279b719332"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/README.md": {
+      "bytes": 1184,
+      "sha256": "8b1a4172aae1f72ffaf8150d9398fc7a3fc8ffd92f88267c8e2bff7f39806ad9"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/__init__.py": {
+      "bytes": 104,
+      "sha256": "1efdf1dcc3aed5a37c07800645052726d30a2ff26031077971e81c28b8b17850"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/demo_e2e_fix.log": {
+      "bytes": 934,
+      "sha256": "1727e87f00f34d902fbfc0e8aa77ed901a3738bc6053d5a02f652db3a9c25849"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/demo_e2e_fix2.log": {
+      "bytes": 1016,
+      "sha256": "1a0dd3112a07040513068747139f243c38230329ecf957abe6306753250c90fe"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/demo_final.log": {
+      "bytes": 761,
+      "sha256": "76d8b19ab17ee17ea670139973c5b9cd4fc9ad31e28874067747510478037ad8"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/demo_jaxbal_period_report.json": {
+      "bytes": 16619,
+      "sha256": "8c64f1b0bb07cd6027b240f9773013db71893607a1dc0c845fd5f45dc9a30388"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/demo_run.log": {
+      "bytes": 761,
+      "sha256": "76d8b19ab17ee17ea670139973c5b9cd4fc9ad31e28874067747510478037ad8"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/demo_run_postfix.log": {
+      "bytes": 710,
+      "sha256": "4212373b4473a5439833c92665c2183b2a91ebf86a619b687440a74cc2cb24ae"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/green_e2e.txt": {
+      "bytes": 98,
+      "sha256": "38632ed3c07f9246848fb52956928f9d2c1ce4d692322739a2aebab384ef837e"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/green_ghost6.txt": {
+      "bytes": 98,
+      "sha256": "907ad90cac81d2c4462fa23d25c2fab6c77d5c373fff9295dde45d0062a0f6b4"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/player_evidence_meyers_demo.json": {
+      "bytes": 2667,
+      "sha256": "37c2841d46a57650e41f3225b331b5feb35a5b76022c1f472702bd766006187a"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pre_e2e_fix_3141ebc/demo_jaxbal_period_report.json": {
+      "bytes": 11336,
+      "sha256": "4c9864c0b8bb6e2aba11817aea23381e5195cd3bd63ee0cff43dc8d58afb1e36"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pre_e2e_fix_3141ebc/walkforward_2026_w1_8_summary.json": {
+      "bytes": 2384,
+      "sha256": "62c0ac04ee8b6a42cf44a201f142aefdd4487a023570a47c4a867bc102cd4342"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pre_fix_v0_ceb6ab3/walkforward_2026_w1_8_by_week.csv": {
+      "bytes": 1022,
+      "sha256": "33374d997b48cc4743dac6032a51b82a90d1e92d4394d97c74ba030334e1eb49"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pre_fix_v0_ceb6ab3/walkforward_2026_w1_8_detail.csv": {
+      "bytes": 173525,
+      "sha256": "ee2c9413c7ccb1403099abcee90d2aee43cb963d60aeff371202b80321128109"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pre_fix_v0_ceb6ab3/walkforward_2026_w1_8_summary.json": {
+      "bytes": 1885,
+      "sha256": "eed964791754f5a3f889384efb9ac59b222ffb782367b65a2679637435cc3879"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pytest_after_demo_fix.txt": {
+      "bytes": 99,
+      "sha256": "03872ce78e5530e06eee592b0982f737cebb2b3b03ab46246f9a9fb45b70bff7"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pytest_e2e_fix_final.txt": {
+      "bytes": 99,
+      "sha256": "26eb5f2f7ed566d6d7bdb6da7ed96ece639908dc1a6618d75be0b0938375eb9b"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pytest_final.txt": {
+      "bytes": 99,
+      "sha256": "f4fb0619f33743416d0a620d23970afb41defd0da6bd7c484fb0875974258d60"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pytest_final_post_ghost6.txt": {
+      "bytes": 99,
+      "sha256": "38834a7d6e090174752e9a0b17d82d12a7b01f5884a0bfede2ca295b5b0c03b2"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pytest_out.txt": {
+      "bytes": 99,
+      "sha256": "409a1e10e8ec5c746cd3e9a4d0978a8597d4dee32c2fefbd24b2205b7fc0522c"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pytest_out_postfix.txt": {
+      "bytes": 555,
+      "sha256": "73e22dfa9d66a8687a74e02e17786b86c459a46a34c5b09a4907efd14305f008"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pytest_post_ghost6_fix.txt": {
+      "bytes": 2384,
+      "sha256": "72f1f3f44665dbf7f6b8cc3a5a9f2828324ffcd85e55c83d03ba5bfdbd386efc"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pytest_with_candidate.txt": {
+      "bytes": 99,
+      "sha256": "9f99854a1b20acc57eb6ef79446c8e0c1e89cdbf163ef91902b3de471ad75760"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/pytest_with_evidence.txt": {
+      "bytes": 99,
+      "sha256": "5226c949ecc3bd9837c0cfcd7dc369b95ab294692343df4489010dc256fc3cf1"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/red_e2e.txt": {
+      "bytes": 2437,
+      "sha256": "2e896c3099a37d37029a6acdc91edb4587d5d6da6da6bb939da33ab563619aa4"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/red_ghost6.txt": {
+      "bytes": 1044,
+      "sha256": "ed3e4e6ab54913bbf0c0a0a4f75a1416c8258cc326a96131a4638dbce0a6d6bf"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/self_audit_e2e_flow.json": {
+      "bytes": 761,
+      "sha256": "fee3de90c53f7b458188830346b9e4c4b41d0b42b625710c11b2829d8b5526e7"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/walkforward_2026_w1_8_by_week.csv": {
+      "bytes": 1790,
+      "sha256": "2ab147a5748cc11b4795d9cb6d22dbfdb9b86e08030e0f151cb975c7fd324f29"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/walkforward_2026_w1_8_detail.csv": {
+      "bytes": 327645,
+      "sha256": "6adefdefa8e04ee0dcbf6ba1df73770f3a7f70fbb959296b0823b153d49facaa"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/walkforward_2026_w1_8_summary.json": {
+      "bytes": 2385,
+      "sha256": "b3db2f8c3b7488ae1cfae3db1635e0424a7967dcf13049ed95534faaae66e135"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/walkforward_e2e_fix.log": {
+      "bytes": 4054,
+      "sha256": "db07f9d1d2ed13a4b84c3e0e0c6cb27bd81d15b53a39f4e02a45a5320a39224a"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/walkforward_e2e_fix_summary.json": {
+      "bytes": 2385,
+      "sha256": "b3db2f8c3b7488ae1cfae3db1635e0424a7967dcf13049ed95534faaae66e135"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/walkforward_post_ghost6_fix.log": {
+      "bytes": 4053,
+      "sha256": "cd4dec49eb20710f47749a835febdcb4f141b811902f72c4263194f7875ac6a5"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/walkforward_pre_vs_post_fix.json": {
+      "bytes": 1118,
+      "sha256": "fa8154cc8f9561e0a45149863276beb790926b74352275741fdf91f7dcd66897"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/walkforward_run.log": {
+      "bytes": 3024,
+      "sha256": "da5012fb51de7f162a6265084994d194d3b69b8e748dcd0e3b77a1778de2bc11"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/artifacts/walkforward_run_postfix.log": {
+      "bytes": 3025,
+      "sha256": "5c40d05589c32306ae80795b03acdb3c678903b08866837a1d9216a1a1ba0634"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/candidates/README.md": {
+      "bytes": 437,
+      "sha256": "d5b4b9039b2d467cf9dd4e935d71af7a75f1ba4cd239b1e566138e7542274212"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/candidates/joint_residual_v0.py": {
+      "bytes": 2828,
+      "sha256": "2b5400c69914fb6f198b8461dec9acdf920552787d569cc2bdfe51e6dc36c9f1"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/data/play_by_play_2025.parquet": {
+      "bytes": 20337029,
+      "sha256": "c6ecedd6d678cc37ed316b23ef84ee1ec6abb69c514bb11868a7ebd5a367df29"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/data/play_by_play_2026.parquet": {
+      "bytes": 9035079,
+      "sha256": "5edd7c42ed3f116f7e8914594c536088c337052fa53552ba7947499ba0f9f1b5"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/demo_jaxbal_report.py": {
+      "bytes": 6830,
+      "sha256": "b26d2c449d0f686df8356031e8f51baa40c4439eb345c77aeab43341dc37ff16"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/market.py": {
+      "bytes": 6721,
+      "sha256": "24b4d41d9cbce3dcf97518a120df3a8eec3f32994486651195fadaaddb2df868"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/monte_carlo.py": {
+      "bytes": 11935,
+      "sha256": "9bad18301680eadd7a9df8a7b2198292fc494c0cff52592fb2cdf7861ff22481"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/player_evidence.py": {
+      "bytes": 6954,
+      "sha256": "8a7634d8f2b82915f1595dfe1cc852e2d0c5bf632e56d335a845c86b7145b56c"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reconstruct.py": {
+      "bytes": 3697,
+      "sha256": "e7e75e9e119fa0405e236952285b73cc54a6b2e45d41e3fe433b179297b1ea0f"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/E2E_FIX_2026-11-05.md": {
+      "bytes": 1469,
+      "sha256": "f40ae496bd4f0ca1bb733da99e4325badf5f71bfdf7fa987d9b1135fda2a45ec"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/SYNTHESIS.md": {
+      "bytes": 1773,
+      "sha256": "8fb94039718702de4835d7f15e6ba7faa5fbe06c62f9ceb676207d6326820b72"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/SYNTHESIS_POST_FIX.md": {
+      "bytes": 1568,
+      "sha256": "db639b935b1c765732d486deb86d6d0b63385e224c8ae23c41c39ddbe9d54f0b"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/claude_unavailable.md": {
+      "bytes": 873,
+      "sha256": "4cf157c70ad2c8985088f0c9dc590d52f6b43bc29e1aed350bc050d57c6df1be"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/code_bundle.txt": {
+      "bytes": 26938,
+      "sha256": "2553040b413652cc8d85748c55fbc9327442a9acc08b43865426c4d835531406"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/code_bundle_post_fix.txt": {
+      "bytes": 32434,
+      "sha256": "92dea2fb647430a88705606ea73f632495a96a863186216b0c2f823490939c44"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/codex_meta.json": {
+      "bytes": 171,
+      "sha256": "6b323dcfd78e00550c9a13ca466c94ae7db35b7f8a90c3ae85e4ae2daaf237a3"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/codex_meta_post_fix.json": {
+      "bytes": 209,
+      "sha256": "863741f47ebc91419dbdc659862ad79bd83400d59402fbc6b86cb975f10ed256"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/codex_review.md": {
+      "bytes": 13198,
+      "sha256": "52eb58c045a5d0d12027139ea7c2f0a70a73d5fef8896e21e18372be32c5c50e"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/codex_review_post_fix.md": {
+      "bytes": 6305,
+      "sha256": "a7d775cd91d625b0d22ae00092876b73cd227e40a20c32f79e6b8d20a6b6a99f"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/codex_review_post_fix_raw.txt": {
+      "bytes": 6045,
+      "sha256": "31fb9926d87a32e18db4d681f7c58e38f752951f9bd7bb5a2fbba2a4c7a12773"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/codex_review_raw.txt": {
+      "bytes": 12997,
+      "sha256": "295b603a112c409d062eab6d2023c5b41a5265cee8de019ca31d90bd240965aa"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/codex_stderr.txt": {
+      "bytes": 50068,
+      "sha256": "eac432ad04bd9a08d0c9d4c36d5149202ebf5fd625ac713e3baafadf5e7f6d84"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/codex_stderr_post_fix.txt": {
+      "bytes": 117456,
+      "sha256": "828f7265025e91855f9e927242ad4bfad5318ac263a571c0592196bfc304ef60"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/codex_stdout.txt": {
+      "bytes": 12998,
+      "sha256": "32193c48cd4795500946f25b5fac07015a6326e8747d9a82917e633985acadc6"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/codex_stdout_post_fix.txt": {
+      "bytes": 6046,
+      "sha256": "222617200d5bdbfe14972991f820a4b5f6f1700141495fb925433b43a0d89667"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/google_ai_unavailable.md": {
+      "bytes": 643,
+      "sha256": "e494cd93bce597843b18025bc1de1be8f42dbabe7e9f594eba5421ee888e3ade"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/grok_meta.json": {
+      "bytes": 625,
+      "sha256": "ceeadb21f012df539827fcf716c09c89ea0555484e3353c1f046058fcd458812"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/grok_meta_post_fix.json": {
+      "bytes": 666,
+      "sha256": "98cc3e52b66bd3e39a22bf2a917dcf4276581919ced63f7f600e81f88209e2e7"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/grok_review.md": {
+      "bytes": 3914,
+      "sha256": "c8ea44f35c3b05a3bdbf2994b7a2ff076c819301bc9f2cdde49accfa4f73f6e9"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/grok_review_post_fix.md": {
+      "bytes": 3599,
+      "sha256": "9752bd34fab8eae11d8cc0b447c0952c86e910a2dc6cb69c5eabfa01e69a3326"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/openai_meta.json": {
+      "bytes": 409,
+      "sha256": "684bfe4b05a56203ab558228ad49bfef2e445a5ab324ac4ab2203e0f29257f03"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/openai_meta_post_fix.json": {
+      "bytes": 449,
+      "sha256": "36c18f1ebfdf4c0e11180a967f930d24a7c17d8ed2b22ed23c9ad06b62449e41"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/openai_review.md": {
+      "bytes": 12123,
+      "sha256": "34b0261569818af28f277d2963b13ef7402ccf99403851650ded1b572bea30b6"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/openai_review_post_fix.md": {
+      "bytes": 9352,
+      "sha256": "e53e0f86219383028b296ab5377bf747dab35ef5a6f4a60892d1e453fa9a8a74"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/prompt.txt": {
+      "bytes": 27884,
+      "sha256": "f17ede9003702fce2e18a863e607359708bd7ddebeea4d288ecd650a877854c3"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/reviews/prompt_post_fix.txt": {
+      "bytes": 33126,
+      "sha256": "a9a22989dc28443860fee8e5ea41359a312d459c0fa4a0ed5c5bafd6fa59778d"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/settlement.py": {
+      "bytes": 2638,
+      "sha256": "1f2fb2f9cc30b31a5be2cb3f7c5f189594b3c2a851f38ff220804eb3b64783e1"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/tests/test_e2e_ghost6_remaining.py": {
+      "bytes": 5463,
+      "sha256": "ec4d0916a6b7064d00117d6edb0e08d40df91fbf8f2b7c0c11ed0ae810a71394"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/tests/test_ghost6_regressions.py": {
+      "bytes": 4081,
+      "sha256": "7301a01dfdf54c267e7a7280104e4516450672b282fcafa684af0cbe74a97fe0"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/tests/test_joint_residual_candidate.py": {
+      "bytes": 1122,
+      "sha256": "ead3a803f6b93cb2dc6c7ce4e3edd36262728c119433d6bd8810a167553584ff"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/tests/test_player_evidence.py": {
+      "bytes": 888,
+      "sha256": "54655c9351b3320e1c38656a6a5aa848e293c21ad0254c42334737ce4cb37efa"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/tests/test_reconstruct_sim.py": {
+      "bytes": 3749,
+      "sha256": "a4d2badbc88c84197af8ef400bd1b9ad4047a08ae7fdad7b8024101acc48528d"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/tests/test_settlement_market.py": {
+      "bytes": 3850,
+      "sha256": "d357dfef86ebf9e3de8f1fc31c5fc569733c2d315a19ccd9cec8d9c48b7b7358"
+    },
+    "/workspace/wt-market-calibration/research/period_engine_v0/walkforward.py": {
+      "bytes": 10554,
+      "sha256": "4ef410ce9aa10bf4720c11f332601a5fd8cbeb8c4bee1ff3b76617491660f4ad"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/COMPLETION_CHECKLIST.md": {
+      "bytes": 8502,
+      "sha256": "f41d0004bebe4b60c2ccf4f334214721977e7eaaefef18e73fd487f0eedfbb5a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/EFFECTS_AND_COVERAGE_MATRIX.md": {
+      "bytes": 1335,
+      "sha256": "71d3a9caabc88d83c34be9bfe3510c27927ee7701e0f1894a32e511406fd5c12"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/FEATURE_EXECUTION_MATRIX.md": {
+      "bytes": 2354,
+      "sha256": "de30a0d189b2db206689f97844de868ec98f8079908a5badaa8d163628bfb468"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/FEATURE_MATRIX.md": {
+      "bytes": 4738,
+      "sha256": "356cfcc86c961a8b94d562dc78b714081cdaa52947b1265d2af9c01d7ebacf5f"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/LICENSE_MANIFEST.md": {
+      "bytes": 1725,
+      "sha256": "ce6d35b77a2ecfcdab3f05163c0b77fe1951e5add45fe5615952c28ab538242a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/README.md": {
+      "bytes": 975,
+      "sha256": "432e863d733bd65544397fcd8a83bed746483d5eb902807dc37783dbebe3b374"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/__init__.py": {
+      "bytes": 123,
+      "sha256": "a112bc6903521e270c0c58ec66864bf105cdc5b1b962d98da18b27fa0683f986"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/adjustment_ledger.py": {
+      "bytes": 2867,
+      "sha256": "9604e12505b45fc9b750411e2cbd156122ba98a8672d646cb1897c0be21d2044"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/adjustments.py": {
+      "bytes": 2536,
+      "sha256": "47ddcc038795cf314c07dff156ddb49d207d126cfc19f28efd9baead7c903491"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/demo_run.log": {
+      "bytes": 454,
+      "sha256": "ddf338dafb942f61f088810329a3cd7b6eedf1728396b1e8da13e1afcf1c9246"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/green_scoring.txt": {
+      "bytes": 98,
+      "sha256": "7090f08e7db4483b025ca80df3fae7e3014bb32c25e0dc85e8e4dcd57cba462c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/input_provenance_registry.json": {
+      "bytes": 5380,
+      "sha256": "2d585e28ca20ae17a5c97a43e47d968725a1e98279a7253069ee59cbe933cfce"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/ledger_jax_bal_tnf_2026-11-05_data_only.json": {
+      "bytes": 2169,
+      "sha256": "966636969ff622dc5b48829c353fb6369b3a5c857ddd73d5999a55d22c43eeea"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/ledger_jax_bal_tnf_2026-11-05_market_informed.json": {
+      "bytes": 2214,
+      "sha256": "aa799ee3bbdc48beb8b14cc754306c46940b2754e4adb2230827addc13398057"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/ledger_jax_bal_tnf_2026-11-05_script_adjusted.json": {
+      "bytes": 2243,
+      "sha256": "7cac25c7e0b517fbb306fd1ebf76b3e023fa34937d8dcd336959ace14cc04547"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/period_engine_still_green.txt": {
+      "bytes": 99,
+      "sha256": "754dba6b00216136805107417d499ca3af9bcbdb9e1d61f775d6eb067776483f"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/period_engine_still_green_postfix.txt": {
+      "bytes": 99,
+      "sha256": "9883431b42ebc15698d5ab44d87dbd6a0cc067546064376e6c20747fbdca7cfa"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/postfix_score_means_n500.json": {
+      "bytes": 3061,
+      "sha256": "6a21ae4ce5f3f7c70b009c010cf5be39a58b884ccdeddc22b102238c00930bd4"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/pre_fix_9ebe892/demo_run.log": {
+      "bytes": 454,
+      "sha256": "ddf338dafb942f61f088810329a3cd7b6eedf1728396b1e8da13e1afcf1c9246"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/pre_fix_9ebe892/diag_reproduce.json": {
+      "bytes": 431,
+      "sha256": "0accbaf8a0b562c147b9ef5b45ab80cf161dc6d47e8d578fe6d19c30a40947b6"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/pre_fix_9ebe892/red_scoring.txt": {
+      "bytes": 2186,
+      "sha256": "c4914a981ef2de12b779298dc940f9097eb8465bd66d2a633095c6ebeae42ab7"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/pre_fix_9ebe892/sim_jaxbal_summary.json": {
+      "bytes": 6932,
+      "sha256": "d16bd29c247f4087c89e59766f2972690ae537fcd74827a1b730aa31ef80c118"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/pytest_final.txt": {
+      "bytes": 99,
+      "sha256": "7d7ee233d36fd5372b4b64e170cdccb2615acf9fab1ddc6e48987ec61b139520"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/pytest_full.txt": {
+      "bytes": 99,
+      "sha256": "17bdb09eccc7cd410c313260946cdc1f9b610ed3b0a9fec7f749bdb61dd0c470"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/pytest_postfix.txt": {
+      "bytes": 99,
+      "sha256": "43b0d683fb0d616d0509a4c20f8887bee2c6e92ed29a865c9b3cb03aea05296c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/pytest_v1.txt": {
+      "bytes": 9,
+      "sha256": "a350e9f897688140366f5f21456c728387e13fa74fa673a445a759bfb6a16747"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/pytest_v2.txt": {
+      "bytes": 490,
+      "sha256": "cc0cc29c0965b064ac7b12a6084961faf660d23b1216ee727b50f43c376ef433"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/pytest_v3.txt": {
+      "bytes": 99,
+      "sha256": "5044f3b29a2adca879d2389c1ecac017f05a24d17949cd6cc1375fe235acc67e"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/red_initial.txt": {
+      "bytes": 1600,
+      "sha256": "d53571dc8ca6831ca51acbd83520a1a46c6f3cfba11b9462fbabe645623945c9"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/sim_jaxbal_summary.json": {
+      "bytes": 6932,
+      "sha256": "d16bd29c247f4087c89e59766f2972690ae537fcd74827a1b730aa31ef80c118"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/situational_jax_bal_w1_8.json": {
+      "bytes": 4890,
+      "sha256": "514c005b2fa8092595e00a768676563799aba783d1f18af64515dffadc6aed9c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/MODEL_FREEZE.json": {
+      "bytes": 2464,
+      "sha256": "4d7d8e96235992b69cf8de9d7c6b148fd1f99465b7a692308da6c7a5a0d5aead"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/MODEL_FREEZE_POST_P1P2.json": {
+      "bytes": 1585,
+      "sha256": "3b41bb5f1157fccbb6095b611e874d42bd825dd6354777c7a5c1494066341982"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/SUMMARY.md": {
+      "bytes": 1196,
+      "sha256": "1968492430c275b1ef8ffb313f800ee23c57aec14f781c940b202cc477efed4c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/accounting_report.json": {
+      "bytes": 1560,
+      "sha256": "9e1b6e40d39faeb9045011b9a835562ea8f7b96dcd2fe3bd7088c4d9ab4d51e6"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/asof_grade_per_game.csv": {
+      "bytes": 4523,
+      "sha256": "b9538c3dd020fe648fb3ea03d8cb5098a168105ad6332b5cebd04ece69b42e5e"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/effects_explosive.json": {
+      "bytes": 4290,
+      "sha256": "900ae15f27306a16730bcc7817ec38f0d1ea2b5cc1ded38b7c7ddbfd8db47314"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/effects_ftn_join_meta.json": {
+      "bytes": 393,
+      "sha256": "2000db1537583def1b053b17516a901390871278fbc9ab28e339d3e80402813b"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/effects_qb_splits.json": {
+      "bytes": 8638,
+      "sha256": "de79a2b7a88a0eab2434311f85ff90e48256f2e82cbab6e60625f2b94b4ea93c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/effects_recent_form_audit.json": {
+      "bytes": 526,
+      "sha256": "73a516834f3bf879b64644f69405919ed3f2b96562070f4d58037cee1b28587e"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/green_completion.txt": {
+      "bytes": 100,
+      "sha256": "0688c7be2e118d6dba4a2e43e8300ac788a5fc8719bbb1bda75b463b840bb714"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/green_final.txt": {
+      "bytes": 100,
+      "sha256": "2b9ecab59a042d2afc490649bdc784a4578131894e68c477902b7c2c650deb4e"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/green_p1_p2.txt": {
+      "bytes": 564,
+      "sha256": "d2b2df69ef55f24f554c0ef6badca4b0de1c0522a5b170d11f9e08603b5929e4"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/green_p1_p2_p3.txt": {
+      "bytes": 99,
+      "sha256": "349f45ccbca96d9fa739474b34175a7ac546bab056ec0c700c9a1cacd5a07d38"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/green_pass2.txt": {
+      "bytes": 100,
+      "sha256": "b94a5ac0f10d6d0f3a432d1b76e21c4fdf66da16818e85f810a5536afd4703b3"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/green_period_realism.txt": {
+      "bytes": 98,
+      "sha256": "eaf4a628e50dce42984391813aeb2d488fa7426df26ad20ca1440c5929f4dc8a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/metrics.json": {
+      "bytes": 8121,
+      "sha256": "28d951f2418b48ec687b10537d5ea007417dd2f942177a4f6c8e5d5f2192fc44"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2/addendum_reporting_only.json": {
+      "bytes": 469,
+      "sha256": "8f2c8325c6675f999a2aa34ce0c238f07fdeaade6d0665510dc81a32451c0e29"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2/asof_fg_data_only.csv": {
+      "bytes": 4493,
+      "sha256": "891fd0b0bb00f4860e8eb8a75608cc22d98c7825278b99aeb576d35986337228"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2/asof_fg_variant_def_allowed_w05.csv": {
+      "bytes": 4662,
+      "sha256": "0814d5dbcd7d8e80b3152db023c07fb7044a0306dffa4689d3620e65c0cc4bae"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2/pass2_metrics.json": {
+      "bytes": 13024,
+      "sha256": "47d887578475b208e0dba48c3b003fe88b7ddae9ea6840289f13ee98b31e15f0"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2/period_data_only.csv": {
+      "bytes": 8221,
+      "sha256": "e41fd539827f3ceed3ff6191de203be09d9796984c7abc6dc2c3fd20e69ecd4a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2/period_variant_def_allowed_w05.csv": {
+      "bytes": 8382,
+      "sha256": "e83931525274c35a03ecc924940c82be4e8b0674b621f61cbc0aeb6e3777ba15"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/addendum_reporting_only.json": {
+      "bytes": 469,
+      "sha256": "8f2c8325c6675f999a2aa34ce0c238f07fdeaade6d0665510dc81a32451c0e29"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/asof_fg_data_only.csv": {
+      "bytes": 4558,
+      "sha256": "f17eeb6a7b1c1fdcfced3f52e005285b096f791f6b3bd50027470f35e5777631"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/asof_fg_variant_def_allowed_w05.csv": {
+      "bytes": 4532,
+      "sha256": "76d8f2b6e36141d773fe93708562d7dcd4367835b4d99203cee4941c11e28c22"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/pass2_metrics.json": {
+      "bytes": 12508,
+      "sha256": "35106d00c7bce777a2cfcb93d3878b6be2bf1566abcf1175c3cc633d21f1c84d"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/period_data_only.csv": {
+      "bytes": 8269,
+      "sha256": "fa9e222c2b40469674e6a0846dc5f3b68f2d5afa1bff64a00d8e32f0c991e23a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_adversarial_e041e95/period_variant_def_allowed_w05.csv": {
+      "bytes": 8098,
+      "sha256": "8e84a6c50807da5134e9fafcd71b48d1088afdb6562b2c050efe9bfc3f9bfb54"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/addendum_reporting_only.json": {
+      "bytes": 469,
+      "sha256": "8f2c8325c6675f999a2aa34ce0c238f07fdeaade6d0665510dc81a32451c0e29"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/asof_fg_data_only.csv": {
+      "bytes": 4558,
+      "sha256": "f17eeb6a7b1c1fdcfced3f52e005285b096f791f6b3bd50027470f35e5777631"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/asof_fg_variant_def_allowed_w05.csv": {
+      "bytes": 4532,
+      "sha256": "76d8f2b6e36141d773fe93708562d7dcd4367835b4d99203cee4941c11e28c22"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/pass2_metrics.json": {
+      "bytes": 13009,
+      "sha256": "42ed88a946b49f7ad441d4a55294e58af610aee1df5991b8026b3f5126a32a26"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/period_data_only.csv": {
+      "bytes": 8269,
+      "sha256": "fa9e222c2b40469674e6a0846dc5f3b68f2d5afa1bff64a00d8e32f0c991e23a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_pre_spotfix_8a4ce01/period_variant_def_allowed_w05.csv": {
+      "bytes": 8098,
+      "sha256": "8e84a6c50807da5134e9fafcd71b48d1088afdb6562b2c050efe9bfc3f9bfb54"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pass2_run.log": {
+      "bytes": 8971,
+      "sha256": "1fa1ac0553623806ecfb5e325f168e10f99502c831b8e2fb5fb17fabbf5ad9be"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/period_grade_per_game.csv": {
+      "bytes": 8117,
+      "sha256": "eaff44007c180d642f8653e0656718bf3ead351d4bd34e4e2ae8a1abdeae2399"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/period_realism_metrics.json": {
+      "bytes": 3261,
+      "sha256": "e7ba8239ad6b770a1220e1bbcc41ec4481bfd43e8d7046c7d26bfd5bc974170f"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/period_realism_rerun.log": {
+      "bytes": 1197,
+      "sha256": "06d37d35597149bb955417e8a9e7972ed25bb9a98f19031890b9fe211ce6f37f"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/post_fix_diagnostics.json": {
+      "bytes": 2089,
+      "sha256": "a8ba4e7fd0c717f138b7a598e75ee7c412b97b356d90b246e6558611cb331014"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/MODEL_FREEZE.json": {
+      "bytes": 2464,
+      "sha256": "4d7d8e96235992b69cf8de9d7c6b148fd1f99465b7a692308da6c7a5a0d5aead"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/MODEL_FREEZE_POST_P1P2.json": {
+      "bytes": 1585,
+      "sha256": "3b41bb5f1157fccbb6095b611e874d42bd825dd6354777c7a5c1494066341982"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/SUMMARY.md": {
+      "bytes": 1075,
+      "sha256": "012e1ed13d4beca50275b103b61f28c07cc042f96f9132657586258d2ff430b9"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/accounting_report.json": {
+      "bytes": 1560,
+      "sha256": "9e1b6e40d39faeb9045011b9a835562ea8f7b96dcd2fe3bd7088c4d9ab4d51e6"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/asof_grade_per_game.csv": {
+      "bytes": 4573,
+      "sha256": "14ef8563e734253ece455408adcff6f8d8833bef8a0ec9f9b6ed6f8165b17d6b"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/effects_explosive.json": {
+      "bytes": 4290,
+      "sha256": "900ae15f27306a16730bcc7817ec38f0d1ea2b5cc1ded38b7c7ddbfd8db47314"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/effects_ftn_join_meta.json": {
+      "bytes": 393,
+      "sha256": "2000db1537583def1b053b17516a901390871278fbc9ab28e339d3e80402813b"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/effects_qb_splits.json": {
+      "bytes": 8638,
+      "sha256": "de79a2b7a88a0eab2434311f85ff90e48256f2e82cbab6e60625f2b94b4ea93c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/effects_recent_form_audit.json": {
+      "bytes": 526,
+      "sha256": "73a516834f3bf879b64644f69405919ed3f2b96562070f4d58037cee1b28587e"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/metrics.json": {
+      "bytes": 7494,
+      "sha256": "3e2ab651366e5da34d86e2c77c48f4899ff588b39d43081a0d2c2941385d7c98"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/period_grade_per_game.csv": {
+      "bytes": 8344,
+      "sha256": "d989a9cf2daad475d2a7382137dac79f6e57b1a83795b45f57b2734531e96865"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/period_realism_metrics.json": {
+      "bytes": 2658,
+      "sha256": "ea6931b8a3cd817a55400fde4173aed010b6e0bec59e48ca1a3375b27d0091aa"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/pressure_coverage_evidence_dossier.json": {
+      "bytes": 3035,
+      "sha256": "4db593e1d70530e0d18811a902d39895524e446769fafebdf79e59d59689d17e"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/realism_pace_diagnostics.json": {
+      "bytes": 855,
+      "sha256": "8b06e4bcf31e403c85470732b69e913ee0a5f18b4ae23359113970f7d62f412c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_completion_64b564b/weather_scenario_hook.json": {
+      "bytes": 240,
+      "sha256": "5db540b1e196ebdfd40dddd918396fe48ab48afd067e382d97e5c0fe16e07a9d"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/MODEL_FREEZE.json": {
+      "bytes": 2464,
+      "sha256": "4d7d8e96235992b69cf8de9d7c6b148fd1f99465b7a692308da6c7a5a0d5aead"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/SUMMARY.md": {
+      "bytes": 1247,
+      "sha256": "a6437ccdd81e1944f846112cf3e3eb0174a669876d6011cd69c944026fb62c9b"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/accounting_report.json": {
+      "bytes": 1574,
+      "sha256": "64e022474df768cf7213c255ff933956b978d115830d0e44a615048714ce4b6b"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/asof_grade_per_game.csv": {
+      "bytes": 4093,
+      "sha256": "b4362d345a0650cb1a734019d2e23ca379f6e8abaf60e04e3832af4de8cb5678"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/effects_explosive.json": {
+      "bytes": 4290,
+      "sha256": "900ae15f27306a16730bcc7817ec38f0d1ea2b5cc1ded38b7c7ddbfd8db47314"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/effects_ftn_join_meta.json": {
+      "bytes": 393,
+      "sha256": "2000db1537583def1b053b17516a901390871278fbc9ab28e339d3e80402813b"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/effects_qb_splits.json": {
+      "bytes": 8638,
+      "sha256": "de79a2b7a88a0eab2434311f85ff90e48256f2e82cbab6e60625f2b94b4ea93c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/effects_recent_form_audit.json": {
+      "bytes": 526,
+      "sha256": "73a516834f3bf879b64644f69405919ed3f2b96562070f4d58037cee1b28587e"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/metrics.json": {
+      "bytes": 5676,
+      "sha256": "bdc56b77a3563c6ea106ea7722c9593756d6c68b7e2d694bdb1c2b35958224c9"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/pytest_all.txt": {
+      "bytes": 99,
+      "sha256": "b1aca290a6acdcc83b5ab4f74da4a54335c0a6841445ff26d9a3cb4b9421d51c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/pytest_val_effects.txt": {
+      "bytes": 98,
+      "sha256": "0e0177d95805cd7e9ccb1859b562b7fe1d8ffaed73559d85239e8afb6ed7a331"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/red_validation.txt": {
+      "bytes": 958,
+      "sha256": "8832b5348080070eaefa460bfa03f9d00da275334f5bd7ae0f3e86fdabde65a0"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_fix_b7b5796_0of15/run_log.txt": {
+      "bytes": 1248,
+      "sha256": "ef5452d336bae9ae9ab36540833eadc75f956f3e8fe06de4f0b6ef53e2aba73a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_period_grade_12a7768/SUMMARY.md": {
+      "bytes": 826,
+      "sha256": "b349343a6a3982c07a9e6adfe567e1dabd113a2ab898a613c072367a6e703d54"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_period_grade_12a7768/asof_grade_per_game.csv": {
+      "bytes": 4573,
+      "sha256": "14ef8563e734253ece455408adcff6f8d8833bef8a0ec9f9b6ed6f8165b17d6b"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pre_period_grade_12a7768/metrics.json": {
+      "bytes": 4596,
+      "sha256": "e70e977a05b037124c6f078645c56f6fd45fe929d53293f85fcbc6a8c15352bc"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pressure_coverage_evidence_dossier.json": {
+      "bytes": 3035,
+      "sha256": "4db593e1d70530e0d18811a902d39895524e446769fafebdf79e59d59689d17e"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pytest_all.txt": {
+      "bytes": 99,
+      "sha256": "b1aca290a6acdcc83b5ab4f74da4a54335c0a6841445ff26d9a3cb4b9421d51c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pytest_all_period.txt": {
+      "bytes": 100,
+      "sha256": "7babec9634d4b8485acf3170f3e27002add3a4ed74167b93a1e61a6c782ebd61"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pytest_all_postfix.txt": {
+      "bytes": 99,
+      "sha256": "6e46070827cd5433787a2a07f1c3fa5345d3f18bad32acb757d80f92cf9ff874"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/pytest_val_effects.txt": {
+      "bytes": 98,
+      "sha256": "0e0177d95805cd7e9ccb1859b562b7fe1d8ffaed73559d85239e8afb6ed7a331"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/realism_pace_diagnostics.json": {
+      "bytes": 1435,
+      "sha256": "198dbc7de073011789a883c7952db443795ce4916f8545aab4060efe5f5c0779"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/red_adversarial.txt": {
+      "bytes": 690,
+      "sha256": "7d871349091a1c7dae096159753258054e6121df755157f45f1bdb5115cb3850"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/red_completion.txt": {
+      "bytes": 1098,
+      "sha256": "136d58a0c0ed3a49023ec88c22e29a596c0d2d0d2bbc3d01550e44bb479df8a2"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/red_final_review.txt": {
+      "bytes": 418,
+      "sha256": "0fca574a5d31066863e62dcf34bfa7251e7faad452920cf38c2f4a1aacaacb45"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/red_p1_p2.txt": {
+      "bytes": 1107,
+      "sha256": "b07c1a5f224ac83900ba65335d60a665b1382bee2d5577620773fb1332112677"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/red_pass2.txt": {
+      "bytes": 1109,
+      "sha256": "248f5c059a5e9a681aca2d56f30bedb7d2847d005888a15d9a6bbb4f98254ee7"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/red_period_realism.txt": {
+      "bytes": 1680,
+      "sha256": "039d4ebdb1599f417ffc7e94efbc90d1b7d91aab52df35d92ea2b2bf6e1d5147"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/red_validation.txt": {
+      "bytes": 958,
+      "sha256": "8832b5348080070eaefa460bfa03f9d00da275334f5bd7ae0f3e86fdabde65a0"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/run_log.txt": {
+      "bytes": 1248,
+      "sha256": "ef5452d336bae9ae9ab36540833eadc75f956f3e8fe06de4f0b6ef53e2aba73a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/run_log_postfix.txt": {
+      "bytes": 827,
+      "sha256": "973df84e25abca3ce979fe29778265890817d7d5b5ff88e4027a9b64cb494591"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/run_period_realism.log": {
+      "bytes": 1076,
+      "sha256": "f3662fcaf1ff0fa7caa4b562730ff4224e363afb974b34baac4a7a473555e070"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/artifacts/validation/weather_scenario_hook.json": {
+      "bytes": 240,
+      "sha256": "5db540b1e196ebdfd40dddd918396fe48ab48afd067e382d97e5c0fe16e07a9d"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/config/jax_bal_tnf_2026-11-05_data_only.json": {
+      "bytes": 1324,
+      "sha256": "dd4938b109355362685a6cf9e6000df01c1218a443a3b553693ee483f0f908e6"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/config/jax_bal_tnf_2026-11-05_market_informed.json": {
+      "bytes": 1141,
+      "sha256": "af6fcf5db06f0bc32f1ae87e357558ad00b9822af535e459662d95457d97a888"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/config/jax_bal_tnf_2026-11-05_script_adjusted.json": {
+      "bytes": 2800,
+      "sha256": "d3b80405d76a06cb3ed0ef44c5637d3ae6708043c00b1bdaed283115a2f5ca28"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/config/research_variant_def_allowed_w05.json": {
+      "bytes": 1438,
+      "sha256": "9affa6461251b46d17df60453dee2ad483998baa78c3b05668ed853290fb7bc2"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/config_load.py": {
+      "bytes": 560,
+      "sha256": "a6c485339a01566c40fead88f8a1f691b4b5caf98e3a67175c4b875843ad9b5a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/docs/2026-11-05_possession_engine_v0_design.md": {
+      "bytes": 2295,
+      "sha256": "5a5f300e5dd1bc3b5534fffaae56ff78037b101c6164983b42edeb94d579052d"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/effects/__init__.py": {
+      "bytes": 76,
+      "sha256": "aa3d855c45fac0c504cda266fd6da1715a792cb17ee39b1320dcd06e7bfb19bd"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/effects/apply_supported.py": {
+      "bytes": 5505,
+      "sha256": "ebe8cbd678537aec702f2d0356476a5c402ba636d4570185c95befbee346db27"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/effects/definitions.py": {
+      "bytes": 392,
+      "sha256": "7acfd307efa5c9be033b2f97222b760ff6efb9ce221701698a4b5db055cf3e35"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/effects/evidence_tables.py": {
+      "bytes": 7569,
+      "sha256": "a2a5cbcbbb2a2cce458b4090597a4864875ba4a2069fcfa11533975489b31023"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/effects/missing_feature_adapters.py": {
+      "bytes": 2267,
+      "sha256": "80cc6dbe27ddf3e634adf8a63fa37ab2188f5f962f985d0ace36ce7638a6bcb5"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/empirical.py": {
+      "bytes": 4040,
+      "sha256": "75e221b36033eec80c0162d434af5d0b3e4b55caba4683ead70d56d22e388fa1"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/pbp_filter.py": {
+      "bytes": 3200,
+      "sha256": "b4ece8f099749896f235b2e813ef962a3a833602288c6cd48587492d611e1a4c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/provenance.py": {
+      "bytes": 6092,
+      "sha256": "58c1f7762d0ea9aedf19faa9f0f1c85d320f8401d63ea954e95eb48d733b2518"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/FINAL_DIFF_REVIEW_STATUS.md": {
+      "bytes": 1134,
+      "sha256": "da72fc572547c451c64208ba5393e435fcfe5e170dd4f0255f229710785eafe0"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/bundle_delta_405231c.txt": {
+      "bytes": 5258,
+      "sha256": "d4485531ecf8f137f97e091dccbcf8e663181afdf55590c896aaa0782a42b668"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/bundle_final_8a4ce01.txt": {
+      "bytes": 60636,
+      "sha256": "4e407b4f638d906aeea9b59890ba6dee24d51295bfb5f16284430cac36e20ad7"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/bundle_pass2_e041e95.txt": {
+      "bytes": 100558,
+      "sha256": "e2a9559161447d19521ff975258e7117723d918f38b349dfacf7c774e6688dce"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/code_bundle_64b564b.txt": {
+      "bytes": 148733,
+      "sha256": "4a110592bb79531ec362ef143ac7e0081ce5ec4c3e49321eba34bd958ffacf80"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_delta_405231c.txt": {
+      "bytes": 935,
+      "sha256": "d727678aab0d6d9b014536737ad6df2d73adc84fd6a90f6ae187205f308ad248"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_delta_405231c_stderr.txt": {
+      "bytes": 57626,
+      "sha256": "689c2c1f592ce0fc542cfa457e9cbbfce21412b7e3bee752535c417a60e073ba"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_final_8a4ce01.txt": {
+      "bytes": 5553,
+      "sha256": "e71a56817f505f4706fdb0d5ed27ae9bbf83429beaffeb0ae699e382be3f0c5d"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_final_8a4ce01_stderr.txt": {
+      "bytes": 192028,
+      "sha256": "2caddf1394490b2595b96d451af2b3a5cba78282c844c54975aaded4c5ddba88"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_meta_final.json": {
+      "bytes": 327,
+      "sha256": "bc292512517ab2ed2ea1a2ab94b34088e0eccd47b3ca1c05691d2601203e3a68"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_meta_possession.json": {
+      "bytes": 305,
+      "sha256": "cc1f832e2bbec2ed56e43288091a16e55d48b8de56c738536de9ae46dd91437e"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_pass2_e041e95.txt": {
+      "bytes": 12045,
+      "sha256": "b6b0cb8f8a5b1917e2170ffa166acb1f638700f36054aca1f7f5dc08f6f643ec"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_pass2_e041e95_stderr.txt": {
+      "bytes": 204519,
+      "sha256": "66403b59695c511f640e9c442835467408b2c494699e878a346c6af4206ccfd2"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_stderr_final.txt": {
+      "bytes": 128947,
+      "sha256": "957a4e6c2f8d4e0a667c03d7ec22245e42c859380d69d49410e629f2f79bb67b"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_stderr_possession.txt": {
+      "bytes": 241437,
+      "sha256": "a529e7475abc4f71ac3b3108e213b292256e3937fb8b699f9e7db47157e99f23"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_stdout_final.txt": {
+      "bytes": 3916,
+      "sha256": "c900b9ddd1d3baf66370fe5295493ab7da970fe2725df9c6e26534eb847cbf0a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/codex_stdout_possession.txt": {
+      "bytes": 11155,
+      "sha256": "4a7a3c1de6f463db43678cc691d522d421c4b29b123eead01e53818f877aeb60"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/final_patch_bundle.txt": {
+      "bytes": 30775,
+      "sha256": "6269ef2a220cb817ba590c1ef3ac557689ef1d0c959bb251b2e180483e527a9f"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/grok_delta_405231c.md": {
+      "bytes": 189,
+      "sha256": "0fd663668adfad6af91b89ae6524dff4406fdb9c151053f390d2334fa7c641cc"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/grok_delta_405231c_meta.json": {
+      "bytes": 107,
+      "sha256": "8bcf3a5a6975d1bbc75f4f1731c8122a8112009eff30bb3d503a7eea26ad963a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/grok_final_8a4ce01.md": {
+      "bytes": 1787,
+      "sha256": "aa988b9811cb49c27c27a0d37a3a21fce0c1710f9aab743bc54be1ffd2ddbd24"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/grok_final_8a4ce01_meta.json": {
+      "bytes": 552,
+      "sha256": "bd02912fbd683a59b8e78b7d1719276b4f3cbcb07a07dd04313ae98a137cfd57"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/grok_final_meta.json": {
+      "bytes": 652,
+      "sha256": "3115bc1c29ca41d0f576b0c85d016caace690195ebdd7f55bff26bf5724dd144"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/grok_meta_possession.json": {
+      "bytes": 686,
+      "sha256": "226cbf1c775e42fd1d114ab8bd1b1b4988f3e955ebc3460109a974c49bfef862"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/grok_pass2_e041e95.md": {
+      "bytes": 3835,
+      "sha256": "21f5d0276ac24db92be96626c9b0950a80d3aad2d72faa85743e35928c6a7cd0"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/grok_pass2_e041e95_meta.json": {
+      "bytes": 568,
+      "sha256": "56a36fc56d35374ae5fe289f657436034d41653da1592825beddacac5aa55d0d"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/grok_review_final.md": {
+      "bytes": 1861,
+      "sha256": "cc707898a06967cabde7be48a08e5c519c199300f252388a95b178a0b16828ad"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/grok_review_possession.md": {
+      "bytes": 4038,
+      "sha256": "2b39381d978e27c2d65dfaa16d3a6370835467800d19d3f208becd0c326209ec"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/prompt_codex_final.txt": {
+      "bytes": 428,
+      "sha256": "431389101b0678b0d3b817f085368af4be3c18fccc083f2ec2681e0292c6f57c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/prompt_codex_short.txt": {
+      "bytes": 875,
+      "sha256": "78a1f3aa3d15abc744a7504552aa9f201b7f992d38fad2e7e37338a35ba5f55a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/prompt_final.txt": {
+      "bytes": 603,
+      "sha256": "ac34286c0740baae27166ae8ba2a798b212611d3a7864d59bb3ddfb63e472570"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/prompt_pass2.txt": {
+      "bytes": 1144,
+      "sha256": "f37fcd7cfb15be29f1fef34aea05289a2e2f4d3fd46f70b8e30aea6f009f0fe4"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/reviews/prompt_possession_64b564b.txt": {
+      "bytes": 149746,
+      "sha256": "b6f68d46233c5f89d1726ab05691418712886e9b35d428a0be8bb7d46c7c13a7"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/run_complete_pass2.py": {
+      "bytes": 6496,
+      "sha256": "3a4b3dcbd6a3472a5b9fc973a96d919500d609328b4367bc4a4be7866371ced9"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/run_jaxbal_demo.py": {
+      "bytes": 4170,
+      "sha256": "f88646d64b70d8c6c616957903f687854e148847bbf8d9e646cfe38974cae9fa"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/run_period_realism_grade.py": {
+      "bytes": 5287,
+      "sha256": "2c7e2663c53a7bed268c96981203013ccefe1c99149a96fe172e14d311936670"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/run_validation_grade.py": {
+      "bytes": 8161,
+      "sha256": "4bfaf9d51ce6d284e0afc7eb770edd9a428ffaf861564a868b04ea55bd217303"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/scenarios/bal_upset_fagnano_200_sensitivity.json": {
+      "bytes": 955,
+      "sha256": "5d0090e944ea07f5d2243d70653112c7076d4fac89a77ae17200c5038beb6717"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/scenarios/nws_LWX_109_90_hourly_pulled_2026-11-05T1822EST.json": {
+      "bytes": 162389,
+      "sha256": "73d3a73f076df93ac1b9bc88ab17ad336728526470a9bfd688ed04d0d82ca002"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/simulate.py": {
+      "bytes": 31277,
+      "sha256": "b1236cf3c405ee7dbb4bf8628cb4c1c35de0479ed7fbc808ad84bcfa9fd086b0"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/situational.py": {
+      "bytes": 6250,
+      "sha256": "de33adae9d1ceb0f0abe4c6ddf5b94584cb00ed0be2d2b40c0cbc9166c7e1b7d"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/state.py": {
+      "bytes": 4105,
+      "sha256": "0083b012528fa679b23dfb049bf84d64afba18b94cc36e78f82d3a7eb279ba54"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_adversarial_review.py": {
+      "bytes": 2866,
+      "sha256": "c5d4565aceb570f427fd33ddbb8727b4527f6a773c6d99e1550d9613d86a9e42"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_asof_both_teams.py": {
+      "bytes": 1502,
+      "sha256": "3f1f171bd843b67bd31a5629d02cbe59fe19cd0564e3db309f45a5d58309b26a"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_audit_scoring_realism.py": {
+      "bytes": 3984,
+      "sha256": "0d02953662dbb8e12fc33af07aeeb0efddc7c1a809e19390f4e23f93ed36c91f"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_codex_p1_regressions.py": {
+      "bytes": 12351,
+      "sha256": "34f0354a0d4b0e83bcb6855b089d2bda9b1db573c70d9109c505be802e656390"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_complete_pass2.py": {
+      "bytes": 7578,
+      "sha256": "c0413146765ecba1b37f9fd71442dfbf70da40caa4406a23a0d63b58ece6e5cc"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_completion_fixes.py": {
+      "bytes": 2984,
+      "sha256": "b7d7e70e53e9e0e4e054da1e93812708855ac6ca94a9c3e85465da7755c3bae5"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_effects_supported.py": {
+      "bytes": 4915,
+      "sha256": "838c5300fb8459aa3cefec60583cbf6c49f5ea3adc9896c83aa38fd355631123"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_final_review.py": {
+      "bytes": 1967,
+      "sha256": "7587bf36e9d6e6a9cbe98dd337569c031fa3748835d8ad01a9935346cfaefda0"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_missing_feature_adapters.py": {
+      "bytes": 669,
+      "sha256": "faf11bd0432bfdce3aee4c4c1b5196711ef9e54c4380d68431afa0026bbd03f7"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_period_grading.py": {
+      "bytes": 1432,
+      "sha256": "36cf0d95080151b25fc6266c9cf0928c52d27227999f3cbf0647a564ac17b69c"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_period_scoreboards.py": {
+      "bytes": 2792,
+      "sha256": "c2ce572976124134292a36cb5e1404285bde8b7e3a7fefa1775434e73e0169c9"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_provenance_ledger_situational.py": {
+      "bytes": 3492,
+      "sha256": "a063f04d16d8fd26883487816601e5ea0d1e8b3c22e33880002c9fb6b16f716f"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_realism_diagnostics.py": {
+      "bytes": 862,
+      "sha256": "e1e6684e7f764b88cb77094c9d9f38aadeb2c6d27c756758a929770e640f5de9"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_sparse_and_config.py": {
+      "bytes": 3577,
+      "sha256": "4cf1a05792cd4f552bfc65da7fbe37cc4fc692cf426c15852b0ae39a4ab8b3a7"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_state_and_sim_slice.py": {
+      "bytes": 3743,
+      "sha256": "9e6b61ae8630e9db606e236058360456d93a9a9722d489ed9ee3df4b7b2194ef"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_validation_grading.py": {
+      "bytes": 2410,
+      "sha256": "590a2933cf47819b55a415c0f4996e1d78928f4228c0ac655f704adbfee13b8f"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/tests/test_weather_nws_metadata.py": {
+      "bytes": 786,
+      "sha256": "3e022721feb86ffde572c356cb1ea07c244b96627e87ef658daeca141b358ddf"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/validation/__init__.py": {
+      "bytes": 103,
+      "sha256": "8035db2debcac801c60f7fae12384df83d84f3df516727ee9b9e31de965326a7"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/validation/accounting.py": {
+      "bytes": 5415,
+      "sha256": "eca09def91ee48fa8ea58fcec581ef0b79b70cd94bc1e6dde322a1884bbb8116"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/validation/asof_grade.py": {
+      "bytes": 8741,
+      "sha256": "d12d89cf25c244a2a137721e0cabdc852a27c8864c901ecd41fafe1de6058780"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/validation/period_grade.py": {
+      "bytes": 7378,
+      "sha256": "053be4e790818c0ff5988d870cae0c79382cea0227865df417adbafa09393a5d"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/validation/realism.py": {
+      "bytes": 5606,
+      "sha256": "23d31e7b779fb611ab4936a32866f3d2c6ebd68ea5816570c4b8b601dcb0436f"
+    },
+    "/workspace/wt-market-calibration/research/possession_engine_v0/validation/weather_hook.py": {
+      "bytes": 2568,
+      "sha256": "1b6dc6956f643646c15a1924a9c63e45a964ff87e6fb5d7d3c22911cc914ad32"
+    }
+  },
+  "market_roots": [
+    "/workspace/wt-market-calibration/research",
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/market_calibration"
+  ],
+  "protected_files": {
+    "/workspace/research/nfl_sim_integration_2026-11-06/core_contract.checklist.json": {
+      "bytes": 6922,
+      "sha256": "0c3ea6c3fdf13c545b2aa042721dd773e45ff4c5c666e0e042a949767968885e"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/core_contract.md": {
+      "bytes": 34839,
+      "sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/core_contract_wire_v1.md": {
+      "bytes": 4576,
+      "sha256": "8846bf4543f425584b836a271b9c467d7dcd9dd81376fe364057180eb4aec9de"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/BETGURU_WIRE_COORDINATION.md": {
+      "bytes": 2572,
+      "sha256": "c8c65b64da93319b0b9120e99ad16f206c866dab6a6f4e8b34108597e5839cab"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md": {
+      "bytes": 2327,
+      "sha256": "f56b233593a66c8dc3a6c28a8721057e7d3a37c740900ed23055a208cadc8cc7"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CORE_WIRE_LOCK.md": {
+      "bytes": 2291,
+      "sha256": "f4d1cb66f494a63fefe5c9b59134114a9cccbe97931bd0024e25ea4c61721510"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/HANDOFF_TO_BETGURU_BINDING.md": {
+      "bytes": 812,
+      "sha256": "7c07378241d9bb0b02114af4f6464c1474999b16048b04f9acd2152e0d18166d"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/INTEGRATION_WIRE_EVIDENCE.json": {
+      "bytes": 21905,
+      "sha256": "b2da9ffb0898e93112492823bff70be230c8259466c01ba32e0cf07acd7b5b8d"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/PARENT_VERIFY_POST_REBIND.json": {
+      "bytes": 1023,
+      "sha256": "debeb57b159ccc57c7260f7cb4105cf1f061dab47cdbe0d8fa92ac91c6a5d474"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/WIRE_SCHEMA_V1_META.json": {
+      "bytes": 2115,
+      "sha256": "f5ffe94f60d6e8b968eec06db8c4004e75c1f1ca0ac0332272da4778f1a86d50"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/core_wire_pytest.log": {
+      "bytes": 179,
+      "sha256": "aca2d61a23a07bea69f7f36c7420fd11fd7881fe4e59c5fb70c89f5980640eed"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/core_wire_pytest.xml": {
+      "bytes": 12723,
+      "sha256": "858e7a13a6d8cf800833c876d0c32599b06f916c01ee4a87a9563cda0379bbca"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/core_wire_pytest_initial.log": {
+      "bytes": 2293,
+      "sha256": "60111dda29a4b865f8c869f33e1f7ce29efb20d35489decbc1d268cbb90c4156"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/core_wire_pytest_initial.xml": {
+      "bytes": 14643,
+      "sha256": "f42c0f0cbb0550bbbdb13152941a23c08c0bc5311874355e3833da2e700c3167"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/core_wire_pytest_initial_run.json": {
+      "bytes": 561,
+      "sha256": "2c61f5626bbb419de41e72ce4089ae5a3c76bec9930cd5330ba1a15be5a8c3d8"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/core_wire_pytest_parent_verify.log": {
+      "bytes": 179,
+      "sha256": "40952b9d7d2438c5945e3b71fe7498a015871d3c989632b57e2d53cfa34094d9"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/core_wire_pytest_run.json": {
+      "bytes": 561,
+      "sha256": "58a021ae756bbd6e51b2496d5a4b707ed65b52fdfccd26c34d49fe99ac27c99f"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/parent_verify_DIRECT_post_rebind.log": {
+      "bytes": 98,
+      "sha256": "f69b41b567fe2583118441e8e8390afa756eecb8625fa01f5e10bcff2c1cef10"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/parent_verify_adversarial_post_rebind.log": {
+      "bytes": 16101,
+      "sha256": "e48d81829d20e80afc5c52d3496b943f1d25cd9be1311b2542e6418afa22c9f7"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/producer_joint_trial_example_v1.jsonl": {
+      "bytes": 366080,
+      "sha256": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/producer_joint_trial_example_v1.pretty.json": {
+      "bytes": 612710,
+      "sha256": "02287b3fe4ccd48453fe52bfc898f2974387e6561b7ebb4aa27767c6e9494e6d"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/MANIFEST.json": {
+      "bytes": 64572,
+      "sha256": "eee179c281870f03ecfd9381886953a9b62fb4a5d787f450cc3d3c787a10aba4"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/REQUIREMENT.md": {
+      "bytes": 12157,
+      "sha256": "52e567263bd7ec27c76ebe4f4e6867db9ae7628c4b0b51cc055c9eb8238aaf43"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/readiness.py": {
+      "bytes": 7663,
+      "sha256": "28e72b912c8947d9480227e8430543b9c119d8a6e45a0d01ed877b85161391e3"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/reviews/COMPLETION_PREFLIGHT_ALIGN.md": {
+      "bytes": 6831,
+      "sha256": "8a127a99b5c038e9910cb3aed17d081a04662398a879df3e1f7258c637a779de"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/reviews/COMPLETION_SOURCE_GATE.md": {
+      "bytes": 4209,
+      "sha256": "2be4b64434f0360068a10875e79542b382b33ca582a12842539cfb4e54dac2e1"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/reviews/RESPONSE_TO_GROK_PREFLIGHT.md": {
+      "bytes": 9280,
+      "sha256": "9605de84600181298ea27aa2045644b43997d316a79d086c29508d0b57887f95"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/reviews/SHA256SUMS": {
+      "bytes": 1599,
+      "sha256": "ca2ad00712c6d012dbf14d4924658f9c09bbae85782874225c76eced7f2948bd"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/reviews/entrypoint_results.json": {
+      "bytes": 1564,
+      "sha256": "43cc68bfe11c86bdc149fc6ecaba745f25c7a3acb9b91a95b977d81a40456d61"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/reviews/grok_followup_green.txt": {
+      "bytes": 99,
+      "sha256": "fcbfd15928e1ca4a56821b0581d63132a385f5fb6072cb6aa6c69f10733883e3"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/reviews/grok_followup_red.txt": {
+      "bytes": 4849,
+      "sha256": "69435b430039ef68ce2cf9bbbc34cf6b12b2ad68f3ce1e64585d6fb46553d0bc"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/reviews/pytest_results.txt": {
+      "bytes": 99,
+      "sha256": "ec1b6c5d59ca5e2aee6221dc9d0c09b0a8785e08f9773795d19fdb2ac279e474"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/source_ledger.schema.json": {
+      "bytes": 34589,
+      "sha256": "41bc673ef0b660af6876e57e2c40c6eefa633611aa3d7718e705854652096aa5"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/templates/checklist.md": {
+      "bytes": 3718,
+      "sha256": "8e01634f1f865058ae443f7d4b99341a7644a9725e256ff40f251c2b8722342d"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/templates/report.md": {
+      "bytes": 3496,
+      "sha256": "b86133f12a56e766aec16640f27e81ab58ddfd7a4903aea177abd526a667f58d"
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests/test_readiness.py": {
+      "bytes": 11720,
+      "sha256": "f1e417cfd4c856c674a622f8c575063e99e4e6839a7a4987422583c6b69341e7"
+    }
+  },
+  "timestamp_utc": "2026-11-06T12:11:08.972587+00:00"
+}

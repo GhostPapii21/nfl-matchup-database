@@ -1,0 +1,29 @@
+.F...................................................................... [ 93%]
+.....                                                                    [100%]
+=================================== FAILURES ===================================
+___________ test_export_preserves_documented_producer_wire_v1_shapes ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-box/pytest-70/test_export_preserves_document0')
+
+    def test_export_preserves_documented_producer_wire_v1_shapes(tmp_path):
+        example = frozen_wire_example()
+        meta = json.loads((WIRE_ROOT / 'WIRE_SCHEMA_V1_META.json').read_text())
+        assert meta['wire_schema_id'] == 'nfl-sim-joint-trial-producer-wire'
+        assert meta['wire_version'] == '1.0.0-producer'
+        assert meta['example_jsonl_sha256'] == FROZEN_WIRE_SHA256
+        spec, root, inputs, _, _ = fixture_inputs(tmp_path)
+        output = simulate_joint_games(spec, input_root=root, inputs=inputs, n=1, seed=123,
+                                      output_root=tmp_path / 'exports')
+        exported = Path(output['artifact_directory']) / 'trials.jsonl'
+        rows = [json.loads(line) for line in exported.read_text().splitlines()]
+>       assert rows == output['trials']
+E       AssertionError: assert [{'aggregates...}, ...], ...}] == [{'contract_v...dex': 0, ...}]
+E         
+E         At index 0 diff: {'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'provenance': {'derivation': 'PRIMITIVE_PERIOD_SUM_V1', 'period_ids': ['Q1', 'Q2']}, 'stats': {'carries': 0, 'catches': 0, 'pass_attempts': 0, 'pass_yards': 0, 'rec_yards': 0, 'rush_yards': 0, 'sacks_taken': 0, 'targets': 0}, 'status': 'KNOWN', 'team_id': 'HOME'}, {'period_id': 'H1', 'player_id': 'HOME001', 'player_id_namespace': 'synthetic_test', 'provenance': {'derivation': 'PRIMITIVE_PERIOD_SUM_V1', 'period_ids': ['Q1', 'Q2']}, 'stats': {'c...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+research/possession_engine_v0/tests/test_joint_producer.py:45: AssertionError
+=========================== short test summary info ============================
+FAILED research/possession_engine_v0/tests/test_joint_producer.py::test_export_preserves_documented_producer_wire_v1_shapes
+1 failed, 76 passed in 1.63s

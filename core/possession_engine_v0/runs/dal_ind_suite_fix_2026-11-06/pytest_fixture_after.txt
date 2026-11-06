@@ -1,0 +1,16 @@
+.......................................................F................ [ 44%]
+........................................................................ [ 88%]
+..................                                                       [100%]
+=================================== FAILURES ===================================
+________ test_terminal_conservation_per_period_and_aggregate[scramble] _________
+research/possession_engine_v0/tests/test_joint_producer.py:142: in test_terminal_conservation_per_period_and_aggregate
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal=terminal), 0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/joint_producer.py:213: in simulate_trial
+    ???
+research/possession_engine_v0/joint_inputs.py:254: in verify_frozen
+    raise ValueError("runtime code differs from frozen source")
+E   ValueError: runtime code differs from frozen source
+=========================== short test summary info ============================
+FAILED research/possession_engine_v0/tests/test_joint_producer.py::test_terminal_conservation_per_period_and_aggregate[scramble]
+1 failed, 161 passed in 70.37s (0:01:10)

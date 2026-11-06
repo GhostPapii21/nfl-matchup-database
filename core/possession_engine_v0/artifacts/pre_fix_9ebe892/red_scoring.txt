@@ -1,0 +1,25 @@
+FFF.F                                                                    [100%]
+=================================== FAILURES ===================================
+E   AssertionError: Q3 must start with 900s (15 min), got 1800
+    assert 1800 == 900
+     +  where 1800 = GameState(home='BAL', away='JAX', possession='BAL', qtr=3, half=2, game_seconds_remaining=1800, down=1, ydstogo=10, ya...ounts={'pass_yards': {}, 'rush_yards': {}, 'rec_yards': {}}, sparse_flags=[], reg_score_home=None, reg_score_away=None).game_seconds_remaining
+/workspace/wt-period-engine/research/possession_engine_v0/tests/test_audit_scoring_realism.py:23: AssertionError: Q3 must start with 900s (15 min), got 1800
+E   AssertionError: expected 80 after flip, got 20
+    assert 20 == 80
+     +  where 20 = GameState(home='BAL', away='JAX', possession='BAL', qtr=1, half=1, game_seconds_remaining=890, down=1, ydstogo=10, yar...ush_yards': {}, 'rec_yards': {}}, sparse_flags=['SPARSE_PUNT default_net40'], reg_score_home=None, reg_score_away=None).yardline_100
+/workspace/wt-period-engine/research/possession_engine_v0/tests/test_audit_scoring_realism.py:42: AssertionError: expected 80 after flip, got 20
+E   AssertionError: false TD from historical flag
+    assert (0, 7) == (0, 0)
+      
+      At index 1 diff: 7 != 0
+      Use -v to get more diff
+/workspace/wt-period-engine/research/possession_engine_v0/tests/test_audit_scoring_realism.py:68: AssertionError: false TD from historical flag
+E   AssertionError: inflated total 109.84 (H=47.9 A=61.94)
+    assert 109.84 < 80
+/workspace/wt-period-engine/research/possession_engine_v0/tests/test_audit_scoring_realism.py:104: AssertionError: inflated total 109.84 (H=47.9 A=61.94)
+=========================== short test summary info ============================
+FAILED tests/test_audit_scoring_realism.py::test_halftime_q3_clock_is_one_quarter_not_two
+FAILED tests/test_audit_scoring_realism.py::test_punt_gives_receiving_team_flipped_field_position
+FAILED tests/test_audit_scoring_realism.py::test_historical_td_flag_without_reach_does_not_score
+FAILED tests/test_audit_scoring_realism.py::test_data_only_mean_total_not_nfl_impossible
+4 failed, 1 passed in 4.48s

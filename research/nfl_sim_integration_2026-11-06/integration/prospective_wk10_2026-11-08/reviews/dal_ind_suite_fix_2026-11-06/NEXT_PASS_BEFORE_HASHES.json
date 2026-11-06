@@ -1,0 +1,66 @@
+{
+  "captured_et": "2026-11-06 08:15 EST",
+  "files": {
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/simulate.py": {
+      "sha256": "ebf7910b4d09179cafe7aa2ea2064fd6ae3d4df55fd31462d59dbe955e78da4b",
+      "bytes": 32522
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_producer.py": {
+      "sha256": "9c59213dafe342f0a46b321c2f692613089ddd9df88db1bdbb55bec34d177907",
+      "bytes": 31081
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_accounting.py": {
+      "sha256": "eb34e520efabce1c1afeb9bdfdb32a46e9125352414ec2574c32ca6ff0fd5d2c",
+      "bytes": 26174
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/shared_accounting.py": {
+      "sha256": "8646d16d5ed0b652c0acff9e9b086716cfe36ddb06934209a77dd5b52c457cea",
+      "bytes": 1611
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/fit_prospective_roles.py": {
+      "sha256": "30496527a32e308bc7a1c46549eab7d2dc0908a753b265599e9fd7bd56f3a0a5",
+      "bytes": 4011
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/fit_prospective_usage.py": {
+      "sha256": "012686fedc1471a6e96ce725a3e15841f33370c2cdba3479a6fee8e6bf0014e6",
+      "bytes": 7874
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/empirical.py": {
+      "sha256": "75e221b36033eec80c0162d434af5d0b3e4b55caba4683ead70d56d22e388fa1",
+      "bytes": 4040
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08/inputs/model.json": {
+      "sha256": "0ca64b0d0db06c68c834dfd188a6daabb2314461d219c440eb5c01173e0fd579",
+      "bytes": 283925
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08/inputs/registry.json": {
+      "sha256": "be6c7b6e16321b1146997c1ecd54dd9f33dc5291b2f35ff4b5fc0000b14e3e1f",
+      "bytes": 48023
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08/inputs/run_spec.json": {
+      "sha256": "d3588f6c826cbf8e6ccbe6e1edb242c26bb5e3c2135c78d902b97f55e6afe00b",
+      "bytes": 590
+    }
+  },
+  "readiness_roles_unify": {
+    "status": "EMPIRICAL_ROLES_PROMOTED",
+    "forecast_id_after": "sha256:5cf792ce2fdc9351362ec77c9ed856a46314980745ec4b23622413312803d485",
+    "forecast_id_before_equal_depth": "sha256:8d035f13c405ab944c3712fe6c6fc5bba2212ff8f83ba85a76d364a492a91926",
+    "score_means_before": {
+      "DAL": 27.2,
+      "IND": 14.2
+    },
+    "score_means_after": {
+      "DAL": 18.8,
+      "IND": 14.2
+    },
+    "seeded_repeat_identical": true,
+    "opportunity_yard_crosscheck_fails": 0,
+    "targeted_tests": "86 passed",
+    "full_suite": "126 passed / 36 failed (legacy/missing parquet)",
+    "heldout_note": "IND carry heldout KL worsens 0.45\u21922.26; MAE improves; no predictive superiority claim",
+    "source_composition": "config-derived team_only_2026_w1_8_DAL_IND_... ; new sims only",
+    "deferred_100k": "DEFERRED_100K_UNFINISHED_SEMANTICS"
+  },
+  "note": "BEFORE next Codex pass; old core_roles_unify artifacts immutable"
+}

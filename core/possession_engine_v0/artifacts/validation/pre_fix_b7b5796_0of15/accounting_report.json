@@ -1,0 +1,67 @@
+{
+  "overall_status": "MIXED",
+  "regulation_clock_sec_target": 3600,
+  "n_sims": 100,
+  "seed": 20261105,
+  "config_id": "jax_bal_tnf_2026-11-05_data_only",
+  "mean_plays_approx": 133.125,
+  "mean_punts": 9.65,
+  "mean_tds": 6.175,
+  "mean_kickoffs": 11.725,
+  "p_ot_sample": 0.0,
+  "score_means": {
+    "fg_home": 24.52,
+    "fg_away": 29.42
+  },
+  "sparse_rate": 1.0,
+  "checks": [
+    {
+      "name": "reg_clock_target_declared_3600",
+      "ok": true,
+      "detail": "engine uses 4x900; OT separate"
+    },
+    {
+      "name": "halftime_present_rate",
+      "ok": true,
+      "detail": "halftime_rate=1.000"
+    },
+    {
+      "name": "q_sum_reg_scores_recorded",
+      "ok": true,
+      "detail": "reg_home/reg_away arrays present"
+    },
+    {
+      "name": "mean_snaps_in_band",
+      "ok": true,
+      "detail": "mean_snaps=133.1 (band 80-160 diagnostic)"
+    },
+    {
+      "name": "kickoffs_ge_tds",
+      "ok": true,
+      "detail": "kickoff count should cover TDs+opening"
+    },
+    {
+      "name": "sparse_rate_reported",
+      "ok": true,
+      "detail": "sparse_rate=1.0"
+    },
+    {
+      "name": "player_joint_present",
+      "ok": true,
+      "detail": "player_joint dict"
+    },
+    {
+      "name": "period_quarter_scores_in_sim",
+      "ok": false,
+      "detail": "UNSUPPORTED: sim does not emit Q1-Q4 scoreboard arrays"
+    },
+    {
+      "name": "ot_only_if_reg_tie",
+      "ok": true,
+      "detail": "OT flag only when reg tied"
+    }
+  ],
+  "n_checks_pass": 8,
+  "n_checks_fail": 1,
+  "label": "development_in_sample_diagnostic_not_accuracy"
+}

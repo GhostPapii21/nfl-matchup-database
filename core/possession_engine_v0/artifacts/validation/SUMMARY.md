@@ -1,0 +1,32 @@
+# Period grading + realism (post-12a7768 continuation)
+
+**Not an approved pick.** Development W1–8 only. Prior FG 0/15 and 13/15 artifacts preserved.
+
+## As-of FG coverage
+GRADED_FULL: 13/15 (W1 skips remain)
+
+## Period grading (N=150/game, 13 games, 29.6s)
+| Period | MAE home | MAE away | Brier home-win |
+|---|---:|---:|---:|
+| Q1 | 3.0871794871794873 | 3.1415384615384614 | (see H1+) |
+| H1 | 6.06 | 4.70 | 0.230 |
+| H2 | 7.54 | 6.63 | 0.294 |
+| Reg | 9.35 | 7.95 | 0.325 |
+| FG  | 9.34 | 8.30 | 0.326 |
+
+Period metrics are **separate** from FG (FG row repeated for comparison).
+
+## Realism (development diagnostic)
+Actual combined offense snaps (apples-to-apples): 121.1 (n_games=15)
+Actual per-team offense snaps mean: 59.9 (legacy; n_team_games=15)
+≈2× actual (approx only): 119.7
+Sim mean snaps/game: 116.2
+Drive length plays actual mean/median: 7.54 / 7.0 (n_drives=161)
+Delta sim − combined actual: -4.9
+Delta sim − 2×actual snaps (approx): -3.6
+
+## Residual blockers (unchanged / no invent)
+- True pressure (FTN qbp): MISSING paid
+- Man/zone/MOFO/routes: MISSING free FTN 29-col
+- CB/S/DT replacement coeffs: MISSING
+- Weather: hook only PENDING_NWS — no DK auto-downgrade

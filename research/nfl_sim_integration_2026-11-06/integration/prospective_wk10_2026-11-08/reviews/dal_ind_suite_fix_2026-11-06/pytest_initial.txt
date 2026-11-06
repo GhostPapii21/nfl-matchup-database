@@ -1,0 +1,489 @@
+......FFF....F..F.F.FF.......FFF.FFFFFFFFF.............................. [ 44%]
+...........................................................FFF.FF....F.. [ 88%]
+...FFFF....FFFFFF.                                                       [100%]
+=================================== FAILURES ===================================
+__________________ test_w2_game_loads_both_teams_prior_plays ___________________
+research/possession_engine_v0/tests/test_asof_both_teams.py:13: in test_w2_game_loads_both_teams_prior_plays
+    hist = build_asof_history_for_game(PBP, home="DEN", away="JAX", season=2026, week=2)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/asof_grade.py:68: in build_asof_history_for_game
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+                    ^^^^^^^^^^^^^^^^^^^^
+/home/box/.local/lib/python3.13/site-packages/pyarrow/parquet/core.py:332: in __init__
+    source = filesystem.open_input_file(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyarrow/_fs.pyx:815: in pyarrow._fs.FileSystem.open_input_file
+    in_handle = GetResultValue(self.fs.OpenInputFile(pathstr))
+pyarrow/error.pxi:155: in pyarrow.lib.pyarrow_internal_check_status
+    return check_status(status)
+pyarrow/error.pxi:92: in pyarrow.lib.check_status
+    raise convert_status(status)
+E   FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory
+___________________________ test_w1_still_ungradable ___________________________
+research/possession_engine_v0/tests/test_asof_both_teams.py:23: in test_w1_still_ungradable
+    rows = grade_week_games(PBP, weeks=[1], n_sims=5, seed_base=1)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/asof_grade.py:132: in grade_week_games
+    games = [g for g in list_jaxbal_games(pbp_path) if g["week"] in set(weeks)]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/asof_grade.py:17: in list_jaxbal_games
+    t = pd.read_parquet(pbp_path, columns=cols)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:671: in read_parquet
+    return impl.read(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:253: in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:141: in _get_path_or_handle
+    handles = get_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/common.py:939: in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'
+____________ test_w3_plus_can_grade_full_not_opponent_out_of_scope _____________
+research/possession_engine_v0/tests/test_asof_both_teams.py:28: in test_w3_plus_can_grade_full_not_opponent_out_of_scope
+    rows = grade_week_games(PBP, weeks=[3], n_sims=20, seed_base=20261105)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/asof_grade.py:132: in grade_week_games
+    games = [g for g in list_jaxbal_games(pbp_path) if g["week"] in set(weeks)]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/asof_grade.py:17: in list_jaxbal_games
+    t = pd.read_parquet(pbp_path, columns=cols)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:671: in read_parquet
+    return impl.read(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:253: in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:141: in _get_path_or_handle
+    handles = get_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/common.py:939: in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'
+_________________ test_data_only_mean_total_not_nfl_impossible _________________
+research/possession_engine_v0/tests/test_audit_scoring_realism.py:101: in test_data_only_mean_total_not_nfl_impossible
+    h = float(out["arrays"]["fg_home"].mean())
+              ^^^^^^^^^^^^^
+E   KeyError: 'arrays'
+___________________ test_effects_catalog_runs_complete_game ____________________
+research/possession_engine_v0/tests/test_codex_p1_regressions.py:146: in test_effects_catalog_runs_complete_game
+    assert hist["status"] == "OK"
+E   AssertionError: assert 'PBP_MISSING' == 'OK'
+E     
+E     - OK
+E     + PBP_MISSING
+____________ test_coarse_support_is_reported_when_hard_sparse_zero _____________
+research/possession_engine_v0/tests/test_codex_p1_regressions.py:184: in test_coarse_support_is_reported_when_hard_sparse_zero
+    ev = out["evidence_summary"]
+         ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'evidence_summary'
+______________ test_period_report_accepts_current_realism_schema _______________
+research/possession_engine_v0/tests/test_codex_p1_regressions.py:224: in test_period_report_accepts_current_realism_schema
+    rep = compare_sim_vs_actual_pace(cfg, pbp_path=PBP, n_sims=8, seed=3)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/realism.py:48: in compare_sim_vs_actual_pace
+    actual_combined = actual_combined_snaps_per_game(
+research/possession_engine_v0/validation/realism.py:20: in actual_combined_snaps_per_game
+    inv = load_involvement_plays(pbp_path, teams=list(teams), season=season, weeks=weeks)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/pbp_filter.py:76: in load_involvement_plays
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+                    ^^^^^^^^^^^^^^^^^^^^
+/home/box/.local/lib/python3.13/site-packages/pyarrow/parquet/core.py:332: in __init__
+    source = filesystem.open_input_file(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyarrow/_fs.pyx:815: in pyarrow._fs.FileSystem.open_input_file
+    in_handle = GetResultValue(self.fs.OpenInputFile(pathstr))
+pyarrow/error.pxi:155: in pyarrow.lib.pyarrow_internal_check_status
+    return check_status(status)
+pyarrow/error.pxi:92: in pyarrow.lib.check_status
+    raise convert_status(status)
+E   FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory
+_________________ test_kick_distance_column_loaded_in_history __________________
+research/possession_engine_v0/tests/test_codex_p1_regressions.py:243: in test_kick_distance_column_loaded_in_history
+    assert "kick_distance" in hist["df"].columns
+                              ^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'NoneType' object has no attribute 'columns'
+______________ test_simulate_games_wires_effects_with_provenance _______________
+research/possession_engine_v0/tests/test_complete_pass2.py:118: in test_simulate_games_wires_effects_with_provenance
+    prov = out["effects_provenance"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'effects_provenance'
+__________ test_def_allowed_interaction_used_for_jaxbal_when_enabled ___________
+research/possession_engine_v0/tests/test_complete_pass2.py:128: in test_def_allowed_interaction_used_for_jaxbal_when_enabled
+    assert out["evidence_summary"]["def_interaction_events"] > 0
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'evidence_summary'
+_______________ test_data_only_default_has_no_def_allowed_mixing _______________
+research/possession_engine_v0/tests/test_complete_pass2.py:134: in test_data_only_default_has_no_def_allowed_mixing
+    assert out["evidence_summary"]["def_interaction_events"] == 0
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'evidence_summary'
+______________________ test_player_joint_samples_exported ______________________
+research/possession_engine_v0/tests/test_complete_pass2.py:152: in test_player_joint_samples_exported
+    assert len(out["player_samples"]) == 4
+               ^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'player_samples'
+___________________ test_realism_n_team_games_is_group_count ___________________
+research/possession_engine_v0/tests/test_complete_pass2.py:157: in test_realism_n_team_games_is_group_count
+    act = actual_combined_snaps_per_game(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/realism.py:20: in actual_combined_snaps_per_game
+    inv = load_involvement_plays(pbp_path, teams=list(teams), season=season, weeks=weeks)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/pbp_filter.py:76: in load_involvement_plays
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+                    ^^^^^^^^^^^^^^^^^^^^
+/home/box/.local/lib/python3.13/site-packages/pyarrow/parquet/core.py:332: in __init__
+    source = filesystem.open_input_file(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyarrow/_fs.pyx:815: in pyarrow._fs.FileSystem.open_input_file
+    in_handle = GetResultValue(self.fs.OpenInputFile(pathstr))
+pyarrow/error.pxi:155: in pyarrow.lib.pyarrow_internal_check_status
+    return check_status(status)
+pyarrow/error.pxi:92: in pyarrow.lib.check_status
+    raise convert_status(status)
+E   FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory
+_____________ test_apples_to_apples_pace_uses_combined_game_snaps ______________
+research/possession_engine_v0/tests/test_completion_fixes.py:20: in test_apples_to_apples_pace_uses_combined_game_snaps
+    act = actual_combined_snaps_per_game(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/realism.py:20: in actual_combined_snaps_per_game
+    inv = load_involvement_plays(pbp_path, teams=list(teams), season=season, weeks=weeks)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/pbp_filter.py:76: in load_involvement_plays
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+                    ^^^^^^^^^^^^^^^^^^^^
+/home/box/.local/lib/python3.13/site-packages/pyarrow/parquet/core.py:332: in __init__
+    source = filesystem.open_input_file(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyarrow/_fs.pyx:815: in pyarrow._fs.FileSystem.open_input_file
+    in_handle = GetResultValue(self.fs.OpenInputFile(pathstr))
+pyarrow/error.pxi:155: in pyarrow.lib.pyarrow_internal_check_status
+    return check_status(status)
+pyarrow/error.pxi:92: in pyarrow.lib.check_status
+    raise convert_status(status)
+E   FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory
+_______ test_defense_conditioned_sampling_prefers_opponent_when_enough_n _______
+research/possession_engine_v0/tests/test_completion_fixes.py:35: in test_defense_conditioned_sampling_prefers_opponent_when_enough_n
+    jx = df[(df.posteam == "JAX") & (df.play_type.isin(["pass", "run"]))]
+             ^^^^^^^^^^
+E   AttributeError: 'NoneType' object has no attribute 'posteam'
+______________ test_empirical_clock_costs_from_pbp_when_available ______________
+research/possession_engine_v0/tests/test_completion_fixes.py:61: in test_empirical_clock_costs_from_pbp_when_available
+    costs = PlayCatalog.build_empirical_clock(hist["df"])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/simulate.py:107: in build_empirical_clock
+    if "game_seconds_remaining" in df.columns and "play_id" in df.columns:
+                                   ^^^^^^^^^^
+E   AttributeError: 'NoneType' object has no attribute 'columns'
+_________________ test_explosive_definitions_and_denominators __________________
+research/possession_engine_v0/tests/test_effects_supported.py:20: in test_explosive_definitions_and_denominators
+    inv = load_involvement_plays(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/pbp_filter.py:76: in load_involvement_plays
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+                    ^^^^^^^^^^^^^^^^^^^^
+/home/box/.local/lib/python3.13/site-packages/pyarrow/parquet/core.py:332: in __init__
+    source = filesystem.open_input_file(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyarrow/_fs.pyx:815: in pyarrow._fs.FileSystem.open_input_file
+    in_handle = GetResultValue(self.fs.OpenInputFile(pathstr))
+pyarrow/error.pxi:155: in pyarrow.lib.pyarrow_internal_check_status
+    return check_status(status)
+pyarrow/error.pxi:92: in pyarrow.lib.check_status
+    raise convert_status(status)
+E   FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory
+_____________ test_qb_hit_labeled_proxy_blitz_from_ftn_when_joined _____________
+research/possession_engine_v0/tests/test_effects_supported.py:31: in test_qb_hit_labeled_proxy_blitz_from_ftn_when_joined
+    inv = load_involvement_plays(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/pbp_filter.py:76: in load_involvement_plays
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+                    ^^^^^^^^^^^^^^^^^^^^
+/home/box/.local/lib/python3.13/site-packages/pyarrow/parquet/core.py:332: in __init__
+    source = filesystem.open_input_file(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyarrow/_fs.pyx:815: in pyarrow._fs.FileSystem.open_input_file
+    in_handle = GetResultValue(self.fs.OpenInputFile(pathstr))
+pyarrow/error.pxi:155: in pyarrow.lib.pyarrow_internal_check_status
+    return check_status(status)
+pyarrow/error.pxi:92: in pyarrow.lib.check_status
+    raise convert_status(status)
+E   FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory
+________________ test_blitz_strata_changes_sampled_pass_events _________________
+research/possession_engine_v0/tests/test_effects_supported.py:44: in test_blitz_strata_changes_sampled_pass_events
+    inv = load_involvement_plays(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/pbp_filter.py:76: in load_involvement_plays
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+                    ^^^^^^^^^^^^^^^^^^^^
+/home/box/.local/lib/python3.13/site-packages/pyarrow/parquet/core.py:332: in __init__
+    source = filesystem.open_input_file(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyarrow/_fs.pyx:815: in pyarrow._fs.FileSystem.open_input_file
+    in_handle = GetResultValue(self.fs.OpenInputFile(pathstr))
+pyarrow/error.pxi:155: in pyarrow.lib.pyarrow_internal_check_status
+    return check_status(status)
+pyarrow/error.pxi:92: in pyarrow.lib.check_status
+    raise convert_status(status)
+E   FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory
+_____________________ test_defense_blitz_rate_tags_events ______________________
+research/possession_engine_v0/tests/test_effects_supported.py:82: in test_defense_blitz_rate_tags_events
+    inv = load_involvement_plays(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/pbp_filter.py:76: in load_involvement_plays
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+                    ^^^^^^^^^^^^^^^^^^^^
+/home/box/.local/lib/python3.13/site-packages/pyarrow/parquet/core.py:332: in __init__
+    source = filesystem.open_input_file(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyarrow/_fs.pyx:815: in pyarrow._fs.FileSystem.open_input_file
+    in_handle = GetResultValue(self.fs.OpenInputFile(pathstr))
+pyarrow/error.pxi:155: in pyarrow.lib.pyarrow_internal_check_status
+    return check_status(status)
+pyarrow/error.pxi:92: in pyarrow.lib.check_status
+    raise convert_status(status)
+E   FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory
+___________________ test_reconstruct_actual_periods_jax_den ____________________
+research/possession_engine_v0/tests/test_period_grading.py:14: in test_reconstruct_actual_periods_jax_den
+    act = reconstruct_actual_periods(PBP, "2026_02_JAX_DEN")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/period_grade.py:27: in reconstruct_actual_periods
+    t = period_table_from_pbp(load_pbp(pbp_path))
+                              ^^^^^^^^^^^^^^^^^^
+research/period_engine_v0/reconstruct.py:14: in load_pbp
+    schema = set(pq.read_schema(path).names)
+                 ^^^^^^^^^^^^^^^^^^^^
+/home/box/.local/lib/python3.13/site-packages/pyarrow/parquet/core.py:2495: in read_schema
+    file_ctx = where = filesystem.open_input_file(where)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyarrow/_fs.pyx:815: in pyarrow._fs.FileSystem.open_input_file
+    in_handle = GetResultValue(self.fs.OpenInputFile(pathstr))
+pyarrow/error.pxi:155: in pyarrow.lib.pyarrow_internal_check_status
+    return check_status(status)
+pyarrow/error.pxi:92: in pyarrow.lib.check_status
+    raise convert_status(status)
+E   FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory
+_______________ test_period_grade_includes_mae_separate_from_fg ________________
+research/possession_engine_v0/tests/test_period_grading.py:23: in test_period_grade_includes_mae_separate_from_fg
+    rows = grade_week_games(PBP, weeks=[2], n_sims=30, seed_base=20261105)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/asof_grade.py:132: in grade_week_games
+    games = [g for g in list_jaxbal_games(pbp_path) if g["week"] in set(weeks)]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/asof_grade.py:17: in list_jaxbal_games
+    t = pd.read_parquet(pbp_path, columns=cols)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:671: in read_parquet
+    return impl.read(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:253: in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:141: in _get_path_or_handle
+    handles = get_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/common.py:939: in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'
+____________________ test_sim_arrays_include_period_scores _____________________
+research/possession_engine_v0/tests/test_period_scoreboards.py:18: in test_sim_arrays_include_period_scores
+    A = out["arrays"]
+        ^^^^^^^^^^^^^
+E   KeyError: 'arrays'
+_______________ test_situational_has_opportunity_and_conditional _______________
+research/possession_engine_v0/tests/test_provenance_ledger_situational.py:17: in test_situational_has_opportunity_and_conditional
+    rep = build_situational_report(hist["df"], hist.get("games_df"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/situational.py:126: in build_situational_report
+    td = third_down_table(df)
+         ^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/situational.py:14: in third_down_table
+    snaps = df[df["down"] == 3].copy()
+               ^^^^^^^^^^
+E   TypeError: 'NoneType' object is not subscriptable
+__________________ test_provenance_statuses_not_trust_scores ___________________
+research/possession_engine_v0/tests/test_provenance_ledger_situational.py:30: in test_provenance_statuses_not_trust_scores
+    rep = build_situational_report(hist["df"])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/situational.py:126: in build_situational_report
+    td = third_down_table(df)
+         ^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/situational.py:14: in third_down_table
+    snaps = df[df["down"] == 3].copy()
+               ^^^^^^^^^^
+E   TypeError: 'NoneType' object is not subscriptable
+_____________________ test_realism_report_has_denominators _____________________
+research/possession_engine_v0/tests/test_realism_diagnostics.py:14: in test_realism_report_has_denominators
+    rep = compare_sim_vs_actual_pace(cfg, pbp_path=PBP, n_sims=40, seed=3)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/realism.py:48: in compare_sim_vs_actual_pace
+    actual_combined = actual_combined_snaps_per_game(
+research/possession_engine_v0/validation/realism.py:20: in actual_combined_snaps_per_game
+    inv = load_involvement_plays(pbp_path, teams=list(teams), season=season, weeks=weeks)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/pbp_filter.py:76: in load_involvement_plays
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+                    ^^^^^^^^^^^^^^^^^^^^
+/home/box/.local/lib/python3.13/site-packages/pyarrow/parquet/core.py:332: in __init__
+    source = filesystem.open_input_file(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyarrow/_fs.pyx:815: in pyarrow._fs.FileSystem.open_input_file
+    in_handle = GetResultValue(self.fs.OpenInputFile(pathstr))
+pyarrow/error.pxi:155: in pyarrow.lib.pyarrow_internal_check_status
+    return check_status(status)
+pyarrow/error.pxi:92: in pyarrow.lib.check_status
+    raise convert_status(status)
+E   FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory
+__________________ test_history_team_only_weeks_1_8_no_future __________________
+research/possession_engine_v0/tests/test_sparse_and_config.py:29: in test_history_team_only_weeks_1_8_no_future
+    assert hist["status"] == "OK"
+E   AssertionError: assert 'PBP_MISSING' == 'OK'
+E     
+E     - OK
+E     + PBP_MISSING
+_______________________ test_sparse_state_no_silent_pool _______________________
+research/possession_engine_v0/tests/test_sparse_and_config.py:43: in test_sparse_state_no_silent_pool
+    ev = lookup_plays(hist["df"], key, min_n=5, allow_pool=False)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/empirical.py:61: in lookup_plays
+    snaps = _snap_plays(df)
+            ^^^^^^^^^^^^^^^
+research/possession_engine_v0/empirical.py:50: in _snap_plays
+    return df[df["play_type"].isin(["pass", "run", "qb_kneel", "qb_spike"])].copy()
+              ^^^^^^^^^^^^^^^
+E   TypeError: 'NoneType' object is not subscriptable
+_________________ test_proposed_pool_not_applied_when_disabled _________________
+research/possession_engine_v0/tests/test_sparse_and_config.py:57: in test_proposed_pool_not_applied_when_disabled
+    ev = lookup_plays(hist["df"], key, min_n=5, allow_pool=False, proposed_pool_teams=None)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/empirical.py:61: in lookup_plays
+    snaps = _snap_plays(df)
+            ^^^^^^^^^^^^^^^
+research/possession_engine_v0/empirical.py:50: in _snap_plays
+    return df[df["play_type"].isin(["pass", "run", "qb_kneel", "qb_spike"])].copy()
+              ^^^^^^^^^^^^^^^
+E   TypeError: 'NoneType' object is not subscriptable
+____ test_qb_filter_forward_only_excludes_lamar_does_not_fabricate_fagnano _____
+research/possession_engine_v0/tests/test_sparse_and_config.py:68: in test_qb_filter_forward_only_excludes_lamar_does_not_fabricate_fagnano
+    filtered, meta = apply_forward_qb_filter(hist["df"], cfg["adjustments"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/adjustments.py:15: in apply_forward_qb_filter
+    out = df.copy()
+          ^^^^^^^
+E   AttributeError: 'NoneType' object has no attribute 'copy'
+__________________ test_simulate_data_only_small_n_invariants __________________
+research/possession_engine_v0/tests/test_state_and_sim_slice.py:61: in test_simulate_data_only_small_n_invariants
+    assert out["status"] in {"OK", "OK_WITH_SPARSE_FLAGS"}
+E   AssertionError: assert 'PBP_MISSING' in {'OK', 'OK_WITH_SPARSE_FLAGS'}
+_______ test_simulate_script_adjusted_marks_sparse_qb_and_excludes_lamar _______
+research/possession_engine_v0/tests/test_state_and_sim_slice.py:80: in test_simulate_script_adjusted_marks_sparse_qb_and_excludes_lamar
+    assert out["adjustments_meta"]["BAL"]["fabricated"] is False
+           ^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'adjustments_meta'
+_________________ test_accounting_reports_reg_clock_and_sparse _________________
+research/possession_engine_v0/tests/test_validation_grading.py:15: in test_accounting_reports_reg_clock_and_sparse
+    rep = run_accounting_checks(cfg, pbp_path=PBP, n=30, seed=11)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/accounting.py:51: in run_accounting_checks
+    cat, _prov = build_catalog(df, cfg, games_df=hist.get("games_df"))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/simulate.py:627: in build_catalog
+    base = PlayCatalog(df, min_n=min_n, games_df=games_df)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/simulate.py:44: in __init__
+    self.snaps = df[df["play_type"].isin(["pass", "run", "qb_kneel", "qb_spike"])].copy()
+                    ^^^^^^^^^^^^^^^
+E   TypeError: 'NoneType' object is not subscriptable
+______________ test_w1_games_are_ungradable_no_own_season_history ______________
+research/possession_engine_v0/tests/test_validation_grading.py:26: in test_w1_games_are_ungradable_no_own_season_history
+    games = list_jaxbal_games(PBP)
+            ^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/asof_grade.py:17: in list_jaxbal_games
+    t = pd.read_parquet(pbp_path, columns=cols)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:671: in read_parquet
+    return impl.read(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:253: in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:141: in _get_path_or_handle
+    handles = get_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/common.py:939: in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'
+______________ test_w3_opponent_prior_plays_graded_no_league_pool ______________
+research/possession_engine_v0/tests/test_validation_grading.py:38: in test_w3_opponent_prior_plays_graded_no_league_pool
+    rows = grade_week_games(PBP, weeks=[3], n_sims=10, seed_base=20261105)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/asof_grade.py:132: in grade_week_games
+    games = [g for g in list_jaxbal_games(pbp_path) if g["week"] in set(weeks)]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/asof_grade.py:17: in list_jaxbal_games
+    t = pd.read_parquet(pbp_path, columns=cols)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:671: in read_parquet
+    return impl.read(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:253: in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:141: in _get_path_or_handle
+    handles = get_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/common.py:939: in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'
+____________ test_asof_history_excludes_future_weeks_and_prior_year ____________
+research/possession_engine_v0/tests/test_validation_grading.py:48: in test_asof_history_excludes_future_weeks_and_prior_year
+    hist = build_asof_history(PBP, teams=["JAX", "BAL"], season=2026, before_week=4)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/possession_engine_v0/validation/asof_grade.py:38: in build_asof_history
+    return build_asof_history_for_game(
+research/possession_engine_v0/validation/asof_grade.py:68: in build_asof_history_for_game
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+                    ^^^^^^^^^^^^^^^^^^^^
+/home/box/.local/lib/python3.13/site-packages/pyarrow/parquet/core.py:332: in __init__
+    source = filesystem.open_input_file(source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pyarrow/_fs.pyx:815: in pyarrow._fs.FileSystem.open_input_file
+    in_handle = GetResultValue(self.fs.OpenInputFile(pathstr))
+pyarrow/error.pxi:155: in pyarrow.lib.pyarrow_internal_check_status
+    return check_status(status)
+pyarrow/error.pxi:92: in pyarrow.lib.check_status
+    raise convert_status(status)
+E   FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory
+=========================== short test summary info ============================
+FAILED research/possession_engine_v0/tests/test_asof_both_teams.py::test_w2_game_loads_both_teams_prior_plays
+FAILED research/possession_engine_v0/tests/test_asof_both_teams.py::test_w1_still_ungradable
+FAILED research/possession_engine_v0/tests/test_asof_both_teams.py::test_w3_plus_can_grade_full_not_opponent_out_of_scope
+FAILED research/possession_engine_v0/tests/test_audit_scoring_realism.py::test_data_only_mean_total_not_nfl_impossible
+FAILED research/possession_engine_v0/tests/test_codex_p1_regressions.py::test_effects_catalog_runs_complete_game
+FAILED research/possession_engine_v0/tests/test_codex_p1_regressions.py::test_coarse_support_is_reported_when_hard_sparse_zero
+FAILED research/possession_engine_v0/tests/test_codex_p1_regressions.py::test_period_report_accepts_current_realism_schema
+FAILED research/possession_engine_v0/tests/test_codex_p1_regressions.py::test_kick_distance_column_loaded_in_history
+FAILED research/possession_engine_v0/tests/test_complete_pass2.py::test_simulate_games_wires_effects_with_provenance
+FAILED research/possession_engine_v0/tests/test_complete_pass2.py::test_def_allowed_interaction_used_for_jaxbal_when_enabled
+FAILED research/possession_engine_v0/tests/test_complete_pass2.py::test_data_only_default_has_no_def_allowed_mixing
+FAILED research/possession_engine_v0/tests/test_complete_pass2.py::test_player_joint_samples_exported
+FAILED research/possession_engine_v0/tests/test_complete_pass2.py::test_realism_n_team_games_is_group_count
+FAILED research/possession_engine_v0/tests/test_completion_fixes.py::test_apples_to_apples_pace_uses_combined_game_snaps
+FAILED research/possession_engine_v0/tests/test_completion_fixes.py::test_defense_conditioned_sampling_prefers_opponent_when_enough_n
+FAILED research/possession_engine_v0/tests/test_completion_fixes.py::test_empirical_clock_costs_from_pbp_when_available
+FAILED research/possession_engine_v0/tests/test_effects_supported.py::test_explosive_definitions_and_denominators
+FAILED research/possession_engine_v0/tests/test_effects_supported.py::test_qb_hit_labeled_proxy_blitz_from_ftn_when_joined
+FAILED research/possession_engine_v0/tests/test_effects_supported.py::test_blitz_strata_changes_sampled_pass_events
+FAILED research/possession_engine_v0/tests/test_effects_supported.py::test_defense_blitz_rate_tags_events
+FAILED research/possession_engine_v0/tests/test_period_grading.py::test_reconstruct_actual_periods_jax_den
+FAILED research/possession_engine_v0/tests/test_period_grading.py::test_period_grade_includes_mae_separate_from_fg
+FAILED research/possession_engine_v0/tests/test_period_scoreboards.py::test_sim_arrays_include_period_scores
+FAILED research/possession_engine_v0/tests/test_provenance_ledger_situational.py::test_situational_has_opportunity_and_conditional
+FAILED research/possession_engine_v0/tests/test_provenance_ledger_situational.py::test_provenance_statuses_not_trust_scores
+FAILED research/possession_engine_v0/tests/test_realism_diagnostics.py::test_realism_report_has_denominators
+FAILED research/possession_engine_v0/tests/test_sparse_and_config.py::test_history_team_only_weeks_1_8_no_future
+FAILED research/possession_engine_v0/tests/test_sparse_and_config.py::test_sparse_state_no_silent_pool
+FAILED research/possession_engine_v0/tests/test_sparse_and_config.py::test_proposed_pool_not_applied_when_disabled
+FAILED research/possession_engine_v0/tests/test_sparse_and_config.py::test_qb_filter_forward_only_excludes_lamar_does_not_fabricate_fagnano
+FAILED research/possession_engine_v0/tests/test_state_and_sim_slice.py::test_simulate_data_only_small_n_invariants
+FAILED research/possession_engine_v0/tests/test_state_and_sim_slice.py::test_simulate_script_adjusted_marks_sparse_qb_and_excludes_lamar
+FAILED research/possession_engine_v0/tests/test_validation_grading.py::test_accounting_reports_reg_clock_and_sparse
+FAILED research/possession_engine_v0/tests/test_validation_grading.py::test_w1_games_are_ungradable_no_own_season_history
+FAILED research/possession_engine_v0/tests/test_validation_grading.py::test_w3_opponent_prior_plays_graded_no_league_pool
+FAILED research/possession_engine_v0/tests/test_validation_grading.py::test_asof_history_excludes_future_weeks_and_prior_year
+36 failed, 126 passed in 5.44s

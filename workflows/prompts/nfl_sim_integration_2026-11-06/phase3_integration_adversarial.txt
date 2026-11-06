@@ -1,0 +1,50 @@
+You are Codex doing LOCAL adversarial INTEGRATION verification for Ghost acceptance between Blitz CORE producer and BetGuru market adapter. Do NOT use Cursor Cloud. No spend. No auth bypass. No new odds pulls. No heavy Monte Carlo. No fitting Bias. No TNF fit-as-validation.
+
+READ FIRST (authority):
+1) /workspace/wt-market-calibration/research/market_calibration/tracking/GHOST_HANDOFF_MARKET_ADAPTER.md
+2) /workspace/wt-market-calibration/research/market_calibration/reviews/INDEPENDENT_CODEX_REVIEW.md
+3) /workspace/wt-market-calibration/research/market_calibration/reviews/AUDIT_REGEN_COMPLETION.md
+4) /workspace/research/nfl_sim_integration_2026-11-06/core_contract.md
+5) /workspace/research/nfl_sim_integration_2026-11-06/reviews/COMPLETION_CODEX.md
+6) /workspace/research/nfl_sim_integration_2026-11-06/reviews/EVIDENCE_CODEX.json
+7) /workspace/research/nfl_sim_integration_2026-11-06/reviews/grok_core_producer_review.md
+8) /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/CORE_MANIFEST.json
+9) /workspace/research/nfl_sim_integration_2026-11-06/integration/market_calibration_file_hashes.json
+
+Ghost inspected constraints (must verify / not contradict):
+- Market: research score transport only; actionable NOLINE; Bias unfitted; no verified sportsbook rules; no canonical crosswalk asserted.
+- Reported market combined suite 109 tests is engineering only — NOT full model vet.
+- Preserve market untracked patch hashes; do not rewrite market package except optional READ-ONLY imports for tests living under integration/.
+
+WRITE ONLY under:
+  /workspace/research/nfl_sim_integration_2026-11-06/integration/
+
+DELIVERABLES:
+A) integration_adversarial_tests.py (pytest) that:
+   1. Asserts core_contract.md SHA-256 == d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9 (or record MISMATCH blocker if changed).
+   2. Builds/loads ACTUAL producer joint rows from Blitz joint_producer synthetic path (or durable smoke under reviews/core_producer_synthetic_smoke) — NOT hand-waved dicts that skip producer.
+   3. Retains ordered trial_ids independently, then calls adapt_joint_trials(..., expected_trial_ids=retained) from market package.
+   4. Asserts trial_id/forecast_id/seed/trial_seed/input_content_hash identity and order; interface_status CONTRACT_SCORE_TRANSPORT_ONLY; actionable_status NOLINE.
+   5. Asserts score transport H1/H2/REG/FG derive from same trial primitives (no independent marginals).
+   6. Checks producer opaque payloads retained (events/player_periods/validation/flags) without inventing opportunities; if producer lacks player targets API on market side → MARKET_STAT_UNSUPPORTED / documented.
+   7. Alias/split leakage probes: TNF aliases / inspected labels cannot be silently treated as untouched holdout; attempt to relabel → reject or blocker.
+   8. Quote path: match_quote on SAVED_ONLY files; missing Pinnacle Q2–Q4 → NOLINE; never invent opposite side; book_rules_verified false remains.
+   9. Source gate: projection_ready must remain false without real source inventory + brainstorm + 15-phase checklist/report (call readiness assess or import gate).
+   10. Red cases: truncated trial population, reordered IDs, duplicate trials, contract hash mismatch mock, missing expected_trial_ids batch accepted vs required procedure.
+
+B) Run pytest for these integration tests; capture log + junit under integration/.
+
+C) INTEGRATION_EVIDENCE.json + GHOST_ACCEPTANCE_PACKET.md with:
+   - commands, timestamps ET, worktree HEADs, market file hash inventory ref
+   - producer revision hashes from EVIDENCE_CODEX
+   - market audit hashes (pre/post) from handoff
+   - pytest counts (integration suite) SEPARATE from market 109 and CORE 88
+   - honest blockers for Ghost final acceptance
+   - impact NOT_MEASURED
+   - explicit: NO final completion claim
+
+D) Optional independent note stub path for Grok later.
+
+Do not edit market_calibration production modules unless a true false-PASS in integration requires a documented patch — prefer tests that expose blockers. Prefer importing market code read-only.
+
+PYTHONPATH must include both worktrees as needed. PYTHONDONTWRITEBYTECODE=1.

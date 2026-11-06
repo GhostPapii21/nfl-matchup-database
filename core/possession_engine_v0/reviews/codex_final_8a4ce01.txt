@@ -1,0 +1,79 @@
+Reviewed **8a4ce0117cecb051b7eb5b8e5805c057c820d4b4**, matching HEAD. **No new CRITICAL/P1 defect established. Two new P2 defects reproduced. No predictive claim is supported.**
+
+Verification performed:
+
+- Existing possession suite: **71 passed**.
+- Relevant sibling settlement/regression tests: **20 passed**.
+- Additional in-memory checks: **3 failed, 7 passed**, including all six prior regression tests.
+- No repository files changed. Historical RED logs were not treated as current failures.
+
+**Prior findings**
+
+| Finding | Verdict |
+|---|---|
+| Foreign-row player credit | **Fixed.** Opponent-allowed rows clear passer, receiver, and rusher names before credit allocation. |
+| TD yardage credit cap | **Fixed for player credit.** Realized yards are bounded before passing, receiving, or rushing credit. Event logging still has the separate defect below. |
+| Mixture-before-H2H order | **Fixed.** The supported opponent-allowed mixture draw precedes H2H sampling. |
+| Blitz coarse/NO_POOL reporting | **Fixed for the reported defects.** Tags are split; coarse blitz use gets a separate counter; `BLITZ_NO_POOL` no longer counts as an executed redraw. The generic `per_snap_coarse_fraction` remains **base-sampler-only**, not an aggregate of all coarsening. |
+| Target-week guard | **Fixed for the reported forward entry point.** `simulate_games` rejects history ending at or after the supplied target week. As-of graders independently filter prior weeks. |
+| Game-unit bootstrap | **Fixed.** Each resampled observation is a game’s average paired home/away error difference. This does not make the development sample an independent holdout. |
+| Punt touchback/NaN microfix | **Fixed for the reported case.** NaN flags safely evaluate false; an explicit touchback with valid kick distance places the receiver at its own 20. |
+
+**New reproduced defects**
+
+| Severity | Evidence | Defect and consequence |
+|---|---|---|
+| **P2** | [simulate.py:310](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:310), [348](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:348), [384](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:384) | **Possession changes silently relocate valid spots into the 10–90 range.** A failed fourth down at the opponent’s 1 gives the receiver its own 10 instead of its own 1. A 45-yard unreturned punt from midfield gives its own 10 instead of its own 5. This changes subsequent scoring opportunities and breaks field-position accounting. Preserve valid interior spots; handle end-zone outcomes explicitly. |
+| **P2** | [simulate.py:332](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:332) | **Snap events retain uncapped historical yardage.** A sampled 60-yard rush from the opponent’s 10 records a 60-yard snap, while player credit and touchdown events correctly use 10. Consumers summing snap events disagree with realized yardage. Log realized yards, optionally preserving historical yards in a separate field. |
+
+Save the following beside the existing tests as `test_final_review.py`. These are the same three failing assertions executed in memory:
+
+```python
+import numpy as np
+import pandas as pd
+import simulate as sim
+from test_complete_pass2 import _row, _st
+from test_codex_p1_regressions import _mini_catalog_with_punts
+
+
+def test_turnover_on_downs_preserves_spot():
+    df = pd.DataFrame([
+        _row(down=4, yards_gained=0) for _ in range(5)
+    ])
+    st = _st(down=4, ydstogo=1, yardline_100=1)
+    sim._apply_snap(
+        np.random.default_rng(0), sim.PlayCatalog(df, 3), st, False
+    )
+    assert (st.possession, st.yardline_100) == ("BBB", 99)
+
+
+def test_punt_preserves_inside_five_spot():
+    cat, _ = _mini_catalog_with_punts(
+        kick_distance=45, return_yards=0
+    )
+    st = _st(down=4, yardline_100=50)
+    sim._punt_fixed(np.random.default_rng(0), cat, st)
+    assert st.yardline_100 == 95
+
+
+def test_snap_event_uses_realized_yards():
+    df = pd.DataFrame([_row(yards_gained=60) for _ in range(5)])
+    st = _st(yardline_100=10)
+    sim._apply_snap(
+        np.random.default_rng(0), sim.PlayCatalog(df, 3), st, False
+    )
+    snap = next(e for e in st.events if e["type"] == "snap")
+    assert snap["yards"] == 10
+```
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 -m pytest \
+  research/possession_engine_v0/tests/test_final_review.py \
+  -q -s -p no:cacheprovider
+```
+
+Against `FEATURE_EXECUTION_MATRIX`, the principal execution claims match the inspected paths: blitz redraws preserve called run/pass selection, defense interactions execute, and market/weather/coverage remain unexecuted as labeled. Blitz intentionally skips `DEF_*` samples. “Punt net = kick−return” needs qualification: net is clipped to 15–70, and receiving spots have the defect above. Several accounting checks are declarations or presence checks, so their PASS status does not establish complete mechanical correctness.
+
+No additional high-severity clock, settlement, sampling, or leakage defect was established within this review. The declared single-possession OT approximation and nonsituational clock remain material limits.
+
+**Predictive evidence:** the stored development results show FG MAE **9.74 versus 9.28** for the baseline, paired game-bootstrap difference **95% [−1.86, 3.00]**, and regulation Brier **0.314 versus 0.25**. The tiny H1 MAE advantage does not establish improvement. These inspected development results support neither predictive superiority nor calibrated probabilities or a betting edge.

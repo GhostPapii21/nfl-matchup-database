@@ -1,0 +1,251 @@
+F.FF..FFFFF.....F...........................................             [100%]
+=================================== FAILURES ===================================
+_________________________ test_contract_sha256_binding _________________________
+
+    def test_contract_sha256_binding():
+>       assert digest(ROOT / "core_contract.md") == CONTRACT_HASH, "BLOCKER CONTRACT_HASH_MISMATCH"
+E       AssertionError: BLOCKER CONTRACT_HASH_MISMATCH
+E       assert '6471e69b97b1...7c1b7440e8367' == 'd6a4689f55bb...a5238cec836b9'
+E         
+E         - d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9
+E         + 6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367
+
+integration/integration_adversarial_tests.py:94: AssertionError
+_____________________ test_market_protected_hash_inventory _____________________
+
+    def test_market_protected_hash_inventory():
+        inventory = json.loads((OUT / "market_calibration_file_hashes.json").read_text())
+        assert inventory["files"]
+        for entry in inventory["files"]:
+>           assert digest(entry["path"]) == entry["sha256"], f"BLOCKER MARKET_HASH_CHANGED {entry['path']}"
+E           AssertionError: BLOCKER MARKET_HASH_CHANGED /workspace/wt-market-calibration/research/market_calibration/MANIFEST.json
+E           assert 'c996299ca4cd...6346d721684bb' == '37948790ca32...4ab0e31edeeb2'
+E             
+E             - 37948790ca32ab0ebfedd5129ad9e10a286dd0f4e173f129dec4ab0e31edeeb2
+E             + c996299ca4cda5a1ed7e90a5958573798c9bf73ace4276bbc0e6346d721684bb
+
+integration/integration_adversarial_tests.py:108: AssertionError
+___________ test_actual_producer_artifacts_and_recomputed_validation ___________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+
+    def test_actual_producer_artifacts_and_recomputed_validation(producer_rows):
+        for relative, expected in SMOKE["artifact_hashes"].items():
+            assert "sha256:" + digest(ARTIFACT / relative) == expected
+        for entry in EVIDENCE["files_touched"]:
+>           assert "sha256:" + digest(entry["path"]) == entry["sha256"]
+E           AssertionError: assert 'sha256:0496d...865c35c60f275' == 'sha256:3effe...ceb802c45c6ab'
+E             
+E             - sha256:3effe50027ff2a98de4d6c8386b253e4f94d96fea0c9f10c491ceb802c45c6ab
+E             + sha256:0496d8b619e29376c021973caec5b6ec1a0b50f70399539ab1c865c35c60f275
+
+integration/integration_adversarial_tests.py:115: AssertionError
+_ test_diagnostic_wire_blockers_are_independently_reproducible[0-missing trial fields] _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+stage = 0, error = 'missing trial fields'
+
+    @pytest.mark.parametrize("stage,error", [
+        (0, "missing trial fields"), (1, "unsupported contract or incomplete/invalid"),
+        (2, "missing freeze fields"), (3, "missing engine fields"),
+        (4, "missing team_periods fields"),
+    ])
+    def test_diagnostic_wire_blockers_are_independently_reproducible(producer_rows, stage, error):
+        # Progressively expose errors masked by the first missing-field rejection.
+        # Each staged copy is deliberately NOT represented as unchanged producer wire.
+        rows = deepcopy(producer_rows)
+        for row in rows:
+            if stage >= 1:
+                for key in ("completion_reason", "terminal_state", "went_ot"):
+                    row[key] = deepcopy(row["status"][key])
+            if stage >= 2:
+                row["status"] = row["status"]["state"]
+            if stage >= 3:
+                row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+            if stage >= 4:
+                row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+                row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+>       with pytest.raises(ValueError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+integration/integration_adversarial_tests.py:172: Failed
+_ test_diagnostic_wire_blockers_are_independently_reproducible[1-unsupported contract or incomplete/invalid] _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+stage = 1, error = 'unsupported contract or incomplete/invalid'
+
+    @pytest.mark.parametrize("stage,error", [
+        (0, "missing trial fields"), (1, "unsupported contract or incomplete/invalid"),
+        (2, "missing freeze fields"), (3, "missing engine fields"),
+        (4, "missing team_periods fields"),
+    ])
+    def test_diagnostic_wire_blockers_are_independently_reproducible(producer_rows, stage, error):
+        # Progressively expose errors masked by the first missing-field rejection.
+        # Each staged copy is deliberately NOT represented as unchanged producer wire.
+        rows = deepcopy(producer_rows)
+        for row in rows:
+            if stage >= 1:
+                for key in ("completion_reason", "terminal_state", "went_ot"):
+                    row[key] = deepcopy(row["status"][key])
+            if stage >= 2:
+                row["status"] = row["status"]["state"]
+            if stage >= 3:
+                row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+            if stage >= 4:
+                row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+                row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+>       with pytest.raises(ValueError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+integration/integration_adversarial_tests.py:172: Failed
+_ test_diagnostic_wire_blockers_are_independently_reproducible[2-missing freeze fields] _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+stage = 2, error = 'missing freeze fields'
+
+    @pytest.mark.parametrize("stage,error", [
+        (0, "missing trial fields"), (1, "unsupported contract or incomplete/invalid"),
+        (2, "missing freeze fields"), (3, "missing engine fields"),
+        (4, "missing team_periods fields"),
+    ])
+    def test_diagnostic_wire_blockers_are_independently_reproducible(producer_rows, stage, error):
+        # Progressively expose errors masked by the first missing-field rejection.
+        # Each staged copy is deliberately NOT represented as unchanged producer wire.
+        rows = deepcopy(producer_rows)
+        for row in rows:
+            if stage >= 1:
+                for key in ("completion_reason", "terminal_state", "went_ot"):
+                    row[key] = deepcopy(row["status"][key])
+            if stage >= 2:
+                row["status"] = row["status"]["state"]
+            if stage >= 3:
+                row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+            if stage >= 4:
+                row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+                row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+>       with pytest.raises(ValueError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+integration/integration_adversarial_tests.py:172: Failed
+_ test_diagnostic_wire_blockers_are_independently_reproducible[3-missing engine fields] _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+stage = 3, error = 'missing engine fields'
+
+    @pytest.mark.parametrize("stage,error", [
+        (0, "missing trial fields"), (1, "unsupported contract or incomplete/invalid"),
+        (2, "missing freeze fields"), (3, "missing engine fields"),
+        (4, "missing team_periods fields"),
+    ])
+    def test_diagnostic_wire_blockers_are_independently_reproducible(producer_rows, stage, error):
+        # Progressively expose errors masked by the first missing-field rejection.
+        # Each staged copy is deliberately NOT represented as unchanged producer wire.
+        rows = deepcopy(producer_rows)
+        for row in rows:
+            if stage >= 1:
+                for key in ("completion_reason", "terminal_state", "went_ot"):
+                    row[key] = deepcopy(row["status"][key])
+            if stage >= 2:
+                row["status"] = row["status"]["state"]
+            if stage >= 3:
+                row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+            if stage >= 4:
+                row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+                row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+>       with pytest.raises(ValueError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+integration/integration_adversarial_tests.py:172: Failed
+_ test_diagnostic_wire_blockers_are_independently_reproducible[4-missing team_periods fields] _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+stage = 4, error = 'missing team_periods fields'
+
+    @pytest.mark.parametrize("stage,error", [
+        (0, "missing trial fields"), (1, "unsupported contract or incomplete/invalid"),
+        (2, "missing freeze fields"), (3, "missing engine fields"),
+        (4, "missing team_periods fields"),
+    ])
+    def test_diagnostic_wire_blockers_are_independently_reproducible(producer_rows, stage, error):
+        # Progressively expose errors masked by the first missing-field rejection.
+        # Each staged copy is deliberately NOT represented as unchanged producer wire.
+        rows = deepcopy(producer_rows)
+        for row in rows:
+            if stage >= 1:
+                for key in ("completion_reason", "terminal_state", "went_ot"):
+                    row[key] = deepcopy(row["status"][key])
+            if stage >= 2:
+                row["status"] = row["status"]["state"]
+            if stage >= 3:
+                row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+            if stage >= 4:
+                row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+                row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+>       with pytest.raises(ValueError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+integration/integration_adversarial_tests.py:172: Failed
+__ test_diagnostic_score_sensitivity_is_quarter_sum_not_independent_marginal ___
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+
+    def test_diagnostic_score_sensitivity_is_quarter_sum_not_independent_marginal(producer_rows):
+        # Deliberately corrupted copy tests consumer arithmetic only, NOT a valid draw.
+        mapped = diagnostic_field_mapping(producer_rows)
+        baseline = diagnostic_transport(mapped, expected_trial_ids=RETAINED_IDS)
+        home = mapped[0]["game"]["home_team_id"]
+        for row in mapped[0]["team_periods"]:
+            if row["team_id"] == home and row["period_id"] in {"Q1", "Q3", "OT1"}:
+                row["points"] += {"Q1": 7, "Q3": 2, "OT1": 3}[row["period_id"]]
+            if row["team_id"] != home and row["period_id"] == "Q4":
+                row["points"] += 9  # preserve regulation tie to enter OT
+>       probe = diagnostic_transport(mapped, expected_trial_ids=RETAINED_IDS)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:223: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+integration/integration_adversarial_tests.py:77: in diagnostic_transport
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:206: in adapt_joint_trials
+    card = scorecard_from_trial(row)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+row = {'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prove..., 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}
+
+    def scorecard_from_trial(row):
+        game = row["game"]
+        home, away = game["home_team_id"], game["away_team_id"]
+        periods = {}
+        if not isinstance(row["team_periods"], list):
+            raise ValueError("inline team_periods rows required for score transport")
+        for record in row["team_periods"]:
+            require_fields(record, ("team_id", "period_id"), "team_periods")
+            team, period = record["team_id"], record["period_id"]
+            stats = record.get("stats")
+            nested_points = isinstance(stats, dict) and "points" in stats
+            if "points" not in record and not nested_points:
+                raise ValueError("missing team_periods points or stats.points")
+            points = record["points"] if "points" in record else stats["points"]
+            if nested_points and (type(stats["points"]) is not int or stats["points"] != points):
+>               raise ValueError("conflicting or invalid team period points")
+E               ValueError: conflicting or invalid team period points
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:108: ValueError
+=========================== short test summary info ============================
+FAILED integration/integration_adversarial_tests.py::test_contract_sha256_binding
+FAILED integration/integration_adversarial_tests.py::test_market_protected_hash_inventory
+FAILED integration/integration_adversarial_tests.py::test_actual_producer_artifacts_and_recomputed_validation
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_wire_blockers_are_independently_reproducible[0-missing trial fields]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_wire_blockers_are_independently_reproducible[1-unsupported contract or incomplete/invalid]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_wire_blockers_are_independently_reproducible[2-missing freeze fields]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_wire_blockers_are_independently_reproducible[3-missing engine fields]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_wire_blockers_are_independently_reproducible[4-missing team_periods fields]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_score_sensitivity_is_quarter_sum_not_independent_marginal
+9 failed, 51 passed in 1.30s

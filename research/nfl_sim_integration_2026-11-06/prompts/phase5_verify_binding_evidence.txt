@@ -1,0 +1,16 @@
+Codex verification ONLY of BetGuru rebind evidence. Read-only except write evidence under /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/.
+
+Read:
+- /workspace/wt-market-calibration/research/market_calibration/reviews/BINDING_REBIND_COMPLETION.md
+- /workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_evidence.json
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/PARENT_VERIFY_POST_REBIND.json
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/parent_verify_DIRECT_post_rebind.log
+
+Independently re-hash core_contract.md and producer example; confirm CONTRACT_SHA256 in joint_trial_adapter.py equals 6471e69b…; re-run ONLY:
+  pytest integration/integration_adversarial_tests.py::test_DIRECT_actual_producer_to_market_acceptance -q -p no:cacheprovider
+with the PYTHONPATH from BINDING_REBIND_COMPLETION.md.
+
+Write BINDING_REBIND_INDEPENDENT_VERIFY.json + .md under integration/wire/ stating: VERDICT PASS/FAIL, hashes, DIRECT result, notes that Ghost FINAL is NOT claimed, NOLINE/Bias unfitted preserved, impact NOT_MEASURED.
+
+Do not edit market_calibration. Do not refresh full adversarial here.

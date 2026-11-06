@@ -1,0 +1,202 @@
+{
+  "freeze": {
+    "frozen_at_et": "2026-11-05 16:11:58 EST",
+    "git_commit_pre_this_run": "b7b5796a958f53f5c2387fda1ce486400d1f8f04",
+    "bundle_sha256": "b8b8c90eb43b6b08a23e94e69b18b3d36953a9d113b6e2776bcb4daac2d55d19",
+    "files": [
+      {
+        "path": "simulate.py",
+        "sha256": "da0064bb36ffdf6bede9c0a1715a011cd4f6ef230968f763a481cf99c37683fb"
+      },
+      {
+        "path": "state.py",
+        "sha256": "0083b012528fa679b23dfb049bf84d64afba18b94cc36e78f82d3a7eb279ba54"
+      },
+      {
+        "path": "pbp_filter.py",
+        "sha256": "f257b914e28cc433d98b2b99c5401410fc90c072e0bb05ad582d7aef46575628"
+      },
+      {
+        "path": "validation/asof_grade.py",
+        "sha256": "0fc6d3c0b9a26d7af1e8f62e7be2fb6bbe1b55c5c20ed6f4a8fd5a77ade8f121"
+      },
+      {
+        "path": "validation/accounting.py",
+        "sha256": "839657bf43e14d49a472c0b62fc3acc89cce1c4293f168385d4ad729aac49c0a"
+      },
+      {
+        "path": "effects/apply_supported.py",
+        "sha256": "2b5210836914ae30e527022efb38a58a0e4838311239f84abb85df5d1f4b3198"
+      },
+      {
+        "path": "effects/evidence_tables.py",
+        "sha256": "cfacbfde6510ca978cb688e395f78fccbf26c63f3775a98c4d52a946113b798e"
+      },
+      {
+        "path": "config/jax_bal_tnf_2026-11-05_data_only.json",
+        "sha256": "f13cae0f9dc20947222902874e64b5146ab1f8113e205fb2d893e51eba80a41e"
+      }
+    ],
+    "prior_0of15_preserved": "artifacts/validation/pre_fix_b7b5796_0of15/",
+    "evaluation_label": "development_w1_8_inspected_not_untouched_holdout",
+    "approved_pick": false,
+    "prior_year_pooling": false,
+    "league_pooling": false,
+    "historical_opponents_allowed": true
+  },
+  "approved_pick": false,
+  "evaluation_label": "development_w1_8_inspected_not_untouched_holdout",
+  "prior_artifact_0of15": "artifacts/validation/pre_fix_b7b5796_0of15/",
+  "accounting": {
+    "overall_status": "PASS",
+    "regulation_clock_sec_target": 3600,
+    "n_sims": 100,
+    "seed": 20261105,
+    "config_id": "jax_bal_tnf_2026-11-05_data_only",
+    "mean_plays_approx": 133.125,
+    "mean_punts": 9.65,
+    "mean_tds": 6.175,
+    "mean_kickoffs": 11.725,
+    "p_ot_sample": 0.0,
+    "score_means": {
+      "fg_home": 24.52,
+      "fg_away": 29.42
+    },
+    "sparse_rate": 1.0,
+    "n_checks_pass": 9,
+    "n_checks_fail": 0,
+    "label": "development_in_sample_diagnostic_not_accuracy"
+  },
+  "accounting_checks_fail": [],
+  "accounting_runtime_sec": 2.447783405019436,
+  "grading": {
+    "n_games_denominator": 15,
+    "n_graded_full": 13,
+    "n_ungradable": 2,
+    "status_counts": {
+      "GRADED_FULL": 13,
+      "UNGRADEABLE_NO_OWN_SEASON_HISTORY": 2
+    },
+    "n_sims_per_graded_game": 150,
+    "grade_runtime_sec": 33.043083314958494,
+    "mae_home": 9.52102564102564,
+    "mae_away": 9.064102564102564,
+    "mae_total_points_side_avg": 9.292564102564102,
+    "baseline_mae_home": 8.987179487179487,
+    "baseline_mae_away": 9.576373626373625,
+    "mean_pred_home": 27.0,
+    "mean_pred_away": 24.99538461538462,
+    "mean_actual_home": 24.692307692307693,
+    "mean_actual_away": 20.0,
+    "mean_pred_h1_home": 12.987179487179487,
+    "mean_pred_h1_away": 12.963076923076922,
+    "engine_vs_baseline_home": "baseline_mae_lower_or_tie",
+    "engine_vs_baseline_away": "engine_mae_lower",
+    "note": "Development set \u2014 not tuned to beat baseline; not accuracy claim"
+  },
+  "market_status": "NO_MATCHING_PREKICK_PINNACLE_QUOTES \u2014 no edge/ROI",
+  "effects_summary": {
+    "ftn": {
+      "ftn_path": "/workspace/nfl-database/runs/2026-11-05_matchup_run/src/ftn_charting_2026.parquet",
+      "status": "OK",
+      "man_zone_mofo_mofc_in_ftn": false,
+      "note": "FTN 2026 local extract has n_blitzers/n_pass_rushers; no man/zone/MOFO/MOFC/route columns",
+      "n_pbp": 2567,
+      "n_joined": 2491,
+      "join_rate": 0.9703934553954032,
+      "date_pulled_sample": "2026-11-01 12:01:32.054643+00:00"
+    },
+    "period_scoreboards": "IMPLEMENTED",
+    "true_pressure": "MISSING_paid_FTN_qbp",
+    "coverage_man_zone_mofo": "MISSING_not_in_nflverse_FTN_29col",
+    "attribution": "FTN Data via nflverse (CC-BY-SA)"
+  },
+  "blockers_residual": [
+    "True pressure (FTN qbp) and routes (rte) require paid FTN \u2014 not pulled",
+    "Man/zone/MOFO/MOFC absent from free FTN subset (nflreadr dictionary confirms)",
+    "CB/S/DT replacement effects remain UNVERIFIED notes \u2014 no coefficients",
+    "Actual H1/period outcomes not fully reconstructed for MAE vs actual periods in this CSV (FG graded; H1 pred reported)",
+    "sparse_rate still high; development set only"
+  ],
+  "period_realism_extension": {
+    "approved_pick": false,
+    "evaluation_label": "development_w1_8_inspected_not_untouched_holdout",
+    "prior_artifacts_preserved": "artifacts/validation/pre_period_grade_12a7768/",
+    "n_sims": 150,
+    "runtime_sec": {
+      "asof_fg_grade": 33.134122835996095,
+      "period_grade": 35.641433007025626,
+      "realism": 3.4155781340086833
+    },
+    "fg_grade_coverage": {
+      "graded_full": 13,
+      "denominator": 15
+    },
+    "period_metrics": {
+      "n_games_period_graded": 13,
+      "mae_q1_home": 2.7466666666666666,
+      "mae_q1_away": 3.763076923076923,
+      "mae_h1_home": 5.334871794871796,
+      "mae_h1_away": 6.464102564102565,
+      "mae_h2_home": 6.874358974358974,
+      "mae_h2_away": 7.045641025641026,
+      "mae_reg_home": 9.157948717948718,
+      "mae_reg_away": 9.284102564102565,
+      "mae_fg_home": 9.194871794871794,
+      "mae_fg_away": 8.733333333333333,
+      "brier_h1_home_win": 0.25354871794871797,
+      "brier_h2_home_win": 0.29579829059829066,
+      "brier_reg_home_win": 0.33394871794871794,
+      "brier_fg_home_win": 0.3426051282051281,
+      "label": "development_w1_8_period_grade_not_untouched_holdout",
+      "note": "Period MAE/Brier reported separately from FG; ties count as home non-win for Brier"
+    },
+    "realism": {
+      "label": "development_in_sample_diagnostic_not_accuracy",
+      "actual": {
+        "mean_offense_snaps_per_team_game": 59.86666666666667,
+        "median_offense_snaps_per_team_game": 58.0,
+        "n_team_games": 15,
+        "drive_length_plays": {
+          "mean": 7.540372670807454,
+          "median": 7.0,
+          "n_drives": 161
+        },
+        "by_team_mean_snaps": {
+          "JAX": 59.285714285714285,
+          "BAL": 60.375
+        }
+      },
+      "actual_both_offenses_snaps_approx": 119.73333333333333,
+      "sim": {
+        "mean_snaps_per_game": 133.42,
+        "median_snaps_per_game": 133.0,
+        "mean_punts": 9.435,
+        "mean_tds": 6.12,
+        "mean_possession_proxy": 20.75,
+        "n_sims": 200
+      },
+      "comparison": {
+        "sim_snaps_minus_2x_team_snaps": 13.686666666666653,
+        "note": "Sim snap count is joint (both teams); actual mean is per-team offense \u2014 compare to 2\u00d7 actual"
+      }
+    },
+    "weather": {
+      "status": "PENDING_NWS",
+      "source": null,
+      "as_of_et": null,
+      "wind_mph": null,
+      "precip": null,
+      "temp_f": null,
+      "auto_apply_to_props": false,
+      "notes": "Do not auto-downgrade props from DK article; wait for NWS cross-check"
+    },
+    "residual_matrix": {
+      "true_pressure_qbp": "MISSING_paid_FTN",
+      "man_zone_mofo_routes": "MISSING_free_FTN_29col",
+      "cb_s_dt_replacement_coeffs": "MISSING_UNVERIFIED_notes_only",
+      "weather_auto_prop_downgrade": "DISABLED_pending_NWS"
+    }
+  },
+  "summary_updated_et": "2026-11-05 16:20:52 EST"
+}

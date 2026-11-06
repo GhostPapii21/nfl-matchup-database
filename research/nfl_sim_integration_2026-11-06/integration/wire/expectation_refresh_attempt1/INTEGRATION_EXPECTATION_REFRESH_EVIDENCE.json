@@ -1,0 +1,494 @@
+{
+  "document_type": "INTEGRATION_EXPECTATION_REFRESH",
+  "started_utc": "2026-11-06T12:19:11.794580+00:00",
+  "ended_utc": "2026-11-06T12:19:14.350414+00:00",
+  "direct_transport": "GREEN",
+  "ghost_final_acceptance": "NOT_CLAIMED",
+  "source_readiness": "OPEN_NOT_READY",
+  "actionable_status": "NOLINE",
+  "bias": "UNIMPLEMENTED_NO_FITTED_CALIB",
+  "impact": "NOT_MEASURED",
+  "predictive_claims": false,
+  "projection_ready": false,
+  "scope": {
+    "write_root": "/workspace/research/nfl_sim_integration_2026-11-06/integration",
+    "market_adapter_edits": false,
+    "core_edits": false,
+    "source_gate_edits": false,
+    "original_producer_evidence_edits": false,
+    "network_requests": 0,
+    "spend": 0,
+    "new_simulations": 0,
+    "bias_fit_calls": 0
+  },
+  "contract": {
+    "expected_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+    "actual_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+    "historical_sha256": "d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9",
+    "authorization": "integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md",
+    "path_override": false,
+    "DIRECT_trial_remap": false
+  },
+  "before_results": {
+    "source": "integration/wire/PARENT_VERIFY_POST_REBIND.json",
+    "DIRECT": {
+      "passed": 1,
+      "failed": 0
+    },
+    "adversarial": {
+      "passed": 51,
+      "failed": 9
+    },
+    "note": "Prior captured counts; original pipeline masked exit status. Original logs preserved."
+  },
+  "pytest": [
+    {
+      "name": "DIRECT",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "integration/integration_adversarial_tests.py::test_DIRECT_actual_producer_to_market_acceptance",
+        "-q",
+        "-rs",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/pytest_tmp_refresh_DIRECT",
+        "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.xml"
+      ],
+      "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "GIT_OPTIONAL_LOCKS": "0",
+        "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06"
+      },
+      "started_utc": "2026-11-06T12:19:11.796368+00:00",
+      "log": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.log",
+      "junit": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.xml",
+      "ended_utc": "2026-11-06T12:19:12.171069+00:00",
+      "exit_code": 0,
+      "stdout_stderr": ".                                                                        [100%]\n1 passed in 0.20s\n",
+      "log_sha256": "93c97c10af4fc8b54296201243c032c5e8295479ca6b4adc06019033d6f9e282",
+      "junit_sha256": "0aa418094e729ced4062c0d4ffb7c24aab08c5f3825941930c4995ea8fe3a452",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 1
+      }
+    },
+    {
+      "name": "adversarial",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "integration/integration_adversarial_tests.py",
+        "-q",
+        "-rs",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/pytest_tmp_refresh_adversarial",
+        "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.xml"
+      ],
+      "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "GIT_OPTIONAL_LOCKS": "0",
+        "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06"
+      },
+      "started_utc": "2026-11-06T12:19:12.171515+00:00",
+      "log": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.log",
+      "junit": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.xml",
+      "ended_utc": "2026-11-06T12:19:14.040335+00:00",
+      "exit_code": 0,
+      "stdout_stderr": ".....................................................................    [100%]\n69 passed in 1.69s\n",
+      "log_sha256": "4d389e50c42a16130e79145e61bdfa67d1f53e66b00d15436ac761094719fc99",
+      "junit_sha256": "1aee8955ee1c278819b4a144a98f228c296f2f82b45415fe2d2061a955ce64e3",
+      "counts": {
+        "tests": 69,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 69
+      }
+    },
+    {
+      "name": "historical",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "integration/tests/historical",
+        "-q",
+        "-rs",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/pytest_tmp_refresh_historical",
+        "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.xml"
+      ],
+      "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "GIT_OPTIONAL_LOCKS": "0",
+        "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06"
+      },
+      "started_utc": "2026-11-06T12:19:14.040896+00:00",
+      "log": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.log",
+      "junit": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.xml",
+      "ended_utc": "2026-11-06T12:19:14.327916+00:00",
+      "exit_code": 0,
+      "stdout_stderr": "ssssss                                                                   [100%]\n=========================== short test summary info ============================\nSKIPPED [1] integration/tests/historical/test_historical_pre_rebind.py: HISTORICAL_PRE_REBIND_RECORD: superseded binding and missing-field stages; separate archival suite\nSKIPPED [5] integration/tests/historical/test_historical_pre_rebind.py:24: HISTORICAL_PRE_REBIND_RECORD: superseded binding and missing-field stages; separate archival suite\n6 skipped in 0.12s\n",
+      "log_sha256": "5418cd22775222abf3a77f48aa82f8e78eb251f7467f250b3c57010bde06ce23",
+      "junit_sha256": "6a4a431574f1af2c1c0bd2ae5a557d32a7d6766db96e59e5ef7d3115ccb6f61e",
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 6,
+        "passed": 0
+      }
+    }
+  ],
+  "checks": {
+    "DIRECT_green": true,
+    "full_adversarial_green": true,
+    "historical_separate": true,
+    "protected_inputs_unchanged": false,
+    "market_inventory_matches": true,
+    "authorized_contract": true,
+    "immutable_example": true,
+    "frozen_records_unchanged": true
+  },
+  "protected_comparisons": {
+    "/workspace/wt-market-calibration/research/market_calibration": {
+      "unchanged": false,
+      "before_count": 103,
+      "after_count": 108,
+      "changes": [
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/PUBLIC_METHOD_PROBES_2026-11-06.json",
+          "before_sha256": null,
+          "after_sha256": "c4d9bcc9648fa284e085bcbc181c0c4366342536a44474ee3b7e0925bc44f123"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/QUOTE_EXTRACTION_INVENTORY_2026-11-06.json",
+          "before_sha256": null,
+          "after_sha256": "3e260c8ad13502a996fc04641e33db726c607ad0d5cb68c9b57106d305382dd2"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/anomaly_guard_scope_before.json",
+          "before_sha256": null,
+          "after_sha256": "d80a61c88cb75902d918f13e19022cd31043822c917278cc321602bd7b72ce25"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_anomaly_guard_red.txt",
+          "before_sha256": null,
+          "after_sha256": "53a08180259113bef341ee8c722d92c1bfc235d2c89d88eae1ca639a252e0aad"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/tests/test_delivery_guard.py",
+          "before_sha256": null,
+          "after_sha256": "ee48d1d178f197730e3559eb78e8df15bc56946311f8d054a5780c82e5ed9068"
+        }
+      ]
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0": {
+      "unchanged": true,
+      "before_count": 203,
+      "after_count": 203,
+      "changes": []
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate": {
+      "unchanged": false,
+      "before_count": 17,
+      "after_count": 17,
+      "changes": [
+        {
+          "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/provenance.py",
+          "before_sha256": "d82cbcc91c228a3f020be0f55fbcbe0598f4b5f544482b5ed3337207fb6be6c8",
+          "after_sha256": "da16e8a95318dc08a494fe00c97e612bacede3b990113a04d2a08ad0ec2f647e"
+        },
+        {
+          "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/source_ledger.schema.json",
+          "before_sha256": "0776349676e9a7ebd5c9644a2856619d56cfc38e472d414b3c009d0ae8e13b42",
+          "after_sha256": "63e1e8b68b7e275d43b0616dad74fad78da5b2ff672cbae151994b6f50dc5161"
+        },
+        {
+          "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests/test_provenance.py",
+          "before_sha256": "ab8f03dd390a0220e46b45e9def5b5e2c8bec09269c2fd1b6cc99f326e12dbc5",
+          "after_sha256": "188478913bf6524b9cb8e39f8dad5157d48b87f7d60497df1a68dce4a46498b0"
+        },
+        {
+          "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests/test_readiness.py",
+          "before_sha256": "4b1f585eac2875dea6acb60224b890e49c7ff91d18c3abddedd4c22dc5939887",
+          "after_sha256": "0b373194c5fee7ec00e62c2c891b1d621b5b39291a91564ef5aa479a003eed83"
+        }
+      ]
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/reviews": {
+      "unchanged": true,
+      "before_count": 51,
+      "after_count": 51,
+      "changes": []
+    },
+    "contract_and_wire_companion": {
+      "unchanged": true,
+      "before_count": 2,
+      "after_count": 2,
+      "changes": []
+    }
+  },
+  "snapshots": [
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_before_snapshot.json",
+      "sha256": "7477a53761b7212f2eb1f525dc380e2fc956cd6b61cbbb2d789931cd6c68d324"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_after_snapshot.json",
+      "sha256": "baad273da795cb8337a4f3783c6bbc7a21995edce100e080579ba64a36942d8a"
+    }
+  ],
+  "frozen_records": [
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/producer_joint_trial_example_v1.jsonl",
+      "before_sha256": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd",
+      "after_sha256": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/WIRE_SCHEMA_V1_META.json",
+      "before_sha256": "f5ffe94f60d6e8b968eec06db8c4004e75c1f1ca0ac0332272da4778f1a86d50",
+      "after_sha256": "f5ffe94f60d6e8b968eec06db8c4004e75c1f1ca0ac0332272da4778f1a86d50"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md",
+      "before_sha256": "f56b233593a66c8dc3a6c28a8721057e7d3a37c740900ed23055a208cadc8cc7",
+      "after_sha256": "f56b233593a66c8dc3a6c28a8721057e7d3a37c740900ed23055a208cadc8cc7"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/PARENT_VERIFY_POST_REBIND.json",
+      "before_sha256": "debeb57b159ccc57c7260f7cb4105cf1f061dab47cdbe0d8fa92ac91c6a5d474",
+      "after_sha256": "debeb57b159ccc57c7260f7cb4105cf1f061dab47cdbe0d8fa92ac91c6a5d474"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/parent_verify_adversarial_post_rebind.log",
+      "before_sha256": "e48d81829d20e80afc5c52d3496b943f1d25cd9be1311b2542e6418afa22c9f7",
+      "after_sha256": "e48d81829d20e80afc5c52d3496b943f1d25cd9be1311b2542e6418afa22c9f7"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/INTEGRATION_WIRE_EVIDENCE.json",
+      "before_sha256": "b2da9ffb0898e93112492823bff70be230c8259466c01ba32e0cf07acd7b5b8d",
+      "after_sha256": "b2da9ffb0898e93112492823bff70be230c8259466c01ba32e0cf07acd7b5b8d"
+    }
+  ],
+  "producer_revision_changes": [
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_joint_producer.py",
+      "before_sha256": "sha256:3effe50027ff2a98de4d6c8386b253e4f94d96fea0c9f10c491ceb802c45c6ab",
+      "after_sha256": "sha256:0496d8b619e29376c021973caec5b6ec1a0b50f70399539ab1c865c35c60f275"
+    }
+  ],
+  "inventory_refresh": {
+    "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/market_calibration_file_hashes.json",
+    "sha256": "9c39fb9f1021109e401d3f97465632a6305e2a36c06367049d5c046c23316349",
+    "historical_path": "integration/tests/historical/market_calibration_file_hashes.json.pre_refresh.txt",
+    "before_count": 72,
+    "after_count": 103,
+    "changes": [
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/MANIFEST.json",
+        "before_sha256": "37948790ca32ab0ebfedd5129ad9e10a286dd0f4e173f129dec4ab0e31edeeb2",
+        "after_sha256": "c996299ca4cda5a1ed7e90a5958573798c9bf73ace4276bbc0e6346d721684bb"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/joint_trial_adapter.py",
+        "before_sha256": "4dab7b5adfa9b6b335db76ddb0f950d8dfda9298c63a6de15806830f9c3e416e",
+        "after_sha256": "f430b71834c5da8c59083218c7f0860cee7fd84c30460d9a167aa72af224384d"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/B01_WIRE_FIX_COMPLETION.md",
+        "before_sha256": null,
+        "after_sha256": "10a3fab88e000a0f371ac7a98e25fcbe6cb2b697fc776f5b582774cd1a3960f6"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/BINDING_REBIND_COMPLETION.md",
+        "before_sha256": null,
+        "after_sha256": "79d8015798638e7c33c079fc677f6ee53137b17ee3ec055d5aab2ece3c1525fd"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/PARENT_VERIFY_POST_REBIND.json",
+        "before_sha256": null,
+        "after_sha256": "206cf67e0d44dfd19621aa884622aaf8dee9be6f357520e2c42860513f38ed8c"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_evidence.json",
+        "before_sha256": null,
+        "after_sha256": "3e5454ca2704442653bd5770c140916611b81d5b93c4f0421d96e87078d35403"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_last.txt",
+        "before_sha256": null,
+        "after_sha256": "4d798b82feda094248d64cee110a0136c79085e27c54bf7add194b4e3129cb52"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_run_records.json",
+        "before_sha256": null,
+        "after_sha256": "2d8fa8dc71aa5a784d9331a22ccfa2552b0fb0d57191c273a1c31c1975906432"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_stderr.txt",
+        "before_sha256": null,
+        "after_sha256": "e6cf19694e4301a9864f55fe4732f3abe4ef26a3ed59c25175e68bb8ca897bba"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_stdout.txt",
+        "before_sha256": null,
+        "after_sha256": "f292a15a252feabd2c332dd545e10a6af15e86222c3e945892d00ba8f023a33d"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_evidence.json",
+        "before_sha256": null,
+        "after_sha256": "a3d25d07f33a74fdc28befb0023cf66da424af6780696e5ed7a853d2920dec98"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_last.txt",
+        "before_sha256": null,
+        "after_sha256": "10e0ef8335f67f042fef411ad9b77f661f86b682446f6b58b420b2e4e341f152"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_stderr.txt",
+        "before_sha256": null,
+        "after_sha256": "2a0348ea557837a8793b1d9f0d04bc8fce6b4e0cf8db8b4aa3c7b66e834bce15"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_stdout.txt",
+        "before_sha256": null,
+        "after_sha256": "578931c206455c38147f0ac232888326af0cde394b4f654a8c043f4d18193f7d"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/prompt_codex_b01_wire_agreement_v1.txt",
+        "before_sha256": null,
+        "after_sha256": "4e8eab7509a92a61afd1395cfeb3ce6c3e3cc3665ce929059ad11894f4c4828d"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/prompt_codex_binding_rebind_v1.txt",
+        "before_sha256": null,
+        "after_sha256": "f5239697c34473c209dbdb79a2e6fdc33d90f92eed3ca0ebc89ecda691b9c1c6"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_direct.txt",
+        "before_sha256": null,
+        "after_sha256": "eb631c7b2f9799c8277b1dff3d9e2eb699b94c300c20688032d1b5f834ab988b"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_historical_contract_rehearsal.txt",
+        "before_sha256": null,
+        "after_sha256": "f7bd107ad81192cbced350ff5bfcbff063c3d2dfa1702ec2b63698ed58550cb6"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_integration_full.txt",
+        "before_sha256": null,
+        "after_sha256": "190eb4768865fb466beea957a708bd9b5cd7b7bbf92190193142d4ac43e83d0e"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_market.txt",
+        "before_sha256": null,
+        "after_sha256": "88cab337e9937cfb8cb9024681c0dddb6d3e2356b185f5dee89e6ade0d840a32"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_wire_cases_post_implementation_blocked.txt",
+        "before_sha256": null,
+        "after_sha256": "b9c16937ce03069a01f85509f3bed015b0742baaa97c36fbcf9410e0905129d9"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_wire_cases_red.txt",
+        "before_sha256": null,
+        "after_sha256": "ce9c426fafd12fb05793b5a6e4c4f7cb5ddc6b89445ac6779db98e5dc3a30942"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_wire_red.txt",
+        "before_sha256": null,
+        "after_sha256": "daec6c904565b37366fbf90d354be3e27d1fdbbbbc26421be2798dda959d3b75"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_direct.txt",
+        "before_sha256": null,
+        "after_sha256": "fa8e3e1f0a4b084326a7027307e5cc3a94f799f9733ea598c3b878fa3c70f37c"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_local.txt",
+        "before_sha256": null,
+        "after_sha256": "c2c6b596f6326dec34c3110029f10ae752a6b80ef7dd9f3d368c2793a9363a31"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_market.txt",
+        "before_sha256": null,
+        "after_sha256": "038ade2b4642639bc7686315489b5a88567db86c4ff8ce68a19c17d596ebee7f"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_red.txt",
+        "before_sha256": null,
+        "after_sha256": "2a9ecb02aa1d1e0ef68873713e2b513c1fd0abf205360915502bcf74d828f192"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_binding_local.txt",
+        "before_sha256": null,
+        "after_sha256": "c2c6b596f6326dec34c3110029f10ae752a6b80ef7dd9f3d368c2793a9363a31"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_direct_post_rebind.txt",
+        "before_sha256": null,
+        "after_sha256": "8989a153a4f265bdf8bf8abfcbf7ce96cf91c69ee66d543244ebf0fc2c9d041d"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_market_post_rebind.txt",
+        "before_sha256": null,
+        "after_sha256": "e26baf60b482e02d7c2aadef5a668db6e13b4d18d5726d48e536248c8131c9b2"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tests/test_contract_binding.py",
+        "before_sha256": null,
+        "after_sha256": "8acfb15af6a86dc703064dff6f8183c7b31ae688623aa1f080cd3271c4fa2dd1"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tests/test_producer_wire.py",
+        "before_sha256": null,
+        "after_sha256": "a2c41a600f89710e4cf79b59fe8410f3809ee5f24c9d5bdd408d4460b6197611"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/GHOST_HANDOFF_MARKET_ADAPTER.md",
+        "before_sha256": "1bed9f2d385345d7dea4b7e4c2dd65541214f8223a273c7a75480fe9b6652a2c",
+        "after_sha256": "87969e5a991790a9e0a1f14e86c20b4f896c9f863c270dd2662edd3b7f5ea939"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/NFL-16_TRACKING.md",
+        "before_sha256": "8455d783694ff1c45cb1f8691a5fcdfa833a2982cfe0778a89a0ee98d1f943e8",
+        "after_sha256": "077db164ee37abb89e39034f76c15992edbc0620aaaa9626d9e0c0c8de95d570"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/WIRE_AGREEMENT_v1.0.1.md",
+        "before_sha256": null,
+        "after_sha256": "bd96a29ed1d18fdbf6b551b6c62a5db32b78ee0896bb9606fbd9e09abadbb2e7"
+      }
+    ],
+    "mismatches": []
+  },
+  "historical_suite": {
+    "path": "integration/tests/historical/test_historical_pre_rebind.py",
+    "reason": "HISTORICAL_PRE_REBIND_RECORD",
+    "gates_live_acceptance": false
+  },
+  "limits": [
+    "Synthetic SCENARIO_ONLY retained rows; zero adapter-usable trials.",
+    "DIRECT is score transport only; adapter full CORE accounting acceptance remains NOT_RUN.",
+    "Certified as-of sources, canonical joins and workflow completion remain open.",
+    "No fitted Bias, untouched-holdout validation or same-evaluation predictive metrics."
+  ]
+}

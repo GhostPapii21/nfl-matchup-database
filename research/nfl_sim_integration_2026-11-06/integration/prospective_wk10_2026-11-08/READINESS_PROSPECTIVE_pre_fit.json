@@ -1,0 +1,43 @@
+{
+  "document_type": "READINESS_PROSPECTIVE",
+  "projection_ready": false,
+  "ghost_final": "NOT_CLAIMED",
+  "impact": "NOT_MEASURED",
+  "run_kind": "PROSPECTIVE_ASOF",
+  "game": "DAL@IND ESPN 401873040 kickoff 2026-11-08T18:00:00Z",
+  "cutoff_utc": "2026-11-06T12:40:00Z",
+  "source_success_count": 11,
+  "quotes": "NOLINE",
+  "coverage_effects_disabled": true,
+  "joint_producer": {
+    "forecast_id": "sha256:8be81b9695085def31df5ec99cbe78cffa637ca1a6c32c87d49581ce8d5745a5",
+    "input_content_hash": "sha256:c9b4fa3daba28484da13c75f52cb2bdf5a81f6d4da1d1268d44274857fd80832",
+    "status": "OK",
+    "n_usable": 5,
+    "n_invalid": 0,
+    "conservation_pytest": "77 passed (tests/test_joint_producer.py)"
+  },
+  "empirical_sim_compact": {
+    "path": "runs/sim_dal_ind_summary.json",
+    "n": 500,
+    "runtime_sec": 14.457765865000056,
+    "score_means": {
+      "fg_home": 12.722,
+      "fg_away": 22.012,
+      "reg_home": 12.68,
+      "reg_away": 21.928,
+      "p_ot": 0.026
+    },
+    "status": "OK",
+    "note": "Research-only empirical offense bootstrap; NOT calibrated; not a betting edge"
+  },
+  "fifteen_phases": "NOT_COMPLETE",
+  "retrospective_packet": "UNCHANGED integration/certified_asof",
+  "remaining_blockers": [
+    "brainstorm + 15-phase ledger + Ghost final vet incomplete",
+    "odds-bridge LOGIN_REQUIRED (BetGuru) \u2014 NOLINE",
+    "coverage/routes/personnel MISSING \u2014 effects disabled",
+    "joint usage cells depth/placeholder pending empirical fit under freeze",
+    "official inactive/weather freeze closer to kickoff still open"
+  ]
+}

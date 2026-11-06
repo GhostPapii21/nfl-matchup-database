@@ -1,0 +1,5 @@
+Review RESEARCH-ONLY NFL possession_engine_v0 in this worktree (branch research-period-engine-2026-11-05, base commit 64b564b; local uncommitted completion fixes may exist — note them).
+Read files under research/possession_engine_v0/ (simulate.py, state.py, validation/, effects/, tests/, EFFECTS_AND_COVERAGE_MATRIX.md, artifacts/validation/SUMMARY.md).
+Do NOT invent betting edges. Rubric 1-5: math, game-state/clock, leakage, discrete scoring, robustness, feature-source honesty, calibration honesty, next sim steps.
+Verify/refute: sparse_rate~1, offense-only/defense interaction, fixed vs empirical clock, pace 133 vs 2x59.9 apples-to-apples, OT approx, period grade 13/15 N=150, missing true pressure/coverage.
+Return: prioritized defects with file:line evidence, concrete pytest regression names+asserts, addressed vs open. Reject fake three-model/market-fit claims.

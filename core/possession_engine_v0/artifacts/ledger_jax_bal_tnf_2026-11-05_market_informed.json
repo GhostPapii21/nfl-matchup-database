@@ -1,0 +1,82 @@
+[
+  {
+    "group": "base_pbp",
+    "applied_in": "jax_bal_tnf_2026-11-05_market_informed",
+    "mechanism": "team W1\u20138 empirical catalog",
+    "forbids": [
+      "league_silent_pool",
+      "future_weeks"
+    ],
+    "status": "ACTIVE"
+  },
+  {
+    "group": "qb_injury_role",
+    "applied_in": "none",
+    "mechanism": "forward QB starter filter / OUT exclusions",
+    "forbids": [
+      "also_apply_lamar_passing_priors",
+      "fabricated_fagnano_career",
+      "market_implied_qb_downgrade_as_second_hit"
+    ],
+    "status": "INACTIVE_DATA_ONLY"
+  },
+  {
+    "group": "situational_offense",
+    "applied_in": "jax_bal_tnf_2026-11-05_market_informed",
+    "mechanism": "audit tables only unless later wired as sampler weights",
+    "forbids": [
+      "reweight_same_3rd_down_twice",
+      "add_narrative_rz_boost_without_param"
+    ],
+    "status": "AUDIT_ONLY"
+  },
+  {
+    "group": "qb_pressure_proxy",
+    "applied_in": "jax_bal_tnf_2026-11-05_market_informed",
+    "mechanism": "qb_hit completion audit \u2014 PROXY",
+    "forbids": [
+      "treat_as_measured_blitz",
+      "stack_with_unknown_pressure_penalty"
+    ],
+    "status": "AUDIT_PROXY"
+  },
+  {
+    "group": "availability_workload",
+    "applied_in": "none",
+    "mechanism": "stub notes only \u2014 no numeric weights",
+    "forbids": [
+      "arbitrary_workload_penalty",
+      "double_count_with_qb_filter"
+    ],
+    "status": "STUB_NO_WEIGHTS"
+  },
+  {
+    "group": "environment",
+    "applied_in": "none",
+    "mechanism": "weather not ingested",
+    "forbids": [
+      "arbitrary_weather_boost"
+    ],
+    "status": "UNKNOWN"
+  },
+  {
+    "group": "market_conditioning",
+    "applied_in": "jax_bal_tnf_2026-11-05_market_informed",
+    "mechanism": "spread/total conditioning only in market_informed config",
+    "forbids": [
+      "contaminate_data_only_baseline",
+      "claim_independent_market_beating_edge"
+    ],
+    "status": "ACTIVE"
+  },
+  {
+    "group": "pace_totals_narrative",
+    "applied_in": "none",
+    "mechanism": "narrative comments require auditable param map or sensitivity label",
+    "forbids": [
+      "free_text_auto_calibration",
+      "unsupported_pace_weight"
+    ],
+    "status": "FORBIDDEN_UNMAPPED"
+  }
+]

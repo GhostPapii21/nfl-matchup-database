@@ -1,0 +1,43 @@
+{
+  "document_type": "betguru_parent_verify_post_rebind",
+  "generated_et": "2026-11-06 07:11:14 ET",
+  "contract_sha256_full": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+  "example_sha256_full": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd",
+  "wire": "1.0.0-producer",
+  "agreement_id": "market-producer-wire-v1.0.1",
+  "official": {
+    "market": {
+      "passed": 179,
+      "failed": 0,
+      "exit_code": 0,
+      "log": "reviews/pytest_parent_verify_market_post_rebind.txt"
+    },
+    "DIRECT_B01": {
+      "passed": 1,
+      "failed": 0,
+      "exit_code": 0,
+      "log": "reviews/pytest_parent_verify_direct_post_rebind.txt"
+    },
+    "binding_local": {
+      "passed": 6,
+      "failed": 0,
+      "exit_code": 0,
+      "log": "reviews/pytest_parent_verify_binding_local.txt"
+    }
+  },
+  "codex_prior": {
+    "market": 179,
+    "DIRECT": 1,
+    "binding_local": 6,
+    "completion": "reviews/BINDING_REBIND_COMPLETION.md",
+    "evidence": "reviews/codex_binding_rebind_evidence.json"
+  },
+  "actionable_status": "NOLINE",
+  "bias_status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+  "source_readiness": false,
+  "full_core_acceptance": "NOT_RUN",
+  "ghost_final_acceptance": "NOT_CLAIMED",
+  "forecast_acceptance": false,
+  "impact": "NOT_MEASURED",
+  "residual_note": "Integration adversarial suite may still show stale SHA inventory failures outside market adapter rebind; DIRECT transport GREEN."
+}

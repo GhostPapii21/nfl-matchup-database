@@ -1,0 +1,96 @@
+{
+  "as_of_et": "2026-11-05",
+  "sources": [
+    {
+      "id": "ftn_charting_2026",
+      "path": "/workspace/nfl-database/runs/2026-11-05_matchup_run/src/ftn_charting_2026.parquet",
+      "date_pulled": "2026-10-05 17:01:53.262414+00:00",
+      "provides": [
+        "n_blitzers",
+        "n_pass_rushers"
+      ],
+      "missing": [
+        "man_zone",
+        "mofo",
+        "mofc",
+        "route",
+        "true_pressure",
+        "primary_cb"
+      ]
+    },
+    {
+      "id": "pbp_qb_hit_sack",
+      "path": "/workspace/wt-period-engine/research/period_engine_v0/data/play_by_play_2026.parquet",
+      "provides": [
+        "qb_hit",
+        "sack",
+        "qb_scramble"
+      ],
+      "label": "PROXY pressure components"
+    },
+    {
+      "id": "r6_pressure_inputs",
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/codex/pressure_inputs.json",
+      "pulled_et": "2026-11-03T19:13"
+    },
+    {
+      "id": "r6_coverage_json",
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/codex/coverage.json",
+      "note": "assignment_status UNVERIFIED \u2014 not measured primary CB"
+    }
+  ],
+  "jax_offense": {
+    "n_pass": 214,
+    "n_ftn_joined": 214,
+    "blitz_rate_ftn": 0.308411214953271,
+    "pressure_proxy_rate": 0.16822429906542055,
+    "qb_hit_rate": 0.1588785046728972,
+    "label_pressure": "PROXY_sack_or_qb_hit_or_scramble",
+    "label_blitz": "FTN_n_blitzers_ge_1"
+  },
+  "bal_offense": {
+    "n_pass": 249,
+    "n_ftn_joined": 249,
+    "blitz_rate_ftn": 0.3534136546184739,
+    "pressure_proxy_rate": 0.18875502008032127,
+    "qb_hit_rate": 0.18875502008032127,
+    "label_pressure": "PROXY_sack_or_qb_hit_or_scramble",
+    "label_blitz": "FTN_n_blitzers_ge_1"
+  },
+  "jax_defense": {
+    "n_pass": 257,
+    "n_ftn_joined": 257,
+    "blitz_rate_ftn": 0.311284046692607,
+    "pressure_proxy_rate": 0.17509727626459143,
+    "qb_hit_rate": 0.16342412451361868,
+    "label_pressure": "PROXY_sack_or_qb_hit_or_scramble",
+    "label_blitz": "FTN_n_blitzers_ge_1"
+  },
+  "bal_defense": {
+    "n_pass": 281,
+    "n_ftn_joined": 281,
+    "blitz_rate_ftn": 0.35231316725978645,
+    "pressure_proxy_rate": 0.18149466192170818,
+    "qb_hit_rate": 0.18149466192170818,
+    "label_pressure": "PROXY_sack_or_qb_hit_or_scramble",
+    "label_blitz": "FTN_n_blitzers_ge_1"
+  },
+  "coverage_man_zone_mofo": {
+    "status": "MISSING",
+    "reason": "Not in local FTN 29-col extract; no free charted man/zone/MOFO join found without paid PFF"
+  },
+  "cb_s_dt_replacements": {
+    "status": "UNVERIFIED_NOTES_ONLY",
+    "source": "coverage.json / coverage_overrides",
+    "use": "sensitivity only \u2014 no fitted coefficients"
+  },
+  "shaan_numbers": {
+    "status": "ATTRIBUTED_NOT_VERIFIED",
+    "note": "Any Shaan-provided figures remain attributed, not verified model inputs"
+  },
+  "residual_unchanged_2026-11-05_1618": {
+    "true_pressure_qbp": "MISSING_paid_FTN",
+    "man_zone_mofo": "MISSING_free_FTN_29col",
+    "action": "kept MISSING \u2014 no new free evidence found this pass"
+  }
+}

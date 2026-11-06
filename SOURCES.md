@@ -11,3 +11,7 @@
 Each available observation includes its provider/source URL, retrieval time or linked fetch metadata. Consult those record-level URLs for the exact source. Source-specific metric definitions can differ: Sharp defaults for explosive plays, for example, must not silently be substituted for a different threshold.
 
 No paid Fantasy Points Data Suite export is included. No third-party chart images or full webpage archives are bundled. Public accessibility does not imply a universal license; downstream users must observe each provider's applicable terms.
+
+## Model checkpoint additions
+
+The model tree follows the same rule. nflverse play-by-play, roster, game, and depth-chart files that were already redistributable are included as regular files. FTN charting parquets, raw ESPN API bodies, scraped book pages, and saved book-quote audits are hash-only. See `inventory/EXCLUSIONS.json` and `docs/SOURCE_STATUS.md`. ORCA and FTN model mirrors were not retrieved. No odds credential is included.

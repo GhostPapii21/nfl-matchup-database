@@ -1,0 +1,716 @@
+{
+  "attempt_hash_policy": "Probe-declared body hashes without retained bodies are unverified; provenance.json lists byte-verified files.",
+  "external_requests_this_pass": 0,
+  "generated_at_utc": "2026-11-06T12:21:50Z",
+  "odds_bridge": {
+    "basis": "Saved coordinator GetMcpServerStatus authentication_required",
+    "bypass": false,
+    "status": "LOGIN_REQUIRED"
+  },
+  "sources": [
+    {
+      "artifact_path": "records/ESPN_postgame.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Verified final summary bytes/hash; postgame only. Public home 200 is not field coverage. Probe and meta pull times differ by 2 seconds.",
+      "source_tool": "ESPN",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [
+        "espn_nfl_home",
+        "espn_summary_public"
+      ],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/nflverse_identity.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Verified saved roster hash and exact player IDs. Release homepage 200/roster HEAD 302 do not establish pregame PBP/snaps/participation.",
+      "source_tool": "nflverse",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [
+        "nflverse_releases",
+        "nflverse_roster_release"
+      ],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "ERROR",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Observed public probe HTTP 403 challenge, not proven login requirement. No advanced-defense records retrieved.",
+      "source_tool": "PFR",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [
+        "pfr_home"
+      ],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/gamebooks.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Saved PDF/text verified; postgame score/stat evidence only. Staged operations URL 404 does not negate saved book.",
+      "source_tool": "gamebooks",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [
+        "operations_gamebooks"
+      ],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No verified cutoff-eligible FTN/PBP join or man/zone, MOF, rushers and conditional targets. Saved registry reference is not retrieved scoped charting.",
+      "source_tool": "FTN via nflverse",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Public shell HTTP 200 only; no required route/separation/time-to-throw records retrieved.",
+      "source_tool": "NGS",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [
+        "ngs_home"
+      ],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Coordinator public shell 200; paid grades/matchups not retrieved. No observed login challenge to justify LOGIN_REQUIRED.",
+      "source_tool": "PFF",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No dated schemes/positional coverage retrieved and no second-source corroboration; no Sharp-dependent effect.",
+      "source_tool": "Sharp",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No per-defender or OL tables retrieved with dated scope, denominators and source availability.",
+      "source_tool": "StatRankings",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No authorized scoped coverage/routes/matchup records retained; no login or account entitlement inferred.",
+      "source_tool": "PropsMadness",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No dated team advanced metrics or denominator/sample records retrieved for this cutoff.",
+      "source_tool": "SumerSports",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No dated crosscheck records retrieved; cannot supply sole-source scheme evidence.",
+      "source_tool": "FantasyPoints",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Coordinator note says signed out; no authenticated required-field retrieval. Access barrier remains per saved note, not a fresh diagnosis.",
+      "source_tool": "NFLPro",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/official_injury_depth.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Saved official-attributed inactive note/images only; full official depth, practice trends and original publication chain unverified.",
+      "source_tool": "official injury/depth",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/ESPN_saved_availability.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Saved roster and injury JSON inspected. Athlete ID scope is explicit; complete depth/workload and original pull certification absent.",
+      "source_tool": "ESPN availability/depth",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No dated depth-chart snapshot retrieved for this game/cutoff.",
+      "source_tool": "Ourlads",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No dated game-specific practice/news article retained in scoped evidence.",
+      "source_tool": "AP",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No dated practice/workload reporting retrieved; access entitlement unverified.",
+      "source_tool": "RotoWire",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/official_X.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Saved official-attributed inactive images/note held; original post bytes, publication chain and complete scope unverified.",
+      "source_tool": "official X",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/NWS.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Staged current /points 200 is grid discovery only. Held dated forecast saved; no certified complete kickoff weather freeze.",
+      "source_tool": "NWS",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [
+        "nws_points_mtbank"
+      ],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/OpenMeteo.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Staged postgame temperature-only forecast does not cover historic game weather; held dated response saved.",
+      "source_tool": "OpenMeteo",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [
+        "open_meteo"
+      ],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/stadium tools.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Held forecast venue/roof labels only; no authoritative dated roof/rest/travel tool output certified.",
+      "source_tool": "stadium tools",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/weather_forecast.py.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Saved weather runner output and source bytes inspected; script presence/output is not complete historical source certification.",
+      "source_tool": "weather_forecast.py",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/FD_saved_quotes.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Public shell 403 in coordinator evidence. Saved quote fields exist; as-of/conflict and settlement checks block promotion. Row clocks describe selected close snapshot envelope; individual raw times retained. No SUCCESS declared.",
+      "source_tool": "FD",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/DK_saved_quotes.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Public shell 200 not quotes. Saved quote fields exist; as-of/conflict and settlement checks block promotion. Row clocks describe selected close snapshot envelope; individual raw times retained. No SUCCESS declared.",
+      "source_tool": "DK",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/Pinnacle_saved_quotes.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Public shell 200 not quotes. Saved quote fields exist; as-of/conflict and settlement checks block promotion. Row clocks describe selected close snapshot envelope; individual raw times retained. No SUCCESS declared.",
+      "source_tool": "Pinnacle",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/OddsAPI_saved_pull_assessment.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Saved raw quote bytes/meta verified; no keyed network request. Week10/kickoff01:20 conflict; canonical mapping and settlement unverified. Row clocks describe selected close snapshot envelope; individual raw times retained. No SUCCESS declared.",
+      "source_tool": "OddsAPI",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Coordinator reports saved cache but no scoped original quote records were selected/verified here; partial coverage note is not complete retrieval.",
+      "source_tool": "Outlier",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No scoped pick-em lines/rules/timestamps retrieved. Catalog mentions older PrizePicks book only; no required-fields claim.",
+      "source_tool": "PP",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No exact scoped market/outcomes/settlement records retrieved; optional future scope does not establish present availability.",
+      "source_tool": "Polymarket",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "MISSING",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Saved highlight audit says TE catches omitted and no personnel/coverage proof; no official film-to-PBP event reconciliation completed.",
+      "source_tool": "official film reconciled to PBP",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": "records/local_evidence.json",
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "SAVED_ONLY",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "Retained actual-role audit preserves missingness and receiving-credit discrepancy. No current complete database query verified.",
+      "source_tool": "local DB",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "NOT_APPLICABLE",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No simulation or engine output is required to inspect retained source bytes.",
+      "source_tool": "local sim",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    },
+    {
+      "artifact_path": null,
+      "assessment_scope": "Staged exact attempts plus bounded local inspection; unattempted providers are not exhausted access claims.",
+      "decision": "NOT_APPLICABLE",
+      "external_retrieval_this_pass": false,
+      "fallback": {
+        "detail": "Retain missingness. No inferred measured feature, price or forecast; research only.",
+        "kind": "blocked",
+        "source_refs": [
+          "attempts.json",
+          "SOURCE_INVENTORY_CORE_2026-11-06.md"
+        ]
+      },
+      "local_assessment_at_utc": "2026-11-06T12:21:50Z",
+      "reason": "No simulation or engine output is required to inspect retained source bytes.",
+      "source_tool": "local engines",
+      "staged_access_evidence": "snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "staged_probe_ids": [],
+      "staged_public_attempts": "public_probe_attempts.json"
+    }
+  ],
+  "spend_this_pass": 0,
+  "timing_conflicts": [
+    "ESPN probe pulled_et 07:06:20 vs snapshot meta 07:06:22; both postgame; exact network instant unverified."
+  ],
+  "tool_discovery": {
+    "matching_callable_balldontlie_open_leagues_odds_bridge_tools": [],
+    "result": "No matching callable tools in active list; staged coordinator connector results used."
+  }
+}

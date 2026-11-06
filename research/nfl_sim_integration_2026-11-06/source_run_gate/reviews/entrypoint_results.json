@@ -1,0 +1,54 @@
+{
+  "synthetic": true,
+  "temporary_fixture_removed_after_probe": true,
+  "cases": [
+    {
+      "case": "red_synthetic_for_live",
+      "command": [
+        "/usr/bin/python3",
+        "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/readiness.py",
+        "/tmp/nfl-preflight-evidence-g206fs0u/manifest.json"
+      ],
+      "exit_code": 1,
+      "result": {
+        "projection_ready": false,
+        "synthetic_fixture_ready": false,
+        "errors": [
+          "synthetic evidence is forbidden for live readiness"
+        ]
+      }
+    },
+    {
+      "case": "green_full_synthetic",
+      "command": [
+        "/usr/bin/python3",
+        "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/readiness.py",
+        "/tmp/nfl-preflight-evidence-g206fs0u/manifest.json",
+        "--synthetic-fixture"
+      ],
+      "exit_code": 0,
+      "result": {
+        "projection_ready": false,
+        "synthetic_fixture_ready": true,
+        "errors": []
+      }
+    },
+    {
+      "case": "red_missing_report",
+      "command": [
+        "/usr/bin/python3",
+        "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/readiness.py",
+        "/tmp/nfl-preflight-evidence-g206fs0u/manifest.json",
+        "--synthetic-fixture"
+      ],
+      "exit_code": 1,
+      "result": {
+        "projection_ready": false,
+        "synthetic_fixture_ready": false,
+        "errors": [
+          "workflow artifact: [Errno 2] No such file or directory: '/tmp/nfl-preflight-evidence-g206fs0u/report.md'"
+        ]
+      }
+    }
+  ]
+}

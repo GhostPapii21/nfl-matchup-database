@@ -1,0 +1,54 @@
+You are Codex on CORE prospective DAL@IND under existing authorization. No market_calibration edits. No Odds spend. No odds-bridge auth bypass. No fabricated Phase15 inactives. No picks. No unapproved betting-rule changes.
+
+## Paths
+- Engine: /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0
+- Packet: /workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08
+- Run: /workspace/nfl-database/runs/2026-11-08_DAL@IND
+If packet/run are outside writable roots, stage under engine runs/dal_ind_roles_unify/ and write DELIVERY.md with exact copy commands. Prefer writing packet/run when permitted.
+
+## Labels (do not rewrite frozen certified_asof)
+- 2026-11-06T01:15Z = TNF kickoff Thu 20:15 ET, not postgame.
+- Packet dir wk10 is misnomer; game week 9: ESPN 401873040 / nflverse 2026_09_DAL_IND.
+
+## Hard temporal/access limitations (keep EXPLICIT; do not stop fixable CORE work)
+- Phase15 inactives: NOT_YET (unpublished). Questionable stay AVAILABLE_WITH_UNCERTAINTY.
+- Quotes: actionable NOLINE; research DK snapshot only; never condition data_only on quotes.
+- Coverage/routes/personnel: allows_sim_effect=false remains until real sources exist.
+
+## DO — TDD red→green; all substantial code via this session
+
+### A. Empirical rotation_weights (replace equal-weight depth roles)
+Current model role_states use ~equal 1/3 carry and 1/4 target weights. Replace with empirical pre-cutoff shares:
+1. Train ONLY on records/pbp_DAL_IND_w1_8.csv.gz / parquet weeks 1–8 season 2026; no week≥9; no 401873040 postgame; no market.
+2. Fit passer / target / carry rotation_weights per team from PBP (rusher_player_id, receiver_player_id, passer_player_id) restricted to registry ACT ∩ available (Pierce IR/RES must stay weight 0 / absent).
+3. Position eligibility: RB/QB for carries as appropriate; WR/TE/RB for targets; QB for passer. Document exclusions.
+4. Game-state rotations: at minimum lead/trail or score differential bucket AND/OR period half if sample supports; else explicit SPARSE_STATE / LOW-SAMPLE with justified hierarchical shrinkage (team-level prior → player) — never silent uniform equal weights, never silent league pool.
+5. Uncertainty: record sample_size, Wilson or Dirichlet posterior, shrinkage strength, heldout protocol.
+6. Heldout validation: chronological within W1–8 (e.g. train W1–6, hold W7–8 OR leave-one-game-out). Report same-set vs heldout KL/MAE on shares (before equal-weight vs after empirical). No betting edges.
+7. Update fit_prospective_usage.py (or new fit_prospective_roles.py) + model.json role_states; provenance_refs stay ['model','registry']; flags document EMPIRICAL_ROLES + shrinkage method.
+8. Re-freeze same as-of clocks (cutoff 2026-11-06T12:40:00Z, freeze 12:45Z, generated 12:50Z) and re-run joint n=5 with conservation.
+
+### B. Unify joint↔empirical accounting/lineage (SHARED_PARTIAL must not be the end state)
+Implement an actual shared path:
+1. Shared opportunity ledger: player targets/carries/pass_attempts from joint allocate OR empirical play rows mapped to same record_ids.
+2. Shared yards→team/period totals using joint_accounting credit rules (or a thin adapter that produces identical TEAM_STATS/PLAYER_STATS schemas).
+3. Retain seed/trial IDs and forecast provenance; one forecast_id lineage when running shared mode OR explicit shared_bridge_run_id linking joint trial_id ↔ empirical trial_id with equal opportunity counts where semantics claim equality.
+4. Cross-check harness test: for a frozen seed, player opps sum to team opps; yards conserve; period scores match derive_tables.
+5. Update PATH_SEMANTICS doc to SHARED_ACCOUNTING_V1 (or honest remaining gaps only where truly unimplemented). Do not claim full coverage/NGS integration.
+
+### C. Fix stale JAX_BAL source_composition
+simulate.py hardcodes:
+  "source_composition": "team_only_2026_w1_8_JAX_BAL_empirical_not_possession_EP_model"
+Replace with config-derived identity string from cfg game/home/away/season/weeks (e.g. team_only_{season}_w{min}_{max}_{AWAY}_{HOME}_empirical_...). Add regression test that DAL@IND config cannot emit JAX_BAL and that a JAX@BAL config emits JAX_BAL only when those teams are in config. Do NOT silently rewrite historical artifact JSON bytes in old runs; new sims get correct label. Document old DAL@IND summary still has stale string.
+
+### D. Tests & metrics
+- Red-green: new tests for roles empirical ≠ equal; IR excluded; questionable retained with uncertainty; OT/unusual incomplete/punt/FG zero yards still pass; conservation; seeded reproducibility (identical forecast_id + score means + key player opp means on repeat).
+- Before/after same-set: equal-weight vs empirical role KL/MAE; joint vs shared-bridge conservation fail counts.
+- Write COMPLETION_ROLES_UNIFY.md + update COMPLETION_PHASES_AND_FIT.md; metrics JSON before/after.
+- Update packet/run readiness, checklist/report truthfully (Phase15 NOT_YET; quotes NOLINE; no picks).
+- Do NOT run 100k Bias/MC/GR triad unless shared accounting semantics + inputs ready; if not, document DEFERRED_100K_UNFINISHED_SEMANTICS.
+
+### E. Independent review artifact
+Write reviews/CODEX_SELFCHECK_ROLES_UNIFY.md stating assumptions, heldout numbers, what remains blocked.
+
+Preserve independent data_only vs market-anchored. NFL-16 metrics belong in completion JSON for parent to log.

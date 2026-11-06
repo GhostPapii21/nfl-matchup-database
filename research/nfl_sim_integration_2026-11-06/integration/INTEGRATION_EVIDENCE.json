@@ -1,0 +1,1014 @@
+{
+  "task": "LOCAL_ADVERSARIAL_INTEGRATION_VERIFICATION",
+  "generated_et": "2026-11-06T06:51:11.124855-05:00",
+  "disposition": "BLOCKED_NO_GHOST_FINAL_ACCEPTANCE",
+  "final_completion_claim": false,
+  "impact": "NOT_MEASURED",
+  "projection_ready": false,
+  "actionable_status": "NOLINE",
+  "scope": {
+    "cursor_cloud": false,
+    "spend": 0,
+    "network_requests": 0,
+    "new_odds_pulls": 0,
+    "auth_bypass": false,
+    "new_simulation_trials": 0,
+    "loaded_synthetic_producer_trials": 2,
+    "heavy_monte_carlo": false,
+    "bias_fit_calls": 0,
+    "tnf_fit_as_validation": false,
+    "market_production_edits": false,
+    "write_root": "/workspace/research/nfl_sim_integration_2026-11-06/integration",
+    "note": "Operations were local file reads/imports, validation and synthetic engineering mutations only. No forecast or projection run. Runtime fixture writes and pytest basetemp are inside integration/; bytecode/cache disabled."
+  },
+  "authorities": [
+    {
+      "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/GHOST_HANDOFF_MARKET_ADAPTER.md",
+      "sha256": "1bed9f2d385345d7dea4b7e4c2dd65541214f8223a273c7a75480fe9b6652a2c"
+    },
+    {
+      "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/INDEPENDENT_CODEX_REVIEW.md",
+      "sha256": "432c3ca4a4c53341b1a46ff7fcb024c207e6ef26d75b42c9273863516a7cba53"
+    },
+    {
+      "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/AUDIT_REGEN_COMPLETION.md",
+      "sha256": "635ddeb720edcd8f3896b0e10cbc8ca45ff795a69b7aff7d27ace9db27c00e98"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/core_contract.md",
+      "sha256": "d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/COMPLETION_CODEX.md",
+      "sha256": "fad6fd01b1e991360ed185045c3e0096d0bb69d69ffa288efe749e0a12360876"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/EVIDENCE_CODEX.json",
+      "sha256": "c060528950fde40efd43aadc539a378e2984884d300a6ebc45c619ba734c142c"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/grok_core_producer_review.md",
+      "sha256": "152e28869450233c3e6f02fe28359ea4d213d216a4f28eec6d5c3b1cc2e4d225"
+    },
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/CORE_MANIFEST.json",
+      "sha256": "2b420dedb4e02ed2ebac5d83758ab7b738b8c940e54015cc1bc5c59c3180edd0"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/market_calibration_file_hashes.json",
+      "sha256": "8a88d5abba5f792793dd9502865d73ce444e72fd60c9fbc341a4e3653397f12e"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/REQUIREMENT.md",
+      "sha256": "52e567263bd7ec27c76ebe4f4e6867db9ae7628c4b0b51cc055c9eb8238aaf43"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/readiness.py",
+      "sha256": "28e72b912c8947d9480227e8430543b9c119d8a6e45a0d01ed877b85161391e3"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/source_ledger.schema.json",
+      "sha256": "41bc673ef0b660af6876e57e2c40c6eefa633611aa3d7718e705854652096aa5"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/MANIFEST.json",
+      "sha256": "eee179c281870f03ecfd9381886953a9b62fb4a5d787f450cc3d3c787a10aba4"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests/test_readiness.py",
+      "sha256": "f1e417cfd4c856c674a622f8c575063e99e4e6839a7a4987422583c6b69341e7"
+    }
+  ],
+  "contract": {
+    "path": "/workspace/research/nfl_sim_integration_2026-11-06/core_contract.md",
+    "expected_sha256": "d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9",
+    "actual_sha256": "d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9",
+    "status": "MATCH"
+  },
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_adversarial_tests.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/pytest_tmp_initial",
+        "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_pytest_initial.xml"
+      ],
+      "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+      "environment": {
+        "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "started_et": "2026-11-06T06:47:22.195955-05:00",
+      "ended_et": "2026-11-06T06:47:23.297035-05:00",
+      "exit_code": 1
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_adversarial_tests.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/pytest_tmp_final",
+        "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_pytest.xml"
+      ],
+      "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+      "environment": {
+        "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "GIT_OPTIONAL_LOCKS": "0"
+      },
+      "started_et": "2026-11-06T06:48:33.272696-05:00",
+      "ended_et": "2026-11-06T06:48:34.654926-05:00",
+      "exit_code": 1,
+      "note": "Full final integration selection; direct acceptance failure is retained, no xfail or skip."
+    },
+    {
+      "command": [
+        "python3",
+        "/workspace/research/nfl_sim_integration_2026-11-06/integration/build_acceptance_packet.py"
+      ],
+      "started_et": "2026-11-06T06:51:11.124855-05:00",
+      "purpose": "Read captured pytest/JUnit and hash local files; write packet under integration only."
+    }
+  ],
+  "exploratory_notes": [
+    "Authority/code reads and read-only git metadata preceded captured tests.",
+    "Initial exploratory import with market-first PYTHONPATH selected the older possession package; subsequent top-level CORE imports required adding the CORE possession directory. Final PYTHONPATH resolves this and a dedicated test verifies module paths.",
+    "Local integration directory has no .git; git reports exit 128. No integration HEAD is asserted.",
+    "First direct adapter probe returned ValueError missing trial fields while CORE validate_trial returned PASS. The final test retains that rejection as an ordinary failure."
+  ],
+  "worktree_heads": {
+    "/workspace/wt-market-calibration": {
+      "head": {
+        "command": [
+          "git",
+          "-C",
+          "/workspace/wt-market-calibration",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit_code": 0,
+        "stdout": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+        "stderr": ""
+      },
+      "branch": {
+        "command": [
+          "git",
+          "-C",
+          "/workspace/wt-market-calibration",
+          "branch",
+          "--show-current"
+        ],
+        "exit_code": 0,
+        "stdout": "betguru-market-calibration-2026-11-06",
+        "stderr": ""
+      },
+      "status": {
+        "command": [
+          "git",
+          "-C",
+          "/workspace/wt-market-calibration",
+          "status",
+          "--short",
+          "--untracked-files=normal"
+        ],
+        "exit_code": 0,
+        "stdout": "?? research/market_calibration/",
+        "stderr": ""
+      }
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06": {
+      "head": {
+        "command": [
+          "git",
+          "-C",
+          "/workspace/wt-nfl-sim-core-2026-11-06",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit_code": 0,
+        "stdout": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+        "stderr": ""
+      },
+      "branch": {
+        "command": [
+          "git",
+          "-C",
+          "/workspace/wt-nfl-sim-core-2026-11-06",
+          "branch",
+          "--show-current"
+        ],
+        "exit_code": 0,
+        "stdout": "research-nfl-sim-core-2026-11-06",
+        "stderr": ""
+      },
+      "status": {
+        "command": [
+          "git",
+          "-C",
+          "/workspace/wt-nfl-sim-core-2026-11-06",
+          "status",
+          "--short",
+          "--untracked-files=normal"
+        ],
+        "exit_code": 0,
+        "stdout": "M research/possession_engine_v0/README.md\n M research/possession_engine_v0/config_load.py\n M research/possession_engine_v0/simulate.py\n M research/possession_engine_v0/validation/accounting.py\n?? research/possession_engine_v0/CORE_MANIFEST.json\n?? research/possession_engine_v0/JOINT_PRODUCER.md\n?? research/possession_engine_v0/joint_accounting.py\n?? research/possession_engine_v0/joint_inputs.py\n?? research/possession_engine_v0/joint_producer.py\n?? research/possession_engine_v0/tests/test_joint_producer.py",
+        "stderr": ""
+      }
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06": {
+      "head": {
+        "command": [
+          "git",
+          "-C",
+          "/workspace/research/nfl_sim_integration_2026-11-06",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit_code": 128,
+        "stdout": "",
+        "stderr": "fatal: not a git repository (or any of the parent directories): .git"
+      },
+      "branch": {
+        "command": [
+          "git",
+          "-C",
+          "/workspace/research/nfl_sim_integration_2026-11-06",
+          "branch",
+          "--show-current"
+        ],
+        "exit_code": 128,
+        "stdout": "",
+        "stderr": "fatal: not a git repository (or any of the parent directories): .git"
+      },
+      "status": {
+        "command": [
+          "git",
+          "-C",
+          "/workspace/research/nfl_sim_integration_2026-11-06",
+          "status",
+          "--short",
+          "--untracked-files=normal"
+        ],
+        "exit_code": 128,
+        "stdout": "",
+        "stderr": "fatal: not a git repository (or any of the parent directories): .git"
+      }
+    }
+  },
+  "integrity": {
+    "pre_snapshot": "/workspace/research/nfl_sim_integration_2026-11-06/integration/verification_pre_snapshot.json",
+    "post_snapshot": "/workspace/research/nfl_sim_integration_2026-11-06/integration/verification_post_snapshot.json",
+    "comparisons": {
+      "market_files": {
+        "changed": [],
+        "added": [],
+        "removed": [],
+        "before_count": 72,
+        "after_count": 72,
+        "unchanged": true
+      },
+      "core_files": {
+        "changed": [],
+        "added": [],
+        "removed": [],
+        "before_count": 203,
+        "after_count": 203,
+        "unchanged": true
+      },
+      "source_gate_files": {
+        "changed": [],
+        "added": [],
+        "removed": [],
+        "before_count": 15,
+        "after_count": 15,
+        "unchanged": true
+      },
+      "saved_quotes": {
+        "changed": [],
+        "added": [],
+        "removed": [],
+        "before_count": 3,
+        "after_count": 3,
+        "unchanged": true
+      }
+    },
+    "protected_inventory_ref": "/workspace/research/nfl_sim_integration_2026-11-06/integration/market_calibration_file_hashes.json",
+    "protected_inventory_sha256": "8a88d5abba5f792793dd9502865d73ce444e72fd60c9fbc341a4e3653397f12e",
+    "protected_inventory_file_count": 72,
+    "protected_inventory_pre_mismatches": [],
+    "protected_inventory_post_mismatches": []
+  },
+  "producer": {
+    "evidence_ref": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/EVIDENCE_CODEX.json",
+    "evidence_sha256": "c060528950fde40efd43aadc539a378e2984884d300a6ebc45c619ba734c142c",
+    "revision_files_from_evidence": [
+      {
+        "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/README.md",
+        "sha256": "sha256:ea5dcc01b3e7fe0cbf3bb9d26b4d94c42b0f3396273070927028d4b55b18e1f6"
+      },
+      {
+        "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/config_load.py",
+        "sha256": "sha256:824a5ca2ea6a05be3be5d12f5d1cc15feef5d4b6e8870fcd9362574d2bf2f687"
+      },
+      {
+        "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/simulate.py",
+        "sha256": "sha256:073e228e6c45e961d8dde3a51b3fb8b79be3e22a4fb109cfb1d07d1a5f2f273d"
+      },
+      {
+        "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/validation/accounting.py",
+        "sha256": "sha256:1dc613891dbf5b9d5134567b18049783d95e9e2c2e20cf04e655ad6930a2557b"
+      },
+      {
+        "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/CORE_MANIFEST.json",
+        "sha256": "sha256:2b420dedb4e02ed2ebac5d83758ab7b738b8c940e54015cc1bc5c59c3180edd0"
+      },
+      {
+        "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/JOINT_PRODUCER.md",
+        "sha256": "sha256:f5b91c81a94150421ed568afda159c10c9e72a2b0a5546d8b9a81ea742f6db8c"
+      },
+      {
+        "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_inputs.py",
+        "sha256": "sha256:6543d9a1d7f1f1d73cd02087fa70e1f74945aafe1a8e2c2004bf907f75f55c7f"
+      },
+      {
+        "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_accounting.py",
+        "sha256": "sha256:5aab91d930b82b8e9810964df5b19acb224366379647afaa2c2e7a86d70a3ee9"
+      },
+      {
+        "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_producer.py",
+        "sha256": "sha256:626ad4bd44cc132db6c39a910ae7e4967160d883751126ba29f3a4087400223f"
+      },
+      {
+        "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_joint_producer.py",
+        "sha256": "sha256:3effe50027ff2a98de4d6c8386b253e4f94d96fea0c9f10c491ceb802c45c6ab"
+      }
+    ],
+    "tracked_patch_from_evidence": {
+      "cmd": [
+        "git",
+        "diff",
+        "HEAD",
+        "--",
+        "research/possession_engine_v0"
+      ],
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_tracked.diff",
+      "sha256": "sha256:5158a429beb1a73bcf70ab842e6c41d3293cbaab3efe984ecc510eab8b31edee",
+      "note": "New files are listed and hashed above; executable source bytes are frozen in the smoke artifact."
+    },
+    "snapshot_hashes_from_evidence": {
+      "engine_source/__init__.py": "sha256:a112bc6903521e270c0c58ec66864bf105cdc5b1b962d98da18b27fa0683f986",
+      "engine_source/adjustment_ledger.py": "sha256:9604e12505b45fc9b750411e2cbd156122ba98a8672d646cb1897c0be21d2044",
+      "engine_source/adjustments.py": "sha256:47ddcc038795cf314c07dff156ddb49d207d126cfc19f28efd9baead7c903491",
+      "engine_source/config_load.py": "sha256:824a5ca2ea6a05be3be5d12f5d1cc15feef5d4b6e8870fcd9362574d2bf2f687",
+      "engine_source/effects/__init__.py": "sha256:aa3d855c45fac0c504cda266fd6da1715a792cb17ee39b1320dcd06e7bfb19bd",
+      "engine_source/effects/apply_supported.py": "sha256:ebe8cbd678537aec702f2d0356476a5c402ba636d4570185c95befbee346db27",
+      "engine_source/effects/definitions.py": "sha256:7acfd307efa5c9be033b2f97222b760ff6efb9ce221701698a4b5db055cf3e35",
+      "engine_source/effects/evidence_tables.py": "sha256:a2a5cbcbbb2a2cce458b4090597a4864875ba4a2069fcfa11533975489b31023",
+      "engine_source/effects/missing_feature_adapters.py": "sha256:80cc6dbe27ddf3e634adf8a63fa37ab2188f5f962f985d0ace36ce7638a6bcb5",
+      "engine_source/empirical.py": "sha256:75e221b36033eec80c0162d434af5d0b3e4b55caba4683ead70d56d22e388fa1",
+      "engine_source/joint_accounting.py": "sha256:5aab91d930b82b8e9810964df5b19acb224366379647afaa2c2e7a86d70a3ee9",
+      "engine_source/joint_inputs.py": "sha256:6543d9a1d7f1f1d73cd02087fa70e1f74945aafe1a8e2c2004bf907f75f55c7f",
+      "engine_source/joint_producer.py": "sha256:626ad4bd44cc132db6c39a910ae7e4967160d883751126ba29f3a4087400223f",
+      "engine_source/pbp_filter.py": "sha256:b4ece8f099749896f235b2e813ef962a3a833602288c6cd48587492d611e1a4c",
+      "engine_source/provenance.py": "sha256:58c1f7762d0ea9aedf19faa9f0f1c85d320f8401d63ea954e95eb48d733b2518",
+      "engine_source/run_complete_pass2.py": "sha256:3a4b3dcbd6a3472a5b9fc973a96d919500d609328b4367bc4a4be7866371ced9",
+      "engine_source/run_jaxbal_demo.py": "sha256:f88646d64b70d8c6c616957903f687854e148847bbf8d9e646cfe38974cae9fa",
+      "engine_source/run_period_realism_grade.py": "sha256:2c7e2663c53a7bed268c96981203013ccefe1c99149a96fe172e14d311936670",
+      "engine_source/run_validation_grade.py": "sha256:4bfaf9d51ce6d284e0afc7eb770edd9a428ffaf861564a868b04ea55bd217303",
+      "engine_source/simulate.py": "sha256:073e228e6c45e961d8dde3a51b3fb8b79be3e22a4fb109cfb1d07d1a5f2f273d",
+      "engine_source/situational.py": "sha256:de33adae9d1ceb0f0abe4c6ddf5b94584cb00ed0be2d2b40c0cbc9166c7e1b7d",
+      "engine_source/state.py": "sha256:0083b012528fa679b23dfb049bf84d64afba18b94cc36e78f82d3a7eb279ba54",
+      "engine_source/validation/__init__.py": "sha256:8035db2debcac801c60f7fae12384df83d84f3df516727ee9b9e31de965326a7",
+      "engine_source/validation/accounting.py": "sha256:1dc613891dbf5b9d5134567b18049783d95e9e2c2e20cf04e655ad6930a2557b",
+      "engine_source/validation/asof_grade.py": "sha256:d12d89cf25c244a2a137721e0cabdc852a27c8864c901ecd41fafe1de6058780",
+      "engine_source/validation/period_grade.py": "sha256:053be4e790818c0ff5988d870cae0c79382cea0227865df417adbafa09393a5d",
+      "engine_source/validation/realism.py": "sha256:23d31e7b779fb611ab4936a32866f3d2c6ebd68ea5816570c4b8b601dcb0436f",
+      "engine_source/validation/weather_hook.py": "sha256:1b6dc6956f643646c15a1924a9c63e45a964ff87e6fb5d7d3c22911cc914ad32",
+      "engine_source_manifest.json": "sha256:ec51d58316cd74874858f334500e2b033b473a620a02eef9ed05ec1a4f1d0160",
+      "input_manifest.json": "sha256:9671953a02999657c849bba58469b1b968dad2693db461fe10ea1dfc121e3eee",
+      "inputs/model.json": "sha256:e04d5f83b89beec05362679c6c8c2bb4d5c1b4b79010b42e1f5ba1742ad2d445",
+      "inputs/registry.json": "sha256:3492f622cb5c282587ad63c06cc851d4ffc9ccbc8e2af499fb6791bdd631a03e",
+      "inputs/splits.json": "sha256:c7dae8cde8bd3d2c0d686ac925cb6a06a761bf3b6acc283315243be130a7b239",
+      "run_spec.json": "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0",
+      "trials.jsonl": "sha256:1f9ac51296d4d760510b46f77f56de0c4a4df437c94895e327c3b794434f5e6d"
+    },
+    "current_engine_identity": {
+      "component_version": "opportunity-first-v1",
+      "dependencies": {
+        "numpy": "2.5.4",
+        "python": "3.13.5"
+      },
+      "dirty_patch_hash": "sha256:5b0b6119ec23ed8ffd1cb95b461c62460791026b91ab061c133ea3d857695b08",
+      "engine_version": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+      "limitations": [
+        "MODEL_TABLES_NOT_FITTED_OR_VALIDATED",
+        "NO_RETURN_YARDS",
+        "NO_UNTIMED_PENALTY_PROFILE",
+        "NO_OFFICIAL_OT_CLAIM"
+      ],
+      "ot_rule_profile": {
+        "applicability": "research_approximation_only",
+        "id": "single_possession_approx_declared_limitation",
+        "limitations": [
+          "NOT_VERIFIED_OFFICIAL_OT"
+        ],
+        "period_length_seconds": 600,
+        "possession_entitlement": "NOT_OFFICIAL; no guaranteed matching possession",
+        "termination": "first score or expiration",
+        "tie_behavior": "tie at expiration"
+      },
+      "source_artifact_ref": "engine_source_manifest.json",
+      "source_content_hash": "sha256:ec51d58316cd74874858f334500e2b033b473a620a02eef9ed05ec1a4f1d0160",
+      "stat_credit_profile": {
+        "id": "core_integer_offense_v1",
+        "kneels": "rushing_attempt",
+        "no_play": "no_official_offense_credits",
+        "provider": "MODELED_CONTRACT_PROFILE_NOT_PROVIDER_SETTLEMENT",
+        "sack_loss": "nonnegative_magnitude",
+        "scrambles": "dropback_and_rushing_attempt",
+        "turnovers": "interceptions_plus_lost_fumbles_plus_turnover_on_downs_excluding_punts_and_missed_fg",
+        "yard_unit": "integer_yards"
+      }
+    },
+    "smoke_purpose": "SYNTHETIC_TEST_ONLY",
+    "artifact_directory": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_synthetic_smoke/forecasts/sha256_d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0",
+    "trial_ids": [
+      "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0",
+      "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1"
+    ],
+    "retained_ids_source": "reviews/EVIDENCE_CODEX.json smoke.trial_ids; loaded independently before trials.jsonl",
+    "n_requested": 2,
+    "n_completed": 2,
+    "n_invalid": 0,
+    "n_incomplete": 0,
+    "n_adapter_usable": 0,
+    "forecast_id": "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0",
+    "input_content_hash": "sha256:9671953a02999657c849bba58469b1b968dad2693db461fe10ea1dfc121e3eee",
+    "trial_seeds": [
+      "15201972526753743124",
+      "1139194900614331706"
+    ],
+    "projection_block": "SCENARIO_ONLY",
+    "validation": "CORE validator recomputed on unchanged rows; PASS; not a forecast performance result"
+  },
+  "market_audit": {
+    "pre": {
+      "path": "/workspace/wt-market-calibration/research/market_calibration/artifacts/saved_quote_audit.pre_snapshot_fix_2026-11-06.json",
+      "handoff_sha256": "3d1ff2defa75b964b99278640429c1d21ff5b69fb635a144bec360073399cb89",
+      "actual_sha256": "3d1ff2defa75b964b99278640429c1d21ff5b69fb635a144bec360073399cb89",
+      "matches_handoff": true
+    },
+    "post": {
+      "path": "/workspace/wt-market-calibration/research/market_calibration/artifacts/saved_quote_audit.json",
+      "handoff_sha256": "a376a9ff4d445fce2b40964e27a0d72dfadb5d38eb53ca97d6e019f78a7f5e76",
+      "actual_sha256": "a376a9ff4d445fce2b40964e27a0d72dfadb5d38eb53ca97d6e019f78a7f5e76",
+      "matches_handoff": true
+    },
+    "owner_regeneration_status": "P2_CLOSED_PER_HANDOFF",
+    "regenerated_by_this_pass": false,
+    "reported_pair_id_leaf_changes": 76
+  },
+  "pytest": {
+    "integration": {
+      "tests": 60,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 59,
+      "duration_seconds": 1.195,
+      "exit_code": 1
+    },
+    "log": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_pytest.log",
+    "junit": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_pytest.xml",
+    "cases": [
+      {
+        "name": "test_contract_sha256_binding",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_imports_resolve_to_correct_worktrees",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_market_protected_hash_inventory",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_actual_producer_artifacts_and_recomputed_validation",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_frozen_forecast_inputs_and_independently_retained_seeds",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_DIRECT_actual_producer_to_market_acceptance",
+        "result": "FAILED",
+        "properties": {},
+        "failure": "producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]\n\n    def test_DIRECT_actual_producer_to_market_acceptance(producer_rows):\n        \"\"\"REQUIRED acceptance test; remains FAILED while unchanged producer is rejected.\n    \n        No xfail, skip, field shim or catch-and-PASS hides this integration blocker.\n        \"\"\"\n>       transported = adapter.adapt_joint_trials(producer_rows, expected_trial_ids=RETAINED_IDS)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\nintegration/integration_adversarial_tests.py:148: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:106: in adapt_joint_trials\n    require_fields(row, required, \"trial\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nobj = {'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prove..., 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}\nfields = ('contract_version', 'forecast_id', 'trial_id', 'trial_index', 'game', 'freeze', ...)\nname = 'trial'\n\n    def require_fields(obj, fields, name):\n        if not isinstance(obj, dict) or not set(fields) <= obj.keys():\n>           raise ValueError(f\"missing {name} fields\")\nE           ValueError: missing trial fields\n\n../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:49: ValueError"
+      },
+      {
+        "name": "test_diagnostic_wire_blockers_are_independently_reproducible[0-missing trial fields]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_wire_blockers_are_independently_reproducible[1-unsupported contract or incomplete/invalid]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_wire_blockers_are_independently_reproducible[2-missing freeze fields]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_wire_blockers_are_independently_reproducible[3-missing engine fields]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_wire_blockers_are_independently_reproducible[4-missing team_periods fields]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_mapped_identity_and_opaque_retention",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_same_trial_score_primitives[H1-primitives0]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_same_trial_score_primitives[H2-primitives1]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_same_trial_score_primitives[REG-primitives2]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_same_trial_score_primitives[FG-primitives3]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_score_sensitivity_is_quarter_sum_not_independent_marginal",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_missingness_and_player_api_unsupported",
+        "result": "PASSED",
+        "properties": {
+          "market_player_status": "MARKET_STAT_UNSUPPORTED"
+        },
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_red_population_and_identity[truncated]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_red_population_and_identity[reordered]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_red_population_and_identity[duplicate]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_red_population_and_identity[invalid]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_red_population_and_identity[incomplete]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_red_population_and_identity[seed]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_red_population_and_identity[input_hash]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_contract_mismatch_mock",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_opaque_acceptance_is_not_full_core_validation[validation]",
+        "result": "PASSED",
+        "properties": {
+          "limit": "OPAQUE_PAYLOAD_TRANSPORT_DOES_NOT_ACCEPT_CORE_INVARIANTS"
+        },
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_opaque_acceptance_is_not_full_core_validation[player_periods]",
+        "result": "PASSED",
+        "properties": {
+          "limit": "OPAQUE_PAYLOAD_TRANSPORT_DOES_NOT_ACCEPT_CORE_INVARIANTS"
+        },
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_omitted_expected_ids_accepts_subset_but_procedure_requires_ids",
+        "result": "PASSED",
+        "properties": {
+          "blocker": "LIBRARY_EXPECTED_IDS_OPTIONAL_PROCEDURE_MUST_SUPPLY_INDEPENDENT_IDS"
+        },
+        "failure": null
+      },
+      {
+        "name": "test_tnf_known_aliases_cannot_be_relabelled_holdout[2026-11-05_JAX@BAL]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_tnf_known_aliases_cannot_be_relabelled_holdout[2026-11-05_JAX_BAL]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_tnf_known_aliases_cannot_be_relabelled_holdout[401873037]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_tnf_known_aliases_cannot_be_relabelled_holdout[JAX@BAL]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_inspected_w1_w8_cannot_be_relabelled_holdout[1]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_inspected_w1_w8_cannot_be_relabelled_holdout[2]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_inspected_w1_w8_cannot_be_relabelled_holdout[3]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_inspected_w1_w8_cannot_be_relabelled_holdout[4]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_inspected_w1_w8_cannot_be_relabelled_holdout[5]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_inspected_w1_w8_cannot_be_relabelled_holdout[6]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_inspected_w1_w8_cannot_be_relabelled_holdout[7]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_inspected_w1_w8_cannot_be_relabelled_holdout[8]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_unseen_namespace_alias_gap_is_explicit_blocker",
+        "result": "PASSED",
+        "properties": {
+          "blocker": "ALIAS_WIDE_INSPECTION_REGISTRY_ABSENT_NO_UNTOUCHED_HOLDOUT_ACCEPTANCE"
+        },
+        "failure": null
+      },
+      {
+        "name": "test_core_split_rejects_explicit_inspection_but_unknown_alias_needs_registry",
+        "result": "PASSED",
+        "properties": {
+          "blocker": "CORE_SPLIT_ALIAS_CLOSURE_NOT_PROVEN"
+        },
+        "failure": null
+      },
+      {
+        "name": "test_saved_only_loader_exact_opens_hashes_and_no_hindsight",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_missing_pinnacle_spreads_are_noline[Q2]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_missing_pinnacle_spreads_are_noline[Q3]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_missing_pinnacle_spreads_are_noline[Q4]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_saved_pair_cannot_invent_other_side_or_verify_rules",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_diagnostic_no_canonical_relabel_for_settlement",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_saved_quote_cutoff_blocks_future_rows[cutoff_utc]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_saved_quote_cutoff_blocks_future_rows[asof_utc]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_incompatible_saved_snapshots_do_not_pair",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_market_claims_and_bias_remain_unfitted",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_actual_source_gate_inventory_remains_not_ready",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_source_gate_missing_real_run_evidence_cannot_become_ready[inventory]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_source_gate_missing_real_run_evidence_cannot_become_ready[brainstorm.md]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_source_gate_missing_real_run_evidence_cannot_become_ready[checklist.md]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_source_gate_missing_real_run_evidence_cannot_become_ready[report.md]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_source_gate_missing_real_run_evidence_cannot_become_ready[phase15]",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      },
+      {
+        "name": "test_synthetic_gate_cannot_be_promoted_by_live_label",
+        "result": "PASSED",
+        "properties": {},
+        "failure": null
+      }
+    ],
+    "initial_run": {
+      "tests": 52,
+      "passed": 51,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "note": "Subsequently added frozen identity, staged wire and opaque payload probes; counts are different selections, not same-set performance comparison."
+    },
+    "external_reported_counts": {
+      "market": 109,
+      "core": 88,
+      "rerun_in_this_pass": false,
+      "classification": "Separate engineering suites only; NOT full model vet; never sum as integration/quality counts"
+    }
+  },
+  "diagnostic_mapping": {
+    "status": "TEST_ONLY_NOT_ACCEPTED_INTEGRATION",
+    "implementation": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_adversarial_tests.py:diagnostic_field_mapping",
+    "changes": [
+      "Producer status is an object containing state/completion_reason/terminal_state/went_ot; adapter requires scalar status plus sibling completion_reason/terminal_state/went_ot.",
+      "Producer freeze.input_manifest_digest vs adapter freeze.input_manifest_hash.",
+      "Producer engine.component_version/dependencies vs adapter component_versions/dependency_versions.",
+      "Producer team_periods[].stats.points vs adapter team_periods[].points.",
+      "Producer can represent known-zero unplayed OT rows; adapter requires no OT rows when went_ot=false. Not exercised on the durable smoke, which played OT1."
+    ],
+    "original_rows_mutated": false,
+    "original_opaque_payloads_retained": [
+      "events",
+      "player_periods",
+      "validation",
+      "flags",
+      "latent_state",
+      "possessions",
+      "aggregates",
+      "provenance"
+    ],
+    "independent_marginals": false,
+    "opportunities_invented": false,
+    "limits": "Durable smoke has zero scores and OT1 in both trials. Separate corrupt-score sensitivity probe checks nonzero quarter/OT arithmetic only; it is not a producer-valid draw. No no-OT transport acceptance or real-game interoperability is established."
+  },
+  "blockers": [
+    {
+      "id": "B01",
+      "gate": "C09",
+      "status": "REPRODUCED",
+      "severity": "P1",
+      "description": "Unchanged actual producer joint rows are rejected by market adapt_joint_trials: ValueError missing trial fields. No directly accepted population exists.",
+      "test": "test_DIRECT_actual_producer_to_market_acceptance",
+      "differences": [
+        "Producer status is an object containing state/completion_reason/terminal_state/went_ot; adapter requires scalar status plus sibling completion_reason/terminal_state/went_ot.",
+        "Producer freeze.input_manifest_digest vs adapter freeze.input_manifest_hash.",
+        "Producer engine.component_version/dependencies vs adapter component_versions/dependency_versions.",
+        "Producer team_periods[].stats.points vs adapter team_periods[].points.",
+        "Producer can represent known-zero unplayed OT rows; adapter requires no OT rows when went_ot=false. Not exercised on the durable smoke, which played OT1."
+      ],
+      "required_next_step": "Owner-reviewed wire alignment followed by unchanged-producer integration rerun. Diagnostic mapping is not approved production code."
+    },
+    {
+      "id": "B02",
+      "gate": "C01/C12",
+      "status": "REPRODUCED",
+      "severity": "P1",
+      "description": "No verified canonical game/team/player crosswalk or alias-wide inspection registry. Known TNF aliases and W1-8 reject holdout; an unseen namespace alias CLAIM passes market and CORE split checks. No untouched-holdout claim is permitted."
+    },
+    {
+      "id": "B03",
+      "gate": "C09",
+      "status": "PROCEDURAL_REQUIREMENT",
+      "severity": "P1",
+      "description": "Library expected_trial_ids remains optional and accepts a truncated mapped batch if omitted. Ghost must pass independently retained ordered IDs; the test-only required-argument helper is not an installed production gate."
+    },
+    {
+      "id": "B04",
+      "gate": "C02/C06/source gate",
+      "status": "BLOCKED",
+      "description": "Only synthetic SCENARIO_ONLY trials, zero adapter-usable. No certified real as-of source inventory/bundle, approved brainstorm or authoritative completed 15-phase run. Current readiness contract is version 1.1.1; projection_ready remains false."
+    },
+    {
+      "id": "B05",
+      "gate": "C11",
+      "status": "BLOCKED",
+      "description": "Saved research quotes only, canonical crosswalk absent, sportsbook/stat/OT/tie/push/participation/void compatibility unverified. book_rules_verified=false. No joined quote/core projection envelope; settlement is JAX/BAL-specific. Missing Pinnacle Q2-Q4 spreads remain NOLINE."
+    },
+    {
+      "id": "B06",
+      "gate": "C06/C09",
+      "status": "MARKET_STAT_UNSUPPORTED",
+      "description": "Actual producer targets/carries/events are retained opaquely in diagnostic transport; market supplies no player targets/carries projection API. Opaque INVALID validation or corrupted player counts are copied, not accepted as fully valid CORE evidence."
+    },
+    {
+      "id": "B07",
+      "gate": "C04/C05/C07/full vet",
+      "status": "BLOCKED",
+      "description": "Official OT, penalty/untimed-down rules, defensive/special-teams returns and eligible legacy PBP export remain unsupported. Bias is unfitted; predictive/holdout/ROI evaluation absent. Ghost final vet remains outstanding; prior Grok ACCEPT_WITH_GAPS reviewed captured producer evidence only."
+    }
+  ],
+  "same_eval_predictive_metrics": null,
+  "optional_independent_review_stub": "/workspace/research/nfl_sim_integration_2026-11-06/integration/GROK_INDEPENDENT_NOTE_STUB.md",
+  "artifacts": [
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_adversarial_tests.py",
+      "sha256": "e373b19714f983caf11a75957c63dd1db8b0fd4122f824333f532fc1c212f06a"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/build_acceptance_packet.py",
+      "sha256": "0ac6ddfc871069860c8c9e44dde4f662f95e2c7737defac88605592a5626e4e2"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_pytest.log",
+      "sha256": "d0221cd0307a96957e2ee80c01db5050f8f927fd384ed5409fdf4168f6222970"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_pytest.xml",
+      "sha256": "f8bc1d921b208758e603d537052e9023b4fb51c2b33a494d733893781eeb35c1"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_pytest_run.json",
+      "sha256": "62bf76d104b11ea20e514a34136c208a05890b7a2cfb097f6b090f3c6a7a4664"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_pytest_initial.log",
+      "sha256": "a1242157c668667b640ddc3ba91b7b16590a1db1225090c904945f369ed5f932"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_pytest_initial.xml",
+      "sha256": "69c368ca603707ef4c27d1d174ee2b52dcc8071da589c411020effc7dbff2936"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_pytest_initial_run.json",
+      "sha256": "06120772170893901e676c253341802f9799afeef0082fa219961d87f13e64ad"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/verification_pre_snapshot.json",
+      "sha256": "450cc2c19f73c536eb1db564857cfc44b96a732dc17c765187d6a59b25293fd9"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/verification_post_snapshot.json",
+      "sha256": "1ae0d922460800a0b15443e4973447415e3db8c4af6032e7e48f2c2a4d6c9701"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/market_calibration_file_hashes.json",
+      "sha256": "8a88d5abba5f792793dd9502865d73ce444e72fd60c9fbc341a4e3653397f12e"
+    }
+  ]
+}

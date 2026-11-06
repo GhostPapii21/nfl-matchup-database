@@ -1,0 +1,182 @@
+# Ghost acceptance packet — local adversarial integration
+
+**Disposition: BLOCKED. NO final completion claim. Impact: NOT_MEASURED.**
+
+Captured 2026-11-06T06:48:33.272696-05:00 through 2026-11-06T06:48:34.654926-05:00 (America/New_York, ET).
+Packet generated 2026-11-06T06:51:11.124855-05:00. **Integration: 60 collected; 59 passed; 1 failed;
+0 errors; 0 skipped; pytest exit 1.** The ordinary failure is the unchanged actual
+producer → market call: `ValueError: missing trial fields`. It is neither xfailed
+nor hidden behind a diagnostic mapping. This packet does not authorize projections,
+Ghost final acceptance, model vetting, holdout claims or actionable output.
+
+## Evidence and exact reproduction
+
+[Test suite](integration_adversarial_tests.py), [full pytest log](integration_pytest.log),
+[JUnit](integration_pytest.xml), [command/timestamps](integration_pytest_run.json),
+[machine-readable evidence](INTEGRATION_EVIDENCE.json),
+[pre snapshot](verification_pre_snapshot.json), [post snapshot](verification_post_snapshot.json).
+
+```bash
+cd /workspace/research/nfl_sim_integration_2026-11-06
+export PYTHONDONTWRITEBYTECODE=1
+export GIT_OPTIONAL_LOCKS=0
+export PYTHONPATH=/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06
+python3 -m pytest integration/integration_adversarial_tests.py -q -p no:cacheprovider -o junit_family=legacy --basetemp=integration/pytest_tmp_final --junitxml=integration/integration_pytest.xml
+```
+
+The full command array and resolved interpreter are retained in the run JSON.
+To regenerate the report from captured results, run
+`PYTHONDONTWRITEBYTECODE=1 python3 integration/build_acceptance_packet.py`.
+That command does not execute tests. A pytest rerun must also refresh the run
+metadata before rebuilding this packet. All generated artifacts are under
+`integration/`; pytest bytecode and cache writes are disabled. The final basetemp
+contains labeled synthetic gate fixtures, not retrieved source data.
+
+Market HEAD and CORE HEAD are both
+`3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6`; their dirty/untracked status is captured.
+The integration directory is not a git repository (git exit 128); it has no
+asserted HEAD. Untracked market file identity is established by
+[the protected inventory](market_calibration_file_hashes.json), SHA-256
+`8a88d5abba5f792793dd9502865d73ce444e72fd60c9fbc341a4e3653397f12e`. All 72 inventory entries match.
+All 72 market files in the pre/post snapshot are unchanged,
+with no added or removed package files. CORE and source-gate bytes also match.
+
+## Actual producer evidence and diagnostic limits
+
+Loaded two durable `joint_producer` synthetic trials from
+`reviews/core_producer_synthetic_smoke`; no new simulations ran. Exact JSONL hash:
+`sha256:1f9ac51296d4d760510b46f77f56de0c4a4df437c94895e327c3b794434f5e6d`.
+Forecast ID: `sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0`.
+Input content hash: `sha256:9671953a02999657c849bba58469b1b968dad2693db461fe10ea1dfc121e3eee`.
+Both trials are COMPLETE and independently revalidate PASS, but both are
+SCENARIO_ONLY, split UNASSIGNED and **0 adapter-usable**. Ordered expected IDs come
+from the pre-existing `reviews/EVIDENCE_CODEX.json`, independently of the consumer
+batch. The run-spec/input-manifest digests, retained trial seeds, frozen artifacts,
+source snapshots and current touched-file revisions are checked. Full producer
+revision hashes and the tracked-patch hash from EVIDENCE_CODEX are in the JSON.
+
+Direct interoperability fails. Progressive staged probes expose these mismatches:
+
+| Producer wire | Market requirement |
+| --- | --- |
+| `status` object; nested completion/terminal/OT fields | scalar `status`; sibling completion/terminal/OT fields |
+| `freeze.input_manifest_digest` | `freeze.input_manifest_hash` |
+| `engine.component_version`, `dependencies` | `component_versions`, `dependency_versions` |
+| `team_periods[].stats.points` | `team_periods[].points` |
+
+A **test-only field mapping** exposes downstream behavior on copies of actual
+rows. It retains opaque producer status separately and preserves events,
+player_periods, validation, flags, latent_state, possessions, aggregates and
+provenance. It changes no identities, seeds, score values or opportunities.
+It is not an approved integration bridge and is not used in the failing direct test.
+Producer known-zero unplayed OT rows also differ from the market convention;
+the mapping can omit those in its diagnostic view, but this smoke played OT1,
+so no no-OT acceptance is claimed.
+
+Diagnostic transport preserves trial/forecast IDs, seed/trial_seed, input hash
+and order, with CONTRACT_SCORE_TRANSPORT_ONLY and actionable NOLINE. H1/H2/REG/FG
+reconcile to the same producer primitive and event/aggregate scores. Both smoke
+trials have zero scores; an explicitly corrupted nonzero-score sensitivity probe
+checks consumer arithmetic and isolation across trials, not producer validity.
+Coverage UNKNOWN; routes and personnel 11/12/13 MISSING remain null and effect-disabled.
+Producer player opportunities are retained; market player targets/carries API is
+**MARKET_STAT_UNSUPPORTED**. Opaque payload copying does not validate full CORE
+accounting: invalid declarations/corrupted player counts remain copied and NOLINE.
+
+## Adversarial results and acceptance blockers
+
+1. **B01 — Direct producer/adapter wire mismatch:** one required acceptance test
+   fails. Owners must align the wire schema and rerun unchanged producer output.
+   No market or producer production patch was made.
+2. **B02 — Alias/split leakage:** known TNF aliases and inspected 2026 W1–8
+   reject untouched-holdout relabeling. An unseen namespace alias CLAIM passes
+   market and CORE split validators. This is a documented blocker, not an accepted
+   canonical mapping. A verified crosswalk and alias-wide inspection registry
+   are required. TNF actuals remain EVIDENCE_ONLY_POSTGAME.
+3. **B03 — Population procedure:** truncation, reorder and duplicates reject when
+   independently retained expected IDs are supplied. The library accepts a
+   truncated mapped subset when the optional argument is omitted. Ghost must
+   enforce the supplied-ID procedure; the test helper is not an installed gate.
+   Seed/hash corruption, INVALID/INCOMPLETE and mocked contract mismatch reject.
+4. **B04 — Sources/readiness:** actual inventory has no usable run evidence.
+   Calling the existing gate leaves projection_ready false. Full synthetic
+   fixtures remain non-live; missing inventory, brainstorm, checklist, report or
+   phase 15 fail. Relabeling synthetic evidence as live fails. Current local
+   requirement is v1.1.1; the earlier handoff mentions v1.1.0. Neither version
+   grants workflow completion from pytest. Certified real as-of inputs and
+   authoritative workflow definitions/completion are absent.
+5. **B05 — Quote/core compatibility:** exactly the three SAVED_ONLY CSVs are
+   opened. File hashes, raw quote fields, row numbers and timestamps are retained;
+   hindsight grades/scores are excluded from quote features. Saved Pinnacle Q1
+   pair is research MATCHED with actionable NOLINE. Removing either side yields
+   NOLINE; missing Pinnacle Q2–Q4 spreads remain NOLINE without borrowed lines or
+   prices. Mismatched snapshots and future clocks reject. Rules stay unverified:
+   book_rules_verified=false. No canonical crosswalk or end-to-end actionable
+   quote/core envelope exists. Settlement rejects the synthetic canonical IDs;
+   no ID is relabeled to force the JAX/BAL helper.
+6. **B06/B07 — Unsupported scope/full vet:** no market player-target/carry API,
+   official OT/penalty/untimed-down/return acceptance, eligible legacy PBP export,
+   fitted Bias, untouched holdout or predictive validation. The earlier Grok
+   ACCEPT_WITH_GAPS note reviewed captured CORE evidence without re-execution;
+   it is not Ghost acceptance of this integration suite.
+
+All passing diagnostic/gap-characterization tests are engineering observations.
+They do not mean the documented library gaps are resolved. The contract SHA-256
+matches `d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9`.
+
+## Preserved market audit and separate engineering counts
+
+Historical pre-regeneration audit SHA-256:
+`3d1ff2defa75b964b99278640429c1d21ff5b69fb635a144bec360073399cb89`.
+Current post-regeneration audit SHA-256:
+`a376a9ff4d445fce2b40964e27a0d72dfadb5d38eb53ca97d6e019f78a7f5e76`.
+Both match the handoff. Owner P2 regeneration is CLOSED; this pass did not run
+the audit CLI or rewrite either audit. The handoff reports 76 pair-ID leaf changes.
+
+| Suite | Count | Status/source |
+| --- | --- | --- |
+| This integration selection | 59 passed, 1 failed (60 total) | Executed locally; direct acceptance BLOCKED |
+| Initial integration selection | 51 passed, 1 failed (52 total) | Earlier, smaller selection; retained log/JUnit |
+| Market combined suite | 109 passed | Reported prior engineering result; not rerun here |
+| CORE suite | 88 passed | Reported prior synthetic engineering result; not rerun here |
+
+These counts are separate and do not measure predictive performance or a full
+model vet. Bias remains unfitted with null coefficients. Impact NOT_MEASURED;
+no same-evaluation predictive baseline/after metrics exist. No Cursor Cloud,
+spend, auth bypass, network requests, odds pulls, new simulation trials,
+heavy Monte Carlo, Bias fitting or TNF fit-as-validation occurred.
+
+Optional future independent review: [Grok note stub](GROK_INDEPENDENT_NOTE_STUB.md).
+**NO final completion claim. Ghost final acceptance remains BLOCKED.**
+
+## CORE wire/source addendum — 2026-11-06
+
+Waiting on BetGuru adapter alignment to canonical producer wire
+`1.0.0-producer`. Direct integration remains **BLOCKED** until the adapter accepts
+the unchanged producer example, SHA-256
+`50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd`.
+CORE did not rename fields or silently map acceptance inputs and did not edit
+any `market_calibration` tree. See [CORE wire lock](wire/CORE_WIRE_LOCK.md) and
+[wire companion](../core_contract_wire_v1.md).
+
+The companion link changed `core_contract.md` bytes: its current SHA-256 is
+`6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367`.
+The earlier `d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9`
+binding in this packet, frozen metadata and original coordination/handoff is
+historical. Adapter contract-binding realignment is also pending; the producer
+wire and immutable example did not change.
+
+CORE producer/wire tests: **77 passed**; source-run-gate tests: **66 passed**.
+[Local source scaffold](asof_sources/README.md): 34 schema-valid source rows
+(6 SAVED_ONLY, 26 MISSING, 2 scoped NOT_APPLICABLE), with 9 exact hashed local
+snapshots. Live-mode readiness returned expected exit **1**,
+`projection_ready=false`, `synthetic_fixture_ready=false`; as-of certification,
+canonical joins and all 15 workflow phases remain NOT_COMPLETE. Postgame
+artifacts remain evidence-only; saved quotes remain unusable for a projection.
+No network/pulls, spend, auth bypass, cloud work or betting-rule changes occurred.
+These counts are engineering evidence only; impact **NOT_MEASURED**. Machine
+evidence and log/hash references: [INTEGRATION_WIRE_EVIDENCE.json](wire/INTEGRATION_WIRE_EVIDENCE.json).
+
+### Independent Grok wire/asof review (2026-11-06 ~07:04 ET)
+
+See [grok_wire_phase4_review.md](../reviews/grok_wire_phase4_review.md). Verdict: **REJECT_FINAL_ACCEPTANCE**. WIRE_LOCK_OK / BINDING_AUTH_OK / ASOF_HONEST yes. B01 residual **SHA_GUARD_ONLY** pending BetGuru rebind to authorized SHA `6471e69b…` per [CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md](wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md).

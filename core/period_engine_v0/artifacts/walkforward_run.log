@@ -1,0 +1,59 @@
+{
+  "engine": "period_engine_v0",
+  "model_status": {
+    "monte_carlo": "IMPLEMENTED_EMPIRICAL_BOOTSTRAP",
+    "bias": "UNIMPLEMENTED_NO_FITTED_CALIB",
+    "game_randomness": "IMPLEMENTED_SHARED_GAME_SHOCK_UNFITTED_SCALE"
+  },
+  "n_sims_per_game": 20000,
+  "seed_base": 20261105,
+  "games_2026": 121,
+  "rows": 726,
+  "ok_rows": 726,
+  "skipped_rows": 0,
+  "mae_by_period": {
+    "q1": 4.710413636363636,
+    "q2": 5.476683884297521,
+    "q3": 5.204268181818182,
+    "q4": 5.7268371900826445,
+    "h1": 7.531863636363636,
+    "fg": 11.596268181818186
+  },
+  "brier_home_win_by_period": {
+    "q1": 0.26041680318181815,
+    "q2": 0.24535529371900824,
+    "q3": 0.23974156316115702,
+    "q4": 0.251470051714876,
+    "h1": 0.24516791741735539,
+    "fg": 0.2437705948553719
+  },
+  "baseline_brier_home_win_by_period": {
+    "q1": 0.2496321670804527,
+    "q2": 0.25192482996872095,
+    "q3": 0.2444111557169685,
+    "q4": 0.24171733330818446,
+    "h1": 0.2502525043113424,
+    "fg": 0.25093420490276863
+  },
+  "limitations": [
+    "NO historical period market prices \u2014 accuracy metrics only; NO profitability/edge claim",
+    "Bias model UNIMPLEMENTED \u2014 not fitted",
+    "GR shock scale from empirical CV is UNFITTED (not holdout-calibrated)",
+    "No injury/roster/weather as-of features \u2014 team empirical quarter vectors only",
+    "Scenario drivers not pre-written historically \u2014 any narrative would be reconstruction, not pre-kick",
+    "Training pool = all as-of games; metrics are genuine walk-forward test per kickoff week \u2014 do not conflate with in-sample fit",
+    "Opponent strength not modeled beyond opponent's own as-of empirical distribution"
+  ],
+  "split_policy": "For each 2026 week W game, features/history use only games with (season,week) strictly before (2026,W). 2025 REG included for Week1+. Never later 2026 weeks."
+}
+by_week:
+  week  n_rows  n_ok  n_games  mae_q1_home  mae_h1_total  mae_fg_total  brier_h1_home_win  baseline_brier_h1  brier_q1_home_win
+    1      96    96       16     3.807638     10.442822     12.323834           0.267983           0.250338           0.259333
+    2      96    96       16     3.867959      7.562578     11.928838           0.200308           0.252472           0.274953
+    3      96    96       16     4.129050      6.575762     12.050875           0.245562           0.250173           0.276152
+    4      96    96       16     3.242737      8.166031     11.255369           0.267609           0.247031           0.245731
+    5      90    90       15     3.144840      5.424247      9.335847           0.257383           0.249128           0.316758
+    6      84    84       14     4.001861      5.108586     11.903096           0.263608           0.250343           0.265964
+    7      84    84       14     3.509736      8.709129     11.403907           0.178947           0.257949           0.172927
+    8      84    84       14     2.567046      8.042050     12.562146           0.278957           0.244808           0.265420
+missing 0

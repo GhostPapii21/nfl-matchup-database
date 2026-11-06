@@ -1,0 +1,39 @@
+You are Codex on CORE source/readiness only. DO NOT edit any market_calibration tree or /workspace/wt-market-calibration/research/market_calibration/.
+
+Authority / skill order already loaded by coordinator:
+- nfl-projection-source-preflight
+- betting-game-brainstorm
+- nfl-game-script-run
+- /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/REQUIREMENT.md
+- Kickoff JAX@BAL: 2026-11-06T01:15:00Z (2026-11-05 20:15 ET). Event alias ESPN 401873037. Final JAX 33 BAL 10.
+
+Pre-staged coordinator artifacts (USE; do not invent):
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/public_probe_attempts.json
+- .../snapshots/espn_summary_401873037_public_pull_2026-11-06.json (+ .meta.json) — DIAGNOSTIC_POSTGAME
+- .../aliases/jax_bal_canonical_aliases_v1.json (nflverse gsis↔espn/pfr/…)
+- .../aliases/game_identity_401873037.json (espn/balldontlie/nflverse aliases)
+- .../connectors_clean/* (balldontlie teams/games, open-leagues sources+week9 lines)
+- Existing local: nfl-database live/runs odds with pull metas BEFORE kickoff; ESPN inactives rosters; gamebook; asof_sources scaffold; SOURCE_INVENTORY_BETGURU_2026-11-06.md; PREFLIGHT_BETGURU_2026-11-06.json
+
+CRITICAL POLICY
+- No new spend, no Odds API network with key, no auth bypass (odds-bridge needsAuth), no Cursor Cloud, no local heavy sims, no invented rates/coverage/routes/personnel.
+- Separate FROZEN_PREGAME vs DIAGNOSTIC_POSTGAME. Do NOT require impossible historic live re-pulls to invent pregame SUCCESS.
+- SAVED quotes with documented pull_utc ≤ kickoff may be evaluated for SUCCESS only after verifying bytes/fields/hash and as-of; otherwise remain SAVED_ONLY. Postgame ESPN/gamebook/audit = EVIDENCE_ONLY_POSTGAME / not usable_for_frozen_pregame.
+- projection_ready must stay false unless readiness.py live mode truly exits 0 under REQUIREMENT (unlikely this pass). Never fake completeness.
+- If access exhausted: document exact attempts + fallbacks; missing inputs stay MISSING/LOGIN_REQUIRED/NOT_APPLICABLE with reasons.
+- Preserve cutoffs. Week label conflict (ESPN week 9 vs some local data_week 10) must remain explicit.
+- Impact/model metrics: NOT_MEASURED unless you have genuine before/after forecast evidence (you almost certainly do not).
+
+DELIVERABLES under /workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/ (and update asof_sources as needed):
+1) SOURCE_INVENTORY_CORE_2026-11-06.md — every mandatory family/provider from REQUIREMENT, status enum exact, attempt evidence, hashes.
+2) certified source_ledger.json + run_manifest.json for a DIAGNOSTIC/evaluation run (run_kind explicit; projection_ready false; automatic_cuts disabled). Include hashed JSON record arrays for any SUCCESS rows. Prefer promoting only truly verified pregame-eligible SAVED quotes if justified; otherwise keep SAVED_ONLY and ensure inventory coverage via honest MISSING/N/A/LOGIN_REQUIRED.
+3) aliases/ — finalize canonical player + game alias docs; no guessed joins; unmatched explicit.
+4) brainstorm.md — real betting-game-brainstorm for JAX@BAL using only certified/held evidence; mark unknowns; NO betting placement; research/NOLINE.
+5) checklist.md + report.md — all 15 nfl-game-script-run phases with explicit PASS/FAIL/MISSING/STALE/UNVERIFIED/N/A; missing inputs named; NOT_COMPLETE if definitions/versions absent — do not invent authoritative workflow version numbers.
+6) Ingestion/provenance helpers + tests via Codex under CORE/integration or source_run_gate as appropriate; run readiness.py live (expect false) and source_run_gate pytest; capture logs.
+7) SOURCE_READINESS_EVIDENCE.json with paths/hashes, attempts, blockers, projection_ready=false, impact NOT_MEASURED.
+8) Brief addendum on GHOST_ACCEPTANCE_PACKET: source readiness still blocking projection; waiting BetGuru binding for DIRECT wire — do not claim Ghost final.
+
+Also implement any fixable CORE missing-data ingestion for aliases/provenance if tests fail — still no market edits.
+
+Worktrees: /workspace/wt-nfl-sim-core-2026-11-06 and /workspace/research/nfl_sim_integration_2026-11-06 only.

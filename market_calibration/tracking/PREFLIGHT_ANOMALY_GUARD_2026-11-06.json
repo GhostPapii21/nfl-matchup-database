@@ -1,0 +1,96 @@
+{
+  "task": "market-side abs(raw_p - paired_novig) >= 0.40 DIAGNOSTIC_ANOMALY quarantine",
+  "rico_ref": "t367u + prompts/phase5_anomaly_delivery_guard.txt",
+  "coordinator": "t367u/BetGuru",
+  "generated_et": "2026-11-06 07:19:47 ET",
+  "workflow": [
+    "source_inventory",
+    "brainstorm",
+    "15phase_eng",
+    "codex_implement",
+    "parent_verify",
+    "ghost_packet",
+    "NFL-16"
+  ],
+  "binding_preserved": {
+    "contract_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+    "example_sha256": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd",
+    "prior_tests": {
+      "market": 179,
+      "DIRECT": 1,
+      "binding": 6
+    }
+  },
+  "core_coordination": "market_calibration ONLY; CORE already owns prompt + launched Codex PID on wt-market-calibration; no CORE/producer/contract edits; no duplicate Codex launch",
+  "codex_pid": 3846877,
+  "source_statuses": [
+    {
+      "name": "saved_r6_odds_jaxbal",
+      "status": "SAVED_ONLY",
+      "n": 32
+    },
+    {
+      "name": "saved_period_fd_dk_cleared",
+      "status": "SAVED_ONLY",
+      "n": 36
+    },
+    {
+      "name": "saved_period_line_grades",
+      "status": "SAVED_ONLY",
+      "n": 64
+    },
+    {
+      "name": "loader_union_quote_records",
+      "status": "SAVED_ONLY",
+      "n": 132
+    },
+    {
+      "name": "pairing_probe_MATCHED_research_pairs",
+      "status": "SUCCESS",
+      "n": 60,
+      "note": "actionable still NOLINE"
+    },
+    {
+      "name": "pinnacle_q2_q4_spreads",
+      "status": "MISSING",
+      "result": "NOLINE"
+    },
+    {
+      "name": "Odds_API",
+      "status": "NOLINE_NEW_PULL_BY_POLICY",
+      "key": "SET_no_spend"
+    },
+    {
+      "name": "Firecrawl_Pinnacle",
+      "status": "ERROR",
+      "detail": "engines blocked"
+    },
+    {
+      "name": "public_curl_Pin_DK_ESPN",
+      "status": "SUCCESS",
+      "http": [
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "name": "public_curl_FanDuel",
+      "status": "STALE_OR_BLOCKED",
+      "http": 403
+    },
+    {
+      "name": "fitted_calibration_holdout",
+      "status": "MISSING",
+      "bias": "UNIMPLEMENTED_NO_FITTED_CALIB"
+    }
+  ],
+  "data_sufficiency_for_fit": false,
+  "claims_forbidden": [
+    "Ghost final",
+    "forecast acceptance",
+    "fitted Bias",
+    "manufactured quotes",
+    "40+ edges as picks"
+  ]
+}

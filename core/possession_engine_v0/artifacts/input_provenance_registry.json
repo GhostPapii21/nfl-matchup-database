@@ -1,0 +1,147 @@
+[
+  {
+    "input_id": "pbp_2026_team_w1_8",
+    "definition": "nflfastR-shaped play-by-play rows for games involving JAX or BAL, season 2026 weeks 1\u20138; offense catalog posteam in {JAX,BAL}",
+    "source_path_or_url": "research/period_engine_v0/data/play_by_play_2026.parquet \u2192 nfl-database r2 src",
+    "as_of_et": "2026-11-05 (local file)",
+    "freshness_note": "Static local parquet; not re-pulled this run",
+    "sample_size": 1217,
+    "sample_unit": "offense_plays",
+    "reproducibility": "deterministic_filter",
+    "status": "OK",
+    "used_in_configs": [
+      "data_only",
+      "script_adjusted",
+      "market_informed"
+    ],
+    "double_count_group": "base_pbp",
+    "notes": ""
+  },
+  {
+    "input_id": "qb_adjustment_bal_fagnano",
+    "definition": "Forward-only starter filter: BAL pass plays limited to J.Fagnano; L.Jackson OUT excluded; Huntley doubtful excluded from starter pool",
+    "source_path_or_url": "config/jax_bal_tnf_2026-11-05_script_adjusted.json + runs/.../brainstorm_read.md notes dated 2026-11-03",
+    "as_of_et": "2026-11-05T13:00:00-05:00",
+    "freshness_note": "Notes from 2026-11-03; confirm inactives separately before any bet use (not authorized here)",
+    "sample_size": 24,
+    "sample_unit": "BAL_pass_plays_after_filter",
+    "reproducibility": "deterministic_filter",
+    "status": "SPARSE",
+    "used_in_configs": [
+      "script_adjusted"
+    ],
+    "double_count_group": "qb_injury_role",
+    "notes": "Does not fabricate Fagnano history; does not rewrite W1\u20138 rows for data_only"
+  },
+  {
+    "input_id": "third_down_conversion",
+    "definition": "Frequency of 3rd-down opportunities and P(convert|3rd) from PBP third_down_converted/failed",
+    "source_path_or_url": "same PBP",
+    "as_of_et": "2026-11-05",
+    "freshness_note": "Derived this run from W1\u20138 filter",
+    "sample_size": 207,
+    "sample_unit": "third_down_plays",
+    "reproducibility": "deterministic_filter",
+    "status": "OK",
+    "used_in_configs": [
+      "data_only",
+      "script_adjusted"
+    ],
+    "double_count_group": "situational_offense",
+    "notes": ""
+  },
+  {
+    "input_id": "red_zone",
+    "definition": "RZ opportunity (play or drive yardline_100<=20) and score/TD conditional rates",
+    "source_path_or_url": "same PBP",
+    "as_of_et": "2026-11-05",
+    "freshness_note": "Derived this run",
+    "sample_size": 163,
+    "sample_unit": "rz_plays",
+    "reproducibility": "deterministic_filter",
+    "status": "OK",
+    "used_in_configs": [
+      "data_only",
+      "script_adjusted"
+    ],
+    "double_count_group": "situational_offense",
+    "notes": ""
+  },
+  {
+    "input_id": "qb_hit_completion_proxy",
+    "definition": "Completion rate split by qb_hit==1 vs 0 \u2014 PROXY for pressure; NOT measured blitz/pressure",
+    "source_path_or_url": "PBP column qb_hit",
+    "as_of_et": "2026-11-05",
+    "freshness_note": "Derived this run",
+    "sample_size": 463,
+    "sample_unit": "pass_attempts_with_qb_hit_flag",
+    "reproducibility": "deterministic_filter",
+    "status": "PROXY",
+    "used_in_configs": [
+      "script_adjusted",
+      "data_only"
+    ],
+    "double_count_group": "qb_pressure_proxy",
+    "notes": "blitz/was_pressure columns MISSING \u2014 do not treat as true pressure"
+  },
+  {
+    "input_id": "coverage_routes_man_zone",
+    "definition": "Actual coverage shell, route tree, man/zone, middle-open, primary CB/S",
+    "source_path_or_url": "NOT IN LOCAL PBP",
+    "as_of_et": "2026-11-05",
+    "freshness_note": "n/a",
+    "sample_size": 0,
+    "sample_unit": "plays",
+    "reproducibility": "unknown",
+    "status": "MISSING",
+    "used_in_configs": [],
+    "double_count_group": null,
+    "notes": "PBP alone cannot establish; pass_location is not route-vs-CB"
+  },
+  {
+    "input_id": "weather",
+    "definition": "Game-time weather (wind/temp/precip)",
+    "source_path_or_url": "NOT INGESTED in this module yet",
+    "as_of_et": "2026-11-05",
+    "freshness_note": "unknown",
+    "sample_size": null,
+    "sample_unit": "games",
+    "reproducibility": "unknown",
+    "status": "UNKNOWN",
+    "used_in_configs": [],
+    "double_count_group": "environment",
+    "notes": "No unsupported weather weights"
+  },
+  {
+    "input_id": "road_rest_travel_practice",
+    "definition": "Road/rest/travel/practice availability uncertainty",
+    "source_path_or_url": "Schedule implied by PBP game_id + miss_audit practice DNP notes",
+    "as_of_et": "notes 2026-11-03\u201305",
+    "freshness_note": "Qualitative stub",
+    "sample_size": null,
+    "sample_unit": "notes",
+    "reproducibility": "manual_note",
+    "status": "UNKNOWN",
+    "used_in_configs": [
+      "script_adjusted"
+    ],
+    "double_count_group": "availability_workload",
+    "notes": "Evidence stub only \u2014 no numeric boosts"
+  },
+  {
+    "input_id": "market_spread_total",
+    "definition": "Spread/total quotes for conditioning",
+    "source_path_or_url": "Screenshot/API quotes external \u2014 only via market_informed config",
+    "as_of_et": "varies",
+    "freshness_note": "Must not enter data_only",
+    "sample_size": null,
+    "sample_unit": "markets",
+    "reproducibility": "manual_note",
+    "status": "SCENARIO_ONLY",
+    "used_in_configs": [
+      "market_informed"
+    ],
+    "double_count_group": "market_conditioning",
+    "notes": "Not independent market-beating evidence; separate config"
+  }
+]

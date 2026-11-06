@@ -1,0 +1,31 @@
+You are Codex doing sanctioned LOCAL CORE implementation for NFL sim integration (Ghost6 producer). Do NOT use Cursor Cloud. Do NOT touch /workspace/wt-market-calibration or any market_calibration/ tree (BetGuru owns that). Do NOT fabricate coverage/routes/personnel. Do NOT change betting rules/settlement policy. Do NOT fit/tune to TNF JAX@BAL and claim validation — TNF may be plumbing/identity fixture only. Preserve independent (data_only / script_adjusted) vs market_informed separation; never contaminate independent with market.
+
+AUTHORITATIVE CONTRACT (read first, implement against):
+  /workspace/research/nfl_sim_integration_2026-11-06/core_contract.md
+  /workspace/research/nfl_sim_integration_2026-11-06/core_contract.checklist.json
+
+WORKTREE (only edit under this tree's research packages for CORE):
+  /workspace/wt-nfl-sim-core-2026-11-06  @ branch research-nfl-sim-core-2026-11-06 base 3448ad7
+
+SCOPE — CORE producer (Blitz/Ghost6):
+1. Player TARGETS and CARRIES generated BEFORE yards, with game-state/depth/rotation uncertainty + provenance.
+2. Coherent possession clock / team-player accounting per contract (dropbacks/throwaways/sacks/scrambles/kneels; eligible target conservation; catches<=targets; carry conservation).
+3. Joint trial output retaining trial_id/seed/cutoff/version/input_hash; regulation/OT/quarter boundaries.
+4. Explicit MISSING flags (coverage UNKNOWN, routes MISSING, personnel 11/12/13 MISSING) — never invent.
+5. Durable manifests + versioned cutoffs; regression tests that fail on false PASS / broken conservation.
+6. Do NOT implement BetGuru quote matching here — only emit fields adapters need.
+
+TESTS:
+- Add/extend pytest under research/possession_engine_v0/tests (and period if needed) for conservation, opportunity-before-yards order, missing flags, joint trial IDs, split separation.
+- Tiny synthetic trials only — NO heavy 50k/100k sims.
+- Run pytest and capture results.
+- Independent review note: write reviews/ under /workspace/research/nfl_sim_integration_2026-11-06/ for this pass (COMPLETION_CODEX.md + evidence json with cmd, git head, files touched, pytest, blockers, impact NOT MEASURED unless you have same-eval baseline→after metrics).
+
+DEFINITION OF DONE:
+1. Contract requirements for producer have code + tests (honest MANIFEST: IMPLEMENTED / UNIMPLEMENTED / BLOCKED).
+2. Pytest green for new tests.
+3. No edits outside CORE worktree research packages + the integration research dir logs/reviews.
+4. No market_calibration edits; no betting-rule changes; no fabricated coverage.
+5. COMPLETION + evidence written; list residual blockers for Ghost final vet.
+
+Start from contract §opportunity-first + conservation; inspect current simulate.py/state/accounting; implement minimally; test; document.
