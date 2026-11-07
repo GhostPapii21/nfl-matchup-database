@@ -17,6 +17,8 @@ EXPLOSIVES = ROOT / "research/WEEK9_DEFENSIVE_EXPLOSIVE_SACK_FLAG_RATES_20261107
 TE_AUDIT = ROOT / "research/WEEK9_TE_USAGE_SOURCE_CROSSCHECK_20261107.csv"
 MATCHUP = ROOT / "research/WEEK9_PLAYER_DEFENSE_JOIN_RESEARCH_ONLY_20261107.csv"
 ERRORS = ROOT / "research/WEEK9_RETROSPECTIVE_ROLLING_BASELINE_ERRORS_20261107.csv"
+CANDIDATES = ROOT / "research/WEEK9_EXPERIMENTAL_DEFENSE_SHRUNK_REFERENCE_20261107.csv"
+CHRONO = ROOT / "research/WEEK9_OPPONENT_ADJUSTMENT_CHRONOLOGICAL_CHECK_20261107.csv"
 SLATE = [
     ("CIN", "ATL"), ("DEN", "CAR"), ("DAL", "IND"),
     ("NYJ", "KC"), ("DET", "MIA"), ("CLE", "NO"), ("NYG", "PHI"),
@@ -108,6 +110,8 @@ class SundayMatchupEnrichmentSafety(unittest.TestCase):
         cls.context = load(MATCHUP)
         cls.offense = load(OFFENSE)
         cls.error_rates = load(ERRORS)
+        cls.candidates = load(CANDIDATES)
+        cls.chronological = load(CHRONO)
 
     def test_team_explosive_and_sack_flags_are_raw_not_coverage(self):
         self.assertEqual(len(self.explosives), 26)
@@ -198,6 +202,51 @@ class SundayMatchupEnrichmentSafety(unittest.TestCase):
                 row["model_status"],
                 "RETROSPECTIVE_ROLLING_REFERENCE_CONDITIONAL_ON_POSITIVE_OPPORTUNITY",
             )
+
+
+    def test_opponent_adjusted_candidates_are_explicitly_unapproved(self):
+        self.assertEqual(len(self.candidates), 283)
+        seen = set()
+        for r in self.candidates:
+            key = (r["team"],r["player_id"],r["market_key"])
+            self.assertNotIn(key,seen)
+            seen.add(key)
+            self.assertRegex(r["player_id"],r"^00-\d{7}$")
+            self.assertGreaterEqual(int(r["positive_opportunity_games_in_prior5"]),3)
+            self.assertLess(dt.date.fromisoformat(r["last_observed_game"]),dt.date(2026,11,8))
+            self.assertEqual(r["bet_eligible"],"false")
+            self.assertEqual(r["calibrated_probability_over"],"")
+            self.assertEqual(r["exact_current_line"],"")
+            self.assertEqual(
+                r["model_status"],
+                "EXPERIMENTAL_CONDITIONAL_OPPORTUNITY_RETROSPECTIVE_SHRINKAGE_UNAPPROVED"
+            )
+            base = float(r["prior5_conditional_mean"])
+            factor = float(r["defense_relative_factor_capped_075_125"])
+            alpha = float(r["development_selected_alpha"])
+            candidate = float(r["experimental_defense_adjusted_mean"])
+            self.assertGreaterEqual(factor,0.75)
+            self.assertLessEqual(factor,1.25)
+            self.assertAlmostEqual(candidate,base*(1+alpha*(factor-1)),delta=0.015)
+
+    def test_opponent_adjustment_later_weeks_challenge_the_development_fit(self):
+        self.assertEqual(len(self.chronological),8)
+        by = {(r["market"],r["partition"]):r for r in self.chronological}
+        for market in VALID_MARKETS:
+            develop = by[(market,"W5_W6_DEV")]
+            later = by[(market,"W7_W8_LATER")]
+            self.assertEqual(develop["alpha_fitted_only_on_W5_6"],
+                             later["alpha_fitted_only_on_W5_6"])
+            for r in (develop,later):
+                self.assertGreater(int(r["evaluated_active_games"]),0)
+                self.assertEqual(r["bet_eligible"],"false")
+                self.assertIn(r["research_adjustment_improves_vs_unadjusted"],("true","false"))
+        self.assertEqual(by[("player_pass_yds","W7_W8_LATER")]
+                         ["research_adjustment_improves_vs_unadjusted"],"false")
+        self.assertEqual(by[("player_receptions","W7_W8_LATER")]
+                         ["research_adjustment_improves_vs_unadjusted"],"false")
+        self.assertEqual(by[("player_rush_yds","W7_W8_LATER")]
+                         ["research_adjustment_improves_vs_unadjusted"],"true")
 
 
 if __name__ == "__main__":
