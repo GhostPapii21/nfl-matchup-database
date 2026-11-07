@@ -68,3 +68,44 @@ Four new read-only research files now accompany this historical seed:
 
 **Defense flags and rolling error audits are joined source descriptors only.** They are not validated causal effects, matchups against specific CB/S, sack conversion probabilities, QB true scramble tendencies or a calibrated scoring simulator. Until per-play man/zone, defender attribution, packages and actual 2026 offense pressure/route data arrive, **NO** numeric CB matchup multiplier may be applied.
 
+
+
+## Experimental conditional opponent-adjusted preview (NOT validated game projections)
+
+A first source-reproducible numerical sensitivity experiment is now in two additional files:
+
+- `WEEK9_OPPONENT_ADJUSTMENT_CHRONOLOGICAL_CHECK_20261107.csv`: development on 2026 W5–6, and **later chronological evaluation** on W7–8 (all historical data predate each evaluated game). It compares the unchanged *prior 5 positive-opportunity game* average to a simple bounded defensive allowance multiplier; the evaluation sample still conditions on the evaluated player receiving `opportunities>0`, and is therefore *not an unbiased prospective out-of-sample or bookmaker-market validation*. Teams, QBs, injury roles, route share, line prices and return-from-injury state are not modeled.
+- `WEEK9_EXPERIMENTAL_DEFENSE_SHRUNK_REFERENCE_20261107.csv`: **283** source-verified player/market previews for Week 9 Sunday teams. For each selected player, computes his mean of the last **up to five active statistical opportunity games**, opponent's W1–8 raw allowed production vs the league average of game-level defensive allowed outcomes, with the development-chosen coefficient, capped factor, and the subsequent W7–8 error-audit flag. **P(over), exact line and bet-eligible fields remain EMPTY/FALSE; no matchups are priced or approved.**
+
+The exact *research* formula is
+
+```
+team_defense_factor = clip(
+  opponent_average_allowed_per_game_for_market / league_average_allowed_per_game_for_market,
+  0.75, 1.25
+)
+experimental_stat_reference =
+  player_mean_last5_positive_opportunity_games *
+  (1 + alpha_market * (team_defense_factor - 1))
+```
+
+Candidate `alpha_market` was chosen by the smallest W5–6 retrospective active-game MAE from **0, 0.25, 0.50, 1.0**. It was then evaluated unchanged on W7–8. This adjustment is purely diagnostic and does NOT imply causality or solved score/role/explosive/CB effects.
+
+| Market | Development-chosen alpha | W7–8 games | Baseline MAE | Adjusted MAE | Later-week result |
+|---|---:|---:|---:|---:|---|
+| Passing yards | 0.50 | 54 | 78.638 | 79.613 | **Worse** |
+| Receptions | 1.00 | 349 | 1.452 | 1.458 | **Worse** |
+| Receiving yards | 0.25 | 349 | 21.575 | 21.542 | Improvement of **0.033 yards MAE**, practically negligible |
+| Rushing yards | 0.50 | 154 | 22.874 | 22.359 | Modest improvement of **0.515 yards MAE** |
+
+**Critical-thinking conclusion:** Historical opponent defensive rank alone DOES NOT consistently improve player props. Do not apply passing/reception multipliers as if proven. The modest rushing gain could be due to chance/sample effects and needs independent future-slate validation, uncertainty across team/role, OL/front and game-script controls. This experiment is neither the existing Suave predictive model nor a production weight change. The entire Week 9 preview remains `EXPERIMENTAL_CONDITIONAL_OPPORTUNITY_RETROSPECTIVE_SHRINKAGE_UNAPPROVED`.
+
+Observed example references (not sportsbook picks):
+- CeeDee Lamb vs IND receiving yards: prior-5 80.0, experimental 79.34.
+- George Pickens vs IND receiving yards: prior-5 76.6, experimental 75.97.
+- Christian Watson vs NE receiving yards: prior-5 84.8, experimental 84.94.
+- Luther Burden III vs TB receiving yards: prior-5 78.2, experimental 77.04.
+- D'Andre Swift vs TB rushing yards: prior-5 58.4, experimental 51.10.
+
+No Q1/Q2/Q3/Q4 or half-time win forecasts can responsibly be inferred from player-game aggregates alone. Full play/drive scoring, kickoff-specific injuries, real time route/snap rotations, verified book/line/time offers, and prospectively calibrated scoring model remain required.
+
