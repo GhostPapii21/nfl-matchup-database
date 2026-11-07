@@ -1,8 +1,8 @@
 # WEEK9 TE Usage, Target Share & Route Participation
 
-**As of:** 2026-11-07 ~11:05 ET
-**Sources:** FantasyTools.ai, SumerSports, LineupExperts, FTA, Parlae, Footballguys, PerThirtySix, StickToTheModel, RankFantasy, StartWho, KofSports (public aggregators; slight variance across sites). All figures through Week 8 unless noted.
-**Status:** Research evidence only. Individual TE-to-defender assignments remain unverified (Ghost6: 26 TEs flagged). Game-day inactives pending. Model NOT READY.
+**As of:** 2026-11-07 ~11:07 ET
+**Sources:** FantasyTools.ai, SumerSports, LineupExperts, FTA, Parlae, Footballguys, PerThirtySix, StickToTheModel, RankFantasy, StartWho, KofSports (public aggregators; slight variance across sites). Ghost6 v14 TE/LB coverage. Blitz WEEK9_USAGE_BUNDLE_v2. All figures through Week 8 unless noted.
+**Status:** Research evidence only. Individual TE-to-defender assignments remain unverified for most TEs. Game-day inactives pending. Model NOT READY.
 
 ## Primary TE Opportunity Table
 
@@ -33,6 +33,22 @@ W1 88% → W2 80% → W3 91% → W4 90% → W5 95% → W6 93% → W7 80% → W8 
 ### Cade Otton (TB)
 Consistently 89–100% across weeks; 94% season.
 
+## Ghost6 v14 TE Coverage Update (2026-11-07)
+- Verified PFF linebacker-group coverage context for **24 of 26 TEs**.
+- Published projection found: Alex Anzalone covering Colston Loveland.
+- Projected cornerback matchup for Tucker Kraft (exception kept visible).
+- Individual LB season-stat rows (147) kept separate; these cover all receivers, not TE-only.
+- Ferguson and Henry still lack group cards.
+- Of original 33 named-assignment gaps: 2 now have published projections, 3 concern players officially on IR, **28 remain unverified**. None is a confirmed shadow assignment.
+- Asset: `WEEK9_V14_TE_LB_COVERAGE.csv` (and full `week9_research_bundle_v14.tar.gz`).
+
+## Blitz WEEK9_USAGE_BUNDLE_v2 Notes
+- Adds 12 official role statements and 473 recent-versus-season usage comparisons.
+- Official team sources resolve Cleveland and Philadelphia starter questions: Sanders and Milton III.
+- All 32 attempt discrepancies explained by spikes being counted differently.
+- Routes/alignment remain unverified; game-day inactives pending.
+- Weather refresh (10:01 AM ET): ARI–SEA and GB–NE gusts fell to 14 mph (earlier wind flags cleared); TB–CHI still flagged (gusts to 27 mph). Advance forecasts only.
+
 ## Key Observations
 - Primary volume TEs (McBride, Otton, Barner, LaPorta, Loveland) are holding or rising into the mid-to-high 80s/low 90s snap share.
 - Week 8 specifically showed elevated shares for Barner (95%), McBride (95%), Loveland (93%), and Otton (95%).
@@ -43,7 +59,7 @@ Consistently 89–100% across weeks; 94% season.
 
 ## Limitations / Gaps
 - Full league-wide route participation still incomplete outside selected players.
-- Individual TE-to-defender assignments remain unverified (Ghost6: 26 TE assignments flagged).
+- Individual TE-to-defender named assignments remain unverified for the majority (28 of original gaps still open per Ghost6).
 - Game-day inactives still pending (official lists ~90 minutes before kickoff).
 - Numbers vary slightly by aggregator; all are public and source-flagged.
 - Snap share is opportunity, not guaranteed targets. No automatic transfer of backup workload.
