@@ -1,0 +1,81 @@
+INTEGRATION_READY_FORMAT
+PASS | All 26 manifest teams present | profile teams=26
+PASS | Profile normalized name + team unique | 479 unique rows
+PASS | PFR name + team joins unambiguous | 250 matches; 2TM never joined
+PASS | PFR joined teams exclude 2TM | 2TM retained only in exclusion audit
+PASS | Profile GSIS + team unique | 479 resolved profiles
+PASS | GSIS game key unique | 1389 keys; game team retained
+PASS | Weeks 5-8 only | game weeks=[np.int64(5), np.int64(6), np.int64(7), np.int64(8)]
+PASS | Every event has source/window | all receiver events traced to pbp game
+PASS | Metric source: snaps | non-null=843
+PASS | Metric source: solo_tackles | non-null=674
+PASS | Metric source: assisted_tackles | non-null=674
+PASS | Metric source: tackles_with_assist | non-null=674
+PASS | Metric source: OBSERVED_PBU | non-null=674
+PASS | Metric source: OBSERVED_INTERCEPTION | non-null=674
+PASS | Metric source: forced_fumbles | non-null=674
+PASS | Metric source: targets_allowed | non-null=0
+PASS | Metric source: receptions_allowed | non-null=0
+PASS | Metric source: yards_allowed | non-null=0
+PASS | Metric source: explosives_allowed | non-null=0
+PASS | PFR season source/window | profiles with metrics=250
+PASS | PFF season source/window | profiles with metrics=110
+PASS | No inferred row labeled charted | 0 charted rows; all observed labels originate explicit GSIS event credit
+PASS | No individual team explosive allocation | 20+ allowed only in TEAM_CONTEXT_pass_20plus_allowed
+PASS | No zeros imputed for missing coverage | all individual allowed metrics remain NULL
+PASS | Missing participation counts stay NULL | 715 unconfirmed rows
+PASS | Observed counts reproduce credits: solo_tackles | 674 measured rows
+PASS | Observed counts reproduce credits: assisted_tackles | 674 measured rows
+PASS | Observed counts reproduce credits: tackles_with_assist | 674 measured rows
+PASS | Observed counts reproduce credits: OBSERVED_PBU | 674 measured rows
+PASS | Observed counts reproduce credits: OBSERVED_INTERCEPTION | 674 measured rows
+PASS | Observed counts reproduce credits: forced_fumbles | 674 measured rows
+PASS | Missing snap values not filled | unmatched snap rows retain NULL
+PASS | Season and game columns distinct | season in profiles only; game counts in observations only
+PASS | Team context reproduces pbp | each team/game count recomputed from complete_pass and receiving_yards >=20
+PASS | Depth chart all teams | 309 source slots across 26 teams
+PASS | Historical team is in game | no current-team substitution
+PASS | Projection layer isolated | 135 published projected rows retained only in separate verification table
+Assertions passed: 37
+
+PASS | Deterministic rebuild | All 13 CSV/README artifacts byte-identical on consecutive builds
+
+Independent serialized-export validation:
+PASS | EXPORT | all required exports readable
+PASS | EXPORT | all profile identities resolved
+PASS | EXPORT | profile GSIS team unique
+PASS | EXPORT | profile normalized name team unique
+PASS | EXPORT | all 26 defenses have live depth captures
+PASS | EXPORT | every starter has an explicit rank-1 source slot
+PASS | EXPORT | individual game coverage completely NULL
+PASS | EXPORT | receiver events contain only eligible observed kinds
+PASS | EXPORT | every observed receiver event has source and window
+PASS | EXPORT | opponent context is separate and contains no defender ID
+PASS | EXPORT | each target share denominator is positive and reproducible
+PASS | EXPORT | all game and event weeks are W5-8
+PASS | EXPORT | game and receiver keys are unique
+PASS | EXPORT | all metric source columns are populated when measured
+PASS | EXPORT | all 1682 receiver events reproduce explicit raw GSIS credits and receiver text
+PASS | EXPORT | every PFR metric equals its original CSV value, including NULLs and true zeros
+PASS | EXPORT | each recorded zero defensive snap value has a real zero source observation
+Export assertions passed: 17
+
+Independent serialized-export validation:
+PASS | EXPORT | all required exports readable
+PASS | EXPORT | all profile identities resolved
+PASS | EXPORT | profile GSIS team unique
+PASS | EXPORT | profile normalized name team unique
+PASS | EXPORT | all 26 defenses have live depth captures
+PASS | EXPORT | every starter has an explicit rank-1 source slot
+PASS | EXPORT | individual game coverage completely NULL
+PASS | EXPORT | receiver events contain only eligible observed kinds
+PASS | EXPORT | every observed receiver event has source and window
+PASS | EXPORT | opponent context is separate and contains no defender ID
+PASS | EXPORT | each target share denominator is positive and reproducible
+PASS | EXPORT | all game and event weeks are W5-8
+PASS | EXPORT | game and receiver keys are unique
+PASS | EXPORT | all metric source columns are populated when measured
+PASS | EXPORT | all 1682 receiver events reproduce explicit raw GSIS credits and receiver text
+PASS | EXPORT | every PFR metric equals its original CSV value, including NULLs and true zeros
+PASS | EXPORT | each recorded zero defensive snap value has a real zero source observation
+Export assertions passed: 17
