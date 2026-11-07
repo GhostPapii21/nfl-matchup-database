@@ -1,21 +1,21 @@
 # Defensive Matchup and Tendency Table – Week 9 Context (pregame)
-## Task 3 Evidence (team-level focus)
-**Generated:** 2026-11-07T10:40:00Z  
-**Sources:** Public nflverse PBP (explosive flags only), Sharp Football Analysis (where accessible), team reports.  
-**Note:** Team-level metrics only. Individual defender assignments not attributed without charting. Distinguish from speculation.
+## Task 3 Evidence (team-level + Week 8 context)
+**Generated / Updated:** 2026-11-07T11:00:00Z  
+**Sources:** Public nflverse PBP (explosive flags), RotoWire personnel/dropback notes, Sharp (where accessible; prior gaps noted), team reports.  
+**Note:** Team-level metrics primarily. Individual defender responsibility not attributed without authorized charting. Distinguish clearly from speculation.
 
-## Team Tendencies (Weeks 1–8 aggregates, public data)
-| Team | Pass Yds Allowed Rank | Rush Yds Allowed | Explosive Pass (ge20) | Explosive Rush (ge10) | Pressure/Blitz Notes | Source |
-|------|-----------------------|------------------|-----------------------|-----------------------|----------------------|--------|
-| SEA | Top-tier (vs CHI W8) | - | - | - | Strong front; Williams EPA/dropback limited | nflverse + film notes |
-| GB | - | - | - | - | - | Pending full pull |
-| CHI | - | - | - | - | - | - |
+## Team Tendencies (Weeks 1–8 / recent)
+| Team | Pass Yds Allowed Context | Explosive / Pressure Notes | Recent Matchup Evidence | Source |
+|------|--------------------------|----------------------------|-------------------------|--------|
+| SEA | Top-tier defense (held CHI) | Strong front; Williams limited EPA/dropback. High pressure potential. | vs CHI: 36 dropbacks for CHI, 1 sack. | nflverse + RotoWire |
+| GB | - | - | vs CAR: 41 dropbacks, 0 sacks for Love. | RotoWire |
+| CHI | - | - | Personnel 11p 51% / 12p 30%. | RotoWire |
 
-## Position Matchups (evidence-based only)
-- WR/CB: No full charting. Burden vs SEA secondary held volume (9 tgt). Golden vs CAR: high targets.
-- TE/LB and RB/front-seven: Team-level only. No individual responsibility assigned.
-- Archetype comparison: Volume receivers (Burden, Golden) showed resilience in recent matchups.
+## Position Matchups (evidence-based)
+- WR/CB: Burden held 26% tgt share vs SEA secondary. Golden 33% vs CAR. No full individual CB assignments.
+- TE/LB & RB/front-seven: Team-level only. Swift high opportunity share. No defender-specific without charting.
+- Archetype: Volume receivers (Burden, Golden) produced despite matchups.
 
-**Missing:** Full Sharp coverage schemes (freshness noted as STALE in prior DATA_GAPS), individual defender tracking, authorized FTN charting.
+**Missing:** Fresh Sharp coverage schemes (prior STALE noted), full individual defender tracking, authorized FTN charting.
 
-**Blockers:** Charting redistribution rights unverified; no post-kickoff data. Use only pregame as-of.
+**Blockers:** Charting redistribution rights unverified. Use team-level only for projections. No post-kickoff.
