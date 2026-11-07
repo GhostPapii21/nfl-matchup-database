@@ -19,6 +19,7 @@ MATCHUP = ROOT / "research/WEEK9_PLAYER_DEFENSE_JOIN_RESEARCH_ONLY_20261107.csv"
 ERRORS = ROOT / "research/WEEK9_RETROSPECTIVE_ROLLING_BASELINE_ERRORS_20261107.csv"
 CANDIDATES = ROOT / "research/WEEK9_EXPERIMENTAL_DEFENSE_SHRUNK_REFERENCE_20261107.csv"
 CHRONO = ROOT / "research/WEEK9_OPPONENT_ADJUSTMENT_CHRONOLOGICAL_CHECK_20261107.csv"
+TE_DEFENSE = ROOT / "research/WEEK9_TE_DEFENSIVE_ASSIGNMENT_AUDIT_20261107.csv"
 SLATE = [
     ("CIN", "ATL"), ("DEN", "CAR"), ("DAL", "IND"),
     ("NYJ", "KC"), ("DET", "MIA"), ("CLE", "NO"), ("NYG", "PHI"),
@@ -112,6 +113,7 @@ class SundayMatchupEnrichmentSafety(unittest.TestCase):
         cls.error_rates = load(ERRORS)
         cls.candidates = load(CANDIDATES)
         cls.chronological = load(CHRONO)
+        cls.te_defense = load(TE_DEFENSE)
 
     def test_team_explosive_and_sack_flags_are_raw_not_coverage(self):
         self.assertEqual(len(self.explosives), 26)
@@ -248,6 +250,28 @@ class SundayMatchupEnrichmentSafety(unittest.TestCase):
         self.assertEqual(by[("player_rush_yds","W7_W8_LATER")]
                          ["research_adjustment_improves_vs_unadjusted"],"true")
 
+
+    def test_new_grok_te_defensive_rows_are_not_fake_cb_attribution(self):
+        self.assertEqual(len(self.te_defense),9)
+        self.assertEqual(len({r["gsis_id"] for r in self.te_defense}),9)
+        expected = {
+            "PUBLISHED_EXPECTED_LB_MATCHUP_NOT_CONFIRMED_SNAP_ASSIGNMENT":1,
+            "EXPECTED_CB_TYPE_BUT_UNNAMED":1,
+            "LB_GROUP_CONTEXT_ONLY_NO_NAMED_ASSIGNMENT":5,
+            "MISSING_LB_GROUP_CARD":2,
+        }
+        for kind,n in expected.items():
+            self.assertEqual(sum(r["assignment_interpretation"]==kind for r in self.te_defense),n)
+        for r in self.te_defense:
+            self.assertRegex(r["gsis_id"],r"^00-\d{7}$")
+            self.assertEqual(r["research_only"],"true")
+            self.assertEqual(r["model_assignment_multiplier"],"")
+            self.assertEqual(r["coverage_middle_seam_success_rate"],"")
+            self.assertEqual(r["numeric_post_snap_man_zone"],"")
+        loveland = next(r for r in self.te_defense if r["player"]=="Colston Loveland")
+        self.assertEqual(loveland["opponent"],"TB")
+        self.assertIn("buccaneers.com",loveland["published_matchup_source_url"])
+        self.assertRegex(loveland["assigned_defender_id"],r"^00-\d{7}$")
 
 if __name__ == "__main__":
     unittest.main()
