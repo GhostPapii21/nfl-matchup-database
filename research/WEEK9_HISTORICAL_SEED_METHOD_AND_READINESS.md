@@ -46,3 +46,25 @@ IMPORTANT: conditioning on `opportunities>0` **excludes zero-opportunity games**
 5. Run the PR #108 `nfl-scenario-pro-bets` joint game-script distributions with calibrated inputs. Output research-only until NFL-68 and NFL-71 gates pass.
 
 **No wagers or real-money recommendation generated.**
+
+
+## Nov 7 additional source-verified defensive mechanics and TE audit
+
+Four new read-only research files now accompany this historical seed:
+
+- `WEEK9_DEFENSIVE_EXPLOSIVE_SACK_FLAG_RATES_20261107.csv`: **26 teams**, calculated from the existing Odds Bridge `data_packages/nfl_2026_w1_8/team_play_counts.csv` (Git blob `f7a7d350b923b2506bc476f68378e935639c96d9`), which contains **242 team-game rows / 121 completed games**. For each defense, records total and per-game completed explosive pass **play flags with yards_gained >=20**, rush play flags >=10, sacks, QB hits, pass attempts and rush attempts. `explosive_passes / pass_attempts` is the empirical pass-play flag rate; `sacks / (pass_attempts+sacks)` is an explicitly imperfect *sack-play proxy* that excludes QB scramble dropbacks, NOT true sack rate per dropback. `qb_hit` flag is NOT charted pressure, and may overlap sacks. QB hit and sack counts must NEVER be added as disjoint events. Two-sided Wilson 95% intervals assume independent Bernoulli attempts and do NOT adjust for intra-game clustering; treat as descriptive uncertainty, not calibrated future coverage probabilities. Game-level counts, share of games with >=3 explosives and games with any explosive reflect historical volatility.
+- `WEEK9_PLAYER_DEFENSE_JOIN_RESEARCH_ONLY_20261107.csv`: **283** player-market rows aligned to opponents using stable team names, showing prior positive-opportunity averages alongside those opponents' **team-level only** explosive and sack flags. **Estimated opportunities, matchup-adjusted predictions and calibrated probabilities are intentionally BLANK** until Grok source usage and opponent pressure/coverage files are verified.
+- `WEEK9_TE_USAGE_SOURCE_CROSSCHECK_20261107.csv`: audited all **10** named TEs from Grok's newly published `research/WEEK9_TE_USAGE_TARGET_ROUTE.csv` against deduplicated `player_receptions` nflverse target totals, GSIS ID by name/team, source dates. **8 reported target totals matched**, **Tyler Warren has no Grok total** (verified Render has 46), and **AJ Barner CONFLICTS: Grok says 51, Render says 34**. Do not silently choose the higher number. Grok CSV's `routes_run`, snap shares, defender named assignments and target shares do not carry exact per-row provider URLs or per-game denominator provenance and therefore are **not approved** as model inputs.
+- `WEEK9_RETROSPECTIVE_ROLLING_BASELINE_ERRORS_20261107.csv`: an **unadjusted retrospective active-game** rolling-five forecast error audit for 2026 Weeks 5–8, using only earlier games of the same player and market. Evaluated samples: passing yards 104 (MAE **69.42**), receptions 682 (MAE **1.53**), receiving yards 682 (MAE **21.60**), rushing yards 304 (MAE **21.13**), combined rushing+receiving 846 (MAE **23.48**). This reports actual variability and supports conservative research uncertainty. Crucial limitations: no historical bookmaker prices/prop lines, selection conditional on `opportunities>0` in the evaluated game (known only after the game, hence **NOT** a valid unconditional prospective backtest), only four retrospective evaluation weeks, no dynamic injury/starting-lineup chronology, no defender charting or alternate/game/quarter scoring markets. **No calibrated `P(over)`, betting edge, or claimed win rate follows from these MAE values.** Combined yards are summed from each *same* game before calculating a rolling five.
+
+### Specific descriptive defensive comparisons, not picks
+
+| Week 9 offense versus defense | Explosive passes (>=20) / pass attempts allowed | Pass-play flag rate | Sack flags / (attempts+sacks) | Interpretation |
+|---|---:|---:|---:|---|
+| Dallas at Indianapolis | 23 / 246 | 9.35% | 16 / 262 = 6.11% | IND has historically allowed more 20+ pass attempts than GB/SEA, but individual corner responsibility unknown |
+| Green Bay at New England | 25 / 281 | 8.90% | 22 / 303 = 7.26% | NE opponent wide/deep opportunity context is materially different from CB man assignment |
+| Arizona at Seattle | 12 / 266 | 4.51% | 18 / 284 = 6.34% | SEA allowed fewer explosive passes in its observed W1–8 sample; does not prevent a one-play tail event |
+| Tampa Bay at Chicago | 23 / 254 | 9.06% | 22 / 276 = 7.97% | CHI has a stronger observed sack-flag proxy, but pressure and blitz-by-QB decision are not measured |
+
+**Defense flags and rolling error audits are joined source descriptors only.** They are not validated causal effects, matchups against specific CB/S, sack conversion probabilities, QB true scramble tendencies or a calibrated scoring simulator. Until per-play man/zone, defender attribution, packages and actual 2026 offense pressure/route data arrive, **NO** numeric CB matchup multiplier may be applied.
+
