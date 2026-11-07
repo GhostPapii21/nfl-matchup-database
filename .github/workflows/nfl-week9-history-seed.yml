@@ -1,0 +1,27 @@
+name: NFL Week 9 historical research seed safety
+
+on:
+  pull_request:
+    paths:
+      - 'research/WEEK9_*HISTORICAL*20261107.csv'
+      - 'research/WEEK9_VERIFIED_HISTORICAL_REFERENCE_20261107.csv'
+      - 'research/WEEK9_DEFENSE_ALLOWED_HISTORICAL_REFERENCE_20261107.csv'
+      - 'research/WEEK9_HISTORICAL_SEED_METHOD_AND_READINESS.md'
+      - 'test_week9_history_seed.py'
+      - '.github/workflows/nfl-week9-history-seed.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  seed-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Audit W9 verified history and prevent false projections
+        run: python -m unittest test_week9_history_seed -v
