@@ -1,6 +1,6 @@
 # WEEK9 TE Usage, Target Share & Route Participation
 
-**As of:** 2026-11-07 ~11:07 ET
+**As of:** 2026-11-07 ~11:09 ET
 **Sources:** FantasyTools.ai, SumerSports, LineupExperts, FTA, Parlae, Footballguys, PerThirtySix, StickToTheModel, RankFantasy, StartWho, KofSports (public aggregators; slight variance across sites). Ghost6 v14 TE/LB coverage. Blitz WEEK9_USAGE_BUNDLE_v2. All figures through Week 8 unless noted.
 **Status:** Research evidence only. Individual TE-to-defender assignments remain unverified for most TEs. Game-day inactives pending. Model NOT READY.
 
@@ -56,6 +56,25 @@ Consistently 89–100% across weeks; 94% season.
 - Route participation (SumerSports): McBride (337 routes), Fannin (261), Likely (234), LaPorta (230), Bowers (224). Targets per route run cluster around 0.19–0.27 for the top group.
 - Team TE target concentration: ARI (34.1% of team targets to TEs), LV (45%), CHI (27–28.7%), SEA (18.6%).
 - Separation / open: Fannin ranked high in cushion/separation among 20+ target receivers.
+
+## Gap-Fill Plan (priority: matchups; minimize usage)
+
+### Remaining gaps
+1. Named individual defender assignments for ~28 TEs (Ghost6: still unverified; only group-level context available for most).
+2. Full league-wide route participation / alignment for TEs outside the SumerSports subset.
+3. Game-day inactives (official ~90 min before kickoff).
+4. Ferguson and Henry still missing LB-group cards.
+
+### Low-usage next steps (matchup priority)
+1. **Ghost6 PFF account (already used)**: Have Ghost6 do one targeted pass on the remaining 28 named gaps using free or already-authenticated PFF pages only. Capture any new published projections or group cards; do not scrape restricted data. Return a short delta CSV only.
+2. **Public free sources (browser or open_page)**: Check Sharp Football Analysis free charts, PFN free coverage notes, and team beat reports for any named TE shadows. Limit to 4–6 highest-volume TEs (McBride, Loveland, Barner, LaPorta, Bowers, Fannin).
+3. **NFL Next Gen Stats public pages**: Pull free route participation and alignment percentages for the same 4–6 TEs if available without login.
+4. **Game-day inactive window**: Hold a single late check (official NFL inactive lists) once released. No early speculation.
+5. **Do not**: Re-scrape full league route data, re-pull already-captured LB season stats, or invent assignments.
+
+### Expected output of next pass
+- Small delta file: `WEEK9_TE_MATCHUP_DELTA.md` listing any newly verified named assignments + explicit "still unverified" for the rest.
+- No change to model or restricted PRs.
 
 ## Limitations / Gaps
 - Full league-wide route participation still incomplete outside selected players.
