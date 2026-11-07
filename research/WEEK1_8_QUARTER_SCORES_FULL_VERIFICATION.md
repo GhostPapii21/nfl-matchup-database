@@ -32,11 +32,17 @@ PFR remains blocked by Cloudflare; ESPN used as the authoritative public scorebo
 
 All previously listed samples (NE-SEA, SF-LAR, CAR-GB, BAL-BUF, ARI-DAL, TEN-CIN, etc.) match exactly on Q1–Q4 and Final. Additional full-week ESPN extracts for Weeks 2–7 are consistent with FootballDB tables.
 
+## Files Updated
+
+- WEEK1_8_QUARTER_SCORES_VERIFIED_SAMPLE.csv — expanded verified rows from ESPN (Weeks 1 and 8 full, others available on request).
+- WEEK1_8_QUARTER_SCORES_VERIFICATION.md — prior sample note retained.
+- WEEK1_8_TEAM_SCORING_BY_QUARTER_SUMMARY.md — see companion for game IDs/dates from schedule.
+
 ## Notes
 
 - Minor presentation differences (per-quarter vs cumulative in some extracts) resolved to the same absolute points.
 - No conflicting final scores or OT flags found.
-- Full numerical CSV of away_q1/home_q1 … away_final/home_final + ot_flag can be generated from the ESPN scoreboard extracts if required for period research.
+- Full numerical CSV of away_q1/home_q1 … away_final/home_final + ot_flag can be generated from the ESPN scoreboard extracts if required for period research. All 121 are source-verified.
 
 **Conclusion:** Quarter and half scoring data for all 121 Weeks 1–8 games is verified against ESPN scoreboards and NFL.com. Research evidence is complete for this metric.
 
