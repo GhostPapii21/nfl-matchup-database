@@ -16,6 +16,7 @@ DEFENSE = ROOT / "research/WEEK9_DEFENSE_ALLOWED_HISTORICAL_REFERENCE_20261107.c
 EXPLOSIVES = ROOT / "research/WEEK9_DEFENSIVE_EXPLOSIVE_SACK_FLAG_RATES_20261107.csv"
 TE_AUDIT = ROOT / "research/WEEK9_TE_USAGE_SOURCE_CROSSCHECK_20261107.csv"
 MATCHUP = ROOT / "research/WEEK9_PLAYER_DEFENSE_JOIN_RESEARCH_ONLY_20261107.csv"
+ERRORS = ROOT / "research/WEEK9_RETROSPECTIVE_ROLLING_BASELINE_ERRORS_20261107.csv"
 SLATE = [
     ("CIN", "ATL"), ("DEN", "CAR"), ("DAL", "IND"),
     ("NYJ", "KC"), ("DET", "MIA"), ("CLE", "NO"), ("NYG", "PHI"),
@@ -106,6 +107,7 @@ class SundayMatchupEnrichmentSafety(unittest.TestCase):
         cls.te = load(TE_AUDIT)
         cls.context = load(MATCHUP)
         cls.offense = load(OFFENSE)
+        cls.error_rates = load(ERRORS)
 
     def test_team_explosive_and_sack_flags_are_raw_not_coverage(self):
         self.assertEqual(len(self.explosives), 26)
@@ -126,6 +128,14 @@ class SundayMatchupEnrichmentSafety(unittest.TestCase):
                                    exp_rushes / rush_attempts,delta=0.000011)
             self.assertAlmostEqual(float(r["sack_per_pass_or_sack_proxy"]),
                                    sacks / (pass_attempts+sacks),delta=0.000011)
+            self.assertAlmostEqual(float(r["expl_pass_per_game"]),
+                                   exp_passes / int(r["games"]), delta=0.000011)
+            self.assertAlmostEqual(float(r["expl_run_per_game"]),
+                                   exp_rushes / int(r["games"]), delta=0.000011)
+            self.assertAlmostEqual(float(r["sacks_per_game"]),
+                                   sacks / int(r["games"]), delta=0.000011)
+            self.assertLessEqual(int(r["exp_pass_games_ge3"]), int(r["games"]))
+            self.assertLessEqual(int(r["games_any_exp_pass"]), int(r["games"]))
             self.assertLessEqual(float(r["exp_pass_wilson95_lo"]),
                                  float(r["exp_pass_per_pass_attempt"]))
             self.assertGreaterEqual(float(r["exp_pass_wilson95_hi"]),
@@ -169,6 +179,26 @@ class SundayMatchupEnrichmentSafety(unittest.TestCase):
             self.assertEqual(r["estimated_conditional_opportunity"],"")
             self.assertEqual(r["bet_eligible"],"false")
             self.assertEqual(r["source_status"],"PUBLIC_SOURCE_TEAM_LEVEL_ONLY_NO_PERSONNEL_OR_COVERAGE")
+
+    def test_rolling_reference_error_audit_is_not_market_calibration(self):
+        expected = VALID_MARKETS | {"player_rush_receive_yds"}
+        self.assertEqual({x["market"] for x in self.error_rates}, expected)
+        self.assertEqual(len(self.error_rates), 5)
+        for row in self.error_rates:
+            self.assertEqual(row["evaluation_season"], "2026")
+            self.assertEqual(row["evaluation_weeks"], "5-8")
+            self.assertGreater(int(row["evaluated_observed_positive_opportunity_games"]), 0)
+            self.assertGreater(float(row["rolling5_mae"]), 0)
+            self.assertLessEqual(float(row["median_absolute_error"]),
+                                 float(row["p75_absolute_error"]))
+            self.assertLessEqual(float(row["p75_absolute_error"]),
+                                 float(row["p90_absolute_error"]))
+            self.assertEqual(row["external_holdout_calibrated"], "false")
+            self.assertEqual(
+                row["model_status"],
+                "RETROSPECTIVE_ROLLING_REFERENCE_CONDITIONAL_ON_POSITIVE_OPPORTUNITY",
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
