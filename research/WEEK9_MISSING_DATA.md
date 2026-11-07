@@ -1,25 +1,30 @@
-# WEEK9 Missing Data Report
-**As-of:** 2026-11-07 ~08:45 ET (Saturday morning, pre-kickoff)
-**Status:** Research evidence only. Gaps preserved; nothing invented.
+# WEEK9 Missing Data
 
-## Still unavailable / pending
-- **Final game-day inactive lists** for all Sunday games. Official inactive lists are published ~90 minutes before each kickoff. Current designations (OUT / Questionable / Doubtful) are from Friday official reports and team sites. Questionable ≠ OUT. No auto-workload transfer.
-- **Complete public league-wide route participation** for all skill players across Weeks 1–8. Partial Week 8 route counts available for selected games via RotoWire/NGS-style breakdowns and some aggregator snap shares. Full authorized charting not redistributable.
-- **Pressure-versus-clean splits** for all QBs. Public NGS provides time-to-throw, air yards, and CPOE for published candidates; clean/pressure splits remain incomplete or unavailable without licensed data.
-- **Guaranteed individual shadow / coverage responsibility** assignments. Ghost6 recovered PFR individual CB/safety coverage totals (249 defenders) and is checking free PFF matchup projections. These are expected assignments only, not guaranteed. Team-level explosive rates kept separate.
-- **Exact designed-rush vs scramble vs kneel separation** for all QB dropbacks. Official attempts and sacks are verified; full PBP filtering for designed rushes remains partial.
-- **Full per-row GSIS joins and source timestamps** for every material metric in the bot bundles. Sampled rows verified; complete join still required before any model consumption.
+**As of:** 2026-11-07 ~11:31 ET
+**Status:** Research evidence only. Model NOT READY.
 
-## Available and staged
-- Official box scores and game logs for Weeks 1–8 (Golden 7/79 confirmed; Burden 7/56 confirmed; Williams 24/34 + 1 sack confirmed).
-- Snap share aggregators (nflverse-sourced) for many skill players through Week 8.
-- Individual PFR coverage profiles for 249 CBs/safeties.
-- Team-level defensive tendencies and explosive-play rates.
-- Official injury designations as of Friday reports.
+## Deferred to Sunday morning (per instruction)
+1. Named individual defender assignments for remaining TEs.
+2. Full league-wide route participation / alignment outside the SumerSports subset.
+3. Official game-day inactive lists (~90 min before kickoff).
 
-## Blockers for reliable projection
-- Game-day inactives not yet published.
-- Licensed charting (full FTN, complete NGS premium, full PFF Premium Stats) not redistributed.
-- No post-kickoff leakage allowed.
+## Still open (free-source checkable)
+- Ferguson and Henry LB-group cards (Ghost6 v14 flagged as missing; no new cards in priority delta).
 
-**RESEARCH_ONLY / NOT_READY.**
+## Explicit non-gaps
+- TE snap share, target share, and available route counts for primary TEs: staged.
+- LB-group context for 24/26 TEs: staged.
+- Published Anzalone projection for Loveland: staged.
+- Historical Weeks 1–8 numerical packages: referenced in sportsbook-odds-bridge.
+- Weather advance forecasts and CLE/PHI starter resolutions: staged.
+- Prior baseline (official box scores, nflverse snaps, recovered PFR coverage for 249 CBs/safeties) retained.
+
+## Blockers preventing reliable individual TE projections
+- Missing named individual defender assignments (deferred).
+- Missing full route participation (deferred).
+- Pending official game-day inactives (deferred).
+- Ferguson/Henry group cards still open.
+
+No data fabricated. No restricted sources bypassed.
+
+**PR #2 handoff package staged. Model remains NOT READY.**
