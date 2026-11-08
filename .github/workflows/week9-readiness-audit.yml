@@ -1,0 +1,26 @@
+name: Week 9 readiness snapshot audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "research/WEEK9_*.md"
+      - "research/WEEK9_*.json"
+      - "research/WEEK9_*.csv"
+      - "research/validate_week9_readiness.py"
+      - ".github/workflows/week9-readiness-audit.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  integrity-and-fail-closed-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate snapshot, phase coverage, hashes, and fail-closed state
+        run: python research/validate_week9_readiness.py
+
