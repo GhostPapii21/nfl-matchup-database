@@ -1,0 +1,166 @@
+{
+  "phase": "BEFORE_EQUAL_WEIGHT_ROLES",
+  "model_flags": [
+    "COVERAGE_DISABLED",
+    "QUOTES_NOLINE",
+    "EMPIRICAL_PARTIAL_SEMANTICS",
+    "COARSE_DOWN_STATE",
+    "CLOCK_PROXY",
+    "ROLES_DEPTH_ONLY",
+    "NO_OUT_OF_SAMPLE_VALIDATION"
+  ],
+  "sample_size_usage": 1068,
+  "role_metrics": {
+    "DAL.carry": {
+      "n": 3,
+      "equal_weight": true,
+      "entropy": 1.0986122886681096,
+      "entropy_norm": 0.9999999999999998,
+      "top": [
+        [
+          "DAL:00-0036997",
+          0.3333333333333333
+        ],
+        [
+          "DAL:00-0037120",
+          0.3333333333333333
+        ],
+        [
+          "DAL:00-0038738",
+          0.3333333333333333
+        ]
+      ]
+    },
+    "DAL.passer": {
+      "n": 1,
+      "equal_weight": true,
+      "entropy": -0.0,
+      "entropy_norm": null,
+      "top": [
+        [
+          "DAL:00-0033077",
+          1.0
+        ]
+      ]
+    },
+    "DAL.target": {
+      "n": 4,
+      "equal_weight": true,
+      "entropy": 1.3862943611198906,
+      "entropy_norm": 1.0,
+      "top": [
+        [
+          "DAL:00-0036358",
+          0.25
+        ],
+        [
+          "DAL:00-0037247",
+          0.25
+        ],
+        [
+          "DAL:00-0038041",
+          0.25
+        ],
+        [
+          "DAL:00-0039530",
+          0.25
+        ]
+      ]
+    },
+    "IND.carry": {
+      "n": 3,
+      "equal_weight": true,
+      "entropy": 1.0986122886681096,
+      "entropy_norm": 0.9999999999999998,
+      "top": [
+        [
+          "IND:00-0036223",
+          0.3333333333333333
+        ],
+        [
+          "IND:00-0040179",
+          0.3333333333333333
+        ],
+        [
+          "IND:00-0041125",
+          0.3333333333333333
+        ]
+      ]
+    },
+    "IND.passer": {
+      "n": 1,
+      "equal_weight": true,
+      "entropy": -0.0,
+      "entropy_norm": null,
+      "top": [
+        [
+          "IND:00-0035710",
+          1.0
+        ]
+      ]
+    },
+    "IND.target": {
+      "n": 4,
+      "equal_weight": true,
+      "entropy": 1.3862943611198906,
+      "entropy_norm": 1.0,
+      "top": [
+        [
+          "IND:00-0030279",
+          0.25
+        ],
+        [
+          "IND:00-0038394",
+          0.25
+        ],
+        [
+          "IND:00-0038997",
+          0.25
+        ],
+        [
+          "IND:00-0040128",
+          0.25
+        ]
+      ]
+    }
+  },
+  "empirical_pbp_shares_w1_8": {
+    "DAL.target_top5": {
+      "00-0036358": 0.3164983164983165,
+      "00-0037247": 0.20875420875420875,
+      "00-0039410": 0.15151515151515152,
+      "00-0038041": 0.08417508417508418,
+      "00-0036997": 0.08080808080808081
+    },
+    "DAL.target_n": 297,
+    "DAL.carry_top5": {
+      "00-0036997": 0.67,
+      "00-0037120": 0.14,
+      "00-0033077": 0.12,
+      "00-0038705": 0.025,
+      "00-0038738": 0.02
+    },
+    "DAL.carry_n": 200,
+    "IND.target_top5": {
+      "00-0038997": 0.2,
+      "00-0030279": 0.19607843137254902,
+      "00-0040128": 0.1803921568627451,
+      "00-0036223": 0.12156862745098039,
+      "00-0032951": 0.10980392156862745
+    },
+    "IND.target_n": 255,
+    "IND.carry_top5": {
+      "00-0036223": 0.6548672566371682,
+      "00-0041125": 0.16371681415929204,
+      "00-0035710": 0.11061946902654868,
+      "00-0040179": 0.02654867256637168,
+      "00-0040128": 0.01327433628318584
+    },
+    "IND.carry_n": 226
+  },
+  "source_composition_hardcoded_in_simulate": "team_only_2026_w1_8_JAX_BAL_empirical_not_possession_EP_model",
+  "sim_dal_ind_summary_source_composition": "team_only_2026_w1_8_JAX_BAL_empirical_not_possession_EP_model",
+  "path_semantics_current": "SHARED_PARTIAL_SEMANTICS",
+  "authoritative_fitted_forecast_pre_roles": "sha256:40c23caa5a0327c8ebc757520ad430e1401305518cd653549d542cc0300a3919",
+  "note": "Equal-weight roles diverge from empirical PBP top shares; fix via Codex empirical fit + shrinkage/heldout"
+}

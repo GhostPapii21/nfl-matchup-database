@@ -1,0 +1,49 @@
+
+==================================== ERRORS ====================================
+_____________________ ERROR collecting test_calibration.py _____________________
+ImportError while importing test module '/workspace/wt-market-calibration/research/market_calibration/tests/test_calibration.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/market_calibration/tests/test_calibration.py:4: in <module>
+    from research.market_calibration.calibration import (
+E   ModuleNotFoundError: No module named 'research.market_calibration.calibration'
+__________________ ERROR collecting test_contract_manifest.py __________________
+ImportError while importing test module '/workspace/wt-market-calibration/research/market_calibration/tests/test_contract_manifest.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/market_calibration/tests/test_contract_manifest.py:5: in <module>
+    from research.market_calibration.joint_trial_adapter import adapt_joint_trials, contract_info
+E   ModuleNotFoundError: No module named 'research.market_calibration.joint_trial_adapter'
+_______________________ ERROR collecting test_quotes.py ________________________
+ImportError while importing test module '/workspace/wt-market-calibration/research/market_calibration/tests/test_quotes.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/market_calibration/tests/test_quotes.py:6: in <module>
+    from research.market_calibration.quotes import (
+E   ModuleNotFoundError: No module named 'research.market_calibration.quotes'
+_____________________ ERROR collecting test_settlement.py ______________________
+ImportError while importing test module '/workspace/wt-market-calibration/research/market_calibration/tests/test_settlement.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+research/market_calibration/tests/test_settlement.py:3: in <module>
+    from research.market_calibration.quotes import load_saved_quotes, match_quote
+E   ModuleNotFoundError: No module named 'research.market_calibration.quotes'
+=========================== short test summary info ============================
+ERROR research/market_calibration/tests/test_calibration.py
+ERROR research/market_calibration/tests/test_contract_manifest.py
+ERROR research/market_calibration/tests/test_quotes.py
+ERROR research/market_calibration/tests/test_settlement.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 4 errors during collection !!!!!!!!!!!!!!!!!!!!
+4 errors in 0.09s

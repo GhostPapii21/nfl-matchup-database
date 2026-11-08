@@ -1,0 +1,127 @@
+{
+  "stamped_et": "2026-11-06 13:32 EST",
+  "document_type": "SOURCE_REGISTRY_PLACEHOLDERS",
+  "policy": "Never invent quotes; never bypass paywall; no new connector auth during packaging; no overfit anchoring",
+  "entries": [
+    {
+      "id": "pinnacle",
+      "role": "market_reference",
+      "status": "NOLINE_OR_UNAVAILABLE_IN_PACKAGE",
+      "usable_for_calibration": false,
+      "notes": "Compare when authenticated quotes available; research vs actionable separated",
+      "linear": [
+        "NFL-45",
+        "NFL-7"
+      ]
+    },
+    {
+      "id": "draftkings",
+      "role": "retail_book",
+      "status": "NOLINE_ACTIONABLE_FALSE",
+      "usable_for_calibration": false,
+      "refresh": "Rico DK watch every 4h; Sunday 8AM ET final",
+      "linear": [
+        "NFL-45",
+        "NFL-46"
+      ]
+    },
+    {
+      "id": "fanduel",
+      "role": "retail_book",
+      "status": "NOLINE_ACTIONABLE_FALSE",
+      "usable_for_calibration": false,
+      "refresh": "Rico FD watch every 4h; Sunday 8AM ET final",
+      "linear": [
+        "NFL-45"
+      ]
+    },
+    {
+      "id": "other_books",
+      "role": "retail_books_misc",
+      "status": "NOLINE",
+      "usable_for_calibration": false,
+      "notes": "BetMGM/etc via odds-bridge after auth",
+      "linear": [
+        "NFL-45",
+        "NFL-25"
+      ]
+    },
+    {
+      "id": "orca_lines",
+      "role": "mirror_benchmark",
+      "status": "ACCESS_UNKNOWN",
+      "license": "UNKNOWN",
+      "usable_until_retrieved": false,
+      "never_invent_quotes": true,
+      "linear": [
+        "NFL-53"
+      ]
+    },
+    {
+      "id": "ftn_nfl_models",
+      "role": "mirror_benchmark",
+      "status": "ACCESS_UNKNOWN",
+      "license": "UNKNOWN_OR_UNCLEAR",
+      "usable_until_retrieved": false,
+      "redistribute_fulltext": false,
+      "linear": [
+        "NFL-55",
+        "NFL-47"
+      ]
+    },
+    {
+      "id": "pff",
+      "role": "proprietary_charting",
+      "status": "NOT_READY_NO_DUPLICATE",
+      "license": "PROPRIETARY",
+      "redistribute_fulltext": false,
+      "linear": [
+        "NFL-48"
+      ]
+    },
+    {
+      "id": "ngs",
+      "role": "coverage_tracking",
+      "status": "MISSING_EFFECTS_DISABLED",
+      "linear": [
+        "NFL-47"
+      ]
+    },
+    {
+      "id": "nflverse_pbp",
+      "role": "play_by_play",
+      "status": "FIXTURES_MATERIALIZED_IN_PACKAGE",
+      "redistributable_likely": true,
+      "verify_license_on_upload": true,
+      "linear": [
+        "NFL-50"
+      ]
+    },
+    {
+      "id": "espn_injuries_depth",
+      "role": "roster_inactives",
+      "status": "PHASE15_NOT_YET",
+      "linear": [
+        "NFL-46"
+      ]
+    },
+    {
+      "id": "nws_weather",
+      "role": "weather",
+      "status": "ADAPTER_DOCUMENTED_REFRESH_NETWORK",
+      "linear": [
+        "NFL-56"
+      ]
+    },
+    {
+      "id": "odds_bridge",
+      "role": "quote_connector",
+      "status": "needsAuth",
+      "usable_for_calibration": false,
+      "linear": [
+        "NFL-45",
+        "NFL-25"
+      ]
+    }
+  ]
+}

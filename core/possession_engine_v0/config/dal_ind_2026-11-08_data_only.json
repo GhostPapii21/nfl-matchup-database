@@ -1,0 +1,51 @@
+{
+  "config_id": "dal_ind_2026-11-08_data_only",
+  "frozen_at_et": "2026-11-06T07:45:00-05:00",
+  "mode": "data_only",
+  "game": {
+    "home": "IND",
+    "away": "DAL",
+    "season": 2026,
+    "week_asof_exclusive": 9
+  },
+  "history": {
+    "teams": [
+      "DAL",
+      "IND"
+    ],
+    "season": 2026,
+    "weeks_inclusive": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "scope": "plays_from_games_involving_either_team_offense_when_posteam_in_teams",
+    "no_league_fallback": true,
+    "no_future_weeks": true
+  },
+  "min_n_state": 5,
+  "proposed_pooling": {
+    "enabled": false,
+    "policy": "none"
+  },
+  "adjustments": {
+    "enabled": false
+  },
+  "seed_base": 20261108,
+  "n_default": 500,
+  "ot_rule": "single_possession_approx_declared_limitation",
+  "set_label": "development_w1_8_inspected_not_untouched_holdout",
+  "effects": {
+    "enable_blitz_strata": false,
+    "note": "coverage/blitz effects disabled for prospective missing charting"
+  },
+  "defense_interaction": {
+    "mode": "h2h_only"
+  },
+  "quotes_status": "NOLINE"
+}

@@ -1,0 +1,63 @@
+{
+  "document_type": "ghost_independent_ready_packet",
+  "topic": "anomaly_delivery_guard_ge_40pp",
+  "generated_et": "2026-11-06 07:25:31 ET",
+  "ready_for_independent_review": true,
+  "ghost_final_acceptance": "NOT_CLAIMED",
+  "contract_sha256_full": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+  "example_sha256_full": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd",
+  "wire": "1.0.0-producer",
+  "tests": {
+    "codex_market": {
+      "passed": 235,
+      "log": "reviews/pytest_anomaly_guard_market_suite.txt"
+    },
+    "parent_market_plus_independent": {
+      "passed": 246,
+      "log": "reviews/pytest_parent_verify_anomaly_guard.txt"
+    },
+    "guard_collected": 67
+  },
+  "detector": {
+    "module": "research/market_calibration/delivery_guard.py",
+    "threshold": 0.4,
+    "status_on_hit": "DIAGNOSTIC_ANOMALY",
+    "never_pick": true,
+    "preserve_raw": true,
+    "no_anchor_hide": true
+  },
+  "quotes": {
+    "loader_records": 132,
+    "paired_MATCHED_research": 60,
+    "pin_q2_q4_spreads": "NOLINE",
+    "odds_api_spend": 0,
+    "firecrawl_pin": "ERROR"
+  },
+  "calibration_sufficiency": false,
+  "actionable_status": "NOLINE",
+  "bias_status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+  "source_readiness": false,
+  "forecast_acceptance": false,
+  "impact": "NOT_MEASURED",
+  "exhausted_blockers": [
+    "PINNACLE_Q2_Q4_SPREADS_ABSENT_SAVED",
+    "ODDS_API_NO_NEW_PULL_BY_POLICY",
+    "FIRECRAWL_PIN_BLOCKED",
+    "NO_PACKAGE_PROVENANCE_TRAIN_ROWS_FOR_BIAS_FIT",
+    "LEGACY_HOLDOUT_NOT_COMPATIBLE_WITH_CalibrationBias.fit_contract"
+  ],
+  "resolvable_done": [
+    "delivery_guard implemented+tested",
+    "wired into separate_outputs",
+    "binding SHA preserved",
+    "quote extraction inventory logged"
+  ],
+  "folded_into_independent_review": {
+    "review": "INDEPENDENT_CODEX_REVIEW.md",
+    "foldin_json": "GHOST_ANOMALY_FOLDIN_INDEPENDENT_REVIEW_2026-11-06.json",
+    "duplicate_runner": false,
+    "folded_et": "2026-11-06 07:37:01 ET",
+    "ghost_final_acceptance": "NOT_CLAIMED",
+    "post_consensus_note": "guard collect expanded 67\u2192132 after multi-book consensus follow-up; counts still not acceptance"
+  }
+}

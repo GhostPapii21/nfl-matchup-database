@@ -1,0 +1,117 @@
+{
+  "kind": "authorized_public_probes",
+  "no_spend": true,
+  "no_auth_bypass": true,
+  "kickoff_utc": "2026-11-06T01:15:00Z",
+  "cutoff_policy": "frozen_pregame_requires_source_available_at_or_before_kickoff",
+  "results": [
+    {
+      "id": "espn_nfl_home",
+      "url": "https://www.espn.com/nfl/",
+      "method": "GET",
+      "http_code": "200",
+      "bytes": 265270,
+      "sha256": "f4ad93cc2569f87fc6d69041dd28c2a4f2d1157dd03f518c95816aa50063cad2",
+      "elapsed_s": 0.088,
+      "snip": " \t<!DOCTYPE html> \t<html class=\"no-icon-fonts\" lang=\"en\"> \t<head> \t\t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" /> <meta http-equiv=\"x-ua",
+      "pulled_et": "2026-11-06 07:06:20 ET",
+      "spend": 0
+    },
+    {
+      "id": "espn_summary_public",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873037",
+      "method": "GET",
+      "http_code": "200",
+      "bytes": 610875,
+      "sha256": "b2ba4ad092d9cff3afcf51cf73651e9acbe73f5fe35332664d862b2c05c18cd8",
+      "elapsed_s": 0.109,
+      "snip": "{\"boxscore\":{\"teams\":[{\"team\":{\"id\":\"30\",\"uid\":\"s:20~l:28~t:30\",\"slug\":\"jacksonville-jaguars\",\"location\":\"Jacksonville\",\"name\":\"Jaguars\",\"abbreviation\":\"JAX\",\"d",
+      "pulled_et": "2026-11-06 07:06:20 ET",
+      "spend": 0
+    },
+    {
+      "id": "nflverse_releases",
+      "url": "https://github.com/nflverse/nflverse-data/releases",
+      "method": "GET",
+      "http_code": "200",
+      "bytes": 364871,
+      "sha256": "19683ad2a17c0c3ea9f6046d750872521f5ce769343ba5ac27b290163995e241",
+      "elapsed_s": 0.679,
+      "snip": "        <!DOCTYPE html> <html   lang=\"en\"      data-color-mode=\"auto\" data-light-theme=\"light\" data-dark-theme=\"dark\"   data-a11y-animated-images=\"system\" data-",
+      "pulled_et": "2026-11-06 07:06:20 ET",
+      "spend": 0
+    },
+    {
+      "id": "nflverse_roster_release",
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2026.csv",
+      "method": "HEAD",
+      "http_code": "302",
+      "bytes": 0,
+      "sha256": "312db3d556bc71b5625484d4099020e1e91d99c3c6050c8a8896576ce91c1b7c",
+      "elapsed_s": 0.151,
+      "snip": "",
+      "pulled_et": "2026-11-06 07:06:20 ET",
+      "spend": 0
+    },
+    {
+      "id": "pfr_home",
+      "url": "https://www.pro-football-reference.com/",
+      "method": "GET",
+      "http_code": "403",
+      "bytes": 5452,
+      "sha256": "6f8a26e9548ae6870cd38ae36adf461267b6aa87c69547ef2ad969a29b33fa77",
+      "elapsed_s": 0.047,
+      "snip": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA",
+      "pulled_et": "2026-11-06 07:06:21 ET",
+      "spend": 0
+    },
+    {
+      "id": "ngs_home",
+      "url": "https://nextgenstats.nfl.com/",
+      "method": "GET",
+      "http_code": "200",
+      "bytes": 31388,
+      "sha256": "ef5973762e7c3712a5ec3aba597788af00c18180287e60387041b37cf3ca1113",
+      "elapsed_s": 0.44,
+      "snip": "<!DOCTYPE html> <html lang=\"en\">   <head>     <!-- ngs -->     <meta charset=\"utf-8\">     <title data-vue-meta=\"true\">NGS | NFL Next Gen Stats</title>       <me",
+      "pulled_et": "2026-11-06 07:06:21 ET",
+      "spend": 0
+    },
+    {
+      "id": "nws_points_mtbank",
+      "url": "https://api.weather.gov/points/39.2780,-76.6227",
+      "method": "GET",
+      "http_code": "200",
+      "bytes": 3919,
+      "sha256": "1f4e4ab443baca1d273f319d1a830598b141f5259d93a8eba020b9691061c901",
+      "elapsed_s": 0.131,
+      "snip": "{     \"@context\": [         \"https://geojson.org/geojson-ld/geojson-context.jsonld\",         {             \"@version\": \"1.1\",             \"wx\": \"https://api.wea",
+      "pulled_et": "2026-11-06 07:06:21 ET",
+      "spend": 0
+    },
+    {
+      "id": "open_meteo",
+      "url": "https://api.open-meteo.com/v1/forecast?latitude=39.278&longitude=-76.623&hourly=temperature_2m&forecast_days=1",
+      "method": "GET",
+      "http_code": "200",
+      "bytes": 843,
+      "sha256": "7a1983fe8ca7dca03839eb6736751c3ac119583faf71de42eac09ec4dd2ebce2",
+      "elapsed_s": 0.16,
+      "snip": "{\"latitude\":39.289543,\"longitude\":-76.624466,\"generationtime_ms\":0.04100799560546875,\"utc_offset_seconds\":0,\"timezone\":\"GMT\",\"timezone_abbreviation\":\"GMT\",\"elev",
+      "pulled_et": "2026-11-06 07:06:21 ET",
+      "spend": 0
+    },
+    {
+      "id": "operations_gamebooks",
+      "url": "https://operations.nfl.com/updates/football-ops/",
+      "method": "GET",
+      "http_code": "404",
+      "bytes": 15154,
+      "sha256": "dec1a840083c1eabe43824f486d973ad787f9ec48a8f77cd22ef7ece9ff25909",
+      "elapsed_s": 0.845,
+      "snip": "<!DOCTYPE html><html id=\"__next_error__\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" a",
+      "pulled_et": "2026-11-06 07:06:22 ET",
+      "spend": 0
+    }
+  ]
+}

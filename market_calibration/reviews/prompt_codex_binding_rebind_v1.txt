@@ -1,0 +1,42 @@
+BetGuru MARKET — authorized contract SHA rebind ONLY (Codex). Coordinator t353u.
+
+## Authorization (READ FIRST)
+- `/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md`
+- `/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/HANDOFF_TO_BETGURU_BINDING.md`
+
+## Inspect provenance before rebinding
+1) Confirm current `core_contract.md` SHA-256 == `6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367`
+2) Confirm historical `d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9` equals current bytes with ONLY the additive companion link to `core_contract_wire_v1.md` / producer-wire pointer removed (document the exact line(s) in evidence).
+3) Confirm producer example `/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/producer_joint_trial_example_v1.jsonl` sha256 still `50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd`
+
+## Then implement (market_calibration ONLY)
+1) Set `joint_trial_adapter.CONTRACT_SHA256` to authorized `6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367`
+2) Update MANIFEST.json adapter.contract_sha256 similarly; cite authorization path; keep wire_agreement_id `market-producer-wire-v1.0.1`; wire still `1.0.0-producer`
+3) Update `tracking/WIRE_AGREEMENT_v1.0.1.md` to cite CONTRACT_BINDING_AUTHORIZATION and new SHA (content contract semantics still v1.0.0)
+4) Update any tests that hardcode old SHA to accept authorized current SHA (still fail on wrong SHA)
+5) **No** in-memory CORE_CONTRACT path override in production path. **No** silent trial remap. **No** CORE edits.
+6) Keep NOLINE, Bias UNIMPLEMENTED_NO_FITTED_CALIB, no Ghost final claim, no predictive claims.
+
+## Official reruns (record exact output)
+A) Market suite:
+```
+cd /workspace/wt-market-calibration
+export PYTHONDONTWRITEBYTECODE=1
+python3 -m pytest research/market_calibration/tests research/market_calibration/reviews/test_independent_false_pass.py -q
+```
+B) DIRECT B01:
+```
+cd /workspace/research/nfl_sim_integration_2026-11-06
+export PYTHONDONTWRITEBYTECODE=1 GIT_OPTIONAL_LOCKS=0
+export PYTHONPATH=/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06
+python3 -m pytest integration/integration_adversarial_tests.py::test_DIRECT_actual_producer_to_market_acceptance -q -p no:cacheprovider
+```
+C) Prefer also a market-local test (or small script under market_calibration) that loads immutable example `producer_joint_trial_example_v1.jsonl` @ 50be826a… into adapt_joint_trials unchanged and asserts NOLINE transport (if example shape matches; if not, document exact blocker without remapping).
+
+## Deliverables
+- `reviews/BINDING_REBIND_COMPLETION.md`
+- `reviews/codex_binding_rebind_evidence.json` (provenance diff summary, before/after SHA constants, pytest logs paths, exit codes, network=0, sims=0)
+- pytest log files under reviews/
+- Update GHOST_HANDOFF_MARKET_ADAPTER.md with authorized binding SHA
+
+If DIRECT still fails for non-SHA reasons, fix only adapter-owned issues via TDD; do not edit integration tests or CORE.

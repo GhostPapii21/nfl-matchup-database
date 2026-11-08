@@ -1,0 +1,22 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+E   AssertionError: assert (None is not None)
+     +  where None = <built-in method get of dict object at 0x7f8ed81e05c0>('p_push')
+     +    where <built-in method get of dict object at 0x7f8ed81e05c0> = {'monte_carlo': 0.25125, 'bias': 'UNIMPLEMENTED', 'game_randomness': 0.2645, 'mc_status': {'monte_carlo': 'IMPLEMENTED... 'bias': 'UNIMPLEMENTED_NO_FITTED_CALIB', 'game_randomness': 'NOT_APPLIED_THIS_CALL', 'home_games_asof': 25, ...}, ...}.get
+/workspace/wt-period-engine/research/period_engine_v0/tests/test_e2e_ghost6_remaining.py:30: AssertionError: assert (None is not None)
+E   AssertionError: assert None is not None
+     +  where None = <built-in method get of dict object at 0x7f8ed8209700>('p_win_decisive')
+     +    where <built-in method get of dict object at 0x7f8ed8209700> = {'monte_carlo': 0.3903333333333333, 'bias': 'UNIMPLEMENTED', 'game_randomness': 0.3396666666666667, 'mc_status': {'mon... 'bias': 'UNIMPLEMENTED_NO_FITTED_CALIB', 'game_randomness': 'NOT_APPLIED_THIS_CALL', 'home_games_asof': 25, ...}, ...}.get
+/workspace/wt-period-engine/research/period_engine_v0/tests/test_e2e_ghost6_remaining.py:48: AssertionError: assert None is not None
+E   TypeError: build_mirror() got an unexpected keyword argument 'comparison_basis'
+/workspace/wt-period-engine/research/period_engine_v0/tests/test_e2e_ghost6_remaining.py:71: TypeError: build_mirror() got an unexpected keyword argument 'comparison_basis'
+E   assert (np.False_)
+     +  where np.False_ = <function all at 0x7f8efe64e570>(array([20, 28, 10, ..., 28, 41, 20], shape=(15000,)) >= array([13, 41, 41, ..., 17, 23, 23], shape=(15000,)))
+     +    where <function all at 0x7f8efe64e570> = np.all
+/workspace/wt-period-engine/research/period_engine_v0/tests/test_e2e_ghost6_remaining.py:94: assert (np.False_)
+=========================== short test summary info ============================
+FAILED tests/test_e2e_ghost6_remaining.py::test_e2e_mc_and_gr_propagates_push_and_decisive
+FAILED tests/test_e2e_ghost6_remaining.py::test_e2e_demo_mirror_uses_decisive_for_two_way_compare_basis
+FAILED tests/test_e2e_ghost6_remaining.py::test_e2e_identity_blocked_suppresses_pin_and_anchor_numbers
+FAILED tests/test_e2e_ghost6_remaining.py::test_e2e_fg_joint_coherent_with_regulation
+4 failed in 2.72s

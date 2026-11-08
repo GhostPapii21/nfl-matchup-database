@@ -1,0 +1,28 @@
+.FFFF....FFF                                                             [100%]
+=================================== FAILURES ===================================
+E   AssertionError: assert 'PBP_MISSING' == 'OK'
+      
+      - OK
+      + PBP_MISSING
+/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_sparse_and_config.py:29: AssertionError: assert 'PBP_MISSING' == 'OK'
+E   TypeError: 'NoneType' object is not subscriptable
+/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/empirical.py:50: TypeError: 'NoneType' object is not subscriptable
+E   TypeError: 'NoneType' object is not subscriptable
+/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/empirical.py:50: TypeError: 'NoneType' object is not subscriptable
+E   AttributeError: 'NoneType' object has no attribute 'copy'
+/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/adjustments.py:15: AttributeError: 'NoneType' object has no attribute 'copy'
+E   AssertionError: assert 'PBP_MISSING' in {'OK', 'OK_WITH_SPARSE_FLAGS'}
+/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_state_and_sim_slice.py:61: AssertionError: assert 'PBP_MISSING' in {'OK', 'OK_WITH_SPARSE_FLAGS'}
+E   KeyError: 'adjustments_meta'
+/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_state_and_sim_slice.py:80: KeyError: 'adjustments_meta'
+E   KeyError: 'player_samples'
+/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_complete_pass2.py:152: KeyError: 'player_samples'
+=========================== short test summary info ============================
+FAILED research/possession_engine_v0/tests/test_sparse_and_config.py::test_history_team_only_weeks_1_8_no_future
+FAILED research/possession_engine_v0/tests/test_sparse_and_config.py::test_sparse_state_no_silent_pool
+FAILED research/possession_engine_v0/tests/test_sparse_and_config.py::test_proposed_pool_not_applied_when_disabled
+FAILED research/possession_engine_v0/tests/test_sparse_and_config.py::test_qb_filter_forward_only_excludes_lamar_does_not_fabricate_fagnano
+FAILED research/possession_engine_v0/tests/test_state_and_sim_slice.py::test_simulate_data_only_small_n_invariants
+FAILED research/possession_engine_v0/tests/test_state_and_sim_slice.py::test_simulate_script_adjusted_marks_sparse_qb_and_excludes_lamar
+FAILED research/possession_engine_v0/tests/test_complete_pass2.py::test_player_joint_samples_exported
+7 failed, 5 passed in 0.39s

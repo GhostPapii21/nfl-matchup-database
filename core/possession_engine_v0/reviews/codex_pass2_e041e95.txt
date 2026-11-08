@@ -1,0 +1,196 @@
+Reviewed commit **e041e955dadd9fffe88734d79a0064ba35ee86ce**, matching worktree HEAD. Existing suite: **65 passed**. Six additional adversarial pytests failed as described below. Tests ran in memory because the workspace is read-only; no repository files were changed.
+
+**No CRITICAL defect found. Two P1 and four P2 defects remain. These results do not establish predictive skill.**
+
+### Defects
+
+| Severity | Evidence | Reproducible defect and consequence |
+|---|---|---|
+| **P1** | [simulate.py:PlayCatalog.sample_snap / _apply_snap](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:148) | **Opponent-allowed rows create false player attribution.** A historical CCC rushing row sampled for AAA credits `CCC_RB` under AAA. A real-data seeded variant run reproduced numerous foreign-player credits, including J.Burrow and J.Taylor under BAL. Outcome sampling needs a separate, explicitly defined player-allocation layer, or these samples must omit player credit. |
+| **P1** | [simulate.py:_apply_snap](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:323) | **Player yardage can extend beyond the simulated goal line.** Sampling a 60-yard rush from the opponent’s 10 produces a touchdown and 60 player rushing yards. Passing and receiving credit have the same problem. Bound realized yardage by the current field position before crediting players. |
+| **P2** | [simulate.py:PlayCatalog.sample_snap](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:133) | **H2H support bypasses the opponent-allowed mixture.** The H2H branch returns before the mixture draw. Even weight `1.0` produces zero `DEF_ALLOWED` samples where H2H support exists. Thus `0.5` is a conditional mixture weight, not a consistent mixture across supported states. This affects historical comparisons even though the supplied forward JAX–BAL run reported no H2H events. |
+| **P2** | [run_complete_pass2.py:main](/workspace/wt-period-engine/research/possession_engine_v0/run_complete_pass2.py:57) | **The full-game “game-bootstrap” splits games apart.** `np.r_` flattens home/away errors into 26 independent observations. Resample 13 games, retaining both teams’ paired model-minus-baseline errors. The point estimate remains valid; the reported interval uses the wrong sampling unit. The period Brier bootstrap does use one observation per game. |
+| **P2** | [apply_supported.py:EffectsCatalog.sample_snap](/workspace/wt-period-engine/research/possession_engine_v0/effects/apply_supported.py:114), [simulate.py:simulate_games](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:505) | **Blitz coarsening escapes coarse-use reporting.** A tag such as `OK\|EFFECT_BLITZ_STRATA_COARSE_DOWN` contains a genuine fallback but fails `startswith("COARSE")`. The per-snap fraction also counts only base same-/any-down fallbacks. Moreover, `_NO_POOL` attempts count toward `blitz_strata_events` despite no redraw. Current summaries underdescribe fallback and effect execution. |
+| **P2** | [simulate.py:simulate_games](/workspace/wt-period-engine/research/possession_engine_v0/simulate.py:458), [config_load.py:load_config](/workspace/wt-period-engine/research/possession_engine_v0/config_load.py:7) | **The forward entry point does not enforce the target-week cutoff.** It loads the configured history endpoints without checking `game.week_asof_exclusive`. A config targeting week 2 with history `[1, 2]` passes target-week rows to both catalogs. The supplied week-9 configs are safe; the general no-future guarantee is not enforced. Reject inconsistent configs or intersect history with the cutoff. |
+
+The bootstrap correction need not widen this particular interval: using game-level paired averages, seed 0 and 2,000 resamples gave approximately **[−1.864, 2.996]** for data-only. The defect is the sampling unit, not a guaranteed direction of change. Even the corrected game bootstrap remains descriptive given repeated teams and overlapping training histories.
+
+### Concrete regression pytests
+
+Save this beside the existing tests as `tests/test_adversarial_review.py`, then run:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 -m pytest \
+  research/possession_engine_v0/tests/test_adversarial_review.py \
+  -q -s -p no:cacheprovider
+```
+
+These reuse the reviewed commit’s existing fixture helpers. Each test asserts the intended corrected behavior.
+
+```python
+import sys
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+import simulate as sim
+from effects.apply_supported import EffectsCatalog, annotate_snaps
+from test_complete_pass2 import _row, _st
+
+
+def test_defense_players_not_credited_to_offense():
+    offense = pd.DataFrame([_row() for _ in range(5)])
+    defense = pd.DataFrame([
+        _row(posteam="CCC", rusher_player_name="CCC_RB")
+        for _ in range(5)
+    ])
+    cat = sim.PlayCatalog(offense, 3, defense)
+    cat.enable_defense_allowed(1)
+    st = _st()
+
+    sim._apply_snap(np.random.default_rng(0), cat, st, False)
+
+    assert "CCC_RB" not in st.player_counts["rush_yards"].get("AAA", {})
+
+
+def test_touchdown_credit_cannot_exceed_distance_to_goal():
+    df = pd.DataFrame([_row(yards_gained=60) for _ in range(5)])
+    st = _st(yardline_100=10)
+
+    sim._apply_snap(
+        np.random.default_rng(0), sim.PlayCatalog(df, 3), st, False
+    )
+
+    assert st.player_counts["rush_yards"]["AAA"]["RB"] == 10
+
+
+def test_defense_mixture_not_bypassed_by_h2h():
+    offense = pd.DataFrame([_row() for _ in range(5)])
+    defense = pd.DataFrame([_row(posteam="CCC") for _ in range(5)])
+    cat = sim.PlayCatalog(offense, 3, defense)
+    cat.enable_defense_allowed(1)
+    cat.enable_defense_conditioning(True)
+
+    _, tag = cat.sample_snap(np.random.default_rng(0), _st(), False)
+
+    assert tag.startswith("DEF_ALLOWED")
+
+
+def test_effect_coarsening_is_visible_to_summary():
+    df = pd.DataFrame(
+        [_row(down=1, play_type="pass") for _ in range(5)]
+        + [_row(down=2, play_type="pass") for _ in range(5)]
+    )
+    ann = annotate_snaps(df)
+    ann["ftn_joined"] = True
+    ann["is_blitz_ftn"] = ann.down == 2
+    cat = EffectsCatalog(
+        sim.PlayCatalog(df, 3), ann, enable_blitz_strata=True
+    )
+    cat.blitz_rate["AAA"] = 1
+    st = _st()
+
+    sim._apply_snap(np.random.default_rng(0), cat, st, False)
+
+    # Uses the same recognition rule as games_with_coarse_flags.
+    assert any(f.startswith("COARSE") for f in st.sparse_flags), st.sparse_flags
+
+
+def test_simulate_games_enforces_target_week(monkeypatch):
+    cfg = {
+        "history": {
+            "teams": ["AAA", "BBB"],
+            "season": 2026,
+            "weeks_inclusive": [1, 2],
+        },
+        "game": {"week_asof_exclusive": 2},
+    }
+
+    def loader(*args, **kwargs):
+        assert kwargs["weeks"][-1] < cfg["game"]["week_asof_exclusive"]
+        return {"status": "EMPTY_TEAM_HISTORY"}
+
+    monkeypatch.setattr(sim, "load_team_history", loader)
+    try:
+        sim.simulate_games(cfg, pbp_path="unused", n=1, seed=0)
+    except ValueError:
+        pass  # Explicit rejection is also acceptable.
+
+
+def test_fg_bootstrap_resamples_games(monkeypatch):
+    import run_complete_pass2 as report
+
+    monkeypatch.setattr(report, "load_config", lambda p: {})
+    monkeypatch.setattr(
+        report, "run_accounting_checks", lambda *a, **k: {}
+    )
+    monkeypatch.setattr(
+        report, "simulate_games",
+        lambda *a, **k: {
+            "evidence_summary": {},
+            "effects_provenance": {},
+            "arrays": {
+                "fg_home": np.zeros(300),
+                "fg_away": np.zeros(300),
+            },
+        },
+    )
+    monkeypatch.setattr(
+        report, "compare_sim_vs_actual_pace", lambda *a, **k: {}
+    )
+    rows = [
+        {
+            "game_id": str(i),
+            "grade_status": "GRADED_FULL",
+            "abs_err_home": error,
+            "abs_err_away": error,
+            "baseline_abs_err_home": 10,
+            "baseline_abs_err_away": 10,
+        }
+        for i, error in enumerate([0, 20])
+    ]
+    monkeypatch.setattr(
+        report, "grade_week_games", lambda *a, **k: rows
+    )
+    monkeypatch.setattr(pd.DataFrame, "to_csv", lambda *a, **k: None)
+
+    class Checked(Exception):
+        pass
+
+    def inspect_bootstrap_units(values, *args, **kwargs):
+        assert len(values) == len(rows), "retain paired teams within games"
+        raise Checked
+
+    monkeypatch.setattr(report, "boot_ci", inspect_bootstrap_units)
+    try:
+        report.main()
+    except Checked:
+        pass
+```
+
+### Verified correct, with limits
+
+- **Blitz run/pass gate:** the base sampler selects first; the wrapper redraws only rows with `play_type == "pass"`, from pass-only pools. It preserves the selected row’s run/pass class. Extra RNG consumption means identical seeds need not produce identical subsequent trajectories. “CALLED pass” is slightly broader language than the implemented classification: `qb_scramble` does not participate in that gate.
+- **Fourth down:** observed field-position × distance cells, field-position-only and team-wide fallbacks, and hard-sparse fallback are implemented. The decision masks FGs beyond `yardline_100 + 18 > 66`. Sparse fallback text says `default_punt` even when returning `go`; behavior is explicit but the text is inaccurate.
+- **FGs:** make/miss sampling uses current distance `yardline_100 + 18`, then ±5, ±10, and flagged team-wide fallback. This is distance-conditioned empirical resampling, not a fitted kick-distance curve. The missed-FG helper implements the requested LOS+7 spot and receiving-own-20 floor.
+- **Defense and leakage:** weight `0.5` is explicitly labeled `STRUCTURAL_ASSUMPTION`; default configs disable opponent-allowed mixing. `build_asof_history_for_game` filters **both offense and defense rows to `week < target week`**, same season. This establishes play-week exclusion, not historical availability/versioning of later-pulled charting.
+- **Punt microfix:** NaN flags are handled without truthiness conversion; a sampled touchback places the receiver at `yardline_100=80`. Existing regressions pass.
+- **Basic player credit:** sacks receive no passing-yard credit; negative completions retain negative passing/receiving yards; rushing gains are credited before a lost-fumble exit. The two P1 issues prevent treating overall player outputs as valid.
+- **Catalog construction/delegation:** all identified production simulation/grading callers use `build_catalog`. `__getattr__` exposes missing fourth-down and defense attributes. Clock and defense methods explicitly synchronize their shadowed wrapper attributes; I found no additional reproducible delegation failure in those paths.
+- **Grading:** as-of PPG baseline arithmetic, reported W1 skips, development labeling, and home-*non-win* tie handling are consistent. The MC SE `sample SD / sqrt(n)` is valid **conditional on this fixed simulator and catalog**, for that score mean. It excludes data, model, and structural uncertainty. The finite-simulation Brier estimate also contains small Monte Carlo estimation error.
+- **Config independence:** data-only does not invoke QB adjustments; script-adjusted does so before catalog construction. Market fields are not wired into sampling, and the market config discloses that. It therefore supplies no market-conditioned comparison or independent market evidence.
+
+### Predictive claim
+
+**Unsupported.** On 13 inspected development games:
+
+- Data-only full-game MAE **9.74**, versus baseline **9.28**.
+- Defense variant MAE **10.10**, also worse.
+- Regulation Brier approximately **0.314 / 0.310**, versus constant-0.5 baseline **0.25**.
+- First-half MAE differences are tiny and lack a demonstrated reliable improvement.
+
+The results support an executable research prototype with some verified accounting behavior. They do not demonstrate generalization or superior prediction; an untouched chronological evaluation is still needed after the defects are corrected.

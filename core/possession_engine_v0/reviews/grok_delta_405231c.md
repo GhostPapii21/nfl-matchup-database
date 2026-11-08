@@ -1,0 +1,1 @@
+No CRITICAL/P1/P2 issues found in the diff. All spot-fix changes (punt touchback/recv_yl, turnover spot, downs turnover spot, realized yards) are consistent with the added regression tests.

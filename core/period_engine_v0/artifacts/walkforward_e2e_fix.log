@@ -1,0 +1,72 @@
+{
+  "engine": "period_engine_v0_post_ghost6_fix",
+  "model_status": {
+    "monte_carlo": "IMPLEMENTED_EMPIRICAL_BOOTSTRAP",
+    "bias": "UNIMPLEMENTED_NO_FITTED_CALIB",
+    "game_randomness": "IMPLEMENTED_SHARED_GAME_SHOCK_UNFITTED_SCALE"
+  },
+  "n_sims_per_game": 20000,
+  "seed_base": 20261105,
+  "seed_fn": "stable_seed=sha256(base|week|game_id)",
+  "games_2026": 121,
+  "rows": 847,
+  "ok_rows": 847,
+  "mae_by_period": {
+    "q1": 4.705279338842976,
+    "q2": 5.4744946280991735,
+    "q3": 5.2038359504132226,
+    "q4": 5.723876033057851,
+    "h1": 7.523278099173553,
+    "reg": 11.58660082644628,
+    "fg": 11.783727272727273
+  },
+  "mae_league_mean_by_period": {
+    "q1": 4.257381773369109,
+    "q2": 5.170096376140563,
+    "q3": 5.059273696727826,
+    "q4": 5.817390586770986,
+    "h1": 7.052868891308909,
+    "reg": 11.473878035384727,
+    "fg": 11.714806152757847
+  },
+  "brier_home_win_by_period": {
+    "q1": 0.25994045938016525,
+    "q2": 0.24477615376033054,
+    "q3": 0.2395732569834711,
+    "q4": 0.25143558898760326,
+    "h1": 0.24505933528925622,
+    "reg": 0.24361194690082644,
+    "fg": 0.24315052878099172
+  },
+  "baseline_brier_home_win_by_period": {
+    "q1": 0.2496321670804527,
+    "q2": 0.25192482996872095,
+    "q3": 0.2444111557169685,
+    "q4": 0.24171733330818446,
+    "h1": 0.2502525043113424,
+    "reg": 0.25093420490276863,
+    "fg": 0.25110916365379404
+  },
+  "pre_fix_artifact_dir": "/workspace/wt-period-engine/research/period_engine_v0/artifacts/pre_fix_v0_ceb6ab3",
+  "set_label": "development_inspected_w1_8_not_untouched_holdout",
+  "limitations": [
+    "NO historical period market prices \u2014 accuracy only; NO profitability/edge",
+    "Bias UNIMPLEMENTED; GR UNFITTED and not used in walk-forward",
+    "Binary home-win Brier treats ties as non-wins (not full 3-way grade)",
+    "Independent team bootstrap; no opponent interaction / possession clock",
+    "League-mean baseline reported honestly \u2014 MC is not claimed better",
+    "W1\u20138 is development/inspected test; no untouched second-season holdout",
+    "Previous ceb6ab3 failures/results preserved under artifacts/pre_fix_v0_ceb6ab3/",
+    "fg = official final incl OT; reg = end Q4; do not map reg to FG book totals"
+  ],
+  "split_policy": "For each 2026 week W game, history uses only (season,week) strictly before (2026,W). 2025 REG for Week1+."
+}
+ week  n_rows  n_ok  n_games  mae_q1_total  mae_h1_total  mae_reg_total  mae_fg_total  mae_fg_league  brier_h1  baseline_brier_h1  brier_q1  baseline_brier_q1  brier_q4  baseline_brier_q4
+    1     112   112       16      5.234609     10.435347      12.325912     13.135947      13.440717  0.266768           0.250338  0.259154           0.236010  0.267459           0.246959
+    2     112   112       16      4.686528      7.548734      11.953522     12.369628      12.670139  0.200211           0.252472  0.276122           0.268386  0.258155           0.233845
+    3     112   112       16      6.292994      6.567484      12.053150     12.019475      12.000000  0.245474           0.250173  0.277670           0.256233  0.237202           0.234851
+    4     112   112       16      4.847434      8.155719      11.250875     11.230672      10.625000  0.267958           0.247031  0.245233           0.236875  0.235903           0.239541
+    5     105   105       15      3.399117      5.397327       9.284693      9.801507      12.262500  0.257392           0.249128  0.314970           0.271464  0.233774           0.256967
+    6      98    98       14      3.979136      5.073986      11.914318     11.259043      10.926740  0.263829           0.250343  0.266524           0.254872  0.292258           0.260307
+    7      98    98       14      4.894264      8.718432      11.348793     11.069264       9.410568  0.179028           0.257949  0.171080           0.216149  0.254532           0.238600
+    8      98    98       14      4.081386      8.067596      12.549243     13.294325      12.075575  0.278909           0.244808  0.262210           0.255655  0.234466           0.223247

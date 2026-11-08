@@ -1,0 +1,6 @@
+# Attribution invariance certification
+PASS: 400 policy trials; 5 seed bases [11, 97, 2026, 20261108, 987654]; 20 trials per seed per policy. Policies: equal_eligible, mix_equal_0.25, empirical_mle, legacy_depth. Only role weights vary; usage/outcome cells identical; coupling=false.
+Exact assertions cover all team period stats (scores, yards, play/terminal counts), terminal states, every team event path including boundary events, possession sequence lengths. Q1–Q4, lead/trail/tied states, half transitions, and 4 naturally reached OT trials in the base policy are included. Paired policies assert exact paths on those same OT trials. Player attribution differs in 15 seed/policy comparisons and is permitted to differ.
+Forced role_efficiency_coupling=true raises UNSUPPORTED. No RNG engine changes were needed. Fixed one-draw role-stream split is preserved. Scope is the frozen DAL/IND model and tested seed range, not a universal statistical claim.
+Reproduce: python3 research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/validate.py
+The first harness run failed a boundary-coverage check because it inspected pre/post periods; the engine emits transitions through boundary metadata. The harness now asserts explicit boundary coverage and exact equality; no team assertion was relaxed. See validation.log and invariance_metrics.json.

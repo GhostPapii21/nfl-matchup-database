@@ -1,0 +1,237 @@
+{
+  "jax_bal_tnf_2026-11-05_data_only": {
+    "status": "OK_WITH_SPARSE_FLAGS",
+    "n_completed": 2000,
+    "n_requested": 2000,
+    "seed": 1833920529,
+    "config_id": "jax_bal_tnf_2026-11-05_data_only",
+    "mode": "data_only",
+    "pooling_silently_applied": false,
+    "proposed_pooling_enabled": false,
+    "history_evidence": {
+      "n_games": 15,
+      "n_plays": 1217,
+      "teams": [
+        "JAX",
+        "BAL"
+      ],
+      "weeks": [
+        1,
+        8
+      ],
+      "season": 2026,
+      "source": "/workspace/wt-period-engine/research/period_engine_v0/data/play_by_play_2026.parquet"
+    },
+    "adjustments_meta": {
+      "enabled": false
+    },
+    "qb_status": {},
+    "evidence_summary": {
+      "min_n_state": 5,
+      "games_with_sparse_flags": 2000,
+      "sparse_rate": 1.0
+    },
+    "limitations": [
+      "Vertical slice: empirical team-only snap resampling + explicit same-team coarser fallbacks",
+      "Clock costs are fixed means by play type \u2014 not a fitted clock model",
+      "OT rule is single-possession approx (declared)",
+      "No league silent pool; proposed pooling config default false",
+      "W1-8 development set; no betting edge claim",
+      "Inspired conceptually by NFLSimulatoR/nflfastR (MIT); no R source copied",
+      "See FEATURE_MATRIX.md for unimplemented coverage/route/pressure fields"
+    ],
+    "source_composition": "team_only_2026_w1_8_JAX_BAL_empirical_not_possession_EP_model",
+    "runtime_sec": 40.80344920698553,
+    "score_means": {
+      "fg_home": 49.442,
+      "fg_away": 62.1935,
+      "reg_home": 49.395,
+      "reg_away": 62.092,
+      "p_ot": 0.024
+    },
+    "player_joint_top": {
+      "pass_yards": {
+        "JAX": {
+          "T.Lawrence": 358.164,
+          "Q.Ewers": 1.788
+        },
+        "BAL": {
+          "L.Jackson": 177.3425,
+          "T.Huntley": 121.8705,
+          "J.Fagnano": 19.2415,
+          "Z.Flowers": 0.0
+        }
+      },
+      "rush_yards": {
+        "JAX": {
+          "B.Tuten": 103.2085,
+          "C.Rodriguez": 53.142,
+          "T.Lawrence": 12.745,
+          "A.Abdullah": 8.871,
+          "T.Hunter": 2.027
+        },
+        "BAL": {
+          "D.Henry": 130.135,
+          "J.Hill": 24.453,
+          "L.Jackson": 22.3375,
+          "T.Huntley": 15.8345,
+          "Z.Flowers": 7.695
+        }
+      },
+      "rec_yards": {
+        "JAX": {
+          "P.Washington": 87.6125,
+          "B.Strange": 71.068,
+          "J.Meyers": 62.353,
+          "B.Tuten": 34.4165,
+          "J.Cameron": 30.283
+        },
+        "BAL": {
+          "Z.Flowers": 116.2165,
+          "R.Bateman": 51.8295,
+          "M.Andrews": 35.4475,
+          "J.Cuevas": 27.5665,
+          "J.Hill": 17.3285
+        }
+      }
+    }
+  },
+  "jax_bal_tnf_2026-11-05_script_adjusted": {
+    "status": "OK_WITH_SPARSE_FLAGS",
+    "n_completed": 2000,
+    "n_requested": 2000,
+    "seed": 261112694,
+    "config_id": "jax_bal_tnf_2026-11-05_script_adjusted",
+    "mode": "script_adjusted",
+    "pooling_silently_applied": false,
+    "proposed_pooling_enabled": false,
+    "history_evidence": {
+      "n_games": 15,
+      "n_plays": 1217,
+      "teams": [
+        "JAX",
+        "BAL"
+      ],
+      "weeks": [
+        1,
+        8
+      ],
+      "season": 2026,
+      "source": "/workspace/wt-period-engine/research/period_engine_v0/data/play_by_play_2026.parquet"
+    },
+    "adjustments_meta": {
+      "BAL": {
+        "starter": "J.Fagnano",
+        "excluded_passers": [
+          "L.Jackson"
+        ],
+        "doubtful_excluded": [
+          "T.Huntley"
+        ],
+        "n_pass_before": 249,
+        "n_pass_after": 24,
+        "fabricated": false,
+        "forward_only": true,
+        "asof_et": "2026-11-05T13:00:00-05:00",
+        "sparse_qb": true
+      },
+      "JAX": {
+        "starter": "T.Lawrence",
+        "excluded_passers": [],
+        "doubtful_excluded": [],
+        "n_pass_before": 214,
+        "n_pass_after": 214,
+        "fabricated": false,
+        "forward_only": true,
+        "asof_et": "2026-11-05T13:00:00-05:00",
+        "sparse_qb": false
+      },
+      "enabled": true,
+      "do_not_apply_retroactively_to_w1_8_history_rows": true
+    },
+    "qb_status": {
+      "BAL": "SPARSE_QB_HISTORY n_pass=24"
+    },
+    "evidence_summary": {
+      "min_n_state": 5,
+      "games_with_sparse_flags": 2000,
+      "sparse_rate": 1.0
+    },
+    "limitations": [
+      "Vertical slice: empirical team-only snap resampling + explicit same-team coarser fallbacks",
+      "Clock costs are fixed means by play type \u2014 not a fitted clock model",
+      "OT rule is single-possession approx (declared)",
+      "No league silent pool; proposed pooling config default false",
+      "W1-8 development set; no betting edge claim",
+      "Inspired conceptually by NFLSimulatoR/nflfastR (MIT); no R source copied",
+      "See FEATURE_MATRIX.md for unimplemented coverage/route/pressure fields"
+    ],
+    "source_composition": "team_only_2026_w1_8_JAX_BAL_empirical_not_possession_EP_model",
+    "runtime_sec": 39.78597491700202,
+    "score_means": {
+      "fg_home": 39.9245,
+      "fg_away": 59.4285,
+      "reg_home": 39.8655,
+      "reg_away": 59.3565,
+      "p_ot": 0.0205
+    },
+    "player_joint_top": {
+      "pass_yards": {
+        "JAX": {
+          "T.Lawrence": 329.189,
+          "Q.Ewers": 1.844
+        },
+        "BAL": {
+          "J.Fagnano": 33.386
+        }
+      },
+      "rush_yards": {
+        "JAX": {
+          "B.Tuten": 94.9,
+          "C.Rodriguez": 50.1505,
+          "T.Lawrence": 11.5785,
+          "A.Abdullah": 7.9285,
+          "T.Hunter": 1.91
+        },
+        "BAL": {
+          "D.Henry": 205.538,
+          "J.Hill": 86.103,
+          "L.Jackson": 42.369,
+          "T.Huntley": 41.535,
+          "Z.Flowers": 10.939
+        }
+      },
+      "rec_yards": {
+        "JAX": {
+          "P.Washington": 79.507,
+          "B.Strange": 63.8535,
+          "J.Meyers": 56.765,
+          "B.Tuten": 32.5055,
+          "J.Cameron": 27.5495
+        },
+        "BAL": {
+          "R.Bateman": 11.22,
+          "J.Hill": 5.9505,
+          "J.Cuevas": 4.8525,
+          "M.Andrews": 4.419,
+          "J.Lane": 3.926
+        }
+      }
+    }
+  },
+  "market_informed_note": {
+    "config_id": "jax_bal_tnf_2026-11-05_market_informed",
+    "sampler_conditioned": false,
+    "quotes_status": "PINNACLE_MISSING_SCREENSHOT_ONLY_NOT_WIRED_TO_SAMPLER",
+    "contaminates_data_only": false,
+    "note": "Config frozen separate; conditioning not wired to sampler \u2014 avoids false baseline contamination"
+  },
+  "run_size_policy": {
+    "practical_n": 2000,
+    "per_game_ms_approx": 20,
+    "n_100k_status": "RUNTIME_BLOCKER",
+    "n_100k_est_sec_per_config": 2000,
+    "note": "Do not fabricate 100k outputs; re-run when compute budget allows",
+    "score_level_limitation": "Vertical slice empirical offense bootstrap overstates mean points vs NFL norms \u2014 not calibrated; research only"
+  }
+}

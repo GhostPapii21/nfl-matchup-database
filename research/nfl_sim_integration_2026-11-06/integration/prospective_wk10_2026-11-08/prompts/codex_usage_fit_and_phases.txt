@@ -1,0 +1,26 @@
+You are Codex on CORE prospective DAL@IND research. No market_calibration edits. No Odds spend. No odds-bridge auth bypass.
+
+Paths:
+- Packet: /workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08
+- Run: /workspace/nfl-database/runs/2026-11-08_DAL@IND
+- Engine: /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0
+
+LABELS (already corrected in LABEL_CORRECTIONS_ADDENDUM.md; do not rewrite frozen certified_asof):
+- 2026-11-06T01:15:00Z = 2026-11-05 20:15 EST kickoff (TNF), NOT postgame.
+- Packet dir name wk10 is misnomer; game is week 9 (2026_09_DAL_IND).
+
+DO:
+1) Empirical usage-cell fit for joint model.json FROM pre-cutoff only:
+   - Train on DAL/IND involved PBP weeks 1–8 only (records/pbp_DAL_IND_w1_8.csv.gz or parquet).
+   - Leakage controls: no week≥9 rows; no postgame actuals for 401873040; no market prices.
+   - Build usage_cells / catch_distributions / outcome_cells with sample_size and uncertainty; if n sparse, flag SPARSE_STATE / LOW-SAMPLE; never silent pool.
+   - Keep coverage/routes/personnel allows_sim_effect=false.
+   - Update model provenance_refs to ['model','registry'] only (validators). Document training evidence in runs/ or packet reviews/.
+   - Re-freeze with same as-of clocks (cutoff 2026-11-06T12:40:00Z) and re-run joint producer n=5 + conservation pytest.
+2) Document PATH bridge status: if usage cells now come from same PBP as empirical sim, write SHARED_PARTIAL_SEMANTICS with what is still nonintegrated; else keep NONINTEGRATED.
+3) Write checklist.md and report.md under the nfl-database run folder for all 15 phases with truthful PASS/FAIL/MISSING/STALE/UNVERIFIED/N/A — preliminary research phase; Phase 15 = NOT_YET (inactives unpublished). No picks. Quotes NOLINE.
+4) Seeded reproducibility: record seeds, re-run once to show identical forecast_id / score means.
+5) Unusual play / OT: ensure joint OT profile tests still pass; add/extend a small regression if missing for incomplete/punt/FG zero-yard outcomes.
+6) Write COMPLETION_PHASES_AND_FIT.md with metrics before/after, remaining genuine temporal blockers (inactives not published; odds auth).
+
+Independent vs anchored: stay data_only; no market_informed conditioning.

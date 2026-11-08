@@ -1,0 +1,64 @@
+{
+  "engine": "period_engine_v0_post_ghost6_fix",
+  "model_status": {
+    "monte_carlo": "IMPLEMENTED_EMPIRICAL_BOOTSTRAP",
+    "bias": "UNIMPLEMENTED_NO_FITTED_CALIB",
+    "game_randomness": "IMPLEMENTED_SHARED_GAME_SHOCK_UNFITTED_SCALE"
+  },
+  "n_sims_per_game": 20000,
+  "seed_base": 20261105,
+  "seed_fn": "stable_seed=sha256(base|week|game_id)",
+  "games_2026": 121,
+  "rows": 847,
+  "ok_rows": 847,
+  "missing_games": [],
+  "mae_by_period": {
+    "q1": 4.705279338842976,
+    "q2": 5.4744946280991735,
+    "q3": 5.2038359504132226,
+    "q4": 5.723876033057851,
+    "h1": 7.523278099173553,
+    "reg": 11.58660082644628,
+    "fg": 11.810538016528925
+  },
+  "mae_league_mean_by_period": {
+    "q1": 4.257381773369109,
+    "q2": 5.170096376140563,
+    "q3": 5.059273696727826,
+    "q4": 5.817390586770986,
+    "h1": 7.052868891308909,
+    "reg": 11.473878035384727,
+    "fg": 11.714806152757847
+  },
+  "brier_home_win_by_period": {
+    "q1": 0.25994045938016525,
+    "q2": 0.24477615376033054,
+    "q3": 0.2395732569834711,
+    "q4": 0.25143558898760326,
+    "h1": 0.24505933528925622,
+    "reg": 0.24361194690082644,
+    "fg": 0.2428839181198347
+  },
+  "baseline_brier_home_win_by_period": {
+    "q1": 0.2496321670804527,
+    "q2": 0.25192482996872095,
+    "q3": 0.2444111557169685,
+    "q4": 0.24171733330818446,
+    "h1": 0.2502525043113424,
+    "reg": 0.25093420490276863,
+    "fg": 0.25110916365379404
+  },
+  "pre_fix_artifact_dir": "/workspace/wt-period-engine/research/period_engine_v0/artifacts/pre_fix_v0_ceb6ab3",
+  "set_label": "development_inspected_w1_8_not_untouched_holdout",
+  "limitations": [
+    "NO historical period market prices \u2014 accuracy only; NO profitability/edge",
+    "Bias UNIMPLEMENTED; GR UNFITTED and not used in walk-forward",
+    "Binary home-win Brier treats ties as non-wins (not full 3-way grade)",
+    "Independent team bootstrap; no opponent interaction / possession clock",
+    "League-mean baseline reported honestly \u2014 MC is not claimed better",
+    "W1\u20138 is development/inspected test; no untouched second-season holdout",
+    "Previous ceb6ab3 failures/results preserved under artifacts/pre_fix_v0_ceb6ab3/",
+    "fg = official final incl OT; reg = end Q4; do not map reg to FG book totals"
+  ],
+  "split_policy": "For each 2026 week W game, history uses only (season,week) strictly before (2026,W). 2025 REG for Week1+."
+}

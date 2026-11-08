@@ -1,0 +1,296 @@
+.........................................................FFFFFFFFFFFFFFF [ 77%]
+FF...................                                                    [100%]
+=================================== FAILURES ===================================
+_______________ test_unrelated_raw_cannot_be_anchored[changes0] ________________
+
+changes = {'period': 'H1'}
+
+    @pytest.mark.parametrize("changes", [{"period": "H1"}, {"side": "BAL"}, {"line": -6.5},
+        {"game_id": "OTHER"}, {"game_id_namespace": "canonical"}, {"settlement": "winner_3way"}])
+    def test_unrelated_raw_cannot_be_anchored(changes):
+        matched = match_quote(load_saved_quotes(), request())
+        raw = raw_for(matched)
+        raw["market_identity"].update(changes)
+>       assert separate_outputs(raw, matched, raw_weight=.3)["market_anchored_output"]["p_win"] is None
+E       assert 0.5702182896155228 is None
+
+research/market_calibration/tests/test_second_review.py:32: AssertionError
+_______________ test_unrelated_raw_cannot_be_anchored[changes1] ________________
+
+changes = {'side': 'BAL'}
+
+    @pytest.mark.parametrize("changes", [{"period": "H1"}, {"side": "BAL"}, {"line": -6.5},
+        {"game_id": "OTHER"}, {"game_id_namespace": "canonical"}, {"settlement": "winner_3way"}])
+    def test_unrelated_raw_cannot_be_anchored(changes):
+        matched = match_quote(load_saved_quotes(), request())
+        raw = raw_for(matched)
+        raw["market_identity"].update(changes)
+>       assert separate_outputs(raw, matched, raw_weight=.3)["market_anchored_output"]["p_win"] is None
+E       assert 0.5702182896155228 is None
+
+research/market_calibration/tests/test_second_review.py:32: AssertionError
+_______________ test_unrelated_raw_cannot_be_anchored[changes2] ________________
+
+changes = {'line': -6.5}
+
+    @pytest.mark.parametrize("changes", [{"period": "H1"}, {"side": "BAL"}, {"line": -6.5},
+        {"game_id": "OTHER"}, {"game_id_namespace": "canonical"}, {"settlement": "winner_3way"}])
+    def test_unrelated_raw_cannot_be_anchored(changes):
+        matched = match_quote(load_saved_quotes(), request())
+        raw = raw_for(matched)
+        raw["market_identity"].update(changes)
+>       assert separate_outputs(raw, matched, raw_weight=.3)["market_anchored_output"]["p_win"] is None
+E       assert 0.5702182896155228 is None
+
+research/market_calibration/tests/test_second_review.py:32: AssertionError
+_______________ test_unrelated_raw_cannot_be_anchored[changes3] ________________
+
+changes = {'game_id': 'OTHER'}
+
+    @pytest.mark.parametrize("changes", [{"period": "H1"}, {"side": "BAL"}, {"line": -6.5},
+        {"game_id": "OTHER"}, {"game_id_namespace": "canonical"}, {"settlement": "winner_3way"}])
+    def test_unrelated_raw_cannot_be_anchored(changes):
+        matched = match_quote(load_saved_quotes(), request())
+        raw = raw_for(matched)
+        raw["market_identity"].update(changes)
+>       assert separate_outputs(raw, matched, raw_weight=.3)["market_anchored_output"]["p_win"] is None
+E       assert 0.5702182896155228 is None
+
+research/market_calibration/tests/test_second_review.py:32: AssertionError
+_______________ test_unrelated_raw_cannot_be_anchored[changes4] ________________
+
+changes = {'game_id_namespace': 'canonical'}
+
+    @pytest.mark.parametrize("changes", [{"period": "H1"}, {"side": "BAL"}, {"line": -6.5},
+        {"game_id": "OTHER"}, {"game_id_namespace": "canonical"}, {"settlement": "winner_3way"}])
+    def test_unrelated_raw_cannot_be_anchored(changes):
+        matched = match_quote(load_saved_quotes(), request())
+        raw = raw_for(matched)
+        raw["market_identity"].update(changes)
+>       assert separate_outputs(raw, matched, raw_weight=.3)["market_anchored_output"]["p_win"] is None
+E       assert 0.5702182896155228 is None
+
+research/market_calibration/tests/test_second_review.py:32: AssertionError
+_______________ test_unrelated_raw_cannot_be_anchored[changes5] ________________
+
+changes = {'settlement': 'winner_3way'}
+
+    @pytest.mark.parametrize("changes", [{"period": "H1"}, {"side": "BAL"}, {"line": -6.5},
+        {"game_id": "OTHER"}, {"game_id_namespace": "canonical"}, {"settlement": "winner_3way"}])
+    def test_unrelated_raw_cannot_be_anchored(changes):
+        matched = match_quote(load_saved_quotes(), request())
+        raw = raw_for(matched)
+        raw["market_identity"].update(changes)
+>       assert separate_outputs(raw, matched, raw_weight=.3)["market_anchored_output"]["p_win"] is None
+E       assert 0.5702182896155228 is None
+
+research/market_calibration/tests/test_second_review.py:32: AssertionError
+___________ test_missing_raw_identity_and_probability_basis_blocked ____________
+
+    def test_missing_raw_identity_and_probability_basis_blocked():
+        matched = match_quote(load_saved_quotes(), request())
+        raw = raw_for(matched)
+        raw.pop("market_identity")
+>       assert separate_outputs(raw, matched, raw_weight=.3)["market_anchored_output"]["p_win"] is None
+E       assert 0.5702182896155228 is None
+
+research/market_calibration/tests/test_second_review.py:39: AssertionError
+_ test_fit_refuses_development_inspected_and_tnf_even_when_requested_as_train __
+
+    def test_fit_refuses_development_inspected_and_tnf_even_when_requested_as_train():
+        for p in (provenance(split="development"), provenance(week=8),
+                  provenance(game_id="401873037"), provenance(inspected=True)):
+>           with pytest.raises(ValueError, match="train"):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+research/market_calibration/tests/test_second_review.py:48: Failed
+_____________ test_scoring_rejects_anchored_family_and_mixed_split _____________
+
+    def test_scoring_rejects_anchored_family_and_mixed_split():
+>       p = provenance(prediction_family="MARKET_ANCHORED")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/market_calibration/tests/test_second_review.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+kw = {'prediction_family': 'MARKET_ANCHORED'}
+
+    def provenance(**kw):
+>       return Provenance(**(dict(game_id="UNSEEN", season=2026, week=9, split="train",
+            inspected=False, prediction_utc="2026-11-01T10:00:00Z",
+            outcome_known_utc="2026-11-02T10:00:00Z", model_id="raw-model", source="fixture",
+            source_sha256="a" * 64, scoring_label="baseline",
+            event_start_utc="2026-11-01T12:00:00Z") | kw))
+E       TypeError: Provenance.__init__() got an unexpected keyword argument 'prediction_family'
+
+research/market_calibration/tests/test_calibration.py:12: TypeError
+________ test_same_game_cannot_escape_split_gate_through_changed_season ________
+
+    def test_same_game_cannot_escape_split_gate_through_changed_season():
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/tests/test_second_review.py:62: Failed
+_______ test_manifest_cannot_overclaim_in_other_fields[quotes-status-OK] _______
+
+section = 'quotes', key = 'status', value = 'OK'
+
+    @pytest.mark.parametrize("section,key,value", [("quotes", "status", "OK"),
+        ("adapter", "full_core_acceptance", "OK"), ("anchored", "predictions_provided", True),
+        ("adapter", "contract_sha256", "a" * 64)])
+    def test_manifest_cannot_overclaim_in_other_fields(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/tests/test_second_review.py:72: Failed
+_ test_manifest_cannot_overclaim_in_other_fields[adapter-full_core_acceptance-OK] _
+
+section = 'adapter', key = 'full_core_acceptance', value = 'OK'
+
+    @pytest.mark.parametrize("section,key,value", [("quotes", "status", "OK"),
+        ("adapter", "full_core_acceptance", "OK"), ("anchored", "predictions_provided", True),
+        ("adapter", "contract_sha256", "a" * 64)])
+    def test_manifest_cannot_overclaim_in_other_fields(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/tests/test_second_review.py:72: Failed
+_ test_manifest_cannot_overclaim_in_other_fields[anchored-predictions_provided-True] _
+
+section = 'anchored', key = 'predictions_provided', value = True
+
+    @pytest.mark.parametrize("section,key,value", [("quotes", "status", "OK"),
+        ("adapter", "full_core_acceptance", "OK"), ("anchored", "predictions_provided", True),
+        ("adapter", "contract_sha256", "a" * 64)])
+    def test_manifest_cannot_overclaim_in_other_fields(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/tests/test_second_review.py:72: Failed
+_ test_manifest_cannot_overclaim_in_other_fields[adapter-contract_sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] _
+
+section = 'adapter', key = 'contract_sha256'
+value = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+    @pytest.mark.parametrize("section,key,value", [("quotes", "status", "OK"),
+        ("adapter", "full_core_acceptance", "OK"), ("anchored", "predictions_provided", True),
+        ("adapter", "contract_sha256", "a" * 64)])
+    def test_manifest_cannot_overclaim_in_other_fields(section, key, value):
+        manifest = json.loads((ROOT / "MANIFEST.json").read_text())
+        manifest[section][key] = value
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/tests/test_second_review.py:72: Failed
+_ test_trial_transport_preserves_missingness_and_freeze_consistency[missing_feature] _
+
+mutation = 'missing_feature'
+
+    @pytest.mark.parametrize("mutation", ["missing_feature", "false_missingness_effect", "mixed_seed", "null_profile"])
+    def test_trial_transport_preserves_missingness_and_freeze_consistency(mutation):
+        row = trial()
+        if mutation == "missing_feature":
+            del row["feature_availability"]["routes"]
+        elif mutation == "false_missingness_effect":
+            row["feature_availability"]["routes"]["allows_sim_effect"] = True
+        elif mutation == "null_profile":
+            row["engine"]["stat_credit_profile"] = None
+        else:
+            other = deepcopy(row)
+            other["trial_index"] = 1
+            other["trial_id"] = other["forecast_id"] + "/trial/1"
+            other["rng"]["seed"] = "32"
+            from research.market_calibration.joint_trial_adapter import derive_trial_seed
+            other["rng"]["trial_seed"] = derive_trial_seed(other)
+            with pytest.raises(ValueError):
+                adapt_joint_trials([row, other])
+            return
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/tests/test_second_review.py:95: Failed
+_ test_trial_transport_preserves_missingness_and_freeze_consistency[false_missingness_effect] _
+
+mutation = 'false_missingness_effect'
+
+    @pytest.mark.parametrize("mutation", ["missing_feature", "false_missingness_effect", "mixed_seed", "null_profile"])
+    def test_trial_transport_preserves_missingness_and_freeze_consistency(mutation):
+        row = trial()
+        if mutation == "missing_feature":
+            del row["feature_availability"]["routes"]
+        elif mutation == "false_missingness_effect":
+            row["feature_availability"]["routes"]["allows_sim_effect"] = True
+        elif mutation == "null_profile":
+            row["engine"]["stat_credit_profile"] = None
+        else:
+            other = deepcopy(row)
+            other["trial_index"] = 1
+            other["trial_id"] = other["forecast_id"] + "/trial/1"
+            other["rng"]["seed"] = "32"
+            from research.market_calibration.joint_trial_adapter import derive_trial_seed
+            other["rng"]["trial_seed"] = derive_trial_seed(other)
+            with pytest.raises(ValueError):
+                adapt_joint_trials([row, other])
+            return
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+research/market_calibration/tests/test_second_review.py:95: Failed
+_ test_trial_transport_preserves_missingness_and_freeze_consistency[mixed_seed] _
+
+mutation = 'mixed_seed'
+
+    @pytest.mark.parametrize("mutation", ["missing_feature", "false_missingness_effect", "mixed_seed", "null_profile"])
+    def test_trial_transport_preserves_missingness_and_freeze_consistency(mutation):
+        row = trial()
+        if mutation == "missing_feature":
+            del row["feature_availability"]["routes"]
+        elif mutation == "false_missingness_effect":
+            row["feature_availability"]["routes"]["allows_sim_effect"] = True
+        elif mutation == "null_profile":
+            row["engine"]["stat_credit_profile"] = None
+        else:
+            other = deepcopy(row)
+            other["trial_index"] = 1
+            other["trial_id"] = other["forecast_id"] + "/trial/1"
+            other["rng"]["seed"] = "32"
+            from research.market_calibration.joint_trial_adapter import derive_trial_seed
+            other["rng"]["trial_seed"] = derive_trial_seed(other)
+>           with pytest.raises(ValueError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+research/market_calibration/tests/test_second_review.py:92: Failed
+=========================== short test summary info ============================
+FAILED research/market_calibration/tests/test_second_review.py::test_unrelated_raw_cannot_be_anchored[changes0]
+FAILED research/market_calibration/tests/test_second_review.py::test_unrelated_raw_cannot_be_anchored[changes1]
+FAILED research/market_calibration/tests/test_second_review.py::test_unrelated_raw_cannot_be_anchored[changes2]
+FAILED research/market_calibration/tests/test_second_review.py::test_unrelated_raw_cannot_be_anchored[changes3]
+FAILED research/market_calibration/tests/test_second_review.py::test_unrelated_raw_cannot_be_anchored[changes4]
+FAILED research/market_calibration/tests/test_second_review.py::test_unrelated_raw_cannot_be_anchored[changes5]
+FAILED research/market_calibration/tests/test_second_review.py::test_missing_raw_identity_and_probability_basis_blocked
+FAILED research/market_calibration/tests/test_second_review.py::test_fit_refuses_development_inspected_and_tnf_even_when_requested_as_train
+FAILED research/market_calibration/tests/test_second_review.py::test_scoring_rejects_anchored_family_and_mixed_split
+FAILED research/market_calibration/tests/test_second_review.py::test_same_game_cannot_escape_split_gate_through_changed_season
+FAILED research/market_calibration/tests/test_second_review.py::test_manifest_cannot_overclaim_in_other_fields[quotes-status-OK]
+FAILED research/market_calibration/tests/test_second_review.py::test_manifest_cannot_overclaim_in_other_fields[adapter-full_core_acceptance-OK]
+FAILED research/market_calibration/tests/test_second_review.py::test_manifest_cannot_overclaim_in_other_fields[anchored-predictions_provided-True]
+FAILED research/market_calibration/tests/test_second_review.py::test_manifest_cannot_overclaim_in_other_fields[adapter-contract_sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+FAILED research/market_calibration/tests/test_second_review.py::test_trial_transport_preserves_missingness_and_freeze_consistency[missing_feature]
+FAILED research/market_calibration/tests/test_second_review.py::test_trial_transport_preserves_missingness_and_freeze_consistency[false_missingness_effect]
+FAILED research/market_calibration/tests/test_second_review.py::test_trial_transport_preserves_missingness_and_freeze_consistency[mixed_seed]
+17 failed, 76 passed in 0.14s

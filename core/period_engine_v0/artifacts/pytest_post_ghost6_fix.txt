@@ -1,0 +1,12 @@
+........F....................                                            [100%]
+=================================== FAILURES ===================================
+E   assert False
+     +  where False = <function allclose at 0x7fba1995dff0>(0      14\n1      20\n2      23\n3      31\n4      37\n       ..\n116    33\n117    19\n118    19\n119    27\n120    43\nName: fg_home, Length: 121, dtype: int64, (0       7\n1      13\n2      13\n3      21\n4      24\n       ..\n116    23\n117     6\n118    13\n119    13\n120    14\nName: h1_home, Length: 121, dtype: int64 + 0       7\n1       7\n2      10\n3      10\n4      13\n       ..\n116    10\n117    13\n118     6\n119    14\n120    22\nName: h2_home, Length: 121, dtype: int64))
+     +    where <function allclose at 0x7fba1995dff0> = np.allclose
+     +    and   0      14\n1      20\n2      23\n3      31\n4      37\n       ..\n116    33\n117    19\n118    19\n119    27\n120    43\nName: fg_home, Length: 121, dtype: int64 =              game_id  season  ...  score_scope_reg           score_scope_fg\n0    2026_01_ARI_LAC    2026  ...  regulat...ation_equals_final\n120  2026_08_TEN_CIN    2026  ...  regulation_only              includes_ot\n\n[121 rows x 26 columns].fg_home
+     +    and   0       7\n1      13\n2      13\n3      21\n4      24\n       ..\n116    23\n117     6\n118    13\n119    13\n120    14\nName: h1_home, Length: 121, dtype: int64 =              game_id  season  ...  score_scope_reg           score_scope_fg\n0    2026_01_ARI_LAC    2026  ...  regulat...ation_equals_final\n120  2026_08_TEN_CIN    2026  ...  regulation_only              includes_ot\n\n[121 rows x 26 columns].h1_home
+     +    and   0       7\n1       7\n2      10\n3      10\n4      13\n       ..\n116    10\n117    13\n118     6\n119    14\n120    22\nName: h2_home, Length: 121, dtype: int64 =              game_id  season  ...  score_scope_reg           score_scope_fg\n0    2026_01_ARI_LAC    2026  ...  regulat...ation_equals_final\n120  2026_08_TEN_CIN    2026  ...  regulation_only              includes_ot\n\n[121 rows x 26 columns].h2_home
+/workspace/wt-period-engine/research/period_engine_v0/tests/test_reconstruct_sim.py:17: assert False
+=========================== short test summary info ============================
+FAILED tests/test_reconstruct_sim.py::test_reconstruct_h1_equals_q1_plus_q2
+1 failed, 28 passed in 5.87s

@@ -1,0 +1,59 @@
+{
+  "aliases": [
+    {
+      "id": "401873037",
+      "namespace": "espn_event"
+    },
+    {
+      "id": 1392337,
+      "namespace": "balldontlie_game"
+    },
+    {
+      "id": "2026_09_JAX_BAL",
+      "namespace": "nflverse_gameId"
+    }
+  ],
+  "canonical_game_id": null,
+  "canonical_game_id_namespace": null,
+  "classification": "DIAGNOSTIC_IDENTITY",
+  "discrepancy": "open-leagues spread=-8.5 has ambiguous team perspective; preserved raw, not normalized or used as executable quote.",
+  "kickoff_utc": "2026-11-06T01:15:00Z",
+  "match_checks": {
+    "kickoff": "PASS",
+    "season_week": "PASS",
+    "teams": "PASS"
+  },
+  "provider_team_ids": {
+    "balldontlie": {
+      "BAL": "6",
+      "JAX": "13"
+    },
+    "espn": {
+      "BAL": "33",
+      "JAX": "30"
+    }
+  },
+  "registry_join_status": "UNVERIFIED_NO_FROZEN_SCHEDULE_PBP_REGISTRY",
+  "season": 2026,
+  "source_paths": [
+    "aliases/game_identity_401873037.json",
+    "snapshots/espn_summary_401873037_public_pull_2026-11-06.json",
+    "connectors_clean/balldontlie_nfl_get_games_2026_wk9_10.json",
+    "connectors_clean/open_leagues_getGameLines_2026_wk9.json"
+  ],
+  "unmatched": [
+    {
+      "id": "c75744790b7acf6260c78ba5e739c0e5",
+      "namespace": "oddsapi_event",
+      "reason": "Matchup text agrees but commence_utc=01:20Z conflicts with official 01:15Z; no verified canonical crosswalk."
+    }
+  ],
+  "usable_for_frozen_pregame": false,
+  "week": 9,
+  "week_label_conflict": {
+    "balldontlie": 9,
+    "espn": 9,
+    "open_leagues_nflverse_alias": 9,
+    "some_local_odds_data_week": 10
+  }
+}

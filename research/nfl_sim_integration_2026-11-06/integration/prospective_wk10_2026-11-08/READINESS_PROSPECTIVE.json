@@ -1,0 +1,158 @@
+{
+  "document_type": "READINESS_PROSPECTIVE",
+  "projection_ready": false,
+  "ghost_final": "NOT_CLAIMED",
+  "impact": "NOT_MEASURED",
+  "run_kind": "PROSPECTIVE_ASOF",
+  "game": "DAL@IND ESPN 401873040 kickoff 2026-11-08T18:00:00Z",
+  "cutoff_utc": "2026-11-06T12:40:00Z",
+  "source_success_count": 11,
+  "quotes": "NOLINE",
+  "coverage_effects_disabled": true,
+  "joint_producer": {
+    "forecast_id": "sha256:8be81b9695085def31df5ec99cbe78cffa637ca1a6c32c87d49581ce8d5745a5",
+    "input_content_hash": "sha256:c9b4fa3daba28484da13c75f52cb2bdf5a81f6d4da1d1268d44274857fd80832",
+    "status": "OK",
+    "n_usable": 5,
+    "n_invalid": 0,
+    "conservation_pytest": "77 passed (tests/test_joint_producer.py)"
+  },
+  "empirical_sim_compact": {
+    "path": "runs/sim_dal_ind_summary.json",
+    "n": 500,
+    "runtime_sec": 14.457765865000056,
+    "score_means": {
+      "fg_home": 12.722,
+      "fg_away": 22.012,
+      "reg_home": 12.68,
+      "reg_away": 21.928,
+      "p_ot": 0.026
+    },
+    "status": "OK",
+    "note": "Research-only empirical offense bootstrap; NOT calibrated; not a betting edge"
+  },
+  "fifteen_phases": "PRELIMINARY_LEDGER_WRITTEN_PHASE15_NOT_YET",
+  "retrospective_packet": "UNCHANGED integration/certified_asof",
+  "remaining_blockers": [
+    "brainstorm + 15-phase ledger + Ghost final vet incomplete",
+    "odds-bridge LOGIN_REQUIRED (BetGuru) \u2014 NOLINE",
+    "coverage/routes/personnel MISSING \u2014 effects disabled",
+    "joint usage cells depth/placeholder pending empirical fit under freeze",
+    "official inactive/weather freeze closer to kickoff still open"
+  ],
+  "updated_et": "2026-11-06 09:20 EST",
+  "quotes_actionable": "NOLINE",
+  "quotes_research_snapshot": "market_quotes_betguru/DK_ESPN_RESEARCH_SNAPSHOT.json",
+  "quotes_interpretation": "STRICT_NOLINE__RESEARCH_OBSERVED_FETCH_TIME_NOT_VERIFIED_QUOTE",
+  "usage_fit": {
+    "status": "PARTIAL_EMPIRICAL_FIT_PROMOTED",
+    "sample_size": 1068,
+    "usage_cells": 8,
+    "outcome_cells": 20,
+    "forecast_id": "sha256:40c23caa5a0327c8ebc757520ad430e1401305518cd653549d542cc0300a3919",
+    "input_content_hash": "sha256:85aa5f24cf6f2f7fa3bb5c93c3286489eba5594919c79029facc34e1dfee43c7",
+    "score_means": {
+      "DAL": 27.2,
+      "IND": 14.2
+    },
+    "reproducible": true,
+    "pytest_joint_producer": "82 passed",
+    "path_semantics": "SHARED_PARTIAL_SEMANTICS",
+    "id_reconciliation": "reviews/codex_usage_fit/FORECAST_ID_RECONCILIATION.json"
+  },
+  "week": 9,
+  "week_folder_misnomer": true,
+  "phase15_inactives": "NOT_YET",
+  "full_integration_acceptance": false,
+  "genuine_blockers": [
+    "phase15_inactives_unpublished",
+    "actionable_multibook_quotes_NOLINE",
+    "coverage_NGS_FTN_MISSING",
+    "role_policy_research_provisional_awaiting_pristine_future_eval",
+    "old_suite_fix_validate_still_exists_as_historical_contaminated_path_quarantined",
+    "penalties_returns_official_OT_UNSUPPORTED_material_exposure_no_error_bound",
+    "pristine_eval_protocol_incomplete_aggregation_coverage_floors",
+    "repo_wide_pytest_2_missing_historical_fixtures",
+    "PFF_quarter_collection_NOT_READY",
+    "DEFERRED_100K_UNFINISHED_OFFICIAL_SEMANTICS"
+  ],
+  "note": "Do not treat research DK snapshot or n=5 means as market acceptance. Independent vs anchored preserved (data_only).",
+  "joint_producer_fitted": {
+    "status": "PARTIAL_EMPIRICAL_FIT_PROMOTED",
+    "sample_size": 1068,
+    "usage_cells": 8,
+    "outcome_cells": 20,
+    "forecast_id": "sha256:40c23caa5a0327c8ebc757520ad430e1401305518cd653549d542cc0300a3919",
+    "input_content_hash": "sha256:85aa5f24cf6f2f7fa3bb5c93c3286489eba5594919c79029facc34e1dfee43c7",
+    "score_means": {
+      "DAL": 27.2,
+      "IND": 14.2
+    },
+    "reproducible": true,
+    "pytest_joint_producer": "82 passed",
+    "path_semantics": "SHARED_PARTIAL_SEMANTICS",
+    "id_reconciliation": "reviews/codex_usage_fit/FORECAST_ID_RECONCILIATION.json"
+  },
+  "path_semantics": "SHARED_ACCOUNTING_V1",
+  "roles_unify": {
+    "status": "SUPERSEDED_BY_ROBUST_MIX_EQUAL_0.25",
+    "forecast_id_after": "sha256:5cf792ce2fdc9351362ec77c9ed856a46314980745ec4b23622413312803d485",
+    "forecast_id_before_equal_depth": "sha256:8d035f13c405ab944c3712fe6c6fc5bba2212ff8f83ba85a76d364a492a91926",
+    "score_means_before": {
+      "DAL": 27.2,
+      "IND": 14.2
+    },
+    "score_means_after": {
+      "DAL": 18.8,
+      "IND": 14.2
+    },
+    "seeded_repeat_identical": true,
+    "opportunity_yard_crosscheck_fails": 0,
+    "targeted_tests": "86 passed",
+    "full_suite": "126 passed / 36 failed (legacy/missing parquet)",
+    "heldout_note": "IND carry heldout KL worsens 0.45\u21922.26; MAE improves; no predictive superiority claim",
+    "source_composition": "config-derived team_only_2026_w1_8_DAL_IND_... ; new sims only",
+    "deferred_100k": "DEFERRED_100K_UNFINISHED_SEMANTICS",
+    "note": "Prior empirical MLE promotion retained as immutable artifact; production model now robust mixture. IND carry MLE was regression."
+  },
+  "suite_fix": {
+    "status": "FULL_SUITE_GREEN_167",
+    "before_failed": 36,
+    "after_failed": 0,
+    "after_passed": 167,
+    "fixture": "period_engine_v0/data/play_by_play_2026.parquet symlink to packet raw",
+    "role_policy": "mix_equal_0.25 RESEARCH_PROVISIONAL_NOT_PROMOTED (decontaminated; W7-8 not gate)",
+    "empirical_mle_ind_carry": "EMPIRICAL_IND_CARRY_REGRESSION_NOT_PROMOTED",
+    "score_sensitivity": "RNG_confound; team path invariant across role weights when coupling=false; means DAL21.8/IND13.6",
+    "semantics": "UNSUPPORTED penalties/returns/official_OT declared; DEFERRED_100K",
+    "artifacts": "reviews/dal_ind_suite_fix_2026-11-06/",
+    "adversarial_codex": "reviews/INDEPENDENT_CODEX_ADVERSARIAL_SUITE_FIX_REVIEW.txt",
+    "role_policy_leak_note": "Candidate ranking train/dev-only; FINAL ACCEPTANCE GATE in validate.py uses inspected W7-8 IND carry KL threshold \u2014 NOT pristine leak-safe prospective validation. Contaminated acceptance disclosed.",
+    "invariance_scope": "n=5 paired trials + synthetic targeted-pass fixture; not all terminals/OT/half overrides",
+    "classification_note": "Original 36 consistent with missing fixture; repair also hardened missing-history/null/seed/return handling \u2014 not fixture-only narrative"
+  },
+  "role_policy_status": "RESEARCH_PROVISIONAL_NOT_PROMOTED",
+  "invariance_decontam": {
+    "status": "PASS_STAGED",
+    "invariance_trials": 400,
+    "seeds": [
+      11,
+      97,
+      2026,
+      20261108,
+      987654
+    ],
+    "ot_trials": 4,
+    "activation_forecast_id": "sha256:6ecf9e36dc8537af40a598fad2620a44153a9086953f2d0540dfb222e230a8af",
+    "activation_engineering_only": true,
+    "W7_8": "INSPECTED_DEV_REPORTING_ONLY_NOT_GATE",
+    "pristine_plan": "REGISTERED_FUTURE_ONLY_NOT_EXECUTED",
+    "materiality": "penalties ~8% rows; OT ~9-12.5% games; punt-net supported; official OT UNSUPPORTED",
+    "pff": "NOT_READY_NO_DUPLICATE",
+    "engine_suite": "167 passed",
+    "artifacts": "reviews/dal_ind_invariance_decontam_2026-11-06/",
+    "adversarial_codex": "reviews/INDEPENDENT_CODEX_ADVERSARIAL_INVARIANCE_REVIEW.txt",
+    "old_validate_quarantine": "runs/dal_ind_suite_fix_2026-11-06/SUPERSEDED_PROMOTION_PATH.md (bytes immutable; not authoritative)",
+    "invariance_scope_note": "100 shared scenarios x 4 policies; not universal certification"
+  }
+}

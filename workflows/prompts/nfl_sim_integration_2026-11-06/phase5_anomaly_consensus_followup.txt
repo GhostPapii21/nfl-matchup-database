@@ -1,0 +1,16 @@
+Follow-up for delivery_guard (market_calibration only). Rico clarified 2026-11-06 ~07:17:
+
+The ≥40pp anomaly is versus **CONSENSUS across books**, not a single Pinnacle quote.
+
+Read CORE interface:
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/MARKET_INTERFACE_CONSENSUS_ANOMALY.md
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/BOOK_SOURCE_REGISTRY.json
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/CERTIFIED_CLOSE_PINNACLE_FD_DK.json
+
+Upgrade delivery_guard.py + tests:
+1) Accept a `consensus` object built only from retrieved same event/stat/period/line/cutoff quotes with provenance hashes; reject guessed/imputed books.
+2) Threshold compares model_p to consensus_p (same probability_basis). Single-book comparison alone must NOT clear delivery as a surfaced edge when consensus was requested; label DIAGNOSTIC_SINGLE_BOOK_NOT_CONSENSUS if only one book.
+3) Book hierarchy metadata only — do not invent missing Circa/BetCRIS quotes. Registry shows only pinnacle/dk/fd retrieved for JAX@BAL held close.
+4) Preserve raw values; independent vs anchored; Bias UNIMPLEMENTED; NOLINE; no fake shrink.
+5) TDD red→green; rerun market tests; update ANOMALY_DELIVERY_GUARD_COMPLETION.md + evidence JSON noting consensus semantics.
+6) No new spend / network pulls. No CORE edits except reading interface docs.

@@ -1,0 +1,284 @@
+{
+  "document_type": "core_book_source_registry",
+  "game_event_alias": "401873037",
+  "kickoff_utc": "2026-11-06T01:15:00Z",
+  "policy": {
+    "no_new_spend": true,
+    "no_duplicate_pulls": true,
+    "no_guessed_consensus": true,
+    "anomaly_vs": "consensus_across_retrieved_books_not_single_quote",
+    "owner_acquisition_consensus": "BetGuru",
+    "owner_registry_provenance": "CORE"
+  },
+  "hierarchy": {
+    "primary": [
+      "pinnacle",
+      "circa"
+    ],
+    "sharp": [
+      "betcris",
+      "bookmaker"
+    ],
+    "secondary": [
+      "draftkings",
+      "fanduel",
+      "betmgm",
+      "caesars",
+      "pointsbet",
+      "hardrock"
+    ],
+    "other": [
+      "bet365",
+      "betonline",
+      "bovada"
+    ]
+  },
+  "books": [
+    {
+      "book": "pinnacle",
+      "tier": "primary",
+      "status": "SAVED_ONLY",
+      "usable_for_run": false,
+      "retrieved": true,
+      "snapshots": [
+        "T30",
+        "close",
+        "open",
+        "r6_period"
+      ],
+      "markets_observed": [
+        "h2h",
+        "h2h_h1",
+        "h2h_q1",
+        "spreads",
+        "spreads_h1",
+        "spreads_q1",
+        "team_totals",
+        "totals"
+      ],
+      "row_count": 30,
+      "artifact_paths": [
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_close_game.csv",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_open_game.csv",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_T30_game.csv",
+        "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_jaxbal_game.csv"
+      ],
+      "artifact_sha256_by_path": {
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_close_game.csv": "2453d73951e094c0ee8b3176a8435cb71b5d081bfe7314c883adc2ed43b312a7",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_open_game.csv": "b776d8118c1da86dbd7c877adf3afaa3e23c7a09ddfb916cc13a3492a2ead6fb",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_T30_game.csv": "49db062c3023b1ab26bc2c4cd0cc6da6124cdba0385b5418f7f9258be15052cc",
+        "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_jaxbal_game.csv": "51244731295a2a45af029b5985b3c4cb29e64448090e32d49437c5350c52690c"
+      },
+      "consensus_eligible": true,
+      "note": "Held quote bytes present; not a new pull; same-event join still required for consensus"
+    },
+    {
+      "book": "circa",
+      "tier": "primary",
+      "status": "MISSING",
+      "usable_for_run": false,
+      "retrieved": false,
+      "reason": "No held artifact rows for this book in bounded JAX@BAL open/T30/close/r6 selection; no new spend/pull attempted this pass",
+      "consensus_eligible": false,
+      "fallback": "Do not invent quotes; consensus must use only retrieved same event/stat/period/line/cutoff rows"
+    },
+    {
+      "book": "betcris",
+      "tier": "sharp",
+      "status": "MISSING",
+      "usable_for_run": false,
+      "retrieved": false,
+      "reason": "No held artifact rows for this book in bounded JAX@BAL open/T30/close/r6 selection; no new spend/pull attempted this pass",
+      "consensus_eligible": false,
+      "fallback": "Do not invent quotes; consensus must use only retrieved same event/stat/period/line/cutoff rows"
+    },
+    {
+      "book": "bookmaker",
+      "tier": "sharp",
+      "status": "MISSING",
+      "usable_for_run": false,
+      "retrieved": false,
+      "reason": "No held artifact rows for this book in bounded JAX@BAL open/T30/close/r6 selection; no new spend/pull attempted this pass",
+      "consensus_eligible": false,
+      "fallback": "Do not invent quotes; consensus must use only retrieved same event/stat/period/line/cutoff rows"
+    },
+    {
+      "book": "draftkings",
+      "tier": "secondary",
+      "status": "SAVED_ONLY",
+      "usable_for_run": false,
+      "retrieved": true,
+      "snapshots": [
+        "T30",
+        "close",
+        "open",
+        "r6_period"
+      ],
+      "markets_observed": [
+        "h2h",
+        "h2h_h1",
+        "h2h_q1",
+        "spreads",
+        "spreads_h1",
+        "spreads_q1",
+        "totals"
+      ],
+      "row_count": 26,
+      "artifact_paths": [
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_close_game.csv",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_open_game.csv",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_T30_game.csv",
+        "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_jaxbal_game.csv"
+      ],
+      "artifact_sha256_by_path": {
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_close_game.csv": "2453d73951e094c0ee8b3176a8435cb71b5d081bfe7314c883adc2ed43b312a7",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_open_game.csv": "b776d8118c1da86dbd7c877adf3afaa3e23c7a09ddfb916cc13a3492a2ead6fb",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_T30_game.csv": "49db062c3023b1ab26bc2c4cd0cc6da6124cdba0385b5418f7f9258be15052cc",
+        "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_jaxbal_game.csv": "51244731295a2a45af029b5985b3c4cb29e64448090e32d49437c5350c52690c"
+      },
+      "consensus_eligible": true,
+      "note": "Held quote bytes present; not a new pull; same-event join still required for consensus"
+    },
+    {
+      "book": "fanduel",
+      "tier": "secondary",
+      "status": "SAVED_ONLY",
+      "usable_for_run": false,
+      "retrieved": true,
+      "snapshots": [
+        "T30",
+        "close",
+        "open",
+        "r6_period"
+      ],
+      "markets_observed": [
+        "h2h",
+        "h2h_h1",
+        "h2h_q1",
+        "spreads",
+        "spreads_h1",
+        "spreads_q1",
+        "team_totals",
+        "totals"
+      ],
+      "row_count": 30,
+      "artifact_paths": [
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_close_game.csv",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_open_game.csv",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_T30_game.csv",
+        "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_jaxbal_game.csv"
+      ],
+      "artifact_sha256_by_path": {
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_close_game.csv": "2453d73951e094c0ee8b3176a8435cb71b5d081bfe7314c883adc2ed43b312a7",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_open_game.csv": "b776d8118c1da86dbd7c877adf3afaa3e23c7a09ddfb916cc13a3492a2ead6fb",
+        "/workspace/nfl-database/runs/line_movement_wk10/odds_20261105_JAXBAL_T30_game.csv": "49db062c3023b1ab26bc2c4cd0cc6da6124cdba0385b5418f7f9258be15052cc",
+        "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_jaxbal_game.csv": "51244731295a2a45af029b5985b3c4cb29e64448090e32d49437c5350c52690c"
+      },
+      "consensus_eligible": true,
+      "note": "Held quote bytes present; not a new pull; same-event join still required for consensus"
+    },
+    {
+      "book": "betmgm",
+      "tier": "secondary",
+      "status": "MISSING",
+      "usable_for_run": false,
+      "retrieved": false,
+      "reason": "No held artifact rows for this book in bounded JAX@BAL open/T30/close/r6 selection; no new spend/pull attempted this pass",
+      "consensus_eligible": false,
+      "fallback": "Do not invent quotes; consensus must use only retrieved same event/stat/period/line/cutoff rows"
+    },
+    {
+      "book": "caesars",
+      "tier": "secondary",
+      "status": "MISSING",
+      "usable_for_run": false,
+      "retrieved": false,
+      "reason": "No held artifact rows for this book in bounded JAX@BAL open/T30/close/r6 selection; no new spend/pull attempted this pass",
+      "consensus_eligible": false,
+      "fallback": "Do not invent quotes; consensus must use only retrieved same event/stat/period/line/cutoff rows"
+    },
+    {
+      "book": "pointsbet",
+      "tier": "secondary",
+      "status": "MISSING",
+      "usable_for_run": false,
+      "retrieved": false,
+      "reason": "No held artifact rows for this book in bounded JAX@BAL open/T30/close/r6 selection; no new spend/pull attempted this pass",
+      "consensus_eligible": false,
+      "fallback": "Do not invent quotes; consensus must use only retrieved same event/stat/period/line/cutoff rows"
+    },
+    {
+      "book": "hardrock",
+      "tier": "secondary",
+      "status": "MISSING",
+      "usable_for_run": false,
+      "retrieved": false,
+      "reason": "No held artifact rows for this book in bounded JAX@BAL open/T30/close/r6 selection; no new spend/pull attempted this pass",
+      "consensus_eligible": false,
+      "fallback": "Do not invent quotes; consensus must use only retrieved same event/stat/period/line/cutoff rows"
+    },
+    {
+      "book": "bet365",
+      "tier": "other",
+      "status": "MISSING",
+      "usable_for_run": false,
+      "retrieved": false,
+      "reason": "No held artifact rows for this book in bounded JAX@BAL open/T30/close/r6 selection; no new spend/pull attempted this pass",
+      "consensus_eligible": false,
+      "fallback": "Do not invent quotes; consensus must use only retrieved same event/stat/period/line/cutoff rows"
+    },
+    {
+      "book": "betonline",
+      "tier": "other",
+      "status": "MISSING",
+      "usable_for_run": false,
+      "retrieved": false,
+      "reason": "No held artifact rows for this book in bounded JAX@BAL open/T30/close/r6 selection; no new spend/pull attempted this pass",
+      "consensus_eligible": false,
+      "fallback": "Do not invent quotes; consensus must use only retrieved same event/stat/period/line/cutoff rows"
+    },
+    {
+      "book": "bovada",
+      "tier": "other",
+      "status": "MISSING",
+      "usable_for_run": false,
+      "retrieved": false,
+      "reason": "No held artifact rows for this book in bounded JAX@BAL open/T30/close/r6 selection; no new spend/pull attempted this pass",
+      "consensus_eligible": false,
+      "fallback": "Do not invent quotes; consensus must use only retrieved same event/stat/period/line/cutoff rows"
+    }
+  ],
+  "extra_books_retrieved_outside_hierarchy": [],
+  "retrieved_summary": {
+    "draftkings": {
+      "rows": 26,
+      "snapshots": [
+        "T30",
+        "close",
+        "open",
+        "r6_period"
+      ]
+    },
+    "fanduel": {
+      "rows": 30,
+      "snapshots": [
+        "T30",
+        "close",
+        "open",
+        "r6_period"
+      ]
+    },
+    "pinnacle": {
+      "rows": 30,
+      "snapshots": [
+        "T30",
+        "close",
+        "open",
+        "r6_period"
+      ]
+    }
+  },
+  "unavailable_count": 10,
+  "retrieved_count": 3,
+  "generated_et": "2026-11-06 07:21:44 ET"
+}

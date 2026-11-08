@@ -1,0 +1,838 @@
+F.FF.FFFFFFFFFFFFFFFFFFFF.FFF...................F...F.......             [100%]
+=================================== FAILURES ===================================
+_________________________ test_contract_sha256_binding _________________________
+
+    def test_contract_sha256_binding():
+>       assert digest(ROOT / "core_contract.md") == CONTRACT_HASH, "BLOCKER CONTRACT_HASH_MISMATCH"
+E       AssertionError: BLOCKER CONTRACT_HASH_MISMATCH
+E       assert '6471e69b97b1...7c1b7440e8367' == 'd6a4689f55bb...a5238cec836b9'
+E         
+E         - d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9
+E         + 6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367
+
+integration/integration_adversarial_tests.py:94: AssertionError
+_____________________ test_market_protected_hash_inventory _____________________
+
+    def test_market_protected_hash_inventory():
+        inventory = json.loads((OUT / "market_calibration_file_hashes.json").read_text())
+        assert inventory["files"]
+        for entry in inventory["files"]:
+>           assert digest(entry["path"]) == entry["sha256"], f"BLOCKER MARKET_HASH_CHANGED {entry['path']}"
+E           AssertionError: BLOCKER MARKET_HASH_CHANGED /workspace/wt-market-calibration/research/market_calibration/MANIFEST.json
+E           assert 'e2d733181bf5...4a29b565bacbc' == '37948790ca32...4ab0e31edeeb2'
+E             
+E             - 37948790ca32ab0ebfedd5129ad9e10a286dd0f4e173f129dec4ab0e31edeeb2
+E             + e2d733181bf5f21200e30a15292df0509e4e3ee85f4a22ce1884a29b565bacbc
+
+integration/integration_adversarial_tests.py:108: AssertionError
+___________ test_actual_producer_artifacts_and_recomputed_validation ___________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+
+    def test_actual_producer_artifacts_and_recomputed_validation(producer_rows):
+        for relative, expected in SMOKE["artifact_hashes"].items():
+            assert "sha256:" + digest(ARTIFACT / relative) == expected
+        for entry in EVIDENCE["files_touched"]:
+>           assert "sha256:" + digest(entry["path"]) == entry["sha256"]
+E           AssertionError: assert 'sha256:875c1...83e53a127dc4e' == 'sha256:3effe...ceb802c45c6ab'
+E             
+E             - sha256:3effe50027ff2a98de4d6c8386b253e4f94d96fea0c9f10c491ceb802c45c6ab
+E             + sha256:875c159559c8d4405ceb44a04202e39f74406aa4506d0367a4083e53a127dc4e
+
+integration/integration_adversarial_tests.py:115: AssertionError
+_______________ test_DIRECT_actual_producer_to_market_acceptance _______________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+
+    def test_DIRECT_actual_producer_to_market_acceptance(producer_rows):
+        """REQUIRED acceptance test; remains FAILED while unchanged producer is rejected.
+    
+        No xfail, skip, field shim or catch-and-PASS hides this integration blocker.
+        """
+>       transported = adapter.adapt_joint_trials(producer_rows, expected_trial_ids=RETAINED_IDS)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+_ test_diagnostic_wire_blockers_are_independently_reproducible[0-missing trial fields] _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+stage = 0, error = 'missing trial fields'
+
+    @pytest.mark.parametrize("stage,error", [
+        (0, "missing trial fields"), (1, "unsupported contract or incomplete/invalid"),
+        (2, "missing freeze fields"), (3, "missing engine fields"),
+        (4, "missing team_periods fields"),
+    ])
+    def test_diagnostic_wire_blockers_are_independently_reproducible(producer_rows, stage, error):
+        # Progressively expose errors masked by the first missing-field rejection.
+        # Each staged copy is deliberately NOT represented as unchanged producer wire.
+        rows = deepcopy(producer_rows)
+        for row in rows:
+            if stage >= 1:
+                for key in ("completion_reason", "terminal_state", "went_ot"):
+                    row[key] = deepcopy(row["status"][key])
+            if stage >= 2:
+                row["status"] = row["status"]["state"]
+            if stage >= 3:
+                row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+            if stage >= 4:
+                row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+                row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+>       with pytest.raises(ValueError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'missing trial fields'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:172: AssertionError
+_ test_diagnostic_wire_blockers_are_independently_reproducible[1-unsupported contract or incomplete/invalid] _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+stage = 1, error = 'unsupported contract or incomplete/invalid'
+
+    @pytest.mark.parametrize("stage,error", [
+        (0, "missing trial fields"), (1, "unsupported contract or incomplete/invalid"),
+        (2, "missing freeze fields"), (3, "missing engine fields"),
+        (4, "missing team_periods fields"),
+    ])
+    def test_diagnostic_wire_blockers_are_independently_reproducible(producer_rows, stage, error):
+        # Progressively expose errors masked by the first missing-field rejection.
+        # Each staged copy is deliberately NOT represented as unchanged producer wire.
+        rows = deepcopy(producer_rows)
+        for row in rows:
+            if stage >= 1:
+                for key in ("completion_reason", "terminal_state", "went_ot"):
+                    row[key] = deepcopy(row["status"][key])
+            if stage >= 2:
+                row["status"] = row["status"]["state"]
+            if stage >= 3:
+                row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+            if stage >= 4:
+                row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+                row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+>       with pytest.raises(ValueError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'unsupported contract or incomplete/invalid'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:172: AssertionError
+_ test_diagnostic_wire_blockers_are_independently_reproducible[2-missing freeze fields] _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+stage = 2, error = 'missing freeze fields'
+
+    @pytest.mark.parametrize("stage,error", [
+        (0, "missing trial fields"), (1, "unsupported contract or incomplete/invalid"),
+        (2, "missing freeze fields"), (3, "missing engine fields"),
+        (4, "missing team_periods fields"),
+    ])
+    def test_diagnostic_wire_blockers_are_independently_reproducible(producer_rows, stage, error):
+        # Progressively expose errors masked by the first missing-field rejection.
+        # Each staged copy is deliberately NOT represented as unchanged producer wire.
+        rows = deepcopy(producer_rows)
+        for row in rows:
+            if stage >= 1:
+                for key in ("completion_reason", "terminal_state", "went_ot"):
+                    row[key] = deepcopy(row["status"][key])
+            if stage >= 2:
+                row["status"] = row["status"]["state"]
+            if stage >= 3:
+                row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+            if stage >= 4:
+                row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+                row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+>       with pytest.raises(ValueError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'missing freeze fields'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:172: AssertionError
+_ test_diagnostic_wire_blockers_are_independently_reproducible[3-missing engine fields] _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+stage = 3, error = 'missing engine fields'
+
+    @pytest.mark.parametrize("stage,error", [
+        (0, "missing trial fields"), (1, "unsupported contract or incomplete/invalid"),
+        (2, "missing freeze fields"), (3, "missing engine fields"),
+        (4, "missing team_periods fields"),
+    ])
+    def test_diagnostic_wire_blockers_are_independently_reproducible(producer_rows, stage, error):
+        # Progressively expose errors masked by the first missing-field rejection.
+        # Each staged copy is deliberately NOT represented as unchanged producer wire.
+        rows = deepcopy(producer_rows)
+        for row in rows:
+            if stage >= 1:
+                for key in ("completion_reason", "terminal_state", "went_ot"):
+                    row[key] = deepcopy(row["status"][key])
+            if stage >= 2:
+                row["status"] = row["status"]["state"]
+            if stage >= 3:
+                row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+            if stage >= 4:
+                row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+                row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+>       with pytest.raises(ValueError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'missing engine fields'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:172: AssertionError
+_ test_diagnostic_wire_blockers_are_independently_reproducible[4-missing team_periods fields] _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+stage = 4, error = 'missing team_periods fields'
+
+    @pytest.mark.parametrize("stage,error", [
+        (0, "missing trial fields"), (1, "unsupported contract or incomplete/invalid"),
+        (2, "missing freeze fields"), (3, "missing engine fields"),
+        (4, "missing team_periods fields"),
+    ])
+    def test_diagnostic_wire_blockers_are_independently_reproducible(producer_rows, stage, error):
+        # Progressively expose errors masked by the first missing-field rejection.
+        # Each staged copy is deliberately NOT represented as unchanged producer wire.
+        rows = deepcopy(producer_rows)
+        for row in rows:
+            if stage >= 1:
+                for key in ("completion_reason", "terminal_state", "went_ot"):
+                    row[key] = deepcopy(row["status"][key])
+            if stage >= 2:
+                row["status"] = row["status"]["state"]
+            if stage >= 3:
+                row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+            if stage >= 4:
+                row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+                row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+>       with pytest.raises(ValueError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'missing team_periods fields'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:172: AssertionError
+_____________ test_diagnostic_mapped_identity_and_opaque_retention _____________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+
+    def test_diagnostic_mapped_identity_and_opaque_retention(producer_rows):
+        original = deepcopy(producer_rows)
+        mapped = diagnostic_field_mapping(producer_rows)
+>       transported = diagnostic_transport(mapped, expected_trial_ids=RETAINED_IDS)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:179: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+integration/integration_adversarial_tests.py:77: in diagnostic_transport
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+_________ test_diagnostic_same_trial_score_primitives[H1-primitives0] __________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+period = 'H1', primitives = ('Q1', 'Q2')
+
+    @pytest.mark.parametrize("period,primitives", [
+        ("H1", ("Q1", "Q2")), ("H2", ("Q3", "Q4")),
+        ("REG", ("Q1", "Q2", "Q3", "Q4")),
+        ("FG", ("Q1", "Q2", "Q3", "Q4", "OT1")),
+    ])
+    def test_diagnostic_same_trial_score_primitives(producer_rows, period, primitives):
+>       trials = diagnostic_transport(diagnostic_field_mapping(producer_rows), expected_trial_ids=RETAINED_IDS)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:200: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+integration/integration_adversarial_tests.py:77: in diagnostic_transport
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+_________ test_diagnostic_same_trial_score_primitives[H2-primitives1] __________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+period = 'H2', primitives = ('Q3', 'Q4')
+
+    @pytest.mark.parametrize("period,primitives", [
+        ("H1", ("Q1", "Q2")), ("H2", ("Q3", "Q4")),
+        ("REG", ("Q1", "Q2", "Q3", "Q4")),
+        ("FG", ("Q1", "Q2", "Q3", "Q4", "OT1")),
+    ])
+    def test_diagnostic_same_trial_score_primitives(producer_rows, period, primitives):
+>       trials = diagnostic_transport(diagnostic_field_mapping(producer_rows), expected_trial_ids=RETAINED_IDS)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:200: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+integration/integration_adversarial_tests.py:77: in diagnostic_transport
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+_________ test_diagnostic_same_trial_score_primitives[REG-primitives2] _________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+period = 'REG', primitives = ('Q1', 'Q2', 'Q3', 'Q4')
+
+    @pytest.mark.parametrize("period,primitives", [
+        ("H1", ("Q1", "Q2")), ("H2", ("Q3", "Q4")),
+        ("REG", ("Q1", "Q2", "Q3", "Q4")),
+        ("FG", ("Q1", "Q2", "Q3", "Q4", "OT1")),
+    ])
+    def test_diagnostic_same_trial_score_primitives(producer_rows, period, primitives):
+>       trials = diagnostic_transport(diagnostic_field_mapping(producer_rows), expected_trial_ids=RETAINED_IDS)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:200: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+integration/integration_adversarial_tests.py:77: in diagnostic_transport
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+_________ test_diagnostic_same_trial_score_primitives[FG-primitives3] __________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+period = 'FG', primitives = ('Q1', 'Q2', 'Q3', 'Q4', 'OT1')
+
+    @pytest.mark.parametrize("period,primitives", [
+        ("H1", ("Q1", "Q2")), ("H2", ("Q3", "Q4")),
+        ("REG", ("Q1", "Q2", "Q3", "Q4")),
+        ("FG", ("Q1", "Q2", "Q3", "Q4", "OT1")),
+    ])
+    def test_diagnostic_same_trial_score_primitives(producer_rows, period, primitives):
+>       trials = diagnostic_transport(diagnostic_field_mapping(producer_rows), expected_trial_ids=RETAINED_IDS)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:200: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+integration/integration_adversarial_tests.py:77: in diagnostic_transport
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+__ test_diagnostic_score_sensitivity_is_quarter_sum_not_independent_marginal ___
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+
+    def test_diagnostic_score_sensitivity_is_quarter_sum_not_independent_marginal(producer_rows):
+        # Deliberately corrupted copy tests consumer arithmetic only, NOT a valid draw.
+        mapped = diagnostic_field_mapping(producer_rows)
+>       baseline = diagnostic_transport(mapped, expected_trial_ids=RETAINED_IDS)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:216: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+integration/integration_adversarial_tests.py:77: in diagnostic_transport
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+____________ test_diagnostic_missingness_and_player_api_unsupported ____________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+record_property = <function record_property.<locals>.append_property at 0x7f7c21271800>
+
+    def test_diagnostic_missingness_and_player_api_unsupported(producer_rows, record_property):
+>       trials = diagnostic_transport(diagnostic_field_mapping(producer_rows), expected_trial_ids=RETAINED_IDS)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:230: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+integration/integration_adversarial_tests.py:77: in diagnostic_transport
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+____________ test_diagnostic_red_population_and_identity[truncated] ____________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+case = 'truncated'
+
+    @pytest.mark.parametrize("case", ["truncated", "reordered", "duplicate", "invalid", "incomplete", "seed", "input_hash"])
+    def test_diagnostic_red_population_and_identity(producer_rows, case):
+        rows = diagnostic_field_mapping(producer_rows)
+        reason = None
+        if case == "truncated":
+            rows = rows[:1]
+            reason = "population/order mismatch"
+        elif case == "reordered":
+            rows.reverse()
+            reason = "population/order mismatch"
+        elif case == "duplicate":
+            rows.append(deepcopy(rows[0]))
+            reason = "duplicate"
+        elif case in {"invalid", "incomplete"}:
+            rows[0]["status"] = case.upper()
+            reason = "incomplete/invalid"
+        elif case == "seed":
+            rows[0]["rng"]["trial_seed"] = "0"
+            reason = "trial_seed derivation mismatch"
+        else:
+            rows[0]["freeze"]["input_content_hash"] = "sha256:" + "0" * 64
+            reason = "trial_seed derivation mismatch"
+>       with pytest.raises(ValueError, match=reason):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'population/order mismatch'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:265: AssertionError
+____________ test_diagnostic_red_population_and_identity[reordered] ____________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+case = 'reordered'
+
+    @pytest.mark.parametrize("case", ["truncated", "reordered", "duplicate", "invalid", "incomplete", "seed", "input_hash"])
+    def test_diagnostic_red_population_and_identity(producer_rows, case):
+        rows = diagnostic_field_mapping(producer_rows)
+        reason = None
+        if case == "truncated":
+            rows = rows[:1]
+            reason = "population/order mismatch"
+        elif case == "reordered":
+            rows.reverse()
+            reason = "population/order mismatch"
+        elif case == "duplicate":
+            rows.append(deepcopy(rows[0]))
+            reason = "duplicate"
+        elif case in {"invalid", "incomplete"}:
+            rows[0]["status"] = case.upper()
+            reason = "incomplete/invalid"
+        elif case == "seed":
+            rows[0]["rng"]["trial_seed"] = "0"
+            reason = "trial_seed derivation mismatch"
+        else:
+            rows[0]["freeze"]["input_content_hash"] = "sha256:" + "0" * 64
+            reason = "trial_seed derivation mismatch"
+>       with pytest.raises(ValueError, match=reason):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'population/order mismatch'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:265: AssertionError
+____________ test_diagnostic_red_population_and_identity[duplicate] ____________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+case = 'duplicate'
+
+    @pytest.mark.parametrize("case", ["truncated", "reordered", "duplicate", "invalid", "incomplete", "seed", "input_hash"])
+    def test_diagnostic_red_population_and_identity(producer_rows, case):
+        rows = diagnostic_field_mapping(producer_rows)
+        reason = None
+        if case == "truncated":
+            rows = rows[:1]
+            reason = "population/order mismatch"
+        elif case == "reordered":
+            rows.reverse()
+            reason = "population/order mismatch"
+        elif case == "duplicate":
+            rows.append(deepcopy(rows[0]))
+            reason = "duplicate"
+        elif case in {"invalid", "incomplete"}:
+            rows[0]["status"] = case.upper()
+            reason = "incomplete/invalid"
+        elif case == "seed":
+            rows[0]["rng"]["trial_seed"] = "0"
+            reason = "trial_seed derivation mismatch"
+        else:
+            rows[0]["freeze"]["input_content_hash"] = "sha256:" + "0" * 64
+            reason = "trial_seed derivation mismatch"
+>       with pytest.raises(ValueError, match=reason):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'duplicate'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:265: AssertionError
+_____________ test_diagnostic_red_population_and_identity[invalid] _____________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+case = 'invalid'
+
+    @pytest.mark.parametrize("case", ["truncated", "reordered", "duplicate", "invalid", "incomplete", "seed", "input_hash"])
+    def test_diagnostic_red_population_and_identity(producer_rows, case):
+        rows = diagnostic_field_mapping(producer_rows)
+        reason = None
+        if case == "truncated":
+            rows = rows[:1]
+            reason = "population/order mismatch"
+        elif case == "reordered":
+            rows.reverse()
+            reason = "population/order mismatch"
+        elif case == "duplicate":
+            rows.append(deepcopy(rows[0]))
+            reason = "duplicate"
+        elif case in {"invalid", "incomplete"}:
+            rows[0]["status"] = case.upper()
+            reason = "incomplete/invalid"
+        elif case == "seed":
+            rows[0]["rng"]["trial_seed"] = "0"
+            reason = "trial_seed derivation mismatch"
+        else:
+            rows[0]["freeze"]["input_content_hash"] = "sha256:" + "0" * 64
+            reason = "trial_seed derivation mismatch"
+>       with pytest.raises(ValueError, match=reason):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'incomplete/invalid'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:265: AssertionError
+___________ test_diagnostic_red_population_and_identity[incomplete] ____________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+case = 'incomplete'
+
+    @pytest.mark.parametrize("case", ["truncated", "reordered", "duplicate", "invalid", "incomplete", "seed", "input_hash"])
+    def test_diagnostic_red_population_and_identity(producer_rows, case):
+        rows = diagnostic_field_mapping(producer_rows)
+        reason = None
+        if case == "truncated":
+            rows = rows[:1]
+            reason = "population/order mismatch"
+        elif case == "reordered":
+            rows.reverse()
+            reason = "population/order mismatch"
+        elif case == "duplicate":
+            rows.append(deepcopy(rows[0]))
+            reason = "duplicate"
+        elif case in {"invalid", "incomplete"}:
+            rows[0]["status"] = case.upper()
+            reason = "incomplete/invalid"
+        elif case == "seed":
+            rows[0]["rng"]["trial_seed"] = "0"
+            reason = "trial_seed derivation mismatch"
+        else:
+            rows[0]["freeze"]["input_content_hash"] = "sha256:" + "0" * 64
+            reason = "trial_seed derivation mismatch"
+>       with pytest.raises(ValueError, match=reason):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'incomplete/invalid'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:265: AssertionError
+______________ test_diagnostic_red_population_and_identity[seed] _______________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+case = 'seed'
+
+    @pytest.mark.parametrize("case", ["truncated", "reordered", "duplicate", "invalid", "incomplete", "seed", "input_hash"])
+    def test_diagnostic_red_population_and_identity(producer_rows, case):
+        rows = diagnostic_field_mapping(producer_rows)
+        reason = None
+        if case == "truncated":
+            rows = rows[:1]
+            reason = "population/order mismatch"
+        elif case == "reordered":
+            rows.reverse()
+            reason = "population/order mismatch"
+        elif case == "duplicate":
+            rows.append(deepcopy(rows[0]))
+            reason = "duplicate"
+        elif case in {"invalid", "incomplete"}:
+            rows[0]["status"] = case.upper()
+            reason = "incomplete/invalid"
+        elif case == "seed":
+            rows[0]["rng"]["trial_seed"] = "0"
+            reason = "trial_seed derivation mismatch"
+        else:
+            rows[0]["freeze"]["input_content_hash"] = "sha256:" + "0" * 64
+            reason = "trial_seed derivation mismatch"
+>       with pytest.raises(ValueError, match=reason):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'trial_seed derivation mismatch'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:265: AssertionError
+___________ test_diagnostic_red_population_and_identity[input_hash] ____________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+case = 'input_hash'
+
+    @pytest.mark.parametrize("case", ["truncated", "reordered", "duplicate", "invalid", "incomplete", "seed", "input_hash"])
+    def test_diagnostic_red_population_and_identity(producer_rows, case):
+        rows = diagnostic_field_mapping(producer_rows)
+        reason = None
+        if case == "truncated":
+            rows = rows[:1]
+            reason = "population/order mismatch"
+        elif case == "reordered":
+            rows.reverse()
+            reason = "population/order mismatch"
+        elif case == "duplicate":
+            rows.append(deepcopy(rows[0]))
+            reason = "duplicate"
+        elif case in {"invalid", "incomplete"}:
+            rows[0]["status"] = case.upper()
+            reason = "incomplete/invalid"
+        elif case == "seed":
+            rows[0]["rng"]["trial_seed"] = "0"
+            reason = "trial_seed derivation mismatch"
+        else:
+            rows[0]["freeze"]["input_content_hash"] = "sha256:" + "0" * 64
+            reason = "trial_seed derivation mismatch"
+>       with pytest.raises(ValueError, match=reason):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'trial_seed derivation mismatch'
+E         Actual message: 'bound core contract absent or changed; alignment required'
+
+integration/integration_adversarial_tests.py:265: AssertionError
+__ test_diagnostic_opaque_acceptance_is_not_full_core_validation[validation] ___
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+payload = 'validation'
+record_property = <function record_property.<locals>.append_property at 0x7f7c369a4720>
+
+    @pytest.mark.parametrize("payload", ["validation", "player_periods"])
+    def test_diagnostic_opaque_acceptance_is_not_full_core_validation(producer_rows, payload, record_property):
+        rows = diagnostic_field_mapping(producer_rows)
+        if payload == "validation":
+            rows[0][payload] = {"status": "INVALID", "failed_invariants": ["ADVERSARIAL_PROBE"]}
+        else:
+            rows[0][payload][0]["stats"]["targets"] = -1
+>       transported = diagnostic_transport(rows, expected_trial_ids=RETAINED_IDS)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:284: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+integration/integration_adversarial_tests.py:77: in diagnostic_transport
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+_ test_diagnostic_opaque_acceptance_is_not_full_core_validation[player_periods] _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+payload = 'player_periods'
+record_property = <function record_property.<locals>.append_property at 0x7f7c2218a8e0>
+
+    @pytest.mark.parametrize("payload", ["validation", "player_periods"])
+    def test_diagnostic_opaque_acceptance_is_not_full_core_validation(producer_rows, payload, record_property):
+        rows = diagnostic_field_mapping(producer_rows)
+        if payload == "validation":
+            rows[0][payload] = {"status": "INVALID", "failed_invariants": ["ADVERSARIAL_PROBE"]}
+        else:
+            rows[0][payload][0]["stats"]["targets"] = -1
+>       transported = diagnostic_transport(rows, expected_trial_ids=RETAINED_IDS)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:284: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+integration/integration_adversarial_tests.py:77: in diagnostic_transport
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+_ test_diagnostic_omitted_expected_ids_accepts_subset_but_procedure_requires_ids _
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+record_property = <function record_property.<locals>.append_property at 0x7f7c369fe840>
+
+    def test_diagnostic_omitted_expected_ids_accepts_subset_but_procedure_requires_ids(producer_rows, record_property):
+        subset = diagnostic_field_mapping(producer_rows)[:1]
+>       accepted = adapter.adapt_joint_trials(subset)  # deliberate library bypass probe
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:294: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = None
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+_____________ test_diagnostic_no_canonical_relabel_for_settlement ______________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+saved_quotes = [QuoteRecord(game_id='401873037', book='draftkings', market='h2h', period='H1', side='BAL', line=None, price=295.0, se...9:59:57Z'}, snapshot_id=None, settlement_rule_ref=None, ot_inclusion=None, game_id_namespace='saved_csv_game_id'), ...]
+
+    def test_diagnostic_no_canonical_relabel_for_settlement(producer_rows, saved_quotes):
+>       trial = diagnostic_transport(diagnostic_field_mapping(producer_rows), expected_trial_ids=RETAINED_IDS)[0]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:409: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+integration/integration_adversarial_tests.py:77: in diagnostic_transport
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+_________________ test_market_claims_and_bias_remain_unfitted __________________
+
+    def test_market_claims_and_bias_remain_unfitted():
+        manifest = json.loads((MARKET / "MANIFEST.json").read_text())
+>       assert validate_manifest(manifest, MARKET)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:434: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+manifest = {'schema_version': 1, 'package': 'research.market_calibration', 'branch': 'betguru-market-calibration-2026-11-06', 'base_commit': '3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6', ...}
+root = PosixPath('/workspace/wt-market-calibration/research/market_calibration')
+
+    def validate_manifest(manifest, root):
+        contract = contract_info()
+        expected = {"calibration": UNFITTED, "anchored": "PENDING_VALIDATION",
+                    "validation": "NO_UNTOUCHED_HOLDOUT_VALIDATION", "quotes": "SAVED_ONLY",
+                    "adapter": contract["status"]}
+        for section, status in expected.items():
+            if manifest.get(section, {}).get("status") != status:
+>               raise ValueError(f"unsupported {section} result claim")
+E               ValueError: unsupported adapter result claim
+
+../../wt-market-calibration/research/market_calibration/manifest.py:16: ValueError
+=========================== short test summary info ============================
+FAILED integration/integration_adversarial_tests.py::test_contract_sha256_binding
+FAILED integration/integration_adversarial_tests.py::test_market_protected_hash_inventory
+FAILED integration/integration_adversarial_tests.py::test_actual_producer_artifacts_and_recomputed_validation
+FAILED integration/integration_adversarial_tests.py::test_DIRECT_actual_producer_to_market_acceptance
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_wire_blockers_are_independently_reproducible[0-missing trial fields]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_wire_blockers_are_independently_reproducible[1-unsupported contract or incomplete/invalid]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_wire_blockers_are_independently_reproducible[2-missing freeze fields]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_wire_blockers_are_independently_reproducible[3-missing engine fields]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_wire_blockers_are_independently_reproducible[4-missing team_periods fields]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_mapped_identity_and_opaque_retention
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_same_trial_score_primitives[H1-primitives0]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_same_trial_score_primitives[H2-primitives1]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_same_trial_score_primitives[REG-primitives2]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_same_trial_score_primitives[FG-primitives3]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_score_sensitivity_is_quarter_sum_not_independent_marginal
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_missingness_and_player_api_unsupported
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_red_population_and_identity[truncated]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_red_population_and_identity[reordered]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_red_population_and_identity[duplicate]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_red_population_and_identity[invalid]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_red_population_and_identity[incomplete]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_red_population_and_identity[seed]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_red_population_and_identity[input_hash]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_opaque_acceptance_is_not_full_core_validation[validation]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_opaque_acceptance_is_not_full_core_validation[player_periods]
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_omitted_expected_ids_accepts_subset_but_procedure_requires_ids
+FAILED integration/integration_adversarial_tests.py::test_diagnostic_no_canonical_relabel_for_settlement
+FAILED integration/integration_adversarial_tests.py::test_market_claims_and_bias_remain_unfitted
+28 failed, 32 passed in 1.07s

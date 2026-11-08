@@ -1,0 +1,28 @@
+{
+  "config_id": "jax_bal_tnf_2026-11-05_market_informed",
+  "frozen_at_et": "2026-11-05T14:00:00-05:00",
+  "mode": "market_informed",
+  "game": {"home": "BAL", "away": "JAX", "season": 2026, "week_asof_exclusive": 9},
+  "history": {
+    "teams": ["JAX", "BAL"],
+    "season": 2026,
+    "weeks_inclusive": [1, 2, 3, 4, 5, 6, 7, 8],
+    "scope": "plays_from_games_involving_either_team_offense_when_posteam_in_teams",
+    "no_league_fallback": true,
+    "no_future_weeks": true
+  },
+  "min_n_state": 5,
+  "proposed_pooling": {"enabled": false, "policy": "none"},
+  "adjustments": {"enabled": false, "note": "QB adjustments live in script_adjusted; do not double-count here by default"},
+  "market_conditioning": {
+    "enabled": true,
+    "note": "SEPARATE from data_only baseline. Conditioning on spread/total is NOT independent evidence of beating the market.",
+    "spread_home": null,
+    "total": null,
+    "quotes_status": "PINNACLE_MISSING_SCREENSHOT_ONLY_NOT_WIRED_TO_SAMPLER",
+    "contaminates_data_only": false
+  },
+  "seed_base": 20261105,
+  "n_default": 10000,
+  "set_label": "development_w1_8_inspected_not_untouched_holdout"
+}

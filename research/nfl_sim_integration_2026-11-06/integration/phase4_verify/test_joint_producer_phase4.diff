@@ -1,0 +1,67 @@
+--- pre_phase4/test_joint_producer.py
++++ phase4/test_joint_producer.py
+@@ -13,6 +13,64 @@
+ from joint_producer import (OT_PROFILE, STAT_PROFILE, OpportunityModel, missing_features,
+                             simulate_joint_games, simulate_trial, write_forecast)
+ from simulate import simulate_games
++
++
++WIRE_ROOT = Path('/workspace/research/nfl_sim_integration_2026-11-06/integration/wire')
++FROZEN_WIRE_SHA256 = '50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd'
++
++
++def frozen_wire_example():
++    # Required authority fixture: never skip, regenerate, or normalize its bytes.
++    data = (WIRE_ROOT / 'producer_joint_trial_example_v1.jsonl').read_bytes()
++    assert hashlib.sha256(data).hexdigest() == FROZEN_WIRE_SHA256
++    assert len(data.splitlines()) == 1
++    return json.loads(data)
++
++
++def test_frozen_producer_wire_v1_exact_bytes():
++    frozen_wire_example()
++
++
++def test_export_preserves_documented_producer_wire_v1_shapes(tmp_path):
++    example = frozen_wire_example()
++    meta = json.loads((WIRE_ROOT / 'WIRE_SCHEMA_V1_META.json').read_text())
++    assert meta['wire_schema_id'] == 'nfl-sim-joint-trial-producer-wire'
++    assert meta['wire_version'] == '1.0.0-producer'
++    assert meta['example_jsonl_sha256'] == FROZEN_WIRE_SHA256
++    spec, root, inputs, _, _ = fixture_inputs(tmp_path)
++    output = simulate_joint_games(spec, input_root=root, inputs=inputs, n=1, seed=123,
++                                  output_root=tmp_path / 'exports')
++    exported = Path(output['artifact_directory']) / 'trials.jsonl'
++    rows = [json.loads(line) for line in exported.read_text().splitlines()]
++    assert exported.read_bytes() == b''.join(canonical(t) + b'\n' for t in output['trials'])
++    assert len(rows) == 1
++    trial = rows[0]
++    assert set(trial) == set(example) == set(meta['top_level_keys'])
++    assert isinstance(trial['status'], dict)
++    assert set(trial['status']) == set(example['status']) == {
++        'state', 'completion_reason', 'terminal_state', 'went_ot',
++        'adapter_projection_allowed', 'projection_blockers'}
++    assert isinstance(trial['status']['state'], str)
++    assert isinstance(trial['status']['completion_reason'], str)
++    assert isinstance(trial['status']['terminal_state'], dict)
++    assert type(trial['status']['went_ot']) is bool
++    assert trial['status']['adapter_projection_allowed'] is False
++    assert isinstance(trial['status']['projection_blockers'], list)
++    assert not {'completion_reason', 'terminal_state', 'went_ot'} & set(trial)
++    assert set(trial['freeze']) == set(example['freeze']) == set(meta['freeze_keys'])
++    assert trial['freeze']['input_manifest_digest'] == output['input_content_hash']
++    assert 'input_manifest_hash' not in trial['freeze']
++    assert set(trial['engine']) == set(example['engine']) == set(meta['engine_keys'])
++    assert isinstance(trial['engine']['component_version'], str)
++    assert set(trial['engine']['dependencies']) == {'python', 'numpy'}
++    assert all(isinstance(v, str) and v for v in trial['engine']['dependencies'].values())
++    assert not {'component_versions', 'dependency_versions'} & set(trial['engine'])
++    assert trial['team_periods']
++    for row in trial['team_periods']:
++        assert set(row) == set(example['team_periods'][0]) == set(meta['team_period_sample_keys'])
++        assert set(row['stats']) == set(example['team_periods'][0]['stats'])
++        assert type(row['stats']['points']) is int
++        assert 'points' not in row
+ 
+ 
+ def fixture_inputs(tmp_path, terminal="designed_rush", catch="COMPLETE", elapsed=900, yards=None):

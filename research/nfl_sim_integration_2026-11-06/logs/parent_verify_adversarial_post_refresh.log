@@ -1,0 +1,19 @@
+..F..................................................................    [100%]
+=================================== FAILURES ===================================
+_____________________ test_market_protected_hash_inventory _____________________
+
+    def test_market_protected_hash_inventory():
+        inventory = json.loads((OUT / "market_calibration_file_hashes.json").read_text())
+        assert inventory["files"]
+        for entry in inventory["files"]:
+>           assert digest(entry["path"]) == entry["sha256"], f"BLOCKER MARKET_HASH_CHANGED {entry['path']}"
+E           AssertionError: BLOCKER MARKET_HASH_CHANGED /workspace/wt-market-calibration/research/market_calibration/tracking/NFL-16_TRACKING.md
+E           assert '913ed626375b...0399022553ae8' == '736716f97a96...dff1122c631db'
+E             
+E             - 736716f97a966c26f692fae4f64d4bb0e9d5dc57d9a665730e6dff1122c631db
+E             + 913ed626375b14c22757a3bd92c3cf1618a929c0b8880b2e0ef0399022553ae8
+
+integration/integration_adversarial_tests.py:112: AssertionError
+=========================== short test summary info ============================
+FAILED integration/integration_adversarial_tests.py::test_market_protected_hash_inventory
+1 failed, 68 passed in 1.73s

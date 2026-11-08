@@ -1,0 +1,36 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________ test_direct_retained_producer_wire_without_remap _______________
+
+    def test_direct_retained_producer_wire_without_remap():
+        # Load the independently retained population BEFORE opening consumer rows.
+        evidence = json.loads((INTEGRATION / 'reviews/EVIDENCE_CODEX.json').read_text())['smoke']
+        expected_ids = evidence['trial_ids']
+        content = SMOKE.read_bytes()
+        assert sha256(content).hexdigest() == SMOKE_SHA256
+        assert evidence['artifact_hashes']['trials.jsonl'] == 'sha256:' + SMOKE_SHA256
+        rows = [json.loads(line) for line in content.splitlines()]
+        original = deepcopy(rows)
+    
+>       transported = adapt_joint_trials(rows, expected_trial_ids=expected_ids)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+research/market_calibration/tests/test_producer_wire.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+research/market_calibration/joint_trial_adapter.py:106: in adapt_joint_trials
+    require_fields(row, required, "trial")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = {'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prove..., 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}
+fields = ('contract_version', 'forecast_id', 'trial_id', 'trial_index', 'game', 'freeze', ...)
+name = 'trial'
+
+    def require_fields(obj, fields, name):
+        if not isinstance(obj, dict) or not set(fields) <= obj.keys():
+>           raise ValueError(f"missing {name} fields")
+E           ValueError: missing trial fields
+
+research/market_calibration/joint_trial_adapter.py:49: ValueError
+=========================== short test summary info ============================
+FAILED research/market_calibration/tests/test_producer_wire.py::test_direct_retained_producer_wire_without_remap
+1 failed in 0.05s

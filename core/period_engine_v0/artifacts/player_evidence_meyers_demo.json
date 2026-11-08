@@ -1,0 +1,85 @@
+{
+  "player": "Jakobi Meyers",
+  "team": "JAC",
+  "opponent": "BAL",
+  "market_tie": {
+    "market": "Receptions",
+    "line": 3.5,
+    "side": "Over",
+    "source_type": "outlier_csv",
+    "source_path": "/workspace/nfl-database/outlier/outlier_props_2026-11-05.csv",
+    "source_hash_or_row": "{\"player\": \"Jakobi Meyers\", \"market\": \"Receptions\", \"line\": \"3.5\", \"side\": \"Over\", \"source\": \"outlier NFL/props (player+market filter)\"}",
+    "pulled_et": "2026-11-05 10:14 ET csv",
+    "notes": "JAC@BAL TNF; PP odds -119 = pick-em/PP line"
+  },
+  "outlier_row": {
+    "player": "Jakobi Meyers",
+    "team": "JAC",
+    "opponent": "BAL",
+    "market": "Receptions",
+    "line": "3.5",
+    "side": "Over",
+    "odds_FD": "+124",
+    "odds_PP": "\ud83d\ude08",
+    "odds_DK": "+123",
+    "IP": "45%",
+    "Opp_Rank": "15th BAL",
+    "L5": "40%",
+    "L10": "40%",
+    "H2H": "-",
+    "hit_2026": "29%",
+    "hit_2025": "82%",
+    "source": "outlier NFL/props (player+market filter)",
+    "notes": "JAC@BAL TNF; PP odds -119 = pick-em/PP line"
+  },
+  "h2h": {
+    "raw": "-",
+    "n": null,
+    "rate": null,
+    "status": "MISSING",
+    "notes": "Outlier H2H cell only; n and role/QB match not verified here"
+  },
+  "recent_form": {
+    "L5": "40%",
+    "L10": "40%",
+    "hit_2026": "29%",
+    "hit_2025": "82%",
+    "status": "FROM_OUTLIER_CSV",
+    "notes": "Green hit-rate chart \u2260 automatic edge"
+  },
+  "location_overlay": {
+    "grid": "short|intermediate|deep x left|middle|right",
+    "status": "MISSING",
+    "notes": "No target-location overlay in Outlier CSV; need charting/NGS or labeled screenshot tied to market"
+  },
+  "alignment_route": {
+    "status": "MISSING",
+    "notes": "Alignment/route not in CSV"
+  },
+  "verified_defenders": {
+    "status": "MISSING",
+    "primary_verified": false,
+    "notes": "Verified responsible defenders require Phase-4 sources; not inventable from Outlier props CSV"
+  },
+  "qb_role_injury_coverage_changes": {
+    "qb_change": "UNKNOWN",
+    "role_change": "UNKNOWN",
+    "injury_context": "UNKNOWN",
+    "coverage_change": "UNKNOWN",
+    "status": "MISSING_UNLESS_SUPPLIED_BY_CALLER",
+    "notes": "Caller may attach as-of injury/QB notes; module does not scrape"
+  },
+  "miss_audit": {
+    "status": "MISSING",
+    "notes": "Miss audit (why line missed; cause present this week?) must be written by researcher \u2014 not auto from L5"
+  },
+  "flags": [
+    "H2H_MISSING_OR_DASH",
+    "LOCATION_OVERLAY_MISSING",
+    "ALIGNMENT_ROUTE_MISSING",
+    "VERIFIED_DEFENDER_MISSING",
+    "QB_ROLE_INJURY_COVERAGE_NOT_ATTACHED",
+    "MISS_AUDIT_NOT_ATTACHED",
+    "GREEN_CHART_NOT_AUTOMATIC_EDGE"
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "document_type": "binding_rebind_independent_verify",
+  "verifier": "Codex",
+  "generated_at_utc": "2026-11-06T12:13:52.669162+00:00",
+  "verdict": "PASS",
+  "scope": "BetGuru contract rebind hashes and one DIRECT transport test only",
+  "checks": {
+    "core_contract_hash_matches_authorized": true,
+    "producer_example_hash_matches_frozen": true,
+    "adapter_CONTRACT_SHA256_matches_authorized": true,
+    "manifest_binding_matches_authorized": true,
+    "hashes_match_rebind_evidence": true,
+    "DIRECT_passed": true,
+    "NOLINE_preserved": true,
+    "Bias_unfitted_preserved": true,
+    "protected_inputs_unchanged": true
+  },
+  "hashes": {
+    "core_contract_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+    "producer_example_sha256": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd",
+    "adapter_file_sha256": "f430b71834c5da8c59083218c7f0860cee7fd84c30460d9a167aa72af224384d"
+  },
+  "adapter_CONTRACT_SHA256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+  "DIRECT": {
+    "started_at_utc": "2026-11-06T12:13:52.292203+00:00",
+    "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+    "command": [
+      "python3",
+      "-m",
+      "pytest",
+      "integration/integration_adversarial_tests.py::test_DIRECT_actual_producer_to_market_acceptance",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "GIT_OPTIONAL_LOCKS": "0",
+      "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06"
+    },
+    "exit_code": 0,
+    "result": "PASS",
+    "exact_merged_output": ".                                                                        [100%]\n1 passed in 0.19s\n",
+    "output_sha256": "f69b41b567fe2583118441e8e8390afa756eecb8625fa01f5e10bcff2c1cef10"
+  },
+  "inputs_read": [
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/BINDING_REBIND_COMPLETION.md",
+    "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_evidence.json",
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/PARENT_VERIFY_POST_REBIND.json",
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md",
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/parent_verify_DIRECT_post_rebind.log"
+  ],
+  "protected_inputs": [
+    {
+      "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/BINDING_REBIND_COMPLETION.md",
+      "before_sha256": "79d8015798638e7c33c079fc677f6ee53137b17ee3ec055d5aab2ece3c1525fd",
+      "after_sha256": "79d8015798638e7c33c079fc677f6ee53137b17ee3ec055d5aab2ece3c1525fd",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_evidence.json",
+      "before_sha256": "a3d25d07f33a74fdc28befb0023cf66da424af6780696e5ed7a853d2920dec98",
+      "after_sha256": "a3d25d07f33a74fdc28befb0023cf66da424af6780696e5ed7a853d2920dec98",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/PARENT_VERIFY_POST_REBIND.json",
+      "before_sha256": "debeb57b159ccc57c7260f7cb4105cf1f061dab47cdbe0d8fa92ac91c6a5d474",
+      "after_sha256": "debeb57b159ccc57c7260f7cb4105cf1f061dab47cdbe0d8fa92ac91c6a5d474",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md",
+      "before_sha256": "f56b233593a66c8dc3a6c28a8721057e7d3a37c740900ed23055a208cadc8cc7",
+      "after_sha256": "f56b233593a66c8dc3a6c28a8721057e7d3a37c740900ed23055a208cadc8cc7",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/parent_verify_DIRECT_post_rebind.log",
+      "before_sha256": "f69b41b567fe2583118441e8e8390afa756eecb8625fa01f5e10bcff2c1cef10",
+      "after_sha256": "f69b41b567fe2583118441e8e8390afa756eecb8625fa01f5e10bcff2c1cef10",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/core_contract.md",
+      "before_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+      "after_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/producer_joint_trial_example_v1.jsonl",
+      "before_sha256": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd",
+      "after_sha256": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/wt-market-calibration/research/market_calibration/joint_trial_adapter.py",
+      "before_sha256": "f430b71834c5da8c59083218c7f0860cee7fd84c30460d9a167aa72af224384d",
+      "after_sha256": "f430b71834c5da8c59083218c7f0860cee7fd84c30460d9a167aa72af224384d",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/wt-market-calibration/research/market_calibration/MANIFEST.json",
+      "before_sha256": "c996299ca4cda5a1ed7e90a5958573798c9bf73ace4276bbc0e6346d721684bb",
+      "after_sha256": "c996299ca4cda5a1ed7e90a5958573798c9bf73ace4276bbc0e6346d721684bb",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_adversarial_tests.py",
+      "before_sha256": "e373b19714f983caf11a75957c63dd1db8b0fd4122f824333f532fc1c212f06a",
+      "after_sha256": "e373b19714f983caf11a75957c63dd1db8b0fd4122f824333f532fc1c212f06a",
+      "unchanged": true
+    }
+  ],
+  "actionable_status": "NOLINE",
+  "bias_status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+  "bias_fitted": false,
+  "bias_coefficients": null,
+  "ghost_final_acceptance": "NOT_CLAIMED",
+  "impact": "NOT_MEASURED",
+  "full_adversarial_rerun": "NOT_RUN",
+  "notes": [
+    "Ghost FINAL is NOT claimed; ghost_final_acceptance=NOT_CLAIMED.",
+    "NOLINE preserved: manifest inspected and DIRECT asserts actionable_status for every transported trial.",
+    "Bias unfitted preserved: manifest status UNIMPLEMENTED_NO_FITTED_CALIB, fitted=false, coefficients=null; no fit performed.",
+    "impact=NOT_MEASURED. No predictive improvement, projection permission, or holdout validation claimed.",
+    "Only the requested DIRECT test was rerun; full adversarial suite was NOT_RUN here. Earlier full-suite failures in PARENT_VERIFY_POST_REBIND.json remain outside this verdict.",
+    "DIRECT consumes durable producer smoke, not the frozen single-row example; the latter was independently hashed only.",
+    "No contract override, trial remap, market_calibration edit, or new simulation performed.",
+    "Verification writes are limited to the two BINDING_REBIND_INDEPENDENT_VERIFY evidence files under integration/wire/."
+  ]
+}

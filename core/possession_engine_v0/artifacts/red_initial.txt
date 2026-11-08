@@ -1,0 +1,27 @@
+
+==================================== ERRORS ====================================
+_______________ ERROR collecting tests/test_sparse_and_config.py _______________
+ImportError while importing test module '/workspace/wt-period-engine/research/possession_engine_v0/tests/test_sparse_and_config.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_sparse_and_config.py:6: in <module>
+    from pbp_filter import load_team_history
+E   ModuleNotFoundError: No module named 'pbp_filter'
+______________ ERROR collecting tests/test_state_and_sim_slice.py ______________
+ImportError while importing test module '/workspace/wt-period-engine/research/possession_engine_v0/tests/test_state_and_sim_slice.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_state_and_sim_slice.py:6: in <module>
+    from config_load import load_config
+E   ModuleNotFoundError: No module named 'config_load'
+=========================== short test summary info ============================
+ERROR tests/test_sparse_and_config.py
+ERROR tests/test_state_and_sim_slice.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+2 errors in 0.12s

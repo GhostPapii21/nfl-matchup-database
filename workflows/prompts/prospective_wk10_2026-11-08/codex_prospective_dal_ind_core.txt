@@ -1,0 +1,29 @@
+You are Codex repairing CORE (not BetGuru market adapter). Working directory for outputs:
+/workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08
+
+CORE engine tree:
+/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0
+
+CONTEXT
+- Retrospective certified_asof for JAX@BAL kickoff 2026-11-06T01:15Z remains separate; do NOT overwrite it.
+- Prospective Sunday game: DAL@IND, ESPN 401873040, nflverse 2026_09_DAL_IND, kickoff 2026-11-08T18:00:00Z, status pre.
+- Acquisition already pulled (see ACQUISITION_ATTEMPTS.json + raw/ + records/). SUCCESS exists for ESPN scoreboard/summary/rosters/injuries, nflverse games/roster/depth/injuries/players. Odds-bridge LOGIN_REQUIRED — do not bypass; quotes = NOLINE / no picks. Coverage effects DISABLED (allows_sim_effect=false); do not invent coverage/routes/personnel rates.
+- Prior SUCCESS=0 was NOT exhausted access: it froze postgame retrospective cutoff without prospective pulls.
+
+YOUR JOB (implement + evidence)
+1) Build provenance-certified frozen inputs under prospective_wk10.../inputs/ for DAL@IND:
+   - registry.json with real game IDs (espn 401873040, nflverse 2026_09_DAL_IND), team namespaces, players from ESPN rosters + nflverse gsis/espn crosswalk for ACT players on DAL/IND. Include evidence_refs, alias_map_version, team_alias_map, crosswalk.
+   - model.json data_only lineage: role_states from latest depth chart (dt 2026-11-06) + injury designations (OUT/IR/Doubtful unavailable; Questionable remains available with explicit uncertainty flag). Coverage/routes/personnel features MISSING with allows_sim_effect false — never guess. Prefer empirical usage from PBP W1–8 for DAL/IND if you wire empirical tables; else keep explicit SCENARIO_ONLY flags and sample_size_reason honest.
+   - splits.json: UNASSIGNED or FROZEN with W1–8 development for DAL/IND games; future weeks not holdout-contaminated.
+   - run_spec / input_manifest with cutoff_utc BEFORE kickoff (use acquisition retrieved time ~2026-11-06T12:40:00Z or earlier artifact times), frozen_at_utc, generated_at_utc ordered correctly; asof clocks per joint_inputs.freeze_run contract.
+2) feature_availability.json: coverage UNKNOWN, routes/personnel MISSING, allows_sim_effect=false.
+3) Quotes: actionable_status NOLINE; do not pull Odds API; do not browser-auth odds-bridge.
+4) Run from possession_engine_v0:
+   - PYTHONDONTWRITEBYTECODE=1 python -m pytest tests/test_joint_producer.py -q --tb=line  (conservation/OT must stay green)
+   - Build config dal_ind_2026-11-08_data_only.json analogous to jax_bal demo; run scoped empirical sim using raw/play_by_play_2026.parquet or records/pbp_DAL_IND_w1_8.csv.gz for teams DAL,IND weeks 1–8; practical N=500 or 2000; write artifacts under prospective.../runs/.
+5) Write SOURCE_LEDGER_PROSPECTIVE.json with per-provider status SUCCESS|SAVED_ONLY|MISSING|LOGIN_REQUIRED|ERROR|NOT_APPLICABLE, fields retrieved, sha256, why SUCCESS is legitimate for prospective as-of (current public data available before kickoff).
+6) Write READINESS_PROSPECTIVE.json: projection_ready false unless you truly complete brainstorm+15 phases with evidence; be truthful. Ghost final NOT_CLAIMED. Impact NOT_MEASURED. Separate retrospective vs prospective.
+7) Write COMPLETION_PROSPECTIVE_CORE.md with concrete acquisition attempts, fields, commands, pytest results, sim summary, remaining genuine blockers.
+8) Do not edit market_calibration. Do not claim acceptance from test counts alone.
+
+Use --skip-git-repo-check if needed. Workspace write only under prospective tree + possession_engine_v0 configs/artifacts for DAL@IND (no JAX@BAL overwrite).

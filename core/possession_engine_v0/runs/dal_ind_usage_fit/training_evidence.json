@@ -1,0 +1,526 @@
+{
+  "after": {
+    "outcome_cells": 20,
+    "sample_size": 1068,
+    "usage_cells": 8
+  },
+  "before": {
+    "outcome_cells": 5,
+    "sample_size": null,
+    "usage_cells": 1
+  },
+  "cells": [
+    {
+      "cell_id": "DAL_down1",
+      "flags": [],
+      "pooling": "NONE across teams; distance/field/score/period deliberately unconditioned",
+      "sample_size": 220,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "down": 1,
+        "team_id": "DAL"
+      }
+    },
+    {
+      "cell_id": "DAL_down2",
+      "flags": [],
+      "pooling": "NONE across teams; distance/field/score/period deliberately unconditioned",
+      "sample_size": 170,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "down": 2,
+        "team_id": "DAL"
+      }
+    },
+    {
+      "cell_id": "DAL_down3",
+      "flags": [],
+      "pooling": "NONE across teams; distance/field/score/period deliberately unconditioned",
+      "sample_size": 95,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "down": 3,
+        "team_id": "DAL"
+      }
+    },
+    {
+      "cell_id": "DAL_down4",
+      "flags": [],
+      "pooling": "NONE across teams; distance/field/score/period deliberately unconditioned",
+      "sample_size": 41,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "down": 4,
+        "team_id": "DAL"
+      }
+    },
+    {
+      "cell_id": "IND_down1",
+      "flags": [],
+      "pooling": "NONE across teams; distance/field/score/period deliberately unconditioned",
+      "sample_size": 211,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "down": 1,
+        "team_id": "IND"
+      }
+    },
+    {
+      "cell_id": "IND_down2",
+      "flags": [],
+      "pooling": "NONE across teams; distance/field/score/period deliberately unconditioned",
+      "sample_size": 167,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "down": 2,
+        "team_id": "IND"
+      }
+    },
+    {
+      "cell_id": "IND_down3",
+      "flags": [],
+      "pooling": "NONE across teams; distance/field/score/period deliberately unconditioned",
+      "sample_size": 107,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "down": 3,
+        "team_id": "IND"
+      }
+    },
+    {
+      "cell_id": "IND_down4",
+      "flags": [],
+      "pooling": "NONE across teams; distance/field/score/period deliberately unconditioned",
+      "sample_size": 57,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "down": 4,
+        "team_id": "IND"
+      }
+    },
+    {
+      "cell_id": "DAL_designed_rush_NA",
+      "flags": [],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 175,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "DAL",
+        "terminal": "designed_rush"
+      }
+    },
+    {
+      "cell_id": "DAL_field_goal_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 15,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "DAL",
+        "terminal": "field_goal"
+      }
+    },
+    {
+      "cell_id": "DAL_other_untargeted_attempt_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 7,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "DAL",
+        "terminal": "other_untargeted_attempt"
+      }
+    },
+    {
+      "cell_id": "DAL_punt_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 17,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "DAL",
+        "terminal": "punt"
+      }
+    },
+    {
+      "cell_id": "DAL_sack_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 11,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "DAL",
+        "terminal": "sack"
+      }
+    },
+    {
+      "cell_id": "DAL_scramble_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 17,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "DAL",
+        "terminal": "scramble"
+      }
+    },
+    {
+      "cell_id": "DAL_targeted_pass_COMPLETE",
+      "flags": [],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 187,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "catch": "COMPLETE",
+        "team_id": "DAL",
+        "terminal": "targeted_pass"
+      }
+    },
+    {
+      "cell_id": "DAL_targeted_pass_INCOMPLETE",
+      "flags": [],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 93,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "catch": "INCOMPLETE",
+        "team_id": "DAL",
+        "terminal": "targeted_pass"
+      }
+    },
+    {
+      "cell_id": "DAL_targeted_pass_INTERCEPTION",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 4,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "catch": "INTERCEPTION",
+        "team_id": "DAL",
+        "terminal": "targeted_pass"
+      }
+    },
+    {
+      "cell_id": "IND_designed_rush_NA",
+      "flags": [],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 202,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "IND",
+        "terminal": "designed_rush"
+      }
+    },
+    {
+      "cell_id": "IND_field_goal_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 19,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "IND",
+        "terminal": "field_goal"
+      }
+    },
+    {
+      "cell_id": "IND_kneel_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 3,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "IND",
+        "terminal": "kneel"
+      }
+    },
+    {
+      "cell_id": "IND_other_untargeted_attempt_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 14,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "IND",
+        "terminal": "other_untargeted_attempt"
+      }
+    },
+    {
+      "cell_id": "IND_punt_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 21,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "IND",
+        "terminal": "punt"
+      }
+    },
+    {
+      "cell_id": "IND_sack_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 20,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "IND",
+        "terminal": "sack"
+      }
+    },
+    {
+      "cell_id": "IND_scramble_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 11,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "IND",
+        "terminal": "scramble"
+      }
+    },
+    {
+      "cell_id": "IND_spike_NA",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 1,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "team_id": "IND",
+        "terminal": "spike"
+      }
+    },
+    {
+      "cell_id": "IND_targeted_pass_COMPLETE",
+      "flags": [],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 161,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "catch": "COMPLETE",
+        "team_id": "IND",
+        "terminal": "targeted_pass"
+      }
+    },
+    {
+      "cell_id": "IND_targeted_pass_INCOMPLETE",
+      "flags": [],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 82,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "catch": "INCOMPLETE",
+        "team_id": "IND",
+        "terminal": "targeted_pass"
+      }
+    },
+    {
+      "cell_id": "IND_targeted_pass_INTERCEPTION",
+      "flags": [
+        "SPARSE_STATE",
+        "LOW-SAMPLE"
+      ],
+      "pooling": "NONE across teams; down/distance/field/score unconditioned",
+      "sample_size": 8,
+      "uncertainty": {
+        "independent_unit": "play; within-game dependence not adjusted",
+        "method": "empirical_multinomial_plugin; Wilson95 per category",
+        "predictive_validation": "NOT_MEASURED"
+      },
+      "when": {
+        "catch": "INTERCEPTION",
+        "team_id": "IND",
+        "terminal": "targeted_pass"
+      }
+    }
+  ],
+  "exclusions": {
+    "missing_down": 151,
+    "missing_zero_or_over60_adjacent_clock": 11,
+    "opponent_offense_or_no_possession": 1332,
+    "unsupported_negative_punt_net": 1,
+    "unsupported_penalty_fumble_lateral_return_or_block": 99,
+    "unsupported_play_type": 3
+  },
+  "input_rows": 2665,
+  "leakage_checks": "PASS: season2026 weeks1-8, game dates before cutoff, DAL/IND involved only; no target game or market read",
+  "limitations": [
+    "Clock proxy excludes zero/missing/>60s; selection bias",
+    "Penalties/fumbles/laterals/returns excluded; no official rules integration",
+    "Availability/rotation/target depth/try point weights remain prior model, not empirical fit",
+    "In-sample counts and Wilson intervals are descriptive; game correlation and model bias not covered"
+  ],
+  "retained_rows": 1068,
+  "source": {
+    "cutoff_utc": "2026-11-06T12:40:00Z",
+    "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08/records/pbp_DAL_IND_w1_8.csv.gz",
+    "sha256": "a0bc843133f60baeb6b388e73e50ca71b8fffc1d1017e1ce603c352c37e6f5de",
+    "weeks": [
+      1,
+      8
+    ]
+  },
+  "training_game_ids": [
+    "2026_01_BAL_IND",
+    "2026_01_DAL_NYG",
+    "2026_02_IND_KC",
+    "2026_02_WAS_DAL",
+    "2026_03_BAL_DAL",
+    "2026_03_HOU_IND",
+    "2026_04_DAL_HOU",
+    "2026_04_IND_WAS",
+    "2026_05_IND_PIT",
+    "2026_05_TB_DAL",
+    "2026_06_DAL_GB",
+    "2026_06_TEN_IND",
+    "2026_07_DAL_PHI",
+    "2026_07_IND_MIN",
+    "2026_08_ARI_DAL",
+    "2026_08_IND_JAX"
+  ]
+}

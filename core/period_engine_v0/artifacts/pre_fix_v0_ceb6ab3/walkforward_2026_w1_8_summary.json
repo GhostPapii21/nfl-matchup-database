@@ -1,0 +1,49 @@
+{
+  "engine": "period_engine_v0",
+  "model_status": {
+    "monte_carlo": "IMPLEMENTED_EMPIRICAL_BOOTSTRAP",
+    "bias": "UNIMPLEMENTED_NO_FITTED_CALIB",
+    "game_randomness": "IMPLEMENTED_SHARED_GAME_SHOCK_UNFITTED_SCALE"
+  },
+  "n_sims_per_game": 20000,
+  "seed_base": 20261105,
+  "games_2026": 121,
+  "rows": 726,
+  "ok_rows": 726,
+  "skipped_rows": 0,
+  "missing_games": [],
+  "mae_by_period": {
+    "q1": 4.712851239669423,
+    "q2": 5.478300413223141,
+    "q3": 5.209930578512396,
+    "q4": 5.7154103305785116,
+    "h1": 7.530822727272727,
+    "fg": 11.598917355371901
+  },
+  "brier_home_win_by_period": {
+    "q1": 0.2600135815082645,
+    "q2": 0.24525819559917356,
+    "q3": 0.23979771157024793,
+    "q4": 0.2516719263636364,
+    "h1": 0.24517569241735537,
+    "fg": 0.24388451859504134
+  },
+  "baseline_brier_home_win_by_period": {
+    "q1": 0.2496321670804527,
+    "q2": 0.25192482996872095,
+    "q3": 0.2444111557169685,
+    "q4": 0.24171733330818446,
+    "h1": 0.2502525043113424,
+    "fg": 0.25093420490276863
+  },
+  "limitations": [
+    "NO historical period market prices \u2014 accuracy metrics only; NO profitability/edge claim",
+    "Bias model UNIMPLEMENTED \u2014 not fitted",
+    "GR shock scale from empirical CV is UNFITTED (not holdout-calibrated)",
+    "No injury/roster/weather as-of features \u2014 team empirical quarter vectors only",
+    "Scenario drivers not pre-written historically \u2014 any narrative would be reconstruction, not pre-kick",
+    "Training pool = all as-of games; metrics are genuine walk-forward test per kickoff week \u2014 do not conflate with in-sample fit",
+    "Opponent strength not modeled beyond opponent's own as-of empirical distribution"
+  ],
+  "split_policy": "For each 2026 week W game, features/history use only games with (season,week) strictly before (2026,W). 2025 REG included for Week1+. Never later 2026 weeks."
+}

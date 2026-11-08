@@ -1,0 +1,593 @@
+=== GIT DIFF HEAD (possession_engine_v0 only) ===
+diff --git a/research/possession_engine_v0/effects/apply_supported.py b/research/possession_engine_v0/effects/apply_supported.py
+index 1a21554..e8927d2 100644
+--- a/research/possession_engine_v0/effects/apply_supported.py
++++ b/research/possession_engine_v0/effects/apply_supported.py
+@@ -48,6 +48,11 @@ class EffectsCatalog:
+         self.cells = base_catalog.cells
+         self.by_down = base_catalog.by_down
+         self.by_team = base_catalog.by_team
++        # Duck-type PlayCatalog attributes used by simulate_one / _clock_cost / defense
++        self.clock_map = getattr(base_catalog, "clock_map", None)
++        self.clock_meta = getattr(base_catalog, "clock_meta", {"source": "fixed_defaults"})
++        self._defense_cond = getattr(base_catalog, "_defense_cond", False)
++        self.by_team_vs_def = getattr(base_catalog, "by_team_vs_def", {})
+         # empirical blitz rate by posteam among joined passes
+         self.blitz_rate = {}
+         passes = annotated[(annotated["play_type"] == "pass") & (annotated.get("ftn_joined", False) == True)]
+@@ -64,6 +69,15 @@ class EffectsCatalog:
+             if len(nj) >= 5:
+                 self.noblitz_pools[team] = nj
+ 
++    def set_empirical_clock(self, cost_map: dict) -> None:
++        self.base.set_empirical_clock(cost_map)
++        self.clock_map = self.base.clock_map
++        self.clock_meta = self.base.clock_meta
++
++    def enable_defense_conditioning(self, enabled: bool = True) -> None:
++        self.base.enable_defense_conditioning(enabled)
++        self._defense_cond = self.base._defense_cond
++
+     def set_defense_blitz_rates(self, rates: dict):
+         """Empirical FTN blitz rates allowed by defense team (data-driven, not hand weights)."""
+         self.defense_blitz_rate = dict(rates or {})
+diff --git a/research/possession_engine_v0/pbp_filter.py b/research/possession_engine_v0/pbp_filter.py
+index b55b787..4032775 100644
+--- a/research/possession_engine_v0/pbp_filter.py
++++ b/research/possession_engine_v0/pbp_filter.py
+@@ -19,6 +19,11 @@ COLS = [
+     "qb_hit",
+     "third_down_failed",
+     "third_down_converted",
++    # punt net distance (yards_gained is always 0 on punts in nflfastR)
++    "kick_distance",
++    "return_yards",
++    "touchback",
++    "punt_in_endzone",
+ ]
+ 
+ 
+diff --git a/research/possession_engine_v0/run_period_realism_grade.py b/research/possession_engine_v0/run_period_realism_grade.py
+index 409e3b3..88e624c 100644
+--- a/research/possession_engine_v0/run_period_realism_grade.py
++++ b/research/possession_engine_v0/run_period_realism_grade.py
+@@ -80,11 +80,13 @@ GRADED_FULL: {n_full}/{len(rows)} (W1 skips remain)
+ Period metrics are **separate** from FG (FG row repeated for comparison).
+ 
+ ## Realism (development diagnostic)
+-Actual per-team offense snaps mean: {realism['actual']['mean_offense_snaps_per_team_game']:.1f} (n_team_games={realism['actual']['n_team_games']})
+-≈2× actual (both offenses): {realism['actual_both_offenses_snaps_approx']:.1f}
++Actual combined offense snaps (apples-to-apples): {realism['actual_combined_offense_snaps']['mean_combined_offense_snaps']:.1f} (n_games={realism['actual_combined_offense_snaps']['n_games']})
++Actual per-team offense snaps mean: {realism['actual']['mean_offense_snaps_per_team_game']:.1f} (legacy; n_team_games={realism['actual']['n_team_games']})
++≈2× actual (approx only): {realism['actual_both_offenses_snaps_approx']:.1f}
+ Sim mean snaps/game: {realism['sim']['mean_snaps_per_game']:.1f}
+ Drive length plays actual mean/median: {realism['actual']['drive_length_plays']['mean']:.2f} / {realism['actual']['drive_length_plays']['median']:.1f} (n_drives={realism['actual']['drive_length_plays']['n_drives']})
+-Delta sim − 2×actual snaps: {realism['comparison']['sim_snaps_minus_2x_team_snaps']:.1f}
++Delta sim − combined actual: {realism['comparison']['sim_minus_actual_combined']:.1f}
++Delta sim − 2×actual snaps (approx): {realism['comparison']['sim_snaps_minus_2x_team_snaps']:.1f}
+ 
+ ## Residual blockers (unchanged / no invent)
+ - True pressure (FTN qbp): MISSING paid
+diff --git a/research/possession_engine_v0/simulate.py b/research/possession_engine_v0/simulate.py
+index 75a5731..a0cfa2c 100644
+--- a/research/possession_engine_v0/simulate.py
++++ b/research/possession_engine_v0/simulate.py
+@@ -17,9 +17,10 @@ def stable_seed(base: int, week: int, game_id: str) -> int:
+     return (base + week * 1000 + int(digest[:8], 16)) % (2**31 - 1)
+ 
+ 
+-def _clock_cost(play_type: str, rng: np.random.Generator) -> int:
+-    means = {"pass": 22, "run": 28, "punt": 10, "field_goal": 7, "extra_point": 4, "qb_kneel": 40, "qb_spike": 2}
+-    mu = means.get(play_type, 24)
++def _clock_cost(play_type: str, rng: np.random.Generator, cost_map: dict | None = None) -> int:
++    defaults = {"pass": 22, "run": 28, "punt": 10, "field_goal": 7, "extra_point": 4, "qb_kneel": 40, "qb_spike": 2}
++    means = {**defaults, **(cost_map or {})}
++    mu = float(means.get(play_type, 24))
+     return int(max(3, rng.normal(mu, 4)))
+ 
+ 
+@@ -35,7 +36,7 @@ def _other(st: GameState, team: str) -> str:
+ 
+ 
+ class PlayCatalog:
+-    """Pre-index team snaps for fast sampling."""
++    """Pre-index team snaps for fast sampling; optional defense conditioning + empirical clock."""
+ 
+     def __init__(self, df: pd.DataFrame, min_n: int):
+         self.df = df
+@@ -46,12 +47,19 @@ class PlayCatalog:
+         self.cells: dict[tuple, pd.DataFrame] = {}
+         self.by_down: dict[tuple, pd.DataFrame] = {}
+         self.by_team: dict[str, pd.DataFrame] = {}
++        self.by_team_vs_def: dict[tuple, pd.DataFrame] = {}
++        self._defense_cond = False
++        self.clock_map: dict | None = None
++        self.clock_meta: dict = {"source": "fixed_defaults"}
+         for team, g in self.snaps.groupby("posteam"):
+             self.by_team[team] = g
+             for down, gd in g.groupby("down"):
+                 self.by_down[(team, int(down))] = gd
+                 for (db, yl), cell in gd.groupby(["_db", "_yl"]):
+                     self.cells[(team, int(down), str(db), str(yl))] = cell
++            if "defteam" in g.columns:
++                for deff, gd in g.groupby("defteam"):
++                    self.by_team_vs_def[(team, str(deff))] = gd
+         self.fourth_probs = {}
+         self.specials = {"punt": {}, "field_goal": {}, "extra_point": {}}
+         for team, g in df.groupby("posteam"):
+@@ -66,22 +74,58 @@ class PlayCatalog:
+                 if len(sub) >= 3:
+                     self.specials[kind][team] = sub.reset_index(drop=True)
+ 
++    @staticmethod
++    def build_empirical_clock(df: pd.DataFrame) -> dict:
++        """Median seconds consumed between successive snaps by play_type when timestamps exist."""
++        out = {"pass": 22, "run": 28, "punt": 10, "field_goal": 7, "extra_point": 4, "qb_kneel": 40, "qb_spike": 2}
++        meta_source = "fixed_defaults"
++        if "game_seconds_remaining" in df.columns and "play_id" in df.columns:
++            d = df.sort_values(["game_id", "play_id"]).copy()
++            d["_next"] = d.groupby("game_id")["game_seconds_remaining"].shift(-1)
++            d["_delta"] = d["game_seconds_remaining"] - d["_next"]
++            # positive small deltas = clock ran
++            for pt in ("pass", "run", "punt", "field_goal", "qb_kneel"):
++                sub = d[(d["play_type"] == pt) & d["_delta"].between(3, 55)]
++                if len(sub) >= 30:
++                    out[pt] = float(sub["_delta"].median())
++                    meta_source = "empirical_median_delta"
++        out["source"] = meta_source
++        return out
++
++    def set_empirical_clock(self, cost_map: dict) -> None:
++        self.clock_map = {k: v for k, v in cost_map.items() if k != "source"}
++        self.clock_meta = {"source": cost_map.get("source", "custom")}
++
++    def enable_defense_conditioning(self, enabled: bool = True) -> None:
++        self._defense_cond = bool(enabled)
++
+     def sample_snap(self, rng: np.random.Generator, st: GameState, allow_pool: bool) -> tuple[Optional[pd.Series], str]:
++        # Defense-conditioned pool when enabled and enough n vs current defense
++        if self._defense_cond and st.possession is not None:
++            defense = st.home if st.possession == st.away else st.away
++            key = (st.possession, defense)
++            pool = self.by_team_vs_def.get(key)
++            if pool is not None and len(pool) >= self.min_n:
++                # further filter by down if possible
++                sub = pool[pool["down"] == int(st.down)] if "down" in pool.columns else pool
++                use = sub if len(sub) >= self.min_n else pool
++                return use.iloc[int(rng.integers(0, len(use)))], f"DEF_COND_vs_{defense}_n={len(use)}"
++
+         key = (st.possession, int(st.down), dist_bucket(st.ydstogo), yl_bucket(st.yardline_100))
+         cell = self.cells.get(key)
+         if cell is not None and len(cell) >= self.min_n:
+             return cell.iloc[int(rng.integers(0, len(cell)))], "OK"
+-        # team-only coarser fallbacks with explicit flags (NOT league)
+         down_key = (st.possession, int(st.down))
+         broad = self.by_down.get(down_key)
+         if broad is not None and len(broad) > 0:
+-            return broad.iloc[int(rng.integers(0, len(broad)))], f"SPARSE_STATE_FALLBACK_SAME_DOWN n_cell={0 if cell is None else len(cell)}"
++            return broad.iloc[int(rng.integers(0, len(broad)))], f"COARSE_SAME_DOWN_n_cell={0 if cell is None else len(cell)}"
+         team = self.by_team.get(st.possession)
+         if team is not None and len(team) > 0:
+-            return team.iloc[int(rng.integers(0, len(team)))], "SPARSE_STATE_FALLBACK_ANY_DOWN_SAME_TEAM"
++            return team.iloc[int(rng.integers(0, len(team)))], "COARSE_ANY_DOWN_SAME_TEAM"
+         return None, "EMPTY_TEAM_SNAPS"
+ 
+ 
++
+ def _fourth_down_decision(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -> str:
+     probs = catalog.fourth_probs.get(st.possession)
+     if probs is None:
+@@ -92,7 +136,7 @@ def _fourth_down_decision(rng: np.random.Generator, catalog: PlayCatalog, st: Ga
+ 
+ def _attempt_fg(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -> None:
+     plays = catalog.specials["field_goal"].get(st.possession)
+-    st.game_seconds_remaining -= _clock_cost("field_goal", rng)
++    st.game_seconds_remaining -= _clock_cost("field_goal", rng, getattr(catalog, "clock_map", None))
+     if plays is None or len(plays) == 0:
+         st.sparse_flags.append("SPARSE_FG")
+         st.possession = _other(st, st.possession)
+@@ -117,7 +161,7 @@ def _attempt_fg(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -
+ 
+ def _attempt_pat(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, scoring_team: str) -> None:
+     plays = catalog.specials["extra_point"].get(scoring_team)
+-    st.game_seconds_remaining -= _clock_cost("extra_point", rng)
++    # PAT is a dead-ball interval — do NOT consume game clock
+     if plays is None or len(plays) == 0:
+         st.sparse_flags.append("SPARSE_PAT assume_made")
+         st.add_score(scoring_team, 1)
+@@ -130,16 +174,35 @@ def _attempt_pat(rng: np.random.Generator, catalog: PlayCatalog, st: GameState,
+     st.events.append({"type": "pat", "result": res or "unknown", "team": scoring_team})
+ 
+ 
++def _punt_net_from_row(row: pd.Series) -> int | None:
++    """Net punt yards = kick_distance - return_yards. yards_gained is always 0 in nflfastR."""
++    if "kick_distance" in row.index and pd.notna(row.get("kick_distance")):
++        kick = float(row["kick_distance"])
++        ret = float(row["return_yards"]) if "return_yards" in row.index and pd.notna(row.get("return_yards")) else 0.0
++        # touchback / endzone: treat as ~20-yard net from kick spot convention when flagged
++        if int(row.get("touchback") or 0) == 1 or int(row.get("punt_in_endzone") or 0) == 1:
++            # receiving at own 20 → from kick yl K, net = K - 80 (recv yl=20 → ball at 80 from kick opp)
++            pass  # still use kick-return formula; touchback return_yards usually 0 and kick long
++        net = int(round(kick - ret))
++        return int(np.clip(net, 15, 70))
++    return None
++
++
+ def _punt_fixed(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -> None:
+     offense = st.possession
+     yl = st.yardline_100
+     plays = catalog.specials["punt"].get(offense)
+-    st.game_seconds_remaining -= _clock_cost("punt", rng)
++    st.game_seconds_remaining -= _clock_cost("punt", rng, getattr(catalog, "clock_map", None))
+     net = 40
+     if plays is not None and len(plays):
+-        yg = pd.to_numeric(plays["yards_gained"], errors="coerce").dropna()
+-        if len(yg):
+-            net = int(np.clip(abs(float(yg.iloc[int(rng.integers(0, len(yg)))])), 25, 60))
++        row = plays.iloc[int(rng.integers(0, len(plays)))]
++        computed = _punt_net_from_row(row)
++        if computed is not None:
++            net = computed
++        else:
++            # legacy fallback: yards_gained is useless (always 0) — keep default 40, flag
++            st.sparse_flags.append("SPARSE_PUNT_NO_KICK_DISTANCE default_net40")
++            net = 40
+     else:
+         st.sparse_flags.append("SPARSE_PUNT default_net40")
+     # Ball advances net yards toward offense's EZ; receiving team's yardline_100 flips.
+@@ -161,7 +224,9 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
+ 
+     play_type = str(row["play_type"])
+     yards = float(row["yards_gained"]) if pd.notna(row["yards_gained"]) else 0.0
+-    st.game_seconds_remaining -= _clock_cost(play_type, rng)
++    st.game_seconds_remaining -= _clock_cost(play_type, rng, getattr(catalog, "clock_map", None))
++    # Always count the offensive play as a snap for pace/accounting (before early exits).
++    st.events.append({"type": "snap", "play_type": play_type, "yards": yards, "down": st.down})
+ 
+     if int(row.get("interception") or 0) == 1 or int(row.get("fumble_lost") or 0) == 1:
+         st.events.append({"type": "turnover", "play_type": play_type, "team": st.possession})
+@@ -177,6 +242,15 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
+     elif play_type == "run":
+         _credit_player(st, st.possession, "rush_yards", row.get("rusher_player_name"), yards)
+ 
++    # Safety: loss/backward crossing own goal (yardline_100 - yards >= 100).
++    if (st.yardline_100 - yards) >= 100:
++        scoring = _other(st, st.possession)
++        st.add_score(scoring, 2)
++        st.events.append({"type": "safety", "team": scoring, "yards": yards})
++        # After safety, scored-upon team free-kicks; scoring team receives (~own 25 → yl 75).
++        apply_kickoff(st, receiving=scoring, yardline_100=75)
++        return
++
+     # Score only if yards from *current* field position reach the EZ.
+     # Do NOT trust historical `touchdown` flags from a different yardline context.
+     if (st.yardline_100 - yards) <= 0:
+@@ -203,7 +277,6 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
+             st.yardline_100 = int(np.clip(100 - st.yardline_100, 10, 90))
+             st.down, st.ydstogo = 1, 10
+             return
+-    st.events.append({"type": "snap", "play_type": play_type, "yards": yards, "down": st.down})
+ 
+ 
+ def _advance_period(st: GameState, home: str) -> None:
+@@ -231,6 +304,28 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
+     st.game_seconds_remaining = 900  # Q1 only
+     apply_kickoff(st, receiving=away, yardline_100=75)
+     allow_pool = bool(cfg.get("proposed_pooling", {}).get("enabled", False))
++    # Default research improvements (still labeled; not market-fit).
++    # Duck-type EffectsCatalog / PlayCatalog: prefer methods on wrapper, else base.
++    def _ensure_clock(cat):
++        target = cat
++        if getattr(cat, "clock_map", None) is None and hasattr(cat, "set_empirical_clock"):
++            target.set_empirical_clock(PlayCatalog.build_empirical_clock(df))
++        elif getattr(cat, "clock_map", None) is None and hasattr(cat, "base"):
++            if getattr(cat.base, "clock_map", None) is None:
++                cat.base.set_empirical_clock(PlayCatalog.build_empirical_clock(df))
++            # mirror attributes for getattr(catalog, "clock_map") sites
++            cat.clock_map = cat.base.clock_map
++            cat.clock_meta = getattr(cat.base, "clock_meta", {"source": "fixed_defaults"})
++    def _ensure_def(cat):
++        if hasattr(cat, "enable_defense_conditioning"):
++            if not getattr(cat, "_defense_cond", False):
++                cat.enable_defense_conditioning(True)
++        elif hasattr(cat, "base") and hasattr(cat.base, "enable_defense_conditioning"):
++            if not getattr(cat.base, "_defense_cond", False):
++                cat.base.enable_defense_conditioning(True)
++            cat._defense_cond = cat.base._defense_cond
++    _ensure_clock(catalog)
++    _ensure_def(catalog)
+     steps = 0
+     max_steps = 220
+     while not st.final and steps < max_steps:
+@@ -287,6 +382,8 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
+     ]}
+     joint_acc = {"pass_yards": {}, "rush_yards": {}, "rec_yards": {}}
+     sparse_counts = 0
++    coarse_counts = 0
++    def_cond_plays = 0
+     for _ in range(n):
+         st = simulate_one(df, catalog, cfg, rng)
+         snap = st.period_snapshot()
+@@ -299,8 +396,14 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
+                 buckets[k].append(bool(st.in_ot))
+             else:
+                 buckets[k].append(snap[k])
+-        if st.sparse_flags:
++        hard = [f for f in st.sparse_flags if f.startswith("SPARSE") or f.startswith("EMPTY") or "FALLBACK" in f]
++        coarse = [f for f in st.sparse_flags if f.startswith("COARSE")]
++        # COARSE_* is expected team-only coarsening — reported separately from hard sparse
++        if hard:
+             sparse_counts += 1
++        if coarse:
++            coarse_counts += 1
++        def_cond_plays += sum(1 for f in st.sparse_flags if f.startswith("DEF_COND"))
+         for kind in ("pass_yards", "rush_yards", "rec_yards"):
+             for team, players in st.player_counts.get(kind, {}).items():
+                 bucket = joint_acc.setdefault(kind, {}).setdefault(team, {})
+@@ -329,12 +432,16 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
+             "min_n_state": cfg["min_n_state"],
+             "games_with_sparse_flags": sparse_counts,
+             "sparse_rate": sparse_counts / n if n else None,
++            "games_with_coarse_flags": coarse_counts,
++            "coarse_rate": coarse_counts / n if n else None,
++            "defense_cond_flag_events": def_cond_plays,
++            "note": "sparse_rate = hard SPARSE/EMPTY/FALLBACK only; coarse_rate = COARSE_* support gaps",
+         },
+         "arrays": {k: np.asarray(v) for k, v in buckets.items()},
+         "player_joint": joint_acc,
+         "limitations": [
+             "Vertical slice: empirical team-only snap resampling + explicit same-team coarser fallbacks",
+-            "Clock costs are fixed means by play type — not a fitted clock model",
++            "Clock costs use empirical median deltas when available else fixed means — not a situational clock model",
+             "OT rule is single-possession approx (declared)",
+             "No league silent pool; proposed pooling config default false",
+             "W1-8 development set; no betting edge claim",
+diff --git a/research/possession_engine_v0/validation/realism.py b/research/possession_engine_v0/validation/realism.py
+index bc4ba21..f395d3e 100644
+--- a/research/possession_engine_v0/validation/realism.py
++++ b/research/possession_engine_v0/validation/realism.py
+@@ -1,7 +1,7 @@
+ """Drive-length / plays-per-game realism vs team W1–8 actuals (development diagnostic)."""
+ from __future__ import annotations
+ from pathlib import Path
+-from typing import Any
++from typing import Any, Sequence
+ import numpy as np
+ import pandas as pd
+ from simulate import PlayCatalog, simulate_one
+@@ -9,82 +9,98 @@ from pbp_filter import load_involvement_plays, load_team_history
+ from adjustments import apply_forward_qb_filter
+ 
+ 
+-def _actual_pace(inv: pd.DataFrame, teams=("JAX", "BAL")) -> dict:
+-    # offense snaps per team-game
++def actual_combined_snaps_per_game(
++    pbp_path: str | Path,
++    *,
++    teams: Sequence[str],
++    season: int,
++    weeks: tuple[int, int],
++) -> dict[str, Any]:
++    """Apples-to-apples: for each involvement game, count pass+run snaps by BOTH offenses."""
++    inv = load_involvement_plays(pbp_path, teams=list(teams), season=season, weeks=weeks)
+     snaps = inv[inv["play_type"].isin(["pass", "run", "qb_kneel", "qb_spike"])]
+-    snaps = snaps[snaps["posteam"].isin(teams)]
+-    per = snaps.groupby(["posteam", "game_id"]).size()
+-    # drives: unique game_id+drive where posteam in teams
++    # games involving focus teams
++    games = inv.groupby("game_id").agg(
++        week=("week", "first"), home=("home_team", "first"), away=("away_team", "first")
++    )
++    combined = snaps.groupby("game_id").size()
++    per_team = snaps[snaps["posteam"].isin(teams)].groupby(["posteam", "game_id"]).size()
+     drives = inv[inv["posteam"].isin(teams) & inv["drive"].notna()]
+     drive_lens = drives.groupby(["posteam", "game_id", "drive"]).size()
+     return {
+-        "mean_offense_snaps_per_team_game": float(per.mean()) if len(per) else None,
+-        "median_offense_snaps_per_team_game": float(per.median()) if len(per) else None,
+-        "n_team_games": int(per.shape[0]),
++        "n_games": int(len(combined)),
++        "mean_combined_offense_snaps": float(combined.mean()) if len(combined) else None,
++        "median_combined_offense_snaps": float(combined.median()) if len(combined) else None,
++        "mean_per_team_offense_snaps": float(per_team.mean()) if len(per_team) else None,
+         "drive_length_plays": {
+             "mean": float(drive_lens.mean()) if len(drive_lens) else None,
+             "median": float(drive_lens.median()) if len(drive_lens) else None,
+             "n_drives": int(len(drive_lens)),
+         },
+-        "by_team_mean_snaps": {t: float(per[t].mean()) if t in per.index.get_level_values(0) else None for t in teams},
++        "definition": "combined = all pass/run/kneel/spike snaps in games involving listed teams (both offenses)",
+     }
+ 
+ 
+ def compare_sim_vs_actual_pace(cfg: dict, *, pbp_path: str | Path, n_sims: int = 100, seed: int = 3) -> dict[str, Any]:
+-    hist = load_team_history(
+-        pbp_path,
+-        teams=cfg["history"]["teams"],
+-        season=cfg["history"]["season"],
+-        weeks=(cfg["history"]["weeks_inclusive"][0], cfg["history"]["weeks_inclusive"][-1]),
++    teams = cfg["history"]["teams"]
++    weeks = (cfg["history"]["weeks_inclusive"][0], cfg["history"]["weeks_inclusive"][-1])
++    actual_combined = actual_combined_snaps_per_game(
++        pbp_path, teams=teams, season=cfg["history"]["season"], weeks=weeks
+     )
+-    inv = load_involvement_plays(
+-        pbp_path,
+-        teams=cfg["history"]["teams"],
+-        season=cfg["history"]["season"],
+-        weeks=(cfg["history"]["weeks_inclusive"][0], cfg["history"]["weeks_inclusive"][-1]),
++    hist = load_team_history(
++        pbp_path, teams=teams, season=cfg["history"]["season"], weeks=weeks,
+     )
+-    actual = _actual_pace(inv, teams=tuple(cfg["history"]["teams"]))
+     df = hist["df"]
+     if cfg.get("adjustments", {}).get("enabled"):
+         df, _ = apply_forward_qb_filter(df, cfg["adjustments"])
+     cat = PlayCatalog(df, min_n=int(cfg["min_n_state"]))
++    cat.set_empirical_clock(PlayCatalog.build_empirical_clock(df))
++    cat.enable_defense_conditioning(True)
+     rng = np.random.default_rng(seed)
+-    snap_counts = []
+-    punt_counts = []
+-    td_counts = []
+-    # approximate drive count = kickoffs + turnovers + punts received... use punt+ko as possession proxy
+-    poss_proxy = []
++    snap_counts, punt_counts, td_counts, sparse_rates = [], [], [], []
+     for _ in range(n_sims):
+         st = simulate_one(df, cat, cfg, np.random.default_rng(int(rng.integers(0, 2**31 - 1))))
+         n_snap = sum(1 for e in st.events if e.get("type") == "snap")
+-        n_punt = sum(1 for e in st.events if e.get("type") == "punt")
+-        n_td = sum(1 for e in st.events if e.get("type") == "touchdown")
+-        n_ko = sum(1 for e in st.events if e.get("type") == "kickoff")
+         snap_counts.append(n_snap)
+-        punt_counts.append(n_punt)
+-        td_counts.append(n_td)
+-        poss_proxy.append(n_ko + n_punt)  # rough possessions
++        punt_counts.append(sum(1 for e in st.events if e.get("type") == "punt"))
++        td_counts.append(sum(1 for e in st.events if e.get("type") == "touchdown"))
++        sparse_rates.append(1.0 if any("SPARSE" in f or "FALLBACK" in f for f in st.sparse_flags) else 0.0)
+     sim = {
+         "mean_snaps_per_game": float(np.mean(snap_counts)),
+         "median_snaps_per_game": float(np.median(snap_counts)),
+         "mean_punts": float(np.mean(punt_counts)),
+         "mean_tds": float(np.mean(td_counts)),
+-        "mean_possession_proxy": float(np.mean(poss_proxy)),
++        "sparse_game_rate": float(np.mean(sparse_rates)),
+         "n_sims": n_sims,
++        "empirical_clock": True,
++        "defense_conditioning": True,
++    }
++    base = actual_combined["mean_combined_offense_snaps"]
++    per_team = actual_combined.get("mean_per_team_offense_snaps")
++    # Legacy `actual` alias kept for run_period_realism_grade / older tests
++    actual_legacy = {
++        "mean_offense_snaps_per_team_game": per_team,
++        "n_team_games": actual_combined.get("n_games"),
++        "drive_length_plays": actual_combined.get("drive_length_plays"),
++        "note": "per-team offense snaps; prefer actual_combined_offense_snaps for apples-to-apples",
+     }
+-    # Actual team-game snaps are per ONE offense; sim snaps are BOTH offenses combined
+-    actual_both = None
+-    if actual["mean_offense_snaps_per_team_game"] is not None:
+-        actual_both = 2.0 * actual["mean_offense_snaps_per_team_game"]
+     return {
+         "label": "development_in_sample_diagnostic_not_accuracy",
+-        "actual": actual,
+-        "actual_both_offenses_snaps_approx": actual_both,
++        "actual_combined_offense_snaps": actual_combined,
++        "actual": actual_legacy,
++        "actual_both_offenses_snaps_approx": (
++            (per_team * 2.0) if per_team is not None else None
++        ),
+         "sim": sim,
+         "comparison": {
++            "baseline": "combined_offense_snaps_per_involvement_game",
++            "sim_minus_actual_combined": (
++                sim["mean_snaps_per_game"] - base if base is not None else None
++            ),
+             "sim_snaps_minus_2x_team_snaps": (
+-                sim["mean_snaps_per_game"] - actual_both if actual_both is not None else None
++                sim["mean_snaps_per_game"] - (per_team * 2.0)
++                if per_team is not None else None
+             ),
+-            "note": "Sim snap count is joint (both teams); actual mean is per-team offense — compare to 2× actual",
++            "note": "Primary: sim joint snaps vs actual both-offense snaps in involvement games; 2x retained as approx diagnostic only",
+         },
+     }
+
+=== POST_FIX_DIAGNOSTICS ===
+{
+  "pulled_et": "2026-11-05 17:08:04 EST",
+  "simulate_games_n50_seed42": {
+    "status": "OK",
+    "evidence_summary": {
+      "min_n_state": 5,
+      "games_with_sparse_flags": 0,
+      "sparse_rate": 0.0,
+      "games_with_coarse_flags": 50,
+      "coarse_rate": 1.0,
+      "defense_cond_flag_events": 0,
+      "note": "sparse_rate = hard SPARSE/EMPTY/FALLBACK only; coarse_rate = COARSE_* support gaps"
+    },
+    "runtime_sec": 0.81,
+    "mean_reg_home": 18.24,
+    "mean_reg_away": 21.56,
+    "mean_fg_home": 18.4,
+    "mean_fg_away": 21.98
+  },
+  "pace_n50_seed42": {
+    "label": "development_in_sample_diagnostic_not_accuracy",
+    "actual_combined_offense_snaps": {
+      "n_games": 15,
+      "mean_combined_offense_snaps": 121.06666666666666,
+      "median_combined_offense_snaps": 120.0,
+      "mean_per_team_offense_snaps": 59.86666666666667,
+      "drive_length_plays": {
+        "mean": 7.540372670807454,
+        "median": 7.0,
+        "n_drives": 161
+      },
+      "definition": "combined = all pass/run/kneel/spike snaps in games involving listed teams (both offenses)"
+    },
+    "actual": {
+      "mean_offense_snaps_per_team_game": 59.86666666666667,
+      "n_team_games": 15,
+      "drive_length_plays": {
+        "mean": 7.540372670807454,
+        "median": 7.0,
+        "n_drives": 161
+      },
+      "note": "per-team offense snaps; prefer actual_combined_offense_snaps for apples-to-apples"
+    },
+    "actual_both_offenses_snaps_approx": 119.73333333333333,
+    "sim": {
+      "mean_snaps_per_game": 116.4,
+      "median_snaps_per_game": 116.0,
+      "mean_punts": 7.68,
+      "mean_tds": 4.66,
+      "sparse_game_rate": 0.0,
+      "n_sims": 50,
+      "empirical_clock": true,
+      "defense_conditioning": true
+    },
+    "comparison": {
+      "baseline": "combined_offense_snaps_per_involvement_game",
+      "sim_minus_actual_combined": -4.666666666666657,
+      "sim_snaps_minus_2x_team_snaps": -3.3333333333333286,
+      "note": "Primary: sim joint snaps vs actual both-offense snaps in involvement games; 2x retained as approx diagnostic only"
+    }
+  }
+}
+=== SUMMARY.md (tail) ===
+# Period grading + realism (post-12a7768 continuation)
+
+**Not an approved pick.** Development W1–8 only. Prior FG 0/15 and 13/15 artifacts preserved.
+
+## As-of FG coverage
+GRADED_FULL: 13/15 (W1 skips remain)
+
+## Period grading (N=150/game, 13 games, 29.6s)
+| Period | MAE home | MAE away | Brier home-win |
+|---|---:|---:|---:|
+| Q1 | 3.0871794871794873 | 3.1415384615384614 | (see H1+) |
+| H1 | 6.06 | 4.70 | 0.230 |
+| H2 | 7.54 | 6.63 | 0.294 |
+| Reg | 9.35 | 7.95 | 0.325 |
+| FG  | 9.34 | 8.30 | 0.326 |
+
+Period metrics are **separate** from FG (FG row repeated for comparison).
+
+## Realism (development diagnostic)
+Actual combined offense snaps (apples-to-apples): 121.1 (n_games=15)
+Actual per-team offense snaps mean: 59.9 (legacy; n_team_games=15)
+≈2× actual (approx only): 119.7
+Sim mean snaps/game: 116.2
+Drive length plays actual mean/median: 7.54 / 7.0 (n_drives=161)
+Delta sim − combined actual: -4.9
+Delta sim − 2×actual snaps (approx): -3.6
+
+## Residual blockers (unchanged / no invent)
+- True pressure (FTN qbp): MISSING paid
+- Man/zone/MOFO/routes: MISSING free FTN 29-col
+- CB/S/DT replacement coeffs: MISSING
+- Weather: hook only PENDING_NWS — no DK auto-downgrade

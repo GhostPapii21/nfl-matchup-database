@@ -1,0 +1,190 @@
+{
+  "document_type": "SOURCE_LEDGER_PROSPECTIVE",
+  "run_kind": "PROSPECTIVE_ASOF",
+  "separated_from_retrospective": "integration/certified_asof (JAX@BAL kickoff 2026-11-06T01:15Z)",
+  "prospective_game": {
+    "espn": "401873040",
+    "nflverse": "2026_09_DAL_IND",
+    "kickoff_utc": "2026-11-08T18:00:00Z",
+    "matchup": "DAL@IND"
+  },
+  "cutoff_utc": "2026-11-06T12:40:00Z",
+  "providers": [
+    {
+      "provider": "ESPN_scoreboard",
+      "status": "SUCCESS",
+      "fields": [
+        "events",
+        "competitors",
+        "date",
+        "status"
+      ],
+      "artifact": "raw/espn_scoreboard_site_api_wk.json",
+      "sha256": "2f69d2cb046a233caaca616646c12f35d4633411816cc482dddda7dd7cce6421",
+      "why_success": "Current public week=9 scoreboard retrieved before prospective kickoff; supplies real event IDs for Sunday slate"
+    },
+    {
+      "provider": "ESPN_summary_401873040",
+      "status": "SUCCESS",
+      "fields": [
+        "header.competitions",
+        "kickoff",
+        "competitors",
+        "injuries"
+      ],
+      "artifact": "raw/espn_summary_401873040.json",
+      "sha256": "b99a2cd7bca06e4d9d09680340ca4260bc8a7397502637d3aeb743abd7b43e2b",
+      "why_success": "Pregame summary for DAL@IND with scheduled status and injury designations"
+    },
+    {
+      "provider": "ESPN_rosters_DAL_IND",
+      "status": "SUCCESS",
+      "fields": [
+        "athlete id",
+        "name",
+        "position",
+        "jersey"
+      ],
+      "artifact": [
+        "raw/espn_roster_dal.json",
+        "raw/espn_roster_ind.json"
+      ],
+      "sha256": [
+        "aaa9b93f11787518c38b166cae7f788ca8ef75644c3e998d60a30d705d9328bb",
+        "ce6fff28a9ab6f981881fd46f0249421991594e85f6101a67ae80bc17761dbed"
+      ],
+      "why_success": "Current team rosters (78+78) available pregame"
+    },
+    {
+      "provider": "ESPN_injuries",
+      "status": "SUCCESS",
+      "fields": [
+        "team injuries",
+        "status"
+      ],
+      "artifact": "records/espn_injuries_DAL_IND.json",
+      "sha256": "9122bc3b78f62d18f3c2d52831bfa4ec6a706fd2b0eb5d1bc1f070a01641129d",
+      "why_success": "League injury dump filtered to Cowboys/Colts"
+    },
+    {
+      "provider": "nflverse_games",
+      "status": "SUCCESS",
+      "fields": [
+        "game_id",
+        "espn",
+        "week",
+        "gameday",
+        "home",
+        "away"
+      ],
+      "artifact": "raw/nflverse_games.csv",
+      "sha256": "5eb23d226ac264f421bad5d1cc08cc3f5b4cb7a1245c8ad3aafe843479c0a3f8",
+      "why_success": "Public schedules/games.csv maps espn 401873040 \u2194 2026_09_DAL_IND"
+    },
+    {
+      "provider": "nflverse_roster",
+      "status": "SUCCESS",
+      "fields": [
+        "gsis_id",
+        "espn_id",
+        "team",
+        "status",
+        "position"
+      ],
+      "artifact": "records/nflverse_roster_DAL_IND.csv",
+      "sha256": "a404443deafefa8e42689fe9717fadc35738b0c61462e9a11f9578c045938dad",
+      "why_success": "ACT roster identities for opportunity inputs"
+    },
+    {
+      "provider": "nflverse_depth_charts",
+      "status": "SUCCESS",
+      "fields": [
+        "team",
+        "player",
+        "pos_abb",
+        "pos_rank",
+        "dt",
+        "espn_id"
+      ],
+      "artifact": "records/nflverse_depth_DAL_IND_latest.csv",
+      "sha256": "e4a87c4874111062be1c115af08bb9923ca78faca224a2f1af03f60e9ecb70b4",
+      "why_success": "Latest depth dt 2026-11-06T08:09:32Z before kickoff"
+    },
+    {
+      "provider": "nflverse_injuries",
+      "status": "SUCCESS",
+      "fields": [
+        "practice_status",
+        "week",
+        "gsis_id"
+      ],
+      "artifact": "records/nflverse_injuries_DAL_IND_wk9.csv",
+      "sha256": "2944753376894db153c0e98e0639655a547619641c8dbe4d4b07763722ed9bd0",
+      "why_success": "Week 9 practice participation rows; report_status sparse \u2014 ESPN summary used for IR/Questionable"
+    },
+    {
+      "provider": "nflverse_pbp_w1_8",
+      "status": "SUCCESS",
+      "fields": [
+        "game_id",
+        "posteam",
+        "defteam",
+        "play rows for DAL/IND history"
+      ],
+      "artifact": "records/pbp_DAL_IND_w1_8.csv.gz",
+      "sha256": "a0bc843133f60baeb6b388e73e50ca71b8fffc1d1017e1ce603c352c37e6f5de",
+      "why_success": "Historical W1-8 only (development); not future leakage"
+    },
+    {
+      "provider": "balldontlie_games_wk9",
+      "status": "SUCCESS",
+      "fields": [
+        "id",
+        "date",
+        "teams",
+        "status_state"
+      ],
+      "artifact": "raw/balldontlie_DAL_IND_1392339.json",
+      "sha256": "c75b72ddb022dda86eed9d162cdd12633753d69f69c5d3aa79b5a984b6a5db74",
+      "why_success": "Live connector confirms DAL@IND id 1392339 scheduled"
+    },
+    {
+      "provider": "sports_leader_scoreboard",
+      "status": "SUCCESS",
+      "fields": [
+        "eventId",
+        "start",
+        "competitors",
+        "DK odds"
+      ],
+      "note": "Odds labelled NOLINE for multi-book consensus / no picks",
+      "why_success": "Schedule identity SUCCESS; market quote not promoted to actionable"
+    },
+    {
+      "provider": "odds_bridge",
+      "status": "LOGIN_REQUIRED",
+      "fields": [],
+      "why": "needsAuth; BetGuru owns; no browser bypass"
+    },
+    {
+      "provider": "FTN_coverage_routes_personnel",
+      "status": "MISSING",
+      "fields": [
+        "man/zone",
+        "routes",
+        "personnel 11/12/13"
+      ],
+      "allows_sim_effect": false,
+      "why": "Not certified for prospective effects; disabled not guessed"
+    },
+    {
+      "provider": "PFR_advanced",
+      "status": "ERROR",
+      "fields": [],
+      "why": "Prior public probe Cloudflare 403; not required for this scoped run"
+    }
+  ],
+  "success_count": 11,
+  "quotes": "NOLINE",
+  "coverage_effects": "DISABLED"
+}

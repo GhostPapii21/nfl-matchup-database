@@ -1,0 +1,65 @@
+{
+  "checks": [
+    {
+      "actionable_status": "NOLINE",
+      "canonical_event_join": "UNVERIFIED",
+      "issues": [
+        "KICKOFF_CONFLICT",
+        "WEEK_LABEL_CONFLICT"
+      ],
+      "meta_path": "snapshots/odds/odds_20261105_JAXBAL_close_meta.json",
+      "raw_sha256": "2453d73951e094c0ee8b3176a8435cb71b5d081bfe7314c883adc2ed43b312a7",
+      "row_count": 18,
+      "settlement_compatibility": "UNVERIFIED",
+      "snapshot": "close",
+      "source_path": "snapshots/odds/odds_20261105_JAXBAL_close_game.csv",
+      "status": "SAVED_ONLY",
+      "timestamp_checks_pass": true,
+      "usable_for_frozen_pregame": false,
+      "usable_for_run": false
+    },
+    {
+      "actionable_status": "NOLINE",
+      "canonical_event_join": "UNVERIFIED",
+      "issues": [
+        "WEEK_LABEL_CONFLICT"
+      ],
+      "meta_path": "snapshots/odds/odds_20261105_JAXBAL_open_meta.json",
+      "raw_sha256": "b776d8118c1da86dbd7c877adf3afaa3e23c7a09ddfb916cc13a3492a2ead6fb",
+      "row_count": 18,
+      "settlement_compatibility": "UNVERIFIED",
+      "snapshot": "open",
+      "source_path": "snapshots/odds/odds_20261105_JAXBAL_open_game.csv",
+      "status": "SAVED_ONLY",
+      "timestamp_checks_pass": true,
+      "usable_for_frozen_pregame": false,
+      "usable_for_run": false
+    },
+    {
+      "actionable_status": "NOLINE",
+      "canonical_event_join": "UNVERIFIED",
+      "issues": [
+        "INPLAY_OR_UNKNOWN",
+        "QUOTE_FIELD_MISSING:event_id",
+        "QUOTE_TIME_UNKNOWN",
+        "SEASON_UNKNOWN",
+        "WEEK_UNKNOWN"
+      ],
+      "meta_path": "snapshots/odds/odds_r6_meta.json",
+      "raw_sha256": "51244731295a2a45af029b5985b3c4cb29e64448090e32d49437c5350c52690c",
+      "row_count": 32,
+      "settlement_compatibility": "UNVERIFIED",
+      "snapshot": "r6",
+      "source_path": "snapshots/odds/odds_jaxbal_game.csv",
+      "status": "SAVED_ONLY",
+      "timestamp_checks_pass": false,
+      "usable_for_frozen_pregame": false,
+      "usable_for_run": false
+    }
+  ],
+  "cutoff_utc": "2026-11-06T01:15:00Z",
+  "freshness_policy": "Use saved meta max_quote_age_min for quote-to-pull checks; no new executable-price tolerance invented.",
+  "no_new_odds_requests": true,
+  "promotion_decision": "NO_SUCCESS: timestamp evidence alone does not resolve week/kickoff/game identity and settlement conflicts.",
+  "raw_only": true
+}

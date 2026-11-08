@@ -1,0 +1,54 @@
+{
+  "forecast_id": "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0",
+  "input_content_hash": "sha256:9671953a02999657c849bba58469b1b968dad2693db461fe10ea1dfc121e3eee",
+  "n_requested": 2,
+  "n_completed": 2,
+  "n_incomplete": 0,
+  "n_invalid": 0,
+  "n_usable": 0,
+  "retained_trial_ids": [],
+  "excluded_trials": [
+    {
+      "trial_id": "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0",
+      "reasons": [
+        "SCENARIO_ONLY"
+      ]
+    },
+    {
+      "trial_id": "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1",
+      "reasons": [
+        "SCENARIO_ONLY"
+      ]
+    }
+  ],
+  "conditioning_basis": "complete valid identified non-scenario trials; exclusions explicit; no resampling",
+  "artifact_directory": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_synthetic_smoke/forecasts/sha256_d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0",
+  "mode": "data_only",
+  "status": "OK",
+  "purpose": "SYNTHETIC_TEST_ONLY",
+  "impact": "NOT MEASURED",
+  "trial_ids": [
+    "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0",
+    "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1"
+  ],
+  "trial_seeds": [
+    "15201972526753743124",
+    "1139194900614331706"
+  ],
+  "validation": [
+    {
+      "trial_id": "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0",
+      "status": "PASS",
+      "n_checks": 1035,
+      "failures": []
+    },
+    {
+      "trial_id": "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1",
+      "status": "PASS",
+      "n_checks": 1035,
+      "failures": []
+    }
+  ],
+  "git_head": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+  "generated_at_utc": "2026-11-06T11:36:02.650955+00:00"
+}

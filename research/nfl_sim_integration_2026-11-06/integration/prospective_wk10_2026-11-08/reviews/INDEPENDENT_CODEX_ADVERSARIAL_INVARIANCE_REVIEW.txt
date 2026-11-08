@@ -1,0 +1,32 @@
+**Verdict: partial decontamination, narrow invariance evidence, and an honest research-only status. The artifacts do not establish that W7–8 has been removed from every promotion path.**
+
+1. **HIGH — The old W7–8 threshold remains executable and its acceptance artifacts remain available.**  
+   The new validator excludes the contaminated block and writes `promotion_gate=null` and `accepted_policy=null`. That local correction is real. But the [old validator](/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py:45) still requires inspected IND carry KL ≤ equal KL + **0.5**, then uses that gate to choose final model weights. Its preregistration retains the threshold, and its metrics retain an accepted policy.
+
+   Preserving historical files is reasonable; leaving them authoritative is the problem. [DELIVERY.md](/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/DELIVERY.md:2) describes overlays awaiting application, not an enforced supersession mechanism. Thus **“removed from this validator” passes; “removed from all promotion paths” does not**. There is also no demonstrated historical decontamination of candidate design: rerunning W1–3/W4–5 cannot erase earlier inspection.
+
+2. **MEDIUM — “400 trials” is valid execution accounting but overstates independent scenario coverage if read casually.**  
+   The harness runs **100 shared seed/trial scenarios under four policies**, producing 300 paired comparisons against the baseline. Four baseline scenarios reach OT. Exact equality across team statistics, state transitions, credits and boundary metadata is strong regression evidence for those scenarios.
+
+   It is insufficient for general attribution-invariance certification. The [harness](/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/validate.py:30) removes `rotation_by_half`, uses one DAL/IND model and tests four ordinary weight configurations. It does not exercise half-dependent rotations, extreme or degenerate weights, roster/support changes, or other configurations. The coupling rejection tests input validation; it does not demonstrate that the equality detector catches an introduced team-path divergence.
+
+   There is also a small certification mismatch: line 56 requires period transitions but **does not require halftime coverage**, despite the certification saying explicit boundary coverage is asserted. Recorded halftime coverage exists, so this is a future-regression gap rather than evidence that this run missed halftime. Accept the explicitly narrow scope in the certification; reject a universal inference.
+
+3. **MEDIUM — The pristine plan is honest about W9, but incomplete as an executable evaluation protocol.**  
+   [PRISTINE_EVALUATION_PLAN.json](/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/PRISTINE_EVALUATION_PLAN.json:9) explicitly excludes W1–8 and `2026_09_DAL_IND`, disclaims historical pristine evidence, freezes models and authorizes no promotion. **This passes the honesty challenge.** W9 cannot retroactively validate the W1–8 fitting process; genuinely uninspected later outcomes can evaluate its prospective usefulness.
+
+   However, aggregation across games/cells, zero-probability treatment, minimum scorable coverage and uncertainty reporting remain unspecified. Allowing unscorable cells to be excluded with reasons is transparent, but without coverage requirements it can still leave a favorable, selectively scorable subset. This is a future reporting commitment, not yet a fully determined validation decision procedure.
+
+4. **MEDIUM — Materiality establishes exposure, not adequacy of omission.**  
+   [MATERIALITY_SCOPE.md](/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/MATERIALITY_SCOPE.md:2) correctly distinguishes descriptive counts from causal scoring effects. Keeping penalties, return credits and official OT unsupported is appropriate.
+
+   But penalty frequency, yard sums and OT incidence provide no error bound or sensitivity envelope. Return-yard exposure also overlaps the existing punt-net adjustment, so it cannot all be interpreted as omitted displacement. These measurements support **“potentially consequential omissions remain”**, not “the omissions are acceptably small.” Adequate disclosure for research; inadequate evidence for readiness.
+
+5. **MEDIUM — Readiness language is separated correctly; enforcement is unproven, and activation is only replay.**  
+   The reports explicitly deny projection readiness, Ghost activation and predictive validation. No direct conflation appears in the supplied conclusions.
+
+   The [consumer implementation](/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/validate.py:80), however, restores recorded engine packaging identity before recomputing the forecast ID. Source-content, dependency and input checks make this a defensible relocation replay, but forecast-ID equality is partly reconstructed from recorded metadata. Exact trial equality is the stronger result. It reproduces the old **five-trial** forecast, not operational readiness or an independently registered new forecast. The staged readiness overlay supplies no evidence that downstream consumers enforce these restrictions.
+
+**Disposition:** accept the narrow engineering results and explicit research limitations. Do not certify complete promotion-path decontamination, general invariance, omission adequacy or consumer readiness.
+
+Read-only review; no files changed. I did not run `validate.py` because it writes artifacts. No picks.

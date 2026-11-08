@@ -1,0 +1,7 @@
+# External activation engineering check
+Command from repository root:
+python3 research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/activation_consumer.py research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/activation/selected_robust/sha256_6ecf9e36dc8537af40a598fad2620a44153a9086953f2d0540dfb222e230a8af
+The consumer loads copied frozen engine_source, input_root, input manifest and seed from the run spec. It asserts forecast_id and entire trial bytes represented as parsed JSON, which includes team means. activation_result.json records outcome. No protected artifact is edited; copied frozen research tree is preserved byte for byte.
+This is narrow reproducibility engineering, not projection_ready, Ghost, predictive validation, promotion, official OT, or consumer operational readiness.
+
+Relocation details: run_spec excludes frozen_at_utc/generated_at_utc, recovered from frozen trial metadata. freeze_run computes local git dirty-patch metadata relative to its package location, which differs in a relocated snapshot. The consumer first verifies runtime source_content_hash and dependency versions against the frozen run, then uses the recorded engine packaging identity to recompute and assert the original forecast_id; verify_frozen checks code and all input bytes. No engine source or protected input is changed. Parsed trial comparison normalizes JSON tuples/lists through JSON serialization.

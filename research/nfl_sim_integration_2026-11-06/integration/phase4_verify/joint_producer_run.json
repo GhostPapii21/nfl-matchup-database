@@ -1,0 +1,27 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "research/possession_engine_v0/tests/test_joint_producer.py",
+    "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/tmp_joint_producer",
+    "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/joint_producer.xml"
+  ],
+  "counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 77
+  },
+  "cwd": "/workspace/wt-nfl-sim-core-2026-11-06",
+  "elapsed_seconds": 1.9079525779816322,
+  "finished_at_utc": "2026-11-06T12:11:11.043694+00:00",
+  "junit": "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/joint_producer.xml",
+  "log": "/workspace/research/nfl_sim_integration_2026-11-06/integration/phase4_verify/joint_producer.log",
+  "passed": 77,
+  "returncode": 0,
+  "started_at_utc": "2026-11-06T12:11:09.135628+00:00"
+}

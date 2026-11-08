@@ -1,0 +1,144 @@
+{
+  "contract_id": "nfl-sim-core-contract-v1",
+  "contract_version": "1.0.0",
+  "phase": 1,
+  "document": "/workspace/research/nfl_sim_integration_2026-11-06/core_contract.md",
+  "documentation_status": "COMPLETE",
+  "implementation_status": "NOT_IMPLEMENTED_IN_PHASE_1",
+  "runtime_validation_status": "NOT_RUN",
+  "context_head": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+  "unit_of_output": "ONE_COHERENT_FULL_GAME_DRAW_PER_TRIAL",
+  "acceptance_status_default": "NOT_RUN",
+  "checklist": [
+    {
+      "id": "C01",
+      "section": "2.1",
+      "requirement": "Canonical namespaced game/player/team IDs and frozen crosswalk; unresolved identities never guessed.",
+      "acceptance": "Verify uniqueness, alias joins, persistent player identity and unresolved-player propagation."
+    },
+    {
+      "id": "C02",
+      "section": "2.2",
+      "requirement": "UTC information cutoff, availability evidence, hashed frozen inputs and versioned code/config/runtime/mode.",
+      "acceptance": "Recompute manifest/run hashes and reject post-cutoff or as-of-unverified inputs."
+    },
+    {
+      "id": "C03",
+      "section": "2.3",
+      "requirement": "Stable forecast/trial IDs and explicitly derived per-trial seeds.",
+      "acceptance": "Replay the same trial across retry and worker order with the frozen RNG/runtime."
+    },
+    {
+      "id": "C04",
+      "section": "3",
+      "requirement": "Explicit regulation/quarter/halftime/OT clocks and possession transitions; incomplete draws flagged.",
+      "acceptance": "Check boundary attribution, 3600 regulation seconds, possession time partition and cap termination."
+    },
+    {
+      "id": "C05",
+      "section": "3",
+      "requirement": "Team/player additive period accounting and score-credit reconciliation.",
+      "acceptance": "Check H1=Q1+Q2, H2=Q3+Q4, REG=H1+H2, FG=REG+OT for both teams and player stats."
+    },
+    {
+      "id": "C06",
+      "section": "4",
+      "requirement": "Player TARGETS and CARRIES generated before their yards with shared state/depth/rotation uncertainty and provenance.",
+      "acceptance": "Inspect causal stage traces; reject yard-derived opportunities and unsupported measured-role claims."
+    },
+    {
+      "id": "C07",
+      "section": "5",
+      "requirement": "Dropback/pass/rush classification conserves attempts, including throwaways, spikes, sacks, scrambles, kneels and aborted/trick plays.",
+      "acceptance": "Evaluate all section-5 attempt equations per team/trial/period and check no-play exclusions."
+    },
+    {
+      "id": "C08",
+      "section": "5",
+      "requirement": "Eligible-target/catch/carry and player-to-team yard conservation with explicit residual/credit adjustments.",
+      "acceptance": "Check catches<=targets, all count/yard equations, zero-opportunity players and unassigned/lateral/fumble credits."
+    },
+    {
+      "id": "C09",
+      "section": "6",
+      "requirement": "Versioned joint trial schema and identical trial population for Ghost6 and BetGuru.",
+      "acceptance": "Validate required fields/types/unique keys and exact trial-ID joins; prohibit independent resampling."
+    },
+    {
+      "id": "C10",
+      "section": "7",
+      "requirement": "Coverage UNKNOWN; routes MISSING; personnel 11/12/13 MISSING; no fabrication or unsupported effects.",
+      "acceptance": "Trace explicit null/status/source records through producer and both adapters."
+    },
+    {
+      "id": "C11",
+      "section": "8",
+      "requirement": "Quote timestamp/book/stat/period/line/side/price and rule identity; exact both-side/all-outcome pairing; mismatches=NOLINE.",
+      "acceptance": "Check matching and deliberate missing/mismatched identity, timestamp, line, OT and settlement cases."
+    },
+    {
+      "id": "C12",
+      "section": "9",
+      "requirement": "Frozen forecast IDs, disjoint train/dev/holdout game-ID manifests and inspected-data exclusions; no calibration edits.",
+      "acceptance": "Check split disjointness, frozen lineage, game-group isolation and UNASSIGNED/inspected status handling."
+    },
+    {
+      "id": "C13",
+      "section": "11",
+      "requirement": "Phase 1 documentation only; preserve all explicit scope exclusions.",
+      "acceptance": "Review authorized output files and confirm no engine/calibration/odds/betting/cloud changes."
+    }
+  ],
+  "trial_required_objects": [
+    "contract_version", "forecast_id", "trial_id", "trial_index", "game", "freeze",
+    "engine", "rng", "status", "latent_state", "events", "possessions",
+    "team_periods", "player_periods", "aggregates", "feature_availability",
+    "provenance", "flags", "validation"
+  ],
+  "default_missing_features": {
+    "coverage": {"status": "UNKNOWN", "value": null, "allows_sim_effect": false},
+    "routes": {"status": "MISSING", "value": null, "allows_sim_effect": false},
+    "personnel_11": {"status": "MISSING", "value": null, "allows_sim_effect": false},
+    "personnel_12": {"status": "MISSING", "value": null, "allows_sim_effect": false},
+    "personnel_13": {"status": "MISSING", "value": null, "allows_sim_effect": false}
+  },
+  "quote_required_fields": [
+    "quote_id", "snapshot_id", "source_ref", "source_hash", "quote_timestamp_utc",
+    "retrieved_at_utc", "book", "book_market_id", "game_id", "game_id_namespace",
+    "subject_type", "subject_id", "subject_id_namespace", "stat", "stat_unit",
+    "period", "ot_inclusion", "line", "side", "price", "price_format",
+    "settlement_type", "settlement_rule_ref"
+  ],
+  "quote_nullable_fields": {
+    "book_market_id": "Null with missing-source flag if source did not supply an ID.",
+    "line": "Null only for genuinely lineless markets under existing rules."
+  },
+  "quote_statuses": ["MATCHED", "NOLINE"],
+  "mismatch_status": "NOLINE",
+  "split_manifest_status": "UNASSIGNED",
+  "split_game_ids": {"train": null, "dev": null, "holdout": null},
+  "split_ids_note": "Null means authoritative IDs not assigned in phase 1; it is not an empty verified split.",
+  "tnf_evidence": {
+    "path": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/actual_role_coverage_audit.md",
+    "usage": "EVIDENCE_ONLY_POSTGAME",
+    "source_event_alias": {"namespace": "espn", "id": "401873037"},
+    "canonical_game_id": null,
+    "canonical_game_id_status": "REQUIRES_VERIFIED_REGISTRY_JOIN",
+    "new_untouched_holdout_eligible": false,
+    "fit_performed": false,
+    "fit_numbers": null
+  },
+  "out_of_scope": [
+    "ENGINE_IMPLEMENTATION_OR_RERUN",
+    "FIT_OR_CALIBRATION",
+    "NEW_ODDS_OR_SPEND",
+    "BETTING_RULE_OR_SETTLEMENT_POLICY_CHANGES",
+    "BET_PLACEMENT",
+    "FABRICATED_COVERAGE_ROUTES_PERSONNEL_OR_TNF_FIT_NUMBERS",
+    "CURSOR_CLOUD_OR_PAID_CLOUD",
+    "/workspace/wt-market-calibration",
+    "ANY_market_calibration_TREE"
+  ],
+  "is_json_schema": false,
+  "schema_note": "This is a machine-readable acceptance checklist; the normative typed wire contract is section 6 of core_contract.md."
+}

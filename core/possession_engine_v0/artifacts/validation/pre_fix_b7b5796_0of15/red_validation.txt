@@ -1,0 +1,16 @@
+
+==================================== ERRORS ====================================
+______________ ERROR collecting tests/test_validation_grading.py _______________
+ImportError while importing test module '/workspace/wt-period-engine/research/possession_engine_v0/tests/test_validation_grading.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_validation_grading.py:5: in <module>
+    from validation.accounting import run_accounting_checks
+E   ModuleNotFoundError: No module named 'validation.accounting'
+=========================== short test summary info ============================
+ERROR tests/test_validation_grading.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.05s

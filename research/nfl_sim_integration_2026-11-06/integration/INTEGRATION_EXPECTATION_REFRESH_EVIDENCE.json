@@ -1,0 +1,2222 @@
+{
+  "document_type": "INTEGRATION_EXPECTATION_REFRESH",
+  "started_utc": "2026-11-06T12:21:05.895503+00:00",
+  "ended_utc": "2026-11-06T12:21:08.407664+00:00",
+  "direct_transport": "GREEN",
+  "ghost_final_acceptance": "NOT_CLAIMED",
+  "source_readiness": "OPEN_NOT_READY",
+  "actionable_status": "NOLINE",
+  "bias": "UNIMPLEMENTED_NO_FITTED_CALIB",
+  "impact": "NOT_MEASURED",
+  "predictive_claims": false,
+  "projection_ready": false,
+  "scope": {
+    "write_root": "/workspace/research/nfl_sim_integration_2026-11-06/integration",
+    "market_adapter_edits": false,
+    "core_edits": false,
+    "source_gate_edits": false,
+    "original_producer_evidence_edits": false,
+    "network_requests": 0,
+    "spend": 0,
+    "new_simulations": 0,
+    "bias_fit_calls": 0,
+    "authored_paths": [
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/GHOST_ACCEPTANCE_PACKET.md",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/build_acceptance_packet.py",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_adversarial_tests.py",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/market_calibration_file_hashes.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/GHOST_ACCEPTANCE_PACKET.md.pre_refresh.txt",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/README.md",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/build_acceptance_packet.py.pre_refresh.txt",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/integration_adversarial_tests.py.pre_refresh.txt",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/market_calibration_file_hashes.json.pre_refresh.txt",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/test_historical_pre_rebind.py",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.log",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.xml",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.log",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.xml",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_after_snapshot.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/INTEGRATION_EXPECTATION_REFRESH_EVIDENCE.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/README.md",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_DIRECT.log",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_DIRECT.xml",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_adversarial.log",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_adversarial.xml",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_after_snapshot.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_historical.log",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_historical.xml",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/INTEGRATION_EXPECTATION_REFRESH_EVIDENCE.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/README.md",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_DIRECT.log",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_DIRECT.xml",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_adversarial.log",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_adversarial.xml",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_after_snapshot.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_historical.log",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_historical.xml",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_verification_pre_snapshot.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/market_calibration_file_hashes.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_before_snapshot.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.log",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.xml",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_verification_pre_snapshot.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/producer_revision_expectations_post_rebind.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/verify_expectation_refresh.py",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/INTEGRATION_EXPECTATION_REFRESH_EVIDENCE.json"
+    ]
+  },
+  "contract": {
+    "expected_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+    "actual_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+    "historical_sha256": "d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9",
+    "authorization": "integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md",
+    "path_override": false,
+    "DIRECT_trial_remap": false
+  },
+  "before_results": {
+    "source": "integration/wire/PARENT_VERIFY_POST_REBIND.json",
+    "DIRECT": {
+      "passed": 1,
+      "failed": 0
+    },
+    "adversarial": {
+      "passed": 51,
+      "failed": 9
+    },
+    "note": "Prior captured counts; original pipeline masked exit status. Original logs preserved."
+  },
+  "pytest": [
+    {
+      "name": "DIRECT",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "integration/integration_adversarial_tests.py::test_DIRECT_actual_producer_to_market_acceptance",
+        "-q",
+        "-rs",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/pytest_tmp_refresh_DIRECT",
+        "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.xml"
+      ],
+      "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "GIT_OPTIONAL_LOCKS": "0",
+        "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06"
+      },
+      "started_utc": "2026-11-06T12:21:05.912619+00:00",
+      "log": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.log",
+      "junit": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.xml",
+      "ended_utc": "2026-11-06T12:21:06.280170+00:00",
+      "exit_code": 0,
+      "stdout_stderr": ".                                                                        [100%]\n1 passed in 0.20s\n",
+      "log_sha256": "93c97c10af4fc8b54296201243c032c5e8295479ca6b4adc06019033d6f9e282",
+      "junit_sha256": "addd30618008a7ddd2e696dcd5f31779eb7157a323357f84b18c406886760497",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 1
+      }
+    },
+    {
+      "name": "adversarial",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "integration/integration_adversarial_tests.py",
+        "-q",
+        "-rs",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/pytest_tmp_refresh_adversarial",
+        "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.xml"
+      ],
+      "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "GIT_OPTIONAL_LOCKS": "0",
+        "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06"
+      },
+      "started_utc": "2026-11-06T12:21:06.280564+00:00",
+      "log": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.log",
+      "junit": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.xml",
+      "ended_utc": "2026-11-06T12:21:08.099711+00:00",
+      "exit_code": 0,
+      "stdout_stderr": ".....................................................................    [100%]\n69 passed in 1.64s\n",
+      "log_sha256": "90a49149c9062ec9fd343c2839ddcd50252d15dc3066d22171c03ad8604dda42",
+      "junit_sha256": "91150ecf2498cd7bef2ea46ca7d335c0dca4a12678c4e022ad04de1462e014b4",
+      "counts": {
+        "tests": 69,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 69
+      }
+    },
+    {
+      "name": "historical",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "integration/tests/historical",
+        "-q",
+        "-rs",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/pytest_tmp_refresh_historical",
+        "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.xml"
+      ],
+      "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "GIT_OPTIONAL_LOCKS": "0",
+        "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06"
+      },
+      "started_utc": "2026-11-06T12:21:08.100233+00:00",
+      "log": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.log",
+      "junit": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.xml",
+      "ended_utc": "2026-11-06T12:21:08.387001+00:00",
+      "exit_code": 0,
+      "stdout_stderr": "ssssss                                                                   [100%]\n=========================== short test summary info ============================\nSKIPPED [1] integration/tests/historical/test_historical_pre_rebind.py: HISTORICAL_PRE_REBIND_RECORD: superseded binding and missing-field stages; separate archival suite\nSKIPPED [5] integration/tests/historical/test_historical_pre_rebind.py:24: HISTORICAL_PRE_REBIND_RECORD: superseded binding and missing-field stages; separate archival suite\n6 skipped in 0.12s\n",
+      "log_sha256": "5418cd22775222abf3a77f48aa82f8e78eb251f7467f250b3c57010bde06ce23",
+      "junit_sha256": "d2335fc5bef0957f2b4eff7f32db8d174d6ed4c48e616c7b9b51d19f9510faec",
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 6,
+        "passed": 0
+      }
+    }
+  ],
+  "checks": {
+    "DIRECT_green": true,
+    "full_adversarial_green": true,
+    "historical_separate": true,
+    "protected_inputs_unchanged_during_verification": true,
+    "market_inventory_matches": true,
+    "authorized_contract": true,
+    "immutable_example": true,
+    "frozen_records_unchanged": true
+  },
+  "protected_comparisons": {
+    "/workspace/wt-market-calibration/research/market_calibration": {
+      "unchanged": true,
+      "before_count": 114,
+      "after_count": 114,
+      "changes": []
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0": {
+      "unchanged": true,
+      "before_count": 203,
+      "after_count": 203,
+      "changes": []
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate": {
+      "unchanged": true,
+      "before_count": 17,
+      "after_count": 17,
+      "changes": []
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/reviews": {
+      "unchanged": true,
+      "before_count": 51,
+      "after_count": 51,
+      "changes": []
+    },
+    "contract_and_wire_companion": {
+      "unchanged": true,
+      "before_count": 2,
+      "after_count": 2,
+      "changes": []
+    }
+  },
+  "task_baseline_comparisons": {
+    "/workspace/wt-market-calibration/research/market_calibration": {
+      "unchanged": false,
+      "before_count": 103,
+      "after_count": 114,
+      "changes": [
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/README.md",
+          "before_sha256": "48455e6a29ea8efca4f56d226c49e28254a467490d464bb9a28ea00505c9a4f2",
+          "after_sha256": "b06d7ce03c2e3ed8341efa3582314694bd0dac06c250a3d37b8f4d765ff0c5a2"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/__init__.py",
+          "before_sha256": "1c2208872af40848278e53e972bedb928c85ef6e448d446277200217b4cbab5d",
+          "after_sha256": "600b6c5d5858767ba1472b4d81e33544557da66a1ea596ad7380570867b84e27"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/calibration.py",
+          "before_sha256": "c49b742d9144b045f7676e2c18dc87e06a9188ebca25742add2d6ee3d1b447e2",
+          "after_sha256": "34e493ca713a85a78b3b1e69ecad7aaa1c44c92df76f80b67798a176cc0eb551"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/delivery_guard.py",
+          "before_sha256": null,
+          "after_sha256": "a4c55079d2889afee93d1c3ec98d94e36f93675c8ba803371e0ab9bd07876b57"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/PUBLIC_METHOD_PROBES_2026-11-06.json",
+          "before_sha256": null,
+          "after_sha256": "c4d9bcc9648fa284e085bcbc181c0c4366342536a44474ee3b7e0925bc44f123"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/QUOTE_EXTRACTION_INVENTORY_2026-11-06.json",
+          "before_sha256": null,
+          "after_sha256": "3e260c8ad13502a996fc04641e33db726c607ad0d5cb68c9b57106d305382dd2"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/anomaly_guard_scope_before.json",
+          "before_sha256": null,
+          "after_sha256": "d80a61c88cb75902d918f13e19022cd31043822c917278cc321602bd7b72ce25"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_anomaly_guard_first_green.txt",
+          "before_sha256": null,
+          "after_sha256": "dbb823dc3d5acf14e9918bc21c6875ddc7c4447312ef1f5a232f19dcce9680de"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_anomaly_guard_market_suite.txt",
+          "before_sha256": null,
+          "after_sha256": "38471491a7f4afbbb8339e2cb0cc798819ee9f08eea525f9af727360c6878c89"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_anomaly_guard_red.txt",
+          "before_sha256": null,
+          "after_sha256": "53a08180259113bef341ee8c722d92c1bfc235d2c89d88eae1ca639a252e0aad"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/tests/test_delivery_guard.py",
+          "before_sha256": null,
+          "after_sha256": "85a8886a310497ed8882c3eb8b772b57dbd5892a4a280fe41b8c000205a796fe"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/BRAINSTORM_ANOMALY_GUARD_2026-11-06.md",
+          "before_sha256": null,
+          "after_sha256": "2c32face4cba0ff3692ccc9c35edb29c364622a833a05347a66b9fafb28dcf33"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/NFL-16_TRACKING.md",
+          "before_sha256": "077db164ee37abb89e39034f76c15992edbc0620aaaa9626d9e0c0c8de95d570",
+          "after_sha256": "736716f97a966c26f692fae4f64d4bb0e9d5dc57d9a665730e6dff1122c631db"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/PREFLIGHT_ANOMALY_GUARD_2026-11-06.json",
+          "before_sha256": null,
+          "after_sha256": "2f6fc65cdbb2fdf591cc3e6d356e7af0bb63f39c125b33695b5f59afa751519f"
+        },
+        {
+          "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/WORKFLOW_15PHASE_ANOMALY_GUARD_2026-11-06.md",
+          "before_sha256": null,
+          "after_sha256": "0696736331d429747d905a4a3ba280b87e7067fa7ee65e8709c35300b6611902"
+        }
+      ]
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0": {
+      "unchanged": true,
+      "before_count": 203,
+      "after_count": 203,
+      "changes": []
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate": {
+      "unchanged": false,
+      "before_count": 17,
+      "after_count": 17,
+      "changes": [
+        {
+          "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/REQUIREMENT.md",
+          "before_sha256": "ea0877d9f7bef99bc1dbada06a0a3461fe686d33ee088406c2825398cd5819b4",
+          "after_sha256": "414b5275e527ae8d135c928e607bdd14b8cad4823c35789815a20d862ddb84d5"
+        },
+        {
+          "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/provenance.py",
+          "before_sha256": "d82cbcc91c228a3f020be0f55fbcbe0598f4b5f544482b5ed3337207fb6be6c8",
+          "after_sha256": "da16e8a95318dc08a494fe00c97e612bacede3b990113a04d2a08ad0ec2f647e"
+        },
+        {
+          "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/source_ledger.schema.json",
+          "before_sha256": "0776349676e9a7ebd5c9644a2856619d56cfc38e472d414b3c009d0ae8e13b42",
+          "after_sha256": "63e1e8b68b7e275d43b0616dad74fad78da5b2ff672cbae151994b6f50dc5161"
+        },
+        {
+          "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests/test_provenance.py",
+          "before_sha256": "ab8f03dd390a0220e46b45e9def5b5e2c8bec09269c2fd1b6cc99f326e12dbc5",
+          "after_sha256": "188478913bf6524b9cb8e39f8dad5157d48b87f7d60497df1a68dce4a46498b0"
+        },
+        {
+          "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests/test_readiness.py",
+          "before_sha256": "4b1f585eac2875dea6acb60224b890e49c7ff91d18c3abddedd4c22dc5939887",
+          "after_sha256": "0b373194c5fee7ec00e62c2c891b1d621b5b39291a91564ef5aa479a003eed83"
+        }
+      ]
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/reviews": {
+      "unchanged": true,
+      "before_count": 51,
+      "after_count": 51,
+      "changes": []
+    },
+    "contract_and_wire_companion": {
+      "unchanged": true,
+      "before_count": 2,
+      "after_count": 2,
+      "changes": []
+    }
+  },
+  "concurrent_external_changes": {
+    "note": "External owner work observed after the initial task snapshot. No external files were edited or reverted by this refresh. Verification uses a fresh immediate pre/post comparison; initial drift is preserved separately.",
+    "first_attempt": "integration/wire/expectation_refresh_attempt1/INTEGRATION_EXPECTATION_REFRESH_EVIDENCE.json",
+    "changes": [
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/README.md",
+        "before_sha256": "48455e6a29ea8efca4f56d226c49e28254a467490d464bb9a28ea00505c9a4f2",
+        "after_sha256": "b06d7ce03c2e3ed8341efa3582314694bd0dac06c250a3d37b8f4d765ff0c5a2"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/__init__.py",
+        "before_sha256": "1c2208872af40848278e53e972bedb928c85ef6e448d446277200217b4cbab5d",
+        "after_sha256": "600b6c5d5858767ba1472b4d81e33544557da66a1ea596ad7380570867b84e27"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/calibration.py",
+        "before_sha256": "c49b742d9144b045f7676e2c18dc87e06a9188ebca25742add2d6ee3d1b447e2",
+        "after_sha256": "34e493ca713a85a78b3b1e69ecad7aaa1c44c92df76f80b67798a176cc0eb551"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/delivery_guard.py",
+        "before_sha256": null,
+        "after_sha256": "a4c55079d2889afee93d1c3ec98d94e36f93675c8ba803371e0ab9bd07876b57"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/PUBLIC_METHOD_PROBES_2026-11-06.json",
+        "before_sha256": null,
+        "after_sha256": "c4d9bcc9648fa284e085bcbc181c0c4366342536a44474ee3b7e0925bc44f123"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/QUOTE_EXTRACTION_INVENTORY_2026-11-06.json",
+        "before_sha256": null,
+        "after_sha256": "3e260c8ad13502a996fc04641e33db726c607ad0d5cb68c9b57106d305382dd2"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/anomaly_guard_scope_before.json",
+        "before_sha256": null,
+        "after_sha256": "d80a61c88cb75902d918f13e19022cd31043822c917278cc321602bd7b72ce25"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_anomaly_guard_first_green.txt",
+        "before_sha256": null,
+        "after_sha256": "dbb823dc3d5acf14e9918bc21c6875ddc7c4447312ef1f5a232f19dcce9680de"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_anomaly_guard_market_suite.txt",
+        "before_sha256": null,
+        "after_sha256": "38471491a7f4afbbb8339e2cb0cc798819ee9f08eea525f9af727360c6878c89"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_anomaly_guard_red.txt",
+        "before_sha256": null,
+        "after_sha256": "53a08180259113bef341ee8c722d92c1bfc235d2c89d88eae1ca639a252e0aad"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tests/test_delivery_guard.py",
+        "before_sha256": null,
+        "after_sha256": "85a8886a310497ed8882c3eb8b772b57dbd5892a4a280fe41b8c000205a796fe"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/BRAINSTORM_ANOMALY_GUARD_2026-11-06.md",
+        "before_sha256": null,
+        "after_sha256": "2c32face4cba0ff3692ccc9c35edb29c364622a833a05347a66b9fafb28dcf33"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/NFL-16_TRACKING.md",
+        "before_sha256": "077db164ee37abb89e39034f76c15992edbc0620aaaa9626d9e0c0c8de95d570",
+        "after_sha256": "736716f97a966c26f692fae4f64d4bb0e9d5dc57d9a665730e6dff1122c631db"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/PREFLIGHT_ANOMALY_GUARD_2026-11-06.json",
+        "before_sha256": null,
+        "after_sha256": "2f6fc65cdbb2fdf591cc3e6d356e7af0bb63f39c125b33695b5f59afa751519f"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/WORKFLOW_15PHASE_ANOMALY_GUARD_2026-11-06.md",
+        "before_sha256": null,
+        "after_sha256": "0696736331d429747d905a4a3ba280b87e7067fa7ee65e8709c35300b6611902"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/REQUIREMENT.md",
+        "before_sha256": "ea0877d9f7bef99bc1dbada06a0a3461fe686d33ee088406c2825398cd5819b4",
+        "after_sha256": "414b5275e527ae8d135c928e607bdd14b8cad4823c35789815a20d862ddb84d5"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/provenance.py",
+        "before_sha256": "d82cbcc91c228a3f020be0f55fbcbe0598f4b5f544482b5ed3337207fb6be6c8",
+        "after_sha256": "da16e8a95318dc08a494fe00c97e612bacede3b990113a04d2a08ad0ec2f647e"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/source_ledger.schema.json",
+        "before_sha256": "0776349676e9a7ebd5c9644a2856619d56cfc38e472d414b3c009d0ae8e13b42",
+        "after_sha256": "63e1e8b68b7e275d43b0616dad74fad78da5b2ff672cbae151994b6f50dc5161"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests/test_provenance.py",
+        "before_sha256": "ab8f03dd390a0220e46b45e9def5b5e2c8bec09269c2fd1b6cc99f326e12dbc5",
+        "after_sha256": "188478913bf6524b9cb8e39f8dad5157d48b87f7d60497df1a68dce4a46498b0"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests/test_readiness.py",
+        "before_sha256": "4b1f585eac2875dea6acb60224b890e49c7ff91d18c3abddedd4c22dc5939887",
+        "after_sha256": "0b373194c5fee7ec00e62c2c891b1d621b5b39291a91564ef5aa479a003eed83"
+      }
+    ],
+    "integration_changes": [
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/asof_sources/README.md",
+        "before_sha256": "a284e08b0980a420df7b1f29f2431415d42b116b8d0f3fd2b8e19271e40a47e8",
+        "after_sha256": "0c60d9b4297e4d797265a30b61545436067f13474f7ea6ba99eb69c02c838a24"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/BOOK_SOURCE_REGISTRY.json",
+        "before_sha256": null,
+        "after_sha256": "1bbd8b6cc9572019aa06785ef03bdee4d663900303096066dadaab1576b0b043"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/GHOST_ACCEPTANCE_ADDENDUM.md",
+        "before_sha256": null,
+        "after_sha256": "3b3ef8080bc12527ee730b36532c6e78fc7cc1598d059dc576802c46c3c55a37"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/MARKET_INTERFACE_CONSENSUS_ANOMALY.md",
+        "before_sha256": null,
+        "after_sha256": "83d2731f648840ec25ae1e2f27d97cf6c18318394b4b916fe26cbb59ce47ac00"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/SOURCE_INVENTORY_CORE_2026-11-06.md",
+        "before_sha256": null,
+        "after_sha256": "0cbb1e1e613dd736259c0802e2f2a9c2a842c184ba7408ba68e61de409e2010f"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/SOURCE_READINESS_EVIDENCE.json",
+        "before_sha256": null,
+        "after_sha256": "e3f2d1631abe1cac5eb40bfcfaaa1f4f7b7635c01dc715929d3f722b6bfd168e"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/aliases/README.md",
+        "before_sha256": null,
+        "after_sha256": "8480761a49014579db2d0c47e3c16e5df439ff25eea261abc78715929086f591"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/aliases/game_aliases_certified_v2.json",
+        "before_sha256": null,
+        "after_sha256": "53fb4f3564bde4659de3b10d1e52316d3e9d2cf054c1c30bfa57745667a3b920"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/aliases/player_aliases_certified_v2.json",
+        "before_sha256": null,
+        "after_sha256": "e43f93c9477bbb36fcb1531ef4593a41a29de51e44dfc3d94487a629786253ce"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/attempts.json",
+        "before_sha256": null,
+        "after_sha256": "a9467a01a1bb551261757ae72dff47df422ac04747ee18312bb5bb8c3efb35a5"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/audit_config.json",
+        "before_sha256": null,
+        "after_sha256": "9705173187ed23660f70a178b4a9ba4d7d0907d8de1063ccb965a552d707d39a"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/brainstorm.md",
+        "before_sha256": null,
+        "after_sha256": "713d3533ec31004fd5a7683a734a37f1c8b5478bd7074eecd5295851c02886d1"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/build_certified.py",
+        "before_sha256": null,
+        "after_sha256": "5f0c906cd0a6fc2bcc1e799e353961ef9ec1ae972b49a4cb47db3b3f3e17f17b"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/checklist.md",
+        "before_sha256": null,
+        "after_sha256": "94072bf30104e9049a792b83a6fbeeb4c93a787a7626ad79ddd39d9c4e91643f"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/CERTIFIED_CLOSE_PINNACLE_FD_DK.json",
+        "before_sha256": null,
+        "after_sha256": "9002455230de3021a1be1882e03fb4bf351a5a08e92f8a54ca0783b14eb17493"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/PINNACLE_CLOSE_SUMMARY.md",
+        "before_sha256": null,
+        "after_sha256": "20fdcd19c525636f9822f3f91f92c101f91b426621c33b77759f9f0a796c39ed"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/close_book_extract_summary.json",
+        "before_sha256": null,
+        "after_sha256": "f3268f8919d18d11aa7dd4b3f97cd94f202176c9c59d7eae705121f77dd20784"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/held_close_inventory.json",
+        "before_sha256": null,
+        "after_sha256": "03e46b2eee3148c1d470fbd8e18af59793d655147cd086035a92759aa20c56a3"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/pinnacle_extract_odds_20261105_JAXBAL_T30_game.json",
+        "before_sha256": null,
+        "after_sha256": "c80b1d143a803adc9fac2a3f059816edceefbf935558e1cbc87ae1d51791c302"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/pinnacle_extract_odds_20261105_JAXBAL_close_game.json",
+        "before_sha256": null,
+        "after_sha256": "80db1362d1c131f4308fe80f55fb028f6de87f0172fde402b79933ac99089975"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/pinnacle_extract_odds_20261105_JAXBAL_open_game.json",
+        "before_sha256": null,
+        "after_sha256": "5dd5cbb70119da57ed5c2de2ad3f63260b23e394d80b73e129d925d074732107"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/pinnacle_extract_odds_jaxbal_game.json",
+        "before_sha256": null,
+        "after_sha256": "2d0ec7eda1166889b29776eb706173c563552138a7c9bd5eb20121930a9af51d"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/feature_availability.json",
+        "before_sha256": null,
+        "after_sha256": "166d3500b599e0afc8c081634467cf72da7823372cd56c3d1a7c1de4a203f6f8"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/finalize_evidence.py",
+        "before_sha256": null,
+        "after_sha256": "31cdd0940bc2d842407f28257027d3b5adae3f4025d4e9d310c56f15b3b7e673"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/input_manifest.json",
+        "before_sha256": null,
+        "after_sha256": "f4fe6a37844560d437ccf2a83a3417a2e53db4634063b26d3e7d2accf711577f"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/build_certified.log",
+        "before_sha256": null,
+        "after_sha256": "0ea5a9f954cb58b33c3ad59efc806de48d4596dea9c3d7a09d9af045199b8054"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/build_certified_run.json",
+        "before_sha256": null,
+        "after_sha256": "a357a6e590d37cc8df6fea97cd6d464cbef646256522bc071659bda859844bbf"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/packet_verification.log",
+        "before_sha256": null,
+        "after_sha256": "6b67dd3a8d6db550bb3c5abb93a977bf994d19c3e2aa57aa045d615be9de7a06"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/packet_verification_run.json",
+        "before_sha256": null,
+        "after_sha256": "326b9f34453cfcd1e23028b5d0ba8b12bacd879ca9c8bfa3d8dda3b40e6d0694"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/pytest_cache/.gitignore",
+        "before_sha256": null,
+        "after_sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/pytest_cache/CACHEDIR.TAG",
+        "before_sha256": null,
+        "after_sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/pytest_cache/README.md",
+        "before_sha256": null,
+        "after_sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/pytest_cache/v/cache/nodeids",
+        "before_sha256": null,
+        "after_sha256": "bfa4eacf28fc8482e1770f12c92acdb3661d8f31f2efd1b8abcbe5da897d86e6"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/readiness_live.log",
+        "before_sha256": null,
+        "after_sha256": "e9d8c7d792a46c0118fb348ef9966af07b3371f961f9dd598ec62ecd99ccaae8"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/readiness_live_run.json",
+        "before_sha256": null,
+        "after_sha256": "7bb37b9bf1c4c170245b0c3328c2db720e54a7c9c316af54f19e43ecce765cbb"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/source_gate_pytest.log",
+        "before_sha256": null,
+        "after_sha256": "4efeb5dfb4cca27e95525f99e86e91ed8c442cd7869e5d85edf23e2e03058aa1"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/source_gate_pytest.xml",
+        "before_sha256": null,
+        "after_sha256": "89359923d3c350c3f847b903b1fb9555b1776f93d92a06ec2b0f7ebbf56db32f"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/source_gate_pytest_run.json",
+        "before_sha256": null,
+        "after_sha256": "7e9611b47fe8c4a0cabc561e2d965c9020352d4b46e4ff72eddc059407373aac"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/odds_verification.json",
+        "before_sha256": null,
+        "after_sha256": "ae0311ad168ff83360eaf29c1d6afce49d72957943f646066d8fb9af9184638d"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/provenance.json",
+        "before_sha256": null,
+        "after_sha256": "59640abc2cd7c860fb3ccabaf64f7bd4dd18ec4194b6c42b7c30283102a31a20"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/DK_saved_quotes.json",
+        "before_sha256": null,
+        "after_sha256": "4651d335edb838d92857eeddfc5dd4c8a3cbcf3837164fdf4afbf302ff1f4413"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/ESPN_postgame.json",
+        "before_sha256": null,
+        "after_sha256": "41d38d0b79e436c091fa1b15c69aebf9abc5351e6c1685b02271adee27358864"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/ESPN_saved_availability.json",
+        "before_sha256": null,
+        "after_sha256": "f1abad37813bc2aa949f112b36c626cdda7d11d99267dfd99486649dbce16682"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/FD_saved_quotes.json",
+        "before_sha256": null,
+        "after_sha256": "4cbe5d6bf14660947899ccb3e93a715f57dbcc6792ca58c07372ffcaa380ff51"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/NWS.json",
+        "before_sha256": null,
+        "after_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/OddsAPI_saved_pull_assessment.json",
+        "before_sha256": null,
+        "after_sha256": "6ce58dbc8901182afd904ea09c675e23c05a3e72677a7f84fc5255307d990e03"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/OpenMeteo.json",
+        "before_sha256": null,
+        "after_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/Pinnacle_saved_quotes.json",
+        "before_sha256": null,
+        "after_sha256": "56dfc5258a6454e101959a3ac4a3bdbbc23e922d0e3c8ef6871149befdc9e68b"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/gamebooks.json",
+        "before_sha256": null,
+        "after_sha256": "0a88ea719df1225ce968372a0713b2316a78c14db3b0fdcc6936724e21ca79b4"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/local_evidence.json",
+        "before_sha256": null,
+        "after_sha256": "31254b9ec97d76c697a92a7b45503edb2bf86e73b20b0940055f7fa0f507e092"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/nflverse_identity.json",
+        "before_sha256": null,
+        "after_sha256": "bd3ca5ab5948feed56a2d5d0b6709ab4093d63a980b52031a8e4f32216e58b35"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/official_X.json",
+        "before_sha256": null,
+        "after_sha256": "ecb2be8222fe226c0b1e4a89473823ab9dde47e7b3c31145d1b75408c98aee0f"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/official_injury_depth.json",
+        "before_sha256": null,
+        "after_sha256": "ecb2be8222fe226c0b1e4a89473823ab9dde47e7b3c31145d1b75408c98aee0f"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/stadium tools.json",
+        "before_sha256": null,
+        "after_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/weather_forecast.py.json",
+        "before_sha256": null,
+        "after_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/report.md",
+        "before_sha256": null,
+        "after_sha256": "e45a080b3ecc64547fae7d411fd7816211fbfef0fabb628121e91fc4605f492c"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/run_manifest.json",
+        "before_sha256": null,
+        "after_sha256": "6dd6f8bd3839d1968f9cd1e124b93bedb0df65248489ec7c9087e57d4e37a0c0"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+        "before_sha256": null,
+        "after_sha256": "ec230d3c611deb4abdbeea89c9c0df0cbb888f82d9401b58acb2742755f5422f"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/SOURCE_INVENTORY_BETGURU_2026-11-06.md",
+        "before_sha256": null,
+        "after_sha256": "0b4da1371b5e9039d7175c9fa7aec735f1070ba19530b1d06c5a38d9eb437d33"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/actual_role_coverage_audit.md",
+        "before_sha256": null,
+        "after_sha256": "d0f9cecc9e4a82708dd3e9620b364c6231c71ff9701c0d237a5bed8c54a664ca"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_bal_injuries_1855.json",
+        "before_sha256": null,
+        "after_sha256": "01c3922a07692dd55db6755b59676915206c46b521fc869ed5b90b7211a0d9be"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_bal_roster.json",
+        "before_sha256": null,
+        "after_sha256": "80ca60db7dbf10eaeea241b8a51bf084e8a73e21342b98e9ace2518b1a75df1e"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_bal_roster_1855.json",
+        "before_sha256": null,
+        "after_sha256": "d86e8a4405c6ceb0e995a1cee6d0a39607e0674bb5703bfd69961bc5f116d63f"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_jax_injuries_1855.json",
+        "before_sha256": null,
+        "after_sha256": "ac1b916728c89499bb7f3d1f48575a914bc3f4e8ae50aa1cec022358acd4d066"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_jax_roster.json",
+        "before_sha256": null,
+        "after_sha256": "61e864c68cac4b8a4ed5d10bc4f7bb7fb8762d5f071b19d21fd40bb3db69f843"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_jax_roster_1855.json",
+        "before_sha256": null,
+        "after_sha256": "acb44e2104d388d562620369084bd10619eb8fc92b824f8e11e5a9040954c62b"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/jaguars_inactives.png",
+        "before_sha256": null,
+        "after_sha256": "65918d83b83a947a87dfcbc9cacf5c54d8e6be323e22d4abc9de3072d8232f63"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/phase15_inactives.md",
+        "before_sha256": null,
+        "after_sha256": "6841fedecc5598ad1633bf5bb76399698b61f6be8ba3da8f73d6f7c2bfaf91e8"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/ravens_inactives.jpg",
+        "before_sha256": null,
+        "after_sha256": "e05b6bf7c6d5f230f56d44da305f67b7ffde169731d0aa0be23fe128dcb01dad"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/sum_401873037_1855.json",
+        "before_sha256": null,
+        "after_sha256": "da55fb70fe6d82912faf2a482745d78c5678cc79c0198d417cb8c5c092a19c6b"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/sum_401873037_meta.json",
+        "before_sha256": null,
+        "after_sha256": "c3d52af69e22eb60a1f897349236b819aea8da1bae9d381b35f82784700b5e54"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/local/weather_forecast.py",
+        "before_sha256": null,
+        "after_sha256": "10c3b9a0703becb755a0ea684797e15592ba92aae4374176f4e8246d1a058c01"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/nfl_gamebook_JAX_at_BAL_20261105.pdf",
+        "before_sha256": null,
+        "after_sha256": "29d9fd2fc94e698d1f287ca1486441c9560a50f358f60bed3ee7644a7ba9ac8b"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/nfl_gamebook_JAX_at_BAL_20261105.txt",
+        "before_sha256": null,
+        "after_sha256": "0652df10a72797b1541054cc84204cbdc064b9976fdb20617d2dddb1cc9eb24e"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/nflverse_roster_2026.csv",
+        "before_sha256": null,
+        "after_sha256": "63cd13600a3d1196c27aec7cf5b586d3b602955a82e56675f3d28a24dfa527fc"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_20261105_JAXBAL_close_game.csv",
+        "before_sha256": null,
+        "after_sha256": "2453d73951e094c0ee8b3176a8435cb71b5d081bfe7314c883adc2ed43b312a7"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_20261105_JAXBAL_close_meta.json",
+        "before_sha256": null,
+        "after_sha256": "45b79bf5d3461b00be914b900fa64686fe788ff4375c7745e513a050d58e3c58"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_20261105_JAXBAL_open_game.csv",
+        "before_sha256": null,
+        "after_sha256": "b776d8118c1da86dbd7c877adf3afaa3e23c7a09ddfb916cc13a3492a2ead6fb"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_20261105_JAXBAL_open_meta.json",
+        "before_sha256": null,
+        "after_sha256": "861a866b85e1768b1489d1ba7a4d923c3acee66d35244e0fd859e73117aacca6"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_jaxbal_game.csv",
+        "before_sha256": null,
+        "after_sha256": "51244731295a2a45af029b5985b3c4cb29e64448090e32d49437c5350c52690c"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_r6_meta.json",
+        "before_sha256": null,
+        "after_sha256": "eec154512e94070b0226a83f854ddfe6ad2b84bd4a0da4dd86d44fa8aae6bbae"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/te_usage_comparison.md",
+        "before_sha256": null,
+        "after_sha256": "70dd60e5e4ef4faaa73828df4c5fb6889d925e9c3ac7b249523ed435371a66f3"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/weather/forecast_2026-11-05_1855.json",
+        "before_sha256": null,
+        "after_sha256": "0624d43b7b3d836255bee954a43bba8856cec320c5ba27b4c7403f285c6a6952"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/weather/nws_hourly_20261105T1855.json",
+        "before_sha256": null,
+        "after_sha256": "4a2e0d787f85ae56a77733126cb8cebff841e5c5616787a117867f1328493d7c"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/weather/open_meteo_20261105T1855.json",
+        "before_sha256": null,
+        "after_sha256": "1332189fbdfa09de5dffeee0661200887992f4000fba91981eb3fb90af630f03"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/weather/weather_recheck_meta.json",
+        "before_sha256": null,
+        "after_sha256": "af4b7db38c8b36876db991ac9b7c448403ff81d044edaf76612202f4db2a8f87"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/source_ledger.json",
+        "before_sha256": null,
+        "after_sha256": "f6dfac9d2872a536a69e4bfd81c65a9568aa9dcf55640e7f9ce99cecf8684d42"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/verify_packet.py",
+        "before_sha256": null,
+        "after_sha256": "59e3e89e47e5bd58329ed310aac8ae4bdd6aaba4b71dfb20ba95dc21578d26b7"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflow_definitions.json",
+        "before_sha256": null,
+        "after_sha256": "f0053b17ae65f3aba711873e9af6d285df79cf93e86f61248b861432cf43ba77"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/GAME_SCRIPT_2026-10-29.md",
+        "before_sha256": null,
+        "after_sha256": "95d3666f20fe821d25ed1e73a718ede364755522c5fb21ffffb39f846ad6d7f2"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/PHASE_SCRIPT.md",
+        "before_sha256": null,
+        "after_sha256": "912a5c25c6bc4d81b37a3b1dafdcf818f1050cd33b42ca9eb72652859ffa975a"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/betting-game-brainstorm.SKILL.md",
+        "before_sha256": null,
+        "after_sha256": "3808874eddb9e91bb58bc145a4ffc9ea8393dea538f43f42f8e95deec4432e43"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/football-period-game-flow.SKILL.md",
+        "before_sha256": null,
+        "after_sha256": "536f9535cd7882407c8c6819a90e8b7104cad382a18b42f5ef141e12eb2cb489"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/latest_postmortem_context.md",
+        "before_sha256": null,
+        "after_sha256": "84d3865e87139703cec8a6af9a2eff9be732fc89c5d2f70df6cc072d664caa61"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/nfl-betting-script.SKILL.md",
+        "before_sha256": null,
+        "after_sha256": "4c381dfc7e9c22e1a93ce659d4e3fb6a3f001a25b59c6222475327783da1cf74"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/nfl-game-script-run.SKILL.md",
+        "before_sha256": null,
+        "after_sha256": "0e2fc34739848410a1dedaa894ce97ba1bf3546f2d916bb760bb90932613feec"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/nfl-projection-source-preflight.SKILL.md",
+        "before_sha256": null,
+        "after_sha256": "d238c858e0f096853dcf91433a72418d3e2f3e884b7aecdfa79aae2e0367dc97"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/BINDING_REBIND_INDEPENDENT_VERIFY.json",
+        "before_sha256": null,
+        "after_sha256": "c735095ec30eb4b35f6efdc0250eae03e3312887b6ae2a248450bc60af58e2d9"
+      },
+      {
+        "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/BINDING_REBIND_INDEPENDENT_VERIFY.md",
+        "before_sha256": null,
+        "after_sha256": "adc999e249f8cece63a9fb709b05545064d083da0a8b36b0f7c5c9522af1202f"
+      }
+    ]
+  },
+  "snapshots": [
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_before_snapshot.json",
+      "sha256": "7477a53761b7212f2eb1f525dc380e2fc956cd6b61cbbb2d789931cd6c68d324"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_verification_pre_snapshot.json",
+      "sha256": "bcf032d3f43dbc168b59c7a12ce4210f74dff12429e9aac67c5e96c7dc551b8d"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_after_snapshot.json",
+      "sha256": "a977fada55686dc0e8796a54ae5c1bff66e8697763cdbb3174b4432908e693fa"
+    }
+  ],
+  "frozen_records": [
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/producer_joint_trial_example_v1.jsonl",
+      "before_sha256": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd",
+      "after_sha256": "50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/WIRE_SCHEMA_V1_META.json",
+      "before_sha256": "f5ffe94f60d6e8b968eec06db8c4004e75c1f1ca0ac0332272da4778f1a86d50",
+      "after_sha256": "f5ffe94f60d6e8b968eec06db8c4004e75c1f1ca0ac0332272da4778f1a86d50"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CONTRACT_BINDING_AUTHORIZATION_2026-11-06.md",
+      "before_sha256": "f56b233593a66c8dc3a6c28a8721057e7d3a37c740900ed23055a208cadc8cc7",
+      "after_sha256": "f56b233593a66c8dc3a6c28a8721057e7d3a37c740900ed23055a208cadc8cc7"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/PARENT_VERIFY_POST_REBIND.json",
+      "before_sha256": "debeb57b159ccc57c7260f7cb4105cf1f061dab47cdbe0d8fa92ac91c6a5d474",
+      "after_sha256": "debeb57b159ccc57c7260f7cb4105cf1f061dab47cdbe0d8fa92ac91c6a5d474"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/parent_verify_adversarial_post_rebind.log",
+      "before_sha256": "e48d81829d20e80afc5c52d3496b943f1d25cd9be1311b2542e6418afa22c9f7",
+      "after_sha256": "e48d81829d20e80afc5c52d3496b943f1d25cd9be1311b2542e6418afa22c9f7"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/INTEGRATION_WIRE_EVIDENCE.json",
+      "before_sha256": "b2da9ffb0898e93112492823bff70be230c8259466c01ba32e0cf07acd7b5b8d",
+      "after_sha256": "b2da9ffb0898e93112492823bff70be230c8259466c01ba32e0cf07acd7b5b8d"
+    }
+  ],
+  "producer_revision_changes": [
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_joint_producer.py",
+      "before_sha256": "sha256:3effe50027ff2a98de4d6c8386b253e4f94d96fea0c9f10c491ceb802c45c6ab",
+      "after_sha256": "sha256:0496d8b619e29376c021973caec5b6ec1a0b50f70399539ab1c865c35c60f275"
+    }
+  ],
+  "inventory_refresh": {
+    "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/market_calibration_file_hashes.json",
+    "sha256": "3547c096e9c48ef2b742113b0e923b8d0dd6f4059c72181ce9160ff994e3398e",
+    "historical_path": "integration/tests/historical/market_calibration_file_hashes.json.pre_refresh.txt",
+    "before_count": 72,
+    "after_count": 114,
+    "changes": [
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/MANIFEST.json",
+        "before_sha256": "37948790ca32ab0ebfedd5129ad9e10a286dd0f4e173f129dec4ab0e31edeeb2",
+        "after_sha256": "c996299ca4cda5a1ed7e90a5958573798c9bf73ace4276bbc0e6346d721684bb"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/README.md",
+        "before_sha256": "48455e6a29ea8efca4f56d226c49e28254a467490d464bb9a28ea00505c9a4f2",
+        "after_sha256": "b06d7ce03c2e3ed8341efa3582314694bd0dac06c250a3d37b8f4d765ff0c5a2"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/__init__.py",
+        "before_sha256": "1c2208872af40848278e53e972bedb928c85ef6e448d446277200217b4cbab5d",
+        "after_sha256": "600b6c5d5858767ba1472b4d81e33544557da66a1ea596ad7380570867b84e27"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/calibration.py",
+        "before_sha256": "c49b742d9144b045f7676e2c18dc87e06a9188ebca25742add2d6ee3d1b447e2",
+        "after_sha256": "34e493ca713a85a78b3b1e69ecad7aaa1c44c92df76f80b67798a176cc0eb551"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/delivery_guard.py",
+        "before_sha256": null,
+        "after_sha256": "a4c55079d2889afee93d1c3ec98d94e36f93675c8ba803371e0ab9bd07876b57"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/joint_trial_adapter.py",
+        "before_sha256": "4dab7b5adfa9b6b335db76ddb0f950d8dfda9298c63a6de15806830f9c3e416e",
+        "after_sha256": "f430b71834c5da8c59083218c7f0860cee7fd84c30460d9a167aa72af224384d"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/B01_WIRE_FIX_COMPLETION.md",
+        "before_sha256": null,
+        "after_sha256": "10a3fab88e000a0f371ac7a98e25fcbe6cb2b697fc776f5b582774cd1a3960f6"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/BINDING_REBIND_COMPLETION.md",
+        "before_sha256": null,
+        "after_sha256": "79d8015798638e7c33c079fc677f6ee53137b17ee3ec055d5aab2ece3c1525fd"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/PARENT_VERIFY_POST_REBIND.json",
+        "before_sha256": null,
+        "after_sha256": "206cf67e0d44dfd19621aa884622aaf8dee9be6f357520e2c42860513f38ed8c"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/PUBLIC_METHOD_PROBES_2026-11-06.json",
+        "before_sha256": null,
+        "after_sha256": "c4d9bcc9648fa284e085bcbc181c0c4366342536a44474ee3b7e0925bc44f123"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/QUOTE_EXTRACTION_INVENTORY_2026-11-06.json",
+        "before_sha256": null,
+        "after_sha256": "3e260c8ad13502a996fc04641e33db726c607ad0d5cb68c9b57106d305382dd2"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/anomaly_guard_scope_before.json",
+        "before_sha256": null,
+        "after_sha256": "d80a61c88cb75902d918f13e19022cd31043822c917278cc321602bd7b72ce25"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_evidence.json",
+        "before_sha256": null,
+        "after_sha256": "3e5454ca2704442653bd5770c140916611b81d5b93c4f0421d96e87078d35403"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_last.txt",
+        "before_sha256": null,
+        "after_sha256": "4d798b82feda094248d64cee110a0136c79085e27c54bf7add194b4e3129cb52"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_run_records.json",
+        "before_sha256": null,
+        "after_sha256": "2d8fa8dc71aa5a784d9331a22ccfa2552b0fb0d57191c273a1c31c1975906432"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_stderr.txt",
+        "before_sha256": null,
+        "after_sha256": "e6cf19694e4301a9864f55fe4732f3abe4ef26a3ed59c25175e68bb8ca897bba"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_b01_wire_stdout.txt",
+        "before_sha256": null,
+        "after_sha256": "f292a15a252feabd2c332dd545e10a6af15e86222c3e945892d00ba8f023a33d"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_evidence.json",
+        "before_sha256": null,
+        "after_sha256": "a3d25d07f33a74fdc28befb0023cf66da424af6780696e5ed7a853d2920dec98"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_last.txt",
+        "before_sha256": null,
+        "after_sha256": "10e0ef8335f67f042fef411ad9b77f661f86b682446f6b58b420b2e4e341f152"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_stderr.txt",
+        "before_sha256": null,
+        "after_sha256": "2a0348ea557837a8793b1d9f0d04bc8fce6b4e0cf8db8b4aa3c7b66e834bce15"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/codex_binding_rebind_stdout.txt",
+        "before_sha256": null,
+        "after_sha256": "578931c206455c38147f0ac232888326af0cde394b4f654a8c043f4d18193f7d"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/prompt_codex_b01_wire_agreement_v1.txt",
+        "before_sha256": null,
+        "after_sha256": "4e8eab7509a92a61afd1395cfeb3ce6c3e3cc3665ce929059ad11894f4c4828d"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/prompt_codex_binding_rebind_v1.txt",
+        "before_sha256": null,
+        "after_sha256": "f5239697c34473c209dbdb79a2e6fdc33d90f92eed3ca0ebc89ecda691b9c1c6"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_anomaly_guard_first_green.txt",
+        "before_sha256": null,
+        "after_sha256": "dbb823dc3d5acf14e9918bc21c6875ddc7c4447312ef1f5a232f19dcce9680de"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_anomaly_guard_market_suite.txt",
+        "before_sha256": null,
+        "after_sha256": "38471491a7f4afbbb8339e2cb0cc798819ee9f08eea525f9af727360c6878c89"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_anomaly_guard_red.txt",
+        "before_sha256": null,
+        "after_sha256": "53a08180259113bef341ee8c722d92c1bfc235d2c89d88eae1ca639a252e0aad"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_direct.txt",
+        "before_sha256": null,
+        "after_sha256": "eb631c7b2f9799c8277b1dff3d9e2eb699b94c300c20688032d1b5f834ab988b"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_historical_contract_rehearsal.txt",
+        "before_sha256": null,
+        "after_sha256": "f7bd107ad81192cbced350ff5bfcbff063c3d2dfa1702ec2b63698ed58550cb6"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_integration_full.txt",
+        "before_sha256": null,
+        "after_sha256": "190eb4768865fb466beea957a708bd9b5cd7b7bbf92190193142d4ac43e83d0e"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_market.txt",
+        "before_sha256": null,
+        "after_sha256": "88cab337e9937cfb8cb9024681c0dddb6d3e2356b185f5dee89e6ade0d840a32"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_wire_cases_post_implementation_blocked.txt",
+        "before_sha256": null,
+        "after_sha256": "b9c16937ce03069a01f85509f3bed015b0742baaa97c36fbcf9410e0905129d9"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_wire_cases_red.txt",
+        "before_sha256": null,
+        "after_sha256": "ce9c426fafd12fb05793b5a6e4c4f7cb5ddc6b89445ac6779db98e5dc3a30942"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_wire_red.txt",
+        "before_sha256": null,
+        "after_sha256": "daec6c904565b37366fbf90d354be3e27d1fdbbbbc26421be2798dda959d3b75"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_direct.txt",
+        "before_sha256": null,
+        "after_sha256": "fa8e3e1f0a4b084326a7027307e5cc3a94f799f9733ea598c3b878fa3c70f37c"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_local.txt",
+        "before_sha256": null,
+        "after_sha256": "c2c6b596f6326dec34c3110029f10ae752a6b80ef7dd9f3d368c2793a9363a31"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_market.txt",
+        "before_sha256": null,
+        "after_sha256": "038ade2b4642639bc7686315489b5a88567db86c4ff8ce68a19c17d596ebee7f"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_binding_rebind_red.txt",
+        "before_sha256": null,
+        "after_sha256": "2a9ecb02aa1d1e0ef68873713e2b513c1fd0abf205360915502bcf74d828f192"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_binding_local.txt",
+        "before_sha256": null,
+        "after_sha256": "c2c6b596f6326dec34c3110029f10ae752a6b80ef7dd9f3d368c2793a9363a31"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_direct_post_rebind.txt",
+        "before_sha256": null,
+        "after_sha256": "8989a153a4f265bdf8bf8abfcbf7ce96cf91c69ee66d543244ebf0fc2c9d041d"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_parent_verify_market_post_rebind.txt",
+        "before_sha256": null,
+        "after_sha256": "e26baf60b482e02d7c2aadef5a668db6e13b4d18d5726d48e536248c8131c9b2"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tests/test_contract_binding.py",
+        "before_sha256": null,
+        "after_sha256": "8acfb15af6a86dc703064dff6f8183c7b31ae688623aa1f080cd3271c4fa2dd1"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tests/test_delivery_guard.py",
+        "before_sha256": null,
+        "after_sha256": "85a8886a310497ed8882c3eb8b772b57dbd5892a4a280fe41b8c000205a796fe"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tests/test_producer_wire.py",
+        "before_sha256": null,
+        "after_sha256": "a2c41a600f89710e4cf79b59fe8410f3809ee5f24c9d5bdd408d4460b6197611"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/BRAINSTORM_ANOMALY_GUARD_2026-11-06.md",
+        "before_sha256": null,
+        "after_sha256": "2c32face4cba0ff3692ccc9c35edb29c364622a833a05347a66b9fafb28dcf33"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/GHOST_HANDOFF_MARKET_ADAPTER.md",
+        "before_sha256": "1bed9f2d385345d7dea4b7e4c2dd65541214f8223a273c7a75480fe9b6652a2c",
+        "after_sha256": "87969e5a991790a9e0a1f14e86c20b4f896c9f863c270dd2662edd3b7f5ea939"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/NFL-16_TRACKING.md",
+        "before_sha256": "8455d783694ff1c45cb1f8691a5fcdfa833a2982cfe0778a89a0ee98d1f943e8",
+        "after_sha256": "736716f97a966c26f692fae4f64d4bb0e9d5dc57d9a665730e6dff1122c631db"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/PREFLIGHT_ANOMALY_GUARD_2026-11-06.json",
+        "before_sha256": null,
+        "after_sha256": "2f6fc65cdbb2fdf591cc3e6d356e7af0bb63f39c125b33695b5f59afa751519f"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/WIRE_AGREEMENT_v1.0.1.md",
+        "before_sha256": null,
+        "after_sha256": "bd96a29ed1d18fdbf6b551b6c62a5db32b78ee0896bb9606fbd9e09abadbb2e7"
+      },
+      {
+        "path": "/workspace/wt-market-calibration/research/market_calibration/tracking/WORKFLOW_15PHASE_ANOMALY_GUARD_2026-11-06.md",
+        "before_sha256": null,
+        "after_sha256": "0696736331d429747d905a4a3ba280b87e7067fa7ee65e8709c35300b6611902"
+      }
+    ],
+    "mismatches": []
+  },
+  "historical_suite": {
+    "path": "integration/tests/historical/test_historical_pre_rebind.py",
+    "reason": "HISTORICAL_PRE_REBIND_RECORD",
+    "gates_live_acceptance": false
+  },
+  "limits": [
+    "Synthetic SCENARIO_ONLY retained rows; zero adapter-usable trials.",
+    "DIRECT is score transport only; adapter full CORE accounting acceptance remains NOT_RUN.",
+    "Certified as-of sources, canonical joins and workflow completion remain open.",
+    "No fitted Bias, untouched-holdout validation or same-evaluation predictive metrics."
+  ],
+  "integration_changes": [
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/GHOST_ACCEPTANCE_PACKET.md",
+      "before_sha256": "bea55d06932f6c8528dd7a3956ed14cf973bf4d0b5b17487f7caafb1abaad5aa",
+      "after_sha256": "9b9e8c7c9d04747705719feb77a6e496cc19035171a930911f6cd441005a32be"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/asof_sources/README.md",
+      "before_sha256": "a284e08b0980a420df7b1f29f2431415d42b116b8d0f3fd2b8e19271e40a47e8",
+      "after_sha256": "0c60d9b4297e4d797265a30b61545436067f13474f7ea6ba99eb69c02c838a24"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/build_acceptance_packet.py",
+      "before_sha256": "0ac6ddfc871069860c8c9e44dde4f662f95e2c7737defac88605592a5626e4e2",
+      "after_sha256": "87200c8fe35e4ec1ac311720bec9cf3f88196d35fdf2175066c0fd27338379f3"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/BOOK_SOURCE_REGISTRY.json",
+      "before_sha256": null,
+      "after_sha256": "1bbd8b6cc9572019aa06785ef03bdee4d663900303096066dadaab1576b0b043"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/GHOST_ACCEPTANCE_ADDENDUM.md",
+      "before_sha256": null,
+      "after_sha256": "3b3ef8080bc12527ee730b36532c6e78fc7cc1598d059dc576802c46c3c55a37"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/MARKET_INTERFACE_CONSENSUS_ANOMALY.md",
+      "before_sha256": null,
+      "after_sha256": "83d2731f648840ec25ae1e2f27d97cf6c18318394b4b916fe26cbb59ce47ac00"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/SOURCE_INVENTORY_CORE_2026-11-06.md",
+      "before_sha256": null,
+      "after_sha256": "0cbb1e1e613dd736259c0802e2f2a9c2a842c184ba7408ba68e61de409e2010f"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/SOURCE_READINESS_EVIDENCE.json",
+      "before_sha256": null,
+      "after_sha256": "e3f2d1631abe1cac5eb40bfcfaaa1f4f7b7635c01dc715929d3f722b6bfd168e"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/aliases/README.md",
+      "before_sha256": null,
+      "after_sha256": "8480761a49014579db2d0c47e3c16e5df439ff25eea261abc78715929086f591"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/aliases/game_aliases_certified_v2.json",
+      "before_sha256": null,
+      "after_sha256": "53fb4f3564bde4659de3b10d1e52316d3e9d2cf054c1c30bfa57745667a3b920"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/aliases/player_aliases_certified_v2.json",
+      "before_sha256": null,
+      "after_sha256": "e43f93c9477bbb36fcb1531ef4593a41a29de51e44dfc3d94487a629786253ce"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/attempts.json",
+      "before_sha256": null,
+      "after_sha256": "a9467a01a1bb551261757ae72dff47df422ac04747ee18312bb5bb8c3efb35a5"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/audit_config.json",
+      "before_sha256": null,
+      "after_sha256": "9705173187ed23660f70a178b4a9ba4d7d0907d8de1063ccb965a552d707d39a"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/brainstorm.md",
+      "before_sha256": null,
+      "after_sha256": "713d3533ec31004fd5a7683a734a37f1c8b5478bd7074eecd5295851c02886d1"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/build_certified.py",
+      "before_sha256": null,
+      "after_sha256": "5f0c906cd0a6fc2bcc1e799e353961ef9ec1ae972b49a4cb47db3b3f3e17f17b"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/checklist.md",
+      "before_sha256": null,
+      "after_sha256": "94072bf30104e9049a792b83a6fbeeb4c93a787a7626ad79ddd39d9c4e91643f"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/CERTIFIED_CLOSE_PINNACLE_FD_DK.json",
+      "before_sha256": null,
+      "after_sha256": "9002455230de3021a1be1882e03fb4bf351a5a08e92f8a54ca0783b14eb17493"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/PINNACLE_CLOSE_SUMMARY.md",
+      "before_sha256": null,
+      "after_sha256": "20fdcd19c525636f9822f3f91f92c101f91b426621c33b77759f9f0a796c39ed"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/close_book_extract_summary.json",
+      "before_sha256": null,
+      "after_sha256": "f3268f8919d18d11aa7dd4b3f97cd94f202176c9c59d7eae705121f77dd20784"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/held_close_inventory.json",
+      "before_sha256": null,
+      "after_sha256": "03e46b2eee3148c1d470fbd8e18af59793d655147cd086035a92759aa20c56a3"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/pinnacle_extract_odds_20261105_JAXBAL_T30_game.json",
+      "before_sha256": null,
+      "after_sha256": "c80b1d143a803adc9fac2a3f059816edceefbf935558e1cbc87ae1d51791c302"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/pinnacle_extract_odds_20261105_JAXBAL_close_game.json",
+      "before_sha256": null,
+      "after_sha256": "80db1362d1c131f4308fe80f55fb028f6de87f0172fde402b79933ac99089975"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/pinnacle_extract_odds_20261105_JAXBAL_open_game.json",
+      "before_sha256": null,
+      "after_sha256": "5dd5cbb70119da57ed5c2de2ad3f63260b23e394d80b73e129d925d074732107"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/closes/pinnacle_extract_odds_jaxbal_game.json",
+      "before_sha256": null,
+      "after_sha256": "2d0ec7eda1166889b29776eb706173c563552138a7c9bd5eb20121930a9af51d"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/feature_availability.json",
+      "before_sha256": null,
+      "after_sha256": "166d3500b599e0afc8c081634467cf72da7823372cd56c3d1a7c1de4a203f6f8"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/finalize_evidence.py",
+      "before_sha256": null,
+      "after_sha256": "31cdd0940bc2d842407f28257027d3b5adae3f4025d4e9d310c56f15b3b7e673"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/input_manifest.json",
+      "before_sha256": null,
+      "after_sha256": "f4fe6a37844560d437ccf2a83a3417a2e53db4634063b26d3e7d2accf711577f"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/build_certified.log",
+      "before_sha256": null,
+      "after_sha256": "0ea5a9f954cb58b33c3ad59efc806de48d4596dea9c3d7a09d9af045199b8054"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/build_certified_run.json",
+      "before_sha256": null,
+      "after_sha256": "a357a6e590d37cc8df6fea97cd6d464cbef646256522bc071659bda859844bbf"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/packet_verification.log",
+      "before_sha256": null,
+      "after_sha256": "6b67dd3a8d6db550bb3c5abb93a977bf994d19c3e2aa57aa045d615be9de7a06"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/packet_verification_run.json",
+      "before_sha256": null,
+      "after_sha256": "326b9f34453cfcd1e23028b5d0ba8b12bacd879ca9c8bfa3d8dda3b40e6d0694"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/pytest_cache/.gitignore",
+      "before_sha256": null,
+      "after_sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/pytest_cache/CACHEDIR.TAG",
+      "before_sha256": null,
+      "after_sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/pytest_cache/README.md",
+      "before_sha256": null,
+      "after_sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/pytest_cache/v/cache/nodeids",
+      "before_sha256": null,
+      "after_sha256": "bfa4eacf28fc8482e1770f12c92acdb3661d8f31f2efd1b8abcbe5da897d86e6"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/readiness_live.log",
+      "before_sha256": null,
+      "after_sha256": "e9d8c7d792a46c0118fb348ef9966af07b3371f961f9dd598ec62ecd99ccaae8"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/readiness_live_run.json",
+      "before_sha256": null,
+      "after_sha256": "7bb37b9bf1c4c170245b0c3328c2db720e54a7c9c316af54f19e43ecce765cbb"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/source_gate_pytest.log",
+      "before_sha256": null,
+      "after_sha256": "4efeb5dfb4cca27e95525f99e86e91ed8c442cd7869e5d85edf23e2e03058aa1"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/source_gate_pytest.xml",
+      "before_sha256": null,
+      "after_sha256": "89359923d3c350c3f847b903b1fb9555b1776f93d92a06ec2b0f7ebbf56db32f"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/logs/source_gate_pytest_run.json",
+      "before_sha256": null,
+      "after_sha256": "7e9611b47fe8c4a0cabc561e2d965c9020352d4b46e4ff72eddc059407373aac"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/odds_verification.json",
+      "before_sha256": null,
+      "after_sha256": "ae0311ad168ff83360eaf29c1d6afce49d72957943f646066d8fb9af9184638d"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/provenance.json",
+      "before_sha256": null,
+      "after_sha256": "59640abc2cd7c860fb3ccabaf64f7bd4dd18ec4194b6c42b7c30283102a31a20"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/DK_saved_quotes.json",
+      "before_sha256": null,
+      "after_sha256": "4651d335edb838d92857eeddfc5dd4c8a3cbcf3837164fdf4afbf302ff1f4413"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/ESPN_postgame.json",
+      "before_sha256": null,
+      "after_sha256": "41d38d0b79e436c091fa1b15c69aebf9abc5351e6c1685b02271adee27358864"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/ESPN_saved_availability.json",
+      "before_sha256": null,
+      "after_sha256": "f1abad37813bc2aa949f112b36c626cdda7d11d99267dfd99486649dbce16682"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/FD_saved_quotes.json",
+      "before_sha256": null,
+      "after_sha256": "4cbe5d6bf14660947899ccb3e93a715f57dbcc6792ca58c07372ffcaa380ff51"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/NWS.json",
+      "before_sha256": null,
+      "after_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/OddsAPI_saved_pull_assessment.json",
+      "before_sha256": null,
+      "after_sha256": "6ce58dbc8901182afd904ea09c675e23c05a3e72677a7f84fc5255307d990e03"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/OpenMeteo.json",
+      "before_sha256": null,
+      "after_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/Pinnacle_saved_quotes.json",
+      "before_sha256": null,
+      "after_sha256": "56dfc5258a6454e101959a3ac4a3bdbbc23e922d0e3c8ef6871149befdc9e68b"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/gamebooks.json",
+      "before_sha256": null,
+      "after_sha256": "0a88ea719df1225ce968372a0713b2316a78c14db3b0fdcc6936724e21ca79b4"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/local_evidence.json",
+      "before_sha256": null,
+      "after_sha256": "31254b9ec97d76c697a92a7b45503edb2bf86e73b20b0940055f7fa0f507e092"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/nflverse_identity.json",
+      "before_sha256": null,
+      "after_sha256": "bd3ca5ab5948feed56a2d5d0b6709ab4093d63a980b52031a8e4f32216e58b35"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/official_X.json",
+      "before_sha256": null,
+      "after_sha256": "ecb2be8222fe226c0b1e4a89473823ab9dde47e7b3c31145d1b75408c98aee0f"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/official_injury_depth.json",
+      "before_sha256": null,
+      "after_sha256": "ecb2be8222fe226c0b1e4a89473823ab9dde47e7b3c31145d1b75408c98aee0f"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/stadium tools.json",
+      "before_sha256": null,
+      "after_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/weather_forecast.py.json",
+      "before_sha256": null,
+      "after_sha256": "5de0d4a9dd0089aad4e7d03cf3815dd5a9db1093b39fbe7f9a1824e9ac65ac7b"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/report.md",
+      "before_sha256": null,
+      "after_sha256": "e45a080b3ecc64547fae7d411fd7816211fbfef0fabb628121e91fc4605f492c"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/run_manifest.json",
+      "before_sha256": null,
+      "after_sha256": "6dd6f8bd3839d1968f9cd1e124b93bedb0df65248489ec7c9087e57d4e37a0c0"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/PREFLIGHT_BETGURU_2026-11-06.json",
+      "before_sha256": null,
+      "after_sha256": "ec230d3c611deb4abdbeea89c9c0df0cbb888f82d9401b58acb2742755f5422f"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/SOURCE_INVENTORY_BETGURU_2026-11-06.md",
+      "before_sha256": null,
+      "after_sha256": "0b4da1371b5e9039d7175c9fa7aec735f1070ba19530b1d06c5a38d9eb437d33"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/actual_role_coverage_audit.md",
+      "before_sha256": null,
+      "after_sha256": "d0f9cecc9e4a82708dd3e9620b364c6231c71ff9701c0d237a5bed8c54a664ca"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_bal_injuries_1855.json",
+      "before_sha256": null,
+      "after_sha256": "01c3922a07692dd55db6755b59676915206c46b521fc869ed5b90b7211a0d9be"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_bal_roster.json",
+      "before_sha256": null,
+      "after_sha256": "80ca60db7dbf10eaeea241b8a51bf084e8a73e21342b98e9ace2518b1a75df1e"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_bal_roster_1855.json",
+      "before_sha256": null,
+      "after_sha256": "d86e8a4405c6ceb0e995a1cee6d0a39607e0674bb5703bfd69961bc5f116d63f"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_jax_injuries_1855.json",
+      "before_sha256": null,
+      "after_sha256": "ac1b916728c89499bb7f3d1f48575a914bc3f4e8ae50aa1cec022358acd4d066"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_jax_roster.json",
+      "before_sha256": null,
+      "after_sha256": "61e864c68cac4b8a4ed5d10bc4f7bb7fb8762d5f071b19d21fd40bb3db69f843"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/espn_jax_roster_1855.json",
+      "before_sha256": null,
+      "after_sha256": "acb44e2104d388d562620369084bd10619eb8fc92b824f8e11e5a9040954c62b"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/jaguars_inactives.png",
+      "before_sha256": null,
+      "after_sha256": "65918d83b83a947a87dfcbc9cacf5c54d8e6be323e22d4abc9de3072d8232f63"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/phase15_inactives.md",
+      "before_sha256": null,
+      "after_sha256": "6841fedecc5598ad1633bf5bb76399698b61f6be8ba3da8f73d6f7c2bfaf91e8"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/ravens_inactives.jpg",
+      "before_sha256": null,
+      "after_sha256": "e05b6bf7c6d5f230f56d44da305f67b7ffde169731d0aa0be23fe128dcb01dad"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/sum_401873037_1855.json",
+      "before_sha256": null,
+      "after_sha256": "da55fb70fe6d82912faf2a482745d78c5678cc79c0198d417cb8c5c092a19c6b"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/availability/sum_401873037_meta.json",
+      "before_sha256": null,
+      "after_sha256": "c3d52af69e22eb60a1f897349236b819aea8da1bae9d381b35f82784700b5e54"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/local/weather_forecast.py",
+      "before_sha256": null,
+      "after_sha256": "10c3b9a0703becb755a0ea684797e15592ba92aae4374176f4e8246d1a058c01"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/nfl_gamebook_JAX_at_BAL_20261105.pdf",
+      "before_sha256": null,
+      "after_sha256": "29d9fd2fc94e698d1f287ca1486441c9560a50f358f60bed3ee7644a7ba9ac8b"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/nfl_gamebook_JAX_at_BAL_20261105.txt",
+      "before_sha256": null,
+      "after_sha256": "0652df10a72797b1541054cc84204cbdc064b9976fdb20617d2dddb1cc9eb24e"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/nflverse_roster_2026.csv",
+      "before_sha256": null,
+      "after_sha256": "63cd13600a3d1196c27aec7cf5b586d3b602955a82e56675f3d28a24dfa527fc"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_20261105_JAXBAL_close_game.csv",
+      "before_sha256": null,
+      "after_sha256": "2453d73951e094c0ee8b3176a8435cb71b5d081bfe7314c883adc2ed43b312a7"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_20261105_JAXBAL_close_meta.json",
+      "before_sha256": null,
+      "after_sha256": "45b79bf5d3461b00be914b900fa64686fe788ff4375c7745e513a050d58e3c58"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_20261105_JAXBAL_open_game.csv",
+      "before_sha256": null,
+      "after_sha256": "b776d8118c1da86dbd7c877adf3afaa3e23c7a09ddfb916cc13a3492a2ead6fb"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_20261105_JAXBAL_open_meta.json",
+      "before_sha256": null,
+      "after_sha256": "861a866b85e1768b1489d1ba7a4d923c3acee66d35244e0fd859e73117aacca6"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_jaxbal_game.csv",
+      "before_sha256": null,
+      "after_sha256": "51244731295a2a45af029b5985b3c4cb29e64448090e32d49437c5350c52690c"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/odds/odds_r6_meta.json",
+      "before_sha256": null,
+      "after_sha256": "eec154512e94070b0226a83f854ddfe6ad2b84bd4a0da4dd86d44fa8aae6bbae"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/te_usage_comparison.md",
+      "before_sha256": null,
+      "after_sha256": "70dd60e5e4ef4faaa73828df4c5fb6889d925e9c3ac7b249523ed435371a66f3"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/weather/forecast_2026-11-05_1855.json",
+      "before_sha256": null,
+      "after_sha256": "0624d43b7b3d836255bee954a43bba8856cec320c5ba27b4c7403f285c6a6952"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/weather/nws_hourly_20261105T1855.json",
+      "before_sha256": null,
+      "after_sha256": "4a2e0d787f85ae56a77733126cb8cebff841e5c5616787a117867f1328493d7c"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/weather/open_meteo_20261105T1855.json",
+      "before_sha256": null,
+      "after_sha256": "1332189fbdfa09de5dffeee0661200887992f4000fba91981eb3fb90af630f03"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/snapshots/weather/weather_recheck_meta.json",
+      "before_sha256": null,
+      "after_sha256": "af4b7db38c8b36876db991ac9b7c448403ff81d044edaf76612202f4db2a8f87"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/source_ledger.json",
+      "before_sha256": null,
+      "after_sha256": "f6dfac9d2872a536a69e4bfd81c65a9568aa9dcf55640e7f9ce99cecf8684d42"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/verify_packet.py",
+      "before_sha256": null,
+      "after_sha256": "59e3e89e47e5bd58329ed310aac8ae4bdd6aaba4b71dfb20ba95dc21578d26b7"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflow_definitions.json",
+      "before_sha256": null,
+      "after_sha256": "f0053b17ae65f3aba711873e9af6d285df79cf93e86f61248b861432cf43ba77"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/GAME_SCRIPT_2026-10-29.md",
+      "before_sha256": null,
+      "after_sha256": "95d3666f20fe821d25ed1e73a718ede364755522c5fb21ffffb39f846ad6d7f2"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/PHASE_SCRIPT.md",
+      "before_sha256": null,
+      "after_sha256": "912a5c25c6bc4d81b37a3b1dafdcf818f1050cd33b42ca9eb72652859ffa975a"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/betting-game-brainstorm.SKILL.md",
+      "before_sha256": null,
+      "after_sha256": "3808874eddb9e91bb58bc145a4ffc9ea8393dea538f43f42f8e95deec4432e43"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/football-period-game-flow.SKILL.md",
+      "before_sha256": null,
+      "after_sha256": "536f9535cd7882407c8c6819a90e8b7104cad382a18b42f5ef141e12eb2cb489"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/latest_postmortem_context.md",
+      "before_sha256": null,
+      "after_sha256": "84d3865e87139703cec8a6af9a2eff9be732fc89c5d2f70df6cc072d664caa61"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/nfl-betting-script.SKILL.md",
+      "before_sha256": null,
+      "after_sha256": "4c381dfc7e9c22e1a93ce659d4e3fb6a3f001a25b59c6222475327783da1cf74"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/nfl-game-script-run.SKILL.md",
+      "before_sha256": null,
+      "after_sha256": "0e2fc34739848410a1dedaa894ce97ba1bf3546f2d916bb760bb90932613feec"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/workflows/nfl-projection-source-preflight.SKILL.md",
+      "before_sha256": null,
+      "after_sha256": "d238c858e0f096853dcf91433a72418d3e2f3e884b7aecdfa79aae2e0367dc97"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_adversarial_tests.py",
+      "before_sha256": "e373b19714f983caf11a75957c63dd1db8b0fd4122f824333f532fc1c212f06a",
+      "after_sha256": "ef20d724c018ccf53aec3134dc5fa4f19d702680d95010d275718c2c455ba72a"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/market_calibration_file_hashes.json",
+      "before_sha256": "8a88d5abba5f792793dd9502865d73ce444e72fd60c9fbc341a4e3653397f12e",
+      "after_sha256": "3547c096e9c48ef2b742113b0e923b8d0dd6f4059c72181ce9160ff994e3398e"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/GHOST_ACCEPTANCE_PACKET.md.pre_refresh.txt",
+      "before_sha256": null,
+      "after_sha256": "bea55d06932f6c8528dd7a3956ed14cf973bf4d0b5b17487f7caafb1abaad5aa"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/README.md",
+      "before_sha256": null,
+      "after_sha256": "e9e53f8666d6db9698d8f7738e7b55a573744a8632054635f8335f6f23c15f90"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/build_acceptance_packet.py.pre_refresh.txt",
+      "before_sha256": null,
+      "after_sha256": "0ac6ddfc871069860c8c9e44dde4f662f95e2c7737defac88605592a5626e4e2"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/integration_adversarial_tests.py.pre_refresh.txt",
+      "before_sha256": null,
+      "after_sha256": "e373b19714f983caf11a75957c63dd1db8b0fd4122f824333f532fc1c212f06a"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/market_calibration_file_hashes.json.pre_refresh.txt",
+      "before_sha256": null,
+      "after_sha256": "8a88d5abba5f792793dd9502865d73ce444e72fd60c9fbc341a4e3653397f12e"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/test_historical_pre_rebind.py",
+      "before_sha256": null,
+      "after_sha256": "a30f640fa140db127166ec4c4a5f6c6fd4d9975bab4f13c930c805b761d40f89"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/BINDING_REBIND_INDEPENDENT_VERIFY.json",
+      "before_sha256": null,
+      "after_sha256": "c735095ec30eb4b35f6efdc0250eae03e3312887b6ae2a248450bc60af58e2d9"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/BINDING_REBIND_INDEPENDENT_VERIFY.md",
+      "before_sha256": null,
+      "after_sha256": "adc999e249f8cece63a9fb709b05545064d083da0a8b36b0f7c5c9522af1202f"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.log",
+      "before_sha256": null,
+      "after_sha256": "93c97c10af4fc8b54296201243c032c5e8295479ca6b4adc06019033d6f9e282"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.xml",
+      "before_sha256": null,
+      "after_sha256": "addd30618008a7ddd2e696dcd5f31779eb7157a323357f84b18c406886760497"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.log",
+      "before_sha256": null,
+      "after_sha256": "90a49149c9062ec9fd343c2839ddcd50252d15dc3066d22171c03ad8604dda42"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.xml",
+      "before_sha256": null,
+      "after_sha256": "91150ecf2498cd7bef2ea46ca7d335c0dca4a12678c4e022ad04de1462e014b4"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_after_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "a977fada55686dc0e8796a54ae5c1bff66e8697763cdbb3174b4432908e693fa"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/INTEGRATION_EXPECTATION_REFRESH_EVIDENCE.json",
+      "before_sha256": null,
+      "after_sha256": "7d851232534c9e014948d4024a3b5565c9619dbd5abcdfa8cc155e6b421b9ad8"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/README.md",
+      "before_sha256": null,
+      "after_sha256": "cf9ad411515ae50b3bf2663e678c522a18a7b34cfc11cc6fa00c2661bad1129b"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_DIRECT.log",
+      "before_sha256": null,
+      "after_sha256": "93c97c10af4fc8b54296201243c032c5e8295479ca6b4adc06019033d6f9e282"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_DIRECT.xml",
+      "before_sha256": null,
+      "after_sha256": "0aa418094e729ced4062c0d4ffb7c24aab08c5f3825941930c4995ea8fe3a452"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_adversarial.log",
+      "before_sha256": null,
+      "after_sha256": "4d389e50c42a16130e79145e61bdfa67d1f53e66b00d15436ac761094719fc99"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_adversarial.xml",
+      "before_sha256": null,
+      "after_sha256": "1aee8955ee1c278819b4a144a98f228c296f2f82b45415fe2d2061a955ce64e3"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_after_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "baad273da795cb8337a4f3783c6bbc7a21995edce100e080579ba64a36942d8a"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_historical.log",
+      "before_sha256": null,
+      "after_sha256": "5418cd22775222abf3a77f48aa82f8e78eb251f7467f250b3c57010bde06ce23"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_historical.xml",
+      "before_sha256": null,
+      "after_sha256": "6a4a431574f1af2c1c0bd2ae5a557d32a7d6766db96e59e5ef7d3115ccb6f61e"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/INTEGRATION_EXPECTATION_REFRESH_EVIDENCE.json",
+      "before_sha256": null,
+      "after_sha256": "0e7e44d1edee399ef1910f88763e384e5314ccf02641bf0eda7c42f343625663"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/README.md",
+      "before_sha256": null,
+      "after_sha256": "d327109d1ef72e9947f168cfeb0bd10aa9c0efba5f3f734fd9ab2e3ea35aa503"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_DIRECT.log",
+      "before_sha256": null,
+      "after_sha256": "93c97c10af4fc8b54296201243c032c5e8295479ca6b4adc06019033d6f9e282"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_DIRECT.xml",
+      "before_sha256": null,
+      "after_sha256": "c6cad231cd16cbe217bc9e7754fa63f09418756bfcb36263ac4afc070a74c3a8"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_adversarial.log",
+      "before_sha256": null,
+      "after_sha256": "a042b74b693ef54155f1f92199359fa357a78b9d62e756561b8a3080067006e2"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_adversarial.xml",
+      "before_sha256": null,
+      "after_sha256": "56cdcce3cf487e84c433ed797bd57f7c2b705457bc4c6034504a0d3b48db0609"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_after_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "14eb9931da0aa62fd3824996a2174576022ce3aa9e4ed1aebfd1711cde787cba"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_historical.log",
+      "before_sha256": null,
+      "after_sha256": "98788333c904f14330846300bed4764e0874dd5350c2018b51d507120ce1acf4"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_historical.xml",
+      "before_sha256": null,
+      "after_sha256": "165fcbe983d2c23fdd51dc29f1f3d876e62cd0312595c4ed7f3f80eea5b4d6ff"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_verification_pre_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "814e45b91297bacf7c758d13bac3ee1bf8335cdd7264ac514d91681bf420b945"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/market_calibration_file_hashes.json",
+      "before_sha256": null,
+      "after_sha256": "9c39fb9f1021109e401d3f97465632a6305e2a36c06367049d5c046c23316349"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_before_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "7477a53761b7212f2eb1f525dc380e2fc956cd6b61cbbb2d789931cd6c68d324"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.log",
+      "before_sha256": null,
+      "after_sha256": "5418cd22775222abf3a77f48aa82f8e78eb251f7467f250b3c57010bde06ce23"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.xml",
+      "before_sha256": null,
+      "after_sha256": "d2335fc5bef0957f2b4eff7f32db8d174d6ed4c48e616c7b9b51d19f9510faec"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_verification_pre_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "bcf032d3f43dbc168b59c7a12ce4210f74dff12429e9aac67c5e96c7dc551b8d"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/producer_revision_expectations_post_rebind.json",
+      "before_sha256": null,
+      "after_sha256": "3028d4110326727d117af276bc426e911604ad52d6baf44b2c103836afc047eb"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/verify_expectation_refresh.py",
+      "before_sha256": null,
+      "after_sha256": "15582ba7d8218a30c4c569e7d70aab7a552726c51c1eaa56fc6fc60fe66d5b6a"
+    }
+  ],
+  "packet": {
+    "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/GHOST_ACCEPTANCE_PACKET.md",
+    "sha256": "9b9e8c7c9d04747705719feb77a6e496cc19035171a930911f6cd441005a32be"
+  },
+  "integration_changes_note": "All observed differences; authorship is separated below. Runtime fixtures and the self-referential evidence file are excluded from hashes.",
+  "authored_integration_changes": [
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/GHOST_ACCEPTANCE_PACKET.md",
+      "before_sha256": "bea55d06932f6c8528dd7a3956ed14cf973bf4d0b5b17487f7caafb1abaad5aa",
+      "after_sha256": "9b9e8c7c9d04747705719feb77a6e496cc19035171a930911f6cd441005a32be"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/build_acceptance_packet.py",
+      "before_sha256": "0ac6ddfc871069860c8c9e44dde4f662f95e2c7737defac88605592a5626e4e2",
+      "after_sha256": "87200c8fe35e4ec1ac311720bec9cf3f88196d35fdf2175066c0fd27338379f3"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_adversarial_tests.py",
+      "before_sha256": "e373b19714f983caf11a75957c63dd1db8b0fd4122f824333f532fc1c212f06a",
+      "after_sha256": "ef20d724c018ccf53aec3134dc5fa4f19d702680d95010d275718c2c455ba72a"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/market_calibration_file_hashes.json",
+      "before_sha256": "8a88d5abba5f792793dd9502865d73ce444e72fd60c9fbc341a4e3653397f12e",
+      "after_sha256": "3547c096e9c48ef2b742113b0e923b8d0dd6f4059c72181ce9160ff994e3398e"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/GHOST_ACCEPTANCE_PACKET.md.pre_refresh.txt",
+      "before_sha256": null,
+      "after_sha256": "bea55d06932f6c8528dd7a3956ed14cf973bf4d0b5b17487f7caafb1abaad5aa"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/README.md",
+      "before_sha256": null,
+      "after_sha256": "e9e53f8666d6db9698d8f7738e7b55a573744a8632054635f8335f6f23c15f90"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/build_acceptance_packet.py.pre_refresh.txt",
+      "before_sha256": null,
+      "after_sha256": "0ac6ddfc871069860c8c9e44dde4f662f95e2c7737defac88605592a5626e4e2"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/integration_adversarial_tests.py.pre_refresh.txt",
+      "before_sha256": null,
+      "after_sha256": "e373b19714f983caf11a75957c63dd1db8b0fd4122f824333f532fc1c212f06a"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/market_calibration_file_hashes.json.pre_refresh.txt",
+      "before_sha256": null,
+      "after_sha256": "8a88d5abba5f792793dd9502865d73ce444e72fd60c9fbc341a4e3653397f12e"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/tests/historical/test_historical_pre_rebind.py",
+      "before_sha256": null,
+      "after_sha256": "a30f640fa140db127166ec4c4a5f6c6fd4d9975bab4f13c930c805b761d40f89"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.log",
+      "before_sha256": null,
+      "after_sha256": "93c97c10af4fc8b54296201243c032c5e8295479ca6b4adc06019033d6f9e282"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_DIRECT.xml",
+      "before_sha256": null,
+      "after_sha256": "addd30618008a7ddd2e696dcd5f31779eb7157a323357f84b18c406886760497"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.log",
+      "before_sha256": null,
+      "after_sha256": "90a49149c9062ec9fd343c2839ddcd50252d15dc3066d22171c03ad8604dda42"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_adversarial.xml",
+      "before_sha256": null,
+      "after_sha256": "91150ecf2498cd7bef2ea46ca7d335c0dca4a12678c4e022ad04de1462e014b4"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_after_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "a977fada55686dc0e8796a54ae5c1bff66e8697763cdbb3174b4432908e693fa"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/INTEGRATION_EXPECTATION_REFRESH_EVIDENCE.json",
+      "before_sha256": null,
+      "after_sha256": "7d851232534c9e014948d4024a3b5565c9619dbd5abcdfa8cc155e6b421b9ad8"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/README.md",
+      "before_sha256": null,
+      "after_sha256": "cf9ad411515ae50b3bf2663e678c522a18a7b34cfc11cc6fa00c2661bad1129b"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_DIRECT.log",
+      "before_sha256": null,
+      "after_sha256": "93c97c10af4fc8b54296201243c032c5e8295479ca6b4adc06019033d6f9e282"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_DIRECT.xml",
+      "before_sha256": null,
+      "after_sha256": "0aa418094e729ced4062c0d4ffb7c24aab08c5f3825941930c4995ea8fe3a452"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_adversarial.log",
+      "before_sha256": null,
+      "after_sha256": "4d389e50c42a16130e79145e61bdfa67d1f53e66b00d15436ac761094719fc99"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_adversarial.xml",
+      "before_sha256": null,
+      "after_sha256": "1aee8955ee1c278819b4a144a98f228c296f2f82b45415fe2d2061a955ce64e3"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_after_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "baad273da795cb8337a4f3783c6bbc7a21995edce100e080579ba64a36942d8a"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_historical.log",
+      "before_sha256": null,
+      "after_sha256": "5418cd22775222abf3a77f48aa82f8e78eb251f7467f250b3c57010bde06ce23"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt1/expectation_refresh_historical.xml",
+      "before_sha256": null,
+      "after_sha256": "6a4a431574f1af2c1c0bd2ae5a557d32a7d6766db96e59e5ef7d3115ccb6f61e"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/INTEGRATION_EXPECTATION_REFRESH_EVIDENCE.json",
+      "before_sha256": null,
+      "after_sha256": "0e7e44d1edee399ef1910f88763e384e5314ccf02641bf0eda7c42f343625663"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/README.md",
+      "before_sha256": null,
+      "after_sha256": "d327109d1ef72e9947f168cfeb0bd10aa9c0efba5f3f734fd9ab2e3ea35aa503"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_DIRECT.log",
+      "before_sha256": null,
+      "after_sha256": "93c97c10af4fc8b54296201243c032c5e8295479ca6b4adc06019033d6f9e282"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_DIRECT.xml",
+      "before_sha256": null,
+      "after_sha256": "c6cad231cd16cbe217bc9e7754fa63f09418756bfcb36263ac4afc070a74c3a8"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_adversarial.log",
+      "before_sha256": null,
+      "after_sha256": "a042b74b693ef54155f1f92199359fa357a78b9d62e756561b8a3080067006e2"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_adversarial.xml",
+      "before_sha256": null,
+      "after_sha256": "56cdcce3cf487e84c433ed797bd57f7c2b705457bc4c6034504a0d3b48db0609"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_after_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "14eb9931da0aa62fd3824996a2174576022ce3aa9e4ed1aebfd1711cde787cba"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_historical.log",
+      "before_sha256": null,
+      "after_sha256": "98788333c904f14330846300bed4764e0874dd5350c2018b51d507120ce1acf4"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_historical.xml",
+      "before_sha256": null,
+      "after_sha256": "165fcbe983d2c23fdd51dc29f1f3d876e62cd0312595c4ed7f3f80eea5b4d6ff"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/expectation_refresh_verification_pre_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "814e45b91297bacf7c758d13bac3ee1bf8335cdd7264ac514d91681bf420b945"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_attempt2/market_calibration_file_hashes.json",
+      "before_sha256": null,
+      "after_sha256": "9c39fb9f1021109e401d3f97465632a6305e2a36c06367049d5c046c23316349"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_before_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "7477a53761b7212f2eb1f525dc380e2fc956cd6b61cbbb2d789931cd6c68d324"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.log",
+      "before_sha256": null,
+      "after_sha256": "5418cd22775222abf3a77f48aa82f8e78eb251f7467f250b3c57010bde06ce23"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_historical.xml",
+      "before_sha256": null,
+      "after_sha256": "d2335fc5bef0957f2b4eff7f32db8d174d6ed4c48e616c7b9b51d19f9510faec"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/expectation_refresh_verification_pre_snapshot.json",
+      "before_sha256": null,
+      "after_sha256": "bcf032d3f43dbc168b59c7a12ce4210f74dff12429e9aac67c5e96c7dc551b8d"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/producer_revision_expectations_post_rebind.json",
+      "before_sha256": null,
+      "after_sha256": "3028d4110326727d117af276bc426e911604ad52d6baf44b2c103836afc047eb"
+    },
+    {
+      "path": "/workspace/research/nfl_sim_integration_2026-11-06/integration/wire/verify_expectation_refresh.py",
+      "before_sha256": null,
+      "after_sha256": "15582ba7d8218a30c4c569e7d70aab7a552726c51c1eaa56fc6fc60fe66d5b6a"
+    }
+  ],
+  "adapter_before_after": {
+    "path": "/workspace/wt-market-calibration/research/market_calibration/joint_trial_adapter.py",
+    "before_sha256": "f430b71834c5da8c59083218c7f0860cee7fd84c30460d9a167aa72af224384d",
+    "after_sha256": "f430b71834c5da8c59083218c7f0860cee7fd84c30460d9a167aa72af224384d",
+    "unchanged": true
+  }
+}

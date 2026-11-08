@@ -1,0 +1,2890 @@
+# Independent Claude review package (read-only; files inlined by coordinator)
+Do NOT claim predictive metrics. Impact NOT_MEASURED unless evidence has same-eval metrics.
+Output: VERDICT (ACCEPT|ACCEPT_WITH_GAPS|REJECT), GAPS, FALSE-PASS RISKS, REQUIRED BEFORE GHOST FINAL VET, NOTES.
+
+
+===== FILE /workspace/research/nfl_sim_integration_2026-11-06/reviews/COMPLETION_CODEX.md =====
+# Codex local CORE completion and review handoff
+
+Local producer implementation is complete for the explicitly supported structural model. **Full integration / real-game export: BLOCKED**; see the residuals below and the component-by-component `CORE_MANIFEST.json`. No predictive quality or final-vet PASS is claimed.
+
+Branch `research-nfl-sim-core-2026-11-06`, HEAD `3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6` (base `3448ad7`), with local uncommitted changes. Only the possession research package and integration review artifacts were edited. The user authorized implementation after the original contract's documentation-only phase.
+
+## Changes
+
+- Added the opt-in frozen `joint_producer` path to `simulate_games`. The producer allocates and increments targets/carries before catch and yard draws. Trial availability, depth-chart, rotation, intended depth and shared environment states and conditional weights retain explicit MODELED provenance; none are claimed to be charted routes or observed personnel.
+- Added exact integer attempt/player-yard accounting, visible unassigned buckets and signed field/lateral/provider credit adjustments. Validation recomputes the event ledger and primitive/aggregate totals, verifies actual causal stage counts, and turns corrupted evidence into INVALID with projection blocked. Invalid/incomplete trials stay in the output population with explicit counts/exclusions.
+- Added canonical frozen input/run identities, per-trial SHA-256 seeds, immutable JSONL and manifest artifacts, exact dirty source snapshots, versioned cutoff/split references, and runtime/mutation checks. Player/team/period rows, scores and adapter fields share one ledger and trial-ID population.
+- Added explicit regulation/period/halftime/reset/runoff/try boundaries, possession continuity and cap INCOMPLETE handling. Unplayed OT is known zero; unfinished totals remain incomplete/null. The frozen OT profile stays the declared single-possession approximation.
+- Propagated coverage UNKNOWN, routes MISSING and personnel 11/12/13 MISSING as null, effect-disabled records on every event. The TNF audit is only a postgame contract reference and is not read as a predictive input.
+- Separated independent data_only/script_adjusted from market inputs and market-derived lineage. Split validation rejects overlap and inspected/evidence holdout assignments; UNASSIGNED blocks split-dependent claims. Quote matching and settlement remain BetGuru responsibilities.
+- Flagged the legacy yard-row path as ineligible for shared-contract projection. Removed its unconditional declared-clock PASS and added both-team score reconciliation; it cannot report a complete contract PASS.
+
+## Captured checks
+
+`python3 -m pytest research/possession_engine_v0/tests/test_joint_producer.py research/possession_engine_v0/tests/test_adversarial_review.py research/possession_engine_v0/tests/test_final_review.py research/possession_engine_v0/tests/test_missing_feature_adapters.py -q --junitxml=.../reviews/core_producer_pytest.xml`
+
+**88 passed; 0 failures; 0 errors; 0 skipped.** These are tiny synthetic plumbing/accounting fixtures. No historical PBP/TNF simulations, source pulls, fits, calibration, odds or large batches were run. Syntax compilation and `git diff --check` passed.
+
+The durable smoke run requested two synthetic targeted-pass trials: 2 COMPLETE, 0 INCOMPLETE, 0 INVALID, **0 adapter-usable** (both explicitly SCENARIO_ONLY). All ledger checks passed. `core_producer_smoke_result.json` links the complete input/code/forecast artifacts and trial IDs. This is engineering evidence, not a validated NFL forecast.
+
+## Review note and Ghost final-vet residuals
+
+Codex performed a separate self-review of identity/cutoff gates, frozen bytes, runtime replay, opportunity causality, count/yard conservation, clock boundaries, missingness and false-PASS corruption paths. Prior `grok_contract_review.md` was consulted as a risk checklist. It predates this implementation and is **not** a fresh independent review of this diff. No independent reviewer approval is fabricated; fresh independent implementation review and Ghost final vet remain pending.
+
+- Verified canonical real-game/player/team registry and crosswalk joins have not been supplied or independently authenticated.
+- Certified as-of frozen source bundles and sourced availability/depth/rotation/target-depth/outcome distributions remain absent; only synthetic inputs were run.
+- Official OT, penalty/untimed-down semantics and defensive/special-teams return production remain unsupported and explicitly blocked when requested.
+- Legacy raw-PBP ingestion remains a historical yard-row bootstrap and cannot emit usable shared-contract projections.
+- Authoritative populated split/inspection registry is absent; synthetic membership stays UNASSIGNED and split-dependent claims are blocked.
+- Ghost6/BetGuru consumer population/profile/evidence displays and BetGuru quote compatibility remain external work.
+- Fresh independent implementation review and Ghost final vet are pending; prior Grok review predates this code.
+
+## Evidence and scope
+
+See `EVIDENCE_CODEX.json` for the exact command, HEAD/branch, touched-file hashes, pytest XML/log, durable artifact hashes, source snapshot, blockers and scope audit. `JOINT_PRODUCER.md` documents the API/input format; the clearly labeled synthetic fixture is the runnable format example. No real player identity, role charting, coverage, route or personnel data was invented. No excluded calibration tree contents were accessed or edited, and no betting rules, settlement code or consumer quote matching were changed. Cursor Cloud was not used.
+
+**Impact: NOT MEASURED.** No same-evaluation baseline → after predictive metrics exist for this pass.
+
+
+===== FILE /workspace/research/nfl_sim_integration_2026-11-06/reviews/EVIDENCE_CODEX.json =====
+{
+  "pass": "SANCTIONED_LOCAL_CORE_IMPLEMENTATION",
+  "generated_at_utc": "2026-11-06T11:37:24.000538+00:00",
+  "contract_id": "nfl-sim-core-contract-v1",
+  "contract_version": "1.0.0",
+  "git_head": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+  "git_branch": "research-nfl-sim-core-2026-11-06",
+  "commit_created": false,
+  "working_tree_dirty": true,
+  "base_expected": "3448ad7",
+  "files_touched": [
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/README.md",
+      "sha256": "sha256:ea5dcc01b3e7fe0cbf3bb9d26b4d94c42b0f3396273070927028d4b55b18e1f6"
+    },
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/config_load.py",
+      "sha256": "sha256:824a5ca2ea6a05be3be5d12f5d1cc15feef5d4b6e8870fcd9362574d2bf2f687"
+    },
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/simulate.py",
+      "sha256": "sha256:073e228e6c45e961d8dde3a51b3fb8b79be3e22a4fb109cfb1d07d1a5f2f273d"
+    },
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/validation/accounting.py",
+      "sha256": "sha256:1dc613891dbf5b9d5134567b18049783d95e9e2c2e20cf04e655ad6930a2557b"
+    },
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/CORE_MANIFEST.json",
+      "sha256": "sha256:2b420dedb4e02ed2ebac5d83758ab7b738b8c940e54015cc1bc5c59c3180edd0"
+    },
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/JOINT_PRODUCER.md",
+      "sha256": "sha256:f5b91c81a94150421ed568afda159c10c9e72a2b0a5546d8b9a81ea742f6db8c"
+    },
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_inputs.py",
+      "sha256": "sha256:6543d9a1d7f1f1d73cd02087fa70e1f74945aafe1a8e2c2004bf907f75f55c7f"
+    },
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_accounting.py",
+      "sha256": "sha256:5aab91d930b82b8e9810964df5b19acb224366379647afaa2c2e7a86d70a3ee9"
+    },
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_producer.py",
+      "sha256": "sha256:626ad4bd44cc132db6c39a910ae7e4967160d883751126ba29f3a4087400223f"
+    },
+    {
+      "path": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_joint_producer.py",
+      "sha256": "sha256:3effe50027ff2a98de4d6c8386b253e4f94d96fea0c9f10c491ceb802c45c6ab"
+    }
+  ],
+  "cmd": [
+    "/usr/bin/python3",
+    "-m",
+    "pytest",
+    "research/possession_engine_v0/tests/test_joint_producer.py",
+    "research/possession_engine_v0/tests/test_adversarial_review.py",
+    "research/possession_engine_v0/tests/test_final_review.py",
+    "research/possession_engine_v0/tests/test_missing_feature_adapters.py",
+    "-q",
+    "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_pytest.xml"
+  ],
+  "pytest": {
+    "cmd": [
+      "/usr/bin/python3",
+      "-m",
+      "pytest",
+      "research/possession_engine_v0/tests/test_joint_producer.py",
+      "research/possession_engine_v0/tests/test_adversarial_review.py",
+      "research/possession_engine_v0/tests/test_final_review.py",
+      "research/possession_engine_v0/tests/test_missing_feature_adapters.py",
+      "-q",
+      "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_pytest.xml"
+    ],
+    "started_at_utc": "2026-11-06T11:35:34.041953+00:00",
+    "exit_code": 0,
+    "stdout_log": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_pytest.log",
+    "selection": "Tiny synthetic CORE regressions only; no historical PBP or TNF simulation tests executed",
+    "git_head": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+    "impact": "NOT MEASURED",
+    "tests": 88,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "result": "PASS",
+    "stdout": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_pytest.log",
+    "junit": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_pytest.xml"
+  },
+  "other_checks": [
+    {
+      "cmd": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "research/possession_engine_v0"
+      ],
+      "exit_code": 0
+    },
+    {
+      "cmd": [
+        "python3",
+        "-m",
+        "py_compile",
+        "research/possession_engine_v0/config_load.py",
+        "research/possession_engine_v0/simulate.py",
+        "research/possession_engine_v0/validation/accounting.py",
+        "research/possession_engine_v0/joint_inputs.py",
+        "research/possession_engine_v0/joint_accounting.py",
+        "research/possession_engine_v0/joint_producer.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "cmd": "fixture_inputs(SYNTHETIC_TEST, targeted_pass) -> simulate_joint_games(n=2, seed=123)",
+      "exit_code": 0,
+      "summary": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_smoke_result.json"
+    }
+  ],
+  "tracked_patch": {
+    "cmd": [
+      "git",
+      "diff",
+      "HEAD",
+      "--",
+      "research/possession_engine_v0"
+    ],
+    "path": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_tracked.diff",
+    "sha256": "sha256:5158a429beb1a73bcf70ab842e6c41d3293cbaab3efe984ecc510eab8b31edee",
+    "note": "New files are listed and hashed above; executable source bytes are frozen in the smoke artifact."
+  },
+  "smoke": {
+    "purpose": "SYNTHETIC_TEST_ONLY",
+    "forecast_id": "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0",
+    "input_content_hash": "sha256:9671953a02999657c849bba58469b1b968dad2693db461fe10ea1dfc121e3eee",
+    "n_requested": 2,
+    "n_completed": 2,
+    "n_invalid": 0,
+    "n_incomplete": 0,
+    "n_usable": 0,
+    "projection_block": "SCENARIO_ONLY",
+    "trial_ids": [
+      "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0",
+      "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1"
+    ],
+    "validation": [
+      {
+        "trial_id": "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0",
+        "status": "PASS",
+        "n_checks": 1035,
+        "failures": []
+      },
+      {
+        "trial_id": "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1",
+        "status": "PASS",
+        "n_checks": 1035,
+        "failures": []
+      }
+    ],
+    "artifact_directory": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_synthetic_smoke/forecasts/sha256_d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0",
+    "artifact_hashes": {
+      "engine_source/__init__.py": "sha256:a112bc6903521e270c0c58ec66864bf105cdc5b1b962d98da18b27fa0683f986",
+      "engine_source/adjustment_ledger.py": "sha256:9604e12505b45fc9b750411e2cbd156122ba98a8672d646cb1897c0be21d2044",
+      "engine_source/adjustments.py": "sha256:47ddcc038795cf314c07dff156ddb49d207d126cfc19f28efd9baead7c903491",
+      "engine_source/config_load.py": "sha256:824a5ca2ea6a05be3be5d12f5d1cc15feef5d4b6e8870fcd9362574d2bf2f687",
+      "engine_source/effects/__init__.py": "sha256:aa3d855c45fac0c504cda266fd6da1715a792cb17ee39b1320dcd06e7bfb19bd",
+      "engine_source/effects/apply_supported.py": "sha256:ebe8cbd678537aec702f2d0356476a5c402ba636d4570185c95befbee346db27",
+      "engine_source/effects/definitions.py": "sha256:7acfd307efa5c9be033b2f97222b760ff6efb9ce221701698a4b5db055cf3e35",
+      "engine_source/effects/evidence_tables.py": "sha256:a2a5cbcbbb2a2cce458b4090597a4864875ba4a2069fcfa11533975489b31023",
+      "engine_source/effects/missing_feature_adapters.py": "sha256:80cc6dbe27ddf3e634adf8a63fa37ab2188f5f962f985d0ace36ce7638a6bcb5",
+      "engine_source/empirical.py": "sha256:75e221b36033eec80c0162d434af5d0b3e4b55caba4683ead70d56d22e388fa1",
+      "engine_source/joint_accounting.py": "sha256:5aab91d930b82b8e9810964df5b19acb224366379647afaa2c2e7a86d70a3ee9",
+      "engine_source/joint_inputs.py": "sha256:6543d9a1d7f1f1d73cd02087fa70e1f74945aafe1a8e2c2004bf907f75f55c7f",
+      "engine_source/joint_producer.py": "sha256:626ad4bd44cc132db6c39a910ae7e4967160d883751126ba29f3a4087400223f",
+      "engine_source/pbp_filter.py": "sha256:b4ece8f099749896f235b2e813ef962a3a833602288c6cd48587492d611e1a4c",
+      "engine_source/provenance.py": "sha256:58c1f7762d0ea9aedf19faa9f0f1c85d320f8401d63ea954e95eb48d733b2518",
+      "engine_source/run_complete_pass2.py": "sha256:3a4b3dcbd6a3472a5b9fc973a96d919500d609328b4367bc4a4be7866371ced9",
+      "engine_source/run_jaxbal_demo.py": "sha256:f88646d64b70d8c6c616957903f687854e148847bbf8d9e646cfe38974cae9fa",
+      "engine_source/run_period_realism_grade.py": "sha256:2c7e2663c53a7bed268c96981203013ccefe1c99149a96fe172e14d311936670",
+      "engine_source/run_validation_grade.py": "sha256:4bfaf9d51ce6d284e0afc7eb770edd9a428ffaf861564a868b04ea55bd217303",
+      "engine_source/simulate.py": "sha256:073e228e6c45e961d8dde3a51b3fb8b79be3e22a4fb109cfb1d07d1a5f2f273d",
+      "engine_source/situational.py": "sha256:de33adae9d1ceb0f0abe4c6ddf5b94584cb00ed0be2d2b40c0cbc9166c7e1b7d",
+      "engine_source/state.py": "sha256:0083b012528fa679b23dfb049bf84d64afba18b94cc36e78f82d3a7eb279ba54",
+      "engine_source/validation/__init__.py": "sha256:8035db2debcac801c60f7fae12384df83d84f3df516727ee9b9e31de965326a7",
+      "engine_source/validation/accounting.py": "sha256:1dc613891dbf5b9d5134567b18049783d95e9e2c2e20cf04e655ad6930a2557b",
+      "engine_source/validation/asof_grade.py": "sha256:d12d89cf25c244a2a137721e0cabdc852a27c8864c901ecd41fafe1de6058780",
+      "engine_source/validation/period_grade.py": "sha256:053be4e790818c0ff5988d870cae0c79382cea0227865df417adbafa09393a5d",
+      "engine_source/validation/realism.py": "sha256:23d31e7b779fb611ab4936a32866f3d2c6ebd68ea5816570c4b8b601dcb0436f",
+      "engine_source/validation/weather_hook.py": "sha256:1b6dc6956f643646c15a1924a9c63e45a964ff87e6fb5d7d3c22911cc914ad32",
+      "engine_source_manifest.json": "sha256:ec51d58316cd74874858f334500e2b033b473a620a02eef9ed05ec1a4f1d0160",
+      "input_manifest.json": "sha256:9671953a02999657c849bba58469b1b968dad2693db461fe10ea1dfc121e3eee",
+      "inputs/model.json": "sha256:e04d5f83b89beec05362679c6c8c2bb4d5c1b4b79010b42e1f5ba1742ad2d445",
+      "inputs/registry.json": "sha256:3492f622cb5c282587ad63c06cc851d4ffc9ccbc8e2af499fb6791bdd631a03e",
+      "inputs/splits.json": "sha256:c7dae8cde8bd3d2c0d686ac925cb6a06a761bf3b6acc283315243be130a7b239",
+      "run_spec.json": "sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0",
+      "trials.jsonl": "sha256:1f9ac51296d4d760510b46f77f56de0c4a4df437c94895e327c3b794434f5e6d"
+    }
+  },
+  "scope_audit": {
+    "allowed_edits_only": true,
+    "market_calibration_edits": false,
+    "excluded_tree_contents_read": false,
+    "betting_rules_or_settlement_changes": false,
+    "cursor_cloud_used": false,
+    "new_network_data_or_odds": false,
+    "tnf_fit_or_performance_validation": false,
+    "fabricated_real_coverage_routes_personnel": false,
+    "note": "Tests selected are synthetic. Historical/PBP/TNF simulation tests were not run."
+  },
+  "independent_review": {
+    "status": "PENDING",
+    "self_review_completed": true,
+    "prior_review_context": "/workspace/research/nfl_sim_integration_2026-11-06/reviews/grok_contract_review.md",
+    "prior_review_scope": "Contract/base engine review predating this implementation; not a review of this diff"
+  },
+  "blockers": [
+    "Verified canonical real-game/player/team registry and crosswalk joins have not been supplied or independently authenticated.",
+    "Certified as-of frozen source bundles and sourced availability/depth/rotation/target-depth/outcome distributions remain absent; only synthetic inputs were run.",
+    "Official OT, penalty/untimed-down semantics and defensive/special-teams return production remain unsupported and explicitly blocked when requested.",
+    "Legacy raw-PBP ingestion remains a historical yard-row bootstrap and cannot emit usable shared-contract projections.",
+    "Authoritative populated split/inspection registry is absent; synthetic membership stays UNASSIGNED and split-dependent claims are blocked.",
+    "Ghost6/BetGuru consumer population/profile/evidence displays and BetGuru quote compatibility remain external work.",
+    "Fresh independent implementation review and Ghost final vet are pending; prior Grok review predates this code."
+  ],
+  "impact": "NOT MEASURED",
+  "same_eval_baseline_after_metrics": null,
+  "review_outputs": [
+    "COMPLETION_CODEX.md",
+    "EVIDENCE_CODEX.json",
+    "core_producer_pytest.log",
+    "core_producer_pytest.xml",
+    "core_producer_pytest_result.json",
+    "core_producer_smoke_result.json",
+    "core_producer_tracked.diff",
+    "core_producer_synthetic_smoke/"
+  ]
+}
+
+
+===== FILE /workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_pytest.log =====
+........................................................................ [ 81%]
+................                                                         [100%]
+88 passed in 1.67s
+
+
+===== FILE /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/CORE_MANIFEST.json =====
+{
+  "contract_id": "nfl-sim-core-contract-v1",
+  "contract_version": "1.0.0",
+  "component_version": "opportunity-first-v1",
+  "status": "BLOCKED",
+  "status_scope": "Real-game shared export and final integration vet; structural producer code tested synthetically",
+  "runtime_evidence": "TINY_SYNTHETIC_ONLY",
+  "impact": "NOT MEASURED",
+  "legacy_status": "UNIMPLEMENTED_LEGACY_YARD_ROW_BOOTSTRAP_ADAPTER_PROJECTION_BLOCKED",
+  "requirements": [
+    {
+      "contract_gate": "C01",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Namespaced registry/crosswalk validation; null identity residuals; known-zero roster rows"
+        },
+        {
+          "status": "BLOCKED",
+          "description": "No authoritative real-game registry join supplied"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C02",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Exact frozen bytes/manifest hashes, UTC availability gates, dirty code/source snapshot and dependency versions"
+        },
+        {
+          "status": "BLOCKED",
+          "description": "External source/as-of authentication requires certified input bundle"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C03",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Contract per-trial seed derivation, assigned indices, retry/order replay and batch extension tests"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C04",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Measured period clocks/partitions, explicit runoff, quarter continuity, halftime, linked try, declared approximate OT and caps"
+        },
+        {
+          "status": "UNIMPLEMENTED",
+          "description": "Official OT, penalties and untimed-down semantics"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C05",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Exact ledger-derived Q/H/REG/OT/FG team/player totals, score totals/margins and partial/zero distinctions"
+        },
+        {
+          "status": "UNIMPLEMENTED",
+          "description": "Defensive/special-teams return yards and return scores"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C06",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Targets/carries allocated and incremented before catch/yards; conditional state/depth/rotation/environment provenance"
+        },
+        {
+          "status": "BLOCKED",
+          "description": "Sourced real-game availability, roles, intended-depth and outcome distributions absent; no fitted model claim"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C07",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "All defined attempt categories, no-play, non-QB throws, direct snap/end-around labels and integer invariants"
+        },
+        {
+          "status": "UNIMPLEMENTED",
+          "description": "Legacy raw-PBP provider-to-terminal ingestion remains yard bootstrap and is explicitly projection-blocked"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C08",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Catch/target/carry and player/team yards, sacks, net/gross, residual and signed lateral/field-credit conservation"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C09",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Versioned joint JSONL contract objects, event/player/period IDs, exact population publication checks, invalid retention"
+        },
+        {
+          "status": "BLOCKED",
+          "description": "Ghost6 and BetGuru consumer population/compatibility verification remains external"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C10",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Coverage UNKNOWN, routes/personnel 11/12/13 MISSING, null values and no effects, propagated to every event"
+        },
+        {
+          "status": "UNIMPLEMENTED",
+          "description": "Consumer evidence display verification; no consumer code changed"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C11",
+      "components": [
+        {
+          "status": "UNIMPLEMENTED",
+          "description": "BetGuru-owned quote identity/pairing/settlement compatibility deliberately not implemented"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C12",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Frozen disjoint game splits, inspected/evidence exclusion, UNASSIGNED claims block and immutable forecast/result separation"
+        },
+        {
+          "status": "BLOCKED",
+          "description": "Authoritative populated split membership/source inspection registry not supplied"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C13",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Current sanctioned local CORE scope; original contract phase-1 implementation exclusion superseded by this user request"
+        }
+      ]
+    }
+  ]
+}
+
+
+===== FILE /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/JOINT_PRODUCER.md =====
+# Frozen opportunity-first CORE producer
+
+`simulate_games` dispatches to `joint_producer.simulate_joint_games` when the config contains `joint_producer`. The original historical yard-row bootstrap remains available for legacy research; its output now explicitly blocks shared-contract projection. Its accounting diagnostic cannot report a full contract PASS.
+
+The new path requires frozen **registry**, **model**, and **splits** JSON inputs. It does not manufacture real-game source inputs from names or historical yard outcomes. Only synthetic fixtures have been executed for this implementation. See `CORE_MANIFEST.json` for implemented components and remaining blockers.
+
+```python
+from simulate import simulate_games
+
+# cfg is an explicitly supplied JSON config, with matching outer mode/config_id.
+# joint_producer = {spec, input_root, inputs, output_root}
+result = simulate_games(cfg, pbp_path="unused_by_joint_path", n=2, seed=123)
+```
+
+Use `tests/test_joint_producer.py::fixture_inputs` as the runnable **SYNTHETIC_TEST** format example. Those IDs, distributions, roles and clock costs are test values, never real player evidence. Do not promote them to forecasts. The durable review smoke artifact contains two synthetic draws and all frozen input bytes.
+
+## Input interface
+
+`spec` includes canonical `game`, information `cutoff_utc`, `frozen_at_utc`, `generated_at_utc`, `mode`, `config_id`, and optional `trial_start` and `max_steps`. Each `inputs` entry has a logical input ID, relative path, source, selected record IDs, schema version, usage, source event/publication/retrieval UTC clocks and an as-of evidence reference. Retrieval after cutoff requires `asof_verified: true` and evidence. This validates supplied evidence declarations; it cannot authenticate an arbitrary source's assertion. Real-data source certification is a handoff blocker.
+
+The registry retains authoritative, namespaced strings and crosswalk evidence, including zero padding. It includes canonical game metadata, the versioned team alias map, player roster records and entity-scoped crosswalk rows. Null player identities require `identity_status: UNRESOLVED`; they feed unassigned buckets, never named projections.
+
+The model contains explicit version/provenance/sample-size metadata and market lineage, joint trial role states (availability, depth-chart state, rotation weights and intended target-depth distributions), a shared environment distribution, pre-snap usage cells, catch distributions, outcome cells and try-point distributions. Every distribution is a list of `{value, weight}` rows. Cells are evaluated in supplied order and have explicit IDs; `when` keys compare the shared state using exact matches or `_min`/`_max` bounds. There is no silent league/player/role fallback. If all eligible identities are unavailable, allocation is unassigned. Referenced role weights and distributions remain in the decision trace.
+
+The supported terminal categories are targeted and non-dropback targeted passes, throwaways, spikes, other untargeted attempts, sacks, scrambles, aborted dropbacks without attempts, designed rushes, kneels, credited aborted rushes, no-play, punts, field goals, and explicit period-end runoff. Direct-snap/end-around/QB rush design is an orthogonal label; non-QB throws use the supplied passer identity. Unsupported penalty, untimed-down and defensive-return effects reject execution. Punt/FG/try credits are identified as separate stat ledgers. No betting or settlement profile is defined here.
+
+Per snap: sample usage/terminal category and eligible identities; **increment TARGETS/CARRIES and attempt counts**; draw catch/interception; draw conditional yards/field advancement; apply state changes. The tests intercept the actual outcome call and verify that opportunity counters already exist. Stages retain model/version/source references, sample-size evidence and MODELED flags. Intended depth and depth-chart uncertainty are separate from missing charted routes/personnel/coverage.
+
+Counts and stat yards use exact integers. Ordinary modeled gains stop at the goal line, recorded in the yard trace. Explicit lateral/provider/fumble differences retain separate field advancement, signed adjustments, explanations and event references; failed conservation marks INVALID without redistribution. Unknown identities retain visible unassigned counts and yards and conservatively block the trial's adapter projection.
+
+## Output and replay
+
+One JSONL row is one joint game draw. No marginal resampling or period-engine merge occurs. Every trial includes the full contract object set, ledger-derived primitive/aggregate team and player rows (including rostered known zeros), all terminal counts/residuals, scores, possessions, stages and missing-feature records. Coverage stays UNKNOWN; routes and personnel 11/12/13 stay MISSING, with null values and effects disabled on every event. The TNF audit is referenced only as contract evidence, not loaded into predictive inputs.
+
+Q1–Q4 clocks use 900 seconds each; possession persists over Q1/Q2 and Q3/Q4, with explicit halftime receiving transition. Costs are capped at the current period, with no clock debt. Explicit runoff is supported as a separate transition event. Linked tries stay in the snap's period at 0:00. The only supported OT profile is the existing **single_possession_approx_declared_limitation**, frozen with its duration/termination/entitlement limitations. Consumers requiring official OT must block this profile. Unplayed OT is known zero; cap-limited future/unfinished aggregates are null/INCOMPLETE, never invented zeros.
+
+Canonical UTF-8 JSON uses sorted keys, compact separators, `ensure_ascii=False`, and rejects nonfinite numbers (`python-json-sorted-compact-utf8-v1`). Wire count/yard values are integers; finite model weights may be fractional. Input manifests sort by logical ID and hash exact file bytes. Run hashes include model settings, cutoff, mode, seed policy, trial range, full commit and dirty/source hashes, dependency/RNG versions and profiles. Creation clocks are excluded from forecast identity and recorded separately. Changed input bytes/cutoff/mode create a new identity. Quote snapshots never enter independent forecasts.
+
+Trial seeds follow contract §2.3 with derivation label `sha256-first-eight-big-endian-v1`, lossless decimal strings and PCG64/NumPy version. Trial order/retries cannot change draws. Batch extension changes the forecast ID while preserving overlapping trial seeds/draws. Code and dependency mismatches or mutation of prepared input bytes block execution.
+
+`output_root/<forecast_digest>/` retains `run_spec.json`, `input_manifest.json`, exact input bytes, exact source snapshot and hash manifest, `trials.jsonl`, and `forecast_ledger.json`. Existing bytes are immutable: differing retry output raises a conflict. The writer checks the exact ordered trial population and recomputes validation, never trusting a caller-supplied PASS. The ledger records input/split/artifact hashes, trial IDs and separate empty result-evidence IDs. New information revisions have new identities. The writer stores invalid/incomplete trials, exposes their counts and explicit exclusions, and never silently conditions the population.
+
+Independent data_only/script_adjusted reject market inputs, market-tainted lineage and postgame evidence. Scenario-only models remain explicitly flagged and block actionable projection. Split IDs are either frozen/disjoint or explicitly UNASSIGNED; UNASSIGNED blocks split-dependent claims. Game-level splits apply to every period/player/trial row through the forecast freeze; no trials are independent evaluation examples.
+
+## Remaining work
+
+Real canonical registry/crosswalk verification, certified as-of source bundles and sourced role/outcome tables are **BLOCKED** pending supplied inputs. No TNF inputs were fitted or used for validation. Official OT, penalty/untimed-play rules, defensive/special-teams returns, raw-PBP classification ingestion and both consumer integrations remain **UNIMPLEMENTED**. Consumers must explicitly check supported stat/period/OT profiles and retained IDs; `adapter_projection_allowed` does not certify quote compatibility. No quote matching or settlement changes are part of this producer.
+
+Testing is plumbing/accounting evidence only. Predictive impact: **NOT MEASURED**. Ghost final vet and external independent review remain outstanding.
+
+
+===== FILE /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_producer.py (head+tail) =====
+"""Opportunity-first local CORE producer for nfl-sim-core-contract-v1.
+
+Opt-in frozen model tables, never inferred from historical yard-row assignments.
+This is a structural research model, not a fitted forecast or official OT engine.
+"""
+from __future__ import annotations
+
+from copy import deepcopy
+from pathlib import Path
+
+import numpy as np
+
+from joint_inputs import (CONTRACT_VERSION, canonical, digest, freeze_run, integer, safe_path, trial_seed, verify_frozen)
+from joint_accounting import (PLAYER_STATS, TEAM_STATS, TARGETED, UNTARGETED, RUSHES, TERMINALS,
+                              allocate, derive_tables, finalize_validation, zeros)
+
+OT_PROFILE = {"id": "single_possession_approx_declared_limitation", "period_length_seconds": 600,
+              "possession_entitlement": "NOT_OFFICIAL; no guaranteed matching possession",
+              "termination": "first score or expiration", "tie_behavior": "tie at expiration",
+              "applicability": "research_approximation_only", "limitations": ["NOT_VERIFIED_OFFICIAL_OT"]}
+STAT_PROFILE = {"id": "core_integer_offense_v1", "yard_unit": "integer_yards",
+                "kneels": "rushing_attempt", "scrambles": "dropback_and_rushing_attempt",
+                "sack_loss": "nonnegative_magnitude", "no_play": "no_official_offense_credits",
+                "turnovers": "interceptions_plus_lost_fumbles_plus_turnover_on_downs_excluding_punts_and_missed_fg",
+                "provider": "MODELED_CONTRACT_PROFILE_NOT_PROVIDER_SETTLEMENT"}
+
+
+def missing_features():
+    return {name: {"status": "UNKNOWN" if name == "coverage" else "MISSING", "value": None,
+                   "allows_sim_effect": False, "evidence_scope": "UNAVAILABLE_NOT_ZERO",
+                   "source_refs": [], "asof_refs": []}
+            for name in ("coverage", "routes", "personnel_11", "personnel_12", "personnel_13")}
+
+
+def choose(rng, distribution):
+    if not distribution:
+        raise ValueError("empty distribution: UNSUPPORTED")
+    weights = np.array([row["weight"] for row in distribution], dtype=float)
+    if not np.all(np.isfinite(weights)) or np.any(weights < 0) or weights.sum() <= 0:
+        raise ValueError("invalid distribution weights")
+    return deepcopy(distribution[int(rng.choice(len(distribution), p=weights / weights.sum()))]["value"])
+
+
+def provenance(model, stage, **fields):
+    return {"generation_stage": stage, "provenance_refs": model["provenance_refs"],
+            "model_version": model["model_version"], "sample_size": model["sample_size"],
+            "sample_size_reason": model.get("sample_size_reason"),
+            "flags": ["MODELED", *model.get("flags", [])], **fields}
+
+
+def matches(when, context):
+    for key, value in when.items():
+        if key.endswith("_min"):
+            if context[key[:-4]] < value:
+                return False
+        elif key.endswith("_max"):
+            if context[key[:-4]] > value:
+                return False
+        elif context[key] != value:
+            return False
+    return True
+
+
+class OpportunityModel:
+    def __init__(self, frozen, rng):
+        self.model = frozen["loaded"]["model"]
+        self.rng = rng
+        self.roster = frozen["loaded"]["registry"]["players"]
+        self.by_ref = {r["record_id"]: r for r in self.roster}
+        if len(self.by_ref) != len(self.roster):
+            raise ValueError("duplicate roster record ID")
+        model = self.model
+        if model["ot_rule_profile"] != OT_PROFILE or model["stat_credit_profile"] != STAT_PROFILE:
+            raise ValueError("UNSUPPORTED OT/stat profile; consumer must check approximation")
+        if not model["provenance_refs"] or not model["model_version"]:
+            raise ValueError("decision provenance/model version required")
+        if model["sample_size"] is None and not model.get("sample_size_reason"):
+            raise ValueError("missing sample size requires a reason")
+        self.environment = choose(rng, model["environments"])
+        self.roles = {team: choose(rng, rows) for team, rows in model["role_states"].items()}
+        self.live_team = {}
+        self.live_player = {}
+        for team, state in self.roles.items():
+            for ref in state["available"]:
+                if ref not in self.by_ref or self.by_ref[ref]["team_id"] != team:
+                    raise ValueError("availability contains foreign/unknown roster reference")
+            # No silent uniform role fallback, depth/rotation/charted features are distinct.
+            for role in ("passer", "target", "carry"):
+                if role not in state["rotation_weights"]:
+                    raise ValueError("availability/depth/rotation distribution MISSING")
+            if "depth_chart_state" not in state or not state["target_depth_distribution"]:
+                raise ValueError("depth-chart/target-depth uncertainty MISSING")
+
+    def context(self, state):
+        return {**state, "score_margin": state["score"][state["possession"]] - state["score"][self.other(state)],
+                "team_id": state["possession"], "environment_id": self.environment["environment_id"],
+                "role_state_id": self.roles[state["possession"]]["state_id"]}
+
+    @staticmethod
+    def other(state):
+        return next(t for t in state["score"] if t != state["possession"])
+
+    def identity(self, ref):
+        if ref is None:
+            return None
+        row = self.by_ref[ref]
+        if row["player_id"] is None:
+            return None
+        return {"player_id_namespace": row["player_id_namespace"], "player_id": row["player_id"]}
+
+    def role(self, team, role, modifiers):
+        state = self.roles[team]
+        candidates = []
+        for ref, weight in state["rotation_weights"][role].items():
+            if ref == "UNASSIGNED":
+                candidates.append({"value": None, "weight": weight})
+            elif ref in state["available"]:
+                if self.by_ref[ref]["team_id"] != team:
+                    raise ValueError("foreign role player")
+                candidates.append({"value": ref, "weight": weight * modifiers.get(role, {}).get(ref, 1)})
+        if not candidates:
+            # Explicit unassigned bucket, never an invented named player.
+            return None
+        return choose(self.rng, candidates)
+
+    def opportunity(self, state):
+        context = self.context(state)
+        cell = next((c for c in self.model["usage_cells"] if matches(c["when"], context)), None)
+        if cell is None:
+            raise ValueError("UNSUPPORTED pre-snap state; no silent fallback")
+        terminal = choose(self.rng, cell["terminals"])
+        if terminal not in TERMINALS:
+            raise ValueError(f"UNSUPPORTED terminal {terminal}")
+        team = state["possession"]
+        modifiers = cell.get("role_weight_multipliers", {})
+        passer = self.role(team, "passer", modifiers) if terminal in TARGETED | UNTARGETED | {"sack", "scramble", "aborted_dropback_no_attempt"} else None
+        receiver = self.role(team, "target", modifiers) if terminal in TARGETED else None
+        runner = passer if terminal == "scramble" else self.role(team, "carry", modifiers) if terminal in RUSHES else None
+        assignments = {"passer": self.identity(passer), "receiver": self.identity(receiver), "runner": self.identity(runner)}
+        depth = choose(self.rng, self.roles[team]["target_depth_distribution"]) if terminal in TARGETED else None
+        t, p, credit = allocate(terminal, team, **assignments)
+        trace = [provenance(self.model, "PRE_SNAP", context=context, usage_cell_id=cell["cell_id"],
+                            role_state=self.roles[team], conditional_role_weights=modifiers, target_depth=depth),
+                 provenance(self.model, "OPPORTUNITY", team_counts=deepcopy(t), player_counts=deepcopy(list(p.values())))]
+        # These increments occur in the execution path before outcome() can draw anything.
+        live = self.live_team.setdefault(team, zeros(TEAM_STATS))
+        for k in TEAM_STATS:
+            live[k] += t[k]
+        for key, row in p.items():
+            bucket = self.live_player.setdefault((team, *key), zeros(PLAYER_STATS))
+            for k in PLAYER_STATS:
+                bucket[k] += row["stats"][k]
+        return {"terminal": terminal, "team": team, "team_credits": t, "players": p, "credit": credit,
+                "assignments": assignments, "trace": trace,
+                "context": {**context, "terminal": terminal, "target_depth": depth,
+                            "passer_ref": passer, "receiver_ref": receiver, "runner_ref": runner}}
+
+    def outcome(self, opportunity):
+        terminal = opportunity["terminal"]
+        catch = choose(self.rng, self.model["catch_distributions"][terminal]) if terminal in TARGETED else "NA"
+        if catch not in {"COMPLETE", "INCOMPLETE", "INTERCEPTION", "NA"} or terminal in TARGETED and catch == "NA":
+            raise ValueError("unsupported catch outcome")
+        opportunity["trace"].append(provenance(self.model, "CATCH", outcome=catch))
+        context = {**opportunity["context"], "catch": catch}
+        cell = next((c for c in self.model["outcome_cells"] if matches(c["when"], context)), None)
+        if cell is None:
+            raise ValueError("UNSUPPORTED outcome state")
+        outcome = choose(self.rng, cell["distribution"])
+        for key in ("yards", "elapsed_seconds"):
+            integer(outcome[key], key, 0 if key == "elapsed_seconds" else None)
+        if catch in {"INCOMPLETE", "INTERCEPTION"} or terminal in UNTARGETED | {"no_play", "aborted_dropback_no_attempt", "punt", "field_goal", "period_end_runoff"}:
+            if outcome["yards"] != 0:
+                raise ValueError("non-yard-bearing outcome must have zero offense yards")
+        if terminal == "sack" and outcome["yards"] > 0:
+            raise ValueError("sack cannot have positive yards")
+        opportunity["trace"].append(provenance(self.model, "YARDS", outcome_cell_id=cell["cell_id"],
+                                               raw_outcome=deepcopy(outcome)))
+        return catch, outcome
+
+
+def derive_possessions(events):
+    possessions = {}
+    for e in events:
+        pid = e["possession_id"]
+        p = possessions.setdefault(pid, {"possession_id": pid, "team_id": e["pre_state"]["possession"],
+                                        "start_event_id": e["event_id"], "end_event_id": None,
+                                        "end_cause": None, "period_segments": [], "clock_seconds": 0,
+                                        "field_advance_yards": 0, "points": 0, "turnovers": 0,
+                                        "definitions": {"points": "possession_team_credited_points_only",
+                                                        "field_advance_yards": "offensive_advancement_excluding_special_teams"}})
+        if p["end_cause"] is not None:
+            raise ValueError("possession continues after termination")
+        if not p["period_segments"] or p["period_segments"][-1]["period_id"] != e["period_id"]:
+            p["period_segments"].append({"period_id": e["period_id"], "clock_seconds": 0})
+        p["period_segments"][-1]["clock_seconds"] += e["elapsed_clock_seconds"]
+        p["clock_seconds"] += e["elapsed_clock_seconds"]
+        t = e["team_credits"].get(p["team_id"], zeros(TEAM_STATS))
+        p["field_advance_yards"] += t["field_advance_yards"]
+        p["points"] += t["points"]
+        p["turnovers"] += t["turnovers"]
+        p["end_event_id"] = e["event_id"]
+        if e.get("possession_end_cause"):
+            p["end_cause"] = e["possession_end_cause"]
+    return list(possessions.values())
+
+
+def simulate_trial(frozen, index, *, model_class=OpportunityModel):
+    verify_frozen(frozen)
+    if index not in frozen["run_spec"]["trial_indices"]:
+        raise ValueError("trial_index not assigned in frozen run specification")
+    run = frozen["run_spec"]
+    spec = frozen["spec"]
+    game = spec["game"]
+    seed = trial_seed(frozen, index)
+    model = model_class(frozen, np.random.Generator(np.random.PCG64(int(seed))))
+    trial_id = f"{frozen['forecast_id']}/trial/{index}"
+    features = missing_features()
+    teams = [game["home_team_id"], game["away_team_id"]]
+    state = {"period_id": "Q1", "period_seconds_remaining": 900, "regulation_seconds_remaining": 3600,
+             "possession": teams[1], "down": 1, "ydstogo": 10, "yardline_100": 75,
+             "score": dict.fromkeys(teams, 0)}
+    events = []
+    possession_index = 0
+    went_ot = False
+    reason = "final_max_steps"
+    final = False
+    limit = integer(spec.get("max_steps", 1000), "max_steps", 1)
+    periods = []
+
+    def clock():
+        q = int(state["period_id"][1:]) if state["period_id"].startswith("Q") else 5
+        state["regulation_seconds_remaining"] = (4-q)*900 + state["period_seconds_remaining"] if q <= 4 else 0
+
+    def emit(kind, pre, *, t=None, players=None, trace=None, terminal=None, assignments=None, cause=None, adjustments=None, outcome=None, boundary=None):
+        seq = len(events)
+        elapsed = pre["period_seconds_remaining"] - state["period_seconds_remaining"]
+        events.append({"event_id": f"{trial_id}/event/{seq}", "event_seq": seq,
+                       "possession_id": f"{trial_id}/possession/{possession_index}",
+                       "type": kind, "period_id": pre["period_id"],
+                       "boundary": boundary,
+                       "period_kind": "REG" if pre["period_id"].startswith("Q") else "OT",
+                       "pre_period_seconds_remaining": pre["period_seconds_remaining"],
+                       "post_period_seconds_remaining": state["period_seconds_remaining"],
+                       "elapsed_clock_seconds": elapsed, "unattributed_clock_seconds": 0,
+                       "pre_possession": pre["possession"], "post_possession": state["possession"],
+                       "pre_state": pre, "post_state": deepcopy(state), "acting_team_id": pre["possession"],
+                       "terminal_category": terminal, "assignments": assignments or {},
+                       "stat_ledger": "TRY" if kind == "try" else "SPECIAL_TEAMS" if terminal in {"punt", "field_goal"} else "OFFENSE" if kind == "snap" else "TRANSITION",
+                       "field_advance_yards": (t or {}).get(pre["possession"], {}).get("field_advance_yards", 0),
+                       "orthogonal_flags": {"penalty": "UNSUPPORTED" if (outcome or {}).get("penalty") else False,
+                                            "nullified": terminal == "no_play", "interception": bool(trace and trace[2]["outcome"] == "INTERCEPTION"),
+                                            "fumble_lost": bool((outcome or {}).get("fumble_lost", False)),
+                                            "lateral": bool((outcome or {}).get("receiving_credits")),
+                                            "stat_eligible": terminal != "no_play", "rush_design": (outcome or {}).get("rush_design")},
+                       "team_credits": t or {}, "player_credits": list((players or {}).values()),
+                       "generation_trace": trace or [], "score_delta": {team: state["score"][team] - pre["score"][team] for team in teams},
+                       "possession_end_cause": cause, "credit_adjustments": adjustments or [],
+                       "feature_availability": deepcopy(features), "flags": ["MODELED"],
+                       "provenance_refs": model.model["provenance_refs"]})
+
+    def transition(receiving, cause, *, kickoff=False):
+        nonlocal possession_index
+        pre = deepcopy(state)
+        state["possession"] = receiving
+        state["yardline_100"] = 75 if kickoff else max(1, min(99, 100 - state["yardline_100"]))
+        state["down"], state["ydstogo"] = 1, min(10, state["yardline_100"])
+        emit("possession_transition", pre, cause=cause)
+        possession_index += 1
+
+    emit("period_start", deepcopy(state), boundary={"from_period_id": None, "to_period_id": "Q1", "cause": "opening", "reset_clock_seconds": 900})
+    periods.append("Q1")
+    steps = 0
+    while not final and steps < limit:
+        if state["period_seconds_remaining"] == 0:
+            old = state["period_id"]
+            if old == "Q4" and state["score"][teams[0]] != state["score"][teams[1]] or old == "OT1":
+                reason = "regulation_complete" if old == "Q4" else "ot_expiration_tie"
+                emit("final", deepcopy(state), cause=reason)
+                final = True
+                break
+            if old == "Q2":
+                transition(teams[0], "halftime", kickoff=True)
+            if old == "Q4":
+                transition(teams[1], "ot_reset", kickoff=True)
+                new, length = "OT1", 600
+                went_ot = True
+            else:
+                new, length = f"Q{int(old[1:]) + 1}", 900
+            state["period_id"] = new
+            state["period_seconds_remaining"] = length
+            clock()
+            emit("period_start", deepcopy(state), boundary={"from_period_id": old, "to_period_id": new,
+                 "cause": "halftime" if old == "Q2" else "ot_reset" if old == "Q4" else "quarter_end",
+                 "reset_clock_seconds": length})
+            periods.append(new)
+            continue
+        steps += 1
+        pre = deepcopy(state)
+        op = model.opportunity(deepcopy(state))
+        catch, outcome = model.outcome(op)  # allocations and counts already exist here
+        if outcome.get("penalty") or outcome.get("untimed_down") or outcome.get("defensive_return_yards"):
+            raise ValueError("UNSUPPORTED penalty/untimed/return profile; no invented credits")
+        terminal, team = op["terminal"], op["team"]
+        t, p, credit = op["team_credits"], op["players"], op["credit"]
+        raw = outcome["yards"]
+        # This version's ordinary outcomes stop at a goal line. Explicit stat/field
+        # differences (lateral/fumble/provider adjustment) retain separate credits.
+        yards = min(raw, state["yardline_100"]) if raw > 0 else max(raw, -(100-state["yardline_100"]))
+        advance = outcome.get("field_advance_yards", yards)
+        integer(advance, "field_advance_yards")
+        if not -(100-state["yardline_100"]) <= advance <= state["yardline_100"]:
+            raise ValueError("unsupported out-of-field advancement")
+        adjustments = []
+        if advance != yards or "receiving_credits" in outcome or outcome.get("pass_receiving_credit_adjustment", 0):
+            if not outcome.get("credit_explanation") or not outcome.get("credit_provenance_refs"):
+                raise ValueError("field/stat/lateral difference requires explicit evidence and explanation")
+            adjustments.append({"event_id": f"{trial_id}/event/{len(events)}", "field_advance_yards": advance,
+                                "credited_yards": yards, "signed_pass_receiving_adjustment": outcome.get("pass_receiving_credit_adjustment", 0),
+                                "explanation": outcome["credit_explanation"], "provenance_refs": outcome["credit_provenance_refs"]})
+        if catch == "COMPLETE":
+            t["completions"] += 1
+            credit(op["assignments"]["receiver"], "catches", 1)
+            t["gross_pass_yards"] += yards
+            credit(op["assignments"]["passer"], "pass_yards", yards)
+            rec_rows = outcome.get("receiving_credits", [{"player_ref": op["context"]["receiver_ref"], "yards": yards}])
+            for rec in rec_rows:
+                integer(rec["yards"], "receiving_credit")
+                if rec["player_ref"] is not None and model.by_ref[rec["player_ref"]]["team_id"] != team:
+                    raise ValueError("lateral recipient is on another team")
+                t["receiving_yards"] += rec["yards"]
+                credit(model.identity(rec["player_ref"]), "rec_yards", rec["yards"])
+            t["pass_receiving_credit_adjustment"] = outcome.get("pass_receiving_credit_adjustment", 0)
+        elif terminal == "sack":
+            t["sack_loss_yards"] = -yards
+        if terminal in RUSHES:
+            t["rush_yards"] += yards
+            credit(op["assignments"]["runner"], "rush_yards", yards)
+        t["net_pass_yards"] = t["gross_pass_yards"] - t["sack_loss_yards"]
+        t["field_advance_yards"] = advance
+        cost = min(state["period_seconds_remaining"], outcome["elapsed_seconds"])
+        state["period_seconds_remaining"] -= cost
+        clock()
+        t["possession_seconds"] = cost
+        op["trace"][-1]["realized_yards"] = yards
+        op["trace"][-1]["field_bound_profile"] = "goal_line_stops_v1"
+        turnover = catch == "INTERCEPTION" or bool(outcome.get("fumble_lost", False))
+        end_cause = None
+        scoring_team = None
+        if terminal == "punt":
+            net = integer(outcome["punt_net_yards"], "punt net", 0)
+            state["yardline_100"] = max(20, state["yardline_100"] - net) if net >= state["yardline_100"] else state["yardline_100"] - net
+            end_cause = "punt"
+        elif terminal == "field_goal":
+            if outcome["made"]:
+                t["points"] = 3
+                scoring_team = team
+                end_cause = "score"
+            else:
+                # Spot of kick or own 20; no quote/settlement rule is involved.
+                state["yardline_100"] = max(20, state["yardline_100"] + 7)
+                end_cause = "missed_field_goal"
+        elif terminal not in {"no_play", "period_end_runoff"}:
+            state["yardline_100"] -= advance
+            if turnover:
+                t["turnovers"] = 1
+                end_cause = "turnover"
+                if state["yardline_100"] <= 0:
+                    state["yardline_100"] = 20  # modeled no-return touchback
+            elif state["yardline_100"] >= 100:
+                scoring_team = model.other(state)
+                end_cause = "safety"
+            elif state["yardline_100"] <= 0:
+                t["points"] = 6
+                scoring_team = team
+                end_cause = "touchdown"
+            else:
+                if advance >= state["ydstogo"]:
+                    state["down"], state["ydstogo"] = 1, min(10, state["yardline_100"])
+                else:
+                    state["down"] += 1
+                    state["ydstogo"] = max(1, state["ydstogo"] - advance)
+                    if state["down"] > 4:
+                        end_cause = "turnover_on_downs"
+                        t["turnovers"] = 1
+        credits = {team: t}
+        if end_cause == "safety":
+            credits[scoring_team] = zeros(TEAM_STATS)
+            credits[scoring_team]["points"] = 2
+        for who, values in credits.items():
+            state["score"][who] += values["points"]
+        emit("period_end_runoff" if terminal == "period_end_runoff" else "snap", pre, t=credits, players=p, trace=op["trace"], terminal=terminal,
+             assignments=op["assignments"], adjustments=adjustments, outcome=outcome)
+        if end_cause == "touchdown":
+            pre = deepcopy(state)
+            points = choose(model.rng, model.model["try_points"])
+            integer(points, "try points", 0)
+            if points > 2:
+                raise ValueError("unsupported try")
+            state["score"][team] += points
+            tc = zeros(TEAM_STATS)
+            tc["points"] = points
+            emit("try", pre, t={team: tc})  # required linked event stays in starting period at 0:00
+        if state["period_id"] == "OT1" and scoring_team is not None:
+            reason = "ot_first_score_approximation"
+            emit("final", deepcopy(state), cause=reason)
+            final = True
+        elif end_cause:
+            receiving = scoring_team if end_cause == "safety" else model.other(state)
+            transition(receiving, end_cause, kickoff=scoring_team is not None)
+    if not final:
+        emit("final_max_steps", deepcopy(state), cause="final_max_steps")
+    team_periods, player_periods, aggregates = derive_tables(events, game, model.roster, periods, complete=final)
+    freeze = {k: spec[k] for k in ("cutoff_utc", "frozen_at_utc", "generated_at_utc", "mode", "config_id")}
+    freeze.update({"input_content_hash": frozen["input_content_hash"], "input_manifest_ref": "input_manifest.json",
+                   "input_manifest_digest": digest(frozen["input_manifest"]),
+                   "split_manifest_id": frozen["loaded"]["splits"]["split_manifest_id"],
+                   "split_manifest_hash": digest(frozen["loaded"]["splits"]), "split_membership": frozen["split_membership"],
+                   "split_dependent_claims_allowed": frozen["split_membership"] != "UNASSIGNED"})
+    flags = ["MODELED", "NOT_VERIFIED_OFFICIAL_OT"]
+    if spec.get("purpose") == "SYNTHETIC_TEST" or model.model.get("flags") and "SCENARIO_ONLY" in model.model["flags"]:
+        flags.append("SCENARIO_ONLY")
+    trial = {"contract_version": CONTRACT_VERSION, "forecast_id": frozen["forecast_id"], "trial_id": trial_id,
+             "trial_index": index, "game": deepcopy(game), "freeze": freeze,
+             "engine": {**run["engine"], "ot_rule_profile": OT_PROFILE, "stat_credit_profile": STAT_PROFILE,
+                        "source_artifact_ref": "engine_source_manifest.json",
+                        "limitations": ["MODEL_TABLES_NOT_FITTED_OR_VALIDATED", "NO_RETURN_YARDS", "NO_UNTIMED_PENALTY_PROFILE", "NO_OFFICIAL_OT_CLAIM"]},
+             "rng": {**run["rng"], "trial_seed": seed}, "status": {"state": "COMPLETE" if final else "INCOMPLETE",
+              "completion_reason": reason, "terminal_state": deepcopy(state), "went_ot": went_ot},
+             "latent_state": {"environment": model.environment, "roles": model.roles,
+                              "provenance": provenance(model.model, "TRIAL_LATENT")},
+             "events": events, "possessions": derive_possessions(events), "team_periods": team_periods,
+             "player_periods": player_periods, "aggregates": aggregates, "feature_availability": features,
+             "provenance": {"roster": model.roster, "crosswalk_hash": digest(frozen["loaded"]["registry"]["crosswalk"]),
+                            "input_refs": [e["logical_input_id"] for e in frozen["input_manifest"]["entries"]],
+                            "evidence_only_refs": [{"source_ref": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/actual_role_coverage_audit.md",
+                                                    "usage": "EVIDENCE_ONLY_POSTGAME", "predictive_input": False,
+                                                    "note": "Contract reference only; not read or used for fitting by this producer"}]},
+             "flags": flags, "validation": {}}
+    return finalize_validation(trial)
+
+
+def _write_once(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with path.open("xb") as stream:
+            stream.write(data)
+    except FileExistsError:
+        if path.read_bytes() != data:
+            raise ValueError(f"immutable artifact conflict: {path.name}")
+
+
+def write_forecast(output_root, frozen, trials):
+    """Durable content-addressed run plus frozen bytes and separate forecast ledger."""
+    verify_frozen(frozen)
+    expected_ids = [f"{frozen['forecast_id']}/trial/{i}" for i in frozen["run_spec"]["trial_indices"]]
+    if [t["trial_id"] for t in trials] != expected_ids:
+        raise ValueError("joint trial population/order mismatch; no implicit exclusions")
+    for trial in trials:
+        finalize_validation(trial)  # stale caller-supplied PASS/projection flags never authorize publication
+    root = Path(output_root)
+    directory = safe_path(root, frozen["forecast_id"].replace(":", "_"))
+    directory.mkdir(parents=True, exist_ok=True)
+    artifacts = {"run_spec.json": canonical(frozen["run_spec"]), "input_manifest.json": canonical(frozen["input_manifest"]),
+                 "trials.jsonl": b"".join(canonical(t) + b"\n" for t in trials)}
+    from joint_inputs import byte_digest
+    artifacts["engine_source_manifest.json"] = canonical({name: byte_digest(data) for name, data in frozen["code_snapshot"].items()})
+    for name, data in frozen["code_snapshot"].items():
+        artifacts["engine_source/" + name] = data
+    for entry in frozen["input_manifest"]["entries"]:
+        artifacts["inputs/" + entry["path"]] = frozen["blobs"][entry["logical_input_id"]]
+    for name, data in artifacts.items():
+        _write_once(safe_path(directory, name), data)
+    hashes = {name: byte_digest(data) for name, data in artifacts.items()}
+    spec = frozen["spec"]
+    ledger = {"forecast_id": frozen["forecast_id"], "game_id": spec["game"]["game_id"],
+              "cutoff_utc": spec["cutoff_utc"], "engine_version": frozen["run_spec"]["engine"]["engine_version"],
+              "input_content_hash": frozen["input_content_hash"], "mode": spec["mode"],
+              "split_manifest_id": frozen["loaded"]["splits"]["split_manifest_id"],
+              "split_manifest_hash": digest(frozen["loaded"]["splits"]),
+              "split_membership": frozen["split_membership"], "trial_ids": [t["trial_id"] for t in trials],
+              "artifact_hashes": hashes, "result_evidence_ids": [], "impact": "NOT MEASURED"}
+    _write_once(directory / "forecast_ledger.json", canonical(ledger))
+    return str(directory)
+
+
+def simulate_joint_games(spec, *, input_root, inputs, n, seed, output_root):
+    frozen = freeze_run(spec, input_root, inputs, n=n, seed=seed)
+    trials = [simulate_trial(frozen, i) for i in frozen["run_spec"]["trial_indices"]]
+    counts = {name: sum(t["status"]["state"] == name for t in trials) for name in ("COMPLETE", "INCOMPLETE", "INVALID")}
+    usable = [t["trial_id"] for t in trials if t["status"]["adapter_projection_allowed"]]
+    artifact = write_forecast(output_root, frozen, trials)
+    return {"forecast_id": frozen["forecast_id"], "input_content_hash": frozen["input_content_hash"],
+            "n_requested": n, "n_completed": counts["COMPLETE"], "n_incomplete": counts["INCOMPLETE"],
+            "n_invalid": counts["INVALID"], "n_usable": len(usable), "retained_trial_ids": usable,
+            "excluded_trials": [{"trial_id": t["trial_id"], "reasons": t["status"]["projection_blockers"]}
+                                for t in trials if not t["status"]["adapter_projection_allowed"]],
+            "conditioning_basis": "complete valid identified non-scenario trials; exclusions explicit; no resampling",
+            "trials": trials, "artifact_directory": artifact, "mode": spec["mode"],
+            "status": "INVALID" if counts["INVALID"] else "INCOMPLETE" if counts["INCOMPLETE"] else "OK"}
+
+...
+advance_yards": 0, "points": 0, "turnovers": 0,
+                                        "definitions": {"points": "possession_team_credited_points_only",
+                                                        "field_advance_yards": "offensive_advancement_excluding_special_teams"}})
+        if p["end_cause"] is not None:
+            raise ValueError("possession continues after termination")
+        if not p["period_segments"] or p["period_segments"][-1]["period_id"] != e["period_id"]:
+            p["period_segments"].append({"period_id": e["period_id"], "clock_seconds": 0})
+        p["period_segments"][-1]["clock_seconds"] += e["elapsed_clock_seconds"]
+        p["clock_seconds"] += e["elapsed_clock_seconds"]
+        t = e["team_credits"].get(p["team_id"], zeros(TEAM_STATS))
+        p["field_advance_yards"] += t["field_advance_yards"]
+        p["points"] += t["points"]
+        p["turnovers"] += t["turnovers"]
+        p["end_event_id"] = e["event_id"]
+        if e.get("possession_end_cause"):
+            p["end_cause"] = e["possession_end_cause"]
+    return list(possessions.values())
+
+
+def simulate_trial(frozen, index, *, model_class=OpportunityModel):
+    verify_frozen(frozen)
+    if index not in frozen["run_spec"]["trial_indices"]:
+        raise ValueError("trial_index not assigned in frozen run specification")
+    run = frozen["run_spec"]
+    spec = frozen["spec"]
+    game = spec["game"]
+    seed = trial_seed(frozen, index)
+    model = model_class(frozen, np.random.Generator(np.random.PCG64(int(seed))))
+    trial_id = f"{frozen['forecast_id']}/trial/{index}"
+    features = missing_features()
+    teams = [game["home_team_id"], game["away_team_id"]]
+    state = {"period_id": "Q1", "period_seconds_remaining": 900, "regulation_seconds_remaining": 3600,
+             "possession": teams[1], "down": 1, "ydstogo": 10, "yardline_100": 75,
+             "score": dict.fromkeys(teams, 0)}
+    events = []
+    possession_index = 0
+    went_ot = False
+    reason = "final_max_steps"
+    final = False
+    limit = integer(spec.get("max_steps", 1000), "max_steps", 1)
+    periods = []
+
+    def clock():
+        q = int(state["period_id"][1:]) if state["period_id"].startswith("Q") else 5
+        state["regulation_seconds_remaining"] = (4-q)*900 + state["period_seconds_remaining"] if q <= 4 else 0
+
+    def emit(kind, pre, *, t=None, players=None, trace=None, terminal=None, assignments=None, cause=None, adjustments=None, outcome=None, boundary=None):
+        seq = len(events)
+        elapsed = pre["period_seconds_remaining"] - state["period_seconds_remaining"]
+        events.append({"event_id": f"{trial_id}/event/{seq}", "event_seq": seq,
+                       "possession_id": f"{trial_id}/possession/{possession_index}",
+                       "type": kind, "period_id": pre["period_id"],
+                       "boundary": boundary,
+                       "period_kind": "REG" if pre["period_id"].startswith("Q") else "OT",
+                       "pre_period_seconds_remaining": pre["period_seconds_remaining"],
+                       "post_period_seconds_remaining": state["period_seconds_remaining"],
+                       "elapsed_clock_seconds": elapsed, "unattributed_clock_seconds": 0,
+                       "pre_possession": pre["possession"], "post_possession": state["possession"],
+                       "pre_state": pre, "post_state": deepcopy(state), "acting_team_id": pre["possession"],
+                       "terminal_category": terminal, "assignments": assignments or {},
+                       "stat_ledger": "TRY" if kind == "try" else "SPECIAL_TEAMS" if terminal in {"punt", "field_goal"} else "OFFENSE" if kind == "snap" else "TRANSITION",
+                       "field_advance_yards": (t or {}).get(pre["possession"], {}).get("field_advance_yards", 0),
+                       "orthogonal_flags": {"penalty": "UNSUPPORTED" if (outcome or {}).get("penalty") else False,
+                                            "nullified": terminal == "no_play", "interception": bool(trace and trace[2]["outcome"] == "INTERCEPTION"),
+                                            "fumble_lost": bool((outcome or {}).get("fumble_lost", False)),
+                                            "lateral": bool((outcome or {}).get("receiving_credits")),
+                                            "stat_eligible": terminal != "no_play", "rush_design": (outcome or {}).get("rush_design")},
+                       "team_credits": t or {}, "player_credits": list((players or {}).values()),
+                       "generation_trace": trace or [], "score_delta": {team: state["score"][team] - pre["score"][team] for team in teams},
+                       "possession_end_cause": cause, "credit_adjustments": adjustments or [],
+                       "feature_availability": deepcopy(features), "flags": ["MODELED"],
+                       "provenance_refs": model.model["provenance_refs"]})
+
+    def transition(receiving, cause, *, kickoff=False):
+        nonlocal possession_index
+        pre = deepcopy(state)
+        state["possession"] = receiving
+        state["yardline_100"] = 75 if kickoff else max(1, min(99, 100 - state["yardline_100"]))
+        state["down"], state["ydstogo"] = 1, min(10, state["yardline_100"])
+        emit("possession_transition", pre, cause=cause)
+        possession_index += 1
+
+    emit("period_start", deepcopy(state), boundary={"from_period_id": None, "to_period_id": "Q1", "cause": "opening", "reset_clock_seconds": 900})
+    periods.append("Q1")
+    steps = 0
+    while not final and steps < limit:
+        if state["period_seconds_remaining"] == 0:
+            old = state["period_id"]
+            if old == "Q4" and state["score"][teams[0]] != state["score"][teams[1]] or old == "OT1":
+                reason = "regulation_complete" if old == "Q4" else "ot_expiration_tie"
+                emit("final", deepcopy(state), cause=reason)
+                final = True
+                break
+            if old == "Q2":
+                transition(teams[0], "halftime", kickoff=True)
+            if old == "Q4":
+                transition(teams[1], "ot_reset", kickoff=True)
+                new, length = "OT1", 600
+                went_ot = True
+            else:
+                new, length = f"Q{int(old[1:]) + 1}", 900
+            state["period_id"] = new
+            state["period_seconds_remaining"] = length
+            clock()
+            emit("period_start", deepcopy(state), boundary={"from_period_id": old, "to_period_id": new,
+                 "cause": "halftime" if old == "Q2" else "ot_reset" if old == "Q4" else "quarter_end",
+                 "reset_clock_seconds": length})
+            periods.append(new)
+            continue
+        steps += 1
+        pre = deepcopy(state)
+        op = model.opportunity(deepcopy(state))
+        catch, outcome = model.outcome(op)  # allocations and counts already exist here
+        if outcome.get("penalty") or outcome.get("untimed_down") or outcome.get("defensive_return_yards"):
+            raise ValueError("UNSUPPORTED penalty/untimed/return profile; no invented credits")
+        terminal, team = op["terminal"], op["team"]
+        t, p, credit = op["team_credits"], op["players"], op["credit"]
+        raw = outcome["yards"]
+        # This version's ordinary outcomes stop at a goal line. Explicit stat/field
+        # differences (lateral/fumble/provider adjustment) retain separate credits.
+        yards = min(raw, state["yardline_100"]) if raw > 0 else max(raw, -(100-state["yardline_100"]))
+        advance = outcome.get("field_advance_yards", yards)
+        integer(advance, "field_advance_yards")
+        if not -(100-state["yardline_100"]) <= advance <= state["yardline_100"]:
+            raise ValueError("unsupported out-of-field advancement")
+        adjustments = []
+        if advance != yards or "receiving_credits" in outcome or outcome.get("pass_receiving_credit_adjustment", 0):
+            if not outcome.get("credit_explanation") or not outcome.get("credit_provenance_refs"):
+                raise ValueError("field/stat/lateral difference requires explicit evidence and explanation")
+            adjustments.append({"event_id": f"{trial_id}/event/{len(events)}", "field_advance_yards": advance,
+                                "credited_yards": yards, "signed_pass_receiving_adjustment": outcome.get("pass_receiving_credit_adjustment", 0),
+                                "explanation": outcome["credit_explanation"], "provenance_refs": outcome["credit_provenance_refs"]})
+        if catch == "COMPLETE":
+            t["completions"] += 1
+            credit(op["assignments"]["receiver"], "catches", 1)
+            t["gross_pass_yards"] += yards
+            credit(op["assignments"]["passer"], "pass_yards", yards)
+            rec_rows = outcome.get("receiving_credits", [{"player_ref": op["context"]["receiver_ref"], "yards": yards}])
+            for rec in rec_rows:
+                integer(rec["yards"], "receiving_credit")
+                if rec["player_ref"] is not None and model.by_ref[rec["player_ref"]]["team_id"] != team:
+                    raise ValueError("lateral recipient is on another team")
+                t["receiving_yards"] += rec["yards"]
+                credit(model.identity(rec["player_ref"]), "rec_yards", rec["yards"])
+            t["pass_receiving_credit_adjustment"] = outcome.get("pass_receiving_credit_adjustment", 0)
+        elif terminal == "sack":
+            t["sack_loss_yards"] = -yards
+        if terminal in RUSHES:
+            t["rush_yards"] += yards
+            credit(op["assignments"]["runner"], "rush_yards", yards)
+        t["net_pass_yards"] = t["gross_pass_yards"] - t["sack_loss_yards"]
+        t["field_advance_yards"] = advance
+        cost = min(state["period_seconds_remaining"], outcome["elapsed_seconds"])
+        state["period_seconds_remaining"] -= cost
+        clock()
+        t["possession_seconds"] = cost
+        op["trace"][-1]["realized_yards"] = yards
+        op["trace"][-1]["field_bound_profile"] = "goal_line_stops_v1"
+        turnover = catch == "INTERCEPTION" or bool(outcome.get("fumble_lost", False))
+        end_cause = None
+        scoring_team = None
+        if terminal == "punt":
+            net = integer(outcome["punt_net_yards"], "punt net", 0)
+            state["yardline_100"] = max(20, state["yardline_100"] - net) if net >= state["yardline_100"] else state["yardline_100"] - net
+            end_cause = "punt"
+        elif terminal == "field_goal":
+            if outcome["made"]:
+                t["points"] = 3
+                scoring_team = team
+                end_cause = "score"
+            else:
+                # Spot of kick or own 20; no quote/settlement rule is involved.
+                state["yardline_100"] = max(20, state["yardline_100"] + 7)
+                end_cause = "missed_field_goal"
+        elif terminal not in {"no_play", "period_end_runoff"}:
+            state["yardline_100"] -= advance
+            if turnover:
+                t["turnovers"] = 1
+                end_cause = "turnover"
+                if state["yardline_100"] <= 0:
+                    state["yardline_100"] = 20  # modeled no-return touchback
+            elif state["yardline_100"] >= 100:
+                scoring_team = model.other(state)
+                end_cause = "safety"
+            elif state["yardline_100"] <= 0:
+                t["points"] = 6
+                scoring_team = team
+                end_cause = "touchdown"
+            else:
+                if advance >= state["ydstogo"]:
+                    state["down"], state["ydstogo"] = 1, min(10, state["yardline_100"])
+                else:
+                    state["down"] += 1
+                    state["ydstogo"] = max(1, state["ydstogo"] - advance)
+                    if state["down"] > 4:
+                        end_cause = "turnover_on_downs"
+                        t["turnovers"] = 1
+        credits = {team: t}
+        if end_cause == "safety":
+            credits[scoring_team] = zeros(TEAM_STATS)
+            credits[scoring_team]["points"] = 2
+        for who, values in credits.items():
+            state["score"][who] += values["points"]
+        emit("period_end_runoff" if terminal == "period_end_runoff" else "snap", pre, t=credits, players=p, trace=op["trace"], terminal=terminal,
+             assignments=op["assignments"], adjustments=adjustments, outcome=outcome)
+        if end_cause == "touchdown":
+            pre = deepcopy(state)
+            points = choose(model.rng, model.model["try_points"])
+            integer(points, "try points", 0)
+            if points > 2:
+                raise ValueError("unsupported try")
+            state["score"][team] += points
+            tc = zeros(TEAM_STATS)
+            tc["points"] = points
+            emit("try", pre, t={team: tc})  # required linked event stays in starting period at 0:00
+        if state["period_id"] == "OT1" and scoring_team is not None:
+            reason = "ot_first_score_approximation"
+            emit("final", deepcopy(state), cause=reason)
+            final = True
+        elif end_cause:
+            receiving = scoring_team if end_cause == "safety" else model.other(state)
+            transition(receiving, end_cause, kickoff=scoring_team is not None)
+    if not final:
+        emit("final_max_steps", deepcopy(state), cause="final_max_steps")
+    team_periods, player_periods, aggregates = derive_tables(events, game, model.roster, periods, complete=final)
+    freeze = {k: spec[k] for k in ("cutoff_utc", "frozen_at_utc", "generated_at_utc", "mode", "config_id")}
+    freeze.update({"input_content_hash": frozen["input_content_hash"], "input_manifest_ref": "input_manifest.json",
+                   "input_manifest_digest": digest(frozen["input_manifest"]),
+                   "split_manifest_id": frozen["loaded"]["splits"]["split_manifest_id"],
+                   "split_manifest_hash": digest(frozen["loaded"]["splits"]), "split_membership": frozen["split_membership"],
+                   "split_dependent_claims_allowed": frozen["split_membership"] != "UNASSIGNED"})
+    flags = ["MODELED", "NOT_VERIFIED_OFFICIAL_OT"]
+    if spec.get("purpose") == "SYNTHETIC_TEST" or model.model.get("flags") and "SCENARIO_ONLY" in model.model["flags"]:
+        flags.append("SCENARIO_ONLY")
+    trial = {"contract_version": CONTRACT_VERSION, "forecast_id": frozen["forecast_id"], "trial_id": trial_id,
+             "trial_index": index, "game": deepcopy(game), "freeze": freeze,
+             "engine": {**run["engine"], "ot_rule_profile": OT_PROFILE, "stat_credit_profile": STAT_PROFILE,
+                        "source_artifact_ref": "engine_source_manifest.json",
+                        "limitations": ["MODEL_TABLES_NOT_FITTED_OR_VALIDATED", "NO_RETURN_YARDS", "NO_UNTIMED_PENALTY_PROFILE", "NO_OFFICIAL_OT_CLAIM"]},
+             "rng": {**run["rng"], "trial_seed": seed}, "status": {"state": "COMPLETE" if final else "INCOMPLETE",
+              "completion_reason": reason, "terminal_state": deepcopy(state), "went_ot": went_ot},
+             "latent_state": {"environment": model.environment, "roles": model.roles,
+                              "provenance": provenance(model.model, "TRIAL_LATENT")},
+             "events": events, "possessions": derive_possessions(events), "team_periods": team_periods,
+             "player_periods": player_periods, "aggregates": aggregates, "feature_availability": features,
+             "provenance": {"roster": model.roster, "crosswalk_hash": digest(frozen["loaded"]["registry"]["crosswalk"]),
+                            "input_refs": [e["logical_input_id"] for e in frozen["input_manifest"]["entries"]],
+                            "evidence_only_refs": [{"source_ref": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/actual_role_coverage_audit.md",
+                                                    "usage": "EVIDENCE_ONLY_POSTGAME", "predictive_input": False,
+                                                    "note": "Contract reference only; not read or used for fitting by this producer"}]},
+             "flags": flags, "validation": {}}
+    return finalize_validation(trial)
+
+
+def _write_once(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with path.open("xb") as stream:
+            stream.write(data)
+    except FileExistsError:
+        if path.read_bytes() != data:
+            raise ValueError(f"immutable artifact conflict: {path.name}")
+
+
+def write_forecast(output_root, frozen, trials):
+    """Durable content-addressed run plus frozen bytes and separate forecast ledger."""
+    verify_frozen(frozen)
+    expected_ids = [f"{frozen['forecast_id']}/trial/{i}" for i in frozen["run_spec"]["trial_indices"]]
+    if [t["trial_id"] for t in trials] != expected_ids:
+        raise ValueError("joint trial population/order mismatch; no implicit exclusions")
+    for trial in trials:
+        finalize_validation(trial)  # stale caller-supplied PASS/projection flags never authorize publication
+    root = Path(output_root)
+    directory = safe_path(root, frozen["forecast_id"].replace(":", "_"))
+    directory.mkdir(parents=True, exist_ok=True)
+    artifacts = {"run_spec.json": canonical(frozen["run_spec"]), "input_manifest.json": canonical(frozen["input_manifest"]),
+                 "trials.jsonl": b"".join(canonical(t) + b"\n" for t in trials)}
+    from joint_inputs import byte_digest
+    artifacts["engine_source_manifest.json"] = canonical({name: byte_digest(data) for name, data in frozen["code_snapshot"].items()})
+    for name, data in frozen["code_snapshot"].items():
+        artifacts["engine_source/" + name] = data
+    for entry in frozen["input_manifest"]["entries"]:
+        artifacts["inputs/" + entry["path"]] = frozen["blobs"][entry["logical_input_id"]]
+    for name, data in artifacts.items():
+        _write_once(safe_path(directory, name), data)
+    hashes = {name: byte_digest(data) for name, data in artifacts.items()}
+    spec = frozen["spec"]
+    ledger = {"forecast_id": frozen["forecast_id"], "game_id": spec["game"]["game_id"],
+              "cutoff_utc": spec["cutoff_utc"], "engine_version": frozen["run_spec"]["engine"]["engine_version"],
+              "input_content_hash": frozen["input_content_hash"], "mode": spec["mode"],
+              "split_manifest_id": frozen["loaded"]["splits"]["split_manifest_id"],
+              "split_manifest_hash": digest(frozen["loaded"]["splits"]),
+              "split_membership": frozen["split_membership"], "trial_ids": [t["trial_id"] for t in trials],
+              "artifact_hashes": hashes, "result_evidence_ids": [], "impact": "NOT MEASURED"}
+    _write_once(directory / "forecast_ledger.json", canonical(ledger))
+    return str(directory)
+
+
+def simulate_joint_games(spec, *, input_root, inputs, n, seed, output_root):
+    frozen = freeze_run(spec, input_root, inputs, n=n, seed=seed)
+    trials = [simulate_trial(frozen, i) for i in frozen["run_spec"]["trial_indices"]]
+    counts = {name: sum(t["status"]["state"] == name for t in trials) for name in ("COMPLETE", "INCOMPLETE", "INVALID")}
+    usable = [t["trial_id"] for t in trials if t["status"]["adapter_projection_allowed"]]
+    artifact = write_forecast(output_root, frozen, trials)
+    return {"forecast_id": frozen["forecast_id"], "input_content_hash": frozen["input_content_hash"],
+            "n_requested": n, "n_completed": counts["COMPLETE"], "n_incomplete": counts["INCOMPLETE"],
+            "n_invalid": counts["INVALID"], "n_usable": len(usable), "retained_trial_ids": usable,
+            "excluded_trials": [{"trial_id": t["trial_id"], "reasons": t["status"]["projection_blockers"]}
+                                for t in trials if not t["status"]["adapter_projection_allowed"]],
+            "conditioning_basis": "complete valid identified non-scenario trials; exclusions explicit; no resampling",
+            "trials": trials, "artifact_directory": artifact, "mode": spec["mode"],
+            "status": "INVALID" if counts["INVALID"] else "INCOMPLETE" if counts["INCOMPLETE"] else "OK"}
+
+
+===== FILE /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_accounting.py (head+tail) =====
+"""Exact integer event credits and fail-closed joint trial validation."""
+from __future__ import annotations
+
+from collections import defaultdict
+
+from joint_inputs import canonical, integer
+
+TEAM_COUNTS = ("dropbacks", "dropback_pass_attempts", "non_dropback_pass_attempts", "pass_attempts",
+               "sacks", "scrambles", "aborted_dropbacks_no_attempt", "eligible_target_attempts",
+               "throwaways", "spikes", "other_untargeted_attempts", "completions", "rush_attempts",
+               "designed_rushes", "kneels", "credited_aborted_rushes")
+PLAYER_STATS = ("targets", "catches", "carries", "pass_attempts", "sacks_taken", "pass_yards", "rec_yards", "rush_yards")
+RESIDUALS = ("targets", "catches", "carries", "pass_attempts", "sacks", "pass_yards", "rec_yards", "rush_yards")
+TEAM_STATS = TEAM_COUNTS + tuple("unassigned_" + k for k in RESIDUALS) + (
+    "gross_pass_yards", "receiving_yards", "rush_yards", "sack_loss_yards", "net_pass_yards",
+    "pass_receiving_credit_adjustment", "points", "turnovers", "field_advance_yards", "possession_seconds")
+TARGETED = {"targeted_pass", "non_dropback_targeted_pass"}
+UNTARGETED = {"throwaway", "spike", "other_untargeted_attempt"}
+RUSHES = {"designed_rush", "scramble", "kneel", "credited_aborted_rush"}
+TERMINALS = TARGETED | UNTARGETED | RUSHES | {"sack", "aborted_dropback_no_attempt", "no_play", "punt", "field_goal", "period_end_runoff"}
+
+
+def zeros(keys):
+    return dict.fromkeys(keys, 0)
+
+
+def player_key(row):
+    return (row["team_id"], row["player_id_namespace"], row["player_id"])
+
+
+def allocate(terminal, team, *, passer=None, receiver=None, runner=None):
+    """Allocate official attempts/opportunities. Called BEFORE any outcome/yard RNG."""
+    if terminal not in TERMINALS:
+        raise ValueError(f"UNSUPPORTED terminal {terminal}")
+    t = zeros(TEAM_STATS)
+    players = {}
+
+    def credit(identity, stat, value):
+        if identity is None or identity.get("player_id") is None:
+            residual = "sacks" if stat == "sacks_taken" else stat
+            t["unassigned_" + residual] += value
+        else:
+            key = (identity["player_id_namespace"], identity["player_id"])
+            p = players.setdefault(key, {"team_id": team, **identity, "stats": zeros(PLAYER_STATS)})
+            p["stats"][stat] += value
+
+    if terminal in TARGETED | UNTARGETED | {"sack", "scramble", "aborted_dropback_no_attempt"}:
+        if terminal != "non_dropback_targeted_pass":
+            t["dropbacks"] += 1
+    if terminal in TARGETED | UNTARGETED:
+        t["pass_attempts"] += 1
+        t["non_dropback_pass_attempts" if terminal == "non_dropback_targeted_pass" else "dropback_pass_attempts"] += 1
+        credit(passer, "pass_attempts", 1)
+    if terminal in TARGETED:
+        t["eligible_target_attempts"] += 1
+        credit(receiver, "targets", 1)
+    elif terminal in UNTARGETED:
+        t[{"throwaway": "throwaways", "spike": "spikes", "other_untargeted_attempt": "other_untargeted_attempts"}[terminal]] += 1
+    elif terminal == "sack":
+        t["sacks"] += 1
+        credit(passer, "sacks_taken", 1)
+    elif terminal == "aborted_dropback_no_attempt":
+        t["aborted_dropbacks_no_attempt"] += 1
+    if terminal in RUSHES:
+        t["rush_attempts"] += 1
+        t[{"designed_rush": "designed_rushes", "scramble": "scrambles", "kneel": "kneels",
+           "credited_aborted_rush": "credited_aborted_rushes"}[terminal]] += 1
+        credit(runner, "carries", 1)
+    return t, players, credit
+
+
+def sum_stats(rows, keys):
+    result = zeros(keys)
+    for row in rows:
+        for stat in keys:
+            result[stat] += row[stat]
+    return result
+
+
+def derive_tables(events, game, roster, periods, complete=True):
+    teams = (game["home_team_id"], game["away_team_id"])
+    team = {(t, p): zeros(TEAM_STATS) for p in periods for t in teams}
+    player = {(r["team_id"], r["player_id_namespace"], r["player_id"], p): zeros(PLAYER_STATS)
+              for p in periods for r in roster if r.get("player_id") is not None}
+    for event in events:
+        period = event["period_id"]
+        for t, stats in event["team_credits"].items():
+            bucket = team[(t, period)]
+            for k, v in stats.items():
+                bucket[k] += v
+        for row in event["player_credits"]:
+            bucket = player[(*player_key(row), period)]
+            for k, v in row["stats"].items():
+                bucket[k] += v
+    def period_status(p):
+        return "KNOWN" if complete or p != periods[-1] else "INCOMPLETE"
+    def row_provenance(t, p):
+        return {"derivation": "EVENT_LEDGER_SUM_V1", "event_ids": [e["event_id"] for e in events
+                 if e["period_id"] == p and t in e["team_credits"]], "roster_ref": "registry"}
+    team_rows = [{"team_id": t, "period_id": p, "stat_status": period_status(p), "stats": stats,
+                  "provenance": row_provenance(t, p)} for (t, p), stats in team.items()]
+    player_rows = [{"team_id": t, "player_id_namespace": ns, "player_id": pid, "period_id": p,
+                    "stat_status": period_status(p), "stats": stats, "provenance": row_provenance(t, p)}
+                   for (t, ns, pid, p), stats in player.items()]
+    scopes = {"H1": ["Q1", "Q2"], "H2": ["Q3", "Q4"], "REG": ["Q1", "Q2", "Q3", "Q4"],
+              "OT": [p for p in periods if p.startswith("OT")], "FG": periods}
+    team_agg, player_agg = [], []
+    # An unplayed future regulation period must never be interpreted as a known zero.
+    for scope, primitive in scopes.items():
+        known = (all(p in periods for p in primitive)
+                 and (complete or periods[-1] not in primitive)
+                 and (scope not in {"FG", "OT"} or complete))
+        for t in teams:
+            team_agg.append({"team_id": t, "period_id": scope, "status": "KNOWN" if known else "INCOMPLETE",
+                             "provenance": {"derivation": "PRIMITIVE_PERIOD_SUM_V1", "period_ids": primitive},
+                             "stats": sum_stats([team[(t, p)] for p in primitive], TEAM_STATS) if known else None})
+        for row in roster:
+            if row.get("player_id") is None:
+                continue
+            key = player_key(row)
+            player_agg.append({**dict(zip(("team_id", "player_id_namespace", "player_id"), key)),
+                               "period_id": scope, "status": "KNOWN" if known else "INCOMPLETE",
+                               "provenance": {"derivation": "PRIMITIVE_PERIOD_SUM_V1", "period_ids": primitive},
+                               "stats": sum_stats([player[(*key, p)] for p in primitive], PLAYER_STATS) if known else None})
+    scores = {}
+    for scope in scopes:
+        rows = [r for r in team_agg if r["period_id"] == scope]
+        scores[scope] = ({"total": sum(r["stats"]["points"] for r in rows),
+                          "home_margin": rows[0]["stats"]["points"] - rows[1]["stats"]["points"]}
+                         if all(r["stats"] is not None for r in rows) else None)
+    return team_rows, player_rows, {"team": team_agg, "player": player_agg, "scores": scores}
+
+
+def validate_trial(trial):
+    """Recompute from the ledger, check identities/types/clocks/stages and ALL §5 equations.
+
+    Returns INVALID on absent or malformed evidence; no declaration counts as a check.
+    """
+    checks = []
+
+    def check(name, expected, actual):
+        checks.append({"name": name, "expected": expected, "actual": actual, "pass": expected == actual})
+
+    try:
+        canonical(trial)  # rejects nonfinite values anywhere
+        required = {"contract_version", "forecast_id", "trial_id", "trial_index", "game", "freeze", "engine", "rng",
+                    "status", "latent_state", "events", "possessions", "team_periods", "player_periods", "aggregates",
+                    "feature_availability", "provenance", "flags", "validation"}
+        check("required_objects", [], sorted(required - trial.keys()))
+        types = {"contract_version": str, "forecast_id": str, "trial_id": str, "trial_index": int,
+                 **dict.fromkeys(("game", "freeze", "engine", "rng", "status", "latent_state", "aggregates",
+                                  "feature_availability", "provenance", "validation"), dict),
+                 **dict.fromkeys(("events", "possessions", "team_periods", "player_periods", "flags"), list)}
+        for field, kind in types.items():
+            check("type/" + field, kind.__name__, type(trial[field]).__name__)
+        for field in ("game_id", "game_id_namespace", "season_type", "home_team_id", "away_team_id", "team_id_namespace", "crosswalk_ref"):
+            check("game/" + field, True, isinstance(trial["game"][field], str) and bool(trial["game"][field]))
+        integer(trial["game"]["season"], "season", 1)
+        integer(trial["game"]["week"], "week", 1)
+        for field in ("environment", "roles", "provenance"):
+            check("latent/" + field, True, isinstance(trial["latent_state"][field], dict) and bool(trial["latent_state"][field]))
+        check("trial_id", f"{trial['forecast_id']}/trial/{trial['trial_index']}", trial["trial_id"])
+        integer(trial["trial_index"], "trial_index", 0)
+        from joint_inputs import SEED_VERSION, CONTRACT_VERSION, utc
+        import hashlib
+        import re
+        check("contract_version", CONTRACT_VERSION, trial["contract_version"])
+        for field in (trial["forecast_id"], trial["freeze"]["input_content_hash"]):
+            check("hash_format", True, bool(re.fullmatch(r"sha256:[0-9a-f]{64}", field)))
+        for field in ("cutoff_utc", "frozen_at_utc", "generated_at_utc"):
+            utc(trial["freeze"][field])
+        check("pregame_cutoff", True, utc(trial["freeze"]["cutoff_utc"]) < utc(trial["game"]["kickoff_utc"]))
+        check("mode", True, trial["freeze"]["mode"] in {"data_only", "script_adjusted", "market_informed"})
+        for field in ("engine_version", "component_version", "source_content_hash", "dirty_patch_hash", "dependencies",
+                      "ot_rule_profile", "stat_credit_profile", "limitations"):
+            check("engine/" + field, True, bool(trial["engine"][field]))
+        for field in ("seed", "trial_seed"):
+            check("rng/" + field, True, isinstance(trial["rng"][field], str) and bool(re.fullmatch(r"0|[1-9][0-9]*", trial["rng"][field])))
+        check("rng/derivation", SEED_VERSION, trial["rng"]["seed_derivation_version"])
+        check("rng/algorithm", "PCG64", trial["rng"]["rng_algorithm"])
+        seed_values = [SEED_VERSION, trial["rng"]["seed"], trial["game"]["game_id_namespace"], trial["game"]["game_id"],
+                       trial["freeze"]["input_content_hash"], trial["trial_index"]]
+        check("rng/trial_seed", str(int.from_bytes(hashlib.sha256(canonical(seed_values)).digest()[:8], "big")), trial["rng"]["trial_seed"])
+        events = trial["events"]
+        check("events_nonempty", True, bool(events))
+        check("event_ids_unique", len(events), len({e["event_id"] for e in events}))
+        check("event_order", list(range(len(events))), [e["event_seq"] for e in events])
+        periods = list(dict.fromkeys(e["period_id"] for e in events))
+        check("period_order", ["Q1", "Q2", "Q3", "Q4", "OT1"][:len(periods)], periods)
+        prev = None
+        elapsed = defaultdict(int)
+        for e in events:
+            check("event_id_namespace", f"{trial['trial_id']}/event/{e['event_seq']}", e["event_id"])
+            check("possession_id_namespace", True, e["possession_id"].startswith(trial["trial_id"] + "/possession/"))
+            integer(e["elapsed_clock_seconds"], "elapsed", 0)
+            integer(e["pre_period_seconds_remaining"], "pre_clock", 0)
+            integer(e["post_period_seconds_remaining"], "post_clock", 0)
+            length = 900 if e["period_kind"] == "REG" else 600
+            check(e["event_id"] + "/bounds", True, 0 <= e["post_period_seconds_remaining"] <= e["pre_period_seconds_remaining"] <= length)
+            check(e["event_id"] + "/clock", e["elapsed_clock_seconds"], e["pre_period_seconds_remaining"] - e["post_period_seconds_remaining"])
+            check(e["event_id"] + "/pre_clock_state", e["pre_period_seconds_remaining"], e["pre_state"]["period_seconds_remaining"])
+            check(e["event_id"] + "/post_clock_state", e["post_period_seconds_remaining"], e["post_state"]["period_seconds_remaining"])
+            check(e["event_id"] + "/period_kind", "REG" if e["period_id"].startswith("Q") else "OT", e["period_kind"])
+            check(e["event_id"] + "/possession_pre", e["pre_state"]["possession"], e["pre_possession"])
+            check(e["event_id"] + "/possession_post", e["post_state"]["possession"], e["post_possession"])
+            for team in (trial["game"]["home_team_id"], trial["game"]["away_team_id"]):
+                delta = e["post_state"]["score"][team] - e["pre_state"]["score"][team]
+                check(e["event_id"] + "/score_delta/" + team, delta, e["score_delta"][team])
+                check(e["event_id"] + "/score_credits/" + team, delta, e["team_credits"].get(team, zeros(TEAM_STATS))["points"])
+            q = int(e["period_id"][1:]) if e["period_kind"] == "REG" else 5
+            for side in ("pre", "post"):
+                check(e["event_id"] + "/" + side + "_reg_clock", (4-q)*900 + e[f"{side}_period_seconds_remaining"] if q <= 4 else 0,
+                      e[f"{side}_state"]["regulation_seconds_remaining"])
+            if prev and prev["period_id"] == e["period_id"]:
+                check(e["event_id"] + "/continuity", prev["post_state"], e["pre_state"])
+            elif prev:
+                check(e["event_id"] + "/previous_period_exhausted", 0, prev["post_period_seconds_remaining"])
+                check(e["event_id"] + "/reset", length, e["pre_period_seconds_remaining"])
+                check(e["event_id"] + "/boundary", "period_start", e["type"])
+                for field in ("score", "down", "ydstogo", "yardline_100", "possession"):
+                    check(e["event_id"] + "/boundary_state/" + field, prev["post_state"][field], e["pre_state"][field])
+            else:
+                check("opening_clock", 900, e["pre_period_seconds_remaining"])
+                check("opening_score", dict.fromkeys((trial["game"]["home_team_id"], trial["game"]["away_team_id"]), 0), e["pre_state"]["score"])
+            elapsed[e["period_id"]] += e["elapsed_clock_seconds"]
+            prev = e
+            check(e["event_id"] + "/features", trial["feature_availability"], e["feature_availability"])
+            for stats in e["team_credits"].values():
+                check(e["event_id"] + "/team_stat_keys", sorted(TEAM_STATS), sorted(stats))
+                for stat, value in stats.items():
+                    integer(value, stat, 0 if stat in TEAM_COUNTS or stat.startswith("unassigned_") and not stat.endswith("yards") or stat in {"points", "turnovers", "sack_loss_yards", "possession_seconds"} else None)
+            for row in e["player_credits"]:
+                for stat in PLAYER_STATS:
+                    integer(row["stats"][stat], stat, 0 if stat in PLAYER_STATS[:5] else None)
+            check(e["event_id"] + "/time_partition", e["elapsed_clock_seconds"],
+                  sum(s["possession_seconds"] for s in e["team_credits"].values()) + e["unattributed_clock_seconds"])
+            if e["type"] == "snap":
+                trace = e["generation_trace"]
+                check(e["event_id"] + "/causal_stages", ["PRE_SNAP", "OPPORTUNITY", "CATCH", "YARDS"], [r["generation_stage"] for r in trace])
+                for field, value in e["pre_state"].items():
+                    check(e["event_id"] + "/presnap_context/" + field, value, trace[0]["context"][field])
+                for step in trace:
+                    check(e["event_id"] + "/provenance/" + step["generation_stage"], True,
+                          bool(step["provenance_refs"]) and bool(step["model_version"]) and "MODELED" in step["flags"])
+                    check(e["event_id"] + "/sample_size_reason", True, step["sample_size"] is not None or bool(step["sample_size_reason"]))
+                    check(e["event_id"] + "/provenance_resolves", True, set(step["provenance_refs"]) <= set(trial["provenance"]["input_refs"]))
+                t, p, _ = allocate(e["terminal_category"], e["acting_team_id"], **e["assignments"])
+                check(e["event_id"] + "/opportunity_allocation", t, trace[1]["team_counts"])
+                check(e["event_id"] + "/opportunity_players", sorted(p.values(), key=player_key), sorted(trace[1]["player_counts"], key=player_key))
+                final_players = {player_key(row): row for row in e["player_credits"]}
+                check(e["event_id"] + "/player_keys_unique", len(e["player_credits"]), len(final_players))
+                expected_players = {player_key(row): row for row in p.values()}
+                for key in final_players.keys() | expected_players.keys():
+                    for stat in ("targets", "carries", "pass_attempts", "sacks_taken"):
+                        check(e["event_id"] + "/player_opportunity/" + stat,
+                              expected_players.get(key, {"stats": zeros(PLAYER_STATS)})["stats"][stat],
+                              final_players.get(key, {"stats": zeros(PLAYER_STATS)})["stats"][stat])
+                catch = trace[2]["outcome"]
+                final_team = e["team_credits"][e["acting_team_id"]]
+                check(e["event_id"] + "/catch_stage", int(catch == "COMPLETE"), final_team["completions"])
+                receiver = e["assignments"]["receiver"]
+                receiver_key = (e["acting_team_id"], receiver["player_id_namespace"], receiver["player_id"]) if receiver else None
+                for key, row in final_players.items():
+                    check(e["event_id"] + "/catch_recipient", int(catch == "COMPLETE" and key == receiver_key), row["stats"]["catches"])
+                check(e["event_id"] + "/unassigned_catch", int(catch == "COMPLETE" and receiver_key is None), final_team["unassigned_catches"])
+                realized = trace[3]["realized_yards"]
+                integer(realized, "realized_yards")
+                check(e["event_id"] + "/yard_stage/gross", realized if catch == "COMPLETE" else 0, final_team["gross_pass_yards"])
+                check(e["event_id"] + "/yard_stage/rush", realized if e["terminal_category"] in RUSHES else 0, final_team["rush_yards"])
+                check(e["event_id"] + "/yard_stage/sack", -realized if e["terminal_category"] == "sack" else 0, final_team["sack_loss_yards"])
+                if (final_team["pass_receiving_credit_adjustment"] or
+                        e["field_advance_yards"] != realized or trace[3]["raw_outcome"].get("receiving_credits")):
+                    check(e["event_id"] + "/adjustment_evidence", True, bool(e["credit_adjustments"]))
+                    for adjustment in e["credit_adjustments"]:
+                        check(e["event_id"] + "/adjustment_event", e["event_id"], adjustment["event_id"])
+                        check(e["event_id"] + "/adjustment_reason", True, bool(adjustment["explanation"]) and bool(adjustment["provenance_refs"]))
+                        check(e["event_id"] + "/signed_adjustment", final_team["pass_receiving_credit_adjustment"], adjustment["signed_pass_receiving_adjustment"])
+                for stat in ("unassigned_targets", "unassigned_carries", "unassigned_pass_attempts", "unassigned_sacks"):
+                    check(e["event_id"] + "/residual_allocation/" + stat, t[stat], e["team_credits"][e["acting_team_id"]][stat])
+                check(e["event_id"] + "/field_advance", e["field_advance_yards"], e["team_credits"][e["acting_team_id"]]["field_advance_yards"])
+                for stat in TEAM_COUNTS:
+                    if stat != "completions":
+                        check(e["event_id"] + "/terminal/" + stat, t[stat], e["team_credits"][e["acting_team_id"]][stat])
+                if e["terminal_category"] == "no_play":
+                    check(e["event_id"] + "/no_play", zeros(TEAM_STATS), {**e["team_credits"][e["acting_team_id"]], "possession_seconds": 0})
+        complete = trial["status"]["completion_reason"] != "final_max_steps"
+        reason = trial["status"]["completion_reason"]
+        check("termination_reason_supported", True, reason in {"regulation_complete", "ot_expiration_tie", "ot_first_score_approximation", "final_max_steps"})
+        check("termination_event", "final" if complete else "final_max_steps", events[-1]["type"])
+        terminal = events[-1]["post_state"]
+        tied = len(set(terminal["score"].values())) == 1
+        if reason == "regulation_complete":
+            check("regulation_termination", ("Q4", 0, False), (terminal["period_id"], terminal["period_seconds_remaining"], tied))
+        elif reason == "ot_expiration_tie":
+            check("ot_expiration_termination", ("OT1", 0, True), (terminal["period_id"], terminal["period_seconds_remaining"], tied))
+        elif reason == "ot_first_score_approximation":
+            check("ot_score_termination", ("OT1", False), (terminal["period_id"], tied))
+        check("completion_state", "COMPLETE" if complete else "INCOMPLETE", trial["status"]["state"] if trial["status"]["state"] != "INVALID" else "INVALID")
+        check("terminal_state", events[-1]["post_state"], trial["status"]["terminal_state"])
+        check("went_ot", "OT1" in periods, trial["status"]["went_ot"])
+        if complete:
+            for period in ("Q1", "Q2", "Q3", "Q4"):
+                check("clock/" + period, 900, elapsed[period])
+            check("regulation_clock", 3600, sum(elapsed[p] for p in ("Q1", "Q2", "Q3", "Q4")))
+        else:
+            check("cap_is_incomplete", "INCOMPLETE", trial["status"]["state"])
+        roster = trial["provenance"]["roster"]
+        expected = derive_tables(events, trial["game"], roster, periods, complete=complete)
+        for name, value, actual in zip(("team_periods", "player_periods", "aggregates"), expected,
+                                      (trial["team_periods"], trial["player_periods"], trial["aggregates"])):
+            check(name + "/ledger_reconciliation", value, actual)
+        rows = trial["team_periods"] + trial["aggregates"]["team"]
+        prows = trial["player_periods"] + trial["aggregates"]["player"]
+        for row in rows:
+            if row.get("stats") is None:
+                continue
+            t = row["stats"]
+            players = [p["stats"] for p in prows if p["team_id"] == row["team_id"] and p["period_id"] == row["period_id"]]
+            def eq(name, left, right):
+                check(f"{row['team_id']}/{row['period_id']}/{name}", left, right)
+            eq("dropbacks", t["dropbacks"], t["dropback_pass_attempts"] + t["sacks"] + t["scrambles"] + t["aborted_dropbacks_no_attempt"])
+            eq("pass_attempts", t["pass_attempts"], t["dropback_pass_attempts"] + t["non_dropback_pass_attempts"])
+            eq("attempt_partition", t["pass_attempts"], t["eligible_target_attempts"] + t["throwaways"] + t["spikes"] + t["other_untargeted_attempts"])
+            eq("rush_partition", t["rush_attempts"], t["designed_rushes"] + t["scrambles"] + t["kneels"] + t["credited_aborted_rushes"])
+            for total, stat, residual in (("eligible_target_attempts", "targets", "targets"), ("completions", "catches", "catches"),
+                ("rush_attempts", "carries", "carries"), ("pass_attempts", "pass_attempts", "pass_attempts"),
+                ("sacks", "sacks_taken", "sacks"), ("gross_pass_yards", "pass_yards", "pass_yards"),
+                ("receiving_yards", "rec_yards", "rec_yards"), ("rush_yards", "rush_yards", "rush_yards")):
+                eq(total + "/players", t[total], sum(p[stat] for p in players) + t["unassigned_" + residual])
+            eq("net_pass_yards", t["net_pass_yards"], t["gross_pass_yards"] - t["sack_loss_yards"])
+            eq("pass_receive_credit", t["gross_pass_yards"], t["receiving_yards"] + t["pass_receiving_credit_adjustment"])
+            eq("eligible_bounds", True, 0 <= t["completions"] <= t["eligible_target_attempts"] <= t["pass_attempts"])
+            eq("unassigned_catch_bounds", True, 0 <= t["unassigned_catches"] <= t["unassigned_targets"])
+            for p in players:
+                eq("player_catch_bounds", True, 0 <= p["catches"] <= p["targets"])
+        from joint_producer import missing_features, derive_possessions
+        check("missing_features", missing_features(), trial["feature_availability"])
+        check("possessions", derive_possessions(events), trial["possessions"])
+        check("possession_ids_unique", len(trial["possessions"]), len({p["possession_id"] for p in trial["possessions"]}))
+        check("ot_only_on_tie", True, not trial["status"]["went_ot"] or len({r["stats"]["points"] for r in trial["aggregates"]["team"] if r["period_id"] == "REG"}) == 1)
+        final_points = {r["team_id"]: r["stats"]["points"] for r in trial["aggregates"]["team"] if r["period_id"] == "FG" and r["stats"] is not None}
+        if complete:
+            check("final_score", final_points, events[-1]["post_state"]["score"])
+    except (KeyError, TypeError, ValueError, IndexError) as exc:
+        check("schema_or_unsupported", "well-formed supported ledger", f"{type(exc).__name__}: {exc}")
+    failed = [c["name"] for c in checks if not c["pass"]]
+    return {"status": "INVALID" if failed else "PASS", "checks": checks, "failed_invariants": failed}
+
+
+def finalize_validation(trial):
+    trial["validation"] = validate_trial(trial)
+    if trial["validation"]["status"] != "PASS":
+        trial["status"]["state"] = "INVALID"
+    residuals = any(any(row.get("stats", {}).get("unassigned_" + k, 0) != 0 for k in RESIDUALS)
+                    for row in trial.get("team_periods", []))
+    reasons = []
+    if trial["status"]["state"] != "COMPLETE":
+        reasons.append("TRIAL_" + trial["status"]["state"])
+    if residuals:
+        reasons.append("PLAYER_ID_UNRESOLVED")
+    if "SCENARIO_ONLY" in trial["flags"]:
+        reasons.append("SCENARIO_ONLY")
+    trial["status"]["adapter_projection_allowed"] = not reasons
+    trial["status"]["projection_blockers"] = reasons
+    return trial
+
+...
+       key = player_key(row)
+            player_agg.append({**dict(zip(("team_id", "player_id_namespace", "player_id"), key)),
+                               "period_id": scope, "status": "KNOWN" if known else "INCOMPLETE",
+                               "provenance": {"derivation": "PRIMITIVE_PERIOD_SUM_V1", "period_ids": primitive},
+                               "stats": sum_stats([player[(*key, p)] for p in primitive], PLAYER_STATS) if known else None})
+    scores = {}
+    for scope in scopes:
+        rows = [r for r in team_agg if r["period_id"] == scope]
+        scores[scope] = ({"total": sum(r["stats"]["points"] for r in rows),
+                          "home_margin": rows[0]["stats"]["points"] - rows[1]["stats"]["points"]}
+                         if all(r["stats"] is not None for r in rows) else None)
+    return team_rows, player_rows, {"team": team_agg, "player": player_agg, "scores": scores}
+
+
+def validate_trial(trial):
+    """Recompute from the ledger, check identities/types/clocks/stages and ALL §5 equations.
+
+    Returns INVALID on absent or malformed evidence; no declaration counts as a check.
+    """
+    checks = []
+
+    def check(name, expected, actual):
+        checks.append({"name": name, "expected": expected, "actual": actual, "pass": expected == actual})
+
+    try:
+        canonical(trial)  # rejects nonfinite values anywhere
+        required = {"contract_version", "forecast_id", "trial_id", "trial_index", "game", "freeze", "engine", "rng",
+                    "status", "latent_state", "events", "possessions", "team_periods", "player_periods", "aggregates",
+                    "feature_availability", "provenance", "flags", "validation"}
+        check("required_objects", [], sorted(required - trial.keys()))
+        types = {"contract_version": str, "forecast_id": str, "trial_id": str, "trial_index": int,
+                 **dict.fromkeys(("game", "freeze", "engine", "rng", "status", "latent_state", "aggregates",
+                                  "feature_availability", "provenance", "validation"), dict),
+                 **dict.fromkeys(("events", "possessions", "team_periods", "player_periods", "flags"), list)}
+        for field, kind in types.items():
+            check("type/" + field, kind.__name__, type(trial[field]).__name__)
+        for field in ("game_id", "game_id_namespace", "season_type", "home_team_id", "away_team_id", "team_id_namespace", "crosswalk_ref"):
+            check("game/" + field, True, isinstance(trial["game"][field], str) and bool(trial["game"][field]))
+        integer(trial["game"]["season"], "season", 1)
+        integer(trial["game"]["week"], "week", 1)
+        for field in ("environment", "roles", "provenance"):
+            check("latent/" + field, True, isinstance(trial["latent_state"][field], dict) and bool(trial["latent_state"][field]))
+        check("trial_id", f"{trial['forecast_id']}/trial/{trial['trial_index']}", trial["trial_id"])
+        integer(trial["trial_index"], "trial_index", 0)
+        from joint_inputs import SEED_VERSION, CONTRACT_VERSION, utc
+        import hashlib
+        import re
+        check("contract_version", CONTRACT_VERSION, trial["contract_version"])
+        for field in (trial["forecast_id"], trial["freeze"]["input_content_hash"]):
+            check("hash_format", True, bool(re.fullmatch(r"sha256:[0-9a-f]{64}", field)))
+        for field in ("cutoff_utc", "frozen_at_utc", "generated_at_utc"):
+            utc(trial["freeze"][field])
+        check("pregame_cutoff", True, utc(trial["freeze"]["cutoff_utc"]) < utc(trial["game"]["kickoff_utc"]))
+        check("mode", True, trial["freeze"]["mode"] in {"data_only", "script_adjusted", "market_informed"})
+        for field in ("engine_version", "component_version", "source_content_hash", "dirty_patch_hash", "dependencies",
+                      "ot_rule_profile", "stat_credit_profile", "limitations"):
+            check("engine/" + field, True, bool(trial["engine"][field]))
+        for field in ("seed", "trial_seed"):
+            check("rng/" + field, True, isinstance(trial["rng"][field], str) and bool(re.fullmatch(r"0|[1-9][0-9]*", trial["rng"][field])))
+        check("rng/derivation", SEED_VERSION, trial["rng"]["seed_derivation_version"])
+        check("rng/algorithm", "PCG64", trial["rng"]["rng_algorithm"])
+        seed_values = [SEED_VERSION, trial["rng"]["seed"], trial["game"]["game_id_namespace"], trial["game"]["game_id"],
+                       trial["freeze"]["input_content_hash"], trial["trial_index"]]
+        check("rng/trial_seed", str(int.from_bytes(hashlib.sha256(canonical(seed_values)).digest()[:8], "big")), trial["rng"]["trial_seed"])
+        events = trial["events"]
+        check("events_nonempty", True, bool(events))
+        check("event_ids_unique", len(events), len({e["event_id"] for e in events}))
+        check("event_order", list(range(len(events))), [e["event_seq"] for e in events])
+        periods = list(dict.fromkeys(e["period_id"] for e in events))
+        check("period_order", ["Q1", "Q2", "Q3", "Q4", "OT1"][:len(periods)], periods)
+        prev = None
+        elapsed = defaultdict(int)
+        for e in events:
+            check("event_id_namespace", f"{trial['trial_id']}/event/{e['event_seq']}", e["event_id"])
+            check("possession_id_namespace", True, e["possession_id"].startswith(trial["trial_id"] + "/possession/"))
+            integer(e["elapsed_clock_seconds"], "elapsed", 0)
+            integer(e["pre_period_seconds_remaining"], "pre_clock", 0)
+            integer(e["post_period_seconds_remaining"], "post_clock", 0)
+            length = 900 if e["period_kind"] == "REG" else 600
+            check(e["event_id"] + "/bounds", True, 0 <= e["post_period_seconds_remaining"] <= e["pre_period_seconds_remaining"] <= length)
+            check(e["event_id"] + "/clock", e["elapsed_clock_seconds"], e["pre_period_seconds_remaining"] - e["post_period_seconds_remaining"])
+            check(e["event_id"] + "/pre_clock_state", e["pre_period_seconds_remaining"], e["pre_state"]["period_seconds_remaining"])
+            check(e["event_id"] + "/post_clock_state", e["post_period_seconds_remaining"], e["post_state"]["period_seconds_remaining"])
+            check(e["event_id"] + "/period_kind", "REG" if e["period_id"].startswith("Q") else "OT", e["period_kind"])
+            check(e["event_id"] + "/possession_pre", e["pre_state"]["possession"], e["pre_possession"])
+            check(e["event_id"] + "/possession_post", e["post_state"]["possession"], e["post_possession"])
+            for team in (trial["game"]["home_team_id"], trial["game"]["away_team_id"]):
+                delta = e["post_state"]["score"][team] - e["pre_state"]["score"][team]
+                check(e["event_id"] + "/score_delta/" + team, delta, e["score_delta"][team])
+                check(e["event_id"] + "/score_credits/" + team, delta, e["team_credits"].get(team, zeros(TEAM_STATS))["points"])
+            q = int(e["period_id"][1:]) if e["period_kind"] == "REG" else 5
+            for side in ("pre", "post"):
+                check(e["event_id"] + "/" + side + "_reg_clock", (4-q)*900 + e[f"{side}_period_seconds_remaining"] if q <= 4 else 0,
+                      e[f"{side}_state"]["regulation_seconds_remaining"])
+            if prev and prev["period_id"] == e["period_id"]:
+                check(e["event_id"] + "/continuity", prev["post_state"], e["pre_state"])
+            elif prev:
+                check(e["event_id"] + "/previous_period_exhausted", 0, prev["post_period_seconds_remaining"])
+                check(e["event_id"] + "/reset", length, e["pre_period_seconds_remaining"])
+                check(e["event_id"] + "/boundary", "period_start", e["type"])
+                for field in ("score", "down", "ydstogo", "yardline_100", "possession"):
+                    check(e["event_id"] + "/boundary_state/" + field, prev["post_state"][field], e["pre_state"][field])
+            else:
+                check("opening_clock", 900, e["pre_period_seconds_remaining"])
+                check("opening_score", dict.fromkeys((trial["game"]["home_team_id"], trial["game"]["away_team_id"]), 0), e["pre_state"]["score"])
+            elapsed[e["period_id"]] += e["elapsed_clock_seconds"]
+            prev = e
+            check(e["event_id"] + "/features", trial["feature_availability"], e["feature_availability"])
+            for stats in e["team_credits"].values():
+                check(e["event_id"] + "/team_stat_keys", sorted(TEAM_STATS), sorted(stats))
+                for stat, value in stats.items():
+                    integer(value, stat, 0 if stat in TEAM_COUNTS or stat.startswith("unassigned_") and not stat.endswith("yards") or stat in {"points", "turnovers", "sack_loss_yards", "possession_seconds"} else None)
+            for row in e["player_credits"]:
+                for stat in PLAYER_STATS:
+                    integer(row["stats"][stat], stat, 0 if stat in PLAYER_STATS[:5] else None)
+            check(e["event_id"] + "/time_partition", e["elapsed_clock_seconds"],
+                  sum(s["possession_seconds"] for s in e["team_credits"].values()) + e["unattributed_clock_seconds"])
+            if e["type"] == "snap":
+                trace = e["generation_trace"]
+                check(e["event_id"] + "/causal_stages", ["PRE_SNAP", "OPPORTUNITY", "CATCH", "YARDS"], [r["generation_stage"] for r in trace])
+                for field, value in e["pre_state"].items():
+                    check(e["event_id"] + "/presnap_context/" + field, value, trace[0]["context"][field])
+                for step in trace:
+                    check(e["event_id"] + "/provenance/" + step["generation_stage"], True,
+                          bool(step["provenance_refs"]) and bool(step["model_version"]) and "MODELED" in step["flags"])
+                    check(e["event_id"] + "/sample_size_reason", True, step["sample_size"] is not None or bool(step["sample_size_reason"]))
+                    check(e["event_id"] + "/provenance_resolves", True, set(step["provenance_refs"]) <= set(trial["provenance"]["input_refs"]))
+                t, p, _ = allocate(e["terminal_category"], e["acting_team_id"], **e["assignments"])
+                check(e["event_id"] + "/opportunity_allocation", t, trace[1]["team_counts"])
+                check(e["event_id"] + "/opportunity_players", sorted(p.values(), key=player_key), sorted(trace[1]["player_counts"], key=player_key))
+                final_players = {player_key(row): row for row in e["player_credits"]}
+                check(e["event_id"] + "/player_keys_unique", len(e["player_credits"]), len(final_players))
+                expected_players = {player_key(row): row for row in p.values()}
+                for key in final_players.keys() | expected_players.keys():
+                    for stat in ("targets", "carries", "pass_attempts", "sacks_taken"):
+                        check(e["event_id"] + "/player_opportunity/" + stat,
+                              expected_players.get(key, {"stats": zeros(PLAYER_STATS)})["stats"][stat],
+                              final_players.get(key, {"stats": zeros(PLAYER_STATS)})["stats"][stat])
+                catch = trace[2]["outcome"]
+                final_team = e["team_credits"][e["acting_team_id"]]
+                check(e["event_id"] + "/catch_stage", int(catch == "COMPLETE"), final_team["completions"])
+                receiver = e["assignments"]["receiver"]
+                receiver_key = (e["acting_team_id"], receiver["player_id_namespace"], receiver["player_id"]) if receiver else None
+                for key, row in final_players.items():
+                    check(e["event_id"] + "/catch_recipient", int(catch == "COMPLETE" and key == receiver_key), row["stats"]["catches"])
+                check(e["event_id"] + "/unassigned_catch", int(catch == "COMPLETE" and receiver_key is None), final_team["unassigned_catches"])
+                realized = trace[3]["realized_yards"]
+                integer(realized, "realized_yards")
+                check(e["event_id"] + "/yard_stage/gross", realized if catch == "COMPLETE" else 0, final_team["gross_pass_yards"])
+                check(e["event_id"] + "/yard_stage/rush", realized if e["terminal_category"] in RUSHES else 0, final_team["rush_yards"])
+                check(e["event_id"] + "/yard_stage/sack", -realized if e["terminal_category"] == "sack" else 0, final_team["sack_loss_yards"])
+                if (final_team["pass_receiving_credit_adjustment"] or
+                        e["field_advance_yards"] != realized or trace[3]["raw_outcome"].get("receiving_credits")):
+                    check(e["event_id"] + "/adjustment_evidence", True, bool(e["credit_adjustments"]))
+                    for adjustment in e["credit_adjustments"]:
+                        check(e["event_id"] + "/adjustment_event", e["event_id"], adjustment["event_id"])
+                        check(e["event_id"] + "/adjustment_reason", True, bool(adjustment["explanation"]) and bool(adjustment["provenance_refs"]))
+                        check(e["event_id"] + "/signed_adjustment", final_team["pass_receiving_credit_adjustment"], adjustment["signed_pass_receiving_adjustment"])
+                for stat in ("unassigned_targets", "unassigned_carries", "unassigned_pass_attempts", "unassigned_sacks"):
+                    check(e["event_id"] + "/residual_allocation/" + stat, t[stat], e["team_credits"][e["acting_team_id"]][stat])
+                check(e["event_id"] + "/field_advance", e["field_advance_yards"], e["team_credits"][e["acting_team_id"]]["field_advance_yards"])
+                for stat in TEAM_COUNTS:
+                    if stat != "completions":
+                        check(e["event_id"] + "/terminal/" + stat, t[stat], e["team_credits"][e["acting_team_id"]][stat])
+                if e["terminal_category"] == "no_play":
+                    check(e["event_id"] + "/no_play", zeros(TEAM_STATS), {**e["team_credits"][e["acting_team_id"]], "possession_seconds": 0})
+        complete = trial["status"]["completion_reason"] != "final_max_steps"
+        reason = trial["status"]["completion_reason"]
+        check("termination_reason_supported", True, reason in {"regulation_complete", "ot_expiration_tie", "ot_first_score_approximation", "final_max_steps"})
+        check("termination_event", "final" if complete else "final_max_steps", events[-1]["type"])
+        terminal = events[-1]["post_state"]
+        tied = len(set(terminal["score"].values())) == 1
+        if reason == "regulation_complete":
+            check("regulation_termination", ("Q4", 0, False), (terminal["period_id"], terminal["period_seconds_remaining"], tied))
+        elif reason == "ot_expiration_tie":
+            check("ot_expiration_termination", ("OT1", 0, True), (terminal["period_id"], terminal["period_seconds_remaining"], tied))
+        elif reason == "ot_first_score_approximation":
+            check("ot_score_termination", ("OT1", False), (terminal["period_id"], tied))
+        check("completion_state", "COMPLETE" if complete else "INCOMPLETE", trial["status"]["state"] if trial["status"]["state"] != "INVALID" else "INVALID")
+        check("terminal_state", events[-1]["post_state"], trial["status"]["terminal_state"])
+        check("went_ot", "OT1" in periods, trial["status"]["went_ot"])
+        if complete:
+            for period in ("Q1", "Q2", "Q3", "Q4"):
+                check("clock/" + period, 900, elapsed[period])
+            check("regulation_clock", 3600, sum(elapsed[p] for p in ("Q1", "Q2", "Q3", "Q4")))
+        else:
+            check("cap_is_incomplete", "INCOMPLETE", trial["status"]["state"])
+        roster = trial["provenance"]["roster"]
+        expected = derive_tables(events, trial["game"], roster, periods, complete=complete)
+        for name, value, actual in zip(("team_periods", "player_periods", "aggregates"), expected,
+                                      (trial["team_periods"], trial["player_periods"], trial["aggregates"])):
+            check(name + "/ledger_reconciliation", value, actual)
+        rows = trial["team_periods"] + trial["aggregates"]["team"]
+        prows = trial["player_periods"] + trial["aggregates"]["player"]
+        for row in rows:
+            if row.get("stats") is None:
+                continue
+            t = row["stats"]
+            players = [p["stats"] for p in prows if p["team_id"] == row["team_id"] and p["period_id"] == row["period_id"]]
+            def eq(name, left, right):
+                check(f"{row['team_id']}/{row['period_id']}/{name}", left, right)
+            eq("dropbacks", t["dropbacks"], t["dropback_pass_attempts"] + t["sacks"] + t["scrambles"] + t["aborted_dropbacks_no_attempt"])
+            eq("pass_attempts", t["pass_attempts"], t["dropback_pass_attempts"] + t["non_dropback_pass_attempts"])
+            eq("attempt_partition", t["pass_attempts"], t["eligible_target_attempts"] + t["throwaways"] + t["spikes"] + t["other_untargeted_attempts"])
+            eq("rush_partition", t["rush_attempts"], t["designed_rushes"] + t["scrambles"] + t["kneels"] + t["credited_aborted_rushes"])
+            for total, stat, residual in (("eligible_target_attempts", "targets", "targets"), ("completions", "catches", "catches"),
+                ("rush_attempts", "carries", "carries"), ("pass_attempts", "pass_attempts", "pass_attempts"),
+                ("sacks", "sacks_taken", "sacks"), ("gross_pass_yards", "pass_yards", "pass_yards"),
+                ("receiving_yards", "rec_yards", "rec_yards"), ("rush_yards", "rush_yards", "rush_yards")):
+                eq(total + "/players", t[total], sum(p[stat] for p in players) + t["unassigned_" + residual])
+            eq("net_pass_yards", t["net_pass_yards"], t["gross_pass_yards"] - t["sack_loss_yards"])
+            eq("pass_receive_credit", t["gross_pass_yards"], t["receiving_yards"] + t["pass_receiving_credit_adjustment"])
+            eq("eligible_bounds", True, 0 <= t["completions"] <= t["eligible_target_attempts"] <= t["pass_attempts"])
+            eq("unassigned_catch_bounds", True, 0 <= t["unassigned_catches"] <= t["unassigned_targets"])
+            for p in players:
+                eq("player_catch_bounds", True, 0 <= p["catches"] <= p["targets"])
+        from joint_producer import missing_features, derive_possessions
+        check("missing_features", missing_features(), trial["feature_availability"])
+        check("possessions", derive_possessions(events), trial["possessions"])
+        check("possession_ids_unique", len(trial["possessions"]), len({p["possession_id"] for p in trial["possessions"]}))
+        check("ot_only_on_tie", True, not trial["status"]["went_ot"] or len({r["stats"]["points"] for r in trial["aggregates"]["team"] if r["period_id"] == "REG"}) == 1)
+        final_points = {r["team_id"]: r["stats"]["points"] for r in trial["aggregates"]["team"] if r["period_id"] == "FG" and r["stats"] is not None}
+        if complete:
+            check("final_score", final_points, events[-1]["post_state"]["score"])
+    except (KeyError, TypeError, ValueError, IndexError) as exc:
+        check("schema_or_unsupported", "well-formed supported ledger", f"{type(exc).__name__}: {exc}")
+    failed = [c["name"] for c in checks if not c["pass"]]
+    return {"status": "INVALID" if failed else "PASS", "checks": checks, "failed_invariants": failed}
+
+
+def finalize_validation(trial):
+    trial["validation"] = validate_trial(trial)
+    if trial["validation"]["status"] != "PASS":
+        trial["status"]["state"] = "INVALID"
+    residuals = any(any(row.get("stats", {}).get("unassigned_" + k, 0) != 0 for k in RESIDUALS)
+                    for row in trial.get("team_periods", []))
+    reasons = []
+    if trial["status"]["state"] != "COMPLETE":
+        reasons.append("TRIAL_" + trial["status"]["state"])
+    if residuals:
+        reasons.append("PLAYER_ID_UNRESOLVED")
+    if "SCENARIO_ONLY" in trial["flags"]:
+        reasons.append("SCENARIO_ONLY")
+    trial["status"]["adapter_projection_allowed"] = not reasons
+    trial["status"]["projection_blockers"] = reasons
+    return trial
+
+
+===== FILE /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_joint_producer.py (head+tail) =====
+"""Tiny synthetic plumbing fixtures, never TNF fit/validation or measured roles."""
+import copy
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+import pytest
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from joint_inputs import canonical, digest, freeze_run, trial_seed
+from joint_accounting import validate_trial, finalize_validation
+from joint_producer import (OT_PROFILE, STAT_PROFILE, OpportunityModel, missing_features,
+                            simulate_joint_games, simulate_trial, write_forecast)
+from simulate import simulate_games
+
+
+def fixture_inputs(tmp_path, terminal="designed_rush", catch="COMPLETE", elapsed=900, yards=None):
+    root = tmp_path / "frozen"
+    root.mkdir(parents=True)
+    game = {"game_id": "0001", "game_id_namespace": "synthetic_test", "season": 2026,
+            "season_type": "TEST", "week": 1, "home_team_id": "HOME", "away_team_id": "AWAY",
+            "team_id_namespace": "synthetic_test", "kickoff_utc": "2026-11-07T18:00:00Z", "crosswalk_ref": "registry"}
+    players = [{"record_id": team + role, "team_id": team, "player_id_namespace": "synthetic_test",
+                "player_id": team + "00" + str(i), "evidence_ref": "synthetic_roster_fixture"}
+               for team in ("HOME", "AWAY") for i, role in enumerate(("P", "T", "R", "ZERO"))]
+    registry = {"game": game, "players": players, "evidence_refs": ["synthetic_schedule_fixture"],
+                "alias_map_version": "synthetic-v1", "team_alias_map": {"HOME": "HOME", "AWAY": "AWAY"}, "crosswalk": [
+                    {"entity": "player", "source_namespace": "synthetic_source", "source_id": p["record_id"],
+                     "canonical_namespace": p["player_id_namespace"], "canonical_id": p["player_id"],
+                     "evidence_ref": "synthetic_roster_fixture"} for p in players]}
+    roles = {team: [{"weight": 1, "value": {"state_id": "available_test", "available": [team + role for role in ("P", "T", "R", "ZERO")],
+              "depth_chart_state": {"status": "MODELED", "label": "synthetic_joint_depth_state"},
+              "rotation_weights": {"passer": {team + "P": 1}, "target": {team + "T": 1}, "carry": {team + "R": 1}},
+              "target_depth_distribution": [{"value": 7, "weight": 1}]}}] for team in ("HOME", "AWAY")}
+    default_yards = -4 if terminal == "sack" else 3 if terminal in {"designed_rush", "scramble", "kneel", "credited_aborted_rush"} else 8 if terminal.endswith("targeted_pass") and catch == "COMPLETE" else 0
+    outcome = {"yards": default_yards if yards is None else yards, "elapsed_seconds": elapsed}
+    if terminal == "punt":
+        outcome["punt_net_yards"] = 40
+    if terminal == "field_goal":
+        outcome["made"] = True
+    model = {"schema_version": "1", "model_version": "synthetic-tables-v1", "uses_market": False, "lineage_modes": ["data_only"],
+             "provenance_refs": ["model", "registry"], "sample_size": None, "sample_size_reason": "SYNTHETIC_TEST; no observed sample",
+             "flags": ["SCENARIO_ONLY"], "ot_rule_profile": OT_PROFILE, "stat_credit_profile": STAT_PROFILE,
+             "environments": [{"value": {"environment_id": "synthetic_shared"}, "weight": 1}],
+             "role_states": roles, "usage_cells": [{"cell_id": "synthetic_default", "when": {},
+                         "terminals": [{"value": terminal, "weight": 1}]}],
+             "catch_distributions": {terminal: [{"value": catch, "weight": 1}]},
+             "outcome_cells": [{"cell_id": "synthetic_outcome", "when": {}, "distribution": [{"value": outcome, "weight": 1}]}],
+             "try_points": [{"value": 1, "weight": 1}]}
+    splits = {"split_manifest_id": "synthetic-unassigned-v1", "policy_version": "1", "status": "UNASSIGNED",
+              "created_at_utc": "2026-11-05T10:00:00Z", "train_game_ids": None, "dev_game_ids": None, "holdout_game_ids": None}
+    spec = {"game": game, "mode": "data_only", "config_id": "synthetic-only", "purpose": "SYNTHETIC_TEST",
+            "cutoff_utc": "2026-11-06T10:00:00Z", "frozen_at_utc": "2026-11-06T10:00:00Z",
+            "generated_at_utc": "2026-11-06T10:01:00Z", "max_steps": 12}
+    inputs = [{"logical_input_id": key, "path": key + ".json", "source": "synthetic_fixture",
+               "selected_record_ids": ["synthetic_all"], "schema_version": "1", "usage": "PREDICTIVE",
+               "source_event_time_utc": "2026-11-05T10:00:00Z", "available_at_utc": "2026-11-05T10:00:00Z",
+               "retrieved_at_utc": "2026-11-05T11:00:00Z", "asof_evidence_ref": "synthetic_fixed_bytes"}
+              for key in ("registry", "model", "splits")]
+    data = {"registry": registry, "model": model, "splits": splits}
+    def save():
+        for key, value in data.items():
+            (root / (key + ".json")).write_bytes(canonical(value))
+    save()
+    return spec, root, inputs, data, save
+
+
+def frozen_fixture(tmp_path, **kwargs):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, **kwargs)
+    return freeze_run(spec, root, inputs, n=1, seed=123)
+
+
+def assert_valid(trial):
+    result = validate_trial(trial)
+    assert result["status"] == "PASS", [c for c in result["checks"] if not c["pass"]][:8]
+    assert trial["status"]["state"] == "COMPLETE", trial["validation"]["failed_invariants"][:8]
+
+
+@pytest.mark.parametrize("terminal", ["targeted_pass", "non_dropback_targeted_pass", "throwaway", "spike",
+    "other_untargeted_attempt", "sack", "scramble", "aborted_dropback_no_attempt", "designed_rush", "kneel",
+    "credited_aborted_rush", "no_play", "punt", "field_goal"])
+def test_terminal_conservation_per_period_and_aggregate(tmp_path, terminal):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal=terminal), 0)
+    assert_valid(trial)
+    assert all(type(v) is int for row in trial["team_periods"] for v in row["stats"].values())
+    zero = [r for r in trial["player_periods"] if r["player_id"].endswith("003")]
+    assert zero and all(all(v == 0 for v in r["stats"].values()) for r in zero)
+
+
+@pytest.mark.parametrize("terminal", ["targeted_pass", "designed_rush", "scramble", "kneel"])
+def test_opportunities_increment_in_execution_before_catch_or_yard_draw(tmp_path, terminal):
+    frozen = frozen_fixture(tmp_path, terminal=terminal)
+    seen = []
+    class Spy(OpportunityModel):
+        def outcome(self, op):
+            stat = "eligible_target_attempts" if terminal == "targeted_pass" else "rush_attempts"
+            assert self.live_team[op["team"]][stat] >= 1
+            assert op["team_credits"][stat] == 1
+            assert op["team_credits"]["gross_pass_yards"] == 0
+            assert op["team_credits"]["rush_yards"] == 0
+            assert [r["generation_stage"] for r in op["trace"]] == ["PRE_SNAP", "OPPORTUNITY"]
+            assert any(r["stats"]["targets" if terminal == "targeted_pass" else "carries"] == 1 for r in op["players"].values())
+            seen.append(op["team"])
+            return super().outcome(op)
+    assert_valid(simulate_trial(frozen, 0, model_class=Spy))
+    assert seen
+
+
+@pytest.mark.parametrize("catch", ["INCOMPLETE", "INTERCEPTION"])
+def test_targeted_failure_has_target_zero_catch_zero_yards(tmp_path, catch):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal="targeted_pass", catch=catch), 0)
+    assert_valid(trial)
+    for e in trial["events"]:
+        if e["type"] == "snap":
+            t = e["team_credits"][e["acting_team_id"]]
+            assert t["eligible_target_attempts"] == 1
+            assert t["completions"] == t["gross_pass_yards"] == 0
+
+
+def test_unknown_receiver_unassigned_not_fake_player(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, terminal="targeted_pass", catch="INTERCEPTION")
+    for team, roles in data["model"]["role_states"].items():
+        roles[0]["value"]["rotation_weights"]["target"] = {"UNASSIGNED": 1}
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    assert "PLAYER_ID_UNRESOLVED" in trial["status"]["projection_blockers"]
+    assert any(r["stats"]["unassigned_targets"] for r in trial["team_periods"])
+    assert all(e["assignments"]["receiver"] is None for e in trial["events"] if e["type"] == "snap")
+
+
+def test_clocks_boundary_continuity_halftime_ot_and_linked_try(tmp_path):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal="designed_rush", yards=75), 0)
+    assert_valid(trial)
+    assert trial["status"]["went_ot"]
+    assert sum(e["elapsed_clock_seconds"] for e in trial["events"] if e["period_kind"] == "REG") == 3600
+    assert all(0 <= e["post_period_seconds_remaining"] <= e["pre_period_seconds_remaining"] for e in trial["events"])
+    tries = [e for e in trial["events"] if e["type"] == "try"]
+    assert tries and all(e["elapsed_clock_seconds"] == 0 and e["pre_period_seconds_remaining"] == 0 for e in tries)
+    half = next(e for e in trial["events"] if e.get("possession_end_cause") == "halftime")
+    assert half["post_possession"] == "HOME"
+    for p in trial["possessions"]:
+        assert p["clock_seconds"] == sum(s["clock_seconds"] for s in p["period_segments"])
+
+
+def test_quarter_boundary_does_not_force_new_possession(tmp_path):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal="no_play"), 0)
+    assert_valid(trial)
+    starts = {e["period_id"]: e for e in trial["events"] if e["type"] == "period_start"}
+    assert starts["Q1"]["possession_id"] == starts["Q2"]["possession_id"]
+    assert starts["Q3"]["possession_id"] == starts["Q4"]["possession_id"]
+    assert starts["Q2"]["possession_id"] != starts["Q3"]["possession_id"]
+
+
+def test_no_ot_has_known_zero_ot_stats(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, terminal="field_goal")
+    # Three pre-Q4 made FGs; a Q4 no-play leaves the regulation score unequal.
+    data["model"]["usage_cells"].insert(0, {"cell_id": "q4_no_play", "when": {"period_id": "Q4"},
+                                               "terminals": [{"value": "no_play", "weight": 1}]})
+    data["model"]["outcome_cells"].insert(0, {"cell_id": "no_play", "when": {"terminal": "no_play"},
+                                                 "distribution": [{"value": {"yards": 0, "elapsed_seconds": 900}, "weight": 1}]})
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    assert not trial["status"]["went_ot"]
+    assert all(all(v == 0 for v in r["stats"].values()) for r in trial["aggregates"]["team"] if r["period_id"] == "OT")
+
+
+def test_cap_is_incomplete_blocks_projection_without_filling_future_quarters(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    spec["max_steps"] = 1
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert trial["status"]["state"] == "INCOMPLETE"
+    assert not trial["status"]["adapter_projection_allowed"]
+    assert {r["period_id"] for r in trial["team_periods"]} == {"Q1"}
+    assert all(r["stats"] is None for r in trial["aggregates"]["team"] if r["period_id"] in {"REG", "FG"})
+
+
+def test_shared_state_role_depth_rotation_are_explicit_and_conditional(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, terminal="targeted_pass")
+    for team, states in data["model"]["role_states"].items():
+        state = states[0]["value"]
+        state["available"].remove(team + "T")
+        state["rotation_weights"]["target"][team + "R"] = 0.5
+        state["target_depth_distribution"] = [{"value": 4, "weight": 0.5}, {"value": 15, "weight": 0.5}]
+        state["depth_chart_state"] = {"label": "synthetic_backup_active", "flags": ["MODELED", "SCENARIO_ONLY"]}
+    data["model"]["usage_cells"].insert(0, {"cell_id": "late_state", "when": {"regulation_seconds_remaining_max": 900, "down": 1},
+                      "terminals": [{"value": "kneel", "weight": 1}]})
+    data["model"]["outcome_cells"].insert(0, {"cell_id": "kneel", "when": {"terminal": "kneel"},
+               "distribution": [{"value": {"yards": -1, "elapsed_seconds": 900}, "weight": 1}]})
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    snaps = [e for e in trial["events"] if e["type"] == "snap"]
+    assert any(e["generation_trace"][0]["usage_cell_id"] == "late_state" for e in snaps)
+    assert all(e["assignments"]["receiver"]["player_id"].endswith("002") for e in snaps if e["terminal_category"] == "targeted_pass")
+    assert all("roles" in trial["latent_state"] for _ in [0])
+
+
+def test_lateral_and_signed_credit_adjustment_are_explicit(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, terminal="targeted_pass")
+    # Model an explicit receiving credit difference, without changing player yards to reconcile.
+    data["model"]["outcome_cells"] = []
+    for team in ("HOME", "AWAY"):
+        outcome = {"yards": 8, "field_advance_yards": 6, "elapsed_seconds": 900,
+                   "receiving_credits": [{"player_ref": team + "T", "yards": 4}, {"player_ref": team + "R", "yards": 6}],
+                   "pass_receiving_credit_adjustment": -2, "credit_explanation": "synthetic provider/lateral credit fixture",
+                   "credit_provenance_refs": ["model"]}
+        data["model"]["outcome_cells"].append({"cell_id": team + "_lateral", "when": {"team_id": team},
+                                    "distribution": [{"value": outcome, "weight": 1}]})
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=2), 0)
+    assert_valid(trial)
+    snap = next(e for e in trial["events"] if e["type"] == "snap")
+    lateral = next(p for p in snap["player_credits"] if p["player_id"].endswith("002"))
+    assert lateral["stats"]["rec_yards"] == 6
+    assert lateral["stats"]["targets"] == lateral["stats"]["catches"] == 0
+    assert snap["credit_adjustments"][0]["signed_pass_receiving_adjustment"] == -2
+
+
+@pytest.mark.parametrize("mutation", ["target", "clock", "score", "stages", "missingness", "event_key", "period", "negative", "schema"])
+def test_deliberate_corruption_fails_closed(tmp_path, mutation):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal="targeted_pass"), 0)
+    assert_valid(trial)
+    event = next(e for e in trial["events"] if e["type"] == "snap")
+    if mutation == "target":
+        event["team_credits"][event["acting_team_id"]]["eligible_target_attempts"] += 1
+    elif mutation == "clock":
+        event["post_period_seconds_remaining"] = -1
+    elif mutation == "score":
+        trial["team_periods"][0]["stats"]["points"] += 1
+    elif mutation == "stages":
+        event["generation_trace"][1], event["generation_trace"][3] = event["generation_trace"][3], event["generation_trace"][1]
+    elif mutation == "missingness":
+        trial["feature_availability"]["coverage"]["value"] = "zone"
+    elif mutation == "event_key":
+        event["event_id"] = trial["events"][0]["event_id"]
+    elif mutation == "period":
+        trial["player_periods"].append(trial["player_periods"][0])
+    elif mutation == "negative":
+        event["player_credits"][0]["stats"]["pass_attempts"] = -1
+    elif mutation == "schema":
+        del trial["possessions"]
+    finalize_validation(trial)
+    assert trial["validation"]["status"] == "INVALID"
+    assert trial["status"]["state"] == "INVALID"
+    assert not trial["status"]["adapter_projection_allowed"]
+
+
+def test_empty_trial_never_false_pass():
+    assert validate_trial({})["status"] == "INVALID"
+
+
+def test_joint_ids_replay_seed_derivation_and_batch_extension(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    frozen = freeze_run(spec, root, inputs, n=2, seed=123)
+    extended = freeze_run(spec, root, inputs, n=3, seed=123)
+    assert frozen["forecast_id"] != extended["forecast_id"]
+    assert trial_seed(frozen, 0) == trial_seed(extended, 0)
+    expected = int.from_bytes(hashlib.sha256(canonical([frozen["run_spec"]["rng"]["seed_derivation_version"], "123", "synthetic_test", "0001", frozen["input_content_hash"], 0])).digest()[:8], "big")
+    assert trial_seed(frozen, 0) == str(expected)
+    one = simulate_trial(frozen, 1)
+    zero = simulate_trial(frozen, 0)
+    assert one == simulate_trial(frozen, 1)
+    assert zero["trial_id"] == frozen["forecast_id"] + "/trial/0"
+    assert zero["rng"]["trial_seed"] != one["rng"]["trial_seed"]
+    assert {zero["trial_id"], one["trial_id"]} == {frozen["forecast_id"] + "/trial/" + str(i) for i in (0, 1)}
+    assert zero["aggregates"] == simulate_trial(extended, 0)["aggregates"]
+
+
+def test_manifest_durable_dispatch_and_cutoff_versioning(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    cfg = {"mode": spec["mode"], "config_id": spec["config_id"], "joint_producer": {
+        "spec": spec, "input_root": root, "inputs": inputs, "output_root": tmp_path / "outputs"}}
+    output = simulate_games(cfg, pbp_path="unused", n=2, seed=7)
+    assert output["n_requested"] == output["n_completed"] == 2
+    assert output["n_invalid"] == output["n_incomplete"] == 0
+    assert output["n_usable"] == 0  # synthetic-only never actionable
+    assert len(output["excluded_trials"]) == 2
+    folder = Path(output["artifact_directory"])
+    manifest = json.loads((folder / "input_manifest.json").read_text())
+    assert digest(manifest) == output["input_content_hash"]
+    ledger = json.loads((folder / "forecast_ledger.json").read_text())
+    assert ledger["trial_ids"] == [t["trial_id"] for t in output["trials"]]
+    assert ledger["result_evidence_ids"] == []
+    for t in output["trials"]:
+        assert t["feature_availability"] == missing_features()
+        assert t["freeze"]["cutoff_utc"] == spec["cutoff_utc"]
+        assert t["freeze"]["input_content_hash"] == output["input_content_hash"]
+        assert t["engine"]["engine_version"] and t["engine"]["dirty_patch_hash"]
+    frozen = freeze_run(spec, root, inputs, n=2, seed=7)
+    assert write_forecast(tmp_path / "outputs", frozen, output["trials"]) == str(folder)
+    bad = copy.deepcopy(output["trials"])
+    bad[0]["flags"].append("CHANGED")
+    with pytest.raises(ValueError, match="immutable artifact conflict"):
+        write_forecast(tmp_path / "outputs", frozen, bad)
+    spec["cutoff_utc"] = "2026-11-06T09:00:00Z"
+    revised = freeze_run(spec, root, inputs, n=2, seed=7)
+    assert revised["forecast_id"] != frozen["forecast_id"]
+
+
+@pytest.mark.parametrize("problem", ["post_cutoff", "late_unverified", "market", "postgame", "identity", "ambiguous", "split_overlap", "inspected_holdout"])
+def test_freeze_blocks_bad_evidence_or_contamination(tmp_path, problem):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    if problem == "post_cutoff":
+        inputs[0]["available_at_utc"] = "2026-11-07T10:00:00Z"
+    elif problem == "late_unverified":
+        spec["frozen_at_utc"] = spec["generated_at_utc"] = "2026-11-06T12:00:00Z"
+        inputs[0]["retrieved_at_utc"] = "2026-11-06T11:00:00Z"
+    elif problem == "market":
+        inputs[0]["usage"] = "MARKET"
+    elif problem == "postgame":
+        inputs[0]["usage"] = "EVIDENCE_ONLY_POSTGAME"
+    elif problem == "identity":
+        spec["game"]["game_id"] = None
+    elif problem == "ambiguous":
+        data["registry"]["crosswalk"].append(data["registry"]["crosswalk"][0])
+    else:
+        split = data["splits"]
+        row = {"namespace": "synthetic_test", "game_id": "0001"}
+        split.update(status="FROZEN", frozen_before_selection=True, train_game_ids=[], dev_game_ids=[], holdout_game_ids=[row])
+        if problem == "split_overlap":
+            split["train_game_ids"] = [row]
+        else:
+            split["inspected_game_ids"] = [row]
+    save()
+    with pytest.raises(ValueError):
+        freeze_run(spec, root, inputs, n=1, seed=1)
+
+
+def test_modes_are_distinct_and_cannot_silently_relabel_market_model(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    independent = freeze_run(spec, root, inputs, n=1, seed=1)
+    adjusted_spec = {**spec, "mode": "script_adjusted"}
+    assert freeze_run(adjusted_spec, root, inputs, n=1, seed=1)["forecast_id"] != independent["forecast_id"]
+    data["model"]["uses_market"] = True
+    save()
+    with pytest.raises(ValueError, match="market lineage"):
+        freeze_run(spec, root, inputs, n=1, seed=1)
+    market_spec = {**spec, "mode": "market_informed"}
+    with pytest.raises(ValueError, match="frozen market input"):
+        freeze_run(market_spec, root, inputs, n=1, seed=1)
+    inputs[1]["usage"] = "MARKET"
+    market = freeze_run(market_spec, root, inputs, n=1, seed=1)
+    assert market["forecast_id"] != independent["forecast_id"]
+    assert market["input_content_hash"] != independent["input_content_hash"]
+
+
+def test_unsupported_category_or_official_ot_profile_blocks_run(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    data["model"]["ot_rule_profile"] = {"id": "official_unverified"}
+    save()
+    with pytest.raises(ValueError, match="UNSUPPORTED OT"):
+        simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+
+
+def test_legacy_accounting_cannot_claim_contract_pass(tmp_path, monkeypatch):
+    from validation import accounting
+    import numpy as np
+    from state import GameState
+    fake = {"arrays": {k: np.array([0]) for k in ("q1_home", "q2_home", "q3_home", "q4_home", "h1_home", "h2_home", "reg_home", "fg_home", "ot_home",
+        "q1_away", "q2_away", "q3_away", "q4_away", "h1_away", "h2_away", "reg_away", "fg_away", "ot_away", "went_ot")},
+            "evidence_summary": {"sparse_rate": 0}, "player_joint": {}}
+    monkeypatch.setattr(accounting, "simulate_games", lambda *a, **kw: fake)
+    monkeypatch.setattr(accounting, "load_team_history", lambda *a, **kw: {"df": None})
+    monkeypatch.setattr(accounting, "build_catalog", lambda *a, **kw: (None, None))
+    monkeypatch.setattr(accounting, "simulate_one", lambda *a, **kw: GameState.new_game("HOME", "AWAY"))
+    cfg = {"config_id": "synthetic-only", "history": {"teams": ["HOME", "AWAY"], "season": 2026, "weeks_inclusive": [1]}}
+    result = accounting.run_accounting_checks(cfg, pbp_path="unused", n=1)
+    assert result["overall_status"] != "PASS"
+    assert next(c for c in result["checks"] if c["name"] == "reg_clock_target_declared_3600")["ok"] is False
+
+
+def test_stopped_clock_is_ordered_and_cap_is_not_false_complete(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, terminal="spike", elapsed=0)
+    spec["max_steps"] = 2
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert trial["status"]["state"] == "INCOMPLETE"
+    assert trial["validation"]["status"] == "PASS"
+    snaps = [e for e in trial["events"] if e["type"] == "snap"]
+    assert len(snaps) == 2 and all(e["elapsed_clock_seconds"] == 0 for e in snaps)
+    assert snaps[0]["event_seq"] < snaps[1]["event_seq"]
+    assert all(r["stats"] is None for r in trial["aggregates"]["team"])
+
+
+def test_explicit_period_end_runoff_is_not_a_snap_or_attempt(tmp_path):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal="period_end_runoff"), 0)
+    assert_valid(trial)
+    assert not any(e["type"] == "snap" for e in trial["events"])
+    assert sum(e["elapsed_clock_seconds"] for e in trial["events"] if e["period_kind"] == "REG") == 3600
+    assert all(r["stats"]["dropbacks"] == r["stats"]["rush_attempts"] == 0 for r in trial["team_periods"])
+
+
+@pytest.mark.parametrize("rush_design", ["direct_snap", "end_around", "qb_designed"])
+def test_non_rb_designed_runs_keep_explicit_classification(tmp_path, rush_design):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    for team, states in data["model"]["role_states"].items():
+        states[0]["value"]["rotation_weights"]["carry"] = {team + "T": 1}
+    data["model"]["outcome_cells"][0]["distribution"][0]["value"]["rush_design"] = rush_design
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    assert all(e["orthogonal_flags"]["rush_design"] == rush_design for e in trial["events"] if e["type"] == "snap")
+
+
+def test_non_qb_throw_keeps_credited_passer_and_non_dropback_attempt(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, terminal="non_dropback_targeted_pass")
+    for team, states in data["model"]["role_states"].items():
+        states[0]["value"]["rotation_weights"]["passer"] = {team + "R": 1}
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    for e in trial["events"]:
+        if e["type"] == "snap":
+            assert e["assignments"]["passer"]["player_id"].endswith("002")
+            stats = e["team_credits"][e["acting_team_id"]]
+            assert stats["non_dropback_pass_attempts"] == 1 and stats["dropbacks"] == 0
+
+
+def test_unknown_passer_sack_and_completed_target_stay_in_residuals(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, terminal="targeted_pass")
+    for team, states in data["model"]["role_states"].items():
+        states[0]["value"]["rotation_weights"]["passer"] = {"UNASSIGNED": 1}
+        states[0]["value"]["rotation_weights"]["target"] = {"UNASSIGNED": 1}
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    e = next(e for e in trial["events"] if e["type"] == "snap")
+    t = e["team_credits"][e["acting_team_id"]]
+    assert t["unassigned_catches"] == t["unassigned_targets"] == t["unassigned_pass_attempts"] == 1
+    assert t["unassigned_rec_yards"] == t["unassigned_pass_yards"] == 8
+    assert e["player_credits"] == []
+
+
+def test_fumble_preserves_stat_yards_and_ends_possession(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    data["model"]["outcome_cells"][0]["distribution"][0]["value"]["fumble_lost"] = True
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    snap = next(e for e in trial["events"] if e["type"] == "snap")
+    assert snap["orthogonal_flags"]["fumble_lost"]
+    assert snap["team_credits"]["AWAY"]["rush_yards"] == 3
+    assert snap["team_credits"]["AWAY"]["turnovers"] == 1
+    assert trial["possessions"][0]["end_cause"] == "turnover"
+
+
+@pytest.mark.parametrize("mutation", ["loaded", "spec", "manifest", "population", "unassigned_index"])
+def test_prepared_freeze_cannot_be_mutated_or_shuffled(tmp_path, mutation):
+    frozen = frozen_fixture(tmp_path)
+    if mutation == "loaded":
+        frozen["loaded"]["model"]["uses_market"] = True
+    elif mutation == "spec":
+        frozen["spec"]["mode"] = "market_informed"
+    elif mutation == "manifest":
+        frozen["input_manifest"]["entries"][0]["sha256"] = "sha256:" + "0" * 64
+    with pytest.raises(ValueError):
+        if mutation == "population":
+            write_forecast(tmp_path / "out", frozen, [])
+        else:
+            simulate_trial(frozen, 3 if mutation == "unassigned_index" else 0)
+
+
+def test_late_verified_extraction_and_creation_times_do_not_change_forecast_identity(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    first = freeze_run(spec, root, inputs, n=1, seed=1)
+    spec["frozen_at_utc"] = spec["generated_at_utc"] = "2026-11-06T12:00:00Z"
+    assert freeze_run(spec, root, inputs, n=1, seed=1)["forecast_id"] == first["forecast_id"]
+    inputs[0].update(retrieved_at_utc="2026-11-06T11:00:00Z", asof_verified=True)
+    later = freeze_run(spec, root, inputs, n=1, seed=1)
+    assert later["input_content_hash"] != first["input_content_hash"]
+
+
+def test_input_byte_revision_changes_content_and_forecast_ids(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    first = freeze_run(spec, root, inputs, n=1, seed=1)
+    path = root / "model.json"
+    path.write_bytes(path.read_bytes() + b"\n")  # same JSON value, distinct exact source bytes
+    revised = freeze_run(spec, root, inputs, n=1, seed=1)
+    assert first["input_content_hash"] != revised["input_content_hash"]
+    assert first["forecast_id"] != revised["forecast_id"]
+
+
+@pytest.mark.parametrize("field", ["penalty", "untimed_down", "defensive_return_yards"])
+def test_unsupported_rule_effects_are_blocked_not_silently_approximated(tmp_path, field):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    data["model"]["outcome_cells"][0]["distribution"][0]["value"][field] = 1
+    save()
+    with pytest.raises(ValueError, match="UNSUPPORTED"):
+        simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+
+
+def test_corrupted_yard_stage_and_seed_cannot_hide_behind_balanced_credits(tmp_path):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal="targeted_pass"), 0)
+    snap = next(e for e in trial["events"] if e["type"] == "snap")
+    snap["generation_trace"][3]["realized_yards"] += 1
+    assert validate_trial(trial)["status"] == "INVALID"
+    snap["generation_trace"][3]["realized_yards"] -= 1
+    trial["rng"]["trial_seed"] = "123"
+    assert validate_trial(trial)["status"] == "INVALID"
+
+
+def test_lineage_cannot_relabel_market_derived_model_as_independent(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    data["model"]["lineage_modes"] = ["market_informed"]
+    save()
+    with pytest.raises(ValueError, match="market lineage"):
+        freeze_run(spec, root, inputs, n=1, seed=1)
+
+
+def test_null_identity_has_explicit_status_and_no_named_projection(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    unresolved = data["registry"]["players"][2]
+    old_id = unresolved["player_id"]
+    unresolved.update(player_id=None, identity_status="UNRESOLVED")
+    data["registry"]["crosswalk"] = [r for r in data["registry"]["crosswalk"] if r["canonical_id"] != old_id]
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    assert "PLAYER_ID_UNRESOLVED" in trial["status"]["projection_blockers"]
+    assert not any(r["player_id"] == old_id for r in trial["player_periods"])
+    assert any(r["stats"]["unassigned_carries"] > 0 for r in trial["team_periods"])
+
+
+def test_invalid_draw_is_persisted_and_counted_without_filtering(tmp_path, monkeypatch):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    import joint_producer
+    original = joint_producer.OpportunityModel.outcome
+    def corrupt_after_allocation(self, op):
+        catch, outcome = original(self, op)
+        op["team_credits"]["dropbacks"] += 1
+        return catch, outcome
+    monkeypatch.setattr(joint_producer.OpportunityModel, "outcome", corrupt_after_allocation)
+    result = simulate_joint_games(spec, input_root=root, inputs=inputs, n=2, seed=1, output_root=tmp_path / "out")
+    assert result["n_invalid"] == result["n_requested"] == 2
+    assert result["n_usable"] == result["n_completed"] == 0
+    assert len(result["trials"]) == 2
+    assert len((Path(result["artifact_directory"]) / "trials.jsonl").read_text().splitlines()) == 2
+
+
+def test_safety_credits_opponent_and_negative_rush_yards_without_offensive_points(tmp_path):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal="designed_rush", yards=-25), 0)
+    assert_valid(trial)
+    snap = next(e for e in trial["events"] if e["type"] == "snap")
+    assert snap["team_credits"]["AWAY"]["rush_yards"] == -25
+    assert snap["team_credits"]["AWAY"]["points"] == 0
+    assert snap["team_credits"]["HOME"]["points"] == 2
+    assert snap["score_delta"] == {"HOME": 2, "AWAY": 0}
+    assert trial["possessions"][0]["end_cause"] == "safety"
+
+
+def test_required_types_and_latent_evidence_cannot_be_missing(tmp_path):
+    trial = simulate_trial(frozen_fixture(tmp_path), 0)
+    trial["latent_state"] = None
+    assert validate_trial(trial)["status"] == "INVALID"
+
+
+def test_cap_cannot_be_relabelled_complete(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    spec["max_steps"] = 4
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert trial["status"]["state"] == "INCOMPLETE"
+    trial["status"].update(state="COMPLETE", completion_reason="regulation_complete")
+    validation = validate_trial(trial)
+    assert validation["status"] == "INVALID"
+    assert "termination_event" in validation["failed_invariants"]
+
+...
+y(e["generation_trace"][0]["usage_cell_id"] == "late_state" for e in snaps)
+    assert all(e["assignments"]["receiver"]["player_id"].endswith("002") for e in snaps if e["terminal_category"] == "targeted_pass")
+    assert all("roles" in trial["latent_state"] for _ in [0])
+
+
+def test_lateral_and_signed_credit_adjustment_are_explicit(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, terminal="targeted_pass")
+    # Model an explicit receiving credit difference, without changing player yards to reconcile.
+    data["model"]["outcome_cells"] = []
+    for team in ("HOME", "AWAY"):
+        outcome = {"yards": 8, "field_advance_yards": 6, "elapsed_seconds": 900,
+                   "receiving_credits": [{"player_ref": team + "T", "yards": 4}, {"player_ref": team + "R", "yards": 6}],
+                   "pass_receiving_credit_adjustment": -2, "credit_explanation": "synthetic provider/lateral credit fixture",
+                   "credit_provenance_refs": ["model"]}
+        data["model"]["outcome_cells"].append({"cell_id": team + "_lateral", "when": {"team_id": team},
+                                    "distribution": [{"value": outcome, "weight": 1}]})
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=2), 0)
+    assert_valid(trial)
+    snap = next(e for e in trial["events"] if e["type"] == "snap")
+    lateral = next(p for p in snap["player_credits"] if p["player_id"].endswith("002"))
+    assert lateral["stats"]["rec_yards"] == 6
+    assert lateral["stats"]["targets"] == lateral["stats"]["catches"] == 0
+    assert snap["credit_adjustments"][0]["signed_pass_receiving_adjustment"] == -2
+
+
+@pytest.mark.parametrize("mutation", ["target", "clock", "score", "stages", "missingness", "event_key", "period", "negative", "schema"])
+def test_deliberate_corruption_fails_closed(tmp_path, mutation):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal="targeted_pass"), 0)
+    assert_valid(trial)
+    event = next(e for e in trial["events"] if e["type"] == "snap")
+    if mutation == "target":
+        event["team_credits"][event["acting_team_id"]]["eligible_target_attempts"] += 1
+    elif mutation == "clock":
+        event["post_period_seconds_remaining"] = -1
+    elif mutation == "score":
+        trial["team_periods"][0]["stats"]["points"] += 1
+    elif mutation == "stages":
+        event["generation_trace"][1], event["generation_trace"][3] = event["generation_trace"][3], event["generation_trace"][1]
+    elif mutation == "missingness":
+        trial["feature_availability"]["coverage"]["value"] = "zone"
+    elif mutation == "event_key":
+        event["event_id"] = trial["events"][0]["event_id"]
+    elif mutation == "period":
+        trial["player_periods"].append(trial["player_periods"][0])
+    elif mutation == "negative":
+        event["player_credits"][0]["stats"]["pass_attempts"] = -1
+    elif mutation == "schema":
+        del trial["possessions"]
+    finalize_validation(trial)
+    assert trial["validation"]["status"] == "INVALID"
+    assert trial["status"]["state"] == "INVALID"
+    assert not trial["status"]["adapter_projection_allowed"]
+
+
+def test_empty_trial_never_false_pass():
+    assert validate_trial({})["status"] == "INVALID"
+
+
+def test_joint_ids_replay_seed_derivation_and_batch_extension(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    frozen = freeze_run(spec, root, inputs, n=2, seed=123)
+    extended = freeze_run(spec, root, inputs, n=3, seed=123)
+    assert frozen["forecast_id"] != extended["forecast_id"]
+    assert trial_seed(frozen, 0) == trial_seed(extended, 0)
+    expected = int.from_bytes(hashlib.sha256(canonical([frozen["run_spec"]["rng"]["seed_derivation_version"], "123", "synthetic_test", "0001", frozen["input_content_hash"], 0])).digest()[:8], "big")
+    assert trial_seed(frozen, 0) == str(expected)
+    one = simulate_trial(frozen, 1)
+    zero = simulate_trial(frozen, 0)
+    assert one == simulate_trial(frozen, 1)
+    assert zero["trial_id"] == frozen["forecast_id"] + "/trial/0"
+    assert zero["rng"]["trial_seed"] != one["rng"]["trial_seed"]
+    assert {zero["trial_id"], one["trial_id"]} == {frozen["forecast_id"] + "/trial/" + str(i) for i in (0, 1)}
+    assert zero["aggregates"] == simulate_trial(extended, 0)["aggregates"]
+
+
+def test_manifest_durable_dispatch_and_cutoff_versioning(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    cfg = {"mode": spec["mode"], "config_id": spec["config_id"], "joint_producer": {
+        "spec": spec, "input_root": root, "inputs": inputs, "output_root": tmp_path / "outputs"}}
+    output = simulate_games(cfg, pbp_path="unused", n=2, seed=7)
+    assert output["n_requested"] == output["n_completed"] == 2
+    assert output["n_invalid"] == output["n_incomplete"] == 0
+    assert output["n_usable"] == 0  # synthetic-only never actionable
+    assert len(output["excluded_trials"]) == 2
+    folder = Path(output["artifact_directory"])
+    manifest = json.loads((folder / "input_manifest.json").read_text())
+    assert digest(manifest) == output["input_content_hash"]
+    ledger = json.loads((folder / "forecast_ledger.json").read_text())
+    assert ledger["trial_ids"] == [t["trial_id"] for t in output["trials"]]
+    assert ledger["result_evidence_ids"] == []
+    for t in output["trials"]:
+        assert t["feature_availability"] == missing_features()
+        assert t["freeze"]["cutoff_utc"] == spec["cutoff_utc"]
+        assert t["freeze"]["input_content_hash"] == output["input_content_hash"]
+        assert t["engine"]["engine_version"] and t["engine"]["dirty_patch_hash"]
+    frozen = freeze_run(spec, root, inputs, n=2, seed=7)
+    assert write_forecast(tmp_path / "outputs", frozen, output["trials"]) == str(folder)
+    bad = copy.deepcopy(output["trials"])
+    bad[0]["flags"].append("CHANGED")
+    with pytest.raises(ValueError, match="immutable artifact conflict"):
+        write_forecast(tmp_path / "outputs", frozen, bad)
+    spec["cutoff_utc"] = "2026-11-06T09:00:00Z"
+    revised = freeze_run(spec, root, inputs, n=2, seed=7)
+    assert revised["forecast_id"] != frozen["forecast_id"]
+
+
+@pytest.mark.parametrize("problem", ["post_cutoff", "late_unverified", "market", "postgame", "identity", "ambiguous", "split_overlap", "inspected_holdout"])
+def test_freeze_blocks_bad_evidence_or_contamination(tmp_path, problem):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    if problem == "post_cutoff":
+        inputs[0]["available_at_utc"] = "2026-11-07T10:00:00Z"
+    elif problem == "late_unverified":
+        spec["frozen_at_utc"] = spec["generated_at_utc"] = "2026-11-06T12:00:00Z"
+        inputs[0]["retrieved_at_utc"] = "2026-11-06T11:00:00Z"
+    elif problem == "market":
+        inputs[0]["usage"] = "MARKET"
+    elif problem == "postgame":
+        inputs[0]["usage"] = "EVIDENCE_ONLY_POSTGAME"
+    elif problem == "identity":
+        spec["game"]["game_id"] = None
+    elif problem == "ambiguous":
+        data["registry"]["crosswalk"].append(data["registry"]["crosswalk"][0])
+    else:
+        split = data["splits"]
+        row = {"namespace": "synthetic_test", "game_id": "0001"}
+        split.update(status="FROZEN", frozen_before_selection=True, train_game_ids=[], dev_game_ids=[], holdout_game_ids=[row])
+        if problem == "split_overlap":
+            split["train_game_ids"] = [row]
+        else:
+            split["inspected_game_ids"] = [row]
+    save()
+    with pytest.raises(ValueError):
+        freeze_run(spec, root, inputs, n=1, seed=1)
+
+
+def test_modes_are_distinct_and_cannot_silently_relabel_market_model(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    independent = freeze_run(spec, root, inputs, n=1, seed=1)
+    adjusted_spec = {**spec, "mode": "script_adjusted"}
+    assert freeze_run(adjusted_spec, root, inputs, n=1, seed=1)["forecast_id"] != independent["forecast_id"]
+    data["model"]["uses_market"] = True
+    save()
+    with pytest.raises(ValueError, match="market lineage"):
+        freeze_run(spec, root, inputs, n=1, seed=1)
+    market_spec = {**spec, "mode": "market_informed"}
+    with pytest.raises(ValueError, match="frozen market input"):
+        freeze_run(market_spec, root, inputs, n=1, seed=1)
+    inputs[1]["usage"] = "MARKET"
+    market = freeze_run(market_spec, root, inputs, n=1, seed=1)
+    assert market["forecast_id"] != independent["forecast_id"]
+    assert market["input_content_hash"] != independent["input_content_hash"]
+
+
+def test_unsupported_category_or_official_ot_profile_blocks_run(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    data["model"]["ot_rule_profile"] = {"id": "official_unverified"}
+    save()
+    with pytest.raises(ValueError, match="UNSUPPORTED OT"):
+        simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+
+
+def test_legacy_accounting_cannot_claim_contract_pass(tmp_path, monkeypatch):
+    from validation import accounting
+    import numpy as np
+    from state import GameState
+    fake = {"arrays": {k: np.array([0]) for k in ("q1_home", "q2_home", "q3_home", "q4_home", "h1_home", "h2_home", "reg_home", "fg_home", "ot_home",
+        "q1_away", "q2_away", "q3_away", "q4_away", "h1_away", "h2_away", "reg_away", "fg_away", "ot_away", "went_ot")},
+            "evidence_summary": {"sparse_rate": 0}, "player_joint": {}}
+    monkeypatch.setattr(accounting, "simulate_games", lambda *a, **kw: fake)
+    monkeypatch.setattr(accounting, "load_team_history", lambda *a, **kw: {"df": None})
+    monkeypatch.setattr(accounting, "build_catalog", lambda *a, **kw: (None, None))
+    monkeypatch.setattr(accounting, "simulate_one", lambda *a, **kw: GameState.new_game("HOME", "AWAY"))
+    cfg = {"config_id": "synthetic-only", "history": {"teams": ["HOME", "AWAY"], "season": 2026, "weeks_inclusive": [1]}}
+    result = accounting.run_accounting_checks(cfg, pbp_path="unused", n=1)
+    assert result["overall_status"] != "PASS"
+    assert next(c for c in result["checks"] if c["name"] == "reg_clock_target_declared_3600")["ok"] is False
+
+
+def test_stopped_clock_is_ordered_and_cap_is_not_false_complete(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, terminal="spike", elapsed=0)
+    spec["max_steps"] = 2
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert trial["status"]["state"] == "INCOMPLETE"
+    assert trial["validation"]["status"] == "PASS"
+    snaps = [e for e in trial["events"] if e["type"] == "snap"]
+    assert len(snaps) == 2 and all(e["elapsed_clock_seconds"] == 0 for e in snaps)
+    assert snaps[0]["event_seq"] < snaps[1]["event_seq"]
+    assert all(r["stats"] is None for r in trial["aggregates"]["team"])
+
+
+def test_explicit_period_end_runoff_is_not_a_snap_or_attempt(tmp_path):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal="period_end_runoff"), 0)
+    assert_valid(trial)
+    assert not any(e["type"] == "snap" for e in trial["events"])
+    assert sum(e["elapsed_clock_seconds"] for e in trial["events"] if e["period_kind"] == "REG") == 3600
+    assert all(r["stats"]["dropbacks"] == r["stats"]["rush_attempts"] == 0 for r in trial["team_periods"])
+
+
+@pytest.mark.parametrize("rush_design", ["direct_snap", "end_around", "qb_designed"])
+def test_non_rb_designed_runs_keep_explicit_classification(tmp_path, rush_design):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    for team, states in data["model"]["role_states"].items():
+        states[0]["value"]["rotation_weights"]["carry"] = {team + "T": 1}
+    data["model"]["outcome_cells"][0]["distribution"][0]["value"]["rush_design"] = rush_design
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    assert all(e["orthogonal_flags"]["rush_design"] == rush_design for e in trial["events"] if e["type"] == "snap")
+
+
+def test_non_qb_throw_keeps_credited_passer_and_non_dropback_attempt(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, terminal="non_dropback_targeted_pass")
+    for team, states in data["model"]["role_states"].items():
+        states[0]["value"]["rotation_weights"]["passer"] = {team + "R": 1}
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    for e in trial["events"]:
+        if e["type"] == "snap":
+            assert e["assignments"]["passer"]["player_id"].endswith("002")
+            stats = e["team_credits"][e["acting_team_id"]]
+            assert stats["non_dropback_pass_attempts"] == 1 and stats["dropbacks"] == 0
+
+
+def test_unknown_passer_sack_and_completed_target_stay_in_residuals(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path, terminal="targeted_pass")
+    for team, states in data["model"]["role_states"].items():
+        states[0]["value"]["rotation_weights"]["passer"] = {"UNASSIGNED": 1}
+        states[0]["value"]["rotation_weights"]["target"] = {"UNASSIGNED": 1}
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    e = next(e for e in trial["events"] if e["type"] == "snap")
+    t = e["team_credits"][e["acting_team_id"]]
+    assert t["unassigned_catches"] == t["unassigned_targets"] == t["unassigned_pass_attempts"] == 1
+    assert t["unassigned_rec_yards"] == t["unassigned_pass_yards"] == 8
+    assert e["player_credits"] == []
+
+
+def test_fumble_preserves_stat_yards_and_ends_possession(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    data["model"]["outcome_cells"][0]["distribution"][0]["value"]["fumble_lost"] = True
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    snap = next(e for e in trial["events"] if e["type"] == "snap")
+    assert snap["orthogonal_flags"]["fumble_lost"]
+    assert snap["team_credits"]["AWAY"]["rush_yards"] == 3
+    assert snap["team_credits"]["AWAY"]["turnovers"] == 1
+    assert trial["possessions"][0]["end_cause"] == "turnover"
+
+
+@pytest.mark.parametrize("mutation", ["loaded", "spec", "manifest", "population", "unassigned_index"])
+def test_prepared_freeze_cannot_be_mutated_or_shuffled(tmp_path, mutation):
+    frozen = frozen_fixture(tmp_path)
+    if mutation == "loaded":
+        frozen["loaded"]["model"]["uses_market"] = True
+    elif mutation == "spec":
+        frozen["spec"]["mode"] = "market_informed"
+    elif mutation == "manifest":
+        frozen["input_manifest"]["entries"][0]["sha256"] = "sha256:" + "0" * 64
+    with pytest.raises(ValueError):
+        if mutation == "population":
+            write_forecast(tmp_path / "out", frozen, [])
+        else:
+            simulate_trial(frozen, 3 if mutation == "unassigned_index" else 0)
+
+
+def test_late_verified_extraction_and_creation_times_do_not_change_forecast_identity(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    first = freeze_run(spec, root, inputs, n=1, seed=1)
+    spec["frozen_at_utc"] = spec["generated_at_utc"] = "2026-11-06T12:00:00Z"
+    assert freeze_run(spec, root, inputs, n=1, seed=1)["forecast_id"] == first["forecast_id"]
+    inputs[0].update(retrieved_at_utc="2026-11-06T11:00:00Z", asof_verified=True)
+    later = freeze_run(spec, root, inputs, n=1, seed=1)
+    assert later["input_content_hash"] != first["input_content_hash"]
+
+
+def test_input_byte_revision_changes_content_and_forecast_ids(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    first = freeze_run(spec, root, inputs, n=1, seed=1)
+    path = root / "model.json"
+    path.write_bytes(path.read_bytes() + b"\n")  # same JSON value, distinct exact source bytes
+    revised = freeze_run(spec, root, inputs, n=1, seed=1)
+    assert first["input_content_hash"] != revised["input_content_hash"]
+    assert first["forecast_id"] != revised["forecast_id"]
+
+
+@pytest.mark.parametrize("field", ["penalty", "untimed_down", "defensive_return_yards"])
+def test_unsupported_rule_effects_are_blocked_not_silently_approximated(tmp_path, field):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    data["model"]["outcome_cells"][0]["distribution"][0]["value"][field] = 1
+    save()
+    with pytest.raises(ValueError, match="UNSUPPORTED"):
+        simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+
+
+def test_corrupted_yard_stage_and_seed_cannot_hide_behind_balanced_credits(tmp_path):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal="targeted_pass"), 0)
+    snap = next(e for e in trial["events"] if e["type"] == "snap")
+    snap["generation_trace"][3]["realized_yards"] += 1
+    assert validate_trial(trial)["status"] == "INVALID"
+    snap["generation_trace"][3]["realized_yards"] -= 1
+    trial["rng"]["trial_seed"] = "123"
+    assert validate_trial(trial)["status"] == "INVALID"
+
+
+def test_lineage_cannot_relabel_market_derived_model_as_independent(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    data["model"]["lineage_modes"] = ["market_informed"]
+    save()
+    with pytest.raises(ValueError, match="market lineage"):
+        freeze_run(spec, root, inputs, n=1, seed=1)
+
+
+def test_null_identity_has_explicit_status_and_no_named_projection(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    unresolved = data["registry"]["players"][2]
+    old_id = unresolved["player_id"]
+    unresolved.update(player_id=None, identity_status="UNRESOLVED")
+    data["registry"]["crosswalk"] = [r for r in data["registry"]["crosswalk"] if r["canonical_id"] != old_id]
+    save()
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert_valid(trial)
+    assert "PLAYER_ID_UNRESOLVED" in trial["status"]["projection_blockers"]
+    assert not any(r["player_id"] == old_id for r in trial["player_periods"])
+    assert any(r["stats"]["unassigned_carries"] > 0 for r in trial["team_periods"])
+
+
+def test_invalid_draw_is_persisted_and_counted_without_filtering(tmp_path, monkeypatch):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    import joint_producer
+    original = joint_producer.OpportunityModel.outcome
+    def corrupt_after_allocation(self, op):
+        catch, outcome = original(self, op)
+        op["team_credits"]["dropbacks"] += 1
+        return catch, outcome
+    monkeypatch.setattr(joint_producer.OpportunityModel, "outcome", corrupt_after_allocation)
+    result = simulate_joint_games(spec, input_root=root, inputs=inputs, n=2, seed=1, output_root=tmp_path / "out")
+    assert result["n_invalid"] == result["n_requested"] == 2
+    assert result["n_usable"] == result["n_completed"] == 0
+    assert len(result["trials"]) == 2
+    assert len((Path(result["artifact_directory"]) / "trials.jsonl").read_text().splitlines()) == 2
+
+
+def test_safety_credits_opponent_and_negative_rush_yards_without_offensive_points(tmp_path):
+    trial = simulate_trial(frozen_fixture(tmp_path, terminal="designed_rush", yards=-25), 0)
+    assert_valid(trial)
+    snap = next(e for e in trial["events"] if e["type"] == "snap")
+    assert snap["team_credits"]["AWAY"]["rush_yards"] == -25
+    assert snap["team_credits"]["AWAY"]["points"] == 0
+    assert snap["team_credits"]["HOME"]["points"] == 2
+    assert snap["score_delta"] == {"HOME": 2, "AWAY": 0}
+    assert trial["possessions"][0]["end_cause"] == "safety"
+
+
+def test_required_types_and_latent_evidence_cannot_be_missing(tmp_path):
+    trial = simulate_trial(frozen_fixture(tmp_path), 0)
+    trial["latent_state"] = None
+    assert validate_trial(trial)["status"] == "INVALID"
+
+
+def test_cap_cannot_be_relabelled_complete(tmp_path):
+    spec, root, inputs, data, save = fixture_inputs(tmp_path)
+    spec["max_steps"] = 4
+    trial = simulate_trial(freeze_run(spec, root, inputs, n=1, seed=1), 0)
+    assert trial["status"]["state"] == "INCOMPLETE"
+    trial["status"].update(state="COMPLETE", completion_reason="regulation_complete")
+    validation = validate_trial(trial)
+    assert validation["status"] == "INVALID"
+    assert "termination_event" in validation["failed_invariants"]

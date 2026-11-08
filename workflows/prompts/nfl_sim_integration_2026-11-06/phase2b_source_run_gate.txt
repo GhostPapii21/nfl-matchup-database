@@ -1,0 +1,38 @@
+You are Codex doing a NON-DISRUPTIVE LOCAL documentation/schema pass for NFL sim integration.
+
+CRITICAL CONSTRAINTS:
+- Do NOT use Cursor Cloud.
+- Do NOT touch /workspace/wt-market-calibration or any market_calibration/ tree.
+- Do NOT edit /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/** or period_engine_v0/** — another Codex session (phase2 CORE) owns those files right now.
+- Do NOT fabricate retrieved data, coverage, routes, or prices.
+- No spend, no auth bypass, no new paid pulls.
+- Engineering unit tests are DISTINCT from projection runs — document that explicitly.
+
+WRITE ONLY under:
+  /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/
+
+Deliverables:
+1) REQUIREMENT.md — standing Rico 6:19 run contract:
+   - Before ANY projection/matchup/prop/simulation *projection run*: systematic source inventory → betting-game-brainstorm (scenario-first) → 15 nfl-game-script-run phases (+ nfl-betting-script / football-period-game-flow when relevant).
+   - Required checklist.md + report.md per run.
+   - Source ledger: source/tool, status ∈ {success, login_required, unavailable, stale}, fields retrieved, season/week, data_through_timestamp, pull_timestamp, artifact_path, fallback.
+   - Rule: listed ≠ usable retrieved.
+   - Established source families to inventory (status each): ESPN, nflverse, PFR, gamebooks; FTN via nflverse, NGS, PFF, Sharp, StatRankings, PropsMadness, SumerSports, FantasyPoints, NFLPro; official injury/depth + ESPN/Ourlads/AP/RotoWire/official X; NWS/OpenMeteo/stadium tools/weather_forecast.py; FD/DK/Pinnacle/OddsAPI/Outlier/PP/Polymarket; official film reconciled to PBP; local DB/sim/engines.
+   - Integrate with core_contract.md MISSING/UNKNOWN flags; never fabricate.
+   - Explicit: unit/regression tests ≠ projection runs; TNF not holdout validation by fitting.
+
+2) source_ledger.schema.json — machine schema for ledger rows + run manifest.
+
+3) templates/checklist.md — empty template for a projection run (15 phases placeholders + source inventory gate).
+
+4) templates/report.md — empty report template (scenario hypothesis, source-by-source, blockers).
+
+5) MANIFEST.json — honest statuses for this gate package (IMPLEMENTED docs/schema vs NOT_RUN for live retrieval). No false PASS.
+
+6) reviews/COMPLETION_SOURCE_GATE.md — what was written, sha256 of files, explicit note that CORE phase2 was not disturbed, blockers (many sources login_required/unavailable until retrieved).
+
+Also append a short pointer file:
+  /workspace/research/nfl_sim_integration_2026-11-06/SOURCE_RUN_GATE.md
+linking to source_run_gate/REQUIREMENT.md and noting engineering tests vs projection runs.
+
+Validate JSON schemas parse. Do not run heavy sims. Do not call external APIs.

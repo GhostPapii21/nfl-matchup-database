@@ -1,0 +1,92 @@
+[
+  {
+    "name": "pytest_b01_market",
+    "command": [
+      "python3",
+      "-m",
+      "pytest",
+      "research/market_calibration/tests",
+      "research/market_calibration/reviews/test_independent_false_pass.py",
+      "-q"
+    ],
+    "cwd": "/workspace/wt-market-calibration",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "GIT_OPTIONAL_LOCKS": "0"
+    },
+    "started_utc": "2026-11-06T11:59:09.418006+00:00",
+    "finished_utc": "2026-11-06T11:59:10.131047+00:00",
+    "exit_code": 1,
+    "output_path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_market.txt",
+    "pytest_summary": "67 failed, 106 passed in 0.54s",
+    "output_sha256": "sha256:88cab337e9937cfb8cb9024681c0dddb6d3e2356b185f5dee89e6ade0d840a32"
+  },
+  {
+    "name": "pytest_b01_direct",
+    "command": [
+      "python3",
+      "-m",
+      "pytest",
+      "integration/integration_adversarial_tests.py::test_DIRECT_actual_producer_to_market_acceptance",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "GIT_OPTIONAL_LOCKS": "0",
+      "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06"
+    },
+    "started_utc": "2026-11-06T11:59:10.131302+00:00",
+    "finished_utc": "2026-11-06T11:59:10.486754+00:00",
+    "exit_code": 1,
+    "output_path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_direct.txt",
+    "pytest_summary": "1 failed in 0.18s",
+    "output_sha256": "sha256:eb631c7b2f9799c8277b1dff3d9e2eb699b94c300c20688032d1b5f834ab988b"
+  },
+  {
+    "name": "pytest_b01_integration_full",
+    "command": [
+      "python3",
+      "-m",
+      "pytest",
+      "integration/integration_adversarial_tests.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp=/workspace/wt-market-calibration/research/market_calibration/reviews/b01_fixture_qeyatysp"
+    ],
+    "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "GIT_OPTIONAL_LOCKS": "0",
+      "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06"
+    },
+    "started_utc": "2026-11-06T11:59:10.487104+00:00",
+    "finished_utc": "2026-11-06T11:59:11.758603+00:00",
+    "exit_code": 1,
+    "output_path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_integration_full.txt",
+    "pytest_summary": "28 failed, 32 passed in 1.07s",
+    "output_sha256": "sha256:190eb4768865fb466beea957a708bd9b5cd7b7bbf92190193142d4ac43e83d0e"
+  },
+  {
+    "name": "historical_contract_rehearsal_NOT_current_acceptance",
+    "command": [
+      "python3",
+      "-c",
+      "from hashlib import sha256\nfrom pathlib import Path\nimport tempfile\nimport pytest\nfrom research.market_calibration import joint_trial_adapter as adapter\n# Diagnostic rehearsal only: recover the exact historically bound bytes by\n# removing the newly added companion-link line. Never edit the shared contract,\n# alter the SHA constant, or remap any trial field.\ncurrent = adapter.CORE_CONTRACT.read_bytes()\nadded = b\"Producer export wire: [`1.0.0-producer`](core_contract_wire_v1.md), frozen example and field-name lock.  \\n\"\nhistorical = current.replace(added, b\"\", 1)\nassert sha256(historical).hexdigest() == adapter.CONTRACT_SHA256\nprint(\"HISTORICAL_CONTRACT_REHEARSAL_ONLY; current shared contract remains blocked\", flush=True)\nprint(\"historical contract sha256=\" + sha256(historical).hexdigest(), flush=True)\nwith tempfile.TemporaryDirectory(prefix=\"b01_bound_contract_\", dir=\"research/market_calibration/reviews\") as temporary:\n    bound = Path(temporary) / \"core_contract.md\"\n    bound.write_bytes(historical)\n    adapter.CORE_CONTRACT = bound\n    raise SystemExit(pytest.main([\"research/market_calibration/tests\", \"research/market_calibration/reviews/test_independent_false_pass.py\", \"-q\", \"-p\", \"no:cacheprovider\"]))\n"
+    ],
+    "cwd": "/workspace/wt-market-calibration",
+    "environment": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "GIT_OPTIONAL_LOCKS": "0"
+    },
+    "started_utc": "2026-11-06T11:59:42.472370+00:00",
+    "finished_utc": "2026-11-06T11:59:42.890160+00:00",
+    "exit_code": 0,
+    "output_path": "/workspace/wt-market-calibration/research/market_calibration/reviews/pytest_b01_historical_contract_rehearsal.txt",
+    "pytest_summary": "173 passed in 0.24s",
+    "output_sha256": "sha256:f7bd107ad81192cbced350ff5bfcbff063c3d2dfa1702ec2b63698ed58550cb6"
+  }
+]

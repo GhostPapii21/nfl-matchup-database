@@ -1,0 +1,1479 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NFL source ledger row or projection run manifest",
+  "description": "Declarations only. External semantic/artifact checks remain mandatory under REQUIREMENT.md. Package MANIFEST.json is a package status document, not a projection run manifest. Timestamps use UTC Z. Nulls require explanations in row unknown_reasons or manifest blockers.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/ledger_row"
+    },
+    {
+      "$ref": "#/$defs/run_manifest"
+    }
+  ],
+  "$defs": {
+    "ledger_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document_type",
+        "source_id",
+        "source_tool",
+        "status",
+        "assessment",
+        "status_reason",
+        "fields_retrieved",
+        "season",
+        "week",
+        "data_through_timestamp",
+        "pull_timestamp",
+        "source_available_timestamp",
+        "attempt_timestamp",
+        "artifact_path",
+        "artifact_sha256",
+        "unknown_reasons",
+        "scope",
+        "usable_for_run",
+        "asof_status",
+        "freshness_status",
+        "fallback",
+        "cutoff_utc"
+      ],
+      "properties": {
+        "document_type": {
+          "const": "ledger_row"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_tool": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "SUCCESS",
+            "SAVED_ONLY",
+            "MISSING",
+            "LOGIN_REQUIRED",
+            "STALE",
+            "ERROR",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "assessment": {
+          "enum": [
+            "not_attempted",
+            "attempted",
+            "retrieved"
+          ]
+        },
+        "status_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fields_retrieved": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "season": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1920
+        },
+        "week": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "data_through_timestamp": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "pull_timestamp": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "source_available_timestamp": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "attempt_timestamp": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "artifact_path": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "artifact_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "unknown_reasons": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "usable_for_run": {
+          "type": "boolean"
+        },
+        "asof_status": {
+          "enum": [
+            "verified",
+            "ASOF_UNVERIFIED",
+            "not_assessed"
+          ]
+        },
+        "freshness_status": {
+          "enum": [
+            "current",
+            "stale",
+            "not_assessed"
+          ]
+        },
+        "fallback": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "detail",
+            "source_refs"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "none",
+                "blocked",
+                "source",
+                "modeled",
+                "scenario"
+              ]
+            },
+            "detail": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_refs": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            }
+          }
+        },
+        "reason": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "cutoff_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "SUCCESS",
+                  "STALE",
+                  "SAVED_ONLY"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "assessment": {
+                "const": "retrieved"
+              },
+              "fields_retrieved": {
+                "minItems": 1
+              },
+              "artifact_path": {
+                "type": "string"
+              },
+              "artifact_sha256": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "assessment": {
+                "const": "not_attempted"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "MISSING",
+                  "NOT_APPLICABLE"
+                ]
+              },
+              "fields_retrieved": {
+                "maxItems": 0
+              },
+              "attempt_timestamp": {
+                "type": "null"
+              },
+              "pull_timestamp": {
+                "type": "null"
+              },
+              "data_through_timestamp": {
+                "type": "null"
+              },
+              "source_available_timestamp": {
+                "type": "null"
+              },
+              "artifact_path": {
+                "type": "null"
+              },
+              "artifact_sha256": {
+                "type": "null"
+              },
+              "usable_for_run": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "usable_for_run": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "status": {
+                "const": "SUCCESS"
+              },
+              "asof_status": {
+                "const": "verified"
+              },
+              "freshness_status": {
+                "const": "current"
+              },
+              "season": {
+                "type": "integer"
+              },
+              "week": {
+                "type": "integer"
+              },
+              "data_through_timestamp": {
+                "type": "string"
+              },
+              "source_available_timestamp": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "season": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unknown_reasons": {
+                "required": [
+                  "season"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "week": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unknown_reasons": {
+                "required": [
+                  "week"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "data_through_timestamp": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unknown_reasons": {
+                "required": [
+                  "data_through_timestamp"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "pull_timestamp": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unknown_reasons": {
+                "required": [
+                  "pull_timestamp"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_available_timestamp": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unknown_reasons": {
+                "required": [
+                  "source_available_timestamp"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "attempt_timestamp": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unknown_reasons": {
+                "required": [
+                  "attempt_timestamp"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "artifact_path": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unknown_reasons": {
+                "required": [
+                  "artifact_path"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "artifact_sha256": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unknown_reasons": {
+                "required": [
+                  "artifact_sha256"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "assessment": {
+                "const": "attempted"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "attempt_timestamp": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "SUCCESS"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "usable_for_run": {
+                "const": true
+              },
+              "cutoff_utc": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "NOT_APPLICABLE"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "reason"
+            ],
+            "properties": {
+              "usable_for_run": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "not": {
+                  "const": "SUCCESS"
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "usable_for_run": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "cutoff_utc": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unknown_reasons": {
+                "required": [
+                  "cutoff_utc"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "SUCCESS",
+                  "STALE"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "pull_timestamp": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "phase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "number",
+        "authoritative_name",
+        "status",
+        "evidence",
+        "reason"
+      ],
+      "properties": {
+        "number": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 15
+        },
+        "authoritative_name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "NOT_RUN",
+            "COMPLETE",
+            "BLOCKED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "evidence": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "COMPLETE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "authoritative_name": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "BLOCKED",
+                  "NOT_APPLICABLE"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "run_manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document_type",
+        "schema_version",
+        "run_id",
+        "run_kind",
+        "season",
+        "week",
+        "game_id",
+        "game_id_namespace",
+        "cutoff_utc",
+        "frozen_at_utc",
+        "generated_at_utc",
+        "engine_version",
+        "config_id",
+        "input_content_hash",
+        "workflow_versions",
+        "checklist_path",
+        "report_path",
+        "source_ledger",
+        "source_gate",
+        "scenario_first",
+        "phases",
+        "supplemental_workflows",
+        "projection_execution_status",
+        "engineering_checks",
+        "blockers",
+        "projection_ready",
+        "synthetic",
+        "validation_basis",
+        "brainstorm_path",
+        "automatic_cuts"
+      ],
+      "properties": {
+        "document_type": {
+          "const": "run_manifest"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "run_kind": {
+          "enum": [
+            "projection",
+            "engineering_test",
+            "diagnostic_evaluation"
+          ]
+        },
+        "season": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1920
+        },
+        "week": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "game_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "game_id_namespace": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "cutoff_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "frozen_at_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "generated_at_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "engine_version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "config_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "input_content_hash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "workflow_versions": {
+          "type": "object",
+          "required": [
+            "betting-game-brainstorm",
+            "nfl-game-script-run",
+            "nfl-betting-script",
+            "football-period-game-flow"
+          ],
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          }
+        },
+        "checklist_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "report_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_ledger": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ledger_row"
+          }
+        },
+        "source_gate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence",
+            "permitted_scope",
+            "blockers"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "NOT_RUN",
+                "BLOCKED",
+                "APPROVED"
+              ]
+            },
+            "evidence": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 1
+            },
+            "permitted_scope": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 1
+            },
+            "blockers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "scenario_first": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "evidence"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "NOT_RUN",
+                "BLOCKED",
+                "COMPLETE"
+              ]
+            },
+            "evidence": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 1
+            }
+          }
+        },
+        "phases": {
+          "type": "array",
+          "minItems": 15,
+          "maxItems": 15,
+          "items": {
+            "$ref": "#/$defs/phase"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 1
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 2
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 3
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 4
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 5
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 6
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 7
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 8
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 9
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 10
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 11
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 12
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 13
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 14
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "number": {
+                    "const": 15
+                  }
+                }
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          ]
+        },
+        "supplemental_workflows": {
+          "type": "object",
+          "required": [
+            "nfl-betting-script",
+            "football-period-game-flow"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "nfl-betting-script": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "reason",
+                "evidence"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "NOT_RUN",
+                    "COMPLETE",
+                    "BLOCKED",
+                    "NOT_APPLICABLE"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              }
+            },
+            "football-period-game-flow": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "reason",
+                "evidence"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "NOT_RUN",
+                    "COMPLETE",
+                    "BLOCKED",
+                    "NOT_APPLICABLE"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "projection_execution_status": {
+          "enum": [
+            "NOT_RUN",
+            "BLOCKED",
+            "COMPLETE"
+          ]
+        },
+        "engineering_checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "status",
+              "evidence"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "NOT_RUN",
+                  "COMPLETE",
+                  "FAILED"
+                ]
+              },
+              "evidence": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "projection_ready": {
+          "type": "boolean"
+        },
+        "synthetic": {
+          "type": "boolean"
+        },
+        "validation_basis": {
+          "enum": [
+            "infrastructure_only",
+            "schema_only",
+            "full_source_run"
+          ]
+        },
+        "brainstorm_path": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "automatic_cuts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "weather",
+            "WR",
+            "edge"
+          ],
+          "properties": {
+            "weather": {
+              "$ref": "#/$defs/disabled_automatic_cut"
+            },
+            "WR": {
+              "$ref": "#/$defs/disabled_automatic_cut"
+            },
+            "edge": {
+              "$ref": "#/$defs/disabled_automatic_cut"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source_gate": {
+                "properties": {
+                  "status": {
+                    "const": "APPROVED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "source_gate": {
+                "properties": {
+                  "evidence": {
+                    "type": "string"
+                  },
+                  "permitted_scope": {
+                    "type": "string"
+                  },
+                  "blockers": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "projection_execution_status": {
+                "const": "COMPLETE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "run_kind": {
+                "const": "projection"
+              },
+              "season": {
+                "type": "integer"
+              },
+              "week": {
+                "type": "integer"
+              },
+              "game_id": {
+                "type": "string"
+              },
+              "game_id_namespace": {
+                "type": "string"
+              },
+              "cutoff_utc": {
+                "type": "string"
+              },
+              "frozen_at_utc": {
+                "type": "string"
+              },
+              "generated_at_utc": {
+                "type": "string"
+              },
+              "engine_version": {
+                "type": "string"
+              },
+              "config_id": {
+                "type": "string"
+              },
+              "input_content_hash": {
+                "type": "string"
+              },
+              "source_gate": {
+                "properties": {
+                  "status": {
+                    "const": "APPROVED"
+                  }
+                }
+              },
+              "scenario_first": {
+                "properties": {
+                  "status": {
+                    "const": "COMPLETE"
+                  },
+                  "evidence": {
+                    "type": "string"
+                  }
+                }
+              },
+              "phases": {
+                "items": {
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "COMPLETE",
+                        "NOT_APPLICABLE"
+                      ]
+                    }
+                  }
+                }
+              },
+              "supplemental_workflows": {
+                "properties": {
+                  "nfl-betting-script": {
+                    "properties": {
+                      "status": {
+                        "enum": [
+                          "COMPLETE",
+                          "NOT_APPLICABLE"
+                        ]
+                      }
+                    }
+                  },
+                  "football-period-game-flow": {
+                    "properties": {
+                      "status": {
+                        "enum": [
+                          "COMPLETE",
+                          "NOT_APPLICABLE"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "blockers": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "projection_ready": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "run_kind": {
+                "const": "projection"
+              },
+              "season": {
+                "type": "integer"
+              },
+              "week": {
+                "type": "integer"
+              },
+              "game_id": {
+                "type": "string"
+              },
+              "game_id_namespace": {
+                "type": "string"
+              },
+              "cutoff_utc": {
+                "type": "string"
+              },
+              "frozen_at_utc": {
+                "type": "string"
+              },
+              "generated_at_utc": {
+                "type": "string"
+              },
+              "engine_version": {
+                "type": "string"
+              },
+              "config_id": {
+                "type": "string"
+              },
+              "input_content_hash": {
+                "type": "string"
+              },
+              "source_gate": {
+                "properties": {
+                  "status": {
+                    "const": "APPROVED"
+                  }
+                }
+              },
+              "scenario_first": {
+                "properties": {
+                  "status": {
+                    "const": "COMPLETE"
+                  },
+                  "evidence": {
+                    "type": "string"
+                  }
+                }
+              },
+              "phases": {
+                "items": {
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "COMPLETE",
+                        "NOT_APPLICABLE"
+                      ]
+                    }
+                  }
+                }
+              },
+              "supplemental_workflows": {
+                "properties": {
+                  "nfl-betting-script": {
+                    "properties": {
+                      "status": {
+                        "enum": [
+                          "COMPLETE",
+                          "NOT_APPLICABLE"
+                        ]
+                      }
+                    }
+                  },
+                  "football-period-game-flow": {
+                    "properties": {
+                      "status": {
+                        "enum": [
+                          "COMPLETE",
+                          "NOT_APPLICABLE"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "blockers": {
+                "maxItems": 0
+              },
+              "validation_basis": {
+                "const": "full_source_run"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "disabled_automatic_cut": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "approval_status",
+        "reason"
+      ],
+      "properties": {
+        "enabled": {
+          "const": false,
+          "description": "DISABLED. Dated approval evidence and a separately reviewed contract change are required before any future enablement."
+        },
+        "approval_status": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "reason": {
+          "type": "string",
+          "pattern": "\\S"
+        }
+      }
+    }
+  }
+}

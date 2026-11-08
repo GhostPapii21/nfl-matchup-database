@@ -1,0 +1,8 @@
+# Compatibility and migration evidence
+The original 36 failures are fixture failures (including downstream NoneType and missing result-key symptoms), not evidence that legacy tests should be removed. Restoring the approved PBP fixes all original failures. With real PBP the historical simulate_games path retains player_samples and adjustments_meta. None history lookup now reports EMPTY_STATE with PBP_MISSING_NOT_ZERO; adjustments=null is disabled.
+
+Seed derivation intentionally migrates from sha256-first-eight-big-endian-v1 (seed, game, **input hash**, trial index) to sha256-game-index-common-random-v2 (seed, game, trial index). Input hashes and source identity still determine forecast IDs and immutable replay artifacts. Historical artifacts and their frozen source remain unchanged. New forecasts require the v2 validator; old wire shapes are retained, but the seed-version field changes. This migration changes numerical draws and must not be presented as improved predictive accuracy.
+
+Before: changing rotation weights changes input_content_hash, changing every trial seed before any play is generated. After: regression test test_role_weights_cannot_change_team_path changes player assignments and input hash while asserting identical team period stats, terminal state, and trial seed. The existing exact seed derivation test is migrated to v2, with batch-extension, repeatability, and seed-corruption checks retained. No other old test assertion is weakened.
+
+The role fitter remains available as an empirical research API. Deployment role weights are supplied by the separately preregistered robust-policy validation script. No frozen old model is overwritten.

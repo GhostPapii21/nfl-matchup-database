@@ -1,0 +1,196 @@
+{
+  "invariance": {
+    "assertions": [
+      "exact team period stats including scores/counts/yards",
+      "exact terminal states",
+      "exact event team paths and counts",
+      "possession sequence lengths"
+    ],
+    "coupling": false,
+    "coverage_events": {
+      "OT1": 53,
+      "Q1": 4341,
+      "Q2": 4590,
+      "Q3": 4342,
+      "Q4": 4422,
+      "halftime_transition": 100,
+      "lead": 9809,
+      "period_transition": 304,
+      "tied": 3175,
+      "trail": 4764
+    },
+    "n_trials_per_seed_per_policy": 20,
+    "negative_control": "UNSUPPORTED",
+    "ot_trials": [
+      {
+        "seed": 11,
+        "trial": 0
+      },
+      {
+        "seed": 97,
+        "trial": 0
+      },
+      {
+        "seed": 987654,
+        "trial": 11
+      },
+      {
+        "seed": 987654,
+        "trial": 12
+      }
+    ],
+    "player_attribution_changed_comparisons": 15,
+    "policies": [
+      "equal_eligible",
+      "mix_equal_0.25",
+      "empirical_mle",
+      "legacy_depth"
+    ],
+    "seed_bases": [
+      11,
+      97,
+      2026,
+      20261108,
+      987654
+    ],
+    "status": "PASS",
+    "total_trials": 400
+  },
+  "materiality": {
+    "causal_score_impact": "NOT_IDENTIFIED_FROM_DESCRIPTIVE_PBP",
+    "filter": "week 1..8; team scopes include both sides of team games; league rows counted once",
+    "scopes": {
+      "DAL": {
+        "games": 8,
+        "kicks": {
+          "kickoff": {
+            "mean_return_yards_known": 17.802197802197803,
+            "plays": 91,
+            "positive_return_plays": 69,
+            "return_yards_known": 91,
+            "return_yards_sum": 1620.0
+          },
+          "punt": {
+            "mean_return_yards_known": 5.5476190476190474,
+            "plays": 42,
+            "positive_return_plays": 20,
+            "return_yards_known": 42,
+            "return_yards_sum": 233.0
+          }
+        },
+        "ot_game_rate": 0.125,
+        "ot_games": 1,
+        "ot_total_points": null,
+        "ot_touchdown_rows": 0,
+        "penalty_no_play_rows": 98,
+        "penalty_plays": 136,
+        "penalty_rate_all_rows": 0.09340659340659341,
+        "penalty_rows_touchdown_flag": 2,
+        "penalty_yards_sum": 1144.0,
+        "rows": 1456
+      },
+      "IND": {
+        "games": 8,
+        "kicks": {
+          "kickoff": {
+            "mean_return_yards_known": 22.0,
+            "plays": 89,
+            "positive_return_plays": 72,
+            "return_yards_known": 89,
+            "return_yards_sum": 1958.0
+          },
+          "punt": {
+            "mean_return_yards_known": 3.6481481481481484,
+            "plays": 54,
+            "positive_return_plays": 16,
+            "return_yards_known": 54,
+            "return_yards_sum": 197.0
+          }
+        },
+        "ot_game_rate": 0.125,
+        "ot_games": 1,
+        "ot_total_points": null,
+        "ot_touchdown_rows": 0,
+        "penalty_no_play_rows": 66,
+        "penalty_plays": 101,
+        "penalty_rate_all_rows": 0.07404692082111437,
+        "penalty_rows_touchdown_flag": 1,
+        "penalty_yards_sum": 788.0,
+        "rows": 1364
+      },
+      "league": {
+        "games": 121,
+        "kicks": {
+          "kickoff": {
+            "mean_return_yards_known": 20.661847389558233,
+            "plays": 1245,
+            "positive_return_plays": 994,
+            "return_yards_known": 1245,
+            "return_yards_sum": 25724.0
+          },
+          "punt": {
+            "mean_return_yards_known": 4.134720700985762,
+            "plays": 913,
+            "positive_return_plays": 311,
+            "return_yards_known": 913,
+            "return_yards_sum": 3775.0
+          }
+        },
+        "ot_game_rate": 0.09090909090909091,
+        "ot_games": 11,
+        "ot_total_points": null,
+        "ot_touchdown_rows": 6,
+        "penalty_no_play_rows": 1284,
+        "penalty_plays": 1765,
+        "penalty_rate_all_rows": 0.08329007597565004,
+        "penalty_rows_touchdown_flag": 9,
+        "penalty_yards_sum": 14262.0,
+        "rows": 21191
+      }
+    },
+    "sha256": "8430b28d19fc010149109fe04018c8620e13036590f80b71474397db94f0f30b",
+    "source": "/workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08/raw/play_by_play_2026.parquet"
+  },
+  "activation": {
+    "forecast_id": "sha256:6ecf9e36dc8537af40a598fad2620a44153a9086953f2d0540dfb222e230a8af",
+    "trials_exact": true,
+    "team_means": {
+      "DAL": 21.8,
+      "IND": 13.6
+    }
+  },
+  "protected": {
+    "all_unchanged": true,
+    "files": 657
+  },
+  "external_before_hashes_all_match": true,
+  "external_before_hashes": {
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08/inputs/model.json": true,
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/fit_prospective_roles.py": true,
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_inputs.py": true,
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_producer.py": true,
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/SELECTION_LOCK.json": true,
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py": true,
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/shared_accounting.py": true,
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/simulate.py": true
+  },
+  "policy_status": "RESEARCH_PROVISIONAL_NOT_PROMOTED",
+  "engine_pytest": {
+    "exit_code": 0,
+    "tests": 167,
+    "log": "pytest_engine.log"
+  },
+  "repository_pytest": {
+    "status": "COLLECTION_BLOCKED",
+    "errors": 2,
+    "reason": "missing historical parquet inputs",
+    "log": "pytest_full.log"
+  },
+  "PFF": "NOT_READY_NO_DUPLICATE",
+  "quotes": "NOLINE",
+  "Phase15": "NOT_YET",
+  "scale": "DEFERRED_100K",
+  "promotion": false,
+  "projection_ready": false,
+  "Ghost": false
+}

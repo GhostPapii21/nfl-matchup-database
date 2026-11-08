@@ -1,0 +1,29 @@
+tools/tests/test_rbmiss_sim.py::TestSoftRunD::test_43_does_not_boost
+tools/tests/test_rbmiss_sim.py::TestSoftRunD::test_44_uses_fit
+tools/tests/test_rbmiss_sim.py::TestSoftRunD::test_ypc_boost_key_all_models
+tools/tests/test_rbmiss_sim.py::TestPromotion::test_allen_built_and_priced
+tools/tests/test_rbmiss_sim.py::TestPromotion::test_pollard_built_and_priced
+tools/tests/test_rbmiss_sim.py::TestSplitReprice::test_warren_and_dowdle_priced
+
+==================================== ERRORS ====================================
+________ ERROR collecting backtests/v6_brainstorm_proedge/leak_test.py _________
+backtests/v6_brainstorm_proedge/leak_test.py:7: in <module>
+    p,_=prior_pbp(w);assert p.season.iloc[0]==(2025 if w==1 else 2026) and (w==1 or (p.week<w).all()),w
+        ^^^^^^^^^^^^
+backtests/v6_brainstorm_proedge/common.py:14: in prior_pbp
+    if w>=3:pb=pd.read_parquet(V4/f'w{w}/pbp_prior.parquet')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:671: in read_parquet
+    return impl.read(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:253: in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:141: in _get_path_or_handle
+    handles = get_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/common.py:939: in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/backtests/yardage_markets_wk3_8/v4/packs/w3/pbp_prior.parquet'
+=========================== short test summary info ============================
+ERROR backtests/v6_brainstorm_proedge/leak_test.py - FileNotFoundError: [Errn...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+6 tests collected, 1 error in 1.47s

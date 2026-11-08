@@ -1,0 +1,349 @@
+"""Rebuild the LOCAL evidence packet from captured pytest output; no test/run execution."""
+from datetime import datetime
+from hashlib import sha256
+import json
+import os
+from pathlib import Path
+import subprocess
+import xml.etree.ElementTree as ET
+from zoneinfo import ZoneInfo
+
+OUT = Path(__file__).resolve().parent
+ROOT = OUT.parent
+MARKET = Path('/workspace/wt-market-calibration')
+CORE = Path('/workspace/wt-nfl-sim-core-2026-11-06')
+os.environ['GIT_OPTIONAL_LOCKS'] = '0'
+
+
+def hash_file(path):
+    return sha256(Path(path).read_bytes()).hexdigest()
+
+
+def inventory(root):
+    return [{'path': str(p), 'sha256': hash_file(p), 'bytes': p.stat().st_size}
+            for p in sorted(root.rglob('*')) if p.is_file()
+            and '__pycache__' not in p.parts and '.pytest_cache' not in p.parts]
+
+
+def git(root, *args):
+    command = ['git', '-C', str(root), *args]
+    result = subprocess.run(command, text=True, capture_output=True)
+    return dict(command=command, exit_code=result.returncode,
+                stdout=result.stdout.strip(), stderr=result.stderr.strip())
+
+
+def comparison(before, after):
+    b, a = ({r['path']: r['sha256'] for r in rows} for rows in (before, after))
+    return dict(changed=[p for p in b.keys() & a.keys() if b[p] != a[p]],
+                added=sorted(a.keys() - b.keys()), removed=sorted(b.keys() - a.keys()),
+                before_count=len(b), after_count=len(a), unchanged=b == a)
+
+
+def write_json(path, value):
+    path.write_text(json.dumps(value, indent=2) + '\n')
+
+
+def main():
+    started = datetime.now(ZoneInfo('America/New_York')).isoformat()
+    before = json.loads((OUT / 'verification_pre_snapshot.json').read_text())
+    run = json.loads((OUT / 'integration_pytest_run.json').read_text())
+    prior = json.loads((ROOT / 'reviews/EVIDENCE_CODEX.json').read_text())
+    smoke = prior['smoke']
+    artifact = Path(smoke['artifact_directory'])
+    rows = [json.loads(line) for line in (artifact / 'trials.jsonl').read_text().splitlines()]
+    protected_path = OUT / 'market_calibration_file_hashes.json'
+    protected = json.loads(protected_path.read_text())
+    after = dict(timestamp_et=started,
+                 worktrees={str(p): dict(head=git(p, 'rev-parse', 'HEAD'),
+                                         branch=git(p, 'branch', '--show-current'),
+                                         status=git(p, 'status', '--short', '--untracked-files=normal'))
+                            for p in (MARKET, CORE, ROOT)},
+                 market_files=inventory(MARKET / 'research/market_calibration'),
+                 core_files=inventory(CORE / 'research/possession_engine_v0'),
+                 source_gate_files=inventory(ROOT / 'source_run_gate'),
+                 saved_quotes=[dict(e, sha256=hash_file(e['path'])) for e in before['saved_quotes']],
+                 protected_inventory_ref=str(protected_path),
+                 protected_inventory_sha256=hash_file(protected_path),
+                 protected_inventory_mismatches=[e['path'] for e in protected['files'] if hash_file(e['path']) != e['sha256']])
+    write_json(OUT / 'verification_post_snapshot.json', after)
+    xml = ET.parse(OUT / 'integration_pytest.xml')
+    suite = xml.getroot().find('testsuite')
+    cases = []
+    for case in suite.findall('testcase'):
+        failure, error, skipped = (case.find(tag) for tag in ('failure', 'error', 'skipped'))
+        result = 'FAILED' if failure is not None else 'ERROR' if error is not None else 'SKIPPED' if skipped is not None else 'PASSED'
+        cases.append(dict(name=case.attrib['name'], result=result,
+                          properties={p.attrib['name']: p.attrib['value'] for p in case.findall('./properties/property')},
+                          failure=(failure.text if failure is not None else error.text if error is not None else None)))
+    counts = {k: int(suite.attrib[k]) for k in ('tests', 'failures', 'errors', 'skipped')}
+    counts['passed'] = counts['tests'] - counts['failures'] - counts['errors'] - counts['skipped']
+    counts['duration_seconds'] = float(suite.attrib['time'])
+    counts['exit_code'] = run['exit_code']
+    blockers = [
+        dict(id='B01', gate='C09', status='REPRODUCED', severity='P1',
+             description='Unchanged actual producer joint rows are rejected by market adapt_joint_trials: ValueError missing trial fields. No directly accepted population exists.',
+             test='test_DIRECT_actual_producer_to_market_acceptance',
+             differences=[
+                 'Producer status is an object containing state/completion_reason/terminal_state/went_ot; adapter requires scalar status plus sibling completion_reason/terminal_state/went_ot.',
+                 'Producer freeze.input_manifest_digest vs adapter freeze.input_manifest_hash.',
+                 'Producer engine.component_version/dependencies vs adapter component_versions/dependency_versions.',
+                 'Producer team_periods[].stats.points vs adapter team_periods[].points.',
+                 'Producer can represent known-zero unplayed OT rows; adapter requires no OT rows when went_ot=false. Not exercised on the durable smoke, which played OT1.'
+             ], required_next_step='Owner-reviewed wire alignment followed by unchanged-producer integration rerun. Diagnostic mapping is not approved production code.'),
+        dict(id='B02', gate='C01/C12', status='REPRODUCED', severity='P1',
+             description='No verified canonical game/team/player crosswalk or alias-wide inspection registry. Known TNF aliases and W1-8 reject holdout; an unseen namespace alias CLAIM passes market and CORE split checks. No untouched-holdout claim is permitted.'),
+        dict(id='B03', gate='C09', status='PROCEDURAL_REQUIREMENT', severity='P1',
+             description='Library expected_trial_ids remains optional and accepts a truncated mapped batch if omitted. Ghost must pass independently retained ordered IDs; the test-only required-argument helper is not an installed production gate.'),
+        dict(id='B04', gate='C02/C06/source gate', status='BLOCKED',
+             description='Only synthetic SCENARIO_ONLY trials, zero adapter-usable. No certified real as-of source inventory/bundle, approved brainstorm or authoritative completed 15-phase run. Current readiness contract is version 1.1.1; projection_ready remains false.'),
+        dict(id='B05', gate='C11', status='BLOCKED',
+             description='Saved research quotes only, canonical crosswalk absent, sportsbook/stat/OT/tie/push/participation/void compatibility unverified. book_rules_verified=false. No joined quote/core projection envelope; settlement is JAX/BAL-specific. Missing Pinnacle Q2-Q4 spreads remain NOLINE.'),
+        dict(id='B06', gate='C06/C09', status='MARKET_STAT_UNSUPPORTED',
+             description='Actual producer targets/carries/events are retained opaquely in diagnostic transport; market supplies no player targets/carries projection API. Opaque INVALID validation or corrupted player counts are copied, not accepted as fully valid CORE evidence.'),
+        dict(id='B07', gate='C04/C05/C07/full vet', status='BLOCKED',
+             description='Official OT, penalty/untimed-down rules, defensive/special-teams returns and eligible legacy PBP export remain unsupported. Bias is unfitted; predictive/holdout/ROI evaluation absent. Ghost final vet remains outstanding; prior Grok ACCEPT_WITH_GAPS reviewed captured producer evidence only.')
+    ]
+    authority_paths = [
+        MARKET / 'research/market_calibration/tracking/GHOST_HANDOFF_MARKET_ADAPTER.md',
+        MARKET / 'research/market_calibration/reviews/INDEPENDENT_CODEX_REVIEW.md',
+        MARKET / 'research/market_calibration/reviews/AUDIT_REGEN_COMPLETION.md',
+        ROOT / 'core_contract.md', ROOT / 'reviews/COMPLETION_CODEX.md', ROOT / 'reviews/EVIDENCE_CODEX.json',
+        ROOT / 'reviews/grok_core_producer_review.md', CORE / 'research/possession_engine_v0/CORE_MANIFEST.json',
+        protected_path, ROOT / 'source_run_gate/REQUIREMENT.md', ROOT / 'source_run_gate/readiness.py',
+        ROOT / 'source_run_gate/source_ledger.schema.json', ROOT / 'source_run_gate/MANIFEST.json',
+        ROOT / 'source_run_gate/tests/test_readiness.py'
+    ]
+    integrity = {key: comparison(before[key], after[key]) for key in ('market_files', 'core_files', 'source_gate_files', 'saved_quotes')}
+    audit = dict(
+        pre=dict(path=str(MARKET / 'research/market_calibration/artifacts/saved_quote_audit.pre_snapshot_fix_2026-11-06.json'),
+                 handoff_sha256='3d1ff2defa75b964b99278640429c1d21ff5b69fb635a144bec360073399cb89'),
+        post=dict(path=str(MARKET / 'research/market_calibration/artifacts/saved_quote_audit.json'),
+                  handoff_sha256='a376a9ff4d445fce2b40964e27a0d72dfadb5d38eb53ca97d6e019f78a7f5e76'),
+        owner_regeneration_status='P2_CLOSED_PER_HANDOFF', regenerated_by_this_pass=False,
+        reported_pair_id_leaf_changes=76)
+    for entry in (audit['pre'], audit['post']):
+        entry['actual_sha256'] = hash_file(entry['path'])
+        entry['matches_handoff'] = entry['actual_sha256'] == entry['handoff_sha256']
+    evidence = dict(
+        task='LOCAL_ADVERSARIAL_INTEGRATION_VERIFICATION', generated_et=started,
+        disposition='BLOCKED_NO_GHOST_FINAL_ACCEPTANCE', final_completion_claim=False,
+        impact='NOT_MEASURED', projection_ready=False, actionable_status='NOLINE',
+        scope=dict(cursor_cloud=False, spend=0, network_requests=0, new_odds_pulls=0,
+                   auth_bypass=False, new_simulation_trials=0, loaded_synthetic_producer_trials=2,
+                   heavy_monte_carlo=False, bias_fit_calls=0, tnf_fit_as_validation=False,
+                   market_production_edits=False, write_root=str(OUT),
+                   note='Operations were local file reads/imports, validation and synthetic engineering mutations only. No forecast or projection run. Runtime fixture writes and pytest basetemp are inside integration/; bytecode/cache disabled.'),
+        authorities=[dict(path=str(p), sha256=hash_file(p)) for p in authority_paths],
+        contract=dict(path=str(ROOT / 'core_contract.md'), expected_sha256='d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9',
+                      actual_sha256=hash_file(ROOT / 'core_contract.md'), status='MATCH'),
+        commands=[json.loads((OUT / 'integration_pytest_initial_run.json').read_text()), run,
+                  dict(command=['python3', str(OUT / 'build_acceptance_packet.py')], started_et=started,
+                       purpose='Read captured pytest/JUnit and hash local files; write packet under integration only.' )],
+        exploratory_notes=[
+            'Authority/code reads and read-only git metadata preceded captured tests.',
+            'Initial exploratory import with market-first PYTHONPATH selected the older possession package; subsequent top-level CORE imports required adding the CORE possession directory. Final PYTHONPATH resolves this and a dedicated test verifies module paths.',
+            'Local integration directory has no .git; git reports exit 128. No integration HEAD is asserted.',
+            'First direct adapter probe returned ValueError missing trial fields while CORE validate_trial returned PASS. The final test retains that rejection as an ordinary failure.'
+        ],
+        worktree_heads=after['worktrees'],
+        integrity=dict(pre_snapshot=str(OUT / 'verification_pre_snapshot.json'),
+                       post_snapshot=str(OUT / 'verification_post_snapshot.json'), comparisons=integrity,
+                       protected_inventory_ref=str(protected_path), protected_inventory_sha256=hash_file(protected_path),
+                       protected_inventory_file_count=len(protected['files']),
+                       protected_inventory_pre_mismatches=before['protected_inventory_mismatches'],
+                       protected_inventory_post_mismatches=after['protected_inventory_mismatches']),
+        producer=dict(evidence_ref=str(ROOT / 'reviews/EVIDENCE_CODEX.json'),
+                      evidence_sha256=hash_file(ROOT / 'reviews/EVIDENCE_CODEX.json'),
+                      revision_files_from_evidence=prior['files_touched'], tracked_patch_from_evidence=prior['tracked_patch'],
+                      snapshot_hashes_from_evidence=smoke['artifact_hashes'],
+                      current_engine_identity=rows[0]['engine'], smoke_purpose=smoke['purpose'],
+                      artifact_directory=str(artifact), trial_ids=list(smoke['trial_ids']),
+                      retained_ids_source='reviews/EVIDENCE_CODEX.json smoke.trial_ids; loaded independently before trials.jsonl',
+                      n_requested=2, n_completed=2, n_invalid=0, n_incomplete=0, n_adapter_usable=0,
+                      forecast_id=smoke['forecast_id'], input_content_hash=smoke['input_content_hash'],
+                      trial_seeds=[r['rng']['trial_seed'] for r in rows], projection_block='SCENARIO_ONLY',
+                      validation='CORE validator recomputed on unchanged rows; PASS; not a forecast performance result'),
+        market_audit=audit,
+        pytest=dict(integration=counts, log=str(OUT / 'integration_pytest.log'), junit=str(OUT / 'integration_pytest.xml'),
+                    cases=cases, initial_run=dict(tests=52, passed=51, failures=1, errors=0, skipped=0,
+                        note='Subsequently added frozen identity, staged wire and opaque payload probes; counts are different selections, not same-set performance comparison.'),
+                    external_reported_counts=dict(market=109, core=88, rerun_in_this_pass=False,
+                        classification='Separate engineering suites only; NOT full model vet; never sum as integration/quality counts')),
+        diagnostic_mapping=dict(status='TEST_ONLY_NOT_ACCEPTED_INTEGRATION',
+            implementation=str(OUT / 'integration_adversarial_tests.py') + ':diagnostic_field_mapping',
+            changes=blockers[0]['differences'], original_rows_mutated=False,
+            original_opaque_payloads_retained=['events', 'player_periods', 'validation', 'flags', 'latent_state', 'possessions', 'aggregates', 'provenance'],
+            independent_marginals=False, opportunities_invented=False,
+            limits='Durable smoke has zero scores and OT1 in both trials. Separate corrupt-score sensitivity probe checks nonzero quarter/OT arithmetic only; it is not a producer-valid draw. No no-OT transport acceptance or real-game interoperability is established.'),
+        blockers=blockers, same_eval_predictive_metrics=None,
+        optional_independent_review_stub=str(OUT / 'GROK_INDEPENDENT_NOTE_STUB.md'))
+    evidence['artifacts'] = [dict(path=str(OUT / name), sha256=hash_file(OUT / name)) for name in (
+        'integration_adversarial_tests.py', 'build_acceptance_packet.py', 'integration_pytest.log',
+        'integration_pytest.xml', 'integration_pytest_run.json', 'integration_pytest_initial.log',
+        'integration_pytest_initial.xml', 'integration_pytest_initial_run.json',
+        'verification_pre_snapshot.json', 'verification_post_snapshot.json', 'market_calibration_file_hashes.json')]
+    write_json(OUT / 'INTEGRATION_EVIDENCE.json', evidence)
+    assert all(v['unchanged'] for v in integrity.values()), 'Protected files changed: inspect snapshots'
+    assert not after['protected_inventory_mismatches'], 'Market protected inventory mismatch'
+    assert all(e['matches_handoff'] for e in (audit['pre'], audit['post']))
+    assert counts == dict(tests=60, failures=1, errors=0, skipped=0, passed=59,
+                          duration_seconds=counts['duration_seconds'], exit_code=1), 'Update packet for changed test selection'
+    packet = f'''# Ghost acceptance packet — local adversarial integration
+
+**Disposition: BLOCKED. NO final completion claim. Impact: NOT_MEASURED.**
+
+Captured {run['started_et']} through {run['ended_et']} (America/New_York, ET).
+Packet generated {started}. **Integration: 60 collected; 59 passed; 1 failed;
+0 errors; 0 skipped; pytest exit 1.** The ordinary failure is the unchanged actual
+producer → market call: `ValueError: missing trial fields`. It is neither xfailed
+nor hidden behind a diagnostic mapping. This packet does not authorize projections,
+Ghost final acceptance, model vetting, holdout claims or actionable output.
+
+## Evidence and exact reproduction
+
+[Test suite](integration_adversarial_tests.py), [full pytest log](integration_pytest.log),
+[JUnit](integration_pytest.xml), [command/timestamps](integration_pytest_run.json),
+[machine-readable evidence](INTEGRATION_EVIDENCE.json),
+[pre snapshot](verification_pre_snapshot.json), [post snapshot](verification_post_snapshot.json).
+
+```bash
+cd {ROOT}
+export PYTHONDONTWRITEBYTECODE=1
+export GIT_OPTIONAL_LOCKS=0
+export PYTHONPATH=/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:{ROOT}
+python3 -m pytest integration/integration_adversarial_tests.py -q -p no:cacheprovider -o junit_family=legacy --basetemp=integration/pytest_tmp_final --junitxml=integration/integration_pytest.xml
+```
+
+The full command array and resolved interpreter are retained in the run JSON.
+To regenerate the report from captured results, run
+`PYTHONDONTWRITEBYTECODE=1 python3 integration/build_acceptance_packet.py`.
+That command does not execute tests. A pytest rerun must also refresh the run
+metadata before rebuilding this packet. All generated artifacts are under
+`integration/`; pytest bytecode and cache writes are disabled. The final basetemp
+contains labeled synthetic gate fixtures, not retrieved source data.
+
+Market HEAD and CORE HEAD are both
+`3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6`; their dirty/untracked status is captured.
+The integration directory is not a git repository (git exit 128); it has no
+asserted HEAD. Untracked market file identity is established by
+[the protected inventory](market_calibration_file_hashes.json), SHA-256
+`{hash_file(protected_path)}`. All {len(protected['files'])} inventory entries match.
+All {len(after['market_files'])} market files in the pre/post snapshot are unchanged,
+with no added or removed package files. CORE and source-gate bytes also match.
+
+## Actual producer evidence and diagnostic limits
+
+Loaded two durable `joint_producer` synthetic trials from
+`reviews/core_producer_synthetic_smoke`; no new simulations ran. Exact JSONL hash:
+`{smoke['artifact_hashes']['trials.jsonl']}`.
+Forecast ID: `{smoke['forecast_id']}`.
+Input content hash: `{smoke['input_content_hash']}`.
+Both trials are COMPLETE and independently revalidate PASS, but both are
+SCENARIO_ONLY, split UNASSIGNED and **0 adapter-usable**. Ordered expected IDs come
+from the pre-existing `reviews/EVIDENCE_CODEX.json`, independently of the consumer
+batch. The run-spec/input-manifest digests, retained trial seeds, frozen artifacts,
+source snapshots and current touched-file revisions are checked. Full producer
+revision hashes and the tracked-patch hash from EVIDENCE_CODEX are in the JSON.
+
+Direct interoperability fails. Progressive staged probes expose these mismatches:
+
+| Producer wire | Market requirement |
+| --- | --- |
+| `status` object; nested completion/terminal/OT fields | scalar `status`; sibling completion/terminal/OT fields |
+| `freeze.input_manifest_digest` | `freeze.input_manifest_hash` |
+| `engine.component_version`, `dependencies` | `component_versions`, `dependency_versions` |
+| `team_periods[].stats.points` | `team_periods[].points` |
+
+A **test-only field mapping** exposes downstream behavior on copies of actual
+rows. It retains opaque producer status separately and preserves events,
+player_periods, validation, flags, latent_state, possessions, aggregates and
+provenance. It changes no identities, seeds, score values or opportunities.
+It is not an approved integration bridge and is not used in the failing direct test.
+Producer known-zero unplayed OT rows also differ from the market convention;
+the mapping can omit those in its diagnostic view, but this smoke played OT1,
+so no no-OT acceptance is claimed.
+
+Diagnostic transport preserves trial/forecast IDs, seed/trial_seed, input hash
+and order, with CONTRACT_SCORE_TRANSPORT_ONLY and actionable NOLINE. H1/H2/REG/FG
+reconcile to the same producer primitive and event/aggregate scores. Both smoke
+trials have zero scores; an explicitly corrupted nonzero-score sensitivity probe
+checks consumer arithmetic and isolation across trials, not producer validity.
+Coverage UNKNOWN; routes and personnel 11/12/13 MISSING remain null and effect-disabled.
+Producer player opportunities are retained; market player targets/carries API is
+**MARKET_STAT_UNSUPPORTED**. Opaque payload copying does not validate full CORE
+accounting: invalid declarations/corrupted player counts remain copied and NOLINE.
+
+## Adversarial results and acceptance blockers
+
+1. **B01 — Direct producer/adapter wire mismatch:** one required acceptance test
+   fails. Owners must align the wire schema and rerun unchanged producer output.
+   No market or producer production patch was made.
+2. **B02 — Alias/split leakage:** known TNF aliases and inspected 2026 W1–8
+   reject untouched-holdout relabeling. An unseen namespace alias CLAIM passes
+   market and CORE split validators. This is a documented blocker, not an accepted
+   canonical mapping. A verified crosswalk and alias-wide inspection registry
+   are required. TNF actuals remain EVIDENCE_ONLY_POSTGAME.
+3. **B03 — Population procedure:** truncation, reorder and duplicates reject when
+   independently retained expected IDs are supplied. The library accepts a
+   truncated mapped subset when the optional argument is omitted. Ghost must
+   enforce the supplied-ID procedure; the test helper is not an installed gate.
+   Seed/hash corruption, INVALID/INCOMPLETE and mocked contract mismatch reject.
+4. **B04 — Sources/readiness:** actual inventory has no usable run evidence.
+   Calling the existing gate leaves projection_ready false. Full synthetic
+   fixtures remain non-live; missing inventory, brainstorm, checklist, report or
+   phase 15 fail. Relabeling synthetic evidence as live fails. Current local
+   requirement is v1.1.1; the earlier handoff mentions v1.1.0. Neither version
+   grants workflow completion from pytest. Certified real as-of inputs and
+   authoritative workflow definitions/completion are absent.
+5. **B05 — Quote/core compatibility:** exactly the three SAVED_ONLY CSVs are
+   opened. File hashes, raw quote fields, row numbers and timestamps are retained;
+   hindsight grades/scores are excluded from quote features. Saved Pinnacle Q1
+   pair is research MATCHED with actionable NOLINE. Removing either side yields
+   NOLINE; missing Pinnacle Q2–Q4 spreads remain NOLINE without borrowed lines or
+   prices. Mismatched snapshots and future clocks reject. Rules stay unverified:
+   book_rules_verified=false. No canonical crosswalk or end-to-end actionable
+   quote/core envelope exists. Settlement rejects the synthetic canonical IDs;
+   no ID is relabeled to force the JAX/BAL helper.
+6. **B06/B07 — Unsupported scope/full vet:** no market player-target/carry API,
+   official OT/penalty/untimed-down/return acceptance, eligible legacy PBP export,
+   fitted Bias, untouched holdout or predictive validation. The earlier Grok
+   ACCEPT_WITH_GAPS note reviewed captured CORE evidence without re-execution;
+   it is not Ghost acceptance of this integration suite.
+
+All passing diagnostic/gap-characterization tests are engineering observations.
+They do not mean the documented library gaps are resolved. The contract SHA-256
+matches `d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9`.
+
+## Preserved market audit and separate engineering counts
+
+Historical pre-regeneration audit SHA-256:
+`{audit['pre']['actual_sha256']}`.
+Current post-regeneration audit SHA-256:
+`{audit['post']['actual_sha256']}`.
+Both match the handoff. Owner P2 regeneration is CLOSED; this pass did not run
+the audit CLI or rewrite either audit. The handoff reports 76 pair-ID leaf changes.
+
+| Suite | Count | Status/source |
+| --- | --- | --- |
+| This integration selection | 59 passed, 1 failed (60 total) | Executed locally; direct acceptance BLOCKED |
+| Initial integration selection | 51 passed, 1 failed (52 total) | Earlier, smaller selection; retained log/JUnit |
+| Market combined suite | 109 passed | Reported prior engineering result; not rerun here |
+| CORE suite | 88 passed | Reported prior synthetic engineering result; not rerun here |
+
+These counts are separate and do not measure predictive performance or a full
+model vet. Bias remains unfitted with null coefficients. Impact NOT_MEASURED;
+no same-evaluation predictive baseline/after metrics exist. No Cursor Cloud,
+spend, auth bypass, network requests, odds pulls, new simulation trials,
+heavy Monte Carlo, Bias fitting or TNF fit-as-validation occurred.
+
+Optional future independent review: [Grok note stub](GROK_INDEPENDENT_NOTE_STUB.md).
+**NO final completion claim. Ghost final acceptance remains BLOCKED.**
+'''
+    (OUT / 'GHOST_ACCEPTANCE_PACKET.md').write_text(packet)
+    print(json.dumps(dict(integration=counts, integrity=integrity,
+                          evidence=str(OUT / 'INTEGRATION_EVIDENCE.json'),
+                          packet=str(OUT / 'GHOST_ACCEPTANCE_PACKET.md')), indent=2))
+
+
+if __name__ == '__main__':
+    main()

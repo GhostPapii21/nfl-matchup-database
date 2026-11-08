@@ -1,0 +1,28 @@
+You are Codex doing sanctioned LOCAL implementation work for NFL sim integration (Ghost6/BetGuru coordination). Do NOT use Cursor Cloud. Do NOT invent coverage or routes. Do NOT change betting rules. Do NOT touch /workspace/wt-market-calibration or any market_calibration/ tree. Do NOT fabricate TNF fit numbers.
+
+GOAL (phase 1 ONLY): Write the shared integration contract/checklist to this exact path:
+  /workspace/research/nfl_sim_integration_2026-11-06/core_contract.md
+
+Also write a short machine-readable companion if useful:
+  /workspace/research/nfl_sim_integration_2026-11-06/core_contract.checklist.json
+
+Working tree for later code (read for context; do not implement engine changes yet in this phase):
+  /workspace/wt-nfl-sim-core-2026-11-06  (git HEAD 3448ad7, branch research-nfl-sim-core-2026-11-06)
+Relevant existing local packages (read-only context):
+  research/possession_engine_v0/
+  research/period_engine_v0/
+Evidence-only TNF actuals (do not fit/calibrate to them in this phase):
+  /workspace/nfl-database/live/2026-11-05_JAX_BAL/actual_role_coverage_audit.md
+
+CONTRACT MUST DEFINE (checklist + prose):
+1. Stable IDs: game_id, player_id conventions; trial_id; seed; UTC cutoff timestamp; engine version; content hash of frozen inputs.
+2. Clock boundaries: regulation / OT / quarter boundaries; possession clock coherence; team and player accounting.
+3. Generation order: player TARGETS and CARRIES generated BEFORE yards, with game-state / depth / rotation uncertainty + provenance flags.
+4. Team attempt accounting conservation: dropbacks, throwaways, sacks, scrambles, kneels; eligible target conservation; catches <= targets; carry conservation.
+5. Joint trial output schema (one trial = coherent full-game draw for Ghost6 + BetGuru adapters).
+6. Explicit MISSING flags (coverage UNKNOWN, routes MISSING, personnel 11/12/13 MISSING — never fabricate).
+7. BetGuru adapter consumer fields: quote timestamp, book, stat, period, line, side, price; both-side pairing; mismatches = NOLINE.
+8. Frozen forecast / calibration train/dev/holdout ID policy (IDs only; do not edit market_calibration).
+9. Out of scope: no new odds/spend; no betting-rule changes; no fabricated coverage/routes; no Cursor paid cloud.
+
+Return when core_contract.md exists and is complete. Summarize sections written and absolute path.

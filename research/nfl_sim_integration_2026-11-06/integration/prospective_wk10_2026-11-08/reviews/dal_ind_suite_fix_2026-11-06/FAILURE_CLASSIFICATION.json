@@ -1,0 +1,299 @@
+{
+  "count": 36,
+  "failures": [
+    {
+      "test_id": "research/possession_engine_v0/tests/test_asof_both_teams.py::test_w2_game_loads_both_teams_prior_plays",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_asof_both_teams.py::test_w1_still_ungradable",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_asof_both_teams.py::test_w3_plus_can_grade_full_not_opponent_out_of_scope",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_audit_scoring_realism.py::test_data_only_mean_total_not_nfl_impossible",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "KeyError: 'arrays'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_codex_p1_regressions.py::test_effects_catalog_runs_complete_game",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "+ PBP_MISSING",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_codex_p1_regressions.py::test_coarse_support_is_reported_when_hard_sparse_zero",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "KeyError: 'evidence_summary'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_codex_p1_regressions.py::test_period_report_accepts_current_realism_schema",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_codex_p1_regressions.py::test_kick_distance_column_loaded_in_history",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "AttributeError: 'NoneType' object has no attribute 'columns'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_complete_pass2.py::test_simulate_games_wires_effects_with_provenance",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "KeyError: 'effects_provenance'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_complete_pass2.py::test_def_allowed_interaction_used_for_jaxbal_when_enabled",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "KeyError: 'evidence_summary'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_complete_pass2.py::test_data_only_default_has_no_def_allowed_mixing",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "KeyError: 'evidence_summary'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_complete_pass2.py::test_player_joint_samples_exported",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "KeyError: 'player_samples'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_complete_pass2.py::test_realism_n_team_games_is_group_count",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_completion_fixes.py::test_apples_to_apples_pace_uses_combined_game_snaps",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_completion_fixes.py::test_defense_conditioned_sampling_prefers_opponent_when_enough_n",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "AttributeError: 'NoneType' object has no attribute 'posteam'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_completion_fixes.py::test_empirical_clock_costs_from_pbp_when_available",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "AttributeError: 'NoneType' object has no attribute 'columns'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_effects_supported.py::test_explosive_definitions_and_denominators",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_effects_supported.py::test_qb_hit_labeled_proxy_blitz_from_ftn_when_joined",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_effects_supported.py::test_blitz_strata_changes_sampled_pass_events",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_effects_supported.py::test_defense_blitz_rate_tags_events",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_period_grading.py::test_reconstruct_actual_periods_jax_den",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_period_grading.py::test_period_grade_includes_mae_separate_from_fg",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_period_scoreboards.py::test_sim_arrays_include_period_scores",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "KeyError: 'arrays'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_provenance_ledger_situational.py::test_situational_has_opportunity_and_conditional",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "TypeError: 'NoneType' object is not subscriptable",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_provenance_ledger_situational.py::test_provenance_statuses_not_trust_scores",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "TypeError: 'NoneType' object is not subscriptable",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_realism_diagnostics.py::test_realism_report_has_denominators",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_sparse_and_config.py::test_history_team_only_weeks_1_8_no_future",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "+ PBP_MISSING",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_sparse_and_config.py::test_sparse_state_no_silent_pool",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "TypeError: 'NoneType' object is not subscriptable",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_sparse_and_config.py::test_proposed_pool_not_applied_when_disabled",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "TypeError: 'NoneType' object is not subscriptable",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_sparse_and_config.py::test_qb_filter_forward_only_excludes_lamar_does_not_fabricate_fagnano",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "AttributeError: 'NoneType' object has no attribute 'copy'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_state_and_sim_slice.py::test_simulate_data_only_small_n_invariants",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "AssertionError: assert 'PBP_MISSING' in {'OK', 'OK_WITH_SPARSE_FLAGS'}",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_state_and_sim_slice.py::test_simulate_script_adjusted_marks_sparse_qb_and_excludes_lamar",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "KeyError: 'adjustments_meta'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_validation_grading.py::test_accounting_reports_reg_clock_and_sparse",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "TypeError: 'NoneType' object is not subscriptable",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_validation_grading.py::test_w1_games_are_ungradable_no_own_season_history",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_validation_grading.py::test_w3_opponent_prior_plays_graded_no_league_pool",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    },
+    {
+      "test_id": "research/possession_engine_v0/tests/test_validation_grading.py::test_asof_history_excludes_future_weeks_and_prior_year",
+      "category": "MISSING_DEPENDENCY_OR_FIXTURE",
+      "observed_symptom": "FileNotFoundError: [Errno 2] Failed to open local file '/workspace/wt-nfl-sim-core-2026-11-06/research/period_engine_v0/data/play_by_play_2026.parquet'. Detail: [errno 2] No such file or directory",
+      "root_cause": "expected period_engine_v0/data/play_by_play_2026.parquet absent",
+      "remedy": "normal runtime fixture symlink; no skip/xfail or test deletion",
+      "evidence": "pytest_initial.txt versus pytest_fixture_after.txt: all original 36 passed after fixture installation"
+    }
+  ],
+  "additional_regression_hardening": [
+    "None history returns explicit empty evidence",
+    "adjustments=null treated as disabled",
+    "seed content-hash confound removed with v2 policy",
+    "return_yards rejected instead of ignored"
+  ]
+}

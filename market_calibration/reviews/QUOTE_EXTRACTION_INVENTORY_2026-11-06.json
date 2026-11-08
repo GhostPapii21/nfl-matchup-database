@@ -1,0 +1,3576 @@
+{
+  "generated_et": "2026-11-06",
+  "policy": "SAVED_ONLY + public probe; no Odds API spend; no quote fabrication",
+  "sources": [
+    {
+      "path": "/workspace/nfl-database/backtests/current_rules_wk6_8/real_lines_wk6_8.csv",
+      "sha256": "1a06abc398c60596fe91ff02396d35ec7f97662838e8b1ac0e3b08289d7eab36",
+      "n_rows": 1428,
+      "books": {
+        "fanduel": 1002,
+        "bovada": 6,
+        "betonlineag": 52,
+        "draftkings": 309,
+        "betmgm": 22,
+        "betrivers": 37
+      },
+      "markets_top": [
+        [
+          "recyds",
+          544
+        ],
+        [
+          "rec",
+          539
+        ],
+        [
+          "rushyds",
+          263
+        ],
+        [
+          "passyds",
+          82
+        ]
+      ],
+      "mtime_et": "2026-11-03 05:34:27",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/rulebook_replay_wk6_8/mnf_lines.csv",
+      "sha256": "d39b0ed907d25707efbe00c6b2b873377edab104ebfebfbb0cd28dfdeefa1d2d",
+      "n_rows": 33,
+      "books": {
+        "draftkings": 9,
+        "fanduel": 24
+      },
+      "markets_top": [
+        [
+          "recyds",
+          12
+        ],
+        [
+          "rec",
+          12
+        ],
+        [
+          "rushyds",
+          7
+        ],
+        [
+          "passyds",
+          2
+        ]
+      ],
+      "mtime_et": "2026-11-03 05:57:53",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/gameline_inventory.csv",
+      "sha256": "ddf7919deff360ee6c6f9451e9323ac88fd92763db93798c30fc98b25c8adb95",
+      "n_rows": 42,
+      "books": {
+        "": 42
+      },
+      "markets_top": [
+        [
+          "",
+          42
+        ]
+      ],
+      "mtime_et": "2026-11-03 06:19:23",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/graded_baseline_2025_standin.csv",
+      "sha256": "4f64749c0a9a4da275b018e89d5a9ddc26d4bb279f36bb79314aa4f6af14cf8d",
+      "n_rows": 1022,
+      "books": {
+        "stand-in": 1022
+      },
+      "markets_top": [
+        [
+          "rushyds",
+          1022
+        ]
+      ],
+      "mtime_et": "2026-11-03 16:51:44",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/graded_baseline_wk1-2_standin.csv",
+      "sha256": "2e15eee4dd51ddb8020552cf2edcb91e2ef18ff09eca1c4e4aaf9c3f1e32b376",
+      "n_rows": 128,
+      "books": {
+        "stand-in": 128
+      },
+      "markets_top": [
+        [
+          "rushyds",
+          128
+        ]
+      ],
+      "mtime_et": "2026-11-03 14:29:31",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/graded_baseline_wk3-8.csv",
+      "sha256": "3e5cbc5467028b8359a4c818ff639ed87c13c28e877529a48207700e1703187e",
+      "n_rows": 546,
+      "books": {
+        "consensus": 546
+      },
+      "markets_top": [
+        [
+          "rushyds",
+          546
+        ]
+      ],
+      "mtime_et": "2026-11-03 14:29:31",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs/w1/game_lines.csv",
+      "sha256": "fa1b122f14ed02c4def5f3e9e92847491f625484fd0254553dc7e20fd645c07a",
+      "n_rows": 16,
+      "books": {
+        "": 16
+      },
+      "markets_top": [
+        [
+          "",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-03 11:50:27",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs/w2/game_lines.csv",
+      "sha256": "8171cee64571eb1a947b37e29bbebea8289da699319991c90150d5a1815f6b1a",
+      "n_rows": 16,
+      "books": {
+        "": 16
+      },
+      "markets_top": [
+        [
+          "",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-03 11:50:28",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w10/game_lines.csv",
+      "sha256": "a6d0bcc59c95a891fd5781dbb278a669fbf3958a2961e8ca7476457cef82f4a5",
+      "n_rows": 14,
+      "books": {
+        "": 14
+      },
+      "markets_top": [
+        [
+          "",
+          14
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:24",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w11/game_lines.csv",
+      "sha256": "73775a0a28e98cf2a509627a5c21c4ce2034831b3c72a59660387e0db8402345",
+      "n_rows": 15,
+      "books": {
+        "": 15
+      },
+      "markets_top": [
+        [
+          "",
+          15
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:25",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w12/game_lines.csv",
+      "sha256": "8091b3a992137d651c4107a5a554a2adbd0e28a40d23ac1c72aeb5d88f2eee78",
+      "n_rows": 14,
+      "books": {
+        "": 14
+      },
+      "markets_top": [
+        [
+          "",
+          14
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:25",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w13/game_lines.csv",
+      "sha256": "5ae4e805333f8138f70dd416891eb8332cb64295dd9308ee598b69004041a06c",
+      "n_rows": 16,
+      "books": {
+        "": 16
+      },
+      "markets_top": [
+        [
+          "",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:26",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w14/game_lines.csv",
+      "sha256": "ac75647636c11e91d45b5e5f643708a41cbcff285ff7ea8dc790f0a446af664e",
+      "n_rows": 14,
+      "books": {
+        "": 14
+      },
+      "markets_top": [
+        [
+          "",
+          14
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:27",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w15/game_lines.csv",
+      "sha256": "1705649ec5ac95e845b415a8f608aa2568b6692675952db966f07c4b3f5f9545",
+      "n_rows": 16,
+      "books": {
+        "": 16
+      },
+      "markets_top": [
+        [
+          "",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:27",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w16/game_lines.csv",
+      "sha256": "be22c3797eb08bd1f299f3560de85409672c7f9ce4282c3ea656f4af550e07de",
+      "n_rows": 16,
+      "books": {
+        "": 16
+      },
+      "markets_top": [
+        [
+          "",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:28",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w17/game_lines.csv",
+      "sha256": "c869a59e26976707d290301a01d036860164ab755afe5a0d9406999e3805fc4e",
+      "n_rows": 16,
+      "books": {
+        "": 16
+      },
+      "markets_top": [
+        [
+          "",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:28",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w18/game_lines.csv",
+      "sha256": "8de1fb55e06c36d029d339e18cb1e140819396d356677f04dc8105a775c3f89c",
+      "n_rows": 16,
+      "books": {
+        "": 16
+      },
+      "markets_top": [
+        [
+          "",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:29",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w2/game_lines.csv",
+      "sha256": "9b32622faa2e91d880fc84ba2c38f5ff258fa9a032abcffec760dd240ee3a232",
+      "n_rows": 16,
+      "books": {
+        "": 16
+      },
+      "markets_top": [
+        [
+          "",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:20",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w3/game_lines.csv",
+      "sha256": "5ac2ac254d85482184d6766a76304de331a4aa18970fa35da2ececadecf07e89",
+      "n_rows": 16,
+      "books": {
+        "": 16
+      },
+      "markets_top": [
+        [
+          "",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:21",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w4/game_lines.csv",
+      "sha256": "4ac701df1d70865a425172af84008a2cf889974583f2ee5f0da24596bf03fbfe",
+      "n_rows": 16,
+      "books": {
+        "": 16
+      },
+      "markets_top": [
+        [
+          "",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:21",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w5/game_lines.csv",
+      "sha256": "004fbe23499005d00352e2f113ef898603a872b4054e78a3e887d11a38a8f8e1",
+      "n_rows": 14,
+      "books": {
+        "": 14
+      },
+      "markets_top": [
+        [
+          "",
+          14
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:21",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w6/game_lines.csv",
+      "sha256": "5c8f261b75ffbba620e5b33bfc61d5f73c861b951b0c244bb16bdb11e9a73a7c",
+      "n_rows": 15,
+      "books": {
+        "": 15
+      },
+      "markets_top": [
+        [
+          "",
+          15
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:22",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w7/game_lines.csv",
+      "sha256": "8674b642e184c91c17757671a87c89f17b89d56f4bc7467f96e21d11a8480020",
+      "n_rows": 15,
+      "books": {
+        "": 15
+      },
+      "markets_top": [
+        [
+          "",
+          15
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:22",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w8/game_lines.csv",
+      "sha256": "6a96254a223ea4698ef1d262a0cfa47b6008b929bd050134d7979a0f8dc0b5d3",
+      "n_rows": 13,
+      "books": {
+        "": 13
+      },
+      "markets_top": [
+        [
+          "",
+          13
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:23",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v6_brainstorm_proedge/packs25/w9/game_lines.csv",
+      "sha256": "8d5af0b66bd32a78e796f4f4463f46cb11117ce544eb8a053aa8834689586b1f",
+      "n_rows": 14,
+      "books": {
+        "": 14
+      },
+      "markets_top": [
+        [
+          "",
+          14
+        ]
+      ],
+      "mtime_et": "2026-11-03 12:12:24",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v7_openai/data/lines_wk3_8.csv",
+      "sha256": "9f3b11ba67d86a19fda7c634d88d2edf144fc8eaba9b8a41897f7a598a680d58",
+      "n_rows": 20612,
+      "books": {
+        "draftkings": 3812,
+        "fanduel": 3826,
+        "betrivers": 3284,
+        "betonlineag": 3058,
+        "fanatics": 352,
+        "betmgm": 3252,
+        "bovada": 3028
+      },
+      "markets_top": [
+        [
+          "recyds",
+          12544
+        ],
+        [
+          "rushyds",
+          5962
+        ],
+        [
+          "rushrecyds",
+          2106
+        ]
+      ],
+      "mtime_et": "2026-11-03 15:11:57",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/v7_openai/v5_1/data/lines_noact.csv",
+      "sha256": "a94fdaa7345742ffd737c169a3fda800a4bc4c1dfa5e23cd07015efed9d47b40",
+      "n_rows": 20612,
+      "books": {
+        "draftkings": 3812,
+        "fanduel": 3826,
+        "betrivers": 3284,
+        "betonlineag": 3058,
+        "fanatics": 352,
+        "betmgm": 3252,
+        "bovada": 3028
+      },
+      "markets_top": [
+        [
+          "recyds",
+          12544
+        ],
+        [
+          "rushyds",
+          5962
+        ],
+        [
+          "rushrecyds",
+          2106
+        ]
+      ],
+      "mtime_et": "2026-11-03 15:21:30",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/yardage_markets_wk3_8/v3/baseline_by_week.csv",
+      "sha256": "76a43ba917934bb07de482ba83050149f0f1b52e55ecd3954953e98db2d571bc",
+      "n_rows": 12,
+      "books": {
+        "": 12
+      },
+      "markets_top": [
+        [
+          "",
+          12
+        ]
+      ],
+      "mtime_et": "2026-11-03 07:02:40",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/yardage_markets_wk3_8/v3/baseline_train.csv",
+      "sha256": "c9a2796b98135f8f938d725eda56de25e67d2b26c94cafc3891bc10040da13e3",
+      "n_rows": 8,
+      "books": {
+        "": 8
+      },
+      "markets_top": [
+        [
+          "",
+          8
+        ]
+      ],
+      "mtime_et": "2026-11-03 06:59:51",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/yardage_markets_wk3_8/v3/rule_baseline_comparison.csv",
+      "sha256": "adee706b22c7f186dd6308e9fd2cde3f116c61912a8ab3c157cf9d8822f592e2",
+      "n_rows": 80,
+      "books": {
+        "": 80
+      },
+      "markets_top": [
+        [
+          "recyds",
+          32
+        ],
+        [
+          "rushyds",
+          32
+        ],
+        [
+          "rushrecyds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-03 07:02:41",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/yardage_markets_wk3_8/v3/saved_game_odds_inventory.csv",
+      "sha256": "b87ff234b8b59c3eb17fa55f7d4e4dc636ea85e087e9f3b1915c23a2f2bb51c9",
+      "n_rows": 16886,
+      "books": {
+        "draftkings": 2022,
+        "betus": 1316,
+        "williamhill_us": 1844,
+        "fanduel": 2026,
+        "lowvig": 1464,
+        "betonlineag": 1468,
+        "betrivers": 2010,
+        "mybookieag": 1234,
+        "betmgm": 1356,
+        "bovada": 1038,
+        "fanatics": 1098,
+        "pinnacle": 10
+      },
+      "markets_top": [
+        [
+          "spreads",
+          5840
+        ],
+        [
+          "totals",
+          5840
+        ],
+        [
+          "h2h",
+          5206
+        ]
+      ],
+      "mtime_et": "2026-11-03 06:59:14",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/yardage_markets_wk3_8/v4/packs/w3/game_lines.csv",
+      "sha256": "aac994eb8c932e5a1969b10d4edb7c48eaad39c5e0c3d82ffbf199cfd8b5b37c",
+      "n_rows": 0,
+      "books": {},
+      "markets_top": [],
+      "mtime_et": "2026-11-03 07:07:44",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/yardage_markets_wk3_8/v4/packs/w6/game_lines.csv",
+      "sha256": "cf61969dce12326d65ce1105e51c0ffe9b66d1d66cfeee30a6d7bdfde87d55ee",
+      "n_rows": 616,
+      "books": {
+        "draftkings": 56,
+        "betus": 56,
+        "williamhill_us": 56,
+        "fanduel": 56,
+        "lowvig": 56,
+        "betonlineag": 56,
+        "betrivers": 56,
+        "mybookieag": 56,
+        "betmgm": 56,
+        "bovada": 56,
+        "fanatics": 56
+      },
+      "markets_top": [
+        [
+          "spreads",
+          308
+        ],
+        [
+          "totals",
+          308
+        ]
+      ],
+      "mtime_et": "2026-11-03 07:07:46",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/yardage_markets_wk3_8/v4/packs/w7/game_lines.csv",
+      "sha256": "acccd0507f834ef5489a49d9f0989ca89f5d46034773c397cee891aa57400b45",
+      "n_rows": 616,
+      "books": {
+        "draftkings": 56,
+        "williamhill_us": 56,
+        "fanduel": 56,
+        "betus": 56,
+        "lowvig": 56,
+        "betonlineag": 56,
+        "betrivers": 56,
+        "mybookieag": 56,
+        "betmgm": 56,
+        "fanatics": 56,
+        "bovada": 56
+      },
+      "markets_top": [
+        [
+          "spreads",
+          308
+        ],
+        [
+          "totals",
+          308
+        ]
+      ],
+      "mtime_et": "2026-11-03 07:07:46",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/yardage_markets_wk3_8/v4/packs/w8/game_lines.csv",
+      "sha256": "543d828715e977050047289ac1944413a20d1ccf80e8f9f19c426a7746808ff3",
+      "n_rows": 572,
+      "books": {
+        "draftkings": 52,
+        "williamhill_us": 52,
+        "betus": 52,
+        "fanduel": 52,
+        "betrivers": 52,
+        "lowvig": 52,
+        "betonlineag": 52,
+        "mybookieag": 52,
+        "betmgm": 52,
+        "fanatics": 52,
+        "bovada": 52
+      },
+      "markets_top": [
+        [
+          "spreads",
+          286
+        ],
+        [
+          "totals",
+          286
+        ]
+      ],
+      "mtime_et": "2026-11-03 07:07:46",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/backtests/yardage_markets_wk3_8/v5/graded_baseline.csv",
+      "sha256": "501e7fe88b0801b129706473cf88017d8a39e54696a5f5f7ceb75f6446dd643c",
+      "n_rows": 546,
+      "books": {
+        "consensus": 546
+      },
+      "markets_top": [
+        [
+          "rushyds",
+          546
+        ]
+      ],
+      "mtime_et": "2026-11-03 10:12:21",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/period_line_grades.csv",
+      "sha256": "6a8deb2b30ecf699a543d8a32fc000f6d1977f335914cfd468a3786633fea96a",
+      "n_rows": 64,
+      "books": {
+        "draftkings": 16,
+        "fanduel": 32,
+        "pinnacle": 16
+      },
+      "markets_top": [
+        [
+          "h2h_h1",
+          16
+        ],
+        [
+          "h2h_q1",
+          16
+        ],
+        [
+          "spreads_h1",
+          16
+        ],
+        [
+          "spreads_q1",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-05 23:12:08",
+      "time_field_samples": [
+        "2026-11-04T19:59:57Z",
+        "2026-11-05T17:35:33Z",
+        "2026-11-06T00:04:02Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/period_lines_cleared_ledger.csv",
+      "sha256": "3a1961f26ccfaea0cbc16e5b25d6d8eaac0a81dca3312806efc20a73c7652438",
+      "n_rows": 230,
+      "books": {
+        "draftkings": 104,
+        "fanduel": 126
+      },
+      "markets_top": [
+        [
+          "spreads_q1",
+          22
+        ],
+        [
+          "h2h_h1",
+          20
+        ],
+        [
+          "h2h_q1",
+          20
+        ],
+        [
+          "spreads_h1",
+          20
+        ],
+        [
+          "spreads",
+          10
+        ],
+        [
+          "totals",
+          10
+        ],
+        [
+          "spreads_q2",
+          10
+        ],
+        [
+          "spreads_q3",
+          10
+        ],
+        [
+          "totals_h1",
+          10
+        ],
+        [
+          "h2h",
+          8
+        ]
+      ],
+      "mtime_et": "2026-11-05 23:12:08",
+      "time_field_samples": [
+        "2026-11-04T00:14:04Z",
+        "2026-11-04T00:14:16Z",
+        "2026-11-04T00:14:23Z",
+        "2026-11-04T00:15:12Z",
+        "2026-11-04T00:15:34Z",
+        "2026-11-04T19:59:15Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/period_q1_q2_q3_fd_dk_cleared.csv",
+      "sha256": "d0000e66db3cbfe3a8831a4d4ff651626718496b142697e88e46d535ed41118d",
+      "n_rows": 36,
+      "books": {
+        "draftkings": 18,
+        "fanduel": 18
+      },
+      "markets_top": [
+        [
+          "h2h_q1",
+          4
+        ],
+        [
+          "spreads_q1",
+          4
+        ],
+        [
+          "totals_q1",
+          4
+        ],
+        [
+          "h2h_q2",
+          4
+        ],
+        [
+          "spreads_q2",
+          4
+        ],
+        [
+          "totals_q2",
+          4
+        ],
+        [
+          "h2h_q3",
+          4
+        ],
+        [
+          "spreads_q3",
+          4
+        ],
+        [
+          "totals_q3",
+          4
+        ]
+      ],
+      "mtime_et": "2026-11-05 23:13:47",
+      "time_field_samples": [
+        "2026-11-04T00:14:04Z",
+        "2026-11-04T00:14:16Z",
+        "2026-11-04T00:15:34Z",
+        "2026-11-04T19:59:15Z",
+        "2026-11-04T19:59:57Z",
+        "2026-11-06T00:03:30Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_a0715.csv",
+      "sha256": "095761cc646e0b289fb40f674580cc929b138c8934be4832902890fa793d37c5",
+      "n_rows": 14968,
+      "books": {
+        "draftkings": 5841,
+        "fanduel": 4055,
+        "underdog": 974,
+        "prizepicks": 3324,
+        "pinnacle": 774
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          4608
+        ],
+        [
+          "player_receptions_alternate",
+          2783
+        ],
+        [
+          "player_rush_yds_alternate",
+          2125
+        ],
+        [
+          "player_reception_yds",
+          1246
+        ],
+        [
+          "player_receptions",
+          1086
+        ],
+        [
+          "player_pass_yds_alternate",
+          1063
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          766
+        ],
+        [
+          "player_rush_yds",
+          648
+        ],
+        [
+          "player_rush_reception_yds",
+          266
+        ],
+        [
+          "player_pass_yds",
+          207
+        ]
+      ],
+      "mtime_et": "2026-11-01 07:11:05",
+      "time_field_samples": [
+        "2026-11-01T12:07:50Z",
+        "2026-11-01T12:09:51Z",
+        "2026-11-01T12:09:54Z",
+        "2026-11-01T12:09:56Z",
+        "2026-11-01T12:09:58Z",
+        "2026-11-01T12:10:03Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_b1149.csv",
+      "sha256": "48af5c0c1892c440cb8351b6b3f4af0db317a6c1313cd7a70e96de8d0ae95746",
+      "n_rows": 15559,
+      "books": {
+        "draftkings": 6067,
+        "fanduel": 4232,
+        "underdog": 1017,
+        "prizepicks": 3431,
+        "pinnacle": 812
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          4853
+        ],
+        [
+          "player_receptions_alternate",
+          2919
+        ],
+        [
+          "player_rush_yds_alternate",
+          2168
+        ],
+        [
+          "player_reception_yds",
+          1314
+        ],
+        [
+          "player_receptions",
+          1110
+        ],
+        [
+          "player_pass_yds_alternate",
+          1059
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          799
+        ],
+        [
+          "player_rush_yds",
+          686
+        ],
+        [
+          "player_rush_reception_yds",
+          270
+        ],
+        [
+          "player_pass_yds",
+          207
+        ]
+      ],
+      "mtime_et": "2026-11-01 11:49:12",
+      "time_field_samples": [
+        "2026-11-01T16:40:09Z",
+        "2026-11-01T16:47:53Z",
+        "2026-11-01T16:47:54Z",
+        "2026-11-01T16:48:04Z",
+        "2026-11-01T16:48:07Z",
+        "2026-11-01T16:48:08Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_b1205.csv",
+      "sha256": "5b05eea5db41e103ece1cea23cbc8570283a161662e4ddf3435ddd0910392295",
+      "n_rows": 15548,
+      "books": {
+        "draftkings": 6063,
+        "fanduel": 4229,
+        "underdog": 1013,
+        "prizepicks": 3433,
+        "pinnacle": 810
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          4852
+        ],
+        [
+          "player_receptions_alternate",
+          2918
+        ],
+        [
+          "player_rush_yds_alternate",
+          2165
+        ],
+        [
+          "player_reception_yds",
+          1310
+        ],
+        [
+          "player_receptions",
+          1112
+        ],
+        [
+          "player_pass_yds_alternate",
+          1061
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          799
+        ],
+        [
+          "player_rush_yds",
+          686
+        ],
+        [
+          "player_rush_reception_yds",
+          268
+        ],
+        [
+          "player_pass_yds",
+          207
+        ]
+      ],
+      "mtime_et": "2026-11-01 11:57:44",
+      "time_field_samples": [
+        "2026-11-01T16:49:27Z",
+        "2026-11-01T16:55:22Z",
+        "2026-11-01T16:56:11Z",
+        "2026-11-01T16:56:15Z",
+        "2026-11-01T16:56:32Z",
+        "2026-11-01T16:56:33Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_b1442.csv",
+      "sha256": "8ab44b2988c8179b979bb684d2ab27f2ec1b217a7444010f46abcf3d531ef493",
+      "n_rows": 10179,
+      "books": {
+        "draftkings": 4402,
+        "fanduel": 3087,
+        "prizepicks": 1646,
+        "pinnacle": 708,
+        "underdog": 336
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          3159
+        ],
+        [
+          "player_receptions_alternate",
+          1855
+        ],
+        [
+          "player_rush_yds_alternate",
+          1427
+        ],
+        [
+          "player_reception_yds",
+          1078
+        ],
+        [
+          "player_receptions",
+          718
+        ],
+        [
+          "player_pass_yds_alternate",
+          583
+        ],
+        [
+          "player_rush_yds",
+          542
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          324
+        ],
+        [
+          "player_pass_yds",
+          181
+        ],
+        [
+          "player_rush_reception_yds",
+          180
+        ]
+      ],
+      "mtime_et": "2026-11-01 14:42:26",
+      "time_field_samples": [
+        "2026-11-01T19:32:04Z",
+        "2026-11-01T19:32:05Z",
+        "2026-11-01T19:32:19Z",
+        "2026-11-01T19:35:35Z",
+        "2026-11-01T19:39:05Z",
+        "2026-11-01T19:39:06Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_final.csv",
+      "sha256": "f0229f41ae2f3c4d5c0d8c430ffa50040952d4bebe2d52990da3978041f773ca",
+      "n_rows": 14760,
+      "books": {
+        "draftkings": 5651,
+        "fanduel": 4047,
+        "underdog": 966,
+        "prizepicks": 3326,
+        "pinnacle": 770
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          4513
+        ],
+        [
+          "player_receptions_alternate",
+          2739
+        ],
+        [
+          "player_rush_yds_alternate",
+          2114
+        ],
+        [
+          "player_reception_yds",
+          1238
+        ],
+        [
+          "player_receptions",
+          1074
+        ],
+        [
+          "player_pass_yds_alternate",
+          1034
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          765
+        ],
+        [
+          "player_rush_yds",
+          646
+        ],
+        [
+          "player_rush_reception_yds",
+          264
+        ],
+        [
+          "player_pass_yds",
+          205
+        ]
+      ],
+      "mtime_et": "2026-11-01 07:30:59",
+      "time_field_samples": [
+        "2026-11-01T12:28:03Z",
+        "2026-11-01T12:28:50Z",
+        "2026-11-01T12:28:54Z",
+        "2026-11-01T12:29:43Z",
+        "2026-11-01T12:29:55Z",
+        "2026-11-01T12:29:56Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_g1529.csv",
+      "sha256": "6a72e0bf4d107e0c2d245ddc50ef5650ff29f9dc9ebf5c124bc7f6500def5ea1",
+      "n_rows": 8667,
+      "books": {
+        "draftkings": 3689,
+        "fanduel": 2329,
+        "prizepicks": 1563,
+        "pinnacle": 748,
+        "underdog": 338
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          2606
+        ],
+        [
+          "player_receptions_alternate",
+          1542
+        ],
+        [
+          "player_rush_yds_alternate",
+          1176
+        ],
+        [
+          "player_reception_yds",
+          898
+        ],
+        [
+          "player_receptions",
+          680
+        ],
+        [
+          "player_pass_yds_alternate",
+          511
+        ],
+        [
+          "player_rush_yds",
+          472
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          319
+        ],
+        [
+          "player_rush_reception_yds",
+          174
+        ],
+        [
+          "player_pass_yds",
+          169
+        ]
+      ],
+      "mtime_et": "2026-11-01 15:29:02",
+      "time_field_samples": [
+        "2026-11-01T20:15:12Z",
+        "2026-11-01T20:15:33Z",
+        "2026-11-01T20:16:36Z",
+        "2026-11-01T20:16:45Z",
+        "2026-11-01T20:16:59Z",
+        "2026-11-01T20:17:01Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_i1135.csv",
+      "sha256": "3f9cb196cb0800575949d8dab7febf379b6a4cb3f663c4a9e28611e6b190b6ab",
+      "n_rows": 15534,
+      "books": {
+        "draftkings": 6058,
+        "fanduel": 4225,
+        "underdog": 1013,
+        "prizepicks": 3426,
+        "pinnacle": 812
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          4846
+        ],
+        [
+          "player_receptions_alternate",
+          2911
+        ],
+        [
+          "player_rush_yds_alternate",
+          2165
+        ],
+        [
+          "player_reception_yds",
+          1312
+        ],
+        [
+          "player_receptions",
+          1112
+        ],
+        [
+          "player_pass_yds_alternate",
+          1058
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          803
+        ],
+        [
+          "player_rush_yds",
+          684
+        ],
+        [
+          "player_rush_reception_yds",
+          264
+        ],
+        [
+          "player_pass_yds",
+          207
+        ]
+      ],
+      "mtime_et": "2026-11-01 11:38:25",
+      "time_field_samples": [
+        "2026-11-01T16:35:49Z",
+        "2026-11-01T16:36:01Z",
+        "2026-11-01T16:36:15Z",
+        "2026-11-01T16:36:16Z",
+        "2026-11-01T16:36:22Z",
+        "2026-11-01T16:36:30Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_i1435.csv",
+      "sha256": "f1467bf6e4c2adccf5e40f310456e5a7f46a3558d533362aa986405122094059",
+      "n_rows": 10206,
+      "books": {
+        "draftkings": 4430,
+        "fanduel": 3086,
+        "prizepicks": 1646,
+        "pinnacle": 708,
+        "underdog": 336
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          3181
+        ],
+        [
+          "player_receptions_alternate",
+          1857
+        ],
+        [
+          "player_rush_yds_alternate",
+          1432
+        ],
+        [
+          "player_reception_yds",
+          1080
+        ],
+        [
+          "player_receptions",
+          720
+        ],
+        [
+          "player_pass_yds_alternate",
+          582
+        ],
+        [
+          "player_rush_yds",
+          540
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          321
+        ],
+        [
+          "player_pass_yds",
+          181
+        ],
+        [
+          "player_rush_reception_yds",
+          180
+        ]
+      ],
+      "mtime_et": "2026-11-01 14:42:01",
+      "time_field_samples": [
+        "2026-11-01T19:32:04Z",
+        "2026-11-01T19:32:05Z",
+        "2026-11-01T19:32:19Z",
+        "2026-11-01T19:35:35Z",
+        "2026-11-01T19:39:05Z",
+        "2026-11-01T19:39:06Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_i1850.csv",
+      "sha256": "f2e0b29924112a741f4c35c5bc4e29a8786f0648aed923c99bf7969c6ec45264",
+      "n_rows": 2188,
+      "books": {
+        "draftkings": 946,
+        "fanduel": 514,
+        "pinnacle": 250,
+        "prizepicks": 400,
+        "underdog": 78
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          642
+        ],
+        [
+          "player_receptions_alternate",
+          363
+        ],
+        [
+          "player_rush_yds_alternate",
+          306
+        ],
+        [
+          "player_reception_yds",
+          242
+        ],
+        [
+          "player_receptions",
+          190
+        ],
+        [
+          "player_rush_yds",
+          146
+        ],
+        [
+          "player_pass_yds_alternate",
+          127
+        ],
+        [
+          "player_pass_yds",
+          54
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          48
+        ],
+        [
+          "player_pass_completions",
+          40
+        ]
+      ],
+      "mtime_et": "2026-11-01 18:51:57",
+      "time_field_samples": [
+        "2026-11-01T23:38:36Z",
+        "2026-11-01T23:40:51Z",
+        "2026-11-01T23:42:44Z",
+        "2026-11-01T23:43:30Z",
+        "2026-11-01T23:43:57Z",
+        "2026-11-01T23:44:11Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0750.csv",
+      "sha256": "637ab154d87bf6703db55b50dbd0d845bdf8ec759b2851779fdd5b1e55a26731",
+      "n_rows": 15004,
+      "books": {
+        "draftkings": 5874,
+        "fanduel": 4069,
+        "underdog": 966,
+        "prizepicks": 3325,
+        "pinnacle": 770
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          4630
+        ],
+        [
+          "player_receptions_alternate",
+          2789
+        ],
+        [
+          "player_rush_yds_alternate",
+          2124
+        ],
+        [
+          "player_reception_yds",
+          1254
+        ],
+        [
+          "player_receptions",
+          1090
+        ],
+        [
+          "player_pass_yds_alternate",
+          1061
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          767
+        ],
+        [
+          "player_rush_yds",
+          648
+        ],
+        [
+          "player_rush_reception_yds",
+          264
+        ],
+        [
+          "player_pass_yds",
+          207
+        ]
+      ],
+      "mtime_et": "2026-11-01 07:44:23",
+      "time_field_samples": [
+        "2026-11-01T12:42:33Z",
+        "2026-11-01T12:42:56Z",
+        "2026-11-01T12:43:05Z",
+        "2026-11-01T12:43:16Z",
+        "2026-11-01T12:43:19Z",
+        "2026-11-01T12:43:20Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+      "sha256": "8b0fe476d41cc5d8d15ae7f35375d7fc43d0aec98ea32e08a462aef2a12a42ed",
+      "n_rows": 15224,
+      "books": {
+        "draftkings": 5953,
+        "fanduel": 4126,
+        "underdog": 964,
+        "prizepicks": 3359,
+        "pinnacle": 822
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          4726
+        ],
+        [
+          "player_receptions_alternate",
+          2842
+        ],
+        [
+          "player_rush_yds_alternate",
+          2120
+        ],
+        [
+          "player_reception_yds",
+          1296
+        ],
+        [
+          "player_receptions",
+          1114
+        ],
+        [
+          "player_pass_yds_alternate",
+          1061
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          766
+        ],
+        [
+          "player_rush_yds",
+          662
+        ],
+        [
+          "player_rush_reception_yds",
+          262
+        ],
+        [
+          "player_pass_yds",
+          207
+        ]
+      ],
+      "mtime_et": "2026-11-01 08:36:39",
+      "time_field_samples": [
+        "2026-11-01T13:33:07Z",
+        "2026-11-01T13:34:46Z",
+        "2026-11-01T13:35:03Z",
+        "2026-11-01T13:35:05Z",
+        "2026-11-01T13:35:10Z",
+        "2026-11-01T13:35:12Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0847.csv",
+      "sha256": "ecfc82adb0b98e75bcb78214c364d3db80583e147940eab3b99ce3d70a9feaa7",
+      "n_rows": 15227,
+      "books": {
+        "draftkings": 5957,
+        "fanduel": 4125,
+        "underdog": 966,
+        "prizepicks": 3357,
+        "pinnacle": 822
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          4727
+        ],
+        [
+          "player_receptions_alternate",
+          2843
+        ],
+        [
+          "player_rush_yds_alternate",
+          2123
+        ],
+        [
+          "player_reception_yds",
+          1294
+        ],
+        [
+          "player_receptions",
+          1112
+        ],
+        [
+          "player_pass_yds_alternate",
+          1061
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          764
+        ],
+        [
+          "player_rush_yds",
+          662
+        ],
+        [
+          "player_rush_reception_yds",
+          264
+        ],
+        [
+          "player_pass_yds",
+          207
+        ]
+      ],
+      "mtime_et": "2026-11-01 08:47:27",
+      "time_field_samples": [
+        "2026-11-01T13:46:12Z",
+        "2026-11-01T13:46:13Z",
+        "2026-11-01T13:46:16Z",
+        "2026-11-01T13:46:18Z",
+        "2026-11-01T13:46:26Z",
+        "2026-11-01T13:46:27Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA/src/odds_m0505.csv",
+      "sha256": "2078acb96671556ebcb31f77875ed472d9d3d14c4707df0c83d134f6d7d7edf2",
+      "n_rows": 1236,
+      "books": {
+        "draftkings": 485,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 282,
+        "underdog": 78
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          350
+        ],
+        [
+          "player_receptions_alternate",
+          220
+        ],
+        [
+          "player_rush_yds_alternate",
+          218
+        ],
+        [
+          "player_reception_yds",
+          94
+        ],
+        [
+          "player_pass_yds_alternate",
+          92
+        ],
+        [
+          "player_receptions",
+          80
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          68
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds",
+          18
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 05:04:02",
+      "time_field_samples": [
+        "2026-11-02T10:00:02Z",
+        "2026-11-02T10:03:41Z",
+        "2026-11-02T10:03:46Z",
+        "2026-11-02T10:04:01Z",
+        "2026-11-02T10:04:02Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA/src/odds_m0505_inplay_dropped.csv",
+      "sha256": "d1a72a0121fe73ad74a37d74921ee01247aa3d563271d0818cf26d91aca0631b",
+      "n_rows": 0,
+      "books": {},
+      "markets_top": [],
+      "mtime_et": "2026-11-02 05:04:02",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/jsn_995/odds_m0610.csv",
+      "sha256": "71e040e7e8e18442376a1d5277c2e10dcede06e02308caab787e398f2a59f94f",
+      "n_rows": 1236,
+      "books": {
+        "draftkings": 485,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 282,
+        "underdog": 78
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          350
+        ],
+        [
+          "player_receptions_alternate",
+          220
+        ],
+        [
+          "player_rush_yds_alternate",
+          218
+        ],
+        [
+          "player_reception_yds",
+          94
+        ],
+        [
+          "player_pass_yds_alternate",
+          92
+        ],
+        [
+          "player_receptions",
+          80
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          68
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds",
+          18
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 06:10:24",
+      "time_field_samples": [
+        "2026-11-02T11:09:33Z",
+        "2026-11-02T11:09:35Z",
+        "2026-11-02T11:10:14Z",
+        "2026-11-02T11:10:18Z",
+        "2026-11-02T11:10:19Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/jsn_995/odds_m0638.csv",
+      "sha256": "aaf2cb8ae5e4db186c2a66fa1544ed1ecf5688a165cb1716c90c604f35974f5a",
+      "n_rows": 1234,
+      "books": {
+        "draftkings": 483,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 282,
+        "underdog": 78
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          350
+        ],
+        [
+          "player_receptions_alternate",
+          220
+        ],
+        [
+          "player_rush_yds_alternate",
+          217
+        ],
+        [
+          "player_reception_yds",
+          94
+        ],
+        [
+          "player_pass_yds_alternate",
+          92
+        ],
+        [
+          "player_receptions",
+          80
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          67
+        ],
+        [
+          "player_rush_reception_yds",
+          18
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 06:38:22",
+      "time_field_samples": [
+        "2026-11-02T11:37:32Z",
+        "2026-11-02T11:37:48Z",
+        "2026-11-02T11:38:13Z",
+        "2026-11-02T11:38:22Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/jsn_995/odds_m0650.csv",
+      "sha256": "647d876ee865853748afb9364cf32271509caa37b2696b26a2e25d628dfd5c7a",
+      "n_rows": 1234,
+      "books": {
+        "draftkings": 483,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 282,
+        "underdog": 78
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          350
+        ],
+        [
+          "player_receptions_alternate",
+          220
+        ],
+        [
+          "player_rush_yds_alternate",
+          217
+        ],
+        [
+          "player_reception_yds",
+          94
+        ],
+        [
+          "player_pass_yds_alternate",
+          92
+        ],
+        [
+          "player_receptions",
+          80
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          67
+        ],
+        [
+          "player_rush_reception_yds",
+          18
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 06:50:30",
+      "time_field_samples": [
+        "2026-11-02T11:49:35Z",
+        "2026-11-02T11:49:42Z",
+        "2026-11-02T11:49:52Z",
+        "2026-11-02T11:49:53Z",
+        "2026-11-02T11:50:07Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/jsn_995/odds_m0721.csv",
+      "sha256": "b3a4665212b0265997fdb93bd0327b0462a6342c38f66acf0f10614d24ff31e1",
+      "n_rows": 1236,
+      "books": {
+        "draftkings": 485,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 282,
+        "underdog": 78
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          350
+        ],
+        [
+          "player_receptions_alternate",
+          220
+        ],
+        [
+          "player_rush_yds_alternate",
+          218
+        ],
+        [
+          "player_reception_yds",
+          94
+        ],
+        [
+          "player_pass_yds_alternate",
+          92
+        ],
+        [
+          "player_receptions",
+          80
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          68
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds",
+          18
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 07:21:58",
+      "time_field_samples": [
+        "2026-11-02T12:21:10Z",
+        "2026-11-02T12:21:27Z",
+        "2026-11-02T12:21:36Z",
+        "2026-11-02T12:21:40Z",
+        "2026-11-02T12:21:55Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/jsn_995/odds_m0726.csv",
+      "sha256": "507da12ae2057b837a701e98e445abcf4ab1431d581261da7ecd2d8776b4ce5c",
+      "n_rows": 1238,
+      "books": {
+        "draftkings": 487,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 282,
+        "underdog": 78
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          351
+        ],
+        [
+          "player_receptions_alternate",
+          220
+        ],
+        [
+          "player_rush_yds_alternate",
+          219
+        ],
+        [
+          "player_reception_yds",
+          94
+        ],
+        [
+          "player_pass_yds_alternate",
+          92
+        ],
+        [
+          "player_receptions",
+          80
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          68
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds",
+          18
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 07:26:16",
+      "time_field_samples": [
+        "2026-11-02T12:25:13Z",
+        "2026-11-02T12:25:32Z",
+        "2026-11-02T12:25:51Z",
+        "2026-11-02T12:25:58Z",
+        "2026-11-02T12:26:13Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/jsn_995/odds_m0729.csv",
+      "sha256": "2ba1ccb4a4ae2007da3df17f91eda33787567c299f5cb0ac528f843a75c59a9b",
+      "n_rows": 1237,
+      "books": {
+        "draftkings": 486,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 282,
+        "underdog": 78
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          351
+        ],
+        [
+          "player_receptions_alternate",
+          220
+        ],
+        [
+          "player_rush_yds_alternate",
+          218
+        ],
+        [
+          "player_reception_yds",
+          94
+        ],
+        [
+          "player_pass_yds_alternate",
+          92
+        ],
+        [
+          "player_receptions",
+          80
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          68
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds",
+          18
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 07:29:45",
+      "time_field_samples": [
+        "2026-11-02T12:28:33Z",
+        "2026-11-02T12:28:54Z",
+        "2026-11-02T12:29:03Z",
+        "2026-11-02T12:29:22Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/jsn_995/odds_m0733.csv",
+      "sha256": "a35dc2f0fa443c2424f645506c8fc2e01df07b84263c65795c9240209e9ad61a",
+      "n_rows": 1242,
+      "books": {
+        "draftkings": 487,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 284,
+        "underdog": 80
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          350
+        ],
+        [
+          "player_receptions_alternate",
+          224
+        ],
+        [
+          "player_rush_yds_alternate",
+          221
+        ],
+        [
+          "player_reception_yds",
+          94
+        ],
+        [
+          "player_pass_yds_alternate",
+          92
+        ],
+        [
+          "player_receptions",
+          80
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          67
+        ],
+        [
+          "player_rush_reception_yds",
+          18
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 07:33:52",
+      "time_field_samples": [
+        "2026-11-02T12:29:49Z",
+        "2026-11-02T12:32:53Z",
+        "2026-11-02T12:33:28Z",
+        "2026-11-02T12:33:36Z",
+        "2026-11-02T12:33:47Z",
+        "2026-11-02T12:33:48Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/loeb_followups/odds_m0805.csv",
+      "sha256": "4c489399dc92559362830e5a266f5e0d993147dd8f7342528e110305f7638013",
+      "n_rows": 1247,
+      "books": {
+        "draftkings": 491,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 285,
+        "underdog": 80
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          349
+        ],
+        [
+          "player_receptions_alternate",
+          225
+        ],
+        [
+          "player_rush_yds_alternate",
+          222
+        ],
+        [
+          "player_reception_yds",
+          96
+        ],
+        [
+          "player_pass_yds_alternate",
+          93
+        ],
+        [
+          "player_receptions",
+          78
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          66
+        ],
+        [
+          "player_rush_reception_yds",
+          20
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 08:00:45",
+      "time_field_samples": [
+        "2026-11-02T12:59:54Z",
+        "2026-11-02T13:00:10Z",
+        "2026-11-02T13:00:12Z",
+        "2026-11-02T13:00:36Z",
+        "2026-11-02T13:00:40Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/odunze/odds_m1318.csv",
+      "sha256": "4974c40a88a32bb5d9f47676f6d887532ecd6ee5a1e419713d030c57bedcffcd",
+      "n_rows": 1016,
+      "books": {
+        "draftkings": 522,
+        "fanduel": 351,
+        "pinnacle": 64,
+        "underdog": 79
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          302
+        ],
+        [
+          "player_receptions_alternate",
+          184
+        ],
+        [
+          "player_rush_yds_alternate",
+          160
+        ],
+        [
+          "player_reception_yds",
+          76
+        ],
+        [
+          "player_pass_yds_alternate",
+          72
+        ],
+        [
+          "player_receptions",
+          68
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          56
+        ],
+        [
+          "player_rush_yds",
+          54
+        ],
+        [
+          "player_rush_reception_yds",
+          20
+        ],
+        [
+          "player_pass_yds",
+          14
+        ]
+      ],
+      "mtime_et": "2026-11-02 13:16:04",
+      "time_field_samples": [
+        "2026-11-02T18:14:38Z",
+        "2026-11-02T18:15:04Z",
+        "2026-11-02T18:15:32Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/pressure/odds_p0835.csv",
+      "sha256": "74270a157aff7d44a5f14efeee8c5dc36ab44db7e21202f2cf6e31a42e3aa5e2",
+      "n_rows": 1250,
+      "books": {
+        "draftkings": 494,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 285,
+        "underdog": 80
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          351
+        ],
+        [
+          "player_receptions_alternate",
+          225
+        ],
+        [
+          "player_rush_yds_alternate",
+          222
+        ],
+        [
+          "player_reception_yds",
+          96
+        ],
+        [
+          "player_pass_yds_alternate",
+          93
+        ],
+        [
+          "player_receptions",
+          78
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          67
+        ],
+        [
+          "player_rush_reception_yds",
+          20
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 08:30:44",
+      "time_field_samples": [
+        "2026-11-02T13:29:58Z",
+        "2026-11-02T13:30:16Z",
+        "2026-11-02T13:30:36Z",
+        "2026-11-02T13:30:39Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/sea_rb_split/odds_m0818.csv",
+      "sha256": "9c2d3f115a87aaf6f0e7de0844b0dd108c3bf64801a02ee8c5b8bc3004599f85",
+      "n_rows": 1250,
+      "books": {
+        "draftkings": 494,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 285,
+        "underdog": 80
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          351
+        ],
+        [
+          "player_receptions_alternate",
+          225
+        ],
+        [
+          "player_rush_yds_alternate",
+          222
+        ],
+        [
+          "player_reception_yds",
+          96
+        ],
+        [
+          "player_pass_yds_alternate",
+          93
+        ],
+        [
+          "player_receptions",
+          78
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          67
+        ],
+        [
+          "player_rush_reception_yds",
+          20
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 08:18:31",
+      "time_field_samples": [
+        "2026-11-02T13:17:25Z",
+        "2026-11-02T13:17:41Z",
+        "2026-11-02T13:17:57Z",
+        "2026-11-02T13:18:02Z",
+        "2026-11-02T13:18:16Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/slip_vet/odds_m0825.csv",
+      "sha256": "91499263dd44876030a04f965cb04b380d23229e001cd85dcf206bd0da3447cd",
+      "n_rows": 1250,
+      "books": {
+        "draftkings": 494,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 285,
+        "underdog": 80
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          351
+        ],
+        [
+          "player_receptions_alternate",
+          225
+        ],
+        [
+          "player_rush_yds_alternate",
+          222
+        ],
+        [
+          "player_reception_yds",
+          96
+        ],
+        [
+          "player_pass_yds_alternate",
+          93
+        ],
+        [
+          "player_receptions",
+          78
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          67
+        ],
+        [
+          "player_rush_reception_yds",
+          20
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 08:25:36",
+      "time_field_samples": [
+        "2026-11-02T13:24:34Z",
+        "2026-11-02T13:24:50Z",
+        "2026-11-02T13:25:08Z",
+        "2026-11-02T13:25:14Z",
+        "2026-11-02T13:25:26Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/slip_vet/odds_m_sw.csv",
+      "sha256": "1a61ac698ecf097585a0819edcb9b2e7490a8f25c1282b7b586510d73efa5e44",
+      "n_rows": 1250,
+      "books": {
+        "draftkings": 494,
+        "fanduel": 331,
+        "pinnacle": 60,
+        "prizepicks": 285,
+        "underdog": 80
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          351
+        ],
+        [
+          "player_receptions_alternate",
+          225
+        ],
+        [
+          "player_rush_yds_alternate",
+          222
+        ],
+        [
+          "player_reception_yds",
+          96
+        ],
+        [
+          "player_pass_yds_alternate",
+          93
+        ],
+        [
+          "player_receptions",
+          78
+        ],
+        [
+          "player_rush_yds",
+          68
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          67
+        ],
+        [
+          "player_rush_reception_yds",
+          20
+        ],
+        [
+          "player_pass_yds",
+          16
+        ]
+      ],
+      "mtime_et": "2026-11-02 08:27:38",
+      "time_field_samples": [
+        "2026-11-02T13:26:06Z",
+        "2026-11-02T13:26:28Z",
+        "2026-11-02T13:26:40Z",
+        "2026-11-02T13:27:00Z",
+        "2026-11-02T13:27:37Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r2/total/odds_t0743.csv",
+      "sha256": "7ba7c738115d51e12344092e1afab583eb4e34f1bfc53f96ba66537497f4906b",
+      "n_rows": 841,
+      "books": {
+        "draftkings": 323,
+        "fanduel": 436,
+        "pinnacle": 82
+      },
+      "markets_top": [
+        [
+          "alternate_team_totals",
+          240
+        ],
+        [
+          "alternate_totals",
+          232
+        ],
+        [
+          "alternate_spreads",
+          220
+        ],
+        [
+          "player_anytime_td",
+          70
+        ],
+        [
+          "player_1st_td",
+          53
+        ],
+        [
+          "team_totals",
+          8
+        ],
+        [
+          "h2h",
+          6
+        ],
+        [
+          "spreads",
+          6
+        ],
+        [
+          "totals",
+          6
+        ]
+      ],
+      "mtime_et": "2026-11-02 07:43:06",
+      "time_field_samples": [
+        "2026-11-02T12:42:06Z",
+        "2026-11-02T12:42:27Z",
+        "2026-11-02T12:42:28Z",
+        "2026-11-02T12:42:31Z",
+        "2026-11-02T12:42:32Z",
+        "2026-11-02T12:42:33Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/phase15/odds_m1900.csv",
+      "sha256": "af663c200f6971b99b5adae416d72e463ff3e29bb8eba41a62449f4da26cbb82",
+      "n_rows": 1372,
+      "books": {
+        "draftkings": 543,
+        "fanduel": 370,
+        "pinnacle": 64,
+        "prizepicks": 301,
+        "underdog": 94
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          389
+        ],
+        [
+          "player_receptions_alternate",
+          252
+        ],
+        [
+          "player_rush_yds_alternate",
+          211
+        ],
+        [
+          "player_reception_yds",
+          124
+        ],
+        [
+          "player_pass_yds_alternate",
+          87
+        ],
+        [
+          "player_receptions",
+          84
+        ],
+        [
+          "player_rush_yds",
+          78
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          75
+        ],
+        [
+          "player_rush_reception_yds",
+          36
+        ],
+        [
+          "player_pass_yds",
+          20
+        ]
+      ],
+      "mtime_et": "2026-11-02 18:59:23",
+      "time_field_samples": [
+        "2026-11-02T23:51:38Z",
+        "2026-11-02T23:57:56Z",
+        "2026-11-02T23:58:15Z",
+        "2026-11-02T23:58:37Z",
+        "2026-11-02T23:59:03Z",
+        "2026-11-02T23:59:13Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/src/odds_m1638.csv",
+      "sha256": "7f23c57b93d5a86a9a004d820748736f22ada501a89ece702f051cc2408e1634",
+      "n_rows": 1333,
+      "books": {
+        "draftkings": 524,
+        "fanduel": 362,
+        "pinnacle": 62,
+        "prizepicks": 301,
+        "underdog": 84
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          376
+        ],
+        [
+          "player_receptions_alternate",
+          243
+        ],
+        [
+          "player_rush_yds_alternate",
+          216
+        ],
+        [
+          "player_reception_yds",
+          118
+        ],
+        [
+          "player_pass_yds_alternate",
+          86
+        ],
+        [
+          "player_receptions",
+          82
+        ],
+        [
+          "player_rush_yds",
+          74
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          72
+        ],
+        [
+          "player_rush_reception_yds",
+          32
+        ],
+        [
+          "player_pass_yds",
+          20
+        ]
+      ],
+      "mtime_et": "2026-11-02 16:38:07",
+      "time_field_samples": [
+        "2026-11-02T21:37:03Z",
+        "2026-11-02T21:37:17Z",
+        "2026-11-02T21:37:19Z",
+        "2026-11-02T21:37:40Z",
+        "2026-11-02T21:38:05Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/leftover/odds_m1535.csv",
+      "sha256": "4b40c90744a223f2782fb5cffe4627e46c6f17d2ccc0d400eb0f703065eaaee2",
+      "n_rows": 1345,
+      "books": {
+        "draftkings": 531,
+        "fanduel": 361,
+        "pinnacle": 62,
+        "prizepicks": 306,
+        "underdog": 85
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          372
+        ],
+        [
+          "player_receptions_alternate",
+          243
+        ],
+        [
+          "player_rush_yds_alternate",
+          202
+        ],
+        [
+          "player_reception_yds",
+          118
+        ],
+        [
+          "player_pass_yds_alternate",
+          86
+        ],
+        [
+          "player_receptions",
+          82
+        ],
+        [
+          "player_rush_yds",
+          74
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          72
+        ],
+        [
+          "player_rush_reception_yds",
+          31
+        ],
+        [
+          "player_sacks",
+          29
+        ]
+      ],
+      "mtime_et": "2026-11-02 15:30:28",
+      "time_field_samples": [
+        "2026-11-02T20:29:00Z",
+        "2026-11-02T20:29:21Z",
+        "2026-11-02T20:29:42Z",
+        "2026-11-02T20:30:10Z",
+        "2026-11-02T20:30:12Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL/odds/odds_jaxbal.csv",
+      "sha256": "bffe8812851aa52706f825694cbe6d99a0586e24f61a38d4049087af7314a94b",
+      "n_rows": 1147,
+      "books": {
+        "draftkings": 427,
+        "fanduel": 296,
+        "prizepicks": 280,
+        "underdog": 80,
+        "pinnacle": 64
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          384
+        ],
+        [
+          "player_receptions_alternate",
+          234
+        ],
+        [
+          "player_reception_yds",
+          138
+        ],
+        [
+          "player_rush_yds_alternate",
+          97
+        ],
+        [
+          "player_receptions",
+          96
+        ],
+        [
+          "player_pass_yds_alternate",
+          72
+        ],
+        [
+          "player_rush_yds",
+          46
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          40
+        ],
+        [
+          "player_rush_reception_yds",
+          20
+        ],
+        [
+          "player_pass_yds",
+          14
+        ]
+      ],
+      "mtime_et": "2026-11-03 09:56:30",
+      "time_field_samples": [
+        "2026-11-03T14:54:40Z",
+        "2026-11-03T14:55:43Z",
+        "2026-11-03T14:55:50Z",
+        "2026-11-03T14:56:00Z",
+        "2026-11-03T14:56:17Z",
+        "2026-11-03T14:56:30Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL/odds/odds_jaxbal_game.csv",
+      "sha256": "aa0d667a855a9bf878ab1a78f7578cdc076a47a6c846bbf1885670538eea51ab",
+      "n_rows": 0,
+      "books": {},
+      "markets_top": [],
+      "mtime_et": "2026-11-03 09:56:30",
+      "time_field_samples": [],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal.csv",
+      "sha256": "39db658d4c3fdb6c6b89489a4020007d6c2f868e481b664f55ef83a71713df71",
+      "n_rows": 1116,
+      "books": {
+        "draftkings": 432,
+        "fanduel": 305,
+        "prizepicks": 251,
+        "underdog": 76,
+        "pinnacle": 52
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          380
+        ],
+        [
+          "player_receptions_alternate",
+          235
+        ],
+        [
+          "player_reception_yds",
+          134
+        ],
+        [
+          "player_receptions",
+          92
+        ],
+        [
+          "player_pass_yds_alternate",
+          81
+        ],
+        [
+          "player_rush_yds_alternate",
+          79
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          37
+        ],
+        [
+          "player_rush_yds",
+          34
+        ],
+        [
+          "player_pass_yds",
+          18
+        ],
+        [
+          "player_rush_reception_yds",
+          18
+        ]
+      ],
+      "mtime_et": "2026-11-03 19:15:34",
+      "time_field_samples": [
+        "2026-11-04T00:14:04Z",
+        "2026-11-04T00:14:15Z",
+        "2026-11-04T00:14:16Z",
+        "2026-11-04T00:14:30Z",
+        "2026-11-04T00:14:45Z",
+        "2026-11-04T00:15:34Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "sha256": "2d7fd023c2899febffcee579b9472b14e253f9518f1e02648bbafdc4083da276",
+      "n_rows": 549,
+      "books": {
+        "draftkings": 212,
+        "fanduel": 263,
+        "pinnacle": 74
+      },
+      "markets_top": [
+        [
+          "alternate_totals",
+          225
+        ],
+        [
+          "alternate_spreads",
+          214
+        ],
+        [
+          "team_totals",
+          8
+        ],
+        [
+          "h2h",
+          6
+        ],
+        [
+          "spreads",
+          6
+        ],
+        [
+          "totals",
+          6
+        ],
+        [
+          "h2h_h1",
+          6
+        ],
+        [
+          "h2h_q1",
+          6
+        ],
+        [
+          "spreads_h1",
+          6
+        ],
+        [
+          "spreads_q1",
+          6
+        ]
+      ],
+      "mtime_et": "2026-11-03 19:15:34",
+      "time_field_samples": [
+        "2026-11-04T00:14:04Z",
+        "2026-11-04T00:14:16Z",
+        "2026-11-04T00:14:23Z",
+        "2026-11-04T00:14:30Z",
+        "2026-11-04T00:15:09Z",
+        "2026-11-04T00:15:12Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/snapshots/odds_snapshots.csv",
+      "sha256": "af8866d775e3a75688369374febeae9dafec0982369728c43dcc1eb1d3882334",
+      "n_rows": 1665,
+      "books": {
+        "draftkings": 644,
+        "fanduel": 568,
+        "prizepicks": 251,
+        "underdog": 76,
+        "pinnacle": 126
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          380
+        ],
+        [
+          "player_receptions_alternate",
+          235
+        ],
+        [
+          "alternate_totals",
+          225
+        ],
+        [
+          "alternate_spreads",
+          214
+        ],
+        [
+          "player_reception_yds",
+          134
+        ],
+        [
+          "player_receptions",
+          92
+        ],
+        [
+          "player_pass_yds_alternate",
+          81
+        ],
+        [
+          "player_rush_yds_alternate",
+          79
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          37
+        ],
+        [
+          "player_rush_yds",
+          34
+        ]
+      ],
+      "mtime_et": "2026-11-03 19:15:34",
+      "time_field_samples": [
+        "2026-11-04T00:14:04Z",
+        "2026-11-04T00:14:15Z",
+        "2026-11-04T00:14:16Z",
+        "2026-11-04T00:14:23Z",
+        "2026-11-04T00:14:30Z",
+        "2026-11-04T00:14:45Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r3/odds/odds_jaxbal.csv",
+      "sha256": "28725b6693be31efdbae775d94212165c43db6cebf7db5d4405a9d8c8bebcd42",
+      "n_rows": 1116,
+      "books": {
+        "draftkings": 432,
+        "fanduel": 305,
+        "prizepicks": 251,
+        "underdog": 76,
+        "pinnacle": 52
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          380
+        ],
+        [
+          "player_receptions_alternate",
+          235
+        ],
+        [
+          "player_reception_yds",
+          134
+        ],
+        [
+          "player_receptions",
+          92
+        ],
+        [
+          "player_pass_yds_alternate",
+          81
+        ],
+        [
+          "player_rush_yds_alternate",
+          79
+        ],
+        [
+          "player_rush_reception_yds_alternate",
+          37
+        ],
+        [
+          "player_rush_yds",
+          34
+        ],
+        [
+          "player_pass_yds",
+          18
+        ],
+        [
+          "player_rush_reception_yds",
+          18
+        ]
+      ],
+      "mtime_et": "2026-11-03 19:32:40",
+      "time_field_samples": [
+        "2026-11-04T00:14:04Z",
+        "2026-11-04T00:14:15Z",
+        "2026-11-04T00:14:16Z",
+        "2026-11-04T00:14:30Z",
+        "2026-11-04T00:14:45Z",
+        "2026-11-04T00:15:34Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r3/odds/odds_jaxbal_game.csv",
+      "sha256": "25bd9e4992e9e5f6dd9cb1b54e1df4e5333cc526b2ca0af594e315ae284e2d14",
+      "n_rows": 549,
+      "books": {
+        "draftkings": 212,
+        "fanduel": 263,
+        "pinnacle": 74
+      },
+      "markets_top": [
+        [
+          "alternate_totals",
+          225
+        ],
+        [
+          "alternate_spreads",
+          214
+        ],
+        [
+          "team_totals",
+          8
+        ],
+        [
+          "h2h",
+          6
+        ],
+        [
+          "spreads",
+          6
+        ],
+        [
+          "totals",
+          6
+        ],
+        [
+          "h2h_h1",
+          6
+        ],
+        [
+          "h2h_q1",
+          6
+        ],
+        [
+          "spreads_h1",
+          6
+        ],
+        [
+          "spreads_q1",
+          6
+        ]
+      ],
+      "mtime_et": "2026-11-03 19:32:40",
+      "time_field_samples": [
+        "2026-11-04T00:14:04Z",
+        "2026-11-04T00:14:16Z",
+        "2026-11-04T00:14:23Z",
+        "2026-11-04T00:14:30Z",
+        "2026-11-04T00:15:09Z",
+        "2026-11-04T00:15:12Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_jaxbal_game.csv",
+      "sha256": "51244731295a2a45af029b5985b3c4cb29e64448090e32d49437c5350c52690c",
+      "n_rows": 32,
+      "books": {
+        "draftkings": 8,
+        "fanduel": 12,
+        "pinnacle": 12
+      },
+      "markets_top": [
+        [
+          "team_totals",
+          8
+        ],
+        [
+          "h2h_h1",
+          6
+        ],
+        [
+          "h2h_q1",
+          6
+        ],
+        [
+          "spreads_h1",
+          6
+        ],
+        [
+          "spreads_q1",
+          6
+        ]
+      ],
+      "mtime_et": "2026-11-04 15:00:37",
+      "time_field_samples": [
+        "2026-11-04T19:59:09Z",
+        "2026-11-04T19:59:15Z",
+        "2026-11-04T19:59:16Z",
+        "2026-11-04T19:59:57Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_live_fd_2026-11-05.csv",
+      "sha256": "219784eea591de8006659f7642bc8ccb5b2ff66ff36a122e4dedfeb02bceeb8b",
+      "n_rows": 274,
+      "books": {
+        "fanduel": 274
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          128
+        ],
+        [
+          "player_receptions_alternate",
+          74
+        ],
+        [
+          "player_reception_yds",
+          30
+        ],
+        [
+          "player_receptions",
+          30
+        ],
+        [
+          "team_totals",
+          4
+        ],
+        [
+          "h2h_h1",
+          2
+        ],
+        [
+          "h2h_q1",
+          2
+        ],
+        [
+          "spreads_h1",
+          2
+        ],
+        [
+          "spreads_q1",
+          2
+        ]
+      ],
+      "mtime_et": "2026-11-05 12:35:33",
+      "time_field_samples": [
+        "2026-11-05T17:35:30Z",
+        "2026-11-05T17:35:33Z"
+      ],
+      "status": "SAVED_ONLY"
+    },
+    {
+      "path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_post_inactives_fd_2026-11-05_1902.csv",
+      "sha256": "e5335298ccd163b951825f9ab5013b1ba94a57dc4a6e1dabc44da3bd00d31401",
+      "n_rows": 369,
+      "books": {
+        "fanduel": 369
+      },
+      "markets_top": [
+        [
+          "player_reception_yds_alternate",
+          143
+        ],
+        [
+          "player_receptions_alternate",
+          78
+        ],
+        [
+          "player_rush_yds_alternate",
+          54
+        ],
+        [
+          "player_reception_yds",
+          32
+        ],
+        [
+          "player_receptions",
+          32
+        ],
+        [
+          "player_rush_yds",
+          12
+        ],
+        [
+          "team_totals",
+          4
+        ],
+        [
+          "spreads",
+          2
+        ],
+        [
+          "totals",
+          2
+        ],
+        [
+          "h2h_h1",
+          2
+        ]
+      ],
+      "mtime_et": "2026-11-05 19:04:02",
+      "time_field_samples": [
+        "2026-11-06T00:03:30Z",
+        "2026-11-06T00:03:40Z",
+        "2026-11-06T00:04:02Z"
+      ],
+      "status": "SAVED_ONLY"
+    }
+  ],
+  "loader_counts": {
+    "n_quote_records": 132,
+    "by_book": {
+      "draftkings": 42,
+      "fanduel": 62,
+      "pinnacle": 28
+    },
+    "by_period_market_book": {
+      "Q1|h2h|fanduel": 12,
+      "Q1|spreads|fanduel": 12,
+      "H1|h2h|fanduel": 10,
+      "H1|spreads|fanduel": 10,
+      "Q1|h2h|draftkings": 8,
+      "Q1|spreads|draftkings": 8,
+      "H1|h2h|draftkings": 6,
+      "H1|spreads|draftkings": 6,
+      "H1|h2h|pinnacle": 6,
+      "Q1|h2h|pinnacle": 6,
+      "H1|spreads|pinnacle": 6,
+      "Q1|spreads|pinnacle": 6,
+      "FG|team_totals|fanduel": 4,
+      "FG|team_totals|pinnacle": 4,
+      "Q1|totals|draftkings": 2,
+      "Q1|totals|fanduel": 2,
+      "Q2|h2h|draftkings": 2,
+      "Q2|spreads|draftkings": 2,
+      "Q2|totals|draftkings": 2,
+      "Q2|h2h|fanduel": 2,
+      "Q2|spreads|fanduel": 2,
+      "Q2|totals|fanduel": 2,
+      "Q3|h2h|draftkings": 2,
+      "Q3|spreads|draftkings": 2,
+      "Q3|totals|draftkings": 2,
+      "Q3|h2h|fanduel": 2,
+      "Q3|spreads|fanduel": 2,
+      "Q3|totals|fanduel": 2
+    },
+    "pin_spreads_by_period": {
+      "H1": 6,
+      "Q1": 6
+    },
+    "pin_h2h_by_period": {
+      "H1": 6,
+      "Q1": 6
+    }
+  },
+  "pairing_probe": {
+    "unique_side_requests_tried": 60,
+    "MATCHED": 60,
+    "NOLINE": 0,
+    "IDENTITY_BLOCKED_or_error": 0,
+    "examples_matched": [
+      {
+        "book": "draftkings",
+        "market": "h2h",
+        "period": "H1",
+        "side": "BAL",
+        "line": null,
+        "settlement": "ml_2way",
+        "novig": {
+          "JAX": 0.7571884984025559,
+          "BAL": 0.2428115015974441
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      },
+      {
+        "book": "draftkings",
+        "market": "h2h",
+        "period": "H1",
+        "side": "JAX",
+        "line": null,
+        "settlement": "ml_2way",
+        "novig": {
+          "JAX": 0.7571884984025559,
+          "BAL": 0.2428115015974441
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      },
+      {
+        "book": "draftkings",
+        "market": "h2h",
+        "period": "Q1",
+        "side": "BAL",
+        "line": null,
+        "settlement": "ml_2way",
+        "novig": {
+          "JAX": 0.6750312469954812,
+          "BAL": 0.3249687530045188
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      },
+      {
+        "book": "draftkings",
+        "market": "h2h",
+        "period": "Q1",
+        "side": "JAX",
+        "line": null,
+        "settlement": "ml_2way",
+        "novig": {
+          "JAX": 0.6750312469954812,
+          "BAL": 0.3249687530045188
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      },
+      {
+        "book": "draftkings",
+        "market": "spreads",
+        "period": "H1",
+        "side": "BAL",
+        "line": 6.5,
+        "settlement": "spread_2way",
+        "novig": {
+          "JAX": 0.4956702459300312,
+          "BAL": 0.5043297540699688
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      },
+      {
+        "book": "draftkings",
+        "market": "spreads",
+        "period": "H1",
+        "side": "JAX",
+        "line": -6.5,
+        "settlement": "spread_2way",
+        "novig": {
+          "JAX": 0.4956702459300312,
+          "BAL": 0.5043297540699688
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      },
+      {
+        "book": "draftkings",
+        "market": "spreads",
+        "period": "Q1",
+        "side": "BAL",
+        "line": 2.5,
+        "settlement": "spread_2way",
+        "novig": {
+          "JAX": 0.5260865852617197,
+          "BAL": 0.4739134147382802
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      },
+      {
+        "book": "draftkings",
+        "market": "spreads",
+        "period": "Q1",
+        "side": "JAX",
+        "line": -2.5,
+        "settlement": "spread_2way",
+        "novig": {
+          "JAX": 0.5260865852617197,
+          "BAL": 0.4739134147382802
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      },
+      {
+        "book": "fanduel",
+        "market": "h2h",
+        "period": "H1",
+        "side": "BAL",
+        "line": null,
+        "settlement": "ml_2way",
+        "novig": {
+          "JAX": 0.7421203438395415,
+          "BAL": 0.25787965616045844
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      },
+      {
+        "book": "fanduel",
+        "market": "h2h",
+        "period": "H1",
+        "side": "JAX",
+        "line": null,
+        "settlement": "ml_2way",
+        "novig": {
+          "JAX": 0.7421203438395415,
+          "BAL": 0.25787965616045844
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      },
+      {
+        "book": "fanduel",
+        "market": "h2h",
+        "period": "Q1",
+        "side": "BAL",
+        "line": null,
+        "settlement": "ml_2way",
+        "novig": {
+          "JAX": 0.6803652968036529,
+          "BAL": 0.319634703196347
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      },
+      {
+        "book": "fanduel",
+        "market": "h2h",
+        "period": "Q1",
+        "side": "JAX",
+        "line": null,
+        "settlement": "ml_2way",
+        "novig": {
+          "JAX": 0.6803652968036529,
+          "BAL": 0.319634703196347
+        },
+        "basis": "two_way_push_excluded",
+        "n_quotes": 2,
+        "actionable": "NOLINE"
+      }
+    ],
+    "asof_utc_used": "2026-11-06T04:00:00Z",
+    "note": "Probe uses late asof over saved CSVs only; actionable remains NOLINE even when MATCHED research pair exists"
+  },
+  "gaps": [
+    "PINNACLE_Q2_Q4_SPREADS_ABSENT_SAVED\u2192NOLINE",
+    "NO_FITTED_CALIBRATION_ROWS_AUTHORIZED",
+    "BIAS_UNIMPLEMENTED_NO_FITTED_CALIB",
+    "ODDS_API_NO_NEW_PULL_BY_POLICY"
+  ],
+  "public_probes": []
+}

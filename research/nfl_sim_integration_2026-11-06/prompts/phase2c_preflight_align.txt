@@ -1,0 +1,34 @@
+You are Codex doing a LOCAL follow-up for NFL source-run gate alignment.
+
+AUTHORITY: Ghost skill `nfl-projection-source-preflight` (loaded by coordinator). Standing Rico 6:19. Core contract at /workspace/research/nfl_sim_integration_2026-11-06/core_contract.md.
+
+CRITICAL:
+- Do NOT use Cursor Cloud; no spend; no auth bypass; no external API pulls.
+- Do NOT edit /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/** or period_engine_v0/** (phase2 CORE still owns).
+- Do NOT touch market_calibration/.
+- Do NOT silently re-enable weather/WR/edge automatic cuts; reconcile stale rule text against latest dated approvals — if unsure, leave cuts DISABLED and document as NOT_APPLICABLE(reason) or MISSING approval evidence.
+- Infrastructure/schema success ≠ usable current data.
+- Missing input ≠ fake PASS.
+- Projection readiness gates are SEPARATE from engineering unit tests.
+
+WRITE/UPDATE under /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/ (+ optional tests/ there):
+
+1) Align source status enum EXACTLY to:
+   SUCCESS | SAVED_ONLY | MISSING | LOGIN_REQUIRED | STALE | ERROR | NOT_APPLICABLE
+   For NOT_APPLICABLE require a non-empty reason field.
+   Provenance required where applicable: fields, season, week, data_through, pull, cutoff, artifact, hash, fallback.
+
+2) Add entry-point / readiness regression checks (pytest under source_run_gate/tests/):
+   - FAIL (red) if projection_ready claimed without: real source ledger records (not empty template), brainstorm artifact present, checklist.md with all 15 phases marked, report.md present.
+   - FAIL if status SUCCESS but usable_for_run false / STALE / SAVED_ONLY treated as live success.
+   - FAIL if infrastructure/schema-only validation is used to claim projection readiness.
+   - GREEN path only with synthetic but schema-valid FULL fixtures that include real-shaped records + phase checklist + report + brainstorm marker — still label fixtures as synthetic; do not claim live retrieval.
+   - Explicit test that engineering unit-test PASS does not set projection_ready.
+
+3) Update REQUIREMENT.md + MANIFEST.json honestly (IMPLEMENTED for schema/tests; live retrieval NOT_RUN). Note skill nfl-projection-source-preflight.
+
+4) Write reviews/COMPLETION_PREFLIGHT_ALIGN.md with: cmd evidence note, sha256 of changed files, pytest red/green summary (actually run pytest), impact NOT_MEASURED for predictive quality.
+
+5) Refresh SHA256SUMS for the package.
+
+Run: `python -m pytest /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests -q` and capture results.

@@ -1,0 +1,29 @@
+You are Codex on CORE side only. BetGuru's adapter Codex owns market_calibration — DO NOT edit /workspace/wt-market-calibration or any market_calibration/ tree.
+
+Authority:
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/BETGURU_WIRE_COORDINATION.md
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/WIRE_SCHEMA_V1_META.json
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/producer_joint_trial_example_v1.jsonl (immutable; sha256 50be826a2bc1cf67db052aa8095ae0d7b3e75d674ef31c65165a5fbe3c881cdd)
+- /workspace/research/nfl_sim_integration_2026-11-06/core_contract.md
+- /workspace/research/nfl_sim_integration_2026-11-06/integration/GHOST_ACCEPTANCE_PACKET.md
+
+CRITICAL:
+- DO NOT rename producer fields to match adapter. Canonical wire is producer 1.0.0-producer until a joint schema bump is agreed.
+- DO NOT silent-map at test time as "acceptance".
+- DO NOT edit market_calibration.
+- No Cursor Cloud, spend, auth bypass, paid pulls, betting-rule changes, fabricated readiness.
+
+TASK A — Canonical wire documentation + producer stability tests
+1) Add a section to core_contract.md (or an additive companion core_contract_wire_v1.md linked from it) defining joint-trial producer export wire_version 1.0.0-producer, pointing at the immutable example path+sha256. Preserve contract sha256 change honestly if core_contract.md bytes change — update acceptance notes; do not pretend old hash.
+2) In possession_engine_v0 tests: assert export of a synthetic trial still matches the documented key shapes (status object; freeze.input_manifest_digest; engine.component_version/dependencies; team_periods[].stats.points). Pin the frozen example sha256 as a regression (file must remain unchanged).
+3) Write /workspace/research/nfl_sim_integration_2026-11-06/integration/wire/CORE_WIRE_LOCK.md stating CORE will not change field names without BetGuru joint bump; adapter should target example hash 50be826a…
+
+TASK B — Certified as-of / source scaffolding from ESTABLISHED LOCAL artifacts only
+Using only already-on-disk sources (no network): e.g. ESPN summary JSON under nfl-database live/raw, actual_role_coverage_audit, saved odds CSVs listed in market handoff (as SAVED_ONLY), gamebook notes if present. Populate a real-shaped source ledger under integration/asof_sources/ with honest statuses SUCCESS|SAVED_ONLY|MISSING|LOGIN_REQUIRED|STALE|ERROR|NOT_APPLICABLE(reason), provenance fields, hashes. Do NOT set projection_ready true. Run source_run_gate readiness in live mode expecting false. Optionally create brainstorm/checklist/report stubs marked NOT_COMPLETE / synthetic workflow definitions absent — never claim 15-phase complete.
+
+TASK C — Evidence
+- Run affected CORE pytest (test_joint_producer + any new wire tests) and source_run_gate tests; capture logs under integration/wire/ and integration/asof_sources/.
+- Write INTEGRATION_WIRE_EVIDENCE.json + update GHOST_ACCEPTANCE_PACKET.md with a short addendum: waiting on BetGuru adapter alignment to producer wire 1.0.0-producer; direct path still BLOCKED until adapter accepts unchanged producer example; CORE did not rename fields.
+- impact NOT_MEASURED (test counts ≠ improvement).
+
+Worktrees: edit CORE under /workspace/wt-nfl-sim-core-2026-11-06 and docs under /workspace/research/nfl_sim_integration_2026-11-06 only.

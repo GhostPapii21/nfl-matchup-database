@@ -1,0 +1,28 @@
+# possession_engine_v0 validation/grading summary
+Frozen commit: a504898993e571c2ec959db0197c43184e67c904 bundle 1fedc176a624…
+Label: development W1–8 inspected — NOT untouched holdout. NOT an approved pick.
+
+## Accounting (N=100, seed=20261105)
+Status: MIXED (pass 8 / fail 1)
+Mean snaps≈133.1 mean TD≈6.2 sparse_rate=1.0
+Score means H/A: {'fg_home': 24.52, 'fg_away': 29.42}
+Failed checks: ['period_quarter_scores_in_sim']
+
+## As-of grade coverage (denominator=15)
+GRADED_FULL: 0
+Ungradable/skipped: 15
+Status counts: {'UNGRADEABLE_OPPONENT_OUT_OF_SCOPE': 13, 'UNGRADEABLE_NO_OWN_SEASON_HISTORY': 2}
+Market: no matching pre-kick Pinnacle quotes → no edge/ROI.
+
+## Effects
+FTN join: OK join_rate=0.9703934553954032
+Man/zone/MOFO/routes: MISSING. qb_hit=PROXY. Blitz strata: supported when FTN joined.
+Explosive defs: pass≥20 rush≥12
+
+## Next required fixes
+- Opponent out of JAX/BAL scope blocks full-game as-of grade for all 15 W1-8 games
+- Q1-Q4 scoreboard arrays unsupported in possession sim
+- Charted man/zone/MOFO/routes/primary defender missing from local FTN extract
+- True pressure (not qb_hit proxy) missing
+- Do not scale 100k until quarter reconciliation + broader opponent support or explicit one-team metrics design
+

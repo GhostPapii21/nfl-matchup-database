@@ -1,0 +1,52 @@
+BetGuru MARKET adapter B01 wire alignment via Codex ONLY. Coordinator policy t353u.
+
+## Goal
+Make `adapt_joint_trials` accept **unchanged** CORE `joint_producer` synthetic trial JSONL rows directly (no test-only diagnostic remap, no silent field rewrite of the retained `source` payload). Preserve NOLINE / Bias unfitted / FULL_CORE_ACCEPTANCE_NOT_RUN.
+
+## Failure evidence (do not invent)
+Ghost packet: `/workspace/research/nfl_sim_integration_2026-11-06/integration/GHOST_ACCEPTANCE_PACKET.md`
+Failing test: `integration/integration_adversarial_tests.py::test_DIRECT_actual_producer_to_market_acceptance`
+Error: `ValueError: missing trial fields` from market `joint_trial_adapter.require_fields`.
+Producer smoke trials (READ ONLY, do not edit CORE or smoke artifacts):
+`/workspace/research/nfl_sim_integration_2026-11-06/reviews/core_producer_synthetic_smoke/forecasts/sha256_d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trials.jsonl`
+hash `sha256:1f9ac51296d4d760510b46f77f56de0c4a4df437c94895e327c3b794434f5e6d`
+
+## Documented producer↔market mismatches (agree on PRODUCER wire as transport input)
+| Producer | Current market reject |
+| status OBJECT with state/completion_reason/terminal_state/went_ot | requires scalar status + sibling fields |
+| freeze.input_manifest_digest | requires input_manifest_hash |
+| engine.component_version, dependencies | requires component_versions, dependency_versions |
+| team_periods[].stats.points | requires team_periods[].points |
+| OT: went_ot lives under status; known-zero unplayed OT policy differs — document OT policy; do not invent OT scores |
+
+## WRITE SCOPE ONLY
+`/workspace/wt-market-calibration/research/market_calibration/` 
+Do NOT edit `/workspace/wt-nfl-sim-core-2026-11-06`, producer smoke files, or overwrite Ghost integration tests. CORE Codex may be repairing producer separately — avoid overlap.
+
+## Required deliverables
+1) Explicit agreement doc: `tracking/WIRE_AGREEMENT_v1.0.1.md` stating market adapter accepts producer joint-trial wire v1 (fields above), contract_version still 1.0.0 for content contract SHA binding to core_contract.md `d6a4689f…`, wire_agreement_id `market-producer-wire-v1.0.1`.
+2) Update `joint_trial_adapter.py` to **read** producer shape natively:
+   - Accept `status` as object: require `status.state == "COMPLETE"` (or documented equivalent); take completion_reason/terminal_state/went_ot from status object; reject incomplete.
+   - Accept `freeze.input_manifest_digest` as the manifest digest field (alias acceptance of `input_manifest_hash` if both present and equal; if only digest → OK; if only hash → OK; if both disagree → reject). Do not rewrite producer row.
+   - Accept `engine.component_version` + `dependencies` (and/or plurals if present). Require ot_rule_profile + stat_credit_profile still.
+   - Accept points from `team_periods[i].stats.points` when `points` absent; if both present they must equal.
+   - OT policy: use `status.went_ot` boolean; require consistency with present OT* period rows; do not drop known-zero OT rows silently; document in agreement. Unplayed OT with went_ot false → no OT periods.
+   - Retain deepcopy(source) as the **unchanged** producer row (no field injection into source).
+3) TDD first: add tests under `tests/` that load the real smoke trials.jsonl (read-only path) and assert DIRECT adapt_joint_trials succeeds with expected_trial_ids from retained IDs in smoke/EVIDENCE if available; assert source dict equals original row (no remap); assert actionable NOLINE; assert scores from stats.points.
+4) Keep existing unit tests green; update any that assumed scalar-only status to also cover producer object shape.
+5) Re-run market suite: `python3 -m pytest research/market_calibration/tests research/market_calibration/reviews/test_independent_false_pass.py -q`
+6) Re-run ONLY the B01 direct test if possible without editing integration package:
+```
+cd /workspace/research/nfl_sim_integration_2026-11-06
+export PYTHONDONTWRITEBYTECODE=1 GIT_OPTIONAL_LOCKS=0
+export PYTHONPATH=/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06
+python3 -m pytest integration/integration_adversarial_tests.py::test_DIRECT_actual_producer_to_market_acceptance -q -p no:cacheprovider
+```
+If full adversarial suite is safe read-only, run it and record 60-test outcome. Do not patch integration tests to hide failures.
+7) Independent short Codex self-review note in `reviews/B01_WIRE_FIX_COMPLETION.md` + `reviews/codex_b01_wire_evidence.json` (commands, pytest outputs, hashes of changed files, network=0, sims=0). Update `tracking/GHOST_HANDOFF_MARKET_ADAPTER.md` with wire agreement pointer.
+8) MANIFEST: note wire_agreement_id; do not claim FITTED/VALIDATED/actionable MATCHED.
+
+## Forbidden
+Silent diagnostic remap helper used as production path; inventing prices/defenders/calibration; paid odds; heavy sims; editing CORE; claiming Ghost acceptance; claiming predictive improvement.
+
+Start with failing test against real smoke JSONL, then implement.

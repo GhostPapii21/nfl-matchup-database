@@ -1,0 +1,57 @@
+{
+  "assertions": [
+    "exact team period stats including scores/counts/yards",
+    "exact terminal states",
+    "exact event team paths and counts",
+    "possession sequence lengths"
+  ],
+  "coupling": false,
+  "coverage_events": {
+    "OT1": 53,
+    "Q1": 4341,
+    "Q2": 4590,
+    "Q3": 4342,
+    "Q4": 4422,
+    "halftime_transition": 100,
+    "lead": 9809,
+    "period_transition": 304,
+    "tied": 3175,
+    "trail": 4764
+  },
+  "n_trials_per_seed_per_policy": 20,
+  "negative_control": "UNSUPPORTED",
+  "ot_trials": [
+    {
+      "seed": 11,
+      "trial": 0
+    },
+    {
+      "seed": 97,
+      "trial": 0
+    },
+    {
+      "seed": 987654,
+      "trial": 11
+    },
+    {
+      "seed": 987654,
+      "trial": 12
+    }
+  ],
+  "player_attribution_changed_comparisons": 15,
+  "policies": [
+    "equal_eligible",
+    "mix_equal_0.25",
+    "empirical_mle",
+    "legacy_depth"
+  ],
+  "seed_bases": [
+    11,
+    97,
+    2026,
+    20261108,
+    987654
+  ],
+  "status": "PASS",
+  "total_trials": 400
+}

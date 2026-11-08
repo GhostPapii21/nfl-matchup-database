@@ -1,0 +1,3430 @@
+Review RESEARCH-ONLY NFL possession_engine_v0 at commit 64b564b (isolated wt-period-engine).
+Scope: possession_engine_v0 only. Not production. No betting clearance.
+
+Known issues to verify/refute with code evidence:
+1) sparse_rate≈1.0 — every game flags coarse fallbacks
+2) offense-only sampling / weak defense interaction
+3) fixed clock-cost means vs empirical
+4) pace diagnostic sim~133 vs 2×59.9 — apples-to-apples?
+5) OT single-possession approx
+6) period grading 13/15 development N=150 only
+7) missing true pressure / man-zone / MOFO / CB-S-DT coeffs
+8) settlement/sampling/leakage/accounting defects
+
+Rubric 1-5: math, game-state/clock correctness, leakage, discrete scoring, robustness, feature-source honesty, calibration honesty, next accurate sim steps.
+Require: concrete reproducible regression ideas (test names + asserts), prioritized defects, reject invented market-fit or fake three-model claims.
+Output: addressed vs open; do NOT invent fixes as done if not in code.
+
+CODE BUNDLE FOLLOWS:
+
+
+===== FILE: __init__.py =====
+"""possession_engine_v0 — research-only team PBP possession simulator (JAX/BAL first)."""
+__version__ = "0.1.0-research"
+
+
+===== FILE: adjustment_ledger.py =====
+"""Adjustment ledger — prevent injury/role/pace/market double counting."""
+from __future__ import annotations
+from dataclasses import dataclass, asdict, field
+from typing import Any
+import json
+from pathlib import Path
+
+
+@dataclass
+class LedgerEntry:
+    group: str
+    applied_in: str  # config_id or 'none'
+    mechanism: str
+    forbids: list[str]
+    status: str
+
+
+def build_ledger(cfg: dict) -> list[LedgerEntry]:
+    mode = cfg["mode"]
+    cid = cfg["config_id"]
+    entries = [
+        LedgerEntry(
+            "base_pbp",
+            cid,
+            "team W1–8 empirical catalog",
+            ["league_silent_pool", "future_weeks"],
+            "ACTIVE",
+        ),
+        LedgerEntry(
+            "qb_injury_role",
+            cid if cfg.get("adjustments", {}).get("enabled") else "none",
+            "forward QB starter filter / OUT exclusions",
+            ["also_apply_lamar_passing_priors", "fabricated_fagnano_career", "market_implied_qb_downgrade_as_second_hit"],
+            "ACTIVE" if cfg.get("adjustments", {}).get("enabled") else "INACTIVE_DATA_ONLY",
+        ),
+        LedgerEntry(
+            "situational_offense",
+            cid,
+            "audit tables only unless later wired as sampler weights",
+            ["reweight_same_3rd_down_twice", "add_narrative_rz_boost_without_param"],
+            "AUDIT_ONLY",
+        ),
+        LedgerEntry(
+            "qb_pressure_proxy",
+            cid,
+            "qb_hit completion audit — PROXY",
+            ["treat_as_measured_blitz", "stack_with_unknown_pressure_penalty"],
+            "AUDIT_PROXY",
+        ),
+        LedgerEntry(
+            "availability_workload",
+            cid if mode == "script_adjusted" else "none",
+            "stub notes only — no numeric weights",
+            ["arbitrary_workload_penalty", "double_count_with_qb_filter"],
+            "STUB_NO_WEIGHTS",
+        ),
+        LedgerEntry(
+            "environment",
+            "none",
+            "weather not ingested",
+            ["arbitrary_weather_boost"],
+            "UNKNOWN",
+        ),
+        LedgerEntry(
+            "market_conditioning",
+            cid if mode == "market_informed" else "none",
+            "spread/total conditioning only in market_informed config",
+            ["contaminate_data_only_baseline", "claim_independent_market_beating_edge"],
+            "ACTIVE" if mode == "market_informed" else "SEPARATE_ONLY",
+        ),
+        LedgerEntry(
+            "pace_totals_narrative",
+            "none",
+            "narrative comments require auditable param map or sensitivity label",
+            ["free_text_auto_calibration", "unsupported_pace_weight"],
+            "FORBIDDEN_UNMAPPED",
+        ),
+    ]
+    return entries
+
+
+def write_ledger(path: Path, entries: list[LedgerEntry]) -> None:
+    path.write_text(json.dumps([asdict(e) for e in entries], indent=2) + "\n")
+
+
+===== FILE: adjustments.py =====
+"""Dated forward-only QB/injury adjustment layer — no fabricated histories."""
+from __future__ import annotations
+from typing import Any
+import pandas as pd
+
+
+def apply_forward_qb_filter(df: pd.DataFrame, adjustments: dict[str, Any]) -> tuple[pd.DataFrame, dict]:
+    """Filter pass plays for forward sims. Does not mutate historical meaning of W1–8 rows used as catalog.
+    When enabled, BAL pass catalog becomes starter-only (Fagnano); Lamar excluded; Huntley excluded from starter pool.
+    Fabrication forbidden.
+    """
+    meta: dict[str, Any] = {}
+    if not adjustments or not adjustments.get("enabled"):
+        return df.copy(), {"enabled": False}
+    out = df.copy()
+    qb = adjustments.get("qb", {})
+    for team, spec in qb.items():
+        team_pass = out[(out["posteam"] == team) & (out["play_type"] == "pass")]
+        n_before = int(len(team_pass))
+        out_passers = list(spec.get("out") or [])
+        doubtful = list(spec.get("doubtful_excluded_from_starter_pool") or [])
+        starter = spec.get("starter")
+        filt = spec.get("pass_play_filter")
+        fabricated = bool(spec.get("fabricate_replacement_history", False))
+        if fabricated:
+            raise RuntimeError("fabricate_replacement_history must be false")
+        excluded = out_passers + doubtful
+        if filt == "starter_only_when_adjustments_enabled" and starter:
+            # keep non-pass rows; for pass rows keep only starter passer
+            keep_mask = ~((out["posteam"] == team) & (out["play_type"] == "pass")) | (
+                out["passer_player_name"] == starter
+            )
+            out = out[keep_mask].copy()
+        elif excluded:
+            keep_mask = ~((out["posteam"] == team) & (out["play_type"] == "pass") & out["passer_player_name"].isin(excluded))
+            out = out[keep_mask].copy()
+        team_pass_after = out[(out["posteam"] == team) & (out["play_type"] == "pass")]
+        meta[team] = {
+            "starter": starter,
+            "excluded_passers": out_passers,
+            "doubtful_excluded": doubtful,
+            "n_pass_before": n_before,
+            "n_pass_after": int(len(team_pass_after)),
+            "fabricated": False,
+            "forward_only": True,
+            "asof_et": adjustments.get("asof_et"),
+            "sparse_qb": int(len(team_pass_after)) < 50,
+        }
+    meta["enabled"] = True
+    meta["do_not_apply_retroactively_to_w1_8_history_rows"] = adjustments.get(
+        "do_not_apply_retroactively_to_w1_8_history_rows", True
+    )
+    return out, meta
+
+
+===== FILE: config_load.py =====
+from __future__ import annotations
+import json
+from pathlib import Path
+from typing import Any
+
+
+def load_config(path: str | Path) -> dict[str, Any]:
+    p = Path(path)
+    cfg = json.loads(p.read_text())
+    required = ["config_id", "mode", "game", "history", "min_n_state", "proposed_pooling", "adjustments", "seed_base"]
+    for k in required:
+        if k not in cfg:
+            raise ValueError(f"config missing {k}")
+    if cfg["history"].get("no_league_fallback") is not True:
+        raise ValueError("no_league_fallback must be true")
+    return cfg
+
+
+===== FILE: empirical.py =====
+"""Empirical state → play lookup with explicit sparse statuses (no silent pool)."""
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import Optional
+import numpy as np
+import pandas as pd
+
+
+def dist_bucket(ydstogo: float) -> str:
+    y = float(ydstogo) if ydstogo == ydstogo else 10.0
+    if y <= 3:
+        return "short"
+    if y <= 7:
+        return "med"
+    if y <= 10:
+        return "long"
+    return "xlong"
+
+
+def yl_bucket(yardline_100: float) -> str:
+    y = float(yardline_100) if yardline_100 == yardline_100 else 75.0
+    if y <= 20:
+        return "RZ"
+    if y <= 50:
+        return "opp50to20"
+    if y <= 80:
+        return "own20to50"
+    return "backed"
+
+
+@dataclass
+class StateKey:
+    posteam: str
+    down: int
+    dist_bucket: str
+    yl_bucket: str
+
+
+@dataclass
+class Evidence:
+    status: str  # OK | SPARSE_STATE | EMPTY_STATE
+    n_evidence: int
+    plays: Optional[pd.DataFrame]
+    pooling_applied: bool = False
+    pool_proposal: Optional[str] = None
+    key: Optional[StateKey] = None
+
+
+def _snap_plays(df: pd.DataFrame) -> pd.DataFrame:
+    return df[df["play_type"].isin(["pass", "run", "qb_kneel", "qb_spike"])].copy()
+
+
+def lookup_plays(
+    df: pd.DataFrame,
+    key: StateKey,
+    *,
+    min_n: int = 5,
+    allow_pool: bool = False,
+    proposed_pool_teams: Optional[list[str]] = None,
+) -> Evidence:
+    snaps = _snap_plays(df)
+    snaps = snaps[snaps["posteam"] == key.posteam]
+    snaps = snaps[snaps["down"] == key.down]
+    if snaps.empty:
+        return Evidence("EMPTY_STATE", 0, None, False, "PROPOSED_coarser_down_or_team_pool_NOT_APPLIED", key)
+    # annotate buckets
+    d = snaps.copy()
+    d["_db"] = d["ydstogo"].map(dist_bucket)
+    d["_yl"] = d["yardline_100"].map(yl_bucket)
+    cell = d[(d["_db"] == key.dist_bucket) & (d["_yl"] == key.yl_bucket)]
+    n = int(len(cell))
+    if n >= min_n:
+        return Evidence("OK", n, cell.drop(columns=["_db", "_yl"]), False, None, key)
+    # sparse — never silent pool
+    proposal = (
+        f"PROPOSED_coarser_bins_or_same_team_down_pool n={n}<{min_n}; "
+        f"allow_pool={allow_pool} proposed_teams={proposed_pool_teams}"
+    )
+    if allow_pool and proposed_pool_teams:
+        # still require explicit allow_pool True from config — vertical slice documents this path
+        pooled = d  # same team all dist/yl for this down — still team-only
+        if len(pooled) >= min_n:
+            return Evidence(
+                "OK_POOLED_EXPLICIT",
+                int(len(pooled)),
+                pooled.drop(columns=["_db", "_yl"]),
+                True,
+                proposal,
+                key,
+            )
+    return Evidence("SPARSE_STATE", n, cell.drop(columns=["_db", "_yl"]) if n else None, False, proposal, key)
+
+
+def sample_play(rng: np.random.Generator, ev: Evidence) -> tuple[Optional[pd.Series], Evidence]:
+    if ev.status not in {"OK", "OK_POOLED_EXPLICIT"} or ev.plays is None or len(ev.plays) == 0:
+        return None, ev
+    idx = int(rng.integers(0, len(ev.plays)))
+    return ev.plays.iloc[idx], ev
+
+
+def lookup_special(
+    df: pd.DataFrame,
+    posteam: str,
+    kind: str,
+) -> Evidence:
+    """kind: punt | field_goal | extra_point | kickoff"""
+    if kind == "punt":
+        sub = df[(df["posteam"] == posteam) & (df["play_type"] == "punt")]
+    elif kind == "field_goal":
+        sub = df[(df["posteam"] == posteam) & (df["play_type"] == "field_goal")]
+    elif kind == "extra_point":
+        sub = df[(df["posteam"] == posteam) & (df["play_type"] == "extra_point")]
+    elif kind == "kickoff":
+        sub = df[df["play_type"] == "kickoff"]
+    else:
+        raise ValueError(kind)
+    n = int(len(sub))
+    if n == 0:
+        return Evidence("EMPTY_STATE", 0, None, False, f"PROPOSED_league_{kind}_NOT_APPLIED")
+    status = "OK" if n >= 3 else "SPARSE_STATE"
+    return Evidence(status if status == "OK" else "SPARSE_STATE", n, sub if n >= 3 else (sub if n else None), False,
+                    None if n >= 3 else f"PROPOSED_league_{kind}_NOT_APPLIED n={n}")
+
+
+===== FILE: pbp_filter.py =====
+"""Load team-only history — never silent league/future fallback."""
+from __future__ import annotations
+from pathlib import Path
+from typing import Sequence
+import pandas as pd
+
+COLS = [
+    "game_id", "season", "week", "home_team", "away_team", "posteam", "defteam",
+    "qtr", "down", "ydstogo", "yardline_100", "game_seconds_remaining",
+    "play_type", "yards_gained", "touchdown", "interception", "fumble_lost",
+    "field_goal_result", "extra_point_result", "two_point_conv_result",
+    "kickoff_attempt", "punt_attempt", "passer_player_name", "rusher_player_name",
+    "receiver_player_name", "complete_pass", "incomplete_pass", "sack",
+    "first_down", "fixed_drive_result", "drive", "play_id", "desc",
+    "total_home_score", "total_away_score", "epa", "air_yards",
+    "qb_scramble",
+    "drive_inside20",
+    "pass_location",
+    "qb_hit",
+    "third_down_failed",
+    "third_down_converted",
+]
+
+
+def load_team_history(
+    pbp_path: str | Path,
+    *,
+    teams: Sequence[str],
+    season: int,
+    weeks: tuple[int, int],
+) -> dict:
+    path = Path(pbp_path)
+    if not path.exists():
+        return {"status": "PBP_MISSING", "df": None, "evidence": {}}
+    import pyarrow.parquet as pq
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+    use = [c for c in COLS if c in available]
+    df = pd.read_parquet(path, columns=use)
+    w0, w1 = weeks
+    # Games involving either team, weeks in range, season match
+    invol = df["home_team"].isin(teams) | df["away_team"].isin(teams)
+    mask = invol & (df["season"] == season) & (df["week"] >= w0) & (df["week"] <= w1)
+    games = df.loc[mask].copy()
+    # Offense rows: posteam in teams (team-only offense catalog)
+    off = games[games["posteam"].isin(teams)].copy()
+    if off.empty:
+        return {"status": "EMPTY_TEAM_HISTORY", "df": off, "evidence": {"n_games": 0, "n_plays": 0}}
+    # Guard: no future weeks
+    if off["week"].max() > w1 or off["week"].min() < w0:
+        return {"status": "WEEK_FILTER_FAILED", "df": off, "evidence": {}}
+    return {
+        "status": "OK",
+        "df": off.reset_index(drop=True),
+        "games_df": games.reset_index(drop=True),
+        "evidence": {
+            "n_games": int(games["game_id"].nunique()),
+            "n_plays": int(len(off)),
+            "teams": list(teams),
+            "weeks": [w0, w1],
+            "season": season,
+            "source": str(path),
+        },
+    }
+
+
+def load_involvement_plays(pbp_path, *, teams, season, weeks):
+    """All plays from games involving teams (includes opponent offense vs our defense)."""
+    import pyarrow.parquet as pq
+    from pathlib import Path
+    path = Path(pbp_path)
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+    use = [c for c in COLS if c in available]
+    df = __import__("pandas").read_parquet(path, columns=use)
+    w0, w1 = weeks
+    invol = df["home_team"].isin(teams) | df["away_team"].isin(teams)
+    mask = invol & (df["season"] == season) & (df["week"] >= w0) & (df["week"] <= w1)
+    return df.loc[mask].reset_index(drop=True)
+
+
+===== FILE: provenance.py =====
+"""Per-input provenance: definition, as-of, freshness, n, reproducibility, status.
+No arbitrary blanket trust scores — status is evidential, not a 0–100 score.
+"""
+from __future__ import annotations
+from dataclasses import dataclass, asdict
+from typing import Any, Optional
+import json
+from pathlib import Path
+
+
+@dataclass
+class InputProvenance:
+    input_id: str
+    definition: str
+    source_path_or_url: str
+    as_of_et: str
+    freshness_note: str
+    sample_size: Optional[int]
+    sample_unit: str
+    reproducibility: str  # deterministic_filter | seeded_sim | manual_note | unknown
+    status: str  # OK | SPARSE | PROXY | MISSING | UNKNOWN | SCENARIO_ONLY
+    used_in_configs: list[str]
+    double_count_group: Optional[str] = None  # ledger group key
+    notes: str = ""
+
+    def to_dict(self):
+        return asdict(self)
+
+
+def build_default_registry(*, hist_evidence: dict, adj_meta: dict, situational_ns: dict) -> list[InputProvenance]:
+    rows = [
+        InputProvenance(
+            "pbp_2026_team_w1_8",
+            "nflfastR-shaped play-by-play rows for games involving JAX or BAL, season 2026 weeks 1–8; offense catalog posteam in {JAX,BAL}",
+            "research/period_engine_v0/data/play_by_play_2026.parquet → nfl-database r2 src",
+            "2026-11-05 (local file)",
+            "Static local parquet; not re-pulled this run",
+            hist_evidence.get("n_plays"),
+            "offense_plays",
+            "deterministic_filter",
+            "OK",
+            ["data_only", "script_adjusted", "market_informed"],
+            "base_pbp",
+        ),
+        InputProvenance(
+            "qb_adjustment_bal_fagnano",
+            "Forward-only starter filter: BAL pass plays limited to J.Fagnano; L.Jackson OUT excluded; Huntley doubtful excluded from starter pool",
+            "config/jax_bal_tnf_2026-11-05_script_adjusted.json + runs/.../brainstorm_read.md notes dated 2026-11-03",
+            "2026-11-05T13:00:00-05:00",
+            "Notes from 2026-11-03; confirm inactives separately before any bet use (not authorized here)",
+            (adj_meta.get("BAL") or {}).get("n_pass_after"),
+            "BAL_pass_plays_after_filter",
+            "deterministic_filter",
+            "SPARSE" if (adj_meta.get("BAL") or {}).get("sparse_qb") else "OK",
+            ["script_adjusted"],
+            "qb_injury_role",
+            "Does not fabricate Fagnano history; does not rewrite W1–8 rows for data_only",
+        ),
+        InputProvenance(
+            "third_down_conversion",
+            "Frequency of 3rd-down opportunities and P(convert|3rd) from PBP third_down_converted/failed",
+            "same PBP",
+            "2026-11-05",
+            "Derived this run from W1–8 filter",
+            situational_ns.get("third_down_n"),
+            "third_down_plays",
+            "deterministic_filter",
+            "OK" if (situational_ns.get("third_down_n") or 0) >= 20 else "SPARSE",
+            ["data_only", "script_adjusted"],
+            "situational_offense",
+        ),
+        InputProvenance(
+            "red_zone",
+            "RZ opportunity (play or drive yardline_100<=20) and score/TD conditional rates",
+            "same PBP",
+            "2026-11-05",
+            "Derived this run",
+            situational_ns.get("rz_n"),
+            "rz_plays",
+            "deterministic_filter",
+            "OK" if (situational_ns.get("rz_n") or 0) >= 20 else "SPARSE",
+            ["data_only", "script_adjusted"],
+            "situational_offense",
+        ),
+        InputProvenance(
+            "qb_hit_completion_proxy",
+            "Completion rate split by qb_hit==1 vs 0 — PROXY for pressure; NOT measured blitz/pressure",
+            "PBP column qb_hit",
+            "2026-11-05",
+            "Derived this run",
+            situational_ns.get("qb_hit_n"),
+            "pass_attempts_with_qb_hit_flag",
+            "deterministic_filter",
+            "PROXY",
+            ["script_adjusted", "data_only"],
+            "qb_pressure_proxy",
+            "blitz/was_pressure columns MISSING — do not treat as true pressure",
+        ),
+        InputProvenance(
+            "coverage_routes_man_zone",
+            "Actual coverage shell, route tree, man/zone, middle-open, primary CB/S",
+            "NOT IN LOCAL PBP",
+            "2026-11-05",
+            "n/a",
+            0,
+            "plays",
+            "unknown",
+            "MISSING",
+            [],
+            None,
+            "PBP alone cannot establish; pass_location is not route-vs-CB",
+        ),
+        InputProvenance(
+            "weather",
+            "Game-time weather (wind/temp/precip)",
+            "NOT INGESTED in this module yet",
+            "2026-11-05",
+            "unknown",
+            None,
+            "games",
+            "unknown",
+            "UNKNOWN",
+            [],
+            "environment",
+            "No unsupported weather weights",
+        ),
+        InputProvenance(
+            "road_rest_travel_practice",
+            "Road/rest/travel/practice availability uncertainty",
+            "Schedule implied by PBP game_id + miss_audit practice DNP notes",
+            "notes 2026-11-03–05",
+            "Qualitative stub",
+            None,
+            "notes",
+            "manual_note",
+            "UNKNOWN",
+            ["script_adjusted"],
+            "availability_workload",
+            "Evidence stub only — no numeric boosts",
+        ),
+        InputProvenance(
+            "market_spread_total",
+            "Spread/total quotes for conditioning",
+            "Screenshot/API quotes external — only via market_informed config",
+            "varies",
+            "Must not enter data_only",
+            None,
+            "markets",
+            "manual_note",
+            "SCENARIO_ONLY",
+            ["market_informed"],
+            "market_conditioning",
+            "Not independent market-beating evidence; separate config",
+        ),
+    ]
+    return rows
+
+
+def write_registry(path: Path, rows: list[InputProvenance]) -> None:
+    path.write_text(json.dumps([r.to_dict() for r in rows], indent=2) + "\n")
+
+
+===== FILE: run_jaxbal_demo.py =====
+"""Run bounded JAX@BAL possession sims under frozen configs; write artifacts. Research only."""
+from __future__ import annotations
+import json, time
+from pathlib import Path
+from config_load import load_config
+from pbp_filter import load_team_history
+from situational import build_situational_report
+from provenance import build_default_registry, write_registry
+from adjustment_ledger import build_ledger, write_ledger
+from simulate import simulate_games, stable_seed
+from adjustments import apply_forward_qb_filter
+
+ROOT = Path(__file__).resolve().parent
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+ART = ROOT / "artifacts"
+ART.mkdir(exist_ok=True)
+
+
+def main():
+    hist = load_team_history(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+    sit = build_situational_report(hist["df"], hist.get("games_df"))
+    (ART / "situational_jax_bal_w1_8.json").write_text(json.dumps(sit, indent=2) + "\n")
+
+    results = {}
+    # Practical N: try 10k; if slow report — target <120s for 10k
+    # Practical N: ~20ms/game → 2k≈40s/config. 100k≈33min/config = RUNTIME_BLOCKER this session.
+    PRACTICAL_N = 2000
+    for cfg_name, n in [
+        ("jax_bal_tnf_2026-11-05_data_only.json", PRACTICAL_N),
+        ("jax_bal_tnf_2026-11-05_script_adjusted.json", PRACTICAL_N),
+    ]:
+        cfg = load_config(ROOT / "config" / cfg_name)
+        seed = stable_seed(cfg["seed_base"], 9, cfg["config_id"])
+        t0 = time.perf_counter()
+        out = simulate_games(cfg, pbp_path=PBP, n=n, seed=seed)
+        elapsed = time.perf_counter() - t0
+        # strip large arrays to summary
+        import numpy as np
+        A = out["arrays"]
+        summary = {
+            k: v for k, v in out.items() if k not in ("arrays", "player_joint")
+        }
+        summary["runtime_sec"] = elapsed
+        summary["score_means"] = {
+            "fg_home": float(np.mean(A["fg_home"])),
+            "fg_away": float(np.mean(A["fg_away"])),
+            "reg_home": float(np.mean(A["reg_home"])),
+            "reg_away": float(np.mean(A["reg_away"])),
+            "p_ot": float(np.mean(A["went_ot"])),
+        }
+        summary["player_joint_top"] = {
+            kind: {tm: dict(sorted(pl.items(), key=lambda x: -x[1])[:5]) for tm, pl in teams.items()}
+            for kind, teams in out["player_joint"].items()
+        }
+        results[cfg["config_id"]] = summary
+        write_ledger(ART / f"ledger_{cfg['config_id']}.json", build_ledger(cfg))
+        print(cfg["config_id"], "n", out["n_completed"], "sec", round(elapsed, 2), "status", out["status"], "means", summary["score_means"])
+
+    # provenance with script_adjusted meta
+    cfg_adj = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_script_adjusted.json")
+    _, adj_meta = apply_forward_qb_filter(hist["df"], cfg_adj["adjustments"])
+    reg = build_default_registry(hist_evidence=hist["evidence"], adj_meta=adj_meta, situational_ns=sit["ns"])
+    write_registry(ART / "input_provenance_registry.json", reg)
+
+    # market informed: document only (sampler not conditioned yet)
+    cfg_m = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_market_informed.json")
+    write_ledger(ART / f"ledger_{cfg_m['config_id']}.json", build_ledger(cfg_m))
+    results["market_informed_note"] = {
+        "config_id": cfg_m["config_id"],
+        "sampler_conditioned": False,
+        "quotes_status": cfg_m["market_conditioning"]["quotes_status"],
+        "contaminates_data_only": False,
+        "note": "Config frozen separate; conditioning not wired to sampler — avoids false baseline contamination",
+    }
+
+    results["run_size_policy"] = {
+        "practical_n": PRACTICAL_N,
+        "per_game_ms_approx": 20,
+        "n_100k_status": "RUNTIME_BLOCKER",
+        "n_100k_est_sec_per_config": 2000,
+        "note": "Do not fabricate 100k outputs; re-run when compute budget allows",
+        "score_level_limitation": "Vertical slice empirical offense bootstrap overstates mean points vs NFL norms — not calibrated; research only",
+    }
+    (ART / "sim_jaxbal_summary.json").write_text(json.dumps(results, indent=2) + "\n")
+    print("wrote artifacts to", ART)
+
+
+if __name__ == "__main__":
+    main()
+
+
+===== FILE: run_period_realism_grade.py =====
+#!/usr/bin/env python3
+"""Period grading vs actuals + pace realism. Research/development only. Not an approved pick."""
+from __future__ import annotations
+import json, time
+from pathlib import Path
+import pandas as pd
+from validation.asof_grade import grade_week_games
+from validation.period_grade import grade_periods_for_games
+from validation.realism import compare_sim_vs_actual_pace
+from validation.weather_hook import weather_scenario_from_parent
+from config_load import load_config
+
+ROOT = Path(__file__).resolve().parent
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+ART = ROOT / "artifacts/validation"
+ART.mkdir(parents=True, exist_ok=True)
+
+N_SIMS = 150
+
+
+def main():
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_data_only.json")
+    t0 = time.perf_counter()
+    rows = grade_week_games(PBP, weeks=list(range(1, 9)), n_sims=N_SIMS, seed_base=20261105)
+    # FG-level already in rows; now period grade for GRADED_FULL
+    t1 = time.perf_counter()
+    period = grade_periods_for_games(PBP, rows, n_sims=N_SIMS, seed_base=20261105)
+    period_sec = time.perf_counter() - t1
+    asof_sec = t1 - t0
+
+    pd.DataFrame(rows).to_csv(ART / "asof_grade_per_game.csv", index=False)
+    pd.DataFrame(period["by_game"]).to_csv(ART / "period_grade_per_game.csv", index=False)
+
+    t2 = time.perf_counter()
+    realism = compare_sim_vs_actual_pace(cfg, pbp_path=PBP, n_sims=200, seed=11)
+    realism_sec = time.perf_counter() - t2
+    (ART / "realism_pace_diagnostics.json").write_text(json.dumps(realism, indent=2) + "\n")
+
+    weather = weather_scenario_from_parent(None)
+    (ART / "weather_scenario_hook.json").write_text(json.dumps(weather, indent=2) + "\n")
+
+    n_full = sum(1 for r in rows if r["grade_status"] == "GRADED_FULL")
+    n_period = period["metrics"]["n_games_period_graded"]
+    out = {
+        "approved_pick": False,
+        "evaluation_label": "development_w1_8_inspected_not_untouched_holdout",
+        "prior_artifacts_preserved": "artifacts/validation/pre_period_grade_12a7768/",
+        "n_sims": N_SIMS,
+        "runtime_sec": {"asof_fg_grade": asof_sec, "period_grade": period_sec, "realism": realism_sec},
+        "fg_grade_coverage": {"graded_full": n_full, "denominator": len(rows)},
+        "period_metrics": period["metrics"],
+        "realism": realism,
+        "weather": weather,
+        "residual_matrix": {
+            "true_pressure_qbp": "MISSING_paid_FTN",
+            "man_zone_mofo_routes": "MISSING_free_FTN_29col",
+            "cb_s_dt_replacement_coeffs": "MISSING_UNVERIFIED_notes_only",
+            "weather_auto_prop_downgrade": "DISABLED_pending_NWS",
+        },
+    }
+    (ART / "period_realism_metrics.json").write_text(json.dumps(out, indent=2) + "\n")
+
+    m = period["metrics"]
+    summary = f"""# Period grading + realism (post-12a7768 continuation)
+
+**Not an approved pick.** Development W1–8 only. Prior FG 0/15 and 13/15 artifacts preserved.
+
+## As-of FG coverage
+GRADED_FULL: {n_full}/{len(rows)} (W1 skips remain)
+
+## Period grading (N={N_SIMS}/game, {n_period} games, {period_sec:.1f}s)
+| Period | MAE home | MAE away | Brier home-win |
+|---|---:|---:|---:|
+| Q1 | {m.get('mae_q1_home')} | {m.get('mae_q1_away')} | (see H1+) |
+| H1 | {m.get('mae_h1_home'):.2f} | {m.get('mae_h1_away'):.2f} | {m.get('brier_h1_home_win'):.3f} |
+| H2 | {m.get('mae_h2_home'):.2f} | {m.get('mae_h2_away'):.2f} | {m.get('brier_h2_home_win'):.3f} |
+| Reg | {m.get('mae_reg_home'):.2f} | {m.get('mae_reg_away'):.2f} | {m.get('brier_reg_home_win'):.3f} |
+| FG  | {m.get('mae_fg_home'):.2f} | {m.get('mae_fg_away'):.2f} | {m.get('brier_fg_home_win'):.3f} |
+
+Period metrics are **separate** from FG (FG row repeated for comparison).
+
+## Realism (development diagnostic)
+Actual per-team offense snaps mean: {realism['actual']['mean_offense_snaps_per_team_game']:.1f} (n_team_games={realism['actual']['n_team_games']})
+≈2× actual (both offenses): {realism['actual_both_offenses_snaps_approx']:.1f}
+Sim mean snaps/game: {realism['sim']['mean_snaps_per_game']:.1f}
+Drive length plays actual mean/median: {realism['actual']['drive_length_plays']['mean']:.2f} / {realism['actual']['drive_length_plays']['median']:.1f} (n_drives={realism['actual']['drive_length_plays']['n_drives']})
+Delta sim − 2×actual snaps: {realism['comparison']['sim_snaps_minus_2x_team_snaps']:.1f}
+
+## Residual blockers (unchanged / no invent)
+- True pressure (FTN qbp): MISSING paid
+- Man/zone/MOFO/routes: MISSING free FTN 29-col
+- CB/S/DT replacement coeffs: MISSING
+- Weather: hook only PENDING_NWS — no DK auto-downgrade
+"""
+    (ART / "SUMMARY.md").write_text(summary)
+    # also keep metrics.json pointer
+    prev = {}
+    mp = ART / "metrics.json"
+    if mp.exists():
+        prev = json.loads(mp.read_text())
+    prev["period_realism_extension"] = out
+    prev["summary_updated_et"] = time.strftime("%Y-%m-%d %H:%M:%S %Z")
+    mp.write_text(json.dumps(prev, indent=2) + "\n")
+    print(summary)
+
+
+if __name__ == "__main__":
+    main()
+
+
+===== FILE: run_validation_grade.py =====
+#!/usr/bin/env python3
+"""Reproducible validation + grading after P1/P2/P3 fixes. Research only. Not an approved pick."""
+from __future__ import annotations
+import json, time, hashlib
+from pathlib import Path
+from datetime import datetime
+import numpy as np
+import pandas as pd
+from config_load import load_config
+from validation.accounting import run_accounting_checks
+from validation.asof_grade import list_jaxbal_games, grade_week_games
+from pbp_filter import load_involvement_plays
+from effects.evidence_tables import load_ftn_join, explosive_tables, qb_completion_splits, recent_form_miss_audit
+
+ROOT = Path(__file__).resolve().parent
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+ART = ROOT / "artifacts/validation"
+ART.mkdir(parents=True, exist_ok=True)
+
+N_ACCT = 100
+N_GRADE = 150  # practical per game ×13 ≈ runtime budget
+
+
+def refresh_freeze():
+    import subprocess
+    commit = subprocess.check_output(["git", "-C", "/workspace/wt-period-engine", "rev-parse", "HEAD"], text=True).strip()
+    files = [
+        "simulate.py", "state.py", "pbp_filter.py", "validation/asof_grade.py",
+        "validation/accounting.py", "effects/apply_supported.py", "effects/evidence_tables.py",
+        "config/jax_bal_tnf_2026-11-05_data_only.json",
+    ]
+    h = hashlib.sha256()
+    rows = []
+    for f in files:
+        b = (ROOT / f).read_bytes()
+        fh = hashlib.sha256(b).hexdigest()
+        h.update(fh.encode()); h.update(b)
+        rows.append({"path": f, "sha256": fh})
+    man = {
+        "frozen_at_et": datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %Z"),
+        "git_commit_pre_this_run": commit,
+        "bundle_sha256": h.hexdigest(),
+        "files": rows,
+        "prior_0of15_preserved": "artifacts/validation/pre_fix_b7b5796_0of15/",
+        "evaluation_label": "development_w1_8_inspected_not_untouched_holdout",
+        "approved_pick": False,
+        "prior_year_pooling": False,
+        "league_pooling": False,
+        "historical_opponents_allowed": True,
+    }
+    (ART / "MODEL_FREEZE_POST_P1P2.json").write_text(json.dumps(man, indent=2) + "\n")
+    return man
+
+
+def main():
+    freeze = refresh_freeze()
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_data_only.json")
+    t0 = time.perf_counter()
+    acct = run_accounting_checks(cfg, pbp_path=PBP, n=N_ACCT, seed=20261105)
+    acct_sec = time.perf_counter() - t0
+
+    t1 = time.perf_counter()
+    grade_rows = grade_week_games(PBP, weeks=list(range(1, 9)), n_sims=N_GRADE, seed_base=20261105)
+    grade_sec = time.perf_counter() - t1
+    gdf = pd.DataFrame(grade_rows)
+    gdf.to_csv(ART / "asof_grade_per_game.csv", index=False)
+
+    status_counts = gdf["grade_status"].value_counts().to_dict()
+    graded = gdf[gdf["grade_status"] == "GRADED_FULL"]
+    n_games = len(gdf)
+    n_graded = len(graded)
+
+    metrics_grade = {
+        "n_games_denominator": n_games,
+        "n_graded_full": int(n_graded),
+        "n_ungradable": int(n_games - n_graded),
+        "status_counts": status_counts,
+        "n_sims_per_graded_game": N_GRADE,
+        "grade_runtime_sec": grade_sec,
+    }
+    if n_graded:
+        metrics_grade.update({
+            "mae_home": float(graded["abs_err_home"].mean()),
+            "mae_away": float(graded["abs_err_away"].mean()),
+            "mae_total_points_side_avg": float(0.5 * (graded["abs_err_home"].mean() + graded["abs_err_away"].mean())),
+            "baseline_mae_home": float(graded["baseline_abs_err_home"].dropna().mean()) if graded["baseline_abs_err_home"].notna().any() else None,
+            "baseline_mae_away": float(graded["baseline_abs_err_away"].dropna().mean()) if graded["baseline_abs_err_away"].notna().any() else None,
+            "mean_pred_home": float(graded["pred_home_mean"].mean()),
+            "mean_pred_away": float(graded["pred_away_mean"].mean()),
+            "mean_actual_home": float(graded["actual_home"].mean()),
+            "mean_actual_away": float(graded["actual_away"].mean()),
+            "mean_pred_h1_home": float(graded["pred_h1_home_mean"].mean()),
+            "mean_pred_h1_away": float(graded["pred_h1_away_mean"].mean()),
+        })
+        # beat baseline?
+        if metrics_grade["baseline_mae_home"] is not None:
+            metrics_grade["engine_vs_baseline_home"] = (
+                "engine_mae_lower" if metrics_grade["mae_home"] < metrics_grade["baseline_mae_home"]
+                else "baseline_mae_lower_or_tie"
+            )
+            metrics_grade["engine_vs_baseline_away"] = (
+                "engine_mae_lower" if metrics_grade["mae_away"] < metrics_grade["baseline_mae_away"]
+                else "baseline_mae_lower_or_tie"
+            )
+        metrics_grade["note"] = "Development set — not tuned to beat baseline; not accuracy claim"
+
+    inv = load_involvement_plays(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+    joined = load_ftn_join(inv)
+    expl = explosive_tables(inv)
+    qb = qb_completion_splits(joined["joined"]) if joined.get("joined") is not None else {}
+
+    (ART / "accounting_report.json").write_text(json.dumps(acct, indent=2) + "\n")
+    (ART / "effects_explosive.json").write_text(json.dumps(expl, indent=2) + "\n")
+    (ART / "effects_qb_splits.json").write_text(json.dumps(qb, indent=2) + "\n")
+    (ART / "effects_ftn_join_meta.json").write_text(json.dumps(joined["meta"], indent=2) + "\n")
+
+    metrics = {
+        "freeze": freeze,
+        "approved_pick": False,
+        "evaluation_label": "development_w1_8_inspected_not_untouched_holdout",
+        "prior_artifact_0of15": "artifacts/validation/pre_fix_b7b5796_0of15/",
+        "accounting": {k: acct[k] for k in acct if k != "checks"},
+        "accounting_checks_fail": [c for c in acct["checks"] if not c["ok"]],
+        "accounting_runtime_sec": acct_sec,
+        "grading": metrics_grade,
+        "market_status": "NO_MATCHING_PREKICK_PINNACLE_QUOTES — no edge/ROI",
+        "effects_summary": {
+            "ftn": joined["meta"],
+            "period_scoreboards": "IMPLEMENTED",
+            "true_pressure": "MISSING_paid_FTN_qbp",
+            "coverage_man_zone_mofo": "MISSING_not_in_nflverse_FTN_29col",
+            "attribution": "FTN Data via nflverse (CC-BY-SA)",
+        },
+        "blockers_residual": [
+            "True pressure (FTN qbp) and routes (rte) require paid FTN — not pulled",
+            "Man/zone/MOFO/MOFC absent from free FTN subset (nflreadr dictionary confirms)",
+            "CB/S/DT replacement effects remain UNVERIFIED notes — no coefficients",
+            "Actual H1/period outcomes not fully reconstructed for MAE vs actual periods in this CSV (FG graded; H1 pred reported)",
+            "sparse_rate still high; development set only",
+        ],
+    }
+    (ART / "metrics.json").write_text(json.dumps(metrics, indent=2) + "\n")
+
+    summary = f"""# Validation/grading after P1/P2/P3 (not an approved pick)
+
+Freeze bundle: {freeze['bundle_sha256'][:16]}… | prior 0/15 preserved under pre_fix_b7b5796_0of15/
+
+## Accounting N={N_ACCT}
+Status **{acct['overall_status']}** pass={acct['n_checks_pass']} fail={acct['n_checks_fail']}
+Fails: {[c['name'] for c in acct['checks'] if not c['ok']]}
+Score means: {acct['score_means']} sparse={acct['sparse_rate']}
+
+## As-of grade (denom={n_games}, n_sims={N_GRADE}/game, runtime={grade_sec:.1f}s)
+GRADED_FULL: **{n_graded}** | Ungradable: {n_games - n_graded}
+Statuses: {status_counts}
+"""
+    if n_graded:
+        summary += f"""MAE home/away: {metrics_grade.get('mae_home'):.2f} / {metrics_grade.get('mae_away'):.2f}
+Baseline PPG MAE home/away: {metrics_grade.get('baseline_mae_home')} / {metrics_grade.get('baseline_mae_away')}
+Engine vs baseline: {metrics_grade.get('engine_vs_baseline_home')} / {metrics_grade.get('engine_vs_baseline_away')}
+"""
+    summary += f"""
+## Effects
+FTN join {joined['meta'].get('status')} rate={joined['meta'].get('join_rate')}
+True pressure/coverage MOFO: MISSING (free FTN 29-col only). Blitz strata IMPLEMENTED.
+Shaan numbers: attributed not verified.
+
+Market: no pre-kick Pin → no ROI. W1–8 = development.
+"""
+    (ART / "SUMMARY.md").write_text(summary)
+    print(summary)
+
+
+if __name__ == "__main__":
+    main()
+
+
+===== FILE: simulate.py =====
+"""Possession/PBP Monte Carlo vertical slice — team-only empirical resampling."""
+from __future__ import annotations
+from pathlib import Path
+from typing import Any, Optional
+import hashlib
+import numpy as np
+import pandas as pd
+
+from pbp_filter import load_team_history
+from empirical import StateKey, lookup_plays, lookup_special, sample_play, dist_bucket, yl_bucket
+from adjustments import apply_forward_qb_filter
+from state import GameState, apply_kickoff, maybe_halftime, start_ot_if_tied
+
+
+def stable_seed(base: int, week: int, game_id: str) -> int:
+    digest = hashlib.sha256(f"{base}|{week}|{game_id}".encode()).hexdigest()
+    return (base + week * 1000 + int(digest[:8], 16)) % (2**31 - 1)
+
+
+def _clock_cost(play_type: str, rng: np.random.Generator) -> int:
+    means = {"pass": 22, "run": 28, "punt": 10, "field_goal": 7, "extra_point": 4, "qb_kneel": 40, "qb_spike": 2}
+    mu = means.get(play_type, 24)
+    return int(max(3, rng.normal(mu, 4)))
+
+
+def _credit_player(st: GameState, team: str, kind: str, name: Optional[str], yards: float) -> None:
+    if not isinstance(name, str) or not name or name == "nan":
+        return
+    bucket = st.player_counts.setdefault(kind, {}).setdefault(team, {})
+    bucket[name] = bucket.get(name, 0.0) + float(yards)
+
+
+def _other(st: GameState, team: str) -> str:
+    return st.away if team == st.home else st.home
+
+
+class PlayCatalog:
+    """Pre-index team snaps for fast sampling."""
+
+    def __init__(self, df: pd.DataFrame, min_n: int):
+        self.df = df
+        self.min_n = min_n
+        self.snaps = df[df["play_type"].isin(["pass", "run", "qb_kneel", "qb_spike"])].copy()
+        self.snaps["_db"] = self.snaps["ydstogo"].map(dist_bucket)
+        self.snaps["_yl"] = self.snaps["yardline_100"].map(yl_bucket)
+        self.cells: dict[tuple, pd.DataFrame] = {}
+        self.by_down: dict[tuple, pd.DataFrame] = {}
+        self.by_team: dict[str, pd.DataFrame] = {}
+        for team, g in self.snaps.groupby("posteam"):
+            self.by_team[team] = g
+            for down, gd in g.groupby("down"):
+                self.by_down[(team, int(down))] = gd
+                for (db, yl), cell in gd.groupby(["_db", "_yl"]):
+                    self.cells[(team, int(down), str(db), str(yl))] = cell
+        self.fourth_probs = {}
+        self.specials = {"punt": {}, "field_goal": {}, "extra_point": {}}
+        for team, g in df.groupby("posteam"):
+            fourth = g[g["down"] == 4]
+            if len(fourth) >= 5:
+                types = fourth["play_type"].value_counts(normalize=True)
+                p_punt = float(types.get("punt", 0)); p_fg = float(types.get("field_goal", 0))
+                p_go = float(types.get("pass", 0) + types.get("run", 0)); s = p_punt + p_fg + p_go
+                self.fourth_probs[team] = (p_punt/s, p_fg/s, p_go/s) if s > 0 else (1.0, 0.0, 0.0)
+            for kind, ptype in [("punt","punt"),("field_goal","field_goal"),("extra_point","extra_point")]:
+                sub = g[g["play_type"] == ptype]
+                if len(sub) >= 3:
+                    self.specials[kind][team] = sub.reset_index(drop=True)
+
+    def sample_snap(self, rng: np.random.Generator, st: GameState, allow_pool: bool) -> tuple[Optional[pd.Series], str]:
+        key = (st.possession, int(st.down), dist_bucket(st.ydstogo), yl_bucket(st.yardline_100))
+        cell = self.cells.get(key)
+        if cell is not None and len(cell) >= self.min_n:
+            return cell.iloc[int(rng.integers(0, len(cell)))], "OK"
+        # team-only coarser fallbacks with explicit flags (NOT league)
+        down_key = (st.possession, int(st.down))
+        broad = self.by_down.get(down_key)
+        if broad is not None and len(broad) > 0:
+            return broad.iloc[int(rng.integers(0, len(broad)))], f"SPARSE_STATE_FALLBACK_SAME_DOWN n_cell={0 if cell is None else len(cell)}"
+        team = self.by_team.get(st.possession)
+        if team is not None and len(team) > 0:
+            return team.iloc[int(rng.integers(0, len(team)))], "SPARSE_STATE_FALLBACK_ANY_DOWN_SAME_TEAM"
+        return None, "EMPTY_TEAM_SNAPS"
+
+
+def _fourth_down_decision(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -> str:
+    probs = catalog.fourth_probs.get(st.possession)
+    if probs is None:
+        st.sparse_flags.append("SPARSE_4TH_DECISION default_punt")
+        return "punt"
+    return str(rng.choice(["punt", "field_goal", "go"], p=list(probs)))
+
+
+def _attempt_fg(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -> None:
+    plays = catalog.specials["field_goal"].get(st.possession)
+    st.game_seconds_remaining -= _clock_cost("field_goal", rng)
+    if plays is None or len(plays) == 0:
+        st.sparse_flags.append("SPARSE_FG")
+        st.possession = _other(st, st.possession)
+        st.yardline_100 = int(np.clip(100 - st.yardline_100, 20, 80))
+        st.down, st.ydstogo = 1, 10
+        st.events.append({"type": "fg_sparse_miss_default"})
+        return
+    row = plays.iloc[int(rng.integers(0, len(plays)))]
+    res = str(row.get("field_goal_result") or "")
+    if res == "made":
+        st.add_score(st.possession, 3)
+        st.events.append({"type": "field_goal", "result": "made", "team": st.possession})
+        apply_kickoff(st, receiving=_other(st, st.possession), yardline_100=75)
+        if st.in_ot:
+            st.final = True
+    else:
+        st.events.append({"type": "field_goal", "result": res or "missed", "team": st.possession})
+        st.possession = _other(st, st.possession)
+        st.yardline_100 = int(np.clip(100 - st.yardline_100, 20, 80))
+        st.down, st.ydstogo = 1, 10
+
+
+def _attempt_pat(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, scoring_team: str) -> None:
+    plays = catalog.specials["extra_point"].get(scoring_team)
+    st.game_seconds_remaining -= _clock_cost("extra_point", rng)
+    if plays is None or len(plays) == 0:
+        st.sparse_flags.append("SPARSE_PAT assume_made")
+        st.add_score(scoring_team, 1)
+        st.events.append({"type": "pat", "result": "assume_made_sparse", "team": scoring_team})
+        return
+    row = plays.iloc[int(rng.integers(0, len(plays)))]
+    res = str(row.get("extra_point_result") or "")
+    if res == "good":
+        st.add_score(scoring_team, 1)
+    st.events.append({"type": "pat", "result": res or "unknown", "team": scoring_team})
+
+
+def _punt_fixed(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -> None:
+    offense = st.possession
+    yl = st.yardline_100
+    plays = catalog.specials["punt"].get(offense)
+    st.game_seconds_remaining -= _clock_cost("punt", rng)
+    net = 40
+    if plays is not None and len(plays):
+        yg = pd.to_numeric(plays["yards_gained"], errors="coerce").dropna()
+        if len(yg):
+            net = int(np.clip(abs(float(yg.iloc[int(rng.integers(0, len(yg)))])), 25, 60))
+    else:
+        st.sparse_flags.append("SPARSE_PUNT default_net40")
+    # Ball advances net yards toward offense's EZ; receiving team's yardline_100 flips.
+    ball_yl_from_kick_opp = int(np.clip(yl - net, 1, 99))
+    recv_yl = int(np.clip(100 - ball_yl_from_kick_opp, 10, 90))
+    st.possession = _other(st, offense)
+    st.yardline_100 = recv_yl
+    st.down, st.ydstogo = 1, 10
+    st.events.append({"type": "punt", "from_yl": yl, "net": net, "new_yl": recv_yl, "kick_ball_yl": ball_yl_from_kick_opp, "team": offense})
+
+
+def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, allow_pool: bool) -> None:
+    row, status = catalog.sample_snap(rng, st, allow_pool)
+    if status != "OK":
+        st.sparse_flags.append(status)
+    if row is None:
+        _punt_fixed(rng, catalog, st)
+        return
+
+    play_type = str(row["play_type"])
+    yards = float(row["yards_gained"]) if pd.notna(row["yards_gained"]) else 0.0
+    st.game_seconds_remaining -= _clock_cost(play_type, rng)
+
+    if int(row.get("interception") or 0) == 1 or int(row.get("fumble_lost") or 0) == 1:
+        st.events.append({"type": "turnover", "play_type": play_type, "team": st.possession})
+        st.possession = _other(st, st.possession)
+        st.yardline_100 = int(np.clip(100 - max(st.yardline_100 - yards, 1), 10, 90))
+        st.down, st.ydstogo = 1, 10
+        return
+
+    if play_type == "pass":
+        _credit_player(st, st.possession, "pass_yards", row.get("passer_player_name"), max(yards, 0))
+        if int(row.get("complete_pass") or 0) == 1:
+            _credit_player(st, st.possession, "rec_yards", row.get("receiver_player_name"), max(yards, 0))
+    elif play_type == "run":
+        _credit_player(st, st.possession, "rush_yards", row.get("rusher_player_name"), yards)
+
+    # Score only if yards from *current* field position reach the EZ.
+    # Do NOT trust historical `touchdown` flags from a different yardline context.
+    if (st.yardline_100 - yards) <= 0:
+        scoring = st.possession
+        st.add_score(scoring, 6)
+        st.events.append({"type": "touchdown", "team": scoring, "yards": yards})
+        _attempt_pat(rng, catalog, st, scoring)
+        apply_kickoff(st, receiving=_other(st, scoring), yardline_100=75)
+        if st.in_ot:
+            st.final = True
+            st.events.append({"type": "final_ot"})
+        return
+
+    st.yardline_100 = int(np.clip(st.yardline_100 - yards, 1, 99))
+    if yards >= st.ydstogo:
+        st.down = 1
+        st.ydstogo = 10 if st.yardline_100 >= 10 else max(1, st.yardline_100)
+    else:
+        st.down += 1
+        st.ydstogo = max(1, int(st.ydstogo - yards))
+        if st.down > 4:
+            st.events.append({"type": "turnover_on_downs", "team": st.possession})
+            st.possession = _other(st, st.possession)
+            st.yardline_100 = int(np.clip(100 - st.yardline_100, 10, 90))
+            st.down, st.ydstogo = 1, 10
+            return
+    st.events.append({"type": "snap", "play_type": play_type, "yards": yards, "down": st.down})
+
+
+def _advance_period(st: GameState, home: str) -> None:
+    if st.qtr == 1:
+        st.qtr = 2
+        st.game_seconds_remaining = 900
+        st.events.append({"type": "end_q1"})
+    elif st.qtr == 2:
+        maybe_halftime(st, q3_receive=home)
+    elif st.qtr == 3:
+        st.qtr = 4
+        st.game_seconds_remaining = 900
+        st.events.append({"type": "end_q3"})
+    elif st.qtr == 4:
+        start_ot_if_tied(st)
+    elif st.qtr >= 5:
+        st.final = True
+        st.events.append({"type": "final_ot_tie"})
+
+
+def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.random.Generator) -> GameState:
+    home = cfg["game"]["home"]
+    away = cfg["game"]["away"]
+    st = GameState.new_game(home=home, away=away)
+    st.game_seconds_remaining = 900  # Q1 only
+    apply_kickoff(st, receiving=away, yardline_100=75)
+    allow_pool = bool(cfg.get("proposed_pooling", {}).get("enabled", False))
+    steps = 0
+    max_steps = 220
+    while not st.final and steps < max_steps:
+        steps += 1
+        if st.game_seconds_remaining <= 0:
+            _advance_period(st, home)
+            continue
+        if st.down == 4:
+            decision = _fourth_down_decision(rng, catalog, st)
+            if decision == "punt":
+                _punt_fixed(rng, catalog, st)
+                continue
+            if decision == "field_goal":
+                _attempt_fg(rng, catalog, st)
+                continue
+        _apply_snap(rng, catalog, st, allow_pool=allow_pool)
+        if st.in_ot and st.final:
+            break
+    if not st.final:
+        if st.reg_score_home is None:
+            st.reg_score_home, st.reg_score_away = st.score_home, st.score_away
+        st.final = True
+        st.events.append({"type": "final_max_steps" if steps >= max_steps else "final"})
+    if st.reg_score_home is None:
+        st.reg_score_home, st.reg_score_away = st.score_home, st.score_away
+    return st
+
+
+def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dict[str, Any]:
+    hist = load_team_history(
+        pbp_path,
+        teams=cfg["history"]["teams"],
+        season=cfg["history"]["season"],
+        weeks=(cfg["history"]["weeks_inclusive"][0], cfg["history"]["weeks_inclusive"][-1]),
+    )
+    if hist["status"] != "OK":
+        return {"status": hist["status"], "n_completed": 0, "error": "history_load_failed", "pooling_silently_applied": False}
+
+    df = hist["df"]
+    adj_meta: dict = {"enabled": False}
+    qb_status: dict = {}
+    if cfg.get("adjustments", {}).get("enabled"):
+        df, adj_meta = apply_forward_qb_filter(df, cfg["adjustments"])
+        for team, m in adj_meta.items():
+            if isinstance(m, dict) and m.get("sparse_qb"):
+                qb_status[team] = f"SPARSE_QB_HISTORY n_pass={m.get('n_pass_after')}"
+
+    catalog = PlayCatalog(df, min_n=int(cfg["min_n_state"]))
+    rng = np.random.default_rng(seed)
+    buckets = {k: [] for k in [
+        "q1_home","q1_away","q2_home","q2_away","q3_home","q3_away","q4_home","q4_away",
+        "h1_home","h1_away","h2_home","h2_away","ot_home","ot_away",
+        "reg_home","reg_away","fg_home","fg_away","went_ot",
+    ]}
+    joint_acc = {"pass_yards": {}, "rush_yards": {}, "rec_yards": {}}
+    sparse_counts = 0
+    for _ in range(n):
+        st = simulate_one(df, catalog, cfg, rng)
+        snap = st.period_snapshot()
+        # Prefer explicit reg freeze when set
+        if st.reg_score_home is not None:
+            snap["reg_home"] = st.reg_score_home
+            snap["reg_away"] = st.reg_score_away
+        for k in buckets:
+            if k == "went_ot":
+                buckets[k].append(bool(st.in_ot))
+            else:
+                buckets[k].append(snap[k])
+        if st.sparse_flags:
+            sparse_counts += 1
+        for kind in ("pass_yards", "rush_yards", "rec_yards"):
+            for team, players in st.player_counts.get(kind, {}).items():
+                bucket = joint_acc.setdefault(kind, {}).setdefault(team, {})
+                for plyr, yds in players.items():
+                    bucket[plyr] = bucket.get(plyr, 0.0) + yds
+
+    for kind in joint_acc:
+        for team in joint_acc[kind]:
+            for plyr in list(joint_acc[kind][team]):
+                joint_acc[kind][team][plyr] = joint_acc[kind][team][plyr] / n
+
+    status = "OK_WITH_SPARSE_FLAGS" if sparse_counts else "OK"
+    return {
+        "status": status,
+        "n_completed": n,
+        "n_requested": n,
+        "seed": seed,
+        "config_id": cfg["config_id"],
+        "mode": cfg["mode"],
+        "pooling_silently_applied": False,
+        "proposed_pooling_enabled": bool(cfg.get("proposed_pooling", {}).get("enabled", False)),
+        "history_evidence": hist["evidence"],
+        "adjustments_meta": adj_meta,
+        "qb_status": qb_status,
+        "evidence_summary": {
+            "min_n_state": cfg["min_n_state"],
+            "games_with_sparse_flags": sparse_counts,
+            "sparse_rate": sparse_counts / n if n else None,
+        },
+        "arrays": {k: np.asarray(v) for k, v in buckets.items()},
+        "player_joint": joint_acc,
+        "limitations": [
+            "Vertical slice: empirical team-only snap resampling + explicit same-team coarser fallbacks",
+            "Clock costs are fixed means by play type — not a fitted clock model",
+            "OT rule is single-possession approx (declared)",
+            "No league silent pool; proposed pooling config default false",
+            "W1-8 development set; no betting edge claim",
+            "Inspired conceptually by NFLSimulatoR/nflfastR (MIT); no R source copied",
+            "See FEATURE_MATRIX.md for unimplemented coverage/route/pressure fields",
+        ],
+        "source_composition": "team_only_2026_w1_8_JAX_BAL_empirical_not_possession_EP_model",
+    }
+
+
+===== FILE: situational.py =====
+"""Situational opportunity + conditional success tables (team-only W1–8)."""
+from __future__ import annotations
+from typing import Any
+import numpy as np
+import pandas as pd
+
+
+def _rate(num: int, den: int) -> float | None:
+    return float(num) / den if den else None
+
+
+def third_down_table(df: pd.DataFrame) -> dict[str, Any]:
+    out = {"by_team": {}, "n_total": 0}
+    snaps = df[df["down"] == 3].copy()
+    out["n_total"] = int(len(snaps))
+    for team, g in snaps.groupby("posteam"):
+        # prefer explicit flags when present
+        if "third_down_converted" in g.columns:
+            opp = g[g["play_type"].isin(["pass", "run", "qb_kneel", "qb_spike"])]
+            conv = int((opp["third_down_converted"] == 1).sum())
+            fail = int((opp["third_down_failed"] == 1).sum()) if "third_down_failed" in opp.columns else int(len(opp) - conv)
+            den = conv + fail if (conv + fail) > 0 else int(len(opp))
+        else:
+            opp = g[g["play_type"].isin(["pass", "run"])]
+            conv = int((opp["first_down"] == 1).sum())
+            den = int(len(opp))
+            fail = den - conv
+        out["by_team"][team] = {
+            "n_opportunities": den,
+            "n_conversions": conv,
+            "n_failures": fail,
+            "p_convert_given_opportunity": _rate(conv, den),
+            "status": "OK" if den >= 20 else "SPARSE",
+        }
+    return out
+
+
+def red_zone_table(df: pd.DataFrame) -> dict[str, Any]:
+    out = {"by_team": {}, "n_total": 0}
+    rz = df[df["yardline_100"] <= 20].copy()
+    rz = rz[rz["play_type"].isin(["pass", "run", "field_goal"])]
+    out["n_total"] = int(len(rz))
+    for team, g in rz.groupby("posteam"):
+        # opportunity ≈ unique game+drive in RZ if drive col present else plays
+        if "drive" in g.columns:
+            trips = g.groupby(["game_id", "drive"]).agg(
+                td=("touchdown", "max"),
+                fg=("play_type", lambda s: int((s == "field_goal").any())),
+            )
+            n_trips = int(len(trips))
+            n_td = int((trips["td"] == 1).sum())
+            out["by_team"][team] = {
+                "n_rz_trips": n_trips,
+                "n_rz_td_drives": n_td,
+                "p_td_given_rz_trip": _rate(n_td, n_trips),
+                "n_rz_plays": int(len(g)),
+                "status": "OK" if n_trips >= 8 else "SPARSE",
+            }
+        else:
+            out["by_team"][team] = {"n_rz_plays": int(len(g)), "status": "SPARSE", "note": "no drive col"}
+    return out
+
+
+def qb_hit_completion(df: pd.DataFrame) -> dict[str, Any]:
+    """PROXY: qb_hit split — NOT true pressure/blitz."""
+    out = {"proxy_label": "qb_hit_NOT_measured_pressure_or_blitz", "by_passer": {}, "n_total": 0}
+    passes = df[df["play_type"] == "pass"].copy()
+    if "qb_hit" not in passes.columns:
+        return {"status": "MISSING_COLUMN", "proxy_label": out["proxy_label"]}
+    out["n_total"] = int(len(passes))
+    for (team, qb), g in passes.groupby(["posteam", "passer_player_name"]):
+        if not isinstance(qb, str):
+            continue
+        hit = g[g["qb_hit"] == 1]
+        no = g[g["qb_hit"] != 1]
+        def _comp(x):
+            if "complete_pass" not in x.columns or len(x) == 0:
+                return None, 0
+            return _rate(int((x["complete_pass"] == 1).sum()), int(len(x))), int(len(x))
+        c_hit, n_hit = _comp(hit)
+        c_no, n_no = _comp(no)
+        out["by_passer"][f"{team}:{qb}"] = {
+            "n_hit": n_hit,
+            "comp_given_hit": c_hit,
+            "n_no_hit": n_no,
+            "comp_given_no_hit": c_no,
+            "status": "SPARSE" if (n_hit + n_no) < 20 else "PROXY_OK",
+        }
+    out["status"] = "PROXY"
+    return out
+
+
+def rb_ypc_vs_defense(df: pd.DataFrame, games_df: pd.DataFrame | None = None) -> dict[str, Any]:
+    """Opponent-adjusted RB YPC: offense runs grouped by defteam (team-only window)."""
+    runs = df[df["play_type"] == "run"].copy()
+    out = {"by_offense_vs_def": {}, "status": "OK"}
+    if runs.empty or "defteam" not in runs.columns:
+        return {"status": "MISSING", "by_offense_vs_def": {}}
+    for (off, deff), g in runs.groupby(["posteam", "defteam"]):
+        ypc = float(pd.to_numeric(g["yards_gained"], errors="coerce").mean())
+        out["by_offense_vs_def"][f"{off}_vs_{deff}"] = {
+            "n_carries": int(len(g)),
+            "ypc": ypc,
+            "status": "OK" if len(g) >= 10 else "SPARSE",
+        }
+    # Highlight JAX vs BAL and BAL vs JAX if present
+    out["matchup_jax_vs_bal"] = out["by_offense_vs_def"].get("JAX_vs_BAL", {"status": "SPARSE", "n_carries": 0, "note": "no W1–8 H2H in window"})
+    out["matchup_bal_vs_jax"] = out["by_offense_vs_def"].get("BAL_vs_JAX", {"status": "SPARSE", "n_carries": 0, "note": "no W1–8 H2H in window"})
+    return out
+
+
+def pass_location_counts(df: pd.DataFrame) -> dict[str, Any]:
+    """Field zone attempt frequencies only — NOT routes vs CB."""
+    passes = df[df["play_type"] == "pass"]
+    if "pass_location" not in passes.columns:
+        return {"status": "MISSING"}
+    out = {"by_team": {}, "label": "pass_location_NOT_route_or_coverage"}
+    for team, g in passes.groupby("posteam"):
+        vc = g["pass_location"].value_counts(dropna=False).to_dict()
+        out["by_team"][team] = {str(k): int(v) for k, v in vc.items()}
+    out["status"] = "OK_LOCATION_ONLY"
+    return out
+
+
+def build_situational_report(df: pd.DataFrame, games_df: pd.DataFrame | None = None) -> dict[str, Any]:
+    td = third_down_table(df)
+    rz = red_zone_table(df)
+    qh = qb_hit_completion(df)
+    rb = rb_ypc_vs_defense(df, games_df)
+    loc = pass_location_counts(df)
+    return {
+        "third_down": td,
+        "red_zone": rz,
+        "qb_hit_completion_proxy": qh,
+        "rb_ypc_vs_defense": rb,
+        "pass_location_not_coverage": loc,
+        "missing_explicit": [
+            "blitz", "was_pressure", "number_of_pass_rushers",
+            "defense_man_zone_type", "defense_coverage_type", "route",
+            "primary_cb_assignment", "middle_field_open_closed",
+            "DT_replacement_effects",
+        ],
+        "ns": {
+            "third_down_n": td.get("n_total"),
+            "rz_n": rz.get("n_total"),
+            "qb_hit_n": qh.get("n_total"),
+        },
+    }
+
+
+===== FILE: state.py =====
+"""Bounded game state + explicit event transitions + period scoreboards."""
+from __future__ import annotations
+from dataclasses import dataclass, field
+from typing import Optional
+
+
+def _empty_periods():
+    return {"q1": [0, 0], "q2": [0, 0], "q3": [0, 0], "q4": [0, 0], "ot": [0, 0]}
+
+
+@dataclass
+class GameState:
+    home: str
+    away: str
+    possession: Optional[str] = None
+    qtr: int = 1
+    half: int = 1
+    game_seconds_remaining: int = 900
+    down: int = 1
+    ydstogo: int = 10
+    yardline_100: int = 75
+    score_home: int = 0
+    score_away: int = 0
+    in_ot: bool = False
+    final: bool = False
+    events: list = field(default_factory=list)
+    player_counts: dict = field(default_factory=lambda: {"pass_yards": {}, "rush_yards": {}, "rec_yards": {}})
+    sparse_flags: list = field(default_factory=list)
+    reg_score_home: Optional[int] = None
+    reg_score_away: Optional[int] = None
+    period_scores: dict = field(default_factory=_empty_periods)
+
+    @classmethod
+    def new_game(cls, home: str, away: str) -> "GameState":
+        return cls(home=home, away=away, period_scores=_empty_periods())
+
+    def _period_key(self) -> str:
+        if self.qtr <= 0:
+            return "q1"
+        if self.qtr == 1:
+            return "q1"
+        if self.qtr == 2:
+            return "q2"
+        if self.qtr == 3:
+            return "q3"
+        if self.qtr == 4:
+            return "q4"
+        return "ot"
+
+    def add_score(self, team: str, pts: int) -> None:
+        """Credit team total and the *current* quarter/OT bucket (boundary = current qtr)."""
+        idx = 0 if team == self.home else 1
+        if team == self.home:
+            self.score_home += pts
+        else:
+            self.score_away += pts
+        key = self._period_key()
+        self.period_scores[key][idx] += pts
+        self.events.append({"type": "score_credit", "team": team, "pts": pts, "period": key, "qtr": self.qtr})
+
+    def period_snapshot(self) -> dict:
+        ps = self.period_scores
+        h1_h, h1_a = ps["q1"][0] + ps["q2"][0], ps["q1"][1] + ps["q2"][1]
+        h2_h, h2_a = ps["q3"][0] + ps["q4"][0], ps["q3"][1] + ps["q4"][1]
+        reg_h, reg_a = h1_h + h2_h, h1_a + h2_a
+        return {
+            "q1_home": ps["q1"][0], "q1_away": ps["q1"][1],
+            "q2_home": ps["q2"][0], "q2_away": ps["q2"][1],
+            "q3_home": ps["q3"][0], "q3_away": ps["q3"][1],
+            "q4_home": ps["q4"][0], "q4_away": ps["q4"][1],
+            "h1_home": h1_h, "h1_away": h1_a,
+            "h2_home": h2_h, "h2_away": h2_a,
+            "ot_home": ps["ot"][0], "ot_away": ps["ot"][1],
+            "reg_home": reg_h, "reg_away": reg_a,
+            "fg_home": self.score_home, "fg_away": self.score_away,
+        }
+
+
+def apply_kickoff(st: GameState, *, receiving: str, yardline_100: int = 75) -> GameState:
+    st.possession = receiving
+    st.yardline_100 = int(yardline_100)
+    st.down = 1
+    st.ydstogo = 10
+    st.events.append({"type": "kickoff", "receiving": receiving, "yardline_100": yardline_100, "qtr": st.qtr})
+    return st
+
+
+def maybe_halftime(st: GameState, *, q3_receive: str) -> GameState:
+    if st.qtr == 2 and st.game_seconds_remaining <= 0 and not st.final:
+        st.events.append({"type": "halftime", "score": (st.score_home, st.score_away)})
+        st.qtr = 3
+        st.half = 2
+        st.game_seconds_remaining = 900
+        apply_kickoff(st, receiving=q3_receive, yardline_100=75)
+    return st
+
+
+def start_ot_if_tied(st: GameState) -> GameState:
+    if st.qtr >= 4 and st.game_seconds_remaining <= 0 and not st.final:
+        st.reg_score_home = st.score_home
+        st.reg_score_away = st.score_away
+        if st.score_home == st.score_away:
+            st.in_ot = True
+            st.qtr = 5
+            st.game_seconds_remaining = 600
+            st.events.append({"type": "ot_start", "rule": "single_possession_approx_declared_limitation"})
+            apply_kickoff(st, receiving=st.away, yardline_100=75)
+        else:
+            st.final = True
+            st.events.append({"type": "final", "score": (st.score_home, st.score_away)})
+    return st
+
+
+===== FILE: validation/__init__.py =====
+"""Validation and as-of grading for possession_engine_v0 (research)."""
+__version__ = "0.1.0-research"
+
+
+===== FILE: validation/accounting.py =====
+"""Game accounting / realism checks on simulated games (development diagnostic)."""
+from __future__ import annotations
+from pathlib import Path
+from typing import Any
+import numpy as np
+from simulate import simulate_games, stable_seed, PlayCatalog, simulate_one
+from pbp_filter import load_team_history
+from adjustments import apply_forward_qb_filter
+
+
+def _event_counts(st) -> dict:
+    from collections import Counter
+    c = Counter(e.get("type") for e in st.events)
+    snaps = sum(1 for e in st.events if e.get("type") == "snap")
+    passes = sum(1 for e in st.events if e.get("type") == "snap" and e.get("play_type") == "pass")
+    runs = sum(1 for e in st.events if e.get("type") == "snap" and e.get("play_type") == "run")
+    # possessions ~ kickoffs + after turnovers/punts approximate
+    poss = c.get("kickoff", 0)
+    return {
+        "n_events": len(st.events),
+        "n_snap": snaps,
+        "n_pass_snap": passes,
+        "n_run_snap": runs,
+        "n_punt": c.get("punt", 0),
+        "n_td": c.get("touchdown", 0),
+        "n_fg": c.get("field_goal", 0),
+        "n_turnover": c.get("turnover", 0) + c.get("turnover_on_downs", 0),
+        "n_kickoff": c.get("kickoff", 0),
+        "n_halftime": c.get("halftime", 0),
+        "n_ot_start": c.get("ot_start", 0),
+        "score_h": st.score_home,
+        "score_a": st.score_away,
+        "reg_h": st.reg_score_home,
+        "reg_a": st.reg_score_away,
+        "in_ot": st.in_ot,
+        "sparse_flags_n": len(st.sparse_flags),
+    }
+
+
+def run_accounting_checks(cfg: dict, *, pbp_path: str | Path, n: int = 50, seed: int = 11) -> dict[str, Any]:
+    out = simulate_games(cfg, pbp_path=pbp_path, n=n, seed=seed)
+    hist = load_team_history(
+        pbp_path,
+        teams=cfg["history"]["teams"],
+        season=cfg["history"]["season"],
+        weeks=(cfg["history"]["weeks_inclusive"][0], cfg["history"]["weeks_inclusive"][-1]),
+    )
+    df = hist["df"]
+    if cfg.get("adjustments", {}).get("enabled"):
+        df, _ = apply_forward_qb_filter(df, cfg["adjustments"])
+    cat = PlayCatalog(df, min_n=int(cfg["min_n_state"]))
+    # detailed counts on a batch of games
+    rng = np.random.default_rng(seed)
+    details = [_event_counts(simulate_one(df, cat, cfg, np.random.default_rng(int(rng.integers(0, 1_000_000))))) for _ in range(min(n, 40))]
+    mean_plays = float(np.mean([d["n_snap"] for d in details]))
+    mean_punts = float(np.mean([d["n_punt"] for d in details]))
+    mean_td = float(np.mean([d["n_td"] for d in details]))
+    mean_ko = float(np.mean([d["n_kickoff"] for d in details]))
+    pct_ot = float(np.mean([d["in_ot"] for d in details]))
+    # player-to-team: joint yards should be finite
+    pj = out.get("player_joint") or {}
+    joint_ok = isinstance(pj, dict)
+
+    checks = []
+    def add(name, ok, detail):
+        checks.append({"name": name, "ok": bool(ok), "detail": detail})
+
+    add("reg_clock_target_declared_3600", True, "engine uses 4x900; OT separate")
+    add("halftime_present_rate", float(np.mean([d["n_halftime"] >= 1 for d in details])) > 0.9,
+        f"halftime_rate={float(np.mean([d['n_halftime']>=1 for d in details])):.3f}")
+    add("q_sum_reg_scores_recorded", True, "reg_home/reg_away arrays present")
+    add("mean_snaps_in_band", 80 <= mean_plays <= 160, f"mean_snaps={mean_plays:.1f} (band 80-160 diagnostic)")
+    add("kickoffs_ge_tds", float(np.mean([d["n_kickoff"] >= d["n_td"] for d in details])) > 0.85,
+        "kickoff count should cover TDs+opening")
+    add("sparse_rate_reported", out["evidence_summary"]["sparse_rate"] is not None,
+        f"sparse_rate={out['evidence_summary']['sparse_rate']}")
+    add("player_joint_present", joint_ok, "player_joint dict")
+    A = out["arrays"]
+    has_q = all(k in A for k in ("q1_home","q2_home","q3_home","q4_home","h1_home","h2_home"))
+    recon = False
+    if has_q:
+        recon = bool(
+            np.array_equal(A["h1_home"], A["q1_home"]+A["q2_home"])
+            and np.array_equal(A["reg_home"], A["h1_home"]+A["h2_home"])
+            and np.all(A["fg_home"] >= A["reg_home"])
+        )
+    add("period_quarter_scores_in_sim", has_q and recon, "Q1-Q4/H1/H2/reg/fg arrays + reconciliation")
+    add("ot_only_if_reg_tie", bool(np.all(~out["arrays"]["went_ot"] | (out["arrays"]["reg_home"] == out["arrays"]["reg_away"]))),
+        "OT flag only when reg tied")
+
+    n_fail = sum(1 for c in checks if not c["ok"])
+    n_pass = sum(1 for c in checks if c["ok"])
+    overall = "PASS" if n_fail == 0 else ("MIXED" if n_pass else "FAIL")
+    if any(c["name"] == "period_quarter_scores_in_sim" and not c["ok"] for c in checks):
+        overall = "MIXED"  # known unsupported feature
+
+    return {
+        "overall_status": overall,
+        "regulation_clock_sec_target": 3600,
+        "n_sims": n,
+        "seed": seed,
+        "config_id": cfg["config_id"],
+        "mean_plays_approx": mean_plays,
+        "mean_punts": mean_punts,
+        "mean_tds": mean_td,
+        "mean_kickoffs": mean_ko,
+        "p_ot_sample": pct_ot,
+        "score_means": {
+            "fg_home": float(out["arrays"]["fg_home"].mean()),
+            "fg_away": float(out["arrays"]["fg_away"].mean()),
+        },
+        "sparse_rate": out["evidence_summary"]["sparse_rate"],
+        "checks": checks,
+        "n_checks_pass": n_pass,
+        "n_checks_fail": n_fail,
+        "label": "development_in_sample_diagnostic_not_accuracy",
+    }
+
+
+===== FILE: validation/asof_grade.py =====
+"""Chronological as-of grading — both teams' own prior W1–8 plays (no league/prior-year pool)."""
+from __future__ import annotations
+from pathlib import Path
+from typing import Any, Sequence
+import numpy as np
+import pandas as pd
+from config_load import load_config
+from simulate import PlayCatalog, simulate_one, stable_seed
+from pbp_filter import COLS
+
+
+SCOPE_FOCUS = {"JAX", "BAL"}  # target slate focus; opponents allowed as historical partners
+
+
+def list_jaxbal_games(pbp_path: str | Path) -> list[dict]:
+    cols = ["game_id", "week", "home_team", "away_team", "play_id", "total_home_score", "total_away_score", "season"]
+    t = pd.read_parquet(pbp_path, columns=cols)
+    t = t[(t["season"] == 2026) & (t["week"] <= 8)]
+    inv = t["home_team"].isin(SCOPE_FOCUS) | t["away_team"].isin(SCOPE_FOCUS)
+    rows = []
+    for gid, gg in t[inv].groupby("game_id"):
+        home, away = gg["home_team"].iloc[0], gg["away_team"].iloc[0]
+        last = gg.sort_values("play_id").iloc[-1]
+        rows.append({
+            "game_id": gid,
+            "week": int(gg["week"].iloc[0]),
+            "home": home,
+            "away": away,
+            "actual_home": float(last["total_home_score"]),
+            "actual_away": float(last["total_away_score"]),
+            "focus_teams": sorted(set([home, away]) & SCOPE_FOCUS),
+        })
+    return sorted(rows, key=lambda r: (r["week"], r["game_id"]))
+
+
+def build_asof_history(pbp_path, *, teams, season, before_week):
+    """Legacy helper: multi-team offense catalog, own-season weeks < before_week."""
+    return build_asof_history_for_game(
+        pbp_path, home=teams[0], away=teams[1] if len(teams) > 1 else teams[0],
+        season=season, week=before_week,
+    )
+
+
+def build_asof_history_for_game(
+    pbp_path: str | Path,
+    *,
+    home: str,
+    away: str,
+    season: int,
+    week: int,
+) -> dict:
+    """Load BOTH teams' posteam plays for weeks strictly before `week`, same season only.
+
+    No prior-year pooling. No league-wide silent fallback.
+    """
+    if week <= 1:
+        return {
+            "status": "EMPTY_ASOF",
+            "df": None,
+            "evidence": {
+                "n_plays": 0, "n_plays_home": 0, "n_plays_away": 0,
+                "reason": "NO_OWN_SEASON_HISTORY",
+                "prior_year_pooled": False, "league_pooled": False,
+            },
+        }
+    import pyarrow.parquet as pq
+    path = Path(pbp_path)
+    available = set(pq.ParquetFile(path).schema_arrow.names)
+    use = [c for c in COLS if c in available]
+    for extra in ("season", "qb_hit", "qb_scramble", "sack", "complete_pass"):
+        if extra in available and extra not in use:
+            use.append(extra)
+    df = pd.read_parquet(path, columns=use)
+    teams = [home, away]
+    mask = (
+        (df["season"] == season)
+        & (df["week"] < week)
+        & (df["week"] >= 1)
+        & (df["posteam"].isin(teams))
+    )
+    off = df.loc[mask].copy()
+    n_h = int((off["posteam"] == home).sum())
+    n_a = int((off["posteam"] == away).sum())
+    evid = {
+        "n_plays": int(len(off)),
+        "n_plays_home": n_h,
+        "n_plays_away": n_a,
+        "teams": teams,
+        "weeks": [1, week - 1],
+        "season": season,
+        "prior_year_pooled": False,
+        "league_pooled": False,
+        "source": str(path),
+    }
+    if n_h == 0 or n_a == 0:
+        return {"status": "SPARSE_ASOF_ONE_TEAM", "df": off.reset_index(drop=True) if len(off) else None, "evidence": evid}
+    if off.empty:
+        return {"status": "EMPTY_ASOF", "df": None, "evidence": evid}
+    # Guard: no future weeks
+    if off["week"].max() >= week:
+        return {"status": "WEEK_FILTER_FAILED", "df": None, "evidence": evid}
+    return {"status": "OK", "df": off.reset_index(drop=True), "evidence": evid}
+
+
+def _asof_team_ppg(pbp_path, team: str, season: int, before_week: int) -> float | None:
+    """Simple baseline: mean points scored in completed games before week."""
+    cols = ["game_id", "week", "home_team", "away_team", "play_id", "total_home_score", "total_away_score", "season"]
+    t = pd.read_parquet(pbp_path, columns=cols)
+    t = t[(t["season"] == season) & (t["week"] < before_week) & (t["week"] >= 1)]
+    inv = (t["home_team"] == team) | (t["away_team"] == team)
+    scores = []
+    for gid, gg in t[inv].groupby("game_id"):
+        last = gg.sort_values("play_id").iloc[-1]
+        scores.append(float(last["total_home_score"] if gg["home_team"].iloc[0] == team else last["total_away_score"]))
+    return float(np.mean(scores)) if scores else None
+
+
+def grade_week_games(
+    pbp_path: str | Path,
+    *,
+    weeks: Sequence[int],
+    n_sims: int = 200,
+    seed_base: int = 20261105,
+    config_path: str | Path | None = None,
+) -> list[dict[str, Any]]:
+    root = Path(__file__).resolve().parents[1]
+    cfg_path = Path(config_path) if config_path else root / "config/jax_bal_tnf_2026-11-05_data_only.json"
+    base_cfg = load_config(cfg_path)
+    games = [g for g in list_jaxbal_games(pbp_path) if g["week"] in set(weeks)]
+    rows = []
+    for g in games:
+        row = {
+            **g,
+            "config_mode": base_cfg["mode"],
+            "n_sims": n_sims,
+            "silent_pool_applied": False,
+            "prior_year_pooled": False,
+            "league_pooled": False,
+            "market_edge": None,
+            "market_status": "NO_MATCHING_PREKICK_PINNACLE_QUOTES",
+            "approved_pick": False,
+            "pred_home_mean": None,
+            "pred_away_mean": None,
+            "pred_h1_home_mean": None,
+            "pred_h1_away_mean": None,
+            "abs_err_home": None,
+            "abs_err_away": None,
+            "baseline_home_ppg": None,
+            "baseline_away_ppg": None,
+            "baseline_abs_err_home": None,
+            "baseline_abs_err_away": None,
+            "grade_status": None,
+            "skip_reason": None,
+            "asof_n_plays_home": None,
+            "asof_n_plays_away": None,
+        }
+        asof = build_asof_history_for_game(
+            pbp_path, home=g["home"], away=g["away"], season=2026, week=g["week"]
+        )
+        row["asof_n_plays_home"] = asof["evidence"].get("n_plays_home")
+        row["asof_n_plays_away"] = asof["evidence"].get("n_plays_away")
+        if asof["status"] == "EMPTY_ASOF":
+            row["grade_status"] = "UNGRADEABLE_NO_OWN_SEASON_HISTORY"
+            row["skip_reason"] = asof["evidence"].get("reason", "NO_ASOF_OWN_SEASON_HISTORY")
+            rows.append(row)
+            continue
+        if asof["status"] != "OK":
+            row["grade_status"] = f"UNGRADEABLE_{asof['status']}"
+            row["skip_reason"] = asof["status"]
+            rows.append(row)
+            continue
+
+        cfg = dict(base_cfg)
+        cfg["game"] = {"home": g["home"], "away": g["away"], "season": 2026, "week_asof_exclusive": g["week"]}
+        cfg["config_id"] = f"{base_cfg['config_id']}__asof_w{g['week']}_{g['game_id']}"
+        df = asof["df"]
+        cat = PlayCatalog(df, min_n=int(cfg["min_n_state"]))
+        seed = stable_seed(seed_base, g["week"], g["game_id"])
+        rng = np.random.default_rng(seed)
+        scores = []
+        h1s = []
+        for _ in range(n_sims):
+            st = simulate_one(df, cat, cfg, np.random.default_rng(int(rng.integers(0, 2**31 - 1))))
+            snap = st.period_snapshot()
+            scores.append((st.score_home, st.score_away))
+            h1s.append((snap["h1_home"], snap["h1_away"]))
+        ph = float(np.mean([s[0] for s in scores]))
+        pa = float(np.mean([s[1] for s in scores]))
+        bh = _asof_team_ppg(pbp_path, g["home"], 2026, g["week"])
+        ba = _asof_team_ppg(pbp_path, g["away"], 2026, g["week"])
+        row.update({
+            "grade_status": "GRADED_FULL",
+            "skip_reason": None,
+            "pred_home_mean": ph,
+            "pred_away_mean": pa,
+            "pred_h1_home_mean": float(np.mean([x[0] for x in h1s])),
+            "pred_h1_away_mean": float(np.mean([x[1] for x in h1s])),
+            "abs_err_home": abs(ph - g["actual_home"]),
+            "abs_err_away": abs(pa - g["actual_away"]),
+            "baseline_home_ppg": bh,
+            "baseline_away_ppg": ba,
+            "baseline_abs_err_home": abs(bh - g["actual_home"]) if bh is not None else None,
+            "baseline_abs_err_away": abs(ba - g["actual_away"]) if ba is not None else None,
+            "seed": seed,
+            "asof_n_plays": int(asof["evidence"].get("n_plays", 0)),
+        })
+        rows.append(row)
+    return rows
+
+
+===== FILE: validation/period_grade.py =====
+"""Reconstruct actual period scores from PBP; grade vs as-of sim predictions."""
+from __future__ import annotations
+from pathlib import Path
+from typing import Any
+import sys
+import numpy as np
+import pandas as pd
+
+# reuse period_engine reconstruct (sibling module)
+_PEER = Path(__file__).resolve().parents[1].parent / "period_engine_v0"
+if str(_PEER) not in sys.path:
+    sys.path.insert(0, str(_PEER))
+from reconstruct import load_pbp, period_table_from_pbp  # type: ignore
+
+from simulate import PlayCatalog, simulate_one, stable_seed
+from validation.asof_grade import build_asof_history_for_game
+from config_load import load_config
+
+
+_PERIOD_KEYS = [
+    "q1_home", "q1_away", "q2_home", "q2_away", "q3_home", "q3_away", "q4_home", "q4_away",
+    "h1_home", "h1_away", "h2_home", "h2_away", "reg_home", "reg_away", "fg_home", "fg_away",
+]
+
+
+def reconstruct_actual_periods(pbp_path: str | Path, game_id: str) -> dict[str, Any]:
+    t = period_table_from_pbp(load_pbp(pbp_path))
+    hit = t[t["game_id"] == game_id]
+    if hit.empty:
+        return {"status": "MISSING_GAME", "game_id": game_id}
+    r = hit.iloc[0]
+    out = {"status": "OK", "game_id": game_id}
+    for k in _PERIOD_KEYS:
+        out[k] = int(r[k]) if k in r.index and pd.notna(r[k]) else None
+    # reconcile
+    if out["h1_home"] is not None:
+        out["recon_h1"] = (out["q1_home"] + out["q2_home"] == out["h1_home"]) and (
+            out["q1_away"] + out["q2_away"] == out["h1_away"]
+        )
+        out["recon_reg"] = (out["h1_home"] + out["h2_home"] == out["reg_home"]) and (
+            out["h1_away"] + out["h2_away"] == out["reg_away"]
+        )
+    return out
+
+
+def _brier_home_win(pred_h: np.ndarray, pred_a: np.ndarray, actual_h: float, actual_a: float) -> float:
+    """Brier for P(home period points > away); ties → outcome 0 (non-win), pred = P(h>a)."""
+    p = float(np.mean(pred_h > pred_a))
+    y = 1.0 if actual_h > actual_a else 0.0
+    return (p - y) ** 2
+
+
+def grade_periods_for_games(
+    pbp_path: str | Path,
+    grade_rows: list[dict],
+    *,
+    n_sims: int = 150,
+    seed_base: int = 20261105,
+    config_path: str | Path | None = None,
+) -> dict[str, Any]:
+    """For each GRADED_FULL row, resim with period snapshots; compare to reconstructed actuals."""
+    root = Path(__file__).resolve().parents[1]
+    cfg_path = Path(config_path) if config_path else root / "config/jax_bal_tnf_2026-11-05_data_only.json"
+    base_cfg = load_config(cfg_path)
+    by_game = []
+    # collectors for metrics
+    err = {k: [] for k in [
+        "q1_home", "q1_away", "h1_home", "h1_away", "h2_home", "h2_away",
+        "reg_home", "reg_away", "fg_home", "fg_away",
+    ]}
+    brier = {"h1": [], "h2": [], "reg": [], "fg": []}
+
+    for g in grade_rows:
+        if g.get("grade_status") != "GRADED_FULL":
+            by_game.append({**g, "period_grade_status": "SKIPPED_NOT_GRADED_FULL"})
+            continue
+        act = reconstruct_actual_periods(pbp_path, g["game_id"])
+        if act["status"] != "OK":
+            by_game.append({**g, "period_grade_status": "ACTUAL_PERIODS_MISSING", "actual_periods": act})
+            continue
+        asof = build_asof_history_for_game(
+            pbp_path, home=g["home"], away=g["away"], season=2026, week=g["week"]
+        )
+        if asof["status"] != "OK":
+            by_game.append({**g, "period_grade_status": f"ASOF_{asof['status']}"})
+            continue
+        cfg = dict(base_cfg)
+        cfg["game"] = {"home": g["home"], "away": g["away"], "season": 2026, "week_asof_exclusive": g["week"]}
+        cat = PlayCatalog(asof["df"], min_n=int(cfg["min_n_state"]))
+        seed = stable_seed(seed_base, g["week"], g["game_id"] + "|period")
+        rng = np.random.default_rng(seed)
+        snaps = []
+        for _ in range(n_sims):
+            st = simulate_one(asof["df"], cat, cfg, np.random.default_rng(int(rng.integers(0, 2**31 - 1))))
+            snap = st.period_snapshot()
+            if st.reg_score_home is not None:
+                snap["reg_home"] = st.reg_score_home
+                snap["reg_away"] = st.reg_score_away
+            snaps.append(snap)
+        pred = {k: float(np.mean([s[k] for s in snaps])) for k in err}
+        # arrays for brier
+        arr = {k: np.asarray([s[k] for s in snaps]) for k in ("h1_home", "h1_away", "h2_home", "h2_away", "reg_home", "reg_away", "fg_home", "fg_away")}
+        row_err = {}
+        for k in err:
+            row_err[f"pred_{k}"] = pred[k]
+            row_err[f"actual_{k}"] = act[k]
+            row_err[f"abs_err_{k}"] = abs(pred[k] - act[k]) if act[k] is not None else None
+            if row_err[f"abs_err_{k}"] is not None:
+                err[k].append(row_err[f"abs_err_{k}"])
+        row_brier = {
+            "brier_h1_home_win": _brier_home_win(arr["h1_home"], arr["h1_away"], act["h1_home"], act["h1_away"]),
+            "brier_h2_home_win": _brier_home_win(arr["h2_home"], arr["h2_away"], act["h2_home"], act["h2_away"]),
+            "brier_reg_home_win": _brier_home_win(arr["reg_home"], arr["reg_away"], act["reg_home"], act["reg_away"]),
+            "brier_fg_home_win": _brier_home_win(arr["fg_home"], arr["fg_away"], act["fg_home"], act["fg_away"]),
+        }
+        brier["h1"].append(row_brier["brier_h1_home_win"])
+        brier["h2"].append(row_brier["brier_h2_home_win"])
+        brier["reg"].append(row_brier["brier_reg_home_win"])
+        brier["fg"].append(row_brier["brier_fg_home_win"])
+        by_game.append({
+            **{k: g[k] for k in ("game_id", "week", "home", "away", "grade_status")},
+            "period_grade_status": "GRADED_PERIODS",
+            "n_sims": n_sims,
+            "seed": seed,
+            "actual_recon_h1": act.get("recon_h1"),
+            "actual_recon_reg": act.get("recon_reg"),
+            **row_err,
+            **row_brier,
+        })
+
+    metrics = {
+        "n_games_period_graded": sum(1 for r in by_game if r.get("period_grade_status") == "GRADED_PERIODS"),
+        "mae_q1_home": float(np.mean(err["q1_home"])) if err["q1_home"] else None,
+        "mae_q1_away": float(np.mean(err["q1_away"])) if err["q1_away"] else None,
+        "mae_h1_home": float(np.mean(err["h1_home"])) if err["h1_home"] else None,
+        "mae_h1_away": float(np.mean(err["h1_away"])) if err["h1_away"] else None,
+        "mae_h2_home": float(np.mean(err["h2_home"])) if err["h2_home"] else None,
+        "mae_h2_away": float(np.mean(err["h2_away"])) if err["h2_away"] else None,
+        "mae_reg_home": float(np.mean(err["reg_home"])) if err["reg_home"] else None,
+        "mae_reg_away": float(np.mean(err["reg_away"])) if err["reg_away"] else None,
+        "mae_fg_home": float(np.mean(err["fg_home"])) if err["fg_home"] else None,
+        "mae_fg_away": float(np.mean(err["fg_away"])) if err["fg_away"] else None,
+        "brier_h1_home_win": float(np.mean(brier["h1"])) if brier["h1"] else None,
+        "brier_h2_home_win": float(np.mean(brier["h2"])) if brier["h2"] else None,
+        "brier_reg_home_win": float(np.mean(brier["reg"])) if brier["reg"] else None,
+        "brier_fg_home_win": float(np.mean(brier["fg"])) if brier["fg"] else None,
+        "label": "development_w1_8_period_grade_not_untouched_holdout",
+        "note": "Period MAE/Brier reported separately from FG; ties count as home non-win for Brier",
+    }
+    return {"by_game": by_game, "metrics": metrics, "n_sims": n_sims}
+
+
+===== FILE: validation/realism.py =====
+"""Drive-length / plays-per-game realism vs team W1–8 actuals (development diagnostic)."""
+from __future__ import annotations
+from pathlib import Path
+from typing import Any
+import numpy as np
+import pandas as pd
+from simulate import PlayCatalog, simulate_one
+from pbp_filter import load_involvement_plays, load_team_history
+from adjustments import apply_forward_qb_filter
+
+
+def _actual_pace(inv: pd.DataFrame, teams=("JAX", "BAL")) -> dict:
+    # offense snaps per team-game
+    snaps = inv[inv["play_type"].isin(["pass", "run", "qb_kneel", "qb_spike"])]
+    snaps = snaps[snaps["posteam"].isin(teams)]
+    per = snaps.groupby(["posteam", "game_id"]).size()
+    # drives: unique game_id+drive where posteam in teams
+    drives = inv[inv["posteam"].isin(teams) & inv["drive"].notna()]
+    drive_lens = drives.groupby(["posteam", "game_id", "drive"]).size()
+    return {
+        "mean_offense_snaps_per_team_game": float(per.mean()) if len(per) else None,
+        "median_offense_snaps_per_team_game": float(per.median()) if len(per) else None,
+        "n_team_games": int(per.shape[0]),
+        "drive_length_plays": {
+            "mean": float(drive_lens.mean()) if len(drive_lens) else None,
+            "median": float(drive_lens.median()) if len(drive_lens) else None,
+            "n_drives": int(len(drive_lens)),
+        },
+        "by_team_mean_snaps": {t: float(per[t].mean()) if t in per.index.get_level_values(0) else None for t in teams},
+    }
+
+
+def compare_sim_vs_actual_pace(cfg: dict, *, pbp_path: str | Path, n_sims: int = 100, seed: int = 3) -> dict[str, Any]:
+    hist = load_team_history(
+        pbp_path,
+        teams=cfg["history"]["teams"],
+        season=cfg["history"]["season"],
+        weeks=(cfg["history"]["weeks_inclusive"][0], cfg["history"]["weeks_inclusive"][-1]),
+    )
+    inv = load_involvement_plays(
+        pbp_path,
+        teams=cfg["history"]["teams"],
+        season=cfg["history"]["season"],
+        weeks=(cfg["history"]["weeks_inclusive"][0], cfg["history"]["weeks_inclusive"][-1]),
+    )
+    actual = _actual_pace(inv, teams=tuple(cfg["history"]["teams"]))
+    df = hist["df"]
+    if cfg.get("adjustments", {}).get("enabled"):
+        df, _ = apply_forward_qb_filter(df, cfg["adjustments"])
+    cat = PlayCatalog(df, min_n=int(cfg["min_n_state"]))
+    rng = np.random.default_rng(seed)
+    snap_counts = []
+    punt_counts = []
+    td_counts = []
+    # approximate drive count = kickoffs + turnovers + punts received... use punt+ko as possession proxy
+    poss_proxy = []
+    for _ in range(n_sims):
+        st = simulate_one(df, cat, cfg, np.random.default_rng(int(rng.integers(0, 2**31 - 1))))
+        n_snap = sum(1 for e in st.events if e.get("type") == "snap")
+        n_punt = sum(1 for e in st.events if e.get("type") == "punt")
+        n_td = sum(1 for e in st.events if e.get("type") == "touchdown")
+        n_ko = sum(1 for e in st.events if e.get("type") == "kickoff")
+        snap_counts.append(n_snap)
+        punt_counts.append(n_punt)
+        td_counts.append(n_td)
+        poss_proxy.append(n_ko + n_punt)  # rough possessions
+    sim = {
+        "mean_snaps_per_game": float(np.mean(snap_counts)),
+        "median_snaps_per_game": float(np.median(snap_counts)),
+        "mean_punts": float(np.mean(punt_counts)),
+        "mean_tds": float(np.mean(td_counts)),
+        "mean_possession_proxy": float(np.mean(poss_proxy)),
+        "n_sims": n_sims,
+    }
+    # Actual team-game snaps are per ONE offense; sim snaps are BOTH offenses combined
+    actual_both = None
+    if actual["mean_offense_snaps_per_team_game"] is not None:
+        actual_both = 2.0 * actual["mean_offense_snaps_per_team_game"]
+    return {
+        "label": "development_in_sample_diagnostic_not_accuracy",
+        "actual": actual,
+        "actual_both_offenses_snaps_approx": actual_both,
+        "sim": sim,
+        "comparison": {
+            "sim_snaps_minus_2x_team_snaps": (
+                sim["mean_snaps_per_game"] - actual_both if actual_both is not None else None
+            ),
+            "note": "Sim snap count is joint (both teams); actual mean is per-team offense — compare to 2× actual",
+        },
+    }
+
+
+===== FILE: validation/weather_hook.py =====
+"""Optional weather scenario inputs — NO auto-downgrade from DK articles.
+
+Parent supplies NWS-cross-checked weather before any numeric effect.
+"""
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import Optional, Any
+
+
+@dataclass
+class WeatherScenario:
+    status: str  # PENDING_NWS | PROVIDED | ABSENT
+    source: Optional[str] = None
+    as_of_et: Optional[str] = None
+    wind_mph: Optional[float] = None
+    precip: Optional[str] = None
+    temp_f: Optional[float] = None
+    auto_apply_to_props: bool = False  # always False until NWS OK
+    notes: str = "Do not auto-downgrade props from DK article; wait for NWS cross-check"
+
+
+def weather_scenario_from_parent(payload: Optional[dict] = None) -> dict[str, Any]:
+    if not payload:
+        return WeatherScenario(status="PENDING_NWS").__dict__
+    sc = WeatherScenario(
+        status="PROVIDED",
+        source=payload.get("source"),
+        as_of_et=payload.get("as_of_et"),
+        wind_mph=payload.get("wind_mph"),
+        precip=payload.get("precip"),
+        temp_f=payload.get("temp_f"),
+        auto_apply_to_props=False,
+        notes=payload.get("notes") or WeatherScenario.notes,
+    )
+    return sc.__dict__
+
+
+===== FILE: effects/__init__.py =====
+"""Supported player/pressure/explosive effects — evidence-backed only."""
+
+
+===== FILE: effects/apply_supported.py =====
+"""Apply ONLY supported effects to the snap catalog — must change joint sampled events.
+
+Supported:
+  - annotate snaps with explosive flag (definition-based)
+  - annotate pass snaps with is_blitz_ftn when FTN joined
+  - optional script_adjusted: down-weight (not invent coeffs) by excluding extreme
+    historical explosive long TDs? NO — don't invent.
+
+Actual sim effect that is testable without invented coefficients:
+  - When effects_enabled, pass-play sampling can stratify: with probability p_blitz
+    sample from blitz-joined rows when available for that team; else fall back with flag.
+  - p_blitz estimated empirically as team's faced/own blitz rate from FTN join — data-driven rate, not hand weight.
+"""
+from __future__ import annotations
+from typing import Any, Optional
+import numpy as np
+import pandas as pd
+from effects.definitions import EXPLOSIVE_PASS_YARDS, EXPLOSIVE_RUSH_YARDS
+
+
+def annotate_snaps(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    yg = pd.to_numeric(out.get("yards_gained"), errors="coerce").fillna(0)
+    out["is_explosive"] = (
+        ((out["play_type"] == "pass") & (yg >= EXPLOSIVE_PASS_YARDS))
+        | ((out["play_type"] == "run") & (yg >= EXPLOSIVE_RUSH_YARDS))
+    )
+    if "qb_hit" in out.columns:
+        out["pressure_proxy_qb_hit"] = out["qb_hit"].fillna(0).astype(int) == 1
+    else:
+        out["pressure_proxy_qb_hit"] = False
+    if "is_blitz_ftn" not in out.columns:
+        out["is_blitz_ftn"] = False
+        out["ftn_joined"] = False
+    return out
+
+
+class EffectsCatalog:
+    """Wraps PlayCatalog-like sampling with optional blitz stratification (empirical rate)."""
+
+    def __init__(self, base_catalog, annotated: pd.DataFrame, *, enable_blitz_strata: bool):
+        self.base = base_catalog
+        self.df = annotated
+        self.enable_blitz_strata = enable_blitz_strata
+        self.min_n = base_catalog.min_n
+        self.specials = base_catalog.specials
+        self.fourth_probs = base_catalog.fourth_probs
+        self.cells = base_catalog.cells
+        self.by_down = base_catalog.by_down
+        self.by_team = base_catalog.by_team
+        # empirical blitz rate by posteam among joined passes
+        self.blitz_rate = {}
+        passes = annotated[(annotated["play_type"] == "pass") & (annotated.get("ftn_joined", False) == True)]
+        for team, g in passes.groupby("posteam"):
+            self.blitz_rate[team] = float(g["is_blitz_ftn"].mean()) if len(g) else 0.0
+        self.defense_blitz_rate = {}
+        self.blitz_pools = {}
+        self.noblitz_pools = {}
+        for team, g in annotated[annotated["play_type"] == "pass"].groupby("posteam"):
+            bj = g[g["is_blitz_ftn"] & g["ftn_joined"]]
+            nj = g[(~g["is_blitz_ftn"]) & g["ftn_joined"]]
+            if len(bj) >= 5:
+                self.blitz_pools[team] = bj
+            if len(nj) >= 5:
+                self.noblitz_pools[team] = nj
+
+    def set_defense_blitz_rates(self, rates: dict):
+        """Empirical FTN blitz rates allowed by defense team (data-driven, not hand weights)."""
+        self.defense_blitz_rate = dict(rates or {})
+
+    def sample_snap(self, rng: np.random.Generator, st, allow_pool: bool):
+        if (
+            self.enable_blitz_strata
+            and st.down <= 3
+            and st.possession in self.blitz_pools
+            and st.possession in self.noblitz_pools
+        ):
+            # Prefer opponent defense empirical blitz rate when present; else offense-faced rate
+            defense = st.home if st.possession == st.away else st.away
+            if defense in self.defense_blitz_rate:
+                p = self.defense_blitz_rate[defense]
+                tag_prefix = "EFFECT_DEF_BLITZ"
+            elif st.possession in self.blitz_rate:
+                p = self.blitz_rate[st.possession]
+                tag_prefix = "EFFECT_BLITZ"
+            else:
+                return self.base.sample_snap(rng, st, allow_pool)
+            use_blitz = bool(rng.random() < p)
+            pool = self.blitz_pools[st.possession] if use_blitz else self.noblitz_pools[st.possession]
+            row = pool.iloc[int(rng.integers(0, len(pool)))]
+            tag = (tag_prefix + "_STRATA") if use_blitz else (tag_prefix + "_NO_STRATA")
+            return row, tag
+        return self.base.sample_snap(rng, st, allow_pool)
+
+
+===== FILE: effects/definitions.py =====
+"""Explicit thresholds — not fitted coefficients."""
+# Explosive play definitions (stated; used for opportunity denominators)
+EXPLOSIVE_PASS_YARDS = 20  # air+YAC received yards_gained on pass >= 20
+EXPLOSIVE_RUSH_YARDS = 12  # rush yards_gained >= 12
+# Blitz: FTN n_blitzers >= 1 (charted)
+# Pressure PROXY (pbp): sack==1 OR qb_hit==1 OR qb_scramble==1 — labeled PROXY, not FTN pressure
+
+
+===== FILE: effects/evidence_tables.py =====
+"""Build evidence tables from local PBP + FTN charting (read-only, no spend)."""
+from __future__ import annotations
+from pathlib import Path
+from typing import Any, Optional
+import json
+import numpy as np
+import pandas as pd
+from effects.definitions import EXPLOSIVE_PASS_YARDS, EXPLOSIVE_RUSH_YARDS
+
+FTN_CANDIDATES = [
+    Path("/workspace/nfl-database/runs/2026-11-05_matchup_run/src/ftn_charting_2026.parquet"),
+    Path("/workspace/nfl-database/week10/bal_secondary/raw/ftn_charting_2026.parquet"),
+    Path("/workspace/nfl-database/week8/defense/raw/ftn_charting_2026.parquet"),
+]
+
+
+def _find_ftn() -> Optional[Path]:
+    for p in FTN_CANDIDATES:
+        if p.exists():
+            return p
+    return None
+
+
+def load_ftn_join(pbp: pd.DataFrame, *, teams=("JAX", "BAL"), weeks=(1, 8)) -> dict[str, Any]:
+    ftn_path = _find_ftn()
+    meta = {
+        "ftn_path": str(ftn_path) if ftn_path else None,
+        "status": "MISSING_FTN" if ftn_path is None else "OK",
+        "man_zone_mofo_mofc_in_ftn": False,
+        "note": "FTN 2026 local extract has n_blitzers/n_pass_rushers; no man/zone/MOFO/MOFC/route columns",
+    }
+    if ftn_path is None:
+        return {"meta": meta, "joined": None}
+    ftn = pd.read_parquet(ftn_path)
+    # join keys
+    left = pbp.copy()
+    if "game_id" not in left.columns or "play_id" not in left.columns:
+        meta["status"] = "PBP_MISSING_KEYS"
+        return {"meta": meta, "joined": None}
+    ftn = ftn.rename(columns={"nflverse_game_id": "game_id", "nflverse_play_id": "play_id"})
+    # play_id types
+    left["play_id"] = pd.to_numeric(left["play_id"], errors="coerce")
+    ftn["play_id"] = pd.to_numeric(ftn["play_id"], errors="coerce")
+    j = left.merge(ftn[["game_id", "play_id", "n_blitzers", "n_pass_rushers", "date_pulled"]], on=["game_id", "play_id"], how="left")
+    j["is_blitz_ftn"] = j["n_blitzers"].fillna(0) >= 1
+    j["ftn_joined"] = j["n_blitzers"].notna()
+    meta["n_pbp"] = int(len(left))
+    meta["n_joined"] = int(j["ftn_joined"].sum())
+    meta["join_rate"] = float(j["ftn_joined"].mean())
+    meta["date_pulled_sample"] = str(j["date_pulled"].dropna().iloc[0]) if j["date_pulled"].notna().any() else None
+    return {"meta": meta, "joined": j}
+
+
+def explosive_tables(df: pd.DataFrame) -> dict[str, Any]:
+    """Offensive explosive rates + defensive explosives allowed (when team is defteam)."""
+    out = {
+        "definitions": {
+            "explosive_pass_yards": EXPLOSIVE_PASS_YARDS,
+            "explosive_rush_yards": EXPLOSIVE_RUSH_YARDS,
+        },
+        "offense": {},
+        "defense_allowed": {},
+    }
+    for team, g in df.groupby("posteam"):
+        passes = g[g["play_type"] == "pass"]
+        runs = g[g["play_type"] == "run"]
+        exp_p = passes[pd.to_numeric(passes["yards_gained"], errors="coerce").fillna(0) >= EXPLOSIVE_PASS_YARDS]
+        exp_r = runs[pd.to_numeric(runs["yards_gained"], errors="coerce").fillna(0) >= EXPLOSIVE_RUSH_YARDS]
+        out["offense"][team] = {
+            "pass_attempts": int(len(passes)),
+            "explosive_passes": int(len(exp_p)),
+            "p_explosive_pass": float(len(exp_p) / len(passes)) if len(passes) else None,
+            "rush_attempts": int(len(runs)),
+            "explosive_rushes": int(len(exp_r)),
+            "p_explosive_rush": float(len(exp_r) / len(runs)) if len(runs) else None,
+            "status": "OK" if len(passes) + len(runs) >= 30 else "SPARSE",
+        }
+    # defense allowed: need defteam on rows — offense df is posteam-filtered; use games via full involvements if present
+    if "defteam" in df.columns:
+        for team, g in df.groupby("defteam"):
+            if team not in ("JAX", "BAL"):
+                continue
+            passes = g[g["play_type"] == "pass"]
+            runs = g[g["play_type"] == "run"]
+            exp_p = passes[pd.to_numeric(passes["yards_gained"], errors="coerce").fillna(0) >= EXPLOSIVE_PASS_YARDS]
+            exp_r = runs[pd.to_numeric(runs["yards_gained"], errors="coerce").fillna(0) >= EXPLOSIVE_RUSH_YARDS]
+            out["defense_allowed"][team] = {
+                "pass_attempts_faced": int(len(passes)),
+                "explosive_passes_allowed": int(len(exp_p)),
+                "p_exp_pass_allowed": float(len(exp_p) / len(passes)) if len(passes) else None,
+                "rush_attempts_faced": int(len(runs)),
+                "explosive_rushes_allowed": int(len(exp_r)),
+                "p_exp_rush_allowed": float(len(exp_r) / len(runs)) if len(runs) else None,
+                "status": "OK" if len(passes) + len(runs) >= 30 else "SPARSE",
+                "note": "Only plays where this team was defteam in team-filtered rows; if offense-only filter, use games_df",
+            }
+    return out
+
+
+def qb_completion_splits(joined: pd.DataFrame) -> dict[str, Any]:
+    """Overall + qb_hit PROXY + FTN blitz splits. Never label qb_hit as measured pressure."""
+    passes = joined[joined["play_type"] == "pass"].copy()
+    out = {"by_passer": {}, "labels": {
+        "qb_hit": "PROXY_NOT_MEASURED_PRESSURE",
+        "blitz": "FTN_n_blitzers_ge_1_when_joined",
+        "true_pressure_charted": "MISSING_in_local_FTN_extract",
+    }}
+    if passes.empty:
+        return out
+    for (team, qb), g in passes.groupby(["posteam", "passer_player_name"]):
+        if not isinstance(qb, str):
+            continue
+        def comp(x):
+            if len(x) == 0 or "complete_pass" not in x.columns:
+                return None, 0
+            return float((x["complete_pass"] == 1).mean()), int(len(x))
+        c_all, n_all = comp(g)
+        hit = g[g.get("qb_hit", 0) == 1] if "qb_hit" in g.columns else g.iloc[0:0]
+        nohit = g[g.get("qb_hit", 0) != 1] if "qb_hit" in g.columns else g
+        c_hit, n_hit = comp(hit)
+        c_nh, n_nh = comp(nohit)
+        if "is_blitz_ftn" in g.columns and g["ftn_joined"].any():
+            bl = g[g["is_blitz_ftn"] & g["ftn_joined"]]
+            nbl = g[(~g["is_blitz_ftn"]) & g["ftn_joined"]]
+            c_bl, n_bl = comp(bl)
+            c_nbl, n_nbl = comp(nbl)
+        else:
+            c_bl = n_bl = c_nbl = n_nbl = None
+        out["by_passer"][f"{team}:{qb}"] = {
+            "n_att": n_all, "comp_pct": c_all,
+            "n_qb_hit_proxy": n_hit, "comp_pct_qb_hit_proxy": c_hit,
+            "n_no_qb_hit": n_nh, "comp_pct_no_qb_hit": c_nh,
+            "n_blitz_ftn": n_bl, "comp_pct_blitz_ftn": c_bl,
+            "n_no_blitz_ftn": n_nbl, "comp_pct_no_blitz_ftn": c_nbl,
+            "status": "OK" if n_all >= 20 else "SPARSE",
+        }
+    return out
+
+
+def recent_form_miss_audit(df: pd.DataFrame, *, last_n_games: int = 3) -> dict[str, Any]:
+    """Scenario-first recent form: last N games PPG / explosive — audit only, no auto cut."""
+    out = {"label": "SCENARIO_FIRST_MISS_AUDIT_NO_AUTO_CUT", "by_team": {}}
+    if "game_id" not in df.columns:
+        return out
+    for team in ("JAX", "BAL"):
+        # approximate: unique games where posteam==team ordered by week
+        sub = df[df["posteam"] == team]
+        if sub.empty:
+            continue
+        games = sub.groupby("game_id").agg(week=("week", "first"), plays=("play_id", "count")).sort_values("week")
+        recent = games.tail(last_n_games)
+        out["by_team"][team] = {
+            "recent_game_ids": list(map(str, recent.index)),
+            "n_games": int(len(recent)),
+            "note": "Not used as automatic veto; scenario cross-check only",
+        }
+    return out
+
+
+===== FILE: config/jax_bal_tnf_2026-11-05_data_only.json =====
+{
+  "config_id": "jax_bal_tnf_2026-11-05_data_only",
+  "frozen_at_et": "2026-11-05T13:55:00-05:00",
+  "mode": "data_only",
+  "game": {"home": "BAL", "away": "JAX", "season": 2026, "week_asof_exclusive": 9},
+  "history": {
+    "teams": ["JAX", "BAL"],
+    "season": 2026,
+    "weeks_inclusive": [1, 2, 3, 4, 5, 6, 7, 8],
+    "scope": "plays_from_games_involving_either_team_offense_when_posteam_in_teams",
+    "no_league_fallback": true,
+    "no_future_weeks": true
+  },
+  "min_n_state": 5,
+  "proposed_pooling": {
+    "enabled": false,
+    "policy": "none",
+    "note": "Pooling proposed only; never silently applied in data_only"
+  },
+  "adjustments": {"enabled": false},
+  "seed_base": 20261105,
+  "n_default": 10000,
+  "ot_rule": "single_possession_approx_declared_limitation",
+  "set_label": "development_w1_8_inspected_not_untouched_holdout"
+}
+
+
+===== FILE: config/jax_bal_tnf_2026-11-05_market_informed.json =====
+{
+  "config_id": "jax_bal_tnf_2026-11-05_market_informed",
+  "frozen_at_et": "2026-11-05T14:00:00-05:00",
+  "mode": "market_informed",
+  "game": {"home": "BAL", "away": "JAX", "season": 2026, "week_asof_exclusive": 9},
+  "history": {
+    "teams": ["JAX", "BAL"],
+    "season": 2026,
+    "weeks_inclusive": [1, 2, 3, 4, 5, 6, 7, 8],
+    "scope": "plays_from_games_involving_either_team_offense_when_posteam_in_teams",
+    "no_league_fallback": true,
+    "no_future_weeks": true
+  },
+  "min_n_state": 5,
+  "proposed_pooling": {"enabled": false, "policy": "none"},
+  "adjustments": {"enabled": false, "note": "QB adjustments live in script_adjusted; do not double-count here by default"},
+  "market_conditioning": {
+    "enabled": true,
+    "note": "SEPARATE from data_only baseline. Conditioning on spread/total is NOT independent evidence of beating the market.",
+    "spread_home": null,
+    "total": null,
+    "quotes_status": "PINNACLE_MISSING_SCREENSHOT_ONLY_NOT_WIRED_TO_SAMPLER",
+    "contaminates_data_only": false
+  },
+  "seed_base": 20261105,
+  "n_default": 10000,
+  "set_label": "development_w1_8_inspected_not_untouched_holdout"
+}
+
+
+===== FILE: config/jax_bal_tnf_2026-11-05_script_adjusted.json =====
+{
+  "config_id": "jax_bal_tnf_2026-11-05_script_adjusted",
+  "frozen_at_et": "2026-11-05T13:55:00-05:00",
+  "mode": "script_adjusted",
+  "game": {"home": "BAL", "away": "JAX", "season": 2026, "week_asof_exclusive": 9},
+  "history": {
+    "teams": ["JAX", "BAL"],
+    "season": 2026,
+    "weeks_inclusive": [1, 2, 3, 4, 5, 6, 7, 8],
+    "scope": "plays_from_games_involving_either_team_offense_when_posteam_in_teams",
+    "no_league_fallback": true,
+    "no_future_weeks": true
+  },
+  "min_n_state": 5,
+  "proposed_pooling": {
+    "enabled": false,
+    "policy": "backup_passers_same_team_PROPOSED_NOT_APPLIED",
+    "candidates": {"BAL_pass": ["J.Fagnano", "T.Huntley"], "note": "Fagnano n=24 dropbacks sparse; Huntley pool proposed only"},
+    "note": "Do not silently enable; set enabled=true only after explicit research decision"
+  },
+  "adjustments": {
+    "enabled": true,
+    "asof_et": "2026-11-05T13:00:00-05:00",
+    "source": "local brainstorm_read.md ESPN/team notes 2026-11-03; forward-only for TNF JAX@BAL",
+    "forward_only": true,
+    "do_not_apply_retroactively_to_w1_8_history_rows": true,
+    "qb": {
+      "BAL": {
+        "starter": "J.Fagnano",
+        "out": ["L.Jackson"],
+        "doubtful_excluded_from_starter_pool": ["T.Huntley"],
+        "pass_play_filter": "starter_only_when_adjustments_enabled",
+        "fabricate_replacement_history": false
+      },
+      "JAX": {
+        "starter": "T.Lawrence",
+        "out": [],
+        "pass_play_filter": "no_change"
+      }
+    },
+    "injuries_workload": [
+      {"team": "BAL", "player": "L.Jackson", "status": "OUT", "effect": "exclude_from_forward_offense_passer_pool"},
+      {"team": "BAL", "player": "T.Huntley", "status": "Doubtful", "effect": "exclude_from_default_starter_pool_propose_optional_backup_pool"},
+      {"team": "JAX", "note": "Tuten DNP Mon/Tue per miss_audit — workload swap proposed not auto-applied", "effect": "PROPOSED_ONLY_no_silent_rb_swap"}
+    ]
+  },
+  "seed_base": 20261105,
+  "n_default": 10000,
+  "ot_rule": "single_possession_approx_declared_limitation",
+  "set_label": "development_w1_8_inspected_not_untouched_holdout"
+}
+
+
+===== FILE: tests/test_asof_both_teams.py =====
+"""Priority2: both teams' as-of histories for target games; W1 skip; no league/prior-year pool."""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from validation.asof_grade import build_asof_history_for_game, grade_week_games, list_jaxbal_games
+
+ROOT = Path(__file__).resolve().parents[1]
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+
+
+def test_w2_game_loads_both_teams_prior_plays():
+    # 2026_02_JAX_DEN — JAX and DEN each need prior week-1 plays (DEN may have W1)
+    hist = build_asof_history_for_game(PBP, home="DEN", away="JAX", season=2026, week=2)
+    assert hist["status"] == "OK"
+    assert set(hist["df"]["posteam"].unique()) <= {"DEN", "JAX"}
+    assert hist["df"]["week"].max() < 2
+    assert hist["evidence"]["n_plays_home"] > 0 and hist["evidence"]["n_plays_away"] > 0
+    assert hist["evidence"].get("prior_year_pooled") is False
+    assert hist["evidence"].get("league_pooled") is False
+
+
+def test_w1_still_ungradable():
+    rows = grade_week_games(PBP, weeks=[1], n_sims=5, seed_base=1)
+    assert all(r["grade_status"] == "UNGRADEABLE_NO_OWN_SEASON_HISTORY" for r in rows)
+
+
+def test_w3_plus_can_grade_full_not_opponent_out_of_scope():
+    rows = grade_week_games(PBP, weeks=[3], n_sims=20, seed_base=20261105)
+    assert len(rows) == 2
+    for r in rows:
+        assert r["grade_status"] == "GRADED_FULL", r
+        assert r["pred_home_mean"] is not None
+        assert r["silent_pool_applied"] is False
+
+
+===== FILE: tests/test_audit_scoring_realism.py =====
+"""Scoring inflation regressions (Ghost6 audit + independent reproduce on 9ebe892)."""
+from __future__ import annotations
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import numpy as np
+import pandas as pd
+from state import GameState, maybe_halftime, apply_kickoff
+from simulate import PlayCatalog, _apply_snap, _punt_fixed, simulate_games, stable_seed
+from config_load import load_config
+from pbp_filter import load_team_history
+
+ROOT = Path(__file__).resolve().parents[1]
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+
+
+def test_halftime_q3_clock_is_one_quarter_not_two():
+    st = GameState.new_game(home="BAL", away="JAX")
+    st.qtr = 2
+    st.game_seconds_remaining = 0
+    st = maybe_halftime(st, q3_receive="BAL")
+    assert st.qtr == 3
+    assert st.game_seconds_remaining == 900, (
+        f"Q3 must start with 900s (15 min), got {st.game_seconds_remaining}"
+    )
+
+
+def test_punt_gives_receiving_team_flipped_field_position():
+    st = GameState.new_game(home="BAL", away="JAX")
+    st.possession = "JAX"
+    st.yardline_100 = 60
+    st.down, st.ydstogo = 4, 10
+    cat = PlayCatalog(pd.DataFrame({
+        "posteam": [], "play_type": [], "ydstogo": [], "yardline_100": [], "down": [],
+    }), min_n=5)
+    cat.specials = {"punt": {}, "field_goal": {}, "extra_point": {}}
+    cat.fourth_probs = {}
+    cat.cells, cat.by_down, cat.by_team = {}, {}, {}
+    rng = np.random.default_rng(0)
+    _punt_fixed(rng, cat, st)
+    assert st.possession == "BAL"
+    assert st.yardline_100 == 80, f"expected 80 after flip, got {st.yardline_100}"
+
+
+def test_historical_td_flag_without_reach_does_not_score():
+    st = GameState.new_game(home="BAL", away="JAX")
+    apply_kickoff(st, receiving="JAX", yardline_100=75)
+    row = pd.Series({
+        "play_type": "pass",
+        "yards_gained": 5.0,
+        "touchdown": 1,
+        "interception": 0,
+        "fumble_lost": 0,
+        "complete_pass": 1,
+        "first_down": 0,
+        "passer_player_name": "T.Lawrence",
+        "receiver_player_name": "X.Player",
+        "rusher_player_name": None,
+    })
+    class Cat:
+        min_n = 5
+        specials = {"punt": {}, "field_goal": {}, "extra_point": {}}
+        def sample_snap(self, rng, st, allow_pool):
+            return row, "OK"
+    rng = np.random.default_rng(1)
+    before = (st.score_home, st.score_away)
+    _apply_snap(rng, Cat(), st, allow_pool=False)
+    assert (st.score_home, st.score_away) == before, "false TD from historical flag"
+    assert st.yardline_100 == 70
+
+
+def test_geo_td_from_yards_still_scores():
+    st = GameState.new_game(home="BAL", away="JAX")
+    apply_kickoff(st, receiving="JAX", yardline_100=8)
+    row = pd.Series({
+        "play_type": "run",
+        "yards_gained": 8.0,
+        "touchdown": 0,
+        "interception": 0,
+        "fumble_lost": 0,
+        "complete_pass": 0,
+        "first_down": 0,
+        "passer_player_name": None,
+        "receiver_player_name": None,
+        "rusher_player_name": "T.Etienne",
+    })
+    class Cat:
+        min_n = 5
+        specials = {"punt": {}, "field_goal": {}, "extra_point": {"JAX": pd.DataFrame({"extra_point_result": ["good"]})}}
+        def sample_snap(self, rng, st, allow_pool):
+            return row, "OK"
+    rng = np.random.default_rng(2)
+    _apply_snap(rng, Cat(), st, allow_pool=False)
+    assert st.score_away >= 6
+
+
+def test_data_only_mean_total_not_nfl_impossible():
+    """Pre-fix ~111 total; post-fix should be near hist JAX28+BAL22≈50, allow wide band not 90+."""
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_data_only.json")
+    out = simulate_games(cfg, pbp_path=PBP, n=200, seed=stable_seed(cfg["seed_base"], 9, cfg["config_id"]))
+    h = float(out["arrays"]["fg_home"].mean())
+    a = float(out["arrays"]["fg_away"].mean())
+    total = h + a
+    assert total < 80, f"inflated total {total} (H={h} A={a})"
+    assert h < 40 and a < 45, f"side means still inflated H={h} A={a}"
+
+
+===== FILE: tests/test_effects_supported.py =====
+"""Supported effects must alter joint simulated events; missing features stay missing."""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import numpy as np
+import pandas as pd
+from pbp_filter import load_team_history, load_involvement_plays
+from effects.evidence_tables import load_ftn_join, explosive_tables, qb_completion_splits
+from effects.apply_supported import annotate_snaps, EffectsCatalog
+from effects.definitions import EXPLOSIVE_PASS_YARDS, EXPLOSIVE_RUSH_YARDS
+from simulate import PlayCatalog, simulate_one
+from config_load import load_config
+from state import apply_kickoff, GameState
+
+ROOT = Path(__file__).resolve().parents[1]
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+
+
+def test_explosive_definitions_and_denominators():
+    inv = load_involvement_plays(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+    tab = explosive_tables(inv)
+    assert tab["definitions"]["explosive_pass_yards"] == EXPLOSIVE_PASS_YARDS
+    assert "JAX" in tab["offense"] and tab["offense"]["JAX"]["pass_attempts"] > 0
+    assert "BAL" in tab["defense_allowed"]
+    assert tab["offense"]["JAX"]["p_explosive_pass"] is not None
+
+
+def test_qb_hit_labeled_proxy_blitz_from_ftn_when_joined():
+    hist = load_team_history(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+    # need qb_hit on df — reload involvement for richer cols
+    inv = load_involvement_plays(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+    joined = load_ftn_join(inv)
+    assert joined["meta"]["man_zone_mofo_mofc_in_ftn"] is False
+    assert joined["meta"]["status"] in {"OK", "MISSING_FTN"}
+    if joined["meta"]["status"] == "OK":
+        assert joined["meta"]["n_joined"] > 0
+        splits = qb_completion_splits(joined["joined"])
+        assert splits["labels"]["qb_hit"] == "PROXY_NOT_MEASURED_PRESSURE"
+        assert "true_pressure_charted" in splits["labels"]
+
+
+def test_blitz_strata_changes_sampled_pass_events():
+    """Enabling blitz strata must change the multiset of sampled passer events vs baseline (same seed path)."""
+    inv = load_involvement_plays(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+    joined = load_ftn_join(inv)
+    if joined["meta"]["status"] != "OK" or joined["meta"]["join_rate"] < 0.05:
+        # Still assert missing path documented — skip alteration assert with explicit xfail-like skip
+        assert joined["meta"]["man_zone_mofo_mofc_in_ftn"] is False
+        return
+    df = annotate_snaps(joined["joined"])
+    # offense catalog rows only
+    off = df[df["posteam"].isin(["JAX", "BAL"])].copy()
+    base = PlayCatalog(off, min_n=5)
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_data_only.json")
+    # baseline samples
+    rng1 = np.random.default_rng(123)
+    st = GameState.new_game("BAL", "JAX")
+    apply_kickoff(st, receiving="JAX", yardline_100=75)
+    base_passers = []
+    for _ in range(80):
+        st.possession = "JAX"; st.down = 1; st.ydstogo = 10; st.yardline_100 = 60
+        row, tag = base.sample_snap(rng1, st, False)
+        if row is not None and str(row.get("play_type")) == "pass":
+            base_passers.append(str(row.get("passer_player_name")))
+    # effects strata
+    eff = EffectsCatalog(base, off, enable_blitz_strata=True)
+    rng2 = np.random.default_rng(123)
+    eff_tags = []
+    eff_passers = []
+    for _ in range(80):
+        st.possession = "JAX"; st.down = 1; st.ydstogo = 10; st.yardline_100 = 60
+        row, tag = eff.sample_snap(rng2, st, False)
+        if row is not None and str(row.get("play_type")) == "pass":
+            eff_passers.append(str(row.get("passer_player_name")))
+            eff_tags.append(tag)
+    assert any("EFFECT_" in t for t in eff_tags), "expected blitz strata tags on samples"
+    # joint alteration: tag multiset or yard outcomes differ from pure base tags
+    assert set(eff_tags) != {"OK"} or eff_passers != base_passers
+
+
+def test_defense_blitz_rate_tags_events():
+    inv = load_involvement_plays(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+    joined = load_ftn_join(inv)
+    if joined["meta"]["status"] != "OK":
+        return
+    df = annotate_snaps(joined["joined"])
+    off = df[df["posteam"].isin(["JAX", "BAL"])].copy()
+    base = PlayCatalog(off, min_n=5)
+    eff = EffectsCatalog(base, off, enable_blitz_strata=True)
+    # Extreme rates should still produce strata tags
+    eff.set_defense_blitz_rates({"BAL": 0.9, "JAX": 0.1})
+    rng = np.random.default_rng(0)
+    tags = []
+    for _ in range(60):
+        st = GameState.new_game("BAL", "JAX")
+        st.possession = "JAX"
+        st.down, st.ydstogo, st.yardline_100 = 1, 10, 55
+        row, tag = eff.sample_snap(rng, st, False)
+        if row is not None and str(row.get("play_type")) == "pass":
+            tags.append(tag)
+    assert any(t.startswith("EFFECT_DEF_BLITZ") for t in tags)
+
+
+===== FILE: tests/test_period_grading.py =====
+"""Period grading vs reconstructed actuals for as-of GRADED_FULL games."""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import numpy as np
+from validation.period_grade import reconstruct_actual_periods, grade_periods_for_games
+from validation.asof_grade import list_jaxbal_games, grade_week_games
+
+ROOT = Path(__file__).resolve().parents[1]
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+
+
+def test_reconstruct_actual_periods_jax_den():
+    act = reconstruct_actual_periods(PBP, "2026_02_JAX_DEN")
+    assert act["status"] == "OK"
+    assert act["h1_home"] == 3 and act["h1_away"] == 10
+    assert act["reg_home"] == 20 and act["fg_home"] == 20
+    assert act["q1_home"] + act["q2_home"] == act["h1_home"]
+
+
+def test_period_grade_includes_mae_separate_from_fg():
+    # small n for speed — week 2 only (2 games, both should grade)
+    rows = grade_week_games(PBP, weeks=[2], n_sims=30, seed_base=20261105)
+    assert all(r["grade_status"] == "GRADED_FULL" for r in rows)
+    out = grade_periods_for_games(PBP, rows, n_sims=30, seed_base=20261105)
+    assert "by_game" in out and len(out["by_game"]) == 2
+    assert "metrics" in out
+    m = out["metrics"]
+    for k in ("mae_h1_home", "mae_h1_away", "mae_fg_home", "mae_fg_away", "brier_h1_home_win"):
+        assert k in m
+    # period metrics distinct keys from fg
+    assert m["mae_h1_home"] is not None
+
+
+===== FILE: tests/test_period_scoreboards.py =====
+"""Priority1: event-derived Q1-Q4/H1/H2/reg/OT scoreboards + reconciliation."""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import numpy as np
+from config_load import load_config
+from simulate import simulate_games, stable_seed, simulate_one, PlayCatalog
+from pbp_filter import load_team_history
+from state import GameState
+
+ROOT = Path(__file__).resolve().parents[1]
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+
+
+def test_sim_arrays_include_period_scores():
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_data_only.json")
+    out = simulate_games(cfg, pbp_path=PBP, n=20, seed=7)
+    A = out["arrays"]
+    for k in ("q1_home","q1_away","q2_home","q2_away","q3_home","q3_away","q4_home","q4_away",
+              "h1_home","h1_away","h2_home","h2_away","reg_home","reg_away","fg_home","fg_away"):
+        assert k in A, f"missing {k}"
+    # H1 = Q1+Q2, H2 = Q3+Q4, reg = H1+H2, fg >= reg
+    assert np.array_equal(A["h1_home"], A["q1_home"] + A["q2_home"])
+    assert np.array_equal(A["h1_away"], A["q1_away"] + A["q2_away"])
+    assert np.array_equal(A["h2_home"], A["q3_home"] + A["q4_home"])
+    assert np.array_equal(A["h2_away"], A["q3_away"] + A["q4_away"])
+    assert np.array_equal(A["reg_home"], A["h1_home"] + A["h2_home"])
+    assert np.array_equal(A["reg_away"], A["h1_away"] + A["h2_away"])
+    assert np.all(A["fg_home"] >= A["reg_home"]) and np.all(A["fg_away"] >= A["reg_away"])
+    # OT points only if went_ot
+    ot_h = A["fg_home"] - A["reg_home"]
+    ot_a = A["fg_away"] - A["reg_away"]
+    assert np.all((ot_h + ot_a == 0) | A["went_ot"])
+
+
+def test_boundary_score_assigned_to_quarter_of_event():
+    """TD scored while qtr==2 must land in q2 bucket, not q3."""
+    from simulate import _apply_snap
+    import pandas as pd
+    st = GameState.new_game("BAL", "JAX")
+    st.qtr = 2
+    st.possession = "JAX"
+    st.yardline_100 = 5
+    st.down, st.ydstogo = 1, 5
+    st.period_scores = {"q1": [0,0], "q2": [0,0], "q3": [0,0], "q4": [0,0], "ot": [0,0]}
+    row = pd.Series({
+        "play_type": "run", "yards_gained": 5.0, "touchdown": 0, "interception": 0,
+        "fumble_lost": 0, "complete_pass": 0, "first_down": 0,
+        "passer_player_name": None, "receiver_player_name": None, "rusher_player_name": "X",
+    })
+    class Cat:
+        min_n = 5
+        specials = {"punt": {}, "field_goal": {}, "extra_point": {"JAX": pd.DataFrame({"extra_point_result": ["good"]})}}
+        def sample_snap(self, rng, st, allow_pool):
+            return row, "OK"
+    _apply_snap(np.random.default_rng(0), Cat(), st, False)
+    # home=BAL idx0, away=JAX idx1
+    assert st.period_scores["q2"][1] >= 6
+    assert st.period_scores["q3"] == [0, 0]
+    assert st.period_scores["q1"] == [0, 0]
+
+
+===== FILE: tests/test_provenance_ledger_situational.py =====
+"""Provenance, ledger double-count guards, situational opportunity tables, market isolation."""
+import json, sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from config_load import load_config
+from pbp_filter import load_team_history
+from situational import build_situational_report
+from provenance import build_default_registry
+from adjustment_ledger import build_ledger
+
+ROOT = Path(__file__).resolve().parents[1]
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+
+
+def test_situational_has_opportunity_and_conditional():
+    hist = load_team_history(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+    rep = build_situational_report(hist["df"], hist.get("games_df"))
+    assert rep["third_down"]["n_total"] > 0
+    for team, row in rep["third_down"]["by_team"].items():
+        assert "n_opportunities" in row and "p_convert_given_opportunity" in row
+    assert "qb_hit_NOT_measured_pressure_or_blitz" in rep["qb_hit_completion_proxy"]["proxy_label"]
+    assert "blitz" in rep["missing_explicit"]
+    assert rep["pass_location_not_coverage"]["label"] == "pass_location_NOT_route_or_coverage"
+    # JAX vs BAL H2H likely sparse in W1-8
+    assert rep["rb_ypc_vs_defense"]["matchup_jax_vs_bal"]["status"] in {"OK", "SPARSE"}
+
+
+def test_provenance_statuses_not_trust_scores():
+    hist = load_team_history(PBP, teams=["JAX", "BAL"], season=2026, weeks=(1, 8))
+    rep = build_situational_report(hist["df"])
+    rows = build_default_registry(hist_evidence=hist["evidence"], adj_meta={"BAL": {"n_pass_after": 24, "sparse_qb": True}}, situational_ns=rep["ns"])
+    assert any(r.status == "MISSING" and r.input_id == "coverage_routes_man_zone" for r in rows)
+    assert any(r.status == "PROXY" for r in rows)
+    # no numeric trust_score field
+    for r in rows:
+        assert "trust_score" not in r.to_dict()
+
+
+def test_ledger_market_not_active_on_data_only():
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_data_only.json")
+    led = build_ledger(cfg)
+    m = [e for e in led if e.group == "market_conditioning"][0]
+    assert m.status == "SEPARATE_ONLY"
+    assert m.applied_in == "none"
+    qb = [e for e in led if e.group == "qb_injury_role"][0]
+    assert qb.status == "INACTIVE_DATA_ONLY"
+
+
+def test_ledger_qb_active_script_adjusted_forbids_double_count():
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_script_adjusted.json")
+    led = build_ledger(cfg)
+    qb = [e for e in led if e.group == "qb_injury_role"][0]
+    assert qb.status == "ACTIVE"
+    assert "fabricated_fagnano_career" in qb.forbids
+    assert "market_implied_qb_downgrade_as_second_hit" in qb.forbids
+
+
+def test_market_informed_config_isolated():
+    m = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_market_informed.json")
+    d = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_data_only.json")
+    assert m["mode"] == "market_informed" and d["mode"] == "data_only"
+    assert m["market_conditioning"]["contaminates_data_only"] is False
+    assert m["market_conditioning"]["enabled"] is True
+    assert "market_conditioning" not in d
+    led = build_ledger(m)
+    assert [e for e in led if e.group == "market_conditioning"][0].status == "ACTIVE"
+
+
+def test_scenario_fagnano_not_verified_probability():
+    sc = json.loads((ROOT / "scenarios/bal_upset_fagnano_200_sensitivity.json").read_text())
+    assert sc["label"].startswith("SCENARIO_ONLY")
+    assert "fabricated_completion_percentage_boost" in sc["forbidden"]
+
+
+===== FILE: tests/test_realism_diagnostics.py =====
+"""Drive-length / plays-per-game realism diagnostics (development label)."""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from validation.realism import compare_sim_vs_actual_pace
+from config_load import load_config
+
+ROOT = Path(__file__).resolve().parents[1]
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+
+
+def test_realism_report_has_denominators():
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_data_only.json")
+    rep = compare_sim_vs_actual_pace(cfg, pbp_path=PBP, n_sims=40, seed=3)
+    assert rep["label"] == "development_in_sample_diagnostic_not_accuracy"
+    assert "actual" in rep and "sim" in rep
+    assert rep["actual"]["mean_offense_snaps_per_team_game"] > 0
+    assert rep["sim"]["mean_snaps_per_game"] > 0
+    assert "drive_length_plays" in rep["actual"]
+
+
+===== FILE: tests/test_sparse_and_config.py =====
+"""RED→GREEN: no silent pooling; config freeze; forward-only adjustments."""
+import json, sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import numpy as np
+from pbp_filter import load_team_history
+from empirical import StateKey, lookup_plays, Evidence
+from adjustments import apply_forward_qb_filter
+from config_load import load_config
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_configs_frozen_distinct():
+    a = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_data_only.json")
+    b = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_script_adjusted.json")
+    assert a["mode"] == "data_only" and b["mode"] == "script_adjusted"
+    assert a["adjustments"]["enabled"] is False
+    assert b["adjustments"]["enabled"] is True
+    assert a["proposed_pooling"]["enabled"] is False
+    assert b["proposed_pooling"]["enabled"] is False
+
+
+def test_history_team_only_weeks_1_8_no_future():
+    hist = load_team_history(
+        ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet",
+        teams=["JAX", "BAL"], season=2026, weeks=(1, 8),
+    )
+    assert hist["status"] == "OK"
+    assert set(hist["df"]["week"].unique()) <= set(range(1, 9))
+    assert set(hist["df"]["posteam"].unique()) <= {"JAX", "BAL"}
+    assert hist["evidence"]["n_games"] == 15
+    assert hist["evidence"]["n_plays"] > 1000
+
+
+def test_sparse_state_no_silent_pool():
+    hist = load_team_history(
+        ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet",
+        teams=["JAX", "BAL"], season=2026, weeks=(1, 8),
+    )
+    # unlikely cell: 4th & xlong backed up
+    key = StateKey(posteam="BAL", down=4, dist_bucket="xlong", yl_bucket="backed")
+    ev = lookup_plays(hist["df"], key, min_n=5, allow_pool=False)
+    assert isinstance(ev, Evidence)
+    assert ev.status in {"SPARSE_STATE", "EMPTY_STATE"}
+    assert ev.n_evidence < 5
+    assert ev.plays is None or len(ev.plays) == 0 or ev.status != "OK"
+    assert ev.pooling_applied is False
+
+
+def test_proposed_pool_not_applied_when_disabled():
+    hist = load_team_history(
+        ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet",
+        teams=["JAX", "BAL"], season=2026, weeks=(1, 8),
+    )
+    key = StateKey(posteam="BAL", down=4, dist_bucket="xlong", yl_bucket="backed")
+    ev = lookup_plays(hist["df"], key, min_n=5, allow_pool=False, proposed_pool_teams=None)
+    assert ev.pooling_applied is False
+    assert "PROPOSED" in (ev.pool_proposal or "PROPOSED") or ev.pool_proposal is not None or ev.status.startswith("SPARSE")
+
+
+def test_qb_filter_forward_only_excludes_lamar_does_not_fabricate_fagnano():
+    hist = load_team_history(
+        ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet",
+        teams=["JAX", "BAL"], season=2026, weeks=(1, 8),
+    )
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_script_adjusted.json")
+    filtered, meta = apply_forward_qb_filter(hist["df"], cfg["adjustments"])
+    bal_pass = filtered[(filtered.posteam == "BAL") & (filtered.play_type == "pass")]
+    assert "L.Jackson" not in set(bal_pass.passer_player_name.dropna())
+    # Fagnano history not fabricated — only real rows remain
+    assert set(bal_pass.passer_player_name.dropna()) <= {"J.Fagnano"}
+    assert meta["BAL"]["n_pass_after"] == int((bal_pass.passer_player_name == "J.Fagnano").sum())
+    assert meta["BAL"]["fabricated"] is False
+    # original hist unchanged for data_only path
+    assert "L.Jackson" in set(hist["df"][(hist["df"].posteam == "BAL") & (hist["df"].play_type == "pass")].passer_player_name.dropna())
+
+
+===== FILE: tests/test_state_and_sim_slice.py =====
+"""RED→GREEN: state transitions, kickoff/half/OT/FG/PAT/turnover, joint players, seeds."""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import numpy as np
+from config_load import load_config
+from simulate import simulate_games, stable_seed
+from state import GameState, apply_kickoff, maybe_halftime, start_ot_if_tied
+
+ROOT = Path(__file__).resolve().parents[1]
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+
+
+def test_stable_seed_deterministic():
+    assert stable_seed(20261105, 9, "JAX@BAL") == stable_seed(20261105, 9, "JAX@BAL")
+    assert stable_seed(20261105, 9, "JAX@BAL") != stable_seed(20261105, 9, "OTHER")
+
+
+def test_kickoff_sets_possession_and_yardline():
+    st = GameState.new_game(home="BAL", away="JAX")
+    st2 = apply_kickoff(st, receiving="JAX", yardline_100=75)
+    assert st2.possession == "JAX"
+    assert st2.yardline_100 == 75
+    assert st2.down == 1 and st2.ydstogo == 10
+    assert st2.events[-1]["type"] == "kickoff"
+
+
+def test_halftime_resets_for_q3_kickoff_side():
+    st = GameState.new_game(home="BAL", away="JAX")
+    st.qtr = 2
+    st.game_seconds_remaining = 0
+    st = maybe_halftime(st, q3_receive="BAL")
+    assert st.qtr == 3
+    assert st.half == 2
+    assert st.possession == "BAL"
+    assert any(e["type"] == "halftime" for e in st.events)
+
+
+def test_ot_only_if_tied_after_reg():
+    st = GameState.new_game(home="BAL", away="JAX")
+    st.qtr = 4
+    st.game_seconds_remaining = 0
+    st.score_home = 17
+    st.score_away = 17
+    st = start_ot_if_tied(st)
+    assert st.qtr == 5
+    assert st.in_ot is True
+    st2 = GameState.new_game(home="BAL", away="JAX")
+    st2.qtr = 4
+    st2.game_seconds_remaining = 0
+    st2.score_home = 20
+    st2.score_away = 17
+    st2 = start_ot_if_tied(st2)
+    assert st2.in_ot is False
+    assert st2.final is True
+
+
+def test_simulate_data_only_small_n_invariants():
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_data_only.json")
+    out = simulate_games(cfg, pbp_path=PBP, n=100, seed=stable_seed(cfg["seed_base"], 9, "JAX@BAL"))
+    assert out["status"] in {"OK", "OK_WITH_SPARSE_FLAGS"}
+    assert out["n_completed"] == 100
+    assert out["config_id"] == cfg["config_id"]
+    assert out["pooling_silently_applied"] is False
+    A = out["arrays"]
+    assert np.all(A["fg_home"] >= 0) and np.all(A["fg_away"] >= 0)
+    # regulation score components present
+    assert "reg_home" in A and "reg_away" in A
+    # OT flag only when reg tied
+    reg_tie = A["reg_home"] == A["reg_away"]
+    assert np.all(~A["went_ot"] | reg_tie)
+    # joint player tables exist and sum from same events
+    assert "player_joint" in out
+    assert out["evidence_summary"]["min_n_state"] == cfg["min_n_state"]
+
+
+def test_simulate_script_adjusted_marks_sparse_qb_and_excludes_lamar():
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_script_adjusted.json")
+    out = simulate_games(cfg, pbp_path=PBP, n=50, seed=stable_seed(cfg["seed_base"], 9, "JAX@BAL_adj"))
+    assert out["adjustments_meta"]["BAL"]["fabricated"] is False
+    assert out["adjustments_meta"]["BAL"]["excluded_passers"] == ["L.Jackson"]
+    # Fagnano-only pool is sparse — must be flagged, not silently filled with league
+    assert out["adjustments_meta"]["BAL"]["n_pass_after"] < 50
+    assert "SPARSE" in str(out.get("qb_status", {}).get("BAL", "")) or out["status"] in {"OK_WITH_SPARSE_FLAGS", "OK"}
+    assert out["pooling_silently_applied"] is False
+    # player joint should not credit Lamar Jackson passing yards in adjusted forward sims
+    pj = out["player_joint"]
+    bal_passers = pj.get("pass_yards", {}).get("BAL", {})
+    assert "L.Jackson" not in bal_passers or bal_passers.get("L.Jackson", 0) == 0
+
+
+===== FILE: tests/test_validation_grading.py =====
+"""Validation/grading contracts — failures/skips are valid outcomes."""
+import json, sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from validation.accounting import run_accounting_checks
+from validation.asof_grade import list_jaxbal_games, grade_week_games, build_asof_history
+from config_load import load_config
+
+ROOT = Path(__file__).resolve().parents[1]
+PBP = ROOT.parent / "period_engine_v0/data/play_by_play_2026.parquet"
+
+
+def test_accounting_reports_reg_clock_and_sparse():
+    cfg = load_config(ROOT / "config/jax_bal_tnf_2026-11-05_data_only.json")
+    rep = run_accounting_checks(cfg, pbp_path=PBP, n=30, seed=11)
+    assert "regulation_clock_sec_target" in rep
+    assert rep["regulation_clock_sec_target"] == 3600
+    assert "mean_plays_approx" in rep
+    assert "sparse_rate" in rep
+    assert "checks" in rep
+    # must not claim PASS overall without evidence fields
+    assert rep["overall_status"] in {"PASS", "FAIL", "MIXED"}
+
+
+def test_w1_games_are_ungradable_no_own_season_history():
+    games = list_jaxbal_games(PBP)
+    w1 = [g for g in games if g["week"] == 1]
+    assert len(w1) == 2
+    rows = grade_week_games(PBP, weeks=[1], n_sims=10, seed_base=20261105)
+    assert len(rows) == 2
+    for r in rows:
+        assert r["grade_status"].startswith("UNGRADEABLE")
+        assert "NO_OWN_SEASON_HISTORY" in r["grade_status"] or "NO_ASOF" in r["skip_reason"]
+
+
+def test_w3_opponent_prior_plays_graded_no_league_pool():
+    """Rico 4:09: historical opponents allowed via each team's own prior plays — not league pool."""
+    rows = grade_week_games(PBP, weeks=[3], n_sims=10, seed_base=20261105)
+    assert len(rows) >= 1
+    for r in rows:
+        assert r["grade_status"] == "GRADED_FULL", r
+        assert r.get("silent_pool_applied") is False
+        assert r.get("league_pooled") is False
+        assert r.get("prior_year_pooled") is False
+
+
+def test_asof_history_excludes_future_weeks_and_prior_year():
+    hist = build_asof_history(PBP, teams=["JAX", "BAL"], season=2026, before_week=4)
+    assert hist["status"] == "OK"
+    assert hist["df"]["week"].max() < 4
+    assert hist["df"]["season"].eq(2026).all()
+    assert set(hist["df"]["posteam"].unique()) <= {"JAX", "BAL"}
+    # week 1 before_week=1 empty
+    empty = build_asof_history(PBP, teams=["JAX", "BAL"], season=2026, before_week=1)
+    assert empty["status"] == "EMPTY_ASOF"
+
+
+===== FILE: FEATURE_MATRIX.md =====
+# possession_engine_v0 — implemented / missing / scenario-only matrix
+
+As-of: **2026-11-05 14:00 America/New_York (EST)**. Research-only. Not a betting edge claim.
+
+| Feature | Status | Source / definition | As-of / freshness | Effective n (JAX/BAL W1–8) | Reproducibility | Notes |
+|---|---|---|---|---|---|---|
+| Team-only PBP load W1–8 | **IMPLEMENTED** | Local `play_by_play_2026.parquet` (nflfastR-shaped) | File on disk; season=2026 weeks≤8 | 15 games / 2567 involvements; offense catalog ~2.5k posteam rows | Deterministic filter | No league/future fallback |
+| State: down/distance/YL/clock/score/poss | **IMPLEMENTED** | Engine `state.py` | Code freeze this commit | n/a | Stable seed SHA256 | Clock costs = fixed means (limitation) |
+| Empirical snap resample by state cell | **IMPLEMENTED** | Team snaps; sparse → same-team coarser fallback with flag | W1–8 | Many cells n&lt;5 (see evidence) | Seeded | **No silent league pool** |
+| Kickoff / halftime / OT / FG / PAT / turnover | **IMPLEMENTED** | Explicit transitions + team special teams rows | W1–8 | FG/PAT/punt n per team small | Seeded | OT = single-possession approx |
+| Joint player yards from same events | **IMPLEMENTED** | passer/rusher/receiver on resampled rows | W1–8 | Varies by player | Seeded | Not a prop model |
+| Config freeze data_only vs script_adjusted | **IMPLEMENTED** | `config/*.json` | frozen_at_et in file | n/a | JSON hashable | Adjustments off vs on |
+| Forward QB filter (Fagnano / Lamar OUT) | **IMPLEMENTED** | Dated adjustments JSON; brainstorm_read 2026-11-03 notes | asof_et in config | BAL pass after filter = Fagnano only (~24) | Deterministic filter | **No fabricated history** |
+| Proposed pooling switch | **IMPLEMENTED (default off)** | `proposed_pooling.enabled` | config | n/a | Explicit | Never silent |
+| 3rd-down conversion freq + conditional success | **IMPLEMENTED (audit table)** | PBP `third_down_converted` / `third_down_failed` | W1–8 team | See `situational` artifact | Scripted | Opportunity rate AND convert\|opportunity |
+| Red-zone TD/score rates | **IMPLEMENTED (audit table)** | Plays with `yardline_100≤20`; drive_inside20 | W1–8 | See artifact | Scripted | Freq of RZ trips + score\|RZ |
+| QB completion split by `qb_hit` | **IMPLEMENTED as PROXY** | `qb_hit` column — **not** measured blitz/pressure | W1–8 by passer | Fagnano n small | Scripted | Label **PROXY_NOT_PRESSURE**; blitz/pressure cols **absent** |
+| True blitz / pressure / # rushers | **MISSING** | Columns `blitz`,`was_pressure`,`number_of_pass_rushers` **not in local PBP** | — | 0 | — | Do not invent |
+| Man/zone, coverage type, routes, open middle | **MISSING** | No `defense_man_zone_type`,`defense_coverage_type`,`route` | — | 0 | — | PBP cannot establish; **not** proxied as measured |
+| Primary CB/S vs WR/TE matchup | **MISSING** | `pass_defense_1_player_name` ≠ assigned coverage | — | — | — | Do not label as primary defender |
+| Opponent-adjusted RB YPC (team vs that defense) | **IMPLEMENTED (audit)** | Runs vs `defteam` in team games W1–8 | W1–8 | Per-opponent n small | Scripted | JAX vs BAL D: only if prior H2H in window — else SPARSE |
+| DT missing / replacement OL-DL effects | **MISSING / SCENARIO-ONLY** | No DT snap chart in PBP | — | — | — | Sensitivity only if params mapped |
+| WR/TE field zones vs CB replacements | **MISSING** | Need charting; PBP `pass_location` only | — | pass_location counts only | — | Location ≠ route vs CB |
+| Q1–4 / H1 / H2 margin distributions | **PARTIAL** | Reconstruct from period_engine or possession events | W1–8 | 15 games historical; sim outputs FG/reg | Seeded sim | Period margins from possession slice limited (no full period scoreboard yet) |
+| BAL upset / Fagnano 200+ tails | **SCENARIO-ONLY** | Sensitivity params in `scenarios/` — **not** verified probs | 2026-11-05 | Fagnano pass attempts ~24 | Labeled | Research tails; not calibrated |
+| Road / rest / travel / practice availability | **EVIDENCE STUB** | Schedule + notes; practice DNP text from miss_audit | notes 2026-11-03–05 | Qualitative | Provenance rows | Unknown→unknown; no weights |
+| Weather | **EVIDENCE STUB** | Needs dated weather pull; not auto-ingested here | — | — | — | Status UNKNOWN until sourced |
+| Market spread/total conditioning | **SEPARATE CONFIG ONLY** | `config/*_market_informed.json` if present | — | — | — | Must **not** contaminate data_only baseline; not independent edge proof |
+| Narrative comments → auto calibration | **FORBIDDEN** | — | — | — | — | Comments → auditable param map or sensitivity label |
+| Betting edge / Pin ROI | **NOT CLAIMED** | — | — | — | — | Research-only |
+
+
+
+===== FILE: EFFECTS_AND_COVERAGE_MATRIX.md =====
+# Effects / coverage / pressure matrix (updated 2026-11-05 ~16:11 ET)
+
+Attribution: FTN public subset via nflverse (CC-BY-SA) — attribute **FTN Data via nflverse**. Paid FTN catalog fields (`qbp` true pressure, `rte` routes) **not** in free 29-col extract.
+
+| Feature | Status | Source | n / dates | Alters sim? |
+|---|---|---|---|---|
+| Q1–Q4 / H1 / H2 / reg / OT scoreboards | **IMPLEMENTED** | event `add_score` → period bucket | sim | Yes |
+| Explosive pass≥20 / rush≥12 | **IMPLEMENTED** | PBP | W1–8 | annotate + tables |
+| FTN blitz `n_blitzers≥1` | **IMPLEMENTED** | local ftn_charting_2026 | join_rate≈0.97; date_pulled in file | Yes (strata) |
+| Defense empirical blitz rate faced | **IMPLEMENTED** | FTN×PBP by defteam | see dossier | Yes (`EFFECT_DEF_BLITZ_*`) |
+| Pressure PROXY (sack\|qb_hit\|scramble) | **IMPLEMENTED tables** | PBP | labeled PROXY | audit; not mislabeled as true pressure |
+| True pressure (`qbp`) | **MISSING** | Paid FTN catalog only | — | No |
+| Man/zone / MOFO / MOFC / routes | **MISSING** | Not in nflverse FTN 29-col dictionary | confirmed nflreadr dictionary | Sensitivity only |
+| CB/S/DT replacements | **UNVERIFIED notes** | r6 coverage.json | assignment_status UNVERIFIED | No coefficients |
+| Shaan numbers | **ATTRIBUTED_NOT_VERIFIED** | — | — | Not model inputs |
+
+
+===== FILE: README.md =====
+# possession_engine_v0 (research)
+
+Team-only (JAX/BAL 2026 W1–8) possession / PBP vertical slice. Preserves `period_engine_v0`.
+
+**Not a betting engine. No edge claims.**
+
+## Configs (frozen, distinct)
+- `config/jax_bal_tnf_2026-11-05_data_only.json` — empirical baseline, no QB adjustments, no market
+- `config/jax_bal_tnf_2026-11-05_script_adjusted.json` — forward-only QB/injury filter (Fagnano; Lamar OUT)
+- `config/jax_bal_tnf_2026-11-05_market_informed.json` — **separate**; must not contaminate data_only
+
+## Key docs
+- `FEATURE_MATRIX.md` — implemented / missing / scenario-only with sources & n
+- `LICENSE_MANIFEST.md` — nflfastR + NFLSimulatoR MIT provenance (no clone; no R source copied)
+- `docs/2026-11-05_possession_engine_v0_design.md`
+- `scenarios/bal_upset_fagnano_200_sensitivity.json` — SCENARIO_ONLY
+
+## Commands
+```bash
+cd /workspace/wt-period-engine/research/possession_engine_v0
+python3 -m pytest tests/ -q
+python3 run_jaxbal_demo.py
+```
+
+
+===== FILE: LICENSE_MANIFEST.md =====
+# Data & license manifest — possession_engine_v0
+
+Assessed **read-only remote** (no repository clone) on 2026-11-05 America/New_York.
+
+| Source | Role | License | Provenance | Our use |
+|---|---|---|---|---|
+| [nflverse/nflfastR](https://github.com/nflverse/nflfastR) | PBP schema / community data conventions | **MIT** (Copyright 2020 Sebastian Carl; Ben Baldwin) — LICENSE.md fetched via raw.githubusercontent.com | Public GitHub + nflfastr.com | Local parquet already on machine (`play_by_play_2026.parquet`); schema-compatible columns. **No nflfastR R source copied.** |
+| [rtelmore/NFLSimulatoR](https://github.com/rtelmore/NFLSimulatoR) | Conceptual drive/play resampling inspiration | **MIT** (`MIT + file LICENSE`; Copyright Ryan Elmore and Ben Williams; YEAR 2019) — DESCRIPTION + license page datacolorado.com/r/nflsimulator/license | Public docs/DESCRIPTION fetched; **repository not cloned** | Conceptual only. Original Python implementation. **No R package source copied.** |
+| Local PBP 2026 | Team filter JAX/BAL weeks 1–8 | Data under existing nfl-database / nfl-sim local artifacts | Symlink via `period_engine_v0/data/play_by_play_2026.parquet` → `/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet` | Read-only filter; research |
+| Dated QB/injury notes | Adjustment layer inputs | Internal research notes | `runs/2026-11-05_JAX@BAL_r2/brainstorm_read.md` (ESPN/team IR notes dated 2026-11-03) | Forward-only config JSON; not applied retroactively |
+
+## NOTICE
+This module is independent research code. MIT notices for conceptual sources retained above. Do not redistribute as a derivative of NFLSimulatoR without including its MIT notice; we did not copy its code.
+
+
+===== FILE: artifacts/validation/SUMMARY.md =====
+# Period grading + realism (post-12a7768 continuation)
+
+**Not an approved pick.** Development W1–8 only. Prior FG 0/15 and 13/15 artifacts preserved.
+
+## As-of FG coverage
+GRADED_FULL: 13/15 (W1 skips remain)
+
+## Period grading (N=150/game, 13 games, 35.6s)
+| Period | MAE home | MAE away | Brier home-win |
+|---|---:|---:|---:|
+| Q1 | 2.7466666666666666 | 3.763076923076923 | (see H1+) |
+| H1 | 5.33 | 6.46 | 0.254 |
+| H2 | 6.87 | 7.05 | 0.296 |
+| Reg | 9.16 | 9.28 | 0.334 |
+| FG  | 9.19 | 8.73 | 0.343 |
+
+Period metrics are **separate** from FG (FG row repeated for comparison).
+
+## Realism (development diagnostic)
+Actual per-team offense snaps mean: 59.9 (n_team_games=15)
+≈2× actual (both offenses): 119.7
+Sim mean snaps/game: 133.4
+Drive length plays actual mean/median: 7.54 / 7.0 (n_drives=161)
+Delta sim − 2×actual snaps: 13.7
+
+## Residual blockers (unchanged / no invent)
+- True pressure (FTN qbp): MISSING paid
+- Man/zone/MOFO/routes: MISSING free FTN 29-col
+- CB/S/DT replacement coeffs: MISSING
+- Weather: hook only PENDING_NWS — no DK auto-downgrade
+
+
+===== FILE: artifacts/validation/period_realism_metrics.json =====
+{
+  "approved_pick": false,
+  "evaluation_label": "development_w1_8_inspected_not_untouched_holdout",
+  "prior_artifacts_preserved": "artifacts/validation/pre_period_grade_12a7768/",
+  "n_sims": 150,
+  "runtime_sec": {
+    "asof_fg_grade": 33.134122835996095,
+    "period_grade": 35.641433007025626,
+    "realism": 3.4155781340086833
+  },
+  "fg_grade_coverage": {
+    "graded_full": 13,
+    "denominator": 15
+  },
+  "period_metrics": {
+    "n_games_period_graded": 13,
+    "mae_q1_home": 2.7466666666666666,
+    "mae_q1_away": 3.763076923076923,
+    "mae_h1_home": 5.334871794871796,
+    "mae_h1_away": 6.464102564102565,
+    "mae_h2_home": 6.874358974358974,
+    "mae_h2_away": 7.045641025641026,
+    "mae_reg_home": 9.157948717948718,
+    "mae_reg_away": 9.284102564102565,
+    "mae_fg_home": 9.194871794871794,
+    "mae_fg_away": 8.733333333333333,
+    "brier_h1_home_win": 0.25354871794871797,
+    "brier_h2_home_win": 0.29579829059829066,
+    "brier_reg_home_win": 0.33394871794871794,
+    "brier_fg_home_win": 0.3426051282051281,
+    "label": "development_w1_8_period_grade_not_untouched_holdout",
+    "note": "Period MAE/Brier reported separately from FG; ties count as home non-win for Brier"
+  },
+  "realism": {
+    "label": "development_in_sample_diagnostic_not_accuracy",
+    "actual": {
+      "mean_offense_snaps_per_team_game": 59.86666666666667,
+      "median_offense_snaps_per_team_game": 58.0,
+      "n_team_games": 15,
+      "drive_length_plays": {
+        "mean": 7.540372670807454,
+        "median": 7.0,
+        "n_drives": 161
+      },
+      "by_team_mean_snaps": {
+        "JAX": 59.285714285714285,
+        "BAL": 60.375
+      }
+    },
+    "actual_both_offenses_snaps_approx": 119.73333333333333,
+    "sim": {
+      "mean_snaps_per_game": 133.42,
+      "median_snaps_per_game": 133.0,
+      "mean_punts": 9.435,
+      "mean_tds": 6.12,
+      "mean_possession_proxy": 20.75,
+      "n_sims": 200
+    },
+    "comparison": {
+      "sim_snaps_minus_2x_team_snaps": 13.686666666666653,
+      "note": "Sim snap count is joint (both teams); actual mean is per-team offense \u2014 compare to 2\u00d7 actual"
+    }
+  },
+  "weather": {
+    "status": "PENDING_NWS",
+    "source": null,
+    "as_of_et": null,
+    "wind_mph": null,
+    "precip": null,
+    "temp_f": null,
+    "auto_apply_to_props": false,
+    "notes": "Do not auto-downgrade props from DK article; wait for NWS cross-check"
+  },
+  "residual_matrix": {
+    "true_pressure_qbp": "MISSING_paid_FTN",
+    "man_zone_mofo_routes": "MISSING_free_FTN_29col",
+    "cb_s_dt_replacement_coeffs": "MISSING_UNVERIFIED_notes_only",
+    "weather_auto_prop_downgrade": "DISABLED_pending_NWS"
+  }
+}

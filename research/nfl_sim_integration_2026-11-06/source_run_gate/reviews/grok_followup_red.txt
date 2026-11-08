@@ -1,0 +1,79 @@
+FFF...FF                                                                 [100%]
+=================================== FAILURES ===================================
+_______ test_red_automatic_cuts_enabled_without_dated_approval[weather] ________
+
+full = ({'document_type': 'run_manifest', 'schema_version': '1.0.0', 'run_id': 'synthetic-full', 'run_kind': 'projection', ...}, PosixPath('/tmp/pytest-of-box/pytest-66/test_red_automatic_cuts_enable0'))
+cut = 'weather'
+
+    @pytest.mark.parametrize('cut', ['weather', 'WR', 'edge'])
+    def test_red_automatic_cuts_enabled_without_dated_approval(full, cut):
+        full[0]['automatic_cuts'][cut]['enabled'] = True
+        outcome = result(full)
+        assert outcome['projection_ready'] is False
+        assert outcome['synthetic_fixture_ready'] is False
+>       assert any(f'automatic cuts: {cut} must remain DISABLED' in e for e in outcome['errors'])
+E       assert False
+E        +  where False = any(<generator object test_red_automatic_cuts_enabled_without_dated_approval.<locals>.<genexpr> at 0x7f80d406ac00>)
+
+source_run_gate/tests/test_readiness.py:211: AssertionError
+__________ test_red_automatic_cuts_enabled_without_dated_approval[WR] __________
+
+full = ({'document_type': 'run_manifest', 'schema_version': '1.0.0', 'run_id': 'synthetic-full', 'run_kind': 'projection', ...}, PosixPath('/tmp/pytest-of-box/pytest-66/test_red_automatic_cuts_enable1'))
+cut = 'WR'
+
+    @pytest.mark.parametrize('cut', ['weather', 'WR', 'edge'])
+    def test_red_automatic_cuts_enabled_without_dated_approval(full, cut):
+        full[0]['automatic_cuts'][cut]['enabled'] = True
+        outcome = result(full)
+        assert outcome['projection_ready'] is False
+        assert outcome['synthetic_fixture_ready'] is False
+>       assert any(f'automatic cuts: {cut} must remain DISABLED' in e for e in outcome['errors'])
+E       assert False
+E        +  where False = any(<generator object test_red_automatic_cuts_enabled_without_dated_approval.<locals>.<genexpr> at 0x7f80d42be7a0>)
+
+source_run_gate/tests/test_readiness.py:211: AssertionError
+_________ test_red_automatic_cuts_enabled_without_dated_approval[edge] _________
+
+full = ({'document_type': 'run_manifest', 'schema_version': '1.0.0', 'run_id': 'synthetic-full', 'run_kind': 'projection', ...}, PosixPath('/tmp/pytest-of-box/pytest-66/test_red_automatic_cuts_enable2'))
+cut = 'edge'
+
+    @pytest.mark.parametrize('cut', ['weather', 'WR', 'edge'])
+    def test_red_automatic_cuts_enabled_without_dated_approval(full, cut):
+        full[0]['automatic_cuts'][cut]['enabled'] = True
+        outcome = result(full)
+        assert outcome['projection_ready'] is False
+        assert outcome['synthetic_fixture_ready'] is False
+>       assert any(f'automatic cuts: {cut} must remain DISABLED' in e for e in outcome['errors'])
+E       assert False
+E        +  where False = any(<generator object test_red_automatic_cuts_enabled_without_dated_approval.<locals>.<genexpr> at 0x7f80d40697e0>)
+
+source_run_gate/tests/test_readiness.py:211: AssertionError
+_________________ test_red_automatic_cuts_declaration_required _________________
+
+full = ({'document_type': 'run_manifest', 'schema_version': '1.0.0', 'run_id': 'synthetic-full', 'run_kind': 'projection', ...}, PosixPath('/tmp/pytest-of-box/pytest-66/test_red_automatic_cuts_declar0'))
+
+    def test_red_automatic_cuts_declaration_required(full):
+        del full[0]['automatic_cuts']
+>       assert result(full)['errors']
+E       assert []
+
+source_run_gate/tests/test_readiness.py:223: AssertionError
+________________ test_green_automatic_cuts_explicitly_disabled _________________
+
+full = ({'document_type': 'run_manifest', 'schema_version': '1.0.0', 'run_id': 'synthetic-full', 'run_kind': 'projection', ...}, PosixPath('/tmp/pytest-of-box/pytest-66/test_green_automatic_cuts_expl0'))
+
+    def test_green_automatic_cuts_explicitly_disabled(full):
+        for settings in full[0]['automatic_cuts'].values():
+            assert settings['enabled'] is False
+            assert settings['approval_status'] == 'MISSING'
+>       assert result(full)['synthetic_fixture_ready'] is True
+E       assert False is True
+
+source_run_gate/tests/test_readiness.py:231: AssertionError
+=========================== short test summary info ============================
+FAILED source_run_gate/tests/test_readiness.py::test_red_automatic_cuts_enabled_without_dated_approval[weather]
+FAILED source_run_gate/tests/test_readiness.py::test_red_automatic_cuts_enabled_without_dated_approval[WR]
+FAILED source_run_gate/tests/test_readiness.py::test_red_automatic_cuts_enabled_without_dated_approval[edge]
+FAILED source_run_gate/tests/test_readiness.py::test_red_automatic_cuts_declaration_required
+FAILED source_run_gate/tests/test_readiness.py::test_green_automatic_cuts_explicitly_disabled
+5 failed, 3 passed, 55 deselected in 0.27s

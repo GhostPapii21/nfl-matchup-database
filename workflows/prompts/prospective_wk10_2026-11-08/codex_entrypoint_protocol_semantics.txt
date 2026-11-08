@@ -1,0 +1,59 @@
+You are Codex on CORE under existing Rico authorization. External-first. No market_calibration edits. No Odds spend/auth bypass. No fabricated Phase15. No picks. No 100k. No projection_ready claims. Do NOT duplicate PFF acquisition (browser retry is separate/user-authorized). Keep immutable: all prior sha256 forecast trees, certified_asof, dal_ind_roles_unify, dal_ind_usage_fit, and the BYTE CONTENTS of dal_ind_suite_fix_2026-11-06/validate.py (historical contaminated evidence). Stage NEW work under:
+  research/possession_engine_v0/runs/dal_ind_entrypoint_protocol_2026-11-06/
+
+Paths:
+- Engine: /workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0
+- Packet: /workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08
+- Contaminated historical validator (immutable bytes): runs/dal_ind_suite_fix_2026-11-06/validate.py
+- Authoritative decontam validator: runs/dal_ind_invariance_decontam_2026-11-06/validate.py
+- Before hashes: packet/reviews/ENTRYPOINT_PASS_BEFORE_HASHES.json
+Repo-wide missing fixtures (do not skip tests):
+- /workspace/wt-nfl-sim-core-2026-11-06/runs/2026-11-02_shared_src/play_by_play_2026.parquet
+- /workspace/wt-nfl-sim-core-2026-11-06/runs/2026-11-01_shared_src/play_by_play_2026.parquet
+Approved local sources exist under /workspace/nfl-database/runs/2026-11-0{1,2}_shared_src/ and packet raw/. Document hashes in FIXTURE_PROVENANCE.json.
+
+## A. Enforced single validation entrypoint (PRIORITY — chmod/sidecar insufficient)
+1. Create a SINGLE public entrypoint module e.g. `research/possession_engine_v0/validation_entrypoint.py` (or `tools/run_role_policy_validate.py`) that:
+   - Is the ONLY supported way to run role-policy validation/selection for consumers.
+   - ALWAYS routes to the decontaminated protocol (W1–3/W4–5 selection; W7–8 reporting only; promotion_gate=null; RESEARCH_PROVISIONAL).
+   - REJECTS any attempt to execute/import/run `dal_ind_suite_fix_2026-11-06/validate.py` as a promotion/selection path with a clear error referencing SUPERSEDED_PROMOTION_PATH.
+2. Hardening beyond sidecar:
+   - Registry JSON listing authorized entrypoint path + sha256 of decontam validate + explicit deny list for contaminated path.
+   - Consumer helper that refuses to load accepted_policy from contaminated role_policy_metrics.json artifacts.
+   - Optionally rename contaminated validate.py → validate.py.HISTORICAL_CONTAMINATED_DO_NOT_RUN via copy leaving original bytes also preserved OR wrap with a stub that only raises (if wrapping would change bytes of validate.py, instead add validate_runner.py that short-circuits — DO NOT alter contaminated validate.py content hash).
+3. Regression tests (must fail red then green):
+   - Attempting to invoke contaminated path for promotion/selection raises / returns rejected.
+   - Entrypoint never sets accepted_policy from W7–8 gate.
+   - Loading contaminated metrics as production policy is rejected.
+4. Document ENTRYPOINT.md.
+
+## B. Complete pristine future evaluation protocol (before outcomes)
+Extend PRISTINE_EVALUATION_PLAN into an executable protocol JSON+MD with ALL of:
+- Aggregation: how game/cell metrics roll up (macro/micro), weighting, reporting of zero-n cells.
+- min_coverage: minimum games/cells/roles required before any evaluative claim; below → UNSCORABLE_INSUFFICIENT_COVERAGE.
+- unscorable handling: explicit reasons enum; never silent renormalization; never drop without counts.
+- No pristine historical claim; W1–8 and 2026_09_DAL_IND excluded; future kickoffs after 2026-11-08T23:59:59Z only.
+- Freeze hashes of policy/comparators registered now; evaluation NOT executed in this pass (no future outcomes).
+- Promotion remains NONE / requires new preregistered decision after pristine results.
+Write PRISTINE_EVALUATION_PROTOCOL.json + .md; freeze hashes in PROTOCOL_FREEZE.json.
+
+## C. Supported official semantics / sensitivity bounds
+1. From W1–8 PBP, compute sensitivity bounds for omitting penalties/returns/official OT (e.g. counterfactual envelope: max yards/points exposure per game, % possessions touched) — descriptive bounds, not causal claims if unidentified.
+2. Where PBP+rules support a narrow path, implement SUPPORTED semantics with conservation tests (punt-net already exists). Candidates only if justified: e.g. decline/accept cannot invent; kickoff touchback fixed yardline stub labeled RULE_STUB; OT remain approx with bound on OT rate exposure.
+3. Keep UNSUPPORTED for inventible return TDs / full penalty enforcement / official OT matching possession until implemented; never pretend fitted.
+4. Tests: conservation under any new supported path; reject unsupported invention; document SEMANTICS_BOUNDS.md.
+
+## D. Expand invariance (adversarial)
+Add tests/harness for:
+- half-dependent rotation_by_half present (re-enable for test only) — team path still invariant when coupling=false
+- degenerate weights (one player 1.0; near-zero mass; UNASSIGNED)
+- introduced-divergence detector: deliberately break attribution/team stream split in a test double / monkeypatch and assert the equality checker FAILS (proves detector works)
+Keep prior 400-trial suite; report INVARIANCE_EXPANDED.md + metrics.
+
+## E. Missing fixture provenance (no skips)
+Restore the two shared_src PBP paths via symlink/copy from approved nfl-database or packet parquet; record source path + sha256 + bytes in FIXTURE_PROVENANCE.json. Re-run the previously blocking collection (or full repo pytest collect) and record result. Do not xfail/skip those tests.
+
+## F. Deliverables
+- COMPLETION_ENTRYPOINT_PROTOCOL.md, NFL16_METRICS.json, FAILURE_MODES.md, reviews/CODEX_SELFCHECK.md, DELIVERY.md
+- Engine pytest must stay green; report repo collect status after fixtures
+- Preserve RESEARCH_PROVISIONAL; DEFERRED_100K; NOLINE; Phase15 NOT_YET

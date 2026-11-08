@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/validate.py", line 81, in <module>
+    p=subprocess.run([sys.executable,str(consumer),str(staged)],capture_output=True,text=True);write('activation_result.json',{'returncode':p.returncode,'stdout':p.stdout,'stderr':p.stderr});assert p.returncode==0,p.stderr
+                                                                                                                                                                                                      ^^^^^^^^^^^^^^^
+AssertionError: Traceback (most recent call last):
+  File "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/activation_consumer.py", line 7, in <module>
+    f=freeze_run(r['spec'],tree/'inputs',e,n=len(r['trial_indices']),seed=int(r['rng']['seed']))
+  File "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/activation/selected_robust/sha256_6ecf9e36dc8537af40a598fad2620a44153a9086953f2d0540dfb222e230a8af/engine_source/joint_inputs.py", line 121, in freeze_run
+    if utc(spec["frozen_at_utc"]) < cutoff or utc(spec["generated_at_utc"]) < utc(spec["frozen_at_utc"]):
+           ~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'frozen_at_utc'
+
+
+RESOLVED: activation packaging timestamps and relocated git identity handled in consumer; JSON-normalized full trials match. Resumed packaging-only checks after completed 400-trial certification: PASS. See activation_result.json, PROTECTED_HASH_CHECK.json.

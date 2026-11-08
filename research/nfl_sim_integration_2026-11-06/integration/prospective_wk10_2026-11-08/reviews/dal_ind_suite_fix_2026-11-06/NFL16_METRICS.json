@@ -1,0 +1,269 @@
+{
+  "status": "SUITE_FIX_COMPLETE_RESEARCH_ONLY",
+  "before": {
+    "failed": 36,
+    "passed": 126
+  },
+  "after": {
+    "failed": 0,
+    "passed": 167,
+    "scope": "python3 -m pytest research/possession_engine_v0/tests -q --tb=short",
+    "log": "pytest_full_after.txt"
+  },
+  "failure_categories": {
+    "MISSING_DEPENDENCY_OR_FIXTURE": 36,
+    "REAL_REGRESSION": 0,
+    "LEGACY_CONTRACT_DRIFT": 0,
+    "ENV_ONLY": 0
+  },
+  "runs": {
+    "equal_depth": {
+      "n_completed": 5,
+      "forecast_id": "sha256:b87e59ea76348d5a9bffa32a7226035ce0247076ab3dc8bdaaeec0b93fc9a834",
+      "score_means": {
+        "DAL": 21.8,
+        "IND": 13.6
+      },
+      "conservation_failures": 0,
+      "seeded_repeat_identical": true
+    },
+    "empirical": {
+      "n_completed": 5,
+      "forecast_id": "sha256:52b4a9d0f233822aaa75ca332652cf843272106b8f6977dfe83ef1a21b5f20df",
+      "score_means": {
+        "DAL": 21.8,
+        "IND": 13.6
+      },
+      "conservation_failures": 0,
+      "seeded_repeat_identical": true
+    },
+    "selected_robust": {
+      "n_completed": 5,
+      "forecast_id": "sha256:6ecf9e36dc8537af40a598fad2620a44153a9086953f2d0540dfb222e230a8af",
+      "score_means": {
+        "DAL": 21.8,
+        "IND": 13.6
+      },
+      "conservation_failures": 0,
+      "seeded_repeat_identical": true
+    }
+  },
+  "paired_team_period_stats_identical": true,
+  "selected_policy": "mix_equal_0.25",
+  "flags": [
+    "EMPIRICAL_IND_CARRY_REGRESSION",
+    "ROLES_POLICY_ROBUST"
+  ],
+  "additional_train_only_universe_validation": {
+    "protocol": "train W1-5; hold W6; TRAIN_ONLY_IDENTITY_UNIVERSE; unseen heldout IDs pooled into predefined UNSEEN_IN_TRAIN bucket; no target-date availability filter",
+    "selected_previously": "mix_equal_0.25",
+    "used_for_selection": false,
+    "cells": [
+      {
+        "team": "DAL",
+        "role": "passer",
+        "train_n": 200,
+        "hold_n": 56,
+        "unseen_hold_count": 0,
+        "metrics": {
+          "equal_eligible": {
+            "kl": 0.6931471805599453,
+            "mae": 0.5
+          },
+          "legacy_depth": {
+            "kl": 9.999985000522107e-07,
+            "mae": 9.999979999829883e-07
+          },
+          "mix_equal_0.25": {
+            "kl": 0.13353139691023683,
+            "mae": 0.12500000374999998
+          }
+        }
+      },
+      {
+        "team": "DAL",
+        "role": "target",
+        "train_n": 188,
+        "hold_n": 55,
+        "unseen_hold_count": 0,
+        "metrics": {
+          "equal_eligible": {
+            "kl": 0.6851589976877803,
+            "mae": 0.07777777777777778
+          },
+          "legacy_depth": {
+            "kl": 3.4283136788869166,
+            "mae": 0.06742390909490904
+          },
+          "mix_equal_0.25": {
+            "kl": 0.2634752203038552,
+            "mae": 0.04424564949689278
+          }
+        }
+      },
+      {
+        "team": "DAL",
+        "role": "carry",
+        "train_n": 107,
+        "hold_n": 15,
+        "unseen_hold_count": 0,
+        "metrics": {
+          "equal_eligible": {
+            "kl": 1.3146871221124161,
+            "mae": 0.15625
+          },
+          "legacy_depth": {
+            "kl": 2.029449704978745,
+            "mae": 0.13333349999866667
+          },
+          "mix_equal_0.25": {
+            "kl": 0.2764828232219196,
+            "mae": 0.06009054457266955
+          }
+        }
+      },
+      {
+        "team": "IND",
+        "role": "passer",
+        "train_n": 185,
+        "hold_n": 48,
+        "unseen_hold_count": 0,
+        "metrics": {
+          "equal_eligible": {
+            "kl": 0.6931471805599453,
+            "mae": 0.5
+          },
+          "legacy_depth": {
+            "kl": 9.999985000522107e-07,
+            "mae": 9.999979999829883e-07
+          },
+          "mix_equal_0.25": {
+            "kl": 0.1335313972577272,
+            "mae": 0.12500000405405398
+          }
+        }
+      },
+      {
+        "team": "IND",
+        "role": "target",
+        "train_n": 166,
+        "hold_n": 38,
+        "unseen_hold_count": 7,
+        "metrics": {
+          "equal_eligible": {
+            "kl": 0.811900375245096,
+            "mae": 0.08252880722516351
+          },
+          "legacy_depth": {
+            "kl": 5.560186738060974,
+            "mae": 0.07692205129982875
+          },
+          "mix_equal_0.25": {
+            "kl": 0.6896922407406451,
+            "mae": 0.05906184843437517
+          }
+        }
+      },
+      {
+        "team": "IND",
+        "role": "carry",
+        "train_n": 137,
+        "hold_n": 30,
+        "unseen_hold_count": 1,
+        "metrics": {
+          "equal_eligible": {
+            "kl": 0.8164282709884255,
+            "mae": 0.17777777777777778
+          },
+          "legacy_depth": {
+            "kl": 1.83730552716626,
+            "mae": 0.12222172222672217
+          },
+          "mix_equal_0.25": {
+            "kl": 0.0733920842095233,
+            "mae": 0.03513788134838153
+          }
+        }
+      }
+    ]
+  },
+  "hashes": {
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/simulate.py": {
+      "before": "ebf7910b4d09179cafe7aa2ea2064fd6ae3d4df55fd31462d59dbe955e78da4b",
+      "after": "73ba5d43980720ddb4022b5cba55a45fff4fa0843f399f08e674333f1b01a4a1",
+      "changed": true
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_producer.py": {
+      "before": "9c59213dafe342f0a46b321c2f692613089ddd9df88db1bdbb55bec34d177907",
+      "after": "13b1cb6699b0c15339c02c6ee66b696809d092bef6cef7e17f91d6ba46746875",
+      "changed": true
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_accounting.py": {
+      "before": "eb34e520efabce1c1afeb9bdfdb32a46e9125352414ec2574c32ca6ff0fd5d2c",
+      "after": "221f54c4bef303dadd3c3a7879ed94926745ebea928f1021f110e3e9b0cbf2bf",
+      "changed": true
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/shared_accounting.py": {
+      "before": "8646d16d5ed0b652c0acff9e9b086716cfe36ddb06934209a77dd5b52c457cea",
+      "after": "8646d16d5ed0b652c0acff9e9b086716cfe36ddb06934209a77dd5b52c457cea",
+      "changed": false
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/fit_prospective_roles.py": {
+      "before": "30496527a32e308bc7a1c46549eab7d2dc0908a753b265599e9fd7bd56f3a0a5",
+      "after": "30496527a32e308bc7a1c46549eab7d2dc0908a753b265599e9fd7bd56f3a0a5",
+      "changed": false
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/fit_prospective_usage.py": {
+      "before": "012686fedc1471a6e96ce725a3e15841f33370c2cdba3479a6fee8e6bf0014e6",
+      "after": "012686fedc1471a6e96ce725a3e15841f33370c2cdba3479a6fee8e6bf0014e6",
+      "changed": false
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/empirical.py": {
+      "before": "75e221b36033eec80c0162d434af5d0b3e4b55caba4683ead70d56d22e388fa1",
+      "after": "9866a34a5276ffa9014bcdbb7291642fabe9926d2f64846c9fbb50434af9e13b",
+      "changed": true
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08/inputs/model.json": {
+      "before": "0ca64b0d0db06c68c834dfd188a6daabb2314461d219c440eb5c01173e0fd579",
+      "after": "0ca64b0d0db06c68c834dfd188a6daabb2314461d219c440eb5c01173e0fd579",
+      "changed": false
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08/inputs/registry.json": {
+      "before": "be6c7b6e16321b1146997c1ecd54dd9f33dc5291b2f35ff4b5fc0000b14e3e1f",
+      "after": "be6c7b6e16321b1146997c1ecd54dd9f33dc5291b2f35ff4b5fc0000b14e3e1f",
+      "changed": false
+    },
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/prospective_wk10_2026-11-08/inputs/run_spec.json": {
+      "before": "d3588f6c826cbf8e6ccbe6e1edb242c26bb5e3c2135c78d902b97f55e6afe00b",
+      "after": "d3588f6c826cbf8e6ccbe6e1edb242c26bb5e3c2135c78d902b97f55e6afe00b",
+      "changed": false
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/joint_inputs.py": {
+      "after": "fab9261e8cc746b7d7b8547da47b8cfdc062fd09f1668435293244d84f4731a7",
+      "before": "not included in supplied before hash manifest"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_joint_producer.py": {
+      "after": "59c579a99b914e23873a68b81362ced4b37a062d0ae1c1539ce42e205d8e9b81",
+      "before": "not included in supplied before hash manifest"
+    },
+    "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0/tests/test_suite_fix.py": {
+      "after": "df476e9ad144149d6fa4c1e8623aa9a24ca2dc70ab41b76c1df2fddbcd8b73db",
+      "before": "not included in supplied before hash manifest"
+    }
+  },
+  "fixture_manifest": "FIXTURE_MANIFEST.json",
+  "compatibility": "wire shape preserved; RNG version intentionally migrated to v2; legacy APIs retained",
+  "protected_frozen_source_hashes_match": true,
+  "next_blockers": [
+    "predictive accuracy not certified",
+    "official OT, penalties and returns unsupported",
+    "external activation/delivery outside writable roots"
+  ],
+  "100k": "DEFERRED_100K",
+  "Phase15": "NOT_YET",
+  "quotes": "NOLINE",
+  "coverage_allows_sim_effect": false,
+  "market_calibration_edits": false,
+  "odds_spend": false,
+  "picks": false
+}

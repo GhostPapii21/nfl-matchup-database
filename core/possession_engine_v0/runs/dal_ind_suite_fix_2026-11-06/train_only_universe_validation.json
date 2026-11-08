@@ -1,0 +1,133 @@
+{
+  "protocol": "train W1-5; hold W6; TRAIN_ONLY_IDENTITY_UNIVERSE; unseen heldout IDs pooled into predefined UNSEEN_IN_TRAIN bucket; no target-date availability filter",
+  "selected_previously": "mix_equal_0.25",
+  "used_for_selection": false,
+  "cells": [
+    {
+      "team": "DAL",
+      "role": "passer",
+      "train_n": 200,
+      "hold_n": 56,
+      "unseen_hold_count": 0,
+      "metrics": {
+        "equal_eligible": {
+          "kl": 0.6931471805599453,
+          "mae": 0.5
+        },
+        "legacy_depth": {
+          "kl": 9.999985000522107e-07,
+          "mae": 9.999979999829883e-07
+        },
+        "mix_equal_0.25": {
+          "kl": 0.13353139691023683,
+          "mae": 0.12500000374999998
+        }
+      }
+    },
+    {
+      "team": "DAL",
+      "role": "target",
+      "train_n": 188,
+      "hold_n": 55,
+      "unseen_hold_count": 0,
+      "metrics": {
+        "equal_eligible": {
+          "kl": 0.6851589976877803,
+          "mae": 0.07777777777777778
+        },
+        "legacy_depth": {
+          "kl": 3.4283136788869166,
+          "mae": 0.06742390909490904
+        },
+        "mix_equal_0.25": {
+          "kl": 0.2634752203038552,
+          "mae": 0.04424564949689278
+        }
+      }
+    },
+    {
+      "team": "DAL",
+      "role": "carry",
+      "train_n": 107,
+      "hold_n": 15,
+      "unseen_hold_count": 0,
+      "metrics": {
+        "equal_eligible": {
+          "kl": 1.3146871221124161,
+          "mae": 0.15625
+        },
+        "legacy_depth": {
+          "kl": 2.029449704978745,
+          "mae": 0.13333349999866667
+        },
+        "mix_equal_0.25": {
+          "kl": 0.2764828232219196,
+          "mae": 0.06009054457266955
+        }
+      }
+    },
+    {
+      "team": "IND",
+      "role": "passer",
+      "train_n": 185,
+      "hold_n": 48,
+      "unseen_hold_count": 0,
+      "metrics": {
+        "equal_eligible": {
+          "kl": 0.6931471805599453,
+          "mae": 0.5
+        },
+        "legacy_depth": {
+          "kl": 9.999985000522107e-07,
+          "mae": 9.999979999829883e-07
+        },
+        "mix_equal_0.25": {
+          "kl": 0.1335313972577272,
+          "mae": 0.12500000405405398
+        }
+      }
+    },
+    {
+      "team": "IND",
+      "role": "target",
+      "train_n": 166,
+      "hold_n": 38,
+      "unseen_hold_count": 7,
+      "metrics": {
+        "equal_eligible": {
+          "kl": 0.811900375245096,
+          "mae": 0.08252880722516351
+        },
+        "legacy_depth": {
+          "kl": 5.560186738060974,
+          "mae": 0.07692205129982875
+        },
+        "mix_equal_0.25": {
+          "kl": 0.6896922407406451,
+          "mae": 0.05906184843437517
+        }
+      }
+    },
+    {
+      "team": "IND",
+      "role": "carry",
+      "train_n": 137,
+      "hold_n": 30,
+      "unseen_hold_count": 1,
+      "metrics": {
+        "equal_eligible": {
+          "kl": 0.8164282709884255,
+          "mae": 0.17777777777777778
+        },
+        "legacy_depth": {
+          "kl": 1.83730552716626,
+          "mae": 0.12222172222672217
+        },
+        "mix_equal_0.25": {
+          "kl": 0.0733920842095233,
+          "mae": 0.03513788134838153
+        }
+      }
+    }
+  ]
+}

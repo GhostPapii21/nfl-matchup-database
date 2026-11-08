@@ -1,0 +1,30 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________ test_DIRECT_actual_producer_to_market_acceptance _______________
+
+producer_rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+
+    def test_DIRECT_actual_producer_to_market_acceptance(producer_rows):
+        """REQUIRED acceptance test; remains FAILED while unchanged producer is rejected.
+    
+        No xfail, skip, field shim or catch-and-PASS hides this integration blocker.
+        """
+>       transported = adapter.adapt_joint_trials(producer_rows, expected_trial_ids=RETAINED_IDS)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+integration/integration_adversarial_tests.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'aggregates': {'player': [{'period_id': 'H1', 'player_id': 'HOME000', 'player_id_namespace': 'synthetic_test', 'prov... 'from_period_id': 'Q2', 'reset_clock_seconds': 900, 'to_period_id': 'Q3'}, 'credit_adjustments': [], ...}, ...], ...}]
+expected_trial_ids = ('sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/0', 'sha256:d89f251bd9c3994e66f7d24a0731abbcfb2b3e25bf5302e936eb29fd338653c0/trial/1')
+
+    def adapt_joint_trials(rows, *, expected_trial_ids=None):
+        info = contract_info()
+        if info["status"] != "CONTRACT_SCORE_TRANSPORT_ONLY":
+>           raise ValueError("bound core contract absent or changed; alignment required")
+E           ValueError: bound core contract absent or changed; alignment required
+
+../../wt-market-calibration/research/market_calibration/joint_trial_adapter.py:137: ValueError
+=========================== short test summary info ============================
+FAILED integration/integration_adversarial_tests.py::test_DIRECT_actual_producer_to_market_acceptance
+1 failed in 0.18s

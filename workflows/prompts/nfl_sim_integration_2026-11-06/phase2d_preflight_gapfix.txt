@@ -1,0 +1,22 @@
+You are Codex doing a LOCAL follow-up on source_run_gate after independent Grok REJECT.
+
+Read first:
+- /workspace/research/nfl_sim_integration_2026-11-06/reviews/grok_preflight_align_review.md
+- /workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/reviews/COMPLETION_PREFLIGHT_ALIGN.md
+- source_run_gate/{REQUIREMENT.md,source_ledger.schema.json,readiness.py,tests/test_readiness.py,MANIFEST.json}
+
+CONSTRAINTS:
+- No Cursor Cloud; no spend; no auth bypass; no live API pulls; no engine edits under possession_engine_v0/period_engine_v0; no market_calibration.
+- Do NOT claim projection_ready true.
+- Do NOT silently re-enable weather/WR/edge automatic cuts — keep DISABLED with explicit test that enabling without dated approval FAILS.
+- Reconcile Grok critique vs actual code: if enum already SUCCESS|...|NOT_APPLICABLE, document that Grok gap is stale/wrong; fix only genuine gaps.
+
+REQUIRED FIXES (genuine):
+1) Explicit test+guard: weather/WR/edge auto-cuts DISABLED; attempting to mark them enabled without dated approval evidence → fail readiness.
+2) Document clearly in REQUIREMENT/MANIFEST: engineering pytest green ≠ projection_ready; synthetic_fixture_ready ≠ live vet-ready.
+3) If readiness.py does not load/validate against source_ledger.schema.json, wire jsonschema validation for ledger rows.
+4) Ensure NOT_APPLICABLE requires non-empty reason (already claimed — add/confirm red test).
+5) Add reviews/RESPONSE_TO_GROK_PREFLIGHT.md mapping each Grok gap → FIXED|ALREADY_TRUE|DEFERRED(reason).
+6) Re-run pytest; capture red/green; impact NOT_MEASURED.
+
+Write under source_run_gate/ only (+ reviews under it).

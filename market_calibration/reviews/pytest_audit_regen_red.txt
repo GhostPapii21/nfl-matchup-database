@@ -1,0 +1,23 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________ test_persisted_saved_audit_matches_regeneration ________________
+
+    def test_persisted_saved_audit_matches_regeneration():
+        artifact = Path(__file__).resolve().parents[1] / "artifacts" / "saved_quote_audit.json"
+        regenerated = json.dumps(build_saved_audit(), indent=2, sort_keys=True, allow_nan=False) + "\n"
+>       assert artifact.read_text() == regenerated
+E       assert '{\n  "OT": n...IT_ONLY"\n}\n' == '{\n  "OT": n...IT_ONLY"\n}\n'
+E         
+E         Skipping 1793 identical leading characters in diff, use -v to show
+E         Skipping 21196 identical trailing characters in diff, use -v to show
+E         - : "sha256:1ca4929397e5f4e3c560280f97b1fbe24db94cd22d7a129d2d0b2b28de1454b5",
+E         + : "sha256:a1c545432fdd13af468e0cc07566060b25baf7e3a173b5a3cc43dc1db2a99915",
+E                 "pair_status": "MATCHED",
+E                 "period": "H1",...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+research/market_calibration/tests/test_saved_audit.py:15: AssertionError
+=========================== short test summary info ============================
+FAILED research/market_calibration/tests/test_saved_audit.py::test_persisted_saved_audit_matches_regeneration
+1 failed in 0.07s

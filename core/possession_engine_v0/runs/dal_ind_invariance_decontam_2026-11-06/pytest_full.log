@@ -1,0 +1,37 @@
+
+==================================== ERRORS ====================================
+________ ERROR collecting backtests/v6_brainstorm_proedge/leak_test.py _________
+backtests/v6_brainstorm_proedge/leak_test.py:5: in <module>
+    pb=pd.read_parquet(PB26);bad=0
+       ^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:671: in read_parquet
+    return impl.read(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:253: in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:141: in _get_path_or_handle
+    handles = get_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/common.py:939: in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/runs/2026-11-02_shared_src/play_by_play_2026.parquet'
+_______________ ERROR collecting tools/tests/test_rbmiss_sim.py ________________
+tools/tests/test_rbmiss_sim.py:4: in <module>
+    import sim_v6 as S
+tools/sim_v6.py:22: in <module>
+    _P=pd.read_parquet(SRC+'play_by_play_2026.parquet'); _P=_P[(_P.season_type=='REG')&(_P.two_point_attempt!=1)]
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:671: in read_parquet
+    return impl.read(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:253: in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py:141: in _get_path_or_handle
+    handles = get_handle(
+/usr/local/lib/python3.13/dist-packages/pandas/io/common.py:939: in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/workspace/wt-nfl-sim-core-2026-11-06/tools/../runs/2026-11-01_shared_src/play_by_play_2026.parquet'
+=========================== short test summary info ============================
+ERROR backtests/v6_brainstorm_proedge/leak_test.py - FileNotFoundError: [Errn...
+ERROR tools/tests/test_rbmiss_sim.py - FileNotFoundError: [Errno 2] No such f...
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+2 errors in 2.28s

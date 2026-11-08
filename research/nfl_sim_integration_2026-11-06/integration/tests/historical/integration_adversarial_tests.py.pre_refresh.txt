@@ -1,0 +1,482 @@
+"""LOCAL engineering evidence only. Direct integration acceptance is deliberately red.
+
+The durable smoke is actual joint_producer output, never a market trial fixture.
+Diagnostic tests apply a disclosed FIELD-ONLY mapping to copies of those rows to
+reach downstream adapter checks. That mapping is NOT an approved adapter/export,
+and cannot cure the direct wire incompatibility or SCENARIO_ONLY prohibition.
+Run explicitly by filename (the requested name is not pytest's default pattern).
+"""
+from copy import deepcopy
+from dataclasses import replace
+from hashlib import sha256
+import importlib.util
+import json
+from pathlib import Path
+
+import pytest
+
+from research.market_calibration import calibration, joint_trial_adapter as adapter
+from research.market_calibration import quotes as quote_api
+from research.market_calibration.manifest import validate_manifest
+from research.market_calibration.settlement import GradeComparison, compare_grade, settle
+import joint_accounting
+import joint_inputs
+from source_run_gate import readiness
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "integration"
+CORE = Path("/workspace/wt-nfl-sim-core-2026-11-06")
+MARKET = Path("/workspace/wt-market-calibration/research/market_calibration")
+CONTRACT_HASH = "d6a4689f55bbc1231205dccf1d19de51019c40d87a7f7c1fd4ba5238cec836b9"
+EVIDENCE = json.loads((ROOT / "reviews/EVIDENCE_CODEX.json").read_text())
+SMOKE = EVIDENCE["smoke"]
+# Independent retained IDs: loaded from the prior producer evidence BEFORE rows.
+# Never reconstruct this list from a consumer-side batch or mapped subset.
+RETAINED_IDS = tuple(SMOKE["trial_ids"])
+ARTIFACT = Path(SMOKE["artifact_directory"])
+
+
+def digest(path):
+    return sha256(Path(path).read_bytes()).hexdigest()
+
+
+@pytest.fixture
+def producer_rows():
+    path = ARTIFACT / "trials.jsonl"
+    assert "sha256:" + digest(path) == SMOKE["artifact_hashes"]["trials.jsonl"]
+    return [json.loads(line) for line in path.read_text().splitlines()]
+
+
+def diagnostic_field_mapping(rows):
+    """Expose every discovered wire difference; preserve raw producer separately.
+
+    No score, seed, opportunity, identity, forecast/hash or RNG draw is created.
+    Known unplayed OT zero rows are omitted ONLY in this diagnostic view because
+    the market representation forbids them. Unmodified producer stays retained.
+    """
+    mapped = deepcopy(rows)
+    for row in mapped:
+        status = row["status"]
+        row["producer_status_opaque"] = deepcopy(status)
+        row.update(status=status["state"], completion_reason=status["completion_reason"],
+                   terminal_state=deepcopy(status["terminal_state"]), went_ot=status["went_ot"])
+        row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+        row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+        row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+        row["team_periods"] = [p for p in row["team_periods"]
+                               if status["went_ot"] or not p["period_id"].startswith("OT")]
+        for period in row["team_periods"]:
+            period["points"] = period["stats"]["points"]
+    return mapped
+
+
+def diagnostic_transport(rows, *, expected_trial_ids):
+    """Test procedure requires independently retained ordered population explicitly."""
+    if expected_trial_ids is None:
+        raise ValueError("independently retained expected_trial_ids required by procedure")
+    return adapter.adapt_joint_trials(rows, expected_trial_ids=expected_trial_ids)
+
+
+def assert_transport_identity(raw, transported):
+    assert tuple(t.trial_id for t in transported) == RETAINED_IDS
+    for source, trial in zip(raw, transported, strict=True):
+        assert trial.trial_id == source["trial_id"]
+        assert trial.forecast_id == source["forecast_id"]
+        assert trial.trial_index == source["trial_index"]
+        assert trial.seed == source["rng"]["seed"]
+        assert trial.trial_seed == source["rng"]["trial_seed"]
+        assert trial.input_content_hash == source["freeze"]["input_content_hash"]
+        assert trial.interface_status == "CONTRACT_SCORE_TRANSPORT_ONLY"
+        assert trial.actionable_status == "NOLINE"
+
+
+def test_contract_sha256_binding():
+    assert digest(ROOT / "core_contract.md") == CONTRACT_HASH, "BLOCKER CONTRACT_HASH_MISMATCH"
+    assert adapter.contract_info()["status"] == "CONTRACT_SCORE_TRANSPORT_ONLY"
+
+
+def test_imports_resolve_to_correct_worktrees():
+    assert Path(adapter.__file__).resolve() == MARKET / "joint_trial_adapter.py"
+    assert Path(joint_accounting.__file__).resolve() == CORE / "research/possession_engine_v0/joint_accounting.py"
+    assert Path(readiness.__file__).resolve() == ROOT / "source_run_gate/readiness.py"
+
+
+def test_market_protected_hash_inventory():
+    inventory = json.loads((OUT / "market_calibration_file_hashes.json").read_text())
+    assert inventory["files"]
+    for entry in inventory["files"]:
+        assert digest(entry["path"]) == entry["sha256"], f"BLOCKER MARKET_HASH_CHANGED {entry['path']}"
+
+
+def test_actual_producer_artifacts_and_recomputed_validation(producer_rows):
+    for relative, expected in SMOKE["artifact_hashes"].items():
+        assert "sha256:" + digest(ARTIFACT / relative) == expected
+    for entry in EVIDENCE["files_touched"]:
+        assert "sha256:" + digest(entry["path"]) == entry["sha256"]
+    assert tuple(r["trial_id"] for r in producer_rows) == RETAINED_IDS
+    assert len(producer_rows) == SMOKE["n_requested"] == 2
+    for row in producer_rows:
+        report = joint_accounting.validate_trial(row)
+        assert report["status"] == "PASS" and not report["failed_invariants"]
+        assert row["status"]["state"] == "COMPLETE"
+        assert row["status"]["adapter_projection_allowed"] is False
+        assert "SCENARIO_ONLY" in row["status"]["projection_blockers"]
+        assert row["freeze"]["split_membership"] == "UNASSIGNED"
+        assert row["freeze"]["split_dependent_claims_allowed"] is False
+
+
+def test_frozen_forecast_inputs_and_independently_retained_seeds(producer_rows):
+    run_spec = json.loads((ARTIFACT / "run_spec.json").read_text())
+    input_manifest = json.loads((ARTIFACT / "input_manifest.json").read_text())
+    summary = json.loads((ROOT / "reviews/core_producer_smoke_result.json").read_text())
+    assert joint_inputs.digest(run_spec) == SMOKE["forecast_id"]
+    assert joint_inputs.digest(input_manifest) == SMOKE["input_content_hash"]
+    assert [r["rng"]["trial_seed"] for r in producer_rows] == summary["trial_seeds"]
+    for row in producer_rows:
+        material = [row["rng"]["seed_derivation_version"], row["rng"]["seed"],
+                    row["game"]["game_id_namespace"], row["game"]["game_id"],
+                    SMOKE["input_content_hash"], row["trial_index"]]
+        encoded = json.dumps(material, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False).encode()
+        assert str(int.from_bytes(sha256(encoded).digest()[:8], "big")) == row["rng"]["trial_seed"]
+
+
+def test_DIRECT_actual_producer_to_market_acceptance(producer_rows):
+    """REQUIRED acceptance test; remains FAILED while unchanged producer is rejected.
+
+    No xfail, skip, field shim or catch-and-PASS hides this integration blocker.
+    """
+    transported = adapter.adapt_joint_trials(producer_rows, expected_trial_ids=RETAINED_IDS)
+    assert_transport_identity(producer_rows, transported)
+
+
+@pytest.mark.parametrize("stage,error", [
+    (0, "missing trial fields"), (1, "unsupported contract or incomplete/invalid"),
+    (2, "missing freeze fields"), (3, "missing engine fields"),
+    (4, "missing team_periods fields"),
+])
+def test_diagnostic_wire_blockers_are_independently_reproducible(producer_rows, stage, error):
+    # Progressively expose errors masked by the first missing-field rejection.
+    # Each staged copy is deliberately NOT represented as unchanged producer wire.
+    rows = deepcopy(producer_rows)
+    for row in rows:
+        if stage >= 1:
+            for key in ("completion_reason", "terminal_state", "went_ot"):
+                row[key] = deepcopy(row["status"][key])
+        if stage >= 2:
+            row["status"] = row["status"]["state"]
+        if stage >= 3:
+            row["freeze"]["input_manifest_hash"] = row["freeze"]["input_manifest_digest"]
+        if stage >= 4:
+            row["engine"]["component_versions"] = {"joint_producer": row["engine"]["component_version"]}
+            row["engine"]["dependency_versions"] = deepcopy(row["engine"]["dependencies"])
+    with pytest.raises(ValueError, match=error):
+        adapter.adapt_joint_trials(rows, expected_trial_ids=RETAINED_IDS)
+
+
+def test_diagnostic_mapped_identity_and_opaque_retention(producer_rows):
+    original = deepcopy(producer_rows)
+    mapped = diagnostic_field_mapping(producer_rows)
+    transported = diagnostic_transport(mapped, expected_trial_ids=RETAINED_IDS)
+    assert_transport_identity(producer_rows, transported)
+    for raw, view, trial in zip(producer_rows, mapped, transported, strict=True):
+        assert trial.source == view
+        assert trial.source is not view
+        assert trial.source["producer_status_opaque"] == raw["status"]
+        for key in ("events", "player_periods", "validation", "flags", "latent_state", "possessions", "aggregates", "provenance"):
+            assert trial.source[key] == raw[key]
+            assert trial.source[key] is not view[key]
+        trial.source["flags"].append("DIAGNOSTIC_COPY_MUTATION")
+        trial.source["events"][0]["flags"].append("DIAGNOSTIC_COPY_MUTATION")
+    assert producer_rows == original
+    assert all("DIAGNOSTIC_COPY_MUTATION" not in r["flags"] for r in mapped)
+
+
+@pytest.mark.parametrize("period,primitives", [
+    ("H1", ("Q1", "Q2")), ("H2", ("Q3", "Q4")),
+    ("REG", ("Q1", "Q2", "Q3", "Q4")),
+    ("FG", ("Q1", "Q2", "Q3", "Q4", "OT1")),
+])
+def test_diagnostic_same_trial_score_primitives(producer_rows, period, primitives):
+    trials = diagnostic_transport(diagnostic_field_mapping(producer_rows), expected_trial_ids=RETAINED_IDS)
+    for raw, trial in zip(producer_rows, trials, strict=True):
+        teams = (raw["game"]["home_team_id"], raw["game"]["away_team_id"])
+        assert all(p["period_id"] in primitives for p in raw["team_periods"] if period == "FG")
+        expected = tuple(sum(p["stats"]["points"] for p in raw["team_periods"]
+                             if p["team_id"] == team and p["period_id"] in primitives) for team in teams)
+        event_scores = tuple(sum(event["score_delta"][team] for event in raw["events"]
+                                 if event["period_id"] in primitives) for team in teams)
+        aggregate = tuple(next(p["stats"]["points"] for p in raw["aggregates"]["team"]
+                               if p["team_id"] == team and p["period_id"] == period) for team in teams)
+        assert trial.scorecard.points(period) == expected == event_scores == aggregate
+
+
+def test_diagnostic_score_sensitivity_is_quarter_sum_not_independent_marginal(producer_rows):
+    # Deliberately corrupted copy tests consumer arithmetic only, NOT a valid draw.
+    mapped = diagnostic_field_mapping(producer_rows)
+    baseline = diagnostic_transport(mapped, expected_trial_ids=RETAINED_IDS)
+    home = mapped[0]["game"]["home_team_id"]
+    for row in mapped[0]["team_periods"]:
+        if row["team_id"] == home and row["period_id"] in {"Q1", "Q3", "OT1"}:
+            row["points"] += {"Q1": 7, "Q3": 2, "OT1": 3}[row["period_id"]]
+        if row["team_id"] != home and row["period_id"] == "Q4":
+            row["points"] += 9  # preserve regulation tie to enter OT
+    probe = diagnostic_transport(mapped, expected_trial_ids=RETAINED_IDS)
+    for period, delta in {"H1": (7, 0), "H2": (2, 9), "REG": (9, 9), "FG": (12, 9)}.items():
+        assert probe[0].scorecard.points(period) == tuple(a + b for a, b in zip(baseline[0].scorecard.points(period), delta))
+        assert probe[1].scorecard.points(period) == baseline[1].scorecard.points(period)
+
+
+def test_diagnostic_missingness_and_player_api_unsupported(producer_rows, record_property):
+    trials = diagnostic_transport(diagnostic_field_mapping(producer_rows), expected_trial_ids=RETAINED_IDS)
+    for row, trial in zip(producer_rows, trials, strict=True):
+        for features in [trial.source["feature_availability"], *(e["feature_availability"] for e in trial.source["events"])]:
+            for name in ("coverage", "routes", "personnel_11", "personnel_12", "personnel_13"):
+                f = features[name]
+                assert f["status"] == ("UNKNOWN" if name == "coverage" else "MISSING")
+                assert f["value"] is None and f["allows_sim_effect"] is False
+        assert trial.source["player_periods"] == row["player_periods"]
+        assert sum(p["stats"]["targets"] for p in row["player_periods"]) > 0
+        assert not hasattr(trial, "player_targets") and not hasattr(trial, "player_carries")
+    record_property("market_player_status", "MARKET_STAT_UNSUPPORTED")
+
+
+@pytest.mark.parametrize("case", ["truncated", "reordered", "duplicate", "invalid", "incomplete", "seed", "input_hash"])
+def test_diagnostic_red_population_and_identity(producer_rows, case):
+    rows = diagnostic_field_mapping(producer_rows)
+    reason = None
+    if case == "truncated":
+        rows = rows[:1]
+        reason = "population/order mismatch"
+    elif case == "reordered":
+        rows.reverse()
+        reason = "population/order mismatch"
+    elif case == "duplicate":
+        rows.append(deepcopy(rows[0]))
+        reason = "duplicate"
+    elif case in {"invalid", "incomplete"}:
+        rows[0]["status"] = case.upper()
+        reason = "incomplete/invalid"
+    elif case == "seed":
+        rows[0]["rng"]["trial_seed"] = "0"
+        reason = "trial_seed derivation mismatch"
+    else:
+        rows[0]["freeze"]["input_content_hash"] = "sha256:" + "0" * 64
+        reason = "trial_seed derivation mismatch"
+    with pytest.raises(ValueError, match=reason):
+        diagnostic_transport(rows, expected_trial_ids=RETAINED_IDS)
+
+
+def test_diagnostic_contract_mismatch_mock(producer_rows, monkeypatch):
+    # Patch only in-memory bound digest; no contract/market file is changed.
+    monkeypatch.setattr(adapter, "CONTRACT_SHA256", "0" * 64)
+    assert adapter.contract_info()["status"] == "CORE_CONTRACT_REQUIRES_ALIGNMENT"
+    with pytest.raises(ValueError, match="alignment required"):
+        adapter.adapt_joint_trials(producer_rows, expected_trial_ids=RETAINED_IDS)
+
+
+@pytest.mark.parametrize("payload", ["validation", "player_periods"])
+def test_diagnostic_opaque_acceptance_is_not_full_core_validation(producer_rows, payload, record_property):
+    rows = diagnostic_field_mapping(producer_rows)
+    if payload == "validation":
+        rows[0][payload] = {"status": "INVALID", "failed_invariants": ["ADVERSARIAL_PROBE"]}
+    else:
+        rows[0][payload][0]["stats"]["targets"] = -1
+    transported = diagnostic_transport(rows, expected_trial_ids=RETAINED_IDS)
+    assert transported[0].source[payload] == rows[0][payload]
+    assert transported[0].interface_status == "CONTRACT_SCORE_TRANSPORT_ONLY"
+    assert transported[0].actionable_status == "NOLINE"
+    assert "FULL_CORE_ACCEPTANCE_NOT_RUN" in transported[0].reasons
+    record_property("limit", "OPAQUE_PAYLOAD_TRANSPORT_DOES_NOT_ACCEPT_CORE_INVARIANTS")
+
+
+def test_diagnostic_omitted_expected_ids_accepts_subset_but_procedure_requires_ids(producer_rows, record_property):
+    subset = diagnostic_field_mapping(producer_rows)[:1]
+    accepted = adapter.adapt_joint_trials(subset)  # deliberate library bypass probe
+    assert len(accepted) == 1 and accepted[0].trial_id == RETAINED_IDS[0]
+    with pytest.raises(ValueError, match="expected_trial_ids required"):
+        diagnostic_transport(subset, expected_trial_ids=None)
+    with pytest.raises(TypeError, match="expected_trial_ids"):
+        diagnostic_transport(subset)
+    with pytest.raises(ValueError, match="population/order mismatch"):
+        diagnostic_transport(subset, expected_trial_ids=RETAINED_IDS)
+    record_property("blocker", "LIBRARY_EXPECTED_IDS_OPTIONAL_PROCEDURE_MUST_SUPPLY_INDEPENDENT_IDS")
+
+
+def provenance(**changes):
+    return calibration.Provenance(**(dict(game_id=quote_api.GAME_ID, season=2026, week=9,
+        split="development_inspected", inspected=False, prediction_utc="2026-11-05T20:00:00Z",
+        outcome_known_utc="2026-11-06T05:00:00Z", event_start_utc="2026-11-06T01:15:00Z",
+        model_id="ENGINEERING_PROBE_NO_FORECAST", source="saved inspected evidence",
+        source_sha256=digest(ROOT / "reviews/grok_core_producer_review.md"), scoring_label="hindsight") | changes))
+
+
+@pytest.mark.parametrize("alias", sorted(calibration.INSPECTED_GAMES))
+def test_tnf_known_aliases_cannot_be_relabelled_holdout(alias):
+    row = provenance(game_id=alias, split="holdout")
+    assert row.effective_split == "development_inspected"
+    with pytest.raises(ValueError, match="inspected data cannot be holdout"):
+        calibration.validate_splits([row])
+
+
+@pytest.mark.parametrize("week", range(1, 9))
+def test_inspected_w1_w8_cannot_be_relabelled_holdout(week):
+    with pytest.raises(ValueError, match="inspected data cannot be holdout"):
+        calibration.validate_splits([provenance(game_id="opaque-probe", week=week, split="holdout")])
+
+
+def test_unseen_namespace_alias_gap_is_explicit_blocker(record_property):
+    # This string is an adversarial alias CLAIM, not a fabricated canonical join.
+    alias = provenance(game_id="UNVERIFIED_ALIAS_PROBE", game_id_namespace="unverified_registry",
+                       split="holdout", inspected=False)
+    result = calibration.validate_splits([provenance(), alias])
+    assert result[-1]["effective_split"] == "holdout"
+    record_property("blocker", "ALIAS_WIDE_INSPECTION_REGISTRY_ABSENT_NO_UNTOUCHED_HOLDOUT_ACCEPTANCE")
+
+
+def test_core_split_rejects_explicit_inspection_but_unknown_alias_needs_registry(record_property):
+    identity = dict(namespace="saved_csv_game_id", game_id=quote_api.GAME_ID)
+    splits = dict(split_manifest_id="ADVERSARIAL_TEST_ONLY", policy_version="probe",
+                  created_at_utc="2026-11-01T00:00:00Z", status="FROZEN", frozen_before_selection=True,
+                  train_game_ids=[], dev_game_ids=[], holdout_game_ids=[identity],
+                  inspected_game_ids=[identity], evidence_only_game_ids=[identity])
+    game = dict(game_id_namespace=identity["namespace"], game_id=identity["game_id"])
+    with pytest.raises(ValueError, match="inspected/evidence"):
+        joint_inputs.validate_splits(splits, game)
+    alias = dict(namespace="unverified_registry", game_id="UNVERIFIED_ALIAS_PROBE")
+    splits["holdout_game_ids"] = [alias]
+    assert joint_inputs.validate_splits(splits, dict(game_id_namespace=alias["namespace"], game_id=alias["game_id"])) == "holdout"
+    record_property("blocker", "CORE_SPLIT_ALIAS_CLOSURE_NOT_PROVEN")
+
+
+@pytest.fixture(scope="module")
+def saved_quotes():
+    return quote_api.load_saved_quotes()
+
+
+def request(**changes):
+    return quote_api.MatchRequest(**(dict(game_id=quote_api.GAME_ID, book="pinnacle", market="spreads",
+        period="Q1", side="JAX", line=-2.5, settlement="spread_2way",
+        cutoff_utc="2026-11-05T20:00:00Z", asof_utc="2026-11-05T20:00:00Z") | changes))
+
+
+def test_saved_only_loader_exact_opens_hashes_and_no_hindsight(monkeypatch):
+    opened = []
+    original = Path.open
+    def tracked(path, *args, **kwargs):
+        opened.append(path.resolve())
+        return original(path, *args, **kwargs)
+    with monkeypatch.context() as context:
+        context.setattr(Path, "open", tracked)
+        rows = quote_api.load_saved_quotes()
+    assert set(opened) == {p.resolve() for p in quote_api.SOURCES}
+    assert len(rows) == 132
+    assert all(opened.count(p.resolve()) == 2 for p in quote_api.SOURCES)  # hash + CSV
+    forbidden = {"result_W_L_P", "period_jax_pts", "period_bal_pts", "grade", "notes"}
+    for quote in rows:
+        assert quote.source_sha256 == digest(quote.source_file)
+        assert quote.row_number >= 2 and quote.raw_quote_fields
+        assert not forbidden.intersection(quote.raw_quote_fields)
+        assert quote.raw_quote_fields.get("snapshot_id") in (None, quote.snapshot_id)
+    manifest = json.loads((MARKET / "MANIFEST.json").read_text())
+    assert manifest["quotes"]["status"] == "SAVED_ONLY"
+    assert manifest["quotes"]["canonical_crosswalk"] == "ABSENT_NO_CANONICAL_JOIN_CLAIM"
+
+
+@pytest.mark.parametrize("period", ["Q2", "Q3", "Q4"])
+def test_missing_pinnacle_spreads_are_noline(saved_quotes, period):
+    assert not any(q.book == "pinnacle" and q.period == period and q.market == "spreads" for q in saved_quotes)
+    result = quote_api.match_quote(saved_quotes, request(period=period))
+    assert result.status == result.actionable_status == "NOLINE"
+    assert result.probabilities is None and not result.quotes and result.pair_id is None
+
+
+def test_saved_pair_cannot_invent_other_side_or_verify_rules(saved_quotes):
+    result = quote_api.match_quote(saved_quotes, request())
+    assert result.status == "MATCHED" and result.actionable_status == "NOLINE"
+    assert len(result.quotes) == 2 and set(result.probabilities) == {"JAX", "BAL"}
+    assert {q.quote_id for q in result.quotes} <= {q.quote_id for q in saved_quotes}
+    assert "SETTLEMENT_RULES_UNVERIFIED" in result.compatibility_flags
+    assert all(q.settlement_rule_ref is None for q in result.quotes)
+    for side in ("JAX", "BAL"):
+        single_side = [q for q in saved_quotes if q.side == side]
+        missing = quote_api.match_quote(single_side, request())
+        assert missing.status == missing.actionable_status == "NOLINE"
+        assert missing.probabilities is None and not missing.quotes
+    assert GradeComparison("PASS", (), "win").book_rules_verified is False
+
+
+def test_diagnostic_no_canonical_relabel_for_settlement(producer_rows, saved_quotes):
+    trial = diagnostic_transport(diagnostic_field_mapping(producer_rows), expected_trial_ids=RETAINED_IDS)[0]
+    retained = deepcopy(trial.source)
+    with pytest.raises(ValueError, match="identity mismatch"):
+        settle(trial.scorecard, request())
+    result = compare_grade(trial.scorecard, request(), quote_api.match_quote(saved_quotes, request()).quotes[0], "W")
+    assert result.status == "IDENTITY_BLOCKED" and result.book_rules_verified is False
+    assert trial.source == retained
+
+
+@pytest.mark.parametrize("clock", ["cutoff_utc", "asof_utc"])
+def test_saved_quote_cutoff_blocks_future_rows(saved_quotes, clock):
+    result = quote_api.match_quote(saved_quotes, request(**{clock: "2026-11-01T00:00:00Z"}))
+    assert result.actionable_status == "NOLINE" and result.probabilities is None
+
+
+def test_incompatible_saved_snapshots_do_not_pair(saved_quotes):
+    pair = quote_api.match_quote(saved_quotes, request()).quotes
+    mutated = [pair[0], replace(pair[1], snapshot_id="ADVERSARIAL_DIFFERENT_SNAPSHOT")]
+    result = quote_api.match_quote(mutated, request())
+    assert result.status == result.actionable_status == "NOLINE"
+    assert result.probabilities is None and not result.quotes
+
+
+def test_market_claims_and_bias_remain_unfitted():
+    manifest = json.loads((MARKET / "MANIFEST.json").read_text())
+    assert validate_manifest(manifest, MARKET)
+    bias = calibration.CalibrationBias()  # NEVER call fit
+    assert bias.fitted is False and bias.coefficients is None
+    assert bias.status == "UNIMPLEMENTED_NO_FITTED_CALIB"
+    assert manifest["adapter"]["player_targets"] == "NOT_DEFINED"
+    assert manifest["validation"]["status"] == "NO_UNTOUCHED_HOLDOUT_VALIDATION"
+
+
+def test_actual_source_gate_inventory_remains_not_ready():
+    manifest = json.loads((ROOT / "source_run_gate/MANIFEST.json").read_text())
+    assert manifest["projection_ready"] is False
+    assert all(r["status"] == "MISSING" and r["usable_for_run"] is False for r in manifest["source_inventory"])
+    outcome = readiness.assess(manifest, ROOT / "source_run_gate")
+    assert outcome["projection_ready"] is False and outcome["errors"]
+
+
+@pytest.fixture
+def gate_fixture(tmp_path):
+    # Reuse the gate owner's labeled engineering fixture read-only. Its created
+    # artifacts live only in --basetemp under integration/, never in its package.
+    spec = importlib.util.spec_from_file_location("integration_gate_fixture", ROOT / "source_run_gate/tests/test_readiness.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.full.__wrapped__(tmp_path)
+
+
+@pytest.mark.parametrize("missing", ["inventory", "brainstorm.md", "checklist.md", "report.md", "phase15"])
+def test_source_gate_missing_real_run_evidence_cannot_become_ready(gate_fixture, missing):
+    manifest, root = gate_fixture
+    baseline = readiness.assess(manifest, root, allow_synthetic=True)
+    assert baseline == dict(projection_ready=False, synthetic_fixture_ready=True, errors=[])
+    if missing == "inventory":
+        manifest["source_ledger"] = []
+    elif missing == "phase15":
+        p = root / "checklist.md"
+        p.write_text(p.read_text().replace("| [x] | 15 |", "| [ ] | 15 |"))
+    else:
+        (root / missing).unlink()
+    outcome = readiness.assess(manifest, root, allow_synthetic=True)
+    assert outcome["projection_ready"] is False
+    assert outcome["synthetic_fixture_ready"] is False and outcome["errors"]
+
+
+def test_synthetic_gate_cannot_be_promoted_by_live_label(gate_fixture):
+    manifest, root = gate_fixture
+    manifest["synthetic"] = False
+    outcome = readiness.assess(manifest, root)
+    assert outcome["projection_ready"] is False
+    assert any("synthetic" in reason.lower() for reason in outcome["errors"])

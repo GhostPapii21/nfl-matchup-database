@@ -1,0 +1,35 @@
+You are Codex implementing Rico's ≥40pp market-edge delivery anomaly guard in market_calibration ONLY under:
+/workspace/wt-market-calibration/research/market_calibration/
+
+Do NOT edit CORE producer, core_contract, or integration adversarial tests in this task.
+
+## Requirement (Rico 2026-11-06 ~07:14 ET)
+Do NOT surface apparent market edges where |model_p − market_no_vig_p| ≥ 0.40 (40 percentage points).
+Such gaps are quarantined as DIAGNOSTIC_ANOMALY. Before any delivery/surface:
+inspect identity (game/player/market/period/side/line), units (probability vs percent vs American odds mis-scale), prices/time (quote age, close vs open, in-play), and calibration status.
+Preserve raw research values unchanged. Preserve independent (RAW) vs market-anchored separation.
+NO fake shrink, NO fitted Bias performance claims. Bias remains UNIMPLEMENTED_NO_FITTED_CALIB.
+Actionable remains NOLINE for research transport unless already established otherwise.
+edge_basis stays honest (RAW_ONLY / not fitted).
+
+## Implement (TDD)
+1) Add module e.g. `delivery_guard.py` (or extend calibration/manifest delivery path) with:
+   - `ANOMALY_EDGE_PP_THRESHOLD = 0.40`
+   - function that given raw_p, market_p (same probability_basis), identity+quote provenance → either `surfaceable` payload OR `quarantined` with reason codes: ID_CHECK / UNITS_CHECK / PRICE_TIME_CHECK / CALIBRATION_CHECK / EDGE_GAP_GE_40PP
+   - Raw values retained in both paths; quarantine does not mutate raw_model_output
+   - Anchored path remains PENDING_VALIDATION / CALLER_PROPOSED_NOT_FITTED; never invent fitted edge
+2) Wire into whatever current "delivery" or separate_outputs consumer would surface edges; if there is no single delivery entrypoint, export `guard_edge_delivery(...)` and call it from `separate_outputs` return enrichment AND document required call site.
+3) Tests under tests/test_delivery_guard.py:
+   - 39.9pp gap → not quarantined by threshold alone (may still fail other checks)
+   - 40.0pp and 50pp → quarantined, raw preserved
+   - unit mis-scale (e.g. p=55 meaning 55% passed as 55.0) → UNITS_CHECK quarantine
+   - identity mismatch → ID_CHECK
+   - missing quote time / STALE policy hook → PRICE_TIME_CHECK when declared
+   - calibration_status fitted=false preserved
+   - independent vs anchored both retain separation; quarantine flag on delivery envelope only
+4) Run market suite pytest research/market_calibration/tests ... -q; capture logs under reviews/
+5) Write reviews/ANOMALY_DELIVERY_GUARD_COMPLETION.md + reviews/codex_anomaly_guard_evidence.json
+6) Update tracking/NFL-16_TRACKING.md briefly
+7) No spend, no network, no heavy sims, no Ghost final claim, impact NOT_MEASURED
+
+Parent ETA note (planning only, not a deadline): engineering 4–8h; calibration/historical validation 1–2 days conditional usable as-of — do not shortcut licenses.

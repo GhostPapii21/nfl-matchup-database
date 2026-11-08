@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-m",
+    "pytest",
+    "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_adversarial_tests.py",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "junit_family=legacy",
+    "--basetemp=/workspace/research/nfl_sim_integration_2026-11-06/integration/pytest_tmp_initial",
+    "--junitxml=/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_pytest_initial.xml"
+  ],
+  "cwd": "/workspace/research/nfl_sim_integration_2026-11-06",
+  "environment": {
+    "PYTHONPATH": "/workspace/wt-nfl-sim-core-2026-11-06/research/possession_engine_v0:/workspace/wt-nfl-sim-core-2026-11-06:/workspace/wt-market-calibration:/workspace/research/nfl_sim_integration_2026-11-06",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "started_et": "2026-11-06T06:47:22.195955-05:00",
+  "ended_et": "2026-11-06T06:47:23.297035-05:00",
+  "exit_code": 1
+}

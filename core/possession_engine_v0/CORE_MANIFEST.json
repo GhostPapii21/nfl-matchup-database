@@ -1,0 +1,165 @@
+{
+  "contract_id": "nfl-sim-core-contract-v1",
+  "contract_version": "1.0.0",
+  "component_version": "opportunity-first-v1",
+  "status": "BLOCKED",
+  "status_scope": "Real-game shared export and final integration vet; structural producer code tested synthetically",
+  "runtime_evidence": "TINY_SYNTHETIC_ONLY",
+  "impact": "NOT MEASURED",
+  "legacy_status": "UNIMPLEMENTED_LEGACY_YARD_ROW_BOOTSTRAP_ADAPTER_PROJECTION_BLOCKED",
+  "requirements": [
+    {
+      "contract_gate": "C01",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Namespaced registry/crosswalk validation; null identity residuals; known-zero roster rows"
+        },
+        {
+          "status": "BLOCKED",
+          "description": "No authoritative real-game registry join supplied"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C02",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Exact frozen bytes/manifest hashes, UTC availability gates, dirty code/source snapshot and dependency versions"
+        },
+        {
+          "status": "BLOCKED",
+          "description": "External source/as-of authentication requires certified input bundle"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C03",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Contract per-trial seed derivation, assigned indices, retry/order replay and batch extension tests"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C04",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Measured period clocks/partitions, explicit runoff, quarter continuity, halftime, linked try, declared approximate OT and caps"
+        },
+        {
+          "status": "UNIMPLEMENTED",
+          "description": "Official OT, penalties and untimed-down semantics"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C05",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Exact ledger-derived Q/H/REG/OT/FG team/player totals, score totals/margins and partial/zero distinctions"
+        },
+        {
+          "status": "UNIMPLEMENTED",
+          "description": "Defensive/special-teams return yards and return scores"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C06",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Targets/carries allocated and incremented before catch/yards; conditional state/depth/rotation/environment provenance"
+        },
+        {
+          "status": "BLOCKED",
+          "description": "Sourced real-game availability, roles, intended-depth and outcome distributions absent; no fitted model claim"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C07",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "All defined attempt categories, no-play, non-QB throws, direct snap/end-around labels and integer invariants"
+        },
+        {
+          "status": "UNIMPLEMENTED",
+          "description": "Legacy raw-PBP provider-to-terminal ingestion remains yard bootstrap and is explicitly projection-blocked"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C08",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Catch/target/carry and player/team yards, sacks, net/gross, residual and signed lateral/field-credit conservation"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C09",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Versioned joint JSONL contract objects, event/player/period IDs, exact population publication checks, invalid retention"
+        },
+        {
+          "status": "BLOCKED",
+          "description": "Ghost6 and BetGuru consumer population/compatibility verification remains external"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C10",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Coverage UNKNOWN, routes/personnel 11/12/13 MISSING, null values and no effects, propagated to every event"
+        },
+        {
+          "status": "UNIMPLEMENTED",
+          "description": "Consumer evidence display verification; no consumer code changed"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C11",
+      "components": [
+        {
+          "status": "UNIMPLEMENTED",
+          "description": "BetGuru-owned quote identity/pairing/settlement compatibility deliberately not implemented"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C12",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Frozen disjoint game splits, inspected/evidence exclusion, UNASSIGNED claims block and immutable forecast/result separation"
+        },
+        {
+          "status": "BLOCKED",
+          "description": "Authoritative populated split membership/source inspection registry not supplied"
+        }
+      ]
+    },
+    {
+      "contract_gate": "C13",
+      "components": [
+        {
+          "status": "IMPLEMENTED",
+          "description": "Current sanctioned local CORE scope; original contract phase-1 implementation exclusion superseded by this user request"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "generated_utc": "2026-11-06T12:22:31.996839+00:00",
+  "status": "IMPLEMENTED_UNIT_TESTED_RESEARCH_ONLY",
+  "requirement": "Rico 2026-11-06 >=40 percentage-point absolute raw/model minus market no-vig delivery quarantine",
+  "anomaly_edge_pp_threshold": 0.4,
+  "entrypoints": {
+    "public": "research.market_calibration.guard_edge_delivery",
+    "consumer": "research.market_calibration.calibration.separate_outputs",
+    "envelope_key": "delivery_guard",
+    "required_surface_field": "surfaceable_payload",
+    "other_delivery_entrypoint_in_package": null
+  },
+  "reason_codes": [
+    "ID_CHECK",
+    "UNITS_CHECK",
+    "PRICE_TIME_CHECK",
+    "CALIBRATION_CHECK",
+    "EDGE_GAP_GE_40PP"
+  ],
+  "tdd": {
+    "red": {
+      "log": "reviews/pytest_anomaly_guard_red.txt",
+      "result": "1 collection error: missing exported guard before implementation"
+    },
+    "first_green": {
+      "log": "reviews/pytest_anomaly_guard_first_green.txt",
+      "result": "58 passed in 0.06s"
+    },
+    "final": {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m pytest research/market_calibration/tests -q",
+      "cwd": "/workspace/wt-market-calibration",
+      "log": "reviews/pytest_anomaly_guard_market_suite.txt",
+      "result": "235 passed in 0.36s",
+      "new_guard_test_cases": 67,
+      "pytest_success": true
+    }
+  },
+  "examples": [
+    {
+      "raw_p": 0.899,
+      "market_p": 0.5,
+      "edge_gap": 0.399,
+      "status": "SURFACEABLE_RESEARCH_ONLY",
+      "surfaceable": true,
+      "quarantined": false,
+      "reason_codes": [],
+      "surfaceable_payload": {
+        "raw_p": 0.899,
+        "market_p": 0.5,
+        "edge": 0.399,
+        "probability_basis": "two_way_push_excluded",
+        "market_identity": {
+          "game_id": "synthetic-game",
+          "game_id_namespace": "saved_csv_game_id",
+          "player": null,
+          "team": null,
+          "market": "spreads",
+          "period": "Q1",
+          "side": "JAX",
+          "line": -2.5,
+          "settlement": "spread_2way"
+        },
+        "edge_basis": "RAW_ONLY",
+        "actionable_status": "NOLINE"
+      },
+      "raw_model_output": {
+        "p_win": 0.899,
+        "probability_basis": "two_way_push_excluded",
+        "market_identity": {
+          "game_id": "synthetic-game",
+          "game_id_namespace": "saved_csv_game_id",
+          "player": null,
+          "team": null,
+          "market": "spreads",
+          "period": "Q1",
+          "side": "JAX",
+          "line": -2.5,
+          "settlement": "spread_2way"
+        }
+      },
+      "calibration_status": {
+        "status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+        "fitted": false
+      }
+    },
+    {
+      "raw_p": 0.9,
+      "market_p": 0.5,
+      "edge_gap": 0.4,
+      "status": "DIAGNOSTIC_ANOMALY",
+      "surfaceable": false,
+      "quarantined": true,
+      "reason_codes": [
+        "EDGE_GAP_GE_40PP"
+      ],
+      "surfaceable_payload": null,
+      "raw_model_output": {
+        "p_win": 0.9,
+        "probability_basis": "two_way_push_excluded",
+        "market_identity": {
+          "game_id": "synthetic-game",
+          "game_id_namespace": "saved_csv_game_id",
+          "player": null,
+          "team": null,
+          "market": "spreads",
+          "period": "Q1",
+          "side": "JAX",
+          "line": -2.5,
+          "settlement": "spread_2way"
+        }
+      },
+      "calibration_status": {
+        "status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+        "fitted": false
+      }
+    },
+    {
+      "raw_p": 0.7,
+      "market_p": 0.3,
+      "edge_gap": 0.4,
+      "status": "DIAGNOSTIC_ANOMALY",
+      "surfaceable": false,
+      "quarantined": true,
+      "reason_codes": [
+        "EDGE_GAP_GE_40PP"
+      ],
+      "surfaceable_payload": null,
+      "raw_model_output": {
+        "p_win": 0.7,
+        "probability_basis": "two_way_push_excluded",
+        "market_identity": {
+          "game_id": "synthetic-game",
+          "game_id_namespace": "saved_csv_game_id",
+          "player": null,
+          "team": null,
+          "market": "spreads",
+          "period": "Q1",
+          "side": "JAX",
+          "line": -2.5,
+          "settlement": "spread_2way"
+        }
+      },
+      "calibration_status": {
+        "status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+        "fitted": false
+      }
+    },
+    {
+      "raw_p": 0.3,
+      "market_p": 0.7,
+      "edge_gap": 0.4,
+      "status": "DIAGNOSTIC_ANOMALY",
+      "surfaceable": false,
+      "quarantined": true,
+      "reason_codes": [
+        "EDGE_GAP_GE_40PP"
+      ],
+      "surfaceable_payload": null,
+      "raw_model_output": {
+        "p_win": 0.3,
+        "probability_basis": "two_way_push_excluded",
+        "market_identity": {
+          "game_id": "synthetic-game",
+          "game_id_namespace": "saved_csv_game_id",
+          "player": null,
+          "team": null,
+          "market": "spreads",
+          "period": "Q1",
+          "side": "JAX",
+          "line": -2.5,
+          "settlement": "spread_2way"
+        }
+      },
+      "calibration_status": {
+        "status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+        "fitted": false
+      }
+    },
+    {
+      "raw_p": 1.0,
+      "market_p": 0.5,
+      "edge_gap": 0.5,
+      "status": "DIAGNOSTIC_ANOMALY",
+      "surfaceable": false,
+      "quarantined": true,
+      "reason_codes": [
+        "EDGE_GAP_GE_40PP"
+      ],
+      "surfaceable_payload": null,
+      "raw_model_output": {
+        "p_win": 1.0,
+        "probability_basis": "two_way_push_excluded",
+        "market_identity": {
+          "game_id": "synthetic-game",
+          "game_id_namespace": "saved_csv_game_id",
+          "player": null,
+          "team": null,
+          "market": "spreads",
+          "period": "Q1",
+          "side": "JAX",
+          "line": -2.5,
+          "settlement": "spread_2way"
+        }
+      },
+      "calibration_status": {
+        "status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+        "fitted": false
+      }
+    },
+    {
+      "raw_p": 55.0,
+      "market_p": 0.5,
+      "edge_gap": null,
+      "status": "DIAGNOSTIC_ANOMALY",
+      "surfaceable": false,
+      "quarantined": true,
+      "reason_codes": [
+        "UNITS_CHECK"
+      ],
+      "surfaceable_payload": null,
+      "raw_model_output": {
+        "p_win": 55.0,
+        "probability_basis": "two_way_push_excluded",
+        "market_identity": {
+          "game_id": "synthetic-game",
+          "game_id_namespace": "saved_csv_game_id",
+          "player": null,
+          "team": null,
+          "market": "spreads",
+          "period": "Q1",
+          "side": "JAX",
+          "line": -2.5,
+          "settlement": "spread_2way"
+        }
+      },
+      "calibration_status": {
+        "status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+        "fitted": false
+      }
+    }
+  ],
+  "claims": {
+    "calibration_status": {
+      "status": "UNIMPLEMENTED_NO_FITTED_CALIB",
+      "fitted": false
+    },
+    "anchored_status": "PENDING_VALIDATION",
+    "supplied_weight_provenance": "CALLER_PROPOSED_NOT_FITTED",
+    "default_weight": null,
+    "edge_basis": "RAW_ONLY",
+    "actionable_status": "NOLINE",
+    "impact": "NOT_MEASURED",
+    "ghost_final": "NOT_CLAIMED",
+    "historical_validation": "NOT_RUN_BY_THIS_TASK",
+    "network_used_by_this_task": false,
+    "spend_by_this_task": 0,
+    "simulations_by_this_task": 0,
+    "fitted_performance_claim": "NONE"
+  },
+  "scope": {
+    "authorized_root": "/workspace/wt-market-calibration/research/market_calibration",
+    "task_write_paths": [
+      "research/market_calibration/delivery_guard.py",
+      "research/market_calibration/__init__.py",
+      "research/market_calibration/calibration.py",
+      "research/market_calibration/README.md",
+      "research/market_calibration/tests/test_delivery_guard.py",
+      "research/market_calibration/tracking/NFL-16_TRACKING.md",
+      "research/market_calibration/reviews/ANOMALY_DELIVERY_GUARD_COMPLETION.md",
+      "research/market_calibration/reviews/anomaly_guard_scope_before.json",
+      "research/market_calibration/reviews/pytest_anomaly_guard_red.txt",
+      "research/market_calibration/reviews/pytest_anomaly_guard_first_green.txt",
+      "research/market_calibration/reviews/pytest_anomaly_guard_market_suite.txt",
+      "research/market_calibration/reviews/codex_anomaly_guard_evidence.json"
+    ],
+    "task_writes_outside_authorized_root": false,
+    "core_producer_edited_by_this_task": false,
+    "core_contract_edited_by_this_task": false,
+    "integration_adversarial_tests_edited_by_this_task": false,
+    "observed_existing_market_files_changed": [
+      "research/market_calibration/README.md",
+      "research/market_calibration/__init__.py",
+      "research/market_calibration/calibration.py",
+      "research/market_calibration/tracking/NFL-16_TRACKING.md"
+    ],
+    "observed_concurrent_market_additions": [
+      "research/market_calibration/reviews/PUBLIC_METHOD_PROBES_2026-11-06.json",
+      "research/market_calibration/reviews/QUOTE_EXTRACTION_INVENTORY_2026-11-06.json",
+      "research/market_calibration/tracking/BRAINSTORM_ANOMALY_GUARD_2026-11-06.md",
+      "research/market_calibration/tracking/PREFLIGHT_ANOMALY_GUARD_2026-11-06.json",
+      "research/market_calibration/tracking/WORKFLOW_15PHASE_ANOMALY_GUARD_2026-11-06.md"
+    ],
+    "external_snapshot_files_checked": 975,
+    "observed_external_changes_not_written_by_this_task": [
+      "/workspace/research/nfl_sim_integration_2026-11-06/NFL-16_BETGURU_MARKET_CALIBRATION_TRACKING.md",
+      "/workspace/research/nfl_sim_integration_2026-11-06/logs/phase5_source_stderr.txt",
+      "/workspace/research/nfl_sim_integration_2026-11-06/logs/phase5_integ_v2_stderr.txt",
+      "/workspace/research/nfl_sim_integration_2026-11-06/logs/phase5_anomaly_stderr.txt",
+      "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/provenance.py",
+      "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/REQUIREMENT.md",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/GHOST_ACCEPTANCE_PACKET.md",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/build_acceptance_packet.py",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/integration_adversarial_tests.py",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/market_calibration_file_hashes.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/asof_sources/README.md",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/odds_verification.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/checklist.md",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/SOURCE_INVENTORY_CORE_2026-11-06.md",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/attempts.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/build_certified.py",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/provenance.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/run_manifest.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/source_ledger.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/report.md",
+      "/workspace/research/nfl_sim_integration_2026-11-06/integration/certified_asof/records/OddsAPI_saved_pull_assessment.json",
+      "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests/test_provenance.py",
+      "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/__pycache__/provenance.cpython-313.pyc",
+      "/workspace/research/nfl_sim_integration_2026-11-06/source_run_gate/tests/__pycache__/test_provenance.cpython-313-pytest-9.2.0.pyc"
+    ],
+    "core_contract_before_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+    "core_contract_after_sha256": "6471e69b97b19b85ce0a4b8e4c25117b0e40ceefa1a225ee06d7c1b7440e8367",
+    "note": "Shared workspace changed concurrently. Snapshot differences are observations, not attribution to this task. External files and concurrent market artifacts were preserved."
+  },
+  "limits": [
+    "No age cutoff invented: asof/max_age policy must be declared for age enforcement.",
+    "Future consumers must call the guard immediately before surfacing; research payloads alone do not authorize delivery.",
+    "No independent lineage, licensing, canonical join, book-rule, fitting or historical validation claim."
+  ],
+  "artifact_sha256": {
+    "delivery_guard.py": "a4c55079d2889afee93d1c3ec98d94e36f93675c8ba803371e0ab9bd07876b57",
+    "__init__.py": "600b6c5d5858767ba1472b4d81e33544557da66a1ea596ad7380570867b84e27",
+    "calibration.py": "34e493ca713a85a78b3b1e69ecad7aaa1c44c92df76f80b67798a176cc0eb551",
+    "README.md": "b06d7ce03c2e3ed8341efa3582314694bd0dac06c250a3d37b8f4d765ff0c5a2",
+    "tests/test_delivery_guard.py": "85a8886a310497ed8882c3eb8b772b57dbd5892a4a280fe41b8c000205a796fe",
+    "tracking/NFL-16_TRACKING.md": "913ed626375b14c22757a3bd92c3cf1618a929c0b8880b2e0ef0399022553ae8",
+    "reviews/ANOMALY_DELIVERY_GUARD_COMPLETION.md": "2e8b1815b8b714153807fce0c66e490d8517e5852ea6220a951986843214eaed",
+    "reviews/anomaly_guard_scope_before.json": "d80a61c88cb75902d918f13e19022cd31043822c917278cc321602bd7b72ce25",
+    "reviews/pytest_anomaly_guard_red.txt": "53a08180259113bef341ee8c722d92c1bfc235d2c89d88eae1ca639a252e0aad",
+    "reviews/pytest_anomaly_guard_first_green.txt": "dbb823dc3d5acf14e9918bc21c6875ddc7c4447312ef1f5a232f19dcce9680de",
+    "reviews/pytest_anomaly_guard_market_suite.txt": "38471491a7f4afbbb8339e2cb0cc798819ee9f08eea525f9af727360c6878c89"
+  }
+}

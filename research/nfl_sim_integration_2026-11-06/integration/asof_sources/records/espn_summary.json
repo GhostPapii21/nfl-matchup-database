@@ -1,0 +1,64 @@
+[
+  {
+    "canonical_crosswalk_status": "MISSING",
+    "canonical_game_id": null,
+    "competitors": [
+      {
+        "abbreviation": "BAL",
+        "home_away": "home",
+        "score": "10",
+        "source_team_id": "33"
+      },
+      {
+        "abbreviation": "JAX",
+        "home_away": "away",
+        "score": "33",
+        "source_team_id": "30"
+      }
+    ],
+    "intended_use": "EVIDENCE_ONLY_POSTGAME",
+    "provider_season": 2026,
+    "provider_timestamps": {
+      "firstPlayWallClock": "2026-11-06T01:16:48Z",
+      "gameState": "post",
+      "gameSwitcherEnabled": true,
+      "gp_topic": "gp-football-nfl-401873037",
+      "lastPlayWallClock": "2026-11-06T04:05:29Z",
+      "lastUpdatedAt": "2026-11-06T04:05:29Z",
+      "picker_topic": "picker-football-nfl",
+      "syncUrl": "https://client.espncdn.com/fauxcast/stats/28/401873037/en/us/"
+    },
+    "provider_week": 9,
+    "saved_retrieval_declaration": {
+      "csv": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/pbp_live.csv",
+      "event_id": "401873037",
+      "explosive_pass_threshold": 20,
+      "explosive_rush_threshold": 10,
+      "md": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/pbp_live.md",
+      "n_plays": 166,
+      "pulled_at_et": "2026-11-05 23:12:08 ET",
+      "score": "JAX 33 BAL 10",
+      "sources": [
+        "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873037",
+        "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873037/competitions/401873037/plays?limit=300"
+      ],
+      "status": "Final"
+    },
+    "scheduled_start_raw": "2026-11-06T01:15Z",
+    "source_event_id": "401873037",
+    "source_event_namespace": "ESPN",
+    "source_snapshot": "snapshots/espn_summary_401873037.json",
+    "status": {
+      "isTBDFlex": false,
+      "type": {
+        "completed": true,
+        "description": "Final",
+        "detail": "Final",
+        "id": "3",
+        "name": "STATUS_FINAL",
+        "shortDetail": "Final",
+        "state": "post"
+      }
+    }
+  }
+]

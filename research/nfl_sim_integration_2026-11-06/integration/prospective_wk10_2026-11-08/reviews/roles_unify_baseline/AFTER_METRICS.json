@@ -1,0 +1,135 @@
+{
+  "phase": "AFTER_EMPIRICAL_ROLES",
+  "role_metrics": {
+    "DAL.carry": {
+      "n": 5,
+      "equal_weight": false,
+      "top3": [
+        [
+          "DAL:00-0036997",
+          0.7052631578947368
+        ],
+        [
+          "DAL:00-0037120",
+          0.14736842105263157
+        ],
+        [
+          "DAL:00-0033077",
+          0.12631578947368421
+        ]
+      ]
+    },
+    "DAL.passer": {
+      "n": 2,
+      "equal_weight": false,
+      "top3": [
+        [
+          "DAL:00-0033077",
+          1.0
+        ],
+        [
+          "DAL:00-0037077",
+          0.0
+        ]
+      ]
+    },
+    "DAL.target": {
+      "n": 12,
+      "equal_weight": false,
+      "top3": [
+        [
+          "DAL:00-0036358",
+          0.3164983164983165
+        ],
+        [
+          "DAL:00-0037247",
+          0.20875420875420875
+        ],
+        [
+          "DAL:00-0039410",
+          0.15151515151515152
+        ]
+      ]
+    },
+    "IND.carry": {
+      "n": 6,
+      "equal_weight": false,
+      "top3": [
+        [
+          "IND:00-0036223",
+          0.6788990825688074
+        ],
+        [
+          "IND:00-0041125",
+          0.16972477064220184
+        ],
+        [
+          "IND:00-0035710",
+          0.11467889908256881
+        ]
+      ]
+    },
+    "IND.passer": {
+      "n": 3,
+      "equal_weight": false,
+      "top3": [
+        [
+          "IND:00-0035710",
+          0.9897610921501706
+        ],
+        [
+          "IND:00-0039164",
+          0.010238907849829351
+        ],
+        [
+          "IND:00-0040206",
+          0.0
+        ]
+      ]
+    },
+    "IND.target": {
+      "n": 14,
+      "equal_weight": false,
+      "top3": [
+        [
+          "IND:00-0038997",
+          0.20647773279352227
+        ],
+        [
+          "IND:00-0030279",
+          0.20242914979757085
+        ],
+        [
+          "IND:00-0040128",
+          0.1862348178137652
+        ]
+      ]
+    }
+  },
+  "flags": [
+    "COVERAGE_DISABLED",
+    "QUOTES_NOLINE",
+    "EMPIRICAL_PARTIAL_SEMANTICS",
+    "COARSE_DOWN_STATE",
+    "CLOCK_PROXY",
+    "NO_OUT_OF_SAMPLE_VALIDATION",
+    "EMPIRICAL_PARTIAL_SEMANTICS",
+    "COARSE_DOWN_STATE",
+    "CLOCK_PROXY",
+    "NO_OUT_OF_SAMPLE_VALIDATION",
+    "EMPIRICAL_ROLES",
+    "TEAM_PRIOR_DIRICHLET_HALF_SHRINKAGE_20"
+  ],
+  "path_semantics": "SHARED_ACCOUNTING_V1",
+  "source_composition_new": "team_only_2026_w1_8_DAL_IND_empirical_not_possession_EP_model",
+  "forecast_after": "sha256:5cf792ce2fdc9351362ec77c9ed856a46314980745ec4b23622413312803d485",
+  "score_means_before_equal_depth": {
+    "DAL": 27.2,
+    "IND": 14.2
+  },
+  "score_means_after": {
+    "DAL": 18.8,
+    "IND": 14.2
+  },
+  "heldout_IND_carry_KL_worsened": true
+}
