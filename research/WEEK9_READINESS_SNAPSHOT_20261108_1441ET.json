@@ -1,0 +1,330 @@
+{
+  "snapshot_id": "NFL_W9_20261108_1441ET",
+  "captured_at_et": "2026-11-08T14:41:09-05:00",
+  "captured_at_utc": "2026-11-08T19:41:09Z",
+  "scope": "Remaining not-yet-started games at 14:41 ET: HOU-LAC, LV-SF, GB-NE, ARI-SEA, TB-CHI Sunday and BUF-MIN Monday. Earlier Sunday windows have started; CIN-ATL final.",
+  "readiness": {
+    "projection_ready": false,
+    "full_integration_acceptance": false,
+    "calibration_status": "PROSPECTIVE_LOCKED_OUTCOMES_PENDING",
+    "production_status": "RESEARCH_ONLY"
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "name": "slate_schedule_venue",
+      "status": "COMPLETE",
+      "evidence": "NFL.com Week 9 schedule"
+    },
+    {
+      "phase": 2,
+      "name": "player_identity_position",
+      "status": "PARTIAL",
+      "evidence": "current player pool and prop tracker; unresolved joins possible"
+    },
+    {
+      "phase": 3,
+      "name": "verified_player_game_history",
+      "status": "PARTIAL",
+      "evidence": "verified Weeks 1-8 file; zero-opportunity vs inactive unresolved"
+    },
+    {
+      "phase": 4,
+      "name": "role_snaps_routes_opportunity",
+      "status": "PARTIAL",
+      "evidence": "historical market opportunity and role board; incomplete route/snap availability"
+    },
+    {
+      "phase": 5,
+      "name": "team_offense_defense_baselines",
+      "status": "PARTIAL",
+      "evidence": "existing team and defense snapshot; source freshness not uniform"
+    },
+    {
+      "phase": 6,
+      "name": "opponent_context_game_script",
+      "status": "PARTIAL",
+      "evidence": "capped exploratory factors; not independently validated"
+    },
+    {
+      "phase": 7,
+      "name": "coverage_structure_shell",
+      "status": "BLOCKED_QUALITATIVE",
+      "evidence": "full-slate verified coverage chart unavailable"
+    },
+    {
+      "phase": 8,
+      "name": "defender_assignment_explosive_allowance",
+      "status": "BLOCKED_QUALITATIVE",
+      "evidence": "full-slate assignment/exposure unavailable"
+    },
+    {
+      "phase": 9,
+      "name": "qb_pressure_blitz_scramble",
+      "status": "PARTIAL_NOT_IN_CURRENT_SIM",
+      "evidence": "not fully integrated into current slate simulations"
+    },
+    {
+      "phase": 10,
+      "name": "offensive_line_pass_rush_coaching",
+      "status": "PARTIAL",
+      "evidence": "not a complete verified matchup-adjustment layer"
+    },
+    {
+      "phase": 11,
+      "name": "injury_depth_chart",
+      "status": "PENDING_LATE_FINAL_INACTIVES",
+      "evidence": "Official NFL consolidated inactive page and official team sources rechecked at 2026-11-08T14:41:09-05:00. HOU-LAC's 90-minute inactive window has passed, but no names appear on the NFL or Chargers official source pages at retrieval; keep pending. 4:25 ET games are not yet in their 90-minute window; TB-CHI and Monday BUF-MIN are not due."
+    },
+    {
+      "phase": 12,
+      "name": "weather_roof_travel",
+      "status": "PARTIAL_KICKOFF_NEAR_WEATHER_REFRESH",
+      "evidence": "NWS venue-area forecasts refreshed/rechecked at 14:41 ET for all six unstarted games; exact forecast issue/observation timestamps remain recorded by source. Weather is contextual; no locked forecast inputs changed."
+    },
+    {
+      "phase": 13,
+      "name": "timestamped_book_prices",
+      "status": "PARTIAL",
+      "evidence": "08:23 ET DK/FD refresh for 79 player-market rows; no 09:30 quote"
+    },
+    {
+      "phase": 14,
+      "name": "projection_simulation",
+      "status": "PARTIAL_RESEARCH_ONLY",
+      "evidence": "471 rows; 157 lines times three 100000-draw models; no Bengals-Falcons rows"
+    },
+    {
+      "phase": 15,
+      "name": "final_inactives_pregame_freeze",
+      "status": "PARTIAL_WAITING_LATE_WINDOWS",
+      "evidence": "NFL official page lists the seven early games. HOU-LAC inactive release is overdue (90-minute window passed) but no official names found at 14:41 ET. 4:25 ET releases due around 2:55 ET; TB-CHI due around 6:50 ET; Monday BUF-MIN not due. Full-slate freeze pending."
+    }
+  ],
+  "slate": [
+    {
+      "kickoff_et": "16:05",
+      "away": "HOU",
+      "home": "LAC",
+      "venue": "SoFi Stadium",
+      "inactive_status": "PENDING_OFFICIAL_RELEASE_OVERDUE",
+      "inactive_reason": "90-minute inactive window for 4:05 p.m. ET kickoff passed at about 2:35 p.m. ET. NFL Week 9 page and Chargers official game media page rechecked at 14:41 ET; neither has published final names. Keep pending; do not substitute game-status designations.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "weather_status": "FIXED_ROOF_CLIMATE_CONTROLLED",
+      "weather": "NWS Inglewood current daily forecast: mostly clear/sunny, high near 87°F, NNW winds 5–10 mph. Field remains climate controlled beneath SoFi fixed roof.",
+      "weather_source_url": "https://beta.weather.gov/forecast/point/33.962/-118.353/today/",
+      "weather_source_updated_at": "NWS page rechecked 14:41 ET; displayed current-day forecast (source issue timestamp not exposed in extracted summary).",
+      "weather_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "roof_status": "FIXED_ROOF_CLIMATE_CONTROLLED",
+      "roof_source_url": "https://www.sofistadium.com/plan-your-visit/a-z-guide",
+      "roof_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "team_official_report_status": "TEAM_WEEKLY_STATUS_CHECKED; FINAL_GAME_DAY_INACTIVES_NOT_POSTED",
+      "team_official_report_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "team_official_report_urls": [
+        "https://www.houstontexans.com/news/week-9-injury-report-texans-at-chargers",
+        "https://www.chargers.com/media/2026-season/week-9"
+      ]
+    },
+    {
+      "kickoff_et": "16:25",
+      "away": "LV",
+      "home": "SF",
+      "venue": "Levi's Stadium",
+      "inactive_status": "PENDING_NOT_YET_DUE",
+      "inactive_reason": "4:25 p.m. ET kickoff; expected 90-minute report window is about 2:55 p.m. ET. NFL/team official lists not yet published at 14:41 ET.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "weather_status": "OPEN_AIR_FORECAST",
+      "weather": "NWS Santa Clara Valley forecast remains mostly sunny, high near 74°F, afternoon NNW wind about 6 mph. Outdoor venue.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?lat=37.35&lon=-121.96",
+      "weather_source_updated_at": "NWS zone/point forecast last issue 10:02 a.m. PST (retrieved again 14:41 ET); observation time retained in prior report.",
+      "weather_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "roof_status": "OUTDOOR_OPEN_AIR",
+      "team_official_report_status": "TEAM_WEEKLY_STATUS_CHECKED; FINAL_GAME_DAY_INACTIVES_NOT_POSTED",
+      "team_official_report_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "roof_source_url": "https://levisstadium.com/seats/",
+      "roof_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "team_official_report_urls": [
+        "https://www.raiders.com/news/raiders-49ers-week-9-injury-report",
+        "https://www.49ers.com/team/injury-report/"
+      ]
+    },
+    {
+      "kickoff_et": "16:25",
+      "away": "GB",
+      "home": "NE",
+      "venue": "Gillette Stadium",
+      "inactive_status": "PENDING_NOT_YET_DUE",
+      "inactive_reason": "4:25 p.m. ET kickoff; expected 90-minute report window is about 2:55 p.m. ET. NFL/team official lists not yet published at 14:41 ET.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "weather_status": "OPEN_AIR_FORECAST",
+      "weather": "Latest NWS Foxborough/Norwood zone product reviewed: partly/mostly cloudy becoming sunnier; high near 58°F, west wind around 14 mph with gusts near 29 mph.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?lat=42.065870000000075&lon=-71.24838999999997",
+      "weather_source_updated_at": "NWS Boston/Norton zone product issued 1:03 p.m. EST; rechecked 14:41 ET.",
+      "weather_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "roof_status": "OUTDOOR_OPEN_AIR",
+      "team_official_report_status": "TEAM_WEEKLY_STATUS_CHECKED; FINAL_GAME_DAY_INACTIVES_NOT_POSTED",
+      "team_official_report_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "roof_source_url": "https://www.patriots.com/news/p-g-extends-naming-rights-for-gillette-stadium-through-the-2031-season",
+      "roof_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "team_official_report_urls": [
+        "https://www.packers.com/team/injury-report/",
+        "https://www.patriots.com/news/week-9-injury-report-patriots-vs-packers"
+      ]
+    },
+    {
+      "kickoff_et": "16:25",
+      "away": "ARI",
+      "home": "SEA",
+      "venue": "Lumen Field",
+      "inactive_status": "PENDING_NOT_YET_DUE",
+      "inactive_reason": "4:25 p.m. ET kickoff; expected 90-minute report window is about 2:55 p.m. ET. NFL/team official lists not yet published at 14:41 ET.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "weather_status": "OPEN_AIR_FORECAST",
+      "weather": "NWS Seattle forecast: chance of light rain then mostly cloudy, high near 56°F, south-southwest wind around 8–14 mph. Lumen Field's field is open air beneath partial seating canopy.",
+      "weather_source_url": "https://beta.weather.gov/forecast/point/47.606/-122.332/today/",
+      "weather_source_updated_at": "NWS current-day forecast rechecked 14:41 ET; latest point forecast issue previously displayed 10:26 a.m. PST.",
+      "weather_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "roof_status": "OPEN_AIR_FIELD_PARTIAL_CANOPY",
+      "team_official_report_status": "TEAM_WEEKLY_STATUS_CHECKED; FINAL_GAME_DAY_INACTIVES_NOT_POSTED",
+      "team_official_report_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "roof_source_url": "https://www.seahawks.com/game-day/frequently-asked-questions/mobile-view",
+      "roof_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "team_official_report_urls": [
+        "https://www.azcardinals.com/news/injury-report-week-9-vs-seahawks-x2054",
+        "https://www.seahawks.com/news/week-9-injury-report-cardinals-at-seahawks"
+      ]
+    },
+    {
+      "kickoff_et": "20:20",
+      "away": "TB",
+      "home": "CHI",
+      "venue": "Soldier Field",
+      "inactive_status": "PENDING_NOT_YET_DUE",
+      "inactive_reason": "8:20 p.m. ET kickoff; expected 90-minute report window is about 6:50 p.m. ET. No final list expected yet.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "weather_status": "OPEN_AIR_KICKOFF_HOURLY",
+      "weather": "NWS hourly Chicago forecast for the 7 p.m. CST kickoff period reviewed: clear, roughly 51°F with NW wind about 9 mph and 0% precipitation. Outdoor field.",
+      "weather_source_url": "https://beta.weather.gov/forecast/point/41.85/-87.65/7-day/",
+      "weather_source_updated_at": "Hourly forecast rechecked 14:41 ET; page does not expose the hourly issue time; point forecast issue timestamp remains 9:41 a.m. CST.",
+      "weather_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "roof_status": "OUTDOOR_FIELD",
+      "team_official_report_status": "TEAM_WEEKLY_STATUS_CHECKED; FINAL_GAME_DAY_INACTIVES_NOT_POSTED",
+      "team_official_report_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "roof_source_url": "https://apnews.com/article/f1b075eff96cfbec693cf23962745c74",
+      "roof_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "team_official_report_urls": [
+        "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-6-week-9-2026",
+        "https://www.chicagobears.com/team/injury-report/index-mobile"
+      ],
+      "roof_note": "Outdoor field; AP stadium context identifies Soldier Field as open air."
+    },
+    {
+      "kickoff_et": "20:15 Monday",
+      "away": "BUF",
+      "home": "MIN",
+      "venue": "U.S. Bank Stadium",
+      "inactive_status": "PENDING_NOT_YET_DUE",
+      "inactive_reason": "Monday 8:15 p.m. ET kickoff; final inactive list not yet due. Official NFL/team game-status pages are not a final list.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "weather_status": "FIXED_ROOF_CLIMATE_CONTROLLED",
+      "weather": "NWS Minneapolis Monday forecast reviewed: early clouds then clearing, high near 59°F, south wind 5–10 mph becoming west. Outdoor weather does not affect play under U.S. Bank Stadium fixed roof.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?FcstType=text&TextType=1&lat=44.9486&lg=english&lon=-93.2451&unit=0",
+      "weather_source_updated_at": "NWS Minneapolis point forecast last issue 10:46 a.m. CST Nov 8; rechecked 14:41 ET.",
+      "weather_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "roof_status": "FIXED_ROOF_CLIMATE_CONTROLLED",
+      "roof_source_url": "https://www.vikings.com/stadium/a-to-z",
+      "roof_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "team_official_report_status": "WEEKLY_TEAM_INJURY_REPORTS_CHECKED; FINAL_INACTIVES_NOT_YET_DUE",
+      "team_official_report_retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "team_official_report_urls": [
+        "https://www.buffalobills.com/news/buffalo-bills-injury-report-vs-vikings-week-9",
+        "https://www.vikings.com/news/bills-injury-report-week-9-2026-nfl-season"
+      ]
+    }
+  ],
+  "projection_artifact": "research/WEEK9_DAY1_MODEL_SIMULATION_20261108.csv",
+  "line_snapshot": "research/WEEK9_DAY1_DK_FD_REFRESH_20261108_0823ET.csv",
+  "overlay_artifact": "research/WEEK9_DAY1_REFRESHED_PROJECTION_OVERLAY_20261108_0823ET.csv",
+  "exact_threshold_rows": 139,
+  "non_exact_threshold_rows": 18,
+  "historical_calibration": "NOT_ESTABLISHED; prior W5-W8 data are development/retrospective and no historical exact prop-line set is available",
+  "prospective_evaluation": "Freeze now; score after official outcomes are verified. Do not mark independently calibrated before multiple untouched slates and review.",
+  "source_checks": {
+    "nfl_week9_injury_report": {
+      "url": "https://www.nfl.com/news/nfl-week-9-injury-report-2026-season",
+      "retrieved_at_et": "2026-11-08T11:58:52-05:00",
+      "finding": "Checked for status context; weekly designations are not used as final inactives."
+    },
+    "nfl_team_inactives": {
+      "url": "https://www.colts.com/news/colts-announce-7-inactive-players-for-week-9-game-against-dallas-cowboys",
+      "retrieved_at_et": "2026-11-08T11:58:52-05:00",
+      "finding": "Colts official team article corroborates the IND list; team-specific corroboration remains pending for other six early games."
+    },
+    "nfl_inactives": {
+      "url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "finding": "NFL page checked live; early-game lists populated, but no final inactive names are present under the HOU-LAC, LV-SF, GB-NE, ARI-SEA, or TB-CHI headers. HOU-LAC's expected 2:35 p.m. ET release time has passed. Do not infer inactives from weekly injury statuses."
+    },
+    "nws_current": {
+      "retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "findings": "Official NWS venue-area forecast pages rechecked at 14:41 ET. Inglewood, Santa Clara, Foxborough/Norwood, Seattle, and Chicago forecasts reviewed; Monday Minneapolis forecast reviewed. Source issue times/observations and kickoff-specific values are documented in the slate rows. No weather value was fed into or used to modify the locked forecast."
+    },
+    "official_stadium_roof": {
+      "retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "findings": "Official stadium/team sources rechecked at 14:41 ET. Roof/open-air classifications unchanged; per-game source URLs are listed in slate rows."
+    },
+    "official_team_availability": {
+      "retrieved_at_et": "2026-11-08T14:41:09-05:00",
+      "finding": "Official team Week 9 status/game-center sources rechecked. Chargers media page still exposes an INACTIVES section without a published list in the accessible page content; other team sources show weekly statuses, not final game-day lists. HOU-LAC remains pending; other games are not yet due.",
+      "by_game": {
+        "HOU-LAC": [
+          "https://www.houstontexans.com/news/week-9-injury-report-texans-at-chargers",
+          "https://www.chargers.com/media/2026-season/week-9"
+        ],
+        "LV-SF": [
+          "https://www.raiders.com/news/raiders-49ers-week-9-injury-report",
+          "https://www.49ers.com/team/injury-report/"
+        ],
+        "GB-NE": [
+          "https://www.packers.com/team/injury-report/",
+          "https://www.patriots.com/news/week-9-injury-report-patriots-vs-packers"
+        ],
+        "ARI-SEA": [
+          "https://www.azcardinals.com/news/injury-report-week-9-vs-seahawks-x2054",
+          "https://www.seahawks.com/news/week-9-injury-report-cardinals-at-seahawks"
+        ],
+        "TB-CHI": [
+          "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-6-week-9-2026",
+          "https://www.chicagobears.com/team/injury-report/index-mobile"
+        ],
+        "BUF-MIN": [
+          "https://www.buffalobills.com/news/buffalo-bills-injury-report-vs-vikings-week-9",
+          "https://www.vikings.com/news/bills-injury-report-week-9-2026-nfl-season"
+        ]
+      }
+    }
+  },
+  "locked_forecast_inputs": {
+    "lock_id": "NFL_W9_PROSPECTIVE_FREEZE_20261108_0856ET",
+    "lock_path": "research/WEEK9_PROSPECTIVE_EVAL_LOCK_20261108_0856ET.json",
+    "status": "UNCHANGED",
+    "original_snapshot_path": "research/WEEK9_READINESS_SNAPSHOT_20261108_0856ET.json",
+    "original_phase_ledger_path": "research/WEEK9_PHASE_LEDGER_20261108_0856ET.md",
+    "note": "This refresh is additive. No simulation, line snapshot, overlay, lock, or locked 08:56 ledger/snapshot was modified."
+  },
+  "readiness_audit": {
+    "baseline_validator": "research/validate_week9_readiness.py",
+    "baseline_result": "PASS — research/validate_week9_readiness.py rerun at 2026-11-08T14:17 ET; frozen artifact hashes, 471 × 100000 simulations, 157 lines, and 139 exact-threshold rows match.",
+    "refresh_audit_result": "PASS — 15 ordered phases preserved; all six unstarted games retain NFL inactive, official team availability, NWS weather, and roof source URLs with current retrieval timestamps. HOU-LAC inactive list remains pending despite release window having passed; later windows not due. Readiness flags remain false.",
+    "fail_closed_result": "PASS: projection_ready=false; full_integration_acceptance=false; calibration remains PROSPECTIVE_LOCKED_OUTCOMES_PENDING; production_status=RESEARCH_ONLY.",
+    "lock_integrity": "UNCHANGED — baseline integrity validator passes. No prospective lock, frozen simulation, book snapshot, projection overlay, or forecast parameters were edited.",
+    "run_at_et": "2026-11-08T14:41:09-05:00"
+  },
+  "refreshed_forecasts": "UNCHANGED — frozen pregame forecast distributions preserved. This pass only refreshes evidence/status; no projection regeneration."
+}
