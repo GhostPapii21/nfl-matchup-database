@@ -220,8 +220,10 @@ def load_locked_lines():
 
 def final_evaluation(players):
     actual={}
+    context={}
     for p in players:
         name=p['name']; cat=p['category']; stats=p['stats']
+        context.setdefault(name,{})[cat]=stats
         if cat=='passing':
             actual[(name,'player_pass_yds')]=num(stats.get('YDS'))
             actual[(name,'player_pass_tds')]=num(stats.get('TD'))
@@ -243,8 +245,19 @@ def final_evaluation(players):
         except (TypeError,ValueError): continue
         outcome='push' if val==threshold else ('over' if val>threshold else 'under')
         matched=[s for s in sim_rows if s.get('player')==name and s.get('market_key')==key and s.get('book')=='DraftKings']
+        cats=context.get(name,{})
+        if key.startswith('player_pass_'):
+            st=cats.get('passing',{}); completed,attempted=(st.get('C/ATT','0/0').split('/')+['0'])[:2]
+            comp=num(completed) or 0; att=num(attempted) or 0; yards=num(st.get('YDS')) or 0
+            why=f"{int(comp)}/{int(att)} completions, {yards:g} pass yards ({yards/att:.1f} yards/attempt)" if att else 'No pass attempts recorded'
+        elif key in ('player_rush_yds','player_rush_attempts'):
+            st=cats.get('rushing',{}); carries=num(st.get('CAR')) or 0; yards=num(st.get('YDS')) or 0
+            why=f"{carries:g} carries, {yards:g} rush yards ({yards/carries:.1f} yards/carry)" if carries else 'No carries recorded'
+        else:
+            st=cats.get('receiving',{}); rec=num(st.get('REC')) or 0; targets=num(st.get('TGTS')) or 0; yards=num(st.get('YDS')) or 0
+            why=f"{rec:g}/{targets:g} targets caught for {yards:g} receiving yards" + (f" ({yards/rec:.1f} yards/catch)" if rec else '')
         result.append({'player':name,'team':line.get('team'),'market_key':key,'line':threshold,
-                       'actual':val,'outcome':outcome,
+                       'actual':val,'outcome':outcome,'usage_note':why,
                        'models':[{'model':s.get('model'),'mean':s.get('mean'),'p_over':s.get('p_over'),'p_under':s.get('p_under'),'status':s.get('status')} for s in matched]})
     return result
 
@@ -315,11 +328,11 @@ def main():
         for r in snapshot['tracked_odds_rows']:
             rows.append(f"| {r['book']} | {r['market']} | {r['outcome']} | {r['point'] if r['point'] is not None else '—'} | {r['price']} | {r['last_update'] or '—'} |")
     if status.lower()=='final':
-        rows += ['', '## Frozen projection hit/miss audit', '', '| Player | Market | DK line | Actual | Threshold result | Model | Mean | Raw P(over) |','|---|---|---:|---:|---|---|---:|---:|']
+        rows += ['', '## Frozen projection hit/miss audit', '', '| Player | Market | DK line | Actual | Threshold result | Usage / production note | Model | Mean | Raw P(over) |','|---|---|---:|---:|---|---|---|---:|---:|']
         for entry in snapshot.get('projection_evaluation',[]):
             models=entry.get('models') or [{'model':'no matching frozen row','mean':'—','p_over':'—'}]
             for model in models:
-                rows.append(f"| {entry['player']} | {entry['market_key']} | {entry['line']:g} | {entry['actual']:g} | {entry['outcome']} | {model['model']} | {model['mean']} | {model['p_over']} |")
+                rows.append(f"| {entry['player']} | {entry['market_key']} | {entry['line']:g} | {entry['actual']:g} | {entry['outcome']} | {entry['usage_note']} | {model['model']} | {model['mean']} | {model['p_over']} |")
         rows += ['', 'Probability score on this single game (pushes excluded; smaller is better):', '']
         rows += [f"- `{name}`: n={score['n']}, Brier={score['brier']:.4f}, log loss={score['logloss']:.4f}." for name,score in snapshot['model_score_summary'].items()]
         rows += ['', 'These are one-game holdout scores, not a recalibration fit. The separate historical calibration audit remains the evidence for calibration; this game adds an untouched result to that record.']
