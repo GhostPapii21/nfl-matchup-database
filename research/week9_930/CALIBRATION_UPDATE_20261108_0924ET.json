@@ -1,0 +1,45 @@
+{
+  "lock_id": "W9-CIN-ATL-930-CALIBRATION-20261108-0924ET",
+  "base_forecast_lock": "W9-CIN-ATL-930-20261108-0908ET",
+  "status": "walk_forward_diagnostic_complete_player_specific_calibration_not_supported",
+  "calibration_design": {
+    "current_dk_line_used_as_fixed_threshold_on_prior_weeks": true,
+    "fit_weeks": [5, 6],
+    "untouched_test_weeks": [7, 8],
+    "fit_rows_all_recorded": 46,
+    "test_rows_all_recorded": 60,
+    "current_lines_are_not_historical_market_lines": true,
+    "correction_rule": "Apply pooled monotone Platt correction only if slope > 0.05 and both W7-W8 Brier and log loss improve; otherwise retain Jeffreys-smoothed historical threshold estimates.",
+    "correction_applied": false,
+    "reason": "Fitted slope collapsed to zero for both scopes/models. The constant benchmark improved scores by shrinking predictions to the pooled hit rate, but it eliminates player-level discrimination and is not useful as a prop-specific probability."
+  },
+  "forward_scores": {
+    "all_recorded_games": {
+      "test_over_rate": 0.5,
+      "season_raw_brier": 0.2593,
+      "season_raw_logloss": 0.7120,
+      "recent5_raw_brier": 0.2711,
+      "recent5_raw_logloss": 0.7389,
+      "platt_slope": 0.0,
+      "platt_constant_brier": 0.2516,
+      "platt_constant_logloss": 0.6964
+    },
+    "positive_opportunity_only": {
+      "test_over_rate": 0.5,
+      "season_raw_brier": 0.2596,
+      "season_raw_logloss": 0.7130,
+      "recent5_raw_brier": 0.2711,
+      "recent5_raw_logloss": 0.7389,
+      "platt_slope": 0.0,
+      "platt_constant_brier": 0.2504,
+      "platt_constant_logloss": 0.6940
+    }
+  },
+  "equation_scope": "Marginal pass, catch, target and carry decomposition fitted from aggregate player-game records. Full coverage context, defender responsibility, explosive catch, target-depth, routes/dropback and decision-time pressure inputs are absent.",
+  "outputs": {
+    "probability_table": "research/week9_930/PROBABILITY_CALIBRATION_20261108_0924ET.csv",
+    "equation_components": "research/week9_930/EQUATION_COMPONENTS_20261108_0924ET.csv",
+    "audit": "research/week9_930/CALIBRATION_EQUATION_AUDIT.md",
+    "runner": "research/week9_930/run_probability_calibration.py"
+  }
+}

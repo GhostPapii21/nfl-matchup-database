@@ -18,7 +18,7 @@ The player history is a pregame extract of verified nflverse-derived player-game
 
 `p_over`, `p_push`, and `p_under` are finite-sample resampling frequencies. They are not calibrated probabilities. `historical_hit_rate_at_current_line` applies today's line to the player's Weeks 1–8 outcomes; this is descriptive and in-sample, not a forward backtest. With only six to eight games, candidate estimates are noisy and discrete. Large differences between models indicate instability; do not treat the largest probability as the preferred estimate.
 
-The prior model trial file in `research/WEEK9_DAY1_MODEL_TRIALS_20261108.md` showed that the opponent adjustment did not consistently improve Weeks 7–8 point-forecast MAE, and there are no historical prop lines in this package to compute Brier score, log loss, or probability calibration. Today's final results must be joined to this frozen forecast before scoring the prospective run.
+The prior model trial file in `research/WEEK9_DAY1_MODEL_TRIALS_20261108.md` showed that the opponent adjustment did not consistently improve Weeks 7–8 point-forecast MAE, and there are no historical prop lines in this package to compute Brier score, log loss, or probability calibration. Today's final results must be joined to this frozen forecast before scoring the prospective run. A separate threshold-specific calibration audit and marginal equation decomposition are in `CALIBRATION_EQUATION_AUDIT.md`; the 09:08 forecast stays frozen and is not overwritten.
 
 ## Pregame evidence and limits
 
