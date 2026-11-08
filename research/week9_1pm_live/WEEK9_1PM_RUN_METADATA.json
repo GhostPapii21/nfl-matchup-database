@@ -1,0 +1,39 @@
+{
+  "as_of_local": "2026-11-08T12:56:12-05:00",
+  "board_as_of_utc": "2026-11-08T17:56:11.028Z",
+  "mode": "live",
+  "scheduled_collection_utc": "2026-11-08T17:48:04.677Z",
+  "games": [
+    "espn:401873039",
+    "espn:401873040",
+    "espn:401873041",
+    "espn:401873042",
+    "espn:401873043",
+    "espn:401873044",
+    "espn:401873045"
+  ],
+  "game_count": 7,
+  "players_with_1pm_kickoff": 193,
+  "DK_FD_quote_rows": 453,
+  "sim_rows": 1299,
+  "simulations_per_row": 100000,
+  "calibration_claim": false,
+  "production_ready": false,
+  "calibration_method": "W5-W6 fit / W7-W8 untouched diagnostic using today's line as threshold; not historical market line validation; correction applied only with >=30 fit and test rows, positive slope, and lower Brier plus log loss.",
+  "calibration_pass_rows": 4,
+  "source_api": "https://fieldworklines.com/api/board?week=9&season=2026",
+  "source_page": "https://fieldworklines.com/nfl/2026/week-9",
+  "inactive_source": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+  "line_csv": "WEEK9_1PM_DK_FD_LINES_20261108_175611.028Z.csv",
+  "line_csv_sha256": "c768007d68abf564c8e445cfda380012b5cb0c65d20081659a7b912bc82c2720",
+  "simulation_csv": "WEEK9_1PM_100K_SIMULATIONS.csv",
+  "simulation_csv_sha256": "42080db294858418c7cd201a559635bc2d52c09654bab544b0be3613ac561684",
+  "calibration_csv": "WEEK9_1PM_CALIBRATION_DIAGNOSTIC.csv",
+  "limitations": [
+    "Only 1 PM ET games included.",
+    "Player-game export cannot distinguish a healthy active zero-opportunity game from an inactive game; positive-opportunity conditioning retains zero stat outcomes when opportunity exists.",
+    "Opponent adjustment is exploratory and capped at 0.75-1.25; no coverage/assignment/route/pressure decision-time data enter these draws.",
+    "These are empirical bootstrap frequencies, not independently calibrated prop-hit probabilities.",
+    "Quote times are per-book source and receipt timestamps; quotes expire at validUntil and must be rechecked after that time."
+  ]
+}
