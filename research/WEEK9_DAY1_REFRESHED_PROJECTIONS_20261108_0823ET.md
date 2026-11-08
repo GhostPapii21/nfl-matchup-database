@@ -2,6 +2,9 @@
 
 **Captured:** 2026-11-08 8:23 a.m. ET (13:23:06Z), from Fieldwork’s scheduled Odds API board. **Scope:** 79 player-market rows from the saved model board; DraftKings and FanDuel current quotes where listed. Book quote timestamps are retained in the paired refresh CSV and vary by market.
 
+
+**Quote freshness:** the page collection timestamp was 8:23 a.m. ET, but individual sportsbook quote updates ranged from 4:03 a.m. to 8:20 a.m. ET. Use the per-market source/receipt times in the price CSV; later-game lines with older source times need a near-kickoff check. These are provider-reported book quotes, not a direct DraftKings or FanDuel API connection.
+
 ## Projection method and limits
 
 Forecast means and quantile bands below come from the already saved three-model 100,000-draw empirical run. They are unchanged by a sportsbook line move because the forecast is outcome-based. This is a fresh line-relative overlay, not a re-fit or fresh simulation. The saved simulation exports summary quantiles and probabilities but not draw-level outcomes or player-week samples, so a threshold-shifted hit probability cannot be recomputed honestly from that file. The overlay reports raw over frequencies only when the current book line exactly matches the saved simulation line; those frequencies are uncalibrated. No probability is promoted to calibrated or bet-approved.
