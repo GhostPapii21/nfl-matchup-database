@@ -183,7 +183,7 @@ def odds_rows(odds):
 def parse_odds_api():
     key=os.environ.get('ODDS_API_KEY','').strip()
     if not key:
-        return {'status':'UNAVAILABLE: ODDS_API_KEY GitHub secret is not configured'}
+        return {'status':'UNAVAILABLE: ODDS_API_KEY not present in this run environment'}
     try:
         event_query=urllib.parse.urlencode({'apiKey':key,'dateFormat':'iso'})
         events=get_json(f'https://api.the-odds-api.com/v4/sports/americanfootball_nfl/events/?{event_query}')
