@@ -45,6 +45,10 @@ These totals answer which **team defense** allowed the play and which offensive 
 
 The per-game audit records QB line, team yards, third-down conversions/attempts, red-zone trips/results, available sack totals, receiving opportunity versus Week 1–8 L5 baseline, and quarter score/margin. The player-level comparison is now also downloadable in the receiver usage CSV.
 
+## Video source check
+
+At the 16:00 ET follow-up, match-specific official highlight pages were discoverable for some logged events: [Cowboys–Colts NFL highlight: CeeDee Lamb's 44-yard TD](https://www.foxsports.com/watch/fmc-938fct6vtydme910) and [Rams official clip: Stafford to Puka Nacua for 21 yards](https://www.therams.com/video/highlights-rams-quarterback-matthew-stafford-launches-21-yard-pass-wr-puka-nacua-vs-commanders-week-9). These links establish that clips are available, not who was responsible in coverage. The official NFL YouTube channel search did not return matchup-specific Week 9 1 PM full-game highlight uploads in this pass. No clip has yet been manually charted for shell, coverage, alignment, defender assignment, or confidence.
+
 ## Open data needed to finish the matchup cause
 
 - Man/zone and middle-open/middle-closed rates with snap denominators.
