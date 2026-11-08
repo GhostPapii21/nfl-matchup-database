@@ -8,11 +8,11 @@ Captured 2026-11-08 14:45:40 ET. Live CBS clocks differed by game page retrieval
 |---|---|---|---|---|
 | Browns–Saints | 0–3 (-3; NO) | 3–0 (+3; CLE), final | — | Halftime 3–3 |
 | Cowboys–Colts | 3–7 (-4; IND) | 7–0 (+7 DAL, partial) | — | Q2 1:12, DAL 10–IND 7 |
-| Broncos–Panthers | 10–0 (+10 DEN) | 0–7 (-7 CAR, partial) | — | Q2 0:04, DEN 13–CAR 7 |
+| Broncos–Panthers | 10–0 (+10 DEN) | 3–7 (-4 CAR, partial) | — | Q2 0:04, DEN 13–CAR 7 |
 | Lions–Dolphins | 3–3 (tie) | 3–0 (+3 DET), final | 3–0 (+3 DET, partial) | Q3 9:14, DET 9–MIA 3 |
 | Giants–Eagles | 6–8 (-2; PHI) | 0–0 (partial) | — | Q2 0:27, NYG 6–PHI 8 |
-| Jets–Chiefs | 6–0 (+6 NYJ) | 6–14 (-8 KC, partial) | — | Q2 1:41, NYJ 12–KC 14 |
-| Rams–Commanders | 3–3 (tie) | 0–7 (-7 WAS, partial) | — | Q2 1:33, LAR 3–WAS 10 |
+| Jets–Chiefs | 6–0 (+6 NYJ) | 6–14 (-8 KC, partial) | — | Q2 0:07, NYJ 12–KC 14 |
+| Rams–Commanders | 3–3 (tie) | 0–7 (-7 WAS, partial) | — | Q2 1:33, LAR 6–WAS 10 |
 
 ## Current scoring play log
 Scoring event details are in `WEEK9_1PM_SCORING_PLAYS_20261108_1445ET.csv`. Per-game full PBP references:
