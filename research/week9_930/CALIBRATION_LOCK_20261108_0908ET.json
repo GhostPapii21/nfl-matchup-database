@@ -1,0 +1,35 @@
+{
+  "lock_id": "W9-CIN-ATL-930-20261108-0908ET",
+  "game": "Cincinnati Bengals at Atlanta Falcons",
+  "scheduled_kickoff_et": "2026-11-08T09:30:00-05:00",
+  "forecast_frozen_at_et": "2026-11-08T09:08:00-05:00",
+  "status": "prospective_forecast_locked_outcome_pending",
+  "historical_period": "2026 regular season Weeks 1-8",
+  "book_line_snapshot": "BetSharp aggregator page capture retrieved 2026-11-08 09:08 ET; quote timestamps not exposed",
+  "run": {
+    "script": "research/week9_930/run_cin_atl_930.py",
+    "simulation_rows": 183,
+    "draws_per_row": 100000,
+    "total_draws": 18300000,
+    "repeat_run_byte_for_byte": true,
+    "output": "research/week9_930/simulation_100k_20261108_0908ET.csv",
+    "output_sha256": "fdcd0c4b5d6eb69b24159b8ef83ff66d15833eb87b290203ef6cce8f087ad3cc",
+    "runner_sha256": "e057663fd16115c06290b3c93851dd578b48317b37ea7b0a7383c9ae3c4f9de1"
+  },
+  "input_sha256": {
+    "book_lines_20261108_0908ET.csv": "4a3a6057bd11170920fa9ebdcb10e4251aaa7a63b0a769c9d06374ba553065bf",
+    "defense_inputs_pre_game_w1_w8.csv": "b6494082c46a345a68bad572ecff8a295baa732345b54a591e576f14fdc5a87a",
+    "player_game_history_w1_w8.csv": "8255d62577a00de31708bbe9967e62c36c4ebd2401d603cfddc0e81a642aee38"
+  },
+  "calibration": {
+    "probabilities_calibrated": false,
+    "reason": "Historical prop lines for a forward probability evaluation are unavailable in this research package; 6-8 player-game histories and resampling rates do not establish calibration.",
+    "next_scoring_action": "After final stats post, join the official box score to this frozen run and score market outcomes; retain this forecast unchanged."
+  },
+  "known_gaps": [
+    "no per-defender assignment, coverage snaps, pressure timing, blitz rate, man-zone, or MOFO-MOFC charting in input",
+    "stadium roof position at kickoff unconfirmed; no weather adjustment applied",
+    "route and snap forecasts, player correlations, team play volume, and game-script distribution not simulated",
+    "odds aggregator quote timestamps unavailable"
+  ]
+}
