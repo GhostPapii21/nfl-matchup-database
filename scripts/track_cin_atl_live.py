@@ -45,7 +45,11 @@ def player_rows(boxscore):
 
 def add_projected_zeros(rows, locked_lines):
     """Keep every player on the locked prop board visible before first production."""
-    seen={(r['name'],r['team'],r['category']) for r in rows}
+    def player_key(name):
+        bits=name.casefold().replace('-', ' ').split()
+        if bits and bits[-1] in {'jr.','jr','sr.','sr','iii','ii','iv'}: bits=bits[:-1]
+        return ' '.join(bits)
+    seen={(player_key(r['name']),r['team'],r['category']) for r in rows}
     cats={'player_pass_yds':'passing','player_pass_tds':'passing',
           'player_rush_yds':'rushing','player_rush_attempts':'rushing',
           'player_reception_yds':'receiving','player_receptions':'receiving'}
@@ -54,9 +58,10 @@ def add_projected_zeros(rows, locked_lines):
               'receiving':{'REC':'0','YDS':'0','TD':'0','TGTS':'0'}}
     for line in locked_lines:
         name=line.get('player',''); team=line.get('team',''); cat=cats.get(line.get('market_key',''))
-        if name and cat and (name,team,cat) not in seen:
+        key=(player_key(name),team,cat)
+        if name and cat and key not in seen:
             rows.append({'team':team,'name':name,'category':cat,'stats':defaults[cat].copy()})
-            seen.add((name,team,cat))
+            seen.add(key)
     return rows
 
 
@@ -83,12 +88,18 @@ def event_player_splits(plays, players):
         if not period: continue
         typ=(play.get('type') or {}).get('text','').lower()
         text=play.get('text',''); yard=num(play.get('statYardage'))
+        # Play-by-play can attach a credited-looking statYardage to a play
+        # whose result was erased. Do not count those in usage splits.
+        if '- no play.' in text.lower(): continue
         if yard is None: continue
-        if typ in ('rush','rushing'):
-            match=re.match(r'^\s*(?:\([^)]*\)\s*)?([A-Z]\.[A-Za-z\'’-]+)',text)
+        if typ in ('rush','rushing','rushing touchdown'):
+            match=re.search(r'\b([A-Z]\.[A-Za-z\'’-]+)\s+(?:up|left|right|scrambles|for)\b',text)
             key='rush'
-        elif typ in ('pass reception','reception'):
-            match=re.search(r'\bto\s+([A-Z]\.[A-Za-z\'’-]+)\s+(?:to|for|at)\b',text)
+        elif typ in ('pass reception','reception','passing touchdown'):
+            # Receiver names are followed by varied play text (e.g. "pushed
+            # ob"), so requiring "to/for/at" immediately after the name
+            # silently missed completed catches.
+            match=re.search(r'\bto\s+([A-Z]\.[A-Za-z\'’-]+)\b',text)
             key='receiving'
         else: continue
         if not match: continue
@@ -135,19 +146,48 @@ def quarter_scores(header, scoring):
     return result
 
 
-def quarter_results(qscores, teams):
+def quarter_results(qscores, teams, current_period=None, is_final=False):
     if len(teams)<2: return []
     home=next((t for t in teams if t.get('home_away')=='home'),teams[0])
     away=next((t for t in teams if t.get('home_away')=='away'),teams[1])
     h=qscores.get(home['team'],{}); a=qscores.get(away['team'],{})
     out=[]; cum_h=cum_a=0
     for q in ('Q1','Q2','Q3','Q4','OT'):
+        qnum=int(q[1]) if q.startswith('Q') else 5
         hv=num(h.get(q)); av=num(a.get(q))
+        if not is_final and current_period is not None and qnum > current_period:
+            out.append({'period':q,'home_points':hv,'away_points':av,'winner':'pending','margin':None,'cumulative_margin':None}); continue
+        if not is_final and current_period is not None and qnum == current_period:
+            cumulative_h=sum(num(h.get(f'Q{i}')) or 0 for i in range(1,current_period+1))
+            cumulative_a=sum(num(a.get(f'Q{i}')) or 0 for i in range(1,current_period+1))
+            out.append({'period':q,'home_points':hv,'away_points':av,'winner':'in_progress','margin':None,'cumulative_margin':cumulative_h-cumulative_a}); continue
         if hv is None or av is None: out.append({'period':q,'home_points':hv,'away_points':av,'winner':'pending','margin':None,'cumulative_margin':None}); continue
         margin=hv-av; cum_h+=hv; cum_a+=av
         out.append({'period':q,'home_points':hv,'away_points':av,
                     'winner':home['team'] if margin>0 else away['team'] if margin<0 else 'tie',
                     'margin':margin,'cumulative_margin':cum_h-cum_a})
+    return out
+
+
+def split_reconciliation(players, event_splits):
+    """Compare event-derived counts/yards with the source's cumulative box score."""
+    out=[]
+    for p in players:
+        cat=p['category']
+        if cat not in ('rushing','receiving'): continue
+        count_key='rush_attempts' if cat=='rushing' else 'receptions'
+        yards_key='rush_yards' if cat=='rushing' else 'receiving_yards'
+        official_count=num(p['stats'].get('CAR' if cat=='rushing' else 'REC'))
+        official_yards=num(p['stats'].get('YDS'))
+        if official_count is None or official_yards is None: continue
+        events=[x for x in event_splits.get('by_quarter',[]) if x['player']==p['name']]
+        event_count=sum(x[count_key] for x in events)
+        event_yards=sum(x[yards_key] for x in events)
+        if event_count != official_count or event_yards != official_yards:
+            out.append({'player':p['name'],'team':p['team'],'category':cat,
+                        'event_count':event_count,'official_count':official_count,
+                        'event_yards':event_yards,'official_yards':official_yards,
+                        'status':'REVIEW_EVENT_SPLIT_MISMATCH'})
     return out
 
 
@@ -284,16 +324,19 @@ def main():
     plays=all_plays(package.get('drives',{}))
     players=add_projected_zeros(player_rows(package.get('boxscore',{})),load_locked_lines())
     event_splits=event_player_splits(plays,players)
+    split_audit=split_reconciliation(players,event_splits)
     snapshot={'captured_at_utc':now.isoformat(),'captured_at_et':now.astimezone(ET).isoformat(),
         'source':'ESPN NFL summary API','source_url':f'{BASE}?event={EVENT_ID}','event_id':EVENT_ID,
         'game':'Cincinnati Bengals at Atlanta Falcons','status':status,
         'period':(comp.get('status') or {}).get('period'),'clock':(comp.get('status') or {}).get('displayClock'),
         'teams':teams,'quarter_scores':quarter_scores(header,package.get('scoringPlays',[])),
         'player_boxscore_cumulative':players,'player_period_splits':event_splits,
+        'player_period_split_reconciliation':split_audit,
         'play_by_play':plays,'live_odds':parse_odds_api()}
     if status.lower()=='final': snapshot['projection_evaluation']=final_evaluation(players)
     snapshot['model_score_summary']=model_scores(snapshot.get('projection_evaluation',[]))
-    snapshot['quarter_results']=quarter_results(snapshot['quarter_scores'],teams)
+    snapshot['quarter_results']=quarter_results(snapshot['quarter_scores'],teams,
+        snapshot['period'],status.lower()=='final')
     snapshot['tracked_odds_rows']=odds_rows(snapshot['live_odds'])
     OUT.mkdir(parents=True,exist_ok=True)
     stamp=now.strftime('%Y%m%dT%H%M%SZ')
@@ -311,8 +354,10 @@ def main():
         # Keep the teams explicit so home/away presentation cannot be mistaken for the margin sign.
         atl=num(q.get('ATL',{}).get(qr['period'])); cin=num(q.get('CIN',{}).get(qr['period']))
         if atl is None or cin is None: continue
-        winner='ATL' if atl>cin else 'CIN' if cin>atl else 'tie'
-        rows.append(f"| {qr['period']} | {atl} | {cin} | {winner} | {atl-cin:+g} | {qr['cumulative_margin'] if qr['cumulative_margin'] is not None else '—'} |")
+        if qr['winner']=='in_progress': winner='in progress'; margin='—'
+        elif qr['winner']=='pending': winner='pending'; margin='—'
+        else: winner='ATL' if atl>cin else 'CIN' if cin>atl else 'tie'; margin=f'{atl-cin:+g}'
+        rows.append(f"| {qr['period']} | {atl} | {cin} | {winner} | {margin} | {qr['cumulative_margin'] if qr['cumulative_margin'] is not None else '—'} |")
     rows += ['', 'Quarter winners, margins, and cover results will be finalized from completed quarter scores. Cover results require an actual captured quarter spread line.', '', '## Player production (official cumulative box score)', '', '| Player | Team | Category | Stats |','|---|---|---|---|']
     for p in players:
         rows.append(f"| {p['name']} | {p['team']} | {p['category']} | "+', '.join(f'{k}: {v}' for k,v in p['stats'].items())+' |')
@@ -322,6 +367,14 @@ def main():
     rows += ['', '### First-half rollup','', '| Player | Carries | Rush yards | Receptions | Receiving yards |','|---|---:|---:|---:|---:|']
     for p in event_splits['first_half']:
         rows.append(f"| {p['player']} | {p['rush_attempts']} | {p['rush_yards']:g} | {p['receptions']} | {p['receiving_yards']:g} |")
+    rows += ['', '## Event split reconciliation', '', 'Quarter rush/receiving splits are reconstructed from play text and statYardage; the cumulative box score remains authoritative.', '']
+    if split_audit:
+        rows += ['| Player | Team | Category | Event count / yards | Box count / yards | Status |','|---|---|---|---:|---:|---|']
+        for item in split_audit:
+            rows.append(f"| {item['player']} | {item['team']} | {item['category']} | {item['event_count']} / {item['event_yards']} | {item['official_count']} / {item['official_yards']} | {item['status']} |")
+    else:
+        rows.append('All event-derived counts and yards reconcile to the cumulative box score at this capture.')
+    rows += ['', '## Model-input coverage', '', f"- Captured {len(plays)} play events with game status, quarter scores, team totals, player cumulative passing/rushing/receiving stats, and play-derived per-quarter usage.", '- PBP identifies targets/catches, run outcomes, scrambles, sacks and penalty text when present. It does not provide complete routes run, route participation, air yards, coverage shell/rotation, defender assignment, or decision-time pressure in this feed.', '- No live player-prop or quarter-spread prices were returned; do not score quarter spread covers or treat live-game stats as a recalibration fit.', '']
     rows += ['', '## Lines and projection evaluation','', f"- Live sportsbook odds: **{snapshot['live_odds']['status']}**.", '- Pregame prop lines and three frozen simulation runs are in the 09:08 ET locked artifacts. They are not relabeled as live prices.', '- Official box-score outcomes are used to evaluate the frozen DraftKings thresholds at game end; simulation frequencies remain labeled raw, uncalibrated model outputs.', '- Quarter-score cover results require a captured sportsbook spread. Odds rows are saved only when the feed returns them.', '']
     if snapshot['tracked_odds_rows']:
         rows += ['| Book | Market | Selection | Line | Price | Updated |','|---|---|---|---:|---:|---|']
