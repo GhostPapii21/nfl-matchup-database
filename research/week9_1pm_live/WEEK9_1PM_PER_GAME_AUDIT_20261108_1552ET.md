@@ -1,5 +1,7 @@
 # Week 9 1 PM games: per-game receiver, defense, and quarter audit
 
+> Newer quarter and downloadable per-player comparison snapshot: [16:00 ET audit addendum](WEEK9_1PM_PER_GAME_AUDIT_ADDENDUM_20261108_1600ET.md). This original report remains the 15:52 ET PBP/stat capture.
+
 **Captured:** 2026-11-08 15:52 ET / 20:52 UTC.  
 **Purpose:** create a reusable opponent profile from each game: which position produced, which receiving opportunities converted, what the team did by quarter, and what the available PBP can and cannot say about defenders. This is a live diagnostic log, not a recalibration or a bet recommendation.
 
