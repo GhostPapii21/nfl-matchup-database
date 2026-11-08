@@ -1,6 +1,6 @@
 # Bengals–Falcons live tracker
 
-**Last update:** 2026-11-08T12:46:42.569146-05:00 ET  |  **State:** Final — QNone None
+**Last update:** 2026-11-08T14:27:53.959869-05:00 ET  |  **State:** Final — QNone None
 
 **Score:** ATL 17 – CIN 34
 
@@ -26,7 +26,7 @@ Quarter winners, margins, and cover results will be finalized from completed qua
 
 | Player | Team | Category | Stats |
 |---|---|---|---|
-| Joe Burrow | CIN | passing | C/ATT: 24/29, YDS: 271, AVG: 9.3, TD: 3, INT: 0, SACKS: 2-6, RTG: 140.1 |
+| Joe Burrow | CIN | passing | C/ATT: 24/29, YDS: 271, AVG: 9.3, TD: 3, INT: 0, SACKS: 2-6, QBR: 92.4, RTG: 140.1 |
 | Chase Brown | CIN | rushing | CAR: 9, YDS: 57, AVG: 6.3, TD: 0, LONG: 19 |
 | Samaje Perine | CIN | rushing | CAR: 11, YDS: 43, AVG: 3.9, TD: 0, LONG: 14 |
 | Dohnte Meyers | CIN | rushing | CAR: 1, YDS: 16, AVG: 16.0, TD: 0, LONG: 16 |
@@ -38,7 +38,7 @@ Quarter winners, margins, and cover results will be finalized from completed qua
 | Mike Gesicki | CIN | receiving | REC: 2, YDS: 11, AVG: 5.5, TD: 0, LONG: 8, TGTS: 2 |
 | Mitchell Tinsley | CIN | receiving | REC: 1, YDS: 4, AVG: 4.0, TD: 0, LONG: 4, TGTS: 1 |
 | Jack Endries | CIN | receiving | REC: 1, YDS: 4, AVG: 4.0, TD: 0, LONG: 4, TGTS: 1 |
-| Michael Penix Jr. | ATL | passing | C/ATT: 20/31, YDS: 162, AVG: 5.2, TD: 1, INT: 1, SACKS: 0-0, RTG: 74.9 |
+| Michael Penix Jr. | ATL | passing | C/ATT: 20/31, YDS: 162, AVG: 5.2, TD: 1, INT: 1, SACKS: 0-0, QBR: 52.5, RTG: 74.9 |
 | Bijan Robinson | ATL | rushing | CAR: 19, YDS: 100, AVG: 5.3, TD: 1, LONG: 21 |
 | Michael Penix Jr. | ATL | rushing | CAR: 3, YDS: 50, AVG: 16.7, TD: 0, LONG: 23 |
 | Khalil Herbert | ATL | rushing | CAR: 1, YDS: 7, AVG: 7.0, TD: 0, LONG: 7 |
@@ -241,4 +241,4 @@ Probability score on this single game (pushes excluded; smaller is better):
 
 These are one-game holdout scores, not a recalibration fit. The separate historical calibration audit remains the evidence for calibration; this game adds an untouched result to that record.
 
-Raw play-by-play and snapshot: `20261108T174642Z.json`.
+Raw play-by-play and snapshot: `20261108T192753Z.json`.

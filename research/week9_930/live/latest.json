@@ -1,13 +1,13 @@
 {
-  "captured_at_utc": "2026-11-08T16:53:53.907480+00:00",
-  "captured_at_et": "2026-11-08T11:53:53.907480-05:00",
+  "captured_at_utc": "2026-11-08T19:27:53.959869+00:00",
+  "captured_at_et": "2026-11-08T14:27:53.959869-05:00",
   "source": "ESPN NFL summary API",
   "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873038",
   "event_id": "401873038",
   "game": "Cincinnati Bengals at Atlanta Falcons",
-  "status": "In Progress",
-  "period": 4,
-  "clock": "15:00",
+  "status": "Final",
+  "period": null,
+  "clock": null,
   "teams": [
     {
       "team": "ATL",
@@ -25,12 +25,12 @@
       "team": "CIN",
       "name": "Cincinnati Bengals",
       "home_away": "away",
-      "score": 31,
+      "score": 34,
       "quarter_scores": [
         "7",
         "17",
         "7",
-        "0"
+        "3"
       ]
     }
   ],
@@ -46,7 +46,7 @@
       "Q1": "7",
       "Q2": "17",
       "Q3": "7",
-      "Q4": "0",
+      "Q4": "3",
       "OT": null
     }
   },
@@ -56,13 +56,14 @@
       "name": "Joe Burrow",
       "category": "passing",
       "stats": {
-        "C/ATT": "22/27",
-        "YDS": "258",
-        "AVG": "9.6",
+        "C/ATT": "24/29",
+        "YDS": "271",
+        "AVG": "9.3",
         "TD": "3",
         "INT": "0",
-        "SACKS": "0-0",
-        "RTG": "143.5"
+        "SACKS": "2-6",
+        "QBR": "92.4",
+        "RTG": "140.1"
       }
     },
     {
@@ -70,11 +71,23 @@
       "name": "Chase Brown",
       "category": "rushing",
       "stats": {
-        "CAR": "7",
-        "YDS": "55",
-        "AVG": "7.9",
+        "CAR": "9",
+        "YDS": "57",
+        "AVG": "6.3",
         "TD": "0",
         "LONG": "19"
+      }
+    },
+    {
+      "team": "CIN",
+      "name": "Samaje Perine",
+      "category": "rushing",
+      "stats": {
+        "CAR": "11",
+        "YDS": "43",
+        "AVG": "3.9",
+        "TD": "0",
+        "LONG": "14"
       }
     },
     {
@@ -91,26 +104,14 @@
     },
     {
       "team": "CIN",
-      "name": "Samaje Perine",
-      "category": "rushing",
-      "stats": {
-        "CAR": "4",
-        "YDS": "9",
-        "AVG": "2.3",
-        "TD": "0",
-        "LONG": "4"
-      }
-    },
-    {
-      "team": "CIN",
       "name": "Joe Burrow",
       "category": "rushing",
       "stats": {
-        "CAR": "1",
-        "YDS": "1",
-        "AVG": "1.0",
+        "CAR": "3",
+        "YDS": "7",
+        "AVG": "2.3",
         "TD": "1",
-        "LONG": "1"
+        "LONG": "7"
       }
     },
     {
@@ -118,12 +119,12 @@
       "name": "Ja'Marr Chase",
       "category": "receiving",
       "stats": {
-        "REC": "8",
-        "YDS": "142",
-        "AVG": "17.8",
+        "REC": "10",
+        "YDS": "155",
+        "AVG": "15.5",
         "TD": "1",
         "LONG": "47",
-        "TGTS": "10"
+        "TGTS": "12"
       }
     },
     {
@@ -209,13 +210,14 @@
       "name": "Michael Penix Jr.",
       "category": "passing",
       "stats": {
-        "C/ATT": "15/22",
-        "YDS": "136",
-        "AVG": "6.2",
+        "C/ATT": "20/31",
+        "YDS": "162",
+        "AVG": "5.2",
         "TD": "1",
-        "INT": "0",
+        "INT": "1",
         "SACKS": "0-0",
-        "RTG": "99.8"
+        "QBR": "52.5",
+        "RTG": "74.9"
       }
     },
     {
@@ -223,9 +225,9 @@
       "name": "Bijan Robinson",
       "category": "rushing",
       "stats": {
-        "CAR": "17",
-        "YDS": "91",
-        "AVG": "5.4",
+        "CAR": "19",
+        "YDS": "100",
+        "AVG": "5.3",
         "TD": "1",
         "LONG": "21"
       }
@@ -271,12 +273,12 @@
       "name": "Drake London",
       "category": "receiving",
       "stats": {
-        "REC": "4",
-        "YDS": "54",
-        "AVG": "13.5",
+        "REC": "5",
+        "YDS": "68",
+        "AVG": "13.6",
         "TD": "0",
         "LONG": "21",
-        "TGTS": "4"
+        "TGTS": "5"
       }
     },
     {
@@ -284,12 +286,25 @@
       "name": "Bijan Robinson",
       "category": "receiving",
       "stats": {
-        "REC": "4",
-        "YDS": "50",
-        "AVG": "12.5",
+        "REC": "6",
+        "YDS": "47",
+        "AVG": "7.8",
         "TD": "0",
         "LONG": "28",
-        "TGTS": "4"
+        "TGTS": "7"
+      }
+    },
+    {
+      "team": "ATL",
+      "name": "Kyle Pitts Sr.",
+      "category": "receiving",
+      "stats": {
+        "REC": "3",
+        "YDS": "23",
+        "AVG": "7.7",
+        "TD": "0",
+        "LONG": "9",
+        "TGTS": "5"
       }
     },
     {
@@ -307,19 +322,6 @@
     },
     {
       "team": "ATL",
-      "name": "Kyle Pitts Sr.",
-      "category": "receiving",
-      "stats": {
-        "REC": "1",
-        "YDS": "8",
-        "AVG": "8.0",
-        "TD": "0",
-        "LONG": "8",
-        "TGTS": "3"
-      }
-    },
-    {
-      "team": "ATL",
       "name": "Olamide Zaccheaus",
       "category": "receiving",
       "stats": {
@@ -328,7 +330,7 @@
         "AVG": "5.0",
         "TD": "0",
         "LONG": "5",
-        "TGTS": "2"
+        "TGTS": "3"
       }
     },
     {
@@ -341,7 +343,7 @@
         "AVG": "1.0",
         "TD": "0",
         "LONG": "1",
-        "TGTS": "2"
+        "TGTS": "3"
       }
     },
     {
@@ -354,6 +356,19 @@
         "AVG": "1.0",
         "TD": "1",
         "LONG": "1",
+        "TGTS": "1"
+      }
+    },
+    {
+      "team": "ATL",
+      "name": "Chris Blair",
+      "category": "receiving",
+      "stats": {
+        "REC": "0",
+        "YDS": "0",
+        "AVG": "0.0",
+        "TD": "0",
+        "LONG": "0",
         "TGTS": "1"
       }
     }
@@ -387,10 +402,10 @@
       {
         "player": "Bijan Robinson",
         "period": 4,
-        "rush_attempts": 1,
-        "rush_yards": 7,
-        "receptions": 0,
-        "receiving_yards": 0
+        "rush_attempts": 2,
+        "rush_yards": 9,
+        "receptions": 2,
+        "receiving_yards": -3
       },
       {
         "player": "Charlie Woerner",
@@ -433,6 +448,14 @@
         "receiving_yards": -1
       },
       {
+        "player": "Chase Brown",
+        "period": 4,
+        "rush_attempts": 2,
+        "rush_yards": 2,
+        "receptions": 0,
+        "receiving_yards": 0
+      },
+      {
         "player": "Dohnte Meyers",
         "period": 1,
         "rush_attempts": 1,
@@ -473,6 +496,14 @@
         "receiving_yards": 30
       },
       {
+        "player": "Drake London",
+        "period": 4,
+        "rush_attempts": 0,
+        "rush_yards": 0,
+        "receptions": 1,
+        "receiving_yards": 14
+      },
+      {
         "player": "Ja'Marr Chase",
         "period": 1,
         "rush_attempts": 0,
@@ -487,6 +518,14 @@
         "rush_yards": 0,
         "receptions": 6,
         "receiving_yards": 82
+      },
+      {
+        "player": "Ja'Marr Chase",
+        "period": 4,
+        "rush_attempts": 0,
+        "rush_yards": 0,
+        "receptions": 2,
+        "receiving_yards": 13
       },
       {
         "player": "Jack Endries",
@@ -513,6 +552,14 @@
         "receiving_yards": 0
       },
       {
+        "player": "Joe Burrow",
+        "period": 4,
+        "rush_attempts": 1,
+        "rush_yards": 7,
+        "receptions": 0,
+        "receiving_yards": 0
+      },
+      {
         "player": "Khalil Herbert",
         "period": 2,
         "rush_attempts": 0,
@@ -535,6 +582,14 @@
         "rush_yards": 0,
         "receptions": 1,
         "receiving_yards": 8
+      },
+      {
+        "player": "Kyle Pitts Sr.",
+        "period": 4,
+        "rush_attempts": 0,
+        "rush_yards": 0,
+        "receptions": 2,
+        "receiving_yards": 15
       },
       {
         "player": "Michael Penix Jr.",
@@ -605,6 +660,14 @@
         "period": 3,
         "rush_attempts": 1,
         "rush_yards": 3,
+        "receptions": 0,
+        "receiving_yards": 0
+      },
+      {
+        "player": "Samaje Perine",
+        "period": 4,
+        "rush_attempts": 7,
+        "rush_yards": 34,
         "receptions": 0,
         "receiving_yards": 0
       },
@@ -751,23 +814,23 @@
   },
   "player_period_split_reconciliation": [
     {
-      "player": "Bijan Robinson",
-      "team": "ATL",
+      "player": "Joe Burrow",
+      "team": "CIN",
       "category": "rushing",
-      "event_count": 18,
-      "official_count": 17,
-      "event_yards": 98,
-      "official_yards": 91,
+      "event_count": 2,
+      "official_count": 3,
+      "event_yards": 8,
+      "official_yards": 7,
       "status": "REVIEW_EVENT_SPLIT_MISMATCH"
     },
     {
       "player": "Bijan Robinson",
       "team": "ATL",
       "category": "receiving",
-      "event_count": 4,
-      "official_count": 4,
-      "event_yards": 46,
-      "official_yards": 50,
+      "event_count": 6,
+      "official_count": 6,
+      "event_yards": 43,
+      "official_yards": 47,
       "status": "REVIEW_EVENT_SPLIT_MISMATCH"
     }
   ],
@@ -791,7 +854,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:43Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:34:59Z",
       "teamParticipants": [
         {
@@ -878,7 +941,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:37Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:36:05Z",
       "teamParticipants": [
         {
@@ -958,7 +1021,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:38Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:36:34Z",
       "teamParticipants": [
         {
@@ -1037,7 +1100,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:39Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:37:10Z",
       "teamParticipants": [
         {
@@ -1117,7 +1180,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:46Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:37:53Z",
       "teamParticipants": [
         {
@@ -1196,7 +1259,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:40Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:38:34Z",
       "teamParticipants": [
         {
@@ -1275,7 +1338,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:42Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:39:17Z",
       "teamParticipants": [
         {
@@ -1365,7 +1428,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:43Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:40:17Z",
       "teamParticipants": [
         {
@@ -1449,7 +1512,7 @@
       },
       "scoringPlay": true,
       "priority": false,
-      "modified": "2026-11-08T14:43Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:41:11Z",
       "teamParticipants": [
         {
@@ -1537,7 +1600,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:42Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:42:26Z",
       "teamParticipants": [
         {
@@ -1601,7 +1664,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:47Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:44:58Z",
       "teamParticipants": [
         {
@@ -1677,7 +1740,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:49Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:45:46Z",
       "teamParticipants": [
         {
@@ -1757,7 +1820,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:48Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:46:26Z",
       "teamParticipants": [
         {
@@ -1835,7 +1898,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:49Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:47:07Z",
       "teamParticipants": [
         {
@@ -1914,7 +1977,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:49Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:47:49Z",
       "teamParticipants": [
         {
@@ -1994,7 +2057,7 @@
       },
       "scoringPlay": true,
       "priority": false,
-      "modified": "2026-11-08T14:50Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:48:32Z",
       "teamParticipants": [
         {
@@ -2082,7 +2145,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:49Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:49:41Z",
       "teamParticipants": [
         {
@@ -2146,7 +2209,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:56Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:52:33Z",
       "teamParticipants": [
         {
@@ -2221,7 +2284,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:54Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:53:24Z",
       "teamParticipants": [
         {
@@ -2294,7 +2357,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:55Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:54:10Z",
       "teamParticipants": [
         {
@@ -2374,7 +2437,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:02Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:54:45Z",
       "teamParticipants": [
         {
@@ -2452,7 +2515,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:57Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:55:22Z",
       "teamParticipants": [
         {
@@ -2525,7 +2588,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:58Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:56:06Z",
       "teamParticipants": [
         {
@@ -2609,7 +2672,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T14:59Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:57:02Z",
       "teamParticipants": [
         {
@@ -2688,7 +2751,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:04Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:57:45Z",
       "teamParticipants": [
         {
@@ -2767,7 +2830,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:04Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:58:25Z",
       "teamParticipants": [
         {
@@ -2846,7 +2909,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:06Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T14:59:38Z",
       "teamParticipants": [
         {
@@ -2930,7 +2993,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:01Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:00:35Z",
       "teamParticipants": [
         {
@@ -3010,7 +3073,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:08Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:01:19Z",
       "teamParticipants": [
         {
@@ -3094,7 +3157,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:03Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:02:03Z",
       "teamParticipants": [
         {
@@ -3173,7 +3236,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:04Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:02:47Z",
       "teamParticipants": [
         {
@@ -3246,7 +3309,7 @@
       },
       "scoringPlay": true,
       "priority": false,
-      "modified": "2026-11-08T15:09Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:03:29Z",
       "teamParticipants": [
         {
@@ -3327,7 +3390,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:03Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:03:50Z",
       "teamParticipants": [
         {
@@ -3391,7 +3454,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:12Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:06:27Z",
       "teamParticipants": [
         {
@@ -3467,7 +3530,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:09Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:07:12Z",
       "teamParticipants": [
         {
@@ -3546,7 +3609,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:11Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:07:50Z",
       "teamParticipants": [
         {
@@ -3626,7 +3689,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:12Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:08:33Z",
       "teamParticipants": [
         {
@@ -3706,7 +3769,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:17Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:09:13Z",
       "teamParticipants": [
         {
@@ -3785,7 +3848,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:12Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:09:52Z",
       "teamParticipants": [
         {
@@ -3865,7 +3928,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:12Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:10:39Z",
       "teamParticipants": [
         {
@@ -3945,7 +4008,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:11Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:10:39Z",
       "teamParticipants": [
         {
@@ -4009,7 +4072,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:16Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:13:59Z",
       "teamParticipants": [
         {
@@ -4087,7 +4150,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:16Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:14:37Z",
       "teamParticipants": [
         {
@@ -4166,7 +4229,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:17Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:15:18Z",
       "teamParticipants": [
         {
@@ -4246,7 +4309,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:19Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:16:00Z",
       "teamParticipants": [
         {
@@ -4325,7 +4388,7 @@
       },
       "scoringPlay": true,
       "priority": false,
-      "modified": "2026-11-08T15:19Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:16:40Z",
       "teamParticipants": [
         {
@@ -4412,7 +4475,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:18Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:17:56Z",
       "teamParticipants": [
         {
@@ -4476,7 +4539,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:26Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:20:16Z",
       "teamParticipants": [
         {
@@ -4552,7 +4615,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:23Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:20:57Z",
       "teamParticipants": [
         {
@@ -4632,7 +4695,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:24Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:21:45Z",
       "teamParticipants": [
         {
@@ -4710,7 +4773,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:25Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:22:30Z",
       "teamParticipants": [
         {
@@ -4789,7 +4852,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:28Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:23:11Z",
       "teamParticipants": [
         {
@@ -4862,7 +4925,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:28Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:23:47Z",
       "teamParticipants": [
         {
@@ -4941,7 +5004,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:24Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:24:09Z",
       "teamParticipants": [
         {
@@ -5008,7 +5071,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:29Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:26:54Z",
       "teamParticipants": [
         {
@@ -5088,7 +5151,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:29Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:27:44Z",
       "teamParticipants": [
         {
@@ -5168,7 +5231,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:37Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:28:32Z",
       "teamParticipants": [
         {
@@ -5247,7 +5310,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:32Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:29:09Z",
       "teamParticipants": [
         {
@@ -5334,7 +5397,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:34Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:32:45Z",
       "teamParticipants": [
         {
@@ -5414,7 +5477,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:34Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:33:25Z",
       "teamParticipants": [
         {
@@ -5498,7 +5561,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:35Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:34:21Z",
       "teamParticipants": [
         {
@@ -5578,7 +5641,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:39Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:35:05Z",
       "teamParticipants": [
         {
@@ -5658,7 +5721,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:43Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:35:51Z",
       "teamParticipants": [
         {
@@ -5737,7 +5800,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:38Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:36:32Z",
       "teamParticipants": [
         {
@@ -5821,7 +5884,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:39Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:37:29Z",
       "teamParticipants": [
         {
@@ -5901,7 +5964,7 @@
       },
       "scoringPlay": true,
       "priority": false,
-      "modified": "2026-11-08T15:40Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:38:12Z",
       "teamParticipants": [
         {
@@ -5989,7 +6052,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:39Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:39:29Z",
       "teamParticipants": [
         {
@@ -6053,7 +6116,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:49Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:42:06Z",
       "teamParticipants": [
         {
@@ -6129,7 +6192,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:47Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:42:50Z",
       "teamParticipants": [
         {
@@ -6208,7 +6271,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:52Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:43:28Z",
       "teamParticipants": [
         {
@@ -6287,7 +6350,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:49Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:44:00Z",
       "teamParticipants": [
         {
@@ -6372,7 +6435,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:46Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:45:05Z",
       "teamParticipants": [
         {
@@ -6452,7 +6515,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:45Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:45:31Z",
       "teamParticipants": [
         {
@@ -6519,7 +6582,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:53Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:48:31Z",
       "teamParticipants": [
         {
@@ -6602,7 +6665,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:52Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:50:23Z",
       "teamParticipants": [
         {
@@ -6682,7 +6745,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:51Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:50:54Z",
       "teamParticipants": [
         {
@@ -6749,7 +6812,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:53Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:51:26Z",
       "teamParticipants": [
         {
@@ -6822,7 +6885,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:55Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:52:04Z",
       "teamParticipants": [
         {
@@ -6895,7 +6958,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:53Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:52:51Z",
       "teamParticipants": [
         {
@@ -6962,7 +7025,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:01Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:55:15Z",
       "teamParticipants": [
         {
@@ -7042,7 +7105,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:55Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:55:39Z",
       "teamParticipants": [
         {
@@ -7110,7 +7173,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:58Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:56:24Z",
       "teamParticipants": [
         {
@@ -7190,7 +7253,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:56Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:56:45Z",
       "teamParticipants": [
         {
@@ -7257,7 +7320,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:18Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:57:34Z",
       "teamParticipants": [
         {
@@ -7329,7 +7392,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T15:59Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:58:16Z",
       "teamParticipants": [
         {
@@ -7408,7 +7471,7 @@
       },
       "scoringPlay": true,
       "priority": false,
-      "modified": "2026-11-08T15:59Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T15:58:59Z",
       "teamParticipants": [
         {
@@ -7489,7 +7552,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:25Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:00:20Z",
       "teamParticipants": [
         {
@@ -7564,7 +7627,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:20Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:01:07Z",
       "teamParticipants": [
         {
@@ -7637,7 +7700,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:21Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:01:51Z",
       "teamParticipants": [
         {
@@ -7716,7 +7779,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:02Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:02:11Z",
       "teamParticipants": [
         {
@@ -7783,7 +7846,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:23Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:02:59Z",
       "teamParticipants": [
         {
@@ -7862,7 +7925,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:18Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:02:59Z",
       "teamParticipants": [
         {
@@ -7923,7 +7986,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:24Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:19:20Z",
       "teamParticipants": [
         {
@@ -8010,7 +8073,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:22Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:20:36Z",
       "teamParticipants": [
         {
@@ -8089,7 +8152,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:23Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:21:10Z",
       "teamParticipants": [
         {
@@ -8168,7 +8231,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:23Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:21:52Z",
       "teamParticipants": [
         {
@@ -8241,7 +8304,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:27Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:22:33Z",
       "teamParticipants": [
         {
@@ -8320,7 +8383,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:23Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:23:09Z",
       "teamParticipants": [
         {
@@ -8387,7 +8450,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:27Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:25:46Z",
       "teamParticipants": [
         {
@@ -8467,7 +8530,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:32Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:26:15Z",
       "teamParticipants": [
         {
@@ -8546,7 +8609,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:28Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:26:51Z",
       "teamParticipants": [
         {
@@ -8625,7 +8688,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:30Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:27:34Z",
       "teamParticipants": [
         {
@@ -8704,7 +8767,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:30Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:28:16Z",
       "teamParticipants": [
         {
@@ -8784,7 +8847,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:31Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:29:04Z",
       "teamParticipants": [
         {
@@ -8863,7 +8926,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:36Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:29:41Z",
       "teamParticipants": [
         {
@@ -8942,7 +9005,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:37Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:30:23Z",
       "teamParticipants": [
         {
@@ -9021,7 +9084,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:33Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:30:53Z",
       "teamParticipants": [
         {
@@ -9100,7 +9163,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:33Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:31:38Z",
       "teamParticipants": [
         {
@@ -9184,7 +9247,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:36Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:32:31Z",
       "teamParticipants": [
         {
@@ -9268,7 +9331,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:41Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:33:25Z",
       "teamParticipants": [
         {
@@ -9347,7 +9410,7 @@
       },
       "scoringPlay": true,
       "priority": false,
-      "modified": "2026-11-08T16:35Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:34:06Z",
       "teamParticipants": [
         {
@@ -9434,7 +9497,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:35Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:35:05Z",
       "teamParticipants": [
         {
@@ -9498,7 +9561,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:39Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:37:39Z",
       "teamParticipants": [
         {
@@ -9574,7 +9637,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:40Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:38:27Z",
       "teamParticipants": [
         {
@@ -9658,7 +9721,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:41Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:39:17Z",
       "teamParticipants": [
         {
@@ -9737,7 +9800,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:41Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:39:57Z",
       "teamParticipants": [
         {
@@ -9817,7 +9880,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:42Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:40:40Z",
       "teamParticipants": [
         {
@@ -9896,7 +9959,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:42Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:41:18Z",
       "teamParticipants": [
         {
@@ -9976,7 +10039,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:43Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:41:55Z",
       "teamParticipants": [
         {
@@ -10055,7 +10118,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:48Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:42:36Z",
       "teamParticipants": [
         {
@@ -10134,7 +10197,7 @@
       },
       "scoringPlay": true,
       "priority": false,
-      "modified": "2026-11-08T16:45Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:43:20Z",
       "teamParticipants": [
         {
@@ -10222,7 +10285,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:44Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:44:29Z",
       "teamParticipants": [
         {
@@ -10286,7 +10349,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:52Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:47:16Z",
       "teamParticipants": [
         {
@@ -10362,7 +10425,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:49Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:48:03Z",
       "teamParticipants": [
         {
@@ -10441,7 +10504,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:50Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:48:40Z",
       "teamParticipants": [
         {
@@ -10520,7 +10583,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:51Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:49:23Z",
       "teamParticipants": [
         {
@@ -10589,7 +10652,7 @@
         "text": "Pass Reception",
         "abbreviation": "REC"
       },
-      "text": "(Shotgun) M.Penix pass short right to D.London pushed ob at CIN 39 for 21 yards (D.Turner).",
+      "text": "(Shotgun) M.Penix pass short right to D.London pushed ob at CIN 39 for 21 yards (D.Turner; B.Carter).",
       "awayScore": 31,
       "homeScore": 17,
       "period": {
@@ -10600,7 +10663,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:52Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:50:01Z",
       "teamParticipants": [
         {
@@ -10680,7 +10743,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "modified": "2026-11-08T16:50Z",
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:50:28Z",
       "teamParticipants": [
         {
@@ -10733,7 +10796,7 @@
         "text": "Rush",
         "abbreviation": "RUSH"
       },
-      "text": " B.Robinson left end to CIN 32 for 7 yards (B.Cook; D.Turner).",
+      "text": "B.Robinson left end to CIN 32 for 7 yards (B.Cook; D.Turner).",
       "awayScore": 31,
       "homeScore": 17,
       "period": {
@@ -10744,157 +10807,7 @@
       },
       "scoringPlay": false,
       "priority": false,
-      "scoreValue": 0,
-      "modified": "2026-11-08T16:53Z",
-      "participants": [
-        {
-          "athlete": {
-            "id": "4430807",
-            "uid": "s:20~l:28~a:4430807",
-            "guid": "6667bcb0-dad1-3345-8e5a-a67ed4b010b0",
-            "lastName": "Robinson",
-            "fullName": "Bijan Robinson",
-            "displayName": "Bijan Robinson",
-            "shortName": "B. Robinson",
-            "links": [
-              {
-                "rel": [
-                  "playercard",
-                  "desktop",
-                  "athlete"
-                ],
-                "href": "https://www.espn.com/nfl/player/_/id/4430807/bijan-robinson",
-                "text": "Player Card"
-              }
-            ],
-            "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4430807.png",
-              "alt": "Bijan Robinson"
-            },
-            "jersey": "7",
-            "position": {
-              "name": "Running Back",
-              "displayName": "Running Back",
-              "abbreviation": "RB"
-            },
-            "team": {
-              "abbreviation": "ATL"
-            },
-            "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4430807?lang=en&region=us"
-            },
-            "status": {
-              "id": "1",
-              "name": "Active",
-              "type": "active",
-              "abbreviation": "Active"
-            }
-          },
-          "playStatistics": {
-            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383112/participants/4430807/statistics/0?lang=en&region=us"
-          },
-          "type": "rusher",
-          "stats": []
-        },
-        {
-          "athlete": {
-            "id": "4247726",
-            "uid": "s:20~l:28~a:4247726",
-            "guid": "62f61d0e-06f5-7c9a-a8cf-5d927ee039bb",
-            "lastName": "Cook",
-            "fullName": "Bryan Cook",
-            "displayName": "Bryan Cook",
-            "shortName": "B. Cook",
-            "links": [
-              {
-                "rel": [
-                  "playercard",
-                  "desktop",
-                  "athlete"
-                ],
-                "href": "https://www.espn.com/nfl/player/_/id/4247726/bryan-cook",
-                "text": "Player Card"
-              }
-            ],
-            "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4247726.png",
-              "alt": "Bryan Cook"
-            },
-            "jersey": "6",
-            "position": {
-              "name": "Safety",
-              "displayName": "Safety",
-              "abbreviation": "S"
-            },
-            "team": {
-              "abbreviation": "CIN"
-            },
-            "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4247726?lang=en&region=us"
-            },
-            "status": {
-              "id": "1",
-              "name": "Active",
-              "type": "active",
-              "abbreviation": "Active"
-            }
-          },
-          "playStatistics": {
-            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383112/participants/4247726/statistics/0?lang=en&region=us"
-          },
-          "type": "assistedBy",
-          "stats": []
-        },
-        {
-          "athlete": {
-            "id": "4572036",
-            "uid": "s:20~l:28~a:4572036",
-            "guid": "f77c0a0a-ca7e-b0e1-b14a-2e342c71ea67",
-            "lastName": "Turner II",
-            "fullName": "DJ Turner II",
-            "displayName": "DJ Turner II",
-            "shortName": "D. Turner II",
-            "links": [
-              {
-                "rel": [
-                  "playercard",
-                  "desktop",
-                  "athlete"
-                ],
-                "href": "https://www.espn.com/nfl/player/_/id/4572036/dj-turner-ii",
-                "text": "Player Card"
-              }
-            ],
-            "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4572036.png",
-              "alt": "DJ Turner II"
-            },
-            "jersey": "0",
-            "position": {
-              "name": "Cornerback",
-              "displayName": "Cornerback",
-              "abbreviation": "CB"
-            },
-            "team": {
-              "abbreviation": "CIN"
-            },
-            "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4572036?lang=en&region=us"
-            },
-            "status": {
-              "id": "1",
-              "name": "Active",
-              "type": "active",
-              "abbreviation": "Active"
-            }
-          },
-          "playStatistics": {
-            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383112/participants/4572036/statistics/0?lang=en&region=us"
-          },
-          "type": "assistedBy",
-          "stats": []
-        }
-      ],
+      "modified": "2026-11-08T17:46Z",
       "wallclock": "2026-11-08T16:53:11Z",
       "teamParticipants": [
         {
@@ -10953,12 +10866,4286 @@
         }
       },
       "isTurnover": false
+    },
+    {
+      "id": "4018730383153",
+      "sequenceNumber": "315300",
+      "type": {
+        "id": "3",
+        "text": "Pass Incompletion"
+      },
+      "text": "(Shotgun) Direct snap to B.Robinson.  M.Penix pass incomplete deep left to C.Blair (J.Newton).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "14:19"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T16:53:52Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383153/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383153/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383153/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383153/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 2,
+        "distance": 3,
+        "yardLine": 68,
+        "yardsToEndzone": 32,
+        "downDistanceText": "2nd & 3 at CIN 32",
+        "shortDownDistanceText": "2nd & 3",
+        "possessionText": "CIN 32",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 3,
+        "yardLine": 68,
+        "yardsToEndzone": 32,
+        "downDistanceText": "3rd & 3 at CIN 32",
+        "shortDownDistanceText": "3rd & 3",
+        "possessionText": "CIN 32",
+        "team": {
+          "id": "1"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383185",
+      "sequenceNumber": "318500",
+      "type": {
+        "id": "24",
+        "text": "Pass Reception",
+        "abbreviation": "REC"
+      },
+      "text": "(Shotgun) M.Penix pass short right to D.London to CIN 18 for 14 yards (J.Battle).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "14:13"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T16:54:30Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383185/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383185/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383185/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383185/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 14,
+      "start": {
+        "down": 3,
+        "distance": 3,
+        "yardLine": 68,
+        "yardsToEndzone": 32,
+        "downDistanceText": "3rd & 3 at CIN 32",
+        "shortDownDistanceText": "3rd & 3",
+        "possessionText": "CIN 32",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 82,
+        "yardsToEndzone": 18,
+        "downDistanceText": "1st & 10 at CIN 18",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "CIN 18",
+        "team": {
+          "id": "1"
+        }
+      },
+      "yardsAfterCatch": 6,
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383210",
+      "sequenceNumber": "321000",
+      "type": {
+        "id": "24",
+        "text": "Pass Reception",
+        "abbreviation": "REC"
+      },
+      "text": "(Shotgun) M.Penix pass short right to K.Pitts to CIN 12 for 6 yards (D.Knight).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "13:31"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T16:55:13Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383210/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383210/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383210/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383210/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 6,
+      "start": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 82,
+        "yardsToEndzone": 18,
+        "downDistanceText": "1st & 10 at CIN 18",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "CIN 18",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 4,
+        "yardLine": 88,
+        "yardsToEndzone": 12,
+        "downDistanceText": "2nd & 4 at CIN 12",
+        "shortDownDistanceText": "2nd & 4",
+        "possessionText": "CIN 12",
+        "team": {
+          "id": "1"
+        }
+      },
+      "yardsAfterCatch": 1,
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383235",
+      "sequenceNumber": "323500",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "B.Robinson up the middle to CIN 10 for 2 yards (B.Cook).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "12:54"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T16:55:50Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383235/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383235/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383235/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383235/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 2,
+      "start": {
+        "down": 2,
+        "distance": 4,
+        "yardLine": 88,
+        "yardsToEndzone": 12,
+        "downDistanceText": "2nd & 4 at CIN 12",
+        "shortDownDistanceText": "2nd & 4",
+        "possessionText": "CIN 12",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 2,
+        "yardLine": 90,
+        "yardsToEndzone": 10,
+        "downDistanceText": "3rd & 2 at CIN 10",
+        "shortDownDistanceText": "3rd & 2",
+        "possessionText": "CIN 10",
+        "team": {
+          "id": "1"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383257",
+      "sequenceNumber": "325700",
+      "type": {
+        "id": "8",
+        "text": "Penalty",
+        "abbreviation": "PEN"
+      },
+      "text": "M.Penix pass incomplete short left.PENALTY on ATL-K.Pitts, Offensive Holding, 10 yards, enforced at CIN 10 - No Play.Penalty on ATL-N.Muse, Offensive Offside, declined.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "12:13"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T16:56:31Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383257/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383257/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": true,
+      "statYardage": -10,
+      "start": {
+        "down": 3,
+        "distance": 2,
+        "yardLine": 90,
+        "yardsToEndzone": 10,
+        "downDistanceText": "3rd & 2 at CIN 10",
+        "shortDownDistanceText": "3rd & 2",
+        "possessionText": "CIN 10",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 12,
+        "yardLine": 80,
+        "yardsToEndzone": 20,
+        "downDistanceText": "3rd & 12 at CIN 20",
+        "shortDownDistanceText": "3rd & 12",
+        "possessionText": "CIN 20",
+        "team": {
+          "id": "1"
+        }
+      },
+      "penalty": {
+        "yards": 10,
+        "type": {
+          "slug": "offensive-holding",
+          "text": "Offensive Holding"
+        },
+        "status": {
+          "slug": "accepted",
+          "text": "Accepted"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383280",
+      "sequenceNumber": "328000",
+      "type": {
+        "id": "24",
+        "text": "Pass Reception",
+        "abbreviation": "REC"
+      },
+      "text": "(Shotgun) M.Penix pass short right to B.Robinson to CIN 20 for no gain (D.Ivey; J.Newton).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "12:08"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T16:57:44Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383280/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383280/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383280/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383280/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 3,
+        "distance": 12,
+        "yardLine": 80,
+        "yardsToEndzone": 20,
+        "downDistanceText": "3rd & 12 at CIN 20",
+        "shortDownDistanceText": "3rd & 12",
+        "possessionText": "CIN 20",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 4,
+        "distance": 12,
+        "yardLine": 80,
+        "yardsToEndzone": 20,
+        "downDistanceText": "4th & 12 at CIN 20",
+        "shortDownDistanceText": "4th & 12",
+        "possessionText": "CIN 20",
+        "team": {
+          "id": "1"
+        }
+      },
+      "yardsAfterCatch": 3,
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383317",
+      "sequenceNumber": "331700",
+      "type": {
+        "id": "60",
+        "text": "Field Goal Missed",
+        "abbreviation": "FGM"
+      },
+      "text": "N.Folk 38 yard field goal is No Good, Wide Left, Center-L.McCullough, Holder-J.Bailey.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "11:31"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T16:58:20Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "defense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383317/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383317/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "offense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 38,
+      "start": {
+        "down": 4,
+        "distance": 12,
+        "yardLine": 80,
+        "yardsToEndzone": 20,
+        "downDistanceText": "4th & 12 at CIN 20",
+        "shortDownDistanceText": "4th & 12",
+        "possessionText": "CIN 20",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 80,
+        "yardsToEndzone": 80,
+        "downDistanceText": "1st & 10 at CIN 20",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "CIN 20",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383328",
+      "sequenceNumber": "332800",
+      "type": {
+        "id": "74",
+        "text": "Official Timeout",
+        "abbreviation": "Off TO"
+      },
+      "text": "Official Timeout at 11:27.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "11:27"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T16:58:45Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 72,
+        "yardsToEndzone": 0,
+        "downDistanceText": "1st & 10 at CIN 28",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "CIN 28",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 72,
+        "yardsToEndzone": 72,
+        "downDistanceText": "1st & 10 at CIN 28",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "CIN 28",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383338",
+      "sequenceNumber": "333800",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "(Shotgun) J.Burrow scrambles up the middle to CIN 35 for 7 yards (X.Watts; K.Daniels).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "11:27"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:01:27Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383338/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383338/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383338/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383338/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 7,
+      "start": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 72,
+        "yardsToEndzone": 72,
+        "downDistanceText": "1st & 10 at CIN 28",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "CIN 28",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 3,
+        "yardLine": 65,
+        "yardsToEndzone": 65,
+        "downDistanceText": "2nd & 3 at CIN 35",
+        "shortDownDistanceText": "2nd & 3",
+        "possessionText": "CIN 35",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383367",
+      "sequenceNumber": "336700",
+      "type": {
+        "id": "24",
+        "text": "Pass Reception",
+        "abbreviation": "REC"
+      },
+      "text": "(Shotgun) J.Burrow pass short right to J.Chase pushed ob at CIN 37 for 2 yards (J.Bates).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "10:44"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:02:10Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383367/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383367/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383367/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383367/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 2,
+      "start": {
+        "down": 2,
+        "distance": 3,
+        "yardLine": 65,
+        "yardsToEndzone": 65,
+        "downDistanceText": "2nd & 3 at CIN 35",
+        "shortDownDistanceText": "2nd & 3",
+        "possessionText": "CIN 35",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 1,
+        "yardLine": 63,
+        "yardsToEndzone": 63,
+        "downDistanceText": "3rd & 1 at CIN 37",
+        "shortDownDistanceText": "3rd & 1",
+        "possessionText": "CIN 37",
+        "team": {
+          "id": "4"
+        }
+      },
+      "yardsAfterCatch": 5,
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383380",
+      "sequenceNumber": "338000",
+      "type": {
+        "id": "21",
+        "text": "Timeout",
+        "abbreviation": "TO"
+      },
+      "text": "Timeout #1 by CIN at 10:13.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "10:13"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:02:53Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "offense",
+          "timeout": true
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 3,
+        "distance": 1,
+        "yardLine": 63,
+        "yardsToEndzone": 0,
+        "downDistanceText": "3rd & 1 at CIN 37",
+        "shortDownDistanceText": "3rd & 1",
+        "possessionText": "CIN 37",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 1,
+        "yardLine": 63,
+        "yardsToEndzone": 63,
+        "downDistanceText": "3rd & 1 at CIN 37",
+        "shortDownDistanceText": "3rd & 1",
+        "possessionText": "CIN 37",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383392",
+      "sequenceNumber": "339200",
+      "type": {
+        "id": "7",
+        "text": "Sack"
+      },
+      "text": "(Shotgun) J.Burrow sacked at CIN 31 for -6 yards (L.London).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "10:13"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:03:44Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383392/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383392/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383392/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383392/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": -6,
+      "start": {
+        "down": 3,
+        "distance": 1,
+        "yardLine": 63,
+        "yardsToEndzone": 63,
+        "downDistanceText": "3rd & 1 at CIN 37",
+        "shortDownDistanceText": "3rd & 1",
+        "possessionText": "CIN 37",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 4,
+        "distance": 7,
+        "yardLine": 69,
+        "yardsToEndzone": 69,
+        "downDistanceText": "4th & 7 at CIN 31",
+        "shortDownDistanceText": "4th & 7",
+        "possessionText": "CIN 31",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383424",
+      "sequenceNumber": "342400",
+      "type": {
+        "id": "52",
+        "text": "Punt",
+        "abbreviation": "PUNT"
+      },
+      "text": "R.Rehkow punts 55 yards to ATL 14, Center-W.Wagner. O.Zaccheaus to ATL 23 for 9 yards (S.Perine; P.Jules).PENALTY on ATL-C.Blair, Illegal Block Above the Waist, 7 yards, enforced at ATL 14.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "9:27"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:04:29Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383424/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383424/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "defense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383424/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383424/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "offense"
+        }
+      ],
+      "isPenalty": true,
+      "statYardage": -7,
+      "start": {
+        "down": 4,
+        "distance": 7,
+        "yardLine": 69,
+        "yardsToEndzone": 69,
+        "downDistanceText": "4th & 7 at CIN 31",
+        "shortDownDistanceText": "4th & 7",
+        "possessionText": "CIN 31",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 7,
+        "yardsToEndzone": 93,
+        "downDistanceText": "1st & 10 at ATL 7",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 7",
+        "team": {
+          "id": "1"
+        }
+      },
+      "penalty": {
+        "yards": 7,
+        "type": {
+          "slug": "illegal-block-above-the-waist",
+          "text": "Illegal Block Above the Waist"
+        },
+        "status": {
+          "slug": "accepted",
+          "text": "Accepted"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383443",
+      "sequenceNumber": "344300",
+      "type": {
+        "id": "74",
+        "text": "Official Timeout",
+        "abbreviation": "Off TO"
+      },
+      "text": "Official Timeout at 09:17.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "9:17"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:06:50Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 7,
+        "yardsToEndzone": 0,
+        "downDistanceText": "1st & 10 at ATL 7",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 7",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 7,
+        "yardsToEndzone": 93,
+        "downDistanceText": "1st & 10 at ATL 7",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 7",
+        "team": {
+          "id": "1"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383462",
+      "sequenceNumber": "346200",
+      "type": {
+        "id": "24",
+        "text": "Pass Reception",
+        "abbreviation": "REC"
+      },
+      "text": "(Shotgun) M.Penix pass short left to B.Robinson to ATL 4 for -3 yards (D.Hill).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "9:17"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:08:14Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383462/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383462/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383462/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383462/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": -3,
+      "start": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 7,
+        "yardsToEndzone": 93,
+        "downDistanceText": "1st & 10 at ATL 7",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 7",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 13,
+        "yardLine": 4,
+        "yardsToEndzone": 96,
+        "downDistanceText": "2nd & 13 at ATL 4",
+        "shortDownDistanceText": "2nd & 13",
+        "possessionText": "ATL 4",
+        "team": {
+          "id": "1"
+        }
+      },
+      "yardsAfterCatch": 0,
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383494",
+      "sequenceNumber": "349400",
+      "type": {
+        "id": "3",
+        "text": "Pass Incompletion"
+      },
+      "text": "(Shotgun) M.Penix pass incomplete short right to O.Zaccheaus (J.Battle).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "8:35"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:08:57Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383494/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383494/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383494/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383494/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 2,
+        "distance": 13,
+        "yardLine": 4,
+        "yardsToEndzone": 96,
+        "downDistanceText": "2nd & 13 at ATL 4",
+        "shortDownDistanceText": "2nd & 13",
+        "possessionText": "ATL 4",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 13,
+        "yardLine": 4,
+        "yardsToEndzone": 96,
+        "downDistanceText": "3rd & 13 at ATL 4",
+        "shortDownDistanceText": "3rd & 13",
+        "possessionText": "ATL 4",
+        "team": {
+          "id": "1"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383531",
+      "sequenceNumber": "353100",
+      "type": {
+        "id": "8",
+        "text": "Penalty",
+        "abbreviation": "PEN"
+      },
+      "text": "(Shotgun) M.Penix pass short left to K.Pitts to ATL 19 for 15 yards (J.Battle).PENALTY on ATL-J.Dotson, Illegal Shift, 2 yards, enforced at ATL 4 - No Play.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "8:29"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:09:39Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383531/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383531/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": true,
+      "statYardage": 15,
+      "start": {
+        "down": 3,
+        "distance": 13,
+        "yardLine": 4,
+        "yardsToEndzone": 96,
+        "downDistanceText": "3rd & 13 at ATL 4",
+        "shortDownDistanceText": "3rd & 13",
+        "possessionText": "ATL 4",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 15,
+        "yardLine": 2,
+        "yardsToEndzone": 98,
+        "downDistanceText": "3rd & 15 at ATL 2",
+        "shortDownDistanceText": "3rd & 15",
+        "possessionText": "ATL 2",
+        "team": {
+          "id": "1"
+        }
+      },
+      "yardsAfterCatch": 5,
+      "penalty": {
+        "yards": 2,
+        "type": {
+          "slug": "illegal-shift",
+          "text": "Illegal Shift"
+        },
+        "status": {
+          "slug": "accepted",
+          "text": "Accepted"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383567",
+      "sequenceNumber": "356700",
+      "type": {
+        "id": "3",
+        "text": "Pass Incompletion"
+      },
+      "text": "(Shotgun) M.Penix pass incomplete short left to K.Herbert.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "8:00"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:10:40Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383567/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383567/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 3,
+        "distance": 15,
+        "yardLine": 2,
+        "yardsToEndzone": 98,
+        "downDistanceText": "3rd & 15 at ATL 2",
+        "shortDownDistanceText": "3rd & 15",
+        "possessionText": "ATL 2",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 4,
+        "distance": 15,
+        "yardLine": 2,
+        "yardsToEndzone": 98,
+        "downDistanceText": "4th & 15 at ATL 2",
+        "shortDownDistanceText": "4th & 15",
+        "possessionText": "ATL 2",
+        "team": {
+          "id": "1"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383590",
+      "sequenceNumber": "359000",
+      "type": {
+        "id": "52",
+        "text": "Punt",
+        "abbreviation": "PUNT"
+      },
+      "text": "J.Bailey punts 46 yards to ATL 48, Center-L.McCullough, fair catch by D.Meyers.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "7:57"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:11:12Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383590/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383590/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "defense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383590/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383590/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "offense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 4,
+        "distance": 15,
+        "yardLine": 2,
+        "yardsToEndzone": 2,
+        "downDistanceText": "4th & 15 at ATL 2",
+        "shortDownDistanceText": "4th & 15",
+        "possessionText": "ATL 2",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 48,
+        "yardsToEndzone": 48,
+        "downDistanceText": "1st & 10 at ATL 48",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 48",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383605",
+      "sequenceNumber": "360500",
+      "type": {
+        "id": "74",
+        "text": "Official Timeout",
+        "abbreviation": "Off TO"
+      },
+      "text": "Official Timeout at 07:51.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "7:51"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:11:36Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 48,
+        "yardsToEndzone": 0,
+        "downDistanceText": "1st & 10 at ATL 48",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 48",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 48,
+        "yardsToEndzone": 48,
+        "downDistanceText": "1st & 10 at ATL 48",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 48",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383619",
+      "sequenceNumber": "361900",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "S.Perine up the middle to ATL 40 for 8 yards (J.Bates).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "7:51"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:14:23Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383619/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383619/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383619/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383619/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 8,
+      "start": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 48,
+        "yardsToEndzone": 48,
+        "downDistanceText": "1st & 10 at ATL 48",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 48",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 2,
+        "yardLine": 40,
+        "yardsToEndzone": 40,
+        "downDistanceText": "2nd & 2 at ATL 40",
+        "shortDownDistanceText": "2nd & 2",
+        "possessionText": "ATL 40",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383648",
+      "sequenceNumber": "364800",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "S.Perine left tackle to ATL 41 for -1 yards (B.Dorlus).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "7:06"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:15:08Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383648/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383648/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383648/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383648/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": -1,
+      "start": {
+        "down": 2,
+        "distance": 2,
+        "yardLine": 40,
+        "yardsToEndzone": 40,
+        "downDistanceText": "2nd & 2 at ATL 40",
+        "shortDownDistanceText": "2nd & 2",
+        "possessionText": "ATL 40",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 3,
+        "yardLine": 41,
+        "yardsToEndzone": 41,
+        "downDistanceText": "3rd & 3 at ATL 41",
+        "shortDownDistanceText": "3rd & 3",
+        "possessionText": "ATL 41",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383670",
+      "sequenceNumber": "367000",
+      "type": {
+        "id": "24",
+        "text": "Pass Reception",
+        "abbreviation": "REC"
+      },
+      "text": "(Shotgun) J.Burrow pass short left to J.Chase to ATL 30 for 11 yards (J.Bates).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "6:22"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:15:52Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383670/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383670/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383670/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383670/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 11,
+      "start": {
+        "down": 3,
+        "distance": 3,
+        "yardLine": 41,
+        "yardsToEndzone": 41,
+        "downDistanceText": "3rd & 3 at ATL 41",
+        "shortDownDistanceText": "3rd & 3",
+        "possessionText": "ATL 41",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 30,
+        "yardsToEndzone": 30,
+        "downDistanceText": "1st & 10 at ATL 30",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 30",
+        "team": {
+          "id": "4"
+        }
+      },
+      "yardsAfterCatch": 7,
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383695",
+      "sequenceNumber": "369500",
+      "type": {
+        "id": "7",
+        "text": "Sack"
+      },
+      "text": "(Shotgun) J.Burrow sacked at ATL 30 for 0 yards (Z.Harrison).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "5:36"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:16:38Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383695/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383695/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383695/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383695/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 30,
+        "yardsToEndzone": 30,
+        "downDistanceText": "1st & 10 at ATL 30",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 30",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 10,
+        "yardLine": 30,
+        "yardsToEndzone": 30,
+        "downDistanceText": "2nd & 10 at ATL 30",
+        "shortDownDistanceText": "2nd & 10",
+        "possessionText": "ATL 30",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383724",
+      "sequenceNumber": "372400",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "(Shotgun) S.Perine up the middle to ATL 31 for -1 yards (H.Perkins, Z.Smith).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "4:50"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:17:24Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383724/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383724/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383724/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383724/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": -1,
+      "start": {
+        "down": 2,
+        "distance": 10,
+        "yardLine": 30,
+        "yardsToEndzone": 30,
+        "downDistanceText": "2nd & 10 at ATL 30",
+        "shortDownDistanceText": "2nd & 10",
+        "possessionText": "ATL 30",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 11,
+        "yardLine": 31,
+        "yardsToEndzone": 31,
+        "downDistanceText": "3rd & 11 at ATL 31",
+        "shortDownDistanceText": "3rd & 11",
+        "possessionText": "ATL 31",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383735",
+      "sequenceNumber": "373500",
+      "type": {
+        "id": "21",
+        "text": "Timeout",
+        "abbreviation": "TO"
+      },
+      "text": "Timeout #1 by ATL at 04:46.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "4:46"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:17:47Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "order": 2,
+          "type": "defense",
+          "timeout": true
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 3,
+        "distance": 11,
+        "yardLine": 31,
+        "yardsToEndzone": 0,
+        "downDistanceText": "3rd & 11 at ATL 31",
+        "shortDownDistanceText": "3rd & 11",
+        "possessionText": "ATL 31",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 11,
+        "yardLine": 31,
+        "yardsToEndzone": 31,
+        "downDistanceText": "3rd & 11 at ATL 31",
+        "shortDownDistanceText": "3rd & 11",
+        "possessionText": "ATL 31",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383746",
+      "sequenceNumber": "374600",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "(Shotgun) S.Perine up the middle to ATL 25 for 6 yards (Z.Smith).",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "4:46"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:18:39Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383746/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383746/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383746/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383746/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 6,
+      "start": {
+        "down": 3,
+        "distance": 11,
+        "yardLine": 31,
+        "yardsToEndzone": 31,
+        "downDistanceText": "3rd & 11 at ATL 31",
+        "shortDownDistanceText": "3rd & 11",
+        "possessionText": "ATL 31",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 4,
+        "distance": 5,
+        "yardLine": 25,
+        "yardsToEndzone": 25,
+        "downDistanceText": "4th & 5 at ATL 25",
+        "shortDownDistanceText": "4th & 5",
+        "possessionText": "ATL 25",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383761",
+      "sequenceNumber": "376100",
+      "type": {
+        "id": "21",
+        "text": "Timeout",
+        "abbreviation": "TO"
+      },
+      "text": "Timeout #2 by ATL at 04:41.",
+      "awayScore": 31,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "4:41"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:18:54Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "order": 2,
+          "type": "defense",
+          "timeout": true
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 4,
+        "distance": 5,
+        "yardLine": 25,
+        "yardsToEndzone": 0,
+        "downDistanceText": "4th & 5 at ATL 25",
+        "shortDownDistanceText": "4th & 5",
+        "possessionText": "ATL 25",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 4,
+        "distance": 5,
+        "yardLine": 25,
+        "yardsToEndzone": 25,
+        "downDistanceText": "4th & 5 at ATL 25",
+        "shortDownDistanceText": "4th & 5",
+        "possessionText": "ATL 25",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383775",
+      "sequenceNumber": "377500",
+      "type": {
+        "id": "59",
+        "text": "Field Goal Good",
+        "abbreviation": "FG"
+      },
+      "text": " E.McPherson 43 yard field goal is GOOD, Center-W.Wagner, Holder-R.Rehkow.",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "4:36"
+      },
+      "scoringPlay": true,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:19:47Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383775/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383775/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383775/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383775/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 43,
+      "start": {
+        "down": 4,
+        "distance": 5,
+        "yardLine": 25,
+        "yardsToEndzone": 25,
+        "downDistanceText": "4th & 5 at ATL 25",
+        "shortDownDistanceText": "4th & 5",
+        "possessionText": "ATL 25",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": -1,
+        "distance": 10,
+        "yardLine": 0,
+        "yardsToEndzone": 0,
+        "team": {
+          "id": "4"
+        }
+      },
+      "scoringType": {
+        "name": "field-goal",
+        "displayName": "Field Goal",
+        "abbreviation": "FG"
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383802",
+      "sequenceNumber": "380200",
+      "type": {
+        "id": "53",
+        "text": "Kickoff",
+        "abbreviation": "K"
+      },
+      "text": "E.McPherson kicks 56 yards from CIN 35 to ATL 9. K.Herbert to ATL 31 for 22 yards (C.Johnson; R.Yeast).",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "4:36"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:21:14Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383802/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383802/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383802/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383802/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 22,
+      "start": {
+        "down": 0,
+        "distance": 0,
+        "yardLine": 65,
+        "yardsToEndzone": 65,
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 31,
+        "yardsToEndzone": 69,
+        "downDistanceText": "1st & 10 at ATL 31",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 31",
+        "team": {
+          "id": "1"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383825",
+      "sequenceNumber": "382500",
+      "type": {
+        "id": "24",
+        "text": "Pass Reception",
+        "abbreviation": "REC"
+      },
+      "text": "(Shotgun) M.Penix pass short middle to K.Pitts to ATL 40 for 9 yards (J.Newton).",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "4:30"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:21:59Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383825/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383825/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383825/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383825/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 9,
+      "start": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 31,
+        "yardsToEndzone": 69,
+        "downDistanceText": "1st & 10 at ATL 31",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 31",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 1,
+        "yardLine": 40,
+        "yardsToEndzone": 60,
+        "downDistanceText": "2nd & 1 at ATL 40",
+        "shortDownDistanceText": "2nd & 1",
+        "possessionText": "ATL 40",
+        "team": {
+          "id": "1"
+        }
+      },
+      "yardsAfterCatch": 8,
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383850",
+      "sequenceNumber": "385000",
+      "type": {
+        "id": "26",
+        "text": "Pass Interception Return",
+        "abbreviation": "INTR"
+      },
+      "text": "(No Huddle, Shotgun) M.Penix pass short middle intended for B.Robinson INTERCEPTED by B.Carter at ATL 43. B.Carter to ATL 37 for 6 yards (R.Neuzil).",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "4:06"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:22:22Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383850/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383850/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "defense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383850/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383850/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "offense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 6,
+      "start": {
+        "down": 2,
+        "distance": 1,
+        "yardLine": 40,
+        "yardsToEndzone": 60,
+        "downDistanceText": "2nd & 1 at ATL 40",
+        "shortDownDistanceText": "2nd & 1",
+        "possessionText": "ATL 40",
+        "team": {
+          "id": "1"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 37,
+        "yardsToEndzone": 37,
+        "downDistanceText": "1st & 10 at ATL 37",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 37",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": true
+    },
+    {
+      "id": "4018730383877",
+      "sequenceNumber": "387700",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "C.Brown up the middle to ATL 35 for 2 yards (C.Thomas).",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "3:59"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:23:26Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383877/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383877/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383877/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383877/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 2,
+      "start": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 37,
+        "yardsToEndzone": 37,
+        "downDistanceText": "1st & 10 at ATL 37",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 37",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 8,
+        "yardLine": 35,
+        "yardsToEndzone": 35,
+        "downDistanceText": "2nd & 8 at ATL 35",
+        "shortDownDistanceText": "2nd & 8",
+        "possessionText": "ATL 35",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383893",
+      "sequenceNumber": "389300",
+      "type": {
+        "id": "21",
+        "text": "Timeout",
+        "abbreviation": "TO"
+      },
+      "text": "Timeout #3 by ATL at 03:55.",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "3:55"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:23:52Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "order": 2,
+          "type": "defense",
+          "timeout": true
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 2,
+        "distance": 8,
+        "yardLine": 35,
+        "yardsToEndzone": 0,
+        "downDistanceText": "2nd & 8 at ATL 35",
+        "shortDownDistanceText": "2nd & 8",
+        "possessionText": "ATL 35",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 8,
+        "yardLine": 35,
+        "yardsToEndzone": 35,
+        "downDistanceText": "2nd & 8 at ATL 35",
+        "shortDownDistanceText": "2nd & 8",
+        "possessionText": "ATL 35",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383908",
+      "sequenceNumber": "390800",
+      "type": {
+        "id": "8",
+        "text": "Penalty",
+        "abbreviation": "PEN"
+      },
+      "text": "J.Bayer reported in as eligible.  PENALTY on ATL-C.Thomas, Neutral Zone Infraction, 5 yards, enforced at ATL 35 - No Play.",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "3:55"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:24:36Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383908/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383908/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": true,
+      "statYardage": 5,
+      "start": {
+        "down": 2,
+        "distance": 8,
+        "yardLine": 35,
+        "yardsToEndzone": 35,
+        "downDistanceText": "2nd & 8 at ATL 35",
+        "shortDownDistanceText": "2nd & 8",
+        "possessionText": "ATL 35",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 3,
+        "yardLine": 30,
+        "yardsToEndzone": 30,
+        "downDistanceText": "2nd & 3 at ATL 30",
+        "shortDownDistanceText": "2nd & 3",
+        "possessionText": "ATL 30",
+        "team": {
+          "id": "4"
+        }
+      },
+      "penalty": {
+        "yards": 5,
+        "type": {
+          "slug": "neutral-zone-infraction",
+          "text": "Neutral Zone Infraction"
+        },
+        "status": {
+          "slug": "accepted",
+          "text": "Accepted"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383941",
+      "sequenceNumber": "394100",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "C.Brown left end to ATL 30 for no gain (D.Hellams; C.Thomas).",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "3:55"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:25:20Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383941/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383941/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383941/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383941/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 2,
+        "distance": 3,
+        "yardLine": 30,
+        "yardsToEndzone": 30,
+        "downDistanceText": "2nd & 3 at ATL 30",
+        "shortDownDistanceText": "2nd & 3",
+        "possessionText": "ATL 30",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 3,
+        "yardLine": 30,
+        "yardsToEndzone": 30,
+        "downDistanceText": "3rd & 3 at ATL 30",
+        "shortDownDistanceText": "3rd & 3",
+        "possessionText": "ATL 30",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383952",
+      "sequenceNumber": "395200",
+      "type": {
+        "id": "21",
+        "text": "Timeout",
+        "abbreviation": "TO"
+      },
+      "text": "Timeout #2 by CIN at 03:06.",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "3:06"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:26:13Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "offense",
+          "timeout": true
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 3,
+        "distance": 3,
+        "yardLine": 30,
+        "yardsToEndzone": 0,
+        "downDistanceText": "3rd & 3 at ATL 30",
+        "shortDownDistanceText": "3rd & 3",
+        "possessionText": "ATL 30",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 3,
+        "distance": 3,
+        "yardLine": 30,
+        "yardsToEndzone": 30,
+        "downDistanceText": "3rd & 3 at ATL 30",
+        "shortDownDistanceText": "3rd & 3",
+        "possessionText": "ATL 30",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383963",
+      "sequenceNumber": "396300",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "(Shotgun) S.Perine up the middle to ATL 26 for 4 yards (X.Watts).",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "3:06"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:26:59Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383963/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383963/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383963/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383963/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 4,
+      "start": {
+        "down": 3,
+        "distance": 3,
+        "yardLine": 30,
+        "yardsToEndzone": 30,
+        "downDistanceText": "3rd & 3 at ATL 30",
+        "shortDownDistanceText": "3rd & 3",
+        "possessionText": "ATL 30",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 26,
+        "yardsToEndzone": 26,
+        "downDistanceText": "1st & 10 at ATL 26",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 26",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730383992",
+      "sequenceNumber": "399200",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "S.Perine right guard to ATL 22 for 4 yards (D.Hellams; C.Snowden).",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "2:20"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:27:45Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383992/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383992/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383992/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730383992/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 4,
+      "start": {
+        "down": 1,
+        "distance": 10,
+        "yardLine": 26,
+        "yardsToEndzone": 26,
+        "downDistanceText": "1st & 10 at ATL 26",
+        "shortDownDistanceText": "1st & 10",
+        "possessionText": "ATL 26",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 6,
+        "yardLine": 22,
+        "yardsToEndzone": 22,
+        "downDistanceText": "2nd & 6 at ATL 22",
+        "shortDownDistanceText": "2nd & 6",
+        "possessionText": "ATL 22",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730384003",
+      "sequenceNumber": "400300",
+      "type": {
+        "id": "75",
+        "text": "Two-minute warning",
+        "abbreviation": "2Min Warn"
+      },
+      "text": "Two-Minute Warning",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "2:00"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:28:07Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 2,
+        "distance": 6,
+        "yardLine": 22,
+        "yardsToEndzone": 0,
+        "downDistanceText": "2nd & 6 at ATL 22",
+        "shortDownDistanceText": "2nd & 6",
+        "possessionText": "ATL 22",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 6,
+        "yardLine": 22,
+        "yardsToEndzone": 22,
+        "downDistanceText": "2nd & 6 at ATL 22",
+        "shortDownDistanceText": "2nd & 6",
+        "possessionText": "ATL 22",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730384014",
+      "sequenceNumber": "401400",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "S.Perine right guard to ATL 8 for 14 yards (J.Bates; C.Henderson). ATL-D.Deablo was injured during the play.",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "2:00"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:32:02Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730384014/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730384014/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730384014/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730384014/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 14,
+      "start": {
+        "down": 2,
+        "distance": 6,
+        "yardLine": 22,
+        "yardsToEndzone": 22,
+        "downDistanceText": "2nd & 6 at ATL 22",
+        "shortDownDistanceText": "2nd & 6",
+        "possessionText": "ATL 22",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 8,
+        "yardLine": 8,
+        "yardsToEndzone": 8,
+        "downDistanceText": "1st & Goal at ATL 8",
+        "shortDownDistanceText": "1st & Goal",
+        "possessionText": "ATL 8",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730384033",
+      "sequenceNumber": "403300",
+      "type": {
+        "id": "21",
+        "text": "Timeout",
+        "abbreviation": "TO"
+      },
+      "text": "Timeout #4 by ATL at 01:19.",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "1:19"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:33:14Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "order": 2,
+          "type": "defense",
+          "timeout": true
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 1,
+        "distance": 8,
+        "yardLine": 8,
+        "yardsToEndzone": 0,
+        "downDistanceText": "1st & 8 at ATL 8",
+        "shortDownDistanceText": "1st & 8",
+        "possessionText": "ATL 8",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 1,
+        "distance": 8,
+        "yardLine": 8,
+        "yardsToEndzone": 8,
+        "downDistanceText": "1st & Goal at ATL 8",
+        "shortDownDistanceText": "1st & Goal",
+        "possessionText": "ATL 8",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730384052",
+      "sequenceNumber": "405200",
+      "type": {
+        "id": "5",
+        "text": "Rush",
+        "abbreviation": "RUSH"
+      },
+      "text": "J.Burrow kneels to ATL 9 for -1 yards.",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "0:39"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:34:14Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730384052/teams/4/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730384052/teams/4/statistics/0?lang=en&region=us"
+          },
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "statistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730384052/teams/1/statistics/1?lang=en&region=us"
+          },
+          "playStatistics": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/events/401873038/competitions/401873038/plays/4018730384052/teams/1/statistics/0?lang=en&region=us"
+          },
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": -1,
+      "start": {
+        "down": 1,
+        "distance": 8,
+        "yardLine": 8,
+        "yardsToEndzone": 8,
+        "downDistanceText": "1st & Goal at ATL 8",
+        "shortDownDistanceText": "1st & Goal",
+        "possessionText": "ATL 8",
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 2,
+        "distance": 9,
+        "yardLine": 9,
+        "yardsToEndzone": 9,
+        "downDistanceText": "2nd & Goal at ATL 9",
+        "shortDownDistanceText": "2nd & Goal",
+        "possessionText": "ATL 9",
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
+    },
+    {
+      "id": "4018730384090",
+      "sequenceNumber": "409000",
+      "type": {
+        "id": "66",
+        "text": "End of Game",
+        "abbreviation": "EG"
+      },
+      "text": "END GAME",
+      "awayScore": 34,
+      "homeScore": 17,
+      "period": {
+        "number": 4
+      },
+      "clock": {
+        "displayValue": "0:00"
+      },
+      "scoringPlay": false,
+      "priority": false,
+      "modified": "2026-11-08T17:46Z",
+      "wallclock": "2026-11-08T17:34:14Z",
+      "teamParticipants": [
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/4?lang=en&region=us"
+          },
+          "id": "4",
+          "order": 1,
+          "type": "offense"
+        },
+        {
+          "team": {
+            "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+          },
+          "id": "1",
+          "order": 2,
+          "type": "defense"
+        }
+      ],
+      "isPenalty": false,
+      "statYardage": 0,
+      "start": {
+        "down": 0,
+        "distance": 0,
+        "yardLine": 9,
+        "yardsToEndzone": 0,
+        "team": {
+          "id": "4"
+        }
+      },
+      "end": {
+        "down": 0,
+        "distance": 9,
+        "yardLine": 9,
+        "yardsToEndzone": 9,
+        "team": {
+          "id": "4"
+        }
+      },
+      "isTurnover": false
     }
   ],
   "live_odds": {
     "status": "UNAVAILABLE: ODDS_API_KEY not present in this run environment"
   },
-  "model_score_summary": {},
+  "projection_evaluation": [
+    {
+      "player": "Joe Burrow",
+      "team": "CIN",
+      "market_key": "player_pass_yds",
+      "line": 278.5,
+      "actual": 271,
+      "outcome": "under",
+      "usage_note": "24/29 completions, 271 pass yards (9.3 yards/attempt)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "302.476",
+          "p_over": "0.57202",
+          "p_under": "0.42798",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "330.503",
+          "p_over": "0.79699",
+          "p_under": "0.20301",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "334.974",
+          "p_over": "0.79991",
+          "p_under": "0.20009",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Joe Burrow",
+      "team": "CIN",
+      "market_key": "player_pass_tds",
+      "line": 2.5,
+      "actual": 3,
+      "outcome": "over",
+      "usage_note": "24/29 completions, 271 pass yards (9.3 yards/attempt)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "2.853",
+          "p_over": "0.56875",
+          "p_under": "0.43125",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "3.401",
+          "p_over": "0.80062",
+          "p_under": "0.19938",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "3.398",
+          "p_over": "0.79999",
+          "p_under": "0.20001",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Joe Burrow",
+      "team": "CIN",
+      "market_key": "player_rush_yds",
+      "line": 8.5,
+      "actual": 7,
+      "outcome": "under",
+      "usage_note": "3 carries, 7 rush yards (2.3 yards/carry)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "9.988",
+          "p_over": "0.71385",
+          "p_under": "0.28615",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "10.207",
+          "p_over": "0.80031",
+          "p_under": "0.19969",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "10.198",
+          "p_over": "0.80014",
+          "p_under": "0.19986",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Michael Penix Jr.",
+      "team": "ATL",
+      "market_key": "player_pass_yds",
+      "line": 224.5,
+      "actual": 162,
+      "outcome": "under",
+      "usage_note": "20/31 completions, 162 pass yards (5.2 yards/attempt)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "213.748",
+          "p_over": "0.49986",
+          "p_under": "0.50014",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "205.147",
+          "p_over": "0.39949",
+          "p_under": "0.60051",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "218.139",
+          "p_over": "0.80094",
+          "p_under": "0.19906",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Michael Penix Jr.",
+      "team": "ATL",
+      "market_key": "player_pass_tds",
+      "line": 1.5,
+      "actual": 1,
+      "outcome": "under",
+      "usage_note": "20/31 completions, 162 pass yards (5.2 yards/attempt)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "1.503",
+          "p_over": "0.33432",
+          "p_under": "0.66568",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "1.602",
+          "p_over": "0.40128",
+          "p_under": "0.59872",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "1.597",
+          "p_over": "0.39867",
+          "p_under": "0.60133",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Michael Penix Jr.",
+      "team": "ATL",
+      "market_key": "player_rush_yds",
+      "line": 4.5,
+      "actual": 50,
+      "outcome": "over",
+      "usage_note": "3 carries, 50 rush yards (16.7 yards/carry)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "2.514",
+          "p_over": "0.33424",
+          "p_under": "0.66576",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "3.376",
+          "p_over": "0.39672",
+          "p_under": "0.60328",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "3.407",
+          "p_over": "0.40048",
+          "p_under": "0.59952",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Ja'Marr Chase",
+      "team": "CIN",
+      "market_key": "player_reception_yds",
+      "line": 76.5,
+      "actual": 155,
+      "outcome": "over",
+      "usage_note": "10/12 targets caught for 155 receiving yards (15.5 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "69.783",
+          "p_over": "0.42467",
+          "p_under": "0.57533",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "81.038",
+          "p_over": "0.6011",
+          "p_under": "0.3989",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "81.272",
+          "p_over": "0.59797",
+          "p_under": "0.40203",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Ja'Marr Chase",
+      "team": "CIN",
+      "market_key": "player_receptions",
+      "line": 6.5,
+      "actual": 10,
+      "outcome": "over",
+      "usage_note": "10/12 targets caught for 155 receiving yards (15.5 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "6.157",
+          "p_over": "0.4305",
+          "p_under": "0.5695",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "6.815",
+          "p_over": "0.40207",
+          "p_under": "0.59793",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "7.595",
+          "p_over": "0.59919",
+          "p_under": "0.40081",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Tee Higgins",
+      "team": "CIN",
+      "market_key": "player_reception_yds",
+      "line": 76.5,
+      "actual": 32,
+      "outcome": "under",
+      "usage_note": "5/6 targets caught for 32 receiving yards (6.4 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "103.829",
+          "p_over": "0.71597",
+          "p_under": "0.28403",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "114.187",
+          "p_over": "0.79779",
+          "p_under": "0.20221",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "115.429",
+          "p_over": "0.80206",
+          "p_under": "0.19794",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Tee Higgins",
+      "team": "CIN",
+      "market_key": "player_receptions",
+      "line": 5.5,
+      "actual": 5,
+      "outcome": "under",
+      "usage_note": "5/6 targets caught for 32 receiving yards (6.4 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "6.146",
+          "p_over": "0.57082",
+          "p_under": "0.42918",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "7.015",
+          "p_over": "0.80131",
+          "p_under": "0.19869",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "7.798",
+          "p_over": "0.79966",
+          "p_under": "0.20034",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Dohnte Meyers",
+      "team": "CIN",
+      "market_key": "player_reception_yds",
+      "line": 17.5,
+      "actual": 47,
+      "outcome": "over",
+      "usage_note": "2/3 targets caught for 47 receiving yards (23.5 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "25.082",
+          "p_over": "0.57302",
+          "p_under": "0.42698",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "31.304",
+          "p_over": "0.5975",
+          "p_under": "0.4025",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "31.561",
+          "p_over": "0.60076",
+          "p_under": "0.39924",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Dohnte Meyers",
+      "team": "CIN",
+      "market_key": "player_receptions",
+      "line": 1.5,
+      "actual": 2,
+      "outcome": "over",
+      "usage_note": "2/3 targets caught for 47 receiving yards (23.5 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "2.286",
+          "p_over": "0.5707",
+          "p_under": "0.4293",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "3.003",
+          "p_over": "0.79962",
+          "p_under": "0.20038",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "3.204",
+          "p_over": "0.79927",
+          "p_under": "0.20073",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Drake London",
+      "team": "ATL",
+      "market_key": "player_reception_yds",
+      "line": 77.5,
+      "actual": 68,
+      "outcome": "under",
+      "usage_note": "5/5 targets caught for 68 receiving yards (13.6 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "77.736",
+          "p_over": "0.37326",
+          "p_under": "0.62674",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "69.924",
+          "p_over": "0.39879",
+          "p_under": "0.60121",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "72.189",
+          "p_over": "0.40174",
+          "p_under": "0.59826",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Drake London",
+      "team": "ATL",
+      "market_key": "player_receptions",
+      "line": 5.5,
+      "actual": 5,
+      "outcome": "under",
+      "usage_note": "5/5 targets caught for 68 receiving yards (13.6 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "4.883",
+          "p_over": "0.37728",
+          "p_under": "0.62272",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "4.798",
+          "p_over": "0.40083",
+          "p_under": "0.59917",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "4.805",
+          "p_over": "0.39997",
+          "p_under": "0.60003",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Jahan Dotson",
+      "team": "ATL",
+      "market_key": "player_reception_yds",
+      "line": 27.5,
+      "actual": 16,
+      "outcome": "under",
+      "usage_note": "2/2 targets caught for 16 receiving yards (8.0 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "42.115",
+          "p_over": "0.50021",
+          "p_under": "0.49979",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "59.327",
+          "p_over": "0.80182",
+          "p_under": "0.19818",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "61.239",
+          "p_over": "0.80039",
+          "p_under": "0.19961",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Jahan Dotson",
+      "team": "ATL",
+      "market_key": "player_receptions",
+      "line": 1.5,
+      "actual": 2,
+      "outcome": "over",
+      "usage_note": "2/2 targets caught for 16 receiving yards (8.0 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "1.751",
+          "p_over": "0.62545",
+          "p_under": "0.37455",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "1.997",
+          "p_over": "0.79785",
+          "p_under": "0.20215",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "1.998",
+          "p_over": "0.79839",
+          "p_under": "0.20161",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Olamide Zaccheaus",
+      "team": "ATL",
+      "market_key": "player_reception_yds",
+      "line": 9.5,
+      "actual": 5,
+      "outcome": "under",
+      "usage_note": "1/3 targets caught for 5 receiving yards (5.0 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "3.519",
+          "p_over": "0.0",
+          "p_under": "1.0",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "3.213",
+          "p_over": "0.0",
+          "p_under": "1.0",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "3.192",
+          "p_over": "0.0",
+          "p_under": "1.0",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Olamide Zaccheaus",
+      "team": "ATL",
+      "market_key": "player_receptions",
+      "line": 1.5,
+      "actual": 1,
+      "outcome": "under",
+      "usage_note": "1/3 targets caught for 5 receiving yards (5.0 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "0.833",
+          "p_over": "0.16627",
+          "p_under": "0.83373",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "0.801",
+          "p_over": "0.20095",
+          "p_under": "0.79905",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "0.8",
+          "p_over": "0.19998",
+          "p_under": "0.80002",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Mike Gesicki",
+      "team": "CIN",
+      "market_key": "player_reception_yds",
+      "line": 27.5,
+      "actual": 11,
+      "outcome": "under",
+      "usage_note": "2/2 targets caught for 11 receiving yards (5.5 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "40.13",
+          "p_over": "0.66715",
+          "p_under": "0.33285",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "32.656",
+          "p_over": "0.60051",
+          "p_under": "0.39949",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "32.675",
+          "p_over": "0.60082",
+          "p_under": "0.39918",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Mike Gesicki",
+      "team": "CIN",
+      "market_key": "player_receptions",
+      "line": 2.5,
+      "actual": 2,
+      "outcome": "under",
+      "usage_note": "2/2 targets caught for 11 receiving yards (5.5 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "2.827",
+          "p_over": "0.6661",
+          "p_under": "0.3339",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "2.404",
+          "p_over": "0.60142",
+          "p_under": "0.39858",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "2.397",
+          "p_over": "0.59887",
+          "p_under": "0.40113",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Chase Brown",
+      "team": "CIN",
+      "market_key": "player_rush_yds",
+      "line": 49.5,
+      "actual": 57,
+      "outcome": "over",
+      "usage_note": "9 carries, 57 rush yards (6.3 yards/carry)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "48.505",
+          "p_over": "0.56866",
+          "p_under": "0.43134",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "40.708",
+          "p_over": "0.39662",
+          "p_under": "0.60338",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "41.181",
+          "p_over": "0.39893",
+          "p_under": "0.60107",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Chase Brown",
+      "team": "CIN",
+      "market_key": "player_reception_yds",
+      "line": 23.5,
+      "actual": 18,
+      "outcome": "under",
+      "usage_note": "3/3 targets caught for 18 receiving yards (6.0 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "26.877",
+          "p_over": "0.28337",
+          "p_under": "0.71663",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "33.051",
+          "p_over": "0.40081",
+          "p_under": "0.59919",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "32.911",
+          "p_over": "0.39855",
+          "p_under": "0.60145",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Chase Brown",
+      "team": "CIN",
+      "market_key": "player_receptions",
+      "line": 4.5,
+      "actual": 3,
+      "outcome": "under",
+      "usage_note": "3/3 targets caught for 18 receiving yards (6.0 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "5.125",
+          "p_over": "0.42654",
+          "p_under": "0.57346",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "5.595",
+          "p_over": "0.39857",
+          "p_under": "0.60143",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "6.009",
+          "p_over": "0.40172",
+          "p_under": "0.59828",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Samaje Perine",
+      "team": "CIN",
+      "market_key": "player_rush_yds",
+      "line": 17.5,
+      "actual": 43,
+      "outcome": "over",
+      "usage_note": "11 carries, 43 rush yards (3.9 yards/carry)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "19.414",
+          "p_over": "0.28493",
+          "p_under": "0.71507",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "22.025",
+          "p_over": "0.20042",
+          "p_under": "0.79958",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "22.157",
+          "p_over": "0.19933",
+          "p_under": "0.80067",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Bijan Robinson",
+      "team": "ATL",
+      "market_key": "player_rush_yds",
+      "line": 97.5,
+      "actual": 100,
+      "outcome": "over",
+      "usage_note": "19 carries, 100 rush yards (5.3 yards/carry)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "97.648",
+          "p_over": "0.25114",
+          "p_under": "0.74886",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "86.339",
+          "p_over": "0.20246",
+          "p_under": "0.79754",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "88.659",
+          "p_over": "0.19887",
+          "p_under": "0.80113",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Bijan Robinson",
+      "team": "ATL",
+      "market_key": "player_rush_attempts",
+      "line": 12.5,
+      "actual": 19,
+      "outcome": "over",
+      "usage_note": "19 carries, 100 rush yards (5.3 yards/carry)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "18.742",
+          "p_over": "0.87505",
+          "p_under": "0.12495",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "16.812",
+          "p_over": "0.80095",
+          "p_under": "0.19905",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "17.581",
+          "p_over": "0.79853",
+          "p_under": "0.20147",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Bijan Robinson",
+      "team": "ATL",
+      "market_key": "player_reception_yds",
+      "line": 26.5,
+      "actual": 47,
+      "outcome": "over",
+      "usage_note": "6/7 targets caught for 47 receiving yards (7.8 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "25.478",
+          "p_over": "0.37639",
+          "p_under": "0.62361",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "17.083",
+          "p_over": "0.40124",
+          "p_under": "0.59876",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "17.444",
+          "p_over": "0.39686",
+          "p_under": "0.60314",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    },
+    {
+      "player": "Bijan Robinson",
+      "team": "ATL",
+      "market_key": "player_receptions",
+      "line": 3.5,
+      "actual": 6,
+      "outcome": "over",
+      "usage_note": "6/7 targets caught for 47 receiving yards (7.8 yards/catch)",
+      "models": [
+        {
+          "model": "season_empirical",
+          "mean": "3.144",
+          "p_over": "0.37828",
+          "p_under": "0.62172",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "rolling5_empirical",
+          "mean": "2.395",
+          "p_over": "0.39929",
+          "p_under": "0.60071",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        },
+        {
+          "model": "opponent_shrunk_rolling5",
+          "mean": "2.406",
+          "p_over": "0.39992",
+          "p_under": "0.60008",
+          "status": "RAW_BOOTSTRAP_FREQUENCY_NOT_CALIBRATED; conditional on positive historical opportunity"
+        }
+      ]
+    }
+  ],
+  "model_score_summary": {
+    "season_empirical": {
+      "n": 28,
+      "brier": 0.2710019124,
+      "logloss": 0.7299194562422625
+    },
+    "rolling5_empirical": {
+      "n": 28,
+      "brier": 0.3029110446964286,
+      "logloss": 0.8171025672440874
+    },
+    "opponent_shrunk_rolling5": {
+      "n": 28,
+      "brier": 0.31342088708214294,
+      "logloss": 0.8435098906060767
+    }
+  },
   "quarter_results": [
     {
       "period": "Q1",
@@ -10987,10 +15174,10 @@
     {
       "period": "Q4",
       "home_points": 0,
-      "away_points": 0,
-      "winner": "in_progress",
-      "margin": null,
-      "cumulative_margin": -14
+      "away_points": 3,
+      "winner": "CIN",
+      "margin": -3,
+      "cumulative_margin": -17
     },
     {
       "period": "OT",
