@@ -1,6 +1,6 @@
 # Bengals–Falcons live tracker
 
-**Last update:** 2026-11-08T09:48:26.809859-05:00 ET  |  **State:** In Progress — Q1 9:39
+**Last update:** 2026-11-08T09:49:15.428889-05:00 ET  |  **State:** In Progress — Q1 9:39
 
 **Score:** ATL 7 – CIN 0
 
@@ -74,4 +74,4 @@ Derived from play events; official cumulative box-score totals remain the author
 - Quarter-score cover results require a captured sportsbook spread. Odds rows are saved only when the feed returns them.
 
 
-Raw play-by-play and snapshot: `20261108T144826Z.json`.
+Raw play-by-play and snapshot: `20261108T144915Z.json`.
