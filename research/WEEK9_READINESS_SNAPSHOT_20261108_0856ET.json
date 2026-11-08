@@ -1,0 +1,51 @@
+{
+  "snapshot_id": "NFL_W9_20261108_0856ET",
+  "captured_at_et": "2026-11-08T08:56:36-05:00",
+  "captured_at_utc": "2026-11-08T13:56:36Z",
+  "scope": "13 Sunday games, NFL Week 9",
+  "readiness": {
+    "projection_ready": false,
+    "full_integration_acceptance": false,
+    "calibration_status": "PROSPECTIVE_LOCKED_OUTCOMES_PENDING",
+    "production_status": "RESEARCH_ONLY"
+  },
+  "phases": [
+    {"phase": 1, "name": "slate_schedule_venue", "status": "COMPLETE", "evidence": "NFL.com Week 9 schedule"},
+    {"phase": 2, "name": "player_identity_position", "status": "PARTIAL", "evidence": "current player pool and prop tracker; unresolved joins possible"},
+    {"phase": 3, "name": "verified_player_game_history", "status": "PARTIAL", "evidence": "verified Weeks 1-8 file; zero-opportunity vs inactive unresolved"},
+    {"phase": 4, "name": "role_snaps_routes_opportunity", "status": "PARTIAL", "evidence": "historical market opportunity and role board; incomplete route/snap availability"},
+    {"phase": 5, "name": "team_offense_defense_baselines", "status": "PARTIAL", "evidence": "existing team and defense snapshot; source freshness not uniform"},
+    {"phase": 6, "name": "opponent_context_game_script", "status": "PARTIAL", "evidence": "capped exploratory factors; not independently validated"},
+    {"phase": 7, "name": "coverage_structure_shell", "status": "BLOCKED_QUALITATIVE", "evidence": "full-slate verified coverage chart unavailable"},
+    {"phase": 8, "name": "defender_assignment_explosive_allowance", "status": "BLOCKED_QUALITATIVE", "evidence": "full-slate assignment/exposure unavailable"},
+    {"phase": 9, "name": "qb_pressure_blitz_scramble", "status": "PARTIAL_NOT_IN_CURRENT_SIM", "evidence": "not fully integrated into current slate simulations"},
+    {"phase": 10, "name": "offensive_line_pass_rush_coaching", "status": "PARTIAL", "evidence": "not a complete verified matchup-adjustment layer"},
+    {"phase": 11, "name": "injury_depth_chart", "status": "PARTIAL", "evidence": "NFL.com report checked; later-game inactives not yet released"},
+    {"phase": 12, "name": "weather_roof_travel", "status": "PARTIAL", "evidence": "daily venue-city forecast; kickoff-hour and roof final check pending"},
+    {"phase": 13, "name": "timestamped_book_prices", "status": "PARTIAL", "evidence": "08:23 ET DK/FD refresh for 79 player-market rows; no 09:30 quote"},
+    {"phase": 14, "name": "projection_simulation", "status": "PARTIAL_RESEARCH_ONLY", "evidence": "471 rows; 157 lines times three 100000-draw models; no Bengals-Falcons rows"},
+    {"phase": 15, "name": "final_inactives_pregame_freeze", "status": "PARTIAL_WAITING", "evidence": "Bengals-Falcons posted; remaining games await official release and final freeze"}
+  ],
+  "slate": [
+    {"kickoff_et":"09:30","away":"CIN","home":"ATL","inactive_status":"POSTED","projection_status":"MISSING_9_30_SIM_ROWS","weather_status":"DAILY_FORECAST_ONLY"},
+    {"kickoff_et":"13:00","away":"DEN","home":"CAR","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"DAILY_FORECAST_ONLY"},
+    {"kickoff_et":"13:00","away":"DAL","home":"IND","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"INDOOR_ROOF_STATE_PENDING"},
+    {"kickoff_et":"13:00","away":"NYJ","home":"KC","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"DAILY_FORECAST_ONLY"},
+    {"kickoff_et":"13:00","away":"DET","home":"MIA","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"SHOWER_RISK_DAILY_FORECAST"},
+    {"kickoff_et":"13:00","away":"CLE","home":"NO","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"INDOOR"},
+    {"kickoff_et":"13:00","away":"NYG","home":"PHI","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"DAILY_FORECAST_ONLY"},
+    {"kickoff_et":"13:00","away":"LA","home":"WAS","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"DAILY_FORECAST_ONLY"},
+    {"kickoff_et":"16:05","away":"HOU","home":"LAC","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"FIXED_ROOF"},
+    {"kickoff_et":"16:25","away":"LV","home":"SF","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"DAILY_FORECAST_ONLY"},
+    {"kickoff_et":"16:25","away":"GB","home":"NE","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"DAILY_FORECAST_ONLY"},
+    {"kickoff_et":"16:25","away":"ARI","home":"SEA","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"SHOWERS_BREEZY_DAILY_FORECAST"},
+    {"kickoff_et":"20:20","away":"TB","home":"CHI","inactive_status":"PENDING","projection_status":"SAVED_BOARD_PRESENT","weather_status":"DAILY_FORECAST_ONLY"}
+  ],
+  "projection_artifact": "research/WEEK9_DAY1_MODEL_SIMULATION_20261108.csv",
+  "line_snapshot": "research/WEEK9_DAY1_DK_FD_REFRESH_20261108_0823ET.csv",
+  "overlay_artifact": "research/WEEK9_DAY1_REFRESHED_PROJECTION_OVERLAY_20261108_0823ET.csv",
+  "exact_threshold_rows": 139,
+  "non_exact_threshold_rows": 18,
+  "historical_calibration": "NOT_ESTABLISHED; prior W5-W8 data are development/retrospective and no historical exact prop-line set is available",
+  "prospective_evaluation": "Freeze now; score after official outcomes are verified. Do not mark independently calibrated before multiple untouched slates and review."
+}
