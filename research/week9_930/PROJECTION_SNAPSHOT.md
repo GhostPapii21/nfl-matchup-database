@@ -32,4 +32,4 @@
 
 ## Data/readiness status
 
-The prospective artifact is frozen and reproducible for this game. Results from today’s game are not in the input and cannot be included before kickoff. This run does not establish calibrated hit probabilities. The full list of 31 book-line rows and all three 100,000-draw results is in the CSV. Coverage charting, likely individual matchups, current stadium roof/weather condition, and route/snap forecasts remain unavailable in this package.
+The prospective artifact is frozen and reproducible for this game. Results from today’s game are not in the input and cannot be included before kickoff. This run does not establish calibrated hit probabilities. The full list of 31 player-market rows (61 book quotes) and all three 100,000-draw results is in the CSV. Coverage charting, likely individual matchups, current stadium roof/weather condition, and route/snap forecasts remain unavailable in this package.
