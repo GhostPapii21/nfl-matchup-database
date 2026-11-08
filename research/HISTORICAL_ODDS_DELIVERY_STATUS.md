@@ -1,22 +1,22 @@
 # Historical Odds Delivery Status
 
-**As of:** 2026-11-07 19:16 ET
+**As of:** 2026-11-07 19:18 ET
 
-## Ghost6 Delivery
-- Package: historical_nfl_odds_2026_weeks1_9.zip
-- 264,785 sportsbook observations across 104 games and 12 books, Weeks 3–9.
-- Key files: sportsbook_latest_verified_pregame.csv (104,742 quotes), week9_verified_pregame.csv (9,120 observations).
-- Weeks 1–2: retrospective lines only (no book/timestamp).
-- Quarter/half coverage sparse; unknown-timestamp and after-kickoff rows flagged.
+## Ghost6
+- 264,785 observations, 104 games, 12 books, Weeks 3–9
+- 104,742 verified pregame rows (sportsbook_latest_verified_pregame.csv)
+- 9,120 Week 9 verified pregame rows
+- Header, counts, and coverage notes staged in HISTORICAL_ODDS_GHOST6_HEADER_AND_NOTES.md
 
-## Blitz Delivery
-- Package: NFL_HISTORICAL_ODDS_2026_W1_9_v2.zip
-- 145,489 named-book quotes for Weeks 3–9, including 100,996 verified pregame snapshots.
-- Key file: SCOPED_2026_W1_9_STRICT_PREGAME.csv
-- Also includes bookless consensus lines for 136 games and JAX–BAL line-movement files.
-- No named-book quotes for Weeks 1–2; quarter/half sparse.
+## Blitz
+- 145,489 named-book quotes, Weeks 3–9 (100,996 verified pregame)
+- Bookless consensus for 136 games
+- Coverage CSV (619 rows) + summary/README delivered as attachments
+- Notes staged in HISTORICAL_ODDS_BLITZ_DELIVERY_NOTES.md
 
-## Next
-Extracting key CSVs from both packages for staging into this research branch. Full raw zips remain with the bots pending size/rights check.
+## Gaps (both)
+- Weeks 1–2: no named-book quotes with timestamps
+- Quarter/half markets sparse
+- Some unknown-timestamp / post-kickoff rows flagged separately
 
-Research-only. No new API pulls. Model remains NOT READY.
+Full raw CSVs remain in bot packages pending size-friendly extract. Research-only. Model remains NOT READY.
