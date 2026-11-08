@@ -1,0 +1,360 @@
+{
+  "snapshot_id": "NFL_W9_20261108_1133ET",
+  "captured_at_et": "2026-11-08T11:33:27-05:00",
+  "captured_at_utc": "2026-11-08T16:33:27Z",
+  "scope": "13 remaining Week 9 games: 12 Sunday games after CIN-ATL plus Monday BUF-MIN. Sunday forecast artifacts remain limited to the original 1pm-and-later 12-game simulation scope; no Monday forecast added.",
+  "readiness": {
+    "projection_ready": false,
+    "full_integration_acceptance": false,
+    "calibration_status": "PROSPECTIVE_LOCKED_OUTCOMES_PENDING",
+    "production_status": "RESEARCH_ONLY"
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "name": "slate_schedule_venue",
+      "status": "COMPLETE",
+      "evidence": "NFL.com Week 9 schedule"
+    },
+    {
+      "phase": 2,
+      "name": "player_identity_position",
+      "status": "PARTIAL",
+      "evidence": "current player pool and prop tracker; unresolved joins possible"
+    },
+    {
+      "phase": 3,
+      "name": "verified_player_game_history",
+      "status": "PARTIAL",
+      "evidence": "verified Weeks 1-8 file; zero-opportunity vs inactive unresolved"
+    },
+    {
+      "phase": 4,
+      "name": "role_snaps_routes_opportunity",
+      "status": "PARTIAL",
+      "evidence": "historical market opportunity and role board; incomplete route/snap availability"
+    },
+    {
+      "phase": 5,
+      "name": "team_offense_defense_baselines",
+      "status": "PARTIAL",
+      "evidence": "existing team and defense snapshot; source freshness not uniform"
+    },
+    {
+      "phase": 6,
+      "name": "opponent_context_game_script",
+      "status": "PARTIAL",
+      "evidence": "capped exploratory factors; not independently validated"
+    },
+    {
+      "phase": 7,
+      "name": "coverage_structure_shell",
+      "status": "BLOCKED_QUALITATIVE",
+      "evidence": "full-slate verified coverage chart unavailable"
+    },
+    {
+      "phase": 8,
+      "name": "defender_assignment_explosive_allowance",
+      "status": "BLOCKED_QUALITATIVE",
+      "evidence": "full-slate assignment/exposure unavailable"
+    },
+    {
+      "phase": 9,
+      "name": "qb_pressure_blitz_scramble",
+      "status": "PARTIAL_NOT_IN_CURRENT_SIM",
+      "evidence": "not fully integrated into current slate simulations"
+    },
+    {
+      "phase": 10,
+      "name": "offensive_line_pass_rush_coaching",
+      "status": "PARTIAL",
+      "evidence": "not a complete verified matchup-adjustment layer"
+    },
+    {
+      "phase": 11,
+      "name": "injury_depth_chart",
+      "status": "PARTIAL_FINAL_INACTIVES_PENDING",
+      "evidence": "Official NFL consolidated Week 9 inactives article checked at 11:33 ET; still only displayed CIN-ATL lists. Remaining game-day lists not verified. Weekly injury report remains distinct from final inactives."
+    },
+    {
+      "phase": 12,
+      "name": "weather_roof_travel",
+      "status": "PARTIAL_KICKOFF_WEATHER_REFRESHED",
+      "evidence": "NWS venue-area forecasts and official stadium roof sources rechecked 11:30–11:33 ET; forecasts carry source issuance times shown per game. Colts official game-day page says roof and window open. Late kickoff hourly refresh remains pending; no locked forecast features changed."
+    },
+    {
+      "phase": 13,
+      "name": "timestamped_book_prices",
+      "status": "PARTIAL",
+      "evidence": "08:23 ET DK/FD refresh for 79 player-market rows; no 09:30 quote"
+    },
+    {
+      "phase": 14,
+      "name": "projection_simulation",
+      "status": "PARTIAL_RESEARCH_ONLY",
+      "evidence": "471 rows; 157 lines times three 100000-draw models; no Bengals-Falcons rows"
+    },
+    {
+      "phase": 15,
+      "name": "final_inactives_pregame_freeze",
+      "status": "PARTIAL_WAITING",
+      "evidence": "No final inactive list verified for any remaining game at 11:33 ET. 1 p.m. lists remain pending despite release window arrival; later Sunday lists and Monday BUF-MIN are not yet due. No slate-wide freeze."
+    }
+  ],
+  "slate": [
+    {
+      "kickoff_et": "13:00",
+      "away": "DEN",
+      "home": "CAR",
+      "venue": "Bank of America Stadium",
+      "inactive_status": "PENDING_OFFICIAL_LIST",
+      "inactive_reason": "1 p.m. release window reached; NFL consolidated article still had no team lists at 11:33 ET; no verified team final list located.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "OPEN_AIR_FORECAST",
+      "weather": "Sunny; NWS daily high near 66°F, west-southwest wind 5–7 mph afternoon.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?CityName=Charlotte&lat=35.1975&lon=-80.8345&site=GSP&state=NC",
+      "weather_source_updated_at": "2026-11-08 06:43 ET",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "OUTDOOR_NO_ROOF"
+    },
+    {
+      "kickoff_et": "13:00",
+      "away": "DAL",
+      "home": "IND",
+      "venue": "Lucas Oil Stadium",
+      "inactive_status": "PENDING_OFFICIAL_LIST",
+      "inactive_reason": "1 p.m. release window reached; NFL consolidated article still had no team lists at 11:33 ET; no verified team final list located.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "ROOF_OPEN_OUTDOOR_EXPOSURE",
+      "weather": "Sunny; NWS Indianapolis forecast high near 60°F and light winds. Roof and window confirmed open by Colts game-day page.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?CityName=Indianapolis&lat=39.7764&lon=-86.1462&site=IND&state=IN",
+      "weather_source_updated_at": "2026-11-08 08:45 ET",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "OPEN; window OPEN",
+      "roof_source_url": "https://www.colts.com/game-day/regular-season-game-4",
+      "roof_retrieved_at_et": "2026-11-08T11:30 ET"
+    },
+    {
+      "kickoff_et": "13:00",
+      "away": "NYJ",
+      "home": "KC",
+      "venue": "Arrowhead Stadium",
+      "inactive_status": "PENDING_OFFICIAL_LIST",
+      "inactive_reason": "1 p.m. release window reached; NFL consolidated article still had no team lists at 11:33 ET; no verified team final list located.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "OPEN_AIR_FORECAST",
+      "weather": "Sunny; NWS daily high near 65°F, northwest wind around 6 mph.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?CityName=Kansas+City&lat=39.0904&lon=-94.5837&site=EAX&state=MO",
+      "weather_source_updated_at": "2026-11-08 06:31 CST",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "OUTDOOR_NO_ROOF"
+    },
+    {
+      "kickoff_et": "13:00",
+      "away": "DET",
+      "home": "MIA",
+      "venue": "Hard Rock Stadium",
+      "inactive_status": "PENDING_OFFICIAL_LIST",
+      "inactive_reason": "1 p.m. release window reached; NFL consolidated article still had no team lists at 11:33 ET; no verified team final list located.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "OPEN_AIR_FORECAST",
+      "weather": "NWS hourly point forecast near kickoff: about 82°F, north wind near 6 mph, 3% precipitation potential; mostly sunny.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?FcstType=digital&lat=25.98&lon=-80.2&unit=0",
+      "weather_source_updated_at": "2026-11-08 02:56 ET",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "OUTDOOR_NO_ROOF"
+    },
+    {
+      "kickoff_et": "13:00",
+      "away": "CLE",
+      "home": "NO",
+      "venue": "Caesars Superdome",
+      "inactive_status": "PENDING_OFFICIAL_LIST",
+      "inactive_reason": "1 p.m. release window reached; NFL consolidated article still had no team lists at 11:33 ET; no verified team final list located.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "INDOOR_WEATHER_NOT_APPLIED",
+      "weather": "Outdoor forecast omitted from game conditions because the venue is enclosed.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?lat=29.95&lon=-90.07",
+      "weather_source_updated_at": "2026-11-08 00:57 CST",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "FIXED_INDOOR_DOME",
+      "roof_source_url": "https://www.caesarssuperdome.com/stadium"
+    },
+    {
+      "kickoff_et": "13:00",
+      "away": "NYG",
+      "home": "PHI",
+      "venue": "Lincoln Financial Field",
+      "inactive_status": "PENDING_OFFICIAL_LIST",
+      "inactive_reason": "1 p.m. release window reached; NFL consolidated article still had no team lists at 11:33 ET; no verified team final list located.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "OPEN_AIR_FORECAST",
+      "weather": "Partly sunny; NWS high near 61°F with light-to-moderate west wind.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?FcstType=text&TextType=2&lat=39.9489&lg=english&lon=-75.15&unit=0",
+      "weather_source_updated_at": "2026-11-08 04:07 ET",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "OUTDOOR_NO_ROOF"
+    },
+    {
+      "kickoff_et": "13:00",
+      "away": "LAR",
+      "home": "WAS",
+      "venue": "Northwest Stadium",
+      "inactive_status": "PENDING_OFFICIAL_LIST",
+      "inactive_reason": "1 p.m. release window reached; NFL consolidated article still had no team lists at 11:33 ET; no verified team final list located.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "OPEN_AIR_FORECAST",
+      "weather": "Sunny; NWS high near 63°F, west wind 7–10 mph with gusts up to 22 mph.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?FcstType=digital&FcstType=text&lat=38.9308&lg=english&lon=-76.9074&menu=1",
+      "weather_source_updated_at": "2026-11-08 09:00 ET",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "OUTDOOR_NO_ROOF"
+    },
+    {
+      "kickoff_et": "16:05",
+      "away": "HOU",
+      "home": "LAC",
+      "venue": "SoFi Stadium",
+      "inactive_status": "PENDING_NOT_YET_POSTED",
+      "inactive_reason": "Final inactive window is later; NFL page had no game list at 11:33 ET.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "INDOOR_WEATHER_NOT_APPLIED",
+      "weather": "Outdoor weather excluded from game conditions because fixed roof and climate-controlled environment.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?lat=33.9535&lon=-118.3392",
+      "weather_source_updated_at": "2026-11-08 morning local; forecast page",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "FIXED_ROOF_CLIMATE_CONTROLLED",
+      "roof_source_url": "https://www.sofistadium.com/plan-your-visit/a-z-guide"
+    },
+    {
+      "kickoff_et": "16:25",
+      "away": "LV",
+      "home": "SF",
+      "venue": "Levi's Stadium",
+      "inactive_status": "PENDING_NOT_YET_POSTED",
+      "inactive_reason": "Final inactive window is later; NFL page had no game list at 11:33 ET.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "FORECAST_REFRESH_PENDING_NEAR_KICKOFF",
+      "weather": "NWS day forecast: patchy fog before 9 a.m. local, then partly sunny, high near 74°F, afternoon north-northwest wind around 6 mph. Forecast was issued early; refresh closer to kickoff.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?FcstType=text&TextType=2&lat=37.3524&lg=english&lon=-121.9531&unit=0",
+      "weather_source_updated_at": "2026-11-08 00:26 PST",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "OUTDOOR_NO_ROOF"
+    },
+    {
+      "kickoff_et": "16:25",
+      "away": "GB",
+      "home": "NE",
+      "venue": "Gillette Stadium",
+      "inactive_status": "PENDING_NOT_YET_POSTED",
+      "inactive_reason": "Final inactive window is later; NFL page had no game list at 11:33 ET.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "FORECAST_REFRESH_PENDING_NEAR_KICKOFF",
+      "weather": "NWS day forecast: partly sunny becoming sunny, high near 58°F; west wind 7–11 mph with gust potential to 25 mph in the day. Refresh closer to kickoff.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?FcstType=text&lat=42.0812&lg=english&lon=-71.2434",
+      "weather_source_updated_at": "2026-11-08 01:32 ET",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "OUTDOOR_NO_ROOF"
+    },
+    {
+      "kickoff_et": "16:25",
+      "away": "ARI",
+      "home": "SEA",
+      "venue": "Lumen Field",
+      "inactive_status": "PENDING_NOT_YET_POSTED",
+      "inactive_reason": "Final inactive window is later; NFL page had no game list at 11:33 ET.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "FORECAST_REFRESH_PENDING_NEAR_KICKOFF",
+      "weather": "NWS forecast: mostly cloudy; slight shower chance early afternoon local; south wind 15–25 mph easing to 10–15 mph; mid-to-upper 50s. Refresh closer to kickoff.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?FcstType=text&TextType=1&zoneid=WAZ315",
+      "weather_source_updated_at": "2026-11-08 01:36 PST",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "OUTDOOR_NO_ROOF"
+    },
+    {
+      "kickoff_et": "20:20",
+      "away": "TB",
+      "home": "CHI",
+      "venue": "Soldier Field",
+      "inactive_status": "PENDING_NOT_YET_POSTED",
+      "inactive_reason": "Final inactive window is later; NFL page had no game list at 11:33 ET.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "FORECAST_REFRESH_PENDING_NEAR_KICKOFF",
+      "weather": "NWS day forecast: sunny, high near 59°F; west/southwest wind 10–15 mph with gusts up to 30 mph. Exact evening-hour conditions need a later refresh.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?lat=41.8623&lon=-87.6167",
+      "weather_source_updated_at": "2026-11-08 02:21 CST",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "OUTDOOR_NO_ROOF"
+    },
+    {
+      "kickoff_et": "20:15 Monday",
+      "away": "BUF",
+      "home": "MIN",
+      "venue": "U.S. Bank Stadium",
+      "inactive_status": "PENDING_NOT_YET_DUE",
+      "inactive_reason": "Monday inactive release window is not yet due; no official final lists expected until 90 minutes before kickoff.",
+      "inactive_source_url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "inactive_retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "weather_status": "INDOOR_WEATHER_NOT_APPLIED",
+      "weather": "NWS Monday forecast Minneapolis: cloud cover early then gradual clearing, high near 58°F, south wind 5–10 mph becoming west. Outdoor conditions not applied under fixed roof.",
+      "weather_source_url": "https://forecast.weather.gov/MapClick.php?FcstType=text&TextType=2&lat=44.9801&lg=english&lon=-93.274&unit=0",
+      "weather_source_updated_at": "2026-11-08 05:43 CST",
+      "weather_retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "roof_status": "FIXED_ROOF_CLIMATE_CONTROLLED",
+      "roof_source_url": "https://www.usbankstadium.com/plan-your-visit/a-z-guide"
+    }
+  ],
+  "projection_artifact": "research/WEEK9_DAY1_MODEL_SIMULATION_20261108.csv",
+  "line_snapshot": "research/WEEK9_DAY1_DK_FD_REFRESH_20261108_0823ET.csv",
+  "overlay_artifact": "research/WEEK9_DAY1_REFRESHED_PROJECTION_OVERLAY_20261108_0823ET.csv",
+  "exact_threshold_rows": 139,
+  "non_exact_threshold_rows": 18,
+  "historical_calibration": "NOT_ESTABLISHED; prior W5-W8 data are development/retrospective and no historical exact prop-line set is available",
+  "prospective_evaluation": "Freeze now; score after official outcomes are verified. Do not mark independently calibrated before multiple untouched slates and review.",
+  "source_checks": {
+    "nfl_inactives": {
+      "url": "https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season",
+      "retrieved_at_et": "2026-11-08T11:33:27-05:00",
+      "page_published_at_et": "2026-11-08T08:05:00-05:00",
+      "finding": "CIN-ATL only; no remaining game-day lists displayed"
+    },
+    "nfl_week9_injury_report": {
+      "url": "https://www.nfl.com/news/nfl-week-9-injury-report-2026-season",
+      "retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "finding": "Weekly availability designations are not substituted for final inactive lists"
+    },
+    "nfl_week9_schedule": {
+      "url": "https://www.nfl.com/news/nfl-how-to-watch-week-9-nfl-games-schedule-madrid-game-details-and-more",
+      "retrieved_at_et": "2026-11-08 11:30–11:33 ET",
+      "finding": "Confirmed remaining Sunday slate and Monday BUF-MIN"
+    }
+  },
+  "locked_forecast_inputs": {
+    "lock_id": "NFL_W9_PROSPECTIVE_FREEZE_20261108_0856ET",
+    "lock_path": "research/WEEK9_PROSPECTIVE_EVAL_LOCK_20261108_0856ET.json",
+    "status": "UNCHANGED",
+    "original_snapshot_path": "research/WEEK9_READINESS_SNAPSHOT_20261108_0856ET.json",
+    "original_phase_ledger_path": "research/WEEK9_PHASE_LEDGER_20261108_0856ET.md",
+    "note": "This refresh is additive. It does not modify the frozen simulation, line snapshot, overlay, lock, or locked 08:56 ledger/snapshot. No forecast inputs were changed."
+  },
+  "readiness_audit": {
+    "baseline_validator": "research/validate_week9_readiness.py",
+    "baseline_result": "PASS: 15 phase IDs, frozen artifact hashes, 471 x 100000 simulations, 157 lines, and 139 exact-threshold rows verified.",
+    "fail_closed_result": "PASS: production readiness=false; calibration remains prospective/outcomes pending; Cincinnati-Atlanta 09:30 remains uncovered.",
+    "refreshed_snapshot_structure": "PASS: 15 ordered phases; all readiness gates false/research-only; 13 remaining games represented; each has official inactive and weather source URL plus retrieval time; unavailable inactives and future-hour weather checks remain pending.",
+    "run_at_et": "2026-11-08T11:33:27-05:00"
+  },
+  "refreshed_forecasts": "UNCHANGED — locked pregame probability distributions are preserved; weather/inactive observations are recorded as context only pending deliberate, separately versioned forecast regeneration."
+}
