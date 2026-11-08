@@ -135,6 +135,51 @@ def quarter_scores(header, scoring):
     return result
 
 
+def quarter_results(qscores, teams):
+    if len(teams)<2: return []
+    home=next((t for t in teams if t.get('home_away')=='home'),teams[0])
+    away=next((t for t in teams if t.get('home_away')=='away'),teams[1])
+    h=qscores.get(home['team'],{}); a=qscores.get(away['team'],{})
+    out=[]; cum_h=cum_a=0
+    for q in ('Q1','Q2','Q3','Q4','OT'):
+        hv=num(h.get(q)); av=num(a.get(q))
+        if hv is None or av is None: out.append({'period':q,'home_points':hv,'away_points':av,'winner':'pending','margin':None,'cumulative_margin':None}); continue
+        margin=hv-av; cum_h+=hv; cum_a+=av
+        out.append({'period':q,'home_points':hv,'away_points':av,
+                    'winner':home['team'] if margin>0 else away['team'] if margin<0 else 'tie',
+                    'margin':margin,'cumulative_margin':cum_h-cum_a})
+    return out
+
+
+def model_scores(evaluation):
+    by_model={}
+    for row in evaluation:
+        y=1 if row['outcome']=='over' else 0 if row['outcome']=='under' else None
+        if y is None: continue
+        for model in row.get('models',[]):
+            try: p=float(model['p_over'])
+            except (TypeError,ValueError): continue
+            p=min(max(p,1e-12),1-1e-12)
+            item=by_model.setdefault(model['model'],{'n':0,'brier_sum':0.0,'logloss_sum':0.0})
+            item['n']+=1; item['brier_sum']+=(p-y)**2
+            item['logloss_sum']+=-(y*__import__('math').log(p)+(1-y)*__import__('math').log(1-p))
+    return {name:{'n':v['n'],'brier':v['brier_sum']/v['n'],'logloss':v['logloss_sum']/v['n']}
+            for name,v in by_model.items() if v['n']}
+
+
+def odds_rows(odds):
+    result=[]
+    for event in odds.get('events',[]):
+        for book in event.get('bookmakers',[]):
+            if book.get('key') not in {'draftkings','fanduel'}: continue
+            for market in book.get('markets',[]):
+                for outcome in market.get('outcomes',[]):
+                    result.append({'book':book.get('title') or book.get('key'),'market':market.get('key'),
+                                   'outcome':outcome.get('name'),'point':outcome.get('point'),
+                                   'price':outcome.get('price'),'last_update':market.get('last_update')})
+    return result
+
+
 def parse_odds_api():
     key=os.environ.get('ODDS_API_KEY','').strip()
     if not key:
@@ -234,6 +279,9 @@ def main():
         'player_boxscore_cumulative':players,'player_period_splits':event_splits,
         'play_by_play':plays,'live_odds':parse_odds_api()}
     if status.lower()=='final': snapshot['projection_evaluation']=final_evaluation(players)
+    snapshot['model_score_summary']=model_scores(snapshot.get('projection_evaluation',[]))
+    snapshot['quarter_results']=quarter_results(snapshot['quarter_scores'],teams)
+    snapshot['tracked_odds_rows']=odds_rows(snapshot['live_odds'])
     OUT.mkdir(parents=True,exist_ok=True)
     stamp=now.strftime('%Y%m%dT%H%M%SZ')
     (OUT/f'{stamp}.json').write_text(json.dumps(snapshot,indent=2)+'\n',encoding='utf-8')
@@ -245,7 +293,14 @@ def main():
     for t in teams:
         qs=q.get(t['team'],{})
         rows.append('| '+t['team']+' | '+' | '.join(str(qs.get(k,'—') if qs.get(k) is not None else '—') for k in ('Q1','Q2','Q3','Q4','OT'))+' | '+str(t['score'])+' |')
-    rows += ['', 'Quarter winners, margins, and cover results will be finalized from the completed quarter scores. The pregame quarter spread quote is retained separately if present in the locked lines; live quarter lines are recorded only when a book feed supplies them.', '', '## Player production (official cumulative box score)', '', '| Player | Team | Category | Stats |','|---|---|---|---|']
+    rows += ['', 'Quarter scoring margin = home points minus away points. Cumulative margin is the score difference at each quarter end.', '', '| Period | ATL points | CIN points | Quarter winner | Quarter margin (ATL−CIN) | Cumulative margin (ATL−CIN) |','|---|---:|---:|---|---:|---:|']
+    for qr in snapshot['quarter_results']:
+        # Keep the teams explicit so home/away presentation cannot be mistaken for the margin sign.
+        atl=num(q.get('ATL',{}).get(qr['period'])); cin=num(q.get('CIN',{}).get(qr['period']))
+        if atl is None or cin is None: continue
+        winner='ATL' if atl>cin else 'CIN' if cin>atl else 'tie'
+        rows.append(f"| {qr['period']} | {atl} | {cin} | {winner} | {atl-cin:+g} | {qr['cumulative_margin'] if qr['cumulative_margin'] is not None else '—'} |")
+    rows += ['', 'Quarter winners, margins, and cover results will be finalized from completed quarter scores. Cover results require an actual captured quarter spread line.', '', '## Player production (official cumulative box score)', '', '| Player | Team | Category | Stats |','|---|---|---|---|']
     for p in players:
         rows.append(f"| {p['name']} | {p['team']} | {p['category']} | "+', '.join(f'{k}: {v}' for k,v in p['stats'].items())+' |')
     rows += ['', '## Player rush and receiving splits by quarter', '', 'Derived from play events; official cumulative box-score totals remain the authority.', '', '| Player | Quarter | Carries | Rush yards | Receptions | Receiving yards |','|---|---:|---:|---:|---:|---:|']
@@ -254,7 +309,21 @@ def main():
     rows += ['', '### First-half rollup','', '| Player | Carries | Rush yards | Receptions | Receiving yards |','|---|---:|---:|---:|---:|']
     for p in event_splits['first_half']:
         rows.append(f"| {p['player']} | {p['rush_attempts']} | {p['rush_yards']:g} | {p['receptions']} | {p['receiving_yards']:g} |")
-    rows += ['', '## Lines and projection evaluation','', f"- Live sportsbook odds: **{snapshot['live_odds']['status']}**.", '- Pregame prop lines and three frozen simulation runs are in the 09:08 ET locked artifacts. They are not relabeled as live prices.', '- Final hit/miss evaluation will compare official box-score outcomes with the frozen DraftKings thresholds and report each simulation model’s mean and raw over/under frequency.', '- Quarter scores and margins are captured here; cover results require the actual quarter spread line captured at that time. The game feed does not provide sportsbook prices.', '', f"Raw play-by-play and snapshot: `{stamp}.json`."]
+    rows += ['', '## Lines and projection evaluation','', f"- Live sportsbook odds: **{snapshot['live_odds']['status']}**.", '- Pregame prop lines and three frozen simulation runs are in the 09:08 ET locked artifacts. They are not relabeled as live prices.', '- Official box-score outcomes are used to evaluate the frozen DraftKings thresholds at game end; simulation frequencies remain labeled raw, uncalibrated model outputs.', '- Quarter-score cover results require a captured sportsbook spread. Odds rows are saved only when the feed returns them.', '']
+    if snapshot['tracked_odds_rows']:
+        rows += ['| Book | Market | Selection | Line | Price | Updated |','|---|---|---|---:|---:|---|']
+        for r in snapshot['tracked_odds_rows']:
+            rows.append(f"| {r['book']} | {r['market']} | {r['outcome']} | {r['point'] if r['point'] is not None else '—'} | {r['price']} | {r['last_update'] or '—'} |")
+    if status.lower()=='final':
+        rows += ['', '## Frozen projection hit/miss audit', '', '| Player | Market | DK line | Actual | Threshold result | Model | Mean | Raw P(over) |','|---|---|---:|---:|---|---|---:|---:|']
+        for entry in snapshot.get('projection_evaluation',[]):
+            models=entry.get('models') or [{'model':'no matching frozen row','mean':'—','p_over':'—'}]
+            for model in models:
+                rows.append(f"| {entry['player']} | {entry['market_key']} | {entry['line']:g} | {entry['actual']:g} | {entry['outcome']} | {model['model']} | {model['mean']} | {model['p_over']} |")
+        rows += ['', 'Probability score on this single game (pushes excluded; smaller is better):', '']
+        rows += [f"- `{name}`: n={score['n']}, Brier={score['brier']:.4f}, log loss={score['logloss']:.4f}." for name,score in snapshot['model_score_summary'].items()]
+        rows += ['', 'These are one-game holdout scores, not a recalibration fit. The separate historical calibration audit remains the evidence for calibration; this game adds an untouched result to that record.']
+    rows += ['', f"Raw play-by-play and snapshot: `{stamp}.json`."]
     (OUT/'LIVE_TRACKER.md').write_text('\n'.join(rows)+'\n',encoding='utf-8')
     journal=OUT/'updates.jsonl'
     with journal.open('a',encoding='utf-8') as f: f.write(json.dumps({'captured_at_utc':snapshot['captured_at_utc'],'status':status,'period':snapshot['period'],'clock':snapshot['clock'],'teams':teams,'quarter_scores':q,'player_boxscore_cumulative':players,'live_odds_status':snapshot['live_odds']['status']},separators=(',',':'))+'\n')
