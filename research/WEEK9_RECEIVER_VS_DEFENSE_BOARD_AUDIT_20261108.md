@@ -1,0 +1,98 @@
+# Week 9 receiver-versus-defense board audit
+
+**Research cutoff:** Sunday, Nov. 8, 2026, morning ET, before the 1:00 p.m. window.  
+**Scope:** Receiving-market players in the saved Day 1 board for the 1:00, 4:05, 4:25 and 8:20 p.m. games. The 9:30 a.m. Bengals–Falcons game is outside the saved Day 1 price/simulation export. Research only; no bet recommendation, model change, or calibrated hit-probability claim.
+
+## Executive finding
+
+The board supports team-level coverage context, Weeks 1–8 receiving opportunity for a subset of players, and team-level 20-yard pass-play counts. It does **not** support individual CB/S yards or explosives allowed, historical receiver-defender assignments, or exact expected matchup snaps. The defender audit has zero individually charted game rows for every team. Accordingly, this report names current depth-chart coverage groups as likely personnel on the field, not as assignments to specific receivers.
+
+Route/alignment evidence is also incomplete for most WRs. The reported man/zone and MOFO/MOFC rates are team tendencies; MOFO/MOFC are shell descriptions, not man/zone labels. Individual PFR season coverage figures are withheld from conclusions because the saved source audit marks their 2026 cutoff unverified.
+
+## Evidence inventory
+
+| Source | URL/file and retrieval basis | Season/window, sample | What it establishes / limitation |
+|---|---|---|---|
+| NFL schedule | [NFL Week 9 schedule](https://www.nfl.com/schedules/2026/by-week/week-9), checked Nov. 8 | 2026 Week 9 | Game and kickoff list. |
+| Official injury report | [NFL Week 9 injury report](https://www.nfl.com/news/nfl-week-9-injury-report-2026-season), checked Nov. 8 | Week 9 game-status report | Listed OUT/QUESTIONABLE statuses. Inactives can still change availability; no-designation is not a confirmed active list. |
+| Team coverage structure | [WEEK9_COVERAGE_SCHEMES_TEAM.csv](https://github.com/GhostPapii21/nfl-matchup-database/blob/main/research/WEEK9_COVERAGE_SCHEMES_TEAM.csv) | Sharp Football Analysis, as of Nov. 3, 2026; coverage snap counts not included in the export | Team man/zone and MOFO/MOFC rates. Source definitions and denominators are not carried in the CSV; rates are not necessarily complementary. |
+| Team explosive/sack outcomes | [WEEK9_DEFENSIVE_EXPLOSIVE_SACK_FLAG_RATES_20261107.csv](https://github.com/GhostPapii21/nfl-matchup-database/blob/main/research/WEEK9_DEFENSIVE_EXPLOSIVE_SACK_FLAG_RATES_20261107.csv) | Verified public nflverse PBP, Weeks 1–8; 7–8 games per team; team-level only | Count/rate of pass plays of 20+ yards and sacks. These are not individual defender allowances, pressure rates, or causal effects. |
+| Defender roles and profiles | [DEFENDER_PROFILES.csv](https://github.com/GhostPapii21/nfl-matchup-database/blob/main/research/week9_cb_safety_profiles/DEFENDER_PROFILES.csv) and [TEAM_COUNTS.csv](https://github.com/GhostPapii21/nfl-matchup-database/blob/main/research/week9_cb_safety_profiles/TEAM_COUNTS.csv) | ESPN depth-chart capture Nov. 7; PFR 2026 season-to-date cutoff unverified; partial PFF profile snapshots Nov. 6–7 | Names/role labels and some profile fields. TEAM_COUNTS reports 0 individual charted game rows for every team. Receiver-event rows are credited tackles/PBUs/INTs and do not establish coverage assignment. |
+| Receiver usage | [WEEK1_8_PLAYER_USAGE_FULL.csv](https://github.com/GhostPapii21/nfl-matchup-database/blob/main/research/WEEK1_8_PLAYER_USAGE_FULL.csv), [WEEK9_PLAYER_USAGE.csv](https://github.com/GhostPapii21/nfl-matchup-database/blob/main/research/WEEK9_PLAYER_USAGE.csv), [TE assignment audit](https://github.com/GhostPapii21/nfl-matchup-database/blob/main/research/WEEK9_TE_DEFENSIVE_ASSIGNMENT_AUDIT_20261107.csv) | Mostly Weeks 1–8, captured Nov. 7; samples range 6–8 games; several cross-source conflicts | Aggregate targets, target share, snap share and selected TE route counts. WR route trees/alignment splits and full per-game rows are not supplied for the whole pool. |
+| Lines and provisional ranges | [WEEK9_DAY1_DK_FD_PRICE_TRACKER_20261108.csv](https://github.com/GhostPapii21/nfl-matchup-database/blob/main/research/WEEK9_DAY1_DK_FD_PRICE_TRACKER_20261108.csv) | Captures mostly 4:08 a.m. ET Nov. 8; some markets last captured Nov. 7 at 12:39 p.m. ET | DK/FD lines and existing provisional projection ranges. Not a live refresh; source note says public Edge Labs capture, not direct sportsbook API. |
+
+## Team defense context and likely personnel
+
+Rates below are from the saved Week 1–8 team PBP and Sharp exports. “Explosive” means a pass play of at least 20 yards in that dataset. Personnel are Nov. 7 depth-chart-role candidates, adjusted only where the saved board records an injury status. Group membership is not a receiver assignment.
+
+| Game / receiving players on board | Defense | Man / zone; MOFC / MOFO (%) | 20+ pass plays allowed / game; sacks / game | Likely CB / nickel / safety group from depth chart; individual coverage stats |
+|---|---|---:|---:|---|
+| DEN–CAR: Tetairoa McMillan, Jalen Coker | CAR | 10.5 / 84.4; 56.7 / 39.2 | 1.71; 1.57 | Malcolm DeWalt (LCB), Will Lee (RCB; listed OUT), Chau Smith-Wade (NB), Nick Scott (FS), Tre’von Moehrig (SS). Individual target/catch/yard/explosive totals unavailable with a verified cutoff. |
+| DAL–IND: CeeDee Lamb, George Pickens | IND | 25.3 / 67.5; 51.0 / 43.6 | 2.88; 2.00 | Sauce Gardner (LCB), Charvarius Ward (RCB), Justin Walley (NB; listed OUT), Camryn Bynum (FS); A.J. Haulcy (SS; questionable). No assignment/exposure counts. |
+| NYJ–KC: Rashee Rice, Travis Kelce | KC | 16.5 / 79.7; 44.5 / 52.8 | 2.86; 1.29 | Nohl Williams (LCB), Mansoor Delane (RCB; listed OUT), Jadon Canady (NB), Alohi Gilman (FS), Chamarri Conner (SS). No assignment/exposure counts. |
+| DET–MIA: Amon-Ra St. Brown, Sam LaPorta | MIA | 17.0 / 74.8; 43.1 / 50.9 | 3.00; 1.29 | Jason Marshall (LCB), Julius Brents (RCB), Chris Johnson (NB), Michael Taaffe (FS), Dante Trader Jr. (S). No individual allowed-stat line. |
+| CLE–NO: Chris Olave, Harold Fannin Jr. | NO | 15.1 / 75.2; 65.4 / 30.4 | 3.43; 2.57 | Kool-Aid McKinstry (LCB), Martin Emerson (RCB; questionable in saved profile), Jonas Sanker (NB/FS role label), Julian Blackmon (FS), Justin Reid (SS). No assignment/exposure counts. |
+| NYG–PHI: Malik Nabers, Isaiah Likely | PHI | 17.4 / 73.1; 51.3 / 41.6 | 3.50; 1.25 | Riq Woolen (LCB), Quinyon Mitchell (RCB), Cooper DeJean (NB), Andrew Mukuba and Marcus Epps (safeties). No assignment/exposure counts. |
+| LAR–WAS: Puka Nacua | WAS | 12.2 / 78.4; 32.1 / 61.0 | 3.29; 2.29 | Rasul Douglas (LCB), Trey Amos (RCB), Amik Robertson (NB), Jeremy Reaves (FS), Nick Cross (SS). No assignment/exposure counts. |
+| HOU–LAC: Nico Collins, Dalton Schultz, Xavier Hutchinson | LAC | 13.6 / 72.9; 41.9 / 53.0 | 2.57; 1.71 | Cam Hart (LCB), Donte Jackson (RCB), Tarheeb Still (NB), Elijah Molden (FS), Tony Jefferson (SS). No assignment/exposure counts. |
+| HOU–LAC: Ladd McConkey, Tre Harris, Quentin Johnston | HOU | 15.5 / 80.5; 58.2 / 39.9 | 4.14; 3.00 | Derek Stingley (CB), Kamari Lassiter (CB), Calen Bullock/Jalen Pitre/Reed Blankenship (safety group). Exact current outside/slot roles and receiver assignments not established by the saved audit. |
+| LV–SF: Brock Bowers, Tre Tucker, Ashton Jeanty | SF | 11.8 / 82.1; 55.6 / 40.3 | 2.00; 2.14 | Renardo Green (LCB), Deommodore Lenoir (RCB), Upton Stout (NB; questionable), Ji’Ayir Brown and Marques Sigle (safeties). No assignment/exposure counts. |
+| LV–SF: George Kittle, Christian McCaffrey | LV | 21.0 / 70.7; 46.0 / 48.1 | 3.00; 2.25 | Eric Stokes (CB), Darien Porter (CB; questionable), Taron Johnson (NB), Jeremy Chinn and Treydan Stukes (safeties). No assignment/exposure counts. |
+| GB–NE: Christian Watson, Matthew Golden, Tucker Kraft | NE | 29.0 / 65.7; 47.9 / 47.9 | 3.13; 2.75 | Carlton Davis (CB; questionable in official report), Christian Gonzalez (CB), Marcus Jones (NB), Kevin Byard/Craig Woodson (safeties). |
+| GB–NE: DeMario Douglas, Hunter Henry | GB | 12.4 / 79.2; 31.5 / 63.9 | 1.75; 2.75 | Keisean Nixon (CB; questionable), Brandon Cisse (CB), Xavier McKinney/Javon Bullard/Evan Williams (safeties). No assignment/exposure counts. |
+| ARI–SEA: Jaxon Smith-Njigba, Trey McBride, Michael Wilson | SEA | 4.6 / 76.9; 32.3 / 53.0 | 1.50; 2.25 | Devon Witherspoon (LCB), Josh Jobe (RCB), Nick Emmanwori (NB/S role), Julian Love/Ty Okada (safeties). No assignment/exposure counts. |
+| ARI–SEA: Cooper Kupp, AJ Barner | ARI | 10.9 / 81.2; 27.6 / 65.5 | 3.13; 2.38 | Denzel Burke (RCB), Kei’Trel Clark (LCB), Max Melton (NB; questionable), Budda Baker/Andrew Wingard (safeties). No assignment/exposure counts. |
+| TB–CHI: Luther Burden, Colston Loveland, Emeka Egbuka, Chris Godwin, Cade Otton, Ted Hurst | CHI | 29.5 / 66.6; 52.5 / 43.3 | 2.88; 2.75 | Jaylon Johnson (LCB), Tyrique Stevenson (RCB; questionable), Kyler Gordon (NB), Cam Lewis/Dillon Thieneman (safeties). |
+| TB–CHI: Rome Odunze | TB | 16.1 / 79.1; 59.0 / 39.2 | 2.13; 2.00 | Zyon McCollum (CB), Benjamin Morrison/Jacob Parrish (CB/NB group), Antoine Winfield/Tykee Smith (safeties). Exact slot/outside deployment is not verified here. |
+
+The defensive tendency columns should be read as separate source metrics. They do not establish that a receiver’s routes predominantly attack one shell, and shell rates should not be converted into man/zone rates. The team-level explosive counts identify where 20-yard passes occurred against a defense, not which corner or safety surrendered them. Recent Weeks 5–8 individual coverage game rows are unavailable.
+
+## Receiver opportunity and matchup mapping
+
+**Direct historical matchup (A):** none verified in the board export.  
+**Published weekly projection (B):** the TE audit identifies Colston Loveland–Alex Anzalone as a published expected matchup, explicitly not confirmed snap assignment; Tucker Kraft has an unnamed expected CB-type exception.  
+**Alignment-based inference (C):** the defensive personnel groups above are candidate coverage groups based on depth-chart roles; absent verified WR alignments/routes and assignment charting, no player is assigned to a specific DB.  
+**Unknown (D):** exact WR route tree, slot/outside rate, opponent-specific matchup snaps, individual defender yards/targets/explosives allowed for every listed player.
+
+### Measured Weeks 1–8 opportunity anchors
+
+These are historical per-game averages from aggregate source totals, not Week 9 forecasts. The receiving conversion column is arithmetic from the same saved totals; it does not adjust for opponent, injury, pace, or game script.
+
+| Receiver | Historical opportunity through W8 | Historical conversion anchor | Current board line (DK / FD) | What it says about opportunity |
+|---|---:|---:|---:|---|
+| CeeDee Lamb | 92 targets / 8 = 11.5 per game; 31.9% share | 60/92 catches (65.2%); 709/60 = 11.8 yards/catch; 88.6 yards/game | 85.5 / 83.5 yd | Volume supports access; IND’s 2.88 team 20+ passes/game is a modest explosive tail signal, not an individual matchup edge. Pickens is a competing target. |
+| Amon-Ra St. Brown | 76/7 = 10.9 targets/game; 31.9% share | 53/76 (69.7%); 10.8 yards/catch; 81.6 yards/game | 77.5 / 76.5 yd | Strong historical target base; saved board says rib-questionable and range assumes active without snap limit. MIA allowed 3.00 20+ passes/game. |
+| Chris Olave | 71/7 = 10.1 targets/game; 27.0% share | 49/71 (69.0%); 13.0 yards/catch; 90.9 yards/game | 73.5 / 71.5 yd; 5.5 catches both | Volume is substantial; NO allowed 3.43 20+ passes/game. Saved player totals should be rechecked against game-level data before treating the mean as a projection. |
+| Malik Nabers | 70/7 = 10.0 targets/game; 29.0% share | 48/70 (68.6%); 12.6 yards/catch; 86.4 yards/game | 70.5 / 72.5 yd | Opportunity supports high target access; PHI allowed 3.50 team 20+ passes/game. This does not imply Nabers gets a specific CB or a shadow matchup. |
+| Puka Nacua | 74/6 = 12.3 targets/game; 34.1% share | 56/74 (75.7%); 10.1 yards/catch; 94.2 yards/game | 93.5 / 92.5 yd; 8.5 catches both | Elite recorded target volume, but six games is short and Washington’s 3.29 explosives/game are team-level. A high line leaves little cushion over the historical yard mean. |
+| Jaxon Smith-Njigba | 89/8 = 11.1 targets/game; 36.3% share | 64/89 (71.9%); 15.4 yards/catch; 123.1 yards/game | 93.5 / 94.5 yd; DK 7.5 / FD 6.5 catches | Volume and production are both high in the saved history; Seattle’s opponent ARI allowed 3.13 20+ passes/game. Route/coverage mechanism and forecast regression remain unquantified. |
+| Trey McBride | 86 targets, 28.4% share; 337 routes; 0.26 targets/route; 91.5% season snaps | 66/86 (76.7%); 544 yards / 8 = 68.0 per game | 61.5 / 59.5 yd; DK 6.5 / FD 7.5 catches | Verified high route participation and target access. Seattle allowed 1.50 team 20+ passes/game, so the measured matchup is less favorable for explosives than the broad target opportunity. |
+| Brock Bowers | 61 targets / 8 = 7.6 per game; 27.6% share in full usage file (another usage file says 24.8%); 224 routes, 0.27 per route | 40/61 (65.6%); 547/8 = 68.4 yards/game | 73.5 / 76.5 yd; 6.5 catches both | Strong role, but target-share source conflict and historical mean below both yard lines. SF allowed 2.00 20+ passes/game. |
+| George Kittle | 46/7 = 6.6 targets/game; 22.4% share; 180 routes; 0.26 per route | 30/46 (65.2%); 425/7 = 60.7 yards/game | 70.5 / 68.5 yd | Routes/targets establish useful TE involvement, but historical yard mean is below both lines. LV allowed 3.00 20+ passes/game; no direct LB/safety assignment. |
+| Harold Fannin Jr. | 51/8 = 6.4 targets/game; 20.6% share; 261 routes; 0.20 per route | 35/51 (68.6%); 411/8 = 51.4 yards/game | 43.5 / 43.5 yd | Role supports a steady target path, while NO’s 3.43 team explosive-pass count is not a TE-specific allowance. |
+| Sam LaPorta | 44 targets / 7 = 6.3 per game; 230 routes; 0.19 per route; 89.7% season snaps | 31 catches / 44 targets = 70.5%; yard total not reconciled in the saved usage file | 52.5 / 48.5 yd | Route access is documented, but receiving-yard conversion should be checked against player-game rows before relying on a yard forecast. |
+| AJ Barner | Usage aggregator says 51 targets, but audit has 34 verified targets / 8 games; 89% season snaps, 95% W8 | 21 catches on 34 verified targets = 61.8% | 25.5 / 24.5 yd | Material target-count conflict. Use the verified audit count until reconciled; Seattle’s offense distributes targets and ARI’s exact TE coverage group is unknown. |
+| Colston Loveland | 51/8 = 6.4 targets/game; 86% season snaps, 93% W8 | 33/51 catches = 64.7%; yards not available in the summary file | 53.5 / 52.5 yd; 5.5 catches both | Increasing snap involvement, but no yards-per-catch validation here. Published Anzalone projection is not a confirmed matchup assignment. |
+
+For other board receivers/TEs—Coker, Pickens, Rice, Kelce, Likely, Collins, McConkey, Schultz, Hutchinson, Harris, Johnston, Tre Tucker, Jeanty, McCaffrey, Watson, Golden, Douglas, Kraft, Henry, Wilson, Kupp, Egbuka, Godwin, Otton, Hurst and Odunze—the saved source package does not provide a consistently verified full game-level opportunity and route dataset with matching team/season IDs for the same calculation. Their tracker ranges remain provisional and should not be upgraded by matchup language alone.
+
+### Opportunity calculation status
+
+The requested auditable equation is:
+
+Expected targets = team offensive plays × dropback share × receiver routes per team dropback × targets per route.  
+Expected receptions = expected targets × catch probability.  
+Expected receiving yards = expected receptions × expected yards per reception.
+
+For several TEs, season targets/routes/targets-per-route can cross-check historical target volume. For most WRs, routes per team dropback and route participation are missing; the fallback is targets per game and target share through Week 8. A reliable Week 9 expected-target number also needs projected team dropbacks, active status, and role/route participation. Those inputs are not all present, so no false-precision target or yard projection is produced here.
+
+## Stress test and conclusion
+
+- **Coverage:** defenses are mostly zone by the saved team tendency file, but opponent-specific coverage rotations and the receiver’s own route-location mix are not documented enough to say “this player wins against MOFO/MOFC.” MOFO/MOFC should be read as split-safety/one-high shell tendencies, separate from man/zone.
+- **Explosives:** team rates range widely: Seattle allowed 1.50 20+ pass plays/game; MIA and NO 3.00–3.43; Philadelphia 3.50; Houston 4.14. These are descriptive W1–8 team outcomes, not expected player explosives or defender responsibility.
+- **Pressure / QB:** team sacks are available, but charted pressure at the QB decision point, blitz response, and player-specific target impact are absent from this matchup table. Sack rate is not pressure rate.
+- **Game script / availability:** the saved price export is an early-morning snapshot. George Pickens and Jake Ferguson are marked questionable in the board; check the official inactive list and any snap-limit news before treating their ranges as usable. The same applies to every player whose availability changed after capture.
+- **Weather:** the saved weather/injury source has game-specific forecasts, but this report does not apply a weather multiplier because it does not establish player-level wind sensitivity or a validated adjustment.
+- **Lower/base/higher cases:** base opportunity is the Weeks 1–8 role/target history above. A lower case is fewer team dropbacks, a reduced snap/route role, pressure, or shared targets. A higher case is sustained full participation plus extra trailing-script pass volume. These are scenario descriptions, not calibrated percentiles or hit probabilities.
+
+**Plain-language read:** the board has credible *opportunity* evidence for its established volume players—especially Lamb, Amon-Ra, Olave, Nabers, Puka, JSN and McBride—and selected TEs with route data. The team matchup layer can flag possible explosive environments, but it cannot yet identify which named corner/safety will cover a receiver or how many yards that defender allows. The most important missing piece is verified player-route and coverage-assignment data joined by game; until that exists, matchup effects remain qualitative and the existing DK/FD lines and projection ranges are not evidence of calibrated accuracy.
