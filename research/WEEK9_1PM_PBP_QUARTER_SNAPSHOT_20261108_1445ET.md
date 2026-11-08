@@ -26,3 +26,6 @@ Scoring event details are in `WEEK9_1PM_SCORING_PLAYS_20261108_1445ET.csv`. Per-
 - Rams–Commanders: https://www.cbssports.com/nfl/gametracker/playbyplay/NFL_20261108_LAR@WAS/
 
 Full per-quarter score rows (including partial quarter flags) are in `WEEK9_1PM_QUARTER_SCORES_20261108_1445ET.csv`. This is a midgame checkpoint; refresh after games finish before computing final quarter winners or calibration metrics.
+
+## 15:12 ET scoring and explosive-play supplement
+A later rolling PBP review added scorer updates, position tags, verified 20+ yard scrimmage gains, and defensive-unit allowed totals. Individual defender assignment remains unverified. See [defensive explosive audit](WEEK9_1PM_DEFENSIVE_EXPLOSIVE_AUDIT_20261108_1512ET.md), [explosive-play rows](WEEK9_1PM_EXPLOSIVE_PLAYS_20261108_1512ET.csv), and the refreshed [scoring-play log](WEEK9_1PM_SCORING_PLAYS_20261108_1445ET.csv).
