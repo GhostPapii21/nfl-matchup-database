@@ -1,0 +1,44 @@
+{
+  "lock_id": "NFL_W9_PROSPECTIVE_FREEZE_20261108_0856ET",
+  "locked_at_et": "2026-11-08T08:56:36-05:00",
+  "locked_at_utc": "2026-11-08T13:56:36Z",
+  "purpose": "Prospective evaluation of the already-generated Week 9 slate forecasts; no model changes after lock may be graded as this revision.",
+  "revision": "research_snapshot_only; model parameters unchanged",
+  "status": "FROZEN_PENDING_OUTCOMES",
+  "readiness": "RESEARCH_ONLY; projection_ready=false; independently_calibrated=false",
+  "forecast_population": {
+    "simulation_rows": 471,
+    "unique_book_market_lines": 157,
+    "models": ["season_empirical", "rolling5_empirical", "opponent_shrunk_rolling5"],
+    "draws_per_row": 100000,
+    "games_covered": ["1pm and later games represented in the simulation CSV"],
+    "not_covered": ["CIN at ATL 9:30 AM ET; no simulation rows or exact lines in the frozen board"],
+    "exact_threshold_current_line_rows": 139,
+    "changed_threshold_rows_unscorable": 18
+  },
+  "scoring_rules": {
+    "join_key": ["game_id", "player_id or verified player name", "market", "book", "line"],
+    "actuals": "Official gamebook or verified NFLverse weekly outcome; record source URL, retrieval time, and SHA-256.",
+    "availability": "Record ACTIVE, INACTIVE, QUESTIONABLE_ACTIVE, or UNKNOWN separately. Do not turn missing/inactive into a healthy zero; inactive rows are availability misses/voids and are reported separately.",
+    "line_match": "Only score exact saved thresholds. Changed/unknown lines are UNscorable; do not interpolate a probability from rounded quantiles.",
+    "settlement": "Use over/push/under outcome from actual stat and locked line. Score multiclass Brier and log loss from the three frozen probabilities; also report conditional non-push binary scores where push probability is zero or settlement is conditional.",
+    "aggregation": "Report per-market and per-model row counts; cluster uncertainty by game, not player-row independence. Report unscorable and inactive coverage separately.",
+    "promotion": "A single slate is a pilot only. No calibration or READY promotion from Week 9 alone."
+  },
+  "artifacts": [
+    {"path":"research/WEEK9_DAY1_DK_FD_REFRESH_20261108_0823ET.csv","sha256":"83329a4115ddaea79d9c78f467a122276a543785dc9e60ee4850f0967530f16a","as_of":"2026-11-08 08:23 ET"},
+    {"path":"research/WEEK9_DAY1_REFRESHED_PROJECTION_OVERLAY_20261108_0823ET.csv","sha256":"7093c676f8fb4c7e38463a267bc02474995feb8eaf1bf6e2ee0a0730197de3c8","as_of":"2026-11-08 08:23 ET"},
+    {"path":"research/WEEK9_DAY1_MODEL_SIMULATION_20261108.csv","sha256":"58897f0cc93f60bdf950558ccb22e26530cb7d1b25484dad0cbc323e1e04784a","as_of":"generated before the 08:23 ET line refresh; current-line fit applies only when overlay exact_threshold=true"},
+    {"path":"research/WEEK9_DAY1_MODEL_TRIALS_20261108.md","sha256":"67c7a7e857d4995803b793354d7c093b7928b2abd15b672de751471dc04ffec4","as_of":"2026-11-08"},
+    {"path":"research/WEEK9_PHASE_LEDGER_20261108_0856ET.md","sha256":"08cb24863eb8480913a54e9bd89cecbeb0cb26b6b2b0935f08bf18944aa1cf91","as_of":"2026-11-08 08:56 ET"},
+    {"path":"research/WEEK9_READINESS_SNAPSHOT_20261108_0856ET.json","sha256":"7bcdc7854cdd18a5808e9fb826ceb2d49b3ddd3936334f365308423d87712b90","as_of":"2026-11-08 08:56 ET"}
+  ],
+  "local_input_lineage_not_in_public_repo": [
+    {"path":"run_week9_simulations.py","sha256":"1d824a451f97367eb9ee9312851a0fedcbb8798bfc9cbc69614f35bf49a2eda2"},
+    {"path":"w9_tracker.csv","sha256":"4c9eb8e2854910d0fbef2685c10a9790fc9213404338fdb5257ce855be80f704"},
+    {"path":"w9_defense.csv","sha256":"b6494082c46a345a68bad572ecff8a295baa732345b54a591e576f14fdc5a87a"},
+    {"path":"nfl_player_games.gz","sha256":"341867adeacd61a13fe71fddaa24802f4dd5346b790b9f7ad674619c4209c372"}
+  ],
+  "outcomes_status": "NOT_AVAILABLE_AT_LOCK; score after each game is final and actuals are verified",
+  "calibration_claim": false
+}
