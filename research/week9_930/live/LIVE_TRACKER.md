@@ -1,6 +1,6 @@
 # Bengals–Falcons live tracker
 
-**Last update:** 2026-11-08T09:47:05.633912-05:00 ET  |  **State:** In Progress — Q1 10:27
+**Last update:** 2026-11-08T09:48:26.809859-05:00 ET  |  **State:** In Progress — Q1 9:39
 
 **Score:** ATL 7 – CIN 0
 
@@ -11,14 +11,21 @@
 | ATL | 7 | — | — | — | — | 7 |
 | CIN | 0 | — | — | — | — | 0 |
 
-Quarter winners, margins, and cover results will be finalized from the completed quarter scores. The pregame quarter spread quote is retained separately if present in the locked lines; live quarter lines are recorded only when a book feed supplies them.
+Quarter scoring margin = home points minus away points. Cumulative margin is the score difference at each quarter end.
+
+| Period | ATL points | CIN points | Quarter winner | Quarter margin (ATL−CIN) | Cumulative margin (ATL−CIN) |
+|---|---:|---:|---|---:|---:|
+| Q1 | 7 | 0 | ATL | +7 | 7 |
+
+Quarter winners, margins, and cover results will be finalized from completed quarter scores. Cover results require an actual captured quarter spread line.
 
 ## Player production (official cumulative box score)
 
 | Player | Team | Category | Stats |
 |---|---|---|---|
-| Joe Burrow | CIN | passing | C/ATT: 1/1, YDS: 4, AVG: 4.0, TD: 0, INT: 0, SACKS: 0-0, RTG: 83.3 |
+| Joe Burrow | CIN | passing | C/ATT: 2/3, YDS: 12, AVG: 4.0, TD: 0, INT: 0, SACKS: 0-0, RTG: 74.3 |
 | Dohnte Meyers | CIN | rushing | CAR: 1, YDS: 16, AVG: 16.0, TD: 0, LONG: 16 |
+| Mike Gesicki | CIN | receiving | REC: 1, YDS: 8, AVG: 8.0, TD: 0, LONG: 8, TGTS: 1 |
 | Jack Endries | CIN | receiving | REC: 1, YDS: 4, AVG: 4.0, TD: 0, LONG: 4, TGTS: 1 |
 | Michael Penix Jr. | ATL | passing | C/ATT: 3/3, YDS: 20, AVG: 6.7, TD: 1, INT: 0, SACKS: 0-0, RTG: 134.0 |
 | Bijan Robinson | ATL | rushing | CAR: 3, YDS: 42, AVG: 14.0, TD: 0, LONG: 21 |
@@ -32,7 +39,6 @@ Quarter winners, margins, and cover results will be finalized from the completed
 | Dohnte Meyers | CIN | receiving | REC: 0, YDS: 0, TD: 0, TGTS: 0 |
 | Drake London | ATL | receiving | REC: 0, YDS: 0, TD: 0, TGTS: 0 |
 | Olamide Zaccheaus | ATL | receiving | REC: 0, YDS: 0, TD: 0, TGTS: 0 |
-| Mike Gesicki | CIN | receiving | REC: 0, YDS: 0, TD: 0, TGTS: 0 |
 | Kyle Pitts | ATL | receiving | REC: 0, YDS: 0, TD: 0, TGTS: 0 |
 | Chase Brown | CIN | rushing | CAR: 0, YDS: 0, TD: 0 |
 | Chase Brown | CIN | receiving | REC: 0, YDS: 0, TD: 0, TGTS: 0 |
@@ -48,6 +54,7 @@ Derived from play events; official cumulative box-score totals remain the author
 | Dohnte Meyers | Q1 | 1 | 16 | 0 | 0 |
 | Jahan Dotson | Q1 | 0 | 0 | 1 | 12 |
 | Michael Penix Jr. | Q1 | 1 | 11 | 0 | 0 |
+| Mike Gesicki | Q1 | 0 | 0 | 1 | 8 |
 
 ### First-half rollup
 
@@ -57,12 +64,14 @@ Derived from play events; official cumulative box-score totals remain the author
 | Dohnte Meyers | 1 | 16 | 0 | 0 |
 | Jahan Dotson | 0 | 0 | 1 | 12 |
 | Michael Penix Jr. | 1 | 11 | 0 | 0 |
+| Mike Gesicki | 0 | 0 | 1 | 8 |
 
 ## Lines and projection evaluation
 
 - Live sportsbook odds: **UNAVAILABLE: ODDS_API_KEY GitHub secret is not configured**.
 - Pregame prop lines and three frozen simulation runs are in the 09:08 ET locked artifacts. They are not relabeled as live prices.
-- Final hit/miss evaluation will compare official box-score outcomes with the frozen DraftKings thresholds and report each simulation model’s mean and raw over/under frequency.
-- Quarter scores and margins are captured here; cover results require the actual quarter spread line captured at that time. The game feed does not provide sportsbook prices.
+- Official box-score outcomes are used to evaluate the frozen DraftKings thresholds at game end; simulation frequencies remain labeled raw, uncalibrated model outputs.
+- Quarter-score cover results require a captured sportsbook spread. Odds rows are saved only when the feed returns them.
 
-Raw play-by-play and snapshot: `20261108T144705Z.json`.
+
+Raw play-by-play and snapshot: `20261108T144826Z.json`.
