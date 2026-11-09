@@ -1,0 +1,25 @@
+name: NFL provider connector boundary tests
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [research/nfl-provider-connectors-2026]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-optional-connectors:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run NFL-only mocked connector tests
+        run: python -m unittest -v test_nfl_external_sources
+      - name: Verify module compiles without installing external MCP servers
+        run: python -m py_compile source_adapters/nfl_external_sources.py
