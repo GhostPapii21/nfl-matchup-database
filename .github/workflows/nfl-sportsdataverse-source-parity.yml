@@ -32,5 +32,6 @@ jobs:
           git add -f research/NFL_SPORTSDATAVERSE_SOURCE_STATUS_20261109.json
           if ! git diff --cached --quiet; then
             git commit -m "research: audit SportsDataverse Sunday NFL source parity"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
