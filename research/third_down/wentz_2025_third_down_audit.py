@@ -168,6 +168,29 @@ def audit_qb(rows,selected,team):
             f"{selected} {team}: third-down throws+sacks+scrambles "
             f"do not reconcile to QB dropbacks; refuse publication"
         )
+    # A recorded QB hit is not the same thing as all charted pressure, and
+    # a missing hit is not verified clean-pocket protection.
+    hit_groups = {
+        "hit_flag_recorded": [r for r in third if flag(r,"qb_hit")],
+        "no_hit_flag_recorded": [r for r in third if not flag(r,"qb_hit")],
+    }
+    third_hit_outcomes = {
+        name:{"dropbacks":len(group),
+              "converted":sum(flag(r,"third_down_converted") for r in group),
+              "sacks":sum(flag(r,"sack") for r in group)}
+        for name,group in hit_groups.items()
+    }
+    score_splits = {}
+    score_groups = {
+        "trailing_9plus": [r for r in third if n(r.get("score_differential"),0) <= -9],
+        "trailing_1to8": [r for r in third if -8<=n(r.get("score_differential"),0)<=-1],
+        "tied": [r for r in third if n(r.get("score_differential"),0)==0],
+        "leading": [r for r in third if n(r.get("score_differential"),0)>=1],
+    }
+    for label,group in score_groups.items():
+        score_splits[label]={"dropbacks":len(group),
+            "converted":sum(flag(r,"third_down_converted") for r in group),
+            "sacks":sum(flag(r,"sack") for r in group)}
     targets=collections.defaultdict(lambda:{"targets":0,"catches":0,"third_down_conversions":0})
     for r in attempts:
         name=r["receiver_player_name"] or "(unattributed)"
@@ -201,6 +224,8 @@ def audit_qb(rows,selected,team):
         "third_down_sacks":len(sacks),
         "third_down_scrambles":len(scrambles),
         "third_down_qb_hit_flags":len(hits),
+        "third_down_qb_hit_flag_outcomes_not_true_pressure":third_hit_outcomes,
+        "third_down_score_differential_splits":score_splits,
         "third_down_overlap_flags":{key:len(value) for key,value in overlaps.items()},
         "third_down_overlap_examples":cross_flag_examples,
         "qb_hit_warning":"QB hit flags not full pressure charting; sack not synonymous with blitz",
