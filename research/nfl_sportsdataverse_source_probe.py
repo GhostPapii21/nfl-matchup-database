@@ -45,8 +45,10 @@ def week9_game_from_teams(row):
         return None
     if str(row.get("season_type",""))!="REG":
         return None
-    team=ALIASES.get(str(row.get("recent_team") or row.get("team") or ""), "")
-    opponent=ALIASES.get(str(row.get("opponent_team") or row.get("opponent") or ""), "")
+    team_raw=str(row.get("recent_team") or row.get("team") or "")
+    opponent_raw=str(row.get("opponent_team") or row.get("opponent") or "")
+    team=ALIASES.get(team_raw,team_raw)
+    opponent=ALIASES.get(opponent_raw,opponent_raw)
     candidates=[]
     for g in EXPECTED:
         away,home=g.split("@")
