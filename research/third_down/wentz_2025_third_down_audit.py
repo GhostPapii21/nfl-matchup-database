@@ -150,6 +150,18 @@ def audit_qb(rows,selected,team):
     sacks=[r for r in third if flag(r,"sack")]
     scrambles=[r for r in third if flag(r,"qb_scramble")]
     hits=[r for r in third if flag(r,"qb_hit")]
+    overlaps = {
+        "pass_attempt_and_sack": [r for r in third if flag(r,"pass_attempt") and flag(r,"sack")],
+        "pass_attempt_and_scramble": [r for r in third if flag(r,"pass_attempt") and flag(r,"qb_scramble")],
+        "scramble_and_sack": [r for r in third if flag(r,"qb_scramble") and flag(r,"sack")],
+    }
+    cross_flag_examples = [
+        {"game_id":r["game_id"],"play_id":r["play_id"],
+         "play_type":r["play_type"],"sack":r["sack"],
+         "qb_scramble":r["qb_scramble"],"pass_attempt":r["pass_attempt"],
+         "desc":r["desc"][:250]}
+        for r in (overlaps["pass_attempt_and_sack"] + overlaps["pass_attempt_and_scramble"])[:8]
+    ]
     targets=collections.defaultdict(lambda:{"targets":0,"catches":0,"third_down_conversions":0})
     for r in attempts:
         name=r["receiver_player_name"] or "(unattributed)"
@@ -181,6 +193,8 @@ def audit_qb(rows,selected,team):
         "third_down_sacks":len(sacks),
         "third_down_scrambles":len(scrambles),
         "third_down_qb_hit_flags":len(hits),
+        "third_down_overlap_flags":{key:len(value) for key,value in overlaps.items()},
+        "third_down_overlap_examples":cross_flag_examples,
         "qb_hit_warning":"QB hit flags not full pressure charting; sack not synonymous with blitz",
         "third_down_by_distance":attempts_by_distance,
         "third_down_receivers":dict(sorted(targets.items(),key=lambda z:-z[1]["targets"])),
