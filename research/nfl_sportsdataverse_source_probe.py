@@ -98,6 +98,17 @@ def main():
     frame=load_nfl_player_stats(seasons=[2026])
     rows=frame.to_dicts()
     report=summarize(rows,official)
+    weeks=sorted({int(x["week"]) for x in rows
+                  if x.get("week") is not None and str(x.get("week")).isdigit()})
+    report["provider_shape"]={
+        "total_rows":len(rows),
+        "available_columns":list(frame.columns),
+        "weeks_present":weeks,
+        "max_week":max(weeks) if weeks else None,
+        "week9_rows":sum(str(x.get("week"))=="9" for x in rows),
+        "week9_game_ids_sample":sorted({str(x.get("game_id",""))
+             for x in rows if str(x.get("week"))=="9"})[:20],
+    }
     DEST.write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
     print("SPORTSDATAVERSE_2026_W9_SOURCE_STATUS=",json.dumps({k:v for k,v in report.items() if k not in ("mismatch_examples",)},sort_keys=True))
 
