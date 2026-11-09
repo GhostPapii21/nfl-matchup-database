@@ -38,10 +38,29 @@ def football_game_id(game_id):
     val=f"{away}@{home}"
     return val if val in EXPECTED else None
 
+def week9_game_from_teams(row):
+    # nflverse's stable load_nfl_player_stats schema lacks a game_id.
+    # Reconstruct only using a verified, unique team/opponent pair in 2026 W9.
+    if str(row.get("season"))!="2026" or str(row.get("week"))!="9":
+        return None
+    if str(row.get("season_type",""))!="REG":
+        return None
+    team=ALIASES.get(str(row.get("recent_team") or row.get("team") or ""), "")
+    opponent=ALIASES.get(str(row.get("opponent_team") or row.get("opponent") or ""), "")
+    candidates=[]
+    for g in EXPECTED:
+        away,home=g.split("@")
+        if {team,opponent}=={away,home} and team and opponent and team!=opponent:
+            candidates.append(g)
+    if len(candidates)>1:
+        raise ValueError("ambiguous team-opponent week9 game identity")
+    return candidates[0] if candidates else None
+
 def summarize(rows, official):
     unique={};games=set();duplicates=0
     for record in rows:
-        game=football_game_id(record.get("game_id"))
+        game=(football_game_id(record.get("game_id"))
+              if record.get("game_id") else week9_game_from_teams(record))
         if not game:continue
         player_id=record.get("player_id") or record.get("gsis_id")
         pname=record.get("player_display_name") or record.get("player_name")
@@ -77,6 +96,7 @@ def summarize(rows, official):
     return {
         "status":"RESEARCH_VERIFIED_MATCHED_PARTIAL_FIELDS" if complete else "BLOCKED_SOURCE_FRESHNESS_OR_PARITY",
         "source":"SportsDataverse NFL load_nfl_player_stats seasons=[2026]; public nflverse stats_player asset",
+        "game_id_source":"reconstructed from 2026 W9 unique verified team/opponent pair where original weekly stats lack game_id",
         "source_as_of_utc":None,
         "retrieved_utc":datetime.now(timezone.utc).isoformat(),
         "sdk_sunday_games":sorted(games),
