@@ -1,0 +1,23 @@
+{
+  "as_of_utc": "2026-11-09T11:21:18.662068+00:00",
+  "production_ingest_enabled": false,
+  "responses_saved": false,
+  "sources": {
+    "api_sports_nfl": {
+      "secret_env_name": "NFL_API_SPORTS_KEY",
+      "status": "CREDENTIAL_NOT_CONFIGURED"
+    },
+    "balldontlie_nfl": {
+      "secret_env_name": "NFL_BDL_API_KEY",
+      "status": "CREDENTIAL_NOT_CONFIGURED"
+    },
+    "cloudbet_nfl_mcp": {
+      "status": "DISABLED_CANDIDATE_UNVERIFIED_NOT_INGESTED"
+    },
+    "sportsdataverse_nfl": {
+      "package_manifest": "requirements-nfl-external-research.txt",
+      "status": "OPTIONAL_PACKAGE_NOT_ENABLED_AS_LIVE_LOADER"
+    }
+  },
+  "sport": "NFL"
+}
