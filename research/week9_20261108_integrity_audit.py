@@ -109,7 +109,7 @@ def check_live(fetch=None):
         if game not in EXPECTED:continue
         if game in found:raise ValueError("duplicate game in live scoreboard")
         found[game]=dict(espn_id=e.get("id"),away=int(opponents["away"]["score"]),home=int(opponents["home"]["score"]))
-    if set(found)!=set(EXPECTED):raise ValueError(f"live source incomplete: {len(found)}/13")
+    if set(found)!=set(EXPECTED):raise ValueError(f"live source incomplete: {len(found)}/13, missing={sorted(set(EXPECTED)-set(found))}, seen={sorted(found)}")
     for g,x in found.items():
         if (x["away"],x["home"])!=EXPECTED[g]:raise ValueError("live scoreboard conflicts with gamebook: "+g)
     return found
