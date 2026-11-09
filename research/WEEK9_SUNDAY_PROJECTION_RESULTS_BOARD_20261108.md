@@ -55,6 +55,18 @@ Actual minus projected mean, in yards. Actual is the later CBS snapshot (Golden 
 
 Both means were above the archived lines before kickoff; realized magnitude is substantially above both means. Active in-play player quotes were not independently verified, and archived pregame quotes are kept separate. [Frozen book overlay](WEEK9_DAY1_REFRESHED_PROJECTION_OVERLAY_20261108_0823ET.csv) · [CBS Green Bay player box and PBP](https://www.cbssports.com/nfl/gametracker/playbyplay/NFL_20261108_GB%40NE/) · [Frozen 1 p.m. projections](week9_1pm_live/WEEK9_1PM_PROJECTIONS.md) · [Frozen Madrid projections](week9_930/PROJECTION_SNAPSHOT.md)
 
+## Early-game checks against the 12:56 ET projection lock
+
+Line is the 1 p.m. model board's consensus, with book-specific prices kept in the frozen source where available. Raw frequencies are uncalibrated. These are checks against the saved forecasts, not an assertion that anyone placed a bet.
+
+| Market | Frozen consensus | Mean range | Observed | Actual minus mean range | Pregame signal |
+|---|---:|---:|---:|---:|---|
+| CeeDee Lamb receiving yards | 92.5 | 79.9–88.6 | 195 final | +106.4 to +115.1 | Clear miss: all three model means below the line, raw over frequencies 20.0–37.5%. |
+| Amon-Ra St. Brown receiving yards | 78 | 72.4–81.5 | 86 final | +4.5 to +13.6 | Means split, raw over frequencies 20.0–28.6%. |
+| Puka Nacua receiving yards | 93 | 94.2–101.0 | 150 in CBS box | +49.0 to +55.8 | Means above line, raw over frequencies only 33.3–40.1%. Mean direction and probability gave different signals. |
+
+[1 p.m. forecast](week9_1pm_live/WEEK9_1PM_PROJECTIONS.md) · [Dallas final](https://www.foxsports.com/nfl/week-9-dallas-cowboys-vs-indianapolis-colts-nov-08-2026-game-boxscore-11265) · [Detroit final box](https://www.footballdb.com/games/boxscore/detroit-lions-vs-miami-dolphins-2026110803) · [Rams box and plays](https://www.cbssports.com/nfl/gametracker/playbyplay/NFL_20261108_LAR%40WAS/)
+
 ## Sunday night · Tampa Bay at Chicago, 8:20 p.m. ET
 
 Latest comparable public market table captured during the review. A separate DraftKings editorial listing shows Chicago -6 and 47.5 and posts Caleb Williams over 245.5 passing yards at -113. The market aggregator's individual quote times and direct slip availability were not exposed.
