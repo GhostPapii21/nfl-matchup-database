@@ -132,6 +132,6 @@ def main():
              for x in rows if str(x.get("week"))=="9"})[:20],
     }
     DEST.write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
-    print("SPORTSDATAVERSE_2026_W9_SOURCE_STATUS=",json.dumps({k:v for k,v in report.items() if k not in ("mismatch_examples",)},sort_keys=True))
+    print("SPORTSDATAVERSE_2026_W9_SOURCE_STATUS=",json.dumps({k:v for k,v in report.items() if k not in ("provider_shape",)},sort_keys=True))
 
 if __name__=="__main__":main()
