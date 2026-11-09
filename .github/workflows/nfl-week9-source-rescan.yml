@@ -1,0 +1,33 @@
+name: NFL Sunday source and archived-model integrity rescan
+
+on:
+  push:
+    branches: [research/nfl-provider-connectors-2026]
+    paths: ['research/week9_20261108_integrity_audit.py', 'test_nfl_week9_integrity_audit.py', '.github/workflows/nfl-week9-source-rescan.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test locked grades and mocked live scoreboards
+        run: python -m unittest -v test_nfl_week9_integrity_audit.py test_nfl_external_sources.py
+      - name: Reconcile live public ESPN scoreboard with archived NFL finals
+        run: python -m research.week9_20261108_integrity_audit
+      - name: Save passing research audit on the isolated branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f research/WEEK9_20261108_RESCAN_20261109.json
+          if ! git diff --cached --quiet; then
+            git commit -m "audit: verify NFL Sunday Week9 archive and live scoreboard"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
