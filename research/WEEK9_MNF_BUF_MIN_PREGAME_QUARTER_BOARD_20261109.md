@@ -4,6 +4,8 @@ Monday, November 9, 2026, 8:15 p.m. ET at U.S. Bank Stadium. Data cutoff is befo
 
 [Sunday 26-team quarter board](WEEK9_SUNDAY_SLATE_QUARTER_TRENDS_WEEKS_1_9_2026.md) · [NFL Game Center](https://www.nfl.com/games/bills-at-vikings-2026-reg-9) · [ESPN Gamecast and DraftKings feed](https://www.espn.com/nfl/game/_/gameId/401873051/bills-vikings)
 
+[Buffalo offense vs Minnesota defense](WEEK9_MNF_BUF_OFFENSE_VS_MIN_DEFENSE_20261109.md) · [Minnesota offense vs Buffalo defense](WEEK9_MNF_MIN_OFFENSE_VS_BUF_DEFENSE_20261109.md)
+
 | Quarter | BUF W–L–T / margin | MIN W–L–T / margin | Pregame screen |
 |---|---:|---:|---|
 | Q1 | 3–4–0 / -0.29 | 3–3–1 / -1.00 | Pass on trend alone |
