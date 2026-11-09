@@ -105,7 +105,7 @@ def check_live(fetch=None):
         if "away" not in opponents or "home" not in opponents:continue
         away=opponents["away"]["team"]["abbreviation"];home=opponents["home"]["team"]["abbreviation"]
         game=f"{away}@{home}"
-        if game=="LA@WAS":game="LAR@WAS"
+        if game in ("LA@WAS","LA@WSH","LAR@WSH"):game="LAR@WAS"
         if game not in EXPECTED:continue
         if game in found:raise ValueError("duplicate game in live scoreboard")
         found[game]=dict(espn_id=e.get("id"),away=int(opponents["away"]["score"]),home=int(opponents["home"]["score"]))
