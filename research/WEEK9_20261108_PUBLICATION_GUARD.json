@@ -1,0 +1,37 @@
+{
+  "action_required": [
+    "Enforce source status NOT_BET_GRADEABLE before any prediction or slip publishing.",
+    "Add true pregame starter/role and availability gate before forecasting low-sample QBs.",
+    "Require a later untouched multi-slate Brier and calibration audit.",
+    "Keep missed coverage, defender responsibilities, and routes NULL rather than made up.",
+    "Do not mingle late mean-only overlays with probabilistic simulations or mark them as Lightning."
+  ],
+  "fatal_model_calibration": {
+    "raw_not_bet_gradeable": 1299,
+    "uncalibrated_morning_rows": 471
+  },
+  "history_quality": {
+    "below_three_prior_games": 48,
+    "frozen_1pm_simulation_rows": 1299
+  },
+  "known_issue": {
+    "frozen_projection_means": [
+      0.99,
+      1.0
+    ],
+    "line": 191.5,
+    "market": "passing_yards",
+    "player": "Shedeur Sanders",
+    "prior_games": 2,
+    "reason": "2-game empirical history includes zero-stat outing; extreme sample mismatch",
+    "severity": "BLOCK_FROM_PROP_DISPLAY_AND_AUTOMATED_RECOMMENDATIONS"
+  },
+  "production_model_modified": false,
+  "source_notes": {
+    "DNP_ungraded_rows": 4,
+    "draws_are_not_calibrated_probabilities": true,
+    "late_heterogeneous_rows": 117,
+    "run_uses_verified_regulation_outcomes": true
+  },
+  "status": "RELEASE_BLOCKED_RESEARCH_ONLY"
+}

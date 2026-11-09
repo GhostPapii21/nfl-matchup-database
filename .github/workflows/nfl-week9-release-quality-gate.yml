@@ -1,0 +1,33 @@
+name: NFL Week 9 fail-closed forecast publication gate
+
+on:
+  push:
+    branches: [research/nfl-provider-connectors-2026]
+    paths: ['research/nfl_week9_forecast_release_gate.py','test_nfl_week9_forecast_release_gate.py','.github/workflows/nfl-week9-release-quality-gate.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prove unsafe projections cannot be published as calibrated bets
+        run: python -m unittest -v test_nfl_week9_forecast_release_gate.py
+      - name: Quantify quality blockers in the research archive
+        run: python -m research.nfl_week9_forecast_release_gate
+      - name: Commit read-only gate status (never weights)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f research/NFL_WEEK9_FORECAST_RELEASE_GATE_20261109.json
+          if ! git diff --cached --quiet; then
+            git commit -m "audit: preserve fail-closed NFL Week9 release gate"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
