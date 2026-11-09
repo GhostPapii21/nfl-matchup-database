@@ -8,8 +8,17 @@
 - Archived research ledger contains **1,599** model/line grade rows and **1,315** player-stat rows, not 1,599 unique player prop bets. Gamebooks, period scoring and regulation/OT boundary were verified by the [original Sunday final rollup](../research/WEEK9_SUNDAY_POSTGAME_ROLLUP_20261108.md).
 - [Completed source integrity report](WEEK9_20261108_RESCAN_20261109.json) verified six frozen prospective artifacts and 13 ESPN results. There is no new sportsbook line implied by this audit.
 - [Credential-access probe](NFL_LIVE_CONNECTOR_STATUS_20261109.json): BALLDONTLIE NFL and API-SPORTS NFL keys are **not configured** in the isolated Actions environment. Those provider calls were **not successfully ingested**. Cloudbet remains disabled/unvalidated.
-- [SportsDataverse public-source parity](NFL_SPORTSDATAVERSE_SOURCE_STATUS_20261109.json): current 2026 public weekly player-stats release did **not** provide verified coverage for any of the 13 Sunday games at this check. The feed is quarantined; no fallback zeros, fake current availability, or retroactive source claims.
+- [SportsDataverse public-source parity](NFL_SPORTSDATAVERSE_SOURCE_STATUS_20261109.json): actual 2026 weekly source contains **274 Week 9 records** with 254 uniquely mapped Sunday player/game records spanning **all 13 Sunday games**. Its stable stats schema has no game_id, so game identity is reconstructed only from an unambiguous verified Week 9 team/opponent pair. **840 archived player-market final values match**, **31 are missing/unmatched**, and **two values disagree by 1 yard**. The provider remains quarantined from automated model ingestion until reconciled; no fallback zeros or invented pregame source timestamps.
 - Existing archived ESPN/gamebook final data is ingested in research and available for scoring. This does **not** mean that all paid or third-party connectors are active or that a production database was updated.
+
+### Two exact one-yard source conflicts
+
+| Game | Player / market | Archived gamebook/ESPN final | SportsDataverse/nflverse weekly |
+|---|---|---:|---:|
+| LAR@WAS | Jayden Daniels passing yards | **274** | 273 |
+| LAR@WAS | Chig Okonkwo receiving yards | **57** | 56 |
+
+Independent public [CBS box](https://www.cbssports.com/nfl/gametracker/boxscore/NFL_20261108_LAR%40WAS/) and [Football Database box](https://www.footballdb.com/games/boxscore/los-angeles-rams-vs-washington-commanders-2026110804) agree with the archived 274 and 57. These may represent a provider stat-revision lag. Preserve both source values and the discrepancy: do not silently overwrite either. `source_verified_for_research=false` and `result_eligible_for_automated_model_ingest=false` until an explicit dated reconciliation.
 
 ## True side-by-side evaluation: Lightning opportunity counts, NOT yards
 
