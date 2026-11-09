@@ -2,6 +2,8 @@
 
 [Final Sunday postgame rollup](WEEK9_SUNDAY_POSTGAME_ROLLUP_20261108.md) · [Final play log](WEEK9_SUNDAY_FINAL_PLAYS_20261108.csv) · [Final forecast grades](WEEK9_SUNDAY_FINAL_FORECAST_GRADES_20261108.csv)
 
+[Quarter trends for all 26 Sunday teams](WEEK9_SUNDAY_SLATE_QUARTER_TRENDS_WEEKS_1_9_2026.md)
+
 ## Earlier forecast scorecard
 
 Madrid and the 1 p.m. markets now have a [calibration and equation review](WEEK9_SUNDAY_CALIBRATION_REVIEW_20261108.md) and [row-by-row grades](WEEK9_SUNDAY_FORECAST_GRADES_20261108.csv). The season baseline hit 104 of 212 scored DraftKings calls (49.1%) and 99 of 210 FanDuel calls (47.1%). Late-game grades, the Cleveland–New Orleans overtime split, and unmatched outcomes remain open.
