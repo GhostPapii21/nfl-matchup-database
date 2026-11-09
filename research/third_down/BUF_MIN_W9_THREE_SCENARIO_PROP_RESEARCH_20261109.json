@@ -1,0 +1,830 @@
+{
+  "game": "BUF at MIN",
+  "date": "2026-11-09",
+  "pregameCaptureCutoff": "2026-11-09 07:15:17Z market; scenario research written pregame",
+  "status": "RESEARCH_ONLY_CONDITIONAL_NOT_A_PROBABILITY_OR_TRAINED_MAIN_OR_LIGHTNING_MODEL",
+  "market": {
+    "min.wentz.passYds": 209.5,
+    "min.wentz.att": 30.5,
+    "min.jefferson.rec": 6.5,
+    "min.jefferson.recYds": 77.5,
+    "min.hockenson.rec": 4.5,
+    "min.hockenson.recYds": 41.5,
+    "min.addison.rec": 3.5,
+    "min.addison.recYds": 39.5,
+    "min.jones.rec": 1.5,
+    "min.jones.recYds": 7.5,
+    "min.jones.rushYds": 31.5,
+    "min.jones.rrYds": 43.5,
+    "min.mason.rushYds": 47.5,
+    "buf.allen.passYds": 234.5,
+    "buf.allen.rushYds": 30.5,
+    "buf.shakir.rec": 3.5,
+    "buf.shakir.recYds": 38.5,
+    "buf.coleman.rec": 2.5,
+    "buf.coleman.recYds": 27.5,
+    "buf.cook.rushAtt": 18.5,
+    "buf.cook.rushYds": 82.5,
+    "buf.cook.rec": 1.5,
+    "buf.cook.recYds": 9.5,
+    "buf.cook.rrYds": 95.5,
+    "buf.moore.rec": 3.5,
+    "buf.moore.recYds": 47.5,
+    "buf.kincaid.rec": 3.5,
+    "buf.kincaid.recYds": 36.5
+  },
+  "anytimeTDPricesDK": {
+    "BUF": {
+      "Josh Allen": "-120",
+      "James Cook": "-115",
+      "D.J. Moore": "+275",
+      "Khalil Shakir": "+300",
+      "Keon Coleman": "+425",
+      "Dalton Kincaid": "+275",
+      "Dawson Knox": "+750"
+    },
+    "MIN": {
+      "Justin Jefferson": "+155",
+      "T.J. Hockenson": "+210",
+      "Jordan Addison": "+260",
+      "Aaron Jones": "+270",
+      "Jordan Mason": "+210",
+      "Carson Wentz": "+1100"
+    }
+  },
+  "scenarioScorePolicy": "illustrative internally plausible scores; no prediction that all are equally likely",
+  "scenarios": [
+    {
+      "key": "A",
+      "name": "Buffalo controls clock",
+      "score": {
+        "BUF": 24,
+        "MIN": 13
+      },
+      "min": {
+        "wentz": {
+          "att": 24,
+          "passYds": 163
+        },
+        "jefferson": {
+          "rec": 4.5,
+          "recYds": 57
+        },
+        "hockenson": {
+          "rec": 3.3,
+          "recYds": 28
+        },
+        "addison": {
+          "rec": 2.9,
+          "recYds": 37
+        },
+        "jones": {
+          "rec": 1.1,
+          "recYds": 8,
+          "rushYds": 26,
+          "rrYds": 34
+        },
+        "mason": {
+          "rushYds": 44
+        },
+        "otherReceivingYards": 33
+      },
+      "buf": {
+        "allen": {
+          "att": 27,
+          "passYds": 203,
+          "rushYds": 27
+        },
+        "shakir": {
+          "rec": 3.8,
+          "recYds": 39
+        },
+        "coleman": {
+          "rec": 2,
+          "recYds": 25
+        },
+        "cook": {
+          "rushAtt": 23,
+          "rushYds": 100,
+          "rec": 1.9,
+          "recYds": 14,
+          "rrYds": 114
+        },
+        "moore": {
+          "rec": 3.4,
+          "recYds": 46
+        },
+        "kincaid": {
+          "rec": 3.2,
+          "recYds": 33
+        },
+        "otherReceivingYards": 46
+      },
+      "td": {
+        "BUF": [
+          "James Cook",
+          "Josh Allen",
+          "Khalil Shakir"
+        ],
+        "MIN": [
+          "Justin Jefferson",
+          "Jordan Mason",
+          "T.J. Hockenson"
+        ]
+      },
+      "marketComparison": {
+        "min.wentz.passYds": {
+          "line": 209.5,
+          "forecast": 163,
+          "delta": -46.5,
+          "meanRelativePosition": "below"
+        },
+        "min.wentz.att": {
+          "line": 30.5,
+          "forecast": 24,
+          "delta": -6.5,
+          "meanRelativePosition": "below"
+        },
+        "min.jefferson.rec": {
+          "line": 6.5,
+          "forecast": 4.5,
+          "delta": -2,
+          "meanRelativePosition": "below"
+        },
+        "min.jefferson.recYds": {
+          "line": 77.5,
+          "forecast": 57,
+          "delta": -20.5,
+          "meanRelativePosition": "below"
+        },
+        "min.hockenson.rec": {
+          "line": 4.5,
+          "forecast": 3.3,
+          "delta": -1.2,
+          "meanRelativePosition": "below"
+        },
+        "min.hockenson.recYds": {
+          "line": 41.5,
+          "forecast": 28,
+          "delta": -13.5,
+          "meanRelativePosition": "below"
+        },
+        "min.addison.rec": {
+          "line": 3.5,
+          "forecast": 2.9,
+          "delta": -0.6,
+          "meanRelativePosition": "below"
+        },
+        "min.addison.recYds": {
+          "line": 39.5,
+          "forecast": 37,
+          "delta": -2.5,
+          "meanRelativePosition": "below"
+        },
+        "min.jones.rec": {
+          "line": 1.5,
+          "forecast": 1.1,
+          "delta": -0.4,
+          "meanRelativePosition": "below"
+        },
+        "min.jones.recYds": {
+          "line": 7.5,
+          "forecast": 8,
+          "delta": 0.5,
+          "meanRelativePosition": "above"
+        },
+        "min.jones.rushYds": {
+          "line": 31.5,
+          "forecast": 26,
+          "delta": -5.5,
+          "meanRelativePosition": "below"
+        },
+        "min.jones.rrYds": {
+          "line": 43.5,
+          "forecast": 34,
+          "delta": -9.5,
+          "meanRelativePosition": "below"
+        },
+        "min.mason.rushYds": {
+          "line": 47.5,
+          "forecast": 44,
+          "delta": -3.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.allen.passYds": {
+          "line": 234.5,
+          "forecast": 203,
+          "delta": -31.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.allen.rushYds": {
+          "line": 30.5,
+          "forecast": 27,
+          "delta": -3.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.shakir.rec": {
+          "line": 3.5,
+          "forecast": 3.8,
+          "delta": 0.3,
+          "meanRelativePosition": "above"
+        },
+        "buf.shakir.recYds": {
+          "line": 38.5,
+          "forecast": 39,
+          "delta": 0.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.coleman.rec": {
+          "line": 2.5,
+          "forecast": 2,
+          "delta": -0.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.coleman.recYds": {
+          "line": 27.5,
+          "forecast": 25,
+          "delta": -2.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.cook.rushAtt": {
+          "line": 18.5,
+          "forecast": 23,
+          "delta": 4.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.rushYds": {
+          "line": 82.5,
+          "forecast": 100,
+          "delta": 17.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.rec": {
+          "line": 1.5,
+          "forecast": 1.9,
+          "delta": 0.4,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.recYds": {
+          "line": 9.5,
+          "forecast": 14,
+          "delta": 4.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.rrYds": {
+          "line": 95.5,
+          "forecast": 114,
+          "delta": 18.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.moore.rec": {
+          "line": 3.5,
+          "forecast": 3.4,
+          "delta": -0.1,
+          "meanRelativePosition": "below"
+        },
+        "buf.moore.recYds": {
+          "line": 47.5,
+          "forecast": 46,
+          "delta": -1.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.kincaid.rec": {
+          "line": 3.5,
+          "forecast": 3.2,
+          "delta": -0.3,
+          "meanRelativePosition": "below"
+        },
+        "buf.kincaid.recYds": {
+          "line": 36.5,
+          "forecast": 33,
+          "delta": -3.5,
+          "meanRelativePosition": "below"
+        }
+      }
+    },
+    {
+      "key": "B",
+      "name": "Competitive one-score game",
+      "score": {
+        "BUF": 23,
+        "MIN": 20
+      },
+      "min": {
+        "wentz": {
+          "att": 30,
+          "passYds": 210
+        },
+        "jefferson": {
+          "rec": 6.1,
+          "recYds": 76
+        },
+        "hockenson": {
+          "rec": 4.4,
+          "recYds": 38
+        },
+        "addison": {
+          "rec": 3.7,
+          "recYds": 46
+        },
+        "jones": {
+          "rec": 1.6,
+          "recYds": 11,
+          "rushYds": 28,
+          "rrYds": 39
+        },
+        "mason": {
+          "rushYds": 46
+        },
+        "otherReceivingYards": 39
+      },
+      "buf": {
+        "allen": {
+          "att": 31,
+          "passYds": 230,
+          "rushYds": 33
+        },
+        "shakir": {
+          "rec": 4.3,
+          "recYds": 44
+        },
+        "coleman": {
+          "rec": 2.4,
+          "recYds": 30
+        },
+        "cook": {
+          "rushAtt": 20,
+          "rushYds": 87,
+          "rec": 1.8,
+          "recYds": 15,
+          "rrYds": 102
+        },
+        "moore": {
+          "rec": 4,
+          "recYds": 54
+        },
+        "kincaid": {
+          "rec": 3.6,
+          "recYds": 38
+        },
+        "otherReceivingYards": 49
+      },
+      "td": {
+        "BUF": [
+          "Josh Allen",
+          "James Cook",
+          "D.J. Moore"
+        ],
+        "MIN": [
+          "Justin Jefferson",
+          "Jordan Mason",
+          "T.J. Hockenson"
+        ]
+      },
+      "marketComparison": {
+        "min.wentz.passYds": {
+          "line": 209.5,
+          "forecast": 210,
+          "delta": 0.5,
+          "meanRelativePosition": "above"
+        },
+        "min.wentz.att": {
+          "line": 30.5,
+          "forecast": 30,
+          "delta": -0.5,
+          "meanRelativePosition": "below"
+        },
+        "min.jefferson.rec": {
+          "line": 6.5,
+          "forecast": 6.1,
+          "delta": -0.4,
+          "meanRelativePosition": "below"
+        },
+        "min.jefferson.recYds": {
+          "line": 77.5,
+          "forecast": 76,
+          "delta": -1.5,
+          "meanRelativePosition": "below"
+        },
+        "min.hockenson.rec": {
+          "line": 4.5,
+          "forecast": 4.4,
+          "delta": -0.1,
+          "meanRelativePosition": "below"
+        },
+        "min.hockenson.recYds": {
+          "line": 41.5,
+          "forecast": 38,
+          "delta": -3.5,
+          "meanRelativePosition": "below"
+        },
+        "min.addison.rec": {
+          "line": 3.5,
+          "forecast": 3.7,
+          "delta": 0.2,
+          "meanRelativePosition": "above"
+        },
+        "min.addison.recYds": {
+          "line": 39.5,
+          "forecast": 46,
+          "delta": 6.5,
+          "meanRelativePosition": "above"
+        },
+        "min.jones.rec": {
+          "line": 1.5,
+          "forecast": 1.6,
+          "delta": 0.1,
+          "meanRelativePosition": "above"
+        },
+        "min.jones.recYds": {
+          "line": 7.5,
+          "forecast": 11,
+          "delta": 3.5,
+          "meanRelativePosition": "above"
+        },
+        "min.jones.rushYds": {
+          "line": 31.5,
+          "forecast": 28,
+          "delta": -3.5,
+          "meanRelativePosition": "below"
+        },
+        "min.jones.rrYds": {
+          "line": 43.5,
+          "forecast": 39,
+          "delta": -4.5,
+          "meanRelativePosition": "below"
+        },
+        "min.mason.rushYds": {
+          "line": 47.5,
+          "forecast": 46,
+          "delta": -1.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.allen.passYds": {
+          "line": 234.5,
+          "forecast": 230,
+          "delta": -4.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.allen.rushYds": {
+          "line": 30.5,
+          "forecast": 33,
+          "delta": 2.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.shakir.rec": {
+          "line": 3.5,
+          "forecast": 4.3,
+          "delta": 0.8,
+          "meanRelativePosition": "above"
+        },
+        "buf.shakir.recYds": {
+          "line": 38.5,
+          "forecast": 44,
+          "delta": 5.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.coleman.rec": {
+          "line": 2.5,
+          "forecast": 2.4,
+          "delta": -0.1,
+          "meanRelativePosition": "below"
+        },
+        "buf.coleman.recYds": {
+          "line": 27.5,
+          "forecast": 30,
+          "delta": 2.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.rushAtt": {
+          "line": 18.5,
+          "forecast": 20,
+          "delta": 1.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.rushYds": {
+          "line": 82.5,
+          "forecast": 87,
+          "delta": 4.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.rec": {
+          "line": 1.5,
+          "forecast": 1.8,
+          "delta": 0.3,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.recYds": {
+          "line": 9.5,
+          "forecast": 15,
+          "delta": 5.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.rrYds": {
+          "line": 95.5,
+          "forecast": 102,
+          "delta": 6.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.moore.rec": {
+          "line": 3.5,
+          "forecast": 4,
+          "delta": 0.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.moore.recYds": {
+          "line": 47.5,
+          "forecast": 54,
+          "delta": 6.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.kincaid.rec": {
+          "line": 3.5,
+          "forecast": 3.6,
+          "delta": 0.1,
+          "meanRelativePosition": "above"
+        },
+        "buf.kincaid.recYds": {
+          "line": 36.5,
+          "forecast": 38,
+          "delta": 1.5,
+          "meanRelativePosition": "above"
+        }
+      }
+    },
+    {
+      "key": "C",
+      "name": "Minnesota trailing, pass-heavy",
+      "score": {
+        "BUF": 28,
+        "MIN": 24
+      },
+      "min": {
+        "wentz": {
+          "att": 38,
+          "passYds": 251
+        },
+        "jefferson": {
+          "rec": 8.2,
+          "recYds": 103
+        },
+        "hockenson": {
+          "rec": 5.7,
+          "recYds": 50
+        },
+        "addison": {
+          "rec": 4.6,
+          "recYds": 58
+        },
+        "jones": {
+          "rec": 2.1,
+          "recYds": 15,
+          "rushYds": 18,
+          "rrYds": 33
+        },
+        "mason": {
+          "rushYds": 31
+        },
+        "otherReceivingYards": 25
+      },
+      "buf": {
+        "allen": {
+          "att": 25,
+          "passYds": 194,
+          "rushYds": 26
+        },
+        "shakir": {
+          "rec": 3.5,
+          "recYds": 36
+        },
+        "coleman": {
+          "rec": 1.8,
+          "recYds": 24
+        },
+        "cook": {
+          "rushAtt": 25,
+          "rushYds": 110,
+          "rec": 1.5,
+          "recYds": 11,
+          "rrYds": 121
+        },
+        "moore": {
+          "rec": 3.1,
+          "recYds": 42
+        },
+        "kincaid": {
+          "rec": 3,
+          "recYds": 32
+        },
+        "otherReceivingYards": 49
+      },
+      "td": {
+        "BUF": [
+          "James Cook",
+          "Josh Allen",
+          "Dalton Kincaid"
+        ],
+        "MIN": [
+          "Justin Jefferson",
+          "T.J. Hockenson",
+          "Jordan Addison"
+        ]
+      },
+      "marketComparison": {
+        "min.wentz.passYds": {
+          "line": 209.5,
+          "forecast": 251,
+          "delta": 41.5,
+          "meanRelativePosition": "above"
+        },
+        "min.wentz.att": {
+          "line": 30.5,
+          "forecast": 38,
+          "delta": 7.5,
+          "meanRelativePosition": "above"
+        },
+        "min.jefferson.rec": {
+          "line": 6.5,
+          "forecast": 8.2,
+          "delta": 1.7,
+          "meanRelativePosition": "above"
+        },
+        "min.jefferson.recYds": {
+          "line": 77.5,
+          "forecast": 103,
+          "delta": 25.5,
+          "meanRelativePosition": "above"
+        },
+        "min.hockenson.rec": {
+          "line": 4.5,
+          "forecast": 5.7,
+          "delta": 1.2,
+          "meanRelativePosition": "above"
+        },
+        "min.hockenson.recYds": {
+          "line": 41.5,
+          "forecast": 50,
+          "delta": 8.5,
+          "meanRelativePosition": "above"
+        },
+        "min.addison.rec": {
+          "line": 3.5,
+          "forecast": 4.6,
+          "delta": 1.1,
+          "meanRelativePosition": "above"
+        },
+        "min.addison.recYds": {
+          "line": 39.5,
+          "forecast": 58,
+          "delta": 18.5,
+          "meanRelativePosition": "above"
+        },
+        "min.jones.rec": {
+          "line": 1.5,
+          "forecast": 2.1,
+          "delta": 0.6,
+          "meanRelativePosition": "above"
+        },
+        "min.jones.recYds": {
+          "line": 7.5,
+          "forecast": 15,
+          "delta": 7.5,
+          "meanRelativePosition": "above"
+        },
+        "min.jones.rushYds": {
+          "line": 31.5,
+          "forecast": 18,
+          "delta": -13.5,
+          "meanRelativePosition": "below"
+        },
+        "min.jones.rrYds": {
+          "line": 43.5,
+          "forecast": 33,
+          "delta": -10.5,
+          "meanRelativePosition": "below"
+        },
+        "min.mason.rushYds": {
+          "line": 47.5,
+          "forecast": 31,
+          "delta": -16.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.allen.passYds": {
+          "line": 234.5,
+          "forecast": 194,
+          "delta": -40.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.allen.rushYds": {
+          "line": 30.5,
+          "forecast": 26,
+          "delta": -4.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.shakir.rec": {
+          "line": 3.5,
+          "forecast": 3.5,
+          "delta": 0,
+          "meanRelativePosition": "at"
+        },
+        "buf.shakir.recYds": {
+          "line": 38.5,
+          "forecast": 36,
+          "delta": -2.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.coleman.rec": {
+          "line": 2.5,
+          "forecast": 1.8,
+          "delta": -0.7,
+          "meanRelativePosition": "below"
+        },
+        "buf.coleman.recYds": {
+          "line": 27.5,
+          "forecast": 24,
+          "delta": -3.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.cook.rushAtt": {
+          "line": 18.5,
+          "forecast": 25,
+          "delta": 6.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.rushYds": {
+          "line": 82.5,
+          "forecast": 110,
+          "delta": 27.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.rec": {
+          "line": 1.5,
+          "forecast": 1.5,
+          "delta": 0,
+          "meanRelativePosition": "at"
+        },
+        "buf.cook.recYds": {
+          "line": 9.5,
+          "forecast": 11,
+          "delta": 1.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.cook.rrYds": {
+          "line": 95.5,
+          "forecast": 121,
+          "delta": 25.5,
+          "meanRelativePosition": "above"
+        },
+        "buf.moore.rec": {
+          "line": 3.5,
+          "forecast": 3.1,
+          "delta": -0.4,
+          "meanRelativePosition": "below"
+        },
+        "buf.moore.recYds": {
+          "line": 47.5,
+          "forecast": 42,
+          "delta": -5.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.kincaid.rec": {
+          "line": 3.5,
+          "forecast": 3,
+          "delta": -0.5,
+          "meanRelativePosition": "below"
+        },
+        "buf.kincaid.recYds": {
+          "line": 36.5,
+          "forecast": 32,
+          "delta": -4.5,
+          "meanRelativePosition": "below"
+        }
+      }
+    }
+  ],
+  "injuryGates": [
+    "MIN Murray/Jennings/Claiborne out",
+    "BUF Palmer out",
+    "BUF LT Dawkins/LG Anderson questionable",
+    "MIN S Jackson/Ward questionable",
+    "BUF DL Gaines questionable",
+    "BUF WR Shavers questionable"
+  ],
+  "weights": {
+    "A": null,
+    "B": null,
+    "C": null
+  },
+  "notes": [
+    "The Wentz routes and target history run from prior Wentz third-down and MNF Hockenson route research; BUF receiver share assumptions were set as scenarios, not fitted.",
+    "Offense receiver yard components do not exceed QB gross passing yards and RB rush+receive totals reconcile.",
+    "All scenario metrics are conditional means and cannot be interpreted as prop hit percentages.",
+    "The touchdown market prices are DraftKings snapshots and do not independently forecast probabilities by scenario.",
+    "Books sometimes quote Jefferson 79.5 and Shakir 4.5; this report uses multi-book 77.5/3.5 consensus reference.",
+    "Other receiving yards bucket includes Ty Johnson, Dawson Knox, secondary receivers and backs not individually shown.",
+    "Final inactive lists and prices remain to be rechecked before kickoff.",
+    "The three scripts are alternatives, not additive; all player ceilings cannot be combined.",
+    "Buffalo stronger early-down run approach vs Minnesota 29.7% third down allowed; Wentz 2025–26 20.0% third-down sacks and Buffalo 41.9% opposition 3D conversion allowance.",
+    "No model baseline/production config/database modifications."
+  ]
+}
