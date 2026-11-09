@@ -17,8 +17,8 @@ import numpy as np
 
 ROOT=Path("research/third_down")
 INPUT=ROOT/"BUF_MIN_W9_THREE_SCENARIO_PROP_RESEARCH_20261109.json"
-QUOTES=ROOT/"BUF_MIN_DK_FD_QUOTES_20261109_0951ET.json"
-OUT=ROOT/"BUF_MIN_W9_MC_100K_X_3_SCENARIOS_X_3_METHODS_20261109.json"
+QUOTES=ROOT/"BUF_MIN_DK_FD_QUOTES_20261109_1001ET.json"
+OUT=ROOT/"BUF_MIN_W9_MC_100K_X_3_SCENARIOS_X_3_METHODS_20261109_1001ET.json"
 
 N=100000
 SEED=20261109
@@ -343,7 +343,7 @@ def run(seed=SEED,n=N):
             rows.append(simulate_one(rng,scenario,method,config,quotes,n))
     report={"status":"COMPLETED_RESEARCH_ONLY_NO_VALIDATED_PROBABILITIES",
             "game":"BUF at MIN 2026-11-09 pregame",
-            "quote_snapshot":str(QUOTES),"source_display_updated_ET":"2026-11-09 09:51 ET",
+            "quote_snapshot":str(QUOTES),"source_display_updated_ET":"2026-11-09 10:01 ET",
             "trials_per_scenario_method":n,"total_trials":len(rows)*n,"seed":seed,
             "methods":{
               "historical_shares":"Current Wentz historic target-share and original opportunity scenarios; not trained sportsbook main model",
@@ -366,7 +366,7 @@ def run(seed=SEED,n=N):
               "Touchdown scorer allocation uses explicitly assumed positional shares, not opponent charted goal-line play-by-play, so avoid confident TD bets.",
               "J. Mason and Jones share role opportunity but carry volume is only partially correlated; Dallas competition remains a risk.",
               "Player rushing simulation approximates positive aggregate gains and ignores negative runs/kneels, which may bias yardage slightly upward.",
-              "Book odds are from a 9:51 ET third-party aggregator snapshot, not directly authenticated live DK/FD prices; re-verify before wagering.",
+              "Book odds are from a 10:01 ET third-party aggregator snapshot, not directly authenticated live DK/FD prices; re-verify before wagering.",
               "Official final game-day inactives are not known at 10 AM ET; no medical probabilities estimated.",
               "No production model, NFL-13 assessment, baseline, DB or config changes.",
             ],"runs":rows}
