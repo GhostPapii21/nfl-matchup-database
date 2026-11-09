@@ -2,7 +2,7 @@
 
 [Final Sunday postgame rollup](WEEK9_SUNDAY_POSTGAME_ROLLUP_20261108.md) · [Final play log](WEEK9_SUNDAY_FINAL_PLAYS_20261108.csv) · [Final forecast grades](WEEK9_SUNDAY_FINAL_FORECAST_GRADES_20261108.csv)
 
-[Quarter trends for all 26 Sunday teams](WEEK9_SUNDAY_SLATE_QUARTER_TRENDS_WEEKS_1_9_2026.md)
+[Quarter trends for all 26 Sunday teams](WEEK9_SUNDAY_SLATE_QUARTER_TRENDS_WEEKS_1_9_2026.md) · [Bills–Vikings pregame quarter board](WEEK9_MNF_BUF_MIN_PREGAME_QUARTER_BOARD_20261109.md)
 
 ## Earlier forecast scorecard
 
