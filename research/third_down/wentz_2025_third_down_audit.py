@@ -145,7 +145,8 @@ def audit_qb(rows,selected,team):
     all_dropbacks=[r for r in rows if r["posteam"]==team and selector(r) and not flag(r,"no_play") and r.get("play_type")!="no_play"]
     third=[r for r in all_dropbacks if int(n(r["down"]))==3]
     eligible=[r for r in third if meaningful_third_down(r)]
-    attempts=[r for r in third if flag(r,"pass_attempt")]
+    # nflverse flags sacks with pass_attempt=1; exclude them from true throws.
+    attempts=[r for r in third if flag(r,"pass_attempt") and not flag(r,"sack") and not flag(r,"qb_scramble")]
     complete=[r for r in attempts if flag(r,"complete_pass")]
     sacks=[r for r in third if flag(r,"sack")]
     scrambles=[r for r in third if flag(r,"qb_scramble")]
@@ -162,6 +163,11 @@ def audit_qb(rows,selected,team):
          "desc":r["desc"][:250]}
         for r in (overlaps["pass_attempt_and_sack"] + overlaps["pass_attempt_and_scramble"])[:8]
     ]
+    if len(attempts)+len(sacks)+len(scrambles)!=len(third):
+        raise ValueError(
+            f"{selected} {team}: third-down throws+sacks+scrambles "
+            f"do not reconcile to QB dropbacks; refuse publication"
+        )
     targets=collections.defaultdict(lambda:{"targets":0,"catches":0,"third_down_conversions":0})
     for r in attempts:
         name=r["receiver_player_name"] or "(unattributed)"
@@ -188,6 +194,8 @@ def audit_qb(rows,selected,team):
         "third_down_dropback_conversions":sum(flag(r,"third_down_converted") for r in eligible),
         "third_down_dropback_conversion_pct":round(100*sum(flag(r,"third_down_converted") for r in eligible)/len(eligible),1) if eligible else None,
         "third_down_pass_attempts":len(attempts),
+        "third_down_pass_and_sack_are_disjoint":True,
+        "third_down_sack_rate_pct":round(100*len(sacks)/len(third),1) if third else None,
         "third_down_pass_completions":len(complete),
         "third_down_pass_completion_pct":round(100*len(complete)/len(attempts),1) if attempts else None,
         "third_down_sacks":len(sacks),
