@@ -22,11 +22,15 @@ jobs:
         run: python -m unittest -v test_nfl_week9_integrity_audit.py test_nfl_external_sources.py
       - name: Reconcile live public ESPN scoreboard with archived NFL finals
         run: python -m research.week9_20261108_integrity_audit
+      - name: Gate low-sample and uncalibrated outputs for release
+        run: |
+          python -m unittest -v test_nfl_week9_release_guard.py
+          python -m research.week9_20261108_release_guard
       - name: Save passing research audit on the isolated branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f research/WEEK9_20261108_RESCAN_20261109.json
+          git add -f research/WEEK9_20261108_RESCAN_20261109.json research/WEEK9_20261108_PUBLICATION_GUARD.json
           if ! git diff --cached --quiet; then
             git commit -m "audit: verify NFL Sunday Week9 archive and live scoreboard"
             git push origin "HEAD:${GITHUB_REF_NAME}"
