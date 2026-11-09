@@ -278,6 +278,7 @@ def perform(rows_2025,rows_2026):
         "defense_allowed":_team_defense(rows_2026,x),
         "drive_opportunities":drive_opportunities(rows_2026,x),
     } for x in ("BUF","MIN")}
+    wentz_2026=audit_qb(rows_2026,"wentz","MIN")
     allen_2026=audit_qb(rows_2026,"allen","BUF")
     if allen_2026["total_dropbacks"]<100:
         raise ValueError("Bills Josh Allen W1-8 qb dropbacks insufficient")
@@ -291,6 +292,7 @@ def perform(rows_2025,rows_2026):
         "wentz_2025_team_3d":min_2025_team,
         "wentz_2025_qb":wentz_all,
         "team_2026":team_2026,
+        "wentz_2026_qb":wentz_2026,
         "allen_2026_qb":allen_2026,
         "we_cannot_infer_actual_possession_from_3d_alone":True,
         "production_parameters_changed":False,
@@ -326,6 +328,7 @@ def main():
         "wentz_2025_qb":{k:v for k,v in report["wentz_2025_qb"].items() if k not in ("third_down_receivers","third_down_by_distance")},
         "min_2025_team":report["wentz_2025_team_3d"],
         "team_2026":report["team_2026"],
+        "wentz_2026_qb":{k:v for k,v in report["wentz_2026_qb"].items() if k not in ("third_down_receivers","third_down_by_distance")},
         "allen_2026_qb":{k:v for k,v in report["allen_2026_qb"].items() if k not in ("third_down_receivers","third_down_by_distance")},
         "2025_game_ids":[x["game_id"] for x in report["game_details_2025_wentz"]]
     },sort_keys=True))
