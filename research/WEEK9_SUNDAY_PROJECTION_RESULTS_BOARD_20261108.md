@@ -1,5 +1,9 @@
 # Week 9 Sunday projection and results board · November 8, 2026 ET
 
+## Forecast scorecard update
+
+Madrid and the 1 p.m. markets now have a [calibration and equation review](WEEK9_SUNDAY_CALIBRATION_REVIEW_20261108.md) and [row-by-row grades](WEEK9_SUNDAY_FORECAST_GRADES_20261108.csv). The season baseline hit 104 of 212 scored DraftKings calls (49.1%) and 99 of 210 FanDuel calls (47.1%). Late-game grades, the Cleveland–New Orleans overtime split, and unmatched outcomes remain open.
+
 ## Quarter results
 
 Scores are away–home. Margins use points scored within each quarter. Seven 1 p.m. results and Madrid are marked official by the DraftKings score feed. The afternoon late games were still in Q4 at capture. OT is separate from regulation.
