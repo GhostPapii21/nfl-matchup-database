@@ -36,7 +36,7 @@ COLUMNS = ("game_id", "week", "season_type", "posteam", "defteam", "down",
            "passer_player_id", "passer_player_name", "rusher_player_id",
            "rusher_player_name", "receiver_player_name",
            "qb_scramble", "sack", "qb_hit", "desc",
-           "no_play", "play_type", "first_down", "touchdown",
+           "play_type", "first_down", "touchdown",
            "drive", "play_id", "score_differential", "yards_gained")
 
 
@@ -142,7 +142,7 @@ def audit_qb(rows,selected,team):
     if selected=="wentz":selector=is_wentz_dropback
     elif selected=="allen":selector=is_allen_dropback
     else:raise ValueError("unknown QB")
-    all_dropbacks=[r for r in rows if r["posteam"]==team and selector(r) and not flag(r,"no_play")]
+    all_dropbacks=[r for r in rows if r["posteam"]==team and selector(r) and not flag(r,"no_play") and r.get("play_type")!="no_play"]
     third=[r for r in all_dropbacks if int(n(r["down"]))==3]
     eligible=[r for r in third if meaningful_third_down(r)]
     attempts=[r for r in third if flag(r,"pass_attempt")]
