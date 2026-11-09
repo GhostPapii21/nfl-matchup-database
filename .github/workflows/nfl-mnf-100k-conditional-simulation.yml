@@ -1,0 +1,40 @@
+name: MNF 100k x 3 game scripts x 3 research sensitivities
+
+on:
+  push:
+    branches: [research/wentz-2025-third-down-drive-audit]
+    paths:
+      - 'research/third_down/mnf_20261109_joint_monte_carlo.py'
+      - 'research/third_down/BUF_MIN_DK_FD_QUOTES_20261109_0951ET.json'
+      - 'research/third_down/BUF_MIN_W9_THREE_SCENARIO_PROP_RESEARCH_20261109.json'
+      - 'test_nfl_mnf_monte_carlo.py'
+      - '.github/workflows/nfl-mnf-100k-conditional-simulation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  monte-carlo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependency
+        run: python -m pip install 'numpy>=1.26,<3'
+      - name: Offline integrity tests
+        run: python -m unittest -v test_nfl_mnf_monte_carlo.py
+      - name: Run 900000 conditional trials (100000 per scenario and sensitivity)
+        run: python -m research.third_down.mnf_20261109_joint_monte_carlo --trials 100000 --seed 20261109
+      - name: Commit research-only output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f research/third_down/BUF_MIN_W9_MC_100K_X_3_SCENARIOS_X_3_METHODS_20261109.json
+          if ! git diff --cached --quiet; then
+            git commit -m "research: freeze 900k BUF MIN conditional simulation draws"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
