@@ -1,12 +1,14 @@
 # Week 9 Sunday projection and results board · November 8, 2026 ET
 
-## Forecast scorecard update
+[Final Sunday postgame rollup](WEEK9_SUNDAY_POSTGAME_ROLLUP_20261108.md) · [Final play log](WEEK9_SUNDAY_FINAL_PLAYS_20261108.csv) · [Final forecast grades](WEEK9_SUNDAY_FINAL_FORECAST_GRADES_20261108.csv)
+
+## Earlier forecast scorecard
 
 Madrid and the 1 p.m. markets now have a [calibration and equation review](WEEK9_SUNDAY_CALIBRATION_REVIEW_20261108.md) and [row-by-row grades](WEEK9_SUNDAY_FORECAST_GRADES_20261108.csv). The season baseline hit 104 of 212 scored DraftKings calls (49.1%) and 99 of 210 FanDuel calls (47.1%). Late-game grades, the Cleveland–New Orleans overtime split, and unmatched outcomes remain open.
 
 ## Quarter results
 
-Scores are away–home. Margins use points scored within each quarter. Seven 1 p.m. results and Madrid are marked official by the DraftKings score feed. The afternoon late games were still in Q4 at capture. OT is separate from regulation.
+Official NFL gamebooks verify all 13 Sunday finals and period scores. Scores are away–home. Margins use points scored within each quarter. OT is separate from regulation.
 
 | Game | Game score / status | Q1 | Q2 | Q3 | Q4 | OT |
 |---|---|---|---|---|---|---|
@@ -18,13 +20,15 @@ Scores are away–home. Margins use points scored within each quarter. Seven 1 p
 | NYG@PHI | 19–11 FINAL | 6–8 PHI +2 | 0–0 tie | 7–0 NYG +7 | 6–3 NYG +3 | — |
 | LAR@WAS | 20–13 FINAL | 3–3 tie | 3–7 WAS +4 | 7–3 LAR +4 | 7–0 LAR +7 | — |
 | DEN@CAR | 26–21 FINAL | 10–0 DEN +10 | 3–7 CAR +4 | 0–7 CAR +7 | 13–7 DEN +6 | — |
-| HOU@LAC | 41–15 Q4 4:24 | 10–3 HOU +7 | 14–6 HOU +8 | 7–0 HOU +7 | 10–6 HOU +4 (live) | — |
-| GB@NE | 42–21 Q4 12:43 | 14–0 GB +14 | 10–14 NE +4 | 18–7 GB +11 | 0–0 tie (live) | — |
-| LV@SF | 17–38 Q4 3:55 | 0–14 SF +14 | 10–7 LV +3 | 7–14 SF +7 | 0–3 SF +3 (live) | — |
-| ARI@SEA | 3–17 Q4 4:35 | 3–0 ARI +3 | 0–14 SEA +14 | 0–3 SEA +3 | 0–0 tie (live) | — |
-| TB@CHI | Pregame | — | — | — | — | — |
+| HOU@LAC | 44–22 FINAL | 10–3 HOU +7 | 14–6 HOU +8 | 7–0 HOU +7 | 13–13 tie | — |
+| GB@NE | 45–27 FINAL | 14–0 GB +14 | 10–14 NE +4 | 18–7 GB +11 | 3–6 NE +3 | — |
+| LV@SF | 17–38 FINAL | 0–14 SF +14 | 10–7 LV +3 | 7–14 SF +7 | 0–3 SF +3 | — |
+| ARI@SEA | 3–17 FINAL | 3–0 ARI +3 | 0–14 SEA +14 | 0–3 SEA +3 | 0–0 tie | — |
+| TB@CHI | 24–27 FINAL | 0–14 CHI +14 | 6–3 TB +3 | 7–7 tie | 11–3 TB +8 | — |
 
-## Play-by-play and why the scores moved
+## Archived play-by-play snapshots
+
+These rows preserve the earlier capture. Use the final rollup for corrected team yardage and complete game results.
 
 [1 p.m. play rows](WEEK9_1PM_PLAY_LOG_20261108.csv) · [Other Sunday play rows](WEEK9_OTHER_SUNDAY_PLAY_LOG_20261108.csv) · [Earlier 1 p.m. receiver/defense audit](week9_1pm_live/WEEK9_1PM_PER_GAME_AUDIT_20261108_1552ET.md) · [Official NFL schedule](https://www.nfl.com/schedules/2026/by-week/week-9) · [Cardinals team schedule confirming 4:25](https://www.nfl.com/schedules/2026/by-team/arizona-cardinals)
 
