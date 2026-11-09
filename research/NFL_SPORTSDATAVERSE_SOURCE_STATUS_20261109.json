@@ -1,26 +1,27 @@
 {
   "duplicate_player_game_records": 0,
   "game_id_source": "reconstructed from 2026 W9 unique verified team/opponent pair where original weekly stats lack game_id",
-  "mismatch_examples": [],
-  "missing_games": [
-    "ARI@SEA",
-    "CIN@ATL",
-    "CLE@NO",
-    "DAL@IND",
-    "DEN@CAR",
-    "DET@MIA",
-    "GB@NE",
-    "HOU@LAC",
-    "LAR@WAS",
-    "LV@SF",
-    "NYG@PHI",
-    "NYJ@KC",
-    "TB@CHI"
+  "mismatch_examples": [
+    {
+      "archived_final": "274",
+      "game": "LAR@WAS",
+      "market": "passing_yards",
+      "player": "Jayden Daniels",
+      "sportsdataverse_value": "273.0"
+    },
+    {
+      "archived_final": "57",
+      "game": "LAR@WAS",
+      "market": "receiving_yards",
+      "player": "Chig Okonkwo",
+      "sportsdataverse_value": "56.0"
+    }
   ],
+  "missing_games": [],
   "note": "This is a source parity snapshot, not a timestamped pregame feed or a complete player prop model.",
-  "official_metric_matches": 0,
-  "official_metric_mismatch_count": 0,
-  "official_metric_missing": 871,
+  "official_metric_matches": 840,
+  "official_metric_mismatch_count": 2,
+  "official_metric_missing": 31,
   "provider_shape": {
     "available_columns": [
       "player_id",
@@ -96,9 +97,23 @@
     ]
   },
   "result_eligible_for_automated_model_ingest": false,
-  "retrieved_utc": "2026-11-09T11:39:31.731607+00:00",
-  "sdk_sunday_games": [],
-  "sdk_unique_player_game_records": 0,
+  "retrieved_utc": "2026-11-09T11:41:07.097728+00:00",
+  "sdk_sunday_games": [
+    "ARI@SEA",
+    "CIN@ATL",
+    "CLE@NO",
+    "DAL@IND",
+    "DEN@CAR",
+    "DET@MIA",
+    "GB@NE",
+    "HOU@LAC",
+    "LAR@WAS",
+    "LV@SF",
+    "NYG@PHI",
+    "NYJ@KC",
+    "TB@CHI"
+  ],
+  "sdk_unique_player_game_records": 254,
   "source": "SportsDataverse NFL load_nfl_player_stats seasons=[2026]; public nflverse stats_player asset",
   "source_as_of_utc": null,
   "source_verified_for_research": false,
