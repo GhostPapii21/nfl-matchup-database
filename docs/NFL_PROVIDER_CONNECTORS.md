@@ -5,6 +5,12 @@ changes, no live bets, no key in Git, no production readiness change.
 
 The source registry is in `source_adapters/nfl_external_sources.py`.
 `python -m source_adapters.nfl_external_sources` lists sources without making any network request.
+Install the optional SportsDataverse loader only in a separate research environment:
+
+```bash
+python -m pip install -r requirements-nfl-external-research.txt
+```
+
 Unit tests only mock the external providers. **Green tests do not mean a
 live API is authenticated, entitled or delivering usable observations.**
 
