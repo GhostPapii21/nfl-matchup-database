@@ -1,0 +1,10 @@
+nflverse_game_id,gap_id,severity,section,detail
+2026_09_ARI_SEA,supplied_identifiers,note,game_meta,nflverse_game_id and week are not printed on the game summary. Ingest supplied nflverse_game_id=2026_09_ARI_SEA and week=9.
+2026_09_ARI_SEA,printed_team_abbr,note,game_meta,"team_abbr columns keep the abbreviation printed in the gamebook (ARZ, SEA). The nflverse game_id uses ARI and SEA."
+2026_09_ARI_SEA,field_goal_result_notation,note,field_goals,The game summary prints made field goals in parentheses and missed field goals without them ('Field Goals (made ( ) & missed)'). result reads that notation. It is not computed from the score.
+2026_09_ARI_SEA,first_half_scoring_reprint,note,scoring_plays,The first-half summary repeats the scoring plays already listed on the game summary page. Those repeat lines are not copied into scoring_plays.
+2026_09_ARI_SEA,longest_plays_unparsed,gap,longest_plays,"Ten Longest Plays is not a CSV. pdftotext can wrap a play description into the next row, so those yard and quarter cells are not reliable. The same plays remain in play_by_play."
+2026_09_ARI_SEA,player_scoring_td_column_printed_zero,note,player_scoring,"A.Barner has printed td=0 while a type column is non-zero rush_td=1, rec_td=1. The zero is stored as printed and was not replaced with a sum."
+2026_09_ARI_SEA,attempts_differ_from_targets,note,passing,Pass attempts and receiving targets are both stored as printed. ARZ printed pass attempts 30 and printed targets 29 differ.
+2026_09_ARI_SEA,first_half_defense_is_printed_subset,note,defense,The first-half defensive table lists 8 players and the final table lists 41. The first-half rows are stored as printed and were not filled from the play-by-play. Example: a first-half sack can be absent from the first-half defensive list.
+2026_09_ARI_SEA,bracket_return_rows,note,returns,[DOWNED] and [TOUCHBACK] rows are kept. The printed Total does not include them. bracket_row marks those printed labels.

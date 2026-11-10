@@ -18,3 +18,11 @@ As of the 2026-11-06 public checkpoint. No credential is stored in this reposito
 | odds-bridge | `needsAuth`. | No | NFL-25, NFL-45 |
 
 The packaged registry copy is `docs/source_registry/SOURCE_REGISTRY.md`. This page is the public status to use when they differ: the corrected Linear index adds NFL-54, and raw quote bodies are not in the tree.
+
+## Owner-supplied gamebook (ingested 2026-11-10)
+
+| Source | Status | Usable for projection now | Where to look |
+| --- | --- | --- | --- |
+| Official NFL Game Summaries, 2026 Week 9, all 15 games (nflverse ids in `data/gamebooks/2026/wk09/MANIFEST.csv`) | Owner-supplied PDFs plus `pdftotext -layout` text. Tidy per-game CSVs and week-level `combined/` tables are a research extract. NFL media-use restriction applies. | No | `data/gamebooks/2026/wk09/` |
+
+This row does not change `projection_ready`, model weights, formulas, or simulators. `manifest.json` is still the sqlite snapshot and was not rebuilt. The 2026-11-06 source-registry and source-run-gate manifests were not edited.
