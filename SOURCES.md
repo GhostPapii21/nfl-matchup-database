@@ -12,6 +12,8 @@ Each available observation includes its provider/source URL, retrieval time or l
 
 No paid Fantasy Points Data Suite export is included. No third-party chart images or full webpage archives are bundled. Public accessibility does not imply a universal license; downstream users must observe each provider's applicable terms.
 
+The 2026 Week 9 Buffalo at Minnesota official NFL Game Summary was supplied by the owner and is stored at `data/gamebooks/2026/wk09/2026_09_BUF_MIN/`. It is a postgame research input, not a projection source. The PDF carries this restriction: "This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League." The full notice, the PDF SHA-256, and the ingest date are in that folder's README.
+
 ## Model checkpoint additions
 
 The model tree follows the same rule. nflverse play-by-play, roster, game, and depth-chart files that were already redistributable are included as regular files. FTN charting parquets, raw ESPN API bodies, scraped book pages, and saved book-quote audits are hash-only. See `inventory/EXCLUSIONS.json` and `docs/SOURCE_STATUS.md`. ORCA and FTN model mirrors were not retrieved. No odds credential is included.

@@ -34,6 +34,23 @@ There is no public scraper in this repository that returns live Pinnacle, DraftK
 
 NWS point forecasts are public. The checkpoint documents a weather hook and does not treat a stored scenario file as a game-time freeze. NFL-57 tracks the missing game-time adapter. A later pull should store the NWS URL, issuance time, and the grid that was requested.
 
+## Owner-supplied official gamebooks
+
+The 2026 Week 9 Bills at Vikings game summary was supplied by the owner and committed under `data/gamebooks/2026/wk09/2026_09_BUF_MIN/`. It is not a public refresh and it is not fetched by the scripts in this tree. Do not replace the PDF from a scrape.
+
+To rebuild the CSVs from the committed text:
+
+```sh
+python3 data/gamebooks/parse_nfl_game_summary.py \
+  --text data/gamebooks/2026/wk09/2026_09_BUF_MIN/2026_09_BUF_MIN_gamebook.txt \
+  --pdf data/gamebooks/2026/wk09/2026_09_BUF_MIN/2026_09_BUF_MIN_gamebook.pdf \
+  --out data/gamebooks/2026/wk09/2026_09_BUF_MIN/parsed \
+  --provenance-out data/gamebooks/2026/wk09/2026_09_BUF_MIN/provenance.json \
+  --game-id 2026_09_BUF_MIN --week 9 --ingested-date 2026-11-10
+```
+
+That command only parses the local text. It does not run a simulation and it does not set `projection_ready`. The NFL copyright notice in that folder's README restricts use of the summary.
+
 ## What not to refresh from this tree
 
 Do not buy data. Do not run a 100k simulation. Do not call Firecrawl with an account key. Do not duplicate the PFF browser lane. Historical stderr logs and scraped page copies are hash-only in `inventory/EXCLUSIONS.json`.

@@ -1,0 +1,14 @@
+gap_id,severity,section,detail
+supplied_identifiers,note,game_meta,nflverse_game_id and week are not printed on the game summary. Ingest supplied nflverse_game_id=2026_09_BUF_MIN and week=9.
+did_not_play_blank,note,participation,Did Not Play is printed for both clubs and lists no players.
+field_goal_result_notation,note,field_goals,The game summary prints made field goals in parentheses and missed field goals without them ('Field Goals (made ( ) & missed)'). result reads that notation. It is not computed from the score.
+first_half_scoring_reprint,note,scoring_plays,The first-half summary repeats the scoring plays already listed on the game summary page. Those repeat lines are not copied into scoring_plays.
+first_half_score_reprint,note,quarter_scores,"First-half period score lines are a reprint of quarters 1 and 2, not a second scoreboard: Bills 3 7 = 10 Bills 20:29 | Vikings 0 6=6 Vikings 9:31"
+reversed_text_kept_verbatim,note,play_by_play,Plays marked REVERSED keep both the original wording and the reversed wording in description. No yardage was taken from those sentences. contains_reversed_text flags the printed word.
+lateral_not_reallocated,note,play_by_play,A lateral stays inside the play description. Receiving credit is only the printed receiving table.
+longest_plays_unparsed,gap,longest_plays,"Ten Longest Plays is not a CSV. pdftotext wrapped an injury-update tail from an 8-yard Minnesota play into the next 8-yard row, so the yard/quarter columns on that pair are not reliable. The same plays remain in play_by_play."
+player_scoring_td_column_printed_zero,note,player_scoring,J.Cook has printed td=0 while a type column is non-zero rush_td=1. The zero is stored as printed and was not replaced with a sum.
+player_scoring_td_column_printed_zero,note,player_scoring,K.Latu has printed td=0 while a type column is non-zero rec_td=1. The zero is stored as printed and was not replaced with a sum.
+attempts_differ_from_targets,note,passing,Pass attempts and receiving targets are both stored as printed. BUF printed pass attempts 31 and printed targets 29 differ; MIN printed pass attempts 32 and printed targets 30 differ.
+first_half_defense_is_printed_subset,note,defense,The first-half defensive table lists 8 players and the final table lists 46. The first-half rows are stored as printed and were not filled from the play-by-play. Example: a first-half sack can be absent from the first-half defensive list.
+bracket_return_rows,note,returns,[DOWNED] and [TOUCHBACK] rows are kept. The printed Total does not include them. bracket_row marks those printed labels.

@@ -18,3 +18,11 @@ As of the 2026-11-06 public checkpoint. No credential is stored in this reposito
 | odds-bridge | `needsAuth`. | No | NFL-25, NFL-45 |
 
 The packaged registry copy is `docs/source_registry/SOURCE_REGISTRY.md`. This page is the public status to use when they differ: the corrected Linear index adds NFL-54, and raw quote bodies are not in the tree.
+
+## Owner-supplied gamebook (ingested 2026-11-10)
+
+| Source | Status | Usable for projection now | Where to look |
+| --- | --- | --- | --- |
+| Official NFL Game Summary, 2026 Week 9 Buffalo Bills at Minnesota Vikings (nflverse `2026_09_BUF_MIN`, Mon Nov 9 2026, final 23–6) | Owner-supplied PDF plus a `pdftotext -layout` text copy. Tidy CSVs are a research extract of the printed pages. NFL media-use restriction applies; see the folder README. | No | `data/gamebooks/2026/wk09/2026_09_BUF_MIN/` |
+
+This row does not change `projection_ready`, model weights, formulas, or simulators. `manifest.json` is still the sqlite snapshot and was not rebuilt. The 2026-11-06 source-registry and source-run-gate manifests were not edited.
