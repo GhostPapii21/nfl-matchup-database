@@ -12,7 +12,7 @@ Each available observation includes its provider/source URL, retrieval time or l
 
 No paid Fantasy Points Data Suite export is included. No third-party chart images or full webpage archives are bundled. Public accessibility does not imply a universal license; downstream users must observe each provider's applicable terms.
 
-The 2026 Week 9 Buffalo at Minnesota official NFL Game Summary was supplied by the owner and is stored at `data/gamebooks/2026/wk09/2026_09_BUF_MIN/`. It is a postgame research input, not a projection source. The PDF carries this restriction: "This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League." The full notice, the PDF SHA-256, and the ingest date are in that folder's README.
+The 15 official 2026 Week 9 NFL Game Summaries were supplied by the owner and are stored under `data/gamebooks/2026/wk09/`. They are postgame research inputs, not a projection source. Each PDF carries this restriction: "This summary and play-by-play is for the express purpose of assisting media in their coverage of the game; any other use of this material is prohibited without the written permission of the National Football League." The full notice, the PDF SHA-256, the source URL, and the ingest date are in each game folder's `provenance.json`.
 
 ## Model checkpoint additions
 

@@ -23,6 +23,6 @@ The packaged registry copy is `docs/source_registry/SOURCE_REGISTRY.md`. This pa
 
 | Source | Status | Usable for projection now | Where to look |
 | --- | --- | --- | --- |
-| Official NFL Game Summary, 2026 Week 9 Buffalo Bills at Minnesota Vikings (nflverse `2026_09_BUF_MIN`, Mon Nov 9 2026, final 23–6) | Owner-supplied PDF plus a `pdftotext -layout` text copy. Tidy CSVs are a research extract of the printed pages. NFL media-use restriction applies; see the folder README. | No | `data/gamebooks/2026/wk09/2026_09_BUF_MIN/` |
+| Official NFL Game Summaries, 2026 Week 9, all 15 games (nflverse ids in `data/gamebooks/2026/wk09/MANIFEST.csv`) | Owner-supplied PDFs plus `pdftotext -layout` text. Tidy per-game CSVs and week-level `combined/` tables are a research extract. NFL media-use restriction applies. | No | `data/gamebooks/2026/wk09/` |
 
 This row does not change `projection_ready`, model weights, formulas, or simulators. `manifest.json` is still the sqlite snapshot and was not rebuilt. The 2026-11-06 source-registry and source-run-gate manifests were not edited.

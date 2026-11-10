@@ -21,28 +21,29 @@ from collections import Counter
 from pathlib import Path
 
 
-# Printed club names and the abbreviations the game summary uses for them.
-# This is a label crosswalk, not a statistic.
+# Printed club names and the abbreviations printed in the game summary.
+# These are the codes on the play-by-play yard line (ARZ, BLT, CLV, HST, LA, WAS),
+# which are not always the codes inside an nflverse game_id. Label crosswalk only.
 CLUBS = {
-    "Arizona Cardinals": "ARI",
+    "Arizona Cardinals": "ARZ",
     "Atlanta Falcons": "ATL",
-    "Baltimore Ravens": "BAL",
+    "Baltimore Ravens": "BLT",
     "Buffalo Bills": "BUF",
     "Carolina Panthers": "CAR",
     "Chicago Bears": "CHI",
     "Cincinnati Bengals": "CIN",
-    "Cleveland Browns": "CLE",
+    "Cleveland Browns": "CLV",
     "Dallas Cowboys": "DAL",
     "Denver Broncos": "DEN",
     "Detroit Lions": "DET",
     "Green Bay Packers": "GB",
-    "Houston Texans": "HOU",
+    "Houston Texans": "HST",
     "Indianapolis Colts": "IND",
     "Jacksonville Jaguars": "JAX",
     "Kansas City Chiefs": "KC",
     "Las Vegas Raiders": "LV",
     "Los Angeles Chargers": "LAC",
-    "Los Angeles Rams": "LAR",
+    "Los Angeles Rams": "LA",
     "Miami Dolphins": "MIA",
     "Minnesota Vikings": "MIN",
     "New England Patriots": "NE",
@@ -55,26 +56,29 @@ CLUBS = {
     "Seattle Seahawks": "SEA",
     "Tampa Bay Buccaneers": "TB",
     "Tennessee Titans": "TEN",
-    "Washington Commanders": "WSH",
+    "Washington Commanders": "WAS",
 }
 NICK_TO_ABBR = {name: abbr for name, abbr in CLUBS.items()}
 for _name, _abbr in CLUBS.items():
     NICK_TO_ABBR.setdefault(_name.split()[-1], _abbr)
 ABBR_TO_CLUB = {abbr: name for name, abbr in CLUBS.items()}
 
-NAME_RE = re.compile(
-    r"^(\[[A-Z]+\]|Total|[A-Z][A-Za-z.'\-]+(?:\s+[A-Z][a-z][A-Za-z.'\-]*)?)\s+(.*)$"
+_NAME_BODY = (
+    r"[A-Z][A-Za-z.'\-]+"
+    r"(?:\s+(?:[A-Z][a-z][A-Za-z.'\-]*|van|den|de|da|di|St\.?))*"
+    r"(?:\s+(?:Jr\.?|Sr\.?|II|III|IV))?"
 )
+NAME_RE = re.compile(rf"^(\[[A-Z][A-Z ]+\]|Total|{_NAME_BODY})\s+(.*)$")
 NUM_RE = re.compile(r"-?\d+(?:\.\d+)?(?:/\d+)?")
 PLAY_RE = re.compile(
-    r"^[ \t]*([1-4])-(\d+)-((?:BUF|MIN)[ \t]+\d+|50)[ \t]*(.*)$"
+    r"^[ \t]*([1-4])-(\d+)-((?:[A-Z]{2,3})[ \t]+\d+|50)[ \t]*(.*)$"
 )
 QEND_RE = re.compile(
-    r"^(Buffalo Bills|Minnesota Vikings)\s+(\d+)\s+(\d+:\d+)\s+"
+    r"^(.+?)\s{2,}(\d+)\s+(\d+:\d+)\s+"
     r"(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+/\d+)\s+(\d+/\d+)\s*$"
 )
 SCORE_RE = re.compile(
-    r"^(Bills|Vikings)\s+(\d+)\s+(\d+:\d+)\s+(.+?)\s{2,}(\d+)\s+(\d+)\s*$"
+    r"^([A-Za-z0-9]+)\s+(\d+)\s+(\d+:\d+)\s+(.+?)\s{2,}(\d+)\s+(\d+)\s*$"
 )
 DRIVE_INFO_RE = re.compile(r"\((\d+)-(-?\d+),\s*(\d+:\d+)\)\s*$")
 OFFICIAL_RE = re.compile(
@@ -82,12 +86,10 @@ OFFICIAL_RE = re.compile(
     r"([A-Za-z'\-]+,\s+[A-Za-z'\-]+)\s+\((\d+)\)"
 )
 ROSTER_RE = re.compile(
-    r"^([A-Z]{1,4}(?:/[A-Z]{1,4})?)\s+(\d{1,3})\s+"
-    r"([A-Z][A-Za-z.'\-]+(?:\s+[A-Z][a-z][A-Za-z.'\-]*)?)$"
+    rf"^(\d{{0,2}}[A-Z]{{1,4}}(?:/[A-Z]{{1,4}})?)\s+(\d{{1,3}})\s+({_NAME_BODY})$"
 )
 LINEUP_RE = re.compile(
-    r"([A-Z]{1,4})\s+(\d{1,3})\s+"
-    r"([A-Z][A-Za-z.'\-]+(?:\s+[A-Z][a-z][A-Za-z.'\-]*)?)"
+    rf"(\d{{0,2}}[A-Z]{{1,4}})\s+(\d{{1,3}})\s+({_NAME_BODY})"
 )
 HY = r"[ \t]*-[ \t]*"
 STAT = (
@@ -96,10 +98,33 @@ STAT = (
     rf"|\d+{HY}\d+{HY}\d+\.\d+%"
     rf"|\d+{HY}\d+{HY}\d+%"
     rf"|\d+{HY}\d+{HY}\d+"
+    rf"|\d+--\d+"
     rf"|\d+{HY}\d+\.\d+"
     rf"|\d+{HY}\d+"
-    r"|\d+\.\d+"
-    r"|\d+)"
+    r"|-?\d+\.\d+"
+    r"|-?\d+)"
+)
+HOW_OBTAINED = (
+    "Missed FG|Muffed Punt|Blocked Punt|Blocked FG|Kickoff|Punt|Interception|Fumble|Downs"
+)
+HOW_GIVEN = (
+    "End of Half|End of Game|Field Goal|Touchdown|Missed FG|Muffed Punt|Blocked Punt|"
+    "Interception|Fumble|Downs|Punt|Safety"
+)
+DRIVE_BODY_RE = re.compile(
+    rf"^(\d+)\s+(\d+:\d+)\s+(\d+:\d+)\s+(\d+:\d+)\s+"
+    rf"({HOW_OBTAINED})\s+"
+    rf"((?:\*?\s*)?(?:[A-Z]{{2,3}}\s+)?-?\d+)\s+"
+    rf"(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(\d+)\s+"
+    rf"((?:\*\s*)?(?:[A-Z]{{2,3}}\s+)?-?\d+)\s+"
+    rf"({HOW_GIVEN})\s*$"
+)
+# Some chart rows leave the start and last yard lines blank.
+DRIVE_SHORT_RE = re.compile(
+    rf"^(\d+)\s+(\d+:\d+)\s+(\d+:\d+)\s+(\d+:\d+)\s+"
+    rf"({HOW_OBTAINED})\s+"
+    rf"(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(\d+)\s+"
+    rf"({HOW_GIVEN})\s*$"
 )
 TEAM_STAT_RE = re.compile(
     rf"^(?P<label>.*?)\s{{2,}}(?P<visitor>{STAT})\s+(?P<home>{STAT})\s*$"
@@ -107,7 +132,12 @@ TEAM_STAT_RE = re.compile(
 DRIVE_RE = re.compile(
     r"^(\d+)\s+(\d+:\d+)\s+(\d+:\d+)\s+(\d+:\d+)\s+(\S+)\s+(.*\S)\s*$"
 )
-QUARTERS = {"First": "1", "Second": "2", "Third": "3", "Fourth": "4"}
+QUARTERS = {"First": "1", "Second": "2", "Third": "3", "Fourth": "4", "Overtime": "OT"}
+CLUB_ALT = "|".join(re.escape(name) for name in sorted(CLUBS, key=len, reverse=True))
+DRIVE_START_RE = re.compile(rf"^({CLUB_ALT}) at (\d+:\d+)\b(?:,\s*(.*))?$")
+CONTINUED_RE = re.compile(rf"^({CLUB_ALT}) continued\.$")
+SCORE_LINE_RE = re.compile(r"^[A-Z]{2,3}\s+\d+\s+[A-Z]{2,3}\s+\d+,")
+PAGE_DATE_RE = re.compile(r"^\d{1,2}/\d{1,2}/\d{4}\b")
 
 STAT_KEYS = {
     "rushing": ["att", "yds", "avg", "lg", "td"],
@@ -236,8 +266,22 @@ SCHEMAS = {
         "second_half_visitor", "second_half_home", "game_visitor", "game_home",
         "first_half", "second_half", "game",
     ],
-    "parse_gaps": ["gap_id", "severity", "section", "detail"],
+    "parse_gaps": ["nflverse_game_id", "gap_id", "severity", "section", "detail"],
 }
+
+
+def _is_page_furniture(stripped: str) -> bool:
+    if stripped.startswith("National Football League Game Summary"):
+        return True
+    if stripped.startswith("NFL Copyright") or stripped.startswith("coverage of the game"):
+        return True
+    if stripped == "2026 Madrid Game":
+        return True
+    if PAGE_DATE_RE.match(stripped):
+        return True
+    if " vs " in stripped and "play" not in stripped.lower() and len(stripped) < 160:
+        return True
+    return False
 
 
 def copyright_notice(text: str) -> str:
@@ -315,6 +359,7 @@ class GameBookParser:
 
     def gap(self, gap_id, severity, section, detail):
         self.gaps.append({
+            "nflverse_game_id": self.game_id,
             "gap_id": gap_id,
             "severity": severity,
             "section": section,
@@ -352,8 +397,9 @@ class GameBookParser:
         idx_drives = self.find(lambda ln: "Ball Possession And Drive Chart" in ln, idx_team)
         idx_def = self.find(lambda ln: "Final Defensive Statistics" in ln, idx_drives)
         idx_half = self.find(lambda ln: "First Half Summary" in ln, idx_def)
-        idx_pbp = self.find(lambda ln: "Play By Play" in ln and "Quarter" in ln, idx_half)
+        idx_pbp = self.find(lambda ln: "Play By Play" in ln and ("Quarter" in ln or "Overtime" in ln), idx_half)
         idx_misc = self.find(lambda ln: "Miscellaneous Statistics Report" in ln, idx_pbp)
+        idx_ot = next((i for i in range(idx_half, idx_pbp) if "Overtime Summary" in self.lines[i]), None)
 
         self._parse_preamble(self.lines[:idx_final])
         self._parse_player_section(self.lines[idx_final:idx_team], "final")
@@ -361,11 +407,23 @@ class GameBookParser:
         self._parse_team_stats(self.lines[idx_team:idx_drives], "final")
         self._parse_drives(self.lines[idx_drives:idx_def])
         self._parse_defense(self.lines[idx_def:idx_half], "final")
-        half_lines = self.lines[idx_half:idx_pbp]
+        half_end = idx_ot if idx_ot is not None else idx_pbp
+        half_lines = self.lines[idx_half:half_end]
         self._note_half_reprint(half_lines)
         self._parse_team_stats(half_lines, "first_half")
         self._parse_player_section(half_lines, "first_half")
         self._parse_defense(half_lines, "first_half")
+        if idx_ot is not None:
+            ot_lines = self.lines[idx_ot:idx_pbp]
+            self._parse_team_stats(ot_lines, "overtime")
+            self._parse_player_section(ot_lines, "overtime")
+            self._parse_defense(ot_lines, "overtime")
+            self.gap(
+                "overtime_summary_separate_scope",
+                "note",
+                "overtime",
+                "The printed Overtime Summary is stored with scope=overtime. It is not added into the final lines.",
+            )
         self._parse_pbp(self.lines[idx_pbp:idx_misc])
         self._parse_misc(self.lines[idx_misc:])
         self._note_cross_checks()
@@ -382,21 +440,31 @@ class GameBookParser:
         weather = stadium = temp = humidity = wind = outdoor = ""
         for line in lines:
             stripped = line.strip()
-            if stripped.startswith("at U.S. Bank") or (
-                stripped.startswith("at ") and "Stadium" in stripped and "Start Time" not in stripped
-            ):
-                venue = stripped[3:].strip() if stripped.startswith("at ") else stripped
-            if "Game Weather:" in line:
-                m = re.search(
-                    r"Game Weather:\s*(.*?)\s{2,}Temp:\s*(.*?)\s+Humidity:\s*([^,]+),\s*Wind:\s*(.+)$",
+            if not venue and stripped.startswith("at ") and "Start Time" not in stripped and len(stripped) < 120:
+                venue = stripped[3:].strip()
+            weather_m = re.search(
+                r"Game Weather:\s*(.*?)\s{2,}Temp:\s*(.*?)\s+Humidity:\s*([^,]+),\s*Wind:\s*(.+)$",
+                stripped,
+            )
+            if weather_m:
+                weather, temp, humidity, wind = (g.strip() for g in weather_m.groups())
+            elif not temp:
+                temp_m = re.search(
+                    r"^Temp:\s*(.*?)\s+Humidity:\s*([^,]+),\s*Wind:\s*(.+)$",
                     stripped,
                 )
-                if m:
-                    weather, temp, humidity, wind = (g.strip() for g in m.groups())
+                if temp_m:
+                    temp, humidity, wind = (g.strip() for g in temp_m.groups())
+            if "Game Weather:" in stripped and "Temp:" not in stripped and not wind:
+                wind_m = re.search(r"Wind:\s*(\S.*)$", stripped)
+                if wind_m:
+                    wind = wind_m.group(1).strip()
             if "Outdoor Weather:" in line:
-                m = re.match(r"^(.*?)\s{2,}Outdoor Weather:\s*(.+)$", stripped)
-                if m:
-                    stadium, outdoor = m.group(1).strip(), m.group(2).strip()
+                outdoor_m = re.match(r"^(.*?)\s{2,}Outdoor Weather:\s*(.+)$", stripped)
+                if outdoor_m:
+                    stadium, outdoor = outdoor_m.group(1).strip(), outdoor_m.group(2).strip()
+            elif not stadium and re.match(r"^(Open |Closed |Retractable )", stripped):
+                stadium = stripped
             if stripped.startswith("Paid Attendance:"):
                 att = re.search(r"Paid Attendance:\s*([\d,]+)", stripped)
                 dur = re.search(r"Time:\s*(\d+:\d+)", stripped)
@@ -419,6 +487,26 @@ class GameBookParser:
         self.home = match_m.group(2)
         self.visitor_abbr = self.abbr(self.visitor)
         self.home_abbr = self.abbr(self.home)
+        id_parts = self.game_id.split("_")
+        if len(id_parts) == 4 and (
+            id_parts[2] != self.visitor_abbr or id_parts[3] != self.home_abbr
+        ):
+            self.gap(
+                "printed_team_abbr",
+                "note",
+                "game_meta",
+                "team_abbr columns keep the abbreviation printed in the gamebook "
+                f"({self.visitor_abbr}, {self.home_abbr}). The nflverse game_id uses "
+                f"{id_parts[2]} and {id_parts[3]}.",
+            )
+        if not weather and stadium:
+            self.gap(
+                "weather_line_blank",
+                "note",
+                "game_meta",
+                "The Game Weather field is blank. Roof/surface text is the stadium line"
+                + (f"; outdoor weather is printed as {outdoor}." if outdoor else "."),
+            )
         self.meta.update({
             "nflverse_game_id": self.game_id,
             "week_supplied": self.week,
@@ -431,7 +519,7 @@ class GameBookParser:
             "date_iso": f"{int(year):04d}-{int(month):02d}-{int(day):02d}",
             "start_time": time_m.group(1) if time_m else "",
             "venue": venue,
-            "roof": weather,
+            "roof": weather or stadium,
             "game_weather": weather,
             "stadium_printed": stadium,
             "temp_printed": temp,
@@ -451,7 +539,7 @@ class GameBookParser:
         end = next(i for i, ln in enumerate(lines) if "Substitutions" in ln and i > start)
         team_line = ""
         for line in lines[start:end]:
-            if "Bills" in line and "Vikings" in line and "Offense" not in line:
+            if self.visitor in line and self.home in line and "Offense" not in line:
                 team_line = line
                 break
         if team_line:
@@ -496,6 +584,9 @@ class GameBookParser:
         data = lines[start + 1:end]
         if not any(ln.strip() for ln in data):
             return "", ""
+        if not any(re.search(r" {8,}", ln) for ln in data):
+            blob = " ".join(ln.strip() for ln in data if ln.strip())
+            return blob, ""
         index = _column_split(data)
         return _join_side(data, index, "left"), _join_side(data, index, "right")
 
@@ -560,8 +651,9 @@ class GameBookParser:
         start = self._index_in(lines, lambda ln: "Field Goals" in ln)
         seq = 0
         found = False
+        kick_token = r"(?:\(\d+\)|\d{2,3}[A-Z]{0,3})"
         kicker_re = re.compile(
-            r"([A-Z]\.[A-Za-z'\-]+)\s+((?:\(\d+\)|\b\d+\b)(?:\s+(?:\(\d+\)|\b\d+\b))*)"
+            rf"([A-Z]\.[A-Za-z'\-]+)\s+({kick_token}(?:\s+{kick_token})*)"
         )
         for line in lines[start + 1:]:
             if "VISITOR:" in line:
@@ -753,7 +845,7 @@ class GameBookParser:
         active = False
         for line in lines:
             s = line.strip()
-            if s in ("Buffalo Bills", "Minnesota Vikings"):
+            if s in CLUBS:
                 pending = s
                 continue
             if s.startswith("FUMBLES"):
@@ -789,7 +881,7 @@ class GameBookParser:
                 started = True
             if not started or not stripped:
                 continue
-            if stripped.startswith("Buffalo Bills vs") or re.fullmatch(r"11/9/\d{4} at U\.S\. Bank Stadium", stripped):
+            if _is_page_furniture(stripped):
                 continue
             if _header_key(line) or stripped in ("Buffalo Bills", "Minnesota Vikings"):
                 break
@@ -798,6 +890,8 @@ class GameBookParser:
             indent = len(line) - len(line.lstrip(" "))
             m = TEAM_STAT_RE.match(line.rstrip())
             if not m:
+                if self.visitor in stripped and self.home in stripped:
+                    continue
                 if re.search(r"\d", stripped):
                     self.gap("team_stat_line", "gap", f"team_stats:{scope}", stripped[:240])
                 continue
@@ -834,12 +928,12 @@ class GameBookParser:
             s = line.strip()
             if not s:
                 continue
-            if s in ("Buffalo Bills", "Minnesota Vikings"):
+            if s in CLUBS:
                 team = s
                 continue
             if s.startswith("#") or s.startswith("Recd") or "How Ball" in s or "Ball Possession" in s:
                 continue
-            if s.startswith("Buffalo Bills vs") or re.fullmatch(r"11/9/\d{4} at U\.S\. Bank Stadium", s):
+            if _is_page_furniture(s):
                 continue
             if s.startswith("Time of Possession"):
                 continue
@@ -866,14 +960,15 @@ class GameBookParser:
                 ))
                 continue
             kick = re.search(
-                r"Bills:\s*(\d+)\s*-\s*([A-Z]{2,3}\s+\d+)\s+Vikings:\s*(\d+)\s*-\s*([A-Z]{2,3}\s+\d+)",
+                r"([A-Za-z0-9]+):\s*(\d+)\s*-\s*([A-Z]{2,3}\s+\d+)\s+"
+                r"([A-Za-z0-9]+):\s*(\d+)\s*-\s*([A-Z]{2,3}\s+\d+)",
                 s,
             )
-            if kick:
+            if kick and "Kickoff Drive" in s:
                 self.meta["kickoff_drive_note"] = s
                 pairs = [
-                    (self.visitor, self.visitor_abbr, f"{kick.group(1)} - {kick.group(2)}"),
-                    (self.home, self.home_abbr, f"{kick.group(3)} - {kick.group(4)}"),
+                    (self.club(kick.group(3).split()[0]) or self.visitor, kick.group(3).split()[0], f"{kick.group(2)} - {kick.group(3)}"),
+                    (self.club(kick.group(6).split()[0]) or self.home, kick.group(6).split()[0], f"{kick.group(5)} - {kick.group(6)}"),
                 ]
                 for club, abbr, value in pairs:
                     self.tables["drive_notes"].append(_blank(
@@ -906,30 +1001,45 @@ class GameBookParser:
                     **payload,
                 ))
                 continue
-            m = DRIVE_RE.match(s)
-            if m and team:
-                rest = re.split(r"\s{2,}", m.group(6).strip())
-                if len(rest) != 8:
-                    self.gap("drive_width", "gap", "drives", s)
-                    continue
+            m = DRIVE_BODY_RE.match(s)
+            short = None if m else DRIVE_SHORT_RE.match(s)
+            if (m or short) and team:
+                src = m or short
+                if m:
+                    began, plays, gain, pen, net, fds, last, given = (
+                        " ".join(m.group(6).split()), m.group(7), m.group(8), m.group(9),
+                        m.group(10), m.group(11), " ".join(m.group(12).split()), m.group(13),
+                    )
+                else:
+                    began, last = "", ""
+                    plays, gain, pen, net, fds, given = (
+                        short.group(6), short.group(7), short.group(8), short.group(9),
+                        short.group(10), short.group(11),
+                    )
+                    self.gap(
+                        "drive_blank_yardlines",
+                        "note",
+                        "drives",
+                        "A drive row leaves the start and last yard line blank in the chart: " + s[:160],
+                    )
                 self.tables["drives"].append(_blank(
                     SCHEMAS["drives"],
                     nflverse_game_id=self.game_id,
                     team=team,
                     team_abbr=self.abbr(team),
-                    drive_number=m.group(1),
-                    time_received=m.group(2),
-                    time_lost=m.group(3),
-                    time_possession=m.group(4),
-                    how_obtained=m.group(5),
-                    drive_began=rest[0],
-                    plays=rest[1],
-                    yards_gained=rest[2],
-                    yards_penalty=rest[3],
-                    net_yards=rest[4],
-                    first_downs=rest[5],
-                    last_scrimmage=rest[6],
-                    how_given_up=rest[7],
+                    drive_number=src.group(1),
+                    time_received=src.group(2),
+                    time_lost=src.group(3),
+                    time_possession=src.group(4),
+                    how_obtained=src.group(5),
+                    drive_began=began,
+                    plays=plays,
+                    yards_gained=gain,
+                    yards_penalty=pen,
+                    net_yards=net,
+                    first_downs=fds,
+                    last_scrimmage=last,
+                    how_given_up=given,
                 ))
                 continue
             if re.search(r"\d", s):
@@ -941,17 +1051,17 @@ class GameBookParser:
         for line in lines:
             s = line.strip()
             if "Regular Defensive Plays" in line:
-                if "Buffalo" in line:
-                    team = self.visitor
-                elif "Minnesota" in line:
-                    team = self.home
+                for club in sorted(CLUBS, key=len, reverse=True):
+                    if club in line:
+                        team = club
+                        break
                 in_table = True
                 continue
             if not in_table or not s:
                 continue
-            if s.startswith("TKL") or s.startswith("Buffalo Bills vs") or s.startswith("First Half"):
+            if s.startswith("TKL") or s.startswith("First Half") or s.startswith("Overtime Summary"):
                 continue
-            if re.fullmatch(r"11/9/\d{4} at U\.S\. Bank Stadium", s):
+            if _is_page_furniture(s):
                 continue
             parsed = self._player_numbers(s, DEFENSE_KEYS, f"defense:{scope}")
             if parsed is None:
@@ -1011,22 +1121,21 @@ class GameBookParser:
             if not s:
                 i += 1
                 continue
-            qmatch = re.search(r"Play By Play\s+(First|Second|Third|Fourth) Quarter", raw)
+            qmatch = re.search(r"Play By Play\s+((?:First|Second|Third|Fourth) Quarter|Overtime)", raw)
             if qmatch:
                 flush()
-                quarter = QUARTERS[qmatch.group(1)]
+                label = qmatch.group(1)
+                quarter = QUARTERS["Overtime"] if label == "Overtime" else QUARTERS[label.split()[0]]
                 i += 1
                 continue
-            bare_q = re.fullmatch(r"(First|Second|Third|Fourth) Quarter", s)
+            bare_q = re.fullmatch(r"(First|Second|Third|Fourth) Quarter|Overtime", s)
             if bare_q:
                 flush()
-                quarter = QUARTERS[bare_q.group(1)]
+                label = bare_q.group(1)
+                quarter = QUARTERS["Overtime"] if label == "Overtime" else QUARTERS[label.split()[0]]
                 i += 1
                 continue
-            if s.startswith("Buffalo Bills vs Minnesota Vikings"):
-                i += 1
-                continue
-            if re.fullmatch(r"11/9/\d{4}(?: at U\.S\. Bank Stadium)?", s):
+            if _is_page_furniture(s):
                 i += 1
                 continue
             if s.startswith("END OF QUARTER"):
@@ -1073,14 +1182,14 @@ class GameBookParser:
                 )
                 i += 1
                 continue
-            drive = re.match(r"^(Buffalo Bills|Minnesota Vikings) at (\d+:\d+)\b(?:,\s*(.*))?$", s)
+            drive = DRIVE_START_RE.match(s)
             if drive:
                 flush()
                 offense = self.abbr(drive.group(1))
                 rows.append(self._pbp_row(quarter, drive.group(2), "", "", "", offense, "drive_start", s))
                 i += 1
                 continue
-            cont = re.match(r"^(Buffalo Bills|Minnesota Vikings) continued\.$", s)
+            cont = CONTINUED_RE.match(s)
             if cont:
                 flush()
                 offense = self.abbr(cont.group(1))
@@ -1100,7 +1209,7 @@ class GameBookParser:
                 rows.append(self._pbp_row(quarter, "", "", "", "", "", "two_minute", s))
                 i += 1
                 continue
-            if re.match(r"^BUF \d+ MIN \d+,", s):
+            if SCORE_LINE_RE.match(s):
                 flush()
                 rows.append(self._pbp_row(quarter, "", "", "", "", "", "score", s))
                 i += 1
@@ -1110,7 +1219,7 @@ class GameBookParser:
                 current = self._pbp_row(quarter, "", "", "", "", "", "kickoff", s)
                 i += 1
                 continue
-            if "elects to" in s or s.startswith("BUF wins toss") or s.startswith("MIN elects"):
+            if "elects to" in s or "wins toss" in s or "wins the coin toss" in s:
                 flush()
                 rows.append(self._pbp_row(quarter, "", "", "", "", "", "note", s))
                 self.elections.append(s)
@@ -1118,6 +1227,25 @@ class GameBookParser:
                 continue
             if current is not None:
                 current["description"] = (current["description"] + " " + s).strip()
+                i += 1
+                continue
+            if (
+                "extra point" in s
+                or s.startswith("TWO-POINT")
+                or "ATTEMPT FAILS" in s
+                or s.startswith("Penalty on")
+            ):
+                target = None
+                for prev in reversed(rows):
+                    if prev["row_kind"] == "scrimmage":
+                        target = prev
+                        break
+                if target is not None:
+                    target["description"] = (target["description"] + " " + s).strip()
+                    i += 1
+                    continue
+            if s.startswith("Play did not occur"):
+                rows.append(self._pbp_row(quarter, "", "", "", "", "", "note", s))
                 i += 1
                 continue
             if s.startswith("**"):
@@ -1153,9 +1281,8 @@ class GameBookParser:
                 "longest_plays_unparsed",
                 "gap",
                 "longest_plays",
-                "Ten Longest Plays is not a CSV. pdftotext wrapped an injury-update tail from an 8-yard "
-                "Minnesota play into the next 8-yard row, so the yard/quarter columns on that pair are not reliable. "
-                "The same plays remain in play_by_play.",
+                "Ten Longest Plays is not a CSV. pdftotext can wrap a play description into the next row, "
+                "so those yard and quarter cells are not reliable. The same plays remain in play_by_play.",
             )
         for line in lines:
             s = line.strip()
@@ -1172,7 +1299,7 @@ class GameBookParser:
                     special_teams=unit.group(5),
                 ))
                 continue
-            score = re.match(r"^(BUF|MIN)\s+(\S+)\s+((?:-?\d+\s+){13}-?\d+)\s*$", s)
+            score = re.match(r"^([A-Z]{2,3})\s+(\S+)\s+((?:-?\d+\s+){13}-?\d+)\s*$", s)
             if score:
                 nums = score.group(3).split()
                 payload = dict(zip(PLAYER_SCORE_KEYS, nums))
@@ -1312,12 +1439,19 @@ def write_tables(tables, out_dir: Path):
                 writer.writerow(record)
 
 
-def build_provenance(pdf_path: Path, text_path: Path, tables, ingested_date: str, game_id: str, week: int):
+def build_provenance(pdf_path: Path, text_path: Path, tables, ingested_date: str, game_id: str, week: int,
+                     source_url: str = "", pdf_pages: int | None = None):
     pdf_bytes = Path(pdf_path).read_bytes()
     text_bytes = Path(text_path).read_bytes()
     notice = copyright_notice(text_bytes.decode("utf-8"))
-    return {
+    payload = {
         "source": "official NFL Game Summary PDF supplied by owner",
+        "source_url": source_url,
+        "source_url_note": (
+            "NFL.com Game Center 'Download Game Book (PDF)' link on static.www.nfl.com, "
+            "fetched about 12:32 AM ET on 2026-11-10."
+            if source_url else ""
+        ),
         "nflverse_game_id": game_id,
         "week_supplied": week,
         "week_note": "Week is not printed on the game summary. It was supplied with the ingest.",
@@ -1333,6 +1467,36 @@ def build_provenance(pdf_path: Path, text_path: Path, tables, ingested_date: str
         "does_not_change": "model weights, formulas, simulators, configs, and projection_ready",
         "row_counts": {name: len(rows) for name, rows in tables.items()},
     }
+    if pdf_pages is not None:
+        payload["pdf_pages"] = pdf_pages
+    return payload
+
+
+def combine_week(week_dir: Path, out_dir: Path | None = None):
+    """Concatenate each game's parsed table into week-level CSVs.
+
+    ``nflverse_game_id`` is the game id column on every row.
+    """
+    week_dir = Path(week_dir)
+    out_dir = Path(out_dir) if out_dir else week_dir / "combined"
+    games = sorted(path for path in week_dir.iterdir() if (path / "parsed").is_dir())
+    out_dir.mkdir(parents=True, exist_ok=True)
+    counts = {}
+    for name, fields in SCHEMAS.items():
+        records = []
+        for game in games:
+            path = game / "parsed" / f"{name}.csv"
+            if not path.exists():
+                continue
+            with path.open(newline="", encoding="utf-8") as handle:
+                records.extend(list(csv.DictReader(handle)))
+        dest = out_dir / f"{name}.csv"
+        with dest.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n", extrasaction="raise")
+            writer.writeheader()
+            writer.writerows(records)
+        counts[name] = len(records)
+    return counts
 
 
 def main(argv=None):
@@ -1344,12 +1508,15 @@ def main(argv=None):
     parser.add_argument("--game-id", default="2026_09_BUF_MIN")
     parser.add_argument("--week", type=int, default=9)
     parser.add_argument("--ingested-date", default="2026-11-10")
+    parser.add_argument("--source-url", default="")
+    parser.add_argument("--pdf-pages", type=int, default=None)
     args = parser.parse_args(argv)
     text = args.text.read_text(encoding="utf-8")
     tables = parse_game_summary(text, args.game_id, args.week)
     write_tables(tables, args.out)
     provenance = build_provenance(
         args.pdf, args.text, tables, args.ingested_date, args.game_id, args.week,
+        source_url=args.source_url, pdf_pages=args.pdf_pages,
     )
     args.provenance_out.parent.mkdir(parents=True, exist_ok=True)
     args.provenance_out.write_text(

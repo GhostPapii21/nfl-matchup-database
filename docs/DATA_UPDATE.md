@@ -36,7 +36,9 @@ NWS point forecasts are public. The checkpoint documents a weather hook and does
 
 ## Owner-supplied official gamebooks
 
-The 2026 Week 9 Bills at Vikings game summary was supplied by the owner and committed under `data/gamebooks/2026/wk09/2026_09_BUF_MIN/`. It is not a public refresh and it is not fetched by the scripts in this tree. Do not replace the PDF from a scrape.
+All 15 official 2026 Week 9 game summaries were supplied by the owner and committed under `data/gamebooks/2026/wk09/{nflverse_game_id}/`. `MANIFEST.csv` records the NFL.com Game Center PDF URL, sha256, page count, and final score from the fetch at about 12:32 AM ET on 2026-11-10. They are not a public refresh and they are not fetched by the scripts in this tree. Do not replace a PDF from a scrape.
+
+`data/gamebooks/2026/wk09/combined/` is the week-level CSV for each table. `nflverse_game_id` is the game id column. Rebuild one game with the command below, then rebuild the combined files in Python with `combine_week` from `data/gamebooks/parse_nfl_game_summary.py`.
 
 To rebuild the CSVs from the committed text:
 

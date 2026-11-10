@@ -14,6 +14,7 @@ Official NFL Game Summary, used here as a postgame research input.
 | Ingested | 2026-11-10 |
 | PDF | `2026_09_BUF_MIN_gamebook.pdf` |
 | PDF SHA-256 | `056ac51502fffbff963f8c7ab1b425a6965e3631cc77b9d84890c3beb502f7a2` |
+| Source URL | `https://static.www.nfl.com/image/upload/v1794285215/gamecenter/ab5825a7-4feb-11f1-abca-2c54536568a9.pdf` |
 | Text | `2026_09_BUF_MIN_gamebook.txt` |
 | Text extract | `pdftotext -layout` (a fresh run matches the committed text byte for byte) |
 | Text SHA-256 | `189329381c78d5a032ba7e58627caad7e6dcb5b43504eef0fc2eda0a64a598d3` |
