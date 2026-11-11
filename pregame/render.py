@@ -97,6 +97,15 @@ def team_section(team, t):
     if o["run_game_by_direction"]:
         L += [f"### {team} run game by direction", "", table(["Direction", "Carries", "Yards", "YPC", "15+"],
               [[r["direction"], r["carries"], r["yards"], r["ypc"], r["explosive"]] for r in o["run_game_by_direction"]]), ""]
+    fz = t.get("formation_zone_splits") or {}
+    if fz.get("offense_by_formation") or fz.get("defense_vs_formation"):
+        L += [f"### {team} by formation and pass zone", "",
+              table(["Side", "Formation", "Plays", "Share", "Pass rate", "Yards / play", "EPA / play"],
+                    [["offense", r["formation"], r["plays"], f(r["share"], 0, True), f(r["pass_rate"], 0, True), r["yards_per_play"], r["epa_per_play"]] for r in fz["offense_by_formation"]]
+                    + [["defense vs", r["formation"], r["plays"], f(r["share"], 0, True), f(r["pass_rate"], 0, True), r["yards_per_play"], r["epa_per_play"]] for r in fz["defense_vs_formation"]]), "",
+              table(["Side", "Pass zone", "Attempts", "Share", "Completion", "Yards / attempt", "20+"],
+                    [["offense", r["zone"], r["attempts"], f(r["share"], 0, True), f(r["completion_rate"], 0, True), r["yards_per_attempt"], r["explosive"]] for r in fz["offense_pass_zones"]]
+                    + [["defense allows", r["zone"], r["attempts"], f(r["share"], 0, True), f(r["completion_rate"], 0, True), r["yards_per_attempt"], r["explosive"]] for r in fz["defense_pass_zones_allowed"]]), ""]
     dc = t["depth_chart"]
     if dc.get("starters"):
         ol = [s for s in dc["starters"] if s["slot"] in ("LT", "LG", "C", "RG", "RT")]
@@ -216,21 +225,6 @@ def brief(pk):
         L += [next(iter(pk["matchup"].values()))["player_baselines"]["method"], ""]
     for team, t in pk["teams"].items():
         L += [team_section(team, t)]
-    sv = pk.get("nfl_savant") or {}
-    L += ["## Formation and pass-zone splits (NFL Savant)", ""]
-    if sv.get("status") == "OK":
-        for team, t in sv["teams"].items():
-            if not t:
-                L += [f"{team}: no plays found under that team code.", ""]; continue
-            L += [f"### {team} (offense {t['games']['offense']} games, defense {t['games']['defense']} games; data through {sv['latest_game']})", "",
-                  table(["Side", "Formation", "Plays", "Share", "Pass rate", "Yards / play"],
-                        [["offense", r["formation"], r["plays"], f(r["share"], 0, True), f(r["pass_rate"], 0, True), r["yards_per_play"]] for r in t["offense_by_formation"]]
-                        + [["defense vs", r["formation"], r["plays"], f(r["share"], 0, True), f(r["pass_rate"], 0, True), r["yards_per_play"]] for r in t["defense_vs_formation"]]), "",
-                  table(["Side", "Pass zone", "Attempts", "Share", "Completion", "Yards / attempt"],
-                        [["offense", r["zone"], r["attempts"], f(r["share"], 0, True), f(r["completion_rate"], 0, True), r["yards_per_attempt"]] for r in t["offense_pass_zones"]]
-                        + [["defense allows", r["zone"], r["attempts"], f(r["share"], 0, True), f(r["completion_rate"], 0, True), r["yards_per_attempt"]] for r in t["defense_pass_zones_allowed"]]), ""]
-    else:
-        L += [f"Not in this packet: {sv.get('status', 'NOT_REQUESTED')}.", ""]
     cn = pk.get("connectors") or {}
     if cn.get("sources"):
         L += ["## Keyed connectors in this run", "",

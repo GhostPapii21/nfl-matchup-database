@@ -231,40 +231,22 @@ def test_weather_paths():
 
 
 # ---------------------------------------------------------------- NFL Savant and keyed connectors
-from pregame import connectors as C, savant as SV  # noqa: E402
+from pregame import connectors as C, splits as SP  # noqa: E402
 
 
-def _savant_csv():
-    head = "GameId,GameDate,OffenseTeam,DefenseTeam,Yards,Formation,IsRush,IsPass,IsIncomplete,PassType,IsSack,IsNoPlay"
-    rows = []
-    for i in range(12):
-        rows.append(f"1,2026-11-01,BLT,LAC,{8 if i % 2 else 0},SHOTGUN,0,1,{0 if i % 2 else 1},DEEP LEFT,0,0")     # BLT -> BAL
-    for i in range(10):
-        rows.append("1,2026-11-01,BLT,LAC,4,UNDER CENTER,1,0,0,,0,0")
-    rows.append("1,2026-11-01,BLT,LAC,50,SHOTGUN,0,1,0,DEEP LEFT,0,1")                                              # no-play: dropped
-    rows.append("2,2026-11-20,BLT,LAC,99,SHOTGUN,0,1,0,DEEP LEFT,0,0")                                              # after the game date: excluded
-    return ("\n".join([head] + rows)).encode()
-
-
-def test_savant_splits_and_failures():
-    s = SV.load(2026, fetch=lambda u, timeout=0: _savant_csv())
-    assert s["status"] == "OK" and s["latest_game"] == "2026-11-20"
-    t = SV.team_splits(s["plays"], "BAL", "2026-11-16")
-    sg = next(r for r in t["offense_by_formation"] if r["formation"] == "Shotgun")
-    assert sg["plays"] == 12 and sg["pass_rate"] == 1.0 and sg["yards_per_play"] == 4.0 and sg["share"] == pytest.approx(12 / 22, abs=1e-3)
-    z = t["offense_pass_zones"][0]
-    assert z == {"zone": "Deep Left", "attempts": 12, "share": 1.0, "completion_rate": 0.5, "yards_per_attempt": 4.0}
-    assert SV.team_splits(s["plays"], "LAC", "2026-11-16")["defense_pass_zones_allowed"][0]["attempts"] == 12
-    assert SV.team_splits(s["plays"], "ZZZ", "2026-11-16") is None
-    assert SV.load(2026, fetch=lambda u, timeout=0: b"a,b\n1,2\n")["status"].startswith("UNAVAILABLE: no play-by-play CSV found")
-    assert SV.load(2026, fetch=lambda u, timeout=0: b"GameId,Other\n1,2\n")["status"].startswith("SCHEMA_CHANGED")
-    # the published download address is used directly
-    got = SV.load(2026, fetch=lambda url, timeout=0: _savant_csv() if url.endswith("r2.dev/pbp-2026.csv") else 1 / 0)
-    assert got["status"] == "OK" and got["url"] == SV.URL.format(season=2026)
-    # if an address ever returns a page instead, a link to the season CSV on it is followed
-    html = b'<html><a href="/dump/pbp-2025.csv">2025</a> <a href="dump/pbp-2026.csv">2026</a></html>'
-    assert SV._csv_links(html, "https://example.org/x/", 2026) == ["https://example.org/x/dump/pbp-2026.csv"]
-    assert SV.team_splits(None, "BAL", "2026-11-16") is None
+def test_formation_and_zone_splits(world):
+    pbp, rost, games = world
+    pbp = pbp.assign(shotgun=[1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0], no_huddle=[0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                     pass_length=["deep", "short", "short", "short", "short"] + [None] * 7, pass_location=["left", "left", "middle", "right", "right"] + [None] * 7)
+    p = M.prepare(pbp, rost)
+    t = SP.team_splits(p, "AAA", ["g1"], ["g1"])
+    f = {r["formation"]: r for r in t["offense_by_formation"]}
+    assert f["Shotgun"]["plays"] == 5 and f["Under center"]["plays"] == 3 and f["No huddle"]["plays"] == 1
+    assert sum(r["plays"] for r in t["offense_by_formation"]) == 9 and f["Shotgun"]["pass_rate"] == 1.0
+    z = {r["zone"]: r for r in t["offense_pass_zones"]}
+    assert z["Deep left"] == {"zone": "Deep left", "attempts": 1, "share": 0.2, "completion_rate": 1.0, "yards_per_attempt": 25.0, "explosive": 1}
+    assert z["Short right"]["attempts"] == 2 and z["Short right"]["completion_rate"] == 0.5 and z["Short right"]["yards_per_attempt"] == 2.0
+    assert t["defense_vs_formation"] == [] and SP.team_splits(p, "BBB", ["g1"], ["g1"])["defense_pass_zones_allowed"][0]["zone"] == "Short left"
 
 
 def test_connector_check_reports_status_never_keys():
