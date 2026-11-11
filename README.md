@@ -22,6 +22,10 @@ Connect this repository through your tool's GitHub connector, or download the fi
 
 A useful first request is: "Read this repository's manifest, schema and data-gap report. State the snapshot time and game count. If you can query the SQLite archive, list the latest 12 games and show the query used. If you cannot, say so. Keep recorded source facts separate from inferred profiles; do not replace missing values with zero or claim the model is validated."
 
+## Automatic pregame packets
+
+For every Thursday, Sunday and Monday game, a scheduled workflow builds a research packet from current public data: what each defense allows by position, explosive plays, pass rush, each offense's usage and form, injuries, depth charts, roster moves, matchup edges, and research-only projections, with the 15-phase ledger showing what is filled and what is missing. Start at [pregame/packets/INDEX.md](pregame/packets/INDEX.md). To have ChatGPT or Grok turn a packet into a breakdown with a brainstorm and a critical review, paste [pregame/ANALYST_PROMPT.md](pregame/ANALYST_PROMPT.md). Details and limits: [pregame/README.md](pregame/README.md). Research only; `projection_ready` is false.
+
 ## Coverage
 
 The initial release covers all 93 games in Weeks 1–6 and 13 Week 7 games, including all 12 October 25 games. Consult `manifest.json` for the latest game counts and dates. Layers include ESPN play-by-play and player/box-score statistics, offensive and defensive profiles, external observations and gaps, supplemental public datasets, and official NGS chart URL indexes.
