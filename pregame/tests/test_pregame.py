@@ -258,15 +258,12 @@ def test_savant_splits_and_failures():
     assert SV.team_splits(s["plays"], "ZZZ", "2026-11-16") is None
     assert SV.load(2026, fetch=lambda u, timeout=0: b"a,b\n1,2\n")["status"].startswith("UNAVAILABLE: no play-by-play CSV found")
     assert SV.load(2026, fetch=lambda u, timeout=0: b"GameId,Other\n1,2\n")["status"].startswith("SCHEMA_CHANGED")
-    # the page is HTML with a link to the season file: follow it
-    def site(url, timeout=0):
-        if url.endswith(".csv"):
-            return _savant_csv()
-        return b'<html><a href="/dump/pbp-2025.csv">2025</a> <a href="dump/pbp-2026.csv">2026</a></html>'
-    got = SV.load(2026, fetch=site)
-    assert got["status"] == "OK" and got["url"].endswith("/dump/pbp-2026.csv")
-    assert SV.URL.format(season=2026).endswith("r2.dev/pbp-2026.csv")
-    assert SV.load(2026, fetch=lambda u, timeout=0: 1 / 0)["status"].startswith("UNAVAILABLE")
+    # the published download address is used directly
+    got = SV.load(2026, fetch=lambda url, timeout=0: _savant_csv() if url.endswith("r2.dev/pbp-2026.csv") else 1 / 0)
+    assert got["status"] == "OK" and got["url"] == SV.URL.format(season=2026)
+    # if an address ever returns a page instead, a link to the season CSV on it is followed
+    html = b'<html><a href="/dump/pbp-2025.csv">2025</a> <a href="dump/pbp-2026.csv">2026</a></html>'
+    assert SV._csv_links(html, "https://example.org/x/", 2026) == ["https://example.org/x/dump/pbp-2026.csv"]
     assert SV.team_splits(None, "BAL", "2026-11-16") is None
 
 
