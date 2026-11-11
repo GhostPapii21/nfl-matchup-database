@@ -35,7 +35,7 @@ def injuries_for(team, week, inj, espn, starters):
     live = (espn or {}).get("teams", {}).get(team, [])
     return {"official_report": sorted(rows, key=lambda r: (not r["starter"], str(r["position"]))),
             "official_report_status": "OK" if rows else "NOT_POSTED_YET_OR_EMPTY",
-            "espn_live": live, "espn_live_status": (espn or {}).get("status", "NOT_REQUESTED"),
+            "espn_live": live, "espn_live_status": (espn or {}).get("status", "NOT_REQUESTED"), "espn_live_note": (espn or {}).get("note"),
             "note": "A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file."}
 
 
@@ -234,6 +234,13 @@ def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None, books
     p, games = data["plays"], data["games"]
     done = games[(games.season == season) & games.home_score.notna() & (games.week < week)]
     p = p[p.game_id.isin(done.game_id)]
+    have = set(p.game_id.unique())
+    freshness = {}
+    for team in (away, home):                      # a finished game with a score but no plays yet means the trend tables lag
+        tg = done[(done.home_team == team) | (done.away_team == team)].sort_values("week")
+        missing = [f"week {int(r.week)} ({r.game_id})" for r in tg.itertuples() if r.game_id not in have]
+        freshness[team] = {"games_played": int(len(tg)), "games_with_plays": int(len(tg) - len(missing)), "missing_play_by_play": missing,
+                           "status": "OK" if not missing else "STALE: play-by-play not posted yet for " + ", ".join(missing)}
     tg_def, tg_off = M.team_games(p, done, "defteam"), M.team_games(p, done, "posteam")
     lg_def, lg_off = M.league_table(tg_def, window), M.league_table(tg_off, window)
     lg_def_avg = {k: float(pd.to_numeric(lg_def[k], errors="coerce").mean()) for k in lg_def.columns if k not in ("weeks",)
@@ -287,6 +294,7 @@ def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None, books
                    "home_spread": spread_home, "total": total,
                    "moneyline": {away: None if pd.isna(game.away_moneyline) else float(game.away_moneyline),
                                  home: None if pd.isna(game.home_moneyline) else float(game.home_moneyline)}},
+        "data_freshness": freshness,
         "books": books or {"status": "NOT_REQUESTED"},
         "weather": weather or {"status": "NOT_REQUESTED"},
         "teams": teams, "matchup": matchup,

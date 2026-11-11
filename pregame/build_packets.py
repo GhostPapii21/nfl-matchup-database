@@ -113,7 +113,7 @@ def main(argv=None):
             else:
                 books["props_status"] = f"NOT_FETCHED: kickoff is {hours:.0f} hours away (props are pulled inside {a.props_within_hours:g} hours)"
             mk = O.summarize_event(ev, g.home_team, g.away_team)
-            books.update(retrieved_utc=lines.get("retrieved_utc"), markets=mk,
+            books.update(retrieved_utc=lines.get("retrieved_utc"), markets=mk, api_credits=O.quota(),
                          movement=O.record_and_movement(g.game_id, mk, ROOT / "pregame" / "line_history"))
         elif lines["status"] == "OK":
             books["status"] = "OK_BUT_GAME_NOT_LISTED"
@@ -127,14 +127,25 @@ def main(argv=None):
         index.append({"game_id": g.game_id, "week": int(g.week), "slot": pk["game"]["slot"], "date": pk["game"]["date"], "kickoff_et": pk["game"]["kickoff_et"],
                       "away": g.away_team, "home": g.home_team, "brief": f"pregame/packets/{g.game_id}/brief.md",
                       "packet": f"pregame/packets/{g.game_id}/packet.json", "generated_utc": pk["generated_utc"],
+                      "stale": any(v["status"] != "OK" for v in pk["data_freshness"].values()),
+                      "books": (pk["books"].get("status") if not pk["books"].get("markets") else "OK"), "weather": str(pk["weather"].get("status"))[:40],
                       "phases": {str(p["phase"]): p["status"] for p in pk["phase_ledger"]}})
         print(f"pregame: wrote {g.game_id} ({pk['game']['slot']})")
+    q = O.quota()
+    if q:
+        print(f"pregame: odds credits remaining={q.get('credits_remaining')} used={q.get('credits_used')}")
+    stale = sorted({g["game_id"] for g in index if g.get("stale")})
+    if stale:
+        print("pregame: WARNING play-by-play not yet posted for a team's last game in: " + ", ".join(stale))
     (out / "latest.json").write_text(json.dumps({"schema": "pregame-index/1", "season": season, "games": index}, indent=1) + "\n")
     lines = ["# Pregame packets: current slate", "",
              "Research only. `projection_ready` is false. Start with `pregame/ANALYST_PROMPT.md`, then open a brief.", "",
-             R.table(["Game", "Slot", "Kickoff (ET)", "Brief", "Data", "Updated (UTC)"],
+             R.table(["Game", "Slot", "Kickoff (ET)", "Brief", "Data", "Updated (UTC)", "Book prices", "Weather", "Play-by-play"],
                      [[f"{i['away']} at {i['home']} (week {i['week']})", i["slot"], f"{i['date']} {i['kickoff_et']}",
-                       f"[brief]({i['game_id']}/brief.md)", f"[json]({i['game_id']}/packet.json)", i["generated_utc"]] for i in index]), ""]
+                       f"[brief]({i['game_id']}/brief.md)", f"[json]({i['game_id']}/packet.json)", i["generated_utc"],
+                       str(i["books"])[:30], i["weather"], "STALE" if i["stale"] else "current"] for i in index]), ""]
+    if q:
+        lines += [f"Odds API credits remaining: {q.get('credits_remaining')} (used {q.get('credits_used')})." + (f" **{q['warning']}**" if q.get("warning") else ""), ""]
     (out / "INDEX.md").write_text("\n".join(lines))
     return 0
 

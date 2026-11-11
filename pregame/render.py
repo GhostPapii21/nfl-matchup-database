@@ -121,7 +121,9 @@ def team_section(team, t):
     else:
         L += ["Official report not posted yet for this week.", ""]
     if inj["espn_live"]:
-        L += ["ESPN live list: " + "; ".join(f"{r['player']} ({r['position']}) {r['status']}" for r in inj["espn_live"][:25]) + ".", ""]
+        flagged = [r for r in inj["espn_live"] if str(r["status"]).lower() != "active"]
+        L += ["ESPN live list (designations only): " + ("; ".join(f"{r['player']} ({r['position']}) {r['status']}" for r in flagged) or "no player with a designation") + ".",
+              f"{inj.get('espn_live_note') or ''}", ""]
     else:
         L += [f"ESPN live list: {inj['espn_live_status']}.", ""]
     L += [inj["note"], ""]
@@ -160,6 +162,9 @@ def market_section(pk):
         for book, q in m["books"].items():
             ln = "" if q["line"] is None else (format(q["line"], "+g") if label == "spread" else f"{q['line']:g}")
             rows.append([label, book, f"{a} {ln}".strip(), _px(q["prices"][a]), _px(q["prices"][b]), f(q["no_vig"][a], 1, True), f(q["no_vig"][b], 1, True), f(q["hold"], 1, True), q.get("last_update") or ""])
+    cr = bk.get("api_credits") or {}
+    if cr.get("warning"):
+        L += [f"**Odds API credits: {cr['warning']}** ({cr.get('credits_remaining')} left).", ""]
     L += [f"Retrieved {bk.get('retrieved_utc')} UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.", "",
           table(["Market", "Book", "Side A / line", "Price A", "Price B", "No-vig A", "No-vig B", "Hold", "Book updated"], rows), ""]
     mv = bk.get("movement") or {}
@@ -187,6 +192,10 @@ def brief(pk):
          f"Market (schedule consensus, not a timestamped quote): {g['home']} {f(m['home_spread']) if m['home_spread'] is None else format(m['home_spread'], '+g')}, total {f(m['total'])}.", "",
          f"Generated {pk['generated_utc']} UTC. **Research only. `projection_ready` is false. Not betting advice.** "
          "Every number below is a count of recorded plays; a missing value is unknown, not zero.", ""]
+    fr = pk.get("data_freshness") or {}
+    bad = [f"{t}: {v['status']}" for t, v in fr.items() if v["status"] != "OK"]
+    if bad:
+        L += ["**Data warning.** " + "; ".join(bad) + ". The trend tables for that team do not include its latest game yet; the packet will catch up on the next run.", ""]
     L += market_section(pk)
     L += ["## Matchup edges", ""]
     for key, mu in pk["matchup"].items():

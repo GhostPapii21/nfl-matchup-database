@@ -45,9 +45,27 @@ def devig(price_a: float, price_b: float) -> tuple[float, float, float]:
     return pa / (pa + pb), pb / (pa + pb), pa + pb - 1.0
 
 
+QUOTA = {}   # last credit counters reported by the provider (x-requests-* response headers)
+
+
 def _get(url, timeout=30):
     with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "nfl-pregame-packet/1.0"}), timeout=timeout) as r:
+        for k, name in (("x-requests-remaining", "credits_remaining"), ("x-requests-used", "credits_used"), ("x-requests-last", "last_call_cost")):
+            v = r.headers.get(k)
+            if v is not None:
+                try:
+                    QUOTA[name] = int(float(v))
+                except ValueError:
+                    pass
         return json.loads(r.read())
+
+
+def quota(calls_this_run=None) -> dict:
+    """Credits left on the key, as last reported by the provider. Empty when no call was made."""
+    q = dict(QUOTA)
+    if q.get("credits_remaining") is not None:
+        q["warning"] = ("LOW: under 100 credits left; props and prices will stop when it reaches 0" if q["credits_remaining"] < 100 else None)
+    return q
 
 
 def _q(key, **params):
