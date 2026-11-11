@@ -6,6 +6,10 @@ name: NFL pregame packets (Thursday, Sunday, Monday)
 # Scheduled runs only fire from the default branch.
 
 on:
+  push:                     # a change to the builder rebuilds the packets on that branch (generated files do not retrigger)
+    paths:
+      - "pregame/*.py"
+      - ".github/workflows/nfl-pregame-packets.yml"
   workflow_dispatch:
     inputs:
       week:
