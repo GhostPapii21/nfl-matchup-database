@@ -4,27 +4,27 @@
 
 Market (schedule consensus, not a timestamped quote): NYG -2.5, total 41.5.
 
-Generated 2026-11-11T18:51:30+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:55:57+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-11T18:51:28+00:00 UTC. At kickoff: 51 F, wind 10 mph NE, 74% chance of precipitation, Light Rain Likely. During the game: low 47 F, wind up to 12 mph, precipitation chance up to 74%. Roof: outdoors. Flags: PRECIP_50_PLUS.
+National Weather Service, retrieved 2026-11-11T18:55:55+00:00 UTC. At kickoff: 53 F, wind 9 mph N, 74% chance of precipitation, Light Rain Likely. During the game: low 51 F, wind up to 10 mph, precipitation chance up to 74%. Roof: outdoors. Flags: PRECIP_50_PLUS.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:51:28+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T18:55:55+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | NYG -2.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:50:44Z |
-| spread | fanduel | NYG -1.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:51:25Z |
-| spread | pinnacle | NYG -2.5 | -106 | -106 | 50.0% | 50.0% | 2.9% | 2026-11-11T18:51:24Z |
-| total | draftkings | Over 41.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:50:44Z |
-| total | fanduel | Over 41.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-11T18:51:25Z |
-| total | pinnacle | Over 41 | -108 | -108 | 50.0% | 50.0% | 3.9% | 2026-11-11T18:51:24Z |
-| moneyline | draftkings | NYG | -142 | +120 | 56.4% | 43.6% | 4.1% | 2026-11-11T18:50:44Z |
-| moneyline | fanduel | NYG | -134 | +114 | 55.1% | 44.9% | 4.0% | 2026-11-11T18:51:25Z |
-| moneyline | pinnacle | NYG | -136 | +121 | 56.0% | 44.0% | 2.9% | 2026-11-11T18:51:24Z |
+| spread | draftkings | NYG -2.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:54:34Z |
+| spread | fanduel | NYG -1.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:55:51Z |
+| spread | pinnacle | NYG -2.5 | -106 | -106 | 50.0% | 50.0% | 2.9% | 2026-11-11T18:55:51Z |
+| total | draftkings | Over 41.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:54:34Z |
+| total | fanduel | Over 41.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-11T18:55:51Z |
+| total | pinnacle | Over 41 | -108 | -108 | 50.0% | 50.0% | 3.9% | 2026-11-11T18:55:51Z |
+| moneyline | draftkings | NYG | -142 | +120 | 56.4% | 43.6% | 4.1% | 2026-11-11T18:54:34Z |
+| moneyline | fanduel | NYG | -134 | +114 | 55.1% | 44.9% | 4.0% | 2026-11-11T18:55:51Z |
+| moneyline | pinnacle | NYG | -136 | +121 | 56.0% | 44.0% | 2.9% | 2026-11-11T18:55:51Z |
 
 ### Line movement: first seen 2026-11-11T18:17:53+00:00 to 2026-11-11T18:17:53+00:00 (1 snapshots)
 
@@ -379,7 +379,8 @@ Defensive front: LDE Charles Omenihu, NT Tim Settle, RDE Shy Tuttle, WLB Odafe O
 | Colson Yankoff | TE |  | none listed | Did Not Participate In Practice |  |
 | Treylon Burks | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list: Lucas Patrick (G) Out; Treylon Burks (WR) Questionable; Colson Yankoff (TE) Out; Chig Okonkwo (TE) Active; Shy Tuttle (DT) Active; Antonio Williams (WR) Active; Drew Stevens (PK) Active; Austin Ekeler (RB) Active; Isaac Yiadom (CB) Active; Tanoa Togiai (G) Active; Fabian Moreau (CB) Active; Athan Kaliakmanis (QB) Active; Van Jefferson (WR) Active; Stefon Diggs (WR) Active; Rachaad White (RB) Active; Jayden Daniels (QB) Active; Jer'Zhan Newton (DT) Active; Dyami Brown (WR) Injured Reserve; Sam Cosmi (G) Active; John Bates (TE) Active; Daron Payne (DT) Injured Reserve; Jeremy McNichols (RB) Injured Reserve; Javon Kinlaw (DT) Injured Reserve; Robert Henry Jr. (RB) Active; Charles Omenihu (DE) Active.
+ESPN live list (designations only): Javon Kinlaw (DT) Injured Reserve; Jeremy McNichols (RB) Injured Reserve; Daron Payne (DT) Injured Reserve; Dyami Brown (WR) Injured Reserve; Colson Yankoff (TE) Out; Treylon Burks (WR) Questionable; Lucas Patrick (G) Out.
+ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
@@ -604,7 +605,8 @@ Defensive front: LDE Shelby Harris, NT DJ Reader, RDE Darius Alexander, WLB Kayv
 | Theo Johnson | TE |  | none listed | Full Participation in Practice |  |
 | Darnell Mooney | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list: Greg Desrosiers Jr. (RB) Active; Colton Hood (CB) Questionable; Theo Johnson (TE) Active; Darnell Mooney (WR) Active; Charlie Jones (WR) Active; J.J. McCarthy (QB) Questionable; Cam Skattebo (RB) Out; Malachi Fields (WR) Active; Malik Harrison (LB) Questionable; Abdul Carter (LB) Questionable; Nikko Reed (CB) Active; Josh Sills (G) Active; Thomas Fidone II (TE) Active; CJ Okoye (DT) Active; Marcus Mbow (OT) Active; Dominic Zvada (PK) Active; Isaiah Likely (TE) Active; Devin Singletary (RB) Active; Malik Nabers (WR) Active; Jalin Hyatt (WR) Active; Andrew Thomas (OT) Active; Darius Alexander (DT) Active; Jermaine Eluemunor (OT) Active; Greg Newsome II (CB) Active; Jevon Holland (S) Active.
+ESPN live list (designations only): Malik Harrison (LB) Questionable; Abdul Carter (LB) Questionable; Cam Skattebo (RB) Out; J.J. McCarthy (QB) Questionable; Colton Hood (CB) Questionable.
+ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
@@ -647,16 +649,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:51:26+00:00 | ab53603458d9 |
-| pbp | OK | 2026-11-11T18:51:26+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:51:26+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:51:26+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:51:26+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:51:26+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:51:27+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:51:27+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:51:27+00:00 |  |
+| games | OK | 2026-11-11T18:55:52+00:00 | ab53603458d9 |
+| pbp | OK | 2026-11-11T18:55:52+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:55:52+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:55:52+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:55:53+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:55:53+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:55:53+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:55:53+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T18:55:54+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-11T18:51:28+00:00 |  |
+| book_odds | OK | 2026-11-11T18:55:55+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
