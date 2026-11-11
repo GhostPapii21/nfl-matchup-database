@@ -4,27 +4,27 @@
 
 Market (schedule consensus, not a timestamped quote): IND -3.5, total 38.5.
 
-Generated 2026-11-11T18:40:56+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:49:27+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-11T18:40:55+00:00 UTC. At kickoff: 46 F, wind 2 mph NNE, 0% chance of precipitation, Mostly Sunny. During the game: low 46 F, wind up to 3 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-11T18:49:26+00:00 UTC. At kickoff: 46 F, wind 2 mph NNE, 0% chance of precipitation, Mostly Sunny. During the game: low 46 F, wind up to 3 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:40:37+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T18:49:14+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | IND -3.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-11T18:40:31Z |
-| spread | fanduel | IND -3.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:40:33Z |
-| spread | pinnacle | IND -4 | -106 | -106 | 50.0% | 50.0% | 2.9% | 2026-11-11T18:40:30Z |
-| total | draftkings | Over 38.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-11T18:40:31Z |
-| total | fanduel | Over 37.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T18:40:33Z |
-| total | pinnacle | Over 38 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-11T18:40:30Z |
-| moneyline | draftkings | IND | -192 | +160 | 63.1% | 36.9% | 4.2% | 2026-11-11T18:40:31Z |
-| moneyline | fanduel | IND | -200 | +168 | 64.1% | 35.9% | 4.0% | 2026-11-11T18:40:33Z |
-| moneyline | pinnacle | IND | -198 | +172 | 64.4% | 35.6% | 3.2% | 2026-11-11T18:40:30Z |
+| spread | draftkings | IND -3.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-11T18:48:10Z |
+| spread | fanduel | IND -3.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:48:49Z |
+| spread | pinnacle | IND -4 | -106 | -106 | 50.0% | 50.0% | 2.9% | 2026-11-11T18:49:11Z |
+| total | draftkings | Over 38.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-11T18:48:10Z |
+| total | fanduel | Over 37.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T18:48:49Z |
+| total | pinnacle | Over 38 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-11T18:49:11Z |
+| moneyline | draftkings | IND | -192 | +160 | 63.1% | 36.9% | 4.2% | 2026-11-11T18:48:10Z |
+| moneyline | fanduel | IND | -200 | +168 | 64.1% | 35.9% | 4.0% | 2026-11-11T18:48:49Z |
+| moneyline | pinnacle | IND | -198 | +172 | 64.4% | 35.6% | 3.2% | 2026-11-11T18:49:11Z |
 
 ### Line movement: first seen 2026-11-11T18:18:05+00:00 to 2026-11-11T18:40:55+00:00 (2 snapshots)
 
@@ -285,6 +285,32 @@ Neutral-situation pass rate 49.7%; 55.5 plays per game; target share WR 64% / TE
 | right tackle | 14 | 48 | 3.43 | 1 |
 | right end | 13 | 57 | 4.38 | 2 |
 
+### MIA by formation and pass zone
+
+| Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
+|---|---|---|---|---|---|---|
+| offense | Shotgun | 247 | 56% | 75% | 5.57 | -0.049 |
+| offense | Under center | 183 | 41% | 31% | 4.45 | -0.088 |
+| offense | No huddle | 14 | 3% | 93% | 5.07 | -0.009 |
+| defense vs | Shotgun | 245 | 54% | 69% | 5.84 | 0.17 |
+| defense vs | Under center | 198 | 44% | 36% | 5.86 | 0.083 |
+| defense vs | No huddle | 10 | 2% | 60% | 3.9 | -0.628 |
+
+| Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
+|---|---|---|---|---|---|---|
+| offense | Short left | 55 | 27% | 62% | 5.76 | 2 |
+| offense | Short middle | 26 | 13% | 77% | 8.88 | 2 |
+| offense | Short right | 76 | 37% | 66% | 5.16 | 0 |
+| offense | Deep left | 17 | 8% | 24% | 6.29 | 3 |
+| offense | Deep middle | 13 | 6% | 38% | 11.46 | 5 |
+| offense | Deep right | 20 | 10% | 45% | 12.3 | 6 |
+| defense allows | Short left | 64 | 29% | 83% | 6.12 | 0 |
+| defense allows | Short middle | 38 | 17% | 71% | 6.21 | 1 |
+| defense allows | Short right | 79 | 36% | 78% | 5.22 | 1 |
+| defense allows | Deep left | 13 | 6% | 62% | 14.38 | 6 |
+| defense allows | Deep middle | 12 | 5% | 58% | 21.42 | 6 |
+| defense allows | Deep right | 15 | 7% | 73% | 20.87 | 8 |
+
 ### MIA lines (depth chart as of 2026-11-11T07:02:21Z)
 
 Offensive line: LT Patrick Paul, LG Kadyn Proctor, C Aaron Brewer, RG Jonah Savaiinaea, RT Austin Jackson.  
@@ -472,6 +498,32 @@ Neutral-situation pass rate 52.7%; 65.0 plays per game; target share WR 59% / TE
 | left end | 23 | 81 | 3.52 | 0 |
 | right guard | 17 | 51 | 3.0 | 0 |
 
+### IND by formation and pass zone
+
+| Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
+|---|---|---|---|---|---|---|
+| offense | Shotgun | 310 | 60% | 76% | 4.76 | -0.156 |
+| offense | Under center | 193 | 37% | 31% | 4.28 | -0.022 |
+| offense | No huddle | 17 | 3% | 76% | 2.94 | -0.364 |
+| defense vs | Shotgun | 261 | 56% | 74% | 6.62 | 0.078 |
+| defense vs | Under center | 182 | 39% | 35% | 5.29 | 0.013 |
+| defense vs | No huddle | 20 | 4% | 60% | 3.2 | -0.144 |
+
+| Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
+|---|---|---|---|---|---|---|
+| offense | Short left | 99 | 36% | 72% | 5.21 | 2 |
+| offense | Short middle | 43 | 16% | 63% | 5.91 | 2 |
+| offense | Short right | 86 | 32% | 65% | 5.77 | 4 |
+| offense | Deep left | 19 | 7% | 21% | 5.42 | 3 |
+| offense | Deep middle | 8 | 3% | 50% | 13.0 | 2 |
+| offense | Deep right | 17 | 6% | 18% | 5.35 | 3 |
+| defense allows | Short left | 70 | 29% | 69% | 5.89 | 4 |
+| defense allows | Short middle | 41 | 17% | 56% | 6.22 | 2 |
+| defense allows | Short right | 79 | 33% | 65% | 6.16 | 4 |
+| defense allows | Deep left | 13 | 5% | 31% | 9.0 | 3 |
+| defense allows | Deep middle | 4 | 2% | 100% | 18.75 | 2 |
+| defense allows | Deep right | 32 | 13% | 47% | 14.84 | 12 |
+
 ### IND lines (depth chart as of 2026-11-11T07:02:21Z)
 
 Offensive line: LT Bernhard Raimann, LG Jalen Farmer, C Tanor Bortolini, RG Matt Goncalves, RT Jalen Travis.  
@@ -489,10 +541,6 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 
 Arrived: none.  
 Left for another team: Thomas Morstead (P) to TEN; DeForest Buckner (DL) to SF; Quenton Nelson (OL) to SEA; Josh Sills (OL) to NYG.
-
-## Formation and pass-zone splits (NFL Savant)
-
-Not in this packet: UNAVAILABLE: no play-by-play CSV found; tried https://pub-e9a6e73e336047fba26374ae44334139.r2.dev/pbp-2026.csv.
 
 ## Keyed connectors in this run
 
@@ -528,16 +576,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:40:31+00:00 | 7a7060dd4535 |
-| pbp | OK | 2026-11-11T18:40:31+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:40:31+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:40:32+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:40:32+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:40:32+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:40:33+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:40:33+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:40:33+00:00 |  |
-| nfl_savant | UNAVAILABLE: no play-by-play CSV found; tried https://pub-e9a6e73e336047fba26374ae44334139.r2.dev/pbp-2026.csv |  |  |
-| book_odds | OK | 2026-11-11T18:40:37+00:00 |  |
+| games | OK | 2026-11-11T18:49:11+00:00 | ab53603458d9 |
+| pbp | OK | 2026-11-11T18:49:12+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:49:12+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:49:12+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:49:12+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:49:13+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:49:13+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:49:13+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T18:49:14+00:00 |  |
+| nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
+| book_odds | OK | 2026-11-11T18:49:14+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): LV +6.5, total 40.5.
 
-Generated 2026-11-11T18:41:04+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:49:32+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,19 +12,19 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:40:37+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T18:49:14+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | LV +6.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-11T18:40:31Z |
-| spread | fanduel | LV +6.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:40:33Z |
-| spread | pinnacle | LV +6.5 | -104 | -108 | 49.5% | 50.5% | 2.9% | 2026-11-11T18:40:30Z |
-| total | draftkings | Over 40.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-11T18:40:31Z |
-| total | fanduel | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:40:33Z |
-| total | pinnacle | Over 40.5 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-11T18:40:30Z |
-| moneyline | draftkings | LV | +240 | -298 | 28.2% | 71.8% | 4.3% | 2026-11-11T18:40:31Z |
-| moneyline | fanduel | LV | +245 | -300 | 27.9% | 72.1% | 4.0% | 2026-11-11T18:40:33Z |
-| moneyline | pinnacle | LV | +236 | -280 | 28.8% | 71.2% | 3.5% | 2026-11-11T18:40:30Z |
+| spread | draftkings | LV +6.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-11T18:48:10Z |
+| spread | fanduel | LV +6.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:48:49Z |
+| spread | pinnacle | LV +6.5 | -104 | -108 | 49.5% | 50.5% | 2.9% | 2026-11-11T18:49:10Z |
+| total | draftkings | Over 40.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-11T18:48:10Z |
+| total | fanduel | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:48:49Z |
+| total | pinnacle | Over 40.5 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-11T18:49:10Z |
+| moneyline | draftkings | LV | +240 | -298 | 28.2% | 71.8% | 4.3% | 2026-11-11T18:48:10Z |
+| moneyline | fanduel | LV | +245 | -300 | 27.9% | 72.1% | 4.0% | 2026-11-11T18:48:49Z |
+| moneyline | pinnacle | LV | +236 | -280 | 28.8% | 71.2% | 3.5% | 2026-11-11T18:49:10Z |
 
 ### Line movement: first seen 2026-11-11T18:18:10+00:00 to 2026-11-11T18:18:10+00:00 (1 snapshots)
 
@@ -292,6 +292,32 @@ Neutral-situation pass rate 48.0%; 63.8 plays per game; target share WR 65% / TE
 | left tackle | 16 | 74 | 4.62 | 2 |
 | right tackle | 15 | 61 | 4.07 | 1 |
 
+### SEA by formation and pass zone
+
+| Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
+|---|---|---|---|---|---|---|
+| offense | Shotgun | 245 | 48% | 80% | 5.82 | 0.014 |
+| offense | Under center | 243 | 48% | 31% | 4.73 | -0.127 |
+| offense | No huddle | 22 | 4% | 77% | 4.18 | -0.015 |
+| defense vs | Shotgun | 279 | 61% | 74% | 4.72 | -0.027 |
+| defense vs | Under center | 159 | 35% | 34% | 3.51 | -0.158 |
+| defense vs | No huddle | 20 | 4% | 75% | 2.6 | -0.584 |
+
+| Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
+|---|---|---|---|---|---|---|
+| offense | Short left | 76 | 29% | 64% | 6.11 | 1 |
+| offense | Short middle | 58 | 22% | 64% | 7.07 | 3 |
+| offense | Short right | 94 | 36% | 67% | 5.59 | 5 |
+| offense | Deep left | 12 | 5% | 42% | 12.75 | 4 |
+| offense | Deep middle | 7 | 3% | 43% | 9.86 | 2 |
+| offense | Deep right | 15 | 6% | 53% | 17.87 | 6 |
+| defense allows | Short left | 63 | 26% | 78% | 5.1 | 1 |
+| defense allows | Short middle | 43 | 18% | 65% | 5.51 | 1 |
+| defense allows | Short right | 91 | 37% | 68% | 4.42 | 1 |
+| defense allows | Deep left | 18 | 7% | 28% | 6.56 | 4 |
+| defense allows | Deep middle | 9 | 4% | 67% | 14.33 | 4 |
+| defense allows | Deep right | 20 | 8% | 25% | 6.7 | 3 |
+
 ### SEA lines (depth chart as of 2026-11-11T07:02:21Z)
 
 Offensive line: LT Charles Cross, LG Quenton Nelson, C Jalen Sundell, RG Grey Zabel, RT Abraham Lucas.  
@@ -479,6 +505,32 @@ Neutral-situation pass rate 54.8%; 60.0 plays per game; target share WR 38% / TE
 | right tackle | 14 | 25 | 1.79 | 0 |
 | left end | 11 | 64 | 5.82 | 2 |
 
+### LV by formation and pass zone
+
+| Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
+|---|---|---|---|---|---|---|
+| offense | Shotgun | 246 | 51% | 82% | 6.2 | -0.017 |
+| offense | Under center | 190 | 40% | 36% | 4.65 | -0.042 |
+| offense | No huddle | 44 | 9% | 82% | 6.57 | 0.216 |
+| defense vs | Shotgun | 264 | 52% | 72% | 6.57 | 0.105 |
+| defense vs | Under center | 215 | 42% | 33% | 6.26 | 0.173 |
+| defense vs | No huddle | 28 | 6% | 61% | 5.14 | -0.033 |
+
+| Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
+|---|---|---|---|---|---|---|
+| offense | Short left | 95 | 33% | 72% | 6.68 | 5 |
+| offense | Short middle | 70 | 24% | 67% | 7.4 | 5 |
+| offense | Short right | 73 | 25% | 70% | 6.97 | 2 |
+| offense | Deep left | 21 | 7% | 57% | 15.48 | 9 |
+| offense | Deep middle | 14 | 5% | 50% | 13.79 | 7 |
+| offense | Deep right | 17 | 6% | 18% | 3.59 | 2 |
+| defense allows | Short left | 83 | 33% | 71% | 6.24 | 2 |
+| defense allows | Short middle | 31 | 12% | 71% | 6.71 | 1 |
+| defense allows | Short right | 79 | 31% | 78% | 6.78 | 2 |
+| defense allows | Deep left | 26 | 10% | 42% | 14.31 | 9 |
+| defense allows | Deep middle | 12 | 5% | 50% | 14.42 | 4 |
+| defense allows | Deep right | 21 | 8% | 38% | 10.05 | 4 |
+
 ### LV lines (depth chart as of 2026-11-11T07:02:21Z)
 
 Offensive line: LT Kolton Miller, LG Spencer Burford, C Tyler Linderbaum, RG Trey Zuhn III, RT DJ Glaze.  
@@ -496,10 +548,6 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 
 Arrived: none.  
 Left for another team: Jonah Laulu (DL) to TEN.
-
-## Formation and pass-zone splits (NFL Savant)
-
-Not in this packet: UNAVAILABLE: no play-by-play CSV found; tried https://pub-e9a6e73e336047fba26374ae44334139.r2.dev/pbp-2026.csv.
 
 ## Keyed connectors in this run
 
@@ -535,16 +583,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:40:31+00:00 | 7a7060dd4535 |
-| pbp | OK | 2026-11-11T18:40:31+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:40:31+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:40:32+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:40:32+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:40:32+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:40:33+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:40:33+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:40:33+00:00 |  |
-| nfl_savant | UNAVAILABLE: no play-by-play CSV found; tried https://pub-e9a6e73e336047fba26374ae44334139.r2.dev/pbp-2026.csv |  |  |
-| book_odds | OK | 2026-11-11T18:40:37+00:00 |  |
+| games | OK | 2026-11-11T18:49:11+00:00 | ab53603458d9 |
+| pbp | OK | 2026-11-11T18:49:12+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:49:12+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:49:12+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:49:12+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:49:13+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:49:13+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:49:13+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T18:49:14+00:00 |  |
+| nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
+| book_odds | OK | 2026-11-11T18:49:14+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

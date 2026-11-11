@@ -4,27 +4,27 @@
 
 Market (schedule consensus, not a timestamped quote): NYJ +8.5, total 50.5.
 
-Generated 2026-11-11T18:40:44+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:49:19+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-11T18:40:42+00:00 UTC. At kickoff: 51 F, wind 12 mph NW, 0% chance of precipitation, Mostly Sunny. During the game: low 51 F, wind up to 12 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-11T18:49:18+00:00 UTC. At kickoff: 51 F, wind 12 mph NW, 0% chance of precipitation, Mostly Sunny. During the game: low 51 F, wind up to 12 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:40:37+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T18:49:14+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | NYJ +8.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:40:31Z |
-| spread | fanduel | NYJ +7.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:40:33Z |
-| spread | pinnacle | NYJ +8.5 | -114 | +101 | 51.7% | 48.3% | 3.0% | 2026-11-11T18:40:30Z |
-| total | draftkings | Over 50.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T18:40:31Z |
-| total | fanduel | Over 50.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:40:33Z |
-| total | pinnacle | Over 51 | -107 | -109 | 49.8% | 50.2% | 3.8% | 2026-11-11T18:40:30Z |
-| moneyline | draftkings | NYJ | +310 | -395 | 23.4% | 76.6% | 4.2% | 2026-11-11T18:40:31Z |
-| moneyline | fanduel | NYJ | +370 | -480 | 20.4% | 79.5% | 4.0% | 2026-11-11T18:40:33Z |
-| moneyline | pinnacle | NYJ | +339 | -424 | 22.0% | 78.0% | 3.7% | 2026-11-11T18:40:30Z |
+| spread | draftkings | NYJ +8.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:48:10Z |
+| spread | fanduel | NYJ +7.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:48:49Z |
+| spread | pinnacle | NYJ +8.5 | -114 | +101 | 51.7% | 48.3% | 3.0% | 2026-11-11T18:49:10Z |
+| total | draftkings | Over 50.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T18:48:10Z |
+| total | fanduel | Over 50.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:48:49Z |
+| total | pinnacle | Over 51 | -107 | -109 | 49.8% | 50.2% | 3.8% | 2026-11-11T18:49:10Z |
+| moneyline | draftkings | NYJ | +310 | -395 | 23.4% | 76.6% | 4.2% | 2026-11-11T18:48:10Z |
+| moneyline | fanduel | NYJ | +370 | -480 | 20.4% | 79.5% | 4.0% | 2026-11-11T18:48:49Z |
+| moneyline | pinnacle | NYJ | +339 | -424 | 22.0% | 78.0% | 3.7% | 2026-11-11T18:49:10Z |
 
 ### Line movement: first seen 2026-11-11T18:17:56+00:00 to 2026-11-11T18:17:56+00:00 (1 snapshots)
 
@@ -287,6 +287,32 @@ Neutral-situation pass rate 54.2%; 62.5 plays per game; target share WR 55% / TE
 | left end | 15 | 47 | 3.13 | 1 |
 | right end | 11 | 44 | 4.0 | 0 |
 
+### BUF by formation and pass zone
+
+| Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
+|---|---|---|---|---|---|---|
+| offense | Under center | 269 | 54% | 35% | 5.49 | 0.083 |
+| offense | Shotgun | 210 | 42% | 79% | 6.67 | 0.159 |
+| offense | No huddle | 21 | 4% | 62% | 10.71 | 0.807 |
+| defense vs | Shotgun | 277 | 55% | 80% | 5.49 | -0.019 |
+| defense vs | Under center | 196 | 39% | 40% | 4.76 | -0.015 |
+| defense vs | No huddle | 29 | 6% | 90% | 6.69 | 0.102 |
+
+| Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
+|---|---|---|---|---|---|---|
+| offense | Short left | 61 | 26% | 74% | 7.23 | 6 |
+| offense | Short middle | 37 | 16% | 68% | 8.68 | 3 |
+| offense | Short right | 89 | 38% | 71% | 6.26 | 5 |
+| offense | Deep left | 17 | 7% | 35% | 9.47 | 5 |
+| offense | Deep middle | 19 | 8% | 53% | 16.32 | 7 |
+| offense | Deep right | 13 | 6% | 54% | 18.23 | 6 |
+| defense allows | Short left | 80 | 27% | 65% | 5.81 | 2 |
+| defense allows | Short middle | 59 | 20% | 68% | 6.71 | 3 |
+| defense allows | Short right | 98 | 33% | 67% | 5.52 | 3 |
+| defense allows | Deep left | 21 | 7% | 38% | 9.33 | 5 |
+| defense allows | Deep middle | 15 | 5% | 40% | 11.33 | 6 |
+| defense allows | Deep right | 26 | 9% | 42% | 9.77 | 9 |
+
 ### BUF lines (depth chart as of 2026-11-11T07:02:21Z)
 
 Offensive line: LT Dion Dawkins, LG Alec Anderson, C Connor McGovern, RG O'Cyrus Torrence, RT Spencer Brown.  
@@ -472,6 +498,32 @@ Neutral-situation pass rate 49.6%; 57.8 plays per game; target share WR 56% / TE
 | left end | 18 | 94 | 5.22 | 1 |
 | right end | 13 | 72 | 5.54 | 2 |
 
+### NYJ by formation and pass zone
+
+| Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
+|---|---|---|---|---|---|---|
+| offense | Shotgun | 258 | 56% | 82% | 5.78 | 0.058 |
+| offense | Under center | 185 | 40% | 33% | 4.82 | -0.111 |
+| offense | No huddle | 19 | 4% | 63% | 2.32 | -0.218 |
+| defense vs | Shotgun | 273 | 53% | 70% | 5.4 | 0.085 |
+| defense vs | Under center | 217 | 42% | 31% | 5.51 | 0.03 |
+| defense vs | No huddle | 24 | 5% | 67% | 3.25 | -0.084 |
+
+| Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
+|---|---|---|---|---|---|---|
+| offense | Short left | 79 | 32% | 68% | 5.7 | 0 |
+| offense | Short middle | 18 | 7% | 67% | 5.06 | 0 |
+| offense | Short right | 104 | 42% | 70% | 5.94 | 3 |
+| offense | Deep left | 16 | 6% | 56% | 17.19 | 9 |
+| offense | Deep middle | 10 | 4% | 60% | 20.3 | 3 |
+| offense | Deep right | 19 | 8% | 53% | 11.89 | 5 |
+| defense allows | Short left | 75 | 32% | 61% | 5.64 | 2 |
+| defense allows | Short middle | 47 | 20% | 72% | 7.36 | 3 |
+| defense allows | Short right | 82 | 34% | 71% | 6.4 | 3 |
+| defense allows | Deep left | 10 | 4% | 50% | 11.8 | 4 |
+| defense allows | Deep middle | 10 | 4% | 50% | 15.3 | 5 |
+| defense allows | Deep right | 14 | 6% | 50% | 14.57 | 6 |
+
 ### NYJ lines (depth chart as of 2026-11-11T07:02:21Z)
 
 Offensive line: LT Olu Fashanu, LG Dylan Parham, C Josh Myers, RG Joe Tippmann, RT Armand Membou.  
@@ -489,10 +541,6 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 
 Arrived: none.  
 Left for another team: Andre Cisco (DB) to DET.
-
-## Formation and pass-zone splits (NFL Savant)
-
-Not in this packet: UNAVAILABLE: no play-by-play CSV found; tried https://pub-e9a6e73e336047fba26374ae44334139.r2.dev/pbp-2026.csv.
 
 ## Keyed connectors in this run
 
@@ -528,16 +576,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:40:31+00:00 | 7a7060dd4535 |
-| pbp | OK | 2026-11-11T18:40:31+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:40:31+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:40:32+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:40:32+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:40:32+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:40:33+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:40:33+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:40:33+00:00 |  |
-| nfl_savant | UNAVAILABLE: no play-by-play CSV found; tried https://pub-e9a6e73e336047fba26374ae44334139.r2.dev/pbp-2026.csv |  |  |
-| book_odds | OK | 2026-11-11T18:40:37+00:00 |  |
+| games | OK | 2026-11-11T18:49:11+00:00 | ab53603458d9 |
+| pbp | OK | 2026-11-11T18:49:12+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:49:12+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:49:12+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:49:12+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:49:13+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:49:13+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:49:13+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T18:49:14+00:00 |  |
+| nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
+| book_odds | OK | 2026-11-11T18:49:14+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
