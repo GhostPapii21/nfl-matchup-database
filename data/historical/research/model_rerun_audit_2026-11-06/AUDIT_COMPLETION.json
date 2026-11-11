@@ -1,0 +1,311 @@
+{
+  "task": "model_rerun_audit_JAX_BAL_2026-11-05",
+  "status": "COMPLETE_RESEARCH_ONLY_NO_ACCURACY_CLAIM",
+  "code": {
+    "wt_period_engine": {
+      "branch": "research-period-engine-2026-11-05",
+      "head": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6"
+    },
+    "wt_period_audit": {
+      "branch": "research-period-audit-ghost6-2026-11-05",
+      "head": "6964d33091c9b4d1454ee0b67b34a230733b8347",
+      "note": "audit inflation fix; engine WT is newer with P2 touchback metadata"
+    }
+  },
+  "tests": {
+    "period_engine_v0": "35 passed in 9.51s",
+    "possession_engine_v0": "76 passed in 49.84s"
+  },
+  "preserved_inputs": {
+    "period": {
+      "seed": 20261105,
+      "n": 50000,
+      "asof": "2026 weeks < 9 (+2025 REG)",
+      "asof_games": 393,
+      "pbp_weeks": "1-8 only, no JAX@BAL in parquet (no leakage)"
+    },
+    "possession_configs": {
+      "data_only": {
+        "frozen_at_et": "2026-11-05T13:55:00-05:00",
+        "seed": 1833920529,
+        "n": 2000
+      },
+      "script_adjusted": {
+        "frozen_at_et": "2026-11-05T13:55:00-05:00",
+        "seed": 261112694,
+        "n": 2000,
+        "qb": "Fagnano; Lamar OUT"
+      },
+      "market_informed": {
+        "frozen_at_et": "2026-11-05T14:00:00-05:00",
+        "blocker": "PINNACLE_MISSING_SCREENSHOT_ONLY_NOT_WIRED_TO_SAMPLER"
+      }
+    },
+    "note": "Configs are research freezes of INPUTS, not a production forecast freeze file under live/"
+  },
+  "capabilities": {
+    "team_period_scores": "IMPLEMENTED (q1-q4/h1/h2/reg/fg arrays)",
+    "player_joint_yards": "IMPLEMENTED (pass_yards/rush_yards/rec_yards from resampled rows)",
+    "player_targets_counts": "NOT_A_SEPARATE_OUTPUT \u2014 receiver credit is yards on catch rows, not target volume model",
+    "player_carries_counts": "NOT_A_SEPARATE_OUTPUT \u2014 rusher credit is rush yards, not carry-count model",
+    "period_engine_player_props": "evidence interface only (PLAYER_EVIDENCE_SPEC); not a prop engine",
+    "bias_calib": "UNIMPLEMENTED in period_engine",
+    "coverage_man_zone_routes": "MISSING"
+  },
+  "actual_score": {
+    "final": "JAX 33 BAL 10",
+    "periods_JAX": [
+      10,
+      7,
+      3,
+      13
+    ],
+    "periods_BAL": [
+      3,
+      0,
+      0,
+      7
+    ],
+    "h1": "17-3"
+  },
+  "blitz_actuals_incorporated_not_reextracted": {
+    "root": "/workspace/nfl-database/live/2026-11-05_JAX_BAL/",
+    "files": [
+      "actual_role_coverage_audit.md",
+      "actual_receiving_by_quarter.csv",
+      "actual_receiving_play_log.csv",
+      "actual_rushing_by_quarter.csv",
+      "actual_rushing_play_log.csv",
+      "actual_explosives_ledger.csv",
+      "actual_box_reconcile.csv",
+      "actual_jax_rb_touch_order.csv",
+      "actual_trick_plays.csv"
+    ],
+    "reconcile": "23/24 named lines; Hunter PBP receiving -3 vs box -1 flagged",
+    "rb_touch_order_cite": "Tuten first Q1 13:31; Rodriguez Q1 12:04; Abdullah first Q4 12:39 (+2) \u2014 pregame week10/jax_usage/usage.md already labeled Abdullah garbage-time/RB3 so not wholly unforeseen",
+    "explosives_cite": "Boerkircher 52, Washington 50, Hill 65; coverage UNKNOWN; no routes/personnel measured",
+    "andrews_fagnano": "Aborted Andrews/Fagnano separately reconciled by Blitz"
+  },
+  "genuine_original_period_engine_prediction": {
+    "source_artifact": "artifacts/demo_jaxbal_period_report.json (2026-11-05 16:12 ET)",
+    "rerun_bit_exact_match": true,
+    "fg_means_BAL_home_JAX_away": {
+      "home": 23.97008,
+      "away": 27.61456
+    },
+    "period_means_home_away": {
+      "q1": [
+        5.26358,
+        5.32126
+      ],
+      "q2": [
+        7.058,
+        9.83348
+      ],
+      "q3": [
+        5.14378,
+        6.546
+      ],
+      "q4": [
+        6.4037,
+        5.82256
+      ],
+      "h1": [
+        12.32158,
+        15.15474
+      ]
+    },
+    "errors_actual_minus_mean": [
+      {
+        "period": "q1",
+        "pred_away_mean": 5.32126,
+        "pred_home_mean": 5.26358,
+        "actual_away": 10,
+        "actual_home": 3,
+        "err_away": 4.67874,
+        "err_home": -2.26358,
+        "abs_err_margin_home": 6.94232,
+        "abs_err_total": 2.41516
+      },
+      {
+        "period": "q2",
+        "pred_away_mean": 9.83348,
+        "pred_home_mean": 7.058,
+        "actual_away": 7,
+        "actual_home": 0,
+        "err_away": -2.8334799999999998,
+        "err_home": -7.058,
+        "abs_err_margin_home": 4.22452,
+        "abs_err_total": 9.891480000000001
+      },
+      {
+        "period": "q3",
+        "pred_away_mean": 6.546,
+        "pred_home_mean": 5.14378,
+        "actual_away": 3,
+        "actual_home": 0,
+        "err_away": -3.5460000000000003,
+        "err_home": -5.14378,
+        "abs_err_margin_home": 1.59778,
+        "abs_err_total": 8.68978
+      },
+      {
+        "period": "q4",
+        "pred_away_mean": 5.82256,
+        "pred_home_mean": 6.4037,
+        "actual_away": 13,
+        "actual_home": 7,
+        "err_away": 7.17744,
+        "err_home": 0.5963000000000003,
+        "abs_err_margin_home": 6.5811399999999995,
+        "abs_err_total": 7.77374
+      },
+      {
+        "period": "fg",
+        "pred_away_mean": 27.61456,
+        "pred_home_mean": 23.97008,
+        "actual_away": 33,
+        "actual_home": 10,
+        "err_away": 5.385439999999999,
+        "err_home": -13.97008,
+        "abs_err_margin_home": 19.35552,
+        "abs_err_total": 8.58464
+      },
+      {
+        "period": "h1",
+        "pred_away_mean": 15.15474,
+        "pred_home_mean": 12.32158,
+        "actual_away": 17,
+        "actual_home": 3,
+        "err_away": 1.8452599999999997,
+        "err_home": -9.32158,
+        "abs_err_margin_home": 11.16684,
+        "abs_err_total": 7.476320000000001
+      }
+    ],
+    "modules_missing": [
+      "Bias UNIMPLEMENTED",
+      "GR scale UNFITTED (not applied in demo)",
+      "PINNACLE_MISSING for identity mirror"
+    ]
+  },
+  "possession_engine_diagnostic_HEAD_not_pre_fix_artifact": {
+    "warning": "artifacts/sim_jaxbal_summary.json is PRE-FIX inflation (fg ~49/62). Do NOT treat as current prediction. HEAD 3448ad7 rerun below.",
+    "data_only_fg_means": {
+      "fg_home": 16.083,
+      "fg_away": 19.8075,
+      "reg_home": 15.9905,
+      "reg_away": 19.6305,
+      "p_ot": 0.0575
+    },
+    "script_adjusted_fg_means": {
+      "fg_home": 10.5655,
+      "fg_away": 18.8175,
+      "reg_home": 10.5025,
+      "reg_away": 18.6735,
+      "p_ot": 0.0585
+    },
+    "script_adjusted_period_means": {
+      "q1_home": 2.104,
+      "q1_away": 4.586,
+      "q2_home": 2.8705,
+      "q2_away": 5.1575,
+      "q3_home": 2.653,
+      "q3_away": 3.7565,
+      "q4_home": 2.875,
+      "q4_away": 5.1735,
+      "h1_home": 4.9745,
+      "h1_away": 9.7435,
+      "h2_home": 5.528,
+      "h2_away": 8.93,
+      "reg_home": 10.5025,
+      "reg_away": 18.6735,
+      "fg_home": 10.5655,
+      "fg_away": 18.8175,
+      "went_ot": 0.0585
+    },
+    "script_adjusted_errors": {
+      "q1": {
+        "pred_home": 2.104,
+        "pred_away": 4.586,
+        "actual_home": 3,
+        "actual_away": 10,
+        "err_home": 0.8959999999999999,
+        "err_away": 5.414,
+        "abs_err_total": 6.31,
+        "abs_err_margin_home": 4.518
+      },
+      "q2": {
+        "pred_home": 2.8705,
+        "pred_away": 5.1575,
+        "actual_home": 0,
+        "actual_away": 7,
+        "err_home": -2.8705,
+        "err_away": 1.8425000000000002,
+        "abs_err_total": 1.0279999999999987,
+        "abs_err_margin_home": 4.713
+      },
+      "q3": {
+        "pred_home": 2.653,
+        "pred_away": 3.7565,
+        "actual_home": 0,
+        "actual_away": 3,
+        "err_home": -2.653,
+        "err_away": -0.7565,
+        "abs_err_total": 3.4094999999999995,
+        "abs_err_margin_home": 1.8965
+      },
+      "q4": {
+        "pred_home": 2.875,
+        "pred_away": 5.1735,
+        "actual_home": 7,
+        "actual_away": 13,
+        "err_home": 4.125,
+        "err_away": 7.8265,
+        "abs_err_total": 11.9515,
+        "abs_err_margin_home": 3.7015000000000002
+      },
+      "h1": {
+        "pred_home": 4.9745,
+        "pred_away": 9.7435,
+        "actual_home": 3,
+        "actual_away": 17,
+        "err_home": -1.9745,
+        "err_away": 7.256500000000001,
+        "abs_err_total": 5.282,
+        "abs_err_margin_home": 9.231000000000002
+      },
+      "fg": {
+        "pred_home": 10.5655,
+        "pred_away": 18.8175,
+        "actual_home": 10,
+        "actual_away": 33,
+        "err_home": -0.5655000000000001,
+        "err_away": 14.182500000000001,
+        "abs_err_total": 13.617,
+        "abs_err_margin_home": 14.748000000000001
+      }
+    },
+    "player_joint_kinds_only": [
+      "pass_yards",
+      "rush_yards",
+      "rec_yards"
+    ],
+    "no_target_or_carry_count_model": true,
+    "player_joint_vs_actuals": "Sim mean yards \u2260 game forecast freeze; compare only diagnostically. Explosives/coverage not predicted (coverage UNKNOWN per Blitz)."
+  },
+  "blockers": [
+    "No production forecast FREEZE file under live/ \u2014 only research configs + demo artifacts",
+    "market_informed sampler not wired (PINNACLE_MISSING)",
+    "100k trials RUNTIME_BLOCKER (practical n=2k possession / 50k period demo)",
+    "Bias/calibration modules absent \u2014 errors are raw mean vs actual, not calibrated forecast score",
+    "Player targets/carries volume model absent \u2014 yards joint only",
+    "Coverage/routes/personnel MISSING \u2014 cannot attribute explosives to coverage"
+  ],
+  "output_paths": {
+    "period_rerun": "/workspace/research/model_rerun_audit_2026-11-06/period_rerun_n50000_seed20261105.json",
+    "possession_rerun": "/workspace/research/model_rerun_audit_2026-11-06/possession_rerun_n2000_preserved_seeds.json",
+    "period_pytest": "/workspace/research/model_rerun_audit_2026-11-06/period_pytest.txt",
+    "possession_pytest": "/workspace/research/model_rerun_audit_2026-11-06/possession_pytest.txt"
+  }
+}

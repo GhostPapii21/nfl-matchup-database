@@ -1,0 +1,78 @@
+{
+  "created_at_et": "2026-11-10 10:33 ",
+  "box_local_timezone": "America/New_York",
+  "purpose": "Research only: WAS defensive IR/injury depth ahead of 2026-11-12 TNF at NYG. No picks, no model changes.",
+  "sources": {
+    "nflverse_snap_counts": {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.csv.gz",
+      "retrieved": "2026-11-10",
+      "weeks_present": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ]
+    },
+    "nfl_savant_usage_team": {
+      "path": "/workspace/nfl_savant_nyg_was_2026-11-10/raw/usage_team_WAS.json",
+      "endpoint": "https://nflsavant.com/api/usage/team/WAS?season=2026",
+      "note": "Weekly snap counts match nflverse snap_counts exactly for every WAS defender-week (0 differences)."
+    },
+    "nflverse_pbp": {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
+      "weeks_present": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "nflverse_stats_player_week": {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz"
+    },
+    "nflverse_stats_team_week": {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/stats_team/stats_team_week_2026.csv.gz"
+    },
+    "nflverse_injuries": {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.csv"
+    },
+    "nflverse_weekly_rosters": {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.csv.gz"
+    },
+    "week9_gamebook": {
+      "repo": "GhostPapii21/nfl-matchup-database",
+      "ref": "main",
+      "commit": "a6e547598db5de0267dd327ca12966a0b152ac96",
+      "paths": [
+        "data/gamebooks/2026/wk09/2026_09_LA_WAS/parsed/lineups.csv",
+        "data/gamebooks/2026/wk09/2026_09_LA_WAS/parsed/defense.csv",
+        "data/gamebooks/2026/wk09/2026_09_LA_WAS/parsed/team_stats.csv",
+        "data/gamebooks/2026/wk09/2026_09_LA_WAS/parsed/participation.csv"
+      ],
+      "access": "GitHub MCP get_file_contents; not cloned locally",
+      "note": "Repo contains Week 9 gamebooks only. Official starting lineups for Weeks 1-8 are a documented gap."
+    },
+    "espn_depth_chart": {
+      "provided_by": "user/Rico ESPN screenshots, Nov 10, 2026 (America/New_York)",
+      "formation": "Base 3-4 as transcribed in the task brief"
+    }
+  },
+  "gaps": [
+    "Official NFL starting lineups / official start counts for Weeks 1-8 were not available in the matchup-database repo (Week 9 gamebooks only).",
+    "NFL Savant has no player-level targets-allowed or coverage-assignment data.",
+    "NFL Savant qualified pressure board lists only Chaisson and Oweh; no DT pressure totals.",
+    "No PFF run-stop or grades. Run stuffs here are a documented PBP definition (tackle credit on rush, yards_gained<=0), not PFF run-stops.",
+    "Week 10 injury report is not in the nflverse injuries file yet (through Week 9). Tuttle's Thursday status is from the Nov 9-10 ESPN screenshots only.",
+    "Public NFL Savant pbp-2026.csv originally pulled with the matchup package stopped at Week 8; this report uses the later nflverse PBP release that includes Week 9.",
+    "Javontae Jean-Baptiste has 2 official solo tackles in Week 5 but 0 defensive snaps in the snap chart that week (source discrepancy; possibly ST tackles)."
+  ]
+}

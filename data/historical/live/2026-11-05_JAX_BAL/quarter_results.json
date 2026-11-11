@@ -1,0 +1,594 @@
+{
+  "game": "JAX @ BAL",
+  "date": "2026-11-05",
+  "event_id": "401873037",
+  "pulled_at_et": "2026-11-05 21:12:08 ET",
+  "game_status_at_pull": "5:56 - 2nd Quarter",
+  "game_score_at_pull": "JAX 10 BAL 3",
+  "rules": {
+    "independent_vs_cumulative": "Each quarter has its own score/winner, separate from cumulative game lead.",
+    "in_progress_leader": "Who held the lead during the quarter while it was being played \u2014 not the same field as end-of-quarter winner if comeback (here they align for Q1).",
+    "period_line_grading": "Grade ONLY against real stored timestamped prices. Missing lines stay NA. Never reconstruct live odds from outcomes. Distinguish pregame vs in-play.",
+    "win_rates": "Track W/L/push for future denominators; do not claim win rates from one game."
+  },
+  "quarters": {
+    "Q1": {
+      "period": "Q1",
+      "status": "FINAL",
+      "independent_score": {
+        "JAX": 10,
+        "BAL": 3
+      },
+      "independent_margin_jax": 7,
+      "independent_winner": "JAX",
+      "cumulative_score_at_end": {
+        "JAX": 10,
+        "BAL": 3
+      },
+      "scoring_plays": [
+        {
+          "clock": "11:20",
+          "team": "JAX",
+          "type": "Rushing TD",
+          "detail": "B.Tuten 1 yd rush (C.Little XP)",
+          "score_after": {
+            "JAX": 7,
+            "BAL": 0
+          }
+        },
+        {
+          "clock": "6:31",
+          "team": "BAL",
+          "type": "FG",
+          "detail": "J.Moody 53 yd FG",
+          "score_after": {
+            "JAX": 7,
+            "BAL": 3
+          }
+        },
+        {
+          "clock": "2:00",
+          "team": "JAX",
+          "type": "FG",
+          "detail": "C.Little 36 yd FG",
+          "score_after": {
+            "JAX": 10,
+            "BAL": 3
+          }
+        }
+      ],
+      "in_progress_leader_during_period": {
+        "note": "Distinct from end-of-quarter result: tracks who held the cumulative lead while Q1 was being played.",
+        "timeline": [
+          {
+            "from_clock": "15:00",
+            "to_clock": "11:20",
+            "cumulative_leader": "TIE",
+            "score": {
+              "JAX": 0,
+              "BAL": 0
+            }
+          },
+          {
+            "from_clock": "11:20",
+            "to_clock": "6:31",
+            "cumulative_leader": "JAX",
+            "score": {
+              "JAX": 7,
+              "BAL": 0
+            }
+          },
+          {
+            "from_clock": "6:31",
+            "to_clock": "2:00",
+            "cumulative_leader": "JAX",
+            "score": {
+              "JAX": 7,
+              "BAL": 3
+            }
+          },
+          {
+            "from_clock": "2:00",
+            "to_clock": "0:00",
+            "cumulative_leader": "JAX",
+            "score": {
+              "JAX": 10,
+              "BAL": 3
+            }
+          }
+        ],
+        "summary": "JAX led for the scored portion of Q1 after the 11:20 TD; BAL never held a Q1 lead. Pre-score stretch was 0-0.",
+        "looked_like_winning_during_q1": "JAX"
+      }
+    },
+    "Q2": {
+      "period": "Q2",
+      "status": "IN_PROGRESS",
+      "clock_at_pull": "5:56",
+      "independent_score_so_far": {
+        "JAX": 0,
+        "BAL": 0
+      },
+      "independent_winner": null,
+      "cumulative_score_at_pull": {
+        "JAX": 10,
+        "BAL": 3
+      },
+      "scoring_plays": [],
+      "in_progress_leader_during_period": {
+        "note": "Q2 independent score still 0-0; cumulative game lead remains JAX 10-3 (from Q1). Do not conflate.",
+        "cumulative_leader_during_q2_so_far": "JAX",
+        "independent_period_leader_so_far": "TIE",
+        "summary": "No Q2 scoring yet through 5:56. Cumulative lead: JAX. Independent Q2: tied 0-0. Latest plays: BAL ball after JAX punt \u2014 Henry +2, Flowers end-around +7 (not explosive <10)."
+      }
+    },
+    "Q3": {
+      "period": "Q3",
+      "status": "NOT_STARTED"
+    },
+    "Q4": {
+      "period": "Q4",
+      "status": "NOT_STARTED"
+    }
+  },
+  "halves": {
+    "H1": {
+      "period": "H1",
+      "status": "IN_PROGRESS",
+      "independent_score_so_far": {
+        "JAX": 10,
+        "BAL": 3
+      },
+      "note": "H1 = Q1+Q2 independent sum. Through Q1 final + Q2 0-0 so far: JAX 10 BAL 3."
+    },
+    "H2": {
+      "period": "H2",
+      "status": "NOT_STARTED"
+    }
+  },
+  "inplay_period_lines_search": {
+    "live_folder_odds_files": [],
+    "runs_inplay_true_period_rows": 0,
+    "conclusion": "No in-play (live) quarter/half spread or total snapshots found under live/ or runs/ for this game. All graded lines below are pregame."
+  },
+  "period_line_grades": [
+    {
+      "period": "Q1",
+      "market": "spreads_q1",
+      "book": "fanduel",
+      "side": "Jacksonville Jaguars",
+      "point": -2.5,
+      "price": -120,
+      "snapshot_kind": "pregame_post_inactives",
+      "inplay": false,
+      "last_update_utc": "2026-11-06T00:03:30Z",
+      "last_update_et": "2026-11-05 19:03:30 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_post_inactives_fd_2026-11-05_1902.csv",
+      "result_side": "W",
+      "result_opposite_would_be": "L",
+      "actual_independent_margin_jax": 7,
+      "grade_status": "GRADED"
+    },
+    {
+      "period": "Q1",
+      "market": "spreads_q1",
+      "book": "fanduel",
+      "side": "Baltimore Ravens",
+      "point": 2.5,
+      "price": -102,
+      "snapshot_kind": "pregame_post_inactives",
+      "inplay": false,
+      "last_update_utc": "2026-11-06T00:03:30Z",
+      "last_update_et": "2026-11-05 19:03:30 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_post_inactives_fd_2026-11-05_1902.csv",
+      "result_side": "L",
+      "actual_independent_margin_jax": 7,
+      "grade_status": "GRADED"
+    },
+    {
+      "period": "Q1",
+      "market": "h2h_q1",
+      "book": "fanduel",
+      "side": "Jacksonville Jaguars",
+      "point": null,
+      "price": -250,
+      "snapshot_kind": "pregame_post_inactives",
+      "inplay": false,
+      "last_update_utc": "2026-11-06T00:03:30Z",
+      "last_update_et": "2026-11-05 19:03:30 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_post_inactives_fd_2026-11-05_1902.csv",
+      "result_side": "W",
+      "actual_independent_winner": "JAX",
+      "grade_status": "GRADED"
+    },
+    {
+      "period": "Q1",
+      "market": "h2h_q1",
+      "book": "fanduel",
+      "side": "Baltimore Ravens",
+      "point": null,
+      "price": 198,
+      "snapshot_kind": "pregame_post_inactives",
+      "inplay": false,
+      "last_update_utc": "2026-11-06T00:03:30Z",
+      "last_update_et": "2026-11-05 19:03:30 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_post_inactives_fd_2026-11-05_1902.csv",
+      "result_side": "L",
+      "actual_independent_winner": "JAX",
+      "grade_status": "GRADED"
+    },
+    {
+      "period": "Q1",
+      "market": "totals_q1",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_post_inactives",
+      "inplay": false,
+      "last_update_utc": null,
+      "last_update_et": null,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_post_inactives_fd_2026-11-05_1902.csv",
+      "result_side": null,
+      "grade_status": "NA",
+      "na_reason": "No totals_q1 row in post-inactives FanDuel snapshot (only totals_h1 20.5 present)."
+    },
+    {
+      "period": "Q1",
+      "market": "totals_q1",
+      "book": "draftkings",
+      "side": "Over",
+      "point": 7.5,
+      "price": 105,
+      "snapshot_kind": "pregame_open_early",
+      "inplay": false,
+      "last_update_utc": "2026-11-04T00:14:04Z",
+      "last_update_et": "2026-11-03 19:14:04 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "pulled_utc": "2026-11-04T00:15:34Z",
+      "result_side": "W",
+      "actual_independent_total": 13,
+      "grade_status": "GRADED",
+      "note": "Early open snapshot (Nov 3 evening ET). Near-kickoff totals_q1 not stored \u2014 do not treat as close price."
+    },
+    {
+      "period": "Q1",
+      "market": "totals_q1",
+      "book": "draftkings",
+      "side": "Under",
+      "point": 7.5,
+      "price": -125,
+      "snapshot_kind": "pregame_open_early",
+      "inplay": false,
+      "last_update_utc": "2026-11-04T00:14:04Z",
+      "last_update_et": "2026-11-03 19:14:04 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "pulled_utc": "2026-11-04T00:15:34Z",
+      "result_side": "L",
+      "actual_independent_total": 13,
+      "grade_status": "GRADED",
+      "note": "Early open snapshot (Nov 3 evening ET). Near-kickoff totals_q1 not stored \u2014 do not treat as close price."
+    },
+    {
+      "period": "Q1",
+      "market": "totals_q1",
+      "book": "fanduel",
+      "side": "Over",
+      "point": 7.5,
+      "price": 112,
+      "snapshot_kind": "pregame_open_early",
+      "inplay": false,
+      "last_update_utc": "2026-11-04T00:14:16Z",
+      "last_update_et": "2026-11-03 19:14:16 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "pulled_utc": "2026-11-04T00:15:34Z",
+      "result_side": "W",
+      "actual_independent_total": 13,
+      "grade_status": "GRADED",
+      "note": "Early open snapshot (Nov 3 evening ET). Near-kickoff totals_q1 not stored \u2014 do not treat as close price."
+    },
+    {
+      "period": "Q1",
+      "market": "totals_q1",
+      "book": "fanduel",
+      "side": "Under",
+      "point": 7.5,
+      "price": -138,
+      "snapshot_kind": "pregame_open_early",
+      "inplay": false,
+      "last_update_utc": "2026-11-04T00:14:16Z",
+      "last_update_et": "2026-11-03 19:14:16 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "pulled_utc": "2026-11-04T00:15:34Z",
+      "result_side": "L",
+      "actual_independent_total": 13,
+      "grade_status": "GRADED",
+      "note": "Early open snapshot (Nov 3 evening ET). Near-kickoff totals_q1 not stored \u2014 do not treat as close price."
+    },
+    {
+      "period": "Q1",
+      "market": "totals_q1",
+      "book": "pinnacle",
+      "side": "Over",
+      "point": 7.5,
+      "price": 109,
+      "snapshot_kind": "pregame_open_early",
+      "inplay": false,
+      "last_update_utc": "2026-11-04T00:14:30Z",
+      "last_update_et": "2026-11-03 19:14:30 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "pulled_utc": "2026-11-04T00:15:34Z",
+      "result_side": "W",
+      "actual_independent_total": 13,
+      "grade_status": "GRADED",
+      "note": "Early open snapshot (Nov 3 evening ET). Near-kickoff totals_q1 not stored \u2014 do not treat as close price."
+    },
+    {
+      "period": "Q1",
+      "market": "totals_q1",
+      "book": "pinnacle",
+      "side": "Under",
+      "point": 7.5,
+      "price": -128,
+      "snapshot_kind": "pregame_open_early",
+      "inplay": false,
+      "last_update_utc": "2026-11-04T00:14:30Z",
+      "last_update_et": "2026-11-03 19:14:30 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "pulled_utc": "2026-11-04T00:15:34Z",
+      "result_side": "L",
+      "actual_independent_total": 13,
+      "grade_status": "GRADED",
+      "note": "Early open snapshot (Nov 3 evening ET). Near-kickoff totals_q1 not stored \u2014 do not treat as close price."
+    },
+    {
+      "period": "H1",
+      "market": "spreads_h1",
+      "book": "fanduel",
+      "side": null,
+      "point": "JAX -6.5 / BAL +6.5",
+      "price": null,
+      "snapshot_kind": "pregame_post_inactives",
+      "inplay": false,
+      "last_update_utc": "2026-11-06T00:03:30Z",
+      "last_update_et": "2026-11-05 19:03:30 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_post_inactives_fd_2026-11-05_1902.csv",
+      "result_side": null,
+      "grade_status": "PENDING_PERIOD_COMPLETE",
+      "na_reason": "H1 still in progress (Q2 ~6:31). Line stored; grade deferred."
+    },
+    {
+      "period": "H1",
+      "market": "h2h_h1",
+      "book": "fanduel",
+      "side": null,
+      "point": "ML",
+      "price": null,
+      "snapshot_kind": "pregame_post_inactives",
+      "inplay": false,
+      "last_update_utc": "2026-11-06T00:03:30Z",
+      "last_update_et": "2026-11-05 19:03:30 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_post_inactives_fd_2026-11-05_1902.csv",
+      "result_side": null,
+      "grade_status": "PENDING_PERIOD_COMPLETE",
+      "na_reason": "H1 still in progress. Line stored; grade deferred."
+    },
+    {
+      "period": "H1",
+      "market": "totals_h1",
+      "book": "fanduel",
+      "side": null,
+      "point": 20.5,
+      "price": null,
+      "snapshot_kind": "pregame_post_inactives",
+      "inplay": false,
+      "last_update_utc": "2026-11-06T00:03:30Z",
+      "last_update_et": "2026-11-05 19:03:30 ET",
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_post_inactives_fd_2026-11-05_1902.csv",
+      "result_side": null,
+      "grade_status": "PENDING_PERIOD_COMPLETE",
+      "na_reason": "H1 still in progress. Line stored; grade deferred."
+    },
+    {
+      "period": "Q2",
+      "market": "spreads_q2",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "PENDING_PERIOD_COMPLETE",
+      "na_reason": "Q2 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff spreads_q2 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    },
+    {
+      "period": "Q2",
+      "market": "h2h_q2",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "PENDING_PERIOD_COMPLETE",
+      "na_reason": "Q2 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff h2h_q2 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    },
+    {
+      "period": "Q2",
+      "market": "totals_q2",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "PENDING_PERIOD_COMPLETE",
+      "na_reason": "Q2 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff totals_q2 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    },
+    {
+      "period": "Q3",
+      "market": "spreads_q3",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "NA_PERIOD_NOT_STARTED",
+      "na_reason": "Q3 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff spreads_q3 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    },
+    {
+      "period": "Q3",
+      "market": "h2h_q3",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "NA_PERIOD_NOT_STARTED",
+      "na_reason": "Q3 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff h2h_q3 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    },
+    {
+      "period": "Q3",
+      "market": "totals_q3",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "NA_PERIOD_NOT_STARTED",
+      "na_reason": "Q3 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff totals_q3 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    },
+    {
+      "period": "Q4",
+      "market": "spreads_q4",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "NA_PERIOD_NOT_STARTED",
+      "na_reason": "Q4 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff spreads_q4 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    },
+    {
+      "period": "Q4",
+      "market": "h2h_q4",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "NA_PERIOD_NOT_STARTED",
+      "na_reason": "Q4 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff h2h_q4 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    },
+    {
+      "period": "Q4",
+      "market": "totals_q4",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "NA_PERIOD_NOT_STARTED",
+      "na_reason": "Q4 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff totals_q4 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    },
+    {
+      "period": "H2",
+      "market": "spreads_h2",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "NA_PERIOD_NOT_STARTED",
+      "na_reason": "H2 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff spreads_h2 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    },
+    {
+      "period": "H2",
+      "market": "h2h_h2",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "NA_PERIOD_NOT_STARTED",
+      "na_reason": "H2 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff h2h_h2 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    },
+    {
+      "period": "H2",
+      "market": "totals_h2",
+      "book": null,
+      "side": null,
+      "point": null,
+      "price": null,
+      "snapshot_kind": "pregame_open_early_only",
+      "inplay": false,
+      "source_path": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv",
+      "result_side": null,
+      "grade_status": "NA_PERIOD_NOT_STARTED",
+      "na_reason": "H2 not complete. Early-open lines exist in /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/odds/odds_jaxbal_game.csv but near-kickoff totals_h2 absent from post-inactives; will grade when period ends using best stored pregame timestamp (never reconstruct)."
+    }
+  ],
+  "denominator_tracking": {
+    "scope": "single_game_JAX_BAL_2026-11-05",
+    "disclaimer": "Denominator-ready W/L/push counts for completed graded sides on this game only. One game does not establish win rates.",
+    "completed_graded_sides": {
+      "Q1_spreads_near_kickoff_FD": {
+        "JAX_-2.5": "W",
+        "BAL_+2.5": "L"
+      },
+      "Q1_ml_near_kickoff_FD": {
+        "JAX": "W",
+        "BAL": "L"
+      },
+      "Q1_totals_early_open_all_books": "see graded list (Over W / Under L at 7.5; actual 13)"
+    },
+    "counts_for_denominator": {
+      "Q1_spread_favorite_JAX_-2.5_near_kickoff": {
+        "W": 1,
+        "L": 0,
+        "P": 0
+      },
+      "Q1_ml_favorite_JAX_near_kickoff": {
+        "W": 1,
+        "L": 0,
+        "P": 0
+      },
+      "Q1_total_over_7.5_early_open": {
+        "W": 1,
+        "L": 0,
+        "P": 0
+      }
+    }
+  },
+  "n_plays": 60
+}

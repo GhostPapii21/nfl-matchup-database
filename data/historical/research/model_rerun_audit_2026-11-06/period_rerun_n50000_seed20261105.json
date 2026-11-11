@@ -1,0 +1,190 @@
+{
+  "engine": "period_engine_v0",
+  "git_head": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+  "branch": "research-period-engine-2026-11-05",
+  "seed": 20261105,
+  "n": 50000,
+  "apply_gr": false,
+  "asof": "2026 weeks < 9 (+ 2025 REG)",
+  "asof_games": 393,
+  "runtime_sec": 0.04065597301814705,
+  "status": {
+    "monte_carlo": "IMPLEMENTED_EMPIRICAL_BOOTSTRAP",
+    "bias": "UNIMPLEMENTED_NO_FITTED_CALIB",
+    "game_randomness": "NOT_APPLIED_THIS_CALL",
+    "home_games_asof": 25,
+    "away_games_asof": 24,
+    "asof_insufficient": false,
+    "fg_sampling": "joint_reg_then_ot_if_tied",
+    "reg_sampling": "q1_q4_bootstrap_regulation_only",
+    "source_composition": "league_team_quarter_bootstrap_not_possession_engine"
+  },
+  "summaries": {
+    "q1": {
+      "home_mean": 5.26358,
+      "away_mean": 5.32126,
+      "home_median": 7.0,
+      "away_median": 7.0,
+      "margin_home_mean": -0.05768,
+      "margin_home_median": 0.0,
+      "total_mean": 10.58484,
+      "total_median": 10.0
+    },
+    "q2": {
+      "home_mean": 7.058,
+      "away_mean": 9.83348,
+      "home_median": 6.0,
+      "away_median": 10.0,
+      "margin_home_mean": -2.77548,
+      "margin_home_median": -3.0,
+      "total_mean": 16.89148,
+      "total_median": 17.0
+    },
+    "q3": {
+      "home_mean": 5.14378,
+      "away_mean": 6.546,
+      "home_median": 6.0,
+      "away_median": 7.0,
+      "margin_home_mean": -1.40222,
+      "margin_home_median": -1.0,
+      "total_mean": 11.68978,
+      "total_median": 10.0
+    },
+    "q4": {
+      "home_mean": 6.4037,
+      "away_mean": 5.82256,
+      "home_median": 7.0,
+      "away_median": 7.0,
+      "margin_home_mean": 0.58114,
+      "margin_home_median": 0.0,
+      "total_mean": 12.22626,
+      "total_median": 13.0
+    },
+    "h1": {
+      "home_mean": 12.32158,
+      "away_mean": 15.15474,
+      "home_median": 10.0,
+      "away_median": 14.0,
+      "margin_home_mean": -2.83316,
+      "margin_home_median": -3.0,
+      "total_mean": 27.47632,
+      "total_median": 27.0
+    },
+    "reg": {
+      "home_mean": 23.86906,
+      "away_mean": 27.5233,
+      "home_median": 24.0,
+      "away_median": 27.0,
+      "margin_home_mean": -3.65424,
+      "margin_home_median": -3.0,
+      "total_mean": 51.39236,
+      "total_median": 51.0
+    },
+    "fg": {
+      "home_mean": 23.97008,
+      "away_mean": 27.61456,
+      "home_median": 24.0,
+      "away_median": 27.0,
+      "margin_home_mean": -3.64448,
+      "margin_home_median": -4.0,
+      "total_mean": 51.58464,
+      "total_median": 52.0
+    }
+  },
+  "actual_final": "JAX 33 BAL 10",
+  "actual_periods_away_home": {
+    "q1": {
+      "away": 10,
+      "home": 3
+    },
+    "q2": {
+      "away": 7,
+      "home": 0
+    },
+    "q3": {
+      "away": 3,
+      "home": 0
+    },
+    "q4": {
+      "away": 13,
+      "home": 7
+    },
+    "fg": {
+      "away": 33,
+      "home": 10
+    },
+    "h1": {
+      "away": 17,
+      "home": 3
+    }
+  },
+  "errors_vs_means": [
+    {
+      "period": "q1",
+      "pred_away_mean": 5.32126,
+      "pred_home_mean": 5.26358,
+      "actual_away": 10,
+      "actual_home": 3,
+      "err_away": 4.67874,
+      "err_home": -2.26358,
+      "abs_err_margin_home": 6.94232,
+      "abs_err_total": 2.41516
+    },
+    {
+      "period": "q2",
+      "pred_away_mean": 9.83348,
+      "pred_home_mean": 7.058,
+      "actual_away": 7,
+      "actual_home": 0,
+      "err_away": -2.8334799999999998,
+      "err_home": -7.058,
+      "abs_err_margin_home": 4.22452,
+      "abs_err_total": 9.891480000000001
+    },
+    {
+      "period": "q3",
+      "pred_away_mean": 6.546,
+      "pred_home_mean": 5.14378,
+      "actual_away": 3,
+      "actual_home": 0,
+      "err_away": -3.5460000000000003,
+      "err_home": -5.14378,
+      "abs_err_margin_home": 1.59778,
+      "abs_err_total": 8.68978
+    },
+    {
+      "period": "q4",
+      "pred_away_mean": 5.82256,
+      "pred_home_mean": 6.4037,
+      "actual_away": 13,
+      "actual_home": 7,
+      "err_away": 7.17744,
+      "err_home": 0.5963000000000003,
+      "abs_err_margin_home": 6.5811399999999995,
+      "abs_err_total": 7.77374
+    },
+    {
+      "period": "fg",
+      "pred_away_mean": 27.61456,
+      "pred_home_mean": 23.97008,
+      "actual_away": 33,
+      "actual_home": 10,
+      "err_away": 5.385439999999999,
+      "err_home": -13.97008,
+      "abs_err_margin_home": 19.35552,
+      "abs_err_total": 8.58464
+    },
+    {
+      "period": "h1",
+      "pred_away_mean": 15.15474,
+      "pred_home_mean": 12.32158,
+      "actual_away": 17,
+      "actual_home": 3,
+      "err_away": 1.8452599999999997,
+      "err_home": -9.32158,
+      "abs_err_margin_home": 11.16684,
+      "abs_err_total": 7.476320000000001
+    }
+  ],
+  "disclaimer": "RESEARCH_ONLY_NO_ACCURACY_CLAIM Bias UNIMPLEMENTED GR not applied"
+}

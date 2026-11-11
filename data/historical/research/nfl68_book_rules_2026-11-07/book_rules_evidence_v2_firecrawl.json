@@ -1,0 +1,60 @@
+{
+ "retrieved_at_et": "2026-11-07 07:03 EST (Firecrawl search --scrape)",
+ "model_status": "NOT READY",
+ "note": "v2 addendum; initial files unchanged",
+ "DraftKings": {
+  "status": "official_text_retrieved; page scoped to Virginia platform; other states unverified; no effective date shown",
+  "sources": [
+   "https://sportsbook.draftkings.com/help/general-betting-rules/general-rules",
+   "https://sportsbook.draftkings.com/help/general-betting-rules/market-rules",
+   "https://sportsbook.draftkings.com/help/sport-rules/football",
+   "https://massgaming.com/wp-content/uploads/DraftKings-House-Rules-8.1.24.pdf"
+  ],
+  "quotes": {
+   "push": "“Push” means a bet is settled as neither won nor lost ... and only the stake amount of the bet is returned to the customer; provided that for a leg of a Parlay ..., including a leg of a Same Game Parlay ... or Progressive Parlay ..., that is settled as Push, the entire stake amount will not be returned and instead will remain on the Parlay with the remaining number of legs.",
+   "participation": "Participation shall mean playing in at least one play in the applicable Event.",
+   "sgp": "If a Same Game Parlay contains leg(s) that are voided or settled as Push, the Same Game Parlay will be reduced by the number of leg(s) that were voided or settled as Push, and the Same Game Parlay will be repriced based on the remaining legs",
+   "ma_2024_player_props": "On any player prop market, player(s) must participate in at least one (1) play (including special teams) for bets to have action. In the event a player is listed as “inactive” or “did not play” for the relevant game, bets on that player/market will be void. Markets are settled according to the official NFL game statistics at the time DraftKings settles the applicable markets."
+  },
+  "inference": "generic push definition applied to integer player-yardage lines"
+ },
+ "BetMGM": {
+  "status": "regulator_copy_only_stale (MA Gaming Commission PDF 2023-08-10); current site text not retrieved",
+  "source": "https://massgaming.com/wp-content/uploads/BetMGM-House-Rules-8.10.23.pdf",
+  "quotes": {
+   "player_props": "For all player props, unless stated otherwise, the player(s) must play at least one snap for bets to have action. Wagers will be cancelled where the player(s) are listed as inactive. For Quarterback markets only, the player(s) must start the game for bets to have action. Passing yardage props are settled as per gross passing yards.",
+   "sgp": "If any selection within a SGP is voided, then the entire SGP is voided.",
+   "teaser": "If a selection within the teaser results in a push, cancellation or void, the teaser has action and reduces to the next lowest number of selections."
+  },
+  "missing": [
+   "whole-number player prop push/refund",
+   "ordinary parlay push",
+   "current version"
+  ]
+ },
+ "FanDuel": {
+  "status": "unchanged: game-level whole-number Total refund only",
+  "sources": [
+   "https://www.fanduel.com/fanduel-sportsbook-house-rules-co (eff 2026-09-30)",
+   "https://www.fanduel.com/fanduel-sportsbook-house-rules-oh (eff 2026-10-29)"
+  ],
+  "quotes": {
+   "parlay_void": "If all selections except one are void, the parlays will be settled as a straight at the applicable odds. - The above also applies to all Same Game Parlay bets"
+  }
+ },
+ "secondary_only": [
+  "https://www.actionnetwork.com/education/prop-betting-rules-what-happens-if-player-doesnt-play",
+  "https://rotogrinders.com/sports-betting/does-betmgm-void-prop-bets"
+ ],
+ "negative_zero_yards": "no explicit rule found",
+ "firecrawl": {
+  "searches": 3,
+  "extra_page_reads": 0,
+  "raw_files": [
+   ".firecrawl/s1_dk.json",
+   ".firecrawl/s2_mgm.json",
+   ".firecrawl/s3_fd.json"
+  ],
+  "method_note": "no proxy/stealth; no blocked URL retried"
+ }
+}

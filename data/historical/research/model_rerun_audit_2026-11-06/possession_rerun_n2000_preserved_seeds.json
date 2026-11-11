@@ -1,0 +1,398 @@
+{
+  "git_head": "3448ad77ef3ce46488b4cccfb0cd7478c4d4b6b6",
+  "branch": "research-period-engine-2026-11-05",
+  "disclaimer": "RESEARCH_ONLY_NO_ACCURACY_CLAIM; Bias modules N/A; no fabricated coefficients",
+  "pbp": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+  "pbp_weeks_present": "1-8 only (verified no week9 / no JAX@BAL game in parquet)",
+  "capabilities": {
+    "team_period_scores": "IMPLEMENTED (q1-q4/h1/h2/reg/fg arrays)",
+    "player_joint_yards": "IMPLEMENTED (pass_yards/rush_yards/rec_yards from resampled rows)",
+    "player_targets_counts": "NOT_A_SEPARATE_OUTPUT \u2014 receiver credit is yards on catch rows, not target volume model",
+    "player_carries_counts": "NOT_A_SEPARATE_OUTPUT \u2014 rusher credit is rush yards, not carry-count model",
+    "period_engine_player_props": "evidence interface only (PLAYER_EVIDENCE_SPEC); not a prop engine",
+    "bias_calib": "UNIMPLEMENTED in period_engine",
+    "coverage_man_zone_routes": "MISSING"
+  },
+  "results": {
+    "jax_bal_tnf_2026-11-05_data_only": {
+      "config_id": "jax_bal_tnf_2026-11-05_data_only",
+      "frozen_at_et": "2026-11-05T13:55:00-05:00",
+      "mode": "data_only",
+      "seed": 1833920529,
+      "seed_base": 20261105,
+      "n": 2000,
+      "status": "OK",
+      "runtime_sec": 121.55618198000593,
+      "period_means": {
+        "q1_home": 3.33,
+        "q1_away": 4.9335,
+        "q2_home": 4.33,
+        "q2_away": 5.4455,
+        "q3_home": 3.925,
+        "q3_away": 4.092,
+        "q4_home": 4.4055,
+        "q4_away": 5.1595,
+        "h1_home": 7.66,
+        "h1_away": 10.379,
+        "h2_home": 8.3305,
+        "h2_away": 9.2515,
+        "reg_home": 15.9905,
+        "reg_away": 19.6305,
+        "fg_home": 16.083,
+        "fg_away": 19.8075,
+        "went_ot": 0.0575
+      },
+      "score_means_legacy_shape": {
+        "fg_home": 16.083,
+        "fg_away": 19.8075,
+        "reg_home": 15.9905,
+        "reg_away": 19.6305,
+        "p_ot": 0.0575
+      },
+      "player_joint_kinds": [
+        "pass_yards",
+        "rush_yards",
+        "rec_yards"
+      ],
+      "player_joint_top": {
+        "pass_yards": {
+          "JAX": {
+            "T.Lawrence": 219.627,
+            "Q.Ewers": 0.9145
+          },
+          "BAL": {
+            "L.Jackson": 106.5645,
+            "T.Huntley": 82.4775,
+            "J.Fagnano": 9.3945
+          }
+        },
+        "rush_yards": {
+          "JAX": {
+            "B.Tuten": 68.0725,
+            "C.Rodriguez": 32.8725,
+            "T.Lawrence": 9.9265,
+            "A.Abdullah": 8.9055,
+            "T.Hunter": 1.258
+          },
+          "BAL": {
+            "D.Henry": 78.151,
+            "J.Hill": 16.8665,
+            "L.Jackson": 14.5955,
+            "T.Huntley": 10.85,
+            "Z.Flowers": 4.87
+          }
+        },
+        "rec_yards": {
+          "JAX": {
+            "P.Washington": 53.089,
+            "B.Strange": 45.1585,
+            "J.Meyers": 41.7865,
+            "B.Tuten": 23.4635,
+            "J.Cameron": 15.519
+          },
+          "BAL": {
+            "Z.Flowers": 63.2615,
+            "R.Bateman": 32.7685,
+            "M.Andrews": 24.045,
+            "J.Cuevas": 14.6955,
+            "J.Hill": 12.8935
+          }
+        }
+      },
+      "limitations": [
+        "Vertical slice: empirical team-only snap resampling + explicit same-team coarser fallbacks",
+        "Clock costs use empirical median deltas when available else fixed means \u2014 not a situational clock model",
+        "OT rule is single-possession approx (declared)",
+        "No league silent pool; proposed pooling config default false",
+        "W1-8 development set; no betting edge claim",
+        "Inspired conceptually by NFLSimulatoR/nflfastR (MIT); no R source copied",
+        "See FEATURE_MATRIX.md for unimplemented coverage/route/pressure fields"
+      ],
+      "history_evidence": {
+        "n_games": 15,
+        "n_plays": 1217,
+        "teams": [
+          "JAX",
+          "BAL"
+        ],
+        "weeks": [
+          1,
+          8
+        ],
+        "season": 2026,
+        "source": "/workspace/wt-period-engine/research/period_engine_v0/data/play_by_play_2026.parquet"
+      },
+      "adjustments_meta": {
+        "enabled": false
+      },
+      "errors_vs_actual_means": {
+        "q1": {
+          "pred_home": 3.33,
+          "pred_away": 4.9335,
+          "actual_home": 3,
+          "actual_away": 10,
+          "err_home": -0.33000000000000007,
+          "err_away": 5.0665,
+          "abs_err_total": 4.7364999999999995,
+          "abs_err_margin_home": 5.3965
+        },
+        "q2": {
+          "pred_home": 4.33,
+          "pred_away": 5.4455,
+          "actual_home": 0,
+          "actual_away": 7,
+          "err_home": -4.33,
+          "err_away": 1.5545,
+          "abs_err_total": 2.775500000000001,
+          "abs_err_margin_home": 5.8845
+        },
+        "q3": {
+          "pred_home": 3.925,
+          "pred_away": 4.092,
+          "actual_home": 0,
+          "actual_away": 3,
+          "err_home": -3.925,
+          "err_away": -1.0919999999999996,
+          "abs_err_total": 5.0169999999999995,
+          "abs_err_margin_home": 2.833
+        },
+        "q4": {
+          "pred_home": 4.4055,
+          "pred_away": 5.1595,
+          "actual_home": 7,
+          "actual_away": 13,
+          "err_home": 2.5945,
+          "err_away": 7.8405,
+          "abs_err_total": 10.434999999999999,
+          "abs_err_margin_home": 5.2459999999999996
+        },
+        "h1": {
+          "pred_home": 7.66,
+          "pred_away": 10.379,
+          "actual_home": 3,
+          "actual_away": 17,
+          "err_home": -4.66,
+          "err_away": 6.621,
+          "abs_err_total": 1.9609999999999985,
+          "abs_err_margin_home": 11.281
+        },
+        "fg": {
+          "pred_home": 16.083,
+          "pred_away": 19.8075,
+          "actual_home": 10,
+          "actual_away": 33,
+          "err_home": -6.082999999999998,
+          "err_away": 13.192499999999999,
+          "abs_err_total": 7.109499999999997,
+          "abs_err_margin_home": 19.275499999999997
+        }
+      }
+    },
+    "jax_bal_tnf_2026-11-05_script_adjusted": {
+      "config_id": "jax_bal_tnf_2026-11-05_script_adjusted",
+      "frozen_at_et": "2026-11-05T13:55:00-05:00",
+      "mode": "script_adjusted",
+      "seed": 261112694,
+      "seed_base": 20261105,
+      "n": 2000,
+      "status": "OK",
+      "runtime_sec": 84.44271697604563,
+      "period_means": {
+        "q1_home": 2.104,
+        "q1_away": 4.586,
+        "q2_home": 2.8705,
+        "q2_away": 5.1575,
+        "q3_home": 2.653,
+        "q3_away": 3.7565,
+        "q4_home": 2.875,
+        "q4_away": 5.1735,
+        "h1_home": 4.9745,
+        "h1_away": 9.7435,
+        "h2_home": 5.528,
+        "h2_away": 8.93,
+        "reg_home": 10.5025,
+        "reg_away": 18.6735,
+        "fg_home": 10.5655,
+        "fg_away": 18.8175,
+        "went_ot": 0.0585
+      },
+      "score_means_legacy_shape": {
+        "fg_home": 10.5655,
+        "fg_away": 18.8175,
+        "reg_home": 10.5025,
+        "reg_away": 18.6735,
+        "p_ot": 0.0585
+      },
+      "player_joint_kinds": [
+        "pass_yards",
+        "rush_yards",
+        "rec_yards"
+      ],
+      "player_joint_top": {
+        "pass_yards": {
+          "JAX": {
+            "T.Lawrence": 202.5815,
+            "Q.Ewers": 0.948
+          },
+          "BAL": {
+            "J.Fagnano": 19.594
+          }
+        },
+        "rush_yards": {
+          "JAX": {
+            "B.Tuten": 64.2935,
+            "C.Rodriguez": 30.3785,
+            "T.Lawrence": 8.8875,
+            "A.Abdullah": 8.4095,
+            "T.Hunter": 1.2165
+          },
+          "BAL": {
+            "D.Henry": 114.296,
+            "J.Hill": 51.8855,
+            "T.Huntley": 25.679,
+            "L.Jackson": 23.6875,
+            "Z.Flowers": 5.9555
+          }
+        },
+        "rec_yards": {
+          "JAX": {
+            "P.Washington": 49.0585,
+            "B.Strange": 40.905,
+            "J.Meyers": 37.9305,
+            "B.Tuten": 21.739,
+            "J.Cameron": 14.7695
+          },
+          "BAL": {
+            "J.Hill": 5.987,
+            "R.Bateman": 4.856,
+            "M.Andrews": 4.1595,
+            "D.Henry": 2.3245,
+            "J.Lane": 1.162
+          }
+        }
+      },
+      "limitations": [
+        "Vertical slice: empirical team-only snap resampling + explicit same-team coarser fallbacks",
+        "Clock costs use empirical median deltas when available else fixed means \u2014 not a situational clock model",
+        "OT rule is single-possession approx (declared)",
+        "No league silent pool; proposed pooling config default false",
+        "W1-8 development set; no betting edge claim",
+        "Inspired conceptually by NFLSimulatoR/nflfastR (MIT); no R source copied",
+        "See FEATURE_MATRIX.md for unimplemented coverage/route/pressure fields"
+      ],
+      "history_evidence": {
+        "n_games": 15,
+        "n_plays": 1217,
+        "teams": [
+          "JAX",
+          "BAL"
+        ],
+        "weeks": [
+          1,
+          8
+        ],
+        "season": 2026,
+        "source": "/workspace/wt-period-engine/research/period_engine_v0/data/play_by_play_2026.parquet"
+      },
+      "adjustments_meta": {
+        "BAL": {
+          "starter": "J.Fagnano",
+          "excluded_passers": [
+            "L.Jackson"
+          ],
+          "doubtful_excluded": [
+            "T.Huntley"
+          ],
+          "n_pass_before": 249,
+          "n_pass_after": 24,
+          "fabricated": false,
+          "forward_only": true,
+          "asof_et": "2026-11-05T13:00:00-05:00",
+          "sparse_qb": true
+        },
+        "JAX": {
+          "starter": "T.Lawrence",
+          "excluded_passers": [],
+          "doubtful_excluded": [],
+          "n_pass_before": 214,
+          "n_pass_after": 214,
+          "fabricated": false,
+          "forward_only": true,
+          "asof_et": "2026-11-05T13:00:00-05:00",
+          "sparse_qb": false
+        },
+        "enabled": true,
+        "do_not_apply_retroactively_to_w1_8_history_rows": true
+      },
+      "errors_vs_actual_means": {
+        "q1": {
+          "pred_home": 2.104,
+          "pred_away": 4.586,
+          "actual_home": 3,
+          "actual_away": 10,
+          "err_home": 0.8959999999999999,
+          "err_away": 5.414,
+          "abs_err_total": 6.31,
+          "abs_err_margin_home": 4.518
+        },
+        "q2": {
+          "pred_home": 2.8705,
+          "pred_away": 5.1575,
+          "actual_home": 0,
+          "actual_away": 7,
+          "err_home": -2.8705,
+          "err_away": 1.8425000000000002,
+          "abs_err_total": 1.0279999999999987,
+          "abs_err_margin_home": 4.713
+        },
+        "q3": {
+          "pred_home": 2.653,
+          "pred_away": 3.7565,
+          "actual_home": 0,
+          "actual_away": 3,
+          "err_home": -2.653,
+          "err_away": -0.7565,
+          "abs_err_total": 3.4094999999999995,
+          "abs_err_margin_home": 1.8965
+        },
+        "q4": {
+          "pred_home": 2.875,
+          "pred_away": 5.1735,
+          "actual_home": 7,
+          "actual_away": 13,
+          "err_home": 4.125,
+          "err_away": 7.8265,
+          "abs_err_total": 11.9515,
+          "abs_err_margin_home": 3.7015000000000002
+        },
+        "h1": {
+          "pred_home": 4.9745,
+          "pred_away": 9.7435,
+          "actual_home": 3,
+          "actual_away": 17,
+          "err_home": -1.9745,
+          "err_away": 7.256500000000001,
+          "abs_err_total": 5.282,
+          "abs_err_margin_home": 9.231000000000002
+        },
+        "fg": {
+          "pred_home": 10.5655,
+          "pred_away": 18.8175,
+          "actual_home": 10,
+          "actual_away": 33,
+          "err_home": -0.5655000000000001,
+          "err_away": 14.182500000000001,
+          "abs_err_total": 13.617,
+          "abs_err_margin_home": 14.748000000000001
+        }
+      }
+    },
+    "market_informed_blocker": {
+      "config_id": "jax_bal_tnf_2026-11-05_market_informed",
+      "frozen_at_et": "2026-11-05T14:00:00-05:00",
+      "sampler_conditioned": false,
+      "quotes_status": "PINNACLE_MISSING_SCREENSHOT_ONLY_NOT_WIRED_TO_SAMPLER",
+      "blocker": "market conditioning NOT wired to sampler; PINNACLE_MISSING"
+    }
+  }
+}

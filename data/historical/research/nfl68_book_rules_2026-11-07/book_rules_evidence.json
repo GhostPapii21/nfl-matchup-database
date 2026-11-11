@@ -1,0 +1,85 @@
+{
+ "retrieved_at_et": "2026-11-07 06:59-07:00 EST",
+ "method": "curl/WebFetch/WebSearch public pages; no browser, no login",
+ "model_status": "NOT READY; rule evidence does not certify EV code",
+ "books": {
+  "FanDuel": {
+   "status": "PARTIALLY_CONFIRMED_OFFICIAL (Massachusetts rules only)",
+   "source_url": "https://www.fanduel.com/fanduel-sportsbook-house-rules-ma",
+   "jurisdiction": "Massachusetts (MGC); other states unverified",
+   "effective_date_shown": "November 5, 2026",
+   "retrieved_at_et": "2026-11-07 06:59:29 EST",
+   "raw_file": "raw/fd_ma.html",
+   "quotes": {
+    "participation_void": "For player prop markets, only when a player does not play a snap in that game are the selections voided. All other bets will stand.",
+    "kicking_exception": "For Kicking Points player proposition markets, if a player is active but does not play a snap, all bets will stand.",
+    "whole_number_total_push_game_level": "Point Spread (Handicap) betting: In Point Spread (Handicap) & Total betting, where the index (value) of the market is a whole number, bets are void and will be refunded where the score lands on that number.",
+    "parlay_void_leg": "If any selection in any leg is a non-runner or otherwise void under the Sportsbook Rules (e.g. an abandoned match) then all bets on that individual leg will be void and the parlay bet shall be adjusted accordingly. For example a treble including one void leg will become a double.",
+    "sgp": "Same Game Parlays (SGP’s) will be settled in the same manner. If a selection within the wager is voided, the wager odds will be re-calculated using the remaining legs.",
+    "stats_source": "All settlements are based on results and statistics provided by the relevant league’s governing body.",
+    "abandoned_props": "In the event of an abandoned game, all stakes are returned, unless a result is already determined through the course of play that has taken place."
+   },
+   "inference": "No NFL player-prop-specific whole-number push sentence found in this page; refund-on-exact-line for integer player yardage singles is INFERRED from the game-level 'Total betting ... whole number ... refunded' rule. Push-in-parlay treatment for player props not explicitly quoted (excluded-leg quote found only in rugby league section; not used).",
+   "negative_yards": "not found",
+   "pickem_alt": "not applicable (sportsbook rules only)"
+  },
+  "DraftKings": {
+   "status": "USER_CONFIRMED; OFFICIAL TEXT NOT RETRIEVED",
+   "attempts": [
+    [
+     "https://sportsbook.draftkings.com/help/sport-rules/football",
+     "200 but JS shell, no rule text"
+    ],
+    [
+     "https://sportsbook.draftkings.com/help/sports-betting-rules/football",
+     "WebFetch 403; curl JS shell"
+    ],
+    [
+     "https://sportsbook.draftkings.com/help/general-betting-rules",
+     "JS shell"
+    ],
+    [
+     "https://support.draftkings.com/dk/en-us/how-will-my-bet-be-settled-if-a-player-doesn-t-start-or-is-removed-from-a?id=kb_article_view&sysparm_article=KB0010795",
+     "curl 1.4KB shell; search snippet: 'Generally, if a player starts or meets the playing time requirements as described in the House Rules, then all bets will stand'"
+    ]
+   ],
+   "third_party_only": "Action Network / docsports quote DK: 'player(s) must participate in at least one (1) play (including special teams) ... \"inactive\" or \"did not play\" ... void' — NOT confirmation",
+   "jurisdiction": "unknown"
+  },
+  "BetMGM": {
+   "status": "USER_CONFIRMED; OFFICIAL TEXT NOT RETRIEVED",
+   "attempts": [
+    [
+     "https://sports.betmgm.com/en/sports/house-rules",
+     "WebFetch 404; curl JS shell"
+    ],
+    [
+     "https://sports.nj.betmgm.com/en/sports/sports-betting-rules",
+     "200 JS shell"
+    ],
+    [
+     "https://sports.betmgm.com/en/mobileportal/houserules",
+     "200 JS shell"
+    ],
+    [
+     "https://help.nj.betmgm.com/en/general-help/sports/sports-betting-rules",
+     "404"
+    ]
+   ],
+   "third_party_only": "Action Network quotes BetMGM: at least one snap; inactive cancelled; QB markets must start; passing yards gross — NOT confirmation; QB-start rule matters for passing-yard EV",
+   "jurisdiction": "unknown"
+  },
+  "Others": {
+   "status": "UNCONFIRMED -> fail closed"
+  }
+ },
+ "gate_checklist": [
+  "win/lose/push per book for integer player yardage singles, with stake refund on push (FD inferred; DK/MGM need official text)",
+  "void conditions: FD = no snap (kicking exception); DK/MGM official text pending; MGM QB-start rule (third-party) must be verified",
+  "parlay/SGP void repricing separate from singles (FD quoted); DK/MGM pending",
+  "jurisdiction applicability per book/state unresolved",
+  "negative/zero yards: no explicit rule found any book; keep <=0 lines fail-closed",
+  "pick'em/alt X+ excluded from integer O/U gate",
+  "unknown book/state -> blocked"
+ ]
+}

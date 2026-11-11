@@ -1,0 +1,10 @@
+# v2 changelog (completed 2026-11-07T08:11:39-0500, ET box clock). v1 files preserved unchanged at bundle root/WEEK9_USAGE_BUNDLE.zip.
+1. QB starters: CLE Shedeur Sanders, PHI Joe Milton III, ARI Gardner Minshew, SEA Drew Lock are confirmed by official team sources (URLs in SELECTED_PLAYERS.csv qb_starter_source_url). Watson and McKee are kept as alternates, rank 2, NOT_STARTER. The other 22 QBs stay DEPTH_CHART_ONLY_UNCONFIRMED: an nbc.com media list agrees, but it is not official. Game-day inactives pending.
+2. ROLE_EVIDENCE_OFFICIAL.csv: 12 dated official team statements (SEA, ARI, SF, ATL, CLE, PHI). These are statements only, with no workload transfer inferred.
+3. OBSERVED_USAGE_CHANGE_L3_VS_SEASON.csv: 473 rows of targets, carries and snaps per game, last 3 player games vs season. Descriptive, not causal.
+4. Attempt mismatch: 32/32 QB-games RESOLVED. The stats file counts spikes as pass attempts (play_type qb_spike, pass_attempt=1); the PBP rule play_type==pass excludes them. diff == spikes in every case. Corroborated by the azcardinals.com Minshew "17-of-23 ... three spikes" line. Both measures are kept (QA_ATTEMPT_MISMATCH_DIAGNOSIS.csv).
+5. TEAM_TENDENCIES.csv reshaped: metric/value/denominator_definition columns. Allocation shares are no longer stored in the dropback_rate column. Observed rates only, no intent or PROE.
+6. Routes/alignment: the local PFF bundle game captures contain no route, route-participation or slot fields (only QA notes mention routes). The retrieved NGS files have no route fields. Still UNSOURCED. PFF Premium UI failed at 07:28 (parent preflight); not retried.
+Unresolved: QB starters for 22 teams officially unconfirmed. Inactives pending. Routes, slot, run concepts, coverage and middle-field shells unsourced. 37 target / 93 carry conflicts in the old export (current nflverse used). LV@SF kickoff 16:05 (nflverse) vs 4:25 PM (NFL.com).
+
+Final consistency pass: synchronized QB starter metadata across selected players, usage and game-log CSVs; corrected stale README starter and mismatch descriptions. Numeric measurements are unchanged.
