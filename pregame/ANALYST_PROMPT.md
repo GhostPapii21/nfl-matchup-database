@@ -53,7 +53,7 @@ On a trigger: open `pregame/packets/INDEX.md`, name the game or games you will r
 | Kickoff forecast for outdoor US games | Weather | US National Weather Service |
 | Pinnacle, DraftKings, FanDuel spread / total / moneyline, with no-vig and hold; player props inside 36 hours of kickoff | Book prices and no-vig | The Odds API (needs the repository's `ODDS_API_KEY`) |
 | Line movement from the first snapshot this pipeline took to now | Line movement | Pipeline snapshots |
-| Offense by formation (shotgun, under center, no huddle) and passing by zone (short or deep, left / middle / right), for and against | Formation and pass-zone splits | NFL Savant play-by-play |
+| Offense by formation (shotgun, under center, no huddle) and passing by zone (short or deep, left / middle / right), for and against | "By formation and pass zone" under each team | nflverse play-by-play (NFL Savant's download is the same data) |
 | Which API keys the run could see and whether each answered | Keyed connectors in this run | Pipeline check |
 
 **Tools and connectors in your session.** At the start, list the NFL tools, MCP servers and API connectors you
@@ -68,7 +68,7 @@ packet lacks, and name each one you used. Do not claim a tool you do not have.
 | News, trades, signings, coaching changes since the packet | ESPN NFL news and transactions; team sites |
 | Official play-by-play and gamebooks for last week's games | NFL.com game centre / gamebook PDFs; `data/gamebooks/` in this repository |
 | Route trees, separation, cushion, time to throw | NFL Next Gen Stats (nextgenstats.nfl.com) |
-| Extra splits (vs pressure, by coverage, by down) | Pro Football Reference; Sharp Football; NFL Savant's site for anything beyond the packet's formation and zone tables |
+| Extra splits (vs pressure, by coverage, by down) | Pro Football Reference; Sharp Football; NFL Savant's site pages (route, tendency and matchup views) for anything beyond the packet's formation and zone tables |
 | Weather when the packet says UNAVAILABLE or NOT_MAPPED | weather.gov forecast for the stadium |
 | True opening lines and wider line history | An odds-comparison or line-history page; Outlier public pages |
 

@@ -41,8 +41,9 @@ For each team, over its last eight games:
   no-vig probability and hold, the best retail price per side with its break-even, and the line's movement
   since the first snapshot. Player props (passing, rushing and receiving yards, receptions, carries) are pulled
   for games inside 36 hours of kickoff and shown beside the research baseline.
-- **Formation and pass-zone splits (NFL Savant):** each offense by formation and by pass zone (short or deep,
-  left / middle / right), and what each defense allows in the same cells.
+- **Formation and pass-zone splits:** each offense by formation and by pass zone (short or deep, left / middle /
+  right), and what each defense allows in the same cells. NFL Savant's season download was checked and is the
+  same nflverse play-by-play, so no second download is made.
 - **Keyed connectors:** which API keys the run could see and whether each one answered. Names and statuses
   only; never a key.
 - **Matchup edges:** where a top-10 unit meets a bottom-10 unit.

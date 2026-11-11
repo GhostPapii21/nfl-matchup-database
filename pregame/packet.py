@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from . import metrics as M
+from . import metrics as M, splits as SP
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = "pregame-packet/1"
@@ -260,6 +260,7 @@ def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None, books
             "offense": {"produced": o_sum, "rank": M.ranks(lg_off, team, defense=False), "by_game": M.game_log(o_n),
                         "run_game_by_direction": M.run_direction(p, team, gids, "posteam"), "players": players,
                         "offense_snap_share": {k: round(v, 3) for k, v in sorted(shares.items(), key=lambda kv: -kv[1])[:22]}},
+            "formation_zone_splits": SP.team_splits(p, team, list(o_n.game_id), gids),
             "depth_chart": dc,
             "injuries": injuries_for(team, week, data.get("injuries"), espn, starters),
             "roster_moves": roster_moves(team, data["rosters"], week),

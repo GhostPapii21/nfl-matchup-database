@@ -4,27 +4,27 @@
 
 Market (schedule consensus, not a timestamped quote): ATL +3.5, total 45.5.
 
-Generated 2026-11-11T18:23:39+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:49:25+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-11T18:23:37+00:00 UTC. At kickoff: 54 F, wind 5 mph E, 0% chance of precipitation, Mostly Sunny. During the game: low 54 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-11T18:49:24+00:00 UTC. At kickoff: 54 F, wind 5 mph E, 0% chance of precipitation, Mostly Sunny. During the game: low 54 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:23:24+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T18:49:14+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | ATL +3.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-11T18:22:36Z |
-| spread | fanduel | ATL +3.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T18:23:16Z |
-| spread | pinnacle | ATL +3.5 | -117 | +104 | 52.4% | 47.6% | 2.9% | 2026-11-11T18:23:16Z |
-| total | draftkings | Over 45.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-11T18:22:36Z |
-| total | fanduel | Over 45.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:23:16Z |
-| total | pinnacle | Over 45.5 | -111 | -105 | 50.7% | 49.3% | 3.8% | 2026-11-11T18:23:16Z |
-| moneyline | draftkings | ATL | +154 | -185 | 37.8% | 62.3% | 4.3% | 2026-11-11T18:22:36Z |
-| moneyline | fanduel | ATL | +148 | -176 | 38.7% | 61.3% | 4.1% | 2026-11-11T18:23:16Z |
-| moneyline | pinnacle | ATL | +156 | -178 | 37.9% | 62.1% | 3.1% | 2026-11-11T18:23:16Z |
+| spread | draftkings | ATL +3.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-11T18:48:10Z |
+| spread | fanduel | ATL +3.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T18:48:49Z |
+| spread | pinnacle | ATL +3.5 | -117 | +104 | 52.4% | 47.6% | 2.9% | 2026-11-11T18:49:10Z |
+| total | draftkings | Over 45.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-11T18:48:10Z |
+| total | fanduel | Over 45.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:48:49Z |
+| total | pinnacle | Over 45.5 | -111 | -105 | 50.7% | 49.3% | 3.8% | 2026-11-11T18:49:10Z |
+| moneyline | draftkings | ATL | +154 | -185 | 37.8% | 62.3% | 4.3% | 2026-11-11T18:48:10Z |
+| moneyline | fanduel | ATL | +148 | -176 | 38.7% | 61.3% | 4.1% | 2026-11-11T18:48:49Z |
+| moneyline | pinnacle | ATL | +156 | -178 | 37.9% | 62.1% | 3.1% | 2026-11-11T18:49:10Z |
 
 ### Line movement: first seen 2026-11-11T18:18:03+00:00 to 2026-11-11T18:18:03+00:00 (1 snapshots)
 
@@ -42,7 +42,7 @@ Retrieved 2026-11-11T18:23:24+00:00 UTC. No-vig = each side's share of the two i
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 96 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 95 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -286,6 +286,32 @@ Neutral-situation pass rate 60.0%; 60.5 plays per game; target share WR 50% / TE
 | right guard | 18 | 134 | 7.44 | 2 |
 | right tackle | 16 | 69 | 4.31 | 1 |
 
+### KC by formation and pass zone
+
+| Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
+|---|---|---|---|---|---|---|
+| offense | Shotgun | 288 | 60% | 74% | 6.23 | 0.111 |
+| offense | Under center | 192 | 40% | 38% | 6.49 | 0.165 |
+| offense | No huddle | 4 | 1% | 100% | 10.75 | 0.219 |
+| defense vs | Shotgun | 272 | 54% | 80% | 5.12 | -0.115 |
+| defense vs | Under center | 200 | 40% | 30% | 4.93 | 0.015 |
+| defense vs | No huddle | 28 | 6% | 86% | 3.11 | -0.274 |
+
+| Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
+|---|---|---|---|---|---|---|
+| offense | Short left | 72 | 27% | 65% | 6.79 | 4 |
+| offense | Short middle | 46 | 18% | 72% | 8.39 | 3 |
+| offense | Short right | 110 | 42% | 76% | 6.65 | 6 |
+| offense | Deep left | 7 | 3% | 43% | 17.29 | 3 |
+| offense | Deep middle | 13 | 5% | 38% | 11.31 | 3 |
+| offense | Deep right | 15 | 6% | 40% | 10.8 | 3 |
+| defense allows | Short left | 72 | 26% | 71% | 5.65 | 2 |
+| defense allows | Short middle | 59 | 22% | 64% | 6.75 | 4 |
+| defense allows | Short right | 100 | 37% | 66% | 5.29 | 2 |
+| defense allows | Deep left | 20 | 7% | 40% | 11.45 | 7 |
+| defense allows | Deep middle | 12 | 4% | 42% | 13.67 | 4 |
+| defense allows | Deep right | 10 | 4% | 20% | 3.7 | 1 |
+
 ### KC lines (depth chart as of 2026-11-11T07:02:21Z)
 
 Offensive line: LT Kahlil Benson, LG Kingsley Suamataia, C Creed Humphrey, RG Trey Smith, RT Jaylon Moore.  
@@ -295,7 +321,7 @@ Defensive front: LDE George Karlaftis, LDT Chris Jones, RDT Khyiris Tonga, RDE F
 
 Official report not posted yet for this week.
 
-ESPN live list: Xavier Worthy (WR) Questionable; Justin Fields (QB) Active; Jalen Royals (WR) Active; Peter Woods (DT) Questionable; Mansoor Delane (CB) Questionable; Noah Gray (TE) Active; Cyrus Allen (WR) Active; Jaylon Moore (OT) Questionable; Ben VanSumeren (FB) Active; Garrett Nussmeier (QB) Active; Diego Pounds (OT) Active; Patrick Mahomes (QB) Questionable; Emmett Johnson (RB) Active; Rashee Rice (WR) Active; Travis Kelce (TE) Active; Harrison Butker (PK) Active; Kenneth Walker III (RB) Active; Nikko Remigio (WR) Active; Tyreke Smith (DE) Active; R Mason Thomas (DE) Active; L'Jarius Sneed (CB) Injured Reserve; Omarr Norman-Lott (DT) Out; Chamarri Conner (S) Active; Nohl Williams (CB) Active; Nick Bolton (LB) Active.
+ESPN live list: Patrick Mahomes (QB) Questionable; Harrison Butker (PK) Active; Xavier Worthy (WR) Questionable; Justin Fields (QB) Active; Jalen Royals (WR) Active; Peter Woods (DT) Questionable; Mansoor Delane (CB) Questionable; Noah Gray (TE) Active; Cyrus Allen (WR) Active; Jaylon Moore (OT) Questionable; Ben VanSumeren (FB) Active; Garrett Nussmeier (QB) Active; Diego Pounds (OT) Active; Emmett Johnson (RB) Active; Rashee Rice (WR) Active; Travis Kelce (TE) Active; Kenneth Walker III (RB) Active; Nikko Remigio (WR) Active; Tyreke Smith (DE) Active; R Mason Thomas (DE) Active; L'Jarius Sneed (CB) Injured Reserve; Omarr Norman-Lott (DT) Out; Chamarri Conner (S) Active; Nohl Williams (CB) Active; Nick Bolton (LB) Active.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
@@ -473,6 +499,32 @@ Neutral-situation pass rate 45.3%; 58.1 plays per game; target share WR 56% / TE
 | right tackle | 18 | 69 | 3.83 | 0 |
 | right end | 13 | 98 | 7.54 | 1 |
 
+### ATL by formation and pass zone
+
+| Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
+|---|---|---|---|---|---|---|
+| offense | Shotgun | 226 | 49% | 79% | 6.08 | -0.104 |
+| offense | Under center | 218 | 47% | 28% | 5.38 | -0.002 |
+| offense | No huddle | 21 | 4% | 81% | 6.05 | 0.037 |
+| defense vs | Shotgun | 295 | 58% | 76% | 5.92 | 0.062 |
+| defense vs | Under center | 189 | 37% | 30% | 5.22 | -0.018 |
+| defense vs | No huddle | 26 | 5% | 85% | 5.15 | 0.169 |
+
+| Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
+|---|---|---|---|---|---|---|
+| offense | Short left | 87 | 37% | 68% | 4.7 | 2 |
+| offense | Short middle | 36 | 16% | 58% | 5.67 | 2 |
+| offense | Short right | 73 | 31% | 66% | 6.48 | 4 |
+| offense | Deep left | 17 | 7% | 47% | 18.12 | 6 |
+| offense | Deep middle | 6 | 3% | 33% | 11.33 | 2 |
+| offense | Deep right | 14 | 6% | 43% | 11.5 | 4 |
+| defense allows | Short left | 87 | 32% | 79% | 6.05 | 4 |
+| defense allows | Short middle | 36 | 13% | 72% | 7.42 | 1 |
+| defense allows | Short right | 107 | 39% | 66% | 5.27 | 2 |
+| defense allows | Deep left | 22 | 8% | 32% | 9.82 | 6 |
+| defense allows | Deep middle | 6 | 2% | 83% | 25.5 | 4 |
+| defense allows | Deep right | 18 | 6% | 44% | 12.44 | 6 |
+
 ### ATL lines (depth chart as of 2026-11-11T07:02:21Z)
 
 Offensive line: LT Jake Matthews, LG Matthew Bergeron, C Corey Levin, RG Chris Lindstrom, RT Jawaan Taylor.  
@@ -490,10 +542,6 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 
 Arrived: none.  
 Left for another team: Bralen Trice (LB) to LV; Malcolm DeWalt IV (DB) to CAR.
-
-## Formation and pass-zone splits (NFL Savant)
-
-Not in this packet: UNAVAILABLE: no play-by-play CSV found; tried https://nflsavant.com/pbp_data.php?year=2026; https://nflsavant.com/about.php; https://nflsavant.com/.
 
 ## Keyed connectors in this run
 
@@ -529,16 +577,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:23:20+00:00 | 6656271e487d |
-| pbp | OK | 2026-11-11T18:23:21+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:23:21+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:23:21+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:23:21+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:23:22+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:23:22+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:23:22+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:23:23+00:00 |  |
-| nfl_savant | UNAVAILABLE: no play-by-play CSV found; tried https://nflsavant.com/pbp_data.php?year=2026; https://nflsavant.com/about.php; https://nflsavant.com/ |  |  |
-| book_odds | OK | 2026-11-11T18:23:24+00:00 |  |
+| games | OK | 2026-11-11T18:49:11+00:00 | ab53603458d9 |
+| pbp | OK | 2026-11-11T18:49:12+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:49:12+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:49:12+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:49:12+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:49:13+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:49:13+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:49:13+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T18:49:14+00:00 |  |
+| nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
+| book_odds | OK | 2026-11-11T18:49:14+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
