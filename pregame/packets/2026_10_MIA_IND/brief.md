@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): IND -3.5, total 38.5.
 
-Generated 2026-11-11T18:23:41+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:40:56+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-11T18:23:40+00:00 UTC. At kickoff: 46 F, wind 2 mph NNE, 0% chance of precipitation, Mostly Sunny. During the game: low 46 F, wind up to 3 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-11T18:40:55+00:00 UTC. At kickoff: 46 F, wind 2 mph NNE, 0% chance of precipitation, Mostly Sunny. During the game: low 46 F, wind up to 3 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:23:24+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T18:40:37+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | IND -3.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-11T18:22:36Z |
-| spread | fanduel | IND -3.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:23:16Z |
-| spread | pinnacle | IND -4 | -106 | -106 | 50.0% | 50.0% | 2.9% | 2026-11-11T18:23:16Z |
-| total | draftkings | Over 38.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-11T18:22:36Z |
-| total | fanduel | Over 37.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T18:23:16Z |
-| total | pinnacle | Over 38 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-11T18:23:16Z |
-| moneyline | draftkings | IND | -198 | +164 | 63.7% | 36.3% | 4.3% | 2026-11-11T18:22:36Z |
-| moneyline | fanduel | IND | -200 | +168 | 64.1% | 35.9% | 4.0% | 2026-11-11T18:23:16Z |
-| moneyline | pinnacle | IND | -198 | +172 | 64.4% | 35.6% | 3.2% | 2026-11-11T18:23:16Z |
+| spread | draftkings | IND -3.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-11T18:40:31Z |
+| spread | fanduel | IND -3.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:40:33Z |
+| spread | pinnacle | IND -4 | -106 | -106 | 50.0% | 50.0% | 2.9% | 2026-11-11T18:40:30Z |
+| total | draftkings | Over 38.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-11T18:40:31Z |
+| total | fanduel | Over 37.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T18:40:33Z |
+| total | pinnacle | Over 38 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-11T18:40:30Z |
+| moneyline | draftkings | IND | -192 | +160 | 63.1% | 36.9% | 4.2% | 2026-11-11T18:40:31Z |
+| moneyline | fanduel | IND | -200 | +168 | 64.1% | 35.9% | 4.0% | 2026-11-11T18:40:33Z |
+| moneyline | pinnacle | IND | -198 | +172 | 64.4% | 35.6% | 3.2% | 2026-11-11T18:40:30Z |
 
-### Line movement: first seen 2026-11-11T18:18:05+00:00 to 2026-11-11T18:18:05+00:00 (1 snapshots)
+### Line movement: first seen 2026-11-11T18:18:05+00:00 to 2026-11-11T18:40:55+00:00 (2 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
-| moneyline | draftkings | n/a | n/a | n/a | -198 / +164 | -198 / +164 |
+| moneyline | draftkings | n/a | n/a | n/a | -198 / +164 | -192 / +160 |
 | moneyline | fanduel | n/a | n/a | n/a | -200 / +168 | -200 / +168 |
 | moneyline | pinnacle | n/a | n/a | n/a | -198 / +172 | -198 / +172 |
 | spread | draftkings | -3.5 | -3.5 | 0.0 | -118 / -102 | -118 / -102 |
@@ -42,7 +42,7 @@ Retrieved 2026-11-11T18:23:24+00:00 UTC. No-vig = each side's share of the two i
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 96 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 95 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -492,7 +492,7 @@ Left for another team: Thomas Morstead (P) to TEN; DeForest Buckner (DL) to SF; 
 
 ## Formation and pass-zone splits (NFL Savant)
 
-Not in this packet: UNAVAILABLE: no play-by-play CSV found; tried https://nflsavant.com/pbp_data.php?year=2026; https://nflsavant.com/about.php; https://nflsavant.com/.
+Not in this packet: UNAVAILABLE: no play-by-play CSV found; tried https://pub-e9a6e73e336047fba26374ae44334139.r2.dev/pbp-2026.csv.
 
 ## Keyed connectors in this run
 
@@ -528,16 +528,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:23:20+00:00 | 6656271e487d |
-| pbp | OK | 2026-11-11T18:23:21+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:23:21+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:23:21+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:23:21+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:23:22+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:23:22+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:23:22+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:23:23+00:00 |  |
-| nfl_savant | UNAVAILABLE: no play-by-play CSV found; tried https://nflsavant.com/pbp_data.php?year=2026; https://nflsavant.com/about.php; https://nflsavant.com/ |  |  |
-| book_odds | OK | 2026-11-11T18:23:24+00:00 |  |
+| games | OK | 2026-11-11T18:40:31+00:00 | 7a7060dd4535 |
+| pbp | OK | 2026-11-11T18:40:31+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:40:31+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:40:32+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:40:32+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:40:32+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:40:33+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:40:33+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T18:40:33+00:00 |  |
+| nfl_savant | UNAVAILABLE: no play-by-play CSV found; tried https://pub-e9a6e73e336047fba26374ae44334139.r2.dev/pbp-2026.csv |  |  |
+| book_odds | OK | 2026-11-11T18:40:37+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
