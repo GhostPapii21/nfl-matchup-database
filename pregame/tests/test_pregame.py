@@ -136,3 +136,95 @@ def test_ledger_never_claims_ready():
     assert [p["phase"] for p in led] == list(range(1, 16))
     by = {p["phase"]: p["status"] for p in led}
     assert by[13] == "BLOCKED" and by[15] == "PENDING" and by[14] == "PARTIAL_RESEARCH_ONLY"
+
+
+# ---------------------------------------------------------------- book odds, no-vig, movement, weather
+from pregame import odds as O, weather as W  # noqa: E402
+
+
+def _event():
+    def book(key, spread, sp_h, sp_a, tot, o, u, ml_h, ml_a):
+        return {"key": key, "last_update": "2026-11-16T15:00:00Z", "markets": [
+            {"key": "spreads", "outcomes": [{"name": "Baltimore Ravens", "price": sp_h, "point": spread}, {"name": "Los Angeles Chargers", "price": sp_a, "point": -spread}]},
+            {"key": "totals", "outcomes": [{"name": "Over", "price": o, "point": tot}, {"name": "Under", "price": u, "point": tot}]},
+            {"key": "h2h", "outcomes": [{"name": "Baltimore Ravens", "price": ml_h}, {"name": "Los Angeles Chargers", "price": ml_a}]}]}
+    return {"id": "ev1", "home_team": "Baltimore Ravens", "away_team": "Los Angeles Chargers", "bookmakers": [
+        book("pinnacle", -4.5, -105, -105, 38.5, -108, -102, -215, 190),
+        book("draftkings", -4.5, -110, -110, 38.5, -112, -108, -225, 185),
+        book("fanduel", -4, -115, -105, 39.5, -110, -110, -220, 180),
+        {"key": "betmgm", "markets": []},
+        {"key": "draftkings", "markets": [{"key": "player_reception_yds", "outcomes": [
+            {"name": "Over", "description": "Zay Flowers", "price": -115, "point": 58.5}, {"name": "Under", "description": "Zay Flowers", "price": -105, "point": 58.5},
+            {"name": "Over", "description": "One Sided", "price": -110, "point": 20.5}]}]}]}
+
+
+def test_devig_and_validation():
+    a, b, hold = O.devig(-110, -110)
+    assert (a, b) == (0.5, 0.5) and hold == pytest.approx(0.0476, abs=1e-4)
+    a, b, _ = O.devig(-150, 130)
+    assert a + b == pytest.approx(1.0) and a == pytest.approx(0.6 / (0.6 + 100 / 230))
+    with pytest.raises(ValueError):
+        O.implied(-50)
+
+
+def test_summarize_event_reference_and_best_price():
+    m = O.summarize_event(_event(), "BAL", "LAC")
+    assert set(m["spread"]["books"]) == {"pinnacle", "draftkings", "fanduel"}          # betmgm ignored
+    assert m["spread"]["reference"] == {"book": "pinnacle", "line": -4.5, "no_vig": {"BAL": 0.5, "LAC": 0.5}}
+    assert m["spread"]["books_agree_on_line"] is False                                    # FanDuel hangs -4
+    assert m["total"]["best_retail_price"]["Over"] == {"book": "fanduel", "price": -110, "line": 39.5, "break_even": pytest.approx(0.5238, abs=1e-4)}
+    assert m["moneyline"]["best_retail_price"]["LAC"]["book"] == "draftkings"            # +185 beats +180; Pinnacle is not a retail book
+    prop = m["receiving_yards|Zay Flowers"]
+    assert prop["books"]["draftkings"]["no_vig"]["Over"] == pytest.approx(0.5108, abs=1e-4)
+    assert prop["reference"]["book"] is None                                              # no Pinnacle prop: say so, do not invent
+    assert "receiving_yards|One Sided" not in m                                           # one-sided quote cannot be de-vigged
+
+
+def test_no_key_and_failure_never_invent(tmp_path):
+    assert O.fetch_game_lines(key="")["status"].startswith("NO_KEY") and O.fetch_props("ev1", key="")["status"] == "NO_KEY"
+    def boom(url, timeout=0):
+        raise OSError("down apiKey=SECRETKEY")
+    r = O.fetch_game_lines(key="SECRETKEY", fetch=boom)
+    assert r["status"].startswith("UNAVAILABLE") and "SECRETKEY" not in r["status"] and r["events"] == {}
+    ok = O.fetch_game_lines(key="k", fetch=lambda url, timeout=0: [_event()])
+    assert list(ok["events"]) == [("LAC", "BAL")]
+
+
+def test_line_movement_first_seen_to_now(tmp_path):
+    m1 = O.summarize_event(_event(), "BAL", "LAC")
+    r1 = O.record_and_movement("g", m1, tmp_path, now="t1")
+    assert r1["snapshots"] == 1 and all(x.get("line_move", 0) == 0 for x in r1["moves"])
+    assert O.record_and_movement("g", m1, tmp_path, now="t2")["snapshots"] == 1         # unchanged prices: no new snapshot
+    ev = _event(); ev["bookmakers"][1]["markets"][0]["outcomes"] = [{"name": "Baltimore Ravens", "price": -110, "point": -6}, {"name": "Los Angeles Chargers", "price": -110, "point": 6}]
+    r3 = O.record_and_movement("g", O.summarize_event(ev, "BAL", "LAC"), tmp_path, now="t3")
+    dk = next(x for x in r3["moves"] if x["market"] == "spread" and x["book"] == "draftkings")
+    assert r3["snapshots"] == 2 and dk["first_line"] == -4.5 and dk["current_line"] == -6 and dk["line_move"] == -1.5
+    assert "not the true opening line" in r3["note"]
+
+
+def test_prop_check_uses_counts_not_edges():
+    pk = {"books": {"markets": O.summarize_event(_event(), "BAL", "LAC")},
+          "matchup": {"x": {"player_baselines": {"players": [{"player": "Z.Flowers", "pos": "WR", "receiving_yards": PK._baseline([40, 60, 80, 70], 1.0)}]}}}}
+    PK.prop_check(pk)
+    row = pk["books"]["prop_check"]["rows"][0]
+    assert row["player"] == "Zay Flowers" and row["line"] == 58.5 and row["baseline_games"] == 4
+    assert row["baseline_minus_line"] == pytest.approx(row["baseline_weighted_mean"] - 58.5, abs=0.06)
+    assert "NOT an edge" in pk["books"]["prop_check"]["note"] and "edge" not in row
+
+
+def test_weather_paths():
+    assert W.kickoff_utc("2026-11-16", "20:15").isoformat() == "2026-11-17T01:15:00+00:00"   # EST
+    assert W.kickoff_utc("2026-10-25", "13:00").isoformat() == "2026-10-25T17:00:00+00:00"   # EDT
+    assert W.forecast("NO", "dome", "Home", "2026-11-15", "13:00")["status"] == "INDOOR"
+    assert W.forecast("DET", "outdoors", "Neutral", "2026-11-15", "09:30")["status"].startswith("NOT_MAPPED")
+    def fake(url, timeout=0):
+        if "/points/" in url:
+            return {"properties": {"forecastHourly": "https://api.weather.gov/x"}}
+        return {"properties": {"periods": [
+            {"startTime": f"2026-11-16T{h:02d}:00:00-05:00", "temperature": t, "windSpeed": f"{w} mph", "windDirection": "NW",
+             "probabilityOfPrecipitation": {"value": p}, "shortForecast": "Clear"} for h, t, w, p in ((19, 40, 8, 0), (20, 38, 12, 10), (21, 35, 18, 60), (22, 31, 20, None))]}}
+    r = W.forecast("BAL", "outdoors", "Home", "2026-11-16", "20:15", fetch=fake)
+    assert r["status"] == "OK" and r["at_kickoff"]["temp_f"] == 38 and r["at_kickoff"]["wind_mph"] == 12
+    assert r["during_game"] == {"temp_f_min": 31, "wind_mph_max": 20.0, "precip_chance_pct_max": 60}
+    assert r["flags"] == ["WIND_15_PLUS", "PRECIP_50_PLUS", "FREEZING"]
+    assert W.forecast("BAL", "outdoors", "Home", "2026-11-16", "20:15", fetch=lambda u, timeout=0: 1 / 0)["status"].startswith("UNAVAILABLE")

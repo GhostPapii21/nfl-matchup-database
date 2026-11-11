@@ -22,7 +22,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from pregame import metrics as M, packet as PK, render as R, sources as S  # noqa: E402
+from pregame import metrics as M, odds as O, packet as PK, render as R, sources as S, weather as W  # noqa: E402
 
 OUT = ROOT / "pregame" / "packets"
 DEFAULT_DAYS = ("Thursday", "Sunday", "Monday")
@@ -72,6 +72,8 @@ def main(argv=None):
     ap.add_argument("--cache", default=str(ROOT / "pregame" / ".cache"))
     ap.add_argument("--out", default=str(OUT))
     ap.add_argument("--offline", action="store_true", help="use cached downloads only")
+    ap.add_argument("--props-within-hours", type=float, default=36.0,
+                    help="fetch player-prop lines only for games kicking off within this many hours (each game costs API credits); 0 = never")
     a = ap.parse_args(argv)
 
     today = date.fromisoformat(a.today) if a.today else (datetime.now(timezone.utc) - timedelta(hours=5)).date()
@@ -90,9 +92,29 @@ def main(argv=None):
     espn = S.espn_injuries(offline=a.offline)
     src_pub = {k: {kk: vv for kk, vv in v.items() if kk != "path"} for k, v in src.items()}
     src_pub["espn_injuries"] = {"status": espn["status"], "url": S.ESPN_INJURIES, "retrieved_utc": espn.get("retrieved_utc")}
+    lines = {"status": "SKIPPED_OFFLINE", "events": {}} if a.offline else O.fetch_game_lines()
+    src_pub["book_odds"] = {"status": lines["status"], "url": "https://the-odds-api.com (Pinnacle, DraftKings, FanDuel)", "retrieved_utc": lines.get("retrieved_utc")}
+    now = datetime.now(timezone.utc)
     index = []
     for g in slate.itertuples():
-        pk = _clean(PK.build(g, data=data, window=a.window, espn=espn, pbp_path=src["pbp"]["path"], sources=src_pub))
+        books = {"status": lines["status"]}
+        ev = lines["events"].get((g.away_team, g.home_team))
+        if ev:
+            hours = (W.kickoff_utc(str(g.gameday), str(g.gametime)) - now).total_seconds() / 3600
+            if a.props_within_hours and 0 < hours <= a.props_within_hours:
+                pr = O.fetch_props(ev["id"])
+                books["props_status"] = pr["status"]
+                if pr["event"]:
+                    ev = dict(ev, bookmakers=ev.get("bookmakers", []) + pr["event"].get("bookmakers", []))
+            else:
+                books["props_status"] = f"NOT_FETCHED: kickoff is {hours:.0f} hours away (props are pulled inside {a.props_within_hours:g} hours)"
+            mk = O.summarize_event(ev, g.home_team, g.away_team)
+            books.update(retrieved_utc=lines.get("retrieved_utc"), markets=mk,
+                         movement=O.record_and_movement(g.game_id, mk, ROOT / "pregame" / "line_history"))
+        elif lines["status"] == "OK":
+            books["status"] = "OK_BUT_GAME_NOT_LISTED"
+        wx = W.forecast(g.home_team, g.roof, g.location, g.gameday, g.gametime, offline=a.offline)
+        pk = _clean(PK.build(g, data=data, window=a.window, espn=espn, pbp_path=src["pbp"]["path"], sources=src_pub, books=books, weather=wx))
         d = out / g.game_id; d.mkdir(exist_ok=True)
         (d / "packet.json").write_text(json.dumps(pk, indent=1, allow_nan=False) + "\n")
         (d / "brief.md").write_text(R.brief(pk))

@@ -228,7 +228,7 @@ def edges(off_team, off_sum, off_rank, def_team, def_sum, def_rank, n_teams=32):
 
 
 # ------------------------------------------------------------------ the packet
-def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None):
+def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None, books=None, weather=None):
     """game: a row of the nflverse schedule. data: dict of DataFrames (pbp prepared as 'plays')."""
     season, week, home, away = int(game.season), int(game.week), game.home_team, game.away_team
     p, games = data["plays"], data["games"]
@@ -286,12 +286,51 @@ def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None):
                    "home_spread": spread_home, "total": total,
                    "moneyline": {away: None if pd.isna(game.away_moneyline) else float(game.away_moneyline),
                                  home: None if pd.isna(game.home_moneyline) else float(game.home_moneyline)}},
+        "books": books or {"status": "NOT_REQUESTED"},
+        "weather": weather or {"status": "NOT_REQUESTED"},
         "teams": teams, "matchup": matchup,
         "team_projection": team_projection(home, away, season, week, pbp_path, spread_home, total) if pbp_path else {"status": "SKIPPED"},
         "sources": sources or {},
     }
+    prop_check(packet)
     packet["phase_ledger"] = phase_ledger(packet)
     return packet
+
+
+def _short(name):
+    """'Zay Flowers' -> 'Z.Flowers' (the play-by-play name form)."""
+    parts = str(name).replace(".", "").split()
+    return f"{parts[0][0]}.{' '.join(parts[1:])}" if len(parts) > 1 else str(name)
+
+
+def prop_check(pk):
+    """Put each book prop line beside the player's own scaled game log. Counts only: no model probability is claimed."""
+    props = {k: v for k, v in (pk.get("books", {}).get("markets") or {}).items() if "|" in k}
+    if not props:
+        return
+    logs = {}
+    for side in pk["matchup"].values():
+        for r in side["player_baselines"]["players"]:
+            logs[r["player"].replace(" ", "").lower()] = r
+    rows = []
+    for label, m in props.items():
+        stat, player = label.split("|", 1)
+        r = logs.get(_short(player).replace(" ", "").lower())
+        b = (r or {}).get(stat)
+        ref = m["reference"] if m["reference"].get("book") else None
+        for book, q in m["books"].items():
+            if book == "pinnacle" and len(m["books"]) > 1:
+                continue
+            row = {"player": player, "stat": stat, "book": book, "line": q["line"], "prices": q["prices"], "no_vig_over": q["no_vig"]["Over"],
+                   "sharp_no_vig_over": ref["no_vig"]["Over"] if ref and ref["line"] == q["line"] else None,
+                   "baseline_weighted_mean": b["weighted_mean"] if b else None, "baseline_median": b["p50"] if b else None,
+                   "baseline_games": b["games"] if b else None,
+                   "baseline_minus_line": round(b["weighted_mean"] - q["line"], 1) if b and q["line"] is not None else None}
+            rows.append(row)
+    pk["books"]["prop_check"] = {
+        "note": "baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten "
+                "the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.",
+        "rows": sorted(rows, key=lambda r: -abs(r["baseline_minus_line"] or 0))}
 
 
 def phase_ledger(pk):
@@ -315,8 +354,13 @@ def phase_ledger(pk):
         (9, "QB pressure, blitz, scramble", "PARTIAL", "Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles."),
         (10, "Offensive line, pass rush, coaching", "PARTIAL", "Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades."),
         (11, "Injury and depth chart", "AUTO" if inj and live else ("PARTIAL" if inj or live else "PENDING"), "Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures."),
-        (12, "Weather, roof, travel", "PARTIAL", "Roof, surface, rest days, site. No forecast is fetched: check the forecast for outdoor games."),
-        (13, "Timestamped book prices", "BLOCKED", "Only the schedule's consensus spread/total. No player-prop lines; no timestamped quotes."),
+        (12, "Weather, roof, travel", {"OK": "AUTO", "INDOOR": "AUTO"}.get(str((pk.get("weather") or {}).get("status")), "PARTIAL"),
+         "Roof, surface, rest days, site; National Weather Service kickoff forecast: " + str((pk.get("weather") or {}).get("status", "NOT_REQUESTED"))[:80] + "."),
+        (13, "Timestamped book prices", "PARTIAL" if (pk.get("books") or {}).get("markets") else "BLOCKED",
+         ("Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement"
+          + (", player props" if (pk.get("books") or {}).get("prop_check") else ", no player props in this run")
+          + ". No FTN model, no true opening line.") if (pk.get("books") or {}).get("markets")
+         else "No book prices: " + str((pk.get("books") or {}).get("status", "NOT_REQUESTED"))[:90] + ". Only the schedule's consensus spread/total."),
         (14, "Projection and simulation", "PARTIAL_RESEARCH_ONLY", "Period-engine team scores; player baselines. Not the three-model consensus; not validated."),
         (15, "Final inactive pregame freeze", "PENDING", "Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call."),
     ]

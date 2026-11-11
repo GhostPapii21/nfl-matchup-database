@@ -124,6 +124,52 @@ def team_section(team, t):
     return "\n".join(L)
 
 
+def _px(v):
+    return "n/a" if v is None else format(int(v), "+d")
+
+
+def market_section(pk):
+    g, bk, wx = pk["game"], pk.get("books") or {}, pk.get("weather") or {}
+    L = ["## Weather", ""]
+    if wx.get("status") == "OK":
+        k, d = wx["at_kickoff"], wx["during_game"]
+        L += [f"National Weather Service, retrieved {wx['retrieved_utc']} UTC. At kickoff: {k['temp_f']} F, wind {k['wind_mph']:g} mph {k['wind_dir']}, "
+              f"{k['precip_chance_pct']}% chance of precipitation, {k['summary']}. During the game: low {d['temp_f_min']} F, wind up to {d['wind_mph_max']:g} mph, "
+              f"precipitation chance up to {d['precip_chance_pct_max']}%. Roof: {wx['roof']}. Flags: {', '.join(wx['flags']) or 'none'}.", ""]
+    else:
+        L += [f"{wx.get('status', 'NOT_REQUESTED')}", ""]
+    L += ["## Book prices and no-vig", ""]
+    mk = bk.get("markets")
+    if not mk:
+        return L + [f"No book prices in this packet: {bk.get('status', 'NOT_REQUESTED')}. Do not quote Pinnacle, DraftKings or FanDuel numbers from memory.", ""]
+    rows = []
+    for label in ("spread", "total", "moneyline"):
+        m = mk.get(label)
+        if not m:
+            continue
+        a, b = m["sides"]
+        for book, q in m["books"].items():
+            ln = "" if q["line"] is None else (format(q["line"], "+g") if label == "spread" else f"{q['line']:g}")
+            rows.append([label, book, f"{a} {ln}".strip(), _px(q["prices"][a]), _px(q["prices"][b]), f(q["no_vig"][a], 1, True), f(q["no_vig"][b], 1, True), f(q["hold"], 1, True), q.get("last_update") or ""])
+    L += [f"Retrieved {bk.get('retrieved_utc')} UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.", "",
+          table(["Market", "Book", "Side A / line", "Price A", "Price B", "No-vig A", "No-vig B", "Hold", "Book updated"], rows), ""]
+    mv = bk.get("movement") or {}
+    if mv.get("moves"):
+        L += [f"### Line movement: first seen {mv['first_seen_utc']} to {mv['current_utc']} ({mv['snapshots']} snapshots)", "",
+              table(["Market", "Book", "First line", "Now", "Move", "First prices", "Prices now"],
+                    [[r["market"], r["book"], f(r["first_line"]), f(r["current_line"]), f(r.get("line_move")), " / ".join(_px(v) for v in r["first_prices"].values()),
+                      " / ".join(_px(v) for v in r["current_prices"].values())] for r in mv["moves"]]), "", mv["note"], ""]
+    pc = bk.get("prop_check")
+    if pc:
+        L += ["### Player props beside the research baseline", "",
+              table(["Player", "Stat", "Book", "Line", "Over / Under", "No-vig over", "Pinnacle no-vig over (same line)", "Baseline mean", "Baseline median", "G", "Baseline - line"],
+                    [[r["player"], r["stat"].replace("_", " "), r["book"], f(r["line"]), f"{_px(r['prices']['Over'])} / {_px(r['prices']['Under'])}", f(r["no_vig_over"], 1, True),
+                      f(r["sharp_no_vig_over"], 1, True), f(r["baseline_weighted_mean"]), f(r["baseline_median"]), f(r["baseline_games"]), f(r["baseline_minus_line"])] for r in pc["rows"][:40]]), "", pc["note"], ""]
+    else:
+        L += [f"Player props: {bk.get('props_status', 'not fetched')}.", ""]
+    return L
+
+
 def brief(pk):
     g, m = pk["game"], pk["market"]
     L = [f"# {g['away']} at {g['home']}: Week {g['week']}, {g['slot']}", "",
@@ -132,6 +178,7 @@ def brief(pk):
          f"Market (schedule consensus, not a timestamped quote): {g['home']} {f(m['home_spread']) if m['home_spread'] is None else format(m['home_spread'], '+g')}, total {f(m['total'])}.", "",
          f"Generated {pk['generated_utc']} UTC. **Research only. `projection_ready` is false. Not betting advice.** "
          "Every number below is a count of recorded plays; a missing value is unknown, not zero.", ""]
+    L += market_section(pk)
     L += ["## Matchup edges", ""]
     for key, mu in pk["matchup"].items():
         L += [f"### {key.replace('_', ' ')}", ""]

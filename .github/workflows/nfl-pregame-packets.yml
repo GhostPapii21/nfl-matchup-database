@@ -49,6 +49,8 @@ jobs:
       - name: Check the builder before trusting its output
         run: python -m pytest -q -p no:cacheprovider pregame/tests
       - name: Build packets
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}   # optional: without it packets carry no book prices
         run: |
           args=()
           if [ -n "${{ inputs.week }}" ]; then args+=(--week "${{ inputs.week }}"); fi
@@ -58,7 +60,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pregame/packets
+          git add pregame/packets pregame/line_history
           if git diff --cached --quiet; then
             echo "No packet changes."
           else

@@ -4,7 +4,15 @@
 
 Market (schedule consensus, not a timestamped quote): CIN -3.5, total 49.5.
 
-Generated 2026-11-11T15:41:33+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T17:57:10+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+
+## Weather
+
+UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>
+
+## Book prices and no-vig
+
+No book prices in this packet: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Do not quote Pinnacle, DraftKings or FanDuel numbers from memory.
 
 ## Matchup edges
 
@@ -472,8 +480,8 @@ Left for another team: Blake Freeland (OL) to NYJ.
 | 9 | QB pressure, blitz, scramble | PARTIAL | Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles. |
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | PENDING | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
-| 12 | Weather, roof, travel | PARTIAL | Roof, surface, rest days, site. No forecast is fetched: check the forecast for outdoor games. |
-| 13 | Timestamped book prices | BLOCKED | Only the schedule's consensus spread/total. No player-prop lines; no timestamped quotes. |
+| 12 | Weather, roof, travel | PARTIAL | Roof, surface, rest days, site; National Weather Service kickoff forecast: UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>. |
+| 13 | Timestamped book prices | BLOCKED | No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -481,14 +489,15 @@ Left for another team: Blake Freeland (OL) to NYJ.
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T15:41:01+00:00 | a1d738a56f7b |
-| pbp | OK | 2026-11-11T15:41:02+00:00 | 5030e8fc1739 |
-| rosters | OK | 2026-11-11T15:41:02+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T15:41:02+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T15:41:03+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T15:41:03+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T15:41:03+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T15:41:04+00:00 | 99358137e06d |
+| games | OK | 2026-11-11T17:56:28+00:00 | 7500223cb5ae |
+| pbp | OK | 2026-11-11T17:56:28+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T17:56:28+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T17:56:29+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T17:56:29+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T17:56:29+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T17:56:30+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T17:56:30+00:00 | 99358137e06d |
 | espn_injuries | UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden> |  |  |
+| book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

@@ -11,7 +11,8 @@ before each Thursday, Sunday and Monday kickoff window). Each run:
 1. Reads the NFL schedule and finds the upcoming games.
 2. Downloads current public data: play-by-play, weekly rosters, official injury reports, depth charts, snap
    counts, FTN charting (blitz, play-action), Pro Football Reference defender stats (all via nflverse), and
-   the ESPN live injury list when it can be reached.
+   the ESPN live injury list when it can be reached, the National Weather Service kickoff forecast for outdoor
+   games, and (when the `ODDS_API_KEY` secret is set) Pinnacle, DraftKings and FanDuel prices.
 3. Builds one packet per game and commits it under `pregame/packets/<game_id>/`:
    - `brief.md`: readable breakdown.
    - `packet.json`: the same data for tools.
@@ -34,6 +35,12 @@ For each team, over its last eight games:
   run game by direction; snap shares.
 - **People:** depth-chart lines, official injury report with starters marked, ESPN live injuries, players who
   arrived from or left for another team in the last four weeks.
+- **Weather:** kickoff temperature, wind and precipitation chance, with flags for wind 15+, precipitation 50%+
+  and freezing.
+- **Book prices and no-vig:** spread, total and moneyline at Pinnacle, DraftKings and FanDuel, each with its
+  no-vig probability and hold, the best retail price per side with its break-even, and the line's movement
+  since the first snapshot. Player props (passing, rushing and receiving yards, receptions, carries) are pulled
+  for games inside 36 hours of kickoff and shown beside the research baseline.
 - **Matchup edges:** where a top-10 unit meets a bottom-10 unit.
 - **Projections (research only):** period-engine team scores from two samplers, and per-player baselines with
   the Floor / MAIN / Median percentile labels from `workflows/operational_specs/PHASE_SCRIPT.md`.
@@ -53,11 +60,22 @@ asked. To have the analysis arrive without asking, create a scheduled task insid
 (ChatGPT "Tasks", Grok "Tasks") with the instruction "Follow pregame/ANALYST_PROMPT.md for today's games in
 GhostPapii21/nfl-matchup-database", timed shortly after the workflow's run times.
 
+## One-time setup
+
+1. Merge this into the default branch so the schedule runs.
+2. For book prices: Settings, Secrets and variables, Actions, add `ODDS_API_KEY` (the-odds-api.com). Without it
+   the packets still build and say "no book prices". Rough credit use: about 6 credits per run for main lines,
+   plus about 5 per game for props inside 36 hours of kickoff (`--props-within-hours 0` turns props off).
+3. Connect the repository to ChatGPT or Grok and save `ANALYST_PROMPT.md` as the instructions.
+
 ## What the packet cannot do
 
-- Final inactives (about 90 minutes before kickoff) and weather forecasts are not fetched. The prompt tells the
-  model to check both live and say so if it cannot.
-- No player-prop lines and no timestamped book quotes: only the schedule's consensus spread and total.
+- Final inactives (about 90 minutes before kickoff) are not fetched. The prompt tells the model to check live.
+- Weather covers outdoor games at US home stadiums only; neutral-site and international games are marked
+  NOT_MAPPED.
+- Line movement starts at the first snapshot this pipeline took, not the true opening line.
+- PFF and the FTN betting model sit behind logins and are not pulled. The prompt uses them only when the owner
+  pastes them into the chat.
 - No man/zone coverage, coverage shells, route participation or line grades: no free source carries them.
 - "Pressure rate" is sacks plus quarterback hits, a floor on true pressure.
 - Player baselines use only games in which the player had a target or carry, and do not adjust for injuries,
