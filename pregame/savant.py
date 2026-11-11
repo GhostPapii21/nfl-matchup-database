@@ -46,7 +46,7 @@ def _csv_links(html: bytes, base: str, season: int) -> list[str]:
 
 def find_csv(season, fetch=_get):
     """Try the known page addresses; accept a CSV directly, or follow a CSV link found on the page."""
-    tried = []
+    tried, seen = [], []
     for page in PAGES:
         url = page.format(season=season)
         tried.append(url)
@@ -57,6 +57,11 @@ def find_csv(season, fetch=_get):
             continue
         if _is_csv(raw):
             return url, raw, tried
+        import re
+        for href in re.findall(rb"""(?:href|action|src)\s*=\s*["']([^"']+)["']""", raw, flags=re.I):
+            h = href.decode("utf-8", "ignore")
+            if any(k in h.lower() for k in ("csv", "pbp", "download", "dump", "data")) and h not in seen:
+                seen.append(h)
         for link in _csv_links(raw, url, season)[:3]:
             tried.append(link)
             try:
@@ -66,6 +71,8 @@ def find_csv(season, fetch=_get):
                 continue
             if _is_csv(data):
                 return link, data, tried
+    if seen:
+        tried.append("data-like links on those pages: " + ", ".join(seen[:12]))
     return None, None, tried
 
 
@@ -76,7 +83,7 @@ def load(season, *, offline=False, fetch=_get) -> dict:
     try:
         url, raw, tried = find_csv(season, fetch)
         if raw is None:
-            return {"status": "UNAVAILABLE: no play-by-play CSV found; tried " + "; ".join(tried)[:400], "url": tried[0], "plays": None}
+            return {"status": "UNAVAILABLE: no play-by-play CSV found; tried " + "; ".join(tried)[:900], "url": tried[0], "plays": None}
         df = pd.read_csv(io.BytesIO(raw), low_memory=False)
     except Exception as exc:
         return {"status": f"UNAVAILABLE: {type(exc).__name__}: {str(exc)[:120]}", "url": url, "plays": None}
