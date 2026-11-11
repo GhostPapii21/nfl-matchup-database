@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from research.market_calibration.quotes import GAME_ID, MatchRequest, load_saved_quotes, match_quote
-from research.market_calibration.manifest import validate_manifest
+from market_calibration.quotes import GAME_ID, MatchRequest, load_saved_quotes, match_quote
+from market_calibration.manifest import validate_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
 

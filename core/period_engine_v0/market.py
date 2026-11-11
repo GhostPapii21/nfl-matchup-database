@@ -4,25 +4,58 @@ from dataclasses import dataclass, field, asdict
 from typing import Optional
 
 
+import math
+
+NOVIG_METHODS = ("multiplicative", "power")
+
+
 def american_to_implied(a: float) -> float:
     a = float(a)
+    # American prices are <= -100 or >= +100 (-100 and +100 are both even money).
+    if not math.isfinite(a) or -100.0 < a < 100.0:
+        raise ValueError(f"invalid American price {a!r}: must be <= -100 or >= +100")
     return 100.0 / (a + 100.0) if a > 0 else (-a) / ((-a) + 100.0)
 
 
-def novig_two_way(price_a: float, price_b: float) -> tuple[float, float]:
-    pa, pb = american_to_implied(price_a), american_to_implied(price_b)
-    s = pa + pb
+def _novig(implied: list[float], method: str) -> tuple[float, ...]:
+    """Remove the overround so the probabilities sum to 1.
+
+    multiplicative (default, legacy): p_i = q_i / sum(q). Spreads the margin in proportion to price,
+        which over-states long shots when the book shades them (favourite-longshot bias).
+    power: p_i = q_i ** k with k > 1 chosen so sum(p) = 1. Takes more margin from long shots;
+        usually closer to observed outcome rates on lopsided markets. Equal to multiplicative
+        when the sides are priced alike.
+    """
+    if method not in NOVIG_METHODS:
+        raise ValueError(f"method must be one of {NOVIG_METHODS}")
+    s = sum(implied)
     if s <= 0:
-        raise ValueError("invalid two-way prices")
-    return pa / s, pb / s
+        raise ValueError("invalid prices")
+    if method == "multiplicative" or abs(s - 1.0) < 1e-12:
+        return tuple(q / s for q in implied)
+    # sum(q**k) is strictly decreasing in k for 0 < q < 1: bisect.
+    f = lambda k: sum(q ** k for q in implied) - 1.0
+    lo, hi = (1.0, 2.0) if s > 1 else (0.01, 1.0)
+    while s > 1 and f(hi) > 0:
+        hi *= 2.0
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if f(mid) > 0:
+            lo = mid
+        else:
+            hi = mid
+    k = 0.5 * (lo + hi)
+    p = [q ** k for q in implied]
+    t = sum(p)
+    return tuple(x / t for x in p)
 
 
-def novig_three_way(price_a: float, price_b: float, price_tie: float) -> tuple[float, float, float]:
-    pa, pb, pt = american_to_implied(price_a), american_to_implied(price_b), american_to_implied(price_tie)
-    s = pa + pb + pt
-    if s <= 0:
-        raise ValueError("invalid three-way prices")
-    return pa / s, pb / s, pt / s
+def novig_two_way(price_a: float, price_b: float, method: str = "multiplicative") -> tuple[float, float]:
+    return _novig([american_to_implied(price_a), american_to_implied(price_b)], method)
+
+
+def novig_three_way(price_a: float, price_b: float, price_tie: float, method: str = "multiplicative") -> tuple[float, float, float]:
+    return _novig([american_to_implied(price_a), american_to_implied(price_b), american_to_implied(price_tie)], method)
 
 
 def forbidden_drop_tie_renorm(price_a: float, price_b: float, price_tie: float) -> None:

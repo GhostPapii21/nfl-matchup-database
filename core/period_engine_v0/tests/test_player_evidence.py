@@ -1,9 +1,11 @@
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from player_evidence import bundle_from_outlier, load_outlier_csv
+import pytest
+from player_evidence import DEFAULT_OUTLIER_CSV, bundle_from_outlier, load_outlier_csv
 
 
+@pytest.mark.skipif(not DEFAULT_OUTLIER_CSV.exists(), reason="optional_inputs/outlier_props.csv is a local-only input and is not published")
 def test_outlier_csv_loads_and_flags_gaps():
     rows = load_outlier_csv()
     assert len(rows) > 0

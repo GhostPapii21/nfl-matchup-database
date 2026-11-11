@@ -48,15 +48,31 @@ def _sample_team_quarters(rng: np.random.Generator, hist: np.ndarray, n: int, re
     return hist[idx]
 
 
+def team_game_matrix(periods: pd.DataFrame, team: str) -> np.ndarray:
+    """Rows = games involving team; cols = q1..q4 scored by team, then q1..q4 allowed (same game)."""
+    H = [f"q{i}_home" for i in range(1, 5)]
+    A = [f"q{i}_away" for i in range(1, 5)]
+    home = periods.home_team.to_numpy() == team
+    away = periods.away_team.to_numpy() == team
+    rows = np.zeros((int(home.sum() + away.sum()), 8))
+    if len(rows) == 0:
+        return rows
+    ph, pa = periods[H].to_numpy(float), periods[A].to_numpy(float)
+    # keep the original row order of `periods` (matches the legacy iterrows order)
+    order = np.flatnonzero(home | away)
+    is_home = home[order]
+    rows[:, :4] = np.where(is_home[:, None], ph[order], pa[order])
+    rows[:, 4:] = np.where(is_home[:, None], pa[order], ph[order])
+    return rows
+
+
 def team_quarter_matrix(periods: pd.DataFrame, team: str) -> np.ndarray:
     """Rows = games involving team; cols = q1..q4 points scored by team."""
-    rows = []
-    for _, r in periods.iterrows():
-        if r.home_team == team:
-            rows.append([r.q1_home, r.q2_home, r.q3_home, r.q4_home])
-        elif r.away_team == team:
-            rows.append([r.q1_away, r.q2_away, r.q3_away, r.q4_away])
-    return np.asarray(rows, dtype=float) if rows else np.zeros((0, 4))
+    return team_game_matrix(periods, team)[:, :4]
+
+
+SAMPLING_MODES = ("independent", "matchup_pair")
+GR_SCALES = ("within_game_covariance", "legacy_total_cv")
 
 
 def simulate_game(
@@ -67,11 +83,37 @@ def simulate_game(
     n: int = 100_000,
     seed: int = 20261105,
     apply_gr: bool = False,
+    sampling: str = "independent",
+    gr_scale: str = "within_game_covariance",
 ) -> dict:
-    """Return joint trajectories and summaries. Bias always absent."""
+    """Return joint trajectories and summaries. Bias always absent.
+
+    sampling:
+      "independent"  (default, legacy) each team's quarter vector is drawn from its own
+                     as-of games, independently of the other team.
+      "matchup_pair" each trial draws ONE real as-of game, with probability 1/2 from the
+                     home team's games (home = what it scored, away = what it allowed) and
+                     otherwise from the away team's games (away = scored, home = allowed).
+                     The opponent's defence enters (home mean = average of home offence and
+                     away defence allowed), and real within-game structure is kept: the
+                     negative quarter-level score correlation, key numbers and tie rates.
+    gr_scale (only when apply_gr):
+      "within_game_covariance" (default) shared shock variance = max(0, Cov(scored, allowed))
+                     / (mean scored * mean allowed) over the two teams' as-of games, so the
+                     shock adds exactly the observed same-game covariance.
+      "legacy_total_cv" the original rule: sigma from the total CV of team points. The bootstrap
+                     already carries that variance, so this roughly doubles Var(team points)
+                     (factor 2 + CV^2) and forces corr(home, away) = 1 / (2 + CV^2) ~ 0.47,
+                     while observed NFL corr is ~0. Kept for reproducing old runs.
+    """
+    if sampling not in SAMPLING_MODES:
+        raise ValueError(f"sampling must be one of {SAMPLING_MODES}")
+    if gr_scale not in GR_SCALES:
+        raise ValueError(f"gr_scale must be one of {GR_SCALES}")
     rng = np.random.default_rng(seed)
-    Hh = team_quarter_matrix(periods_asof, home)
-    Ha = team_quarter_matrix(periods_asof, away)
+    Gh = team_game_matrix(periods_asof, home)
+    Ga = team_game_matrix(periods_asof, away)
+    Hh, Ha = Gh[:, :4], Ga[:, :4]
     status = {
         "monte_carlo": STATUS.monte_carlo,
         "bias": STATUS.bias,
@@ -79,22 +121,43 @@ def simulate_game(
         "home_games_asof": int(len(Hh)),
         "away_games_asof": int(len(Ha)),
         "asof_insufficient": bool(len(Hh) < 1 or len(Ha) < 1),
+        "sampling": sampling,
     }
     if status["asof_insufficient"]:
         return {"status": status, "n": 0, "error": "ASOF_INSUFFICIENT_HISTORY"}
 
-    hq = _sample_team_quarters(rng, Hh, n)
-    aq = _sample_team_quarters(rng, Ha, n)
+    if sampling == "independent":
+        hq = _sample_team_quarters(rng, Hh, n)
+        aq = _sample_team_quarters(rng, Ha, n)
+    else:
+        use_home = rng.random(n) < 0.5
+        gi = Gh[rng.integers(0, len(Gh), size=n)]
+        gj = Ga[rng.integers(0, len(Ga), size=n)]
+        hq = np.where(use_home[:, None], gi[:, :4], gj[:, 4:])
+        aq = np.where(use_home[:, None], gi[:, 4:], gj[:, :4])
+        status["matchup_pair_home_team_share"] = float(use_home.mean())
 
     if apply_gr:
-        # Shared shock: lognormal with sigma from empirical CV of FG points (both teams pooled)
+        # Shared multiplicative shock S (E[S]=1) on both teams' points.
         fg_h = Hh.sum(axis=1)
         fg_a = Ha.sum(axis=1)
         pool = np.concatenate([fg_h, fg_a])
         mu = pool.mean()
         cv = float(pool.std(ddof=1) / mu) if mu > 0 else 0.0
-        # sigma chosen so Var(exp(Z)) roughly reflects CV^2 — still UNFITTED label
-        sigma = float(np.sqrt(np.log(1 + cv**2))) if cv > 0 else 0.0
+        if gr_scale == "legacy_total_cv":
+            shock_var = cv**2
+        else:
+            # Cov(h*S, a*S) = E[h]E[a]Var(S) for independent h, a: match the observed same-game covariance.
+            scored = np.concatenate([Gh[:, :4].sum(axis=1), Ga[:, :4].sum(axis=1)])
+            allowed = np.concatenate([Gh[:, 4:].sum(axis=1), Ga[:, 4:].sum(axis=1)])
+            cov = float(np.cov(scored, allowed)[0, 1]) if len(scored) > 1 else 0.0
+            denom = float(scored.mean() * allowed.mean())
+            shock_var = max(0.0, cov) / denom if denom > 0 else 0.0
+            status["gr_within_game_cov"] = cov
+            if cov <= 0:
+                status["gr_note"] = "OBSERVED_SAME_GAME_COVARIANCE_NONPOSITIVE_SHOCK_OFF"
+        status["gr_scale"] = gr_scale
+        sigma = float(np.sqrt(np.log(1 + shock_var))) if shock_var > 0 else 0.0
         shock = rng.lognormal(mean=-0.5 * sigma**2, sigma=sigma, size=n)
         hq = hq * shock[:, None]
         aq = aq * shock[:, None]
@@ -200,39 +263,36 @@ def raw_probs_from_sim(sim: dict, *, period: str, market: str, line: float, side
     # period fg uses final-including-OT vectors when present
     h, a = A[f"{period}_home"], A[f"{period}_away"]
     out = {"bias": "UNIMPLEMENTED", "game_randomness": None}
+    def wpl(adj):
+        # same rule as settlement.settle_*_2way: push iff |adj| < 1e-12, win iff adj > 0
+        adj = np.asarray(adj, dtype=float)
+        push = np.abs(adj) < 1e-12
+        win = (adj > 0) & ~push
+        p_win, p_push = float(win.mean()), float(push.mean())
+        p_lose = float(1.0 - p_win - p_push) if len(adj) else 0.0
+        decisive = 1.0 - p_push
+        return dict(p_win=p_win, p_push=p_push, p_lose=p_lose,
+                    p_win_decisive=(p_win / decisive if decisive > 0 else None), monte_carlo=p_win)
+
     if market == "spread_2way":
         margin = h - a if side == "home" else a - h
-        res = np.array([settle_spread_2way(float(m), line) for m in margin])
-        p_win = float((res == "win").mean())
-        p_push = float((res == "push").mean())
-        p_lose = float((res == "lose").mean())
-        decisive = 1.0 - p_push
-        out.update(p_win=p_win, p_push=p_push, p_lose=p_lose,
-                   p_win_decisive=(p_win / decisive if decisive > 0 else None),
-                   monte_carlo=p_win,
-                   settlement_note="unconditional W/P/L; compare p_win_decisive to two-way no-vig when pushes refunded")
+        out.update(wpl(margin + line))
+        out["settlement_note"] = "unconditional W/P/L; compare p_win_decisive to two-way no-vig when pushes refunded"
     elif market == "winner_3way":
         margin = h - a if side == "home" else a - h
-        res = np.array([settle_winner_3way(int(m)) for m in margin])
-        p_side = float((res == "side").mean())
-        p_opp = float((res == "opp").mean())
-        p_tie = float((res == "tie").mean())
+        p_side = float((margin > 0).mean())
+        p_opp = float((margin < 0).mean())
+        p_tie = float((margin == 0).mean())
         out.update(p_side=p_side, p_opp=p_opp, p_tie=p_tie, monte_carlo=p_side, monte_carlo_tie=p_tie)
     elif market == "total_2way":
-        tot = h + a
-        res = np.array([settle_total_2way(float(t), line, side) for t in tot])
-        p_win = float((res == "win").mean()); p_push = float((res == "push").mean()); p_lose = float((res == "lose").mean())
-        decisive = 1.0 - p_push
-        out.update(p_win=p_win, p_push=p_push, p_lose=p_lose,
-                   p_win_decisive=(p_win / decisive if decisive > 0 else None), monte_carlo=p_win)
+        tot = (h + a).astype(float)
+        if side not in ("over", "under"):
+            raise ValueError(side)
+        out.update(wpl(tot - line if side == "over" else line - tot))
     elif market == "team_total_2way":
-        pts = h if side.startswith("home") else a
+        pts = (h if side.startswith("home") else a).astype(float)
         ou = "over" if side.endswith("over") else "under"
-        res = np.array([settle_team_total_2way(float(t), line, ou) for t in pts])
-        p_win = float((res == "win").mean()); p_push = float((res == "push").mean()); p_lose = float((res == "lose").mean())
-        decisive = 1.0 - p_push
-        out.update(p_win=p_win, p_push=p_push, p_lose=p_lose,
-                   p_win_decisive=(p_win / decisive if decisive > 0 else None), monte_carlo=p_win)
+        out.update(wpl(pts - line if ou == "over" else line - pts))
     else:
         raise ValueError(market)
     return out
@@ -246,8 +306,10 @@ def raw_probs_mc_and_gr(periods_asof, home, away, **market_kw) -> dict:
     """
     seed = market_kw.pop("seed", 20261105)
     n = market_kw.pop("n", 50_000)
-    base = simulate_game(periods_asof, home, away, n=n, seed=seed, apply_gr=False)
-    gr = simulate_game(periods_asof, home, away, n=n, seed=seed + 1, apply_gr=True)
+    sampling = market_kw.pop("sampling", "independent")
+    gr_scale = market_kw.pop("gr_scale", "within_game_covariance")
+    base = simulate_game(periods_asof, home, away, n=n, seed=seed, apply_gr=False, sampling=sampling)
+    gr = simulate_game(periods_asof, home, away, n=n, seed=seed + 1, apply_gr=True, sampling=sampling, gr_scale=gr_scale)
     rb = raw_probs_from_sim(base, **market_kw)
     rg = raw_probs_from_sim(gr, **market_kw)
     out = {

@@ -1,7 +1,7 @@
 """Bounded game state + explicit event transitions + period scoreboards."""
 from __future__ import annotations
 from dataclasses import dataclass, field
-from typing import Optional
+from typing import Callable, Optional
 
 
 def _empty_periods():
@@ -29,6 +29,9 @@ class GameState:
     reg_score_home: Optional[int] = None
     reg_score_away: Optional[int] = None
     period_scores: dict = field(default_factory=_empty_periods)
+    # Optional zero-arg callable returning the receiving team's yardline_100 after a kickoff
+    # (set by simulate_one from the as-of kickoff outcomes). None = legacy fixed own-25.
+    kickoff_sampler: Optional[Callable[[], int]] = field(default=None, repr=False, compare=False)
 
     @classmethod
     def new_game(cls, home: str, away: str) -> "GameState":
@@ -76,6 +79,14 @@ class GameState:
         }
 
 
+LEGACY_KICKOFF_YL = 75  # own 25: pre-2024 touchback spot
+
+
+def kickoff_spot(st: GameState) -> int:
+    """Receiving team's yardline_100 after a kickoff: sampled when a sampler is attached, else own 25."""
+    return int(st.kickoff_sampler()) if st.kickoff_sampler is not None else LEGACY_KICKOFF_YL
+
+
 def apply_kickoff(st: GameState, *, receiving: str, yardline_100: int = 75) -> GameState:
     st.possession = receiving
     st.yardline_100 = int(yardline_100)
@@ -91,7 +102,7 @@ def maybe_halftime(st: GameState, *, q3_receive: str) -> GameState:
         st.qtr = 3
         st.half = 2
         st.game_seconds_remaining = 900
-        apply_kickoff(st, receiving=q3_receive, yardline_100=75)
+        apply_kickoff(st, receiving=q3_receive, yardline_100=kickoff_spot(st))
     return st
 
 
@@ -104,7 +115,7 @@ def start_ot_if_tied(st: GameState) -> GameState:
             st.qtr = 5
             st.game_seconds_remaining = 600
             st.events.append({"type": "ot_start", "rule": "single_possession_approx_declared_limitation"})
-            apply_kickoff(st, receiving=st.away, yardline_100=75)
+            apply_kickoff(st, receiving=st.away, yardline_100=kickoff_spot(st))
         else:
             st.final = True
             st.events.append({"type": "final", "score": (st.score_home, st.score_away)})

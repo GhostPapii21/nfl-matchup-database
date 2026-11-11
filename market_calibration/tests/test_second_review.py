@@ -5,10 +5,10 @@ import json
 from pathlib import Path
 
 import pytest
-from research.market_calibration.calibration import CalibrationBias, separate_outputs, score_predictions, validate_splits
-from research.market_calibration.manifest import validate_manifest
-from research.market_calibration.quotes import load_saved_quotes, match_quote
-from research.market_calibration.joint_trial_adapter import adapt_joint_trials
+from market_calibration.calibration import CalibrationBias, separate_outputs, score_predictions, validate_splits
+from market_calibration.manifest import validate_manifest
+from market_calibration.quotes import load_saved_quotes, match_quote
+from market_calibration.joint_trial_adapter import adapt_joint_trials
 from test_quotes import request
 from test_calibration import provenance
 from test_contract_manifest import trial
@@ -87,7 +87,7 @@ def test_trial_transport_preserves_missingness_and_freeze_consistency(mutation):
         other["trial_index"] = 1
         other["trial_id"] = other["forecast_id"] + "/trial/1"
         other["rng"]["seed"] = "32"
-        from research.market_calibration.joint_trial_adapter import derive_trial_seed
+        from market_calibration.joint_trial_adapter import derive_trial_seed
         other["rng"]["trial_seed"] = derive_trial_seed(other)
         with pytest.raises(ValueError):
             adapt_joint_trials([row, other])

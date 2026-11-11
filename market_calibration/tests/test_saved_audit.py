@@ -3,9 +3,9 @@ import json
 from pathlib import Path
 import pytest
 
-from research.market_calibration.audit import build_saved_audit
-from research.market_calibration.quotes import load_saved_quotes, match_quote, MatchRequest
-from research.market_calibration.settlement import ScoreCard
+from market_calibration.audit import build_saved_audit
+from market_calibration.quotes import load_saved_quotes, match_quote, MatchRequest
+from market_calibration.settlement import ScoreCard
 from test_quotes import request
 
 
@@ -58,7 +58,7 @@ def test_independent_novig_all_real_pairs():
 
 def test_independent_all_saved_grade_arithmetic_without_settlement_helpers():
     import csv
-    from research.market_calibration.quotes import SOURCES
+    from market_calibration.quotes import SOURCES
     tables = {}
     for source in SOURCES:
         with source.open(newline="") as stream:

@@ -9,7 +9,7 @@ import pandas as pd
 from pbp_filter import load_team_history
 from empirical import StateKey, lookup_plays, lookup_special, sample_play, dist_bucket, yl_bucket
 from adjustments import apply_forward_qb_filter
-from state import GameState, apply_kickoff, maybe_halftime, start_ot_if_tied
+from state import GameState, apply_kickoff, maybe_halftime, start_ot_if_tied, kickoff_spot
 
 
 def stable_seed(base: int, week: int, game_id: str) -> int:
@@ -73,6 +73,9 @@ class PlayCatalog:
                     self.def_allowed_down[(str(deff), int(down))] = gd
                     for db, cell in gd.groupby("_db"):
                         self.def_allowed_cells[(str(deff), int(down), str(db))] = cell
+        # Kickoff outcomes: receiving team's first scrimmage yardline_100 after each as-of kickoff
+        # in games involving these teams (touchbacks at the 35 under the 2025 rule, returns, short kicks).
+        self.kickoff_starts = kickoff_start_yardlines(games_df if games_df is not None else df)
         # State-conditioned 4th-down decisions (observed team rows only)
         self.fourth_cells: dict[tuple, pd.DataFrame] = {}
         f4 = df[(df["down"] == 4) & df["play_type"].isin(["punt", "field_goal", "pass", "run"])].copy()
@@ -232,7 +235,7 @@ def _attempt_fg(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -
     if res == "made":
         st.add_score(st.possession, 3)
         st.events.append({"type": "field_goal", "result": "made", "team": st.possession})
-        apply_kickoff(st, receiving=_other(st, st.possession), yardline_100=75)
+        apply_kickoff(st, receiving=_other(st, st.possession), yardline_100=kickoff_spot(st))
         if st.in_ot:
             st.final = True
     else:
@@ -362,7 +365,7 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
         st.add_score(scoring, 2)
         st.events.append({"type": "safety", "team": scoring, "yards": yards})
         # After safety, scored-upon team free-kicks; scoring team receives (~own 25 → yl 75).
-        apply_kickoff(st, receiving=scoring, yardline_100=75)
+        apply_kickoff(st, receiving=scoring, yardline_100=kickoff_spot(st))
         return
 
     # Score only if yards from *current* field position reach the EZ.
@@ -372,7 +375,7 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
         st.add_score(scoring, 6)
         st.events.append({"type": "touchdown", "team": scoring, "yards": yards})
         _attempt_pat(rng, catalog, st, scoring)
-        apply_kickoff(st, receiving=_other(st, scoring), yardline_100=75)
+        apply_kickoff(st, receiving=_other(st, scoring), yardline_100=kickoff_spot(st))
         if st.in_ot:
             st.final = True
             st.events.append({"type": "final_ot"})
@@ -416,7 +419,12 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
     away = cfg["game"]["away"]
     st = GameState.new_game(home=home, away=away)
     st.game_seconds_remaining = 900  # Q1 only
-    apply_kickoff(st, receiving=away, yardline_100=75)
+    starts = getattr(catalog, "kickoff_starts", None)
+    if starts is None and hasattr(catalog, "base"):
+        starts = getattr(catalog.base, "kickoff_starts", None)
+    if cfg.get("kickoff_start", "empirical") == "empirical" and starts is not None and len(starts):
+        st.kickoff_sampler = lambda: int(starts[rng.integers(0, len(starts))])
+    apply_kickoff(st, receiving=away, yardline_100=kickoff_spot(st))
     allow_pool = bool(cfg.get("proposed_pooling", {}).get("enabled", False))
     # Default research improvements (still labeled; not market-fit).
     # Duck-type EffectsCatalog / PlayCatalog: prefer methods on wrapper, else base.
@@ -607,6 +615,31 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
         ],
         "source_composition": source_composition(cfg),
     }
+
+
+_SCRIMMAGE = ("run", "pass", "punt", "field_goal", "qb_kneel", "qb_spike")
+
+
+def kickoff_start_yardlines(df: Optional[pd.DataFrame]) -> Optional[np.ndarray]:
+    """yardline_100 of the receiving team's first scrimmage play after each kickoff.
+
+    Kickoffs recovered by the kicking team (onside) or returned for a score have no such
+    play by the receiving team and are left out. Returns None when the columns are missing.
+    """
+    need = {"game_id", "play_id", "play_type", "posteam", "yardline_100", "kickoff_attempt"}
+    if df is None or not len(df) or not need <= set(df.columns):
+        return None
+    d = df.sort_values(["game_id", "play_id"])
+    gid, pt, pos, yl = (d[c].to_numpy() for c in ("game_id", "play_type", "posteam", "yardline_100"))
+    ko = d["kickoff_attempt"].fillna(0).to_numpy() == 1
+    out = []
+    for i in np.flatnonzero(ko):
+        j = i + 1
+        while j < len(d) and gid[j] == gid[i] and pt[j] not in _SCRIMMAGE and not ko[j]:
+            j += 1
+        if j < len(d) and gid[j] == gid[i] and not ko[j] and pos[j] == pos[i] and pd.notna(yl[j]):
+            out.append(int(yl[j]))
+    return np.asarray(out, dtype=int) if out else None
 
 
 def yl4_bucket(yl) -> str:

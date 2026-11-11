@@ -1,7 +1,7 @@
 """Strict score windows and quote identity before a grade can PASS."""
 from dataclasses import dataclass
 
-from research.period_engine_v0.settlement import settle_spread_2way, settle_total_2way
+from core.period_engine_v0.settlement import settle_spread_2way, settle_total_2way
 from .quotes import MatchRequest, identity_flags_for_quote, request_flags, side_name
 
 

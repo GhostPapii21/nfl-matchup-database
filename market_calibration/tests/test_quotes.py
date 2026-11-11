@@ -3,10 +3,10 @@ from dataclasses import replace
 
 import pytest
 
-from research.market_calibration.quotes import (
+from market_calibration.quotes import (
     GAME_ID, SOURCES, MatchRequest, load_saved_quotes, match_quote,
 )
-from research.period_engine_v0.market import novig_two_way, novig_three_way
+from core.period_engine_v0.market import novig_two_way, novig_three_way
 
 
 @pytest.fixture(scope="module")

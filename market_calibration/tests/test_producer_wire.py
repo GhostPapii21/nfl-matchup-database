@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from research.market_calibration.joint_trial_adapter import adapt_joint_trials
+from market_calibration.joint_trial_adapter import adapt_joint_trials
 from test_contract_manifest import trial
 
 

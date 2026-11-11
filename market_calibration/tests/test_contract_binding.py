@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from research.market_calibration import joint_trial_adapter as adapter
-from research.market_calibration.manifest import validate_manifest
+from market_calibration import joint_trial_adapter as adapter
+from market_calibration.manifest import validate_manifest
 
 
 ROOT = Path(__file__).resolve().parents[1]

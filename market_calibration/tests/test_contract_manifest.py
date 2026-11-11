@@ -2,8 +2,8 @@ from copy import deepcopy
 import json
 from pathlib import Path
 import pytest
-from research.market_calibration.joint_trial_adapter import adapt_joint_trials, contract_info
-from research.market_calibration.manifest import validate_manifest
+from market_calibration.joint_trial_adapter import adapt_joint_trials, contract_info
+from market_calibration.manifest import validate_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
 

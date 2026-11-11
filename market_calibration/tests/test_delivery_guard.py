@@ -4,10 +4,10 @@ from dataclasses import asdict, replace
 
 import pytest
 
-from research.market_calibration import guard_edge_delivery
-from research.market_calibration.calibration import UNFITTED, separate_outputs
-from research.market_calibration.delivery_guard import ANOMALY_EDGE_PP_THRESHOLD
-from research.market_calibration.quotes import MatchResult, QuoteRecord
+from market_calibration import guard_edge_delivery
+from market_calibration.calibration import UNFITTED, separate_outputs
+from market_calibration.delivery_guard import ANOMALY_EDGE_PP_THRESHOLD
+from market_calibration.quotes import MatchResult, QuoteRecord
 
 
 IDENTITY = dict(game_id="synthetic-game", game_id_namespace="saved_csv_game_id",
