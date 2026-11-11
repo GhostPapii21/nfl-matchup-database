@@ -1,0 +1,55 @@
+{
+  "created_et": "2026-11-10, America/New_York",
+  "research_only": true,
+  "projection_ready_untouched": true,
+  "no_picks": true,
+  "sources": {
+    "nflverse_stats": "/tmp/nflverse_2026/stats_player_week_2026.parquet",
+    "nflverse_snaps": "/tmp/nflverse_2026/snap_counts_2026.parquet",
+    "savant_pbp": "/workspace/nfl_savant_nyg_was_2026-11-10/raw/pbp-2026.csv",
+    "odds_freeze": "/workspace/odds_freeze/2026_10_WAS_NYG/baseline_20261110_0902ET/props.csv"
+  },
+  "split_definitions": {
+    "with_mclaurin_substantial": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "mclaurin_limited": [
+      6
+    ],
+    "without_mclaurin": [
+      4,
+      8,
+      9
+    ],
+    "daniels_started": [
+      1,
+      2,
+      5,
+      6,
+      8,
+      9
+    ],
+    "daniels_100pct": [
+      1,
+      5,
+      6,
+      8,
+      9
+    ],
+    "jcm_weeks": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "gaps": [
+    "weekly_route_share",
+    "week9_pbp_kneels",
+    "individual_NYG_coverage_targets_allowed"
+  ]
+}

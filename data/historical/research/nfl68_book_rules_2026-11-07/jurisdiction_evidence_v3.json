@@ -1,0 +1,76 @@
+{
+ "retrieved_at_et": "2026-11-07 07:13-07:16 EST",
+ "model_status": "NOT READY",
+ "states": {
+  "NC": {
+   "availability_source": "https://ncgaming.gov/approved-licensees/",
+   "availability": {
+    "FanDuel": "LICENSED (Betfair Interactive US dba FanDuel, NCO-0005)",
+    "BetMGM": "LICENSED (BETMGM LLC, NCO-0007)",
+    "DraftKings": "LICENSED (Crown NC Gaming dba DraftKings, NCO-0002)"
+   },
+   "rules": {
+    "FanDuel": {
+     "url": "https://www.fanduel.com/fanduel-sportsbook-house-rules-nc",
+     "effective": "October 15, 2026",
+     "dnp": "For player prop markets, only when a player does not play a snap in that game are the selections voided.",
+     "whole_number": "In Point Spread (Handicap) & Total betting, where the index (value) of the market is a whole number, bets are void and will be refunded where the score lands on that number. (game-level; prop push = inference)",
+     "parlay_sgp": "If all selections except one are void, the parlays will be settled as a straight at the applicable odds. - The above also applies to all Same Game Parlay bets"
+    },
+    "DraftKings": "UNCONFIRMED: no state-specific DK rule page retrieved for NC/NY; DK general push text seen only in Virginia-scoped page — not portable",
+    "BetMGM": "UNCONFIRMED: no NC/NY BetMGM rule text retrieved; 2023 MA PDF not portable/current"
+   }
+  },
+  "NY": {
+   "availability_source": "https://gaming.ny.gov/sports-wagering",
+   "availability": {
+    "FanDuel": "LICENSED",
+    "BetMGM": "LICENSED",
+    "DraftKings": "LICENSED"
+   },
+   "rules": {
+    "FanDuel": {
+     "url": "https://www.fanduel.com/fanduel-sportsbook-house-rules-ny",
+     "effective": "October 15, 2026",
+     "dnp": "same sentence as NC",
+     "whole_number": "same game-level Total sentence; prop push = inference",
+     "parlay_sgp": "If all selections except one are void, the parlays will be settled as a straight at the applicable odds. - The above also applies to all Same Game Parlay bets."
+    },
+    "DraftKings": "UNCONFIRMED: no state-specific DK rule page retrieved for NC/NY; DK general push text seen only in Virginia-scoped page — not portable",
+    "BetMGM": "UNCONFIRMED: no NC/NY BetMGM rule text retrieved; 2023 MA PDF not portable/current"
+   }
+  },
+  "FL": {
+   "availability_source": "https://flgaming.gov/faq/",
+   "quote": "Can I legally place online wagers on sports? Generally, no. Unless you are placing a wager through sportsbooks operated by or in conjunction with the Seminole Tribe of Florida, you are most likely placing an illegal wager.",
+   "availability": {
+    "FanDuel": "NOT_APPLICABLE",
+    "BetMGM": "NOT_APPLICABLE",
+    "DraftKings": "NOT_APPLICABLE"
+   },
+   "note": "Only Seminole-operated (Hard Rock Bet) per regulator; not widened"
+  },
+  "TX": {
+   "availability_source": "https://guides.sll.texas.gov/gambling (Texas State Law Library) citing https://statutes.capitol.texas.gov/Docs/PE/htm/PE.47.htm#47.02",
+   "quote": "Section 47.02 of the Texas Penal Code states someone commits an offense if they: make a bet on the partial or final result of a game or contest or on the performance of a participant in a game or contest",
+   "availability": {
+    "FanDuel": "NOT_APPLICABLE",
+    "BetMGM": "NOT_APPLICABLE",
+    "DraftKings": "NOT_APPLICABLE"
+   },
+   "note": "No regulated sportsbook; state library guide, not regulator license list"
+  }
+ },
+ "gaps": [
+  "DK NC/NY state rule pages",
+  "BetMGM NC/NY current rule text",
+  "explicit integer player-prop push sentence any book",
+  "ordinary parlay push rule BetMGM",
+  "zero/negative yards: none found"
+ ],
+ "secondary_only": [
+  "seqlegal.com",
+  "saputo.law",
+  "marketwatch.com"
+ ]
+}
