@@ -4,27 +4,27 @@
 
 Market (schedule consensus, not a timestamped quote): NYJ +8.5, total 50.5.
 
-Generated 2026-11-11T18:19:57+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:21:30+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-11T18:19:56+00:00 UTC. At kickoff: 51 F, wind 12 mph NW, 0% chance of precipitation, Mostly Sunny. During the game: low 51 F, wind up to 12 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-11T18:21:29+00:00 UTC. At kickoff: 51 F, wind 12 mph NW, 0% chance of precipitation, Mostly Sunny. During the game: low 51 F, wind up to 12 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:19:51+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T18:21:24+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | NYJ +8.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:18:40Z |
-| spread | fanduel | NYJ +7.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:19:20Z |
-| spread | pinnacle | NYJ +8.5 | -114 | +101 | 51.7% | 48.3% | 3.0% | 2026-11-11T18:19:21Z |
-| total | draftkings | Over 50.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T18:18:40Z |
-| total | fanduel | Over 50.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:19:20Z |
-| total | pinnacle | Over 51 | -107 | -109 | 49.8% | 50.2% | 3.8% | 2026-11-11T18:19:21Z |
-| moneyline | draftkings | NYJ | +310 | -395 | 23.4% | 76.6% | 4.2% | 2026-11-11T18:18:40Z |
-| moneyline | fanduel | NYJ | +370 | -480 | 20.4% | 79.5% | 4.0% | 2026-11-11T18:19:20Z |
-| moneyline | pinnacle | NYJ | +339 | -424 | 22.0% | 78.0% | 3.7% | 2026-11-11T18:19:21Z |
+| spread | draftkings | NYJ +8.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:19:58Z |
+| spread | fanduel | NYJ +7.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:21:17Z |
+| spread | pinnacle | NYJ +8.5 | -114 | +101 | 51.7% | 48.3% | 3.0% | 2026-11-11T18:20:38Z |
+| total | draftkings | Over 50.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T18:19:58Z |
+| total | fanduel | Over 50.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:21:17Z |
+| total | pinnacle | Over 51 | -107 | -109 | 49.8% | 50.2% | 3.8% | 2026-11-11T18:20:38Z |
+| moneyline | draftkings | NYJ | +310 | -395 | 23.4% | 76.6% | 4.2% | 2026-11-11T18:19:58Z |
+| moneyline | fanduel | NYJ | +370 | -480 | 20.4% | 79.5% | 4.0% | 2026-11-11T18:21:17Z |
+| moneyline | pinnacle | NYJ | +339 | -424 | 22.0% | 78.0% | 3.7% | 2026-11-11T18:20:38Z |
 
 ### Line movement: first seen 2026-11-11T18:17:56+00:00 to 2026-11-11T18:17:56+00:00 (1 snapshots)
 
@@ -528,16 +528,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:19:47+00:00 | 6656271e487d |
-| pbp | OK | 2026-11-11T18:19:47+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:19:47+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:19:47+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:19:48+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:19:48+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:19:48+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:19:49+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:19:49+00:00 |  |
+| games | OK | 2026-11-11T18:21:20+00:00 | 6656271e487d |
+| pbp | OK | 2026-11-11T18:21:20+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:21:20+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:21:20+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:21:21+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:21:21+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:21:21+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:21:22+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T18:21:22+00:00 |  |
 | nfl_savant | UNAVAILABLE: no play-by-play CSV found; tried https://nflsavant.com/pbp_data.php?year=2026; https://nflsavant.com/about.php; https://nflsavant.com/ |  |  |
-| book_odds | OK | 2026-11-11T18:19:51+00:00 |  |
+| book_odds | OK | 2026-11-11T18:21:24+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
