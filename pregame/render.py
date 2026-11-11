@@ -234,7 +234,7 @@ def brief(pk):
     cn = pk.get("connectors") or {}
     if cn.get("sources"):
         L += ["## Keyed connectors in this run", "",
-              table(["Secret", "Provider", "Status", "Used for"], [[k, v["provider"], v["status"] + (f" (slate {v['slate_check']})" if v.get("slate_check") else ""), v["used_for"]] for k, v in cn["sources"].items()]),
+              table(["Secret", "Provider", "Status", "Used for"], [[k, v["provider"], v["status"] + (f" (slate {v['slate_check']})" if v.get("slate_check") else "") + (f": {v['provider_message']}" if v.get("provider_message") else ""), v["used_for"]] for k, v in cn["sources"].items()]),
               "", cn["note"], ""]
     L += ["## Phase ledger", "", table(["Phase", "Name", "Status", "What this packet has / what is missing"],
                                        [[p["phase"], p["name"], p["status"], p["detail"]] for p in pk["phase_ledger"]]), ""]

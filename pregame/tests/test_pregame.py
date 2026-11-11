@@ -256,7 +256,15 @@ def test_savant_splits_and_failures():
     assert z == {"zone": "Deep Left", "attempts": 12, "share": 1.0, "completion_rate": 0.5, "yards_per_attempt": 4.0}
     assert SV.team_splits(s["plays"], "LAC", "2026-11-16")["defense_pass_zones_allowed"][0]["attempts"] == 12
     assert SV.team_splits(s["plays"], "ZZZ", "2026-11-16") is None
-    assert SV.load(2026, fetch=lambda u, timeout=0: b"a,b\n1,2\n")["status"].startswith("SCHEMA_CHANGED")
+    assert SV.load(2026, fetch=lambda u, timeout=0: b"a,b\n1,2\n")["status"].startswith("UNAVAILABLE: no play-by-play CSV found")
+    assert SV.load(2026, fetch=lambda u, timeout=0: b"GameId,Other\n1,2\n")["status"].startswith("SCHEMA_CHANGED")
+    # the page is HTML with a link to the season file: follow it
+    def site(url, timeout=0):
+        if url.endswith(".csv"):
+            return _savant_csv()
+        return b'<html><a href="/dump/pbp-2025.csv">2025</a> <a href="dump/pbp-2026.csv">2026</a></html>'
+    got = SV.load(2026, fetch=site)
+    assert got["status"] == "OK" and got["url"] == "https://nflsavant.com/dump/pbp-2026.csv"
     assert SV.load(2026, fetch=lambda u, timeout=0: 1 / 0)["status"].startswith("UNAVAILABLE")
     assert SV.team_splits(None, "BAL", "2026-11-16") is None
 
@@ -275,5 +283,9 @@ def test_connector_check_reports_status_never_keys():
     bdl = r["sources"]["NFL_BDL_API_KEY"]
     assert bdl["status"] == "OK" and bdl["slate_check"] == "MISMATCH" and bdl["games_not_found_at_provider"] == ["SF@DAL"]   # WSH mapped to WAS
     assert r["sources"]["NFL_API_SPORTS_KEY"]["status"] == "KEY_PRESENT_REQUEST_FAILED: PermissionError"
+    plan = C.check(2026, 10, [], env={"NFL_API_SPORTS_KEY": "SECRET123"},
+                   fetch_http=lambda *a, **k: {"data": {"errors": {"plan": "Free plans do not have access to this season, key SECRET123"}, "response": []}})
+    aps = plan["sources"]["NFL_API_SPORTS_KEY"]
+    assert aps["status"] == "KEY_PRESENT_PROVIDER_ERROR" and "Free plans" in aps["provider_message"] and "SECRET123" not in json.dumps(plan)
     assert r["sources"]["ODDS_API_KEY"]["status"] == "KEY_PRESENT"
     assert "SECRET123" not in json.dumps(r)

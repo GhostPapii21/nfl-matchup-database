@@ -23,12 +23,61 @@ def _get(url, timeout=120):
         return r.read()
 
 
+PAGES = ("https://nflsavant.com/pbp_data.php?year={season}", "https://nflsavant.com/about.php", "https://nflsavant.com/")
+
+
+def _is_csv(raw: bytes) -> bool:
+    return b"GameId" in raw[:2000] and b"<html" not in raw[:2000].lower()
+
+
+def _csv_links(html: bytes, base: str, season: int) -> list[str]:
+    """Links on a Savant page that look like this season's play-by-play CSV."""
+    import re
+    from urllib.parse import urljoin
+    out = []
+    for href in re.findall(rb"""href\s*=\s*["']([^"']+)["']""", html, flags=re.I):
+        h = href.decode("utf-8", "ignore")
+        if str(season) in h and ".csv" in h.lower():
+            u = urljoin(base, h)
+            if u not in out:
+                out.append(u)
+    return out
+
+
+def find_csv(season, fetch=_get):
+    """Try the known page addresses; accept a CSV directly, or follow a CSV link found on the page."""
+    tried = []
+    for page in PAGES:
+        url = page.format(season=season)
+        tried.append(url)
+        try:
+            raw = fetch(url)
+        except Exception as exc:
+            tried[-1] += f" ({type(exc).__name__})"
+            continue
+        if _is_csv(raw):
+            return url, raw, tried
+        for link in _csv_links(raw, url, season)[:3]:
+            tried.append(link)
+            try:
+                data = fetch(link)
+            except Exception as exc:
+                tried[-1] += f" ({type(exc).__name__})"
+                continue
+            if _is_csv(data):
+                return link, data, tried
+    return None, None, tried
+
+
 def load(season, *, offline=False, fetch=_get) -> dict:
     url = URL.format(season=season)
     if offline:
         return {"status": "SKIPPED_OFFLINE", "url": url, "plays": None}
     try:
-        df = pd.read_csv(io.BytesIO(fetch(url)), low_memory=False)
+        url, raw, tried = find_csv(season, fetch)
+        if raw is None:
+            return {"status": "UNAVAILABLE: no play-by-play CSV found; tried " + "; ".join(tried)[:400], "url": tried[0], "plays": None}
+        df = pd.read_csv(io.BytesIO(raw), low_memory=False)
     except Exception as exc:
         return {"status": f"UNAVAILABLE: {type(exc).__name__}: {str(exc)[:120]}", "url": url, "plays": None}
     missing = [c for c in NEED if c not in df.columns]

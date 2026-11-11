@@ -61,7 +61,13 @@ def check(season, week, slate, *, offline=False, env=None, fetch_http=None) -> d
         try:
             ev = fetch_http("api_sports_nfl", "games", enabled=True, params={"season": season})
             d = ev["data"]
-            aps["status"] = "OK" if isinstance(d, dict) and isinstance(d.get("response"), list) and not d.get("errors") else "KEY_PRESENT_PROVIDER_ERROR"
+            if isinstance(d, dict) and isinstance(d.get("response"), list) and not d.get("errors"):
+                aps.update(status="OK", games_returned=len(d["response"]))
+            else:
+                aps["status"] = "KEY_PRESENT_PROVIDER_ERROR"
+                err = d.get("errors") if isinstance(d, dict) else None       # the provider's own explanation (plan, season, quota)
+                key = env.get("NFL_API_SPORTS_KEY", "")
+                aps["provider_message"] = str(err)[:300].replace(key, "***") if err else "no error text returned"
         except Exception as exc:
             aps["status"] = f"KEY_PRESENT_REQUEST_FAILED: {type(exc).__name__}"
     return out
