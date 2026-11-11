@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): DET -2.5, total 51.5.
 
-Generated 2026-11-11T18:21:28+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:23:28+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,19 +12,19 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:21:24+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T18:23:24+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:19:58Z |
-| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:21:17Z |
-| spread | pinnacle | DET -2.5 | -125 | +111 | 54.0% | 46.0% | 2.9% | 2026-11-11T18:20:38Z |
-| total | draftkings | Over 51.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-11T18:19:58Z |
-| total | fanduel | Over 50.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:21:17Z |
-| total | pinnacle | Over 51 | -105 | -111 | 49.3% | 50.7% | 3.8% | 2026-11-11T18:20:38Z |
-| moneyline | draftkings | DET | -155 | +130 | 58.3% | 41.7% | 4.3% | 2026-11-11T18:19:58Z |
-| moneyline | fanduel | DET | -152 | +128 | 57.9% | 42.1% | 4.2% | 2026-11-11T18:21:17Z |
-| moneyline | pinnacle | DET | -158 | +139 | 59.4% | 40.6% | 3.1% | 2026-11-11T18:20:38Z |
+| spread | draftkings | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:22:36Z |
+| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:23:16Z |
+| spread | pinnacle | DET -2.5 | -125 | +111 | 54.0% | 46.0% | 2.9% | 2026-11-11T18:23:16Z |
+| total | draftkings | Over 51.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-11T18:22:36Z |
+| total | fanduel | Over 50.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:23:16Z |
+| total | pinnacle | Over 51 | -105 | -111 | 49.3% | 50.7% | 3.8% | 2026-11-11T18:23:16Z |
+| moneyline | draftkings | DET | -155 | +130 | 58.3% | 41.7% | 4.3% | 2026-11-11T18:22:36Z |
+| moneyline | fanduel | DET | -152 | +128 | 57.9% | 42.1% | 4.2% | 2026-11-11T18:23:16Z |
+| moneyline | pinnacle | DET | -158 | +139 | 59.4% | 40.6% | 3.1% | 2026-11-11T18:23:16Z |
 
 ### Line movement: first seen 2026-11-11T18:17:55+00:00 to 2026-11-11T18:17:55+00:00 (1 snapshots)
 
@@ -533,16 +533,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:21:20+00:00 | 6656271e487d |
-| pbp | OK | 2026-11-11T18:21:20+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:21:20+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:21:20+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:21:21+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:21:21+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:21:21+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:21:22+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:21:22+00:00 |  |
+| games | OK | 2026-11-11T18:23:20+00:00 | 6656271e487d |
+| pbp | OK | 2026-11-11T18:23:21+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:23:21+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:23:21+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:23:21+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:23:22+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:23:22+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:23:22+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T18:23:23+00:00 |  |
 | nfl_savant | UNAVAILABLE: no play-by-play CSV found; tried https://nflsavant.com/pbp_data.php?year=2026; https://nflsavant.com/about.php; https://nflsavant.com/ |  |  |
-| book_odds | OK | 2026-11-11T18:21:24+00:00 |  |
+| book_odds | OK | 2026-11-11T18:23:24+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
