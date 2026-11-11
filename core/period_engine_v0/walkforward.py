@@ -165,7 +165,7 @@ def run_walkforward(n_sims: int = 20_000, seed: int = 20261105):
         "mae_league_mean_by_period": {p: float(df[df.period==p].mae_total_league_mean.mean()) for p, _, _ in PERIODS_EVAL},
         "brier_home_win_by_period": {p: float(df[df.period==p].brier_home_win.mean()) for p, _, _ in PERIODS_EVAL},
         "baseline_brier_home_win_by_period": {p: float(df[df.period==p].baseline_brier.mean()) for p, _, _ in PERIODS_EVAL},
-        "pre_fix_artifact_dir": str(PRE),
+        "pre_fix_artifact_dir": str(PRE.relative_to(ROOT)) if PRE.is_relative_to(ROOT) else PRE.name,  # no machine paths in public artifacts
         "set_label": "development_inspected_w1_8_not_untouched_holdout",
         "limitations": [
             "NO historical period market prices — accuracy only; NO profitability/edge",

@@ -10,6 +10,8 @@ cd nfl-matchup-database
 python3 prepare.py
 python3 query.py --tables
 python3 query.py --sql 'SELECT game_id,date,status FROM games ORDER BY date DESC LIMIT 12'
+python3 query.py --schema games                      # columns of one table
+python3 query.py --sql 'SELECT * FROM games WHERE date >= ?' --param 2026-10-01 --format csv
 ```
 
 Or download **nfl_matchups.sqlite.gz** from this repository and decompress it. `manifest.json` contains table counts, snapshot time and SHA-256 checksums. `schema.sql` documents the database structure. Python tools use only the standard library.
@@ -66,4 +68,6 @@ Bounded check, after `python3 -m pip install -r requirements-smoke.txt`:
 bash scripts/smoke_offline.sh
 ```
 
-That runs two offline pytest modules. It does not fetch data, fit a model, or certify the 15-phase or 100k workflows. The security review and the hash-only exclusion list are `inventory/PUBLIC_SECURITY_REVIEW.md` and `inventory/EXCLUSIONS.json`. Archive hashes are in `inventory/RESTORE_VERIFICATION.json`.
+That runs two offline pytest modules. It does not fetch data, fit a model, or certify the 15-phase or 100k workflows.
+
+Every offline suite (root, period and possession engines, gamebooks, team DB, market calibration, source-run gate) runs with `pip install -r requirements-test.txt && bash scripts/test_offline.sh`, and on every pull request through `.github/workflows/offline-tests.yml`. Tests that need unpublished local inputs (the saved quote CSVs, the optional Outlier export) are reported as skipped with the reason, not passed. The security review and the hash-only exclusion list are `inventory/PUBLIC_SECURITY_REVIEW.md` and `inventory/EXCLUSIONS.json`. Archive hashes are in `inventory/RESTORE_VERIFICATION.json`.

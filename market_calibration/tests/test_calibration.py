@@ -1,10 +1,10 @@
 from copy import deepcopy
 from dataclasses import replace
 import pytest
-from research.market_calibration.calibration import (
+from market_calibration.calibration import (
     Provenance, CalibrationBias, validate_splits, separate_outputs, score_predictions,
 )
-from research.market_calibration.quotes import load_saved_quotes, match_quote
+from market_calibration.quotes import load_saved_quotes, match_quote
 from test_quotes import request
 
 

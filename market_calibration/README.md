@@ -9,7 +9,7 @@ The bounded public check is `bash scripts/smoke_offline.sh` from the repository 
 Saved quote CSVs are not published. `python3 -m market_calibration.audit` stays fail-closed until those files are supplied locally under `market_calibration/saved_quotes/`, and a missing file is not a fitted calibration.
 
 Pytest's local configuration disables its cache. The tests complete in well under
-30 seconds. These commands write only inside `research/market_calibration/`.
+30 seconds. These commands write only inside `market_calibration/`. Run the suite with `cd market_calibration && python3 -m pytest tests reviews/test_independent_false_pass.py -q`; tests that need the unpublished saved quote CSVs are skipped with that reason until the files are supplied.
 The existing engine `market.py` and `settlement.py` are imported read-only.
 
 ## Saved quotes and identity

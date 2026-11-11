@@ -4,13 +4,36 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+# The 2025 season file the engine was built and recorded against
+# (sha256 in research/.../phase4_verify/before_snapshot.json). The public copy ships it
+# once, as fixtures/week8/phase_walk/src/pbp25.parquet, not under data/.
+PBP_2025_NAME = "play_by_play_2025.parquet"
+PBP_2025_SHA256 = "c6ecedd6d678cc37ed316b23ef84ee1ec6abb69c514bb11868a7ebd5a367df29"
+_PBP_2025_FALLBACK = Path(__file__).resolve().parents[2] / "fixtures/week8/phase_walk/src/pbp25.parquet"
+
+
+def resolve_pbp_path(path: str | Path) -> Path:
+    """Return `path`, or the hash-verified bundled 2025 copy when data/play_by_play_2025.parquet is absent."""
+    path = Path(path)
+    if path.exists() or path.name != PBP_2025_NAME or not _PBP_2025_FALLBACK.is_file():
+        return path
+    import hashlib
+    h = hashlib.sha256()
+    with _PBP_2025_FALLBACK.open("rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    if h.hexdigest() != PBP_2025_SHA256:
+        raise ValueError(f"{_PBP_2025_FALLBACK} does not match the recorded 2025 pbp sha256; refusing to substitute it")
+    return _PBP_2025_FALLBACK
+
+
 REQUIRED = ["game_id","season","week","game_date","home_team","away_team","qtr",
             "total_home_score","total_away_score"]
 
 
 def load_pbp(path: str | Path, seasons: list[int] | None = None) -> pd.DataFrame:
     import pyarrow.parquet as pq
-    path = Path(path)
+    path = resolve_pbp_path(path)
     schema = set(pq.read_schema(path).names)
     missing = [c for c in REQUIRED if c not in schema]
     if missing:

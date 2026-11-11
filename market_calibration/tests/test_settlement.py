@@ -1,7 +1,7 @@
 from dataclasses import replace
 import pytest
-from research.market_calibration.quotes import load_saved_quotes, match_quote
-from research.market_calibration.settlement import ScoreCard, settle, compare_grade
+from market_calibration.quotes import load_saved_quotes, match_quote
+from market_calibration.settlement import ScoreCard, settle, compare_grade
 from test_quotes import request
 
 
