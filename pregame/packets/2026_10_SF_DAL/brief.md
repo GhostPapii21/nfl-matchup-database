@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): DAL +3.5, total 55.5.
 
-Generated 2026-11-11T17:57:07+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:02:50+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -461,6 +461,20 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 Arrived: none.  
 Left for another team: Emari Demercado (RB) to HOU; Caelen Carson (DB) to CAR.
 
+## Formation and pass-zone splits (NFL Savant)
+
+Not in this packet: UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>.
+
+## Keyed connectors in this run
+
+| Secret | Provider | Status | Used for |
+|---|---|---|---|
+| ODDS_API_KEY | The Odds API | KEY_NOT_CONFIGURED_IN_THIS_RUN | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
+| NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | access check only; not used in the packet |
+
+Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
+
 ## Phase ledger
 
 | Phase | Name | Status | What this packet has / what is missing |
@@ -485,15 +499,16 @@ Left for another team: Emari Demercado (RB) to HOU; Caelen Carson (DB) to CAR.
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T17:56:28+00:00 | 7500223cb5ae |
-| pbp | OK | 2026-11-11T17:56:28+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T17:56:28+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T17:56:29+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T17:56:29+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T17:56:29+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T17:56:30+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T17:56:30+00:00 | 99358137e06d |
+| games | OK | 2026-11-11T18:02:10+00:00 | 7500223cb5ae |
+| pbp | OK | 2026-11-11T18:02:11+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:02:11+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:02:11+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:02:11+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:02:12+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:02:12+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:02:12+00:00 | 99358137e06d |
 | espn_injuries | UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden> |  |  |
+| nfl_savant | UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden> |  |  |
 | book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

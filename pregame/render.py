@@ -216,6 +216,26 @@ def brief(pk):
         L += [next(iter(pk["matchup"].values()))["player_baselines"]["method"], ""]
     for team, t in pk["teams"].items():
         L += [team_section(team, t)]
+    sv = pk.get("nfl_savant") or {}
+    L += ["## Formation and pass-zone splits (NFL Savant)", ""]
+    if sv.get("status") == "OK":
+        for team, t in sv["teams"].items():
+            if not t:
+                L += [f"{team}: no plays found under that team code.", ""]; continue
+            L += [f"### {team} (offense {t['games']['offense']} games, defense {t['games']['defense']} games; data through {sv['latest_game']})", "",
+                  table(["Side", "Formation", "Plays", "Share", "Pass rate", "Yards / play"],
+                        [["offense", r["formation"], r["plays"], f(r["share"], 0, True), f(r["pass_rate"], 0, True), r["yards_per_play"]] for r in t["offense_by_formation"]]
+                        + [["defense vs", r["formation"], r["plays"], f(r["share"], 0, True), f(r["pass_rate"], 0, True), r["yards_per_play"]] for r in t["defense_vs_formation"]]), "",
+                  table(["Side", "Pass zone", "Attempts", "Share", "Completion", "Yards / attempt"],
+                        [["offense", r["zone"], r["attempts"], f(r["share"], 0, True), f(r["completion_rate"], 0, True), r["yards_per_attempt"]] for r in t["offense_pass_zones"]]
+                        + [["defense allows", r["zone"], r["attempts"], f(r["share"], 0, True), f(r["completion_rate"], 0, True), r["yards_per_attempt"]] for r in t["defense_pass_zones_allowed"]]), ""]
+    else:
+        L += [f"Not in this packet: {sv.get('status', 'NOT_REQUESTED')}.", ""]
+    cn = pk.get("connectors") or {}
+    if cn.get("sources"):
+        L += ["## Keyed connectors in this run", "",
+              table(["Secret", "Provider", "Status", "Used for"], [[k, v["provider"], v["status"] + (f" (slate {v['slate_check']})" if v.get("slate_check") else ""), v["used_for"]] for k, v in cn["sources"].items()]),
+              "", cn["note"], ""]
     L += ["## Phase ledger", "", table(["Phase", "Name", "Status", "What this packet has / what is missing"],
                                        [[p["phase"], p["name"], p["status"], p["detail"]] for p in pk["phase_ledger"]]), ""]
     L += ["## Sources", "", table(["Dataset", "Status", "Retrieved (UTC)", "SHA-256 (first 12)"],

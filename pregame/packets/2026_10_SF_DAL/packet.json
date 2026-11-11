@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-11T17:57:07+00:00",
+ "generated_utc": "2026-11-11T18:02:50+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -5471,56 +5471,56 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T17:56:28+00:00",
+   "retrieved_utc": "2026-11-11T18:02:10+00:00",
    "sha256": "7500223cb5ae8343cbd25ceeae5b695934154893a87ca6281731588716b65c76",
    "bytes": 523757
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T17:56:28+00:00",
+   "retrieved_utc": "2026-11-11T18:02:11+00:00",
    "sha256": "8211d9a24b0e162732ccb048b8d416354b54e968a4b6fde1cde87059f4ae67ed",
    "bytes": 10122154
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T17:56:28+00:00",
+   "retrieved_utc": "2026-11-11T18:02:11+00:00",
    "sha256": "ad5aaeefbae79632fa53f8f96e18ef6f7a696d93fd3ce78270ae74195b1528da",
    "bytes": 821492
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T17:56:29+00:00",
+   "retrieved_utc": "2026-11-11T18:02:11+00:00",
    "sha256": "91fd27378ada8a48362d51570da4d599b5183b486f8baaea5c01ee5a7e1bae70",
    "bytes": 61590
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T17:56:29+00:00",
+   "retrieved_utc": "2026-11-11T18:02:11+00:00",
    "sha256": "82b047a2700367869c1a5facdb002d2976b2d469c442c3ff49d1f9cb2c106dbf",
    "bytes": 3475983
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T17:56:29+00:00",
+   "retrieved_utc": "2026-11-11T18:02:12+00:00",
    "sha256": "78c013d97bde36622c435c878cacf48e1c8b3f58d02967c9e0ed2fc884f449e9",
    "bytes": 134114
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T17:56:30+00:00",
+   "retrieved_utc": "2026-11-11T18:02:12+00:00",
    "sha256": "03eef74c47b45969d7d360c05574444203c845e0ba5bb07ec8db0d7b340bae42",
    "bytes": 287339
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T17:56:30+00:00",
+   "retrieved_utc": "2026-11-11T18:02:12+00:00",
    "sha256": "99358137e06dd5b86d76a830d01b4415787c90a087b3590171a561815c06ff50",
    "bytes": 92837
   },
@@ -5528,6 +5528,13 @@
    "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
    "retrieved_utc": null
+  },
+  "nfl_savant": {
+   "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+   "url": "https://nflsavant.com/pbp_data.php?year=2026",
+   "retrieved_utc": null,
+   "latest_game": null,
+   "rows": null
   },
   "book_odds": {
    "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
@@ -5626,5 +5633,34 @@
    "status": "PENDING",
    "detail": "Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call."
   }
- ]
+ ],
+ "connectors": {
+  "checked_utc": "2026-11-11T18:02:13+00:00",
+  "sources": {
+   "ODDS_API_KEY": {
+    "provider": "The Odds API",
+    "used_for": "Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet",
+    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+   },
+   "NFL_BDL_API_KEY": {
+    "provider": "BallDontLie NFL",
+    "used_for": "second-source check of the slate (schedule and teams)",
+    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+   },
+   "NFL_API_SPORTS_KEY": {
+    "provider": "API-Sports NFL",
+    "used_for": "access check only; not used in the packet",
+    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+   }
+  },
+  "note": "Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here."
+ },
+ "nfl_savant": {
+  "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+  "latest_game": null,
+  "teams": {
+   "SF": null,
+   "DAL": null
+  }
+ }
 }

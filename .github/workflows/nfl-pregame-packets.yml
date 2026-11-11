@@ -51,6 +51,8 @@ jobs:
       - name: Build packets
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}   # optional: without it packets carry no book prices
+          NFL_BDL_API_KEY: ${{ secrets.NFL_BDL_API_KEY }}         # optional: second-source slate check
+          NFL_API_SPORTS_KEY: ${{ secrets.NFL_API_SPORTS_KEY }}   # optional: access check only
         run: |
           args=()
           if [ -n "${{ inputs.week }}" ]; then args+=(--week "${{ inputs.week }}"); fi

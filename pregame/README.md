@@ -41,6 +41,10 @@ For each team, over its last eight games:
   no-vig probability and hold, the best retail price per side with its break-even, and the line's movement
   since the first snapshot. Player props (passing, rushing and receiving yards, receptions, carries) are pulled
   for games inside 36 hours of kickoff and shown beside the research baseline.
+- **Formation and pass-zone splits (NFL Savant):** each offense by formation and by pass zone (short or deep,
+  left / middle / right), and what each defense allows in the same cells.
+- **Keyed connectors:** which API keys the run could see and whether each one answered. Names and statuses
+  only; never a key.
 - **Matchup edges:** where a top-10 unit meets a bottom-10 unit.
 - **Projections (research only):** period-engine team scores from two samplers, and per-player baselines with
   the Floor / MAIN / Median percentile labels from `workflows/operational_specs/PHASE_SCRIPT.md`.
@@ -66,6 +70,9 @@ GhostPapii21/nfl-matchup-database", timed shortly after the workflow's run times
 2. For book prices: Settings, Secrets and variables, Actions, add `ODDS_API_KEY` (the-odds-api.com). Without it
    the packets still build and say "no book prices". Rough credit use: about 6 credits per run for main lines,
    plus about 5 per game for props inside 36 hours of kickoff (`--props-within-hours 0` turns props off).
+   Optional: `NFL_BDL_API_KEY` (BallDontLie; used to double-check the slate) and `NFL_API_SPORTS_KEY` (access
+   check only). Keys connected inside ChatGPT or Grok are not visible to GitHub: they must be saved here as
+   repository secrets. Each packet's "Keyed connectors in this run" table shows what the run could see.
 3. Connect the repository to ChatGPT or Grok and save `ANALYST_PROMPT.md` as the instructions.
 
 ## What the packet cannot do

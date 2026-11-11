@@ -22,7 +22,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-from pregame import metrics as M, odds as O, packet as PK, render as R, sources as S, weather as W  # noqa: E402
+from pregame import connectors as C, metrics as M, odds as O, savant as SV, packet as PK, render as R, sources as S, weather as W  # noqa: E402
 
 OUT = ROOT / "pregame" / "packets"
 DEFAULT_DAYS = ("Thursday", "Sunday", "Monday")
@@ -92,6 +92,10 @@ def main(argv=None):
     espn = S.espn_injuries(offline=a.offline)
     src_pub = {k: {kk: vv for kk, vv in v.items() if kk != "path"} for k, v in src.items()}
     src_pub["espn_injuries"] = {"status": espn["status"], "url": S.ESPN_INJURIES, "retrieved_utc": espn.get("retrieved_utc")}
+    sav = SV.load(season, offline=a.offline)
+    src_pub["nfl_savant"] = {k: sav.get(k) for k in ("status", "url", "retrieved_utc", "latest_game", "rows")}
+    conn = C.check(season, int(slate.week.iloc[0]), [(g.away_team, g.home_team) for g in slate.itertuples()], offline=a.offline)
+    print("pregame: connectors " + ", ".join(f"{k}={v['status']}" for k, v in conn["sources"].items()) + f"; nfl_savant={sav['status'][:60]}")
     lines = {"status": "SKIPPED_OFFLINE", "events": {}} if a.offline else O.fetch_game_lines()
     src_pub["book_odds"] = {"status": lines["status"], "url": "https://the-odds-api.com (Pinnacle, DraftKings, FanDuel)", "retrieved_utc": lines.get("retrieved_utc")}
     now = datetime.now(timezone.utc)
@@ -114,7 +118,11 @@ def main(argv=None):
         elif lines["status"] == "OK":
             books["status"] = "OK_BUT_GAME_NOT_LISTED"
         wx = W.forecast(g.home_team, g.roof, g.location, g.gameday, g.gametime, offline=a.offline)
-        pk = _clean(PK.build(g, data=data, window=a.window, espn=espn, pbp_path=src["pbp"]["path"], sources=src_pub, books=books, weather=wx))
+        pk = PK.build(g, data=data, window=a.window, espn=espn, pbp_path=src["pbp"]["path"], sources=src_pub, books=books, weather=wx)
+        pk["connectors"] = conn
+        pk["nfl_savant"] = {"status": sav["status"], "latest_game": sav.get("latest_game"),
+                            "teams": {t: SV.team_splits(sav["plays"], t, str(g.gameday), a.window) for t in (g.away_team, g.home_team)}}
+        pk = _clean(pk)
         d = out / g.game_id; d.mkdir(exist_ok=True)
         (d / "packet.json").write_text(json.dumps(pk, indent=1, allow_nan=False) + "\n")
         (d / "brief.md").write_text(R.brief(pk))

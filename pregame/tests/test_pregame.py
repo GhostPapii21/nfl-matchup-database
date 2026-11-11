@@ -228,3 +228,52 @@ def test_weather_paths():
     assert r["during_game"] == {"temp_f_min": 31, "wind_mph_max": 20.0, "precip_chance_pct_max": 60}
     assert r["flags"] == ["WIND_15_PLUS", "PRECIP_50_PLUS", "FREEZING"]
     assert W.forecast("BAL", "outdoors", "Home", "2026-11-16", "20:15", fetch=lambda u, timeout=0: 1 / 0)["status"].startswith("UNAVAILABLE")
+
+
+# ---------------------------------------------------------------- NFL Savant and keyed connectors
+from pregame import connectors as C, savant as SV  # noqa: E402
+
+
+def _savant_csv():
+    head = "GameId,GameDate,OffenseTeam,DefenseTeam,Yards,Formation,IsRush,IsPass,IsIncomplete,PassType,IsSack,IsNoPlay"
+    rows = []
+    for i in range(12):
+        rows.append(f"1,2026-11-01,BLT,LAC,{8 if i % 2 else 0},SHOTGUN,0,1,{0 if i % 2 else 1},DEEP LEFT,0,0")     # BLT -> BAL
+    for i in range(10):
+        rows.append("1,2026-11-01,BLT,LAC,4,UNDER CENTER,1,0,0,,0,0")
+    rows.append("1,2026-11-01,BLT,LAC,50,SHOTGUN,0,1,0,DEEP LEFT,0,1")                                              # no-play: dropped
+    rows.append("2,2026-11-20,BLT,LAC,99,SHOTGUN,0,1,0,DEEP LEFT,0,0")                                              # after the game date: excluded
+    return ("\n".join([head] + rows)).encode()
+
+
+def test_savant_splits_and_failures():
+    s = SV.load(2026, fetch=lambda u, timeout=0: _savant_csv())
+    assert s["status"] == "OK" and s["latest_game"] == "2026-11-20"
+    t = SV.team_splits(s["plays"], "BAL", "2026-11-16")
+    sg = next(r for r in t["offense_by_formation"] if r["formation"] == "Shotgun")
+    assert sg["plays"] == 12 and sg["pass_rate"] == 1.0 and sg["yards_per_play"] == 4.0 and sg["share"] == pytest.approx(12 / 22, abs=1e-3)
+    z = t["offense_pass_zones"][0]
+    assert z == {"zone": "Deep Left", "attempts": 12, "share": 1.0, "completion_rate": 0.5, "yards_per_attempt": 4.0}
+    assert SV.team_splits(s["plays"], "LAC", "2026-11-16")["defense_pass_zones_allowed"][0]["attempts"] == 12
+    assert SV.team_splits(s["plays"], "ZZZ", "2026-11-16") is None
+    assert SV.load(2026, fetch=lambda u, timeout=0: b"a,b\n1,2\n")["status"].startswith("SCHEMA_CHANGED")
+    assert SV.load(2026, fetch=lambda u, timeout=0: 1 / 0)["status"].startswith("UNAVAILABLE")
+    assert SV.team_splits(None, "BAL", "2026-11-16") is None
+
+
+def test_connector_check_reports_status_never_keys():
+    none = C.check(2026, 10, [("LAC", "BAL")], env={})
+    assert {v["status"] for v in none["sources"].values()} == {"KEY_NOT_CONFIGURED_IN_THIS_RUN"}
+
+    def fake(provider, resource, **kw):
+        if provider == "balldontlie_nfl":
+            return {"data": {"data": [{"home_team": {"abbreviation": "BAL"}, "visitor_team": {"abbreviation": "LAC"}},
+                                      {"home_team": {"abbreviation": "NYG"}, "visitor_team": {"abbreviation": "WSH"}}]}}
+        raise PermissionError("no entitlement SECRET123")
+    env = {"ODDS_API_KEY": "SECRET123", "NFL_BDL_API_KEY": "SECRET123", "NFL_API_SPORTS_KEY": "SECRET123"}
+    r = C.check(2026, 10, [("LAC", "BAL"), ("WAS", "NYG"), ("SF", "DAL")], env=env, fetch_http=fake)
+    bdl = r["sources"]["NFL_BDL_API_KEY"]
+    assert bdl["status"] == "OK" and bdl["slate_check"] == "MISMATCH" and bdl["games_not_found_at_provider"] == ["SF@DAL"]   # WSH mapped to WAS
+    assert r["sources"]["NFL_API_SPORTS_KEY"]["status"] == "KEY_PRESENT_REQUEST_FAILED: PermissionError"
+    assert r["sources"]["ODDS_API_KEY"]["status"] == "KEY_PRESENT"
+    assert "SECRET123" not in json.dumps(r)
