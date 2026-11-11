@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): ARI +9.5, total 39.5.
 
-Generated 2026-11-11T18:56:18+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T22:07:33+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-11T18:56:16+00:00 UTC. At kickoff: 74 F, wind 5 mph E, 2% chance of precipitation, Sunny. During the game: low 73 F, wind up to 5 mph, precipitation chance up to 2%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-11T22:07:31+00:00 UTC. At kickoff: 76 F, wind 5 mph ESE, 2% chance of precipitation, Sunny. During the game: low 74 F, wind up to 5 mph, precipitation chance up to 2%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:55:55+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T22:07:10+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | ARI +9.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-11T18:54:34Z |
-| spread | fanduel | ARI +9.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:55:51Z |
-| spread | pinnacle | ARI +9.5 | -110 | -102 | 50.9% | 49.1% | 2.9% | 2026-11-11T18:55:51Z |
-| total | draftkings | Over 39.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-11T18:54:34Z |
-| total | fanduel | Over 39.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:55:51Z |
-| total | pinnacle | Over 39.5 | -103 | -113 | 48.9% | 51.1% | 3.8% | 2026-11-11T18:55:51Z |
-| moneyline | draftkings | ARI | +330 | -425 | 22.3% | 77.7% | 4.2% | 2026-11-11T18:54:34Z |
-| moneyline | fanduel | ARI | +340 | -430 | 21.9% | 78.1% | 3.9% | 2026-11-11T18:55:51Z |
-| moneyline | pinnacle | ARI | +347 | -437 | 21.6% | 78.4% | 3.8% | 2026-11-11T18:55:51Z |
+| spread | draftkings | ARI +9.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-11T22:05:55Z |
+| spread | fanduel | ARI +9.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T22:06:33Z |
+| spread | pinnacle | ARI +9.5 | -110 | -102 | 50.9% | 49.1% | 2.9% | 2026-11-11T22:06:32Z |
+| total | draftkings | Over 39.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-11T22:05:55Z |
+| total | fanduel | Over 39.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T22:06:33Z |
+| total | pinnacle | Over 39.5 | -102 | -115 | 48.6% | 51.4% | 4.0% | 2026-11-11T22:06:32Z |
+| moneyline | draftkings | ARI | +340 | -440 | 21.8% | 78.2% | 4.2% | 2026-11-11T22:05:55Z |
+| moneyline | fanduel | ARI | +340 | -430 | 21.9% | 78.1% | 3.9% | 2026-11-11T22:06:33Z |
+| moneyline | pinnacle | ARI | +347 | -437 | 21.6% | 78.4% | 3.8% | 2026-11-11T22:06:32Z |
 
-### Line movement: first seen 2026-11-11T18:18:09+00:00 to 2026-11-11T18:56:16+00:00 (2 snapshots)
+### Line movement: first seen 2026-11-11T18:18:09+00:00 to 2026-11-11T22:07:31+00:00 (3 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
-| moneyline | draftkings | n/a | n/a | n/a | +340 / -440 | +330 / -425 |
+| moneyline | draftkings | n/a | n/a | n/a | +340 / -440 | +340 / -440 |
 | moneyline | fanduel | n/a | n/a | n/a | +340 / -430 | +340 / -430 |
 | moneyline | pinnacle | n/a | n/a | n/a | +347 / -437 | +347 / -437 |
 | spread | draftkings | 9.5 | 9.5 | 0.0 | -108 / -112 | -108 / -112 |
@@ -38,11 +38,11 @@ Retrieved 2026-11-11T18:55:55+00:00 UTC. No-vig = each side's share of the two i
 | spread | pinnacle | 9.5 | 9.5 | 0.0 | -110 / -102 | -110 / -102 |
 | total | draftkings | 39.5 | 39.5 | 0.0 | -108 / -112 | -108 / -112 |
 | total | fanduel | 39.5 | 39.5 | 0.0 | -105 / -115 | -105 / -115 |
-| total | pinnacle | 39.5 | 39.5 | 0.0 | -103 / -113 | -103 / -113 |
+| total | pinnacle | 39.5 | 39.5 | 0.0 | -103 / -113 | -102 / -115 |
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 98 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 95 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -319,7 +319,7 @@ Defensive front: LDE Braden Fiske, NT Ty Hamilton, RDE Aaron Donald, WLB Byron Y
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Jaylen Watson (CB) Injured Reserve; Steve Avila (G) Questionable; Terrance Ferguson (TE) Injured Reserve; Trent McDuffie (CB) Questionable; Joe Cardona (LS) Questionable; Jordan Whittington (WR) Injured Reserve; Puka Nacua (WR) Doubtful.
+ESPN live list (designations only): Jaylen Watson (CB) Injured Reserve; Steve Avila (G) Questionable; Terrance Ferguson (TE) Injured Reserve; Trent McDuffie (CB) Questionable; Joe Cardona (LS) Questionable; Jordan Whittington (WR) Injured Reserve; Davante Adams (WR) Injured Reserve; Puka Nacua (WR) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -533,7 +533,7 @@ Defensive front: LDE Josh Sweat, LDT Roy Lopez, RDT Walter Nolen III, RDE Dante 
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): James Conner (RB) Injured Reserve; Roy Lopez (DT) Questionable; Hjalte Froholdt (C) Questionable; Jayden Williams (OT) Questionable; Bam Knight (RB) Questionable; Jon Gaines II (G) Questionable; Gardner Minshew II (QB) Injured Reserve; Michael Wilson (WR) Injured Reserve.
+ESPN live list (designations only): James Conner (RB) Injured Reserve; Roy Lopez (DT) Questionable; Hjalte Froholdt (C) Questionable; Jayden Williams (OT) Questionable; Jon Gaines II (G) Questionable; Michael Wilson (WR) Injured Reserve; Gardner Minshew II (QB) Injured Reserve; Bam Knight (RB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -577,16 +577,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:55:52+00:00 | ab53603458d9 |
-| pbp | OK | 2026-11-11T18:55:52+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:55:52+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:55:52+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:55:53+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:55:53+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:55:53+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:55:53+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:55:54+00:00 |  |
+| games | OK | 2026-11-11T22:07:07+00:00 | bac9f226a580 |
+| pbp | OK | 2026-11-11T22:07:08+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T22:07:08+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T22:07:08+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T22:07:09+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T22:07:09+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T22:07:09+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T22:07:09+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T22:07:10+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-11T18:55:55+00:00 |  |
+| book_odds | OK | 2026-11-11T22:07:10+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

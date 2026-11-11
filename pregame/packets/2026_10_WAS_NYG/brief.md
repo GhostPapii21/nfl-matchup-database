@@ -2,31 +2,31 @@
 
 **Thursday 2026-11-12, 20:15 ET.** Site: Home; roof: outdoors; surface: fieldturf. Rest: WAS 4 days, NYG 4 days. Listed QBs: Jayden Daniels (WAS), J.J. McCarthy (NYG).
 
-Market (schedule consensus, not a timestamped quote): NYG -2.5, total 41.5.
+Market (schedule consensus, not a timestamped quote): NYG -2.5, total 40.5.
 
-Generated 2026-11-11T18:55:57+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T22:07:12+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-11T18:55:55+00:00 UTC. At kickoff: 53 F, wind 9 mph N, 74% chance of precipitation, Light Rain Likely. During the game: low 51 F, wind up to 10 mph, precipitation chance up to 74%. Roof: outdoors. Flags: PRECIP_50_PLUS.
+National Weather Service, retrieved 2026-11-11T22:07:11+00:00 UTC. At kickoff: 51 F, wind 10 mph NE, 74% chance of precipitation, Light Rain Likely. During the game: low 47 F, wind up to 12 mph, precipitation chance up to 74%. Roof: outdoors. Flags: PRECIP_50_PLUS.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:55:55+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T22:07:10+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | NYG -2.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:54:34Z |
-| spread | fanduel | NYG -1.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:55:51Z |
-| spread | pinnacle | NYG -2.5 | -106 | -106 | 50.0% | 50.0% | 2.9% | 2026-11-11T18:55:51Z |
-| total | draftkings | Over 41.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:54:34Z |
-| total | fanduel | Over 41.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-11T18:55:51Z |
-| total | pinnacle | Over 41 | -108 | -108 | 50.0% | 50.0% | 3.9% | 2026-11-11T18:55:51Z |
-| moneyline | draftkings | NYG | -142 | +120 | 56.4% | 43.6% | 4.1% | 2026-11-11T18:54:34Z |
-| moneyline | fanduel | NYG | -134 | +114 | 55.1% | 44.9% | 4.0% | 2026-11-11T18:55:51Z |
-| moneyline | pinnacle | NYG | -136 | +121 | 56.0% | 44.0% | 2.9% | 2026-11-11T18:55:51Z |
+| spread | draftkings | NYG -2.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T22:05:55Z |
+| spread | fanduel | NYG -1.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T22:06:32Z |
+| spread | pinnacle | NYG -2.5 | -106 | -106 | 50.0% | 50.0% | 2.9% | 2026-11-11T22:06:32Z |
+| total | draftkings | Over 40.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-11T22:05:55Z |
+| total | fanduel | Over 41.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-11T22:06:32Z |
+| total | pinnacle | Over 41 | -108 | -108 | 50.0% | 50.0% | 3.9% | 2026-11-11T22:06:32Z |
+| moneyline | draftkings | NYG | -142 | +120 | 56.4% | 43.6% | 4.1% | 2026-11-11T22:05:55Z |
+| moneyline | fanduel | NYG | -134 | +114 | 55.1% | 44.9% | 4.0% | 2026-11-11T22:06:32Z |
+| moneyline | pinnacle | NYG | -136 | +121 | 56.0% | 44.0% | 2.9% | 2026-11-11T22:06:32Z |
 
-### Line movement: first seen 2026-11-11T18:17:53+00:00 to 2026-11-11T18:17:53+00:00 (1 snapshots)
+### Line movement: first seen 2026-11-11T18:17:53+00:00 to 2026-11-11T22:07:11+00:00 (2 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
@@ -36,7 +36,7 @@ Retrieved 2026-11-11T18:55:55+00:00 UTC. No-vig = each side's share of the two i
 | spread | draftkings | -2.5 | -2.5 | 0.0 | -110 / -110 | -110 / -110 |
 | spread | fanduel | -1.5 | -1.5 | 0.0 | -120 / +100 | -120 / +100 |
 | spread | pinnacle | -2.5 | -2.5 | 0.0 | -106 / -106 | -106 / -106 |
-| total | draftkings | 41.5 | 41.5 | 0.0 | -105 / -115 | -105 / -115 |
+| total | draftkings | 41.5 | 40.5 | -1.0 | -105 / -115 | -118 / -102 |
 | total | fanduel | 41.5 | 41.5 | 0.0 | +100 / -120 | +100 / -120 |
 | total | pinnacle | 41.0 | 41.0 | 0.0 | -108 / -108 | -108 / -108 |
 
@@ -46,46 +46,46 @@ First seen by this pipeline, not the true opening line. Snapshots are only as fr
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Malik Nabers | receiving yards | draftkings | 67.5 | -111 / -113 | 49.8% | 50.0% | 87.3 | 91.7 | 8 | 19.8 |
 | Malik Nabers | receiving yards | fanduel | 67.5 | -114 / -114 | 50.0% | 50.0% | 87.3 | 91.7 | 8 | 19.8 |
-| Cam Skattebo | rushing yards | fanduel | 50.5 | -114 / -114 | 50.0% | 49.8% | 67.4 | 55.1 | 6 | 16.9 |
-| Isaiah Likely | receiving yards | draftkings | 46.5 | -114 / -110 | 50.4% | n/a | 63.0 | 66.9 | 8 | 16.5 |
-| Cam Skattebo | rushing yards | draftkings | 51.5 | -112 / -112 | 50.0% | n/a | 67.4 | 55.1 | 6 | 15.9 |
+| Malik Nabers | receiving yards | draftkings | 69.5 | -111 / -113 | 49.8% | n/a | 87.3 | 91.7 | 8 | 17.8 |
+| Cam Skattebo | rushing yards | fanduel | 50.5 | -114 / -114 | 50.0% | 54.7% | 67.4 | 55.1 | 6 | 16.9 |
+| Isaiah Likely | receiving yards | draftkings | 47.5 | -113 / -111 | 50.2% | n/a | 63.0 | 66.9 | 8 | 15.5 |
+| Cam Skattebo | rushing yards | draftkings | 52.5 | -113 / -111 | 50.2% | n/a | 67.4 | 55.1 | 6 | 14.9 |
 | Isaiah Likely | receiving yards | fanduel | 48.5 | -114 / -114 | 50.0% | 50.4% | 63.0 | 66.9 | 8 | 14.5 |
 | Malachi Fields | receiving yards | fanduel | 25.5 | -114 / -114 | 50.0% | 50.0% | 38.7 | 28.0 | 8 | 13.2 |
 | Malachi Fields | receiving yards | draftkings | 26.5 | -115 / -109 | 50.6% | n/a | 38.7 | 28.0 | 8 | 12.2 |
+| Treylon Burks | receiving yards | fanduel | 30.5 | -114 / -114 | 50.0% | n/a | 41.1 | 33.5 | 6 | 10.6 |
 | Treylon Burks | receiving yards | draftkings | 31.5 | -111 / -113 | 49.8% | n/a | 41.1 | 33.5 | 6 | 9.6 |
-| Treylon Burks | receiving yards | fanduel | 31.5 | -114 / -114 | 50.0% | n/a | 41.1 | 33.5 | 6 | 9.6 |
-| Antonio Williams | receiving yards | draftkings | 38.5 | -110 / -114 | 49.6% | 50.0% | 32.5 | 25.7 | 8 | -6.0 |
-| Darnell Mooney | receiving yards | draftkings | 15.5 | -116 / -108 | 50.8% | 50.0% | 20.8 | 17.3 | 8 | 5.3 |
+| Antonio Williams | receiving yards | draftkings | 38.5 | -114 / -110 | 50.4% | 50.0% | 32.5 | 25.7 | 8 | -6.0 |
+| Darnell Mooney | receiving yards | draftkings | 15.5 | -112 / -112 | 50.0% | 50.0% | 20.8 | 17.3 | 8 | 5.3 |
 | Darnell Mooney | receiving yards | fanduel | 15.5 | -114 / -114 | 50.0% | 50.0% | 20.8 | 17.3 | 8 | 5.3 |
-| Antonio Williams | receiving yards | fanduel | 37.5 | -114 / -114 | 50.0% | n/a | 32.5 | 25.7 | 8 | -5.0 |
 | Chig Okonkwo | receiving yards | fanduel | 34.5 | -114 / -114 | 50.0% | 50.2% | 39.3 | 40.6 | 6 | 4.8 |
+| Rachaad White | rushing yards | draftkings | 37.5 | -113 / -111 | 50.2% | 50.0% | 33.0 | 27.9 | 7 | -4.5 |
 | Rachaad White | rushing yards | fanduel | 37.5 | -114 / -114 | 50.0% | 50.0% | 33.0 | 27.9 | 7 | -4.5 |
 | Jayden Daniels | passing yards | fanduel | 202.5 | -114 / -114 | 50.0% | 49.6% | 198.3 | 187.8 | 6 | -4.2 |
-| Chig Okonkwo | receiving yards | draftkings | 35.5 | -114 / -110 | 50.4% | n/a | 39.3 | 40.6 | 6 | 3.8 |
-| Rachaad White | rushing yards | draftkings | 36.5 | -110 / -114 | 49.6% | n/a | 33.0 | 27.9 | 7 | -3.5 |
-| Jayden Daniels | passing yards | draftkings | 201.5 | -112 / -112 | 50.0% | n/a | 198.3 | 187.8 | 6 | -3.2 |
-| Cam Skattebo | carries | draftkings | 13.5 | -114 / -112 | 50.2% | 52.6% | 16.3 | 17.5 | 6 | 2.8 |
-| Rachaad White | carries | draftkings | 10.5 | -117 / -109 | 50.8% | 50.0% | 7.8 | 7.0 | 7 | -2.7 |
-| Stefon Diggs | receiving yards | draftkings | 41.5 | -113 / -111 | 50.2% | n/a | 39.4 | 40.3 | 7 | -2.1 |
-| Malik Nabers | receptions | draftkings | 5.5 | -136 / +107 | 54.4% | 53.6% | 7.5 | 6.5 | 8 | 2.0 |
+| Antonio Williams | receiving yards | fanduel | 36.5 | -114 / -114 | 50.0% | n/a | 32.5 | 25.7 | 8 | -4.0 |
+| Chig Okonkwo | receiving yards | draftkings | 35.5 | -110 / -114 | 49.6% | n/a | 39.3 | 40.6 | 6 | 3.8 |
+| Stefon Diggs | receiving yards | fanduel | 36.5 | -114 / -114 | 50.0% | n/a | 39.4 | 40.3 | 7 | 2.9 |
+| Rachaad White | carries | draftkings | 10.5 | -117 / -109 | 50.8% | 49.8% | 7.8 | 7.0 | 7 | -2.7 |
+| Jayden Daniels | passing yards | draftkings | 200.5 | -113 / -111 | 50.2% | n/a | 198.3 | 187.8 | 6 | -2.2 |
+| Malik Nabers | receptions | draftkings | 5.5 | -141 / +111 | 55.2% | 53.6% | 7.5 | 6.5 | 8 | 2.0 |
 | Malik Nabers | receptions | fanduel | 5.5 | -130 / -102 | 52.8% | 53.6% | 7.5 | 6.5 | 8 | 2.0 |
 | Isaiah Likely | receptions | draftkings | 4.5 | -123 / -103 | 52.1% | 50.6% | 6.0 | 5.9 | 8 | 1.5 |
 | Isaiah Likely | receptions | fanduel | 4.5 | -125 / -106 | 51.9% | 50.6% | 6.0 | 5.9 | 8 | 1.5 |
-| Devin Singletary | carries | draftkings | 7.5 | +103 / -131 | 46.5% | 47.2% | 8.9 | 5.0 | 5 | 1.4 |
-| Devin Singletary | rushing yards | draftkings | 23.5 | -115 / -109 | 50.6% | 50.0% | 22.5 | 14.8 | 5 | -1.0 |
+| Devin Singletary | carries | draftkings | 7.5 | +115 / -147 | 43.9% | 43.4% | 8.9 | 5.0 | 5 | 1.4 |
+| Devin Singletary | rushing yards | draftkings | 23.5 | -113 / -111 | 50.2% | 50.0% | 22.5 | 14.8 | 5 | -1.0 |
 | Devin Singletary | rushing yards | fanduel | 23.5 | -114 / -114 | 50.0% | 50.0% | 22.5 | 14.8 | 5 | -1.0 |
-| Stefon Diggs | receiving yards | fanduel | 38.5 | -114 / -114 | 50.0% | n/a | 39.4 | 40.3 | 7 | 0.9 |
+| Cam Skattebo | carries | draftkings | 15.5 | -102 / -125 | 47.6% | n/a | 16.3 | 17.5 | 6 | 0.8 |
 | Chig Okonkwo | receptions | draftkings | 3.5 | -150 / +117 | 56.6% | n/a | 4.2 | 3.1 | 6 | 0.7 |
-| Stefon Diggs | receptions | draftkings | 3.5 | -164 / +128 | 58.6% | n/a | 4.1 | 3.9 | 7 | 0.6 |
 | Stefon Diggs | receptions | fanduel | 3.5 | -172 / +128 | 59.1% | n/a | 4.1 | 3.9 | 7 | 0.6 |
+| Stefon Diggs | receptions | draftkings | 4.5 | +128 / -163 | 41.4% | 40.6% | 4.1 | 3.9 | 7 | -0.4 |
 | Chig Okonkwo | receptions | fanduel | 4.5 | +134 / -180 | 39.9% | 39.9% | 4.2 | 3.1 | 6 | -0.3 |
 | Antonio Williams | receptions | draftkings | 3.5 | -134 / +105 | 54.0% | 52.2% | 3.2 | 2.9 | 8 | -0.3 |
 | Antonio Williams | receptions | fanduel | 3.5 | -130 / -102 | 52.8% | 52.2% | 3.2 | 2.9 | 8 | -0.3 |
 | Treylon Burks | receptions | draftkings | 2.5 | +138 / -178 | 39.6% | n/a | 2.2 | 1.9 | 6 | -0.3 |
 | Treylon Burks | receptions | fanduel | 2.5 | +144 / -194 | 38.3% | n/a | 2.2 | 1.9 | 6 | -0.3 |
 | Malachi Fields | receptions | draftkings | 2.5 | +123 / -157 | 42.3% | 38.5% | 2.7 | 2.2 | 8 | 0.2 |
+| Malachi Fields | receptions | fanduel | 2.5 | +134 / -180 | 39.9% | 38.5% | 2.7 | 2.2 | 8 | 0.2 |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -119,8 +119,8 @@ baseline_minus_line is the research baseline against the book line. It is NOT an
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | WAS 22.8 - NYG 24.5 | 47.3 | +1.7 | 53.2% | 47.7% | 66.2% | WAS 11.1 - NYG 12.1 |
-| independent | WAS 21.0 - NYG 22.5 | 43.5 | +1.5 | 54.2% | 48.1% | 56.4% | WAS 9.9 - NYG 11.1 |
+| matchup_pair | WAS 22.8 - NYG 24.5 | 47.3 | +1.7 | 53.2% | 47.7% | 68.3% | WAS 11.1 - NYG 12.1 |
+| independent | WAS 21.0 - NYG 22.5 | 43.5 | +1.5 | 54.2% | 48.1% | 60.8% | WAS 9.9 - NYG 11.1 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -379,7 +379,7 @@ Defensive front: LDE Charles Omenihu, NT Tim Settle, RDE Shy Tuttle, WLB Odafe O
 | Colson Yankoff | TE |  | none listed | Did Not Participate In Practice |  |
 | Treylon Burks | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Javon Kinlaw (DT) Injured Reserve; Jeremy McNichols (RB) Injured Reserve; Daron Payne (DT) Injured Reserve; Dyami Brown (WR) Injured Reserve; Colson Yankoff (TE) Out; Treylon Burks (WR) Questionable; Lucas Patrick (G) Out.
+ESPN live list (designations only): Javon Kinlaw (DT) Injured Reserve; Jeremy McNichols (RB) Injured Reserve; Daron Payne (DT) Injured Reserve; Dyami Brown (WR) Injured Reserve; Treylon Burks (WR) Out; Lucas Patrick (G) Out; Colson Yankoff (TE) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -605,7 +605,7 @@ Defensive front: LDE Shelby Harris, NT DJ Reader, RDE Darius Alexander, WLB Kayv
 | Theo Johnson | TE |  | none listed | Full Participation in Practice |  |
 | Darnell Mooney | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Malik Harrison (LB) Questionable; Abdul Carter (LB) Questionable; Cam Skattebo (RB) Out; J.J. McCarthy (QB) Questionable; Colton Hood (CB) Questionable.
+ESPN live list (designations only): Malik Harrison (LB) Questionable; Cam Skattebo (RB) Out; J.J. McCarthy (QB) Questionable; Colton Hood (CB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -649,16 +649,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:55:52+00:00 | ab53603458d9 |
-| pbp | OK | 2026-11-11T18:55:52+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:55:52+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:55:52+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:55:53+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:55:53+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:55:53+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:55:53+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:55:54+00:00 |  |
+| games | OK | 2026-11-11T22:07:07+00:00 | bac9f226a580 |
+| pbp | OK | 2026-11-11T22:07:08+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T22:07:08+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T22:07:08+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T22:07:09+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T22:07:09+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T22:07:09+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T22:07:09+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T22:07:10+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-11T18:55:55+00:00 |  |
+| book_odds | OK | 2026-11-11T22:07:10+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

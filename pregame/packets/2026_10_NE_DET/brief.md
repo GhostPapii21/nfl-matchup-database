@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): DET -2.5, total 51.5.
 
-Generated 2026-11-11T18:55:59+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T22:07:15+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,37 +12,37 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:55:55+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T22:07:10+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:54:34Z |
-| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T18:55:51Z |
-| spread | pinnacle | DET -2.5 | -125 | +111 | 54.0% | 46.0% | 2.9% | 2026-11-11T18:55:51Z |
-| total | draftkings | Over 51.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-11T18:54:34Z |
-| total | fanduel | Over 50.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:55:51Z |
-| total | pinnacle | Over 51 | -105 | -111 | 49.3% | 50.7% | 3.8% | 2026-11-11T18:55:51Z |
-| moneyline | draftkings | DET | -155 | +130 | 58.3% | 41.7% | 4.3% | 2026-11-11T18:54:34Z |
-| moneyline | fanduel | DET | -152 | +128 | 57.9% | 42.1% | 4.2% | 2026-11-11T18:55:51Z |
-| moneyline | pinnacle | DET | -158 | +139 | 59.4% | 40.6% | 3.1% | 2026-11-11T18:55:51Z |
+| spread | draftkings | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T22:05:55Z |
+| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-11T22:06:32Z |
+| spread | pinnacle | DET -2.5 | -121 | +108 | 53.2% | 46.8% | 2.8% | 2026-11-11T22:06:32Z |
+| total | draftkings | Over 51.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-11T22:05:55Z |
+| total | fanduel | Over 50.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T22:06:32Z |
+| total | pinnacle | Over 51 | -105 | -111 | 49.3% | 50.7% | 3.8% | 2026-11-11T22:06:32Z |
+| moneyline | draftkings | DET | -148 | +124 | 57.2% | 42.8% | 4.3% | 2026-11-11T22:05:55Z |
+| moneyline | fanduel | DET | -152 | +128 | 57.9% | 42.1% | 4.2% | 2026-11-11T22:06:32Z |
+| moneyline | pinnacle | DET | -153 | +135 | 58.7% | 41.3% | 3.0% | 2026-11-11T22:06:32Z |
 
-### Line movement: first seen 2026-11-11T18:17:55+00:00 to 2026-11-11T18:17:55+00:00 (1 snapshots)
+### Line movement: first seen 2026-11-11T18:17:55+00:00 to 2026-11-11T22:07:13+00:00 (2 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
-| moneyline | draftkings | n/a | n/a | n/a | -155 / +130 | -155 / +130 |
+| moneyline | draftkings | n/a | n/a | n/a | -155 / +130 | -148 / +124 |
 | moneyline | fanduel | n/a | n/a | n/a | -152 / +128 | -152 / +128 |
-| moneyline | pinnacle | n/a | n/a | n/a | -158 / +139 | -158 / +139 |
+| moneyline | pinnacle | n/a | n/a | n/a | -158 / +139 | -153 / +135 |
 | spread | draftkings | -2.5 | -2.5 | 0.0 | -120 / +100 | -120 / +100 |
 | spread | fanduel | -2.5 | -2.5 | 0.0 | -120 / +100 | -120 / +100 |
-| spread | pinnacle | -2.5 | -2.5 | 0.0 | -125 / +111 | -125 / +111 |
+| spread | pinnacle | -2.5 | -2.5 | 0.0 | -125 / +111 | -121 / +108 |
 | total | draftkings | 51.5 | 51.5 | 0.0 | +100 / -120 | +100 / -120 |
 | total | fanduel | 50.5 | 50.5 | 0.0 | -110 / -110 | -110 / -110 |
 | total | pinnacle | 51.0 | 51.0 | 0.0 | -105 / -111 | -105 / -111 |
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 92 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 88 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -325,7 +325,7 @@ Defensive front: LDE Christian Barmore, NT Cory Durden, RDE Milton Williams, WLB
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Greg Van Roten (G) Injured Reserve; Carlton Davis III (CB) Questionable; Will Campbell (OT) Questionable; Brenden Schooler (S) Questionable; Ben Brown (C) Doubtful; Charles Woods (CB) Questionable; TreVeyon Henderson (RB) Questionable; A.J. Brown (WR) Questionable; Rhamondre Stevenson (RB) Doubtful.
+ESPN live list (designations only): Greg Van Roten (G) Injured Reserve; Carlton Davis III (CB) Questionable; Will Campbell (OT) Questionable; Brenden Schooler (S) Questionable; Ben Brown (C) Doubtful; Charles Woods (CB) Questionable; Rhamondre Stevenson (RB) Doubtful; A.J. Brown (WR) Questionable; TreVeyon Henderson (RB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -539,7 +539,7 @@ Defensive front: LDE Aidan Hutchinson, LDT Alim McNeill, RDT Tyleik Williams, RD
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Isiah Pacheco (RB) Injured Reserve; Jimmy Rolder (LB) Injured Reserve; Jack Campbell (LB) Injured Reserve; DJ Wonnum (LB) Questionable; D.J. Reed (CB) Questionable; Jacob Saylors (RB) Questionable; Cade Mays (C) Questionable; Kerby Joseph (S) Out.
+ESPN live list (designations only): Isiah Pacheco (RB) Injured Reserve; Jimmy Rolder (LB) Injured Reserve; Jack Campbell (LB) Injured Reserve; DJ Wonnum (LB) Questionable; D.J. Reed (CB) Questionable; Jacob Saylors (RB) Questionable; Cade Mays (C) Questionable; Kerby Joseph (S) Out; Amon-Ra St. Brown (WR) Questionable; Jared Goff (QB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -583,16 +583,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:55:52+00:00 | ab53603458d9 |
-| pbp | OK | 2026-11-11T18:55:52+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:55:52+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:55:52+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:55:53+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:55:53+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:55:53+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:55:53+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:55:54+00:00 |  |
+| games | OK | 2026-11-11T22:07:07+00:00 | bac9f226a580 |
+| pbp | OK | 2026-11-11T22:07:08+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T22:07:08+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T22:07:08+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T22:07:09+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T22:07:09+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T22:07:09+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T22:07:09+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T22:07:10+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-11T18:55:55+00:00 |  |
+| book_odds | OK | 2026-11-11T22:07:10+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
