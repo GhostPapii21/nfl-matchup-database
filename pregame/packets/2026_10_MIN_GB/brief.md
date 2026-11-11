@@ -4,27 +4,27 @@
 
 Market (schedule consensus, not a timestamped quote): GB -3.5, total 42.5.
 
-Generated 2026-11-11T18:18:08+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:20:10+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-11T18:18:07+00:00 UTC. At kickoff: 46 F, wind 2 mph N, 1% chance of precipitation, Mostly Sunny. During the game: low 46 F, wind up to 2 mph, precipitation chance up to 1%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-11T18:20:09+00:00 UTC. At kickoff: 46 F, wind 2 mph N, 1% chance of precipitation, Mostly Sunny. During the game: low 46 F, wind up to 2 mph, precipitation chance up to 1%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:17:53+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T18:19:51+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | GB -3.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:17:19Z |
-| spread | fanduel | GB -3.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:17:40Z |
-| spread | pinnacle | GB -3.5 | +100 | -112 | 48.6% | 51.4% | 2.8% | 2026-11-11T18:17:41Z |
-| total | draftkings | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:17:19Z |
-| total | fanduel | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:17:40Z |
-| total | pinnacle | Over 42 | -111 | -105 | 50.7% | 49.3% | 3.8% | 2026-11-11T18:17:41Z |
-| moneyline | draftkings | GB | -166 | +140 | 60.0% | 40.0% | 4.1% | 2026-11-11T18:17:19Z |
-| moneyline | fanduel | GB | -172 | +144 | 60.7% | 39.3% | 4.2% | 2026-11-11T18:17:40Z |
-| moneyline | pinnacle | GB | -179 | +157 | 62.3% | 37.8% | 3.1% | 2026-11-11T18:17:41Z |
+| spread | draftkings | GB -3.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:18:40Z |
+| spread | fanduel | GB -3.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:19:20Z |
+| spread | pinnacle | GB -3.5 | +100 | -112 | 48.6% | 51.4% | 2.8% | 2026-11-11T18:19:20Z |
+| total | draftkings | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:18:40Z |
+| total | fanduel | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:19:20Z |
+| total | pinnacle | Over 42 | -111 | -105 | 50.7% | 49.3% | 3.8% | 2026-11-11T18:19:20Z |
+| moneyline | draftkings | GB | -166 | +140 | 60.0% | 40.0% | 4.1% | 2026-11-11T18:18:40Z |
+| moneyline | fanduel | GB | -172 | +144 | 60.7% | 39.3% | 4.2% | 2026-11-11T18:19:20Z |
+| moneyline | pinnacle | GB | -179 | +157 | 62.3% | 37.8% | 3.1% | 2026-11-11T18:19:20Z |
 
 ### Line movement: first seen 2026-11-11T18:18:07+00:00 to 2026-11-11T18:18:07+00:00 (1 snapshots)
 
@@ -494,8 +494,7 @@ Left for another team: Kedon Slovis (QB) to BAL.
 
 ## Formation and pass-zone splits (NFL Savant)
 
-Not in this packet: UNAVAILABLE: ParserError: Error tokenizing data. C error: Expected 1 fields in line 5, saw 2
-.
+Not in this packet: UNAVAILABLE: no play-by-play CSV found; tried https://nflsavant.com/pbp_data.php?year=2026; https://nflsavant.com/about.php; https://nflsavant.com/.
 
 ## Keyed connectors in this run
 
@@ -503,7 +502,7 @@ Not in this packet: UNAVAILABLE: ParserError: Error tokenizing data. C error: Ex
 |---|---|---|---|
 | ODDS_API_KEY | The Odds API | KEY_PRESENT | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
 | NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
-| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR | access check only; not used in the packet |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR: {'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'} | access check only; not used in the packet |
 
 Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
 
@@ -531,17 +530,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:17:49+00:00 | 6656271e487d |
-| pbp | OK | 2026-11-11T18:17:50+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:17:50+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:17:50+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:17:51+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:17:51+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:17:51+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:17:51+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:17:52+00:00 |  |
-| nfl_savant | UNAVAILABLE: ParserError: Error tokenizing data. C error: Expected 1 fields in line 5, saw 2
- |  |  |
-| book_odds | OK | 2026-11-11T18:17:53+00:00 |  |
+| games | OK | 2026-11-11T18:19:47+00:00 | 6656271e487d |
+| pbp | OK | 2026-11-11T18:19:47+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:19:47+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:19:47+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:19:48+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:19:48+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:19:48+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:19:49+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T18:19:49+00:00 |  |
+| nfl_savant | UNAVAILABLE: no play-by-play CSV found; tried https://nflsavant.com/pbp_data.php?year=2026; https://nflsavant.com/about.php; https://nflsavant.com/ |  |  |
+| book_odds | OK | 2026-11-11T18:19:51+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
