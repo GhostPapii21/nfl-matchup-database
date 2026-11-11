@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-11T18:02:30+00:00",
+ "generated_utc": "2026-11-11T18:18:03+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -39,10 +39,383 @@
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "OK",
+  "props_status": "NOT_FETCHED: kickoff is 96 hours away (props are pulled inside 36 hours)",
+  "retrieved_utc": "2026-11-11T18:17:53+00:00",
+  "markets": {
+   "moneyline": {
+    "sides": [
+     "TEN",
+     "JAX"
+    ],
+    "books": {
+     "draftkings": {
+      "line": null,
+      "prices": {
+       "TEN": 400,
+       "JAX": -535
+      },
+      "no_vig": {
+       "TEN": 0.1918,
+       "JAX": 0.8082
+      },
+      "hold": 0.0425,
+      "last_update": "2026-11-11T18:17:19Z"
+     },
+     "fanduel": {
+      "line": null,
+      "prices": {
+       "TEN": 430,
+       "JAX": -590
+      },
+      "no_vig": {
+       "TEN": 0.1808,
+       "JAX": 0.8192
+      },
+      "hold": 0.0438,
+      "last_update": "2026-11-11T18:17:40Z"
+     },
+     "pinnacle": {
+      "line": null,
+      "prices": {
+       "TEN": 427,
+       "JAX": -560
+      },
+      "no_vig": {
+       "TEN": 0.1828,
+       "JAX": 0.8172
+      },
+      "hold": 0.0382,
+      "last_update": "2026-11-11T18:17:41Z"
+     }
+    },
+    "reference": {
+     "book": "pinnacle",
+     "line": null,
+     "no_vig": {
+      "TEN": 0.1828,
+      "JAX": 0.8172
+     }
+    },
+    "books_agree_on_line": true,
+    "best_retail_price": {
+     "TEN": {
+      "book": "fanduel",
+      "price": 430,
+      "line": null,
+      "break_even": 0.1887
+     },
+     "JAX": {
+      "book": "draftkings",
+      "price": -535,
+      "line": null,
+      "break_even": 0.8425
+     }
+    }
+   },
+   "spread": {
+    "sides": [
+     "TEN",
+     "JAX"
+    ],
+    "books": {
+     "draftkings": {
+      "line": 10.5,
+      "prices": {
+       "TEN": -112,
+       "JAX": -108
+      },
+      "no_vig": {
+       "TEN": 0.5043,
+       "JAX": 0.4957
+      },
+      "hold": 0.0475,
+      "last_update": "2026-11-11T18:17:19Z"
+     },
+     "fanduel": {
+      "line": 10.5,
+      "prices": {
+       "TEN": -115,
+       "JAX": -105
+      },
+      "no_vig": {
+       "TEN": 0.5108,
+       "JAX": 0.4892
+      },
+      "hold": 0.0471,
+      "last_update": "2026-11-11T18:17:40Z"
+     },
+     "pinnacle": {
+      "line": 10.5,
+      "prices": {
+       "TEN": -102,
+       "JAX": -110
+      },
+      "no_vig": {
+       "TEN": 0.4908,
+       "JAX": 0.5092
+      },
+      "hold": 0.0288,
+      "last_update": "2026-11-11T18:17:41Z"
+     }
+    },
+    "reference": {
+     "book": "pinnacle",
+     "line": 10.5,
+     "no_vig": {
+      "TEN": 0.4908,
+      "JAX": 0.5092
+     }
+    },
+    "books_agree_on_line": true,
+    "best_retail_price": {
+     "TEN": {
+      "book": "draftkings",
+      "price": -112,
+      "line": 10.5,
+      "break_even": 0.5283
+     },
+     "JAX": {
+      "book": "fanduel",
+      "price": -105,
+      "line": 10.5,
+      "break_even": 0.5122
+     }
+    }
+   },
+   "total": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "draftkings": {
+      "line": 46.5,
+      "prices": {
+       "Over": -110,
+       "Under": -110
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-11T18:17:19Z"
+     },
+     "fanduel": {
+      "line": 46.5,
+      "prices": {
+       "Over": -105,
+       "Under": -115
+      },
+      "no_vig": {
+       "Over": 0.4892,
+       "Under": 0.5108
+      },
+      "hold": 0.0471,
+      "last_update": "2026-11-11T18:17:40Z"
+     },
+     "pinnacle": {
+      "line": 46.5,
+      "prices": {
+       "Over": -102,
+       "Under": -115
+      },
+      "no_vig": {
+       "Over": 0.4856,
+       "Under": 0.5144
+      },
+      "hold": 0.0398,
+      "last_update": "2026-11-11T18:17:41Z"
+     }
+    },
+    "reference": {
+     "book": "pinnacle",
+     "line": 46.5,
+     "no_vig": {
+      "Over": 0.4856,
+      "Under": 0.5144
+     }
+    },
+    "books_agree_on_line": true,
+    "best_retail_price": {
+     "Over": {
+      "book": "fanduel",
+      "price": -105,
+      "line": 46.5,
+      "break_even": 0.5122
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": -110,
+      "line": 46.5,
+      "break_even": 0.5238
+     }
+    }
+   }
+  },
+  "movement": {
+   "status": "OK",
+   "snapshots": 1,
+   "first_seen_utc": "2026-11-11T18:18:01+00:00",
+   "current_utc": "2026-11-11T18:18:01+00:00",
+   "moves": [
+    {
+     "market": "moneyline",
+     "book": "draftkings",
+     "first_line": null,
+     "current_line": null,
+     "first_prices": {
+      "TEN": 400,
+      "JAX": -535
+     },
+     "current_prices": {
+      "TEN": 400,
+      "JAX": -535
+     }
+    },
+    {
+     "market": "moneyline",
+     "book": "fanduel",
+     "first_line": null,
+     "current_line": null,
+     "first_prices": {
+      "TEN": 430,
+      "JAX": -590
+     },
+     "current_prices": {
+      "TEN": 430,
+      "JAX": -590
+     }
+    },
+    {
+     "market": "moneyline",
+     "book": "pinnacle",
+     "first_line": null,
+     "current_line": null,
+     "first_prices": {
+      "TEN": 427,
+      "JAX": -560
+     },
+     "current_prices": {
+      "TEN": 427,
+      "JAX": -560
+     }
+    },
+    {
+     "market": "spread",
+     "book": "draftkings",
+     "first_line": 10.5,
+     "current_line": 10.5,
+     "first_prices": {
+      "TEN": -112,
+      "JAX": -108
+     },
+     "current_prices": {
+      "TEN": -112,
+      "JAX": -108
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "spread",
+     "book": "fanduel",
+     "first_line": 10.5,
+     "current_line": 10.5,
+     "first_prices": {
+      "TEN": -115,
+      "JAX": -105
+     },
+     "current_prices": {
+      "TEN": -115,
+      "JAX": -105
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "spread",
+     "book": "pinnacle",
+     "first_line": 10.5,
+     "current_line": 10.5,
+     "first_prices": {
+      "TEN": -102,
+      "JAX": -110
+     },
+     "current_prices": {
+      "TEN": -102,
+      "JAX": -110
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "total",
+     "book": "draftkings",
+     "first_line": 46.5,
+     "current_line": 46.5,
+     "first_prices": {
+      "Over": -110,
+      "Under": -110
+     },
+     "current_prices": {
+      "Over": -110,
+      "Under": -110
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "total",
+     "book": "fanduel",
+     "first_line": 46.5,
+     "current_line": 46.5,
+     "first_prices": {
+      "Over": -105,
+      "Under": -115
+     },
+     "current_prices": {
+      "Over": -105,
+      "Under": -115
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "total",
+     "book": "pinnacle",
+     "first_line": 46.5,
+     "current_line": 46.5,
+     "first_prices": {
+      "Over": -102,
+      "Under": -115
+     },
+     "current_prices": {
+      "Over": -102,
+      "Under": -115
+     },
+     "line_move": 0.0
+    }
+   ],
+   "note": "First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs."
+  }
  },
  "weather": {
-  "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+  "status": "OK",
+  "source": "US National Weather Service hourly forecast",
+  "url": "https://api.weather.gov/gridpoints/OHX/50,57/forecast/hourly",
+  "retrieved_utc": "2026-11-11T18:18:02+00:00",
+  "kickoff_utc": "2026-11-15T18:00:00+00:00",
+  "roof": "outdoors",
+  "at_kickoff": {
+   "temp_f": 51,
+   "wind_mph": 5.0,
+   "wind_dir": "ENE",
+   "precip_chance_pct": 0,
+   "summary": "Mostly Sunny"
+  },
+  "during_game": {
+   "temp_f_min": 51,
+   "wind_mph_max": 5.0,
+   "precip_chance_pct_max": 0
+  },
+  "flags": []
  },
  "teams": {
   "JAX": {
@@ -2403,8 +2776,209 @@
    "injuries": {
     "official_report": [],
     "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
-    "espn_live": [],
-    "espn_live_status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "espn_live": [
+     {
+      "player": "Brian Thomas Jr.",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-10T15:38Z",
+      "comment": "The Jaguars have relayed to inquiring teams that they intend to keep Thomas through Tuesday's trade deadline, Jeremy Fowler of ESPN.com reports.",
+      "team": "JAX"
+     },
+     {
+      "player": "Davon Godchaux",
+      "position": "DT",
+      "status": "Active",
+      "date": "2026-11-09T22:15Z",
+      "comment": "The Jaguars acquired Godchaux from the Saints on Monday in exchange for a 2028 sixth-round pick, though the selection could turn into a 2027 sixth-round pick if \"conditions are met,\" Jonathan Jones of",
+      "team": "JAX"
+     },
+     {
+      "player": "CJ Williams",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-09T21:16Z",
+      "comment": "",
+      "team": "JAX"
+     },
+     {
+      "player": "Wesley Williams",
+      "position": "DE",
+      "status": "Active",
+      "date": "2026-11-09T21:16Z",
+      "comment": "",
+      "team": "JAX"
+     },
+     {
+      "player": "Foyesade Oluokun",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-08T04:33Z",
+      "comment": "Oluokun recorded seven tackles (six solo), including 1.0 sacks, in Thursday's 33-10 victory over Baltimore.",
+      "team": "JAX"
+     },
+     {
+      "player": "Tanner Koziol",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-07T04:42Z",
+      "comment": "Koziol finished Thursday's 33-10 win over Baltimore with two catches for 15 yards on two targets.",
+      "team": "JAX"
+     },
+     {
+      "player": "Nate Boerkircher",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-06T18:22Z",
+      "comment": "Boerkircher hauled in two of three targets for 61 yards in Thursday night's 33-10 win over Baltimore.",
+      "team": "JAX"
+     },
+     {
+      "player": "Josh Cameron",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-06T17:58Z",
+      "comment": "Cameron caught his only target for six yards in Thursday night's 33-10 victory over the Ravens.",
+      "team": "JAX"
+     },
+     {
+      "player": "Ameer Abdullah",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-06T17:39Z",
+      "comment": "Abdullah carried the ball seven times for 30 yards and returned one kickoff for 24 yards in Thursday night's 33-10 win over the Ravens.",
+      "team": "JAX"
+     },
+     {
+      "player": "Brenton Strange",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-06T17:07Z",
+      "comment": "Strange caught both of his targets for 22 yards in Thursday night's 33-10 win over the Ravens.",
+      "team": "JAX"
+     },
+     {
+      "player": "Travis Hunter",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-06T17:05Z",
+      "comment": "Hunter caught his only target for minus-1 yard and lost a fumble in Thursday night's 33-10 win over the Ravens.",
+      "team": "JAX"
+     },
+     {
+      "player": "Chris Rodriguez Jr.",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-06T05:44Z",
+      "comment": "Rodriguez rushed 10 times for 19 yards and a touchdown and brought in both targets for 13 yards in the Jaguars' 33-10 win over the Ravens on Thursday night.",
+      "team": "JAX"
+     },
+     {
+      "player": "Cam Little",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-06T05:28Z",
+      "comment": "Little made all four of his field-goal attempts and all three of his extra-point tries in a 33-10 win over Baltimore on Thursday.",
+      "team": "JAX"
+     },
+     {
+      "player": "Jakobi Meyers",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-06T05:14Z",
+      "comment": "Meyers brought in four of six targets for 65 yards in the Jaguars' 33-10 win over the Ravens on Thursday night.",
+      "team": "JAX"
+     },
+     {
+      "player": "Trevor Lawrence",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-06T05:09Z",
+      "comment": "Lawrence completed 16 of 26 passes for 242 yards with a touchdown and no interceptions while rushing once for minus-1 yard in the Jaguars' 33-16 win over the Ravens on Thursday night.",
+      "team": "JAX"
+     },
+     {
+      "player": "Parker Washington",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-06T04:55Z",
+      "comment": "Washington secured two of seven targets for 61 yards and a touchdown in the Jaguars' 33-10 win over the Ravens on Thursday night. He also returned one punt for 11 yards.",
+      "team": "JAX"
+     },
+     {
+      "player": "Bhayshul Tuten",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-06T04:49Z",
+      "comment": "Tuten (ankle/foot) rushed 12 times for 29 yards and a touchdown in the Jaguars' 33-10 win over the Ravens on Thursday night.",
+      "team": "JAX"
+     },
+     {
+      "player": "Travon Walker",
+      "position": "DE",
+      "status": "Active",
+      "date": "2026-11-05T23:56Z",
+      "comment": "Walker (ribs) is available for Thursday's game against Baltimore.",
+      "team": "JAX"
+     },
+     {
+      "player": "Cam'Ron Silmon-Craig",
+      "position": "S",
+      "status": "Out",
+      "date": "2026-11-05T23:48Z",
+      "comment": "inactive",
+      "team": "JAX"
+     },
+     {
+      "player": "Antonio Johnson",
+      "position": "S",
+      "status": "Active",
+      "date": "2026-11-05T00:56Z",
+      "comment": "Johnson (ankle) has no injury designation ahead of Thursday night's matchup against Baltimore.",
+      "team": "JAX"
+     },
+     {
+      "player": "Jarrian Jones",
+      "position": "CB",
+      "status": "Active",
+      "date": "2026-11-04T20:06Z",
+      "comment": "",
+      "team": "JAX"
+     },
+     {
+      "player": "Branson Combs",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-04T20:06Z",
+      "comment": "",
+      "team": "JAX"
+     },
+     {
+      "player": "Ezra Cleveland",
+      "position": "G",
+      "status": "Active",
+      "date": "2026-11-04T20:06Z",
+      "comment": "",
+      "team": "JAX"
+     },
+     {
+      "player": "Rayuan Lane III",
+      "position": "S",
+      "status": "Active",
+      "date": "2026-11-04T03:32Z",
+      "comment": "Lane recorded four total tackles (one solo) and three passes defensed, including a pick-six, during Sunday's 42-7 win over the Colts.",
+      "team": "JAX"
+     },
+     {
+      "player": "Eric Murray",
+      "position": "S",
+      "status": "Injured Reserve",
+      "date": "2026-11-04T01:11Z",
+      "comment": "The Jaguars placed Murray (elbow) on their injured reserve list Tuesday.",
+      "team": "JAX"
+     }
+    ],
+    "espn_live_status": "OK",
     "note": "A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file."
    },
    "roster_moves": {
@@ -4725,8 +5299,209 @@
    "injuries": {
     "official_report": [],
     "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
-    "espn_live": [],
-    "espn_live_status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "espn_live": [
+     {
+      "player": "Carnell Tate",
+      "position": "WR",
+      "status": "Questionable",
+      "date": "2026-11-11T17:50Z",
+      "comment": "questionable",
+      "team": "TEN"
+     },
+     {
+      "player": "Tony Pollard",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-10T21:08Z",
+      "comment": "The Titans opted not to move Pollard ahead of Tuesday's trade deadline, despite him drawing interest from teams, Jeremy Fowler of ESPN.com reports.",
+      "team": "TEN"
+     },
+     {
+      "player": "James Williams Sr.",
+      "position": "LB",
+      "status": "Injured Reserve",
+      "date": "2026-11-10T15:44Z",
+      "comment": "ir",
+      "team": "TEN"
+     },
+     {
+      "player": "Tyjae Spears",
+      "position": "RB",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "TEN"
+     },
+     {
+      "player": "Tommy Townsend",
+      "position": "P",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "TEN"
+     },
+     {
+      "player": "Jaylon Jones",
+      "position": "CB",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "TEN"
+     },
+     {
+      "player": "Dorian Mausi",
+      "position": "LB",
+      "status": "Injured Reserve",
+      "date": "2026-11-10T01:54Z",
+      "comment": "The Titans activated Mausi (foot) from injured reserve Monday, Jim Wyatt of the Titans' official site reports.",
+      "team": "TEN"
+     },
+     {
+      "player": "Nicholas Singleton",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-09T15:21Z",
+      "comment": "Titans head coach Robert Saleh said Monday that Singleton is \"getting better,\" and the rookie running back could be a candidate to see added opportunities in the second half of the season if lead back",
+      "team": "TEN"
+     },
+     {
+      "player": "Calvin Ridley",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-09T14:43Z",
+      "comment": "Titans head coach Robert Saleh confirmed Monday that Ridley was involved in an \"unfortunate\" interaction over the weekend at Nashville International Airport that is now in the hands of law enforcement",
+      "team": "TEN"
+     },
+     {
+      "player": "Joey Slye",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-03T02:06Z",
+      "comment": "Slye hit both field-goal tries and his two extra-point attempts in Sunday's 43-36 overtime loss to the Bengals.",
+      "team": "TEN"
+     },
+     {
+      "player": "Elic Ayomanor",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-03T01:46Z",
+      "comment": "Ayomanor caught three of five targets for 34 yards in Sunday's 43-36 overtime loss to the Bengals.",
+      "team": "TEN"
+     },
+     {
+      "player": "Brandon Crenshaw-Dickson",
+      "position": "OT",
+      "status": "Active",
+      "date": "2026-11-02T19:24Z",
+      "comment": "",
+      "team": "TEN"
+     },
+     {
+      "player": "Kylen Granson",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-02T19:24Z",
+      "comment": "",
+      "team": "TEN"
+     },
+     {
+      "player": "Jackie Marshall",
+      "position": "DT",
+      "status": "Active",
+      "date": "2026-11-02T19:24Z",
+      "comment": "",
+      "team": "TEN"
+     },
+     {
+      "player": "Chimere Dike",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-02T04:01Z",
+      "comment": "Dike caught five of six targets for 61 yards and a touchdown in Sunday's 43-36 overtime loss to the Bengals.",
+      "team": "TEN"
+     },
+     {
+      "player": "Gunnar Helm",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-02T03:29Z",
+      "comment": "Helm caught five of nine targets for 76 yards during Sunday's 43-36 overtime loss to the Bengals.",
+      "team": "TEN"
+     },
+     {
+      "player": "Wan'Dale Robinson",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-02T02:38Z",
+      "comment": "Robinson caught six of seven targets for 57 yards and a touchdown in Sunday's 43-36 overtime loss to the Bengals. He also lost a fumble.",
+      "team": "TEN"
+     },
+     {
+      "player": "Cam Ward",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-01T22:40Z",
+      "comment": "Ward completed 26 of 40 passes for 304 yards and two touchdowns in Sunday's 43-36 overtime loss to the Bengals. He added seven rushing attempts for 41 yards, lost a fumble, ran in a two-point conversi",
+      "team": "TEN"
+     },
+     {
+      "player": "Peter Skoronski",
+      "position": "G",
+      "status": "Questionable",
+      "date": "2026-11-01T21:14Z",
+      "comment": "Skoronski (hamstring) is questionable to return to Sunday's game against the Bengals.",
+      "team": "TEN"
+     },
+     {
+      "player": "JC Latham",
+      "position": "OT",
+      "status": "Questionable",
+      "date": "2026-11-01T21:06Z",
+      "comment": "Latham (finger) is questionable to return to Sunday's game against the Bengals, Jim Wyatt of the Titans' official site reports.",
+      "team": "TEN"
+     },
+     {
+      "player": "Kevin Winston Jr.",
+      "position": "S",
+      "status": "Active",
+      "date": "2026-11-01T20:40Z",
+      "comment": "",
+      "team": "TEN"
+     },
+     {
+      "player": "Marcus Harris",
+      "position": "CB",
+      "status": "Questionable",
+      "date": "2026-11-01T20:39Z",
+      "comment": "Harris (ankle) has been ruled out for the rest of Sunday's game against the Bengals.",
+      "team": "TEN"
+     },
+     {
+      "player": "John Franklin-Myers",
+      "position": "DE",
+      "status": "Active",
+      "date": "2026-11-01T16:44Z",
+      "comment": "Franklin-Myers (groin) is active for Sunday's game against the Bengals, Jim Wyatt of the Titans' official site reports.",
+      "team": "TEN"
+     },
+     {
+      "player": "Thomas Morstead",
+      "position": "P",
+      "status": "Active",
+      "date": "2026-11-01T02:11Z",
+      "comment": "The Titans elevated Morstead from the practice squad to the active roster Saturday, Jim Wyatt of the team's official site reports.",
+      "team": "TEN"
+     },
+     {
+      "player": "Jonah Laulu",
+      "position": "DT",
+      "status": "Active",
+      "date": "2026-10-29T00:34Z",
+      "comment": "The Titans claimed Laulu off waivers from the Raiders on Wednesday, Jim Wyatt of the Titans' official site reports.",
+      "team": "TEN"
+     }
+    ],
+    "espn_live_status": "OK",
     "note": "A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file."
    },
    "roster_moves": {
@@ -5559,75 +6334,75 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:10+00:00",
-   "sha256": "7500223cb5ae8343cbd25ceeae5b695934154893a87ca6281731588716b65c76",
+   "retrieved_utc": "2026-11-11T18:17:49+00:00",
+   "sha256": "6656271e487d071188cc629935cb91d343420e3e16a715f8ea324b395a6d7320",
    "bytes": 523757
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:50+00:00",
    "sha256": "8211d9a24b0e162732ccb048b8d416354b54e968a4b6fde1cde87059f4ae67ed",
    "bytes": 10122154
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:50+00:00",
    "sha256": "ad5aaeefbae79632fa53f8f96e18ef6f7a696d93fd3ce78270ae74195b1528da",
    "bytes": 821492
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:50+00:00",
    "sha256": "91fd27378ada8a48362d51570da4d599b5183b486f8baaea5c01ee5a7e1bae70",
    "bytes": 61590
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "82b047a2700367869c1a5facdb002d2976b2d469c442c3ff49d1f9cb2c106dbf",
    "bytes": 3475983
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:12+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "78c013d97bde36622c435c878cacf48e1c8b3f58d02967c9e0ed2fc884f449e9",
    "bytes": 134114
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:12+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "03eef74c47b45969d7d360c05574444203c845e0ba5bb07ec8db0d7b340bae42",
    "bytes": 287339
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:12+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "99358137e06dd5b86d76a830d01b4415787c90a087b3590171a561815c06ff50",
    "bytes": 92837
   },
   "espn_injuries": {
-   "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+   "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": null
+   "retrieved_utc": "2026-11-11T18:17:52+00:00"
   },
   "nfl_savant": {
-   "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+   "status": "UNAVAILABLE: ParserError: Error tokenizing data. C error: Expected 1 fields in line 5, saw 2\n",
    "url": "https://nflsavant.com/pbp_data.php?year=2026",
    "retrieved_utc": null,
    "latest_game": null,
    "rows": null
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "OK",
    "url": "https://the-odds-api.com (Pinnacle, DraftKings, FanDuel)",
-   "retrieved_utc": null
+   "retrieved_utc": "2026-11-11T18:17:53+00:00"
   }
  },
  "phase_ledger": [
@@ -5694,20 +6469,20 @@
   {
    "phase": 11,
    "name": "Injury and depth chart",
-   "status": "PENDING",
+   "status": "PARTIAL",
    "detail": "Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures."
   },
   {
    "phase": 12,
    "name": "Weather, roof, travel",
-   "status": "PARTIAL",
-   "detail": "Roof, surface, rest days, site; National Weather Service kickoff forecast: UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>."
+   "status": "AUTO",
+   "detail": "Roof, surface, rest days, site; National Weather Service kickoff forecast: OK."
   },
   {
    "phase": 13,
    "name": "Timestamped book prices",
-   "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "status": "PARTIAL",
+   "detail": "Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line."
   },
   {
    "phase": 14,
@@ -5723,12 +6498,12 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-11T18:02:13+00:00",
+  "checked_utc": "2026-11-11T18:17:52+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",
     "used_for": "Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT"
    },
    "NFL_BDL_API_KEY": {
     "provider": "BallDontLie NFL",
@@ -5738,13 +6513,13 @@
    "NFL_API_SPORTS_KEY": {
     "provider": "API-Sports NFL",
     "used_for": "access check only; not used in the packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT_PROVIDER_ERROR"
    }
   },
   "note": "Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here."
  },
  "nfl_savant": {
-  "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+  "status": "UNAVAILABLE: ParserError: Error tokenizing data. C error: Expected 1 fields in line 5, saw 2\n",
   "latest_game": null,
   "teams": {
    "JAX": null,

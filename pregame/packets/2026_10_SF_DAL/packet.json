@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-11T18:02:50+00:00",
+ "generated_utc": "2026-11-11T18:18:13+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -39,10 +39,386 @@
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "OK",
+  "props_status": "NOT_FETCHED: kickoff is 99 hours away (props are pulled inside 36 hours)",
+  "retrieved_utc": "2026-11-11T18:17:53+00:00",
+  "markets": {
+   "moneyline": {
+    "sides": [
+     "DAL",
+     "SF"
+    ],
+    "books": {
+     "draftkings": {
+      "line": null,
+      "prices": {
+       "DAL": 170,
+       "SF": -205
+      },
+      "no_vig": {
+       "DAL": 0.3553,
+       "SF": 0.6447
+      },
+      "hold": 0.0425,
+      "last_update": "2026-11-11T18:17:19Z"
+     },
+     "fanduel": {
+      "line": null,
+      "prices": {
+       "DAL": 172,
+       "SF": -205
+      },
+      "no_vig": {
+       "DAL": 0.3536,
+       "SF": 0.6464
+      },
+      "hold": 0.0398,
+      "last_update": "2026-11-11T18:17:40Z"
+     },
+     "pinnacle": {
+      "line": null,
+      "prices": {
+       "DAL": 178,
+       "SF": -206
+      },
+      "no_vig": {
+       "DAL": 0.3482,
+       "SF": 0.6518
+      },
+      "hold": 0.0329,
+      "last_update": "2026-11-11T18:17:41Z"
+     }
+    },
+    "reference": {
+     "book": "pinnacle",
+     "line": null,
+     "no_vig": {
+      "DAL": 0.3482,
+      "SF": 0.6518
+     }
+    },
+    "books_agree_on_line": true,
+    "best_retail_price": {
+     "DAL": {
+      "book": "fanduel",
+      "price": 172,
+      "line": null,
+      "break_even": 0.3676
+     },
+     "SF": {
+      "book": "draftkings",
+      "price": -205,
+      "line": null,
+      "break_even": 0.6721
+     }
+    }
+   },
+   "spread": {
+    "sides": [
+     "DAL",
+     "SF"
+    ],
+    "books": {
+     "draftkings": {
+      "line": 3.5,
+      "prices": {
+       "DAL": -105,
+       "SF": -115
+      },
+      "no_vig": {
+       "DAL": 0.4892,
+       "SF": 0.5108
+      },
+      "hold": 0.0471,
+      "last_update": "2026-11-11T18:17:19Z"
+     },
+     "fanduel": {
+      "line": 4.5,
+      "prices": {
+       "DAL": -120,
+       "SF": 100
+      },
+      "no_vig": {
+       "DAL": 0.5217,
+       "SF": 0.4783
+      },
+      "hold": 0.0455,
+      "last_update": "2026-11-11T18:17:40Z"
+     },
+     "pinnacle": {
+      "line": 4.0,
+      "prices": {
+       "DAL": -108,
+       "SF": -104
+      },
+      "no_vig": {
+       "DAL": 0.5046,
+       "SF": 0.4954
+      },
+      "hold": 0.029,
+      "last_update": "2026-11-11T18:17:41Z"
+     }
+    },
+    "reference": {
+     "book": "pinnacle",
+     "line": 4.0,
+     "no_vig": {
+      "DAL": 0.5046,
+      "SF": 0.4954
+     }
+    },
+    "books_agree_on_line": false,
+    "best_retail_price": {
+     "DAL": {
+      "book": "draftkings",
+      "price": -105,
+      "line": 3.5,
+      "break_even": 0.5122
+     },
+     "SF": {
+      "book": "fanduel",
+      "price": 100,
+      "line": 4.5,
+      "break_even": 0.5
+     }
+    }
+   },
+   "total": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "draftkings": {
+      "line": 55.5,
+      "prices": {
+       "Over": -115,
+       "Under": -105
+      },
+      "no_vig": {
+       "Over": 0.5108,
+       "Under": 0.4892
+      },
+      "hold": 0.0471,
+      "last_update": "2026-11-11T18:17:19Z"
+     },
+     "fanduel": {
+      "line": 55.5,
+      "prices": {
+       "Over": -115,
+       "Under": -105
+      },
+      "no_vig": {
+       "Over": 0.5108,
+       "Under": 0.4892
+      },
+      "hold": 0.0471,
+      "last_update": "2026-11-11T18:17:40Z"
+     },
+     "pinnacle": {
+      "line": 56.0,
+      "prices": {
+       "Over": 100,
+       "Under": -116
+      },
+      "no_vig": {
+       "Over": 0.4821,
+       "Under": 0.5179
+      },
+      "hold": 0.037,
+      "last_update": "2026-11-11T18:17:41Z"
+     }
+    },
+    "reference": {
+     "book": "pinnacle",
+     "line": 56.0,
+     "no_vig": {
+      "Over": 0.4821,
+      "Under": 0.5179
+     }
+    },
+    "books_agree_on_line": false,
+    "best_retail_price": {
+     "Over": {
+      "book": "draftkings",
+      "price": -115,
+      "line": 55.5,
+      "break_even": 0.5349
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": -105,
+      "line": 55.5,
+      "break_even": 0.5122
+     }
+    }
+   }
+  },
+  "movement": {
+   "status": "OK",
+   "snapshots": 1,
+   "first_seen_utc": "2026-11-11T18:18:12+00:00",
+   "current_utc": "2026-11-11T18:18:12+00:00",
+   "moves": [
+    {
+     "market": "moneyline",
+     "book": "draftkings",
+     "first_line": null,
+     "current_line": null,
+     "first_prices": {
+      "DAL": 170,
+      "SF": -205
+     },
+     "current_prices": {
+      "DAL": 170,
+      "SF": -205
+     }
+    },
+    {
+     "market": "moneyline",
+     "book": "fanduel",
+     "first_line": null,
+     "current_line": null,
+     "first_prices": {
+      "DAL": 172,
+      "SF": -205
+     },
+     "current_prices": {
+      "DAL": 172,
+      "SF": -205
+     }
+    },
+    {
+     "market": "moneyline",
+     "book": "pinnacle",
+     "first_line": null,
+     "current_line": null,
+     "first_prices": {
+      "DAL": 178,
+      "SF": -206
+     },
+     "current_prices": {
+      "DAL": 178,
+      "SF": -206
+     }
+    },
+    {
+     "market": "spread",
+     "book": "draftkings",
+     "first_line": 3.5,
+     "current_line": 3.5,
+     "first_prices": {
+      "DAL": -105,
+      "SF": -115
+     },
+     "current_prices": {
+      "DAL": -105,
+      "SF": -115
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "spread",
+     "book": "fanduel",
+     "first_line": 4.5,
+     "current_line": 4.5,
+     "first_prices": {
+      "DAL": -120,
+      "SF": 100
+     },
+     "current_prices": {
+      "DAL": -120,
+      "SF": 100
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "spread",
+     "book": "pinnacle",
+     "first_line": 4.0,
+     "current_line": 4.0,
+     "first_prices": {
+      "DAL": -108,
+      "SF": -104
+     },
+     "current_prices": {
+      "DAL": -108,
+      "SF": -104
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "total",
+     "book": "draftkings",
+     "first_line": 55.5,
+     "current_line": 55.5,
+     "first_prices": {
+      "Over": -115,
+      "Under": -105
+     },
+     "current_prices": {
+      "Over": -115,
+      "Under": -105
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "total",
+     "book": "fanduel",
+     "first_line": 55.5,
+     "current_line": 55.5,
+     "first_prices": {
+      "Over": -115,
+      "Under": -105
+     },
+     "current_prices": {
+      "Over": -115,
+      "Under": -105
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "total",
+     "book": "pinnacle",
+     "first_line": 56.0,
+     "current_line": 56.0,
+     "first_prices": {
+      "Over": 100,
+      "Under": -116
+     },
+     "current_prices": {
+      "Over": 100,
+      "Under": -116
+     },
+     "line_move": 0.0
+    }
+   ],
+   "note": "First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs."
+  }
  },
  "weather": {
-  "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+  "status": "OK",
+  "source": "US National Weather Service hourly forecast",
+  "url": "https://api.weather.gov/gridpoints/FWD/78,103/forecast/hourly",
+  "retrieved_utc": "2026-11-11T18:18:12+00:00",
+  "kickoff_utc": "2026-11-15T21:25:00+00:00",
+  "roof": "not listed (may be retractable: confirm open or closed)",
+  "at_kickoff": {
+   "temp_f": 61,
+   "wind_mph": 15.0,
+   "wind_dir": "ESE",
+   "precip_chance_pct": 73,
+   "summary": "Rain Showers Likely"
+  },
+  "during_game": {
+   "temp_f_min": 59,
+   "wind_mph_max": 15.0,
+   "precip_chance_pct_max": 73
+  },
+  "flags": [
+   "WIND_15_PLUS",
+   "PRECIP_50_PLUS"
+  ]
  },
  "teams": {
   "SF": {
@@ -2310,8 +2686,209 @@
    "injuries": {
     "official_report": [],
     "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
-    "espn_live": [],
-    "espn_live_status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "espn_live": [
+     {
+      "player": "Gracen Halton",
+      "position": "DT",
+      "status": "Injured Reserve",
+      "date": "2026-11-11T02:01Z",
+      "comment": "ir",
+      "team": "SF"
+     },
+     {
+      "player": "Brandin Cooks",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-11T00:42Z",
+      "comment": "Cooks brought in both of his targets for 25 yards during Sunday's 38-17 win over the Raiders.",
+      "team": "SF"
+     },
+     {
+      "player": "Demarcus Robinson",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-11T00:35Z",
+      "comment": "Robinson caught three passes for 22 yards on four targets in Sunday's 38-17 win over the Raiders.",
+      "team": "SF"
+     },
+     {
+      "player": "Mac Jones",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-10T19:09Z",
+      "comment": "The 49ers fielded trade inquiries in Jones from the Vikings leading up to Tuesday's deadline, but the quarterback is expected to remain in San Francisco, Dianna Russini of BetUS TV reports.",
+      "team": "SF"
+     },
+     {
+      "player": "Mike Evans",
+      "position": "WR",
+      "status": "Questionable",
+      "date": "2026-11-10T16:28Z",
+      "comment": "questionable",
+      "team": "SF"
+     },
+     {
+      "player": "Deebo Samuel Sr.",
+      "position": "WR",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "SF"
+     },
+     {
+      "player": "Jordan James",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-10T04:41Z",
+      "comment": "James rushed three times for 11 yards and returned two kickoffs for 31 yards Sunday in a 38-17 victory versus Las Vegas.",
+      "team": "SF"
+     },
+     {
+      "player": "Eddy Pineiro",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-10T02:50Z",
+      "comment": "Pineiro made his lone field-goal attempt and all five of his extra-point tries during San Francisco's win over the Raiders on Sunday.",
+      "team": "SF"
+     },
+     {
+      "player": "C.J. West",
+      "position": "DT",
+      "status": "Injured Reserve",
+      "date": "2026-11-10T02:18Z",
+      "comment": "The 49ers plan to open West's (undisclosed) practice window Wednesday, David Lombardi of SFStandard.com reports.",
+      "team": "SF"
+     },
+     {
+      "player": "Deommodore Lenoir",
+      "position": "CB",
+      "status": "Questionable",
+      "date": "2026-11-10T01:22Z",
+      "comment": "Coach Kyle Shanahan said Monday that Lenoir (foot) is considered day-to-day ahead of Sunday's game at Dallas, Matt Barrows of The Athletic reports.",
+      "team": "SF"
+     },
+     {
+      "player": "Renardo Green",
+      "position": "CB",
+      "status": "Questionable",
+      "date": "2026-11-10T01:17Z",
+      "comment": "Coach Kyle Shanahan said Monday that Green (back) is considered day-to-day ahead of Sunday's game at Dallas, Matt Barrows of The Athletic reports.",
+      "team": "SF"
+     },
+     {
+      "player": "Brandon Aiyuk",
+      "position": "WR",
+      "status": "Out",
+      "date": "2026-11-09T22:31Z",
+      "comment": "The 49ers reinstated Aiyuk (personal) from the reserve/left squad list Monday and were granted a two-week roster exemption for the wide receiver, Tom Pelissero of Netflix reports.",
+      "team": "SF"
+     },
+     {
+      "player": "Khalid Kareem",
+      "position": "DE",
+      "status": "Active",
+      "date": "2026-11-09T21:33Z",
+      "comment": "",
+      "team": "SF"
+     },
+     {
+      "player": "Tatum Bethune",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-09T21:33Z",
+      "comment": "",
+      "team": "SF"
+     },
+     {
+      "player": "Enrique Cruz Jr.",
+      "position": "OT",
+      "status": "Active",
+      "date": "2026-11-09T21:33Z",
+      "comment": "",
+      "team": "SF"
+     },
+     {
+      "player": "Kurtis Rourke",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-09T21:33Z",
+      "comment": "",
+      "team": "SF"
+     },
+     {
+      "player": "Kaelon Black",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-09T02:45Z",
+      "comment": "Black rushed 11 times for 70 yards but wasn't targeted in Sunday's 38-17 win over the Raiders.",
+      "team": "SF"
+     },
+     {
+      "player": "Jordan Watkins",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-09T02:44Z",
+      "comment": "Watkins caught all four of his targets for 86 yards and a touchdown in Sunday's 38-17 win over the Raiders.",
+      "team": "SF"
+     },
+     {
+      "player": "George Kittle",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-09T01:52Z",
+      "comment": "Kittle caught four of seven targets for 58 yards in Sunday's 38-17 win over the Raiders.",
+      "team": "SF"
+     },
+     {
+      "player": "Brock Purdy",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-09T01:50Z",
+      "comment": "Purdy completed 17 of 25 passes for 232 yards, two touchdowns and one interception in Sunday's 38-17 win over the Raiders. He added seven rushing attempts for 40 yards and a touchdown.",
+      "team": "SF"
+     },
+     {
+      "player": "Christian McCaffrey",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-09T00:53Z",
+      "comment": "McCaffrey rushed 18 times for 68 yards and a touchdown while catching two of three targets for 19 yards and a touchdown in Sunday's 38-17 win over the Raiders.",
+      "team": "SF"
+     },
+     {
+      "player": "Siran Neal",
+      "position": "S",
+      "status": "Active",
+      "date": "2026-11-08T20:01Z",
+      "comment": "",
+      "team": "SF"
+     },
+     {
+      "player": "Upton Stout",
+      "position": "CB",
+      "status": "Active",
+      "date": "2026-11-08T20:01Z",
+      "comment": "",
+      "team": "SF"
+     },
+     {
+      "player": "Nate Hobbs",
+      "position": "CB",
+      "status": "Injured Reserve",
+      "date": "2026-11-08T01:27Z",
+      "comment": "San Francisco didn't activate Hobbs (groin) from injured reserve Saturday, David Lombardi of SFStandard.com reports.",
+      "team": "SF"
+     },
+     {
+      "player": "Christian Kirk",
+      "position": "WR",
+      "status": "Injured Reserve",
+      "date": "2026-11-07T21:50Z",
+      "comment": "The 49ers placed Kirk (knee) on injured reserve Saturday.",
+      "team": "SF"
+     }
+    ],
+    "espn_live_status": "OK",
     "note": "A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file."
    },
    "roster_moves": {
@@ -4599,8 +5176,209 @@
    "injuries": {
     "official_report": [],
     "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
-    "espn_live": [],
-    "espn_live_status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "espn_live": [
+     {
+      "player": "DeMarvion Overshown",
+      "position": "LB",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "DAL"
+     },
+     {
+      "player": "George Pickens",
+      "position": "WR",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "DAL"
+     },
+     {
+      "player": "Joey Porter Jr.",
+      "position": "CB",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "DAL"
+     },
+     {
+      "player": "Luke Schoonmaker",
+      "position": "TE",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "DAL"
+     },
+     {
+      "player": "KaVontae Turpin",
+      "position": "WR",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "DAL"
+     },
+     {
+      "player": "Tyler Goodson",
+      "position": "RB",
+      "status": "Out",
+      "date": "2026-11-10T15:05Z",
+      "comment": "Goodson sustained ACL and MCL sprains in his knee during Sunday's 27-23 win over the Colts, a source tells Todd Archer of ESPN.com.",
+      "team": "DAL"
+     },
+     {
+      "player": "Ryan Flournoy",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-10T02:15Z",
+      "comment": "Flournoy caught two of three targets for 53 yards during Sunday's 27-23 win over the Colts.",
+      "team": "DAL"
+     },
+     {
+      "player": "Jake Ferguson",
+      "position": "TE",
+      "status": "Out",
+      "date": "2026-11-10T01:39Z",
+      "comment": "out",
+      "team": "DAL"
+     },
+     {
+      "player": "Donovan Ezeiruaku",
+      "position": "LB",
+      "status": "Questionable",
+      "date": "2026-11-10T01:11Z",
+      "comment": "Ezeiruaku (ankle) is considered day-to-day, Nick Harris of the Fort Worth Star-Telegram reports.",
+      "team": "DAL"
+     },
+     {
+      "player": "P.J. Locke",
+      "position": "S",
+      "status": "Out",
+      "date": "2026-11-10T01:02Z",
+      "comment": "out",
+      "team": "DAL"
+     },
+     {
+      "player": "Brevyn Spann-Ford",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-10T01:01Z",
+      "comment": "Spann-Ford caught two of three targets for 20 yards during Sunday's 27-23 win versus the Colts.",
+      "team": "DAL"
+     },
+     {
+      "player": "Ajani Cornelius",
+      "position": "OT",
+      "status": "Active",
+      "date": "2026-11-09T20:59Z",
+      "comment": "",
+      "team": "DAL"
+     },
+     {
+      "player": "Tyrus Wheat",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-09T20:59Z",
+      "comment": "",
+      "team": "DAL"
+     },
+     {
+      "player": "Brandon Aubrey",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-09T05:53Z",
+      "comment": "Aubrey went 2-for-3 on field-goal attempts and made all three of his PATs during Sunday's 27-23 win over the Colts.",
+      "team": "DAL"
+     },
+     {
+      "player": "Dak Prescott",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-08T22:51Z",
+      "comment": "Prescott completed 21 of 34 passes for 335 yards with two touchdowns and no interceptions while rushing twice for one yard in the Cowboys' 27-23 win over the Colts on Sunday. He also lost a fumble.",
+      "team": "DAL"
+     },
+     {
+      "player": "Javonte Williams",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-08T22:38Z",
+      "comment": "Williams rushed 20 times for 101 yards and a touchdown and brought in four of five targets for 23 yards in the Cowboys' 27-23 win over the Colts on Sunday.",
+      "team": "DAL"
+     },
+     {
+      "player": "CeeDee Lamb",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-08T22:30Z",
+      "comment": "Lamb brought in 10 of 16 targets for 195 yards and a touchdown in the Cowboys' 27-23 win over the Colts on Sunday. He also lost a fumble.",
+      "team": "DAL"
+     },
+     {
+      "player": "Dee Winters",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-08T20:59Z",
+      "comment": "Winters (head) has returned to Sunday's Week 9 matchup against the Colts, Patrik Walker of the Cowboys' official site reports.",
+      "team": "DAL"
+     },
+     {
+      "player": "Jonathan Mingo",
+      "position": "WR",
+      "status": "Questionable",
+      "date": "2026-11-08T20:48Z",
+      "comment": "Mingo (ankle) is questionable to return to Sunday's matchup against the Colts, Patrik Walker of the Cowboys' official site reports.",
+      "team": "DAL"
+     },
+     {
+      "player": "Marist Liufau",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-08T17:41Z",
+      "comment": "Liufau (forearm) is active for Sunday's game against the Colts.",
+      "team": "DAL"
+     },
+     {
+      "player": "Jonathan Bullard",
+      "position": "DT",
+      "status": "Injured Reserve",
+      "date": "2026-11-08T02:22Z",
+      "comment": "Bullard (calf) wasn't activated from injured reserve Saturday, Patrik Walker of the Cowboys' official site reports.",
+      "team": "DAL"
+     },
+     {
+      "player": "Malachi Lawrence",
+      "position": "LB",
+      "status": "Injured Reserve",
+      "date": "2026-11-07T22:30Z",
+      "comment": "Dallas placed Lawrence (ankle) on injured reserve Saturday, Patrik Walker of the Cowboys' official site reports.",
+      "team": "DAL"
+     },
+     {
+      "player": "Tyler Smith",
+      "position": "G",
+      "status": "Active",
+      "date": "2026-11-07T03:12Z",
+      "comment": "Smith (ankle) does not have any injury designation ahead of Sunday's game against the Colts, Tommy Yarrish of the Cowboys' official site reports.",
+      "team": "DAL"
+     },
+     {
+      "player": "Caleb Downs",
+      "position": "S",
+      "status": "Active",
+      "date": "2026-11-07T00:35Z",
+      "comment": "Downs (concussion) has no injury designation ahead of Sunday's game against the Colts, Tommy Yarrish of the Cowboys' official site reports.",
+      "team": "DAL"
+     },
+     {
+      "player": "Drew Shelton",
+      "position": "OT",
+      "status": "Active",
+      "date": "2026-11-05T04:53Z",
+      "comment": "Shelton (hamstring) was a full participant in Wednesday's practice, Patrik Walker of the Cowboys' official site reports.",
+      "team": "DAL"
+     }
+    ],
+    "espn_live_status": "OK",
     "note": "A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file."
    },
    "roster_moves": {
@@ -5471,75 +6249,75 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:10+00:00",
-   "sha256": "7500223cb5ae8343cbd25ceeae5b695934154893a87ca6281731588716b65c76",
+   "retrieved_utc": "2026-11-11T18:17:49+00:00",
+   "sha256": "6656271e487d071188cc629935cb91d343420e3e16a715f8ea324b395a6d7320",
    "bytes": 523757
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:50+00:00",
    "sha256": "8211d9a24b0e162732ccb048b8d416354b54e968a4b6fde1cde87059f4ae67ed",
    "bytes": 10122154
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:50+00:00",
    "sha256": "ad5aaeefbae79632fa53f8f96e18ef6f7a696d93fd3ce78270ae74195b1528da",
    "bytes": 821492
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:50+00:00",
    "sha256": "91fd27378ada8a48362d51570da4d599b5183b486f8baaea5c01ee5a7e1bae70",
    "bytes": 61590
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "82b047a2700367869c1a5facdb002d2976b2d469c442c3ff49d1f9cb2c106dbf",
    "bytes": 3475983
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:12+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "78c013d97bde36622c435c878cacf48e1c8b3f58d02967c9e0ed2fc884f449e9",
    "bytes": 134114
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:12+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "03eef74c47b45969d7d360c05574444203c845e0ba5bb07ec8db0d7b340bae42",
    "bytes": 287339
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:12+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "99358137e06dd5b86d76a830d01b4415787c90a087b3590171a561815c06ff50",
    "bytes": 92837
   },
   "espn_injuries": {
-   "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+   "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": null
+   "retrieved_utc": "2026-11-11T18:17:52+00:00"
   },
   "nfl_savant": {
-   "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+   "status": "UNAVAILABLE: ParserError: Error tokenizing data. C error: Expected 1 fields in line 5, saw 2\n",
    "url": "https://nflsavant.com/pbp_data.php?year=2026",
    "retrieved_utc": null,
    "latest_game": null,
    "rows": null
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "OK",
    "url": "https://the-odds-api.com (Pinnacle, DraftKings, FanDuel)",
-   "retrieved_utc": null
+   "retrieved_utc": "2026-11-11T18:17:53+00:00"
   }
  },
  "phase_ledger": [
@@ -5606,20 +6384,20 @@
   {
    "phase": 11,
    "name": "Injury and depth chart",
-   "status": "PENDING",
+   "status": "PARTIAL",
    "detail": "Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures."
   },
   {
    "phase": 12,
    "name": "Weather, roof, travel",
-   "status": "PARTIAL",
-   "detail": "Roof, surface, rest days, site; National Weather Service kickoff forecast: UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>."
+   "status": "AUTO",
+   "detail": "Roof, surface, rest days, site; National Weather Service kickoff forecast: OK."
   },
   {
    "phase": 13,
    "name": "Timestamped book prices",
-   "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "status": "PARTIAL",
+   "detail": "Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line."
   },
   {
    "phase": 14,
@@ -5635,12 +6413,12 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-11T18:02:13+00:00",
+  "checked_utc": "2026-11-11T18:17:52+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",
     "used_for": "Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT"
    },
    "NFL_BDL_API_KEY": {
     "provider": "BallDontLie NFL",
@@ -5650,13 +6428,13 @@
    "NFL_API_SPORTS_KEY": {
     "provider": "API-Sports NFL",
     "used_for": "access check only; not used in the packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT_PROVIDER_ERROR"
    }
   },
   "note": "Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here."
  },
  "nfl_savant": {
-  "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+  "status": "UNAVAILABLE: ParserError: Error tokenizing data. C error: Expected 1 fields in line 5, saw 2\n",
   "latest_game": null,
   "teams": {
    "SF": null,

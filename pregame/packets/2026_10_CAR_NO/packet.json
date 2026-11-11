@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-11T18:02:24+00:00",
+ "generated_utc": "2026-11-11T18:17:59+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -39,7 +39,362 @@
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "OK",
+  "props_status": "NOT_FETCHED: kickoff is 96 hours away (props are pulled inside 36 hours)",
+  "retrieved_utc": "2026-11-11T18:17:53+00:00",
+  "markets": {
+   "moneyline": {
+    "sides": [
+     "NO",
+     "CAR"
+    ],
+    "books": {
+     "draftkings": {
+      "line": null,
+      "prices": {
+       "NO": -135,
+       "CAR": 114
+      },
+      "no_vig": {
+       "NO": 0.5514,
+       "CAR": 0.4486
+      },
+      "hold": 0.0418,
+      "last_update": "2026-11-11T18:17:19Z"
+     },
+     "fanduel": {
+      "line": null,
+      "prices": {
+       "NO": -138,
+       "CAR": 118
+      },
+      "no_vig": {
+       "NO": 0.5583,
+       "CAR": 0.4417
+      },
+      "hold": 0.0385,
+      "last_update": "2026-11-11T18:17:40Z"
+     },
+     "pinnacle": {
+      "line": null,
+      "prices": {
+       "NO": -138,
+       "CAR": 122
+      },
+      "no_vig": {
+       "NO": 0.5628,
+       "CAR": 0.4372
+      },
+      "hold": 0.0303,
+      "last_update": "2026-11-11T18:17:41Z"
+     }
+    },
+    "reference": {
+     "book": "pinnacle",
+     "line": null,
+     "no_vig": {
+      "NO": 0.5628,
+      "CAR": 0.4372
+     }
+    },
+    "books_agree_on_line": true,
+    "best_retail_price": {
+     "NO": {
+      "book": "draftkings",
+      "price": -135,
+      "line": null,
+      "break_even": 0.5745
+     },
+     "CAR": {
+      "book": "fanduel",
+      "price": 118,
+      "line": null,
+      "break_even": 0.4587
+     }
+    }
+   },
+   "spread": {
+    "sides": [
+     "NO",
+     "CAR"
+    ],
+    "books": {
+     "draftkings": {
+      "line": -2.5,
+      "prices": {
+       "NO": -108,
+       "CAR": -112
+      },
+      "no_vig": {
+       "NO": 0.4957,
+       "CAR": 0.5043
+      },
+      "hold": 0.0475,
+      "last_update": "2026-11-11T18:17:19Z"
+     },
+     "fanduel": {
+      "line": -2.5,
+      "prices": {
+       "NO": -110,
+       "CAR": -110
+      },
+      "no_vig": {
+       "NO": 0.5,
+       "CAR": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-11T18:17:40Z"
+     },
+     "pinnacle": {
+      "line": -2.0,
+      "prices": {
+       "NO": -114,
+       "CAR": 101
+      },
+      "no_vig": {
+       "NO": 0.5171,
+       "CAR": 0.4829
+      },
+      "hold": 0.0302,
+      "last_update": "2026-11-11T18:17:41Z"
+     }
+    },
+    "reference": {
+     "book": "pinnacle",
+     "line": -2.0,
+     "no_vig": {
+      "NO": 0.5171,
+      "CAR": 0.4829
+     }
+    },
+    "books_agree_on_line": false,
+    "best_retail_price": {
+     "NO": {
+      "book": "draftkings",
+      "price": -108,
+      "line": -2.5,
+      "break_even": 0.5192
+     },
+     "CAR": {
+      "book": "fanduel",
+      "price": -110,
+      "line": -2.5,
+      "break_even": 0.5238
+     }
+    }
+   },
+   "total": {
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "books": {
+     "draftkings": {
+      "line": 48.5,
+      "prices": {
+       "Over": -115,
+       "Under": -105
+      },
+      "no_vig": {
+       "Over": 0.5108,
+       "Under": 0.4892
+      },
+      "hold": 0.0471,
+      "last_update": "2026-11-11T18:17:19Z"
+     },
+     "fanduel": {
+      "line": 48.5,
+      "prices": {
+       "Over": -110,
+       "Under": -110
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-11T18:17:40Z"
+     },
+     "pinnacle": {
+      "line": 48.5,
+      "prices": {
+       "Over": -113,
+       "Under": -103
+      },
+      "no_vig": {
+       "Over": 0.5111,
+       "Under": 0.4889
+      },
+      "hold": 0.0379,
+      "last_update": "2026-11-11T18:17:41Z"
+     }
+    },
+    "reference": {
+     "book": "pinnacle",
+     "line": 48.5,
+     "no_vig": {
+      "Over": 0.5111,
+      "Under": 0.4889
+     }
+    },
+    "books_agree_on_line": true,
+    "best_retail_price": {
+     "Over": {
+      "book": "fanduel",
+      "price": -110,
+      "line": 48.5,
+      "break_even": 0.5238
+     },
+     "Under": {
+      "book": "draftkings",
+      "price": -105,
+      "line": 48.5,
+      "break_even": 0.5122
+     }
+    }
+   }
+  },
+  "movement": {
+   "status": "OK",
+   "snapshots": 1,
+   "first_seen_utc": "2026-11-11T18:17:58+00:00",
+   "current_utc": "2026-11-11T18:17:58+00:00",
+   "moves": [
+    {
+     "market": "moneyline",
+     "book": "draftkings",
+     "first_line": null,
+     "current_line": null,
+     "first_prices": {
+      "NO": -135,
+      "CAR": 114
+     },
+     "current_prices": {
+      "NO": -135,
+      "CAR": 114
+     }
+    },
+    {
+     "market": "moneyline",
+     "book": "fanduel",
+     "first_line": null,
+     "current_line": null,
+     "first_prices": {
+      "NO": -138,
+      "CAR": 118
+     },
+     "current_prices": {
+      "NO": -138,
+      "CAR": 118
+     }
+    },
+    {
+     "market": "moneyline",
+     "book": "pinnacle",
+     "first_line": null,
+     "current_line": null,
+     "first_prices": {
+      "NO": -138,
+      "CAR": 122
+     },
+     "current_prices": {
+      "NO": -138,
+      "CAR": 122
+     }
+    },
+    {
+     "market": "spread",
+     "book": "draftkings",
+     "first_line": -2.5,
+     "current_line": -2.5,
+     "first_prices": {
+      "NO": -108,
+      "CAR": -112
+     },
+     "current_prices": {
+      "NO": -108,
+      "CAR": -112
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "spread",
+     "book": "fanduel",
+     "first_line": -2.5,
+     "current_line": -2.5,
+     "first_prices": {
+      "NO": -110,
+      "CAR": -110
+     },
+     "current_prices": {
+      "NO": -110,
+      "CAR": -110
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "spread",
+     "book": "pinnacle",
+     "first_line": -2.0,
+     "current_line": -2.0,
+     "first_prices": {
+      "NO": -114,
+      "CAR": 101
+     },
+     "current_prices": {
+      "NO": -114,
+      "CAR": 101
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "total",
+     "book": "draftkings",
+     "first_line": 48.5,
+     "current_line": 48.5,
+     "first_prices": {
+      "Over": -115,
+      "Under": -105
+     },
+     "current_prices": {
+      "Over": -115,
+      "Under": -105
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "total",
+     "book": "fanduel",
+     "first_line": 48.5,
+     "current_line": 48.5,
+     "first_prices": {
+      "Over": -110,
+      "Under": -110
+     },
+     "current_prices": {
+      "Over": -110,
+      "Under": -110
+     },
+     "line_move": 0.0
+    },
+    {
+     "market": "total",
+     "book": "pinnacle",
+     "first_line": 48.5,
+     "current_line": 48.5,
+     "first_prices": {
+      "Over": -113,
+      "Under": -103
+     },
+     "current_prices": {
+      "Over": -113,
+      "Under": -103
+     },
+     "line_move": 0.0
+    }
+   ],
+   "note": "First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs."
+  }
  },
  "weather": {
   "status": "INDOOR",
@@ -2358,8 +2713,209 @@
    "injuries": {
     "official_report": [],
     "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
-    "espn_live": [],
-    "espn_live_status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "espn_live": [
+     {
+      "player": "Xavier Legette",
+      "position": "WR",
+      "status": "Injured Reserve",
+      "date": "2026-11-11T17:38Z",
+      "comment": "The Panthers designated Legette (knee) for return from injured reserve Wednesday, Joe Person of The Athletic reports.",
+      "team": "CAR"
+     },
+     {
+      "player": "Jonathon Brooks",
+      "position": "RB",
+      "status": "Injured Reserve",
+      "date": "2026-11-11T17:32Z",
+      "comment": "The Panthers designated Brooks (core) for return from injured reserve Wednesday, Mike Kaye of ESPN.com reports.",
+      "team": "CAR"
+     },
+     {
+      "player": "John Metchie III",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-11T02:51Z",
+      "comment": "Metchie caught both of his targets for 40 yards Sunday in a loss to the Broncos.",
+      "team": "CAR"
+     },
+     {
+      "player": "Mitchell Evans",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-11T02:50Z",
+      "comment": "Evans caught both of his two targets for 20 yards during Sunday's 26-21 loss versus the Broncos.",
+      "team": "CAR"
+     },
+     {
+      "player": "Trevor Etienne",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-11T02:45Z",
+      "comment": "Etienne carried the ball two times for seven yards and returned one punt for nine yards during Carolina'a loss Sunday to the Broncos.",
+      "team": "CAR"
+     },
+     {
+      "player": "Jaelan Phillips",
+      "position": "LB",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "CAR"
+     },
+     {
+      "player": "Will Lee III",
+      "position": "CB",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "CAR"
+     },
+     {
+      "player": "Damien Lewis",
+      "position": "G",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "CAR"
+     },
+     {
+      "player": "Bobby Okereke",
+      "position": "LB",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "CAR"
+     },
+     {
+      "player": "Ryan Fitzgerald",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-10T03:24Z",
+      "comment": "Fitzgerald missed his only field-goal attempt and went 3-for-3 on extra-point tries during Sunday's 26-21 loss to the Broncos.",
+      "team": "CAR"
+     },
+     {
+      "player": "Jaycee Horn",
+      "position": "CB",
+      "status": "Injured Reserve",
+      "date": "2026-11-09T23:18Z",
+      "comment": "Head coach Dave Canales plans to take \"the next two days\" to discuss Horn (quadriceps), Mike Kaye of ESPN.com reports.",
+      "team": "CAR"
+     },
+     {
+      "player": "Mike Jackson",
+      "position": "CB",
+      "status": "Injured Reserve",
+      "date": "2026-11-09T23:11Z",
+      "comment": "Head coach Dave Canales stated the team plans to take \"the next two days to discuss\" Jackson (groin), Mike Kaye of ESPN.com reports.",
+      "team": "CAR"
+     },
+     {
+      "player": "Ja'Tavion Sanders",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-09T22:44Z",
+      "comment": "Sanders recorded zero targets during Sunday's 26-21 loss to the Broncos.",
+      "team": "CAR"
+     },
+     {
+      "player": "TeRah Edwards",
+      "position": "DT",
+      "status": "Active",
+      "date": "2026-11-09T20:56Z",
+      "comment": "",
+      "team": "CAR"
+     },
+     {
+      "player": "Haynes King",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-09T20:56Z",
+      "comment": "",
+      "team": "CAR"
+     },
+     {
+      "player": "AJ Dillon",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-09T20:56Z",
+      "comment": "",
+      "team": "CAR"
+     },
+     {
+      "player": "Jalen Coker",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-09T02:50Z",
+      "comment": "Coker caught four of five targets for 29 yards in Sunday's 26-21 loss to the Broncos.",
+      "team": "CAR"
+     },
+     {
+      "player": "Tommy Tremble",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-09T02:12Z",
+      "comment": "Tremble caught four of six targets for 24 yards and a touchdown in Sunday's 26-21 loss to the Broncos.",
+      "team": "CAR"
+     },
+     {
+      "player": "Darren Waller",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-09T00:21Z",
+      "comment": "Waller caught eight of 10 targets for 90 yards and a touchdown in Sunday's 26-21 loss to the Broncos.",
+      "team": "CAR"
+     },
+     {
+      "player": "Tetairoa McMillan",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-09T00:16Z",
+      "comment": "McMillan caught four of six targets for 56 yards and a touchdown in Sunday's 26-21 loss to the Broncos.",
+      "team": "CAR"
+     },
+     {
+      "player": "Chuba Hubbard",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-09T00:12Z",
+      "comment": "Hubbard carried the ball 16 times for 79 yards and caught four of five targets for 17 yards in Sunday's 26-21 loss to Denver.",
+      "team": "CAR"
+     },
+     {
+      "player": "Bryce Young",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-09T00:07Z",
+      "comment": "Young completed 28 of 39 passes for 276 yards and three touchdowns with one interception in Sunday's 26-21 loss to the Broncos. He added 13 yards on his only carry and lost a fumble.",
+      "team": "CAR"
+     },
+     {
+      "player": "Torricelli Simpkins III",
+      "position": "G",
+      "status": "Active",
+      "date": "2026-11-08T17:34Z",
+      "comment": "Simpkins (ankle) is available for Sunday's game against Denver, Darin Gantt of the team's official site reports.",
+      "team": "CAR"
+     },
+     {
+      "player": "Corey Bullock",
+      "position": "C",
+      "status": "Active",
+      "date": "2026-11-08T17:30Z",
+      "comment": "Bullock (quadriceps) is active for Sunday's game versus Denver, Darin Gantt of the team's official site reports.",
+      "team": "CAR"
+     },
+     {
+      "player": "Brady Christensen",
+      "position": "G",
+      "status": "Injured Reserve",
+      "date": "2026-11-08T03:32Z",
+      "comment": "Christensen (hamstring), who is on IR, has been ruled out for Sunday's battle against the Broncos, Darin Gantt of the Panthers' official site reports.",
+      "team": "CAR"
+     }
+    ],
+    "espn_live_status": "OK",
     "note": "A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file."
    },
    "roster_moves": {
@@ -4677,8 +5233,209 @@
    "injuries": {
     "official_report": [],
     "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
-    "espn_live": [],
-    "espn_live_status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "espn_live": [
+     {
+      "player": "Barion Brown",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-11T02:09Z",
+      "comment": "Brown caught his only target for 52 yards during Sunday's 23-22 overtime win versus the Browns. He also lost a fumble on a punt return.",
+      "team": "NO"
+     },
+     {
+      "player": "Bryce Lance",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-11T00:46Z",
+      "comment": "Lance failed to catch his only target in Sunday's 23-22 overtime win over the Browns.",
+      "team": "NO"
+     },
+     {
+      "player": "Travis Etienne Jr.",
+      "position": "RB",
+      "status": "Injured Reserve",
+      "date": "2026-11-11T00:05Z",
+      "comment": "Head coach Kellen Moore said Monday that the Saints haven't yet determined whether Etienne (hamstring) will return from injured reserve ahead of Sunday's game against the Panthers, Luke Johnson of The",
+      "team": "NO"
+     },
+     {
+      "player": "Erik McCoy",
+      "position": "C",
+      "status": "Doubtful",
+      "date": "2026-11-10T15:44Z",
+      "comment": "doubtful",
+      "team": "NO"
+     },
+     {
+      "player": "CJ Donaldson",
+      "position": "RB",
+      "status": "Questionable",
+      "date": "2026-11-10T15:44Z",
+      "comment": "questionable",
+      "team": "NO"
+     },
+     {
+      "player": "Charlie Smyth",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-10T04:46Z",
+      "comment": "The Saints reverted Smyth to their practice squad Monday, per the NFL's transaction log.",
+      "team": "NO"
+     },
+     {
+      "player": "Noah Fant",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-10T04:36Z",
+      "comment": "Fant caught one pass for 12 yards on two targets in Sunday's 23-22 overtime win against Cleveland.",
+      "team": "NO"
+     },
+     {
+      "player": "Devaughn Vele",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-10T03:51Z",
+      "comment": "Vele caught two passes for 17 yards on four targets in Sunday's 23-22 overtime win over the Browns.",
+      "team": "NO"
+     },
+     {
+      "player": "Jaylan Ford",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-09T21:29Z",
+      "comment": "",
+      "team": "NO"
+     },
+     {
+      "player": "Mike Reid",
+      "position": "CB",
+      "status": "Active",
+      "date": "2026-11-09T21:29Z",
+      "comment": "",
+      "team": "NO"
+     },
+     {
+      "player": "Mason Murphy",
+      "position": "OT",
+      "status": "Active",
+      "date": "2026-11-09T21:29Z",
+      "comment": "",
+      "team": "NO"
+     },
+     {
+      "player": "John Ridgeway III",
+      "position": "DT",
+      "status": "Active",
+      "date": "2026-11-09T21:29Z",
+      "comment": "",
+      "team": "NO"
+     },
+     {
+      "player": "Christen Miller",
+      "position": "DT",
+      "status": "Active",
+      "date": "2026-11-09T21:29Z",
+      "comment": "",
+      "team": "NO"
+     },
+     {
+      "player": "Zach Wilson",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-09T21:29Z",
+      "comment": "",
+      "team": "NO"
+     },
+     {
+      "player": "Alvin Kamara",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-09T02:23Z",
+      "comment": "Kamara rushed six times for 32 yards while catching three of four targets for 17 yards during Sunday's 23-22 overtime win against the Browns.",
+      "team": "NO"
+     },
+     {
+      "player": "Juwan Johnson",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-09T02:00Z",
+      "comment": "Johnson caught both of his targets for 34 yards and a touchdown in Sunday's 23-22 overtime win over the Browns.",
+      "team": "NO"
+     },
+     {
+      "player": "Jordyn Tyson",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-09T01:13Z",
+      "comment": "Tyson caught four of five targets for 30 yards in Sunday's 23-22 overtime win over the Browns. He also lost a fumble.",
+      "team": "NO"
+     },
+     {
+      "player": "Audric Estime",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-09T01:09Z",
+      "comment": "Estime carried the ball 15 times for 72 yards and a touchdown in Sunday's 23-22 overtime win over the Browns. He also caught his only target for five yards.",
+      "team": "NO"
+     },
+     {
+      "player": "Tyler Shough",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-09T01:03Z",
+      "comment": "Shough completed 21 of 35 passes for 265 yards and a touchdown in Sunday's 23-22 overtime win over the Browns.",
+      "team": "NO"
+     },
+     {
+      "player": "Chris Olave",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-09T00:59Z",
+      "comment": "Olave caught seven of 12 targets for 98 yards in Sunday's 23-22 overtime win over Cleveland.",
+      "team": "NO"
+     },
+     {
+      "player": "Kelvin Banks Jr.",
+      "position": "OT",
+      "status": "Active",
+      "date": "2026-11-08T17:34Z",
+      "comment": "Banks (ankle) is active for Sunday's game against the Browns.",
+      "team": "NO"
+     },
+     {
+      "player": "Martin Emerson Jr.",
+      "position": "CB",
+      "status": "Active",
+      "date": "2026-11-08T17:09Z",
+      "comment": "Emerson is listed as active for Sunday's matchup against the Browns.",
+      "team": "NO"
+     },
+     {
+      "player": "Asim Richards",
+      "position": "OT",
+      "status": "Active",
+      "date": "2026-11-08T16:35Z",
+      "comment": "",
+      "team": "NO"
+     },
+     {
+      "player": "Justin Reid",
+      "position": "S",
+      "status": "Active",
+      "date": "2026-11-07T02:42Z",
+      "comment": "Reid (concussion) does not have any injury designation ahead of Sunday's game against the Browns.",
+      "team": "NO"
+     },
+     {
+      "player": "Cesar Ruiz",
+      "position": "G",
+      "status": "Active",
+      "date": "2026-11-05T05:00Z",
+      "comment": "Ruiz (knee) was a full participant in Wednesday's practice.",
+      "team": "NO"
+     }
+    ],
+    "espn_live_status": "OK",
     "note": "A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file."
    },
    "roster_moves": {
@@ -5538,75 +6295,75 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:10+00:00",
-   "sha256": "7500223cb5ae8343cbd25ceeae5b695934154893a87ca6281731588716b65c76",
+   "retrieved_utc": "2026-11-11T18:17:49+00:00",
+   "sha256": "6656271e487d071188cc629935cb91d343420e3e16a715f8ea324b395a6d7320",
    "bytes": 523757
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:50+00:00",
    "sha256": "8211d9a24b0e162732ccb048b8d416354b54e968a4b6fde1cde87059f4ae67ed",
    "bytes": 10122154
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:50+00:00",
    "sha256": "ad5aaeefbae79632fa53f8f96e18ef6f7a696d93fd3ce78270ae74195b1528da",
    "bytes": 821492
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:50+00:00",
    "sha256": "91fd27378ada8a48362d51570da4d599b5183b486f8baaea5c01ee5a7e1bae70",
    "bytes": 61590
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:11+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "82b047a2700367869c1a5facdb002d2976b2d469c442c3ff49d1f9cb2c106dbf",
    "bytes": 3475983
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:12+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "78c013d97bde36622c435c878cacf48e1c8b3f58d02967c9e0ed2fc884f449e9",
    "bytes": 134114
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:12+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "03eef74c47b45969d7d360c05574444203c845e0ba5bb07ec8db0d7b340bae42",
    "bytes": 287339
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-11T18:02:12+00:00",
+   "retrieved_utc": "2026-11-11T18:17:51+00:00",
    "sha256": "99358137e06dd5b86d76a830d01b4415787c90a087b3590171a561815c06ff50",
    "bytes": 92837
   },
   "espn_injuries": {
-   "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+   "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": null
+   "retrieved_utc": "2026-11-11T18:17:52+00:00"
   },
   "nfl_savant": {
-   "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+   "status": "UNAVAILABLE: ParserError: Error tokenizing data. C error: Expected 1 fields in line 5, saw 2\n",
    "url": "https://nflsavant.com/pbp_data.php?year=2026",
    "retrieved_utc": null,
    "latest_game": null,
    "rows": null
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "OK",
    "url": "https://the-odds-api.com (Pinnacle, DraftKings, FanDuel)",
-   "retrieved_utc": null
+   "retrieved_utc": "2026-11-11T18:17:53+00:00"
   }
  },
  "phase_ledger": [
@@ -5673,7 +6430,7 @@
   {
    "phase": 11,
    "name": "Injury and depth chart",
-   "status": "PENDING",
+   "status": "PARTIAL",
    "detail": "Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures."
   },
   {
@@ -5685,8 +6442,8 @@
   {
    "phase": 13,
    "name": "Timestamped book prices",
-   "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "status": "PARTIAL",
+   "detail": "Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line."
   },
   {
    "phase": 14,
@@ -5702,12 +6459,12 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-11T18:02:13+00:00",
+  "checked_utc": "2026-11-11T18:17:52+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",
     "used_for": "Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT"
    },
    "NFL_BDL_API_KEY": {
     "provider": "BallDontLie NFL",
@@ -5717,13 +6474,13 @@
    "NFL_API_SPORTS_KEY": {
     "provider": "API-Sports NFL",
     "used_for": "access check only; not used in the packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT_PROVIDER_ERROR"
    }
   },
   "note": "Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here."
  },
  "nfl_savant": {
-  "status": "UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+  "status": "UNAVAILABLE: ParserError: Error tokenizing data. C error: Expected 1 fields in line 5, saw 2\n",
   "latest_game": null,
   "teams": {
    "CAR": null,

@@ -4,15 +4,45 @@
 
 Market (schedule consensus, not a timestamped quote): CLE +4.5, total 40.5.
 
-Generated 2026-11-11T18:02:27+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:18:01+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>
+National Weather Service, retrieved 2026-11-11T18:18:00+00:00 UTC. At kickoff: 46 F, wind 10 mph NW, 17% chance of precipitation, Slight Chance Light Rain. During the game: low 46 F, wind up to 10 mph, precipitation chance up to 17%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-No book prices in this packet: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Do not quote Pinnacle, DraftKings or FanDuel numbers from memory.
+Retrieved 2026-11-11T18:17:53+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+
+| Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
+|---|---|---|---|---|---|---|---|---|
+| spread | draftkings | CLE +4.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:17:19Z |
+| spread | fanduel | CLE +4.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T18:17:40Z |
+| spread | pinnacle | CLE +5 | -110 | -102 | 50.9% | 49.1% | 2.9% | 2026-11-11T18:17:41Z |
+| total | draftkings | Over 40.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T18:17:19Z |
+| total | fanduel | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:17:40Z |
+| total | pinnacle | Over 40.5 | -111 | -105 | 50.7% | 49.3% | 3.8% | 2026-11-11T18:17:41Z |
+| moneyline | draftkings | CLE | +190 | -230 | 33.1% | 66.9% | 4.2% | 2026-11-11T18:17:19Z |
+| moneyline | fanduel | CLE | +198 | -240 | 32.2% | 67.8% | 4.2% | 2026-11-11T18:17:40Z |
+| moneyline | pinnacle | CLE | +195 | -227 | 32.8% | 67.2% | 3.3% | 2026-11-11T18:17:41Z |
+
+### Line movement: first seen 2026-11-11T18:18:00+00:00 to 2026-11-11T18:18:00+00:00 (1 snapshots)
+
+| Market | Book | First line | Now | Move | First prices | Prices now |
+|---|---|---|---|---|---|---|
+| moneyline | draftkings | n/a | n/a | n/a | +190 / -230 | +190 / -230 |
+| moneyline | fanduel | n/a | n/a | n/a | +198 / -240 | +198 / -240 |
+| moneyline | pinnacle | n/a | n/a | n/a | +195 / -227 | +195 / -227 |
+| spread | draftkings | 4.5 | 4.5 | 0.0 | -105 / -115 | -105 / -115 |
+| spread | fanduel | 4.5 | 4.5 | 0.0 | -105 / -115 | -105 / -115 |
+| spread | pinnacle | 5.0 | 5.0 | 0.0 | -110 / -102 | -110 / -102 |
+| total | draftkings | 40.5 | 40.5 | 0.0 | -115 / -105 | -115 / -105 |
+| total | fanduel | 40.5 | 40.5 | 0.0 | -110 / -110 | -110 / -110 |
+| total | pinnacle | 40.5 | 40.5 | 0.0 | -111 / -105 | -111 / -105 |
+
+First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
+
+Player props: NOT_FETCHED: kickoff is 96 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -269,7 +299,7 @@ Defensive front: LDE Will Anderson Jr., LDT Tommy Togiai, RDT Sheldon Rankins, R
 
 Official report not posted yet for this week.
 
-ESPN live list: UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>.
+ESPN live list: Davis Mills (QB) Active; Cade Stover (TE) Out; Foster Moreau (TE) Active; Dare Ogunbowale (RB) Active; David Montgomery (RB) Questionable; Reed Blankenship (S) Questionable; Nate Thomas (OT) Active; Braden Smith (OT) Active; Febechi Nwaiwu (G) Active; Ka'imi Fairbairn (PK) Active; Woody Marks (RB) Active; Dalton Schultz (TE) Active; Marvin Harrison Jr. (WR) Active; Tank Dell (WR) Active; Kayshon Boutte (WR) Active; Xavier Hutchinson (WR) Active; Nico Collins (WR) Active; C.J. Stroud (QB) Active; Azeez Al-Shaair (LB) Active; Brevin Jordan (TE) Active; Blake Fisher (OT) Active; Jalen Pitre (S) Active; Naquan Jones (DT) Active; Jaylin Noel (WR) Injured Reserve; Henry To'oTo'o (LB) Active.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
@@ -456,7 +486,7 @@ Defensive front: LDE Isaiah McGuire, LDT Mason Graham, RDT Maliek Collins, RDE J
 
 Official report not posted yet for this week.
 
-ESPN live list: UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>.
+ESPN live list: Ronnie Hickman (S) Questionable; Denzel Boston (WR) Questionable; Shedeur Sanders (QB) Active; Deshaun Watson (QB) Out; Maliek Collins (DT) Questionable; Noah Igbinoghene (CB) Active; Taylen Green (QB) Active; Parker Brailsford (C) Active; Justin Jefferson (LB) Active; Andre Szmyt (PK) Active; Jerry Jeudy (WR) Active; Dylan Sampson (RB) Active; Harold Fannin Jr. (TE) Active; KC Concepcion (WR) Active; Quinshon Judkins (RB) Active; Michael Burton (FB) Active; Dillon Gabriel (QB) Active; Quincy Williams (LB) Active; Carson Schwesinger (LB) Active; Emmanuel McNeil-Warren (S) Active; Austin Barber (OT) Active; Elgton Jenkins (C) Active; Myles Harden (CB) Active; Jared Verse (DE) Active; Malachi Corley (WR) Active.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
@@ -467,15 +497,16 @@ Left for another team: Myles Bryant (DB) to DET; James Proche (WR) to ARI; Audri
 
 ## Formation and pass-zone splits (NFL Savant)
 
-Not in this packet: UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>.
+Not in this packet: UNAVAILABLE: ParserError: Error tokenizing data. C error: Expected 1 fields in line 5, saw 2
+.
 
 ## Keyed connectors in this run
 
 | Secret | Provider | Status | Used for |
 |---|---|---|---|
-| ODDS_API_KEY | The Odds API | KEY_NOT_CONFIGURED_IN_THIS_RUN | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
+| ODDS_API_KEY | The Odds API | KEY_PRESENT | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
 | NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
-| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | access check only; not used in the packet |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR | access check only; not used in the packet |
 
 Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
 
@@ -493,9 +524,9 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 8 | Defender assignment and explosive allowance | PARTIAL | Per-defender targets/yards allowed (PFR) and explosive plays allowed. Who covers whom is NOT known. |
 | 9 | QB pressure, blitz, scramble | PARTIAL | Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles. |
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
-| 11 | Injury and depth chart | PENDING | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
-| 12 | Weather, roof, travel | PARTIAL | Roof, surface, rest days, site; National Weather Service kickoff forecast: UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden>. |
-| 13 | Timestamped book prices | BLOCKED | No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total. |
+| 11 | Injury and depth chart | PARTIAL | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
+| 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
+| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -503,16 +534,17 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:02:10+00:00 | 7500223cb5ae |
-| pbp | OK | 2026-11-11T18:02:11+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:02:11+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:02:11+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:02:11+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:02:12+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:02:12+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:02:12+00:00 | 99358137e06d |
-| espn_injuries | UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden> |  |  |
-| nfl_savant | UNAVAILABLE: URLError: <urlopen error Tunnel connection failed: 403 Forbidden> |  |  |
-| book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
+| games | OK | 2026-11-11T18:17:49+00:00 | 6656271e487d |
+| pbp | OK | 2026-11-11T18:17:50+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:17:50+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:17:50+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:17:51+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:17:51+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:17:51+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:17:51+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T18:17:52+00:00 |  |
+| nfl_savant | UNAVAILABLE: ParserError: Error tokenizing data. C error: Expected 1 fields in line 5, saw 2
+ |  |  |
+| book_odds | OK | 2026-11-11T18:17:53+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
