@@ -95,7 +95,7 @@ def main(argv=None):
     sav = SV.load(season, offline=a.offline)
     src_pub["nfl_savant"] = {k: sav.get(k) for k in ("status", "url", "retrieved_utc", "latest_game", "rows")}
     conn = C.check(season, int(slate.week.iloc[0]), [(g.away_team, g.home_team) for g in slate.itertuples()], offline=a.offline)
-    print("pregame: connectors " + ", ".join(f"{k}={v['status']}" for k, v in conn["sources"].items()) + f"; nfl_savant={sav['status'][:60]}")
+    print("pregame: connectors " + ", ".join(f"{k}={v['status']}" for k, v in conn["sources"].items()) + f"; nfl_savant={sav['status'][:1200]}")
     lines = {"status": "SKIPPED_OFFLINE", "events": {}} if a.offline else O.fetch_game_lines()
     src_pub["book_odds"] = {"status": lines["status"], "url": "https://the-odds-api.com (Pinnacle, DraftKings, FanDuel)", "retrieved_utc": lines.get("retrieved_utc")}
     now = datetime.now(timezone.utc)

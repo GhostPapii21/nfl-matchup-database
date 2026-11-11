@@ -264,7 +264,8 @@ def test_savant_splits_and_failures():
             return _savant_csv()
         return b'<html><a href="/dump/pbp-2025.csv">2025</a> <a href="dump/pbp-2026.csv">2026</a></html>'
     got = SV.load(2026, fetch=site)
-    assert got["status"] == "OK" and got["url"] == "https://nflsavant.com/dump/pbp-2026.csv"
+    assert got["status"] == "OK" and got["url"].endswith("/dump/pbp-2026.csv")
+    assert SV.URL.format(season=2026).endswith("r2.dev/pbp-2026.csv")
     assert SV.load(2026, fetch=lambda u, timeout=0: 1 / 0)["status"].startswith("UNAVAILABLE")
     assert SV.team_splits(None, "BAL", "2026-11-16") is None
 

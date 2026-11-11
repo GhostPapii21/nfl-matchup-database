@@ -12,7 +12,9 @@ from datetime import datetime, timezone
 
 import pandas as pd
 
-URL = "https://nflsavant.com/pbp_data.php?year={season}"
+# The season files NFL Savant offers for download on its About page (2013 onward). Only these published
+# downloads are used: the site's robots.txt blocks AI crawlers from its pages, so its internal feeds are not touched.
+URL = "https://pub-e9a6e73e336047fba26374ae44334139.r2.dev/pbp-{season}.csv"
 NEED = ("GameId", "GameDate", "OffenseTeam", "DefenseTeam", "Yards", "Formation", "IsRush", "IsPass", "IsIncomplete", "PassType", "IsSack", "IsNoPlay")
 TEAM_FIX = {"LAR": "LA", "WSH": "WAS", "JAC": "JAX", "ARZ": "ARI", "BLT": "BAL", "CLV": "CLE", "HST": "HOU"}
 ZONES = ("SHORT LEFT", "SHORT MIDDLE", "SHORT RIGHT", "DEEP LEFT", "DEEP MIDDLE", "DEEP RIGHT")
@@ -23,7 +25,7 @@ def _get(url, timeout=120):
         return r.read()
 
 
-PAGES = ("https://nflsavant.com/pbp_data.php?year={season}", "https://nflsavant.com/about.php", "https://nflsavant.com/")
+PAGES = (URL,)
 
 
 def _is_csv(raw: bytes) -> bool:
@@ -89,7 +91,7 @@ def load(season, *, offline=False, fetch=_get) -> dict:
         return {"status": f"UNAVAILABLE: {type(exc).__name__}: {str(exc)[:120]}", "url": url, "plays": None}
     missing = [c for c in NEED if c not in df.columns]
     if missing:
-        return {"status": f"SCHEMA_CHANGED: missing columns {missing[:6]}", "url": url, "plays": None}
+        return {"status": f"SCHEMA_CHANGED: missing columns {missing}; file has {list(df.columns)[:60]}", "url": url, "plays": None}
     df = df[(df.IsNoPlay == 0) & ((df.IsPass == 1) | (df.IsRush == 1) | (df.IsSack == 1))].copy()
     if not len(df):
         return {"status": "EMPTY: no scrimmage plays in the file", "url": url, "plays": None}
