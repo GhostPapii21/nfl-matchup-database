@@ -80,10 +80,11 @@ def espn_injuries(*, offline: bool = False, fetch=_get) -> dict:
                 rows.append({"player": a.get("displayName"), "position": (a.get("position") or {}).get("abbreviation"),
                              "status": i.get("status"), "date": i.get("date"), "comment": (i.get("shortComment") or "")[:200],
                              "team": abbr})
-            for r in rows:
+            for r in sorted(rows, key=lambda r: (str(r["status"]).lower() == "active", str(r["date"] or "")), reverse=False):
                 if r["team"]:
                     teams.setdefault(ESPN_TO_NFLVERSE.get(r["team"], r["team"]), []).append(r)
-        return {"status": "OK", "retrieved_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"), "url": ESPN_INJURIES, "teams": teams}
+        return {"status": "OK", "retrieved_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"), "url": ESPN_INJURIES, "teams": teams,
+                "note": "ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation."}
     except Exception as exc:
         return {"status": f"UNAVAILABLE: {type(exc).__name__}: {str(exc)[:120]}", "url": ESPN_INJURIES, "teams": {}}
 

@@ -269,3 +269,34 @@ def test_connector_check_reports_status_never_keys():
     assert aps["status"] == "KEY_PRESENT_PROVIDER_ERROR" and "Free plans" in aps["provider_message"] and "SECRET123" not in json.dumps(plan)
     assert r["sources"]["ODDS_API_KEY"]["status"] == "KEY_PRESENT"
     assert "SECRET123" not in json.dumps(r)
+
+
+def test_every_scheduled_run_builds_the_right_games():
+    """Each cron time in the workflow, against a real week shape: Thursday night, Sunday windows, Monday night."""
+    wk = lambda gid, day, wd, t, score=None, week=10: dict(game_id=gid, season=2026, game_type="REG", week=week, gameday=day, weekday=wd, gametime=t, home_score=score)
+    def slate(today, played=()):
+        g = pd.DataFrame([wk("mnf9", "2026-11-09", "Monday", "20:15", 20.0, 9), wk("tnf", "2026-11-12", "Thursday", "20:15"),
+                          wk("early", "2026-11-15", "Sunday", "13:00"), wk("late", "2026-11-15", "Sunday", "16:25"), wk("snf", "2026-11-15", "Sunday", "20:20"),
+                          wk("mnf", "2026-11-16", "Monday", "20:15"), wk("tnf11", "2026-11-19", "Thursday", "20:15", None, 11)])
+        g.loc[g.game_id.isin(played), "home_score"] = 21.0
+        return list(B.pick_games(g, season=2026, today=date.fromisoformat(today)).game_id)
+    assert slate("2026-11-10") == ["tnf", "early", "late", "snf", "mnf"]                    # Tuesday: the whole new week
+    assert slate("2026-11-12") == ["tnf", "early", "late", "snf", "mnf"]                    # Thursday, both runs
+    assert slate("2026-11-14", played=["tnf"]) == ["early", "late", "snf", "mnf"]           # Saturday
+    assert slate("2026-11-15", played=["tnf"]) == ["early", "late", "snf", "mnf"]           # Sunday, all three runs
+    assert slate("2026-11-16", played=["tnf", "early", "late", "snf"]) == ["mnf"]           # Monday, both runs
+    assert slate("2026-11-16", played=["tnf"]) == ["mnf"]                                   # Monday even if Sunday scores are not posted yet
+    assert slate("2026-11-17", played=["tnf", "early", "late", "snf", "mnf"]) == ["tnf11"]  # next Tuesday rolls to week 11
+
+
+def test_freshness_flag_and_quota(world, monkeypatch):
+    pbp, rost, games = world
+    games = pd.concat([games, pd.DataFrame([dict(game_id="g2", season=2026, week=2, gameday="2026-09-17", home_team="AAA", away_team="CCC", home_score=7, away_score=3)])], ignore_index=True)
+    assert set(M.prepare(pbp, rost).game_id) == {"g1"}                    # g2 has a final score but no plays yet
+    monkeypatch.setattr(O, "QUOTA", {"credits_remaining": 42, "credits_used": 458})
+    q = O.quota()
+    assert q["credits_remaining"] == 42 and q["warning"].startswith("LOW")
+    monkeypatch.setattr(O, "QUOTA", {"credits_remaining": 400})
+    assert O.quota()["warning"] is None
+    monkeypatch.setattr(O, "QUOTA", {})
+    assert O.quota() == {}

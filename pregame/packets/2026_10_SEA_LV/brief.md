@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): LV +6.5, total 40.5.
 
-Generated 2026-11-11T18:52:06+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-11T18:56:21+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,19 +12,19 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T18:51:28+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-11T18:55:55+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | LV +6.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-11T18:50:44Z |
-| spread | fanduel | LV +6.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:51:25Z |
-| spread | pinnacle | LV +6.5 | -104 | -108 | 49.5% | 50.5% | 2.9% | 2026-11-11T18:51:24Z |
-| total | draftkings | Over 40.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-11T18:50:44Z |
-| total | fanduel | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:51:25Z |
-| total | pinnacle | Over 40.5 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-11T18:51:24Z |
-| moneyline | draftkings | LV | +240 | -298 | 28.2% | 71.8% | 4.3% | 2026-11-11T18:50:44Z |
-| moneyline | fanduel | LV | +245 | -300 | 27.9% | 72.1% | 4.0% | 2026-11-11T18:51:25Z |
-| moneyline | pinnacle | LV | +236 | -280 | 28.8% | 71.2% | 3.5% | 2026-11-11T18:51:24Z |
+| spread | draftkings | LV +6.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-11T18:54:34Z |
+| spread | fanduel | LV +6.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:55:51Z |
+| spread | pinnacle | LV +6.5 | -104 | -108 | 49.5% | 50.5% | 2.9% | 2026-11-11T18:55:51Z |
+| total | draftkings | Over 40.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-11T18:54:34Z |
+| total | fanduel | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T18:55:51Z |
+| total | pinnacle | Over 40.5 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-11T18:55:51Z |
+| moneyline | draftkings | LV | +240 | -298 | 28.2% | 71.8% | 4.3% | 2026-11-11T18:54:34Z |
+| moneyline | fanduel | LV | +245 | -300 | 27.9% | 72.1% | 4.0% | 2026-11-11T18:55:51Z |
+| moneyline | pinnacle | LV | +236 | -280 | 28.8% | 71.2% | 3.5% | 2026-11-11T18:55:51Z |
 
 ### Line movement: first seen 2026-11-11T18:18:10+00:00 to 2026-11-11T18:18:10+00:00 (1 snapshots)
 
@@ -327,7 +327,8 @@ Defensive front: LDE Leonard Williams, NT Byron Murphy II, RDE Jarran Reed, WLB 
 
 Official report not posted yet for this week.
 
-ESPN live list: Emanuel Wilson (RB) Active; Cooper Kupp (WR) Active; Leonard Williams (DT) Questionable; Brandon Pili (DT) Questionable; Rashid Shaheed (WR) Questionable; Quenton Nelson (G) Doubtful; Uchenna Nwosu (LB) Questionable; Charles Cross (OT) Doubtful; Sam Darnold (QB) Out; George Holani (RB) Active; Tory Horton (WR) Active; Jason Myers (PK) Active; Drew Lock (QB) Questionable; Jadarian Price (RB) Active; Zach Charbonnet (RB) Active; AJ Barner (TE) Active; Jaxon Smith-Njigba (WR) Active; Connor O'Toole (LB) Active; Ernest Jones IV (LB) Active; Derick Hall (LB) Active; Anthony Bradford (G) Active; Jalen Milroe (QB) Active; Beau Stephens (G) Active; Patrick O'Connell (LB) Active; Tyrice Knight (LB) Active.
+ESPN live list (designations only): Drew Lock (QB) Questionable; Leonard Williams (DT) Questionable; Brandon Pili (DT) Questionable; Rashid Shaheed (WR) Questionable; Quenton Nelson (G) Doubtful; Uchenna Nwosu (LB) Questionable; Charles Cross (OT) Doubtful; Sam Darnold (QB) Out.
+ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
@@ -540,7 +541,8 @@ Defensive front: LDE Folorunso Fatukasi, NT Adam Butler, RDE Tonka Hemingway, WL
 
 Official report not posted yet for this week.
 
-ESPN live list: Jack Bech (WR) Active; Fernando Mendoza (QB) Active; Thomas Booker IV (DT) Questionable; Matt Gay (PK) Active; Aidan O'Connell (QB) Active; Bryce Cabeldue (G) Active; Malik Benson (WR) Active; Dalton Johnson (S) Active; Dont'e Thornton Jr. (WR) Active; Jalen Nailor (WR) Active; Michael Mayer (TE) Active; Mike Washington Jr. (RB) Active; Tre Tucker (WR) Active; Ashton Jeanty (RB) Active; Brock Bowers (TE) Active; Trey Zuhn III (C) Questionable; Darien Porter (CB) Active; Nakobe Dean (LB) Active; Jeremy Chinn (S) Active; Cody White (WR) Active; Folorunso Fatukasi (DT) Active; Ian Thomas (TE) Active; JJ Pegues (DT) Active; Tristin McCollum (S) Active; Jackson Powers-Johnson (G) Active.
+ESPN live list (designations only): Trey Zuhn III (C) Questionable; Thomas Booker IV (DT) Questionable.
+ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
@@ -583,16 +585,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T18:51:26+00:00 | ab53603458d9 |
-| pbp | OK | 2026-11-11T18:51:26+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T18:51:26+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T18:51:26+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T18:51:26+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T18:51:26+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T18:51:27+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T18:51:27+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T18:51:27+00:00 |  |
+| games | OK | 2026-11-11T18:55:52+00:00 | ab53603458d9 |
+| pbp | OK | 2026-11-11T18:55:52+00:00 | 8211d9a24b0e |
+| rosters | OK | 2026-11-11T18:55:52+00:00 | ad5aaeefbae7 |
+| injuries | OK | 2026-11-11T18:55:52+00:00 | 91fd27378ada |
+| depth_charts | OK | 2026-11-11T18:55:53+00:00 | 82b047a27003 |
+| snap_counts | OK | 2026-11-11T18:55:53+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-11T18:55:53+00:00 | 03eef74c47b4 |
+| pfr_def | OK | 2026-11-11T18:55:53+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-11T18:55:54+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-11T18:51:28+00:00 |  |
+| book_odds | OK | 2026-11-11T18:55:55+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
