@@ -1,0 +1,118 @@
+{
+ "label": "research only, not validated",
+ "generated_by": "core/possession_engine_v0/bounds/derive_bounds.py",
+ "penalty_log": {
+  "source": {
+   "files": [
+    "data/redistributable/teams/penalty_plays_2026.csv",
+    "data/redistributable/teams/penalties_2026.csv"
+   ],
+   "sha256": {
+    "penalty_plays_2026.csv": "ce23534024081abedb4d8dd1605977e77e9e3ddd4464ba9d7893d76330d4e362",
+    "penalties_2026.csv": "ce80339d66b02f5781c772c94897dfe565fb9cd5d88c4acea5f89a27ee01dc13"
+   },
+   "pulled_et": "2026-11-01 about 9 PM ET (exact minute unknown; PENALTY_NOTES.md)"
+  },
+  "figures": {
+   "weeks_with_data": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "games": 119,
+   "team_games": 238,
+   "accepted_flags": 1736,
+   "accepted_yards": 14068,
+   "accepted_flags_per_team_game": 7.29,
+   "accepted_yards_per_team_game": 59.1,
+   "team_game_yards_p10_p50_p90": [
+    29,
+    53,
+    96
+   ],
+   "share_no_play": 0.728,
+   "share_auto_first_down": 0.2,
+   "flags_drive_extended": 484,
+   "flags_drive_killer": 593,
+   "kick_play_flags": 224,
+   "kick_play_yards": 1921,
+   "kick_play_flag_share": 0.129,
+   "kick_play_yard_share": 0.137,
+   "scrimmage_flags": 1512,
+   "scrimmage_yards": 12147,
+   "scrimmage_flags_per_team_game": 6.35,
+   "scrimmage_yards_per_team_game": 51.0,
+   "declined_or_offsetting_rows": 249,
+   "scrimmage_by_team_per_team_game": {
+    "NYG": {
+     "team_games": 7,
+     "flags": 45,
+     "yards": 371,
+     "flags_per_team_game": 6.43,
+     "yards_per_team_game": 53.0
+    },
+    "WSH": {
+     "team_games": 6,
+     "flags": 40,
+     "yards": 311,
+     "flags_per_team_game": 6.67,
+     "yards_per_team_game": 51.8
+    }
+   },
+   "boxscore_match_team_games": "228 of 238 (PENALTY_NOTES.md; not re-derived here)"
+  }
+ },
+ "pbp": {
+  "source": {
+   "files": [
+    "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet"
+   ],
+   "sha256": {
+    "pbp_2026_w1_9_pulled_20261112T1116ET.parquet": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8"
+   },
+   "pulled_et": "2026-11-12 11:16 AM ET (local file mtime; same bytes as /workspace/nfl49_data/pbp_2026_20261112T1116.parquet used by the TNF/BUF@NYJ locks)"
+  },
+  "figures": {
+   "weeks_with_data": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "games": 136,
+   "rows": 23822,
+   "rows_with_penalty": 1997,
+   "share_rows_with_penalty": 0.084,
+   "kickoffs": 1404,
+   "kick_return_tds": 1,
+   "punts": 1033,
+   "punt_return_tds": 1,
+   "mean_kick_return_yards": 20.6,
+   "mean_punt_return_yards": 4.0,
+   "interceptions": 197,
+   "interception_return_tds": 9,
+   "fumbles_lost": 157,
+   "fumble_return_tds": 6,
+   "mean_interception_return_yards": 11.5,
+   "mean_fumble_lost_return_yards": 1.6,
+   "ot_games": 12,
+   "ot_game_rate": 0.088
+  }
+ },
+ "unknown": {
+  "penalty_log_weeks_unknown": [
+   9
+  ],
+  "note": "The canonical penalty log stops at week 8. Week 9 penalty data is UNKNOWN (not zero). Sims as-of week 10 use W1-8 penalty rates only (coverage_gap_weeks in sim meta)."
+ }
+}
