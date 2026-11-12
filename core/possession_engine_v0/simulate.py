@@ -49,6 +49,11 @@ class PlayCatalog:
         self.by_team: dict[str, pd.DataFrame] = {}
         self.by_team_vs_def: dict[tuple, pd.DataFrame] = {}
         self._defense_cond = False
+        # NFL-49 A: head-to-head (this offense vs this defense) conditioning policy. "off" (default) = never;
+        # "legacy_always" = pre-NFL-49 behaviour (every snap from the h2h pool whenever it has >= min_n rows);
+        # "shrunk" = draw from the h2h pool with probability max_weight * n / (n + k), n = h2h rows for the down.
+        # k and max_weight are STRUCTURAL ASSUMPTIONS (not fitted, not tuned to any market line).
+        self.h2h_policy: dict = {"mode": "off"}
         self.clock_map: dict | None = None
         self.clock_meta: dict = {"source": "fixed_defaults"}
         for team, g in self.snaps.groupby("posteam"):
@@ -125,7 +130,32 @@ class PlayCatalog:
         self.clock_meta = {"source": cost_map.get("source", "custom")}
 
     def enable_defense_conditioning(self, enabled: bool = True) -> None:
+        """Legacy switch: True == h2h_policy legacy_always, False == off."""
         self._defense_cond = bool(enabled)
+        self.h2h_policy = {"mode": "legacy_always"} if enabled else {"mode": "off"}
+
+    def set_h2h_policy(self, policy: Optional[dict]) -> dict:
+        pol = dict(policy or {"mode": "off"})
+        mode = pol.get("mode", "off")
+        if mode not in H2H_MODES:
+            raise ValueError(f"unknown h2h mode {mode!r}; expected one of {H2H_MODES}")
+        if mode == "shrunk":
+            pol["k"] = float(pol.get("k", H2H_SHRUNK_DEFAULTS["k"]))
+            pol["max_weight"] = float(np.clip(pol.get("max_weight", H2H_SHRUNK_DEFAULTS["max_weight"]), 0.0, 1.0))
+            if pol["k"] <= 0:
+                raise ValueError("h2h shrunk k must be > 0")
+        self.h2h_policy = pol
+        self._defense_cond = mode != "off"
+        return pol
+
+    def h2h_weight(self, n: int) -> float:
+        """Probability that a snap is drawn from an h2h pool of n rows (n >= min_n), under the current policy."""
+        mode = self.h2h_policy.get("mode", "off")
+        if mode == "off" or n < self.min_n:
+            return 0.0
+        if mode == "legacy_always":
+            return 1.0
+        return float(self.h2h_policy["max_weight"]) * n / (n + float(self.h2h_policy["k"]))
 
     def enable_defense_allowed(self, weight: float) -> None:
         """Mixture weight is a STRUCTURAL ASSUMPTION (not fitted)."""
@@ -159,7 +189,9 @@ class PlayCatalog:
                     sub = pool[pool["down"] == int(st.down)] if "down" in pool.columns else pool
                     use = sub if len(sub) >= self.min_n else pool
                     cache[ck] = use
-                return use.iloc[int(rng.integers(0, len(use)))], f"DEF_COND_vs_{defense}_n={len(use)}"
+                w = self.h2h_weight(len(use))
+                if w >= 1.0 or (w > 0.0 and rng.random() < w):
+                    return use.iloc[int(rng.integers(0, len(use)))], f"DEF_COND_vs_{defense}_n={len(use)}"
         key = (st.possession, int(st.down), dist_bucket(st.ydstogo), yl_bucket(st.yardline_100))
         cell = self.cells.get(key)
         if cell is not None and len(cell) >= self.min_n:
@@ -173,6 +205,22 @@ class PlayCatalog:
             return team.iloc[int(rng.integers(0, len(team)))], "COARSE_ANY_DOWN_SAME_TEAM"
         return None, "EMPTY_TEAM_SNAPS"
 
+
+
+H2H_MODES = ("off", "shrunk", "legacy_always")
+H2H_SHRUNK_DEFAULTS = {"k": 200.0, "max_weight": 0.25}  # STRUCTURAL ASSUMPTION, not fitted (NFL-49 A)
+
+
+def h2h_policy_from_cfg(cfg: dict) -> dict:
+    """cfg["defense_interaction"]["h2h"] -> policy. Absent = "off" (NFL-49 A: the old always-on default drew 100%
+    of WAS@NYG snaps from the single W5 game). Configs that need the old behaviour must say legacy_always."""
+    di = cfg.get("defense_interaction") or {}
+    h = di.get("h2h")
+    if h is None:
+        return {"mode": "off"}
+    if isinstance(h, str):
+        return {"mode": h}
+    return dict(h)
 
 
 MAX_FG_KICK = 66  # physical guard (longest observed NFL makes ~66-67); not a fitted parameter
@@ -533,16 +581,9 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
             # mirror attributes for getattr(catalog, "clock_map") sites
             cat.clock_map = cat.base.clock_map
             cat.clock_meta = getattr(cat.base, "clock_meta", {"source": "fixed_defaults"})
-    def _ensure_def(cat):
-        if hasattr(cat, "enable_defense_conditioning"):
-            if not getattr(cat, "_defense_cond", False):
-                cat.enable_defense_conditioning(True)
-        elif hasattr(cat, "base") and hasattr(cat.base, "enable_defense_conditioning"):
-            if not getattr(cat.base, "_defense_cond", False):
-                cat.base.enable_defense_conditioning(True)
-            cat._defense_cond = cat.base._defense_cond
+    # NFL-49 A: h2h conditioning is no longer forced on here; build_catalog applies cfg defense_interaction.h2h
+    # (default "off"). Catalogs built elsewhere keep whatever policy they were given.
     _ensure_clock(catalog)
-    _ensure_def(catalog)
     sem = getattr(catalog, "semantics", None)
     if sem is not None:
         st.ot_rule = sem.get("overtime") or st.ot_rule
@@ -807,7 +848,11 @@ def build_catalog(df: pd.DataFrame, cfg: dict, games_df: Optional[pd.DataFrame] 
                     "label": "STRUCTURAL_ASSUMPTION_mixture_weight_not_fitted",
                     "n_defenses_with_pools": len({k[0] for k in base.def_allowed_down})}
     else:
-        def_prov = {"mode": "h2h_only", "label": "DISABLED_opponent_allowed (H2H DEF_COND only)"}
+        def_prov = {"mode": di.get("mode", "h2h_only"), "label": "DISABLED_opponent_allowed"}
+    def_prov["h2h"] = base.set_h2h_policy(h2h_policy_from_cfg(cfg))
+    def_prov["h2h_label"] = ("STRUCTURAL_ASSUMPTION_not_fitted" if def_prov["h2h"]["mode"] == "shrunk"
+                             else "LEGACY_100PCT_H2H_KNOWN_MODEL_ERROR" if def_prov["h2h"]["mode"] == "legacy_always"
+                             else "OFF")
     eff_cfg = cfg.get("effects") or {}
     want = bool(eff_cfg.get("enable_blitz_strata", False))
     ftn = load_ftn_join(df) if want else {"meta": {"status": "NOT_REQUESTED"}, "joined": None}
