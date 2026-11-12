@@ -166,6 +166,34 @@ def _git(*a) -> str:
         return "UNKNOWN"
 
 
+def _code_dirty() -> bool:
+    """True when any engine/config/snapshot-tool source differs from HEAD (docs excluded)."""
+    out = _git("status", "--porcelain", "--", "core/possession_engine_v0", "snapshots/lock.py", "data/redistributable/teams")
+    if out == "UNKNOWN":
+        return True
+    return any(l[3:].endswith((".py", ".json", ".csv")) for l in out.splitlines())
+
+
+def packet_prices(packet: dict) -> dict:
+    """Two-book (DraftKings, FanDuel) + Pinnacle-reference rows from a pregame packet, in freeze-row format.
+    Used only when no four-book freeze exists for the game (flagged PACKET_TWO_BOOK_NOT_FOUR_BOOK)."""
+    b = packet.get("books") or {}
+    rows = []
+    mk = {"moneyline": "h2h", "spread": "spreads", "total": "totals"}
+    for name, m in (b.get("markets") or {}).items():
+        if name not in mk:
+            continue
+        a_side, b_side = m["sides"][0], m["sides"][1]
+        for book, q in (m.get("books") or {}).items():
+            rows.append({"book": book, "market": mk[name], "line": q.get("line"), "side_a": a_side, "side_b": b_side,
+                         "novig_a": (q.get("no_vig") or {}).get(a_side), "price_a": (q.get("prices") or {}).get(a_side),
+                         "price_b": (q.get("prices") or {}).get(b_side), "book_last_update": q.get("last_update"),
+                         "reference_only": book == "pinnacle", "player": None})
+    books = sorted({r["book"] for r in rows})
+    return {"meta": {"status": "PACKET_TWO_BOOK_NOT_FOUR_BOOK" if rows else "NOLINE", "pulled_utc": b.get("retrieved_utc"),
+                     "books": books, "source": "pregame packet books block (Odds API via packet builder)"}, "rows": rows}
+
+
 def write_report(dirp: Path, s: dict, lock: dict, cfg: dict) -> None:
     g = cfg["game"]
     L = [f"# Locked snapshot {g['away']} @ {g['home']} ({g.get('game_id')})", "",
@@ -211,6 +239,10 @@ def main(argv=None) -> int:
     kickoff = _utc(g["kickoff_et"])
     now = datetime.now(timezone.utc)
     freeze = json.loads(Path(a.price_freeze).read_text()) if a.price_freeze else None
+    packet = json.loads(Path(a.packet).read_text()) if a.packet else None
+    if freeze is None and packet is not None:
+        freeze = packet_prices(packet)
+        g.setdefault("home_name", g["home"]); g.setdefault("away_name", g["away"])
     why = asof_checks(cfg, a.pbp, now, kickoff, freeze)
     if why:
         print("lock: REFUSED\n  - " + "\n  - ".join(why))
@@ -229,6 +261,8 @@ def main(argv=None) -> int:
     shutil.copy2(cfg_path, d / "inputs" / cfg_path.name)
     if a.price_freeze:
         shutil.copy2(a.price_freeze, d / "inputs" / Path(a.price_freeze).name)
+    elif freeze is not None:
+        (d / "inputs" / "prices_from_packet.json").write_text(json.dumps(freeze, indent=1) + "\n")
     if a.packet:
         shutil.copy2(a.packet, d / "inputs" / "packet.json")
     np.savez_compressed(d / "sim_arrays.npz", **{k: v.astype(np.int16 if v.dtype != bool else bool) for k, v in sim["arrays"].items()})
@@ -236,8 +270,10 @@ def main(argv=None) -> int:
     for r in (freeze or {}).get("rows") or []:
         if r.get("market") == "h2h":
             names = {r["side_a"], r["side_b"]}
-            home_name = next((x for x in names if g["home_name"] in x), None) if g.get("home_name") else None
-            away_name = next((x for x in names if g.get("away_name", "") in x), None) if g.get("away_name") else None
+            home_name = next((x for x in names if x == g.get("home_name")), None) or \
+                next((x for x in names if g.get("home_name") and g["home_name"] in x), None)
+            away_name = next((x for x in names if x == g.get("away_name")), None) or \
+                next((x for x in names if g.get("away_name") and g["away_name"] in x), None)
             break
     lines = market_lines(freeze, home_name, away_name)
     s = summarize(sim["arrays"], lines, g["home"], g["away"], home_name, away_name)
@@ -250,7 +286,7 @@ def main(argv=None) -> int:
     (d / "sim_meta.json").write_text(json.dumps(meta, indent=1, default=str) + "\n")
     lock = {"schema": "snapshot-lock/1", "game_id": g["game_id"], "locked_utc": locked.isoformat(timespec="seconds"),
             "kickoff_utc": kickoff.isoformat(), "projection_ready": False, "research_only": True,
-            "code_commit": _git("rev-parse", "HEAD"), "code_dirty": bool(_git("status", "--porcelain", "core", "snapshots")),
+            "code_commit": _git("rev-parse", "HEAD"), "code_dirty": _code_dirty(),
             "engine_tree_sha256": hashlib.sha256(b"".join(sha256(p).encode() for p in sorted(ENGINE.glob("*.py")))).hexdigest(),
             "config_id": cfg["config_id"], "model_weights_changed": False,
             "sim": {"n": sim["n"], "seed": seed, "chunks": sim["chunks"], "chunk_seeds": sim["chunk_seeds"],
@@ -258,6 +294,7 @@ def main(argv=None) -> int:
             "inputs": {"pbp_url": a.pbp_url, "pbp_sha256": sha256(a.pbp), "pbp_local_name": Path(a.pbp).name,
                        "price_freeze_origin": a.price_freeze_origin,
                        "price_freeze_pulled_utc": ((freeze or {}).get("meta") or {}).get("pulled_utc"),
+                       "price_status": ((freeze or {}).get("meta") or {}).get("status", "NOLINE"),
                        "price_freeze_books": ((freeze or {}).get("meta") or {}).get("books")},
             "asof_checks": "PASS", "limitations": sim["limitations"] + [
                 "data_only config: no injury/inactive adjustment; Phase 15 inactives not applied to the sim",

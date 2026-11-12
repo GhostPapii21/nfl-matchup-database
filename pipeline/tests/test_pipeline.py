@@ -192,7 +192,7 @@ def test_engine_not_called_when_refused(tmp_path):
 
 @pytest.mark.parametrize("breaker", ["deferred", "semantics_file", "semantics_flag", "flags_unreadable", "stale_odds",
                                      "no_freeze", "inactives_not_yet", "rocket_unset", "rocket_fails", "phase_missing"])
-def test_each_gate_alone_refuses(tmp_path, breaker):
+def test_each_gate_alone_refuses(tmp_path, breaker, monkeypatch):
     now = KO - timedelta(minutes=60)
     pk, hi = all_green(tmp_path, now)
     flags = dict(GOOD_FLAGS)
@@ -217,6 +217,7 @@ def test_each_gate_alone_refuses(tmp_path, breaker):
         pk, hi = all_green(tmp_path / "b", now)
     elif breaker == "rocket_unset":
         rocket = None
+        monkeypatch.setattr(H, "ROCKET_COMMAND", None)  # ROCKET_COMMAND is bound now; simulate "unset"
     elif breaker == "rocket_fails":
         rocket = None
         rocket_cmd = [sys.executable, "-c", "import sys; sys.exit(1)"]
@@ -268,9 +269,11 @@ def test_no_override_switch():
 
 def test_shipped_hooks_fail_closed():
     """Unbound hooks refuse. Update this test in the same reviewed PR that binds a hook."""
-    assert H.ROCKET_COMMAND is None and H.rocket_validation("g")["status"] == "PENDING"
-    assert all(v is None for v in H.REGISTRY.values())
-    assert H.official_inactives({})["status"] == "PENDING"
+    # BetGuru bound rocket and official_inactives (NFL-49). Both still fail closed without their inputs.
+    assert H.ROCKET_COMMAND == ["python3", "rocket"]
+    assert H.REGISTRY["official_inactives"] == "phase15.official_inactives:hook"
+    assert H.official_inactives({"game": {"game_id": "2099_01_AAA_BBB"}})["status"] == "FAILED"
+    assert H.rocket_validation("g", command=None if False else [sys.executable, "-c", "import sys; sys.exit(1)"])["status"] == "FAILED"
 
 
 def test_broken_hook_fails_closed():

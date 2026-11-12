@@ -1,0 +1,60 @@
+{
+  "config_id": "buf_nyj_2026-11-15_data_only_nfl43",
+  "frozen_at_et": "2026-11-12T11:45:00-05:00",
+  "mode": "data_only",
+  "game": {
+    "home": "NYJ",
+    "away": "BUF",
+    "season": 2026,
+    "week_asof_exclusive": 10,
+    "kickoff_et": "2026-11-15T13:00:00-05:00",
+    "game_id": "2026_10_BUF_NYJ"
+  },
+  "history": {
+    "teams": [
+      "BUF",
+      "NYJ"
+    ],
+    "season": 2026,
+    "weeks_inclusive": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "scope": "plays_from_games_involving_either_team_offense_when_posteam_in_teams",
+    "no_league_fallback": true,
+    "no_future_weeks": true
+  },
+  "min_n_state": 5,
+  "proposed_pooling": {
+    "enabled": false,
+    "policy": "none"
+  },
+  "adjustments": {
+    "enabled": false
+  },
+  "seed_base": 20261115,
+  "n_default": 100000,
+  "ot_rule": "official_2025_regular_season",
+  "semantics": {
+    "penalties": "canonical_log_v1",
+    "returns": "asof_league_v1",
+    "overtime": "official_2025_regular_season"
+  },
+  "set_label": "prospective_week10_locked_pre_kickoff",
+  "effects": {
+    "enable_blitz_strata": false,
+    "note": "coverage/blitz effects disabled for prospective missing charting"
+  },
+  "defense_interaction": {
+    "mode": "h2h_only"
+  },
+  "quotes_status": "SEE_SNAPSHOT_PRICE_FREEZE",
+  "model_weights_changed": false
+}

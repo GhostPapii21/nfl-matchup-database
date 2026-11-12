@@ -34,7 +34,7 @@ SEMANTICS_BOUNDS_NAME = "SEMANTICS_BOUNDS.md"
 # When BetGuru's `rocket` validation command lands, set this to its argv in a reviewed PR, e.g.
 # ["python3", "-m", "<module>", "rocket"] or ["./rocket"]. The 100k gate runs it with the game id appended and
 # requires exit code 0. None = not built yet = the gate refuses.
-ROCKET_COMMAND: list[str] | None = None
+ROCKET_COMMAND: list[str] | None = ["python3", "rocket"]  # BetGuru NFL-49: ./rocket [game_id] (rocket_gate/cli.py)
 
 # Bind each to "package.module:function" in a reviewed PR when the owner's piece lands. None = not built yet.
 REGISTRY: dict[str, str | None] = {
