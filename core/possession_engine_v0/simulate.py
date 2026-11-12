@@ -59,6 +59,8 @@ class PlayCatalog:
         self.h2h_policy: dict = {"mode": "off"}
         self.clock_map: dict | None = None
         self.clock_meta: dict = {"source": "fixed_defaults"}
+        self.goal_line_censoring = "redistribute_right"  # WP2; simulate_one sets it from cfg accounting
+        self._last_pool, self._last_pool_foreign = None, False
         for team, g in self.snaps.groupby("posteam"):
             self.by_team[team] = g
             for down, gd in g.groupby("down"):
@@ -111,7 +113,8 @@ class PlayCatalog:
                     self.specials[kind][team] = sub.reset_index(drop=True)
 
     @staticmethod
-    def build_empirical_clock(df: pd.DataFrame, stat: str = "legacy_median") -> dict:
+    def build_empirical_clock(df: pd.DataFrame, stat: str = "legacy_median", *,
+                              skip_unmodeled_rows: bool = False) -> dict:
         """Seconds consumed from a snap to the next row, by play_type, when timestamps exist.
 
         stat="legacy_median" (pre-NFL-49): median of deltas in [3, 55] s over the rows given (offense-only rows, so a
@@ -119,11 +122,40 @@ class PlayCatalog:
         the next row is in the same game AND quarter, over every row of the as-of games. Run/pass deltas are bimodal
         (clock stopped vs running), so the median overstated run 38 s vs mean 33.3 s on the W1-9 file; the means
         are what sum to the 3,600 s of regulation.
+
+        WP1 pace fix (NFL-75, 2026-11-12), stat="mean" only:
+        * "no_play_penalty": MEAN delta (same rule) of pre-snap/no-play PENALTY rows (play_type no_play, penalty 1).
+          The engine charged a flat 4 s (semantics.NO_PLAY_CLOCK_SEC); the W1-9 as-of mean is about 11 s.
+        * skip_unmodeled_rows=True: no_play rows that are NOT penalties (timeouts, plus ~20 odd rows on W1-9) are
+          dropped BEFORE "next row" is taken, so the seconds nflverse books on them are charged to the modeled play
+          before them. Otherwise that time (timeouts: about 12.8 s each, ~3.7 per team-game on W1-9) is lost and
+          the simulated clock runs too fast. GAME / END QUARTER marker rows (no play_type) are kept so the last
+          play of a quarter still closes on them. Same-quarter seconds are conserved before the [0, 60] s window
+          (W1-9: 494,585 s vs 494,625 s); the window then drops merged intervals > 60 s, so the kept deltas cover
+          about 0.1% less than the raw clock (W1-9: 494,045 of 494,625 s kept, vs 494,273 of 494,585 s without the
+          drop). Not fitted to outcomes; pure clock bookkeeping.
         """
         out = {"pass": 22, "run": 28, "punt": 10, "field_goal": 7, "extra_point": 4, "qb_kneel": 40, "qb_spike": 2}
         meta_source = "fixed_defaults"
         if "game_seconds_remaining" in df.columns and "play_id" in df.columns:
             d = df.sort_values(["game_id", "play_id"]).copy()
+            is_np = d["play_type"] == "no_play"
+            if "penalty" in d.columns:
+                pen_np = is_np & (pd.to_numeric(d["penalty"], errors="coerce").fillna(0) == 1)
+            elif "timeout" in d.columns:
+                pen_np = is_np & (pd.to_numeric(d["timeout"], errors="coerce").fillna(0) != 1)
+            elif "desc" in d.columns:
+                pen_np = is_np & ~d["desc"].astype(str).str.contains("timeout", case=False, regex=False)
+            else:
+                pen_np = is_np  # cannot tell timeouts apart: keep every no_play row as its own clock event
+            if stat == "mean" and skip_unmodeled_rows:
+                # drop only no_play rows that are not penalties (timeouts, ~20 odd rows). Rows with no play_type
+                # (GAME / END QUARTER markers) stay: they close the last play's delta inside its quarter.
+                keep = ~(is_np & ~pen_np)
+                d, pen_np = d[keep].copy(), pen_np[keep]
+                meta_skip = True
+            else:
+                meta_skip = False
             d["_next"] = d.groupby("game_id")["game_seconds_remaining"].shift(-1)
             d["_delta"] = d["game_seconds_remaining"] - d["_next"]
             if stat == "mean":
@@ -133,6 +165,11 @@ class PlayCatalog:
                     if len(sub) >= 30:
                         out[pt] = float(sub["_delta"].mean())
                         meta_source = "empirical_mean_delta_same_qtr"
+                sub = d[pen_np & same_q & d["_delta"].between(0, 60)]
+                if len(sub) >= 30:
+                    out["no_play_penalty"] = float(sub["_delta"].mean())
+                    out["no_play_penalty_n"] = int(len(sub))
+                out["skip_unmodeled_rows"] = meta_skip
             else:
                 # positive small deltas = clock ran
                 for pt in ("pass", "run", "punt", "field_goal", "qb_kneel"):
@@ -144,8 +181,10 @@ class PlayCatalog:
         return out
 
     def set_empirical_clock(self, cost_map: dict) -> None:
-        self.clock_map = {k: v for k, v in cost_map.items() if k != "source"}
-        self.clock_meta = {"source": cost_map.get("source", "custom")}
+        self.clock_map = {k: v for k, v in cost_map.items() if k not in ("source", "no_play_penalty_n", "skip_unmodeled_rows")}
+        self.clock_meta = {"source": cost_map.get("source", "custom"),
+                           "no_play_penalty_n": cost_map.get("no_play_penalty_n"),
+                           "skip_unmodeled_rows": cost_map.get("skip_unmodeled_rows", False)}
 
     def enable_defense_conditioning(self, enabled: bool = True) -> None:
         """Legacy switch: True == h2h_policy legacy_always, False == off."""
@@ -191,6 +230,7 @@ class PlayCatalog:
                 for c in ("passer_player_name", "rusher_player_name", "receiver_player_name"):
                     if c in r.index:
                         r[c] = None  # foreign offense players: outcome only, no player credit
+                self._last_pool, self._last_pool_foreign = pool, True
                 return r, f"DEF_ALLOWED_{tagx}_vs_{defense}_n={len(pool)}"
 
         # Defense-conditioned pool when enabled and enough n vs current defense
@@ -209,24 +249,35 @@ class PlayCatalog:
                     cache[ck] = use
                 w = self.h2h_weight(len(use))
                 if w >= 1.0 or (w > 0.0 and rng.random() < w):
+                    self._last_pool, self._last_pool_foreign = use, False
                     return use.iloc[int(rng.integers(0, len(use)))], f"DEF_COND_vs_{defense}_n={len(use)}"
         key = (st.possession, int(st.down), dist_bucket(st.ydstogo), yl_bucket(st.yardline_100))
         cell = self.cells.get(key)
         if cell is not None and len(cell) >= self.min_n:
+            self._last_pool, self._last_pool_foreign = cell, False
             return cell.iloc[int(rng.integers(0, len(cell)))], "OK"
         down_key = (st.possession, int(st.down))
         broad = self.by_down.get(down_key)
         if broad is not None and len(broad) > 0:
+            self._last_pool, self._last_pool_foreign = broad, False
             return broad.iloc[int(rng.integers(0, len(broad)))], f"COARSE_SAME_DOWN_n_cell={0 if cell is None else len(cell)}"
         team = self.by_team.get(st.possession)
         if team is not None and len(team) > 0:
+            self._last_pool, self._last_pool_foreign = team, False
             return team.iloc[int(rng.integers(0, len(team)))], "COARSE_ANY_DOWN_SAME_TEAM"
+        self._last_pool, self._last_pool_foreign = None, False
         return None, "EMPTY_TEAM_SNAPS"
 
 
 
-ACCOUNTING_DEFAULTS = {"clock": "mean", "exclude_clock_mgmt_snaps": True, "kickoff_clock": True}
-ACCOUNTING_LEGACY = {"clock": "legacy_median", "exclude_clock_mgmt_snaps": False, "kickoff_clock": False}
+ACCOUNTING_DEFAULTS = {"clock": "mean", "exclude_clock_mgmt_snaps": True, "kickoff_clock": True,
+                       "no_play_clock": "asof_mean", "unmodeled_row_clock": "attribute_to_prior_play",
+                       "goal_line_censoring": "redistribute_right"}
+ACCOUNTING_LEGACY = {"clock": "legacy_median", "exclude_clock_mgmt_snaps": False, "kickoff_clock": False,
+                     "no_play_clock": "flat_4s", "unmodeled_row_clock": "drop", "goal_line_censoring": "truncate"}
+# Pre-WP1/WP2 engine (NFL-49 B accounting, 2026-11-12 main 9beb9b0): use accounting=PRE_WP12 to reproduce it.
+ACCOUNTING_PRE_WP12 = {"clock": "mean", "exclude_clock_mgmt_snaps": True, "kickoff_clock": True,
+                       "no_play_clock": "flat_4s", "unmodeled_row_clock": "drop", "goal_line_censoring": "truncate"}
 
 
 def accounting_from_cfg(cfg: dict) -> dict:
@@ -234,16 +285,32 @@ def accounting_from_cfg(cfg: dict) -> dict:
     clock: "mean" | "legacy_median" (see PlayCatalog.build_empirical_clock).
     exclude_clock_mgmt_snaps: kneels/spikes are end-of-half clock decisions, not play outcomes; the legacy pool let a
     random 1st-and-10 snap be a kneel (-1 yd, ~30 s) at any time.
-    kickoff_clock: charge the as-of mean kickoff clock (needs clock "mean"); legacy kickoffs took 0 s."""
+    kickoff_clock: charge the as-of mean kickoff clock (needs clock "mean"); legacy kickoffs took 0 s.
+    no_play_clock (WP1): "asof_mean" charges the as-of mean clock of no-play penalty rows (needs clock "mean" and
+    >= 30 rows, else the flat 4 s); "flat_4s" = pre-WP1.
+    unmodeled_row_clock (WP1): "attribute_to_prior_play" books timeout / unmodeled-row seconds on the prior modeled
+    play when the mean clock is built (needs clock "mean"); "drop" = pre-WP1.
+    goal_line_censoring (WP2): "redistribute_right" resolves sampled rows whose gain was cut off by THEIR goal line
+    when the ball is now further out (see _resolve_goal_line_censoring); "truncate" = pre-WP2."""
     a = cfg.get("accounting")
     if a == "legacy":
         return dict(ACCOUNTING_LEGACY)
+    if a == "pre_wp12":
+        return dict(ACCOUNTING_PRE_WP12)
     out = dict(ACCOUNTING_DEFAULTS)
     out.update(a or {})
     if out["clock"] not in ("mean", "legacy_median"):
         raise ValueError(f"unknown accounting.clock {out['clock']!r}")
     if out["kickoff_clock"] and out["clock"] != "mean":
         out["kickoff_clock"] = False  # legacy clock map has no kickoff entry
+    if out["no_play_clock"] not in ("asof_mean", "flat_4s"):
+        raise ValueError(f"unknown accounting.no_play_clock {out['no_play_clock']!r}")
+    if out["unmodeled_row_clock"] not in ("attribute_to_prior_play", "drop"):
+        raise ValueError(f"unknown accounting.unmodeled_row_clock {out['unmodeled_row_clock']!r}")
+    if out["goal_line_censoring"] not in ("redistribute_right", "truncate"):
+        raise ValueError(f"unknown accounting.goal_line_censoring {out['goal_line_censoring']!r}")
+    if out["clock"] != "mean":
+        out["no_play_clock"], out["unmodeled_row_clock"] = "flat_4s", "drop"  # legacy median map has neither
     return out
 
 
@@ -427,6 +494,86 @@ def _punt_fixed(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -
             apply_kickoff(st, receiving=_other(st, recv), yardline_100=kickoff_spot(st))
 
 
+def _gl_censored_at(row) -> Optional[int]:
+    """yardline_100 at which this historical row's gain was cut off by the goal line (an offensive pass/run that
+    reached the end zone, so yards_gained >= its own yardline_100 and no turnover/sack), else None."""
+    try:
+        pt = row.get("play_type")
+        if pt not in ("pass", "run"):
+            return None
+        y0, g = row.get("yardline_100"), row.get("yards_gained")
+        if y0 is None or g is None or pd.isna(y0) or pd.isna(g):
+            return None
+        for c in ("interception", "fumble_lost", "sack"):
+            v = row.get(c)
+            if v is not None and not pd.isna(v) and int(v) == 1:
+                return None
+        return int(y0) if float(g) >= float(y0) else None
+    except (TypeError, ValueError):
+        return None
+
+
+def _resolve_goal_line_censoring(rng: np.random.Generator, catalog, st: GameState, row):
+    """WP2 (NFL-75): goal-line censoring in resampled gains.
+
+    A sampled historical row from yardline y0 that scored (gain >= y0) only tells us the play would have gained AT
+    LEAST y0 yards: the goal line cut it off. When the simulated ball is further out (y > y0) the old engine used
+    the gain y0 as an ordinary gain, so e.g. a 2-yard TD plunge drawn at the 15 became a 2-yard run. On W1-9 PBP
+    19.9% of red-zone pass/run rows are censored like this, which drags red-zone TD rates down.
+
+    Fix (Efron's redistribute-to-the-right estimator for right-censored data; no tuned parameters, nothing fitted
+    to outcomes; the same-pool-then-team-pool fallback order is a structural choice): the
+    censored draw is replaced by a uniform draw from the rows of the SAME pool and play type that are known to have
+    gained at least y0 (historical yardline_100 > y0 and gain >= y0, no turnover/sack). If that row is itself
+    censored at y0' < y the step repeats (y0 strictly increases, so it terminates). If the same pool has no such row,
+    the offense's whole same-play-type pool is used; if that is empty too the original row is kept and the snap is
+    flagged GL_CENSOR_UNRESOLVED (old behaviour, visible; the ORIGINAL draw is returned even if a replacement
+    chain had started). Ties (gain == y0) count as "gained at least y0". Rows whose y0 >= y are informative as they are and are
+    never touched. Returns (row, tag) with tag None (not censored relative to y), "GL_CENSOR_RESOLVED" or
+    "GL_CENSOR_UNRESOLVED"."""
+    y = int(st.yardline_100)
+    y0 = _gl_censored_at(row)
+    if y0 is None or y0 >= y:
+        return row, None
+    pool = getattr(catalog, "_last_pool", None)
+    foreign = bool(getattr(catalog, "_last_pool_foreign", False))
+    fallback = None
+    by_team = getattr(catalog, "by_team", None)
+    if by_team is None and hasattr(catalog, "base"):
+        by_team = getattr(catalog.base, "by_team", None)
+    if isinstance(by_team, dict) and st.possession is not None:
+        fallback = by_team.get(st.possession)
+    pt = row.get("play_type")
+    orig = row
+    while True:  # y0 is an integer that strictly increases and stays < y, so this ends in < y steps
+        cand = None
+        for src, is_foreign in ((pool, foreign), (fallback, False)):
+            if src is None or not len(src) or "yardline_100" not in src.columns:
+                continue
+            m = (src["play_type"] == pt) & (src["yardline_100"] > y0) & (src["yards_gained"] >= y0)
+            for c in ("interception", "fumble_lost", "sack"):
+                if c in src.columns:
+                    m &= src[c].fillna(0) != 1
+            c_ = src[m]
+            if len(c_):
+                cand, foreign_now = c_, is_foreign
+                break
+        if cand is None:
+            return orig, "GL_CENSOR_UNRESOLVED"
+        row = cand.iloc[int(rng.integers(0, len(cand)))]
+        if foreign_now:
+            row = row.copy()
+            for c in ("passer_player_name", "rusher_player_name", "receiver_player_name"):
+                if c in row.index:
+                    row[c] = None
+        y0n = _gl_censored_at(row)
+        if y0n is None or y0n >= y:
+            return row, "GL_CENSOR_RESOLVED"
+        if y0n <= y0:  # cannot happen (candidates have yardline_100 > y0); guard keeps termination unconditional
+            return orig, "GL_CENSOR_UNRESOLVED"
+        y0 = y0n
+
+
 def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, allow_pool: bool) -> None:
     row, status = catalog.sample_snap(rng, st, allow_pool)
     for part in str(status).split("|"):
@@ -436,13 +583,25 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
         _punt_fixed(rng, catalog, st)
         return
 
+    gl_tag = None
+    if getattr(catalog, "goal_line_censoring", "redistribute_right") == "redistribute_right":
+        row, gl_tag = _resolve_goal_line_censoring(rng, catalog, st, row)
+    else:
+        y0 = _gl_censored_at(row)
+        if y0 is not None and y0 < int(st.yardline_100):
+            gl_tag = "GL_CENSOR_TRUNCATED"  # pre-WP2 behaviour, tagged only (no flag, no change)
     play_type = str(row["play_type"])
     yards = float(row["yards_gained"]) if pd.notna(row["yards_gained"]) else 0.0
     st.game_seconds_remaining -= _clock_cost(play_type, rng, getattr(catalog, "clock_map", None))
     hist_yards = yards
     yards = float(min(yards, st.yardline_100)) if yards > 0 else float(max(yards, -(100 - st.yardline_100)))
     # Always count the offensive play as a snap for pace/accounting (before early exits); realized yards.
-    st.events.append({"type": "snap", "play_type": play_type, "yards": yards, "hist_yards": hist_yards, "down": st.down})
+    ev = {"type": "snap", "play_type": play_type, "yards": yards, "hist_yards": hist_yards, "down": st.down}
+    if gl_tag is not None:
+        ev["goal_line_censoring"] = gl_tag
+        if gl_tag == "GL_CENSOR_UNRESOLVED":
+            st.sparse_flags.append(gl_tag)
+    st.events.append(ev)
 
     def _i(c):
         v = row.get(c)
@@ -534,11 +693,25 @@ def _defensive_return(rng: np.random.Generator, catalog, st: GameState, spot: fl
     st.down, st.ydstogo = 1, 10
 
 
-def _no_play_penalty(st: GameState, pen) -> None:
-    """NFL-43: enforce a no-play foul; a defensive foul as the period clock expires earns one untimed down."""
+def no_play_clock_sec(catalog, acc: dict) -> int:
+    """WP1: seconds charged per no-play foul. "asof_mean" = as-of mean clock of no-play penalty rows from the catalog's
+    clock map (PlayCatalog.build_empirical_clock, stat="mean"), rounded to whole seconds like the kickoff clock; the
+    flat semantics.NO_PLAY_CLOCK_SEC (4 s) when the map has no such entry (< 30 as-of rows) or for "flat_4s"."""
+    from semantics import NO_PLAY_CLOCK_SEC
+    if acc.get("no_play_clock") != "asof_mean":
+        return int(NO_PLAY_CLOCK_SEC)
+    v = (getattr(catalog, "clock_map", None) or {}).get("no_play_penalty")
+    if v is None or not np.isfinite(float(v)):
+        return int(NO_PLAY_CLOCK_SEC)
+    return int(round(float(v)))
+
+
+def _no_play_penalty(st: GameState, pen, clock_sec: int | None = None) -> None:
+    """NFL-43: enforce a no-play foul; a defensive foul as the period clock expires earns one untimed down.
+    clock_sec: seconds charged (WP1: the as-of mean via no_play_clock_sec); None = flat NO_PLAY_CLOCK_SEC (4 s)."""
     from semantics import enforce_penalty, NO_PLAY_CLOCK_SEC
     enforce_penalty(st, pen, live_ball=False)
-    st.game_seconds_remaining -= NO_PLAY_CLOCK_SEC
+    st.game_seconds_remaining -= int(NO_PLAY_CLOCK_SEC if clock_sec is None else clock_sec)
     if st.game_seconds_remaining <= 0 and pen.side == "defense":
         # A period cannot end on an accepted defensive foul: one untimed down.
         st.game_seconds_remaining = 1
@@ -615,21 +788,36 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
     def _clock(cat):
         if acc["clock"] == "mean":
             src = getattr(cat, "clock_df", None)
-            return PlayCatalog.build_empirical_clock(src if src is not None else df, stat="mean")
+            return PlayCatalog.build_empirical_clock(
+                src if src is not None else df, stat="mean",
+                skip_unmodeled_rows=acc["unmodeled_row_clock"] == "attribute_to_prior_play")
         return PlayCatalog.build_empirical_clock(df)
+    clock_key = (acc["clock"], acc["unmodeled_row_clock"])
     def _ensure_clock(cat):
+        # A map cached by an earlier run under different clock accounting is rebuilt (review: a reused catalog
+        # silently kept the first run's timeout attribution). Maps set by callers (no key recorded) are respected.
+        for c in (cat, getattr(cat, "base", None)):
+            if c is not None and getattr(c, "clock_map", None) is not None and \
+                    c.__dict__.get("_clock_key") not in (None, clock_key):
+                c.clock_map = None
         target = cat
         if getattr(cat, "clock_map", None) is None and hasattr(cat, "set_empirical_clock"):
             target.set_empirical_clock(_clock(cat))
+            target.__dict__["_clock_key"] = clock_key
+            if hasattr(cat, "base"):
+                cat.base.__dict__["_clock_key"] = clock_key
         elif getattr(cat, "clock_map", None) is None and hasattr(cat, "base"):
             if getattr(cat.base, "clock_map", None) is None:
                 cat.base.set_empirical_clock(_clock(cat.base))
+                cat.base.__dict__["_clock_key"] = clock_key
             # mirror attributes for getattr(catalog, "clock_map") sites
             cat.clock_map = cat.base.clock_map
             cat.clock_meta = getattr(cat.base, "clock_meta", {"source": "fixed_defaults"})
+            cat.__dict__["_clock_key"] = clock_key
     # NFL-49 A: h2h conditioning is no longer forced on here; build_catalog applies cfg defense_interaction.h2h
     # (default "off"). Catalogs built elsewhere keep whatever policy they were given.
     _ensure_clock(catalog)
+    catalog.goal_line_censoring = acc["goal_line_censoring"]
     sem = getattr(catalog, "semantics", None)
     if sem is not None:
         st.ot_rule = sem.get("overtime") or st.ot_rule
@@ -644,6 +832,7 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
             st.ot_tracker.update(st, prev_pos, prev_scores)
     _post(None, (0, 0)) if (sem is not None and sem.get("returns") is not None) else None
     ko_sec = int(round(float((getattr(catalog, "clock_map", None) or {}).get("kickoff", 0.0)))) if acc["kickoff_clock"] else 0
+    np_sec = no_play_clock_sec(catalog, acc)
     ev_ptr = 0
     while not st.final and steps < max_steps:
         steps += 1
@@ -676,7 +865,7 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
         if sem is not None and sem.get("penalties") is not None:
             pen = sem["penalties"].draw(rng, st.possession, _other(st, st.possession))
         if pen is not None and pen.no_play:
-            _no_play_penalty(st, pen)
+            _no_play_penalty(st, pen, clock_sec=np_sec)
             _post(prev_pos, prev_scores)
             continue
         n_ev = len(st.events)

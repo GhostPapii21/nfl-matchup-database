@@ -92,6 +92,9 @@ class EffectsCatalog:
         """Base sampler decides run/pass (and DEF_* interaction). Blitz only re-draws a CALLED pass
         from same-down blitz / non-blitz joined pools, with empirical rate."""
         row, tag = self.base.sample_snap(rng, st, allow_pool)
+        # WP2: the pool the returned row came from (goal-line censoring resolution redraws from it)
+        self._last_pool = getattr(self.base, "_last_pool", None)
+        self._last_pool_foreign = getattr(self.base, "_last_pool_foreign", False)
         if (
             row is None or not self.enable_blitz_strata or str(row.get("play_type")) != "pass"
             or str(tag).startswith("DEF_")
@@ -113,4 +116,5 @@ class EffectsCatalog:
         same_down = team_pool[team_pool["down"] == st.down]
         pool, sfx = (same_down, "") if len(same_down) >= 5 else (team_pool, f"|COARSE_BLITZ_DOWN_n={len(team_pool)}")
         new = pool.iloc[int(rng.integers(0, len(pool)))]
+        self._last_pool, self._last_pool_foreign = pool, False
         return new, f"{tag}|{pre}_{'STRATA' if use_blitz else 'NO_STRATA'}{sfx}"
