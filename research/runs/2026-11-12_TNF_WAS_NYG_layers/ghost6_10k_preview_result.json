@@ -1,0 +1,41 @@
+{
+ "commit": "fb9167b",
+ "config": "core/possession_engine_v0/config/was_nyg_2026-11-12_data_only_nfl43.json",
+ "n": 10000,
+ "seed": 20261112,
+ "runtime_s": 296.8,
+ "NYG_mean": 20.3955,
+ "WAS_mean": 21.1725,
+ "NYG_median": 20.0,
+ "WAS_median": 20.0,
+ "total_mean": 41.568,
+ "total_median": 41.0,
+ "p_over_40_5": 0.519,
+ "margin_mean": -0.777,
+ "p_NYG_win": 0.4858,
+ "p_NYG_cover_-1_5": 0.4425,
+ "p_NYG_cover_-2_5": 0.4189,
+ "h2h": {
+  "catalog_class": "EffectsCatalog",
+  "ftn_join": {
+   "status": "NOT_REQUESTED"
+  },
+  "blitz_strata_enabled": false,
+  "blitz_semantics": "conditions yards on CALLED pass only; run/pass choice from base sampler",
+  "defense_blitz_rates": {},
+  "defense_interaction": {
+   "mode": "h2h_only",
+   "label": "DISABLED_opponent_allowed",
+   "h2h": {
+    "mode": "off"
+   },
+   "h2h_label": "OFF"
+  },
+  "accounting": {
+   "clock": "mean",
+   "exclude_clock_mgmt_snaps": true,
+   "kickoff_clock": true
+  },
+  "pressure_coverage": "NOT_EXECUTED_adapters_only (2026 participation unpublished)"
+ }
+}
