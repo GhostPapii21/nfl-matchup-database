@@ -22,6 +22,7 @@ COLS = [
     # punt net distance (yards_gained is always 0 on punts in nflfastR)
     "kick_distance",
     "return_yards",
+    "return_touchdown",
     "touchback",
     "punt_in_endzone",
 ]

@@ -38,7 +38,9 @@ ROCKET_COMMAND: list[str] | None = None
 
 # Bind each to "package.module:function" in a reviewed PR when the owner's piece lands. None = not built yet.
 REGISTRY: dict[str, str | None] = {
-    "official_inactives": None,   # PENDING: inactives pull (NFL-46 / NFL-49), no owner named yet
+    # BetGuru (NFL-49 Phase 15): reads the newest phase15/inactives/<game>/inactives_*.json written by
+    # `python -m phase15.official_inactives --game <id>` (club official "Inactives" articles). No network in the hook.
+    "official_inactives": "phase15.official_inactives:hook",
 }
 PENDING_REASON = {
     "official_inactives": "No official-inactives pull exists yet (NFL-46 / NFL-49); Phase 15 stays NOT_YET.",

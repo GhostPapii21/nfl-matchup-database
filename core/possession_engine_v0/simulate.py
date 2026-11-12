@@ -151,9 +151,14 @@ class PlayCatalog:
             key = (st.possession, defense)
             pool = self.by_team_vs_def.get(key)
             if pool is not None and len(pool) >= self.min_n:
-                # further filter by down if possible
-                sub = pool[pool["down"] == int(st.down)] if "down" in pool.columns else pool
-                use = sub if len(sub) >= self.min_n else pool
+                # further filter by down if possible (memoised: identical rows/order, perf only)
+                ck = (key, int(st.down))
+                cache = self.__dict__.setdefault("_def_down_cache", {})
+                use = cache.get(ck)
+                if use is None:
+                    sub = pool[pool["down"] == int(st.down)] if "down" in pool.columns else pool
+                    use = sub if len(sub) >= self.min_n else pool
+                    cache[ck] = use
                 return use.iloc[int(rng.integers(0, len(use)))], f"DEF_COND_vs_{defense}_n={len(use)}"
         key = (st.possession, int(st.down), dist_bucket(st.ydstogo), yl_bucket(st.yardline_100))
         cell = self.cells.get(key)
@@ -236,7 +241,7 @@ def _attempt_fg(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -
         st.add_score(st.possession, 3)
         st.events.append({"type": "field_goal", "result": "made", "team": st.possession})
         apply_kickoff(st, receiving=_other(st, st.possession), yardline_100=kickoff_spot(st))
-        if st.in_ot:
+        if st.in_ot and st.ot_tracker is None:
             st.final = True
     else:
         st.events.append({"type": "field_goal", "result": res or "missed", "team": st.possession, "dist": dist})
@@ -321,6 +326,17 @@ def _punt_fixed(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -
         "type": "punt", "from_yl": yl, "net": net, "new_yl": recv_yl,
         "kick_ball_yl": ball_yl_from_kick_opp, "team": offense, "touchback": bool(is_tb),
     })
+    sem = getattr(catalog, "semantics", None)
+    if sem is not None and sem.get("returns") is not None and not is_tb:
+        # NFL-43: punt net stays the field-position quantity above; a return TD is a separate
+        # as-of league-rate event and never adds return yards on top of the net.
+        if rng.random() < sem["returns"].punt_return_td_rate:
+            recv = st.possession
+            st.events.append({"type": "punt_return_td", "team": recv, "from_yl": recv_yl})
+            st.special_scores["punt_return_td"][recv] = st.special_scores["punt_return_td"].get(recv, 0) + 1
+            st.add_score(recv, 6)
+            _attempt_pat(rng, catalog, st, recv)
+            apply_kickoff(st, receiving=_other(st, recv), yardline_100=kickoff_spot(st))
 
 
 def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, allow_pool: bool) -> None:
@@ -354,6 +370,29 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
         st.events.append({"type": "turnover", "play_type": play_type, "team": st.possession})
         st.possession = _other(st, st.possession)
         spot = st.yardline_100 - yards
+        sem = getattr(catalog, "semantics", None)
+        if sem is not None and sem.get("returns") is not None:
+            # NFL-43: defensive return from the sampled historical turnover row.
+            ret = float(row.get("return_yards")) if pd.notna(row.get("return_yards")) else 0.0
+            ret_td = _i("return_touchdown") == 1
+            start_def = 80 if spot <= 0 else int(np.clip(100 - spot, 1, 99))
+            if spot <= 0 and not ret_td:
+                ret = 0.0  # end-zone recovery/INT -> touchback
+            new_yl = start_def - int(round(ret))
+            if ret_td or new_yl <= 0:
+                st.events.append({"type": "def_return_td", "team": st.possession, "from_yl": start_def,
+                                  "return_yards": start_def, "hist_return_yards": ret})
+                st.special_scores["def_return_td"][st.possession] = st.special_scores["def_return_td"].get(st.possession, 0) + 1
+                scoring = st.possession
+                st.add_score(scoring, 6)
+                _attempt_pat(rng, catalog, st, scoring)
+                apply_kickoff(st, receiving=_other(st, scoring), yardline_100=kickoff_spot(st))
+                return
+            st.yardline_100 = int(np.clip(new_yl, 1, 99))
+            st.events.append({"type": "def_return", "team": st.possession, "from_yl": start_def,
+                              "to_yl": st.yardline_100, "return_yards": start_def - st.yardline_100})
+            st.down, st.ydstogo = 1, 10
+            return
         # Turnover in opp end zone -> touchback (return yardage not modeled; declared limitation)
         st.yardline_100 = 80 if spot <= 0 else int(np.clip(100 - spot, 1, 99))
         st.down, st.ydstogo = 1, 10
@@ -376,7 +415,7 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
         st.events.append({"type": "touchdown", "team": scoring, "yards": yards})
         _attempt_pat(rng, catalog, st, scoring)
         apply_kickoff(st, receiving=_other(st, scoring), yardline_100=kickoff_spot(st))
-        if st.in_ot:
+        if st.in_ot and st.ot_tracker is None:
             st.final = True
             st.events.append({"type": "final_ot"})
         return
@@ -394,6 +433,27 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
             st.yardline_100 = int(np.clip(100 - st.yardline_100, 1, 99))
             st.down, st.ydstogo = 1, 10
             return
+
+
+def _process_kickoff_returns(rng: np.random.Generator, catalog, st: GameState, seen: list) -> None:
+    """NFL-43: roll an as-of league-rate kickoff-return TD for each new kickoff event."""
+    sem = getattr(catalog, "semantics", None)
+    rate = sem["returns"].kick_return_td_rate
+    i = seen[0]
+    while i < len(st.events):
+        e = st.events[i]
+        i += 1
+        if e.get("type") != "kickoff" or st.final:
+            continue
+        if rng.random() < rate:
+            recv = e["receiving"]
+            st.events.append({"type": "kick_return_td", "team": recv, "qtr": st.qtr})
+            st.special_scores["kick_return_td"][recv] = st.special_scores["kick_return_td"].get(recv, 0) + 1
+            st.add_score(recv, 6)
+            _attempt_pat(rng, catalog, st, recv)
+            apply_kickoff(st, receiving=_other(st, recv), yardline_100=kickoff_spot(st))
+    seen[0] = i
+
 
 
 def _advance_period(st: GameState, home: str) -> None:
@@ -448,22 +508,63 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
             cat._defense_cond = cat.base._defense_cond
     _ensure_clock(catalog)
     _ensure_def(catalog)
+    sem = getattr(catalog, "semantics", None)
+    if sem is not None:
+        st.ot_rule = sem.get("overtime") or st.ot_rule
+        st.ot_coin = lambda: int(rng.integers(0, 2))
     steps = 0
-    max_steps = 220
+    max_steps = 260 if sem is not None else 220
+    ko_seen = [0]
+    def _post(prev_pos, prev_scores):
+        if sem is not None and sem.get("returns") is not None:
+            _process_kickoff_returns(rng, catalog, st, ko_seen)
+        if st.in_ot and st.ot_tracker is not None and not st.final:
+            st.ot_tracker.update(st, prev_pos, prev_scores)
+    _post(None, (0, 0)) if (sem is not None and sem.get("returns") is not None) else None
     while not st.final and steps < max_steps:
         steps += 1
+        prev_pos, prev_scores = st.possession, (st.score_home, st.score_away)
         if st.game_seconds_remaining <= 0:
             _advance_period(st, home)
+            pos_after, sc_after = st.possession, (st.score_home, st.score_away)
+            if sem is not None and sem.get("returns") is not None:
+                _process_kickoff_returns(rng, catalog, st, ko_seen)
+            if st.in_ot and st.ot_tracker is not None and not st.final:
+                st.ot_tracker.update(st, pos_after, sc_after)
             continue
         if st.down == 4:
             decision = _fourth_down_decision(rng, catalog, st)
             if decision == "punt":
                 _punt_fixed(rng, catalog, st)
+                _post(prev_pos, prev_scores)
                 continue
             if decision == "field_goal":
                 _attempt_fg(rng, catalog, st)
+                _post(prev_pos, prev_scores)
                 continue
+        pen = None
+        if sem is not None and sem.get("penalties") is not None:
+            pen = sem["penalties"].draw(rng, st.possession, _other(st, st.possession))
+        if pen is not None and pen.no_play:
+            from semantics import enforce_penalty, NO_PLAY_CLOCK_SEC
+            enforce_penalty(st, pen, live_ball=False)
+            st.game_seconds_remaining -= NO_PLAY_CLOCK_SEC
+            if st.game_seconds_remaining <= 0 and pen.side == "defense":
+                # A period cannot end on an accepted defensive foul: one untimed down.
+                st.game_seconds_remaining = 1
+                st.events.append({"type": "untimed_down", "qtr": st.qtr})
+            _post(prev_pos, prev_scores)
+            continue
+        n_ev = len(st.events)
         _apply_snap(rng, catalog, st, allow_pool=allow_pool)
+        if pen is not None and not st.final and st.possession == prev_pos and \
+                (st.score_home, st.score_away) == prev_scores and \
+                not any(e.get("type") in ("turnover", "turnover_on_downs", "kickoff") for e in st.events[n_ev:]):
+            from semantics import enforce_penalty
+            enforce_penalty(st, pen, live_ball=True)
+        elif pen is not None:
+            st.events.append({"type": "penalty_live_ball_dropped", "reason": "possession_change_or_score", "team": pen.team})
+        _post(prev_pos, prev_scores)
         if st.in_ot and st.final:
             break
     if not st.final:
@@ -519,11 +620,13 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
                 qb_status[team] = f"SPARSE_QB_HISTORY n_pass={m.get('n_pass_after')}"
 
     catalog, effects_prov = build_catalog(df, cfg, games_df=hist.get("games_df"))
+    semantics_meta = attach_semantics(catalog, cfg, pbp_path)
     rng = np.random.default_rng(seed)
     buckets = {k: [] for k in [
         "q1_home","q1_away","q2_home","q2_away","q3_home","q3_away","q4_home","q4_away",
         "h1_home","h1_away","h2_home","h2_away","ot_home","ot_away",
         "reg_home","reg_away","fg_home","fg_away","went_ot",
+        "pen_yds_home","pen_yds_away","n_pen","ret_td_home","ret_td_away","def_td_home","def_td_away","tie",
     ]}
     joint_acc = {"pass_yards": {}, "rush_yards": {}, "rec_yards": {}}
     sparse_counts = 0
@@ -542,6 +645,16 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
         if st.reg_score_home is not None:
             snap["reg_home"] = st.reg_score_home
             snap["reg_away"] = st.reg_score_away
+        hm, aw = cfg["game"]["home"], cfg["game"]["away"]
+        ss = st.special_scores
+        snap.update({
+            "pen_yds_home": st.penalty_yards.get(hm, 0), "pen_yds_away": st.penalty_yards.get(aw, 0),
+            "n_pen": sum(1 for e in st.events if e.get("type") == "penalty"),
+            "ret_td_home": ss["kick_return_td"].get(hm, 0) + ss["punt_return_td"].get(hm, 0),
+            "ret_td_away": ss["kick_return_td"].get(aw, 0) + ss["punt_return_td"].get(aw, 0),
+            "def_td_home": ss["def_return_td"].get(hm, 0), "def_td_away": ss["def_return_td"].get(aw, 0),
+            "tie": int(st.score_home == st.score_away),
+        })
         for k in buckets:
             if k == "went_ot":
                 buckets[k].append(bool(st.in_ot))
@@ -604,10 +717,13 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
         "player_joint": joint_acc,
         "player_samples": player_samples,
         "effects_provenance": effects_prov,
+        "semantics": semantics_meta,
         "limitations": [
             "Vertical slice: empirical team-only snap resampling + explicit same-team coarser fallbacks",
             "Clock costs use empirical median deltas when available else fixed means — not a situational clock model",
-            "OT rule is single-possession approx (declared)",
+            ("OT rule: official 2025 regular-season (both possess, then sudden death, ties allowed)"
+             if semantics_meta.get("overtime") == "official_2025_regular_season"
+             else "OT rule is single-possession approx (declared)"),
             "No league silent pool; proposed pooling config default false",
             "W1-8 development set; no betting edge claim",
             "Inspired conceptually by NFLSimulatoR/nflfastR (MIT); no R source copied",
@@ -690,3 +806,36 @@ def build_catalog(df: pd.DataFrame, cfg: dict, games_df: Optional[pd.DataFrame] 
         "pressure_coverage": "NOT_EXECUTED_adapters_only (2026 participation unpublished)",
     }
     return cat, prov
+
+
+def attach_semantics(catalog, cfg: dict, pbp_path) -> dict:
+    """NFL-43: build opt-in penalty / return / OT semantics from cfg["semantics"]."""
+    sc = cfg.get("semantics")
+    if not sc:
+        return {"status": "LEGACY_UNSUPPORTED", "penalties": "UNSUPPORTED", "returns": "UNSUPPORTED",
+                "overtime": "single_possession_approx_declared_limitation"}
+    from semantics import build_penalty_model, build_return_model, OT_RULES
+    wk = int(cfg["game"]["week_asof_exclusive"])
+    season = int(cfg["game"].get("season", cfg["history"]["season"]))
+    sem: dict = {"penalties": None, "returns": None, "overtime": sc.get("overtime", OT_RULES[0])}
+    meta: dict = {"status": "NFL43_SEMANTICS_V1", "overtime": sem["overtime"]}
+    if sem["overtime"] not in OT_RULES:
+        raise ValueError(f"unknown ot rule {sem['overtime']}")
+    if sc.get("penalties") == "canonical_log_v1":
+        teams = [cfg["game"]["home"], cfg["game"]["away"]]
+        pm = build_penalty_model(teams, week_asof_exclusive=wk, season=season)
+        sem["penalties"] = pm
+        meta["penalties"] = {"mode": "canonical_log_v1", **pm.meta}
+    else:
+        meta["penalties"] = "UNSUPPORTED"
+    if sc.get("returns") == "asof_league_v1":
+        rm = build_return_model(pbp_path, season=season, week_asof_exclusive=wk)
+        sem["returns"] = rm
+        meta["returns"] = {"mode": "asof_league_v1", "kick_return_td_rate": rm.kick_return_td_rate,
+                           "punt_return_td_rate": rm.punt_return_td_rate, **rm.meta}
+    else:
+        meta["returns"] = "UNSUPPORTED"
+    catalog.semantics = sem
+    if hasattr(catalog, "base"):
+        catalog.base.semantics = sem
+    return meta
