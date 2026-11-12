@@ -53,19 +53,38 @@ GOOD_FLAGS = {"DEFERRED_100K": False, "unsupported_semantics": []}
 OK_INACTIVES = lambda when: (lambda pk: {"status": "OK", "retrieved_utc": iso(when), "inactives": {}})
 
 
-def semantics_root(tmp_path, present=True, review="ACCEPTED", edit_after_accept=False):
-    """Fake repo root: bounds file at its real path plus the NFL-43 review status file (reviewer-flipped)."""
+BOUNDS_TEXT = "bounds: `canonical_log_v1` `asof_league_v1` `official_2025_regular_season`"
+REAL_CFG = ROOT / "core/possession_engine_v0/config/was_nyg_2026-11-12_data_only_nfl43.json"
+
+
+def write_pbp(r, weeks=range(1, 10), extra_rows=()):
+    import pandas as pd
+    rows = [{"game_id": f"2026_{w:02d}_AAA_BBB", "week": w, "season": 2026} for w in weeks] + list(extra_rows)
+    d = r / "data/historical/nflverse"
+    d.mkdir(parents=True, exist_ok=True)
+    for f in d.glob("pbp_*.parquet"):
+        f.unlink()
+    pd.DataFrame(rows).to_parquet(d / "pbp_2026_w1_9_pulled_20261112T1116ET.parquet")
+
+
+def semantics_root(tmp_path, present=True, review="ACCEPTED", edit_after_accept=False, config=True, pbp=True):
+    """Fake repo root: bounds file at its real path, the NFL-43 review status file (reviewer-flipped), the engine
+    config the 100k entry point runs (copy of the real WAS@NYG NFL-43 config) and a tiny as-of PBP (weeks 1-9)."""
     import hashlib
     r = tmp_path / "repo"
-    (r / "core/possession_engine_v0").mkdir(parents=True, exist_ok=True)
+    (r / "core/possession_engine_v0/config").mkdir(parents=True, exist_ok=True)
     (r / "known_flags").mkdir(exist_ok=True)
     b = r / "core/possession_engine_v0/SEMANTICS_BOUNDS.md"
     if present:
-        b.write_text("bounds")
-    sha = hashlib.sha256(b"bounds").hexdigest()
+        b.write_text(BOUNDS_TEXT)
+    sha = hashlib.sha256(BOUNDS_TEXT.encode()).hexdigest()
     (r / "known_flags/NFL43_REVIEW.json").write_text(json.dumps({"status": review, "accepted_bounds_sha256": sha}))
     if present and edit_after_accept:
-        b.write_text("bounds edited after review")
+        b.write_text(BOUNDS_TEXT + " edited after review")
+    if config:
+        (r / "core/possession_engine_v0/config" / REAL_CFG.name).write_text(REAL_CFG.read_text())
+    if pbp:
+        write_pbp(r)
     return r
 
 
@@ -200,7 +219,9 @@ def test_engine_not_called_when_refused(tmp_path):
 
 @pytest.mark.parametrize("breaker", ["deferred", "semantics_file", "semantics_flag", "flags_unreadable", "stale_odds",
                                      "review_pending", "review_not_accepted", "bounds_edited_after_review", "review_file_missing",
-                                     "no_freeze", "inactives_not_yet", "rocket_unset", "rocket_fails", "phase_missing"])
+                                     "no_freeze", "inactives_not_yet", "rocket_unset", "rocket_fails", "phase_missing",
+                                     "config_missing", "config_no_semantics", "config_unreviewed_mode", "config_ambiguous",
+                                     "pbp_missing", "pbp_stale", "pbp_leak", "after_kickoff"])
 def test_each_gate_alone_refuses(tmp_path, breaker, monkeypatch):
     now = KO - timedelta(minutes=60)
     pk, hi = all_green(tmp_path, now)
@@ -241,8 +262,55 @@ def test_each_gate_alone_refuses(tmp_path, breaker, monkeypatch):
         rocket_cmd = [sys.executable, "-c", "import sys; sys.exit(1)"]
     elif breaker == "phase_missing":
         del pk["teams"]["NYG"]["defense"]["defenders"]
+    elif breaker == "config_missing":
+        root = semantics_root(tmp_path / "cm", config=False)
+    elif breaker == "config_no_semantics":
+        root = semantics_root(tmp_path / "cs")
+        f = root / "core/possession_engine_v0/config" / REAL_CFG.name
+        c = json.loads(f.read_text()); del c["semantics"]; f.write_text(json.dumps(c))
+    elif breaker == "config_unreviewed_mode":
+        root = semantics_root(tmp_path / "cu")
+        f = root / "core/possession_engine_v0/config" / REAL_CFG.name
+        c = json.loads(f.read_text()); c["semantics"]["returns"] = "asof_league_v2"; f.write_text(json.dumps(c))
+    elif breaker == "config_ambiguous":
+        root = semantics_root(tmp_path / "ca")
+        (root / "core/possession_engine_v0/config/dup.json").write_text(REAL_CFG.read_text())
+    elif breaker == "pbp_missing":
+        root = semantics_root(tmp_path / "pm", pbp=False)
+    elif breaker == "pbp_stale":
+        root = semantics_root(tmp_path / "ps")
+        write_pbp(root, weeks=range(1, 9))
+    elif breaker == "pbp_leak":
+        root = semantics_root(tmp_path / "pl")
+        write_pbp(root, extra_rows=[{"game_id": "2026_10_WAS_NYG", "week": 10, "season": 2026}])
+    elif breaker == "after_kickoff":
+        now = KO + timedelta(minutes=1)
     pf = S.preflight(pk, now=now, flags=flags, hook_impls=hi, root=root, rocket_impl=rocket, rocket_command=rocket_cmd)
     assert pf["ok"] is False and pf["reasons"], breaker
+    assert "engine_inputs" not in pf
+    code, rep = S.run("2026_10_WAS_NYG", packet=_write(tmp_path / f"pk_{breaker}.json", pk), engine=_must_not_run,
+                      now=now, flags=flags, hook_impls=hi, root=root, rocket_impl=rocket, rocket_command=rocket_cmd)
+    assert code == S.EXIT_REFUSED == 2 and rep["status"] == "REFUSED" and "result" not in rep, breaker
+
+
+def _write(p, obj):
+    p.write_text(json.dumps(obj))
+    return p
+
+
+def _must_not_run(*a, **k):
+    raise AssertionError("engine called on a refused run")
+
+
+def test_all_green_preflight_passes_with_gated_engine_inputs(tmp_path):
+    now = KO - timedelta(minutes=60)
+    pk, hi = all_green(tmp_path, now)
+    root = semantics_root(tmp_path)
+    pf = S.preflight(pk, now=now, flags=GOOD_FLAGS, hook_impls=hi, root=root, rocket_impl=lambda g: {"status": "PASS"})
+    assert pf["ok"], pf["reasons"]
+    ei = pf["engine_inputs"]
+    assert ei["config_path"].name == REAL_CFG.name and ei["pbp"].name.startswith("pbp_2026_w1_9_pulled_")
+    assert pf["gates"]["G2_nfl43"] == pf["gates"]["G7_asof"] == "PASS"
 
 
 def test_all_green_runs_engine_with_fixed_100k(tmp_path):
@@ -251,10 +319,80 @@ def test_all_green_runs_engine_with_fixed_100k(tmp_path):
     p = tmp_path / "p.json"
     p.write_text(json.dumps(pk))
     seen = {}
-    code, rep = S.run("2026_10_WAS_NYG", packet=p, engine=lambda pk, n, seed: seen.setdefault("n", n) and {"ok": 1},
+    code, rep = S.run("2026_10_WAS_NYG", packet=p, engine=lambda pk, n, inputs: seen.update(n=n, inputs=inputs) or {"ok": 1},
                       now=now, flags=GOOD_FLAGS, hook_impls=hi, root=semantics_root(tmp_path),
                       rocket_command=[sys.executable, "-c", "import sys; sys.exit(0)"])
     assert code == 0 and seen["n"] == 100_000 and rep["status"] == "RAN_RESEARCH_ONLY" and rep["projection_ready"] is False
+    assert seen["inputs"]["cfg"]["semantics"] == json.loads(REAL_CFG.read_text())["semantics"]
+
+
+def test_default_engine_is_possession_engine_not_period_engine():
+    """NFL-56 item 3 (Ghost6 d65ad98): the 100k entry point runs the NFL-43 possession engine, not period_engine_v0."""
+    assert S.run.__defaults__[1] is S.default_engine
+    src = (ROOT / "pipeline" / "sim100k.py").read_text()
+    body = src[src.index("def default_engine"):src.index("def run(")]
+    assert "period_engine_v0" not in body and "monte_carlo" not in body
+    assert "L.run_sim(" in body and "from simulate import stable_seed" in body
+
+
+class _FakeLock:
+    """Stands in for snapshots.lock: records the run_sim call and returns engine-shaped output."""
+    def __init__(self, n_done=None, semantics=None, statuses=("OK",)):
+        self.calls, self.n_done, self.semantics, self.statuses = [], n_done, semantics, list(statuses)
+
+    def run_sim(self, cfg, pbp, n, seed, workers):
+        import numpy as np
+        self.calls.append({"cfg": cfg, "pbp": pbp, "n": n, "seed": seed})
+        m = 50
+        z = np.zeros(m, dtype=int)
+        arrays = {"fg_home": np.full(m, 20), "fg_away": np.full(m, 17), "went_ot": z.astype(bool),
+                  **{k: z for k in ("h1_home", "h1_away", "h2_home", "h2_away")}}
+        sem = self.semantics or {"status": "NFL43_SEMANTICS_V1", "penalties": {"mode": "canonical_log_v1"},
+                                 "returns": {"mode": "asof_league_v1"}, "overtime": "official_2025_regular_season"}
+        return {"arrays": arrays, "joint": {}, "n": n if self.n_done is None else self.n_done, "chunks": 1,
+                "chunk_seeds": [seed], "runtime_sec": 0.0, "statuses": self.statuses, "semantics": sem,
+                "evidence_summary": {}, "limitations": [], "history_evidence": {}}
+
+    market_lines = staticmethod(lambda freeze, h, a: {"spreads": [], "totals": [], "h2h": []})
+
+    @staticmethod
+    def summarize(arrays, lines, home, away, hn, an):
+        return {"n": int(len(arrays["fg_home"])), "points": {home: 20.0, away: 17.0}}
+
+
+def _engine_inputs(tmp_path):
+    root = semantics_root(tmp_path)
+    return {"config_path": REAL_CFG, "pbp": next((root / "data/historical/nflverse").glob("*.parquet")),
+            "price_freeze": None, "kickoff_utc": "x"}
+
+
+def test_default_engine_calls_possession_run_sim_with_100k(tmp_path, monkeypatch):
+    import snapshots.lock as real_lock
+    fake = _FakeLock()
+    for k in ("run_sim", "market_lines", "summarize"):
+        monkeypatch.setattr(real_lock, k, getattr(fake, k))
+    out = S.default_engine({}, S.TRIALS, _engine_inputs(tmp_path), workers=1)
+    assert len(fake.calls) == 1 and fake.calls[0]["n"] == 100_000
+    assert fake.calls[0]["cfg"]["config_id"] == "was_nyg_2026-11-12_data_only_nfl43"
+    assert out["engine"].startswith("core/possession_engine_v0") and out["n"] == 100_000
+    assert out["semantics_used"] == json.loads(REAL_CFG.read_text())["semantics"]
+    assert out["model_weights_changed"] is False
+
+
+@pytest.mark.parametrize("fake_kw", [{"n_done": 99_999}, {"statuses": ("OK", "ERROR")},
+                                     {"semantics": {"status": "LEGACY_UNSUPPORTED", "penalties": "UNSUPPORTED",
+                                                    "returns": "UNSUPPORTED", "overtime": "single_possession_approx_declared_limitation"}}])
+def test_engine_output_mismatch_is_refusal(tmp_path, monkeypatch, fake_kw):
+    import snapshots.lock as real_lock
+    fake = _FakeLock(**fake_kw)
+    for k in ("run_sim", "market_lines", "summarize"):
+        monkeypatch.setattr(real_lock, k, getattr(fake, k))
+    now = KO - timedelta(minutes=60)
+    pk, hi = all_green(tmp_path, now)
+    eng = lambda pk, n, inputs: S.default_engine(pk, n, {**inputs, "config_path": REAL_CFG}, workers=1)
+    code, rep = S.run("2026_10_WAS_NYG", packet=_write(tmp_path / "p.json", pk), engine=eng, now=now, flags=GOOD_FLAGS,
+                      hook_impls=hi, root=semantics_root(tmp_path), rocket_impl=lambda g: {"status": "PASS"})
+    assert code == 2 and rep["status"] == "REFUSED" and "result" not in rep and "engine failed" in rep["reasons"][0]
 
 
 def test_engine_crash_is_refusal(tmp_path):
