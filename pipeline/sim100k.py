@@ -158,8 +158,8 @@ def preflight(pk: dict | None, now: datetime | None = None, flags: dict | None =
     else:
         gates["G1_flags"] = "PASS"
 
-    sem = hooks.nfl43_semantics(flags, root=root)
     ec = engine_config(gid, root)
+    sem = hooks.nfl43_semantics(flags, root=root, cfg=(ec.get("cfg") if ec["status"] == "OK" else None), scan_repo=True)
     sem_why = ([sem["reason"]] if sem["status"] != "OK" else []) + engine_semantics_check(ec, root)
     gates["G2_nfl43"] = "PASS" if not sem_why else "REFUSED"
     reasons += ["G2: " + w for w in sem_why]

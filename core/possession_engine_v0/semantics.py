@@ -46,6 +46,62 @@ NO_PLAY_CLOCK_SEC = 4
 PENALTY_LOG_PULLED_ET = "2026-11-01 about 9 PM ET (exact minute unknown; PENALTY_NOTES.md)"
 # nflverse team code -> ESPN code used by the canonical log
 ESPN_ALIAS = {"WAS": "WSH", "LA": "LAR"}
+# Inverse is used only when labeling nflverse game_ids back onto PEN (WSH) rows.
+NFLVERSE_ALIAS = {v: k for k, v in ESPN_ALIAS.items()}
+DEFAULT_PBP_FOR_COVERAGE = REPO_ROOT / "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet"
+_PBP_UNSET = object()
+
+
+
+def _espn_team(team: str) -> str:
+    return ESPN_ALIAS.get(str(team), str(team))
+
+
+def penalty_log_unknowns(games, *, season: int, week_asof_exclusive: int,
+                         pbp_path=None, pbp_df=None) -> dict:
+    """PBP games in weeks < asof that are missing from the canonical penalty log.
+
+    Weeks with no PEN rows at all go in ``unknown_weeks``. Individual games missing
+    from a week that otherwise has PEN coverage go in ``unknown_games`` / ``unknown_games_by_team``.
+    Missing coverage is UNKNOWN, never treated as zero penalties.
+    """
+    weeks_in_log = sorted(int(w) for w in games["week"].unique()) if len(games) else []
+    unknown_weeks = [w for w in range(1, int(week_asof_exclusive)) if w not in weeks_in_log]
+    out = {
+        "unknown_weeks": unknown_weeks,
+        "unknown_games": [],
+        "unknown_games_by_team": {},
+        "pbp_games_in_pen_weeks": None,
+        "policy": ("UNKNOWN: no canonical penalty data for these weeks/games; rates use weeks_used / "
+                   "games present in PEN only and do not treat the gap as zero penalties"),
+    }
+    if pbp_df is None:
+        if not pbp_path or not Path(pbp_path).exists():
+            return out
+        pbp_df = pd.read_parquet(pbp_path, columns=["game_id", "season", "week", "home_team", "away_team"])
+    d = pbp_df[(pbp_df["season"] == season) & (pbp_df["week"] < int(week_asof_exclusive))].drop_duplicates("game_id")
+    pen_keys = set()
+    for _, sub in games.groupby("game_id"):
+        pen_keys.add((int(sub["week"].iloc[0]), frozenset(str(x) for x in sub["team"])))
+    missing = []
+    by_team: dict[str, list[str]] = {}
+    pbp_in_pen_weeks = 0
+    for r in d.itertuples():
+        week = int(r.week)
+        if week in weeks_in_log:
+            pbp_in_pen_weeks += 1
+        key = (week, frozenset((_espn_team(r.away_team), _espn_team(r.home_team))))
+        # A week with no PEN coverage is already in unknown_weeks (e.g. W9). Do not also
+        # list every game of that week as an unknown_game; only residual within-week gaps.
+        if week in weeks_in_log and key not in pen_keys:
+            gid = str(r.game_id)
+            missing.append(gid)
+            for team in (str(r.away_team), str(r.home_team)):
+                by_team.setdefault(team, []).append(gid)
+    out["unknown_games"] = sorted(missing)
+    out["unknown_games_by_team"] = {k: sorted(v) for k, v in sorted(by_team.items())}
+    out["pbp_games_in_pen_weeks"] = int(pbp_in_pen_weeks)
+    return out
 
 
 @dataclass
@@ -87,7 +143,8 @@ def _truthy(s: pd.Series) -> pd.Series:
 
 def build_penalty_model(teams, *, week_asof_exclusive: int, season: int = 2026,
                         log_path: Path | str = CANONICAL_PENALTY_LOG,
-                        games_path: Path | str = CANONICAL_PENALTY_GAMES) -> PenaltyModel:
+                        games_path: Path | str = CANONICAL_PENALTY_GAMES,
+                        pbp_path=_PBP_UNSET) -> PenaltyModel:
     log = pd.read_csv(log_path)
     games = pd.read_csv(games_path)
     log = log[(log["season"] == season) & (log["week"] < int(week_asof_exclusive))]
@@ -124,16 +181,28 @@ def build_penalty_model(teams, *, week_asof_exclusive: int, season: int = 2026,
             per_team[f"{team}|{side}"] = {"fouls": int(len(sub)), "no_play": n_np, "snaps_run": snaps,
                                          "rate_per_snap": rate, "yards": int(sub["yards"].sum())}
     weeks = sorted(int(w) for w in log["week"].unique())
-    gap = [w for w in range(1, int(week_asof_exclusive)) if w not in weeks]
+    if pbp_path is _PBP_UNSET:
+        pbp_path = (DEFAULT_PBP_FOR_COVERAGE
+                    if Path(log_path).resolve() == CANONICAL_PENALTY_LOG.resolve() and DEFAULT_PBP_FOR_COVERAGE.exists()
+                    else None)
+    cov = penalty_log_unknowns(games, season=season, week_asof_exclusive=int(week_asof_exclusive), pbp_path=pbp_path)
+    gap = cov["unknown_weeks"]
+    by_team = cov["unknown_games_by_team"]
+    modeled = {t: by_team.get(t, by_team.get(_espn_team(t), [])) for t in teams}
     meta = {"source": "data/redistributable/teams/penalty_plays_2026.csv (canonical, ESPN-reconciled 228/238)",
             "source_pulled_et": PENALTY_LOG_PULLED_ET,
             "weeks_used": weeks, "week_asof_exclusive": int(week_asof_exclusive),
             "coverage_gap_weeks": gap,
-            # NFL-43 review D3: weeks with no penalty data are UNKNOWN, not zero-penalty weeks. Rates are
-            # per-snap over the weeks that exist; the missing weeks contribute nothing either way.
+            # NFL-43 review D3 / residual R1: weeks AND individual games missing from PEN are UNKNOWN,
+            # not zero-penalty. Rates are per-snap over the games that exist in PEN.
             "unknown_weeks": gap,
             "unknown_weeks_policy": ("UNKNOWN: no canonical penalty data for these weeks; rates use weeks_used only "
                                      "and do not treat the gap as zero penalties") if gap else None,
+            "unknown_games": cov["unknown_games"],
+            "unknown_games_by_team": by_team,
+            "unknown_games_for_modeled_teams": modeled,
+            "unknown_games_policy": cov["policy"] if (cov["unknown_games"] or gap) else None,
+            "pbp_games_in_pen_weeks": cov["pbp_games_in_pen_weeks"],
             "season_filter": season_filter, "games_in_file": n_games_file,
             "kick_play_fouls_excluded": True, "per_team": per_team}
     return PenaltyModel(rates=rates, pools=pools, meta=meta)

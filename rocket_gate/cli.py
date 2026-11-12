@@ -7,10 +7,11 @@
 
 Checks
   R1 nfl42_entrypoint   single validation entrypoint routes to the decontam protocol; contaminated bytes unchanged
-  R2 nfl43_semantics    SEMANTICS_BOUNDS.md present, known_flags consistent, DEFERRED_100K false, and the NFL-43 bounds
+  R2 nfl43_semantics    SEMANTICS_BOUNDS.md present, known_flags consistent, DEFERRED_100K false, the NFL-43 bounds
                         review ACCEPTED for the current bounds file (known_flags/NFL43_REVIEW.json via
-                        pipeline.hooks.nfl43_semantics). While review is pending R2 FAILS, so rocket (and the 100k
-                        gate G6 that runs it) refuses.
+                        pipeline.hooks.nfl43_semantics), and nfl43.still_unsupported listed and not enabled by any
+                        engine/snapshot config (those exclusions stay in force after review). While review is pending
+                        R2 FAILS, so rocket (and the 100k gate G6 that runs it) refuses.
   R3 safety             projection_ready false everywhere; no money/stake keys in snapshot/config/phase15 files
   R4 test_suites        pytest: possession engine, period engine, pipeline, phase15, snapshots, rocket
   R5 snapshot <game>    newest snapshots/<game>/*/LOCK.json: every file hash matches, locked before kickoff,
@@ -52,6 +53,7 @@ def r1_entrypoint():
 
 def r2_semantics(root: Path = ROOT):
     why = []
+    recorded = []
     bounds = root / "core/possession_engine_v0/SEMANTICS_BOUNDS.md"
     if not bounds.exists():
         why.append("SEMANTICS_BOUNDS.md missing")
@@ -72,12 +74,17 @@ def r2_semantics(root: Path = ROOT):
         rv = hooks.nfl43_review(root)
         if rv["status"] != "OK":
             why.append("REVIEW_PENDING: " + rv["reason"])
-        h = hooks.nfl43_semantics(flags, root=root)
+        h = hooks.nfl43_semantics(flags, root=root, scan_repo=True)
         if h["status"] != "OK" and rv["status"] == "OK":
             why.append(h.get("reason"))
+        ex = hooks.nfl43_still_unsupported(flags, root=root, scan_repo=True)
+        recorded = ex.get("exclusions") or []
+        if ex["status"] != "OK":
+            why.append("STILL_UNSUPPORTED: " + ex["reason"])
     except Exception as e:
         why.append(f"pipeline.hooks.nfl43_semantics failed: {e!r}")
-    return _ok("R2_nfl43_semantics", not why, why or "OK")
+    detail = why or {"ok": True, "still_unsupported": recorded}
+    return _ok("R2_nfl43_semantics", not why, detail)
 
 
 def r3_safety(root: Path = ROOT):
@@ -167,13 +174,35 @@ def r5_snapshot(game_id: str, root: Path = ROOT):
     if lk.get("nfl43_review") != "ACCEPTED":
         why.append("KNOWN_MODEL_ERROR_UNREVIEWED_BOUNDS: locked while the NFL-43 bounds review was not ACCEPTED "
                    f"(LOCK nfl43_review={lk.get('nfl43_review')!r})")
+    still_unsupported = lk.get("still_unsupported") or []
+    try:
+        sys.path.insert(0, str(root))
+        from pipeline import hooks
+        flags = json.loads((root / "known_flags/KNOWN_LIMITATIONS.json").read_text())
+        cfgs = []
+        for cf in sorted((d / "inputs").glob("*.json")):
+            try:
+                data = json.loads(cf.read_text())
+            except (OSError, ValueError):
+                continue
+            if isinstance(data, dict) and ("semantics" in data or "config_id" in data or "joint_producer" in data):
+                cfgs.append((str(cf.relative_to(root)) if cf.is_relative_to(root) else str(cf), data))
+        ex = hooks.nfl43_exclusions.check(flags, configs=cfgs)
+        still_unsupported = ex.get("exclusions") or still_unsupported
+        if ex["status"] != "OK":
+            why.append("STILL_UNSUPPORTED: " + ex["reason"])
+    except Exception as e:
+        why.append(f"still_unsupported check failed: {e!r}")
     if lk.get("code_dirty"):
         why.append("sim ran on uncommitted engine code")
     c = lk.get("code_commit", "")
     anc = subprocess.run(["git", "merge-base", "--is-ancestor", c, "HEAD"], cwd=root, capture_output=True)
     if anc.returncode != 0:
         why.append(f"code commit {c[:10]} is not an ancestor of HEAD")
-    return _ok("R5_snapshot", not why, {"lock": str(f.relative_to(root)), "problems": why} if why else str(f.relative_to(root)))
+    detail = {"lock": str(f.relative_to(root)), "still_unsupported": still_unsupported}
+    if why:
+        detail["problems"] = why
+    return _ok("R5_snapshot", not why, detail)
 
 
 def run(game_id: str | None = None, skip_pytest: bool = False, root: Path = ROOT) -> dict:

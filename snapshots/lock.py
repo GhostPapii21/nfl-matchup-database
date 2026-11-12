@@ -251,6 +251,12 @@ def main(argv=None) -> int:
     from simulate import stable_seed
     cfg_path = Path(a.config)
     cfg = load_config(cfg_path)
+    sys.path.insert(0, str(ROOT))
+    from pipeline import hooks
+    ex = hooks.nfl43_still_unsupported(hooks.known_flags(), cfg=cfg)
+    if ex["status"] != "OK":
+        print("lock: REFUSED  " + ex["reason"] + " Nothing was simulated.")
+        return 2
     g = cfg["game"]
     kickoff = _utc(g["kickoff_et"])
     now = datetime.now(timezone.utc)
@@ -307,6 +313,7 @@ def main(argv=None) -> int:
             "engine_tree_sha256": hashlib.sha256(b"".join(sha256(p).encode() for p in sorted(ENGINE.glob("*.py")))).hexdigest(),
             "config_id": cfg["config_id"], "model_weights_changed": False,
             "nfl43_review": guard.get("review"),
+            "still_unsupported": ex.get("exclusions") or [],
             "sim": {"n": sim["n"], "seed": seed, "chunks": sim["chunks"], "chunk_seeds": sim["chunk_seeds"],
                     "runtime_sec": sim["runtime_sec"], "statuses": sim["statuses"]},
             "inputs": {"pbp_url": a.pbp_url, "pbp_sha256": sha256(a.pbp), "pbp_local_name": Path(a.pbp).name,

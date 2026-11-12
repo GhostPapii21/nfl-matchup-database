@@ -20,7 +20,7 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[2]
 sys.path.insert(0, str(HERE.parent))
-from semantics import KICK_PLAY_TYPES, PENALTY_LOG_PULLED_ET  # noqa: E402
+from semantics import KICK_PLAY_TYPES, PENALTY_LOG_PULLED_ET, penalty_log_unknowns  # noqa: E402
 
 PEN_LOG = REPO / "data/redistributable/teams/penalty_plays_2026.csv"
 PEN_GAMES = REPO / "data/redistributable/teams/penalties_2026.csv"
@@ -110,10 +110,28 @@ def derive() -> dict:
         "mean_fumble_lost_return_yards": round(float(fl["return_yards"].mean()), 1),
         "ot_games": ot_games, "ot_game_rate": round(ot_games / n_pbp_games, 3),
     }
+    # R1: W9 is an unknown week; two W8 games are also missing from PEN (not a complete W1-8 log).
+    asof = (max(pbp_weeks) + 1) if pbp_weeks else 10
+    cov = penalty_log_unknowns(games, season=2026, week_asof_exclusive=asof, pbp_df=d)
+    # attach per-team unknown-game labels onto the NYG/WAS (WSH) comparators
+    by_team = cov["unknown_games_by_team"]
+    for t, row in pen["scrimmage_by_team_per_team_game"].items():
+        nfl = "WAS" if t == "WSH" else t
+        row["unknown_games"] = by_team.get(nfl, [])
+        row["unknown_games_policy"] = "UNKNOWN, not zero" if row["unknown_games"] else None
     unknown = {
-        "penalty_log_weeks_unknown": [w for w in pbp_weeks if w not in pen_weeks],
-        "note": ("The canonical penalty log stops at week 8. Week 9 penalty data is UNKNOWN (not zero). "
-                 "Sims as-of week 10 use W1-8 penalty rates only (coverage_gap_weeks in sim meta)."),
+        "penalty_log_weeks_unknown": cov["unknown_weeks"],
+        "penalty_log_games_unknown": cov["unknown_games"],
+        "penalty_log_games_unknown_by_team": cov["unknown_games_by_team"],
+        "pbp_games_in_pen_weeks": cov["pbp_games_in_pen_weeks"],
+        "pen_games_in_log": n_games,
+        "policy": cov["policy"],
+        "note": ("The canonical penalty log is not a complete W1-8 file: it has "
+                 f"{n_games} of {cov['pbp_games_in_pen_weeks']} PBP games in weeks {pen_weeks}. "
+                 "Unknown (not zero): " + ", ".join(cov["unknown_games"] or ["(none)"])
+                 + ("; weeks " + ", ".join(str(w) for w in cov["unknown_weeks"]) if cov["unknown_weeks"] else "")
+                 + ". PENALTY_NOTES.md: Week 8 SNF/MNF were not final when PEN was pulled (2026-11-01 ~9 PM ET). "
+                 "Sims use rates from games that exist in PEN only."),
     }
     return {"label": LABEL, "generated_by": "core/possession_engine_v0/bounds/derive_bounds.py",
             "penalty_log": {"source": pen_src, "figures": pen},

@@ -56,9 +56,15 @@ def _run_arm(args):
         cfg.pop("semantics", None)
     else:
         cfg["semantics"] = dict(sem)
-    if name.startswith("DIAG_") and "h2h_off" in name:
-        simulate.PlayCatalog.enable_defense_conditioning = lambda self, enabled=True: setattr(self, "_defense_cond", False)
-    out = simulate.simulate_games(cfg, pbp_path=str(PBP), n=n, seed=seed)
+    original = simulate.PlayCatalog.enable_defense_conditioning
+    try:
+        if name.startswith("DIAG_") and "h2h_off" in name:
+            simulate.PlayCatalog.enable_defense_conditioning = (
+                lambda self, enabled=True: setattr(self, "_defense_cond", False)
+            )
+        out = simulate.simulate_games(cfg, pbp_path=str(PBP), n=n, seed=seed)
+    finally:
+        simulate.PlayCatalog.enable_defense_conditioning = original
     A = out["arrays"]
     h, a = cfg["game"]["home"], cfg["game"]["away"]
     hp, ap = A["fg_home"].astype(float), A["fg_away"].astype(float)
@@ -102,7 +108,7 @@ def main(argv=None) -> int:
            "pbp": str(PBP.relative_to(REPO)), "pbp_sha256": hashlib.sha256(PBP.read_bytes()).hexdigest(),
            "pbp_pulled_et": "2026-11-12 11:16 AM ET",
            "note": ("Arms differ only in cfg['semantics']; the DIAG arm also turns off head-to-head defense "
-                    "conditioning in memory. Nothing tuned, no weights changed."),
+                    "conditioning in memory and restores the original method after each arm. Nothing tuned, no weights changed."),
            "arms": res}
     Path(a.out).write_text(json.dumps(doc, indent=1) + "\n")
     print(json.dumps(doc, indent=1))
