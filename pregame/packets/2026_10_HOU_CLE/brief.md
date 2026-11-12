@@ -2,47 +2,47 @@
 
 **Sunday 2026-11-15, 13:00 ET.** Site: Home; roof: outdoors; surface: grass. Rest: HOU 7 days, CLE 7 days. Listed QBs: C.J. Stroud (HOU), Deshaun Watson (CLE).
 
-Market (schedule consensus, not a timestamped quote): CLE +4.5, total 40.5.
+Market (schedule consensus, not a timestamped quote): CLE +4.5, total 41.5.
 
-Generated 2026-11-11T22:07:21+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-12T11:15:26+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-11T22:07:20+00:00 UTC. At kickoff: 46 F, wind 10 mph NW, 26% chance of precipitation, Chance Light Rain. During the game: low 45 F, wind up to 10 mph, precipitation chance up to 26%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-12T11:15:25+00:00 UTC. At kickoff: 46 F, wind 10 mph NW, 23% chance of precipitation, Slight Chance Rain Showers. During the game: low 46 F, wind up to 10 mph, precipitation chance up to 23%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T22:07:10+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-12T11:15:16+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | CLE +4.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T22:05:55Z |
-| spread | fanduel | CLE +4.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T22:06:32Z |
-| spread | pinnacle | CLE +5 | -110 | -102 | 50.9% | 49.1% | 2.9% | 2026-11-11T22:06:32Z |
-| total | draftkings | Over 41.5 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-11T22:05:55Z |
-| total | fanduel | Over 41.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-11T22:06:32Z |
-| total | pinnacle | Over 40.5 | -111 | -105 | 50.7% | 49.3% | 3.8% | 2026-11-11T22:06:32Z |
-| moneyline | draftkings | CLE | +190 | -230 | 33.1% | 66.9% | 4.2% | 2026-11-11T22:05:55Z |
-| moneyline | fanduel | CLE | +198 | -240 | 32.2% | 67.8% | 4.2% | 2026-11-11T22:06:32Z |
-| moneyline | pinnacle | CLE | +195 | -227 | 32.8% | 67.2% | 3.3% | 2026-11-11T22:06:32Z |
+| spread | draftkings | CLE +4.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-12T11:14:43Z |
+| spread | fanduel | CLE +4.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-12T11:14:41Z |
+| spread | pinnacle | CLE +5 | -109 | -103 | 50.7% | 49.3% | 2.9% | 2026-11-12T11:14:58Z |
+| total | draftkings | Over 41.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-12T11:14:43Z |
+| total | fanduel | Over 41.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-12T11:14:41Z |
+| total | pinnacle | Over 40.5 | -120 | +103 | 52.5% | 47.4% | 3.8% | 2026-11-12T11:14:58Z |
+| moneyline | draftkings | CLE | +190 | -230 | 33.1% | 66.9% | 4.2% | 2026-11-12T11:14:43Z |
+| moneyline | fanduel | CLE | +198 | -240 | 32.2% | 67.8% | 4.2% | 2026-11-12T11:14:41Z |
+| moneyline | pinnacle | CLE | +196 | -228 | 32.7% | 67.3% | 3.3% | 2026-11-12T11:14:58Z |
 
-### Line movement: first seen 2026-11-11T18:18:00+00:00 to 2026-11-11T22:07:20+00:00 (3 snapshots)
+### Line movement: first seen 2026-11-11T18:18:00+00:00 to 2026-11-12T11:15:25+00:00 (4 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
 | moneyline | draftkings | n/a | n/a | n/a | +190 / -230 | +190 / -230 |
 | moneyline | fanduel | n/a | n/a | n/a | +198 / -240 | +198 / -240 |
-| moneyline | pinnacle | n/a | n/a | n/a | +195 / -227 | +195 / -227 |
+| moneyline | pinnacle | n/a | n/a | n/a | +195 / -227 | +196 / -228 |
 | spread | draftkings | 4.5 | 4.5 | 0.0 | -105 / -115 | -105 / -115 |
 | spread | fanduel | 4.5 | 4.5 | 0.0 | -105 / -115 | -105 / -115 |
-| spread | pinnacle | 5.0 | 5.0 | 0.0 | -110 / -102 | -110 / -102 |
-| total | draftkings | 40.5 | 41.5 | 1.0 | -115 / -105 | -102 / -118 |
+| spread | pinnacle | 5.0 | 5.0 | 0.0 | -110 / -102 | -109 / -103 |
+| total | draftkings | 40.5 | 41.5 | 1.0 | -115 / -105 | -108 / -112 |
 | total | fanduel | 40.5 | 41.5 | 1.0 | -110 / -110 | -105 / -115 |
-| total | pinnacle | 40.5 | 40.5 | 0.0 | -111 / -105 | -111 / -105 |
+| total | pinnacle | 40.5 | 40.5 | 0.0 | -111 / -105 | -120 / +103 |
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 92 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 79 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -76,8 +76,8 @@ Player props: NOT_FETCHED: kickoff is 92 hours away (props are pulled inside 36 
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | HOU 23.3 - CLE 18.1 | 41.4 | -5.2 | 39.4% | 60.4% | 46.0% | HOU 12.0 - CLE 9.0 |
-| independent | HOU 24.6 - CLE 16.8 | 41.4 | -7.7 | 28.8% | 40.9% | 50.3% | HOU 12.9 - CLE 9.0 |
+| matchup_pair | HOU 23.3 - CLE 18.1 | 41.4 | -5.2 | 39.4% | 60.4% | 43.9% | HOU 12.0 - CLE 9.0 |
+| independent | HOU 24.6 - CLE 16.8 | 41.4 | -7.7 | 28.8% | 40.9% | 48.7% | HOU 12.9 - CLE 9.0 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -120,6 +120,56 @@ Bootstrap of each team's real quarter scores. 'matchup_pair' includes the oppone
 | D.Watson | QB | passing yards | 7 | 247.5 | 1.047 | 154.3 | 157.7 | 161.2 | 164.2 | 167.0 | 249.3 |
 
 The player's own games in the window (recency-weighted mean; percentiles of his game log), scaled by half of the opponent's allowed-per-game deviation from league average for that position, capped at +/-15%. This is NOT the three-model consensus and has not been validated against prices. Injury replacements, role changes and game script are not applied: the analyst must adjust for them.
+
+## Rain-adjusted passing (measured)
+
+Forecast: 23% chance of rain at kickoff, wind up to 10 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+
+### HOU passing
+
+| Line | Dry | Rain | At the forecast |
+|---|---|---|---|
+| Team pass attempts | 35.1 | 33.6 | 34.8 |
+| Team completion rate | 64.8% | 60.9% | 63.9% |
+| Team completions | 22.8 | 20.4 | 22.2 |
+| Team pass yards | 282.2 | 241.2 | 272.8 |
+| C.Stroud completion rate (278 attempts) | 65.1% | 61.2% | 64.2% |
+| C.Stroud yards per attempt | 8.1 | 7.12 | 7.87 |
+
+| Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
+|---|---|---|---|---|---|---|
+| D.Schultz | TE | 8 | 18% | 5.9 / 4.4 / 47.9 | 5.6 / 3.9 / 40.5 | 5.8 / 4.3 / 46.1 |
+| X.Hutchinson | WR | 8 | 17% | 5.6 / 3.0 / 35.9 | 5.4 / 2.7 / 30.4 | 5.6 / 2.9 / 34.6 |
+| N.Collins | WR | 6 | 15% | 6.5 / 4.7 / 64.0 | 6.2 / 4.2 / 54.3 | 6.4 / 4.6 / 61.7 |
+| K.Boutte | WR | 8 | 10% | 3.5 / 2.4 / 39.9 | 3.3 / 2.1 / 33.8 | 3.5 / 2.3 / 38.5 |
+| J.Noel | WR | 7 | 9% | 3.3 / 2.7 / 47.3 | 3.1 / 2.4 / 40.1 | 3.3 / 2.6 / 45.6 |
+| W.Marks | RB | 8 | 8% | 2.6 / 1.9 / 12.2 | 2.5 / 1.7 / 10.2 | 2.6 / 1.8 / 11.8 |
+| F.Moreau | TE | 6 | 5% | 2.3 / 1.8 / 12.0 | 2.2 / 1.6 / 10.2 | 2.3 / 1.8 / 11.6 |
+| J.Wayne | WR | 3 | 4% | 4.0 / 1.3 / 21.7 | 3.8 / 1.2 / 18.4 | 4.0 / 1.3 / 20.9 |
+| M.Harrison | WR | 3 | 4% | 3.7 / 2.0 / 20.0 | 3.5 / 1.8 / 17.0 | 3.6 / 2.0 / 19.3 |
+
+### CLE passing
+
+| Line | Dry | Rain | At the forecast |
+|---|---|---|---|
+| Team pass attempts | 32.5 | 31.1 | 32.2 |
+| Team completion rate | 65.0% | 61.1% | 64.1% |
+| Team completions | 21.1 | 19.0 | 20.6 |
+| Team pass yards | 237.5 | 202.9 | 229.5 |
+| D.Watson completion rate (227 attempts) | 64.8% | 60.8% | 63.9% |
+| D.Watson yards per attempt | 7.05 | 6.2 | 6.86 |
+
+| Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
+|---|---|---|---|---|---|---|
+| D.Boston | WR | 8 | 22% | 7.0 / 3.8 / 56.0 | 6.7 / 3.4 / 47.5 | 6.9 / 3.7 / 54.0 |
+| H.Fannin | TE | 8 | 20% | 6.2 / 4.4 / 54.0 | 6.0 / 3.9 / 45.7 | 6.2 / 4.3 / 52.0 |
+| K.Concepcion | WR | 8 | 20% | 6.2 / 4.1 / 49.2 | 6.0 / 3.7 / 41.8 | 6.2 / 4.0 / 47.5 |
+| J.Jeudy | WR | 7 | 9% | 3.4 / 2.3 / 26.0 | 3.3 / 2.0 / 22.1 | 3.4 / 2.2 / 25.1 |
+| Q.Judkins | RB | 7 | 9% | 3.1 / 2.9 / 17.0 | 3.0 / 2.6 / 14.2 | 3.1 / 2.8 / 16.3 |
+| D.Sampson | RB | 3 | 7% | 5.7 / 4.0 / 40.3 | 5.4 / 3.7 / 33.6 | 5.6 / 3.9 / 38.7 |
+| R.Sanders | RB | 4 | 4% | 2.2 / 2.0 / 12.2 | 2.2 / 1.8 / 10.2 | 2.2 / 2.0 / 11.8 |
+| I.Bond | WR | 3 | 4% | 3.0 / 1.7 / 28.7 | 2.9 / 1.5 / 24.3 | 3.0 / 1.6 / 27.6 |
+| J.McLaughlin | RB | 3 | 2% | 2.0 / 1.3 / 4.7 | 1.9 / 1.2 / 3.9 | 2.0 / 1.3 / 4.5 |
 
 ## HOU (last 8 games: weeks 1, 2, 3, 4, 5, 6, 7, 9)
 
@@ -316,16 +366,30 @@ Neutral-situation pass rate 59.6%; 61.0 plays per game; target share WR 63% / TE
 | defense allows | Deep middle | 14 | 5% | 50% | 12.64 | 3 |
 | defense allows | Deep right | 20 | 7% | 50% | 14.95 | 8 |
 
-### HOU lines (depth chart as of 2026-11-11T07:02:21Z)
+### HOU lines (depth chart as of 2026-11-12T07:01:31Z)
 
 Offensive line: LT Aireontae Ersery, LG Keylan Rutledge, C Evan Brown, RG Ed Ingram, RT Trent Brown.  
 Defensive front: LDE Will Anderson Jr., LDT Tommy Togiai, RDT Sheldon Rankins, RDE Danielle Hunter, WLB Henry To'oTo'o, SLB Jake Hansen.
 
 ### HOU injuries
 
-Official report not posted yet for this week.
+| Player | Pos | Starter | Game status | Practice | Injury |
+|---|---|---|---|---|---|
+| Tommy Togiai | DT | yes | none listed | Full Participation in Practice |  |
+| Keylan Rutledge | G | yes | none listed | Did Not Participate In Practice |  |
+| Azeez Al-Shaair | LB | yes | none listed | Did Not Participate In Practice |  |
+| Woody Marks | RB | yes | none listed | Limited Participation in Practice |  |
+| Reed Blankenship | S | yes | none listed | Limited Participation in Practice |  |
+| Tank Dell | WR | yes | none listed | Limited Participation in Practice |  |
+| Jaylin Smith | CB |  | none listed | Limited Participation in Practice |  |
+| Wyatt Teller | G |  | none listed | Limited Participation in Practice |  |
+| Jacob Hummel | LB |  | none listed | Limited Participation in Practice |  |
+| David Montgomery | RB |  | none listed | Did Not Participate In Practice |  |
+| Blake Fisher | T |  | none listed | Full Participation in Practice |  |
+| Brevin Jordan | TE |  | none listed | Did Not Participate In Practice |  |
+| Marvin Harrison Jr. | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Jaylin Noel (WR) Injured Reserve; Reed Blankenship (S) Questionable; Cade Stover (TE) Out; David Montgomery (RB) Questionable.
+ESPN live list (designations only): Reed Blankenship (S) Questionable; Cade Stover (TE) Out; Woody Marks (RB) Questionable; Tank Dell (WR) Questionable; Keylan Rutledge (G) Questionable; Wyatt Teller (G) Questionable; Marvin Harrison Jr. (WR) Questionable; Brevin Jordan (TE) Questionable; Azeez Al-Shaair (LB) Questionable; David Montgomery (RB) Questionable; Jake Hummel (LB) Injured Reserve; Jaylin Smith (CB) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -333,7 +397,7 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 ### HOU roster moves (last 4 weeks)
 
 Arrived: none.  
-Left for another team: Jared Wayne (WR) to MIA; Jamal Hill (LB) to JAX; Aiden Fisher (LB) to KC.
+Left for another team: Zaire Mitchell-Paden (TE) to CLE; Jared Wayne (WR) to MIA; Jamal Hill (LB) to JAX; Aiden Fisher (LB) to KC.
 
 ## CLE (last 8 games: weeks 2, 3, 4, 5, 6, 7, 8, 9)
 
@@ -530,23 +594,35 @@ Neutral-situation pass rate 51.4%; 62.0 plays per game; target share WR 56% / TE
 | defense allows | Deep middle | 19 | 7% | 37% | 12.89 | 7 |
 | defense allows | Deep right | 18 | 7% | 17% | 5.72 | 3 |
 
-### CLE lines (depth chart as of 2026-11-11T07:02:21Z)
+### CLE lines (depth chart as of 2026-11-12T07:01:31Z)
 
 Offensive line: LT Spencer Fano, LG Zion Johnson, C Elgton Jenkins, RG Austin Barber, RT Tytus Howard.  
 Defensive front: LDE Isaiah McGuire, LDT Mason Graham, RDT Maliek Collins, RDE Jared Verse, WLB Easton Mascarenas-Arnold, SLB Quincy Williams.
 
 ### CLE injuries
 
-Official report not posted yet for this week.
+| Player | Pos | Starter | Game status | Practice | Injury |
+|---|---|---|---|---|---|
+| Elgton Jenkins | C | yes | none listed | Did Not Participate In Practice |  |
+| Denzel Ward | CB | yes | none listed | Limited Participation in Practice |  |
+| Maliek Collins | DT | yes | none listed | Limited Participation in Practice |  |
+| Michael Burton | FB | yes | none listed | Did Not Participate In Practice |  |
+| Quincy Williams | LB | yes | none listed | Limited Participation in Practice |  |
+| Carson Schwesinger | LB | yes | none listed | Limited Participation in Practice |  |
+| Ronnie Hickman Jr. | S | yes | none listed | Did Not Participate In Practice |  |
+| Tytus Howard | T | yes | none listed | Limited Participation in Practice |  |
+| Austin Barber | T | yes | none listed | Limited Participation in Practice |  |
+| Harold Fannin Jr. | TE | yes | none listed | Limited Participation in Practice |  |
+| Denzel Boston | WR | yes | none listed | Did Not Participate In Practice |  |
 
-ESPN live list (designations only): Maliek Collins (DT) Questionable; Deshaun Watson (QB) Out; Denzel Boston (WR) Questionable; Ronnie Hickman (S) Questionable.
+ESPN live list (designations only): Maliek Collins (DT) Questionable; Deshaun Watson (QB) Out; Denzel Boston (WR) Questionable; Ronnie Hickman (S) Questionable; Harold Fannin Jr. (TE) Questionable; Elgton Jenkins (C) Questionable; Austin Barber (OT) Questionable; Tytus Howard (OT) Questionable; Michael Burton (FB) Questionable; Denzel Ward (CB) Questionable; Quincy Williams (LB) Questionable; Carson Schwesinger (LB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### CLE roster moves (last 4 weeks)
 
-Arrived: none.  
+Arrived: Zaire Mitchell-Paden (TE) from HOU.  
 Left for another team: Myles Bryant (DB) to DET; James Proche (WR) to ARI; Audric Estimé (RB) to NO; Bub Means (WR) to KC; Devin Culp (TE) to MIN; John Saunders Jr. (DB) to GB.
 
 ## Keyed connectors in this run
@@ -573,7 +649,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 8 | Defender assignment and explosive allowance | PARTIAL | Per-defender targets/yards allowed (PFR) and explosive plays allowed. Who covers whom is NOT known. |
 | 9 | QB pressure, blitz, scramble | PARTIAL | Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles. |
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
-| 11 | Injury and depth chart | PARTIAL | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
+| 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
 | 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
@@ -583,16 +659,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T22:07:07+00:00 | bac9f226a580 |
-| pbp | OK | 2026-11-11T22:07:08+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T22:07:08+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T22:07:08+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T22:07:09+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T22:07:09+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T22:07:09+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T22:07:09+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T22:07:10+00:00 |  |
+| games | OK | 2026-11-12T11:15:13+00:00 | 3a46c9894cb2 |
+| pbp | OK | 2026-11-12T11:15:13+00:00 | 1028614beb74 |
+| rosters | OK | 2026-11-12T11:15:13+00:00 | 6e8cdefcd32b |
+| injuries | OK | 2026-11-12T11:15:13+00:00 | ef3ce4b778a7 |
+| depth_charts | OK | 2026-11-12T11:15:14+00:00 | 9bc7e51cbd83 |
+| snap_counts | OK | 2026-11-12T11:15:14+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-12T11:15:14+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-12T11:15:15+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-12T11:15:15+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-11T22:07:10+00:00 |  |
+| book_odds | OK | 2026-11-12T11:15:16+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
