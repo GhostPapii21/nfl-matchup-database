@@ -1,0 +1,48 @@
+{
+ "game": "CIN@PIT Week 3 / kickoff not in pack / spread NOT saved / total NOT saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this script is form-only, not a market read. Over weeks 1-2 CIN's pass game has run through Tee Higgins (16.0 targets, 154 yards, 210 air yards) ahead of Ja'Marr Chase (13.0/87/115), with Chase Brown at 36.0 carries for 136 yards, while Burrow is +0.27 EPA/dropback when not blitzed. PIT has been inefficient (Rodgers -0.36 EPA vs blitz and -0.42 with no blitz; Metcalf 67 yards on 266 air yards) and split carries Warren 21.0 / Dowdle 15.0. Base case: a competitive game where those CIN roles show up and PIT does not become a high-efficiency offense.",
+  "flip1": "PIT blitzes above its 25% rate and Burrow's -0.62 EPA vs blitz (n=24) takes over: Higgins' 210 air yards do not convert, CIN stalls, and PIT shortens the game with Warren/Dowdle.",
+  "flip2": "CIN scores and PIT falls behind: Warren's ~10.5 carries get abandoned (Dowdle already 37 yards on 15.0 carries), Rodgers is forced into more negative-EPA dropbacks, and Metcalf's 266 air yards become the PIT path \u2014 pass volume, not a PIT clock-grind."
+ },
+ "injury_fallout": "MISSING: final injury report, inactives, practice status (DNP/limited/full), questionable tags, snap limits, and any OL, skill, or coverage absences for CIN and PIT. No absences, returns, or next-man-up inferred from usage dips.",
+ "matchup": {
+  "shell": "MISSING coverage charting (MOFO/MOFC, man vs zone). Location proxy only: PIT allows 9.1 YPA left (20.0 att), 3.43 middle (7.0 att), 8.53 right (17.0 att). CIN allows 8.04 left (28.0 att), 8.89 middle (18.0 att), 5.11 right (36.0 att).",
+  "pressure": "PIT blitz rate 25%; CIN QB EPA/dropback -0.62 vs blitz (n=24) vs +0.27 with no blitz. CIN blitz rate 11%; PIT QB EPA -0.36 vs blitz (n=23) vs -0.42 with no blitz. Pressure rate and time-to-throw are not in the pack.",
+  "bleeds": "PIT run D allows 4.54 YPC and 7 runs of 10+; PIT has allowed 7 passes of 20+ on 51 att, and the bleed is outside not middle. CIN run D allows 4.05 YPC and only 4 runs of 10+; CIN explosives are 7 of 20+ on 90 att, with the bleed in the middle (8.89 YPA) and left (8.04), right sound at 5.11.",
+  "overlap": "CIN's top option Higgins (16.0 tgt, 154 yds, 210 air) is an outside air-yard target, which overlaps PIT's weak left/right (9.1 and 8.53 YPA) rather than the closed middle (3.43). PIT's top option Metcalf (19.0 tgt, 67 yds, 266 air) is not converting deep shots into a CIN defense that has allowed only 7 explosives on 90 attempts."
+ },
+ "form": "Weeks 1-2 only, no per-game splits. CIN: Brown 36.0 car/136 rush yds (3.78 YPC) plus 11.0 tgt/24 rec yds/-27 air; Higgins 16.0/154/210; Chase 13.0/87/115; Gesicki 7.0/78/63; Perine 7.0 car/26 and 4.0 tgt/46 yds. PIT: Warren 21.0 car/89 (4.24 YPC) and 10.0 tgt/61 yds/-17 air; Dowdle 15.0/37 (2.47 YPC); Metcalf 19.0 tgt/67 yds/266 air (3.5 yards per target, efficiency that may not repeat \u2014 no Metcalf leg); Wilson 12.0/54/147; Freiermuth 10.0/78/68 (~39 yds/game vs a 37.5 line, no edge).",
+ "edge_players": [
+  {
+   "player": "teehiggins",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Higgins has averaged 77 receiving yards on 8 targets and 105 air yards, and Pittsburgh has allowed 9.1 and 8.53 YPA to the outside where that air-yard role lives, so 54.5 sits under the role in the pack; the leg survives the base script and the CIN-ahead flip, and is blitz-dependent.",
+   "must_be_true": "Tee Higgins targets >= 7 because 16.0 targets and 210 air yards over weeks 1-2",
+   "kills_it": "IF Pittsburgh blitzes well above its 25% rate and Joe Burrow's -0.62 EPA versus blitz wipes out downfield throws THEN Tee Higgins recyds over 54.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jaylenwarren",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Warren is at 44.5 rush yards a game on 21.0 carries in a committee with Dowdle (15.0 carries, 37 yards), and Cincinnati has allowed only 4 runs of 10+, so 58 is above the workload in the pack; the under survives the base script and the PIT-trails flip, and dies only if PIT grinds him.",
+   "must_be_true": "Jaylen Warren carries <= 13 because 21.0 carries over weeks 1-2 with R.Dowdle at 15.0 carries",
+   "kills_it": "IF Jaylen Warren gets 15 or more carries or a run of 15+ yards THEN Jaylen Warren rushyds under 58 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Higgins 154 rec yds over 2 games is 77.0 per game versus a 54.5 line, and PIT outside YPA (9.1 left, 8.53 right) matches 210 air yards. Warren 89 rush yds on 21.0 carries is 44.5 per game versus 58, with Dowdle still at 15.0 carries and CIN allowing 4.05 YPC and 4 runs of 10+. Burrow -0.62 EPA vs a 25% PIT blitz is the kill path, not a number that puts Higgins under 54.5. No projection, sim median, or no-vig price was in the pack, so nothing was sized to a sharp book.",
+  "disagrees": "none",
+  "missing": "spread, total, weather, injuries/inactives, coverage shell, pressure rate, snap counts, per-game splits, sim medians, no-vig/Pinnacle, and a price on Warren rushyds under 58 (+nan)",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Tee Higgins recyds over 54.5 at -115 (main line only; no alt rung). Jaylen Warren rushyds under 58, price MISSING (+nan). No no-vig in the pack, so the rung was not resized. No TD or reception markets.",
+ "pre_mortem": "It's Monday and both lost because two games overstated the roles. Higgins' 154 yards were one explosive afternoon, and Pittsburgh's 25% blitz plus Burrow's -0.62 EPA versus blitz turned this into quick throws, so 54.5 missed. Warren, a 10.5-carry committee back, absorbed Dowdle's share once PIT protected a lead the missing spread might have implied, and 15 carries at his 4.24 YPC cleared 58 even though CIN had allowed only 4 runs of 10+ through two weeks. No inactives and no weather means a late OL or RB scratch, or wind that was never in the pack, could have rewritten both legs.",
+ "slip_story": "One story: CIN's offense functions in its weeks 1-2 shape (Higgins is the downfield target, Burrow is not blitzed into a stall) and PIT does not grind Warren into a 15-carry game. Higgins recyds over 54.5 and Warren rushyds under 58 win together in that base script and in the CIN-ahead flip; both lose if PIT blitzes Burrow and then runs. Not a shootout stack, and not a total under mixed with overs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

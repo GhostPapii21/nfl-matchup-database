@@ -1,0 +1,48 @@
+{
+ "game": "Week 6 LAC@KC / kickoff MISSING / KC -7.5 / total 41.5 / implied totals KC 24.5, LAC 17.0 / weather MISSING; venue details, moneyline, rest/travel and opening-line movement MISSING",
+ "script": {
+  "base": "KC -7.5 and the implied 24.5\u201317.0 score favor a Chiefs-led game, although halftime timing and pace are not established. LAC likely needs more passing late, but Keaton Mitchell can retain enough early rushing work to threaten a modest rushing line; Ladd McConkey needs a meaningful target-role expansion to benefit.",
+  "flip1": "LAC keeps the game competitive, preserving Mitchell's rushing opportunities. McConkey's under can still survive if his recent secondary target role persists.",
+  "flip2": "KC builds a large early lead and LAC abandons the run. That threatens Mitchell's rushing over, while concentrated comeback targets to McConkey could also defeat his receiving under."
+ },
+ "injury_fallout": "MISSING: LAC and KC injury reports, practice participation, final designations, offensive-line availability, defensive absences, return restrictions and final inactives. Mitchell's 24 carries and McConkey's seven targets over the supplied LAC weeks 3\u20135 establish recent usage only; they do not establish injuries, returns or next-man-up changes. All supplied facts are treated as pre-kickoff pack information; individual publication timestamps are MISSING.",
+ "matchup": {
+  "shell": "MISSING: KC and LAC MOFO/MOFC rates, man/zone rates and receiver alignment charting. KC's location splits cannot establish which coverage defender McConkey will face.",
+  "pressure": "KC blitzes 28%; LAC QB EPA/dropback is -0.34 against blitzes across 44 dropbacks versus -0.17 without blitzes. This supports concern about LAC passing efficiency, but actual pressure rate, sacks, time to throw and scramble frequency are MISSING. LAC blitzes 27%; KC QB EPA/dropback is 0.42 against blitzes across 40 dropbacks versus 0.12 otherwise.",
+  "bleeds": "KC allows 3.61 rushing yards per carry, with 11 runs of at least 10 yards allowed. Its passing YPA allowed is 8.44 middle, 6.23 left and 4.96 right, with 11 passes of at least 20 yards allowed on 149 attempts. LAC allows 4.04 rushing yards per carry and 14 passes of at least 20 yards on 152 attempts; its middle passing YPA allowed is lower at 5.59.",
+  "overlap": "Mitchell's proposed edge is enough established rushing work to clear a low line, not a weak KC run defense. McConkey's proposed under rests on limited recent target allocation plus LAC's poor passing EPA, not a verified corner or shell mismatch. T.Harris leads the supplied LAC target list with 16, versus McConkey's seven; positional alignment needed to test overlap with KC's softer middle is MISSING."
+ },
+ "form": "LAC weeks 3\u20135: Mitchell has 24 carries for 102 yards and 13 targets for 37 receiving yards; McConkey has seven targets, 66 receiving yards and 97 air yards. Hampton's 38 carries, Vidal's 14 and Herbert's 16 show meaningful competing rushing usage. KC weeks 2\u20134: Walker has 64 carries for 364 yards, while Kelce, Worthy, Rice and Thornton have 17, 16, 15 and 14 targets respectively. These are three-game aggregates, not evidence of stable game-by-game floors. Snaps, routes, red-zone usage, individual game distributions, comparable-opponent splits and play-caller changes are MISSING.",
+ "edge_players": [
+  {
+   "player": "keatonmitchell",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Mitchell's established complementary rushing workload gives him a path over 18.5 yards without needing to dominate touches, provided KC's expected lead does not erase his carries early.",
+   "must_be_true": "keatonmitchell carries >= 6 [because the pack records 24 carries across LAC weeks 3\u20135]",
+   "kills_it": "IF KC takes an early multi-score lead and Mitchell receives three or fewer carries THEN keatonmitchell rushyds over 18.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "laddmcconkey",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "McConkey's limited recent target allocation makes under 42.5 receiving yards plausible even with LAC chasing, provided extra passing volume does not concentrate on him.",
+   "must_be_true": "laddmcconkey targets <= 4 [because the pack records seven targets across LAC weeks 3\u20135, behind five listed teammates]",
+   "kills_it": "IF LAC concentrates its comeback passing on McConkey and he reaches 43 receiving yards THEN laddmcconkey recyds under 42.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypotheses are workload-based; the aggregates then provide limited support. Mitchell averages eight carries over the supplied window. Holding that workload and applying KC's 3.61 YPC allowed gives a crude 28.9-yard sensitivity check, not a projection or simulation. McConkey's supplied window yields 2.33 targets and 22 receiving yards per game, supporting the low-role hypothesis without establishing a hit probability. Normalizing the supplied opposing prices gives approximately 49.9% for Mitchell over 18.5 and 50.3% for McConkey under 42.5. These are offered-market paired-price calculations, not Pinnacle benchmarks. Neither lean has a demonstrated positive expected value.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median and distribution, calibrated probabilities, Pinnacle prices, per-game role distributions, route participation, injury information, coverage charting, forecast and final inactives. Agreement means no supplied evidence clearly contradicts the hypotheses; it does not establish an actionable pricing edge.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Provisional main-line leans only: keatonmitchell rushyds over 18.5 at -114, requiring 53.27% to break even; laddmcconkey recyds under 42.5 at -116.5, requiring 53.81%. No alternate rungs or stakes justified. Receptions are unavailable under the permitted markets, and no missing-price prop is selected.",
+ "pre_mortem": "Mitchell's over loses if KC's strong 3.61 YPC run defense suppresses efficiency while Hampton, Vidal and Herbert absorb the available rushing work. His eight-carry recent average is not a guaranteed floor, and an early KC lead can eliminate the workload premise. McConkey's under loses if trailing volume expands his target role or one explosive catch supplies most of 43 yards; seven aggregate targets do not prove a durable usage restriction. Unknown injuries and alignment could overturn either read. These counter-cases prevent strong confidence or a priced-edge claim.",
+ "slip_story": "Both leans fit a controlled KC lead: Mitchell gets complementary carries before severe clock pressure, while LAC's additional passing remains distributed away from McConkey. Both also survive a competitive-game flip if recent roles persist. An early KC blowout threatens that shared story. Keep them as separate provisional evaluations rather than force a 3\u20134-leg slip or assume beneficial correlation.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,50 @@
+# Train-only univariate traits
+
+See traits.csv: each split reports n, wins, losses, pushes, hit%, $10 P/L and ROI. Above/below comparisons include losing rows; below includes missing form. Quote-level exploratory splits are correlated and multiple-tested, not causal evidence. No holdout values used.
+
+ market  side       feature          value    n  wins  losses  pushes  ungraded            pl  stake   hit_pct        roi
+ recyds  over          tier            alt 9387  2762    6050       0       575 -16865.649979  88120 31.343622 -19.139412
+ recyds  over          tier           main 1261   595     593       0        73   -784.932974  11880 50.084175  -6.607180
+ recyds  over  price_bucket  minus_100_149 1907   876     913       0       118  -1601.277339  17890 48.965903  -8.950684
+ recyds  over  price_bucket  minus_150_249  746   445     269       0        32   -388.830738   7140 62.324930  -5.445809
+ recyds  over  price_bucket minus_250_plus 1119   904     184       0        31     34.925124  10880 83.088235   0.321003
+ recyds  over  price_bucket           plus 6876  1132    5277       0       467 -15695.400000  64090 17.662662 -24.489624
+ recyds  over  form_edge>=0          above 3066  1806    1260       0         0  -2976.403922  30660 58.904110  -9.707775
+ recyds  over  form_edge>=0          below 7582  1551    5383       0       648 -14674.179031  69340 22.368042 -21.162646
+ recyds  over form_edge>=10          above 1697  1161     536       0         0   -947.302912  16970 68.414850  -5.582221
+ recyds  over form_edge>=10          below 8951  2196    6107       0       648 -16703.280040  83030 26.448272 -20.117163
+ recyds  over form_edge>=20          above  919   685     234       0         0   -407.641651   9190 74.537541  -4.435709
+ recyds  over form_edge>=20          below 9729  2672    6409       0       648 -17242.941302  90810 29.424072 -18.987932
+ recyds under          tier           main 1261   593     595       0        73   -725.146857  11880 49.915825  -6.103930
+ recyds under  price_bucket  minus_100_149 1050   496     487       0        67   -540.906971   9830 50.457782  -5.502614
+ recyds under  price_bucket  minus_150_249   85    51      32       0         2    -36.939886    830 61.445783  -4.450589
+ recyds under  price_bucket           plus  126    46      76       0         4   -147.300000   1220 37.704918 -12.073770
+ recyds under  form_edge>=0          above  501   237     264       0         0   -650.802585   5010 47.305389 -12.990072
+ recyds under  form_edge>=0          below  760   356     331       0        73    -74.344272   6870 51.819505  -1.082158
+ recyds under form_edge>=10          above  188    81     107       0         0   -418.109972   1880 43.085106 -22.239892
+ recyds under form_edge>=10          below 1073   512     488       0        73   -307.036885  10000 51.200000  -3.070369
+ recyds under form_edge>=20          above   53    34      19       0         0     93.769916    530 64.150943  17.692437
+ recyds under form_edge>=20          below 1208   559     576       0        73   -818.916773  11350 49.251101  -7.215126
+rushyds  over          tier            alt 4116  1033    2865       0       218 -17232.984126  38980 26.500770 -44.209810
+rushyds  over          tier           main  592   226     332       0        34  -1369.967706   5580 40.501792 -24.551393
+rushyds  over  price_bucket  minus_100_149  817   327     448       0        42  -1664.889963   7750 42.193548 -21.482451
+rushyds  over  price_bucket  minus_150_249  344   181     153       0        10   -602.397216   3340 54.191617 -18.035845
+rushyds  over  price_bucket minus_250_plus  626   431     158       0        37   -786.264653   5890 73.174873 -13.349145
+rushyds  over  price_bucket           plus 2921   320    2438       0       163 -15549.400000  27580 11.602611 -56.379260
+rushyds  over  form_edge>=0          above 1217   638     579       0         0  -2815.626075  12170 52.423993 -23.135794
+rushyds  over  form_edge>=0          below 3491   621    2618       0       252 -15787.325757  32390 19.172584 -48.741358
+rushyds  over form_edge>=10          above  642   380     262       0         0  -1304.973329   6420 59.190031 -20.326687
+rushyds  over form_edge>=10          below 4066   879    2935       0       252 -17297.978503  38140 23.046670 -45.353903
+rushyds  over form_edge>=20          above  366   224     142       0         0   -762.351843   3660 61.202186 -20.829285
+rushyds  over form_edge>=20          below 4342  1035    3055       0       252 -17840.599989  40900 25.305623 -43.620049
+rushyds under          tier           main  592   332     226       0        34    681.199581   5580 59.498208  12.207878
+rushyds under  price_bucket  minus_100_149  461   251     187       0        23    330.091060   4380 57.305936   7.536326
+rushyds under  price_bucket  minus_150_249   54    38      10       0         6    113.531706    480 79.166667  23.652439
+rushyds under  price_bucket minus_250_plus   12     9       2       0         1     10.576815    110 81.818182   9.615287
+rushyds under  price_bucket           plus   65    34      27       0         4    227.000000    610 55.737705  37.213115
+rushyds under  form_edge>=0          above  293   157     136       0         0    -36.092551   2930 53.583618  -1.231828
+rushyds under  form_edge>=0          below  299   175      90       0        34    717.292132   2650 66.037736  27.067628
+rushyds under form_edge>=10          above  142    79      63       0         0     17.465246   1420 55.633803   1.229947
+rushyds under form_edge>=10          below  450   253     163       0        34    663.734335   4160 60.817308  15.955152
+rushyds under form_edge>=20          above   52    41      11       0         0    206.774232    520 78.846154  39.764275
+rushyds under form_edge>=20          below  540   291     215       0        34    474.425350   5060 57.509881   9.375995

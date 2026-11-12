@@ -1,0 +1,46 @@
+{
+ "game": "TEN@NYG / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this is a form-only script, not the book's. TEN's lead back Pollard (21 carries, 99 yards) runs into the soft unit in the pack, NYG's run defense (5.47 YPC, 7 runs of 10+), while NYG's own run game is Skattebo (30/117) into the better front, TEN at 3.59 YPC and only 3 runs of 10+. Base flow is competitive and role-stable: TEN leans run because it is there, NYG cannot efficiently lean run, dropbacks still find Likely (18 targets, 111 yards), and Skattebo's yards lag his carry count. Who leads at half and the pace are unknown without a number.",
+  "flip1": "NYG falls behind and abandons the run. Skattebo's 15-carry pace dies and a rush under gets safer, while Likely, Nabers (13 targets, 180 air) and Fields (10 targets, 202 air) see volume. Inside that flip, NYG QB EPA versus blitz is -0.63 on 25 dropbacks and TEN blitzes 24%, so the pass script can stall in sacks and checkdowns instead of a shootout.",
+  "flip2": "NYG jumps ahead and clocks it with Skattebo, so rush attempts climb past the efficiency cap and 59.5 loses, while TEN throws more (Tate 11 targets / 117 air, Ayomanor 6/80) and Likely's chances shrink. TEN's QB has no blitz edge either (EPA -0.07 blitz vs -0.05 clean, n=16), so a TEN chase is not automatically a clean shootout."
+ },
+ "injury_fallout": "No injury report, practice trend, questionable tag, or inactive list is in the pack, so no offensive or defensive absence can be named and no next-man-up share from a starter sitting is available. Usage-only fallout from weeks 1-2: TEN carries are Pollard 21/99, Spears 10/53, Ward 8/28, Singleton 4/10; TEN targets are Tate 11/65/117 air, Robinson 7/47/29 air, Helm 7/41/16 air, Spears 6/41, Ayomanor 6/80/74 air, Pollard 3/0. NYG carries are Skattebo 30/117, Singletary 9/25, Dart 8/59, Harris 4/6; NYG targets are Likely 18/111/112 air, Nabers 13/70/180 air, Fields 10/55/202 air, Mooney 5/75, Skattebo 4/19. Ridley, Tracy, and a Winston rush role do not appear in those tables. Missing slot, safety, or OL notes are not in the pack. Final injury report and 90-minute inactives are unchecked.",
+ "matchup": {
+  "shell": "Coverage shell is not in the pack: no MOFO/MOFC, no man/zone rate, no charting, so WR/TE/RB cannot be mapped to specific defenders. Location only: NYG allows 7.5 YPA left (32 att), 12.0 middle (5 att), 7.48 right (27 att). TEN allows 7.68 left (19 att), 7.0 middle (13 att), 8.34 right (29 att).",
+  "pressure": "NYG blitzes 25% and TEN blitzes 24%. TEN QB EPA/dropback is -0.07 versus blitz (n=16) and -0.05 with no blitz, so pressure is not a TEN lever. NYG QB EPA/dropback is -0.63 versus blitz (n=25) versus +0.48 clean: when TEN's blitz gets home, Nabers/Fields deep air is what dies and short/TE targets are what should rise.",
+  "bleeds": "NYG bleeds the run (5.47 YPC, 7 runs of 10+ in two games) and has allowed only 5 passes of 20+ on 65 attempts, so the pass defense has been the sturdier unit aside from a 5-attempt middle sample at 12.0 YPA. TEN bleeds explosives (8 of 20+ on 64 attempts) and the right side (8.34 YPA) but stuffs the run (3.59 YPC, 3 runs of 10+).",
+  "overlap": "Pollard into NYG's 5.47 YPC front is the cleanest schematic overlap, but 21 carries for 99 yards is 4.71 YPC and about 49.5 rush yards a game, and 10.5 carries times 5.47 is about 57, still short of 59.5, with 0 receiving yards on 3 targets. That overlap is not a ticket. The ticket overlap is Likely, the 18-target primary, into a TEN defense that allows explosives and a 24% blitz that matches NYG's check-down need, plus Skattebo's carry share running into the unit TEN actually defends."
+ },
+ "form": "Weeks 1-2 only; no similar-defense split and no game log, so one-play inflation cannot be separated. Pollard 21/99 rush and 3 targets for 0 yards; Spears 10/53 rush and 6 targets for 41; Tate 11 targets for 65 on 117 air, yards lagging air; Ayomanor 6 for 80 on 74 air, efficient but n=6; Helm 7/41. Skattebo 30/117 (3.9 YPC) and 4 targets for 19; Harris 4/6, not the rotation. Likely 18/111 on 112 air is a weekly role, not a single bomb. Nabers 13/70 on 180 air and Fields 10/55 on 202 air are the air-yard mirages this step says not to chase. No OC change is documented. Dart is in the rush table (8/59) while Winston only appears as a 5.5 rush prop, so the Week 3 QB is not established.",
+ "edge_players": [
+  {
+   "player": "isaiahlikely",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Likely is the NYG pass game at 9 targets and 55.5 receiving yards a game over the only two games on file, and 38.5 sits 17 yards under that role against a TEN defense that has already allowed 8 passes of 20-plus.",
+   "must_be_true": "The Week 3 QB keeps the weeks 1-2 target tree, Likely is active with no snap cap (not in the pack), and NYG does not spend the night in a pure clock-kill run script.",
+   "kills_it": "A QB change, an unlisted snap limit, or NYG leading late and cutting dropbacks so Likely stalls in the mid-20s while Nabers' 180 air yards finally convert.",
+   "confidence": "lean"
+  },
+  {
+   "player": "camskattebo",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Skattebo will get the carries (30 in two games, about 15 a game) but TEN has allowed 3.59 YPC and only 3 runs of 10-plus, so 15 carries at that rate is about 54 yards, under 59.5.",
+   "must_be_true": "Skattebo stays the 15-carry back, Harris (4 carries, 6 yards) does not steal a feature, and TEN's two-game run defense is real.",
+   "kills_it": "NYG leads and feeds him 18-20 carries, or he rips one explosive; at his own 3.9 YPC, 15 carries already land on about 59.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so this is form versus the main line only. Likely 111 yards on 18 targets is 55.5 a game versus 38.5; form agrees with the over, and -113.5 is pick'em juice, not a short alt. Skattebo 117 rush yards on 30 carries is 58.5 a game versus 59.5, a push on raw form; the under is the matchup adjustment (15 times 3.59 YPC allowed is about 54), so the data does not contradict the lean and does not strongly confirm it. Not treated as a 70% model leg. Pollard over 59.5 was the other overlap and was dropped, not flagged: 49.5 a game and about 57 in the matchup math reject clearing 59.5, and a lean the data rejects gets cut.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Likely recyds over 38.5 at -113.5, main line, not a short alt. Skattebo rushyds under 59.5 at -112. Passed Skattebo rushrecyds under 78 (recent rush plus rec about 68, more cushion) because the price is nan. Passed Pollard rushyds 59.5 and rushrecyds 70.5. No sim to move a rung.",
+ "pre_mortem": "It's Monday and both lost. Likely finished under 38.5 because the 38.5 pick'em price was the tell the pack could not see: a snap limit, a QB switch off whoever fed him 18 targets, or TEN bracketing the TE after he was the chain-mover, while Nabers (180 air, only 70 receiving) hit two of the explosives TEN allows (8 of 20+). Skattebo went over 59.5 because 15 carries is too much volume to fade for one yard of average and a two-game 3.59 YPC: NYG protected a lead, he got 18-20 touches, and one 12-yard run showed up. The counter-case is close enough that both stay leans, not strong, and neither belongs on a short price.",
+ "slip_story": "One story: TEN's front is the better run defense in the pack, so NYG's yardage has to come through Likely's targets rather than Skattebo's legs. Stack is Likely recyds over 38.5 with Skattebo rushyds under 59.5. Do not add a total (not saved), do not add Pollard over (needs a carry bump the form does not show, and it is a different matchup story), and do not add Nabers or Fields overs (those need the deep shots that die if the blitz is why Likely is eating). No TD legs, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

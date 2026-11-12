@@ -1,0 +1,48 @@
+{
+ "game": "DEN@SF Week 4 / kickoff not in pack / spread NOT saved / total NOT saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this flow is inferred only from form, not from the book's implied totals or who the book expects to lead. SF's defense is the stopper in the pack (3.79 YPC, 3 runs of 10+, 4 passes of 20+ on 108 attempts) and DEN's is the leak (5.30 YPC, 9 runs of 10+, 11 passes of 20+ on 117). Base case: SF moves the ball, especially if DEN blitzes at 38% into Purdy's +1.37 EPA vs blitz (n=25), and is level or ahead after halftime. DEN does not establish Dobbins (L3 35 carries, 121 yards, 3.46 YPC) against that front and stays near 10-14 carries, while Waddle's 247 air yards do not become the explosives SF has not allowed. Pace and garbage time are unknown without a total.",
+  "flip1": "DEN leads early and stays ahead, so the run game is the clock. Dobbins' carry count jumps toward the high teens while Coleman (10 L3 carries) mixes in less, and 17 carries at SF's 3.79 YPC is about 64 yards, which busts the rush under. Waddle's under can still hold if a leading DEN runs instead of hunting 20+ yard shots.",
+  "flip2": "DEN's 38% blitz does not bother Purdy (already +1.37 EPA vs blitz) and the game turns into the explosive SF offense the L3 hints at (Kittle 174 rec yards, Evans 137, Purdy 94 rush yards on 9 carries). Waddle's 7 targets per game become 9+ and one chunk play clears 58 even if SF's 20+ rate stays low. Dobbins' under still holds because a trailing DEN abandons the run and his 11.7-carry pace shrinks."
+ },
+ "injury_fallout": "MISSING: final injury report, inactives, practice status (DNP/limited/full), questionable tags, game-time decisions, and snap or rep limits for both DEN and SF. No absences, returns, or next-man-up inferred from usage. Pack usage only, not injuries: DEN rush touches are already split (Dobbins 35, Coleman 10, Nix 8, Harvey 5) and DEN targets are led by Waddle 21 then Sutton 16, Harvey 11, Bryant 10, Engram 8. SF rush touches are split CMC 35 and Black 25, with Purdy 9 and Samuel 4; targets led by CMC 17, Kittle 16, Evans 16, Samuel 11.",
+ "matchup": {
+  "shell": "MISSING: MOFO vs MOFC and man vs zone rate, so no coverage charting. Location proxy from the pack only. SF: left 5.74 YPA on 35 att, middle 7.29 on 14 att (relative soft spot, tiny sample), right 6.45 on 53 att (volume side). DEN: left 7.78 on 37 att, middle 8.56 on 16 att, right 6.04 on 56 att (tightest DEN side).",
+  "pressure": "SF blitz rate 26%. DEN QB EPA/dropback is -0.40 vs blitz (n=31) and +0.07 with no blitz, so pressure hurts Nix, but SF does not blitz often enough to make that the base case. DEN blitz rate 38%. SF QB EPA/dropback is +1.37 vs blitz (n=25) and +0.39 with no blitz, so DEN's blitz rate is a gift to Purdy rather than a way to kill SF's downfield yards.",
+  "bleeds": "SF bleeds almost nowhere in this pack: 3.79 rush YPC, only 3 runs of 10+, and only 4 passes of 20+ yards on 108 attempts. DEN bleeds the run and explosives: 5.30 rush YPC, 9 runs of 10+, and 11 passes of 20+ on 117 attempts, with the middle (8.56 YPA) and left (7.78) the soft pass locations.",
+  "overlap": "Anti-overlap is the DEN leg: Waddle is the primary target (21 targets, 247 air yards, 150 rec yards) and he attacks the deep area SF has not given up (4 of 20+). That is the under, not an over. True overlap the other way: Kittle (16 targets, 174 yards, 142 air) and Evans (16 targets, 137 yards, 175 air) attack the explosive and intermediate areas DEN gives up, and CMC's 4.74 YPC overlaps DEN's 5.30 YPC allowed. Those overs are not taken because the posted rungs sit above recent pace (Kittle 58.0 vs 64.5, CMC rush 55.3 vs 65.5, CMC rush+rec 90.0 vs 112.5)."
+ },
+ "form": "Pack has L3 totals for weeks 1-3 only, not game-by-game splits, so no single-game fluke can be isolated except where the rate itself looks unsustainable. DEN rush lead is Dobbins 35/121 (3.46 YPC, about 11.7 carries and 40.3 yards per game); Coleman 10/39, Nix 8/19, Harvey 5/24. Harvey is the receiving back: 11 targets, 64 rec yards, -33 air yards. Waddle 21/150/247 air is the downfield primary (7.1 yards per target, lots of unfinished air). Sutton 16/82/154, Bryant 10/86/49, Engram 8/60/36, Adkins 5/40/30, Badie 4/40/-3. Franklin and Trautman are not in the target list; that is not treated as an injury. SF: CMC 35/166 rush (4.74 YPC, 55.3 per game) plus 17/104/40 rec (34.7 per game, 90.0 rush+rec). Black 25/107 is a real carry share, not a cameo. Purdy 9/94 (10.4 YPC) looks fluky and is not used as an edge. Kittle 16/174/142 and Evans 16/137/175 are the explosive receivers; Samuel 11/79/36 plus 4/30 rush. No similar-defense or similar-script splits are in the pack.",
+ "edge_players": [
+  {
+   "player": "jkdobbins",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Dobbins is a 40-yard rusher in this pack (121 yards on 35 carries, 3.46 YPC) and SF has allowed 3.79 YPC with only 3 runs of 10+ yards, so 59.5 sits almost 20 yards above both his pace and what this front has allowed.",
+   "must_be_true": "J.Dobbins carries <= 16 because pack L3 rushes are 35 (11.7 per game) with Coleman 10 and Harvey 5 also carrying, and SF allows 3.79 YPC",
+   "kills_it": "IF J.Dobbins records 17 or more carries at 3.5 or more YPC THEN jkdobbins rushyds under 59.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "jaylenwaddle",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Waddle's 150 yards came on 247 air yards, and SF has allowed only 4 passes of 20+ yards in 108 attempts, so 58 already sits 8 yards above his 50-yard pace and needs explosives this defense has not given up.",
+   "must_be_true": "J.Waddle rec yards <= 58 because pack L3 receiving yards are 150 (50.0 per game) on 247 air yards and SF has allowed 4 passes of 20+ on 108 attempts",
+   "kills_it": "IF J.Waddle sees 9 or more targets or records one 30+ yard reception THEN jaylenwaddle recyds under 58 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No model, sim median, or Pinnacle no-vig in the pack, so the test is pack form and opponent rates only. Dobbins under: 40.3 yards per game and 3.46 YPC versus a 59.5 line and an SF defense at 3.79 YPC; 11.7 carries times 3.79 YPC is about 44, still well under 59.5. Waddle under: 50.0 rec yards per game versus 58, with 247 air yards against a defense at 4 explosives on 108 attempts. SF location YPA (about 6.3 blended) does not show a Waddle-specific bleed. Neither read is assigned a 70%+ probability. Prices used only as posted: Dobbins -114; Waddle American price not saved.",
+  "disagrees": "none",
+  "missing": "spread, total, moneyline, kickoff, rest, travel, line movement, weather, coverage shell and man/zone charting, final injury report and inactives, game-by-game logs, model projection, sim median, and no-vig price. Waddle under 58 is listed at +nan, so that price is missing. Missing items are not treated as a disagreement.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "jkdobbins rushyds under 59.5 at -114. jaylenwaddle recyds under 58, American price not saved (+nan), so the rung is the posted 58 and cannot be confirmed as a bettable price. No alt rungs in the pack. No passing yards, TDs, or receptions used.",
+ "pre_mortem": "It's Monday and both unders lost because the unposted spread was wrong and DEN controlled the game. Dobbins got 18-20 carries, Coleman did not steal the 10-carry share he had in the L3, and one 15-yard run plus a 3.8 YPC grind cleared 59.5 even though SF's season rate is 3.79 \u2014 three games of run defense is a small sample and a positive script was the kill we already named. Waddle did not need a 20+ yard bomb: 8 targets at his 7.1 yards per target, or one 25-yard crosser plus his usual underneath, cleared 58, and the +nan price meant the number was stale or unbettable. The same Monday, SF's explosive suppression was just who they had faced, not a trait that travels, so the air-yard story was a three-game mirage.",
+ "slip_story": "One story only: SF's defense caps DEN. Dobbins rush under and Waddle rec under win together if the 3.79 YPC front and the 4-of-108 explosive rate travel. Dobbins is script-dependent on DEN not leading with a heavy carry count (dies on flip 1, holds on flip 2). Waddle is script-dependent on no shootout (holds on flip 1, dies on flip 2). Do not add CMC, Kittle, or Evans overs: those need DEN's leak (5.30 YPC, 11 explosives, middle 8.56 YPA) and a Purdy-vs-blitz spike, which is a different stack and the shootout flip that kills Waddle. Do not add Harvey rec or rush+rec overs; his -33 air yards are checkdowns that show up only if DEN is behind, and that is not required for these two legs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

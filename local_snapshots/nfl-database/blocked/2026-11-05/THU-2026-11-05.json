@@ -1,0 +1,33 @@
+{
+ "slip": {
+  "slip_id": "THU-2026-11-05",
+  "date": "2026-11-05",
+  "sport": "NFL",
+  "legs": [
+   {
+    "run": "runs/2026-11-05_shared_src",
+    "leg": "(no assembled legs yet)"
+   }
+  ]
+ },
+ "fails": [
+  {
+   "rule": "GATE_PASS",
+   "sev": "BLOCK",
+   "leg": "(no assembled legs yet)",
+   "value": "/workspace/nfl-database/runs/2026-11-05_shared_src",
+   "threshold": "leg in run_manifest.json",
+   "words": "leg not found in its run - hand-built leg"
+  },
+  {
+   "rule": "SLIP_SIZE",
+   "sev": "BLOCK",
+   "leg": "-",
+   "value": 1,
+   "threshold": "3-4",
+   "words": "slip has 1 legs; main slips are 3 or 4"
+  }
+ ],
+ "checked_at": "2026-11-03T00:51",
+ "rulebook_version": "d3efafc42e54dce0"
+}

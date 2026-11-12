@@ -1,0 +1,79 @@
+{
+  "Henry 40+ rush (o39.5)": {
+    "carry_share": {
+      "value": 0.6875,
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03T19:13",
+      "definition": "Henry designed carries / all BAL RB designed carries in latest up to 4 BAL games led by current QB; QB runs and kneels excluded",
+      "numerator": 11,
+      "denominator": 16,
+      "games": [
+        "2026_08_BAL_BUF"
+      ],
+      "by_game": [
+        {
+          "game": "2026_08_BAL_BUF",
+          "henry": 11,
+          "team_rb": 16
+        }
+      ],
+      "current_qb": "J.Fagnano",
+      "historical_last4": {
+        "numerator": 69,
+        "denominator": 85,
+        "games": [
+          "2026_05_BAL_ATL",
+          "2026_06_BAL_CLE",
+          "2026_07_CIN_BAL",
+          "2026_08_BAL_BUF"
+        ],
+        "note": "Mixed starting QBs; context only, not current-QB N1 window"
+      }
+    }
+  },
+  "Strange 4+ rec (o3.5)": {
+    "te_rank": 1,
+    "rank_evidence": {
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03T19:13",
+      "games": [
+        "2026_04_JAX_CIN",
+        "2026_05_PHI_JAX",
+        "2026_06_HOU_JAX",
+        "2026_08_IND_JAX"
+      ],
+      "definition": "Position target rank in last four team games led by current QB; depth_wiring convention",
+      "targets": 25
+    }
+  },
+  "Strange 40+ rec yds (o39.5)": {
+    "te_rank": 1,
+    "rank_evidence": {
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03T19:13",
+      "games": [
+        "2026_04_JAX_CIN",
+        "2026_05_PHI_JAX",
+        "2026_06_HOU_JAX",
+        "2026_08_IND_JAX"
+      ],
+      "definition": "Position target rank in last four team games led by current QB; depth_wiring convention",
+      "targets": 25
+    }
+  },
+  "Washington rec yds o63.5": {
+    "wr_rank": 1,
+    "rank_evidence": {
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03T19:13",
+      "games": [
+        "2026_04_JAX_CIN",
+        "2026_05_PHI_JAX",
+        "2026_06_HOU_JAX",
+        "2026_08_IND_JAX"
+      ],
+      "definition": "Position target rank in last four team games led by current QB; depth_wiring convention",
+      "targets": 25
+    }
+  }
+}

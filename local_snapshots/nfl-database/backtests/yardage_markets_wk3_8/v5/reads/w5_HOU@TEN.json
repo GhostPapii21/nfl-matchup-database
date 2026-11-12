@@ -1,0 +1,46 @@
+{
+ "game": "Week 5 HOU@TEN / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so the script is form-only. Both defenses blitz 21-22% and both QBs are worse when not blitzed (Stroud -0.03 EPA/dropback, Ward -0.17), so the base case is a lower-efficiency pass game, not a blitz shootout. TEN's identity is Pollard (47 carries, 186 yards over weeks 2-4) but HOU allows 3.44 YPC and only 8 runs of 10+, so Tennessee is more likely pushed toward Ward's primary, Carnell Tate, than able to salt it on the ground. Houston's RBs have been inefficient (Montgomery 2.48 YPC, Marks 2.37), so Stroud's diet should lean intermediate \u2014 Dalton Schultz, 19 targets at a 7.1 aDOT \u2014 because the blitz looks he feasts on (+0.47 EPA, n=34) are probably not coming.",
+  "flip1": "TEN runs through HOU anyway, leads, and milks Pollard at his 15.7 carry/game pace. Pass attempts fall, Tate's 8.7-target role dies and the Tate over loses; Schultz can still eat only if Houston is chasing, so the two legs are not perfectly tied. Tagged script-dependent on a TEN clock-kill.",
+  "flip2": "Either side starts blitzing or the explosive rates show up (TEN 13 passes of 20+ on 120 att, HOU 17 on 156) and it becomes a shootout: Tate and Schultz both clear easily and the HOU depth tree (Hutchinson 20 targets, Noel 10) goes with them. That flip is not the base case at 21-22% blitz rates."
+ },
+ "injury_fallout": "No injury report, practice status, or inactives are in the pack, so nobody is confirmed out and no next-man-up share can be sourced. The only role signal is the weeks 2-4 target tree: Hutchinson 20 tgt/134 yds/304 air, Schultz 19/179/135, Boutte 11/94, Wayne 11/53, Noel 10/133, Marks 8/33, Collins only 8/118/112. That says Collins was not the alpha in this sample and Hutchinson/Noel absorbed air yards, but there is no beat-writer or injury-report source for why. Posted lines disagree with that tree (Collins 77.5, Hutchinson 14.5, Noel 20.5), which is an unresolved role-reversion risk, not a confirmed injury gain. Do not treat Hutchinson or Noel overs as edges. Schultz's TE bucket is the usage least dependent on whether Collins reclaims WR targets. Final injury report and 90-minute inactives are unavailable; re-run if a late scratch hits Tate or Schultz.",
+ "matchup": {
+  "shell": "Coverage shell is not in the pack \u2014 no MOFO/MOFC, no man/zone rate, no charting \u2014 so receivers cannot be mapped to specific zone defenders. Limited to location YPA and blitz rate.",
+  "pressure": "TEN blitz rate 22%, HOU blitz rate 21% (both season-to-date, 4 games). Stroud +0.47 EPA/dropback vs blitz (n=34) vs -0.03 with no blitz. Ward +0.14 vs blitz (n=30) vs -0.17 with no blitz. Low blitz means both QBs are likely in their worse split. Fewer forced checkdowns than a blitz game, but also fewer of the deep shots Stroud only hits when blitzed, which supports Schultz's intermediate role over a Hutchinson bomb role.",
+  "bleeds": "TEN pass YPA allowed: left 8.1 (40 att), middle 8.21 (24 att), right 7.52 (48 att); 13 passes of 20+ on 120 att; rush YPC allowed 3.88 with 11 runs of 10+. Softest spot is a small-sample middle. HOU: left 5.4 (43 att) is a wall, middle 9.95 (38 att) bleeds, right 8.35 (60 att); 17 passes of 20+ on 156 att; rush YPC allowed 3.44 with only 8 runs of 10+. HOU's run front is the best unit in this pack; HOU's middle is the clearest pass bleed.",
+  "overlap": "Schultz (19 targets, 135 air yards, ~7.1 aDOT) is the HOU option that lives in the hook/middle, TEN's only zone above 8.2 YPA, in a game TEN is unlikely to blitz. That is the cleanest primary-to-weak-spot overlap. Tate (26 targets, 312 air yards, ~12 aDOT, 230 yards) is TEN's unambiguous primary and HOU has allowed 17 explosives plus a 9.95 middle \u2014 overlap on explosives/middle, but his side is unknown and the left-side wall (5.4 YPA) can erase it. Pollard (3.96 YPC) does not overlap a weak run defense; he runs into 3.44 YPC allowed."
+ },
+ "form": "Weeks 2-4 only, not season averages. Tate 26/230/312 is a three-game role, not one long play (~77 ypg). Robinson 17/85/106 is an inefficient WR2 (5.0 yards/target). Ayomanor 7/102/76 is explosive-dependent and not trusted. Ridley 5/48/44 has lost the job. Helm 8/32/28 is not a receiving weapon. Pollard 47/186 rush plus 9/25/-8 receiving is the carry engine with empty air yards. Schultz 19/179/135 led HOU in yards on real volume (~59.7 ypg). Hutchinson 20/134/304 is air-yard inflated versus a 14.5 line and may be a fill-in. Collins 8/118/112 is efficient on a 9% target share \u2014 do not project 77.5 off this sample, and do not bet the under without an injury source. Montgomery 27/67 (2.48 YPC, ~22 ypg) and Marks 19/45 (2.37 YPC) have not earned the 43.5 and 35 rush lines, but TEN's 3.88 YPC allowed is not a shutdown front, so those unders are not an edge. Stroud 7/51 rush is a 7.3 YPC sample that looks fluky without play-by-play.",
+ "edge_players": [
+  {
+   "player": "carnelltate",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Tate is Tennessee's only real downfield option \u2014 26 targets, 230 yards, 312 air yards in three games, about 77 yards a game \u2014 and 46.5 sits well under that role in a game where Houston's 3.44 YPC run defense and 8 runs of 10+ can stall Pollard and force Ward to keep finding him, against a defense that has already allowed 17 passes of 20+ and 9.95 YPA in the middle.",
+   "must_be_true": "Tate plays a full route share with no snap limit, Ward starts, and Tennessee does not get a 20-carry Pollard clock-kill that drops Tate under about 6 targets.",
+   "kills_it": "HOU blitzes only 21% and Ward's no-blitz EPA is -0.17, so if they run through contact anyway and Tate is stuck on the left (5.4 YPA allowed) the air yards never convert and he finishes in the 30s.",
+   "confidence": "strong"
+  },
+  {
+   "player": "daltonschultz",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Schultz is the stable intermediate piece \u2014 19 targets and a team-high 179 yards at a 7.1 aDOT \u2014 and Tennessee's only soft passing zone is the middle (8.21 YPA) while they blitz just 22%, the exact look where Stroud is ordinary (-0.03 EPA) and should live on the hook rather than the deep shots he only hits when blitzed.",
+   "must_be_true": "Schultz is active for a full TE snap share, Stroud starts, and Houston is not in a second-half clock-kill with a multi-score lead that erases pass volume.",
+   "kills_it": "Collins reclaims the entire target tree and Tennessee brackets the TE, or Houston's run game suddenly works and Schultz sees a 3-target day under 34.",
+   "confidence": "strong"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so step 8 cannot be completed with a model. Closest check is the posted main line: Tate over 46.5 is -113 and the under is also -113, a pick'em median at 46.5 against a 76.7-yard L3 \u2014 the market does not price the recent role, so this is a disagreement, not confirmation. Schultz over 34 has no juice posted; the rung itself (34 vs 59.7 L3) also sits well below the read. Ward's -0.17 EPA with no blitz against HOU's 21% blitz rate cuts against Tate's efficiency even while target volume supports the over. A strong read is flagged, not cut. Neither leg is treated as above 70%. Collins/Hutchinson/Noel were not used because the role change is unexplained. Weather, final inactives, coverage charting, and a post-game grade are all absent, so step 6 and step 12 cannot be completed.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Carnell Tate recyds over 46.5 at -113 (under also -113, so no juice edge; main line, not a short-priced alt). Dalton Schultz recyds over 34, juice not in the pack. One market per player. No TDs, no receptions, no passing yards.",
+ "pre_mortem": "It's Monday and both lost. Houston's front did not travel \u2014 Pollard went 20-plus carries at better than 4 a carry, Ward threw under 25 times, and Tate, pinned to the left where HOU allows 5.4 YPA, finished around 40 because Ward spent the day in his -0.17 no-blitz split and never saw the pressure that produces his +0.14 EPA. On the other side Collins was a full-go WR1, the weeks 2-4 tree reverted, and Schultz was held to four targets in the high 20s. A late inactive the pack did not have would also do it. That counter is why this is a flag, not a sized bet, but it is not stronger than the read: Tate's three-game target floor and Schultz's middle overlap still have to be actively taken away, and nothing in the pack shows either player is limited.",
+ "slip_story": "One story: a low-blitz pass-volume game, not a shootout and not a clock-kill. HOU's run defense (3.44 YPC) pushes Tennessee toward Tate, and Tennessee's 22% blitz plus a soft middle pushes Stroud toward Schultz. Both legs win together if both teams throw at normal volume. Do not pair with a total under, a Pollard rush over, or Hutchinson/Noel overs (those need the weeks 2-4 WR tree to survive, which is the Collins-reversion risk). Pollard rush under 50.5 was considered and dropped: 15.7 carries times 3.44 YPC is about 54, a push, not an edge. No TD legs. Slip is these two only.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

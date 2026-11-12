@@ -1,0 +1,108 @@
+{
+ "game": "HOU@IND Week 3 2026 | kickoff not in pack | spread/total not saved | weather not saved",
+ "script": {
+  "base": "No spread or total is saved, so this is a form script, not a market script. Indianapolis has lived on Jonathan Taylor (43 carries, 190 yards, 4.42 YPC, 43 of 51 listed rushes) while its dropback EPA is negative (-0.22 unblitzed, -0.02 vs blitz) and Houston blitzes only 18%, so the base case is a competitive game in which IND keeps handing Taylor the ball and the pass game stays short: Tyler Warren has 12 targets but only 10 air yards (13 and 21 receiving yards). Houston, with Nico Collins out plus Ed Ingram out and Trent Brown questionable, is a Dalton Schultz quick game (EPA/db +0.39 vs blitz; IND blitzes 25%) rather than a shootout.",
+  "flip1": "IND leads early behind Taylor and Houston's injured line cannot stay on schedule. Taylor's carries hold or rise to kill clock, so the rush over survives and is helped. Warren's behind-the-line role has even less reason to produce yards, so the under survives. This is the run-clock path even without a saved spread.",
+  "flip2": "Houston's blitz-beater quick game (Schultz, Noel, Hutchinson) jumps ahead and IND is down multiple scores. Taylor's carries collapse: that is the kill for the rush over, so the leg is script-dependent on this flip. Jones throws more; Pierce's vacated 113 air yards fit Downs, Allen and Treadwell, not Warren (0.83 air yards per target). Warren under is hurt only by a chunk YAC play, not by ordinary extra targets."
+ },
+ "injury_fallout": "HOU OUT WR Nico Collins (hamstring): 10 targets, 75 yards, 120 air yards over weeks 1-2 come off the board. Next men from the target table are Dalton Schultz (already 22/175/130, team leader), Xavier Hutchinson (15/69/169, not converting), Jaylin Noel (7 targets, 84 yards), Jared Wayne (8/45/116) and Kayshon Boutte (7/58/98). HOU OL: G Ed Ingram Out (groin), T Trent Brown Questionable (knee) \u2014 pressure up, HOU rush efficiency down (Montgomery 70 yards on 26 carries, 2.69 YPC; Marks 50 on 17, 2.94), more quick throws, deep yards at risk, Stroud scrambles more likely. HOU defense OUT: DE Jadeveon Clowney (knee) weakens the edge vs Taylor; S M.J. Stewart (knee) and LB Jacob Hummel (groin) are the coverage losses that help IND TEs, RBs and the slot \u2014 the explicit counter to a Warren under. IND OUT WR Alec Pierce (heel) vacates 7 targets, 72 yards, 113 air yards; same-position absorbers are Josh Downs (13/109/109), Keenan Allen (11/37/53) and Laquon Treadwell (4/61/58; game log 0 and 61). WR Ashton Dulin Out (ankle) is depth. CB Charvarius Ward Questionable (groin) is not ruled out, so no confirmed backup-corner edge. Inactives about 90 minutes before kickoff are not in the pack. Sources: pack nflverse injury report and week 1-2 target/rush tables only.",
+ "matchup": {
+  "shell": "Not in the pack. No MOFO/MOFC, no man/zone rate, no coverage chart. Cannot map Schultz or Warren to a named zone defender.",
+  "pressure": "IND blitz rate 25%; HOU EPA/db +0.39 when blitzed vs -0.13 when not, so pressure has fed Houston's quick game rather than killing it. HOU blitz rate only 18%; IND EPA/db -0.02 vs blitz and -0.22 with no blitz, so Indianapolis has been poor on standard dropbacks and has little reason to pass its way out of a Taylor script.",
+  "bleeds": "IND defense: rush YPC 5.67, 10 runs of 10+, 20+ pass listed 8/75, YPA left 11.0 (22), middle 11.88 (17), right 8.19 (32) \u2014 right is the most-used zone and the only contained one. HOU defense: rush YPC 4.12, only 5 runs of 10+, 20+ pass listed 9/67, YPA left 4.0 (15, contained), middle 10.47 (17), right 10.82 (28).",
+  "overlap": "The textbook overlap is Schultz (22 targets, TE, team leader) into IND's middle 11.88 YPA with Collins out. Not carded: his log is 35 and 140, so 49.5 sits between outcomes, step 5 treats the 140 as possibly fluky, and consensus no-vig is already 0.500. Downs (13 targets, 109 air) into HOU middle/right with Pierce out and Stewart out is the IND version, but 37 and 72 split 50.5 and no-vig over is already 0.505. Carded overlap is role, not a funnel: Taylor's 84% carry share into a HOU front that allows 4.12 YPC but is without Clowney and Hummel; Warren's 10 air yards do not attack the HOU middle/right bleed, which is why that under is flagged rather than called a matchup win."
+ },
+ "form": "Only weeks 1-2 exist (tables labeled L3/last4 list two games). Taylor rush 98 and 92, both over 81.5, on 43/190; receiving 23 and 40. Warren receiving 13 and 21, both well under 46.5, on 12 targets / 34 yards / 10 air. Schultz 35 and 140. Downs 37 and 72. Allen 32 and 5. Treadwell 0 and 61. Montgomery rush 60 and 10 (2.69 YPC) and receiving 19 and 14, but he is absent from the target table; Marks rush 42 and 8 with 7 targets / 25 yards (receiving -2 and 27). Stroud rush 15 and 29 on 5 carries (8.8 YPC). Hutchinson 32 and 37 on 169 air yards. Noel 53 and 31. No similar-defense splits beyond these two games are in the pack.",
+ "pro_edge": {
+  "implied_totals": "N/A. Spread and total were not saved, so favorite=(T+S)/2 and underdog=(T-S)/2 cannot be computed. No high-total volume signal and no low-total under signal.",
+  "script_read": "No blowout flag without a spread, so the 3.5-dog throws-more rule and the late-snap risk rule cannot be applied. Form script: IND is the run side (Taylor about 21.5 carries/game, 43 of 51 rushes); HOU is the pass-adjustment side because Collins and the OL are compromised. Warren is 12 of 57 listed IND targets (about 21% share) but 0.83 aDOT, so share does not equal yards.",
+  "best_price": "No Pinnacle in the pack; anchor is consensus no-vig. Taylor rushyds 81.5 over fair 0.500, best over -114, best under -114 (no shop edge vs a soft book). Warren recyds 46.5 under fair 0.500, best under -113.5, best over -113.5. Power devig vs overround not separately saved. Other two-sided prices sit -110 to -117.5. Unpriced and skipped: Boutte recyds 37, Marks rushrecyds 43.5, Noel recyds 28, Taylor rushrecyds 106.5.",
+  "lagging": "No book-versus-consensus gap and no spread/total move is saved, so a classic lagging-book flag cannot be stamped. Prop-level lag is the signal: Taylor 98 and 92 with the over still a 0.500 coin flip at 81.5; Warren 13 and 21 with the under still a 0.500 coin flip at 46.5. Schultz 49.5 at 0.500 is not lagging versus a 35/140 split.",
+  "sleepers": "HOU WR Nico Collins Out \u2014 same-position lines still about 50/50 or unpriced: Hutchinson recyds 38.5 no-vig over 0.503, Wayne 15.5 at 0.500, Noel 28 no price, Boutte 37 no price. Schultz (TE) is not same-position. IND WR Alec Pierce Out (113 air yards) and Ashton Dulin Out \u2014 Downs 50.5 over no-vig 0.505, Allen 32.5 at 0.500, Treadwell 23.5 at 0.500. Warren is TE, not the Pierce sleeper. Questionable, not sleepers: Trent Brown, Charvarius Ward. Non-skill outs that touch the legs: Clowney, Stewart, Hummel, Ingram. No CSV diff to prove lines failed to move after the outs; the 0.500 anchors are the only evidence they were not shaded."
+ },
+ "edge_players": [
+  {
+   "player": "jonathantaylor",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Taylor has taken 43 of 51 Indianapolis rushes for 98 and 92 yards, both over 81.5, and IND's dropback EPA is negative so they should keep handing him the ball, while Houston is without Clowney and Hummel and has allowed 4.12 YPC \u2014 about 21 carries at that rate still clears 81.5, and the market is still a 0.500 coin flip.",
+   "must_be_true": "Taylor is active, keeps an 18-plus carry share, IND is not down multiple scores before halftime, and the backfield stays his (Jones 4 carries, Burks 2, McGowan 2 through two weeks).",
+   "kills_it": "Flip 2: Houston's quick game vs IND's 25% blitz (HOU EPA/db +0.39 vs blitz) jumps to an early lead, IND abandons the run, and Taylor finishes in the mid-teens of carries near 4.12 YPC, under 81.5. A late inactive also kills it; inactives are not in the pack.",
+   "confidence": "strong",
+   "model_p": 0.62,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "HOU rush YPC allowed 4.12 with 5 runs of 10+ (pack, 2 games) is not a funnel and not a wall. DE Jadeveon Clowney Out and LB Jacob Hummel Out (nflverse injury report in pack) soften the edge and the second level. 20 carries at 4.12 YPC is about 82."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "IND rushers weeks 1-2: Taylor 43/190, Jones 4/14, Burks 2/14, McGowan 2/0. Carry share about 84%."
+    },
+    "script": {
+     "ok": true,
+     "source": "Base and flip 1 (IND close or ahead) both feed carries. IND EPA/db -0.22 unblitzed and HOU blitz only 18% support staying on the ground. Script-dependent on flip 2 only."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Saved last4 rush yards 98, 92, both clear of 81.5 by 16.5 and 10.5. n=2 only."
+    }
+   },
+   "primary_defender": {
+    "who": "HOU front seven without DE Jadeveon Clowney (Out, knee) and LB Jacob Hummel (Out, groin); no named nose or MIKE in the pack",
+    "source": "pack injury report; no run-fit chart"
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Consensus no-vig over 0.500, best over -114. Implied totals N/A, so no blowout cap. Lagging vs 98 and 92. Not a same-position sleeper. Hand edge about +12 pts vs fair; not a stamped 3-sim or Pinnacle gate. Stake withheld, no bankroll."
+  },
+  {
+   "player": "tylerwarren",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Warren has 12 targets and only 10 air yards for 34 receiving yards (13 and 21), so 46.5 asks him to nearly triple his best game, and Pierce's vacated 113 air yards are a vertical WR role he has not played \u2014 the 0.500 under price has not adjusted to that role.",
+   "must_be_true": "Warren's routes stay at or behind the line of scrimmage (sub-1-yard aDOT), he does not get a sudden intermediate package, and he stays in a 5-8 target range rather than a 12-target featured day.",
+   "kills_it": "Hummel (LB) and Stewart (S) are out and HOU allows 10.47 YPA middle and 10.82 right, so one busted-coverage YAC play plus his usual dumps can clear 46.5. A multi-score IND deficit that turns him into a designed receiver also kills it. That counter is why this is flagged, not max-sized.",
+   "confidence": "strong",
+   "model_p": 0.63,
+   "scheme": {
+    "matchup": {
+     "ok": false,
+     "source": "HOU YPA middle 10.47 (17) and right 10.82 (28), plus LB Jacob Hummel Out and S M.J. Stewart Out, is a TE-friendly card. The under does not win the matchup; it wins the usage math. Pack HOU location splits and injury report."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "IND targets: Warren 12 targets, 34 yards, 10 air yards (0.83 aDOT). That scheme cannot median 46.5. Pierce 7/72/113 is a different job."
+    },
+    "script": {
+     "ok": true,
+     "source": "Base and flip 1 are Taylor-run scripts, which keep Warren supplementary. Flip 2 can raise targets but not his air yards. Source: IND rush share and Warren air-yard line in the pack."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Saved last4 receiving yards 13, 21, both under 46.5 by 33.5 and 25.5."
+    }
+   },
+   "primary_defender": {
+    "who": "HOU linebackers and middle safety, with Jacob Hummel (LB) and M.J. Stewart (S) both Out; no chart names who would actually cover Warren",
+    "source": "pack injury report; coverage charting not in pack"
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Consensus no-vig under 0.500, best under -113.5. Loudest lagging line vs 13 and 21. Pierce Out sleeper does not apply (WR vs TE; 113 air vs 10 air). Hand edge about +13 pts vs fair, flagged because the defender side is giving. No stake, no bankroll. Not an alt +300 market."
+  }
+ ],
+ "data_check": {
+  "notes": "Step 8 limited: no projection file, no sims, no Pinnacle; anchor is consensus no-vig only. Hand read, not a 3-sim: Taylor over 0.62 vs no-vig 0.500; Warren under 0.63 vs no-vig 0.500. Both clear a 3-pt paper gate and neither is stamped above 0.70. Counting data agrees (Taylor 98/92; Warren 13/21). FLAG, do not cut: HOU middle/right YPA and the Hummel/Stewart absences disagree with calling the Warren under a matchup edge. Schultz over 49.5 was the primary-target overlap (22 targets vs IND middle 11.88, Collins out) but was not carded because 35 and 140 put 49.5 between outcomes and the 140 looks fluky; no-vig already 0.500. Downs over 50.5 split 37/72 with no-vig 0.505. Stroud rush over 10.5 (15, 29) passed as explosive-dependent (44 yards on 5 carries) and because HOU's +0.39 EPA vs blitz says he beats pressure with throws. Montgomery rush over 50.5 passed: 60 and 10, 2.69 YPC, Ingram out, line above his mean, even though IND allows 5.67 YPC. Quarter-Kelly not run; no bankroll; stake withheld. No price on these legs is shorter than -250. Step 12 limited: this is the pre-kickoff log only; result grading is not allowed from the pack.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Jonathan Taylor rush yards OVER 81.5 at best saved -114 (consensus main; anchor no-vig over 0.500 / under 0.500). Tyler Warren receiving yards UNDER 46.5 at best saved -113.5 (consensus main; anchor no-vig 0.500 / 0.500). No alt rungs saved. Receptions are not an allowed market; Warren is a yards under because 10 air yards on 12 targets cannot reach this yardage rung. Taylor is the carry-share rushing rung, not a short-priced alt. Unpriced markets (Noel, Boutte, Marks rush+rec, Taylor rush+rec) were not used.",
+ "pre_mortem": "It's Monday and this lost. Taylor: Houston, even without Clowney, sells out to the run after back-to-back 90-yard games, holds him near 3.7 YPC, and the flip hits \u2014 Stroud and Schultz punish IND's 25% blitz for an early lead, IND is throwing by the second quarter, and Taylor ends at 14-16 carries in the mid-60s. The 81.5 was a two-game heater, and 4.12 YPC allowed says this front was never a giveaway. Warren: the market's 46.5 was the tell, not a stale number. Hummel and Stewart out turn dump-offs into YAC, he adds one 20-plus catch-and-run to a 25-yard floor, and the over cashes. Or IND trails and schemed touches replace the 10-air-yard role the two-game log shows. Ward and Brown are still questionable, inactives are not out, and a morning Out tag is not a lock. If that Warren counter is the one that bothers you, cut only Warren; the Taylor read does not depend on it.",
+ "slip_story": "One script only: Indianapolis plays its identity, Taylor carries, and the pass game stays supplementary and behind the line, so Warren's 10 air yards stay under 46.5. Run-clock / low-TE-yardage stack, not a shootout. Both legs live in the base and in flip 1 (IND ahead). Flip 2 (HOU ahead big) is the shared stress, worse for Taylor than for Warren. Do not add Schultz, Downs, Hutchinson or Noel overs, a HOU team-total over, or Stroud rush overs \u2014 those need Houston to throw and are the other slip. No TD legs. One market per player. Two legs, inside the 3-4 cap. Depth receivers not used.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T13:18:27-0500"
+ }
+}

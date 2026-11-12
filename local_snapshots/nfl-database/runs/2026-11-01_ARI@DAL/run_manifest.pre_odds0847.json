@@ -1,0 +1,1895 @@
+{
+  "season": 2026,
+  "week": 8,
+  "game_id": "401873024",
+  "game": "ARI@DAL",
+  "kickoff_et": "2026-11-01 01:00 PM",
+  "game_date": "2026-11-01",
+  "venue": null,
+  "input_cutoff_et": "2026-11-01T07:30",
+  "skill": "/home/box/agent-data/workflows/nfl-game-script-run/SKILL.md",
+  "seed": 20261101,
+  "trials": 100000,
+  "sim_script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+  "approved_exceptions": [
+    {
+      "input": "coverage.defenders",
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "approved_by": "Rico",
+      "approved_on": "2026-11-01",
+      "valid_for_date": "2026-11-01",
+      "scope": "receiving legs",
+      "reason": "misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only"
+    }
+  ],
+  "sources": [
+    {
+      "category": "core_stats_pbp",
+      "name": "nflverse play_by_play_2026 (thru 2026-10-29)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "tool": "curl (github nflverse release)",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "nflverse snap_counts_2026 + players",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/snap_counts_2026.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "ESPN depth charts API (24 teams)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/espn_depth_all.json",
+      "tool": "python urllib",
+      "pulled_et": "2026-11-01T07:14"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "ESPN box scores wk1-8 (two-source target check)",
+      "url_or_file": "/workspace/nfl-database/week8/phase_walk/src/espn_box.json",
+      "tool": "earlier urllib pull (Oct 31)",
+      "pulled_et": "2026-10-31T19:19"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "FTN charting via nflverse (blitzers, rushers)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "Sharp Football coverage schemes (man/zone, MOF; data Updated Oct 27)",
+      "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+      "tool": "Firecrawl scrape",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "ESPN WR/CB matchup cheatsheet wk8",
+      "url_or_file": "https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_WRCB.pdf",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:12"
+    },
+    {
+      "category": "ngs",
+      "name": "BACKUP nflverse nextgen_stats release (published copy, data through 2026 Wk8 / 2026-10-29; nextgenstats.nfl.com on hold) - accepted by Ghost6 for 2026-11-01 only",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "film",
+      "name": "Official NFL YouTube highlights (oEmbed-checked) + caption plays re-matched to fresh pbp",
+      "url_or_file": "https://www.youtube.com/@NFL",
+      "tool": "python urllib oEmbed",
+      "pulled_et": "2026-11-01T07:26"
+    },
+    {
+      "category": "injuries_news",
+      "name": "ESPN injuries API",
+      "url_or_file": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "weather",
+      "name": "NWS hourly + Open-Meteo",
+      "url_or_file": "https://api.weather.gov ; https://api.open-meteo.com",
+      "tool": "python urllib",
+      "pulled_et": "2026-11-01T07:10"
+    },
+    {
+      "category": "odds_props",
+      "name": "The Odds API: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks, Underdog player props",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_final.csv",
+      "tool": "python urllib (The Odds API)",
+      "pulled_et": "2026-11-01T07:30"
+    },
+    {
+      "category": "odds_props",
+      "name": "The Odds API: FanDuel/DK/Pinnacle spreads+totals",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_final.json",
+      "tool": "python urllib (The Odds API)",
+      "pulled_et": "2026-11-01T07:30"
+    }
+  ],
+  "flagged_gaps": [
+    {
+      "category": "coverage_matchups",
+      "item": "PFR advanced defense live pull",
+      "status": "MISSING (HTTP 403, not routed around)",
+      "backup": "PFR cache pfr_def_adv_2026.html 2026-10-29 06:02 under Rico exception"
+    },
+    {
+      "category": "coverage_matchups",
+      "item": "Sharp pressure page / SumerSports",
+      "status": "ON HOLD (Ghost6)",
+      "backup": "pressure PROXY (sack|hit|scramble)/dropbacks from nflverse pbp"
+    },
+    {
+      "category": "ngs",
+      "item": "nextgenstats.nfl.com public pages",
+      "status": "ON HOLD (Ghost6)",
+      "backup": "nflverse nextgen_stats release parquet (labelled BACKUP)"
+    },
+    {
+      "category": "coverage_matchups",
+      "item": "PFF per-defender/props",
+      "status": "NOT PULLED (logged-out preview only; needs signed-in box browser, read-only)",
+      "backup": "none used as numbers"
+    },
+    {
+      "category": "core_stats_pbp",
+      "item": "nflverse pbp_participation_2026",
+      "status": "MISSING (HTTP 404 not published; corrupt 9-byte file kept out)",
+      "backup": "ESPN WR/CB cheatsheet alignment + ESPN depth"
+    }
+  ],
+  "pressure_inputs": {
+    "blitz_rate": {
+      "value": {
+        "ARI": 0.304,
+        "DAL": 0.263
+      },
+      "definition": "defense FTN n_pass_rushers>=5 / charted dropbacks, season",
+      "l4": {
+        "ARI": 0.3582089552238806,
+        "DAL": 0.2602739726027397
+      },
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet + play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "FTN charting"
+    },
+    "pressure_rate": {
+      "value": {
+        "ARI": 0.174,
+        "DAL": 0.202
+      },
+      "definition": "defense (sack|qb_hit|scramble)/dropbacks",
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "PROXY"
+    },
+    "checkdown_share": {
+      "value": {
+        "ARI": 0.271,
+        "DAL": 0.223
+      },
+      "definition": "QB attempts with air_yards<=0 or RB target / attempts",
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "nflverse pbp"
+    }
+  },
+  "sims": [
+    {
+      "model": "monte_carlo",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Jacoby Brissett Pass Yds Under 258.5": {
+          "p": 0.4837,
+          "median": 260.72
+        },
+        "Tyler Allgeier Rush Yds Over 13.5": {
+          "p": 0.7625,
+          "median": 30.35
+        },
+        "Bam Knight Rush Yds Over 19.5": {
+          "p": 0.5673,
+          "median": 25.31
+        },
+        "Michael Wilson Rec Yds Under 56.5": {
+          "p": 0.5355,
+          "median": 53.38
+        },
+        "Michael Wilson Receptions Under 4.5": {
+          "p": 0.485,
+          "median": 5.0
+        },
+        "Trey McBride Rec Yds Under 71.5": {
+          "p": 0.5423,
+          "median": 68.15
+        },
+        "Trey McBride Receptions Over 7.5": {
+          "p": 0.6318,
+          "median": 8.0
+        },
+        "Dak Prescott Pass Yds Under 271.5": {
+          "p": 0.4265,
+          "median": 287.27
+        },
+        "Javonte Williams Rush Yds Under 76.5": {
+          "p": 0.5659,
+          "median": 70.41
+        },
+        "Javonte Williams Rush+Rec Yds Under 92.5": {
+          "p": 0.5708,
+          "median": 85.82
+        },
+        "CeeDee Lamb Rec Yds Over 80.5": {
+          "p": 0.5616,
+          "median": 89.99
+        },
+        "CeeDee Lamb Receptions Over 6.5": {
+          "p": 0.5377,
+          "median": 7.0
+        },
+        "George Pickens Rec Yds Over 59.5": {
+          "p": 0.6209,
+          "median": 71.74
+        },
+        "George Pickens Receptions Over 3.5": {
+          "p": 0.7746,
+          "median": 5.0
+        },
+        "Ryan Flournoy Rec Yds Over 36.5": {
+          "p": 0.5632,
+          "median": 41.83
+        },
+        "Ryan Flournoy Receptions Over 3.5": {
+          "p": 0.512,
+          "median": 4.0
+        },
+        "Jake Ferguson Rec Yds Over 14.5": {
+          "p": 0.6149,
+          "median": 18.64
+        },
+        "Jake Ferguson Receptions Over 1.5": {
+          "p": 0.6911,
+          "median": 2.0
+        }
+      }
+    },
+    {
+      "model": "bias",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Jacoby Brissett Pass Yds Under 258.5": {
+          "p": 0.7065,
+          "median": 220.62
+        },
+        "Tyler Allgeier Rush Yds Over 13.5": {
+          "p": 0.7154,
+          "median": 26.09
+        },
+        "Bam Knight Rush Yds Over 19.5": {
+          "p": 0.5065,
+          "median": 20.17
+        },
+        "Michael Wilson Rec Yds Under 56.5": {
+          "p": 0.6477,
+          "median": 44.09
+        },
+        "Michael Wilson Receptions Under 4.5": {
+          "p": 0.5691,
+          "median": 4.0
+        },
+        "Trey McBride Rec Yds Under 71.5": {
+          "p": 0.6773,
+          "median": 57.87
+        },
+        "Trey McBride Receptions Over 7.5": {
+          "p": 0.5079,
+          "median": 8.0
+        },
+        "Dak Prescott Pass Yds Under 271.5": {
+          "p": 0.6298,
+          "median": 243.63
+        },
+        "Javonte Williams Rush Yds Under 76.5": {
+          "p": 0.6831,
+          "median": 61.67
+        },
+        "Javonte Williams Rush+Rec Yds Under 92.5": {
+          "p": 0.6992,
+          "median": 73.75
+        },
+        "CeeDee Lamb Rec Yds Over 80.5": {
+          "p": 0.4572,
+          "median": 75.06
+        },
+        "CeeDee Lamb Receptions Over 6.5": {
+          "p": 0.4493,
+          "median": 6.0
+        },
+        "George Pickens Rec Yds Over 59.5": {
+          "p": 0.5107,
+          "median": 61.03
+        },
+        "George Pickens Receptions Over 3.5": {
+          "p": 0.6932,
+          "median": 5.0
+        },
+        "Ryan Flournoy Rec Yds Over 36.5": {
+          "p": 0.4706,
+          "median": 34.22
+        },
+        "Ryan Flournoy Receptions Over 3.5": {
+          "p": 0.4266,
+          "median": 3.0
+        },
+        "Jake Ferguson Rec Yds Over 14.5": {
+          "p": 0.5405,
+          "median": 15.18
+        },
+        "Jake Ferguson Receptions Over 1.5": {
+          "p": 0.6293,
+          "median": 2.0
+        }
+      }
+    },
+    {
+      "model": "game_randomness",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Jacoby Brissett Pass Yds Under 258.5": {
+          "p": 0.5058,
+          "median": 256.33
+        },
+        "Tyler Allgeier Rush Yds Over 13.5": {
+          "p": 0.7708,
+          "median": 31.8
+        },
+        "Bam Knight Rush Yds Over 19.5": {
+          "p": 0.5871,
+          "median": 26.13
+        },
+        "Michael Wilson Rec Yds Under 56.5": {
+          "p": 0.552,
+          "median": 51.06
+        },
+        "Michael Wilson Receptions Under 4.5": {
+          "p": 0.5092,
+          "median": 4.0
+        },
+        "Trey McBride Rec Yds Under 71.5": {
+          "p": 0.5562,
+          "median": 66.08
+        },
+        "Trey McBride Receptions Over 7.5": {
+          "p": 0.5709,
+          "median": 8.0
+        },
+        "Dak Prescott Pass Yds Under 271.5": {
+          "p": 0.4463,
+          "median": 283.97
+        },
+        "Javonte Williams Rush Yds Under 76.5": {
+          "p": 0.5932,
+          "median": 67.11
+        },
+        "Javonte Williams Rush+Rec Yds Under 92.5": {
+          "p": 0.589,
+          "median": 82.52
+        },
+        "CeeDee Lamb Rec Yds Over 80.5": {
+          "p": 0.5504,
+          "median": 88.89
+        },
+        "CeeDee Lamb Receptions Over 6.5": {
+          "p": 0.5214,
+          "median": 7.0
+        },
+        "George Pickens Rec Yds Over 59.5": {
+          "p": 0.5813,
+          "median": 69.59
+        },
+        "George Pickens Receptions Over 3.5": {
+          "p": 0.709,
+          "median": 5.0
+        },
+        "Ryan Flournoy Rec Yds Over 36.5": {
+          "p": 0.5409,
+          "median": 40.67
+        },
+        "Ryan Flournoy Receptions Over 3.5": {
+          "p": 0.4822,
+          "median": 3.0
+        },
+        "Jake Ferguson Rec Yds Over 14.5": {
+          "p": 0.5655,
+          "median": 17.31
+        },
+        "Jake Ferguson Receptions Over 1.5": {
+          "p": 0.6142,
+          "median": 2.0
+        }
+      }
+    }
+  ],
+  "legs": [
+    {
+      "name": "Jacoby Brissett Pass Yds Under 258.5",
+      "player": "Jacoby Brissett",
+      "team": "ARI",
+      "opp": "DAL",
+      "type": "QB",
+      "market": "passyds",
+      "receiving": false,
+      "side": "under",
+      "line": 258.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 258.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "draftkings": {
+        "point": 256.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "prizepicks_lines": [
+        258.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P13 FAIL: trailing-team passing/receiving under BLOCKED",
+        "P14 FAIL: a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "DaRon Bland",
+            "team": "DAL",
+            "pos": "CB",
+            "targets": 29.0,
+            "completions": 21.0,
+            "comp_pct": 72.4,
+            "yds": 284.0,
+            "ypt": 9.8,
+            "rating": 126.2,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          },
+          {
+            "name": "Caleb Downs",
+            "team": "DAL",
+            "pos": "DB",
+            "targets": 10.0,
+            "completions": 9.0,
+            "comp_pct": 90.0,
+            "yds": 71.0,
+            "ypt": 7.1,
+            "rating": 129.6,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 21.3% / zone 69.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 60.2% / open 35.7%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.4948,
+      "edge_mc_gr": -0.0052,
+      "shrunk_mc_gr": -0.0037,
+      "recent_form": {
+        "values": [
+          166.0,
+          292.0,
+          218.0,
+          272.0
+        ],
+        "games": [
+          "2026_04_ARI_NYG",
+          "2026_05_DET_ARI",
+          "2026_06_ARI_LA",
+          "2026_07_DEN_ARI"
+        ],
+        "qb": "Jacoby Brissett",
+        "qb_gsis": "00-0033119",
+        "player_gsis": "00-0033119",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Tyler Allgeier Rush Yds Over 13.5",
+      "player": "Tyler Allgeier",
+      "team": "ARI",
+      "opp": "DAL",
+      "type": "RB",
+      "market": "rushyds",
+      "receiving": false,
+      "side": "over",
+      "line": 13.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 13.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "draftkings": {
+        "point": 13.5,
+        "over": -108,
+        "under": -116,
+        "nv_over": 0.4915711395819285,
+        "nv_under": 0.5084288604180714,
+        "overround": 1.0562678062678064
+      },
+      "prizepicks_lines": [
+        13.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P6 FAIL: clutch D/F: no trailing-script overs",
+        "P7 FAIL: rush over needs 60%+ carry share in 3 of last 4; rush-only over on possible trailer needs 4+ tgt/g",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+        "P14 UNVERIFIED: MODEL-SUSPECT: MC median 30.3 vs FD main 13.5 / book consensus 13.5 (>=12 yds) -> Debugging"
+      ],
+      "avg_p_mc_gr": 0.7667,
+      "edge_mc_gr": 0.2667,
+      "shrunk_mc_gr": 0.1867,
+      "recent_form": {
+        "values": [
+          42.0,
+          7.0,
+          38.0,
+          19.0
+        ],
+        "games": [
+          "2026_04_ARI_NYG",
+          "2026_05_DET_ARI",
+          "2026_06_ARI_LA",
+          "2026_07_DEN_ARI"
+        ],
+        "qb": "Jacoby Brissett",
+        "qb_gsis": "00-0033119",
+        "player_gsis": "00-0037263",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Bam Knight Rush Yds Over 19.5",
+      "player": "Bam Knight",
+      "team": "ARI",
+      "opp": "DAL",
+      "type": "RB",
+      "market": "rushyds",
+      "receiving": false,
+      "side": "over",
+      "line": 19.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 19.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "draftkings": null,
+      "prizepicks_lines": [
+        19.5
+      ],
+      "underdog_lines": [
+        19.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: not primary back or proj < line",
+        "P6 FAIL: clutch D/F: no trailing-script overs",
+        "P7 FAIL: rush over needs 60%+ carry share in 3 of last 4; rush-only over on possible trailer needs 4+ tgt/g",
+        "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)"
+      ],
+      "avg_p_mc_gr": 0.5772,
+      "edge_mc_gr": 0.0772,
+      "shrunk_mc_gr": 0.054,
+      "recent_form": {
+        "values": [
+          24.0,
+          8.0,
+          80.0,
+          48.0
+        ],
+        "games": [
+          "2026_02_SEA_ARI",
+          "2026_05_DET_ARI",
+          "2026_06_ARI_LA",
+          "2026_07_DEN_ARI"
+        ],
+        "qb": "Jacoby Brissett",
+        "qb_gsis": "00-0033119",
+        "player_gsis": "00-0037157",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Michael Wilson Rec Yds Under 56.5",
+      "player": "Michael Wilson",
+      "team": "ARI",
+      "opp": "DAL",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "under",
+      "line": 56.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 56.5,
+        "over": -128,
+        "under": 102,
+        "nv_over": 0.5314041433738902,
+        "nv_under": 0.46859585662610986,
+        "overround": 1.0564530137224248
+      },
+      "draftkings": {
+        "point": 56.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        56.5
+      ],
+      "underdog_lines": [
+        59.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 MISSING: defender not in PFR cache",
+        "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+        "P13 FAIL: trailing-team passing/receiving under BLOCKED"
+      ],
+      "avg_p_mc_gr": 0.5437,
+      "edge_mc_gr": 0.0437,
+      "shrunk_mc_gr": 0.0306,
+      "recent_form": {
+        "values": [
+          95.0,
+          30.0,
+          32.0,
+          55.0
+        ],
+        "games": [
+          "2026_04_ARI_NYG",
+          "2026_05_DET_ARI",
+          "2026_06_ARI_LA",
+          "2026_07_DEN_ARI"
+        ],
+        "qb": "Jacoby Brissett",
+        "qb_gsis": "00-0033119",
+        "player_gsis": "00-0038559",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Michael Wilson Receptions Under 4.5",
+      "player": "Michael Wilson",
+      "team": "ARI",
+      "opp": "DAL",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 4.5,
+      "price_fd": -112,
+      "no_vig": 0.4939,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 4.5,
+        "over": -135,
+        "under": 108,
+        "nv_over": 0.5443970531213649,
+        "nv_under": 0.4556029468786351,
+        "overround": 1.0552373158756139
+      },
+      "draftkings": {
+        "point": 4.5,
+        "over": -122,
+        "under": -104,
+        "nv_over": 0.5187593796898449,
+        "nv_under": 0.48124062031015497,
+        "overround": 1.0593534711181771
+      },
+      "prizepicks_lines": [
+        4.5
+      ],
+      "underdog_lines": [
+        4.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 MISSING: defender not in PFR cache",
+        "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+        "P13 FAIL: trailing-team passing/receiving under BLOCKED",
+        "P14 FAIL: edge +2.7 < +3; a model median does not clear the line"
+      ],
+      "avg_p_mc_gr": 0.4971,
+      "edge_mc_gr": 0.0032,
+      "shrunk_mc_gr": 0.0041,
+      "recent_form": {
+        "values": [
+          7.0,
+          4.0,
+          4.0,
+          4.0
+        ],
+        "games": [
+          "2026_04_ARI_NYG",
+          "2026_05_DET_ARI",
+          "2026_06_ARI_LA",
+          "2026_07_DEN_ARI"
+        ],
+        "qb": "Jacoby Brissett",
+        "qb_gsis": "00-0033119",
+        "player_gsis": "00-0038559",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Trey McBride Rec Yds Under 71.5",
+      "player": "Trey McBride",
+      "team": "ARI",
+      "opp": "DAL",
+      "type": "TE",
+      "market": "recyds",
+      "receiving": true,
+      "side": "under",
+      "line": 71.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 71.5,
+        "over": -117,
+        "under": -107,
+        "nv_over": 0.5105400733589106,
+        "nv_under": 0.48945992664108945,
+        "overround": 1.0560787194728287
+      },
+      "draftkings": {
+        "point": 74.5,
+        "over": -110,
+        "under": -114,
+        "nv_over": 0.495787700084246,
+        "nv_under": 0.5042122999157539,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        72.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 21.3% / zone 69.9%, MOF closed 60.2% / open 35.7%; no stand-in allowed",
+        "P13 FAIL: trailing-team passing/receiving under BLOCKED"
+      ],
+      "avg_p_mc_gr": 0.5493,
+      "edge_mc_gr": 0.0493,
+      "shrunk_mc_gr": 0.0345,
+      "recent_form": {
+        "values": [
+          31.0,
+          66.0,
+          53.0,
+          111.0
+        ],
+        "games": [
+          "2026_04_ARI_NYG",
+          "2026_05_DET_ARI",
+          "2026_06_ARI_LA",
+          "2026_07_DEN_ARI"
+        ],
+        "qb": "Jacoby Brissett",
+        "qb_gsis": "00-0033119",
+        "player_gsis": "00-0037744",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Trey McBride Receptions Over 7.5",
+      "player": "Trey McBride",
+      "team": "ARI",
+      "opp": "DAL",
+      "type": "TE",
+      "market": "rec",
+      "receiving": true,
+      "side": "over",
+      "line": 7.5,
+      "price_fd": -122,
+      "no_vig": 0.5142,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 7.5,
+        "over": -120,
+        "under": -104,
+        "nv_over": 0.5168918918918919,
+        "nv_under": 0.4831081081081081,
+        "overround": 1.0552584670231728
+      },
+      "draftkings": {
+        "point": 7.5,
+        "over": -123,
+        "under": -104,
+        "nv_over": 0.519675254742772,
+        "nv_under": 0.480324745257228,
+        "overround": 1.0613734282950849
+      },
+      "prizepicks_lines": [
+        7.5
+      ],
+      "underdog_lines": [
+        7.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 21.3% / zone 69.9%, MOF closed 60.2% / open 35.7%; no stand-in allowed",
+        "P6 FAIL: clutch D/F: no trailing-script overs",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)"
+      ],
+      "avg_p_mc_gr": 0.6014,
+      "edge_mc_gr": 0.0872,
+      "shrunk_mc_gr": 0.0567,
+      "recent_form": {
+        "values": [
+          7.0,
+          9.0,
+          7.0,
+          10.0
+        ],
+        "games": [
+          "2026_04_ARI_NYG",
+          "2026_05_DET_ARI",
+          "2026_06_ARI_LA",
+          "2026_07_DEN_ARI"
+        ],
+        "qb": "Jacoby Brissett",
+        "qb_gsis": "00-0033119",
+        "player_gsis": "00-0037744",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Dak Prescott Pass Yds Under 271.5",
+      "player": "Dak Prescott",
+      "team": "DAL",
+      "opp": "ARI",
+      "type": "QB",
+      "market": "passyds",
+      "receiving": false,
+      "side": "under",
+      "line": 271.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 271.5,
+        "over": -111,
+        "under": -113,
+        "nv_over": 0.4978941161605526,
+        "nv_under": 0.5021058838394474,
+        "overround": 1.056582782635783
+      },
+      "draftkings": {
+        "point": 270.5,
+        "over": -113,
+        "under": -111,
+        "nv_over": 0.5021058838394474,
+        "nv_under": 0.4978941161605526,
+        "overround": 1.056582782635783
+      },
+      "prizepicks_lines": [
+        270.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: edge +0.1 < +3; model p 0.427 < .45; a model median does not clear the line; MODEL-SUSPECT: MC median 287.3 vs FD main 271.5 / book consensus 271.2 (>=12 yds) -> Debugging"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Garrett Williams",
+            "team": "ARI",
+            "pos": "CB",
+            "targets": 6.0,
+            "completions": 4.0,
+            "comp_pct": 66.7,
+            "yds": 21.0,
+            "ypt": 3.5,
+            "rating": 72.2,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          },
+          {
+            "name": "Denzel Burke",
+            "team": "ARI",
+            "pos": "CB",
+            "targets": 15.0,
+            "completions": 10.0,
+            "comp_pct": 66.7,
+            "yds": 114.0,
+            "ypt": 7.6,
+            "rating": 101.1,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          },
+          {
+            "name": "Max Melton",
+            "team": "ARI",
+            "pos": "CB",
+            "targets": 17.0,
+            "completions": 10.0,
+            "comp_pct": 58.8,
+            "yds": 137.0,
+            "ypt": 8.1,
+            "rating": 104.3,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 9.1% / zone 70.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 21.9% / open 56.7%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.4364,
+      "edge_mc_gr": -0.0636,
+      "shrunk_mc_gr": -0.0445,
+      "recent_form": {
+        "values": [
+          335.0,
+          316.0,
+          258.0,
+          212.0
+        ],
+        "games": [
+          "2026_04_DAL_HOU",
+          "2026_05_TB_DAL",
+          "2026_06_DAL_GB",
+          "2026_07_DAL_PHI"
+        ],
+        "qb": "Dak Prescott",
+        "qb_gsis": "00-0033077",
+        "player_gsis": "00-0033077",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Javonte Williams Rush Yds Under 76.5",
+      "player": "Javonte Williams",
+      "team": "DAL",
+      "opp": "ARI",
+      "type": "RB",
+      "market": "rushyds",
+      "receiving": false,
+      "side": "under",
+      "line": 76.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 76.5,
+        "over": -106,
+        "under": -118,
+        "nv_over": 0.4873460435296103,
+        "nv_under": 0.5126539564703898,
+        "overround": 1.0558475104658411
+      },
+      "draftkings": {
+        "point": 75.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        76.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P13 FAIL: 6.5+ favorite rush under vs clock-killing script"
+      ],
+      "avg_p_mc_gr": 0.5796,
+      "edge_mc_gr": 0.0796,
+      "shrunk_mc_gr": 0.0557,
+      "recent_form": {
+        "values": [
+          62.0,
+          45.0,
+          41.0,
+          155.0
+        ],
+        "games": [
+          "2026_04_DAL_HOU",
+          "2026_05_TB_DAL",
+          "2026_06_DAL_GB",
+          "2026_07_DAL_PHI"
+        ],
+        "qb": "Dak Prescott",
+        "qb_gsis": "00-0033077",
+        "player_gsis": "00-0036997",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Javonte Williams Rush+Rec Yds Under 92.5",
+      "player": "Javonte Williams",
+      "team": "DAL",
+      "opp": "ARI",
+      "type": "RB",
+      "market": "rushrec",
+      "receiving": true,
+      "side": "under",
+      "line": 92.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": null,
+      "draftkings": {
+        "point": 91.5,
+        "over": -111,
+        "under": -115,
+        "nv_over": 0.4958445875753168,
+        "nv_under": 0.5041554124246831,
+        "overround": 1.060950071641133
+      },
+      "prizepicks_lines": [
+        91.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 9.1% / zone 70.9%, MOF closed 21.9% / open 56.7%; awaiting ruling",
+        "P13 FAIL: 6.5+ favorite rush under vs clock-killing script"
+      ],
+      "avg_p_mc_gr": 0.5799,
+      "edge_mc_gr": 0.0799,
+      "shrunk_mc_gr": 0.0559,
+      "recent_form": {
+        "values": [
+          83.0,
+          62.0,
+          50.0,
+          155.0
+        ],
+        "games": [
+          "2026_04_DAL_HOU",
+          "2026_05_TB_DAL",
+          "2026_06_DAL_GB",
+          "2026_07_DAL_PHI"
+        ],
+        "qb": "Dak Prescott",
+        "qb_gsis": "00-0033077",
+        "player_gsis": "00-0036997",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "CeeDee Lamb Rec Yds Over 80.5",
+      "player": "CeeDee Lamb",
+      "team": "DAL",
+      "opp": "ARI",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "over",
+      "line": 80.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 80.5,
+        "over": -124,
+        "under": -101,
+        "nv_over": 0.5241860856397745,
+        "nv_under": 0.47581391436022547,
+        "overround": 1.0560589907604834
+      },
+      "draftkings": {
+        "point": 83.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        80.5
+      ],
+      "underdog_lines": [],
+      "bar": "Ticket 2 Lamb 60+ yds; FD 7-leg Lamb 50+",
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: placed-ticket bar: Ticket 2 Lamb 60+ yds; FD 7-leg Lamb 50+; edge +2.3 < +3; a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Denzel Burke",
+            "team": "ARI",
+            "pos": "CB",
+            "targets": 15.0,
+            "completions": 10.0,
+            "comp_pct": 66.7,
+            "yds": 114.0,
+            "ypt": 7.6,
+            "rating": 101.1,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 9.1% / zone 70.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 21.9% / open 56.7%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.556,
+      "edge_mc_gr": 0.056,
+      "shrunk_mc_gr": 0.0392,
+      "recent_form": {
+        "values": [
+          189.0,
+          9.0,
+          70.0,
+          74.0
+        ],
+        "games": [
+          "2026_04_DAL_HOU",
+          "2026_05_TB_DAL",
+          "2026_06_DAL_GB",
+          "2026_07_DAL_PHI"
+        ],
+        "qb": "Dak Prescott",
+        "qb_gsis": "00-0033077",
+        "player_gsis": "00-0036358",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "CeeDee Lamb Receptions Over 6.5",
+      "player": "CeeDee Lamb",
+      "team": "DAL",
+      "opp": "ARI",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "over",
+      "line": 6.5,
+      "price_fd": -106,
+      "no_vig": 0.4808,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 6.5,
+        "over": -122,
+        "under": -103,
+        "nv_over": 0.5199445750755795,
+        "nv_under": 0.48005542492442055,
+        "overround": 1.056938712111126
+      },
+      "draftkings": {
+        "point": 6.5,
+        "over": -114,
+        "under": -111,
+        "nv_over": 0.5031375502008032,
+        "nv_under": 0.4968624497991968,
+        "overround": 1.0587766310847322
+      },
+      "prizepicks_lines": [
+        6.5
+      ],
+      "underdog_lines": [
+        6.5
+      ],
+      "bar": "PP40/PP20/UD20 Lamb o4.5 rec; PP25 o6.5",
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: placed-ticket bar: PP40/PP20/UD20 Lamb o4.5 rec; PP25 o6.5; edge +2.2 < +3; model p 0.449 < .45; a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Denzel Burke",
+            "team": "ARI",
+            "pos": "CB",
+            "targets": 15.0,
+            "completions": 10.0,
+            "comp_pct": 66.7,
+            "yds": 114.0,
+            "ypt": 7.6,
+            "rating": 101.1,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 9.1% / zone 70.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 21.9% / open 56.7%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.5295,
+      "edge_mc_gr": 0.0487,
+      "shrunk_mc_gr": 0.0399,
+      "recent_form": {
+        "values": [
+          17.0,
+          2.0,
+          9.0,
+          5.0
+        ],
+        "games": [
+          "2026_04_DAL_HOU",
+          "2026_05_TB_DAL",
+          "2026_06_DAL_GB",
+          "2026_07_DAL_PHI"
+        ],
+        "qb": "Dak Prescott",
+        "qb_gsis": "00-0033077",
+        "player_gsis": "00-0036358",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "George Pickens Rec Yds Over 59.5",
+      "player": "George Pickens",
+      "team": "DAL",
+      "opp": "ARI",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "over",
+      "line": 59.5,
+      "price_fd": -148,
+      "no_vig": 0.5624,
+      "status": "CUT",
+      "rung": "FD alt 59.5 (one rung below main 65.5): player Questionable (Phase 8 lower rung)",
+      "injury_status": "Questionable",
+      "pinnacle": {
+        "point": 65.5,
+        "over": 103,
+        "under": -130,
+        "nv_over": 0.4656813120064791,
+        "nv_under": 0.534318687993521,
+        "overround": 1.0578282287427714
+      },
+      "draftkings": {
+        "point": 64.5,
+        "over": -110,
+        "under": -114,
+        "nv_over": 0.495787700084246,
+        "nv_under": 0.5042122999157539,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        65.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": "Ticket 2 Pickens 4+ rec and $51.50 SGP 4.5+ rec (different stat: flag for user)",
+      "explicit": {
+        "line": 65.5,
+        "note": "BetGuru defender-regrade leg (run_additions item 1)"
+      },
+      "cut_reasons": [
+        "P14 FAIL: edge +0.9 < +3; shrunk edge -1.3 not > 0"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Max Melton",
+            "team": "ARI",
+            "pos": "CB",
+            "targets": 17.0,
+            "completions": 10.0,
+            "comp_pct": 58.8,
+            "yds": 137.0,
+            "ypt": 8.1,
+            "rating": 104.3,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 9.1% / zone 70.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 21.9% / open 56.7%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.6011,
+      "edge_mc_gr": 0.0387,
+      "shrunk_mc_gr": 0.0084,
+      "recent_form": {
+        "values": [
+          75.0,
+          130.0,
+          73.0,
+          57.0
+        ],
+        "games": [
+          "2026_04_DAL_HOU",
+          "2026_05_TB_DAL",
+          "2026_06_DAL_GB",
+          "2026_07_DAL_PHI"
+        ],
+        "qb": "Dak Prescott",
+        "qb_gsis": "00-0033077",
+        "player_gsis": "00-0037247",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "George Pickens Receptions Over 3.5",
+      "player": "George Pickens",
+      "team": "DAL",
+      "opp": "ARI",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "over",
+      "line": 3.5,
+      "price_fd": -250,
+      "no_vig": 0.668,
+      "status": "CUT",
+      "rung": "FD alt 3.5 (one rung below main 4.5): player Questionable (Phase 8 lower rung)",
+      "injury_status": "Questionable",
+      "pinnacle": {
+        "point": 4.5,
+        "over": 102,
+        "under": -128,
+        "nv_over": 0.46859585662610986,
+        "nv_under": 0.5314041433738902,
+        "overround": 1.0564530137224248
+      },
+      "draftkings": {
+        "point": 4.5,
+        "over": -110,
+        "under": -116,
+        "nv_over": 0.4937655860349127,
+        "nv_under": 0.5062344139650873,
+        "overround": 1.060846560846561
+      },
+      "prizepicks_lines": [
+        4.5
+      ],
+      "underdog_lines": [
+        4.5
+      ],
+      "bar": "Ticket 2 Pickens 4+; $51.50 SGP 4.5+",
+      "stack_flag": "Ticket 2 Pickens 4+ rec and $51.50 SGP 4.5+ rec (different stat: flag for user)",
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: same-role teammate >=28%: [('CeeDee Lamb', 0.2967032967032967)]",
+        "P14 FAIL: placed-ticket bar: Ticket 2 Pickens 4+; $51.50 SGP 4.5+; shrunk edge -1.0 not > 0"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Max Melton",
+            "team": "ARI",
+            "pos": "CB",
+            "targets": 17.0,
+            "completions": 10.0,
+            "comp_pct": 58.8,
+            "yds": 137.0,
+            "ypt": 8.1,
+            "rating": 104.3,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 9.1% / zone 70.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 21.9% / open 56.7%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.7418,
+      "edge_mc_gr": 0.0738,
+      "shrunk_mc_gr": 0.0013,
+      "recent_form": {
+        "values": [
+          2.0,
+          9.0,
+          6.0,
+          4.0
+        ],
+        "games": [
+          "2026_04_DAL_HOU",
+          "2026_05_TB_DAL",
+          "2026_06_DAL_GB",
+          "2026_07_DAL_PHI"
+        ],
+        "qb": "Dak Prescott",
+        "qb_gsis": "00-0033077",
+        "player_gsis": "00-0037247",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Ryan Flournoy Rec Yds Over 36.5",
+      "player": "Ryan Flournoy",
+      "team": "DAL",
+      "opp": "ARI",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "over",
+      "line": 36.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 36.5,
+        "over": -127,
+        "under": 101,
+        "nv_over": 0.5293093080639476,
+        "nv_under": 0.4706906919360524,
+        "overround": 1.0569838034497119
+      },
+      "draftkings": {
+        "point": 37.5,
+        "over": -111,
+        "under": -113,
+        "nv_over": 0.4978941161605526,
+        "nv_under": 0.5021058838394474,
+        "overround": 1.056582782635783
+      },
+      "prizepicks_lines": [
+        37.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: not top-2 target earner (#3)",
+        "P4 UNVERIFIED: defender sample 6 tgt < 8: too thin to grade",
+        "P14 FAIL: edge +2.5 < +3; a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Garrett Williams",
+            "team": "ARI",
+            "pos": "CB",
+            "targets": 6.0,
+            "completions": 4.0,
+            "comp_pct": 66.7,
+            "yds": 21.0,
+            "ypt": 3.5,
+            "rating": 72.2,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 9.1% / zone 70.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 21.9% / open 56.7%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.5521,
+      "edge_mc_gr": 0.0521,
+      "shrunk_mc_gr": 0.0364,
+      "recent_form": {
+        "values": [
+          37.0,
+          90.0,
+          40.0,
+          70.0
+        ],
+        "games": [
+          "2026_04_DAL_HOU",
+          "2026_05_TB_DAL",
+          "2026_06_DAL_GB",
+          "2026_07_DAL_PHI"
+        ],
+        "qb": "Dak Prescott",
+        "qb_gsis": "00-0033077",
+        "player_gsis": "00-0039410",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Ryan Flournoy Receptions Over 3.5",
+      "player": "Ryan Flournoy",
+      "team": "DAL",
+      "opp": "ARI",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "over",
+      "line": 3.5,
+      "price_fd": 106,
+      "no_vig": 0.4542,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 3.5,
+        "over": 114,
+        "under": -144,
+        "nv_over": 0.4419008982903506,
+        "nv_under": 0.5580991017096494,
+        "overround": 1.0574536540523978
+      },
+      "draftkings": {
+        "point": 3.5,
+        "over": -104,
+        "under": -123,
+        "nv_over": 0.480324745257228,
+        "nv_under": 0.519675254742772,
+        "overround": 1.0613734282950849
+      },
+      "prizepicks_lines": [],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: not top-2 target earner (#3); 5+ tgt in <3 of last 4; same-role teammate >=28%: [('CeeDee Lamb', 0.2967032967032967)]; proj rec 3.5 < 3.5",
+        "P4 UNVERIFIED: defender sample 6 tgt < 8: too thin to grade",
+        "P14 FAIL: edge +1.9 < +3; model p 0.427 < .45; a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Garrett Williams",
+            "team": "ARI",
+            "pos": "CB",
+            "targets": 6.0,
+            "completions": 4.0,
+            "comp_pct": 66.7,
+            "yds": 21.0,
+            "ypt": 3.5,
+            "rating": 72.2,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 9.1% / zone 70.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 21.9% / open 56.7%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.4971,
+      "edge_mc_gr": 0.0429,
+      "shrunk_mc_gr": 0.0438,
+      "recent_form": {
+        "values": [
+          4.0,
+          3.0,
+          7.0,
+          4.0
+        ],
+        "games": [
+          "2026_04_DAL_HOU",
+          "2026_05_TB_DAL",
+          "2026_06_DAL_GB",
+          "2026_07_DAL_PHI"
+        ],
+        "qb": "Dak Prescott",
+        "qb_gsis": "00-0033077",
+        "player_gsis": "00-0039410",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Jake Ferguson Rec Yds Over 14.5",
+      "player": "Jake Ferguson",
+      "team": "DAL",
+      "opp": "ARI",
+      "type": "TE",
+      "market": "recyds",
+      "receiving": true,
+      "side": "over",
+      "line": 14.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 14.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "draftkings": {
+        "point": 14.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "prizepicks_lines": [
+        14.5
+      ],
+      "underdog_lines": [
+        14.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: not top-2 target earner (#4); not 4+ tgt in each of last 3",
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 9.1% / zone 70.9%, MOF closed 21.9% / open 56.7%; no stand-in allowed",
+        "P7 FAIL: snap share <60% in last 2"
+      ],
+      "avg_p_mc_gr": 0.5902,
+      "edge_mc_gr": 0.0902,
+      "shrunk_mc_gr": 0.0631,
+      "recent_form": {
+        "values": [
+          11.0,
+          19.0,
+          13.0,
+          0.0
+        ],
+        "games": [
+          "2026_04_DAL_HOU",
+          "2026_05_TB_DAL",
+          "2026_06_DAL_GB",
+          "2026_07_DAL_PHI"
+        ],
+        "qb": "Dak Prescott",
+        "qb_gsis": "00-0033077",
+        "player_gsis": "00-0038041",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Jake Ferguson Receptions Over 1.5",
+      "player": "Jake Ferguson",
+      "team": "DAL",
+      "opp": "ARI",
+      "type": "TE",
+      "market": "rec",
+      "receiving": true,
+      "side": "over",
+      "line": 1.5,
+      "price_fd": -188,
+      "no_vig": 0.6104,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 1.5,
+        "over": -182,
+        "under": 143,
+        "nv_over": 0.6106370640377765,
+        "nv_under": 0.3893629359622235,
+        "overround": 1.0569127046668418
+      },
+      "draftkings": {
+        "point": 1.5,
+        "over": -196,
+        "under": 152,
+        "nv_over": 0.6252785092161232,
+        "nv_under": 0.3747214907838768,
+        "overround": 1.058987558987559
+      },
+      "prizepicks_lines": [
+        2.0
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: not top-2 target earner (#4); 5+ tgt in <3 of last 4",
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 9.1% / zone 70.9%, MOF closed 21.9% / open 56.7%; no stand-in allowed",
+        "P7 FAIL: snap share <60% in last 2",
+        "P14 FAIL: shrunk edge -0.9 not > 0"
+      ],
+      "avg_p_mc_gr": 0.6526,
+      "edge_mc_gr": 0.0422,
+      "shrunk_mc_gr": -0.0035,
+      "recent_form": {
+        "values": [
+          3.0,
+          3.0,
+          2.0,
+          0.0
+        ],
+        "games": [
+          "2026_04_DAL_HOU",
+          "2026_05_TB_DAL",
+          "2026_06_DAL_GB",
+          "2026_07_DAL_PHI"
+        ],
+        "qb": "Dak Prescott",
+        "qb_gsis": "00-0033077",
+        "player_gsis": "00-0038041",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    }
+  ],
+  "edge_decision": "avg(monte_carlo, game_randomness); bias recorded, excluded from edge pending BUGLOG fix",
+  "cross_checks": [
+    {
+      "category": "odds_props",
+      "name": "PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source)",
+      "url_or_file": "/workspace/nfl-database/week8/lines/pff_props_2026-11-01.csv",
+      "pulled_et": "2026-11-01T07:34",
+      "tool": "computerUse browser",
+      "note": "parent gave 07:40; file mtime is 07:34 ET and the gate rejects future stamps, so the file mtime is used",
+      "use": "pick-side cross-check only (moved out of gated sources per Ghost6, BUG-2026-11-01-FORM)"
+    }
+  ]
+}

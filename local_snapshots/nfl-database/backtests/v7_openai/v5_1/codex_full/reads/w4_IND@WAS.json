@@ -1,0 +1,39 @@
+{
+ "game": "Week 4 IND@WAS / kickoff MISSING / spread and total NOT saved; script inferred only from supplied team form / weather NOT saved",
+ "script": {
+  "base": "Expect a competitive, ground-oriented game, without a defensible market-implied leader. Washington can attack Indianapolis allowing 5.08 yards per carry, while Indianapolis keeps Jonathan Taylor central after 66 carries in Weeks 1\u20133; Washington's 4.00 yards per carry allowed makes Taylor's efficiency the key constraint.",
+  "flip1": "Washington's rushing matchup produces an early lead, pushing Indianapolis toward passing and reducing Taylor's rushing opportunities. That supports Taylor's rushing under.",
+  "flip2": "Indianapolis builds an early lead and repeatedly feeds Taylor to protect it. His volume overwhelms Washington's respectable rushing efficiency allowed, threatening the under."
+ },
+ "injury_fallout": "MISSING: injury reports, practice trends, final statuses, snap restrictions and inactives for both IND and WAS. No absences, returns or replacement roles are inferred from the supplied Weeks 1\u20133 usage. Recheck Taylor's availability and both offensive and defensive fronts before any actionable recommendation.",
+ "matchup": {
+  "shell": "MISSING: WAS and IND shell rates, man/zone rates and receiver alignment charting. Location-based passing numbers cannot establish individual coverage assignments.",
+  "pressure": "WAS blitzes 47%; IND QB EPA/dropback is -0.03 against blitzes across 32 dropbacks versus -0.20 without blitzes, so blitz frequency alone does not establish an Indianapolis passing collapse. IND blitzes 23%; WAS QB EPA/dropback is 0.17 without blitzes versus -0.04 against blitzes across 25 dropbacks. Actual pressure rates and offensive-line health are missing.",
+  "bleeds": "WAS has allowed 4.00 rushing yards per carry and five runs of at least 10 yards through three games, compared with IND's 5.08 and 10. Both defenses have passing vulnerabilities: WAS allows 12.29 yards per attempt over the middle and IND 10.74.",
+  "overlap": "Taylor's concentrated rushing role meets the stronger of these two supplied run-defense profiles. The under hypothesis is that Washington keeps his efficiency modest enough that a normal workload does not reach 93 yards; it does not require Taylor to lose his role."
+ },
+ "form": "Source: supplied pre-kickoff pack, Weeks 1\u20133; exact collection timestamp unavailable. Taylor recorded 66 carries for 258 yards, approximately 3.91 yards per carry. Other listed IND rushers combined for 15 carries, confirming substantial volume risk to an under. Taylor also drew 11 targets for 67 receiving yards, but those yards do not count toward the selected rushing market. Washington's Jacory Croskey-Merritt recorded 47 carries for 142 yards, with R.White adding 22 for 100, supporting a plausible Washington ground-oriented approach against IND. Individual-game splits, snaps, red-zone usage and comparable-opponent results are missing; these aggregates cannot establish a week-to-week trend.",
+ "edge_players": [
+  {
+   "player": "jonathantaylor",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Taylor can remain Indianapolis's lead back and still finish below 92.5 rushing yards if Washington's 4.00 yards-per-carry resistance holds against a workload near his recent 22 carries per game.",
+   "must_be_true": "J.Taylor carries <= 22 [because the pack records 66 carries over three games, and WAS has allowed 4.00 rushing yards per carry]",
+   "kills_it": "IF Taylor receives at least 24 carries and averages at least 4.0 yards per carry THEN jonathantaylor rushyds under 92.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The matchup hypothesis precedes the numerical check: Washington limits rushing efficiency without needing to erase Taylor's workload. Taylor's supplied 66 carries for 258 yards support that possibility. As a sensitivity check, not a projection or simulation, 22 carries at WAS's 4.00 yards allowed per carry equals 88 yards; 24 carries equals 96. The margin is thin, so this remains a lean rather than a strong edge. No supplied number clearly contradicts the conditional read.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations, calibrated probability, Pinnacle two-sided prices, usable Taylor rushing price, game-level workload splits, spread, total, moneyline, opening movement, kickoff time, rest/travel details, injury information and weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate: jonathantaylor rushyds under 92.5. Supplied price is +nan, which is not a usable quote. No fair-price comparison, stake or executable recommendation can be established; do not substitute a shorter alternate line.",
+ "pre_mortem": "It is Monday and Taylor cleared 92.5 because his secure workload mattered more than Washington's three-game defensive efficiency. Indianapolis led, Taylor reached 24 or more carries, or one explosive run erased the modest cushion below the line. His 66 recent carries already identify this risk; five long runs allowed by Washington do not mean explosive runs are impossible. Missing injury and market information further weakens the case. Without a valid price, the correct execution decision is to withhold a bet.",
+ "slip_story": "Watchlist only: a competitive game or Washington lead keeps Taylor's rushing volume near or below its recent level. The under survives the base script and the Washington-lead flip, but is vulnerable to an Indianapolis clock-control win. No 3\u20134-leg slip is justified from this pack, and no additional legs are added merely to fill one.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

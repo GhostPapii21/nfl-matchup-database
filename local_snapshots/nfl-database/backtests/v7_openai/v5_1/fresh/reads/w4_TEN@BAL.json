@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 TEN@BAL / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this is form-only, not a book number. Baltimore has been the more explosive offense (Henry 66 carries for 301 rush yards, Jackson 14/127, Flowers 12 targets for 234 receiving yards) while Tennessee has lived on Pollard (38/173) and unconverted air yards (Tate 20 targets, 219 air yards, only 123 receiving yards). Base flow: Baltimore uses Henry to set tempo and keeps its recent mix; Tennessee answers on the ground because Baltimore has allowed 4.13 YPC and 10 runs of 10+, and Ward's -0.19 EPA versus no-blitz does not force a pass-heavy script unless Tennessee trails.",
+  "flip1": "Tennessee falls behind by multiple scores, abandons the run, Pollard's carries die, and Tate/Robinson/Ayomanor targets spike in garbage time.",
+  "flip2": "A lower-event game: Baltimore's pass defense (8 passes of 20+ on 112 attempts, right side 5.34 YPA) and Tennessee's run defense (3.83 YPC, 7 runs of 10+) shrink explosives, Henry still gets the carries, and Bateman's 175 air yards never show up as receiving yards."
+ },
+ "injury_fallout": "MISSING: injury report, practice participation, questionable tags, game-time decisions, and inactives for both TEN and BAL. No absences, returns, or next-man-up guessed. Pack roles only: TEN carries Pollard 38/173, Spears 13/58, Ward 9/30, Singleton 4/10; TEN targets Tate 20/123/219 air, Robinson 18/104/91, Helm 11/55/45, Ayomanor 9/91/97, Pollard 7/22, Spears 6/41. BAL carries Henry 66/301, Jackson 14/127, Hill 13/57; BAL targets Andrews 18/122/132 air, Bateman 13/125/175, Flowers 12/234/146, Moore 6/63/165. Ridley is on the prop board but absent from the TEN target log; that is not treated as an injury.",
+ "matchup": {
+  "shell": "MISSING: man/zone rate and MOFO vs MOFC charting. Location YPA only: BAL middle 8.3 on 23 attempts (soft), left 6.93 on 41, right 5.34 on 41 (best). TEN right 7.37 on 38, left 7.3 on 30, middle 6.53 on 15 (TEN's tightest zone).",
+  "pressure": "BAL blitz rate 37%. Ward EPA/dropback +0.13 vs blitz (n=26) and -0.19 vs no blitz, so Baltimore's base looks are the problem, not the blitz. TEN blitz rate 21%. Jackson EPA +0.32 vs blitz (n=31) and +0.35 vs no blitz, so he is not blitz-dependent.",
+  "bleeds": "BAL run defense bleeds: 4.13 YPC allowed and 10 runs of 10+ in 3 games, plus middle passing at 8.3 YPA, but only 8 passes of 20+ on 112 attempts. TEN run defense is tighter (3.83 YPC, 7 runs of 10+) but allows more explosives (9 of 89) and outside YPA of 7.3-7.37.",
+  "overlap": "Pollard's 38-carry lead role attacks the exact spot BAL gives up (4.13 YPC, 10 explosive runs). Bateman's 175 air yards on 13 targets attack TEN's outside (7.3 left / 7.37 right) and those 9 explosives. Tate's 219 air yards do not overlap: BAL has allowed only 8 explosives on 112 attempts and Tate has converted just 123 receiving yards."
+ },
+ "form": "L3 totals only; no game splits, so one-play inflation cannot be ruled out. Pollard 38 carries, 173 rush yards (57.7 per game, 4.55 YPC) and only 22 receiving yards on 7 targets; Spears is secondary at 13/58. Bateman 13 targets, 125 receiving yards (41.7 per game), 175 air yards. Flowers 234 yards on 12 targets (19.5 per target) looks fluky and is not a leg. Andrews leads BAL targets (18) but only 40.7 yards per game. Henry is the BAL engine at 66/301 (100.3 per game); Hill 13/57 rush plus 22 receiving is a complement. Ward 9 rushes for 30. Henry's 99 rush line and Pollard's 59.5 rush+rec line sit on the means; the 48 rush line and Bateman's 27 do not.",
+ "edge_players": [
+  {
+   "player": "tonypollard",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Pollard has averaged 57.7 rushing yards on 38 carries over three games, and Baltimore has allowed 4.13 yards per carry plus 10 runs of 10+, so 48 sits under both his role and this run defense.",
+   "must_be_true": "Tony Pollard carries >= 12 because 38 carries over the last 3 games and Baltimore allowed 4.13 yards per carry",
+   "kills_it": "IF Tennessee trails by multiple scores and Pollard finishes under 10 carries THEN Pollard rush yards over 48 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "rashodbateman",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Bateman has turned 13 targets and 175 air yards into 125 receiving yards (41.7 per game) against a 27 line, and Tennessee has allowed 7.3-7.37 YPA outside plus 9 passes of 20+ on 89 attempts.",
+   "must_be_true": "Rashod Bateman targets >= 4 because 13 targets and 175 air yards over the last 3 games produced 125 receiving yards",
+   "kills_it": "IF Baltimore protects a lead with Henry and Bateman sees 2 or fewer targets THEN Bateman receiving yards over 27 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Pollard L3 rush average 57.7 and the matchup rate both clear 48 (12.7 carries x 4.13 YPC allowed = 52.3). Bateman L3 receiving average 41.7 clears 27, and TEN's 9 explosives on 89 attempts plus outside YPA 7.3/7.37 do not contradict a downfield WR2. No sim or no-vig in the pack. Prices are +nan, so no short-price check.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, Pinnacle no-vig, sim medians, game-level splits, coverage charting, injury report",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Pollard rushing yards over 48, main line only, price +nan not saved. Bateman receiving yards over 27, main line only, price +nan not saved. No alt rungs in the pack. Cannot confirm plus-money or compare to no-vig; +nan is not treated as a short price. Volume/carry-share market for Pollard; air-yard/explosive market for Bateman.",
+ "pre_mortem": "It's Monday and both lost because the missing spread was a Baltimore layup the form already hinted at: Henry's 22-carry pace and Jackson's 42.3 rushing yards per game put Tennessee in a hole, Ward's -0.19 EPA versus no-blitz (Baltimore blitzes only 37%) never sustained drives, and Pollard finished under 10 carries and under 48. Bateman's 125 yards on 13 targets was one explosive rather than a 4-target floor, so with the lead Baltimore handed it to Henry and Bateman saw two targets and finished under 27. That counter is real but not stronger than the reads: both lines sit well under the only production sample in the pack, and a blowout is not in the data.",
+ "slip_story": "One form-only competitive script, not a blowout and not a shootout: Tennessee runs at Baltimore's 4.13 YPC defense (Pollard rush over 48) while Baltimore keeps the receiving roles already present in the Henry-heavy sample (Bateman rec over 27 cleared alongside 66 Henry carries). Do not pair with a total under, a Tate deep over, or a Henry under \u2014 those need the other game. No TD legs. Two legs only. Prices missing, so this is a read log, not a bet.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

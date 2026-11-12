@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 CAR@CLE / kickoff MISSING / spread and total NOT SAVED / weather NOT SAVED. Script inferred only from supplied team form, not market expectations. Moneyline, implied totals, opening-line movement, rest and travel details MISSING.",
+ "script": {
+  "base": "Carolina's passing efficiency gives it a tentative offensive advantage, with McMillan and Coker sharing the target lead. Cleveland stays competitive by attacking Carolina's vulnerable run defense and using short outlets against its frequent blitzes; pace and halftime leadership cannot be established from this pack.",
+  "flip1": "Cleveland turns Carolina's 6.31 rushing YPC allowed into sustained possession and a lead. Carolina must throw more, preserving McMillan's opportunity, but Cleveland's reduced passing volume threatens Judkins' receiving over.",
+  "flip2": "Carolina's 44% blitz rate disrupts Watson, whose supplied EPA/dropback against blitzes is -0.20. Cleveland falls behind and needs short completions, potentially supporting Judkins, while a comfortable Carolina lead could suppress McMillan's second-half targets."
+ },
+ "injury_fallout": "MISSING: CAR and CLE injury reports, practice participation, final designations, inactive lists, offensive-line availability, defensive absences and return-related snap limits. No absences, returns or next-man-up changes are inferred from these two-game usage totals. Source for all available facts: supplied pre-kickoff Week 3 pack, covering Weeks 1\u20132; exact publication timestamps are missing. Final-report and approximately 90-minute inactive checkpoints cannot be completed.",
+ "matchup": {
+  "shell": "MISSING: both defenses' MOFO/MOFC, man/zone rates and receiver alignment charting. Cleveland's middle passing YPA allowed is 10.1 on 10 attempts, but the pack cannot establish that McMillan regularly attacks those defenders.",
+  "pressure": "CAR blitzes 44%; CLE blitzes 19%. Watson's EPA/dropback is -0.20 against blitzes across 29 dropbacks versus 0.27 without blitzes. Young's corresponding figures are 0.18 across 24 blitzed dropbacks and 0.37 without blitzes. Actual pressure rates, sack rates, time to throw and checkdown rates are missing; blitz frequency alone does not establish that pressure gets home.",
+  "bleeds": "CLE has allowed 4.93 rushing YPC, nine runs of 10-plus yards and seven passing gains of 20-plus yards on 61 attempts. CAR has allowed 6.31 rushing YPC and eight runs of 10-plus yards, but only four passing gains of 20-plus yards on 66 attempts. Position-specific receiving allowances and YAC are missing.",
+  "overlap": "McMillan's joint-team-leading target role and team-leading air-yard total offer a plausible overlap with Cleveland's explosive-pass concessions. Judkins' existing receiving involvement offers a potential outlet against Carolina's blitz tendency, although his routes and actual blitz-response targets are not supplied."
+ },
+ "form": "Only Weeks 1\u20132 are supplied despite the table's L3 label. McMillan accumulated 18 targets, 176 receiving yards and 251 air yards; Coker also had 18 targets, with 204 receiving yards. Judkins accumulated seven targets, 44 receiving yards and -7 air yards, consistent with short-area usage, alongside 24 carries for 54 yards. Hubbard had 22 carries for 102 yards, so Cleveland's weak rushing numbers could also encourage Carolina to run. Individual-game splits, snaps, routes, red-zone usage, play-caller changes and comparable-opponent games are missing.",
+ "edge_players": [
+  {
+   "player": "tetairoamcmillan",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "McMillan's established target demand and downfield involvement can exploit a Cleveland defense that has already conceded seven explosive pass plays.",
+   "must_be_true": "tetairoamcmillan targets >= 7 [because the pack records 18 targets and 251 air yards across Weeks 1\u20132]",
+   "kills_it": "IF Carolina builds a comfortable early lead and sharply reduces second-half passing THEN tetairoamcmillan recyds over 62.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "quinshonjudkins",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Judkins' established short-area receiving role offers an outlet when Carolina's frequent blitzes make Cleveland's downfield passing less comfortable.",
+   "must_be_true": "quinshonjudkins targets >= 3 [because the pack records seven targets, 44 receiving yards and -7 air yards across Weeks 1\u20132]",
+   "kills_it": "IF Cleveland answers Carolina's blitzes by keeping Judkins in protection instead of releasing him into routes THEN quinshonjudkins recyds over 13.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The matchup hypotheses precede this numerical check. McMillan's 176 receiving yards and 251 air yards on 18 targets support meaningful downfield opportunity; Judkins' 44 receiving yards on seven targets support an existing outlet role. These two-game totals test plausibility, not calibrated hit probabilities. McMillan over 62.5 at -113 requires 53.05% to break even; the supplied -113/-113 pair normalizes to 50.00% over. Judkins over 13.5 at -115 requires 53.49%; the supplied over -115/under -114 pair normalizes to approximately 50.10% over. These are supplied-market calculations, not Pinnacle probabilities. Neither read can be independently priced or sized from this pack.",
+  "disagrees": "none",
+  "missing": "Projection model, simulated distributions and medians, calibrated hit probabilities, Pinnacle prices, game-level role consistency, route participation and pressure-to-outlet evidence. Missing information limits validation but is not numerical disagreement.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional leans only: tetairoamcmillan recyds over 62.5 at -113; quinshonjudkins recyds over 13.5 at -115. Receiving yards are permitted markets and match the proposed downfield/outlet mechanisms. No alternate-rung prices or verified positive expected value are available; no stake recommendation.",
+ "pre_mortem": "It's Monday and both overs lost: Carolina exploited Cleveland's 4.93 rushing YPC allowed rather than maintaining McMillan's downfield volume, while Cleveland exploited Carolina's 6.31 rushing YPC allowed rather than throwing to Judkins. Alternatively, Judkins stayed in protection against blitzes, and McMillan's air yards became incompletions. The supplied two-game aggregates cannot establish route stability, individual-game consistency or whether either player had an undisclosed limitation. These are material counter-cases, keeping both selections at lean rather than strong.",
+ "slip_story": "Both leans belong to a competitive-game story: Carolina sustains downfield passing while Cleveland uses short outlets against blitzes. McMillan also survives the Cleveland-leads flip; Judkins can survive the Carolina-leads flip if his routes persist. Do not manufacture a 3\u20134-leg slip from only two supported candidates. No finalized parlay or joint probability is justified.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,48 @@
+{
+ "game": "DET@ARI Week 5 / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so the script is inferred from form only. Detroit's last three games show a multi-weapon pass game (St. Brown 78.7 rec yds/g, Williams 61.3, TeSlaa 62.3, LaPorta 60.0) plus Gibbs at 17.0 carries and 65.7 rush yards, while Arizona's offense is Love (14.7 carries, 60.7 rush yards) plus Wilson (12.3 targets, 111.7 air yards) and McBride (11.0 targets). Detroit blitzes 31% and Brissett's EPA/dropback vs blitz is -0.39, so the base case is a competitive game that leans Detroit if the blitz gets home, with both lead backs keeping something near their L3 carry counts and Arizona's deep shots inefficient rather than a track meet or a clock-killing blowout.",
+  "flip1": "Detroit gets up big, runs the clock, Gibbs's carries spike past 22 and his rush-yard under dies, Detroit WR yards stall, and Arizona abandons the run so Love falls to single-digit carries.",
+  "flip2": "Shootout: Detroit's middle leak (11.52 YPA) lets Brissett keep pace, both teams throw, Wilson and McBride clear, and Gibbs's rush stays near the 60s so the rush under still hits while a Love rush over becomes carry-count dependent."
+ },
+ "injury_fallout": "MISSING: final injury report, practice-status trend, snap or rep limits, and inactives for both DET and ARI. No absence, return, or next-man-up is inferred from usage.",
+ "matchup": {
+  "shell": "MISSING: man/zone rate and MOFO vs MOFC charting. Location YPA only: ARI allows left 9.36 (39 att), middle 8.74 (31 att), right 9.10 (39 att). DET allows left 5.60 (55 att), middle 11.52 (33 att), right 8.16 (76 att).",
+  "pressure": "ARI blitz rate 23%. DET blitz rate 31%. Goff EPA/dropback is 0.34 vs blitz (n=57) and 0.19 with no blitz, so Arizona's low blitz rate does not stress Detroit. Brissett EPA/dropback is -0.39 vs blitz (n=49) and 0.13 with no blitz, so Detroit's 31% blitz is the pressure edge in this game.",
+  "bleeds": "ARI allows 4.22 rush YPC, 11 runs of 10+, and 14 passes of 20+ on 118 attempts, with every pass side at 8.74-9.36 YPA. DET allows 4.72 rush YPC, 16 runs of 10+, and 20 passes of 20+ on 182 attempts. DET's clear leak is the middle (11.52 YPA); the left side is the sound spot (5.60).",
+  "overlap": "Jeremy Love, Arizona's primary rusher (44 carries, 182 yards, 4.14 YPC over the last 3), runs into Detroit's soft run defense (4.72 YPC, 16 runs of 10+). Jahmyr Gibbs (51 carries, 197 yards, 3.86 YPC) does not get a run-defense overlap big enough to lift 65.7 rush yards per game to 91.5 against a 4.22 YPC Arizona front. The Detroit pass leak (middle 11.52) overlaps McBride's 33 targets, not Love's 9 targets and 2 air yards."
+ },
+ "form": "DET last 3 (weeks 2-4): Gibbs 51/197 rush and 23 targets/148 rec yards/60 air; St. Brown 32/236/303; LaPorta 24/180/181; TeSlaa 16/187/215; Williams 16/184/234; Vaki 7/33 rush and 4 targets/41 yards; Goff 5/15 rush. ARI last 3: Love 44/182 rush and 9 targets/27 yards/2 air; Allgeier 15/51 rush and 8/26; Brissett 9/29 rush; Wilson 37/202/335; McBride 33/147/163; Harrison 10/52/131; Bourne 6/33; Higgins 5/39. No per-game split is in the pack, so TeSlaa's 11.7 yards per target on 16 targets is treated as possibly one-play inflated and is not a leg.",
+ "edge_players": [
+  {
+   "player": "jeremiyahlove",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Jeremy Love has averaged 60.7 rush yards on 14.7 carries at 4.14 YPC over the last 3, and Detroit has allowed 4.72 YPC and 16 runs of 10+, so 45.5 sits under both his recent role and this run defense.",
+   "must_be_true": "Jeremy Love carries >= 12 because L3 pace is 14.7 carries at 4.14 YPC",
+   "kills_it": "IF Arizona abandons the run and Jeremy Love finishes with 9 or fewer carries THEN Love rush yards over 45.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jahmyrgibbs",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Jahmyr Gibbs has averaged 65.7 rush yards on 17.0 carries at 3.86 YPC over the last 3, and even Arizona's 4.22 YPC allowed still projects about 72 yards at that carry rate, short of 91.5 unless the workload jumps past 21 carries.",
+   "must_be_true": "Jahmyr Gibbs carries <= 21 because L3 carry pace is 17.0 and Arizona allows 4.22 YPC",
+   "kills_it": "IF Detroit leads big and Jahmyr Gibbs carries exceed 22 THEN Gibbs rush yards under 91.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No model, sim median, or no-vig price is in the pack. Pack form agrees with both leans: Gibbs 65.7 L3 rush yards and 17.0 carries times Arizona's 4.22 YPC allowed is 71.7, under 91.5; Love 60.7 L3 rush yards and Detroit's 4.72 YPC allowed are both over 45.5. TeSlaa over 25.5 and McBride under 84.5 were not used: TeSlaa's 187 yards on 16 targets may be fluky, and Detroit's 11.52 middle YPA conflicts with a McBride under.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injuries and inactives, man/zone and MOFO/MOFC charting, per-game splits, week 1, sim median, no-vig price",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only; no alt rung in the pack. Jeremy Love rush yards over 45.5 at -112. Jahmyr Gibbs rush yards under 91.5 at -113. Both are near even-money main lines, not short-priced alts.",
+ "pre_mortem": "It's Monday and both legs lost because the competitive script was wrong. Detroit led by multiple scores, Gibbs topped 22 carries and cleared 91.5 against a 4.22 YPC defense, and Arizona abandoned the run so Love finished with 9 or fewer carries under 45.5. The other double loss is a Detroit front that held Love well below the 4-game 4.72 YPC while Gibbs ripped 5.4 YPC on his normal 17 carries, which is 92 yards and clears 91.5 without a carry spike. A late inactive that is not in the pack would also flip either workload. That counter needs a blowout or a line-of-scrimmage reversal the L3 roles do not show, so these stay leans rather than drops.",
+ "slip_story": "One competitive-game RB story only: neither team runs away with it, Love keeps about 12-plus carries into Detroit's 4.72 YPC run defense, and Gibbs stays near 17 carries so 91.5 is too high. Love rush over 45.5 and Gibbs rush under 91.5 win together in that script. Do not add Detroit receiver overs, a Wilson or McBride over, or a total over; those need the shootout flip. Do not put Love on a Detroit-blowout stack, which is the flip that kills both legs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

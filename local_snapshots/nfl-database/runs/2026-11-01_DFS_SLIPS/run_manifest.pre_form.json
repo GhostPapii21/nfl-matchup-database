@@ -1,0 +1,3631 @@
+{
+ "season": 2026,
+ "week": 8,
+ "game_id": "multi-game (placed slips)",
+ "game": "DFS@SLIPS",
+ "kickoff_et": "2026-11-01 01:00 PM",
+ "game_date": "2026-11-01",
+ "venue": null,
+ "input_cutoff_et": "2026-11-01T07:30",
+ "skill": "/home/box/agent-data/workflows/nfl-game-script-run/SKILL.md",
+ "seed": 20261101,
+ "trials": 100000,
+ "sim_script": "/workspace/nfl-database/tools/sim_v6.py (08:36 re-score; v5 kept in sims_v5)",
+ "approved_exceptions": [
+  {
+   "input": "coverage.defenders",
+   "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+   "approved_by": "Rico",
+   "approved_on": "2026-11-01",
+   "valid_for_date": "2026-11-01",
+   "scope": "receiving legs",
+   "reason": "misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only"
+  }
+ ],
+ "sources": [
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse play_by_play_2026 (thru 2026-10-29)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "tool": "curl (github nflverse release)",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse snap_counts_2026 + players",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/snap_counts_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN depth charts API (24 teams)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/espn_depth_all.json",
+   "tool": "python urllib",
+   "pulled_et": "2026-11-01T07:14"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN box scores wk1-8 (two-source target check)",
+   "url_or_file": "/workspace/nfl-database/week8/phase_walk/src/espn_box.json",
+   "tool": "earlier urllib pull (Oct 31)",
+   "pulled_et": "2026-10-31T19:19"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "FTN charting via nflverse (blitzers, rushers)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "Sharp Football coverage schemes (man/zone, MOF; data Updated Oct 27)",
+   "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+   "tool": "Firecrawl scrape",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "ESPN WR/CB matchup cheatsheet wk8",
+   "url_or_file": "https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_WRCB.pdf",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:12"
+  },
+  {
+   "category": "ngs",
+   "name": "BACKUP nflverse nextgen_stats release (published copy, data through 2026 Wk8 / 2026-10-29; nextgenstats.nfl.com on hold) - accepted by Ghost6 for 2026-11-01 only",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "film",
+   "name": "Official NFL YouTube highlights (oEmbed-checked) + caption plays re-matched to fresh pbp",
+   "url_or_file": "https://www.youtube.com/@NFL",
+   "tool": "python urllib oEmbed",
+   "pulled_et": "2026-11-01T07:26"
+  },
+  {
+   "category": "injuries_news",
+   "name": "ESPN injuries API",
+   "url_or_file": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "weather",
+   "name": "NWS hourly + Open-Meteo",
+   "url_or_file": "https://api.weather.gov ; https://api.open-meteo.com",
+   "tool": "python urllib",
+   "pulled_et": "2026-11-01T07:10"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API re-pull 08:36: FanDuel main+alt, DraftKings, Pinnacle player props (12 events)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+   "pulled_et": "2026-11-01T08:36",
+   "tool": "The Odds API via pull_odds.py (urllib)"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API re-pull 08:36: FanDuel/DK/Pinnacle spreads+totals (28 games)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_r0835.json",
+   "pulled_et": "2026-11-01T08:36",
+   "tool": "The Odds API via pull_lines.py (urllib)"
+  }
+ ],
+ "flagged_gaps": [
+  {
+   "category": "coverage_matchups",
+   "item": "PFR advanced defense live pull",
+   "status": "MISSING (HTTP 403, not routed around)",
+   "backup": "PFR cache pfr_def_adv_2026.html 2026-10-29 06:02 under Rico exception"
+  },
+  {
+   "category": "coverage_matchups",
+   "item": "Sharp pressure page / SumerSports",
+   "status": "ON HOLD (Ghost6)",
+   "backup": "pressure PROXY (sack|hit|scramble)/dropbacks from nflverse pbp"
+  },
+  {
+   "category": "ngs",
+   "item": "nextgenstats.nfl.com public pages",
+   "status": "ON HOLD (Ghost6)",
+   "backup": "nflverse nextgen_stats release parquet (labelled BACKUP)"
+  },
+  {
+   "category": "coverage_matchups",
+   "item": "PFF per-defender/props",
+   "status": "NOT PULLED (logged-out preview only; needs signed-in box browser, read-only)",
+   "backup": "none used as numbers"
+  },
+  {
+   "category": "core_stats_pbp",
+   "item": "nflverse pbp_participation_2026",
+   "status": "MISSING (HTTP 404 not published; corrupt 9-byte file kept out)",
+   "backup": "ESPN WR/CB cheatsheet alignment + ESPN depth"
+  }
+ ],
+ "pressure_inputs": {
+  "blitz_rate": {
+   "value": {
+    "ARI": 0.304,
+    "ATL": 0.248,
+    "BAL": 0.312,
+    "BUF": 0.355,
+    "CIN": 0.167,
+    "CLE": 0.238,
+    "DAL": 0.263,
+    "DEN": 0.356,
+    "DET": 0.274,
+    "IND": 0.215,
+    "JAX": 0.309,
+    "KC": 0.268,
+    "LAC": 0.27,
+    "LAR": 0.293,
+    "LV": 0.276,
+    "MIN": 0.714,
+    "NYJ": 0.384,
+    "PIT": 0.269,
+    "TB": 0.41,
+    "TEN": 0.235
+   },
+   "definition": "defense FTN n_pass_rushers>=5 / charted dropbacks, season",
+   "l4": {
+    "ARI": 0.3582089552238806,
+    "ATL": 0.27485380116959063,
+    "BAL": 0.2689655172413793,
+    "BUF": 0.3693181818181818,
+    "CIN": 0.20588235294117646,
+    "CLE": 0.26490066225165565,
+    "DAL": 0.2602739726027397,
+    "DEN": 0.34104046242774566,
+    "DET": 0.19680851063829788,
+    "IND": 0.20634920634920634,
+    "JAX": 0.27906976744186046,
+    "KC": 0.24848484848484848,
+    "LAC": 0.2796610169491525,
+    "LAR": 0.3055555555555556,
+    "LV": 0.3284671532846715,
+    "MIN": 0.6638655462184874,
+    "NYJ": 0.4125874125874126,
+    "PIT": 0.26857142857142857,
+    "TB": 0.3765432098765432,
+    "TEN": 0.2484076433121019
+   },
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet + play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "FTN charting"
+  },
+  "pressure_rate": {
+   "value": {
+    "ARI": 0.174,
+    "ATL": 0.186,
+    "BAL": 0.255,
+    "BUF": 0.198,
+    "CIN": 0.227,
+    "CLE": 0.211,
+    "DAL": 0.202,
+    "DEN": 0.271,
+    "DET": 0.215,
+    "IND": 0.181,
+    "JAX": 0.193,
+    "KC": 0.199,
+    "LAC": 0.217,
+    "LAR": 0.165,
+    "LV": 0.236,
+    "MIN": 0.286,
+    "NYJ": 0.216,
+    "PIT": 0.187,
+    "TB": 0.164,
+    "TEN": 0.195
+   },
+   "definition": "defense (sack|qb_hit|scramble)/dropbacks",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "PROXY"
+  },
+  "checkdown_share": {
+   "value": {
+    "ARI": 0.271,
+    "ATL": 0.322,
+    "BAL": 0.302,
+    "BUF": 0.304,
+    "CIN": 0.311,
+    "CLE": 0.333,
+    "DAL": 0.223,
+    "DEN": 0.376,
+    "DET": 0.309,
+    "IND": 0.247,
+    "JAX": 0.213,
+    "KC": 0.387,
+    "LAC": 0.341,
+    "LAR": 0.302,
+    "LV": 0.295,
+    "MIN": 0.387,
+    "NYJ": 0.311,
+    "PIT": 0.35,
+    "TB": 0.355,
+    "TEN": 0.284
+   },
+   "definition": "QB attempts with air_yards<=0 or RB target / attempts",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "nflverse pbp"
+  }
+ },
+ "sims": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "engine": "/workspace/nfl-database/tools/sim_v6.py",
+   "calib": "/workspace/nfl-database/tools/sim_v6_calib.json",
+   "run_et": "2026-11-01T08:36",
+   "legs": {
+    "[PP $40 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.65455,
+     "median": 26.0
+    },
+    "[PP $20 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.65455,
+     "median": 26.0
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "engine": "/workspace/nfl-database/tools/sim_v6.py",
+   "calib": "/workspace/nfl-database/tools/sim_v6_calib.json",
+   "run_et": "2026-11-01T08:36",
+   "legs": {
+    "[PP $40 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.65606,
+     "median": 26.0
+    },
+    "[PP $20 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.65606,
+     "median": 26.0
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "engine": "/workspace/nfl-database/tools/sim_v6.py",
+   "calib": "/workspace/nfl-database/tools/sim_v6_calib.json",
+   "run_et": "2026-11-01T08:36",
+   "legs": {
+    "[PP $40 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.64075,
+     "median": 26.0
+    },
+    "[PP $20 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.64075,
+     "median": 26.0
+    }
+   }
+  }
+ ],
+ "legs": [
+  {
+   "name": "[PP $40 6-pick Power] Tee Higgins Fantasy Score 14.5",
+   "player": "Tee Higgins",
+   "team": "",
+   "opp": "",
+   "type": "",
+   "market": "Fantasy Score 14.5",
+   "receiving": false,
+   "side": "over",
+   "line": 14.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "n/a",
+   "injury_status": "",
+   "pinnacle": null,
+   "draftkings": null,
+   "prizepicks_lines": [],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $40 6-pick Power",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 MISSING: no sim model: no sim model for fantasy score; leg left ungraded (not invented)"
+   ]
+  },
+  {
+   "name": "[PP $40 6-pick Power] CeeDee Lamb Receptions Over 4.5",
+   "player": "CeeDee Lamb",
+   "team": "DAL",
+   "opp": "ARI",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 4.5,
+   "price_fd": -440,
+   "no_vig": 0.7614,
+   "status": "CUT",
+   "rung": "FD alt 4.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 6.5,
+    "over": -122,
+    "under": -103,
+    "nv_over": 0.5199445750755795,
+    "nv_under": 0.48005542492442055,
+    "overround": 1.056938712111126
+   },
+   "draftkings": {
+    "point": 6.5,
+    "over": -114,
+    "under": -111,
+    "nv_over": 0.5031375502008032,
+    "nv_under": 0.4968624497991968,
+    "overround": 1.0587766310847322
+   },
+   "prizepicks_lines": [
+    6.5
+   ],
+   "underdog_lines": [
+    6.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: PP $40 6-pick Power Receptions 4.5 [goblin]",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: edge -5.2 < +3; shrunk edge -11.5 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Denzel Burke",
+      "team": "ARI",
+      "pos": "CB",
+      "targets": 15.0,
+      "completions": 10.0,
+      "comp_pct": 66.7,
+      "yds": 114.0,
+      "ypt": 7.6,
+      "rating": 101.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 9.1% / zone 70.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 21.9% / open 56.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[PP $40 6-pick Power] Brock Bowers Rec Targets 8.5",
+   "player": "Brock Bowers",
+   "team": "",
+   "opp": "",
+   "type": "",
+   "market": "Rec Targets 8.5",
+   "receiving": false,
+   "side": "over",
+   "line": 8.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "n/a",
+   "injury_status": "",
+   "pinnacle": null,
+   "draftkings": null,
+   "prizepicks_lines": [],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $40 6-pick Power",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 MISSING: no sim model: no sim model for targets market; leg left ungraded (not invented)"
+   ]
+  },
+  {
+   "name": "[PP $40 6-pick Power] Amon-Ra St. Brown Receptions Over 5.5",
+   "player": "Amon-Ra St. Brown",
+   "team": "DET",
+   "opp": "MIN",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 5.5,
+   "price_fd": -300,
+   "no_vig": 0.7014,
+   "status": "CUT",
+   "rung": "FD alt 5.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 6.5,
+    "over": -161,
+    "under": 128,
+    "nv_over": 0.5844478410393581,
+    "nv_under": 0.41555215896064196,
+    "overround": 1.0554547287759628
+   },
+   "draftkings": {
+    "point": 7.5,
+    "over": 105,
+    "under": -133,
+    "nv_over": 0.4607930386631069,
+    "nv_under": 0.539206961336893,
+    "overround": 1.0586203286925573
+   },
+   "prizepicks_lines": [
+    7.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $40 6-pick Power Receptions 5.5 [goblin]",
+   "explicit": null,
+   "cut_reasons": [
+    "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+    "P14 FAIL: edge -2.1 < +3; shrunk edge -7.5 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Byron Murphy",
+      "team": "MIN",
+      "pos": "CB",
+      "targets": 26.0,
+      "completions": 18.0,
+      "comp_pct": 69.2,
+      "yds": 231.0,
+      "ypt": 8.9,
+      "rating": 57.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 5.3% / zone 86.5%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 31.6% / open 61.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[PP $40 6-pick Power] Matthew Stafford Pass Completions Over 22.5",
+   "player": "Matthew Stafford",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "QB",
+   "market": "comp",
+   "receiving": false,
+   "side": "over",
+   "line": 22.5,
+   "price_fd": -127,
+   "no_vig": 0.5291,
+   "status": "PASS",
+   "rung": "pinnacle main at the slip line",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 22.5,
+    "over": -124,
+    "under": 103,
+    "nv_over": 0.5291347851677457,
+    "nv_under": 0.47086521483225424,
+    "pulled_et": "2026-11-01T08:36"
+   },
+   "draftkings": {
+    "point": 23.5,
+    "over": 104,
+    "under": -133,
+    "nv_over": 0.4620082487309644,
+    "nv_under": 0.5379917512690355,
+    "overround": 1.0610115290751494
+   },
+   "prizepicks_lines": [
+    22.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $40 6-pick Power Pass Completions 22.5",
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Cam Hart",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 16.0,
+      "completions": 10.0,
+      "comp_pct": 62.5,
+      "yds": 167.0,
+      "ypt": 10.4,
+      "rating": 71.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Donte Jackson",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 9.0,
+      "completions": 6.0,
+      "comp_pct": 66.7,
+      "yds": 69.0,
+      "ypt": 7.7,
+      "rating": 89.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Tarheeb Still",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 11.0,
+      "completions": 5.0,
+      "comp_pct": 45.5,
+      "yds": 71.0,
+      "ypt": 6.5,
+      "rating": 97.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 10.6% / zone 58.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 33.9% / open 40.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "reprice_0836": {
+    "price": -124,
+    "no_vig": 0.5291,
+    "src": "Pinnacle no-vig (no FD line)",
+    "v6_avg_p": 0.6505,
+    "v6_edge": 0.1213,
+    "v6_shrunk": 0.0762,
+    "file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+    "pulled_et": "2026-11-01T08:36"
+   }
+  },
+  {
+   "name": "[PP $40 6-pick Power] Kenneth Walker III Rush Yds Over 97.5",
+   "player": "Kenneth Walker III",
+   "team": "KC",
+   "opp": "DEN",
+   "type": "RB",
+   "market": "rushyds",
+   "receiving": false,
+   "side": "over",
+   "line": 97.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "no FD/Pinnacle/DK price at the slip line 97.5 (DFS-only line): no-vig MISSING",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 87.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "draftkings": {
+    "point": 87.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    89.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $40 6-pick Power Rush Yards 97.5 [demon]",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 MISSING: no book price at this rung: no-vig MISSING, edge not computable; model p 0.398 < .45; a model median does not clear the line; MODEL-SUSPECT: MC median 99.2 vs FD main 85.5 / book consensus 86.8 (>=12 yds) -> Debugging"
+   ]
+  },
+  {
+   "name": "[UD $20 8-pick] Puka Nacua Rec Yds Over 69.5",
+   "player": "Puka Nacua",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 69.5,
+   "price_fd": -280,
+   "no_vig": 0.6945,
+   "status": "CUT",
+   "rung": "FD alt 69.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 91.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "draftkings": {
+    "point": 92.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "prizepicks_lines": [
+    91.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: UD $20 8-pick Receiving Yards 69.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: edge -2.1 < +3; shrunk edge -7.3 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Donte Jackson",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 9.0,
+      "completions": 6.0,
+      "comp_pct": 66.7,
+      "yds": 69.0,
+      "ypt": 7.7,
+      "rating": 89.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 10.6% / zone 58.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 33.9% / open 40.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[UD $20 8-pick] Brock Bowers Rec Yds Over 49.5",
+   "player": "Brock Bowers",
+   "team": "LV",
+   "opp": "NYJ",
+   "type": "TE",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 49.5,
+   "price_fd": -290,
+   "no_vig": 0.7008,
+   "status": "CUT",
+   "rung": "FD alt 49.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 68.5,
+    "over": -118,
+    "under": -106,
+    "nv_over": 0.5126539564703898,
+    "nv_under": 0.4873460435296103,
+    "overround": 1.0558475104658411
+   },
+   "draftkings": {
+    "point": 72.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    69.5
+   ],
+   "underdog_lines": [
+    69.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: UD $20 8-pick Receiving Yards 49.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 23.8% / zone 66.6%, MOF closed 45.2% / open 50.0%; no stand-in allowed",
+    "P14 FAIL: edge +1.0 < +3; shrunk edge -5.4 not > 0"
+   ]
+  },
+  {
+   "name": "[UD $20 8-pick] Kenneth Walker III Rush Yds Over 69.5",
+   "player": "Kenneth Walker III",
+   "team": "KC",
+   "opp": "DEN",
+   "type": "RB",
+   "market": "rushyds",
+   "receiving": false,
+   "side": "over",
+   "line": 69.5,
+   "price_fd": -225,
+   "no_vig": 0.6525,
+   "status": "CUT",
+   "rung": "FD alt 69.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 87.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "draftkings": {
+    "point": 87.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    89.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: UD $20 8-pick Rush Yards 69.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 99.2 vs FD main 85.5 / book consensus 86.8 (>=12 yds) -> Debugging"
+   ]
+  },
+  {
+   "name": "[UD $20 8-pick] Drake London Receptions Over 5.5",
+   "player": "Drake London",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 5.5,
+   "price_fd": -188,
+   "no_vig": 0.6101,
+   "status": "CUT",
+   "rung": "FD alt 5.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 6.5,
+    "over": 113,
+    "under": -142,
+    "nv_over": 0.4444770965727509,
+    "nv_under": 0.555522903427249,
+    "overround": 1.0562604275792498
+   },
+   "draftkings": {
+    "point": 6.5,
+    "over": 110,
+    "under": -141,
+    "nv_over": 0.448706013777695,
+    "nv_under": 0.551293986222305,
+    "overround": 1.0612527168543766
+   },
+   "prizepicks_lines": [
+    6.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: UD $20 8-pick Receptions 5.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: edge -10.2 < +3; shrunk edge -10.5 not > 0; a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Jacob Parrish",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 28.0,
+      "completions": 17.0,
+      "comp_pct": 60.7,
+      "yds": 230.0,
+      "ypt": 8.2,
+      "rating": 83.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 17.2% / zone 78.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 58.6% / open 39.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[UD $20 8-pick] Zay Flowers Rec Yds Over 49.5",
+   "player": "Zay Flowers",
+   "team": "BAL",
+   "opp": "BUF",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 49.5,
+   "price_fd": -490,
+   "no_vig": 0.7827,
+   "status": "CUT",
+   "rung": "FD alt 49.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 85.5,
+    "over": -115,
+    "under": -109,
+    "nv_over": 0.5063197809142617,
+    "nv_under": 0.4936802190857384,
+    "overround": 1.0564148214087012
+   },
+   "draftkings": {
+    "point": 86.5,
+    "over": -110,
+    "under": -114,
+    "nv_over": 0.495787700084246,
+    "nv_under": 0.5042122999157539,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    85.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: UD $20 8-pick Receiving Yards 49.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P5 FAIL: top-10 blitz D and player blitzed share drops >4 pts",
+    "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+    "P14 FAIL: edge +2.1 < +3; shrunk edge -7.0 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Dee Alford",
+      "team": "BUF",
+      "pos": "CB",
+      "targets": 20.0,
+      "completions": 11.0,
+      "comp_pct": 55.0,
+      "yds": 175.0,
+      "ypt": 8.8,
+      "rating": 80.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 16.8% / zone 74.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.8% / open 49.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[UD $20 8-pick] Amon-Ra St. Brown Rec Yds Over 49.5",
+   "player": "Amon-Ra St. Brown",
+   "team": "DET",
+   "opp": "MIN",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 49.5,
+   "price_fd": -450,
+   "no_vig": 0.7711,
+   "status": "CUT",
+   "rung": "FD alt 49.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 77.5,
+    "over": -120,
+    "under": -105,
+    "nv_over": 0.5157232704402516,
+    "nv_under": 0.48427672955974843,
+    "overround": 1.057649667405765
+   },
+   "draftkings": {
+    "point": 79.5,
+    "over": -110,
+    "under": -114,
+    "nv_over": 0.495787700084246,
+    "nv_under": 0.5042122999157539,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    77.5
+   ],
+   "underdog_lines": [
+    79.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: UD $20 8-pick Receiving Yards 49.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+    "P14 FAIL: edge -1.3 < +3; shrunk edge -9.0 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Byron Murphy",
+      "team": "MIN",
+      "pos": "CB",
+      "targets": 26.0,
+      "completions": 18.0,
+      "comp_pct": 69.2,
+      "yds": 231.0,
+      "ypt": 8.9,
+      "rating": 57.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 5.3% / zone 86.5%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 31.6% / open 61.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[UD $20 8-pick] CeeDee Lamb Receptions Over 4.5",
+   "player": "CeeDee Lamb",
+   "team": "DAL",
+   "opp": "ARI",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 4.5,
+   "price_fd": -440,
+   "no_vig": 0.7614,
+   "status": "CUT",
+   "rung": "FD alt 4.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 6.5,
+    "over": -122,
+    "under": -103,
+    "nv_over": 0.5199445750755795,
+    "nv_under": 0.48005542492442055,
+    "overround": 1.056938712111126
+   },
+   "draftkings": {
+    "point": 6.5,
+    "over": -114,
+    "under": -111,
+    "nv_over": 0.5031375502008032,
+    "nv_under": 0.4968624497991968,
+    "overround": 1.0587766310847322
+   },
+   "prizepicks_lines": [
+    6.5
+   ],
+   "underdog_lines": [
+    6.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: UD $20 8-pick Receptions 4.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: edge -5.2 < +3; shrunk edge -11.5 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Denzel Burke",
+      "team": "ARI",
+      "pos": "CB",
+      "targets": 15.0,
+      "completions": 10.0,
+      "comp_pct": 66.7,
+      "yds": 114.0,
+      "ypt": 7.6,
+      "rating": 101.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 9.1% / zone 70.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 21.9% / open 56.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[UD $20 8-pick] Denzel Boston Rec Yds Over 29.5",
+   "player": "Denzel Boston",
+   "team": "CLE",
+   "opp": "PIT",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 29.5,
+   "price_fd": -280,
+   "no_vig": 0.6945,
+   "status": "CUT",
+   "rung": "FD alt 29.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 50.5,
+    "over": 107,
+    "under": -135,
+    "nv_over": 0.45679852269413934,
+    "nv_under": 0.5432014773058607,
+    "overround": 1.0575598725459965
+   },
+   "draftkings": {
+    "point": 48.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    49.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: UD $20 8-pick Receiving Yards 29.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+    "P14 FAIL: edge -14.8 < +3; shrunk edge -16.2 not > 0; a model median does not clear the line; MODEL-SUSPECT: MC median 36.2 vs FD main 47.5 / book consensus 48.8 (>=12 yds) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Jamel Dean",
+      "team": "PIT",
+      "pos": "CB",
+      "targets": 18.0,
+      "completions": 12.0,
+      "comp_pct": 66.7,
+      "yds": 160.0,
+      "ypt": 8.9,
+      "rating": 94.7,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 12.6% / zone 82.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.5% / open 51.5%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[PP $20 6-pick Power] Tee Higgins Rec Yds Over 68.5",
+   "player": "Tee Higgins",
+   "team": "CIN",
+   "opp": "TEN",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 68.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "no FD/Pinnacle/DK price at the slip line 68.5 (DFS-only line): no-vig MISSING",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 70.5,
+    "over": -114,
+    "under": -110,
+    "nv_over": 0.5042122999157539,
+    "nv_under": 0.495787700084246,
+    "overround": 1.0565198041833557
+   },
+   "draftkings": {
+    "point": 71.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    70.5
+   ],
+   "underdog_lines": [
+    69.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: PP $20 6-pick Power Rec Yards 68.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 MISSING: no book price at this rung: no-vig MISSING, edge not computable; MODEL-SUSPECT: MC median 84.8 vs FD main 70.5 / book consensus 70.8 (>=12 yds) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Cordale Flott",
+      "team": "TEN",
+      "pos": "CB",
+      "targets": 9.0,
+      "completions": 6.0,
+      "comp_pct": 66.7,
+      "yds": 83.0,
+      "ypt": 9.2,
+      "rating": 96.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 16.5% / zone 77.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.6% / open 51.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[PP $20 6-pick Power] CeeDee Lamb Receptions Over 4.5",
+   "player": "CeeDee Lamb",
+   "team": "DAL",
+   "opp": "ARI",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 4.5,
+   "price_fd": -440,
+   "no_vig": 0.7614,
+   "status": "CUT",
+   "rung": "FD alt 4.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 6.5,
+    "over": -122,
+    "under": -103,
+    "nv_over": 0.5199445750755795,
+    "nv_under": 0.48005542492442055,
+    "overround": 1.056938712111126
+   },
+   "draftkings": {
+    "point": 6.5,
+    "over": -114,
+    "under": -111,
+    "nv_over": 0.5031375502008032,
+    "nv_under": 0.4968624497991968,
+    "overround": 1.0587766310847322
+   },
+   "prizepicks_lines": [
+    6.5
+   ],
+   "underdog_lines": [
+    6.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: PP $20 6-pick Power Receptions 4.5 [goblin]",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: edge -5.2 < +3; shrunk edge -11.5 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Denzel Burke",
+      "team": "ARI",
+      "pos": "CB",
+      "targets": 15.0,
+      "completions": 10.0,
+      "comp_pct": 66.7,
+      "yds": 114.0,
+      "ypt": 7.6,
+      "rating": 101.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 9.1% / zone 70.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 21.9% / open 56.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[PP $20 6-pick Power] Brock Bowers Halves w/25+ Rec Yds 1.5 [demon]",
+   "player": "Brock Bowers",
+   "team": "",
+   "opp": "",
+   "type": "",
+   "market": "Halves w/25+ Rec Yds 1.5 [demon]",
+   "receiving": false,
+   "side": "over",
+   "line": 1.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "n/a",
+   "injury_status": "",
+   "pinnacle": null,
+   "draftkings": null,
+   "prizepicks_lines": [],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $20 6-pick Power",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 MISSING: no sim model: no sim model for halves market; leg left ungraded (not invented)"
+   ]
+  },
+  {
+   "name": "[PP $20 6-pick Power] Kenneth Walker III K. Walker III + K. Williams Anytime TDs 1.5",
+   "player": "Kenneth Walker III",
+   "team": "",
+   "opp": "",
+   "type": "",
+   "market": "K. Walker III + K. Williams Anytime TDs 1.5",
+   "receiving": false,
+   "side": "over",
+   "line": 1.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "n/a",
+   "injury_status": "",
+   "pinnacle": null,
+   "draftkings": null,
+   "prizepicks_lines": [],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $20 6-pick Power",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 MISSING: no sim model: no sim model for TD combo; leg left ungraded (not invented)"
+   ]
+  },
+  {
+   "name": "[PP $20 6-pick Power] Matthew Stafford Pass Completions Over 22.5",
+   "player": "Matthew Stafford",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "QB",
+   "market": "comp",
+   "receiving": false,
+   "side": "over",
+   "line": 22.5,
+   "price_fd": -127,
+   "no_vig": 0.5291,
+   "status": "PASS",
+   "rung": "pinnacle main at the slip line",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 22.5,
+    "over": -124,
+    "under": 103,
+    "nv_over": 0.5291347851677457,
+    "nv_under": 0.47086521483225424,
+    "pulled_et": "2026-11-01T08:36"
+   },
+   "draftkings": {
+    "point": 23.5,
+    "over": 104,
+    "under": -133,
+    "nv_over": 0.4620082487309644,
+    "nv_under": 0.5379917512690355,
+    "overround": 1.0610115290751494
+   },
+   "prizepicks_lines": [
+    22.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $20 6-pick Power Pass Completions 22.5",
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Cam Hart",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 16.0,
+      "completions": 10.0,
+      "comp_pct": 62.5,
+      "yds": 167.0,
+      "ypt": 10.4,
+      "rating": 71.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Donte Jackson",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 9.0,
+      "completions": 6.0,
+      "comp_pct": 66.7,
+      "yds": 69.0,
+      "ypt": 7.7,
+      "rating": 89.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Tarheeb Still",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 11.0,
+      "completions": 5.0,
+      "comp_pct": 45.5,
+      "yds": 71.0,
+      "ypt": 6.5,
+      "rating": 97.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 10.6% / zone 58.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 33.9% / open 40.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "reprice_0836": {
+    "price": -124,
+    "no_vig": 0.5291,
+    "src": "Pinnacle no-vig (no FD line)",
+    "v6_avg_p": 0.6505,
+    "v6_edge": 0.1213,
+    "v6_shrunk": 0.0762,
+    "file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+    "pulled_et": "2026-11-01T08:36"
+   }
+  },
+  {
+   "name": "[PP $20 6-pick Power] Patrick Mahomes Pass Yds Over 0.5",
+   "player": "Patrick Mahomes",
+   "team": "KC",
+   "opp": "DEN",
+   "type": "QB",
+   "market": "passyds",
+   "receiving": false,
+   "side": "over",
+   "line": 0.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "no FD/Pinnacle/DK price at the slip line 0.5 (DFS-only line): no-vig MISSING",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 223.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "draftkings": {
+    "point": 225.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    0.5,
+    223.5
+   ],
+   "underdog_lines": [
+    224.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: PP $20 6-pick Power Pass Yards 0.5 (discounted)",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 MISSING: no book price at this rung: no-vig MISSING, edge not computable"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Riley Moss",
+      "team": "DEN",
+      "pos": "CB",
+      "targets": 22.0,
+      "completions": 11.0,
+      "comp_pct": 50.0,
+      "yds": 145.0,
+      "ypt": 6.6,
+      "rating": 91.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Ja'Quan McMillian",
+      "team": "DEN",
+      "pos": "CB",
+      "targets": 15.0,
+      "completions": 9.0,
+      "comp_pct": 60.0,
+      "yds": 156.0,
+      "ypt": 10.4,
+      "rating": 95.4,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 24.5% / zone 70.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 48.0% / open 48.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[PP $25 6-pick Power] Zay Flowers Receptions Over 6.5",
+   "player": "Zay Flowers",
+   "team": "BAL",
+   "opp": "BUF",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 6.5,
+   "price_fd": 120,
+   "no_vig": 0.4248,
+   "status": "CUT",
+   "rung": "fanduel main at the slip line",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 6.5,
+    "over": 114,
+    "under": -143,
+    "nv_over": 0.44260682670940954,
+    "nv_under": 0.5573931732905906,
+    "overround": 1.0557670858813122
+   },
+   "draftkings": {
+    "point": 6.5,
+    "over": 113,
+    "under": -144,
+    "nv_over": 0.44305636257989545,
+    "nv_under": 0.5569436374201047,
+    "overround": 1.0596475025013468
+   },
+   "prizepicks_lines": [
+    6.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $25 6-pick Power Receptions 6 (integer: 6 = push, graded P(7+))",
+   "explicit": null,
+   "cut_reasons": [
+    "P5 FAIL: top-10 blitz D and player blitzed share drops >4 pts",
+    "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+    "P14 FAIL: model p 0.449 < .45; a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Dee Alford",
+      "team": "BUF",
+      "pos": "CB",
+      "targets": 20.0,
+      "completions": 11.0,
+      "comp_pct": 55.0,
+      "yds": 175.0,
+      "ypt": 8.8,
+      "rating": 80.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 16.8% / zone 74.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.8% / open 49.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[PP $25 6-pick Power] Bijan Robinson Receptions Over 3.5",
+   "player": "Bijan Robinson",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "RB",
+   "market": "rec",
+   "receiving": false,
+   "side": "over",
+   "line": 3.5,
+   "price_fd": -148,
+   "no_vig": 0.5585,
+   "status": "CUT",
+   "rung": "fanduel main at the slip line",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 3.5,
+    "over": -145,
+    "under": 115,
+    "nv_over": 0.5599461158509206,
+    "nv_under": 0.4400538841490795,
+    "overround": 1.056953013763645
+   },
+   "draftkings": {
+    "point": 4.5,
+    "over": 127,
+    "under": -163,
+    "nv_over": 0.4154752689530971,
+    "nv_under": 0.584524731046903,
+    "overround": 1.0603004974791042
+   },
+   "prizepicks_lines": [
+    4.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $25 6-pick Power Receptions 3.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+    "P14 FAIL: edge -14.7 < +3; shrunk edge -12.0 not > 0; model p 0.383 < .45; a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Zyon McCollum",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 22.0,
+      "completions": 14.0,
+      "comp_pct": 63.6,
+      "yds": 152.0,
+      "ypt": 6.9,
+      "rating": 99.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Benjamin Morrison",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 17.0,
+      "completions": 11.0,
+      "comp_pct": 64.7,
+      "yds": 88.0,
+      "ypt": 5.2,
+      "rating": 77.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Jacob Parrish",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 28.0,
+      "completions": 17.0,
+      "comp_pct": 60.7,
+      "yds": 230.0,
+      "ypt": 8.2,
+      "rating": 83.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 17.2% / zone 78.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 58.6% / open 39.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[PP $25 6-pick Power] CeeDee Lamb Receptions Over 6.5",
+   "player": "CeeDee Lamb",
+   "team": "DAL",
+   "opp": "ARI",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 6.5,
+   "price_fd": -106,
+   "no_vig": 0.4808,
+   "status": "CUT",
+   "rung": "fanduel main at the slip line",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 6.5,
+    "over": -122,
+    "under": -103,
+    "nv_over": 0.5199445750755795,
+    "nv_under": 0.48005542492442055,
+    "overround": 1.056938712111126
+   },
+   "draftkings": {
+    "point": 6.5,
+    "over": -114,
+    "under": -111,
+    "nv_over": 0.5031375502008032,
+    "nv_under": 0.4968624497991968,
+    "overround": 1.0587766310847322
+   },
+   "prizepicks_lines": [
+    6.5
+   ],
+   "underdog_lines": [
+    6.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: PP $25 6-pick Power Receptions 6.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: edge +2.2 < +3; model p 0.449 < .45; a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Denzel Burke",
+      "team": "ARI",
+      "pos": "CB",
+      "targets": 15.0,
+      "completions": 10.0,
+      "comp_pct": 66.7,
+      "yds": 114.0,
+      "ypt": 7.6,
+      "rating": 101.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 9.1% / zone 70.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 21.9% / open 56.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[PP $25 6-pick Power] Amon-Ra St. Brown Receptions Over 7.5",
+   "player": "Amon-Ra St. Brown",
+   "team": "DET",
+   "opp": "MIN",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 7.5,
+   "price_fd": 116,
+   "no_vig": 0.433,
+   "status": "CUT",
+   "rung": "FD alt 7.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 6.5,
+    "over": -161,
+    "under": 128,
+    "nv_over": 0.5844478410393581,
+    "nv_under": 0.41555215896064196,
+    "overround": 1.0554547287759628
+   },
+   "draftkings": {
+    "point": 7.5,
+    "over": 105,
+    "under": -133,
+    "nv_over": 0.4607930386631069,
+    "nv_under": 0.539206961336893,
+    "overround": 1.0586203286925573
+   },
+   "prizepicks_lines": [
+    7.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $25 6-pick Power Receptions 7 (integer: 7 = push, graded P(8+))",
+   "explicit": null,
+   "cut_reasons": [
+    "P2 FAIL: proj rec 7.0 < 7.5",
+    "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+    "P14 FAIL: edge -3.3 < +3; shrunk edge -0.3 not > 0; model p 0.326 < .45; a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Byron Murphy",
+      "team": "MIN",
+      "pos": "CB",
+      "targets": 26.0,
+      "completions": 18.0,
+      "comp_pct": 69.2,
+      "yds": 231.0,
+      "ypt": 8.9,
+      "rating": 57.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 5.3% / zone 86.5%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 31.6% / open 61.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[PP $25 6-pick Power] Jaylen Warren Rush+Rec Yds Over 69.5",
+   "player": "Jaylen Warren",
+   "team": "PIT",
+   "opp": "CLE",
+   "type": "RB",
+   "market": "rushrec",
+   "receiving": true,
+   "side": "over",
+   "line": 69.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "no FD/Pinnacle/DK price at the slip line 69.5 (DFS-only line): no-vig MISSING",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 90.5,
+    "over": -112,
+    "under": -114,
+    "nv_over": 0.4979225527671597,
+    "nv_under": 0.5020774472328402,
+    "overround": 1.0610121671662847
+   },
+   "prizepicks_lines": [
+    90.5
+   ],
+   "underdog_lines": [
+    89.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: PP $25 6-pick Power Rush+Rec Yds 69.5 [goblin]",
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 42.4% / zone 54.0%, MOF closed 72.6% / open 24.4%; awaiting ruling",
+    "P6 FAIL: no-blitz D/F vs <25% blitz D",
+    "P14 MISSING: no book price at this rung: no-vig MISSING, edge not computable"
+   ]
+  },
+  {
+   "name": "[PP $25 6-pick Power] Kyren Williams Anytime TD 0.5 [goblin]",
+   "player": "Kyren Williams",
+   "team": "",
+   "opp": "",
+   "type": "",
+   "market": "Anytime TD 0.5 [goblin]",
+   "receiving": false,
+   "side": "over",
+   "line": 0.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "n/a",
+   "injury_status": "",
+   "pinnacle": null,
+   "draftkings": null,
+   "prizepicks_lines": [],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: PP $25 6-pick Power",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 MISSING: no sim model: no sim model for TDs; leg left ungraded (not invented)"
+   ]
+  },
+  {
+   "name": "[FD 7-leg +694] Tee Higgins Receptions Over 3.5",
+   "player": "Tee Higgins",
+   "team": "CIN",
+   "opp": "TEN",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 3.5,
+   "price_fd": -360,
+   "no_vig": 0.7308,
+   "status": "CUT",
+   "rung": "FD alt 3.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 5.5,
+    "over": 131,
+    "under": -165,
+    "nv_over": 0.4101214888183858,
+    "nv_under": 0.589878511181614,
+    "overround": 1.0555419423343952
+   },
+   "draftkings": {
+    "point": 4.5,
+    "over": -152,
+    "under": 119,
+    "nv_over": 0.5691423881821913,
+    "nv_under": 0.43085761181780885,
+    "overround": 1.059795607740813
+   },
+   "prizepicks_lines": [
+    5.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD 7-leg +694 (placed status UNCONFIRMED) 4+ receptions (-360)",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: edge +2.3 < +3; shrunk edge -5.3 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Cordale Flott",
+      "team": "TEN",
+      "pos": "CB",
+      "targets": 9.0,
+      "completions": 6.0,
+      "comp_pct": 66.7,
+      "yds": 83.0,
+      "ypt": 9.2,
+      "rating": 96.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 16.5% / zone 77.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.6% / open 51.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD 7-leg +694] Brock Bowers Rec Yds Over 49.5",
+   "player": "Brock Bowers",
+   "team": "LV",
+   "opp": "NYJ",
+   "type": "TE",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 49.5,
+   "price_fd": -290,
+   "no_vig": 0.7008,
+   "status": "CUT",
+   "rung": "FD alt 49.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 68.5,
+    "over": -118,
+    "under": -106,
+    "nv_over": 0.5126539564703898,
+    "nv_under": 0.4873460435296103,
+    "overround": 1.0558475104658411
+   },
+   "draftkings": {
+    "point": 72.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    69.5
+   ],
+   "underdog_lines": [
+    69.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: FD 7-leg +694 (placed status UNCONFIRMED) 50+ rec yds (-290)",
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 23.8% / zone 66.6%, MOF closed 45.2% / open 50.0%; no stand-in allowed",
+    "P14 FAIL: edge +1.0 < +3; shrunk edge -5.4 not > 0"
+   ]
+  },
+  {
+   "name": "[FD 7-leg +694] Zay Flowers Rec Yds Over 59.5",
+   "player": "Zay Flowers",
+   "team": "BAL",
+   "opp": "BUF",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 59.5,
+   "price_fd": -300,
+   "no_vig": 0.7069,
+   "status": "CUT",
+   "rung": "FD alt 59.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 85.5,
+    "over": -115,
+    "under": -109,
+    "nv_over": 0.5063197809142617,
+    "nv_under": 0.4936802190857384,
+    "overround": 1.0564148214087012
+   },
+   "draftkings": {
+    "point": 86.5,
+    "over": -110,
+    "under": -114,
+    "nv_over": 0.495787700084246,
+    "nv_under": 0.5042122999157539,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    85.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD 7-leg +694 (placed status UNCONFIRMED) 60+ rec yds (-300)",
+   "explicit": null,
+   "cut_reasons": [
+    "P5 FAIL: top-10 blitz D and player blitzed share drops >4 pts",
+    "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+    "P14 FAIL: edge +2.4 < +3; shrunk edge -4.5 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Dee Alford",
+      "team": "BUF",
+      "pos": "CB",
+      "targets": 20.0,
+      "completions": 11.0,
+      "comp_pct": 55.0,
+      "yds": 175.0,
+      "ypt": 8.8,
+      "rating": 80.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 16.8% / zone 74.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.8% / open 49.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD 7-leg +694] Parker Washington Rec Yds Over 39.5",
+   "player": "Parker Washington",
+   "team": "JAX",
+   "opp": "IND",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 39.5,
+   "price_fd": -440,
+   "no_vig": 0.7679,
+   "status": "CUT",
+   "rung": "FD alt 39.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 67.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "draftkings": null,
+   "prizepicks_lines": [
+    67.5
+   ],
+   "underdog_lines": [
+    69.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: FD 7-leg +694 (placed status UNCONFIRMED) 40+ rec yds (-420)",
+   "explicit": null,
+   "cut_reasons": [
+    "P2 FAIL: not 4+ tgt in each of last 3",
+    "P4 UNVERIFIED: defender sample 2 tgt < 8: too thin to grade",
+    "P11 FAIL: sustained wind 15+ mph: cut passing/receiving yardage overs",
+    "P14 FAIL: edge -13.1 < +3; shrunk edge -17.2 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Kapena Gushiken",
+      "team": "IND",
+      "pos": "CB",
+      "targets": 2.0,
+      "completions": 1.0,
+      "comp_pct": 50.0,
+      "yds": -2.0,
+      "ypt": -1.0,
+      "rating": 56.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 26.2% / zone 66.5%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 50.2% / open 44.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD 7-leg +694] CeeDee Lamb Rec Yds Over 49.5",
+   "player": "CeeDee Lamb",
+   "team": "DAL",
+   "opp": "ARI",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 49.5,
+   "price_fd": -490,
+   "no_vig": 0.7827,
+   "status": "CUT",
+   "rung": "FD alt 49.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 80.5,
+    "over": -124,
+    "under": -101,
+    "nv_over": 0.5241860856397745,
+    "nv_under": 0.47581391436022547,
+    "overround": 1.0560589907604834
+   },
+   "draftkings": {
+    "point": 83.5,
+    "over": -114,
+    "under": -110,
+    "nv_over": 0.5042122999157539,
+    "nv_under": 0.495787700084246,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    80.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD 7-leg +694 (placed status UNCONFIRMED) 50+ rec yds (-490)",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: edge -4.0 < +3; shrunk edge -11.3 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Denzel Burke",
+      "team": "ARI",
+      "pos": "CB",
+      "targets": 15.0,
+      "completions": 10.0,
+      "comp_pct": 66.7,
+      "yds": 114.0,
+      "ypt": 7.6,
+      "rating": 101.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 9.1% / zone 70.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 21.9% / open 56.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD 7-leg +694] Kyren Williams Kyren Williams or Blake Corum anytime TD (-280)",
+   "player": "Kyren Williams",
+   "team": "",
+   "opp": "",
+   "type": "",
+   "market": "Kyren Williams or Blake Corum anytime TD (-280)",
+   "receiving": false,
+   "side": "over",
+   "line": 0.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "n/a",
+   "injury_status": "",
+   "pinnacle": null,
+   "draftkings": null,
+   "prizepicks_lines": [],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD 7-leg +694 (placed status UNCONFIRMED)",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 MISSING: no sim model: no sim model for TDs; leg left ungraded (not invented)"
+   ]
+  },
+  {
+   "name": "[FD 7-leg +694] Kenneth Walker III anytime TD (-140)",
+   "player": "Kenneth Walker III",
+   "team": "",
+   "opp": "",
+   "type": "",
+   "market": "anytime TD (-140)",
+   "receiving": false,
+   "side": "over",
+   "line": 0.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "n/a",
+   "injury_status": "",
+   "pinnacle": null,
+   "draftkings": null,
+   "prizepicks_lines": [],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD 7-leg +694 (placed status UNCONFIRMED)",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 MISSING: no sim model: no sim model for TDs; leg left ungraded (not invented)"
+   ]
+  },
+  {
+   "name": "[FD Ticket 2 SGP+ $63 +1508] Jahmyr Gibbs Receptions Over 4.5",
+   "player": "Jahmyr Gibbs",
+   "team": "DET",
+   "opp": "MIN",
+   "type": "RB",
+   "market": "rec",
+   "receiving": false,
+   "side": "over",
+   "line": 4.5,
+   "price_fd": 118,
+   "no_vig": 0.4283,
+   "status": "CUT",
+   "rung": "fanduel main at the slip line",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 4.5,
+    "over": 109,
+    "under": -137,
+    "nv_over": 0.45286912655494616,
+    "nv_under": 0.5471308734450537,
+    "overround": 1.056527971251489
+   },
+   "draftkings": {
+    "point": 4.5,
+    "over": 128,
+    "under": -164,
+    "nv_over": 0.41384499623777277,
+    "nv_under": 0.5861550037622273,
+    "overround": 1.0598086124401913
+   },
+   "prizepicks_lines": [
+    4.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD Ticket 2 SGP+ $63 +1508 5+ rec",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: model p 0.436 < .45; a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Isaiah Rodgers",
+      "team": "MIN",
+      "pos": "CB",
+      "targets": 19.0,
+      "completions": 7.0,
+      "comp_pct": 36.8,
+      "yds": 115.0,
+      "ypt": 6.1,
+      "rating": 36.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "James Pierre",
+      "team": "MIN",
+      "pos": "CB",
+      "targets": 12.0,
+      "completions": 5.0,
+      "comp_pct": 41.7,
+      "yds": 50.0,
+      "ypt": 4.2,
+      "rating": 19.4,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 5.3% / zone 86.5%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 31.6% / open 61.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD Ticket 2 SGP+ $63 +1508] Amon-Ra St. Brown Rec Yds Over 59.5",
+   "player": "Amon-Ra St. Brown",
+   "team": "DET",
+   "opp": "MIN",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 59.5,
+   "price_fd": -260,
+   "no_vig": 0.6807,
+   "status": "CUT",
+   "rung": "FD alt 59.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 77.5,
+    "over": -120,
+    "under": -105,
+    "nv_over": 0.5157232704402516,
+    "nv_under": 0.48427672955974843,
+    "overround": 1.057649667405765
+   },
+   "draftkings": {
+    "point": 79.5,
+    "over": -110,
+    "under": -114,
+    "nv_over": 0.495787700084246,
+    "nv_under": 0.5042122999157539,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    77.5
+   ],
+   "underdog_lines": [
+    79.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: FD Ticket 2 SGP+ $63 +1508 60+ yds",
+   "explicit": null,
+   "cut_reasons": [
+    "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+    "P14 FAIL: edge -1.8 < +3; shrunk edge -6.7 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Byron Murphy",
+      "team": "MIN",
+      "pos": "CB",
+      "targets": 26.0,
+      "completions": 18.0,
+      "comp_pct": 69.2,
+      "yds": 231.0,
+      "ypt": 8.9,
+      "rating": 57.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 5.3% / zone 86.5%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 31.6% / open 61.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD Ticket 2 SGP+ $63 +1508] Chris Godwin Jr. Receptions Over 3.5",
+   "player": "Chris Godwin Jr.",
+   "team": "TB",
+   "opp": "ATL",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 3.5,
+   "price_fd": -220,
+   "no_vig": 0.6431,
+   "status": "CUT",
+   "rung": "FD alt 3.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 4.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "draftkings": {
+    "point": 4.5,
+    "over": -112,
+    "under": -114,
+    "nv_over": 0.4979225527671597,
+    "nv_under": 0.5020774472328402,
+    "overround": 1.0610121671662847
+   },
+   "prizepicks_lines": [
+    4.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD Ticket 2 SGP+ $63 +1508 4+ rec",
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: defender sample 7 tgt < 8: too thin to grade",
+    "P14 FAIL: edge -15.1 < +3; shrunk edge -14.9 not > 0; model p 0.433 < .45; a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Sydney Brown",
+      "team": "ATL",
+      "pos": "DB",
+      "targets": 7.0,
+      "completions": 6.0,
+      "comp_pct": 85.7,
+      "yds": 31.0,
+      "ypt": 4.4,
+      "rating": 124.7,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 21.9% / zone 70.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 59.5% / open 34.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD Ticket 2 SGP+ $63 +1508] Drake London Receptions Over 4.5",
+   "player": "Drake London",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 4.5,
+   "price_fd": -380,
+   "no_vig": 0.7399,
+   "status": "CUT",
+   "rung": "FD alt 4.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 6.5,
+    "over": 113,
+    "under": -142,
+    "nv_over": 0.4444770965727509,
+    "nv_under": 0.555522903427249,
+    "overround": 1.0562604275792498
+   },
+   "draftkings": {
+    "point": 6.5,
+    "over": 110,
+    "under": -141,
+    "nv_over": 0.448706013777695,
+    "nv_under": 0.551293986222305,
+    "overround": 1.0612527168543766
+   },
+   "prizepicks_lines": [
+    6.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD Ticket 2 SGP+ $63 +1508 5+ rec",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: edge -8.2 < +3; shrunk edge -12.9 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Jacob Parrish",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 28.0,
+      "completions": 17.0,
+      "comp_pct": 60.7,
+      "yds": 230.0,
+      "ypt": 8.2,
+      "rating": 83.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 17.2% / zone 78.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 58.6% / open 39.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD Ticket 2 SGP+ $63 +1508] James Cook Rush+Rec Yds Over 69.5",
+   "player": "James Cook",
+   "team": "BUF",
+   "opp": "BAL",
+   "type": "RB",
+   "market": "rushrec",
+   "receiving": true,
+   "side": "over",
+   "line": 69.5,
+   "price_fd": 0,
+   "no_vig": NaN,
+   "status": "CUT",
+   "rung": "no FD/Pinnacle/DK price at the slip line 69.5 (DFS-only line): no-vig MISSING",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 99.5,
+    "over": -114,
+    "under": -111,
+    "nv_over": 0.5031375502008032,
+    "nv_under": 0.4968624497991968,
+    "overround": 1.0587766310847322
+   },
+   "prizepicks_lines": [
+    99.5
+   ],
+   "underdog_lines": [
+    99.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: FD Ticket 2 SGP+ $63 +1508 70+ rush+rec",
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 15.9% / zone 78.6%, MOF closed 36.4% / open 61.4%; awaiting ruling",
+    "P14 MISSING: no book price at this rung: no-vig MISSING, edge not computable"
+   ]
+  },
+  {
+   "name": "[FD Ticket 2 SGP+ $63 +1508] Zay Flowers Receptions Over 4.5",
+   "player": "Zay Flowers",
+   "team": "BAL",
+   "opp": "BUF",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 4.5,
+   "price_fd": -330,
+   "no_vig": 0.7173,
+   "status": "CUT",
+   "rung": "FD alt 4.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 6.5,
+    "over": 114,
+    "under": -143,
+    "nv_over": 0.44260682670940954,
+    "nv_under": 0.5573931732905906,
+    "overround": 1.0557670858813122
+   },
+   "draftkings": {
+    "point": 6.5,
+    "over": 113,
+    "under": -144,
+    "nv_over": 0.44305636257989545,
+    "nv_under": 0.5569436374201047,
+    "overround": 1.0596475025013468
+   },
+   "prizepicks_lines": [
+    6.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD Ticket 2 SGP+ $63 +1508 5+ rec",
+   "explicit": null,
+   "cut_reasons": [
+    "P5 FAIL: top-10 blitz D and player blitzed share drops >4 pts",
+    "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+    "P14 FAIL: shrunk edge -1.1 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Dee Alford",
+      "team": "BUF",
+      "pos": "CB",
+      "targets": 20.0,
+      "completions": 11.0,
+      "comp_pct": 55.0,
+      "yds": 175.0,
+      "ypt": 8.8,
+      "rating": 80.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 16.8% / zone 74.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.8% / open 49.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD Ticket 2 SGP+ $63 +1508] George Pickens Receptions Over 3.5",
+   "player": "George Pickens",
+   "team": "DAL",
+   "opp": "ARI",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 3.5,
+   "price_fd": -250,
+   "no_vig": 0.668,
+   "status": "CUT",
+   "rung": "FD alt 3.5 (no-vig via main-market overround)",
+   "injury_status": "Questionable",
+   "pinnacle": {
+    "point": 4.5,
+    "over": 102,
+    "under": -128,
+    "nv_over": 0.46859585662610986,
+    "nv_under": 0.5314041433738902,
+    "overround": 1.0564530137224248
+   },
+   "draftkings": {
+    "point": 4.5,
+    "over": -110,
+    "under": -116,
+    "nv_over": 0.4937655860349127,
+    "nv_under": 0.5062344139650873,
+    "overround": 1.060846560846561
+   },
+   "prizepicks_lines": [
+    4.5
+   ],
+   "underdog_lines": [
+    4.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: FD Ticket 2 SGP+ $63 +1508 4+ rec",
+   "explicit": null,
+   "cut_reasons": [
+    "P2 FAIL: same-role teammate >=28%: [('CeeDee Lamb', 0.2967032967032967)]",
+    "P14 FAIL: shrunk edge -1.0 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Max Melton",
+      "team": "ARI",
+      "pos": "CB",
+      "targets": 17.0,
+      "completions": 10.0,
+      "comp_pct": 58.8,
+      "yds": 137.0,
+      "ypt": 8.1,
+      "rating": 104.3,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 9.1% / zone 70.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 21.9% / open 56.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD Ticket 2 SGP+ $63 +1508] CeeDee Lamb Rec Yds Over 59.5",
+   "player": "CeeDee Lamb",
+   "team": "DAL",
+   "opp": "ARI",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 59.5,
+   "price_fd": -280,
+   "no_vig": 0.6945,
+   "status": "CUT",
+   "rung": "FD alt 59.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 80.5,
+    "over": -124,
+    "under": -101,
+    "nv_over": 0.5241860856397745,
+    "nv_under": 0.47581391436022547,
+    "overround": 1.0560589907604834
+   },
+   "draftkings": {
+    "point": 83.5,
+    "over": -114,
+    "under": -110,
+    "nv_over": 0.5042122999157539,
+    "nv_under": 0.495787700084246,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    80.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD Ticket 2 SGP+ $63 +1508 60+ yds",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: edge -2.4 < +3; shrunk edge -7.5 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Denzel Burke",
+      "team": "ARI",
+      "pos": "CB",
+      "targets": 15.0,
+      "completions": 10.0,
+      "comp_pct": 66.7,
+      "yds": 114.0,
+      "ypt": 7.6,
+      "rating": 101.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 9.1% / zone 70.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 21.9% / open 56.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD $51.50 8-leg SGP] George Pickens Receptions Over 4.5",
+   "player": "George Pickens",
+   "team": "DAL",
+   "opp": "ARI",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 4.5,
+   "price_fd": -110,
+   "no_vig": 0.4899,
+   "status": "CUT",
+   "rung": "fanduel main at the slip line",
+   "injury_status": "Questionable",
+   "pinnacle": {
+    "point": 4.5,
+    "over": 102,
+    "under": -128,
+    "nv_over": 0.46859585662610986,
+    "nv_under": 0.5314041433738902,
+    "overround": 1.0564530137224248
+   },
+   "draftkings": {
+    "point": 4.5,
+    "over": -110,
+    "under": -116,
+    "nv_over": 0.4937655860349127,
+    "nv_under": 0.5062344139650873,
+    "overround": 1.060846560846561
+   },
+   "prizepicks_lines": [
+    4.5
+   ],
+   "underdog_lines": [
+    4.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: FD $51.50 8-leg SGP (known legs only) 4.5+ rec (as transcribed)",
+   "explicit": null,
+   "cut_reasons": [
+    "P2 FAIL: same-role teammate >=28%: [('CeeDee Lamb', 0.2967032967032967)]"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Max Melton",
+      "team": "ARI",
+      "pos": "CB",
+      "targets": 17.0,
+      "completions": 10.0,
+      "comp_pct": 58.8,
+      "yds": 137.0,
+      "ypt": 8.1,
+      "rating": 104.3,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 9.1% / zone 70.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 21.9% / open 56.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD $51.50 8-leg SGP] Tee Higgins Rec Yds Over 49.5",
+   "player": "Tee Higgins",
+   "team": "CIN",
+   "opp": "TEN",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 49.5,
+   "price_fd": -290,
+   "no_vig": 0.7008,
+   "status": "CUT",
+   "rung": "FD alt 49.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 70.5,
+    "over": -114,
+    "under": -110,
+    "nv_over": 0.5042122999157539,
+    "nv_under": 0.495787700084246,
+    "overround": 1.0565198041833557
+   },
+   "draftkings": {
+    "point": 71.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    70.5
+   ],
+   "underdog_lines": [
+    69.5
+   ],
+   "bar": null,
+   "stack_flag": "placed: FD $51.50 8-leg SGP (known legs only) 50+ rec yds",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: shrunk edge -3.0 not > 0; MODEL-SUSPECT: MC median 84.8 vs FD main 70.5 / book consensus 70.8 (>=12 yds) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Cordale Flott",
+      "team": "TEN",
+      "pos": "CB",
+      "targets": 9.0,
+      "completions": 6.0,
+      "comp_pct": 66.7,
+      "yds": 83.0,
+      "ypt": 9.2,
+      "rating": 96.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 16.5% / zone 77.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.6% / open 51.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD $51.50 8-leg SGP] Chris Godwin Jr. Receptions Over 2.5",
+   "player": "Chris Godwin Jr.",
+   "team": "TB",
+   "opp": "ATL",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 2.5,
+   "price_fd": -550,
+   "no_vig": 0.7916,
+   "status": "CUT",
+   "rung": "FD alt 2.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 4.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "draftkings": {
+    "point": 4.5,
+    "over": -112,
+    "under": -114,
+    "nv_over": 0.4979225527671597,
+    "nv_under": 0.5020774472328402,
+    "overround": 1.0610121671662847
+   },
+   "prizepicks_lines": [
+    4.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD $51.50 8-leg SGP (known legs only) 3+ rec (brief-only, no slip file)",
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: defender sample 7 tgt < 8: too thin to grade",
+    "P14 FAIL: edge -12.4 < +3; shrunk edge -17.4 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Sydney Brown",
+      "team": "ATL",
+      "pos": "DB",
+      "targets": 7.0,
+      "completions": 6.0,
+      "comp_pct": 85.7,
+      "yds": 31.0,
+      "ypt": 4.4,
+      "rating": 124.7,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 21.9% / zone 70.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 59.5% / open 34.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "[FD $51.50 8-leg SGP] Zay Flowers Rec Yds Over 49.5",
+   "player": "Zay Flowers",
+   "team": "BAL",
+   "opp": "BUF",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 49.5,
+   "price_fd": -490,
+   "no_vig": 0.7827,
+   "status": "CUT",
+   "rung": "FD alt 49.5 (no-vig via main-market overround)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 85.5,
+    "over": -115,
+    "under": -109,
+    "nv_over": 0.5063197809142617,
+    "nv_under": 0.4936802190857384,
+    "overround": 1.0564148214087012
+   },
+   "draftkings": {
+    "point": 86.5,
+    "over": -110,
+    "under": -114,
+    "nv_over": 0.495787700084246,
+    "nv_under": 0.5042122999157539,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    85.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed: FD $51.50 8-leg SGP (known legs only) 50+ rec yds (brief-only, no slip file)",
+   "explicit": null,
+   "cut_reasons": [
+    "P5 FAIL: top-10 blitz D and player blitzed share drops >4 pts",
+    "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+    "P14 FAIL: edge +2.1 < +3; shrunk edge -7.0 not > 0"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Dee Alford",
+      "team": "BUF",
+      "pos": "CB",
+      "targets": 20.0,
+      "completions": 11.0,
+      "comp_pct": 55.0,
+      "yds": 175.0,
+      "ypt": 8.8,
+      "rating": 80.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 16.8% / zone 74.9%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.8% / open 49.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  }
+ ],
+ "sims_v5": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "[PP $40 6-pick Power] CeeDee Lamb Receptions Over 4.5": {
+     "p": 0.7455,
+     "median": 7.0
+    },
+    "[PP $40 6-pick Power] Amon-Ra St. Brown Receptions Over 5.5": {
+     "p": 0.7308,
+     "median": 7.0
+    },
+    "[PP $40 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.6545,
+     "median": 26.0
+    },
+    "[PP $40 6-pick Power] Kenneth Walker III Rush Yds Over 97.5": {
+     "p": 0.514,
+     "median": 99.17
+    },
+    "[UD $20 8-pick] Puka Nacua Rec Yds Over 69.5": {
+     "p": 0.7057,
+     "median": 102.24
+    },
+    "[UD $20 8-pick] Brock Bowers Rec Yds Over 49.5": {
+     "p": 0.7691,
+     "median": 73.08
+    },
+    "[UD $20 8-pick] Kenneth Walker III Rush Yds Over 69.5": {
+     "p": 0.7729,
+     "median": 99.17
+    },
+    "[UD $20 8-pick] Drake London Receptions Over 5.5": {
+     "p": 0.5608,
+     "median": 6.0
+    },
+    "[UD $20 8-pick] Zay Flowers Rec Yds Over 49.5": {
+     "p": 0.8387,
+     "median": 93.71
+    },
+    "[UD $20 8-pick] Amon-Ra St. Brown Rec Yds Over 49.5": {
+     "p": 0.7996,
+     "median": 82.08
+    },
+    "[UD $20 8-pick] CeeDee Lamb Receptions Over 4.5": {
+     "p": 0.7455,
+     "median": 7.0
+    },
+    "[UD $20 8-pick] Denzel Boston Rec Yds Over 29.5": {
+     "p": 0.5729,
+     "median": 36.24
+    },
+    "[PP $20 6-pick Power] Tee Higgins Rec Yds Over 68.5": {
+     "p": 0.6253,
+     "median": 84.76
+    },
+    "[PP $20 6-pick Power] CeeDee Lamb Receptions Over 4.5": {
+     "p": 0.7455,
+     "median": 7.0
+    },
+    "[PP $20 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.6545,
+     "median": 26.0
+    },
+    "[PP $20 6-pick Power] Patrick Mahomes Pass Yds Over 0.5": {
+     "p": 1.0,
+     "median": 214.12
+    },
+    "[PP $25 6-pick Power] Zay Flowers Receptions Over 6.5": {
+     "p": 0.566,
+     "median": 7.0
+    },
+    "[PP $25 6-pick Power] Bijan Robinson Receptions Over 3.5": {
+     "p": 0.4474,
+     "median": 3.0
+    },
+    "[PP $25 6-pick Power] CeeDee Lamb Receptions Over 6.5": {
+     "p": 0.5377,
+     "median": 7.0
+    },
+    "[PP $25 6-pick Power] Amon-Ra St. Brown Receptions Over 7.5": {
+     "p": 0.4432,
+     "median": 7.0
+    },
+    "[PP $25 6-pick Power] Jaylen Warren Rush+Rec Yds Over 69.5": {
+     "p": 0.7819,
+     "median": 98.41
+    },
+    "[FD 7-leg +694] Tee Higgins Receptions Over 3.5": {
+     "p": 0.7799,
+     "median": 6.0
+    },
+    "[FD 7-leg +694] Brock Bowers Rec Yds Over 49.5": {
+     "p": 0.7691,
+     "median": 73.08
+    },
+    "[FD 7-leg +694] Zay Flowers Rec Yds Over 59.5": {
+     "p": 0.7696,
+     "median": 93.71
+    },
+    "[FD 7-leg +694] Parker Washington Rec Yds Over 39.5": {
+     "p": 0.6814,
+     "median": 56.87
+    },
+    "[FD 7-leg +694] CeeDee Lamb Rec Yds Over 49.5": {
+     "p": 0.7765,
+     "median": 89.99
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Jahmyr Gibbs Receptions Over 4.5": {
+     "p": 0.5325,
+     "median": 5.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Amon-Ra St. Brown Rec Yds Over 59.5": {
+     "p": 0.7093,
+     "median": 82.08
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Chris Godwin Jr. Receptions Over 3.5": {
+     "p": 0.5643,
+     "median": 4.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Drake London Receptions Over 4.5": {
+     "p": 0.717,
+     "median": 6.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] James Cook Rush+Rec Yds Over 69.5": {
+     "p": 0.7522,
+     "median": 91.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Zay Flowers Receptions Over 4.5": {
+     "p": 0.8337,
+     "median": 7.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] George Pickens Receptions Over 3.5": {
+     "p": 0.7746,
+     "median": 5.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] CeeDee Lamb Rec Yds Over 59.5": {
+     "p": 0.7068,
+     "median": 89.99
+    },
+    "[FD $51.50 8-leg SGP] George Pickens Receptions Over 4.5": {
+     "p": 0.6274,
+     "median": 5.0
+    },
+    "[FD $51.50 8-leg SGP] Tee Higgins Rec Yds Over 49.5": {
+     "p": 0.774,
+     "median": 84.76
+    },
+    "[FD $51.50 8-leg SGP] Chris Godwin Jr. Receptions Over 2.5": {
+     "p": 0.7575,
+     "median": 4.0
+    },
+    "[FD $51.50 8-leg SGP] Zay Flowers Rec Yds Over 49.5": {
+     "p": 0.8387,
+     "median": 93.71
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "[PP $40 6-pick Power] CeeDee Lamb Receptions Over 4.5": {
+     "p": 0.6671,
+     "median": 6.0
+    },
+    "[PP $40 6-pick Power] Amon-Ra St. Brown Receptions Over 5.5": {
+     "p": 0.6268,
+     "median": 6.0
+    },
+    "[PP $40 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.5256,
+     "median": 23.0
+    },
+    "[PP $40 6-pick Power] Kenneth Walker III Rush Yds Over 97.5": {
+     "p": 0.3985,
+     "median": 86.06
+    },
+    "[UD $20 8-pick] Puka Nacua Rec Yds Over 69.5": {
+     "p": 0.6045,
+     "median": 84.86
+    },
+    "[UD $20 8-pick] Brock Bowers Rec Yds Over 49.5": {
+     "p": 0.6552,
+     "median": 61.81
+    },
+    "[UD $20 8-pick] Kenneth Walker III Rush Yds Over 69.5": {
+     "p": 0.6634,
+     "median": 86.06
+    },
+    "[UD $20 8-pick] Drake London Receptions Over 5.5": {
+     "p": 0.4509,
+     "median": 5.0
+    },
+    "[UD $20 8-pick] Zay Flowers Rec Yds Over 49.5": {
+     "p": 0.757,
+     "median": 79.33
+    },
+    "[UD $20 8-pick] Amon-Ra St. Brown Rec Yds Over 49.5": {
+     "p": 0.704,
+     "median": 69.09
+    },
+    "[UD $20 8-pick] CeeDee Lamb Receptions Over 4.5": {
+     "p": 0.6671,
+     "median": 6.0
+    },
+    "[UD $20 8-pick] Denzel Boston Rec Yds Over 29.5": {
+     "p": 0.497,
+     "median": 29.19
+    },
+    "[PP $20 6-pick Power] Tee Higgins Rec Yds Over 68.5": {
+     "p": 0.513,
+     "median": 69.84
+    },
+    "[PP $20 6-pick Power] CeeDee Lamb Receptions Over 4.5": {
+     "p": 0.6671,
+     "median": 6.0
+    },
+    "[PP $20 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.5256,
+     "median": 23.0
+    },
+    "[PP $20 6-pick Power] Patrick Mahomes Pass Yds Over 0.5": {
+     "p": 1.0,
+     "median": 179.49
+    },
+    "[PP $25 6-pick Power] Zay Flowers Receptions Over 6.5": {
+     "p": 0.4494,
+     "median": 6.0
+    },
+    "[PP $25 6-pick Power] Bijan Robinson Receptions Over 3.5": {
+     "p": 0.3833,
+     "median": 3.0
+    },
+    "[PP $25 6-pick Power] CeeDee Lamb Receptions Over 6.5": {
+     "p": 0.4493,
+     "median": 6.0
+    },
+    "[PP $25 6-pick Power] Amon-Ra St. Brown Receptions Over 7.5": {
+     "p": 0.326,
+     "median": 6.0
+    },
+    "[PP $25 6-pick Power] Jaylen Warren Rush+Rec Yds Over 69.5": {
+     "p": 0.6687,
+     "median": 85.04
+    },
+    "[FD 7-leg +694] Tee Higgins Receptions Over 3.5": {
+     "p": 0.7009,
+     "median": 5.0
+    },
+    "[FD 7-leg +694] Brock Bowers Rec Yds Over 49.5": {
+     "p": 0.6552,
+     "median": 61.81
+    },
+    "[FD 7-leg +694] Zay Flowers Rec Yds Over 59.5": {
+     "p": 0.6751,
+     "median": 79.33
+    },
+    "[FD 7-leg +694] Parker Washington Rec Yds Over 39.5": {
+     "p": 0.5896,
+     "median": 47.82
+    },
+    "[FD 7-leg +694] CeeDee Lamb Rec Yds Over 49.5": {
+     "p": 0.6953,
+     "median": 75.06
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Jahmyr Gibbs Receptions Over 4.5": {
+     "p": 0.4365,
+     "median": 4.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Amon-Ra St. Brown Rec Yds Over 59.5": {
+     "p": 0.598,
+     "median": 69.09
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Chris Godwin Jr. Receptions Over 3.5": {
+     "p": 0.4787,
+     "median": 3.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Drake London Receptions Over 4.5": {
+     "p": 0.62,
+     "median": 5.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] James Cook Rush+Rec Yds Over 69.5": {
+     "p": 0.6206,
+     "median": 78.82
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Zay Flowers Receptions Over 4.5": {
+     "p": 0.7544,
+     "median": 6.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] George Pickens Receptions Over 3.5": {
+     "p": 0.6932,
+     "median": 5.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] CeeDee Lamb Rec Yds Over 59.5": {
+     "p": 0.6146,
+     "median": 75.06
+    },
+    "[FD $51.50 8-leg SGP] George Pickens Receptions Over 4.5": {
+     "p": 0.5329,
+     "median": 5.0
+    },
+    "[FD $51.50 8-leg SGP] Tee Higgins Rec Yds Over 49.5": {
+     "p": 0.6817,
+     "median": 69.84
+    },
+    "[FD $51.50 8-leg SGP] Chris Godwin Jr. Receptions Over 2.5": {
+     "p": 0.6872,
+     "median": 3.0
+    },
+    "[FD $51.50 8-leg SGP] Zay Flowers Rec Yds Over 49.5": {
+     "p": 0.757,
+     "median": 79.33
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "[PP $40 6-pick Power] CeeDee Lamb Receptions Over 4.5": {
+     "p": 0.7164,
+     "median": 7.0
+    },
+    "[PP $40 6-pick Power] Amon-Ra St. Brown Receptions Over 5.5": {
+     "p": 0.6848,
+     "median": 7.0
+    },
+    "[PP $40 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.6408,
+     "median": 26.0
+    },
+    "[PP $40 6-pick Power] Kenneth Walker III Rush Yds Over 97.5": {
+     "p": 0.496,
+     "median": 97.26
+    },
+    "[UD $20 8-pick] Puka Nacua Rec Yds Over 69.5": {
+     "p": 0.7104,
+     "median": 102.24
+    },
+    "[UD $20 8-pick] Brock Bowers Rec Yds Over 49.5": {
+     "p": 0.7069,
+     "median": 70.41
+    },
+    "[UD $20 8-pick] Kenneth Walker III Rush Yds Over 69.5": {
+     "p": 0.7279,
+     "median": 97.26
+    },
+    "[UD $20 8-pick] Drake London Receptions Over 5.5": {
+     "p": 0.5113,
+     "median": 6.0
+    },
+    "[UD $20 8-pick] Zay Flowers Rec Yds Over 49.5": {
+     "p": 0.8162,
+     "median": 92.79
+    },
+    "[UD $20 8-pick] Amon-Ra St. Brown Rec Yds Over 49.5": {
+     "p": 0.7707,
+     "median": 80.0
+    },
+    "[UD $20 8-pick] CeeDee Lamb Receptions Over 4.5": {
+     "p": 0.7164,
+     "median": 7.0
+    },
+    "[UD $20 8-pick] Denzel Boston Rec Yds Over 29.5": {
+     "p": 0.5682,
+     "median": 36.24
+    },
+    "[PP $20 6-pick Power] Tee Higgins Rec Yds Over 68.5": {
+     "p": 0.6246,
+     "median": 83.89
+    },
+    "[PP $20 6-pick Power] CeeDee Lamb Receptions Over 4.5": {
+     "p": 0.7164,
+     "median": 7.0
+    },
+    "[PP $20 6-pick Power] Matthew Stafford Pass Completions Over 22.5": {
+     "p": 0.6408,
+     "median": 26.0
+    },
+    "[PP $20 6-pick Power] Patrick Mahomes Pass Yds Over 0.5": {
+     "p": 1.0,
+     "median": 212.18
+    },
+    "[PP $25 6-pick Power] Zay Flowers Receptions Over 6.5": {
+     "p": 0.5417,
+     "median": 7.0
+    },
+    "[PP $25 6-pick Power] Bijan Robinson Receptions Over 3.5": {
+     "p": 0.4045,
+     "median": 3.0
+    },
+    "[PP $25 6-pick Power] CeeDee Lamb Receptions Over 6.5": {
+     "p": 0.5214,
+     "median": 7.0
+    },
+    "[PP $25 6-pick Power] Amon-Ra St. Brown Receptions Over 7.5": {
+     "p": 0.4306,
+     "median": 7.0
+    },
+    "[PP $25 6-pick Power] Jaylen Warren Rush+Rec Yds Over 69.5": {
+     "p": 0.7632,
+     "median": 98.13
+    },
+    "[FD 7-leg +694] Tee Higgins Receptions Over 3.5": {
+     "p": 0.7794,
+     "median": 6.0
+    },
+    "[FD 7-leg +694] Brock Bowers Rec Yds Over 49.5": {
+     "p": 0.7069,
+     "median": 70.41
+    },
+    "[FD 7-leg +694] Zay Flowers Rec Yds Over 59.5": {
+     "p": 0.7471,
+     "median": 92.79
+    },
+    "[FD 7-leg +694] Parker Washington Rec Yds Over 39.5": {
+     "p": 0.6407,
+     "median": 55.0
+    },
+    "[FD 7-leg +694] CeeDee Lamb Rec Yds Over 49.5": {
+     "p": 0.7557,
+     "median": 88.89
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Jahmyr Gibbs Receptions Over 4.5": {
+     "p": 0.5112,
+     "median": 5.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Amon-Ra St. Brown Rec Yds Over 59.5": {
+     "p": 0.682,
+     "median": 80.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Chris Godwin Jr. Receptions Over 3.5": {
+     "p": 0.4326,
+     "median": 3.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Drake London Receptions Over 4.5": {
+     "p": 0.6373,
+     "median": 6.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] James Cook Rush+Rec Yds Over 69.5": {
+     "p": 0.7166,
+     "median": 89.14
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] Zay Flowers Receptions Over 4.5": {
+     "p": 0.7975,
+     "median": 7.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] George Pickens Receptions Over 3.5": {
+     "p": 0.709,
+     "median": 5.0
+    },
+    "[FD Ticket 2 SGP+ $63 +1508] CeeDee Lamb Rec Yds Over 59.5": {
+     "p": 0.6892,
+     "median": 88.89
+    },
+    "[FD $51.50 8-leg SGP] George Pickens Receptions Over 4.5": {
+     "p": 0.5779,
+     "median": 5.0
+    },
+    "[FD $51.50 8-leg SGP] Tee Higgins Rec Yds Over 49.5": {
+     "p": 0.7761,
+     "median": 83.89
+    },
+    "[FD $51.50 8-leg SGP] Chris Godwin Jr. Receptions Over 2.5": {
+     "p": 0.5586,
+     "median": 3.0
+    },
+    "[FD $51.50 8-leg SGP] Zay Flowers Rec Yds Over 49.5": {
+     "p": 0.8162,
+     "median": 92.79
+    }
+   }
+  }
+ ],
+ "edge_decision": "08:36: gate rule on avg of all 3 models (sim_v6 calibrated bias model, BUG-2026-11-01-BIAS fixed); v5 MC+GR numbers kept for comparison",
+ "superseded_sources": [
+  {
+   "category": "odds_props",
+   "name": "The Odds API: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks, Underdog player props",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_final.csv",
+   "tool": "python urllib (The Odds API)",
+   "pulled_et": "2026-11-01T07:30",
+   "superseded_by": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+   "superseded_et": "2026-11-01T08:36"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API: FanDuel/DK/Pinnacle spreads+totals",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_final.json",
+   "tool": "python urllib (The Odds API)",
+   "pulled_et": "2026-11-01T07:30",
+   "superseded_by": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+   "superseded_et": "2026-11-01T08:36"
+  }
+ ],
+ "cross_checks": [
+  {
+   "category": "odds_props",
+   "name": "PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source)",
+   "url_or_file": "/workspace/nfl-database/week8/lines/pff_props_2026-11-01.csv",
+   "pulled_et": "2026-11-01T07:34",
+   "tool": "computerUse browser",
+   "note": "PFF pick-side cross-check only, not a price of record; captured 07:40 ET and now >1h old, so moved out of sources at 08:36 rather than re-stamped"
+  }
+ ]
+}

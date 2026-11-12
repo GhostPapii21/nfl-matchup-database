@@ -1,0 +1,108 @@
+{
+ "game": "DEN@IND | Week 2 2025 | Denver Broncos at Indianapolis Colts | kickoff 2025-09-14 16:05 ET | Lucas Oil Stadium roof closed | closing spread IND +2.5 (DEN -2.5) | total 43.5 | implied totals DEN 23.0 and IND 20.5 | moneyline not in pack | weather forecast not saved | source nflverse games.csv closing line, weeks < 2 only",
+ "script": {
+  "base": "Roof-closed Lucas Oil, DEN a 2.5-point favorite with implied totals DEN 23.0 and IND 20.5 on a 43.5 total. Base flow is a one-score game into the fourth quarter: Bo Nix leans on J.K. Dobbins (week-1 16 carries, 63 yards) rather than a pass-volume spike, Indianapolis stays balanced with Jonathan Taylor (18 carries, 71 yards) and DJ Giddens (12 carries, 41 yards) because +2.5 is not a 3.5-point abandon-the-run number, and the modest total is run-leaning rather than a shootout.",
+  "flip1": "Denver jumps ahead early, kills the clock with Dobbins, and Nix, Courtland Sutton and Troy Franklin yardage stalls; Indianapolis then throws to Tyler Warren (week-1 9 targets, 76 yards) and Michael Pittman (8 targets, 80 yards) and Taylor's carry count dies.",
+  "flip2": "Indianapolis leads at home, Denver drops the Dobbins lean, and Nix faces Indianapolis's 42% blitz (his week-1 EPA per dropback was -0.30 vs blitz and -0.15 vs no blitz), so checkdowns to Tyler Badie (6 targets) and Evan Engram (4) rise; or the game becomes a defensive slog under 43.5 and every yardage over comes up short."
+ },
+ "injury_fallout": "Official pre-game nflverse injury report only; the inactive list about 90 minutes before kickoff is not in the pack, so Questionable tags are unresolved. Denver LB Dre Greenlaw is Out (quadricep): Indianapolis TE Tyler Warren, slot Josh Downs (3 targets, 12 yards week 1) and Taylor's receiving share (3 targets, 27 yards) face a linebacker group without Greenlaw, which is a coverage loss more than a proven run-defense collapse. Denver TE Nate Adkins is Out (ankle): minor, because Engram (4 targets, 21 yards) and Lucas Krull (2 targets, 6 yards) already had the TE routes. Indianapolis CB Charvarius Ward is Out (concussion) and CB Jaylon Jones is Out (hamstring): Sutton (9 targets, 61 yards, 107 air yards) and Franklin (6 targets, 44 yards, 45 air yards) draw unnamed backups. Indianapolis RB Tyler Goodson is Questionable (elbow) and was not a week-1 rusher in the pack, so the Taylor/Giddens committee does not change unless he is active and steals scraps. Indianapolis DE Laiatu Latu is Questionable (hamstring): if he sits, slightly less edge pressure on Nix and a small rush boost for Dobbins; he is not confirmed out.",
+ "matchup": {
+  "shell": "No middle-of-field open/closed charting and no man/zone rate in the pack, so the shell is unknown. Indianapolis week-1 yards per attempt: left 5.0 on 9 throws, middle 5.75 on 4, right 4.33 on 18. Denver week-1: left 5.47 on 15, middle 0.0 on 3, right 3.0 on 10. Indianapolis allowed one 20-plus pass (34 yards); Denver allowed one 20-plus pass (34 yards).",
+  "pressure": "Indianapolis blitzed 42% in its only game. Denver EPA per dropback was -0.30 against the blitz and -0.15 with no blitz, so pressure is a bad environment for Nix air yards and a better environment for checkdowns. Denver blitzed 29%. Indianapolis EPA per dropback was 0.37 vs blitz and 0.43 vs no blitz, so Daniel Jones was functional either way in a one-game sample.",
+  "bleeds": "Indianapolis run defense allowed 6.50 yards per carry and 2 runs of 10-plus, which is the clear defensive bleed for Dobbins. Denver run defense allowed 3.38 yards per carry and 0 runs of 10-plus, which is the clear bleed the other way for a Taylor rush-yards under. Denver's pass soft spot is the left side (5.47), not the middle or right; alignment of Pittman and Warren is not charted.",
+  "overlap": "Denver's primary target is Sutton (9 targets, 107 air yards) into an Indianapolis secondary missing Ward and Jones, but that overlap fights the 42% blitz and Nix's negative blitz EPA, so it is not the slip. The run overlap that survives the base script is Dobbins, the 16-carry back, into the 6.50 YPC Indianapolis front, and Taylor, the 18-carry back splitting with Giddens, into Denver's 3.38 YPC front."
+ },
+ "form": "Only 2025 week 1 is available (pack weeks less than 2), so there is no three- or four-game trend, no similar-defense comp, and no documented OC or quarterback change. Denver rushers: Dobbins 16 carries for 63 yards (3.9 per carry) plus 2 targets for 5 receiving yards; RJ Harvey 6 for 70 (11.7 per carry), a spike that looks like one long play; Nix 6 for 20. Denver targets: Sutton 9 for 61 on 107 air yards (inefficient); Badie 6 for 16 on 18 air; Franklin 6 for 44 on 45 air; Engram 4 for 21 on 10 air; Marvin Mims 4 for 12 on 35 air; Krull 2 for 6; Dobbins 2 for 5. Indianapolis rushers: Taylor 18 for 71 (3.9 per carry) plus 3 targets for 27 yards; Giddens 12 for 41; Jones 7 for 26; Ashton Dulin 1 for 15. Indianapolis targets: Warren 9 for 76 on 47 air; Pittman 8 for 80 on 54 air; Alec Pierce 3 for 36 on 61 air; Downs 3 for 12 on 13 air; Adonai Mitchell 2 for 21; Mo Alie-Cox 1 for 20.",
+ "pro_edge": {
+  "implied_totals": "Indianapolis 20.5, Denver 23.0. From the closing total 43.5 and Indianapolis +2.5: favorite (43.5+2.5)/2 = 23.0, underdog (43.5-2.5)/2 = 20.5. Matches the precomputed pro-edge block.",
+  "script_read": "A 43.5 total is modest, so this is not a volume-over shootout. The spread is 2.5, not 3.5 or more, so the underdog-throws rule does not force Indianapolis off Taylor. It is not a blowout, so starter snaps should hold on both sides. The leader-runs-late rule points Denver carries to Dobbins, not Harvey. A strong Denver run defense (3.38 YPC, zero 10-plus runs) supports a Taylor rush-yards under even in a competitive script.",
+  "best_price": "No two-sided price was saved on any prop, including jkdobbins rushyds 63.5, jonathantaylor rushyds 71.5, courtlandsutton recyds 61.5, rjharvey rushyds 70.5, tylerwarren recyds 76.5 and michaelpittman recyds 80.5. Anchor no-vig is N/A. No book is shown beating a fair price. Do not size a stake.",
+  "lagging": "No open-to-close spread, total or prop movement is in the pack. Every stand-in line equals the week-1 median plus a half-point, so there is no visible number move for Ward, Jones or Greenlaw being out. That is a possible lag, and it is unverified.",
+  "sleepers": "Ruled out: Dre Greenlaw (LB), Nate Adkins (TE), Charvarius Ward (CB), Jaylon Jones (CB). No same-position teammate of those players has a prop in the available list (no Indianapolis corner prop, no Denver linebacker prop, Engram not offered). Tyler Goodson and Laiatu Latu are Questionable, not out, so they are not sleeper triggers. Indirect only: Sutton, Franklin and Warren lines still sit on week-1 output."
+ },
+ "edge_players": [
+  {
+   "player": "jkdobbins",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Indianapolis allowed 6.50 yards per carry and two runs of 10-plus in its only 2025 game, and Dobbins is Denver's 16-carry back for a 2.5-point favorite that should add late clock-killing carries if it leads, so 63.5 is beatable if his week-1 3.9 yards per carry only ticks up.",
+   "must_be_true": "Dobbins is active with no snap cap listed, his carry share stays near the week-1 16 rather than flipping to Harvey (6 carries, 70 yards) or Nix (6 carries, 20 yards), and the closed roof keeps weather from shrinking the run game.",
+   "kills_it": "The 6.50 yards per carry is one game. If Harvey again takes the explosives and Dobbins repeats about 3.9 yards per carry on 14 to 16 carries, he lands 55 to 63 and the over loses. A Denver trail script also cuts his rushes. Latu playing a full pass-rush snap count does not by itself kill a rushing over, but a negative game script does.",
+   "confidence": "strong",
+   "model_p": 0.6,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "IND defense, 1 game in pack: rush YPC allowed 6.50, 10+ runs allowed 2"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "DEN week-1 rushers: Dobbins 16/63, Harvey 6/70, Nix 6/20; Dobbins is the carry-share back, not the change-of-pace"
+    },
+    "script": {
+     "ok": true,
+     "source": "Closing line IND +2.5, total 43.5, implied DEN 23.0; pro-edge rule that the leader runs late in a non-blowout"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "Stand-in 2025 median of 1 game is 63 rush yards, which does not clear 63.5; no earlier 2025 game exists"
+    }
+   },
+   "primary_defender": {
+    "who": "Indianapolis front seven, individual run-fit defender not charted; the only named Indianapolis front player is DE Laiatu Latu, Questionable with a hamstring and not confirmed out",
+    "source": "nflverse pre-game injury report plus IND week-1 rush YPC 6.50 and 2 runs of 10+"
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Implied Denver total 23.0 and the favorite run-late script support Dobbins carry volume against a front that allowed 6.50 YPC. No saved price, so there is no best-price edge and the 3-point no-vig gate cannot be passed. He is not a sleeper: no Denver running back is out. Treat the missing independent sim as a flag, not a cut, because this is the strong read."
+  },
+  {
+   "player": "jonathantaylor",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Denver allowed 3.38 yards per carry and zero runs of 10-plus in week 1, and Taylor already split the backfield with Giddens (12 carries, 41 yards) on the way to 18 carries and 71 yards, so 71.5 asks him to repeat that day against the only strong run defense in this pack.",
+   "must_be_true": "Taylor is active, Denver's week-1 run-fit profile shows up again, Giddens keeps a real share so Taylor does not jump to 22-plus carries, and Greenlaw's absence does not collapse the Denver front.",
+   "kills_it": "Greenlaw (LB) is out, which can loosen run fits, and a home lead for Indianapolis would push Taylor's carry count up. If he gets 20 carries at even 3.8 yards per carry he clears 71.5 without an explosive. Goodson is only Questionable, so he is not a reliable vulture.",
+   "confidence": "lean",
+   "model_p": 0.57,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "DEN defense, 1 game in pack: rush YPC allowed 3.38, 10+ runs allowed 0"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "IND week-1 rushers: Taylor 18/71, Giddens 12/41, Jones 7/26; committee caps the lead back's rushing ceiling"
+    },
+    "script": {
+     "ok": true,
+     "source": "IND implied total 20.5 and spread +2.5 is not a blowout pass script, but the skill rule is strong run defense equals rushing under; DEN's 3.38 YPC is that profile and starter snaps should hold because the spread is only 2.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "Only week 1: 71 rush yards versus a 71.5 line, so there is no multi-game under trend, only a half-yard stand-in gap"
+    }
+   },
+   "primary_defender": {
+    "who": "Denver front seven, individual run defender not charted; LB Dre Greenlaw is Out (quadricep), so the week-1 3.38 YPC unit is missing a linebacker",
+    "source": "nflverse pre-game injury report plus DEN week-1 rush YPC 3.38 and 0 runs of 10+"
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": false,
+   "pro_edge_support": "Modest total and a non-blowout spread keep Taylor on the field, which is already in the under (the edge is efficiency and the Giddens split, not a benching). No price saved, no-vig N/A. Greenlaw out is the sleeper-side warning on this under, not a same-position teammate prop. Lean only."
+  }
+ ],
+ "data_check": {
+  "notes": "No projection sims and no Pinnacle, Circa or BetOnline two-sided prices were saved, so no-vig is N/A and the 3-point edge gate cannot pass. Nothing is sized and no bet is placed. The stand-in model is the single week-1 game: Dobbins 63 does not clear 63.5, which disagrees with the strong over, so the card is flagged rather than cut. Taylor 71 sits under 71.5 by a half-yard only, which is not independent confirmation. model_p values are manual read estimates, not 3-sim outputs, and both are under 70%. Sutton recyds over 61.5 was considered because Ward and Jones are out, then dropped: it is a lean, the stand-in median is 61, and Indianapolis blitzed 42% while Nix's EPA per dropback versus the blitz was -0.30. Harvey rushyds under 70.5 was dropped because the Indianapolis front allowed 6.50 YPC, so the matchup fights the fade even though the 6-carry role is real.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "J.K. Dobbins rush yards over 63.5, no price saved, stand-in week-1 median 63. Jonathan Taylor rush yards under 71.5, no price saved, stand-in week-1 median 71. No alternate rungs are in the pack. Rush-plus-receiving was not used: Dobbins was 63 plus 5, and the receiving work in that backfield went to Badie (6 targets); Taylor was 71 plus 27, and Greenlaw's absence helps the receiving piece, so the rush-yards market is the cleaner under. No short-priced alternate is available to anchor.",
+ "pre_mortem": "It is Monday and the slip lost. Dobbins over lost because Indianapolis's 6.50 yards per carry was one opponent, Harvey again took the long runs (he had 70 on 6 carries in week 1), and Dobbins finished in the high 50s on about 15 carries. Taylor under lost because Greenlaw's absence loosened Denver's fits, Indianapolis controlled the clock at home, and Taylor got 20 carries at a modest yards per carry and walked through 71.5 without a 10-yard run. The other miss is a Denver trail, where the dropped Sutton over against two backup corners would have been the live edge and this line-of-scrimmage stack would have been the wrong story. No price was saved, so even a right read could have been a bad number.",
+ "slip_story": "One Denver-controls-the-line-of-scrimmage story in a closed roof, not a shootout stack: Dobbins keeps the carry share against the Indianapolis front that allowed 6.50 yards per carry, and Taylor does not repeat 71 rush yards against the Denver front that allowed 3.38 yards per carry and zero runs of 10-plus. Both legs win together if Denver leads and both lose together if Indianapolis controls the clock. Do not add Sutton or Franklin overs, which need a pass script into a 42% blitz, or a Harvey rush over, which needs the explosives Dobbins is supposed to earn. No bet placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T14:36:59-0500"
+ }
+}

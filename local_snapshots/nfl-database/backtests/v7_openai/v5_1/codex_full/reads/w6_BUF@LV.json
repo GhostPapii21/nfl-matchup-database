@@ -1,0 +1,48 @@
+{
+ "game": "Week 6 BUF@LV / kickoff: MISSING / LV +5, BUF -5 / total 54 / implied totals BUF 29.5, LV 24.5 / weather: not saved. Source: supplied pre-kickoff pack; exact capture timestamp unavailable. MISSING: moneylines, opening lines and movement, venue surface/enclosure, rest and travel details.",
+ "script": {
+  "base": "BUF leads into the second half and uses James Cook against LV's run defense, which has allowed 5.40 YPC. LV responds through its passing game, with Brock Bowers remaining the primary target after drawing 34 targets across weeks 3\u20135. This is a script hypothesis based on the supplied spread, total and usage, not a verified pace forecast.",
+  "flip1": "LV keeps pace or leads, forcing BUF toward more passing and putting Cook's rushing volume at risk. Bowers can still benefit if the competitive game sustains LV passing volume.",
+  "flip2": "BUF builds an early multi-score lead and drains the clock. Cook benefits if he retains the closing carries, while Bowers needs trailing-game targets to remain productive rather than LV's offense stalling."
+ },
+ "injury_fallout": "MISSING: BUF and LV injury reports, practice participation trends, final designations, inactive lists, return-to-play restrictions and offensive-line availability. No absences, returns, replacement roles or snap limits can be inferred from this pack. Cook's 61 carries and Bowers' 34 targets in weeks 3\u20135 establish recent usage only, not confirmed Week 6 availability. Final reports and approximately 90-minute inactives cannot be checked within this backtest.",
+ "matchup": {
+  "shell": "MISSING: BUF and LV MOFO/MOFC rates, man/zone rates and coverage assignments. Bowers cannot be assigned a specific linebacker or safety matchup from this pack.",
+  "pressure": "LV blitzes 25%; BUF's QB EPA/dropback is 0.40 against blitzes over 54 dropbacks versus 0.31 without blitzes. BUF blitzes 34%; LV's corresponding EPA is 0.13 over 51 blitzed dropbacks versus 0.14 without blitzes. These pack figures do not support assuming either passing offense collapses against blitzing. MISSING: actual pressure rates, sacks, time to throw and check-down rates.",
+  "bleeds": "LV has allowed 5.40 rush YPC and 20 runs of at least 10 yards through five games, supporting a Cook rushing-efficiency hypothesis. BUF has allowed 22 pass plays of at least 20 yards on 214 attempts; its middle-field YPA allowed is 7.63 on 43 attempts. MISSING: TE-specific allowances, rush EPA, stuff rates, box counts and YAC allowed.",
+  "overlap": "Cook's 61 carries for 340 yards in weeks 3\u20135 align directly with LV's documented rushing weakness. Bowers' team-leading 34 targets, 312 receiving yards and 323 air yards provide a volume-based receiving hypothesis against BUF; his precise alignment against BUF's vulnerable areas is unverified."
+ },
+ "form": "Source: supplied weeks 3\u20135 aggregates. Cook recorded 61 carries for 340 yards, approximately 5.57 YPC, while Allen added 22 carries for 148 yards and Davis had three carries for five yards. Allen is meaningful competition for rushing opportunities. Bowers led LV with 34 targets, ahead of Jeanty's 18, Tucker's 17 and Mayer's 14; Bowers produced 312 receiving yards on 323 air yards. MISSING: individual-game distributions, snaps, routes, red-zone usage, play-caller changes, comparable-opponent results and the defenses' last-three-game positional results. Aggregate production cannot establish hit rates or rule out one-play inflation.",
+ "edge_players": [
+  {
+   "player": "jamescook",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Cook can exceed 93.5 rushing yards because his established carry role meets an LV defense allowing 5.40 YPC, with BUF favored to control the game.",
+   "must_be_true": "James Cook carries >= 18 [because the pack records 61 carries across weeks 3\u20135 and BUF is favored by 5]",
+   "kills_it": "IF LV takes a sustained lead and BUF abandons its normal rushing volume THEN James Cook rushyds over 93.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "brockbowers",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Bowers can exceed 80.5 receiving yards because he is LV's clear recent target leader and the underdog script supports continued passing opportunities.",
+   "must_be_true": "Brock Bowers targets >= 9 [because the pack records 34 targets across weeks 3\u20135, the most on LV]",
+   "kills_it": "IF BUF suppresses Bowers' target volume and LV cannot sustain passing possessions THEN Brock Bowers recyds over 80.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The reads were formed from script and matchup before checking the lines. Cook's recent carry role and LV's 5.40 YPC allowed support the rushing hypothesis; Bowers' target leadership and receiving production support the receiving hypothesis. Neither aggregate establishes a calibrated probability. Cook over 93.5 at -111.5 requires approximately 52.72% to break even; Bowers over 80.5 at -115 requires approximately 53.49%. Normalizing the supplied opposing prices gives approximately 49.79% for Cook over and 50.00% for Bowers over, but these are supplied-market references, not verified Pinnacle probabilities. The evidence supports retaining both as leans, not claiming a demonstrated pricing edge.",
+  "disagrees": "none",
+  "missing": "Independent projection, simulation distributions and medians, calibrated hit probabilities, verified Pinnacle prices, individual-game role distributions, injuries/inactives, coverage charting and saved weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidates only: jamescook rushyds over 93.5 at -111.5; brockbowers recyds over 80.5 at -115. Cook's market expresses carry share plus a weak opposing run defense; Bowers' receiving-yards market expresses primary-target volume within the permitted markets. No alternate rungs supplied. No stake sizing or bet placement.",
+ "pre_mortem": "Cook loses if BUF's scoring comes through Allen and the passing game, if Allen absorbs important rushing opportunities, or if a trailing script reduces Cook's carries. Allen's 22 carries across weeks 3\u20135 make that competition concrete, and Cook's 93.5-yard threshold still demands substantial production. Bowers loses if BUF limits LV possessions or redirects targets toward Jeanty, Tucker and Mayer, who combined for 49 targets across weeks 3\u20135. His recent production does not establish an exploitable TE-specific matchup, and 80.5 yards requires more than merely retaining the lead role. Missing health and weather information could invalidate either hypothesis; neither is a strong-confidence leg.",
+ "slip_story": "Conditional story: BUF controls the game through Cook while trailing LV concentrates passing opportunities on Bowers. Cook survives the base script and the early-BUF-lead flip if he retains closing carries; Bowers can survive the base script and the competitive-game flip. Do not manufacture a 3\u20134-leg slip from two candidates or assume their joint probability equals independent probabilities. No finalized slip: pricing validation and availability checks remain unavailable. This response records the pre-kickoff hypotheses, but no persistent timestamped/hash-locked log or postgame grading is available. Later grade script accuracy and player-edge accuracy separately from each prop result, checking Steps 2\u20135 for role/script misses and Steps 3 and 6 for unavailable health/weather information.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

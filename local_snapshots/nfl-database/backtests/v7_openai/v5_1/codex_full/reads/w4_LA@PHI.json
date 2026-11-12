@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 LA@PHI / kickoff MISSING / spread and total NOT saved; script inferred only from supplied team form / weather MISSING / moneyline, implied totals, opening movement, venue details, rest and travel MISSING",
+ "script": {
+  "base": "Working hypothesis from team form only: a competitive game with LA's passing offense offering the clearer route to sustained production, rather than either team establishing a large early lead. LA continues featuring D.Adams while sharing rushing work between K.Williams and B.Corum; PHI faces a less explosive offensive path against LA's defense. Pace and halftime leadership cannot be established from the pack.",
+  "flip1": "PHI's blitz disrupts LA and produces a PHI lead: LA's supplied QB EPA/dropback falls from 0.22 without a blitz to -0.23 against one. PHI can then increase rushing volume, threatening a S.Barkley combined-yardage under.",
+  "flip2": "LA's passing efficiency produces an early multi-score lead, followed by a run-heavy second half. That could strand an Adams receiving over despite a favorable initial matchup, while forcing PHI toward passing."
+ },
+ "injury_fallout": "MISSING: LA and PHI injury reports, practice participation, offensive-line availability, defensive absences, return-to-play limits and final inactives. No absences, returns or next-man-up roles are inferred from the supplied usage. Recheck every selected player and affected matchup at the final report and approximately 90-minute inactive checkpoint; those records are unavailable in this backtest pack.",
+ "matchup": {
+  "shell": "MISSING: PHI and LA MOFO/MOFC, man/zone rates and individual coverage assignments. Directional YPA cannot establish which defender will cover Adams.",
+  "pressure": "Supplied season-to-date pack: PHI blitzes 26%; LA QB EPA/dropback is -0.23 against blitzes across 39 dropbacks versus 0.22 without blitzes. LA blitzes 27%; PHI QB EPA/dropback is -0.14 against blitzes across 37 dropbacks versus -0.02 without blitzes. Actual pressure rates, sack rates and time to throw are MISSING.",
+  "bleeds": "PHI has allowed eight 20-plus-yard pass plays on 92 attempts, versus LA's five on 105. PHI allows 7.21 YPA left and 7.25 middle versus 6.18 right. LA allows 4.00 rushing YPC and only 4.89\u20135.34 passing YPA across the supplied locations. Position-specific coverage, rush EPA, box counts and stuff rates are MISSING.",
+  "overlap": "Adams supplies LA's clearest volume-and-downfield overlap: 29 targets and 498 air yards over Weeks 1\u20133 against a PHI defense that has conceded eight explosive passes. Barkley's combined-yardage under pairs his limited supplied receiving production with LA's 4.00 rushing YPC allowed, although neither positional receiving defense nor individual rushing matchups are available."
+ },
+ "form": "Source for all figures: supplied pre-kickoff Weeks 1\u20133 aggregates. Adams recorded 29 targets, 358 receiving yards and 498 air yards; the next-listed LA target total is Higbee's 13. Williams had 38 carries for 214 yards and Corum 28 for 148, establishing shared observed usage without explaining its cause. Barkley had 34 carries for 174 yards plus six targets for six receiving yards; Hurts had 14 carries, Bigsby 14 and Shipley nine. PHI's Smith had 27 targets for 235 yards and Wicks 15 for 179. Individual-game trends, snaps, routes, red-zone work, comparable opponents and long-play dependence are MISSING.",
+ "edge_players": [
+  {
+   "player": "davanteadams",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Adams' established target and air-yard concentration gives him a plausible path over 60.5 receiving yards against a PHI defense that has already conceded eight explosive passes.",
+   "must_be_true": "davanteadams targets >= 7 [because the pack records 29 targets and 498 air yards over Weeks 1\u20133]",
+   "kills_it": "IF PHI's blitz repeatedly prevents Stafford from completing intermediate and deep throws to Adams THEN davanteadams recyds over 60.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "saquonbarkley",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Barkley's shared rushing workload and minimal receiving production leave under 88.5 combined yards attractive against LA's comparatively restrictive defensive results.",
+   "must_be_true": "saquonbarkley carries <= 16 [because the pack records 34 Barkley carries alongside 37 combined Hurts, Bigsby and Shipley carries over Weeks 1\u20133]",
+   "kills_it": "IF PHI establishes a sustained lead and expands Barkley's workload enough to reach 89 combined yards THEN saquonbarkley rushrecyds under 88.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypotheses precede this numerical check. Adams' 29 targets, 358 receiving yards and 498 air yards support his proposed role advantage. Barkley's 180 combined yards over the supplied three games and LA's 4.00 rushing YPC allowed support the under hypothesis, but do not constitute a calibrated projection. No model or simulation was run. Neither lean is validated for staking without the missing pricing and projection checks.",
+  "disagrees": "none",
+  "missing": "Projection model, simulated distribution and median, Pinnacle prices and sharp no-vig benchmark, individual-game role distributions, injury/inactive reports, coverage charting, pressure rates and weather. Available prop prices are not identified as Pinnacle.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate main lines only: davanteadams recyds over 60.5 at -113, an efficiency/downfield opportunity thesis; saquonbarkley rushrecyds under 88.5 at -114, a workload-plus-matchup thesis. Listed-price break-even probabilities are approximately 53.05% and 53.27%, respectively, before removing vig. No claimed fair probability, stake or alternate rung.",
+ "pre_mortem": "Adams: It is Monday and the over lost because PHI's blitz exploited LA's documented negative blitz EPA, or an early LA lead removed second-half passing volume. His three-game production may also conceal a long-play-heavy distribution; game logs and coverage assignments are absent. Barkley: The under lost because PHI controlled possession and concentrated carries in Barkley rather than maintaining the observed split, or his six receiving yards represented an unusually low stretch rather than a stable role. LA's aggregate rushing defense cannot rule out an individual explosive run. Both counter-cases cap confidence at lean.",
+ "slip_story": "Both candidates fit a competitive, LA-pass-led game in which Adams remains the focal receiver and PHI never develops clock-killing Barkley volume. Adams can also survive PHI leading if protection holds; Barkley's under can survive LA leading if receiving usage stays limited. No forced parlay: two candidates do not justify inventing additional legs to reach a 3\u20134-leg main slip, and joint probabilities are unavailable.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,1027 @@
+{
+ "game": "JAX@BAL",
+ "game_date": "2026-11-05",
+ "kickoff_et": "2026-11-05T20:15",
+ "season": 2026,
+ "week": 9,
+ "week_source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/espn_scoreboard.json",
+ "week_note": "ESPN event week 9; week10 input directory name is not a feed week.",
+ "venue": "M&T Bank Stadium",
+ "roof": "open",
+ "slip": [
+  "Strange 4+ rec (o3.5)",
+  "Strange 40+ rec yds (o39.5)",
+  "JAX 1H -6.5",
+  "Henry 40+ rush (o39.5)"
+ ],
+ "legs": [
+  {
+   "type": "TE",
+   "receiving": true,
+   "side": "over",
+   "line": 3.5,
+   "no_vig": 0.5147710487444609,
+   "price": -119,
+   "price_fd": -122,
+   "market": "rec",
+   "name": "Strange 4+ rec (o3.5)",
+   "status": "PASS",
+   "team": "JAX",
+   "opp": "BAL",
+   "player": "Brenton Strange",
+   "game": "JAX@BAL",
+   "gaps": [
+    "MISSING coverage.man_zone numeric rates",
+    "MISSING coverage.mof numeric rates",
+    "MISSING pressure_inputs.time_to_throw"
+   ],
+   "recent_form": {
+    "values": [
+     7,
+     7,
+     5,
+     2
+    ],
+    "games": [
+     "2026_04_JAX_CIN",
+     "2026_05_PHI_JAX",
+     "2026_06_HOU_JAX",
+     "2026_08_IND_JAX"
+    ],
+    "qb": "T.Lawrence",
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+    "pulled_et": "2026-11-03T19:13"
+   },
+   "te_rank": 1,
+   "rank_evidence": {
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+    "pulled_et": "2026-11-03T19:13",
+    "games": [
+     "2026_04_JAX_CIN",
+     "2026_05_PHI_JAX",
+     "2026_06_HOU_JAX",
+     "2026_08_IND_JAX"
+    ],
+    "definition": "Position target rank in last four team games led by current QB; depth_wiring convention",
+    "targets": 25
+   },
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Kyle Hamilton",
+      "targets": 34,
+      "completions": 24,
+      "comp_pct": 0.706,
+      "ypt": 6.0,
+      "source": "/workspace/nfl-database/week10/bal_secondary/pfr_bal_defense_advanced.csv",
+      "pulled_et": "2026-11-04T07:05",
+      "season": 2026,
+      "data_week": 8,
+      "primary": false,
+      "assignment_status": "UNVERIFIED",
+      "assignment": "Candidate safety/slot defender; no charted Strange assignment. Addendum 3 removes suppression weight.",
+      "alignment": "Box 178/Slot CB 162/DLine 84/FS 69/Wide CB 9",
+      "alignment_source": "/workspace/nfl-database/week10/pff_jax_bal/defenders.csv"
+     },
+     {
+      "name": "K'Von Wallace",
+      "targets": 4,
+      "completions": 4,
+      "comp_pct": 1.0,
+      "ypt": 17.5,
+      "source": "00f1ebe",
+      "pulled_et": "2026-11-04T17:05",
+      "season": 2026,
+      "data_week": 8,
+      "primary": false,
+      "assignment_status": "UNVERIFIED",
+      "assignment": "Hawkins (OUT) replacement for 3rd-safety big-nickel/dime snaps; may take some TE snaps. 66 def snaps, 70 yds, 118.7 rating allowed; snap share Wk7 32%/Wk8 57%. Tiny sample, flag only.",
+      "alignment": "not in free PFF pull",
+      "alignment_source": "/workspace/nfl-database/week10/bal_secondary/injury_update_2026-11-04.md"
+     },
+     {
+      "name": "Keondre Jackson",
+      "targets": 3,
+      "completions": 2,
+      "comp_pct": 0.667,
+      "ypt": 10.7,
+      "source": "00f1ebe",
+      "pulled_et": "2026-11-04T17:05",
+      "season": 2026,
+      "data_week": 8,
+      "primary": false,
+      "assignment_status": "UNVERIFIED",
+      "assignment": "Rotational S3/S4 with Hawkins OUT. 32 yds, 141.7 rating allowed; snap share Wk7 40%/Wk8 15%. Tiny sample, flag only.",
+      "alignment": "not in free PFF pull",
+      "alignment_source": "/workspace/nfl-database/week10/bal_secondary/injury_update_2026-11-04.md"
+     }
+    ],
+    "man_zone": {
+     "status": "MISSING",
+     "reason": "No actual BAL man/zone rates in r2-r5, snapshot or free PFF; participation unavailable.",
+     "value": null,
+     "source": "/workspace/nfl-database/week10/brainstorm_layers/layers.md",
+     "pulled_et": "2026-11-04T05:18"
+    },
+    "mof": {
+     "status": "MISSING",
+     "reason": "No actual BAL MOFO/MOFC rates; pass-location areas cannot substitute for coverage shells.",
+     "value": null,
+     "source": "/workspace/nfl-database/week10/brainstorm_layers/layers.md",
+     "pulled_et": "2026-11-04T05:18"
+    },
+    "assignment_source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum3_2026-11-04.md",
+    "assignment_status": "UNVERIFIED",
+    "caution": "Hamilton suppression is NOT COUNTED per addendum 3; no verified primary defender. PFR and PFF use different samples/definitions.",
+    "matchup_source": "/workspace/nfl-database/week10/pff_jax_bal/receiver_matchups.csv",
+    "injury_note": "Hawkins OUT (knee); Wiggins QUESTIONABLE (stinger/illness; NFL.com and Ravens.com disagree on Wednesday participation); recheck at Thursday 6:50 PM ET inactives. Source 00f1ebe week10/bal_secondary/injury_update_2026-11-04.md."
+   },
+   "press_tier": {
+    "tier": "STANDARD",
+    "reason": "no press inputs on leg",
+    "models_clear": 0
+   }
+  },
+  {
+   "type": "TE",
+   "receiving": true,
+   "side": "over",
+   "line": 39.5,
+   "no_vig": null,
+   "price": 114,
+   "price_fd": 114,
+   "market": "recyds",
+   "name": "Strange 40+ rec yds (o39.5)",
+   "status": "PASS",
+   "team": "JAX",
+   "opp": "BAL",
+   "player": "Brenton Strange",
+   "game": "JAX@BAL",
+   "gaps": [
+    "MISSING coverage.man_zone numeric rates",
+    "MISSING coverage.mof numeric rates",
+    "MISSING pressure_inputs.time_to_throw"
+   ],
+   "recent_form": {
+    "values": [
+     95,
+     68,
+     44,
+     55
+    ],
+    "games": [
+     "2026_04_JAX_CIN",
+     "2026_05_PHI_JAX",
+     "2026_06_HOU_JAX",
+     "2026_08_IND_JAX"
+    ],
+    "qb": "T.Lawrence",
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+    "pulled_et": "2026-11-03T19:13"
+   },
+   "te_rank": 1,
+   "rank_evidence": {
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+    "pulled_et": "2026-11-03T19:13",
+    "games": [
+     "2026_04_JAX_CIN",
+     "2026_05_PHI_JAX",
+     "2026_06_HOU_JAX",
+     "2026_08_IND_JAX"
+    ],
+    "definition": "Position target rank in last four team games led by current QB; depth_wiring convention",
+    "targets": 25
+   },
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Kyle Hamilton",
+      "targets": 34,
+      "completions": 24,
+      "comp_pct": 0.706,
+      "ypt": 6.0,
+      "source": "/workspace/nfl-database/week10/bal_secondary/pfr_bal_defense_advanced.csv",
+      "pulled_et": "2026-11-04T07:05",
+      "season": 2026,
+      "data_week": 8,
+      "primary": false,
+      "assignment_status": "UNVERIFIED",
+      "assignment": "Candidate safety/slot defender; no charted Strange assignment. Addendum 3 removes suppression weight.",
+      "alignment": "Box 178/Slot CB 162/DLine 84/FS 69/Wide CB 9",
+      "alignment_source": "/workspace/nfl-database/week10/pff_jax_bal/defenders.csv"
+     },
+     {
+      "name": "K'Von Wallace",
+      "targets": 4,
+      "completions": 4,
+      "comp_pct": 1.0,
+      "ypt": 17.5,
+      "source": "00f1ebe",
+      "pulled_et": "2026-11-04T17:05",
+      "season": 2026,
+      "data_week": 8,
+      "primary": false,
+      "assignment_status": "UNVERIFIED",
+      "assignment": "Hawkins (OUT) replacement for 3rd-safety big-nickel/dime snaps; may take some TE snaps. 66 def snaps, 70 yds, 118.7 rating allowed; snap share Wk7 32%/Wk8 57%. Tiny sample, flag only.",
+      "alignment": "not in free PFF pull",
+      "alignment_source": "/workspace/nfl-database/week10/bal_secondary/injury_update_2026-11-04.md"
+     },
+     {
+      "name": "Keondre Jackson",
+      "targets": 3,
+      "completions": 2,
+      "comp_pct": 0.667,
+      "ypt": 10.7,
+      "source": "00f1ebe",
+      "pulled_et": "2026-11-04T17:05",
+      "season": 2026,
+      "data_week": 8,
+      "primary": false,
+      "assignment_status": "UNVERIFIED",
+      "assignment": "Rotational S3/S4 with Hawkins OUT. 32 yds, 141.7 rating allowed; snap share Wk7 40%/Wk8 15%. Tiny sample, flag only.",
+      "alignment": "not in free PFF pull",
+      "alignment_source": "/workspace/nfl-database/week10/bal_secondary/injury_update_2026-11-04.md"
+     }
+    ],
+    "man_zone": {
+     "status": "MISSING",
+     "reason": "No actual BAL man/zone rates in r2-r5, snapshot or free PFF; participation unavailable.",
+     "value": null,
+     "source": "/workspace/nfl-database/week10/brainstorm_layers/layers.md",
+     "pulled_et": "2026-11-04T05:18"
+    },
+    "mof": {
+     "status": "MISSING",
+     "reason": "No actual BAL MOFO/MOFC rates; pass-location areas cannot substitute for coverage shells.",
+     "value": null,
+     "source": "/workspace/nfl-database/week10/brainstorm_layers/layers.md",
+     "pulled_et": "2026-11-04T05:18"
+    },
+    "assignment_source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum3_2026-11-04.md",
+    "assignment_status": "UNVERIFIED",
+    "caution": "Hamilton suppression is NOT COUNTED per addendum 3; no verified primary defender. PFR and PFF use different samples/definitions.",
+    "matchup_source": "/workspace/nfl-database/week10/pff_jax_bal/receiver_matchups.csv",
+    "injury_note": "Hawkins OUT (knee); Wiggins QUESTIONABLE (stinger/illness; NFL.com and Ravens.com disagree on Wednesday participation); recheck at Thursday 6:50 PM ET inactives. Source 00f1ebe week10/bal_secondary/injury_update_2026-11-04.md."
+   },
+   "press_tier": {
+    "tier": "STANDARD",
+    "reason": "no press inputs on leg",
+    "models_clear": 0
+   }
+  },
+  {
+   "type": "GAME",
+   "receiving": false,
+   "side": "over",
+   "line": 6.5,
+   "no_vig": 0.4874783717329934,
+   "price": -101,
+   "price_fd": -110,
+   "market": "spread_h1",
+   "name": "JAX 1H -6.5",
+   "status": "PASS",
+   "team": "JAX",
+   "opp": "BAL",
+   "player": "JAX",
+   "game": "JAX@BAL",
+   "gaps": [
+    "UNVERIFIED monte_carlo pricing for JAX 1H -6.5",
+    "UNVERIFIED bias pricing for JAX 1H -6.5",
+    "UNVERIFIED game_randomness pricing for JAX 1H -6.5"
+   ],
+   "recent_form": {
+    "values": [
+     10,
+     -7,
+     -3,
+     28
+    ],
+    "games": [
+     "2026_04_JAX_CIN",
+     "2026_05_PHI_JAX",
+     "2026_06_HOU_JAX",
+     "2026_08_IND_JAX"
+    ],
+    "qb": "T.Lawrence",
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+    "pulled_et": "2026-11-03T19:13"
+   },
+   "script_read": {
+    "expected_winner": "JAX",
+    "period": "1H",
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/miss_audit_1H.md",
+    "pulled_et": "2026-11-04T15:37",
+    "reason": "Sourced qualitative early-control thesis; not a quantitative cover probability"
+   },
+   "press_tier": {
+    "tier": "STANDARD",
+    "reason": "no press inputs on leg",
+    "models_clear": 0
+   }
+  },
+  {
+   "type": "RB",
+   "receiving": false,
+   "side": "over",
+   "line": 39.5,
+   "no_vig": null,
+   "price": -598,
+   "price_fd": -700,
+   "market": "rushyds",
+   "name": "Henry 40+ rush (o39.5)",
+   "status": "PASS",
+   "team": "BAL",
+   "opp": "JAX",
+   "player": "Derrick Henry",
+   "game": "JAX@BAL",
+   "gaps": [
+    "MISSING recent_form: fewer than three games with current QB"
+   ],
+   "recent_form": {
+    "values": [
+     53
+    ],
+    "games": [
+     "2026_08_BAL_BUF"
+    ],
+    "qb": "J.Fagnano",
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+    "pulled_et": "2026-11-03T19:13"
+   },
+   "carry_share": {
+    "value": 0.6875,
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+    "pulled_et": "2026-11-03T19:13",
+    "definition": "Henry designed carries / all BAL RB designed carries in latest up to 4 BAL games led by current QB; QB runs and kneels excluded",
+    "numerator": 11,
+    "denominator": 16,
+    "games": [
+     "2026_08_BAL_BUF"
+    ],
+    "by_game": [
+     {
+      "game": "2026_08_BAL_BUF",
+      "henry": 11,
+      "team_rb": 16
+     }
+    ],
+    "current_qb": "J.Fagnano",
+    "historical_last4": {
+     "numerator": 69,
+     "denominator": 85,
+     "games": [
+      "2026_05_BAL_ATL",
+      "2026_06_BAL_CLE",
+      "2026_07_CIN_BAL",
+      "2026_08_BAL_BUF"
+     ],
+     "note": "Mixed starting QBs; context only, not current-QB N1 window"
+    }
+   },
+   "press_tier": {
+    "tier": "STANDARD",
+    "reason": "no press inputs on leg",
+    "models_clear": 0
+   }
+  }
+ ],
+ "sources": [
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse pbp 2026 through week 8",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-03T19:13",
+   "tool": "existing nflverse parquet",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "odds_props",
+   "name": "Saved r6 FD/DK/Pinnacle odds; no API calls",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/odds/odds_r6.csv",
+   "pulled_et": "2026-11-04T14:59",
+   "tool": "existing odds snapshot",
+   "season": 2026,
+   "data_week": 9
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "PFR BAL advanced defense (G=8)",
+   "url_or_file": "/workspace/nfl-database/week10/bal_secondary/pfr_bal_defense_advanced.csv",
+   "pulled_et": "2026-11-04T07:05",
+   "tool": "existing PFR extraction",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "FTN charting via nflverse + pbp",
+   "url_or_file": "/workspace/nfl-database/week10/bal_secondary/raw/ftn_charting_2026.parquet",
+   "pulled_et": "2026-11-04T07:00",
+   "tool": "existing nflverse parquet",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "PFR BAL defender extraction (shell/man-zone missing)",
+   "url_or_file": "/workspace/nfl-database/week10/bal_secondary/pfr_bal_defense_advanced.csv",
+   "pulled_et": "2026-11-04T07:05",
+   "tool": "local verified evidence",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "nflverse pbp position/area allowed; location is not alignment",
+   "url_or_file": "/workspace/nfl-database/week10/brainstorm_layers/L6_bal_allowed_by_pos_area.csv",
+   "pulled_et": "2026-11-04T05:30",
+   "tool": "local verified evidence",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "film",
+   "name": "Official NFL YouTube: metadata, auto-captions and actual <=720p files",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/film_verified.json",
+   "pulled_et": "2026-11-04T15:37",
+   "tool": "local verified evidence",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "injuries_news",
+   "name": "Jaguars official injury report",
+   "url_or_file": "https://www.jaguars.com/team/injury-report/",
+   "pulled_et": "2026-11-04T15:37",
+   "tool": "urllib public HTTP",
+   "season": 2026,
+   "data_week": 9
+  },
+  {
+   "category": "injuries_news",
+   "name": "Ravens official injury report",
+   "url_or_file": "https://www.baltimoreravens.com/team/injury-report/",
+   "pulled_et": "2026-11-04T15:37",
+   "tool": "urllib public HTTP",
+   "season": 2026,
+   "data_week": 9
+  },
+  {
+   "category": "injuries_news",
+   "name": "Jaguars Austin Johnson practice-squad news",
+   "url_or_file": "https://www.jaguars.com/news/responding-to-change-important-just-to-stay-ready",
+   "pulled_et": "2026-11-04T15:37",
+   "tool": "urllib public HTTP",
+   "season": 2026,
+   "data_week": 9
+  },
+  {
+   "category": "weather",
+   "name": "NWS hourly + Open-Meteo via tools/weather_forecast.py",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/weather_forecast.json",
+   "pulled_et": "2026-11-04T15:21",
+   "tool": "local verified evidence",
+   "season": 2026,
+   "data_week": 9
+  }
+ ],
+ "auxiliary_sources": [
+  {
+   "category": "ngs",
+   "name": "Existing NGS route screenshots; numeric separation/cushion/RYOE missing",
+   "url_or_file": "/workspace/nfl-database/week10/ngs",
+   "pulled_et": "2026-11-04T15:37",
+   "tool": "local verified evidence",
+   "season": 2026,
+   "data_week": 8,
+   "status": "MISSING",
+   "note": "Inspected existing screenshots; original retrieval timestamp/provenance not established. Not a fresh NGS statistics pull. Not valid numeric NGS evidence; category remains flagged."
+  },
+  {
+   "category": "target_share_pool",
+   "name": "nflverse JAX target pool",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/target_share_pool.json",
+   "pulled_et": "2026-11-03T19:13",
+   "tool": "local verified evidence",
+   "season": 2026,
+   "data_week": 8
+  }
+ ],
+ "flagged_gaps": [
+  {
+   "category": "ngs",
+   "reason": "No verified r6 source; see missing_artifacts and auxiliary_sources"
+  }
+ ],
+ "missing_artifacts": [],
+ "pressure_inputs": {
+  "blitz_rate": {
+   "value": 0.33,
+   "definition": "BAL defense: >=5 pass rushers / FTN-charted dropbacks",
+   "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet + /workspace/nfl-database/week10/bal_secondary/raw/ftn_charting_2026.parquet",
+   "pulled_et": "2026-11-03T19:13",
+   "season": 2026,
+   "data_week": 8,
+   "sample": 300
+  },
+  "pressure_rate": {
+   "value": 0.24333333333333335,
+   "definition": "BAL defense (sack OR qb_hit OR qb_scramble) / dropbacks",
+   "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-03T19:13",
+   "season": 2026,
+   "data_week": 8,
+   "label": "PROXY",
+   "sample": 300
+  },
+  "checkdown_share": {
+   "value": 0.21717171717171718,
+   "definition": "Lawrence attempts with air_yards<=0 OR RB target / non-sack attempts",
+   "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-03T19:13",
+   "season": 2026,
+   "data_week": 8,
+   "label": "PROXY",
+   "sample": 198
+  },
+  "time_to_throw": {
+   "status": "MISSING",
+   "reason": "No valid NGS time-to-throw source; pbp has no time-to-throw field. Do not substitute play clock.",
+   "value": null,
+   "source": "/workspace/nfl-database/week10/brainstorm_layers/layers.md",
+   "pulled_et": "2026-11-04T05:18"
+  },
+  "targets_under_pressure": {
+   "value": {
+    "total": 39,
+    "by_receiver": {
+     "P.Washington": 10,
+     "J.Meyers": 8,
+     "B.Strange": 5,
+     "B.Tuten": 5,
+     "Bri.Thomas": 2,
+     "N.Boerkircher": 2,
+     "L.Allen": 2,
+     "J.Cameron": 2,
+     "Q.Morris": 1,
+     "C.Rodriguez": 1,
+     "T.Hunter": 1
+    },
+    "share_of_targets": 0.203125
+   },
+   "definition": "Lawrence targeted attempts under sack/hit/scramble/FTN out-of-pocket proxy; sacks cannot be targeted attempts",
+   "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet + /workspace/nfl-database/week10/bal_secondary/raw/ftn_charting_2026.parquet",
+   "pulled_et": "2026-11-03T19:13",
+   "season": 2026,
+   "data_week": 8,
+   "label": "PROXY",
+   "dropbacks_under_proxy": 56
+  }
+ },
+ "sims": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261104,
+   "script": "tools/sim_v6.py",
+   "wrapper": "runs/2026-11-05_JAX@BAL_r6/codex/run_sims.py",
+   "legs": {
+    "Strange 4+ rec (o3.5)": {
+     "p": 0.55768,
+     "median": 4.0
+    },
+    "Strange 40+ rec yds (o39.5)": {
+     "p": 0.52311,
+     "median": 41.91376939072847
+    },
+    "Henry 40+ rush (o39.5)": {
+     "p": 0.53654,
+     "median": 41.828373096152276
+    },
+    "JAX 1H -6.5": {
+     "p": 0.42173,
+     "median": 5.0,
+     "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261104,
+   "script": "tools/sim_v6.py",
+   "wrapper": "runs/2026-11-05_JAX@BAL_r6/codex/run_sims.py",
+   "legs": {
+    "Strange 4+ rec (o3.5)": {
+     "p": 0.55784,
+     "median": 4.0
+    },
+    "Strange 40+ rec yds (o39.5)": {
+     "p": 0.51956,
+     "median": 40.98235229315673
+    },
+    "Henry 40+ rush (o39.5)": {
+     "p": 0.53745,
+     "median": 41.828373096152276
+    },
+    "JAX 1H -6.5": {
+     "p": 0.42035,
+     "median": 4.0,
+     "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261104,
+   "script": "tools/sim_v6.py",
+   "wrapper": "runs/2026-11-05_JAX@BAL_r6/codex/run_sims.py",
+   "legs": {
+    "Strange 4+ rec (o3.5)": {
+     "p": 0.51985,
+     "median": 4.0
+    },
+    "Strange 40+ rec yds (o39.5)": {
+     "p": 0.49598,
+     "median": 38.92401753013751
+    },
+    "Henry 40+ rush (o39.5)": {
+     "p": 0.53918,
+     "median": 41.86901016159314
+    },
+    "JAX 1H -6.5": {
+     "p": 0.41393,
+     "median": 4.0,
+     "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+    }
+   }
+  }
+ ],
+ "weather_forecast": {
+  "pulled_et": "2026-11-04T15:21",
+  "source": "tools/weather_forecast.py (api.weather.gov hourly + api.open-meteo.com)",
+  "thresholds": {
+   "precip_pct": 50,
+   "gust_mph": 20,
+   "wind_mph": 15
+  },
+  "window": "kickoff to kickoff+3.5h ET; worse source",
+  "games": {
+   "JAX@BAL": {
+    "roof": "open",
+    "nws": {
+     "precip_pct": 21,
+     "wind_mph": 3,
+     "gust_mph": null,
+     "short": [
+      "Mostly Cloudy",
+      "Slight Chance Light Rain"
+     ],
+     "hours": 3
+    },
+    "open_meteo": {
+     "precip_pct": 25,
+     "wind_mph": 2.6,
+     "gust_mph": 9.2,
+     "precip_in": 0.23,
+     "hours": 3
+    },
+    "notes": [],
+    "status": "OK",
+    "flag": false,
+    "why": [],
+    "precip_pct": 25,
+    "gust_mph": 9.2,
+    "wind_mph": 3,
+    "kickoff_et": "2026-11-05T20:15"
+   }
+  }
+ },
+ "target_share_pool": {
+  "source": "nflverse pbp: /workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+  "pulled_et": "2026-11-03T19:13",
+  "threshold": 0.22,
+  "team": "JAX",
+  "current_qb": "T.Lawrence",
+  "season": 2026,
+  "data_week": 8,
+  "method": "Named-target pass plays, REG, exclude two-point attempts. Last-three weeks with Lawrence includes all JAX targets in those weeks, matching rico4_rules.target_share_pool.",
+  "players": [
+   {
+    "name": "P.Washington",
+    "team": "JAX",
+    "targets": 48,
+    "team_targets": 195,
+    "share_season": 0.24615384615384617,
+    "share_l3_current_qb": 0.22916666666666666,
+    "targets_l3": 22,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": true,
+    "leg": "Washington rec yds o63.5",
+    "skip_reason": "If this leg is absent from slip B: omitted by user-defined slip B; do not substitute another market."
+   },
+   {
+    "name": "B.Strange",
+    "team": "JAX",
+    "targets": 35,
+    "team_targets": 195,
+    "share_season": 0.1794871794871795,
+    "share_l3_current_qb": 0.17708333333333334,
+    "targets_l3": 17,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "leg": "Strange 4+ rec (o3.5)",
+    "skip_reason": "Below 22% in both windows; receiving legs evaluated separately (slip C uses Strange 40+)."
+   },
+   {
+    "name": "J.Meyers",
+    "team": "JAX",
+    "targets": 31,
+    "team_targets": 195,
+    "share_season": 0.15897435897435896,
+    "share_l3_current_qb": 0.16666666666666666,
+    "targets_l3": 16,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "skip_reason": "Below 22% in both season and last-three current-QB-week windows; no requested leg."
+   },
+   {
+    "name": "Bri.Thomas",
+    "team": "JAX",
+    "targets": 21,
+    "team_targets": 195,
+    "share_season": 0.1076923076923077,
+    "share_l3_current_qb": 0.07291666666666667,
+    "targets_l3": 7,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "skip_reason": "Below 22% in both season and last-three current-QB-week windows; no requested leg."
+   },
+   {
+    "name": "B.Tuten",
+    "team": "JAX",
+    "targets": 16,
+    "team_targets": 195,
+    "share_season": 0.08205128205128205,
+    "share_l3_current_qb": 0.09375,
+    "targets_l3": 9,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "skip_reason": "Below 22% in both season and last-three current-QB-week windows; no requested leg."
+   },
+   {
+    "name": "J.Cameron",
+    "team": "JAX",
+    "targets": 13,
+    "team_targets": 195,
+    "share_season": 0.06666666666666667,
+    "share_l3_current_qb": 0.07291666666666667,
+    "targets_l3": 7,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "skip_reason": "Below 22% in both season and last-three current-QB-week windows; no requested leg."
+   },
+   {
+    "name": "N.Boerkircher",
+    "team": "JAX",
+    "targets": 9,
+    "team_targets": 195,
+    "share_season": 0.046153846153846156,
+    "share_l3_current_qb": 0.052083333333333336,
+    "targets_l3": 5,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "skip_reason": "Below 22% in both season and last-three current-QB-week windows; no requested leg."
+   },
+   {
+    "name": "T.Hunter",
+    "team": "JAX",
+    "targets": 7,
+    "team_targets": 195,
+    "share_season": 0.035897435897435895,
+    "share_l3_current_qb": 0.0625,
+    "targets_l3": 6,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "skip_reason": "Below 22% in both season and last-three current-QB-week windows; no requested leg."
+   },
+   {
+    "name": "L.Allen",
+    "team": "JAX",
+    "targets": 6,
+    "team_targets": 195,
+    "share_season": 0.03076923076923077,
+    "share_l3_current_qb": 0.03125,
+    "targets_l3": 3,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "skip_reason": "Below 22% in both season and last-three current-QB-week windows; no requested leg."
+   },
+   {
+    "name": "A.Abdullah",
+    "team": "JAX",
+    "targets": 3,
+    "team_targets": 195,
+    "share_season": 0.015384615384615385,
+    "share_l3_current_qb": 0.0,
+    "targets_l3": 0,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "skip_reason": "Below 22% in both season and last-three current-QB-week windows; no requested leg."
+   },
+   {
+    "name": "C.Rodriguez",
+    "team": "JAX",
+    "targets": 3,
+    "team_targets": 195,
+    "share_season": 0.015384615384615385,
+    "share_l3_current_qb": 0.03125,
+    "targets_l3": 3,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "skip_reason": "Below 22% in both season and last-three current-QB-week windows; no requested leg."
+   },
+   {
+    "name": "Q.Morris",
+    "team": "JAX",
+    "targets": 2,
+    "team_targets": 195,
+    "share_season": 0.010256410256410256,
+    "share_l3_current_qb": 0.0,
+    "targets_l3": 0,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "skip_reason": "Below 22% in both season and last-three current-QB-week windows; no requested leg."
+   },
+   {
+    "name": "T.Koziol",
+    "team": "JAX",
+    "targets": 1,
+    "team_targets": 195,
+    "share_season": 0.005128205128205128,
+    "share_l3_current_qb": 0.010416666666666666,
+    "targets_l3": 1,
+    "team_targets_l3": 96,
+    "qb_weeks": [
+     5,
+     6,
+     8
+    ],
+    "qualifies": false,
+    "skip_reason": "Below 22% in both season and last-three current-QB-week windows; no requested leg."
+   }
+  ]
+ },
+ "n3_1h_script": {
+  "leg": "JAX 1H -6.5",
+  "pulled_et": "2026-11-04T15:37",
+  "status": "MISSING",
+  "missing": [
+   "No joint JAX/BAL first-half drive scoring model in drive_sim.py; no supported probability for -6.5.",
+   "Final inactives and turnover/red-zone execution remain unknown."
+  ],
+  "sources": [
+   "/workspace/nfl-database/week10/fagnano/drive_sim.txt",
+   "/workspace/nfl-database/week10/fagnano/drive_sim.py",
+   "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/miss_audit_1H.md",
+   "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum_2026-11-04.md"
+  ],
+  "script_read": {
+   "expected_winner": "JAX",
+   "period": "1H",
+   "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/miss_audit_1H.md",
+   "pulled_et": "2026-11-04T15:37",
+   "reason": "Sourced qualitative early-control thesis; not a quantitative cover probability"
+  },
+  "historical_1h_margins": [
+   24,
+   7,
+   11,
+   10,
+   -7,
+   -3,
+   28
+  ],
+  "historical_cover_count": 5,
+  "historical_games": 7,
+  "last4_margins": [
+   10,
+   -7,
+   -3,
+   28
+  ],
+  "last4_covers": 2,
+  "probability": null,
+  "full_game_estimates": {
+   "base": {
+    "BAL_drives": 10.5,
+    "BAL_points": 16.0,
+    "three_and_out": 4.4,
+    "turnovers": 1.47
+   },
+   "rico": {
+    "BAL_drives": 11.0,
+    "BAL_points": 13.5,
+    "three_and_out": 5.5,
+    "turnovers": 1.87
+   },
+   "flip": {
+    "BAL_drives": 10.5,
+    "BAL_points": 20.0,
+    "three_and_out": 3.5,
+    "turnovers": 1.16
+   }
+  },
+  "script": {
+   "base": "JAX pressure/sacks produce BAL stalled drives and field-position chances; JAX must convert those into a halftime lead of at least seven. Receiver volume can concentrate early, then shrink in a run-out second half.",
+   "failure_paths": [
+    "JAX red-zone turnover or turnover on downs (both historical misses).",
+    "BAL defense stalls Lawrence and Henry sustains long drives, reducing first-half possessions.",
+    "Explosive or late-half BAL score; Fagnano one-game sample does not rule it out."
+   ],
+   "correlation": "JAX 1H and JAX receiving overs need early scoring drives together. Henry 40+ can coexist through early volume but a severe run-out limits BAL carries."
+  },
+  "cautions": [
+   "drive_sim.py labels ESTIMATES throughout; N=100000 seed=9 is full-game BAL simulation only.",
+   "Blitz alone is not the edge: local Fagnano split is better blitzed (5.2 YPA) than unblitzed (3.1); pressure/sack angle is a small-sample proxy.",
+   "Historical 2/4 is a flag against the script, not an automatic read cut."
+  ]
+ },
+ "stat_gate_policy": "Flags only; never automatically cut a read-selected leg. PASS is an evaluation status, not gate approval.",
+ "seed": 20261104,
+ "trials": 100000,
+ "sim_script": "tools/sim_v6.py",
+ "weather": {
+  "JAX@BAL": {
+   "roof": "open",
+   "precip_pct": 25,
+   "gust_mph": 9.2,
+   "wind_mph": 3,
+   "source": "tools/weather_forecast.py (api.weather.gov hourly + api.open-meteo.com)",
+   "pulled_et": "2026-11-04T15:21",
+   "label": "Forecast only; Phase 11 pre-kick observation/inactives still required"
+  }
+ }
+}

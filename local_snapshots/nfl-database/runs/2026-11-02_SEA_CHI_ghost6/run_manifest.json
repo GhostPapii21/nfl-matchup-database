@@ -1,0 +1,385 @@
+{
+ "season": 2026,
+ "week": 8,
+ "game_id": "401873035?",
+ "game": "CHI@SEA",
+ "kickoff_et": "2026-11-02T20:15",
+ "game_date": "2026-11-02",
+ "venue": "Lumen Field, Seattle (open-air, partial roof)",
+ "input_cutoff_et": "2026-11-02T05:05",
+ "seed": 20261101,
+ "trials": 100000,
+ "sim_script": "/workspace/nfl-database/tools/sim_v6.py (SIMV6_SRC=run src, fresh pbp thru 2026-11-01)",
+ "sources": [
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse play_by_play_2026 (thru 2026-11-01)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-02T05:05",
+   "tool": "curl"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN scoreboard API 20261102",
+   "url_or_file": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20261102",
+   "pulled_et": "2026-11-02T05:05",
+   "tool": "curl"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "PFR advanced defense 2026 (Firecrawl public page)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/pfr_def.html",
+   "pulled_et": "2026-11-02T05:05",
+   "tool": "firecrawl"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "Sharp coverage schemes (Updated Oct 27)",
+   "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+   "pulled_et": "2026-11-02T05:05",
+   "tool": "firecrawl"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "FTN charting via nflverse (blitz)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/ftn.parquet",
+   "pulled_et": "2026-11-02T05:05",
+   "tool": "curl"
+  },
+  {
+   "category": "ngs",
+   "name": "nflverse NGS receiving (thru wk8)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_receiving.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "tool": "curl"
+  },
+  {
+   "category": "film",
+   "name": "Seahawks.com Wk7 highlights; JSN 33, 28 TD, 28 matched to pbp rows (Q2 11:19, 1:49, 0:35)",
+   "url_or_file": "https://www.seahawks.com/news/2026-week-7-seahawks-vs-chiefs-full-highlights",
+   "pulled_et": "2026-11-02T05:08",
+   "tool": "websearch"
+  },
+  {
+   "category": "injuries_news",
+   "name": "ESPN core injuries API CHI+SEA",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/inj_3.json",
+   "pulled_et": "2026-11-02T05:05",
+   "tool": "curl"
+  },
+  {
+   "category": "weather",
+   "name": "tools/weather_forecast.py NWS+Open-Meteo Lumen Field",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/forecast_2026-11-02_0504.json",
+   "pulled_et": "2026-11-02T05:04",
+   "tool": "weather_forecast.py"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API FanDuel+DraftKings pregame (commence 2026-11-03T01:20Z)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/odds.json",
+   "pulled_et": "2026-11-02T05:05",
+   "tool": "python urllib"
+  }
+ ],
+ "flagged_gaps": [],
+ "pressure_inputs": {
+  "blitz_rate": {
+   "value": {
+    "CHI": 0.414,
+    "SEA": 0.22
+   },
+   "label": "FTN 5+ rushers",
+   "source": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/ftn.parquet",
+   "pulled_et": "2026-11-02T05:05"
+  },
+  "pressure_rate": {
+   "value": {
+    "CHI": 0.176,
+    "SEA": 0.229
+   },
+   "label": "PROXY",
+   "source": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-02T05:05"
+  },
+  "checkdown_share": {
+   "value": {
+    "SEA": 0.242,
+    "CHI": 0.207
+   },
+   "source": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-02T05:05"
+  }
+ },
+ "weather": {
+  "CHI@SEA": {
+   "source": "tools/weather_forecast.py",
+   "file": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/forecast_2026-11-02_0504.json",
+   "pulled_et": "2026-11-02T05:04",
+   "flag": false,
+   "precip_pct": 3,
+   "gust_mph": 4.7,
+   "wind_mph": 4.1,
+   "roof": "open (partial roof)"
+  }
+ },
+ "weather_forecast": {
+  "file": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/forecast_2026-11-02_0504.json",
+  "source": "tools/weather_forecast.py (api.weather.gov hourly + api.open-meteo.com)",
+  "pulled_et": "2026-11-02T05:04",
+  "games": {
+   "CHI@SEA": {
+    "roof": "open (partial roof)",
+    "nws": {
+     "precip_pct": 3,
+     "wind_mph": 1,
+     "gust_mph": null,
+     "short": [
+      "Cloudy"
+     ],
+     "hours": 3
+    },
+    "open_meteo": {
+     "precip_pct": 2,
+     "wind_mph": 4.1,
+     "gust_mph": 4.7,
+     "precip_in": 0,
+     "hours": 3
+    },
+    "notes": [],
+    "status": "OK",
+    "flag": false,
+    "why": [],
+    "precip_pct": 3,
+    "gust_mph": 4.7,
+    "wind_mph": 4.1,
+    "kickoff_et": "2026-11-02T20:15"
+   }
+  }
+ },
+ "sims": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "legs": {
+    "Jaxon Smith-Njigba o89.5 rec yds -166": {
+     "p": 0.71126,
+     "median": 119.08406852165378
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "legs": {
+    "Jaxon Smith-Njigba o89.5 rec yds -166": {
+     "p": 0.71468,
+     "median": 119.08406852165378
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "legs": {
+    "Jaxon Smith-Njigba o89.5 rec yds -166": {
+     "p": 0.64709,
+     "median": 115.15435787372367
+    }
+   }
+  }
+ ],
+ "legs": [
+  {
+   "name": "Jaxon Smith-Njigba o89.5 rec yds -166",
+   "player": "Jaxon Smith-Njigba",
+   "team": "SEA",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "status": "PASS",
+   "side": "over",
+   "line": 89.5,
+   "price": -166,
+   "price_fd": -166,
+   "book": "fanduel",
+   "no_vig": 0.588,
+   "gaps": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Jaylon Johnson",
+      "team": "CHI",
+      "pos": "CB",
+      "targets": 31,
+      "comp_pct": 77.4,
+      "ypt": 14.4,
+      "source": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/pfr_def.html",
+      "pulled_et": "2026-11-02T05:05"
+     },
+     {
+      "name": "Tyrique Stevenson",
+      "team": "CHI",
+      "pos": "CB",
+      "targets": 20,
+      "comp_pct": 60.0,
+      "ypt": 11.5,
+      "source": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/pfr_def.html",
+      "pulled_et": "2026-11-02T05:05"
+     },
+     {
+      "name": "Malik Muhammad (Q)",
+      "team": "CHI",
+      "pos": "CB",
+      "targets": 31,
+      "comp_pct": 54.8,
+      "ypt": 8.4,
+      "source": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/pfr_def.html",
+      "pulled_et": "2026-11-02T05:05"
+     }
+    ],
+    "man_zone": {
+     "value": "CHI man 29.9% / zone 65.8%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-02T05:05"
+    },
+    "mof": {
+     "value": "CHI MOF closed 53.6% / open 42.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-02T05:05"
+    }
+   },
+   "recent_form": {
+    "values": [
+     76,
+     102,
+     134,
+     150
+    ],
+    "games": [
+     "2026_04_LAC_SEA",
+     "2026_05_SF_SEA",
+     "2026_06_SEA_DEN",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "S.Darnold",
+    "source": "/workspace/nfl-database/runs/2026-11-02_SEA_CHI_ghost6/src/play_by_play_2026.parquet",
+    "pulled_et": "2026-11-02T05:05"
+   },
+   "press": "BLOCKED (Sharp coverage has no agreeing second source, SRC-3)"
+  },
+  {
+   "name": "Jaxon Smith-Njigba o99.5 rec yds -114",
+   "status": "CUT",
+   "side": "over",
+   "receiving": true,
+   "gaps": [
+    "\u00a714 recent-form: L4 median 118 < 1.25x line (124.4)"
+   ],
+   "line": 0,
+   "no_vig": 0.5
+  },
+  {
+   "name": "Jaxon Smith-Njigba o6.5 rec -174",
+   "status": "CUT",
+   "side": "over",
+   "receiving": true,
+   "gaps": [
+    "\u00a77: 2/4 at 6.5 with Darnold (5,5,12,9); shrunk edge fails GR"
+   ],
+   "line": 0,
+   "no_vig": 0.5
+  },
+  {
+   "name": "Rome Odunze o38.5 rec yds -113",
+   "status": "CUT",
+   "side": "over",
+   "receiving": true,
+   "gaps": [
+    "P14 edge -1.9; SEA pass D 5.17 YPT"
+   ],
+   "line": 0,
+   "no_vig": 0.5
+  },
+  {
+   "name": "Luther Burden III o51.5 rec yds -113",
+   "status": "CUT",
+   "side": "over",
+   "receiving": true,
+   "gaps": [
+    "P14 edge -4.5; P4 SEA slot CB Witherspoon 4.1 YPT"
+   ],
+   "line": 0,
+   "no_vig": 0.5
+  },
+  {
+   "name": "D'Andre Swift o81.5 rush+rec -113",
+   "status": "CUT",
+   "side": "over",
+   "receiving": true,
+   "gaps": [
+    "P14 edge -5.5; P3 SEA run D 3.48 YPC (suppression)"
+   ],
+   "line": 0,
+   "no_vig": 0.5
+  },
+  {
+   "name": "D'Andre Swift o49.5 rush yds -200",
+   "status": "CUT",
+   "side": "over",
+   "receiving": true,
+   "gaps": [
+    "P14 edge -10.3; \u00a77 2/4 at 59.5"
+   ],
+   "line": 0,
+   "no_vig": 0.5
+  },
+  {
+   "name": "Emanuel Wilson o19.5 rush yds -114",
+   "status": "CUT",
+   "side": "over",
+   "receiving": true,
+   "gaps": [
+    "MODEL-SUSPECT (median 63 vs 19.5 market): sim blind to Charbonnet return; Rule 5 backup-RB block; mixed role"
+   ],
+   "line": 0,
+   "no_vig": 0.5
+  },
+  {
+   "name": "Colston Loveland o39.5 rec yds -138",
+   "status": "CUT",
+   "side": "over",
+   "receiving": true,
+   "gaps": [
+    "\u00a77 2/4 with Williams; P14 edge -19.5"
+   ],
+   "line": 0,
+   "no_vig": 0.5
+  },
+  {
+   "name": "AJ Barner o24.5 rec yds -172",
+   "status": "CUT",
+   "side": "over",
+   "receiving": true,
+   "gaps": [
+    "\u00a77 1/4 at 29.5; P14 edge -10.5"
+   ],
+   "line": 0,
+   "no_vig": 0.5
+  },
+  {
+   "name": "Cooper Kupp o24.5 rec yds -162",
+   "status": "CUT",
+   "side": "over",
+   "receiving": true,
+   "gaps": [
+    "P14 edge +0.6 <3; #3 receiver role (Shaheed vacated, no clear holder)"
+   ],
+   "line": 0,
+   "no_vig": 0.5
+  }
+ ]
+}

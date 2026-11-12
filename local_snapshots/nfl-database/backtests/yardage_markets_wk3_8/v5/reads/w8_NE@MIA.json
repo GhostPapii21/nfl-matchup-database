@@ -1,0 +1,46 @@
+{
+ "game": "Sun Nov 01 04:25 PM ET / NE -7 (MIA +7) / slate total 41 (checklist saved 2026-10-29 had 43.5; movement since open not logged) / Hard Rock Stadium outdoor; close-to-kickoff weather not saved",
+ "script": {
+  "base": "Books have New England leading by about a touchdown in a low-40s outdoor game (implied NE ~24 / MIA ~17 on the 41). Most likely flow is a grind: NE up by a score at half, Malik Willis (EPA/dropback -0.03 vs blitz, 0.00 clean) unable to push the ball, so Miami stays on Ollie Gordon (52 carries, 291 yards over weeks 4/5/7) while NE clocks with a committee (Stevenson 33/122, Kiner 21/122, Henderson 14/62, Maye 11/80). Pace slow, limited garbage time if it stays inside 7-10.",
+  "flip1": "NE jumps ahead by 14+ early, Miami abandons the run, Gordon's rush line dies the way a trailing back's does, and Willis is forced into NE's 39% blitz \u2014 checkdowns and failed deep shots (Coleman 12 targets / 33 yards on 147 air; Bell 9/25 on 131 air) replace the ground game.",
+  "flip2": "Gordon (5.6 YPC) plus Willis as a runner (16 carries, 124 yards L3) keep Miami within a score, both teams lean run/short in a 20s slog, and NE's air-yard receivers (Douglas 171 air, Brown 248 air over L3) stall if the 15 mph wind forecast verifies."
+ },
+ "injury_fallout": "No named offensive or defensive absences in this pack. Checklist (built 2026-10-29 05:25 EDT) marks OL health, injury alerts, and exact-game availability PARTIAL: Wednesday designations logged in injuries.json but not enumerated here; Thursday/Friday reports and the 90-minute inactives are pending. Cannot reallocate targets or carries to a next man up. Working roles only: NE pass tree L3 is Douglas 17 targets, Brown 16, Henry 16, Raridon 12, Stevenson 8; Miami is Washington 16, Coleman 12, Dulcich 11, with Gordon the bellcow and Wright (17 carries, 26 yards) not threatening that share. Re-run if a late scratch hits Gordon, Willis, Dulcich, or the NE line.",
+ "matchup": {
+  "shell": "Sharp coverage pages dated Oct 20 are marked CURRENT, but man/zone and MOFO/MOFC rates are not in this excerpt (P8.scheme PARTIAL; individual assignments and CB charting unavailable). Shell itself is unstated.",
+  "pressure": "Charted pressure rate not in the pack (P1.pressure is a proxy only). Blitz rates are: Miami 26%, New England 39%. Maye is fine vs pressure (EPA 0.18 blitzed n=78 vs 0.22 clean). Willis is not (EPA -0.03 blitzed n=63 vs 0.00 clean), so NE's blitz should force quicker throws, not deep shots.",
+  "bleeds": "Both defenses bleed the middle and hold the edges better. Miami pass YPA: middle 10.14 (42 att), left 7.24 (59), right 7.62 (74); rush YPC allowed 4.20 with 19 runs of 10+ in 6 games. NE pass YPA: middle 11.74 (42 att), left 7.24 (92), right 5.71 (90); rush YPC allowed 4.01 with 16 runs of 10+ in 7 games. Explosive pass rates are similar (MIA 17/182, NE 23/242).",
+  "overlap": "Miami's primary target is Washington (16 targets, 137 yards, 163 air \u2014 downfield, not the middle hole), so he is not the overlap. Dulcich is: 11 targets, 123 yards, only 73 air into the exact middle NE allows 11.74 YPA, and a 39% blitz pushes Willis toward that checkdown. Gordon is the run overlap \u2014 17.3 carries/game into a 4.01 YPC defense, not a shutdown front. NE's schematic fit would be Henry (16 targets, 163 yards, 68 air) vs Miami's 10.14 middle YPA, not Douglas's 171 air yards."
+ },
+ "form": "Avoiding season averages. Gordon L3: 52/291 (about 17 carries and 97 rush yards/game), plus 5 targets and 0 receiving yards \u2014 a pure rusher, not a fluke single splash in the aggregate, though game-by-game splits are not in the pack so one spike game cannot be ruled out. Wright 17/26 shows the backup is not earning carries. Willis rush 16/124 is real QB-run leakage but not Gordon's share. Dulcich 11/123/73 is already Willis-era production (MIA sample is weeks 4, 5, 7), about 41 rec yards/game, while Coleman and Bell post huge air and almost no yards. NE side: Stevenson 33/122 rush (about 41 yards/game) but 8 targets / 114 rec yards; Kiner 21/122 is the more efficient back and is splitting the committee; Henry 16/163/68 and Douglas 17/174/171 are the pass roles. Similar-script note: NE allows 4.01 YPC, so Gordon's 5.6 is the number most likely to regress, not his carry count.",
+ "edge_players": [
+  {
+   "player": "olliegordonii",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Ollie Gordon has been a 17-carry, 97-yard back over Miami's last three games and 61.5 sits about 35 yards under that role, against a New England run defense (4.01 YPC) that is average, not a wall, in a one-score script that does not force Miami off the run.",
+   "must_be_true": "Game stays competitive enough for Gordon to see about 15 carries, he is active with no snap cap (inactives not yet posted), and Wright does not vulture the early-down work. Tagged script-dependent: it survives the base one-score script and the weather-slog flip, not a blowout.",
+   "kills_it": "NE leads by 14+ early and Miami abandons the run, or a late scratch/committee shift to Wright, or efficiency craters so badly that 15 carries at well under 4 YPC stay under 61.5.",
+   "confidence": "lean"
+  },
+  {
+   "player": "gregdulcich",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Greg Dulcich is Miami's short-area answer (11 targets, 123 yards, 73 air yards in three games) into the middle New England allows 11.74 YPA, and a 39% blitz that already makes Willis worse should push more of those throws to him, with 28.5 well under a 41-yard recent role.",
+   "must_be_true": "Willis plays and keeps dumping into the middle (about 3-4 targets), Dulcich is active without a snap limit, and NE does not erase the hooks. Survives the base script and the fall-behind-and-throw flip; wind helps the short game rather than hurting it.",
+   "kills_it": "Miami ground-and-pounds so successfully that Dulcich is starved, Willis misses him even on shorts, or a late inactive. Price is +nan in the pack, so this cannot be sized.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so step 8 cannot be priced \u2014 do not size up. Available pre-kickoff counting data agrees with both leans: Gordon 291 rush yards / 3 games vs 61.5, and even a regression to NE's 4.01 YPC on 15 carries is about 60, still on the number if volume holds; Dulcich 123/3 = 41 vs 28.5, and that sample is already with Willis. Neither lean is a 70%+ model claim. Missing prices (Dulcich +nan; several other rungs +nan) are not treated as edges. Stevenson under 59 was considered and dropped: L3 rush is only 40.7 yards, but the base clock-kill script can hand the lead back 15+ carries and clear 59, so it does not survive the base script. Washington over 41.5 (L3 45.7) dropped as a lean the weather/air-yard profile argues against.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "olliegordonii rushyds over 61.5 at -112 (main line in pack). gregdulcich recyds over 28.5 with price +nan \u2014 rung exists, price not saved, so it is a read not a bettable number until a price prints. No alt rungs taken. No TDs, receptions, or passing yards.",
+ "pre_mortem": "It's Monday and both legs lost because New England led 17-0 after a short field, Miami went pass-heavy into the blitz, and Gordon was stuck near 8 carries and the mid-30s while Willis locked onto Washington and the failed deep shots to Coleman and Bell. Dulcich saw two targets for about 11 yards because NE's linebackers sat on the hooks once the run was gone, and the 61.5 and 28.5 both stood. The other way this dies is the reverse: Gordon goes for 110 in a 13-10 rock fight and Dulcich never gets a target because Willis hands it off 30 times. That counter-case is real enough to keep both at lean, not strong, and to forbid pairing Gordon's over with a Miami pass-volume story that needs a blowout.",
+ "slip_story": "One story only: Miami stays competitive in a low-total outdoor grind, so the offense is Gordon on the ground plus Dulcich as the middle checkdown against NE's 39% blitz and 11.74 middle YPA. Those two win together in a one-score game. Do not stack them with NE shootout overs (Douglas/Brown air yards) or with a Miami total that requires a shutout. Henry over 45.5 is the NE-side cousin of the same middle-bleed idea but is a different team's script and was left off to keep the slip to one story and two legs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

@@ -1,0 +1,125 @@
+"""Rico 2026-11-02 05:01 ET four rules (runs dated >= 2026-11-05): PRESS manual review, mirror over,
+22% target-share pool, QB-RETURN flag + recheck (no auto rung drop)."""
+import json, os, shutil, subprocess, sys, tempfile, unittest
+HERE=os.path.dirname(os.path.abspath(__file__)); TOOLS=os.path.join(HERE,".."); sys.path.insert(0,TOOLS); sys.path.insert(0,HERE)
+import test_press_live as tpl
+import rico4_rules as r4
+PRESS=dict(tpl.PRESS)
+P3=[.62,.60,.58]
+
+class ManualReview(unittest.TestCase):
+    def test_model_suspect_on_press_goes_manual(self):
+        mr=r4.press_manual_review(dict(name="X o58.5",press=PRESS,price_fd=-115,no_vig=.52),["P14 MODEL-SUSPECT: edge +18"],P3)
+        self.assertEqual(mr["status"],"MANUAL_REVIEW"); self.assertEqual(mr["model_p"],P3); self.assertEqual(mr["book_price"],-115)
+        self.assertIn("MODEL-SUSPECT",mr["reason"])
+    def test_edge_shrink_on_press_goes_manual(self):
+        self.assertEqual(r4.press_manual_review(dict(press=PRESS,price_fd=-120),["P14 edge shrunk p'-no_vig <= 0"],P3)["status"],"MANUAL_REVIEW")
+    def test_non_press_keeps_cut(self):
+        self.assertIsNone(r4.press_manual_review(dict(press=dict(PRESS,coverage=False),price_fd=-115),["P14 MODEL-SUSPECT"],P3))
+    def test_other_reason_keeps_cut(self):
+        self.assertIsNone(r4.press_manual_review(dict(press=PRESS,price_fd=-115),["P14 MODEL-SUSPECT","P3 soft WR D"],P3))
+    def test_overrides_beat_press(self):
+        for k,v in (("weather_stop",True),("injury_status","Doubtful"),("on_inactives",True),("sec11_conflict",True),("wr_rank",3),("wr_rank",4)):
+            self.assertIsNone(r4.press_manual_review(dict(press=dict(PRESS,**{k:v}),price_fd=-115),["P14 MODEL-SUSPECT"],P3),k)
+
+RUNGS=[dict(line=l,price=pr,no_vig=nv,p=ps,medians=md) for l,pr,nv,ps,md in (
+    (39.5,-250,.70,[.72,.71,.70],[55,54,53]),(49.5,-140,.57,[.63,.62,.61],[55,54,53]),(59.5,+110,.46,[.47,.46,.44],[55,54,53]))]
+class Mirror(unittest.TestCase):
+    def test_eligible_reasons(self):
+        for r in ("P3 soft WR D (YPT 9.4)","P4 missing defender","no unders on stars","P3 soft TE D","ISS-05 TE under"):
+            self.assertTrue(r4.mirror_eligible(r),r)
+        self.assertFalse(r4.mirror_eligible("P11 weather stop"))
+    def test_lowest_clearing_rung(self):
+        u=dict(name="Michael Wilson Rec Yds Under 56.5",side="under",line=56.5,player="Michael Wilson",market="Rec Yds")
+        c=r4.mirror_over(u,RUNGS)
+        self.assertEqual(c["side"],"over"); self.assertEqual(c["line"],49.5); self.assertEqual(c["mirror_of"],u["name"])
+        self.assertEqual(c["status"],"CANDIDATE"); self.assertIn("Over 49.5",c["name"])
+    def test_no_rung(self):
+        c=r4.mirror_over(dict(name="U",side="under",line=56.5),RUNGS[2:]); self.assertIsNone(c.get("line")); self.assertTrue(c["no_rung_reason"])
+
+class Pool(unittest.TestCase):
+    def rows(self):
+        R=[]
+        for wk,qb in ((1,"A"),(2,"A"),(3,"B"),(4,"B"),(5,"B")):
+            for rec,n in (("W1",3),("W2",2),("T1",2),("W3",2),("R1",1)): R+=[dict(week=wk,posteam="ARI",passer_player_name=qb,receiver_player_name=rec)]*n
+            if wk>=3: R+=[dict(week=wk,posteam="ARI",passer_player_name=qb,receiver_player_name="T1")]*2
+        return R
+    def test_pool(self):
+        pos={"W1":"WR","W2":"WR","T1":"TE","W3":"WR","R1":"RB"}; rk={"W1":1,"W2":3,"T1":2,"W3":4}
+        P=r4.target_share_pool(self.rows(),"ARI","B",pos,rk)
+        names={p["name"] for p in P["players"]}
+        self.assertIn("W1",names); self.assertIn("T1",names); self.assertNotIn("R1",names); self.assertNotIn("W3",names)
+        self.assertEqual(P["threshold"],.22); self.assertIn("nflverse",P["source"])
+        t1=[p for p in P["players"] if p["name"]=="T1"][0]; self.assertGreaterEqual(t1["share_l3_current_qb"],.22)
+        self.assertTrue(any(x["name"]=="W2" for x in P["excluded_wr34"]) or "W2" not in names)
+
+class QBReturn(unittest.TestCase):
+    def test_flag(self):
+        self.assertTrue(r4.qb_return(dict(type="WR"),current_qb="Murray",qb_missed_before=2,model_qb="Murray"))
+        self.assertTrue(r4.qb_return(dict(type="TE"),current_qb="Murray",qb_missed_before=0,model_qb="Brissett"))
+        self.assertFalse(r4.qb_return(dict(type="WR"),current_qb="Murray",qb_missed_before=1,model_qb="Murray"))
+        self.assertFalse(r4.qb_return(dict(type="RB"),current_qb="Murray",qb_missed_before=3,model_qb="Murray"))
+
+class GateRico4(unittest.TestCase):
+    def setUp(self):
+        tpl.LiveRun.setUp(self); self.m=json.load(open(self.mp))
+        self.m["target_share_pool"]=dict(source="nflverse play_by_play_2026.parquet",pulled_et="2026-11-08T09:00",threshold=.22,players=[dict(name="Tee Higgins",team="CIN",leg="Tee Higgins rec yds o58.5 -115")])
+    def tearDown(self): os.environ.pop("PRESS_TRACKER",None)
+    def save(self): json.dump(self.m,open(self.mp,"w"))
+    def run_gate(self): self.save(); return tpl.gate(self.d,"2026-11-08T12:00")
+    def test_baseline_passes(self): c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def test_pool_required(self):
+        del self.m["target_share_pool"]; c,o=self.run_gate(); self.assertEqual(c,1); self.assertIn("target_share_pool",o)
+    def test_pool_player_needs_leg_or_skip(self):
+        self.m["target_share_pool"]["players"].append(dict(name="Ja'Marr Chase",team="CIN")); c,o=self.run_gate(); self.assertEqual(c,1); self.assertIn("Chase",o)
+        self.m["target_share_pool"]["players"][-1]["skip_reason"]="no line posted"; c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def mr(self,**kw):
+        l=self.m["legs"][0]; l["status"]="MANUAL_REVIEW"; l["cut_reasons"]=["P14 MODEL-SUSPECT"]
+        l["manual_review"]=dict(reason="P14 MODEL-SUSPECT",model_p=P3,book_price=-115); l["press"].update(kw)
+    def test_manual_review_section_not_live(self):
+        self.mr(); c,o=self.run_gate(); self.assertEqual(c,0,o); self.assertIn("PRESS MANUAL REVIEW",o)
+        self.assertIn("Tee Higgins",o.split("PRESS MANUAL REVIEW")[1]); self.assertNotIn("Tee Higgins",o.split("\n")[1])
+    def test_manual_review_needs_fields(self):
+        self.mr(); del self.m["legs"][0]["manual_review"]["model_p"]; c,o=self.run_gate(); self.assertEqual(c,1)
+    def test_manual_review_non_press_fails(self):
+        self.mr(coverage=False); c,o=self.run_gate(); self.assertEqual(c,1); self.assertIn("MANUAL_REVIEW",o)
+    def test_manual_review_override_fails(self):
+        self.mr(weather_stop=True); c,o=self.run_gate(); self.assertEqual(c,1)
+    def test_manual_review_invalid_before_date(self):
+        self.mr(); c,o=self.run_gate(); self.assertEqual(c,0,o)
+        self.assertNotIn("MANUAL_REVIEW", r4.valid_statuses("2026-11-01"))
+    def test_cut_under_needs_mirror(self):
+        l=self.m["legs"][1]; l.update(side="under",status="CUT",cut_reasons=["P3 soft run D"]); c,o=self.run_gate(); self.assertEqual(c,1); self.assertIn("mirror",o)
+        l["mirror"]=dict(no_rung_reason="no alt rung clears edge"); c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def test_qb_return_needs_recheck(self):
+        l=self.m["legs"][0]; l["flags"]=["QB-RETURN"]; c,o=self.run_gate(); self.assertEqual(c,1); self.assertIn("QB-RETURN",o)
+        l["qb_return_recheck"]=dict(current_qb="J. Burrow",games=["2026_04","2026_05","2026_06","2026_07"],sec7="PASS",form_values=[90,80,75,40]); c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def test_qb_return_no_rung_drop(self):
+        l=self.m["legs"][0]; l["flags"]=["QB-RETURN"]; l["qb_return_recheck"]=dict(current_qb="J. Burrow",games=["2026_07"],sec7="PASS",form_values=[40])
+        l["rung_drop"]=dict(reason="QB return"); c,o=self.run_gate(); self.assertEqual(c,1); self.assertIn("rung drop",o)
+
+class RealStrings(unittest.TestCase):  # Nov 1 manifest cut-reason wording
+    def test_mirror_real(self):
+        for r in ("P3 FAIL: under vs soft TE D (YPT>=8.0)","P4 MISSING: defender not in PFR cache","P14 FAIL: under on primary star (Ghost6 rule)",
+                  "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05)","P13 FAIL: trailing-team passing/receiving under BLOCKED"):
+            self.assertTrue(r4.mirror_eligible(r),r)
+        self.assertTrue(r4.mirror_eligible("P10 UNVERIFIED: no cited caption play")); self.assertTrue(r4.mirror_eligible("P1 FAIL: 2 games"))  # Rico 21:13 ET: overs for every cut under
+        for r in ("P11 FAIL: weather","P8 FAIL: player Out","§11 conflict"): self.assertFalse(r4.mirror_eligible(r),r)
+    def test_mr_real(self):
+        for r in ("edge +1.2 < +3","shrunk edge -0.4 not > 0","MODEL-SUSPECT: MC median 80.1 vs FD main 60.5"): self.assertTrue(r4.MR_RX.search(r),r)
+        self.assertFalse(r4.MR_RX.search("placed-ticket bar: 59.5")); self.assertFalse(r4.MR_RX.search("no book price at this rung after re-pull: HOLD (fail-closed)"))
+
+class ScanPool(unittest.TestCase):
+    def test_tgt_share22_trigger(self):
+        import pandas as pd, slate_scan as ss
+        R=[]
+        for w in (5,6,7):
+            for pid,pos,t in (("W1","WR",8),("W2","WR",6),("W3","WR",2),("T1","TE",9),("T2","TE",8),("R1","RB",1)):
+                R.append(dict(game_id=f"g{w}",team="ARI",pid=pid,name=pid,pos=pos,week=w,tgt=t,car=5 if pos=="RB" else 0,rec=t//2,recyds=t*8,ryds=20 if pos=="RB" else 0))
+        pg=pd.DataFrame(R); ctx=dict(opp="DAL",team_spread=0.0)
+        c=ss.candidates(pg,"ARI",9,ctx); t2=c[c.pid=="T2"]
+        self.assertFalse(t2.empty); self.assertTrue(t2.trigger.str.contains("tgt_share22").all())
+        self.assertTrue(c[c.pid=="W3"].empty)                       # #3 WR stays banned
+        self.assertTrue(ss.candidates(pg,"ARI",8,ctx).query("pid=='T2'").empty)   # before Week 9: unchanged
+
+if __name__=="__main__": unittest.main()

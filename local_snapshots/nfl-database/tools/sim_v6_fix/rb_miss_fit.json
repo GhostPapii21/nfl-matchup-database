@@ -1,0 +1,24 @@
+{
+ "doc": "BUG-2026-11-01-RBMISS fits from real nflverse pbp (2025 REG + 2026 REG thru 2026-10-29; all pre-today).\n(A) promotion transfer tau: team-games where the season-to-date RB1 (most RB carries before the game, >=3 prior games with a carry)\n    has 0 carries (absent) after having played the team's previous game or later; RB2 = second in pre-game carries.\n    tau = (sum RB2 carries_absent - sum RB2 own_share*team_RB_carries) / sum(RB1 share * team_RB_carries); 1000x bootstrap by game; shrink to 0.75 prior? no: reported raw + CI.\n(F) soft run-D YPC residual: rushyds rows of tools/sim_v6_backtest.csv (leak-free wk4-7, calibrated pred = pred_mc * fitted M),\n    split by opponent pre-week RB YPC allowed >=4.4 vs <4.4; ypc_boost = median(actual/pred | soft) / median(actual/pred | not soft),\n    shrunk 1 + n/(n+30)*(raw-1). Output: rbmiss_fit.json",
+ "promotion": {
+  "tau": 0.3923,
+  "n": 66,
+  "ci90": [
+   0.28,
+   0.5
+  ],
+  "prior_in_request": 0.75
+ },
+ "soft_run_d": {
+  "threshold": 4.4,
+  "raw": 0.9067,
+  "n_soft": 38,
+  "n_other": 88,
+  "boost": 0.9479,
+  "ci90": [
+   0.57,
+   1.317
+  ],
+  "note": "residual AFTER the model's existing opponent YPC adjustment (A_ypc already multiplies by opp YPC / league)."
+ }
+}

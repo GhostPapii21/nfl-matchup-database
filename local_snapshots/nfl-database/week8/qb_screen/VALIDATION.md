@@ -1,0 +1,1 @@
+Validated 26 unique starters and 26 sections; CAR/GB excluded; CSV has no empty fields; all local report links resolve. All 26 QB attempt/completion totals reconcile between valid nflverse PBP (including official spikes, excluding two-point tries), weekly stats and stored ESPN boxes. Sources were opened read-only. True pressure data remain n/a; proxies are labeled.

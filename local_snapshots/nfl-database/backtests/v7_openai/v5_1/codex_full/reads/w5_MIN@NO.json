@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 MIN@NO / kickoff not saved / spread and total not saved; script inferred only from supplied team form / weather not saved",
+ "script": {
+  "base": "MIN's recent rushing workload and NO's run-defense results suggest a ground-led Minnesota approach: A.Jones has 60 carries over weeks 2\u20134, while NO has allowed 5.27 yards per carry through four games. Tentatively, MIN sustains drives and NO leans on its passing game rather than its divided backfield; leadership, halftime score and pace remain uncertain without scoring form or market lines.",
+  "flip1": "NO builds an early lead through C.Olave, who has 35 targets and 309 receiving yards over weeks 2\u20134. Minnesota shifts toward passing, threatening Jones's rushing over, while additional clock-management carries threaten Kamara's rushing under.",
+  "flip2": "Pressure disrupts both offenses and produces a low-efficiency game: MIN blitzes 73%, with NO's supplied QB split at -0.19 EPA/dropback against blitzes; NO blitzes 34%, with MIN at -0.11 against blitzes. Jones could retain carries but lose productive drives, while Kamara's under could survive unless NO repeatedly receives short fields."
+ },
+ "injury_fallout": "MISSING: MIN and NO injury reports, practice participation, offensive-line availability, defensive absences, return-to-play limits and final inactives. No absence, return, starter change or next-man-up allocation is inferred from Jefferson's eight targets, the multiple MIN rushers or NO's backfield distribution. Source for all supplied usage: as-of pack, weeks 2\u20134; defensive figures cover four games. Exact publication timestamps are missing, although the pack is designated pre-kickoff.",
+ "matchup": {
+  "shell": "MISSING: MIN and NO MOFO/MOFC, man/zone rates, box counts and individual coverage assignments. Directional passing splits do not establish shells or player alignments.",
+  "pressure": "Pack: MIN blitz rate 73%; NO QB EPA/dropback is -0.19 against blitzes across 61 dropbacks versus 0.12 without blitzes. NO blitz rate 34%; MIN QB EPA/dropback is -0.11 against blitzes across 50 dropbacks versus -0.04 without blitzes. Actual pressure rates, sack rates, protection health and time to throw are missing; blitz frequency alone does not establish successful pressure.",
+  "bleeds": "NO has allowed 5.27 rushing yards per carry and 15 runs of 10-plus yards through four games, the clearest matchup support for Jones. MIN has allowed 4.15 yards per carry and 11 runs of 10-plus yards: not a shutdown claim. Both defenses have their highest supplied passing YPA in the middle: NO 9.17 on 23 attempts and MIN 9.69 on 29.",
+  "overlap": "Jones's 60 recent carries overlap directly with NO's rushing vulnerability. Kamara's rushing-under hypothesis rests primarily on limited recent carries within a shared backfield, not on an asserted elite MIN run defense. Hockenson and Johnson have substantial target volume, but missing alignment and coverage data prevent assigning them the middle-field matchup automatically."
+ },
+ "form": "Source: pack, weeks 2\u20134 aggregates, not individual-game logs. Jones: 60 carries for 257 yards, plus 14 targets and 68 receiving yards; 20.0 carries and 85.7 rushing yards per game over this window. Other listed MIN rushers total 14 carries. Kamara: 25 carries for 74 yards, or 8.3 carries and 24.7 rushing yards per game; Etienne has 22 carries, Miller 10 and Shough 11. NO's Olave has 35 targets/309 receiving yards, Vele 22/157 and Johnson 20/178. MIN's Hockenson has 21 targets/159 yards and Addison 20/163. These aggregates test the workload hypotheses; they do not establish weekly consistency. MISSING: individual-game distribution, snaps, routes, red-zone usage, recent role changes and comparable-opponent logs.",
+ "edge_players": [
+  {
+   "player": "aaronjones",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Jones can exceed 71.5 rushing yards because Minnesota's concentrated recent rushing workload meets a NO defense allowing 5.27 yards per carry and repeated chunk runs.",
+   "must_be_true": "aaronjones carries >= 18 [because the pack records 60 carries over weeks 2\u20134]",
+   "kills_it": "IF NO builds an early multi-score lead and Minnesota abandons sustained rushing THEN aaronjones rushyds over 71.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "alvinkamara",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Kamara can stay below 32.5 rushing yards because his recent rushing workload is limited and shared with Etienne, Miller and Shough, leaving little volume cushion if NO must chase.",
+   "must_be_true": "alvinkamara carries <= 10 [because the pack records 25 carries over weeks 2\u20134 alongside 43 combined carries for Etienne, Miller and Shough]",
+   "kills_it": "IF NO takes a sustained lead and concentrates its clock-management carries on Kamara THEN alvinkamara rushyds under 32.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Reads were formed from workload, defensive matchup and conditional script before comparing lines. Jones's 85.7 recent rushing yards per game exceed 71.5; Kamara's 24.7 fall below 32.5. Those summaries support the hypotheses but are not projections or hit probabilities. Jones needs approximately 3.97 yards per carry at the proposed 18-carry workload to clear his line. Kamara could beat his under with only 10 carries at 3.3 yards per carry, making that leg particularly efficiency-sensitive. Listed -114 requires 53.27% to break even; -113 requires 53.05%. No model or simulation was run, and neither leg is established as positive expected value.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median and calibrated probabilities; Pinnacle prices and sharp no-vig benchmark; individual-game workload distributions; spread, total, moneyline, implied team totals and opening movement; kickoff, rest, travel and confirmed venue conditions; injuries, final inactives, coverage charting and weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line candidates only: aaronjones rushyds over 71.5 at -114; alvinkamara rushyds under 32.5 at -113. Jones's carry concentration plus NO's rushing vulnerability selects rushing yards rather than receiving yards. Kamara's limited rushing allocation selects rushing under rather than combined yards, which would add receiving exposure. No alternate rung or verified pricing edge is available.",
+ "pre_mortem": "Jones: It is Monday and the over lost because NO's season-to-date rushing allowance did not translate to this matchup, Minnesota fell behind, or Jones's workload was smaller than the three-game aggregate suggested. Missing line health and individual-game carry distributions are meaningful vulnerabilities. Kamara: The under lost because 32.5 is a low threshold, MIN's 4.15 yards allowed per carry is not prohibitive, and a modest efficiency rebound or one long run overcame limited volume. A NO lead could also expand his carries. These counter-cases keep both selections at lean rather than strong; neither workload condition guarantees the outcome.",
+ "slip_story": "One conditional story: Minnesota sustains a Jones-led rushing attack while NO chases through its higher-volume receiving options, supporting Jones rushing over and Kamara rushing under together. Both are script-dependent and vulnerable to the NO-leads flip. Do not force a 3\u20134-leg main slip from only two supported candidates; no additional leg or joint probability is established, and no bet is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

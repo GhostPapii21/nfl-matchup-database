@@ -1,0 +1,39 @@
+repro check: |rerun p_v6 - saved sim_v6|0.5| median 0.0 legs w/ sims 2380 / 2382
+             rule  margin chosen_on_fit   n_fit  roi_fit   n_ho  roi_ho   W_ho   L_ho  base_roi_ho  d_vs_base_ho      lo      hi  n_all  W_all  L_all  roi_all    pl_all
+0            mean    0.00         False  1433.0  -0.0536  947.0 -0.0686  478.0  469.0       0.0403       -0.1089 -0.2610  0.0485   2380   1201   1179  -0.0596 -141.7771
+1    mean|passyds    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN     81     40     41  -0.0751       NaN
+2        mean|rec    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    494    266    228  -0.0376       NaN
+3     mean|recyds    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN   1030    510    520  -0.0655       NaN
+4    mean|rushrec    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    258    126    132  -0.0811       NaN
+5    mean|rushyds    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    517    259    258  -0.0556       NaN
+6            mean    0.05          True  1255.0  -0.0453  786.0 -0.0631  399.0  387.0       0.0403       -0.1034 -0.2646  0.0614   2041   1039   1002  -0.0522 -106.5053
+7    mean|passyds    0.05           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN     52     24     28  -0.1394       NaN
+8        mean|rec    0.05           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    424    231    193  -0.0317       NaN
+9     mean|recyds    0.05           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    911    460    451  -0.0468       NaN
+10   mean|rushrec    0.05           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    206     96    110  -0.1233       NaN
+11   mean|rushyds    0.05           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    448    228    220  -0.0396       NaN
+12            med    0.00          True  1433.0  -0.0337  947.0 -0.0558  485.0  462.0       0.0403       -0.0962 -0.2437  0.0543   2380   1225   1155  -0.0425 -101.1788
+13    med|passyds    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN     81     40     41  -0.0752       NaN
+14        med|rec    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    494    275    219  -0.0134       NaN
+15     med|recyds    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN   1030    511    519  -0.0637       NaN
+16    med|rushrec    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    258    126    132  -0.0813       NaN
+17    med|rushyds    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    517    273    244  -0.0036       NaN
+18          skadj    0.00          True  1433.0  -0.0125  947.0 -0.0650  470.0  477.0       0.0403       -0.1053 -0.2387  0.0308   2380   1221   1159  -0.0334  -79.4827
+19  skadj|passyds    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN     81     42     39  -0.0286       NaN
+20      skadj|rec    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    494    258    236  -0.0197       NaN
+21   skadj|recyds    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN   1030    517    513  -0.0524       NaN
+22  skadj|rushrec    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    258    131    127  -0.0449       NaN
+23  skadj|rushyds    0.00           NaN     NaN      NaN    NaN     NaN    NaN    NaN          NaN           NaN     NaN     NaN    517    273    244  -0.0036       NaN
+baseline check 517 288 229 0.0477
+skew slope 0.009223284542333274 CI [-0.08882062  0.11741348]
+           n  under_hit  skew_mean  under_roi
+tercile                                      
+low      173   0.526012  -0.278131  -0.010952
+mid      172   0.610465   0.114163   0.153867
+high     172   0.534884   1.480453   0.000577
+rush: mean skew 0.4374415219336642 share med<line 0.6189555125725339 share mean<line 0.390715667311412 actual median-line -1.5 actual mean-line 3.5522243713733075
+passyds skew 0.0404 under hit 0.4444 under roi -0.1609 actual mean-med gap/line -0.0386
+rec skew 0.1457 under hit 0.5121 under roi -0.0789 actual mean-med gap/line 0.2193
+recyds skew 0.3606 under hit 0.4951 under roi -0.0656 actual mean-med gap/line 0.1734
+rushrec skew 0.0798 under hit 0.5426 under roi 0.0214 actual mean-med gap/line 0.1066
+rushyds skew 0.4374 under hit 0.5571 under roi 0.0477 actual mean-med gap/line 0.1614

@@ -1,0 +1,39 @@
+{
+ "game": "Week 4 JAX@CIN / kickoff not saved / spread, total, moneyline, implied totals and movement not saved; script inferred only from supplied team form / weather not saved; venue configuration, rest and travel details missing",
+ "script": {
+  "base": "Working hypothesis: a competitive first half lets Jacksonville maintain B.Tuten's rushing involvement against Cincinnati's vulnerable run defense. Jacksonville's low-blitz opponent also offers a favorable passing environment, while Cincinnati's passing production faces a tougher pressure matchup; neither a halftime leader nor pace can be established confidently from this pack.",
+  "flip1": "Cincinnati converts Jacksonville's explosive-pass vulnerability into an early multi-score lead: JAX has allowed 13 passes of 20-plus yards on 92 attempts. Jacksonville shifts toward passing, making Tuten's rushing over script-dependent.",
+  "flip2": "Jacksonville's pressure disrupts Cincinnati and gives JAX a second-half lead: CIN's QB EPA/dropback is -0.31 against blitzes, and JAX blitzes 32%. Jacksonville can preserve or increase Tuten's carries while protecting that lead."
+ },
+ "injury_fallout": "MISSING: JAX and CIN injury reports, practice trends, offensive-line availability, defensive absences, final inactives and snap restrictions. No absences, returns or next-man-up assignments are inferred from usage. These inputs require rechecking before any actionable recommendation. Source timing: supplied weeks 1\u20133 pack, available before Week 4; exact publication timestamps missing.",
+ "matchup": {
+  "shell": "MISSING: CIN and JAX MOFO/MOFC, man/zone rates and receiver alignment charting. Location-based passing results cannot establish coverage assignments.",
+  "pressure": "CIN blitzes 14%; JAX QB EPA/dropback is 0.45 without a blitz versus -0.23 against blitzes over 25 blitz dropbacks. JAX blitzes 32%; CIN QB EPA/dropback falls from 0.32 without a blitz to -0.31 against blitzes over 36 blitz dropbacks. Actual pressure rates, sack rates and line health are missing; blitz frequency is not pressure success.",
+  "bleeds": "CIN has allowed 5.00 rushing yards per carry and eight runs of at least 10 yards through three games. JAX has allowed 3.79 rushing yards per carry but 13 passes of at least 20 yards on 92 attempts. JAX's 14.45 middle-field passing YPA comes on only 11 attempts and is a small-sample signal.",
+  "overlap": "Tuten's team-leading 43 carries directly intersect CIN's rushing vulnerability. His 204 rushing yards show recent production on meaningful volume, rather than requiring an inferred receiving alignment or coverage matchup."
+ },
+ "form": "Weeks 1\u20133 aggregate: Tuten recorded 43 carries for 204 yards, Rodriguez 20 for 73 and Abdullah 10 for 45. Tuten therefore handled 43 of the 73 carries credited to those three backs, but this is not a snap share or an injury-adjusted workload. Washington led JAX with 23 targets and 329 air yards, providing an alternative passing path that could limit rushing volume. CIN's Brown recorded 49 carries for 197 yards, while Higgins and Chase drew 23 and 25 targets respectively. Individual-game distributions, routes, snaps, red-zone usage, play-caller changes and comparable-opponent game logs are missing.",
+ "edge_players": [
+  {
+   "player": "bhayshultuten",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Tuten can exceed 57.5 rushing yards because Jacksonville's leading recent ball carrier faces a Cincinnati defense allowing 5.00 yards per carry, provided the game remains competitive.",
+   "must_be_true": "bhayshultuten carries >= 13 [because the pack records 43 carries over weeks 1\u20133 and CIN allowing 5.00 rushing yards per carry]",
+   "kills_it": "IF Cincinnati builds an early multi-score lead and Jacksonville abandons sustained rushing THEN bhayshultuten rushyds over 57.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The matchup hypothesis precedes this numerical check. Tuten's supplied totals imply 4.74 yards per carry and 14.33 carries per game over three games. At that observed efficiency, 13 carries would produce approximately 61.7 yards; this is a conditional sensitivity calculation, not a projection or simulation. CIN's 5.00 YPC allowed supports rather than contradicts the read. Over 57.5 at -114 requires approximately 53.27% to break even. The listed under is also -114, making the same-book proportional no-vig split 50% per side; that is not a Pinnacle benchmark or an estimated true probability. No calibrated hit probability or stake is justified.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median, calibrated probability, Pinnacle prices, individual-game workload distribution, injuries, offensive-line health, box counts, rush EPA, stuff rate and weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional lean: bhayshultuten rushyds over 57.5 at -114, using the supplied main line. Rushing yards matches the carry-volume/run-defense hypothesis. No alternate rung, stake or demonstrated positive expected value is established.",
+ "pre_mortem": "It is Monday and Tuten's over lost: Cincinnati's explosive passing created a lead before Jacksonville could establish sustained rushing volume. Rodriguez and Abdullah, who combined for 30 carries in the supplied three-game window, retained enough work to leave Tuten short of the necessary opportunities. Alternatively, CIN's 5.00 YPC allowed proved unstable over only three games, or missing line-health and weather information undermined efficiency. The counter-case keeps this a conditional lean rather than a strong play; the over survives the Jacksonville-lead flip but not the Cincinnati-breakaway flip.",
+ "slip_story": "Competitive game or Jacksonville protecting a lead: Tuten benefits from sustained rushing volume. Script-dependent against an early Cincinnati runaway. Keep this as a single-leg candidate; the pack does not establish enough independently supported, priced edges to force a 3\u20134-leg slip.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,17 @@
+GATE: FAIL  run=/workspace/nfl-database/runs/2026-11-01_PHI@WSH  checked_at=2026-11-01 12:00 ET
+Live legs: none
+Cut legs: ['Chig Okonkwo Rec Yds Under 32.5', 'Chig Okonkwo Receptions Over 3.5', 'Dallas Goedert Rec Yds Over 45.5', 'Dallas Goedert Receptions Under 4.5', 'Darius Cooper Rec Yds Under 27.5', 'Darius Cooper Receptions Under 2.5', 'Dyami Brown Rec Yds Under 12.5', 'Dyami Brown Receptions Under 1.5', 'Jayden Daniels Pass Yds Under 198.5', 'Makai Lemon Rec Yds Under 43.5', 'Makai Lemon Receptions Under 4.5', 'Rachaad White Rush Yds Under 39.5', 'Rachaad White Rush+Rec Yds Under 56.5', 'Saquon Barkley Rush Yds Under 52.5', 'Saquon Barkley Rush+Rec Yds Under 69.5', 'Stefon Diggs Rec Yds Over 42.5', 'Stefon Diggs Receptions Over 4.5']
+MISSES (11):
+  - game_script_rb PHI@WSH: pull timestamp 2026-11-01T15:30 is in the future
+  - source injuries_news/ESPN injuries API re-pull 15:30 (official 4 PM inactives): pull timestamp 2026-11-01T18:52 is in the future
+  - source injuries_news/X reporters/team inactives posts via x connector: pull timestamp 2026-11-01T19:00 is in the future
+  - source category injuries_news: missing or no fresh source
+  - source weather/NWS gridpoint forecast (api.weather.gov) kickoff..+3.5h max PoP/wind/gust; Open-Meteo cross-check DEN/MIA: pull timestamp 2026-11-01T18:55 is in the future
+  - source weather/Open-Meteo hourly Northwest Stadium 18:55: pull timestamp 2026-11-01T18:55 is in the future
+  - source category weather: missing or no fresh source
+  - source odds_props/The Odds API re-pull 08:36: FanDuel main+alt, DraftKings, Pinnacle player props (12 events) (re-pull 18:51): pull timestamp 2026-11-01T18:51 is in the future
+  - source odds_props/The Odds API re-pull 08:36: FanDuel/DK/Pinnacle spreads+totals (28 games) (re-pull 18:51): pull timestamp 2026-11-01T18:51 is in the future
+  - source category odds_props: missing or no fresh source
+  - Phase 11 weather PHI@WSH: pull timestamp 2026-11-01T15:30 is in the future
+Notes:
+  - cross-check (pick-side only, not a gated source): PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source) pulled 2026-11-01T07:34

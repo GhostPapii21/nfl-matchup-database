@@ -1,0 +1,48 @@
+{
+ "game": "Week 7 NE@CHI / kickoff MISSING / CHI -3 / total 51 / implied totals CHI 27, NE 24 / weather not saved. Moneyline, opening lines, movement, venue details, rest and travel MISSING.",
+ "script": {
+  "base": "CHI leads narrowly rather than pulling away, consistent with CHI -3 and a 51 total. Chicago shares rushing work across Swift, Monangai and Johnson while testing New England's vulnerable middle passing area; New England remains competitive enough to prevent a prolonged clock-killing finish.",
+  "flip1": "New England takes the lead and Chicago increases passing volume. That supports Loveland's receiving opportunity and reduces Swift's rushing opportunity, so both proposed legs survive this flip.",
+  "flip2": "Chicago builds a large early lead and shifts toward clock control. Additional carries threaten Swift's rushing under, while reduced passing volume threatens Loveland's receiving over; both legs are vulnerable to this flip."
+ },
+ "injury_fallout": "MISSING: NE and CHI injury reports, practice trends, offensive-line availability, defensive absences, return restrictions and final inactives. No absence, return or next-man-up conclusion can be inferred from this pack. Source: supplied pre-kickoff pack, containing offensive weeks 4\u20136 and defensive season-to-date statistics through six games; exact publication timestamps are missing. Recheck both legs against final reports and approximately 90-minute inactives if those become available.",
+ "matchup": {
+  "shell": "MISSING: both defenses' MOFO/MOFC, man/zone rates and individual coverage assignments. NE's middle vulnerability cannot establish Loveland's actual alignment or coverage matchup.",
+  "pressure": "CHI blitzes 42%; NE QB EPA/dropback is 0.11 against blitz versus 0.21 without it. NE blitzes 35%; CHI QB EPA/dropback is 0.16 against blitz versus 0.05 without it. These splits support testing Chicago's passing matchup, but pressure rates, sacks, time to throw and check-down rates are missing.",
+  "bleeds": "NE allows 11.87 passing YPA through the middle on 38 attempts, versus 6.59 left and 5.28 right. NE allows 4.01 rushing YPC and has conceded 14 runs of 10-plus yards. CHI allows 12.18 middle passing YPA on 33 attempts and 4.58 rushing YPC. Positional allowances, rush EPA, stuff rates, box counts and YAC allowed are missing.",
+  "overlap": "Loveland leads Chicago's supplied last-three-game target totals with 21, narrowly ahead of Odunze and Burden at 20 each. His receiving role could overlap with NE's middle weakness, but that overlap is conditional because route-location charting is absent. Swift's rushing under rests on shared carries and NE's 4.01 YPC allowed, not an assumed injury or demotion."
+ },
+ "form": "Read first: Chicago can sustain offense through its leading target without giving Swift a workhorse rushing load. Data test: over weeks 4\u20136, Loveland recorded 21 targets, 141 receiving yards and 131 air yards, equivalent to 7 targets and 47 receiving yards per game. Swift had 40 carries for 145 yards, versus Monangai's 30 for 146 and Johnson's 22 for 73; Swift accounted for 43.5% of those three backs' carries and averaged 3.63 YPC. His 48.3 rushing yards per game is supporting context, not a standalone projection. Individual game distributions, snaps, routes, red-zone work, play-caller changes and comparable-opponent logs are missing.",
+ "edge_players": [
+  {
+   "player": "colstonloveland",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Loveland can exceed 44.5 receiving yards if his team-leading recent target role accesses the middle area where New England allows substantially more yards per attempt than outside.",
+   "must_be_true": "C.Loveland targets >= 7 [because the pack records 21 targets across weeks 4\u20136]",
+   "kills_it": "IF Chicago builds an early multi-score lead and reduces Loveland's passing opportunities THEN Loveland over 44.5 receiving yards fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "dandreswift",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Swift can stay below 61.5 rushing yards because Chicago's three-back carry distribution limits his volume against a New England defense allowing 4.01 yards per carry.",
+   "must_be_true": "D.Swift carries <= 15 [because the pack records 40 Swift carries across three games alongside 30 for Monangai and 22 for Johnson]",
+   "kills_it": "IF Chicago gives Swift 18 carries at 3.5 yards per carry THEN Swift under 61.5 rushing yards fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The supplied numbers support both hypotheses without establishing a priced betting edge. Loveland's 47 recent receiving yards per game sits only slightly above 44.5, so the over has little demonstrated cushion. Swift's recent carry distribution and efficiency support the rushing under. No projection or simulation was supplied or run. Offered-price break-even probabilities are 54.55% for Loveland over -120 and 53.49% for Swift under -115; these are not no-vig probabilities or estimated hit rates. Keep both as unvalidated leans, with no sizing recommendation.",
+  "disagrees": "none",
+  "missing": "Pinnacle prices and no-vig benchmark; calibrated model and simulation medians; individual game logs; route alignment and coverage charting; injuries and final inactives; close-to-kickoff weather; kickoff and source timestamps; pre-kickoff read hash and persistent logging mechanism.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line leans only: colstonloveland recyds over 44.5 at -120; dandreswift rushyds under 61.5 at -115. Loveland's receiving-yard market is available, but receptions would better isolate a pure target-volume thesis and are not permitted here. Swift's rushing market isolates the carry-share hypothesis without adding receiving exposure. No alternate rung or stake is justified from the supplied pack.",
+ "pre_mortem": "It's Monday and both lost because Chicago controlled the game earlier than expected: Loveland's 21 recent targets did not translate into enough opportunities, and NE's aggregate middle YPA did not represent his actual routes or defenders. Meanwhile, Swift received the closing carries despite the recent committee, or broke a long run against a defense that has allowed 14 runs of 10-plus yards. Loveland's narrow recent yardage cushion makes his price especially difficult to endorse without a distributional model. Swift's under is also script-sensitive if Chicago wins comfortably. Missing injury information could invalidate either role assumption, so neither merits strong confidence.",
+ "slip_story": "One coherent watchlist story: competitive Chicago offense, Loveland involved through the air, and rushing work divided among Swift, Monangai and Johnson. Both legs also survive a New England lead. Do not manufacture a third or fourth leg to meet a slip target; no main slip is approved without price validation. This JSON records the read but does not establish a timestamped, hashed pre-kickoff lock. Afterward, grade Chicago's lead timing, Loveland's target role and Swift's carry distribution separately from bet results; review steps 2, 3, 4 and 5 for misses.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

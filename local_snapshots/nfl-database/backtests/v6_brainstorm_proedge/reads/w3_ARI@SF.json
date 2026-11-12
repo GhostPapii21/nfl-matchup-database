@@ -1,0 +1,108 @@
+{
+ "game": "ARI@SF Week 3 2026 (kickoff/venue/spread/total not in pack)",
+ "script": {
+  "base": "No saved spread or total, so the script is inferred from two-game form only. SF has the more efficient offense (Purdy 8 car/59 rush yds, CMC 20/91 and Kaelon Black 21/90, Evans 10 tgt/103, Kittle 9/92, Samuel 11/79) against an ARI defense that has bled the middle (9.53 YPA on 15 att) and right (8.62 on 24) and allowed 6 runs of 10+. ARI is a Brissett committee (Allgeier 22 car/71, Love 20/70, both under 3.5 YPC) that has been bad vs the blitz (EPA/db -0.31 vs +0.13 with no blitz) while SF blitzes 28%. Base case: SF leads or stays in front in a competitive game, throws into the middle, and keeps splitting carries between CMC and Black; ARI trails and funnels throws to McBride (23 targets/136 yds) rather than feeding the run.",
+  "flip1": "SF's pass rush is short-handed (Bosa, Romello Height, and James Thompson Jr. all Out), so the 28% blitz does not get home, ARI sustains drives, and the game stays close or ARI leads. Both QBs throw; McBride, Kittle, and Samuel become the over paths, and both committees' rush lines stay modest.",
+  "flip2": "SF jumps ahead early and kills the clock with CMC and Black. ARI abandons the run, so Allgeier/Love rush yards die, and a true blowout trims SF starter routes late. That carry bump is the main threat to a CMC rush+rec under; it does not require Kittle to go under unless the game turns into a slog."
+ },
+ "injury_fallout": "Source is the pre-game nflverse injury report in the pack; practice-trend (DNP/limited/full) and inactives are not saved. SF WR Demarcus Robinson Out (ankle) leaves 6 targets/84 yards/72 air yards from the two-game sample to be redistributed among CMC (already 12 targets), Samuel (11), Evans (10, but Questionable, hip), and Kittle (9). Evans Questionable is unresolved: a limitation helps Kittle/Samuel/CMC; a full Evans day keeps the deep share. SF DE Nick Bosa Out (knee), DE Romello Height Out (hand), and DT James Thompson Jr. Out (ankle) are a pass-rush and interior downgrade, so ARI's -0.31 EPA/db vs blitz may not travel; pack does not say whether those three already sat in SF's two defensive games (3.95 YPC allowed). ARI S Dadrion Taylor-Demerson Out (back) is the coverage loss that helps SF downfield/middle shots; pack does not say if he played in the two games that produced ARI's 9.53 middle YPA. ARI CB Max Melton Questionable (toe) would help outside WRs only if he sits. ARI DT Roy Lopez Questionable (groin) is a mild SF run boost only if inactive. No Doubtful tags.",
+ "matchup": {
+  "shell": "No coverage charting, MOFO/MOFC, or man/zone rate in the pack. Location YPA is the only shell proxy: ARI middle 9.53 (15 att), right 8.62 (24), left 6.71 (14); SF middle is the tightest zone at 5.75 (8 att), right 7.83 (24), left 6.89 (19).",
+  "pressure": "SF blitz rate 28% and ARI EPA/db vs blitz -0.31 vs +0.13 with no blitz, but Bosa, Height, and Thompson are Out so pressure may not arrive. ARI blitzes only 21%; SF EPA/db vs blitz is +0.98 vs +0.38 with no blitz, so SF's offense has thrived when blitzed.",
+  "bleeds": "ARI bleeds the middle and the right and has allowed 6 runs of 10+ with a 3.98 rush YPC (ordinary, not a collapse). SF has allowed only 3 runs of 10+, 3.95 rush YPC, and 4/55 on 20+ passes; its softest pass side is right (7.83), not the middle.",
+  "overlap": "Kittle (9 targets, 88 air yards, 92 rec yards) is the healthy SF pass-catcher aimed at ARI's middle bleed, with Taylor-Demerson Out as the missing safety. He is not the primary target (CMC 12, Samuel 11, Evans 10). ARI's primary, McBride (23 targets, 125 air yards), runs into SF's tightest zone (middle 5.75), so there is no primary-target overlap for ARI. CMC's under is a carry-split read, not a run-defense bleed (ARI 3.98 YPC, 6 explosives)."
+ },
+ "form": "Two games only (pack weeks 1-2; last4 lists match those totals). ARI: McBride rec 95 then 41; Wilson 56 then 18 on 133 air yards vs 74 rec yards (poor conversion); Bourne 75 then 11; Harrison 33 then 0 on 4 targets/74 air; Allgeier rush 61 then 10 (22/71, 3.23 YPC); Love rush 41 then 29 (20/70); Brissett rush 17 then 7. SF: CMC rush 68 then 23, rec 20 then 43, rush+rec 88 then 66; Black rush 65 then 25 (21/90); Purdy rush 29 then 30 (8/59, 7.4 YPC, treated as fluky efficiency); Samuel rush+rec 60 then 35; Evans 49 then 54, both under 55.5, but Questionable; Kittle 12 then 80; Juszczyk one listed game of 27. No OC/QB change is noted in the pack.",
+ "pro_edge": {
+  "implied_totals": "N/A. No saved spread or total, so favorite=(T+S)/2 and underdog=(T-S)/2 cannot be computed and no blowout flag can be set from the market.",
+  "script_read": "From form, not the number: SF is the side more likely to play ahead and throw into ARI's middle; the underdog-throws-more and leader-runs-late rules cannot be applied without a spread. Carry split (CMC 20, Black 21) caps either RB's late-clock upside. High/low total unknown, so no slate-wide volume-over or under lean.",
+  "best_price": "Anchor is consensus, not Pinnacle (Pinnacle not in the pack). No two-sided market is more than about 1.5 pts from a coin flip. Closest: Deebo Samuel rushyds under no-vig 0.515, best under -120, but he went 12 and 4, both over 3.5, and -120 (~54.5% implied) does not beat 0.515 fair. CMC rushrec under fair 0.497, best under -113; Kittle rec over fair 0.495, best over -111.5. Both best prices are juice over a pick'em, not a best-price edge. McBride rec 69, Love rush 41, Love rushrec 59.5, Deebo rec 41, and Allgeier rush 34 have no two-sided price.",
+  "lagging": "No lagging-line flags in the precomputed scan. No open line or spread/total move was saved, so props that failed to move with the number cannot be identified.",
+  "sleepers": "Out, same-position check: SF WR Demarcus Robinson (ankle). Teammates whose lines might be stale: Samuel, Evans (also Questionable, hip), Kittle, CMC, Juszczyk. No CSV diff, so movement is unverified and this sleeper is low confidence. Defensive outs (Bosa, Thompson, Height; ARI S Taylor-Demerson) are not skill-position sleepers; they are matchup context. Questionable not treated as out: Evans, Melton, Lopez. No IR or Doubtful in the report."
+ },
+ "edge_players": [
+  {
+   "player": "christianmccaffrey",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "CMC is in a true carry split with Kaelon Black (20 carries/91 yards vs 21/90) and his rush-plus-receiving landed at 88 and 66, so 100.5 needs a role consolidation the last two weeks did not show.",
+   "must_be_true": "Black keeps a real share near 10 carries, CMC plays his normal snap count, and Robinson's 3 targets per game do not all funnel to CMC on top of a 15-plus-carry day.",
+   "kills_it": "SF leads big and CMC becomes the closer while Evans is limited, so a 68-rush type day pairs with a 40-yard receiving day and clears 100.5; or Black's two-game role was a spot and does not hold.",
+   "confidence": "lean",
+   "model_p": 0.56,
+   "scheme": {
+    "matchup": {
+     "ok": false,
+     "source": "ARI rush YPC allowed 3.98 with 6 runs of 10+ (pack, 2 games); not a run-defense under spot. No RB-receiving-allowed split in the pack."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Pack rushers: CMC 20 car/91 and Black 21/90 over the same two games; demonstrated committee, not a bellcow 100.5 role."
+    },
+    "script": {
+     "ok": true,
+     "source": "Both observed outcomes stayed under: rush-heavy 68+20=88 and rec-heavy 23+43=66. Base inferred script keeps the split. Blowout flip is the residual risk, not the base."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Saved last4 rushrecyds 88, 66, both under 100.5 with 12.5 and 34.5 yards of cushion."
+    }
+   },
+   "primary_defender": {
+    "who": "No single coverage defender; ARI run front, Roy Lopez Questionable (groin)",
+    "source": "Pack ARI defense rush YPC 3.98, 10+ runs 6; nflverse injury report. No run-fit chart."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": false,
+   "pro_edge_support": "Usage candidate, not a price candidate. Consensus no-vig under 0.497, best under -113 (worse than fair). No lagging flag. Robinson Out is an unverified sleeper that slightly hurts the under if targets move to CMC; cushion can absorb a small funnel. Scheme/usage leg for human review, not a best-price bet. Read-based model_p 0.56 is not a 3-sim output."
+  },
+  {
+   "player": "georgekittle",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Kittle is the healthy downfield tight end (9 targets, 88 air yards, 92 rec yards) running at the only zone ARI has actually bled, the middle at 9.53 YPA, with safety Taylor-Demerson listed Out and Robinson's 72 air yards off the field.",
+   "must_be_true": "Kittle plays a full route share, SF throws enough in a competitive game, and the middle softness (9.53 on 15 att) shows up again so 4-5 targets can clear 47.5.",
+   "kills_it": "Repeat of the 12-yard game: Evans plays full and takes the deep middle, Samuel and CMC absorb Robinson's targets, or SF leads big and runs CMC/Black instead of throwing. One long incompletion and a 3-target day loses at 47.5.",
+   "confidence": "lean",
+   "model_p": 0.54,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "ARI YPA middle 9.53 (15 att) vs left 6.71 and right 8.62; S Dadrion Taylor-Demerson Out (nflverse). Unknown if he already missed the two games behind that 9.53, so the injury is context not a proven extra downgrade."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Kittle 9 tgt/92 yds/88 air in the pack, a downfield TE not a checkdown; SF EPA/db vs ARI's 21% blitz rate is +0.98, so pressure does not kill his routes in the sample."
+    },
+    "script": {
+     "ok": true,
+     "source": "Inferred base and flip1 both have SF throwing. Flip2 blowout can stall routes; tagged script-dependent on a blowout, not on the base."
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "Last4 recyds 12, 80 vs line 47.5: one miss, one smash, average 46. Not a trend."
+    }
+   },
+   "primary_defender": {
+    "who": "Dadrion Taylor-Demerson (ARI S, Out, back); middle otherwise uncharted",
+    "source": "nflverse injury report in the pack. No coverage chart, so no named slot/LB or MOFC/MOFO assignment."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Scheme candidate, not a price candidate. Consensus no-vig over 0.495, best over -111.5 (juice over fair). No lagging flag. Robinson Out is the sleeper that can help Kittle if the line has not moved; unverified because no CSV diff. Evans Questionable is the conflicting sleeper. Ghost6/human review. Read-based model_p 0.54 is not a sim."
+  }
+ ],
+ "data_check": {
+  "notes": "Sims, projection, and Pinnacle are not in the pack, so step 8 cannot be completed. Consensus no-vig does not confirm either lean (CMC under 0.497, Kittle over 0.495). Form agrees with CMC under (88, 66) and does not confirm Kittle (12, 80). Read-based model_p 0.56 and 0.54 are not 3-sim probabilities and should not be sized; both would clear a 3-pt gate only if treated as real model output, which they are not. Dropped, not flagged as legs: Purdy rush over 17.5 (29 and 30, but 7.4 YPC on 8 carries is the fluky-efficiency case the skill says not to buy from averages, and no-vig is 0.500); Harrison under 33.5 (4 targets, 33 and 0, both under, but 74 air yards plus Bosa/Height/Thompson Out is a one-play kill and he is a depth route); Evans under 55.5 (49 and 54, hip Q, void risk, and Robinson/safety news cut the other way); Deebo rush over 3.5 (12 and 4) because no-vig over is only 0.485. McBride 69 has no price and attacks SF's tightest zone (middle 5.75), so no edge sentence.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Main lines only; no alt rungs saved. CMC rushrecyds under 100.5, best under -113 (consensus; anchor no-vig under 0.497). Kittle recyds over 47.5, best over -111.5 (anchor no-vig over 0.495). Neither is a short-priced alt. Do not add McBride, Love, Deebo rec, or Allgeier rush markets: no two-sided price saved.",
+ "pre_mortem": "Monday case against CMC under: the market's 100.5 was the real projection, Black was a two-week change-up, Robinson's targets and an Evans hip limit turned CMC into the offense, and a lead script gave him the 68-rush game plus the 43-rec game in the same afternoon. Monday case against Kittle over: week-1 usage repeated (12 yards), Evans played and won the middle, the 9.53 YPA was already the backup safety, and Kittle saw 3 targets while Samuel and CMC took the Robinson work. Those counters are why both are leans, not strong. They are not stronger than the written reads, so the legs stay flagged for the human rather than cut.",
+ "slip_story": "One competitive SF-pass story, not a parlay to place: Kittle over belongs to SF attacking ARI's middle with Robinson out; CMC rushrec under belongs to the same game only if Black keeps the 20/21 carry split so a pass-game success does not become a 100.5 bellcow day. They do not need opposite scripts, but a blowout (flip2) helps neither as a pair and a slog kills Kittle. Do not add ARI rush overs, a game under, TDs, or a second market on either player. No bet is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T13:09:26-0500"
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 IND@PIT / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so the book's expected leader and scoring environment are unknown and this script is form-only. Both quarterbacks have been inefficient (IND EPA/dropback -0.19 vs blitz and -0.21 with no blitz; PIT -0.39 vs blitz and -0.06 with no blitz), while the run games are the stable piece: Jonathan Taylor 67 carries for 255 yards and Jaylen Warren 45 carries for 263 over weeks 2-4. Base case is a competitive, run-tilted game in which Warren keeps about a 15-carry role into IND's 4.97 YPC run defense and Pittsburgh still throws, because IND blitzes only 20%, enough for DK Metcalf and Roman Wilson to hold recent target shares.",
+  "flip1": "If Indianapolis blitzes above its 20% rate, Aaron Rodgers' EPA/dropback falls to -0.39 (n=46) and Pittsburgh trails, so Warren's carries shrink and targets funnel to Metcalf (23 targets, 290 air yards) and Wilson (18 targets, 242 air yards).",
+  "flip2": "If Pittsburgh gets ahead and clocks it with Warren (5.84 YPC over the last 3), IND pass volume stalls: Josh Downs (24 targets, 165 yards) and Tyler Warren (22 targets, 117 yards, only 36 air yards) become the short-area options while Pittsburgh explosives undershoot."
+ },
+ "injury_fallout": "MISSING: injury report, practice status, questionable tags, and inactives for both IND and PIT. No absences, returns, or next-man-up inferred from usage dips.",
+ "matchup": {
+  "shell": "MISSING: no MOFO/MOFC or man/zone charting. Known pressure rates only: PIT blitz 28%, IND blitz 20%.",
+  "pressure": "IND QB is poor in both splits (EPA/dropback -0.19 vs blitz, n=50; -0.21 with no blitz). PIT QB is the sharp split: -0.39 vs blitz (n=46) versus -0.06 with no blitz, so IND's 20% blitz rate leaves Rodgers in the less-bad pocket more often.",
+  "bleeds": "IND allows 4.97 rush YPC and 12 runs of 10+; pass YPA allowed is 8.73 left (44 att), 8.83 middle (30 att), and 7.48 right (61 att), with 13 passes of 20+ on 144 attempts. PIT allows 4.56 YPC, 11 runs of 10+, and 8.75 YPA left (51 att) versus 7.15 middle (26 att) and 7.27 right (37 att), with 14 passes of 20+ on 124 attempts.",
+  "overlap": "Jaylen Warren is the PIT carry engine (45 carries, 263 yards, plus 15 targets and 116 receiving yards) into IND's worst area, a 4.97 YPC run defense. Roman Wilson's 242 air yards overlap IND's leaky left and middle, but he is not the primary: DK Metcalf has 23 targets and 290 air yards into the same zones."
+ },
+ "form": "Last 3 only, weeks 2-4. Warren 45/263 rush (5.84 YPC, 87.7 per game) and 15 targets / 116 yards / -9 air yards (38.7 receiving per game). Wilson 18/162/242 (54.0 receiving per game, about 13.4 air yards per target). Metcalf leads PIT targets at 23/173/290 (57.7 per game) but sits only about 5 yards above a 52.5 line. Taylor 67/255 is 85.0 rush yards per game against an 84.5 line, so no gap. Downs 24/165/243 is 55.0 versus 55.5. Tyler Warren 22/117/36 is 39.0 versus 45. Treadwell 10/123/119 (41.0 versus a 16 line) is treated as fluky efficiency (12.3 yards per target) without game splits. Rodgers 3 rushes for 17 yards is scramble variance. Pack lists M.Pittman 9/31/80 under PIT targets; not used.",
+ "edge_players": [
+  {
+   "player": "jaylenwarren",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Jaylen Warren is Pittsburgh's touch engine into the softest part of this IND defense, a 4.97 YPC run unit that has allowed 12 runs of 10+, and his last-3 scrimmage load of 87.7 rush plus 38.7 receiving clears 99 even if 5.84 YPC regresses toward what IND allows.",
+   "must_be_true": "Jaylen Warren rushrecyds >= 99 because L3 scrimmage was 379 yards (263 rush + 116 rec) and IND allows 4.97 rush YPC",
+   "kills_it": "IF Jaylen Warren is held under 12 carries and under 25 receiving yards THEN jaylenwarren rushrecyds over fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "romanwilson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Script-dependent lean: Wilson has been a real downfield piece (18 targets, 242 air yards, 54.0 receiving yards per game) into an IND defense that allows 8.73 YPA left and 8.83 middle and blitzes only 20%, the split where Rodgers is -0.06 EPA rather than -0.39, but Metcalf remains the primary target.",
+   "must_be_true": "Roman Wilson recyds >= 41 because L3 receiving was 162 yards on 18 targets and IND allows 8.73 YPA on the left and 8.83 in the middle",
+   "kills_it": "IF Pittsburgh leads late and clocks the game with Warren so Roman Wilson sees fewer than 4 targets THEN romanwilson recyds over fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No sim or Pinnacle no-vig in the pack. Warren last-3 scrimmage proxy is 126.3 versus 99; 15 carries times IND's 4.97 YPC is 74.6 rush, plus 38.7 receiving, still about 113 and above 99. Wilson 54.0 versus 41 agrees. Taylor 85.0 versus 84.5 and Downs 55.0 versus 55.5 were passed because the pack shows no gap. Both selected rung prices are +nan.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injuries/inactives, coverage shell and man/zone, alignment, game-by-game splits, no-vig/Pinnacle, sim medians, and posted prices on jaylenwarren rushrecyds and romanwilson recyds",
+  "verdict": "agree"
+ },
+ "market_rung_price": "jaylenwarren rushrecyds over 99 (price not saved, +nan); romanwilson recyds over 41 (price not saved, +nan). No alt rung. Warren recyds over 20.5 is listed -113 and rushyds over 72.5 is +nan; rushrecyds is chosen because it survives a pass-script flip that pure rush yards does not. One market per player.",
+ "pre_mortem": "It's Monday and both lost because Warren's 5.84 YPC was a three-game heater: IND stacked the box, Kenneth Gainwell is not in this pack but Dowdle (7 carries) and Homer (5) vultured touches, and the negative-air checkdowns stayed under 25 yards so scrimmage finished under 99. Wilson's 54-yard average was explosive-dependent against a defense with only 13 passes of 20+ on 144 attempts, Metcalf's 290 air yards took the downfield shots, and a Pittsburgh lead turned the fourth quarter into Warren clock-kills so Wilson never saw a fourth target.",
+ "slip_story": "One story: Pittsburgh's offense functions because IND allows 4.97 YPC and blitzes only 20%, Rodgers' less-bad split. Anchor is Warren rushrecyds over 99. Companion is Wilson recyds over 41, tagged script-dependent because it needs Pittsburgh to keep throwing and dies in the clock-kill flip. Do not pair with a Pittsburgh unders stack, a Warren rush under, or a Metcalf/Wilson under. Taylor rush over 84.5 is a separate IND clock-kill idea and is off this slip because 85.0 equals the 84.5 line.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

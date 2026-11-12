@@ -1,0 +1,46 @@
+{
+ "game": "Week 5 DEN@LAC / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this is form-only and not a market script. Base case is competitive, not a blowout: LAC's offense is Hampton-led (47 carries, 195 rush yards over weeks 2-4) with Harris as the downfield piece, and DEN is Dobbins on the ground (38/125, 3.29 YPC) plus Waddle through the air (24 targets, 183 rec yards). DEN is the softer defense (5.02 rush YPC allowed, 15 runs of 10+, middle 9.09 YPA) and the aggressor (39% blitz). LAC is tighter vs the run (4.13 YPC) and the middle (6.07 YPA), leaks outside (left 8.42, right 8.68), and blitzes only 27%. Most likely flow: both lead backs get their carries, DEN's blitz bothers Herbert (-0.32 EPA vs blitz), and Nix is not forced off schedule often enough for a pure checkdown game.",
+  "flip1": "DEN leads early and runs clock. Dobbins carry count jumps, LAC abandons Hampton, Herbert throws into a 39% blitz he has failed (-0.32 EPA, n=35), and Harris's air-yard game (206 air yards on 15 targets) stalls.",
+  "flip2": "LAC leads and DEN chases. Dobbins's already thin rush efficiency dies, Nix throws more to Waddle (264 air yards), Harvey's receiving role rises, and Hampton can still grind if the Chargers protect the lead."
+ },
+ "injury_fallout": "No injury report, practice status, questionable tags, or inactives in the pack, so nobody is marked out and no next-man-up share can be sourced. Visible committees only: DEN rush Dobbins 38 carries / Coleman 10 / Harvey 9 / Nix 8 over the last 3; DEN targets concentrated on Waddle 24, Sutton 17, Harvey 17, Engram only 8. LAC rush Hampton 47 / Mitchell 23 / Herbert 13 / Vidal 6; LAC targets Harris 15, Gadsden 13, Johnston 13, Mitchell 10, McConkey 10, Hampton 5. Any late scratch would reopen this. Sources: pack L3 role totals only.",
+ "matchup": {
+  "shell": "No coverage charting in the pack, so MOFO/MOFC and man/zone are unknown. Location YPA is the only shell proxy: LAC middle 6.07 on 29 att vs left 8.42 (45) and right 8.68 (40); DEN middle 9.09 on 22 att vs right 6.05 (63) and left 7.55 (53).",
+  "pressure": "LAC blitz rate 27%; DEN blitz rate 39%. Nix EPA/dropback -0.30 vs blitz (n=50) vs +0.13 unblitzed. Herbert -0.32 vs blitz (n=35) vs -0.10 unblitzed. DEN pressure is the live problem for LAC's deep game; LAC pressure is only moderate, so it does not by itself force Nix into checkdowns.",
+  "bleeds": "DEN run defense bleeds: 5.02 YPC allowed and 15 runs of 10+ in 4 games, plus the middle of the field (9.09 YPA). LAC run defense is the better unit here (4.13 YPC, 11 runs of 10+) and is best in the middle; it bleeds outside left and right. DEN has allowed 13 passes of 20+ on 146 att; LAC 13 on 124 att.",
+  "overlap": "Hampton's lead-back carries (47/195 over L3, about 15.7 per game, 4.15 YPC) run into the exact spot DEN gives up (5.02 YPC, 15 explosive runs). That overlap is the card. Waddle (24 targets, 264 air, 183 rec yards) is the DEN primary vs LAC's outside leak, but alignment is not charted so he stays off. Harris (206 air yards) runs into DEN's 39% blitz and Herbert's -0.32 EPA vs blitz, so the deep overlap is a trap, not a leg."
+ },
+ "form": "Weeks 2-4 only, no season averages. Hampton 47 carries / 195 yards (65.0 per game) and only 5 targets / 29 rec yards; Mitchell 23/115 (38.3, 5.00 YPC) is the change-of-pace, not the lead. Herbert 13/59 rush (19.7). Harris 15 targets / 189 rec / 206 air (63.0 rec yards per game, deep profile); Gadsden 13/54/87 (18.0); McConkey 10/101/131. Dobbins 38/125 (41.7 per game, 3.29 YPC) is the DEN early-down back; Harvey 9/31 rush but 17 targets / 109 rec yards / -37 air, a checkdown back at 10.3 rush and 36.3 rec per game. Waddle 24/183/264 (61.0 rec); Sutton 17/75/212 is empty air (25.0 rec on 70.7 air per game), a fluky low conversion that could regress and is not a bet. Engram 8/23/43 (7.7 rec). Nix 8/26 rush (8.7).",
+ "edge_players": [
+  {
+   "player": "omarionhampton",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Hampton is the Chargers' carry share (47 rushes, 195 yards, 65 a game over the last three) running into the defense in this pack that actually leaks the run (Denver 5.02 YPC allowed, 15 runs of 10+), and 41.5 sits about 23 yards under that role.",
+   "must_be_true": "He plays a full lead-back workload near 12-16 carries, Denver's run leak shows up again, and the game does not become a pass-only blowout before he gets volume. No injury or inactive note in the pack.",
+   "kills_it": "LAC falls way behind early, abandons the run, and Mitchell/Herbert take what's left, or a snap limit we do not have. A mild negative script still clears 41.5; only a real abandonment kills it.",
+   "confidence": "strong"
+  },
+  {
+   "player": "rjharvey",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Harvey is a receiver in this offense, not a rusher: 9 carries and 31 yards over three games versus 17 targets and 109 receiving yards, so 26.5 rush yards prices a role he does not have, and even LAC's 4.13 YPC on a 3-carry share is about 12 yards.",
+   "must_be_true": "Dobbins keeps the early-down work (38 carries over L3) and Harvey stays around 3 carries as the checkdown back. He is healthy enough to play that receiving role.",
+   "kills_it": "Dobbins is limited or out (inactives not in the pack) and Harvey's carries spike, or one 20-yard run plus his normal 10 yards clears 26.5 on skew.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection model, no sims, and no Pinnacle no-vig in the pack, so this check is pack form only. Hampton L3 rush mean 65.0 vs 41.5, and 15.7 carries times Denver's 5.02 YPC allowed is about 79, so the soft-run-defense read and the yards agree; not cut, not flagged. Harvey L3 rush mean 10.3 vs 26.5, and 3 carries times 4.13 YPC is about 12, so the role read and the number agree. Harris under was considered from the blitz read and dropped as a lean because 63.0 rec yards per game disagrees. Sutton under dropped because 212 air yards can regress up into LAC's outside leak. No leg is a 70%+ model claim.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "omarionhampton rushyds over 41.5 -114 (volume plus weak run defense; rush not rush+rec, one market). rjharvey rushyds under 26.5 -116 (limited carry share against a non-soft run defense). No alt rungs and no no-vig price in the pack. Main slip is these two, no TDs, no receptions, no passing yards.",
+ "pre_mortem": "It's Monday and the slip lost because the missing spread was a Denver favorite and the game was never competitive: Chargers trailed early, Hampton was held to 8-10 carries and finished in the mid-30s while Mitchell vultured the rest, and Harvey ripped one 20-yard gain on a light carry count to clear 26.5 on skew alone. The other miss path is an inactive we did not have, Dobbins down and Harvey suddenly a 8-10 carry back. Denver's 5.02 YPC allowed is only four games and may be opponent noise, not a stable leak. That counter is real but not stronger than a 23-yard cushion on the lead back, so Hampton stays; Harvey stays only as a lean because the splash-run kill is live.",
+ "slip_story": "One story: LAC can run on this Denver defense, and Denver's RB2 does not become a rusher. Hampton rush over is the run-leak leg and survives the base and a moderate LAC-lead flip. Harvey rush under belongs to the same card because his job is targets, not carries, in a competitive game or a Denver chase; it is not a shootout stack and it is not paired with a total or a TD. Do not add Harris over, Gadsden over, or Dobbins over \u2014 those need the opposite pressure or clock-kill script.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

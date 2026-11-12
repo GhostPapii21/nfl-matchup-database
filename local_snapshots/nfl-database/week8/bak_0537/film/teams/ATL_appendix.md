@@ -1,0 +1,12 @@
+
+
+## FILM NOTES (Phase 8) — appended 2026-10-29 05:33 ET
+Source: NFL YouTube highlight **captions only** (no frames viewed), Codex extraction, DB cross-check. Full notes + URLs: week8/film/ATL_film.md
+Coverage: 3/6 Wk1–6 games; 193 plays logged, 59 verified vs DB, 1 conflicts (flagged, not used).
+Videos: W1 https://www.youtube.com/watch?v=TQcletbGnAk; W2 https://www.youtube.com/watch?v=6zdUT_bY1Gg; W3 https://www.youtube.com/watch?v=sbXZBAUOkDw; W4 https://www.youtube.com/watch?v=8qB8fHEgpkg; W5 https://www.youtube.com/watch?v=fVlmow2jCDA; W6 https://www.youtube.com/watch?v=H82sLvw_lcU
+- Offense, verified explosive plays (20+ yds): W1 N.Folk; K.Wetjen (PIT returner) 27y (kickoff return); W1 Cooper Rush; Bijan Robinson 23y (quick short right pass); W1 Cooper Rush; Drake London 21y (play-action; deep left pass); W1 Cooper Rush; Bijan Robinson; Jahan Dotson 27y (bootleg; screen back to the left); W1 Bijan Robinson 20y (right-end run); W1 Cooper Rush; T.J. Watt (PIT interception return) 35y (short right pass); W6 Bi.Robinson 23y (right guard run); W6 M.Penix → D.London 39y (deep left pass); W6 M.Penix → J.Dotson 33y (short right pass); W6 M.Penix → K.Pitts 29y (short right pass); W6 M.Penix → J.Dotson 41y (deep left shot); W2 Jalen Coker (CAR returner) 36y (punt return)
+- Offense concepts, verified plays (commentary-stated): field goal x6, short right pass x4, kickoff return x2, play-action x2, two-point conversion pass x2, quick short right pass x1, deep middle pass x1, bootleg x1
+- Defense, verified explosives allowed: W1 PIT Aaron Rodgers; Michael Pittman 21y; W1 PIT Aaron Rodgers; Roman Wilson 37y; W1 PIT Aaron Rodgers; Roman Wilson 20y; W1 PIT Chris Boswell; Brian Robinson (ATL returner) 40y; W1 PIT Aaron Rodgers; Michael Pittman 28y; W6 CHI C.Williams → R.Odunze 23y; W6 CHI C.Williams → L.Burden 25y; W6 CHI C.Williams → L.Burden 22y; W2 CAR Tetairoa McMillan 26y; W2 CAR Tetairoa McMillan 27y; W2 CAR Jalen Coker 25y; W2 CAR Xavier Legette 55y
+- Defense concepts allowed: field goal x6, deep right pass x2, deep middle pass x2, play-action x2, right guard run x2, deep pass right x2
+- Defenders named on verified plays allowed (DB tackler or commentary; being named ≠ proof of a coverage loss): S.Brown (DB tackler) x2, K.Daniels x1, A.J. Terrell (DB tacklers) x1, Mike Hughes x1, Cameron Thomas (DB tacklers x1, Thomas forces fumble) x1, A.J. Terrell (penalized) x1, Divine Deablo (DB tackler) x1
+- Personnel/coverage shells: mostly unknown (captions rarely state them). Treat as a gap.

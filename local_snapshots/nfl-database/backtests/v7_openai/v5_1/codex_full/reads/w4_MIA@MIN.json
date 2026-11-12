@@ -1,0 +1,39 @@
+{
+ "game": "Week 4 MIA@MIN / kickoff MISSING / spread and total not saved; implied totals, moneyline and movement MISSING / weather not saved",
+ "script": {
+  "base": "With no saved spread or total, infer a tentative Minnesota-control script from team form, not market expectations. Minnesota leans on A.Jones, while Miami's rushing work remains divided among D.Achane, O.Gordon and M.Willis; Minnesota's frequent blitzing makes sustained Miami passing drives a concern.",
+  "flip1": "Miami handles Minnesota's blitz and builds a lead, forcing Minnesota toward its passing game. Miami gains clock-killing rushing opportunities, threatening the Gordon under if his carry allocation increases.",
+  "flip2": "Minnesota's blitz disrupts Miami's passing game without producing a Minnesota lead, and Miami responds by emphasizing designed runs. Gordon can exceed his recent workload even in a low-scoring game."
+ },
+ "injury_fallout": "MISSING: injury reports, practice trends, final inactives, offensive-line availability, defensive absences and snap restrictions for both MIA and MIN. Jaylen Wright has available props but no listed recent usage; that does not establish an absence or return. Gordon's workload cannot be adjusted for presumed personnel changes. Final-report and approximately 90-minute pre-kickoff checks cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: MIN and MIA MOFO/MOFC rates, man/zone rates and individual coverage assignments. Directional passing splits cannot establish receiver alignment or coverage matchups.",
+  "pressure": "MIN blitzes 73%; MIA QB EPA/dropback is -0.26 against blitz across 31 dropbacks versus 0.06 without blitz. MIA blitzes 32%; MIN QB EPA/dropback is -0.22 against blitz across 40 dropbacks versus 0.02 without blitz. Actual pressure rates, sacks, time to throw and scramble responses are MISSING.",
+  "bleeds": "MIN allows 3.52 rushing yards per carry and eight runs of 10+ yards. Its middle passing allowance is 10.04 YPA, versus 7.11 left and 5.25 right. MIA allows 3.82 rushing yards per carry and 10.57 middle passing YPA. Positional receiving allowances, rush EPA, stuff rates and box counts are MISSING.",
+  "overlap": "The actionable overlap is Gordon's secondary rushing role against MIN's 3.52 YPC allowed, rather than an assumed receiver-versus-zone matchup. Achane has 34 carries and Willis 17 alongside Gordon's 20 over the supplied three games."
+ },
+ "form": "Source for all figures: supplied pre-kickoff pack, offensive weeks 1\u20133 and defensive season-to-date three-game samples; exact collection timestamps are MISSING. Gordon has 20 carries for 48 yards, or 2.40 YPC, while Achane has 34/127 and Willis 17/101. Minnesota's Jones has 52/203 rushing, supporting a tentative run-led script. Washington leads Miami with 23 targets; Jefferson leads Minnesota with 18, followed by Addison with 16. Individual-game trends, snaps, routes, red-zone work, opponent comparability and play-caller changes are MISSING; aggregate totals cannot establish stable weekly roles.",
+ "edge_players": [
+  {
+   "player": "olliegordonii",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Gordon's secondary share of Miami's rushing work meets a Minnesota defense allowing 3.52 YPC, giving him a plausible path to stay under 24.5 rushing yards without requiring Miami to abandon the run.",
+   "must_be_true": "O.Gordon carries <= 7 [because the pack lists 20 carries over three games alongside D.Achane's 34 and M.Willis's 17]",
+   "kills_it": "IF Gordon receives an expanded workload or breaks a long run that takes him to at least 25 rushing yards THEN Gordon rushyds under 24.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis is limited Gordon volume against a relatively restrictive rushing matchup. The supplied numbers support it: 20 carries for 48 yards over three games, competing rushing usage, and MIN allowing 3.52 YPC. These aggregates test the read but do not establish a calibrated projection or hit probability. Under -117 requires approximately 53.9% to break even. The read survives the base script and a Miami lead if Gordon's role stays secondary; it is vulnerable to the run-heavy workload-expansion flip.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median, calibrated outcome distribution, Pinnacle prices and sharp no-vig benchmark; game-by-game carry distribution, confirmed active personnel and starting roles. The listed opposite-side price is not identified as Pinnacle.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Ollie Gordon II rushyds under 24.5 at -117, supplied main line. Lean only; statistical agreement is not proof of positive expected value at this price. No alternate rung or stake recommended without a calibrated price check.",
+ "pre_mortem": "It is Monday and Gordon's under lost because Miami countered Minnesota's blitz with more designed rushing, giving Gordon substantially more work than his three-game aggregate suggested. Minnesota has already allowed eight runs of 10+ yards, so its 3.52 YPC average does not eliminate an explosive-run loss either. Missing injury and inactive information leaves workload redistribution unresolved. This counter-case limits confidence to lean rather than strong.",
+ "slip_story": "Single-leg candidate for a Minnesota-control story in which Miami's rushing work remains divided. No 3\u20134-leg slip is justified from this read, and no depth-receiver anchor or touchdown leg is added. No bet placed. A timestamped pre-kickoff lock/hash and persistent log are unavailable here; after the game, grade the script and Gordon workload hypothesis separately from whether the under hit, attributing any miss to workload/news checks, script selection or explosive-run risk.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

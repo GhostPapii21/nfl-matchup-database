@@ -1,0 +1,13 @@
+2026-11-02 16:38 The Odds API event odds (1 pregame events 2026-11-02T12:00:00Z..2026-11-03T08:00:00Z, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_m1638.csv 1333 rows (0 in-play/unknown dropped), remaining 17398
+2026-11-02 16:38 The Odds API event 7d664fbcd39350e559d83c0068ba7169 spreads/totals/h2h (fanduel,draftkings,pinnacle) -> lines_m1638.json
+2026-11-02 16:38 curl ESPN injuries https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries -> 200 8729107 bytes
+2026-11-02 16:38 curl ESPN news https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=100 -> 200 211750 bytes
+2026-11-02 16:38 curl ESPN chi_news https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?team=3&limit=50 -> 200 428566 bytes
+2026-11-02 16:38 curl ESPN sea_news https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?team=26&limit=50 -> 200 472679 bytes
+2026-11-02 16:38 curl ESPN scoreboard https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard -> 200 244330 bytes
+2026-11-02 16:38 tools/weather_forecast.py run() CHI@SEA Lumen Field (47.5952,-122.3316) NWS+Open-Meteo -> ./forecast_2026-11-02_1638.json
+2026-11-02 16:38 curl nflverse pbp/play_by_play_2026.parquet (release last-modified 2026-11-02 14:29 ET) -> 200 8962495 bytes
+2026-11-02 16:42 copied (cp -p, original mtimes kept) r2 src research <48h: coverage_profile.json (05:09), features.json, ngs_*, snaps, depth_charts, advstats_season_def, pfr_def_adv_2026_1102.html (05:10), pfr_sea_adv_fc.* (06:40 Firecrawl)
+2026-11-02 16:42 yt-dlp auto-captions NFL YouTube: dIfN83Krivs (KC@SEA Wk7), Urfce838vEc (NE@CHI Wk7), 6uFD3NGt0GE (SEA@DEN Wk6), H82sLvw_lcU (CHI@ATL Wk6) -> film/*.vtt
+2026-11-02 16:42 SIMV6_SRC=r3/src python3 tools/sim_v6.py fit (SIMV6_FIT_N=4000 default, wk4-7 leak-free) -> tools/sim_v6_calib.json rewritten (backup: src/sim_v6_calib_before_fit_1642.json), 91 s
+- 2026-11-02 16:48 ET r3 build.py/report.py/gate run (tools: python3, run_gate.py)

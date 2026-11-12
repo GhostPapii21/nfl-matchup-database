@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 NE@JAX / kickoff not saved / spread and total not saved; script inferred only from supplied team form / weather not saved. Moneyline, implied totals, opening-line movement, venue configuration, rest and travel details: MISSING.",
+ "script": {
+  "base": "Hypothesis before the numerical checks: a competitive game without an established favorite, with NE using its backfield and short passing while JAX mixes Tuten carries with Washington-led receiving. NE pressure could interrupt JAX possessions; halftime leader, pace and garbage time cannot be established from this pack.",
+  "flip1": "JAX handles NE's pressure and builds an early lead through Washington. NE shifts toward passing, preserving Stevenson's receiving opportunity while reducing Rodriguez's rushing opportunity.",
+  "flip2": "NE builds an early lead and shortens the game through rushing. Stevenson receiving volume becomes script-dependent, while Rodriguez's rushing under remains supported unless JAX expands his share despite trailing."
+ },
+ "injury_fallout": "MISSING: NE and JAX injury reports, practice-status trends, final designations, offensive-line availability, defensive absences, return restrictions and final inactives. No absence, return or next-man-up assignment is inferred from usage. Recheck Stevenson, Rodriguez and both offensive lines at the final injury-report and approximately 90-minute inactive checkpoints; these checks cannot be completed from the pack. Source for available usage only: supplied pre-kickoff Weeks 1\u20132 summaries; exact publication timestamps are missing.",
+ "matchup": {
+  "shell": "MISSING: NE and JAX MOFO/MOFC splits, man/zone rates, coverage assignments and receiver alignment. Location-level passing results cannot establish who occupies or defends the slot or middle.",
+  "pressure": "JAX blitzes 39%; NE's QB EPA/dropback is 0.09 against blitzes over 22 dropbacks versus -0.06 without blitzes. NE blitzes 38%; JAX's QB EPA/dropback is -0.40 against blitzes over 10 dropbacks versus 0.42 without blitzes. These supplied two-game splits support a provisional JAX disruption hypothesis, not a proven pressure-to-checkdown relationship. Actual pressure rates, sacks and time to throw are missing.",
+  "bleeds": "JAX allows 4.13 rushing yards per carry, five runs of 10+ yards and eight passes of 20+ yards on 58 attempts. NE allows 4.30 rushing yards per carry, five runs of 10+ yards and four passes of 20+ yards on 70 attempts. Middle passing YPA is elevated for both defenses\u2014JAX 19.0 on seven attempts and NE 10.69 on 13\u2014but these are small samples. Position-specific allowances, rush EPA, stuff rates, box counts and YAC are missing.",
+  "overlap": "Stevenson's eight targets and -3 air yards identify an existing short receiving role that could remain useful against JAX's blitzing; RB-specific coverage vulnerability is unverified. Rodriguez's under rests on his secondary rushing role behind Tuten, not on claiming NE's 4.30 YPC allowed is a shutdown matchup. Washington leads JAX with 18 targets, but his alignment against NE's higher middle YPA is unknown."
+ },
+ "form": "Source: supplied Weeks 1\u20132 pack, totaling two games despite the 'over L3' labels. Stevenson has 24 carries for 94 yards and eight targets for 47 receiving yards; Henderson has 16 carries for 76 yards. Rodriguez has 12 carries for 36 yards versus Tuten's 28 for 131 and Abdullah's seven for 43. Stevenson therefore has demonstrated receiving involvement, while Rodriguez has a secondary rushing workload. Individual-game distributions, snaps, routes, red-zone roles, personnel changes, comparable-opponent games and long-play contributions are missing; neither role stability nor consistency can be verified across the requested last 3\u20134 games.",
+ "edge_players": [
+  {
+   "player": "rhamondrestevenson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Stevenson's established short receiving role offers a path over 14.5 yards against a JAX defense that blitzes frequently, without requiring NE to win deep.",
+   "must_be_true": "Rhamondre Stevenson targets >= 4 [because the pack records eight targets and 47 receiving yards across Weeks 1\u20132]",
+   "kills_it": "IF NE takes an early lead and Stevenson's receiving opportunities disappear during a run-heavy second half THEN Stevenson recyds over 14.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "chrisrodriguezjr",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Rodriguez's secondary carry allocation behind Tuten leaves a plausible path under 20.5 rushing yards in either a competitive game or a JAX trailing script.",
+   "must_be_true": "Chris Rodriguez Jr. carries <= 6 [because the pack records 12 carries across two games versus Tuten's 28]",
+   "kills_it": "IF JAX builds a sustained lead and gives Rodriguez an expanded clock-killing workload THEN Rodriguez rushyds under 20.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Read-first numerical check: Stevenson has 47 receiving yards on eight targets across two games, equivalent to 23.5 yards and four targets per game against a 14.5-yard line. Rodriguez has 36 rushing yards on 12 carries, equivalent to 18 yards and six carries per game against 20.5. These descriptive checks support the role hypotheses but are not projections or simulations. Rodriguez has only a narrow descriptive cushion, and neither aggregate establishes game-by-game hit frequency. Both reads remain leans. 'Agree' means no supplied number clearly contradicts the read, not that positive expected value is established.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation distributions and medians, calibrated probabilities, Pinnacle prices and no-vig benchmark; individual-game role distributions; RB receiving allowances; actual pressure rates; injuries and inactives; weather. No fair probability, edge percentage or stake can be established.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line candidates only: rhamondrestevenson recyds over 14.5 at -115; chrisrodriguezjr rushyds under 20.5 at -114. Receiving yards is the available proxy for Stevenson's short-target hypothesis because receptions are not permitted. Rodriguez's market directly expresses a limited-carry hypothesis. No alternate rung, verified value claim or staking recommendation.",
+ "pre_mortem": "It's Monday and both lost: NE handled JAX's blitz without needing Stevenson underneath, then protected a lead through rushing, leaving his receiving role below the required opportunity level. Meanwhile, Rodriguez either broke one efficient run or received more carries than the two-game aggregate suggested. NE's 4.30 YPC allowed does not make his under safe: five carries at that rate would exceed 20.5 yards. The strongest counter-case is that tiny role samples and unknown availability matter more than these matchup signals. Stevenson is explicitly script-dependent; Rodriguez's narrow cushion keeps his confidence at lean rather than strong.",
+ "slip_story": "The shared story is competitive early play followed by JAX leading or NE needing short passing: Stevenson retains receiving opportunities while Rodriguez remains a secondary runner. Both survive the competitive base and JAX-lead flip, but neither is robust to every outcome. Keep these as two conditional single-leg candidates, not a completed main slip; do not invent a third or fourth leg to meet a slip count. No joint probability or correlation estimate is available.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

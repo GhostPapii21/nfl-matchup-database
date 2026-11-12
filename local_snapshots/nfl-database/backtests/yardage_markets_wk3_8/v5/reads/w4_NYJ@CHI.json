@@ -1,0 +1,46 @@
+{
+ "game": "NYJ@CHI Week 4 / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this is a form-only script, not a market read on who leads or how many points. Base case is a competitive game in which CHI stays run-leaning: Swift is at 54 carries for 253 yards (4.69 YPC, about 18 carries and 84 yards a game) and Monangai at 30/178 (5.93 YPC), and the Bears QB is better vs the blitz (0.37 EPA/dropback, n=56) than without it (0.08), so NYJ's 35% blitz rate should not push CHI off the run. NYJ counters with Hall's volume (51 carries, 163 yards, only 3.20 YPC) into a CHI run defense allowing 5.09 YPC, plus Wilson as the pass engine (28 targets, 243 yards, 284 air yards) against a CHI pass defense at 7.03/8.42/8.24 YPA left/middle/right.",
+  "flip1": "CHI gets up on the ground early and kills clock. Swift's carry rate holds or rises and the 64.5 rush over is helped; Monangai is the back more likely to lose leftover carries. NYJ then throws to catch up, so Wilson's 9.3 targets can survive this flip even if his 10.1 aDOT shots are at risk, and the pack has CHI blitz rate (42%) but no pressure rate to know if those shots die.",
+  "flip2": "Hall exploits CHI's 5.09 YPC and 9 runs of 10+ allowed, the Jets lead and grind, and CHI abandons the run. Swift falls under the roughly 15 carries he needs to clear 64.5 even at NYJ's 4.40 YPC allowed (15 x 4.40 = 66; 13 carries misses), and Wilson's air yards also stall if New York is milking the lead instead of feeding the 284-air-yard WR1."
+ },
+ "injury_fallout": "No injury report, practice trend, questionable tag, or inactive list is in the pack, so no backup coverage or next-man-up boost can be assigned and anything touched by a late scratch must be re-run. Usage only: Hall has 51 carries to Allen's 19/61 yards and Geno Smith's 10/39, so Allen does not project to a 56.5 rush line unless Hall sits, which is not shown. CHI carries are already a split (Swift 54, Monangai 30, C.Williams 15/107, Keenum 2/8) with both RBs producing, so neither Bears back is a zero on the data we have. No defensive absence is listed for the CHI middle/right bleed or the NYJ right-side strength.",
+ "matchup": {
+  "shell": "No MOFO/MOFC, man/zone rate, or coverage charting in the pack. Location YPA is the only shell proxy: CHI allows middle 8.42 on 19 attempts and right 8.24 on 33, with left better at 7.03 on 32. NYJ allows middle 7.82 on 22, left 6.03 on 34, and right a strength at 4.78 on 37.",
+  "pressure": "CHI blitz rate 42%, NYJ blitz rate 35%. No pressure rate, sack count, or time-to-throw in the pack. NYJ QB EPA/dropback is 0.29 vs blitz (n=30) vs 0.17 with no blitz, so Chicago's blitz is not a suppressant. CHI QB EPA is 0.37 vs blitz (n=56) vs 0.08 unblitzed, so New York blitzing is not a reason to expect the Bears to live on check-downs.",
+  "bleeds": "CHI run defense bleeds at 5.09 YPC with 9 runs of 10+ in 3 games, and the pass defense has allowed 8 plays of 20+ on 91 attempts, worst through the middle then the right. NYJ run defense is average, not a wall and not a bleed: 4.40 YPC, 6 runs of 10+, and only 4 passes of 20+ on 101 attempts. NYJ's pass bleed is the middle; the right side is where downfield shots go to die.",
+  "overlap": "Wilson (28 targets, 284 air yards, 81 rec yards/game) is NYJ's primary option into the defense that bleeds middle and right and has allowed 8 explosives, and the 42% blitz does not punish this QB (0.29 EPA). That is the clean overlap. Swift's overlap is role, not a leaky front: 18 carries and 84.3 rush yards a game vs a 4.40 YPC Jets run defense and a 64.5 line. Odunze (13 targets, 224 air yards, only 139 rec yards) overlaps NYJ's explosive suppression, not a bleed, so he is not an edge."
+ },
+ "form": "Window is weeks 1-3 only, no game-by-game split, so one long play inflating a total cannot be ruled out. Swift 54/253 rush plus 9 targets/68 rec yards is a lead-back role that already includes Monangai's 30/178 at 5.93 YPC, not a 25-carry bellcow week. Wilson 28/243/284 is the stable WR1; Mitchell 15/123/237 is the low-volume deep complement; Sadiq 14/143/86 is the YAC intermediate at 47.7 yards/game. Hall 51/163 at 3.20 YPC can still tilt script because CHI allows 5.09 YPC, but he has no prop. Allen 19/61 (about 20 rush yards/game) and I.Williams 9/62 do not support their posted rush or a hidden receiving role. Raymond 214 yards on 21 targets vs a 31.5 line, and Loveland 34 yards on 9 targets vs a 35 line, are role gaps the pack cannot explain and are not used.",
+ "edge_players": [
+  {
+   "player": "dandreswift",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Swift has been Chicago's lead back at 18 carries and 84.3 rush yards a game, so 64.5 is about 20 yards under that role, and a Jets run defense allowing 4.40 YPC still leaves him over if he keeps about 15 carries (15 x 4.40 = 66).",
+   "must_be_true": "Swift keeps the L3 lead (54 carries to Monangai's 30), plays a full snap share, and CHI is not stuck in a multi-score pass-only chase.",
+   "kills_it": "Jets lead early with Hall into a Bears front allowing 5.09 YPC and 9 runs of 10+, CHI cuts Swift under 13 carries, and Monangai plus C.Williams (15 carries, 107 yards) take what is left.",
+   "confidence": "strong"
+  },
+  {
+   "player": "garrettwilson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Wilson is the Jets' primary receiver at 9.3 targets and 81 yards a game with 284 air yards, and CHI is the soft pass defense here (middle 8.42 YPA, right 8.24, 8 explosives on 91 throws) while blitzing 42% into a QB who has been better when blitzed (0.29 EPA vs 0.17).",
+   "must_be_true": "Wilson holds a WR1 share near 8-plus targets, Geno Smith is the QB, and New York is not in a pure second-half clock grind.",
+   "kills_it": "Jets lead and feed Hall (already about 17 carries a game) into CHI's 5.09 YPC run defense, Wilson's 10.1 aDOT shots do not convert, or CHI brackets him and Mitchell (237 air yards) plus Sadiq (143 rec yards) take the soft middle.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle feed is in the pack. Posted prices only: Swift over 64.5 -113 and under -113 is a 50% no-vig coin flip; Wilson over 75.5 -111.5 and under -114 is about 49.7% no-vig on the over. Form agrees with both overs (Swift 84.3 vs 64.5; Wilson 81 vs 75.5), and NYJ's 4.40 YPC allowed does not pull a 15-carry Swift under 64.5. Nothing in the pack contradicts the strong Swift read, so this is agree, not a flag, and it is not a 70% model probability. The Wilson cushion is only 5.5 yards and should be sized small. Raymond 71.3 vs 31.5, Allen 20.3 vs 56.5, and Loveland 11.3 vs 35 were left off because the pack has no news to explain those gaps.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "D'Andre Swift rush yards over 64.5 at -113, main line not a short alt. Garrett Wilson receiving yards over 75.5 at -111.5. Swift rush+rec 82.5 is listed with no price (+nan), so the priced rush rung is the one used. No TD or reception markets.",
+ "pre_mortem": "It's Monday and both lost because the Jets owned the script the missing spread never told us about. Hall's 3.20 YPC jumped against a Bears front that has allowed 5.09 YPC and 9 runs of 10+, New York led by two scores, and Chicago threw the game away: Swift finished near 12 carries and the mid-40s, under 64.5, with Monangai vulturing the leftover runs a 30-carry RB2 can take. Wilson saw the soft middle taken by Mitchell and Sadiq, who already have 15 and 14 targets, and his 284 air yards became a quiet 58-yard line once the Jets ground the clock instead of throwing. The L3 totals that made 64.5 and 75.5 look soft may be one explosive week, and the pack has no week-by-week split to disprove that.",
+ "slip_story": "One story: a competitive game where CHI keeps running and NYJ still has to throw to WR1. Swift over 64.5 is the Bears run-volume anchor and is script-dependent on Chicago not chasing. Wilson over 75.5 fits the same live game and can also survive a mild CHI lead as a catch-up target, so the pair is not an opposite-script mix, but a Jets clock-grind kills both. Do not add Monangai over 39.5 \u2014 he wins with Swift but splits the same carries. Do not add a total, a TD, Allen, Raymond, or Loveland. Two legs, no TDs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

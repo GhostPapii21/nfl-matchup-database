@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 NYJ@CHI / kickoff not in pack / spread NOT saved \u2014 script inferred from form only / total NOT saved / weather not saved",
+ "script": {
+  "base": "No spread or total was saved, so the script is inferred only from form. Chicago has been the more efficient ground offense (Swift 54 carries/253 yards, Monangai 30/178, Caleb Williams 15/107) while New York's run game is volume without efficiency (Hall 51/163, 3.2 YPC) and its passing identity is Garrett Wilson (28 targets, 243 yards, 284 air yards). Base flow: CHI leans run and controls pace; NYJ cannot stay ahead on the ground and funnels throws to Wilson into a CHI defense allowing 5.09 rush YPC but 7.03\u20138.42 pass YPA.",
+  "flip1": "CHI gets up and stays run-heavy, so Swift and Monangai rush yards climb, NYJ abandons Hall/Allen carries, and Wilson's target count rises further off the 9.3 per game he already has.",
+  "flip2": "NYJ leads or CHI's run gets stuffed early, Chicago abandons the run (Swift's 18 carries/game die) and throws to Burden (23 targets) and Raymond (21 targets), while NYJ mixes Hall runs and Wilson's yardage stalls."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, inactives, and snap limits for both NYJ and CHI. No absences, returns, or next-man-up guessed from usage. Pack usage only: Hall 51 carries leads NYJ rushers ahead of Allen 19 and Geno Smith 10; Swift 54 carries leads CHI ahead of Monangai 30 and C.Williams 15. Isaiah Davis and Tyson Bagent have props but no usage rows in this pack.",
+ "matchup": {
+  "shell": "MISSING: coverage charting (MOFO vs MOFC, man vs zone). Location splits only: CHI allows middle 8.42 YPA (19 att), right 8.24 (33 att), left 7.03 (32 att). NYJ allows middle 7.82 (22 att), left 6.03 (34 att), right 4.78 (37 att).",
+  "pressure": "CHI blitz rate 42%. NYJ QB EPA/dropback vs blitz 0.29 (n=30) vs 0.17 with no blitz, so Chicago's blitz has not been a negative for this QB in the pack. NYJ blitz rate 35%. CHI QB EPA vs blitz 0.37 (n=56) vs 0.08 with no blitz.",
+  "bleeds": "CHI run defense allows 5.09 YPC and 9 runs of 10+. CHI pass defense allows 8 passes of 20+ on 91 attempts and is soft on every side of the field, worst in the middle (8.42). NYJ run defense allows 4.40 YPC and 6 runs of 10+. NYJ pass defense allows only 4 passes of 20+ on 101 attempts, with the right side at 4.78 YPA and the middle the soft spot at 7.82.",
+  "overlap": "Wilson is NYJ's primary target (28 targets, 284 air yards, 10.1 aDOT) into the defense that bleeds by location and on explosives, and CHI's 42% blitz meets a QB with higher EPA when blitzed (0.29). Swift's 54 carries at 4.69 YPC overlap a NYJ run defense that is average (4.40 YPC), not a bleed \u2014 the edge is carry volume in a run-lean CHI offense, not a mismatch explosion."
+ },
+ "form": "NYJ L3 only: Hall 51/163 rush, Allen 19/61, Geno Smith 10/39, I.Williams 1/14; Wilson 28 tgt/243 rec yds/284 air, Mitchell 15/123/237, Sadiq 14/143/86, Hall 10/102/0 receiving, Ruckert 8/48/6, Allen 5/11/-2. CHI L3 only: Swift 54/253 rush (18.0 carries and 84.3 rush yards per game), Monangai 30/178 (5.93 YPC), C.Williams 15/107 (7.13 YPC); Burden 23/156/179, Raymond 21/214/130, Odunze 13/139/224 (17.2 aDOT), Loveland 9/34/47, Swift 9/68/-12 receiving. No game-by-game split, so one-play inflation cannot be separated. Raymond's 71.3 yards/game vs a 31.5 line is an average gap without a base-script reason (CHI run-lean cuts pass volume) and is not a leg.",
+ "edge_players": [
+  {
+   "player": "garrettwilson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Wilson is New York's clear primary receiver at 28 targets and 81.0 receiving yards per game, and Chicago bleeds through the air (middle 8.42 YPA, right 8.24, left 7.03, 8 explosives on 91 throws) while blitzing 42% into a QB who has been better when blitzed (0.29 EPA).",
+   "must_be_true": "Garrett Wilson targets >= 8 because he had 28 targets over the last 3 games",
+   "kills_it": "IF NYJ leads by two scores and funnels carries to Breece Hall THEN Garrett Wilson recyds over 75.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "dandreswift",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Swift is Chicago's lead rusher at 54 carries and 84.3 rush yards per game, and even if efficiency only matches NYJ's 4.40 YPC allowed, 15 carries still clears 64.5 in the run-lean script this offense has shown.",
+   "must_be_true": "D'Andre Swift carries >= 15 because 15 carries at NYJ's 4.40 rush YPC allowed equals 66 yards",
+   "kills_it": "IF Chicago trails and Swift carries drop under 12 THEN D'Andre Swift rushyds over 64.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Wilson 243 receiving yards over 3 games = 81.0 vs the 75.5 over: pack agrees, cushion only 5.5 yards. Swift 253 rush yards over 3 games = 84.3 vs the 64.5 over: pack agrees. Conservative check uses NYJ's 4.40 YPC allowed: 15 Swift carries = 66.0, still over 64.5; 12 carries = 52.8, which is the kill case. No model, sim median, or no-vig in the pack, so no probability is treated as above 70%. Raymond 214/3 = 71.3 vs 31.5 was not selected because it is an average-only gap with no splits and it needs the pass-heavy flip, not the base run script.",
+  "disagrees": "none",
+  "missing": "spread, total, weather, kickoff, coverage shell and man/zone charting, injury report and inactives, no-vig prices, sim medians, game-by-game splits",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only, no alt rungs in the pack: Garrett Wilson recyds over 75.5 at -111.5; D'Andre Swift rushyds over 64.5 at -113. Swift rush+rec 82.5 has no price (+nan) so it is not used. No short-priced alt.",
+ "pre_mortem": "It's Monday and both legs lost. Wilson finished under 75.5 because Chicago did not blitz at the 42% rate once it led on the ground, his 284 air yards were taken away, and targets leaked to Sadiq (already 14 targets, 143 yards) and Hall (10 targets, 102 yards); an 81-yard three-game average is only a 5.5-yard cushion. Swift finished under 64.5 because the committee is already in the pack \u2014 Monangai 30 carries at 5.93 YPC and Caleb Williams 15 carries at 7.13 YPC \u2014 and if Chicago threw toward Burden (23 targets) and Raymond (21 targets), Swift slid to about 12 carries, and 12 times NYJ's 4.40 YPC allowed is 52.8. A late snap limit would do the same, and no injury report was in the pack. The counter-case is real but not stronger than the read: Swift still led CHI with 54 carries and Wilson still led NYJ with 28 targets into a defense allowing 7-plus YPA on every side.",
+ "slip_story": "One story: CHI runs, NYJ throws. Swift rushyds over 64.5 and Wilson recyds over 75.5 win together if Chicago controls pace on the ground and New York, stuck at 3.2 YPC with Hall, has to throw. Do not add CHI receiver overs or NYJ rusher overs; those need the opposite flip. No TD legs. One market per player. Main slip is these two correlated legs only.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

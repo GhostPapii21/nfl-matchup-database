@@ -1,0 +1,108 @@
+{
+ "game": "TEN@BAL Week 4 2026 (kickoff time, spread, total, venue and weather not in pack)",
+ "script": {
+  "base": "No spread or total is saved, so this is a usage script, not a market script. Baltimore has been the run team (Henry 66 carries/301 yards, Jackson 14/127, Hill 13/57, about 61 targets in three games) and at home should try to play through Henry's early-down carries and Jackson's keepers. Tennessee has been more pass-balanced (75 targets vs 64 rushes) with Pollard the lead back (38 carries) and Tate/Robinson the target leaders, and stays involved enough in a non-blowout that Pollard keeps a normal 10-14 carry load.",
+  "flip1": "Both Ravens centers are out (Pocic, Gwyn) and Stanley is questionable, so the interior gets disrupted: Henry's efficiency drops, Jackson scrambles more, and the game stays competitive enough that Tennessee does not abandon Pollard.",
+  "flip2": "Baltimore scores early and leads big, closes on the ground with Henry, then rests starters. Tennessee abandons the run, Pollard's rush yards die, and the live overs become Tennessee pass volume (Tate 219 air yards, Robinson 18 targets), not the rush legs."
+ },
+ "injury_fallout": "Morning report only; inactives not locked. BAL C Ethan Pocic out (knee) and C Jovaughn Gwyn out (ankle) deplete the interior: Henry's between-the-tackles efficiency is the loser, Jackson's scramble equity and checkdowns (Andrews, Henry, Hill) are the gainers. BAL T Ronnie Stanley questionable (toe) would amplify that if he sits. BAL WR Zay Flowers questionable (hamstring) and WR Chris Moore questionable (ankle): if Flowers is limited, Andrews (18 targets) and Bateman (13) are next up, but those lines are not shown as moved. BAL LB Trey Hendrickson out (finger) removes an edge rusher, which helps Tennessee's pass protection more than any skill sleeper. TEN RB Tyjae Spears questionable (ankle): Pollard already has 38 carries to Spears' 13, so a limited Spears adds carries to Pollard rather than creating a new back. TEN S Kevin Winston Jr. questionable (shoulder) is a possible second-level loss for Baltimore's explosives if he sits. Sources: pack official injury report; TEN/BAL week 1-3 usage totals.",
+ "matchup": {
+  "shell": "No coverage charting in the pack, so MOFO/MOFC and man/zone are unknown. Proxy only: Baltimore blitzes 36 percent, Tennessee 21 percent.",
+  "pressure": "Baltimore's 36 percent blitz has not been how to beat Cam Ward: Tennessee EPA/dropback is +0.13 vs the blitz and -0.19 with no blitz. Tennessee blitzes only 21 percent, and Baltimore is efficient either way (+0.32 vs blitz, +0.35 vs none). The Ravens' pressure problem is their own interior, not Tennessee's blitz rate.",
+  "bleeds": "Baltimore run defense allows 4.16 YPC and 10 runs of 10-plus. Pass locations: middle 8.3 YPA (23 att), left 6.93 (41), right 5.34 (41); 8 passes of 20-plus. Tennessee run defense is stingier at 3.83 YPC and 7 runs of 10-plus, but leaks outside (left 7.3, right 7.37) more than the middle (6.53), with 9 passes of 20-plus.",
+  "overlap": "The clean overlap is Pollard into Baltimore's run defense, not a receiver into a named corner. Tate leads Tennessee in air yards (219 on 20 targets) but Baltimore's soft pass spot is the middle, and no alignment chart maps him there. Helm (11 targets) is the structural middle/blitz fit, but his last two games were 13 and 14 yards, so that overlap is not a leg. Jackson's rush read is his own usage and the backup centers, not Tennessee bleeding quarterback runs."
+ },
+ "form": "Avoiding season averages beyond the three-game window. Pollard rush yards 35, 64, 74 on 38 carries (4.55 YPC), role expanding. Spears 12, 41, 5 and questionable. Ward rush yards 21, 7, 2, declining. Tate 38, 27, 58 on 219 air yards (inefficient: 123 yards). Robinson 38, 9, 57. Helm 28, 13, 14. Ayomanor 11, 69, 11, the 69 looking like one explosive. Henry 144, 68, 89 on 66 carries. Jackson only as a three-game total, 14/127, because the prop feed lists no prior games. Andrews 49, 49, 24. Flowers 150 and 84, questionable. Hill rush 18, 6, 33.",
+ "pro_edge": {
+  "implied_totals": "N/A. Spread and total were not saved, so favorite (T+S)/2 and underdog (T-S)/2 cannot be computed. No high-total volume flag and no low-total under flag.",
+  "script_read": "Underdog-throws-more and blowout-rest rules cannot fire without a spread. Usage alone says Baltimore is run-heavy (about 31 rushes vs 20 targets per game) and Tennessee is more pass-balanced (about 21 rushes vs 25 targets). Do not force pass overs from a favorite/dog label the board did not save.",
+  "best_price": "No two-sided market beats a sharp anchor by a real margin. Saved no-vig overs sit between 0.488 and 0.512. Best tagged prices are ordinary juice (Ridley over -108 is the longest over; Ward under -117 and Ridley under -120 are the shortest unders) and none clear the anchor by 3 points. Pollard rush 48 and Jackson rush 31 have no two-sided price, so anchor fair and best saved price are N/A.",
+  "lagging": "No lagging-line flags in the precomputed scan. Spread/total movement is missing, so props that failed to move with the number cannot be tested.",
+  "sleepers": "Confirmed out: Pocic (C), Gwyn (C), Hendrickson (LB). No same-position skill player is ruled out, so there is no confirmed sleeper whose teammate lines should have moved. Watch only: Flowers questionable for Andrews/Bateman/Moore, and Spears questionable for Pollard. Those teammate prices are not shown as adjusted; Pollard's rush line has no saved price to diff."
+ },
+ "edge_players": [
+  {
+   "player": "tonypollard",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Tony Pollard is the Titans' lead rusher on a rising line of 35, 64 and 74 yards, Baltimore has allowed 4.16 yards per carry and 10 runs of 10-plus, and Tyjae Spears is questionable, so 48 is short of the role.",
+   "must_be_true": "He plays a full early-down share, about 10-14 carries, Spears is limited or at least does not take the job back, and the game does not become a multi-score trail that empties the run game.",
+   "kills_it": "Tennessee falls behind big and abandons the run (flip 2), or Baltimore stacks the box and holds him to a week-1 style 35-yard day on light carries.",
+   "confidence": "strong",
+   "model_p": 0.63,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "Pack BAL defense, 3 games: rush YPC allowed 4.16, 10 runs of 10-plus."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Pack TEN offense weeks 1-3: Pollard 38 carries vs Spears 13; Spears questionable ankle on the morning injury report."
+    },
+    "script": {
+     "ok": true,
+     "source": "Base usage script keeps the Titans RB1 in the game; only the blowout-abandonment flip kills the carry share."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Saved prop log, Pollard rush yards last three: 35, 64, 74 versus a 48 line."
+    }
+   },
+   "primary_defender": {
+    "who": "Not named. Baltimore's run-fit unit, not a charted linebacker. Hendrickson (LB) is out but is the edge rusher, not the primary hole defender.",
+    "source": "Pack has no coverage or run-fit charting; team rush line is the only defender evidence."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "No two-sided price and no anchor fair on rush yards 48, so this is a matchup/role candidate, not a best-price candidate. Spears is questionable, not out, so the sleeper diff cannot confirm Pollard's line lagged. No lagging flag saved."
+  },
+  {
+   "player": "lamarjackson",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Lamar Jackson has 127 rushing yards on 14 carries through three games, about 42 a game, and both Ravens centers are out, so 31 undershoots his designed-run and scramble baseline.",
+   "must_be_true": "The 14/127 team line is three real games rather than one spike, he plays most of the game, and designed keepers continue, with Pocic and Gwyn out adding scramble equity rather than a pure handoff script.",
+   "kills_it": "The missing week split is one long run plus two games under 31, or Baltimore leads so big that he is rested before the keepers add up, or Tennessee's sound run fits (3.83 YPC) swallow the designed runs.",
+   "confidence": "lean",
+   "model_p": 0.55,
+   "scheme": {
+    "matchup": {
+     "ok": false,
+     "source": "Pack TEN defense: 3.83 YPC allowed and only 7 runs of 10-plus. No quarterback-rush yards allowed split, so the opponent is not shown to be bleeding this market."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Pack BAL offense: L.Jackson 14 carries/127 yards; injury report Pocic out and Gwyn out at center, Stanley questionable."
+    },
+    "script": {
+     "ok": true,
+     "source": "Designed quarterback runs are already in Baltimore's base identity (14 carries in 3 games); the competitive/OL flip adds scrambles rather than removing them."
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "Prop feed lists last4 rush yards as no prior games and team id nan. Only the three-game total 14/127 is in the pack, so there is no week-by-week trend."
+    }
+   },
+   "primary_defender": {
+    "who": "Not named. No Tennessee edge or spy is charted. Kevin Winston Jr. (S) questionable (shoulder) is the only Tennessee defensive injury, and he is not confirmed out.",
+    "source": "Pack injury report; TEN rush defense team line only."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": false,
+   "pro_edge_support": "No two-sided price and no anchor fair on rush yards 31. Not a sleeper: he is not replacing an out skill player. OL outs are the news, and there is no saved line move to show the 31 lagged that news. Treat as a lean for the human, not a priced edge."
+  }
+ ],
+ "data_check": {
+  "notes": "Step 8 cannot be completed. No projection, no sims, no Pinnacle, no spread, no final inactives. model_p values are hand estimates from the three-game counts, not checklist 3-sim probabilities, and should not be treated as calibrated. The edge gate (model p beats no-vig by 3 or more points) cannot run because both chosen props have no two-sided price. Counting stats do not contradict the Pollard over; they are incomplete on Jackson, which is why that leg stays a lean and is flagged rather than sized. Passed, not listed as legs: Henry rush under 99 (68 and 89 under, but 22 carries at his own 4.56 YPC sits on 99 and the 144-yard game makes the counter-case as strong as the read); Helm over 19.5 (middle bleed and 36 percent blitz fit, but 13 and 14 disagree, so a lean is dropped); Ward rush under 10.5 (21, 7, 2 trend, but Baltimore's 36 percent blitz can create the scrambles); Flowers over 73 (questionable, only 150 and 84, no price).",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Main-line rush yards only, no alt rung. Pollard over 48 and Jackson over 31 have no saved two-sided price, so there is no shop, no anchor fair, and no CLV reference. Do not substitute a short-priced alt. The priced board (Helm 19.5, Hill 10.5, Ayomanor 19.5, Andrews 38.5, Ridley 4.5, Henry receiving 7.5, Ward 10.5, Spears, Robinson 37.5, Hill rush 16.5) is a 0.488-0.512 no-vig coin flip and is not the edge.",
+ "pre_mortem": "It's Monday and the slip lost because the missing spread was a Baltimore lay of more than a touchdown. Tennessee was down two scores by halftime, Ward threw it 40 times, Pollard finished on 8 carries under 48, and Spears was active and took the passing-down snaps. Jackson's 127-yard three-game total turned out to be one long run and two quiet games, Tennessee's 3.83 YPC run defense fit the keepers, and he was done for the day in the fourth quarter with the game in hand, finishing under 31. The backup centers were adequate enough that the scramble equity never showed up.",
+ "slip_story": "One competitive-game story, not a shootout and not a blowout. Pollard keeps a full early-down share against the softer run defense; Jackson's designed runs, plus any extra scrambles from Pocic and Gwyn being out, clear 31. Do not add Tennessee pass overs that need the trail-and-abandon flip, and do not add a Henry rush over that needs a healthy interior. No bets placed; both legs are candidates for the human, with Jackson flagged.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T13:37:29-0500"
+ }
+}

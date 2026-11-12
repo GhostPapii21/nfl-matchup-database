@@ -1,0 +1,6 @@
+# Film chart (UNVERIFIED: cross-check every catch against nflverse PBP before using; see README_RELIABILITY.md)
+Higgins: 4 outside / 4 slot. At BAL (EMWS3-KIvHQ): 0:26 OR go vs Humphrey man, catch 44; 1:32 slot seam vs Hamilton zone, catch; 1:41 slot post vs Hamilton man, TD; 2:09 slot out vs Hamilton man, catch; 3:24 OR go vs Humphrey man, TD. At MIA (veMELeUzxeo): 2:16 OR hitch vs Kohou zone, catch; 2:28 OR go vs Kohou man, drop; 2:54 slot slant vs LB Long, zone, catch.
+Downs: slot on 5 of 5. At MIN (4PyjDuD7-4I): 1:23 slant vs Murphy zone, catch; 8:31 cross vs Metellus man, catch; 9:05 out vs Murphy man, catch. vs TEN (MJZhpnKoY7E): 1:14 out vs Molden zone, tipped and INT by Hooker; 8:30 out vs Molden man, catch.
+Treadwell (#13): 5 outside / 1 slot. At MIN: 5:00 OL comeback vs #23 zone, catch. vs TEN: 0:41 hitch vs McCreary zone; 3:24 go vs Avery man, one-handed catch; 6:34 slot dig vs McCreary zone; 6:58 comeback vs McCreary man; 8:20 out vs McCreary zone (all catches).
+Flournoy (#19) at PHI (6Hdk00wyWZk): 2:23 OL dig vs #30 zone; 6:51 OR comeback vs #33 man; 7:20 slot seam vs S #24 zone; 10:04 OL slant vs #33 zone (all catches). Suspect: the chart names #24 as "James Bradberry," and that ID is doubtful.
+A. Williams: barely appears; 0 plays charted, so a film GAP.

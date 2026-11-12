@@ -1,0 +1,45 @@
+{
+ "game": "kickoff not in pack / HOME +7 (AWAY -7) / total 41 / weather not saved",
+ "script": {
+  "base": "Market is pricing AWAY to lead, implied about 24-17. AWAY builds a one-score lead by halftime and holds it late in a 41-total game, mixing PLY04 (33 carries, 122 yards L3) and PLY07 (21/122) while still throwing enough to feed PLY16 (17 targets, 174 rec yards) and PLY14 (16/163). HOME's 26% blitz does not stress AWAY's QB (EPA 0.22 unblitzed vs 0.18 blitzed, n=78). HOME leans on X11 (52/291, 5.60 YPC) to stay in range but AWAY blitzes 39% into a HOME QB at -0.03 EPA vs blitz (n=63).",
+  "flip1": "X11 and PLY10 (16/124, 7.75 YPC) keep it a one-score game, AWAY cannot sit on the run, pass volume rises, and PLY16/PLY14 overs get extra targets into HOME's middle (10.14 YPA).",
+  "flip2": "AWAY jumps ahead by 14+ early, clock turns to PLY04/PLY07, and both receiver overs stall the way a favorite's WR yards die in a run-out (script-dependent on this flip)."
+ },
+ "injury_fallout": "No injury report, practice trend, snap limits, or inactives in the pack, and no as-of timestamp for news. Cannot name a next man up or a coverage backup. All L3 roles treated as full-go: AWAY rush committee PLY04/PLY07, targets led by PLY16 and PLY14; HOME rush led by X11, targets led by PLY03 (16/137/163). Final report and T-90 inactives are unchecked; any late scratch voids these legs.",
+ "matchup": {
+  "shell": "MOFO/MOFC and man/zone rates not in pack; no coverage charting. Location splits only: HOME allows middle 10.14 YPA (42 att) vs left 7.24 (59) and right 7.62 (74). AWAY allows middle 11.74 (42) vs right 5.71 (90) and left 7.24 (92).",
+  "pressure": "HOME blitz 26% is not a problem for AWAY's QB (0.18 EPA vs blitz, n=78; 0.22 with no blitz). AWAY blitz 39% is the pressure lever, and HOME's QB is worse when blitzed (-0.03 EPA, n=63) than clean (0.00), which cuts deep-shot trust for HOME and pushes checkdowns if they trail.",
+  "bleeds": "HOME run D allows 4.20 YPC and 19 runs of 10+ in 6 games; 17 passes of 20+ on 182 att (9.3%). The clear pass leak is the middle, not the outside. AWAY run D allows 4.01 YPC and 16 runs of 10+ in 7 games; 23 explosives on 242 att.",
+  "overlap": "AWAY's primary yardage options are PLY16 (174 rec yards, 171 air, 17 targets) and PLY14 (163 yards on only 68 air, 16 targets). That pair is the overlap with HOME's middle leak and 17 chunk passes: PLY16 for explosives, PLY14 for short-middle/YAC. Alignment is not charted, so this is inferred not confirmed. X06's 248 air and 75 yards shows air yards alone do not cash here."
+ },
+ "form": "L3 only, no game splits, so one-play inflation cannot be ruled out. AWAY: PLY16 58.0 rec yds/g on 5.7 targets; PLY14 54.3 on 5.3 targets with a YAC lean (163 yards vs 68 air); PLY11 41.3; PLY09 34.3 on just 5 targets (103 yards, spike-y); PLY04 rush 40.7 at 3.70 YPC plus 114 rec yards; PLY07 rush 40.7 at 5.81 YPC on 7 carries/g; PLY13 26.7 at 7.27 YPC on 3.7 carries (efficiency that should not repeat). HOME: X11 97 rush yds/g not in the prop list; PLY10 41.3 rush at 7.75 YPC on 5.3 carries (fluky vs a 4.01 YPC defense); PLY06 8.7 at 1.53 YPC; PLY03 45.7 rec yds/g on 163 air; PLY08 41.0 on 73 air; PLY05 8.3 on 131 air (failed deep). HOME D last-6 location split is the similar-defense read; no prior meeting in the pack.",
+ "edge_players": [
+  {
+   "player": "PLY16",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "PLY16 is AWAY's top target (17 targets, 174 yards, 171 air over L3, 58.0/g) and the line is 40.5 into a HOME defense that allows 10.14 YPA in the middle and 17 gains of 20+ on 182 throws, while AWAY's QB is not hurt by HOME's 26% blitz.",
+   "must_be_true": "AWAY stays in a pass-enough script near a 24-point team total, PLY16 keeps the 5-6 target role, and he is active with no snap cap.",
+   "kills_it": "AWAY leads big early and runs the clock through PLY04/PLY07, or the 174 L3 yards are one spike and HOME forces him outside where YPA is 7.24-7.62.",
+   "confidence": "lean"
+  },
+  {
+   "player": "PLY14",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "PLY14's 163 yards on 68 air and 16 targets (54.3/g) is the short-middle/YAC profile that fits HOME's middle leak (10.14 YPA), and 45.5 is below that L3 rate in a game AWAY should still throw while leading by about a score.",
+   "must_be_true": "He keeps the co-primary route share (about 5 targets), the game does not become a pure run-out before he clears 45.5, and he is healthy.",
+   "kills_it": "Blowout clock-kill after an early AWAY lead, or HOME takes the middle away and his YAC game never starts.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so step 8 cannot price the edge. Form agrees in direction only: PLY16 58.0 vs 40.5 (-114/-114) and PLY14 54.3 vs 45.5 (-113.5/-113.5). Gaps are modest and L3 sums may hide a spike, so do not treat either as a 70% leg. No contradicting model number to cut a lean; human sizes. Unpriced +nan markets (PLY04 rush 59, PLY05, PLY08, PLY01, PLY11, PLY15) ignored.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "PLY16 recyds over 40.5 -114; PLY14 recyds over 45.5 -113.5. No alt rungs in the pack. Short-price alts not added.",
+ "pre_mortem": "It's Monday and both overs lost because AWAY led by two scores at half, PLY04 (already 11 carries/g at only 3.70 YPC) and PLY07 soaked the second half, and PLY16/PLY14 never saw a full route tree. The L3 yardage was one explosive afternoon we could not split out, HOME's middle 10.14 sits on just 42 attempts, and the -114 prices already had the recent form. A late inactive, also not in this pack, would have zeroed either leg with no backup mapped.",
+ "slip_story": "One story only: AWAY modest lead (~24 implied) that still needs the two primary receivers, PLY16 and PLY14, attacking HOME's middle/explosive leak. They win together if the game stays within a score or AWAY leads late without a full run-out. Do not pair with a total under, HOME rush overs, or AWAY rush unders. No TDs. Max two legs.",
+ "step6_limited": true,
+ "step12_limited": true
+}

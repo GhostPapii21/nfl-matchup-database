@@ -1,0 +1,432 @@
+{
+  "Strange 4+ rec (o3.5)": {
+    "1": {
+      "status": "PASS",
+      "number": "4 games w/ current QB T.Lawrence; season sample through Wk8",
+      "source": "nflverse pbp (runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet)",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "2": {
+      "status": "PASS",
+      "number": "role per snaps/carries; 17.9% target share",
+      "source": "nflverse pbp + week10/jax_usage",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "3": {
+      "status": "PASS",
+      "number": "BAL D profile vs TE (7.48 YPT, PFF CAUTION flag)",
+      "source": "week10/bal_def_snapshot + nflverse",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "4": {
+      "status": "PASS",
+      "number": "see coverage block (PFF matchups)",
+      "source": "week10/pff_jax_bal/receiver_matchups.csv",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "5": {
+      "status": "PASS",
+      "number": "JAX blitz 30.4%, pressure PROXY 21.5%",
+      "source": "week10/brainstorm_layers + ftn_charting",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "6": {
+      "status": "PASS",
+      "number": "QB T.Lawrence (stable)",
+      "source": "nflverse pbp/NGS",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "8": {
+      "status": "PASS",
+      "number": "Tuten Q (ankle), Meyers Q; no decisive for Strange",
+      "source": "week10/injury_sweep_2026-11-04.md + ESPN news Nov 4",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "9": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "no NGS artifact in r2-r5 or week10/ngs",
+      "pulled_et": "-"
+    },
+    "10": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "film_index.md pending",
+      "pulled_et": "-"
+    },
+    "11": {
+      "status": "PASS",
+      "number": "dry, low wind, no flag",
+      "source": "tools/weather_forecast.py or NWS/Open-Meteo",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "12": {
+      "status": "PASS",
+      "number": "FD o3.5 -122, no-vig ~0.515",
+      "source": "odds/odds_r6.csv",
+      "pulled_et": "2026-11-04 14:59"
+    },
+    "13": {
+      "status": "PASS",
+      "number": "JAX favored, run-lean 2H, 1H favorable",
+      "source": "r2/brainstorm_read.md + r5 addenda",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "14": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "no sims in grok (codex has)",
+      "pulled_et": "-"
+    },
+    "15": {
+      "status": "PASS",
+      "number": "no open ticket on Strange+rec",
+      "source": "Ghost6 bankroll_slips.md",
+      "pulled_et": "2026-11-04 16:00"
+    }
+  },
+  "Strange 40+ rec yds (o39.5)": {
+    "1": {
+      "status": "PASS",
+      "number": "4 games w/ current QB T.Lawrence; L4 yds [95,68,44,55]",
+      "source": "nflverse pbp (r2/src/play_by_play_2026.parquet)",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "2": {
+      "status": "PASS",
+      "number": "17.9% target share, aDOT 7.9",
+      "source": "week10/jax_usage/targets_by_game.csv",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "3": {
+      "status": "PASS",
+      "number": "BAL allows TE 7.48 YPT",
+      "source": "week10/bal_def_snapshot + nflverse",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "4": {
+      "status": "PASS",
+      "number": "PFF matchup vs BAL LB/safety",
+      "source": "week10/pff_jax_bal",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "5": {
+      "status": "PASS",
+      "number": "JAX pressure proxy",
+      "source": "week10/brainstorm_layers",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "6": {
+      "status": "PASS",
+      "number": "QB T.Lawrence",
+      "source": "nflverse",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "8": {
+      "status": "PASS",
+      "number": "Tuten/Meyers Q not impacting Strange",
+      "source": "week10/injury_sweep_2026-11-04.md",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "9": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "no NGS",
+      "pulled_et": "-"
+    },
+    "10": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "film pending",
+      "pulled_et": "-"
+    },
+    "11": {
+      "status": "PASS",
+      "number": "no weather flag",
+      "source": "NWS/Open-Meteo",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "12": {
+      "status": "PASS",
+      "number": "FD o39.5 +114",
+      "source": "odds/odds_r6.csv",
+      "pulled_et": "2026-11-04 14:59"
+    },
+    "13": {
+      "status": "PASS",
+      "number": "JAX lead script limits 2H volume but 1H ok",
+      "source": "r5/read_addendum*.md",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "14": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "no sims",
+      "pulled_et": "-"
+    },
+    "15": {
+      "status": "PASS",
+      "number": "no open ticket",
+      "source": "Ghost6",
+      "pulled_et": "2026-11-04 16:00"
+    }
+  },
+  "Washington rec yds o63.5": {
+    "1": {
+      "status": "PASS",
+      "number": "4 games w/ current QB; L4 yds [7,124,64,16]",
+      "source": "nflverse pbp",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "2": {
+      "status": "PASS",
+      "number": "WR1 pattern, 24.5% target share",
+      "source": "week10/jax_usage + r5 addenda",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "3": {
+      "status": "PASS",
+      "number": "BAL D vs WR 9.18 YPT",
+      "source": "week10/bal_def_snapshot",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "4": {
+      "status": "PASS",
+      "number": "vs Humphrey (left side)",
+      "source": "week10/pff_jax_bal + r5",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "5": {
+      "status": "PASS",
+      "number": "JAX pressure",
+      "source": "week10",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "6": {
+      "status": "PASS",
+      "number": "QB T.Lawrence",
+      "source": "nflverse",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "8": {
+      "status": "PASS",
+      "number": "Meyers Q (LP), no major for Washington",
+      "source": "injury_sweep_2026-11-04.md + public news Nov 4",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "9": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "no NGS artifact",
+      "pulled_et": "-"
+    },
+    "10": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "film pending",
+      "pulled_et": "-"
+    },
+    "11": {
+      "status": "PASS",
+      "number": "dry",
+      "source": "weather",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "12": {
+      "status": "PASS",
+      "number": "FD o63.5 -114",
+      "source": "odds_r6.csv",
+      "pulled_et": "2026-11-04 14:59"
+    },
+    "13": {
+      "status": "PASS",
+      "number": "1H favorable, WR1 volume",
+      "source": "r2/r5 addenda",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "14": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "no sims",
+      "pulled_et": "-"
+    },
+    "15": {
+      "status": "PASS",
+      "number": "no open ticket on Washington",
+      "source": "Ghost6",
+      "pulled_et": "2026-11-04 16:00"
+    }
+  },
+  "JAX 1H -6.5": {
+    "1": {
+      "status": "PASS",
+      "number": "4 games w/ current QB; 1H margins [10,-7,-3,28] 2/4",
+      "source": "nflverse pbp + miss_audit_1H.md",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "2": {
+      "status": "PASS",
+      "number": "JAX favored, Fagnano low-efficiency drives",
+      "source": "week10/fagnano/drive_sim.* + r5",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "3": {
+      "status": "PASS",
+      "number": "JAX D vs backup QB (blitz 30.4%, pressure proxy)",
+      "source": "week10/bal_def_snapshot + r2 brainstorm",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "4": {
+      "status": "N/A",
+      "number": "-",
+      "source": "game leg",
+      "pulled_et": "-"
+    },
+    "5": {
+      "status": "PASS",
+      "number": "JAX blitz/pressure vs Fagnano (sack prone)",
+      "source": "week10/fagnano + r5 read_addendum",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "6": {
+      "status": "PASS",
+      "number": "QB T.Lawrence vs rookie Fagnano",
+      "source": "nflverse",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "8": {
+      "status": "PASS",
+      "number": "Tuten Q (ankle/foot), no major 1H impact per audit",
+      "source": "injury_sweep_2026-11-04.md + miss_audit_1H.md",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "9": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "no NGS for game",
+      "pulled_et": "-"
+    },
+    "10": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "film pending for 1H",
+      "pulled_et": "-"
+    },
+    "11": {
+      "status": "PASS",
+      "number": "no flag",
+      "source": "weather",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "12": {
+      "status": "PASS",
+      "number": "FD -101/-110, no-vig ~0.488",
+      "source": "odds/odds_r6.csv",
+      "pulled_et": "2026-11-04 14:59"
+    },
+    "13": {
+      "status": "PASS",
+      "number": "base script JAX leads 1H by 10-14",
+      "source": "r2 brainstorm_read.md + r5",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "14": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "no sims in grok",
+      "pulled_et": "-"
+    },
+    "15": {
+      "status": "PASS",
+      "number": "no open ticket on JAX 1H",
+      "source": "Ghost6 bankroll_slips.md",
+      "pulled_et": "2026-11-04 16:00"
+    }
+  },
+  "Henry 40+ rush (o39.5)": {
+    "1": {
+      "status": "PASS",
+      "number": "4 games any QB; L4 rush yds [102,58,45,53] 3/4",
+      "source": "nflverse pbp + r5",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "2": {
+      "status": "PASS",
+      "number": "carry share 0.76-0.89, leading back",
+      "source": "week10/jax_usage/rb_snaps.csv + r5",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "3": {
+      "status": "PASS",
+      "number": "JAX elite run D (3.28 YPC allowed)",
+      "source": "r2 brainstorm + week10/bal_def_snapshot",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "4": {
+      "status": "PASS",
+      "number": "vs JAX front (Hamilton IR helps BAL marginally)",
+      "source": "injury_sweep + week10",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "5": {
+      "status": "PASS",
+      "number": "pressure on rookie Fagnano leads to stacked boxes",
+      "source": "week10/fagnano",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "6": {
+      "status": "PASS",
+      "number": "Fagnano (backup QB) script favors Henry run",
+      "source": "r2/r5",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "8": {
+      "status": "PASS",
+      "number": "Tuten Q (ankle), Austin Johnson/BAL injuries noted; Henry lead",
+      "source": "week10/injury_sweep_2026-11-04.md + public news Meyers/Tuten/Austin Johnson/BAL Nov 4",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "9": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "no NGS for rush",
+      "pulled_et": "-"
+    },
+    "10": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "film pending",
+      "pulled_et": "-"
+    },
+    "11": {
+      "status": "PASS",
+      "number": "no flag (dry)",
+      "source": "weather",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "12": {
+      "status": "PASS",
+      "number": "FD o39.5 -598/-700 heavy favorite",
+      "source": "odds_r6.csv",
+      "pulled_et": "2026-11-04 14:59"
+    },
+    "13": {
+      "status": "PASS",
+      "number": "trailing script may limit but base favors run volume",
+      "source": "r2 read + r5 addenda",
+      "pulled_et": "2026-11-04 16:00"
+    },
+    "14": {
+      "status": "MISSING",
+      "number": "-",
+      "source": "no sims",
+      "pulled_et": "-"
+    },
+    "15": {
+      "status": "PASS",
+      "number": "no open ticket on Henry 40+",
+      "source": "Ghost6",
+      "pulled_et": "2026-11-04 16:00"
+    }
+  }
+}

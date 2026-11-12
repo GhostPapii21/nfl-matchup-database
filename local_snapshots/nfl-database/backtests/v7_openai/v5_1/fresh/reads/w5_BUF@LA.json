@@ -1,0 +1,48 @@
+{
+ "game": "BUF@LA Week 5 / kickoff NOT saved / spread NOT saved / total NOT saved / weather NOT saved",
+ "script": {
+  "base": "Spread and total were not saved, so this script is inferred only from team form. BUF's last three games are run-leaning (James Cook 57 carries, 364 yards) while LA's are pass-leaning through Davante Adams (32 targets, 364 yards, 563 air yards). LA's pass game matches the soft BUF pass defense (middle 8.13 YPA, right 8.37 YPA, 17 passes of 20+ on 158 attempts), so the base flow is LA throwing to stay in or ahead of the game while BUF keeps feeding Cook because LA has allowed only 5 passes of 20+ on 136 attempts.",
+  "flip1": "If LA's explosives get them up early, BUF abandons the run, Cook's carries fall, and LA runs clock with Kyren Williams while Stafford's pass volume \u2014 and Adams and Kyren targets \u2014 stalls.",
+  "flip2": "If BUF's 33% blitz gets home, Stafford (EPA -0.33 on 44 blitz dropbacks vs 0.19 when not blitzed) dumps short to Kyren and Tyler Higbee, Adams's 17.6 air yards per target stall, and the game becomes a checkdown script."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, game-time decisions, and inactives for both BUF and LA. No absences, returns, snap limits, or next-man-up inferred from usage dips (including Puka Nacua 12 targets / 125 yards and Konata Mumpfield 13 targets / 112 yards versus their posted lines).",
+ "matchup": {
+  "shell": "MISSING: coverage charting (MOFO vs MOFC, man vs zone rate), so WR/TE/RB cannot be mapped to specific zone defenders. Location YPA and blitz/EPA are the only shell evidence in the pack.",
+  "pressure": "LA blitz rate 32%. BUF blitz rate 33%. Matthew Stafford EPA/dropback vs blitz -0.33 (n=44) vs no blitz 0.19. Josh Allen EPA/dropback vs blitz 0.28 (n=42) vs no blitz 0.26. Pressure that gets home on Stafford should cut deep yards and lift RB/TE checkdowns; Allen is essentially unaffected.",
+  "bleeds": "BUF bleeds the middle (8.13 YPA on 30 att) and the right (8.37 YPA on 59 att); left is 6.17 on 58 att. BUF has allowed 17 passes of 20+ on 158 attempts, 4.12 rush YPC, and 14 runs of 10+. LA is tight everywhere: left 5.0 YPA (53 att), middle 4.64 (25 att), right 4.78 (49 att), only 5 passes of 20+ on 136 attempts, 3.96 rush YPC, and 8 runs of 10+.",
+  "overlap": "Adams is LA's primary (32 targets, 563 air yards, 17.6 air yards/target over 3 games) and that profile overlaps BUF's explosive and middle/right bleed. Kyren Williams is second in targets (22) at 4.3 air yards/target (95 air yards), which overlaps the checkdown area if BUF's 33% blitz hits a QB at -0.33 EPA when blitzed. Cook does not overlap a weak LA run defense (3.96 YPC, 8 runs of 10+)."
+ },
+ "form": "L3 only (weeks 2-4), not season averages. BUF rush: Cook 57/364 (19.0 carries, 121.3 yards, 6.39 YPC per game) plus 6 targets/12 rec yards; Allen 23/99 (33.0 rush yards/game); Moore 2/5; Knox 1/0. BUF targets: Shakir 17/126/113 (42.0 rec yds/g), Coleman 15/216/201 (72.0), Kincaid 13/140/141 (46.7), Moore 12/78/145, Palmer 8/46/149, Ty Johnson 6/59/0 (19.7), Cook 6/12/-4. LA rush: Kyren 43/253 (14.3 carries, 84.3 yards, 5.88 YPC), Corum 23/108 (36.0), Stafford 5/26, Nacua 1/2. LA targets: Adams 32/364/563 (121.3 rec yds/g), Kyren 22/149/95 (49.7), Higbee 17/129/142 (43.0), Mumpfield 13/112/218, Nacua 12/125/136 (41.7), Ferguson 11/63/55, Corum 7/20/-2. No per-game splits, so Coleman 216 yards on 15 targets or Adams 364 on 32 could be one-play inflated. Nacua and Mumpfield lines are not treated as role changes.",
+ "edge_players": [
+  {
+   "player": "davanteadams",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Adams is LA's primary at 10.7 targets and 121.3 receiving yards per game over the last three, and BUF has allowed 8.13 YPA in the middle, 8.37 YPA to the right, and 17 passes of 20+, so 62.5 is short of that role even if his 17.6 air yards per target gets shortened.",
+   "must_be_true": "Davante Adams recyds >= 62.5 because he has 364 rec yds on 32 targets over the last 3 games and BUF allows 8.13 YPA in the middle and 8.37 YPA to the right",
+   "kills_it": "IF BUF's 33% blitz produces sacks and throwaways instead of Adams targets given Stafford's -0.33 blitz EPA THEN Davante Adams recyds over 62.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "kyrenwilliams",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Kyren has 22 targets and 149 receiving yards over the last three (49.7 per game) at only 4.3 air yards per target, and BUF blitzes 33% against a QB who is -0.33 EPA when blitzed, so checkdowns should clear a 22.5 receiving-yard line.",
+   "must_be_true": "Kyren Williams recyds >= 22.5 because he has 149 rec yds on 22 targets over the last 3 games and BUF blitz rate is 33%",
+   "kills_it": "IF LA leads big early and runs the clock so Stafford stops throwing to Kyren THEN Kyren Williams recyds over 22.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No sim median and no Pinnacle no-vig in the pack; listed prices only. Adams L3 121.3 rec yds vs 62.5, and BUF allowed YPA/explosives, agree with the over. Even a cut to about 6.5 yards per target on his 10.7 target rate still clears 62.5. Stafford -0.33 EPA vs blitz is the kill case, not a yardage contradiction, because 67% of dropbacks are unblitzed (+0.19 EPA) and BUF has still allowed 17 explosives while blitzing 33%. Kyren L3 49.7 rec yds vs 22.5 agrees; 4 targets at his 6.8 yards/target still clears. Cook rush over 76.5 was not used: 19 carries times LA 3.96 YPC allowed is about 75, under the line. Coleman under 39.5 was not used: L3 72.0 rec yds disagrees with fading him that far despite LA allowing only 5 passes of 20+. Puka under 95 and Mumpfield under 6.5 were not used because injury context is missing.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injury report, inactives, coverage shell and man/zone charting, no-vig/Pinnacle, sim medians, per-game splits",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Davante Adams recyds over 62.5 at -113, main line, no alt rung. Kyren Williams recyds over 22.5 at -112.5, main line, no alt rung. Volume edge is expressed in recyds because receptions are not an allowed market. rushrecyds over 96 was passed because its price is +nan and the single recyds rung already prices the checkdown path. No-vig and sim median not saved.",
+ "pre_mortem": "It's Monday and both lost because BUF blitzed at 33% and Stafford's -0.33 blitz EPA showed up as sacks and throwaways rather than Adams shots or Kyren checkdowns, so Adams never got the 10-target mix that clears 62.5. Separately, LA got up early, ran the clock, and Kyren's 22 L3 targets never materialized, leaving him under 22.5 receiving yards while Corum's 23 L3 carries took the rush work. That counter-case is real on the blitz split and on the no-spread lead flip, but it is weaker than the read: most dropbacks are unblitzed, BUF has allowed 8-plus YPA on the right and in the middle plus 17 explosives, and Kyren already has a 49.7-yard receiving baseline before any extra checkdowns. Legs kept.",
+ "slip_story": "One LA-offense story against a BUF defense that bleeds through the air (middle 8.13 YPA, right 8.37, 17 explosives on 158 attempts). Adams recyds over is the primary-target overlap and lives if the game stays competitive or LA is chasing. Kyren recyds over is the same pass script's short-area piece and lives if BUF blitzes. Do not add BUF pass overs \u2014 LA has allowed only 5 passes of 20+ on 136 attempts \u2014 and do not add a total under or Cook rush over, which needs LA's run defense to crack and BUF to stay ahead.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

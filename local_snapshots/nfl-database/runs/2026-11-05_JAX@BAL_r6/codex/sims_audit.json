@@ -1,0 +1,293 @@
+{
+  "n": 100000,
+  "seed": 20261104,
+  "script": "tools/sim_v6.py",
+  "script_sha256": "1c81119e879acc3984b038b3488dcc770902886d81b2f159d6f882d79a31e82d",
+  "pbp_sha256": "5edd7c42ed3f116f7e8914594c536088c337052fa53552ba7947499ba0f9f1b5",
+  "calibration_sha256": "c173c065513199d39c18ac8f187ffa4a54dc53670f39b49eae26ca8ddd71dc8c",
+  "inputs": [
+    "/workspace/nfl-database/week10/fagnano/profile_v2/rico_sim.py",
+    "/workspace/nfl-database/week10/fagnano/drive_sim.py",
+    "/workspace/nfl-database/week10/fagnano/report.md",
+    "/workspace/nfl-database/week10/fagnano/profile_v2/summary.md"
+  ],
+  "assumptions": [
+    "All Fagnano scenario rates are sourced ESTIMATES, not observations. Base used for manifest; rico/flip are sensitivity cases, not model aliases.",
+    "JAX pass-volume anchor follows profile_v2 clock/lead model, applied equally to Strange and Washington; catch rates and yards remain sim_v6 history/opponent/calibration.",
+    "Henry carry target is drive_sim scenario hc via carry_boost; JAX run defense adjustment is native sim_v6. The separate drive_sim ys=.90 haircut is not double-applied.",
+    "1H spread has no native sim_v6 implementation. Wrapper uses profile_v2 full-game JAX points and BAL TD/FG, allocates to first half using observed team first-half scoring fractions from pbp, and uses sim_v6.nb for drive-count volume (mc/bias). GR uses empirical team pace variation. No half-spread calibration exists; UNVERIFIED extension.",
+    "Fagnano has no regular-season starts and one relief sample; no causal QB effect is claimed."
+  ],
+  "scenarios": {
+    "base": {
+      "context": {
+        "jax_attempts": 30.33186,
+        "bal_pts": 15.97166,
+        "jax_pts": 28.958461587351497,
+        "henry_carries": 14
+      },
+      "legs": {
+        "Strange 4+ rec (o3.5)": {
+          "mc": {
+            "p": 0.55768,
+            "median": 4.0
+          },
+          "bias": {
+            "p": 0.55784,
+            "median": 4.0
+          },
+          "gr": {
+            "p": 0.51985,
+            "median": 4.0
+          }
+        },
+        "Strange 40+ rec yds (o39.5)": {
+          "mc": {
+            "p": 0.52311,
+            "median": 41.91376939072847
+          },
+          "bias": {
+            "p": 0.51956,
+            "median": 40.98235229315673
+          },
+          "gr": {
+            "p": 0.49598,
+            "median": 38.92401753013751
+          }
+        },
+        "Washington rec yds o63.5": {
+          "mc": {
+            "p": 0.41747,
+            "median": 54.931037421680244
+          },
+          "bias": {
+            "p": 0.41709,
+            "median": 54.931037421680244
+          },
+          "gr": {
+            "p": 0.42209,
+            "median": 53.14267525703374
+          }
+        },
+        "Henry 40+ rush (o39.5)": {
+          "mc": {
+            "p": 0.53654,
+            "median": 41.828373096152276
+          },
+          "bias": {
+            "p": 0.53745,
+            "median": 41.828373096152276
+          },
+          "gr": {
+            "p": 0.53918,
+            "median": 41.86901016159314
+          }
+        },
+        "JAX 1H -6.5": {
+          "mc": {
+            "p": 0.42173,
+            "median": 5.0,
+            "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+          },
+          "bias": {
+            "p": 0.42035,
+            "median": 4.0,
+            "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+          },
+          "gr": {
+            "p": 0.41393,
+            "median": 4.0,
+            "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+          }
+        }
+      }
+    },
+    "rico": {
+      "context": {
+        "jax_attempts": 29.51898,
+        "bal_pts": 12.98466,
+        "jax_pts": 31.62628712530889,
+        "henry_carries": 12
+      },
+      "legs": {
+        "Strange 4+ rec (o3.5)": {
+          "mc": {
+            "p": 0.53853,
+            "median": 4.0
+          },
+          "bias": {
+            "p": 0.54101,
+            "median": 4.0
+          },
+          "gr": {
+            "p": 0.50619,
+            "median": 4.0
+          }
+        },
+        "Strange 40+ rec yds (o39.5)": {
+          "mc": {
+            "p": 0.50798,
+            "median": 40.050935195584984
+          },
+          "bias": {
+            "p": 0.50646,
+            "median": 40.050935195584984
+          },
+          "gr": {
+            "p": 0.48322,
+            "median": 37.97465124891464
+          }
+        },
+        "Washington rec yds o63.5": {
+          "mc": {
+            "p": 0.4031,
+            "median": 53.06896835653854
+          },
+          "bias": {
+            "p": 0.40487,
+            "median": 53.06896835653854
+          },
+          "gr": {
+            "p": 0.41013,
+            "median": 52.19369891315814
+          }
+        },
+        "Henry 40+ rush (o39.5)": {
+          "mc": {
+            "p": 0.40701,
+            "median": 35.51465640239344
+          },
+          "bias": {
+            "p": 0.4072,
+            "median": 35.51465640239344
+          },
+          "gr": {
+            "p": 0.41718,
+            "median": 35.4276239828865
+          }
+        },
+        "JAX 1H -6.5": {
+          "mc": {
+            "p": 0.5634,
+            "median": 8.0,
+            "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+          },
+          "bias": {
+            "p": 0.55837,
+            "median": 8.0,
+            "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+          },
+          "gr": {
+            "p": 0.55099,
+            "median": 8.0,
+            "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+          }
+        }
+      }
+    },
+    "flip": {
+      "context": {
+        "jax_attempts": 31.19682,
+        "bal_pts": 19.45269,
+        "jax_pts": 26.026781160745294,
+        "henry_carries": 18
+      },
+      "legs": {
+        "Strange 4+ rec (o3.5)": {
+          "mc": {
+            "p": 0.57678,
+            "median": 4.0
+          },
+          "bias": {
+            "p": 0.57752,
+            "median": 4.0
+          },
+          "gr": {
+            "p": 0.53771,
+            "median": 4.0
+          }
+        },
+        "Strange 40+ rec yds (o39.5)": {
+          "mc": {
+            "p": 0.53864,
+            "median": 42.84518648830022
+          },
+          "bias": {
+            "p": 0.536,
+            "median": 42.84518648830022
+          },
+          "gr": {
+            "p": 0.50929,
+            "median": 39.87338381136038
+          }
+        },
+        "Washington rec yds o63.5": {
+          "mc": {
+            "p": 0.43421,
+            "median": 55.8620719542511
+          },
+          "bias": {
+            "p": 0.43198,
+            "median": 55.8620719542511
+          },
+          "gr": {
+            "p": 0.43581,
+            "median": 55.04062794478494
+          }
+        },
+        "Henry 40+ rush (o39.5)": {
+          "mc": {
+            "p": 0.74861,
+            "median": 54.455806483669946
+          },
+          "bias": {
+            "p": 0.74514,
+            "median": 54.455806483669946
+          },
+          "gr": {
+            "p": 0.73903,
+            "median": 54.751782519006404
+          }
+        },
+        "JAX 1H -6.5": {
+          "mc": {
+            "p": 0.28123,
+            "median": 0.0,
+            "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+          },
+          "bias": {
+            "p": 0.28267,
+            "median": 0.0,
+            "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+          },
+          "gr": {
+            "p": 0.27653,
+            "median": 0.0,
+            "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+          }
+        }
+      }
+    }
+  },
+  "half_scoring_fractions": {
+    "JAX": [
+      0.7058823529411765,
+      0.7692307692307693,
+      0.4,
+      0.5909090909090909,
+      0.3684210526315789,
+      0.45161290322580644,
+      0.6666666666666666
+    ],
+    "BAL": [
+      0.7560975609756098,
+      0.8235294117647058,
+      0.5,
+      1.0,
+      0.3,
+      1.0,
+      1.0,
+      0.7
+    ]
+  }
+}

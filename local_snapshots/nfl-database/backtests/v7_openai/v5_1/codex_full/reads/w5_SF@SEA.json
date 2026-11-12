@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 SF@SEA / kickoff MISSING / spread and total NOT saved; script inferred only from supplied team form / weather NOT saved. Moneyline, implied totals, opening-line movement, venue details, rest and travel schedule MISSING.",
+ "script": {
+  "base": "A competitive game with neither rushing attack consistently creating efficient gains: SEA allows 3.73 YPC and SF allows 3.76 YPC through four games. SF has a plausible passing-led advantage, with positive QB EPA/dropback against both blitz and non-blitz looks, but the pack does not establish a favorite, halftime leader or pace. SF's recent receiving distribution favors Evans and Kittle over Samuel, supporting selective unders rather than a blanket offensive fade.",
+  "flip1": "SF builds an early lead and shifts toward clock management. Samuel's receiving under can survive fewer passing opportunities, but increased McCaffrey carries threaten his combined-yardage under.",
+  "flip2": "SEA leads and SF increases passing volume. McCaffrey's rushing opportunities could decline, but additional receiving work threatens his combined under; Samuel's under becomes vulnerable if his recent target allocation expands."
+ },
+ "injury_fallout": "MISSING: SF and SEA injury reports, practice participation, final designations, return-to-play restrictions and final inactives. No absences, returns or next-man-up assignments can be inferred. The supplied SF weeks 2\u20134 usage lists McCaffrey with 40 carries and Black with 17, but it does not explain that allocation. Any proposed leg requires an injury/inactive recheck approximately 90 minutes before kickoff; that checkpoint cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: SEA and SF MOFO/MOFC rates, man/zone rates, alignment data and individual coverage assignments. SEA's four-game middle-location allowance of 4.79 YPA cannot establish a specific Samuel or McCaffrey coverage matchup.",
+  "pressure": "SEA blitzes 21%; SF's QB EPA/dropback is 1.08 against blitzes over 40 dropbacks and 0.31 without blitzes. SF blitzes 31%; SEA's corresponding QB figures are 0.20 over 52 blitz dropbacks and 0.19 without blitzes. These figures do not support assuming either quarterback collapses against blitz pressure. Pressure rate, sacks, time to throw and offensive-line health are MISSING.",
+  "bleeds": "Neither defense presents an obvious broad weakness in the supplied four-game figures. SEA allows 3.73 rushing YPC, nine runs of 10-plus yards and five passes of 20-plus yards on 135 attempts. SF allows 3.76 rushing YPC, three runs of 10-plus yards and six passes of 20-plus yards on 150 attempts. Position-specific receiving allowances, rush EPA, stuff rates, box counts and YAC allowed are MISSING.",
+  "overlap": "The proposed edges concern constrained SF allocation rather than attacking a demonstrated defensive weak spot. Samuel has 10 targets versus 17 each for Evans and Kittle over weeks 2\u20134. McCaffrey's 40 carries face SEA's 3.73-YPC run defense, while his receiving workload supplies a meaningful escape route from a rushing slowdown."
+ },
+ "form": "Source: supplied offensive weeks 2\u20134 aggregates, available before this Week 5 matchup; exact publication timestamps are not supplied. Samuel recorded 10 targets, 57 receiving yards and 33 air yards, plus six carries for 62 yards. McCaffrey recorded 40 carries for 150 yards and 14 targets for 102 receiving yards. Evans and Kittle each drew 17 targets, producing 164 and 232 receiving yards, respectively. SEA's Smith-Njigba commanded 31 targets for 359 yards, while Wilson logged 51 carries for 187 yards. These aggregates describe recent allocation but do not reveal individual-game consistency, snap or route shares, red-zone work, role-change timing or long-play dependence.",
+ "edge_players": [
+  {
+   "player": "deebosamuelsr",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Samuel's limited recent receiving allocation behind Evans and Kittle, combined with SEA's low explosive-pass allowance, supports under 34.5 receiving yards unless his role expands.",
+   "must_be_true": "D.Samuel targets <= 4 [because the supplied weeks 2\u20134 pack records 10 targets versus 17 each for M.Evans and G.Kittle]",
+   "kills_it": "IF Samuel gains a larger receiving role or converts a designed touch into a long gain that pushes him to at least 35 receiving yards THEN Samuel recyds under 34.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "christianmccaffrey",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "McCaffrey's shared recent rushing workload faces a SEA defense allowing 3.73 YPC, giving his under 90.5 combined yards a plausible path if receiving volume does not compensate.",
+   "must_be_true": "C.McCaffrey carries <= 14 [because the supplied weeks 2\u20134 pack records 40 carries for McCaffrey alongside 17 for K.Black]",
+   "kills_it": "IF an SF lead materially increases McCaffrey's carries or a trailing script expands his receiving production enough to reach at least 91 combined yards THEN McCaffrey rushrecyds under 90.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The hypotheses above precede this numerical check. Samuel's 57 receiving yards over three games equal 19.0 per game versus a 34.5 line; his 10 targets equal 3.33 per game. McCaffrey's 150 rushing plus 102 receiving yards equal 252 combined, or 84.0 per game versus 90.5. His 3.75 rushing YPC is consistent with, rather than clearly opposed to, SEA's 3.73 allowed. These are descriptive checks, not projections or simulated medians. McCaffrey's 6.5-yard descriptive margin is modest, so confidence remains lean. Both legs survive a competitive base case and have paths through a script flip, but neither is script-proof. No calibrated probability or stake is assigned.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations, per-game distributions, sharp-book/Pinnacle prices, verified no-vig benchmark, injury/inactive information, coverage charting, routes and snaps, weather, spread, total and exact source timestamps.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate 1: deebosamuelsr recyds UNDER 34.5 at -110. Candidate 2: christianmccaffrey rushrecyds UNDER 90.5 at -125. Main lines only; no alternate rung selected. The listed McCaffrey over price of -7.5 is anomalous and is not used for a no-vig calculation. These remain unpriced leans, not verified positive-EV bets.",
+ "pre_mortem": "Samuel: It is Monday and the under lost because 10 targets across three games understated his Week 5 opportunity, or because one manufactured touch generated most of the required 35 yards. His 62 rushing yards on six carries show productive offensive involvement, although they do not establish future receiving usage. Missing route and injury information prevents ruling out a larger role; an SF comeback would amplify that risk. McCaffrey: The combined under lost because SEA's run-defense efficiency did not prevent additional carries, or because receiving work offset limited rushing production. He already had 14 targets for 102 receiving yards over the supplied three games, and his descriptive combined average is only 6.5 yards below the line. An early SF lead and an SEA-led comeback threaten this leg through different channels, making it the weaker candidate.",
+ "slip_story": "Both candidates fit a restrained SF yardage script in which Evans and Kittle retain receiving priority and McCaffrey does not acquire extra volume. Samuel's receiving under is the cleaner standalone lean; McCaffrey's combined under is more script-sensitive. Do not manufacture a 3\u20134-leg main slip from two candidates or treat these unders as a quantified correlated parlay. No bets placed. Step 12 is limited: this response records the hypotheses, but no external timestamped archive, pre-kickoff hash or postgame grading is available. Later grading should separate script accuracy, role accuracy and leg results, with misses checked against steps 2, 3 and 5.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

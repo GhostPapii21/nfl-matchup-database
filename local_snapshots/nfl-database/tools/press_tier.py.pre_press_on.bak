@@ -1,0 +1,22 @@
+"""PRESS tier (OPT-IN, default OFF; advisory only, never changes run_gate pass/fail).
+PRESS = matchup grade + coverage (CB/S) + game script + QB + §7 (3 of last 4 with current QB) all clear AND
+>= models_required of the 3 sim_v6 medians clear the line. Default 2 of 3 (Rico, 2026-11-01), allowed only
+because all five context checks must align; one model alone never qualifies. A PRESS leg gets the full edge with
+the standard shrink only (no 'borderline average' / carry-share haircut) and is eligible to move up a rung or
+anchor. Weather hard stop and injury/inactive status always override (BLOCKED)."""
+DEFAULT_MODELS_REQUIRED = 2
+CTX = ("matchup", "coverage", "script", "qb", "form7")
+BAD_INJ = {"out", "doubtful", "inactive", "ir", "suspended"}
+
+def evaluate(leg, models_required=DEFAULT_MODELS_REQUIRED):
+    if models_required not in (2, 3): raise ValueError("models_required must be 2 or 3 (one model never qualifies)")
+    if leg.get("weather_stop"): return dict(tier="BLOCKED", reason="weather hard stop overrides PRESS")
+    if str(leg.get("injury_status", "")).lower() in BAD_INJ: return dict(tier="BLOCKED", reason=f"injury/inactive ({leg.get('injury_status')}) overrides PRESS")
+    miss = [k for k in CTX if leg.get(k) is not True]
+    meds = [m for m in (leg.get("medians") or []) if isinstance(m, (int, float))]
+    line = leg.get("line"); over = leg.get("side", "over") == "over"
+    n = sum((m > line) if over else (m < line) for m in meds) if isinstance(line, (int, float)) and len(meds) == 3 else 0
+    if miss or n < models_required:
+        return dict(tier="STANDARD", reason=f"context not aligned {miss}" if miss else f"{n}/3 models clear < {models_required}", models_clear=n)
+    return dict(tier="PRESS", reason=f"all context aligned; {n}/3 models clear", models_clear=n, shrink="standard",
+                anchor_eligible=True, rung_up_eligible=True, exempt_cuts=["borderline average", "carry share"])

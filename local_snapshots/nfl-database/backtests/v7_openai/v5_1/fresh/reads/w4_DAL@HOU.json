@@ -1,0 +1,48 @@
+{
+ "game": "Dallas Cowboys (DAL) at Houston Texans (HOU) Week 4 / kickoff not saved / DAL-HOU spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "No DAL-HOU spread or total was saved, so the script is inferred only from form. The Dallas Cowboys have been the more explosive side (DAL Lamb 26 targets, 309 rec yards, 311 air yards; DAL Williams 43 carries, 169 rush yards) while the Houston Texans' run game is stuck (HOU Montgomery 37/103, 2.78 YPC; HOU Marks 22/65, 2.95 YPC). Base flow is a pass-leaning DAL-HOU game: DAL Dak attacks the middle and right, where HOU allows 10.11 and 9.48 YPA, behind HOU's 23% blitz, and HOU funnels through HOU Schultz (25 targets, 205 yards) because the Houston Texans' ground game has not moved the chains.",
+  "flip1": "The Houston Texans finally use the Dallas Cowboys' leaky run defense (DAL allows 5.23 YPC, 15 runs of 10+) and stick with HOU Montgomery and HOU Marks. HOU pass volume drops, HOU Schultz's targets die, and a Houston Texans run script caps the receiving overs.",
+  "flip2": "One of DAL or HOU pulls away and runs the clock. If the Dallas Cowboys lead late, DAL Williams's carries rise and DAL Lamb's routes stall. If the Houston Texans lead, DAL abandons the run, DAL Lamb's targets spike, and HOU RB lines die."
+ },
+ "injury_fallout": "MISSING: final injury report, practice status, questionable tags, game-time decisions, snap limits, and inactives for the Dallas Cowboys (DAL) and the Houston Texans (HOU). No DAL or HOU offensive or defensive absence is listed, so no next-man-up is assigned for either team. HOU Collins's 10 targets / 75 yards and HOU Noel's 9 targets / 101 yards are usage notes only, not inferred injuries.",
+ "matchup": {
+  "shell": "MISSING: MOFO vs MOFC and man vs zone charting for the Dallas Cowboys and the Houston Texans. Location splits stand in. HOU defense allows 3.89 YPA left (27 att), 10.11 middle (27 att), 9.48 right (42 att). DAL defense allows 7.17 left (36 att), 9.0 middle (17 att), 6.84 right (31 att).",
+  "pressure": "The Houston Texans blitz 23%. DAL Dak EPA/dropback is 0.45 with no blitz versus 0.05 versus blitz (n=44), so a low-blitz HOU shell is the pocket the Dallas Cowboys' QB has actually won. The Dallas Cowboys blitz 27%. HOU Stroud EPA/dropback is 0.42 versus blitz (n=25) versus -0.13 with no blitz, so most Houston Texans dropbacks against this DAL blitz rate land in Stroud's bad environment.",
+  "bleeds": "The Houston Texans bleed the middle and the right and have allowed 13 passes of 20+ on 108 attempts, but HOU run defense is the sturdy side (3.59 YPC, only 6 runs of 10+). The Dallas Cowboys bleed the run (5.23 YPC, 15 runs of 10+) and the middle (9.0 YPA on 17 att) and have been tighter on explosives (7 passes of 20+ on 86 att).",
+  "overlap": "DAL Lamb is the Dallas Cowboys' primary target (26 targets, 309 yards, 311 air yards) into the look DAL Dak dominates: a Houston Texans 23% blitz and an HOU defense that gives up the middle and right. HOU Schultz is the Houston Texans' only receiver out-producing his air yards (205 rec on 157 air, 25 targets) into a Dallas Cowboys defense that allows 9.0 YPA in the middle and blitzes only 27%, leaving HOU Stroud in the -0.13 no-blitz EPA on most dropbacks."
+ },
+ "form": "Dallas Cowboys offense, weeks 1-3: DAL Lamb 26/309/311 air (~103 rec yds/g); DAL Pickens 25/150/267 (~50 yds/g on almost the same targets); DAL Flournoy 18/67/118; DAL Ferguson 11/72/47 (~24 yds/g, dead on the 24.5 line); DAL Williams 12 targets / 56 rec yards plus 43/169 rush (3.93 YPC, ~56 rush yds/g); DAL Prescott 10/59 rush (~20 rush yds/g). Houston Texans offense, weeks 1-3: HOU Schultz 25/205/157 (~68 yds/g) is the HOU offense; HOU Hutchinson 21/120/290 (~40 yds/g, air yards not cashing); HOU Collins 10/75/120; HOU Boutte 9/79/113; HOU Noel 9/101/81; HOU Moreau 8/56/34. HOU Montgomery 37/103 and HOU Marks 22/65 are both under 3.0 YPC; HOU Marks is absent from the target table. HOU Stroud 7/54 rush (7.7 YPC). No DAL or HOU game logs, so one long play could be inflating a total.",
+ "edge_players": [
+  {
+   "player": "ceedeelamb",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "DAL Lamb beats 76.5 because he is the Dallas Cowboys' primary target at about 103 yards a game and the Houston Texans neither blitz (23%) nor defend the middle (10.11 YPA) or the right (9.48 YPA), the clean pocket where DAL Dak's EPA is 0.45.",
+   "must_be_true": "DAL Lamb targets >= 7 because the Dallas Cowboys' Lamb had 26 targets and 309 receiving yards over weeks 1-3",
+   "kills_it": "IF the Houston Texans blitz well above their 23% rate and DAL Dak is stuck at his 0.05 EPA versus blitz THEN DAL Lamb recyds over 76.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "daltonschultz",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "HOU Schultz beats 40.5 because he is the Houston Texans' only receiver turning targets into yards (205 rec on 157 air, 25 targets) and HOU Stroud's EPA is -0.13 when not blitzed, the majority of dropbacks against a Dallas Cowboys defense that blitzes 27% and allows 9.0 YPA in the middle.",
+   "must_be_true": "HOU Schultz targets >= 6 because the Houston Texans' Schultz had 25 targets and 205 receiving yards over weeks 1-3",
+   "kills_it": "IF the Houston Texans run heavily into the Dallas Cowboys allowing 5.23 YPC and HOU Schultz is held to 4 targets or fewer THEN HOU Schultz recyds over 40.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection model, sim median, or Pinnacle no-vig is in the DAL-HOU pack, so the test is form and matchup splits only. Dallas Cowboys Lamb 309/3 = 103 versus a 76.5 over; Houston Texans Schultz 205/3 = 68.3 versus a 40.5 over. HOU's 23% blitz and 10.11/9.48 middle-right YPA agree with the DAL Lamb read. DAL middle 9.0 YPA and HOU Stroud's -0.13 no-blitz EPA agree with the HOU Schultz read. Recent averages sit well above both rungs.",
+  "disagrees": "none",
+  "missing": "DAL-HOU spread, total, moneyline, line movement, kickoff, weather, coverage shell and man/zone charting, final inactives for the Dallas Cowboys and the Houston Texans, no-vig price, projection model, sim medians, and game-by-game splits",
+  "verdict": "agree"
+ },
+ "market_rung_price": "DAL ceedeelamb recyds over 76.5 -114; HOU daltonschultz recyds over 40.5 -113. Primary-target receiving-yards rungs, one market per player, Dallas Cowboys and Houston Texans only. No passing yards, TDs, receptions, or short alt ladders. HOU Collins 73 and HOU Marks rush 36 are +nan and unused.",
+ "pre_mortem": "It's Monday and both DAL-HOU overs lost because the Houston Texans ignored a 2.78 YPC run game and fed HOU Montgomery into a Dallas Cowboys defense that has allowed 5.23 YPC and 15 runs of 10+, so HOU Schultz finished on a handful of targets under 40 yards. On the other side the Houston Texans either shaded DAL Lamb to the left, where HOU allows 3.89 YPA, or blitzed DAL Dak above 23% and his 0.05 EPA versus blitz turned 311 air yards into a 60-yard day, or a late scratch the pack does not have removed a Dallas Cowboys or Houston Texans starter. That HOU run-funnel counter is why Schultz is a lean; the yardage cushions (DAL Lamb 103 vs 76.5, HOU Schultz 68 vs 40.5) are why neither leg is dropped. DAL Williams rush under 58.5 was passed: 56.3 yards a game versus 58.5 is too thin, and a Dallas Cowboys lead that piles carries kills it.",
+ "slip_story": "One DAL-HOU story only: a competitive pass-lean between the Dallas Cowboys and the Houston Texans. HOU's 3.59 YPC run defense pushes DAL to throw to Lamb, and the Houston Texans' own 2.78 YPC run game pushes HOU Stroud toward Schultz. Both overs win together only if both teams keep throwing. Do not mix them with a game under, a Dallas Cowboys clock-kill Williams rush over, or an HOU Pickens-style over. A blowout flip splits the stack: the leading team runs, the trailing team passes.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,46 @@
+{
+ "game": "Week 4 TEN@BAL / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this is a form-only script, not a market script. Baltimore has been the more productive offense (Henry 66 carries/301 yards, Jackson 14/127, Flowers 12 targets/234 yards) while Ward is -0.19 EPA/dropback with no blitz and only +0.13 on 26 blitzed dropbacks. Base case: BAL leads by halftime on Henry's carry volume plus designed Jackson runs, the home side leans run, and TEN chases in the second half so Ward drops back more into BAL's 37% blitz, the only look where he has been positive.",
+  "flip1": "TEN stays on schedule: Pollard has taken 38 carries for 173 yards (4.55 YPC) and BAL allows 4.13 YPC with 10 runs of 10+, so the game stays competitive, TEN does not abandon the run, and both passing games stay live.",
+  "flip2": "Slog: TEN's run defense (3.83 YPC, only 7 runs of 10+) slows Henry, and when BAL does not blitz (63% if the 37% rate holds) Ward's -0.19 EPA stalls drives and skill-player overs die. Weather was not saved, so a wind/rain drag cannot be scored."
+ },
+ "injury_fallout": "No injury report, practice trend, or inactives in the pack, so step-3 checkpoints cannot be run and no coverage player or OL absence is documented. Usage only: Henry 66 carries vs Hill 13 and Jackson 14; Pollard 38 carries vs Spears 13; TEN targets Tate 20, Robinson 18, Helm 11, Ayomanor 9, Pollard 7, Spears 6. Calvin Ridley has a recyds 4.5 prop but zero L3 targets listed \u2014 a real Ridley snap share is unconfirmed and would tax Ayomanor/Tate/Robinson; the 4.5 line itself implies a tiny expected role, not a WR1 return. A Henry limit is not reported; without it Hill does not inherit the backfield.",
+ "matchup": {
+  "shell": "No coverage charting in the pack (no MOFO/MOFC, no man/zone rate). Location proxy only: BAL allows left 6.93 YPA (41 att), middle 8.3 (23 att), right 5.34 (41 att). TEN allows left 7.3 (30), middle 6.53 (15), right 7.37 (38). WR/TE/RB-to-zone mapping is unavailable.",
+  "pressure": "BAL blitz rate 37%. Ward is +0.13 EPA/dropback vs blitz (n=26) and -0.19 with no blitz, so BAL pressure is not what kills TEN's pass game \u2014 non-blitz coverage is. TEN blitzes only 21%. Jackson is +0.32 vs blitz (n=31) and +0.35 with no blitz, so TEN pressure neither wrecks his passing nor manufactures scramble volume.",
+  "bleeds": "BAL bleeds the run (4.13 YPC, 10 runs of 10+ in 3 games) and the middle (8.3 YPA); the right side is the strength (5.34). TEN is tighter vs the run (3.83 YPC, 7 runs of 10+) but leaks explosives (9 of 89 attempts, 10.1%) and both outsides (7.3 left, 7.37 right); middle is their best area (6.53). BAL itself allows only 8 explosives on 112 attempts (7.1%).",
+  "overlap": "Jackson's 9.07 YPC on 14 carries is a designed QB-run overlap that TEN's 21% blitz does not remove. Ayomanor's 97 air yards on 9 targets overlap a TEN-chase script and Ward-vs-blitz, but his alignment vs BAL's soft middle vs strong right side is not charted, so that overlap is incomplete. Bateman's 175 air yards would fit TEN's explosive leak more cleanly, but a BAL lead cuts the need to throw him; not selected. Pollard's 12.7 carries/game fit BAL's 4.13 YPC bleed only if TEN stays on schedule."
+ },
+ "form": "Pack is L3 totals only (weeks 1-3), not game logs, so a single spike cannot be separated from a role. Pollard 38/173 rush (57.7/g) and 7/22 receiving; Spears 13/58 rush and 6/41 receiving on -11 air yards. Tate 20/123/219 air is the TEN WR1, but 123 yards on 219 air is incomplete deep shots, not YAC. Ayomanor 9/91/97 air (30.3 rec yds/g) outproduces Helm 11/55/45 (18.3). Henry 66/301 (100.3/g, 4.56 YPC) is the bellcow; Jackson 14/127 (42.3/g); Hill 13/57 rush and 3/22 receiving. Flowers 12/234/146 air is 19.5 yards per target \u2014 treat as fluky efficiency, not a repeatable 78-yard role. Andrews 18/122/132 is a steady 40.7, only 2 yards above 38.5. Bateman 13/125/175 air (41.7/g) is real downfield usage against a 27 line, but volatile. Ridley has no L3 target line.",
+ "edge_players": [
+  {
+   "player": "lamarjackson",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Jackson has 127 rush yards on 14 carries over three games (42.3 per game, 9.07 YPC) against a 31-yard line, and Ravens QB runs are a designed package, so Tennessee's 21% blitz rate does not take the role away.",
+   "must_be_true": "Jackson plays the full game and keeps about 4-plus designed or scramble carries; BAL does not scrap the QB run after an early lead.",
+   "kills_it": "A multi-score BAL lead by halftime hands the rest of the rushes to Henry (66 carries already in three games) and the staff sits Jackson, or a spy holds him under 31 in a game TEN does not blitz.",
+   "confidence": "lean"
+  },
+  {
+   "player": "elicayomanor",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Ayomanor has 91 receiving yards on 9 targets with 97 air yards (30.3 per game) against a 19.5 line, and the form script has TEN chasing into a 37% BAL blitz where Ward has been +0.13 EPA rather than -0.19.",
+   "must_be_true": "Ayomanor keeps a 3-target downfield role, Ward is not game-scripted out of dropbacks, and Ridley's unlisted L3 usage does not suddenly absorb that share.",
+   "kills_it": "Ridley plays a real snap share despite the 4.5 listing, BAL stays in non-blitz coverage (Ward -0.19) and TEN checks down to Robinson/Helm/Spears, or Ayomanor's 91 yards were one long catch against the right side BAL holds to 5.34 YPA.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so step 8 cannot be fully run and these are not 70% model legs. Counting stats agree with both leans: Jackson 42.3 rush yards/game vs 31; Ayomanor 30.3 rec yards/game vs 19.5 at -115. Passed, not flagged: Henry rush over 99 (100.3 average, but 22 carries at TEN's 3.83 YPC allowed is about 84 \u2014 lean-level disagreement, dropped); Pollard rush over 48 (57.7 vs 48 and BAL 4.13 YPC agree, but the base chase script kills it); Flowers over 73 (78 average on 19.5 yards/target is the fluky rate, and the line has no cushion once that regresses); Tate under/over 44 (41.0 vs 44, no gap); Andrews over 38.5 (40.7 vs 38.5, and TEN middle is their best zone at 6.53). L3 aggregates may hide a spike. Ayomanor -115 is coin-flip juice, so the market is not laying the 30-yard average. Neither selected read is strong, so a missing sim is not treated as a hard disagreement.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only, one market per player, no TD/reception/passing-yard legs. lamarjackson rushyds over 31, price not in pack (+nan), no alt rung to shop. elicayomanor recyds over 19.5 at -115. No Pinnacle no-vig. Not short-priced alts. Do not size up.",
+ "pre_mortem": "It's Monday and both lost. Jackson finished under 31 because BAL led big by halftime, Henry took the clock-killing carries, the QB-run menu was closed after the second quarter, and TEN's 21% blitz never forced scrambles \u2014 the 127 yards were a spike the L3 total hides. Ayomanor finished under 19.5 because Ridley took a real share, Ward saw mostly non-blitz calls at -0.19 EPA and checked down to Robinson (18 targets, 104 yards) and Helm, and the 91 yards were one explosive against a right side BAL holds to 5.34 YPA. That counter-case is stronger on Ayomanor than on Jackson; Jackson's 11-yard cushion vs 31 is harder to kill without a snap limit that is not in the pack. Averages-only legs have lost at real prices, which is why both stay leans.",
+ "slip_story": "One script stack: BAL controls with the quarterback run game and TEN chases through the pass game. Jackson rushyds over 31 and Ayomanor recyds over 19.5 win together in a BAL lead that is not a first-quarter blowout. Do not add Pollard rush over 48 (needs TEN to stay on schedule), Flowers over 73 (needs the 19.5 yards/target fluke), or any total (not saved). Two-leg slip only; no third pack leg shares this script with a real number gap.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

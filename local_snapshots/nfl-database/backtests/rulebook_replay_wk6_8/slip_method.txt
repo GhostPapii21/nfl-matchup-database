@@ -1,0 +1,7 @@
+Pool = legs that PASS the in-process gate at leg level (no leg-named miss) AND have no door.leg_rules BLOCK.
+One leg per player (highest raw edge avg(p)-no_vig; ties -> shorter price). No TD markets exist in the pool. Sort pool by raw edge desc.
+M1 cross-game greedy: walk the sorted pool, put each leg in the first open slip that has no leg from the same game; close a slip at size k.
+M2 sequential chunks: consecutive chunks of k from the sorted pool (same-game allowed; real SGP pricing would be lower than product of prices).
+Sizes: Test A k=3,4; Test B k=6,7. Each leg used at most once per (method,k). Incomplete last slip dropped.
+Depth receivers (WR3/4, TE2+ overs) only if rung=low (door DEPTH_RECEIVER enforces this); max 1 per slip enforced in M1 (skip to next slip).
+Price = product of decimal prices of the leg's own book; push/void legs drop out (slip reprices on remaining legs; all void = refund). $10 stake per slip.

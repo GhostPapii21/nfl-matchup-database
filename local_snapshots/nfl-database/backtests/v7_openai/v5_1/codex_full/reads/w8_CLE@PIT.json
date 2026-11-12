@@ -1,0 +1,48 @@
+{
+ "game": "CLE@PIT / Nov 1, 2026, 1:00 PM ET / Acrisure Stadium, outdoor / PIT -3.5 / total 39; checklist total 39.5, chronology unresolved / implied totals at 39: PIT 21.25, CLE 17.75 / supplied weather: wind 5.4, temperature 67.4, units unspecified; checklist Open-Meteo forecast retrieved Oct 29 at 05:25 EDT: 58.2\u00b0F, wind 2.8 mph, gusts 5.4 mph, precipitation probability 0% / both teams seven days rest; moneyline, opening prices and travel itinerary missing",
+ "script": {
+  "base": "Hypothesis before testing player production: Pittsburgh leads a relatively low-scoring game and protects its advantage through the running game. Cleveland remains competitive enough to avoid an immediate pass-only approach, but trailing late limits its rushing opportunities; actual pace data are missing.",
+  "flip1": "Cleveland leads early, forcing Pittsburgh toward more passing and weakening the Warren rushing-over thesis. Cleveland can then retain its running game, threatening the Judkins combined-yardage under.",
+  "flip2": "Explosive plays turn the game into a faster scoring exchange. Warren's rushing volume becomes less secure, while Judkins could threaten his combined-yardage under through receiving production even without substantial rushing volume."
+ },
+ "injury_fallout": "MISSING: actual CLE and PIT player injury designations, practice trends, offensive-line availability, defensive absences, return restrictions and final inactives. The checklist built Oct 29 at 05:25 EDT references Wednesday reports and pending updates, but supplies no actionable player-level statuses. No absences, replacements or workload changes are inferred from usage. Final reports and approximately 90-minute pre-kickoff inactives cannot be checked within this pack.",
+ "matchup": {
+  "shell": "MISSING: actual CLE/PIT man, zone and MOFO/MOFC rates. The checklist references Sharp coverage files dated Oct 20 but does not reproduce their contents; assignments cannot be established.",
+  "pressure": "CLE blitzes 24%; Pittsburgh QB EPA/dropback is -0.30 against blitz versus -0.02 without. PIT blitzes 27%; Cleveland QB EPA/dropback is -0.07 against blitz versus +0.07 without. These support concern about passing efficiency, not a verified pressure or checkdown projection; charted pressure and line-matchup data are missing.",
+  "bleeds": "Through seven games, CLE allows 4.54 rushing YPC and 28 runs of 10+ yards, versus PIT's 3.87 YPC and 17 such runs. Both defenses allow their highest supplied directional passing YPA in the middle: CLE 8.30, PIT 7.58. Positional coverage and receiver alignment data are missing.",
+  "overlap": "Warren's recent lead rushing workload attacks Cleveland's comparatively permissive rushing defense. Judkins faces the stronger supplied rushing defense while playing for the 3.5-point underdog. These are rushing-role overlaps, not verified run-concept or individual-defender mismatches."
+ },
+ "form": "Pack weeks 5\u20137: Warren recorded 47 carries for 252 yards, compared with Dowdle's 16 for 81; Warren held 71.2% of all listed PIT carries. Judkins recorded 31 carries for 140 yards plus five targets and 14 receiving yards, totaling 154 scrimmage yards across three games. Watson's 17 carries, Estime's nine and McLaughlin's nine show other listed rushing usage, without establishing injury-driven changes. Individual game logs, snaps, routes, explosive-play dependence and comparable-opponent splits are missing. These aggregates test the script hypothesis; they are not standalone projections.",
+ "edge_players": [
+  {
+   "player": "jaylenwarren",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Warren can exceed 64.5 rushing yards because Pittsburgh's favored script supports its recent lead runner against a Cleveland defense allowing 4.54 YPC and 28 runs of 10+ yards.",
+   "must_be_true": "J.Warren carries >= 15 [because the pack records 47 carries across weeks 5\u20137]",
+   "kills_it": "IF Cleveland builds an early multi-score lead and Pittsburgh abandons sustained rushing THEN the Warren rushyds over 64.5 leg fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "quinshonjudkins",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Judkins can stay below 60.5 combined yards because Cleveland's underdog script and Pittsburgh's 3.87-YPC rushing defense constrain a role that produced only 154 combined yards over the last three games.",
+   "must_be_true": "Q.Judkins carries <= 12 [because the pack records 31 carries across weeks 5\u20137]",
+   "kills_it": "IF Cleveland controls the game and expands Judkins' rushing workload enough to reach 61 combined yards THEN the Judkins rushrecyds under 60.5 leg fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The supplied numbers support both directional reads without establishing betting value. Warren's recent workload is 15.7 carries per game; 15 carries at Cleveland's allowed 4.54 YPC equals 68.1 yards, an illustrative sensitivity calculation rather than a projection. Judkins' recent combined production is 51.3 yards per game against a 60.5 line. Offered-price break-even probabilities are 53.60% for Warren over -115.5 and 52.72% for Judkins under -111.5. No simulation or model probability is invented.",
+  "disagrees": "none",
+  "missing": "Validated projections, simulation medians and distributions, Pinnacle prices and sharp no-vig probabilities, game-level workload variance, player availability, and verified coverage/pressure charting. Opposite-side offered prices exist, but the pack does not identify them as Pinnacle.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line leans only: jaylenwarren rushyds over 64.5 at -115.5; quinshonjudkins rushrecyds under 60.5 at -111.5. Neither is stamped as a demonstrated positive-EV wager; missing projections and sharp pricing prevent value confirmation. No alternate rung or stake recommended.",
+ "pre_mortem": "Warren: Pittsburgh could lead without giving him enough carries, particularly if Dowdle takes a larger share or Cleveland improves its run defense. The 4.54 defensive YPC does not guarantee Warren's efficiency, and his recent aggregate could conceal uneven workloads. Judkins: Cleveland could outperform its underdog expectation, sustain drives and expand his workload; receiving production or one explosive run could also defeat the under despite limited carries. Both are script-dependent, and Cleveland taking control is the strongest common counter-case.",
+ "slip_story": "Both leans belong to one conditional story: Pittsburgh leads and runs while Cleveland's rushing opportunities diminish. Neither survives the Cleveland-controls-the-game flip reliably. No 3\u20134-leg main slip is built because only two players have supported hypotheses; adding another leg would manufacture an edge.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

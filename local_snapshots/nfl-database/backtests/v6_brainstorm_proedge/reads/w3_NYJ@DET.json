@@ -1,0 +1,108 @@
+{
+ "game": "NYJ @ DET, Week 3 2026 (morning of kickoff; spread/total/weather/kick time not in pack)",
+ "script": {
+  "base": "No spread or total is saved, so this is a form script only. Detroit has been the higher-volume offense (Jahmyr Gibbs 45 car/208 rush yds and 13 targets; Amon-Ra St. Brown 27 tgt/209 yds; Sam LaPorta 15 tgt/100 yds) while the Jets have given Breece Hall the ball (38 car/131) and split the pass game (Adonai Mitchell 15 tgt/237 air, Garrett Wilson 14 tgt/136 yds). Detroit blitzes 42% and Geno Smith's EPA/dropback is 0.18 vs blitz and 0.18 vs no blitz, so pressure should create checkdowns to Hall and the tight ends rather than a collapse. Base case: a competitive, Detroit-leaning game with a real run lean (Gibbs and Hall) and live short/middle throws; Minkah Fitzpatrick out keeps a downfield path if the Jets sell out to stop Gibbs.",
+  "flip1": "Detroit leads early, the Jets abandon the run, and Hall's rushing line dies the way the 29-yard game already showed, while Wilson/Mitchell/Sadiq targets and Hall checkdowns rise. Gibbs's carries go up late if Detroit is protecting a lead. Hall rush yards alone is script-dependent; Hall rush+rec is the leg built to survive this flip.",
+  "flip2": "The Jets control the clock on the ground against a Detroit defense allowing 5.12 YPC and 10 runs of 10+, the game stays lower-event, and Detroit's pass volume dips toward the floor games already on the log (St. Brown 67, Gibbs rush 52, LaPorta still only cleared 46.5 by a few yards). Ben Bartch (G) out makes that Detroit stall more plausible."
+ },
+ "injury_fallout": "Official pre-game report only; final inactives (~90 min pre-kick) are not in the pack. DET G Ben Bartch Out (foot): Detroit pressure up, rush efficiency down, more quick throws \u2014 helps LaPorta and Gibbs catches, hurts Gibbs pure-rush efficiency and deep shots (Jameson Williams 177 air, Isaac TeSlaa 84 air). DET S Thomas Harper Out (ankle): missing safety helps Jet deep shots, but the air-yard leader is Adonai Mitchell (237 air), who is Questionable (finger), not inactive \u2014 do not move Wilson or Isaiah Williams off a Mitchell scratch. NYJ S Minkah Fitzpatrick Out (groin): helps Detroit downfield (St. Brown 218 air, Jameson 177 air, TeSlaa 84 air) more than a 2.0-aDOT tight end. NYJ LB Francisco Mauigoa Out (quad): the skill-relevant loss for TEs, RBs and slots \u2014 LaPorta (15 tgt) and Gibbs receiving (13 tgt/91 yds). NYJ TE Mason Taylor Out (thumb): only 3 tgt/-2 yds in two games; Kenyon Sadiq (6 tgt/38 yds) is ahead of Jeremy Ruckert (3 tgt/9 yds, -9 air) for any bump, and Sadiq's 21 and 17 still sit well under a 32 line. NYJ RB Kene Nwangwu Doubtful (back): not in the carry log, so Hall (38 car) and Braelon Allen (15 car/47) do not gain a real share. NYJ DE Joseph Ossai Questionable (foot): if he sits, less edge heat on Jared Goff and fewer scramble yards (Goff 5 car/9 yds). Sources: pack injury report and week 1-2 usage; no beat-writer note beyond that report.",
+ "matchup": {
+  "shell": "No coverage charting in the pack (MOFO/MOFC and man/zone unknown). Proxy from location YPA only: Detroit defense middle 13.27 YPA on 15 attempts vs left 4.11 (27) and right 7.91 (44) \u2014 the middle is the bleed. Jets defense right 3.36 YPA (28 att), middle 5.91 (11), left 5.73 (22) \u2014 no charted bleed; the right side is the strength.",
+  "pressure": "Detroit blitz rate 42%; Jets EPA/dropback 0.18 vs blitz and 0.18 vs none, so Geno is not blitz-fragile and checkdowns stay live. Jets blitz rate 28%; Detroit EPA/dropback 0.33 vs blitz vs 0.18 vs none, so Goff has been better when blitzed. No pressure-rate or time-to-throw split is saved, and Ossai is only Questionable.",
+  "bleeds": "Detroit run defense: 5.12 YPC allowed and 10 runs of 10+ in two games, plus 10 passes of 20+ for 93 yards. Jets run defense: 4.09 YPC and only 4 runs of 10+. Jets pass defense: 1 pass of 20+ for 67 yards. Detroit also bleeds the middle (13.27 YPA); the Jets do not (5.91).",
+  "overlap": "The clean overlap is Breece Hall (38 carries, 7 targets, 2 air yards, 79 rec yds) into Detroit's two bleeds \u2014 the run front and the short middle \u2014 with a 42% blitz that has not hurt Geno. Second overlap is LaPorta (15 tgt, 30 air yards, 2.0 aDOT) into the Mauigoa vacancy and a Goff-when-blitzed checkdown. St. Brown (27 tgt, 40% of the listed Detroit target pile) is the volume king into a Fitzpatrick-less secondary, but the Jets' two-game pass chart does not bleed, so that overlap is injury-only, not chart-confirmed."
+ },
+ "form": "Avoiding season averages; only weeks 1-2 exist. Hall rush 102 and 29 (131 on 38 car, 3.45 YPC), rec 16 and 63, rush+rec 118 and 92 \u2014 both combo games cleared 86, but the 63-yard receiving game may be one long play (79 rec yds on 7 targets) and cannot be checked without play-by-play. Allen 40 and 7 rush is a real change-of-pace, not a forgotten backup. Wilson 79 and 57 vs a 78 line (line sits above his 68-yard mean); Mitchell, not Wilson, leads air yards. Gibbs rush 156 and 52 (208 on 45 car) is volatile around a 90.5 line; rec 30 and 61; rush+rec 186 and 113, so 129.5 already lost once. St. Brown 67 and 142 vs 78. LaPorta 48 and 52, both just over 46.5. Jameson Williams 45 and 33, both under 54, despite 177 air yards. TeSlaa 0 and 26 vs 15.5. Vaki 7 and 7 on 3 carries. Goff rush 2 and 7. Sadiq 21 and 17 vs 32. Ruckert 4 and 5 vs 8.5. Isaiah Williams 7 and 34 vs 34.5. No similar-defense or prior-meeting split is in the pack.",
+ "pro_edge": {
+  "implied_totals": "N/A. Spread and total were not saved, so favorite=(T+S)/2 and underdog=(T-S)/2 cannot be computed and no blowout flag can be set.",
+  "script_read": "Form, not a number: Detroit is the higher-play offense (St. Brown 13.5 targets/game, Gibbs 22.5 carries/game) and the Jets can run into 5.12 YPC allowed. The underdog-throws-more rule (spread 3.5+) cannot be applied. Volume overs belong on players who touch Detroit's leaks (Hall rush+rec) or the Jets' missing linebacker (LaPorta), not on a game total. A Detroit lead would push Gibbs carries up and put Hall's pure rush at risk; that is why the Hall leg is rush+rec, not rush yards.",
+  "best_price": "Only clear price gap: Jared Goff rushyds over 0.5 at best +1.5 vs consensus no-vig over 0.636 / under 0.364 (best under -129). That plus-money gap is not a game-read edge \u2014 5 carries and 9 yards in two games, Ossai only Questionable \u2014 and a number that far from the anchor is low-confidence (possible stale or thin market). No other saved two-sided price beats the anchor: Gibbs rush 90.5 best -115/-115, fair 0.500/0.500; Gibbs rush+rec 129.5 best over -112.5 / under -113.5, fair 0.499/0.501; LaPorta 46.5 best over -115 / under -114.5, fair 0.501/0.499; Hall rec 21.5 best over -117 / under -111, fair 0.506/0.494; Gibbs rec 34.5 best over -114 / under -113.5, fair 0.501/0.499; Vaki 10.5 best over -112 / under -115, fair 0.497/0.503; Allen 16.5 best over -120 / under -110, fair 0.510/0.490; Geno rush 11.5 best over -115 / under -113, fair 0.502/0.498; TeSlaa 15.5 best over -114 / under -115, fair 0.499/0.501; Ruckert 8.5 best -114/-114, fair 0.500/0.500. Hall rush+rec 86, Hall rush 60, St. Brown 78, Wilson 78, Jameson 54, Isaiah Williams 34.5 and Sadiq 32 have no two-sided price (no-vig N/A). Pinnacle is not in the pack; anchor is consensus. Power devig vs overround not separately saved.",
+  "lagging": "No open line, no move log, and no book-versus-consensus prop file. Cannot flag a lagging book. The news most likely to leave a stale number is Mason Taylor Out (Ruckert 8.5 still a coin-flip fair, Sadiq 32 unpriced) and Mauigoa Out (LaPorta 46.5 and Gibbs rec 34.5 still essentially 50% fair). That is a hypothesis, not a measured lag.",
+  "sleepers": "Out/Doubtful from the pre-game report: Bartch (DET G), Harper (DET S), Fitzpatrick (NYJ S), Mauigoa (NYJ LB), Taylor (NYJ TE), Nwangwu (NYJ RB, Doubtful). Same-position filter: Taylor's absence points at Sadiq and Ruckert, not a wideout; Nwangwu is not in the carry log, so Hall and Allen should not be treated as sleepers off him; Harper and Fitzpatrick are safeties, so no same-position skill-player sleeper. Ossai and Mitchell are Questionable, not ruled out \u2014 no sleeper activation. No IR note and no pre/post CSV to diff."
+ },
+ "edge_players": [
+  {
+   "player": "breecehall",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Breece Hall is the Jet who both runs and catches in the short middle, and Detroit is bleeding both \u2014 5.12 yards per carry, 10 runs of 10-plus, and 13.27 yards per attempt in the middle \u2014 so rush-plus-receiving at 86 is the number that can still cash if the Jets grind or if they fall behind and check down into a 42% blitz that has not hurt Geno Smith.",
+   "must_be_true": "Hall keeps the lead role (38 of the Jets' 62 listed carries, 7 targets) and is not on a snap limit; Detroit's run and middle leaks are real and not two busted plays; Geno plays and the checkdown stays in the offense when Detroit blitzes.",
+   "kills_it": "The 102-rush and 63-rec games were one long play each (play-by-play not in the pack), Allen (15 carries, a 40-yard game) vultures the efficient runs, the Jets trail and Hall gets neither the 29-yard rushing floor's receiving spike nor the carries, or Detroit loads the box and Hall's own 3.45 YPC shows up instead of the 5.12 they have allowed.",
+   "confidence": "strong",
+   "model_p": 0.58,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "Pack DET defense, 2 games: rush YPC allowed 5.12, 10 runs of 10+, YPA middle 13.27 on 15 attempts. Hall usage: 38 car/131 and 7 tgt/79 yds/2 air."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Hall is the carry leader and the 2-air-yard checkdown. DET blitz 42%; NYJ EPA/db 0.18 vs blitz and 0.18 vs none, so pressure funnels to RB/TE catches rather than killing the offense."
+    },
+    "script": {
+     "ok": true,
+     "source": "No spread saved. Combo already cleared 86 on both logged paths: 102 rush + 16 rec = 118, and 29 rush + 63 rec = 92. Survives a grind and a trail-and-checkdown flip; pure rush over 60 would not."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Saved last games rushrecyds 118 and 92, both over 86. Rush alone (102, 29) is not the trend being used."
+    }
+   },
+   "primary_defender": {
+    "who": "Unnamed Detroit front seven / hook and middle linebackers (run fit and the 2-air-yard checkdown). Thomas Harper (S, Out, ankle) is not the primary defender on this route.",
+    "source": "Pack has no Detroit coverage chart and no Detroit defensive player names on the injury list except Harper (S) and Bartch (G, offense). Bleed rates are team-level only."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": false,
+   "pro_edge_support": "No two-sided price and no-vig N/A on rushrecyds 86, so there is no anchor to beat and no book/time to shop. Not a sleeper: Nwangwu Doubtful is absent from the carry log. Not a measured lagging line. Gate pts cannot be scored. Stake proposal: none \u2014 no price, no bankroll in the pack, and this workflow does not place bets. CLV at close: not available pre-kick."
+  },
+  {
+   "player": "samlaporta",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Sam LaPorta is already Detroit's short-area tight end \u2014 15 targets, 30 air yards, 48 and 52 receiving yards \u2014 and the Jets will be without linebacker Francisco Mauigoa, with guard Ben Bartch out pushing Goff toward the quicker throws LaPorta lives on, so 46.5 is only a small step below the role he has had in both games.",
+   "must_be_true": "LaPorta keeps the TE1 route share (7.5 targets/game), Mauigoa is actually inactive, Goff plays, and the game does not become a pure Gibbs clock-grind that cuts Detroit's pass volume toward the floor.",
+   "kills_it": "Gibbs (13 targets, 91 rec yds) takes the vacated linebacker checkdowns, Detroit leads and runs (Gibbs already at 22.5 carries/game), or the 48-yard game was the ceiling and he finishes in the mid-30s. Paying -115 into a 0.501 fair number loses even if the football lean is right.",
+   "confidence": "lean",
+   "model_p": 0.54,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "NYJ LB Francisco Mauigoa Out (quadricep) on the official injury report. Pack has no TE-yards-allowed split; team middle YPA is only 5.91 on 11 attempts, so this is an injury matchup, not a charted bleed."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "LaPorta 15 tgt/100 yds/30 air (2.0 aDOT). NYJ blitz 28%; DET EPA/db 0.33 vs blitz vs 0.18 vs none. Bartch Out (foot) points at more quick throws."
+    },
+    "script": {
+     "ok": true,
+     "source": "Base form script has Detroit throwing (St. Brown 27, LaPorta 15, Gibbs 13, Jameson 13 targets in two games) even with Gibbs at 45 carries. Flip-2 clock control is the tagged risk, not the base."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Saved last games recyds 48 and 52, both over 46.5, by 1.5 and 5.5 yards. Stable role, thin margin."
+    }
+   },
+   "primary_defender": {
+    "who": "NYJ linebacker spot vacated by Francisco Mauigoa (Out, quadricep); the replacement is not named in the pack. Fitzpatrick (S, Out) is a secondary factor on a 2.0-aDOT tight end.",
+    "source": "Pack official injury report. No coverage chart and no backup-LB name or stat."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Best over -115 vs consensus no-vig over 0.501 / under 0.499. The offered price does not beat the anchor (about 0.535 implied vs 0.501 fair). Manual p 0.54 beats no-vig by about 4 pts but is not a sim and the yardage margin is 1.5/5.5, so this is a scheme-edge review candidate, not a sized bet. Stake proposal: 0 until a price at or better than fair; no bankroll in the pack; do not bet. CLV at close: not available pre-kick."
+  }
+ ],
+ "data_check": {
+  "notes": "Step 8 cannot be completed from the pack: no projection, no sims, no Pinnacle. Consensus no-vig only where a two-sided price was saved. Hall rush+rec over is a strong read with no no-vig to compare, Hall's own 3.45 YPC, and a possible one-play inflation in the 63-yard receiving game that play-by-play would be needed to confirm \u2014 FLAG for the human, not a cut. LaPorta direction agrees with 48 and 52 and with Mauigoa/Bartch, but -115 does not beat 0.501 fair and the clearance is thin; lean kept for scheme review, not sized. Dropped, not flagged as legs: St. Brown over 78 (lean would be cut because Jets allowed 1 pass of 20+ and 3.36 YPA on the right, and 67 already lost to 78); Jameson under 54 (45 and 33, but Fitzpatrick out is the exact kill for a deep-shot under); Gibbs rush over 90.5 (Jets allow 4.09 YPC and only 4 runs of 10+, Bartch out, 156/52 split, number sits on 22.5 carries times 4.09); Gibbs rush+rec 129.5 (113 already under); Vaki under 10.5 (7 and 7 on 3 carries, but -115 does not beat 0.503 fair and one garbage-time carry wins, with no spread to bound blowout risk); Goff rush over 0.5 (price gap only); Wilson 78, Sadiq 32, Isaiah Williams 34.5, Ruckert 8.5 (Mitchell/Taylor status or role does not clear the number). No manual probability is above 0.60. Past calibration warning applied: nothing is rated 70%+.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Hall rushrecyds over 86, main line, no price saved \u2014 do not invent a rung or take a short alt. LaPorta recyds over 46.5, main line, best saved price -115 (consensus); no alt rung in the pack. One market per player. No receptions, no passing yards, no TDs. Goff over 0.5 at +1.5 is the only plus-money quote and is not on the slip.",
+ "pre_mortem": "It's Monday and the slip lost. Hall: Detroit's 5.12 YPC and 13.27 middle YPA were two-game noise (the middle number is 15 attempts), the Jets trailed, Allen took the decent carries he already showed he can get (15 car, a 40-yard game), and the 92-yard combo was a stuffed run plus one long catch that did not repeat \u2014 something like 35 rush and 12 rec. His own 3.45 YPC was the tell, and there was no price to prove the market was slow. LaPorta: 48 and 52 were the top of a short role, Gibbs stole the Mauigoa checkdowns (he already has 13 targets and 91 rec yds), Detroit ran the clock, and LaPorta finished in the 30s while the ticket laid -115 on a coin-flip fair. The Hall counter is real but not stronger than the dual-path matchup, so the leg stays and is flagged. The LaPorta counter is close enough that the leg stays a lean only and is not sized.",
+ "slip_story": "One story, not a shootout and not a favorite-clock stack (no spread to justify either): Detroit's defense leaks the run and the middle, the Jets' linebacker is out, and both offenses have already produced short throws under pressure (Detroit blitz 42% with Geno EPA unchanged; Jets blitz 28% with Goff better vs the blitz). Hall rush+rec over is the Jets-attack-the-leak leg and is the anchor because it survives the trail flip. LaPorta over is the Detroit quick-game leg in that same competitive script. They do not need opposite scripts; flip 2 (Jets clock control) is the shared risk and is already LaPorta's kill case. Do not add St. Brown or Jameson (needs the Fitzpatrick deep path the Jets' explosive log has not allowed), Gibbs rush over (runs into the better run defense), a total, or any TD. Two legs, under the 3-4 cap. Research and a stake proposal only \u2014 no bet is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T13:20:21-0500"
+ }
+}

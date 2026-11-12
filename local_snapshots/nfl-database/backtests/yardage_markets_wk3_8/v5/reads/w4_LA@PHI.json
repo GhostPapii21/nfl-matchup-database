@@ -1,0 +1,46 @@
+{
+ "game": "Week 4 LA@PHI / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this script is inferred from form only and the book\u2019s expected leader and point total are unknown. Both offenses have produced over weeks 1\u20133 (LA: Adams 29 targets/358 yards, K.Williams 38 carries/214 rush yards; PHI: D.Smith 27/235, Barkley 34/174) and the defenses are close, with LA slightly tighter (5 passes of 20+ on 105 attempts and 4.00 rush YPC allowed vs PHI 8/92 and 4.09). Base case is a competitive game: LA still feeds Adams (498 air yards, about 32% of listed targets) and gives Williams about 13 carries, while PHI splits rushes among Barkley (34), Hurts (14) and Bigsby (14) and throws to Smith.",
+  "flip1": "PHI leads and grinds the clock. Barkley\u2019s carry count spikes toward a 20-touch game, LA abandons the run so Williams\u2019 rush yards and Corum\u2019s 28-carry role both stall, and Stafford\u2019s attempts rise \u2014 Adams and the short targets (Williams 12, Higbee 13) can still eat, but a pure clock-kill late would cap Adams if the lead is built on the ground.",
+  "flip2": "PHI blitzes well above its 26% rate or the game becomes a defensive slog (weather not saved, so this flip is scheme-only). Stafford is -0.23 EPA/dropback vs blitz (n=39) against +0.22 unblitzed, so deep Adams yards die and checkdowns to Williams/Higbee rise. A low-event game misses both LA overs together."
+ },
+ "injury_fallout": "No injury report, practice trend, questionable tags, or inactives in the pack, so nobody can be named as next-man-up from a scratch and this must be re-checked at the final report. Usage fallout already in the L3 lines: LA targets sit with Adams 29, Higbee 13, K.Williams 12, Ferguson 12, Mumpfield 11, Nacua only 9/74 \u2014 if that split is role and not an unlisted injury, Nacua is not the WR1. PHI targets sit with Smith 27 and Wicks 15; Goedert 7/81, Barkley receiving is empty (6 targets, 6 yards, -3 air yards). Source for all of this is the as-of pack only.",
+ "matchup": {
+  "shell": "Man/zone and MOFO/MOFC charting are not in the pack. Location proxy only: PHI allows left 7.21 YPA (24 att), middle 7.25 (24), right 6.18 (40). LA allows left 5.25 (44), middle 4.89 (18), right 5.34 (38) \u2014 LA is the tighter pass defense on every side.",
+  "pressure": "PHI blitz rate 26%; LA blitz rate 27%. Stafford EPA/dropback is -0.23 on 39 blitz dropbacks vs +0.22 with no blitz, so pressure is how PHI would kill deep yards, but they have not blitzed often. Hurts is only mildly worse vs blitz (-0.14, n=37) than unblitzed (-0.02), not a collapse.",
+  "bleeds": "PHI bleeds more explosively: 8 passes of 20+ on 92 attempts and 8 runs of 10+, with rush YPC allowed 4.09. Left and middle (7.2 YPA) are softer than right (6.18). LA bleeds less: 5 passes of 20+ on 105 attempts, 6 runs of 10+, rush YPC allowed 4.00.",
+  "overlap": "LA\u2019s primary option is Adams (29 of 91 listed targets, 498 of 1038 listed air yards) into a PHI defense that has allowed 7.2 YPA left/middle and 8 explosives and that blitzes only 26%, which leaves Stafford in the +0.22 unblitzed bucket. Second overlap: Williams\u2019 short receiving (12 targets, 56 air yards, 106 yards) is the checkdown valve if PHI does pressure, and PHI\u2019s 4.09 YPC with 8 runs of 10+ does not wall off his 5.63 YPC rushing."
+ },
+ "form": "Avoiding season averages beyond the pack\u2019s L3/STD windows. LA L3: Williams 38/214 rush (5.63 YPC, 12.7 carries/game) plus 12/106 receiving; Corum 28/148 so this is a 58/42 committee, not a bellcow. Adams 29/358/498 (12.3 yards per target, ~119 yards/game). Nacua 9/74/115 is a minor role in this sample. Higbee 13/74/87 (5.7 YPT). Stafford 4 rushes for 15 yards. PHI L3: Barkley 34/174 (5.12 YPC, ~58 rush yards/game) and 6 receiving yards; Hurts 14/89; Bigsby 14/36 at 2.57 YPC; Smith 27/235/323; Wicks 15/179/203 (11.9 YPT, 13.5 aDOT). No game-by-game splits, so a single long Adams or Wicks play could be inflating the totals and cannot be confirmed as fluky. PHI STD defense has been the softer explosive unit (8/92 vs LA 5/105).",
+ "edge_players": [
+  {
+   "player": "davanteadams",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Adams is the LA passing game \u2014 29 targets, 498 air yards, 358 yards over three games \u2014 and 60.5 is about half that weekly rate against a PHI defense allowing 7.2 YPA left and middle, 8 explosives on 92 throws, and blitzing only 26%, which keeps Stafford in his +0.22 EPA unblitzed environment.",
+   "must_be_true": "Adams keeps the WR1 share near 10 targets, is not on an unlisted snap limit, and the game is not a pure run-clock slog. The over survives either a LA lead (early volume still clears a 60.5 bar) or a LA trail (target share rises).",
+   "kills_it": "PHI blitzes far above 26% and Stafford\u2019s -0.23 blitz EPA shows up, the 358 yards are one spike the pack does not split, or a late inactive/snap limit caps him near 50.",
+   "confidence": "strong"
+  },
+  {
+   "player": "kyrenwilliams",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Williams has been a 107-yard scrimmage back in this sample \u2014 214 rush plus 106 receiving over three games \u2014 against a 76 line, and PHI has allowed 4.09 YPC and 8 runs of 10+, with his 12 short targets (56 air yards) as a floor if LA falls behind and the rush share dies.",
+   "must_be_true": "He holds about 13 carries and the 4-target receiving role; Corum (28 carries, 42% of RB carries) does not flip the committee; PHI\u2019s run defense stays near 4.09 YPC rather than a stuffed front.",
+   "kills_it": "LA trails early and both backs get scripted out, Corum takes the rushing work, and Higbee (13 targets) takes the checkdowns so Williams lands near 40 rush plus 15 receiving.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so step 8 cannot be completed numerically. Form agrees directionally with both reads: Adams 358/3 = 119.3 rec yards vs 60.5; Williams 214 rush + 106 rec = 106.7 scrimmage yards/game vs 76. The posted medians are much lower (Adams recyds 60.5 at -113/-111; Williams rushrecyds 76 listed with no price), which is unresolved market disagreement on the strong Adams read \u2014 both sides laid out, do not cut. No model probability to treat as a suspect 70%+. The Kyren lean is not contradicted by a sim that does not exist; do not size it as if one agreed. Per-game splits that would show a fluky Adams spike are also missing.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Davante Adams recyds over 60.5 -113 (main line; volume/explosive alpha, not a short-priced alt). Kyren Williams rushrecyds over 76, price not in pack (listed +nan) \u2014 chosen over the priced rushyds over 59.5 -115 because the receiving share (35.3 yards/game) survives a negative script that would kill a rush-only rung. No passing yards, no TDs, no receptions. One market per player.",
+ "pre_mortem": "It\u2019s Monday and both legs lost. Adams finished under 60.5 because the 358 yards were one spike the L3 total hides, PHI sat on the 6.18 YPA right side where he actually aligned, and a snap limit that was never in this pack capped him near 50 while Mumpfield (11 targets, 180 air yards) took the downfield shots. Williams missed 76 because Corum, already at 28 carries, took the closer work, PHI\u2019s 4.09 YPC front stuffed the designed runs, and the checkdowns went to Higbee (13 targets, 74 yards) instead of him. The shared killer is flip 2: a blitz-heavy or low-event game with no saved total to fade, which stalls Adams\u2019 deep yards and never gives Williams the scrimmage volume. That counter is real on the missing injury and split data, which is why Adams is flagged rather than sized, but it is not stronger than a 60-yard cushion on the alpha target, so the strong read stays.",
+ "slip_story": "One story only: LA\u2019s offense is the engine in a competitive game (spread unknown, so this is form-inferred, not a book script). Adams recyds over is the pass anchor; Williams rushrecyds over is the correlated all-purpose piece that still works if LA trails and checks down, and still works if LA leads and runs. Do not add a total under, PHI pass overs, Nacua, Wicks, or any TD. Barkley rushrecyds under 88.5 would need PHI not to grind and is a different script, so it stays off this slip.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

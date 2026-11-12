@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 NYJ@DET / kickoff MISSING / spread and total not saved; implied totals, moneyline and movement MISSING / weather not saved; venue details, rest and travel MISSING",
+ "script": {
+  "base": "Form-only hypothesis, not a market-implied script: Detroit sustains possession through Jahmyr Gibbs and its high-volume underneath options, while NYJ keeps Breece Hall involved against Detroit's vulnerable run defense. Expect a competitive game with both rushing attacks remaining usable; the pack does not establish pace or a halftime leader.",
+  "flip1": "Detroit builds an early multi-score lead, forcing NYJ away from Hall's carries. Jameson Williams' receiving under can still survive if Detroit then reduces passing volume, but Hall's rushing over becomes script-dependent.",
+  "flip2": "NYJ exploits Detroit's allowance of 5.12 rushing yards per carry and takes the lead. Hall's rushing over benefits, but additional Detroit passing volume threatens Williams' receiving under despite NYJ allowing only one 20-plus-yard completion on 67 attempts."
+ },
+ "injury_fallout": "MISSING: NYJ and DET injury reports, practice trends, offensive-line availability, defensive absences, return restrictions and final inactives. No absences or next-man-up changes are inferred from usage. Source for available usage only: supplied Week 3 pre-kickoff pack, covering Weeks 1\u20132; exact publication timestamps are missing. Reassessment at final reports and approximately 90-minute inactives cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: NYJ and DET MOFO/MOFC rates, man/zone splits and individual coverage assignments. Directional passing results cannot establish which defender covers a particular receiver.",
+  "pressure": "Pack: DET blitzes 43%; NYJ's QB has identical 0.18 EPA/dropback against blitz and no blitz, with 20 blitz dropbacks. NYJ blitzes 28%; DET's QB posts 0.33 EPA/dropback against blitz versus 0.18 without, with 23 blitz dropbacks. Pressure, sack and check-down rates are missing, so blitz frequency alone does not establish a quick-throw edge.",
+  "bleeds": "Pack: DET allows 5.12 rushing yards per carry and 10 runs of at least 10 yards, supporting a Hall rushing hypothesis. NYJ allows 4.09 yards per carry, four runs of at least 10 yards and only one 20-plus-yard pass on 67 attempts, supporting caution on Detroit explosive receiving production.",
+  "overlap": "Hall's 38 carries establish the largest NYJ rushing workload in the two-game sample, directly overlapping DET's rushing weakness. Williams has 177 air yards on 13 targets, making NYJ's suppression of explosive completions relevant to his receiving-yardage under; individual route and coverage alignment remains unverified."
+ },
+ "form": "Only two games are supplied, not the requested three or four. Pack Weeks 1\u20132: Hall has 38 carries for 131 yards plus seven targets for 79 receiving yards; Braelon Allen has 15 carries for 47 yards. Hall's rushing workload supports opportunity, but his 3.45 yards per carry tempers the efficiency read. Williams has 13 targets, 78 receiving yards and 177 air yards, while Amon-Ra St. Brown has 27 targets and Sam LaPorta 15. Williams has downfield opportunity but is not Detroit's target leader. Game-by-game splits, snaps, routes, red-zone usage, role changes and comparable-opponent results are missing.",
+ "edge_players": [
+  {
+   "player": "breecehall",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Hall can exceed 60 rushing yards because NYJ's established lead rushing workload meets a Detroit defense allowing 5.12 yards per carry and repeated chunk runs.",
+   "must_be_true": "B.Hall carries >= 18 [because the pack records 38 carries across Weeks 1\u20132]",
+   "kills_it": "IF Detroit builds an early multi-score lead and NYJ abandons sustained rushing THEN Hall rushyds over 60 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jamesonwilliams",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Williams can stay below 54 receiving yards because NYJ has suppressed explosive completions and Detroit's largest target allocations belong to St. Brown and LaPorta.",
+   "must_be_true": "J.Williams targets <= 7 [because the pack records 13 targets across Weeks 1\u20132, behind St. Brown's 27 and LaPorta's 15]",
+   "kills_it": "IF Williams converts his downfield opportunities into more than 54 receiving yards THEN Williams recyds under 54 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written matchup hypotheses precede this numerical check. Hall's two-game carry rate is 19 per game; reaching 60 yards at that workload requires 3.16 yards per carry, below his observed 3.45 and DET's allowed 5.12. Williams has 78 receiving yards across two games, while NYJ has allowed one explosive completion on 67 attempts. These are descriptive checks, not projections or simulations, and the two-game sample warrants lean confidence only. Both hypotheses survive a competitive base script; Hall also benefits from an NYJ lead, while Williams' under can survive a Detroit lead with reduced passing volume.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation distributions and medians, Pinnacle two-sided prices, no-vig probabilities, usable prices for the selected props, game-by-game role data, injury reports, coverage charting and weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional research leans only: breecehall rushyds over 60, price MISSING (+nan); jamesonwilliams recyds under 54, price MISSING (+nan). Use the listed main lines, not unpriced alternate rungs. Whole-number equality is a push under standard rules, subject to book confirmation. No fair-price comparison, expected-value claim or stake sizing is possible.",
+ "pre_mortem": "Hall: It is Monday and the over lost because NYJ fell behind, Allen absorbed more work, or Hall's modest observed 3.45 yards per carry persisted on fewer carries. Detroit's poor two-game rushing results may not represent its underlying defense; missing line-health information could invalidate the matchup. Williams: The under lost because his 177 air yards represented unrealized opportunity rather than a sustainable ceiling. One deep completion or increased passing volume while Detroit trails could overwhelm NYJ's tiny two-game explosive-prevention sample. Neither lean is strong enough to ignore these counter-cases or missing prices.",
+ "slip_story": "Conditional two-leg story: NYJ remains competitive through Hall's rushing volume, while Detroit advances primarily through Gibbs, St. Brown and LaPorta rather than Williams explosives. Do not force this into a three- or four-leg slip: only two edges are identified, both prices are missing, and a Detroit passing comeback threatens the Williams leg. No slip is approved or placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

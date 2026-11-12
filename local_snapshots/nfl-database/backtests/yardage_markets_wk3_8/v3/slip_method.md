@@ -1,0 +1,5 @@
+# Frozen v2 slip method
+
+Apply locked rules; missing price or required features abstains. One leg per normalized player per week: highest directional model edge, then highest American price, then ascending candidate ID. Sort by week ascending, edge descending, price descending, ID ascending. Scan the remaining weekly pool, taking up to four legs, at most two per game. Emit three legs if only three eligible remain; fewer than three stay unused. Remove emitted legs; players are never reused across slips in a week. Singles and slips are separate portfolios. v3 has one train-fitted ruleset; v2 optional edgecap and hindsight Sharp variants are excluded.
+
+$10 per single/slip. Decimal odds = 1 + American/100 if positive, otherwise 1 + 100/abs(American). Multiply odds for slip payout; profit = $10 × (product − 1). Any loss loses the stake; push legs contribute odds 1, all pushes refund. Any ungraded leg leaves the slip pending with zero accounted stake. Hit excludes pushes/pending; ROI = P/L divided by settled stake, including refunded pushes. Correlation, book SGP repricing and participation voids are unavailable, so payouts are estimates.

@@ -1,0 +1,2013 @@
+{
+  "season": 2026,
+  "week": 8,
+  "game_id": "401873030",
+  "game": "MIN@DET",
+  "kickoff_et": "2026-11-01 01:00 PM",
+  "game_date": "2026-11-01",
+  "venue": null,
+  "input_cutoff_et": "2026-11-01T07:30",
+  "skill": "/home/box/agent-data/workflows/nfl-game-script-run/SKILL.md",
+  "seed": 20261101,
+  "trials": 100000,
+  "sim_script": "/workspace/nfl-database/tools/sim_v6.py (08:36 re-score; v5 kept in sims_v5)",
+  "approved_exceptions": [
+    {
+      "input": "coverage.defenders",
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "approved_by": "Rico",
+      "approved_on": "2026-11-01",
+      "valid_for_date": "2026-11-01",
+      "scope": "receiving legs",
+      "reason": "misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only"
+    }
+  ],
+  "sources": [
+    {
+      "category": "core_stats_pbp",
+      "name": "nflverse play_by_play_2026 (thru 2026-10-29)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "tool": "curl (github nflverse release)",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "nflverse snap_counts_2026 + players",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/snap_counts_2026.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "ESPN depth charts API (24 teams)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/espn_depth_all.json",
+      "tool": "python urllib",
+      "pulled_et": "2026-11-01T07:14"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "ESPN box scores wk1-8 (two-source target check)",
+      "url_or_file": "/workspace/nfl-database/week8/phase_walk/src/espn_box.json",
+      "tool": "earlier urllib pull (Oct 31)",
+      "pulled_et": "2026-10-31T19:19"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "FTN charting via nflverse (blitzers, rushers)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "Sharp Football coverage schemes (man/zone, MOF; data Updated Oct 27)",
+      "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+      "tool": "Firecrawl scrape",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "ESPN WR/CB matchup cheatsheet wk8",
+      "url_or_file": "https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_WRCB.pdf",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:12"
+    },
+    {
+      "category": "ngs",
+      "name": "BACKUP nflverse nextgen_stats release (published copy, data through 2026 Wk8 / 2026-10-29; nextgenstats.nfl.com on hold) - accepted by Ghost6 for 2026-11-01 only",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "film",
+      "name": "Official NFL YouTube highlights (oEmbed-checked) + caption plays re-matched to fresh pbp",
+      "url_or_file": "https://www.youtube.com/@NFL",
+      "tool": "python urllib oEmbed",
+      "pulled_et": "2026-11-01T07:26"
+    },
+    {
+      "category": "injuries_news",
+      "name": "ESPN injuries API",
+      "url_or_file": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "weather",
+      "name": "NWS hourly + Open-Meteo",
+      "url_or_file": "https://api.weather.gov ; https://api.open-meteo.com",
+      "tool": "python urllib",
+      "pulled_et": "2026-11-01T07:10"
+    },
+    {
+      "category": "odds_props",
+      "name": "The Odds API re-pull 08:36: FanDuel main+alt, DraftKings, Pinnacle player props (12 events)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+      "pulled_et": "2026-11-01T08:36",
+      "tool": "The Odds API via pull_odds.py (urllib)"
+    },
+    {
+      "category": "odds_props",
+      "name": "The Odds API re-pull 08:36: FanDuel/DK/Pinnacle spreads+totals (28 games)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_r0835.json",
+      "pulled_et": "2026-11-01T08:36",
+      "tool": "The Odds API via pull_lines.py (urllib)"
+    }
+  ],
+  "flagged_gaps": [
+    {
+      "category": "coverage_matchups",
+      "item": "PFR advanced defense live pull",
+      "status": "MISSING (HTTP 403, not routed around)",
+      "backup": "PFR cache pfr_def_adv_2026.html 2026-10-29 06:02 under Rico exception"
+    },
+    {
+      "category": "coverage_matchups",
+      "item": "Sharp pressure page / SumerSports",
+      "status": "ON HOLD (Ghost6)",
+      "backup": "pressure PROXY (sack|hit|scramble)/dropbacks from nflverse pbp"
+    },
+    {
+      "category": "ngs",
+      "item": "nextgenstats.nfl.com public pages",
+      "status": "ON HOLD (Ghost6)",
+      "backup": "nflverse nextgen_stats release parquet (labelled BACKUP)"
+    },
+    {
+      "category": "coverage_matchups",
+      "item": "PFF per-defender/props",
+      "status": "NOT PULLED (logged-out preview only; needs signed-in box browser, read-only)",
+      "backup": "none used as numbers"
+    },
+    {
+      "category": "core_stats_pbp",
+      "item": "nflverse pbp_participation_2026",
+      "status": "MISSING (HTTP 404 not published; corrupt 9-byte file kept out)",
+      "backup": "ESPN WR/CB cheatsheet alignment + ESPN depth"
+    }
+  ],
+  "pressure_inputs": {
+    "blitz_rate": {
+      "value": {
+        "MIN": 0.714,
+        "DET": 0.274
+      },
+      "definition": "defense FTN n_pass_rushers>=5 / charted dropbacks, season",
+      "l4": {
+        "MIN": 0.6638655462184874,
+        "DET": 0.19680851063829788
+      },
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet + play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "FTN charting"
+    },
+    "pressure_rate": {
+      "value": {
+        "MIN": 0.286,
+        "DET": 0.215
+      },
+      "definition": "defense (sack|qb_hit|scramble)/dropbacks",
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "PROXY"
+    },
+    "checkdown_share": {
+      "value": {
+        "MIN": 0.387,
+        "DET": 0.309
+      },
+      "definition": "QB attempts with air_yards<=0 or RB target / attempts",
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "nflverse pbp"
+    }
+  },
+  "sims": [
+    {
+      "model": "monte_carlo",
+      "n": 100000,
+      "seed": 20261101,
+      "engine": "/workspace/nfl-database/tools/sim_v6.py",
+      "calib": "/workspace/nfl-database/tools/sim_v6_calib.json",
+      "run_et": "2026-11-01T08:36",
+      "legs": {
+        "Jordan Addison Receptions Under 3.5": {
+          "p": 0.68386,
+          "median": 3.0
+        }
+      }
+    },
+    {
+      "model": "bias",
+      "n": 100000,
+      "seed": 20261101,
+      "engine": "/workspace/nfl-database/tools/sim_v6.py",
+      "calib": "/workspace/nfl-database/tools/sim_v6_calib.json",
+      "run_et": "2026-11-01T08:36",
+      "legs": {
+        "Jordan Addison Receptions Under 3.5": {
+          "p": 0.68086,
+          "median": 3.0
+        }
+      }
+    },
+    {
+      "model": "game_randomness",
+      "n": 100000,
+      "seed": 20261101,
+      "engine": "/workspace/nfl-database/tools/sim_v6.py",
+      "calib": "/workspace/nfl-database/tools/sim_v6_calib.json",
+      "run_et": "2026-11-01T08:36",
+      "legs": {
+        "Jordan Addison Receptions Under 3.5": {
+          "p": 0.66115,
+          "median": 3.0
+        }
+      }
+    }
+  ],
+  "legs": [
+    {
+      "name": "Kyler Murray Pass Yds Under 224.5",
+      "player": "Kyler Murray",
+      "team": "MIN",
+      "opp": "DET",
+      "type": "QB",
+      "market": "passyds",
+      "receiving": false,
+      "side": "under",
+      "line": 224.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 224.5,
+        "over": -118,
+        "under": -106,
+        "nv_over": 0.5126539564703898,
+        "nv_under": 0.4873460435296103,
+        "overround": 1.0558475104658411
+      },
+      "draftkings": {
+        "point": 225.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "prizepicks_lines": [
+        224.5
+      ],
+      "underdog_lines": [
+        224.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P3 FAIL: under vs top-8 pass yds allowed (rank 1)",
+        "P14 UNVERIFIED: MODEL-SUSPECT: MC median 176.4 vs FD main 224.5 / book consensus 224.8 (>=12 yds) -> Debugging"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "D.J. Reed",
+            "team": "DET",
+            "pos": "CB",
+            "targets": 23.0,
+            "completions": 15.0,
+            "comp_pct": 65.2,
+            "yds": 287.0,
+            "ypt": 12.5,
+            "rating": 137.4,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          },
+          {
+            "name": "Roger McCreary",
+            "team": "DET",
+            "pos": "CB",
+            "targets": 15.0,
+            "completions": 11.0,
+            "comp_pct": 73.3,
+            "yds": 164.0,
+            "ypt": 10.9,
+            "rating": 131.0,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 18.2% / zone 76.4%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 47.6% / open 49.0%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.6819,
+      "edge_mc_gr": 0.1819,
+      "shrunk_mc_gr": 0.1273,
+      "recent_form": {
+        "values": [
+          168.0,
+          247.0,
+          229.0,
+          150.0
+        ],
+        "games": [
+          "2026_03_MIN_TB",
+          "2026_04_MIA_MIN",
+          "2026_05_MIN_NO",
+          "2026_07_IND_MIN"
+        ],
+        "qb": "Kyler Murray",
+        "qb_gsis": "00-0035228",
+        "player_gsis": "00-0035228",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Jordan Mason Rush Yds Over 49.5",
+      "player": "Jordan Mason",
+      "team": "MIN",
+      "opp": "DET",
+      "type": "RB",
+      "market": "rushyds",
+      "receiving": false,
+      "side": "over",
+      "line": 49.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 49.5,
+        "over": -103,
+        "under": -122,
+        "nv_over": 0.48005542492442055,
+        "nv_under": 0.5199445750755795,
+        "overround": 1.056938712111126
+      },
+      "draftkings": {
+        "point": 49.5,
+        "over": -109,
+        "under": -115,
+        "nv_over": 0.4936802190857384,
+        "nv_under": 0.5063197809142617,
+        "overround": 1.0564148214087012
+      },
+      "prizepicks_lines": [
+        49.5
+      ],
+      "underdog_lines": [
+        49.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P1 FAIL: 2 games; last3 09-13 0t/0r/0y/15c/59ry, 10-25 2t/0r/0y/15c/68ry",
+        "P2 FAIL: not primary back or proj < line",
+        "P7 FAIL: rush over needs 60%+ carry share in 3 of last 4; rush-only over on possible trailer needs 4+ tgt/g",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)"
+      ],
+      "avg_p_mc_gr": 0.645,
+      "edge_mc_gr": 0.145,
+      "shrunk_mc_gr": 0.1015,
+      "recent_form": {
+        "values": [
+          68.0
+        ],
+        "games": [
+          "2026_07_IND_MIN"
+        ],
+        "qb": "Kyler Murray",
+        "qb_gsis": "00-0035228",
+        "player_gsis": "00-0037525",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Aaron Jones Rush Yds Over 29.5",
+      "player": "Aaron Jones",
+      "team": "MIN",
+      "opp": "DET",
+      "type": "RB",
+      "market": "rushyds",
+      "receiving": false,
+      "side": "over",
+      "line": 29.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 29.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "draftkings": {
+        "point": 29.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        29.5
+      ],
+      "underdog_lines": [
+        29.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P7 FAIL: rush-only over on possible trailer needs 4+ tgt/g",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+        "P14 UNVERIFIED: MODEL-SUSPECT: MC median 68.0 vs FD main 29.5 / book consensus 29.5 (>=12 yds) -> Debugging"
+      ],
+      "avg_p_mc_gr": 0.9026,
+      "edge_mc_gr": 0.4026,
+      "shrunk_mc_gr": 0.2818,
+      "recent_form": {
+        "values": [
+          58.0,
+          94.0,
+          113.0,
+          26.0
+        ],
+        "games": [
+          "2026_03_MIN_TB",
+          "2026_04_MIA_MIN",
+          "2026_05_MIN_NO",
+          "2026_07_IND_MIN"
+        ],
+        "qb": "Kyler Murray",
+        "qb_gsis": "00-0035228",
+        "player_gsis": "00-0033293",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Aaron Jones Rush+Rec Yds Over 43.5",
+      "player": "Aaron Jones",
+      "team": "MIN",
+      "opp": "DET",
+      "type": "RB",
+      "market": "rushrec",
+      "receiving": true,
+      "side": "over",
+      "line": 43.5,
+      "price_fd": -111,
+      "no_vig": 0.4958,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": null,
+      "draftkings": {
+        "point": 42.5,
+        "over": -116,
+        "under": -110,
+        "nv_over": 0.5062344139650873,
+        "nv_under": 0.4937655860349127,
+        "overround": 1.060846560846561
+      },
+      "prizepicks_lines": [
+        42.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 18.2% / zone 76.4%, MOF closed 47.6% / open 49.0%; awaiting ruling",
+        "P5 UNVERIFIED: Panthers rule CAUTION: user decides",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+        "P14 UNVERIFIED: MODEL-SUSPECT: MC median 81.8 vs FD main 43.5 / book consensus 43.0 (>=12 yds) -> Debugging"
+      ],
+      "avg_p_mc_gr": 0.8692,
+      "edge_mc_gr": 0.3734,
+      "shrunk_mc_gr": 0.2626,
+      "recent_form": {
+        "values": [
+          92.0,
+          128.0,
+          117.0,
+          26.0
+        ],
+        "games": [
+          "2026_03_MIN_TB",
+          "2026_04_MIA_MIN",
+          "2026_05_MIN_NO",
+          "2026_07_IND_MIN"
+        ],
+        "qb": "Kyler Murray",
+        "qb_gsis": "00-0035228",
+        "player_gsis": "00-0033293",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Justin Jefferson Rec Yds Under 75.5",
+      "player": "Justin Jefferson",
+      "team": "MIN",
+      "opp": "DET",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "under",
+      "line": 75.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 75.5,
+        "over": -115,
+        "under": -109,
+        "nv_over": 0.5063197809142617,
+        "nv_under": 0.4936802190857384,
+        "overround": 1.0564148214087012
+      },
+      "draftkings": {
+        "point": 75.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        76.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 MISSING: defender not in PFR cache",
+        "P14 UNVERIFIED: MODEL-SUSPECT: MC median 51.9 vs FD main 75.5 / book consensus 75.5 (>=12 yds) -> Debugging"
+      ],
+      "avg_p_mc_gr": 0.7316,
+      "edge_mc_gr": 0.2316,
+      "shrunk_mc_gr": 0.1621,
+      "recent_form": {
+        "values": [
+          32.0,
+          79.0,
+          44.0
+        ],
+        "games": [
+          "2026_03_MIN_TB",
+          "2026_05_MIN_NO",
+          "2026_07_IND_MIN"
+        ],
+        "qb": "Kyler Murray",
+        "qb_gsis": "00-0035228",
+        "player_gsis": "00-0036322",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Justin Jefferson Receptions Under 5.5",
+      "player": "Justin Jefferson",
+      "team": "MIN",
+      "opp": "DET",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 5.5,
+      "price_fd": 118,
+      "no_vig": 0.4283,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 5.5,
+        "over": -135,
+        "under": 108,
+        "nv_over": 0.5443970531213649,
+        "nv_under": 0.4556029468786351,
+        "overround": 1.0552373158756139
+      },
+      "draftkings": {
+        "point": 6.5,
+        "over": 108,
+        "under": -138,
+        "nv_over": 0.45329879628218805,
+        "nv_under": 0.5467012037178121,
+        "overround": 1.06060116354234
+      },
+      "prizepicks_lines": [
+        6.0
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 MISSING: defender not in PFR cache",
+        "P14 UNVERIFIED: MODEL-SUSPECT: edge +30.0 pts > +15 implausible vs market (FD 5.5, consensus 5.8; possible role change the history-based sim cannot see) -> Debugging"
+      ],
+      "avg_p_mc_gr": 0.7008,
+      "edge_mc_gr": 0.2725,
+      "shrunk_mc_gr": 0.2123,
+      "recent_form": {
+        "values": [
+          2.0,
+          6.0,
+          4.0
+        ],
+        "games": [
+          "2026_03_MIN_TB",
+          "2026_05_MIN_NO",
+          "2026_07_IND_MIN"
+        ],
+        "qb": "Kyler Murray",
+        "qb_gsis": "00-0035228",
+        "player_gsis": "00-0036322",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Jordan Addison Rec Yds Over 37.5",
+      "player": "Jordan Addison",
+      "team": "MIN",
+      "opp": "DET",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "over",
+      "line": 37.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 38.5,
+        "over": -116,
+        "under": -108,
+        "nv_over": 0.5084288604180714,
+        "nv_under": 0.4915711395819285,
+        "overround": 1.0562678062678064
+      },
+      "draftkings": {
+        "point": 37.5,
+        "over": -115,
+        "under": -109,
+        "nv_over": 0.5063197809142617,
+        "nv_under": 0.4936802190857384,
+        "overround": 1.0564148214087012
+      },
+      "prizepicks_lines": [
+        37.5
+      ],
+      "underdog_lines": [
+        39.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": {
+        "line": 37.5,
+        "note": "BetGuru defender-regrade leg (run_additions item 1)"
+      },
+      "cut_reasons": [
+        "P2 FAIL: not top-2 target earner (#4); not 4+ tgt in each of last 3",
+        "P5 UNVERIFIED: Panthers rule CAUTION: user decides",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+        "P14 FAIL: edge -9.3 < +3; shrunk edge -6.5 not > 0; model p 0.353 < .45; a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "D.J. Reed",
+            "team": "DET",
+            "pos": "CB",
+            "targets": 23.0,
+            "completions": 15.0,
+            "comp_pct": 65.2,
+            "yds": 287.0,
+            "ypt": 12.5,
+            "rating": 137.4,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 18.2% / zone 76.4%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 47.6% / open 49.0%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.4346,
+      "edge_mc_gr": -0.0654,
+      "shrunk_mc_gr": -0.0458,
+      "recent_form": {
+        "values": [
+          90.0,
+          52.0,
+          20.0
+        ],
+        "games": [
+          "2026_03_MIN_TB",
+          "2026_04_MIA_MIN",
+          "2026_07_IND_MIN"
+        ],
+        "qb": "Kyler Murray",
+        "qb_gsis": "00-0035228",
+        "player_gsis": "00-0038994",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Jordan Addison Receptions Under 3.5",
+      "player": "Jordan Addison",
+      "team": "MIN",
+      "opp": "DET",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 3.5,
+      "price_fd": -160,
+      "no_vig": 0.5752,
+      "status": "PASS",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 3.5,
+        "over": 129,
+        "under": -157,
+        "nv_over": 0.4168491395390329,
+        "nv_under": 0.583150860460967,
+        "pulled_et": "2026-11-01T08:36"
+      },
+      "draftkings": {
+        "point": 3.5,
+        "over": 120,
+        "under": -153,
+        "nv_over": 0.4291044776119403,
+        "nv_under": 0.5708955223880597,
+        "overround": 1.059288537549407
+      },
+      "prizepicks_lines": [],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "D.J. Reed",
+            "team": "DET",
+            "pos": "CB",
+            "targets": 23.0,
+            "completions": 15.0,
+            "comp_pct": 65.2,
+            "yds": 287.0,
+            "ypt": 12.5,
+            "rating": 137.4,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 18.2% / zone 76.4%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 47.6% / open 49.0%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.6688,
+      "edge_mc_gr": 0.0936,
+      "shrunk_mc_gr": 0.043,
+      "reprice_0836": {
+        "price": -160,
+        "no_vig": 0.5752,
+        "src": "FD main",
+        "v6_avg_p": 0.6753,
+        "v6_edge": 0.1001,
+        "v6_shrunk": 0.0475,
+        "file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+        "pulled_et": "2026-11-01T08:36"
+      },
+      "recent_form": {
+        "values": [
+          5.0,
+          4.0,
+          2.0
+        ],
+        "games": [
+          "2026_03_MIN_TB",
+          "2026_04_MIA_MIN",
+          "2026_07_IND_MIN"
+        ],
+        "qb": "Kyler Murray",
+        "qb_gsis": "00-0035228",
+        "player_gsis": "00-0038994",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "T.J. Hockenson Rec Yds Under 40.5",
+      "player": "T.J. Hockenson",
+      "team": "MIN",
+      "opp": "DET",
+      "type": "TE",
+      "market": "recyds",
+      "receiving": true,
+      "side": "under",
+      "line": 40.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 39.5,
+        "over": -134,
+        "under": 107,
+        "nv_over": 0.5424146427314326,
+        "nv_under": 0.4575853572685674,
+        "overround": 1.055741360089186
+      },
+      "draftkings": {
+        "point": 42.5,
+        "over": -110,
+        "under": -114,
+        "nv_over": 0.495787700084246,
+        "nv_under": 0.5042122999157539,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        42.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P3 FAIL: under vs soft TE D (YPT>=8.0)",
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 18.2% / zone 76.4%, MOF closed 47.6% / open 49.0%; no stand-in allowed"
+      ],
+      "avg_p_mc_gr": 0.509,
+      "edge_mc_gr": 0.009,
+      "shrunk_mc_gr": 0.0063,
+      "recent_form": {
+        "values": [
+          11.0,
+          119.0,
+          7.0,
+          35.0
+        ],
+        "games": [
+          "2026_03_MIN_TB",
+          "2026_04_MIA_MIN",
+          "2026_05_MIN_NO",
+          "2026_07_IND_MIN"
+        ],
+        "qb": "Kyler Murray",
+        "qb_gsis": "00-0035228",
+        "player_gsis": "00-0035229",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "T.J. Hockenson Receptions Under 4.5",
+      "player": "T.J. Hockenson",
+      "team": "MIN",
+      "opp": "DET",
+      "type": "TE",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 4.5,
+      "price_fd": -112,
+      "no_vig": 0.4939,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 4.5,
+        "over": -108,
+        "under": -116,
+        "nv_over": 0.4915711395819285,
+        "nv_under": 0.5084288604180714,
+        "overround": 1.0562678062678064
+      },
+      "draftkings": {
+        "point": 4.5,
+        "over": -106,
+        "under": -120,
+        "nv_over": 0.48542880932556204,
+        "nv_under": 0.5145711906744379,
+        "overround": 1.060017652250662
+      },
+      "prizepicks_lines": [
+        4.5
+      ],
+      "underdog_lines": [
+        4.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P3 FAIL: under vs soft TE D (YPT>=8.0)",
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 18.2% / zone 76.4%, MOF closed 47.6% / open 49.0%; no stand-in allowed"
+      ],
+      "avg_p_mc_gr": 0.5341,
+      "edge_mc_gr": 0.0402,
+      "shrunk_mc_gr": 0.0299,
+      "recent_form": {
+        "values": [
+          2.0,
+          13.0,
+          1.0,
+          4.0
+        ],
+        "games": [
+          "2026_03_MIN_TB",
+          "2026_04_MIA_MIN",
+          "2026_05_MIN_NO",
+          "2026_07_IND_MIN"
+        ],
+        "qb": "Kyler Murray",
+        "qb_gsis": "00-0035228",
+        "player_gsis": "00-0035229",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Jared Goff Pass Yds Under 259.5",
+      "player": "Jared Goff",
+      "team": "DET",
+      "opp": "MIN",
+      "type": "QB",
+      "market": "passyds",
+      "receiving": false,
+      "side": "under",
+      "line": 259.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 259.5,
+        "over": -102,
+        "under": -123,
+        "nv_over": 0.47793746848209784,
+        "nv_under": 0.5220625315179022,
+        "overround": 1.0565200017759624
+      },
+      "draftkings": {
+        "point": 260.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "prizepicks_lines": [
+        260.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Isaiah Rodgers",
+            "team": "MIN",
+            "pos": "CB",
+            "targets": 19.0,
+            "completions": 7.0,
+            "comp_pct": 36.8,
+            "yds": 115.0,
+            "ypt": 6.1,
+            "rating": 36.1,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          },
+          {
+            "name": "James Pierre",
+            "team": "MIN",
+            "pos": "CB",
+            "targets": 12.0,
+            "completions": 5.0,
+            "comp_pct": 41.7,
+            "yds": 50.0,
+            "ypt": 4.2,
+            "rating": 19.4,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 5.3% / zone 86.5%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 31.6% / open 61.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.4765,
+      "edge_mc_gr": -0.0235,
+      "shrunk_mc_gr": -0.0165,
+      "recent_form": {
+        "values": [
+          269.0,
+          412.0,
+          271.0,
+          303.0
+        ],
+        "games": [
+          "2026_03_NYJ_DET",
+          "2026_04_DET_CAR",
+          "2026_05_DET_ARI",
+          "2026_07_GB_DET"
+        ],
+        "qb": "Jared Goff",
+        "qb_gsis": "00-0033106",
+        "player_gsis": "00-0033106",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Jahmyr Gibbs Rush Yds Over 87.5",
+      "player": "Jahmyr Gibbs",
+      "team": "DET",
+      "opp": "MIN",
+      "type": "RB",
+      "market": "rushyds",
+      "receiving": false,
+      "side": "over",
+      "line": 87.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 87.5,
+        "over": -111,
+        "under": -113,
+        "nv_over": 0.4978941161605526,
+        "nv_under": 0.5021058838394474,
+        "overround": 1.056582782635783
+      },
+      "draftkings": {
+        "point": 88.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        86.5
+      ],
+      "underdog_lines": [
+        89.5
+      ],
+      "bar": null,
+      "stack_flag": "placed ticket on a different stat: Ticket 2 Gibbs 5+ rec",
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: a model median does not clear the line"
+      ],
+      "avg_p_mc_gr": 0.58,
+      "edge_mc_gr": 0.08,
+      "shrunk_mc_gr": 0.056,
+      "recent_form": {
+        "values": [
+          99.0,
+          46.0,
+          151.0,
+          116.0
+        ],
+        "games": [
+          "2026_03_NYJ_DET",
+          "2026_04_DET_CAR",
+          "2026_05_DET_ARI",
+          "2026_07_GB_DET"
+        ],
+        "qb": "Jared Goff",
+        "qb_gsis": "00-0033106",
+        "player_gsis": "00-0039139",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Jahmyr Gibbs Rush+Rec Yds Over 121.5",
+      "player": "Jahmyr Gibbs",
+      "team": "DET",
+      "opp": "MIN",
+      "type": "RB",
+      "market": "rushrec",
+      "receiving": true,
+      "side": "over",
+      "line": 121.5,
+      "price_fd": -111,
+      "no_vig": 0.4958,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": null,
+      "draftkings": {
+        "point": 121.5,
+        "over": -113,
+        "under": -113,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0610328638497653
+      },
+      "prizepicks_lines": [
+        121.5
+      ],
+      "underdog_lines": [
+        119.5
+      ],
+      "bar": null,
+      "stack_flag": "placed ticket on a different stat: Ticket 2 Gibbs 5+ rec",
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 5.3% / zone 86.5%, MOF closed 31.6% / open 61.2%; awaiting ruling",
+        "P5 FAIL: top-10 blitz D and player blitzed share drops >4 pts",
+        "P14 FAIL: edge +2.5 < +3; model p 0.414 < .45; a model median does not clear the line"
+      ],
+      "avg_p_mc_gr": 0.5738,
+      "edge_mc_gr": 0.078,
+      "shrunk_mc_gr": 0.0559,
+      "recent_form": {
+        "values": [
+          164.0,
+          68.0,
+          207.0,
+          143.0
+        ],
+        "games": [
+          "2026_03_NYJ_DET",
+          "2026_04_DET_CAR",
+          "2026_05_DET_ARI",
+          "2026_07_GB_DET"
+        ],
+        "qb": "Jared Goff",
+        "qb_gsis": "00-0033106",
+        "player_gsis": "00-0039139",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Amon-Ra St. Brown Rec Yds Under 77.5",
+      "player": "Amon-Ra St. Brown",
+      "team": "DET",
+      "opp": "MIN",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "under",
+      "line": 77.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 77.5,
+        "over": -120,
+        "under": -105,
+        "nv_over": 0.5157232704402516,
+        "nv_under": 0.48427672955974843,
+        "overround": 1.057649667405765
+      },
+      "draftkings": {
+        "point": 79.5,
+        "over": -110,
+        "under": -114,
+        "nv_over": 0.495787700084246,
+        "nv_under": 0.5042122999157539,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        77.5
+      ],
+      "underdog_lines": [
+        79.5
+      ],
+      "bar": "UD20 o49.5; Ticket 2 60+",
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+        "P14 FAIL: placed-ticket bar: UD20 o49.5; Ticket 2 60+; edge +0.7 < +3; a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Byron Murphy",
+            "team": "MIN",
+            "pos": "CB",
+            "targets": 26.0,
+            "completions": 18.0,
+            "comp_pct": 69.2,
+            "yds": 231.0,
+            "ypt": 8.9,
+            "rating": 57.2,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 5.3% / zone 86.5%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 31.6% / open 61.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.4672,
+      "edge_mc_gr": -0.0328,
+      "shrunk_mc_gr": -0.023,
+      "recent_form": {
+        "values": [
+          19.0,
+          75.0,
+          69.0,
+          153.0
+        ],
+        "games": [
+          "2026_03_NYJ_DET",
+          "2026_04_DET_CAR",
+          "2026_05_DET_ARI",
+          "2026_07_GB_DET"
+        ],
+        "qb": "Jared Goff",
+        "qb_gsis": "00-0033106",
+        "player_gsis": "00-0036963",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Amon-Ra St. Brown Receptions Under 6.5",
+      "player": "Amon-Ra St. Brown",
+      "team": "DET",
+      "opp": "MIN",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 6.5,
+      "price_fd": 116,
+      "no_vig": 0.433,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 6.5,
+        "over": -161,
+        "under": 128,
+        "nv_over": 0.5844478410393581,
+        "nv_under": 0.41555215896064196,
+        "overround": 1.0554547287759628
+      },
+      "draftkings": {
+        "point": 7.5,
+        "over": 105,
+        "under": -133,
+        "nv_over": 0.4607930386631069,
+        "nv_under": 0.539206961336893,
+        "overround": 1.0586203286925573
+      },
+      "prizepicks_lines": [
+        7.0
+      ],
+      "underdog_lines": [],
+      "bar": "PP40 o5.5; PP25 o7",
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+        "P14 FAIL: placed-ticket bar: PP40 o5.5; PP25 o7; edge +2.8 < +3; model p 0.410 < .45; a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Byron Murphy",
+            "team": "MIN",
+            "pos": "CB",
+            "targets": 26.0,
+            "completions": 18.0,
+            "comp_pct": 69.2,
+            "yds": 231.0,
+            "ypt": 8.9,
+            "rating": 57.2,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 5.3% / zone 86.5%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 31.6% / open 61.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.427,
+      "edge_mc_gr": -0.006,
+      "shrunk_mc_gr": 0.0159,
+      "recent_form": {
+        "values": [
+          4.0,
+          8.0,
+          6.0,
+          9.0
+        ],
+        "games": [
+          "2026_03_NYJ_DET",
+          "2026_04_DET_CAR",
+          "2026_05_DET_ARI",
+          "2026_07_GB_DET"
+        ],
+        "qb": "Jared Goff",
+        "qb_gsis": "00-0033106",
+        "player_gsis": "00-0036963",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Jameson Williams Rec Yds Under 51.5",
+      "player": "Jameson Williams",
+      "team": "DET",
+      "opp": "MIN",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "under",
+      "line": 51.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 51.5,
+        "over": -113,
+        "under": -111,
+        "nv_over": 0.5021058838394474,
+        "nv_under": 0.4978941161605526,
+        "overround": 1.056582782635783
+      },
+      "draftkings": {
+        "point": 52.5,
+        "over": -110,
+        "under": -114,
+        "nv_over": 0.495787700084246,
+        "nv_under": 0.5042122999157539,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        51.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: rejected by Ghost6 vet (primary WR under; MC+GR edge thin +4.1/+2.9) (2026-11-01 07:36 ET)"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Isaiah Rodgers",
+            "team": "MIN",
+            "pos": "CB",
+            "targets": 19.0,
+            "completions": 7.0,
+            "comp_pct": 36.8,
+            "yds": 115.0,
+            "ypt": 6.1,
+            "rating": 36.1,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 5.3% / zone 86.5%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 31.6% / open 61.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.541,
+      "edge_mc_gr": 0.041,
+      "shrunk_mc_gr": 0.0287,
+      "recent_form": {
+        "values": [
+          49.0,
+          102.0,
+          47.0,
+          91.0
+        ],
+        "games": [
+          "2026_03_NYJ_DET",
+          "2026_04_DET_CAR",
+          "2026_05_DET_ARI",
+          "2026_07_GB_DET"
+        ],
+        "qb": "Jared Goff",
+        "qb_gsis": "00-0033106",
+        "player_gsis": "00-0037240",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Jameson Williams Receptions Over 3.5",
+      "player": "Jameson Williams",
+      "team": "DET",
+      "opp": "MIN",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "over",
+      "line": 3.5,
+      "price_fd": 102,
+      "no_vig": 0.4621,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 3.5,
+        "over": 106,
+        "under": -134,
+        "nv_over": 0.4587875460748177,
+        "nv_under": 0.5412124539251824,
+        "overround": 1.0580864658534561
+      },
+      "draftkings": {
+        "point": 3.5,
+        "over": -101,
+        "under": -126,
+        "nv_over": 0.47404053829539794,
+        "nv_under": 0.5259594617046021,
+        "overround": 1.06000968608286
+      },
+      "prizepicks_lines": [],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: 5+ tgt in <3 of last 4; same-role teammate >=28%: [('Amon-Ra St. Brown', 0.30493273542600896)]",
+        "P4 FAIL: rec over vs 36.8% cmp allowed, volume margin +14% < 20%",
+        "P5 FAIL: top-10 blitz D and player blitzed share drops >4 pts",
+        "P14 FAIL: edge +2.4 < +3; model p 0.442 < .45; a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Isaiah Rodgers",
+            "team": "MIN",
+            "pos": "CB",
+            "targets": 19.0,
+            "completions": 7.0,
+            "comp_pct": 36.8,
+            "yds": 115.0,
+            "ypt": 6.1,
+            "rating": 36.1,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 5.3% / zone 86.5%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 31.6% / open 61.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.508,
+      "edge_mc_gr": 0.0459,
+      "shrunk_mc_gr": 0.0435,
+      "recent_form": {
+        "values": [
+          4.0,
+          6.0,
+          2.0,
+          5.0
+        ],
+        "games": [
+          "2026_03_NYJ_DET",
+          "2026_04_DET_CAR",
+          "2026_05_DET_ARI",
+          "2026_07_GB_DET"
+        ],
+        "qb": "Jared Goff",
+        "qb_gsis": "00-0033106",
+        "player_gsis": "00-0037240",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Sam LaPorta Rec Yds Under 45.5",
+      "player": "Sam LaPorta",
+      "team": "DET",
+      "opp": "MIN",
+      "type": "TE",
+      "market": "recyds",
+      "receiving": true,
+      "side": "under",
+      "line": 45.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 45.5,
+        "over": 100,
+        "under": -125,
+        "nv_over": 0.47368421052631576,
+        "nv_under": 0.5263157894736842,
+        "overround": 1.0555555555555556
+      },
+      "draftkings": {
+        "point": 43.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "prizepicks_lines": [
+        44.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 5.3% / zone 86.5%, MOF closed 31.6% / open 61.2%; no stand-in allowed"
+      ],
+      "avg_p_mc_gr": 0.5567,
+      "edge_mc_gr": 0.0567,
+      "shrunk_mc_gr": 0.0397,
+      "recent_form": {
+        "values": [
+          44.0,
+          84.0,
+          88.0,
+          18.0
+        ],
+        "games": [
+          "2026_03_NYJ_DET",
+          "2026_04_DET_CAR",
+          "2026_05_DET_ARI",
+          "2026_07_GB_DET"
+        ],
+        "qb": "Jared Goff",
+        "qb_gsis": "00-0033106",
+        "player_gsis": "00-0039065",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Sam LaPorta Receptions Under 4.5",
+      "player": "Sam LaPorta",
+      "team": "DET",
+      "opp": "MIN",
+      "type": "TE",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 4.5,
+      "price_fd": -122,
+      "no_vig": 0.5142,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 4.5,
+        "over": 110,
+        "under": -138,
+        "nv_over": 0.45092838196286467,
+        "nv_under": 0.5490716180371353,
+        "overround": 1.0560224089635855
+      },
+      "draftkings": {
+        "point": 4.5,
+        "over": 111,
+        "under": -142,
+        "nv_over": 0.44680772497322846,
+        "nv_under": 0.5531922750267716,
+        "overround": 1.0607105087932318
+      },
+      "prizepicks_lines": [
+        4.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 5.3% / zone 86.5%, MOF closed 31.6% / open 61.2%; no stand-in allowed",
+        "P14 UNVERIFIED: MODEL-SUSPECT: edge +16.2 pts > +15 implausible vs market (FD 4.5, consensus 4.5; possible role change the history-based sim cannot see) -> Debugging"
+      ],
+      "avg_p_mc_gr": 0.6562,
+      "edge_mc_gr": 0.142,
+      "shrunk_mc_gr": 0.0951,
+      "recent_form": {
+        "values": [
+          3.0,
+          8.0,
+          5.0,
+          1.0
+        ],
+        "games": [
+          "2026_03_NYJ_DET",
+          "2026_04_DET_CAR",
+          "2026_05_DET_ARI",
+          "2026_07_GB_DET"
+        ],
+        "qb": "Jared Goff",
+        "qb_gsis": "00-0033106",
+        "player_gsis": "00-0039065",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    }
+  ],
+  "edge_decision": "08:36: gate rule on avg of all 3 models (sim_v6 calibrated bias model, BUG-2026-11-01-BIAS fixed); v5 MC+GR numbers kept for comparison",
+  "sims_v5": [
+    {
+      "model": "monte_carlo",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Kyler Murray Pass Yds Under 224.5": {
+          "p": 0.6842,
+          "median": 176.45
+        },
+        "Jordan Mason Rush Yds Over 49.5": {
+          "p": 0.6502,
+          "median": 58.35
+        },
+        "Aaron Jones Rush Yds Over 29.5": {
+          "p": 0.9263,
+          "median": 68.01
+        },
+        "Aaron Jones Rush+Rec Yds Over 43.5": {
+          "p": 0.889,
+          "median": 81.8
+        },
+        "Justin Jefferson Rec Yds Under 75.5": {
+          "p": 0.7417,
+          "median": 51.85
+        },
+        "Justin Jefferson Receptions Under 5.5": {
+          "p": 0.7126,
+          "median": 4.0
+        },
+        "Jordan Addison Rec Yds Over 37.5": {
+          "p": 0.4401,
+          "median": 32.59
+        },
+        "Jordan Addison Receptions Under 3.5": {
+          "p": 0.6698,
+          "median": 3.0
+        },
+        "T.J. Hockenson Rec Yds Under 40.5": {
+          "p": 0.5089,
+          "median": 40.12
+        },
+        "T.J. Hockenson Receptions Under 4.5": {
+          "p": 0.536,
+          "median": 4.0
+        },
+        "Jared Goff Pass Yds Under 259.5": {
+          "p": 0.4741,
+          "median": 265.09
+        },
+        "Jahmyr Gibbs Rush Yds Over 87.5": {
+          "p": 0.6047,
+          "median": 96.52
+        },
+        "Jahmyr Gibbs Rush+Rec Yds Over 121.5": {
+          "p": 0.5924,
+          "median": 130.9
+        },
+        "Amon-Ra St. Brown Rec Yds Under 77.5": {
+          "p": 0.459,
+          "median": 82.08
+        },
+        "Amon-Ra St. Brown Receptions Under 6.5": {
+          "p": 0.4099,
+          "median": 7.0
+        },
+        "Jameson Williams Rec Yds Under 51.5": {
+          "p": 0.5303,
+          "median": 48.49
+        },
+        "Jameson Williams Receptions Over 3.5": {
+          "p": 0.5282,
+          "median": 4.0
+        },
+        "Sam LaPorta Rec Yds Under 45.5": {
+          "p": 0.5559,
+          "median": 39.91
+        },
+        "Sam LaPorta Receptions Under 4.5": {
+          "p": 0.6553,
+          "median": 3.0
+        }
+      }
+    },
+    {
+      "model": "bias",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Kyler Murray Pass Yds Under 224.5": {
+          "p": 0.7901,
+          "median": 148.44
+        },
+        "Jordan Mason Rush Yds Over 49.5": {
+          "p": 0.5242,
+          "median": 50.81
+        },
+        "Aaron Jones Rush Yds Over 29.5": {
+          "p": 0.8736,
+          "median": 58.99
+        },
+        "Aaron Jones Rush+Rec Yds Over 43.5": {
+          "p": 0.8135,
+          "median": 70.22
+        },
+        "Justin Jefferson Rec Yds Under 75.5": {
+          "p": 0.8252,
+          "median": 43.68
+        },
+        "Justin Jefferson Receptions Under 5.5": {
+          "p": 0.7826,
+          "median": 4.0
+        },
+        "Jordan Addison Rec Yds Over 37.5": {
+          "p": 0.353,
+          "median": 26.54
+        },
+        "Jordan Addison Receptions Under 3.5": {
+          "p": 0.7291,
+          "median": 2.0
+        },
+        "T.J. Hockenson Rec Yds Under 40.5": {
+          "p": 0.5946,
+          "median": 32.82
+        },
+        "T.J. Hockenson Receptions Under 4.5": {
+          "p": 0.6042,
+          "median": 4.0
+        },
+        "Jared Goff Pass Yds Under 259.5": {
+          "p": 0.679,
+          "median": 223.85
+        },
+        "Jahmyr Gibbs Rush Yds Over 87.5": {
+          "p": 0.461,
+          "median": 84.44
+        },
+        "Jahmyr Gibbs Rush+Rec Yds Over 121.5": {
+          "p": 0.414,
+          "median": 113.21
+        },
+        "Amon-Ra St. Brown Rec Yds Under 77.5": {
+          "p": 0.5869,
+          "median": 69.09
+        },
+        "Amon-Ra St. Brown Receptions Under 6.5": {
+          "p": 0.5294,
+          "median": 6.0
+        },
+        "Jameson Williams Rec Yds Under 51.5": {
+          "p": 0.631,
+          "median": 41.04
+        },
+        "Jameson Williams Receptions Over 3.5": {
+          "p": 0.4423,
+          "median": 3.0
+        },
+        "Sam LaPorta Rec Yds Under 45.5": {
+          "p": 0.641,
+          "median": 33.05
+        },
+        "Sam LaPorta Receptions Under 4.5": {
+          "p": 0.7167,
+          "median": 3.0
+        }
+      }
+    },
+    {
+      "model": "game_randomness",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Kyler Murray Pass Yds Under 224.5": {
+          "p": 0.6795,
+          "median": 188.14
+        },
+        "Jordan Mason Rush Yds Over 49.5": {
+          "p": 0.6398,
+          "median": 58.35
+        },
+        "Aaron Jones Rush Yds Over 29.5": {
+          "p": 0.8789,
+          "median": 68.99
+        },
+        "Aaron Jones Rush+Rec Yds Over 43.5": {
+          "p": 0.8493,
+          "median": 82.7
+        },
+        "Justin Jefferson Rec Yds Under 75.5": {
+          "p": 0.7214,
+          "median": 47.94
+        },
+        "Justin Jefferson Receptions Under 5.5": {
+          "p": 0.6891,
+          "median": 4.0
+        },
+        "Jordan Addison Rec Yds Over 37.5": {
+          "p": 0.4291,
+          "median": 30.73
+        },
+        "Jordan Addison Receptions Under 3.5": {
+          "p": 0.6678,
+          "median": 2.0
+        },
+        "T.J. Hockenson Rec Yds Under 40.5": {
+          "p": 0.509,
+          "median": 40.12
+        },
+        "T.J. Hockenson Receptions Under 4.5": {
+          "p": 0.5321,
+          "median": 4.0
+        },
+        "Jared Goff Pass Yds Under 259.5": {
+          "p": 0.4788,
+          "median": 264.11
+        },
+        "Jahmyr Gibbs Rush Yds Over 87.5": {
+          "p": 0.5554,
+          "median": 93.66
+        },
+        "Jahmyr Gibbs Rush+Rec Yds Over 121.5": {
+          "p": 0.5552,
+          "median": 127.93
+        },
+        "Amon-Ra St. Brown Rec Yds Under 77.5": {
+          "p": 0.4754,
+          "median": 80.0
+        },
+        "Amon-Ra St. Brown Receptions Under 6.5": {
+          "p": 0.4441,
+          "median": 7.0
+        },
+        "Jameson Williams Rec Yds Under 51.5": {
+          "p": 0.5516,
+          "median": 45.84
+        },
+        "Jameson Williams Receptions Over 3.5": {
+          "p": 0.4878,
+          "median": 3.0
+        },
+        "Sam LaPorta Rec Yds Under 45.5": {
+          "p": 0.5576,
+          "median": 39.91
+        },
+        "Sam LaPorta Receptions Under 4.5": {
+          "p": 0.657,
+          "median": 3.0
+        }
+      }
+    }
+  ],
+  "superseded_sources": [
+    {
+      "category": "odds_props",
+      "name": "The Odds API: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks, Underdog player props",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_final.csv",
+      "tool": "python urllib (The Odds API)",
+      "pulled_et": "2026-11-01T07:30",
+      "superseded_by": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+      "superseded_et": "2026-11-01T08:36"
+    },
+    {
+      "category": "odds_props",
+      "name": "The Odds API: FanDuel/DK/Pinnacle spreads+totals",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_final.json",
+      "tool": "python urllib (The Odds API)",
+      "pulled_et": "2026-11-01T07:30",
+      "superseded_by": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+      "superseded_et": "2026-11-01T08:36"
+    }
+  ],
+  "cross_checks": [
+    {
+      "category": "odds_props",
+      "name": "PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source)",
+      "url_or_file": "/workspace/nfl-database/week8/lines/pff_props_2026-11-01.csv",
+      "pulled_et": "2026-11-01T07:34",
+      "tool": "computerUse browser",
+      "note": "PFF pick-side cross-check only, not a price of record; captured 07:40 ET and now >1h old, so moved out of sources at 08:36 rather than re-stamped"
+    }
+  ]
+}

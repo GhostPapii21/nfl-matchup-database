@@ -1,0 +1,48 @@
+{
+ "game": "Week 6 PIT@TB / kickoff MISSING / PIT -2.5, TB +2.5 / total 38 / implied totals PIT 20.25, TB 17.75 / weather not saved; venue configuration, moneyline, rest, travel and opening-line movement MISSING",
+ "script": {
+  "base": "PIT leads narrowly in a low-scoring game, with Warren carrying the ground game and offering a short receiving outlet against TB's blitz. TB stays competitive enough to maintain its rushing attack while Otton remains involved underneath; pace data is missing.",
+  "flip1": "TB leads and PIT shifts toward passing. Warren's combined-yardage case can survive through receiving work, but his rushing opportunity becomes less secure; Otton's receiving over becomes more dependent on TB continuing to throw.",
+  "flip2": "PIT builds a substantial early lead and slows the game with rushing. Warren benefits from carries, while TB's comeback passing can support Otton; neither outcome guarantees efficiency or target allocation."
+ },
+ "injury_fallout": "MISSING: PIT and TB injury reports, practice trends, offensive-line availability, defensive absences, return restrictions, final designations and inactives. No absences, returns or next-man-up assignments are inferred from usage. Warren's 49 carries and 17 targets and Otton's 16 targets are observed usage, not evidence of injury-related opportunity. Source: supplied pre-kickoff pack, offense weeks 3\u20135; exact report timestamps missing. Final-report and approximately 90-minute inactive checks cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: PIT and TB MOFO/MOFC rates, man/zone rates, alignment and individual coverage assignments. TB's middle-field allowance of 9.25 YPA cannot establish that a specific PIT receiver attacks that area.",
+  "pressure": "TB blitzes 41%; PIT's QB EPA/dropback is -0.38 against blitz on 52 dropbacks versus -0.01 without blitz. That creates a plausible short-outlet hypothesis for Warren, not proof of additional targets. PIT blitzes 27%; TB's QB EPA/dropback is -0.21 against blitz on 71 dropbacks versus -0.10 otherwise. Actual pressure rates, time to throw and check-down rates are missing. Source: supplied pack, defenses through five games.",
+  "bleeds": "TB allows 3.61 rushing YPC, nine runs of 10+ yards and 14 passing gains of 20+ yards on 173 attempts. PIT allows 4.21 rushing YPC, 13 runs of 10+ yards and 19 passing gains of 20+ yards on 169 attempts. PIT's directional passing allowances are relatively even at 7.35 left, 7.27 middle and 7.54 right. Position-specific receiving and YAC allowances are missing.",
+  "overlap": "Warren's dual rushing/receiving role offers two paths against TB, although its rushing efficiency allowed challenges the ground component. Otton's 16 recent targets support an underneath receiving hypothesis, but the pack does not establish a PIT weakness against tight ends. Egbuka leads TB with 22 targets, so Otton is not treated as the primary option."
+ },
+ "form": "Source: supplied offense totals for weeks 3\u20135, available before this Week 6 matchup; individual publication timestamps missing. Warren recorded 49 carries for 321 yards and 17 targets for 169 receiving yards, with -21 air yards supporting a short-target role. His 490 combined yards show recent production, but game-by-game consistency, routes, snaps and long-play dependence are unknown. Otton recorded 16 targets for 118 receiving yards and 108 air yards; Egbuka had 22 targets and Godwin 14. These totals establish participation, not a proven upward role trend. Comparable-opponent games, red-zone usage and defensive last-three-game positional results are missing.",
+ "edge_players": [
+  {
+   "player": "jaylenwarren",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Warren can exceed 91.5 combined yards because his established rushing workload and short receiving role provide alternative paths in a close game against blitz-heavy TB.",
+   "must_be_true": "J.Warren rushrecyds >= 92 [because the pack records 49 carries and 17 targets producing 490 combined yards across weeks 3\u20135]",
+   "kills_it": "IF TB suppresses Warren's rushing efficiency and its blitz prevents usable outlet completions THEN Warren rushrecyds over 91.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "cadeotton",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Otton can exceed 27.5 receiving yards through his established target involvement in a competitive game or a TB comeback, without requiring an explosive-play matchup.",
+   "must_be_true": "C.Otton recyds >= 28 [because the pack records 16 targets and 118 receiving yards across weeks 3\u20135]",
+   "kills_it": "IF TB's receiving opportunities concentrate on Egbuka and Godwin while Otton loses target involvement THEN Otton recyds over 27.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypotheses are dual-path opportunity for Warren and modest receiving opportunity for Otton; recent totals test those hypotheses rather than independently creating them. Warren produced 163.3 combined yards per game across the supplied three-game window, including 6.55 rushing YPC, but those figures are not a forward projection. Otton produced 39.3 receiving yards on 5.3 targets per game over that window. No projection or simulation was run. Normalizing the supplied paired prices gives a 50.0% market baseline for Warren's combined over and approximately 49.9% for Otton's receiving over; these are not identified Pinnacle prices or estimated true hit probabilities. Warren remains a flagged lean rather than a validated bet; Otton has no direct numerical contradiction in the supplied pack.",
+  "disagrees": "TB's 3.61 rushing YPC allowed challenges continuation of Warren's recent 6.55 YPC and therefore the rushing component of his combined-yardage read. PIT's QB EPA/dropback of -0.38 against blitz also challenges the assumption that TB's 41% blitz rate creates productive receiving outlets rather than failed possessions.",
+  "missing": "Projection, simulation median, calibrated hit probabilities, Pinnacle prices, full price timestamps, game-level distributions, snaps, routes, positional coverage, actual pressure rates, injuries and weather.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Candidate main lines only: jaylenwarren rushrecyds over 91.5 at -115; cadeotton recyds over 27.5 at -113. Combined yards fits Warren's two-path opportunity hypothesis; receiving yards is the permitted market for Otton's target-role hypothesis. No alternate rung is justified, and neither candidate has a verified model-to-price edge.",
+ "pre_mortem": "It is Monday and Warren lost because TB's 3.61-YPC run defense contained his carries while its blitz produced negative plays instead of check-down yardage; the recent 490-yard sample overstated sustainable efficiency. Otton lost because a 38-point-total game offered limited productive passing and Egbuka's 22-target role or Godwin's 14-target role captured the available opportunities. Missing route participation, injury information and positional coverage prevent ruling out either counter-case. Warren's counter-case is substantial enough to flag the read; neither lean merits strong confidence.",
+ "slip_story": "Both candidates fit a narrow PIT lead: Warren contributes on the ground and through short throws while Otton receives opportunities as TB stays competitive or chases. A TB-controlled rushing game weakens Otton, so this pairing is not script-proof. Do not force a 3\u20134-leg slip from two candidates or add unsupported legs. No wager placed. The pack lacks an exact pre-kickoff logging timestamp, persistent read/hash record and postgame results; no lock or postmortem is claimed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

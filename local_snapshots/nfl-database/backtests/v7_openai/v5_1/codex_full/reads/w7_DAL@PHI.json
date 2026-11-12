@@ -1,0 +1,39 @@
+{
+ "game": "Week 7 DAL@PHI / kickoff: MISSING / PHI +4, DAL -4 / total 43.5 / implied totals: DAL 23.75, PHI 19.75 / weather: not saved. Source: supplied pre-kickoff pack; exact capture time unavailable. MISSING: moneylines, opening lines, movement, venue conditions, rest and travel.",
+ "script": {
+  "base": "Dallas is favored to establish a modest lead and remain competitive enough offensively to sustain its passing options before leaning more toward the run late. Philadelphia plays from behind but does not necessarily abandon rushing; this is a hypothesis from DAL -4 and the 43.5 total, not an observed pace tendency.",
+  "flip1": "Philadelphia leads or keeps Dallas chasing into the second half. Dallas then needs sustained passing volume, supporting George Pickens' receiving-yard opportunity even though the favorite-led script fails.",
+  "flip2": "The game becomes a low-possession defensive contest, or Dallas builds a sufficiently large early lead to reduce second-half passing. Either development threatens Pickens' yardage over."
+ },
+ "injury_fallout": "MISSING: DAL and PHI injury reports, practice trends, final inactives, offensive-line availability, defensive absences and snap restrictions. No absences, returns or next-man-up assignments can be inferred from the supplied usage. Saquon Barkley's presence in AVAILABLE PROPS but absence from PHI's listed recent rushers does not establish his health or availability. Recheck the final injury report and approximately 90-minute inactives before treating any candidate as actionable. Source: supplied pack only; exact news timestamps unavailable.",
+ "matchup": {
+  "shell": "MISSING: PHI and DAL MOFO/MOFC rates, man/zone rates, receiver alignments and individual coverage assignments. Pickens cannot be assigned a favorable corner or zone matchup from this pack.",
+  "pressure": "PHI blitzes 25%; DAL QB EPA/dropback is 0.02 against blitz versus 0.17 without blitz. DAL blitzes 28%; PHI QB EPA/dropback is -0.26 against blitz versus approximately 0.00 without blitz. Blitzing is a potential efficiency risk, but pressure rate, sacks and time to throw are missing. Source: supplied defensive and QB splits, available pre-kickoff.",
+  "bleeds": "PHI has allowed 19 passes of 20+ yards on 227 attempts, approximately 8.4%, with location YPA of 7.23 left, 7.21 middle and 6.73 right. Those numbers do not establish an especially vulnerable secondary. DAL has allowed 22 passes of 20+ yards on 187 attempts and 10.53 YPA through the middle, but receiver alignment data are missing. PHI allows 4.10 rush YPC versus DAL's 4.93. Source: supplied season-to-date defensive data through six games.",
+  "overlap": "Pickens' opportunity-based hypothesis comes from 27 targets and 315 air yards over weeks 4\u20136, not a demonstrated coverage mismatch. His 278 receiving yards show recent yardage production alongside CeeDee Lamb's 45 targets, but PHI's specific weakness against Pickens' routes is unproven. Source: supplied DAL recent usage and PHI defensive data."
+ },
+ "form": "Over weeks 4\u20136, Pickens accumulated 27 targets, 278 receiving yards and 315 air yards: 9.0 targets and 92.7 receiving yards per game across the three-game aggregate. Lamb had 45 targets and 268 yards, while Ryan Flournoy had 19 targets and 167 yards, so Dallas has competing receiving options. Javonte Williams recorded 42 carries for 148 yards plus 47 receiving yards, while Dallas Goedert recorded 17 targets for 99 receiving yards. These aggregates test the initial script; they do not establish individual-game consistency. MISSING: game-level distribution, snaps, routes, red-zone usage, role-change explanations and comparable-opponent results. Source: supplied weeks 4\u20136 offense tables.",
+ "edge_players": [
+  {
+   "player": "georgepickens",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Pickens can exceed 64.5 receiving yards if his recent downfield opportunity persists in a competitive game, with 27 targets and 315 air yards over the last three games supporting the hypothesis.",
+   "must_be_true": "G.Pickens targets >= 7 [because the pack records 27 targets and 315 air yards over weeks 4\u20136]",
+   "kills_it": "IF Dallas establishes an early multi-score lead and substantially reduces passing before Pickens reaches 65 receiving yards THEN the Pickens recyds over 64.5 leg fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The read was formed from the market script before testing Pickens' recent opportunity. His 27 targets, 315 air yards and 278 receiving yards support retaining a provisional lean, but do not establish a profitable probability. PHI's defensive numbers do not demonstrate a specific coverage edge. The offered -113.5 requires approximately 53.16% to break even. Normalizing the supplied over -113.5 and under -115 gives an approximately 49.85% no-vig over probability; this is the supplied market pair, not a verified Pinnacle benchmark. No model or simulation was run, and no stake is justified from this pack alone.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation distribution and median, calibrated hit probability, verified Pinnacle prices, game-level yardage distribution, coverage charting, injury reports, final inactives and saved weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional candidate only: georgepickens recyds over 64.5 at -113.5. Receiving yards fits the downfield-opportunity hypothesis; receptions are unavailable under the permitted markets. No alternate rung selected and no bet placed. Price edge remains unverified.",
+ "pre_mortem": "It is Monday and Pickens finished below 65 yards: Dallas led early, Williams absorbed clock-killing carries, and Lamb's larger recent target allocation left Pickens with too few opportunities. Alternatively, Philadelphia's blitzes disrupted longer-developing throws; Dallas' supplied EPA/dropback declines from 0.17 without blitz to 0.02 against it. The three-game aggregate may also conceal one unusually productive game because individual box scores are missing. These are substantial counterarguments, so this stays a conditional lean rather than a strong play.",
+ "slip_story": "The candidate belongs only to a competitive Dallas passing script and survives the Philadelphia-leads flip. It is vulnerable to the low-volume or early-Dallas-blowout flip. Do not manufacture a 3\u20134-leg slip: this pack supports only one retained candidate, and its price edge is unverified. The read is recorded here, but no external timestamped save, pre-kickoff hash or persistent log was created. A later review should grade script accuracy and Pickens' opportunity separately from whether 65 yards was reached, attributing misses to script, availability, coverage or role as appropriate.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

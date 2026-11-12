@@ -1,0 +1,46 @@
+{
+ "game": "NYG@HOU Week 7 / kickoff not in pack / HOU -10 / total 42.5 / weather not saved",
+ "script": {
+  "base": "Book has HOU -10 on 42.5, implied about HOU 26.25 and NYG 16.25: HOU leads by halftime and clocks with the run because NYG allows 5.24 YPC and 23 runs of 10+ (6 games), while NYG trails and throws. Marks (36 carries, 140 yards L3) is the HOU runner; Nabers (43 targets, 398 rec yards) and Likely (37 targets, 259 rec yards) absorb the chase script. Not a shootout base case.",
+  "flip1": "NYG hangs around or leads. Skattebo's 31-carry L3 role stays alive, but HOU's 3.53 YPC run defense can still stall him, and HOU cannot just run clock, so Collins (20 targets, 248 yards L3) and Noel volume rise while Marks' rush line dies.",
+  "flip2": "HOU blows it open early and runs the clock (favorite-up script: QB/WR yards stall, as in the Dak 212 example). Collins over 69.5 dies. NYG pass overs only live if garbage-time dropbacks still reach Nabers/Likely; a weather slog cannot be judged \u2014 forecast not saved."
+ },
+ "injury_fallout": "No injury report, practice status, questionable tags, or inactives in the as-of pack, so no next-man-up from absences and no snap-limit check. Stat-sheet roles only: NYG carries Skattebo 31/117 over Harris 19/41 and Tracy 10/23, with Winston 6/33 rush; targets Nabers 43/398/503 and Likely 37/259/345, then Fields 13/91, Mooney 11/14 on 166 air yards. HOU carries Marks 36/140 over Montgomery 15/35 and Jordan 6/43; targets Collins 20/248/267, then Hutchinson 13/121, Schultz 12/72, Boutte 12/90, Noel 12/233. Props for jjmccarthy, marvinharrisonjr, tankdell, and devinsingletary have no L3 stat-line support \u2014 do not treat them as active. Final injury report and 90-minute inactives are not in this pack; re-run if a late scratch hits Nabers or Likely.",
+ "matchup": {
+  "shell": "No MOFO/MOFC or man/zone charting in the pack. Location proxy only: HOU allows 9.39 YPA middle (56 att) vs 6.11 left (74) and 6.92 right (88). NYG allows 8.52 YPA middle (27 att) vs 5.76 left (79) and 6.04 right (84), but only 12 passes of 20+ on 199 attempts.",
+  "pressure": "HOU blitzes 23%. NYG QB EPA/dropback is -0.17 vs blitz (n=79) and +0.18 with no blitz, so HOU's light blitz rate avoids NYG's weakness. NYG blitzes 42%. HOU QB EPA is +0.40 vs blitz (n=56) vs +0.07 unblitzed \u2014 that blitz rate helps Stroud, not the NYG pass-catcher legs.",
+  "bleeds": "HOU run defense is stingy (3.53 YPC, 10 runs of 10+ in 6 games) but the pass defense bleeds the middle (9.39 YPA) and has allowed 24 gains of 20+ on 237 attempts (10.1%). NYG run defense bleeds (5.24 YPC, 23 runs of 10+); its pass defense is tighter on explosives (12/199).",
+  "overlap": "NYG's top options are Nabers (43 targets, 503 air yards, 398 rec yards L3) and Likely (37 targets, 345 air yards, 259 rec yards). Likely is the cleaner attack on HOU's middle hole; Nabers' air-yard load fits a defense allowing a 10.1% explosive-pass rate. That overlap in a trailing script is the edge. Collins (267 air yards) overlaps NYG's blitz, but the -10 run script works against his volume, so he is not a leg."
+ },
+ "form": "L3 only, no season averages, no similar-defense splits in the pack. Nabers 43 tgt / 398 rec / 503 air (~14.3 tgt, 132.7 yds/g) is sustained volume, not one play. Likely 37/259/345 (~12.3 tgt, 86.3 yds/g) is a featured TE. Mooney 11 tgt and 166 air yards but only 14 rec yards \u2014 failed deep shots, do not chase. Skattebo 31/117 rush (39.0 yds/g, 3.77 YPC) plus 4 tgt/20 rec yards. Marks 36/140 (46.7 rush yds/g) in a committee with Montgomery 15/35; 66.5 is ~20 yards above that role, so the run-funnel read does not beat the posted rung. Collins 20/248/267 (82.7 yds/g) is efficient on only ~6.7 targets and is script-dependent. Noel 12 tgt / 233 rec / 151 air (19.4 yards per target) looks fluky; no per-game split to separate one long play, so no Noel leg.",
+ "edge_players": [
+  {
+   "player": "maliknabers",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "NYG should trail a 10-point favorite and throw, and Nabers just drew 43 targets for 398 yards; HOU blitzes only 23%, which is the look where this QB is better (+0.18 EPA unblitzed vs -0.17 blitzed), and 69 is far under that role.",
+   "must_be_true": "Nabers is active with a full snap share, keeps the L3 target share, and NYG dropbacks rise in a chase script. No injury or inactive note is in the pack.",
+   "kills_it": "A late scratch or snap limit, HOU leading so big that drives die before garbage time, or Nabers bracketed outside the middle hole (left 6.11 / right 6.92 YPA) while someone else gets the 9.39 middle.",
+   "confidence": "strong"
+  },
+  {
+   "player": "isaiahlikely",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Likely is a real weapon (37 targets, 259 yards, 345 air yards L3) and HOU's clear bleed is the middle at 9.39 YPA; a trailing script feeds that matchup, and 50 sits well under the 86-yard L3 pace.",
+   "must_be_true": "Likely plays his L3 route share, NYG is chasing rather than leading-and-running, and HOU does not take the middle away. Health is unverified \u2014 no injury report in the pack.",
+   "kills_it": "NYG stays close and runs, HOU sits on the TE, or the 259 yards were one soft-defense outlier the pack cannot split out. Low 23% blitz rate also means fewer forced checkdowns.",
+   "confidence": "strong"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so step 8 cannot be finished. Form agrees with both overs: Nabers 132.7 rec yds/g vs 69; Likely 86.3 vs 50. Both main prices are +nan, so there is nothing to shop. The gap implies a hit rate in the suspicious 70%+ zone (past calibration: legs rated 70-80% hit about 50%). Other side for the human: unexplained depressed lines plus missing inactives and missing per-game splits could mean the role will not repeat. Do not cut the strong reads; do not size them until a real price and inactives exist. Skattebo rush under 35.5 was a lean (HOU 3.53 YPC, trailing script) but L3 is 39.0 yards, so that lean is dropped. Marks rush over 66.5 matches the NYG run bleed but not his 46.7 yds/g role, so dropped.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Main rungs only, both unpriced: maliknabers recyds over 69 (+nan); isaiahlikely recyds over 50 (+nan). No alt rung in the pack. No no-vig. If a live price is shorter than about -150, do not size up.",
+ "pre_mortem": "It's Monday and both overs lost because HOU led big early, NYG drives died, and the 398 and 259 L3 yards were built against softer pass defenses this pack does not split out. HOU's 6.11/6.92 outside YPA bottled Nabers if he lived outside the middle, and Likely regressed because a 23% blitz rate never forced checkdowns into an uncharted shell. A scratch or snap limit not in this pack would also zero both. That counter is real, but it is not stronger than 43 and 37 targets against a middle that allows 9.39 YPA and a blitz rate that avoids this QB's -0.17 blitz EPA.",
+ "slip_story": "One story: NYG-trailing pass stack. Nabers recyds over 69 and Likely recyds over 50 win together if NYG chases and attacks HOU's middle against a 23% blitz. Do not add Skattebo rush over, Marks rush under, Collins over 69.5 (needs HOU to keep throwing in a -10 run script), Noel, or a game total under. No TDs; one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

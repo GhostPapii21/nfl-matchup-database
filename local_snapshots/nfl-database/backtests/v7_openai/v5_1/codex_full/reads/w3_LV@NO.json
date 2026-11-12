@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 LV@NO / kickoff MISSING / spread and total not saved; implied totals, moneyline and movement MISSING / weather and venue conditions not saved",
+ "script": {
+  "base": "Inferred only from the supplied two-game form, not market expectations: LV sustains a run-heavy approach through Ashton Jeanty, while NO attacks through Chris Olave and its passing game. A competitive game preserves Jeanty's carries and Olave's targets; scores, pace, rest and travel are missing, so neither a halftime leader nor garbage time is established.",
+  "flip1": "NO's passing game creates an early lead against an LV defense that allowed six 20-plus-yard passes on 62 attempts. LV shifts toward passing, threatening Jeanty's rushing volume, while NO may eventually reduce Olave's opportunities to protect its lead.",
+  "flip2": "LV exploits NO's 4.96 rushing yards allowed per carry and controls possession. Jeanty's rushing opportunity survives, and Olave can retain targets in a trailing script, although fewer total NO possessions threaten his yardage."
+ },
+ "injury_fallout": "MISSING: LV and NO injury reports, practice trends, final inactives, offensive-line availability, defensive absences and player snap limits. Brock Bowers appears in the prop list without a valid team designation or supplied usage; no absence or return is inferred. Mayer's 11 targets and Kamara's nine carries do not establish injury-related redistribution. No next-man-up assignments are justified. Source for all available facts: supplied pre-kickoff Week 3 pack; individual report timestamps are missing. Final-report and approximately 90-minute inactive checks cannot be completed.",
+ "matchup": {
+  "shell": "MISSING: LV and NO MOFO/MOFC, man/zone rates, alignment and individual coverage assignments. Location splits cannot identify which defender will cover Olave.",
+  "pressure": "NO blitzed 29%; LV QB EPA/dropback was -0.15 against blitzes over 19 dropbacks versus 0.20 without blitzes. LV blitzed 21%; NO QB EPA/dropback was 0.04 against blitzes over 37 dropbacks versus 0.12 without blitzes. These support a relative concern about LV's passing response to blitzing, but pressure rates, sacks and time to throw are missing.",
+  "bleeds": "NO allowed 4.96 yards per carry and nine runs of at least 10 yards, providing a potential rushing opening for Jeanty. LV allowed six 20-plus-yard passes on 62 attempts and 10.7 middle-field yards per attempt on only 10 attempts. Position-specific allowances, run EPA, stuff rates, box counts and YAC are missing.",
+  "overlap": "Jeanty's 44 carries make him LV's clear supplied rushing-volume leader against NO's vulnerable rushing results. Olave leads NO with 23 targets, 268 receiving yards and 338 air yards, aligning his downfield opportunity with LV's conceded explosive passes. His precise alignment overlap is unverified."
+ },
+ "form": "Source: supplied Weeks 1\u20132 aggregates, despite the table's 'over L3' label. Jeanty recorded 44 carries for 150 yards: 22 carries and 75 rushing yards per game, but only 3.41 yards per carry. Washington had 10 carries for 48 yards. Olave recorded 23 targets, 268 receiving yards and 338 air yards: 11.5 targets and 134 receiving yards per game. Vele followed with 16 targets and 133 yards, and Johnson had 11 targets and 120 yards. These describe current opportunity, not stand-alone betting edges. Individual game logs, snaps, routes, red-zone usage, comparable opponents and long-play concentration are missing; a three-to-four-game review is unavailable.",
+ "edge_players": [
+  {
+   "player": "ashtonjeanty",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Jeanty's established lead-back workload can clear 69.5 rushing yards against a NO defense allowing 4.96 yards per carry and repeated chunk runs.",
+   "must_be_true": "Ashton Jeanty carries >= 20 [because the pack records 44 carries across two games]",
+   "kills_it": "IF NO builds an early multi-score lead and LV abandons its rushing workload THEN Jeanty rushyds over 69.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "chrisolave",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Olave's team-leading target and air-yard opportunity attacks an LV defense that has already conceded six explosive passes, supporting over 76.5 receiving yards.",
+   "must_be_true": "Chris Olave targets >= 9 [because the pack records 23 targets across two games]",
+   "kills_it": "IF NO establishes a large early lead and substantially reduces its passing volume before Olave reaches 77 yards THEN Olave recyds over 76.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Hypotheses were formed from workload and matchup before comparing the offered lines. Jeanty's 22 carries per game would require approximately 3.16 yards per carry to exceed 69.5; this is a threshold calculation, not a projection. Olave's supplied opportunity supports the explosive-passing read, but two-game production cannot establish a calibrated hit rate. No projection or simulation was run. Neither leg receives a strong-confidence designation.",
+  "disagrees": "Jeanty's actual 3.41 yards per carry is a counterweight to the favorable-efficiency matchup hypothesis: LV has not demonstrated rushing efficiency comparable to NO's 4.96 allowed. Flag Jeanty's read rather than assuming the defensive allowance transfers directly. No supplied number clearly contradicts the Olave read.",
+  "missing": "Calibrated projection, simulation median and distribution, Pinnacle prices and sharp no-vig benchmark, individual-game outcomes, full role metrics, injury information, coverage charting and weather. Missing information alone does not trigger the flag.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Candidate main lines only: Ashton Jeanty rushyds over 69.5 at -113; Chris Olave recyds over 76.5 at -115. Jeanty's market expresses carry share plus the run-defense matchup; Olave's expresses downfield opportunity rather than receptions. No alternate-rung prices or verified probability edge are available, so no sizing is justified.",
+ "pre_mortem": "Jeanty: It is Monday and the over lost because his 3.41 yards per carry proved more representative than NO's early defensive allowance, or NO's passing success forced LV away from the run. Twenty carries at that observed efficiency produce only about 68 yards, so merely retaining a substantial workload does not guarantee success. Olave: The over lost because two-game yardage overstated repeatable efficiency, LV prevented explosive completions, or NO spread production among Vele and Johnson. The pack does not show Olave's game-by-game yardage or alignment, so it cannot establish either consistency or a specific coverage mismatch. These counter-cases keep both reads at lean, with Jeanty additionally flagged.",
+ "slip_story": "Both candidates fit a competitive game in which LV runs through Jeanty and NO answers through Olave. They also can coexist if LV leads and NO throws to catch up. They are not established as positively correlated, and an early NO blowout threatens both through different volume effects. No main slip is built: only two edge players are supported, Jeanty is flagged, and joint pricing and correlation estimates are missing. No TDs, depth-receiver legs or duplicate player markets are used.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

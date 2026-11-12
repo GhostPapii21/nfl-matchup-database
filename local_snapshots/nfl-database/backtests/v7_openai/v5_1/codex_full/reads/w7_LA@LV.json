@@ -1,0 +1,48 @@
+{
+ "game": "Week 7 LA@LV / kickoff MISSING / LV +3.5, LA -3.5 / total 49 / implied totals LA 26.25, LV 22.75 / weather not saved; venue configuration, moneyline, opening lines, rest and travel MISSING",
+ "script": {
+  "base": "The supplied spread and total suggest LA leads a competitive, moderately high-scoring game. LA can keep its primary receiving option involved before leaning toward the run late, while LV increasingly uses its passing game to stay within reach.",
+  "flip1": "LA builds a large early lead and shifts toward clock management. Puka Nacua's receiving volume becomes vulnerable, while Ashton Jeanty's receiving over survives only if he retains passing-down involvement.",
+  "flip2": "LV leads or keeps the game level throughout, forcing LA to sustain its passing offense. Nacua benefits, while Jeanty's receiving over becomes more dependent on LV maintaining its recent target allocation rather than chasing points."
+ },
+ "injury_fallout": "MISSING: LA and LV injury reports, practice trends, final inactives, return-to-play restrictions and offensive-line availability. No absences, returns or next-man-up assignments can be inferred from the supplied weeks 4\u20136 usage. Both proposed legs require rechecking against final inactives; those checkpoints are unavailable in this backtest.",
+ "matchup": {
+  "shell": "MISSING: LA and LV MOFO/MOFC, man/zone rates and receiver alignment charting. Positional coverage assignments cannot be established from directional passing splits.",
+  "pressure": "Pack season-to-date defense: LV blitzes 27%; LA blitzes 31%. Pack QB splits: LA EPA/dropback falls from 0.15 without a blitz to -0.08 against a blitz; LV falls from 0.20 to 0.09. Actual pressure rates, protection performance and check-down frequencies are MISSING; blitz rates alone do not establish pressure getting home.",
+  "bleeds": "Pack through six games: LV allows 5.18 rushing yards per carry, 23 runs of 10+ yards and 19 passes of 20+ yards on 209 attempts. LA allows 4.35 rushing yards per carry and 11 passes of 20+ yards on 192 attempts. LA's middle passing YPA allowed is 7.18 versus 5.68 left and 5.08 right, but these are directional splits, not RB-specific coverage statistics.",
+  "overlap": "Nacua's team-leading 43 targets and 380 air yards over weeks 4\u20136 offer a plausible overlap with LV's allowance of explosive passes. Jeanty's 20 targets and 154 receiving yards over the same window support a receiving role if LV must chase LA, but his alignment against LA's more permissive middle is unverified."
+ },
+ "form": "Pack weeks 4\u20136: Nacua recorded 43 targets, 343 receiving yards and 380 air yards, versus Davante Adams' 20 targets and 122 receiving yards. Jeanty recorded 35 carries for 107 yards alongside 20 targets, 154 receiving yards and 37 air yards; his receiving production therefore came with limited air-yard depth. LV also directed 30 targets to Brock Bowers and 20 each to Tre Tucker and Michael Mayer. MISSING: individual-game distributions, snaps, routes, receptions, red-zone usage, coaching changes and similar-opponent samples. Aggregated totals cannot establish weekly consistency or isolate long-play inflation.",
+ "edge_players": [
+  {
+   "player": "pukanacua",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Nacua's concentrated passing role gives him a path over 84.5 receiving yards against an LV defense that has allowed 19 explosive completions through six games.",
+   "must_be_true": "Puka Nacua targets >= 10 [because the pack records 43 targets across weeks 4\u20136]",
+   "kills_it": "IF LA builds an early multi-score lead and materially reduces passing before Nacua accumulates 85 receiving yards THEN Nacua over 84.5 recyds fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "ashtonjeanty",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Jeanty's established short-target workload gives him a path over 25.5 receiving yards when underdog LV needs passing production rather than relying on its recently inefficient rushing attack.",
+   "must_be_true": "Ashton Jeanty targets >= 5 [because the pack records 20 targets across weeks 4\u20136]",
+   "kills_it": "IF LV removes Jeanty from passing situations and redirects his short targets to Bowers or Mayer THEN Jeanty over 25.5 recyds fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The market-based script and matchup hypotheses precede this numerical check. Nacua's supplied three-game totals translate to 14.33 targets and 114.33 receiving yards per game; Jeanty's translate to 6.67 targets and 51.33 receiving yards. These support the reads but are descriptive checks, not projections or simulated medians. LA's lower explosive-pass allowance also favors testing Jeanty's short receiving market rather than assuming LV deep-pass success. Offered-price break-even probabilities are approximately 53.38% for Nacua and 53.27% for Jeanty; no estimated win probability or stake is justified.",
+  "disagrees": "none",
+  "missing": "Fitted projections, simulations, calibrated probabilities, Pinnacle prices and sharp no-vig benchmarks; game-level role distributions, injury information, coverage charting, pressure rates and weather. The supplied two-sided prop prices are not identified as Pinnacle.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Provisional leans only: pukanacua recyds over 84.5 at -114.5; ashtonjeanty recyds over 25.5 at -114. Receiving yards are the available permitted expression of these target-volume reads; receptions are not permitted. No alternate rung, quantified edge or stake established.",
+ "pre_mortem": "Nacua: It is Monday and the over lost because LA exploited LV's 5.18 rushing YPC allowance, obtained a lead and did not need sustained passing volume. His three-game yardage total concealed uneven weekly production, and LV's blitzing disrupted LA rather than producing successful completions. Jeanty: The over lost because trailing did not guarantee RB targets; Bowers, Tucker and Mayer already command substantial work, and Jeanty's 154 receiving yards on only 37 air yards required production after the catch that may not repeat. Missing routes and passing-down snaps prevent confirming that he remains involved in either script flip. Both reads stay leans rather than strong selections.",
+ "slip_story": "Both legs belong to a competitive LA-led game: Nacua helps LA establish its advantage and Jeanty contributes short receiving production as LV responds. Nacua also survives the LV-leading flip; Jeanty can survive an LA runaway only with continued passing-down usage. Do not force a 3\u20134-leg slip from two supported candidates or add unsupported depth receivers. No bet placed. Read preserved in this response, but the pack provides no exact as-of timestamp; no external save, pre-kickoff hash or postgame grading has been performed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

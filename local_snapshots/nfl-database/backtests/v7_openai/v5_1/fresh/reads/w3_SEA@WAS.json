@@ -1,0 +1,48 @@
+{
+ "game": "SEA@WAS Week 3 / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not saved, so this flow is inferred only from form, not from a book number. SEA's offense has the explosives (J.Smith-Njigba 22 targets, 277 rec yds, 197 air yds in weeks 1-2) against a WAS defense allowing 13.1 YPA in the middle (10 att), 10.46 YPA on the right (26 att), 7 passes of 20+ on 61 attempts, and 4.64 rush YPC, while a Price/Wilson/Holani carry split (23/23/12) can run. WAS has been hunting shots (T.McLaurin 176 air yds for only 64 rec yds; S.Diggs 155 air; D.Brown 112 air) into a SEA defense that has allowed 0 of 66 passes of 20+, YPA of 4.89/4.5/4.0 by side, and 3.73 rush YPC. Most likely: SEA leads the yardage through JSN plus a committee run game, WAS stays short of explosives, and a second-half SEA lead adds runs without wiping out JSN's early targets.",
+  "flip1": "WAS's 43% blitz keeps the game close even though SEA QB EPA vs blitz is still +0.38 (n=19); both teams throw, SEA RB rush yards stall, and a WAS 20+ yard shot finally shows up.",
+  "flip2": "SEA gets up big and clock-kills: JSN routes stall after halftime, Price/Wilson carries rise, and WAS abandons the run for checkdowns so McLaurin's deep shots never develop."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, snap or rep limits, and inactives for both SEA and WAS. No absence, return, or next-man-up is inferred from usage. Pack lists J.Daniels 12 carries/100 rush yds among WAS rushers and also lists a Marcus Mariota rush prop, but QB starter designation is not in the pack, so neither a Daniels scratch nor a Mariota start is assumed. Source: week-3 as-of pack only, known pre-kickoff; report timestamp not saved.",
+ "matchup": {
+  "shell": "MISSING: no MOFO/MOFC, man/zone rate, or coverage charting in the pack. Location splits are the only shell proxy. WAS allows 3.95 YPA left (20 att), 13.1 middle (10 att), 10.46 right (26 att). SEA allows 4.89 left (27 att), 4.5 middle (10 att), 4.0 right (24 att).",
+  "pressure": "WAS blitz rate 43%. SEA QB EPA/dropback is +0.38 vs blitz (n=19) and +0.43 unblitzed, so the blitz does not collapse SEA. SEA blitz rate is only 23%. WAS QB EPA is -0.10 vs blitz (n=20) and +0.23 unblitzed, so WAS is efficient when SEA stays conservative and does not need to blitz to blanket explosives.",
+  "bleeds": "WAS bleeds the middle and the right and has allowed 7 passes of 20+ on 61 attempts plus 4.64 rush YPC and 4 runs of 10+. SEA bleeds almost nowhere: 0 of 66 passes of 20+, YPA at or below 4.89 in every zone, rush YPC allowed 3.73, 4 runs of 10+.",
+  "overlap": "SEA's primary target J.Smith-Njigba (22 of 47 listed SEA targets, 277 rec yds, 197 air yds) is the volume piece aimed at the exact WAS bleed (middle 13.1 YPA, right 10.46, 7 explosives) into a blitz the SEA QB has handled. T.McLaurin is the inverse overlap: 176 air yds have become only 64 rec yds, and SEA has not allowed the 20+ yard play that profile needs."
+ },
+ "form": "Season-to-date is 2 games (defense header); offense header is weeks [1, 2]. The 'over L3' tag conflicts with a 2-game season, so rates use 2 games and no third game is invented. SEA: JSN 22 tgt/277 rec/197 air (138.5 rec yds per game); R.Shaheed 9/39/86 (deep, not converting); C.Kupp 5/55/63; J.Price 4 tgt/14 rec and 23 car/104 rush (4.52 YPC); E.Wilson 23/95 (4.13 YPC); G.Holani 12/42; A.Barner 3 tgt/21 rec and 1 rush yard. WAS: J.Croskey-Merritt 28/106 (3.79 YPC), R.White 14/65 rush plus 8 tgt/45 rec/-2 air, J.Daniels 12/100 rush, K.Allen 9/40; S.Diggs 15/102/155, T.McLaurin 13/64/176, D.Brown 8/21/112, A.Williams 7/88/71. No game-by-game split, so a one-play spike cannot be separated from role. Source: as-of pack box-style totals, pre-kickoff.",
+ "edge_players": [
+  {
+   "player": "jaxonsmithnjigba",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "JSN beats 91.5 because he is the primary target at 138.5 rec yds per game on 11 targets and WAS is bleeding the middle and the right, while a 43% blitz meets a SEA QB at +0.38 EPA when blitzed.",
+   "must_be_true": "J.Smith-Njigba targets >= 8 because the pack shows 22 targets and 277 rec yds over weeks 1-2",
+   "kills_it": "IF SEA leads by 17 or more at halftime and J.Smith-Njigba finishes under 6 targets THEN the JSN recyds over 91.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "terrymclaurin",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "McLaurin stays under 42 because 176 air yards have produced only 64 receiving yards and SEA has allowed 0 of 66 passes of 20+, so the shot he needs is the play this defense has not given up; the leg is script-dependent and needs the game not to flip into a shootout.",
+   "must_be_true": "T.McLaurin recyds <= 42 because weeks 1-2 he has 64 rec yds on 13 targets and 176 air yds (32.0 per game) and SEA has allowed 0 of 66 passes of 20+",
+   "kills_it": "IF T.McLaurin records a reception of 20 or more yards THEN the McLaurin recyds under 42 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so step 8 cannot size a rung against a sharp price; that gap is missing, not a contradiction. Selected reads match pack form: JSN 138.5 per game vs a 91.5 line and WAS middle/right YPA of 13.1/10.46; McLaurin 32.0 per game vs a 42 line and SEA 0/66 explosives. A 70%+ model probability is not being claimed. E.Wilson 47.5 rush yds per game vs a 31 line was considered and not selected because Price and Holani share the carries (23 and 12).",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, dome/outdoor, injury report, inactives, coverage charting (MOFO/MOFC, man/zone), alignment, game-by-game splits, projection model, sim median, Pinnacle no-vig, and a posted price on T.McLaurin recyds under 42 (+nan)",
+  "verdict": "agree"
+ },
+ "market_rung_price": "JSN recyds over 91.5 at -117, main line only; no alt rung in the pack and the -117 is not a short-priced alt. McLaurin recyds under 42 is the listed main line but the price is +nan / not saved, so it cannot be compared to no-vig. No sim median. Do not add a second market on either player.",
+ "pre_mortem": "It's Monday and both legs lost. JSN finished under 91.5 because the 277-yard two-game run regressed, WAS's middle 13.1 YPA is only 10 attempts of noise, they shaded the right side they actually throw at (26 att), and a multi-score lead let SEA run Price and Wilson and cut JSN under 6 targets. McLaurin cleared 42 because 176 air yards means the shots are scripted, SEA's 0-for-66 streak was a two-game sample that broke on one post, and SEA's 23% blitz left WAS in the +0.23 unblitzed EPA environment. That bomb case is why McLaurin is a lean, not a strong; it is not stronger than 32 yards per game plus a defense that has yet to allow the play. JSN's 22-of-47 listed-target share still beats the fade.",
+ "slip_story": "Base-script stack only: SEA's WR1 attacks the WAS middle/right bleed (JSN recyds over 91.5) while WAS's unresolved deep shots stay blanketed (McLaurin recyds under 42). They win together if SEA controls explosives and still throws enough for JSN. They split on flip 1 (a close game where a WAS 20+ yard catch clears McLaurin). Do not add a total over, a WAS RB rush over, or Shaheed/Diggs overs; those need the shootout or the close-game flip. No TDs and no receptions markets.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

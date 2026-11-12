@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 GB@TB / kickoff not saved / spread, total, moneyline and implied totals not saved; script inferred only from supplied team form / weather not saved. Venue details, rest, travel and opening-line movement missing.",
+ "script": {
+  "base": "TB stays competitive and can sustain its rushing attack through B.Irving against GB's 4.34 YPC allowed. GB's rushing committee faces TB's 3.30 YPC allowed, while TB's 46% blitz rate attacks GB's negative EPA/dropback against blitzes; this suggests uneven offensive production rather than an assumed shootout. Pace and halftime leadership are uncertain without scoring or pace data.",
+  "flip1": "GB successfully attacks TB's blitz and builds a lead. TB needs more passing volume, supporting C.Otton's opportunities, but GB's clock-killing carries could threaten a K.Johnson rushing under.",
+  "flip2": "Both offenses struggle to sustain drives: TB's QB EPA/dropback is negative against both blitz and non-blitz looks, and GB struggles against pressure. K.Johnson's under can survive, but C.Otton's over becomes vulnerable to insufficient total passing production."
+ },
+ "injury_fallout": "MISSING: injury reports, practice trends, final statuses, snap restrictions and inactives for both GB and TB, including K.Johnson, M.Lloyd, C.Otton, offensive linemen and defensive coverage players. No absences, returns or next-man-up changes can be inferred from the supplied usage. Final-report and approximately 90-minute pre-kickoff inactive checks cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: GB and TB MOFO/MOFC splits, man/zone rates and alignment-specific coverage assignments. GB allowed 8.77 YPA over the middle on 13 attempts, but the pack does not establish that C.Otton's routes specifically attack those defenders.",
+  "pressure": "TB blitzed 46%; GB's QB EPA/dropback was -0.28 against blitzes over 58 dropbacks versus 0.19 without blitzes. GB blitzed 35%; TB's corresponding EPA/dropback was -0.26 against blitzes over 43 dropbacks and -0.25 without. Actual pressure rates, time to throw, sacks and check-down rates are missing; blitz frequency does not establish pressure success.",
+  "bleeds": "TB allowed 3.30 rushing YPC and six runs of 10+ yards, a difficult efficiency backdrop for GB's committee. GB allowed 4.34 rushing YPC and eight runs of 10+ yards. Both defenses' highest supplied location YPA was over the middle, but those samples were only 17 attempts for TB and 13 for GB. Position-specific receiving allowances, YAC, rush EPA, stuff rates and box counts are missing.",
+  "overlap": "K.Johnson's limited supplied rushing role meets TB's strongest documented defensive trait: run efficiency prevention. C.Otton's 17 targets make him a meaningful receiving option behind E.Egbuka's 20; GB's middle-field allowance is a possible supporting matchup, not a verified route-to-coverage edge."
+ },
+ "form": "Source for all numerical claims: supplied pre-kickoff pack, covering weeks 1-3; exact collection timestamps were not provided. K.Johnson had 12 carries for 38 yards across those three games, versus M.Lloyd's 23 for 68 and C.Brooks' 11 for 40. That supports a limited aggregate role, not a proven weekly trend. C.Otton had 17 targets, 120 receiving yards and 138 air yards, supporting substantive receiving involvement. Weekly splits, snaps, routes, red-zone usage, comparable-opponent games and individual long-play contributions are missing, so role stability and fluky production cannot be verified.",
+ "edge_players": [
+  {
+   "player": "kalebjohnson",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "K.Johnson's limited rushing allocation faces a TB defense allowing only 3.30 YPC, giving him a plausible path to stay under 31.5 rushing yards without requiring GB to trail.",
+   "must_be_true": "K.Johnson carries <= 9 [because the pack records 12 total carries across weeks 1-3, with M.Lloyd taking 23 and C.Brooks taking 11]",
+   "kills_it": "IF K.Johnson inherits lead-back volume or breaks a run of 32+ yards THEN K.Johnson rushyds under 31.5 fails.",
+   "confidence": "lean"
+  },
+  {
+   "player": "cadeotton",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "C.Otton's established receiving involvement gives him a plausible path above 25.5 yards in either a competitive game or a TB catch-up script, with GB's small-sample middle-field allowance offering secondary support.",
+   "must_be_true": "C.Otton targets >= 4 [because the pack records 17 targets across weeks 1-3, second among the listed TB receiving options]",
+   "kills_it": "IF TB's passing offense stalls and C.Otton finishes with 25 or fewer receiving yards THEN C.Otton recyds over 25.5 fails.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Hypotheses were formed from workload allocation and matchup before comparing lines. K.Johnson's supplied totals translate to 4.0 carries and 12.7 rushing yards per game versus a 31.5 line; C.Otton's translate to 5.7 targets and 40.0 receiving yards versus a 25.5 line. These are descriptive checks, not projections or simulations. Both reads survive the base script and at least one flip. Neither lean establishes a quantified betting edge without a calibrated distribution and market benchmark.",
+  "disagrees": "none",
+  "missing": "Calibrated projections, simulated medians and distributions, Pinnacle prices and no-vig probabilities, weekly workload distributions, injury information, route alignment, coverage charting and current weather. The supplied opposing-side prices are not identified as Pinnacle.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line candidates only: kalebjohnson rushyds under 31.5 at -115; cadeotton recyds over 25.5 at -111. Johnson expresses a limited-carry/efficiency thesis; Otton uses receiving yards because receptions are unavailable under the permitted markets. Raw break-even probabilities are approximately 53.49% and 52.61%, respectively, not no-vig estimates or assessed hit probabilities. No alternate rung or stake is justified by the pack.",
+ "pre_mortem": "It's Monday and Johnson's under lost because the aggregate three-game committee concealed a workload change: GB led, Johnson received extra carries, or one explosive run defeated the under. Missing injury and weekly usage information make that the strongest counter-case. Otton's over lost because TB's negative QB efficiency translated into stalled possessions, or his targets produced short gains while Egbuka and the other receivers absorbed the useful yardage. GB's middle-field figure came from only 13 attempts and never established Otton's actual matchup. These risks keep both selections at lean rather than strong; neither should be promoted solely because its recent yardage average clears the line.",
+ "slip_story": "Candidate story: TB remains competitive, GB's secondary rushing allocation stays limited against TB's run defense, and Otton retains a meaningful receiving role. These legs are compatible but not demonstrated to be strongly correlated. Do not manufacture a third leg to reach a 3-4-leg main slip; retain these as conditional singles or an unvalidated two-leg concept, with one market per player and no TDs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

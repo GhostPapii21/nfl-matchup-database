@@ -1,0 +1,39 @@
+{
+ "game": "Week 4 NE@BUF / kickoff MISSING / spread and total not saved; script inferred only from supplied team form / weather not saved",
+ "script": {
+  "base": "BUF is the more plausible leader based on the supplied offensive form: Allen has positive EPA/dropback against both blitz and non-blitz looks, while Maye is negative against both. Buffalo can lean on Cook, and New England's divided rushing workload leaves Henderson with limited carries. Pace, halftime margin and garbage-time volume cannot be established from this pack.",
+  "flip1": "New England stays competitive through its passing game: Hollins has 156 receiving yards and Doubs 145 over three games, while Buffalo has allowed 14 passes of 20-plus yards on 119 attempts. A close game preserves NE rushing opportunities, but Henderson's under can still survive if the existing backfield split holds.",
+  "flip2": "New England builds an early lead and shifts toward sustained rushing possessions. If Henderson receives a materially larger workload than his 24 carries over three games, his rushing under becomes vulnerable."
+ },
+ "injury_fallout": "MISSING: NE and BUF injury reports, practice participation, final designations, inactive lists, offensive-line availability and snap restrictions. No absences, returns or next-man-up roles are inferred. Henderson's 24 carries, Stevenson's 31 and Maye's 13 are observed usage only. Source for all supplied statistics: user-provided pre-kickoff pack, covering Weeks 1\u20133; exact publication timestamps were not supplied.",
+ "matchup": {
+  "shell": "MISSING: BUF and NE MOFO/MOFC, man/zone rates and individual coverage assignments. Location-based passing results do not establish coverage shells.",
+  "pressure": "BUF blitzes at 31%; NE QB EPA/dropback is -0.23 against blitzes across 29 dropbacks versus -0.08 without blitzes. That supports a hypothesis of disrupted NE possessions, not a measured pressure advantage. MISSING: pressure rate, sacks, time to throw and offensive-line health.",
+  "bleeds": "BUF has allowed 4.01 yards per carry and nine runs of at least 10 yards through three games. Its 14 explosive passes allowed on 119 attempts offer NE a possible passing route to competitiveness; these counts alone do not establish opponent-adjusted defensive quality.",
+  "overlap": "Henderson's rushing under rests on divided NE volume rather than an asserted elite BUF run defense: he has 24 carries versus Stevenson's 31 and Maye's 13. Buffalo's 4.01 allowed YPC is close to Henderson's observed 4.13, providing little evidence here for an efficiency-driven breakout."
+ },
+ "form": "Across Weeks 1\u20133, Henderson recorded 24 carries for 99 yards, Stevenson 31 for 116, Kiner 14 for 29 and Maye 13 for 85. Henderson accounted for 29.3% of the 82 listed NE carries. These are aggregate totals, not evidence of a stable week-by-week trend. BUF's Cook recorded 58 carries for 346 yards, supporting the Buffalo-control hypothesis, although his 5.97 YPC should not be assumed sustainable. MISSING: individual game logs, snaps, routes, red-zone work, role-change reports and comparable-opponent splits.",
+ "edge_players": [
+  {
+   "player": "treveyonhenderson",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Henderson can stay under 40.5 rushing yards because New England's divided carry allocation limits his volume, particularly if Buffalo's stronger offensive form produces a lead.",
+   "must_be_true": "treveyonhenderson carries <= 9 [because the pack records 24 carries across three games, alongside 31 for Stevenson and 13 for Maye]",
+   "kills_it": "IF Henderson breaks a 41-yard run THEN the Henderson under 40.5 rushyds leg fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Read first: divided NE rushing volume in a plausible BUF-led game favors Henderson's under. Arithmetic check only, not a fitted projection or simulation: eight carries at BUF's 4.01 allowed YPC produces 32.1 yards; nine produces 36.1; ten produces 40.1. At Henderson's observed 4.13 YPC, ten carries produces 41.3, so a modest workload increase can erase the cushion. The under survives the base script and a competitive-game flip if the split persists. At -114, its break-even probability is 53.3%; the pack does not establish that the true probability exceeds this.",
+  "disagrees": "none",
+  "missing": "Calibrated projection, simulated distribution and median, Pinnacle prices and sharp no-vig benchmark, weekly carry distribution, injury/inactive information, coverage charting, current weather, market opening prices and movement, rest/travel details and exact kickoff time.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional lean only: treveyonhenderson rushyds under 40.5 at -114, the supplied main line. No alternative rung is supplied. Agreement with the available directional evidence is not confirmation of positive expected value; no stake is assigned.",
+ "pre_mortem": "It's Monday and Henderson's under lost because New England stayed ahead or kept the game close enough to sustain rushing volume, and Henderson received more of that work than the three-game aggregate suggested. Only ten carries at his observed efficiency would exceed 40.5. Buffalo has also allowed nine runs of 10-plus yards, leaving a chunk-play route to defeat even on limited carries. Missing weekly usage and injury information prevent ruling out a larger role. This counter-case limits the selection to a lean rather than a strong play.",
+ "slip_story": "Single-leg candidate for a Buffalo-controls-the-game story, also compatible with a close game that preserves NE's existing carry split. Do not manufacture a three- or four-leg slip from this pack; no second edge is established here. No bet is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

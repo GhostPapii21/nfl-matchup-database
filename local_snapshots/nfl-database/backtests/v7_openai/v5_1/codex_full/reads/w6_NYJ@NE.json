@@ -1,0 +1,48 @@
+{
+ "game": "Week 6 NYJ@NE / kickoff time MISSING / NE -7 / total 42.5 / implied totals: NE 24.75, NYJ 17.75 / weather MISSING. Source: supplied pre-kickoff pack; exact as-of timestamp, venue details, moneyline, opening lines, rest and travel MISSING.",
+ "script": {
+  "base": "Hypothesis before the statistical check: NE builds a lead, while NYJ's catch-up offense favors its downfield receivers over Braelon Allen's receiving yardage. Hunter Henry offers a potential middle-field outlet against pressure, although his alignment and protection responsibilities are unverified. Pace and halftime lead timing are not established by the pack.",
+  "flip1": "NYJ keeps the game competitive or leads, requiring more NE passing. Henry's receiving over can survive this flip; Allen's receiving under can also survive if NYJ continues using him primarily on very short targets.",
+  "flip2": "NYJ struggles against pressure and repeatedly checks down to Allen while NE protects a large lead through rushing. This threatens both Allen's receiving under and Henry's receiving over."
+ },
+ "injury_fallout": "MISSING: injury reports, practice participation, final game designations, inactives and snap restrictions for both NYJ and NE, including Braelon Allen and Hunter Henry. MISSING: offensive-line and defensive personnel availability, replacement assignments and historical replacement shares. No absence, return or next-man-up role is inferred from the supplied usage. Recheck final reports and approximately 90-minute inactives before using either candidate; those checkpoints cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: NYJ and NE MOFO/MOFC rates, man/zone rates, coverage assignments and receiver alignment. Henry attacking NYJ's middle is a hypothesis, not a verified coverage matchup.",
+  "pressure": "Source: supplied season-to-date defensive and QB splits. NE blitzes 34%; NYJ's QB EPA/dropback is -0.08 against blitzes over 45 dropbacks versus 0.08 without blitzes. NYJ blitzes 39%; NE's QB EPA/dropback is 0.07 against blitzes over 54 dropbacks versus 0.21 without blitzes. Actual pressure rates, sack rates, time to throw and check-down rates are MISSING; blitz frequency alone does not establish pressure getting home.",
+  "bleeds": "Source: supplied five-game defensive splits. NYJ allows 8.12 YPA in the middle versus 5.17 left and 5.69 right, creating a possible Henry matchup. NE allows 12.71 middle YPA versus 5.97 left and 5.0 right, but Allen's recent targets total -14 air yards, so that middle-field weakness does not automatically imply substantial receiving yards for him. NYJ allows 4.41 rushing YPC and NE 4.06; neither figure establishes an individual rushing edge without script and workload assumptions.",
+  "overlap": "Henry is a candidate to exploit NYJ's relatively weaker middle, conditional on running routes there rather than blocking. Allen's under rests on extremely shallow receiving usage, not on claiming NE shuts down all short passing. NYJ's recent target leader is Garrett Wilson with 29 targets, compared with Allen's nine; NE's receiving targets are distributed, with Henry's 11 trailing Romeo Doubs' 16. Position-specific allowance and YAC data are MISSING."
+ },
+ "form": "Source: supplied weeks 3-5 aggregates, not individual game logs. Allen has 42 carries for 189 yards and nine targets for 11 receiving yards with -14 air yards; his recent role supports rushing involvement much more clearly than receiving yardage. Henry has 11 targets for 111 receiving yards and 68 air yards, showing more receiving depth than Allen. These totals do not establish per-game consistency, routes, snap shares, red-zone usage or dependence on one explosive play. Similar-opponent game logs and play-caller changes are MISSING.",
+ "edge_players": [
+  {
+   "player": "braelonallen",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Allen can stay under 15.5 receiving yards because NYJ has recently used him on extremely shallow targets, leaving his yardage dependent on gains after the catch even if trailing adds passing volume.",
+   "must_be_true": "Braelon Allen receiving yards <= 15 [because the pack records nine targets for only 11 receiving yards and -14 air yards across weeks 3-5]",
+   "kills_it": "IF NE pressure produces repeated productive check-downs or Allen breaks one catch for at least 16 yards THEN braelonallen recyds under 15.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "hunterhenry",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Henry can clear 27.5 receiving yards if his receiving routes access the middle, where NYJ has allowed more yards per attempt than on either side.",
+   "must_be_true": "Hunter Henry receiving yards >= 28 [because the pack records 111 receiving yards on 11 targets over weeks 3-5 and NYJ allows 8.12 middle YPA versus 5.17 left and 5.69 right]",
+   "kills_it": "IF NE's lead or protection plan reduces Henry's receiving opportunities enough to hold him to 27 yards or fewer THEN hunterhenry recyds over 27.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypotheses are supported directionally by Allen's shallow receiving usage and Henry's receiving production paired with NYJ's middle-field allowance. These are matchup checks, not calibrated projections or estimated hit probabilities. No projection or simulation was run because the pack supplies neither a model nor the inputs needed to validate one. Neither candidate earns strong confidence.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median and distribution, Pinnacle prices and sharp no-vig probabilities; individual weekly results, routes, snaps, alignment, YAC, positional coverage allowances, actual pressure rates, injury information and weather. The supplied opposing prop prices are not identified as Pinnacle and are not substituted for a sharp benchmark.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidates only: braelonallen recyds under 15.5 at -114, requiring 53.27% to break even before any edge allowance; hunterhenry recyds over 27.5 at -112.5, requiring 52.94%. Source: supplied available props. Allen's market expresses a low receiving-yardage role, while Henry's expresses potential middle-field receiving efficiency; neither is a receptions recommendation. No alternate rung is supplied, and positive expected value is not established without calibrated probabilities.",
+ "pre_mortem": "Allen under: It lost because trailing NYJ repeatedly used him as its pressure outlet. Nine recent targets show that receiving involvement exists, and NE's 34% blitz rate makes increased outlet usage plausible. One missed tackle could erase the entire under despite another shallow average target depth. Missing YAC and individual game logs prevent determining whether the recent 11-yard total is representative.\n\nHenry over: It lost because NE's seven-point-favorite script reduced passing volume, or Henry blocked rather than ran routes against NYJ's 39% blitz rate. Eleven targets across three games do not guarantee enough opportunities, and NYJ's middle YPA is not a TE-specific statistic. The matchup could benefit another NE receiver instead. These countercases keep both candidates at lean rather than strong.",
+ "slip_story": "The conditional shared story is a controlled NE lead with enough early middle-field passing for Henry, followed by NYJ catch-up passing that does not produce Allen receiving gains. Both candidates can survive a competitive-game flip, but a check-down-heavy NYJ offense paired with a run-heavy NE blowout threatens the combination. Do not force a 3-4-leg slip from two supported candidates or multiply their marginal probabilities as if independent; retain as separate leans pending validation. No bets placed. MISSING: a timestamped pre-kickoff lock, read hash and persistent tracking record. Postgame, grade the NE-lead script and each role hypothesis separately from whether the yardage legs won; review injury fallout, coverage mapping and role verification for misses.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

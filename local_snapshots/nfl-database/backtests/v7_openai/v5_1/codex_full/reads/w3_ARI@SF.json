@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 ARI@SF / kickoff MISSING / spread, total, moneyline, implied totals and opening movement NOT SAVED; script inferred only from supplied team form / weather NOT SAVED; venue conditions, rest and travel MISSING",
+ "script": {
+  "base": "SF's more productive passing offense sustains drives and builds a lead, while Arizona relies on its established short-area targets. SF distributes opportunities rather than requiring a McCaffrey takeover; Arizona's trailing script does not automatically expand Harrison's small target role. Pace and halftime scoring cannot be established from this pack.",
+  "flip1": "Arizona keeps the game competitive or leads, making SF sustain passing volume. McCaffrey's receiving opportunities become the main threat to his combined-yardage under, while Harrison can remain peripheral if Arizona continues concentrating targets elsewhere.",
+  "flip2": "SF jumps ahead early and shifts toward clock management. McCaffrey's rushing workload could break his under, while Arizona's catch-up passing could expand Harrison's opportunities; both selections become vulnerable if the recent opportunity distribution changes."
+ },
+ "injury_fallout": "MISSING: injury reports, practice trends, return statuses, snap limits and final inactives for both ARI and SF, including Christian McCaffrey and Marvin Harrison Jr. No absence, return or next-man-up assignment is inferred from usage. Source for all available facts: supplied as-of Week 3 pack, covering Weeks 1\u20132; exact publication timestamps are not supplied. Final-report and approximately 90-minute inactive checks cannot be completed within this backtest.",
+ "matchup": {
+  "shell": "MISSING: ARI and SF MOFO/MOFC, man/zone rates and individual coverage assignments. Directional passing splits do not establish shells or identify which defender covers Harrison.",
+  "pressure": "SF blitzes 28%; ARI's QB EPA/dropback is -0.31 against blitzes over 15 dropbacks versus 0.13 without blitzes. That supports a pressure-related obstacle to Arizona passing, but actual pressure rate and Harrison-specific effects are missing. ARI blitzes 21%; SF's QB EPA/dropback is positive against both blitzes, 0.98 over 18 dropbacks, and non-blitzes, 0.38.",
+  "bleeds": "ARI allows 3.98 rushing yards per carry and six runs of 10-plus yards. Its middle and right passing YPA allowed are 9.53 and 8.62, supporting alternative SF passing production. SF allows 3.95 rushing yards per carry and four passes of 20-plus yards in 55 attempts; its middle passing YPA allowed is 5.75. Position-specific concessions, box counts, rush EPA and stuff rates are missing.",
+  "overlap": "Arizona's actual target concentration favors McBride, with 23 targets, and Michael Wilson, with 14, rather than Harrison's four. SF can attack Arizona's passing concessions through several options: Evans has 10 targets, Kittle nine and Samuel 11. These facts support a distributed-production hypothesis, not proof that McCaffrey will be excluded."
+ },
+ "form": "Only two games are supplied, despite the table's L3 label; no third or fourth game is inferred. McCaffrey has 20 carries for 91 yards plus 12 targets for 63 receiving yards: 154 combined yards across two games. Black separately has 21 carries for 90 yards, demonstrating meaningful competing rushing usage without establishing why. Harrison has four targets, 33 receiving yards and 74 air yards across two games. McBride has 136 receiving yards and Wilson 74. Individual-game routes, snaps, red-zone usage, role changes and comparable-opponent logs are MISSING.",
+ "edge_players": [
+  {
+   "player": "christianmccaffrey",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "McCaffrey can stay under 100.5 combined yards because SF's supplied usage spreads carries to Black and passing opportunities across several receivers rather than concentrating the offense on McCaffrey.",
+   "must_be_true": "Christian McCaffrey carries-plus-targets <= 20 [because the pack records 20 carries and 12 targets across two games, alongside Black's 21 carries]",
+   "kills_it": "IF SF concentrates its rushing workload on McCaffrey or he adds substantial receiving yardage to a normal rushing workload THEN Christian McCaffrey rushrecyds under 100.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "marvinharrisonjr",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Harrison can stay under 33.5 receiving yards because Arizona's supplied target distribution leaves him peripheral behind McBride, Wilson and Bourne, with SF blitzing against a blitz-sensitive passing offense.",
+   "must_be_true": "Marvin Harrison Jr targets <= 4 [because the pack records four targets across two games versus McBride's 23, Wilson's 14 and Bourne's 11]",
+   "kills_it": "IF Harrison catches one explosive pass for at least 34 yards or receives enough additional targets to reach 34 yards THEN Marvin Harrison Jr recyds under 33.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The matchup and role hypotheses precede these numerical checks. McCaffrey's two-game combined-yardage rate is 77 per game versus 100.5; Harrison's is 16.5 receiving yards per game versus 33.5. These are descriptive checks, not projections, medians or calibrated probabilities. No supplied number clearly contradicts either role-based under read. Both remain small-sample leans, not demonstrated positive-EV bets.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations, distributions, Pinnacle prices and sharp no-vig probabilities; individual-game outcomes and opportunity trends; injury/inactive information; detailed coverage and pressure charting; saved weather and market context. Model calibration cannot be tested.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate main lines only: christianmccaffrey rushrecyds under 100.5 at -113; marvinharrisonjr recyds under 33.5 at -111.5. Combined yards matches the McCaffrey workload-distribution hypothesis; receiving yards matches Harrison's limited receiving role. No alternate rung or verified price edge is available. No stake is assigned.",
+ "pre_mortem": "It is Monday and both unders lost because two games were an unstable guide to Week 3 roles. Black's prior carries did not guarantee another substantial workload, and McCaffrey accumulated yards through both phases against an Arizona defense allowing six runs of 10-plus yards and substantial middle/right passing efficiency. Harrison's 74 air yards on four targets showed that a single catch could defeat his modest line, and SF had already allowed four explosive passes. Missing injury information could also conceal a material redistribution of opportunities. These counter-cases limit confidence to lean and rule out treating the selections as robust anchors.",
+ "slip_story": "Conditional story: SF wins through distributed offense while Arizona continues targeting McBride and Wilson ahead of Harrison. Each under can also survive a competitive game if the supplied opportunity distribution persists. Do not force a 3\u20134-leg slip from this single game's two candidates; no additional qualified legs or joint pricing are supplied, and no bet is placed. Step 12: this JSON records the hypotheses, but no external save, exact pre-kickoff timestamp or hash is available. Later grade script accuracy and role accuracy separately from the two prop results; investigate Step 3 for injury-driven changes, Step 5 for unstable roles and Step 2 for script misses.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 ATL@GB / kickoff MISSING / spread and total NOT SAVED; implied totals, moneyline and movement MISSING / weather NOT SAVED. Script inferred only from supplied Weeks 1\u20132 team form, not market expectations. Venue details, rest and travel MISSING.",
+ "script": {
+  "base": "Hypothesis: GB builds a modest lead through its receiving threats while ATL struggles to sustain offense against a defense limiting rushing efficiency and explosive passes. ATL continues using Bijan Robinson underneath, but its rushing volume becomes vulnerable later; pace and halftime margin cannot be established from this pack.",
+  "flip1": "ATL keeps the game close or leads, allowing Bijan to retain substantial rushing volume. Christian Watson can still receive opportunities in a competitive game, but Bijan's rushing under becomes more dependent on GB maintaining its defensive efficiency.",
+  "flip2": "ATL's pressure disrupts GB and prevents a passing-led lead. Watson's receiving over becomes vulnerable, while an ATL possession advantage could also undermine Bijan's rushing under."
+ },
+ "injury_fallout": "MISSING: ATL and GB injury reports, practice participation, offensive-line availability, defensive absences, return restrictions and final inactives. No absence, return or next-man-up inference is made from usage. All role evidence comes from the supplied Weeks 1\u20132 pack; exact publication timestamps are MISSING. Recheck both selections against final injury reports and approximately 90-minute inactives before any prospective use.",
+ "matchup": {
+  "shell": "MISSING: ATL and GB MOFO/MOFC, man/zone rates and individual coverage assignments. Directional passing splits do not establish Watson's alignment or his primary defender.",
+  "pressure": "Pack: ATL blitzed 21%; GB QB EPA/dropback was 0.16 without a blitz versus -0.24 against blitzes, with 46 blitz dropbacks. This supports a tentative GB passing-efficiency hypothesis, not a guarantee. GB blitzed 34%; ATL QB EPA/dropback was -0.35 against blitzes versus -0.80 without them, so this sample does not support claiming GB blitzing necessarily worsens ATL's efficiency. Pressure rates, sacks and time to throw are MISSING.",
+  "bleeds": "Pack: ATL allowed eight 20-plus-yard pass plays on 81 attempts and 3.41 rushing YPC; GB allowed two such pass plays on 72 attempts and 3.05 rushing YPC. Both defenses allowed elevated middle passing YPA, but each middle sample contains only eight attempts. Positional allowances, box counts, rush EPA, stuff rates and YAC are MISSING.",
+  "overlap": "Watson's 213 air yards and team-leading 19 targets offer a plausible overlap with ATL's explosive-pass vulnerability. Bijan's rushing under targets GB's 3.05 YPC allowed, while his 14 targets and -18 air yards show an existing underneath receiving role that can generate touches without rushing yards. Neither overlap establishes an individual coverage matchup."
+ },
+ "form": "Only two games are supplied, despite the table's L3 label. Watson totaled 19 targets, 188 receiving yards and 213 air yards; Matthew Golden also commanded substantial opportunity with 18 targets and 217 air yards. Bijan totaled 37 carries for 155 yards, plus 14 targets and 99 receiving yards; Brian Robinson added 20 carries for 82 yards. These establish recent roles but not weekly consistency. Game-by-game distributions, snaps, routes, red-zone usage, comparable-opponent results and play-caller changes are MISSING.",
+ "edge_players": [
+  {
+   "player": "christianwatson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Watson's established downfield workload can exploit an ATL defense that has allowed frequent explosive passes, giving him a matchup-based path over 71.5 receiving yards.",
+   "must_be_true": "christianwatson targets >= 8 [because the pack records 19 targets and 213 air yards across Weeks 1\u20132]",
+   "kills_it": "IF ATL pressure consistently prevents GB from completing downfield throws THEN christianwatson recyds over 71.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "bijanrobinson",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "GB's efficient run defense and a hypothesized GB lead can keep Bijan below 78.5 rushing yards even if he remains productive through underneath receiving work.",
+   "must_be_true": "bijanrobinson rush_attempts <= 20 [because the pack records 37 carries across two games alongside Brian Robinson's 20 carries]",
+   "kills_it": "IF ATL controls possession and gives Bijan at least 24 carries at 3.3 yards per carry or better THEN bijanrobinson rushyds under 78.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypotheses precede this numerical check. Watson's two-game receiving rate is 94 yards per game versus 71.5, supporting rather than originating the read; Golden's comparable opportunity limits conviction. Bijan averaged 18.5 carries and 77.5 rushing yards, only one yard below this line: recent output alone offers essentially no cushion. GB's 3.05 YPC allowed supports the matchup thesis, but multiplying it by Bijan's workload is not a calibrated projection. Listed two-way prices imply approximately 49.90% no-vig for Watson over and 50.10% for Bijan under; these are pack-price calculations, not verified Pinnacle probabilities. Neither leg has demonstrated quantified positive expected value.",
+  "disagrees": "none",
+  "missing": "Calibrated projections, simulations and sim medians; verified Pinnacle prices and quote timestamps; game-by-game role distributions; injury/inactive reports; coverage charting; kickoff weather; spread, total and market movement.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional lean candidates only: christianwatson recyds over 71.5 at -112, requiring 52.83% to break even; bijanrobinson rushyds under 78.5 at -115, requiring 53.49%. Receiving yards fits Watson's explosive-opportunity thesis; rushing yards isolates Bijan's carry-and-efficiency risk without opposing his receiving production. No alternate rung, stake or validated pricing edge is established.",
+ "pre_mortem": "It is Monday and both lost: ATL maintained possession rather than chasing, Bijan exceeded his recent carry rate, and GB's two-game rushing-defense efficiency failed to persist. Meanwhile, Watson's air-yard opportunity went to Golden or became incompletions as ATL pressure disrupted GB. Watson's 188 yards may conceal one-play concentration because game-level results are absent. Bijan's 77.5-yard recent rate sits almost directly on 78.5, so a modest workload or efficiency increase defeats the under. These counter-cases keep both reads at lean rather than strong; unknown injuries and weather remain unresolved risks, not invented explanations.",
+ "slip_story": "Both candidates belong to one conditional story: GB creates a lead through explosive passing, then ATL loses rushing volume. Watson can survive a competitive-game flip; Bijan's under can survive that flip only if GB's run-defense efficiency persists. Both are vulnerable to the ATL-control flip. Do not force a three- or four-leg main slip from only two supported candidates, and do not represent this pair as simulation-priced or ready to bet.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

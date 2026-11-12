@@ -1,0 +1,46 @@
+{
+ "game": "Week 3 PHI@CHI / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this script is inferred only from two-game form, not from who the book expects to lead or how many points. CHI has been the more run-heavy side (Swift 34 carries/169 yards, Monangai 20/147, Williams 15/107) while PHI has split the backfield (Barkley 19/92, Bigsby 14/36, Hurts 10/64, Shipley 9/28) and thrown downfield to Smith (19 targets, 267 air yards). Base case is a competitive game in which PHI's 22% blitz lets CHI stay run-on-schedule and PHI does not turn Barkley into an 18-carry closer.",
+  "flip1": "PHI gets up early and grinds the clock: Barkley's carry share jumps toward the 15 carries that 73.5 rush yards needs even at CHI's 4.88 YPC allowed, Hurts' scramble work dies, and CHI abandons the run so Swift's 17-carry pace collapses while Burden (12 targets) and Odunze (137 air yards on only 7 targets) become the catch-up outlets.",
+  "flip2": "CHI's 39% blitz hits the worse half of the PHI QB sample (EPA/dropback 0.12 on 22 blitzed dropbacks vs 0.20 with no blitz), Smith and Wicks explosive yards stall, Hurts scramble yards rise, and a lower-event script keeps both lead backs in their recent carry bands instead of a shootout."
+ },
+ "injury_fallout": "No injury report, practice trend, questionable tag, or inactive list is in the pack, and the final report plus 90-minute inactives are unknown, so no offensive or defensive next-man-up is assigned and any Barkley, Swift, Bigsby, Shipley, or Monangai scratch voids the read. On usage already in the pack, a Barkley limit would push PHI carries to Bigsby (14 carries, 36 yards, 2.6 YPC) and Shipley (9/28); a Swift limit would push CHI carries to Monangai (20 carries, 147 yards, 7.35 YPC, plus 4 targets/35 rec yards). Missing coverage players and pass rushers are not identified, so no TE, slot, or deep-shot hole is credited.",
+ "matchup": {
+  "shell": "Man/zone rate and MOFO vs MOFC shell are not in the pack (no coverage charting). Known tendency only: CHI blitzes 39% and PHI blitzes 22%.",
+  "pressure": "CHI's 39% blitz meets a PHI QB who is worse when blitzed (0.12 EPA/dropback on 22 blitzed dropbacks vs 0.20 with no blitz), which threatens deep WR yards and can turn into Hurts scrambles or sacks. PHI's 22% blitz meets a CHI QB who stays positive under pressure (0.23 EPA on 45 blitzed dropbacks vs 0.27 unblitzed), so Chicago is not being forced off the run.",
+  "bleeds": "CHI bleeds the middle (10.5 YPA on 14 attempts) and the right (9.65 on 17; left 7.15 on 27), has allowed 7 passes of 20+ on 63 attempts, and allows 4.88 rush YPC with 5 runs of 10+. PHI is tightest in the middle (5.17 YPA on 12) and right (6.31 on 29), softer on the left (7.85 on 13), has allowed only 5 passes of 20+ on 58 attempts, and allows 4.16 rush YPC with 7 runs of 10+.",
+  "overlap": "PHI's primary target Smith (19 targets, 170 yards, 267 air yards) points at the middle and explosives CHI has bled, but the 39% blitz overlaps the worse half of Hurts' dropbacks, so that pass overlap is contested and is not a leg. The clean overlap is Swift, the CHI lead rusher at 34 carries and 4.97 YPC, into a PHI run defense that has not stuffed the run (4.16 YPC, 7 runs of 10+) behind only a 22% blitz. Barkley's 73.5 does not overlap a soft funnel in his favor; it runs into CHI's 4.88 YPC allowed, which is why that under is flagged rather than sized."
+ },
+ "form": "Pack is weeks 1-2 only (labeled L3, two games), totals not rates, and no similar-defense splits. PHI rush is a committee: Barkley 19/92 (about 9.5 carries and 46 yards a game, 4.8 YPC), Bigsby 14/36 (2.6 YPC), Hurts 10/64 (6.4 YPC), Shipley 9/28; Barkley has just 4 targets for 8 yards. PHI targets: Smith 19/170/267 air, Wicks 10/147/148 air (14.7 yards per target, explosive-looking and not trusted to repeat), Goedert 7/81/56. CHI rush: Swift 34/169 (about 17 carries and 84.5 yards a game, 5.0 YPC, lead share), Monangai 20/147 (7.35 YPC, efficiency that should not be projected), Williams 15/107. CHI targets: Raymond 14/124 on only 72 air (YAC-heavy), Burden 12/95/123, Odunze 7/95/137 (about 19.6 air per target, low volume), Loveland 5 targets for 3 yards, Swift 6/64 on -11 air, Monangai 4/35.",
+ "edge_players": [
+  {
+   "player": "saquonbarkley",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Barkley's 73.5 rush number needs about 15 carries even at CHI's 4.88 YPC allowed, but across two games he has only 19 carries and 92 yards while Bigsby (14), Shipley (9) and Hurts (10) share the backfield.",
+   "must_be_true": "Barkley stays in roughly an 8-12 carry band, Bigsby and Shipley stay active and involved, and PHI does not turn this into a clock-kill with Saquon as the hammer.",
+   "kills_it": "PHI leads and feeds him 16-plus carries, or he breaks a 20-yard run against a CHI run defense that has already allowed 4.88 YPC and 5 runs of 10+.",
+   "confidence": "strong"
+  },
+  {
+   "player": "dandreswift",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Swift is the lead back at 34 carries and 169 yards over two games, and PHI blitzes only 22% against a run defense allowing 4.16 YPC, so his 17-carry pace regressed to that 4.16 is still about 71 yards and clears 62.",
+   "must_be_true": "Swift keeps a mid-teens carry share, Monangai does not take the series, and CHI is not forced into a pass-only script.",
+   "kills_it": "PHI scores early, CHI abandons the run, or Monangai (20 carries, 7.35 YPC) becomes the hot hand and caps Swift near 12 carries, which at 4.16 YPC is about 50.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so step 8 cannot price either rung and neither leg is treated as a 70%+ ticket. Form agrees with Swift: 84.5 rush yards a game, and 17 carries times PHI's 4.16 YPC is about 71 versus a 62 line. Form also agrees with the Barkley volume case (46 yards a game versus 73.5; he needs about 15 carries at 4.88 YPC to cash the over). CHI's 4.88 rush YPC allowed and 5 runs of 10+ disagree with the matchup half of a rushing under, so the strong Barkley read is flagged for the human and not cut. Swift rush-over 62 and Barkley rush-under 73.5 are both listed at +nan, so juice is unknown. Monangai's 7.35 YPC and Wicks' 14.7 yards per target were treated as fluky and not used to pick legs.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Barkley rush yards under 73.5, price not saved (+nan). Swift rush yards over 62, price not saved (+nan). No alt rung, no receptions market, no passing yards, no TDs. Do not size either leg without a no-vig price; short-priced alts are not used.",
+ "pre_mortem": "It's Monday and this lost because the missing spread was PHI laying points, Philadelphia led by two scores, and the clock-kill went through Barkley: something like 18 carries and 80-plus yards, including one 20-yard run against a CHI front that had already allowed 4.88 YPC and five 10-yard runs, so under 73.5 died on workload plus one explosive. Chicago then threw to catch up, Swift finished near 12 carries for under 50, and Monangai's 7.35 YPC hot hand took the other rush snaps. That single PHI-ahead flip kills both legs together, and a Barkley or Swift inactive \u2014 also not in this pack \u2014 would have voided the read before kickoff.",
+ "slip_story": "One story: competitive game or CHI controlling the ground, PHI's backfield stays a committee, Chicago does not spend the second half in pass-only catch-up. The stack is Swift rush over with Barkley rush under. Do not add Smith or Wicks overs (those need the CHI blitz flip to fail), do not add Monangai overs built on 7.35 YPC, do not mix a total under with same-game pass overs, no TD legs, one market per player. Kept to these two legs because spread, prices, and no-vig are missing, so this is not a sized 3-4 leg slip.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

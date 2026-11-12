@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 JAX@CIN / kickoff MISSING / spread NOT saved / total NOT saved / weather NOT saved",
+ "script": {
+  "base": "Spread and total were not saved, so this flow is inferred only from three-game form, not from a market number. Competitive game: JAX leans on B.Tuten (43 carries, 204 yards) into a CIN run defense allowing 5.00 YPC, and T.Lawrence throws comfortably because CIN blitzes only 14% (his EPA/dropback is +0.45 unblitzed vs -0.23 vs blitz, n=25). CIN stays in it through J.Chase (25 targets, 185 yards) and T.Higgins (23 targets, 244 yards, 302 air yards), with JAX's 32% blitz a drag on J.Burrow (EPA -0.31 vs blitz, n=36, vs +0.32 unblitzed) but no saved spread to say who salts the clock.",
+  "flip1": "JAX leads late and runs clock: Tuten and C.Rodriguez (20 carries, 73 yards) pile up carries, Lawrence pass volume stalls, and CIN abandons C.Brown (49 carries, 197 yards) so Brown's rush line dies while Chase and Higgins targets spike in catch-up.",
+  "flip2": "CIN leads and plays ahead: JAX abandons the run, Tuten's 14.3-carry role shrinks and his rush line dies, P.Washington (23 targets, 329 air yards) and Jakobi Meyers (11 targets, 132 yards) become the JAX script, and Brown's carries rise into a JAX run defense that has allowed only 3.79 YPC and 5 runs of 10+."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, snap limits, and inactives for both JAX and CIN. No absences, returns, or next-man-up are inferred from usage. Role only, not health: JAX targets sit with P.Washington 23/221/329 air, Bri.Thomas 12/88/130, Jakobi Meyers 11/132/114, B.Strange 10/72/83; CIN targets sit with J.Chase 25/185/214 and T.Higgins 23/244/302. Travis Hunter is absent from the L3 target list but that is not treated as an inactive.",
+ "matchup": {
+  "shell": "MISSING man/zone and MOFO/MOFC charting. Location proxy only: CIN allows 9.23 YPA middle (30 att) and 8.43 left (37 att) but 5.67 right (48 att). JAX allows 14.45 YPA middle (11 att, small sample), 8.66 left (38 att), 7.14 right (35 att).",
+  "pressure": "CIN blitz rate 14%; JAX blitz rate 32%. Pressure rate itself is MISSING. T.Lawrence EPA/dropback -0.23 vs blitz (n=25) vs +0.45 unblitzed, so the low CIN blitz rate is a friendly dropback environment. J.Burrow EPA/dropback -0.31 vs blitz (n=36) vs +0.32 unblitzed, so JAX's 32% blitz is the live pass-game drag.",
+  "bleeds": "CIN run defense bleeds at 5.00 YPC with 8 runs of 10+; CIN explosives are 12 of 125 pass attempts. JAX run defense holds at 3.79 YPC and only 5 runs of 10+. JAX pass defense bleeds explosives at 13 of 92 attempts (14.1%) and the middle (14.45 YPA).",
+  "overlap": "JAX's primary rusher B.Tuten (43 carries, 204 yards, 4.74 YPC) attacks exactly where CIN gives it up (5.00 YPC, 8 runs of 10+). CIN's downfield primary T.Higgins (23 targets, 302 air yards, 244 rec yards) attacks JAX's explosive leak (13 passes of 20+ on 92 att), with the offset that JAX blitzes 32% and Burrow is -0.31 EPA on those dropbacks."
+ },
+ "form": "L3 only, no season averages used. JAX: Tuten 43/204 rush and 5 targets/36 rec yards (checkdowns, -20 air); Rodriguez 20/73; Lawrence 8/34 rush. Washington is the pass role (23 tgt, 221 yards, 329 air); Thomas has shrunk to 12 tgt/88 yards; Meyers 11/132; Strange 10/72. CIN: Brown 49/197 rush (4.02 YPC) but only 13 tgt/32 rec yards (-28 air); Perine 10/35 rush and 7/51 rec; Burrow 6/34 rush. Higgins 23 tgt/244 yards/302 air (81.3 per game) out-produces Chase 25 tgt/185 yards/214 air (61.7 per game). Gesicki 10/115/95 air is a real TE, not a pure dump-off. No game-by-game split in the pack, so a single long play cannot be ruled in or out.",
+ "edge_players": [
+  {
+   "player": "bhayshultuten",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Tuten is Jacksonville's bellcow at 43 carries and 204 yards (68.0 per game, 4.74 YPC) and Cincinnati allows 5.00 yards per carry plus 8 runs of 10-plus, so 57.5 is short of both his role and this run matchup; script-dependent if JAX trails big.",
+   "must_be_true": "B.Tuten carries >= 12 because he had 43 carries and 204 rush yards over 3 games and CIN allows 5.00 rush YPC",
+   "kills_it": "IF JAX trails by multiple scores and B.Tuten carries fall under 12 THEN bhayshultuten rushyds over 57.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "teehiggins",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Higgins is Cincinnati's downfield answer at 23 targets, 244 yards (81.3 per game) and 302 air yards, and Jacksonville has allowed 13 passes of 20-plus on only 92 attempts, so 62.5 sits under his role against that explosive leak.",
+   "must_be_true": "T.Higgins targets >= 6 because he had 23 targets, 244 receiving yards and 302 air yards over 3 games and JAX allowed 13 passes of 20+ yards on 92 attempts",
+   "kills_it": "IF JAX blitzes at its 32% rate and those dropbacks reproduce J.Burrow's -0.31 EPA vs blitz so T.Higgins' deep shots do not convert THEN teehiggins recyds over 62.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Tuten 204 rush yards over 3 games is 68.0 vs a 57.5 line, and CIN 5.00 YPC allowed agrees. Higgins 244 receiving yards over 3 games is 81.3 vs a 62.5 line, and JAX 13 explosives on 92 attempts agrees. No sim or no-vig was in the pack, so this is a form-and-matchup agree only; listed main lines are the rungs, not a model price. Burrow -0.31 EPA vs blitz is a kill path for Higgins, not a yardage total on the other side of 62.5.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injury report, inactives, man/zone and MOFO/MOFC charting, pressure rate, snap counts, red-zone usage, game-by-game splits, Pinnacle no-vig, projection and sims",
+  "verdict": "agree"
+ },
+ "market_rung_price": "bhayshultuten rushyds over 57.5 -114 (volume/carry-share rung, not the unpriced rushrecyds 71); teehiggins recyds over 62.5 -114.5 (explosive receiving-yards rung). No-vig and sims MISSING, so rungs are the listed main lines only; no short-priced alt added.",
+ "pre_mortem": "It's Monday and both lost because Cincinnati led early, Jacksonville abandoned the run, and Tuten finished under 12 carries so 57.5 missed, while Jacksonville's 32% blitz turned Burrow's dropbacks into the -0.31 EPA bucket, Higgins' 302 air yards never became catches, and Chase (25 targets) or Gesicki (10 targets, 115 yards) soaked the production. No saved spread told us which side was likelier to lead, and no injury report confirmed Higgins or the JAX front was full-go. A single explosive already in Tuten's 204 yards, which the pack does not split out, would also make 68.0 a fluky base.",
+ "slip_story": "One JAX-imposes story: Tuten over belongs to the weak-CIN-run-front stack, and Higgins over belongs to the CIN-must-throw stack against a JAX defense that leaks 20-plus-yard passes. They fit together in a competitive game or a JAX lead (JAX runs, CIN throws to catch up). Do not add a game under, a Brown rush over, or a Higgins under to this slip; those need the opposite script.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

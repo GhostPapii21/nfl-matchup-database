@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 BUF@LA / kickoff MISSING / spread, total, moneyline, implied totals and opening movement MISSING; script inferred only from supplied team form / weather MISSING; venue conditions, rest and travel details MISSING",
+ "script": {
+  "base": "Hypothesis, not a market-implied forecast: BUF sustains a balanced, run-supported offense through James Cook, whose supplied Weeks 2\u20134 line is 57 carries for 364 yards. LA stays competitive but needs Davante Adams' passing-game volume against BUF's explosive-pass vulnerability; pace and halftime leadership cannot be established from the pack.",
+  "flip1": "BUF establishes an early lead and LA increases passing volume. That supports Adams' receiving opportunity and could suppress Dalton Kincaid's volume if BUF shifts toward Cook and clock management.",
+  "flip2": "LA leads early and BUF must increase passing volume. Kincaid's under becomes vulnerable, while Adams could lose late targets to the Williams/Corum rushing rotation; both proposed legs are sensitive to this flip."
+ },
+ "injury_fallout": "MISSING: BUF and LA injury reports, practice participation, offensive-line availability, defensive absences, return-to-play restrictions and final inactives. No absence, return or next-man-up assignment is inferred from usage. Source for all usage references: supplied pre-kickoff pack, Weeks 2\u20134 offense tables. Final-report and approximately 90-minute inactive checks cannot be completed within this backtest.",
+ "matchup": {
+  "shell": "MISSING: BUF and LA MOFO/MOFC, man/zone rates, alignment and individual coverage assignments. LA's low middle-field YPA cannot establish its shell or identify Kincaid's coverage defender.",
+  "pressure": "Supplied four-game defense data: LA blitzes 32% and BUF 33%; actual pressure rates are missing. Supplied QB splits: BUF records 0.28 EPA/dropback against blitz versus 0.26 without; LA records -0.33 against blitz over 44 dropbacks versus 0.19 without. BUF's blitz tendency is a material counterweight to the Adams-over hypothesis, but blitz rate alone does not establish pressure getting home.",
+  "bleeds": "BUF allowed 17 passes of 20+ yards on 158 attempts, versus LA's 5 on 136. BUF allowed 8.13 YPA middle and 8.37 right; LA allowed 4.64 middle, 5.0 left and 4.78 right. Rush YPC allowed is BUF 4.12 and LA 3.96. Sources: supplied season-to-date, four-game defense tables; positional allowance, YAC, box counts and rush EPA are missing.",
+  "overlap": "Adams leads the supplied LA target list with 32 targets and 563 air yards, creating a plausible overlap with BUF's explosive-pass leakage; his actual alignment is missing. Kincaid's 13 targets and 140 yards over three games meet an LA defense allowing few explosive passes and low YPA across all listed locations, supporting a receiving-yard ceiling hypothesis rather than a claimed individual coverage mismatch."
+ },
+ "form": "Supplied Weeks 2\u20134 aggregates only, not individual game logs: Adams has 32 targets, 364 receiving yards and 563 air yards; Kincaid has 13 targets, 140 receiving yards and 141 air yards. Cook's 57 carries for 364 yards support the proposed BUF run component. LA's Williams/Corum split is 43/23 carries, making a run-led LA flip plausible. MISSING: weekly distribution, snaps, routes, red-zone usage, play-caller changes, comparable-opponent games and play-level evidence needed to identify one-play inflation. No role change is inferred.",
+ "edge_players": [
+  {
+   "player": "davanteadams",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Adams' leading LA target and air-yard role attacks a BUF defense that has allowed 17 explosive passes, giving him a matchup-based path over 62.5 receiving yards.",
+   "must_be_true": "Davante Adams targets >= 8 [because the supplied Weeks 2\u20134 pack records 32 targets and 563 air yards]",
+   "kills_it": "IF BUF's blitz repeatedly stalls Stafford's possessions before Adams receives downfield opportunities THEN davanteadams recyds over 62.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "daltonkincaid",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Kincaid's secondary receiving volume faces LA's low-YPA, low-explosive passing defense, supporting under 56.5 yards in a balanced BUF script.",
+   "must_be_true": "Dalton Kincaid targets <= 5 [because the supplied Weeks 2\u20134 pack records 13 targets across three games]",
+   "kills_it": "IF an early LA lead forces concentrated BUF passing volume toward Kincaid THEN daltonkincaid recyds under 56.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Reads were formed from role-versus-matchup hypotheses before these arithmetic checks. Adams produced 121.3 receiving yards and 10.7 targets per game over the supplied three-game aggregate; Kincaid produced 46.7 yards and 4.3 targets. These are descriptive checks, not projections or simulated medians. BUF allowed explosive passes on 10.8% of attempts versus LA's 3.7%. Adams' strong read is retained but flagged, not cut, because of LA's adverse blitz split. Kincaid's under has no clear numerical contradiction in the supplied pack. No probability, stake or verified positive expected value is asserted.",
+  "disagrees": "Adams over: LA's -0.33 QB EPA/dropback against blitz versus 0.19 without contradicts an uncomplicated downfield-success read against BUF's 33% blitz rate.",
+  "missing": "Projection model, simulation distribution and median, Pinnacle prices and sharp no-vig benchmark, weekly role distributions, coverage charting, actual pressure rates, injury reports, kickoff-time weather and market-implied script. The supplied two-sided prop prices are not identified as Pinnacle.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Conditional candidates only: davanteadams recyds over 62.5 at -113; daltonkincaid recyds under 56.5 at -114. Adams' hypothesis concerns downfield yardage; Kincaid's concerns a yardage ceiling against explosive-pass suppression. Both use supplied main lines, with one market per player. Neither is a model-priced or execution-ready recommendation.",
+ "pre_mortem": "It is Monday and this read lost: BUF's 33% blitz tendency exploited LA's -0.33 EPA/dropback blitz split, preventing Adams' substantial air-yard opportunity from becoming catches. Meanwhile, LA led early and forced BUF away from Cook; Allen's positive EPA against both blitz and non-blitz looks sustained drives, and Kincaid exceeded his recent target pace or broke one long gain. The pack lacks coverage assignments and individual game distributions, so LA's aggregate pass defense may not describe Kincaid's specific matchup. Missing injury and snap-limit information prevents resolving those risks.",
+ "slip_story": "Watchlist story: BUF maintains a balanced or leading script, limiting Kincaid's yardage while LA funnels passing opportunities toward Adams. Both survive the base hypothesis and the BUF-early-lead flip, but are script-dependent against an LA-early-lead flip. Do not manufacture a three- or four-leg slip from this pack: only two candidates are identified, Adams is flagged, joint pricing is unavailable, and depth-receiver house rules were not supplied. No bet is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

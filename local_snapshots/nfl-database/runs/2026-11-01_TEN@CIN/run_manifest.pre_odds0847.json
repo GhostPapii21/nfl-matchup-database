@@ -1,0 +1,1267 @@
+{
+  "season": 2026,
+  "week": 8,
+  "game_id": "401873031",
+  "game": "TEN@CIN",
+  "kickoff_et": "2026-11-01 01:00 PM",
+  "game_date": "2026-11-01",
+  "venue": null,
+  "input_cutoff_et": "2026-11-01T07:30",
+  "skill": "/home/box/agent-data/workflows/nfl-game-script-run/SKILL.md",
+  "seed": 20261101,
+  "trials": 100000,
+  "sim_script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+  "approved_exceptions": [
+    {
+      "input": "coverage.defenders",
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "approved_by": "Rico",
+      "approved_on": "2026-11-01",
+      "valid_for_date": "2026-11-01",
+      "scope": "receiving legs",
+      "reason": "misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only"
+    }
+  ],
+  "sources": [
+    {
+      "category": "core_stats_pbp",
+      "name": "nflverse play_by_play_2026 (thru 2026-10-29)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "tool": "curl (github nflverse release)",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "nflverse snap_counts_2026 + players",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/snap_counts_2026.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "ESPN depth charts API (24 teams)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/espn_depth_all.json",
+      "tool": "python urllib",
+      "pulled_et": "2026-11-01T07:14"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "ESPN box scores wk1-8 (two-source target check)",
+      "url_or_file": "/workspace/nfl-database/week8/phase_walk/src/espn_box.json",
+      "tool": "earlier urllib pull (Oct 31)",
+      "pulled_et": "2026-10-31T19:19"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "FTN charting via nflverse (blitzers, rushers)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "Sharp Football coverage schemes (man/zone, MOF; data Updated Oct 27)",
+      "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+      "tool": "Firecrawl scrape",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "ESPN WR/CB matchup cheatsheet wk8",
+      "url_or_file": "https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_WRCB.pdf",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:12"
+    },
+    {
+      "category": "ngs",
+      "name": "BACKUP nflverse nextgen_stats release (published copy, data through 2026 Wk8 / 2026-10-29; nextgenstats.nfl.com on hold) - accepted by Ghost6 for 2026-11-01 only",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "film",
+      "name": "Official NFL YouTube highlights (oEmbed-checked) + caption plays re-matched to fresh pbp",
+      "url_or_file": "https://www.youtube.com/@NFL",
+      "tool": "python urllib oEmbed",
+      "pulled_et": "2026-11-01T07:26"
+    },
+    {
+      "category": "injuries_news",
+      "name": "ESPN injuries API",
+      "url_or_file": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "weather",
+      "name": "NWS hourly + Open-Meteo",
+      "url_or_file": "https://api.weather.gov ; https://api.open-meteo.com",
+      "tool": "python urllib",
+      "pulled_et": "2026-11-01T07:10"
+    },
+    {
+      "category": "odds_props",
+      "name": "The Odds API: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks, Underdog player props",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_final.csv",
+      "tool": "python urllib (The Odds API)",
+      "pulled_et": "2026-11-01T07:30"
+    },
+    {
+      "category": "odds_props",
+      "name": "The Odds API: FanDuel/DK/Pinnacle spreads+totals",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_final.json",
+      "tool": "python urllib (The Odds API)",
+      "pulled_et": "2026-11-01T07:30"
+    }
+  ],
+  "flagged_gaps": [
+    {
+      "category": "coverage_matchups",
+      "item": "PFR advanced defense live pull",
+      "status": "MISSING (HTTP 403, not routed around)",
+      "backup": "PFR cache pfr_def_adv_2026.html 2026-10-29 06:02 under Rico exception"
+    },
+    {
+      "category": "coverage_matchups",
+      "item": "Sharp pressure page / SumerSports",
+      "status": "ON HOLD (Ghost6)",
+      "backup": "pressure PROXY (sack|hit|scramble)/dropbacks from nflverse pbp"
+    },
+    {
+      "category": "ngs",
+      "item": "nextgenstats.nfl.com public pages",
+      "status": "ON HOLD (Ghost6)",
+      "backup": "nflverse nextgen_stats release parquet (labelled BACKUP)"
+    },
+    {
+      "category": "coverage_matchups",
+      "item": "PFF per-defender/props",
+      "status": "NOT PULLED (logged-out preview only; needs signed-in box browser, read-only)",
+      "backup": "none used as numbers"
+    },
+    {
+      "category": "core_stats_pbp",
+      "item": "nflverse pbp_participation_2026",
+      "status": "MISSING (HTTP 404 not published; corrupt 9-byte file kept out)",
+      "backup": "ESPN WR/CB cheatsheet alignment + ESPN depth"
+    }
+  ],
+  "pressure_inputs": {
+    "blitz_rate": {
+      "value": {
+        "TEN": 0.235,
+        "CIN": 0.167
+      },
+      "definition": "defense FTN n_pass_rushers>=5 / charted dropbacks, season",
+      "l4": {
+        "TEN": 0.2484076433121019,
+        "CIN": 0.20588235294117646
+      },
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet + play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "FTN charting"
+    },
+    "pressure_rate": {
+      "value": {
+        "TEN": 0.195,
+        "CIN": 0.227
+      },
+      "definition": "defense (sack|qb_hit|scramble)/dropbacks",
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "PROXY"
+    },
+    "checkdown_share": {
+      "value": {
+        "TEN": 0.284,
+        "CIN": 0.311
+      },
+      "definition": "QB attempts with air_yards<=0 or RB target / attempts",
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "nflverse pbp"
+    }
+  },
+  "sims": [
+    {
+      "model": "monte_carlo",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Cam Ward Pass Yds Under 192.5": {
+          "p": 0.5473,
+          "median": 184.74
+        },
+        "Tony Pollard Rush Yds Over 65.5": {
+          "p": 0.6563,
+          "median": 77.75
+        },
+        "Tony Pollard Rush+Rec Yds Under 84.5": {
+          "p": 0.4655,
+          "median": 87.74
+        },
+        "Joe Burrow Pass Yds Over 249.5": {
+          "p": 0.6926,
+          "median": 292.54
+        },
+        "Chase Brown Rush Yds Under 58.5": {
+          "p": 0.703,
+          "median": 46.62
+        },
+        "Chase Brown Rush+Rec Yds Under 81.5": {
+          "p": 0.4963,
+          "median": 81.78
+        },
+        "Ja'Marr Chase Rec Yds Under 79.5": {
+          "p": 0.6924,
+          "median": 57.71
+        },
+        "Ja'Marr Chase Receptions Under 6.5": {
+          "p": 0.6748,
+          "median": 5.0
+        },
+        "Tee Higgins Rec Yds Over 69.5": {
+          "p": 0.6181,
+          "median": 84.76
+        },
+        "Tee Higgins Receptions Over 4.5": {
+          "p": 0.6548,
+          "median": 6.0
+        },
+        "Mike Gesicki Rec Yds Under 22.5": {
+          "p": 0.6104,
+          "median": 18.46
+        },
+        "Mike Gesicki Receptions Under 2.5": {
+          "p": 0.6412,
+          "median": 2.0
+        }
+      }
+    },
+    {
+      "model": "bias",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Cam Ward Pass Yds Under 192.5": {
+          "p": 0.7342,
+          "median": 156.12
+        },
+        "Tony Pollard Rush Yds Over 65.5": {
+          "p": 0.5213,
+          "median": 67.53
+        },
+        "Tony Pollard Rush+Rec Yds Under 84.5": {
+          "p": 0.5967,
+          "median": 75.97
+        },
+        "Joe Burrow Pass Yds Over 249.5": {
+          "p": 0.4893,
+          "median": 246.81
+        },
+        "Chase Brown Rush Yds Under 58.5": {
+          "p": 0.8086,
+          "median": 41.13
+        },
+        "Chase Brown Rush+Rec Yds Under 81.5": {
+          "p": 0.6515,
+          "median": 70.11
+        },
+        "Ja'Marr Chase Rec Yds Under 79.5": {
+          "p": 0.7726,
+          "median": 47.72
+        },
+        "Ja'Marr Chase Receptions Under 6.5": {
+          "p": 0.7464,
+          "median": 5.0
+        },
+        "Tee Higgins Rec Yds Over 69.5": {
+          "p": 0.5064,
+          "median": 69.84
+        },
+        "Tee Higgins Receptions Over 4.5": {
+          "p": 0.5662,
+          "median": 5.0
+        },
+        "Mike Gesicki Rec Yds Under 22.5": {
+          "p": 0.6709,
+          "median": 13.89
+        },
+        "Mike Gesicki Receptions Under 2.5": {
+          "p": 0.6913,
+          "median": 2.0
+        }
+      }
+    },
+    {
+      "model": "game_randomness",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Cam Ward Pass Yds Under 192.5": {
+          "p": 0.56,
+          "median": 182.47
+        },
+        "Tony Pollard Rush Yds Over 65.5": {
+          "p": 0.623,
+          "median": 76.64
+        },
+        "Tony Pollard Rush+Rec Yds Under 84.5": {
+          "p": 0.4866,
+          "median": 86.1
+        },
+        "Joe Burrow Pass Yds Over 249.5": {
+          "p": 0.6876,
+          "median": 290.49
+        },
+        "Chase Brown Rush Yds Under 58.5": {
+          "p": 0.6861,
+          "median": 45.51
+        },
+        "Chase Brown Rush+Rec Yds Under 81.5": {
+          "p": 0.5072,
+          "median": 80.89
+        },
+        "Ja'Marr Chase Rec Yds Under 79.5": {
+          "p": 0.6877,
+          "median": 53.44
+        },
+        "Ja'Marr Chase Receptions Under 6.5": {
+          "p": 0.6699,
+          "median": 5.0
+        },
+        "Tee Higgins Rec Yds Over 69.5": {
+          "p": 0.6172,
+          "median": 83.89
+        },
+        "Tee Higgins Receptions Over 4.5": {
+          "p": 0.656,
+          "median": 6.0
+        },
+        "Mike Gesicki Rec Yds Under 22.5": {
+          "p": 0.6355,
+          "median": 14.62
+        },
+        "Mike Gesicki Receptions Under 2.5": {
+          "p": 0.6616,
+          "median": 2.0
+        }
+      }
+    }
+  ],
+  "legs": [
+    {
+      "name": "Cam Ward Pass Yds Under 192.5",
+      "player": "Cam Ward",
+      "team": "TEN",
+      "opp": "CIN",
+      "type": "QB",
+      "market": "passyds",
+      "receiving": false,
+      "side": "under",
+      "line": 192.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 192.5,
+        "over": -104,
+        "under": -121,
+        "nv_over": 0.48216833095577744,
+        "nv_under": 0.5178316690442226,
+        "overround": 1.057315233785822
+      },
+      "draftkings": {
+        "point": 191.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "prizepicks_lines": [
+        192.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P3 FAIL: under vs top-8 pass yds allowed (rank 7)",
+        "P13 FAIL: trailing-team passing/receiving under BLOCKED"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Tacario Davis",
+            "team": "CIN",
+            "pos": "CB",
+            "targets": 8.0,
+            "completions": 5.0,
+            "comp_pct": 62.5,
+            "yds": 53.0,
+            "ypt": 6.6,
+            "rating": 81.8,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 26.6% / zone 65.3%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 51.3% / open 43.1%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.5536,
+      "edge_mc_gr": 0.0536,
+      "shrunk_mc_gr": 0.0376,
+      "recent_form": {
+        "values": [
+          222.0,
+          170.0,
+          102.0,
+          181.0
+        ],
+        "games": [
+          "2026_04_TEN_BAL",
+          "2026_05_HOU_TEN",
+          "2026_06_TEN_IND",
+          "2026_07_CLE_TEN"
+        ],
+        "qb": "Cam Ward",
+        "qb_gsis": "00-0040676",
+        "player_gsis": "00-0040676",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Tony Pollard Rush Yds Over 65.5",
+      "player": "Tony Pollard",
+      "team": "TEN",
+      "opp": "CIN",
+      "type": "RB",
+      "market": "rushyds",
+      "receiving": false,
+      "side": "over",
+      "line": 65.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 66.5,
+        "over": 107,
+        "under": -135,
+        "nv_over": 0.45679852269413934,
+        "nv_under": 0.5432014773058607,
+        "overround": 1.0575598725459965
+      },
+      "draftkings": {
+        "point": 65.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        65.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P6 FAIL: clutch D/F: no trailing-script overs",
+        "P7 FAIL: rush-only over on possible trailer needs 4+ tgt/g",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+        "P14 UNVERIFIED: MODEL-SUSPECT: MC median 77.7 vs FD main 65.5 / book consensus 65.8 (>=12 yds) -> Debugging"
+      ],
+      "avg_p_mc_gr": 0.6397,
+      "edge_mc_gr": 0.1397,
+      "shrunk_mc_gr": 0.0978,
+      "recent_form": {
+        "values": [
+          48.0,
+          52.0,
+          76.0,
+          129.0
+        ],
+        "games": [
+          "2026_04_TEN_BAL",
+          "2026_05_HOU_TEN",
+          "2026_06_TEN_IND",
+          "2026_07_CLE_TEN"
+        ],
+        "qb": "Cam Ward",
+        "qb_gsis": "00-0040676",
+        "player_gsis": "00-0035261",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Tony Pollard Rush+Rec Yds Under 84.5",
+      "player": "Tony Pollard",
+      "team": "TEN",
+      "opp": "CIN",
+      "type": "RB",
+      "market": "rushrec",
+      "receiving": true,
+      "side": "under",
+      "line": 84.5,
+      "price_fd": -111,
+      "no_vig": 0.4958,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": null,
+      "draftkings": {
+        "point": 84.5,
+        "over": -113,
+        "under": -113,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0610328638497653
+      },
+      "prizepicks_lines": [
+        84.5
+      ],
+      "underdog_lines": [
+        84.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 26.6% / zone 65.3%, MOF closed 51.3% / open 43.1%; awaiting ruling",
+        "P13 FAIL: trailing-team passing/receiving under BLOCKED; underdog leg BLOCKED (10G)",
+        "P14 FAIL: edge +2.0 < +3; a model median does not clear the line"
+      ],
+      "avg_p_mc_gr": 0.476,
+      "edge_mc_gr": -0.0198,
+      "shrunk_mc_gr": -0.0126,
+      "recent_form": {
+        "values": [
+          50.0,
+          52.0,
+          76.0,
+          155.0
+        ],
+        "games": [
+          "2026_04_TEN_BAL",
+          "2026_05_HOU_TEN",
+          "2026_06_TEN_IND",
+          "2026_07_CLE_TEN"
+        ],
+        "qb": "Cam Ward",
+        "qb_gsis": "00-0040676",
+        "player_gsis": "00-0035261",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Joe Burrow Pass Yds Over 249.5",
+      "player": "Joe Burrow",
+      "team": "CIN",
+      "opp": "TEN",
+      "type": "QB",
+      "market": "passyds",
+      "receiving": false,
+      "side": "over",
+      "line": 249.5,
+      "price_fd": -205,
+      "no_vig": 0.6335,
+      "status": "CUT",
+      "rung": "FD alt 249.5 (one rung below main 272.5): projected margin +12.5 >= 8.5 (Phase 13 lower alt rung)",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 272.5,
+        "over": -119,
+        "under": -105,
+        "nv_over": 0.5147710487444609,
+        "nv_under": 0.4852289512555391,
+        "overround": 1.0555741173850095
+      },
+      "draftkings": {
+        "point": 273.5,
+        "over": -113,
+        "under": -111,
+        "nv_over": 0.5021058838394474,
+        "nv_under": 0.4978941161605526,
+        "overround": 1.056582782635783
+      },
+      "prizepicks_lines": [
+        272.5
+      ],
+      "underdog_lines": [
+        274.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: edge -1.0 < +3; shrunk edge -4.7 not > 0; a model median does not clear the line; MODEL-SUSPECT: MC median 292.5 vs FD main 272.5 / book consensus 272.8 (>=12 yds) -> Debugging"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Marcus Harris",
+            "team": "TEN",
+            "pos": "CB",
+            "targets": 16.0,
+            "completions": 11.0,
+            "comp_pct": 68.8,
+            "yds": 117.0,
+            "ypt": 7.3,
+            "rating": 63.8,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 16.5% / zone 77.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 45.6% / open 51.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.6901,
+      "edge_mc_gr": 0.0566,
+      "shrunk_mc_gr": -0.0004,
+      "recent_form": {
+        "values": [
+          282.0,
+          428.0,
+          190.0,
+          292.0
+        ],
+        "games": [
+          "2026_03_CIN_PIT",
+          "2026_04_JAX_CIN",
+          "2026_05_CIN_MIA",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Joe Burrow",
+        "qb_gsis": "00-0036442",
+        "player_gsis": "00-0036442",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Chase Brown Rush Yds Under 58.5",
+      "player": "Chase Brown",
+      "team": "CIN",
+      "opp": "TEN",
+      "type": "RB",
+      "market": "rushyds",
+      "receiving": false,
+      "side": "under",
+      "line": 58.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 58.5,
+        "over": -117,
+        "under": -107,
+        "nv_over": 0.5105400733589106,
+        "nv_under": 0.48945992664108945,
+        "overround": 1.0560787194728287
+      },
+      "draftkings": {
+        "point": 59.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        57.5
+      ],
+      "underdog_lines": [
+        59.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P13 FAIL: 6.5+ favorite rush under vs clock-killing script",
+        "P14 UNVERIFIED: MODEL-SUSPECT: MC median 46.6 vs FD main 58.5 / book consensus 58.8 (>=12 yds) -> Debugging"
+      ],
+      "avg_p_mc_gr": 0.6946,
+      "edge_mc_gr": 0.1946,
+      "shrunk_mc_gr": 0.1362,
+      "recent_form": {
+        "values": [
+          61.0,
+          10.0,
+          39.0,
+          39.0
+        ],
+        "games": [
+          "2026_03_CIN_PIT",
+          "2026_04_JAX_CIN",
+          "2026_05_CIN_MIA",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Joe Burrow",
+        "qb_gsis": "00-0036442",
+        "player_gsis": "00-0038597",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Chase Brown Rush+Rec Yds Under 81.5",
+      "player": "Chase Brown",
+      "team": "CIN",
+      "opp": "TEN",
+      "type": "RB",
+      "market": "rushrec",
+      "receiving": true,
+      "side": "under",
+      "line": 81.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": null,
+      "draftkings": {
+        "point": 84.5,
+        "over": -112,
+        "under": -113,
+        "nv_over": 0.4989542374299339,
+        "nv_under": 0.5010457625700661,
+        "overround": 1.0588183187173354
+      },
+      "prizepicks_lines": [
+        84.5
+      ],
+      "underdog_lines": [
+        84.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 16.5% / zone 77.2%, MOF closed 45.6% / open 51.2%; awaiting ruling",
+        "P13 FAIL: 6.5+ favorite rush under vs clock-killing script",
+        "P14 FAIL: a model median does not clear the line"
+      ],
+      "avg_p_mc_gr": 0.5018,
+      "edge_mc_gr": 0.0018,
+      "shrunk_mc_gr": 0.0012,
+      "recent_form": {
+        "values": [
+          69.0,
+          81.0,
+          60.0,
+          58.0
+        ],
+        "games": [
+          "2026_03_CIN_PIT",
+          "2026_04_JAX_CIN",
+          "2026_05_CIN_MIA",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Joe Burrow",
+        "qb_gsis": "00-0036442",
+        "player_gsis": "00-0038597",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Ja'Marr Chase Rec Yds Under 79.5",
+      "player": "Ja'Marr Chase",
+      "team": "CIN",
+      "opp": "TEN",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "under",
+      "line": 79.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 79.5,
+        "over": -122,
+        "under": -103,
+        "nv_over": 0.5199445750755795,
+        "nv_under": 0.48005542492442055,
+        "overround": 1.056938712111126
+      },
+      "draftkings": {
+        "point": 80.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        80.5
+      ],
+      "underdog_lines": [
+        79.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P3 FAIL: under vs soft WR D (YPT>=9.0)",
+        "P4 MISSING: defender not in PFR cache",
+        "P14 UNVERIFIED: MODEL-SUSPECT: MC median 57.7 vs FD main 79.5 / book consensus 79.8 (>=12 yds) -> Debugging"
+      ],
+      "avg_p_mc_gr": 0.6901,
+      "edge_mc_gr": 0.1901,
+      "shrunk_mc_gr": 0.133,
+      "recent_form": {
+        "values": [
+          98.0,
+          27.0,
+          77.0,
+          62.0
+        ],
+        "games": [
+          "2026_03_CIN_PIT",
+          "2026_04_JAX_CIN",
+          "2026_05_CIN_MIA",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Joe Burrow",
+        "qb_gsis": "00-0036442",
+        "player_gsis": "00-0036900",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Ja'Marr Chase Receptions Under 6.5",
+      "player": "Ja'Marr Chase",
+      "team": "CIN",
+      "opp": "TEN",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 6.5,
+      "price_fd": -102,
+      "no_vig": 0.4718,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 6.5,
+        "over": -127,
+        "under": 101,
+        "nv_over": 0.5293093080639476,
+        "nv_under": 0.4706906919360524,
+        "overround": 1.0569838034497119
+      },
+      "draftkings": {
+        "point": 6.5,
+        "over": -139,
+        "under": 109,
+        "nv_over": 0.5486393080395082,
+        "nv_under": 0.4513606919604917,
+        "overround": 1.060058857680527
+      },
+      "prizepicks_lines": [
+        6.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P3 FAIL: under vs soft WR D (YPT>=9.0)",
+        "P4 MISSING: defender not in PFR cache",
+        "P14 UNVERIFIED: MODEL-SUSPECT: edge +22.5 pts > +15 implausible vs market (FD 6.5, consensus 6.5; possible role change the history-based sim cannot see) -> Debugging"
+      ],
+      "avg_p_mc_gr": 0.6724,
+      "edge_mc_gr": 0.2006,
+      "shrunk_mc_gr": 0.1488,
+      "recent_form": {
+        "values": [
+          9.0,
+          3.0,
+          6.0,
+          5.0
+        ],
+        "games": [
+          "2026_03_CIN_PIT",
+          "2026_04_JAX_CIN",
+          "2026_05_CIN_MIA",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Joe Burrow",
+        "qb_gsis": "00-0036442",
+        "player_gsis": "00-0036900",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Tee Higgins Rec Yds Over 69.5",
+      "player": "Tee Higgins",
+      "team": "CIN",
+      "opp": "TEN",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "over",
+      "line": 69.5,
+      "price_fd": -118,
+      "no_vig": 0.5101,
+      "status": "CUT",
+      "rung": "FD alt 69.5 (one rung below main 70.5): projected margin +12.5 >= 8.5 (Phase 13 lower alt rung)",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 70.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "draftkings": {
+        "point": 71.5,
+        "over": -111,
+        "under": -113,
+        "nv_over": 0.4978941161605526,
+        "nv_under": 0.5021058838394474,
+        "overround": 1.056582782635783
+      },
+      "prizepicks_lines": [
+        70.5
+      ],
+      "underdog_lines": [
+        69.5
+      ],
+      "bar": "PP20 Higgins o68.5 rec yds; $51.50 SGP Higgins 50+ yds",
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: placed-ticket bar: PP20 Higgins o68.5 rec yds; $51.50 SGP Higgins 50+ yds; MODEL-SUSPECT: MC median 84.8 vs FD main 70.5 / book consensus 70.8 (>=12 yds) -> Debugging"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Cordale Flott",
+            "team": "TEN",
+            "pos": "CB",
+            "targets": 9.0,
+            "completions": 6.0,
+            "comp_pct": 66.7,
+            "yds": 83.0,
+            "ypt": 9.2,
+            "rating": 96.1,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 16.5% / zone 77.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 45.6% / open 51.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.6177,
+      "edge_mc_gr": 0.1076,
+      "shrunk_mc_gr": 0.0723,
+      "recent_form": {
+        "values": [
+          90.0,
+          157.0,
+          22.0,
+          148.0
+        ],
+        "games": [
+          "2026_03_CIN_PIT",
+          "2026_04_JAX_CIN",
+          "2026_05_CIN_MIA",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Joe Burrow",
+        "qb_gsis": "00-0036442",
+        "player_gsis": "00-0036410",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Tee Higgins Receptions Over 4.5",
+      "player": "Tee Higgins",
+      "team": "CIN",
+      "opp": "TEN",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "over",
+      "line": 4.5,
+      "price_fd": -160,
+      "no_vig": 0.5746,
+      "status": "CUT",
+      "rung": "FD alt 4.5 (one rung below main 5.5): projected margin +12.5 >= 8.5 (Phase 13 lower alt rung)",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 5.5,
+        "over": 131,
+        "under": -165,
+        "nv_over": 0.4101214888183858,
+        "nv_under": 0.589878511181614,
+        "overround": 1.0555419423343952
+      },
+      "draftkings": {
+        "point": 4.5,
+        "over": -152,
+        "under": 119,
+        "nv_over": 0.5691423881821913,
+        "nv_under": 0.43085761181780885,
+        "overround": 1.059795607740813
+      },
+      "prizepicks_lines": [
+        5.0
+      ],
+      "underdog_lines": [],
+      "bar": "PP40 Fantasy/PP20 rec yds/$51.50 SGP Higgins 50+ yds/FD 7-leg 4+ rec",
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: placed-ticket bar: PP40 Fantasy/PP20 rec yds/$51.50 SGP Higgins 50+ yds/FD 7-leg 4+ rec"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Cordale Flott",
+            "team": "TEN",
+            "pos": "CB",
+            "targets": 9.0,
+            "completions": 6.0,
+            "comp_pct": 66.7,
+            "yds": 83.0,
+            "ypt": 9.2,
+            "rating": 96.1,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 16.5% / zone 77.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 45.6% / open 51.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.6554,
+      "edge_mc_gr": 0.0808,
+      "shrunk_mc_gr": 0.0342,
+      "recent_form": {
+        "values": [
+          6.0,
+          11.0,
+          2.0,
+          6.0
+        ],
+        "games": [
+          "2026_03_CIN_PIT",
+          "2026_04_JAX_CIN",
+          "2026_05_CIN_MIA",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Joe Burrow",
+        "qb_gsis": "00-0036442",
+        "player_gsis": "00-0036410",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Mike Gesicki Rec Yds Under 22.5",
+      "player": "Mike Gesicki",
+      "team": "CIN",
+      "opp": "TEN",
+      "type": "TE",
+      "market": "recyds",
+      "receiving": true,
+      "side": "under",
+      "line": 22.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 22.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "draftkings": {
+        "point": 23.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        22.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 16.5% / zone 77.2%, MOF closed 45.6% / open 51.2%; no stand-in allowed"
+      ],
+      "avg_p_mc_gr": 0.623,
+      "edge_mc_gr": 0.123,
+      "shrunk_mc_gr": 0.0861,
+      "recent_form": {
+        "values": [
+          37.0,
+          40.0,
+          4.0,
+          6.0
+        ],
+        "games": [
+          "2026_03_CIN_PIT",
+          "2026_04_JAX_CIN",
+          "2026_05_CIN_MIA",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Joe Burrow",
+        "qb_gsis": "00-0036442",
+        "player_gsis": "00-0034829",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Mike Gesicki Receptions Under 2.5",
+      "player": "Mike Gesicki",
+      "team": "CIN",
+      "opp": "TEN",
+      "type": "TE",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 2.5,
+      "price_fd": -152,
+      "no_vig": 0.5635,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 2.5,
+        "over": 104,
+        "under": -131,
+        "nv_over": 0.4636319845857418,
+        "nv_under": 0.5363680154142582,
+        "overround": 1.0572956455309397
+      },
+      "draftkings": {
+        "point": 2.5,
+        "over": 105,
+        "under": -134,
+        "nv_over": 0.4599960684096717,
+        "nv_under": 0.5400039315903282,
+        "overround": 1.060454450698353
+      },
+      "prizepicks_lines": [],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 16.5% / zone 77.2%, MOF closed 45.6% / open 51.2%; no stand-in allowed"
+      ],
+      "avg_p_mc_gr": 0.6514,
+      "edge_mc_gr": 0.0879,
+      "shrunk_mc_gr": 0.0425,
+      "recent_form": {
+        "values": [
+          3.0,
+          3.0,
+          1.0,
+          1.0
+        ],
+        "games": [
+          "2026_03_CIN_PIT",
+          "2026_04_JAX_CIN",
+          "2026_05_CIN_MIA",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Joe Burrow",
+        "qb_gsis": "00-0036442",
+        "player_gsis": "00-0034829",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    }
+  ],
+  "edge_decision": "avg(monte_carlo, game_randomness); bias recorded, excluded from edge pending BUGLOG fix",
+  "cross_checks": [
+    {
+      "category": "odds_props",
+      "name": "PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source)",
+      "url_or_file": "/workspace/nfl-database/week8/lines/pff_props_2026-11-01.csv",
+      "pulled_et": "2026-11-01T07:34",
+      "tool": "computerUse browser",
+      "note": "parent gave 07:40; file mtime is 07:34 ET and the gate rejects future stamps, so the file mtime is used",
+      "use": "pick-side cross-check only (moved out of gated sources per Ghost6, BUG-2026-11-01-FORM)"
+    }
+  ]
+}

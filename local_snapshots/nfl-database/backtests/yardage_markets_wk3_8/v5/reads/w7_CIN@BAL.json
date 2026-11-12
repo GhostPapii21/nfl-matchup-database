@@ -1,0 +1,46 @@
+{
+ "game": "kickoff not in pack / BAL +3 (CIN -3; implied CIN 24.75, BAL 21.75) / total 46.5 / weather not saved",
+ "script": {
+  "base": "Market prices a close CIN road win in a moderate 46.5 game, not a shootout and not a slog. BAL still feeds Derrick Henry (65 carries, 233 yards over weeks 4-6) because CIN allows 5.30 YPC, but that run volume has already coexisted with Zay Flowers at 10 targets a game, so Flowers stays the intermediate option in a one-score script. CIN, facing BAL's 31% blitz and a Burrow EPA drop to -0.11 when blitzed, leans quick and short, which is Chase Brown's receiving role (17 targets, 3 air yards over weeks 3-5), rather than a pure Higgins vertical script.",
+  "flip1": "CIN leads by 14 early and clocks it with Brown and Perine. BAL abandons the run, Flowers' targets spike as BAL throws to catch up, and Brown's receiving volume dies because CIN stops dropping back. Flowers over survives; Brown rec over does not.",
+  "flip2": "BAL jumps ahead and closes with Henry (CIN's 5.30 YPC run defense invites it). Pass attempts fall, Flowers stalls under 64.5, and CIN throws to catch up so Brown's checkdowns stay live. Brown rec over survives; Flowers over does not."
+ },
+ "injury_fallout": "No injury report, practice statuses, questionable tags, or inactives are in the pack, so no confirmed next-man-up. Form only: BAL weeks 4-6 rush log is Henry 65/233, Huntley 12/68, Hill 5/76, L.Jackson 2/20. Jackson's 2 carries are far below a normal Lamar rushing role and Huntley is in the rusher list, but the pack does not confirm a QB change; Flowers' 30 targets came in that same window, so the receiving read already includes whatever QB-run split existed. CIN logs show Burrow, Brown (35/110 rush, 17 targets), Perine (20/84), Higgins (27 targets) and Chase (25 targets) all producing; no offensive or defensive absence is listed. Any late scratch would void the legs; final report and 90-minute inactives are not in this pack.",
+ "matchup": {
+  "shell": "MOFO/MOFC and man/zone charting are not in the pack. Location splits only: CIN allows middle 10.08 YPA (38 att), left 7.57 (53), right 6.04 (73). BAL allows middle 8.30 YPA (44 att), left 6.36 (74), right 6.56 (79).",
+  "pressure": "BAL blitz rate 31%. CIN QB EPA/dropback -0.11 vs blitz (n=53) vs +0.24 with no blitz, so pressure is a real CIN problem and should cut deep Higgins shots while boosting RB/TE checkdowns. CIN blitz rate is only 16%. BAL QB EPA is +0.35 vs blitz (n=64) vs +0.15 unblitzed, so CIN's shell does not stress BAL's dropback game.",
+  "bleeds": "CIN bleeds the middle (10.08 YPA) and cannot stop the run (5.30 YPC, 21 runs of 10+ in 5 games, 17 passes of 20+ on 183 att). BAL's run defense is the strength (3.84 YPC, 13 runs of 10+ in 6 games) and the perimeter is fine (6.36/6.56 YPA); the leak is the middle (8.30 YPA). Explosives allowed are similar counts (BAL 17 of 20+ on 214 att).",
+  "overlap": "Flowers is BAL's primary target (30 targets, 237 rec yards, 227 air yards, 7.6 aDOT) into the exact CIN middle hole, with only a 16% blitz in the way. Brown is the CIN checkdown (17 targets, 100 rec yards, 3 air yards) into the 31% blitz that already makes Burrow less efficient. Higgins (363 air yards, 13.4 aDOT) attacks the vertical/perimeter, which is not where BAL bleeds, so he is not the overlap."
+ },
+ "form": "Flowers weeks 4-6: 30 targets, 237 yards (79.0/g), 227 air yards, alongside Henry's 65 carries, so the target role is not a pass-only-script artifact. Andrews 16/59/87 (19.7/g) is inefficient versus a 29.5 line. Bateman 9/108/98 (36/g, 12.0 yards per target) looks explosive-inflated on 3 targets a game. Hill 5 carries for 76 (15.2 YPC) is one-play form; 10 targets produced only 36 rec yards. Brown weeks 3-5: 35/110 rush (36.7/g, 3.14 YPC) and 17/100/3 receiving (33.3 rec/g) \u2014 receiving role is volume, not one long catch. Higgins 27/269/363 (89.7/g) and Chase 25/202/235 (67.3/g) are real, but Higgins' line (65.5) is an average trap against a non-bleed perimeter plus blitz, and Chase's 82 line sits above his 67.3. Meyers 16/123/95 (41/g) versus a 13.5 line is an unexplained market gap with no injury note, so it is not a leg.",
+ "edge_players": [
+  {
+   "player": "zayflowers",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Flowers is Baltimore's primary intermediate target and Cincinnati gives up 10.08 yards per attempt in the middle while blitzing only 16%, so the 79-yard recent role should clear 64.5 in a one-score game.",
+   "must_be_true": "Flowers keeps a full route share near his 10-target weeks 4-6 role, the game stays competitive enough that BAL does not go pure Henry clock-kill, and CIN's middle soft spot (10.08 YPA) is still the coverage he sees.",
+   "kills_it": "BAL treats CIN's 5.30 YPC run defense as a 28-carry Henry game and Flowers drops to about 5 targets; or CIN moves him outside, where their right side allows only 6.04 YPA.",
+   "confidence": "strong"
+  },
+  {
+   "player": "chasebrown",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Baltimore blitzes 31% and Burrow's EPA falls to -0.11 when blitzed, which funnels throws to Brown, who already turned 17 targets and 3 air yards into 100 receiving yards against a 20.5 line.",
+   "must_be_true": "Brown is active with his weeks 3-5 snap and route share, BAL blitzes near the 31% season rate, and at least some of that pressure becomes checkdowns rather than sacks.",
+   "kills_it": "CIN leads big and clocks the game so Brown's drops die, or the blitz becomes sacks and throwaways while Gesicki (10 targets) and Perine (6) take the short targets and Brown stays around 15 receiving yards.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No sim medians and no Pinnacle no-vig in the pack; step 8 is pack form only, and no leg is stamped above 70%. Flowers L3 79.0 rec yards vs 64.5 agrees with the over (price -113). Brown L3 33.3 rec yards vs 20.5 agrees with the over (price -115); pressure path supports holding that role, not raising a model probability. Henry rush over 83.5 was the other matchup read (CIN 5.30 YPC, 21 runs of 10+) but L3 is 77.7 and a matchup blend at a dog-script 19 carries is about 82, under 83.5, so that lean is dropped, not flagged. Higgins over 65.5 (L3 89.7) is not a leg: the read (perimeter YPA 6.36/6.56 plus 31% blitz vs Burrow -0.11) does not support the deep shot, and averages alone do not pick it.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only, no alt rungs in the pack: zayflowers recyds over 64.5 at -113; chasebrown recyds over 20.5 at -115. No-vig price unavailable, so these are the posted main rungs, not short-priced alts. One market per player.",
+ "pre_mortem": "It's Monday and this lost because Baltimore saw 5.30 YPC and gave Henry a 25-plus carry grind in a 20-17 game, cutting Flowers to 5 targets and about 48 yards, under 64.5. Brown's receiving over lost because the 31% blitz turned into sacks and throwaways instead of checkdowns, and the short targets that did come out went to Gesicki and Perine, leaving Brown at 3 catches for 14 yards. The one-score, both-offenses-functional script never held, and a missing wind or inactive note that was not in the pack would have been the step that caught it.",
+ "slip_story": "One competitive-game story at CIN -3 and 46.5: both passing games stay on schedule, not a Henry clock-kill stack and not a shootout overs stack. Flowers over is the BAL intermediate attack into CIN's middle; Brown rec over is CIN's answer to BAL's blitz. They share the base script and each survives a different flip, so a blowout either way breaks one leg. Keep it to these two, no TDs, no receptions, no passing yards.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

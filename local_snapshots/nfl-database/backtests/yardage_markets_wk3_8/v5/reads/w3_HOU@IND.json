@@ -1,0 +1,46 @@
+{
+ "game": "Week 3 HOU@IND / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "No spread or total is saved, so this is form-only, not a market script. IND has been a Jonathan Taylor offense (43 carries, 190 yards, 4.42 YPC, plus 8 targets for 63 receiving yards) while Daniel Jones is inefficient in both splits (EPA -0.22 with no blitz, -0.02 vs blitz, n=19). HOU blitzes only 17%, so Jones mostly sees his worse split and IND should keep feeding Taylor. HOU's run game is stuck (David Montgomery 26/70, 2.69 YPC; Woody Marks 17/50, 2.94 YPC), so C.J. Stroud throws and Dalton Schultz is the hub (22 targets, 175 yards, 130 air yards). Base flow: IND run-lean, HOU pass-lean, no assumed blowout or garbage time.",
+  "flip1": "IND bleeds left (11.0 YPA on 22 att) and middle (11.88 YPA on 17 att). Stroud, +0.39 EPA vs blitz (n=20), builds a lead through Schultz; IND falls behind and abandons the run, and Taylor's rushing line dies.",
+  "flip2": "Both quarterbacks stay cold \u2014 Stroud is -0.13 EPA with no blitz and IND blitzes only 25%, Jones is negative either way \u2014 and it becomes a low-event slog. Explosives dry up despite IND allowing 10 runs of 10+ and 8 passes of 20+, and the bigger yardage rungs get tight even if volume holds."
+ },
+ "injury_fallout": "No injury report, practice status, questionable tags, or inactives are in the pack, so no next-man-up and no missing coverage player can be named (source: as-of pack only). Usage, not injuries: HOU targets Schultz 22, Xavier Hutchinson 15, Nico Collins 10, Jared Wayne 8, Kayshon Boutte 7, Marks 7, Jaylin Noel 7. IND targets Josh Downs 13, Tyler Warren 12, Keenan Allen 11, Taylor 8, Alec Pierce 7. Carries: Taylor 43, Montgomery 26, Marks 17, Stroud 5, Jones 4. Any late scratch is unchecked.",
+ "matchup": {
+  "shell": "No coverage charting, so MOFO/MOFC and man/zone are unknown. Location splits only: IND soft left (11.0 YPA, 22 att) and middle (11.88 YPA, 17 att), better right (8.19 YPA, 32 att). HOU strong left (4.0 YPA, 15 att), soft middle (10.47, 17 att) and right (10.82, 28 att).",
+  "pressure": "IND blitz 25%. Stroud EPA +0.39 vs blitz (n=20) vs -0.13 with no blitz, so IND pressure does not profile as a Stroud killer. HOU blitz 17%. Jones EPA -0.02 vs blitz (n=19) vs -0.22 with no blitz, so the common look is his worse split and blitz volume alone does not force checkdowns.",
+  "bleeds": "IND run defense is the soft unit: 5.67 YPC and 10 runs of 10+, plus 8 passes of 20+ on 75 att. HOU run defense is sturdier: 4.12 YPC and 5 runs of 10+, with 9 passes of 20+ on 68 att. IND bleeds middle and left in the pass game; HOU bleeds middle and right.",
+  "overlap": "Schultz is the overlap: HOU's top target (22 targets, 130 air yards, tight end) runs at IND's middle bleed (11.88 YPA). Taylor's 43-carry role does not overlap a HOU run bleed (4.12 YPC allowed) \u2014 volume, not matchup. Montgomery and Marks would overlap IND's 5.67 YPC front, but both are under 3.0 YPC, so the HOU line may not cash that bleed."
+ },
+ "form": "Pack is weeks 1-2 only, labeled L3, with no game-by-game split to separate a spike. Schultz 22/175/130 is a two-game role, about 11 targets and 87.5 receiving yards per game, with 130 air yards rather than one screen. Taylor 43/190 rushing (about 21.5 carries and 95 yards, 4.42 YPC) and 8/63 receiving on -1 air yards, about 31.5 receiving yards of checkdowns. Warren 12 targets for 34 yards and 10 air yards (about 2.8 yards per target) and Allen 11 for 37 are fluky-low efficiency, not a number to chase or fade. Hutchinson 15 targets, 69 yards, 169 air yards is deep volume that is not converting. Downs 13/109/109 sits on the 50.5 line. Montgomery about 35 rush yards per game and Marks about 25 are both sub-3.0 YPC.",
+ "edge_players": [
+  {
+   "player": "daltonschultz",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Dalton Schultz is at about 87.5 receiving yards on 11 targets a game, and 49.5 asks him to lose almost 40 yards of that role against a defense allowing 11.88 YPA in the middle where a tight end works.",
+   "must_be_true": "Schultz plays a full snap share \u2014 health is not in the pack and must hold \u2014 Stroud starts, and Schultz keeps something near his 22-target share rather than Collins (10) or Hutchinson (15) taking the game. The HOU pass-lean base script has to show up.",
+   "kills_it": "A snap limit or late scratch not in the pack, IND bracketing the tight end after the 22-target trend, or HOU sustaining the run (both backs under 3.0 YPC, the less likely flip) so Stroud only needs about 20 throws. A pure efficiency drop on the same volume is not enough: 5 yards per target on 10 targets still clears 49.5.",
+   "confidence": "strong"
+  },
+  {
+   "player": "jonathantaylor",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Jonathan Taylor is at about 126.5 rush-plus-receiving yards per game (190 rush and 63 receiving) against 106.5, and the combo still works if IND leads on his 21.5 carries or trails into the negative-air checkdowns he already has 8 targets of.",
+   "must_be_true": "Taylor keeps the bellcow role from the pack (43 carries and 8 targets over two games; no snap limit is listed because injuries are absent) and either an 18-plus carry floor or the checkdown receiving holds. This is the combo, not a pure rush bet.",
+   "kills_it": "HOU's 4.12 YPC run defense holds him in the mid-3s on a reduced carry count and the 17% HOU blitz rate means Jones is not forced to dump off, so the 63 receiving yards disappear. A trail script that kills the run without replacing it in the passing game loses 106.5. Price is not saved.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, no sim median, and no Pinnacle no-vig in the pack, so step 8 cannot be finished with a model. Box-score pace agrees with both overs: Schultz 87.5 vs 49.5, Taylor 126.5 vs 106.5. Posted Schultz price is -114 over and -114 under, a near coin-flip that does not shade the over, so the market treats 49.5 as fair while the read says it is low. Taylor rushrecyds over 106.5 is listed +nan, no price to compare. Do not treat a two-game gap as a 70%+ probability. Strong Schultz read is flagged, not cut. Missing sim/price is not used to promote the Taylor lean.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Schultz receiving yards over 49.5 at -114, main line, not a short alt; no sim median to justify a higher rung. Taylor rush-plus-receiving yards over 106.5, price not saved (+nan), so it cannot be sized. Do not swap in Taylor rush yards over 81.5 at -114: that rung is thinner (95 rush yards per game vs a HOU defense allowing 4.12 YPC) and dies on the trail flip. No touchdowns, no receptions, no passing yards.",
+ "pre_mortem": "It's Monday and both legs lost. Schultz went under 49.5 because the 175 yards were a two-game target peak, Collins and Hutchinson (10 and 15 targets) split the intermediate work, IND used a shell the pack does not chart to take the tight end away, and Stroud's -0.13 EPA with no blitz showed up on the 75% of dropbacks IND did not blitz \u2014 five targets, 38 yards. Taylor finished under 106.5 because HOU's 4.12 YPC defense was the real number: 16 carries at 3.7 YPC is 59, and with HOU blitzing only 17% Jones never had to check down, so Taylor added one catch for 8 and the combo died near 67. The Schultz counter is real but weaker than a 22-target, 130-air-yard role against 11.88 middle YPA. The Taylor counter is strong enough that he stays a lean, not a strong, and he drops if inactives cut his snaps.",
+ "slip_story": "One story: HOU cannot run (Montgomery 2.69 YPC, Marks 2.94) so Stroud throws to Schultz into IND's middle, and IND keeps feeding Taylor on the ground and on checkdowns because Jones has no efficient dropback split. These two win together in a competitive IND-run / HOU-pass game. Do not add HOU running-back overs \u2014 those need IND's 5.67 YPC bleed and a HOU run script, the opposite of this base. Do not add Warren or Allen unders; 2.8 to 3.4 yards per target looks fluky and the market already has Warren at 46.5. No total is saved, so this is not a shootout stack and not an under stack. Two legs, no touchdowns.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

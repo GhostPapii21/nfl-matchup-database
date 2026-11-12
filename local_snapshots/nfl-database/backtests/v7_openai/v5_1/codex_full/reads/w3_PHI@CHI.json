@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 PHI@CHI / kickoff MISSING / spread and total NOT saved; implied totals, moneyline, movement, rest and travel MISSING / weather NOT saved",
+ "script": {
+  "base": "Hypothesis formed from the supplied Weeks 1\u20132 team form, not market expectations: PHI attacks through D.Smith and its passing game against CHI's explosive-pass allowance, while CHI maintains a run-oriented approach through D.Swift and K.Monangai. Neither team can reliably be projected to lead at halftime; a competitive game preserves both approaches, with pace unverified.",
+  "flip1": "PHI establishes an early lead and shifts toward its backfield, reducing Smith's receiving opportunities. CHI increases passing volume, potentially threatening a C.Loveland receiving under.",
+  "flip2": "CHI's rushing production sustains long possessions and produces a lead. PHI responds with more passing, supporting Smith's opportunity, while CHI has less reason to expand Loveland's receiving role."
+ },
+ "injury_fallout": "MISSING: PHI and CHI injury reports, practice trends, final designations, offensive-line availability, defensive absences, return restrictions and final inactives. No absence, return, replacement assignment or next-man-up share is inferred from usage. Source for all available observations: supplied pre-kickoff pack, covering Weeks 1\u20132; exact publication timestamps are missing. Recheck both teams' final reports and approximately 90-minute inactives before treating either lean as actionable.",
+ "matchup": {
+  "shell": "MISSING: CHI and PHI MOFO/MOFC rates, man/zone rates, receiver alignments and individual coverage assignments. Location splits cannot establish that Smith or Loveland faces a particular defender.",
+  "pressure": "CHI blitzes 39%; PHI's QB EPA/dropback is 0.12 against blitzes over 22 dropbacks versus 0.20 without blitzes. PHI blitzes 22%; CHI's corresponding EPA figures are 0.23 over 45 blitz dropbacks and 0.27 without blitzes. Blitz frequency is not pressure rate; pressure success, sacks and time to throw are missing.",
+  "bleeds": "CHI has allowed seven 20-plus-yard completions on 63 attempts, with 10.5 YPA through the middle and 9.65 to the right. PHI has allowed five such completions on 58 attempts and 5.17 middle YPA. CHI allows 4.88 rushing YPC versus PHI's 4.16; rush EPA, stuff rates, box counts and position-specific receiving allowances are missing.",
+  "overlap": "Smith leads the listed PHI receivers with 19 targets and 267 air yards, providing an opportunity-based connection to CHI's explosive-pass vulnerability, although his alignment is unverified. Loveland's five targets and three receiving yards suggest limited realized receiving involvement; PHI's lower middle YPA provides contextual support, not proof of his individual matchup."
+ },
+ "form": "Only two games are available, not the requested three or four. Treating the supplied Weeks 1\u20132 figures as combined totals, Smith produced 170 receiving yards on 19 targets, or 85 yards and 9.5 targets per game; D.Wicks added 147 yards on 10 targets. Loveland produced three receiving yards on five targets and 43 air yards, while K.Raymond, L.Burden and R.Odunze received 14, 12 and seven targets. CHI's Swift and Monangai combined for 54 carries and 316 rushing yards. Routes, snaps, red-zone usage, individual-game distributions, comparable-opponent splits and play-caller changes are missing. Loveland's unrealized air yards make an efficiency rebound possible.",
+ "edge_players": [
+  {
+   "player": "devontasmith",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Smith's team-leading target and air-yard opportunity can exploit a CHI defense that has already allowed seven explosive completions, supporting over 71.5 receiving yards.",
+   "must_be_true": "D.Smith targets >= 8 [because the pack lists 19 targets across PHI's first two games]",
+   "kills_it": "IF PHI establishes an early multi-score lead and substantially reduces its passing volume THEN devontasmith recyds over 71.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "colstonloveland",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Loveland's limited receiving involvement and PHI's relatively restrictive middle passing results support under 32.5 receiving yards without requiring CHI to stop scoring.",
+   "must_be_true": "C.Loveland targets <= 4 [because the pack lists five targets across CHI's first two games]",
+   "kills_it": "IF CHI expands Loveland's receiving role and he converts his downfield opportunities into more than 32.5 yards THEN colstonloveland recyds under 32.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The read precedes these checks. Smith's two-game receiving pace is 85 yards versus a 71.5 line; Loveland's is 1.5 versus 32.5. These are descriptive checks, not projections. Smith's listed over -112.5 and under -114.5 imply an approximately 49.8% proportional no-vig probability for the over. Loveland's under -114 and over -114.5 imply approximately 49.9% for the under. Neither pair is identified as Pinnacle, so these are supplied-market references only. No model edge, simulation median or stake sizing is established.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations, calibration, Pinnacle prices, exact source timestamps, game-level distributions, routes, snaps, coverage assignments, pressure rates, injuries, inactives and weather. The supplied receiver prices do not establish positive expected value.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Provisional main-line leans only: devontasmith recyds over 71.5 at -112.5; colstonloveland recyds under 32.5 at -114. Smith's yardage market expresses the explosive-opportunity hypothesis; Loveland's yardage under expresses limited role and conversion. No alternate rungs, validated fair prices or staking recommendations.",
+ "pre_mortem": "It is Monday and Smith's over lost: CHI's 39% blitz rate disrupted PHI, whose supplied EPA/dropback declines from 0.20 without blitzes to 0.12 against them; Wicks absorbed the productive throws, or PHI ran out an early lead. Smith's two-game total conceals how uneven his production may have been. Loveland's under lost because three yards on five targets was an unsustainably poor conversion of 43 air yards, not a stable ceiling. One successful downfield catch or a trailing CHI script could erase the apparent cushion. Without routes, alignment and injury information, neither counter-case is resolved strongly enough to upgrade these leans.",
+ "slip_story": "Both leans fit a competitive game in which PHI earns receiving production through Smith while CHI relies on its backs and established WR opportunities rather than expanding Loveland's role. Smith also benefits from the CHI-leads flip; Loveland's under can survive a competitive or CHI-leading script. A PHI runaway threatens both through opposite volume shifts. Correlation is unmeasured, so retain as separate watchlist leans rather than manufacture a 3\u20134-leg slip. No TDs, duplicate-player markets or additional legs. Before kickoff, externally save and timestamp/hash this read; afterward grade script accuracy, player-role accuracy and betting results separately. No archival lock or postgame grading has been performed here.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

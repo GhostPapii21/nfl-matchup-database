@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 DET@CAR / kickoff MISSING / spread, total, moneyline, implied totals and line movement NOT saved; script inferred only from supplied team form / CAR home, venue details MISSING / weather NOT saved / rest and travel details MISSING",
+ "script": {
+  "base": "Detroit's concentrated Gibbs rushing workload against Carolina's vulnerable run defense suggests a run-led DET advantage, not a market-implied favorite designation. Carolina responds with more passing while Detroit continues feeding Gibbs; pace and halftime margin cannot be established from this pack.",
+  "flip1": "Carolina sustains drives and leads, forcing Detroit toward passing. Gibbs' rushing over becomes script-dependent, while Hubbard's receiving over could survive a competitive game but loses the presumed trailing-volume boost.",
+  "flip2": "Detroit builds a substantial early lead and controls possession. Gibbs benefits initially but risks late workload redistribution to Vaki; Carolina's passing need rises, although that does not guarantee targets for Hubbard."
+ },
+ "injury_fallout": "MISSING: DET and CAR injury reports, practice trends, offensive-line availability, defensive absences, return restrictions and final inactives. Gibbs' 65 carries and Hubbard's nine targets establish recent usage, not injury-driven opportunity. No next-man-up or coverage replacement claims can be supported. Any later availability change would require a fresh evaluation; no such update is available in this backtest.",
+ "matchup": {
+  "shell": "MISSING: DET/CAR MOFO, MOFC, man and zone rates, plus player alignment and coverage assignments. Detroit's 12.0 YPA allowed through the middle cannot be assigned specifically to Hubbard or a tight end.",
+  "pressure": "CAR blitzed 38%; Goff posted 0.48 EPA/dropback against blitzes over 40 dropbacks versus 0.13 without blitzes. DET blitzed 36%; Young posted 0.03 against blitzes over 35 dropbacks versus 0.19 without. Actual pressure rates, sacks and check-down frequencies are missing, so blitz frequency alone does not establish additional Hubbard targets.",
+  "bleeds": "CAR allowed 5.88 rush YPC and 13 runs of at least 10 yards, supporting a Gibbs rushing hypothesis. DET allowed 4.61 rush YPC and 12 such runs, so Carolina retaining a viable rushing attack is a meaningful alternative script. DET also allowed 16 passes of at least 20 yards on 138 attempts, but RB-specific receiving allowance is missing.",
+  "overlap": "Gibbs' dominant recent rushing workload directly overlaps Carolina's documented rushing weakness. Hubbard's receiving case rests on his existing nine-target role and potential trailing volume, not a demonstrated RB coverage mismatch."
+ },
+ "form": "Weeks 1\u20133 only: Gibbs recorded 65 carries for 307 yards, or 21.7 carries and 102.3 rushing yards per game; Vaki had nine carries for 40 yards. Hubbard recorded 42 carries for 184 yards and nine targets for 77 receiving yards, or 25.7 receiving yards per game. His -18 total air yards indicate a short-target role, but catches, routes and individual-game distribution are missing. McMillan and Coker drew 23 and 22 targets respectively, well above Hubbard's nine. These aggregates test the hypotheses; they do not establish game-by-game consistency.",
+ "edge_players": [
+  {
+   "player": "jahmyrgibbs",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Gibbs can exceed 96.5 rushing yards because Detroit's concentrated rushing workload attacks a Carolina defense allowing 5.88 yards per carry.",
+   "must_be_true": "Jahmyr Gibbs carries >= 21 [because the pack records 65 carries across weeks 1\u20133 and CAR allowing 5.88 rush YPC]",
+   "kills_it": "IF Carolina establishes an early multi-score lead and Detroit abandons sustained rushing THEN Gibbs rushyds over 96.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "chubahubbard",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Hubbard can exceed 18.5 receiving yards if Carolina's existing short-target outlet role persists while Detroit forces additional passing.",
+   "must_be_true": "Chuba Hubbard targets >= 3 [because the pack records nine targets and 77 receiving yards across weeks 1\u20133]",
+   "kills_it": "IF Carolina directs its extra passing volume to McMillan and Coker while Hubbard stays in protection THEN Hubbard recyds over 18.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The numerical checks support, but do not prove, both reads: Gibbs' recent 102.3 rushing yards per game exceeds 96.5 and matches CAR's rushing weakness; Hubbard's 25.7 receiving yards per game exceeds 18.5. Neither average is a projection or hit-rate estimate. Gibbs needs roughly 4.60 yards per carry at 21 carries to clear, a workload-efficiency illustration rather than a forecast. No simulation or calibrated probability was run. Both reads remain leans.",
+  "disagrees": "none",
+  "missing": "Projection model, simulated distributions and medians, Pinnacle prices and sharp no-vig probabilities, individual-game usage distribution, routes, snaps, RB-specific coverage outcomes, injury reports and weather. Listed two-sided prop prices are available but are not identified as Pinnacle.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate main lines only: jahmyrgibbs rushyds over 96.5 at -115; chubahubbard recyds over 18.5 at -113. Gibbs uses the carry-share/run-defense market; Hubbard uses receiving yards because receptions are not permitted. No alternate rung or quantified pricing edge is established.",
+ "pre_mortem": "It is Monday and both lost: Carolina's respectable rushing production against a DET defense allowing 4.61 YPC kept the game competitive or put Carolina ahead, reducing Gibbs' carries without creating trailing pass volume for Hubbard. Alternatively, Detroit dominated so thoroughly that Vaki absorbed late carries, while Carolina's targets concentrated on McMillan and Coker rather than Hubbard. Hubbard's three targets per game leave little margin for missed connections, and Gibbs' line sits only modestly below his recent production. Missing availability and per-game usage prevent treating either as a strong edge.",
+ "slip_story": "Both candidates fit one conditional story: Detroit leads through Gibbs rushing while Carolina uses Hubbard underneath. Gibbs is vulnerable to the Carolina-leads flip; Hubbard can survive a competitive game if his short-target role persists. This is a two-leg watchlist, not a forced 3\u20134-leg main slip; no joint probability or parlay price is supplied.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

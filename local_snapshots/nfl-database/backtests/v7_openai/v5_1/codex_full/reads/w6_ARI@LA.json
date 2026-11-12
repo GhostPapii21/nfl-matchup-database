@@ -1,0 +1,48 @@
+{
+ "game": "Week 6 ARI@LA / kickoff MISSING / LA -12.5 / total 51 / implied totals LA 31.75, ARI 19.25 / weather MISSING. Moneyline, opening lines, movement, venue details, rest and travel MISSING. Source: supplied pre-kickoff pack; exact as-of timestamp not supplied.",
+ "script": {
+  "base": "LA builds a first-half lead and leans toward clock management later, supporting Kyren Williams' rushing opportunities. ARI shifts toward passing while chasing; LA's 34% blitz rate threatens an ARI offense whose QB EPA/dropback falls from 0.15 without blitzes to -0.34 against them. Pace data are missing.",
+  "flip1": "ARI keeps the game competitive, extending LA's passing workload and reducing the expected late rushing emphasis. Tyler Allgeier's under can still survive if his recent secondary workload persists.",
+  "flip2": "LA establishes an overwhelming early lead and distributes late carries to Blake Corum. That script can undermine Williams' rushing over even while ARI's trailing position supports Allgeier's combined-yardage under."
+ },
+ "injury_fallout": "MISSING: injury reports, practice trends, final designations, inactives, offensive-line availability and snap restrictions for both ARI and LA. No absence, return or workload redistribution is inferred from usage. Williams and Allgeier require renewed review if availability information changes; the supplied pack cannot establish injury-driven beneficiaries.",
+ "matchup": {
+  "shell": "MISSING: ARI and LA MOFO/MOFC, man/zone rates and individual coverage assignments. Directional passing splits cannot establish shell or slot matchups.",
+  "pressure": "LA blitzes 34%; ARI QB EPA/dropback is -0.34 against blitzes over 62 dropbacks versus 0.15 without blitzes. ARI blitzes 25%; LA QB EPA/dropback is -0.14 against blitzes over 65 dropbacks versus 0.23 without blitzes. Actual pressure rates, sacks and time to throw are MISSING, so blitz frequency is not treated as pressure success.",
+  "bleeds": "ARI allows 4.42 rushing yards per carry and 17 runs of 10+ yards through five games, providing a plausible rushing matchup for Williams. ARI also allows 18 completions of 20+ yards on 151 attempts, creating a competing LA passing path. LA allows 4.59 rushing yards per carry and 17 runs of 10+ yards, a real efficiency threat to an Allgeier under.",
+  "overlap": "Williams' lead rushing workload overlaps with ARI's allowed rushing efficiency and LA's favored script. Allgeier's under rests on secondary workload and likely trailing conditions, not a claim that LA shuts down rushing. Source: supplied recent offense and season-to-date defense tables."
+ },
+ "form": "Weeks 3\u20135: Williams recorded 47 carries for 217 yards, versus Corum's 16 for 48; Williams also had 28 targets and 164 receiving yards. Allgeier recorded 13 carries for 48 yards plus 8 targets and 26 receiving yards, while J. Love had 47 carries for 175 yards. These establish recent workload hierarchy, not injury explanations. Michael Wilson led ARI with 37 targets, followed by Trey McBride with 33. Individual-game distributions, snaps, routes, red-zone usage, play-caller changes and comparable-opponent results are MISSING.",
+ "edge_players": [
+  {
+   "player": "kyrenwilliams",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Williams' lead rushing role and LA's large-favorite script give him a path over 69.5 rushing yards against an ARI defense allowing 4.42 yards per carry.",
+   "must_be_true": "Kyren Williams carries >= 16 [because the pack records 47 carries in weeks 3\u20135 and lists LA as a 12.5-point favorite]",
+   "kills_it": "IF LA shifts substantial second-half rushing work to Blake Corum before Williams reaches 70 rushing yards THEN kyrenwilliams rushyds over 69.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "tylerallgeier",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Allgeier's secondary rushing role and modest receiving production make 64.5 combined yards demanding when ARI is expected to chase LA.",
+   "must_be_true": "Tyler Allgeier carries <= 10 [because the pack records 13 carries across weeks 3\u20135 versus J. Love's 47]",
+   "kills_it": "IF Allgeier gains an expanded workload or explosive plays that take his combined yardage to 65 or more THEN tylerallgeier rushrecyds under 64.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The script hypotheses precede this numerical check. Williams' 217 rushing yards across three games equal 72.3 per game, only slightly above 69.5; his 47 carries and ARI's 4.42 allowed YPC support a plausible path, not a calibrated projection. Allgeier totaled 74 combined yards across three games, or 24.7 per game, supporting the workload-based under. Both reads survive a competitive-game flip if recent roles persist; Williams is vulnerable to an extreme-blowout rotation. No projection model or simulation was supplied or run. The listed prices imply raw break-even rates of approximately 53.6% for Williams and 53.5% for Allgeier; neither establishes an edge by itself. No stake recommendation without calibrated probabilities.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations and medians, Pinnacle prices and sharp no-vig probabilities, individual-game workload distributions, injuries, coverage charting and exact fact timestamps. These omissions limit validation but are not numerical contradictions.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line leans only: kyrenwilliams rushyds over 69.5 at -115.5; tylerallgeier rushrecyds under 64.5 at -115. Williams uses the rushing market to isolate the favored-script thesis; Allgeier uses combined yards to test whether his total workload supports the posted threshold. No alternate rung or positive expected value is established.",
+ "pre_mortem": "Williams: It is Monday and the over lost because LA exploited ARI's 18 allowed explosive pass plays, scored through the air, then gave Corum late carries. Williams' recent 72.3 rushing yards per game offers little cushion over 69.5, so a favorable scoreboard does not guarantee enough work. Allgeier: The under lost because LA's 4.59 allowed YPC enabled efficient carries, or ARI used Allgeier more in the passing game while trailing. His recent workload supports the under, but missing availability information prevents ruling out a role expansion. These counter-cases keep both selections at lean rather than strong.",
+ "slip_story": "One coherent story: LA controls the game, Williams receives meaningful rushing work, and ARI's secondary rusher remains below 64.5 combined yards. These are two conditional candidates, not a completed 3\u20134-leg main slip; do not invent additional legs to fill it. Use one market per player and no touchdowns. No bets placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

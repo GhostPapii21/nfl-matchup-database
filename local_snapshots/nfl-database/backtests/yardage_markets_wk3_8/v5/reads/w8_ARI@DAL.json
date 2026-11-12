@@ -1,0 +1,46 @@
+{
+ "game": "Sun Nov 01 2026 1:00 PM ET / DAL -7.5 (checklist build 2026-10-29 had DAL -7; half-point move, total unchanged) / 54.5 / AT&T Stadium indoor; forecast not saved in pack",
+ "script": {
+  "base": "Market prices DAL to lead at home in a dome shootout lean: implied totals about DAL 31 / ARI 23.5 off -7.5 and 54.5. Dak and the DAL skill group start fast, Javonte Williams (48 carries, 241 rush yards over weeks 5-7) keeps the clock honest, and ARI trails but stays in a high-total game so Jacoby Brissett keeps throwing to Trey McBride rather than a pure blowout. Pace stays up because both defenses have allowed 23 passes of 20+ yards.",
+  "flip1": "DAL is up two scores by halftime and runs the clock. Javonte's carries rise, George Pickens and CeeDee Lamb targets stall in the second half (same shape as a favorite pass-yard stall), and ARI abandons the run so Allgeier/Knight/Love rush lines die while McBride/Wilson/Bourne targets spike in catch-up.",
+  "flip2": "ARI hangs around or leads early behind a short DAL week (5 days rest vs ARI 7). Both QBs stay in a 54.5 script, Pickens and McBride both clear, and correlated receiver overs cash together. A slog is the lesser flip: it needs turnovers the pack does not show as a modeled edge, against two explosive-prone defenses."
+ },
+ "injury_fallout": "No named offensive or defensive injuries, OL designations, snap limits, or inactives are in this pack. Checklist (built 2026-10-29 05:25 EDT) marks Thursday practice, Friday reports, and the 90-minute inactive window PENDING, so next-man-up cannot be assigned and nothing here is re-run for a late scratch. Usage only: ARI L3 carries are Tyler Allgeier 29/64, Z.Knight 23/136, J.Love 12/22, Brissett 11/37, but the board inverts that (Love rush 45.5, Knight/Bam 18.5, Allgeier 13.5), so ARI backfield workload is unresolved and is not an edge. DAL carries sit with Javonte Williams 48; Tyler Goodson 12/38 is the change-up, not the starter. Sources: L3 team lines in the pack; injuries.json referenced by the checklist but not provided; ESPN indoor/schedule notes in the 60-check manifest.",
+ "matchup": {
+  "shell": "Sharp coverage is marked PASS in the checklist (pages dated Oct 20) but man/zone and MOFO/MOFC rates are not in this excerpt, and individual assignments are only a partial PBP signal. Shell splits are not invented.",
+  "pressure": "DAL blitzes 26%, which matters because Brissett is poor when blitzed (EPA/dropback -0.25 on 83 dropbacks) and only slightly positive with no blitz (+0.08). A low blitz rate keeps ARI's quick/middle game alive and does not force a check-down spike by itself. ARI blitzes 31%; Dak is fine vs pressure (EPA +0.02 on 97 blitz dropbacks) and better when not blitzed (+0.21), so ARI pressure is not a deep-yard killer for Pickens. Charted pressure rate and OL health are partial/pending, not used as numbers.",
+  "bleeds": "DAL's clear pass leak is the middle: 10.2 YPA on 41 attempts vs 7.09 left (81 att) and 7.11 right (92 att). DAL also allows 4.92 rush YPC and 24 runs of 10+ in 7 games, plus 23 passes of 20+ on 224 attempts. ARI has no clean side: 8.51 left (76), 8.34 middle (47), 8.55 right (78), 23 explosives on 218 attempts, and 4.73 rush YPC with 22 runs of 10+.",
+  "overlap": "McBride is ARI's primary option (32 targets, 230 yards, 209 air yards over L3) and a TE/middle target into the only DAL zone that bleeds (middle 10.2 YPA). Pickens is DAL's efficient downfield producer (30 targets, 260 yards, 303 air yards) into an ARI secondary that gives up 8.3-8.6 YPA everywhere and 23 explosives. Lamb has more air (385) but only 153 yards, so he is not the overlap that is actually cashing. Wilson's 263 air yards point outside/deep, where DAL is tighter (about 7.1 YPA), not at the middle leak."
+ },
+ "form": "Weeks 5-7 only, totals not season averages. DAL: Pickens 10.0 targets and 86.7 rec yards per game (8.7 yards/target); Lamb 12.0 targets but only 51.0 yards (4.25 yards/target) on 385 air yards, a three-game miss not a one-play fluke; Flournoy 18/200/148 (66.7 yards/game) on a WR3 route count that could be one explosive week, game splits not in pack; Ferguson 10/32 (10.7 yards/game); Javonte 16.0 carries, 80.3 rush yards, 5.02 YPC, plus only 26 rec yards. ARI: McBride 10.7 targets and 76.7 yards per game; Bourne 42.0; Wilson 39.0 on 263 air yards (deep volume, poor conversion); Higgins 9 targets, 102 yards on just 32 air yards (YAC spike, treat as fluky); Allgeier 2.21 YPC on the most carries; Knight 5.91 YPC but only 7.7 carries/game; Love 12 carries and 22 rush yards total, which does not match a 45.5 rush line. No similar-defense split beyond these season defensive totals.",
+ "edge_players": [
+  {
+   "player": "georgepickens",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Pickens is the Dallas receiver actually turning downfield targets into yards, and Arizona gives up 8.5 YPA on every third of the field plus 23 explosives, so 66 is short of that role in a 54.5 dome game even if Dallas leads.",
+   "must_be_true": "He plays a full snap share with no game-time scratch, Dak stays in the 10-target range he has had (30 targets over weeks 5-7), and the game does not become a pure second-half clock kill. Indoor roof holds so wind is not a factor.",
+   "kills_it": "Dallas is up big by halftime and runs Javonte; Pickens sees about four targets and finishes in the 40s. Also dies if the 260 L3 yards were one spike game the pack does not split out, or if he is inactive after the pending Friday report.",
+   "confidence": "lean"
+  },
+  {
+   "player": "treymcbride",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "McBride is Arizona's target leader and he works the middle, the only spot Dallas truly bleeds (10.2 YPA on 41 throws), and a 7.5-point dog in a 54.5 game should keep feeding him around a 73.5 line.",
+   "must_be_true": "He is active and keeps the 10-plus target share (32 targets over L3), Brissett is not blitzed into the -0.25 EPA hole all day (Dallas blitzes only 26%), and Arizona is trailing or in a competitive script rather than a run-heavy tie.",
+   "kills_it": "Dallas brackets the middle, sits in a closed shell the pack does not chart, and targets leak to Wilson/Bourne; or Arizona is blown out so early that even garbage volume is short throws to backs. A 3-yard L3 cushion (76.7 vs 73.5) means one quiet half loses the leg.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, and the checklist says the engine/model hash is unavailable, so step 8 cannot size against a sharp price. L3 agrees in direction: Pickens 86.7 yards/game vs 66; McBride 76.7 vs 73.5. McBride's gap is inside one catch, so agreement does not justify sizing up. These are leans, not 70% claims. Not used as legs: Lamb under 85.5 (form 51 vs 85.5, but 385 air yards plus Arizona's 23 explosives is the stronger counter, so dropped); Flournoy over 38 (66.7 vs 38, average-driven, splits unknown, price nan); Higgins over 17.5 -110 (102 yards on 32 air yards, YAC flag); Javonte rush over 77 (80.3 vs 77, positive script, but thin and conflicts with a pass stack); ARI RB lines vs L3 roles left alone because Thursday/inactives are pending. Prices on both selected rungs are nan.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main rungs only, no alt ladder in the pack. George Pickens recyds over 66, price nan (not posted). Trey McBride recyds over 73.5, price nan (not posted). Cannot shop no-vig or take these as correlated anchors until a real price exists. Nearby priced markets were reviewed and not selected: Lamb recyds under 85.5 -114, Higgins recyds over 17.5 -110, Ferguson recyds under 17.5 -114, Javonte rush+rec over 92.5 -113 (L3 rush+rec about 89, slightly against the over).",
+ "pre_mortem": "It's Monday and both overs lost because Dallas led 24-6 at half, Javonte Williams pushed 20 carries, and Prescott's attempts died after the break so Pickens finished 4-for-48 under 66. McBride was the covered man: Dallas played the middle closed, Brissett's 26% blitz sample still included two sacks and a strip, and the 32-target role shrank to six looks for 52 yards, with Bourne and the backs taking the cheap completions. The 73.5 number had no cushion, and Pickens' 260-yard L3 was one 140-yard afternoon the pack never split, so the 'role' was never 87 yards a week. Pending inactives could also have removed either player after this read was written.",
+ "slip_story": "One story only: competitive dome shootout, not a clock-kill. Stack Pickens over 66 with McBride over 73.5, both of which want Dallas leading but not burying Arizona, total staying near 54.5, and both passing games staying live. Do not add Javonte rush over, a game under, or an Arizona RB over; those need the blowout-run flip that kills Pickens. No TD legs, no second market on either player. Both rungs are unpriced leans, so this is a logged read, not a placed slip.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

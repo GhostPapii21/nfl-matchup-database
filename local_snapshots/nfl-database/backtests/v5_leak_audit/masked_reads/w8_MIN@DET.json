@@ -1,0 +1,45 @@
+{
+ "game": "AWAY@HOME / kickoff not in pack / HOME -3.5 / total 46 / weather not saved; venue, rest, travel, open-to-current move not in pack. Implied totals ~24.75 HOME / 21.25 AWAY.",
+ "script": {
+  "base": "Close HOME lean, not a blowout, at a 46 total. AWAY blitzes 71% and HOME QB is +0.38 EPA/dropback vs blitz (n=78) vs +0.24 unblitzed, so HOME stays on schedule and still hands PLY01 the ball (69 carries, 313 rush yds over L3, ~23/g). HOME blitzes only 28%, so AWAY QB mostly avoids his -0.17 blitz split (n=72) and plays the +0.07 unblitzed split, keeping primary target PLY04 (19 targets) in the game. No garbage-time assumption.",
+  "flip1": "HOME jumps ahead off the blitz mismatch and salts it with PLY01. AWAY abandons the run (PLY05/PLY13/PLY12 carries die) and throws more toward PLY04/PLY11; HOME WR yardage can stall once the lead is safe.",
+  "flip2": "Shootout: AWAY hangs around, HOME's pass tree (PLY09 33 tgt/297 yds, PLY08 21/240) clears with PLY01 mixing checkdowns, and HOME's middle leak (10.26 YPA, 29 passes of 20+ on 280 att) lets AWAY outproduce a clock-control script. Opposite of that: a slog if explosives don't land \u2014 AWAY allows only 12 passes of 20+ on 198 att \u2014 and both passing trees undershoot."
+ },
+ "injury_fallout": "No injury report, practice trend, snap limit, or inactives in the pack, so no named next-man-up and no confirmed fallout. The only role signal is in the prices, not the news: PLY05 rush line 28 vs L3 53 carries/233 yds (77.7/g) and PLY13 rush line 49.5 vs L3 15/68 (22.7/g) invert the backfield the form shows. That is unexplained, not an injury, so both AWAY rush legs are passed. HOME prices match usage (PLY01 rush 89 vs ~104/g; PLY07 5.5 vs 5.3/g). Inactives ~90 min pre-kick are not available; anything a late scratch touches is unchecked.",
+ "matchup": {
+  "shell": "No MOFO/MOFC or man/zone charting in the pack. Location splits are the proxy: HOME allows middle 10.26 YPA (57 att) vs left 5.96 (83) and right 6.91 (116). AWAY allows middle 8.71 (41) vs left 6.0 (63) and right 4.79 (73). Both bleed the middle; HOME's leak is wider and paired with more explosives (29/280 vs 12/198).",
+  "pressure": "AWAY blitz rate 71% into a HOME QB who is better blitzed (+0.38 EPA, n=78) than not (+0.24). Pressure rate is not in the pack, so blitz is not treated as pressure getting home. HOME blitzes 28%, which mostly keeps AWAY QB out of the -0.17 blitz split (n=72) and in the +0.07 unblitzed split.",
+  "bleeds": "HOME D bleeds the middle and explosives (10.26 YPA middle; 29 gains of 20+ on 280 att) and is ordinary vs the run (4.30 YPC, 18 runs of 10+ in 6 games). AWAY D is the tighter pass unit (12/198 at 20+, right side 4.79 YPA) with a similar run number (4.16 YPC, 14 runs of 10+). AWAY's remaining soft spot is the middle at 8.71 YPA.",
+  "overlap": "Core overlap is AWAY primary target PLY04 (19 tgt, 161 rec yds, 123 air, ~6.5 aDOT \u2014 intermediate, not vertical) into HOME's middle bleed, with HOME blitzing only 28% so the QB is not forced into the -0.17 split. Second overlap: AWAY's 71% blitz into PLY01's checkdown profile (19 tgt, 105 rec yds, 3 air) while HOME QB's +0.38 blitz EPA says those downs are won. HOME alpha PLY09 (33/297/329) is the volume king but the 78 line has no price; PLY08 (343 air on 21 tgt, ~16 aDOT) attacks the slice AWAY actually limits (12/198 explosives)."
+ },
+ "form": "L3 only, no 4th game and no similar-defense splits. HOME: PLY01 69/313 rush (4.54 YPC, ~23 carries, ~104 yds) plus 19/105/3 receiving; PLY09 33/297/329; PLY08 21/240/343 (no game split, so one long play may inflate the 80/g); PLY10 20/190/174; PLY02 12/105/149; PLY07 7/16 rush. AWAY: PLY05 53/233 rush and 12/38/2 receiving; PLY12 13/116 (8.9 YPC on 4.3 carries \u2014 efficiency that should not repeat); PLY13 15/68; PLY04 19/161/123; PLY11 14/123/149; PLY14 9/72/108. No OC or QB change in the pack.",
+ "edge_players": [
+  {
+   "player": "PLY01",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "PLY01's L3 combined output is about 104 rush plus 35 receiving (139) against a 123.5 line, and the role fits the base script and the HOME-leads flip: ~23 carries against a merely average 4.16 YPC run defense, plus a 6.3-target, 3-air-yard checkdown role that AWAY's 71% blitz feeds while this QB's +0.38 blitz EPA keeps drives alive.",
+   "must_be_true": "Workload holds near 20 carries or 5+ targets with no silent snap cap, and HOME's offense stays on the field. His rush price of 89 does not signal a role cut, unlike the AWAY backfield lines.",
+   "kills_it": "A shootout or a blitz that actually stalls drives: carries fall to the mid-teens and the receiving role only adds ~35-45, so 123.5 is missed from both sides. An unlisted snap limit does the same.",
+   "confidence": "strong"
+  },
+  {
+   "player": "PLY04",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "PLY04 is AWAY's primary target at 6.3 targets and 53.7 rec yds per game on a ~6.5 aDOT, which is the intermediate area HOME actually gives up (middle 10.26 YPA, 29 explosives on 280 throws), and HOME blitzes only 28% so the QB stays out of the -0.17 blitz split; 42.5 sits under that L3 role.",
+   "must_be_true": "Game stays competitive or AWAY trails so the 19-target L3 share repeats, and PLY04 is not limited by an unlisted injury. Alignment into the middle is inferred from aDOT, not charted.",
+   "kills_it": "HOME leads early and AWAY stalls before the targets arrive, or the 10.26 middle YPA has been going to a different route type and PLY04 is held under 42.5 anyway.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection model, no sims, no Pinnacle no-vig in the pack \u2014 qualitative check only. Book: PLY01 rushrecyds over 123.5 -115 / under -115 (pick'em); PLY04 recyds over 42.5 -115 / under -109 (book slightly on the over). Form agrees (139 vs 123.5; 53.7 vs 42.5). AWAY rush YPC allowed 4.16 is not a soft run defense, so the PLY01 read is usage plus receiving, not an efficiency smash; that does not contradict the combined over. No sim median disagrees. Passed, not flagged: PLY05 rush 28 and PLY13 rush 49.5 because those lines invert L3 roles with no injury note; PLY08 over 51.5 (80 vs 51.5, -113) dropped as a lean because AWAY's 12/198 explosive rate disagrees with a ~16 aDOT profile; PLY09 over 78 has no price; PLY11 over 75.5 vs 41 L3 yards is a market role bet the form does not support; PLY12 8.9 YPC on 13 carries is a fluky efficiency, not a 25.5 edge.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "PLY01 rushrecyds over 123.5 -115 (main line, both sides -115, not a short alt). PLY04 recyds over 42.5 -115 (under -109). No other rungs in the pack. Markets restricted to rushyds/recyds/rushrecyds; no passing yards, TDs, or receptions.",
+ "pre_mortem": "It's Monday and both lost. The +0.38 blitz EPA was a season aggregate that did not travel: AWAY's 71% blitz created negative plays, HOME drives died, and PLY01 never got the 20-carry or 5-target floor, so 104-plus-35 became something under 123.5 from both columns. Separately, HOME's 10.26 middle YPA was not available to PLY04 \u2014 the 29 explosives on 280 throws went to another alignment, AWAY's QB at +0.07 unblitzed was ordinary, and a HOME lead let them run clock before 6.3 targets accumulated, leaving PLY04 under 42.5. No inactives in the pack, so a late scratch of either player is an unpriced kill. The counter-case is real on price thinness (both -115, 3-game samples) but it is not stronger than the usage-plus-matchup read, so the legs stay, with PLY04 tagged lean.",
+ "slip_story": "One story: competitive HOME-leaning game at -3.5 and 46, both offenses functional. Stack is HOME RB combined-yards over (lead script or blitz checkdowns) with AWAY WR1 intermediate over into the middle leak (keep-pace or chase). Not a blowout clock-kill stack and not a total-under mixed with same-game overs. No TDs, one market per player, two legs.",
+ "step6_limited": true,
+ "step12_limited": true
+}

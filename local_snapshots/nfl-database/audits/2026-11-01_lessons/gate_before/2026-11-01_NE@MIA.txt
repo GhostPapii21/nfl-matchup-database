@@ -1,0 +1,19 @@
+GATE: FAIL  run=/workspace/nfl-database/runs/2026-11-01_NE@MIA  checked_at=2026-11-01 12:00 ET
+Live legs: none
+Cut legs: ['DeMario Douglas Rec Yds Under 40.5', 'DeMario Douglas Receptions Under 3.5', 'Drake Maye Pass Yds Over 239.5', 'Eli Raridon Rec Yds Under 27.5', 'Eli Raridon Receptions Under 2.5', 'Greg Dulcich Rec Yds Over 29.5', 'Greg Dulcich Receptions Over 3.5', 'Hunter Henry Rec Yds Under 45.5', 'Hunter Henry Receptions Under 4.5', 'Malik Washington Rec Yds Over 41.5', 'Malik Washington Receptions Under 4.5', 'Malik Willis Pass Yds Under 185.5', 'Ollie Gordon II Rush Yds Under 64.5', 'Ollie Gordon II Rush+Rec Yds Under 78.5', 'Rhamondre Stevenson Rush Yds Under 58.5', 'Rhamondre Stevenson Rush+Rec Yds Under 87.5']
+WEATHER ALERT: NE@MIA flagged (precip 69%, gusts 24.2 mph). User's placed legs in this game:
+  - none found
+GAME SCRIPT: NE@MIA triggered (spread -7.5, opp YPC 4.241, wx True); boost lead x1.0727 rb2 x1.1099; RB2 Corey Kiner medians {'mc': 21.551382546338935, 'bias': 21.551382546338935, 'gr': 21.98717243731139}
+MISSES (10):
+  - game_script_rb NE@MIA: pull timestamp 2026-11-01T15:30 is in the future
+  - source injuries_news/ESPN injuries API re-pull 15:30 (official 4 PM inactives): pull timestamp 2026-11-01T15:30 is in the future
+  - source injuries_news/X reporters/beat writers inactives posts via x connector: pull timestamp 2026-11-01T15:01 is in the future
+  - source category injuries_news: missing or no fresh source
+  - source weather/NWS gridpoint forecast (api.weather.gov) kickoff..+3.5h max PoP/wind/gust; Open-Meteo cross-check DEN/MIA: pull timestamp 2026-11-01T15:30 is in the future
+  - source category weather: missing or no fresh source
+  - source odds_props/The Odds API: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks, Underdog player props: pull timestamp 2026-11-01T15:29 is in the future
+  - source odds_props/The Odds API: FanDuel/DK/Pinnacle spreads+totals: pull timestamp 2026-11-01T15:29 is in the future
+  - source category odds_props: missing or no fresh source
+  - Phase 11 weather NE@MIA: pull timestamp 2026-11-01T15:30 is in the future
+Notes:
+  - cross-check (pick-side only, not a gated source): PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source) pulled 2026-11-01T07:34

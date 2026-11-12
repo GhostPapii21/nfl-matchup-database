@@ -1,0 +1,48 @@
+{
+ "game": "BAL @ BUF / Sun Nov 01, 2026, 1:00 PM ET / Highmark Stadium, outdoor / BUF -3 / total 55 / implied BUF 29, BAL 26 / supplied weather: wind 8 mph, temperature 69.4\u00b0F; observation timestamp missing. Checklist built Oct 29 at 05:25 EDT lists total 54.5, but opening line and movement chronology are unavailable. Moneyline missing. BAL has 7 days rest; BUF has 14 days rest, per checklist schedule evidence. BAL travels to BUF; itinerary unavailable.",
+ "script": {
+  "base": "Hypothesis before the statistical check: BUF holds a narrow lead in a competitive, high-scoring game, with Baltimore needing sustained passing rather than a run-away rushing script. That supports Khalil Shakir's receiving opportunity and makes Derrick Henry's combined-yardage under worth testing. Exact pace and halftime lead are not established by the pack.",
+  "flip1": "Baltimore leads early and controls possession through Henry. That threatens both Henry's under through increased carries and Shakir's over through fewer Buffalo possessions, although Buffalo's comeback passing could preserve Shakir's opportunity.",
+  "flip2": "Both offenses trade efficient scoring drives without either controlling possession. Shakir's over remains viable, but Henry's under becomes vulnerable to explosive runs or extra receiving production; that leg is script-dependent."
+ },
+ "injury_fallout": "MISSING: player-specific injury designations, practice trends, offensive-line availability, defensive absences, final injury reports, snap limits and game-day inactives for BAL and BUF. The Oct 29 checklist references Wednesday reports and pending later updates, but supplies no actual player statuses. Do not infer Lamar Jackson's absence or Tyler Huntley's starting status from the rushing table, checklist QB references or available props. MISSING: confirmed BAL starting quarterback. No next-man-up redistribution can be established.",
+ "matchup": {
+  "shell": "MISSING: actual BAL and BUF man/zone rates, MOFO/MOFC splits and player alignment data. The Oct 29 checklist references Sharp coverage pages dated Oct 20, but does not reproduce their values; no specific shell or individual coverage assignment is assumed.",
+  "pressure": "Supplied season-to-date defense tables list BUF blitz rate at 35% and BAL at 31%. Supplied QB splits show BAL EPA/dropback of 0.34 versus blitz and 0.13 without, and BUF at 0.35 versus blitz and 0.32 without. Blitzing alone therefore does not establish an offensive disadvantage. MISSING: charted pressure rates, current line matchups and quick-throw/checkdown splits.",
+  "bleeds": "BAL allows 9.04 YPA through the middle versus 6.68 left and 6.78 right; BUF allows 8.31 middle versus 6.82 left and 7.39 right. BUF allows 3.90 rushing YPC, with 18 runs of 10-plus yards through six games. BAL allows 3.81 rushing YPC through seven games. Source: supplied season-to-date defensive tables; exact extraction timestamps missing.",
+  "overlap": "Shakir leads the supplied BUF last-three target table with 17 targets and has 196 receiving yards on 73 air yards, making him a candidate to benefit from productive underneath passing. However, his middle-field alignment and YAC breakdown are not supplied, so the overlap with BAL's middle weakness remains a hypothesis. Henry's under rests on workload and BUF's aggregate rushing resistance, not a verified box-count or run-concept advantage."
+ },
+ "form": "Source: supplied last-three tables, BAL weeks 5\u20137 and BUF weeks 4\u20136; extraction timestamps missing. Shakir has 17 targets, 196 receiving yards and 73 air yards, while Coleman has 15 targets and 182 yards and Kincaid has 13 targets and 52 yards. Henry has 59 carries for 205 yards plus five targets for 24 receiving yards. Cook has 59 carries for 281 yards plus 73 receiving yards. These establish recent aggregate roles, not individual-game consistency. MISSING: game-by-game distributions, routes, snaps, red-zone usage, verified role changes and comparable-opponent game logs.",
+ "edge_players": [
+  {
+   "player": "khalilshakir",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Shakir's leading recent Buffalo target role gives him a plausible path over 41.5 receiving yards against a Baltimore defense whose largest supplied passing weakness is through the middle, although his alignment there is unverified.",
+   "must_be_true": "Khalil Shakir targets >= 5 [because the pack records 17 targets across BUF's last three games]",
+   "kills_it": "IF Baltimore limits Buffalo possessions and Shakir receives fewer than five targets without a compensating explosive catch THEN Shakir over 41.5 receiving yards fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "derrickhenry",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Henry can stay under 89.5 combined yards if Buffalo's favored game script limits his carry volume against a defense allowing 3.90 rushing yards per carry.",
+   "must_be_true": "Derrick Henry carries <= 20 [because the pack records 59 carries across BAL's last three games]",
+   "kills_it": "IF Baltimore builds a sustained lead and Henry converts increased carries or an explosive play into at least 90 combined yards THEN Henry under 89.5 rushing-plus-receiving yards fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Read tested after forming the script: Shakir's 196 receiving yards over three games equal 65.3 per game against a 41.5 line; this supports the hypothesis but is not a projection. Henry's 229 combined yards over three games equal 76.3 per game against 89.5; his recent rushing efficiency is 205/59 = 3.47 YPC. Those figures support, rather than establish, his under. No model or simulation was run. Shakir's listed -113.5/-113.5 pair and Henry's -113/-113 pair each normalize to 50% per side, but these are supplied-book comparisons, not identified Pinnacle prices. Neither lean has demonstrated positive expected value.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median and distribution, Pinnacle prices, calibrated hit probabilities, game-level variance, player alignment, routes, confirmed quarterback and injury availability. Referenced checklist files were not supplied and cannot be treated as inspected evidence.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line leans only: khalilshakir recyds over 41.5 at -113.5; derrickhenry rushrecyds under 89.5 at -113. Market selection follows receiving opportunity for Shakir and combined-workload suppression for Henry. No alternate rung or stake is justified without projection and sharp-price validation.",
+ "pre_mortem": "Shakir: It is Monday and the over lost because Baltimore's aggregate middle-field weakness did not translate to Shakir's actual routes, Coleman or Kincaid absorbed the useful targets, or Buffalo controlled the game through Cook. His 196-yard three-game total could conceal a single inflated performance; the pack lacks the distribution needed to rule that out. Henry: The under lost because Baltimore led, Henry's carries rose, or one explosive run defeated a modest-volume script. BUF has allowed 18 runs of at least 10 yards, so its 3.90 YPC allowance is not an explosive-play guarantee. A high-scoring game can also add Henry receiving yards. These counter-cases keep both selections at lean rather than strong.",
+ "slip_story": "One conditional story: Buffalo leads narrowly, Shakir remains involved through the air, and Baltimore cannot expand Henry's rushing workload. Both can survive a close game without requiring a blowout; Henry's under is specifically vulnerable to the Baltimore-leads flip and a highly efficient shootout. This is only a two-leg candidate stack, not a completed main slip: do not invent a third leg to reach 3\u20134, and do not assume independence or multiply marginal probabilities. No bet placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

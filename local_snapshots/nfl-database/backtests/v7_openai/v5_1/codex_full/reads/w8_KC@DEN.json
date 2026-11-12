@@ -1,0 +1,48 @@
+{
+ "game": "KC @ DEN / Sun Nov 01, 2026, 4:25 PM ET / Empower Field at Mile High, outdoor / supplied market DEN -1, total 42; implied DEN 21.5, KC 20.5 / weather supplied: wind 6.7 mph, temperature 62.1\u00b0F, observation timestamp missing. Checklist snapshot built Oct 29 at 05:25 EDT instead lists KC -1.5, total 40.5; differing snapshots do not establish verified opening-to-current movement. Moneyline missing. Checklist reports KC six days rest, DEN seven; KC travels to Denver, itinerary missing.",
+ "script": {
+  "base": "Hypothesis before the numerical checks: this stays competitive into the second half, allowing Kenneth Walker to remain KC's offensive foundation while Denver's rushing production is harder to sustain. KC's rushing matchup offers the clearest route to a late advantage, but neither a fast pace nor a decisive halftime leader is established by the pack; sustained garbage time is not the base case.",
+  "flip1": "Denver builds an early two-score lead, pushing KC toward passing and threatening Walker's rushing volume. Denver's clock-management carries could also expand Jonah Coleman's opportunity, hurting both proposed legs.",
+  "flip2": "KC leads comfortably in the second half and runs the clock. Walker's rushing over and Coleman's rushing under fit that script, although late replacement carries could cap Walker's workload."
+ },
+ "injury_fallout": "MISSING: actual KC and DEN player injury designations, practice trends, offensive-line availability, defensive absences, return-to-play restrictions, and final inactives. The Oct 29 checklist references Wednesday reports and pending Thursday/Friday updates, but their player-level contents are not supplied. No absence, return, or next-man-up allocation is inferred from usage. Recheck final reports and inactives approximately 90 minutes before kickoff; these checks cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: numerical KC/DEN man-zone and MOFO/MOFC splits. The checklist references Sharp coverage pages dated Oct 20, but the actual shell results and individual assignments are absent; receiver-to-defender mappings cannot be verified.",
+  "pressure": "Pack: DEN blitzes 35%; Mahomes has 0.19 EPA/dropback against blitz versus 0.11 without, with 57 blitz dropbacks. KC blitzes 27%; Nix has -0.19 against blitz versus 0.04 without, with 80 blitz dropbacks. This supports a possible KC defensive disruption path, not a claim that blitzes necessarily produce pressure. Charted pressure rates and exact line matchups are missing.",
+  "bleeds": "Season-to-date pack: DEN allows 4.72 rushing yards per carry and 26 runs of 10+ yards across seven games, versus KC's 3.60 and 14 across six. DEN's passing middle allows 8.94 YPA, compared with 6.34 left and 5.38 right; KC allows 8.02 middle, 7.26 left and 4.83 right. Position-specific coverage allowances, box tendencies, rush EPA and stuff rates are missing.",
+  "overlap": "Walker has KC's dominant listed recent carry workload, making his role overlap directly with Denver's more permissive rushing defense. Coleman has only nine carries in Denver's last three games and faces the stronger listed rushing defense; his under does not require guessing an injury-driven depth-chart change."
+ },
+ "form": "Supplied pregame usage: KC weeks 4, 6 and 7; DEN weeks 5, 6 and 7. Walker recorded 55 carries for 341 yards, compared with nine combined carries for Mahomes and Emmett Johnson; these establish recent rushing concentration, not verified snap share. Coleman recorded nine carries for 54 yards, while Dobbins had 41/132, Harvey 12/38 and Nix 12/88. Coleman was efficient at 6.0 yards per carry, an important counterargument to his under. Individual game distributions, long-run contributions, snaps, routes, red-zone usage and comparable-opponent results are missing. Source: supplied L3 tables; checklist identifies underlying box-score/PBP repositories, but row-level extraction timestamps are not supplied.",
+ "edge_players": [
+  {
+   "player": "kennethwalkeriii",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Walker's concentrated recent carry role attacks a Denver defense allowing 4.72 yards per carry and frequent chunk runs, giving him a plausible path over 86.5 rushing yards in a competitive game.",
+   "must_be_true": "kennethwalkeriii carries >= 19 [because the pack records 55 carries across KC's last three games and DEN allows 4.72 rushing yards per carry]",
+   "kills_it": "IF Denver takes an early two-score lead and KC shifts away from Walker's rushing workload THEN kennethwalkeriii rushyds over 86.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jonahcoleman",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Coleman's limited recent carry role faces a KC defense allowing just 3.60 yards per carry, making under 43.5 rushing yards preferable unless his workload expands materially.",
+   "must_be_true": "jonahcoleman carries <= 7 [because the pack records nine carries across Denver's last three games, behind Dobbins' 41 and Harvey's 12]",
+   "kills_it": "IF Denver gives Coleman an expanded rushing role and he gains at least 44 yards THEN jonahcoleman rushyds under 43.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Read tested after formulation. Walker's L3 workload is 18.33 carries per game at 6.20 yards per carry. Applying DEN's 4.72 allowed YPC to that workload gives 86.53 yards, essentially the 86.5 line; this simple sensitivity calculation supports only a lean, not a large modeled edge. At 19 carries, the same calculation gives 89.68 yards. Coleman averaged three carries and 18 rushing yards per game; at KC's 3.60 allowed YPC, seven carries yield 25.2 yards, but neither calculation is a calibrated projection. Removing vig from the supplied paired Walker prices gives approximately 50.21% over; Coleman's identically priced sides give 50.00% under. These are supplied-book benchmarks, not verified Pinnacle prices. No simulation or estimated true hit probability is claimed.",
+  "disagrees": "Coleman's recent 6.0 yards per carry contradicts an efficiency-based case for his under: at that rate, eight carries would produce 48 yards. The under therefore depends primarily on limited opportunity rather than assuming KC's season allowance determines his efficiency.",
+  "missing": "Calibrated model, simulation median and distribution, Pinnacle no-vig prices, game-level carry distributions, current injury/inactive details, verified coverage assignments, and near-kickoff weather update.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Conditional singles only: kennethwalkeriii rushyds over 86.5 at -114.5, raw break-even 53.38%; jonahcoleman rushyds under 43.5 at -114.5, raw break-even 53.38%. Both are main lines. Walker's edge is principally workload plus rushing matchup; Coleman's is limited carry opportunity plus opponent resistance. Neither price is established as positive expected value without a calibrated probability. No alternate rung or stake recommended.",
+ "pre_mortem": "Walker over: it is Monday and Denver's narrow favorite status proved meaningful\u2014an early lead forced KC to throw, leaving Walker short of the required carries. Alternatively, his recent 6.20 YPC regressed and a normal workload was insufficient; the opponent-rate sensitivity calculation already lands almost exactly on the line. Coleman under: Denver redistributed carries to Coleman without that change appearing in the supplied injury information, or his demonstrated 6.0 YPC produced enough yardage on modest volume. His three-game aggregate conceals individual-game volatility, and KC's season allowance cannot rule out a single explosive run. Both remain conditional leans, not strong selections.",
+ "slip_story": "The shared story is a competitive game turning toward KC control: Walker retains carries while Denver's rushing opportunities remain constrained. Both legs also survive the KC-leads flip, subject to Walker avoiding late workload removal. Both are vulnerable to an early Denver lead. Do not manufacture a three- or four-leg slip from two qualified candidates; keep these as conditional singles pending availability and pricing checks. No TDs, depth-receiver additions, or second market on either player. Read and result must be graded separately after the game; no actual pre-kickoff save, hash, or postgame grading was performed in this response.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

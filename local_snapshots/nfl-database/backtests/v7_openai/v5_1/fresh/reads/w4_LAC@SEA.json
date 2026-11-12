@@ -1,0 +1,48 @@
+{
+ "game": "LAC@SEA Week 4 / kickoff NOT saved / spread NOT saved / total NOT saved / weather NOT saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this flow is form-only: Seattle's defense (3.37 rush YPC, 2 passes of 20+ on 99 attempts, YPA 4.11-5.78) is the stable unit and LAC's defense is the leak (4.00 YPC, 9 of 99 explosives, 9.47 YPA left). Base read is SEA-leaning and asymmetric, not a declared favorite: JSN (36 targets, 405 yards, 348 air yards in 3 games) creates the chunk plays, while LAC's air-yard shot to Quentin Johnston (171 air yards, only 64 yards) stays inefficient. Hampton still sees volume (50 carries) because Herbert is -0.46 EPA/dropback vs blitz, but SEA blitzes only 20% so that is a partial constraint, not a sack script.",
+  "flip1": "Shootout flip: LAC manufactures explosives despite Seattle's 2/99 rate, McConkey (183 yards on 15 targets) and Harris (149 on 16) keep pace, and Johnston's one deep ball clears 34.5. JSN over still lives; Johnston under dies.",
+  "flip2": "Clock-kill flip: SEA leads and feeds the committee (Wilson 32 carries, Price 28, Holani 15), JSN targets fall to 6 or fewer after the first half, and the 93.5 over dies even if LAC never scores. Johnston under likely survives that flip."
+ },
+ "injury_fallout": "MISSING: injury report, practice status, questionable tags, game-time decisions, and inactives for both LAC and SEA. No absence is listed, so no next-man-up is assigned and usage splits are not treated as injuries. Hampton 50 carries vs Mitchell 17 vs Vidal 1, and Wilson 32 vs Price 28 vs Holani 15, stay committee/role facts only.",
+ "matchup": {
+  "shell": "MISSING: MOFO/MOFC and man/zone charting. Location proxy only: SEA YPA left 5.78 (40 att), middle 4.93 (14), right 4.11 (38); LAC YPA left 9.47 (38), middle 5.67 (24), right 7.93 (30).",
+  "pressure": "SEA blitz rate 20%; LAC QB EPA/dropback -0.46 vs blitz (n=25) vs -0.03 with no blitz, so Herbert's blitz problem is only partly live. LAC blitz rate 25%; SEA QB EPA/dropback +0.47 vs blitz (n=43) vs +0.15 with no blitz, so LAC pressure helps Seattle's dropback, not JSN's check-down.",
+  "bleeds": "LAC bleeds explosives (9 passes of 20+ on 99 att) and the perimeter, especially left (9.47 YPA) and right (7.93); middle is the only decent zone (5.67). Rush bleed is moderate (4.00 YPC, 8 runs of 10+). SEA bleeds almost nowhere in the pass game (2 of 99 explosives; every zone <=5.78 YPA) and stuffs the run (3.37 YPC, 5 runs of 10+).",
+  "overlap": "Core overlap is JSN, the SEA primary (12 targets/game, 348 air yards), into LAC's explosive and outside-zone leak. Inverse overlap is Johnston: team-high air yards that do not convert (171 air, 64 yards) into the defense that has allowed 2 deep shots."
+ },
+ "form": "L3 only, no game splits in pack. JSN 36/405/348 is a stable WR1, about 135 yards/game, well above 93.5. Kupp 10/101/98 (33.7/g) and Barner 12/90/17 (30.0/g, 17 air) are secondary. Shaheed 12/53/101 is the inefficient deep decoy (17.7/g). SEA rush is a split: Wilson 32/109 (36.3/g, 3.41 YPC), Price 28/119 (39.7/g, 4.25), Holani 15/52 (17.3/g). LAC: Johnston 17/64/171 (21.3/g, 3.8 yards/target) is the broken shot; McConkey 15/183/208 (61/g) and Harris 16/149/162 (49.7/g) actually convert. Hampton 50/193 (64.3/g, 3.86 YPC) is the carry share; Mitchell 17/85 is the change-up. No similar-defense split is in the pack.",
+ "edge_players": [
+  {
+   "player": "jaxonsmithnjigba",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Smith-Njigba is the Seattle passing game (36 targets, 405 yards, 348 air yards over 3 games) and the Chargers have allowed 9 passes of 20+ plus 9.47 YPA on the left, so 93.5 sits about 41 yards under the recent role even after a real regression.",
+   "must_be_true": "jaxonsmithnjigba targets >= 8 because 36 targets over the last 3 games",
+   "kills_it": "IF jaxonsmithnjigba targets <= 6 THEN jaxonsmithnjigba recyds over 93.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "quentinjohnston",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Johnston has the air yards (171) and not the production (64 yards on 17 targets, 21.3 per game), and Seattle has allowed 2 passes of 20+ on 99 attempts with YPA at or under 5.78 in every zone, so 34.5 is a spike number this defense has not been giving up. Script-dependent on no LAC shootout.",
+   "must_be_true": "quentinjohnston yards per target <= 4 because 64 receiving yards on 17 targets over 3 games",
+   "kills_it": "IF quentinjohnston records a reception of >= 35 yards THEN quentinjohnston recyds under 34.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "JSN 405/3=135 vs line 93.5, and LAC allowed 9/99 explosives and 9.47 left YPA, agree with the over; a 30% cut from 135 still clears 93.5. Johnston 64/3=21.3 vs line 34.5, with SEA 2/99 explosives and zone YPA 4.11-5.78, agree with the under. No projection, sim median, or no-vig price is in the pack, so no model probability is claimed.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injury report/inactives, man/zone and MOFO/MOFC charting, game-by-game splits, snap counts, no-vig price, projection and sims",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only, no alt rungs in pack: jaxonsmithnjigba recyds over 93.5 -115; quentinjohnston recyds under 34.5 -112. No Pinnacle no-vig in pack, so rung is the listed main, not a sized alt.",
+ "pre_mortem": "It's Monday and this lost because the three-game sums hide a spike: JSN's 405 yards could be one huge game plus two quiet ones, and with no spread the pass-script may be wrong if Seattle just grinds Wilson (32 carries) and Price (28) while LAC brackets JSN into Kupp (101 yards on 10 targets) and Barner (90 on 12), leaving JSN at 7-for-72. Johnston's under is one play from death against a profile of 171 air yards; Seattle has allowed two 20+ throws already, and a third, or a trail-script force-feed on his 17-target role, clears 34.5 by itself. Missing inactives can also cap either snap share. The counter-case is stronger on Johnston than on JSN, which is why that leg stays a lean.",
+ "slip_story": "One asymmetric story only: Seattle's primary receiver attacks LAC's explosive leak, and LAC's non-converting shot receiver runs into Seattle's explosive cap. JSN over with Johnston under. Do not add a total (not saved), a Hampton rush over (needs carries vs a 3.37 YPC defense and dies if LAC trails), or a shootout stack.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

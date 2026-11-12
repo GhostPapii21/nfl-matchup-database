@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 ATL@NO / kickoff MISSING / spread NOT saved / total NOT saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this script is inferred from team form only, not from a market number. ATL's run game is the stable unit (Bijan Robinson 66 carries, 349 yards, 5.29 YPC; Brian Robinson 30/132) against NO's soft run defense (4.85 YPC, 11 runs of 10+), so the base flow is ATL leaning on Bijan to stay on schedule and control pace. NO cannot lean on the run against ATL (3.12 YPC allowed, only 2 runs of 10+; Kamara 18/51 at 2.83 YPC, Etienne 31/128), so NO's path is the pass game, led by Olave (36 targets, 375 yards, 472 air yards), with Shough better when not blitzed (+0.11 EPA, n=47) and ATL blitzing only 21%. Competitive, ATL run-lean, NO pass-lean; not a shootout, because the ATL QB is -0.55 EPA/dropback when not blitzed and NO blitzes just 29%.",
+  "flip1": "ATL's run game gets them ahead and they grind the clock; NO dropbacks shrink and Olave, Vele and Juwan Johnson yards stall even though NO cannot run.",
+  "flip2": "ATL's no-blitz passing woes (-0.55 EPA) plus the 12 passes of 20+ yards ATL has already allowed put ATL in a hole; ATL abandons the run, Bijan's rush line dies, and NO's WR volume clears."
+ },
+ "injury_fallout": "MISSING: injury report, practice status, questionable tags, snap limits, and inactives for both ATL and NO. No next-man-up is assigned from usage. Pack note only, not an absence: T.Etienne (31 carries, 128 yards over L3) has no rush prop on the available list while A.Kamara is lined at 35.5 rush yards despite 51 rush yards on 18 carries; that gap is unexplained without an injury report and is not treated as Etienne being out or Kamara inheriting carries.",
+ "matchup": {
+  "shell": "MISSING: defensive shell (MOFO/MOFC), man vs zone rate, and coverage charting. Location YPA only. NO allows left 7.55 (38 att), middle 6.81 (21 att), right 6.02 (43 att). ATL allows left 5.86 (50 att), middle 9.45 (20 att), right 5.63 (60 att).",
+  "pressure": "NO blitz rate 29%; ATL QB EPA/dropback -0.00 vs blitz (n=32) vs -0.55 vs no blitz. ATL blitz rate 21%; NO QB EPA/dropback -0.14 vs blitz (n=47) vs +0.11 vs no blitz. Pressure rate and time-to-throw are MISSING; only blitz rate is in the pack.",
+  "bleeds": "NO bleeds on the ground: 4.85 YPC and 11 runs of 10+ in 3 games, with only 6 passes of 20+ on 111 attempts. ATL is the opposite: 3.12 YPC and 2 runs of 10+, but 12 passes of 20+ on 135 attempts, and the middle is the soft pass zone at 9.45 YPA on 20 attempts.",
+  "overlap": "Bijan Robinson's 22.0 carries per game and 5.29 YPC attack the exact spot NO gives up (4.85 YPC, 11 explosive runs). Olave's 12.0 targets per game and 13.1 air yards per target attack ATL's explosive-pass leak (12 plays of 20+), and ATL's 21% blitz rate sits in Shough's better no-blitz split (+0.11 EPA)."
+ },
+ "form": "L3 totals only, no per-game boxes and no similar-defense splits in the pack. ATL: Bijan 66/349 rush plus 16 targets/118 rec yards/-28 air yards (checkdown role, about 39.3 rec yards per game); London 19/274/142 is the only high-volume WR (about 91.3 rec yards); Dotson 10/41/144 is air without production (13.7 rec yards); Pitts 6/20/60 and Hooper 6/31/23 are lightly used; Brian Robinson 30/132 (10 carries, 44 rush yards per game) is a real RB2, not a forgotten back. NO: Olave 36/375/472 is a three-game role (125 rec yards, 12 targets), not a one-play spike; Vele 22/172/226 and Juwan Johnson 19/173/103 are secondary options near 57 yards; Etienne 31/128 leads the rush ahead of Kamara 18/51 (2.83 YPC) and 7/12 receiving; Shough added 13/68 rushing; Miller 13/44.",
+ "edge_players": [
+  {
+   "player": "bijanrobinson",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Bijan Robinson should beat 87.5 rush yards because he has averaged 116.3 on 22.0 carries at 5.29 YPC and NO allows 4.85 YPC with 11 runs of 10+ yards.",
+   "must_be_true": "Bijan Robinson carries >= 18 because pack L3 shows 66 carries and 349 rush yards and NO allows 4.85 YPC",
+   "kills_it": "IF ATL falls behind early and abandons the run so Bijan Robinson carries fall to 15 or fewer THEN bijanrobinson rushyds over 87.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "chrisolave",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Chris Olave should beat 86.5 rec yards because he has averaged 125.0 on 12.0 targets with 472 air yards over L3, and ATL has allowed 12 passes of 20+ yards while blitzing only 21%, Shough's better split.",
+   "must_be_true": "Chris Olave targets >= 9 because pack L3 shows 36 targets, 375 rec yards and 472 air yards and ATL allowed 12 passes of 20+ on 135 attempts",
+   "kills_it": "IF ATL leads late and grinds the clock so Chris Olave finishes with 7 or fewer targets THEN chrisolave recyds over 86.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No model, sim median, or Pinnacle no-vig is in the pack, so step 8 is pack form versus the main line only. Bijan 349 rush yards on 66 carries is 116.3 per game and 5.29 YPC against a line of 87.5; 19 carries at NO's 4.85 YPC is 92.2, still over. Olave 375 rec yards on 36 targets is 125.0 per game and 10.4 yards per target, with 472 air yards, against a line of 86.5; ATL allowed 12 passes of 20+ on 135 attempts and blitzes 21%. Neither pack figure contradicts the read. Prices are short at -114 and -116 with no alt rung in the pack. This is not a model probability and is not treated as a 70%+ leg.",
+  "disagrees": "none",
+  "missing": "sim median, no-vig/Pinnacle price, coverage shell and man/zone rate, pressure rate, weather, spread, total, kickoff time, injury report and inactives, per-game splits",
+  "verdict": "agree"
+ },
+ "market_rung_price": "bijanrobinson rushyds over 87.5 at -114; chrisolave recyds over 86.5 at -116. Main lines only; no alt rungs and no no-vig in the pack. Short prices, used as the two correlated anchors of one script, not as plus-money alts.",
+ "pre_mortem": "It's Monday and both lost because the unpriced spread was a NO lead the form read missed. ATL's -0.55 EPA when not blitzed never moved the ball, NO hit a couple of the explosive passes ATL has been allowing (12 of 20+ already), and Bijan was taken off the 22-carry pace toward 15 carries while Brian Robinson's 10-carry L3 role and a few stuffed runs left him at 70-80 rush yards, under 87.5. On the other leg, the clock-grind flip went the other way only after ATL's outside pass defense (5.86 YPA left, 5.63 right) took away Olave's 13.1 air-yards-per-target shots, his 30.5% share of 118 L3 targets produced 7 looks, and 125 yards of prior efficiency regressed into the 60s. That counter is real and is why Olave is a lean and both legs are script-tagged, but it is not stronger than the read: each line sits about 29-39 yards under the L3 average and the matchup points the same way as the role.",
+ "slip_story": "One competitive split-script, the favorite-runs / opponent-throws shape without a saved spread: ATL runs because NO allows 4.85 YPC and 11 explosive runs (Bijan rush over), and NO throws because ATL allows 3.12 YPC and only 2 explosive runs while blitzing 21% (Olave rec over). They win together if the game stays competitive; they split in a blowout, so neither is a grind-only or shootout-only add-on. Do not add London or Pitts overs, a total under, or NO rush overs (Kamara 35.5, Miller 27.5, Shough 16.5); those need the other script or an injury the pack does not document. Two legs, no TDs, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

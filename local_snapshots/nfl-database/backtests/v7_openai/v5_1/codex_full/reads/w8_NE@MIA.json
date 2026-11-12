@@ -1,0 +1,39 @@
+{
+ "game": "NE @ MIA / Sun Nov 01, 2026, 4:25 PM ET / Hard Rock Stadium, outdoor / NE -7, total 41; implied NE 24, MIA 17 / Saved checklist instead lists total 43.5: unresolved snapshot discrepancy, not verified line movement / Moneyline and opener missing / NE 9 days rest, MIA 7; NE travels to Miami, itinerary missing / Weather: header says not saved, but checklist contains an Oct 29 05:25 EDT forecast of 83.1\u00b0F, 75% precipitation probability, wind 15.4 mph gusting 17.7; no near-kickoff update.",
+ "script": {
+  "base": "Hypothesis before the player-level data check: seven-point favorite New England establishes a lead and shifts toward clock management late, while Miami needs more passing to stay competitive. Henry's potential edge is underneath receiving work before that slowdown, not a requirement for a shootout; actual pace data are missing.",
+  "flip1": "New England takes a large early lead and reduces second-half passing enough to strand Henry below his receiving line. Miami's passing volume rises, but its efficiency need not improve.",
+  "flip2": "Miami keeps the score close or leads, extending New England's passing volume and Henry's opportunity. The saved forecast's wind and rain risk could instead turn that competitive script into an inefficient, low-scoring game."
+ },
+ "injury_fallout": "MISSING: named NE and MIA injury designations, practice trends, offensive-line availability, defensive absences, return-related snap limits, and final inactives. The Oct 29 05:25 EDT checklist references Wednesday reports and backup-QB/workload risk but supplies no player-specific findings. No absence, return, replacement, or target redistribution is inferred from usage. Reassess Henry and both teams' lines when final reports and approximately 90-minute inactives become available.",
+ "matchup": {
+  "shell": "MISSING: actual MIA and NE man/zone and MOFO/MOFC rates. The saved checklist references Sharp coverage pages dated Oct 20, but their values are absent from this pack; Henry's alignment and individual coverage assignments are unverified.",
+  "pressure": "Pack season-to-date figures: MIA blitzes 26%; NE's QB EPA/dropback is 0.18 against blitz versus 0.22 without blitz, with n=78 supplied for the blitz split. NE blitzes 39%; MIA's corresponding EPA is -0.03 versus 0.00, with n=63 supplied for the blitz split. These do not establish pressure getting home; charted pressure rates, time to throw, and exact OL/pass-rush matchups are missing.",
+  "bleeds": "MIA allows 10.14 passing yards per attempt through the middle versus 7.24 left and 7.62 right, with 17 explosive passes allowed on 182 attempts. Its rushing allowance is 4.20 YPC with 19 runs of 10-plus yards across six games. NE allows 11.74 YPA through the middle and 4.01 rushing YPC across seven games. These are location and team aggregates, not verified TE coverage statistics.",
+  "overlap": "Henry is a plausible candidate to attack MIA's softer middle: NE's supplied Weeks 5\u20137 totals show 16 targets, 163 receiving yards and 68 air yards. This is a testable short-area receiving hypothesis, not proof that his routes match the vulnerable coverage zones; Douglas leads the supplied NE target totals with 17."
+ },
+ "form": "Source: supplied pregame Weeks 5\u20137 NE usage totals. Henry's 16 targets and 163 receiving yards support an established receiving role, but per-game distribution, routes, snaps, red-zone usage and explosive-play concentration are missing. Douglas has 17 targets/174 yards and Raridon 12/124, so Henry is not the only available receiving option. Stevenson, Kiner and Henderson have 33, 21 and 14 carries respectively, showing distributed recent rushing work without establishing why. Miami's supplied Weeks 4, 5 and 7 show Gordon at 52 carries/291 yards and Washington at 16 targets/137 yards. No comparable-opponent game logs or recent defensive positional splits are supplied.",
+ "edge_players": [
+  {
+   "player": "hunterhenry",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Henry can exceed 45.5 receiving yards through established receiving involvement against Miami's vulnerable middle, provided New England does not shut down its passing volume too early.",
+   "must_be_true": "H.Henry targets >= 5 [because the pack records 16 targets across NE's last three games]",
+   "kills_it": "IF New England builds an early multi-score lead and Henry finishes with three or fewer targets THEN Henry over 45.5 receiving yards fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Read first, numerical test second: Henry's 16 targets and 163 receiving yards over three games are compatible with the opportunity hypothesis, and MIA's 10.14 middle YPA supports testing that matchup. Neither establishes a calibrated probability. The NE -7 spread creates the volume risk already included in the script. No projection or simulation was run because no engine or distribution inputs are supplied; agreement here means no supplied numerical contradiction, not proven betting value.",
+  "disagrees": "none",
+  "missing": "Projection, simulation median, calibrated hit probability, Pinnacle prices and no-vig benchmark; Henry game-by-game production, routes and alignment; actual coverage rates and pressure rates; player-specific injuries and final inactives; near-kickoff weather. The 41 versus 43.5 total discrepancy remains unresolved.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional lean: hunterhenry recyds over 45.5 at -113.5, as listed in AVAILABLE PROPS. Receiving yards is the permitted market for this matchup hypothesis; receptions are unavailable under the backtest constraints. Break-even probability is approximately 53.2%, but an edge above that threshold is unverified. No alternate rung, stake, or short-priced anchor is justified.",
+ "pre_mortem": "It is Monday and Henry missed because New England's advantage produced rushing possessions rather than sustained receiving volume. Douglas or Raridon captured the useful targets, while Henry's middle-field matchup proved less direct than the aggregate location numbers suggested. The saved wind-and-rain forecast may also have reduced passing efficiency, although no kickoff weather is available. Missing routes, alignment and availability prevent ruling out these mechanisms. The lean survives a competitive-game flip but is explicitly script-dependent in an early New England blowout.",
+ "slip_story": "Watchlist story only: New England leads a competitive game while Henry accumulates short-area yards before late clock management. Only one conditional leg qualifies; do not manufacture a 3\u20134-leg slip from this pack. No bet placed. The checklist was built Oct 29, 2026 at 05:25 EDT, but this read has no independently saved pre-kickoff timestamp or hash. Postgame, grade the script and Henry opportunity hypothesis separately from the result; review Step 2 for a blowout miss, Steps 3\u20135 for availability or role misses, and Step 6 for weather.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

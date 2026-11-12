@@ -1,0 +1,69 @@
+# v5.1 FRESH Grok reads — FINAL results (39/88 games read; 0 picks unmatched to lines)
+
+Pre-registered verdict (Wk3-6: >=40 priced, ROI>0, beats v5 ROI and $): **FAIL** — priced 18, ROI -0.056, $ -10.02 vs v5 -0.138/-119.83
+
+## Side by side
+
+| set                              | split        |   W |   L |     hit |   priced |      pl |     roi |
+|:---------------------------------|:-------------|----:|----:|--------:|---------:|--------:|--------:|
+| v5.1 FRESH reads                 | train(3-6)   |  10 |  12 |   0.455 |       18 |  -10.02 |  -0.056 |
+| v5.1 FRESH reads                 | holdout(7-8) |   0 |   0 | nan     |        0 |    0    | nan     |
+| v5 PRIMARY (all games)           | train(3-6)   |  49 |  63 |   0.438 |       87 | -119.83 |  -0.138 |
+| v5 PRIMARY (all games)           | holdout(7-8) |  31 |  20 |   0.608 |       40 |   68.63 |   0.172 |
+| v5 PRIMARY (same games as fresh) | train(3-6)   |  30 |  42 |   0.417 |       53 |  -79.77 |  -0.151 |
+| v5 PRIMARY (same games as fresh) | holdout(7-8) |   0 |   0 | nan     |        0 |    0    | nan     |
+| v5.1 locked-reads                | train(3-6)   |  14 |  12 |   0.538 |       21 |   -1.58 |  -0.008 |
+| v5.1 locked-reads                | holdout(7-8) |   6 |   3 |   0.667 |        9 |   23.1  |   0.257 |
+| v6 READS                         | train(3-6)   |  39 |  68 |   0.364 |       94 | -255.17 |  -0.271 |
+| v6 READS                         | holdout(7-8) |  27 |  22 |   0.551 |       47 |   -9.78 |  -0.021 |
+| v6 GATED                         | train(3-6)   |  19 |  38 |   0.333 |       53 | -192.95 |  -0.364 |
+| v6 GATED                         | holdout(7-8) |  18 |  12 |   0.6   |       28 |   20.15 |   0.072 |
+| rush-under baseline              | train(3-6)   | 207 | 154 |   0.573 |      293 |  124.94 |   0.043 |
+| rush-under baseline              | holdout(7-8) |  89 |  75 |   0.543 |      133 |   -8.49 |  -0.006 |
+
+## FRESH by week
+
+|   week |   W |   L |   hit |   priced |      pl |    roi |
+|-------:|----:|----:|------:|---------:|--------:|-------:|
+|      3 |   2 |   7 | 0.222 |        7 | -32.603 | -0.466 |
+|      4 |   7 |   4 | 0.636 |        9 |  23.737 |  0.264 |
+|      5 |   1 |   1 | 0.5   |        2 |  -1.15  | -0.058 |
+
+## FRESH by split x market x side
+
+|                                      |   W |   L |   hit |   priced |      pl |    roi |
+|:-------------------------------------|----:|----:|------:|---------:|--------:|-------:|
+| ('train(3-6)', 'recyds', 'over')     |   5 |   7 | 0.417 |        9 | -14.745 | -0.164 |
+| ('train(3-6)', 'recyds', 'under')    |   0 |   2 | 0     |        2 | -20     | -1     |
+| ('train(3-6)', 'rushrecyds', 'over') |   0 |   1 | 0     |        0 |   0     |  0     |
+| ('train(3-6)', 'rushyds', 'over')    |   3 |   2 | 0.6   |        5 |   6.869 |  0.137 |
+| ('train(3-6)', 'rushyds', 'under')   |   2 |   0 | 1     |        2 |  17.859 |  0.893 |
+
+## FRESH by split x side
+
+|                         |   W |   L |   hit |   priced |     pl |    roi |
+|:------------------------|----:|----:|------:|---------:|-------:|-------:|
+| ('train(3-6)', 'over')  |   8 |  10 | 0.444 |       14 | -7.876 | -0.056 |
+| ('train(3-6)', 'under') |   2 |   2 | 0.5   |        4 | -2.141 | -0.054 |
+
+## Slips, pre-registered (<=5/week, 3-4 legs, $10)
+
+|   week | won   |     pl |
+|-------:|:------|-------:|
+|      3 | 0/2   | -20    |
+|      4 | 1/2   | 107.84 |
+
+## Slips, <=5 per game day variant ($10)
+
+|   week | won   |     pl |
+|-------:|:------|-------:|
+|      3 | 0/2   | -20    |
+|      4 | 1/2   | 109.48 |
+
+## Grading gap
+
+v5 gap resolved: Week 6 NYJ@NE Kenyon Sadiq recyds OVER 20.5 (actual 12, LOSS) carried an invalid saved price of -6. v5 grade.py treated it as unpriced (−$119.83); the first shared-harness pass decoded -6 as odds and booked −$10 (−$129.83). Harness now treats |price|<100 as unpriced; v5 Weeks 3-6 = −$119.83. The locked-reads v5.1 also kept Sadiq at -6, so its Wk3-6 moves from −$11.58 to −$1.58 (21 priced).
+
+## Grok usage
+
+Logged cost $5.31 (cap $10; script stops new calls at $9.20). Rejects: 9. Dropped: w4_DET@CAR, w5_CIN@MIA. Stops: STOPPED w5_LV@NE SystemExit('STOP 402'); STOPPED w5_MIN@NO SystemExit('STOP 402'); STOPPED w5_NYG@WAS SystemExit('STOP 402'); STOPPED w5_PHI@JAX SystemExit('STOP 402'); STOPPED w5_SF@SEA SystemExit('STOP 402'); STOPPED w5_TB@DAL SystemExit('STOP 402'); STOPPED w6_ARI@LA SystemExit('STOP 402'); STOPP

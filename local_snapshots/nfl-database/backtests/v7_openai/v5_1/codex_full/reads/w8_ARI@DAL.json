@@ -1,0 +1,39 @@
+{
+ "game": "ARI @ DAL / Sun Nov 01, 1:00 PM ET, Week 8 / AT&T Stadium, indoor / DAL -7.5 / total 54.5 / implied totals: DAL 31, ARI 23.5 / weather not saved. Saved checklist lists DAL -7, but no timestamped opening/current sequence establishes line movement. Moneyline missing. Rest: ARI 7 days, DAL 5 days; travel itinerary missing. Source: supplied pregame pack; checklist built 2026-10-29 05:25 EDT.",
+ "script": {
+  "base": "Dallas leads by halftime and protects its advantage late, with Javonte Williams carrying the primary rushing workload. Arizona becomes more pass-oriented, but Knight can retain enough early or competitive-game carries to clear a low rushing threshold; exact pace is unavailable.",
+  "flip1": "Arizona keeps the game competitive or leads, preserving more rushing opportunities for Knight against a Dallas defense allowing 4.92 yards per carry.",
+  "flip2": "Dallas builds a substantial early lead and Arizona largely abandons designed runs. Knight's rushing over becomes vulnerable even against a favorable run defense."
+ },
+ "injury_fallout": "MISSING: player-specific injuries, practice trends, offensive-line designations, defensive absences, return restrictions, and final inactives for ARI and DAL. The checklist references Wednesday designations and backup-QB/workload concerns without supplying the underlying details; no specific absence, starter change, or next-man-up allocation can be inferred. Knight's 23 carries and Allgeier's 29 carries are observed usage, not evidence of an injury-driven rotation. Recheck any affected read against final reports and inactives approximately 90 minutes before kickoff; those checkpoints are unavailable in this backtest.",
+ "matchup": {
+  "shell": "MISSING: actual ARI and DAL man/zone and MOFO/MOFC rates. The saved manifest references coverage sources but does not supply their charted values or individual assignments.",
+  "pressure": "DAL blitzes 26%; ARI's supplied QB EPA/dropback is -0.25 versus blitz and 0.08 without blitz. ARI blitzes 31%; DAL's corresponding values are 0.02 and 0.21. These splits suggest blitz-related offensive risk, but blitz frequency is not pressure rate. Charted pressure, offensive-line matchups, and confirmed QB availability are missing.",
+  "bleeds": "DAL allows 4.92 rushing yards per carry and has conceded 24 runs of at least 10 yards through seven games. Its middle passing YPA allowed is 10.2 versus 7.09 left and 7.11 right. ARI allows 4.73 rushing yards per carry and 22 runs of at least 10 yards; its passing YPA allowed ranges from 8.34 to 8.55 across locations. Sources: supplied season-to-date defensive tables.",
+  "overlap": "Knight's recent rushing efficiency offers a plausible overlap with Dallas's permissive rushing results, without requiring Arizona to win. McBride leads ARI with 32 recent targets, but his actual alignment against Dallas's vulnerable middle is unverified. Williams leads Dallas with 48 recent carries, matching Arizona's rushing vulnerability, although his available combined-yardage line requires a separate price-sensitive case."
+ },
+ "form": "Source: supplied Weeks 5\u20137 aggregates, available in the pregame pack. Knight recorded 23 carries for 136 yards, versus Allgeier's 29 for 64 and J.Love's 12 for 22. Knight therefore has meaningful but nonexclusive rushing work; the pack does not show individual-game consistency or whether a long run inflated his total. McBride posted 32 targets/230 receiving yards, Bourne 22/126, and Mi.Wilson 22/117. Dallas's Williams recorded 48 carries/241 rushing yards plus 26 receiving yards; Pickens had 30 targets/260 receiving yards, while Lamb had 36/153. Snaps, routes, recent red-zone allocations, comparable-opponent game logs, and verified role changes are missing.",
+ "edge_players": [
+  {
+   "player": "bamknight",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Knight can clear 18.5 rushing yards on a modest workload because Dallas has allowed efficient and explosive rushing while he has retained a meaningful share of Arizona's recent carries.",
+   "must_be_true": "Z.Knight carries >= 5 [because the pack records 23 carries across Weeks 5\u20137 despite shared work with Allgeier and J.Love]",
+   "kills_it": "IF Dallas's early lead causes Arizona to abandon designed runs before Knight receives meaningful work THEN bamknight rushyds over 18.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis is modest rushing opportunity against a permissive defense, not an average-based projection. The subsequent check supports plausibility: Knight's 136 yards on 23 carries equals 5.91 YPC, and Dallas allows 4.92 YPC. Neither figure is a forecast. Allgeier's larger carry total establishes committee risk but does not contradict the modest-workload hypothesis. The -116.5 offered price requires approximately 53.81% wins to break even; the supplied evidence cannot establish that probability. No calibrated projection, simulation, or claimed betting edge is manufactured.",
+  "disagrees": "none",
+  "missing": "Per-game Knight workload and rushing distribution; snaps; confirmed availability; game-state carry shares; explosive-run dependence; calibrated model and simulation median; Pinnacle prices and sharp no-vig probability. The listed bamknight/zonovanknight identity duplication is not independently resolved.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional lean only: bamknight rushyds over 18.5 at -116.5, using the explicitly ARI-tagged listing. Do not treat the separately listed zonovanknight entry with missing team metadata as an additional leg or verified alternative price. No alternate rung is supplied. Data agreement supports the hypothesis, not a demonstrated positive-EV bet.",
+ "pre_mortem": "It's Monday and Knight stayed under because his three-game aggregate hid uneven opportunities or one explosive performance. Allgeier already had more carries, and J.Love also received rushing work, so a Dallas lead could leave Knight with very few attempts. Dallas's favorable opponent YPC does not establish that Knight personally receives the carries or favorable blocking needed. Unknown availability or a late role change could invalidate the read entirely. This is a lean rather than a strong selection, and missing workload distribution prevents confident sizing.",
+ "slip_story": "Standalone candidate for a Dallas-leads-but-Arizona-remains-competitive story. It also survives the competitive-game flip, but not an early Dallas runaway that eliminates Arizona's rushing volume. No 3\u20134-leg slip is justified from this single conditional edge; do not add unsupported legs merely to fill a ticket.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

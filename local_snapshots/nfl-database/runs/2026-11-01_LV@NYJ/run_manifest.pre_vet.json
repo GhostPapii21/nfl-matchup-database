@@ -1,0 +1,1010 @@
+{
+ "season": 2026,
+ "week": 8,
+ "game_id": "401873029",
+ "game": "LV@NYJ",
+ "kickoff_et": "2026-11-01 01:00 PM",
+ "game_date": "2026-11-01",
+ "venue": null,
+ "input_cutoff_et": "2026-11-01T07:30",
+ "skill": "/home/box/agent-data/workflows/nfl-game-script-run/SKILL.md",
+ "seed": 20261101,
+ "trials": 100000,
+ "sim_script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+ "approved_exceptions": [
+  {
+   "input": "coverage.defenders",
+   "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+   "approved_by": "Rico",
+   "approved_on": "2026-11-01",
+   "valid_for_date": "2026-11-01",
+   "scope": "receiving legs",
+   "reason": "misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only"
+  }
+ ],
+ "sources": [
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse play_by_play_2026 (thru 2026-10-29)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "tool": "curl (github nflverse release)",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse snap_counts_2026 + players",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/snap_counts_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN depth charts API (24 teams)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/espn_depth_all.json",
+   "tool": "python urllib",
+   "pulled_et": "2026-11-01T07:14"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN box scores wk1-8 (two-source target check)",
+   "url_or_file": "/workspace/nfl-database/week8/phase_walk/src/espn_box.json",
+   "tool": "earlier urllib pull (Oct 31)",
+   "pulled_et": "2026-10-31T19:19"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "FTN charting via nflverse (blitzers, rushers)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "Sharp Football coverage schemes (man/zone, MOF; data Updated Oct 27)",
+   "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+   "tool": "Firecrawl scrape",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "ESPN WR/CB matchup cheatsheet wk8",
+   "url_or_file": "https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_WRCB.pdf",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:12"
+  },
+  {
+   "category": "ngs",
+   "name": "BACKUP nflverse nextgen_stats release (nextgenstats.nfl.com on hold)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "film",
+   "name": "Official NFL YouTube highlights (oEmbed-checked) + caption plays re-matched to fresh pbp",
+   "url_or_file": "https://www.youtube.com/@NFL",
+   "tool": "python urllib oEmbed",
+   "pulled_et": "2026-11-01T07:26"
+  },
+  {
+   "category": "injuries_news",
+   "name": "ESPN injuries API",
+   "url_or_file": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "weather",
+   "name": "NWS hourly + Open-Meteo",
+   "url_or_file": "https://api.weather.gov ; https://api.open-meteo.com",
+   "tool": "python urllib",
+   "pulled_et": "2026-11-01T07:10"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks, Underdog player props",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_final.csv",
+   "tool": "python urllib (The Odds API)",
+   "pulled_et": "2026-11-01T07:30"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API: FanDuel/DK/Pinnacle spreads+totals",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_final.json",
+   "tool": "python urllib (The Odds API)",
+   "pulled_et": "2026-11-01T07:30"
+  }
+ ],
+ "flagged_gaps": [
+  {
+   "category": "coverage_matchups",
+   "item": "PFR advanced defense live pull",
+   "status": "MISSING (HTTP 403, not routed around)",
+   "backup": "PFR cache pfr_def_adv_2026.html 2026-10-29 06:02 under Rico exception"
+  },
+  {
+   "category": "coverage_matchups",
+   "item": "Sharp pressure page / SumerSports",
+   "status": "ON HOLD (Ghost6)",
+   "backup": "pressure PROXY (sack|hit|scramble)/dropbacks from nflverse pbp"
+  },
+  {
+   "category": "ngs",
+   "item": "nextgenstats.nfl.com public pages",
+   "status": "ON HOLD (Ghost6)",
+   "backup": "nflverse nextgen_stats release parquet (labelled BACKUP)"
+  },
+  {
+   "category": "coverage_matchups",
+   "item": "PFF per-defender/props",
+   "status": "NOT PULLED (logged-out preview only; needs signed-in box browser, read-only)",
+   "backup": "none used as numbers"
+  },
+  {
+   "category": "core_stats_pbp",
+   "item": "nflverse pbp_participation_2026",
+   "status": "MISSING (HTTP 404 not published; corrupt 9-byte file kept out)",
+   "backup": "ESPN WR/CB cheatsheet alignment + ESPN depth"
+  }
+ ],
+ "pressure_inputs": {
+  "blitz_rate": {
+   "value": {
+    "LV": 0.276,
+    "NYJ": 0.384
+   },
+   "definition": "defense FTN n_pass_rushers>=5 / charted dropbacks, season",
+   "l4": {
+    "LV": 0.3284671532846715,
+    "NYJ": 0.4125874125874126
+   },
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet + play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "FTN charting"
+  },
+  "pressure_rate": {
+   "value": {
+    "LV": 0.236,
+    "NYJ": 0.216
+   },
+   "definition": "defense (sack|qb_hit|scramble)/dropbacks",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "PROXY"
+  },
+  "checkdown_share": {
+   "value": {
+    "LV": 0.295,
+    "NYJ": 0.311
+   },
+   "definition": "QB attempts with air_yards<=0 or RB target / attempts",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "nflverse pbp"
+  }
+ },
+ "sims": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Kirk Cousins Pass Yds Over 232.5": {
+     "p": 0.5874,
+     "median": 250.84
+    },
+    "Brock Bowers Rec Yds Over 68.5": {
+     "p": 0.5593,
+     "median": 73.08
+    },
+    "Brock Bowers Receptions Under 5.5": {
+     "p": 0.3888,
+     "median": 6.0
+    },
+    "Tre Tucker Rec Yds Over 48.5": {
+     "p": 0.6002,
+     "median": 57.87
+    },
+    "Tre Tucker Receptions Over 3.5": {
+     "p": 0.6361,
+     "median": 4.0
+    },
+    "Geno Smith Pass Yds Under 225.5": {
+     "p": 0.4722,
+     "median": 232.54
+    },
+    "Garrett Wilson Rec Yds Under 63.5": {
+     "p": 0.5356,
+     "median": 59.22
+    },
+    "Garrett Wilson Receptions Under 5.5": {
+     "p": 0.6395,
+     "median": 4.0
+    },
+    "Omar Cooper Jr. Rec Yds Over 41.5": {
+     "p": 0.5742,
+     "median": 48.41
+    },
+    "Omar Cooper Jr. Receptions Under 3.5": {
+     "p": 0.5606,
+     "median": 3.0
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Kirk Cousins Pass Yds Over 232.5": {
+     "p": 0.3953,
+     "median": 211.61
+    },
+    "Brock Bowers Rec Yds Over 68.5": {
+     "p": 0.4185,
+     "median": 61.81
+    },
+    "Brock Bowers Receptions Under 5.5": {
+     "p": 0.4953,
+     "median": 6.0
+    },
+    "Tre Tucker Rec Yds Over 48.5": {
+     "p": 0.4978,
+     "median": 48.31
+    },
+    "Tre Tucker Receptions Over 3.5": {
+     "p": 0.5436,
+     "median": 4.0
+    },
+    "Geno Smith Pass Yds Under 225.5": {
+     "p": 0.6353,
+     "median": 195.61
+    },
+    "Garrett Wilson Rec Yds Under 63.5": {
+     "p": 0.6346,
+     "median": 49.76
+    },
+    "Garrett Wilson Receptions Under 5.5": {
+     "p": 0.7147,
+     "median": 4.0
+    },
+    "Omar Cooper Jr. Rec Yds Over 41.5": {
+     "p": 0.4901,
+     "median": 41.39
+    },
+    "Omar Cooper Jr. Receptions Under 3.5": {
+     "p": 0.6244,
+     "median": 3.0
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Kirk Cousins Pass Yds Over 232.5": {
+     "p": 0.5907,
+     "median": 250.84
+    },
+    "Brock Bowers Rec Yds Over 68.5": {
+     "p": 0.5232,
+     "median": 70.41
+    },
+    "Brock Bowers Receptions Under 5.5": {
+     "p": 0.4412,
+     "median": 6.0
+    },
+    "Tre Tucker Rec Yds Over 48.5": {
+     "p": 0.5724,
+     "median": 56.11
+    },
+    "Tre Tucker Receptions Over 3.5": {
+     "p": 0.592,
+     "median": 4.0
+    },
+    "Geno Smith Pass Yds Under 225.5": {
+     "p": 0.498,
+     "median": 226.39
+    },
+    "Garrett Wilson Rec Yds Under 63.5": {
+     "p": 0.5576,
+     "median": 56.94
+    },
+    "Garrett Wilson Receptions Under 5.5": {
+     "p": 0.6495,
+     "median": 4.0
+    },
+    "Omar Cooper Jr. Rec Yds Over 41.5": {
+     "p": 0.5416,
+     "median": 45.99
+    },
+    "Omar Cooper Jr. Receptions Under 3.5": {
+     "p": 0.5882,
+     "median": 3.0
+    }
+   }
+  }
+ ],
+ "legs": [
+  {
+   "name": "Kirk Cousins Pass Yds Over 232.5",
+   "player": "Kirk Cousins",
+   "team": "LV",
+   "opp": "NYJ",
+   "type": "QB",
+   "market": "passyds",
+   "receiving": false,
+   "side": "over",
+   "line": 232.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 234.5,
+    "over": 106,
+    "under": -133,
+    "nv_over": 0.4595842045051087,
+    "nv_under": 0.5404157954948913,
+    "overround": 1.0562523438476603
+   },
+   "draftkings": {
+    "point": 233.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    234.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: edge +2.4 < +3; model p 0.395 < .45; a model median does not clear the line; MODEL-SUSPECT: MC median 250.8 vs FD main 232.5 / book consensus 233.5 (>=12 yds) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Azareye'h Thomas",
+      "team": "NYJ",
+      "pos": "CB",
+      "targets": 24.0,
+      "completions": 17.0,
+      "comp_pct": 70.8,
+      "yds": 139.0,
+      "ypt": 5.8,
+      "rating": 113.0,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Brandon Stephens",
+      "team": "NYJ",
+      "pos": "CB",
+      "targets": 22.0,
+      "completions": 10.0,
+      "comp_pct": 45.5,
+      "yds": 131.0,
+      "ypt": 6.0,
+      "rating": 64.8,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 23.8% / zone 66.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.2% / open 50.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Brock Bowers Rec Yds Over 68.5",
+   "player": "Brock Bowers",
+   "team": "LV",
+   "opp": "NYJ",
+   "type": "TE",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 68.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 68.5,
+    "over": -118,
+    "under": -106,
+    "nv_over": 0.5126539564703898,
+    "nv_under": 0.4873460435296103,
+    "overround": 1.0558475104658411
+   },
+   "draftkings": {
+    "point": 72.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    69.5
+   ],
+   "underdog_lines": [
+    69.5
+   ],
+   "bar": "UD20 Bowers o49.5; FD 7-leg 50+",
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 23.8% / zone 66.6%, MOF closed 45.2% / open 50.0%; no stand-in allowed",
+    "P14 FAIL: placed-ticket bar: UD20 Bowers o49.5; FD 7-leg 50+; edge +0.0 < +3; model p 0.419 < .45; a model median does not clear the line"
+   ]
+  },
+  {
+   "name": "Brock Bowers Receptions Under 5.5",
+   "player": "Brock Bowers",
+   "team": "LV",
+   "opp": "NYJ",
+   "type": "TE",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 5.5,
+   "price_fd": 116,
+   "no_vig": 0.433,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 5.5,
+    "over": -139,
+    "under": 111,
+    "nv_over": 0.5509966371714666,
+    "nv_under": 0.4490033628285333,
+    "overround": 1.0555236074480954
+   },
+   "draftkings": {
+    "point": 6.5,
+    "over": 101,
+    "under": -129,
+    "nv_over": 0.468983595813963,
+    "nv_under": 0.5310164041860369,
+    "overround": 1.0608312151035217
+   },
+   "prizepicks_lines": [
+    6.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed ticket on a different stat: UD20 Bowers o49.5; FD 7-leg 50+",
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 23.8% / zone 66.6%, MOF closed 45.2% / open 50.0%; no stand-in allowed",
+    "P14 FAIL: edge +0.9 < +3; model p 0.389 < .45; a model median does not clear the line"
+   ]
+  },
+  {
+   "name": "Tre Tucker Rec Yds Over 48.5",
+   "player": "Tre Tucker",
+   "team": "LV",
+   "opp": "NYJ",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 48.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 48.5,
+    "over": -103,
+    "under": -122,
+    "nv_over": 0.48005542492442055,
+    "nv_under": 0.5199445750755795,
+    "overround": 1.056938712111126
+   },
+   "draftkings": {
+    "point": 46.5,
+    "over": -114,
+    "under": -110,
+    "nv_over": 0.5042122999157539,
+    "nv_under": 0.495787700084246,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    48.5
+   ],
+   "underdog_lines": [
+    49.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Azareye'h Thomas",
+      "team": "NYJ",
+      "pos": "CB",
+      "targets": 24.0,
+      "completions": 17.0,
+      "comp_pct": 70.8,
+      "yds": 139.0,
+      "ypt": 5.8,
+      "rating": 113.0,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 23.8% / zone 66.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.2% / open 50.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Tre Tucker Receptions Over 3.5",
+   "player": "Tre Tucker",
+   "team": "LV",
+   "opp": "NYJ",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 3.5,
+   "price_fd": -120,
+   "no_vig": 0.5101,
+   "status": "PASS",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 3.5,
+    "over": -123,
+    "under": -102,
+    "nv_over": 0.5220625315179022,
+    "nv_under": 0.47793746848209784,
+    "overround": 1.0565200017759624
+   },
+   "draftkings": {
+    "point": 3.5,
+    "over": -124,
+    "under": -103,
+    "nv_over": 0.5217643644805572,
+    "nv_under": 0.47823563551944287,
+    "overround": 1.060960591133005
+   },
+   "prizepicks_lines": [
+    3.5
+   ],
+   "underdog_lines": [
+    3.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Azareye'h Thomas",
+      "team": "NYJ",
+      "pos": "CB",
+      "targets": 24.0,
+      "completions": 17.0,
+      "comp_pct": 70.8,
+      "yds": 139.0,
+      "ypt": 5.8,
+      "rating": 113.0,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 23.8% / zone 66.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 45.2% / open 50.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Geno Smith Pass Yds Under 225.5",
+   "player": "Geno Smith",
+   "team": "NYJ",
+   "opp": "LV",
+   "type": "QB",
+   "market": "passyds",
+   "receiving": false,
+   "side": "under",
+   "line": 225.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 225.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "draftkings": {
+    "point": 225.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "prizepicks_lines": [
+    225.5
+   ],
+   "underdog_lines": [
+    224.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Eric Stokes",
+      "team": "LVR",
+      "pos": "CB",
+      "targets": 22.0,
+      "completions": 11.0,
+      "comp_pct": 50.0,
+      "yds": 151.0,
+      "ypt": 6.9,
+      "rating": 87.5,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Darien Porter",
+      "team": "LVR",
+      "pos": "CB",
+      "targets": 5.0,
+      "completions": 1.0,
+      "comp_pct": 20.0,
+      "yds": 25.0,
+      "ypt": 5.0,
+      "rating": 47.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Taron Johnson",
+      "team": "LVR",
+      "pos": "CB",
+      "targets": 16.0,
+      "completions": 8.0,
+      "comp_pct": 50.0,
+      "yds": 117.0,
+      "ypt": 7.3,
+      "rating": 74.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 21.4% / zone 70.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 47.2% / open 47.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Garrett Wilson Rec Yds Under 63.5",
+   "player": "Garrett Wilson",
+   "team": "NYJ",
+   "opp": "LV",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 63.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "PASS",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 63.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "draftkings": {
+    "point": 64.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    63.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Eric Stokes",
+      "team": "LVR",
+      "pos": "CB",
+      "targets": 22.0,
+      "completions": 11.0,
+      "comp_pct": 50.0,
+      "yds": 151.0,
+      "ypt": 6.9,
+      "rating": 87.5,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 21.4% / zone 70.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 47.2% / open 47.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Garrett Wilson Receptions Under 5.5",
+   "player": "Garrett Wilson",
+   "team": "NYJ",
+   "opp": "LV",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 5.5,
+   "price_fd": -125,
+   "no_vig": 0.5192,
+   "status": "PASS",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 5.5,
+    "over": -104,
+    "under": -121,
+    "nv_over": 0.48216833095577744,
+    "nv_under": 0.5178316690442226,
+    "overround": 1.057315233785822
+   },
+   "draftkings": {
+    "point": 5.5,
+    "over": -103,
+    "under": -123,
+    "nv_over": 0.4791397221410989,
+    "nv_under": 0.520860277858901,
+    "overround": 1.058958669288034
+   },
+   "prizepicks_lines": [
+    5.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Eric Stokes",
+      "team": "LVR",
+      "pos": "CB",
+      "targets": 22.0,
+      "completions": 11.0,
+      "comp_pct": 50.0,
+      "yds": 151.0,
+      "ypt": 6.9,
+      "rating": 87.5,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 21.4% / zone 70.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 47.2% / open 47.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Omar Cooper Jr. Rec Yds Over 41.5",
+   "player": "Omar Cooper Jr.",
+   "team": "NYJ",
+   "opp": "LV",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 41.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 41.5,
+    "over": -116,
+    "under": -108,
+    "nv_over": 0.5084288604180714,
+    "nv_under": 0.4915711395819285,
+    "overround": 1.0562678062678064
+   },
+   "draftkings": {
+    "point": 41.5,
+    "over": -114,
+    "under": -110,
+    "nv_over": 0.5042122999157539,
+    "nv_under": 0.495787700084246,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    41.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P2 FAIL: not top-2 target earner (#4); not 4+ tgt in each of last 3",
+    "P14 FAIL: a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Taron Johnson",
+      "team": "LVR",
+      "pos": "CB",
+      "targets": 16.0,
+      "completions": 8.0,
+      "comp_pct": 50.0,
+      "yds": 117.0,
+      "ypt": 7.3,
+      "rating": 74.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 21.4% / zone 70.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 47.2% / open 47.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Omar Cooper Jr. Receptions Under 3.5",
+   "player": "Omar Cooper Jr.",
+   "team": "NYJ",
+   "opp": "LV",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 3.5,
+   "price_fd": -148,
+   "no_vig": 0.5608,
+   "status": "PASS",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 3.5,
+    "over": 115,
+    "under": -144,
+    "nv_over": 0.4407514450867052,
+    "nv_under": 0.5592485549132948,
+    "overround": 1.0552802134959969
+   },
+   "draftkings": {
+    "point": 3.5,
+    "over": 110,
+    "under": -140,
+    "nv_over": 0.449438202247191,
+    "nv_under": 0.550561797752809,
+    "overround": 1.0595238095238095
+   },
+   "prizepicks_lines": [],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Taron Johnson",
+      "team": "LVR",
+      "pos": "CB",
+      "targets": 16.0,
+      "completions": 8.0,
+      "comp_pct": 50.0,
+      "yds": 117.0,
+      "ypt": 7.3,
+      "rating": 74.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 21.4% / zone 70.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 47.2% / open 47.2%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  }
+ ]
+}

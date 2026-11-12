@@ -1,0 +1,75 @@
+{
+  "leg": "JAX 1H -6.5",
+  "pulled_et": "2026-11-04T15:37",
+  "status": "MISSING",
+  "missing": [
+    "No joint JAX/BAL first-half drive scoring model in drive_sim.py; no supported probability for -6.5.",
+    "Final inactives and turnover/red-zone execution remain unknown."
+  ],
+  "sources": [
+    "/workspace/nfl-database/week10/fagnano/drive_sim.txt",
+    "/workspace/nfl-database/week10/fagnano/drive_sim.py",
+    "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/miss_audit_1H.md",
+    "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum_2026-11-04.md"
+  ],
+  "script_read": {
+    "expected_winner": "JAX",
+    "period": "1H",
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/miss_audit_1H.md",
+    "pulled_et": "2026-11-04T15:37",
+    "reason": "Sourced qualitative early-control thesis; not a quantitative cover probability"
+  },
+  "historical_1h_margins": [
+    24,
+    7,
+    11,
+    10,
+    -7,
+    -3,
+    28
+  ],
+  "historical_cover_count": 5,
+  "historical_games": 7,
+  "last4_margins": [
+    10,
+    -7,
+    -3,
+    28
+  ],
+  "last4_covers": 2,
+  "probability": null,
+  "full_game_estimates": {
+    "base": {
+      "BAL_drives": 10.5,
+      "BAL_points": 16.0,
+      "three_and_out": 4.4,
+      "turnovers": 1.47
+    },
+    "rico": {
+      "BAL_drives": 11.0,
+      "BAL_points": 13.5,
+      "three_and_out": 5.5,
+      "turnovers": 1.87
+    },
+    "flip": {
+      "BAL_drives": 10.5,
+      "BAL_points": 20.0,
+      "three_and_out": 3.5,
+      "turnovers": 1.16
+    }
+  },
+  "script": {
+    "base": "JAX pressure/sacks produce BAL stalled drives and field-position chances; JAX must convert those into a halftime lead of at least seven. Receiver volume can concentrate early, then shrink in a run-out second half.",
+    "failure_paths": [
+      "JAX red-zone turnover or turnover on downs (both historical misses).",
+      "BAL defense stalls Lawrence and Henry sustains long drives, reducing first-half possessions.",
+      "Explosive or late-half BAL score; Fagnano one-game sample does not rule it out."
+    ],
+    "correlation": "JAX 1H and JAX receiving overs need early scoring drives together. Henry 40+ can coexist through early volume but a severe run-out limits BAL carries."
+  },
+  "cautions": [
+    "drive_sim.py labels ESTIMATES throughout; N=100000 seed=9 is full-game BAL simulation only.",
+    "Blitz alone is not the edge: local Fagnano split is better blitzed (5.2 YPA) than unblitzed (3.1); pressure/sack angle is a small-sample proxy.",
+    "Historical 2/4 is a flag against the script, not an automatic read cut."
+  ]
+}

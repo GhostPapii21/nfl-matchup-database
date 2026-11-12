@@ -1,0 +1,113 @@
+# Week 8 ATL@TB
+TB spread -2, total 43
+Weather: wind 9.2, temp 81.9
+## ATL offense (last 3 games: weeks [5, 6, 7])
+Rushers (carries/yds over L3): Bi.Robinson 46.0/210; Br.Robinson 9.0/17; M.Penix 5.0/11; K.Herbert 2.0/9
+Targets (tgt/rec yds/air yds over L3): D.London 32.0/246/348; K.Pitts 18.0/124/68; Bi.Robinson 14.0/69/-8; J.Dotson 12.0/147/217; Z.Branch 7.0/33/21; O.Zaccheaus 4.0/0/44; C.Woerner 3.0/22/14
+ATL QB EPA/dropback vs blitz -0.01 (n=91) vs no blitz -0.14
+## TB defense (season to date, 7 games)
+Rush YPC allowed 3.87; 10+ yd runs allowed 14; 20+ yd pass plays allowed 16/261 att
+Pass YPA allowed by location: left 6.04 (100.0 att); middle 9.53 (49.0 att); right 5.95 (95.0 att)
+TB blitz rate 41%
+## TB offense (last 3 games: weeks [5, 6, 7])
+Rushers (carries/yds over L3): B.Irving 64.0/317; K.Gainwell 20.0/123; S.Tucker 12.0/70; J.Daniels 9.0/64
+Targets (tgt/rec yds/air yds over L3): E.Egbuka 25.0/86/207; C.Godwin 16.0/101/51; B.Irving 8.0/17/-14; C.Otton 7.0/29/29; T.Hurst 7.0/40/82; T.Johnson 6.0/104/69; K.Gainwell 5.0/17/-33
+TB QB EPA/dropback vs blitz -0.18 (n=89) vs no blitz -0.14
+## ATL defense (season to date, 7 games)
+Rush YPC allowed 4.04; 10+ yd runs allowed 14; 20+ yd pass plays allowed 23/303 att
+Pass YPA allowed by location: left 6.38 (118.0 att); middle 9.76 (41.0 att); right 5.93 (126.0 att)
+ATL blitz rate 25%
+# SAVED PREGAME CHECKLIST (excerpt)
+# ATL @ TB — Week 8 60-check manifest
+Game 401873025, Sun Nov 01 01:00 PM ET, Raymond James Stadium (outdoor), TB -2.5 / 44.5. Built 2026-10-29 05:25 EDT. Status counts: {'PASS': 16, 'PARTIAL': 31, 'NOT_APPLICABLE': 3, 'UNAVAILABLE': 7, 'UNIMPLEMENTED': 3}
+
+| # | Check | Status | Reason | Evidence |
+|-|-|-|-|-|
+|1|P1.pbp|PASS|Repo SQLite plays (ESPN PBP) Wk1–7 + nflverse via overlay|repo/data/nfl_matchups.sqlite; fixes/fixes.sqlite|
+|2|P1.boxscores|PASS|player_stats + fix_player_game_usage|fixes/fixes.sqlite|
+|3|P1.tackles_sacks|PARTIAL|fix_play_credits reconciled; tackler≠coverage defender|fixes/FIXES.md|
+|4|P1.pressure|PARTIAL|Pressure is opponent-Sharp-allowed proxy + pbp sack/hit; no charted pressure source|defense/ATL_at_TB.md|
+|5|P1.ol_snaps|PARTIAL|nflverse participation snaps only; Wk7 participation lag possible|fixes/fixes.sqlite fix_participation|
+|6|P1.air_yards|PARTIAL|NGS IAY per QB; per-target air yards via nflverse only where loaded|defense/raw|
+|7|P1.redzone|PASS|RZ targets/goal-line carries in baselines|team_baselines/ATL.md, TB.md|
+|8|P1.scrambles|PARTIAL|fix_qb_rushing scramble flags from nflverse; ESPN PBP lacks explicit flag|fixes/fixes.sqlite fix_qb_rushing|
+|9|P2.team_defense|PASS|Production + explosive counts per game|defense/ATL_at_TB.md|
+|10|P2.coverage|PASS|Sharp coverage pages dated Oct 20 = CURRENT per user (last games before slate)|defense/SOURCES.md|
+|11|P2.individual_assignments|PARTIAL|Only PBP-named defenders on big plays (weak signal); no charted assignment source|team_baselines/|
+|12|P2.weakest_link|PARTIAL|Alignment-level weakest link from Sharp ranks (see Soft spots); player-level unverified|defense/ATL_at_TB.md|
+|13|P2.pressure_trend|PARTIAL|ESPN PRWR through Wk6 only; pbp sack/hit trend|defense/ATL_at_TB.md|
+|14|P3.team_offense|PASS|QB/team production|team_baselines/|
+|15|P3.player_roles|PASS|Roles + L3 vs season shares; roster-checked 2026-10-29 05:25 EDT|defense/ATL_at_TB.md; rosters/|
+|16|P3.ol_health|PARTIAL|OL designations from ESPN injuries; Thu practice pending|injuries.json|
+|17|P3.target_hierarchy|PASS|L3 vs season target/carry share (opportunity gate inputs)|team_baselines/|
+|18|P3.routes_gaps|PARTIAL|NGS separation/cushion; run gaps from pbp direction; no route participation|defense/raw|
+|19|P3.qb_blitz|PASS|FTN EPA vs blitz / no-blitz per offense|defense/ATL_at_TB.md|
+|20|P4.slip_comparison|NOT_APPLICABLE|No slip supplied for this game|—|
+|21|P4.injury_alerts|PARTIAL|Wed status logged; Thursday reports PENDING|injuries.json; this file Injury impact|
+|22|P4.script_risk|PARTIAL|Backup-QB/workload risk noted from injuries; 10G labels pending|this file|
+|23|P5.bundle|PARTIAL|Markdown/JSON bundle; no engine-versioned bundle|week8/|
+|24|P5.provenance|PARTIAL|sha256 of inputs recorded below; engine code/model hash unavailable (nfl.py on user Mac)|this file|
+|25|P5.source_preservation|PASS|Repo SQLite untouched; fixes in overlay|fixes/PATCH_SPEC.md|
+|26|P6.live_policy|NOT_APPLICABLE|Pregame; live polling off|—|
+|27|P7.ngs_targeted_charts|PARTIAL|NGS public leaderboards (sep/cushion/YACOE/TTT); per-game targeted charts not read|defense/raw|
+|28|P7.all_routes|UNAVAILABLE|Route participation not in any public source loaded|—|
+|29|P7.run_concepts|UNAVAILABLE|No verified run-concept source; film pending|film/|
+|30|P7.strength_map|PARTIAL|Sharp alignment YPT + box rates; no side-level split|defense/ATL_at_TB.md|
+|31|P7.rb_suppression|PARTIAL|RB YPC/rush+rec allowed + game state; RB quality adj not applied|defense/ATL_at_TB.md|
+|32|P7.cb_suppression|UNAVAILABLE|Individual CB coverage stats are paid/not loaded|—|
+|33|P7.panthers_rule|PARTIAL|QB NGS/blitz review for: Michael Penix Jr., Baker Mayfield; exact OL/pass-rush matchup not charted|defense/ATL_at_TB.md|
+|34|P8.film|PARTIAL|Codex YouTube highlight notes done for ATL 3/6 games, TB 3/6 (film/codex_out, still running; not yet verified vs pbp by this worker)|film/codex_out|
+|35|P8.personnel|UNAVAILABLE|Personnel packages need film; depth chart formation only|rosters/|
+|36|P8.scheme|PARTIAL|Coverage shells from Sharp (man/zone/MOFC); fronts/run fits need film|defense/ATL_at_TB.md|
+|37|P8.missed_looks|UNAVAILABLE|Pending verified film notes|film/|
+|38|P8.film_notes|PARTIAL|Codex notes unverified; hypotheses only|film/codex_out|
+|39|P9.weather|PARTIAL|Forecast (Open-Meteo, pulled 2026-10-29 05:25 EDT) kickoff hr: 79.6°F, precip prob 47%, wind 14.3 mph gust 18.1 — 3-day-out forecast, re-pull Sat/Sun|https://api.open-meteo.com|
+|40|P9.rest_travel|PASS|ATL last game 2026-10-25 (7 days rest); TB last game 2026-10-25 (7 days). Time-zone change only from venue, no itineraries invented|ESPN team schedule API|
+|41|P9.stakes|PARTIAL|Records from ESPN scoreboard; divisional/rematch not a 2026 rematch; playoff-odds not pulled|defense/ATL_at_TB.md|
+|42|P9.injury_spikes|PARTIAL|Exact-game availability: Wed designations; Thu/Fri + inactives pending|injuries.json|
+|43|P9.turnovers|PARTIAL|Turnovers in pbp/baselines; rolling interpretatio
+# AVAILABLE PROPS (main line)
+tezjohnson (TB) recyds over 31.5 -113.5
+buckyirving (TB) recyds over 17.5 +nan
+jahandotson (ATL) recyds over 23.5 -114
+kennygainwell (TB) recyds under 11.5 -114
+zachariahbranch (ATL) recyds over 8.5 -112.5
+bijanrobinson (ATL) recyds under 31.5 -114.5
+kennygainwell (TB) rushyds under 14.5 -114.5
+buckyirving (TB) rushrecyds over 91.5 -113
+drakelondon (ATL) recyds under 79.5 -112.5
+austinhooper (ATL) recyds over 5.5 -113
+tezjohnson (TB) recyds under 31.5 -114
+buckyirving (TB) recyds under 17.5 +nan
+bijanrobinson (ATL) rushrecyds under 118.5 -115
+austinhooper (ATL) recyds under 5.5 -115
+kennygainwell (TB) rushyds over 14.5 -113.5
+khalilherbert (ATL) rushyds under 8.5 -110
+bakermayfield (TB) rushyds under 15.5 -109
+michaelpenixjr (ATL) rushyds under 2.5 -103
+bijanrobinson (ATL) rushrecyds over 118.5 -111
+seantucker (TB) rushyds under 7.5 -120
+tedhurstiii (TB) recyds over 31 +nan
+kennygainwell (TB) rushrecyds over 29.5 -116
+zachariahbranch (ATL) recyds under 8.5 -115
+khalilherbert (ATL) rushyds over 8.5 -117
+jahandotson (ATL) recyds under 23.5 -113
+cadeotton (TB) recyds under 34 +nan
+tedhurstiii (TB) recyds under 31 +nan
+cadeotton (TB) recyds over 34 +nan
+chrisgodwinjr (TB) recyds under 41 +nan
+buckyirving (TB) rushyds under 70.5 -114
+bijanrobinson (ATL) recyds over 31.5 -111.5
+kennygainwell (TB) recyds over 11.5 -114
+michaelpenixjr (ATL) rushyds over 2.5 -125
+kylepitts (ATL) recyds over 34.5 -112.5
+kennygainwell (TB) rushrecyds under 29.5 -112
+bijanrobinson (ATL) rushyds over 80.5 -115
+buckyirving (TB) rushrecyds under 91.5 -113
+bakermayfield (TB) rushyds over 15.5 -119
+kylepitts (ATL) recyds under 34.5 -114.5
+chrisgodwinjr (TB) recyds over 41 +nan
+buckyirving (TB) rushyds over 70.5 -114
+bijanrobinson (ATL) rushyds under 80.5 -114
+seantucker (TB) rushyds over 7.5 -107.5
+drakelondon (ATL) recyds over 79.5 -114

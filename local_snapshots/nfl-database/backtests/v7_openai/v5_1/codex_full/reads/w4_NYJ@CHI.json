@@ -1,0 +1,50 @@
+{
+ "game": "NYJ@CHI \u2014 New York Jets at Chicago Bears / Week 4 / kickoff MISSING / spread and total NOT saved; script inferred from team form only / weather NOT saved",
+ "script": {
+  "base": "Chicago can sustain its rushing attack against New York's defense, while the Jets can answer through Garrett Wilson against Chicago's vulnerable passing defense. A competitive game preserves D'Andre Swift's carries and Wilson's targets; the pack does not establish a likely halftime leader or pace.",
+  "flip1": "CHI leads early and leans on its running game. Swift's rushing over and Wilson's receiving over can both survive if Swift retains the lead rushing role and NYJ continues targeting Wilson while chasing.",
+  "flip2": "NYJ establishes a substantial early lead, reducing Chicago's rushing opportunities and New York's passing needs. Both overs are vulnerable to this script."
+ },
+ "injury_fallout": "MISSING: NYJ and CHI injury reports, practice trends, offensive-line availability, defensive absences, return restrictions and final inactives. No absences or next-man-up promotions are assumed. Swift's competition from Kyle Monangai is documented usage, not an inferred injury change. Source for all available facts: supplied pre-kickoff Weeks 1\u20133 pack; exact collection timestamps are missing.",
+ "matchup": {
+  "shell": "MISSING: NYJ and CHI MOFO/MOFC splits, man/zone rates and individual coverage assignments. Wilson cannot be assigned a specific cornerback advantage.",
+  "pressure": "CHI blitzes 42%; NYJ QB EPA/dropback is 0.29 against blitzes over 30 dropbacks versus 0.17 without blitzes. NYJ blitzes 35%; CHI QB EPA/dropback is 0.37 against blitzes over 56 dropbacks versus 0.08 without blitzes. These figures do not support assuming that blitzing automatically stalls either offense. Actual pressure rates and time to throw are missing. Source: supplied pack.",
+  "bleeds": "NYJ allows 4.40 rushing yards per carry and six runs of at least 10 yards. CHI allows eight passing plays of at least 20 yards on 91 attempts, with 8.42 YPA allowed over the middle and 8.24 to the right. Source: supplied three-game defensive summaries.",
+  "overlap": "CHI running back Swift has Chicago's largest carry total, providing a volume-based route against NYJ's run defense. NYJ receiver Wilson leads his team in targets and air yards, overlapping with CHI's allowance of explosive passes. Wilson's route-location data are missing, so the location splits cannot establish his individual coverage matchup."
+ },
+ "form": "CHI: Swift recorded 54 carries for 253 yards across Weeks 1\u20133; Monangai recorded 30 for 178 and C. Williams 15 for 107. Swift leads the rushing workload but does not monopolize it. NYJ: Wilson recorded 28 targets, 243 receiving yards and 284 air yards, ahead of A. Mitchell's 15 targets and K. Sadiq's 14. MISSING: individual-game usage, snaps, routes, red-zone opportunities, comparable-opponent results and long-play decomposition. Source: supplied pack.",
+ "edge_players": [
+  {
+   "player": "dandreswift",
+   "team": "CHI",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Chicago Bears running back D'Andre Swift can exceed 64.5 rushing yards by retaining his team-leading carry volume against a New York Jets defense allowing 4.40 yards per carry.",
+   "must_be_true": "D'Andre Swift carries >= 15 [because the pack records a CHI-leading 54 carries across three games and NYJ allows 4.40 rushing yards per carry]",
+   "kills_it": "IF CHI falls substantially behind early and abandons Swift's designed rushing workload THEN Swift rushyds over 64.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "garrettwilson",
+   "team": "NYJ",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "New York Jets receiver Garrett Wilson can exceed 75.5 receiving yards because his team-leading target and air-yard role attacks a Chicago Bears defense that has allowed eight explosive passes in three games.",
+   "must_be_true": "Garrett Wilson targets >= 9 [because the pack records a NYJ-leading 28 targets and 284 air yards across three games]",
+   "kills_it": "IF NYJ builds an early lead and sharply reduces passing volume THEN Wilson recyds over 75.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The matchup and role hypotheses precede this numerical check. Swift has 18 carries per game and 4.69 yards per carry in the supplied sample. Fifteen carries at NYJ's allowed 4.40 YPC would yield 66 yards; this is a sensitivity illustration, not a projection. Wilson's 243 yards across three games equal 81 per game, only modestly above 75.5, so his primary-target role and CHI's explosive-pass allowance carry the read rather than the average alone. Monangai's workload limits Swift's confidence. Neither supplied role profile clearly contradicts its conditional read.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation medians, calibrated hit probabilities, Pinnacle no-vig prices, injuries, final inactives, individual-game role distributions, coverage charting, weather, kickoff time, rest/travel, moneyline, implied team totals and opening-line movement.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "CHI dandreswift rushyds over 64.5 at -113; NYJ garrettwilson recyds over 75.5 at -111.5. Both are available main-line picks and conditional leans. Offered-price break-even probabilities are 53.05% and 52.72%; these are not estimated win probabilities. No alternate rung, verified positive-EV claim or stake is established.",
+ "pre_mortem": "CHI Swift over: It lost because Chicago's rushing production was distributed to Monangai or C. Williams, or an early deficit removed Swift's carries. Their 30 and 15 carries are concrete competition, and NYJ's 4.40 YPC allowed does not guarantee Swift's efficiency. NYJ Wilson over: It lost because Chicago limited explosive completions, Wilson's aggregate targets concealed uneven weekly usage, or New York led and reduced passing. His yardage rate is only slightly above the line. These counter-cases keep both picks at lean rather than strong.",
+ "slip_story": "CHI Swift rushing over plus NYJ Wilson receiving over tells a competitive-game or modest-Chicago-lead story: Chicago keeps running through Swift while New York keeps throwing to Wilson. Both must be tagged script-dependent against a substantial early Jets lead. Do not manufacture extra legs to reach a 3\u20134-leg slip. No bets placed. The read is recorded here, but a persistent pre-kickoff timestamp/hash and postgame grading are unavailable; grade the script and player-role reads separately from whether the legs hit.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

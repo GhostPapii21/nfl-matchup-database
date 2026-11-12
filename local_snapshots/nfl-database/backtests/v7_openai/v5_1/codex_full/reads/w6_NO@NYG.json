@@ -1,0 +1,39 @@
+{
+ "game": "Week 6 NO@NYG / kickoff: MISSING / NYG +0.5 / total 46 / implied totals: NO 23.25, NYG 22.75 / weather: MISSING. Moneyline, opening lines, line movement, venue conditions, rest and travel: MISSING.",
+ "script": {
+  "base": "The near-pick'em spread and 46 total suggest a competitive game without a clear early runaway. NYG can maintain its rushing workload through C.Skattebo against a NO defense allowing 5.14 yards per carry; both offenses have reason to avoid obvious passing situations given their negative QB EPA against blitzes.",
+  "flip1": "NO builds an early multi-score lead, forcing NYG toward M.Nabers and I.Likely rather than sustained rushing. Skattebo's rushing over is script-dependent in this scenario.",
+  "flip2": "Pressure disrupts both passing games and produces a lower-scoring contest. Provided NYG stays within reach, this flip preserves Skattebo's rushing opportunity rather than requiring a shootout."
+ },
+ "injury_fallout": "MISSING: NO and NYG injury reports, practice participation, offensive-line availability, defensive absences, final inactives, return restrictions and snap limits. No absence, return or next-man-up claim can be inferred from the supplied usage. Final injury-report and approximately 90-minute pre-kickoff inactive checks cannot be completed from this pack. Source for all available facts: supplied pre-kickoff Week 6 pack; exact collection timestamps are missing.",
+ "matchup": {
+  "shell": "MISSING: NO and NYG MOFO/MOFC rates, man/zone rates and receiver alignment charting. Directional passing splits cannot establish individual coverage assignments.",
+  "pressure": "NO blitzes 35%; NYG QB EPA/dropback is -0.19 against blitz versus 0.24 without blitz. NYG blitzes 40%; NO QB EPA/dropback is -0.22 against blitz versus 0.06 without blitz. These support concern about passing disruption, but actual pressure rates, sacks and time to throw are missing.",
+  "bleeds": "NO has allowed 5.14 rushing yards per carry and 19 runs of 10+ yards through five games. NYG has allowed 5.39 yards per carry and 17 such runs. NO has also allowed 14 passes of 20+ yards on 163 attempts; its left/middle passing YPA allowed is 8.28/8.88. NYG's middle YPA allowed is 9.52 on only 21 attempts.",
+  "overlap": "Skattebo's team-leading recent rushing workload directly attacks NO's demonstrated rushing vulnerability. His 51 carries over Weeks 3\u20135 exceed N.Harris's 24 and T.Tracy's five; this is a cleaner role-to-weakness overlap than assigning a receiver to an uncharted coverage matchup."
+ },
+ "form": "Weeks 3\u20135 aggregate: Skattebo recorded 51 carries for 177 yards, plus eight targets and 60 receiving yards. He handled 63.75% of the listed NYG non-QB carries, with Harris at 24 carries for 91 yards and Tracy at five for eight. Skattebo's own rushing efficiency was only 3.47 yards per carry, so the read rests on workload rather than assuming explosive efficiency. Individual-game trends, snaps, routes, red-zone usage, comparable opponents and play-level outlier checks are missing.",
+ "edge_players": [
+  {
+   "player": "camskattebo",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Skattebo can clear 41.5 rushing yards because his established lead rushing role meets a NO defense allowing 5.14 yards per carry in a game priced to remain competitive.",
+   "must_be_true": "C.Skattebo carries >= 13 [because the pack records 51 carries for 177 yards over Weeks 3\u20135, and 13 carries at that observed efficiency produce approximately 45 rushing yards]",
+   "kills_it": "IF NO takes an early multi-score lead and NYG reduces Skattebo to 11 or fewer carries without an efficiency increase THEN camskattebo rushyds over 41.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis is workload plus a favorable run-defense matchup, not a pick generated from averages. As a subsequent sensitivity check, Skattebo's observed 177/51 rushing efficiency produces approximately 45.1 yards on 13 carries; reproducing his recent 17-carry average produces 59 yards. These are arithmetic scenarios, not a fitted projection or simulation median. Over 41.5 at -114 requires 53.27% to break even. Both listed sides are -114, giving a normalized two-way market probability of 50%, but the pack does not identify these as Pinnacle prices. The data supports the directional read without establishing a calibrated probability or proven positive expected value.",
+  "disagrees": "none",
+  "missing": "Fitted projection, simulation distribution and median, calibrated hit probability, Pinnacle prices, individual-game workload variation, injury/inactive information, coverage charting, pressure rates, weather and exact source timestamps.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate only: camskattebo rushyds over 41.5 at -114. Rushing yards expresses the carry-share/run-defense edge directly. No alternate rung or stake is justified by the supplied pack; no wager placed.",
+ "pre_mortem": "It is Monday and Skattebo stayed under because NYG's aggregate rushing hierarchy did not guarantee this game's workload. Harris already had 24 carries over the same three-game window and could take a larger share without any injury explanation. Alternatively, an early NO lead could push NYG toward Nabers and Likely, who had 33 and 30 recent targets. Skattebo's own 3.47 yards per carry leaves little margin if his carries fall materially below 13. These risks keep the selection a lean rather than a strong play; missing injury and weather information prevents a fully validated recommendation.",
+ "slip_story": "Competitive-game NYG rushing story: Skattebo remains the lead runner while the score stays close or pressure suppresses passing efficiency. Only one sufficiently supported candidate is selected; do not manufacture a 3\u20134-leg slip or add a second market on Skattebo. This leg survives the competitive base case and the close defensive-slog flip, but not necessarily the early NO-runaway flip.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

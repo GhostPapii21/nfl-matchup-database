@@ -1,0 +1,54 @@
+{
+ "doc": "Fit game-script RB carry boosts from real nflverse pbp (2025 REG + 2026 REG thru 2026-10-29; all pre-today).\nPer team-game: lead RB / RB2 = top-2 RBs by season-to-date carries BEFORE that game (>=2 prior games played).\nexpected = player's pre-game avg carries (games with >=1 carry); ratio = sum(actual)/sum(expected) per group.\nBoost = ratio(trigger)/ratio(baseline), shrunk toward 1: 1+n/(n+K)*(raw-1), K=30. 1000x game-level bootstrap CI.\nGroups: FAV = team favored by >=7 (closing spread_line) AND opp pre-game season YPC allowed to RBs >=4.4 (no kneels; same definition as the IND 4.49 RB YPC);\nWX = outdoor game with 'rain'/'shower'/'storm'/'snow' in nflverse weather string OR wind >=15 (pbp has no gusts/PoP);\nbaseline = neither. Output: rb_boost_fit.json",
+ "K": 30,
+ "groups": {
+  "lead_fav": {
+   "n": 36,
+   "raw": 1.0018,
+   "boost": 1.001,
+   "ci90": [
+    0.892,
+    1.123
+   ],
+   "base_ratio": 0.8847,
+   "trig_ratio": 0.8863,
+   "n_base": 479
+  },
+  "lead_wx": {
+   "n": 65,
+   "raw": 1.1063,
+   "boost": 1.0727,
+   "ci90": [
+    0.992,
+    1.227
+   ],
+   "base_ratio": 0.8847,
+   "trig_ratio": 0.9787,
+   "n_base": 479
+  },
+  "rb2_fav": {
+   "n": 36,
+   "raw": 1.0315,
+   "boost": 1.0172,
+   "ci90": [
+    0.793,
+    1.323
+   ],
+   "base_ratio": 0.8693,
+   "trig_ratio": 0.8967,
+   "n_base": 479
+  },
+  "rb2_wx": {
+   "n": 65,
+   "raw": 1.1606,
+   "boost": 1.1099,
+   "ci90": [
+    0.933,
+    1.405
+   ],
+   "base_ratio": 0.8693,
+   "trig_ratio": 1.0089,
+   "n_base": 479
+  }
+ }
+}

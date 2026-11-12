@@ -1,0 +1,39 @@
+{
+ "game": "Week 7 DEN@ARI / kickoff MISSING / DEN -4.5, ARI +4.5 / total 44.5 / implied totals DEN 24.5, ARI 20 / weather not saved; venue details, moneyline, rest, travel and opening-line movement MISSING",
+ "script": {
+  "base": "The supplied spread implies Denver leads a competitive game rather than an immediate blowout. Denver can lean on J.Dobbins while retaining short passing outlets against Arizona pressure; Arizona must balance its rushing attack with passing while chasing. Pace data are missing.",
+  "flip1": "Denver builds a large early lead and reduces passing volume, favoring Dobbins carries but threatening R.Harvey's receiving opportunities.",
+  "flip2": "Arizona leads and forces Denver into more passing. Harvey's short receiving role can survive this flip, although increased passing volume does not guarantee his targets."
+ },
+ "injury_fallout": "MISSING: DEN and ARI injury reports, practice participation, final designations, inactives, offensive-line availability, defensive absences and snap restrictions. No absences, returns or next-man-up assignments are inferred from the supplied usage. Final-report and approximately 90-minute pre-kickoff inactive checks cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: Arizona and Denver MOFO/MOFC rates, man/zone rates and individual coverage assignments. Location-based passing results do not establish shell or Harvey's specific coverage matchup.",
+  "pressure": "Source: supplied ARI defense and DEN offense sections. Arizona blitzes 28%; Denver QB EPA/dropback is -0.27 against blitzes over 66 dropbacks versus -0.02 without blitzes. This supports a hypothesis that quick outlets could matter, but actual pressure rate, checkdown frequency and Harvey's blitz-specific usage are missing.",
+  "bleeds": "Source: supplied ARI defense section, through six games. Arizona allows 4.44 rushing YPC, 19 runs of 10+ yards and 19 completions of 20+ yards on 188 attempts. Passing YPA allowed is 8.84 left, 8.27 middle and 8.67 right; RB-specific receiving allowances are missing.",
+  "overlap": "Source: supplied DEN offense, weeks 4\u20136. Harvey has 15 targets, 99 receiving yards and -32 air yards. His established short-target role fits the proposed outlet response to pressure, although Arizona's specific vulnerability to RB receiving is unverified."
+ },
+ "form": "Source: supplied DEN offense, weeks 4\u20136. Harvey's 15 targets rank second behind J.Waddle's 18; he has 99 receiving yards plus 16 carries for 57 yards. Dobbins leads rushing volume with 46 carries for 149 yards and has seven targets for 23 receiving yards. These aggregates establish recent roles, not weekly consistency. Routes, snaps, individual-game distributions, red-zone usage and comparable-opponent results are missing.",
+ "edge_players": [
+  {
+   "player": "rjharvey",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Harvey's established short-target role offers a path over 27 receiving yards if Arizona's blitzing keeps Denver using quick outlets.",
+   "must_be_true": "R.Harvey targets >= 5 [because the supplied DEN weeks 4\u20136 pack records 15 targets across three games]",
+   "kills_it": "IF Denver builds an early multi-score lead and Harvey receives no more than two short targets THEN rjharvey recyds over 27 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis is quick-outlet receiving volume, not simply an average-based selection. The subsequent role check supports it: Harvey's 99 receiving yards across three games equal 33 per game, above 27, and his negative air yards confirm short targets. The read survives a Denver deficit but is dependent on sustained passing involvement in the base script. No calibrated projection, simulation median or hit probability is claimed.",
+  "disagrees": "none",
+  "missing": "Game-level receiving distribution, routes, snaps, Arizona RB receiving allowances, actual pressure rate, blitz-specific Harvey targets, projection model, simulations, Pinnacle prices and no-vig probability",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional candidate: rjharvey recyds over 27. Listed price is +nan, so executable odds and betting value cannot be established. Receptions would more directly express the volume hypothesis but are outside the permitted markets. No alternate rung or priced wager is recommended.",
+ "pre_mortem": "It is Monday and Harvey missed because Arizona's blitzes caused stalled drives rather than productive checkdowns, or Denver protected a lead through Dobbins carries. Harvey's 15 targets do not reveal whether his role was steady or concentrated in one game, and negative air yards mean he needs yards after the catch. Without routes, injury information or an executable price, this remains a conditional lean rather than a validated betting edge.",
+ "slip_story": "Fits a competitive-game short-outlet story and can survive Arizona leading. Do not force a 3\u20134-leg slip from this pack: only one conditional candidate is retained, its price is missing, and an early Denver runaway threatens it. No bet is placed. The read is recorded here, but a timestamped pre-kickoff lock/hash and persistent log are unavailable; postgame script and edge grading must remain separate from the eventual prop result.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

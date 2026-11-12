@@ -1,0 +1,42 @@
+{
+  "finalized_at_et": "2026-11-05 23:14:40 ET",
+  "status": "Final",
+  "score": "JAX 33 BAL 10",
+  "linescores": {
+    "JAX": [
+      10,
+      7,
+      3,
+      13
+    ],
+    "BAL": [
+      3,
+      0,
+      0,
+      7
+    ]
+  },
+  "connector": "user-sports-leader get_scoreboard + get_game_summary",
+  "espn_refresh_et": "2026-11-05 23:12:08 ET",
+  "files": [
+    "possessions_final.csv",
+    "drive_log.csv",
+    "drive_conversions.md",
+    "third_down_log.csv",
+    "red_zone_log.csv",
+    "team_conversion_summary.csv",
+    "quarter_results.csv",
+    "quarter_results.md",
+    "period_lines_cleared_ledger.csv",
+    "period_q1_q2_q3_fd_dk_cleared.csv",
+    "period_line_grades.csv",
+    "audit_findings.md",
+    "defensive_coverage_profile.md",
+    "FINAL_CONFIRMED.json",
+    "pbp_live.csv",
+    "pbp_live.md"
+  ],
+  "routine_cleanup_needed": true,
+  "routine_cleanup_note": "Game Final. Parent should pause/delete the ~15-min live JAX@BAL refresh routine to stop further overwrites.",
+  "third_down_audit": "INT not counted as conversion; derived matches box JAX 4-12 / BAL 4-14; TOP matches"
+}

@@ -1,0 +1,48 @@
+{
+ "game": "MIN@TB Week 3 / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread, total, and moneyline were not saved, so this is form-only and the book\u2019s expected leader and point total are unknown. Through weeks 1-2 MIN has been a Jones run game (35 carries, 145 yards) plus a Jefferson pass game (16 targets, 147 yards), while TB has been an Irving game (25 carries, 134 yards, and 11 targets at -47 air yards). Base flow is competitive: MIN keeps feeding Jones but into a TB run defense at 3.26 YPC, and MIN\u2019s 78% blitz pushes TB toward Irving checkdowns rather than the deep air to Egbuka (159) and Hurst (179).",
+  "flip1": "TB leads and clocks it. MIN abandons the 35-carry Jones lean, Addison\u2019s 7-target share rises behind Jefferson, and Irving\u2019s receiving work dries up because TB no longer needs the blitz outlet.",
+  "flip2": "Shootout. Both passing games spike, Addison converts the 70 air yards and Egbuka converts the 159 air yards, and the quiet-WR under dies even if Irving\u2019s checkdowns also cash."
+ },
+ "injury_fallout": "MISSING: injury report, practice status, questionable tags, snap limits, and inactives for MIN and TB. No absences, returns, or next-man-up are inferred. Pack lists C.Wentz at 5 carries/8 yards among MIN rushers and also lists a kylermurray rushyds prop, but QB starter and health are not in the pack. No OL absences are listed. Current roles are taken only from the listed usage: MIN targets Jefferson 16, Hockenson 9, Addison 7, Oliver 5; TB targets Irving 11, Otton 11, Egbuka 11, Hurst 10, Godwin 7, Gainwell 5, Johnson 5.",
+ "matchup": {
+  "shell": "MOFO/MOFC and man/zone charting are MISSING. Location YPA is the only shell proxy: TB left 6.0 on 32 att, middle 12.4 on 10 att, right 7.65 on 23 att; MIN left 7.85 on 26 att, middle 10.58 on 19 att, right 5.61 on 31 att.",
+  "pressure": "TB blitz rate 49%. MIN blitz rate 78%. Pressure rate and sacks are MISSING. MIN QB EPA/dropback is +0.10 vs blitz (n=26) and 0.00 with no blitz. TB QB EPA/dropback is +0.02 vs blitz (n=14) and -0.33 with no blitz, so the 78% MIN blitz meets a TB QB who has been flat when blitzed rather than collapsed.",
+  "bleeds": "TB does not bleed on the run (3.26 YPC, 4 runs of 10+). TB\u2019s pass bleed is the middle (12.4 YPA) on only 10 attempts, with just 5 passes of 20+ on 68 attempts. MIN bleeds more on the ground (3.85 YPC, 8 runs of 10+) and on explosives (9 passes of 20+ on 84 attempts), with the middle at 10.58 YPA and the right side tighter at 5.61.",
+  "overlap": "MIN\u2019s primary target is Jefferson (16 targets, 147 yards, 171 air), but his alignment versus TB\u2019s middle bleed is not charted, so that overlap is unconfirmed. The usable overlap is Irving\u2019s 11 targets, 49 rec yards, and -47 air yards into MIN\u2019s 78% blitz. Addison (7 targets, 21 yards, 70 air) does not attack a shown TB weak spot: perimeter YPA is 6.0 left and 7.65 right, and 20+ plays allowed are 5/68."
+ },
+ "form": "Only weeks 1-2 exist (defenses are season-to-date 2 games; offensive lines say last 2 games and also over L3, so the L3 totals are the two played games). Jones 35/145 (4.14 YPC) with Mason 15/59, so the backfield is shared. Jefferson 16/147/171 leads the pass game; Hockenson 9/65/49; Addison 7/21/70 is a low-conversion secondary option; Oliver 5/46/18. Irving 25/134 (5.36 YPC) plus 11/49/-47 as a screen back; Mayfield 8/60 rushing is a tiny, possibly one-play sample and is not an edge. Egbuka 11/79/159 and Hurst 10/63/179 are deep and inefficient. Godwin 7/86/36 is short and YAC-heavy. Gainwell 7/25 rush and 5/8 receiving. No game splits, so one-play inflation cannot be separated.",
+ "edge_players": [
+  {
+   "player": "jordanaddison",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Addison has 21 receiving yards on 7 targets across the two played games, a 10.5-yard per-game role well under 36.5, and TB has allowed only 5 passes of 20+ yards on 68 attempts with perimeter YPA of 6.0 left and 7.65 right.",
+   "must_be_true": "jordanaddison targets <= 7 because 7 targets produced 21 rec yards and 70 air yards over weeks 1-2 while Jefferson had 16 targets for 147 yards",
+   "kills_it": "IF Addison draws 8 or more targets and converts one 20-plus yard catch THEN jordanaddison recyds under 36.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "buckyirving",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Irving already has 49 receiving yards on 11 targets with -47 air yards, 24.5 per game versus a 16.5 line, and MIN\u2019s 78% blitz is the look that funnels throws to the checkdown back.",
+   "must_be_true": "buckyirving targets >= 5 because 11 targets produced 49 rec yards and -47 air yards over weeks 1-2 and MIN blitz rate is 78%",
+   "kills_it": "IF MIN blitz rate is not near 78% and Irving is held to 2 or fewer targets THEN buckyirving recyds over 16.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No model, sim median, or Pinnacle no-vig is in the pack, so step 8 cannot size a price gap; that is missing, not a contradiction. Addison\u2019s 21 yards on 7 targets is 10.5 per game versus 36.5. His 70 air yards are unconverted opportunity, not a yardage total that already clears 36.5, so they are a kill risk rather than a contradicting result. Irving\u2019s 49 yards on 11 targets is 24.5 per game versus 16.5, and the -47 air yards agree with a short over into a 78% blitz. Jones 145 rush yards on 35 carries was not selected: at TB\u2019s 3.26 YPC, 17.5 carries projects about 57, only a few yards over 52.5, with Mason already at 15 carries. Egbuka\u2019s 79 yards on 11 targets (39.5 per game) sits closer to 49.5 and carries 159 air yards, so Addison is the cleaner under.",
+  "disagrees": "none",
+  "missing": "spread, total, moneyline, line movement, kickoff, venue, rest, travel, weather, injury report, inactives, coverage shell, pressure rate, game-level splits, sims, no-vig",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only; no alt rungs and no no-vig saved. jordanaddison recyds under 36.5 -114. buckyirving recyds over 16.5 -110. Not used: Gainwell rushrecyds under 32 because the price is +nan.",
+ "pre_mortem": "It's Monday and both lost because the two-game roles did not travel. TB\u2019s middle, 12.4 YPA on 10 throws, was the soft spot, Jefferson drew the extra attention, and Addison turned the 70 air yards into one 30-yard catch to clear 36.5. Separately MIN did not blitz near 78%, TB stayed on schedule with Irving\u2019s 5.36 rush YPC, and the 11 targets at -47 air yards were a negative-script artifact, so he finished with one short screen under 10 yards. A late Irving or Addison snap limit would have caused the same miss, and this pack had no injury report to catch it.",
+ "slip_story": "One non-shootout story: MIN\u2019s throws stay concentrated on Jefferson\u2019s 16-target role so Addison\u2019s 7-target, 21-yard role stays under 36.5, and MIN\u2019s 78% blitz keeps TB in quick answers so Irving\u2019s checkdown receiving clears 16.5. Not a Jones clock-grind stack and not an Egbuka/Hurst deep stack. Both legs fail together if TB leads, MIN is forced into a pass-heavy comeback, and TB runs the clock.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

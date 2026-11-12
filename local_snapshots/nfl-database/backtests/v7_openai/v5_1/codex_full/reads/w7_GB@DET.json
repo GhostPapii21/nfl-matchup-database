@@ -1,0 +1,48 @@
+{
+ "game": "Week 7 GB@DET / kickoff MISSING / DET -4 / total 55.5 / implied totals DET 29.75, GB 25.75 / weather not saved; venue configuration, moneyline, rest/travel and opening-line movement MISSING",
+ "script": {
+  "base": "DET leads a competitive, scoring-friendly game, consistent with its four-point favoritism and the 55.5 total. GB continues throwing to keep pace, while DET mixes its Gibbs-led rushing attack with receiving opportunities for Gibbs; actual pace data is missing.",
+  "flip1": "DET builds a substantial early lead. Golden can retain catch-up opportunities, but Gibbs receiving volume becomes script-dependent if DET shifts toward clock-draining carries.",
+  "flip2": "GB leads and forces DET toward more passing. Gibbs receiving opportunities can survive this reversal, but Golden's volume becomes less secure if GB successfully protects its lead on the ground."
+ },
+ "injury_fallout": "MISSING: GB and DET injury reports, practice trends, final designations, offensive-line availability, defensive absences, return restrictions and final inactives. No absence, return or next-man-up role is inferred from the supplied usage. Josh Jacobs has team designation 'nan' and no supporting role information in the pack; exclude him from consideration. Source for all available claims: supplied pre-kickoff Week 7 pack; individual observation timestamps are not supplied. Any later scratch would require reassessment.",
+ "matchup": {
+  "shell": "MISSING: both teams' MOFO/MOFC splits, man/zone rates, receiver alignment and individual coverage assignments. Golden cannot be specifically mapped to DET's middle-field weakness from this pack.",
+  "pressure": "DET blitzes 30%; GB's QB EPA/dropback falls from 0.20 without a blitz to -0.02 against blitzes across 91 blitz dropbacks, a risk to Golden's receiving efficiency. GB blitzes 34%, but DET's QB produces 0.41 EPA/dropback against blitzes across 68 such dropbacks versus 0.22 without blitzes. Pressure rates, sacks and check-down frequencies are missing; blitz frequency alone does not establish extra Gibbs targets.",
+  "bleeds": "DET has allowed 23 passes of 20-plus yards on 234 attempts and 10.98 YPA through the middle, offering a potential receiving-yardage opening. GB has allowed only nine passes of 20-plus yards on 228 attempts, with location YPA of 6.56 left, 6.09 middle and 5.46 right. RB-specific receiving allowances and YAC allowed are missing.",
+  "overlap": "Golden's team-leading 28 targets and 401 air yards over GB's last three games give him opportunity to exploit DET's permitted explosives, although his route-location overlap is unverified. Gibbs' 21 targets and 19 air yards suggest a short-area receiving role that need not rely on long downfield completions against GB."
+ },
+ "form": "GB weeks 4\u20136: Golden recorded 28 targets, 248 receiving yards and 401 air yards; Watson had 19/254/347 and Kraft 20/143/61, so meaningful competition remains. DET weeks 3\u20135: Gibbs recorded 60 carries for 296 yards and 21 targets for 143 receiving yards, alongside St. Brown's 30 targets and LaPorta's 22. These are three-game aggregates, not individual game logs; snaps, routes, red-zone usage, per-game consistency, role changes and comparable-opponent results are missing.",
+ "edge_players": [
+  {
+   "player": "matthewgolden",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Golden's leading target and air-yard opportunity can exploit DET's allowance of explosive completions while GB throws to keep pace.",
+   "must_be_true": "M.Golden targets >= 9 [because the pack records 28 targets over GB's last three games]",
+   "kills_it": "IF DET's blitz disrupts GB enough to prevent Golden's downfield routes from producing completions THEN matthewgolden recyds over 73.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jahmyrgibbs",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Gibbs' established short-area receiving workload offers a route over 41.5 yards without requiring DET to beat GB repeatedly on deep passes.",
+   "must_be_true": "J.Gibbs targets >= 7 [because the pack records 21 targets over DET's last three games]",
+   "kills_it": "IF DET takes an early multi-score lead and replaces Gibbs' receiving opportunities with clock-draining rushing attempts THEN jahmyrgibbs recyds over 41.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written matchup hypotheses precede these descriptive checks; these calculations are not projections or simulations. Golden's 248 receiving yards over three games equal 82.7 per game versus 73.5. Gibbs' 143 equal 47.7 versus 41.5. Offered-price break-even rates are approximately 53.27% at -114 and 52.94% at -112.5. Neither establishes positive expected value. No model probability, simulation median or stake is fabricated.",
+  "disagrees": "Golden: GB's -0.02 EPA/dropback against blitzes versus 0.20 without blitzes challenges the efficiency needed for the over against DET's 30% blitz rate. Gibbs: GB's low location YPA and nine explosive completions allowed on 228 attempts challenge receiving efficiency, although these are not RB-specific measures. Both reads remain flagged hypotheses rather than validated legs.",
+  "missing": "Projection model, simulations, Pinnacle prices and sharp no-vig probabilities; individual recent game logs and variance; route and snap participation; coverage charting; RB-specific defensive receiving results; injuries, inactives and weather.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Conditional candidates only: matthewgolden recyds over 73.5 at -114; jahmyrgibbs recyds over 41.5 at -112.5. Receiving yards matches Golden's downfield-opportunity hypothesis and is the permitted proxy for Gibbs' short-area volume hypothesis. No alternate rungs supplied. Neither candidate is approved or sized without further validation.",
+ "pre_mortem": "Golden: It is Monday and the over lost because DET's blitz exploited GB's documented efficiency decline, while Watson and Kraft absorbed enough opportunities to leave Golden short. Aggregate air yards did not guarantee catchable targets. Gibbs: The receiving over lost because DET controlled the game through his carries, or because St. Brown and LaPorta captured the passing work against GB's efficient pass defense. His three-game yardage average concealed volatility. These counter-cases are substantial enough to prevent either lean from becoming a confirmed wager.",
+ "slip_story": "Both candidates fit a competitive, scoring-friendly game in which GB feeds Golden and DET keeps Gibbs involved through the air. Golden survives a DET-breakaway flip better; Gibbs survives a GB-leading flip better. Their pairing is therefore base-script-dependent, not a robust hedge across flips. Do not manufacture a three- or four-leg slip from two unvalidated edges; no finalized slip or bet placement.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

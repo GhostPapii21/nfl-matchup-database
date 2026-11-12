@@ -1,0 +1,52 @@
+GATE: FAIL  run=/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/gate_A  checked_at=2026-11-05 19:02 ET
+Live legs: ['Henry 40+ rush (o39.5)', 'JAX 1H -6.5', 'Strange 4+ rec (o3.5)', 'Washington rec yds o63.5']
+Cut legs: none
+RICO NOV 2 RULES (N1-N3):
+  - Henry 40+ rush (o39.5): N1 carry share 69% (>= 60%)
+  - JAX 1H -6.5: N3 period spread matches script read (JAX)
+MISSES (36):
+  - leg Washington rec yds o63.5: phases [2, 4, 7, 9, 12, 13, 14, 15] flagged FAIL/MISSING/STALE/UNVERIFIED/HOLD but leg not CUT/HOLD
+  - leg Washington rec yds o63.5: has flagged gaps ['MISSING coverage.man_zone numeric rates', 'MISSING coverage.mof numeric rates', 'MISSING pressure_inputs.time_to_throw'] but leg not CUT
+  - leg JAX 1H -6.5: phases [2, 4, 6, 7, 9, 10, 12, 14, 15] flagged FAIL/MISSING/STALE/UNVERIFIED/HOLD but leg not CUT/HOLD
+  - leg JAX 1H -6.5: has flagged gaps ['UNVERIFIED monte_carlo pricing for JAX 1H -6.5', 'UNVERIFIED bias pricing for JAX 1H -6.5', 'UNVERIFIED game_randomness pricing for JAX 1H -6.5'] but leg not CUT
+  - leg Henry 40+ rush (o39.5): phases [3, 6, 7, 9, 10, 12, 13, 14, 15] flagged FAIL/MISSING/STALE/UNVERIFIED/HOLD but leg not CUT/HOLD
+  - leg Henry 40+ rush (o39.5): has flagged gaps ['MISSING recent_form: fewer than three games with current QB'] but leg not CUT
+  - leg Strange 4+ rec (o3.5): phases [4, 9, 12, 15] flagged FAIL/MISSING/STALE/UNVERIFIED/HOLD but leg not CUT/HOLD
+  - leg Strange 4+ rec (o3.5): has flagged gaps ['MISSING coverage.man_zone numeric rates', 'MISSING coverage.mof numeric rates', 'MISSING pressure_inputs.time_to_throw'] but leg not CUT
+  - category ngs gap flagged but legs ['Henry 40+ rush (o39.5)', 'JAX 1H -6.5', 'Strange 4+ rec (o3.5)', 'Washington rec yds o63.5'] not CUT
+  - source injuries_news/Jaguars official injury report: STALE (27.4 h old > 6 h limit)
+  - source injuries_news/Ravens official injury report: STALE (27.4 h old > 6 h limit)
+  - source injuries_news/Jaguars Austin Johnson practice-squad news: STALE (27.4 h old > 6 h limit)
+  - source category injuries_news: missing or no fresh source
+  - source weather/NWS hourly + Open-Meteo via tools/weather_forecast.py: STALE (27.7 h old > 6 h limit)
+  - source category weather: missing or no fresh source
+  - source odds_props/Saved r6 FD/DK/Pinnacle odds; no API calls: STALE (28.1 h old > 1 h limit)
+  - source category odds_props: missing or no fresh source
+  - leg Henry 40+ rush (o39.5): edge-rule inputs missing (need no_vig, line, side, 3 model p)
+  - leg JAX 1H -6.5: edge avg(p)-no_vig = -6.9 pts < +3
+  - leg JAX 1H -6.5: edge a model p 0.414 < .45
+  - leg JAX 1H -6.5: edge sim median 5.0 does not clear over 6.5
+  - leg JAX 1H -6.5: edge sim median 4.0 does not clear over 6.5
+  - leg JAX 1H -6.5: edge sim median 4.0 does not clear over 6.5
+  - leg JAX 1H -6.5: §7 FAIL over 6.5 hit 2 of 4 last games with current QB [10, -7, -3, 28]
+  - leg Washington rec yds o63.5: edge avg(p)-no_vig = -8.7 pts < +3
+  - leg Washington rec yds o63.5: edge a model p 0.417 < .45
+  - leg Washington rec yds o63.5: edge sim median 54.931037421680244 does not clear over 63.5
+  - leg Washington rec yds o63.5: edge sim median 54.931037421680244 does not clear over 63.5
+  - leg Washington rec yds o63.5: edge sim median 53.14267525703374 does not clear over 63.5
+  - leg Washington rec yds o63.5: §7 FAIL over 63.5 hit 2 of 4 last games with current QB [7, 124, 64, 16]
+  - leg Washington rec yds o63.5: §14 FAIL at -114 last-4 median 40.0 < 25% over line 63.5 (need 79.4)
+  - leg Washington rec yds o63.5: §14 FAIL at -114 cleared line by 10%+ (69.9) in only 1 of 4
+  - Phase 11 weather JAX@BAL: STALE (27.7 h old > 6 h limit)
+  - weather forecast: STALE (27.7 h old > 24 h limit) — re-run tools/weather_forecast.py
+  - leg Strange 4+ rec (o3.5): N2 no verified primary defender (receiving legs can't go on a slip without one; WR3 team-profile fallback no longer enough)
+  - leg Washington rec yds o63.5: N2 no verified primary defender (receiving legs can't go on a slip without one; WR3 team-profile fallback no longer enough)
+Notes:
+  - JAX 1H -6.5: avg p 0.419, no-vig 0.487, raw edge -6.9
+  - Strange 4+ rec (o3.5): avg p 0.545, no-vig 0.515, raw edge +3.0
+  - Washington rec yds o63.5: avg p 0.419, no-vig 0.506, raw edge -8.7
+PRESS TIER (on for runs >= 2026-11-02; models_required=2):
+  - Strange 4+ rec (o3.5): STANDARD (no press inputs on leg)
+  - Washington rec yds o63.5: STANDARD (no press inputs on leg)
+  - JAX 1H -6.5: STANDARD (no press inputs on leg)
+  - Henry 40+ rush (o39.5): STANDARD (no press inputs on leg)

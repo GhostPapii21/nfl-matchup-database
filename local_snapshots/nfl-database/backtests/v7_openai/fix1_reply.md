@@ -1,0 +1,1 @@
+APPROVE — `HASHES.items()` yields key-value pairs, fixing the unpacking error without changing report logic.

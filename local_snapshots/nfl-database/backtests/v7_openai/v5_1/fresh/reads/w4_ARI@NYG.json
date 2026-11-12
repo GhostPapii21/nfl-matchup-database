@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 ARI@NYG / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread, total, moneyline and line movement were not saved, so this is a form-only script, not the book's expected leader or point total. Both clubs have a clear RB1 over the last 3 games (J.Love 41 carries/160 yards, C.Skattebo 50/177) and both defenses allow 4.6-plus YPC (NYG 4.94, ARI 4.63), so the base lean is both backs stay involved rather than a pass-only game we cannot confirm. The pass split is the edge: NYG has allowed only 6 passes of 20-plus yards on 101 attempts and about 6.7 YPA outside, so ARI's completed yards should stay with T.McBride (34 targets, 211 yards, 5.4 air yards per target) rather than M.Harrison's deep air (159 air yards on 9 targets); ARI's pass defense is the leak (9.0-plus YPA in every zone, 9 explosives on 84 attempts) if NYG is neutral or trailing.",
+  "flip1": "If the unknown leader jumps ahead early, the trailer abandons the run: Love (13.7 carries/game) or Skattebo (16.7) rush yards stall and pass attempts rise. That flip helps McBride only if ARI is the trailer; if ARI leads and leans on Love (41 carries), McBride's target floor is the thing that breaks.",
+  "flip2": "If NYG's 26% blitz gets home, ARI QB EPA flips from +0.18 with no blitz to -0.12 vs blitz (n=28), Harrison/Wilson deep yards die, and checkdowns toward McBride (and Love, 12 targets) rise \u2014 McBride over survives this flip and the Harrison under is helped by it. The other flip is ARI blitzing above its 22% rate: NYG QB EPA is -0.62 vs blitz (n=29) vs +0.28 clean, which would kill NYG pass-catcher overs we are not betting."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, snap limits, game-time decisions, and inactives for both ARI and NYG. No absences, returns, or next-man-up inferred from usage dips.",
+ "matchup": {
+  "shell": "MISSING: MOFO/MOFC and man vs zone rates. Location splits only: NYG allows 6.72 YPA left (46 att), 8.11 middle (9 att), 6.69 right (45 att); ARI allows 9.58 left (26 att), 9.20 middle (25 att), 9.03 right (29 att).",
+  "pressure": "NYG blitz rate 26%; ARI QB EPA/dropback -0.12 vs blitz (n=28) vs +0.18 with no blitz. ARI blitz rate 22%; NYG QB EPA/dropback -0.62 vs blitz (n=29) vs +0.28 with no blitz. Pressure rate, sack rate, and time-to-throw are not in the pack.",
+  "bleeds": "NYG run defense allows 4.94 YPC and 9 runs of 10-plus; pass explosives only 6 of 101 attempts, with the only elevated pass location the middle (8.11 YPA, n=9) against 6.7 YPA outside. ARI run defense allows 4.63 YPC and 11 runs of 10-plus; pass defense bleeds everywhere (9.0-plus YPA) with 9 explosives on 84 attempts.",
+  "overlap": "ARI's primary target is T.McBride (34 targets, 211 yards, 182 air yards), which overlaps NYG's only soft pass location (middle 8.11) more than the explosive area NYG has closed (6/101). M.Harrison (9 targets, 159 air yards, 17.7 aDOT, 73 yards) attacks the explosive zone NYG has not given up. NYG's usage king C.Skattebo (50 carries, 3.54 YPC) overlaps ARI's soft run defense (4.63 YPC, 11 runs of 10-plus), but his rush line 62.5 sits above his own 59.0 yards/game, so that overlap is not a priced leg."
+ },
+ "form": "L3 only, no per-game splits in the pack. ARI: Love 41/160 (3.90 YPC, 53.3 rush yds/game) ahead of Allgeier 24/70 (2.92 YPC, 23.3/game); McBride 34 targets/211 yards/182 air (70.3 rec yds/game, 6.2 YPT); Wilson 31/163/295 (54.3/game, 9.5 aDOT, 5.3 YPT); Bourne 14/108/56 (36.0/game, 4.0 aDOT); Harrison 9/73/159 (24.3/game, 17.7 aDOT, 8.1 YPT); Higgins 3/20/8. NYG: Skattebo 50/177 rush (3.54 YPC, 59.0/game) plus 8 targets/59 rec yards (19.7 rec yds/game, 78.7 rush+rec); Harris 13/58 (19.3 rush yds/game); Likely 23/124/133 (41.3/game, on the 41.5 line); Nabers 19/96/185 (32.0/game, 5.1 YPT); Fields 12/74/213 (24.7/game, 17.8 aDOT); Mooney 8/95/91. No similar-defense or similar-script splits saved, so fluky single-play inflation cannot be separated from the aggregates.",
+ "edge_players": [
+  {
+   "player": "treymcbride",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "McBride is ARI's primary receiver at 11.3 targets and 70.3 yards a game on 5.4 air yards per target, which fits NYG's only elevated pass location (middle 8.11 YPA) and a 26% blitz that already drops ARI QB EPA to -0.12, so 63.5 is below the intermediate role he has already produced.",
+   "must_be_true": "Trey McBride targets >= 11 because he has 34 targets and 211 receiving yards over 3 games (6.2 yards per target)",
+   "kills_it": "IF McBride's targets fall below 10 or blitz checkdowns cut his yards per target under 5.5 THEN McBride recyds over 63.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "marvinharrisonjr",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Harrison is a 3-target-a-game deep shot (9 targets, 159 air yards, 24.3 receiving yards per game), and NYG has allowed only 6 passes of 20-plus yards on 101 attempts, so 34.5 needs a role or explosive jump this secondary has not been giving up.",
+   "must_be_true": "Marvin Harrison Jr targets <= 4 because he has 9 targets and 73 receiving yards over 3 games",
+   "kills_it": "IF Harrison draws 5 or more targets or catches one 20-plus yard pass THEN Harrison recyds under 34.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so step 8 cannot size a rung beyond the posted price. Present pack numbers agree with both leans: McBride 211/3 = 70.3 rec yds/game vs 63.5, and even 11 targets at NYG's stingier 6.7 outside YPA still projects near 74. Harrison 73/3 = 24.3 vs 34.5, and NYG's 6/101 explosive rate agrees with fading a 17.7 aDOT role. Skattebo rush over 62.5 was not carded: his 59.0 yards/game and 3.54 YPC sit below the line, a disagree on a lean, so it was dropped rather than flagged. Love over 66.5 was dropped the same way (53.3 vs 66.5). Nabers under 55 was dropped because ARI's 9.0-plus YPA and 9/84 explosives contradict that fade.",
+  "disagrees": "none",
+  "missing": "spread, total, moneyline, line movement, kickoff, venue, rest, travel, weather, coverage shell, man/zone rate, pressure rate, no-vig, sim medians, per-game splits, injury report, inactives",
+  "verdict": "agree"
+ },
+ "market_rung_price": "treymcbride recyds over 63.5 -114; marvinharrisonjr recyds under 34.5 -114. Main lines only \u2014 no alt rungs and no no-vig in the pack. Both leans, not sized up; short-priced alts not used.",
+ "pre_mortem": "It's Monday and McBride stayed under 63.5 while Harrison cleared 34.5. The middle bleed was 9 attempts at 8.11 YPA, too small to be a matchup, and NYG's real pass defense (6.72 and 6.69 YPA on 91 outside attempts, 6 explosives on 101 throws) shortened McBride once the 26% blitz turned his 5.4-aDOT routes into low-YAC checkdowns without adding the 11th target. Harrison already has 159 air yards on 9 targets and 8.1 yards per target when thrown to, so one of the roughly two explosives NYG allows per game, or a bump from 3 targets to 5, puts him over 34.5 by itself. No spread means an ARI-trailing script we could not see would aim those deep shots at him, and a McBride limitation missing from the injury report would kill the over without ever showing up in the L3 usage. That tail is why both are leans; the median path (McBride's 70.3 on a stable 34-target role, Harrison's 24.3 on 9 targets into a 5.9% explosive defense) is still the stronger case.",
+ "slip_story": "One script: NYG suppresses explosives (6/101) and ARI's completed passing value stays with the primary intermediate target, especially if the 26% blitz pushes ARI QB EPA negative. Stack McBride recyds over 63.5 with Harrison recyds under 34.5. Do not add Wilson or Harrison overs, do not add Skattebo or Love rush overs (own rates sit under those lines), no game total (not saved), no TD legs, one market per player. Both legs fail together only if ARI leads big and stops throwing while still sneaking Harrison one explosive.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

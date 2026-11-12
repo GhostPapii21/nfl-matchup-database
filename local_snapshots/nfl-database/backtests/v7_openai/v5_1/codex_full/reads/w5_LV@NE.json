@@ -1,0 +1,39 @@
+{
+ "game": "Week 5 LV@NE / kickoff MISSING / spread and total NOT SAVED; script inferred only from supplied team form / weather NOT SAVED. Moneyline, implied totals, opening-line movement, rest and travel: MISSING.",
+ "script": {
+  "base": "Without a saved spread, total or scoring history, neither team can responsibly be assigned favorite status. The working hypothesis is a competitive game with both offenses retaining their recent rushing rotations and LV maintaining Ashton Jeanty's receiving involvement; pace and halftime leadership are unverified.",
+  "flip1": "NE establishes an early lead against an LV defense allowing 5.23 rushing yards per carry. LV shifts toward passing, which can preserve Jeanty's receiving opportunity even if his carries fall.",
+  "flip2": "LV establishes an early lead and reduces passing volume. Jeanty's receiving over becomes vulnerable if clock management eliminates the targets needed to clear 24.5 yards."
+ },
+ "injury_fallout": "MISSING: LV and NE injury reports, practice-status trends, offensive-line availability, defensive absences, final inactives and snap restrictions. No absence, return or next-man-up role is inferred from usage. The supplied pre-kickoff pack identifies weeks 2\u20134 usage, but exact publication timestamps and the approximately 90-minute inactive checkpoint are unavailable.",
+ "matchup": {
+  "shell": "MISSING: NE and LV MOFO/MOFC rates, man/zone rates and individual coverage assignments. Jeanty's receiving work cannot be assigned to a specific linebacker, slot defender or coverage shell.",
+  "pressure": "The supplied pack lists NE's blitz rate at 37%, with LV QB EPA/dropback of 0.20 against blitzes over 41 dropbacks versus 0.15 without blitzes. That supports LV's ability to function against blitzing, not a claim that pressure necessarily forces checkdowns. LV blitzes 25%; NE QB EPA/dropback is -0.06 against blitzes over 45 dropbacks versus 0.06 otherwise. Actual pressure rates, sacks and time to throw are missing.",
+  "bleeds": "NE allows 12.5 passing yards per attempt through the middle on 24 attempts, versus 5.65 left and 4.65 right, and 4.44 rushing yards per carry. LV allows 5.23 rushing yards per carry and has conceded 13 runs of at least 10 yards. These are four-game defensive samples; RB receiving allowances and yards after catch are missing.",
+  "overlap": "Jeanty's receiving opportunity is the hypothesis: LV has recently used him frequently on short targets, giving him a route to production without requiring deep completions. NE's middle-field allowance is potentially relevant, but Jeanty's target-location mapping is missing, so a direct matchup overlap is not established."
+ },
+ "form": "Source: supplied LV weeks 2\u20134 offensive pack. Jeanty recorded 19 targets, 120 receiving yards and 25 air yards, alongside 55 carries for 162 yards. His receiving opportunity trails only Bowers' 24 targets and equals Tucker's 19. These totals establish recent involvement, not weekly consistency: individual-game distributions, receptions, routes, snaps, red-zone usage and personnel changes are missing. Source: supplied NE weeks 2\u20134 pack. Henderson had 38 carries for 141 yards and Stevenson 26 for 112, supporting a shared backfield rather than an assumed workhorse.",
+ "edge_players": [
+  {
+   "player": "ashtonjeanty",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Jeanty's established short-target role gives him a plausible path over 24.5 receiving yards in a competitive game or an LV trailing script without needing a deep completion.",
+   "must_be_true": "Ashton Jeanty targets >= 5 [because the pack records 19 targets across weeks 2\u20134]",
+   "kills_it": "IF LV takes an early multi-score lead and Jeanty receives three or fewer targets THEN Ashton Jeanty recyds over 24.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The receiving-role hypothesis precedes the numerical check. Testing it against the supplied recent sample: Jeanty's 19 targets and 120 receiving yards across three games equal 6.33 targets and 40 receiving yards per game, with only 25 total air yards. Those figures support the opportunity premise, but do not establish a median, hit rate or projected probability. At -113.5, the offered over requires approximately 53.16% to break even. The same listed under price implies a mechanically normalized two-way probability of 50%, but this is not a verified Pinnacle no-vig benchmark. No simulated or model edge is claimed.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations, sim median, verified Pinnacle prices, weekly receiving distributions, receptions, routes, snap shares, opponent RB receiving splits, target-location charting, injuries, inactives and weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional lean: Ashton Jeanty receiving yards over 24.5 at -113.5. Receiving yards isolates the short-target opportunity within the permitted markets; no alternate rung or estimated fair price is available. Missing calibration prevents a quantified edge or stake recommendation.",
+ "pre_mortem": "It is Monday and Jeanty's receiving over lost because recent aggregate targets overstated his dependable weekly role. Bowers, Tucker and Mayer accounted for 60 combined targets in the same three-game sample, leaving meaningful competition for passing work. LV's positive EPA against blitzes could reflect successful throws elsewhere rather than extra Jeanty outlets, and NE's middle-field weakness may not overlap his actual routes. An early LV lead, an unreported restriction or simply fewer targets could defeat the leg. This limits the selection to a lean rather than a strong read.",
+ "slip_story": "Single-leg candidate for the competitive-game or NE-leads script. It is vulnerable to the LV-leads-and-drains-clock flip. No additional qualified edge is forced into a three- or four-leg slip, and no wager is placed. The read is recorded here, but an externally timestamped pre-kickoff lock, persistent hash and postgame grading are unavailable; later grade script accuracy and receiving-role accuracy separately from whether 24.5 cleared.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

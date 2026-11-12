@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 PIT@CLE / kickoff time not saved / spread, total, moneyline, implied totals and opening movement not saved; script inferred only from team form / weather not saved; venue conditions, rest and travel details missing",
+ "script": {
+  "base": "Hypothesis before prop evaluation: CLE sustains offense more effectively, while PIT leans on Warren and shorter throws rather than consistently productive downfield passing. Expect a competitive game with CLE more likely to lead late; pace and halftime leadership remain uncertain without market or possession data.",
+  "flip1": "PIT establishes its rushing attack and leads, reducing its passing volume while CLE shifts toward Watson and its receivers to chase.",
+  "flip2": "Both defenses concede explosives, producing a higher-volume passing game that lifts PIT's secondary receivers and undermines receiving unders."
+ },
+ "injury_fallout": "MISSING: PIT and CLE injury reports, practice trends, offensive-line availability, defensive absences, return restrictions and final inactives. No absences, returns or replacement roles inferred from usage. Source for all supplied football statistics: the as-of pack, covering offensive Weeks 1\u20133 and defensive season-to-date through three games; exact publication timestamps are missing.",
+ "matchup": {
+  "shell": "MISSING: CLE and PIT MOFO/MOFC, man/zone rates and individual coverage assignments. Location splits cannot establish which defender covers Freiermuth or Pittman.",
+  "pressure": "Pack: CLE blitzes 20%; PIT QB EPA/dropback is -0.40 against blitzes over 30 dropbacks and -0.17 without blitzes. This supports concern about PIT passing efficiency, but actual pressure rate, time to throw and check-down frequency are missing. PIT blitzes 27%; CLE QB EPA/dropback is -0.04 against blitzes over 39 dropbacks versus +0.17 without.",
+  "bleeds": "Pack: CLE allows 9.44 passing YPA through the middle on 18 attempts, versus 6.32 left and 6.44 right, suggesting a possible interior opportunity on a small sample. CLE also allows 4.67 rushing YPC and 13 runs of 10-plus yards. PIT allows 4.56 rushing YPC and 11 passes of 20-plus yards on 89 attempts.",
+  "overlap": "Freiermuth is a candidate to exploit CLE's middle weakness, but his route locations are unverified. Warren's 14 targets and Washington's eight provide competing short-area options. Pittman's eight targets, compared with Metcalf's 24 and Wilson's 18, support a limited-volume receiving-under hypothesis rather than a specific cornerback mismatch."
+ },
+ "form": "Pack, Weeks 1\u20133 aggregates only: Freiermuth has 14 targets, 108 receiving yards and 118 air yards; Pittman has eight targets, 74 receiving yards and 73 air yards. Warren has 38 carries for 216 yards plus 14 targets for 110 receiving yards. CLE's Judkins has 42 carries for 124 yards, while Watson has 20 for 109; Boston leads the listed CLE receivers with 195 yards on 16 targets. Individual-game distributions, snaps, routes, red-zone usage, comparable opponents and role-change evidence are missing; these aggregates do not establish weekly consistency.",
+ "edge_players": [
+  {
+   "player": "patfreiermuth",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Freiermuth can clear 27.5 receiving yards through PIT's shorter passing game against a CLE defense whose weakest supplied passing-location split is the middle.",
+   "must_be_true": "P.Freiermuth targets >= 4 [because the pack records 14 targets across Weeks 1\u20133]",
+   "kills_it": "IF Warren and Washington absorb the short-area passing opportunities and Freiermuth finishes with fewer than 28 receiving yards THEN Freiermuth over 27.5 recyds fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "michaelpittman",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Pittman's limited opportunity behind PIT's higher-target options makes under 34.5 receiving yards attractive if PIT continues concentrating its passing work elsewhere.",
+   "must_be_true": "M.Pittman targets <= 3 [because the pack records eight targets across Weeks 1\u20133, behind five listed PIT teammates]",
+   "kills_it": "IF a pass-heavy chase or one explosive catch lifts Pittman to at least 35 receiving yards THEN Pittman under 34.5 recyds fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Descriptive checks support, but do not independently validate, the reads: Freiermuth's supplied three-game receiving total equates to 36.0 yards per game against 27.5; Pittman's equates to 24.7 against 34.5. Those aggregates are checks after the matchup hypotheses, not projections or evidence of hit rates. Freiermuth's 14 targets support a meaningful role, while Pittman's eight support limited opportunity. No model or simulation was run, and neither leg is sized.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median, calibrated probabilities, Pinnacle prices and sharp no-vig benchmark; individual-game outcomes, routes, alignment, coverage charting, pressure rates, injuries, final inactives, weather and saved market context.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Provisional main-line leans only: patfreiermuth recyds over 27.5 at -113.5; michaelpittman recyds under 34.5 at -114. Receiving yards are the permitted market for these role hypotheses; receptions are unavailable under the constraints. No alternate rung, verified pricing edge, stake or bet placement.",
+ "pre_mortem": "Freiermuth's over loses if the proposed middle-field overlap is wrong: CLE's 9.44 middle YPA comes from only 18 attempts and does not establish TE vulnerability. PIT's negative passing EPA, a run-heavy lead, or targets diverted to Warren and Washington could suppress his output. Pittman's under loses if eight prior targets conceal an emerging role or a single explosive catch clears 34.5. Together, the strongest counter-case is that PIT's passing production goes through outside receivers rather than the hypothesized short-area distribution; missing routes and individual-game usage prevent confidently dismissing that possibility.",
+ "slip_story": "One provisional story: PIT's constrained passing production favors Freiermuth while leaving Pittman peripheral. Both can survive the competitive base case and a PIT rushing-led win if their target conditions hold; a passing shootout threatens Pittman's under. Keep as individual leans rather than forcing a 3\u20134-leg slip from only two supported candidates. No TDs, depth-receiver additions or duplicate player markets. Step 12 is limited: this response records the read, but no external timestamped save, pre-kickoff hash or postgame grading is available. Later grade script accuracy, player-role accuracy and betting results separately.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

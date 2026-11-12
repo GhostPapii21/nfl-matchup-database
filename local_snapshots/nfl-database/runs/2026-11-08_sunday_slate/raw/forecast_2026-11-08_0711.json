@@ -1,0 +1,371 @@
+{
+ "pulled_et": "2026-11-08T07:11",
+ "source": "tools/weather_forecast.py (api.weather.gov hourly + api.open-meteo.com)",
+ "thresholds": {
+  "precip_pct": 50,
+  "gust_mph": 20,
+  "wind_mph": 15
+ },
+ "window": "kickoff to kickoff+3.5h ET; worse source",
+ "games": {
+  "JAX@BAL": {
+   "roof": "open",
+   "nws": null,
+   "open_meteo": null,
+   "notes": [
+    "nws missing",
+    "open_meteo missing",
+    "nws: kickoff beyond hourly range"
+   ],
+   "status": "MISSING",
+   "flag": null,
+   "why": [],
+   "precip_pct": null,
+   "gust_mph": null,
+   "wind_mph": null,
+   "kickoff_et": "2026-11-05T20:15"
+  },
+  "CIN@ATL": {
+   "roof": "retractable (Bernabeu, status TBD)",
+   "nws": null,
+   "open_meteo": {
+    "precip_pct": 5,
+    "wind_mph": 4.5,
+    "gust_mph": 14.1,
+    "precip_in": 0,
+    "hours": 3
+   },
+   "notes": [
+    "nws missing"
+   ],
+   "status": "OK",
+   "flag": false,
+   "why": [],
+   "precip_pct": 5,
+   "gust_mph": 14.1,
+   "wind_mph": 4.5,
+   "kickoff_et": "2026-11-08T09:30"
+  },
+  "DAL@IND": {
+   "roof": "retractable (Lucas Oil, status TBD)",
+   "nws": {
+    "precip_pct": 0,
+    "wind_mph": 13,
+    "gust_mph": null,
+    "short": [
+     "Sunny"
+    ],
+    "hours": 4
+   },
+   "open_meteo": {
+    "precip_pct": 0,
+    "wind_mph": 13.0,
+    "gust_mph": 26.8,
+    "precip_in": 0,
+    "hours": 4
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": true,
+   "why": [
+    "gusts 26.8 mph"
+   ],
+   "precip_pct": 0,
+   "gust_mph": 26.8,
+   "wind_mph": 13,
+   "kickoff_et": "2026-11-08T13:00"
+  },
+  "NYJ@KC": {
+   "roof": "open",
+   "nws": {
+    "precip_pct": 0,
+    "wind_mph": 6,
+    "gust_mph": null,
+    "short": [
+     "Sunny"
+    ],
+    "hours": 4
+   },
+   "open_meteo": {
+    "precip_pct": 0,
+    "wind_mph": 6.8,
+    "gust_mph": 13.9,
+    "precip_in": 0,
+    "hours": 4
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": false,
+   "why": [],
+   "precip_pct": 0,
+   "gust_mph": 13.9,
+   "wind_mph": 6.8,
+   "kickoff_et": "2026-11-08T13:00"
+  },
+  "DET@MIA": {
+   "roof": "open (canopy)",
+   "nws": {
+    "precip_pct": 3,
+    "wind_mph": 7,
+    "gust_mph": null,
+    "short": [
+     "Mostly Sunny"
+    ],
+    "hours": 4
+   },
+   "open_meteo": {
+    "precip_pct": 1,
+    "wind_mph": 5.2,
+    "gust_mph": 6.0,
+    "precip_in": 0,
+    "hours": 4
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": false,
+   "why": [],
+   "precip_pct": 3,
+   "gust_mph": 6.0,
+   "wind_mph": 7,
+   "kickoff_et": "2026-11-08T13:00"
+  },
+  "CLE@NO": {
+   "roof": "dome",
+   "nws": null,
+   "open_meteo": null,
+   "notes": [],
+   "status": "INDOOR",
+   "flag": false,
+   "why": [],
+   "precip_pct": null,
+   "gust_mph": null,
+   "wind_mph": null,
+   "kickoff_et": "2026-11-08T13:00"
+  },
+  "NYG@PHI": {
+   "roof": "open",
+   "nws": {
+    "precip_pct": 0,
+    "wind_mph": 10,
+    "gust_mph": null,
+    "short": [
+     "Sunny"
+    ],
+    "hours": 4
+   },
+   "open_meteo": {
+    "precip_pct": 0,
+    "wind_mph": 11.7,
+    "gust_mph": 20.4,
+    "precip_in": 0,
+    "hours": 4
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": true,
+   "why": [
+    "gusts 20.4 mph"
+   ],
+   "precip_pct": 0,
+   "gust_mph": 20.4,
+   "wind_mph": 11.7,
+   "kickoff_et": "2026-11-08T13:00"
+  },
+  "LAR@WSH": {
+   "roof": "open",
+   "nws": {
+    "precip_pct": 0,
+    "wind_mph": 10,
+    "gust_mph": null,
+    "short": [
+     "Sunny"
+    ],
+    "hours": 4
+   },
+   "open_meteo": {
+    "precip_pct": 0,
+    "wind_mph": 11.0,
+    "gust_mph": 21.7,
+    "precip_in": 0,
+    "hours": 4
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": true,
+   "why": [
+    "gusts 21.7 mph"
+   ],
+   "precip_pct": 0,
+   "gust_mph": 21.7,
+   "wind_mph": 11.0,
+   "kickoff_et": "2026-11-08T13:00"
+  },
+  "DEN@CAR": {
+   "roof": "open",
+   "nws": {
+    "precip_pct": 0,
+    "wind_mph": 7,
+    "gust_mph": null,
+    "short": [
+     "Sunny"
+    ],
+    "hours": 4
+   },
+   "open_meteo": {
+    "precip_pct": 0,
+    "wind_mph": 8.2,
+    "gust_mph": 11.6,
+    "precip_in": 0,
+    "hours": 4
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": false,
+   "why": [],
+   "precip_pct": 0,
+   "gust_mph": 11.6,
+   "wind_mph": 8.2,
+   "kickoff_et": "2026-11-08T13:00"
+  },
+  "HOU@LAC": {
+   "roof": "fixed translucent roof (indoor)",
+   "nws": null,
+   "open_meteo": null,
+   "notes": [],
+   "status": "INDOOR",
+   "flag": false,
+   "why": [],
+   "precip_pct": null,
+   "gust_mph": null,
+   "wind_mph": null,
+   "kickoff_et": "2026-11-08T16:05"
+  },
+  "LV@SF": {
+   "roof": "open",
+   "nws": {
+    "precip_pct": 0,
+    "wind_mph": 7,
+    "gust_mph": null,
+    "short": [
+     "Mostly Sunny",
+     "Sunny"
+    ],
+    "hours": 3
+   },
+   "open_meteo": {
+    "precip_pct": 0,
+    "wind_mph": 7.3,
+    "gust_mph": 11.9,
+    "precip_in": 0,
+    "hours": 3
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": false,
+   "why": [],
+   "precip_pct": 0,
+   "gust_mph": 11.9,
+   "wind_mph": 7.3,
+   "kickoff_et": "2026-11-08T16:25"
+  },
+  "ARI@SEA": {
+   "roof": "open (partial roof)",
+   "nws": {
+    "precip_pct": 4,
+    "wind_mph": 9,
+    "gust_mph": null,
+    "short": [
+     "Mostly Cloudy",
+     "Partly Sunny"
+    ],
+    "hours": 3
+   },
+   "open_meteo": {
+    "precip_pct": 4,
+    "wind_mph": 10.3,
+    "gust_mph": 19.9,
+    "precip_in": 0,
+    "hours": 3
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": false,
+   "why": [],
+   "precip_pct": 4,
+   "gust_mph": 19.9,
+   "wind_mph": 10.3,
+   "kickoff_et": "2026-11-08T16:25"
+  },
+  "GB@NE": {
+   "roof": "open",
+   "nws": {
+    "precip_pct": 1,
+    "wind_mph": 6,
+    "gust_mph": null,
+    "short": [
+     "Mostly Clear",
+     "Sunny"
+    ],
+    "hours": 3
+   },
+   "open_meteo": {
+    "precip_pct": 1,
+    "wind_mph": 7.5,
+    "gust_mph": 16.6,
+    "precip_in": 0,
+    "hours": 3
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": false,
+   "why": [],
+   "precip_pct": 1,
+   "gust_mph": 16.6,
+   "wind_mph": 7.5,
+   "kickoff_et": "2026-11-08T16:25"
+  },
+  "TB@CHI": {
+   "roof": "open",
+   "nws": {
+    "precip_pct": 0,
+    "wind_mph": 10,
+    "gust_mph": null,
+    "short": [
+     "Clear",
+     "Mostly Clear"
+    ],
+    "hours": 3
+   },
+   "open_meteo": {
+    "precip_pct": 0,
+    "wind_mph": 8.2,
+    "gust_mph": 27.3,
+    "precip_in": 0,
+    "hours": 3
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": true,
+   "why": [
+    "gusts 27.3 mph"
+   ],
+   "precip_pct": 0,
+   "gust_mph": 27.3,
+   "wind_mph": 10,
+   "kickoff_et": "2026-11-08T20:20"
+  },
+  "BUF@MIN": {
+   "roof": "dome",
+   "nws": null,
+   "open_meteo": null,
+   "notes": [],
+   "status": "INDOOR",
+   "flag": false,
+   "why": [],
+   "precip_pct": null,
+   "gust_mph": null,
+   "wind_mph": null,
+   "kickoff_et": "2026-11-09T20:15"
+  }
+ }
+}

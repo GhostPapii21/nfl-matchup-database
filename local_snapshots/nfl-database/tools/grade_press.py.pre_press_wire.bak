@@ -1,0 +1,26 @@
+"""Grade PRESS legs in press_live_2026.csv from playlogs/<season_wk>/*.csv (play logs are read only).
+Usage: python3 grade_press.py playlogs/2026_wk9/*.csv"""
+import csv, re, sys
+from collections import defaultdict
+from press_live import FIELDS, TRACKER
+MK = {"rush yds": ("rush", "yds"), "rec yds": ("rec", "yds"), "receptions": ("rec", "n"), "rec ": ("rec", "n")}
+def totals(paths):
+    t = defaultdict(float)
+    for p in paths:
+        for r in csv.DictReader(open(p, encoding="utf-8")):
+            try: y = float(r.get("yds") or 0)
+            except ValueError: y = 0.0
+            if r.get("kind") in ("rush", "rec"): t[(r["fullname"], r["kind"], "yds")] += y; t[(r["fullname"], r["kind"], "n")] += 1
+    return t
+def grade(tracker=TRACKER, paths=()):
+    t = totals(paths); rows = list(csv.DictReader(open(tracker))); n = 0
+    for r in rows:
+        if r["result"]: continue
+        m = re.match(r"(.+?) (rush yds|rec yds|receptions|rec) ([ou])([\d.]+)", r["leg"])
+        if not m: continue
+        kind, stat = MK.get(m.group(2), MK.get(m.group(2) + " ")); key = (m.group(1), kind, stat)
+        if key not in t: continue
+        v = t[key]; hit = v > float(m.group(4)) if m.group(3) == "o" else v < float(m.group(4))
+        r["result"] = f"{'HIT' if hit else 'MISS'} ({v:g})"; n += 1
+    w = csv.DictWriter(open(tracker, "w", newline=""), fieldnames=FIELDS); w.writeheader(); w.writerows(rows); return n
+if __name__ == "__main__": print(f"graded {grade(paths=sys.argv[1:])} PRESS legs")

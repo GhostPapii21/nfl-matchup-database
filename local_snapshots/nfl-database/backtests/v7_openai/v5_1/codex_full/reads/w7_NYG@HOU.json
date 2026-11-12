@@ -1,0 +1,48 @@
+{
+ "game": "Week 7 NYG@HOU / kickoff time MISSING / HOU -10 / total 42.5 / implied totals HOU 26.25, NYG 16.25 / weather not saved. MISSING: moneyline, opening lines, movement, venue environment, rest and travel. Sources throughout: supplied pre-kickoff Week 7 pack; exact observation timestamps unavailable.",
+ "script": {
+  "base": "HOU leads by halftime and shifts toward protecting its advantage late, consistent with the -10 spread. NYG increasingly needs passing volume while its rushing opportunities face a HOU defense allowing 3.53 YPC; Houston's passing opportunities are most attractive before any late clock-control phase. Actual pace data are missing.",
+  "flip1": "NYG stays competitive or leads, preserving its rushing opportunities and forcing HOU to maintain passing volume. This weakens Tyrone Tracy's rushing under but supports Xavier Hutchinson's receiving opportunity.",
+  "flip2": "NYG's passing production keeps the game competitive enough for a higher-scoring exchange. Hutchinson can benefit from sustained Houston passing, while Tracy's rushing under can survive if NYG continues prioritizing the pass."
+ },
+ "injury_fallout": "MISSING: injury reports, practice participation, final inactives, offensive-line availability, defensive absences and snap restrictions for both NYG and HOU, including Tyrone Tracy and Xavier Hutchinson. No redistribution or next-man-up assumption is justified. The NYG usage table lists J.Winston, while available rushing props list jjmccarthy; the pack does not resolve the quarterback situation. Tracy's 10 carries and Hutchinson's 13 targets over weeks 4\u20136 establish recorded usage only, not injury explanations.",
+ "matchup": {
+  "shell": "MISSING: NYG and HOU MOFO/MOFC rates, man/zone rates and player alignment charting. Neither Hutchinson nor another receiver can be assigned to a specific coverage weakness from this pack.",
+  "pressure": "NYG blitzes 42%; HOU's supplied QB EPA/dropback is 0.40 against blitz versus 0.07 without blitz, supporting a hypothesis that Houston can answer NYG pressure through the air. HOU blitzes 23%; NYG's supplied QB EPA/dropback falls from 0.18 without blitz to -0.17 against blitz. MISSING: actual pressure rates, sacks, time to throw and confirmed NYG quarterback identity.",
+  "bleeds": "HOU allows 3.53 rushing YPC and has surrendered 10 runs of 10-plus yards through six games, supporting a difficult NYG rushing environment. NYG allows 5.24 rushing YPC and 23 runs of 10-plus yards, giving Houston an alternative to passing. NYG allows 8.52 middle YPA on 27 attempts versus 5.76 left and 6.04 right; Hutchinson's alignment is missing, so that middle weakness cannot be directly assigned to him.",
+  "overlap": "Tracy's limited recent rushing role overlaps with HOU's restrictive rushing efficiency and the market's projected NYG deficit. Hutchinson is a secondary receiving option, not Houston's primary target: his 13 targets trail Nico Collins' 20 over weeks 4\u20136. His modest receiving threshold can benefit from Houston's favorable supplied blitz-response profile, but no player-specific coverage advantage is established."
+ },
+ "form": "Weeks 4\u20136: Tracy recorded 10 carries for 23 yards and six targets for 52 receiving yards. C.Skattebo recorded 31 carries and N.Harris 19, so Tracy did not lead the recorded NYG rushing allocation. Hutchinson recorded 13 targets, 121 receiving yards and 116 air yards; Collins led Houston with 20 targets. These aggregates support role-based hypotheses but do not establish individual-game hit rates. MISSING: weekly splits, snaps, routes, red-zone usage, comparable-opponent results, play-caller changes and defensive last-three-game positional results.",
+ "edge_players": [
+  {
+   "player": "tyronetracyjr",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Tracy's limited rushing allocation faces a HOU defense allowing 3.53 YPC, and an expected NYG deficit threatens the carry volume needed to exceed 22.5 yards.",
+   "must_be_true": "Tyrone Tracy rushing_yards <= 22 [because the pack records 10 carries for 23 yards across weeks 4\u20136, HOU allowing 3.53 YPC and NYG receiving 10 points]",
+   "kills_it": "IF Tracy receives an expanded rushing role or breaks a long run that takes him to at least 23 rushing yards THEN tyronetracyjr rushyds under 22.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "xavierhutchinson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Hutchinson has an established secondary receiving role, and Houston's productive supplied response to blitzing offers a plausible route past a modest 13.5-yard threshold against NYG's 42% blitz rate.",
+   "must_be_true": "Xavier Hutchinson receiving_yards >= 14 [because the pack records 13 targets, 121 receiving yards and 116 air yards across weeks 4\u20136, while HOU posts 0.40 QB EPA/dropback against blitz]",
+   "kills_it": "IF Houston's early lead suppresses passing and Hutchinson finishes with at most 13 receiving yards THEN xavierhutchinson recyds over 13.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Read-first hypotheses were tested against the supplied role and matchup numbers. Tracy's 23 rushing yards across three games and HOU's 3.53 YPC allowed support the under hypothesis. Hutchinson's 121 receiving yards on 13 targets across three games support sufficient recorded involvement for the over hypothesis, without proving a game-level floor. Both selected markets have -114 on each side: proportional normalization gives a 50.0% two-way no-vig baseline, while -114 requires approximately 53.27% to break even. These are pack-price calculations, not a verified Pinnacle benchmark or estimated hit probability. Neither candidate has a demonstrated positive expected value.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations and medians, calibrated probabilities, verified Pinnacle prices, individual-game distributions, confirmed availability and NYG quarterback identity. Aggregate usage cannot establish either player's probability of clearing the selected threshold.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidates only: tyronetracyjr rushyds under 22.5 at -114; xavierhutchinson recyds over 13.5 at -114. Use rushing yards for Tracy's carry-opportunity hypothesis and receiving yards for Hutchinson's passing-opportunity hypothesis. No alternate rungs supplied; no value stamp without a defensible probability estimate.",
+ "pre_mortem": "Tracy's under loses if the three-game aggregate conceals a recent promotion, NYG keeps the game close enough to run, or one explosive carry defeats the low threshold. Missing injuries and weekly usage prevent ruling those scenarios out. Hutchinson's over loses if Houston exploits NYG's 5.24 rushing YPC allowed instead of its blitz tendencies, builds an early lead and distributes limited targets elsewhere. His 121-yard aggregate could also be concentrated in one game. These risks keep both reads at lean rather than strong.",
+ "slip_story": "Both candidates fit a Houston-control story: HOU generates enough early passing production for Hutchinson to reach 14 yards, while NYG's deficit and Tracy's limited rushing allocation keep him below 23 rushing yards. Both can also survive a pass-heavy competitive game. An immediate Houston rushing blowout benefits Tracy's under but threatens Hutchinson's over. Do not force a 3\u20134-leg slip from these two unpriced lean hypotheses; no TDs or duplicate player markets.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,46 @@
+{
+ "game": "kickoff not in pack / MIN -7 / total 41.5 / weather not saved",
+ "script": {
+  "base": "Book expects Minnesota to lead a low-scoring game (implied about 24.25-17.25). Base flow: MIN is ahead by halftime, feeds Aaron Jones (62 carries, 265 yards in weeks 3-5, about 20.7 carries and 88 rush yards a game) and leans run to shorten it under a 41.5 total. IND, the 7-point dog, falls behind and cannot stay fully balanced, so Jonathan Taylor's pure rush volume (56/234, about 18.7 carries and 78 yards a game in weeks 4-6) is at risk late while MIN's 70% blitz pushes Indy to quick throws and scrambles rather than a shootout.",
+  "flip1": "IND hangs within a score or leads, Taylor keeps the 56-carry lead-back share, MIN cannot clock-kill, Murray/Jones have to throw, and Hockenson (18 targets, 137 yards), Addison (15/142) and Allen (20/127) all get full routes so 41.5 is threatened from the over side.",
+  "flip2": "MIN is up big early. Jones's carries spike further, IND abandons the run so Taylor's rushing line dies, and Indy is pass-only into a 70% blitz \u2014 either a sack stall or garbage checkdowns, with Treadwell's deep shots (241 air yards, only 97 rec yards) the first thing that dies."
+ },
+ "injury_fallout": "No injury report, practice trend, snap limit or inactives list is in the pack, so no backup coverage player or confirmed next-man-up can be named. Usage only: Taylor is IND's back (56/234) over McGowan (15/74) and Daniel Jones is the scrambler (8/39); targets are Allen 20, Treadwell 19, Downs 18, Warren 14, Taylor 12. MIN box scores stop at week 5 (no week 6): Jones 62/265, K.Murray 12/92, Claiborne 6/13, Dallas 1/2. Hockenson's 18 targets led Jefferson's 9, so Jefferson was not the primary in-sample. Jordan Mason is priced at 48 rush yards with 0 carries in that L3, and Jauan Jennings (7.5) plus Will Mallory (20) have no listed targets \u2014 roles unknown, not used. Final-inactives checkpoint is missing.",
+ "matchup": {
+  "shell": "Shell not in the pack: no MOFO/MOFC, no man/zone rate, no coverage charting, so WRs cannot be mapped to specific zone defenders.",
+  "pressure": "MIN blitz rate 70%; IND blitz rate 21%. IND QB EPA/dropback is -0.07 vs blitz (n=74) and -0.18 with no blitz, so the blitz is not Indy's worst split but it still compresses time-to-throw. MIN QB EPA is -0.23 vs blitz (n=64) and +0.09 with no blitz, and IND rarely blitzes, so Murray's clean-pocket EPA is the base. Actual pressure rate is not in the pack.",
+  "bleeds": "MIN pass YPA allowed: middle 9.21 on 34 att, left 6.22 on 55, right 4.88 on 66; rush defense 4.01 YPC, 11 runs of 10+ in 5 games, 12 passes of 20+ on 172 att. IND allows 5.01 YPC and 15 runs of 10+ in 6 games, pass YPA 7.78 left / 8.72 middle / 7.16 right, and 16 passes of 20+ on 198 att.",
+  "overlap": "Leg overlap is MIN's 70% blitz against Taylor's checkdown log (12 targets, -13 air yards, 96 rec yards) and Daniel Jones's 8/39 scramble log. Not bet: Aaron Jones vs IND's 5.01 YPC only if he is still the lead back; Hockenson and Addison vs IND's soft middle and explosives, which a clock-control script can mute."
+ },
+ "form": "IND weeks 4-6 only: Taylor 56/234 rush plus 12/96 receiving (about 110 combined a game); McGowan 15/74; D.Jones 8/39 (about 13 rush yards a game). Allen 20/127/168 is 42.3 rec yards a game, on top of a 41.5 line. Treadwell 19/97/241 is inefficient (about 32 rec yards a game, 5.1 per target). Downs 18/103. MIN weeks 3-5 only: Jones 62/265 rush and 17/72 receiving; Murray 12/92 rush (about 31 a game) but EPA is negative when blitzed and IND blitzes just 21%; Hockenson 18/137/129 (about 46 a game); Addison 15/142/202 (about 47); Jefferson 9/111 (about 37) against a 74 line. No same-defense game splits beyond those season-to-date defensive totals. Taylor's receiving is checkdown/YAC, not one long TD. Treadwell's air yards look fluky versus the catch yards.",
+ "edge_players": [
+  {
+   "player": "jonathantaylor",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Taylor beats 92.5 rush-plus-receiving because he has averaged about 110 combined yards (234 rush + 96 rec) over weeks 4-6, and MIN's 70% blitz funnels a trailing IND offense into the same checkdowns he already turned into 96 yards on negative air yards, so a close-game carry load or a behind-the-sticks receiving role can both get there.",
+   "must_be_true": "Taylor is active on a full snap share, keeps the lead-back carries (56 of IND's recent rushes) and the checkdown targets, and IND gets enough plays in a 41.5-total game for the combined number to matter.",
+   "kills_it": "MIN leads big early, IND's drive count collapses, the 4.01 YPC run defense stuffs him, and the blitz becomes sacks instead of checkdowns \u2014 8 carries and one catch finishes under 92.5. A scratch or snap limit not in this pack also kills it.",
+   "confidence": "lean"
+  },
+  {
+   "player": "danieljones",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Daniel Jones has 39 rushing yards on 8 carries over weeks 4-6, about 13 a game, against a 6.5 line, and he faces the pack's heaviest blitz (MIN 70%) as the QB projected to trail, which is when scrambles show up rather than kneel-downs.",
+   "must_be_true": "Jones plays the full game, MIN's blitz creates escape yards and not only sacks, and the script stays the trailing-dog base rather than an IND lead full of kneels.",
+   "kills_it": "Blitz rate is not pressure rate, and pressure rate is missing; if the edges contain him he takes sacks and finishes at 0-4 yards. Eight carries is a tiny sample, so one stuffed game misses 6.5. A scratch also kills it.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median or Pinnacle no-vig is in the pack, so step 8 cannot be run against a sharp price and these leans must not be sized as if a sim confirmed them. L3 form agrees: Taylor about 110 rush+rec per game vs 92.5 at -115; Daniel Jones about 13 rush yards per game vs 6.5 at -114. No probability above 70% is claimed. Aaron Jones rush over 39.5 (about 88/game on 62/265) and rush+rec over 57.5 were dropped, not flagged: the read is only a lean once Mason is priced at 48 rush yards with 0 L3 carries and MIN's scores stop at week 5, and step 10 says a stronger counter-case drops a lean. Jefferson under 74 and Treadwell under 19.5 were not used because recent yards (about 37 and 32) disagree with those unders and prices are +nan or the blitz case is not enough.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only, one market per player: Jonathan Taylor rush+rec OVER 92.5 at -115; Daniel Jones rush yards OVER 6.5 at -114. No short-priced alts, no receptions, no passing yards, no TDs. Left off: Aaron Jones 39.5/57.5, Mason 48 (+nan), Jefferson 74 (+nan), Allen 41.5 (42.3 recent, no separation), Hockenson 36.5 and Addison 38.5 (form agrees but base clock-kill script can miss them), Treadwell 19.5, McGowan 14 (+nan), Mallory 20 (+nan), Jennings 7.5 (no targets listed), Murray 24.5 (31 recent but IND blitzes only 21% and a lead cuts QB runs).",
+ "pre_mortem": "It's Monday and both lost because the 70% blitz was a fake tell: MIN got home without a scramble lane, Daniel Jones finished with 2 rushing yards and two sacks, and the favorite-runs-clock flip was ugly \u2014 MIN up 20-6 at half, IND near 20 plays, Taylor 8 carries for 28 and one 4-yard checkdown, never threatening 92.5 against a defense that allows 4.01 YPC. The missing injury report could also have shown Taylor limited. The regret is the dropped Aaron Jones over 39.5, which would have been the right leg if he kept a 20-carry role against a 5.01 YPC defense, but Mason's 48-yard number made that counter-case stronger than the read on the information in this pack.",
+ "slip_story": "One script only: MIN pressure, IND functional but behind, in a 24-17 type game. Stack Taylor rush+rec over with Daniel Jones rush over \u2014 they win together when Indy is blitzed and Taylor is the outlet. Do not add Hockenson, Addison or Allen overs (those need the close-game or shootout flip) and do not pair this with a same-game under plus pass overs. Do not add Aaron Jones or Jordan Mason until the week-6 role question is resolved. Two legs, no TDs, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

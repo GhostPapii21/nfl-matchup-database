@@ -1,0 +1,48 @@
+{
+ "game": "Week 6 SEA@DEN / kickoff MISSING / SEA -2.5, DEN +2.5 / total 40.5 / implied totals SEA 21.5, DEN 19.0 / weather not saved. Source: supplied pre-kickoff pack; exact as-of timestamp, moneylines, opening lines, venue configuration, rest and travel details MISSING.",
+ "script": {
+  "base": "Seattle establishes a narrow lead in a relatively low-scoring game, consistent with SEA -2.5 and the 40.5 total. Seattle can mix rushing with short passing, while Denver needs sustained drives against a defense whose supplied efficiency numbers are stronger than Denver's; pace and halftime score are hypotheses, not measured pack facts.",
+  "flip1": "Denver leads early and Seattle increases passing volume. That supports A.Barner's receiving opportunity, while J.Waddle's under can survive if Denver protects the lead without substantially expanding his targets.",
+  "flip2": "Denver generates explosive completions and the game becomes a shootout. J.Waddle's under becomes vulnerable to increased volume or one long catch; A.Barner's over still needs Seattle's additional attempts to reach him rather than primarily J.Smith-Njigba."
+ },
+ "injury_fallout": "MISSING: SEA and DEN injury reports, practice-status trends, final inactives, offensive-line availability, defensive personnel absences, return-to-play restrictions and snap limits. No absence, return or next-man-up adjustment is inferred from usage. Barner and Waddle require final-report and approximately 90-minute pre-kickoff inactive checks, which cannot be completed from this pack. Source: supplied pack contains usage and matchup data but no injury information.",
+ "matchup": {
+  "shell": "MISSING: SEA and DEN MOFO/MOFC rates, man/zone rates, alignment data and individual coverage assignments. DEN's middle-field weakness cannot automatically be assigned to Barner without route-location evidence.",
+  "pressure": "DEN blitzes 38%; SEA's supplied QB EPA/dropback is 0.11 against blitzes over 62 dropbacks versus 0.07 without blitzes. That does not support assuming DEN blitzing will shut down Seattle's passing. SEA blitzes 21%; DEN's QB EPA/dropback is -0.27 against blitzes over 59 dropbacks versus 0.01 without blitzes, but SEA's lower blitz rate limits that particular advantage. Actual pressure rates and time to throw are MISSING. Source: supplied pre-kickoff pack.",
+  "bleeds": "DEN allows 9.45 passing YPA through the middle versus 7.57 left and 5.37 right, and 4.91 rushing YPC with 20 runs of 10-plus yards allowed. SEA allows 5.56/6.21/5.00 passing YPA left/middle/right and eight 20-plus-yard completions on 168 attempts, versus DEN's 13 on 174. These are five-game season-to-date opponent checks, not player projections. Source: supplied pack.",
+  "overlap": "Barner offers a short-area receiving candidate against DEN's relatively vulnerable middle: his 17 targets carry only 35 total air yards, but his actual middle-field route share is MISSING. Waddle's under targets SEA's comparatively restrictive passing defense rather than claiming a specific cornerback matchup. Seattle's primary target is Smith-Njigba with 28 recent targets, so Barner is a secondary overlap, not the offense's primary-option overlap. Source: supplied pack."
+ },
+ "form": "Weeks 3-5 aggregate role: Barner has 17 targets, 101 receiving yards and 35 air yards; Smith-Njigba has 28/306/316, confirming substantial target competition. Waddle has 19 targets, 64 receiving yards and 134 air yards; Sutton has 16/68/205 and Harvey 18/109/-23, showing Denver's recent opportunities are distributed. Wilson has 50 carries for 156 yards and Dobbins 46 for 157. Individual game splits, snaps, routes, red-zone opportunities, coaching changes and opponent-comparable game logs are MISSING; these totals cannot establish consistency or explain role changes. Source: supplied pre-kickoff pack.",
+ "edge_players": [
+  {
+   "player": "ajbarner",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Barner can exceed 27.5 receiving yards through short-area volume against Denver's vulnerable middle, provided his routes actually access that weakness.",
+   "must_be_true": "A.Barner targets >= 5 [because the pack records 17 targets over weeks 3-5]",
+   "kills_it": "IF Seattle's passing opportunities concentrate on Smith-Njigba and Barner receives three or fewer targets THEN ajbarner recyds over 27.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jaylenwaddle",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Waddle can stay below 46.5 receiving yards because Seattle's restrictive passing defense makes an efficiency rebound difficult without a meaningful increase in his recent opportunity.",
+   "must_be_true": "J.Waddle targets <= 8 [because the pack records 19 targets over weeks 3-5]",
+   "kills_it": "IF Waddle records a reception of at least 47 yards THEN jaylenwaddle recyds under 46.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Reads were formed from script and matchup before checking recent production against the lines. Barner's 101 yards over three games equals 33.7 per game, with 5.7 targets per game and 5.94 yards per target; at that historical efficiency, five targets correspond to approximately 29.7 yards, only modestly above 27.5. Waddle's 64 yards over three games equals 21.3 per game and 3.37 yards per target. Even a hypothetical rebound to 5.5 yards per target on eight targets produces 44 yards, but this is a sensitivity check, not a fitted projection. SEA's five-game passing-location and explosive-play numbers support, rather than contradict, the Waddle read. Neither recent average is treated as a stand-alone edge or calibrated win probability.",
+  "disagrees": "none",
+  "missing": "Fitted projections, simulation distributions and medians, Pinnacle prices and sharp no-vig probabilities, individual-game variance, route-location charting, injury/inactive information and weather. Listed sportsbook identity and quote timestamps are also missing. Barner's middle-field overlap remains unverified.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidates only: ajbarner recyds over 27.5 at -115; jaylenwaddle recyds under 46.5 at -112. Listed-price break-even probabilities are 53.49% and 52.83%, respectively, before accounting for vig; these are not modeled probabilities or Pinnacle no-vig estimates. Receiving yards is an available market for the Barner volume hypothesis; receptions is unavailable under this task's restrictions. No alternate rung, staking recommendation or demonstrated positive expected value is established.",
+ "pre_mortem": "Barner: It is Monday and the over lost because Denver's middle-field allowance did not describe Barner's actual routes. Seattle ran successfully against the defense allowing 4.91 YPC, or Smith-Njigba absorbed the passing volume; Barner's short air-yard profile then required catches and yards after catch that never arrived. Waddle: The under lost because his recent 3.37 yards per target reflected temporary inefficiency rather than a stable limitation. Nineteen targets and 134 air yards still provide opportunity, Seattle blitzes only 21%, and DEN's supplied QB performance improves from -0.27 EPA/dropback against blitzes to 0.01 otherwise. A modest volume increase or explosive reception can erase the apparent cushion. Both remain leans because these counter-cases are material and player availability is unverified.",
+ "slip_story": "Both candidates fit a narrow Seattle-control story: Barner contributes through short completions while Denver's perimeter passing remains inefficient. Both can also survive a modest Denver lead, but Waddle under is script-dependent against the shootout flip. Their correlation is unmeasured. Do not force a 3-4-leg main slip from only two qualified candidates, and do not add touchdowns, extra players or a second market for either player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

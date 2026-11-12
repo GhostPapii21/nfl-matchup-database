@@ -1,0 +1,92 @@
+[
+  {
+    "model": "monte_carlo",
+    "n": 100000,
+    "seed": 20261104,
+    "script": "tools/sim_v6.py",
+    "wrapper": "runs/2026-11-05_JAX@BAL_r6/codex/run_sims.py",
+    "legs": {
+      "Strange 4+ rec (o3.5)": {
+        "p": 0.55768,
+        "median": 4.0
+      },
+      "Strange 40+ rec yds (o39.5)": {
+        "p": 0.52311,
+        "median": 41.91376939072847
+      },
+      "Washington rec yds o63.5": {
+        "p": 0.41747,
+        "median": 54.931037421680244
+      },
+      "Henry 40+ rush (o39.5)": {
+        "p": 0.53654,
+        "median": 41.828373096152276
+      },
+      "JAX 1H -6.5": {
+        "p": 0.42173,
+        "median": 5.0,
+        "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+      }
+    }
+  },
+  {
+    "model": "bias",
+    "n": 100000,
+    "seed": 20261104,
+    "script": "tools/sim_v6.py",
+    "wrapper": "runs/2026-11-05_JAX@BAL_r6/codex/run_sims.py",
+    "legs": {
+      "Strange 4+ rec (o3.5)": {
+        "p": 0.55784,
+        "median": 4.0
+      },
+      "Strange 40+ rec yds (o39.5)": {
+        "p": 0.51956,
+        "median": 40.98235229315673
+      },
+      "Washington rec yds o63.5": {
+        "p": 0.41709,
+        "median": 54.931037421680244
+      },
+      "Henry 40+ rush (o39.5)": {
+        "p": 0.53745,
+        "median": 41.828373096152276
+      },
+      "JAX 1H -6.5": {
+        "p": 0.42035,
+        "median": 4.0,
+        "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+      }
+    }
+  },
+  {
+    "model": "game_randomness",
+    "n": 100000,
+    "seed": 20261104,
+    "script": "tools/sim_v6.py",
+    "wrapper": "runs/2026-11-05_JAX@BAL_r6/codex/run_sims.py",
+    "legs": {
+      "Strange 4+ rec (o3.5)": {
+        "p": 0.51985,
+        "median": 4.0
+      },
+      "Strange 40+ rec yds (o39.5)": {
+        "p": 0.49598,
+        "median": 38.92401753013751
+      },
+      "Washington rec yds o63.5": {
+        "p": 0.42209,
+        "median": 53.14267525703374
+      },
+      "Henry 40+ rush (o39.5)": {
+        "p": 0.53918,
+        "median": 41.86901016159314
+      },
+      "JAX 1H -6.5": {
+        "p": 0.41393,
+        "median": 4.0,
+        "pricing_engine": "UNVERIFIED wrapper extension; sim_v6.nb + profile_v2; not native spread_h1"
+      }
+    }
+  }
+]

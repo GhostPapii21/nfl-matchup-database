@@ -1,0 +1,46 @@
+{
+ "game": "Week 3 MIN@TB / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this is form-only: a competitive game, not a assigned favorite. Minnesota has leaned on Aaron Jones (35 carries, 145 yards in weeks 1-2) with Jordan Mason (15/59) mixing in, but Tampa allows 3.26 YPC and only 4 runs of 10+, so that run lean stalls and the MIN passing game (Jefferson 16 targets, 171 air yards; the rusher log lists Wentz 5/8, not Murray) has to work against a 49% blitz. Tampa can stay in it because Minnesota blitzes 78% and Mayfield's EPA is +0.02 vs blitz (n=14) versus -0.33 unblitzed, with Bucky Irving (25/134 rush, 11 targets, -47 air yards) as the rush-plus-checkdown engine.",
+  "flip1": "Tampa's 3.26 YPC run defense and 49% blitz put Minnesota behind early, Jones's carries fall off the 17.5/game pace toward a Mason split, and Jefferson/Hockenson have to throw into the middle (TB allows 12.4 YPA there, but only on 10 attempts) while Irving's rush stalls and only checkdowns keep his scrimmage line alive.",
+  "flip2": "Minnesota's 78% blitz and middle bleed (10.58 YPA, 9 passes of 20+ on 84 attempts) let Tampa lead and run clock: Irving's carries hold or rise, Gainwell still does not become a feature, and Minnesota abandons Jones so the MIN rush overs die."
+ },
+ "injury_fallout": "No injury report, practice status, questionable tags, or inactives in the pack, so nobody is a confirmed next-man-up from an injury. Usage only: Mason (15 carries, 59 yards) is the MIN back who has taken work behind Jones; Gainwell (7 carries, 25 yards; 5 targets, 8 yards) is the TB back behind Irving. Board names with zero usage in this pack \u2014 Jauan Jennings, Jalen McMillan, and Kyler Murray (rusher log shows Wentz 5/8, not Murray) \u2014 get no role and no leg.",
+ "matchup": {
+  "shell": "No MOFO/MOFC or man/zone charting in the pack. Location splits only: TB allows 12.4 YPA middle (10 att) vs 6.0 left (32 att) and 7.65 right (23 att); MIN allows 10.58 middle (19 att) vs 7.85 left (26) and 5.61 right (31).",
+  "pressure": "TB blitz rate 49%; MIN blitz rate 78%. MIN QB EPA +0.10 vs blitz (n=26) and 0.00 unblitzed. TB QB EPA +0.02 vs blitz (n=14) and -0.33 unblitzed, so Minnesota's pressure look is the one Mayfield has handled, and it matches Irving's checkdowns (11 targets, -47 air yards) rather than deep shots.",
+  "bleeds": "TB is stingy on the ground (3.26 YPC, 4 runs of 10+) and has allowed only 5 passes of 20+ on 68 attempts; the pass bleed is the middle on a tiny sample. MIN bleeds more explosives (9 of 20+ on 84 attempts; 8 runs of 10+; 3.85 YPC) and the middle (10.58 YPA), with the right side the sound side at 5.61.",
+  "overlap": "Jefferson is MIN's primary target (16 targets, 171 air yards, 147 rec yards) but TB has not bled deep shots (5/68), so that is a weak rec-yards overlap. The live overlap is Irving's rush plus negative-air-yard targets into a MIN defense that blitzes 78%, allows 3.85 YPC and 8 runs of 10+, and bleeds the middle."
+ },
+ "form": "Pack label says L3 but weeks listed are [1, 2] only. Jones 17.5 carries and 72.5 rush yards/game with 1 target and 0 rec yards; Mason 7.5 carries and 29.5 rush yards. Jefferson 73.5 rec yards on 85.5 air yards/game, essentially the 75 line. Addison 10.5 rec yards on 35 air yards/game \u2014 too inefficient to trust as a sticky under. Irving 12.5 carries, 67 rush yards, 5.36 YPC, plus 24.5 rec yards. Gainwell 3.5 carries, 12.5 rush yards, 4 rec yards (33 scrimmage yards total). Mayfield 4 rushes and 30 rush yards/game at 7.5 YPC, a rate that looks explosive-inflated. Godwin 43 rec yards on 3.5 targets and 18 air yards/game (YAC spike). Egbuka 39.5 rec yards on 79.5 air yards, under 49.5 but with unused air yards. Hurst 31.5 rec yards on 89.5 air yards. Otton 32 rec yards on 5.5 targets. Hockenson 32.5 rec yards vs a 30.5 line.",
+ "edge_players": [
+  {
+   "player": "kennygainwell",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Gainwell has 33 scrimmage yards total in two games (7 carries for 25, 5 targets for 8), about 16.5 a game, and the rush+rec line is 32 \u2014 he has to double his role while Irving already has 25 carries and 11 targets.",
+   "must_be_true": "Irving stays the lead back and Gainwell stays near 3-4 carries and 2-3 targets; no inactive or snap spike that is not in this pack.",
+   "kills_it": "Irving is scratched or limited (inactives were not in the pack) and Gainwell inherits the 12-carry plus checkdown role, or one screen/explosive clears 32 by itself.",
+   "confidence": "strong"
+  },
+  {
+   "player": "buckyirving",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Irving is at 91.5 rush+rec yards per game (134 rush, 49 rec on 11 targets and -47 air yards) against 77.5, and Minnesota's 78% blitz plus 8 runs of 10+ allowed is the environment for those checkdowns and chunk runs to continue.",
+   "must_be_true": "He keeps about 12 carries and 5 targets, Minnesota blitzes near the 78% rate, and he is active for a full workload.",
+   "kills_it": "Tampa trails and abandons the run while checkdowns go to Otton or Godwin, or his 5.36 YPC falls all the way to MIN's 3.85 and receiving stays at 24.5 \u2014 that path is about 72.5, under 77.5.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so step 8 cannot be priced against a sharp book. Form agrees: Gainwell 16.5 vs 32; Irving 91.5 vs 77.5. A hostile rush-only check (12.5 carries times MIN 3.85 YPC = 48, plus 24.5 rec = 72.5) sits under 77.5, but a 50/50 blend of his 5.36 and that 3.85 is about 57.5 rush plus 24.5 rec = 82, still over, and the 78% blitz is a reason receiving does not shrink. That is not a clean disagree, so the lean is not dropped. Nothing here is a 70%+ model probability.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Gainwell rushrecyds under 32 (board price not posted, +nan); Irving rushrecyds over 77.5 at -114. No alt rungs in the pack; neither is a short-priced alt.",
+ "pre_mortem": "It's Monday and this lost because the two-game roles were a mirage: Irving was on a snap count or out, Gainwell took 14 touches for 40-plus scrimmage yards and cleared 32, and Irving finished near 50 rush and 15 receiving. Or both played, Minnesota sold out on the back after film of 5.36 YPC, the checkdowns went to Cade Otton (already 11 targets, 64 yards), and one Gainwell screen still beat 32 in a pass-heavy flip. Spread and weather were never in the pack, so a blowout or a wind/rain slog could have cut Irving's rush without a pre-kickoff tell.",
+ "slip_story": "One Tampa backfield story: Irving keeps the carries and the blitz checkdowns (rushrec over 77.5) and Gainwell never becomes the second feature (rushrec under 32). They win together if Irving stays the guy. Do not pair this with an Irving rush under or a same-game total under. Jones rush over 52.5 (72.5 recent; about 57 even at TB's 3.26 YPC if 17.5 carries hold, -112) is a separate MIN-volume idea that dies if Minnesota trails, so it stays off this slip. No TD or reception legs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,320 @@
+import json, os, shutil, subprocess, sys, tempfile, unittest
+HERE=os.path.dirname(os.path.abspath(__file__)); GATE=os.path.join(HERE,"..","run_gate.py")
+FIX=os.path.join(HERE,"fixtures","valid_run"); NOW="2026-11-01T12:00"
+def rd(p):
+    with open(p) as f: return f.read()
+def wr(p,s):
+    with open(p,"w") as f: f.write(s)
+H="Tee Higgins rec yds o58.5 -115"
+class Base(unittest.TestCase):
+    def setUp(self):
+        self.d=os.path.join(tempfile.mkdtemp(),"run"); shutil.copytree(FIX,self.d)
+        self.mp=os.path.join(self.d,"run_manifest.json"); 
+        with open(self.mp) as f: self.m=json.load(f)
+    def save(self):
+        with open(self.mp,"w") as f: json.dump(self.m,f)
+    def run_gate(self):
+        r=subprocess.run([sys.executable,GATE,self.d,"--now",NOW],capture_output=True,text=True); return r.returncode,r.stdout+r.stderr
+    def assertFail(self,needle):
+        c,o=self.run_gate(); self.assertNotEqual(c,0,o); self.assertIn("FAIL",o); self.assertIn(needle.lower(),o.lower()); return o
+    def leg(self,name=H): return next(l for l in self.m["legs"] if l["name"]==name)
+class GateTest(Base):
+    def test_valid_passes(self):
+        c,o=self.run_gate(); self.assertEqual(c,0,o); self.assertIn("GATE: PASS",o)
+        self.assertTrue(os.path.exists(os.path.join(self.d,"gate_output.txt")))
+    def test_missing_category(self):
+        self.m["sources"]=[s for s in self.m["sources"] if s["category"]!="ngs"]; self.save(); self.assertFail("ngs")
+    def test_stale_odds(self):
+        for s in self.m["sources"]:
+            if s["category"]=="odds_props": s["pulled_et"]="2026-11-01T10:00"
+        self.save(); self.assertFail("stale")
+    def test_missing_model(self):
+        self.m["sims"]=[s for s in self.m["sims"] if s["model"]!="bias"]; self.save(); self.assertFail("bias")
+    def test_under_100k(self):
+        self.m["sims"][0]["n"]=50000; self.save(); self.assertFail("100000")
+    def test_missing_seed(self):
+        del self.m["sims"][1]["seed"]; self.save(); self.assertFail("seed")
+    def test_receiving_missing_mof(self):
+        del self.leg()["coverage"]["mof"]; del self.leg()["coverage"]["man_zone"]; self.save(); self.assertFail("mof")
+    def test_missing_phase_row(self):
+        p=os.path.join(self.d,"checklist.md"); lines=rd(p).splitlines()
+        lines=[l for l in lines if not (H in l and "| 9 NGS |" in l)]; wr(p,"\n".join(lines)+"\n")
+        self.assertFail("phase 9")
+    def test_missing_source_url(self):
+        self.m["sources"][0]["url_or_file"]=""; self.save(); self.assertFail("url")
+    def test_missing_pressure(self):
+        del self.m["pressure_inputs"]["blitz_rate"]; self.save(); self.assertFail("blitz")
+    def test_edge_fails(self):
+        self.leg()["no_vig"]=0.57; self.save(); self.assertFail("edge")
+    def _flag_gap(self,status):
+        p=os.path.join(self.d,"checklist.md"); t=rd(p).replace(f"| {H} | 4 Defender coverage | PASS |",f"| {H} | 4 Defender coverage | MISSING |")
+        wr(p,t); L=self.leg(); del L["coverage"]; L["gaps"]=["coverage: PFR blocked"]; L["status"]=status
+        for s in self.m["sims"]: s["legs"].pop(H)
+        self.save()
+    def test_flagged_gap_cut_passes(self):
+        self._flag_gap("CUT"); c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def test_flagged_gap_still_pick_fails(self):
+        self._flag_gap("PASS"); self.assertFail("cut")
+T="Bhayshul Tuten Rush Yds Over 59.5"
+class GameScriptTest(Base):
+    """BUG-2026-11-01-RBSCRIPT. Replays IND@JAX (JAX -10.5, IND 4.49 RB YPC, sustained-wind flag)."""
+    def setUp(self):
+        super().setUp()
+        RP=json.load(open(os.path.join(HERE,"fixtures","indjax_rbscript_expected.json")))
+        self.m["legs"]=[l for l in self.m["legs"] if l["name"]!=H]
+        for s in self.m["sims"]: s["legs"].pop(H,None)
+        L=dict(name=T,player="Bhayshul Tuten",team="JAX",opp="IND",type="RB",market="rushyds",receiving=False,side="over",line=59.5,
+               price_fd=-158,no_vig=0.5772,status="PASS",game="IND@JAX",spread=-10.5,repriced_game_script=True,
+               recent_form=dict(values=[73.0,73.0,72.0,39.0],games=["2026_03_NE_JAX","2026_04_JAX_CIN","2026_05_PHI_JAX","2026_06_HOU_JAX"],qb="Trevor Lawrence",
+                                source="runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse thru 2026-10-29)",pulled_et="2026-11-01T10:00"))
+        self.m["legs"].append(L)
+        for s in self.m["sims"]:
+            k={"monte_carlo":"mc","bias":"bias","game_randomness":"gr"}[s["model"]]
+            s["legs"][T]=dict(p=RP["lead"]["p"][k],median=RP["lead"]["median"][k],script="boosted",carry_boost=RP["lead"]["boost"])
+        self.m["weather"]={"TEN@CIN":dict(roof="open",precip_pct=10,gust_mph=8,wind_mph=5,source="x",pulled_et="2026-11-01T10:00"),
+                           "IND@JAX":dict(roof="open",precip_pct=43,gust_mph=19,wind_mph=16,source="https://api.weather.gov/x",pulled_et="2026-11-01T10:00")}
+        self.m["game_script_rb"]={"IND@JAX":self.blk(),"TEN@CIN":dict(fav_team="CIN",fav_spread=-3.5,opp_ypc=4.1,wx_flag=False,triggered=False,source="pbp",pulled_et="2026-11-01T10:00")}
+        p=os.path.join(self.d,"checklist.md"); lines=[x for x in rd(p).splitlines() if not x.startswith("| "+H+" |")]
+        for ph in range(1,16):
+            st="FAIL" if ph==7 else ("N/A" if ph in (4,5) else "PASS")
+            lines.append(f"| {T} | {ph} x | {st} | carry share last4 [0.5,0.68,0.81,0.46] | nflverse pbp | 2026-11-01 10:00 |")
+        wr(p,"\n".join(lines)+"\n"); self.save()
+    def blk(self,**kw):
+        RP=json.load(open(os.path.join(HERE,"fixtures","indjax_rbscript_expected.json")))
+        b=dict(fav_team="JAX",fav_spread=-10.5,opp_ypc=4.49,wx_flag=True,triggered=True,lead_rb="Bhayshul Tuten",rb2="Chris Rodriguez Jr.",
+               boost=dict(lead=RP["lead"]["boost"],rb2=RP["rb2"]["boost"],source="tools/rb_script_boost.json"),
+               rb2_projection=dict(market="rushyds",median=RP["rb2"]["median"]),model_order=["rushyds","rushrec","recyds","passyds"],
+               source="nflverse pbp + The Odds API",pulled_et="2026-11-01T10:00"); b.update(kw); return b
+    def test_tuten_survives_phase7_when_repriced(self):
+        c,o=self.run_gate(); self.assertEqual(c,0,o); self.assertIn("GAME SCRIPT",o)
+    def test_block_missing_when_trigger_met_fails_closed(self):
+        del self.m["game_script_rb"]["IND@JAX"]; self.save(); self.assertFail("game_script_rb")
+    def test_block_missing_weather_flagged_fails_closed(self):
+        del self.m["game_script_rb"]["IND@JAX"]; self.leg(T)["spread"]=-2.5; self.save(); self.assertFail("game_script_rb")
+    def test_not_repriced_phase7_still_cuts(self):
+        self.leg(T)["repriced_game_script"]=False; self.save(); self.assertFail("phases [7]")
+    def test_other_checks_still_apply(self):
+        p=os.path.join(self.d,"checklist.md"); wr(p,rd(p).replace(f"| {T} | 8 x | PASS",f"| {T} | 8 x | FAIL")); self.assertFail("phases")
+    def test_edge_rule_still_applies(self):
+        self.leg(T)["no_vig"]=0.80; self.save(); self.assertFail("edge")
+    def test_rb2_projection_required(self):
+        self.m["game_script_rb"]["IND@JAX"]=self.blk(rb2_projection=None); self.save(); self.assertFail("rb2")
+    def test_weather_rush_before_pass(self):
+        self.m["game_script_rb"]["IND@JAX"]=self.blk(model_order=["passyds","rushyds"]); self.save(); self.assertFail("order")
+    def test_declared_trigger_mismatch_fails(self):
+        self.m["game_script_rb"]["IND@JAX"]=self.blk(triggered=False); self.save(); self.assertFail("game_script_rb")
+    def test_minus_6_5_vs_4_5_no_weather_no_waiver(self):
+        self.m["weather"]["IND@JAX"].update(precip_pct=10,gust_mph=8,wind_mph=5); self.leg(T)["spread"]=-6.5
+        self.m["game_script_rb"]["IND@JAX"]=self.blk(fav_spread=-6.5,opp_ypc=4.5,wx_flag=False,triggered=False); self.save()
+        o=self.assertFail("phases [7]"); self.assertNotIn("GAME SCRIPT:",o)
+    def test_minus_7_vs_4_3_no_waiver(self):
+        self.m["weather"]["IND@JAX"].update(precip_pct=10,gust_mph=8,wind_mph=5); self.leg(T)["spread"]=-7.0
+        self.m["game_script_rb"]["IND@JAX"]=self.blk(fav_spread=-7.0,opp_ypc=4.3,wx_flag=False,triggered=False); self.save()
+        o=self.assertFail("phases [7]"); self.assertNotIn("GAME SCRIPT:",o)
+
+P="Tony Pollard Rush Yds Over 65.5"
+class RBMissTest(Base):
+    """BUG-2026-11-01-RBMISS gate side: D dog-RB exception, A promotion record, E split re-price, F soft run D. Pollard replay = TEN@CIN pregame."""
+    def setUp(self):
+        super().setUp()
+        self.m["legs"]=[l for l in self.m["legs"] if l["name"]!=H]
+        for s in self.m["sims"]: s["legs"].pop(H,None)
+        L=dict(name=P,player="Tony Pollard",team="TEN",opp="CIN",type="RB",market="rushyds",receiving=False,side="over",line=65.5,price_fd=-113,no_vig=0.5,
+               status="PASS",game="TEN@CIN",spread=12.5,
+               dog_rb_exception=dict(medians=dict(mc=77.7,bias=67.5,gr=76.6),backup_out=True,backup="Tyjae Spears",carry_share=0.77,main_line=65.5),
+               recent_form=dict(values=[48.0,52.0,76.0,129.0],games=["2026_04_TEN_BAL","2026_05_HOU_TEN","2026_06_TEN_IND","2026_07_CLE_TEN"],qb="Cam Ward",
+                                source="runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse thru 2026-10-29)",pulled_et="2026-11-01T10:00"))
+        self.m["legs"].append(L)
+        for s in self.m["sims"]:
+            k={"monte_carlo":"mc","bias":"bias","game_randomness":"gr"}[s["model"]]
+            s["legs"][P]=dict(p=dict(mc=.656,bias=.521,gr=.623)[k],median=L["dog_rb_exception"]["medians"][k])
+        self.m["rb_status"]={"TEN":dict(rb1="Tony Pollard",rb1_status="Active",rb2="Tyjae Spears",rb2_status="Out",source="ESPN injuries API",pulled_et="2026-11-01T10:00")}
+        p=os.path.join(self.d,"checklist.md"); lines=[x for x in rd(p).splitlines() if not x.startswith("| "+H+" |")]
+        det={6:"clutch D/F: no trailing-script overs",7:"carry share last4 [0.62, 0.78, 0.86, 0.83]; tgt/g 2.3 / rush-only over on possible trailer needs 4+ tgt/g",13:"TEN +12.5 (underdog); 10G: underdog over BLOCKED"}
+        for ph in range(1,16):
+            st="FAIL" if ph in det else ("N/A" if ph in (4,5) else "PASS")
+            lines.append(f"| {P} | {ph} x | {st} | {det.get(ph,'ok')} | nflverse pbp | 2026-11-01 10:00 |")
+        wr(p,"\n".join(lines)+"\n"); self.save()
+    FORM=("§7 FAIL over","§14 FAIL at")   # Pollard's real pregame recent form still fails §7/§14 — other checks still apply
+    def ok(self):
+        c,o=self.run_gate(); miss=[x for x in o.splitlines() if x.startswith("  - leg ") or x.startswith("  - ") and "MISSES" in o and o.index(x)>o.index("MISSES")]
+        bad=[x for x in o.split("Notes:")[0].splitlines()[1:] if x.startswith("  - ") and not any(f in x for f in self.FORM)]
+        self.assertEqual(bad,[],o); return o
+    def ex(self): return self.leg(P)["dog_rb_exception"]
+    def test_pollard_o655_survives_dog_blocks(self):
+        o=self.ok(); self.assertIn("DOG RB EXCEPTION",o); self.assertIn("§7 FAIL over",o)
+    def test_one_median_below_line_still_cut(self):
+        self.ex()["medians"]["bias"]=63.0; self.save(); self.assertFail("phases")
+    def test_backup_active_and_share_under_70_still_cut(self):
+        self.ex()["backup_out"]=False; self.ex()["carry_share"]=0.65; self.save(); self.assertFail("phases")
+    def test_share_70_without_backup_out_survives(self):
+        self.ex()["backup_out"]=False; self.ex()["carry_share"]=0.72; self.save(); self.ok()
+    def test_rung_above_main_line_not_modest(self):
+        self.ex()["main_line"]=59.5; self.save(); self.assertFail("phases")
+    def test_backup_out_claim_must_match_rb_status(self):
+        self.m["rb_status"]["TEN"]["rb2_status"]="Active"; self.save(); self.assertFail("dog_rb_exception")
+    def test_other_phase_fail_still_cuts(self):
+        p=os.path.join(self.d,"checklist.md"); wr(p,rd(p).replace(f"| {P} | 8 x | PASS",f"| {P} | 8 x | FAIL")); self.assertFail("phases")
+    def test_non_script_phase7_reason_not_waived(self):
+        p=os.path.join(self.d,"checklist.md"); wr(p,rd(p).replace("rush-only over on possible trailer needs 4+ tgt/g","snap share fell 3 straight weeks")); self.assertFail("phases [7]")
+    def test_edge_rule_still_applies(self):
+        self.leg(P)["no_vig"]=0.70; self.save(); self.assertFail("edge")
+    # A
+    def promo(self): return {"NYJ":dict(rb2="Braelon Allen",injured="Breece Hall",tau=0.3923,tau_source="tools/rb_miss_fit.json",share_own=0.3,share_new=0.55,
+                                       p=dict(mc=.6,bias=.55,gr=.6),median=dict(mc=80,bias=75,gr=80),source="sim_v6.promote_rb",pulled_et="2026-11-01T10:00")}
+    def test_rb1_out_without_promotion_fails_closed(self):
+        self.m["rb_status"]["NYJ"]=dict(rb1="Breece Hall",rb1_status="Out",rb2="Braelon Allen",rb2_status="Active",source="ESPN",pulled_et="2026-11-01T10:00"); self.save(); self.assertFail("rb_promotion NYJ")
+    def test_rb1_out_with_promotion_passes(self):
+        self.m["rb_status"]["NYJ"]=dict(rb1="Breece Hall",rb1_status="Out",rb2="Braelon Allen",rb2_status="Active",source="ESPN",pulled_et="2026-11-01T10:00")
+        self.m["rb_promotions"]=self.promo(); self.save(); o=self.ok(); self.assertIn("RB PROMOTION",o)
+    def test_promotion_missing_model_fails(self):
+        self.m["rb_status"]["NYJ"]=dict(rb1="Breece Hall",rb1_status="Out",rb2="Braelon Allen",rb2_status="Active",source="ESPN",pulled_et="2026-11-01T10:00")
+        pr=self.promo(); del pr["NYJ"]["p"]["gr"]; self.m["rb_promotions"]=pr; self.save(); self.assertFail("rb_promotion NYJ")
+    # E
+    def test_split_flag_without_reprice_fails(self):
+        self.leg(P)["split_flag"]=True; self.save(); self.assertFail("split_reprice")
+    def test_split_flag_with_both_backs_passes(self):
+        self.leg(P)["split_flag"]=True
+        bk=lambda n:dict(player=n,share_range=[.3,.6],p={k:dict(mc=.5,bias=.5,gr=.5) for k in ("lo","mid","hi")})
+        self.m["split_reprice"]={"TEN":dict(backs=[bk("Tony Pollard"),bk("Julius Chestnut")],source="sim_v6.split_reprice",pulled_et="2026-11-01T10:00")}; self.save()
+        self.ok()
+    def test_split_one_back_only_fails(self):
+        self.leg(P)["split_flag"]=True
+        self.m["split_reprice"]={"TEN":dict(backs=[dict(player="Tony Pollard",share_range=[.3,.6],p={k:dict(mc=.5,bias=.5,gr=.5) for k in ("lo","mid","hi")})],source="x",pulled_et="2026-11-01T10:00")}; self.save()
+        self.assertFail("split_reprice")
+    # F
+    def test_soft_run_d_requires_record(self):
+        self.leg(P)["opp_rb_ypc"]=4.5; self.save(); self.assertFail("soft_run_d")
+    def test_soft_run_d_43_needs_nothing(self):
+        self.leg(P)["opp_rb_ypc"]=4.3; self.save(); self.ok()
+    def test_soft_run_d_record_passes(self):
+        self.leg(P)["opp_rb_ypc"]=4.5; self.leg(P)["soft_run_d"]=dict(applied=1.0,fitted=0.9479,source="tools/rb_miss_fit.json"); self.save(); self.ok()
+
+if __name__=="__main__": unittest.main()
+
+PFR="/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html"
+EXC={"input":"coverage.defenders","source":PFR,"approved_by":"Rico","approved_on":"2026-11-01",
+     "valid_for_date":"2026-11-01","scope":"receiving legs",
+     "reason":"PFR advanced defense cache saved Oct 29 6:02 AM ET (live pull 403); misses roughly the last 2 games per team; approved by Rico for Nov 1, 2026 receiving legs only; 48 h rule applies again Monday."}
+class ExceptionTest(GateTest):
+    def setUp(self):
+        super().setUp()
+        self.m["game_date"]="2026-11-01"; self.m["approved_exceptions"]=[dict(EXC)]
+        d=self.leg()["coverage"]["defenders"][0]; d["source"]=PFR; d["pulled_et"]="2026-10-29T06:02"
+        self.save(); wr(os.path.join(self.d,"report.md"),"# Report\n\n## Risks\n- Approved exception: pfr_def_adv_2026.html stale cache (coverage.defenders).\n")
+    def test_exception_applied_on_date(self):
+        c,o=self.run_gate(); self.assertEqual(c,0,o); self.assertIn("APPROVED EXCEPTIONS",o); self.assertIn("pfr_def_adv_2026.html",o)
+    def test_exception_other_date_fails(self):
+        self.m["game_date"]="2026-11-02"; self.save()
+        c,o=subprocess.run([sys.executable,GATE,self.d,"--now","2026-11-02T12:00"],capture_output=True,text=True).returncode,None
+        self.assertNotEqual(c,0)
+        self.m["game_date"]="2026-11-01"; self.m["approved_exceptions"][0]["valid_for_date"]="2026-10-31"; self.save()
+        self.assertFail("stale")
+    def test_exception_not_for_manzone_mof(self):
+        cv=self.leg()["coverage"]
+        for k in ("man_zone","mof"): cv[k]["source"]=PFR; cv[k]["pulled_et"]="2026-10-29T06:02"
+        self.m["approved_exceptions"].append(dict(EXC,input="coverage.man_zone")); self.save()
+        o=self.assertFail("stale"); self.assertIn("man/zone",o); self.assertIn("MOF",o)
+    def test_exception_missing_from_risks_fails(self):
+        wr(os.path.join(self.d,"report.md"),"# Report\n\n## Risks\n- Pickens questionable.\n"); self.assertFail("risks")
+
+# ---- BUG-2026-11-01-FORM: skill §7 (HARD 3-of-4 with current QB) and §14 (yards-over cushion) ----
+def RF(vals,qb="J. Burrow"):
+    return {"values":vals,"games":[f"2026_0{i}_X_Y" for i in range(4,4+len(vals))],"qb":qb,
+            "source":"nflverse play_by_play_2026.parquet","pulled_et":"2026-11-01T09:00"}
+class FormTest(Base):
+    def setleg(self,line,side,price,vals,name=H):
+        L=self.leg(name); L["line"]=line; L["side"]=side; L["price_fd"]=price
+        if vals is None: L.pop("recent_form",None)
+        else: L["recent_form"]=RF(vals)
+        med=line+5 if side=="over" else line-5
+        for s in self.m["sims"]: s["legs"][name]["median"]=med
+        self.save()
+    def test_missing_recent_form_fails_closed(self):
+        self.setleg(58.5,"over",-115,None); self.assertFail("recent_form")
+    def test_recent_form_without_source_fails(self):
+        self.setleg(58.5,"over",-115,[90,80,75,40]); self.leg()["recent_form"]["source"]=""; self.save(); self.assertFail("recent_form")
+    def test_recent_form_needs_qb_and_games(self):
+        self.setleg(58.5,"over",-115,[90,80,75,40]); del self.leg()["recent_form"]["qb"]; self.save(); self.assertFail("qb")
+    def test_worthy_o295_2of4_fails_s7(self):
+        self.setleg(29.5,"over",-115,[20,70,73,11]); self.assertFail("§7")
+    def test_diggs_o425_fails_s7_and_s14(self):
+        self.setleg(42.5,"over",-120,[47,33,35,44]); o=self.assertFail("§7"); self.assertIn("§14",o); self.assertIn("39.5",o)
+    def test_dotson_u255_under_1of4_fails(self):
+        self.setleg(25.5,"under",-115,[30,40,20,26]); self.assertFail("§7")
+    def test_passing_over_with_cushion(self):
+        self.setleg(58.5,"over",-115,[90,80,75,40]); c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def test_passing_under_3of4(self):
+        self.setleg(25.5,"under",-115,[10,20,30,15]); c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def test_s14_band_113_149_median_short(self):  # 3/4 clear by 10% but median only +20%
+        self.setleg(50.0,"over",-130,[56,60,60,90]); self.assertFail("§14")
+    def test_s14_band_113_149_10pct_rule(self):     # median +30% but only 2 of 4 clear by 10%
+        self.setleg(50.0,"over",-130,[54,54,70,80]); self.assertFail("10%")
+    def test_s14_band_150_plus_needs_20pct(self):
+        self.setleg(50.0,"over",-160,[59,59,60,40]); self.assertFail("§14")
+        self.setleg(50.0,"over",-160,[61,61,60,40]); c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def test_s14_short_price_no_cushion(self):      # -110: §14 cushion not triggered, §7 still applies
+        self.setleg(50.0,"over",-110,[51,52,53,40]); c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def test_s14_missing_price_fails_closed(self):
+        self.setleg(58.5,"over",None,[90,80,75,40]); self.assertFail("price")
+    def test_s14_not_applied_to_catches(self):
+        self.setleg(4.5,"over",-140,[5,5,6,3],name=H); self.leg()["market"]="rec"; self.save()
+        c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def test_three_games_needs_3of3(self):
+        self.setleg(58.5,"over",-110,[90,80,40]); self.assertFail("§7")
+    def test_cut_leg_skips_form(self):
+        self.setleg(29.5,"over",-115,[20,70,73,11]); self.leg()["status"]="CUT"
+        for s in self.m["sims"]: s["legs"].pop(H)
+        self.save(); c,o=self.run_gate(); self.assertEqual(c,0,o)
+class CrossCheckTest(Base):
+    CC={"name":"PFF player props","url_or_file":"/workspace/x/pff_props.html","pulled_et":"2026-11-01T07:34","use":"pick-side cross-check only"}
+    def test_cross_check_not_gated_source(self):
+        self.m["cross_checks"]=[dict(self.CC)]; self.save(); c,o=self.run_gate(); self.assertEqual(c,0,o); self.assertIn("cross-check",o.lower())
+    def test_cross_check_future_time_fails(self):
+        self.m["cross_checks"]=[dict(self.CC,pulled_et="2026-11-01T13:00")]; self.save(); self.assertFail("future")
+    def test_cross_check_needs_source(self):
+        self.m["cross_checks"]=[dict(self.CC,url_or_file="")]; self.save(); self.assertFail("cross_check")
+    def test_cross_check_does_not_satisfy_category(self):
+        self.m["sources"]=[s for s in self.m["sources"] if s["category"]!="odds_props"]
+        self.m["cross_checks"]=[dict(self.CC,category="odds_props")]; self.save(); self.assertFail("odds_props")
+
+# ---- BUG-2026-11-01-WX: Phase 11 weather gate (precip >=50%, gusts >=20, sustained >=15; open-air only; <6 h) ----
+class WeatherTest(Base):
+    def wx(self,**kw):
+        w=dict(roof="open",precip_pct=10,gust_mph=8,wind_mph=5,source="https://api.weather.gov/x",pulled_et="2026-11-01T10:00"); w.update(kw)
+        self.m["weather"]={"TEN@CIN":w}
+        if w["roof"] not in ("dome","closed") and (w.get("precip_pct",0)>=50 or w.get("gust_mph",0)>=20 or w.get("wind_mph",0)>=15):
+            self.m["game_script_rb"]={"TEN@CIN":dict(fav_team="CIN",fav_spread=-3.5,opp_ypc=4.1,wx_flag=True,triggered=True,lead_rb="Chase Brown",rb2="Samaje Perine",
+                boost=dict(lead=1.07,rb2=1.11,source="tools/rb_script_boost.json"),rb2_projection=dict(market="rushyds",median=dict(mc=20,bias=20,gr=20)),
+                model_order=["rushyds","recyds"],source="pbp",pulled_et="2026-11-01T10:00")}
+        self.save()
+    def test_tb_storm_76pct_20gust_rec_over_pass_fails(self):
+        self.wx(precip_pct=76,gust_mph=20); o=self.assertFail("weather"); self.assertIn(H,o)
+    def test_precip_50_alone_flags(self):
+        self.wx(precip_pct=50); self.assertFail("weather")
+    def test_gust_20_alone_flags(self):
+        self.wx(gust_mph=20); self.assertFail("weather")
+    def test_sustained_15_flags(self):
+        self.wx(wind_mph=15,gust_mph=14); self.assertFail("weather")
+    def test_dome_not_flagged(self):
+        self.wx(roof="dome",precip_pct=90,gust_mph=35,wind_mph=25); c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def test_closed_roof_not_flagged(self):
+        self.wx(roof="closed",precip_pct=90,gust_mph=35); c,o=self.run_gate(); self.assertEqual(c,0,o)
+    def test_47pct_19mph_not_flagged(self):
+        self.wx(precip_pct=47,gust_mph=19,wind_mph=12); c,o=self.run_gate(); self.assertEqual(c,0,o); self.assertNotIn("WEATHER ALERT",o)
+    def test_missing_weather_open_air_fails_closed(self):
+        self.m.pop("weather",None); self.save(); self.assertFail("weather")
+    def test_missing_precip_input_fails_closed(self):
+        self.wx(); del self.m["weather"]["TEN@CIN"]["gust_mph"]; self.save(); self.assertFail("weather")
+    def test_weather_older_than_6h_fails(self):
+        self.wx(pulled_et="2026-11-01T05:30"); self.assertFail("stale")
+    def test_flagged_over_cut_passes_and_rush_over_unaffected(self):
+        self.wx(precip_pct=76,gust_mph=29); self.leg()["status"]="CUT"
+        for s in self.m["sims"]: s["legs"].pop(H)
+        self.save(); c,o=self.run_gate(); self.assertEqual(c,0,o); self.assertIn("WEATHER ALERT",o)
+    def test_alert_lists_placed_legs(self):
+        self.wx(precip_pct=76,gust_mph=29); self.leg()["status"]="CUT"
+        for s in self.m["sims"]: s["legs"].pop(H)
+        self.m["placed_legs"]=[{"game":"TEN@CIN","leg":"Tee Higgins Rec Yds 68.5 (PP $20)"},{"game":"KC@DEN","leg":"Walker 80+ rush+rec"}]; self.save()
+        c,o=self.run_gate(); self.assertEqual(c,0,o); a=o.split("WEATHER ALERT")[1]
+        self.assertIn("Tee Higgins Rec Yds 68.5",a); self.assertNotIn("Walker",a)

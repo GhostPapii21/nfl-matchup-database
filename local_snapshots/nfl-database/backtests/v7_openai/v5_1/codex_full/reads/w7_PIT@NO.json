@@ -1,0 +1,48 @@
+{
+ "game": "Week 7 PIT@NO / kickoff MISSING / PIT -3, NO +3 / total 43 / implied totals PIT 23, NO 20 / weather not saved; venue conditions, moneyline, opening lines, movement, rest and travel MISSING",
+ "script": {
+  "base": "PIT builds a modest lead and keeps J.Warren central to its offense, with rushing opportunities supplemented by receiving work. NO stays close enough that PIT cannot simply abandon passing; pace and halftime scoring are not established by the pack.",
+  "flip1": "NO leads early and PIT shifts toward passing. Warren's 17 targets over the last three games give his combined-yardage over another route to winning, but his receiving workload is not guaranteed.",
+  "flip2": "NO's blitz disrupts PIT possessions and creates a low-efficiency game. Warren's combined-yardage over becomes vulnerable even if he retains the backfield lead; Dowdle's rushing under can survive unless PIT changes its carry allocation."
+ },
+ "injury_fallout": "MISSING: PIT and NO injury reports, practice participation, offensive-line availability, defensive absences, final inactives and snap restrictions. Warren's 46 carries versus Dowdle's seven establish recent usage, not an injury explanation. No absences, returns or next-man-up changes are inferred. Source for all available facts: supplied pre-kickoff Week 7 pack; exact report timestamps are missing.",
+ "matchup": {
+  "shell": "MISSING: NO and PIT MOFO/MOFC splits, man/zone rates and individual coverage assignments. NO's middle-field 8.97 YPA allowed cannot establish Warren's specific coverage matchup.",
+  "pressure": "NO blitzes 34%; PIT QB EPA/dropback is -0.34 against blitz versus -0.05 without it. PIT blitzes 26%; NO QB EPA/dropback is -0.17 against blitz versus 0.07 without it. Actual pressure rates, time to throw and check-down rates are missing, so a blitz-driven receiving boost for Warren is not assumed.",
+  "bleeds": "NO has allowed 5.07 rushing yards per carry and 21 runs of at least 10 yards through six games. PIT has allowed 4.19 yards per carry and 17 such runs. These season-to-date defensive figures support testing PIT's lead-back rushing opportunity, but are not recent-game matchup splits.",
+  "overlap": "Warren owns 46 of the 57 listed PIT carries over the last three games and also has 17 targets. His established dual role overlaps with NO's permissive rushing efficiency. Dowdle's seven carries suggest limited access to that same matchup unless the allocation changes."
+ },
+ "form": "Source: supplied weeks 4\u20136 aggregates. Warren recorded 244 rushing yards and 148 receiving yards, totaling 392 yards across three games; the 130.7-yard arithmetic average is a descriptive check, not the edge itself. Dowdle recorded seven carries for 40 rushing yards, or 13.3 yards per game. Individual-game distributions, snaps, routes, red-zone usage, explosive-play dependence and comparable-opponent results are missing. NO's backfield also has split usage: Miller 36 carries, Kamara 17 and Donaldson 13; no cause for that allocation is supplied.",
+ "edge_players": [
+  {
+   "player": "jaylenwarren",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Warren can exceed 96.5 combined yards because PIT's recent lead runner also has an established receiving role, giving him two paths against a NO defense allowing 5.07 yards per carry.",
+   "must_be_true": "J.Warren rushrecyds >= 97 [because the pack records 46 carries and 17 targets over weeks 4\u20136 against NO's 5.07 rushing YPC allowed]",
+   "kills_it": "IF NO's pressure stalls PIT possessions and Warren's receiving work does not offset reduced rushing production THEN Warren rushrecyds over 96.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "ricodowdle",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Dowdle can stay below 28.5 rushing yards because PIT's recent carry allocation heavily favors Warren, leaving Dowdle little rushing volume even in a favorable matchup.",
+   "must_be_true": "R.Dowdle rushyds <= 28 [because the pack records seven carries for 40 yards over weeks 4\u20136 versus Warren's 46 carries]",
+   "kills_it": "IF PIT materially expands Dowdle's rushing role or he breaks a long run that takes him to at least 29 yards THEN Dowdle rushyds under 28.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Reads were formed from script and workload before comparing the lines. Warren's 392 combined yards across three games support testing over 96.5; Dowdle's seven carries for 40 yards support testing rushing under 28.5. These aggregates do not establish hit rates or simulated medians. Warren -113 requires approximately 53.05% to break even; Dowdle -112 requires 52.83%. Normalizing the supplied two-sided prices gives approximately 50.00% for Warren's over and 49.44% for Dowdle's rushing under, but these are supplied-market baselines, not verified Pinnacle probabilities. No quantified betting edge or stake is established.",
+  "disagrees": "NO's 5.07 rushing YPC allowed and 21 runs of at least 10 yards are counterevidence to Dowdle's under: limited carries could still produce 29 yards. NO's 34% blitz rate paired with PIT's -0.34 QB EPA/dropback against blitz is also an opposing efficiency signal for Warren's over, although it does not directly measure his production.",
+  "missing": "Projection model, simulations, individual-game distributions, Pinnacle prices, injury information, coverage charting, actual pressure rates and current weather.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Conditional candidates only: jaylenwarren rushrecyds over 96.5 at -113; ricodowdle rushyds under 28.5 at -112. Warren's combined market accommodates either rushing or receiving production; Dowdle's rushing-only market isolates the documented carry constraint. Neither price is validated as positive expected value. No alternate rung selected.",
+ "pre_mortem": "It is Monday and this workload story lost because NO's favorable rushing matchup benefited Dowdle rather than Warren. A redistribution of carries or one explosive Dowdle run defeated his under, while NO's blitz disrupted PIT's sustained offense enough to strand Warren below 97 combined yards. The pack lacks injury and snap information that could warn of a redistribution, and three-game totals can conceal volatile weekly roles. That counter-case prevents either candidate from becoming a strong recommendation.",
+ "slip_story": "Both candidates belong to a Warren-centered PIT offense: Warren accumulates combined yards while Dowdle remains a secondary runner. Their shared exposure is a backfield-role change, so they are not independent legs. Do not force a three- or four-leg slip from only two supported candidates; no finalized slip or wager is authorized. Step 12 is limited: this response records the hypotheses, but no external timestamped save, pre-kickoff hash or postgame grading is available. Grade the workload/script read separately from each eventual result.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

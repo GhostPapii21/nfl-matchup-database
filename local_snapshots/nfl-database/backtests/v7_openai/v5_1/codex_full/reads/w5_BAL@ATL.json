@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 BAL@ATL / kickoff MISSING / spread and total NOT SAVED; implied totals, moneyline and line movement MISSING / weather NOT SAVED / venue enclosure, rest and travel details MISSING",
+ "script": {
+  "base": "Inferred from team form only, not market expectations: BAL has the stronger passing-efficiency profile, with QB EPA/dropback of 0.39 against blitzes and 0.33 without them, while ATL is at -0.41 without a blitz. BAL gradually gains control, ATL initially maintains its substantial rushing commitment, and BAL's rushing efficiency is constrained by ATL's 2.99 YPC allowed; pace and halftime margin cannot be established from this pack.",
+  "flip1": "ATL controls possession through Bi.Robinson, whose last three games produced 411 yards on 64 carries, and Br.Robinson, who added 163 on 35. BAL trails and throws more, supporting Bateman receiving opportunities while reducing Henry's rushing volume.",
+  "flip2": "BAL builds an early lead through its efficient passing attack and shifts heavily toward Henry, who already has 65 carries over the last three games. That clock-control script threatens the Henry under and could leave Bateman short of receiving opportunities."
+ },
+ "injury_fallout": "MISSING: BAL and ATL injury reports, practice participation, offensive-line availability, defensive absences, final inactives and returning-player snap limits. No absences, returns or next-man-up changes are inferred from the supplied usage. Source for available usage: supplied pre-kickoff pack, weeks 2\u20134; exact publication timestamps are not supplied. Recheck both teams' final reports and approximately 90-minute inactives before treating either candidate as actionable.",
+ "matchup": {
+  "shell": "MISSING: BAL and ATL MOFO/MOFC splits, man/zone rates and receiver alignment charting. ATL's location splits cannot establish which defender or shell Bateman will face.",
+  "pressure": "ATL blitzes 23%; BAL QB EPA/dropback is positive both against blitzes, 0.39 on 39 dropbacks, and without blitzes, 0.33. BAL blitzes 31%; ATL QB EPA/dropback is 0.12 against blitzes on 45 dropbacks versus -0.41 without them. Source: supplied pre-kickoff pack. Pressure rates, sacks, time to throw and check-down rates are missing; blitz frequency alone does not establish pressure effectiveness.",
+  "bleeds": "ATL allows only 2.99 rushing YPC and two runs of 10-plus yards through four games, providing a matchup-based reason to question Henry's rushing efficiency. ATL's middle passing YPA allowed is 8.86 on 22 attempts, versus 6.45 left and 5.23 right; it has allowed 15 passing gains of 20-plus yards on 185 attempts. BAL allows 3.91 rushing YPC and 11 runs of 10-plus yards. Source: supplied season-to-date defensive pack.",
+  "overlap": "Henry's substantial rushing role directly meets ATL's demonstrated run-defense strength. Bateman's receiving opportunity is supported by 14 targets and 178 air yards over weeks 2\u20134, but a specific coverage weakness overlapping his routes cannot be verified. Andrews leads BAL with 18 targets; Bateman is not presented as the primary target."
+ },
+ "form": "Source: supplied weeks 2\u20134 aggregates, not individual-game logs. Henry recorded 65 carries for 230 yards, or 3.54 YPC; Bateman recorded 14 targets, 171 receiving yards and 178 air yards. Flowers had 16 targets and 202 receiving yards, while Andrews had 18 targets and 100 yards, showing competition for BAL targets. ATL's Bi.Robinson recorded 64 carries for 411 yards, Br.Robinson 35 for 163, and London 21 targets for 341 receiving yards. These aggregates cannot establish weekly consistency, snap or route trends, red-zone roles, or whether one explosive play inflated production.",
+ "edge_players": [
+  {
+   "player": "derrickhenry",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Henry's rushing under is a matchup hypothesis: ATL's 2.99 YPC allowed and just two 10-plus-yard runs conceded can suppress his efficiency enough to offset a substantial workload.",
+   "must_be_true": "Derrick Henry rushing_yards <= 80 [because ATL allowed 2.99 YPC and only two 10-plus-yard runs through four games]",
+   "kills_it": "IF BAL builds an early lead and Henry's resulting carry volume overwhelms ATL's efficiency advantage THEN Derrick Henry rushyds under 80.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "rashodbateman",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Bateman's established downfield opportunity offers a plausible route over a low receiving threshold while BAL's passing attack has remained efficient against both blitz and non-blitz looks.",
+   "must_be_true": "Rashod Bateman receiving_yards >= 18 [because he accumulated 14 targets and 178 air yards across weeks 2\u20134]",
+   "kills_it": "IF BAL's passing volume contracts and its limited targets concentrate on Andrews and Flowers THEN Rashod Bateman recyds over 17.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written matchup hypotheses precede these threshold checks. Henry's 230 rushing yards across three games equal 76.7 per game, below 80.5; his 21.7 carries per game nevertheless leave substantial volume risk. Bateman's 171 receiving yards equal 57.0 per game against a 17.5 line, but an aggregate mean is not a median or hit probability. Both reads survive the base script and the ATL-control flip; an early BAL runaway threatens both. The supplied numbers support the directions, not a quantified betting edge. No projection, simulation or calibrated probability has been fabricated.",
+  "disagrees": "none",
+  "missing": "Projection model, simulated medians, individual-game distributions, Pinnacle prices and sharp no-vig benchmark; injuries and inactives; coverage and pressure charting; weather; market snapshot; exact as-of timestamps; persistent pre-kickoff read storage and hash; postgame outcomes for separate read/result grading.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line candidates only: Derrick Henry rushyds under 80.5 at -111.5; Rashod Bateman recyds over 17.5 at -113.5. Listed-price break-even probabilities are approximately 52.72% and 53.16%, respectively, before removing vig. These are not Pinnacle no-vig probabilities. No alternative rung, stake or positive-EV claim is justified by the pack.",
+ "pre_mortem": "It is Monday and both candidates lost because BAL's efficient passing created an early lead, but the initial production went to Andrews and Flowers rather than Bateman. BAL then leaned on Henry's already substantial workload, allowing him to exceed 80.5 even without excellent efficiency. ATL's four-game run-defense sample may also overstate its ability to contain this particular rushing offense. Bateman's three-game yardage total could conceal uneven weekly involvement, and missing availability information could invalidate either role assumption. This is the strongest shared counter-case; it keeps both candidates at lean rather than strong.",
+ "slip_story": "The shared story is competitive play or ATL possession control: ATL limits Henry's rushing efficiency while BAL retains enough passing volume for Bateman to reach 18 yards. Neither candidate requires a shootout. Do not force a 3\u20134-leg slip from only two supported hypotheses, and do not treat their joint probability as independent. No finalized slip or bet placement.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

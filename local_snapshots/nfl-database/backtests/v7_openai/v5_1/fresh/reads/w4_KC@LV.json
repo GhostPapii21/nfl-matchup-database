@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 KC@LV / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this is form-only. KC's clearest edge is Kenneth Walker (65 carries, 360 rush yards, 5.54 YPC, 120.0 rush yards/game) into an LV run defense allowing 4.47 YPC and 8 runs of 10+. KC also has two high-volume pass options (Travis Kelce 18 targets/231 rec yards; Rashee Rice 17/190) while LV's run game is volume without efficiency (Ashton Jeanty 63/206, 3.27 YPC) and KC allows only 3.90 YPC and 5 passes of 20+ on 99 attempts. Base script: KC controls into the second half, Walker stays near 18-22 carries, Kelce works the middle on about 5-6 targets, and LV is pushed toward checkdowns rather than explosives.",
+  "flip1": "KC jumps ahead early and clocks it. Walker rush overs are helped; Kelce and Rice receiving yards stall after halftime, so pass-catcher overs are script-dependent on this flip.",
+  "flip2": "LV hangs around or leads and KC throws to chase. Walker carries fall toward the mid-teens and the rush over is at risk; Kelce/Rice overs benefit. LV still is unlikely to rip explosives given KC's 5/99 rate."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, game-time decisions, and inactives for both KC and LV. No next-man-up or absence is inferred from usage.",
+ "matchup": {
+  "shell": "MISSING: no MOFO/MOFC or man/zone charting in the pack. Location splits only: LV allows 9.83 YPA middle (12 att) vs 7.26 left (39) and 5.91 right (45); KC allows 10.0 YPA middle (20 att) vs 5.26 left (39) and 4.06 right (36).",
+  "pressure": "LV blitzes only 21%. Patrick Mahomes EPA/dropback is 0.41 vs blitz (n=27) vs 0.19 with no blitz, so the low blitz rate does not create a pressure problem for KC. KC blitzes 31%. Kirk Cousins EPA/dropback is 0.11 vs blitz (n=30) vs 0.16 with no blitz, a modest KC pressure edge that can push LV toward Ashton Jeanty checkdowns rather than deep shots.",
+  "bleeds": "LV bleeds the run (4.47 YPC, 8 runs of 10+ in 3 games) and the middle of the field (9.83 YPA on 12 attempts). KC bleeds the middle (10.0 YPA on 20 attempts) but not the outside (left 5.26, right 4.06) and has allowed only 5 passes of 20+ on 99 attempts.",
+  "overlap": "Kenneth Walker's 21.7 carries/game and 5.54 YPC attack exactly where LV gives up rushing yards (4.47 YPC). Travis Kelce's 18 targets and 231 receiving yards, as the KC tight end, overlap LV's middle leak (9.83 YPA). Tre Tucker (228 air yards, 15.2 air/target) does not: he attacks the outside/deep area KC has not bled."
+ },
+ "form": "Walker L3: 65 carries/360 rush yards (120.0/g, 5.54 YPC) plus 18 targets/82 rec yards/4 air yards \u2014 stable lead-back role, not a one-play rushing sample. Kelce L3: 18 targets/231 rec yards/118 air yards (77.0 rec yards/g, 12.8 yards per target). Rice 17/190/126 (63.3/g) sits closer to his 57.5 line. Worthy 15 targets/63 rec yards/95 air yards (21.0/g) is under his 33.5 line but boom/bust. Jeanty 63/206 (68.7 rush yards/g at 3.27 YPC) and 17 targets/97 rec yards. Tucker 15/189/228 air (63.0 rec yards/g) vs a defense with 5 explosives on 99 throws. Bowers 13/116/106 is 38.7 rec yards/g against a 69.5 line. Per-game splits are not in the pack, so a single spike inside these aggregates cannot be separated.",
+ "edge_players": [
+  {
+   "player": "kennethwalkeriii",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Kenneth Walker has averaged 120 rush yards on 21.7 carries at 5.54 YPC, and even at LV's allowed 4.47 YPC that carry rate projects about 97 yards, so 86.5 is short of both his role and this run defense.",
+   "must_be_true": "Kenneth Walker carries >= 16 because he averaged 21.7 carries and 5.54 YPC over the last 3 games and LV allows 4.47 YPC",
+   "kills_it": "IF KC trails and Kenneth Walker finishes with fewer than 16 carries THEN Kenneth Walker rush yards over 86.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "traviskelce",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Travis Kelce has averaged 77 receiving yards on 6 targets per game at 12.8 yards per target into an LV defense allowing 9.83 YPA in the middle, so 47.5 is well under the role if he stays a primary option.",
+   "must_be_true": "Travis Kelce targets >= 4 because he had 18 targets and 231 receiving yards over the last 3 games and LV allows 9.83 YPA in the middle",
+   "kills_it": "IF KC leads big by halftime and Travis Kelce is held under 4 targets THEN Travis Kelce receiving yards over 47.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or no-vig price is in the pack, so step 8 cannot be priced against Pinnacle. Present numbers agree with both reads: Walker 120.0 rush yards/game and 21.7 carries times LV's 4.47 YPC is about 97 vs the 86.5 line; Kelce 77.0 receiving yards/game vs 47.5, with LV middle YPA 9.83 supporting the tight-end overlap. Mahomes is better vs the blitz (0.41 vs 0.19) and LV blitzes only 21%, so pressure does not cut the KC pass game.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injury report, inactives, coverage shell and man/zone rate, per-game splits, no-vig price, projection, sim median",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Volume plus a soft run defense: Kenneth Walker rush yards over 86.5 at -113.5, main line, not a short alt. Middle/efficiency overlap: Travis Kelce receiving yards over 47.5 at -119, main line. No sim or no-vig in the pack, so no alt rung. Passing yards, receptions, and TDs are out of scope. Tre Tucker rec yards over 38.5 is not used: his 63.0/g form conflicts with KC allowing 5 passes of 20+ on 99 attempts and 4.06-5.26 YPA outside.",
+ "pre_mortem": "It's Monday and both lost. Walker: LV sells out to the run, his 5.54 YPC regresses toward something under 4.0, and a chase script cuts him to about 15 carries, so 15 times 4.0 is 60 and 86.5 never threatens; the 360 yards may also be one spike game the aggregate hides. Kelce: the 231 yards are one long-YAC game, his true rate is near 40, LV's middle 9.83 YPA is 12 attempts of noise, and a KC clock-kill after an early lead holds him under 4 targets and under 47.5. That counter is real on Kelce (lean, script-dependent) and weaker on Walker, whose 65-carry role still clears 86.5 at LV's own 4.47 YPC if carries stay near 20.",
+ "slip_story": "One story: KC's offense functions and controls, not a shootout and not a total (total not in pack). Anchor is Kenneth Walker rush yards over in the lead/clock script; Travis Kelce receiving yards over belongs only while KC is still throwing, and is tagged script-dependent on flip 1 (early KC lead, pure run). Do not add LV deep overs (Tre Tucker, Jalen Nailor) that need explosives KC has not allowed, and do not add Ashton Jeanty rush under \u2014 his 68.7 rush yards/game is above 59, so that under needs the opposite of his own volume.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

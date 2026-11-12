@@ -1,0 +1,39 @@
+{
+ "game": "Week 7 SF@ATL / kickoff time MISSING / SF -2.5, ATL +2.5 / total 49.5 / implied totals SF 26.0, ATL 23.5 / weather MISSING. Source: supplied pre-kickoff pack; exact as-of timestamp, moneylines, opening lines, movement, venue surface, rest and travel details MISSING.",
+ "script": {
+  "base": "SF narrowly leads into the second half rather than building an immediate blowout. The working hypothesis is that SF can distribute its passing production through Evans and Kittle without requiring heavy McCaffrey receiving production, while maintaining its rushing component; pace and garbage-time volume are unverified.",
+  "flip1": "SF establishes a substantial early lead and reduces passing volume late. This would further support McCaffrey receiving under, although the pack does not establish how SF allocates carries when protecting leads.",
+  "flip2": "ATL takes the lead and forces SF into sustained passing volume. McCaffrey's receiving under becomes script-dependent if that produces substantially more underneath targets."
+ },
+ "injury_fallout": "MISSING: SF and ATL injury reports, practice participation trends, final injury designations, inactive lists, offensive-line availability, defensive absences and returning-player snap limits. No absence, return or next-man-up role is inferred from the supplied usage. Recheck final reports and approximately 90-minute inactives before using the read; those checkpoints cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: ATL and SF MOFO/MOFC rates, man/zone rates and individual coverage assignments. ATL's middle-field passing allowance cannot establish that McCaffrey faces a favorable or unfavorable specific defender.",
+  "pressure": "Source: supplied season-to-date defensive and QB splits. ATL blitzes 26%; SF QB EPA/dropback is 0.38 against blitz and 0.36 without blitz, providing no clear evidence that blitzing forces SF into a checkdown-dependent offense. Actual pressure rate, sack rate and time to throw are MISSING. SF blitzes 32%; ATL QB EPA/dropback is 0.01 against blitz versus -0.26 without blitz.",
+  "bleeds": "Source: supplied defensive pack through six games. ATL allows 9.06 passing yards per attempt over the middle on 32 attempts, versus 6.44 left and 5.95 right, but those location splits are not RB receiving splits. ATL allows 3.81 rushing yards per carry. SF allows 3.66 rushing yards per carry, only four runs of 10-plus yards, and 13 pass plays of 20-plus yards on 226 attempts.",
+  "overlap": "The McCaffrey under hypothesis is that SF need not manufacture receiving volume for him to move the ball. Evans and Kittle led the supplied three-game target totals with 24 and 20, while McCaffrey had 18 targets but only 27 air yards. Their actual alignments and overlap with ATL's middle-field weakness are MISSING."
+ },
+ "form": "Source: supplied SF weeks 4\u20136 aggregates. McCaffrey recorded 18 targets, 86 receiving yards and 27 air yards, alongside 42 carries for 184 rushing yards. Evans recorded 283 receiving yards on 24 targets and Kittle 163 on 20. These aggregates support a distributed passing-role hypothesis but do not reveal individual-game consistency. MISSING: game-by-game results, routes, snaps, red-zone usage, comparable opponents, play-caller changes and defensive results against comparable receiving backs.",
+ "edge_players": [
+  {
+   "player": "christianmccaffrey",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "McCaffrey can stay below 47.5 receiving yards because SF has established alternative passing outlets and the supplied blitz splits do not show a need to funnel its offense through checkdowns.",
+   "must_be_true": "christianmccaffrey receiving_yards <= 47 [because the pack records 86 receiving yards and 27 air yards across weeks 4\u20136, with Evans and Kittle ahead of him in targets]",
+   "kills_it": "IF ATL builds an early lead and SF responds with repeated McCaffrey checkdowns or one long catch-and-run that takes him to at least 48 receiving yards THEN christianmccaffrey recyds under 47.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The script and role hypothesis precede the numerical test. McCaffrey's supplied three-game receiving production is 28.7 yards per game, below 47.5, but this descriptive figure is not a projection or an estimated hit rate. His 18 targets show meaningful involvement, so the under is not a no-role argument. The offered -115 requires approximately 53.49% to break even. Normalizing the supplied under -115 and over -114 gives approximately 50.10% for the under; that is only an offered-market comparison, not a Pinnacle benchmark or evidence of positive expected value. Nothing supplied clearly contradicts the limited receiving-yard hypothesis; keep it a lean without a quantified stake.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation distribution and median, calibrated hit probability, Pinnacle prices, game-level receiving distribution, routes, snaps, RB-specific coverage data, injuries and weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate only: christianmccaffrey recyds under 47.5 at -115, the supplied main line. Receiving yards is permitted; receptions are unavailable under the backtest constraints. No alternate rung, verified positive-EV estimate or stake recommendation.",
+ "pre_mortem": "It is Monday and the under lost because ATL led early, SF threw more than expected, and McCaffrey became the preferred short outlet. Eighteen targets over three games are enough involvement for one explosive catch to defeat this line, and ATL's 9.06 middle-field YPA allowance leaves an unresolved concern without route or coverage charting. Missing injury information could also conceal a redistribution of targets. These uncertainties prevent strong confidence; the base case and SF-leading flip support the under, but the ATL-leading flip does not reliably do so.",
+ "slip_story": "This candidate belongs to an SF-controls-the-game story in which McCaffrey's receiving volume remains secondary to other passing outlets and the rushing game. Do not force a 3\u20134-leg slip: only one player clears the hypothesis screen here, and no joint probabilities are available. No TD leg, duplicate player market or bet placement.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

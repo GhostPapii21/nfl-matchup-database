@@ -1,0 +1,64 @@
+{
+  "blitz_rate": {
+    "value": 0.33,
+    "definition": "BAL defense: >=5 pass rushers / FTN-charted dropbacks",
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet + /workspace/nfl-database/week10/bal_secondary/raw/ftn_charting_2026.parquet",
+    "pulled_et": "2026-11-03T19:13",
+    "season": 2026,
+    "data_week": 8,
+    "sample": 300
+  },
+  "pressure_rate": {
+    "value": 0.24333333333333335,
+    "definition": "BAL defense (sack OR qb_hit OR qb_scramble) / dropbacks",
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+    "pulled_et": "2026-11-03T19:13",
+    "season": 2026,
+    "data_week": 8,
+    "label": "PROXY",
+    "sample": 300
+  },
+  "checkdown_share": {
+    "value": 0.21717171717171718,
+    "definition": "Lawrence attempts with air_yards<=0 OR RB target / non-sack attempts",
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+    "pulled_et": "2026-11-03T19:13",
+    "season": 2026,
+    "data_week": 8,
+    "label": "PROXY",
+    "sample": 198
+  },
+  "time_to_throw": {
+    "status": "MISSING",
+    "reason": "No valid NGS time-to-throw source; pbp has no time-to-throw field. Do not substitute play clock.",
+    "value": null,
+    "source": "/workspace/nfl-database/week10/brainstorm_layers/layers.md",
+    "pulled_et": "2026-11-04T05:18"
+  },
+  "targets_under_pressure": {
+    "value": {
+      "total": 39,
+      "by_receiver": {
+        "P.Washington": 10,
+        "J.Meyers": 8,
+        "B.Strange": 5,
+        "B.Tuten": 5,
+        "Bri.Thomas": 2,
+        "N.Boerkircher": 2,
+        "L.Allen": 2,
+        "J.Cameron": 2,
+        "Q.Morris": 1,
+        "C.Rodriguez": 1,
+        "T.Hunter": 1
+      },
+      "share_of_targets": 0.203125
+    },
+    "definition": "Lawrence targeted attempts under sack/hit/scramble/FTN out-of-pocket proxy; sacks cannot be targeted attempts",
+    "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet + /workspace/nfl-database/week10/bal_secondary/raw/ftn_charting_2026.parquet",
+    "pulled_et": "2026-11-03T19:13",
+    "season": 2026,
+    "data_week": 8,
+    "label": "PROXY",
+    "dropbacks_under_proxy": 56
+  }
+}

@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 LA@DEN / kickoff MISSING / spread and total NOT saved; moneyline, implied totals and movement MISSING / weather NOT saved",
+ "script": {
+  "base": "Inferred only from Weeks 1\u20132 team form, not betting lines: LA has a plausible path to controlling the game through its rushing tandem against DEN's 5.41 YPC allowed. DEN's passing production remains concentrated toward J.Waddle, while LA's defense limits explosive passes; a modest LA lead is the working hypothesis, not a market-backed expectation.",
+  "flip1": "DEN leads early and LA increases passing volume. T.Ferguson's receiving under becomes more vulnerable, although C.Sutton still needs a larger share or better efficiency than his first two games.",
+  "flip2": "Both offenses exploit blitzes or generate unexpected explosives, producing a pass-heavy scoring exchange. Both receiving unders become vulnerable to increased opportunities."
+ },
+ "injury_fallout": "MISSING: LA and DEN injury reports, practice trends, final designations, inactives, offensive-line availability, defensive absences and snap restrictions. No absences, returns or replacement roles are inferred from usage. Final-report and approximately 90-minute pre-kickoff inactive checks cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: DEN and LA MOFO/MOFC splits, man/zone rates and individual coverage assignments. Directional passing results cannot establish which defender will cover Ferguson or Sutton.",
+  "pressure": "Pack, through Week 2: DEN blitzes 34%; LA's QB EPA/dropback is -0.16 against blitzes on 15 dropbacks versus 0.22 without blitzes. LA blitzes 30%; DEN's QB EPA/dropback is -0.55 against blitzes on 23 dropbacks versus 0.16 without blitzes. These splits suggest passing disruption is plausible, but pressure rates, sacks and time to throw are missing.",
+  "bleeds": "DEN has allowed 5.41 rushing YPC and seven runs of 10+ yards, supporting an LA rushing route. LA has allowed only two passes of 20+ yards on 68 attempts, versus five on 60 attempts for DEN. DEN's left-side passing allowance is 9.36 YPA, but receiver alignment data is missing.",
+  "overlap": "Sutton's limited production intersects with an LA defense that has allowed few explosive passes, while Waddle leads DEN with 13 targets versus Sutton's nine. Ferguson's under rests primarily on his modest receiving production and LA's available rushing matchup, not a proven DEN weakness or strength against tight ends."
+ },
+ "form": "Source: supplied pre-kickoff pack, Weeks 1\u20132 only; the 'over L3' labels do not supply a third game. Sutton has nine targets, 36 receiving yards and 71 air yards across two games; Waddle has 13 targets, 140 receiving yards and 166 air yards. Ferguson has 10 targets, 54 receiving yards and 78 air yards; Adams leads LA with 16 targets and 221 receiving yards. Williams and Corum have 23 and 22 carries for 126 and 133 yards, respectively. These are aggregate totals, not individual-game hit rates. MISSING: snaps, routes, game-by-game trends, red-zone work, comparable opponents and coaching changes.",
+ "edge_players": [
+  {
+   "player": "courtlandsutton",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Sutton can stay under 36.5 receiving yards because Waddle has led DEN's passing production and LA has allowed only two explosive completions on 68 attempts.",
+   "must_be_true": "courtlandsutton receiving_yards <= 36 [because the pack records 36 receiving yards on nine targets across Weeks 1\u20132, behind Waddle's 140 yards on 13 targets]",
+   "kills_it": "IF Sutton becomes DEN's primary target during an extended comeback or catches a long completion that takes him above 36 yards THEN courtlandsutton recyds under 36.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "terranceferguson",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Ferguson can stay under 50.5 receiving yards because his two-game total is only 54 yards and LA has a credible rushing alternative against DEN's 5.41 YPC allowed.",
+   "must_be_true": "terranceferguson receiving_yards <= 50 [because the pack records 54 receiving yards and 78 air yards across Weeks 1\u20132, while LA's two leading rushers have 45 combined carries]",
+   "kills_it": "IF an early DEN lead forces sustained LA passing and Ferguson converts his target volume into at least 51 yards THEN terranceferguson recyds under 50.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypotheses precede this numerical check. Sutton's two-game receiving rate is 18 yards per game against 36.5; Ferguson's is 27 against 50.5. Those comparisons support testing the unders but are not projections or sufficient betting edges by themselves. Both are leans with substantial two-game sample uncertainty. No available pack number clearly contradicts these narrowly framed reads.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations and medians, calibrated hit probabilities, Pinnacle identification and sharp no-vig prices, individual-game distributions, routes, coverage charting, injury information and weather. Listed two-sided prices are not identified as Pinnacle; no sharp-price comparison or model-based sizing is possible.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate main lines only: courtlandsutton recyds under 36.5 at -114.5; terranceferguson recyds under 50.5 at -113.5. Receiving yards matches the modest-production hypotheses. No alternate rung, quantified edge or stake is established; missing model and sharp-price validation prevents a completed betting stamp.",
+ "pre_mortem": "It's Monday and both unders lost: DEN took an early lead, LA abandoned its favorable rushing matchup, and Ferguson's existing 10-target involvement translated into better efficiency. Sutton then benefited from increased passing volume or an explosive completion despite LA's early-season defensive results. Neither player's two-game total proves a stable role or ceiling, and missing injury information could conceal a target redistribution. Ferguson's volume is the strongest counter-case to his under; Sutton's 71 air yards show opportunities beyond his realized production. Both legs survive the base script and could survive a competitive, low-explosive DEN lead, but neither is robust to a pass-heavy shootout.",
+ "slip_story": "A restrained-passing, LA-rushing-control story links these candidates. Do not force a 3\u20134-leg slip from two unpriced leans or add conflicting shootout overs. No slip is finalized, no bet is placed, and no live information is used. The pack identifies the evidence as pre-kickoff but supplies no exact capture timestamp; a persisted timestamped read, hash and later separate READ-versus-RESULT grading are unavailable.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

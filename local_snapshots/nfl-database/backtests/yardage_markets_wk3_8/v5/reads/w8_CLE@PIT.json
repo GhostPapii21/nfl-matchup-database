@@ -1,0 +1,46 @@
+{
+ "game": "Sun Nov 01 1:00 PM ET Acrisure Stadium outdoor / PIT -3.5 / total 39 (checklist 39.5; implied ~PIT 21.25 CLE 17.75) / header wind 5.4 temp 67.4 vs Open-Meteo 2026-10-29 05:25 EDT 58.2F precip 0% wind 2.8 gust 5.4, 3 days out",
+ "script": {
+  "base": "Divisional grind at home: PIT leads by about a FG into the fourth in a ~39 total, so implied scoring is roughly PIT 21 / CLE 18, not a shootout. PIT leans on Jaylen Warren (47 carries, 252 yards in weeks 5-7) and still throws enough for primary target Germie Bernard (26 targets). CLE mixes Deshaun Watson designed runs (17 carries, 88 yards L3) with an inefficient deep game (Denzel Boston 20 targets, 315 air yards, only 88 rec yards).",
+  "flip1": "CLE scores first or hangs around and PIT trails. Aaron Rodgers is -0.30 EPA/dropback vs blitz (n=88) vs -0.02 with no blitz; if CLE brings pressure, Warren's carries die and Rodgers checks down or takes sacks. Warren rush over loses; Bernard, Warren receiving, and Rico Dowdle short targets gain.",
+  "flip2": "PIT is up 14+ by halftime, kills the clock with Warren and Dowdle, and CLE abandons Quinshon Judkins (31 carries, 140 yards L3). Bernard's routes shrink. Garbage-time CLE dropbacks can spike Boston or K.C. Concepcion air yards without efficient yards."
+ },
+ "injury_fallout": "No named DNP, questionable, or inactive is in this excerpt. Checklist marks Wed designations logged but Thursday report and 90-minute inactives PENDING (injuries.json not provided), so no next-man-up is applied and no OL-out pressure bump is used. Dylan Sampson is on the board (rush 11.5, rec 16.5, rush+rec 31.5) but has zero carries and zero targets in CLE's weeks 5-7 lines, so he is not treated as an injury replacement. Sources: pack usage tables; checklist P3.ol_health / P4.injury_alerts / P9.injury_spikes PARTIAL as of 2026-10-29 05:25 EDT.",
+ "matchup": {
+  "shell": "Man/zone and MOFO/MOFC percentages are not in the numeric pack (Sharp pages cited Oct 20 as current, rates not given). Location split that is in the pack: PIT allows middle 7.58 YPA (45 att), left 6.88 (110), right 6.10 (84). CLE allows middle 8.30 YPA (47 att), left 6.41 (88), right 5.85 (101).",
+  "pressure": "PIT blitz rate 27%. Watson EPA/dropback -0.07 vs blitz (n=90) vs +0.07 with no blitz, so pressure pushes him toward Harold Fannin (16 targets L3) and Judkins (5 targets) and away from Boston's deep air. CLE blitzes only 24%, but Rodgers is the fragile QB at -0.30 EPA vs blitz. Charted pressure rate unavailable (checklist P1.pressure PARTIAL).",
+  "bleeds": "CLE run defense is the soft spot: 4.54 YPC allowed and 28 runs of 10+ in 7 games. PIT run defense is stouter at 3.87 YPC and 17 runs of 10+. Both pass defenses bleed the middle more than the outside; CLE's 8.30 middle YPA is the wider hole. Explosives: PIT 23 passes of 20+ on 257 att; CLE 20 on 257 att.",
+  "overlap": "Warren's 15.7 carries/game and 5.36 YPC over weeks 5-7 run into CLE's 4.54 YPC defense in a PIT-favored script. Bernard (26 targets, 194 yards, 117 air yards L3, about 7.5 yards/target) is the volume target into that middle bleed. Concepcion (171 yards on 17 targets) would attack PIT's middle (7.58) but a 39 total caps CLE drives. Boston's 315 air yards are volume without efficiency (88 rec yards), not a clean overlap."
+ },
+ "form": "Weeks 5-7 only. Warren 47/252 rush (84.0 ypg) plus 14 targets/151 rec yards on -26 air yards, so the receiving piece looks YAC-spiky without game splits. Dowdle 16/81 rush (27.0 ypg) and 10 targets/54 rec, clear backup. Bernard 8.7 targets and 64.7 rec ypg at a normal 7.5 yards/target. DK Metcalf 25 targets/161 yards/243 air is 53.7 ypg against a 53.5 line, inefficient. Pat Freiermuth 14/75/121 is 25.0 ypg vs 24.5. Judkins 31/140 is 46.7 rush ypg vs a 47 line, plus 5 targets/14 rec yards. Watson 17/88 is 29.3 rush ypg vs 25.5. Concepcion 17/171/168 is 57.0 ypg vs 46.5. Boston 20/88/315 is 29.3 ypg vs 47.5. Jerry Jeudy 15/109/134 is 36.3 ypg vs a 21.5 line with no injury note explaining the gap, so he is passed. Sampson is absent from the usage table.",
+ "edge_players": [
+  {
+   "player": "jaylenwarren",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Warren is the PIT clock back (47 carries, 252 yards, 5.36 YPC over weeks 5-7) against a CLE run defense allowing 4.54 YPC and 28 runs of 10+, and 64.5 sits under both his recent 84.0 ypg and a volume-held matchup estimate of about 15 carries times 4.54.",
+   "must_be_true": "PIT does not trail early, Warren keeps the lead-back share near 14-16 carries, and he is active with no snap cap (none listed as of the 2026-10-29 build).",
+   "kills_it": "CLE leads and PIT abandons the run, or Dowdle (16 carries L3) takes a full series and Warren finishes around 11-12 carries at CLE's 4.54 rate (about 50-55 yards).",
+   "confidence": "strong"
+  },
+  {
+   "player": "germiebernard",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Bernard is PIT's primary target (26 targets, 194 yards, 117 air yards in weeks 5-7, 64.7 ypg) into the area CLE actually bleeds (middle 8.30 YPA), and 44 is about three full targets under that role if he still sees 6-plus looks.",
+   "must_be_true": "Base script stays a modest PIT lead so Rodgers still throws on early downs, Bernard keeps the top target share, and he is active.",
+   "kills_it": "PIT blowout clock-kill drops him to 4 targets, or the 194 L3 yards are one long screen plus two quiet games (no per-game split in the pack to rule that out).",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so this is a form check only, not a sized model. Available form agrees: Warren 84.0 rush ypg vs 64.5, and 15 carries at CLE's 4.54 YPC is about 68, still over; Bernard 64.7 rec ypg vs 44. Judkins rush under 47 was considered and dropped because L3 46.7 is at the number, a lean the data does not support. Jeudy over 21.5 form-agrees (36.3) but the line is an unresolved market tell with injuries pending, so it is not used. No 70%+ model probability is claimed.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Jaylen Warren rush yards over 64.5 at -115.5. Germie Bernard rec yards over 44 is listed +nan on both sides, so there is no price to take until a book number is confirmed. No alt rungs in the pack. One market per player; no TDs, receptions, or passing yards.",
+ "pre_mortem": "Monday both lose on opposite flips of the same modest-lead story. Warren finishes under 64.5 because CLE led, PIT threw to catch up, Dowdle took early downs, and 12 carries at a regressed 4.3 YPC landed near 52. Bernard finishes under 44 because the 194 L3 yards were one explosive screen, PIT led by 17 at half, Rodgers handed off 22 times, and Bernard saw 4 targets for 28. They only cash together if the game stays close enough to run Warren and still throw to Bernard. Missing inactives or a Warren snap limit, neither in this pack, would also wipe the rush over.",
+ "slip_story": "One base-script modest PIT lead stack, not a blowout stack and not a shootout. Warren rush over is the control leg into CLE's soft run defense. Bernard rec over is the same-game primary-target leg and needs early-down throws in a 21-17 type game; do not add it if the price stays blank. Do not pair with Judkins rush over, a game under plus more overs, or Boston's deep over.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

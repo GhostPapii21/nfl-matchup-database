@@ -1,0 +1,46 @@
+{
+ "game": "Week 3 KC@MIA / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so the script is inferred only from two-game form. KC has the clearer offense: Kenneth Walker 47 carries for 290 yards plus 16 targets for 79 receiving yards, Travis Kelce 16 targets for 172 yards, and Mahomes 0.36 EPA/dropback vs blitz (n=24) against 0.10 when not blitzed. MIA blitzes 41% and its QB is -0.50 EPA vs blitz (n=18) vs +0.12 with no blitz, while KC has allowed only 2 passes of 20+ on 63 attempts. Base case: KC controls a competitive game, stays balanced, Walker keeps the carry share, and Kelce is the first answer to the blitz in the middle.",
+  "flip1": "MIA hangs around or leads and KC passes more. Walker carries slide toward the Emmett Johnson/Mahomes share (10 and 6 carries over two games) but his 8 targets per game can still feed rush+rec; Kelce, Rashee Rice (8 targets, 102 yards) and Xavier Worthy (13 targets) see more volume.",
+  "flip2": "KC jumps ahead early and clocks it. Walker rushing stays live or rises, and Kelce/Worthy/Tyquan Thornton receiving stalls the way a big lead stalls skill-player yards. That flip helps a Walker rush leg and is the main way a Kelce over loses."
+ },
+ "injury_fallout": "No injury report, practice trend, questionable tag, snap limit, or inactive list is in the as-of pack; every figure is pre-kickoff weeks [1, 2]. No absence, so no next-man-up or backup-coverage edge can be assigned. Roles already on the sheet: KC carries Walker 47, Emmett Johnson 10, Mahomes 6, K.Tonga 1; KC targets Kelce 16, Walker 16, Worthy 13, Rice 8, Thornton 5, Johnson 4, N.Gray 2. MIA carries D.Achane 31, Malik Willis 8, Ollie Gordon 3, J.Wright 3; MIA targets Malik Washington 13, Achane 11, C.Douglas 10, Greg Dulcich 5, Chris Bell 3, D.Herman 3, Kevin Coleman 2. Re-check would be required at inactives; that checkpoint is not in the pack.",
+ "matchup": {
+  "shell": "Coverage charting is not in the pack, so MOFO vs MOFC and man vs zone are unknown. Location proxy only: MIA allows 11.27 YPA on 15 middle attempts, 8.09 on 22 left, 6.67 on 15 right. KC allows 10.25 YPA on only 8 middle attempts, 6.16 on 25 left, 4.04 on 26 right.",
+  "pressure": "MIA blitz rate 41%. Mahomes is better into that look (0.36 EPA, n=24) than when not blitzed (0.10), so pressure should feed quick answers to Kelce and check-downs to Walker/Johnson rather than kill KC deep yards. KC blitzes 32%. MIA's QB falls apart vs blitz (-0.50 EPA, n=18) vs +0.12 with no blitz, which caps Miami explosives; passing yards are not a legal market here.",
+  "bleeds": "MIA run defense allows 3.95 YPC and 6 runs of 10+ in two games \u2014 average, not a wall and not a soft box. MIA's pass bleed is the middle (11.27 YPA) plus explosives (6 of 20+ on 52 attempts). KC allows 3.93 YPC and 5 runs of 10+, but only 2 passes of 20+ on 63 attempts, with the right side at 4.04 YPA.",
+  "overlap": "Kelce is the yards leader (172 rec, 85 air on 16 targets) into the exact area MIA bleeds (middle 11.27 YPA) and into a 41% blitz Mahomes has crushed. Walker is the usage overlap: about 23.5 carries and 8 targets a game against a run defense that has already leaked 6 runs of 10+ and a blitz that can spill check-downs to the back."
+ },
+ "form": "Sample is two games only (weeks [1, 2], pack label L3). Walker 47/290 rush (6.17 YPC) and 16/79/11 receiving is a role, not one long play, though that YPC can regress. Kelce 16/172/85 is the stable primary, 86 yards per game. Worthy 13/43/82 is targets without yards, under a 38.5 line. Rice 8/102/51 is efficient but 48.5 sits on his per-game average. Thornton 5/86/121 is deep-shot inflation (121 air yards). Johnson 4 targets for 64 yards on -12 air yards is a YAC spike. Achane 31/110 (3.55 YPC, 55 rush yards per game) and 11/49 receiving. Washington 13/96/162 is explosive-dependent into a KC defense with 2 such plays allowed. No similar-defense split, new play-caller, or weather split is in the pack.",
+ "edge_players": [
+  {
+   "player": "kennethwalkeriii",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Walker is the KC skill engine \u2014 47 carries for 290 and 16 targets for 79 over two games, about 184 rush+rec per game \u2014 and 109.5 sits roughly 70 yards under that role against a MIA run defense at 3.95 YPC that has allowed 6 runs of 10+.",
+   "must_be_true": "He is active for a full complement (no snap limit in the pack), keeps the 47-to-10 carry edge over Emmett Johnson, and KC gets a normal play count whether they lead or trail.",
+   "kills_it": "A low-play slog or a committee cut to about 12 carries and 2-3 targets, or a late inactive. 18 carries at a regressed 4.0 YPC (72) plus 20 receiving is 92 and loses to 109.5.",
+   "confidence": "strong"
+  },
+  {
+   "player": "traviskelce",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Kelce is the primary target at 16 targets and 172 yards (86 per game) and he works the middle, where MIA allows 11.27 YPA, into a 41% blitz Mahomes has played at 0.36 EPA.",
+   "must_be_true": "He plays a full route share, stays the first read vs pressure, and KC does not spend the second half only running clock.",
+   "kills_it": "Flip-2 lead that clocks Kelce down to 3-4 targets, or an uncharted bracket (no shell data in the pack) that pushes explosives to Worthy and Thornton. Four targets at 10 yards is 40 and loses to 52.5.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so step 8 cannot be priced and no 70%+ probability is claimed. Pack counting stats agree and do not contradict: Walker about 184 rush+rec per game vs 109.5; Kelce 86 rec yards per game vs 52.5. Two-game peaks can regress, but that is a sizing caution, not a pack disagreement. Washington under 40.5 was a lean the 48-per-game form disagrees with, so it was dropped rather than flagged.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only; no alt rungs in the pack. kennethwalkeriii rushrecyds over 109.5 -113.5 (components rush over 85.5 -114 and rec over 22.5 -114; combo is not a discounted alt). traviskelce recyds over 52.5 -113.5. Receptions, passing yards, and TDs not used. Prices are near even, not short-priced alts.",
+ "pre_mortem": "It's Monday and both overs lost because the two-game peaks were the trap and the missing spread hid a bad script. Miami loaded the box after Walker's 290-yard fortnight, Johnson took the change-of-pace, and a short second half left Walker around 14 carries for 55 plus a couple of catches, under 109.5 combined. Kelce was bracketed \u2014 shell charting was never in the pack \u2014 and a KC lead let them run, so he finished near 4 for 38 while the two explosives MIA still allows (6 of 20+ on 52 throws) went to Worthy and Thornton. That counter-case is real on sample size and the clock-kill flip, which is why Kelce is only a lean; it is not stronger than Walker's carry-and-target gap, so the Walker leg stays.",
+ "slip_story": "One story only: KC's offense functions against a 41% blitz and a middle that leaks. Walker rush+rec over and Kelce rec-yards over win together in a competitive KC-control game. Do not add a pure clock-kill stack or a game under (total not in the pack). rushrec, not rush alone, is what keeps Walker alive if flip1 makes the game pass-heavy. MIA unders (Achane rush under 60.5, Washington under 40.5) are a different story and were not used.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

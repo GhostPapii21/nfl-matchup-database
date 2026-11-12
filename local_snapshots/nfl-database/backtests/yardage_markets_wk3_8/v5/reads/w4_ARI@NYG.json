@@ -1,0 +1,46 @@
+{
+ "game": "Week 4 ARI@NYG / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so the script is inferred from form only: a competitive, role-stable game, not a declared shootout or blowout. Both clubs already run through one back (Skattebo 50 carries/177 yards, Love 41/160) and both fronts have been soft (NYG 4.94 YPC allowed, ARI 4.63). Neither blitzes heavily (NYG 26%, ARI 22%), so the base flow is NYG feeding Skattebo and ARI mixing Love with McBride as the first read (34 targets, 211 yards, 182 air yards).",
+  "flip1": "NYG falls behind and abandons the run. Skattebo's 16.7-carry pace dies the way a trailing back's line dies, and NYG's QB is already -0.62 EPA/dropback vs blitz (n=29) against +0.28 clean, so even ARI's 22% blitz rate can turn the comeback into failed deep shots (Nabers 185 air yards for 96 rec yards, Fields 213 air for 74).",
+  "flip2": "ARI gets up and hands it to Love, or pressure (ARI QB -0.12 EPA vs blitz, n=28, vs +0.18 clean) turns the game into a short-yardage slog. McBride's 11.3 targets shrink, Wilson's 295 air yards never become explosives against a NYG defense that has allowed only 6 passes of 20+ on 101 attempts, and both overs die together."
+ },
+ "injury_fallout": "No injury report, practice trend, or inactives in the pack, so nobody is marked out and no next-man-up share can be cited. Usage only: ARI targets sit with McBride (34/211/182) and Wilson (31/163/295); Harrison is a small role (9/73/159) and the pack does not say why. NYG carries sit with Skattebo (50/177) over Harris (13/58) and Singletary (9/25); targets sit with Likely (23/124/133) over Nabers (19/96/185). Brissett is the ARI rusher in the log (8/28). Winston is on the NYG rush board but is absent from the L3 rusher list (Dart 8/59 is the other NYG rusher), so his role is not confirmed. A late scratch of Skattebo or McBride would void these reads; that checkpoint is not in the pack.",
+ "matchup": {
+  "shell": "MOFO/MOFC and man/zone charting are not in the pack. Location splits only: NYG left 6.72 YPA (46 att), middle 8.11 (9 att), right 6.69 (45 att) \u2014 perimeter contained, middle barely tested. ARI left 9.58 (26), middle 9.2 (25), right 9.03 (29) \u2014 bled at every landmark.",
+  "pressure": "NYG blitzes 26%; ARI QB is -0.12 EPA vs blitz (n=28) and +0.18 clean, so pressure hurts but is not the weekly script. ARI blitzes 22%; NYG QB is -0.62 vs blitz (n=29) and +0.28 clean, so any real pressure collapses NYG's unconverted deep game (Nabers 185 air, Fields 213 air) into Likely and Skattebo checkdowns.",
+  "bleeds": "NYG run defense allows 4.94 YPC and 9 runs of 10+, but only 6 passes of 20+ on 101 attempts. ARI run defense allows 4.63 YPC and 11 runs of 10+, and the pass defense allows 9 explosives on 84 attempts with 9-plus YPA left, middle, and right.",
+  "overlap": "ARI's top option is McBride, a TE with 34 targets and 182 air yards, which is the middle area NYG has faced only 9 times and allowed 8.11 YPA on. NYG's top skill touch is Skattebo's 50 carries into ARI's 4.63 YPC front. Nabers into ARI's soft secondary is a theoretical overlap, but 32 rec yards/game does not support a 55-yard line."
+ },
+ "form": "L3 aggregates only, no game logs, so one-play inflation cannot be separated. ARI: Love 41/160 (13.7 att, 53.3 yds, 3.90 YPC) plus 12 targets/44 rec yards; Allgeier 24/70 (8 att, 23.3 yds, 2.92 YPC); McBride 34/211/182 (11.3 tgt, 70.3 yds); Wilson 31/163/295 (10.3 tgt, 54.3 yds, air not converting); Bourne 14/108/56 (36 yds on modest targets \u2014 fluky risk); Harrison 9/73/159. NYG: Skattebo 50/177 rush (16.7 att, 59.0 yds, 3.54 YPC) and 8 tgt/59 rec; Harris 13/58 (19.3 yds); Singletary 9/25; Likely 23/124/133 (41.3 yds, the 41.5 line is the mean); Nabers 19/96/185 (32 yds); Fields 12/74/213; Mooney 8/95/91 (efficient on 8 targets \u2014 do not trust); Johnson 5/9/57 (3 yds/game).",
+ "edge_players": [
+  {
+   "player": "camskattebo",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Skattebo is the NYG bellcow at 50 carries and 177 rush yards over 3 games, well clear of Harris (13) and Singletary (9), and ARI has allowed 4.63 YPC plus 11 runs of 10+, so a normal 16-carry day only needs a small efficiency bump to clear 62.5, which is just 3.5 yards above his 59-yard average.",
+   "must_be_true": "He is active with no snap cap (not in the pack), keeps about 15 or more carries, and NYG is not forced to abandon the run.",
+   "kills_it": "NYG trails and goes pass-only, or Harris and Singletary cut him to about 12 carries at his own 3.54 YPC, which stays under 62.5.",
+   "confidence": "lean"
+  },
+  {
+   "player": "treymcbride",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "McBride is ARI's primary receiver by a clear margin (34 targets, 211 yards, 182 air yards in 3 games, about 70 yards a game) and 63.5 sits under that role, while NYG has barely been attacked in the middle (9 attempts, 8.11 YPA) where the TE lives.",
+   "must_be_true": "He plays his normal snaps and stays the first read, and ARI does not spend the afternoon in a Love clock-grind that cuts pass attempts.",
+   "kills_it": "ARI leads early and runs \u2014 Love already has 41 carries and 160 yards \u2014 or NYG brackets the TE and the 34-target role does not travel.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so this is not a priced-model check and neither lean should be sized as if it were 70%+. Form in the pack does not disagree: Skattebo 59.0 rush yards/game vs 62.5, with 16.7 carries at even 4.0 YPC equaling 66.8 against a defense allowing 4.63; McBride 70.3 rec yards/game vs 63.5. No pack number cuts either lean. Do not upgrade Skattebo to rushrecyds 86 (combined average about 78.7, price missing).",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only, one market per player: camskattebo rushyds over 62.5 at -113; treymcbride recyds over 63.5 at -114. No alt rungs in the pack. Do not take the unpriced Skattebo rushrecyds over 86.",
+ "pre_mortem": "It's Monday and both lost because the missing spread was a blowout the form could not see. NYG trailed, Skattebo's 50-carry role shrank, and his 3.54 YPC never rose to ARI's 4.63 allowed, so 12 carries finished near 42 while Harris (4.46 YPC on 13 carries) took the efficient runs. ARI saw NYG allow 4.94 YPC, handed the game to Love (41 carries, 160 yards), and McBride's 11-target pace became 6 targets in the mid-40s, under 63.5. That counter-case is serious and is why both are leans, not strong, but it is not stronger than the role reads unless the real spread shows a big favorite.",
+ "slip_story": "One competitive-game stack, not a shootout and not a clock-kill: Skattebo rush over (NYG runs on ARI's soft front) with McBride rec over (ARI's first read, line under his rate). They win together only if neither team blows the other out. Do not add Wilson (54.3 yards, 295 air yards, into a defense with 6 explosives on 101 throws), Nabers over 55 (32-yard role), Love over 66.5 (13 yards above his 53-yard rate), or any TD.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

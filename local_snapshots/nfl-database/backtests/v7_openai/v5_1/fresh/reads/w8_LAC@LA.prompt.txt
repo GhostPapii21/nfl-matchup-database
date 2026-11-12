@@ -1,0 +1,124 @@
+# Week 8 LAC@LA
+LA spread -6.5, total 46.5
+Weather: not saved.
+## LAC offense (last 3 games: weeks [4, 5, 6])
+Rushers (carries/yds over L3): O.Hampton 30.0/96; K.Vidal 20.0/103; K.Mitchell 18.0/54; J.Herbert 17.0/120
+Targets (tgt/rec yds/air yds over L3): O.Gadsden 14.0/53/110; K.Mitchell 11.0/42/-19; C.Kolar 10.0/57/52; K.Lambert-Smith 9.0/32/69; K.Vidal 9.0/29/-14; T.Harris 9.0/76/123; O.Hampton 7.0/35/-1
+LAC QB EPA/dropback vs blitz -0.28 (n=53) vs no blitz -0.23
+## LA defense (season to date, 7 games)
+Rush YPC allowed 4.22; 10+ yd runs allowed 20; 20+ yd pass plays allowed 14/241 att
+Pass YPA allowed by location: left 6.03 (89.0 att); middle 6.86 (50.0 att); right 5.41 (87.0 att)
+LA blitz rate 30%
+## LA offense (last 3 games: weeks [5, 6, 7])
+Rushers (carries/yds over L3): K.Williams 42.0/198; B.Corum 31.0/154; P.Nacua 4.0/19; D.Allen 1.0/0
+Targets (tgt/rec yds/air yds over L3): P.Nacua 41.0/286/301; K.Williams 16.0/66/2; C.Parkinson 14.0/82/33; T.Higbee 13.0/119/105; D.Adams 11.0/90/123; B.Corum 7.0/79/6; D.Allen 7.0/44/50
+LA QB EPA/dropback vs blitz -0.05 (n=90) vs no blitz 0.15
+## LAC defense (season to date, 6 games)
+Rush YPC allowed 4.34; 10+ yd runs allowed 19; 20+ yd pass plays allowed 17/182 att
+Pass YPA allowed by location: left 8.02 (63.0 att); middle 7.21 (38.0 att); right 7.4 (70.0 att)
+LAC blitz rate 27%
+# SAVED PREGAME CHECKLIST (excerpt)
+# LAC @ LAR — Week 8 60-check manifest
+Game 401873032, Sun Nov 01 04:05 PM ET, SoFi Stadium (outdoor), LAR -6.5 / 45.5. Built 2026-10-29 05:25 EDT. Status counts: {'PASS': 16, 'PARTIAL': 30, 'NOT_APPLICABLE': 3, 'UNAVAILABLE': 8, 'UNIMPLEMENTED': 3}
+
+| # | Check | Status | Reason | Evidence |
+|-|-|-|-|-|
+|1|P1.pbp|PASS|Repo SQLite plays (ESPN PBP) Wk1–7 + nflverse via overlay|repo/data/nfl_matchups.sqlite; fixes/fixes.sqlite|
+|2|P1.boxscores|PASS|player_stats + fix_player_game_usage|fixes/fixes.sqlite|
+|3|P1.tackles_sacks|PARTIAL|fix_play_credits reconciled; tackler≠coverage defender|fixes/FIXES.md|
+|4|P1.pressure|PARTIAL|Pressure is opponent-Sharp-allowed proxy + pbp sack/hit; no charted pressure source|defense/LAC_at_LAR.md|
+|5|P1.ol_snaps|PARTIAL|nflverse participation snaps only; Wk7 participation lag possible|fixes/fixes.sqlite fix_participation|
+|6|P1.air_yards|PARTIAL|NGS IAY per QB; per-target air yards via nflverse only where loaded|defense/raw|
+|7|P1.redzone|PASS|RZ targets/goal-line carries in baselines|team_baselines/LAC.md, LAR.md|
+|8|P1.scrambles|PARTIAL|fix_qb_rushing scramble flags from nflverse; ESPN PBP lacks explicit flag|fixes/fixes.sqlite fix_qb_rushing|
+|9|P2.team_defense|PASS|Production + explosive counts per game|defense/LAC_at_LAR.md|
+|10|P2.coverage|PASS|Sharp coverage pages dated Oct 20 = CURRENT per user (last games before slate)|defense/SOURCES.md|
+|11|P2.individual_assignments|PARTIAL|Only PBP-named defenders on big plays (weak signal); no charted assignment source|team_baselines/|
+|12|P2.weakest_link|PARTIAL|Alignment-level weakest link from Sharp ranks (see Soft spots); player-level unverified|defense/LAC_at_LAR.md|
+|13|P2.pressure_trend|PARTIAL|ESPN PRWR through Wk6 only; pbp sack/hit trend|defense/LAC_at_LAR.md|
+|14|P3.team_offense|PASS|QB/team production|team_baselines/|
+|15|P3.player_roles|PASS|Roles + L3 vs season shares; roster-checked 2026-10-29 05:25 EDT|defense/LAC_at_LAR.md; rosters/|
+|16|P3.ol_health|PARTIAL|OL designations from ESPN injuries; Thu practice pending|injuries.json|
+|17|P3.target_hierarchy|PASS|L3 vs season target/carry share (opportunity gate inputs)|team_baselines/|
+|18|P3.routes_gaps|PARTIAL|NGS separation/cushion; run gaps from pbp direction; no route participation|defense/raw|
+|19|P3.qb_blitz|PASS|FTN EPA vs blitz / no-blitz per offense|defense/LAC_at_LAR.md|
+|20|P4.slip_comparison|NOT_APPLICABLE|No slip supplied for this game|—|
+|21|P4.injury_alerts|PARTIAL|Wed status logged; Thursday reports PENDING|injuries.json; this file Injury impact|
+|22|P4.script_risk|PARTIAL|Backup-QB/workload risk noted from injuries; 10G labels pending|this file|
+|23|P5.bundle|PARTIAL|Markdown/JSON bundle; no engine-versioned bundle|week8/|
+|24|P5.provenance|PARTIAL|sha256 of inputs recorded below; engine code/model hash unavailable (nfl.py on user Mac)|this file|
+|25|P5.source_preservation|PASS|Repo SQLite untouched; fixes in overlay|fixes/PATCH_SPEC.md|
+|26|P6.live_policy|NOT_APPLICABLE|Pregame; live polling off|—|
+|27|P7.ngs_targeted_charts|PARTIAL|NGS public leaderboards (sep/cushion/YACOE/TTT); per-game targeted charts not read|defense/raw|
+|28|P7.all_routes|UNAVAILABLE|Route participation not in any public source loaded|—|
+|29|P7.run_concepts|UNAVAILABLE|No verified run-concept source; film pending|film/|
+|30|P7.strength_map|PARTIAL|Sharp alignment YPT + box rates; no side-level split|defense/LAC_at_LAR.md|
+|31|P7.rb_suppression|PARTIAL|RB YPC/rush+rec allowed + game state; RB quality adj not applied|defense/LAC_at_LAR.md|
+|32|P7.cb_suppression|UNAVAILABLE|Individual CB coverage stats are paid/not loaded|—|
+|33|P7.panthers_rule|PARTIAL|QB NGS/blitz review for: Justin Herbert; exact OL/pass-rush matchup not charted|defense/LAC_at_LAR.md|
+|34|P8.film|PARTIAL|Codex YouTube highlight notes done for LAC 2/6 games, LAR 2/6 (film/codex_out, still running; not yet verified vs pbp by this worker)|film/codex_out|
+|35|P8.personnel|UNAVAILABLE|Personnel packages need film; depth chart formation only|rosters/|
+|36|P8.scheme|PARTIAL|Coverage shells from Sharp (man/zone/MOFC); fronts/run fits need film|defense/LAC_at_LAR.md|
+|37|P8.missed_looks|UNAVAILABLE|Pending verified film notes|film/|
+|38|P8.film_notes|PARTIAL|Codex notes unverified; hypotheses only|film/codex_out|
+|39|P9.weather|NOT_APPLICABLE|SoFi Stadium has a fixed translucent roof (ESPN flags indoor=false); open-air sides, so wind/rain effect is minimal|slate.json|
+|40|P9.rest_travel|PASS|LAC last game 2026-10-18 (14 days rest); LAR last game 2026-10-25 (7 days). Time-zone change only from venue, no itineraries invented|ESPN team schedule API|
+|41|P9.stakes|PARTIAL|Records from ESPN scoreboard; divisional/rematch not a 2026 rematch; playoff-odds not pulled|defense/LAC_at_LAR.md|
+|42|P9.injury_spikes|PARTIAL|Exact-game availability: Wed designations; Thu/Fri + inactives pending|injuries.json|
+|43|P9.turnovers|PARTIAL|Turnovers in pbp/baselines; rolling interpretation not modeled|team_baselines/|
+|44|P9.situational_effi
+# AVAILABLE PROPS (main line)
+pukanacua (LA) rushrecyds over 102.5 -110.5
+matthewstafford (LA) rushyds over 0.5 +120
+treharris (LAC) recyds under 33 +nan
+laddmcconkey (LAC) recyds under 47.5 -113
+kyrenwilliams (LA) rushyds over 60.5 -113.5
+kyrenwilliams (LA) recyds over 24.5 -114.5
+tylerhigbee (LA) recyds under 36 +nan
+keatonmitchell (LAC) rushrecyds over 25.5 -120
+kimanividal (LAC) rushyds under 22.5 -113.5
+kimanividal (LAC) rushyds over 22.5 -113.5
+kimanividal (LAC) recyds under 7.5 -111
+kyrenwilliams (LA) recyds under 24.5 -114.5
+quentinjohnston (LAC) recyds under 33.5 -114
+pukanacua (LA) recyds over 94 +nan
+pukanacua (LA) rushyds under 0.5 -110
+omarionhampton (LAC) recyds under 6.5 -110
+omarionhampton (LAC) rushrecyds over 42.5 -120
+tylerhigbee (LA) recyds over 36 +nan
+omarionhampton (LAC) rushrecyds under 42.5 -111
+matthewstafford (LA) rushyds under 0.5 -160
+keatonmitchell (LAC) recyds under 7.5 -122
+kyrenwilliams (LA) rushrecyds under 90.5 -113
+blakecorum (LA) rushrecyds over 58.5 -115
+orondegadsdenii (LAC) recyds under 16.5 -116
+omarionhampton (LAC) rushyds over 33.5 -113.5
+justinherbert (LAC) rushyds over 24.5 -112
+charliekolar (LAC) recyds over 17.5 -114
+blakecorum (LA) recyds under 7.5 -116
+treharris (LAC) recyds over 33 +nan
+omarionhampton (LAC) rushyds under 33.5 -115
+pukanacua (LA) recyds under 94 +nan
+keatonmitchell (LAC) rushrecyds under 25.5 -110
+omarionhampton (LAC) recyds over 6.5 -119
+keatonmitchell (LAC) recyds over 7.5 -105
+justinherbert (LAC) rushyds under 24.5 -115
+keatonmitchell (LAC) rushyds under 15.5 -114
+konatamumpfield (LA) recyds under 17.5 -113
+keatonmitchell (LAC) rushyds over 15.5 -115
+kyrenwilliams (LA) rushyds under 60.5 -113.5
+konatamumpfield (LA) recyds over 17.5 -113
+blakecorum (LA) rushyds under 47 +nan
+kimanividal (LAC) rushrecyds under 34.5 -112
+laddmcconkey (LAC) recyds over 47.5 -117
+charliekolar (LAC) recyds under 17.5 -114
+quentinjohnston (LAC) recyds over 33.5 -113
+blakecorum (LA) rushrecyds under 58.5 -115
+pukanacua (LA) rushyds over 0.5 -115
+kyrenwilliams (LA) rushrecyds over 90.5 -114.5
+blakecorum (LA) rushyds over 47 +nan
+pukanacua (LA) rushrecyds under 102.5 -117.5
+blakecorum (LA) recyds over 7.5 -114
+kimanividal (LAC) rushrecyds over 34.5 -118.5
+orondegadsdenii (LAC) recyds over 16.5 -112.5
+kimanividal (LAC) recyds over 7.5 -116

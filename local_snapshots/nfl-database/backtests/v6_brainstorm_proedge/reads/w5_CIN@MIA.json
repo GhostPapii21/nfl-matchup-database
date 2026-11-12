@@ -1,0 +1,108 @@
+{
+ "game": "CIN@MIA Week 5 2026 (kickoff, spread, total, venue, weather not saved; morning injury report only)",
+ "script": {
+  "base": "No spread or total is saved, so this is a form script, not a market script. Cincinnati has been a pass-volume offense (Higgins 33 targets/342 yards and Chase 24/200 over weeks 2-4) while Miami has been a committee run offense with a runner at QB (Gordon 29/148, Achane 23/91, Willis 13/73) against a Cincinnati defense allowing 4.86 YPC. Base case is competitive and moderate pace: Miami runs enough to stay on schedule, Willis still has to throw to Washington as the only consistent target (20 targets, 166 yards), and Cincinnati throws because that is how they have moved the ball, with Brown in a 10-16 carry band rather than a 20-carry clock-kill.",
+  "flip1": "Higgins (groin) and/or Chase (concussion) are inactive or snap-capped, both Questionable on the nflverse report. Cincinnati's pass game compresses to Meyers, Gesicki, Tinsley and Brown checkdowns, the score stays lower, and Miami can lean Gordon/Achane/Willis and lead late, which cuts Washington's routes.",
+  "flip2": "Miami blitzes at its 29% rate and Burrow falls from +0.21 EPA/dropback unblitzed to -0.13 when blitzed, so deep Higgins/Chase shots stall and the game becomes a short-throw slog. The other explosive flip is Cincinnati scoring early, Miami abandoning the run, Gordon's carries dying and Washington/Bell targets spiking."
+ },
+ "injury_fallout": "CIN S Kyle Dugger is Out (quad) and S Bryan Cook is Questionable (ankle), so Miami's intermediate/deep answers (Washington 177 air yards, Bell 208 air yards over weeks 2-4) face a backup safety look (nflverse). CIN WR Tee Higgins (groin) and Ja'Marr Chase (concussion) are both Questionable, and WR Colbie Young (knee) is Questionable: if either star sits, Meyers (15 targets/111 yards L3), Gesicki (8/77) and Tinsley (7/49) absorb; if both play, Higgins stays the alpha (33/342/404). CIN LB Swayze Bozeman is Questionable (groin). MIA CB Reese Taylor is Out and CB Storm Duck is Questionable, which softens the perimeter for Higgins/Chase/Meyers; DE Rob Beal Jr. is Out and DT Kenneth Grant is Questionable, which softens the front for Brown; LB Jackson Woodard is Questionable, which helps TE/RB. MIA TE Justin Joly and WR Caleb Douglas are Out, so Dulcich/Kacmarek and Washington/Bell/Coleman are already the pass game, but no line-move diff is saved. MIA RB Jaylen Wright is Questionable (foot): if later inactive, Gordon and Achane split extra carries and Wright's 22.5 would void. Inactives (T-90) are not in the pack.",
+ "matchup": {
+  "shell": "No MOFO/MOFC or man/zone charting in the pack. Location proxy only: MIA YPA middle 9.66 (32 att), left 7.66 (41), right 7.92 (40); CIN YPA middle 9.91 (34), left 8.09 (46), right 6.53 (58). Both bleed the middle; Cincinnati is sounder to its right.",
+  "pressure": "MIA blitz rate 29% and CIN EPA/dropback is -0.13 vs blitz versus +0.21 vs no blitz, so Miami pressure suppresses Burrow's deep shots and funnels checkdowns to Brown, Meyers and Gesicki. CIN blitz rate is only 16%; MIA EPA/dropback is -0.34 vs blitz versus +0.01 vs none, so Willis is protected from his bad blitz split.",
+  "bleeds": "MIA run defense is ordinary (4.01 YPC, 12 runs of 10+ in 4 games) and gives up 12 passes of 20+ for 117 yards, with the middle the soft spot. CIN run defense bleeds (4.86 YPC, 11 runs of 10+) and the pass defense allows 15 passes of 20+ for 152 yards plus 9.91 YPA in the middle, with Dugger out.",
+  "overlap": "CIN's primary target is Higgins (33 targets, 404 air yards, about 12.2 aDOT). That profile does not overlap Miami's middle bleed, and the 29% blitz is a direct mismatch, on top of the groin tag, so he is not the overlap play. The cleaner overlap is Washington, Miami's target leader at about 8.9 aDOT, into Cincinnati's middle bleed and missing safeties in a game where Cincinnati rarely blitzes. Meyers (82 air yards on 15 targets, about 5.5 aDOT) is the Cincinnati piece that actually overlaps the blitz-and-middle soft spot."
+ },
+ "form": "Using weeks 2-4 sums, not season averages, with last-4 logs oldest-first so the last three match the L3 totals. Brown rush 56, 80, 61, 10 (L3 42 carries/151 yards, 3.6 YPC, trend down); rush+rec 78, 82, 69, 81, all under 93, L3 combined about 77. Higgins 59, 95, 90, 157 (L3 342) is a healthy spike, not a morning trend, because he is groin Questionable. Chase 12, 75, 98, 27 versus a 78 line, also concussion Questionable. Washington 53, 43, 56, 67 (L3 43+56+67=166 on 20 targets), last two cleared 46.5. Gordon 7, 41, 100 is a one-game 100-yard spike; median misses 42.5. Willis rush 39, 6, 56, 11 (L3 73) has a median under 32.5 but the 56 shows the ceiling. Meyers 18, 0, 29, 82 (L3 0+29+82=111), recent trend up. Gesicki's 78 is the older game; L3 is only 77 yards, so 26.5 is not a trend over. Coleman 0, 3, 3 on 118 air yards has not converted, but one explosive is the whole under. Wright -1, 11, 7 and L3 7 carries/18 yards, all far under 22.5, but he is foot Questionable and CIN allows 4.86 YPC.",
+ "pro_edge": {
+  "implied_totals": "N/A. Spread and total were not saved, so favorite=(T+S)/2 and underdog=(T-S)/2 cannot be computed. No blowout flag.",
+  "script_read": "Without a number, the underdog-throws and leader-runs rules cannot be applied. Form script: high Cincinnati pass volume versus a Miami run lean (Gordon/Achane/Willis) into a 4.86 YPC Cincinnati front. A high-total volume-over lean is not available. Inferred competitive game: Miami WR/TE targets do not automatically spike, and Brown is not projected into a late clock-kill carry surge.",
+  "best_price": "Anchor is saved consensus, not Pinnacle (Pinnacle not in the pack). Washington recyds 46.5: no-vig over 0.501 / under 0.499, best over -113.5, best under -112.5 \u2014 the over is the juicier side and no book is shown beating fair. Meyers recyds 24.5: no two-sided price, no-vig N/A. Higgins 51.5 is -114/-114, no-vig 0.500, a coin flip that already prices the groin tag rather than a stale healthy line. No alt +300 prices in the pack.",
+  "lagging": "No multi-book board and no open-to-current spread or total, so no lagging book and no prop-that-failed-to-move-with-the-number can be flagged. Wright 22.5 and Coleman 18.5 sit near 50/50 despite tiny recent yardage, which looks unadjusted, but that is a suspicion not a saved move.",
+  "sleepers": "OUT same-position check: MIA TE Justin Joly (concussion) \u2014 Dulcich 25.5 no-vig 0.502/0.498 and Kacmarek 6.5 no-vig 0.491/0.509, no pre/post diff, sleeper not confirmed. MIA WR Caleb Douglas (ankle) out \u2014 Washington/Bell/Coleman remain; Washington already leads targets so 46.5 may already include it. MIA CB Reese Taylor and DE Rob Beal Jr. out, CIN S Dugger out are team-level, not skill-position sleepers. Questionable, not out: Higgins, Chase, Cook, Bozeman, Young, Duck, Wright, Woodard, Grant. Wright Q is a Gordon/Achane carry sleeper only if he is later inactive and 42.5 (no-vig 0.501) does not move."
+ },
+ "edge_players": [
+  {
+   "player": "malikwashington",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Washington is Miami's only consistent target earner at 20 targets and 166 yards over weeks 2-4 (about 55 a game), and Cincinnati allows 9.91 YPA in the middle with Kyle Dugger out and only a 16% blitz, so 46.5 is short of that role.",
+   "must_be_true": "He keeps WR1 routes, Willis plays, and Miami does not spend the night in a run-only lead against Cincinnati's 4.86 YPC run defense.",
+   "kills_it": "Miami leads early behind Gordon and Achane, Washington's targets fall back to the 43-yard game in this stretch, or Bell's 208 air yards steal the explosives Dugger's absence was supposed to create.",
+   "confidence": "lean",
+   "model_p": 0.57,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "CIN defense pack: middle YPA 9.91 on 34 throws, 15 passes of 20+ for 152 yards; nflverse Dugger Out, Cook Questionable."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "CIN blitz rate 16% and MIA EPA/dropback -0.34 vs blitz vs +0.01 vs none, so Willis can operate; Washington leads MIA targets 20 to Bell 11 and Dulcich 10."
+    },
+    "script": {
+     "ok": true,
+     "source": "Base form script is competitive, not a saved blowout; 6.7 targets at 8.3 yards per target is about 55, and the trail flip adds targets. Tagged script-dependent if Miami leads big and only runs."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Prop last4 recyds 53, 43, 56, 67; L3 43+56+67=166 matches the MIA target line, last two both over 46.5."
+    }
+   },
+   "primary_defender": {
+    "who": "Uncharted. Nearest coverage pieces are CIN S Kyle Dugger (Out, quadricep) and S Bryan Cook (Questionable, ankle), not a named corner.",
+    "source": "nflverse injury report in the pack; no coverage charting saved."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Consensus no-vig over 0.501 / under 0.499; best over -113.5, best under -112.5. Hand p 0.57 beats no-vig by about 7 pts (gate 3) but there is no sim file and the over is slightly juiced, so this is a role/matchup edge not a stale-price edge. Douglas-out sleeper is indirect. No stake placed; quarter-Kelly would need an approved bankroll and a real 3-sim p."
+  },
+  {
+   "player": "dohntemeyers",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Meyers already has 111 yards on 15 targets over weeks 2-4 (about 37 a game) on only 82 air yards, a short profile that fits Miami's 29% blitz and 9.66 middle YPA, so 24.5 is under the role even if Higgins and Chase play.",
+   "must_be_true": "Burrow plays and Meyers keeps about a 5-target share; the zero in this stretch does not become the new normal.",
+   "kills_it": "Another zero-yard game, or the 29% blitz gets home so completely that even the short game stalls, or a late inactive not in this morning report.",
+   "confidence": "lean",
+   "model_p": 0.58,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "MIA defense pack: middle YPA 9.66 on 32 throws; nflverse CB Reese Taylor Out, CB Storm Duck Questionable."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Meyers 15 targets / 82 air yards over weeks 2-4 is about 5.5 aDOT; MIA blitz 29% and CIN EPA -0.13 vs blitz funnels to short/intermediate, which is his band, not Higgins' 404 air yards."
+    },
+    "script": {
+     "ok": true,
+     "source": "L3 production came with Higgins (342) and Chase (200) already eating, so the over does not need the stars to sit; if they are limited he gains targets. Slog flip is the tag."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Prop last4 recyds 18, 0, 29, 82; L3 0+29+82=111 matches the CIN target line, recent trend up and mean about 37 versus 24.5."
+    }
+   },
+   "primary_defender": {
+    "who": "Uncharted. Nearest pieces are MIA CB Reese Taylor (Out, quadricep) and CB Storm Duck (Questionable, knee); location bleed is the middle, not a named zone defender.",
+    "source": "nflverse injury report and MIA YPA-by-location in the pack; no coverage charting saved."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "No two-sided price saved, no-vig N/A, so best-price and the 3-pt gate cannot be scored and no stake is proposed. Not a confirmed sleeper: he is active, and any Higgins/Chase absence would be a rerun after inactives, not a priced-in out. Treat alt or early prices as low confidence if they appear later."
+  }
+ ],
+ "data_check": {
+  "notes": "Step 8 is a hand check only: no projection, no sims, no Pinnacle. Washington role math is about 6.7 targets times 8.3 yards per target, about 55 versus 46.5, no-vig 0.501, hand p 0.57, direction agrees, not a 70% leg. Meyers L3 37 versus 24.5 agrees, hand p 0.58, but no-vig is missing so he cannot be sized. Higgins over 51.5 (last three 95, 90, 157) was dropped, not flagged as a bet: the -114/-114 coin flip already prices the groin Questionable tag, and the 29% blitz mismatches his 404 air yards, so the counter-case is stronger than the healthy box score. Gordon over 42.5 was dropped as a lean the log disagrees with (7, 41, 100; median under the line) despite CIN allowing 4.86 YPC. Brown rush+rec under 93 is 4-for-4 under (78, 82, 69, 81) but was not used: MIA's 29% blitz and Beal/Grant/Woodard injuries disagree with a lean under. Wright under 22.5 crushes the log (L3 18 yards) but CIN's 4.86 YPC disagrees with fading a back, and he is foot Questionable, so that lean was dropped.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Malik Washington recyds over 46.5 at best saved consensus -113.5, main line only, no alt rung in the pack. Dohnte Meyers recyds over 24.5, main line only, no price saved \u2014 do not assume -110 and do not take a short-priced alt. One market per player. No TD or reception legs.",
+ "pre_mortem": "It's Monday and both leans lost. Washington finished under 46.5 because Miami did what the run data said: Gordon, Achane and Willis carried the offense against a 4.86 YPC Cincinnati front, the game never forced seven targets, and the 43-yard game was the template, with Bell's deep air yards taking the one explosive. Meyers finished under 24.5 because the zero in weeks 2-4 was the role, not the 82, once Miami spent its 29% blitz taking away the underneath and the stars, if active, soaked the targets again. The missing Meyers price may also have been a bad number we could not see. The Higgins 'lock' that was passed would have been the other Monday loss if he was on a groin snap count.",
+ "slip_story": "One competitive-game story, not a shootout stack and not a clock-kill stack: week-5 pass roles hold. Washington over is the Miami WR1 leg into a safety-depleted, low-blitz Cincinnati defense. Meyers over is the Cincinnati short/intermediate leg into a blitzing, middle-soft Miami defense, and it does not need Higgins or Chase to sit. They win together if the game stays competitive and both QBs throw at a normal rate. They lose together in the slog flip (Miami run control plus a Burrow-blitz stall). They split if Miami blows Cincinnati out. Do not add a total, a TD, Higgins, Chase, or Gordon until inactives. No bet placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T13:41:41-0500"
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 KC@LV / kickoff MISSING / spread and total NOT SAVED; script inferred only from supplied team form / weather NOT SAVED. Moneyline, implied totals, opening-line movement, venue details, rest and travel MISSING.",
+ "script": {
+  "base": "Hypothesis from team form, not a saved market expectation: KC sustains offense through Kenneth Walker and its passing game, establishing a second-half lead. KC then leans toward rushing while LV increases passing; pace and halftime score are not established by the pack.",
+  "flip1": "LV leads early and forces KC toward passing. Walker's rushing-over opportunity weakens, while Kelce's receiving-over opportunity can survive through additional passing volume.",
+  "flip2": "KC establishes an early large lead and reduces passing substantially. Walker's rushing over benefits if he retains the carries, but Kelce's receiving over becomes vulnerable to limited attempts."
+ },
+ "injury_fallout": "MISSING: KC and LV injury reports, practice-status trends, offensive-line availability, defensive absences, return-related snap limits, final injury designations and game-day inactives. No absences, returns or next-man-up changes are inferred. Source for all available personnel and usage facts: supplied pre-Week-4 pack covering Weeks 1\u20133; exact collection timestamps are missing. Recheck both teams' final reports and approximately 90-minute inactives before treating either candidate as actionable.",
+ "matchup": {
+  "shell": "MISSING: KC and LV MOFO/MOFC, man/zone rates and individual coverage assignments. LV's middle-location passing results cannot establish that Kelce will face a particular linebacker or safety.",
+  "pressure": "Supplied pre-Week-4 pack: LV blitzes 21%; Mahomes has 0.41 EPA/dropback against blitzes across 27 dropbacks versus 0.19 without a blitz. KC blitzes 31%; Cousins has 0.11 EPA/dropback against blitzes across 30 dropbacks versus 0.16 without a blitz. Actual pressure rates, sack rates, time to throw and check-down rates are missing; blitz frequency is not pressure success.",
+  "bleeds": "LV allows 4.47 rushing yards per carry and eight runs of at least 10 yards through three games. Its middle passing allowance is 9.83 yards per attempt on only 12 attempts, versus 7.26 left and 5.91 right. KC allows 3.90 rushing yards per carry; its middle passing allowance is 10.0 yards per attempt on 20 attempts. Position-specific allowances, rush EPA, stuff rates, box counts and YAC allowed are missing.",
+  "overlap": "Walker supplies the clearest role-based overlap: KC's dominant recent rushing workload meets LV's 4.47 YPC allowance. Kelce is tied for KC's target lead with 18 and offers a plausible receiving matchup against LV's weak middle-location results, but his actual alignment and route-location overlap are unverified."
+ },
+ "form": "Supplied Weeks 1\u20133 totals: Walker has 65 carries for 360 yards, versus Emmett Johnson's 16 for 56; Walker accounts for 65 of KC's 89 listed carries, approximately 73%. Kelce has 18 targets, 231 receiving yards and 118 air yards; Rice has 17 targets and Walker also has 18. These establish recent opportunity, not weekly consistency. LV's Jeanty has 63 carries for 206 yards plus 17 targets for 97 receiving yards. Game-by-game distributions, snaps, routes, red-zone usage, play-caller changes, comparable opponents and long-play dependence are missing.",
+ "edge_players": [
+  {
+   "player": "kennethwalkeriii",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Walker can beat 86.5 rushing yards because KC's concentrated rushing workload meets an LV defense allowing 4.47 yards per carry, especially if KC controls the second half.",
+   "must_be_true": "kennethwalkeriii carries >= 20 [because the pack records 65 carries across Weeks 1\u20133, versus Emmett Johnson's 16]",
+   "kills_it": "IF LV establishes a sustained early lead and KC abandons Walker's rushing workload THEN kennethwalkeriii rushyds over 86.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "traviskelce",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Kelce can beat 47.5 receiving yards through his team-leading target role against an LV defense whose weakest supplied passing location is the middle, provided his routes actually attack that area.",
+   "must_be_true": "traviskelce targets >= 6 [because the pack records 18 targets across Weeks 1\u20133, tied for KC's team lead]",
+   "kills_it": "IF KC builds an early large lead before Kelce accumulates meaningful receiving production and sharply reduces passing THEN traviskelce recyds over 47.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypotheses precede these line checks. Walker's 65 carries over three games equal 21.7 per game; at LV's supplied 4.47 YPC allowance, clearing 86.5 requires approximately 20 carries. That is a workload feasibility check, not a projection: opponent mix, game-level variation and efficiency regression are unmodeled. Kelce's 231 yards over three games equal 77 per game versus 47.5 offered, supporting investigation rather than establishing a hit probability. Walker over -113.5 requires approximately 53.16% to break even; Kelce over -119 requires approximately 54.34%. Neither probability is established. Both remain research leans, not validated positive-EV bets.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations and medians, calibrated hit probabilities, Pinnacle prices and verified sharp no-vig benchmarks, game-level role distributions, Kelce's route-location overlap, injury reports, inactives and weather. The supplied opposing prices have no identified book and are not represented as Pinnacle evidence.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidates only: kennethwalkeriii rushyds over 86.5 at -113.5; traviskelce recyds over 47.5 at -119. Walker's market expresses carry concentration plus the run matchup. Kelce's receiving-yards market is permitted by the pack and expresses the conditional middle-field matchup; receptions are unavailable under this task's rules. No alternate rung or stake is selected without probability validation.",
+ "pre_mortem": "It's Monday and Walker lost because KC trailed, Johnson took more work than the three-game split suggested, or Walker's recent efficiency regressed; LV's 4.47 YPC does not guarantee an individual rushing result. Kelce lost because the 12 middle-location attempts were a noisy sample, his routes did not attack that area, or Rice and the backs absorbed the passing production. An early KC blowout could help Walker while starving Kelce, and the missing injury and inactive information could invalidate either workload assumption. Walker survives the base script and the early-KC-lead flip if his role holds; Kelce survives the base script and the LV-lead flip. These are conditional leans rather than strong reads.",
+ "slip_story": "The compatible story is competitive KC control: Walker receives sustained carries while Kelce produces before substantial clock-killing begins. Do not force these two candidates into the requested 3\u20134-leg main-slip structure; there are only two supported candidates and no validated joint price. No slip is finalized and no bet is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

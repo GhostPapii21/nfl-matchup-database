@@ -1,0 +1,108 @@
+{
+ "game": "PHI @ JAX, Week 5 2026 (pre-kick pack only; kickoff clock, spread, total, venue weather, rest/travel and open-to-current line movement not saved)",
+ "script": {
+  "base": "No spread or total is saved, so the script is inferred from form and the injury report. PHI is without Saquon Barkley (21 car/99 yd in weeks 2-4), DeVonta Smith (21 tgt/182 yd/244 air), Marquise Brown and center Drew Kendall. JAX's Bhayshul Tuten handled 45 carries for 211 yards over those three weeks into a PHI run defense allowing 4.16 YPC and 9 runs of 10+. Base case: JAX leads by halftime, closes with Tuten, and PHI's committee (Tank Bigsby 27 car, Jalen Hurts 14, Will Shipley 13 in the same window) falls behind and throws to Smith/Brown replacements rather than feeding Shipley.",
+  "flip1": "Hurts keeps it competitive with scrambles (last four rush yards 48, 16, 25, 18, and the L3 trio 16+25+18 equals his 59-yard weeks 2-4 total) so JAX never gets clock-kill carries. Tuten sticks near his 65-66 floor and PHI's replacement backs stay on the field.",
+  "flip2": "Slog or pass flip: JAX's 3.41 YPC run defense and 26% blitz (PHI EPA/db -0.21 when blitzed vs -0.02 when not) stall the shorthanded PHI offense, and if PHI somehow leads, JAX abandons the run \u2014 Tuten's carries die and air yards go to Parker Washington (265 air in three weeks) and Brenton Strange."
+ },
+ "injury_fallout": "Official pre-game report, all known before kickoff: PHI RB Saquon Barkley Out (hamstring) \u2014 his 21 weeks-2-4 carries do not have a verified 'when starter sat' split. Next man by current share is Tank Bigsby (27 car/88 yd, no prop offered), then Hurts (14/59) and Shipley (13/47), not Shipley alone. PHI WR DeVonta Smith Out and WR Marquise Brown Out \u2014 remaining target tree is Dontayvion Wicks (16 tgt/124 yd/170 air), Makai Lemon (11/70/90), Darius Cooper (10/59/123), Zach Ertz (6/22/35); Dallas Goedert is on the board (last four rec yd 77, 4) but not in the L3 target list. PHI C Drew Kendall Out (knee) \u2014 pressure up, rush efficiency down, deep yards down, checkdowns up. PHI S Marcus Epps Out (groin) helps JAX deep shots. PHI LB Jonathan Greenard Questionable (ankle) \u2014 if he sits, less edge pressure on Trevor Lawrence. JAX CB Jaylon Jones Out (hamstring) and S Eric Murray Doubtful (concussion) help PHI outside/deep, but the PHI players who would attack that hole (Smith, Brown) are themselves out, so the beneficiaries are Wicks/Lemon/Cooper. Dameon Pierce excluded: team nan, no prior games, no price, fallback not runnable from this pack.",
+ "matchup": {
+  "shell": "Not in the pack. No MOFO/MOFC, man/zone rate, or coverage charting, so slot-vs-hook mapping cannot be done. Step 4 shell is limited.",
+  "pressure": "JAX blitz rate 26%; PHI EPA/db -0.21 vs blitz vs -0.02 vs none, so JAX pressure is a real problem for Hurts and for downfield PHI WRs, worsened by Kendall being out. PHI blitz rate only 20%; JAX EPA/db -0.10 vs blitz vs +0.45 vs none, so Lawrence should be efficient in PHI's base look, and Greenard (questionable) is the only named PHI pass rusher.",
+  "bleeds": "JAX pass YPA: middle 10.86 on 22 attempts (small sample), left 8.06 on 51, right 7.94 on 65; 16 passes of 20+ for 148 yards. JAX rush defense is the opposite of a bleed: 3.41 YPC, only 5 runs of 10+ in 4 games. PHI pass YPA is even and stingy (left 6.97/37, middle 6.39/38, right 6.41/64) with only 11 passes of 20+. PHI's bleed is the run: 4.16 YPC and 9 runs of 10+.",
+  "overlap": "PHI's primary option, Smith (21 targets, 244 air), is out, so the live overlap is Wicks (16 tgt, 10.6 aDOT) against a JAX secondary missing Jones and Murray \u2014 but Kendall out plus a 26% blitz that already has PHI at -0.21 EPA/db is the wrong fit for a yards-over on a downfield WR (pressure kills deep yards). JAX's clean overlap is Tuten into PHI's 4.16 YPC run defense in a lead script, and secondarily Washington's 265 air yards into a PHI secondary missing Epps, with PHI blitzing only 20% where JAX EPA/db is +0.45."
+ },
+ "form": "Listed last-four order reconciles with weeks 2-4 totals (last three figures sum to the L3 totals), so the last figure is the most recent. Tuten rush 66, 65, 73, 73 (L3 45 car/211 yd, 4.69 YPC; two of the three L3 games cleared 66.5) and rec 22, -3, 17, 18. Rodriguez 23, 13, 37, 35 (L3 20/85) \u2014 committee is real, and the last game was 35. Lawrence rush 3, 6, 25, 2. Washington 83, 98, 40, 7 with L3 20 tgt/145 yd/265 air (98+40+7=145); two of four games are 40 and 7. Strange 23, 17, 32, 95 \u2014 the 95 is the most recent game and inflates the 48 ypg L3 average (15 tgt/144 yd). Meyers 40, 28, 64, 33 (mean 41.25 vs a 41.5 line). Brian Thomas 40, 40, 8, 17 (L3 11 tgt/65 yd, role shrinking; last game 17). Cameron 20, 12, 42 on only 4 L3 targets (fluky yards per target). PHI: Shipley rush 4, 24, 0, 23 (max 24, L3 13 car/47 yd, 3.6 YPC) and rec 8, 5, 11, 0. Hurts rush 48, 16, 25, 18 (the 48 is the non-L3 spike; L3 average 19.7). Bigsby L3 27/88 is the carry leader and has no prop. Wicks 73, 74, 32, 18 (declining to 18 with Smith still in the L3 sample). Lemon -5, 14, 29, 27, never over 32.5. Cooper 26, 33 only. Goedert 77, 4 only. Ertz 9, 13.",
+ "pro_edge": {
+  "implied_totals": "N/A. No saved spread or total, so favorite=(T+S)/2 and underdog=(T-S)/2 cannot be computed and no blowout flag can be set from the market.",
+  "script_read": "Inferred, not from a line: PHI's missing Barkley, Smith, Brown and Kendall versus JAX's healthy Tuten workload and PHI's 4.16 YPC run defense points to a JAX lead, run-to-close script. Underdog PHI (if they are the dog \u2014 not confirmed) would throw more, which hurts Shipley's rush and only conditionally helps replacement WRs because the center is out. A low-total slog cannot be confirmed without a total.",
+  "best_price": "No saved best price beats the consensus no-vig fair. Power devig vs overround cannot be compared (no Pinnacle/Circa/BetOnline split; anchor is consensus). Shipley rush under 33.5 best under -118 (implied ~0.541) vs fair under 0.505. Tuten rush over 66.5 best over -118 (implied ~0.541) vs fair over 0.505. Other two-sided anchors are also coin flips (0.493-0.507) with best prices around -110 to -118, all short of fair.",
+  "lagging": "No open-to-current movement was saved, so lagging flags cannot be confirmed and props cannot be shown to have failed to move with a spread/total. Unadjusted-looking numbers, low confidence: Wicks recyds 44 (no two-sided price) sits near his with-Smith 41.3 ypg while Smith and Brown are out; Washington recyds 62 (no price) is well above games of 40 and 7, but Epps being out is a reason not to cut it; Thomas recyds 24.5 vs recent 8 and 17. Unpriced markets (Wicks, Washington, Cooper, Goedert, Ertz, Shipley rush+rec, Tuten rush+rec, Pierce) cannot be checked against consensus.",
+  "sleepers": "Barkley Out: Shipley rush line 33.5 is already more than double his 15.7 ypg, and Hurts rush 27.5 is above his 19.7 L3 average, so those numbers may already include the absence; Bigsby is the carry leader and is not offered. Smith Out and Brown Out: Wicks/Lemon/Cooper/Ertz/Goedert are the same-position group; Lemon's 32.5 is already above his max of 29, Cooper 22 has no price (games of 26 and 33). Jones Out and Murray Doubtful: would help PHI outside/deep, but PHI's top WRs are out. Epps Out: JAX deep group (Washington, Thomas) \u2014 Washington's 62 and Thomas's 24.5 do not look like unmoved sleeper overs. Kendall Out is an OL effect, not a skill-position sleeper. Greenard is Questionable, not Out. Pierce has no team, no games and no price."
+ },
+ "edge_players": [
+  {
+   "player": "willshipley",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Shipley is not the next man up for Barkley's 21 carries \u2014 Bigsby already out-carried him 27 to 13 in weeks 2-4 \u2014 and a 33.5-yard line is more than double his 15.7-yard average against a JAX run defense allowing 3.41 YPC and only 5 runs of 10+, in a game PHI is likely to trail and stop running.",
+   "must_be_true": "Barkley's work does not all funnel to Shipley; Bigsby or Hurts keeps the lead share; JAX run defense stays near 3.41 YPC; PHI does not play with a lead that forces 12-plus Shipley carries. He must be active (not a late inactive \u2014 final inactives are not in the pack).",
+   "kills_it": "Shipley is named the lead back, gets 14-plus carries in a competitive game, or breaks one of the explosive runs JAX has allowed only 5 times in 4 games and clears 33.5. A positive PHI script also kills it.",
+   "confidence": "strong",
+   "model_p": 0.62,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "JAX defense, 4 games: rush YPC allowed 3.41, only 5 runs of 10+. Shipley L3 YPC 47/13 = 3.6."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "PHI rushers weeks 2-4: Bigsby 27 car, Barkley 21, Hurts 14, Shipley 13. Shipley is third among healthy rushers once Barkley is out. No snap-share or 'when Barkley sat' split is in the pack."
+    },
+    "script": {
+     "ok": true,
+     "source": "Inferred JAX-lead script from PHI outs (Barkley, Smith, Brown, Kendall) plus PHI run D 4.16 YPC. Skill example: underdog falls behind and the RB rush line dies. Script-dependent if PHI leads."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Shipley last four rush yards 4, 24, 0, 23; none cleared 33.5. L3 total 13 car/47 yd. Most recent listed game 23."
+    }
+   },
+   "primary_defender": {
+    "who": "JAX run defense as a unit; no individual LB/DL is named in the pack",
+    "source": "JAX defense line in the pack: rush YPC 3.41, 10+ runs 5. No coverage or front-seven charting."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": false,
+   "pro_edge_support": "Anchor consensus no-vig under 0.505; best under -118 (implied ~0.541) does not beat fair, so there is no best-price edge. Barkley Out is the sleeper context, but 33.5 already sits far above 15.7 ypg, so the number may have moved; no CSV diff to confirm. No Pinnacle. Hand p 0.62 vs no-vig 0.505 is about +11.5 pts but unsimulated and inside the zone where 70%+ reads have been overconfident \u2014 flag, do not size. No stake (bankroll.py not run). Never bet."
+  },
+  {
+   "player": "bhayshultuten",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Tuten is the JAX bellcow (45 carries, 211 yards in weeks 2-4, two of those three games at 73) running into a PHI defense allowing 4.16 YPC and 9 runs of 10+, and PHI missing Barkley, Smith, Brown and Kendall makes a JAX lead-and-clock-kill the base case.",
+   "must_be_true": "JAX leads or stays balanced so Tuten holds about 15 carries; PHI run defense stays near 4.16 YPC; Rodriguez (20 car/85 yd in three weeks, last game 35) does not take the closing series; Tuten is active.",
+   "kills_it": "PHI keeps it close or leads and JAX throws \u2014 Epps is out, PHI blitzes only 20%, and JAX EPA/db is +0.45 when not blitzed. Tuten then sticks at 12 carries and finishes 60-66, as in his 65 and 66 games. A Rodriguez vulture or a Greenard-led PHI front that suddenly stuffs the run also kills it. Script-dependent.",
+   "confidence": "lean",
+   "model_p": 0.56,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "PHI defense, 4 games: rush YPC allowed 4.16, 9 runs of 10+. Tuten L3 211/45 = 4.69 YPC."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "JAX rushers weeks 2-4: Tuten 45 car, Rodriguez 20, Lawrence 7, Abdullah 6. Tuten is about 63% of RB carries (45 of 71). Lead-back fit, not a depth piece."
+    },
+    "script": {
+     "ok": true,
+     "source": "Inferred JAX-lead script; leader runs late. No spread, so this is not a market-confirmed blowout. Fails if flip1 (competitive) or the PHI-leads version of flip2 hits."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Last four rush yards 66, 65, 73, 73. L3 games are 65, 73, 73 (sum 211). Cleared 66.5 in two of three recent games; 65 and 66 miss. Trend up, number tight."
+    }
+   },
+   "primary_defender": {
+    "who": "PHI run defense as a unit; only named front-seven piece is LB Jonathan Greenard, Questionable (ankle)",
+    "source": "PHI defense line: rush YPC 4.16, 10+ runs 9. Injury report: Greenard Questionable ankle. No individual run-fit charting."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Anchor consensus no-vig over 0.505; best over -118 (implied ~0.541) does not beat fair. Not a sleeper (healthy lead back). No spread, so no blowout or lagging-line flag. Hand p 0.56 vs no-vig 0.505 is about +5.5 pts, thin once juice is applied, and unsimulated. Correlated unpriced rush+rec 80 (last four 88, 62, 90, 91) has no two-sided price, so it is not a substitute. Flag. No stake. Never bet."
+  }
+ ],
+ "data_check": {
+  "notes": "No projection sim, no Pinnacle, and no live weather or final inactives are in the pack, so step 8 cannot be run as specified. Hand reads only, and they are not a model file. Shipley under: box score agrees (4, 24, 0, 23 all under 33.5; L3 15.7 ypg vs a 33.5 line) and the strong read is flagged, not cut, because the best price does not beat no-vig fair (under 0.505 vs -118) and there is no sim. Tuten over: L3 70.3 ypg and last two listed games of 73 agree with the side, but 65 and 66 miss 66.5 and -118 does not beat fair over 0.505 \u2014 lean stays flagged for the human, not sized. Treat anything near 70% with suspicion; both hand probabilities are held under that (0.62 and 0.56). No book in the pack beats anchor fair on these two. Do not bet.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Main rungs only; no alt is priced better than fair, and short-priced alts are not available here anyway. Shipley rush yards under 33.5 at best under -118 (consensus main; anchor no-vig under 0.505). Tuten rush yards over 66.5 at best over -118 (anchor no-vig over 0.505). One market per player. Unpriced and not used: Tuten rush+rec 80, Shipley rush+rec 51, Wicks recyds 44.",
+ "pre_mortem": "It's Monday and both lost. Shipley under lost because Barkley's absence was the public news and the staff named Shipley the lead back; he got 16 carries, the game stayed close on Hurts scrambles (his week-1 rush spike was 48), and 33.5 was the market correctly pricing a role we could not verify without a when-starter-sat split or a beat-writer depth chart \u2014 laying -118 on a 50.5% fair prop was juice, not an edge. Tuten over lost because PHI's missing safety (Epps) and 20% blitz rate let Lawrence throw (JAX EPA/db +0.45 when not blitzed), Rodriguez took the change-of-pace and the closing series (he just had 35), and Tuten finished 64-66 the way he did in the 65 and 66 games. The counter-case is strong enough on price and role uncertainty that neither leg should be sized; the Shipley read is the one that still survives as a flagged strong lean for the human, not an auto-bet.",
+ "slip_story": "One story only: JAX leads and runs the clock, PHI trails and abandons the run. Stack is Tuten rush over with Shipley rush under. Do not mix in PHI rush overs, a JAX pass-volume stack that needs JAX to trail, or a total under with same-game pass overs. No TD legs. Wicks recyds over is the same trail script but is the wrong market (Kendall out and JAX 26% blitz kill deep yards) and has no price, so it stays off the slip. Main slip would be these two only if the human accepts the flag.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T13:49:52-0500"
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 TEN@BAL / kickoff time MISSING / spread and total NOT SAVED; script inferred only from supplied team form / weather NOT SAVED. Moneyline, implied totals, opening-line movement, venue details, rest and travel MISSING.",
+ "script": {
+  "base": "Hypothesis before pricing: BAL establishes control through Derrick Henry's lead rushing role, while TEN increasingly relies on passing to stay competitive. That gives Elic Ayomanor a plausible receiving opportunity without requiring Justice Hill to become a meaningful receiving option; halftime score, pace and garbage-time likelihood cannot be established from this pack.",
+  "flip1": "TEN keeps the game close or leads, leaving BAL passing more than the base case assumes. Ayomanor's opportunity could shrink if TEN emphasizes rushing, while Hill's receiving under becomes vulnerable if additional passing work reaches him.",
+  "flip2": "BAL builds an early, substantial lead and both offenses become less productive through the air. Hill's receiving under benefits, but Ayomanor's over becomes script-dependent if TEN's extra attempts do not produce usable targets."
+ },
+ "injury_fallout": "MISSING: TEN and BAL injury reports, practice trends, final inactives, offensive-line availability, defensive absences and return-related snap limits. MISSING: injury or availability information for E.Ayomanor and J.Hill. No absence, return or next-man-up allocation is inferred from usage. Source for all available role information: supplied pre-kickoff pack, weeks 1\u20133; exact publication timestamps were not supplied. Recheck any affected read against final reports and approximately 90-minute inactives if those become available.",
+ "matchup": {
+  "shell": "MISSING: BAL and TEN MOFO/MOFC splits, man/zone rates and player alignment charting. Ayomanor cannot be assigned to a particular corner or coverage weakness from this pack.",
+  "pressure": "BAL blitzes 37%; TEN QB EPA/dropback is 0.13 against blitzes across 26 dropbacks versus -0.19 without a blitz. That does not support automatically treating BAL blitzing as a passing-game shutdown. TEN blitzes 21%; BAL QB EPA/dropback is 0.32 against blitzes across 31 dropbacks and 0.35 otherwise. Actual pressure rates, sacks and time to throw are MISSING.",
+  "bleeds": "BAL allows 8.3 passing yards per attempt through the middle, versus 6.93 left and 5.34 right, but Ayomanor's alignment is unknown. BAL has allowed eight 20-plus-yard passes on 112 attempts. TEN has allowed nine on 89 attempts and 3.83 yards per rush; its run defense is a reason not to assume Henry's recent rushing efficiency repeats automatically. Position-specific receiving allowances, YAC, stuff rates and box counts are MISSING.",
+  "overlap": "Ayomanor's prospective edge is secondary receiving opportunity during a TEN catch-up script, not a verified primary-target/coverage overlap: Tate leads TEN with 20 targets, Robinson has 18 and Ayomanor has nine. Hill's under rests on BAL's allocation of receiving work: Andrews has 18 targets, Bateman 13, Flowers 12 and Hill three. Neither read has a proven positional defensive mismatch."
+ },
+ "form": "Role review after the script hypothesis: across weeks 1\u20133, Ayomanor has nine targets, 91 receiving yards and 97 air yards, behind Tate, Robinson and Helm in target volume. Hill has three targets and 22 receiving yards, alongside 13 carries for 57 yards; Henry has 66 carries for 301 yards and five targets for 38 receiving yards. These totals support modest Ayomanor opportunity and a limited Hill receiving role, not game-by-game consistency. Individual-game distributions, snaps, routes, red-zone work, play-caller changes, comparable opponents and long-play dependence are MISSING.",
+ "edge_players": [
+  {
+   "player": "elicayomanor",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Ayomanor can clear 19.5 receiving yards through secondary targets if TEN must chase BAL, with nine targets and 97 air yards over the supplied three-game window showing an existing receiving role.",
+   "must_be_true": "E.Ayomanor targets >= 3 [because the pack records nine targets across weeks 1\u20133]",
+   "kills_it": "IF TEN reduces passing volume while Tate, Robinson and Helm absorb the available targets THEN Ayomanor over 19.5 receiving yards fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "justicehill",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Hill can stay under 10.5 receiving yards because BAL's receiving opportunities have largely gone elsewhere, with only three Hill targets across three games, and the base script does not require that allocation to change.",
+   "must_be_true": "J.Hill targets <= 1 [because the pack records three targets across weeks 1\u20133]",
+   "kills_it": "IF BAL gives Hill an expanded receiving role or one catch gains at least 11 yards THEN Hill under 10.5 receiving yards fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypotheses precede this numerical check. Ayomanor's three-game receiving rate is 30.3 yards against a 19.5 line; Hill's is 7.3 against a 10.5 line. These are descriptive checks, not projections or evidence of individual-game hit rates. The supplied numbers do not clearly contradict either conditional read. Neither candidate receives a strong grade or a quantified staking recommendation. No simulation or calibrated probability was fabricated.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation medians, calibrated probabilities, Pinnacle prices and sharp-book no-vig comparisons; individual-game role and yardage distributions; injury/inactive reports; coverage and alignment charting; current weather; saved spread and total. Supplied prop prices have no book identification or exact observation timestamp.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate 1: elicayomanor recyds over 19.5 at -115. Candidate 2: justicehill recyds under 10.5 at -112.5. Both are available main-line receiving-yard markets, not alternate anchors. Ayomanor's volume hypothesis would ideally be tested in receptions, but that market is prohibited here; receiving yards adds catch-efficiency risk. Prices alone do not establish positive expected value without a defensible probability estimate.",
+ "pre_mortem": "Ayomanor: It is Monday and the over lost because TEN's catch-up passing never reached its fourth-ranked target by supplied volume. Tate, Robinson and Helm absorbed the work, or TEN sustained rushing possessions instead; nine targets across three games is not a secure weekly floor. Hill: The under lost because a small yardage threshold required only one useful reception, or BAL needed more passing and Hill gained receiving work. His 22 receiving yards across three games do not reveal whether those yards were concentrated in one outing. Missing route and injury information prevents either counter-case from being dismissed, so both remain leans.",
+ "slip_story": "Shared story: BAL controls the game without expanding Hill's receiving role, while TEN's response supplies Ayomanor modest receiving opportunity. Hill's under also fits the BAL-runaway flip; Ayomanor is more script-dependent. These are two research candidates, not a completed main slip: there are insufficient supported legs for a 3\u20134-leg build, and no extra leg should be forced. No bet is placed. Preserve this read before kickoff if possible; a timestamped persistent log and hash cannot be verified here. Postgame, grade BAL control, Ayomanor opportunity and Hill receiving allocation separately from whether the yardage legs hit.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

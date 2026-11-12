@@ -1,0 +1,39 @@
+{
+ "game": "Week 4 ARI@NYG / kickoff MISSING / spread and total NOT saved; script inferred only from supplied Weeks 1\u20133 team form / weather MISSING. Moneyline, implied totals, opening-line movement, venue details, rest and travel MISSING.",
+ "script": {
+  "base": "Working hypothesis from team form, not a saved market: neither side has a defensible projected lead, so start with a competitive game and continued rushing involvement. ARI can keep T.McBride central to its passing attack, while NYG leans on C.Skattebo's established carry lead; pace and halftime scoring cannot be established from this pack.",
+  "flip1": "ARI's defense allows NYG explosive gains: it has conceded nine 20-plus-yard pass plays on 84 attempts. If NYG builds a lead, ARI's increased passing need can preserve McBride's receiving opportunity.",
+  "flip2": "NYG's 26% blitz rate disrupts ARI, whose QB EPA/dropback falls from 0.18 without a blitz to -0.12 against one. Sustained drive failures could suppress McBride's yards despite continued targets."
+ },
+ "injury_fallout": "MISSING: ARI and NYG injury reports, practice participation, offensive-line availability, defensive absences, final inactives, return-to-play restrictions and snap limits. No absence, return or next-man-up assignment is inferred from usage. The supplied NYG form lists J.Dart rushing production, while available props include Jameis Winston; starting-QB confirmation is MISSING. Source for all available facts: supplied pre-kickoff pack covering Weeks 1\u20133; exact publication timestamps were not supplied. Any eventual selection requires injury-report and approximately 90-minute inactive checkpoints.",
+ "matchup": {
+  "shell": "MISSING: NYG and ARI MOFO/MOFC rates, man/zone rates and coverage assignments. McBride cannot be assigned a specific linebacker, safety or middle-zone matchup from this pack.",
+  "pressure": "NYG blitzes 26%; ARI QB EPA/dropback is -0.12 against blitzes across 28 dropbacks versus 0.18 without a blitz. ARI blitzes 22%; NYG QB EPA/dropback is -0.62 against blitzes across 29 dropbacks versus 0.28 without one. Pressure rates, sacks, time to throw and check-down rates are MISSING; blitz frequency is not pressure frequency.",
+  "bleeds": "NYG allows 4.94 rushing yards per carry and nine runs of at least 10 yards. Its passing YPA allowed is 8.11 in the middle on only nine attempts, versus 6.72 left and 6.69 right; six of 101 pass attempts became 20-plus-yard gains. ARI allows 4.63 rushing yards per carry, eleven 10-plus-yard runs and passing YPA above 9.0 in every listed direction. Position-specific receiving allowances, rush EPA, stuff rate and box counts are MISSING.",
+  "overlap": "McBride leads ARI with 34 targets and 211 receiving yards over three games. His 182 air yards on 34 targets imply approximately 5.4 air yards per target, supporting a shorter-target opportunity hypothesis rather than an explosive-pass bet. NYG's middle allowance is only a tentative supporting clue: the sample is nine attempts, and McBride's route locations are MISSING."
+ },
+ "form": "Source: supplied Weeks 1\u20133 pack. McBride has 34 targets, 211 receiving yards and 182 air yards, compared with Mi.Wilson's 31 targets, 163 yards and 295 air yards. J.Love has 41 carries for 160 yards versus T.Allgeier's 24 for 70. NYG's C.Skattebo has 50 carries for 177 yards, while I.Likely leads its listed receivers with 23 targets and 124 yards. These three-game aggregates establish relative involvement, not weekly consistency. Individual game logs, snaps, routes, red-zone usage, coaching changes, comparable-opponent splits and long-play breakdowns are MISSING.",
+ "edge_players": [
+  {
+   "player": "treymcbride",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "McBride's team-leading target involvement and shorter target profile provide a plausible path over 63.5 receiving yards without requiring deep completions against a NYG defense that has allowed only six 20-plus-yard pass plays on 101 attempts.",
+   "must_be_true": "T.McBride targets >= 9 [because the pack records 34 targets across Weeks 1\u20133, leading ARI]",
+   "kills_it": "IF NYG's blitzes repeatedly end ARI possessions before McBride can accumulate receiving opportunities THEN treymcbride recyds over 63.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis is target continuity and shorter-area opportunity; the numerical check then finds 211 receiving yards across three games, or 70.3 per game, versus a 63.5 line. That is modest support, not a projection or hit-rate estimate. NYG's limited explosive-pass allowance constrains the ceiling but does not directly contradict this shorter-target read. The target threshold is a working condition, not a simulated requirement. At -114 the offered break-even probability is approximately 53.3%; no positive expected value is established.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations, sim median, calibrated hit probability, Pinnacle prices and no-vig benchmark; individual-game receiving results, catches, routes and target locations; injury confirmation, weather and saved market context. Supplied opposing prices are not identified as Pinnacle and are not treated as a sharp benchmark.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Provisional lean: treymcbride recyds over 63.5 at -114, the supplied main line. Receiving yards is an allowed proxy for the target-opportunity hypothesis; receptions are outside the permitted markets. No alternate rung, stake or verified pricing edge is established.",
+ "pre_mortem": "It is Monday and McBride's over lost: his aggregate target lead concealed uneven weekly usage, NYG's blitzes stalled drives, or ARI exploited the Giants' 4.94 rushing YPC allowed and needed fewer passing attempts. The apparent middle-field opening was based on just nine attempts, and no charting established that McBride actually attacked it. Missing injury and route information could also invalidate the assumed role. These are substantial enough to keep the selection a lean, not a strong play; the strongest measurable concern is ARI's negative EPA against blitzes.",
+ "slip_story": "Single-leg watchlist only: competitive ARI\u2013NYG, with McBride retaining primary receiving involvement. The leg also has an opportunity-based path if NYG leads, but it is vulnerable to the pressure-driven flip. Do not manufacture a three- or four-leg slip from this pack. No wager is placed. For Step 12, this response records the hypothesis, but a verifiable pre-kickoff timestamp, persisted record and hash are unavailable; later grading must separate script accuracy, target-role accuracy and the betting result, checking Steps 3\u20135 for any missed availability, coverage or role change.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

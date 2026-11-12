@@ -1,0 +1,48 @@
+{
+ "game": "Week 7 IND@MIN / kickoff MISSING / MIN -7 / total 41.5 / implied totals MIN 24.25, IND 17.25 / weather MISSING: not saved. Moneyline, opening lines, line movement, venue details, rest and travel MISSING.",
+ "script": {
+  "base": "MIN -7 implies Minnesota is expected to lead, with its running game helping protect that lead in the second half. Aaron Jones is the primary candidate to benefit, while T.J. Hockenson offers a receiving route against Indianapolis's less efficient middle pass defense; actual pace and halftime margin remain unknown.",
+  "flip1": "Indianapolis keeps the game close or leads, reducing Minnesota's clock-management rushing opportunities. Aaron Jones's receiving involvement provides another path to combined yards, while Hockenson can benefit if Minnesota must pass more.",
+  "flip2": "Minnesota builds a large early lead and substantially reduces passing volume. Jones benefits only if he retains the backfield workload; Hockenson's receiving over becomes vulnerable to a shortened passing game."
+ },
+ "injury_fallout": "MISSING: IND and MIN injury reports, practice participation, offensive-line availability, defensive absences, final inactives and snap restrictions. No absence, return or replacement role is inferred from Jefferson's nine targets or any other usage total. Source for all available usage and matchup facts: supplied pre-kickoff Week 7 pack; exact publication timestamps are missing. Reassessment at final injury reports and approximately 90 minutes before kickoff cannot be performed from this pack.",
+ "matchup": {
+  "shell": "MISSING: both teams' MOFO/MOFC, man/zone and coverage-assignment charting. IND allowing 8.72 YPA through the middle does not establish that Hockenson consistently runs routes there.",
+  "pressure": "IND blitzes 21%; MIN's QB has 0.09 EPA/dropback without a blitz versus -0.23 against blitzes over 64 blitz dropbacks. This supports Minnesota's passing matchup directionally, but pressure rate is missing. MIN blitzes 70%; IND's QB posts -0.07 EPA/dropback against blitzes over 74 dropbacks versus -0.18 without blitzes, so a blitz-driven collapse by Indianapolis is not established.",
+  "bleeds": "IND allows 5.01 rushing YPC, 15 runs of 10-plus yards and 16 passes of 20-plus yards on 198 attempts. Its middle passing allowance is 8.72 YPA versus 7.78 left and 7.16 right. MIN allows 4.01 rushing YPC and 12 passes of 20-plus yards on 172 attempts; its middle allowance is 9.21 YPA.",
+  "overlap": "Aaron Jones's team-leading 62 recent carries directly overlap Indianapolis's 5.01 YPC allowed. Hockenson leads Minnesota's supplied recent target totals with 18, making him a candidate to exploit the middle, although route-location and defender assignments are missing."
+ },
+ "form": "MIN's supplied three-game window is weeks 3\u20135, not weeks 4\u20136: Aaron Jones had 62 carries for 265 yards plus 17 targets for 72 receiving yards; Hockenson had 18 targets, 137 receiving yards and 129 air yards. Addison had 15 targets and Jefferson nine, but the pack does not explain their roles or availability. IND's weeks 4\u20136 include Taylor's 56 carries for 234 yards and 12 targets for 96 receiving yards, supporting a plausible competitive-game flip. Individual game logs, snaps, routes, red-zone work, role-change explanations and opponent-comparable results are missing; these aggregate totals cannot establish game-by-game consistency.",
+ "edge_players": [
+  {
+   "player": "aaronjones",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Aaron Jones can exceed 57.5 combined yards because his established rushing workload faces an Indianapolis defense allowing 5.01 YPC, with receiving involvement providing an additional path if Minnesota cannot control the game.",
+   "must_be_true": "Aaron Jones carries >= 14 [because the pack records 62 carries across MIN's last three supplied games]",
+   "kills_it": "IF Aaron Jones's workload is curtailed and his receiving production does not replace the lost rushing yards THEN Aaron Jones rushrecyds over 57.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "tjhockenson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "T.J. Hockenson can exceed 36.5 receiving yards if his recent target involvement continues against an Indianapolis defense allowing 8.72 YPA through the middle.",
+   "must_be_true": "T.J. Hockenson targets >= 5 [because the pack records 18 targets across MIN's last three supplied games]",
+   "kills_it": "IF Minnesota's early lead reduces Hockenson's opportunities and he finishes with 36 or fewer receiving yards THEN T.J. Hockenson recyds over 36.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The matchup reads precede these descriptive checks. Jones produced 337 combined yards across three supplied games, or 112.3 per game, with 4.27 rushing YPC; Hockenson produced 45.7 receiving yards and six targets per game. Those aggregates support the proposed directions but are not projections, simulated medians or hit probabilities. Neither establishes a calibrated betting edge. No probability above 70% is asserted.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations, individual-game distributions, Pinnacle prices, sharp-book no-vig probabilities, exact source timestamps, injury/inactive information, weather and coverage charting. Listed two-sided prop prices are not identified as Pinnacle and cannot substitute for the required sharp-book comparison.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Aaron Jones rushrecyds over 57.5 at -114; T.J. Hockenson recyds over 36.5 at -112. Jones's combined-yardage market captures both rushing workload and receiving support; Hockenson's receiving-yardage market is permitted, but missing route-location evidence limits the efficiency thesis. Main lines only; no alternate-rung pricing supplied. Listed-price break-even probabilities are approximately 53.3% and 52.8%, respectively, not no-vig estimates. No stake or verified positive-EV claim without pricing and model validation.",
+ "pre_mortem": "If Jones loses, the likely mistaken assumption is that his recent workload persists: an unreported restriction, redistribution of carries or an Indianapolis lead could remove rushing volume, and his 72 receiving yards across three games may not compensate. Indianapolis's 5.01 YPC allowed also need not translate to Jones's individual efficiency. If Hockenson loses, the central weakness is treating a defensive location split as a player-specific opportunity without route charting; Minnesota could attack elsewhere or stop throwing after taking a lead. His 137 yards across three games do not reveal whether production was concentrated in one outing. The Jones read is better supported; Hockenson remains a lean rather than a core anchor.",
+ "slip_story": "Both candidates fit Minnesota leading through productive early offense, with Jones sustaining drives and Hockenson contributing before any late clock drain. Hockenson is script-dependent in an early blowout. Do not force a 3\u20134-leg slip from only two supported candidates, and do not treat their joint probability as independent or verified. Keep them as unplaced candidates pending validation; one market per player and no TD legs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,46 @@
+{
+ "game": "Week 8 CAR@GB / kickoff not in pack / GB -3.5 / total 47 / weather not saved (Lambeau outdoor; no forecast, rest, travel, or line move)",
+ "script": {
+  "base": "Books have GB about 25 and Carolina about 22 in a one-score game, not a blowout. Carolina stays in its Hubbard identity (about 15-18 carries) and still throws enough to McMillan to stay in range. GB mixes runs into Carolina's soft run defense with Golden/Watson/Kraft throws to get to the mid-20s; no garbage-time abandonment in the base case.",
+  "flip1": "GB scores early and leads by 14+ at half. Carolina abandons the run, so Hubbard's rush line dies and Young funnels air yards to McMillan/Coker. GB then clocks it, which helps whichever GB back is actually getting the carries and stalls GB WR yards.",
+  "flip2": "A defensive slog, or uncharted Lambeau weather, drags the 47 total down. Explosive passes (Golden 477 air yards, Watson 425, McMillan 290 over the last three) stall. Hubbard's carries still have a path; GB rush efficiency, already 2.5-3.3 YPC in this window, does not get the Carolina 5.31 boost."
+ },
+ "injury_fallout": "No injury report, practice trend, questionable tags, or inactives in the pack, so no named backup corner, safety, or linebacker boost. Source is L3 role totals only. Carolina: Hubbard 55 carries/275 yards is the bellcow; Etienne 7/7 and Dillon 5/2 are not absorbing work; Young 3/24. Targets stay with McMillan 31/318/290 air, then Coker 17/106/204 air, Metchie 13/81, Waller 10/86/139 air, Tremble 10/66/39 air, Hubbard 9/35. Green Bay: Lloyd 24/61 has out-carried Jacobs 11/36, with Strong 16/35 and Johnson 8/24 also in \u2014 committee or missed time, unknown which. The Jacobs rush line at 60.5 still prices a lead-back day this pack cannot confirm. No OL absences listed.",
+ "matchup": {
+  "shell": "Not in pack \u2014 no MOFO/MOFC, man/zone rate, or coverage charting, so WRs cannot be mapped to specific zone defenders.",
+  "pressure": "GB blitzes 33%. Young is about neutral vs blitz (EPA/dropback -0.01, n=69) and better clean (+0.16), so GB pressure is a mild drag, not a checkdown collapse. Carolina blitzes 37%. Love is worse when blitzed (EPA -0.07, n=99) than clean (+0.22), which trims GB deep-shot efficiency and should tilt GB toward shorter throws and the run.",
+  "bleeds": "Carolina run defense is the soft spot: 5.31 YPC allowed and 22 runs of 10+ in 6 games. Carolina has allowed only 9 passes of 20+ on 212 attempts, but the middle is 7.93 YPA vs left 6.26 and right 5.47. GB run defense is ordinary-solid at 4.08 YPC and 17 runs of 10+ in 7 games. GB pass YPA: left 7.11 (83 att), middle 6.8 (60), right 5.66 (99); 13 passes of 20+ on 261 attempts.",
+  "overlap": "Clearest overlap is GB runs into Carolina's 5.31 YPC defense, not Golden/Watson air yards into a defense with only 9 explosives. Carolina's primary, McMillan (31 targets, 290 air yards), lines up with GB's softer left/middle, but alignment is not charted, and both McMillan prices are +nan so that overlap is not a priced leg."
+ },
+ "form": "Avoiding season averages. Carolina L3: Hubbard 18.3 carries and 91.7 rush yards per game at 5.0 YPC, plus 11.7 rec yards \u2014 role is stable and large, not a one-play fluke (55 carries cannot be one game). Etienne 2.3 rush yards per game is not a role. McMillan 106 rec yards per game on 10.3 targets; Coker only 35.3 yards despite 204 air yards (boom/bust, 6.2 YPT). Metchie 27, Waller 28.7, Tremble 22. GB L3 run game is inefficient across the committee: Lloyd 2.54 YPC (24/61), Jacobs 3.27 (11/36), Strong 2.19 (16/35). Per-game splits are not in the pack, so Jacobs' 11 carries may be missed time rather than a true committee \u2014 that ambiguity is why he is not a leg despite a 60.5 line. Golden 88.7 yards on 11 targets and 159 air yards/game, Watson 88 on 142 air yards/game; both are explosive-dependent vs a Carolina defense that has allowed 9 such plays. Kraft 49.7 vs a 46 line is a coin flip and unpriced (+nan).",
+ "edge_players": [
+  {
+   "player": "chubahubbard",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Hubbard is the Carolina run game \u2014 55 carries and 275 yards over the last three, about 18 carries and 92 yards a game \u2014 and GB's 4.08 YPC defense still leaves him around 75 yards if the carry share holds, so 67.5 only loses if Carolina is down big and stops handing him the ball.",
+   "must_be_true": "He is active with no snap limit (not in the pack), keeps about 16-18 carries, and the game stays within one to two scores. Script-dependent: dies if flip 1 hits.",
+   "kills_it": "GB leads by 14+ early, Carolina goes pass-only, and he finishes near 12 carries at GB's 4.08 YPC (about 50 yards). A late inactive would also kill it; inactives are not in the pack.",
+   "confidence": "strong"
+  },
+  {
+   "player": "marshawnlloyd",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Carolina has allowed 5.31 YPC and 22 runs of 10-plus, and Lloyd has been GB's carry leader in this window (24 carries, 61 yards, about 20 yards a game) against a 16.5 line, so recent volume already clears it and the run-defense bleed helps if his 2.54 YPC ticks up.",
+   "must_be_true": "Lloyd is active and gets at least 5-8 carries, not a two-touch afterthought, and GB does not abandon the run. Role is inferred from L3 totals only.",
+   "kills_it": "Jacobs reclaims a full workload (the 60.5 line says the book may expect that) and Lloyd is a scratch or gets 2-3 carries, or flip 2 kills efficiency and he stays at 2.5 YPC on a tiny share.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so nothing to size and no 70%+ model probability to distrust. Available form agrees with both overs: Hubbard 91.7 rush ypg vs 67.5, and full regression to GB's 4.08 YPC on 18 carries is still about 75. Lloyd about 20.3 rush ypg vs 16.5; Carolina's 5.31 YPC is supportive, not a contradiction. Jacobs L3 usage (11 carries) would have flagged a Jacobs rush-over read, so that leg was not taken. Disagree-on-a-lean rule drops Golden/Watson unders despite the explosive-suppression matchup, because 88.7 and 88 yards sit far above 57.5 and 71.5.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "chubahubbard rushyds over 67.5 -113.5 (not rushrec over 88.5: 17 carries at 4.08 plus ~12 rec yards projects under 88.5). marshawnlloyd rushyds over 16.5 -113. Main lines only, standard juice, not short-priced alts. McMillan recyds 73 and Kraft recyds 46 are +nan and unpriced, so not used. No no-vig to re-rung.",
+ "pre_mortem": "It's Monday and both overs lost because GB led 17-3 at half, Carolina threw 38 times, and Hubbard finished 12 for 46 while the clock-kill carries went to Jacobs, not Lloyd, who had 3 carries for 9. The L3 Lloyd total was fill-in work from games Jacobs missed, the 60.5 Jacobs line was the tell, and GB's own 2.5 YPC run game never got Carolina's 5.31. That counter is real on Lloyd (lean, role unconfirmed) but not stronger than the Hubbard read, because a 3.5 spread is not a 14-point hole in the base case and 55 carries is not a fluke.",
+ "slip_story": "One competitive, slight-GB-lead script: both run games stay live. Hubbard rush over is the Carolina identity leg and is script-dependent on no early blowout; Lloyd rush over is the favorite-side run leg into the 5.31 YPC bleed. Do not add same-game pass overs (Golden, Watson, McMillan) \u2014 those need the shootout flip these rush legs do not. Two legs only; no third edge cleared the read. No TDs, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

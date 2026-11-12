@@ -1,0 +1,18 @@
+## A) PLAN
+
+**Status and hypothesis.** This is a locked development backtest, not a fresh confirmatory test: Weeks 1–8 have already informed prior work. Hypothesis: a strongly regularized, market-anchored adjustment using only earlier player-game logs improves probability accuracy and identifies profitable singles. I ignore the existing simulator, QB streak, depth-chart, and slip rules.
+
+**Universe and deduplication.** Use FanDuel only, avoiding best-book execution assumptions and enabling FanDuel slip grading. Keep its latest valid pre-kick quote per `(game, player, market, side, line)`; ties favor the better price. Modeling requires both sides at the identical line. Normalize their implied probabilities to remove vig. Exclude missing player IDs from modeling. The broader baseline retains all priced FanDuel rush unders, including one-sided quotes.
+
+**Probability method.** Predict over probability with a market-logit offset plus ridge-penalized logistic coefficients, including a penalized intercept. Fixed penalty: 20 on summed negative log-likelihood. Features: last-four average yards relative to line, last-two versus historical yardage trend, last-four rushing/target opportunity share, and prior-game count. All logs must have `week < target week`. Scaling uses training data only; standardized features are clipped to ±5. Fit only over contracts, avoiding duplicated complementary observations. Under probability is the complement. With fewer than 30 graded training contracts, use market probabilities unchanged.
+
+**Walk-forward and selection.** Weeks 3–4 warm up; predict Weeks 5–8, refitting on earlier weeks only. No tuning or retrospective disabling. Select legs with probability edge ≥3 percentage points and modeled expected return ≥2%. Retain at most one selected leg per player per game, ranked by edge, then expected return. Stake $10 per single. Pushes and missing outcomes refund stakes and do not enter binary scoring.
+
+**Slips.** Separately stake $10 per slip. Deterministically attempt five distinct slips weekly, preferring four legs, otherwise three. Each slip has distinct players and games; overlap between slips is permitted and reported. Use selected singles only; insufficient qualifying legs means fewer slips. FanDuel payout is the product of decimal prices, with pushes/voids removed. Also report a **hypothetical PrizePicks Power** grading at these same lines: 3-pick 6x, 4-pick 10x total return. These are not saved PrizePicks offers. For this hypothetical comparison, any push/void refunds the whole slip.
+
+**Metrics and comparisons.** Report weekly/market/side singles results, hit rate, profit, ROI on all stakes including refunded stakes, Brier and log-loss against de-vigged market on identical graded legs, and slips by week. Universe probability scoring uses one over per paired contract. Compare selected singles with both eligible paired FanDuel rush unders and all priced FanDuel rush unders in Weeks 5–8. The historical +2.8% baseline covers different weeks/books and is context, not a like-for-like hurdle.
+
+**Leakage and success.** Features never access outcomes or supplied `prior_*` fields. Assert valid snapshot timing, earlier-week log access, and earlier-week training. Success requires positive selected-single ROI, ROI exceeding **both** rush-under baselines, and lower universe Brier than market. Empty comparisons fail. Slips are secondary, not success criteria. Report counts without claiming statistical proof: four evaluation weeks, overlapping contracts, and reused slip legs make the effective sample small.
+
+## B) CODE — `v7.py`
+

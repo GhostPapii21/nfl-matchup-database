@@ -1,0 +1,43 @@
+2026-11-01 07:09 curl nflverse pbp/play_by_play_2026.parquet -> 200 8068645 bytes magic= tail=
+2026-11-01 07:09 curl nflverse nextgen_stats/ngs_2026_passing.parquet -> 404 9 bytes magic= tail=
+2026-11-01 07:09 curl nflverse nextgen_stats/ngs_2026_receiving.parquet -> 404 9 bytes magic= tail=
+2026-11-01 07:09 curl nflverse nextgen_stats/ngs_2026_rushing.parquet -> 404 9 bytes magic= tail=
+2026-11-01 07:09 curl nflverse ftn_charting/ftn_charting_2026.parquet -> 200 232198 bytes magic= tail=
+2026-11-01 07:09 curl nflverse snap_counts/snap_counts_2026.parquet -> 200 114921 bytes magic= tail=
+2026-11-01 07:09 curl nflverse players/players.parquet -> 200 3395062 bytes magic= tail=
+2026-11-01 07:09 curl nflverse pbp_participation/pbp_participation_2026.parquet -> 404 9 bytes magic= tail=
+2026-11-01 07:09 curl espn injuries -> 200
+2026-11-01 07:09 curl PFR defense_advanced 2026 -> 403 5567 bytes
+2026-11-01 07:09 curl espn scoreboard -> 200
+2026-11-01 07:09 done
+2026-11-01 07:09 curl nflverse nextgen_stats/ngs_{passing,receiving,rushing}.parquet (all-season files; ngs_2026_* names 404)
+2026-11-01 07:09 removed 404 bodies (ngs_2026_*, pbp_participation_2026: HTTP 404 'Not Found' 9 bytes; not published by nflverse)
+2026-11-01 07:09 firecrawl https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ -> 200
+2026-11-01 07:10 WebFetch https://www.pff.com/betting/player-props?weekAbbr=8 -> 200 but logged-out preview only (3 teaser rows, 'Subscribe Now' gate); no lines usable; needs signed-in box browser (read-only)
+2026-11-01 07:10 python urllib api.weather.gov hourly + api.open-meteo.com for 12 stadiums -> weather.json
+2026-11-01 07:11 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_a0715.csv 14968 rows, remaining 19868
+2026-11-01 07:12 curl ESPN WR/CB cheatsheet https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_WRCB.pdf -> 200
+2026-11-01 07:14 curl-equivalent urllib ESPN depthcharts API for 24 teams -> espn_depth_all.json
+2026-11-01 07:19 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_a0720.json 28 games, remaining 19866
+2026-11-01 07:30 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_final.csv 14760 rows, remaining 19734
+2026-11-01 07:30 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_final.json 28 games, remaining 19732
+2026-11-01 07:44 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_r0750.csv 15004 rows, remaining 19600
+2026-11-01 08:07 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_r0810.json 28 games, remaining 19598
+2026-11-01 08:36 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_r0835.csv 15224 rows, remaining 19466
+2026-11-01 08:36 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_r0835.json 28 games, remaining 19464
+2026-11-01 08:47 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_r0847.csv 15227 rows, remaining 19332
+2026-11-01 08:47 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_r0847.json 28 games, remaining 19330
+2026-11-01 11:38 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_i1135.csv 15534 rows, remaining 19198
+2026-11-01 11:38 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_i1135.json 28 games, remaining 19196
+2026-11-01 11:49 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_b1149.csv 15559 rows, remaining 19064
+2026-11-01 11:49 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_b1149.json 28 games, remaining 19062
+2026-11-01 11:57 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_b1205.csv 15548 rows, remaining 18930
+2026-11-01 11:57 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_b1205.json 28 games, remaining 18928
+2026-11-01 14:42 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_i1435.csv 10206 rows, remaining 18797
+2026-11-01 14:42 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_i1435.json 13 games, remaining 18795
+2026-11-01 14:42 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_b1442.csv 10179 rows, remaining 18664
+2026-11-01 14:42 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_b1442.json 13 games, remaining 18662
+2026-11-01 15:29 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_g1529.json 13 games, remaining 18660
+2026-11-01 15:29 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_g1529.csv 8667 rows, remaining 18530
+2026-11-01 18:51 The Odds API event odds (12 Sunday events, books fanduel,draftkings,pinnacle,prizepicks,underdog) -> odds_i1850.csv 2188 rows, remaining 18488
+2026-11-01 18:51 The Odds API spreads/totals (fanduel,draftkings,pinnacle) -> lines_i1850.json 20 games, remaining 18486

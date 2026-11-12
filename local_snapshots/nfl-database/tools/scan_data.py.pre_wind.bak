@@ -1,0 +1,71 @@
+"""Per-player-game table for 2026 Wk1-8: nflverse pbp (wk1-7 + wk8 TNF) and ESPN box scores (wk8 Sunday).
+Columns: game_id week team opp pid name pos car ryds tgt rec recyds att pyds; game table: spread (team, neg=fav), total, wx."""
+import glob, json, os, re
+import numpy as np, pandas as pd
+ROOT = "/workspace/nfl-database"
+PBP = f"{ROOT}/runs/2026-11-01_shared_src/play_by_play_2026.parquet"
+ROS = f"{ROOT}/fixes/src/roster_weekly_2026.parquet"
+ESPN = f"{ROOT}/teams/espn_raw"
+ALIAS = {"WSH": "WAS", "LAR": "LA"}  # ESPN -> nflverse
+# Week-8 weather from the pregame-forecast notes in postmortems/WEEK8_SUNDAY_MISSED_EDGES (only ATL@TB rain)
+WX8 = {("ATL", "TB"): True}
+
+def _pbp():
+    d = pd.read_parquet(PBP); d = d[(d.season_type == "REG") & (d.two_point_attempt != 1)]
+    g = d.groupby("game_id").agg(week=("week", "first"), home=("home_team", "first"), away=("away_team", "first"),
+        spread=("spread_line", "first"), total=("total_line", "first"), weather=("weather", "first"), roof=("roof", "first"), wind=("wind", "first"))
+    ws = g.weather.fillna("").str.lower()
+    g["wx"] = g.roof.isin(["outdoors", "open"]) & (ws.str.contains("rain|shower|storm|snow") | (g.wind.fillna(0) >= 15))
+    ru = d[(d.rush_attempt == 1) & (d.qb_kneel != 1) & d.rusher_player_id.notna()].groupby(["game_id", "posteam", "rusher_player_id"]).agg(car=("rush_attempt", "sum"), ryds=("rushing_yards", "sum"), rlong=("rushing_yards", "max")).reset_index().rename(columns={"rusher_player_id": "pid"})
+    rc = d[(d.pass_attempt == 1) & (d.sack != 1) & d.receiver_player_id.notna()].groupby(["game_id", "posteam", "receiver_player_id"]).agg(tgt=("pass_attempt", "sum"), rec=("complete_pass", "sum"), recyds=("receiving_yards", "sum"), adot=("air_yards", "mean")).reset_index().rename(columns={"receiver_player_id": "pid"})
+    qb = d[(d.pass_attempt == 1) & (d.sack != 1) & d.passer_player_id.notna()].groupby(["game_id", "posteam", "passer_player_id"]).agg(att=("pass_attempt", "sum"), pyds=("passing_yards", "sum")).reset_index().rename(columns={"passer_player_id": "pid"})
+    pg = ru.merge(rc, on=["game_id", "posteam", "pid"], how="outer").merge(qb, on=["game_id", "posteam", "pid"], how="outer")
+    pg = pg.rename(columns={"posteam": "team"})
+    # explosive plays allowed by defense (20+ rec, 15+ rush) per game
+    ex = d.assign(xr=((d.pass_attempt == 1) & (d.receiving_yards.fillna(0) >= 20)).astype(int), xu=((d.rush_attempt == 1) & (d.rushing_yards.fillna(0) >= 15)).astype(int)).groupby(["game_id", "defteam"])[["xr", "xu"]].sum().reset_index()
+    return pg, g, ex
+
+def _espn_wk8(ros):
+    m = ros.dropna(subset=["espn_id"]).assign(espn_id=lambda r: r.espn_id.astype(str).str.replace(r"\.0$", "", regex=True)).drop_duplicates("espn_id").set_index("espn_id").gsis_id
+    sb = json.load(open(f"{ESPN}/sb_8.json")); rows = []; games = []
+    for ev in sb["events"]:
+        f = f"{ESPN}/sum_{ev['id']}.json"
+        if not os.path.exists(f): continue
+        s = json.load(open(f)); comp = s["header"]["competitions"][0]
+        if not comp.get("status", {}).get("type", {}).get("completed", True): continue
+        tm = {c["homeAway"]: ALIAS.get(c["team"]["abbreviation"], c["team"]["abbreviation"]) for c in comp["competitors"]}
+        gid = f"2026_08_{tm['away']}_{tm['home']}"
+        pc = (s.get("pickcenter") or [{}])[0]; sp = pc.get("spread"); tot = pc.get("overUnder")
+        games.append(dict(game_id=gid, week=8, home=tm["home"], away=tm["away"], spread=(-sp if sp is not None else np.nan), total=tot,
+                          wx=WX8.get((tm["away"], tm["home"]), False), src="espn"))  # nflverse spread_line: + = home fav; ESPN spread: - = home fav
+        for b in s["boxscore"].get("players", []):
+            t = ALIAS.get(b["team"]["abbreviation"], b["team"]["abbreviation"])
+            for st in b["statistics"]:
+                lab = st.get("labels", [])
+                for a in st.get("athletes", []):
+                    v = dict(zip(lab, a["stats"])); pid = m.get(str(a["athlete"]["id"]), "espn:" + str(a["athlete"]["id"]))
+                    r = dict(game_id=gid, team=t, pid=pid, name=a["athlete"]["displayName"])
+                    num = lambda k: float(str(v.get(k, "0")).replace("--", "0") or 0)
+                    if st["name"] == "rushing": r.update(car=num("CAR"), ryds=num("YDS"), rlong=num("LONG"))
+                    elif st["name"] == "receiving": r.update(tgt=num("TGTS"), rec=num("REC"), recyds=num("YDS"))
+                    elif st["name"] == "passing" and "C/ATT" in v: r.update(att=float(v["C/ATT"].split("/")[1]), pyds=num("YDS"))
+                    else: continue
+                    rows.append(r)
+    w = pd.DataFrame(rows).groupby(["game_id", "team", "pid"], as_index=False).agg({"name": "first", **{c: "sum" for c in ("car", "ryds", "tgt", "rec", "recyds", "att", "pyds")}, "rlong": "max"})
+    return w, pd.DataFrame(games).set_index("game_id")
+
+def load():
+    ros = pd.read_parquet(ROS)
+    pg, g, ex = _pbp()
+    w8, g8 = _espn_wk8(ros)
+    have = set(g.index); g8 = g8[~g8.index.isin(have)]  # TNF already in pbp
+    w8 = w8[w8.game_id.isin(g8.index)]
+    pg = pd.concat([pg, w8], ignore_index=True); g = pd.concat([g[["week", "home", "away", "spread", "total", "wx"]], g8[["week", "home", "away", "spread", "total", "wx"]]])
+    for c in ("car", "ryds", "tgt", "rec", "recyds", "att", "pyds"): pg[c] = pg[c].fillna(0)
+    pos = ros.sort_values("week").drop_duplicates("gsis_id", keep="last").set_index("gsis_id")
+    pg["pos"] = pg.pid.map(pos.position).fillna("UNK"); nm = pg.pid.map(pos.full_name)
+    pg["name"] = nm.fillna(pg.get("name"))
+    pg = pg.merge(g, left_on="game_id", right_index=True)
+    pg["opp"] = np.where(pg.team == pg.home, pg.away, pg.home)
+    pg["team_spread"] = np.where(pg.team == pg.home, -pg.spread, pg.spread)  # negative = favored
+    return pg, g, ex

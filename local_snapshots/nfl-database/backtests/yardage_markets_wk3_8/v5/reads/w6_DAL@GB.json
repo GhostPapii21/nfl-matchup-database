@@ -1,0 +1,46 @@
+{
+ "game": "DAL@GB Week 6 / kickoff not in pack / GB -0.5 / total 54 / weather not saved",
+ "script": {
+  "base": "A 54 total and GB -0.5 price a pick'em shootout, implied totals about GB 27.25 and DAL 26.75. Both passing games stay live: DAL L3 was Lamb 35 targets/310 rec yds and Pickens 27/287, GB L3 was Golden 27 targets/397 air and Watson 21/286. GB's run game is a split low-efficiency committee (Lloyd 21/55, K.Johnson 19/74), so the points path is through the air, especially at Dallas.",
+  "flip1": "GB -0.5 at Lambeau gets up early and clocks it with the Lloyd/Johnson committee. Love's attempts and Watson's air yards stall; the only GB skill leg that benefits is Lloyd's carry count.",
+  "flip2": "GB's 34% blitz hits Dak, whose EPA/dropback is 0.06 on 69 blitzed dropbacks vs 0.26 clean. Dallas checks down, Lamb/Pickens stall, and the game finishes well under 54."
+ },
+ "injury_fallout": "No injury report, practice trend, snap limit, or inactives in the pack, so no next-man-up or missing coverage player can be named. Fallout unknown; any late scratch would void these reads. Source: as-of pack only.",
+ "matchup": {
+  "shell": "Not charted. No MOFO/MOFC or man/zone rate in the pack; location YPA is the only proxy.",
+  "pressure": "GB blitzes 34% and Dak drops from 0.26 EPA clean to 0.06 vs blitz (n=69), so pressure is the Dallas-pass killer. DAL blitzes only 27%; Love is -0.10 vs blitz (n=78) but 0.25 clean, so most of his dropbacks are the good sample.",
+  "bleeds": "Dallas is the soft side: 5.31 rush YPC allowed, 20 runs of 10+ in 5 games, 17 passes of 20+ on 143 attempts (11.9%), middle YPA 11.56 on 25 attempts vs left 7.66 and right 7.73. GB does not bleed: 4.23 rush YPC, only 8 passes of 20+ on 172 attempts, YPA left 6.73 / middle 6.54 / right 6.03.",
+  "overlap": "GB's downfield duo (Golden 397 air yards, Watson 293 air / 286 rec over L3) attacks the explosive allowance that is Dallas's hole. Lamb/Pickens volume does not overlap a GB weakness; it runs into a 34% blitz and no location above 6.73 YPA. Kraft (65 air, 132 rec over L3) is the middle candidate but has not produced the yards."
+ },
+ "form": "Watson L3: 21 targets, 286 rec, 293 air (~95.3 yds/g), GB's best converter. Golden 27/244/397 (~81.3 rec, air not cashing). Kraft 20/132/65 (~44). Lloyd 21 carries/55 rush (2.6 YPC, ~18.3/g) plus 10 targets/49 rec; K.Johnson 19/74 is the more efficient GB back and is not on the board. J.Williams 50/205 (~68.3 rush) and 11/43 rec, essentially at a 67 rush number. No single-game logs, so a one-play spike inside these L3 totals cannot be ruled out. Similar-defense splits not in the pack.",
+ "edge_players": [
+  {
+   "player": "christianwatson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Watson is clearing about 95 receiving yards a game on 7 targets, and Dallas is allowing an explosive pass on 11.9% of attempts, while 76.5 sits almost 19 yards under that role in a 54-total game where Dallas blitzes just 27% and Love's clean-pocket EPA is 0.25.",
+   "must_be_true": "Watson keeps the L3 share (~7 targets, ~98 air yards/game), Love stays mostly unblitzed, and the game stays competitive enough that GB does not shelve the downfield shot.",
+   "kills_it": "GB leads by multiple scores and grinds with Lloyd/Johnson, or the L3 286 yards are one spike we cannot split out, or a late inactive not in this pack.",
+   "confidence": "strong"
+  },
+  {
+   "player": "marshawnlloyd",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Lloyd is a split back at 2.6 YPC with 34.7 rush-plus-receiving yards per game over the last three (55 rush + 49 rec), and 58.5 needs a carry spike or a long run he has not shown.",
+   "must_be_true": "Carry share stays near 7 per game, K.Johnson keeps the more efficient touches, and receiving stays near 16 yards rather than a 40-yard screen game.",
+   "kills_it": "GB leads at home and runs; Dallas's 5.31 YPC and 20 explosive runs turn 10-12 carries into 50-plus rush yards and he clears 58.5 with the receiving tacked on.",
+   "confidence": "strong"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so step 8 cannot be priced. Watson L3 95.3 vs 76.5 agrees with the read and nothing in the pack contradicts it. Lloyd's role math (34.7, or about 47.5 if 7 carries regress to 4.5 YPC plus 16 rec) is still under 58.5, but Dallas allowing 5.31 YPC and 20 runs of 10+ disagrees with treating the under as safe. Flag Lloyd; do not cut a strong read on that alone. No model probability to calibrate; do not treat either leg as 70%+.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Christian Watson recyds over 76.5 at -113. Marshawn Lloyd rushrecyds under 58.5 at -114. Main lines only; no alt rungs in the pack. Golden over 67 and the DAL WR overs are +nan, so unpriced and not used.",
+ "pre_mortem": "Monday this lost because Green Bay led after a long K.Johnson run, Love's attempts died after halftime, and Watson's 286-yard L3 was one explosive week we could not split \u2014 76.5 was the market fading that spike. Lloyd lost the under because Dallas's 5.31 YPC defense sprung a 20-yard run plus checkdowns in a fourth-quarter clock-kill and 7 carries became 12. That counter is why Lloyd is flagged, not sized up. Absent inactives would void both reads.",
+ "slip_story": "One story: competitive 54-total, GB throwing rather than grinding. Watson over is the explosive stack into Dallas's 17 deep shots allowed. Lloyd under belongs only to that same non-grind script, not to a GB-leads-and-runs stack. Do not pair with a total under or a J.Williams rush over that needs Dallas to control the clock. Two legs, no TDs, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

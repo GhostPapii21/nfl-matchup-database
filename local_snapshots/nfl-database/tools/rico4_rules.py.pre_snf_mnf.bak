@@ -1,0 +1,122 @@
+"""Rico four rules (approved 2026-11-02 05:01 ET; audits/2026-11-02_rico4/). Runs dated >= RICO4_FROM only.
+R1 PRESS manual review: on a PRESS leg, MODEL-SUSPECT / P14 edge-shrink cuts become MANUAL_REVIEW (never live).
+   Weather stop, inactives (Doubtful/Out/IR...), §11 and the #3/#4 WR ban still override (press_tier BLOCKED).
+R2 mirror over: an under cut for soft-D / missing defender / no-unders-on-stars gets a mirror over candidate at the
+   lowest alt rung that clears the edge rules (it then runs every normal check) or a logged no_rung_reason.
+R3 22% target-share pool: WR/TE with >= 22% target share (season or last 3 games with the current QB, nflverse pbp)
+   join the candidate pool / slate scan; #3/#4 WRs stay banned.
+R4 QB-RETURN: WR/TE leg when the QB is back from missing 2+ games or the model used the backup QB -> flag, recheck §7 +
+   recent form on current-QB games only; NO automatic rung drop. Mixed into run_gate.Gate (install)."""
+import re
+import press_tier as _pt
+RICO4_FROM = "2026-11-05"
+SHARE_MIN = 0.22
+MR_RX = re.compile(r"MODEL-SUSPECT|\bedge\b|shrunk|shrink|model p [\d.]+ < \.45|median does not clear", re.I)  # P14 edge-rule items; placed-ticket bar / HOLD never
+MIRROR_RX = re.compile(r"soft|missing defender|defender|no[- ]unders?[- ]on[- ]stars?|under on primary star|\bP3\b|\bP4\b|ISS-05|under BLOCKED|clock-killing", re.I)  # matchup/coverage/script under cuts
+STOP_RX = re.compile(r"weather|inactive|doubtful|\bout\b|\bIR\b|§11|sec11|#3/#4|wr_rank", re.I)
+
+def valid_statuses(game_date):
+    return ("PASS", "CUT", "HOLD", "MANUAL_REVIEW") if str(game_date) >= RICO4_FROM else ("PASS", "CUT", "HOLD")
+
+def press_manual_review(leg, cut_reasons, model_p, models_required=_pt.DEFAULT_MODELS_REQUIRED):
+    """MANUAL_REVIEW block if the leg is PRESS and every cut reason is MODEL-SUSPECT / P14 edge-shrink; else None."""
+    rs = [str(r) for r in (cut_reasons or [])]
+    if not rs or not all(MR_RX.search(r) and not STOP_RX.search(r) for r in rs): return None
+    ev = _pt.evaluate(leg.get("press") or {}, models_required)
+    if ev["tier"] != "PRESS": return None
+    price = leg.get("price_fd", leg.get("price"))
+    return dict(status="MANUAL_REVIEW", reason="; ".join(rs), model_p=list(model_p), book_price=price,
+                no_vig=leg.get("no_vig"), press_reason=ev["reason"])
+
+def mirror_eligible(reason): return bool(MIRROR_RX.search(str(reason))) and not STOP_RX.search(str(reason))
+
+def rung_clears(r):
+    ps, meds, nv, line = r.get("p") or [], r.get("medians") or [], r.get("no_vig"), r.get("line")
+    if len(ps) < 3 or nv is None or line is None: return False
+    avg = sum(ps) / 3; shr = 0.5 + 0.7 * (avg - 0.5)
+    return avg - nv >= 0.03 and shr - nv > 0 and min(ps) >= 0.45 and all(m > line for m in meds)
+
+def mirror_over(under, rungs):
+    """Lowest alt over rung that clears avg-nv>=.03, shrunk>0, min p>=.45, all medians over. Candidate only."""
+    for r in sorted(rungs or [], key=lambda r: r["line"]):
+        if rung_clears(r):
+            base = re.sub(r"\s*Under\s+[\d.]+$", "", str(under.get("name", "")), flags=re.I)
+            return dict(name=f"{base} Over {r['line']}", side="over", line=r["line"], price=r.get("price"),
+                        no_vig=r.get("no_vig"), model_p=r.get("p"), medians=r.get("medians"), status="CANDIDATE",
+                        mirror_of=under.get("name"), player=under.get("player"), market=under.get("market"),
+                        note="mirror over (Rico R2) - must pass §7, §14, coverage, weather, models like any leg")
+    return dict(mirror_of=under.get("name"), line=None, status="NONE", no_rung_reason="no alt over rung clears edge rules")
+
+def target_share_pool(rows, team, current_qb, pos, wr_rank, source="nflverse play_by_play_2026.parquet"):
+    """rows: pbp pass plays (dicts with week, posteam, passer_player_name, receiver_player_name)."""
+    T = [r for r in rows if r.get("posteam") == team and r.get("receiver_player_name")]
+    def share(sub):
+        n = len(sub); c = {}
+        for r in sub: c[r["receiver_player_name"]] = c.get(r["receiver_player_name"], 0) + 1
+        return {k: v / n for k, v in c.items()} if n else {}
+    season = share(T)
+    qw = sorted({r["week"] for r in T if r.get("passer_player_name") == current_qb})[-3:]
+    l3 = share([r for r in T if r["week"] in qw])
+    out, ex = [], []
+    for name in sorted(set(season) | set(l3)):
+        if pos.get(name) not in ("WR", "TE"): continue
+        s, s3 = round(season.get(name, 0), 3), round(l3.get(name, 0), 3)
+        if max(s, s3) < SHARE_MIN: continue
+        row = dict(name=name, team=team, pos=pos.get(name), share_season=s, share_l3_current_qb=s3, qb_weeks=qw)
+        (ex if pos.get(name) == "WR" and wr_rank.get(name) in (3, 4) else out).append(row)
+    return dict(source=source, threshold=SHARE_MIN, team=team, current_qb=current_qb, players=out, excluded_wr34=ex)
+
+def qb_return(leg, current_qb, qb_missed_before, model_qb):
+    if leg.get("type") not in ("WR", "TE") and not (leg.get("receiving") and leg.get("type") != "RB"): return False
+    return (qb_missed_before or 0) >= 2 or (model_qb is not None and model_qb != current_qb)
+
+# ---------------- gate mixin ----------------
+def check_rico4(self, m, legs, live):
+    if str(self.game_date) < RICO4_FROM: return
+    self.mr_rows = []
+    for n, l in legs.items():
+        if str(l.get("status", "")).upper() != "MANUAL_REVIEW": continue
+        mr = l.get("manual_review") or {}
+        ev = _pt.evaluate(l.get("press") or {})
+        import snf_rules as _snf  # SNF S1 (Rico Nov 2 8:14 AM ET): non-PRESS model-suspect under w/ backfield split + D/F QB card
+        if ev["tier"] != "PRESS" and not _snf.s1_ok(l): self.fail(f"leg {n}: MANUAL_REVIEW only for PRESS legs (tier {ev['tier']}: {ev['reason']}) - must be CUT")
+        lack = [k for k in ("reason", "model_p", "book_price") if mr.get(k) in (None, "", [])]
+        if lack or len(mr.get("model_p") or []) != 3: self.fail(f"leg {n}: MANUAL_REVIEW missing {lack or ['3 model_p']}")
+        elif not all(MR_RX.search(str(r)) or _snf.SUSPECT_RX.search(str(r)) for r in (l.get("cut_reasons") or [mr["reason"]])):
+            self.fail(f"leg {n}: MANUAL_REVIEW only replaces MODEL-SUSPECT / P14 edge-shrink cuts")
+        self.mr_rows.append((n, mr))
+    names = set(legs)
+    for n, l in legs.items():
+        if str(l.get("side", "")).lower() != "under" or str(l.get("status", "")).upper() != "CUT": continue
+        if not any(mirror_eligible(r) for r in l.get("cut_reasons") or []): continue
+        mo = [k for k, x in legs.items() if x.get("mirror_of") == n] + [c.get("name") for c in m.get("mirror_candidates", []) if c.get("mirror_of") == n]
+        if not mo and not (l.get("mirror") or {}).get("no_rung_reason"):
+            self.fail(f"leg {n}: under cut ({'; '.join(l.get('cut_reasons'))}) without a mirror over candidate or logged no_rung_reason")
+    P = m.get("target_share_pool")
+    if not isinstance(P, dict): self.fail("target_share_pool block missing (22% WR/TE target share, nflverse pbp)")
+    else:
+        if "nflverse" not in str(P.get("source", "")).lower() and "pbp" not in str(P.get("source", "")).lower():
+            self.fail("target_share_pool: source must be nflverse play-by-play")
+        for p in P.get("players", []):
+            if not any(p.get("name", "~") in k for k in names) and not p.get("skip_reason") and not p.get("leg"):
+                self.fail(f"target_share_pool: {p.get('name')} (>=22% share) has no leg and no skip_reason")
+            elif p.get("leg") and p["leg"] not in names and not p.get("skip_reason"):
+                self.fail(f"target_share_pool: {p.get('name')} leg '{p['leg']}' not in manifest")
+    for n, l in legs.items():
+        if "QB-RETURN" not in (l.get("flags") or []) and not l.get("qb_return"): continue
+        rc = l.get("qb_return_recheck") or {}
+        if not rc.get("current_qb") or not rc.get("games") or not rc.get("sec7") or rc.get("form_values") is None:
+            if n in live: self.fail(f"leg {n}: QB-RETURN flagged but §7 / recent-form recheck on current-QB games missing")
+        if re.search(r"qb.?return|returning qb|backup qb", str((l.get("rung_drop") or {}).get("reason", "")), re.I):
+            self.fail(f"leg {n}: QB-RETURN must not auto rung drop (Rico 2026-11-02)")
+
+def mr_section(self):
+    rows = getattr(self, "mr_rows", [])
+    if not rows: return []
+    out = ["PRESS MANUAL REVIEW (Ghost6/Rico; never auto-published live):"]
+    for n, mr in rows:
+        out.append(f"  - {n}: {mr.get('reason')} | models p {mr.get('model_p')} | book {mr.get('book_price')}")
+    return out
+
+def install(G):
+    G.check_rico4 = check_rico4; G.mr_section = mr_section

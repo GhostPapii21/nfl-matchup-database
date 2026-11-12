@@ -1,0 +1,48 @@
+{
+ "game": "NE@JAX Week 3 / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this is form-only, not a market script. Through weeks 1-2 both clubs run: JAX B.Tuten 28 of 51 carries for 131 yards (4.68 YPC) and NE R.Stevenson 24/94, T.Henderson 16/76, D.Maye 9/67. Base case is competitive and balanced. JAX stays on Tuten because T.Lawrence is -0.40 EPA/dropback vs blitz (n=10) and NE blitzes 38%, while NE keeps the committee and takes selective shots (R.Doubs 151 air yards on 7 targets) into JAX's 8 passes of 20+ on 58 attempts. No team total is assumed.",
+  "flip1": "NE's 38% blitz gets home, Lawrence's -0.40 EPA vs blitz puts JAX down multiple scores, they abandon the run, and Tuten's 14-carry pace dies while P.Washington (18 targets, 279 air yards) and Bri.Thomas (11 targets) soak pass volume. That flip cashes an NE clock-grind and kills the Tuten rush over.",
+  "flip2": "JAX controls and clocks Tuten, NE trails and tilts pass: Stevenson carries drop but his 8 targets and 47 receiving yards can still hold rush+rec, while Doubs, H.Henry and M.Hollins become the NE pass overs. A true shootout, both teams throwing, is the version that misses both back overs together."
+ },
+ "injury_fallout": "MISSING: injury report, practice status, questionable tags, snap limits, and inactives for NE and JAX. No absence, return, or next-man-up is inferred from usage. Card usage only: JAX rush Tuten 28/131, C.Rodriguez 12/36, A.Abdullah 7/43, Lawrence 4/9; NE rush Stevenson 24/94, Henderson 16/76, Maye 9/67, C.Kiner 8/11. Targets logged for Washington, Thomas, B.Strange, J.Meyers, Doubs, Henry, Hollins, D.Douglas, Stevenson. Travis Hunter and Kyle Williams have props but no target line in the pack; that is not treated as an inactive.",
+ "matchup": {
+  "shell": "MISSING: no coverage charting, so no MOFO vs MOFC and no man/zone rate. Location proxy only: JAX middle 19.0 YPA on 7 att vs left 7.86 (28 att) and right 7.78 (18 att); NE middle 10.69 YPA on 13 att vs left 4.48 (23 att) and right 5.18 (28 att).",
+  "pressure": "JAX blitzes 39% and NE QB EPA/dropback is +0.09 vs blitz (n=22) vs -0.06 with no blitz, so JAX pressure does not profile as a Maye killer. NE blitzes 38% and Lawrence is -0.40 EPA vs blitz (n=10) vs +0.42 with no blitz, which is the pressure edge and a reason for JAX to stay on the ground.",
+  "bleeds": "JAX gives up explosives (8 passes of 20+ on 58 att) and a small middle sample at 19.0 YPA, plus 4.13 rush YPC and 5 runs of 10+. NE is stingy on explosives (4 of 70 att) and on the perimeter, and bleeds the run more (4.30 YPC, 5 runs of 10+), with the middle the soft pass spot at 10.69 YPA.",
+  "overlap": "JAX primary target Washington (18 targets, 181 yards, 279 air yards, about 15.5 aDOT) is a downfield profile, and NE's leak is the middle and the run, not outside explosives, so that overlap is weak. The overlap that maps to a legal yardage market is Tuten's 4.68 YPC and 28-carry lead role into NE's 4.30 YPC allowed, and Stevenson's 24 carries plus 8 targets into JAX's 4.13 YPC allowed. Doubs (151 air yards) does overlap JAX's explosive leak, but 48 yards/game vs a 42.5 line is a thin one-play sample and is not selected."
+ },
+ "form": "Window is weeks 1-2 only. Tuten 14.0 carries and 65.5 rush yards per game, ahead of Rodriguez (18.0 rush yards/game) and Abdullah (21.5 yards on 3.5 carries, 6.14 YPC, small-sample vulture). Stevenson 12.0 carries, 47.0 rush yards, plus 4.0 targets and 23.5 rec yards per game; Henderson is the efficiency threat at 4.75 YPC and 38.0 rush yards/game, not a zero. Washington 9.0 targets and 90.5 rec yards/game is the JAX pass game; Thomas 5.5 targets and 40.0 yards; Strange 2.5 targets and 20.0 yards; Meyers 68 yards on 3 targets looks fluky. NE pass yards are spread: Doubs 48.0, Hollins 34.5, Henry 33.0, Douglas 14.5 on 4.5 targets (9 targets, 29 yards, poor YPT). No similar-defense split beyond these defensive rates.",
+ "edge_players": [
+  {
+   "player": "bhayshultuten",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Tuten is the JAX lead back at 65.5 rush yards per game on 4.68 YPC, NE allows 4.30 YPC, and Lawrence's -0.40 EPA vs a 38% NE blitz pushes JAX toward the run, so 52 sits under both the pace and the script.",
+   "must_be_true": "B.Tuten carries >= 12 because 28 carries in 2 games and NE rush YPC allowed is 4.30",
+   "kills_it": "IF JAX trails by multiple scores and Tuten finishes with fewer than 10 carries THEN bhayshultuten rushyds over 52 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "rhamondrestevenson",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Stevenson is NE's touch leader at 47.0 rush yards plus 23.5 rec yards per game, and the receiving floor lets rush+rec clear 54 even if one script cuts the carries, against a JAX run defense allowing 4.13 YPC.",
+   "must_be_true": "R.Stevenson rushrec yards >= 54 because 94 rush yards plus 47 rec yards in 2 games and JAX rush YPC allowed is 4.13",
+   "kills_it": "IF Henderson records 15 or more carries and Stevenson has fewer than 8 carries and fewer than 3 targets THEN rhamondrestevenson rushrecyds over 54 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so no rung is priced against a sharp number and no probability above 70% is claimed. L3 figures are read as two-game totals, because per-game rates such as Washington 181 or Tuten 131 would be incompatible with lines of 68.5 and 52. Tuten 65.5 rush yards/game vs 52 and Stevenson 70.5 rush+rec/game vs 54 both sit above the rung in the same direction as the read. JAX 4.13 rush YPC allowed and NE 4.30 agree with the run overs. Lawrence -0.40 EPA vs blitz supports a JAX run lean rather than contradicting Tuten over.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injuries and inactives, coverage shell and man/zone, pressure rate beyond blitz rate, no-vig/Pinnacle, sim medians, model projection",
+  "verdict": "agree"
+ },
+ "market_rung_price": "bhayshultuten rushyds over 52, price +nan not saved, main line only, no alt rung. rhamondrestevenson rushrecyds over 54, price +nan not saved, main line only. Juice unknown, so neither is treated as a short-priced alt. Receptions, passing yards, and TDs not used. Tuten rushrecyds over 65.5 was passed because only 19 rec yards in 2 games and the rush line has the cleaner cushion (65.5 vs 52).",
+ "pre_mortem": "It's Monday and both legs lost because NE led early, Lawrence had to throw into a 38% blitz he has graded -0.40 EPA against, and Tuten never left single-digit carries, with Abdullah's 43 yards on 7 carries vulturing what was left, so the rush over 52 missed. Henderson's 4.75 YPC on 16 carries became the NE hot hand, Stevenson stayed under 8 carries, and the 47 receiving yards did not repeat on a night NE was ahead and not checking down, so rush+rec stayed under 54. A two-game pace was the whole cushion, and a late inactive the pack cannot rule out would zero either leg. That counter-case is real but not stronger than a competitive read, so both stay lean rather than dropped.",
+ "slip_story": "One story only: balanced or JAX-leaning, both feature backs keep their weeks 1-2 touch share. Tuten rush over and Stevenson rush+rec over win together unless NE blows it open early. Do not add same-game pass overs (Doubs 42.5, Washington 68.5, Henry 41.5) that need a shootout or a JAX-trailing pass script. No TD legs. One market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 IND@PIT / kickoff not saved / spread and total not saved; script inferred only from supplied team form / weather not saved. Moneyline, implied totals, line movement, venue conditions, rest and travel missing. Source throughout: supplied pre-kickoff pack; exact observation timestamps unavailable.",
+ "script": {
+  "base": "A competitive, run-supported game is the working hypothesis, not a market-implied forecast. Jonathan Taylor's 67 carries and Jaylen Warren's 45 carries over Weeks 2\u20134 support continued rushing involvement against defenses allowing 4.56 and 4.97 yards per carry, respectively; neither a halftime leader nor pace can be established from this pack.",
+  "flip1": "PIT establishes an early multi-score lead, threatening Taylor's rushing volume while potentially preserving Warren's. Taylor's rushing over is script-dependent in this scenario.",
+  "flip2": "IND establishes an early multi-score lead, threatening Warren's rushing volume while potentially preserving Taylor's. Warren's rushing over is script-dependent in this scenario."
+ },
+ "injury_fallout": "MISSING: IND and PIT injury reports, practice participation, offensive-line availability, defensive absences, final inactives and snap restrictions. No absences, returns or next-man-up changes are inferred from usage. Any later injury or inactive information would require reassessing both rushing reads.",
+ "matchup": {
+  "shell": "MISSING: IND and PIT MOFO/MOFC, man/zone rates, box counts and alignment charting. Directional passing allowances cannot establish coverage assignments.",
+  "pressure": "PIT blitzes 28%; IND QB EPA/dropback is -0.19 against blitzes over 50 dropbacks versus -0.21 without blitzes. IND blitzes 20%; PIT QB EPA/dropback is -0.39 against blitzes over 46 dropbacks versus -0.06 without blitzes. These figures do not establish actual pressure rates, protection quality or time to throw.",
+  "bleeds": "PIT has allowed 4.56 rushing yards per carry and 11 runs of at least 10 yards through four games. IND has allowed 4.97 yards per carry and 12 such runs. Both provide a plausible rushing matchup, although rush EPA, stuff rates and opponent adjustments are missing.",
+  "overlap": "Taylor's 67 of IND's 89 listed carries and Warren's 45 of PIT's 60 listed carries put each team's principal recent rushing workload against a defense allowing more than 4.5 yards per carry. These are shares of listed carries, not verified snap shares."
+ },
+ "form": "Weeks 2\u20134: Taylor recorded 67 carries for 255 yards, or 22.3 carries and 85.0 yards per game at 3.81 yards per carry. Warren recorded 45 carries for 263 yards, or 15.0 carries and 87.7 yards per game at 5.84 yards per carry, plus 15 targets and 116 receiving yards. Taylor's recent rushing output barely exceeds 84.5; Warren has a larger historical cushion over 72.5 but greater exposure to efficiency regression. Individual game logs, explosive-run contributions, routes, snaps, red-zone usage and comparable-opponent results are missing. These summaries test the workload hypothesis rather than independently establish an edge.",
+ "edge_players": [
+  {
+   "player": "jonathantaylor",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Taylor's established rushing workload gives him a plausible path over 84.5 yards against a PIT defense allowing 4.56 yards per carry, although the margin is thin.",
+   "must_be_true": "Jonathan Taylor carries >= 22 [because the pack records 67 carries across Weeks 2\u20134]",
+   "kills_it": "IF PIT builds an early multi-score lead and IND abandons sustained rushing THEN Jonathan Taylor rushyds over 84.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jaylenwarren",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Warren's lead rushing workload attacks an IND defense allowing 4.97 yards per carry, supporting an over-72.5 hypothesis without requiring his recent 5.84 yards per carry to persist.",
+   "must_be_true": "Jaylen Warren carries >= 15 [because the pack records 45 carries across Weeks 2\u20134]",
+   "kills_it": "IF IND builds an early multi-score lead and PIT shifts Warren's workload from carries to receiving THEN Jaylen Warren rushyds over 72.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis is lead-back volume against permissive rushing defenses. Supplied workload and allowance numbers support its direction, not a quantified betting edge. Taylor's recent 85.0 rushing yards per game provides almost no cushion over 84.5. Warren's recent efficiency should not be assumed sustainable. No projection model or simulations were run, and no hit probabilities are asserted. The listed Taylor price of -113.5 implies approximately 53.2% break-even before removing vig; that is not a Pinnacle no-vig estimate.",
+  "disagrees": "none",
+  "missing": "Validated projections, simulations and medians; Pinnacle prices and no-vig probabilities; Warren rushing price, listed as +nan; game-by-game distributions; injury and inactive information; coverage and pressure charting; weather; market spread and total.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional leans only: jonathantaylor rushyds over 84.5 at -113.5; jaylenwarren rushyds over 72.5, price MISSING (+nan is not usable odds). Rushing yards matches the workload hypothesis. Taylor's listed price is not established as positive value, and Warren cannot be price-tested. No alternate rungs or executable slip selected.",
+ "pre_mortem": "Taylor: the over loses because workload alone was insufficient\u2014his recent 3.81 yards per carry would produce only about 84 yards on 22 carries, and a PIT lead could remove additional attempts. The defense's aggregate allowance may overstate this specific matchup. Warren: the over loses because 15 carries leaves little margin if efficiency regresses; even 4.5 yards per carry yields only 67.5 yards, while an IND lead could redirect touches into receptions that do not help this market. Missing health and line information could weaken either read. Neither counter-case permits strong confidence.",
+ "slip_story": "Both belong only to a competitive, sustained-rushing script. Neither is demonstrated to survive a major adverse score flip, so both remain script-dependent. Do not force a 3\u20134-leg slip from two provisional edges or add unsupported legs; Warren also lacks a usable price. No bet placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

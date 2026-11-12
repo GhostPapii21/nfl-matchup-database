@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 PIT@CLE / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this is form-only. Both defenses allow 4.5+ YPC (CLE 4.67, PIT 4.56), so either side can run. PIT's pass game has not cashed air yards (Rodgers EPA/dropback -0.17, and -0.40 vs blitz on 30 dropbacks; Metcalf 98 yards on 339 air), so the base lean is Warren carrying the PIT offense (38/216) with selective throws. CLE has already paired Watson runs (20/109) with Boston downfield (16 targets, 195 yards, 225 air), so the base is a competitive, run-available game in which CLE still generates chunk passes and PIT still throws enough for a 6-target WR to see volume. Who leads is unknown without the spread.",
+  "flip1": "If PIT gets ahead on the ground and kills the clock, Wilson's targets can fall toward 2 and the 20.5 over gets thin; Boston can still clear 38 if CLE chases and PIT's perimeter leak (8.15/8.0 YPA, 11 of 89 passes of 20+) shows up.",
+  "flip2": "If both teams lean into the soft run defenses and it becomes a low-pass slog, Boston's 38-yard line is the first to die; a shootout flip helps both receiving overs together, which is the stack this slip needs."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, game-time decisions, and inactives for both PIT and CLE. No absence, return, or next-man-up is inferred from usage.",
+ "matchup": {
+  "shell": "MISSING: MOFO/MOFC and man/zone charting. Location splits only: CLE allows 6.32 YPA left (47 att), 9.44 middle (18 att), 6.44 right (39 att). PIT allows 8.15 left (34 att), 6.95 middle (19 att), 8.0 right (28 att).",
+  "pressure": "CLE blitz rate 20%; PIT blitz rate 27%. PIT QB EPA/dropback -0.40 vs blitz (n=30) vs -0.17 with no blitz. CLE QB EPA/dropback -0.04 vs blitz (n=39) vs +0.17 with no blitz. CLE's low blitz rate limits how often PIT's QB is in the worse split; PIT's higher blitz meets a CLE QB who is about neutral when blitzed.",
+  "bleeds": "CLE bleeds the middle (9.44 YPA on only 18 att) and the run (4.67 YPC, 13 runs of 10+); the outside is the stronger shell (6.32/6.44). CLE has allowed 10 passes of 20+ on 111 attempts. PIT bleeds the perimeter (8.15 left, 8.0 right) more than the middle (6.95) and the run (4.56 YPC, 9 runs of 10+), with 11 of 89 passes going 20+ (12.4%).",
+  "overlap": "Boston's 225 air yards and 195 receiving yards over 3 games overlap PIT's perimeter YPA leak and 20+ rate. Wilson's 18 targets, 114 yards and 247 air yards are a role-floor edge versus 20.5 more than a perfect shell fit: CLE's outside YPA is only 6.3-6.4, so the middle bleed (9.44 on 18 att) is a small-sample bonus, not the pillar."
+ },
+ "form": "PIT L3: Warren 38/216 rush plus 14 targets/110 rec yards; Metcalf 24/98/339 air (about 4.1 yards per target, air not converting); Wilson 18/114/247 (38.0 rec yards per game); Freiermuth 14/108/118; Pittman 8/74; Washington 8/92; Bernard 9/49. CLE L3: Judkins 42/124 rush (2.95 YPC) and 9/53 rec; Watson 20/109 rush (5.45 YPC); Boston 16/195/225 (65.0 per game, 12.2 yards per target on 16 targets, not a one-target spike); Fannin 18/126/109; Concepcion 20/80/111; Jeudy 5/26/50. Roles look stable across the three-game window; Judkins is volume without efficiency, Metcalf is air without yards.",
+ "edge_players": [
+  {
+   "player": "denzelboston",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Boston is CLE's downfield producer at 65.0 receiving yards per game on 16 targets and 225 air yards, and PIT is the defense that leaks on the perimeter (8.15 left, 8.0 right) and on explosives (11 of 89 passes of 20+), so 38 is short of both the role and the matchup.",
+   "must_be_true": "Denzel Boston targets >= 4 because he has 16 targets and 225 air yards over 3 games (65.0 rec yards per game) and PIT allowed 11 passes of 20+ yards on 89 attempts",
+   "kills_it": "IF Cleveland's pass volume drops and Boston finishes with 3 or fewer targets and no 20-plus yard catch THEN denzelboston recyds over 38 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "romanwilson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Wilson has a real L3 role (18 targets, 114 yards, 247 air yards, 38.0 per game) and the 20.5 line is a floor, not a ceiling, especially with CLE blitzing only 20% so PIT's QB is not stuck in the -0.40 blitz split most of the day.",
+   "must_be_true": "Roman Wilson targets >= 3 because he has 18 targets and 114 receiving yards over 3 games (38.0 yards per game) versus a 20.5 line",
+   "kills_it": "IF Pittsburgh runs a heavy Warren clock script and Wilson finishes with 2 or fewer targets THEN romanwilson recyds over 20.5 fails",
+   "confidence": "strong"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection model, sim median, or Pinnacle no-vig is in the pack. Pack counts agree with both overs: Boston 195 receiving yards over 3 games (65.0 per game) vs a 38 line, with PIT perimeter YPA 8.15/8.0 and 11/89 explosives in support; Wilson 114 receiving yards on 18 targets (38.0 per game) vs a 20.5 line, and CLE's 20% blitz rate keeps PIT's -0.40 blitz EPA from being the base dropback. Wilson over is priced -119, so the book already has a slight lean to the over, but the yardage gap is still large. Boston's listed price is +nan.",
+  "disagrees": "none",
+  "missing": "spread, total, moneyline, kickoff time, weather, coverage shell charting, injury report and inactives, no-vig prices, sim medians, play-level longest gains",
+  "verdict": "agree"
+ },
+ "market_rung_price": "denzelboston recyds over 38 (price not in pack, listed +nan); romanwilson recyds over 20.5 at -119. Main lines only, no alt rungs, no TDs, one market per player. No-vig comparison unavailable.",
+ "pre_mortem": "It's Monday and this lost because both soft run defenses (CLE 4.67 YPC, PIT 4.56) turned it into a Warren/Judkins/Watson clock game, Rodgers's already negative EPA got worse, Wilson saw 1-2 targets, and Boston's 65-yard average was chunk plays that did not repeat against a PIT secondary that can still hold an outside receiver quiet for a week. The middle YPA bleed for CLE is only 18 attempts, so it was never a reason to trust every PIT pass-catcher, and a missing injury report could have removed either player without this read knowing.",
+ "slip_story": "Competitive passing stack, form-only because the spread was not saved: Boston recyds over and Wilson recyds over win together if both offenses throw near their L3 rates (the shootout/competitive flip), not in a mutual run slog. Do not pair them with a game-total under or with rush overs that need a clock-kill. Same-game pass-catcher overs only.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

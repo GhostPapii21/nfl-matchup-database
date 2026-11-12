@@ -1,0 +1,9 @@
+{"type":"object","additionalProperties":false,"required":["game_id","plays","team_notes","limitations"],
+"properties":{"game_id":{"type":"string"},
+"plays":{"type":"array","items":{"type":"object","additionalProperties":false,
+ "required":["caption_ts","team","player","description","yards","is_score","concept","personnel_formation","coverage_scheme","defender_beaten","db_match"],
+ "properties":{"caption_ts":{"type":"string"},"team":{"type":"string"},"player":{"type":"string"},"description":{"type":"string"},"yards":{"type":["integer","null"]},"is_score":{"type":"boolean"},
+ "concept":{"type":"string"},"personnel_formation":{"type":"string"},"coverage_scheme":{"type":"string"},"defender_beaten":{"type":"string"},"db_match":{"type":"string"}}}},
+"team_notes":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["team","offense_strengths","defense_weaknesses"],
+ "properties":{"team":{"type":"string"},"offense_strengths":{"type":"array","items":{"type":"string"}},"defense_weaknesses":{"type":"array","items":{"type":"string"}}}}},
+"limitations":{"type":"string"}}}

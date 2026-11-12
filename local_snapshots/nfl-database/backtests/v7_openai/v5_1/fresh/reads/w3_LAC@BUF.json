@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 LAC@BUF / kickoff not in pack / spread NOT saved / total NOT saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this script is form-only and the market's expected leader and point total are unknown. Buffalo has been the more explosive offense (Cook 34 carries for 192 yards, 5.65 YPC; Allen 16 for 96; Kincaid 14 targets for 225 yards) while LAC has been the stingier run defense (3.14 YPC allowed, 3 runs of 10+). Base flow: Buffalo blitzes (33%) a Herbert offense that has posted -0.86 EPA/dropback vs blitz (n=14), LAC leans on Hampton (35 carries, 137 yards) to move the ball, and Buffalo still hands Cook volume but his 5.65 YPC does not travel against that run defense, so Buffalo's points lean more on Allen's dual-threat and the pass than on a Cook explosion.",
+  "flip1": "Buffalo leads big early, stays on the ground, and Cook's carry count pushes his rushing line over 80.5 even at a reduced YPC, while LAC abandons Hampton and Herbert is stuck in blitzed dropbacks so LAC skill yards stall.",
+  "flip2": "LAC leads and Buffalo abandons the run, so Cook's rushing line dies, Allen throws at LAC's soft left side (10.22 YPA on 27 attempts), and Kincaid/Moore yardage \u2014 not Cook rushing \u2014 becomes the Buffalo path."
+ },
+ "injury_fallout": "MISSING: injury report, practice participation (DNP/limited/full), questionable tags, snap or rep limits, and inactives for both LAC and BUF. No absence, return, or next-man-up is inferred. Listed usage is role only, not an injury tell: Hampton 35 carries vs Mitchell 9/33 and Herbert 8/31; Cook 34/192 vs Allen 16/96.",
+ "matchup": {
+  "shell": "MISSING: coverage charting. No MOFO/MOFC split, no man vs zone rate, and no defender map for WR/TE/RB. Cannot assign Johnston, McConkey, Harris, Kincaid, or Shakir to a shell.",
+  "pressure": "BUF blitz rate 33%. LAC QB EPA/dropback vs blitz -0.86 (n=14) vs 0.09 with no blitz, so pressure that gets home should kill LAC deep yards and lean the offense toward Hampton runs and short throws. LAC blitz rate 25%. BUF QB EPA vs blitz 0.36 (n=26) vs 0.63 with no blitz, so Allen stays positive when blitzed and LAC's blitz is not a kill shot.",
+  "bleeds": "BUF pass YPA: middle 9.41 (22 att) is the soft spot, right 8.52 (25 att), left 6.24 (29 att) the best side. BUF rush defense allows 3.65 YPC and 6 runs of 10+, plus 9 passes of 20+ on 83 attempts. LAC pass YPA: left 10.22 (27 att) is the soft spot, right 7.0 (25 att), middle 5.64 (14 att) the strength. LAC rush defense allows 3.14 YPC and only 3 runs of 10+, plus 6 passes of 20+ on 69 attempts.",
+  "overlap": "Cook is Buffalo's primary rusher (34 carries) and he runs into LAC's best unit (3.14 YPC, 3 explosive runs) \u2014 a fade overlap, not a give-up overlap. Hampton (35 carries, 3.91 YPC) meets a BUF run defense at 3.65 YPC with 6 runs of 10+, a modest positive volume overlap if the blitz script keeps LAC on the ground. Kincaid is Buffalo's primary target (14 targets, 225 yards, 182 air) and a TE profile points at LAC's strongest pass location (middle 5.64 YPA) \u2014 anti-overlap, and alignment is not charted. Johnston's 103 air yards vs 24 receiving yards is the LAC deep path, and it runs into the blitz/EPA problem rather than a charted soft zone."
+ },
+ "form": "Window is weeks 1-2 only (pack says L3; only two games exist). LAC rush: Hampton 35/137 is the RB1, Mitchell 9/33 a changeup, Herbert 8/31. LAC targets: McConkey 10/117/131 is the efficient downfield piece; Johnston 11/24/103 is air yards that did not convert; Harris 9/73/103; Njoku 8/67/53; Gadsden 4/50/25. BUF rush: Cook 34/192 (5.65 YPC) plus Allen 16/96 (6.0 YPC), not a one-back script. BUF targets: Kincaid 14/225/182 is the offense and may be a two-game spike; Shakir 12/78/112 is targets without yards; Moore 8/100/158; Coleman 8/64/52; Cook receiving 7/16; Knox 3/12/5. Fluky flags: Johnston 24 yards on 103 air yards is efficiency that may regress up; Cook 5.65 YPC and Kincaid 112.5 yards/game are efficiencies that may not repeat.",
+ "edge_players": [
+  {
+   "player": "jamescook",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Cook is the Buffalo run game, but LAC has allowed 3.14 yards per carry and only 3 runs of 10-plus, so his 5.65 YPC should not travel and a 17-carry day lands under 80.5.",
+   "must_be_true": "James Cook yards per carry <= 4.7 because LAC has allowed 3.14 rush YPC and only 3 runs of 10+ yards",
+   "kills_it": "IF Cook records 20 or more carries or two runs of 15+ yards THEN rush yards under 80.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "omarionhampton",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Buffalo blitzes 33% and Herbert is -0.86 EPA per dropback vs blitz, so LAC stays on Hampton, and 17 carries at Buffalo's 3.65 YPC allowed is about 62 yards, over 59.",
+   "must_be_true": "Omarion Hampton carries >= 17 because he has 35 carries over weeks 1-2 and Buffalo allows 3.65 YPC",
+   "kills_it": "IF LAC trails and Hampton finishes with 14 or fewer carries THEN rush yards over 59 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No model, sim median, or no-vig price is in the pack, so sizing stops at pack rates. Cook under is the matchup read: 17 carries at LAC's 3.14 YPC is about 53 yards, and even a blend near 4.7 YPC is the 80.5 break. Hampton over is the same trench script: 137 yards on 35 carries is 68.5 yards/game, and 17 times Buffalo's 3.65 YPC allowed is 62.1, still over 59. Neither leg is rated above 70%. Johnston under 36.5 was considered from 24 yards on 103 air yards plus the blitz, but that efficiency looks fluky and the line is unpriced, so it is not a leg.",
+  "disagrees": "James Cook has 192 rush yards on 34 carries (5.65 YPC, about 96 yards per game over weeks 1-2), which is above the 80.5 under, so recent efficiency contradicts the matchup under.",
+  "missing": "Spread, total, kickoff, venue, rest, travel, line movement, weather, injury report, inactives, coverage shell and man/zone charting, model projection, sim median, and no-vig price. Hampton rush yards over 59 is listed at +nan, so that rung cannot be priced.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "jamescook rushyds under 80.5 at -112 (pack price; no alt rung and no no-vig in pack). omarionhampton rushyds over 59 at +nan, so no price to accept. Same-game rushrecyds and recyds rungs were not taken: Cook rushrecyds 95.5 adds a 7-target/16-yard receiving sample, and Hampton is absent from the target list so his receiving yards are MISSING rather than assumed.",
+ "pre_mortem": "It's Monday and the Cook under lost because weeks 1-2 were the real Cook, not a soft-schedule mirage: 34 carries and 5.65 YPC already include a second rusher in Allen (16 carries), Buffalo led and fed him 22 carries, and two 15-yard runs blew past a 3.14 YPC average that is only two games old. The Hampton over lost in the same blowout the other way \u2014 LAC trailed, Mitchell took the changeup work he already has (9 carries), and Hampton finished at 14 carries times a stuffed 3.2 YPC, short of 59. The counter-case is strongest on Cook, which is why that leg is flagged rather than sized up, and on Hampton the cushion at Buffalo's own 3.65 YPC is only about three yards, so a modest carry dip loses it.",
+ "slip_story": "One trench script, not a shootout: LAC's run defense caps Cook while Buffalo's 33% blitz and Herbert's -0.86 EPA vs blitz keep LAC on Hampton. Both legs need the game to stay competitive enough that Buffalo does not pile Cook carries in a blowout and LAC does not abandon the run. Do not add same-game pass overs or a total over; those need the flip where Buffalo trails and throws.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 BAL @ DAL / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "No spread or total is saved for BAL at DAL, so this is form-only, not a book script. The BAL Ravens run game is the reliable unit: Derrick Henry 40 carries for 212 yards (20.0 per game, 5.30 YPC) and Lamar Jackson 8 for 77 (9.6 YPC) against a DAL Cowboys run defense allowing 5.33 YPC and 8 runs of 10+ in two games. Base flow is BAL leaning on Henry, with DAL stuck on the ground (Javonte Williams 24 carries, 71 yards, 2.96 YPC) and throwing to CeeDee Lamb (17 targets, 197 yards) if the Cowboys fall behind the chains. Who leads is inferred, not booked.",
+  "flip1": "DAL scores first through Lamb (98.5 rec yards per game, 226 air yards) and the BAL middle (9.28 YPA on 18 attempts). BAL chases, Henry's carries fall out of the 18-22 range, and the BAL rush-over dies while DAL can grind Williams.",
+  "flip2": "Shootout: BAL has allowed 7 passes of 20+ on 70 attempts, so DAL receiver George Pickens (187 air yards, only 68 rec yards) or Lamb connects, and BAL answers with Zay Flowers or Rashod Bateman instead of Henry. Both rush volumes shrink; the DAL Williams rush under still lives, the BAL Henry over does not."
+ },
+ "injury_fallout": "No injury report, practice trend, or inactives are in the pack for BAL or DAL, so no named scratch fallout for either team. On-field roles only: BAL rusher Henry is the bellcow (40 carries) ahead of Justice Hill (8 for 24) and Lamar Jackson (8 for 77); Mark Andrews leads BAL targets (13 for 98). DAL receiver Lamb leads targets (17 for 197), Pickens is second (14 for 68), Ryan Flournoy third (10 for 45); DAL rusher Williams (24 for 71) is ahead of Emari Demercado (5 for 15) and Hunter Luepke (2 for 8).",
+ "matchup": {
+  "shell": "Shell and man/zone rate are not charted for BAL or DAL. Location only: DAL allows middle 7.18 YPA (11 att) vs left 6.64 (28) and right 6.88 (25). BAL allows middle 9.28 YPA (18 att) vs left 6.21 (24) and right 4.43 (23) \u2014 BAL bleeds the middle and is strong to the right.",
+  "pressure": "DAL blitzes 27%. BAL QB Lamar Jackson EPA/dropback is 0.22 vs blitz (n=25) vs 0.28 unblitzed, so DAL pressure is not a kill shot on the Ravens. BAL blitzes 32%. DAL QB Dak Prescott EPA falls from 0.48 unblitzed to 0.19 vs blitz (n=23), which should force quicker Cowboys throws; Williams already has 9 targets and -23 air yards.",
+  "bleeds": "DAL bleeds the run (5.33 YPC, 8 runs of 10+ in two games) and does not bleed explosives (3 passes of 20+ on 66 attempts). BAL is firm vs the run (3.62 YPC, 6 runs of 10+) and softer vs explosives (7 of 20+ on 70) and the middle.",
+  "overlap": "BAL primary rusher Henry (40 carries, 212 yards) runs into the exact spot DAL gives up. That is the core overlap for this Ravens-Cowboys game. DAL primary target is Lamb; a middle overlap with BAL's 9.28 YPA is plausible but unconfirmed. Pickens' 187 air yards are the Cowboys' deep bet, and BAL has allowed more 20+ passes than DAL has."
+ },
+ "form": "BAL and DAL, two games only (weeks 1-2). BAL: Henry 20 carries and 106 rush yards per game plus 4 targets for 38 yards; Hill 4 carries, 12 rush yards, 3 targets for 22; Jackson 4 rushes, 38.5 yards; Andrews 6.5 targets, 49 rec yards; Flowers 3 targets but 75 rec yards (150 on 6), a spike DAL's 3-of-66 rate of 20+ passes says will not repeat; Bateman 5 targets, 44 yards, 148 air yards. DAL: Williams 12 carries, 35.5 rush yards, 2.96 YPC, and 4.5 targets for 25.5 rec yards; Lamb 8.5 targets, 98.5 yards; Pickens 7 targets, 34 yards on 187 air yards; Flournoy 22.5 rec yards per game; Jake Ferguson 24.5; Dak Prescott 6 rushes for 40 yards; Demercado 7.5 rush yards per game, not a threat to Williams' Cowboys share. No OC or QB change is in the pack.",
+ "edge_players": [
+  {
+   "player": "derrickhenry",
+   "team": "BAL",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "BAL Ravens rusher Derrick Henry is the primary option and he runs into a DAL Cowboys front allowing 5.33 YPC and 8 runs of 10+, while he is already at 106 rush yards per game on 20 carries \u2014 the 92.5 rung sits under that role if BAL keeps the run script. Script-dependent: it does not survive either flip.",
+   "must_be_true": "Competitive or BAL-leaning script so Henry keeps about 18-22 carries; Jackson (8 carries, 77 yards) and Hill (8 for 24) do not steal the Ravens workload. Line health is unknown.",
+   "kills_it": "BAL trails DAL and abandons the run, or a shootout shifts to Flowers and Bateman, and Henry finishes in the mid-teens of carries under 5 YPC.",
+   "confidence": "lean"
+  },
+  {
+   "player": "javontewilliams",
+   "team": "DAL",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "DAL Cowboys rusher Javonte Williams is at 35.5 rush yards per game on 12 carries and 2.96 YPC, and the BAL Ravens allow 3.62 YPC \u2014 56.5 is about 21 yards above the role, and even 15 carries at BAL's allowed YPC is still short of the rung.",
+   "must_be_true": "DAL carry share stays near 12-15, the BAL run defense holds near 3.62 YPC, and Williams does not rip a long run (BAL has still allowed 6 runs of 10+). No unlisted snap spike.",
+   "kills_it": "DAL leads and grinds the clock, Williams gets 18-plus carries, or one explosive run pushes him through 56.5. A pass-heavy flip does not kill this DAL rush under.",
+   "confidence": "strong"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack for BAL at DAL, so this is a form check only and nothing is sized. BAL Henry at 106.0 rush yards per game vs 92.5, into a DAL defense at 5.33 YPC, agrees with the over. DAL Williams at 35.5 rush yards per game vs 56.5, into a BAL defense at 3.62 YPC, agrees with the under; 15 carries at 3.62 YPC is about 54, still under. No model probability above 70% was produced. The strong Williams read is not disagreed with.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "BAL Derrick Henry rushing yards over 92.5 at -114.5 (carry share plus a weak DAL run defense; not the 105.5 rush+rec, which mixes his 19 rec yards per game). DAL Javonte Williams rushing yards under 56.5 at -114, not rush+rec under 75.5: BAL blitzes 32% and Dak Prescott's EPA drops to 0.19 when blitzed, so Williams' 25.5 rec yards can spike on checkdowns and muddy the combo. Main lines, not short alts. No-vig comparison unavailable.",
+ "pre_mortem": "It's Monday and both BAL-DAL legs lost. DAL jumped ahead through Lamb and the middle of the BAL defense, BAL went pass-heavy, and Henry finished near 14 carries for about 70 yards because Jackson kept the designed runs (9.6 YPC on 8 carries) and Hill took the change-of-pace work. On the other leg a DAL lead let Williams grind 18-20 carries and he broke one of the 10-plus runs BAL has already allowed six of, clearing 56.5. Two-game samples (Henry 212, Williams 71) are tiny, there is no injury report for either team, and weather was not saved.",
+ "slip_story": "One BAL-at-DAL story: the Baltimore Ravens run on a soft Dallas Cowboys front and the Cowboys cannot run on the Ravens. Henry rush over is the BAL run-lean leg; Williams rush under is the same script from the DAL side. Do not add a DAL RB over, a Henry under, or same-game pass overs that need the shootout flip. Two-leg core, one market per player, no TDs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}
