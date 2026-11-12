@@ -1,0 +1,77 @@
+name: NFL pregame packets (Thursday, Sunday, Monday)
+
+# Rebuilds pregame/packets/ for the upcoming Thursday, Sunday and Monday games from public data
+# (nflverse; ESPN injuries when reachable) and commits them, so a connected ChatGPT or Grok reads fresh files.
+# Research only: nothing is recommended, projection_ready stays false. Book prices (FanDuel, DraftKings, Hard Rock Bet,
+# Caesars; Pinnacle reference) and a same-line consensus go into the packet and a timestamped pregame/price_freezes/ file.
+# Scheduled runs only fire from the default branch.
+
+on:
+  push:                     # a change to the builder rebuilds the packets on that branch (generated files do not retrigger)
+    paths:
+      - "pregame/*.py"
+      - ".github/workflows/nfl-pregame-packets.yml"
+  workflow_dispatch:
+    inputs:
+      week:
+        description: "Week number (blank = next slate)"
+        required: false
+      weekdays:
+        description: "Thursday,Sunday,Monday or all"
+        required: false
+        default: "Thursday,Sunday,Monday"
+  schedule:
+    # Times are UTC. Eastern is UTC-5 in winter and UTC-4 before November, so each run lands at or before the ET time shown.
+    - cron: "0 14 * * 2"    # Tue  9:00 ET  first packets for the new week (last week's games are in the data)
+    - cron: "0 14 * * 4"    # Thu  9:00 ET  Thursday game: overnight injury updates
+    - cron: "30 22 * * 4"   # Thu  5:30 ET  Thursday game: final refresh before kickoff
+    - cron: "0 15 * * 6"    # Sat 10:00 ET  Sunday and Monday games: Friday's final injury reports
+    - cron: "30 14 * * 0"   # Sun  9:30 ET  before the early window
+    - cron: "30 19 * * 0"   # Sun  2:30 ET  before the late window
+    - cron: "30 23 * * 0"   # Sun  6:30 ET  before Sunday night
+    - cron: "0 15 * * 1"    # Mon 10:00 ET  Monday game
+    - cron: "30 22 * * 1"   # Mon  5:30 ET  Monday game: final refresh before kickoff
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nfl-pregame-packets
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-test.txt
+      - run: python -m pip install --disable-pip-version-check -r requirements-test.txt
+      - name: Check the builder before trusting its output
+        run: python -m pytest -q -p no:cacheprovider pregame/tests
+      - name: Build packets
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}   # optional: without it packets carry no book prices
+          NFL_BDL_API_KEY: ${{ secrets.NFL_BDL_API_KEY }}         # optional: second-source slate check
+          NFL_API_SPORTS_KEY: ${{ secrets.NFL_API_SPORTS_KEY }}   # optional: access check only
+          ODDS_CREDIT_FLOOR: "800"   # paid Odds API calls are refused if they would leave fewer credits (estimate: 3 game lines + <=7 props per game inside 36h)
+        run: |
+          args=()
+          if [ -n "${{ inputs.week }}" ]; then args+=(--week "${{ inputs.week }}"); fi
+          if [ -n "${{ inputs.weekdays }}" ]; then args+=(--weekdays "${{ inputs.weekdays }}"); fi
+          python -m pregame.build_packets "${args[@]}"
+      - name: Commit refreshed packets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pregame/packets pregame/line_history pregame/price_freezes
+          if git diff --cached --quiet; then
+            echo "No packet changes."
+          else
+            git commit -m "pregame: refresh packets $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
