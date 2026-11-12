@@ -46,13 +46,13 @@ The repository is the single source of truth for every step from pulling data to
 
 | Piece | Status | Owner |
 | --- | --- | --- |
-| `projection_ready` | **false** (only Rico flips it, through NFL-49) | Rico |
-| 100k runs | **Refused today.** `DEFERRED_100K` is true. | — |
-| NFL-43 penalties, returns, overtime | **Pending dependency.** Unsupported, and `SEMANTICS_BOUNDS.md` does not exist yet. | BetGuru |
-| `rocket` validation command | **Pending dependency.** The hook `ROCKET_COMMAND` is unset. | BetGuru |
+| `projection_ready` | **false** (only Rico flips it; blocker checklist is NFL-75, full status in [docs/ACCEPTANCE_STATUS.md](docs/ACCEPTANCE_STATUS.md)) | Rico |
+| 100k runs | **Un-deferred Nov 12 ~3:05 PM ET** (`DEFERRED_100K` false, Rico's OK). `python -m pipeline.sim100k` still refuses until inactives and the price freeze pass for that game. Research only. | BetGuru |
+| NFL-43 penalties, returns, overtime | **Bounds accepted** by Ghost6 at 32b9b92 (`known_flags/NFL43_REVIEW.json`). Still unsupported and enforced: kick-play fouls, joint_producer penalties/return yards, blocked kicks/onside/fakes. | BetGuru |
+| `rocket` validation command | **Exists** (`./rocket`, `rocket_gate/`). R1–R4 pass on main at fe8bbcb (all 7 suites present). Passing rocket is not validation. | BetGuru |
 | Four-book price feed (FanDuel, DraftKings, Hard Rock, Caesars) | **Pending dependency.** It is on an unmerged branch. Until a freeze file exists for a game, phase 13 is MISSING. | Blitz |
-| Official inactives (phase 15) | **No source yet.** NOT_YET before T-90, MISSING after. | unassigned (NFL-46 / NFL-49) |
-| Calibration, pristine holdout, end-to-end run | Not done (NFL-44, NFL-45, NFL-49) | BetGuru / NFL-49 |
+| Official inactives (phase 15) | `phase15/` parser and records exist; `Phase15` flag is still NOT_YET until wired per game. NOT_YET before T-90, MISSING after. | NFL-46 / NFL-75 |
+| Calibration, pristine holdout, end-to-end run | Not done. Pristine protocol and freeze exist (`evaluation/`), aggregation rules still missing (NFL-44). Calibration not fitted, quotes NOLINE (NFL-45). Live holdout Weeks 10–12 not graded (NFL-7). | NFL-75 |
 | Man/zone, routes, line grades, defender assignment | No free source. Shown as not available, never filled in. | — |
 
 ## Coverage
@@ -89,7 +89,7 @@ The matchup snapshot above is unchanged. A portable research checkpoint of the p
 | Penalties, returns, official overtime | Unsupported. See NFL-43. |
 | Calibration | Not fitted. Quotes are `NOLINE` until authenticated book access exists. See NFL-45. |
 | Pristine evaluation | Protocol incomplete. Weeks already inspected are development evidence, not an untouched holdout. See NFL-44. |
-| 100k trials and the 15-phase ledger | Ledger and fail-closed 100k entry point exist (`pipeline/`, NFL-56). 100k runs are still refused (`DEFERRED_100K`, NFL-43, `rocket`, four-book feed, inactives). Phase 15 inactives are `NOT_YET`. See "Projection pipeline: goal vs current status". |
+| 100k trials and the 15-phase ledger | Ledger and fail-closed 100k entry point exist (`pipeline/`, NFL-56). 100k runs are allowed only through the fail-closed gate (inactives, price freeze); `DEFERRED_100K` is false since Nov 12. Phase 15 inactives are `NOT_YET`. See "Projection pipeline: goal vs current status". |
 | ORCA / FTN model mirrors | `ACCESS_UNKNOWN`. No quotes are invented. NFL-53, NFL-54, NFL-55. |
 | Pinnacle and other books | No actionable lines are published. Pinnacle Q2–Q4 spreads were already absent in the saved research set. Odds-bridge still needs authentication. NFL-25, NFL-45. |
 
