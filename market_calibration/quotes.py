@@ -19,6 +19,8 @@ if str(_CORE) not in sys.path:
     sys.path.insert(0, str(_CORE))
 from period_engine_v0.market import novig_two_way, novig_three_way
 
+from .quote_ledger import match_provenance
+
 GAME_ID = "401873037"
 GAME_LABEL = "2026-11-05_JAX@BAL"
 # Saved book CSVs are not in this public repository. Missing files stay NOLINE.
@@ -280,9 +282,7 @@ def match_quote(quotes, req: MatchRequest) -> MatchResult:
             selected[q.side] = q
         if set(selected) == set(expected):
             complete.append(tuple(selected[s] for s in expected))
-            provenance.extend({"source_file": q.source_file, "source_sha256": q.source_sha256,
-                               "row_number": q.row_number, "snapshot_source": q.snapshot_source}
-                              for q in relevant)
+            provenance.extend(match_provenance(q) for q in relevant)
     if not complete:
         return MatchResult("NOLINE", ("ONE_SIDED", "NO_EXACT_COHERENT_PAIR"), None)
     # Equivalent copies across saved files can confirm a quote, never average conflicts.
