@@ -74,3 +74,23 @@ def test_network_error_is_missing_not_crash(tmp_path):
 
 def test_every_team_has_a_club_site():
     assert len(oi.CLUB_SITES) == 32
+
+
+def test_status_update_active_and_inactive(tmp_path):
+    import json as _j
+    from phase15.status_update import update
+    g = "2026_10_WAS_NYG"
+    (tmp_path / "phase15/status" / g).mkdir(parents=True)
+    (tmp_path / "phase15/inactives" / g).mkdir(parents=True)
+    base = {"team": "NYG", "official_inactives": {"status": "PENDING"}, "publishes_numbers": False}
+    (tmp_path / "phase15/status" / g / "skattebo.json").write_text(_j.dumps(base))
+    inv = {"retrieved_utc": "2026-11-12T23:50:00+00:00", "status": "OK", "teams": {
+        "NYG": {"status": "OK", "url": "u", "published_utc": "p", "players": [{"name": "Some One"}]}}}
+    (tmp_path / "phase15/inactives" / g / "inactives_1.json").write_text(_j.dumps(inv))
+    assert update(g, "Cam Skattebo", tmp_path)["status"].startswith("ACTIVE")
+    inv["teams"]["NYG"]["players"].append({"name": "Cam Skattebo"})
+    (tmp_path / "phase15/inactives" / g / "inactives_2.json").write_text(_j.dumps(inv))
+    assert update(g, "Cam Skattebo", tmp_path)["status"].startswith("INACTIVE")
+    inv["teams"]["NYG"] = {"status": "MISSING", "reason": "not yet"}
+    (tmp_path / "phase15/inactives" / g / "inactives_3.json").write_text(_j.dumps(inv))
+    assert update(g, "Cam Skattebo", tmp_path)["status"] == "NO_DESIGNATION_PENDING_INACTIVES"
