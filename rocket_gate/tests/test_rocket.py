@@ -9,14 +9,13 @@ sys.path.insert(0, str(ROOT))
 from rocket_gate import cli
 
 
-def test_repo_as_committed_fails_r2_while_nfl43_review_pending():
-    """Ghost6 d65ad98 F1: rocket must not pass while the NFL-43 bounds review is pending."""
+def test_repo_as_committed_passes_r2_after_nfl43_review_accepted():
+    """NFL-43 bounds accepted at 32b9b92 (Nov 12 ~3:05 PM ET): R2 passes; rocket still never sets projection_ready."""
     r = cli.run(None, skip_pytest=True)
     by = {c["check"]: c for c in r["checks"]}
     assert by["R1_nfl42_entrypoint"]["status"] == "PASS" and by["R3_safety"]["status"] == "PASS"
-    assert by["R2_nfl43_semantics"]["status"] == "FAIL"
-    assert any("REVIEW_PENDING" in w for w in by["R2_nfl43_semantics"]["detail"])
-    assert r["status"] == "FAIL" and r["projection_ready"] is False
+    assert by["R2_nfl43_semantics"]["status"] == "PASS"
+    assert r["projection_ready"] is False
 
 
 def _accepted_repo(tmp_path, review="ACCEPTED", edit=False):

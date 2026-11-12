@@ -473,13 +473,14 @@ def test_still_unsupported_scan_finds_bad_snapshot_config(tmp_path):
     assert ex["status"] == "REFUSED" and "blocked kicks/onside/fakes" in ex["enabled"]
 
 
-def test_repo_as_committed_is_review_pending_and_deferred():
-    """NFL-43 AC4 (Ghost6 d65ad98): until the reviewer flips NFL43_REVIEW.json, the shipped repo refuses 100k."""
+def test_repo_as_committed_is_review_accepted_and_undeferred():
+    """NFL-43 AC4: Ghost6 accepted the bounds at 32b9b92 and Rico un-deferred 100k (Nov 12 ~3:05 PM ET).
+    still_unsupported stays enforced; projection_ready is never set here."""
     flags = H.known_flags()
-    assert flags["DEFERRED_100K"] is True and flags["unsupported_semantics"]
+    assert flags["DEFERRED_100K"] is False and flags["unsupported_semantics"] == []
     assert flags["nfl43"]["still_unsupported"] == STILL_UNSUPPORTED
-    assert H.nfl43_review()["status"] == "PENDING_REVIEW"
-    assert H.nfl43_semantics(flags)["status"] == "UNSUPPORTED"
+    assert H.nfl43_review()["status"] == "OK"
+    assert H.nfl43_semantics(flags)["status"] == "OK"
     # R2: the exclusions are readable and current committed configs do not enable them.
     ex = H.nfl43_still_unsupported(flags, scan_repo=True)
     assert ex["status"] == "OK" and ex["exclusions"] == STILL_UNSUPPORTED and not ex["enabled"]
