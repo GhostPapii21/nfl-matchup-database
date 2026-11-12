@@ -1,0 +1,71 @@
+{
+ "schema": "snapshot-lock/1",
+ "game_id": "2026_10_WAS_NYG",
+ "locked_utc": "2026-11-12T16:57:47+00:00",
+ "kickoff_utc": "2026-11-13T01:15:00+00:00",
+ "projection_ready": false,
+ "research_only": true,
+ "code_commit": "c4e64e2c3257c4a01aa6923b2f27e76eb37832ae",
+ "code_dirty": false,
+ "engine_tree_sha256": "660b7558fba8a50d0755620d96a32c90b6a8edfca4ad20abb010bf9395d7d061",
+ "config_id": "was_nyg_2026-11-12_data_only_nfl43",
+ "model_weights_changed": false,
+ "sim": {
+  "n": 100000,
+  "seed": 1918467127,
+  "chunks": 7,
+  "chunk_seeds": [
+   1918467127,
+   1919467130,
+   1920467133,
+   1921467136,
+   1922467139,
+   1923467142,
+   1924467145
+  ],
+  "runtime_sec": 549.2,
+  "statuses": [
+   "OK"
+  ]
+ },
+ "inputs": {
+  "pbp_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
+  "pbp_sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+  "pbp_local_name": "pbp_2026_20261112T1116.parquet",
+  "price_freeze_origin": "research/multibook-price-feed-2026-11-12@c50fb4c:pregame/price_freezes/2026-11-12_WAS@NYG/freeze_20261112T161430Z.json",
+  "price_freeze_pulled_utc": "2026-11-12T16:14:30Z",
+  "price_status": "OK",
+  "price_freeze_books": [
+   "fanduel",
+   "draftkings",
+   "hardrockbet",
+   "williamhill_us",
+   "pinnacle"
+  ]
+ },
+ "asof_checks": "PASS",
+ "limitations": [
+  "Vertical slice: empirical team-only snap resampling + explicit same-team coarser fallbacks",
+  "Clock costs use empirical median deltas when available else fixed means \u2014 not a situational clock model",
+  "OT rule: official 2025 regular-season (both possess, then sudden death, ties allowed)",
+  "No league silent pool; proposed pooling config default false",
+  "W1-8 development set; no betting edge claim",
+  "Inspired conceptually by NFLSimulatoR/nflfastR (MIT); no R source copied",
+  "See FEATURE_MATRIX.md for unimplemented coverage/route/pressure fields",
+  "data_only config: no injury/inactive adjustment; Phase 15 inactives not applied to the sim",
+  "team scores only; player yards are bootstrap credits, not a player projection model"
+ ],
+ "scoring": {
+  "command": "python3 -m snapshots.score --snapshot snapshots/2026_10_WAS_NYG/20261112T165747Z",
+  "status": "NOT_SCORED_UNTIL_FINAL"
+ },
+ "files": {
+  "inputs/freeze_20261112T161430Z.json": "2e2a9484c13792f7edcbb435ce459cca6d623ac21449e723b63b52bf9225b66d",
+  "inputs/packet.json": "895013ca2fed0df9f2f05761c57756d7a3952d8857a97cca953f2a888d5231fb",
+  "inputs/was_nyg_2026-11-12_data_only_nfl43.json": "d379cf3a3a809469c59d43cab7f780947845479c6b2b1658ae981af35db89b38",
+  "report.md": "73b0e91427efdc06808d1e42de8319ec7b9404e763a7c00247a343d751fe55f2",
+  "sim_arrays.npz": "1b9ca235957d55998eebbe2f0c5554df0737d03aebeef8502220742ae6cbefe0",
+  "sim_meta.json": "6c133e62d2ca028503fcc856fbba12efb9ea920976010a8dce0c9d25c189a485",
+  "summary.json": "dcedb837f166cdd0ae3aafb8b5158a1fb59724972f57e26678159861392594fa"
+ }
+}
