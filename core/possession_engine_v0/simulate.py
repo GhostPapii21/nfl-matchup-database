@@ -372,26 +372,8 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
         spot = st.yardline_100 - yards
         sem = getattr(catalog, "semantics", None)
         if sem is not None and sem.get("returns") is not None:
-            # NFL-43: defensive return from the sampled historical turnover row.
-            ret = float(row.get("return_yards")) if pd.notna(row.get("return_yards")) else 0.0
-            ret_td = _i("return_touchdown") == 1
-            start_def = 80 if spot <= 0 else int(np.clip(100 - spot, 1, 99))
-            if spot <= 0 and not ret_td:
-                ret = 0.0  # end-zone recovery/INT -> touchback
-            new_yl = start_def - int(round(ret))
-            if ret_td or new_yl <= 0:
-                st.events.append({"type": "def_return_td", "team": st.possession, "from_yl": start_def,
-                                  "return_yards": start_def, "hist_return_yards": ret})
-                st.special_scores["def_return_td"][st.possession] = st.special_scores["def_return_td"].get(st.possession, 0) + 1
-                scoring = st.possession
-                st.add_score(scoring, 6)
-                _attempt_pat(rng, catalog, st, scoring)
-                apply_kickoff(st, receiving=_other(st, scoring), yardline_100=kickoff_spot(st))
-                return
-            st.yardline_100 = int(np.clip(new_yl, 1, 99))
-            st.events.append({"type": "def_return", "team": st.possession, "from_yl": start_def,
-                              "to_yl": st.yardline_100, "return_yards": start_def - st.yardline_100})
-            st.down, st.ydstogo = 1, 10
+            kind = "interception" if _i("interception") == 1 else "fumble_lost"
+            _defensive_return(rng, catalog, st, spot, kind)
             return
         # Turnover in opp end zone -> touchback (return yardage not modeled; declared limitation)
         st.yardline_100 = 80 if spot <= 0 else int(np.clip(100 - spot, 1, 99))
@@ -433,6 +415,59 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
             st.yardline_100 = int(np.clip(100 - st.yardline_100, 1, 99))
             st.down, st.ydstogo = 1, 10
             return
+
+
+
+def _defensive_return(rng: np.random.Generator, catalog, st: GameState, spot: float, kind: str) -> None:
+    """NFL-43 (review D2 fix): defensive return drawn from the as-of LEAGUE pool for this turnover kind.
+
+    ``st.possession`` is already the defense. ``spot`` is the offense's yardline_100 after the play (<= 0 means the
+    turnover happened in the offense's target end zone). End-zone turnovers without a return TD are touchbacks.
+    """
+    sem = getattr(catalog, "semantics", None)
+    ret, ret_td = sem["returns"].draw_def_return(rng, kind)
+    start_def = 80 if spot <= 0 else int(np.clip(100 - spot, 1, 99))
+    if spot <= 0 and not ret_td:
+        ret = 0.0  # end-zone recovery/INT -> touchback
+    new_yl = start_def - int(round(ret))
+    if ret_td or new_yl <= 0:
+        st.events.append({"type": "def_return_td", "team": st.possession, "from_yl": start_def, "kind": kind,
+                          "return_yards": start_def, "hist_return_yards": ret, "source": "league_pool"})
+        st.special_scores["def_return_td"][st.possession] = st.special_scores["def_return_td"].get(st.possession, 0) + 1
+        scoring = st.possession
+        st.add_score(scoring, 6)
+        _attempt_pat(rng, catalog, st, scoring)
+        apply_kickoff(st, receiving=_other(st, scoring), yardline_100=kickoff_spot(st))
+        return
+    st.yardline_100 = int(np.clip(new_yl, 1, 99))
+    st.events.append({"type": "def_return", "team": st.possession, "from_yl": start_def, "kind": kind,
+                      "to_yl": st.yardline_100, "return_yards": start_def - st.yardline_100, "source": "league_pool",
+                      "touchback": bool(spot <= 0 and not ret_td)})
+    st.down, st.ydstogo = 1, 10
+
+
+def _no_play_penalty(st: GameState, pen) -> None:
+    """NFL-43: enforce a no-play foul; a defensive foul as the period clock expires earns one untimed down."""
+    from semantics import enforce_penalty, NO_PLAY_CLOCK_SEC
+    enforce_penalty(st, pen, live_ball=False)
+    st.game_seconds_remaining -= NO_PLAY_CLOCK_SEC
+    if st.game_seconds_remaining <= 0 and pen.side == "defense":
+        # A period cannot end on an accepted defensive foul: one untimed down.
+        st.game_seconds_remaining = 1
+        st.events.append({"type": "untimed_down", "qtr": st.qtr})
+
+
+def _live_ball_penalty(st: GameState, pen, prev_pos, prev_scores, new_events) -> bool:
+    """NFL-43: enforce a live-ball foul after the snap, or drop it if the play changed possession or scored.
+
+    Returns True if enforced, False if dropped."""
+    if not st.final and st.possession == prev_pos and (st.score_home, st.score_away) == prev_scores and \
+            not any(e.get("type") in ("turnover", "turnover_on_downs", "kickoff") for e in new_events):
+        from semantics import enforce_penalty
+        enforce_penalty(st, pen, live_ball=True)
+        return True
+    st.events.append({"type": "penalty_live_ball_dropped", "reason": "possession_change_or_score", "team": pen.team})
+    return False
 
 
 def _process_kickoff_returns(rng: np.random.Generator, catalog, st: GameState, seen: list) -> None:
@@ -546,24 +581,13 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
         if sem is not None and sem.get("penalties") is not None:
             pen = sem["penalties"].draw(rng, st.possession, _other(st, st.possession))
         if pen is not None and pen.no_play:
-            from semantics import enforce_penalty, NO_PLAY_CLOCK_SEC
-            enforce_penalty(st, pen, live_ball=False)
-            st.game_seconds_remaining -= NO_PLAY_CLOCK_SEC
-            if st.game_seconds_remaining <= 0 and pen.side == "defense":
-                # A period cannot end on an accepted defensive foul: one untimed down.
-                st.game_seconds_remaining = 1
-                st.events.append({"type": "untimed_down", "qtr": st.qtr})
+            _no_play_penalty(st, pen)
             _post(prev_pos, prev_scores)
             continue
         n_ev = len(st.events)
         _apply_snap(rng, catalog, st, allow_pool=allow_pool)
-        if pen is not None and not st.final and st.possession == prev_pos and \
-                (st.score_home, st.score_away) == prev_scores and \
-                not any(e.get("type") in ("turnover", "turnover_on_downs", "kickoff") for e in st.events[n_ev:]):
-            from semantics import enforce_penalty
-            enforce_penalty(st, pen, live_ball=True)
-        elif pen is not None:
-            st.events.append({"type": "penalty_live_ball_dropped", "reason": "possession_change_or_score", "team": pen.team})
+        if pen is not None:
+            _live_ball_penalty(st, pen, prev_pos, prev_scores, st.events[n_ev:])
         _post(prev_pos, prev_scores)
         if st.in_ot and st.final:
             break

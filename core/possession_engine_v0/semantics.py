@@ -13,8 +13,10 @@ Supported paths (possession game-state path in ``simulate.py`` only):
   team's own accepted fouls on that side. Enforcement uses the half-distance rule.
   Kick-play fouls (kickoff/punt/FG rows) are excluded and bounded in SEMANTICS_BOUNDS.md.
 * ``returns: "asof_league_v1"`` - kickoff and punt return touchdowns at the as-of
-  league rate (nflverse PBP, weeks before target); interception/fumble return yards and
-  return touchdowns read from the sampled historical turnover row. Punt net yardage stays a
+  league rate (nflverse PBP, weeks before target). Interception / fumble-lost return yards and
+  return touchdowns are drawn from the as-of LEAGUE pool of turnover rows of the same kind
+  (all 32 teams, weeks before target), not from the two teams' own sampled rows (NFL-43 review
+  D2, Ghost6 d65ad98: the two-team rows had 0 return TDs, so the old path never scored one). Punt net yardage stays a
   separate PBP field-position quantity (``_punt_net_from_row``); return yards on punts are
   reported as ``kick_distance - net`` and never added a second time.
 * ``overtime: "official_2025_regular_season"`` - 10-minute period, coin-toss receiver,
@@ -39,6 +41,9 @@ KICK_PLAY_TYPES = {"Kickoff", "Punt", "Field Goal Good", "Field Goal Missed", "K
                    "Extra Point Good", "Extra Point Missed"}
 OT_RULES = ("single_possession_approx_declared_limitation", "official_2025_regular_season")
 NO_PLAY_CLOCK_SEC = 4
+# Pull time of the canonical penalty log (data/redistributable/teams/PENALTY_NOTES.md: "built 2026-11-01 ~9 PM ET"
+# from ESPN public scoreboard/summary endpoints; exact fetch minute unknown). Committed in fe2e371 (2026-11-06 1:50 PM ET).
+PENALTY_LOG_PULLED_ET = "2026-11-01 about 9 PM ET (exact minute unknown; PENALTY_NOTES.md)"
 # nflverse team code -> ESPN code used by the canonical log
 ESPN_ALIAS = {"WAS": "WSH", "LA": "LAR"}
 
@@ -86,6 +91,14 @@ def build_penalty_model(teams, *, week_asof_exclusive: int, season: int = 2026,
     log = pd.read_csv(log_path)
     games = pd.read_csv(games_path)
     log = log[(log["season"] == season) & (log["week"] < int(week_asof_exclusive))]
+    n_games_file = int(games["game_id"].nunique())
+    if "season" in games.columns:
+        games = games[games["season"] == season]
+        season_filter = "season column"
+    else:
+        # penalties_2026.csv has no season column: keep only games that appear in the season-filtered log.
+        games = games[games["game_id"].isin(set(log["game_id"]))]
+        season_filter = "game_id present in season-filtered penalty log (file has no season column)"
     games = games[games["week"] < int(week_asof_exclusive)]
     acc = log[(log["status"] == "accepted") & ~log["play_type"].isin(KICK_PLAY_TYPES)].copy()
     acc["no_play_b"] = _truthy(acc["no_play"])
@@ -111,9 +124,17 @@ def build_penalty_model(teams, *, week_asof_exclusive: int, season: int = 2026,
             per_team[f"{team}|{side}"] = {"fouls": int(len(sub)), "no_play": n_np, "snaps_run": snaps,
                                          "rate_per_snap": rate, "yards": int(sub["yards"].sum())}
     weeks = sorted(int(w) for w in log["week"].unique())
+    gap = [w for w in range(1, int(week_asof_exclusive)) if w not in weeks]
     meta = {"source": "data/redistributable/teams/penalty_plays_2026.csv (canonical, ESPN-reconciled 228/238)",
+            "source_pulled_et": PENALTY_LOG_PULLED_ET,
             "weeks_used": weeks, "week_asof_exclusive": int(week_asof_exclusive),
-            "coverage_gap_weeks": [w for w in range(1, int(week_asof_exclusive)) if w not in weeks],
+            "coverage_gap_weeks": gap,
+            # NFL-43 review D3: weeks with no penalty data are UNKNOWN, not zero-penalty weeks. Rates are
+            # per-snap over the weeks that exist; the missing weeks contribute nothing either way.
+            "unknown_weeks": gap,
+            "unknown_weeks_policy": ("UNKNOWN: no canonical penalty data for these weeks; rates use weeks_used only "
+                                     "and do not treat the gap as zero penalties") if gap else None,
+            "season_filter": season_filter, "games_in_file": n_games_file,
             "kick_play_fouls_excluded": True, "per_team": per_team}
     return PenaltyModel(rates=rates, pools=pools, meta=meta)
 
@@ -159,26 +180,51 @@ class ReturnModel:
     kick_return_td_rate: float
     punt_return_td_rate: float
     meta: dict
+    # NFL-43 D2: as-of league pools of (return_yards, return_touchdown) for defensive returns, by turnover kind.
+    def_return_pools: dict = field(default_factory=dict)  # {"interception": ndarray[n,2], "fumble_lost": ndarray[n,2]}
+
+    def draw_def_return(self, rng: np.random.Generator, kind: str) -> tuple[float, bool]:
+        """League-rate defensive return for an interception or fumble lost. Empty pool -> no return, no TD."""
+        pool = self.def_return_pools.get(kind)
+        if pool is None or len(pool) == 0:
+            return 0.0, False
+        y, td = pool[int(rng.integers(0, len(pool)))]
+        return float(y), bool(td)
 
 
 def build_return_model(pbp_path, *, season: int, week_asof_exclusive: int) -> ReturnModel:
     import pyarrow.parquet as pq
     cols = [c for c in ("season", "week", "kickoff_attempt", "punt_attempt", "return_touchdown", "return_yards",
-                        "punt_blocked") if c in set(pq.ParquetFile(pbp_path).schema_arrow.names)]
+                        "punt_blocked", "interception", "fumble_lost")
+            if c in set(pq.ParquetFile(pbp_path).schema_arrow.names)]
     d = pd.read_parquet(pbp_path, columns=cols)
     d = d[(d["season"] == season) & (d["week"] < int(week_asof_exclusive))]
     if "return_touchdown" not in d.columns:
         raise ValueError("UNSUPPORTED: pbp lacks return_touchdown; return semantics cannot be enabled")
+    for c in ("interception", "fumble_lost"):
+        if c not in d.columns:
+            raise ValueError(f"UNSUPPORTED: pbp lacks {c}; league defensive-return pool cannot be built")
     ko = d[d["kickoff_attempt"] == 1]
     pu = d[d["punt_attempt"] == 1]
+    pools, pool_meta = {}, {}
+    for kind in ("interception", "fumble_lost"):
+        t = d[d[kind] == 1]
+        arr = np.column_stack([t["return_yards"].fillna(0).to_numpy(float),
+                               t["return_touchdown"].fillna(0).to_numpy(float)]) if len(t) else np.zeros((0, 2))
+        pools[kind] = arr
+        pool_meta[kind] = {"plays": int(len(t)), "return_tds": int(arr[:, 1].sum()) if len(arr) else 0,
+                           "mean_return_yards": float(arr[:, 0].mean()) if len(arr) else None}
     meta = {"source": "nflverse play_by_play (league, weeks < target)", "weeks": sorted(int(w) for w in d["week"].unique()),
             "kickoffs": int(len(ko)), "kick_return_tds": int(ko["return_touchdown"].fillna(0).sum()),
             "punts": int(len(pu)), "punt_return_tds": int(pu["return_touchdown"].fillna(0).sum()),
             "mean_kick_return_yards": float(ko["return_yards"].mean()) if len(ko) else None,
             "mean_punt_return_yards": float(pu["return_yards"].mean()) if len(pu) else None,
+            "def_return_pools": pool_meta,
+            "def_return_mode": "LEAGUE_POOL_BY_TURNOVER_KIND (all teams, weeks < target)",
             "label": "AS_OF_LEAGUE_RATE_NOT_TEAM_FIT"}
     return ReturnModel(kick_return_td_rate=meta["kick_return_tds"] / max(1, meta["kickoffs"]),
-                       punt_return_td_rate=meta["punt_return_tds"] / max(1, meta["punts"]), meta=meta)
+                       punt_return_td_rate=meta["punt_return_tds"] / max(1, meta["punts"]), meta=meta,
+                       def_return_pools=pools)
 
 
 class OTTracker:
