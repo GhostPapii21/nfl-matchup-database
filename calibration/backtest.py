@@ -18,7 +18,7 @@ Win probability from the close moneylines, de-vigged proportionally. Missing = u
 Research only, not validated. Zero Odds API credits (no network).
 """
 from __future__ import annotations
-import argparse, csv, io, json, math, subprocess, time
+import argparse, csv, io, json, math, subprocess, sys, time
 from concurrent.futures import ProcessPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
@@ -238,7 +238,7 @@ def main(argv=None) -> int:
     stem = f"backtest_{a.tag}_n{a.n}"
     per.to_csv(OUT / f"{stem}_per_game.csv", index=False, float_format="%.4f")
     doc = {"label": LABEL, "set_label": "BACKTEST on already-seen weeks 4-9 (NOT a clean holdout; weeks >= 10 reserved as live holdout)",
-           "generated_by": "calibration/backtest.py", "command": "python3 -m calibration.backtest " + " ".join(argv or []),
+           "generated_by": "calibration/backtest.py", "command": "python3 -m calibration.backtest " + " ".join(sys.argv[1:] if argv is None else argv),
            "run_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"), "runtime_sec": round(time.time() - t0, 1),
            "engine": engine_version(), "arms": {k: ARMS[k] for k in arms}, "n_per_game": a.n, "seed_base": a.seed,
            "pbp": {"path": str(PBP.relative_to(ROOT)), "sha256": sha256(PBP), "pulled_et": PBP_PULLED_ET,

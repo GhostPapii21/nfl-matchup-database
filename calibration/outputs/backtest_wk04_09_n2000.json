@@ -1,0 +1,216 @@
+{
+ "label": "research only, not validated",
+ "set_label": "BACKTEST on already-seen weeks 4-9 (NOT a clean holdout; weeks >= 10 reserved as live holdout)",
+ "generated_by": "calibration/backtest.py",
+ "command": "python3 -m calibration.backtest --n 2000 --arms new_off,legacy_old --workers 8",
+ "run_utc": "2026-11-12T20:45:24+00:00",
+ "runtime_sec": 1976.2,
+ "engine": {
+  "git_head": "eb48efeb1b40c83876283362bf7ae040f2b35b36",
+  "engine_tree": "72f1116ba168ce212427254584d48b41579551fe",
+  "engine_py_sha256": "6d5fcf9185e874e2839ddbd7146bfc5866b72a6e37237c3c1f9032fb6f1795c1",
+  "engine_dirty": false,
+  "simulate_sha256": "47f0e9f56a16dfe6f80d23cde46fd29751d67a5597ab44d138f48fa6167a7725"
+ },
+ "arms": {
+  "new_off": {
+   "h2h": "off",
+   "accounting": null
+  },
+  "legacy_old": {
+   "h2h": "legacy_always",
+   "accounting": "legacy"
+  }
+ },
+ "n_per_game": 2000,
+ "seed_base": 20261112,
+ "pbp": {
+  "path": "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet",
+  "sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+  "pulled_et": "2026-11-12 11:16 AM ET",
+  "use": "history weeks 1..week-1 only per game (point in time); actual final scores from the same file"
+ },
+ "lines": {
+  "ref": "ba83615",
+  "path": "data/lines/lines_wk04_09_2026.csv",
+  "sha256": "6e330ca155e285e919716ecc3d53dce0d0c74c4cc3d83c927fbdcba872a85212",
+  "sha256_matches_readme": true,
+  "graded_against": "close",
+  "close_rule": "consensus close; 2026_09_BUF_MIN = mean DK/FD/Pinnacle closes",
+  "games_with_close": 88,
+  "known_limits": "wk4-5 consensus closes only; consensus pulled_utc is the games.csv fetch time (after kickoff by design), the quote time itself is unknown"
+ },
+ "results": {
+  "legacy_old": {
+   "games": 88,
+   "weeks": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "decided_games": 87,
+   "ties": 1,
+   "mae_home_pts": 7.513477272727272,
+   "mae_away_pts": 9.186352272727273,
+   "mae_total": 13.112454545454547,
+   "mae_margin": 10.257079545454546,
+   "total_bias_sim_minus_actual": -6.977681818181818,
+   "margin_bias_sim_minus_actual": 0.5901818181818181,
+   "mean_sim_total": 39.067772727272725,
+   "mean_actual_total": 46.04545454545455,
+   "brier_model": 0.25077196551724135,
+   "logloss_model": 0.7004295969745971,
+   "brier_coinflip": 0.25,
+   "logloss_coinflip": 0.6931471805599453,
+   "market_games_with_close_total": 88,
+   "mae_total_close": 10.325757575757576,
+   "mae_total_model_same_games": 13.112454545454547,
+   "total_bias_close_minus_actual": -0.7310606060606062,
+   "mean_model_minus_close_total": -6.2466212121212115,
+   "corr_model_total_vs_close": 0.3939673082480837,
+   "mae_margin_close": 8.982954545454545,
+   "mae_margin_model_same_games": 10.257079545454546,
+   "mean_abs_model_margin_minus_close": 5.330227272727273,
+   "corr_model_margin_vs_close": 0.5429958902001724,
+   "market_wp_games": 87,
+   "brier_close_devig": 0.20550674149666737,
+   "logloss_close_devig": 0.6016669912499022,
+   "brier_model_same_games": 0.25077196551724135,
+   "logloss_model_same_games": 0.7004295969745971,
+   "calibration_table_p_home_win": [
+    {
+     "bin": "[0.00,0.20)",
+     "n": 5,
+     "mean_p_home": 0.176,
+     "home_win_rate": 0.0
+    },
+    {
+     "bin": "[0.20,0.35)",
+     "n": 18,
+     "mean_p_home": 0.281,
+     "home_win_rate": 0.5
+    },
+    {
+     "bin": "[0.35,0.50)",
+     "n": 18,
+     "mean_p_home": 0.419,
+     "home_win_rate": 0.278
+    },
+    {
+     "bin": "[0.50,0.65)",
+     "n": 27,
+     "mean_p_home": 0.567,
+     "home_win_rate": 0.481
+    },
+    {
+     "bin": "[0.65,0.80)",
+     "n": 12,
+     "mean_p_home": 0.725,
+     "home_win_rate": 0.583
+    },
+    {
+     "bin": "[0.80,1.00)",
+     "n": 7,
+     "mean_p_home": 0.867,
+     "home_win_rate": 0.714
+    }
+   ],
+   "pit_total_quartiles": {
+    "q1_share(<.25)": 0.17,
+    "q2": 0.125,
+    "q3": 0.17,
+    "q4_share(>=.75)": 0.534,
+    "note": "uniform 0.25 each if the simulated total distribution is calibrated"
+   }
+  },
+  "new_off": {
+   "games": 88,
+   "weeks": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "decided_games": 87,
+   "ties": 1,
+   "mae_home_pts": 7.228335227272726,
+   "mae_away_pts": 8.747761363636364,
+   "mae_total": 11.342789772727274,
+   "mae_margin": 10.429664772727273,
+   "total_bias_sim_minus_actual": -1.1008579545454547,
+   "margin_bias_sim_minus_actual": 0.5743011363636362,
+   "mean_sim_total": 44.94459659090909,
+   "mean_actual_total": 46.04545454545455,
+   "brier_model": 0.24900076508620692,
+   "logloss_model": 0.7007358889503481,
+   "brier_coinflip": 0.25,
+   "logloss_coinflip": 0.6931471805599453,
+   "market_games_with_close_total": 88,
+   "mae_total_close": 10.325757575757576,
+   "mae_total_model_same_games": 11.342789772727274,
+   "total_bias_close_minus_actual": -0.7310606060606062,
+   "mean_model_minus_close_total": -0.3697973484848488,
+   "corr_model_total_vs_close": 0.4865721088221633,
+   "mae_margin_close": 8.982954545454545,
+   "mae_margin_model_same_games": 10.429664772727273,
+   "mean_abs_model_margin_minus_close": 5.597596590909091,
+   "corr_model_margin_vs_close": 0.5539038119516929,
+   "market_wp_games": 87,
+   "brier_close_devig": 0.20550674149666737,
+   "logloss_close_devig": 0.6016669912499022,
+   "brier_model_same_games": 0.24900076508620692,
+   "logloss_model_same_games": 0.7007358889503481,
+   "calibration_table_p_home_win": [
+    {
+     "bin": "[0.00,0.20)",
+     "n": 7,
+     "mean_p_home": 0.166,
+     "home_win_rate": 0.286
+    },
+    {
+     "bin": "[0.20,0.35)",
+     "n": 15,
+     "mean_p_home": 0.274,
+     "home_win_rate": 0.333
+    },
+    {
+     "bin": "[0.35,0.50)",
+     "n": 19,
+     "mean_p_home": 0.415,
+     "home_win_rate": 0.421
+    },
+    {
+     "bin": "[0.50,0.65)",
+     "n": 24,
+     "mean_p_home": 0.566,
+     "home_win_rate": 0.417
+    },
+    {
+     "bin": "[0.65,0.80)",
+     "n": 14,
+     "mean_p_home": 0.708,
+     "home_win_rate": 0.643
+    },
+    {
+     "bin": "[0.80,1.00)",
+     "n": 8,
+     "mean_p_home": 0.856,
+     "home_win_rate": 0.625
+    }
+   ],
+   "pit_total_quartiles": {
+    "q1_share(<.25)": 0.239,
+    "q2": 0.216,
+    "q3": 0.239,
+    "q4_share(>=.75)": 0.307,
+    "note": "uniform 0.25 each if the simulated total distribution is calibrated"
+   }
+  }
+ },
+ "command_note": "command field patched after the run: the script recorded '' for argv=None (fixed in calibration/backtest.py in the same commit)"
+}
