@@ -30,6 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "phase15" / "inactives"
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
 EARLIEST_BEFORE_KICKOFF = timedelta(minutes=120)  # T-90 posting, allow 30 min early
+PUBLISH_SKEW = timedelta(minutes=2)  # a club article cannot be published after we fetched it (beyond clock skew)
 
 # nflverse code -> (club news index URL, club site root, nickname used in headings)
 CLUB_SITES = {
@@ -271,6 +272,8 @@ def validate_record(rec: dict, gid: str, away: str, home: str, packet_kickoff: d
         pub = _iso(v.get("published_utc"))
         if pub is None or ko is None or not (ko - EARLIEST_BEFORE_KICKOFF <= pub <= ko):
             why.append(f"{t}: article published {v.get('published_utc')!r} outside [T-120m, kickoff]")
+        elif got is not None and pub > got + PUBLISH_SKEW:
+            why.append(f"{t}: article published {pub.isoformat()} after the pull {got.isoformat()} (impossible evidence)")
     return why
 
 

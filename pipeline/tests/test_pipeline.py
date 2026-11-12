@@ -837,6 +837,7 @@ def _set(path, val):
     ("blank_export_name", _set(["inactives", "WAS"], [""]), None),
     ("export_mismatch", _set(["inactives", "WAS"], ["Somebody Else"]), None),
     ("players_not_list", _set(["teams", "WAS", "players"], "Lucas Patrick"), None),
+    ("published_after_pull", _set(["teams", "NYG", "published_utc"], iso(KO - timedelta(minutes=5))), KO - timedelta(minutes=70)),
     ("pulled_after_kickoff", None, KO + timedelta(minutes=5)),
     ("pulled_in_future", None, KO - timedelta(minutes=30)),
 ])
