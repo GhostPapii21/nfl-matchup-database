@@ -1,0 +1,48 @@
+{
+ "game": "DET @ CAR / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Away team is the Detroit Lions (DET). Home team is the Carolina Panthers (CAR). No spread, total, or moneyline was saved, so this is a form script for DET at CAR, not a book number, and implied team totals cannot be computed. DET can live on the ground: Jahmyr Gibbs has 65 carries for 307 yards, and CAR has allowed 5.88 yards per carry and 13 runs of 10-plus. DET quarterback Jared Goff is 0.48 EPA per dropback versus the blitz (n=40) against a 38% CAR blitz, so DET does not need a high-volume deep game. CAR is more likely to be behind schedule than to dictate pace, because CAR quarterback Bryce Young is 0.03 EPA versus the blitz (n=35) and DET blitzes 36%.",
+  "flip1": "Shootout, and CAR stays close: DET has allowed 16 passes of 20-plus on 138 attempts and 12.0 yards per attempt on 22 middle throws, so CAR targets Tetairoa McMillan (295 air yards) and Jalen Coker (252 air yards, no prop) keep it competitive. DET back Gibbs falls off 21.7 carries per game and the rush-only over dies; DET receiver Jameson Williams' 225 air-yard shots come back.",
+  "flip2": "DET gets ahead and clocks it with Gibbs. CAR abandons Chuba Hubbard's 14-carry role. DET wide-receiver yardage stalls and CAR receiving volume shows up late. A weather slog is possible, but the forecast for DET at CAR is not in the pack."
+ },
+ "injury_fallout": "No injury report or inactives were saved for DET or CAR, so no Detroit Lions or Carolina Panthers player is named out. DET rush share is Jahmyr Gibbs 65/307, Sione Vaki 9/40, Jared Goff 7/17. DET targets: Amon-Ra St. Brown 35/228/275, Gibbs 21/156/34, Sam LaPorta 19/144/69, Jameson Williams 17/127/225, Isaac TeSlaa 9/92/111, Brock Wright 3/12/6. CAR rush share is Chuba Hubbard 42/184, AJ Dillon 12/41, Jonathon Brooks 9/30 (in the CAR carry log, not on the prop list), Bryce Young 3/16. CAR targets: Tetairoa McMillan 23/193/295, Jalen Coker 22/222/252 (no prop), Darren Waller 13/112/90, Tommy Tremble 11/70/67, Hubbard 9/77/-18, Xavier Legette 6/64/97, Mitchell Evans 6/58/25. John Metchie III and Brycen Tremayne are on the CAR prop board with no last-3 target row. Source: as-of pack only.",
+ "matchup": {
+  "shell": "No coverage charting for DET or CAR. CAR yards per attempt allowed: left 6.65 (31), middle 6.24 (21), right 5.52 (40). DET yards per attempt allowed: left 5.77 (44), middle 12.0 (22), right 8.09 (57). DET middle is the pass soft spot. CAR pass locations are all modest.",
+  "pressure": "CAR blitz rate 38%. DET blitz rate 36%. Pressure rate is not in the pack. DET quarterback Jared Goff is 0.48 EPA per dropback versus the blitz (n=40) versus 0.13 unblitzed. CAR quarterback Bryce Young is 0.03 EPA versus the blitz (n=35) versus 0.19 unblitzed. A CAR blitz does not stall DET. A DET blitz constrains CAR downfield throws.",
+  "bleeds": "CAR bleeds the run, not the pass: 5.88 yards per carry, 13 runs of 10-plus, only 5 passes of 20-plus on 100 attempts. DET bleeds explosives and the middle: 4.61 yards per carry and 12 runs of 10-plus on the ground, but 16 passes of 20-plus on 138 attempts and 12.0 yards per attempt in the middle.",
+  "overlap": "DET back Jahmyr Gibbs (65 carries, 307 rush yards) overlaps the CAR run bleed at 5.88 yards per carry. DET receiver Jameson Williams (225 air yards) overlaps the CAR pass tendency that has allowed only 5 explosives on 100 throws. CAR air-yard leader Tetairoa McMillan (295 air yards) overlaps the DET explosive bleed, but CAR quarterback Bryce Young at 0.03 EPA versus the DET 36% blitz cuts against a CAR receiving over."
+ },
+ "form": "DET last 3 games: Jahmyr Gibbs 65 carries for 307 rush yards (102.3 per game) and 21 targets for 156 receiving yards; Jameson Williams 17 targets for 127 receiving yards and 225 air yards (42.3 receiving yards per game); Amon-Ra St. Brown 35/228/275; Sam LaPorta 19/144/69, exactly 48 receiving yards per game. CAR last 3 games: Chuba Hubbard 42 carries for 184 rush yards (61.3 per game) and 77 receiving yards; AJ Dillon 12/41; Bryce Young 3/16; Tetairoa McMillan 23/193/295 (64.3 receiving yards per game versus a 73 line); Darren Waller 13/112/90, on the 37.5 line; Tommy Tremble 11/70/67. No per-game splits for DET or CAR are in the pack.",
+ "edge_players": [
+  {
+   "player": "jahmyrgibbs",
+   "team": "DET",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "DET running back Jahmyr Gibbs should beat 96.5 rush yards because the Detroit Lions already have him at 65 carries for 307 yards and the Carolina Panthers have allowed 5.88 yards per carry and 13 runs of 10-plus.",
+   "must_be_true": "DET keeps Gibbs near 20 carries, CAR does not tighten off 5.88 yards per carry, and there is no snap limit. 18 carries at 5.5 yards per carry is still about 99, so DET does not need a blowout.",
+   "kills_it": "A shootout drops the DET back toward 15 carries, and 15 times the CAR 5.88 rate is about 88, under 96.5. A one-game spike inside the 307 would also kill it. Per-game splits are not in the pack.",
+   "confidence": "strong"
+  },
+  {
+   "player": "jamesonwilliams",
+   "team": "DET",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "DET receiver Jameson Williams should stay under 52 receiving yards because he has 127 yards on 17 targets and CAR has allowed only 5 passes of 20-plus on 100 attempts, the opposite of his 225-air-yard role.",
+   "must_be_true": "Williams stays the DET 5.7-target deep complement, the CAR 5-of-100 explosive rate holds, and DET can move the ball with Gibbs so Jared Goff does not need those shots.",
+   "kills_it": "CAR blitzes 38% and DET quarterback Jared Goff is at 0.48 EPA per dropback versus the blitz, so one explosive to Williams clears 52. Also dead if CAR forces the shootout flip.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No model, sim median, or Pinnacle no-vig was saved for DET at CAR. DET Gibbs 307/3 = 102.3 rush yards per game, already over 96.5; 21.7 carries times the CAR 5.88 yards-per-carry rate is about 127. That agrees with the strong DET read. Price is -115 both sides. DET Williams 127/3 = 42.3 versus a 52 under, and the CAR 5/100 explosives agree; price is +nan. CAR McMillan over 73 was only a lean (64.3 mean disagrees, and CAR quarterback Bryce Young is 0.03 EPA versus the DET 36% blitz), so it was dropped, not flagged. CAR Hubbard rush under 66.5 was not taken: DET has allowed 4.61 yards per carry and 12 runs of 10-plus.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "DET jahmyrgibbs rushyds over 96.5 at -115. DET jamesonwilliams recyds under 52, price not in the pack (+nan). One market per player. No CAR leg cleared the pre-mortem. No passing yards, receptions, or touchdowns.",
+ "pre_mortem": "Monday loss: the DET 307 rush yards were one spike, CAR sold out to stop Gibbs, and a pass script held the Detroit Lions back near 15 carries, while the CAR 38% blitz was a gift for DET quarterback Jared Goff and the one explosive went to Jameson Williams. The CAR 5-of-100 explosive rate is only three games. No spread was saved, so calling DET the control team was a form inference, and no inactive list was saved for DET or CAR.",
+ "slip_story": "One DET ground-control story at CAR. Anchor is Detroit Lions Jahmyr Gibbs rush yards over against the Carolina Panthers run defense at 5.88 yards per carry. Complement is Detroit Lions Jameson Williams receiving yards under, because CAR has allowed only 5 explosives on 100 throws. Do not mix CAR wide-receiver overs or CAR Chuba Hubbard rush over. No touchdowns. Not a bet placement.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

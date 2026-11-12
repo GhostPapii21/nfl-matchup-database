@@ -1,0 +1,48 @@
+{
+ "game": "ARI@SF Week 3 / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this script is inferred only from two-game form, not from the market. SF looks more likely to control flow: Purdy EPA/dropback is 0.38 unblitzed and 0.98 vs blitz (n=18), SF rushers are efficient (Black 21/90, CMC 20/91, Purdy 8/59), and SF blitzes 28% into an ARI QB at -0.31 EPA vs blitz (n=15) versus 0.13 unblitzed. Lean is SF ahead or neutral-positive, ARI pass-leaning through McBride (23 targets) with Wilson (14) and Bourne (11) well ahead of Harrison (4). Both backfields are committees, not bellcows.",
+  "flip1": "ARI handles the blitz better than the n=15 sample and the game stays a neutral committee grind (Allgeier 22/71 and Love 20/70 vs Black/CMC near a 10-carry split). Team pass attempts fall toward the low 20s; Bourne still only needs about half his 43-yard pace, but a Harrison spike becomes less likely.",
+  "flip2": "Shootout or SF's 4 explosives on 55 attempts doesn't travel: ARI airs it out, Harrison's 18.5 air yards/target finally connects and the under dies, while Bourne's short-area share (50 air yards on 11 targets) still cashes. Opposite flip is SF up big and ARI abandoning the run \u2014 that helps Bourne's over and only kills Harrison if his 6% target share rises, not merely if attempts rise."
+ },
+ "injury_fallout": "MISSING: final injury report, inactives, practice status (DNP/limited/full), questionable tags, and any offensive or defensive absences for ARI and SF. No absences, returns, snap limits, or next-man-up inferred from usage dips.",
+ "matchup": {
+  "shell": "MISSING: coverage charting (MOFO vs MOFC, man vs zone rates, slot/hook defenders). Only location splits are in the pack.",
+  "pressure": "SF blitz rate 28% against an ARI QB at -0.31 EPA/dropback vs blitz (n=15) and 0.13 with no blitz. ARI blitz rate 21% against a SF QB at 0.98 EPA vs blitz (n=18) and 0.38 unblitzed. Pressure is a real ARI-passing tax and not a SF-passing tax.",
+  "bleeds": "ARI allows middle 9.53 YPA (15 att) and right 8.62 (24 att), left 6.71 (14); 4 passes of 20+ on 57 att; rush YPC allowed 3.98 with 6 runs of 10+. SF allows right 7.83 (24 att), left 6.89 (19), middle only 5.75 (8 att); 4 passes of 20+ on 55 att; rush YPC allowed 3.95 with 3 runs of 10+.",
+  "overlap": "ARI's primary option McBride (23 targets, 125 air yards, 136 rec yards) most likely attacks the middle, which is SF's tightest zone (5.75 YPA, n=8) \u2014 poor overlap, and his 69 line sits on his 68-yard pace, so he is not a leg. SF's Kittle (88 air, 92 yards) and Evans (95 air, 103 yards) overlap ARI's middle/right bleed, but their lines (47.5 and 55.5) sit at or above recent pace. Selected legs are role-vs-line: Bourne's 4.5 aDOT (50 air on 11 targets) is a short/intermediate profile that SF's 4/55 explosive cap does not erase, and Harrison's 74 air yards on 4 targets runs directly into that same explosive cap."
+ },
+ "form": "Window is weeks 1-2 only (pack says last 2 games; figures labeled L3 are two-game totals). ARI targets: McBride 23/136/125, Wilson 14/74/133 (133 air but only 74 yards), Bourne 11/86/50, Love 7/25/5, Harrison 4/33/74, Allgeier 4/18/-8. ARI rush: Allgeier 22/71 (3.2 YPC), Love 20/70, Brissett 4/24. SF targets: CMC 12/63/8, Samuel 11/79/36, Evans 10/103/95, Kittle 9/92/88, Robinson 6/84/72. SF rush committee: Black 21/90 (4.29 YPC), CMC 20/91 (4.55), Purdy 8/59. No OC/QB change is in the pack. Harrison's 4 targets and Wilson's 74 yards on 133 air look role/efficiency issues, not TD-dependent; no play-level data to confirm one-play flukes.",
+ "edge_players": [
+  {
+   "player": "kendrickbourne",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Bourne has 86 receiving yards on 11 targets over two games (about 43 yards and 5.5 targets a game, 4.5 aDOT), so a 23.5 line still clears if he loses nearly half that role, and SF's low explosive rate does not erase a short-area target.",
+   "must_be_true": "Kendrick Bourne targets >= 4 because he has 11 targets and 86 receiving yards over 2 games (7.8 yards per target), and 4 targets at that rate is about 31 yards versus a 23.5 line",
+   "kills_it": "IF Kendrick Bourne draws 2 or fewer targets THEN recyds over 23.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "marvinharrisonjr",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Harrison has 33 receiving yards on 4 targets over two games (about 16.5 yards a game) against a 33.5 line, a 6% share of ARI's 63 charted targets, and his 18.5 air yards per target runs into a SF defense that has allowed only 4 passes of 20+ on 55 attempts.",
+   "must_be_true": "Marvin Harrison Jr targets <= 3 because he has 4 targets and 33 receiving yards over 2 games (8.25 yards per target), and 3 targets at that rate is about 25 yards under the 33.5 line",
+   "kills_it": "IF Marvin Harrison Jr is targeted 5 or more times or catches one 35+ yard shot THEN recyds under 33.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim, or no-vig in the pack, so this check is pack-only. Bourne 43 yards/game vs a 23.5 line and Harrison 16.5 vs 33.5 both match the reads. SF allowed 4 passes of 20+ on 55 attempts, which supports the Harrison under and does not threaten Bourne's 50 air yards on 11 targets. SF blitz 28% plus ARI QB -0.31 EPA vs blitz is a passing-efficiency tax already small enough that a 23.5 rung still holds if Bourne keeps 4 targets; it is not a contradiction. Composite SF pass YPA is about 7.15. Nothing present cuts the strong Bourne read.",
+  "disagrees": "none",
+  "missing": "spread, total, moneyline, line movement, kickoff, weather, injuries/inactives, coverage shell and man/zone charting, snap counts, no-vig prices, projections and sims, play-level explosive splits",
+  "verdict": "agree"
+ },
+ "market_rung_price": "kendrickbourne recyds over 23.5 -114.5; marvinharrisonjr recyds under 33.5 -111.5. Main lines only. No sim median or no-vig available to re-rung.",
+ "pre_mortem": "It's Monday and Bourne finished under 23.5 while Harrison cleared 33.5. Bourne's 86 yards came with 36 yards of YAC above 50 air yards, SF's 28% blitz (ARI QB -0.31 EPA vs blitz, n=15) funneled the quick game only to McBride, and Bourne's 11 targets were a two-game spike that Harrison's return to a normal share absorbed. Harrison, priced at 33.5 rather than his 16.5 pace, caught one deep shot \u2014 his entire two-game yardage total is 33 on 74 air yards, so a single 35-yard catch the 4-of-55 explosive rate does not forbid busts the under. The Harrison counter-case is real but not stronger than a 17-yard cushion plus the explosive cap, so the lean stays; if that one-play risk is unacceptable the Harrison leg is the one to drop, not Bourne.",
+ "slip_story": "One ARI target-hierarchy stack, not a total or shootout stack: weeks 1-2 share holds (Bourne 11 of 63 charted targets, Harrison 4 of 63). Bourne over and Harrison under win together if that tree holds in either a trail script or a grind. Do not add McBride over 69 (line equals his 68-yard pace and he attacks SF's best zone), Wilson over 46.5 (37-yard pace, 74 yards on 133 air, SF explosive cap), or any SF rush leg that needs a different backfield story. No TDs, no receptions, no passing yards.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

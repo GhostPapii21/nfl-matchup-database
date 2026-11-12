@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 DEN@LAC / kickoff: MISSING / spread and total: NOT SAVED; script inferred only from supplied team form / weather: NOT SAVED",
+ "script": {
+  "base": "Hypothesis from team form, not market expectations: LAC keeps the game competitive through its running game, with O.Hampton leading a shared backfield against DEN's 5.02 rushing YPC allowed. DEN mixes J.Dobbins carries with short throws, including R.Harvey targets, rather than relying exclusively on deeper passing against LAC's blitz looks.",
+  "flip1": "DEN builds an early lead, forcing LAC toward a passing game that has produced negative EPA/dropback both against blitzes (-0.32) and without blitzes (-0.10). Hampton's rushing volume becomes vulnerable, while Harvey's receiving opportunities could shrink if DEN runs to protect its lead.",
+  "flip2": "LAC takes a substantial lead and increases its rushing emphasis, supporting Hampton's opportunities. DEN shifts toward passing, potentially supporting Harvey's receiving volume, although his route participation and two-minute role are not supplied."
+ },
+ "injury_fallout": "MISSING: DEN and LAC injury reports, practice trends, offensive-line availability, defensive absences, final inactives, return-to-play restrictions and replacement-player shares. No absence, return or next-man-up role is inferred from the supplied usage. Source for all usage claims: user-provided pre-kickoff pack, offense weeks 2\u20134 and defense through four games; exact collection timestamps are missing. Final reports and approximately 90-minute inactives cannot be checked within this pack.",
+ "matchup": {
+  "shell": "MISSING: DEN and LAC MOFO/MOFC splits, man/zone rates and individual coverage assignments. DEN's 9.09 middle YPA allowed does not establish a specific matchup for any LAC receiver.",
+  "pressure": "DEN blitzes 39%; LAC's QB EPA/dropback is -0.32 against blitzes over 35 dropbacks versus -0.10 without blitzes. LAC blitzes 27%; DEN's corresponding figures are -0.30 over 50 blitz dropbacks versus +0.13 without blitzes. These support testing a short-outlet hypothesis for Harvey, but actual pressure rates, checkdown frequency, protection health and time to throw are missing.",
+  "bleeds": "DEN has allowed 5.02 rushing YPC and 15 runs of at least 10 yards through four games, supporting examination of Hampton's rushing matchup. LAC has allowed 4.13 rushing YPC and 11 such runs. LAC's left/right passing YPA allowed is 8.42/8.68 versus 6.07 in the middle, but receiver alignment and RB receiving allowances are missing.",
+  "overlap": "Hampton's team-leading 47 carries over weeks 2\u20134 overlap directly with DEN's supplied rushing vulnerability. Harvey's 17 targets and -37 air yards suggest a short receiving role that could offer an outlet against blitzes; the pack does not establish that LAC specifically concedes RB receiving production."
+ },
+ "form": "Weeks 2\u20134 aggregate role check: Hampton recorded 47 carries for 195 yards, compared with K.Mitchell's 23 for 115 and K.Vidal's 6 for 31. Hampton's rushing share among these listed LAC backs was 61.8%, so competition remains meaningful. Harvey recorded 17 targets, 109 receiving yards and -37 air yards, alongside only 9 carries for 31 yards; his receiving role is the better-supported angle. Dobbins led DEN with 38 carries for 125 yards. Individual-game distributions, snaps, routes, red-zone work, comparable-opponent results and defensive last-three-game positional splits are missing; these aggregates cannot establish consistency or a recent role change.",
+ "edge_players": [
+  {
+   "player": "omarionhampton",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Hampton can exceed 41.5 rushing yards because LAC's leading recent ball carrier faces a DEN defense allowing 5.02 yards per carry, provided LAC avoids abandoning the run.",
+   "must_be_true": "O.Hampton carries >= 11 [because the pack records 47 carries over weeks 2\u20134 and DEN allowing 5.02 rushing YPC]",
+   "kills_it": "IF DEN builds an early multi-score lead and LAC abandons Hampton's rushing workload before he reaches 42 yards THEN Hampton rushyds over 41.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "rjharvey",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Harvey can exceed 27.5 receiving yards if his established short-target role remains available when LAC's blitzes disrupt DEN's passing game.",
+   "must_be_true": "R.Harvey targets >= 5 [because the pack records 17 targets and 109 receiving yards over weeks 2\u20134]",
+   "kills_it": "IF DEN keeps Harvey in protection instead of releasing him on the short routes needed to reach 28 receiving yards THEN Harvey recyds over 27.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The matchup hypotheses precede the numerical check. Hampton's supplied three-game totals imply 15.7 carries, 65.0 rushing yards per game and 4.15 yards per carry; these support, but do not independently prove, the rushing read. Harvey's totals imply 5.7 targets and 36.3 receiving yards per game, supporting the opportunity hypothesis without establishing a hit rate. Hampton's shared backfield and Harvey's dependence on yards after short catches limit confidence. No projection or simulation was run. Both selected overs are -114, requiring approximately 53.3% to break even before considering uncertainty; no claim of positive expected value is established.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation distribution and median, Pinnacle sharp-book benchmark, verified no-vig probabilities, game-by-game usage, routes, actual pressure and checkdown rates, RB receiving allowances, injuries, inactives, weather, spread, total, moneyline, implied team totals, opening-line movement, kickoff time, venue environment, rest and travel.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line candidates: omarionhampton rushyds OVER 41.5 at -114; rjharvey recyds OVER 27.5 at -114. Hampton uses the carry-share/run-matchup market; Harvey uses receiving yards because receptions are not permitted. No alternate rungs or additional player markets selected. Missing pricing validation prevents a defensible stake recommendation.",
+ "pre_mortem": "Hampton: It is Monday and the over lost because DEN's season-to-date rushing allowance did not translate into this matchup. Mitchell took meaningful work, LAC's negative passing efficiency stalled drives, or an early deficit suppressed Hampton's carries. The missing game-level workload and offensive-line information could have exposed this risk. Harvey: The over lost because blitz vulnerability produced sacks, throwaways or pass-protection assignments rather than outlet catches. His -37 air yards meant he still needed catches and yards after the catch, and 17 aggregate targets did not guarantee sufficient opportunities today. These counter-cases keep both candidates at lean rather than strong.",
+ "slip_story": "The compatible story is a competitive game or LAC lead: Hampton receives sustained rushing work while DEN uses Harvey underneath. Both candidates can survive the competitive base case and the LAC-leading flip, but a large DEN lead threatens both. Treat them as a two-leg shortlist, not a completed 3\u20134-leg main slip; do not manufacture extra legs or assume an independently priced joint probability.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

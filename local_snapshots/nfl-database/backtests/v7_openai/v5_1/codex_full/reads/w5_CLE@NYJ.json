@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 CLE@NYJ / kickoff MISSING / spread and total NOT SAVED; script inferred only from supplied team form / weather NOT SAVED",
+ "script": {
+  "base": "Working hypothesis, not a market-implied forecast: a competitive game with Cleveland sustaining a mixed offense and the Jets sharing rushing work between B.Hall and B.Allen. Cleveland's receiving opportunities remain distributed, but D.Boston offers an air-yard-driven route to production without requiring a shootout.",
+  "flip1": "Cleveland establishes an early lead and reduces passing volume. Boston's receiving over becomes more dependent on an early chunk gain, while Allen's rushing under benefits if New York shifts toward passing.",
+  "flip2": "New York leads early and sustains rushing drives against Cleveland's vulnerable run defense. Boston can benefit from Cleveland chasing, but Allen's rushing under becomes vulnerable if his carry allocation increases."
+ },
+ "injury_fallout": "MISSING: CLE and NYJ injury reports, practice participation, offensive-line availability, defensive absences, return restrictions, final inactives and individual news timestamps. Do not infer injuries or next-man-up assignments from the supplied usage. Source for all available facts: the supplied pre-Week-5 pack, covering offensive weeks 2\u20134 and defensive games 1\u20134; exact collection times are not supplied. Recheck both teams' final reports and approximately 90-minute inactives before treating either candidate as actionable.",
+ "matchup": {
+  "shell": "MISSING: NYJ and CLE MOFO/MOFC, man/zone rates and receiver alignment charting. NYJ's 9.26 YPA allowed through the middle cannot specifically be assigned to Boston without route-location evidence.",
+  "pressure": "NYJ blitzes 37%; Cleveland's supplied QB EPA/dropback is 0.14 against blitzes across 51 dropbacks versus 0.15 without blitzes. That does not show a substantial blitz-specific efficiency penalty, but pressure rate, sacks and time to throw are missing. CLE blitzes 24%; New York's corresponding EPA figures are 0.12 across 35 blitz dropbacks and 0.14 without blitzes.",
+  "bleeds": "NYJ allows 4.50 rushing YPC and has allowed nine 20-plus-yard passes on 136 attempts. CLE allows 4.67 rushing YPC, 15 runs of at least 10 yards and 15 passes of at least 20 yards on 157 attempts. Cleveland's run-defense numbers are a concrete counterargument to Allen's rushing under.",
+  "overlap": "Boston's 269 air yards and 225 receiving yards on 19 targets provide a downfield opportunity thesis, but the pack does not establish that his routes attack NYJ's weakest coverage area. Allen's under rests on his existing carry allocation, not a favorable defensive matchup."
+ },
+ "form": "CLE weeks 2\u20134: Boston recorded 19 targets, 225 receiving yards and 269 air yards; Concepcion had 23 targets and Fannin 20, so Boston was not the target-volume leader. Judkins had 47 carries for 144 yards. NYJ weeks 2\u20134: Allen had 23 carries for 80 yards, while Hall had 29 for 61; Allen accounted for 23 of their 52 combined carries. These aggregate totals do not establish game-by-game consistency, recent snap changes or whether Boston's yardage depended on one long play. MISSING: individual game logs, snaps, routes, red-zone usage, similar-opponent results and comparable-player defensive logs.",
+ "edge_players": [
+  {
+   "player": "denzelboston",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Boston's recent downfield opportunity gives him a plausible route over 47.5 receiving yards without needing Cleveland to dominate possession or produce a shootout.",
+   "must_be_true": "D.Boston targets >= 5 [because the pack records 19 targets and 269 air yards across weeks 2\u20134]",
+   "kills_it": "IF New York limits Boston to short completions totaling 47 receiving yards or fewer THEN Boston over 47.5 receiving yards fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "braelonallen",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Allen's shared rushing role makes 71.5 yards a demanding threshold unless New York materially increases his carries or Cleveland allows an explosive rushing performance.",
+   "must_be_true": "B.Allen carries <= 15 [because the pack records 23 Allen carries versus 29 Hall carries across weeks 2\u20134]",
+   "kills_it": "IF Allen receives at least 16 carries and averages at least 4.5 yards per carry THEN Allen under 71.5 rushing yards fails",
+   "confidence": "strong"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypotheses precede this numerical check. Boston's supplied three-game totals translate to 6.33 targets, 89.67 air yards and 75 receiving yards per game versus a 47.5-yard line; these are descriptive checks, not projections. Allen's totals translate to 7.67 carries and 26.67 rushing yards per game versus 71.5; at CLE's allowed 4.67 YPC, approximately 16 carries would reach the line. Removing vig from the supplied paired Boston prices gives approximately 49.95% for the over; Allen's symmetric -113 prices give 50% for either side. Neither calculation establishes a model edge or identifies these prices as Pinnacle. Retain Boston as a lean and flag Allen's strong read rather than cutting it.",
+  "disagrees": "Allen under: CLE's 4.67 rushing YPC allowed and 15 runs of at least 10 yards support rushing efficiency and explosive upside against the volume-based under thesis.",
+  "missing": "Projection model, simulations, simulation medians, calibrated probabilities, Pinnacle attribution and sharp no-vig prices, opening/current market movement, moneyline, implied totals, kickoff, rest/travel details, weather, injuries, final inactives and coverage charting.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Candidates only: denzelboston recyds over 47.5 at -113; braelonallen rushyds under 71.5 at -113. Boston uses receiving yards because the hypothesis concerns downfield opportunity; Allen uses rushing yards because the hypothesis concerns carry allocation. No alternate rungs or stake sizes are justified by the supplied pack.",
+ "pre_mortem": "Boston: It is Monday and the over lost because 19 targets across three games concealed uneven weekly usage, Concepcion and Fannin absorbed the available volume, and NYJ prevented the chunk completion Boston needed. Nine explosive passes allowed in 136 attempts does not establish a favorable deep matchup, and absent route charting prevents claiming one. Allen: The under lost because New York led, shifted work toward Allen, and exploited CLE's 4.67 YPC allowed and 15 explosive runs conceded. His recent workload supports the under, but it cannot rule out a changed allocation; that defensive counter-case requires a flag and prevents treating this as a validated high-probability leg.",
+ "slip_story": "Both candidates fit a competitive game with Cleveland maintaining passing volume while New York retains its existing backfield split. They can also coexist if Cleveland leads and New York throws more. They are not established correlated anchors: Boston can win in a Jets-led script that defeats Allen's under. Keep as separate candidates rather than forcing a 3\u20134-leg slip or adding unsupported legs. This response records the hypotheses, but no external timestamped save, pre-kickoff hash or postgame grading is available. Later grade script and role accuracy separately from the betting results; review steps 2\u20135 for any miss.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

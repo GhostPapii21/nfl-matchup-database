@@ -1,0 +1,6636 @@
+{
+ "season": 2026,
+ "week": 8,
+ "game_id": "2026_08_PHI_WAS",
+ "game": "PHI@WAS",
+ "kickoff_et": "2026-11-01T20:20",
+ "game_date": "2026-11-01",
+ "input_cutoff_et": "2026-11-01T19:45",
+ "seed": 20261101,
+ "trials": 100000,
+ "sim_script": "tools/sim_v6.py",
+ "sources": [
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse pbp",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T19:45",
+   "season": 2026,
+   "data_week": 7,
+   "week_kind": "through",
+   "true_asof": "through week 7",
+   "label": "REPLAY STAMP"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "pbp defender credit PROXY + Sharp coverage schemes (HINDSIGHT wk6-7)",
+   "url_or_file": "/tmp/sharp.html",
+   "pulled_et": "2026-11-01T19:45",
+   "season": 2026,
+   "data_week": 7,
+   "week_kind": "through",
+   "true_asof": "2026-10-27 (Sharp); pbp through week 7",
+   "label": "REPLAY STAMP"
+  },
+  {
+   "category": "ngs",
+   "name": "NFL NGS passing/receiving (nflverse)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+   "pulled_et": "2026-11-01T19:45",
+   "season": 2026,
+   "data_week": 7,
+   "week_kind": "through",
+   "true_asof": "weeks<8 used",
+   "label": "REPLAY STAMP"
+  },
+  {
+   "category": "injuries_news",
+   "name": "nflverse weekly injury report + ESPN game injuries/inactives",
+   "url_or_file": "/tmp/inj26.parquet ; espn/401873035.json",
+   "pulled_et": "2026-11-01T19:45",
+   "season": 2026,
+   "data_week": 8,
+   "week_kind": "label",
+   "true_asof": "ESPN summary fetched post-game (inactives published ~90m pre-kick)",
+   "label": "REPLAY STAMP"
+  },
+  {
+   "category": "weather",
+   "name": "Open-Meteo",
+   "url_or_file": "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=38.908&longitude=-76.864&hourly=precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=mph&timezone=UTC&start_date=2026-10-31&end_date=2026-11-02",
+   "pulled_et": "2026-11-01T19:45",
+   "season": 2026,
+   "data_week": 8,
+   "week_kind": "label",
+   "true_asof": "archive pulled after the fact",
+   "label": "REPLAY STAMP"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API historical snapshot",
+   "url_or_file": "/workspace/nfl-database/backtests/rulebook_replay_wk6_8/raw/",
+   "pulled_et": "2026-11-01T19:45",
+   "season": 2026,
+   "data_week": 8,
+   "week_kind": "label",
+   "true_asof": "snapshot 2026-11-02T00:45:36Z UTC",
+   "label": "REPLAY STAMP"
+  }
+ ],
+ "flagged_gaps": [],
+ "pressure_inputs": {
+  "blitz_rate": {
+   "value": {
+    "WAS": 0.114,
+    "PHI": 0.06
+   },
+   "label": "FTN n_blitzers/n_pass_rushers (defense)",
+   "source": "FTN charting 2026",
+   "pulled_et": "2026-11-01T19:45",
+   "true_asof": "weeks<8"
+  },
+  "pressure_rate": {
+   "value": {
+    "WAS": 0.143,
+    "PHI": 0.095
+   },
+   "label": "PROXY sack|qb_hit per dropback (defense)",
+   "source": "nflverse pbp",
+   "pulled_et": "2026-11-01T19:45",
+   "true_asof": "weeks<8"
+  },
+  "checkdown_share": {
+   "value": {
+    "WAS": 0.087,
+    "PHI": 0.089
+   },
+   "label": "FTN read_thrown==CHK share (offense)",
+   "source": "FTN charting 2026",
+   "pulled_et": "2026-11-01T19:45",
+   "true_asof": "weeks<8"
+  },
+  "time_to_throw": {
+   "value": {
+    "WAS": 2.74,
+    "PHI": 2.85
+   },
+   "label": "NGS avg_time_to_throw, attempt-weighted (offense)",
+   "source": "NGS passing",
+   "pulled_et": "2026-11-01T19:45",
+   "true_asof": "weeks<8"
+  },
+  "targets_under_pressure": {
+   "value": {
+    "WAS": 0.144,
+    "PHI": 0.098
+   },
+   "label": "PROXY share of targets with qb_hit (offense)",
+   "source": "nflverse pbp",
+   "pulled_et": "2026-11-01T19:45",
+   "true_asof": "weeks<8"
+  }
+ },
+ "weather": {
+  "PHI@WAS": {
+   "roof": "outdoors",
+   "precip_pct": 0,
+   "gust_mph": 8.5,
+   "wind_mph": 2.7,
+   "source": "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=38.908&longitude=-76.864&hourly=precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=mph&timezone=UTC&start_date=2026-10-31&end_date=2026-11-02",
+   "provider": "open-meteo",
+   "pulled_et": "2026-11-01T18:50",
+   "label": "REPLAY STAMP: Open-Meteo historical-forecast archive, kickoff hours; pulled after the fact"
+  }
+ },
+ "weather_forecast": {
+  "source": "open-meteo previous-runs API",
+  "provider": "open-meteo",
+  "pulled_et": "2026-10-31T21:20",
+  "label": "REPLAY STAMP (day-1 forecast)",
+  "games": {
+   "PHI@WAS": {
+    "roof": "outdoors",
+    "status": "OK",
+    "kickoff_et": "2026-11-01T20:20",
+    "provider": "open-meteo",
+    "source": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=38.908&longitude=-76.864&hourly=precipitation_probability_previous_day1,wind_speed_10m_previous_day1,wind_gusts_10m_previous_day1&wind_speed_unit=mph&timezone=UTC&start_date=2026-10-31&end_date=2026-11-02",
+    "precip_pct": 2,
+    "gust_mph": 7.2,
+    "wind_mph": 5.1,
+    "label": "Open-Meteo previous-runs day-1 forecast"
+   }
+  }
+ },
+ "sims": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Tanner McKee passyds over 204.5": {
+     "p": 0.8001,
+     "median": 256.86
+    },
+    "Tanner McKee passyds under 204.5": {
+     "p": 0.1999,
+     "median": 256.86
+    },
+    "Jayden Daniels passyds over 198.5": {
+     "p": 0.4431,
+     "median": 186.33
+    },
+    "Jayden Daniels passyds under 198.5": {
+     "p": 0.5569,
+     "median": 186.33
+    },
+    "Dallas Goedert recyds over 45.5": {
+     "p": 0.6217,
+     "median": 55.32
+    },
+    "Dallas Goedert recyds under 45.5": {
+     "p": 0.3783,
+     "median": 55.32
+    },
+    "Stefon Diggs recyds over 42.5": {
+     "p": 0.6319,
+     "median": 51.9
+    },
+    "Stefon Diggs recyds under 42.5": {
+     "p": 0.3681,
+     "median": 51.9
+    },
+    "Makai Lemon recyds over 42.5": {
+     "p": 0.4523,
+     "median": 39.74
+    },
+    "Makai Lemon recyds under 42.5": {
+     "p": 0.5477,
+     "median": 39.74
+    },
+    "Antonio Williams recyds over 38.5": {
+     "p": 0.4663,
+     "median": 36.73
+    },
+    "Antonio Williams recyds under 38.5": {
+     "p": 0.5337,
+     "median": 36.73
+    },
+    "Chig Okonkwo recyds over 34.5": {
+     "p": 0.4742,
+     "median": 33.22
+    },
+    "Chig Okonkwo recyds under 34.5": {
+     "p": 0.5258,
+     "median": 33.22
+    },
+    "Darius Cooper recyds over 27.5": {
+     "p": 0.29,
+     "median": 14.38
+    },
+    "Darius Cooper recyds under 27.5": {
+     "p": 0.71,
+     "median": 14.38
+    },
+    "Treylon Burks recyds over 21.5": {
+     "p": 0.5485,
+     "median": 23.29
+    },
+    "Treylon Burks recyds under 21.5": {
+     "p": 0.4515,
+     "median": 23.29
+    },
+    "Rachaad White recyds over 13.5": {
+     "p": 0.3713,
+     "median": 9.5
+    },
+    "Rachaad White recyds under 13.5": {
+     "p": 0.6287,
+     "median": 9.5
+    },
+    "Saquon Barkley recyds over 12.5": {
+     "p": 0.2774,
+     "median": 0.0
+    },
+    "Saquon Barkley recyds under 12.5": {
+     "p": 0.7226,
+     "median": 0.0
+    },
+    "Elijah Mitchell recyds over 6.5": {
+     "p": 0.7723,
+     "median": 14.25
+    },
+    "Elijah Mitchell recyds under 6.5": {
+     "p": 0.2277,
+     "median": 14.25
+    },
+    "Dallas Goedert rec over 4.5": {
+     "p": 0.5632,
+     "median": 4.87
+    },
+    "Dallas Goedert rec under 4.5": {
+     "p": 0.4368,
+     "median": 4.87
+    },
+    "Makai Lemon rec over 4.5": {
+     "p": 0.4348,
+     "median": 4.16
+    },
+    "Makai Lemon rec under 4.5": {
+     "p": 0.5652,
+     "median": 4.16
+    },
+    "Stefon Diggs rec over 4.5": {
+     "p": 0.4839,
+     "median": 4.42
+    },
+    "Stefon Diggs rec under 4.5": {
+     "p": 0.5161,
+     "median": 4.42
+    },
+    "Chig Okonkwo rec over 3.5": {
+     "p": 0.5312,
+     "median": 3.66
+    },
+    "Chig Okonkwo rec under 3.5": {
+     "p": 0.4688,
+     "median": 3.66
+    },
+    "Antonio Williams rec over 3.5": {
+     "p": 0.3497,
+     "median": 2.83
+    },
+    "Antonio Williams rec under 3.5": {
+     "p": 0.6503,
+     "median": 2.83
+    },
+    "Darius Cooper rec over 2.5": {
+     "p": 0.2515,
+     "median": 1.52
+    },
+    "Darius Cooper rec under 2.5": {
+     "p": 0.7485,
+     "median": 1.52
+    },
+    "Rachaad White rec over 2.5": {
+     "p": 0.3572,
+     "median": 1.79
+    },
+    "Rachaad White rec under 2.5": {
+     "p": 0.6428,
+     "median": 1.79
+    },
+    "Saquon Barkley rec over 2.5": {
+     "p": 0.0851,
+     "median": 0.86
+    },
+    "Saquon Barkley rec under 2.5": {
+     "p": 0.9149,
+     "median": 0.86
+    },
+    "Treylon Burks rec over 1.5": {
+     "p": 0.5798,
+     "median": 1.8
+    },
+    "Treylon Burks rec under 1.5": {
+     "p": 0.4202,
+     "median": 1.8
+    },
+    "Elijah Mitchell rec over 1.5": {
+     "p": 0.661,
+     "median": 2.19
+    },
+    "Elijah Mitchell rec under 1.5": {
+     "p": 0.339,
+     "median": 2.19
+    },
+    "Saquon Barkley rushyds over 44.5": {
+     "p": 0.3186,
+     "median": 28.83
+    },
+    "Saquon Barkley rushyds under 44.5": {
+     "p": 0.6814,
+     "median": 28.83
+    },
+    "Rachaad White rushyds over 40.5": {
+     "p": 0.228,
+     "median": 27.88
+    },
+    "Rachaad White rushyds under 40.5": {
+     "p": 0.772,
+     "median": 27.88
+    },
+    "Jayden Daniels rushyds over 36.5": {
+     "p": 0.3691,
+     "median": 29.76
+    },
+    "Jayden Daniels rushyds under 36.5": {
+     "p": 0.6309,
+     "median": 29.76
+    },
+    "Elijah Mitchell rushyds over 28.5": {
+     "p": 0.0707,
+     "median": 10.85
+    },
+    "Elijah Mitchell rushyds under 28.5": {
+     "p": 0.9293,
+     "median": 10.85
+    },
+    "Jeremy McNichols rushyds over 19.5": {
+     "p": 0.4605,
+     "median": 19.04
+    },
+    "Jeremy McNichols rushyds under 19.5": {
+     "p": 0.5395,
+     "median": 19.04
+    },
+    "Tanner McKee rushyds over 0.5": {
+     "p": 0.3895,
+     "median": 0.0
+    },
+    "Tanner McKee rushyds under 0.5": {
+     "p": 0.6105,
+     "median": 0.0
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Tanner McKee passyds over 204.5": {
+     "p": 0.8015,
+     "median": 256.86
+    },
+    "Tanner McKee passyds under 204.5": {
+     "p": 0.1985,
+     "median": 256.86
+    },
+    "Jayden Daniels passyds over 198.5": {
+     "p": 0.4428,
+     "median": 186.33
+    },
+    "Jayden Daniels passyds under 198.5": {
+     "p": 0.5572,
+     "median": 186.33
+    },
+    "Dallas Goedert recyds over 45.5": {
+     "p": 0.6207,
+     "median": 55.32
+    },
+    "Dallas Goedert recyds under 45.5": {
+     "p": 0.3793,
+     "median": 55.32
+    },
+    "Stefon Diggs recyds over 42.5": {
+     "p": 0.6327,
+     "median": 51.9
+    },
+    "Stefon Diggs recyds under 42.5": {
+     "p": 0.3673,
+     "median": 51.9
+    },
+    "Makai Lemon recyds over 42.5": {
+     "p": 0.4558,
+     "median": 39.74
+    },
+    "Makai Lemon recyds under 42.5": {
+     "p": 0.5442,
+     "median": 39.74
+    },
+    "Antonio Williams recyds over 38.5": {
+     "p": 0.4687,
+     "median": 36.73
+    },
+    "Antonio Williams recyds under 38.5": {
+     "p": 0.5313,
+     "median": 36.73
+    },
+    "Chig Okonkwo recyds over 34.5": {
+     "p": 0.4804,
+     "median": 33.22
+    },
+    "Chig Okonkwo recyds under 34.5": {
+     "p": 0.5196,
+     "median": 33.22
+    },
+    "Darius Cooper recyds over 27.5": {
+     "p": 0.2896,
+     "median": 14.38
+    },
+    "Darius Cooper recyds under 27.5": {
+     "p": 0.7104,
+     "median": 14.38
+    },
+    "Treylon Burks recyds over 21.5": {
+     "p": 0.5422,
+     "median": 23.29
+    },
+    "Treylon Burks recyds under 21.5": {
+     "p": 0.4578,
+     "median": 23.29
+    },
+    "Rachaad White recyds over 13.5": {
+     "p": 0.3706,
+     "median": 9.5
+    },
+    "Rachaad White recyds under 13.5": {
+     "p": 0.6294,
+     "median": 9.5
+    },
+    "Saquon Barkley recyds over 12.5": {
+     "p": 0.2776,
+     "median": 0.0
+    },
+    "Saquon Barkley recyds under 12.5": {
+     "p": 0.7224,
+     "median": 0.0
+    },
+    "Elijah Mitchell recyds over 6.5": {
+     "p": 0.7734,
+     "median": 14.25
+    },
+    "Elijah Mitchell recyds under 6.5": {
+     "p": 0.2266,
+     "median": 14.25
+    },
+    "Dallas Goedert rec over 4.5": {
+     "p": 0.5634,
+     "median": 4.87
+    },
+    "Dallas Goedert rec under 4.5": {
+     "p": 0.4366,
+     "median": 4.87
+    },
+    "Makai Lemon rec over 4.5": {
+     "p": 0.4351,
+     "median": 4.15
+    },
+    "Makai Lemon rec under 4.5": {
+     "p": 0.5649,
+     "median": 4.15
+    },
+    "Stefon Diggs rec over 4.5": {
+     "p": 0.4801,
+     "median": 4.39
+    },
+    "Stefon Diggs rec under 4.5": {
+     "p": 0.5199,
+     "median": 4.39
+    },
+    "Chig Okonkwo rec over 3.5": {
+     "p": 0.5294,
+     "median": 3.66
+    },
+    "Chig Okonkwo rec under 3.5": {
+     "p": 0.4706,
+     "median": 3.66
+    },
+    "Antonio Williams rec over 3.5": {
+     "p": 0.35,
+     "median": 2.81
+    },
+    "Antonio Williams rec under 3.5": {
+     "p": 0.65,
+     "median": 2.81
+    },
+    "Darius Cooper rec over 2.5": {
+     "p": 0.2555,
+     "median": 1.53
+    },
+    "Darius Cooper rec under 2.5": {
+     "p": 0.7445,
+     "median": 1.53
+    },
+    "Rachaad White rec over 2.5": {
+     "p": 0.3605,
+     "median": 1.8
+    },
+    "Rachaad White rec under 2.5": {
+     "p": 0.6395,
+     "median": 1.8
+    },
+    "Saquon Barkley rec over 2.5": {
+     "p": 0.0866,
+     "median": 0.86
+    },
+    "Saquon Barkley rec under 2.5": {
+     "p": 0.9134,
+     "median": 0.86
+    },
+    "Treylon Burks rec over 1.5": {
+     "p": 0.5818,
+     "median": 1.81
+    },
+    "Treylon Burks rec under 1.5": {
+     "p": 0.4182,
+     "median": 1.81
+    },
+    "Elijah Mitchell rec over 1.5": {
+     "p": 0.6558,
+     "median": 2.17
+    },
+    "Elijah Mitchell rec under 1.5": {
+     "p": 0.3442,
+     "median": 2.17
+    },
+    "Saquon Barkley rushyds over 44.5": {
+     "p": 0.3191,
+     "median": 28.83
+    },
+    "Saquon Barkley rushyds under 44.5": {
+     "p": 0.6809,
+     "median": 28.83
+    },
+    "Rachaad White rushyds over 40.5": {
+     "p": 0.2279,
+     "median": 27.88
+    },
+    "Rachaad White rushyds under 40.5": {
+     "p": 0.7721,
+     "median": 27.88
+    },
+    "Jayden Daniels rushyds over 36.5": {
+     "p": 0.3716,
+     "median": 29.76
+    },
+    "Jayden Daniels rushyds under 36.5": {
+     "p": 0.6284,
+     "median": 29.76
+    },
+    "Elijah Mitchell rushyds over 28.5": {
+     "p": 0.0695,
+     "median": 10.85
+    },
+    "Elijah Mitchell rushyds under 28.5": {
+     "p": 0.9305,
+     "median": 10.85
+    },
+    "Jeremy McNichols rushyds over 19.5": {
+     "p": 0.459,
+     "median": 19.04
+    },
+    "Jeremy McNichols rushyds under 19.5": {
+     "p": 0.541,
+     "median": 19.04
+    },
+    "Tanner McKee rushyds over 0.5": {
+     "p": 0.3916,
+     "median": 0.0
+    },
+    "Tanner McKee rushyds under 0.5": {
+     "p": 0.6084,
+     "median": 0.0
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Tanner McKee passyds over 204.5": {
+     "p": 0.7614,
+     "median": 253.29
+    },
+    "Tanner McKee passyds under 204.5": {
+     "p": 0.2386,
+     "median": 253.29
+    },
+    "Jayden Daniels passyds over 198.5": {
+     "p": 0.4933,
+     "median": 196.55
+    },
+    "Jayden Daniels passyds under 198.5": {
+     "p": 0.5067,
+     "median": 196.55
+    },
+    "Dallas Goedert recyds over 45.5": {
+     "p": 0.5795,
+     "median": 52.97
+    },
+    "Dallas Goedert recyds under 45.5": {
+     "p": 0.4205,
+     "median": 52.97
+    },
+    "Stefon Diggs recyds over 42.5": {
+     "p": 0.624,
+     "median": 51.9
+    },
+    "Stefon Diggs recyds under 42.5": {
+     "p": 0.376,
+     "median": 51.9
+    },
+    "Makai Lemon recyds over 42.5": {
+     "p": 0.4327,
+     "median": 37.18
+    },
+    "Makai Lemon recyds under 42.5": {
+     "p": 0.5673,
+     "median": 37.18
+    },
+    "Antonio Williams recyds over 38.5": {
+     "p": 0.4569,
+     "median": 34.36
+    },
+    "Antonio Williams recyds under 38.5": {
+     "p": 0.5431,
+     "median": 34.36
+    },
+    "Chig Okonkwo recyds over 34.5": {
+     "p": 0.4644,
+     "median": 32.24
+    },
+    "Chig Okonkwo recyds under 34.5": {
+     "p": 0.5356,
+     "median": 32.24
+    },
+    "Darius Cooper recyds over 27.5": {
+     "p": 0.2811,
+     "median": 11.35
+    },
+    "Darius Cooper recyds under 27.5": {
+     "p": 0.7189,
+     "median": 11.35
+    },
+    "Treylon Burks recyds over 21.5": {
+     "p": 0.5071,
+     "median": 21.5
+    },
+    "Treylon Burks recyds under 21.5": {
+     "p": 0.4929,
+     "median": 21.5
+    },
+    "Rachaad White recyds over 13.5": {
+     "p": 0.3554,
+     "median": 8.55
+    },
+    "Rachaad White recyds under 13.5": {
+     "p": 0.6446,
+     "median": 8.55
+    },
+    "Saquon Barkley recyds over 12.5": {
+     "p": 0.2753,
+     "median": 0.0
+    },
+    "Saquon Barkley recyds under 12.5": {
+     "p": 0.7247,
+     "median": 0.0
+    },
+    "Elijah Mitchell recyds over 6.5": {
+     "p": 0.7754,
+     "median": 14.25
+    },
+    "Elijah Mitchell recyds under 6.5": {
+     "p": 0.2246,
+     "median": 14.25
+    },
+    "Dallas Goedert rec over 4.5": {
+     "p": 0.5111,
+     "median": 4.59
+    },
+    "Dallas Goedert rec under 4.5": {
+     "p": 0.4889,
+     "median": 4.59
+    },
+    "Makai Lemon rec over 4.5": {
+     "p": 0.4136,
+     "median": 3.91
+    },
+    "Makai Lemon rec under 4.5": {
+     "p": 0.5864,
+     "median": 3.91
+    },
+    "Stefon Diggs rec over 4.5": {
+     "p": 0.4741,
+     "median": 4.36
+    },
+    "Stefon Diggs rec under 4.5": {
+     "p": 0.5259,
+     "median": 4.36
+    },
+    "Chig Okonkwo rec over 3.5": {
+     "p": 0.5009,
+     "median": 3.51
+    },
+    "Chig Okonkwo rec under 3.5": {
+     "p": 0.4991,
+     "median": 3.51
+    },
+    "Antonio Williams rec over 3.5": {
+     "p": 0.3488,
+     "median": 2.71
+    },
+    "Antonio Williams rec under 3.5": {
+     "p": 0.6512,
+     "median": 2.71
+    },
+    "Darius Cooper rec over 2.5": {
+     "p": 0.259,
+     "median": 1.17
+    },
+    "Darius Cooper rec under 2.5": {
+     "p": 0.741,
+     "median": 1.17
+    },
+    "Rachaad White rec over 2.5": {
+     "p": 0.3465,
+     "median": 1.57
+    },
+    "Rachaad White rec under 2.5": {
+     "p": 0.6535,
+     "median": 1.57
+    },
+    "Saquon Barkley rec over 2.5": {
+     "p": 0.0916,
+     "median": 0.84
+    },
+    "Saquon Barkley rec under 2.5": {
+     "p": 0.9084,
+     "median": 0.84
+    },
+    "Treylon Burks rec over 1.5": {
+     "p": 0.5275,
+     "median": 1.63
+    },
+    "Treylon Burks rec under 1.5": {
+     "p": 0.4725,
+     "median": 1.63
+    },
+    "Elijah Mitchell rec over 1.5": {
+     "p": 0.665,
+     "median": 2.19
+    },
+    "Elijah Mitchell rec under 1.5": {
+     "p": 0.335,
+     "median": 2.19
+    },
+    "Saquon Barkley rushyds over 44.5": {
+     "p": 0.3322,
+     "median": 26.49
+    },
+    "Saquon Barkley rushyds under 44.5": {
+     "p": 0.6678,
+     "median": 26.49
+    },
+    "Rachaad White rushyds over 40.5": {
+     "p": 0.2519,
+     "median": 26.85
+    },
+    "Rachaad White rushyds under 40.5": {
+     "p": 0.7481,
+     "median": 26.85
+    },
+    "Jayden Daniels rushyds over 36.5": {
+     "p": 0.3645,
+     "median": 28.57
+    },
+    "Jayden Daniels rushyds under 36.5": {
+     "p": 0.6355,
+     "median": 28.57
+    },
+    "Elijah Mitchell rushyds over 28.5": {
+     "p": 0.0669,
+     "median": 11.94
+    },
+    "Elijah Mitchell rushyds under 28.5": {
+     "p": 0.9331,
+     "median": 11.94
+    },
+    "Jeremy McNichols rushyds over 19.5": {
+     "p": 0.4653,
+     "median": 19.04
+    },
+    "Jeremy McNichols rushyds under 19.5": {
+     "p": 0.5347,
+     "median": 19.04
+    },
+    "Tanner McKee rushyds over 0.5": {
+     "p": 0.3752,
+     "median": 0.0
+    },
+    "Tanner McKee rushyds under 0.5": {
+     "p": 0.6248,
+     "median": 0.0
+    }
+   }
+  }
+ ],
+ "legs": [
+  {
+   "name": "Tanner McKee passyds over 204.5",
+   "player": "Tanner McKee",
+   "gsis": "00-0038400",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "QB",
+   "market": "passyds",
+   "side": "over",
+   "line": 204.5,
+   "price": -113.0,
+   "no_vig": 0.5007,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     215.0,
+     211.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.04 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 215.0 vs all 213.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 213.0 vs last4 213.0 vs line 204.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): opp allowance ratio 1.04 vs league 1.00; opp low-man (12.9%); player avg vs that bucket 215.0 vs all 213.0; team spread +6, total 40.5; last2 213.0 vs last4 213.0 vs line 204.5."
+   }
+  },
+  {
+   "name": "Tanner McKee passyds under 204.5",
+   "player": "Tanner McKee",
+   "gsis": "00-0038400",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "QB",
+   "market": "passyds",
+   "side": "under",
+   "line": 204.5,
+   "price": -113.0,
+   "no_vig": 0.4993,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     215.0,
+     211.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.04 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 215.0 vs all 213.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 213.0 vs last4 213.0 vs line 204.5"
+    }
+   }
+  },
+  {
+   "name": "Jayden Daniels passyds over 198.5",
+   "player": "Jayden Daniels",
+   "gsis": "00-0039910",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "QB",
+   "market": "passyds",
+   "side": "over",
+   "line": 198.5,
+   "price": -113.0,
+   "no_vig": 0.5015,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     164.0,
+     96.0,
+     199.0,
+     300.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.01 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 232.0 vs all 189.75"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 249.5 vs last4 189.8 vs line 198.5"
+    }
+   }
+  },
+  {
+   "name": "Jayden Daniels passyds under 198.5",
+   "player": "Jayden Daniels",
+   "gsis": "00-0039910",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "QB",
+   "market": "passyds",
+   "side": "under",
+   "line": 198.5,
+   "price": -113.0,
+   "no_vig": 0.4985,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     164.0,
+     96.0,
+     199.0,
+     300.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.01 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 232.0 vs all 189.75"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 249.5 vs last4 189.8 vs line 198.5"
+    }
+   }
+  },
+  {
+   "name": "Dallas Goedert recyds over 45.5",
+   "player": "Dallas Goedert",
+   "gsis": "00-0034351",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "TE",
+   "market": "recyds",
+   "side": "over",
+   "line": 45.5,
+   "price": -113.0,
+   "no_vig": 0.501,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     61.0,
+     48.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Reaves",
+      "pos": "DB",
+      "targets": 18,
+      "comp_pct": 0.833,
+      "ypt": 13.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Reaves 13.28 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 61.0 vs all 54.5"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 54.5 vs last4 54.5 vs line 45.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): primary Jeremy Reaves 13.28 ypt vs league S 10.97; opp low-man (12.9%); player avg vs that bucket 61.0 vs all 54.5; team spread +6, total 40.5; last2 54.5 vs last4 54.5 vs line 45.5."
+   }
+  },
+  {
+   "name": "Dallas Goedert recyds under 45.5",
+   "player": "Dallas Goedert",
+   "gsis": "00-0034351",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "TE",
+   "market": "recyds",
+   "side": "under",
+   "line": 45.5,
+   "price": -113.0,
+   "no_vig": 0.499,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     61.0,
+     48.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Reaves",
+      "pos": "DB",
+      "targets": 18,
+      "comp_pct": 0.833,
+      "ypt": 13.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Reaves 13.28 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 61.0 vs all 54.5"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 54.5 vs last4 54.5 vs line 45.5"
+    }
+   }
+  },
+  {
+   "name": "Stefon Diggs recyds over 42.5",
+   "player": "Stefon Diggs",
+   "gsis": "00-0031588",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "recyds",
+   "side": "over",
+   "line": 42.5,
+   "price": -113.0,
+   "no_vig": 0.5027,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     55.0,
+     47.0,
+     44.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Quinyon Mitchell",
+      "pos": "CB",
+      "targets": 28,
+      "comp_pct": 0.714,
+      "ypt": 6.39,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Quinyon Mitchell 6.39 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 49.5 vs all 48.666666666666664"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 45.5 vs last4 48.7 vs line 42.5"
+    }
+   }
+  },
+  {
+   "name": "Stefon Diggs recyds under 42.5",
+   "player": "Stefon Diggs",
+   "gsis": "00-0031588",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "recyds",
+   "side": "under",
+   "line": 42.5,
+   "price": -113.0,
+   "no_vig": 0.4973,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     55.0,
+     47.0,
+     44.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Quinyon Mitchell",
+      "pos": "CB",
+      "targets": 28,
+      "comp_pct": 0.714,
+      "ypt": 6.39,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Quinyon Mitchell 6.39 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 49.5 vs all 48.666666666666664"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 45.5 vs last4 48.7 vs line 42.5"
+    }
+   }
+  },
+  {
+   "name": "Makai Lemon recyds over 42.5",
+   "player": "Makai Lemon",
+   "gsis": "00-0040867",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "recyds",
+   "side": "over",
+   "line": 42.5,
+   "price": -115.0,
+   "no_vig": 0.5082,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     19.0,
+     67.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Amik Robertson",
+      "pos": "CB",
+      "targets": 34,
+      "comp_pct": 0.765,
+      "ypt": 7.71,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Amik Robertson 7.71 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 19.0 vs all 43.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 43.0 vs last4 43.0 vs line 42.5"
+    }
+   }
+  },
+  {
+   "name": "Makai Lemon recyds under 42.5",
+   "player": "Makai Lemon",
+   "gsis": "00-0040867",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "recyds",
+   "side": "under",
+   "line": 42.5,
+   "price": -109.0,
+   "no_vig": 0.4918,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     19.0,
+     67.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Amik Robertson",
+      "pos": "CB",
+      "targets": 34,
+      "comp_pct": 0.765,
+      "ypt": 7.71,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Amik Robertson 7.71 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 19.0 vs all 43.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 43.0 vs last4 43.0 vs line 42.5"
+    }
+   }
+  },
+  {
+   "name": "Antonio Williams recyds over 38.5",
+   "player": "Antonio Williams",
+   "gsis": "00-0041040",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "recyds",
+   "side": "over",
+   "line": 38.5,
+   "price": -114.0,
+   "no_vig": 0.5004,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     64.0,
+     24.0,
+     31.0,
+     50.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Riq Woolen",
+      "pos": "CB",
+      "targets": 25,
+      "comp_pct": 0.76,
+      "ypt": 9.44,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR2->CB#2; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Riq Woolen 9.44 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 57.0 vs all 42.25"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 40.5 vs last4 42.2 vs line 38.5"
+    }
+   }
+  },
+  {
+   "name": "Antonio Williams recyds under 38.5",
+   "player": "Antonio Williams",
+   "gsis": "00-0041040",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "recyds",
+   "side": "under",
+   "line": 38.5,
+   "price": -110.0,
+   "no_vig": 0.4996,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     64.0,
+     24.0,
+     31.0,
+     50.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Riq Woolen",
+      "pos": "CB",
+      "targets": 25,
+      "comp_pct": 0.76,
+      "ypt": 9.44,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR2->CB#2; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Riq Woolen 9.44 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 57.0 vs all 42.25"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 40.5 vs last4 42.2 vs line 38.5"
+    }
+   }
+  },
+  {
+   "name": "Chig Okonkwo recyds over 34.5",
+   "player": "Chig Okonkwo",
+   "gsis": "00-0037809",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "TE",
+   "market": "recyds",
+   "side": "over",
+   "line": 34.5,
+   "price": -112.0,
+   "no_vig": 0.5096,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     16.0,
+     60.0,
+     69.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Andrew Mukuba",
+      "pos": "SAF",
+      "targets": 13,
+      "comp_pct": 0.923,
+      "ypt": 13.77,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Andrew Mukuba 13.77 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 42.5 vs all 48.333333333333336"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 64.5 vs last4 48.3 vs line 34.5"
+    }
+   }
+  },
+  {
+   "name": "Chig Okonkwo recyds under 34.5",
+   "player": "Chig Okonkwo",
+   "gsis": "00-0037809",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "TE",
+   "market": "recyds",
+   "side": "under",
+   "line": 34.5,
+   "price": -111.0,
+   "no_vig": 0.4904,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     16.0,
+     60.0,
+     69.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Andrew Mukuba",
+      "pos": "SAF",
+      "targets": 13,
+      "comp_pct": 0.923,
+      "ypt": 13.77,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Andrew Mukuba 13.77 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 42.5 vs all 48.333333333333336"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 64.5 vs last4 48.3 vs line 34.5"
+    }
+   }
+  },
+  {
+   "name": "Darius Cooper recyds over 27.5",
+   "player": "Darius Cooper",
+   "gsis": "00-0040024",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "recyds",
+   "side": "over",
+   "line": 27.5,
+   "price": -113.0,
+   "no_vig": 0.501,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     9.0,
+     17.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Mike Sainristil",
+      "pos": "CB",
+      "targets": 7,
+      "comp_pct": 1.0,
+      "ypt": 9.43,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": true,
+     "source": "odds snapshot 2026-11-02T00:45:36Z: team spread +6, total 40.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.102,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": true,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Mike Sainristil 9.43 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 9.0 vs all 13.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 13.0 vs last4 13.0 vs line 27.5"
+    }
+   }
+  },
+  {
+   "name": "Darius Cooper recyds under 27.5",
+   "player": "Darius Cooper",
+   "gsis": "00-0040024",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "recyds",
+   "side": "under",
+   "line": 27.5,
+   "price": -113.0,
+   "no_vig": 0.499,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     9.0,
+     17.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Mike Sainristil",
+      "pos": "CB",
+      "targets": 7,
+      "comp_pct": 1.0,
+      "ypt": 9.43,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": true,
+     "source": "odds snapshot 2026-11-02T00:45:36Z: team spread +6, total 40.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.102,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": true,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Mike Sainristil 9.43 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 9.0 vs all 13.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 13.0 vs last4 13.0 vs line 27.5"
+    }
+   }
+  },
+  {
+   "name": "Treylon Burks recyds over 21.5",
+   "player": "Treylon Burks",
+   "gsis": "00-0037742",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "recyds",
+   "side": "over",
+   "line": 21.5,
+   "price": -113.0,
+   "no_vig": 0.5018,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     26.0,
+     66.0
+    ],
+    "games": [
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "questionable",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Cooper DeJean",
+      "pos": "CB",
+      "targets": 24,
+      "comp_pct": 0.792,
+      "ypt": 7.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-02T00:45:36Z: team spread -6, total 40.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.12,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Cooper DeJean 7.04 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 66.0 vs all 30.666666666666668"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 46.0 vs last4 30.7 vs line 21.5"
+    }
+   }
+  },
+  {
+   "name": "Treylon Burks recyds under 21.5",
+   "player": "Treylon Burks",
+   "gsis": "00-0037742",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "recyds",
+   "side": "under",
+   "line": 21.5,
+   "price": -113.0,
+   "no_vig": 0.4982,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     26.0,
+     66.0
+    ],
+    "games": [
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "questionable",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Cooper DeJean",
+      "pos": "CB",
+      "targets": 24,
+      "comp_pct": 0.792,
+      "ypt": 7.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-02T00:45:36Z: team spread -6, total 40.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.12,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Cooper DeJean 7.04 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 66.0 vs all 30.666666666666668"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 46.0 vs last4 30.7 vs line 21.5"
+    }
+   }
+  },
+  {
+   "name": "Rachaad White recyds over 13.5",
+   "player": "Rachaad White",
+   "gsis": "00-0037256",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "recyds",
+   "side": "over",
+   "line": 13.5,
+   "price": -102.0,
+   "no_vig": 0.4909,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     5.0,
+     40.0,
+     2.0,
+     30.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Zack Baun",
+      "pos": "LB",
+      "targets": 19,
+      "comp_pct": 0.737,
+      "ypt": 5.47,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.278,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.3,
+     0.0,
+     0.33,
+     0.54
+    ],
+    "may_trail": false,
+    "tgt_pg": 1.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Zack Baun 5.47 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.31 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 16.0 vs last4 19.2 vs line 13.5"
+    }
+   }
+  },
+  {
+   "name": "Rachaad White recyds under 13.5",
+   "player": "Rachaad White",
+   "gsis": "00-0037256",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "recyds",
+   "side": "under",
+   "line": 13.5,
+   "price": -125.0,
+   "no_vig": 0.5091,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     5.0,
+     40.0,
+     2.0,
+     30.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Zack Baun",
+      "pos": "LB",
+      "targets": 19,
+      "comp_pct": 0.737,
+      "ypt": 5.47,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.278,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.3,
+     0.0,
+     0.33,
+     0.54
+    ],
+    "may_trail": false,
+    "tgt_pg": 1.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Zack Baun 5.47 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.31 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 16.0 vs last4 19.2 vs line 13.5"
+    }
+   }
+  },
+  {
+   "name": "Saquon Barkley recyds over 12.5",
+   "player": "Saquon Barkley",
+   "gsis": "00-0034844",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "recyds",
+   "side": "over",
+   "line": 12.5,
+   "price": -113.0,
+   "no_vig": 0.5014,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     9.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Sonny Styles",
+      "pos": "LB",
+      "targets": 15,
+      "comp_pct": 0.733,
+      "ypt": 5.6,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.122,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.09,
+     0.0,
+     0.0,
+     0.29
+    ],
+    "may_trail": true,
+    "tgt_pg": 0.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Sonny Styles 5.6 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Saquon Barkley recyds under 12.5",
+   "player": "Saquon Barkley",
+   "gsis": "00-0034844",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "recyds",
+   "side": "under",
+   "line": 12.5,
+   "price": -113.0,
+   "no_vig": 0.4986,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     9.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Sonny Styles",
+      "pos": "LB",
+      "targets": 15,
+      "comp_pct": 0.733,
+      "ypt": 5.6,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.122,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.09,
+     0.0,
+     0.0,
+     0.29
+    ],
+    "may_trail": true,
+    "tgt_pg": 0.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Sonny Styles 5.6 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Elijah Mitchell recyds over 6.5",
+   "player": "Elijah Mitchell",
+   "gsis": "00-0036567",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "recyds",
+   "side": "over",
+   "line": 6.5,
+   "price": -113.0,
+   "no_vig": 0.5079,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     23.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Sonny Styles",
+      "pos": "LB",
+      "targets": 15,
+      "comp_pct": 0.733,
+      "ypt": 5.6,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.041,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.0,
+     0.0,
+     0.0,
+     0.12
+    ],
+    "may_trail": true,
+    "tgt_pg": 1.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Sonny Styles 5.6 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Elijah Mitchell recyds under 6.5",
+   "player": "Elijah Mitchell",
+   "gsis": "00-0036567",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "recyds",
+   "side": "under",
+   "line": 6.5,
+   "price": -113.0,
+   "no_vig": 0.4921,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     23.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Sonny Styles",
+      "pos": "LB",
+      "targets": 15,
+      "comp_pct": 0.733,
+      "ypt": 5.6,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.041,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.0,
+     0.0,
+     0.0,
+     0.12
+    ],
+    "may_trail": true,
+    "tgt_pg": 1.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Sonny Styles 5.6 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Dallas Goedert rec over 4.5",
+   "player": "Dallas Goedert",
+   "gsis": "00-0034351",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "TE",
+   "market": "rec",
+   "side": "over",
+   "line": 4.5,
+   "price": -148.0,
+   "no_vig": 0.5632,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     6.0,
+     5.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Reaves",
+      "pos": "DB",
+      "targets": 18,
+      "comp_pct": 0.833,
+      "ypt": 13.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Reaves 13.28 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 6.0 vs all 5.5"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 5.5 vs last4 5.5 vs line 4.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): primary Jeremy Reaves 13.28 ypt vs league S 10.97; opp low-man (12.9%); player avg vs that bucket 6.0 vs all 5.5; team spread +6, total 40.5; last2 5.5 vs last4 5.5 vs line 4.5."
+   }
+  },
+  {
+   "name": "Dallas Goedert rec under 4.5",
+   "player": "Dallas Goedert",
+   "gsis": "00-0034351",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "TE",
+   "market": "rec",
+   "side": "under",
+   "line": 4.5,
+   "price": 112.0,
+   "no_vig": 0.4368,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     6.0,
+     5.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Reaves",
+      "pos": "DB",
+      "targets": 18,
+      "comp_pct": 0.833,
+      "ypt": 13.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Reaves 13.28 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 6.0 vs all 5.5"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 5.5 vs last4 5.5 vs line 4.5"
+    }
+   }
+  },
+  {
+   "name": "Makai Lemon rec over 4.5",
+   "player": "Makai Lemon",
+   "gsis": "00-0040867",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "rec",
+   "side": "over",
+   "line": 4.5,
+   "price": -120.0,
+   "no_vig": 0.5227,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     3.0,
+     7.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Amik Robertson",
+      "pos": "CB",
+      "targets": 34,
+      "comp_pct": 0.765,
+      "ypt": 7.71,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Amik Robertson 7.71 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 3.0 vs all 5.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 5.0 vs last4 5.0 vs line 4.5"
+    }
+   }
+  },
+  {
+   "name": "Makai Lemon rec under 4.5",
+   "player": "Makai Lemon",
+   "gsis": "00-0040867",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "rec",
+   "side": "under",
+   "line": 4.5,
+   "price": -110.0,
+   "no_vig": 0.4773,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     3.0,
+     7.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Amik Robertson",
+      "pos": "CB",
+      "targets": 34,
+      "comp_pct": 0.765,
+      "ypt": 7.71,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Amik Robertson 7.71 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 3.0 vs all 5.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 5.0 vs last4 5.0 vs line 4.5"
+    }
+   }
+  },
+  {
+   "name": "Stefon Diggs rec over 4.5",
+   "player": "Stefon Diggs",
+   "gsis": "00-0031588",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "rec",
+   "side": "over",
+   "line": 4.5,
+   "price": 122.0,
+   "no_vig": 0.4389,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     4.0,
+     5.0,
+     6.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Quinyon Mitchell",
+      "pos": "CB",
+      "targets": 28,
+      "comp_pct": 0.714,
+      "ypt": 6.39,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Quinyon Mitchell 6.39 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 5.0 vs all 5.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 5.5 vs last4 5.0 vs line 4.5"
+    }
+   }
+  },
+  {
+   "name": "Stefon Diggs rec under 4.5",
+   "player": "Stefon Diggs",
+   "gsis": "00-0031588",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "rec",
+   "side": "under",
+   "line": 4.5,
+   "price": -162.0,
+   "no_vig": 0.5611,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     4.0,
+     5.0,
+     6.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Quinyon Mitchell",
+      "pos": "CB",
+      "targets": 28,
+      "comp_pct": 0.714,
+      "ypt": 6.39,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Quinyon Mitchell 6.39 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 5.0 vs all 5.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 5.5 vs last4 5.0 vs line 4.5"
+    }
+   }
+  },
+  {
+   "name": "Chig Okonkwo rec over 3.5",
+   "player": "Chig Okonkwo",
+   "gsis": "00-0037809",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "TE",
+   "market": "rec",
+   "side": "over",
+   "line": 3.5,
+   "price": 106.0,
+   "no_vig": 0.4695,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     2.0,
+     4.0,
+     7.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Andrew Mukuba",
+      "pos": "SAF",
+      "targets": 13,
+      "comp_pct": 0.923,
+      "ypt": 13.77,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Andrew Mukuba 13.77 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 4.5 vs all 4.333333333333333"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 5.5 vs last4 4.3 vs line 3.5"
+    }
+   }
+  },
+  {
+   "name": "Chig Okonkwo rec under 3.5",
+   "player": "Chig Okonkwo",
+   "gsis": "00-0037809",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "TE",
+   "market": "rec",
+   "side": "under",
+   "line": 3.5,
+   "price": -140.0,
+   "no_vig": 0.5305,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     2.0,
+     4.0,
+     7.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Andrew Mukuba",
+      "pos": "SAF",
+      "targets": 13,
+      "comp_pct": 0.923,
+      "ypt": 13.77,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Andrew Mukuba 13.77 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 4.5 vs all 4.333333333333333"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 5.5 vs last4 4.3 vs line 3.5"
+    }
+   }
+  },
+  {
+   "name": "Antonio Williams rec over 3.5",
+   "player": "Antonio Williams",
+   "gsis": "00-0041040",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "rec",
+   "side": "over",
+   "line": 3.5,
+   "price": 134.0,
+   "no_vig": 0.4158,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     4.0,
+     3.0,
+     3.0,
+     3.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Riq Woolen",
+      "pos": "CB",
+      "targets": 25,
+      "comp_pct": 0.76,
+      "ypt": 9.44,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR2->CB#2; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Riq Woolen 9.44 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 3.5 vs all 3.25"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 3.0 vs last4 3.2 vs line 3.5"
+    }
+   }
+  },
+  {
+   "name": "Antonio Williams rec under 3.5",
+   "player": "Antonio Williams",
+   "gsis": "00-0041040",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "rec",
+   "side": "under",
+   "line": 3.5,
+   "price": -180.0,
+   "no_vig": 0.5842,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     4.0,
+     3.0,
+     3.0,
+     3.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Riq Woolen",
+      "pos": "CB",
+      "targets": 25,
+      "comp_pct": 0.76,
+      "ypt": 9.44,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR2->CB#2; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Riq Woolen 9.44 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 3.5 vs all 3.25"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 3.0 vs last4 3.2 vs line 3.5"
+    }
+   }
+  },
+  {
+   "name": "Darius Cooper rec over 2.5",
+   "player": "Darius Cooper",
+   "gsis": "00-0040024",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "rec",
+   "side": "over",
+   "line": 2.5,
+   "price": -108.0,
+   "no_vig": 0.4791,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     1.0,
+     1.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Mike Sainristil",
+      "pos": "CB",
+      "targets": 7,
+      "comp_pct": 1.0,
+      "ypt": 9.43,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": true,
+     "source": "odds snapshot 2026-11-02T00:45:36Z: team spread +6, total 40.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.102,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": true,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Mike Sainristil 9.43 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 1.0 vs all 1.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 1.0 vs last4 1.0 vs line 2.5"
+    }
+   }
+  },
+  {
+   "name": "Darius Cooper rec under 2.5",
+   "player": "Darius Cooper",
+   "gsis": "00-0040024",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "rec",
+   "side": "under",
+   "line": 2.5,
+   "price": -122.0,
+   "no_vig": 0.5209,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     1.0,
+     1.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Mike Sainristil",
+      "pos": "CB",
+      "targets": 7,
+      "comp_pct": 1.0,
+      "ypt": 9.43,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": true,
+     "source": "odds snapshot 2026-11-02T00:45:36Z: team spread +6, total 40.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.102,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": true,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Mike Sainristil 9.43 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (12.9%); player avg vs that bucket 1.0 vs all 1.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 1.0 vs last4 1.0 vs line 2.5"
+    }
+   }
+  },
+  {
+   "name": "Rachaad White rec over 2.5",
+   "player": "Rachaad White",
+   "gsis": "00-0037256",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rec",
+   "side": "over",
+   "line": 2.5,
+   "price": 102.0,
+   "no_vig": 0.4694,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     2.0,
+     6.0,
+     1.0,
+     4.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Zack Baun",
+      "pos": "LB",
+      "targets": 19,
+      "comp_pct": 0.737,
+      "ypt": 5.47,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.278,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.3,
+     0.0,
+     0.33,
+     0.54
+    ],
+    "may_trail": false,
+    "tgt_pg": 1.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Zack Baun 5.47 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.31 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 2.5 vs last4 3.2 vs line 2.5"
+    }
+   }
+  },
+  {
+   "name": "Rachaad White rec under 2.5",
+   "player": "Rachaad White",
+   "gsis": "00-0037256",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rec",
+   "side": "under",
+   "line": 2.5,
+   "price": -136.0,
+   "no_vig": 0.5306,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     2.0,
+     6.0,
+     1.0,
+     4.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Zack Baun",
+      "pos": "LB",
+      "targets": 19,
+      "comp_pct": 0.737,
+      "ypt": 5.47,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.278,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.3,
+     0.0,
+     0.33,
+     0.54
+    ],
+    "may_trail": false,
+    "tgt_pg": 1.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Zack Baun 5.47 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.31 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 2.5 vs last4 3.2 vs line 2.5"
+    }
+   }
+  },
+  {
+   "name": "Saquon Barkley rec over 2.5",
+   "player": "Saquon Barkley",
+   "gsis": "00-0034844",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rec",
+   "side": "over",
+   "line": 2.5,
+   "price": 134.0,
+   "no_vig": 0.394,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     2.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Sonny Styles",
+      "pos": "LB",
+      "targets": 15,
+      "comp_pct": 0.733,
+      "ypt": 5.6,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.122,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.09,
+     0.0,
+     0.0,
+     0.29
+    ],
+    "may_trail": true,
+    "tgt_pg": 0.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Sonny Styles 5.6 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Saquon Barkley rec under 2.5",
+   "player": "Saquon Barkley",
+   "gsis": "00-0034844",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rec",
+   "side": "under",
+   "line": 2.5,
+   "price": -180.0,
+   "no_vig": 0.606,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     2.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Sonny Styles",
+      "pos": "LB",
+      "targets": 15,
+      "comp_pct": 0.733,
+      "ypt": 5.6,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.122,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.09,
+     0.0,
+     0.0,
+     0.29
+    ],
+    "may_trail": true,
+    "tgt_pg": 0.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Sonny Styles 5.6 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Treylon Burks rec over 1.5",
+   "player": "Treylon Burks",
+   "gsis": "00-0037742",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "rec",
+   "side": "over",
+   "line": 1.5,
+   "price": -108.0,
+   "no_vig": 0.5088,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     2.0,
+     4.0
+    ],
+    "games": [
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "questionable",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Cooper DeJean",
+      "pos": "CB",
+      "targets": 24,
+      "comp_pct": 0.792,
+      "ypt": 7.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-02T00:45:36Z: team spread -6, total 40.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.12,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Cooper DeJean 7.04 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 4.0 vs all 2.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 3.0 vs last4 2.0 vs line 1.5"
+    }
+   }
+  },
+  {
+   "name": "Treylon Burks rec under 1.5",
+   "player": "Treylon Burks",
+   "gsis": "00-0037742",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "WR",
+   "market": "rec",
+   "side": "under",
+   "line": 1.5,
+   "price": -122.0,
+   "no_vig": 0.4912,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     2.0,
+     4.0
+    ],
+    "games": [
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "questionable",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Cooper DeJean",
+      "pos": "CB",
+      "targets": 24,
+      "comp_pct": 0.792,
+      "ypt": 7.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-02T00:45:36Z: team spread -6, total 40.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.12,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Cooper DeJean 7.04 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp low-man (15.1%); player avg vs that bucket 4.0 vs all 2.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 3.0 vs last4 2.0 vs line 1.5"
+    }
+   }
+  },
+  {
+   "name": "Elijah Mitchell rec over 1.5",
+   "player": "Elijah Mitchell",
+   "gsis": "00-0036567",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rec",
+   "side": "over",
+   "line": 1.5,
+   "price": 114.0,
+   "no_vig": 0.4299,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     3.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Sonny Styles",
+      "pos": "LB",
+      "targets": 15,
+      "comp_pct": 0.733,
+      "ypt": 5.6,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.041,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.0,
+     0.0,
+     0.0,
+     0.12
+    ],
+    "may_trail": true,
+    "tgt_pg": 1.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Sonny Styles 5.6 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Elijah Mitchell rec under 1.5",
+   "player": "Elijah Mitchell",
+   "gsis": "00-0036567",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rec",
+   "side": "under",
+   "line": 1.5,
+   "price": -152.0,
+   "no_vig": 0.5701,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     3.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Sonny Styles",
+      "pos": "LB",
+      "targets": 15,
+      "comp_pct": 0.733,
+      "ypt": 5.6,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T19:45",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.041,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.0,
+     0.0,
+     0.0,
+     0.12
+    ],
+    "may_trail": true,
+    "tgt_pg": 1.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Sonny Styles 5.6 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Saquon Barkley rushyds over 44.5",
+   "player": "Saquon Barkley",
+   "gsis": "00-0034844",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 44.5,
+   "price": -115.0,
+   "no_vig": 0.4953,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     62.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.122,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.09,
+     0.0,
+     0.0,
+     0.29
+    ],
+    "may_trail": true,
+    "tgt_pg": 0.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 3.82,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 3.819672131147541,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.92 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Saquon Barkley rushyds under 44.5",
+   "player": "Saquon Barkley",
+   "gsis": "00-0034844",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 44.5,
+   "price": -109.0,
+   "no_vig": 0.5047,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     62.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.122,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.09,
+     0.0,
+     0.0,
+     0.29
+    ],
+    "may_trail": true,
+    "tgt_pg": 0.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 3.82,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 3.819672131147541,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.92 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Rachaad White rushyds over 40.5",
+   "player": "Rachaad White",
+   "gsis": "00-0037256",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 40.5,
+   "price": -113.0,
+   "no_vig": 0.5044,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     22.0,
+     43.0,
+     18.0,
+     27.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.278,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.3,
+     0.0,
+     0.33,
+     0.54
+    ],
+    "may_trail": false,
+    "tgt_pg": 1.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 4.26,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.255208333333333,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.03 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.31 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 22.5 vs last4 27.5 vs line 40.5"
+    }
+   }
+  },
+  {
+   "name": "Rachaad White rushyds under 40.5",
+   "player": "Rachaad White",
+   "gsis": "00-0037256",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 40.5,
+   "price": -113.0,
+   "no_vig": 0.4956,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     22.0,
+     43.0,
+     18.0,
+     27.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.278,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.3,
+     0.0,
+     0.33,
+     0.54
+    ],
+    "may_trail": false,
+    "tgt_pg": 1.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 4.26,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.255208333333333,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.03 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.31 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 22.5 vs last4 27.5 vs line 40.5"
+    }
+   }
+  },
+  {
+   "name": "Jayden Daniels rushyds over 36.5",
+   "player": "Jayden Daniels",
+   "gsis": "00-0039910",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "QB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 36.5,
+   "price": -113.0,
+   "no_vig": 0.501,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     31.0,
+     69.0,
+     103.0,
+     10.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "opp_rb_ypc": 4.26,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.255208333333333,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.03 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.31 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 56.5 vs last4 53.2 vs line 36.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): opp allowance ratio 1.03 vs league 1.00; opp avg box 6.31 vs league 6.42 (FTN, weeks<8); team spread -6, total 40.5; last2 56.5 vs last4 53.2 vs line 36.5."
+   }
+  },
+  {
+   "name": "Jayden Daniels rushyds under 36.5",
+   "player": "Jayden Daniels",
+   "gsis": "00-0039910",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "QB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 36.5,
+   "price": -113.0,
+   "no_vig": 0.499,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     31.0,
+     69.0,
+     103.0,
+     10.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_05_NYG_WAS",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "opp_rb_ypc": 4.26,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.255208333333333,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.03 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.31 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 56.5 vs last4 53.2 vs line 36.5"
+    }
+   }
+  },
+  {
+   "name": "Elijah Mitchell rushyds over 28.5",
+   "player": "Elijah Mitchell",
+   "gsis": "00-0036567",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 28.5,
+   "price": -113.0,
+   "no_vig": 0.4984,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     11.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.041,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.0,
+     0.0,
+     0.0,
+     0.12
+    ],
+    "may_trail": true,
+    "tgt_pg": 1.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 3.82,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 3.819672131147541,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.92 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Elijah Mitchell rushyds under 28.5",
+   "player": "Elijah Mitchell",
+   "gsis": "00-0036567",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 28.5,
+   "price": -113.0,
+   "no_vig": 0.5016,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     11.0
+    ],
+    "games": [
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.041,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.0,
+     0.0,
+     0.0,
+     0.12
+    ],
+    "may_trail": true,
+    "tgt_pg": 1.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 3.82,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 3.819672131147541,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.92 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Jeremy McNichols rushyds over 19.5",
+   "player": "Jeremy McNichols",
+   "gsis": "00-0033955",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 19.5,
+   "price": -113.0,
+   "no_vig": 0.5,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     13.0
+    ],
+    "games": [
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "doubtful",
+   "injury_source": "ESPN summary injuries (game status / inactives)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.063,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.0,
+     0.0,
+     0.0,
+     0.38
+    ],
+    "may_trail": false,
+    "tgt_pg": 0.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 4.26,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.255208333333333,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.03 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.31 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Jeremy McNichols rushyds under 19.5",
+   "player": "Jeremy McNichols",
+   "gsis": "00-0033955",
+   "team": "WAS",
+   "opp": "PHI",
+   "game": "PHI@WAS",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 19.5,
+   "price": -113.0,
+   "no_vig": 0.5,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     13.0
+    ],
+    "games": [
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "doubtful",
+   "injury_source": "ESPN summary injuries (game status / inactives)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 15.1,
+      "zone": 72.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 49.1,
+      "middle_open": 43.4
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.063,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.0,
+     0.0,
+     0.0,
+     0.38
+    ],
+    "may_trail": false,
+    "tgt_pg": 0.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 4.26,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.255208333333333,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.03 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.31 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread -6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "fewer than 2 current-QB games"
+    }
+   }
+  },
+  {
+   "name": "Tanner McKee rushyds over 0.5",
+   "player": "Tanner McKee",
+   "gsis": "00-0038400",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "QB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 0.5,
+   "price": -117.0,
+   "no_vig": 0.5103,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     1.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "opp_rb_ypc": 3.82,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 3.819672131147541,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.92 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 0.5 vs last4 0.5 vs line 0.5"
+    }
+   }
+  },
+  {
+   "name": "Tanner McKee rushyds under 0.5",
+   "player": "Tanner McKee",
+   "gsis": "00-0038400",
+   "team": "PHI",
+   "opp": "WAS",
+   "game": "PHI@WAS",
+   "type": "QB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 0.5,
+   "price": -107.0,
+   "no_vig": 0.4897,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 6.0,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     1.0
+    ],
+    "games": [
+     "2026_06_CAR_PHI",
+     "2026_07_DAL_PHI"
+    ],
+    "qb": "Tanner McKee",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T19:45",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 12.9,
+      "zone": 76.9
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 29.6,
+      "middle_open": 62.8
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "opp_rb_ypc": 3.82,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 3.819672131147541,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.92 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.43 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-02T00:45:36Z",
+     "detail": "team spread +6, total 40.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 0.5 vs last4 0.5 vs line 0.5"
+    }
+   }
+  }
+ ],
+ "target_share_pool": {
+  "source": "nflverse pbp last 4 team games",
+  "players": []
+ },
+ "depleted_secondary": [],
+ "game_script_rb": {
+  "PHI@WAS": {
+   "fav_spread": -5.5,
+   "opp_ypc": 4.255,
+   "wx_flag": false,
+   "triggered": false,
+   "source": "odds snapshot 2026-11-02T00:45:36Z + sim_v6.opp_rb_ypc",
+   "pulled_et": "2026-11-01T19:45",
+   "team": "WAS"
+  }
+ }
+}

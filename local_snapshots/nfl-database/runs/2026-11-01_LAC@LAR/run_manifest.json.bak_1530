@@ -1,0 +1,2024 @@
+{
+ "season": 2026,
+ "week": 8,
+ "game_id": "401873032",
+ "game": "LAC@LAR",
+ "kickoff_et": "2026-11-01 04:05 PM",
+ "game_date": "2026-11-01",
+ "venue": null,
+ "input_cutoff_et": "2026-11-01T07:30",
+ "skill": "/home/box/agent-data/workflows/nfl-game-script-run/SKILL.md",
+ "seed": 20261101,
+ "trials": 100000,
+ "sim_script": "/workspace/nfl-database/tools/sim_v6.py (08:36 re-score; v5 kept in sims_v5)",
+ "approved_exceptions": [
+  {
+   "input": "coverage.defenders",
+   "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+   "approved_by": "Rico",
+   "approved_on": "2026-11-01",
+   "valid_for_date": "2026-11-01",
+   "scope": "receiving legs",
+   "reason": "misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only"
+  }
+ ],
+ "sources": [
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse play_by_play_2026 (thru 2026-10-29)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "tool": "curl (github nflverse release)",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse snap_counts_2026 + players",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/snap_counts_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN depth charts API (24 teams)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/espn_depth_all.json",
+   "tool": "python urllib",
+   "pulled_et": "2026-11-01T07:14"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN box scores wk1-8 (two-source target check)",
+   "url_or_file": "/workspace/nfl-database/week8/phase_walk/src/espn_box.json",
+   "tool": "earlier urllib pull (Oct 31)",
+   "pulled_et": "2026-10-31T19:19"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "FTN charting via nflverse (blitzers, rushers)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "Sharp Football coverage schemes (man/zone, MOF; data Updated Oct 27)",
+   "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+   "tool": "Firecrawl scrape",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "ESPN WR/CB matchup cheatsheet wk8",
+   "url_or_file": "https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_WRCB.pdf",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:12"
+  },
+  {
+   "category": "ngs",
+   "name": "BACKUP nflverse nextgen_stats release (published copy, data through 2026 Wk8 / 2026-10-29; nextgenstats.nfl.com on hold) - accepted by Ghost6 for 2026-11-01 only",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "film",
+   "name": "Official NFL YouTube highlights (oEmbed-checked) + caption plays re-matched to fresh pbp",
+   "url_or_file": "https://www.youtube.com/@NFL",
+   "tool": "python urllib oEmbed",
+   "pulled_et": "2026-11-01T07:26"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API re-pull 08:36: FanDuel main+alt, DraftKings, Pinnacle player props (12 events)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_b1442.csv",
+   "pulled_et": "2026-11-01T14:42",
+   "tool": "python urllib (The Odds API) pull_odds.py/pull_lines.py r0847"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API re-pull 08:36: FanDuel/DK/Pinnacle spreads+totals (28 games)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_b1442.json",
+   "pulled_et": "2026-11-01T14:42",
+   "tool": "python urllib (The Odds API) pull_odds.py/pull_lines.py r0847"
+  },
+  {
+   "category": "weather",
+   "name": "NWS gridpoint forecast (api.weather.gov) kickoff..+3.5h max PoP/wind/gust; Open-Meteo cross-check DEN/MIA",
+   "url_or_file": "/workspace/nfl-database/week8/weather/nws_20261101_1440.json",
+   "tool": "week8/weather/pull_wx_1440.py",
+   "pulled_et": "2026-11-01T14:41"
+  },
+  {
+   "category": "injuries_news",
+   "name": "ESPN injuries API re-pull 14:45 (no status changes vs 11:52 for LAC/LAR/KC/DEN/NE/MIA/PHI/WSH)",
+   "url_or_file": "/workspace/nfl-database/week8/inactives/espn_inj_20261101_1445.json",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T14:43"
+  },
+  {
+   "category": "injuries_news",
+   "name": "X reporters/beat writers inactives posts via x connector",
+   "url_or_file": "https://x.com/search (x connector search_posts_all)",
+   "pulled_et": "2026-11-01T15:01",
+   "tool": "x connector"
+  }
+ ],
+ "flagged_gaps": [
+  {
+   "category": "coverage_matchups",
+   "item": "PFR advanced defense live pull",
+   "status": "MISSING (HTTP 403, not routed around)",
+   "backup": "PFR cache pfr_def_adv_2026.html 2026-10-29 06:02 under Rico exception"
+  },
+  {
+   "category": "coverage_matchups",
+   "item": "Sharp pressure page / SumerSports",
+   "status": "ON HOLD (Ghost6)",
+   "backup": "pressure PROXY (sack|hit|scramble)/dropbacks from nflverse pbp"
+  },
+  {
+   "category": "ngs",
+   "item": "nextgenstats.nfl.com public pages",
+   "status": "ON HOLD (Ghost6)",
+   "backup": "nflverse nextgen_stats release parquet (labelled BACKUP)"
+  },
+  {
+   "category": "coverage_matchups",
+   "item": "PFF per-defender/props",
+   "status": "NOT PULLED (logged-out preview only; needs signed-in box browser, read-only)",
+   "backup": "none used as numbers"
+  },
+  {
+   "category": "core_stats_pbp",
+   "item": "nflverse pbp_participation_2026",
+   "status": "MISSING (HTTP 404 not published; corrupt 9-byte file kept out)",
+   "backup": "ESPN WR/CB cheatsheet alignment + ESPN depth"
+  }
+ ],
+ "pressure_inputs": {
+  "blitz_rate": {
+   "value": {
+    "LAC": 0.27,
+    "LAR": 0.293
+   },
+   "definition": "defense FTN n_pass_rushers>=5 / charted dropbacks, season",
+   "l4": {
+    "LAC": 0.2796610169491525,
+    "LAR": 0.3055555555555556
+   },
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet + play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "FTN charting"
+  },
+  "pressure_rate": {
+   "value": {
+    "LAC": 0.217,
+    "LAR": 0.165
+   },
+   "definition": "defense (sack|qb_hit|scramble)/dropbacks",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "PROXY"
+  },
+  "checkdown_share": {
+   "value": {
+    "LAC": 0.341,
+    "LAR": 0.302
+   },
+   "definition": "QB attempts with air_yards<=0 or RB target / attempts",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "nflverse pbp"
+  }
+ },
+ "sims": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "engine": "/workspace/nfl-database/tools/sim_v6.py",
+   "calib": "/workspace/nfl-database/tools/sim_v6_calib.json",
+   "run_et": "2026-11-01T08:36",
+   "legs": {
+    "Puka Nacua Receptions Over 7.5": {
+     "p": 0.60623,
+     "median": 9.0
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "engine": "/workspace/nfl-database/tools/sim_v6.py",
+   "calib": "/workspace/nfl-database/tools/sim_v6_calib.json",
+   "run_et": "2026-11-01T08:36",
+   "legs": {
+    "Puka Nacua Receptions Over 7.5": {
+     "p": 0.60383,
+     "median": 9.0
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "engine": "/workspace/nfl-database/tools/sim_v6.py",
+   "calib": "/workspace/nfl-database/tools/sim_v6_calib.json",
+   "run_et": "2026-11-01T08:36",
+   "legs": {
+    "Puka Nacua Receptions Over 7.5": {
+     "p": 0.63445,
+     "median": 9.0
+    }
+   }
+  }
+ ],
+ "legs": [
+  {
+   "name": "Justin Herbert Pass Yds Under 205.5",
+   "player": "Justin Herbert",
+   "team": "LAC",
+   "opp": "LAR",
+   "type": "QB",
+   "market": "passyds",
+   "receiving": false,
+   "side": "under",
+   "line": 205.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 205.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "draftkings": {
+    "point": 207.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    205.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P13 FAIL: trailing-team passing/receiving under BLOCKED",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 174.3 vs FD main 205.5 / book consensus 206.2 (>=12 yds) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Jaylen Watson",
+      "team": "LAR",
+      "pos": "CB",
+      "targets": 13.0,
+      "completions": 8.0,
+      "comp_pct": 61.5,
+      "yds": 131.0,
+      "ypt": 10.1,
+      "rating": 134.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Trent McDuffie",
+      "team": "LAR",
+      "pos": "CB",
+      "targets": 21.0,
+      "completions": 7.0,
+      "comp_pct": 33.3,
+      "yds": 42.0,
+      "ypt": 2.0,
+      "rating": 22.5,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Quentin Lake",
+      "team": "LAR",
+      "pos": "S",
+      "targets": 24.0,
+      "completions": 14.0,
+      "comp_pct": 58.3,
+      "yds": 101.0,
+      "ypt": 4.2,
+      "rating": 64.8,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 22.7% / zone 68.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 38.7% / open 55.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.6919,
+   "edge_mc_gr": 0.1919,
+   "shrunk_mc_gr": 0.1343,
+   "recent_form": {
+    "values": [
+     226.0,
+     189.0,
+     121.0,
+     204.0
+    ],
+    "games": [
+     "2026_03_LAC_BUF",
+     "2026_04_LAC_SEA",
+     "2026_05_DEN_LAC",
+     "2026_06_LAC_KC"
+    ],
+    "qb": "Justin Herbert",
+    "qb_gsis": "00-0036355",
+    "player_gsis": "00-0036355",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Omarion Hampton Rush Yds Over 31.5",
+   "player": "Omarion Hampton",
+   "team": "LAC",
+   "opp": "LAR",
+   "type": "RB",
+   "market": "rushyds",
+   "receiving": false,
+   "side": "over",
+   "line": 31.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 31.5,
+    "over": -116,
+    "under": -108,
+    "nv_over": 0.5084288604180714,
+    "nv_under": 0.4915711395819285,
+    "overround": 1.0562678062678064
+   },
+   "draftkings": {
+    "point": 33.5,
+    "over": -109,
+    "under": -115,
+    "nv_over": 0.4936802190857384,
+    "nv_under": 0.5063197809142617,
+    "overround": 1.0564148214087012
+   },
+   "prizepicks_lines": [
+    31.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P3 FAIL: RB YPC allowed <=3.8 suppression",
+    "P6 FAIL: clutch D/F: no trailing-script overs",
+    "P7 FAIL: rush over needs 60%+ carry share in 3 of last 4; rush-only over on possible trailer needs 4+ tgt/g",
+    "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 43.9 vs FD main 31.5 / book consensus 32.2 (>=12 yds) -> Debugging"
+   ],
+   "avg_p_mc_gr": 0.686,
+   "edge_mc_gr": 0.186,
+   "shrunk_mc_gr": 0.1302,
+   "recent_form": {
+    "values": [
+     56.0,
+     45.0,
+     33.0,
+     18.0
+    ],
+    "games": [
+     "2026_03_LAC_BUF",
+     "2026_04_LAC_SEA",
+     "2026_05_DEN_LAC",
+     "2026_06_LAC_KC"
+    ],
+    "qb": "Justin Herbert",
+    "qb_gsis": "00-0036355",
+    "player_gsis": "00-0040666",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Omarion Hampton Rush+Rec Yds Over 40.5",
+   "player": "Omarion Hampton",
+   "team": "LAC",
+   "opp": "LAR",
+   "type": "RB",
+   "market": "rushrec",
+   "receiving": true,
+   "side": "over",
+   "line": 40.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 43.5,
+    "over": -114,
+    "under": -111,
+    "nv_over": 0.5031375502008032,
+    "nv_under": 0.4968624497991968,
+    "overround": 1.0587766310847322
+   },
+   "prizepicks_lines": [
+    43.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 22.7% / zone 68.7%, MOF closed 38.7% / open 55.6%; awaiting ruling",
+    "P6 FAIL: clutch D/F: no trailing-script overs",
+    "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 56.2 vs FD main 40.5 / book consensus 42.0 (>=12 yds) -> Debugging"
+   ],
+   "avg_p_mc_gr": 0.7046,
+   "edge_mc_gr": 0.2046,
+   "shrunk_mc_gr": 0.1432,
+   "recent_form": {
+    "values": [
+     56.0,
+     53.0,
+     39.0,
+     39.0
+    ],
+    "games": [
+     "2026_03_LAC_BUF",
+     "2026_04_LAC_SEA",
+     "2026_05_DEN_LAC",
+     "2026_06_LAC_KC"
+    ],
+    "qb": "Justin Herbert",
+    "qb_gsis": "00-0036355",
+    "player_gsis": "00-0040666",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Ladd McConkey Rec Yds Under 47.5",
+   "player": "Ladd McConkey",
+   "team": "LAC",
+   "opp": "LAR",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 47.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 47.5,
+    "over": -121,
+    "under": -104,
+    "nv_over": 0.5178316690442226,
+    "nv_under": 0.48216833095577744,
+    "overround": 1.057315233785822
+   },
+   "draftkings": {
+    "point": 48.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "prizepicks_lines": [
+    47.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P13 FAIL: trailing-team passing/receiving under BLOCKED",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 22.8 vs FD main 47.5 / book consensus 47.8 (>=12 yds) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Josh Wallace",
+      "team": "LAR",
+      "pos": "CB",
+      "targets": 8.0,
+      "completions": 4.0,
+      "comp_pct": 50.0,
+      "yds": 45.0,
+      "ypt": 5.6,
+      "rating": 27.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 22.7% / zone 68.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 38.7% / open 55.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.7939,
+   "edge_mc_gr": 0.2939,
+   "shrunk_mc_gr": 0.2058,
+   "recent_form": {
+    "values": [
+     35.0,
+     66.0,
+     0.0,
+     17.0
+    ],
+    "games": [
+     "2026_02_LV_LAC",
+     "2026_03_LAC_BUF",
+     "2026_04_LAC_SEA",
+     "2026_06_LAC_KC"
+    ],
+    "qb": "Justin Herbert",
+    "qb_gsis": "00-0036355",
+    "player_gsis": "00-0039915",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Ladd McConkey Receptions Under 3.5",
+   "player": "Ladd McConkey",
+   "team": "LAC",
+   "opp": "LAR",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 3.5,
+   "price_fd": 120,
+   "no_vig": 0.4248,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 3.5,
+    "over": -146,
+    "under": 116,
+    "nv_over": 0.5617785378366823,
+    "nv_under": 0.43822146216331764,
+    "overround": 1.0564588979223126
+   },
+   "draftkings": {
+    "point": 3.5,
+    "over": -147,
+    "under": 115,
+    "nv_over": 0.5613178225734837,
+    "nv_under": 0.43868217742651633,
+    "overround": 1.0602579794746256
+   },
+   "prizepicks_lines": [
+    4.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P13 FAIL: trailing-team passing/receiving under BLOCKED",
+    "P14 UNVERIFIED: MODEL-SUSPECT: edge +38.9 pts > +15 implausible vs market (FD 3.5, consensus 3.5; possible role change the history-based sim cannot see) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Josh Wallace",
+      "team": "LAR",
+      "pos": "CB",
+      "targets": 8.0,
+      "completions": 4.0,
+      "comp_pct": 50.0,
+      "yds": 45.0,
+      "ypt": 5.6,
+      "rating": 27.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 22.7% / zone 68.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 38.7% / open 55.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.7998,
+   "edge_mc_gr": 0.375,
+   "shrunk_mc_gr": 0.2851,
+   "recent_form": {
+    "values": [
+     3.0,
+     4.0,
+     0.0,
+     1.0
+    ],
+    "games": [
+     "2026_02_LV_LAC",
+     "2026_03_LAC_BUF",
+     "2026_04_LAC_SEA",
+     "2026_06_LAC_KC"
+    ],
+    "qb": "Justin Herbert",
+    "qb_gsis": "00-0036355",
+    "player_gsis": "00-0039915",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Quentin Johnston Rec Yds Under 33.5",
+   "player": "Quentin Johnston",
+   "team": "LAC",
+   "opp": "LAR",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 33.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 31.5,
+    "over": -110,
+    "under": -114,
+    "nv_over": 0.495787700084246,
+    "nv_under": 0.5042122999157539,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    31.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 FAIL: yds under vs YPT>10 defender",
+    "P13 FAIL: trailing-team passing/receiving under BLOCKED",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 11.2 vs FD main 33.5 / book consensus 32.5 (>=12 yds) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Jaylen Watson",
+      "team": "LAR",
+      "pos": "CB",
+      "targets": 13.0,
+      "completions": 8.0,
+      "comp_pct": 61.5,
+      "yds": 131.0,
+      "ypt": 10.1,
+      "rating": 134.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 22.7% / zone 68.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 38.7% / open 55.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.7368,
+   "edge_mc_gr": 0.2368,
+   "shrunk_mc_gr": 0.1657,
+   "recent_form": {
+    "values": [
+     7.0,
+     40.0,
+     44.0,
+     57.0
+    ],
+    "games": [
+     "2026_02_LV_LAC",
+     "2026_03_LAC_BUF",
+     "2026_04_LAC_SEA",
+     "2026_06_LAC_KC"
+    ],
+    "qb": "Justin Herbert",
+    "qb_gsis": "00-0036355",
+    "player_gsis": "00-0038544",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Quentin Johnston Receptions Under 2.5",
+   "player": "Quentin Johnston",
+   "team": "LAC",
+   "opp": "LAR",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 2.5,
+   "price_fd": -114,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 2.5,
+    "over": -105,
+    "under": -122,
+    "nv_over": 0.48240894039735094,
+    "nv_under": 0.517591059602649,
+    "overround": 1.0617446715007692
+   },
+   "prizepicks_lines": [
+    2.5
+   ],
+   "underdog_lines": [
+    2.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P13 FAIL: trailing-team passing/receiving under BLOCKED",
+    "P14 UNVERIFIED: MODEL-SUSPECT: edge +33.0 pts > +15 implausible vs market (FD 2.5, consensus 2.5; possible role change the history-based sim cannot see) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Jaylen Watson",
+      "team": "LAR",
+      "pos": "CB",
+      "targets": 13.0,
+      "completions": 8.0,
+      "comp_pct": 61.5,
+      "yds": 131.0,
+      "ypt": 10.1,
+      "rating": 134.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 22.7% / zone 68.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 38.7% / open 55.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.8154,
+   "edge_mc_gr": 0.3154,
+   "shrunk_mc_gr": 0.2207,
+   "recent_form": {
+    "values": [
+     1.0,
+     3.0,
+     1.0,
+     1.0
+    ],
+    "games": [
+     "2026_02_LV_LAC",
+     "2026_03_LAC_BUF",
+     "2026_04_LAC_SEA",
+     "2026_06_LAC_KC"
+    ],
+    "qb": "Justin Herbert",
+    "qb_gsis": "00-0036355",
+    "player_gsis": "00-0038544",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Oronde Gadsden II Rec Yds Under 15.5",
+   "player": "Oronde Gadsden II",
+   "team": "LAC",
+   "opp": "LAR",
+   "type": "TE",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 15.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 15.5,
+    "over": -106,
+    "under": -119,
+    "nv_over": 0.48638115990613473,
+    "nv_under": 0.5136188400938653,
+    "overround": 1.0579421022299065
+   },
+   "draftkings": {
+    "point": 16.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "prizepicks_lines": [
+    16.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 22.7% / zone 68.7%, MOF closed 38.7% / open 55.6%; no stand-in allowed",
+    "P13 FAIL: trailing-team passing/receiving under BLOCKED"
+   ],
+   "avg_p_mc_gr": 0.5412,
+   "edge_mc_gr": 0.0412,
+   "shrunk_mc_gr": 0.0288,
+   "recent_form": {
+    "values": [
+     0.0,
+     36.0,
+     0.0,
+     17.0
+    ],
+    "games": [
+     "2026_03_LAC_BUF",
+     "2026_04_LAC_SEA",
+     "2026_05_DEN_LAC",
+     "2026_06_LAC_KC"
+    ],
+    "qb": "Justin Herbert",
+    "qb_gsis": "00-0036355",
+    "player_gsis": "00-0040189",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Oronde Gadsden II Receptions Under 1.5",
+   "player": "Oronde Gadsden II",
+   "team": "LAC",
+   "opp": "LAR",
+   "type": "TE",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 1.5,
+   "price_fd": 116,
+   "no_vig": 0.433,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 1.5,
+    "over": -149,
+    "under": 119,
+    "nv_over": 0.5671898628565468,
+    "nv_under": 0.432810137143453,
+    "overround": 1.0550145788633989
+   },
+   "draftkings": {
+    "point": 1.5,
+    "over": -141,
+    "under": 111,
+    "nv_over": 0.5524688492321405,
+    "nv_under": 0.44753115076785943,
+    "overround": 1.058995889953
+   },
+   "prizepicks_lines": [],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 22.7% / zone 68.7%, MOF closed 38.7% / open 55.6%; no stand-in allowed",
+    "P13 FAIL: trailing-team passing/receiving under BLOCKED",
+    "P14 FAIL: model p 0.439 < .45; a model median does not clear the line"
+   ],
+   "avg_p_mc_gr": 0.457,
+   "edge_mc_gr": 0.024,
+   "shrunk_mc_gr": 0.0369,
+   "recent_form": {
+    "values": [
+     0.0,
+     5.0,
+     0.0,
+     3.0
+    ],
+    "games": [
+     "2026_03_LAC_BUF",
+     "2026_04_LAC_SEA",
+     "2026_05_DEN_LAC",
+     "2026_06_LAC_KC"
+    ],
+    "qb": "Justin Herbert",
+    "qb_gsis": "00-0036355",
+    "player_gsis": "00-0040189",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Matthew Stafford Pass Yds Over 248.5",
+   "player": "Matthew Stafford",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "QB",
+   "market": "passyds",
+   "receiving": false,
+   "side": "over",
+   "line": 248.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 250.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "draftkings": {
+    "point": 249.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "prizepicks_lines": [
+    249.5
+   ],
+   "underdog_lines": [
+    249.5
+   ],
+   "bar": null,
+   "stack_flag": "placed ticket on a different stat: PP40/PP20 Stafford o22.5 completions",
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: a model median does not clear the line; MODEL-SUSPECT: MC median 282.4 vs FD main 248.5 / book consensus 249.5 (>=12 yds) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Cam Hart",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 16.0,
+      "completions": 10.0,
+      "comp_pct": 62.5,
+      "yds": 167.0,
+      "ypt": 10.4,
+      "rating": 71.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Donte Jackson",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 9.0,
+      "completions": 6.0,
+      "comp_pct": 66.7,
+      "yds": 69.0,
+      "ypt": 7.7,
+      "rating": 89.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Tarheeb Still",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 11.0,
+      "completions": 5.0,
+      "comp_pct": 45.5,
+      "yds": 71.0,
+      "ypt": 6.5,
+      "rating": 97.2,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 10.6% / zone 58.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 33.9% / open 40.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.6168,
+   "edge_mc_gr": 0.1168,
+   "shrunk_mc_gr": 0.0818,
+   "recent_form": {
+    "values": [
+     317.0,
+     383.0,
+     222.0,
+     195.0
+    ],
+    "games": [
+     "2026_04_LA_PHI",
+     "2026_05_BUF_LA",
+     "2026_06_ARI_LA",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Matthew Stafford",
+    "qb_gsis": "00-0026498",
+    "player_gsis": "00-0026498",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Kyren Williams Rush Yds Under 58.5",
+   "player": "Kyren Williams",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "RB",
+   "market": "rushyds",
+   "receiving": false,
+   "side": "under",
+   "line": 58.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 59.5,
+    "over": -109,
+    "under": -115,
+    "nv_over": 0.4936802190857384,
+    "nv_under": 0.5063197809142617,
+    "overround": 1.0564148214087012
+   },
+   "draftkings": {
+    "point": 60.5,
+    "over": -109,
+    "under": -115,
+    "nv_over": 0.4936802190857384,
+    "nv_under": 0.5063197809142617,
+    "overround": 1.0564148214087012
+   },
+   "prizepicks_lines": [
+    60.5
+   ],
+   "underdog_lines": [
+    59.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P13 FAIL: 6.5+ favorite rush under vs clock-killing script",
+    "P14 FAIL: a model median does not clear the line"
+   ],
+   "avg_p_mc_gr": 0.4963,
+   "edge_mc_gr": -0.0037,
+   "shrunk_mc_gr": -0.0026,
+   "recent_form": {
+    "values": [
+     80.0,
+     49.0,
+     50.0,
+     99.0
+    ],
+    "games": [
+     "2026_04_LA_PHI",
+     "2026_05_BUF_LA",
+     "2026_06_ARI_LA",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Matthew Stafford",
+    "qb_gsis": "00-0026498",
+    "player_gsis": "00-0037840",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Kyren Williams Rush+Rec Yds Under 85.5",
+   "player": "Kyren Williams",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "RB",
+   "market": "rushrec",
+   "receiving": true,
+   "side": "under",
+   "line": 85.5,
+   "price_fd": -111,
+   "no_vig": 0.4958,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 88.5,
+    "over": -111,
+    "under": -115,
+    "nv_over": 0.4958445875753168,
+    "nv_under": 0.5041554124246831,
+    "overround": 1.060950071641133
+   },
+   "prizepicks_lines": [
+    88.5
+   ],
+   "underdog_lines": [
+    89.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 10.6% / zone 58.0%, MOF closed 33.9% / open 40.7%; awaiting ruling",
+    "P13 FAIL: 6.5+ favorite rush under vs clock-killing script",
+    "P14 FAIL: a model median does not clear the line"
+   ],
+   "avg_p_mc_gr": 0.4895,
+   "edge_mc_gr": -0.0063,
+   "shrunk_mc_gr": -0.0032,
+   "recent_form": {
+    "values": [
+     147.0,
+     76.0,
+     67.0,
+     121.0
+    ],
+    "games": [
+     "2026_04_LA_PHI",
+     "2026_05_BUF_LA",
+     "2026_06_ARI_LA",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Matthew Stafford",
+    "qb_gsis": "00-0026498",
+    "player_gsis": "00-0037840",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Blake Corum Rush Yds Under 46.5",
+   "player": "Blake Corum",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "RB",
+   "market": "rushyds",
+   "receiving": false,
+   "side": "under",
+   "line": 46.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 47.5,
+    "over": 100,
+    "under": -126,
+    "nv_over": 0.47280334728033474,
+    "nv_under": 0.5271966527196653,
+    "overround": 1.0575221238938053
+   },
+   "draftkings": {
+    "point": 46.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    46.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P13 FAIL: 6.5+ favorite rush under vs clock-killing script",
+    "P14 UNVERIFIED: MODEL-SUSPECT: edge +16.7 pts > +15 implausible vs market (FD 46.5, consensus 46.8; possible role change the history-based sim cannot see) -> Debugging"
+   ],
+   "avg_p_mc_gr": 0.6371,
+   "edge_mc_gr": 0.1371,
+   "shrunk_mc_gr": 0.096,
+   "recent_form": {
+    "values": [
+     14.0,
+     19.0,
+     42.0,
+     93.0
+    ],
+    "games": [
+     "2026_04_LA_PHI",
+     "2026_05_BUF_LA",
+     "2026_06_ARI_LA",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Matthew Stafford",
+    "qb_gsis": "00-0026498",
+    "player_gsis": "00-0039738",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Blake Corum Rush+Rec Yds Under 56.5",
+   "player": "Blake Corum",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "RB",
+   "market": "rushrec",
+   "receiving": true,
+   "side": "under",
+   "line": 56.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 59.5,
+    "over": -113,
+    "under": -113,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0610328638497653
+   },
+   "prizepicks_lines": [
+    59.5
+   ],
+   "underdog_lines": [
+    59.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 10.6% / zone 58.0%, MOF closed 33.9% / open 40.7%; awaiting ruling",
+    "P13 FAIL: 6.5+ favorite rush under vs clock-killing script"
+   ],
+   "avg_p_mc_gr": 0.6145,
+   "edge_mc_gr": 0.1145,
+   "shrunk_mc_gr": 0.0802,
+   "recent_form": {
+    "values": [
+     21.0,
+     72.0,
+     60.0,
+     101.0
+    ],
+    "games": [
+     "2026_04_LA_PHI",
+     "2026_05_BUF_LA",
+     "2026_06_ARI_LA",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Matthew Stafford",
+    "qb_gsis": "00-0026498",
+    "player_gsis": "00-0039738",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Puka Nacua Rec Yds Over 91.5",
+   "player": "Puka Nacua",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 91.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 91.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "draftkings": {
+    "point": 92.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "prizepicks_lines": [
+    91.5
+   ],
+   "underdog_lines": [],
+   "bar": "UD20 Puka o69.5",
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: placed-ticket bar: UD20 Puka o69.5; edge +2.6 < +3; a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Donte Jackson",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 9.0,
+      "completions": 6.0,
+      "comp_pct": 66.7,
+      "yds": 69.0,
+      "ypt": 7.7,
+      "rating": 89.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 10.6% / zone 58.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 33.9% / open 40.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.5623,
+   "edge_mc_gr": 0.0623,
+   "shrunk_mc_gr": 0.0436,
+   "recent_form": {
+    "values": [
+     125.0,
+     138.0,
+     80.0,
+     68.0
+    ],
+    "games": [
+     "2026_04_LA_PHI",
+     "2026_05_BUF_LA",
+     "2026_06_ARI_LA",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Matthew Stafford",
+    "qb_gsis": "00-0026498",
+    "player_gsis": "00-0039075",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Puka Nacua Receptions Over 7.5",
+   "player": "Puka Nacua",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 7.5,
+   "price_fd": -138,
+   "no_vig": 0.5419,
+   "status": "PASS",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 7.5,
+    "over": -130,
+    "under": 108,
+    "nv_over": 0.5403677058353318,
+    "nv_under": 0.45963229416466833,
+    "pulled_et": "2026-11-01T08:36"
+   },
+   "draftkings": {
+    "point": 7.5,
+    "over": -143,
+    "under": 112,
+    "nv_over": 0.5550754357697378,
+    "nv_under": 0.4449245642302622,
+    "overround": 1.0601754794626912
+   },
+   "prizepicks_lines": [
+    8.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": "placed ticket on a different stat: UD20 Puka o69.5",
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Donte Jackson",
+      "team": "LAC",
+      "pos": "CB",
+      "targets": 9.0,
+      "completions": 6.0,
+      "comp_pct": 66.7,
+      "yds": 69.0,
+      "ypt": 7.7,
+      "rating": 89.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 10.6% / zone 58.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 33.9% / open 40.7%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.624,
+   "edge_mc_gr": 0.0821,
+   "shrunk_mc_gr": 0.0449,
+   "reprice_0836": {
+    "price": -138,
+    "no_vig": 0.5419,
+    "src": "FD main",
+    "v6_avg_p": 0.6148,
+    "v6_edge": 0.073,
+    "v6_shrunk": 0.0385,
+    "file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+    "pulled_et": "2026-11-01T08:36"
+   },
+   "recent_form": {
+    "values": [
+     9.0,
+     17.0,
+     6.0,
+     8.0
+    ],
+    "games": [
+     "2026_04_LA_PHI",
+     "2026_05_BUF_LA",
+     "2026_06_ARI_LA",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Matthew Stafford",
+    "qb_gsis": "00-0026498",
+    "player_gsis": "00-0039075",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Tyler Higbee Rec Yds Under 36.5",
+   "player": "Tyler Higbee",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "TE",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 36.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 36.5,
+    "over": -105,
+    "under": -120,
+    "nv_over": 0.48427672955974843,
+    "nv_under": 0.5157232704402516,
+    "overround": 1.057649667405765
+   },
+   "draftkings": {
+    "point": 35.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "prizepicks_lines": [
+    36.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P3 FAIL: under vs soft TE D (YPT>=8.0)",
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 10.6% / zone 58.0%, MOF closed 33.9% / open 40.7%; no stand-in allowed",
+    "P14 FAIL: edge +1.4 < +3; a model median does not clear the line"
+   ],
+   "avg_p_mc_gr": 0.4848,
+   "edge_mc_gr": -0.0152,
+   "shrunk_mc_gr": -0.0106,
+   "recent_form": {
+    "values": [
+     67.0,
+     83.0,
+     22.0,
+     14.0
+    ],
+    "games": [
+     "2026_04_LA_PHI",
+     "2026_05_BUF_LA",
+     "2026_06_ARI_LA",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Matthew Stafford",
+    "qb_gsis": "00-0026498",
+    "player_gsis": "00-0033110",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  },
+  {
+   "name": "Tyler Higbee Receptions Under 3.5",
+   "player": "Tyler Higbee",
+   "team": "LAR",
+   "opp": "LAC",
+   "type": "TE",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 3.5,
+   "price_fd": -108,
+   "no_vig": 0.4858,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 3.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "draftkings": {
+    "point": 3.5,
+    "over": -127,
+    "under": -101,
+    "nv_over": 0.5268295703141123,
+    "nv_under": 0.47317042968588763,
+    "overround": 1.0619589278278214
+   },
+   "prizepicks_lines": [
+    3.5
+   ],
+   "underdog_lines": [
+    3.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P3 FAIL: under vs soft TE D (YPT>=8.0)",
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 10.6% / zone 58.0%, MOF closed 33.9% / open 40.7%; no stand-in allowed"
+   ],
+   "avg_p_mc_gr": 0.5015,
+   "edge_mc_gr": 0.0157,
+   "shrunk_mc_gr": 0.0153,
+   "recent_form": {
+    "values": [
+     5.0,
+     5.0,
+     4.0,
+     2.0
+    ],
+    "games": [
+     "2026_04_LA_PHI",
+     "2026_05_BUF_LA",
+     "2026_06_ARI_LA",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Matthew Stafford",
+    "qb_gsis": "00-0026498",
+    "player_gsis": "00-0033110",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "LAC@LAR"
+  }
+ ],
+ "edge_decision": "08:36: gate rule on avg of all 3 models (sim_v6 calibrated bias model, BUG-2026-11-01-BIAS fixed); v5 MC+GR numbers kept for comparison",
+ "sims_v5": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Justin Herbert Pass Yds Under 205.5": {
+     "p": 0.6911,
+     "median": 174.34
+    },
+    "Omarion Hampton Rush Yds Over 31.5": {
+     "p": 0.6976,
+     "median": 43.92
+    },
+    "Omarion Hampton Rush+Rec Yds Over 40.5": {
+     "p": 0.7165,
+     "median": 56.23
+    },
+    "Ladd McConkey Rec Yds Under 47.5": {
+     "p": 0.8022,
+     "median": 22.83
+    },
+    "Ladd McConkey Receptions Under 3.5": {
+     "p": 0.8119,
+     "median": 2.0
+    },
+    "Quentin Johnston Rec Yds Under 33.5": {
+     "p": 0.7347,
+     "median": 11.16
+    },
+    "Quentin Johnston Receptions Under 2.5": {
+     "p": 0.8246,
+     "median": 1.0
+    },
+    "Oronde Gadsden II Rec Yds Under 15.5": {
+     "p": 0.5315,
+     "median": 13.53
+    },
+    "Oronde Gadsden II Receptions Under 1.5": {
+     "p": 0.4392,
+     "median": 2.0
+    },
+    "Matthew Stafford Pass Yds Over 248.5": {
+     "p": 0.6204,
+     "median": 282.4
+    },
+    "Kyren Williams Rush Yds Under 58.5": {
+     "p": 0.4875,
+     "median": 59.24
+    },
+    "Kyren Williams Rush+Rec Yds Under 85.5": {
+     "p": 0.4856,
+     "median": 86.64
+    },
+    "Blake Corum Rush Yds Under 46.5": {
+     "p": 0.6375,
+     "median": 38.35
+    },
+    "Blake Corum Rush+Rec Yds Under 56.5": {
+     "p": 0.6142,
+     "median": 48.8
+    },
+    "Puka Nacua Rec Yds Over 91.5": {
+     "p": 0.5626,
+     "median": 102.24
+    },
+    "Puka Nacua Receptions Over 7.5": {
+     "p": 0.6217,
+     "median": 9.0
+    },
+    "Tyler Higbee Rec Yds Under 36.5": {
+     "p": 0.4824,
+     "median": 38.01
+    },
+    "Tyler Higbee Receptions Under 3.5": {
+     "p": 0.5013,
+     "median": 3.0
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Justin Herbert Pass Yds Under 205.5": {
+     "p": 0.8424,
+     "median": 146.91
+    },
+    "Omarion Hampton Rush Yds Over 31.5": {
+     "p": 0.5992,
+     "median": 37.55
+    },
+    "Omarion Hampton Rush+Rec Yds Over 40.5": {
+     "p": 0.6187,
+     "median": 48.33
+    },
+    "Ladd McConkey Rec Yds Under 47.5": {
+     "p": 0.8469,
+     "median": 19.19
+    },
+    "Ladd McConkey Receptions Under 3.5": {
+     "p": 0.8406,
+     "median": 1.0
+    },
+    "Quentin Johnston Rec Yds Under 33.5": {
+     "p": 0.7735,
+     "median": 8.61
+    },
+    "Quentin Johnston Receptions Under 2.5": {
+     "p": 0.8604,
+     "median": 1.0
+    },
+    "Oronde Gadsden II Rec Yds Under 15.5": {
+     "p": 0.6126,
+     "median": 10.88
+    },
+    "Oronde Gadsden II Receptions Under 1.5": {
+     "p": 0.4971,
+     "median": 2.0
+    },
+    "Matthew Stafford Pass Yds Over 248.5": {
+     "p": 0.4625,
+     "median": 238.91
+    },
+    "Kyren Williams Rush Yds Under 58.5": {
+     "p": 0.6175,
+     "median": 52.14
+    },
+    "Kyren Williams Rush+Rec Yds Under 85.5": {
+     "p": 0.6361,
+     "median": 74.71
+    },
+    "Blake Corum Rush Yds Under 46.5": {
+     "p": 0.727,
+     "median": 33.12
+    },
+    "Blake Corum Rush+Rec Yds Under 56.5": {
+     "p": 0.7196,
+     "median": 41.86
+    },
+    "Puka Nacua Rec Yds Over 91.5": {
+     "p": 0.4538,
+     "median": 84.86
+    },
+    "Puka Nacua Receptions Over 7.5": {
+     "p": 0.5306,
+     "median": 8.0
+    },
+    "Tyler Higbee Rec Yds Under 36.5": {
+     "p": 0.5732,
+     "median": 30.8
+    },
+    "Tyler Higbee Receptions Under 3.5": {
+     "p": 0.5696,
+     "median": 3.0
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Justin Herbert Pass Yds Under 205.5": {
+     "p": 0.6926,
+     "median": 174.34
+    },
+    "Omarion Hampton Rush Yds Over 31.5": {
+     "p": 0.6744,
+     "median": 42.82
+    },
+    "Omarion Hampton Rush+Rec Yds Over 40.5": {
+     "p": 0.6927,
+     "median": 55.63
+    },
+    "Ladd McConkey Rec Yds Under 47.5": {
+     "p": 0.7857,
+     "median": 16.69
+    },
+    "Ladd McConkey Receptions Under 3.5": {
+     "p": 0.7877,
+     "median": 1.0
+    },
+    "Quentin Johnston Rec Yds Under 33.5": {
+     "p": 0.7388,
+     "median": 9.06
+    },
+    "Quentin Johnston Receptions Under 2.5": {
+     "p": 0.8061,
+     "median": 1.0
+    },
+    "Oronde Gadsden II Rec Yds Under 15.5": {
+     "p": 0.5508,
+     "median": 11.45
+    },
+    "Oronde Gadsden II Receptions Under 1.5": {
+     "p": 0.4749,
+     "median": 2.0
+    },
+    "Matthew Stafford Pass Yds Over 248.5": {
+     "p": 0.6132,
+     "median": 279.31
+    },
+    "Kyren Williams Rush Yds Under 58.5": {
+     "p": 0.5051,
+     "median": 58.36
+    },
+    "Kyren Williams Rush+Rec Yds Under 85.5": {
+     "p": 0.4934,
+     "median": 86.08
+    },
+    "Blake Corum Rush Yds Under 46.5": {
+     "p": 0.6368,
+     "median": 38.35
+    },
+    "Blake Corum Rush+Rec Yds Under 56.5": {
+     "p": 0.6148,
+     "median": 48.14
+    },
+    "Puka Nacua Rec Yds Over 91.5": {
+     "p": 0.562,
+     "median": 102.24
+    },
+    "Puka Nacua Receptions Over 7.5": {
+     "p": 0.6264,
+     "median": 9.0
+    },
+    "Tyler Higbee Rec Yds Under 36.5": {
+     "p": 0.4872,
+     "median": 36.89
+    },
+    "Tyler Higbee Receptions Under 3.5": {
+     "p": 0.5018,
+     "median": 3.0
+    }
+   }
+  }
+ ],
+ "superseded_sources": [
+  {
+   "category": "odds_props",
+   "name": "The Odds API: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks, Underdog player props",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_final.csv",
+   "tool": "python urllib (The Odds API)",
+   "pulled_et": "2026-11-01T07:30",
+   "superseded_by": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+   "superseded_et": "2026-11-01T08:36"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API: FanDuel/DK/Pinnacle spreads+totals",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_final.json",
+   "tool": "python urllib (The Odds API)",
+   "pulled_et": "2026-11-01T07:30",
+   "superseded_by": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+   "superseded_et": "2026-11-01T08:36"
+  },
+  {
+   "name": "ESPN injuries API",
+   "replaced_by": "espn_inj_20261101_1445.json at 14:43"
+  }
+ ],
+ "cross_checks": [
+  {
+   "category": "odds_props",
+   "name": "PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source)",
+   "url_or_file": "/workspace/nfl-database/week8/lines/pff_props_2026-11-01.csv",
+   "pulled_et": "2026-11-01T07:34",
+   "tool": "computerUse browser",
+   "note": "PFF pick-side cross-check only, not a price of record; captured 07:40 ET and now >1h old, so moved out of sources at 08:36 rather than re-stamped"
+  }
+ ],
+ "weather": {
+  "LAC@LAR": {
+   "roof": "dome",
+   "note": "SoFi fixed roof / Ford Field (nflverse roof=dome)",
+   "source": "nflverse play_by_play_2026.parquet roof field + /workspace/nfl-database/week8/weather/nws_20261101_1440.json",
+   "pulled_et": "2026-11-01T14:41"
+  }
+ },
+ "placed_legs": [
+  {
+   "game": "LAC@LAR",
+   "leg": "PP $40: Matthew Stafford Pass Completions 22.5",
+   "source": "/workspace/nfl-database/week8/slips/slips_2026-11-01.md"
+  },
+  {
+   "game": "LAC@LAR",
+   "leg": "PP $20: Matthew Stafford Pass Completions 22.5",
+   "source": "/workspace/nfl-database/week8/slips/slips_2026-11-01.md"
+  },
+  {
+   "game": "LAC@LAR",
+   "leg": "UD $20: Puka Nacua Receiving Yards 69.5",
+   "source": "/workspace/nfl-database/week8/slips/slips_2026-11-01.md"
+  },
+  {
+   "game": "LAC@LAR",
+   "leg": "PP $25: Kyren Williams Anytime TD 0.5",
+   "source": "/workspace/nfl-database/week8/slips/slips_2026-11-01.md"
+  },
+  {
+   "game": "LAC@LAR",
+   "leg": "PP $20: K. Walker III + K. Williams Anytime TDs combo 1.5",
+   "source": "/workspace/nfl-database/week8/slips/slips_2026-11-01.md"
+  },
+  {
+   "game": "LAC@LAR",
+   "leg": "FD7: Kyren Williams or Blake Corum anytime TD",
+   "source": "/workspace/nfl-database/week8/slips/slips_2026-11-01.md"
+  },
+  {
+   "game": "LAC@LAR",
+   "leg": "FD 8-leg: Puka 60+ yds",
+   "source": "/workspace/nfl-database/week8/slips/slips_2026-11-01.md"
+  }
+ ]
+}

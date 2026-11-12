@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 HOU@TEN / kickoff not saved / spread, total, implied totals, moneyline and opening movement not saved; script inferred only from supplied team form / weather not saved; venue details, rest and travel not supplied",
+ "script": {
+  "base": "A competitive, relatively methodical game is the working hypothesis, not a market-backed forecast. Houston leans on its receiving options rather than its inefficient recent rushing production, while Tennessee initially maintains Tony Pollard's larger rushing role; neither defense's 21\u201322% blitz rate supports assuming constant blitz-driven offense. Pace, halftime leader and garbage time cannot be established from this pack.",
+  "flip1": "Tennessee builds an early lead behind Pollard, who has 47 carries for 186 yards over Weeks 2\u20134. Houston shifts toward passing, supporting Xavier Hutchinson's receiving over and David Montgomery's rushing under.",
+  "flip2": "Houston builds an early lead and shifts toward clock management. Montgomery gains rushing opportunities beyond his recent nine carries per game, while Hutchinson's target volume can shrink; both proposed legs are vulnerable to this flip."
+ },
+ "injury_fallout": "MISSING: HOU and TEN injury reports, practice trends, final designations, offensive-line availability, defensive absences, return restrictions and final inactives. No absence, return or next-man-up role is inferred from Montgomery's 27 carries, Hutchinson's 20 targets or Nico Collins' eight targets over Weeks 2\u20134. Source: supplied pre-kickoff pack, with offensive data through Week 4; exact publication timestamps are not supplied. Final-report and approximately 90-minute inactive checkpoints cannot be completed.",
+ "matchup": {
+  "shell": "MISSING: TEN and HOU MOFO/MOFC splits, man/zone rates and receiver alignment charting. TEN's location YPA figures cannot establish which coverage defenders Hutchinson will face.",
+  "pressure": "TEN blitzes 22%; Houston's QB EPA/dropback is 0.47 against blitzes over 34 dropbacks versus -0.03 without a blitz. HOU blitzes 21%; Tennessee's corresponding figures are 0.14 over 30 blitzed dropbacks and -0.17 without a blitz. Source: supplied pack. Actual pressure rates, protection performance, sacks and time to throw are missing; blitz frequency is not pressure frequency.",
+  "bleeds": "TEN allows 3.88 rushing YPC, with 11 runs of at least 10 yards, and has allowed 13 passes of at least 20 yards on 120 attempts. Its location YPA is 8.10 left, 8.21 middle and 7.52 right. HOU allows 3.44 rushing YPC, eight runs of at least 10 yards, and 17 passes of at least 20 yards on 156 attempts; its middle YPA allowed is 9.95. Source: supplied season-to-date defensive pack through four games. Positional allowances, rush EPA, stuff rate, box counts and YAC allowed are missing.",
+  "overlap": "Hutchinson leads the listed Houston receivers with 20 recent targets and 304 air yards, giving him an opportunity-based route to a modest 14.5-yard line against TEN's recorded passing concessions. Montgomery's 67 yards on 27 recent carries indicate an inefficient rushing role facing a defense allowing 3.88 YPC. These are opportunity and run-efficiency hypotheses, not verified coverage-matchup edges."
+ },
+ "form": "Source: supplied Weeks 2\u20134 aggregates, examined after forming the script and matchup hypotheses. Hutchinson recorded 20 targets, 134 receiving yards and 304 air yards; Schultz recorded 19 targets and 179 yards, so Hutchinson is not the only substantial receiving option. Montgomery recorded 27 carries for 67 yards, or 2.48 YPC, while Marks had 19 carries for 45 yards. Tennessee's Pollard recorded 47 carries for 186 yards, and Tate led its listed receivers with 26 targets for 230 yards. Individual-game distributions, snaps, routes, red-zone usage, play-caller changes and comparable-opponent logs are missing; aggregate totals cannot establish weekly consistency or rule out a long-play-driven result.",
+ "edge_players": [
+  {
+   "player": "xavierhutchinson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Hutchinson's team-leading recent target and air-yard totals give him multiple opportunities to exceed 14.5 receiving yards without requiring a Houston rushing breakthrough.",
+   "must_be_true": "Xavier Hutchinson targets >= 3 [because the pack records 20 targets over Weeks 2\u20134]",
+   "kills_it": "IF Houston takes an early lead and reduces Hutchinson to fewer than three targets THEN Hutchinson recyds over 14.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "davidmontgomery",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Montgomery's limited recent carry volume and 2.48 YPC face a Tennessee defense allowing 3.88 YPC, making under 43.5 rushing yards a plausible Houston pass-leaning-script position.",
+   "must_be_true": "David Montgomery carries <= 11 [because the pack records 27 carries across Weeks 2\u20134]",
+   "kills_it": "IF Houston establishes a sustained lead and expands Montgomery's workload enough to reach 44 rushing yards THEN Montgomery rushyds under 43.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The supplied numbers support both hypotheses without establishing calibrated probabilities. Hutchinson's recent opportunity totals support the low receiving threshold; Montgomery's recent workload and efficiency support the rushing under. These three-game aggregates are supporting checks, not standalone projections. The quoted prices imply raw break-even probabilities of approximately 53.49% for Hutchinson over and 53.27% for Montgomery under. No model, simulation, sharp-book comparison or positive-EV conclusion is claimed.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median and distribution, Pinnacle prices and no-vig probabilities, individual-game role distributions, coverage charting, injuries, final inactives, weather, spread and total. Exact pre-kickoff capture timestamps are unavailable.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate main lines only: xavierhutchinson recyds over 14.5 at -115; davidmontgomery rushyds under 43.5 at -114. Receiving yards is the available permitted market for Hutchinson's opportunity hypothesis; rushing yards directly expresses Montgomery's workload/efficiency hypothesis. No alternate-rung prices are supplied. Both remain unpriced leans rather than verified-value recommendations; no stake is assigned.",
+ "pre_mortem": "Hutchinson: It is Monday and the over lost because 20 aggregate targets concealed uneven weekly usage, Houston spread its limited passing volume among Schultz, Collins and other receivers, or an early lead removed passing opportunities. His 304 air yards do not guarantee completions, and TEN's low blitz rate does not automatically reproduce Houston's strong blitz EPA. Missing route and injury information prevents validating his opportunity floor.\n\nMontgomery: It is Monday and the under lost because Houston led early, increased his carries, or Montgomery broke a run against a defense that has already allowed 11 gains of at least 10 rushing yards. At TEN's allowed 3.88 YPC, 12 carries would produce roughly 46.6 yards; even a modest workload increase threatens 43.5. This makes the under script-dependent rather than a strong standalone edge.",
+ "slip_story": "Both candidates belong to one conditional story: Houston stays competitive or trails and uses passing rather than a Montgomery-led clock-control attack. They survive the base hypothesis and the Tennessee-leads flip, but not reliably the Houston-controls flip. No 3\u20134-leg main slip is built: only two candidate edges qualify, and adding unsupported legs would weaken the story. No TDs or duplicate player markets are used. Step 12 is limited: this JSON records the hypotheses, but no external timestamped lock, hash, persistent save or postgame grading is performed. A later audit should grade script and opportunity accuracy separately from the two prop results.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

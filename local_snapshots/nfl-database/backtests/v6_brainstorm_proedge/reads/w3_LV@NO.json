@@ -1,0 +1,108 @@
+{
+ "game": "LV @ NO Week 3 2026 (kickoff/venue/spread/total not in pack)",
+ "script": {
+  "base": "No spread or total is saved, so this is a tendency script, not a market script. LV has given Ashton Jeanty 44 carries for 150 yards in two games and NO has allowed 4.96 YPC with 9 runs of 10+ and DT Christen Miller out, so the Raiders' path is a Jeanty ground game with Kirk Cousins. The Saints' path is the pass: Chris Olave 23 targets/268 yards/338 air, DeVaughn Vele 16/133/132, Juwan Johnson 11/120/88, against a LV defense at 10.7 YPA in the middle and without S Treydan Stukes. Base case is competitive and mixed: LV runs, NO throws, no blowout flag.",
+  "flip1": "NO blitzes at 29% and Cousins has been bad vs pressure (LV EPA/db -0.15 vs blitz, +0.20 vs none). LV falls behind, Jeanty's carries shrink toward the 48-yard game, and check-downs (Mayer, Jeanty, Bech) rise. If NO then leads big and clocks it with Etienne/Kamara/Miller, Olave and Johnson routes get cut late.",
+  "flip2": "Jeanty controls the clock against the soft NO front, NO plays from behind, Travis Etienne's 8.5 carries die further, and Olave/Vele/Johnson targets rise. A true LV blowout is the lower-probability version of this flip and would also risk Saints starter snaps; it cannot be sized without a spread."
+ },
+ "injury_fallout": "LV S Treydan Stukes is Out (concussion), the only named coverage absence; that helps NO deep and middle targets (Olave, Vele, Johnson), not a charted corner. LV TE Brock Bowers is Questionable (knee) with no 2026 games, so Michael Mayer (11 targets, 55 yards, logs 32 and 23) keeps the TE role unless Bowers is active on a snap count; Mayer has no saved price. NO DT Christen Miller is Out (toe), a small efficiency bump for Jeanty and Etienne. NO WR Barion Brown is Out (hamstring), depth only, targets stay with Olave/Vele. NO CB Martin Emerson is Questionable (shoulder): if he sits, LV outside WRs (Tucker 193 air yards, Nailor) face a backup, but he is not ruled out. LV DE Kwity Paye is Questionable (illness), not an out. LV QB Aidan O'Connell is Questionable (personal); Cousins is the QB in the stat pack (3 carries, rush prop). Sources: pack injury report and weeks 1-2 usage. Final inactives not in pack.",
+ "matchup": {
+  "shell": "Man/zone and MOFO/MOFC are not in the pack. Location splits only: LV allows left 7.43 YPA (23 att), middle 10.7 (10 att), right 6.38 (21 att). NO allows left 6.7 (27), middle 7.8 (15), right 5.3 (27).",
+  "pressure": "NO blitzes 29%; LV EPA/db is -0.15 vs blitz and +0.20 clean, so pressure is the Raiders' offensive risk and a deep-shot killer for Tre Tucker. LV blitzes only 21%; NO EPA/db is +0.07 vs blitz and +0.12 clean, so Shough is not blitz-allergic in this sample.",
+  "bleeds": "LV bleeds the middle (10.7 YPA on 10 throws) and has 6 passes of 20+ (pack mark 6/62; denominator ambiguous). NO bleeds the run (4.96 YPC, 9 runs of 10+) more than the pass (right side 5.3 YPA is the toughest zone; 20+ pass mark 4/73).",
+  "overlap": "NO's primary target is Olave (23 targets, 338 air yards) into a secondary missing Stukes, which fits explosives more than the soft middle. The cleaner overlap is Juwan Johnson, the lead receiving TE (11 targets, 120 yards on only 88 air, so YAC), into that 10.7 middle. LV's overlap the other way is Jeanty's 22 carries into NO's 4.96 YPC front with Miller out; that is real but script-dependent and was not kept as a leg."
+ },
+ "form": "Avoiding season averages; only weeks 1-2. Olave logs 182 and 86, both over 76.5, on 11.5 targets/game; the 182 is a spike risk, the 86 cleared by only 9.5. Johnson logs 54 and 66, both well over 35.5, more stable than Olave. Vele 69 and 64, both over 49.5, but no price. Jeanty rush 102 and 48 vs 69.5 (split) at 3.41 YPC on 44 carries. Etienne rush 46 and 25 vs 39.5 in a committee (Kamara 9/15, Miller 9/30, Shough 12/32). Kamara last4 shows a single 15-yard rush game, so his 24.5 line is a role the pack does not explain. Tucker 27 and 119 vs 41 is boom/bust. Bech 23 and 25 vs 14.5 on only 6 targets. Nailor 27 and 9 vs 24.5 with 91 air yards and only 36 receiving yards.",
+ "pro_edge": {
+  "implied_totals": "N/A. Spread and total were not saved, so favorite=(T+S)/2 and dog=(T-S)/2 cannot be computed and there is no numeric blowout flag.",
+  "script_read": "Skill-2 leader-runs-late and underdog-throws-more (spread 3.5+) rules cannot fire without a number. Form substitute: LV run-lean (Jeanty 44/150) into a soft NO run defense; NO pass-lean (Olave/Vele/Johnson) into LV's middle bleed and a missing safety. These overs are role and matchup, not a high-total volume lean.",
+  "best_price": "No Pinnacle line is separated from consensus. Olave recyds over 76.5 best saved -115 vs anchor no-vig over 0.501 / under 0.499. Johnson recyds over 35.5 best saved -115 vs no-vig over 0.502 / under 0.498. Both -115 prices are worse than a coin-flip fair (about -100). The candidate edge is read probability vs the number, not a plus-money shop. Power devig vs overround not available.",
+  "lagging": "No open-to-current move log and no spread/total move, so a true lagging-book flag cannot be confirmed. Olave 76.5 and Johnson 35.5 priced near even after 182/86 and 54/66 look unadjusted versus form; that is either lag or a sharp regression. Treat as unresolved, not as a confirmed stale line.",
+  "sleepers": "Bowers Questionable (knee) with zero 2026 games; Mayer is the same-position teammate (11 targets, logs 32 and 23) but Mayer recyds 21 has no two-sided price, so a didn't-move sleeper diff cannot be verified. Stukes Out has no same-position prop in the board. Brown Out is depth. Miller Out is the rush-D sleeper for Jeanty/Etienne; those rush prices sit near 50/50 with no move proof. Emerson Questionable would help LV WRs only if he is inactive, which is not known. Paye and O'Connell questionable tags do not change the NO pass legs; Cousins is the functioning LV QB in the pack."
+ },
+ "edge_players": [
+  {
+   "player": "juwanjohnson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Juwan Johnson beats 35.5 because he is the Saints' receiving TE (11 targets, 120 yards on 88 air yards, so the yards are YAC in the short/middle area) and LV has allowed 10.7 YPA on middle throws while playing without S Treydan Stukes; both games cleared the number (54, 66).",
+   "must_be_true": "Johnson plays his weeks 1-2 route share (about 5-6 targets), Shough has a normal pass volume, and Stukes stays out. A competitive or Saints-trailing script keeps him on the field.",
+   "kills_it": "The 10-attempt middle split is noise and LV sits on the TE, Johnson's YAC (120 on 88 air) regresses through 35.5, or NO leads big and clocks out his routes. A late Bowers return does not directly steal this role, but a Shough dud would.",
+   "confidence": "strong",
+   "model_p": 0.64,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "LV defense location split in pack: middle 10.7 YPA on 10 attempts; S Treydan Stukes Out (concussion) on the pre-game injury report."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "NO target log: Johnson 11 targets / 120 yards / 88 air yards, YAC profile into the middle; LV blitz only 21% and NO EPA/db +0.07 vs blitz, so the throw is not blitz-killed."
+    },
+    "script": {
+     "ok": true,
+     "source": "Inferred from weeks 1-2 tendencies because spread/total are not saved: NO pass-lean survives the base case and the LV-leads flip; it dies only if NO clock-kills a big lead."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Available prop last4 recyds 54 and 66, both over 35.5; team total 11 targets / 120 yards across the two saved games."
+    }
+   },
+   "primary_defender": {
+    "who": "Not charted. No LV linebacker or safety is named as the TE defender. Only named coverage absence is S Treydan Stukes (Out, concussion). Team-level middle is the proxy.",
+    "source": "Pack injury report; LV YPA by location. No coverage chart in the pack."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Main line over 35.5 best -115, consensus no-vig over 0.502. Price does not beat fair. Read-based p 0.64 would clear a 3-pt gate vs no-vig by about 14 pts, but no sim file was run, so this is a flagged candidate not a sized bet. Not shorter than -250."
+  },
+  {
+   "player": "chrisolave",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Chris Olave beats 76.5 because he is the primary target (23 targets, 268 yards, 338 air yards) and LV is without S Treydan Stukes after a pack mark of 6 passes of 20+; both saved games (182 and 86) cleared 76.5.",
+   "must_be_true": "Olave stays the WR1 at roughly 10+ targets, Stukes is inactive, and the game produces a normal Saints pass count. Even a regression toward 8 yards per target still needs that volume to clear 76.5.",
+   "kills_it": "The 182 is a one-play spike, the 86-yard floor is only 9.5 over the line, and LV's outside splits (left 7.43, right 6.38) are not the middle bleed, so a bracket or a NO clock-kill drops him under 76.5. No shell chart to prove they cannot take him away.",
+   "confidence": "lean",
+   "model_p": 0.58,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "Injury report: LV S Treydan Stukes Out (concussion). LV defense pack: 20+ pass 6/62 and middle 10.7 YPA, but outside YPA is only 7.43 left / 6.38 right."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "NO target log: Olave 23 targets and 338 air yards, the deep primary, which fits a missing safety more than a hook/zone attack. NO CB Emerson being questionable does not affect Olave."
+    },
+    "script": {
+     "ok": true,
+     "source": "Pass-lean Saints script from weeks 1-2 usage; survives base and the trail flip. Spread not saved, so a blowout clock-kill is an unpriced kill switch."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Prop last4 recyds 182 and 86, both over 76.5. 182 flagged as a possible spike; 86 is the repeatable floor and the cushion is thin."
+    }
+   },
+   "primary_defender": {
+    "who": "Not charted. No LV corner is named. Relevant absence is S Treydan Stukes (Out, concussion), a deep helper not a proven outside mismatch.",
+    "source": "Pack injury report; LV YPA by location (left 7.43 on 23, right 6.38 on 21). No coverage chart."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": false,
+   "pro_edge_support": "Main line over 76.5 best -115 vs consensus no-vig over 0.501. Price does not beat fair. Read-based p 0.58 is only about 8 pts over no-vig and is a lean, so step 8 would drop it if a sim confirmed the coin-flip; no sim was run. Same-script Vele over 49.5 (logs 69, 64) has no saved price and is not runged. Not shorter than -250."
+  }
+ ],
+ "data_check": {
+  "notes": "Sims, a projection file, and a separate Pinnacle number are not in the pack, so step 8 cannot be completed. Consensus no-vig is about 0.50 on both overs, which disagrees with the read-based estimates (Johnson 0.64, Olave 0.58). Per the strong-read rule Johnson is flagged, not cut. Olave is a lean, so a confirming sim at 50% would drop him; without that sim he stays a human lean, not a sized leg. Prices at -115 do not beat no-vig. Considered and not kept: Jeanty rush over 69.5 (NO 4.96 YPC, Miller out, but logs 102 and 48, own YPC 3.41, script-dependent, no-vig over only 0.502); Etienne rush under 39.5 (logs 46 and 25, committee, market already 0.503 under); Kamara rush under 24.5 (only a 15-yard last4 line, role unclear); Tucker under 41 (blitz fit but 119-yard spike and no price); Mayer over 21 (Bowers sleeper, logs 32 and 23, no price). No model probability above 0.70 was assigned.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Main rungs only. Juwan Johnson recyds over 35.5 at -115 consensus (best saved over; under -113). Chris Olave recyds over 76.5 at -115 consensus (best saved over; under -114). No alt rungs in the pack; do not take shorter alts. Neither price beats the ~0.50 no-vig. Vele 49.5, Mayer 21, and Tucker 41 have no two-sided price and are not runged.",
+ "pre_mortem": "It's Monday and both overs lost because two games were the whole case and the coin-flip numbers were the regression. Olave's 182 was a spike LV did not need a star safety to prevent, the down game was only 86, and the outside splits (7.43 and 6.38) were never the 10.7 middle. Johnson's 54 and 66 were YAC that a rally-to-the-flat defense took away, and 10 middle attempts at 10.7 YPA was one or two plays, not a scheme hole. Or NO got ahead and ran Etienne, Kamara, and Miller, cutting routes, which the missing spread cannot rule out. Weather, final inactives, and coverage charting were never in the pack, so a game-time Emerson/Bowers/Paye decision or an uncharted bracket is the miss step 3 and step 4 could not close. The counter is strong enough to refuse a stake and to treat Olave as droppable; it is not stronger than Johnson's target-plus-middle read, which is why that leg is flagged rather than deleted.",
+ "slip_story": "One story only: Saints pass volume into a LV secondary missing Stukes, with Johnson as the middle/YAC piece and Olave as the air-yard piece. They win together and lose together, so this is one bullet, not two. Do not add a game under, a Tucker deep over (NO's 29% blitz and Cousins' -0.15 EPA vs blitz is the opposite script), or Jeanty rush over in the same slip (that leg needs LV to stay on schedule, which dies in the blitz flip that can still feed this stack). No TDs, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T13:18:00-0500"
+ }
+}

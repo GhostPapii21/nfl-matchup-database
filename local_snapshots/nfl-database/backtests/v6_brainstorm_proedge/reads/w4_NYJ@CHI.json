@@ -1,0 +1,108 @@
+{
+ "game": "Week 4 2026 NYJ@CHI / kickoff time not in pack / spread and total not saved / weather not saved",
+ "script": {
+  "base": "No spread or total is saved, so the script is inferred from form and the injury report only. Caleb Williams is out, so Chicago should be more run-heavy than the already Swift-led sample (54 carries, 253 yards) with Tyson Bagent in a first 2026 start and LT Braxton Jones out, which points to shorter throws rather than explosives. New York is without Breece Hall and Adonai Mitchell, so the Jets' offense funnels through Garrett Wilson in the pass game and a Braelon Allen-led run game that has not shown starter efficiency. Base case is a competitive, lower-play game: Chicago runs Swift to stay on schedule, New York has to throw to Wilson because the skill-position replacements are thin.",
+  "flip1": "Chicago leads late. Swift's carries go up as they run clock, and Wilson's targets also go up because the Jets have to chase without Hall. Both overs can survive this flip. Bagent dropbacks may stall if the lead is safe, which would hurt Chicago pass-catchers, not Swift.",
+  "flip2": "New York leads big. Chicago abandons the run, Swift's carry total dies, and the Jets can grind clock with Allen, which stalls Wilson the same way a clock-killing favorite stalls its own QB and WR. Shared kill for both legs. A second mess flip is both offensive lines (Jones, Parham) losing the snap and the game becoming a sack/three-and-out slog under any reasonable total."
+ },
+ "injury_fallout": "Source: pack official pre-game injury report (nflverse), known before kickoff; final inactives ~90 minutes prior are not in the pack. NYJ: Breece Hall Out (quad) removes 51 carries / 163 yards; next man is Braelon Allen (19/61, 3.2 YPC as the complement), with Geno Smith 10/39 and Isaiah Williams 1/14 the only other listed rushers. Adonai Mitchell Out (finger) removes 15 targets / 123 yards / 237 air yards; the on-field absorbers are Garrett Wilson (already 27 targets / 243 yards) and Isaiah Williams (9/62), plus Jeremy Ruckert (8/48) if Kenyon Sadiq (Questionable, back; 14 targets / 143 yards) sits or is limited. Dylan Parham Out (knee) should cut rush efficiency and push quicker throws. Mason Taylor Out (thumb). Francisco Mauigoa Out (quad) softens the second level for Chicago's run and short pass game. Kingsley Enagbare Questionable (knee). CHI: Caleb Williams Out (hamstring) is the script-changer; Tyson Bagent has a rush prop and no prior 2026 games, and Case Keenum is only 2 rushes / 8 yards in the sample, so Bagent is the presumed starter without a verified depth-chart line. Braxton Jones Out (knee) should raise pressure and cut deep WR yards. Kyler Gordon Out (calf) and Cam Lewis Doubtful (hip) are the coverage losses that help NYJ slot and deep options. Noah Sewell Out (Achilles) and Shemar Turner Out (knee) soften the front Chicago would have used to stop Allen. Who loses: Odunze's 17.2 aDOT profile, and any Jets run over that needs Hall's 17 carries at league efficiency.",
+ "matchup": {
+  "shell": "No coverage charting in the pack, so MOFO/MOFC and man/zone rates are unknown (step 4 limited). Proxy from location splits only: CHI allows 7.03 YPA left (32 throws), 8.42 middle (19), 8.24 right (33). NYJ allows 6.03 left (34), 7.82 middle (22), 4.78 right (37).",
+  "pressure": "CHI blitz rate 42%. NYJ EPA/dropback is better vs blitz (0.34) than vs no blitz (0.16), so Chicago pressure does not profile as a Wilson-killer on this sample. NYJ blitz rate 35%. CHI EPA/dropback vs blitz 0.37 vs 0.08 was with Caleb Williams and does not transfer to Bagent. Both teams have an offensive lineman out (Braxton Jones, Dylan Parham), which should lift pressure, cut deep yards, and tilt both offenses toward runs and quick throws.",
+  "bleeds": "CHI run defense allows 5.09 YPC and 9 runs of 10+, plus 8 passes of 20+ for 91 yards; the pass bleed is middle and right. NYJ run defense is tighter at 4.40 YPC with only 6 runs of 10+ and only 4 passes of 20+ (101 yards); their pass bleed is the middle, and the right side is a strength.",
+  "overlap": "The clean overlap is Wilson, the Jets' primary target (27 targets, 284 air yards, 10.5 aDOT), into a CHI secondary missing slot CB Gordon and possibly S Lewis, on a defense that has already allowed 8 explosives and 8-plus YPA middle and right. Chicago's best overlap without Caleb is Swift's carry share into a Jets front missing Mauigoa, not into a soft run defense (4.40 YPC). Odunze's 224 air yards on 13 targets attack the part of the NYJ defense that has not bled."
+ },
+ "form": "Avoiding season-long framing; sample is weeks 1-3 only, and the prop 'last4' lists are three games. Wilson receiving yards listed 79, 57, 107 (mean 81, median 79) on 27 targets. Swift rush yards listed 124, 45, 84 (mean 84.3 on 54 carries, 4.69 YPC); one game at 45 is the miss vs 64.5. Allen rush yards listed 40, 7, 14, all under 56.5, on a backup share. Monangai rush listed 100, 47, 31 (5.93 YPC) so he is the efficiency threat to Swift's carries, not a forgotten back. Raymond listed 84, 40, 90 but all of that is Caleb-era, so it is not used as a leg. Odunze listed 52, 43, 44 with a 17.2 aDOT that the QB and tackle injuries put in doubt. No similar-defense or similar-script splits are in the pack.",
+ "pro_edge": {
+  "implied_totals": "N/A. Spread and total were not saved, so favorite = (T+S)/2 and dog = (T-S)/2 cannot be computed and no blowout flag can be set from the market.",
+  "script_read": "From the skill-2 rules without a number: a backup QB (Caleb Out, Bagent prop, no 2026 games) plus an already run-heavy Chicago offense points to more Swift carries if the game stays close, and more dropbacks only if Chicago trails. New York, missing its lead back, is the side more likely to throw if it trails. High-total volume overs cannot be assumed. Low-total, run-and-short-pass lean is the working read, unverified by a posted total.",
+  "best_price": "Saved anchor is consensus no-vig, not a named Pinnacle feed. No listed book beats that anchor by a real margin. Wilson recyds 75.5 anchor over 0.497 / under 0.503, best over -111.5, best under -114. Swift rushyds 64.5 anchor over 0.500 / under 0.500, best over -113, best under -113. Power devig vs overround not separately saved. Alt no-vig method not applicable; no alt rungs in the pack.",
+  "lagging": "No lagging-line flags were saved, and there is no open-to-current spread or total move to diff against. Soft flag only: Wilson 75.5 still sits on his 81-yard three-game mean after Mitchell was ruled out and Gordon/Lewis were downgraded, so the pass-catcher number does not look lifted. Swift 64.5 is already ~20 under his 84-yard mean, which is consistent with either a run-script lean or just his median, not a stale backup price.",
+  "sleepers": "Hall Out: Allen rush 56.5 (anchor over 0.498, best -113) looks already re-priced off a 20-yard complement role; Isaiah Davis rush 20.5 / rush+rec 33.5 has no prior games and rush+rec has no two-sided price, so he is a low-confidence sleeper and not a leg (fallback not run; no prior-season log in the pack). Caleb Out: Bagent rush 14.5 (no games, anchor ~0.50) is not usable without a verified prior log. Mitchell Out: Wilson and Isaiah Williams are the same-position teammates; Williams 22.5 is above his 20.7-yard mean (listed 7, 34, 21), so that number is not a lagging gift. Sadiq Questionable is a live branch, not an Out. Gordon Out and Lewis Doubtful are the coverage sleepers for Wilson, not for a Chicago receiver."
+ },
+ "edge_players": [
+  {
+   "player": "garrettwilson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Mitchell's 5 targets a game are gone and Chicago is missing slot corner Gordon with safety Lewis doubtful, so Wilson's already 9-target, 81-yard role should clear a 75.5 that was not lifted above his mean.",
+   "must_be_true": "Wilson plays a full route share, Mitchell stays out, and at least part of those 15 Mitchell targets land on Wilson rather than being bracketed away to Isaiah Williams, Ruckert, or a full-go Sadiq. Game stays competitive or Chicago leads so New York keeps throwing.",
+   "kills_it": "New York gets up big and runs clock with Allen, or Chicago brackets Wilson and the Mitchell share goes to Williams/Ruckert/Sadiq. A Parham-driven pressure spike that the 0.34 blitz EPA does not survive would also cut the deep air yards (284 in three games).",
+   "confidence": "lean",
+   "model_p": 0.56,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "CHI defense weeks 1-3: middle 8.42 YPA (19), right 8.24 (33), 8 passes of 20+ for 91 yards; injury report Kyler Gordon Out, Cam Lewis Doubtful."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Wilson 27 targets / 243 yards / 284 air yards; NYJ EPA/db vs CHI's 42% blitz rate is 0.34 vs 0.16 clean, so the blitz does not flip the matchup against him in this sample."
+    },
+    "script": {
+     "ok": true,
+     "source": "Base competitive script and the Chicago-leads flip both keep NYJ throwing; Hall Out removes the clock-killing back. Tagged script-dependent on a Jets blowout."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Listed recyds 79, 57, 107; mean 81 and median 79 vs line 75.5, one miss at 57. Same QB (Geno Smith) as the upcoming game."
+    }
+   },
+   "primary_defender": {
+    "who": "Unnamed replacement for slot CB Kyler Gordon (Out, calf); S Cam Lewis Doubtful (hip). No charting of who travels with Wilson.",
+    "source": "Pack injury report; no coverage chart or snap-alignment source saved."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Sleeper/coverage path, not a price edge. Mitchell Out and Gordon Out/Lewis Doubtful, yet consensus no-vig over is only 0.497 and best over is -111.5 at 75.5, on his 81-yard mean rather than above it. No lagging flag officially saved. Scheme-edge for review; no sim, so the +3 model-gate is not verified. Hand p 0.56 vs 0.497 anchor."
+  },
+  {
+   "player": "dandreswift",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "With Caleb Williams out, Chicago's already Swift-led run game (18 carries and 84 rush yards a game) should keep the ball on the ground, and 64.5 sits about 20 yards under that role.",
+   "must_be_true": "Bagent starts, Swift keeps the lead share at roughly 15-plus carries rather than a Monangai takeover, and Chicago does not fall into a multi-score hole that ends the run game. Jones being out cannot collapse YPC so far that 15 carries miss 64.5.",
+   "kills_it": "Monangai (30 carries, 5.93 YPC, listed 100/47/31) vultures the script, New York leads big and Chicago abandons the run, or Braxton Jones' absence plus a 4.40 YPC Jets run defense turns drives into three-and-outs. The listed 45-yard game is the template.",
+   "confidence": "lean",
+   "model_p": 0.58,
+   "scheme": {
+    "matchup": {
+     "ok": false,
+     "source": "NYJ rush defense allows 4.40 YPC and only 6 runs of 10+ in three games. Mauigoa Out is a small box help, not a bleed. Matchup does not support an efficiency edge; the leg is volume and price vs his own mean."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "CHI rushers weeks 1-3: Swift 54/253, Monangai 30/178, Caleb Williams 15/107 now Out. Backup QB plus Jones Out fits more designed runs and fewer QB scrambles, which is Swift's role."
+    },
+    "script": {
+     "ok": true,
+     "source": "Base case and the Chicago-leads flip both add late carries. Fails the New York blowout flip; tagged script-dependent on that flip only."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Listed rush yards 124, 45, 84. Two of three clear 64.5 by a lot; mean 84.3. Not a clean week-over-week trend, and order of the three games is not labeled."
+    }
+   },
+   "primary_defender": {
+    "who": "NYJ front seven, with LB Francisco Mauigoa Out (quad); replacement not named.",
+    "source": "Pack injury report plus NYJ rush YPC 4.40. No individual tackler chart."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": false,
+   "pro_edge_support": "Script edge from Caleb Williams Out, not a stale price. Anchor no-vig over 0.500, best over -113, so the book is a coin flip while his three-game mean is 84. No blowout flag available without a spread. Hand p 0.58 vs 0.500. Scheme-edge for review; matchup pillar fails, so this is not a sized bet."
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, no sims, and no Pinnacle feed in the pack. Anchor is consensus no-vig, essentially 0.50 on both legs, best prices -111.5 and -113. Hand probabilities (Wilson 0.56, Swift 0.58) are read estimates, not model output, and sit under the 70% suspicion line; the +3 gate is not verified. Wilson form agrees mildly (mean 81 / median 79 vs 75.5, one miss at 57) and the Mitchell/Gordon news is not visibly priced above his mean. Swift form agrees on two of three games and the mean, but the 45-yard game and NYJ's 4.40 YPC disagree with a matchup smash, so it is flagged rather than sized. Disagree-on-a-lean would drop a leg only if the recent role contradicted the side; it does not, once Hall's and Caleb's absences are treated as role changes. Allen over 56.5 was considered and not carded: listed 40/7/14 all miss, 3.2 YPC, Parham Out, and 56.5 already looks re-priced (17 Hall carries at 3.2 YPC is about 54). Raymond over 31.5 was not carded: floor of 40 vs 31.5 is real but 100% Caleb-era, and the line cut is the market's QB adjustment, which this pack cannot prove is an overreaction.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Main lines only; no alt rungs saved. Garrett Wilson recyds over 75.5 at best -111.5 (consensus anchor over 0.497). D'Andre Swift rushyds over 64.5 at best -113 (anchor over 0.500). Do not take a shorter alt. Neither price is a standalone value bet; the lean is the read, and both are review tickets not sized wagers. Separate markets, one per player.",
+ "pre_mortem": "It's Monday and both lost. Wilson under 75.5: Chicago bracketed him with Gordon's replacement and a safety, Mitchell's 15 targets went to Isaiah Williams (already 9 targets) and Ruckert, Sadiq played and was the mismatch vs Sewell/Gordon, and 75.5 was his median not a discount \u2014 the 57-yard game is the template when they take the WR1 away. Swift under 64.5: Monangai out-touched him because he has been the more efficient back (5.93 vs 4.69 YPC), Jones' absence blew up the left side, the Jets' 4.40 YPC front stuffed the 10-yard runs (only 6 allowed in three games), and Bagent three-and-outs capped team carries \u2014 the 45-yard game is the template. The counter is strong enough to keep both at lean and flagged, not strong enough to erase the role math (Wilson's target funnel is real; 64.5 is still 20 under Swift's mean). Allen was the trap the other way and stays off the card.",
+ "slip_story": "One story, not two: competitive or Chicago-ahead game in which Bagent cannot be asked to win it through the air, so Swift carries, and the Jets cannot lean on Hall or Mitchell, so Wilson targets. Those two legs win together in the base script and in the Chicago-leads flip. Do not add a total under, an Odunze or Burden over, or an Allen rush over to this ticket \u2014 Allen needs New York to lead and run, which is the flip that kills Swift. No TD legs, no second market on either player. If the late inactive sheet flips Sadiq to Out or Bagent to inactive, re-run before kickoff; that window is not in this pack.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T13:36:32-0500"
+ }
+}

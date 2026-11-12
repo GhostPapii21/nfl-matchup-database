@@ -1,0 +1,1047 @@
+Reading additional input from stdin...
+OpenAI Codex v0.163.0
+--------
+workdir: /workspace/nfl-database
+model: gpt-6.1-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: none
+reasoning summaries: none
+session id: 01a1a89c-2236-7350-9b12-71f5a1ffbef2
+--------
+user
+You are in repo /workspace/nfl-database. Work ONLY in week10/meyers_wash_strange/offense/runA/. Do not git commit, merge or push. Do not print any env var/API key.
+Data (local, nflverse CC-BY, pulled 2026-11-03 08:04 ET): sources/nflverse/pbp_2026.csv.gz, ftn_charting_2026.csv, snap_counts_2026.csv.gz, roster_weekly_2026.csv.gz. Reference prior script week10/brainstorm_layers/build.py (reuse its logic, but re-derive; do not copy numbers).
+Write runA/build_a.py (pandas) that outputs CSVs + runA/notes_a.md. Team JAX, Weeks 1-8 (bye wk7), QB T.Lawrence.
+1. snaps.csv: per game offense_snaps and offense_pct for Jakobi Meyers, Parker Washington, Brenton Strange (and Brian Thomas Jr. for context) + averages over games played.
+2. targets.csv: all JAX targets on Lawrence pass attempts (exclude Ewers/other QBs; also report a team-all-QB version): targets, receptions, yards, share of Lawrence targets, aDOT, ranked. Also per-week targets for the 3 players.
+3. Meyers timing: from roster_weekly + pbp posteam, which team Meyers played for each week 2026 (was he traded to JAX? when?). Flag sample size.
+4. pressure.csv: BAL defense blitz rate (FTN n_blitzers>0 and n_pass_rushers>=5), sack rate, qb_hit rate vs league, with N. Lawrence vs blitz / no blitz / pressured proxy (qb_hit|sack|is_qb_out_of_pocket|qb_scramble; check whether pbp has a was_pressure column and use it if present) / clean: dropbacks, att, cmp%, YPA, sacks, sack rate, EPA. Target distribution (count and share) under blitz and under pressure proxy per receiver. Check-down: among targets with air_yards<=2 (and separately under pressure), who is most targeted. Time to throw not in pbp: say so.
+5. Route-area proxy per the 3 players: pass_location x air_yards depth bins, and FTN is_screen_pass counts; also check FTN columns for any alignment/route fields (list ftn columns) and use them if present.
+Put sample sizes next to every rate. Run the script, verify outputs, and end notes_a.md with a list of any anomalies (e.g., player name variants, nulls, mismatched game counts).
+2026-11-04T22:09:28.054729Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when AuthRequired(AuthRequiredError { www_authenticate_header: "Bearer scope=\"create delete\", resource_metadata=\"https://mcp.windsor.ai/.well-known/oauth-protected-resource/facebook/\"" })
+2026-11-04T22:09:28.137438Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when UnexpectedServerResponse("HTTP 403: <!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content=\"IE=edge\"><meta name=robots content=\"noindex, nofollow\"><meta content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui\" name=viewport><title>携程旅行网</title><style type=text/css>blockquote,body,button,code,dd,div,dl,dt,em,fieldset,form,h1,h2,h3,h4,h5,h6,html,input,legend,li,ol,p,pre,td,textarea,th,ul{margin:0;padding:0}body{font-size:12px;font-family:Simsun,sans-serif;color:#333}fieldset,img{border:0 none}input,textarea{font-size:12px}textarea{resize:none}table{border-collapse:collapse;border-spacing:0}a{color:#003d7e;text-decoration:none}a:hover{text-decoration:underline}h1,h2,h3,h4,h5,h6{font-family:\"Times New Roman\",Simsun}li,ol,ul{list-style:none outside none}dfn{font-style:normal}@media screen and (min-width:751px){#footer,.content,.errorinfo{width:800px}.wrap{background:#016eca;width:100%;min-width:1200px;overflow:hidden}.content{position:relative;z-index:1;height:480px;margin:0 auto;padding-top:100px}.logo{position:relative;z-index:5;width:144px;height:54px;margin:0 auto;overflow:hidden;text-indent:-500px;background-position:0 0}.errorinfo{color:#fff;display:block;font-family:\"microsoft yahei\",simhei,sans-serif;font-size:24px;font-weight:400;text-align:center;margin:30px auto;padding:0}a.goback{display:block;position:relative;z-index:4;width:112px;margin:20px auto;padding:8px 0;color:#fff;font-family:\"microsoft yahei\",simhei,sans-serif;font-size:16px;text-align:center;text-decoration:none;background-color:#0f4dc5}a.goback:hover{background-color:#3f92f0}.tower{position:absolute;transform:translateZ(300px);z-index:2;top:143px;left:291px;width:116px;height:264px;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/tower.png) no-repeat}.beam{position:absolute;z-index:1;left:-10px;top:0;width:749px;height:359px;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/light.png) no-repeat;-webkit-animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam;-moz-animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam;animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam}.wave1{position:absolute;z-index:99;top:400px;height:180px;width:1200px;left:0;right:0;margin:auto;opacity:0;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/wave.png) repeat-x 0 0;-webkit-animation:50s linear 0s none infinite tweenxxpc;-moz-animation:50s linear 0s none infinite tweenxxpc;animation:50s linear 0s none infinite tweenxxpc}.wave{position:absolute;z-index:100;top:400px;height:180px;width:1200px;left:0;right:0;margin:auto;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/wave.png) repeat-x 0 0;-webkit-animation:50s linear 0s none infinite tweenxpc;-moz-animation:50s linear 0s none infinite tweenxpc;animation:50s linear 0s none infinite tweenxpc}#footer{margin:0 auto;text-align:center;color:#0053aa;font-family:arial;line-height:1.6;padding:8px 0 0 0;width:1200px}#footer a{color:#0053aa}.copyright{color:#333}.star1{background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/star.png) no-repeat;position:relative;top:164px;left:592px;height:60px;width:60px;opacity:0;-webkit-animation:2s linear 0s none infinite staracta;-moz-animation:2s linear 0s none infinite staracta;animation:2s linear 0s none infinite staracta}.star2{background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/star.png) no-repeat;position:relative;top:234px;left:245px;height:60px;width:60px;opacity:.8;-webkit-animation:2s linear 0s none infinite staract;-moz-animation:2s linear 0s none infinite staract;animation:2s linear 0s none infinite staract}.star3{background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/star.png) no-repeat;position:relative;top:252px;left:644px;height:60px;width:60px;opacity:.8;-webkit-animation:2s linear 0s none infinite staract;-moz-animation:2s linear 0s none infinite staract;animation:2s linear 0s none infinite staract}.star4{background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/star.png) no-repeat;position:relative;top:268px;left:264px;height:60px;width:60px;opacity:0;-webkit-animation:2s linear 0s none infinite staracta;-moz-animation:2s linear 0s none infinite staracta;animation:2s linear 0s none infinite staracta}.top{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/top.png);background-repeat:no-repeat;position:absolute;top:0;left:0;width:1200px;height:580px;z-index:999;right:0;margin:auto}.bg{background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/404_PC_bg.png) no-repeat center bottom;position:absolute;z-index:0;width:1200px;height:580px;min-width:1200px;left:0;right:0;margin:auto;overflow:hidden}.adv_t{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/PC_btA.png);background-repeat:no-repeat;position:relative;top:350px;left:470px;width:262px;height:28px;z-index:10000;cursor:pointer;display:none}.back_t{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/PC_btB.png);background-repeat:no-repeat;position:relative;top:433px;left:551px;width:98px;height:38px;z-index:10000;cursor:pointer}}@media screen and (max-width:750px){body html{overflow-x:hidden}.top{position:absolute;top:0;left:0;max-width:750px;width:100%;height:755px;z-index:999;right:0;margin:auto;min-width:350px}.mengceng{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/h5_top_1.png);height:755px;background-size:auto 910px;background-repeat:no-repeat;width:415px;position:relative;margin:0 auto}.wrap{background:#016eca;width:100%;min-width:400px}.bg{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/404_H5_bg.png);background-repeat:no-repeat;margin:0 auto;background-size:contain;height:755px;width:350px;overflow:hidden}.bg:before{content:\"\";display:block;padding-top:180%}#footer{margin:0 auto;text-align:center;color:#0053aa;font-family:arial;line-height:1.6;padding:8px 0 0 0}#footer a{color:#0053aa}.copyright{color:#333}.wave1{position:absolute;z-index:99;top:444px;height:180px;width:350px;left:0;right:0;margin:auto;opacity:0;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/wave.png) repeat-x 0 0;-webkit-animation:50s linear 0s none infinite tweenxx;-moz-animation:50s linear 0s none infinite tweenxx;animation:50s linear 0s none infinite tweenxx}.wave{position:absolute;z-index:100;top:444px;height:180px;width:350px;left:0;right:0;margin:auto;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/wave.png) repeat-x 0 0;-webkit-animation:50s linear 0s none infinite tweenx;-moz-animation:50s linear 0s none infinite tweenx;animation:50s linear 0s none infinite tweenx}@-webkit-keyframes tweenx{0%{background-position:100vw 0}50%{opacity:0}100%{background-position:0 0;opacity:1}}@-moz-keyframes tweenx{0%{background-position:100vw 0}50%{opacity:0}100%{background-position:0 0;opacity:1}}@keyframes tweenx{0%{background-position:100vw 0}50%{opacity:0}100%{background-position:0 0;opacity:1}}@keyframes tweenxx{0%{background-position:0 0;opacity:0}50%{opacity:1}100%{background-position:-100vw 0;opacity:0}}.tower{position:relative;transform:translateZ(300px);z-index:2;top:-370px;left:-53px;width:180px;height:180px;background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/tower_h5.png);background-repeat:no-repeat;background-size:contain}.beam{position:relative;z-index:1;left:-176px;top:-640px;width:484px;height:232px;background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/light.png);background-repeat:no-repeat;background-size:contain;-webkit-animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam;-moz-animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam;animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam}.star1{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/star.png)... (truncated 6027 bytes)")
+codex
+I’ll inspect the prior script and source schemas, then build and verify the outputs within `week10/meyers_wash_strange/offense/runA/`.
+exec
+/bin/bash -lc "pwd; rg --files -g AGENTS.md -g build.py -g '*2026*' -g '*runA*'" in /workspace/nfl-database
+ succeeded in 0ms:
+/workspace/nfl-database
+SKILL_backup_2026-10-29.md
+runs/2026-11-05_JAX@BAL_r5/read_addendum2_2026-11-04.sha256
+runs/2026-11-05_JAX@BAL_r5/read_addendum4_2026-11-04.md
+runs/2026-11-05_JAX@BAL_r5/read_addendum3_2026-11-04.md
+runs/2026-11-05_JAX@BAL_r5/read_addendum2_2026-11-04.md
+runs/2026-11-05_JAX@BAL_r5/read_addendum4_2026-11-04.md.sha256
+runs/2026-11-05_JAX@BAL_r5/read_addendum_2026-11-04.sha256
+runs/2026-11-05_JAX@BAL_r5/read_addendum_2026-11-04.md
+runs/2026-11-05_JAX@BAL_r5/read_addendum3_2026-11-04.md.sha256
+runs/rams_cardinals_2026-11-15.md
+runs/2026-11-02_CHI@SEA/src/pfr_def_adv_2026_1102.html
+runs/2026-11-03_shared_src/play_by_play_2026.parquet
+runs/2026-11-03_shared_src/ftn_charting_2026.parquet
+runs/2026-11-02_CHI@SEA/src/pbp_participation_2026.parquet
+runs/2026-11-02_CHI@SEA/src/depth_charts_2026.parquet
+runs/2026-11-02_CHI@SEA/src/play_by_play_2026.parquet
+runs/2026-11-02_CHI@SEA/src/ftn_charting_2026.parquet
+runs/2026-11-02_CHI@SEA/src/build.py
+runs/2026-11-02_CHI@SEA/src/forecast_2026-11-02_0504.json
+runs/2026-11-02_CHI@SEA/src/injuries_2026.parquet
+runs/2026-11-02_CHI@SEA/src/snaps_2026.parquet
+runs/2026-11-02_CHI@SEA/src/snap_counts_2026.parquet
+runs/2026-11-01_run_additions.md
+GAME_SCRIPT_2026-10-29.md
+runs/2026-11-02_SEA_CHI_ghost6/src/play_by_play_2026.parquet
+runs/2026-11-02_SEA_CHI_ghost6/src/forecast_2026-11-02_0504.json
+runs/2026-11-02_shared_src/play_by_play_2026.parquet
+runs/2026-11-02_shared_src/ftn_charting_2026.parquet
+runs/2026-11-02_CHI@SEA_r2/src/pfr_def_adv_2026_1102.html
+runs/2026-11-02_CHI@SEA_r2/src/snaps_2026.parquet
+runs/2026-11-02_CHI@SEA_r2/src/pbp_participation_2026.parquet
+runs/2026-11-02_CHI@SEA_r2/src/depth_charts_2026.parquet
+runs/2026-11-02_CHI@SEA_r2/src/play_by_play_2026.parquet
+runs/2026-11-02_CHI@SEA_r2/src/ftn_charting_2026.parquet
+runs/2026-11-02_CHI@SEA_r2/src/build.py
+runs/2026-11-02_CHI@SEA_r2/src/forecast_2026-11-02_0504.json
+runs/2026-11-02_CHI@SEA_r2/src/injuries_2026.parquet
+runs/2026-11-02_CHI@SEA_r2/src/snap_counts_2026.parquet
+playlogs/game_scripts_2026.csv.pre_snf.bak
+runs/2026-11-01_vetting_notes.md
+runs/2026-11-02_CHI@SEA_r3/src/pfr_def_adv_2026_1102.html
+runs/2026-11-02_CHI@SEA_r3/src/pbp_participation_2026.parquet
+runs/2026-11-02_CHI@SEA_r3/src/depth_charts_2026.parquet
+runs/2026-11-02_CHI@SEA_r3/src/play_by_play_2026.parquet
+runs/2026-11-02_CHI@SEA_r3/src/ftn_charting_2026.parquet
+runs/2026-11-02_CHI@SEA_r3/src/build.py
+runs/2026-11-02_CHI@SEA_r3/src/injuries_2026.parquet
+runs/2026-11-02_CHI@SEA_r3/src/forecast_2026-11-02_1638.json
+runs/2026-11-02_CHI@SEA_r3/src/snaps_2026.parquet
+runs/2026-11-02_CHI@SEA_r3/src/snap_counts_2026.parquet
+rematches/PIT_CLE/film/PIT_CLE_wk4_2026_highlights.mp4
+runs/2026-11-05_JAX@BAL_r2/build.py
+digests/practice_2026-11-04.md
+runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet
+runs/2026-11-05_JAX@BAL_r2/src/ftn_charting_2026.parquet
+runs/2026-11-05_JAX@BAL_r2/src/forecast_2026-11-03_1915.json
+playlogs/game_scripts_2026.csv.pre_cargb.bak
+runs/rams_cardinals_2026-11-15/rams_cardinals_2026-11-15.md
+runs/2026-11-05_JAX@BAL_r6/grok/forecast_2026-11-04_1521.json
+runs/2026-11-05_JAX@BAL/build.py
+penalties/penalties_2026.csv
+penalties/build.py
+penalties/drive_killers_2026.csv
+blocked/2026-11-05/THU-2026-11-05.md
+blocked/2026-11-05/THU-2026-11-05.json
+runs/2026-11-05_JAX@BAL/src/play_by_play_2026.parquet
+runs/2026-11-05_JAX@BAL/src/ftn_charting_2026.parquet
+slips/2026-11-02_MNF_CHI_SEA_graded.md
+slips/2026-11-05_THU.json
+playlogs/archetype_vs_defense_2026.csv
+playlogs/archetype_vs_defense_2026.csv.pre_fix1617.bak
+playlogs/game_scripts_2026.csv
+playlogs/game_scripts_2026.csv.pre_4pm.bak
+teams/penalties_2026.csv
+docs/superpowers/plans/2026-11-03-data-coverage-timeline.md
+teams/build.py
+teams/penalty_plays_2026.csv
+docs/superpowers/plans/2026-11-03-locked-door-plan.md
+runs/2026-11-05_JAX@BAL_r6/codex/coverage_overrides_2026-11-04.json
+docs/superpowers/specs/2026-11-03-locked-door-design.md
+docs/superpowers/specs/2026-11-03-odds-bridge-gap-report.md
+docs/superpowers/specs/2026-11-03-odds-bridge-data-audit.md
+docs/superpowers/specs/2026-11-03-rule-enforcement-audit.md
+runs/2026-11-01_shared_src/pfr_def_adv_2026_fresh.html
+cards/2026-11-01_sun0800.md
+runs/2026-11-01_shared_src/play_by_play_2026.parquet
+runs/2026-11-01_shared_src/ftn_charting_2026.parquet
+runs/2026-11-01_shared_src/snap_counts_2026.parquet
+runs/2026-11-01_matchup_run/build.py
+teams/brainstorm_context/2026-11-03_cbs_coordinators.md
+teams/penalty_rates_2026.csv
+week9/weather_forecast/forecast_2026-11-02_1002.json
+week9/weather_forecast/forecast_2026-11-04_1003.json
+week9/weather_forecast/forecast_2026-11-01_2250.json
+week9/weather_forecast/forecast_2026-11-03_1004.json
+week9/weather_forecast/forecast_2026-11-03_0955.json
+runs/2026-11-01_BONUS_SLIP/build.py
+postmortems/RB_MISSES_2026-11-01.md
+postmortems/DAL_PHI_2026-10-26.md
+postmortems/CAR_GB_2026-10-29.md
+postmortems/WEEK8_SUNDAY_MISSED_EDGES_2026-11-01.md.pre_lessons_audit.bak
+postmortems/WEEK8_SUNDAY_MISSED_EDGES_BETGURU_XCHECK_2026-11-01.md
+postmortems/WEEK8_SUNDAY_MISSED_EDGES_2026-11-01.md
+postmortems/WEEK8_SUNDAY_1PM_2026-11-01.md
+postmortems/WEEK7_SUNDAY_2026-10-25.md
+postmortems/WATCHLIST_2026.md
+postmortems/2026-11-01_4pm.md
+postmortems/2026-11-01_snf.md
+postmortems/2026-11-03_MNF_CHI_SEA.md
+postmortems/2026-11-03_code_notes_for_ghost6.md
+postmortems/SUAVE_BETS_WEEK8_SUN_2026-11-01.md
+postmortems/WEEK8_BETGURU_GIBBS_BAL_2026-11-01.md
+postmortems/2026-11-01_1pm.md
+postmortems/WEEK8_SUNDAY_MISSED_EDGES_2026-11-01.md.pre_4pm.bak
+postmortems/WEEK8_DEFENSE_DISSECTION_2026-11-01.md
+week8/sources/espn_trade_deadline_2026.md
+week8/sources/espn_standings_leaders_2026-10-29.json
+week8/sources/espn_standings_leaders_2026-10-29.md
+PHASE_SCRIPT.bak_2026-10-29.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_BONUS_SLIP_4PM.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_LAC@LAR.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_BONUS_SLIP.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_IND@JAX.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_LAC@LAR.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_FD7_REPLACEMENTS.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_CLE@PIT.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_IND@JAX.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_shared_src.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_KC@DEN.txt
+week9/model/team_volume_2026-11-02.csv
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_ATL@TB.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_NE@MIA.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_LV@NYJ.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_BONUS_SLIP.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_LV@NYJ.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_MIN@DET.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_DFS_SLIPS.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_ATL@TB.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_NE@MIA.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_PHI@WSH.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_vetting.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_PHI@WSH.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_ARI@DAL.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_matchup_run.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_TEN@CIN.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_BONUS_SLIP_4PM.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_FD7_REPLACEMENTS.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_MIN@DET.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_BAL@BUF.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_ARI@DAL.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_TEN@CIN.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_KC@DEN.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_DFS_SLIPS.txt
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_CLE@PIT.report.md
+audits/2026-11-02_rico4/nov1_snapshot/2026-11-01_BAL@BUF.report.md
+week10/injury_sweep_2026-11-04.md
+week9/model/raw/sb_20261101.json
+week9/model/raw/hdr_20261102_1002.txt
+week9/model/raw/odds_20261103_1004.json
+week9/model/raw/odds_20261101_2125.json
+week9/model/raw/espn_injuries_20261101.json
+week9/model/raw/hdr_20261103_1004.txt
+week9/model/raw/espn_injuries_20261102.json
+week9/model/raw/espn_injuries_20261103.json
+week9/model/raw/odds_20261104_1003.json
+week9/model/raw/props_JAXBAL_20261102_1004.json
+week9/model/raw/espn_injuries_20261104.json
+week9/model/raw/hdr_20261104_1003.txt
+week9/model/raw/odds_20261102_1002.json
+sources/nflverse/roster_weekly_2026.csv.gz
+sources/nflverse/pbp_2026.csv.gz
+sources/nflverse/ftn_charting_2026.csv
+sources/nflverse/snap_counts_2026.csv.gz
+sources/nflverse/roster_2026.csv
+sources/free_source_discovery_2026-11-01.md
+week9/model/slate/SLATE_2026-11-04.md
+week9/model/slate/SLATE_2026-11-02.md
+week9/model/slate/SLATE_2026-11-01.md
+week9/model/slate/SLATE_2026-11-03.md
+week9/model/penix_splits_2026-11-02.json
+week9/model/run_defense_tiers_2026-11-03.csv
+week9/model/rb_logs_2026-11-03.json
+week9/model/penix_splits_2026-11-03.json
+week9/model/weather/WEATHER_2026-11-01.md
+week9/model/weather/WEATHER_2026-11-04.md
+week9/model/weather/WEATHER_2026-11-03.md
+week9/model/weather/WEATHER_2026-11-02.md
+week9/model/LEANS_2026-11-01.md
+week9/model/rb_logs_2026-11-02.json
+week9/model/rb_logs_2026-11-01.json
+week9/model/TRAVEL_RANDOMNESS_2026-11-01.md
+backtests/scan_press/press_live_2026.csv
+week8/slips/slips_2026-11-01.md
+week8/slips/sgp8_2026-10-30.md
+week8/slips/slips_2026-11-01.md.pre_snf.bak
+week9/model/tools/build_20261102.py
+week9/model/tools/build.py
+week9/model/tools/build_20261103.py
+week9/model/run_defense_tiers_2026-11-02.csv
+week9/model/REFRESH_2026-11-03_1004.md
+week9/model/sims/sim_v6_tuten_2026-11-02.json
+week9/model/REFRESH_2026-11-02_1002.md
+week9/model/REFRESH_2026-11-04_1003.md
+week9/model/defense_blitz_pressure_2026-11-02.csv
+week9/model/penix_splits_2026-11-01.json
+week9/model/team_volume_2026-11-03.csv
+week9/model/defense_blitz_pressure_2026-11-01.csv
+week9/model/RUN_D_TIERS_2026-11-01.md
+week9/model/defense_blitz_pressure_2026-11-03.csv
+week9/model/team_volume_2026-11-01.csv
+week9/model/run_defense_tiers_2026-11-01.csv
+week10/bal_secondary/raw/pfr_bal_2026_def.html
+week10/bal_secondary/raw/pbp_participation_2026.parquet
+week10/bal_secondary/raw/play_by_play_2026.parquet
+week10/bal_secondary/raw/ftn_charting_2026.parquet
+week10/bal_secondary/raw/roster_weekly_2026.parquet
+week10/bal_secondary/raw/injuries_2026.parquet
+week10/bal_def_snapshot/build.py
+week10/bal_secondary/raw/pfr_2026_defense_advanced.html
+week10/bal_secondary/raw/snap_counts_2026.parquet
+week10/news/espn_injuries_20261104_1210.json
+week10/news/espn_injuries_20261104_1700.json
+week10/brainstorm_layers/build.py
+outlier/outlier_props_2026-10-30.csv
+outlier/qb_completions_2026-10-31.csv
+week10/fagnano/profile_v2/strange_catch_yds_2026.npy
+week10/jax_usage/build.py
+fixes/src/play_by_play_2026.parquet
+fixes/src/roster_weekly_2026.parquet
+fixes/src/injuries_2026.parquet
+fixes/src/snap_counts_2026.parquet
+fixes/src/stats_player_week_2026.parquet
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_BONUS_SLIP_4PM.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_IND@JAX.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_LAC@LAR.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_FD7_REPLACEMENTS.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_CLE@PIT.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_KC@DEN.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_ATL@TB.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_BONUS_SLIP.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_LV@NYJ.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_NE@MIA.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_PHI@WSH.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_ARI@DAL.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_MIN@DET.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_BAL@BUF.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_TEN@CIN.txt
+audits/2026-11-01_rico_backtests/gate_after/2026-11-01_DFS_SLIPS.txt
+week8/betguru_2026-11-01_raw/film/CeeDee_Lamb/2026-10-26_Dallas_Cowboys_at_Philadelphia_Eagles.webm
+week10/sea_backup_qb/build.py
+tools/run_gate.py.bak_20261101_1525
+tools/sim_v6.py.bak_20261101_1540
+tools/run_gate.py.bak_20261101_1440
+tools/schedule_2026_wk9.json
+tools/run_gate.py.bak_20261101_1540
+week8/betguru_2026-11-01_raw/film/DK_Metcalf/2026-10-18_Pittsburgh_Steelers_at_Tampa_Bay_Buccaneers.webm
+week8/betguru_2026-11-01_raw/film/DK_Metcalf/2026-10-25_Pittsburgh_Steelers_at_New_Orleans_Saints.webm
+week8/betguru_2026-11-01_raw/film/DK_Metcalf/2026-10-01_Pittsburgh_Steelers_at_Cleveland_Browns.webm
+week8/betguru_2026-11-01_raw/film/Antonio_Williams/2026-10-11_New_York_Giants_at_Washington_Commanders.webm
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_BONUS_SLIP_4PM.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_IND@JAX.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_LAC@LAR.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_FD7_REPLACEMENTS.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_CLE@PIT.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_KC@DEN.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_ATL@TB.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_BONUS_SLIP.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_LV@NYJ.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_NE@MIA.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_PHI@WSH.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_ARI@DAL.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_MIN@DET.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_BAL@BUF.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_TEN@CIN.txt
+audits/2026-11-01_rico_backtests/gate_before/2026-11-01_DFS_SLIPS.txt
+week8/betguru_2026-11-01_raw/outlier_pull_2026-10-31_7pm.md
+week8/injury_sweep_2026-11-01.md
+week8/betguru_2026-11-01_raw/film/Trey_McBride/2026-10-25_Denver_Broncos_at_Arizona_Cardinals.webm
+week8/betguru_2026-11-01_raw/film/Trey_McBride/2026-10-11_Detroit_Lions_at_Arizona_Cardinals.webm
+week8/betguru_2026-11-01_raw/film/Trey_McBride/2026-10-18_Arizona_Cardinals_at_Los_Angeles_Rams.webm
+audits/source_audit_patches/inplay_rows_2026-11-01.txt
+week8/betguru_2026-11-01_raw/film/Josh_Downs/2026-10-25_Indianapolis_Colts_at_Minnesota_Vikings.webm
+week8/pff_correlation_2026-11-01.md
+week8/betguru_2026-11-01_raw/film/Josh_Downs/2026-10-18_Tennessee_Titans_at_Indianapolis_Colts.webm
+week8/betguru_three_groups_2026-11-01.md
+week8/betguru_three_groups_2026-11-01_groups1031.csv
+week8/betguru_2026-11-01_raw/film/Jahmyr_Gibbs/2026-10-11_Detroit_Lions_at_Arizona_Cardinals.webm
+week8/betguru_2026-11-01_raw/film/Jahmyr_Gibbs/2026-10-25_Green_Bay_Packers_at_Detroit_Lions.webm
+audits/pff_raw/premium_teams_2026_locked.png
+audits/PFF_AUDIT_2026-11-01.md
+week8/defender_regrade_2026-11-01.md
+week8/raw_inj_2026-10-29_1741.json
+week8/betguru_2026-11-01_raw/film/Puka_Nacua/2026-10-12_Buffalo_Bills_at_Los_Angeles_Rams.webm
+week8/betguru_2026-11-01_raw/film/Puka_Nacua/2026-10-25_Los_Angeles_Rams_at_Las_Vegas_Raiders.webm
+week8/betguru_2026-11-01_raw/film/Puka_Nacua/2026-10-18_Arizona_Cardinals_at_Los_Angeles_Rams.webm
+tools/sim_v6.py.bak_20261101_1525
+week8/betguru_2026-11-01_raw/film/Ryan_Flournoy/2026-10-26_Dallas_Cowboys_at_Philadelphia_Eagles.webm
+audits/2026-11-01_lessons/gate_after/2026-11-01_BONUS_SLIP_4PM.txt
+week8/lines/raw/fd_36215313_passing-props_20261030T0125.json
+audits/2026-11-01_lessons/gate_after/2026-11-01_IND@JAX.txt
+week8/lines/raw/fd_36215319_passing-props_20261030T0126.json
+audits/2026-11-01_lessons/gate_after/2026-11-01_LAC@LAR.txt
+week8/lines/raw/fd_36215319_rushing-props_20261030T0126.json
+audits/2026-11-01_lessons/gate_after/2026-11-01_FD7_REPLACEMENTS.txt
+week8/lines/raw/fd_36215313_receiving-props_20261030T0125.json
+audits/2026-11-01_lessons/gate_after/2026-11-01_CLE@PIT.txt
+week8/lines/raw/fd_36215319_td-scorer-props_20261030T0125.json
+audits/2026-11-01_lessons/gate_after/2026-11-01_KC@DEN.txt
+week8/lines/raw/fd_36215316_receiving-props_20261030T0125.json
+week8/lines/raw/fd_36215316_td-scorer-props_20261030T0126.json
+week8/lines/raw/pp_20261030T0125.json
+week8/lines/raw/fd_36215319_rushing-props_20261030T0125.json
+week8/lines/raw/fd_36215316_passing-props_20261030T0125.json
+week8/lines/raw/fd_36215316_passing-props_20261030T0126.json
+week8/lines/raw/fd_36215319_passing-props_20261030T0125.json
+week8/lines/raw/fd_36215313_td-scorer-props_20261030T0126.json
+week8/lines/raw/fd_36215313_passing-props_20261030T0126.json
+week8/lines/raw/fd_36215313_td-scorer-props_20261030T0125.json
+week8/lines/raw/fd_36215319_td-scorer-props_20261030T0126.json
+week8/lines/raw/fd_36215319_receiving-props_20261030T0125.json
+week8/lines/raw/fd_36215319_receiving-props_20261030T0126.json
+week8/lines/raw/pp_20261030T0126.json
+week8/lines/raw/fd_36215313_rushing-props_20261030T0125.json
+week8/lines/raw/fd_36215313_rushing-props_20261030T0126.json
+week8/lines/raw/fd_36215316_td-scorer-props_20261030T0125.json
+week8/lines/raw/fd_36215316_rushing-props_20261030T0125.json
+week8/lines/raw/fd_36215316_receiving-props_20261030T0126.json
+week8/lines/raw/fd_36215313_receiving-props_20261030T0126.json
+week8/lines/raw/fd_36215316_rushing-props_20261030T0126.json
+audits/2026-11-01_lessons/gate_after/2026-11-01_ATL@TB.txt
+week8/lines/pff_props_2026-11-01.csv
+audits/2026-11-01_lessons/gate_after/2026-11-01_BONUS_SLIP.txt
+week8/lines/props_2026-10-30_fanduel.csv
+audits/2026-11-01_lessons/gate_after/2026-11-01_LV@NYJ.txt
+week8/lines/props_2026-10-30_prizepicks.csv
+audits/2026-11-01_lessons/gate_after/2026-11-01_NE@MIA.txt
+audits/2026-11-01_lessons/gate_after/2026-11-01_PHI@WSH.txt
+audits/2026-11-01_lessons/gate_after/2026-11-01_ARI@DAL.txt
+audits/2026-11-01_lessons/gate_after/2026-11-01_MIN@DET.txt
+audits/2026-11-01_lessons/gate_after/2026-11-01_BAL@BUF.txt
+audits/2026-11-01_lessons/gate_after/2026-11-01_TEN@CIN.txt
+audits/2026-11-01_lessons/gate_after/2026-11-01_DFS_SLIPS.txt
+week8/betguru_2026-11-01_raw/film/Brock_Bowers/2026-10-11_Las_Vegas_Raiders_at_New_England_Patriots.webm
+week8/betguru_2026-11-01_raw/film/Brock_Bowers/2026-10-18_Buffalo_Bills_at_Las_Vegas_Raiders.webm
+week8/betguru_2026-11-01_raw/film/Brock_Bowers/2026-10-25_Los_Angeles_Rams_at_Las_Vegas_Raiders.webm
+audits/2026-11-01_lessons/gate_after2/2026-11-01_BONUS_SLIP_4PM.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_IND@JAX.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_LAC@LAR.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_FD7_REPLACEMENTS.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_CLE@PIT.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_KC@DEN.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_ATL@TB.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_BONUS_SLIP.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_LV@NYJ.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_NE@MIA.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_PHI@WSH.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_ARI@DAL.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_MIN@DET.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_BAL@BUF.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_TEN@CIN.txt
+audits/2026-11-01_lessons/gate_after2/2026-11-01_DFS_SLIPS.txt
+week8/betguru_2026-11-01_raw/film/Laquon_Treadwell/2026-10-25_Indianapolis_Colts_at_Minnesota_Vikings.webm
+week8/betguru_2026-11-01_raw/film/Laquon_Treadwell/2026-10-18_Tennessee_Titans_at_Indianapolis_Colts.webm
+week8/betguru_2026-11-01_raw/film/Tee_Higgins/2026-10-04_Jacksonville_Jaguars_at_Cincinnati_Bengals.webm
+week8/betguru_2026-11-01_raw/film/Tee_Higgins/2026-10-11_Cincinnati_Bengals_at_Miami_Dolphins.webm
+week8/betguru_2026-11-01_raw/film/Tee_Higgins/2026-10-25_Cincinnati_Bengals_at_Baltimore_Ravens.webm
+week8/betguru_2026-11-01_raw/coverage_routes/pbp_participation_2026.parquet
+week8/betguru_2026-11-01_raw/coverage_routes/pfr_def_adv_2026.html
+week8/betguru_2026-11-01_raw/coverage_routes/ftn_charting_2026.parquet
+week8/betguru_2026-11-01_raw/coverage_routes/pfr_def_adv_2026.csv
+week8/betguru_2026-11-01_raw/fd_alts_20261031T2018.csv
+week8/betguru_2026-11-01_raw/fd_alts_20261031T2018_pulled_at.txt
+week8/betguru_2026-11-01_raw/fd_alts_20261031T2018.json
+audits/2026-11-01_lessons/gate_before/2026-11-01_BONUS_SLIP_4PM.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_IND@JAX.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_LAC@LAR.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_FD7_REPLACEMENTS.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_CLE@PIT.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_KC@DEN.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_ATL@TB.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_BONUS_SLIP.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_LV@NYJ.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_NE@MIA.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_PHI@WSH.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_ARI@DAL.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_MIN@DET.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_BAL@BUF.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_TEN@CIN.txt
+audits/2026-11-01_lessons/gate_before/2026-11-01_DFS_SLIPS.txt
+audits/REPLACEMENT_SOURCES_2026-11-01.md
+audits/SOURCE_AUDIT_2026-11-01.md
+tools/sim_v6_fix/sim_v6_src/play_by_play_2026.parquet
+week8/rematches/build.py
+week8/defense/raw/ftn_charting_2026.parquet
+week8/defense/build.py
+week8/defense/espn_scoreboard_20261101.json
+week8/ghost6_vet_blitz_run_2026-11-01.md
+week8/breakdown/build.py
+reviews/openai_2026-11-03/chatgpt_share_rico_2026-11-03.md
+week8/phase_walk/runs/betguru_refresh_20261101T0612/pfr_def_2026.html
+week8/phase_walk/runs/betguru_refresh_20261101T0612/espn_inj_20261101_0615.json
+week8/phase_walk/runs/betguru_refresh_20261101T0612/pfr_def_players_2026.html
+week8/phase_walk/pressure_checkdown_2026-11-01.md
+week8/phase_walk/alt_ladder_2026-11-01.md
+week8/phase_walk/runs/betguru_20261031T194324/espn_inj_20261031_eve.json
+week8/phase_walk/runs/betguru_20261031T194324/fd_snapshot_20261031_1937.csv
+week8/phase_walk/runs/betguru_20261031T194324/nws_20261031.json
+week8/phase_walk/consensus_2026-11-01.md
+backtests/v7_openai/data/player_games_2026.csv
+week8/inactives/espn_inj_20261101_1501.json
+week8/inactives/espn_inj_20261101_1530.json
+week8/inactives/espn_inj_20261101_1445.json
+week8/inactives/espn_inj_20261101_1852.json
+week8/inactives/phase15_4pm_2026-11-01.md
+week8/inactives/espn_inj_20261101_1442.json
+week8/inactives/phase15_snf_2026-11-01.md
+week8/inactives/espn_inj_20261101_1137.json
+week8/inactives/phase15_1pm_2026-11-01.md
+week8/inactives/espn_inj_20261101_1152.json
+week8/phase_walk/src/play_by_play_2026.parquet
+week8/player_types/build.py
+week8/weather/nws_20261101_1530.json
+week8/weather/nws_20261101_1440.json
+week8/weather/om_PHIWSH_20261101_1855.json
+week8/ghost6_vet_2026-11-01.md
+week8/phase_walk/src/snap_counts_2026.parquet
+week8/phase_walk/src/espn_inj_20261031_eve.json
+week8/phase_walk/src/fd_snapshot_20261031_1937.csv
+week8/phase_walk/src/nws_20261031.json
+week8/betguru_three_groups_2026-11-01.csv
+backtests/vig_median_nflverse_2026-11-03/data/ftn_charting_2026.parquet
+backtests/vig_median_nflverse_2026-11-03/data/snap_counts_2026.parquet
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-18T200500Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-18T202500Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-25T170000Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-11-01T210500Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-23T001500Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-11-02T012000Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-16T001500Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-27T001500Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-11-01T180000Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-25T200500Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-25T202500Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-30T001500Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-26T002000Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-19T002000Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-25T133250Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-18T133238Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-11-03T012000Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-20T001500Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-11-01T212500Z.json
+backtests/rulebook_replay_wk6_8/raw/game_2026-10-18T170000Z.json
+backtests/yardage_markets_wk3_8/v3/build.py
+backtests/yardage_markets_wk3_8/build.py
+backtests/yardage_markets_wk3_8/v2/build.py
+
+exec
+/bin/bash -lc 'for p in /AGENTS.md /workspace/AGENTS.md /workspace/nfl-database/AGENTS.md /workspace/nfl-database/week10/AGENTS.md /workspace/nfl-database/week10/meyers_wash_strange/AGENTS.md /workspace/nfl-database/week10/meyers_wash_strange/offense/AGENTS.md /workspace/nfl-database/week10/meyers_wash_strange/offense/runA/AGENTS.md; do if [ -f "$p" ]; then cat "$p"; fi; done; cat week10/brainstorm_layers/build.py' in /workspace/nfl-database
+ succeeded in 0ms:
+import pandas as pd, numpy as np
+O='week10/brainstorm_layers/'
+p=pd.read_csv('sources/nflverse/pbp_2026.csv.gz',low_memory=False)
+f=pd.read_csv('sources/nflverse/ftn_charting_2026.csv')
+p=p.merge(f[['nflverse_game_id','nflverse_play_id','n_blitzers','n_pass_rushers','is_qb_out_of_pocket','is_throw_away','is_screen_pass']],left_on=['game_id','play_id'],right_on=['nflverse_game_id','nflverse_play_id'],how='left')
+p=p[p.week<=8]
+# L1 drives
+d=p[p.drive.notna()&p.posteam.notna()].groupby(['game_id','posteam','drive']).agg(week=('week','first'),plays=('play_id','size'),
+  first_downs=('first_down','sum'),top=('drive_time_of_possession','first'),res=('fixed_drive_result','first'),passer=('passer_player_name',lambda s:s.dropna().mode().iloc[0] if s.dropna().size else None)).reset_index()
+def sec(t):
+  try: m,s=str(t).split(':');return int(m)*60+int(s)
+  except: return np.nan
+d['top_s']=d.top.map(sec); d['three_out']=((d.first_downs==0)&(d.res=='Punt')).astype(int)
+rows=[]
+for lab,m in [('BAL all',d.posteam=='BAL'),('BAL wk7-8',(d.posteam=='BAL')&(d.week>=7)),('BAL Fagnano drives',(d.posteam=='BAL')&(d.passer=='J.Fagnano')),('JAX all',d.posteam=='JAX'),('LEAGUE',d.posteam.notna())]:
+  x=d[m]; rows.append(dict(split=lab,drives=len(x),games=x.game_id.nunique(),plays_per_drive=round(x.plays.mean(),2),top_per_drive_s=round(x.top_s.mean(),1),three_out_rate=round(x.three_out.mean(),3),score_rate=round(x.res.isin(['Touchdown','Field goal']).mean(),3)))
+L1=pd.DataFrame(rows)
+g=p[p.posteam.isin(['JAX','BAL'])&(p.play_type.isin(['pass','run']))].groupby(['posteam','game_id']).agg(plays=('play_id','size')).reset_index()
+gt=d[d.posteam.isin(['JAX','BAL'])].groupby(['posteam','game_id']).top_s.sum().reset_index()
+L1b=g.merge(gt).groupby('posteam').agg(games=('game_id','size'),off_plays_pg=('plays','mean'),top_min_pg=('top_s',lambda s:s.mean()/60)).round(2).reset_index()
+# BAL qb by game
+bq=p[(p.posteam=='BAL')&(p.pass_attempt==1)|(p.posteam=='BAL')&(p.sack==1)].groupby(['week','passer_player_name']).agg(dropbacks=('play_id','size'),yds=('passing_yards','sum'),sacks=('sack','sum'),epa=('epa','mean')).round(3).reset_index()
+L1.to_csv(O+'L1_drives.csv',index=False);L1b.to_csv(O+'L1_pace.csv',index=False);bq.to_csv(O+'L1_bal_qbs.csv',index=False)
+print(L1.to_string());print(L1b.to_string());print(bq.to_string())
+# L2
+db=p[(p.qb_dropback==1)&(p.two_point_attempt!=1)]
+bal=db[db.defteam=='BAL']; lg=db
+def rates(x):return dict(dropbacks=len(x),ftn_charted=int(x.n_pass_rushers.notna().sum()),blitz_rate=round((x.n_blitzers>0).mean(),3) if x.n_blitzers.notna().any() else None,
+  rush5plus=round((x.n_pass_rushers>=5).mean(),3),sack_rate=round(x.sack.mean(),3),qbhit_or_sack=round(((x.qb_hit==1)|(x.sack==1)).mean(),3))
+L2a=pd.DataFrame([dict(team='BAL def',**rates(bal[bal.n_blitzers.notna()])),dict(team='LEAGUE',**rates(lg[lg.n_blitzers.notna()]))])
+t=db[(db.posteam=='JAX')&(db.passer_player_name=='T.Lawrence')|(db.posteam=='JAX')&(db.sack==1)].copy()
+t['blitz']=np.where(t.n_blitzers.isna(),'uncharted',np.where(t.n_blitzers>0,'blitz','no blitz'))
+t['pressure_proxy']=np.where((t.qb_hit==1)|(t.sack==1)|(t.is_qb_out_of_pocket==1)|(t.qb_scramble==1),'pressured(proxy)','clean(proxy)')
+def qs(x):
+  a=x[(x.pass_attempt==1)&(x.sack!=1)]
+  return pd.Series(dict(dropbacks=len(x),att=len(a),cmp_pct=round(a.complete_pass.mean(),3),ypa=round(a.passing_yards.fillna(0).mean(),2),sack_rate=round(x.sack.mean(),3),
+   epa_db=round(x.epa.mean(),3),ball_out_rate=round(len(a)/len(x),3),throwaway=int(x.is_throw_away.fillna(0).sum()),int_=int(x.interception.sum()),
+   third_down_db=int((x.down==3).sum()),third_conv=round(x[x.down==3].first_down.mean(),3) if (x.down==3).any() else None))
+L2b=pd.concat([t.groupby('blitz').apply(qs),t.groupby('pressure_proxy').apply(qs),pd.DataFrame([qs(t)],index=['ALL'])])
+L2a.to_csv(O+'L2_bal_pressure.csv',index=False);L2b.to_csv(O+'L2_lawrence_splits.csv')
+print(L2a.to_string());print(L2b.to_string())
+tp=t[t.receiver_player_name.notna()]
+L2c=pd.crosstab(tp.receiver_player_name,[tp.pressure_proxy]).join(pd.crosstab(tp.receiver_player_name,tp.blitz),rsuffix='_b')
+L2c=L2c.sort_values('pressured(proxy)',ascending=False);L2c.to_csv(O+'L2_targets_under_pressure.csv');print(L2c.head(10).to_string())
+# L4 route proxy
+j=p[(p.posteam=='JAX')&(p.pass_attempt==1)&p.receiver_player_name.notna()].copy()
+j['depth']=pd.cut(j.air_yards,[-99,0,4.99,14.99,99],labels=['behind_los','short1-4','int5-14','deep15+'])
+L4=j.groupby(['receiver_player_name','pass_location','depth'],observed=True).agg(tgt=('play_id','size'),rec=('complete_pass','sum'),yds=('receiving_yards','sum')).reset_index()
+L4=L4[L4.receiver_player_name.isin(['P.Washington','B.Strange','J.Meyers','Bri.Thomas','B.Tuten','C.Rodriguez','L.Allen'])]
+L4.to_csv(O+'L4_route_proxy.csv',index=False)
+piv=j[j.receiver_player_name.isin(L4.receiver_player_name.unique())].assign(area=lambda x:x.pass_location.fillna('na')+'/'+x.depth.astype(str))
+pv=pd.crosstab(piv.receiver_player_name,piv.area);print(pv.to_string())
+s=j.groupby('receiver_player_name').agg(scr=('is_screen_pass',lambda s:int(s.fillna(0).sum())),tgt=('play_id','size'));print(s.sort_values('tgt').tail(8))
+# L6 BAL by area to TEs vs WR
+r=pd.read_csv('sources/nflverse/roster_2026.csv')[['gsis_id','position']].drop_duplicates('gsis_id')
+b=p[(p.defteam=='BAL')&(p.pass_attempt==1)&p.receiver_player_id.notna()].merge(r,left_on='receiver_player_id',right_on='gsis_id',how='left')
+b['depth']=pd.cut(b.air_yards,[-99,4.99,14.99,99],labels=['short<5','int5-14','deep15+'])
+L6=b.groupby(['position','pass_location','depth'],observed=True).agg(tgt=('play_id','size'),yds=('receiving_yards','sum'),epa=('epa','mean')).reset_index()
+L6['ypt']=(L6.yds/L6.tgt).round(2);L6.to_csv(O+'L6_bal_allowed_by_pos_area.csv',index=False);print(L6.to_string())
+
+exec
+/bin/bash -lc "python - <<'PY'
+import pandas as pd
+from pathlib import Path
+for n in ['pbp_2026.csv.gz','ftn_charting_2026.csv','snap_counts_2026.csv.gz','roster_weekly_2026.csv.gz']:
+ p=Path('sources/nflverse')/n
+ d=pd.read_csv(p,nrows=2)
+ print(n, list(d.columns))
+ print(d.to_string(index=False)[:1500] if 'pbp' not in n else '')
+PY" in /workspace/nfl-database
+ exited 127 in 0ms:
+/bin/bash: line 1: python: command not found
+
+exec
+/bin/bash -lc "python3 - <<'PY'
+import pandas as pd
+for n in ['pbp_2026.csv.gz','ftn_charting_2026.csv','snap_counts_2026.csv.gz','roster_weekly_2026.csv.gz']:
+ d=pd.read_csv('sources/nflverse/'+n,nrows=1); print(n, list(d.columns))
+PY" in /workspace/nfl-database
+ succeeded in 211ms:
+pbp_2026.csv.gz ['play_id', 'game_id', 'old_game_id', 'home_team', 'away_team', 'season_type', 'week', 'posteam', 'posteam_type', 'defteam', 'side_of_field', 'yardline_100', 'game_date', 'quarter_seconds_remaining', 'half_seconds_remaining', 'game_seconds_remaining', 'game_half', 'quarter_end', 'drive', 'sp', 'qtr', 'down', 'goal_to_go', 'time', 'yrdln', 'ydstogo', 'ydsnet', 'desc', 'play_type', 'yards_gained', 'shotgun', 'no_huddle', 'qb_dropback', 'qb_kneel', 'qb_spike', 'qb_scramble', 'pass_length', 'pass_location', 'air_yards', 'yards_after_catch', 'run_location', 'run_gap', 'field_goal_result', 'kick_distance', 'extra_point_result', 'two_point_conv_result', 'home_timeouts_remaining', 'away_timeouts_remaining', 'timeout', 'timeout_team', 'td_team', 'td_player_name', 'td_player_id', 'posteam_timeouts_remaining', 'defteam_timeouts_remaining', 'total_home_score', 'total_away_score', 'posteam_score', 'defteam_score', 'score_differential', 'posteam_score_post', 'defteam_score_post', 'score_differential_post', 'no_score_prob', 'opp_fg_prob', 'opp_safety_prob', 'opp_td_prob', 'fg_prob', 'safety_prob', 'td_prob', 'extra_point_prob', 'two_point_conversion_prob', 'ep', 'epa', 'total_home_epa', 'total_away_epa', 'total_home_rush_epa', 'total_away_rush_epa', 'total_home_pass_epa', 'total_away_pass_epa', 'air_epa', 'yac_epa', 'comp_air_epa', 'comp_yac_epa', 'total_home_comp_air_epa', 'total_away_comp_air_epa', 'total_home_comp_yac_epa', 'total_away_comp_yac_epa', 'total_home_raw_air_epa', 'total_away_raw_air_epa', 'total_home_raw_yac_epa', 'total_away_raw_yac_epa', 'wp', 'def_wp', 'home_wp', 'away_wp', 'wpa', 'vegas_wpa', 'vegas_home_wpa', 'home_wp_post', 'away_wp_post', 'vegas_wp', 'vegas_home_wp', 'total_home_rush_wpa', 'total_away_rush_wpa', 'total_home_pass_wpa', 'total_away_pass_wpa', 'air_wpa', 'yac_wpa', 'comp_air_wpa', 'comp_yac_wpa', 'total_home_comp_air_wpa', 'total_away_comp_air_wpa', 'total_home_comp_yac_wpa', 'total_away_comp_yac_wpa', 'total_home_raw_air_wpa', 'total_away_raw_air_wpa', 'total_home_raw_yac_wpa', 'total_away_raw_yac_wpa', 'punt_blocked', 'first_down_rush', 'first_down_pass', 'first_down_penalty', 'third_down_converted', 'third_down_failed', 'fourth_down_converted', 'fourth_down_failed', 'incomplete_pass', 'touchback', 'interception', 'punt_inside_twenty', 'punt_in_endzone', 'punt_out_of_bounds', 'punt_downed', 'punt_fair_catch', 'kickoff_inside_twenty', 'kickoff_in_endzone', 'kickoff_out_of_bounds', 'kickoff_downed', 'kickoff_fair_catch', 'fumble_forced', 'fumble_not_forced', 'fumble_out_of_bounds', 'solo_tackle', 'safety', 'penalty', 'tackled_for_loss', 'fumble_lost', 'own_kickoff_recovery', 'own_kickoff_recovery_td', 'qb_hit', 'rush_attempt', 'pass_attempt', 'sack', 'touchdown', 'pass_touchdown', 'rush_touchdown', 'return_touchdown', 'extra_point_attempt', 'two_point_attempt', 'field_goal_attempt', 'kickoff_attempt', 'punt_attempt', 'fumble', 'complete_pass', 'assist_tackle', 'lateral_reception', 'lateral_rush', 'lateral_return', 'lateral_recovery', 'passer_player_id', 'passer_player_name', 'passing_yards', 'receiver_player_id', 'receiver_player_name', 'receiving_yards', 'rusher_player_id', 'rusher_player_name', 'rushing_yards', 'lateral_receiver_player_id', 'lateral_receiver_player_name', 'lateral_receiving_yards', 'lateral_rusher_player_id', 'lateral_rusher_player_name', 'lateral_rushing_yards', 'lateral_sack_player_id', 'lateral_sack_player_name', 'interception_player_id', 'interception_player_name', 'lateral_interception_player_id', 'lateral_interception_player_name', 'punt_returner_player_id', 'punt_returner_player_name', 'lateral_punt_returner_player_id', 'lateral_punt_returner_player_name', 'kickoff_returner_player_name', 'kickoff_returner_player_id', 'lateral_kickoff_returner_player_id', 'lateral_kickoff_returner_player_name', 'punter_player_id', 'punter_player_name', 'kicker_player_name', 'kicker_player_id', 'own_kickoff_recovery_player_id', 'own_kickoff_recovery_player_name', 'blocked_player_id', 'blocked_player_name', 'tackle_for_loss_1_player_id', 'tackle_for_loss_1_player_name', 'tackle_for_loss_2_player_id', 'tackle_for_loss_2_player_name', 'qb_hit_1_player_id', 'qb_hit_1_player_name', 'qb_hit_2_player_id', 'qb_hit_2_player_name', 'forced_fumble_player_1_team', 'forced_fumble_player_1_player_id', 'forced_fumble_player_1_player_name', 'forced_fumble_player_2_team', 'forced_fumble_player_2_player_id', 'forced_fumble_player_2_player_name', 'solo_tackle_1_team', 'solo_tackle_2_team', 'solo_tackle_1_player_id', 'solo_tackle_2_player_id', 'solo_tackle_1_player_name', 'solo_tackle_2_player_name', 'assist_tackle_1_player_id', 'assist_tackle_1_player_name', 'assist_tackle_1_team', 'assist_tackle_2_player_id', 'assist_tackle_2_player_name', 'assist_tackle_2_team', 'assist_tackle_3_player_id', 'assist_tackle_3_player_name', 'assist_tackle_3_team', 'assist_tackle_4_player_id', 'assist_tackle_4_player_name', 'assist_tackle_4_team', 'tackle_with_assist', 'tackle_with_assist_1_player_id', 'tackle_with_assist_1_player_name', 'tackle_with_assist_1_team', 'tackle_with_assist_2_player_id', 'tackle_with_assist_2_player_name', 'tackle_with_assist_2_team', 'pass_defense_1_player_id', 'pass_defense_1_player_name', 'pass_defense_2_player_id', 'pass_defense_2_player_name', 'fumbled_1_team', 'fumbled_1_player_id', 'fumbled_1_player_name', 'fumbled_2_player_id', 'fumbled_2_player_name', 'fumbled_2_team', 'fumble_recovery_1_team', 'fumble_recovery_1_yards', 'fumble_recovery_1_player_id', 'fumble_recovery_1_player_name', 'fumble_recovery_2_team', 'fumble_recovery_2_yards', 'fumble_recovery_2_player_id', 'fumble_recovery_2_player_name', 'sack_player_id', 'sack_player_name', 'half_sack_1_player_id', 'half_sack_1_player_name', 'half_sack_2_player_id', 'half_sack_2_player_name', 'return_team', 'return_yards', 'penalty_team', 'penalty_player_id', 'penalty_player_name', 'penalty_yards', 'replay_or_challenge', 'replay_or_challenge_result', 'penalty_type', 'defensive_two_point_attempt', 'defensive_two_point_conv', 'defensive_extra_point_attempt', 'defensive_extra_point_conv', 'safety_player_name', 'safety_player_id', 'season', 'cp', 'cpoe', 'series', 'series_success', 'series_result', 'order_sequence', 'start_time', 'time_of_day', 'stadium', 'weather', 'nfl_api_id', 'play_clock', 'play_deleted', 'play_type_nfl', 'special_teams_play', 'st_play_type', 'end_clock_time', 'end_yard_line', 'fixed_drive', 'fixed_drive_result', 'drive_real_start_time', 'drive_play_count', 'drive_time_of_possession', 'drive_first_downs', 'drive_inside20', 'drive_ended_with_score', 'drive_quarter_start', 'drive_quarter_end', 'drive_yards_penalized', 'drive_start_transition', 'drive_end_transition', 'drive_game_clock_start', 'drive_game_clock_end', 'drive_start_yard_line', 'drive_end_yard_line', 'drive_play_id_started', 'drive_play_id_ended', 'away_score', 'home_score', 'location', 'result', 'total', 'spread_line', 'total_line', 'div_game', 'roof', 'surface', 'temp', 'wind', 'home_coach', 'away_coach', 'stadium_id', 'game_stadium', 'aborted_play', 'success', 'passer', 'passer_jersey_number', 'rusher', 'rusher_jersey_number', 'receiver', 'receiver_jersey_number', 'pass', 'rush', 'first_down', 'special', 'play', 'passer_id', 'rusher_id', 'receiver_id', 'name', 'jersey_number', 'id', 'fantasy_player_name', 'fantasy_player_id', 'fantasy', 'fantasy_id', 'out_of_bounds', 'home_opening_kickoff', 'qb_epa', 'xyac_epa', 'xyac_mean_yardage', 'xyac_median_yardage', 'xyac_success', 'xyac_fd', 'xpass', 'pass_oe']
+ftn_charting_2026.csv ['ftn_game_id', 'nflverse_game_id', 'season', 'week', 'ftn_play_id', 'nflverse_play_id', 'starting_hash', 'qb_location', 'n_offense_backfield', 'n_defense_box', 'is_no_huddle', 'is_motion', 'is_play_action', 'is_screen_pass', 'is_rpo', 'is_trick_play', 'is_qb_out_of_pocket', 'is_interception_worthy', 'is_throw_away', 'read_thrown', 'is_catchable_ball', 'is_contested_ball', 'is_created_reception', 'is_drop', 'is_qb_sneak', 'n_blitzers', 'n_pass_rushers', 'is_qb_fault_sack', 'date_pulled']
+snap_counts_2026.csv.gz ['game_id', 'pfr_game_id', 'season', 'game_type', 'week', 'player', 'pfr_player_id', 'position', 'team', 'opponent', 'offense_snaps', 'offense_pct', 'defense_snaps', 'defense_pct', 'st_snaps', 'st_pct']
+roster_weekly_2026.csv.gz ['season', 'team', 'position', 'depth_chart_position', 'jersey_number', 'status', 'full_name', 'first_name', 'last_name', 'birth_date', 'height', 'weight', 'college', 'gsis_id', 'espn_id', 'sportradar_id', 'yahoo_id', 'rotowire_id', 'pff_id', 'pfr_id', 'fantasy_data_id', 'sleeper_id', 'years_exp', 'headshot_url', 'ngs_position', 'week', 'game_type', 'status_description_abbr', 'football_name', 'esb_id', 'gsis_it_id', 'smart_id', 'entry_year', 'rookie_year', 'draft_club', 'draft_number']
+
+exec
+/bin/bash -lc "python3 - <<'PY'
+import pandas as pd
+r=pd.read_csv('sources/nflverse/roster_weekly_2026.csv.gz',low_memory=False); print(r[r.full_name.str.contains('Meyers|Washington|Strange|Brian Thomas',na=False)][['week','team','full_name','gsis_id','pfr_id']].drop_duplicates().to_string(index=False))
+s=pd.read_csv('sources/nflverse/snap_counts_2026.csv.gz');print(s[s.player.str.contains('Meyers|Washington|Strange|Thomas',na=False)&(s.team=='JAX')].to_string(index=False))
+p=pd.read_csv('sources/nflverse/pbp_2026.csv.gz',low_memory=False);j=p[(p.posteam=='JAX')&(p.week<=8)];print(j.groupby(['week','passer_player_name']).size().to_string());print(p[p.receiver_player_name=='J.Meyers'].groupby(['week','posteam']).size())
+PY" in /workspace/nfl-database
+ succeeded in 1361ms:
+ week team            full_name    gsis_id   pfr_id
+    1  JAX        Jakobi Meyers 00-0034960 MeyeJa01
+    6  JAX        Jakobi Meyers 00-0034960 MeyeJa01
+    4  JAX        Jakobi Meyers 00-0034960 MeyeJa01
+    8  JAX        Jakobi Meyers 00-0034960 MeyeJa01
+    5  JAX        Jakobi Meyers 00-0034960 MeyeJa01
+    2  JAX        Jakobi Meyers 00-0034960 MeyeJa01
+    3  JAX        Jakobi Meyers 00-0034960 MeyeJa01
+    1  BAL Broderick Washington 00-0036081 WashBr01
+    8  BAL Broderick Washington 00-0036081 WashBr01
+    6  BAL Broderick Washington 00-0036081 WashBr01
+    5  BAL Broderick Washington 00-0036081 WashBr01
+    3  BAL Broderick Washington 00-0036081 WashBr01
+    2  BAL Broderick Washington 00-0036081 WashBr01
+    7  BAL Broderick Washington 00-0036081 WashBr01
+    4  BAL Broderick Washington 00-0036081 WashBr01
+    6  NYG Ar'Darius Washington 00-0036587 WashAr00
+    3  NYG Ar'Darius Washington 00-0036587 WashAr00
+    5  NYG Ar'Darius Washington 00-0036587 WashAr00
+    2  NYG Ar'Darius Washington 00-0036587 WashAr00
+    4  NYG Ar'Darius Washington 00-0036587 WashAr00
+    7  NYG Ar'Darius Washington 00-0036587 WashAr00
+    1  NYG Ar'Darius Washington 00-0036587 WashAr00
+    4  LAC         Cole Strange 00-0038103      NaN
+    3  LAC         Cole Strange 00-0038103      NaN
+    6  LAC         Cole Strange 00-0038103      NaN
+    5  LAC         Cole Strange 00-0038103      NaN
+    8  LAC         Cole Strange 00-0038103      NaN
+    1  LAC         Cole Strange 00-0038103      NaN
+    2  LAC         Cole Strange 00-0038103      NaN
+    3  PIT   Darnell Washington 00-0038558 WashDa03
+    4  PIT   Darnell Washington 00-0038558 WashDa03
+    5  PIT   Darnell Washington 00-0038558 WashDa03
+    1  PIT   Darnell Washington 00-0038558 WashDa03
+    6  PIT   Darnell Washington 00-0038558 WashDa03
+    8  PIT   Darnell Washington 00-0038558 WashDa03
+    7  PIT   Darnell Washington 00-0038558 WashDa03
+    2  PIT   Darnell Washington 00-0038558 WashDa03
+    6  JAX    Parker Washington 00-0038606 WashPa01
+    1  JAX    Parker Washington 00-0038606 WashPa01
+    2  JAX    Parker Washington 00-0038606 WashPa01
+    3  JAX    Parker Washington 00-0038606 WashPa01
+    4  JAX    Parker Washington 00-0038606 WashPa01
+    5  JAX    Parker Washington 00-0038606 WashPa01
+    8  JAX    Parker Washington 00-0038606 WashPa01
+    4  MIA    Carlos Washington 00-0038930 WashCa00
+    1  MIA    Carlos Washington 00-0038930 WashCa00
+    8  MIA    Carlos Washington 00-0038930 WashCa00
+    5  MIA    Carlos Washington 00-0038930 WashCa00
+    2  MIA    Carlos Washington 00-0038930 WashCa00
+    7  MIA    Carlos Washington 00-0038930 WashCa00
+    3  MIA    Carlos Washington 00-0038930 WashCa00
+    2  JAX      Brenton Strange 00-0038935 StraBr00
+    4  JAX      Brenton Strange 00-0038935 StraBr00
+    8  JAX      Brenton Strange 00-0038935 StraBr00
+    1  JAX      Brenton Strange 00-0038935 StraBr00
+    3  JAX      Brenton Strange 00-0038935 StraBr00
+    5  JAX      Brenton Strange 00-0038935 StraBr00
+    6  JAX      Brenton Strange 00-0038935 StraBr00
+    4  CAR     Casey Washington 00-0039394 WashCa01
+    8  CAR     Casey Washington 00-0039394 WashCa01
+    3  CAR     Casey Washington 00-0039394 WashCa01
+    1  CAR     Casey Washington 00-0039394 WashCa01
+    2  CAR     Casey Washington 00-0039394 WashCa01
+    7  CAR     Casey Washington 00-0039394 WashCa01
+    6  CAR     Casey Washington 00-0039394 WashCa01
+    8  MIA     Malik Washington 00-0039880 WashMa00
+    2  MIA     Malik Washington 00-0039880 WashMa00
+    1  MIA     Malik Washington 00-0039880 WashMa00
+    3  MIA     Malik Washington 00-0039880 WashMa00
+    7  MIA     Malik Washington 00-0039880 WashMa00
+    4  MIA     Malik Washington 00-0039880 WashMa00
+    5  MIA     Malik Washington 00-0039880 WashMa00
+    1  PHI      Tahj Washington 00-0039884 WashTa00
+    2  JAX     Brian Thomas Jr. 00-0039893 ThomBr06
+    3  JAX     Brian Thomas Jr. 00-0039893 ThomBr06
+    5  JAX     Brian Thomas Jr. 00-0039893 ThomBr06
+    4  JAX     Brian Thomas Jr. 00-0039893 ThomBr06
+    1  JAX     Brian Thomas Jr. 00-0039893 ThomBr06
+    6  JAX     Brian Thomas Jr. 00-0039893 ThomBr06
+    8  JAX     Brian Thomas Jr. 00-0039893 ThomBr06
+    7  IND      Trey Washington 00-0040357 WashTr00
+    4  IND      Trey Washington 00-0040357 WashTr00
+    3  IND      Trey Washington 00-0040357 WashTr00
+    6  IND      Trey Washington 00-0040357 WashTr00
+    2  IND      Trey Washington 00-0040357 WashTr00
+    1  IND      Trey Washington 00-0040357 WashTr00
+    5  IND      Trey Washington 00-0040357 WashTr00
+    8  IND      Trey Washington 00-0040357 WashTr00
+    3  CIN        Dohnte Meyers 00-0040785 MeyeDo00
+    8  CIN        Dohnte Meyers 00-0040785 MeyeDo00
+    1  CIN        Dohnte Meyers 00-0040785 MeyeDo00
+    5  CIN        Dohnte Meyers 00-0040785 MeyeDo00
+    7  CIN        Dohnte Meyers 00-0040785 MeyeDo00
+    4  CIN        Dohnte Meyers 00-0040785 MeyeDo00
+    2  CIN        Dohnte Meyers 00-0040785 MeyeDo00
+    2   LV  Mike Washington Jr. 00-0040878 WashMi00
+    8   LV  Mike Washington Jr. 00-0040878 WashMi00
+    4   LV  Mike Washington Jr. 00-0040878 WashMi00
+    5   LV  Mike Washington Jr. 00-0040878 WashMi00
+    7   LV  Mike Washington Jr. 00-0040878 WashMi00
+    6   LV  Mike Washington Jr. 00-0040878 WashMi00
+    1   LV  Mike Washington Jr. 00-0040878 WashMi00
+    3   LV  Mike Washington Jr. 00-0040878 WashMi00
+    2  CLE      Zion Washington 00-0041286      NaN
+    1  CLE      Zion Washington 00-0041286      NaN
+    6  CLE      Zion Washington 00-0041286      NaN
+    4  CLE      Zion Washington 00-0041286      NaN
+    8  CLE      Zion Washington 00-0041286      NaN
+    3  CLE      Zion Washington 00-0041286      NaN
+    5  CLE      Zion Washington 00-0041286      NaN
+    7  CLE      Zion Washington 00-0041286      NaN
+    1  MIN     Jarod Washington 00-0041573      NaN
+    1  SEA    Jordan Washington 00-0041584      NaN
+        game_id  pfr_game_id  season game_type  week            player pfr_player_id position team opponent  offense_snaps  offense_pct  defense_snaps  defense_pct  st_snaps  st_pct
+2026_01_CLE_JAX 202609130jax    2026       REG     1   Brenton Strange      StraBr00       TE  JAX      CLE             39         0.68              0         0.00         0    0.00
+2026_01_CLE_JAX 202609130jax    2026       REG     1     Jakobi Meyers      MeyeJa01       WR  JAX      CLE             37         0.65              0         0.00         0    0.00
+2026_01_CLE_JAX 202609130jax    2026       REG     1 Parker Washington      WashPa01       WR  JAX      CLE             35         0.61              0         0.00         3    0.13
+2026_01_CLE_JAX 202609130jax    2026       REG     1      Brian Thomas      ThomBr06       WR  JAX      CLE             20         0.35              0         0.00         0    0.00
+2026_02_JAX_DEN 202609200den    2026       REG     2     Jakobi Meyers      MeyeJa01       WR  JAX      DEN             53         0.90              0         0.00         0    0.00
+2026_02_JAX_DEN 202609200den    2026       REG     2   Brenton Strange      StraBr00       TE  JAX      DEN             49         0.83              0         0.00         0    0.00
+2026_02_JAX_DEN 202609200den    2026       REG     2 Parker Washington      WashPa01       WR  JAX      DEN             48         0.81              0         0.00         3    0.13
+2026_02_JAX_DEN 202609200den    2026       REG     2      Brian Thomas      ThomBr06       WR  JAX      DEN             32         0.54              0         0.00         0    0.00
+2026_02_JAX_DEN 202609200den    2026       REG     2      Bryan Thomas      ThomBr08       DE  JAX      DEN              0         0.00              8         0.13         9    0.39
+ 2026_03_NE_JAX 202609270jax    2026       REG     3 Parker Washington      WashPa01       WR  JAX       NE             50         0.81              0         0.00         2    0.09
+ 2026_03_NE_JAX 202609270jax    2026       REG     3     Jakobi Meyers      MeyeJa01       WR  JAX       NE             50         0.81              0         0.00         0    0.00
+ 2026_03_NE_JAX 202609270jax    2026       REG     3   Brenton Strange      StraBr00       TE  JAX       NE             48         0.77              0         0.00         0    0.00
+ 2026_03_NE_JAX 202609270jax    2026       REG     3      Brian Thomas      ThomBr06       WR  JAX       NE             23         0.37              0         0.00         0    0.00
+ 2026_03_NE_JAX 202609270jax    2026       REG     3  Bryan Thomas Jr.      ThomBr08       DE  JAX       NE              0         0.00             22         0.35         3    0.13
+2026_04_JAX_CIN 202610040cin    2026       REG     4   Brenton Strange      StraBr00       TE  JAX      CIN             53         0.87              0         0.00         0    0.00
+2026_04_JAX_CIN 202610040cin    2026       REG     4     Jakobi Meyers      MeyeJa01       WR  JAX      CIN             50         0.82              0         0.00         0    0.00
+2026_04_JAX_CIN 202610040cin    2026       REG     4 Parker Washington      WashPa01       WR  JAX      CIN             49         0.80              0         0.00         2    0.09
+2026_04_JAX_CIN 202610040cin    2026       REG     4      Brian Thomas      ThomBr06       WR  JAX      CIN             38         0.62              0         0.00         0    0.00
+2026_04_JAX_CIN 202610040cin    2026       REG     4  Bryan Thomas Jr.      ThomBr08       DE  JAX      CIN              0         0.00             15         0.20         3    0.13
+2026_05_PHI_JAX 202610110jax    2026       REG     5     Jakobi Meyers      MeyeJa01       WR  JAX      PHI             61         0.85              0         0.00         0    0.00
+2026_05_PHI_JAX 202610110jax    2026       REG     5 Parker Washington      WashPa01       WR  JAX      PHI             59         0.82              0         0.00         6    0.22
+2026_05_PHI_JAX 202610110jax    2026       REG     5   Brenton Strange      StraBr00       TE  JAX      PHI             58         0.81              0         0.00         0    0.00
+2026_05_PHI_JAX 202610110jax    2026       REG     5      Brian Thomas      ThomBr06       WR  JAX      PHI             37         0.51              0         0.00         0    0.00
+2026_05_PHI_JAX 202610110jax    2026       REG     5  Bryan Thomas Jr.      ThomBr08       DE  JAX      PHI              0         0.00              0         0.00         1    0.04
+2026_06_HOU_JAX 202610180jax    2026       REG     6   Brenton Strange      StraBr00       TE  JAX      HOU             54         0.76              0         0.00         0    0.00
+2026_06_HOU_JAX 202610180jax    2026       REG     6     Jakobi Meyers      MeyeJa01       WR  JAX      HOU             53         0.75              0         0.00         0    0.00
+2026_06_HOU_JAX 202610180jax    2026       REG     6 Parker Washington      WashPa01       WR  JAX      HOU             52         0.73              0         0.00         4    0.14
+2026_06_HOU_JAX 202610180jax    2026       REG     6      Brian Thomas      ThomBr06       WR  JAX      HOU             15         0.21              0         0.00         0    0.00
+2026_06_HOU_JAX 202610180jax    2026       REG     6  Bryan Thomas Jr.      ThomBr08       DE  JAX      HOU              0         0.00              6         0.10         6    0.21
+2026_08_IND_JAX 202611010jax    2026       REG     8 Parker Washington      WashPa01       WR  JAX      IND             36         0.67              0         0.00         2    0.07
+2026_08_IND_JAX 202611010jax    2026       REG     8     Jakobi Meyers      MeyeJa01       WR  JAX      IND             29         0.54              0         0.00         0    0.00
+2026_08_IND_JAX 202611010jax    2026       REG     8      Brian Thomas      ThomBr06       WR  JAX      IND             28         0.52              0         0.00         0    0.00
+2026_08_IND_JAX 202611010jax    2026       REG     8   Brenton Strange      StraBr00       TE  JAX      IND             28         0.52              0         0.00         0    0.00
+2026_08_IND_JAX 202611010jax    2026       REG     8  Bryan Thomas Jr.      ThomBr08       DE  JAX      IND              0         0.00             32         0.52         2    0.07
+week  passer_player_name
+1     T.Lawrence            24
+2     T.Lawrence            31
+3     T.Lawrence            30
+4     T.Lawrence            28
+5     T.Lawrence            41
+6     T.Lawrence            41
+8     Q.Ewers                3
+      T.Lawrence            17
+week  posteam
+1     JAX         2
+2     JAX         1
+3     JAX         8
+4     JAX         4
+5     JAX         3
+6     JAX        10
+8     JAX         3
+dtype: int64
+
+codex
+Meyers appears on JAX’s roster and in JAX’s play-by-play from Week 1, so these files do not establish a 2026 trade date. I also found Ewers attempts in Week 8 and Brian Thomas name variants. I’ll use player IDs to resolve names and keep unknown FTN values separate from “no blitz” and “clean.”
+exec
+/bin/bash -lc "mkdir -p week10/meyers_wash_strange/offense/runA
+cat > week10/meyers_wash_strange/offense/runA/build_a.py <<'PY'
+\"\"\"Recompute local nflverse analysis; write only beside this script. Python 3 + pandas.\"\"\"
+from pathlib import Path
+import pandas as pd
+import numpy as np
+
+OUT = Path(__file__).resolve().parent
+ROOT = OUT.parents[3]
+SRC = ROOT / 'sources/nflverse'
+
+def save(df, name):
+    df.to_csv(OUT / (name + '.csv'), index=False, float_format='%.6f')
+    return df
+
+def ratio(a, b):
+    return a / b if b else np.nan
+
+p0 = pd.read_csv(SRC / 'pbp_2026.csv.gz', low_memory=False)
+f = pd.read_csv(SRC / 'ftn_charting_2026.csv', low_memory=False)
+r = pd.read_csv(SRC / 'roster_weekly_2026.csv.gz', low_memory=False)
+s = pd.read_csv(SRC / 'snap_counts_2026.csv.gz')
+assert not p0.duplicated(['game_id', 'play_id']).any()
+assert not f.duplicated(['nflverse_game_id', 'nflverse_play_id']).any()
+fc = [c for c in f if c not in ['season', 'week']]
+p = p0.merge(f[fc], left_on=['game_id','play_id'], right_on=['nflverse_game_id','nflverse_play_id'], how='left', validate='one_to_one', indicator='ftn_merge')
+p = p[p.week.between(1,8) & p.season_type.eq('REG')].copy()
+valid = p.two_point_attempt.ne(1) & p.play_type.ne('no_play') & p.play_deleted.ne(1)
+j = p[valid & p.posteam.eq('JAX')].copy()
+rr = r[r.week.between(1,8)]
+names = ['Jakobi Meyers','Parker Washington','Brenton Strange','Brian Thomas Jr.']
+ids = {n: rr.loc[rr.full_name.eq(n),'gsis_id'].dropna().unique().item() for n in names}
+pfr = {n: rr.loc[rr.full_name.eq(n),'pfr_id'].dropna().unique().item() for n in names}
+idnames = rr.drop_duplicates('gsis_id').set_index('gsis_id').full_name.to_dict()
+p['receiver'] = p.receiver_player_id.map(idnames).fillna(p.receiver_player_name)
+j['receiver'] = j.receiver_player_id.map(idnames).fillna(j.receiver_player_name)
+games = j[['week','game_id']].drop_duplicates().sort_values('week')
+assert games.week.tolist() == [1,2,3,4,5,6,8]
+ss = s[s.team.eq('JAX') & s.week.between(1,8) & s.game_type.eq('REG') & s.pfr_player_id.isin(pfr.values())].copy()
+ss['player'] = ss.pfr_player_id.map({v:k for k,v in pfr.items()})
+assert not ss.duplicated(['game_id','player']).any()
+ss['row_type']='game'; ss['games_n']=1
+# Source percentage is rounded; exact team offensive-snap denominator isn't supplied.
+ss['offense_pct_source_games_n'] = ss.offense_pct.notna().astype(int)
+av = ss.groupby('player').agg(offense_snaps=('offense_snaps','mean'),offense_pct=('offense_pct','mean'),games_n=('game_id','nunique'),offense_pct_source_games_n=('offense_pct','count')).reset_index()
+av['row_type']='average_games_played'
+snaps=save(pd.concat([ss[['row_type','player','week','game_id','offense_snaps','offense_pct','games_n','offense_pct_source_games_n']],av],ignore_index=True),'snaps')
+
+attempts = j[j.pass_attempt.eq(1) & j.sack.ne(1)].copy()
+lt = attempts[attempts.passer_player_name.eq('T.Lawrence')]
+def target_summary(a, scope):
+    t=a[a.receiver_player_id.notna() | a.receiver_player_name.notna()]
+    z=t.groupby(['receiver_player_id','receiver'],dropna=False).agg(targets=('play_id','size'),receptions=('complete_pass','sum'),yards=('receiving_yards','sum'),air_yards_sum=('air_yards','sum'),adot_n=('air_yards','count')).reset_index()
+    z['scope']=scope; z['targets_n']=len(t); z['target_share']=z.targets / len(t)
+    z['adot']=z.air_yards_sum.div(z.adot_n.replace(0,np.nan));z['rank']=z.targets.rank(method='min',ascending=False).astype(int)
+    return z.sort_values(['rank','receiver'])
+targets=save(pd.concat([target_summary(lt,'Lawrence'),target_summary(attempts,'team_all_QB')],ignore_index=True),'targets')
+weekly=[]
+for scope,a in [('Lawrence',lt),('team_all_QB',attempts)]:
+    for w,g in games.itertuples(index=False):
+        t=a[a.game_id.eq(g) & a.receiver_player_id.notna()]
+        for n in names[:3]:
+            x=t[t.receiver_player_id.eq(ids[n])]
+            weekly.append(dict(scope=scope,week=w,game_id=g,player=n,targets=len(x),targets_n=len(t),target_share=ratio(len(x),len(t))))
+save(pd.DataFrame(weekly),'targets_weekly')
+# Roster membership is not proof of participation. PBP receiving involvement is affirmative evidence.
+timing=[]
+for w in sorted(r.week.dropna().unique()):
+    rost=r[r.week.eq(w)&r.gsis_id.eq(ids[names[0]])]
+    plays=p0[p0.week.eq(w)&p0.receiver_player_id.eq(ids[names[0]])]
+    timing.append(dict(week=w,roster_teams='|'.join(sorted(rost.team.dropna().unique())),roster_rows_n=len(rost),pbp_posteams='|'.join(sorted(plays.posteam.dropna().unique())),pbp_receiving_plays_n=len(plays),jax_game_n=int(games.week.eq(w).sum())))
+save(pd.DataFrame(timing),'meyers_timing')
+
+db=p[valid & p.qb_dropback.eq(1)].copy()
+pressure_rows=[]
+for label,x in [('BAL',db[db.defteam.eq('BAL')]),('league',db),('league_ex_BAL',db[db.defteam.ne('BAL')])]:
+    row=dict(row_type='defense',scope=label,dropbacks=len(x),games_n=x.game_id.nunique())
+    for metric,col,threshold in [('blitz_rate','n_blitzers',0),('rush5plus_rate','n_pass_rushers',4),('sack_rate','sack',0),('qb_hit_rate','qb_hit',0)]:
+        a=x[col].dropna();row[metric+'_n']=len(a);row[metric+'_count']=int((a>threshold).sum());row[metric]=ratio(row[metric+'_count'],len(a))
+    pressure_rows.append(row)
+l=db[db.posteam.eq('JAX') & db.passer_player_name.eq('T.Lawrence')].copy()
+l['receiver']=l.receiver_player_id.map(idnames).fillna(l.receiver_player_name)
+l['blitz']=np.where(l.n_blitzers.isna(),'unknown',np.where(l.n_blitzers.gt(0),'blitz','no_blitz'))
+proxycols=['qb_hit','sack','is_qb_out_of_pocket','qb_scramble']
+positive=l[proxycols].eq(1).any(axis=1)
+known=l[proxycols].notna().all(axis=1)
+l['pressure_proxy']=np.where(positive,'pressure_proxy',np.where(known,'clean_proxy','unknown'))
+if 'was_pressure' in p0:
+    l['pressure']=np.where(l.was_pressure.isna(),'unknown',np.where(l.was_pressure.eq(1),'pressured','clean'))
+else:
+    l['pressure']=l.pressure_proxy
+splits=[('all','all',l)]
+for axis in ['blitz','pressure_proxy'] + (['pressure'] if 'was_pressure' in p0 else []):
+    splits += [(axis,str(label),x) for label,x in l.groupby(axis)]
+for axis,label,x in splits:
+    a=x[x.pass_attempt.eq(1)&x.sack.ne(1)]
+    pressure_rows.append(dict(row_type='QB',scope='T.Lawrence',split_axis=axis,split=label,dropbacks=len(x),att=len(a),completions=int(a.complete_pass.sum()),cmp_pct=ratio(a.complete_pass.sum(),a.complete_pass.count()),cmp_pct_n=int(a.complete_pass.count()),passing_yards=float(a.passing_yards.fillna(0).sum()),ypa=ratio(a.passing_yards.fillna(0).sum(),len(a)),ypa_n=len(a),sacks=int(x.sack.sum()),sack_rate=ratio(x.sack.sum(),x.sack.count()),sack_rate_n=int(x.sack.count()),epa=x.epa.mean(),epa_n=int(x.epa.count())))
+pressure=save(pd.DataFrame(pressure_rows),'pressure')
+
+def distribution(x, axis, label):
+    t=x[x.pass_attempt.eq(1)&x.sack.ne(1)&x.receiver.notna()]
+    z=t.groupby('receiver').size().rename('targets').reset_index()
+    z['split_axis']=axis;z['split']=label;z['targets_n']=len(t);z['share']=z.targets/len(t);z['rank']=z.targets.rank(method='min',ascending=False).astype(int)
+    return z.sort_values(['rank','receiver'])
+dists=[distribution(x,axis,label) for axis,label,x in splits if axis"'!='"'all']
+save(pd.concat(dists,ignore_index=True),'target_pressure_distribution')
+checks=[]
+for label,x in [('all',l),('pressure_proxy',l[l.pressure_proxy.eq('pressure_proxy')])]:
+    checks.append(distribution(x[x.air_yards.le(2)],'air_yards_le_2',label))
+check=save(pd.concat(checks,ignore_index=True),'checkdowns')
+
+route=[];screen=[]
+for scope,a in [('Lawrence',lt),('team_all_QB',attempts)]:
+    for n in names[:3]:
+        x=a[a.receiver_player_id.eq(ids[n])].copy()
+        x['depth']=pd.cut(x.air_yards,[-np.inf,0,4,14,np.inf],labels=['at_or_behind_LOS','1_to_4','5_to_14','15_plus']).astype('object').fillna('unknown')
+        x['location']=x.pass_location.fillna('unknown')
+        z=x.groupby(['location','depth'],observed=True).agg(targets=('play_id','size'),receptions=('complete_pass','sum'),yards=('receiving_yards','sum')).reset_index()
+        z['player']=n;z['scope']=scope;z['targets_n']=len(x);z['share']=z.targets/len(x);route.append(z)
+        chart=x.is_screen_pass.dropna()
+        screen.append(dict(scope=scope,player=n,targets=len(x),screen_charted_n=len(chart),screen_pass_targets=int(chart.eq(1).sum()),screen_rate=ratio(chart.eq(1).sum(),len(chart))))
+save(pd.concat(route,ignore_index=True),'route_area_proxy');save(pd.DataFrame(screen),'screens')
+save(pd.DataFrame({'column':f.columns,'dtype':[str(f[c].dtype) for c in f]}),'ftn_columns')
+# Any receiver alignment / route data would be summarized generically if supplied.
+route_fields=[c for c in f if any(k in c.lower() for k in ['alignment','route'])]
+if route_fields:
+    rows=[]
+    for c in route_fields:
+        x=j[j.receiver_player_id.isin([ids[n] for n in names[:3]]) & j.pass_attempt.eq(1)]
+        z=x.groupby(['receiver',c],dropna=False).size().rename('targets').reset_index().rename(columns={c:'value'})
+        z['field']=c;rows.append(z)
+    save(pd.concat(rows,ignore_index=True),'ftn_route_fields')
+
+assert targets.groupby('scope').targets.sum().eq(targets.groupby('scope').targets_n.first()).all()
+assert targets.groupby('scope').target_share.sum().sub(1).abs().lt(1e-9).all()
+assert len(ss)==28 and av.games_n.eq(7).all()
+assert sum(len(x) for _,x in l.groupby('blitz'))==len(l)
+notes=[]
+notes += ['# JAX offense, Weeks 1–8, 2026', '', 'Source: local nflverse CC-BY snapshot, pulled 2026-11-03 08:04 ET. Recomputed from the four supplied files; reference build.py informed the join and split logic, with no copied results. Run: "'`python3 week10/meyers_wash_strange/offense/runA/build_a.py`.'"', '', 'Seven JAX games: Weeks 1–6 and 8; Week 7 bye. Regular season only. PBP excludes two-point attempts, no-play rows and deleted plays. Attempts exclude sacks; named/identified receivers define targets, excluding untargeted throwaways/spikes. Lawrence attribution requires T.Lawrence on the play, including sacks; no other-QB sacks are silently assigned to him.', '', 'All rates are fractions, with denominator "'`_n` columns (or att/dropbacks/targets_n); counts appear alongside rates. aDOT uses non-null air yards; YPA treats null passing yards on incomplete passes as zero. EPA is mean per dropback with epa_n. Receiving yards are summed. Snap averages are arithmetic means of source game percentages over source appearances (games played), not snap-weighted percentages. Source offense_pct is rounded and has no exact team-snap denominator; games_n and offense_pct_source_games_n accompany it.'"', '', '## Snap averages', av.to_markdown(index=False), '', '## Targets', targets[['scope','receiver','rank','targets','receptions','yards','targets_n','target_share','adot','adot_n']].to_markdown(index=False), '', '## Meyers timing', 'Meyers is JAX in every available roster week (1–6, 8), and receiving PBP posteam is JAX in those same seven games. There is no within-2026 team transition in this snapshot. A trade to JAX may predate this sample, but these files cannot establish a transaction or trade date. Week 7 has no roster/receiving entry and is JAX’s bye; it is not evidence of a team change. Only seven JAX games are observed.', '', '## Pressure', 'FTN n_blitzers > 0 and n_pass_rushers >= 5 are distinct measures, each using its own non-null charted dropback denominator. Sack and QB-hit rates use all eligible dropbacks with known respective PBP flags. League includes BAL; league_ex_BAL is also supplied.', pressure.to_markdown(index=False), '', f'PBP was_pressure column present: {\"was_pressure\" in p0}. Proxy = qb_hit OR sack OR FTN is_qb_out_of_pocket OR qb_scramble. Positive known signals establish proxy pressure; clean requires all four known and false. Otherwise unknown. This proxy includes movement and is not a direct pressure measure. If was_pressure exists it additionally supplies the primary pressure split; proxy remains separately available.', '', 'Time to throw is not in PBP. qb_location/read_thrown are not time-to-throw or receiver alignment/route measurements.', '', '## Shallow target / check-down proxy', 'air_yards <= 2 includes designed screens and short throws; it does not prove a progression check-down. Targets with null air yards cannot qualify. All tied rank-1 receivers below are leaders.', check[check['rank'].eq(1)].to_markdown(index=False), '', '## Route-area proxy and FTN coverage', 'route_area_proxy.csv uses pass_location × depth: <=0, 1–4, 5–14, >=15 air yards, plus unknowns. These are targeted-pass areas, not routes run or slot/outside alignments. Both Lawrence and team-all-QB versions are supplied. screens.csv counts FTN screen-target flags with charted N. FTN alignment/route fields found: '+(', '.join(route_fields) or 'none')+'.', '', 'FTN columns: '+', '.join(f.columns)+'.', '', '## Verification', 'Assertions passed: unique PBP/FTN join keys; one-to-one join; seven expected JAX weeks; 28 selected snap rows and seven appearances per player; target shares/counts reconcile; Lawrence blitz groups partition all dropbacks.', '', '## Anomalies and limitations (final audit)']
+notes += ['- Brian Thomas Jr. is Brian Thomas in snaps and '+', '.join(sorted(j.loc[j.receiver_player_id.eq(ids[names[3]]),'receiver_player_name'].dropna().unique()))+' in PBP. IDs distinguish him from DE Bryan Thomas Jr.; identities are normalized using GSIS/PFR IDs.']
+notes += [f'- QB attempt counts: {attempts.groupby(\"passer_player_name\").size().to_dict()}; all-QB and Lawrence target tables therefore differ.']
+notes += [f'- JAX target nulls: air_yards={int(attempts.loc[attempts.receiver_player_id.notna(),\"air_yards\"].isna().sum())}; pass_location={int(attempts.loc[attempts.receiver_player_id.notna(),\"pass_location\"].isna().sum())}; attempts without named/identified receiver={int((attempts.receiver_player_id.isna() & attempts.receiver_player_name.isna()).sum())}.']
+notes += [f'- Lawrence dropbacks={len(l)}; FTN unmatched={int(l.ftn_merge.ne(\"both\").sum())}; missing n_blitzers={int(l.n_blitzers.isna().sum())}; missing n_pass_rushers={int(l.n_pass_rushers.isna().sum())}; missing out-of-pocket={int(l.is_qb_out_of_pocket.isna().sum())}; pressure-proxy unknown={int(l.pressure_proxy.eq(\"unknown\").sum())}.']
+notes += [f'- Unattributed JAX dropbacks (not assigned to Lawrence): {int((db.posteam.eq(\"JAX\") & db.passer_player_name.isna()).sum())}.', '- Snap and PBP game counts match for all four players (7 each); roster has no Week 7 JAX entries. Snapshot cannot answer later weeks or establish an exact historical trade date.', '- Missing FTN observations are never interpreted as no blitz. Small split samples and seven-game player samples limit conclusions. No receiver route/alignment or time-to-throw data supplied.']
+(OUT/'notes_a.md').write_text('\\n\\n'.join(notes)+'\\n')
+print(f'Wrote {len(list(OUT.glob(\"*.csv\")))} CSVs and notes_a.md; assertions passed.')
+PY
+python3 week10/meyers_wash_strange/offense/runA/build_a.py" in /workspace/nfl-database
+ succeeded in 2037ms:
+/workspace/nfl-database/week10/meyers_wash_strange/offense/runA/build_a.py:24: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  p = p0.merge(f[fc], left_on=['game_id','play_id'], right_on=['nflverse_game_id','nflverse_play_id'], how='left', validate='one_to_one', indicator='ftn_merge')
+/workspace/nfl-database/week10/meyers_wash_strange/offense/runA/build_a.py:24: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  p = p0.merge(f[fc], left_on=['game_id','play_id'], right_on=['nflverse_game_id','nflverse_play_id'], how='left', validate='one_to_one', indicator='ftn_merge')
+Wrote 10 CSVs and notes_a.md; assertions passed.
+
+codex
+The script ran and its reconciliation checks passed: all four players have seven snap-count appearances, and the target counts and shares reconcile. I’m checking the generated tables and final anomaly notes before wrapping up.
+exec
+/bin/bash -lc "python3 - <<'PY'
+from pathlib import Path
+import pandas as pd
+p=Path('week10/meyers_wash_strange/offense/runA')
+for f in sorted(p.glob('*.csv')):
+ d=pd.read_csv(f);print(f.name, d.shape)
+print(pd.read_csv(p/'pressure.csv').to_string(index=False))
+print(pd.read_csv(p/'checkdowns.csv').to_string(index=False))
+print((p/'notes_a.md').read_text().split('## Anomalies')[1])
+PY" in /workspace/nfl-database
+ succeeded in 193ms:
+checkdowns.csv (23, 7)
+ftn_columns.csv (29, 2)
+meyers_timing.csv (8, 6)
+pressure.csv (8, 28)
+route_area_proxy.csv (56, 9)
+screens.csv (6, 6)
+snaps.csv (32, 8)
+target_pressure_distribution.csv (49, 7)
+targets.csv (25, 12)
+targets_weekly.csv (42, 7)
+row_type         scope  dropbacks  games_n  blitz_rate_n  blitz_rate_count  blitz_rate  rush5plus_rate_n  rush5plus_rate_count  rush5plus_rate  sack_rate_n  sack_rate_count  sack_rate  qb_hit_rate_n  qb_hit_rate_count  qb_hit_rate     split_axis          split   att  completions  cmp_pct  cmp_pct_n  passing_yards      ypa  ypa_n  sacks       epa  epa_n
+ defense           BAL        300      8.0         300.0              99.0    0.330000             300.0                  99.0        0.330000          300             17.0   0.056667          300.0               51.0     0.170000            NaN            NaN   NaN          NaN      NaN        NaN            NaN      NaN    NaN    NaN       NaN    NaN
+ defense        league       8962    121.0        8887.0            2827.0    0.318105            8887.0                2828.0        0.318218         8962            557.0   0.062151         8962.0             1366.0     0.152421            NaN            NaN   NaN          NaN      NaN        NaN            NaN      NaN    NaN    NaN       NaN    NaN
+ defense league_ex_BAL       8662    121.0        8587.0            2728.0    0.317690            8587.0                2729.0        0.317806         8662            540.0   0.062341         8662.0             1315.0     0.151813            NaN            NaN   NaN          NaN      NaN        NaN            NaN      NaN    NaN    NaN       NaN    NaN
+      QB    T.Lawrence        210      NaN           NaN               NaN         NaN               NaN                   NaN             NaN          210              NaN   0.061905            NaN                NaN          NaN            all            all 197.0        130.0 0.659898      197.0         1690.0 8.578680  197.0   13.0  0.287796  210.0
+      QB    T.Lawrence         66      NaN           NaN               NaN         NaN               NaN                   NaN             NaN           66              NaN   0.060606            NaN                NaN          NaN          blitz          blitz  62.0         36.0 0.580645       62.0          435.0 7.016129   62.0    4.0  0.152537   66.0
+      QB    T.Lawrence        144      NaN           NaN               NaN         NaN               NaN                   NaN             NaN          144              NaN   0.062500            NaN                NaN          NaN          blitz       no_blitz 135.0         94.0 0.696296      135.0         1255.0 9.296296  135.0    9.0  0.349790  144.0
+      QB    T.Lawrence        154      NaN           NaN               NaN         NaN               NaN                   NaN             NaN          154              NaN   0.000000            NaN                NaN          NaN pressure_proxy    clean_proxy 154.0        108.0 0.701299      154.0         1363.0 8.850649  154.0    0.0  0.510742  154.0
+      QB    T.Lawrence         56      NaN           NaN               NaN         NaN               NaN                   NaN             NaN           56              NaN   0.232143            NaN                NaN          NaN pressure_proxy pressure_proxy  43.0         22.0 0.511628       43.0          327.0 7.604651   43.0   13.0 -0.325306   56.0
+           receiver  targets     split_axis          split  targets_n    share  rank
+     Bhayshul Tuten       16 air_yards_le_2            all         53 0.301887     1
+    Brenton Strange        6 air_yards_le_2            all         53 0.113208     2
+       Josh Cameron        5 air_yards_le_2            all         53 0.094340     3
+  Parker Washington        5 air_yards_le_2            all         53 0.094340     3
+     Ameer Abdullah        3 air_yards_le_2            all         53 0.056604     5
+      Jakobi Meyers        3 air_yards_le_2            all         53 0.056604     5
+  LeQuint Allen Jr.        3 air_yards_le_2            all         53 0.056604     5
+   Nate Boerkircher        3 air_yards_le_2            all         53 0.056604     5
+   Al-Jay Henderson        2 air_yards_le_2            all         53 0.037736     9
+   Brian Thomas Jr.        2 air_yards_le_2            all         53 0.037736     9
+Chris Rodriguez Jr.        2 air_yards_le_2            all         53 0.037736     9
+      Travis Hunter        2 air_yards_le_2            all         53 0.037736     9
+     Quintin Morris        1 air_yards_le_2            all         53 0.018868    13
+     Bhayshul Tuten        5 air_yards_le_2 pressure_proxy         18 0.277778     1
+   Al-Jay Henderson        2 air_yards_le_2 pressure_proxy         18 0.111111     2
+       Josh Cameron        2 air_yards_le_2 pressure_proxy         18 0.111111     2
+  LeQuint Allen Jr.        2 air_yards_le_2 pressure_proxy         18 0.111111     2
+  Parker Washington        2 air_yards_le_2 pressure_proxy         18 0.111111     2
+    Brenton Strange        1 air_yards_le_2 pressure_proxy         18 0.055556     6
+Chris Rodriguez Jr.        1 air_yards_le_2 pressure_proxy         18 0.055556     6
+   Nate Boerkircher        1 air_yards_le_2 pressure_proxy         18 0.055556     6
+     Quintin Morris        1 air_yards_le_2 pressure_proxy         18 0.055556     6
+      Travis Hunter        1 air_yards_le_2 pressure_proxy         18 0.055556     6
+ and limitations (final audit)
+
+- Brian Thomas Jr. is Brian Thomas in snaps and Bri.Thomas in PBP. IDs distinguish him from DE Bryan Thomas Jr.; identities are normalized using GSIS/PFR IDs.
+
+- QB attempt counts: {'Q.Ewers': 3, 'T.Lawrence': 198}; all-QB and Lawrence target tables therefore differ.
+
+- JAX target nulls: air_yards=0; pass_location=0; attempts without named/identified receiver=6.
+
+- Lawrence dropbacks=210; FTN unmatched=0; missing n_blitzers=0; missing n_pass_rushers=0; missing out-of-pocket=0; pressure-proxy unknown=0.
+
+- Unattributed JAX dropbacks (not assigned to Lawrence): 9.
+
+- Snap and PBP game counts match for all four players (7 each); roster has no Week 7 JAX entries. Snapshot cannot answer later weeks or establish an exact historical trade date.
+
+- Missing FTN observations are never interpreted as no blitz. Small split samples and seven-game player samples limit conclusions. No receiver route/alignment or time-to-throw data supplied.
+
+
+exec
+/bin/bash -lc "python3 - <<'PY'
+import pandas as pd
+p=pd.read_csv('sources/nflverse/pbp_2026.csv.gz',low_memory=False)
+x=p[p.posteam.eq('JAX')&p.week.le(8)&p.qb_dropback.eq(1)&p.passer_player_name.isna()];print(x[['week','play_type','rusher_player_name','rusher_player_id','sack','qb_scramble','desc']].to_string(index=False))
+print(p[p.posteam.eq('JAX')&p.week.le(8)&p.pass_attempt.eq(1)&p.sack.ne(1)&p.qb_dropback.ne(1)][['desc','qb_spike','qb_dropback','passer_player_name']].to_string(index=False))
+PY" in /workspace/nfl-database
+ succeeded in 1233ms:
+ week play_type rusher_player_name rusher_player_id  sack  qb_scramble                                                                                                                                                              desc
+    3       run         T.Lawrence       00-0036971   0.0            1                                                                         (14:02) (Shotgun) 16-T.Lawrence scrambles left end to JAX 21 for 7 yards (97-M.Williams).
+    3       run         T.Lawrence       00-0036971   0.0            1                 (:56) (Shotgun) 16-T.Lawrence scrambles up the middle to JAX 21 for 1 yard (50-G.Jacas). ** Injury Update: NE-7-C.Davis has returned to the game.
+    5       run         T.Lawrence       00-0036971   0.0            1                                                                   (4:10) (Shotgun) 16-T.Lawrence scrambles left end ran ob at JAX 46 for 6 yards (27-Q.Mitchell).
+    5       run         T.Lawrence       00-0036971   0.0            1                                                                         (1:12) (Shotgun) 16-T.Lawrence scrambles up the middle to PHI 19 for 3 yards (58-J.Hunt).
+    5       run         T.Lawrence       00-0036971   0.0            1                                                                      (10:30) (Shotgun) 16-T.Lawrence scrambles left guard to PHI 41 for 16 yards (11-J.Campbell).
+    6       run         T.Lawrence       00-0036971   0.0            1                                                                  (11:08) (Shotgun) 16-T.Lawrence scrambles up the middle to JAX 49 for 4 yards (6-R.Blankenship).
+    6       run         T.Lawrence       00-0036971   0.0            1                                                                          (14:07) (Shotgun) 16-T.Lawrence scrambles right end to HOU 5 for 8 yards (3-K.Lassiter).
+    8       run         T.Lawrence       00-0036971   0.0            1 (2:35) 16-T.Lawrence scrambles right end pushed ob at JAX 46 for 3 yards (90-G.Stewart). PENALTY on IND-7-C.Ward, Defensive Holding, 5 yards, enforced at JAX 46.
+    8       run         T.Lawrence       00-0036971   0.0            1                                                                   (10:30) 16-T.Lawrence scrambles right end pushed ob at IND 32 for 5 yards (51-A.Davis-Gaither).
+                                                              desc  qb_spike  qb_dropback passer_player_name
+(:08) (No Huddle) 16-T.Lawrence spiked the ball to stop the clock.         1          0.0         T.Lawrence
+
+exec
+/bin/bash -lc "python3 - <<'PY'
+p='week10/meyers_wash_strange/offense/runA/build_a.py'
+s=open(p).read().replace(\"l=db[db.posteam.eq('JAX') & db.passer_player_name.eq('T.Lawrence')].copy()\", \"lawrence_db = db.passer_player_name.eq('T.Lawrence') | (db.qb_scramble.eq(1) & db.rusher_player_name.eq('T.Lawrence'))\\nl=db[db.posteam.eq('JAX') & lawrence_db].copy()\")
+s=s.replace('Lawrence attribution requires T.Lawrence on the play, including sacks; no other-QB sacks are silently assigned to him.', 'Lawrence attribution uses passer T.Lawrence for throws/sacks or rusher T.Lawrence for scrambles; no other-QB sacks are assigned to him. QB splits use qb_dropback=1, which excludes one Lawrence clock spike; the attempt/target tables retain official pass attempts including that untargeted spike.')
+s=s.replace('Unattributed JAX dropbacks (not assigned to Lawrence): {int((db.posteam.eq(\"JAX\") & db.passer_player_name.isna()).sum())}.', 'JAX dropbacks with null passer: {int((db.posteam.eq(\"JAX\") & db.passer_player_name.isna()).sum())}; all nine are Lawrence scrambles attributed using rusher identity and included in his dropbacks.')
+open(p,'w').write(s)
+PY
+python3 week10/meyers_wash_strange/offense/runA/build_a.py
+python3 - <<'PY'
+import pandas as pd
+from pathlib import Path
+p=Path('week10/meyers_wash_strange/offense/runA')
+d=pd.read_csv(p/'pressure.csv');q=d[d.row_type.eq('QB')];assert q[q.split.eq('all')].dropbacks.iloc[0]==219
+assert q[q.split_axis.eq('pressure_proxy')].dropbacks.sum()==219
+for f in p.glob('*.csv'): assert not pd.read_csv(f).empty
+print(q[['split','dropbacks','att','sacks','epa']].to_string(index=False))
+PY" in /workspace/nfl-database
+ succeeded in 2350ms:
+/workspace/nfl-database/week10/meyers_wash_strange/offense/runA/build_a.py:24: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  p = p0.merge(f[fc], left_on=['game_id','play_id'], right_on=['nflverse_game_id','nflverse_play_id'], how='left', validate='one_to_one', indicator='ftn_merge')
+/workspace/nfl-database/week10/meyers_wash_strange/offense/runA/build_a.py:24: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  p = p0.merge(f[fc], left_on=['game_id','play_id'], right_on=['nflverse_game_id','nflverse_play_id'], how='left', validate='one_to_one', indicator='ftn_merge')
+Wrote 10 CSVs and notes_a.md; assertions passed.
+         split  dropbacks   att  sacks       epa
+           all        219 197.0   13.0  0.282899
+         blitz         67  62.0    4.0  0.146624
+      no_blitz        152 135.0    9.0  0.342967
+   clean_proxy        154 154.0    0.0  0.510742
+pressure_proxy         65  43.0   13.0 -0.256915
+
+codex
+Created and ran [build_a.py](/workspace/nfl-database/week10/meyers_wash_strange/offense/runA/build_a.py), producing 10 CSVs and [notes_a.md](/workspace/nfl-database/week10/meyers_wash_strange/offense/runA/notes_a.md). Verification passed.
+
+Key findings: Meyers appears with JAX from Week 1; these files cannot establish a trade date. Lawrence’s 219 dropbacks include nine scrambles identified through rusher data.
+
+All work stayed within `runA/`. No commit, merge, or push.
+tokens used
+28,082
+Created and ran [build_a.py](/workspace/nfl-database/week10/meyers_wash_strange/offense/runA/build_a.py), producing 10 CSVs and [notes_a.md](/workspace/nfl-database/week10/meyers_wash_strange/offense/runA/notes_a.md). Verification passed.
+
+Key findings: Meyers appears with JAX from Week 1; these files cannot establish a trade date. Lawrence’s 219 dropbacks include nine scrambles identified through rusher data.
+
+All work stayed within `runA/`. No commit, merge, or push.

@@ -1,0 +1,26 @@
+GATE: FAIL  run=/workspace/nfl-database/runs/2026-11-01_FD7_REPLACEMENTS  checked_at=2026-11-01 12:00 ET
+Live legs: ['Puka Nacua Receptions Over 7.5', 'Stefon Diggs Receptions Over 3.5', 'Tre Tucker Receptions Over 3.5']
+Cut legs: ['Jahan Dotson Rec Yds Under 25.5', 'Jordan Addison Receptions Under 3.5', 'Rashee Rice Receptions Over 3.5', 'Rashee Rice Receptions Over 4.5', 'Rashee Rice Receptions Over 5.5', 'Stefon Diggs Rec Yds Over 42.5', 'Stefon Diggs Receptions Over 4.5', 'Xavier Worthy Rec Yds Over 29.5', 'Xavier Worthy Receptions Over 3.5']
+APPROVED EXCEPTIONS:
+  - leg Puka Nacua Receptions Over 7.5 defender Donte Jackson: coverage.defenders from /workspace/nfl-sim/mnf12/pfr_def_adv_2026.html (staleness waived; approved by Rico on 2026-11-01, valid 2026-11-01, scope receiving legs) — misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only
+  - leg Stefon Diggs Receptions Over 3.5 defender Cooper DeJean: coverage.defenders from /workspace/nfl-sim/mnf12/pfr_def_adv_2026.html (staleness waived; approved by Rico on 2026-11-01, valid 2026-11-01, scope receiving legs) — misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only
+  - leg Tre Tucker Receptions Over 3.5 defender Azareye'h Thomas: coverage.defenders from /workspace/nfl-sim/mnf12/pfr_def_adv_2026.html (staleness waived; approved by Rico on 2026-11-01, valid 2026-11-01, scope receiving legs) — misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only
+MISSES (13):
+  - source injuries_news/ESPN injuries API: pull timestamp 2026-11-01T18:52 is in the future
+  - source injuries_news/ESPN injuries API re-pull 15:01 (Rice Active): pull timestamp 2026-11-01T18:52 is in the future
+  - source injuries_news/X reporters/beat writers inactives posts (Rapoport, Schefter, team beats) via x connector: pull timestamp 2026-11-01T19:00 is in the future
+  - source injuries_news/ESPN game summary injuries (re-pull 19:00 for SNF PHI@WSH 401873035; earlier games already kicked off): pull timestamp 2026-11-01T19:00 is in the future
+  - source category injuries_news: missing or no fresh source
+  - source weather/NWS gridpoint forecast (api.weather.gov) kickoff..+3.5h max PoP/wind/gust; Open-Meteo cross-check DEN/MIA: pull timestamp 2026-11-01T14:41 is in the future
+  - source category weather: missing or no fresh source
+  - source odds_props/The Odds API re-pull 11:35: FanDuel main+alt, DraftKings, Pinnacle player props (12 events) (re-pull 18:51): pull timestamp 2026-11-01T18:51 is in the future
+  - source odds_props/The Odds API re-pull 11:35: FanDuel/DK/Pinnacle spreads+totals (28 games) (re-pull 18:51): pull timestamp 2026-11-01T18:51 is in the future
+  - source category odds_props: missing or no fresh source
+  - Phase 11 weather LV@NYJ: pull timestamp 2026-11-01T14:41 is in the future
+  - Phase 11 weather LAC@LAR: pull timestamp 2026-11-01T14:41 is in the future
+  - Phase 11 weather PHI@WSH: pull timestamp 2026-11-01T14:41 is in the future
+Notes:
+  - Puka Nacua Receptions Over 7.5: avg p 0.615, no-vig 0.542, edge +7.3, shrunk +3.8
+  - Stefon Diggs Receptions Over 3.5: avg p 0.669, no-vig 0.583, edge +8.7, shrunk +3.6
+  - Tre Tucker Receptions Over 3.5: avg p 0.611, no-vig 0.510, edge +10.1, shrunk +6.8
+  - cross-check (pick-side only, not a gated source): PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source) pulled 2026-11-01T07:34

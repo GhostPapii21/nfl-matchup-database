@@ -1,0 +1,39 @@
+{
+ "game": "LAC @ LA (LAR) / Nov 1, 2026, 4:05 PM ET per saved checklist / LA -6.5 / supplied total 46.5, checklist total 45.5; discrepancy unresolved, not verified movement / implied totals using 46.5: LA 26.5, LAC 20 / SoFi fixed roof with open sides per checklist; weather not saved. Moneyline and opening lines MISSING. Checklist reports LAC 14 days rest, LA 7; travel itinerary MISSING. Checklist built Oct 29, 2026, 05:25 EDT; other supplied facts have no individual capture timestamps.",
+ "script": {
+  "base": "Hypothesis before the player-data check: LA establishes a lead by halftime and shifts toward protecting it with the run later, making its lead runner's rushing market the first candidate. LAC needs more passing while trailing; pace and garbage-time volume remain unverified.",
+  "flip1": "LAC's rest advantage translates into an early lead, forcing LA toward more passing and reducing the rushing opportunities behind a Kyren Williams over.",
+  "flip2": "Both offenses sustain scoring drives and LA never gets to protect a comfortable lead. Williams could still clear through rushing efficiency, but a pass-heavy finish makes this leg script-dependent."
+ },
+ "injury_fallout": "MISSING: actual LAC and LA player injury designations, practice trends, final reports, inactives, offensive-line availability and snap restrictions. The Oct 29 checklist references Wednesday designations and pending later reports but does not supply the players or statuses. Do not infer injuries or returns from usage. Williams and Blake Corum's supplied workloads establish a shared backfield, not an injury-driven succession. Availability must be rechecked before any actionable recommendation.",
+ "matchup": {
+  "shell": "MISSING: actual LAC man/zone and MOFO/MOFC rates. The checklist references Sharp coverage pages dated Oct 20, but their values are absent; no individual coverage assignment is established.",
+  "pressure": "LAC blitzes 27%; LA QB EPA/dropback is -0.05 against blitz versus +0.15 without it. LA blitzes 30%; LAC QB EPA/dropback is -0.28 against blitz versus -0.23 without it. These supplied splits inform script risk but are not charted pressure rates or proof of offensive-line health.",
+  "bleeds": "LAC has allowed 4.34 rushing yards per carry and 19 runs of 10+ yards through six games. Its 17 explosive passes allowed on 182 attempts also leave a plausible passing alternative for LA. Sources: supplied season-to-date defensive summaries; individual capture times unspecified.",
+  "overlap": "Williams' established rushing workload attacks a LAC defense allowing 4.34 yards per carry, fitting the LA-leading hypothesis. This is a carry-share and script overlap, not proof of a uniquely weak run defense; box counts, run EPA, stuff rate and blocking matchups are missing."
+ },
+ "form": "Source: supplied LA Weeks 5\u20137 and LAC Weeks 4\u20136 aggregates, all identified as pre-kickoff. Williams recorded 42 carries for 198 yards: 14 carries per game and 4.71 yards per carry. Corum recorded 31 carries for 154 yards, leaving Williams with 57.5% of their combined carries rather than a dominant share. Williams also had 16 targets for 66 receiving yards, but those yards do not help this rushing-only leg. Puka Nacua's 41 targets for 286 receiving yards provide an alternative offensive path. LAC distributed carries among Hampton (30), Vidal (20), Mitchell (18) and Herbert (17). Individual game trends, snaps, routes, red-zone usage and comparable-opponent results are MISSING.",
+ "edge_players": [
+  {
+   "player": "kyrenwilliams",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Williams can exceed 60.5 rushing yards if favored LA protects a lead with his established carry workload against LAC's 4.34 yards-per-carry allowance.",
+   "must_be_true": "Kyren Williams carries >= 14 [because the supplied Weeks 5\u20137 aggregate shows 42 carries across three games]",
+   "kills_it": "IF LA falls behind early and Williams finishes with 10 or fewer carries without compensating explosive runs THEN Williams over 60.5 rushing yards fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Read tested after the script hypothesis: Williams' recent workload and efficiency support the candidate, but only modestly. A transparent sensitivity calculation of 14 carries multiplied by LAC's 4.34 allowed YPC produces 60.76 yards, barely above 60.5; this is not a fitted projection or simulation. His recent 66 rushing yards per game is supporting context, not the selection rationale. Both supplied sides are -113.5, giving a normalized two-way market probability of 50% each; this is not a verified Pinnacle quote. The offered over requires approximately 53.16% to break even, and the pack cannot establish that hit probability.",
+  "disagrees": "none",
+  "missing": "Validated projection, simulated median and distribution, calibrated hit probability, Pinnacle no-vig price, timestamped prop quotes, game-level workload dispersion, verified injuries, offensive-line health and box-count data.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate only: kyrenwilliams rushyds over 60.5 at -113.5. Choose rushing yards because the hypothesis concerns carries in a favorable script. No alternate rung supplied. No stake recommendation or demonstrated positive expected value; missing pricing validation prevents an actionable stamp.",
+ "pre_mortem": "It is Monday and Williams lost because LA's lead did not translate into enough Williams carries. Corum already had 31 carries against Williams' 42 in the supplied three-game window, so a shared clock-killing workload could leave Williams short even with the correct game script. Alternatively, LA leaned on Nacua against LAC's explosive-pass allowance or trailed and threw more. The 60.76-yard workload-times-defense sensitivity offers almost no cushion, and absent injury and line-health details could conceal another workload problem. This counter-case prevents strong confidence.",
+ "slip_story": "LA-leads-and-runs-the-clock candidate only; script-dependent, with no independently supported flip survival. Do not manufacture a 3\u20134-leg slip from this pack. Keep Williams as a standalone research lean pending availability and price validation. This JSON records the read, but no external save, timestamped lock or hash was performed. After the game, grade LA's lead and Williams' carry allocation separately from the prop result; review Steps 2, 3 and 5 for any miss.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

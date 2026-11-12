@@ -1,0 +1,19 @@
+GATE: FAIL  run=/workspace/nfl-database/runs/2026-11-01_BONUS_SLIP  checked_at=2026-11-01 12:00 ET
+Live legs: ['Jahmyr Gibbs Rush Yds Over 79.5 (alt)', 'Puka Nacua Receptions Over 7.5', 'Stefon Diggs Receptions Over 3.5 (alt)', 'Tre Tucker Receptions Over 3.5']
+Cut legs: none
+APPROVED EXCEPTIONS:
+  - leg Puka Nacua Receptions Over 7.5 defender Donte Jackson: coverage.defenders from /workspace/nfl-sim/mnf12/pfr_def_adv_2026.html (staleness waived; approved by Rico on 2026-11-01, valid 2026-11-01, scope receiving legs) — misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only
+  - leg Stefon Diggs Receptions Over 3.5 (alt) defender Cooper DeJean: coverage.defenders from /workspace/nfl-sim/mnf12/pfr_def_adv_2026.html (staleness waived; approved by Rico on 2026-11-01, valid 2026-11-01, scope receiving legs) — misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only
+  - leg Tre Tucker Receptions Over 3.5 defender Azareye'h Thomas: coverage.defenders from /workspace/nfl-sim/mnf12/pfr_def_adv_2026.html (staleness waived; approved by Rico on 2026-11-01, valid 2026-11-01, scope receiving legs) — misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only
+MISSES (6):
+  - source weather/NWS gridpoint forecast (api.weather.gov) kickoff..+3.5h max PoP/wind/gust; Open-Meteo cross-check DEN/MIA: pull timestamp 2026-11-01T14:41 is in the future
+  - source category weather: missing or no fresh source
+  - Phase 11 weather LV@NYJ: pull timestamp 2026-11-01T14:41 is in the future
+  - Phase 11 weather LAC@LAR: pull timestamp 2026-11-01T14:41 is in the future
+  - Phase 11 weather PHI@WSH: pull timestamp 2026-11-01T14:41 is in the future
+  - Phase 11 weather MIN@DET: pull timestamp 2026-11-01T14:41 is in the future
+Notes:
+  - Jahmyr Gibbs Rush Yds Over 79.5 (alt): avg p 0.647, no-vig 0.583, edge +6.5, shrunk +2.0
+  - Puka Nacua Receptions Over 7.5: avg p 0.615, no-vig 0.542, edge +7.3, shrunk +3.8
+  - Stefon Diggs Receptions Over 3.5 (alt): avg p 0.669, no-vig 0.583, edge +8.7, shrunk +3.6
+  - Tre Tucker Receptions Over 3.5: avg p 0.611, no-vig 0.510, edge +10.1, shrunk +6.8

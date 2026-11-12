@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 ATL@NO / kickoff: MISSING / spread and total: not saved; script inferred only from supplied team form / weather: not saved",
+ "script": {
+  "base": "ATL leans on Bijan Robinson against a NO defense allowing 4.85 yards per carry, while NO relies more on passing against ATL's 3.12 yards-per-carry run defense. A competitive game with sustained ATL rushing and NO passing opportunities is the working hypothesis; the pack does not establish a likely halftime leader, pace, or garbage-time window.",
+  "flip1": "NO builds an early lead through its passing game, forcing ATL away from rushing. Bijan's rushing over becomes vulnerable, although Juwan Johnson can still accumulate receiving yards before any late clock-killing phase.",
+  "flip2": "ATL controls possession through its rushing attack and leads late. Bijan benefits from additional carries, while Johnson needs NO's catch-up passing volume to offset potentially fewer possessions."
+ },
+ "injury_fallout": "MISSING: ATL and NO injury reports, practice participation, final designations, inactive lists, return-to-play restrictions, and offensive-line and defensive personnel availability. No absences, returns, or next-man-up changes are inferred from usage. ATL's supplied QB efficiency is not identified by player, while C.Rush appears in the rushing data and Michael Penix Jr. has an available prop; the starting QB is unconfirmed. Recheck both teams' final reports and approximately 90-minute inactives before treating either leg as actionable.",
+ "matchup": {
+  "shell": "MISSING: ATL and NO MOFO/MOFC, man/zone rates, alignment splits, and individual coverage assignments. ATL's middle-field allowance cannot be assigned specifically to Johnson without route and coverage mapping.",
+  "pressure": "NO blitzes 29%; ATL's supplied QB EPA/dropback is -0.00 against blitzes on 32 dropbacks versus -0.55 without blitzes. ATL blitzes 21%; NO's QB EPA/dropback is -0.14 against blitzes on 47 dropbacks versus 0.11 without blitzes. These splits do not establish pressure getting home; pressure rates, sacks, time to throw, and check-down rates are missing.",
+  "bleeds": "NO allows 4.85 rushing yards per carry and 11 runs of at least 10 yards through three games, supporting an ATL rushing hypothesis. ATL allows only 3.12 rushing yards per carry and two runs of at least 10 yards, but has conceded 12 pass plays of at least 20 yards on 135 attempts. ATL's middle passing allowance is 9.45 yards per attempt on 20 attempts, versus 5.86 left and 5.63 right.",
+  "overlap": "Bijan's 66 carries give ATL an established rushing option to attack NO's run-defense weakness. Johnson's 19 targets, 173 receiving yards, and 103 air yards establish meaningful receiving involvement, with a possible opening against ATL's middle-field weakness. Johnson's actual alignment overlap is unverified, and Olave's 36 targets make him NO's primary target rather than Johnson."
+ },
+ "form": "Source for all observations: supplied pre-kickoff pack, weeks 1\u20133; exact collection timestamps are missing. Bijan recorded 66 carries for 349 yards, with Brian Robinson adding 30 carries for 132 yards: Bijan has the larger workload, but not exclusive backfield usage. Johnson recorded 19 targets for 173 receiving yards and 103 air yards; Olave had 36 targets and Vele 22, so Johnson faces substantial target competition. These are three-game aggregates, not individual-game trends. MISSING: game-by-game distributions, snaps, routes, red-zone usage, play-caller changes, comparable-opponent results, and play-level evidence separating repeatable production from outliers.",
+ "edge_players": [
+  {
+   "player": "bijanrobinson",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Bijan's established lead rushing workload can exploit a NO defense allowing 4.85 yards per carry and 11 runs of at least 10 yards to exceed 87.5 rushing yards.",
+   "must_be_true": "bijanrobinson carries >= 19 [because the pack records 66 carries across three games and NO allows 4.85 rushing yards per carry]",
+   "kills_it": "IF NO builds an early multi-score lead and ATL abandons sustained rushing THEN bijanrobinson rushyds over 87.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "juwanjohnson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Johnson's established receiving involvement gives him a path over 46.5 yards against an ATL defense that suppresses rushing but allows 9.45 passing yards per attempt through the middle.",
+   "must_be_true": "juwanjohnson targets >= 6 [because the pack records 19 targets across three games]",
+   "kills_it": "IF NO concentrates its passing opportunities on Olave and Vele and Johnson receives three or fewer targets without an explosive gain THEN juwanjohnson recyds over 46.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The matchup hypotheses precede these descriptive checks. Bijan's supplied totals translate to 22 carries and 116.3 rushing yards per game, with 5.29 yards per carry; those figures support, but do not project, an over 87.5. Johnson's totals translate to 6.3 targets and 57.7 receiving yards per game, supporting consideration of over 46.5 without establishing its hit probability. Proportional two-way normalization of the supplied prices gives approximately 50.3% for Bijan over and 50.2% for Johnson over; these are quoted-market benchmarks, not Pinnacle probabilities. Their offered-price break-even probabilities are approximately 53.3% and 53.5%, respectively. Neither lean is a demonstrated positive-EV wager without a calibrated probability estimate.",
+  "disagrees": "none",
+  "missing": "Calibrated projections, simulations and sim medians, Pinnacle prices, individual-game hit distributions, current personnel confirmation, coverage-to-route mapping, spread, total, moneyline, implied team totals, opening-line movement, kickoff time, rest/travel details, verified venue environment, and weather. Missing information alone does not change the verdict to flag.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line candidates only: bijanrobinson rushyds over 87.5 at -114; juwanjohnson recyds over 46.5 at -115. Bijan's market expresses carry volume plus the run-defense matchup; Johnson's expresses receiving-yard opportunity rather than a verified explosive-play advantage. No alternative rungs supplied; no stake recommended without probability validation.",
+ "pre_mortem": "Bijan: It is Monday and the over lost because NO scored first, ATL reduced rushing volume, or Brian Robinson's existing 30-carry involvement absorbed enough work to leave Bijan short. NO's three-game rushing allowance could also overstate the matchup advantage; the pack lacks opponent context and offensive-line health. Johnson: The over lost because ATL's middle-field weakness did not correspond to Johnson's actual routes, while Olave and Vele captured the passing production. His 173 yards are an aggregate without a game-level distribution, so one productive outing could be hiding a less reliable weekly role. Neither counter-case conclusively defeats the hypothesis, but both keep confidence at lean.",
+ "slip_story": "Both candidates fit a competitive ATL ground-control story: Bijan sustains ATL drives while NO answers through the air, potentially involving Johnson. They also have paths in the ATL-leads flip, but Bijan is vulnerable to an early NO runaway and Johnson's target allocation is uncertain. Only two supported candidates are identified; do not manufacture a third or fourth leg to meet a slip size. No same-game parlay price or joint-probability model is supplied, so no priced slip is endorsed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

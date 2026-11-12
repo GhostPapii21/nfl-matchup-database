@@ -1,0 +1,48 @@
+{
+ "game": "IND @ JAX / Nov 1, 2026, 1:00 PM ET / EverBank Stadium, outdoor / JAX -10 / total 45.5 / implied totals: JAX 27.75, IND 17.75 / supplied weather: wind 13.7 mph, 78\u00b0F, observation timestamp missing. Saved checklist built Oct 29, 2026, 05:25 EDT lists total 46.5; this discrepancy is not verified line movement. Moneyline and opening lines missing. ESPN schedule evidence in checklist: IND 7 days rest, JAX 14; travel itinerary missing.",
+ "script": {
+  "base": "Working hypothesis before checking player production: the market's JAX -10 points toward Jacksonville leading by halftime and leaning on its rushing game late. Indianapolis should become more pass-oriented while chasing, creating a possible outlet-receiving path for Jonathan Taylor even if his carries decline; exact pace is unavailable.",
+  "flip1": "Indianapolis keeps the game competitive or leads, reducing Jacksonville's clock-killing opportunities. Tuten's combined-yardage over would then need receiving production to replace lost carries, while Taylor's receiving over could lose trailing-script support.",
+  "flip2": "Jacksonville builds an overwhelming early lead and distributes late carries away from Tuten, while Indianapolis struggles to sustain possessions. That can undermine both overs despite the favorite winning comfortably."
+ },
+ "injury_fallout": "MISSING: player-specific injury designations, practice trends, offensive-line availability, defensive absences, return restrictions and final inactives for IND and JAX. The Oct 29 checklist references Wednesday reports and injuries.json but supplies no actual player statuses. No absences, returns or next-man-up roles can be inferred from usage. Final reports and approximately 90-minute inactives would require rechecking both selected players; that checkpoint cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: actual IND/JAX man, zone and MOFO/MOFC rates. The saved checklist references Sharp coverage pages dated Oct 20, but their values are not included; no coverage assignments can be established.",
+  "pressure": "Supplied pregame summary: JAX blitzes 31%; IND QB EPA/dropback is -0.12 versus blitz and -0.18 without it. IND blitzes 22%; JAX QB EPA/dropback is 0.14 versus blitz and 0.33 without it. Blitz frequency is not pressure rate, and these numbers do not establish that pressure forces Taylor checkdowns. Charted pressure, sack exposure and exact OL matchups are missing.",
+  "bleeds": "Supplied season-to-date defensive summary: IND allows 5.02 rushing yards per carry and 19 runs of 10+ yards over seven games; JAX allows 3.33 and seven such runs over six games. Middle-location passing YPA allowed is 8.95 for IND and 11.06 for JAX, but those location splits cannot establish RB receiving allowances.",
+  "overlap": "Tuten's established rushing workload directly overlaps IND's vulnerable run defense, supporting a combined-yardage hypothesis. Taylor's receiving hypothesis rests on trailing-script opportunity and his actual recent receiving usage, not an unverified JAX linebacker or coverage weakness."
+ },
+ "form": "Supplied pregame L3 summaries, underlying box-score/PBP provenance referenced by the saved checklist: Tuten logged 51 carries for 184 yards and nine targets for 90 receiving yards in Weeks 4\u20136: 17 carries and 91.3 combined yards per game. His rushing efficiency was 3.61 YPC; Rodriguez also logged 19 carries for 95 yards, so Tuten does not own every rushing opportunity. Taylor logged 54 carries for 234 yards plus 11 targets for 109 receiving yards in Weeks 5\u20137: 3.7 targets and 36.3 receiving yards per game. His aggregate receiving air yards were -9, consistent with short targets but not proof of a particular route or pressure mechanism. These aggregates do not reveal individual-game consistency, routes, snaps, red-zone work or whether one explosive play inflated production. JAX's sample ends in Week 6 because the checklist records 14 days of rest.",
+ "edge_players": [
+  {
+   "player": "bhayshultuten",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Tuten's lead rushing role can exploit an IND defense allowing 5.02 YPC while Jacksonville plays from ahead, with receiving work providing another route over 85.5 combined yards.",
+   "must_be_true": "bhayshultuten carries >= 17 [because the supplied Weeks 4\u20136 summary records 51 carries across three games and JAX is favored by 10]",
+   "kills_it": "IF Jacksonville falls behind and Tuten loses rushing volume without replacing it through receiving work THEN bhayshultuten rushrecyds over 85.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jonathantaylor",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Taylor's existing short-target receiving role can clear 14.5 yards as a 10-point-underdog Indianapolis offense shifts toward passing.",
+   "must_be_true": "jonathantaylor targets >= 3 [because the supplied Weeks 5\u20137 summary records 11 targets across three games]",
+   "kills_it": "IF Indianapolis reduces Taylor's passing-down involvement and he receives no more than one short target THEN jonathantaylor recyds over 14.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The script hypotheses precede this numerical check. Tuten's 91.3 recent combined yards per game modestly exceed 85.5, with IND's rushing allowance supporting the matchup rather than establishing a calibrated projection. Taylor's 109 receiving yards on 11 targets support a real receiving role above a 14.5-yard threshold. Neither aggregate establishes a hit rate. Both remain leans; no model, simulation or probability estimate was fabricated. Tuten's combined market offers a possible receiving fallback in a competitive-game flip, and Taylor's existing receiving role offers a path in that flip, but neither fallback is proven by game-level data.",
+  "disagrees": "none",
+  "missing": "Calibrated model, simulation median and distribution, Pinnacle prices and no-vig benchmark, individual-game production and hit rates, route/snap shares, verified coverage values, actual injury reports and final inactives, price timestamps and kickoff-proximate weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate main lines only: bhayshultuten rushrecyds over 85.5 at -117.5, requiring 54.02% to break even before any adjustment; jonathantaylor recyds over 14.5 at -119, requiring 54.34%. These are supplied sportsbook prices, not verified Pinnacle quotes or demonstrated positive-EV bets. Combined yards suits Tuten's rushing-plus-receiving path; receiving yards is the permitted market for Taylor's outlet-role hypothesis. No alternate rung selected, and no stake assigned without calibration and availability checks.",
+ "pre_mortem": "Tuten: It is Monday and the over lost because the expected Jacksonville lead did not translate into enough personal opportunity. Rodriguez already had 19 carries in the supplied three-game sample, Tuten produced only 3.61 rushing YPC, and his combined-yardage average exceeded this line by just 5.8 yards. A competitive script or distributed late workload could erase that cushion; missing snap and injury information prevents a stronger rating.\n\nTaylor: It is Monday and the over lost because Indianapolis throwing more did not mean throwing to Taylor. His 11 targets across three games establish involvement but not guaranteed weekly volume, and the pack provides neither passing-down snaps nor JAX RB receiving allowances. A few short completions, stalled drives or a more competitive game could leave him below 14.5. The shared failure case is poor Indianapolis possession quality combined with Jacksonville spreading its workload.",
+ "slip_story": "One coherent story: Jacksonville leads and Tuten accumulates combined yards while Indianapolis chases and Taylor receives short outlets. These are two candidates, not a completed 3\u20134-leg main slip; do not add unsupported depth-receiver legs merely to reach a leg count. Both are script-sensitive leans, with alternate-script survival unverified. No bet placed. After the game, grade Jacksonville's lead, Tuten's workload and Taylor's receiving involvement separately from whether the yardage legs hit.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

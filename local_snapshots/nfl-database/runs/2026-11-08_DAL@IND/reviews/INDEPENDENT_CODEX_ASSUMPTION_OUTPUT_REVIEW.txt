@@ -1,0 +1,43 @@
+Review-only verdict: **the assumptions are mostly candid and SHARED_PARTIAL is justified, but provenance inconsistencies prevent a clean reproducibility sign-off.** No files edited; no simulations or tests rerun.
+
+1. **Assumptions: honest research scope, with important limits**
+
+The fit accounts for all 2,665 input rows: 1,068 retained and 1,597 excluded. Eight team×down usage cells and 20 outcome cells agree with the documented counts; 14 outcome cells carry sparse-support flags.
+
+The model explicitly discloses pooled DAL+IND catch probabilities, omitted situational conditioning, clock selection bias, disabled coverage/routes/personnel effects, approximate OT, and absent predictive validation. Player usage remains particularly coarse: equal thirds among three carry candidates, equal quarters among four target candidates, and fixed target depth. Calling this an empirical **team/down and outcome fit** is supported; calling it empirically fitted player usage would overclaim.
+
+Wilson intervals describe category sampling uncertainty, without accounting for game dependence or structural bias. Five complete, valid draws and reported conservation/test passes establish limited execution evidence, not forecast accuracy. The inherited replay clocks also do not independently certify source availability at cutoff.
+
+There is a concrete reporting defect: `COMPLETION_PHASES_AND_FIT.md` and the Grok review cite before/after forecast IDs beginning `3a418c…` / `09f1c4…`; `reproducibility.json` instead records `0a7b4f…` / `e1c18e…`. The latter’s after/repeat IDs, seeds, scores and means match internally. Thus numerical repetition is documented, but cross-document forecast identity is unresolved.
+
+2. **Outputs versus the research DK snapshot: coherent arithmetic, substantial diagnostic tension**
+
+| Output | DAL mean | IND mean | DAL−IND margin | Total |
+|---|---:|---:|---:|---:|
+| Fitted joint, n=5 | 27.2 | 14.2 | 13.0 | 41.4 |
+| Separate empirical, n=500 | 22.012 | 12.722 | 9.290 | 34.734 |
+| Research DK snapshot | — | — | DAL favored by 5.5 | 51.5 |
+
+Both simulation summaries have the same favorite direction as the supplied snapshot, larger mean margins, and materially lower totals. These are diagnostic discrepancies requiring investigation; they do not demonstrate calibration or an edge. A quoted spread is also not necessarily an expected margin.
+
+The n=5 mean is highly simulation-sensitive. Increasing draws would reduce Monte Carlo noise while leaving structural bias unresolved. The n=500 path remains a separate development model; its coarse-support flags occur in every simulated game despite its reported zero hard-sparse rate.
+
+**Actionable status remains NOLINE.** The supplied snapshot lacks `book_last_update`, and the packet documents blocked, missing or authenticated quote sources. This comparison is strictly `RESEARCH_OBSERVED_FETCH_TIME_NOT_VERIFIED_QUOTE`. No market acceptance follows.
+
+3. **SHARED_PARTIAL: correct**
+
+The bridge verifies matching values on eight specified columns for all 2,665 extract rows, while acknowledging 155 additional parquet rows. That supports shared source-subset semantics.
+
+It does not establish shared opportunity allocation, state partitioning, player roles, outcome generation, credits, OT, seeds or forecast identity. The external summary explicitly reports `UNIMPLEMENTED_LEGACY_YARD_ROW_BOOTSTRAP` and `adapter_projection_allowed: false`. Full integration would be a false claim; combining the two forecast populations would lack a demonstrated common lineage.
+
+4. **Remaining genuine blockers**
+
+- Reconcile forecast IDs across the completion report, reproducibility record and prior review.
+- Resolve the external summary’s stale-looking `source_composition` label naming **JAX_BAL**, which conflicts with its DAL/IND configuration and history metadata.
+- Establish out-of-sample predictive validation, realistic player allocation, situational decisions and clock behavior, broader event support, and verified rules/accounting.
+- Complete shared forecast/accounting lineage before claiming end-to-end integration.
+- Obtain final availability information for a final prospective roster specification; inactives were unavailable at the recorded cutoff.
+- Verified quotes remain a blocker specifically for market-facing work, not for continuing independent data-only research.
+- External delivery remains documented as missing. This is a delivery limitation, separate from statistical validity.
+
+The prior review’s “Bias unfitted” and production “100k triad” requirements are not independently established by the supplied primary artifacts; they should remain attributed requirements rather than verified findings.

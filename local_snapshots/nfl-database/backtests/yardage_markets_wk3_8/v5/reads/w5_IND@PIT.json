@@ -1,0 +1,46 @@
+{
+ "game": "Week 5 IND@PIT / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this is form-only and the book's expected leader is unknown. Both clubs have a defined lead back and a pass hierarchy: IND has given Jonathan Taylor 67 carries for 255 yards over weeks 2-4 while Josh Downs has drawn 24 targets and 243 air yards; PIT has given Jaylen Warren 45 carries for 263 yards (5.84 YPC) plus 15 checkdown targets, with DK Metcalf (23 targets, 290 air) and Roman Wilson (18 targets, 242 air) as the vertical pair. Base script is a competitive, balanced game in which Warren keeps about 15 carries and a handful of targets, Rodgers works the left and middle where IND allows 8.73 and 8.83 YPA, and Taylor stays near his 22-carry role.",
+  "flip1": "IND gets ahead and PIT abandons the run. Warren's 72.5 rush line dies the way a trailing back's does, and if IND lifts its 20% blitz rate Rodgers' -0.39 EPA/dropback vs blitz (n=46) kills Metcalf and Wilson deep yards while Warren's checkdowns (15 targets, -9 air yards, 116 rec yds in the L3) become the outlet.",
+  "flip2": "PIT gets up and grinds the clock. Warren's carries stay high into a run defense allowing 4.97 YPC, Taylor's 22-carry role shrinks so the 84.5 rush number is live to miss, and IND chase-passes through Downs. A slog is also plausible because both QBs are negative EPA (IND -0.19 blitz / -0.21 clean; PIT -0.39 blitz / -0.06 clean), but no total is saved to price an under."
+ },
+ "injury_fallout": "No injury report, practice trend, questionable tags, or inactives are in the pack, so no next-man-up can be named and this must be re-run if a late scratch hits. On usage already logged, IND's ball is Taylor (67 carries) and Downs (24 targets), with Tyler Warren the short option (22 targets, only 36 air yards) and Keenan Allen third (14 targets, 68 rec yds). PIT's ball is Jaylen Warren (45 of 60 L3 rushes; Dowdle 7, Homer 5) with Metcalf and Roman Wilson the downfield duo and Freiermuth (14 targets, 79 yards) the TE. A scratch of Taylor, Jaylen Warren, Downs, Metcalf, or Wilson voids the read. Source: as-of pack L3 box totals only.",
+ "matchup": {
+  "shell": "Man/zone and MOFO/MOFC charting are not in the pack. Location YPA is the proxy. PIT allows left 8.75 (51 att), middle 7.15 (26 att), right 7.27 (37 att), so the soft spot is the left, not the middle where a TE usually lives. IND allows left 8.73 (44 att), middle 8.83 (30 att), right 7.48 (61 att), so left and middle are the bleed and the right is the only sturdy side.",
+  "pressure": "PIT blitzes 28%. IND QB EPA is almost the same vs blitz (-0.19, n=50) and clean (-0.21), so PIT pressure is not a special mismatch, but both splits are negative and favor shorter throws over a Downs explosion. IND blitzes only 20%. That matters because Rodgers is -0.39 EPA vs blitz (n=46) and only -0.06 clean: if IND stays low-blitz, the Metcalf/Wilson air-yard game stays available.",
+  "bleeds": "IND run defense allows 4.97 YPC and 12 runs of 10+ in 4 games, plus 13 passes of 20+ on 144 attempts. PIT run defense is tighter at 4.56 YPC and 11 runs of 10+, with 14 passes of 20+ on 124 attempts. Taylor's own L3 efficiency is only 3.81 YPC (255 on 67), so he is not attacking a soft front the way Warren's 5.84 YPC is.",
+  "overlap": "The core overlap is Jaylen Warren's 75% carry share (45 of 60 PIT rushes) into IND's 4.97 YPC, with a second path in checkdown receiving (116 yards on -9 air yards) if the box loads up. Roman Wilson's 242 air yards on 18 targets is the pass overlap with IND's left/middle leak (8.73 and 8.83 YPA) in a 20% blitz shell. Downs' 243 air yards would attack PIT's left leak (8.75), but 165 rec yards over 3 games is 55.0 against a 55.5 line, so there is no number edge."
+ },
+ "form": "Avoiding season averages and using the pack's weeks 2-4 only. Jaylen Warren: 15.0 carries and 87.7 rush yards per game at 5.84 YPC, plus 5.0 targets and 38.7 rec yards with negative air yards, so the receiving line is checkdowns rather than one deep ball; he is clearly ahead of Dowdle (7 carries, 22 yards) and Homer (5 carries, 15 yards). Roman Wilson: 6.0 targets, 54.0 rec yards, 80.7 air yards per game, 9.0 yards per target. That is a real downfield role next to Metcalf (7.7 targets, 57.7 yards, 96.7 air), but there is no game log to prove one explosive week did not inflate the 162 yards, so it is a lean not a lock. Metcalf's 57.7 sits only 5 yards over 52.5. Taylor is 85.0 rush and 15.3 rec per game, essentially the 84.5 and 104.5 (rush+rec 100.3 vs 104.5) numbers, into a 4.56 YPC PIT front. Downs is 55.0 vs 55.5. Tyler Warren is 39.0 rec yards on 7.3 targets but only 1.6 air yards per target vs a 45 line. Treadwell's 41.0 yards on 3.3 targets (12.3 per target) looks explosive-inflated, so the 16 line is a pass either way. Rodgers' 17 rush yards on 3 carries and Jones' 6.7 rush yards per game vs 9.5 are too binary or too thin. No similar-opponent splits beyond these defensive aggregates.",
+ "edge_players": [
+  {
+   "player": "jaylenwarren",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Jaylen Warren has averaged 126.3 rush-plus-receiving yards over weeks 2-4 (263 rush plus 116 receiving) against a 99 line, with 75% of PIT's carries and a checkdown floor, into an IND run defense allowing 4.97 YPC.",
+   "must_be_true": "He keeps the lead-back role near 15 carries and at least a slice of his 5 targets per game, and the game does not yank him in a blowout. Even if his 5.84 YPC regresses to IND's 4.97, 15 carries is about 75 rush yards, so the receiving floor has to stay involved for the 99 to be comfortable.",
+   "kills_it": "A blowout that cuts his snaps, or a stuffed front plus the checkdowns going to Freiermuth (14 L3 targets) and Washington instead, leaving him around 55 rush and under 20 receiving.",
+   "confidence": "strong"
+  },
+  {
+   "player": "romanwilson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Roman Wilson has averaged 54.0 receiving yards on 80.7 air yards per game over weeks 2-4 versus a 41 line, and IND leaks 8.73 YPA to the left and 8.83 in the middle while blitzing only 20%, the pocket where Rodgers' EPA is -0.06 rather than -0.39.",
+   "must_be_true": "Wilson keeps a 5-6 target downfield role beside Metcalf, and IND does not blitz well above 20% so Rodgers is not stuck in the -0.39 blitz split.",
+   "kills_it": "IND heats the blitz, PIT grinds with Warren and Wilson sees a 2-target game, or the 162 L3 yards were one long catch that does not repeat.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, and both chosen rungs are priced +nan, so step 8 cannot be finished against a sharp number. The box-score data that is here agrees: Warren 126.3 vs 99 and, on a regression to IND's 4.97 YPC, still about 75 rush plus 39 receiving. Wilson 54.0 vs 41. Nothing in the pack disagrees, so this is not a flag. Do not treat either leg as a 70% model lock; that band has been miscalibrated and these are form reads only. Taylor 85.0 vs 84.5, Downs 55.0 vs 55.5, and Freiermuth 26.3 vs 27.5 were passed because they sit on the number.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Jaylen Warren rush+rec yards over 99 (price not saved, +nan), chosen over the pure rush over 72.5 because a trail script kills carries but the checkdown floor still travels, and over rec yards over 20.5 -113 so the slip keeps one market on him. Roman Wilson receiving yards over 41 (price not saved, +nan). Not betting Taylor rush 84.5 -113.5, Downs 55.5 -114, or Freiermuth 27.5 -114; all sit on the L3 average. No short-priced alt.",
+ "pre_mortem": "It's Monday and the Warren over lost because PIT trailed early, his carries fell from 15 toward Dowdle and Homer, IND held him near 4.0 YPC instead of 5.84, and the checkdowns went to Freiermuth and Washington, so he finished around 55 rush and 18 receiving, under 99. Wilson lost because one of those 54-yard weeks was a single chunk play, IND funneled throws to their best side (right, 7.48 YPA on 61 attempts), and a bump in blitz rate pushed Rodgers into the -0.39 split so the 41 never came close. That counter is strong enough to keep Wilson a lean, not strong. It is not stronger than Warren's two-path read, because even a regression to 4.97 YPC on a full carry share still needs only a modest receiving day to clear 99, so the leg stays.",
+ "slip_story": "One PIT skill-position story in a competitive or PIT-leaning game: Warren rush+rec over as the anchor (carry share into 4.97 YPC, plus checkdowns if they trail) stacked with Wilson receiving yards over as the vertical shot into IND's left and middle leak while the blitz stays near 20%. Do not mix in a total under, a Taylor under, or a Metcalf under; those need the opposite script. No TDs, no second market on Warren, no depth-receiver lottery on Treadwell's inflated 16 line.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

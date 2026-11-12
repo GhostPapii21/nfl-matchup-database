@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 TB@DAL / kickoff MISSING / spread and total not saved; implied totals, moneyline and movement MISSING / weather not saved. Script inferred only from supplied team form, not market expectations. Venue details, rest and travel MISSING. All evidence is from the supplied pre-kickoff pack; exact source timestamps are unavailable.",
+ "script": {
+  "base": "DAL has the stronger passing-led scoring hypothesis: Prescott produced positive EPA/dropback against both blitz and non-blitz looks, while TB's figures were negative against both. Expect a competitive opening with DAL more likely to establish a later lead, TB retaining Irving's rushing involvement early and adding passing volume if trailing; pace and garbage time cannot be established from the pack.",
+  "flip1": "TB controls possession through Irving against DAL's 4.93 rushing YPC allowed, keeping the score close or taking the lead. DAL must lean further toward passing, which can still constrain Williams' combined yardage while leaving Hurst some opportunities against an explosive-prone secondary.",
+  "flip2": "DAL builds a large early lead and controls the second half on the ground. Williams' added carries threaten his combined-yardage under, while TB's increased passing opportunities help Hurst only if its negative passing efficiency does not prevent completions."
+ },
+ "injury_fallout": "MISSING: TB and DAL injury reports, practice trends, offensive-line availability, defensive absences, final inactives and returning-player snap limits. Specifically, no health or availability information is supplied for Ted Hurst III, Javonte Williams or their teammates. No absences, returns or next-man-up assignments can be inferred from the usage totals.",
+ "matchup": {
+  "shell": "MISSING: TB and DAL MOFO/MOFC, man/zone rates and receiver alignment charting. DAL allowed 11.62 YPA through the middle and TB allowed 9.13, but those location splits do not establish shell or individual coverage assignments.",
+  "pressure": "TB blitzed 42%; Prescott's EPA/dropback was 0.13 against blitz versus 0.32 without it. DAL blitzed 27%; TB's QB EPA/dropback was -0.18 against blitz versus -0.23 without it. Actual pressure rates, sacks, time to throw and check-down rates are MISSING; blitz frequency alone does not establish pressure getting home.",
+  "bleeds": "DAL allowed 4.93 rushing YPC, 15 runs of 10+ yards and 15 pass plays of 20+ yards on 117 attempts. TB allowed 3.58 rushing YPC, eight runs of 10+ yards and nine pass plays of 20+ yards on 130 attempts. These favor attacking DAL's explosive-play vulnerability and questioning Williams' rushing efficiency against TB.",
+  "overlap": "Hurst's 243 air yards on 13 targets identify a downfield opportunity profile that overlaps DAL's conceded passing explosives, although his routes and alignment are unknown. Williams' combined-yardage under attacks TB's stronger run-defense profile rather than assuming a specific coverage matchup."
+ },
+ "form": "Supplied weeks 2\u20134 totals: Hurst had 13 targets, 92 receiving yards and 243 air yards; his production was not merely a zero-volume deep-shot hypothesis, but individual-game consistency and long-play concentration are unknown. Williams had 50 carries for 190 yards plus 12 targets and 46 receiving yards. Irving had 48 carries for 196 yards. Lamb led DAL with 39 targets and 454 receiving yards, supporting a passing-led offensive hypothesis without establishing future play selection. MISSING: game-by-game snaps, routes, red-zone usage, coaching changes and comparable-opponent results.",
+ "edge_players": [
+  {
+   "player": "tedhurstiii",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Hurst's downfield opportunities can clear 16.5 receiving yards against a DAL defense that has already allowed 15 completions of 20+ yards.",
+   "must_be_true": "Ted Hurst III receiving_yards >= 17 [because the pack records 243 air yards on 13 targets over weeks 2\u20134 and DAL allowing 15 pass plays of 20+ yards]",
+   "kills_it": "IF TB fails to complete Hurst's downfield opportunities and he finishes with 16 or fewer receiving yards THEN Hurst over 16.5 receiving yards fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "javontewilliams",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "TB's stronger run defense can hold Williams below 86.5 combined yards unless DAL generates enough additional rushing volume to overcome the matchup.",
+   "must_be_true": "Javonte Williams rushing_plus_receiving_yards <= 86 [because the pack records TB allowing 3.58 rushing YPC and Williams producing 236 combined yards over weeks 2\u20134]",
+   "kills_it": "IF DAL's clock-control carries or Williams' receiving production lift him to at least 87 combined yards THEN Williams under 86.5 rushing-plus-receiving yards fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The matchup hypotheses precede these aggregate checks. Hurst's supplied totals translate to 4.33 targets and 30.67 receiving yards per game over three games, supporting but not pricing the low receiving threshold. Williams averaged 16.67 carries, 3.80 rushing YPC and 78.67 combined yards over the same window, consistent with the under hypothesis against TB's 3.58 YPC allowed. These are descriptive checks, not projections or simulation medians. Normalizing the supplied two-sided prices gives Hurst over approximately 50.00% and Williams combined under approximately 50.20%; these are listed-market no-vig references, not verified Pinnacle prices. Neither establishes positive expected value without an independent probability estimate.",
+  "disagrees": "none",
+  "missing": "Independent projections, simulation distributions and medians, verified Pinnacle prices, game-by-game role distributions, injuries, final inactives, coverage charting, actual pressure rates, weather and market game lines.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Hurst recyds over 16.5 at -113.5: explosive-opportunity market; break-even approximately 53.16%. Williams rushrecyds under 86.5 at -115: combined-yardage ceiling hypothesis; break-even approximately 53.49%. Both remain research leans, not price-validated bets. No alternate rungs selected.",
+ "pre_mortem": "Hurst: It is Monday and the over lost because air yards were opportunities rather than completions. His 92 receiving yards against 243 air yards already show that downfield usage need not convert efficiently, and TB's negative EPA/dropback in both blitz splits could leave him below 17 yards despite a favorable defensive explosive-play record. Missing route and availability information prevents a stronger rating.\n\nWilliams: It is Monday and the under lost because DAL's passing advantage created a comfortable lead and Williams accumulated clock-killing carries. His existing 50 carries over three games establish meaningful rushing involvement, while 12 targets supply another path to 87 combined yards. TB's rushing efficiency allowed is not a hard ceiling, and additional volume or a receiving gain could overwhelm the matchup.",
+ "slip_story": "Both leans fit a competitive, passing-led DAL game in which TB continues taking downfield opportunities and Williams does not receive runaway clock-control volume. Hurst also survives a TB trailing script; Williams' under survives TB taking the lead and forcing DAL toward passing. Do not force a 3\u20134-leg slip from two provisional edges, and do not treat this pair as a validated correlated parlay. No bet placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

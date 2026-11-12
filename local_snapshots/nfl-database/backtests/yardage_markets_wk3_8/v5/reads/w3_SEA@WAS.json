@@ -1,0 +1,46 @@
+{
+ "game": "kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this is form-only. SEA has moved the ball (JSN 22 targets/277 rec yds/197 air; Price and Wilson 23 carries each) into a WAS defense allowing 4.64 YPC, 13.1 YPA middle and 10.46 YPA right, plus 7 explosives on 61 throws. WAS passing has not cashed air yards (McLaurin 64 rec on 176 air, Brown 21 on 112) and SEA has allowed 0 passes of 20+ on 66 attempts at 3.73 YPC. Base script: SEA leads by halftime, stays in a moderate lead, keeps feeding JSN on intermediate/middle throws, then leans on the Price/Wilson committee late.",
+  "flip1": "WAS's 43% blitz gets home, SEA's early script stalls, and the game stays a close grind. Rush volume can still exist, but JSN's explosive shots dry up and WAS does not have to abandon Croskey-Merritt/White.",
+  "flip2": "SEA's two-game zero-explosive mark regresses. Diggs/McLaurin/Brown connect on 20+ shots, WAS hangs around or leads, SEA is forced to throw, and the committee rush lines die."
+ },
+ "injury_fallout": "No injury report, practice trend, snap limits, or inactives in the pack, so no confirmed next-man-up. Mariota has a rushyds 23.5 market while the only QB-rush form is J.Daniels 12/100 over two games; starter and designed-run role are not established here, so no fallout is assigned. SEA targets are already concentrated on JSN (22) over Shaheed (9), Kupp (5), Price (4) and Barner (3); nothing in the pack says that tree changes.",
+ "matchup": {
+  "shell": "Man/zone and MOFO/MOFC charting not in the pack. Location splits only: WAS left 3.95 YPA (20 att) is the only sturdy side; middle 13.1 (10 att) and right 10.46 (26 att) are open. SEA is closed everywhere \u2014 left 4.89 (27), middle 4.5 (10), right 4.0 (24).",
+  "pressure": "WAS blitzes 43%; SEA QB EPA/dropback stays positive vs blitz 0.38 (n=19) vs 0.43 unblitzed, so pressure is not a kill switch. SEA blitzes only 23%. WAS QB EPA is -0.10 vs blitz (n=20) and +0.23 clean, but SEA does not need to blitz to smother throws.",
+  "bleeds": "WAS bleeds the run (4.64 YPC, 4 runs of 10+) and the middle/right pass, with 7 explosives on 61 attempts. SEA bleeds almost nowhere: 3.73 YPC, 4 runs of 10+, and 0/66 passes of 20+.",
+  "overlap": "JSN is the primary (22 targets, 197 air yards) attacking the exact middle/right leak. Wilson's half of a 23/23 carry split with Price attacks the 4.64 YPC run defense if SEA is not trailing."
+ },
+ "form": "SEA L2, not season averages: Price 23/104 (~52 rush yds/game, 4.5 YPC) plus 4 targets/14 rec yds; Wilson 23/95 (~47.5 rush yds/game); Holani 12/42 is the vulture. JSN 22/277/197 is a real WR1 rate (12.6 yds/target), not a one-play look from this pack. Shaheed 9/39/86 and Kupp 5/55/63 are thin. WAS: Croskey-Merritt 28/106 (~53/game, 3.79 YPC), White 14/65 rush and 8/45 rec on -2 air, Daniels 12/100 rush. Diggs 15/102/155 and McLaurin 13/64/176 are air-yard profiles that have not converted. Similar-defense splits and coverage charts are not in the pack.",
+ "edge_players": [
+  {
+   "player": "jaxonsmithnjigba",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "JSN is already the offense (22 targets, 277 yards, 197 air in two games) and WAS is leaking the middle at 13.1 YPA and the right at 10.46 while allowing 7 explosives, so 91.5 sits well under both the role and the soft spot.",
+   "must_be_true": "He keeps WR1 share around 10 targets, plays a full route tree, and SEA does not get the game over before the pass volume shows up. WAS blitz at 43% cannot erase him; SEA QB EPA vs blitz is still +0.38.",
+   "kills_it": "A big early SEA lead turns into a Price/Wilson clock-kill and he finishes on a handful of short targets, or WAS brackets him off the middle/right and the 197 air yards never come down.",
+   "confidence": "strong"
+  },
+  {
+   "player": "emanuelwilson",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Wilson is in a true split (23 carries, 95 yards, about 47.5 a game) against a WAS run defense allowing 4.64 YPC, and 31 only needs a modest slice of that, not a bellcow day.",
+   "must_be_true": "The Price/Wilson/Holani split stays near even, SEA is not stuck trailing and passing, and the soft WAS front shows up as at least his recent 4.1 YPC.",
+   "kills_it": "Flip 2: WAS hits explosives, SEA trails, and Wilson's half of the committee shrinks to a 5-6 carry day under 31, with Holani or Price taking the rest.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so this is not a priced-market check. Form agrees and does not contradict the read: JSN 138.5 rec yds/game vs 91.5; Wilson 47.5 rush yds/game vs 31. WAS middle/right YPA and 4.64 YPC agree with the matchup side of both. Two-game samples and a missing spread mean these are not 70%+ certainties; size off the read, not a fake model probability. No pack number disagrees, so this is not a flag.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "JSN recyds over 91.5 at -117 (under is -114; no alt rung in the pack). Wilson rushyds over 31, price not saved (+nan). No sim rung. Do not add TDs or receptions.",
+ "pre_mortem": "It's Monday and this lost because SEA led 17 by the second quarter, Price and Holani closed, and Wilson finished 6 for 22, while WAS sat in two-high and took the middle away so JSN's 197-air profile became 6 catches for 62 on quick throws. The unknown spread was the hole: if WAS was actually the side expected to lead, the Wilson over was script-dead from the jump, and a clock-kill is the one flip that beats a 91.5 WR1 number even when the season form says 138.",
+ "slip_story": "One story only: SEA functional offense in a moderate lead, not a shootout and not a 24-point clock-kill. JSN over is the pass piece into WAS's middle/right bleed; Wilson over is the run piece into 4.64 YPC. They win together in a game SEA leads but still has to throw. Do not pair this with WAS pass overs or a total under; those need the opposite script. Main slip stops at these two.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

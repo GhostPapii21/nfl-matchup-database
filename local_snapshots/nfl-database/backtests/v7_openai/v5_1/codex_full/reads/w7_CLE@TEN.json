@@ -1,0 +1,48 @@
+{
+ "game": "Week 7 CLE@TEN / kickoff MISSING / CLE -2, TEN +2 / total 37 / implied totals CLE 19.5, TEN 17.5 / weather not saved / venue characteristics, moneyline, rest, travel and opening-line movement MISSING",
+ "script": {
+  "base": "The market implies a close, low-scoring game with Cleveland narrowly favored. Working hypothesis: neither offense builds sustained efficiency, Cleveland distributes rushing opportunities, and its limited passing production leaves secondary receiving options vulnerable to unders; actual pace and run/pass tendencies are missing.",
+  "flip1": "Cleveland establishes a substantial early lead and closes through the run. That threatens the Judkins rushing under through increased carries but can support the Fannin receiving under through reduced passing volume.",
+  "flip2": "Tennessee leads and forces Cleveland into catch-up passing. That supports the Judkins rushing under but threatens the Fannin receiving under if his target volume rises."
+ },
+ "injury_fallout": "MISSING: CLE and TEN injury reports, practice participation, final designations, offensive-line availability, defensive absences, return restrictions and final inactives. No absence, return or next-man-up conclusion is inferred from the supplied usage. Recheck both legs against final reports and approximately 90-minute pre-kickoff inactives; those checkpoints cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: TEN and CLE MOFO/MOFC, man/zone rates and player alignment charting. Fannin cannot reliably be assigned a coverage advantage or disadvantage.",
+  "pressure": "TEN blitzes 23%; CLE QB EPA/dropback is -0.01 against blitz versus 0.03 without blitz. CLE blitzes 24%; TEN QB EPA/dropback is 0.05 against blitz versus -0.24 without blitz. These are blitz splits, not pressure rates; pressure generated, sacks and time to throw are missing.",
+  "bleeds": "TEN allows 4.06 rushing yards per carry, with 18 runs of 10-plus yards over six games. TEN has allowed 18 passes of 20-plus yards on 203 attempts; its directional passing YPA is 8.08 left, 7.00 middle and 7.42 right. CLE allows 4.51 rushing yards per carry and 24 runs of 10-plus yards. Positional receiving allowances, rush EPA, stuff rates and box counts are missing.",
+  "overlap": "Judkins faces the lower of the two supplied defensive rushing YPC figures, while sharing Cleveland rushing opportunities with Watson, McLaughlin and Estime. Fannin's under rests on his limited recent receiving production rather than a demonstrated TEN weakness or strength against tight ends; Boston, Concepcion and Jeudy each drew more targets over weeks 4\u20136."
+ },
+ "form": "Source for all usage and matchup figures: supplied pre-kickoff pack; individual publication timestamps are unavailable. Over weeks 4\u20136, Judkins had 31 carries for 97 yards, compared with Watson's 19/93, McLaughlin's 10/69 and Estime's 9/19. Judkins therefore accounted for 31 of the 69 listed CLE carries, not necessarily all team carries. Fannin had 12 targets, 40 receiving yards and 75 air yards, behind Boston's 19 targets, Concepcion's 15 and Jeudy's 14. Individual-game distributions, snaps, routes, red-zone usage, comparable opponents and play-caller changes are missing.",
+ "edge_players": [
+  {
+   "player": "quinshonjudkins",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Judkins can stay below 45.5 rushing yards because Cleveland's recent rushing opportunities are divided among four listed runners, and Tennessee's 4.06 YPC allowed does not establish an obvious efficiency escape hatch.",
+   "must_be_true": "quinshonjudkins carries <= 12 [because the pack records 31 carries across weeks 4\u20136 alongside 38 combined carries for Watson, McLaughlin and Estime]",
+   "kills_it": "IF Cleveland builds an early lead and consolidates its closing rushing workload around Judkins THEN quinshonjudkins rushyds under 45.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "haroldfanninjr",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Fannin can stay below 28.5 receiving yards because he sits behind three Cleveland receivers in recent targets and has produced little yardage from his opportunities in a game priced for only 37 points.",
+   "must_be_true": "haroldfanninjr targets <= 4 [because the pack records 12 targets across weeks 4\u20136, behind Boston's 19, Concepcion's 15 and Jeudy's 14]",
+   "kills_it": "IF Tennessee forces sustained Cleveland catch-up passing and Fannin becomes a featured underneath target THEN haroldfanninjr recyds under 28.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The hypotheses precede this numerical check. Judkins' supplied three-game production is 10.33 carries and 32.33 rushing yards per game, at 3.13 yards per carry, supporting rather than generating the workload-based under read. Fannin's supplied production is 4 targets and 13.33 receiving yards per game, supporting the secondary-option under read. These descriptive checks are not projections or simulated medians. The quoted prices require approximately 53.49% for Judkins under and 52.94% for Fannin under to break even; neither establishes a betting edge without a calibrated probability.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations, calibrated hit probabilities, Pinnacle prices and sharp no-vig benchmarks; individual-game role distributions, coverage charting, injuries and weather. The listed two-sided prices are not identified as Pinnacle.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line leans only: quinshonjudkins rushyds under 45.5 at -115; haroldfanninjr recyds under 28.5 at -112.5. No alternate rung or stake is justified by this pack, and data agreement does not constitute a priced-edge stamp.",
+ "pre_mortem": "Judkins: Cleveland's small favorite status becomes a comfortable lead, and its recent carry distribution proves unstable. At Tennessee's supplied 4.06 YPC allowed, approximately 12 carries could already exceed 45.5 yards; the under needs modest workload or continued poor efficiency and is vulnerable to one explosive run. Fannin: his low recent yardage reflects inefficient conversion rather than a secure ceiling. Tennessee has allowed 18 explosive pass plays, and the pack provides no tight-end coverage evidence; one seam gain or a catch-up target increase could beat 28.5. Both are leans, not strong reads.",
+ "slip_story": "Both belong only to a low-output Cleveland story in which its rushing workload remains distributed and Fannin stays a secondary option. They are not a robust all-script pair: a Cleveland runaway particularly threatens Judkins, while a Tennessee lead particularly threatens Fannin. With only two supported candidates and no calibrated joint price, do not manufacture a 3\u20134-leg slip or add touchdown legs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

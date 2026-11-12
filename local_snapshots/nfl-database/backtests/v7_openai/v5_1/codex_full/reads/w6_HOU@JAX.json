@@ -1,0 +1,48 @@
+{
+ "game": "Week 6 HOU@JAX / kickoff MISSING / JAX -2.5 / total 42 / implied totals JAX 22.25, HOU 19.75 / weather not saved. MISSING: moneyline, opening lines, movement, venue surface/roof, rest and travel. Sources: supplied pre-kickoff market snapshot; implied totals calculated from spread and total.",
+ "script": {
+  "base": "Jacksonville holds a narrow lead into the second half in a relatively low-scoring game. Houston's split rushing workload faces a difficult Jacksonville run defense, while Jacksonville can sustain passing through its established receiving options; pace is not supplied.",
+  "flip1": "Houston leads early, forcing Jacksonville toward more passing. That can preserve Brenton Strange's receiving opportunity and reduce Woody Marks' rushing opportunity, so both proposed legs survive this flip.",
+  "flip2": "Jacksonville builds a large early lead and drains the clock. Marks' rushing under remains plausible, but reduced Jacksonville passing volume threatens Strange's receiving over."
+ },
+ "injury_fallout": "MISSING: injury reports, practice trends, final designations, offensive-line availability, defensive absences, returning-player restrictions and final inactives for both HOU and JAX. No absences, returns or replacement roles are inferred from usage. The supplied weeks 3\u20135 usage establishes only observed workloads. Recheck all affected legs at final reports and approximately 90 minutes before kickoff; those checkpoints cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: HOU and JAX MOFO/MOFC rates, man/zone rates and player alignment charts. Strange cannot be assumed to receive the middle-field matchup merely from his position.",
+  "pressure": "Through five games, JAX blitzes 29%; HOU's recent QB EPA/dropback is 0.47 against blitzes over 42 dropbacks versus 0.02 without blitzes. HOU blitzes 20%; JAX's recent QB EPA/dropback is 0.03 against blitzes over 48 dropbacks versus 0.37 without blitzes. These splits support a plausible Jacksonville passing path against a less blitz-heavy opponent, but pressure rates, protection health and sample-adjusted effects are missing.",
+  "bleeds": "JAX has allowed 3.04 rushing yards per carry and five runs of 10+ yards through five games, supporting resistance to Houston rushing efficiency. HOU has allowed 3.40 yards per carry. Both defenses show higher passing YPA in the middle: HOU 9.43 on 46 attempts and JAX 9.59 on 29. These directional splits do not identify individual coverage assignments.",
+  "overlap": "Marks shares Houston rushing work with Montgomery, and that divided opportunity meets JAX's low rushing YPC allowed. Strange leads Jacksonville's supplied weeks 3\u20135 target totals with 21; HOU's middle-field allowance offers a potential efficiency overlap, conditional on Strange's actual routes. Sources: supplied recent offense and season-to-date defense tables."
+ },
+ "form": "Weeks 3\u20135: Marks recorded 26 carries for 99 yards, while Montgomery also had 26 carries. Marks added six targets and 29 receiving yards; those receiving yards do not count toward the selected rushing market. Strange recorded 21 targets, 195 receiving yards and 147 air yards, ahead of Washington's 17 targets and Meyers' 15. MISSING: individual-game distributions, snaps, routes, red-zone usage, role-change news, comparable opponents and play-level explosive contributions.",
+ "edge_players": [
+  {
+   "player": "woodymarks",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Marks' divided rushing opportunity faces a Jacksonville defense that has restricted rushing efficiency, giving him a plausible path below 45.5 rushing yards even if Houston stays competitive.",
+   "must_be_true": "Woody Marks carries <= 12 [because the pack records 26 carries across weeks 3\u20135, equal to Montgomery's 26]",
+   "kills_it": "IF Marks takes over the backfield and receives substantially more carries than his recent shared workload THEN Woody Marks rushyds under 45.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "brentonstrange",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Strange's leading recent target role gives him a path above 37.5 receiving yards against a Houston defense allowing its highest directional passing efficiency through the middle, provided his routes access that area.",
+   "must_be_true": "Brenton Strange targets >= 5 [because the pack records 21 targets across weeks 3\u20135, the highest supplied JAX total]",
+   "kills_it": "IF Jacksonville builds an early multi-score lead and Strange's receiving opportunities collapse THEN Brenton Strange recyds over 37.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The game read precedes these numerical checks. Marks' supplied three-game totals translate to 8.67 carries and 33 rushing yards per game, with 3.81 yards per carry; these are role checks, not a projection. Strange's totals translate to seven targets and 65 receiving yards per game, also not a projection. Both checks support rather than contradict the hypotheses. Marks under -114 requires 53.27% to break even; Strange over -113 requires 53.05%. Neither threshold is demonstrated by the pack, so these remain unvalidated leans rather than quantified positive-EV bets.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation distributions and medians, calibrated probabilities, identified Pinnacle prices and sharp no-vig benchmark; individual-game workload variability; coverage alignment; injury and inactive information; current weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate 1: woodymarks rushyds under 45.5 at -114, isolating rushing exposure rather than including receiving production. Candidate 2: brentonstrange recyds over 37.5 at -113, the available yardage expression of his target-role hypothesis; receptions are unavailable under the constraints. Use main lines only. No alternate rung, stake or executable slip is justified without probability and price validation.",
+ "pre_mortem": "Marks under loses if Houston controls the game, expands his workload, or generates an explosive run that defeats the low-efficiency premise; the aggregate carry split cannot establish his current game-by-game role. Strange over loses if his recent production was concentrated in one game, his routes do not attack Houston's vulnerable middle, or Jacksonville protects a lead with rushing rather than passing. Missing injury and weather information could overturn either read. These counter-cases keep both at lean rather than strong.",
+ "slip_story": "Both candidates fit a competitive Jacksonville-leading game: Houston's shared backfield struggles to accumulate rushing yards while Strange retains receiving involvement. They also survive a Houston-leading passing script. Strange is vulnerable to the Jacksonville runaway flip. Do not force a 3\u20134-leg slip from only two defensible candidates, and do not assume a same-game correlation benefit without joint pricing.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

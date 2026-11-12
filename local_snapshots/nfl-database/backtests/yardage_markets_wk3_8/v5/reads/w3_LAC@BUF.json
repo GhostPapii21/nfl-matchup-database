@@ -1,0 +1,46 @@
+{
+ "game": "Week 3 LAC@BUF / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this is form-only. Over two games BUF has the explosive offense (Cook 34 carries/192 yards, 5.65 YPC; Allen 16/96; Kincaid 14 targets/225 yards) while Herbert is -0.86 EPA/dropback on 14 blitzed dropbacks versus +0.09 unblitzed and BUF blitzes 33%. Base lean: LAC's run defense (3.14 YPC, only 3 runs of 10+) stuffs Cook's efficiency, BUF moves the ball with Allen's pass game instead, and LAC drives shorten when the blitz arrives, so Cook posts a mid-teens carry day nearer 55-70 rush yards than a shootout or a clock-grind.",
+  "flip1": "BUF hits early explosives \u2014 LAC has allowed 10.22 YPA on 27 left-side attempts \u2014 and leads by multiple scores, so Cook's carries climb into the low 20s and the rush under dies on volume even at a modest YPC.",
+  "flip2": "LAC handles the 33% blitz, Hampton (35 carries, 137 yards) controls the clock, and BUF falls behind and throws. Cook's carries shrink and the under cashes, while BUF pass-catchers become the path to points."
+ },
+ "injury_fallout": "No injury report, practice status, questionable tags, or inactives are in the pack, so no next-man-up reassignment is knowable and the 90-minute inactive checkpoint cannot be run. On the listed roles only: LAC carries sit with Hampton (35) over Mitchell (9) and Herbert (8); LAC targets sit with Johnston (11), McConkey (10), Harris (9), Njoku (8). BUF carries sit with Cook (34) and Allen (16); BUF targets sit with Kincaid (14) over Shakir (12), Moore (8), Coleman (8), with Knox at 3 targets/12 yards. A late Cook or Herbert scratch would void the legs; that status is unknown.",
+ "matchup": {
+  "shell": "MOFO/MOFC and man/zone rates are not in the pack, so WR/TE/RB cannot be mapped to specific zone defenders. Step limited to location splits and blitz rate.",
+  "pressure": "BUF blitzes 33%. Herbert is -0.86 EPA/dropback vs blitz (n=14) and +0.09 unblitzed, so pressure that gets home should kill LAC deep yards and force quicker throws. LAC blitzes only 25%. Allen is +0.36 EPA vs blitz (n=26) and +0.63 without, so he is fine either way and better when not blitzed.",
+  "bleeds": "BUF allows 3.65 rush YPC, 6 runs of 10+, and 9 passes of 20+ on 83 attempts; pass YPA left 6.24 (29 att), middle 9.41 (22 att), right 8.52 (25 att) \u2014 middle is the bleed. LAC allows 3.14 rush YPC, only 3 runs of 10+, and 6 passes of 20+ on 69 attempts; pass YPA left 10.22 (27 att), middle 5.64 (14 att), right 7.0 (25 att) \u2014 left is the bleed, middle is clamped.",
+  "overlap": "Cook does not attack a weak spot: his 5.65 YPC runs into the best run defense in the pack (3.14 YPC, 3 explosive runs). Johnston leads LAC in targets (11) and air yards (103) but has 24 receiving yards; BUF's bleed is the middle (9.41 YPA), not a deep outside shot, and the 33% blitz is a bad overlap for that air-yard role. Kincaid is BUF's primary target (14/225/182 air) but LAC's bleed is the left, not the middle (5.64), and no alignment charting confirms he attacks the left \u2014 overlap unconfirmed, so he is not a leg."
+ },
+ "form": "Window is weeks 1-2 only (labeled L3, two games played); no similar-defense splits and no OC/QB change in the pack. Cook 17 carries/game at 5.65 YPC plus 7 targets/16 yards/-3 air \u2014 dump-offs, not a receiving weapon; the 192 rush yards may be opponent-inflated and there are no game splits to see one long run. Allen already has 16 carries/96 yards, a real vulture share. Johnston 11 targets/24 yards/103 air is a miss profile, not a quiet role. McConkey is the LAC producer (10/117/131). Kincaid 14/225/182 and Coleman 8/64/52 versus lines of 57.5 and 14.5 look like chunk-play or missing-context gaps; neither is a leg because that would be average-picking, and Coleman has no injury note to explain a 14.5 line. Hampton 35/137 is the LAC carry share at 3.91 YPC.",
+ "edge_players": [
+  {
+   "player": "jamescook",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Cook's 192 yards on 34 carries is a 5.65 YPC number, and LAC has allowed 3.14 YPC with only 3 runs of 10+, so a stable 16-18 carry day lands nearer 55-70 than the 80.5 line.",
+   "must_be_true": "LAC's run defense stays near that 3.14 YPC / low-explosive profile, Cook's share stays in the mid-teens rather than a blowout 22+, and Allen (16 carries, 96 yards) keeps taking designed runs.",
+   "kills_it": "Flip 1: BUF leads big early and Cook grinds 20-plus carries, or he keeps anything like 5.65 YPC and clears 80.5 on two explosives. At 22 carries even 4.0 YPC is 88.",
+   "confidence": "strong"
+  },
+  {
+   "player": "quentinjohnston",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Johnston has 11 targets and 103 air yards but only 24 receiving yards, and BUF's 33% blitz meets a QB at -0.86 EPA per blitzed dropback, which kills deep WR yards instead of unlocking them.",
+   "must_be_true": "BUF blitzes near 33%, Herbert does not suddenly solve pressure, and Johnston does not turn the air yards into one 40-yard catch.",
+   "kills_it": "One explosive \u2014 BUF has allowed 9 passes of 20+ on 83 attempts \u2014 or a no-blitz script where his 5.5 targets per game finally connect and clear 36.5.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so step 8 cannot size a rung and any implied 70%+ read is suspect on two-game samples. Cook's own pace (96 rush yards/game, 192 on 34 carries) disagrees with under 80.5; that is a flag, not a cut, because the read is the 5.65 vs 3.14 YPC mismatch. Full regression is about 17 carries times 3.14 = 53; the under only needs him under 80.5, but the box score does not agree. Johnston's 24 yards on 11 targets agrees with under 36.5; no sim contradicts the lean. Kincaid 225 and Coleman 64 were not used to pick overs.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Main lines only, one market per player. jamescook rushyds under 80.5 at -112 (not the 95.5 rush+rec, which is the same story and a second market). quentinjohnston recyds under 36.5, price not in pack (+nan), so no rung can be stamped and it is not a short-priced alt. No alt ladders in the pack.",
+ "pre_mortem": "It's Monday and this lost. Cook: weeks 1-2 made LAC's 3.14 YPC look stouter than it is, BUF was ahead early, and Cook ran 22 times for 90-plus with a 25-yarder \u2014 the 5.65 YPC traveled and flip 1 showed up, which the missing spread could not warn on. Allen did not vulture; he added carries beside Cook. Johnston: the blitz didn't finish or Herbert beat it, and one of those 103 air yards became a 40-plus catch against a BUF secondary that had already allowed 9 passes of 20+ on 83 attempts. A yards under on a deep threat with no posted price is a one-play leg; that counter is why Johnston is a lean, not a strong, and why he is the first cut if the blitz rate comes in well under 33%.",
+ "slip_story": "One physical, blitz-and-stuffed-run script, not a shootout stack. Cook rush under and Johnston recyds under win together if LAC holds the run near 3.14 YPC and BUF's 33% blitz keeps Herbert off deep shots. Do not add Kincaid, Moore, McConkey, or Harris overs \u2014 those need chunk plays and the opposite environment \u2014 and do not add a total, which is not in the pack. No TDs. Provisional until inactives, which are not in the pack.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

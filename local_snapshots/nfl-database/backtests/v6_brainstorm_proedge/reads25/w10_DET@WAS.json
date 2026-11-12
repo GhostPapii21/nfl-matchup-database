@@ -1,0 +1,108 @@
+{
+ "game": "Week 10 2025 DET@WAS | kickoff 2025-11-09 16:25 ET | spread WAS +8.5 (DET -8.5) | total 49.5 | implied DET 29.0 / WAS 20.5 | roof outdoors | closing line only from nflverse games.csv, open and movement not in pack | DET offensive window weeks 6/7/9, WAS weeks 7/8/9, rest and travel not stated | weather forecast not saved",
+ "script": {
+  "base": "Detroit is a road favorite by 8.5 with a 29.0 implied total, so the base script is a Detroit lead by halftime that gets closed on the ground. Jahmyr Gibbs just took 43 carries for 226 yards in weeks 6/7/9 (5.26 YPC) against David Montgomery's 28 carries for 85, and Washington allows 4.59 YPC with 29 runs of 10-plus in 9 games. Washington's implied total is only 20.5 with Jayden Daniels Out (elbow) and Terry McLaurin Out (quad), so M.Mariota (10 carries, 62 rush yards in weeks 7-9) is chasing and the checkdown/replacement receivers, not the early-down rush, get the extra plays.",
+  "flip1": "Washington hangs within one score because Mariota's legs and the Croskey-Merritt/Rodriguez committee (34 and 16 carries in weeks 7-9) steal the clock. Detroit never flips fully to a late run script, Gibbs's carry total stays in the 54/65/25 range instead of the 136-yard spike, and both passing games stay live into the fourth quarter.",
+  "flip2": "Detroit is up by three scores early, the -8.5 blowout flag hits, and late starter snaps get cut. Gibbs still banks the early and mid-game carries before any rest, Washington abandons J.Croskey-Merritt (L3 2.8 YPC), and garbage throws go to Z.Ertz, J.McNichols, J.Lane and D.Samuel. A pure clock-kill is the way Detroit receiver yardage stalls after the lead is built."
+ },
+ "injury_fallout": "Source is the pre-game nflverse injury report, not the 90-minute inactives. Washington offense: Jayden Daniels Out (elbow) removes the 17-carry/87-yard QB-run piece from the weeks 7-9 window and leaves M.Mariota; Terry McLaurin Out (quad) removes the WR1, so the listed target tree is Z.Ertz 17/99/146 air, J.Lane 13/89/157 air, D.Samuel 12/52/34 air, J.McNichols 9/87/-1 air, J.Bates 7/47, C.Moore 5/59, L.McCaffrey 5/24. Eddie Goldman Questionable (concussion) is the only named WAS interior defender and, if he sits, the 4.59 YPC run defense gets thinner in front of Gibbs. Quan Martin and Tyler Owens Questionable (hamstring) are the WAS safeties in front of A.St. Brown and J.Williams. Detroit defense: Kerby Joseph Out (knee) and Daniel Thomas Questionable (forearm) thin the deep shell; Malcolm Rodriguez Out (knee) and Grant Stuard Questionable (foot) are the LB losses that help TE and RB checkdowns, which is the McNichols/Ertz path; Joshua Paschal Out (back) and Pat O'Connor Out (knee) thin the edge. Detroit offense: Taylor Decker Questionable (shoulder), Dan Skipper Questionable (back) and Miles Frazier Out (knee) are the protection/run-blocking risk for Goff and Gibbs; Craig Reynolds Questionable (hamstring) and Jacob Saylors Out (back) do not add a third back, so Gibbs and Montgomery keep the carries. Who gains today: Gibbs if Goldman sits and Detroit leads; McNichols and Ertz from McLaurin out plus Rodriguez out; Lane from McLaurin out plus Joseph out. Who loses: Daniels and McLaurin at zero; Croskey-Merritt's carry script if Washington trails; deep DET shots to J.Williams if Decker sits.",
+ "matchup": {
+  "shell": "No MOFO/MOFC and no man/zone chart in the pack, so shell is a location proxy only. Washington: left 8.37 YPA on 105 attempts, middle 9.64 on 45, right 9.05 on 122, plus 34 passes of 20-plus for 294 yards in 9 games. Detroit: left 6.71 on 99, middle 9.22 on 54, right 5.55 on 110, plus 23 passes of 20-plus for 291 yards in 8 games. Washington is soft everywhere and softest in the middle; Detroit is soft in the middle and tighter on the edges.",
+  "pressure": "Washington blitzes 28 percent. Detroit's EPA per dropback is 0.54 against the blitz and 0.06 with no blitz, so a WAS blitz is a Detroit offense green light, not a problem. Detroit blitzes 32 percent. Washington's EPA per dropback is 0.05 against the blitz and 0.03 with no blitz, so pressure does not create explosives for Mariota; it should push him to the short/middle options (Ertz, McNichols, Samuel) rather than to Lane's 157 air yards.",
+  "bleeds": "Washington run defense bleeds: 4.59 YPC and 29 runs of 10-plus in 9 games, which is the Gibbs overlap. Detroit run defense is ordinary, not a wall: 4.43 YPC and 25 runs of 10-plus in 8 games, and it is also missing Rodriguez and Paschal, so a Croskey-Merritt under is not a matchup under. Pass bleed for the selected Washington leg is Detroit's middle at 9.22 YPA, not the edges.",
+  "overlap": "The core Detroit overlap is the lead back into the leaky run defense: Gibbs 43 carries and 226 rush yards in weeks 6/7/9 versus Washington 4.59 YPC and 29 explosive runs. The core Washington overlap on this ticket is not the outside (DET right 5.55, left 6.71) but the checkdown back into a missing linebacker: McNichols 9 targets and 87 yards in weeks 7-9, with Malcolm Rodriguez Out, into a middle that allows 9.22 YPA. A.St. Brown (33 targets, 254 air yards, 228 yards) also overlaps Washington's 9.64 middle YPA, but his 81.5 line is above the 76-yard three-game rate, so he is not the selected Detroit leg."
+ },
+ "form": "Role, not season average. Detroit weeks 6/7/9 rushers: J.Gibbs 43/226, D.Montgomery 28/85, J.Goff 3/14, A.St. Brown 1/2. Targets: A.St. Brown 33/228/254 air, S.LaPorta 17/167/102, J.Williams 15/132/136, D.Montgomery 9/65/0, J.Gibbs 8/82/-14, B.Wright 4/34, K.Raymond 4/17. Gibbs last4 rush yards 54, 65, 136, 25 and rush+rec 87, 62, 218, 28; the 136 and 218 are spike games, and 25/28 is the floor. LaPorta last4 recyds 92, 55, 15, 97. St. Brown last4 100, 45, 86, 97. Montgomery last4 rush 65, 24, 21, 40. Washington weeks 7-9 rushers: J.Croskey-Merritt 34/96 (2.8 YPC), J.Daniels 17/87, C.Rodriguez 16/79, M.Mariota 10/62. Targets: Z.Ertz 17/99/146 air, J.Lane 13/89/157, D.Samuel 12/52/34, J.McNichols 9/87/-1, J.Bates 7/47, C.Moore 5/59, L.McCaffrey 5/24. McNichols last4 recyds 30, 23, 64, 0. Lane last4 37, 60, 0, 29. Ertz last4 43, 37, 16, 46. Samuel last4 96, 15, 11, 41. Croskey-Merritt last4 rush 61, 33, 25, 38. Rodriguez last4 rush 7, 12, 2, 65.",
+ "pro_edge": {
+  "implied_totals": "Favorite DET 29.0 = (49.5+8.5)/2. Dog WAS 20.5 = (49.5-8.5)/2. Same as the precomputed scan: WAS 20.5, DET 29.0.",
+  "script_read": "Spread is 8.5, past the 3.5 dog-throw threshold, so Washington WR/TE/RB targets go up and Detroit's lead back should get the late carries. An 8.5 spread is also a blowout flag for late starter snaps. Total 49.5 is not a slog, so there is volume, but it is a 29/20.5 split, not a shootout. Usage is from shares: Gibbs 43 of Detroit's listed RB carries in the three-game window; McNichols 9 targets and 87 yards as the receiving back while Croskey-Merritt had essentially no receiving line (last4 recyds 7, -1, 0, 3).",
+  "best_price": "No two-sided price was saved on jahmyrgibbs rushyds 66.5, jahmyrgibbs rushrecyds 92.5, jeremymcnichols recyds 6.5, or any other listed prop. Anchor no-vig is N/A. Power devig cannot be shown. No best book, no price, no quote time.",
+  "lagging": "No book-level board was saved, so nothing can be flagged as off consensus or as a prop that failed to move after the WAS +8.5 / 49.5 close.",
+  "sleepers": "Jayden Daniels Out (elbow): no same-position QB prop on the board. Terry McLaurin Out (quad): same-position WR lines still listed at deebosamuelsr recyds 42.5 and jaylinlane recyds 16.5, but no prices exist to prove they did not move, so they are sleeper candidates only. Samuel's weeks 7-9 line is 52 yards on 12 targets, so the over is not supported. Lane's 16.5 is under his 29.7 per-game rate, but Detroit's edge YPA (left 6.71, right 5.55) is the strong side of that defense, so he was not slipped ahead of the middle/checkdown path. DET outs Joseph, Rodriguez, Paschal, Frazier, Saylors and O'Connor have no defensive or OL props to reprice."
+ },
+ "edge_players": [
+  {
+   "player": "jahmyrgibbs",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Gibbs is the lead back who just ran 43 times for 226 yards in three games into a Washington defense allowing 4.59 yards per carry and 29 runs of 10-plus, and Detroit should lead as an 8.5-point favorite and hand him the late carries.",
+   "must_be_true": "Gibbs is healthy and not on the injury report, his carry share stays ahead of Montgomery (43 vs 28 in weeks 6/7/9), Detroit leads so the late-run script arrives, and Decker being Questionable does not collapse the run fits. Goldman sitting would help, not hurt.",
+   "kills_it": "The 25-yard rushing game in his last four repeats: Washington stays close (flip 1), Detroit throws because it is 0.54 EPA per dropback against Washington's 28 percent blitz, or Montgomery's 28-carry share plus a Decker/Skipper limitation caps Gibbs under 66.5. The 136-yard game is a spike, not the base.",
+   "confidence": "strong",
+   "model_p": 0.6,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "Pack WAS defense, 9 games: rush YPC 4.59 and 29 runs of 10-plus. Gibbs weeks 6/7/9: 226 yards on 43 carries, 5.26 YPC. Eddie Goldman Questionable (concussion) is the only named WAS interior piece."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Pro-edge script rule: favorite at a spread of 8.5 runs late, lead RB carries up. Gibbs already has the carry share over Montgomery (43 vs 28) in the last Detroit window. Positive script plus a weak run defense is the rushing-yards market, not an under."
+    },
+    "script": {
+     "ok": true,
+     "source": "Base script is DET -8.5, implied 29.0, lead and run. Survives the base and the blowout flip (flip 2 adds carries before any late rest). Flip 1, a one-score game, is the tagged miss, not the base."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Role trend, which is what step 5 asks: 43 carries and 226 rush yards in weeks 6/7/9, plus 8 targets and 82 receiving yards. Yardage results last4 are 54, 65, 136, 25, so the median sits under 66.5 and is flagged in data_check rather than used to cut this strong read."
+    }
+   },
+   "primary_defender": {
+    "who": "WAS run front, Eddie Goldman (DT) Questionable concussion; no WAS linebacker is listed Out",
+    "source": "Pre-game nflverse injury report. Season WAS rush defense 4.59 YPC and 29 runs of 10-plus in 9 games. No individual tackler chart in the pack."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Leader-runs-late candidate from the +8.5 script rule, not a sleeper. Best price and no-vig gate cannot be scored: jahmyrgibbs rushyds 66.5 has no two-sided price saved. 3-of-4 scheme checks are met on matchup, scheme fit and script; form role agrees and yardage volatility is the flag. No stake. rushrecyds 92.5 was not used because last4 87, 62, 218, 28 is under the rung without the spike."
+  },
+  {
+   "player": "jeremymcnichols",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "With Daniels and McLaurin out, Washington has to throw while trailing an 8.5-point favorite, McNichols just turned 9 targets into 87 yards over three games against a 6.5 line, and Detroit is missing linebacker Malcolm Rodriguez in a defense that allows 9.22 yards per attempt in the middle.",
+   "must_be_true": "Mariota starts, Washington is behind or at least throwing on schedule, McNichols keeps the passing-down role he had in the 30-, 23- and 64-yard games, and Rodriguez stays out so the checkdown fit is a backup.",
+   "kills_it": "The 0 in his last four repeats: Washington stays run-heavy with Croskey-Merritt and Rodriguez, or Mariota locks onto Ertz (17 targets, 99 yards in weeks 7-9) and Samuel and McNichols is a zero-route game. A blank is already 1 of his last 4.",
+   "confidence": "lean",
+   "model_p": 0.56,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "DET middle 9.22 YPA on 54 attempts, 8 games. Malcolm Rodriguez Out (knee) on the pre-game injury report. McNichols weeks 7-9: 9 targets, 87 yards, -1 air yards, which is the underneath area a missing LB covers."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "DET blitz rate 32 percent and WAS EPA/dropback is only 0.05 vs blitz, so Mariota should check down. Dog spread +8.5 raises RB targets. Receiving yards is the available market; receptions are not on the board. His 87 yards on 9 targets is 9.7 yards per target, so this is not an empty volume guess."
+    },
+    "script": {
+     "ok": true,
+     "source": "WAS implied 20.5 as a +8.5 dog with Daniels Out. Underdog throws more. Survives the base and the blowout flip (garbage checkdowns). A close, run-first Mariota game is the miss."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Last4 recyds 30, 23, 64, 0 versus 6.5. Three clears by a wide margin, one blank. L3 87 yards on 9 targets is far above the line. The blank keeps confidence at lean, not strong."
+    }
+   },
+   "primary_defender": {
+    "who": "Malcolm Rodriguez, DET LB, Out (knee); replacement not named",
+    "source": "Pre-game nflverse injury report. DET middle YPA 9.22 on 54 attempts. No coverage chart assigns a specific linebacker to the RB."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Not the McLaurin same-position sleeper (that is Samuel/Lane). He is the dog-script RB-target candidate after Daniels Out. Line 6.5 has no saved price, so this is not a proven best-price edge and the no-vig gate is not scored. No stake. Do not treat 6.5 as plus-money value."
+  }
+ ],
+ "data_check": {
+  "notes": "Step 8 cannot be finished: no projection, no sims, no Pinnacle or other two-sided prices, so no no-vig fair and no 3-point edge gate. Hand priors are 0.60 for Gibbs and 0.56 for McNichols, both kept under 0.70 because 70-80 rated legs have calibrated near 50 percent; they are not sim output. Gibbs is a strong script-and-matchup read whose last4 rush yards (54, 65, 136, 25) disagree with 66.5, so the disagreement is a flag, not a cut. McNichols form agrees (3 of last 4 well over 6.5; L3 87 yards), so that lean is not dropped. Other board leans were not slipped: LaPorta over 47.5 agrees (L3 55.7, last4 92/55/15/97) but needs Detroit to throw, which is the flip that hurts Gibbs, so it is a different slip; St. Brown over 81.5 has last4 100/45/86/97 but L3 76 under the line; Lane over 16.5 is the McLaurin sleeper (L3 29.7) but attacks Detroit's stronger edges; Ertz over 37.5 has L3 33 under the line; Samuel over 42.5 has L3 17; Croskey-Merritt under 38.5 fits the dog-abandon-run rule (L3 32, last4 61/33/25/38) but Detroit is missing Rodriguez and Paschal and already allows 25 runs of 10-plus, so the counter-case matched the read and it was dropped at the pre-mortem. Questionables Decker, Skipper, Martin, Owens, Goldman, Reynolds, Thomas, Stuard are unresolved. No bet placed.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Main rungs only. jahmyrgibbs rushyds over 66.5 and jeremymcnichols recyds over 6.5. No alt rung, no book, no American price, no quote time. Anchor fair N/A on both. Gibbs rushrecyds 92.5 and recyds 20.5 were not taken; one market per player. Short-priced alts are not in play. Stake proposal withheld because quarter-Kelly needs a model-versus-no-vig gap and a bankroll, neither of which is in the pack.",
+ "pre_mortem": "It's Monday and this lost. Gibbs finished under 66.5 because Washington's 4.59 YPC did not show up: Decker was limited, Montgomery took the closer carries the way he did in the games Gibbs finished at 54, 65 and 25, and Detroit's 0.54 EPA against the blitz made Goff throw instead of handing Gibbs the late script the -8.5 promised. The 136-yard game was the outlier the line was shading, not the median. McNichols finished under 6.5 because the 0-yard game was the role, not noise: Mariota spent the chase on Ertz, who already had 17 targets for 99 yards in weeks 7-9, and on Samuel, while Croskey-Merritt and C.Rodriguez kept the snaps in a game that stayed closer than 8.5. Rodriguez being out did not automatically mean the third-down back was targeted. If that counter-case is how it plays, both legs were script bets that the flip beat.",
+ "slip_story": "One story only: Detroit leads as a -8.5 favorite, runs late through Gibbs, and Washington without Daniels and McLaurin throws underneath to McNichols. Those two win together in the base script and in the blowout flip. Do not add a total under, a Gibbs receiving or rush-plus-rec leg, a LaPorta or St. Brown over, or a Croskey-Merritt rush over; those need Detroit to throw or Washington to stay on schedule on the ground. Lane and Samuel stay off this slip even though McLaurin is out, because this stack is the checkdown and the lead-back run, not the outside shot into Detroit's 5.55/6.71 edge splits.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T16:20:39-0500"
+ }
+}

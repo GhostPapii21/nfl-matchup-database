@@ -1,0 +1,1316 @@
+{
+ "season": 2026,
+ "week": 8,
+ "game_id": "401873025",
+ "game": "ATL@TB",
+ "kickoff_et": "2026-11-01 01:00 PM",
+ "game_date": "2026-11-01",
+ "venue": null,
+ "input_cutoff_et": "2026-11-01T07:30",
+ "skill": "/home/box/agent-data/workflows/nfl-game-script-run/SKILL.md",
+ "seed": 20261101,
+ "trials": 100000,
+ "sim_script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+ "approved_exceptions": [
+  {
+   "input": "coverage.defenders",
+   "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+   "approved_by": "Rico",
+   "approved_on": "2026-11-01",
+   "valid_for_date": "2026-11-01",
+   "scope": "receiving legs",
+   "reason": "misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only"
+  }
+ ],
+ "sources": [
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse play_by_play_2026 (thru 2026-10-29)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "tool": "curl (github nflverse release)",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse snap_counts_2026 + players",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/snap_counts_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN depth charts API (24 teams)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/espn_depth_all.json",
+   "tool": "python urllib",
+   "pulled_et": "2026-11-01T07:14"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN box scores wk1-8 (two-source target check)",
+   "url_or_file": "/workspace/nfl-database/week8/phase_walk/src/espn_box.json",
+   "tool": "earlier urllib pull (Oct 31)",
+   "pulled_et": "2026-10-31T19:19"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "FTN charting via nflverse (blitzers, rushers)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "Sharp Football coverage schemes (man/zone, MOF; data Updated Oct 27)",
+   "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+   "tool": "Firecrawl scrape",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "ESPN WR/CB matchup cheatsheet wk8",
+   "url_or_file": "https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_WRCB.pdf",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:12"
+  },
+  {
+   "category": "ngs",
+   "name": "BACKUP nflverse nextgen_stats release (nextgenstats.nfl.com on hold)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "film",
+   "name": "Official NFL YouTube highlights (oEmbed-checked) + caption plays re-matched to fresh pbp",
+   "url_or_file": "https://www.youtube.com/@NFL",
+   "tool": "python urllib oEmbed",
+   "pulled_et": "2026-11-01T07:26"
+  },
+  {
+   "category": "injuries_news",
+   "name": "ESPN injuries API",
+   "url_or_file": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "weather",
+   "name": "NWS hourly + Open-Meteo",
+   "url_or_file": "https://api.weather.gov ; https://api.open-meteo.com",
+   "tool": "python urllib",
+   "pulled_et": "2026-11-01T07:10"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks, Underdog player props",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_final.csv",
+   "tool": "python urllib (The Odds API)",
+   "pulled_et": "2026-11-01T07:30"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API: FanDuel/DK/Pinnacle spreads+totals",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_final.json",
+   "tool": "python urllib (The Odds API)",
+   "pulled_et": "2026-11-01T07:30"
+  }
+ ],
+ "flagged_gaps": [
+  {
+   "category": "coverage_matchups",
+   "item": "PFR advanced defense live pull",
+   "status": "MISSING (HTTP 403, not routed around)",
+   "backup": "PFR cache pfr_def_adv_2026.html 2026-10-29 06:02 under Rico exception"
+  },
+  {
+   "category": "coverage_matchups",
+   "item": "Sharp pressure page / SumerSports",
+   "status": "ON HOLD (Ghost6)",
+   "backup": "pressure PROXY (sack|hit|scramble)/dropbacks from nflverse pbp"
+  },
+  {
+   "category": "ngs",
+   "item": "nextgenstats.nfl.com public pages",
+   "status": "ON HOLD (Ghost6)",
+   "backup": "nflverse nextgen_stats release parquet (labelled BACKUP)"
+  },
+  {
+   "category": "coverage_matchups",
+   "item": "PFF per-defender/props",
+   "status": "NOT PULLED (logged-out preview only; needs signed-in box browser, read-only)",
+   "backup": "none used as numbers"
+  },
+  {
+   "category": "core_stats_pbp",
+   "item": "nflverse pbp_participation_2026",
+   "status": "MISSING (HTTP 404 not published; corrupt 9-byte file kept out)",
+   "backup": "ESPN WR/CB cheatsheet alignment + ESPN depth"
+  }
+ ],
+ "pressure_inputs": {
+  "blitz_rate": {
+   "value": {
+    "ATL": 0.248,
+    "TB": 0.41
+   },
+   "definition": "defense FTN n_pass_rushers>=5 / charted dropbacks, season",
+   "l4": {
+    "ATL": 0.27485380116959063,
+    "TB": 0.3765432098765432
+   },
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet + play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "FTN charting"
+  },
+  "pressure_rate": {
+   "value": {
+    "ATL": 0.186,
+    "TB": 0.164
+   },
+   "definition": "defense (sack|qb_hit|scramble)/dropbacks",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "PROXY"
+  },
+  "checkdown_share": {
+   "value": {
+    "ATL": 0.322,
+    "TB": 0.355
+   },
+   "definition": "QB attempts with air_yards<=0 or RB target / attempts",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "nflverse pbp"
+  }
+ },
+ "sims": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Michael Penix Jr. Pass Yds Under 229.5": {
+     "p": 0.5504,
+     "median": 221.17
+    },
+    "Bijan Robinson Rush Yds Under 80.5": {
+     "p": 0.6404,
+     "median": 65.91
+    },
+    "Bijan Robinson Rush+Rec Yds Under 117.5": {
+     "p": 0.7031,
+     "median": 92.86
+    },
+    "Drake London Rec Yds Under 79.5": {
+     "p": 0.5109,
+     "median": 78.24
+    },
+    "Drake London Receptions Under 6.5": {
+     "p": 0.5968,
+     "median": 6.0
+    },
+    "Jahan Dotson Rec Yds Under 25.5": {
+     "p": 0.573,
+     "median": 22.49
+    },
+    "Jahan Dotson Receptions Under 2.5": {
+     "p": 0.7257,
+     "median": 2.0
+    },
+    "Kyle Pitts Rec Yds Under 35.5": {
+     "p": 0.5843,
+     "median": 31.02
+    },
+    "Kyle Pitts Receptions Under 3.5": {
+     "p": 0.5679,
+     "median": 3.0
+    },
+    "Baker Mayfield Pass Yds Under 215.5": {
+     "p": 0.7308,
+     "median": 160.91
+    },
+    "Bucky Irving Rush Yds Under 70.5": {
+     "p": 0.5173,
+     "median": 69.29
+    },
+    "Bucky Irving Rush+Rec Yds Under 90.5": {
+     "p": 0.5839,
+     "median": 82.49
+    },
+    "Chris Godwin Jr. Rec Yds Under 39.5": {
+     "p": 0.4976,
+     "median": 39.73
+    },
+    "Chris Godwin Jr. Receptions Under 4.5": {
+     "p": 0.6294,
+     "median": 4.0
+    },
+    "Cade Otton Rec Yds Under 33.5": {
+     "p": 0.7766,
+     "median": 17.58
+    },
+    "Cade Otton Receptions Under 3.5": {
+     "p": 0.7975,
+     "median": 2.0
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Michael Penix Jr. Pass Yds Under 229.5": {
+     "p": 0.7398,
+     "median": 185.6
+    },
+    "Bijan Robinson Rush Yds Under 80.5": {
+     "p": 0.7329,
+     "median": 57.46
+    },
+    "Bijan Robinson Rush+Rec Yds Under 117.5": {
+     "p": 0.8026,
+     "median": 79.7
+    },
+    "Drake London Rec Yds Under 79.5": {
+     "p": 0.6344,
+     "median": 65.35
+    },
+    "Drake London Receptions Under 6.5": {
+     "p": 0.702,
+     "median": 5.0
+    },
+    "Jahan Dotson Rec Yds Under 25.5": {
+     "p": 0.6365,
+     "median": 19.36
+    },
+    "Jahan Dotson Receptions Under 2.5": {
+     "p": 0.7771,
+     "median": 1.0
+    },
+    "Kyle Pitts Rec Yds Under 35.5": {
+     "p": 0.6677,
+     "median": 25.4
+    },
+    "Kyle Pitts Receptions Under 3.5": {
+     "p": 0.6457,
+     "median": 3.0
+    },
+    "Baker Mayfield Pass Yds Under 215.5": {
+     "p": 0.8259,
+     "median": 134.48
+    },
+    "Bucky Irving Rush Yds Under 70.5": {
+     "p": 0.6266,
+     "median": 59.99
+    },
+    "Bucky Irving Rush+Rec Yds Under 90.5": {
+     "p": 0.6994,
+     "median": 70.91
+    },
+    "Chris Godwin Jr. Rec Yds Under 39.5": {
+     "p": 0.6005,
+     "median": 33.17
+    },
+    "Chris Godwin Jr. Receptions Under 4.5": {
+     "p": 0.7095,
+     "median": 3.0
+    },
+    "Cade Otton Rec Yds Under 33.5": {
+     "p": 0.827,
+     "median": 12.99
+    },
+    "Cade Otton Receptions Under 3.5": {
+     "p": 0.8376,
+     "median": 2.0
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Michael Penix Jr. Pass Yds Under 229.5": {
+     "p": 0.56,
+     "median": 217.49
+    },
+    "Bijan Robinson Rush Yds Under 80.5": {
+     "p": 0.6483,
+     "median": 63.58
+    },
+    "Bijan Robinson Rush+Rec Yds Under 117.5": {
+     "p": 0.6936,
+     "median": 89.72
+    },
+    "Drake London Rec Yds Under 79.5": {
+     "p": 0.5344,
+     "median": 74.8
+    },
+    "Drake London Receptions Under 6.5": {
+     "p": 0.6067,
+     "median": 6.0
+    },
+    "Jahan Dotson Rec Yds Under 25.5": {
+     "p": 0.5759,
+     "median": 22.49
+    },
+    "Jahan Dotson Receptions Under 2.5": {
+     "p": 0.7261,
+     "median": 2.0
+    },
+    "Kyle Pitts Rec Yds Under 35.5": {
+     "p": 0.5981,
+     "median": 28.88
+    },
+    "Kyle Pitts Receptions Under 3.5": {
+     "p": 0.5904,
+     "median": 3.0
+    },
+    "Baker Mayfield Pass Yds Under 215.5": {
+     "p": 0.7322,
+     "median": 150.72
+    },
+    "Bucky Irving Rush Yds Under 70.5": {
+     "p": 0.5349,
+     "median": 66.66
+    },
+    "Bucky Irving Rush+Rec Yds Under 90.5": {
+     "p": 0.5877,
+     "median": 79.81
+    },
+    "Chris Godwin Jr. Rec Yds Under 39.5": {
+     "p": 0.5858,
+     "median": 30.1
+    },
+    "Chris Godwin Jr. Receptions Under 4.5": {
+     "p": 0.667,
+     "median": 3.0
+    },
+    "Cade Otton Rec Yds Under 33.5": {
+     "p": 0.7672,
+     "median": 13.67
+    },
+    "Cade Otton Receptions Under 3.5": {
+     "p": 0.7825,
+     "median": 2.0
+    }
+   }
+  }
+ ],
+ "legs": [
+  {
+   "name": "Michael Penix Jr. Pass Yds Under 229.5",
+   "player": "Michael Penix Jr.",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "QB",
+   "market": "passyds",
+   "receiving": false,
+   "side": "under",
+   "line": 229.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "PASS",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 229.5,
+    "over": -107,
+    "under": -117,
+    "nv_over": 0.48945992664108945,
+    "nv_under": 0.5105400733589106,
+    "overround": 1.0560787194728287
+   },
+   "draftkings": {
+    "point": 227.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    229.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Zyon McCollum",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 22.0,
+      "completions": 14.0,
+      "comp_pct": 63.6,
+      "yds": 152.0,
+      "ypt": 6.9,
+      "rating": 99.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Benjamin Morrison",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 17.0,
+      "completions": 11.0,
+      "comp_pct": 64.7,
+      "yds": 88.0,
+      "ypt": 5.2,
+      "rating": 77.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Jacob Parrish",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 28.0,
+      "completions": 17.0,
+      "comp_pct": 60.7,
+      "yds": 230.0,
+      "ypt": 8.2,
+      "rating": 83.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 17.2% / zone 78.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 58.6% / open 39.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Bijan Robinson Rush Yds Under 80.5",
+   "player": "Bijan Robinson",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "RB",
+   "market": "rushyds",
+   "receiving": false,
+   "side": "under",
+   "line": 80.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 80.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "draftkings": {
+    "point": 81.5,
+    "over": -110,
+    "under": -114,
+    "nv_over": 0.495787700084246,
+    "nv_under": 0.5042122999157539,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    80.5
+   ],
+   "underdog_lines": [
+    79.5
+   ],
+   "bar": null,
+   "stack_flag": "placed ticket on a different stat: PP25 Bijan o3.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 65.9 vs FD main 80.5 / book consensus 80.8 (>=12 yds) -> Debugging"
+   ]
+  },
+  {
+   "name": "Bijan Robinson Rush+Rec Yds Under 117.5",
+   "player": "Bijan Robinson",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "RB",
+   "market": "rushrec",
+   "receiving": true,
+   "side": "under",
+   "line": 117.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 117.5,
+    "over": -114,
+    "under": -112,
+    "nv_over": 0.5020774472328402,
+    "nv_under": 0.4979225527671597,
+    "overround": 1.0610121671662847
+   },
+   "prizepicks_lines": [
+    117.5
+   ],
+   "underdog_lines": [
+    119.5
+   ],
+   "bar": null,
+   "stack_flag": "placed ticket on a different stat: PP25 Bijan o3.5",
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 17.2% / zone 78.0%, MOF closed 58.6% / open 39.6%; awaiting ruling",
+    "P10 UNVERIFIED: no cited caption play re-matched a fresh pbp row for this player",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 92.9 vs FD main 117.5 / book consensus 117.5 (>=12 yds) -> Debugging"
+   ]
+  },
+  {
+   "name": "Drake London Rec Yds Under 79.5",
+   "player": "Drake London",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 79.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "PASS",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 79.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "draftkings": {
+    "point": 77.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    79.5
+   ],
+   "underdog_lines": [
+    79.5
+   ],
+   "bar": null,
+   "stack_flag": "placed ticket on a different stat: UD20 o5.5; Ticket 2 5+",
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Jacob Parrish",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 28.0,
+      "completions": 17.0,
+      "comp_pct": 60.7,
+      "yds": 230.0,
+      "ypt": 8.2,
+      "rating": 83.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 17.2% / zone 78.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 58.6% / open 39.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Drake London Receptions Under 6.5",
+   "player": "Drake London",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 6.5,
+   "price_fd": -138,
+   "no_vig": 0.5419,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 6.5,
+    "over": 113,
+    "under": -142,
+    "nv_over": 0.4444770965727509,
+    "nv_under": 0.555522903427249,
+    "overround": 1.0562604275792498
+   },
+   "draftkings": {
+    "point": 6.5,
+    "over": 110,
+    "under": -141,
+    "nv_over": 0.448706013777695,
+    "nv_under": 0.551293986222305,
+    "overround": 1.0612527168543766
+   },
+   "prizepicks_lines": [
+    6.0
+   ],
+   "underdog_lines": [],
+   "bar": "UD20 o5.5; Ticket 2 5+",
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: placed-ticket bar: UD20 o5.5; Ticket 2 5+"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Jacob Parrish",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 28.0,
+      "completions": 17.0,
+      "comp_pct": 60.7,
+      "yds": 230.0,
+      "ypt": 8.2,
+      "rating": 83.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 17.2% / zone 78.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 58.6% / open 39.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Jahan Dotson Rec Yds Under 25.5",
+   "player": "Jahan Dotson",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 25.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "PASS",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 25.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "draftkings": {
+    "point": 24.5,
+    "over": -110,
+    "under": -114,
+    "nv_over": 0.495787700084246,
+    "nv_under": 0.5042122999157539,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    24.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Zyon McCollum",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 22.0,
+      "completions": 14.0,
+      "comp_pct": 63.6,
+      "yds": 152.0,
+      "ypt": 6.9,
+      "rating": 99.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 17.2% / zone 78.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 58.6% / open 39.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Jahan Dotson Receptions Under 2.5",
+   "player": "Jahan Dotson",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 2.5,
+   "price_fd": -180,
+   "no_vig": 0.6007,
+   "status": "PASS",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 2.5,
+    "over": 140,
+    "under": -178,
+    "nv_over": 0.3942144072603517,
+    "nv_under": 0.6057855927396483,
+    "overround": 1.0569544364508394
+   },
+   "draftkings": {
+    "point": 1.5,
+    "over": -195,
+    "under": 151,
+    "nv_over": 0.6239403403658614,
+    "nv_under": 0.3760596596341385,
+    "overround": 1.0594233236545345
+   },
+   "prizepicks_lines": [
+    2.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Zyon McCollum",
+      "team": "TAM",
+      "pos": "CB",
+      "targets": 22.0,
+      "completions": 14.0,
+      "comp_pct": 63.6,
+      "yds": 152.0,
+      "ypt": 6.9,
+      "rating": 99.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 17.2% / zone 78.0%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 58.6% / open 39.6%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Kyle Pitts Rec Yds Under 35.5",
+   "player": "Kyle Pitts",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "TE",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 35.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 35.5,
+    "over": -108,
+    "under": -116,
+    "nv_over": 0.4915711395819285,
+    "nv_under": 0.5084288604180714,
+    "overround": 1.0562678062678064
+   },
+   "draftkings": {
+    "point": 35.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    35.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 17.2% / zone 78.0%, MOF closed 58.6% / open 39.6%; no stand-in allowed"
+   ]
+  },
+  {
+   "name": "Kyle Pitts Receptions Under 3.5",
+   "player": "Kyle Pitts",
+   "team": "ATL",
+   "opp": "TB",
+   "type": "TE",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 3.5,
+   "price_fd": -106,
+   "no_vig": 0.4836,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 3.5,
+    "over": -110,
+    "under": -114,
+    "nv_over": 0.495787700084246,
+    "nv_under": 0.5042122999157539,
+    "overround": 1.0565198041833557
+   },
+   "draftkings": {
+    "point": 3.5,
+    "over": -119,
+    "under": -107,
+    "nv_over": 0.512482836100362,
+    "nv_under": 0.487517163899638,
+    "overround": 1.0602872079941763
+   },
+   "prizepicks_lines": [
+    3.5
+   ],
+   "underdog_lines": [
+    3.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 17.2% / zone 78.0%, MOF closed 58.6% / open 39.6%; no stand-in allowed"
+   ]
+  },
+  {
+   "name": "Baker Mayfield Pass Yds Under 215.5",
+   "player": "Baker Mayfield",
+   "team": "TB",
+   "opp": "ATL",
+   "type": "QB",
+   "market": "passyds",
+   "receiving": false,
+   "side": "under",
+   "line": 215.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 215.5,
+    "over": -108,
+    "under": -116,
+    "nv_over": 0.4915711395819285,
+    "nv_under": 0.5084288604180714,
+    "overround": 1.0562678062678064
+   },
+   "draftkings": {
+    "point": 211.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    214.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P3 FAIL: under vs top-8 pass yds allowed (rank 4)",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 160.9 vs FD main 215.5 / book consensus 214.2 (>=12 yds) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "C.J. Henderson",
+      "team": "ATL",
+      "pos": "CB",
+      "targets": 35.0,
+      "completions": 20.0,
+      "comp_pct": 57.1,
+      "yds": 206.0,
+      "ypt": 5.9,
+      "rating": 83.7,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 21.9% / zone 70.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 59.5% / open 34.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Bucky Irving Rush Yds Under 70.5",
+   "player": "Bucky Irving",
+   "team": "TB",
+   "opp": "ATL",
+   "type": "RB",
+   "market": "rushyds",
+   "receiving": false,
+   "side": "under",
+   "line": 70.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "PASS",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 70.5,
+    "over": -107,
+    "under": -117,
+    "nv_over": 0.48945992664108945,
+    "nv_under": 0.5105400733589106,
+    "overround": 1.0560787194728287
+   },
+   "draftkings": {
+    "point": 69.5,
+    "over": -114,
+    "under": -110,
+    "nv_over": 0.5042122999157539,
+    "nv_under": 0.495787700084246,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    69.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": []
+  },
+  {
+   "name": "Bucky Irving Rush+Rec Yds Under 90.5",
+   "player": "Bucky Irving",
+   "team": "TB",
+   "opp": "ATL",
+   "type": "RB",
+   "market": "rushrec",
+   "receiving": true,
+   "side": "under",
+   "line": 90.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 92.5,
+    "over": -115,
+    "under": -111,
+    "nv_over": 0.5041554124246831,
+    "nv_under": 0.4958445875753168,
+    "overround": 1.060950071641133
+   },
+   "prizepicks_lines": [
+    90.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 21.9% / zone 70.3%, MOF closed 59.5% / open 34.3%; awaiting ruling"
+   ]
+  },
+  {
+   "name": "Chris Godwin Jr. Rec Yds Under 39.5",
+   "player": "Chris Godwin Jr.",
+   "team": "TB",
+   "opp": "ATL",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 39.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 41.5,
+    "over": -114,
+    "under": -110,
+    "nv_over": 0.5042122999157539,
+    "nv_under": 0.495787700084246,
+    "overround": 1.0565198041833557
+   },
+   "draftkings": {
+    "point": 41.5,
+    "over": -114,
+    "under": -110,
+    "nv_over": 0.5042122999157539,
+    "nv_under": 0.495787700084246,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    41.5
+   ],
+   "underdog_lines": [
+    39.5
+   ],
+   "bar": null,
+   "stack_flag": "placed ticket on a different stat: Ticket 2 Godwin 4+; $51.50 SGP 3+ (brief-only)",
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: defender sample 7 tgt < 8: too thin to grade",
+    "P14 FAIL: a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Sydney Brown",
+      "team": "ATL",
+      "pos": "DB",
+      "targets": 7.0,
+      "completions": 6.0,
+      "comp_pct": 85.7,
+      "yds": 31.0,
+      "ypt": 4.4,
+      "rating": 124.7,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 21.9% / zone 70.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 59.5% / open 34.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Chris Godwin Jr. Receptions Under 4.5",
+   "player": "Chris Godwin Jr.",
+   "team": "TB",
+   "opp": "ATL",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 4.5,
+   "price_fd": -132,
+   "no_vig": 0.5323,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 4.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "draftkings": {
+    "point": 4.5,
+    "over": -112,
+    "under": -114,
+    "nv_over": 0.4979225527671597,
+    "nv_under": 0.5020774472328402,
+    "overround": 1.0610121671662847
+   },
+   "prizepicks_lines": [
+    4.5
+   ],
+   "underdog_lines": [],
+   "bar": "Ticket 2 Godwin 4+; $51.50 SGP 3+ (brief-only)",
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: defender sample 7 tgt < 8: too thin to grade",
+    "P14 FAIL: placed-ticket bar: Ticket 2 Godwin 4+; $51.50 SGP 3+ (brief-only)"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Sydney Brown",
+      "team": "ATL",
+      "pos": "DB",
+      "targets": 7.0,
+      "completions": 6.0,
+      "comp_pct": 85.7,
+      "yds": 31.0,
+      "ypt": 4.4,
+      "rating": 124.7,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 21.9% / zone 70.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 59.5% / open 34.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   }
+  },
+  {
+   "name": "Cade Otton Rec Yds Under 33.5",
+   "player": "Cade Otton",
+   "team": "TB",
+   "opp": "ATL",
+   "type": "TE",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 33.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 33.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "draftkings": {
+    "point": 33.5,
+    "over": -114,
+    "under": -110,
+    "nv_over": 0.5042122999157539,
+    "nv_under": 0.495787700084246,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    33.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 21.9% / zone 70.3%, MOF closed 59.5% / open 34.3%; no stand-in allowed",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 17.6 vs FD main 33.5 / book consensus 33.5 (>=12 yds) -> Debugging"
+   ]
+  },
+  {
+   "name": "Cade Otton Receptions Under 3.5",
+   "player": "Cade Otton",
+   "team": "TB",
+   "opp": "ATL",
+   "type": "TE",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 3.5,
+   "price_fd": -114,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 3.5,
+    "over": -114,
+    "under": -110,
+    "nv_over": 0.5042122999157539,
+    "nv_under": 0.495787700084246,
+    "overround": 1.0565198041833557
+   },
+   "draftkings": {
+    "point": 3.5,
+    "over": -119,
+    "under": -107,
+    "nv_over": 0.512482836100362,
+    "nv_under": 0.487517163899638,
+    "overround": 1.0602872079941763
+   },
+   "prizepicks_lines": [
+    3.5
+   ],
+   "underdog_lines": [
+    3.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 21.9% / zone 70.3%, MOF closed 59.5% / open 34.3%; no stand-in allowed",
+    "P14 UNVERIFIED: MODEL-SUSPECT: edge +30.6 pts > +15 implausible vs market (FD 3.5, consensus 3.5; possible role change the history-based sim cannot see) -> Debugging"
+   ]
+  }
+ ]
+}

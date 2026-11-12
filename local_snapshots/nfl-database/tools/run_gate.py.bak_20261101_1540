@@ -1,0 +1,341 @@
+#!/usr/bin/env python3
+"""Fail-closed completeness gate for NFL game-script runs. See README_run_gate.md.
+Usage: python3 run_gate.py <run_dir> [--now 2026-11-01T12:00]   (times are ET, naive ISO)"""
+import argparse, json, os, re, sys
+from datetime import datetime
+
+PHASES = list(range(1, 16))
+CATEGORIES = ["core_stats_pbp","coverage_matchups","ngs","film","injuries_news","weather","odds_props"]
+MAX_AGE_H = {"coverage_matchups":48,"injuries_news":6,"odds_props":1,"weather":6}
+DEFAULT_AGE_H = 48
+MODELS = ["monte_carlo","bias","game_randomness"]
+PRESSURE = ["blitz_rate","pressure_rate","checkdown_share"]
+BAD = {"FAIL","MISSING","STALE","UNVERIFIED"}
+
+YARDS_MKTS = ("passyds","recyds","rushyds","rushrec")
+def is_yards(l):
+    mk = str(l.get("market") or "").lower()
+    if mk: return mk in YARDS_MKTS
+    return bool(re.search(r"\byds\b|yards", str(l.get("name","")), re.I))
+def leg_price(l):
+    for k in ("price","price_fd"):
+        v = l.get(k)
+        if v is not None:
+            try: return float(v)
+            except (TypeError, ValueError): return None
+    return None
+WX_PRECIP, WX_GUST, WX_WIND = 50, 20, 15   # BUG-2026-11-01-WX thresholds (>=)
+INDOOR = ("dome","closed","indoor","retractable_closed")
+SLIPS = "/workspace/nfl-database/week8/slips/slips_2026-11-01.md"
+def wx_sensitive(l):
+    """passing/receiving OVER: rec, rec yds, pass yds, completions, rush+rec."""
+    mk = str(l.get("market") or "").lower()
+    if mk: return mk in ("rec","receptions","recyds","passyds","passcomp","completions","rushrec")
+    return bool(re.search(r"\brec\b|recept|rec yds|pass yds|passing|complet|rush\s*\+\s*rec", str(l.get("name","")), re.I))
+GS_SPREAD, GS_YPC = -7.0, 4.4   # BUG-2026-11-01-RBSCRIPT trigger (inclusive)
+RUSH_MKTS = ("rushyds","rushrec")
+def wx_flag_of(w):
+    if not isinstance(w, dict) or str(w.get("roof") or "").lower() in INDOOR: return False
+    v = [w.get(k) for k in ("precip_pct","gust_mph","wind_mph")]
+    return any(isinstance(x,(int,float)) and x >= t for x, t in zip(v, (WX_PRECIP, WX_GUST, WX_WIND)))
+def median(v):
+    v = sorted(v); n = len(v); return v[n//2] if n % 2 else (v[n//2-1]+v[n//2])/2
+
+def parse_t(s):
+    if not s: return None
+    try: return datetime.fromisoformat(str(s).strip().replace(" ", "T")[:16])
+    except ValueError: return None
+
+class Gate:
+    def __init__(self, d, now):
+        self.d, self.now, self.miss, self.notes = d, now, [], []
+        self.exceptions, self.applied = [], []
+    def fail(self, m): self.miss.append(m)
+    def age_ok(self, label, ts, cat=None):
+        t = parse_t(ts)
+        if t is None: self.fail(f"{label}: missing/unparseable pull timestamp (counts as STALE)"); return False
+        lim = MAX_AGE_H.get(cat, DEFAULT_AGE_H); age = (self.now - t).total_seconds()/3600
+        if age > lim: self.fail(f"{label}: STALE ({age:.1f} h old > {lim} h limit)"); return False
+        if age < -0.01: self.fail(f"{label}: pull timestamp {ts} is in the future"); return False
+        return True
+    def exc_for(self, inp, src):
+        for e in self.exceptions:
+            if e["input"] == inp and src and os.path.basename(str(src)) == os.path.basename(e["source"]): return e
+        return None
+    def check_risks(self):
+        if not self.applied: return
+        p = os.path.join(self.d, "report.md")
+        txt = open(p, encoding="utf-8").read() if os.path.exists(p) else ""
+        mt = re.search(r"^#+\s*[^\n]*Risks[^\n]*\n(.*?)(?=^#+\s|\Z)", txt, re.S | re.M | re.I)
+        sec = mt.group(1) if mt else ""
+        for e in {id(e): e for _, e in self.applied}.values():
+            if os.path.basename(e["source"]) not in sec:
+                self.fail(f"report.md Risks section does not mention applied exception {os.path.basename(e['source'])}")
+    def stamped(self, label, obj, cat=None, src_key="source"):
+        if not isinstance(obj, dict): self.fail(f"{label}: missing"); return False
+        if not (obj.get(src_key) or obj.get("url_or_file")): self.fail(f"{label}: no source url/file"); return False
+        return self.age_ok(label, obj.get("pulled_et"), cat)
+
+    def check_form(self, n, l, line, side):
+        """Skill §7 HARD (clears exact line in 3 of last 4 with current QB, or 3 of 3) and §14 yards-over cushion."""
+        rf = l.get("recent_form")
+        if not isinstance(rf, dict): self.fail(f"leg {n}: recent_form missing (§7 last-4 with current QB) — fail closed"); return
+        vals = rf.get("values")
+        if not rf.get("source"): self.fail(f"leg {n}: recent_form has no source")
+        else: self.age_ok(f"leg {n} recent_form", rf.get("pulled_et"), "core_stats_pbp")
+        if not rf.get("qb"): self.fail(f"leg {n}: recent_form qb (current QB) missing")
+        if not isinstance(vals, list) or not all(isinstance(v, (int, float)) for v in vals):
+            self.fail(f"leg {n}: recent_form values missing/non-numeric"); return
+        if not isinstance(rf.get("games"), list) or len(rf["games"]) != len(vals):
+            self.fail(f"leg {n}: recent_form games must list one game id per value"); return
+        vals = vals[-4:]
+        if len(vals) < 3: self.fail(f"leg {n}: §7 FAIL only {len(vals)} games with current QB (need 3 of 3 or 3 of 4)"); return
+        hits = sum((v > line) if side == "over" else (v < line) for v in vals)
+        if hits < 3: self.fail(f"leg {n}: §7 FAIL {side} {line} hit {hits} of {len(vals)} last games with current QB {vals}")
+        if side == "over" and is_yards(l):
+            pr = leg_price(l)
+            if pr is None: self.fail(f"leg {n}: §14 yards-over cushion needs the price (price/price_fd) — fail closed"); return
+            md = median(vals)
+            if pr <= -150:
+                if md < 1.20*line: self.fail(f"leg {n}: §14 FAIL at {pr:+.0f} last-4 median {md} < 20% over line {line} (need {1.2*line:.1f})")
+            elif pr <= -113:
+                if md < 1.25*line: self.fail(f"leg {n}: §14 FAIL at {pr:+.0f} last-4 median {md} < 25% over line {line} (need {1.25*line:.1f})")
+                c10 = sum(v >= 1.10*line for v in vals)
+                if c10 < 3: self.fail(f"leg {n}: §14 FAIL at {pr:+.0f} cleared line by 10%+ ({1.1*line:.1f}) in only {c10} of {len(vals)}")
+            else:
+                self.notes.append(f"{n}: §14 cushion not triggered at {pr:+.0f} (skill sets it only at -113 or longer)")
+    def check_cross_checks(self, m):
+        for c in m.get("cross_checks", []) or []:
+            lab = f"cross_check {c.get('name','?')}"
+            if not (c.get("url_or_file") or c.get("source")): self.fail(f"{lab}: no source url/file"); continue
+            t = parse_t(c.get("pulled_et"))
+            if t is None: self.fail(f"{lab}: missing/unparseable pulled_et"); continue
+            if (self.now - t).total_seconds() < -36: self.fail(f"{lab}: pull timestamp {c['pulled_et']} is in the future"); continue
+            self.notes.append(f"cross-check (pick-side only, not a gated source): {c.get('name')} pulled {c['pulled_et']}")
+
+    def check_weather(self, m, legs, live):
+        """Phase 11 (BUG-2026-11-01-WX): fail closed; flagged open-air game => wx-sensitive overs must be CUT."""
+        W = m.get("weather")
+        if not isinstance(W, dict) or not W: self.fail("Phase 11 weather: manifest 'weather' block missing (fail closed)"); return
+        if "roof" in W: W = {str(m.get("game")): W}
+        self.wx_alerts = []
+        one = next(iter(W)) if len(W) == 1 else None
+        for g, w in W.items():
+            lab = f"Phase 11 weather {g}"
+            roof = str(w.get("roof") or "").lower()
+            if not roof: self.fail(f"{lab}: roof status missing (fail closed)"); continue
+            if not (w.get("source") or w.get("url_or_file")): self.fail(f"{lab}: no source url/file")
+            self.age_ok(lab, w.get("pulled_et"), "weather")
+            if roof in INDOOR: continue
+            vals = {k: w.get(k) for k in ("precip_pct","gust_mph","wind_mph")}
+            if any(not isinstance(v, (int, float)) for v in vals.values()):
+                self.fail(f"{lab}: open-air weather inputs missing {[k for k,v in vals.items() if not isinstance(v,(int,float))]} (fail closed)"); continue
+            why = [x for x, c in ((f"precip {vals['precip_pct']}%", vals["precip_pct"] >= WX_PRECIP),
+                                  (f"gusts {vals['gust_mph']} mph", vals["gust_mph"] >= WX_GUST),
+                                  (f"sustained wind {vals['wind_mph']} mph", vals["wind_mph"] >= WX_WIND)) if c]
+            if not why: continue
+            gl = [n for n, l in legs.items() if (l.get("game") or one) == g]
+            bad = [n for n in gl if n in live and str(l_side := legs[n].get("side","")).lower() == "over" and wx_sensitive(legs[n])]
+            for n in bad: self.fail(f"leg {n}: WEATHER flagged game {g} ({', '.join(why)}) — passing/receiving OVER must be CUT")
+            self.wx_alerts.append((g, why, self.placed_in(m, g)))
+        for n in live:
+            g = legs[n].get("game") or one
+            if g not in W: self.fail(f"leg {n}: Phase 11 weather missing for game {g} (fail closed)")
+    def check_game_script(self, m, legs, live):
+        """BUG-2026-11-01-RBSCRIPT. Returns live legs whose Phase 7 carry-share FAIL is waived (re-priced on boosted script)."""
+        B = m.get("game_script_rb") or {}; W = m.get("weather") if isinstance(m.get("weather"), dict) else {}
+        if "roof" in W: W = {str(m.get("game")): W}
+        one = next(iter(W)) if len(W) == 1 else None
+        games = set(W) | {l.get("game") or one for l in legs.values()}; games.discard(None)
+        sims = {s.get("model"): s for s in m.get("sims", [])}; waived = set(); self.gs_notes = []
+        for g in sorted(games, key=str):
+            wx = wx_flag_of(W.get(g)); b = B.get(g)
+            gl = [n for n, l in legs.items() if (l.get("game") or one) == g]
+            big = any(isinstance(legs[n].get("spread"), (int, float)) and legs[n]["spread"] <= GS_SPREAD for n in gl)
+            if not isinstance(b, dict):
+                if wx or big: self.fail(f"game_script_rb {g}: block missing but trigger possible ({'weather-flagged' if wx else 'favored by 7+'}) (fail closed)")
+                continue
+            lab = f"game_script_rb {g}"
+            fs, yp = b.get("fav_spread"), b.get("opp_ypc")
+            if not isinstance(fs, (int, float)) or not isinstance(yp, (int, float)): self.fail(f"{lab}: fav_spread/opp_ypc missing (fail closed)"); continue
+            if not b.get("source"): self.fail(f"{lab}: no source")
+            self.age_ok(lab, b.get("pulled_et"))
+            trig = wx or (fs <= GS_SPREAD and yp >= GS_YPC)
+            if bool(b.get("wx_flag")) != wx: self.fail(f"{lab}: wx_flag {b.get('wx_flag')} disagrees with Phase 11 weather ({wx})")
+            if bool(b.get("triggered")) != trig: self.fail(f"{lab}: triggered={b.get('triggered')} but rule says {trig} (spread {fs}, opp YPC {yp}, wx {wx})"); continue
+            if not trig: continue
+            bo = b.get("boost") or {}
+            if not all(isinstance(bo.get(k), (int, float)) for k in ("lead","rb2")) or not bo.get("source"): self.fail(f"{lab}: fitted boost lead/rb2 + source missing")
+            if not b.get("lead_rb") or not b.get("rb2"): self.fail(f"{lab}: lead_rb/rb2 names missing")
+            rp = b.get("rb2_projection") or {}
+            if not isinstance(rp.get("median"), dict) or not all(k in rp["median"] for k in ("mc","bias","gr")): self.fail(f"{lab}: rb2 projection (3 models) missing")
+            if wx:
+                mo = list(b.get("model_order") or [])
+                if not mo: self.fail(f"{lab}: model_order missing in weather-flagged game")
+                else:
+                    ri = [i for i, x in enumerate(mo) if x in RUSH_MKTS]; oi = [i for i, x in enumerate(mo) if x not in RUSH_MKTS]
+                    if ri and oi and max(ri) > min(oi): self.fail(f"{lab}: model order {mo} — rushing overs must be modeled before passing overs")
+            self.gs_notes.append(f"GAME SCRIPT: {g} triggered (spread {fs}, opp YPC {yp}, wx {wx}); boost lead x{bo.get('lead')} rb2 x{bo.get('rb2')}; RB2 {b.get('rb2')} medians {rp.get('median')}")
+            for n in gl:
+                l = legs[n]
+                if n in live and l.get("player") == b.get("lead_rb") and str(l.get("market","")).lower() in RUSH_MKTS and l.get("repriced_game_script") is True \
+                   and all((sims.get(mo, {}).get("legs", {}).get(n) or {}).get("script") == "boosted" for mo in MODELS):
+                    waived.add(n); self.gs_notes.append(f"GAME SCRIPT: {n} Phase 7 carry-share FAIL waived — re-priced on boosted script; all other checks applied")
+        return waived
+    def placed_in(self, m, g):
+        if isinstance(m.get("placed_legs"), list):
+            return [p.get("leg") for p in m["placed_legs"] if p.get("game") == g]
+        teams = [t for t in re.split(r"[@ ]+", str(g)) if t]
+        out = []
+        if os.path.exists(SLIPS):
+            for line in open(SLIPS, encoding="utf-8"):
+                if line.startswith("- ") and any(re.search(rf"\b{re.escape(t)}\b", line) for t in teams): out.append(line[2:].strip())
+        return out
+    def checklist(self, legs):
+        p = os.path.join(self.d, "checklist.md")
+        if not os.path.exists(p): self.fail("checklist.md missing"); return {}
+        rows = {}
+        for line in open(p, encoding="utf-8"):
+            c = [x.strip() for x in line.strip().strip("|").split("|")]
+            if len(c) < 6 or not re.match(r"^\d+", c[1]): continue
+            leg, ph, st = c[0], int(re.match(r"^\d+", c[1]).group()), c[2].upper()
+            rows.setdefault(leg, {})[ph] = st
+            if st not in BAD | {"PASS","N/A"}: self.fail(f"checklist {leg} phase {ph}: unknown status '{c[2]}'")
+            if st != "N/A" and (not c[4] or not parse_t(c[5])):
+                self.fail(f"checklist {leg} phase {ph}: missing source or Pulled (ET) timestamp")
+        for name in legs:
+            if name not in rows: self.fail(f"checklist: no rows for leg '{name}'"); continue
+            for ph in PHASES:
+                if ph not in rows[name]: self.fail(f"checklist {name}: phase {ph} row missing")
+        for name in rows:
+            if name not in legs: self.fail(f"checklist leg '{name}' not in run_manifest legs")
+        return rows
+
+    def run(self):
+        mp = os.path.join(self.d, "run_manifest.json")
+        if not os.path.exists(os.path.join(self.d, "report.md")): self.fail("report.md missing")
+        try: m = json.load(open(mp, encoding="utf-8"))
+        except Exception as e: self.fail(f"run_manifest.json unreadable: {e}"); return
+        legs = {l.get("name"): l for l in m.get("legs", [])}
+        self.game_date = str(m.get("game_date") or str(m.get("kickoff_et", ""))[:10])
+        req = ("input","source","approved_by","approved_on","valid_for_date","scope","reason")
+        for e in m.get("approved_exceptions", []):
+            lack = [k for k in req if not e.get(k)]
+            if lack: self.fail(f"approved_exception {e.get('source')}: missing fields {lack}"); continue
+            if e["input"] != "coverage.defenders":
+                self.notes.append(f"exception for {e['input']} ignored (only coverage.defenders is exemptable)"); continue
+            if e["valid_for_date"] != self.game_date:
+                self.notes.append(f"exception {e['source']} ignored: valid_for_date {e['valid_for_date']} != game_date {self.game_date}"); continue
+            self.exceptions.append(e)
+        if not legs: self.fail("manifest: no legs")
+        rows = self.checklist(legs)
+        live = {n for n, l in legs.items() if str(l.get("status","")).upper() != "CUT"}
+        for n, l in legs.items():
+            if str(l.get("status","")).upper() not in ("PASS","CUT"): self.fail(f"leg {n}: status must be PASS or CUT")
+        # flagged gaps: checklist bad statuses must be on CUT legs
+        self.gs_waived = self.check_game_script(m, legs, live)
+        for n in live:
+            bad = [ph for ph, st in rows.get(n, {}).items() if st in BAD]
+            if bad == [7] and n in self.gs_waived: bad = []
+            if bad: self.fail(f"leg {n}: phases {bad} flagged FAIL/MISSING/STALE/UNVERIFIED but leg not CUT")
+            if l_gaps := legs[n].get("gaps"): self.fail(f"leg {n}: has flagged gaps {l_gaps} but leg not CUT")
+        # sources
+        gflag = {g.get("category"): g for g in m.get("flagged_gaps", [])}
+        for cat in CATEGORIES:
+            ss = [s for s in m.get("sources", []) if s.get("category") == cat]
+            good = False
+            for s in ss:
+                lab = f"source {cat}/{s.get('name','?')}"
+                if not s.get("url_or_file"): self.fail(f"{lab}: no source url/file"); continue
+                if self.age_ok(lab, s.get("pulled_et"), cat): good = True
+            if not good:
+                if cat in gflag and not live: self.notes.append(f"category {cat} gap flagged; all legs CUT")
+                elif cat in gflag: self.fail(f"category {cat} gap flagged but legs {sorted(live)} not CUT")
+                else: self.fail(f"source category {cat}: missing or no fresh source")
+        for s in m.get("sources", []):
+            if s.get("category") not in CATEGORIES: self.fail(f"source {s.get('name')}: unknown category {s.get('category')}")
+        # pressure inputs (required whenever any leg is live)
+        pi = m.get("pressure_inputs", {})
+        for k in PRESSURE:
+            if k not in pi:
+                if live: self.fail(f"pressure/blitz/checkdown input {k} missing")
+            else: self.stamped(f"pressure input {k}", pi[k], "coverage_matchups")
+        # sims
+        sims = {s.get("model"): s for s in m.get("sims", [])}
+        for mo in MODELS:
+            s = sims.get(mo)
+            if not s:
+                if live: self.fail(f"sim model {mo} missing")
+                continue
+            if not isinstance(s.get("n"), int) or s["n"] < 100000: self.fail(f"sim {mo}: n={s.get('n')} < 100000")
+            if s.get("seed") is None: self.fail(f"sim {mo}: seed missing")
+            for n in live:
+                r = s.get("legs", {}).get(n)
+                if not r or r.get("p") is None or r.get("median") is None:
+                    self.fail(f"sim {mo}: leg {n} lacks p/median")
+        # per live leg: coverage + edge
+        for n in sorted(live):
+            l = legs[n]
+            rec = l.get("receiving") or l.get("type") in ("WR","TE")
+            if rec:
+                cv = l.get("coverage") or {}
+                ds = cv.get("defenders") or []
+                if not ds: self.fail(f"leg {n}: per-defender coverage numbers missing")
+                for d in ds:
+                    if not all(d.get(k) is not None for k in ("targets","comp_pct","ypt")):
+                        self.fail(f"leg {n}: defender {d.get('name')} missing targets/comp_pct/ypt")
+                    lab = f"leg {n} defender {d.get('name')}"
+                    ex = self.exc_for("coverage.defenders", d.get("source") or d.get("url_or_file"))
+                    if ex and parse_t(d.get("pulled_et")):
+                        self.applied.append((lab, ex))
+                    else:
+                        self.stamped(lab, d, "coverage_matchups")
+                for k, lab in (("man_zone","man/zone"),("mof","MOF")):
+                    if k not in cv: self.fail(f"leg {n}: {lab} coverage missing")
+                    else: self.stamped(f"leg {n} {lab}", cv[k], "coverage_matchups")
+            ps, meds = [], []
+            for mo in MODELS:
+                r = sims.get(mo, {}).get("legs", {}).get(n) or {}
+                if r.get("p") is not None: ps.append(float(r["p"]))
+                if r.get("median") is not None: meds.append(float(r["median"]))
+            nv, line, side = l.get("no_vig"), l.get("line"), str(l.get("side","")).lower()
+            if nv is None or line is None or side not in ("over","under") or len(ps) < 3:
+                self.fail(f"leg {n}: edge-rule inputs missing (need no_vig, line, side, 3 model p)"); continue
+            avg = sum(ps)/3; shr = 0.5 + 0.7*(avg-0.5)
+            if avg - nv < 0.03: self.fail(f"leg {n}: edge avg(p)-no_vig = {100*(avg-nv):+.1f} pts < +3")
+            if shr - nv <= 0: self.fail(f"leg {n}: edge shrunk p'-no_vig = {100*(shr-nv):+.1f} pts not > 0")
+            if min(ps) < 0.45: self.fail(f"leg {n}: edge a model p {min(ps):.3f} < .45")
+            for md in meds:
+                if (side == "over" and md <= line) or (side == "under" and md >= line):
+                    self.fail(f"leg {n}: edge sim median {md} does not clear {side} {line}")
+            self.notes.append(f"{n}: avg p {avg:.3f}, no-vig {nv:.3f}, edge {100*(avg-nv):+.1f}, shrunk {100*(shr-nv):+.1f}")
+            self.check_form(n, l, line, side)
+        self.check_weather(m, legs, live)
+        self.check_cross_checks(m)
+        self.live, self.cut = sorted(live), sorted(set(legs) - live)
+        self.check_risks()
+
+def main():
+    a = argparse.ArgumentParser(); a.add_argument("run_dir"); a.add_argument("--now")
+    o = a.parse_args()
+    now = parse_t(o.now) if o.now else datetime.now()
+    g = Gate(o.run_dir, now); g.live = g.cut = []; g.applied = []; g.wx_alerts = []
+    g.run()
+    ok = not g.miss
+    out = [f"GATE: {'PASS' if ok else 'FAIL'}  run={os.path.abspath(o.run_dir)}  checked_at={now:%Y-%m-%d %H:%M} ET",
+           f"Live legs: {g.live or 'none'}", f"Cut legs: {g.cut or 'none'}"]
+    if g.applied:
+        out += ["APPROVED EXCEPTIONS:"]
+        for lab, e in g.applied:
+            out.append(f"  - {lab}: {e['input']} from {e['source']} (staleness waived; approved by {e['approved_by']} on {e['approved_on']}, valid {e['valid_for_date']}, scope {e['scope']}) — {e['reason']}")
+    for gm, why, placed in g.wx_alerts:
+        out += [f"WEATHER ALERT: {gm} flagged ({', '.join(why)}). User's placed legs in this game:"] + ([f"  - {p}" for p in placed] or ["  - none found"])
+    out += getattr(g, "gs_notes", [])
+    if g.miss: out += [f"MISSES ({len(g.miss)}):"] + [f"  - {x}" for x in g.miss]
+    if g.notes: out += ["Notes:"] + [f"  - {x}" for x in g.notes]
+    txt = "\n".join(out) + "\n"; print(txt, end="")
+    try: open(os.path.join(o.run_dir, "gate_output.txt"), "w").write(txt)
+    except OSError as e: print(f"could not write gate_output.txt: {e}", file=sys.stderr)
+    sys.exit(0 if ok else 1)
+
+if __name__ == "__main__": main()

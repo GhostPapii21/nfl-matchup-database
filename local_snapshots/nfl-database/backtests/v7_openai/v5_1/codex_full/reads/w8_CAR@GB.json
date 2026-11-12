@@ -1,0 +1,48 @@
+{
+ "game": "Week 8 CAR@GB / kickoff MISSING / GB -3.5 / total 47 / implied totals GB 25.25, CAR 21.75 / weather MISSING: not saved. Venue details, moneyline, opening lines, movement, rest and travel MISSING.",
+ "script": {
+  "base": "GB leads narrowly rather than forcing an immediate CAR passing-only script. CAR keeps Chuba Hubbard involved on the ground, while Tetairoa McMillan's established target concentration leaves Jalen Coker in a secondary receiving role.",
+  "flip1": "CAR takes the lead or keeps the game level into the fourth quarter. Hubbard's rushing opportunity remains intact, and CAR has less reason to expand passing volume enough to lift Coker.",
+  "flip2": "GB builds an early multi-score lead and CAR abandons its normal rushing allocation. Hubbard's rushing over becomes vulnerable, while extra CAR passing volume threatens Coker's receiving under."
+ },
+ "injury_fallout": "MISSING: CAR and GB injury reports, practice participation, offensive-line availability, defensive absences, final inactives and returning-player snap limits. No absences, returns or replacement roles are inferred from J.Jacobs' 11 carries or any other usage totals. Recheck every selected player's availability and role at the final-report and approximately 90-minute inactive checkpoints. Source for all supplied facts: user-provided pre-kickoff pack; exact publication timestamps are missing.",
+ "matchup": {
+  "shell": "MISSING: GB and CAR MOFO/MOFC, man/zone rates and receiver alignment charting. GB's location YPA is 7.11 left, 6.8 middle and 5.66 right; those numbers cannot establish Coker's individual coverage matchup.",
+  "pressure": "GB blitzes 33%; CAR QB EPA/dropback is -0.01 against blitz versus 0.16 without blitz. CAR blitzes 37%; GB QB EPA/dropback is -0.07 against blitz versus 0.22 without blitz. Both offenses have a plausible pressure-related efficiency risk, but pressure rates, sacks and time to throw are missing.",
+  "bleeds": "CAR's clearest supplied weakness is rushing: 5.31 YPC allowed and 22 runs of 10+ yards through six games. GB allows 4.08 YPC and 17 runs of 10+ yards through seven games. GB has allowed 13 pass plays of 20+ yards on 261 attempts, limiting the evidence for a Coker explosive-yardage thesis.",
+  "overlap": "Hubbard's edge is concentrated rushing opportunity in a potentially competitive game, not an unusually weak GB run defense. Coker's under pairs CAR's target concentration toward McMillan with GB's limited allowance of explosive passes; route and alignment data are unavailable."
+ },
+ "form": "CAR weeks 4, 6 and 7: Hubbard handled 55 carries for 275 yards; the other listed rushers combined for 15 carries. McMillan drew 31 targets for 318 receiving yards, versus Coker's 17 targets, 106 receiving yards and 204 air yards. Coker's air-yard involvement is a meaningful under risk despite limited realized yardage. GB weeks 5\u20137: Lloyd had 24 carries, Strong 16 and Jacobs 11, so CAR's favorable rushing matchup does not identify a secure GB lead-back allocation. These are three-game aggregates; individual-game trends, routes, snaps, red-zone work and comparable-opponent results are missing.",
+ "edge_players": [
+  {
+   "player": "chubahubbard",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Hubbard's concentrated carry role can clear 67.5 rushing yards if a modest GB lead lets CAR preserve its ground game.",
+   "must_be_true": "C.Hubbard carries >= 17 [because the pack records 55 carries across CAR's last three games]",
+   "kills_it": "IF GB establishes an early multi-score lead and CAR substantially reduces Hubbard's carries THEN chubahubbard rushyds over 67.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jalencoker",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Coker can stay below 62.5 receiving yards because McMillan commands more of CAR's targets and GB has limited explosive pass completions.",
+   "must_be_true": "T.McMillan targets >= 8 [because the pack records 31 targets for McMillan versus 17 for Coker across CAR's last three games]",
+   "kills_it": "IF Coker converts his downfield opportunities into enough explosive gains to reach 63 receiving yards THEN jalencoker recyds under 62.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypotheses precede these arithmetic checks. Hubbard's 55 carries across three games equal 18.3 per game; applying GB's 4.08 YPC allowed gives approximately 74.8 yards. This is only a workload sensitivity check, not a calibrated projection or simulation. At 17 carries, clearing 67.5 requires approximately 3.98 YPC. Coker's 106 receiving yards across three games equal 35.3 per game, supporting rather than originating the role-based under. His 204 air yards demonstrate upside risk but do not directly contradict a secondary-role hypothesis. Both offered -113.5 prices require approximately 53.16% wins to break even; no verified probability edge is established.",
+  "disagrees": "none",
+  "missing": "Calibrated projections, simulation medians and probabilities, Pinnacle prices and sharp-book no-vig benchmarks, individual-game distributions, routes, snaps, coverage charting and confirmed availability. The supplied opposing prices are not identified as Pinnacle.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line leans only: chubahubbard rushyds over 67.5 at -113.5; jalencoker recyds under 62.5 at -113.5. One market per player. No alternate rungs or TDs. Missing calibrated probabilities prevent a defensible stake recommendation.",
+ "pre_mortem": "It is Monday and both leans lost because GB's modest pregame favoritism became an early runaway. Hubbard never received the necessary carries, while CAR's catch-up passing supplied Coker extra opportunities. Even without that script flip, GB's 4.08 YPC allowed could combine with fewer Hubbard carries to stop the over, and Coker's 204 recent air yards could convert much more efficiently than his 106 receiving yards suggest. Unknown availability and weather are additional unresolved risks. These counterarguments keep both selections at lean rather than strong.",
+ "slip_story": "The shared story is a competitive, relatively contained game: Hubbard retains rushing volume and CAR does not need a major expansion in secondary-receiver production. Both survive a CAR lead; neither is robust to an early GB runaway. This is a two-leg candidate story, not a completed 3\u20134-leg main slip. Do not add unsupported legs to meet a leg count; depth-receiver eligibility rules are not supplied, so Coker's slip eligibility remains unverified.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

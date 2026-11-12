@@ -1,0 +1,39 @@
+{
+ "game": "Week 6 BAL@CLE / kickoff MISSING / BAL -3, CLE +3 / total 39.5 / implied totals BAL 21.25, CLE 18.25 / weather MISSING: not saved. Moneyline, venue details, rest/travel and opening-line movement MISSING.",
+ "script": {
+  "base": "The market implies a modest Baltimore lead in a relatively low-scoring game, not a runaway. Baltimore's 74 Derrick Henry carries across weeks 3\u20135 support a run-led approach, with Zay Flowers remaining the leading receiving option by targets; Cleveland stays close enough to preserve meaningful Baltimore passing opportunities.",
+  "flip1": "Baltimore builds a large early lead and leans harder on Henry. Flowers' receiving over becomes vulnerable to reduced second-half passing volume.",
+  "flip2": "Cleveland takes the lead and Baltimore must throw more. Flowers' team-leading 25 targets across weeks 3\u20135 make him the clearest supplied candidate to benefit, although additional volume does not guarantee efficiency."
+ },
+ "injury_fallout": "MISSING: BAL and CLE injury reports, practice participation, offensive-line health, defensive absences, return restrictions, final inactives and confirmed starting quarterbacks. The pack lists both Lamar Jackson and Tyler Huntley rushing usage; that does not establish either player's Week 6 availability or role. No absences, returns or next-man-up changes are inferred. Source: supplied pre-kickoff pack; exact publication timestamps unavailable. Any later quarterback, Flowers or offensive-line status change requires a fresh evaluation.",
+ "matchup": {
+  "shell": "MISSING: CLE and BAL MOFO/MOFC rates, man/zone rates and receiver alignment charting. Cleveland's location splits cannot establish which coverage defender Flowers will face.",
+  "pressure": "CLE blitzes 25%; BAL's supplied QB EPA/dropback is 0.25 against the blitz over 57 dropbacks versus 0.22 without it. That does not show an obvious blitz-related efficiency penalty, but pressure rate, sacks, time to throw and quarterback-specific attribution are missing. BAL blitzes 32%; CLE's corresponding EPA figures are 0.05 versus 0.06.",
+  "bleeds": "CLE allows 4.64 rushing yards per carry and has conceded 20 runs of 10-plus yards, supporting Baltimore's rushing alternative. Its pass YPA allowed is 9.38 middle, 6.53 left and 6.15 right, with 17 completions of 20-plus yards allowed on 191 attempts. These are season-to-date figures through five games, not recent opponent-specific receiving matchups.",
+  "overlap": "Flowers leads Baltimore with 25 targets, 255 receiving yards and 176 air yards across weeks 3\u20135. The hypothesis rests on his established target priority against a defense that has conceded explosive passes; alignment data is missing, so a direct Flowers-versus-middle-coverage advantage is unproven."
+ },
+ "form": "Source: supplied weeks 3\u20135 aggregates. Flowers has 25 targets and 255 receiving yards; Bateman has 11 and 145, while Andrews has 18 and 79. Henry's 74 carries for 264 yards establish a substantial competing route for Baltimore's offense. Cleveland's Boston has 19 targets and 176 yards, while Fannin has 18 and 82. Individual-game distributions, snaps, routes, red-zone usage, role-change explanations and comparable-opponent results are missing; the aggregates cannot establish consistency or isolate one-play inflation.",
+ "edge_players": [
+  {
+   "player": "zayflowers",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Flowers can exceed 58.5 receiving yards because he owns Baltimore's largest supplied target allocation and Cleveland has allowed explosive completions, provided this remains competitive enough for Baltimore to keep throwing.",
+   "must_be_true": "Z.Flowers targets >= 7 [because the pack records a BAL-leading 25 targets across weeks 3\u20135]",
+   "kills_it": "IF Baltimore builds an early multi-score lead and sharply reduces passing volume THEN zayflowers recyds over 58.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Read first: competitive Baltimore lead preserves Flowers' primary-target opportunity; then test against the pack. His 255 receiving yards across three games equate to 85 per game, supporting plausibility rather than supplying a projection or hit rate. CLE's 17 explosive completions allowed provide additional support. Flowers over and under 58.5 are both -113: the proportional two-way no-vig benchmark from these supplied quotes is 50.0% each, while the over's break-even probability is 53.05%. This is not a verified Pinnacle benchmark. No model probability, simulation median or quantified positive expected value is claimed.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations, calibrated hit probability, verified Pinnacle prices, individual-game receiving distributions, routes, coverage alignment, quarterback confirmation, injuries, weather and exact source timestamps.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate only: zayflowers recyds over 58.5 at -113, the supplied main line. Receiving yards fits the target-priority plus explosive-completion hypothesis within the permitted markets. No alternate rung, stake or verified positive-EV claim; missing availability and pricing validation prevent a finalized betting stamp.",
+ "pre_mortem": "It is Monday and Flowers stayed below 59 because Baltimore's rushing matchup mattered more than its receiving opportunity: Henry controlled the game against a defense allowing 4.64 yards per carry, and Flowers never received enough volume. Alternatively, his targets came against Cleveland's more efficient outside pass defense rather than its weaker middle, or an unreported quarterback or health limitation reduced production. The pack lacks alignment and game-by-game distributions to reject those cases. That keeps this a script-dependent lean, not a strong play.",
+ "slip_story": "One-leg candidate for a competitive BAL-led game; it also survives the Cleveland-leads flip through potential additional passing volume. It does not reliably survive a Baltimore runaway. Do not manufacture a 3\u20134-leg slip from this pack or add unrelated short-priced anchors.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

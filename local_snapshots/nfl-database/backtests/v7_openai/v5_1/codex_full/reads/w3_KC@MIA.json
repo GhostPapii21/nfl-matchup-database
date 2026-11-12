@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 KC@MIA / kickoff: MISSING / spread, total, moneyline, implied totals and opening movement: MISSING; script inferred only from supplied team form / weather, venue surface, rest and travel: MISSING",
+ "script": {
+  "base": "Hypothesis before prop selection: KC sustains offense against Miami's aggressive pressure, while Miami has more difficulty sustaining drives against KC's pressure. KC leads later and leans toward its rushing game; Miami shifts toward passing. Pace and halftime margin cannot be established from the pack.",
+  "flip1": "Miami leads early, preserving Achane's rushing workload and forcing KC toward more passing. Kelce's receiving-over thesis survives this flip, but Achane's rushing under becomes script-dependent.",
+  "flip2": "KC builds a large early lead and reduces passing volume. That threatens Kelce's receiving over while supporting Achane's rushing under if Miami abandons the run."
+ },
+ "injury_fallout": "MISSING: KC and MIA injury reports, practice participation, final injury designations, inactive lists, offensive-line availability, defensive absences and snap restrictions. No absences, returns or next-man-up changes are inferred from usage. Source for available player usage: supplied pre-kickoff Weeks 1\u20132 pack; exact publication timestamps are missing. Final-report and approximately 90-minute inactive checks cannot be completed.",
+ "matchup": {
+  "shell": "MISSING: KC and MIA MOFO/MOFC rates, man/zone rates, alignment and coverage assignments. Kelce cannot be definitively mapped to Miami's middle-field defenders from this pack.",
+  "pressure": "Supplied two-game pack: MIA blitzes 41%; KC QB EPA/dropback is 0.36 against blitzes across 24 dropbacks versus 0.10 without blitzes. KC blitzes 32%; MIA QB EPA/dropback is -0.50 against blitzes across 18 dropbacks versus 0.12 without blitzes. These small samples support the proposed offensive asymmetry, but actual pressure rates, sacks and time to throw are missing.",
+  "bleeds": "Supplied two-game pack: Miami allows 11.27 YPA in the middle on 15 attempts and six 20-plus-yard completions on 52 attempts. Its rushing allowance is 3.95 YPC. KC allows 3.93 rushing YPC and only two 20-plus-yard completions on 63 attempts. KC's middle-field allowance is 10.25 YPA, but on only eight attempts.",
+  "overlap": "Kelce's team-leading 16 targets offer a plausible way to exploit Miami's middle-field vulnerability, conditional on his actual routes attacking that area. Achane faces a different problem: KC's rushing efficiency allowed and the hypothesized trailing script both work against a large rushing total. Sources: supplied Weeks 1\u20132 offense and defense tables."
+ },
+ "form": "Only Weeks 1\u20132 are available despite the table's 'L3' labels; individual game splits, snaps, routes and role changes are missing. Kelce has 16 targets, 172 receiving yards and 85 air yards. Walker has 47 carries for 290 yards plus 16 targets and 79 receiving yards, showing substantial competition for KC touches. Achane has 31 carries for 110 yards and 11 targets for 49 receiving yards; Willis adds eight carries for 45 yards. These are two-game aggregates, not evidence of stable weekly distributions. Source: supplied pre-kickoff pack.",
+ "edge_players": [
+  {
+   "player": "traviskelce",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Kelce can beat 52.5 receiving yards if his leading target role attacks Miami's vulnerable middle while KC continues handling blitzes effectively.",
+   "must_be_true": "Travis Kelce targets >= 7 [because the pack records 16 targets across Weeks 1\u20132, tied for KC's team lead]",
+   "kills_it": "IF KC builds an early multi-score lead and reduces passing before Kelce accumulates 53 receiving yards THEN Kelce recyds over 52.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "devonachane",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Achane can stay under 60.5 rushing yards because KC's run defense and a projected Miami trailing script threaten both his efficiency and carry volume.",
+   "must_be_true": "De'Von Achane carries <= 17 [because the pack records 31 carries across Weeks 1\u20132 and the base script projects Miami trailing]",
+   "kills_it": "IF Miami sustains an early lead and Achane's retained rushing workload produces at least 61 rushing yards THEN Achane rushyds under 60.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written script and matchup hypotheses precede this numerical check. Kelce's 172 yards on 16 targets support the receiving thesis, without establishing a calibrated hit probability. Achane's 110 yards on 31 carries equals 3.55 YPC; KC has allowed 3.93 YPC. At 17 carries and 3.93 YPC, Achane would reach 66.8 yards, so the under still requires lower efficiency or fewer carries than that combination. No projection model or simulation was run. Normalizing the supplied opposing prices gives approximately 50.0% for Kelce over and 49.8% for Achane under; these are pack-price references, not verified Pinnacle probabilities or evidence of positive expected value.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median and distribution, calibrated hit rates, verified Pinnacle no-vig prices, individual game logs, route participation, coverage charting, injury and inactive reports, weather and exact source timestamps.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line leans only: Travis Kelce recyds over 52.5 at -113.5, requiring approximately 53.16% to break even; De'Von Achane rushyds under 60.5 at -112.5, requiring approximately 52.94%. Kelce's yardage market expresses the hypothesized middle-field matchup, although receptions would better isolate target volume and are unavailable. Achane's rushing market isolates the carry-and-efficiency thesis without opposing his receiving opportunities. No alternate rungs, verified pricing edge or stake sizing are established.",
+ "pre_mortem": "Kelce over: It lost because Miami's middle-field YPA was a 15-attempt small-sample artifact, his routes did not attack that area, or Walker's rushing success let KC stop throwing early. Missing route and injury information prevents dismissing those risks. Achane under: It lost because Miami led, KC's poor results against Miami's passing game did not materialize, or Achane broke a long run. His receiving role could also sustain drives and indirectly create additional carries. The 17-carry efficiency check shows this is not a volume-proof under; both selections remain leans rather than strong bets.",
+ "slip_story": "A competitive KC lead into the second half: Kelce contributes before KC becomes run-heavy, while Miami increasingly uses passing rather than Achane carries. Do not treat a KC blowout as equally favorable to both legs. These are two conditional candidates, not a forced 3\u20134-leg slip; there is no independently verified joint-price edge. No bet is placed. Step 12 is limited: preserve this read before kickoff if a logging system is available, but no persistent save, timestamped lock or hash is claimed here. Afterward, grade the KC-lead script and each matchup thesis separately from prop results; review Steps 2, 4 and 5 for misses.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

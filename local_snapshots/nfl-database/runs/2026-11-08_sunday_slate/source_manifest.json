@@ -1,0 +1,133 @@
+{
+  "run_id": "2026-11-08_sunday_slate",
+  "routine": "NFL game-day script run",
+  "fired_at_et": "2026-11-08 07:09 America/New_York",
+  "input_cutoff_et": "2026-11-08 07:15 America/New_York",
+  "week": 9,
+  "season": 2026,
+  "projection_ready": false,
+  "full_integration_acceptance": false,
+  "picks": [],
+  "simulations": {
+    "monte_carlo": "NOT RUN",
+    "bias": "NOT RUN",
+    "game_randomness": "NOT RUN",
+    "trials": 0,
+    "seed": null,
+    "reason": "NFL-49 ACCEPTANCE_NOT_MET; NFL-56 15-phase/100k workflow incomplete; standing order forbids historical sim_v6 and any calibrated claim until gates pass."
+  },
+  "model_source": {
+    "repo": "https://github.com/GhostPapii21/nfl-matchup-database",
+    "checkpoint_branch": "cursor/nfl-model-checkpoint-3c89",
+    "checkpoint_commit": "fe2e3711b766d8894c49ec4dc571e6731628dc55",
+    "pr": {
+      "number": 1,
+      "url": "https://github.com/GhostPapii21/nfl-matchup-database/pull/1",
+      "state": "open",
+      "merged": false
+    },
+    "main_head": "6e1b9325851eaf5683a9286e876f8adb443ad1ee",
+    "main_head_note": "Pushed 2026-11-08 06:53 AM ET; research tracker CSV labeled uncalibrated. Main is NOT adopted as the model (verify-merge-before-main-adoption).",
+    "local_tree": {
+      "branch": "mws-matchup-2026-11-04",
+      "commit": "12df5aa",
+      "remote": null
+    }
+  },
+  "linear": {
+    "NFL-16": {
+      "status": "In Progress",
+      "url": "https://linear.app/nfl-database/issue/NFL-16/nfl-sim-model-autonomous-iteration-and-validation-tracking"
+    },
+    "NFL-49": {
+      "status": "Todo",
+      "acceptance": "ACCEPTANCE_NOT_MET",
+      "url": "https://linear.app/nfl-database/issue/NFL-49/production-acceptance-gate-projection-ready-false-until-four-pillars"
+    },
+    "NFL-56": {
+      "status": "Todo",
+      "url": "https://linear.app/nfl-database/issue/NFL-56/github-source-of-truth-completeness-15-phase-newsweather-100k"
+    }
+  },
+  "sources": [
+    {
+      "category": "core_stats_pbp",
+      "name": "local nflverse/PBP already on disk + Sat refresh",
+      "status": "SAVED_ONLY",
+      "pulled_et": "2026-11-07 10:01 America/New_York",
+      "freshness": "results feed through last completed week; no new PBP rebuild this run",
+      "reason": "bounded game-day preflight; no new pbp pull"
+    },
+    {
+      "category": "coverage_schemes",
+      "name": "FTN/Sharp/StatRankings/PFF",
+      "status": "MISSING",
+      "pulled_et": null,
+      "reason": "NFL-47 coverage/NGS/FTN effects disabled; NFL-48 PFF no duplicate scrape; checkpoint SOURCE_STATUS lists charting hash-only"
+    },
+    {
+      "category": "next_gen_stats",
+      "name": "public NGS pages",
+      "status": "MISSING",
+      "pulled_et": null,
+      "reason": "not pulled this run; NFL-47"
+    },
+    {
+      "category": "film",
+      "name": "official NFL highlights/gamebooks",
+      "status": "MISSING",
+      "pulled_et": null,
+      "reason": "no film claims; no UNVERIFIED reads elevated"
+    },
+    {
+      "category": "injuries_news",
+      "name": "ESPN injuries API",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+      "status": "SUCCESS",
+      "pulled_et": "2026-11-08 07:12 America/New_York",
+      "feed_timestamp": "2026-11-08T12:12:19Z",
+      "sha256": "6d0a3c335555e9cc85116fa3ec9de852e8cf31038a7fb69332a125f97e66b21e",
+      "extract_sha256": "801e557c5a80f5927822de59dae7b391f5c3517ecbb49737040e8a78c6bc5226",
+      "note": "full body hashed only"
+    },
+    {
+      "category": "weather",
+      "name": "NWS + Open-Meteo via tools/weather_forecast.py (SRC-1)",
+      "status": "SUCCESS",
+      "pulled_et": "2026-11-08T07:11",
+      "path": "/workspace/nfl-database/week9/weather_forecast/forecast_2026-11-08_0711.json",
+      "sha256": "7b96dd6af6d5a2e25b4d2aeeac03bcfecc95761cae4a2f6f6c6e65684e5b427a",
+      "madrid_note": "CIN@ATL NWS missing (outside CONUS); Open-Meteo used"
+    },
+    {
+      "category": "odds_props_price_of_record",
+      "name": "FanDuel via Odds API",
+      "status": "SAVED_ONLY",
+      "pulled_et": "2026-11-07 10:01 America/New_York",
+      "credits_left_asof": 2309,
+      "reason": "no new Odds API spend on a blocked no-picks run; last pull ~21h old; actionable quotes remain NOLINE (NFL-45/NFL-25)"
+    },
+    {
+      "category": "odds_scoreboard_crosscheck",
+      "name": "ESPN scoreboard DraftKings display odds",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard",
+      "status": "SUCCESS",
+      "pulled_et": "2026-11-08 07:12 America/New_York",
+      "sha256": "d7eac2d6ae4be46472696508ebaa36cc9c193374fa12f17a96fd15d98db87e22",
+      "note": "comparison only; not FanDuel price of record; not multi-book consensus"
+    },
+    {
+      "category": "simulation_models",
+      "name": "Monte Carlo / Bias / Game Randomness 100k triad",
+      "status": "NOT_APPLICABLE",
+      "reason": "blocked by NFL-49/NFL-56; SIMULATION NOT RUN"
+    }
+  ],
+  "artifacts": {
+    "checklist": "checklist.md",
+    "report": "report.md",
+    "weather": "raw/forecast_2026-11-08_0711.json",
+    "scoreboard": "raw/espn_scoreboard.json",
+    "injuries_extract": "raw/espn_injuries_extract.json"
+  }
+}

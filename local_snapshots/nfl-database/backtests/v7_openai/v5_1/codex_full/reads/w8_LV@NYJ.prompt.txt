@@ -1,0 +1,109 @@
+# Week 8 LV@NYJ
+NYJ spread -2, total 46.5
+Weather: wind 3.6, temp 61.9
+## LV offense (last 3 games: weeks [5, 6, 7])
+Rushers (carries/yds over L3): A.Jeanty 28.0/64; M.Washington 16.0/75; D.Laube 5.0/9; K.Cousins 3.0/6
+Targets (tgt/rec yds/air yds over L3): B.Bowers 28.0/253/265; T.Tucker 24.0/241/262; A.Jeanty 20.0/147/55; M.Mayer 13.0/129/65; J.Nailor 10.0/23/111; C.White 9.0/48/85; M.Benson 5.0/6/43
+LV QB EPA/dropback vs blitz -0.01 (n=81) vs no blitz 0.16
+## NYJ defense (season to date, 7 games)
+Rush YPC allowed 4.32; 10+ yd runs allowed 22; 20+ yd pass plays allowed 17/232 att
+Pass YPA allowed by location: left 5.82 (76.0 att); middle 7.85 (47.0 att); right 6.77 (90.0 att)
+NYJ blitz rate 38%
+## NYJ offense (last 3 games: weeks [5, 6, 7])
+Rushers (carries/yds over L3): B.Allen 58.0/298; I.Davis 10.0/29; G.Smith 5.0/10; I.Williams 2.0/7
+Targets (tgt/rec yds/air yds over L3): G.Wilson 20.0/174/173; M.Taylor 16.0/119/134; B.Allen 13.0/56/5; O.Cooper 12.0/218/140; K.Sadiq 7.0/21/39; I.Davis 6.0/68/-25; T.Patrick 6.0/41/46
+NYJ QB EPA/dropback vs blitz 0.07 (n=65) vs no blitz 0.11
+## LV defense (season to date, 7 games)
+Rush YPC allowed 5.29; 10+ yd runs allowed 27; 20+ yd pass plays allowed 19/239 att
+Pass YPA allowed by location: left 7.44 (91.0 att); middle 8.24 (41.0 att); right 7.79 (90.0 att)
+LV blitz rate 27%
+# SAVED PREGAME CHECKLIST (excerpt)
+# LV @ NYJ — Week 8 60-check manifest
+Game 401873029, Sun Nov 01 01:00 PM ET, MetLife Stadium (outdoor), NYJ -1.5 / 45.5. Built 2026-10-29 05:25 EDT. Status counts: {'PASS': 16, 'PARTIAL': 31, 'NOT_APPLICABLE': 3, 'UNAVAILABLE': 7, 'UNIMPLEMENTED': 3}
+
+| # | Check | Status | Reason | Evidence |
+|-|-|-|-|-|
+|1|P1.pbp|PASS|Repo SQLite plays (ESPN PBP) Wk1–7 + nflverse via overlay|repo/data/nfl_matchups.sqlite; fixes/fixes.sqlite|
+|2|P1.boxscores|PASS|player_stats + fix_player_game_usage|fixes/fixes.sqlite|
+|3|P1.tackles_sacks|PARTIAL|fix_play_credits reconciled; tackler≠coverage defender|fixes/FIXES.md|
+|4|P1.pressure|PARTIAL|Pressure is opponent-Sharp-allowed proxy + pbp sack/hit; no charted pressure source|defense/LV_at_NYJ.md|
+|5|P1.ol_snaps|PARTIAL|nflverse participation snaps only; Wk7 participation lag possible|fixes/fixes.sqlite fix_participation|
+|6|P1.air_yards|PARTIAL|NGS IAY per QB; per-target air yards via nflverse only where loaded|defense/raw|
+|7|P1.redzone|PASS|RZ targets/goal-line carries in baselines|team_baselines/LV.md, NYJ.md|
+|8|P1.scrambles|PARTIAL|fix_qb_rushing scramble flags from nflverse; ESPN PBP lacks explicit flag|fixes/fixes.sqlite fix_qb_rushing|
+|9|P2.team_defense|PASS|Production + explosive counts per game|defense/LV_at_NYJ.md|
+|10|P2.coverage|PASS|Sharp coverage pages dated Oct 20 = CURRENT per user (last games before slate)|defense/SOURCES.md|
+|11|P2.individual_assignments|PARTIAL|Only PBP-named defenders on big plays (weak signal); no charted assignment source|team_baselines/|
+|12|P2.weakest_link|PARTIAL|Alignment-level weakest link from Sharp ranks (see Soft spots); player-level unverified|defense/LV_at_NYJ.md|
+|13|P2.pressure_trend|PARTIAL|ESPN PRWR through Wk6 only; pbp sack/hit trend|defense/LV_at_NYJ.md|
+|14|P3.team_offense|PASS|QB/team production|team_baselines/|
+|15|P3.player_roles|PASS|Roles + L3 vs season shares; roster-checked 2026-10-29 05:25 EDT|defense/LV_at_NYJ.md; rosters/|
+|16|P3.ol_health|PARTIAL|OL designations from ESPN injuries; Thu practice pending|injuries.json|
+|17|P3.target_hierarchy|PASS|L3 vs season target/carry share (opportunity gate inputs)|team_baselines/|
+|18|P3.routes_gaps|PARTIAL|NGS separation/cushion; run gaps from pbp direction; no route participation|defense/raw|
+|19|P3.qb_blitz|PASS|FTN EPA vs blitz / no-blitz per offense|defense/LV_at_NYJ.md|
+|20|P4.slip_comparison|NOT_APPLICABLE|No slip supplied for this game|—|
+|21|P4.injury_alerts|PARTIAL|Wed status logged; Thursday reports PENDING|injuries.json; this file Injury impact|
+|22|P4.script_risk|PARTIAL|Backup-QB/workload risk noted from injuries; 10G labels pending|this file|
+|23|P5.bundle|PARTIAL|Markdown/JSON bundle; no engine-versioned bundle|week8/|
+|24|P5.provenance|PARTIAL|sha256 of inputs recorded below; engine code/model hash unavailable (nfl.py on user Mac)|this file|
+|25|P5.source_preservation|PASS|Repo SQLite untouched; fixes in overlay|fixes/PATCH_SPEC.md|
+|26|P6.live_policy|NOT_APPLICABLE|Pregame; live polling off|—|
+|27|P7.ngs_targeted_charts|PARTIAL|NGS public leaderboards (sep/cushion/YACOE/TTT); per-game targeted charts not read|defense/raw|
+|28|P7.all_routes|UNAVAILABLE|Route participation not in any public source loaded|—|
+|29|P7.run_concepts|UNAVAILABLE|No verified run-concept source; film pending|film/|
+|30|P7.strength_map|PARTIAL|Sharp alignment YPT + box rates; no side-level split|defense/LV_at_NYJ.md|
+|31|P7.rb_suppression|PARTIAL|RB YPC/rush+rec allowed + game state; RB quality adj not applied|defense/LV_at_NYJ.md|
+|32|P7.cb_suppression|UNAVAILABLE|Individual CB coverage stats are paid/not loaded|—|
+|33|P7.panthers_rule|PARTIAL|QB NGS/blitz review for: Kirk Cousins, Geno Smith; exact OL/pass-rush matchup not charted|defense/LV_at_NYJ.md|
+|34|P8.film|PARTIAL|Codex YouTube highlight notes done for LV 2/6 games, NYJ 3/6 (film/codex_out, still running; not yet verified vs pbp by this worker)|film/codex_out|
+|35|P8.personnel|UNAVAILABLE|Personnel packages need film; depth chart formation only|rosters/|
+|36|P8.scheme|PARTIAL|Coverage shells from Sharp (man/zone/MOFC); fronts/run fits need film|defense/LV_at_NYJ.md|
+|37|P8.missed_looks|UNAVAILABLE|Pending verified film notes|film/|
+|38|P8.film_notes|PARTIAL|Codex notes unverified; hypotheses only|film/codex_out|
+|39|P9.weather|PARTIAL|Forecast (Open-Meteo, pulled 2026-10-29 05:25 EDT) kickoff hr: 59.5°F, precip prob 1%, wind 2.9 mph gust 4.5 — 3-day-out forecast, re-pull Sat/Sun|https://api.open-meteo.com|
+|40|P9.rest_travel|PASS|LV last game 2026-10-25 (7 days rest); NYJ last game 2026-10-25 (7 days). Time-zone change only from venue, no itineraries invented|ESPN team schedule API|
+|41|P9.stakes|PARTIAL|Records from ESPN scoreboard; divisional/rematch not a 2026 rematch; playoff-odds not pulled|defense/LV_at_NYJ.md|
+|42|P9.injury_spikes|PARTIAL|Exact-game availability: Wed designations; Thu/Fri + inactives pending|injuries.json|
+|43|P9.turnovers|PARTIAL|Turnovers in pbp/baselines; rolling interpretation not modeled|tea
+# AVAILABLE PROPS (main line)
+braelonallen (NYJ) rushrecyds over 100.5 -113.5
+isaiahdavis (NYJ) rushyds under 10 +nan
+tretucker (LV) recyds under 48.5 -115.5
+michaelmayer (LV) recyds over 25.5 -113
+jackbech (LV) recyds under 9.5 -110
+ashtonjeanty (LV) rushrecyds under 83.5 +nan
+genosmith (NYJ) rushyds over 6.5 -115
+michaelmayer (LV) recyds under 25.5 -113
+mikewashingtonjr (LV) rushyds over 31.5 -114
+jackbech (LV) recyds over 9.5 -118
+garrettwilson (NYJ) recyds over 67.5 -113.5
+braelonallen (NYJ) rushrecyds under 100.5 -114.5
+ashtonjeanty (LV) rushrecyds over 83.5 +nan
+jalennailor (LV) recyds under 16.5 -110
+omarcooperjr (NYJ) recyds over 42.5 -113
+kirkcousins (LV) rushyds over 0.5 +100
+tretucker (LV) recyds over 48.5 -113
+omarcooperjr (NYJ) recyds under 42.5 -113
+adonaimitchell (NYJ) recyds under 25.5 -114
+kirkcousins (LV) rushyds under 0.5 -129
+braelonallen (NYJ) recyds under 16.5 -118
+ashtonjeanty (LV) rushyds under 50.5 -115
+garrettwilson (NYJ) recyds under 67.5 -116
+masontaylor (NYJ) recyds under 22.5 -112
+braelonallen (NYJ) rushyds over 80.5 -114
+genosmith (NYJ) rushyds under 6.5 -113
+ashtonjeanty (LV) recyds under 27.5 -112
+kenyonsadiq (NYJ) recyds over 16.5 -115.5
+mikewashingtonjr (LV) rushyds under 31.5 -112.5
+brockbowers (LV) recyds under 70.5 -114
+braelonallen (NYJ) rushyds under 80.5 -114
+ashtonjeanty (LV) recyds over 27.5 -116
+brockbowers (LV) recyds over 70.5 -115
+masontaylor (NYJ) recyds over 22.5 -114.5
+kenyonsadiq (NYJ) recyds under 16.5 -110.5
+braelonallen (NYJ) recyds over 16.5 -111.5
+adonaimitchell (NYJ) recyds over 25.5 -114
+jalennailor (LV) recyds over 16.5 -115
+isaiahdavis (NYJ) rushyds over 10 +nan
+ashtonjeanty (LV) rushyds over 50.5 -112

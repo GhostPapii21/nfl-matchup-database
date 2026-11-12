@@ -1,0 +1,46 @@
+{
+ "game": "Sun Nov 01 2026 1:00 PM ET / DET -3.5 (checklist built 2026-10-29 05:25 EDT had DET -3) / 46 (checklist 46.5) / Ford Field indoor, weather not saved",
+ "script": {
+  "base": "Indoor one-score game: DET -3.5 implies about 24.8-21.3, so the book expects Detroit to lead late without a blowout. Gibbs keeps the ball (69 of 79 listed DET rushes in weeks 4/5/7, 313 yards) while Goff, at +0.38 EPA vs blitz, absorbs Minnesota's 71% blitz. Minnesota stays in it on the ground with Jones (53/233) and through Hockenson, the L3 target leader (19 targets, 161 yards), not a Jefferson explosion (14 targets, 123 yards).",
+  "flip1": "DET goes up 14+ early and clocks it. Gibbs rush yards hold or rise, DET pass-catcher air yards stall, and MIN abandons the run so Jones's 17.7-carry pace dies while Murray scrambles and Hockenson/Jefferson targets spike.",
+  "flip2": "MIN steals the lead against a DET run defense allowing 4.30 YPC and 18 runs of 10+ in 6 games. Jones/Murray carries stay live, DET chases through St. Brown (11 targets/game L3), Williams and LaPorta, and Gibbs's pure rush line is the piece that gets cut."
+ },
+ "injury_fallout": "No named statuses in this pack. Checklist marks OL health and injury alerts PARTIAL: Wed designations sit in injuries.json, Thursday reports and the 90-minute inactives are still pending, and no snap limits are listed. Cannot assign a next man up. Market tell only, not a confirmed injury: Jones is priced at 28 rush and 41.5 rush+rec after a 233-rush / 38-rec L3, while Mason is priced at 49.5 rush after only 15/68. That inverts the recent backfield. Leave both MIN RBs off until inactives. DET shows no such inversion: Gibbs 69 carries vs Vaki 7, and his 89 / 123.5 lines sit near the L3 role rather than a backup price.",
+ "matchup": {
+  "shell": "Sharp coverage pages dated Oct 20 are marked CURRENT, but man/zone and MOFO/MOFC rates are not in this excerpt (scheme PARTIAL; CB assignments unavailable). Usable tendency only: DET blitzes 28%, MIN blitzes 71%.",
+  "pressure": "Charted pressure rate unavailable (proxy only). Murray is -0.17 EPA/dropback vs blitz (n=72) vs +0.07 unblitzed, but DET's 28% blitz means that weakness is not the weekly diet. Goff is +0.38 vs blitz (n=78) vs +0.24 clean, so MIN's 71% blitz should spill into Gibbs/LaPorta checkdowns rather than kill the DET offense.",
+  "bleeds": "DET in 6 games: middle 10.26 YPA on 57 att vs left 5.96 (83) and right 6.91 (116); rush 4.30 YPC, 18 runs of 10+, 29 passes of 20+ on 280 att. MIN in 6 games: middle 8.71 YPA on 41 att, left 6.0 (63), right 4.79 (73); rush 4.16 YPC, 14 runs of 10+, only 12 passes of 20+ on 198 att.",
+  "overlap": "MIN's real L3 primary is Hockenson (19 targets, 161 yards, 123 air, about 6.5 aDOT), and DET's worst location is the middle at 10.26 YPA. DET's primary is St. Brown (33/297/329 air), alignment uncharted; the cleaner DET overlap is the blitz feeding Gibbs (19 targets, 105 rec yards) more than Williams's 16.3 aDOT shots into a defense with 12 explosives all year."
+ },
+ "form": "L3 is weeks 4, 5 and 7 only; no per-game splits, so one long play could be inflating a total. MIN: Jones 53/233 (77.7 rush yd/g, 4.4 YPC) plus 12 targets/38 rec yards; Mason 15/68; Murray 13/116 rushing. Targets: Hockenson 19/161 (53.7 yd/g), Jefferson 14/123 (41 yd/g vs a 75.5 line), Addison 9/72 (24 yd/g), Bartholomew 8/54. DET: Gibbs 69/313 (104.3 rush yd/g) and 19/105 receiving, about 139 rush+rec per game, with Vaki 7/16 not a committee; St. Brown 33/297 (99 yd/g), Williams 21/240 (80 yd/g, 343 air), LaPorta 20/190 (63.3 yd/g), TeSlaa 12/105. Williams and St. Brown overs need explosives MIN has barely allowed.",
+ "edge_players": [
+  {
+   "player": "jahmyrgibbs",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Gibbs owns DET's run game (69 of 79 listed L3 rushes, 104 rush yards a game) and still adds about 35 receiving yards, so 123.5 sits under a 139 rush+rec role against a MIN defense that allows 4.16 YPC and blitzes 71%.",
+   "must_be_true": "Gibbs is active with no snap cap, the carry monopoly holds near 18-plus touches, and the receiving role (6.3 targets/game L3) is not schemed out.",
+   "kills_it": "A pass-only chase leaves him around 12 carries and 2 catches, or an unlisted snap limit, or MIN stacks the box under 3.5 YPC while Goff goes vertical to Williams and St. Brown.",
+   "confidence": "lean"
+  },
+  {
+   "player": "tjhockenson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Hockenson is Minnesota's actual L3 primary at 19 targets and 53.7 receiving yards a game, and DET has been gashed in the middle at 10.26 YPA, so 42.5 is inside a role that already clears it without a Jefferson boom.",
+   "must_be_true": "Hockenson plays a full route share, Murray starts, and MIN does not turn this into a 35-carry grind just because DET allows 4.30 YPC.",
+   "kills_it": "MIN jumps ahead and lives on Jones and Murray runs, Jefferson reclaims the alpha share and Hock drops to 3-4 targets, or a snap limit that is not in this pack.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so this is form plus matchup only, not a 70% stamp. Form agrees: Gibbs 313 rush + 105 rec = 139.3/game vs 123.5; Hockenson 161/3 = 53.7 vs 42.5, and DET middle 10.26 YPA agrees with the TE. Size Gibbs down: at MIN's 4.16 YPC, 22 carries is only 91.5 rush, so he still needs about 32 receiving yards (L3 rec average 35) to clear 123.5. Opponent-adjusted clearance is a few yards, not a smash. Jones 28 / Mason 49.5 inverts L3 roles and is an unresolved market disagree on a backfield we are not betting. Williams over 51.5 (L3 80) was dropped as a lean because MIN's 12 explosives on 198 attempts disagree.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "jahmyrgibbs rushrecyds over 123.5 -115, small lean not a max; tjhockenson recyds over 42.5 -115. No-vig unavailable. Do not take +nan rungs (Gibbs rush 89, Jones rush 28, St. Brown 78) or short alts. LaPorta over 45.5 -113 is the next DET pass rung but is script-dependent on Goff still throwing, so it stays off the main slip.",
+ "pre_mortem": "Monday both lost because MIN never had to throw. DET allows 4.30 YPC and 18 runs of 10+, so Jones and Murray took the game over, Hockenson finished around 3 catches for 28, and the middle bleed never got used. Goff still threw, but into a MIN defense with only 12 explosives on 198 attempts he hunted St. Brown and Williams while Gibbs was held to about 16 carries at 3.6 YPC and 3 catches for 18, finishing near 76 rush+rec. The other shared killer is the missing injury report: the Jones 28 vs Mason 49.5 inversion says this pack is hiding a workload change, and a similar unlisted limit on Gibbs or Hockenson would make both leans wrong. That counter is real, but nothing saved here actually lists either as limited, and both numbers sit under demonstrated L3 roles, so the counter does not outrank the read.",
+ "slip_story": "One story only: DET is a short home favorite in a 46-point indoor game, so the favorite's two-way back keeps a full workload and the dog's primary pass-catcher is fed if Minnesota is level or trailing. Gibbs rush+rec over and Hockenson rec yards over win together in that DET-controls script and in a mild shootout; they do not belong with a total under, a Williams/Jefferson explosive over, or any MIN RB leg until inactives. Leave LaPorta off the main slip because a clock-kill flip helps Gibbs and hurts every DET pass-catcher.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

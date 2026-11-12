@@ -1,0 +1,23 @@
+# Spec for an independent backtest (v7) of an NFL player-yardage prop program
+
+## Goal
+Design and pre-register your OWN backtest, then write ONE self-contained Python 3 script (pandas/numpy/scipy/sklearn available; no internet, no API calls) that runs it on the saved data below. It must beat or honestly fail against our baselines.
+
+## Data (paths relative to script dir; ALL already on disk; 0 new odds pulls allowed)
+1. `data/lines_wk3_8.csv` — 20,612 rows, 2026 Weeks 3-8, MAIN lines only, one row per (player, market, side, book) quote, snapshot ~35 min before kickoff (`snap`,`kickoff` UTC). Columns: week,game_id,game,player,market(rushyds|recyds|rushrecyds),side(over|under),tier,line,price(American; some books one-sided),book(fanduel,draftkings,betrivers,betmgm,betonlineag,...; 'consensus' rows have NaN price),snap,kickoff,gsis,team,opp,spread(team spread, NaN often),total,implied_team_total,prior_games,prior_carry_share,prior_target_share,prior_yds_avg,opp_prior_allowance(position yds allowed avg, weeks<w),feature_cutoff("weeks<w": every prior_* column uses only earlier weeks),actual(player's final yards in that market — OUTCOME, use ONLY for grading; NaN ~5% = did not play/unresolved -> treat as void).
+2. `data/player_games_2026.csv` — per player-game logs 2026 Weeks 1-8 from nflverse play-by-play: game_id,week,gsis,posteam,qb(primary passer gsis),car,rushyds,tgt,recyds,rushrecyds,team_plays,team_dropbacks,team_rushes. For a leg in week w you may only use rows with week < w.
+3. `data/standin_wk1_2_rush_unders.csv` — Weeks 1-2 had no saved prices; lines are STAND-IN medians (hit rate only, never ROI). Optional.
+No closing lines are saved (only one pre-kick snapshot), so true CLV is NOT computable; line/price dispersion across books at snapshot is available.
+
+## Our results so far (all lose vs market)
+- 9 sim versions (100k Monte Carlo): every Brier worse than market (0.2481) and coin flip (0.250); 70-80% forecasts hit 49.3%. Removing shrink-to-market made it worse. Full opponent adjustment made it worse.
+- Rulebook replay Wk6-8: 463 legs 52.1%, -$570; passed legs model said 67%, hit 48.5%; slips 20/245 and 2/124.
+- v5 LLM reads: train Wk3-6 43.8%, Wk7-8 60.8% (31/51; leakage not excluded).
+- v6 LLM brainstorm+pro-edge Wk3-8 priced: READS 66-90 42.3%, ROI -19.1% (overs 113 of 139); GATED 41.5%, -21.6%; slips READS 0/30, GATED 1/26.
+- BASELINE TO BEAT (priced bar): every main rushyds UNDER Wk3-8, priced legs only: 231-190, ROI +2.8% on 421 priced legs. (296-229 / 56.4% counts ALL legs incl. unpriced; it is a hit-rate count only, not the ROI bar - do not mix the two.)
+## Current rules (context; you may ignore them in your design but say so): leg must clear line in 3 of last 4 games with current QB; model prob >= no-vig +3 pts; flag prices -250 or shorter; no TDs; no passing yards; depth #3/#4 receivers restricted; one slip per player; 3-4 leg slips. Today's approved test-infrastructure changes: sims flag-only (never pass a leg), CLV ledger going forward, sha256-locked pre-kick reads, weekly report vs rush-under baseline, calibration buckets auto-disabled at n>=30 & p<.05, market-anchored Platt-offset logit fitted walk-forward Wk3-6 -> Wk7-8.
+## Prior external review (yours) said: market-anchored probabilities, pre-register, walk-forward, paired shadow variants incl. plain rush unders, grade slips at real payouts, Weeks 1-8 are development data, sample too small to prove edge.
+
+## Required in your answer
+A) PLAN (markdown, <=700 words): hypothesis; candidate universe & dedup (one quote per leg: e.g. best price among books, or FanDuel only — choose and justify); probability method (e.g. de-vigged market prob + logit offset from as-of features fitted only on earlier weeks); selection rule; staking ($10 flat singles); slip construction — about 5 slips of 3-4 legs per game week, cross-game, one leg per player, max 1 leg per game, graded at FanDuel parlay odds (product of decimal prices) AND PrizePicks Power assumption (3-pick 6x, 4-pick 10x; flag as assumption); walk-forward scheme (e.g. fit on weeks<w, predict w, for w=5..8; weeks 3-4 warm-up); metrics: hit rate, ROI, Brier & log-loss vs de-vigged market on the same legs, results by week/market/side, slips by week, compare vs rush-under baseline; leakage guards; pre-declared success criterion; sample-size caveats.
+B) CODE: one ```python block, file `v7.py`, deterministic (fixed seeds), writes `out/legs.csv`, `out/slips.csv`, `out/results.md` (tables by week, market, side, slips by week, Brier vs market, baseline comparison). Must assert no feature uses week >= target week. Keep under ~250 lines.

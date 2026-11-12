@@ -1,0 +1,46 @@
+{
+ "game": "Week 7 SF@ATL / kickoff not in pack / ATL +2.5 (SF -2.5) / total 49.5 / weather not saved",
+ "script": {
+  "base": "Market has a close road favorite: SF -2.5, total 49.5, implied about SF 26 and ATL 23.5. SF leads late by a field goal, not a blowout, so both backs stay on the field. SF's hub is C.McCaffrey (42 carries/184 rush and 18 targets/86 rec over weeks 4-6) with G.Kittle (20 targets/163) and M.Evans (24/283/396 air) in the pass game. ATL keeps giving Bi.Robinson the ball (45/292, 6.49 YPC) but still has to throw to D.London (28/276/328 air) and K.Pitts (16/149/73 air) to live in a 49.5 game. Pace is normal; no garbage-time empty-backfield script in the base.",
+  "flip1": "SF scores early and leads by two scores. ATL abandons the run, Bi.Robinson's ~15-carry pace dies, and M.Penix is forced to London, Pitts and J.Dotson. CMC and K.Black (20/63) absorb clock carries. ATL pass-catcher yards rise; Bijan rush yards stall.",
+  "flip2": "ATL wins the trenches, rides Bijan's L3 rushing and Br.Robinson (23/79), and turns it into a lower-event clock game under 49.5. Penix dropbacks shrink (he is already -0.26 EPA/dropback when not blitzed), so London/Pitts/Dotson come up short while Bijan carries pile up. A true shootout is the weaker flip: SF has allowed only 13 passes of 20+ on 226 attempts."
+ },
+ "injury_fallout": "No injury report, practice trend, questionable tag, snap limit or inactive list is in the pack, so no next-man-up can be sourced and this must be re-checked at the final report. Usage on the sheet: SF touches sit with C.McCaffrey, then K.Black as the only other real rusher (20 carries/63) and Kittle/Evans as the pass options (D.Samuel 9 targets/47, B.Cooks 5/20, K.Juszczyk 4/38, J.Cowing 3/9). ATL touches sit with Bi.Robinson (45 rush att, only 11 targets/26 rec yds/-14 air), with Br.Robinson the handcuff and London/Pitts/Dotson the pass tree. Nothing in the pack says a starter sits.",
+ "matchup": {
+  "shell": "No MOFO/MOFC or man/zone charting in the pack. Location proxy only: ATL allows 6.44 YPA left (100 att), 9.06 middle (32 att), 5.95 right (114 att) \u2014 middle is the hole on a small sample. SF is flat: 6.75 left (83), 6.24 middle (25), 6.19 right (103).",
+  "pressure": "ATL blitz rate 26%. SF QB EPA/dropback is 0.38 vs blitz (n=62) and 0.36 with no blitz, so ATL pressure does not change Purdy. SF blitz rate 32%. ATL QB is 0.01 EPA vs blitz (n=81) and -0.26 with no blitz, so SF pressure is not what breaks Penix; he has been worse when the defense sits back.",
+  "bleeds": "ATL bleeds the middle (9.06 YPA) and has allowed 10 runs of 10+ with 3.81 rush YPC, plus 19 passes of 20+ on 262 att. SF bleeds almost nothing on the ground (3.66 YPC, 4 runs of 10+ in 6 games) and has allowed 13 passes of 20+ on 226 att. Slight SF pass softness is left side 6.75, not a real hole.",
+  "overlap": "The overlap that matters is negative for ATL's run game: Bi.Robinson's 6.49 YPC and 10-plus-yard rushing form run into the front that has allowed 4 explosive runs all year. CMC is the short-area piece (18 targets, 27 air yards) who would sit in ATL's weak middle, but his rec line is 47.5 against a 28.7 ypg L3 role, so the overlap is real and the number is not. K.Pitts (73 air yards on 16 targets) is intermediate, not a shot at a SF middle hole (6.24 YPA). M.Evans' 396 air yards would attack ATL's outside, where YPA is 6.44/5.95, not the middle hole."
+ },
+ "form": "L3 only, not season averages. Bi.Robinson 45/292 rush (~97 ypg, 6.49 YPC) and 11 targets/26 rec yds \u2014 receiving will not save a quiet rushing day; rush+rec is 318 over 3 games (~106). Br.Robinson 23/79. D.London 28/276/328 air (~92 ypg). K.Pitts 16/149/73 air (~50 ypg, ~9.3 yards/target), not a one-play spike. J.Dotson 12/195/222 air (~65 ypg, ~16.3 yards/target) is explosive-inflated against a defense with 13 passes of 20+. C.McCaffrey 42/184 rush (~61) and 18/86 rec (~29), rush+rec ~90. K.Black 20/63 (~21). B.Purdy 16/67 rush. G.Kittle 20/163 (~54). M.Evans 24/283. M.Penix 3/9 rush, not a runner. O.Zaccheaus 5 targets/0 yards is a fluky zero, not a process edge.",
+ "edge_players": [
+  {
+   "player": "bijanrobinson",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Bijan's 97 rush yards a game and 6.49 YPC over weeks 4-6 run into the only front here that has allowed 3.66 YPC and 4 runs of 10+ in six games, and 26 receiving yards on 11 targets will not carry a 123.5 rush+rec number that already sits above his 106-yard L3 total.",
+   "must_be_true": "SF's run defense shows up, Bijan stays around the 15-carry L3 share rather than a 25-touch clock game, and receiving stays near 8.7 yards a game. No SF front-seven scratch is listed; that has to still be true at inactives, which are not in the pack.",
+   "kills_it": "ATL wins the line and he stacks 18-plus carries at 5.5-plus YPC, or he hits the explosive run SF has almost never allowed, and a few checkdowns push rush+rec through 123.5. A late ATL lead that turns this into a Bijan clock game also kills the under.",
+   "confidence": "strong"
+  },
+  {
+   "player": "kylepitts",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Pitts is a real ATL receiving piece at 16 targets and 149 yards over the last three games, about 50 a game, and 34.5 sits roughly 15 yards under that role in a close 49.5 script where Penix has to throw; SF's 32% blitz does not crush him (0.01 EPA vs blitz).",
+   "must_be_true": "He keeps about a 5-target share, the game stays competitive or ATL trails so dropbacks are there, and he is not on a snap limit. The pack has no injury note either way.",
+   "kills_it": "ATL gets ahead and lives on Bi.Robinson and Br.Robinson, Penix's dropbacks shrink, or SF's flat coverage (middle 6.24 YPA, 13 explosives) turns the intermediate looks into a 20-yard day. A late scratch not in this pack also kills it.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so there is no model probability to distrust and nothing above 70% to fade. Pack direction agrees with both reads: Bijan L3 rush+rec is 292+26=318 (106/game) vs 123.5, and SF's 3.66 YPC with 4 runs of 10+ supports more regression, not less. Pitts L3 is 149 yards (49.7/game) on 16 targets and 73 air yards vs 34.5, a role clear of the rung without a spike. Board prices are rush+rec under 123.5 -113 and rec yards over 34.5 -114. Bijan rush yards 89 and Kittle 71 are +nan, so they are not used. This is agree on pack evidence only, not a sized sim edge.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Bi.Robinson rush+rec under 123.5 -113 (the rush-yards 89 rung is listed but +nan, so it is not the bet). K.Pitts receiving yards over 34.5 -114. No alt rungs in the pack; no short-priced alt used. One market per player.",
+ "pre_mortem": "It's Monday and both lost because ATL won the trenches, not because the script math was crazy. Bijan under lost if the 6.49 YPC is his line plus talent rather than soft fronts: 20 carries, one explosive SF's season rate said would not happen, 110 rush and 4 catches for 30, and 123.5 was only 17 above a hot 106 average so it had less floor than the matchup gap implies. Pitts over lost if London (28 targets, 276 yards) and Dotson (12/195, explosive profile) ate the intermediate work and a run-heavy ATL script cut Pitts to 3 targets and about 22 yards against a secondary with no hole (6.19-6.75 YPA). That shared counter \u2014 ATL controls the line, Bijan goes over, pass volume never arrives \u2014 is real, cleaner against the Pitts lean than against the Bijan read, which is why Pitts stays a lean and not a strong. It is not stronger than SF having allowed 4 runs of 10+ all year, so the Bijan leg stays.",
+ "slip_story": "One story: SF's defense travels in a close SF -2.5 game inside a 49.5. The front holds Bijan under 123.5 rush+rec, and ATL still has to throw to stay in it, which is the Pitts over 34.5. They win together if the game is competitive or ATL trails, and they lose together if ATL ground-and-pounds. Do not add ATL rush overs, a game under, or SF pass-catcher overs that need a shootout. London over 84.5 is the same pass-script cousin but 84.5 is only a few yards under his 92 L3 average against a secondary with no hole, so he stays off. No TDs. Two legs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,511 @@
+{
+  "train_weeks": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "holdout_weeks": [
+    7,
+    8
+  ],
+  "rb_over_min_carry_share": 0.6,
+  "search": {
+    "numeric_bins": "low <= train q1/3; high >= train q2/3; linear quantiles per market-side, available train rows before guards; no holdout cutpoints",
+    "condition_counts": [
+      1,
+      2,
+      3
+    ],
+    "distinct_features": true,
+    "requires_non_gap_condition": true,
+    "min_train_n": 30,
+    "min_roi_exclusive": 0,
+    "score": "ROI*n/(n+50)",
+    "ties": "larger n, fewer conditions, fixed grid order",
+    "grids": [
+      {
+        "market": "recyds",
+        "side": "over",
+        "tercile_cutpoints": {
+          "prior_carry_share": [
+            0.0,
+            0.0121212121212121
+          ],
+          "prior_snap_share": [
+            0.4796747967479675,
+            0.6893939393939394
+          ],
+          "second_back_share": [
+            0.1574074074074074,
+            0.2564102564102564
+          ],
+          "opp_rush_yds_game": [
+            100.0,
+            120.33333333333331
+          ],
+          "opp_rush_yds_carry": [
+            3.84375,
+            4.403669724770642
+          ],
+          "opp_rec_yds_position_game": [
+            46.75,
+            132.66666666666666
+          ],
+          "prior_target_share": [
+            0.0804597701149425,
+            0.1607142857142857
+          ],
+          "spread": [
+            -2.5,
+            2.5
+          ],
+          "implied_team_total": [
+            20.5,
+            24.5
+          ],
+          "model_edge": [
+            -3.166666666666667,
+            5.9
+          ]
+        },
+        "excluded_unavailable_or_constant": [
+          "weather_temp",
+          "weather_wind",
+          "injury_status",
+          "injury_flag",
+          "weather_flag"
+        ],
+        "candidate_cells": 1560,
+        "qualifying_cells": 40
+      },
+      {
+        "market": "recyds",
+        "side": "under",
+        "tercile_cutpoints": {
+          "prior_carry_share": [
+            0.0,
+            0.0121212121212121
+          ],
+          "prior_snap_share": [
+            0.4796747967479675,
+            0.6893939393939394
+          ],
+          "second_back_share": [
+            0.1574074074074074,
+            0.2564102564102564
+          ],
+          "opp_rush_yds_game": [
+            100.0,
+            120.33333333333331
+          ],
+          "opp_rush_yds_carry": [
+            3.84375,
+            4.403669724770642
+          ],
+          "opp_rec_yds_position_game": [
+            46.75,
+            132.66666666666666
+          ],
+          "prior_target_share": [
+            0.0804597701149425,
+            0.1607142857142857
+          ],
+          "spread": [
+            -2.5,
+            2.5
+          ],
+          "implied_team_total": [
+            20.5,
+            24.5
+          ],
+          "model_edge": [
+            -5.9,
+            3.166666666666667
+          ]
+        },
+        "excluded_unavailable_or_constant": [
+          "weather_temp",
+          "weather_wind",
+          "injury_status",
+          "injury_flag",
+          "weather_flag"
+        ],
+        "candidate_cells": 1560,
+        "qualifying_cells": 127
+      },
+      {
+        "market": "rushrecyds",
+        "side": "over",
+        "tercile_cutpoints": {
+          "prior_carry_share": [
+            0.2758259438021476,
+            0.5295552530065805
+          ],
+          "prior_snap_share": [
+            0.4159298245614035,
+            0.6151910982099661
+          ],
+          "second_back_share": [
+            0.1574074074074074,
+            0.2564102564102564
+          ],
+          "opp_rush_yds_game": [
+            100.46666666666667,
+            120.83333333333333
+          ],
+          "opp_rush_yds_carry": [
+            3.8265248226950357,
+            4.402597402597403
+          ],
+          "opp_rec_yds_position_game": [
+            26.416666666666664,
+            35.6
+          ],
+          "prior_target_share": [
+            0.0657894736842105,
+            0.11531231308211565
+          ],
+          "spread": [
+            -2.5,
+            2.5
+          ],
+          "implied_team_total": [
+            20.666666666666664,
+            24.5
+          ],
+          "model_edge": [
+            -11.333333333333334,
+            3.583333333333332
+          ]
+        },
+        "excluded_unavailable_or_constant": [
+          "weather_temp",
+          "weather_wind",
+          "injury_status",
+          "injury_flag",
+          "weather_flag"
+        ],
+        "candidate_cells": 1560,
+        "qualifying_cells": 0
+      },
+      {
+        "market": "rushrecyds",
+        "side": "under",
+        "tercile_cutpoints": {
+          "prior_carry_share": [
+            0.2758259438021476,
+            0.5295552530065805
+          ],
+          "prior_snap_share": [
+            0.4159298245614035,
+            0.6151910982099661
+          ],
+          "second_back_share": [
+            0.1574074074074074,
+            0.2564102564102564
+          ],
+          "opp_rush_yds_game": [
+            100.46666666666667,
+            120.83333333333333
+          ],
+          "opp_rush_yds_carry": [
+            3.8265248226950357,
+            4.402597402597403
+          ],
+          "opp_rec_yds_position_game": [
+            26.416666666666664,
+            35.6
+          ],
+          "prior_target_share": [
+            0.0657894736842105,
+            0.11531231308211565
+          ],
+          "spread": [
+            -2.5,
+            2.5
+          ],
+          "implied_team_total": [
+            20.666666666666664,
+            24.5
+          ],
+          "model_edge": [
+            -3.583333333333334,
+            11.333333333333332
+          ]
+        },
+        "excluded_unavailable_or_constant": [
+          "weather_temp",
+          "weather_wind",
+          "injury_status",
+          "injury_flag",
+          "weather_flag"
+        ],
+        "candidate_cells": 1560,
+        "qualifying_cells": 7
+      },
+      {
+        "market": "rushyds",
+        "side": "over",
+        "tercile_cutpoints": {
+          "prior_carry_share": [
+            0.135593220338983,
+            0.3174603174603174
+          ],
+          "prior_snap_share": [
+            0.3978102189781022,
+            0.7188405797101449
+          ],
+          "second_back_share": [
+            0.1574074074074074,
+            0.25
+          ],
+          "opp_rush_yds_game": [
+            100.0,
+            120.5
+          ],
+          "opp_rush_yds_carry": [
+            3.84375,
+            4.403669724770642
+          ],
+          "opp_rec_yds_position_game": [
+            26.0,
+            35.349999999999994
+          ],
+          "prior_target_share": [
+            0.0,
+            0.0695652173913043
+          ],
+          "spread": [
+            -2.5,
+            2.5
+          ],
+          "implied_team_total": [
+            21.25,
+            24.75
+          ],
+          "model_edge": [
+            -4.5,
+            3.166666666666668
+          ]
+        },
+        "excluded_unavailable_or_constant": [
+          "weather_temp",
+          "weather_wind",
+          "injury_status",
+          "injury_flag",
+          "weather_flag"
+        ],
+        "candidate_cells": 1560,
+        "qualifying_cells": 4
+      },
+      {
+        "market": "rushyds",
+        "side": "under",
+        "tercile_cutpoints": {
+          "prior_carry_share": [
+            0.135593220338983,
+            0.3174603174603174
+          ],
+          "prior_snap_share": [
+            0.3978102189781022,
+            0.7188405797101449
+          ],
+          "second_back_share": [
+            0.1574074074074074,
+            0.25
+          ],
+          "opp_rush_yds_game": [
+            100.0,
+            120.5
+          ],
+          "opp_rush_yds_carry": [
+            3.84375,
+            4.403669724770642
+          ],
+          "opp_rec_yds_position_game": [
+            26.0,
+            35.349999999999994
+          ],
+          "prior_target_share": [
+            0.0,
+            0.0695652173913043
+          ],
+          "spread": [
+            -2.5,
+            2.5
+          ],
+          "implied_team_total": [
+            21.25,
+            24.75
+          ],
+          "model_edge": [
+            -3.166666666666668,
+            4.5
+          ]
+        },
+        "excluded_unavailable_or_constant": [
+          "weather_temp",
+          "weather_wind",
+          "injury_status",
+          "injury_flag",
+          "weather_flag"
+        ],
+        "candidate_cells": 1560,
+        "qualifying_cells": 56
+      }
+    ]
+  },
+  "rules": [
+    {
+      "market": "recyds",
+      "side": "over",
+      "conditions": [
+        {
+          "feature": "prior_snap_share",
+          "op": "ge",
+          "value": 0.6893939393939394
+        },
+        {
+          "feature": "opp_rush_yds_game",
+          "op": "le",
+          "value": 100.0
+        },
+        {
+          "feature": "prior_target_share",
+          "op": "ge",
+          "value": 0.1607142857142857
+        }
+      ],
+      "shrinkage_score": 11.054540087749169,
+      "train": {
+        "market": "recyds",
+        "side": "over",
+        "n": 39,
+        "wins": 26,
+        "losses": 13,
+        "pushes": 0,
+        "ungraded": 0,
+        "hit_pct": 66.66666666666667,
+        "pl": 98.38540678096763,
+        "stake": 390.0,
+        "roi": 25.227027379735286
+      }
+    },
+    {
+      "market": "recyds",
+      "side": "under",
+      "conditions": [
+        {
+          "feature": "prior_snap_share",
+          "op": "ge",
+          "value": 0.6893939393939394
+        },
+        {
+          "feature": "opp_rush_yds_game",
+          "op": "ge",
+          "value": 120.33333333333331
+        }
+      ],
+      "shrinkage_score": 17.154085009479598,
+      "train": {
+        "market": "recyds",
+        "side": "under",
+        "n": 44,
+        "wins": 32,
+        "losses": 12,
+        "pushes": 0,
+        "ungraded": 0,
+        "hit_pct": 72.72727272727273,
+        "pl": 161.2483990891082,
+        "stake": 440.0,
+        "roi": 36.647363429342775
+      }
+    },
+    {
+      "market": "rushrecyds",
+      "side": "under",
+      "conditions": [
+        {
+          "feature": "prior_carry_share",
+          "op": "le",
+          "value": 0.2758259438021476
+        }
+      ],
+      "shrinkage_score": 8.684386293767059,
+      "train": {
+        "market": "rushrecyds",
+        "side": "under",
+        "n": 34,
+        "wins": 22,
+        "losses": 12,
+        "pushes": 0,
+        "ungraded": 0,
+        "hit_pct": 64.70588235294117,
+        "pl": 72.9488448676433,
+        "stake": 340.0,
+        "roi": 21.455542608130383
+      }
+    },
+    {
+      "market": "rushyds",
+      "side": "over",
+      "conditions": [
+        {
+          "feature": "opp_rush_yds_game",
+          "op": "ge",
+          "value": 120.5
+        },
+        {
+          "feature": "prior_target_share",
+          "op": "le",
+          "value": 0.0
+        }
+      ],
+      "shrinkage_score": 8.409120898969547,
+      "train": {
+        "market": "rushyds",
+        "side": "over",
+        "n": 31,
+        "wins": 20,
+        "losses": 11,
+        "pushes": 0,
+        "ungraded": 0,
+        "hit_pct": 64.51612903225806,
+        "pl": 68.11387928165333,
+        "stake": 310.0,
+        "roi": 21.972219123113977
+      }
+    },
+    {
+      "market": "rushyds",
+      "side": "under",
+      "conditions": [
+        {
+          "feature": "opp_rush_yds_carry",
+          "op": "le",
+          "value": 3.84375
+        },
+        {
+          "feature": "prior_target_share",
+          "op": "le",
+          "value": 0.0
+        }
+      ],
+      "shrinkage_score": 15.830207969298051,
+      "train": {
+        "market": "rushyds",
+        "side": "under",
+        "n": 37,
+        "wins": 27,
+        "losses": 10,
+        "pushes": 0,
+        "ungraded": 0,
+        "hit_pct": 72.97297297297297,
+        "pl": 137.72280933289306,
+        "stake": 370.0,
+        "roi": 37.22238090078191
+      }
+    }
+  ]
+}

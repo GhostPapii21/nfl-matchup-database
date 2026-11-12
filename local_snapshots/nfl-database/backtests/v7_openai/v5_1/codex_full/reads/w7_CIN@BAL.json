@@ -1,0 +1,48 @@
+{
+ "game": "Week 7 CIN@BAL / kickoff MISSING / BAL +3, CIN -3 / total 46.5 / implied totals CIN 24.75, BAL 21.75 / weather not saved. Moneyline, opening lines, movement, venue details, rest and travel MISSING.",
+ "script": {
+  "base": "CIN takes a modest lead, consistent with its implied 24.75\u201321.75 scoring advantage. BAL keeps Derrick Henry involved but increasingly uses Zay Flowers to chase points; Cincinnati's short passing to Chase Brown offers an outlet against BAL's 31% blitz rate. Pace data is missing.",
+  "flip1": "BAL exploits CIN's 5.30 rushing YPC allowed and controls the game through Henry. Flowers' receiving volume becomes less secure, while a trailing CIN script can preserve Brown's receiving opportunity.",
+  "flip2": "BAL's blitz disrupts Cincinnati: CIN QB EPA/dropback is -0.11 against blitz versus 0.24 without it. A stalled CIN offense can reduce Brown's completed-target volume and let BAL protect a lead rather than feed Flowers."
+ },
+ "injury_fallout": "MISSING: injury reports, practice trends, final designations, inactives, offensive-line availability, defensive absences and snap restrictions for both CIN and BAL. No absence, return or quarterback change is inferred from the Huntley/Jackson rushing totals. Replacement shares cannot be established. Source for all available usage: supplied pre-kickoff pack; exact publication timestamps are missing. Final-report and approximately 90-minute inactive checks cannot be completed.",
+ "matchup": {
+  "shell": "MISSING: BAL and CIN MOFO/MOFC rates, man/zone rates and player alignment charting. Flowers cannot be assigned to CIN's vulnerable middle solely from the supplied directional passing data.",
+  "pressure": "BAL blitzes 31%; CIN QB EPA/dropback falls from 0.24 without blitz to -0.11 against blitz over 53 blitz dropbacks. Brown's 17 targets with only 3 total air yards identify an existing short outlet, but pressure rate, protection outcomes and Brown's blitz-specific targets are missing. CIN blitzes 16%; BAL QB EPA/dropback is 0.35 against blitz versus 0.15 without it, but starting-QB identity is unconfirmed.",
+  "bleeds": "CIN allows 5.30 rushing YPC and has surrendered 21 runs of at least 10 yards through five games. Its passing YPA allowed is 10.08 middle, 7.57 left and 6.04 right, with 17 completions of at least 20 yards on 183 attempts. BAL allows 3.84 rushing YPC and passing YPA of 8.30 middle, 6.36 left and 6.56 right. Position-specific and YAC allowances are missing.",
+  "overlap": "Flowers leads BAL with 30 targets in its last three games, giving its primary receiving option access to a CIN defense that has allowed explosive passes; his precise coverage matchup is unverified. Brown's 17 targets and 3 air yards support a short-outlet hypothesis against BAL's frequent blitzing, not a proven middle-field alignment advantage."
+ },
+ "form": "CIN's supplied window is weeks 3\u20135: Brown recorded 17 targets, 100 receiving yards and 3 air yards, alongside 35 carries for 110 yards. Higgins had 27 targets and Chase 25, so Brown is a secondary receiving option rather than the passing focal point. BAL's window is weeks 4\u20136: Flowers led with 30 targets, 237 receiving yards and 227 air yards; Andrews followed with 16 targets. Henry carried 65 times for 233 yards, preserving a substantial competing rushing path. Individual-game distributions, routes, snaps, red-zone usage, comparable-opponent splits and role-change explanations are missing; CIN's window does not include week 6.",
+ "edge_players": [
+  {
+   "player": "chasebrown",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Brown's established short-target role gives him a plausible path over 20.5 receiving yards if BAL's frequent blitzing prompts Cincinnati to use its existing outlet.",
+   "must_be_true": "Chase Brown targets >= 5 [because the pack records 17 targets and 3 air yards across CIN's last three supplied games]",
+   "kills_it": "IF BAL's blitz produces sacks or Cincinnati directs its short throws away from Brown THEN Chase Brown recyds over 20.5 fails.",
+   "confidence": "lean"
+  },
+  {
+   "player": "zayflowers",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Flowers' team-leading target role can carry him over 64.5 receiving yards while BAL chases a modest CIN lead against a defense allowing explosive passes.",
+   "must_be_true": "Zay Flowers targets >= 9 [because the pack records a BAL-leading 30 targets across weeks 4\u20136]",
+   "kills_it": "IF BAL builds a comfortable lead and shifts sustained volume to Henry THEN Zay Flowers recyds over 64.5 fails.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written reads precede these arithmetic checks: Brown's supplied three-game totals equal 5.67 targets and 33.33 receiving yards per game; Flowers' equal 10 targets and 79 receiving yards. These are role checks, not projections or hit probabilities. Nothing supplied directly disproves either conditional receiving read. BAL's negative impact on CIN QB EPA is a documented risk, not proof that Brown benefits. No simulation or calibrated probability was generated.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median, game-level distributions, Pinnacle prices and sharp no-vig benchmark, routes and snaps, player coverage assignments, pressure rate, confirmed quarterback availability, injury reports, weather and exact source timestamps.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional leans only: chasebrown recyds over 20.5 at -115; zayflowers recyds over 64.5 at -113. Brown's hypothesis is a volume edge, for which receptions would ordinarily be preferred, but that market is unavailable under the permitted menu. Both use main receiving-yard lines, not short-priced alternatives. Offered break-even probabilities are approximately 53.49% and 53.05%, respectively; neither establishes value without a defensible probability estimate.",
+ "pre_mortem": "Brown loses because frequent blitzing does not necessarily create productive checkdowns: CIN's -0.11 EPA/dropback against blitz could mean sacks, failed possessions or quick throws to Higgins and Chase instead. His aggregate yardage also does not reveal whether one play inflated the sample. Flowers loses because CIN's clearest defensive weakness is its 5.30 rushing YPC allowed; Henry's 65 recent carries offer BAL a credible way to control possession and avoid a pass-heavy chase. Neither leg is script-proof, and missing availability and weather checks prevent treating these as finalized wagers.",
+ "slip_story": "Watchlist story: a competitive CIN lead keeps Flowers involved while Brown contributes underneath against BAL's blitz. Brown can also survive a CIN trailing flip if his receiving role persists; Flowers is tagged script-dependent because BAL's run-control flip threatens his volume. Do not force a 3\u20134-leg slip from two conditional leans, and do not price their joint probability by assuming independence.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,337 @@
+Original local history for /workspace/nfl-database
+Branch: mws-matchup-2026-11-04
+HEAD: a813affd8dfe18b72232bb3ab77553a57c4043d8
+Commit count: 165
+This GitHub branch is a squashed snapshot rooted at current main, because the local history is unrelated to GhostPapii21/nfl-matchup-database.
+The snapshot also includes the uncommitted working tree as of the copy time (see Uncommitted section).
+
+===== git log --oneline =====
+a813aff TNF WAS@NYG scheduled run: apply Ghost6 vet fixes (research only)
+c8606aa TNF WAS@NYG Week 10 SCHEDULED RUN: research-only report + checklist (no picks, sim not run)
+c446b24 Week 10 daily refresh Wed 11-11 10:00: TNF WSH@NYG weather flag (74% precip, gust 30), new W10 line baseline, injuries
+b82facf Line movement snapshot: BUF@MIN (MNF Nov 9) close checkpoint, game lines only (FD/DK/Pinnacle), 3 credits
+04db780 Line movement snapshot: BUF@MIN (MNF Nov 9) T-30 checkpoint, game lines only (FD/DK/Pinnacle), 3 credits
+7773091 Line movement snapshot: BUF@MIN (MNF Nov 9) T-60 checkpoint, game lines only (FD/DK/Pinnacle), 3 credits
+4c591a6 MNF BUF@MIN Phase 15 inactives record
+3b0a8ca Line movement snapshot: BUF@MIN (MNF Nov 9) T-120 checkpoint, game lines only (FD/DK/Pinnacle), 3 credits
+12df5aa Week 9 daily refresh Sat 11-07 10:01: no line moves >=1.5; weather (ARI@SEA + GB@NE gust flags cleared, TB@CHI gust 27); injuries (Lock/CMC/Saquon/Kamara/Nabers active; Deebo/Kirk/AJ Brown/Mays out; Skattebo doubtful)
+0cbcbcb week10: Fri noon breaking-news injury sweep (Wilson OUT, BRob OUT, Brissett done)
+698003e Week 9 daily refresh Fri 11-06 10:03: no line moves >=1.5; weather (ARI@SEA NEW gust flag; LAR@WSH + NYG@PHI cleared); injuries (Hall/Kelce/Rice Active; Skattebo trending out)
+ad46dc7 postmortem TNF JAX@BAL 2026-11-05 + playlog/ledger/explosives
+6b91547 Live JAX@BAL TNF log through halftime (17-3).
+ae84446 Line movement snapshot: JAX@BAL (TNF Nov 5) close checkpoint, game lines only (FD/DK/Pinnacle), 3 credits
+06d09c5 Line movement snapshot: JAX@BAL (TNF Nov 5) T-30 checkpoint, game lines only (FD/DK/Pinnacle), 3 credits
+74d3483 Line movement snapshot: JAX@BAL (TNF Nov 5) T-60 checkpoint, game lines only (FD/DK/Pinnacle), 3 credits
+6e7762a Line movement snapshot: JAX@BAL (TNF Nov 5) T-120 checkpoint, game lines only (FD/DK/Pinnacle), 3 credits
+24bbe6d wording
+7656d74 Nov 5 5PM breaking news watch: Murray/Wentz, SF Evans+Deebo out, Nabers, Wirfs
+b707bd3 Breaking news watch Nov 5 12:05 PM: Watson LAR season, Street/B. Jones CHI IR, Lamar IR
+1246785 Week 9 daily refresh Thu 11-05 10:06: lines (ARI@SEA -11.5->-8.5, tot 41.5->39.5), weather (TB@CHI gust flag), injuries (Montgomery OUT, Stafford active)
+948f793 Line movement snapshot: JAX@BAL (TNF Nov 5) open checkpoint, game lines only (FD/DK/Pinnacle), 3 credits
+85adda4 MWS offense: fix null receiver ID -> 'Al-Jay Henderson' mapping bug; regenerate pressure/blitz target tables and short-target proxy; relabel BAL rates as FTN charting, separation Wk1-6 only
+aeb2da0 MWS matchup study, JAX offense half: snaps, targets, BAL pressure/Lawrence splits, area map, NGS Wk1-6, ESPN cross-check, OpenAI + bug-pass reviews
+9016d80 r6 coverage: move hand-added BAL defenders + injury notes to coverage_overrides_2026-11-04.json; build_inputs.py merges overlay after rebuild (src 00f1ebe)
+3bf3351 r6 coverage: add Wallace/K.Jackson (Strange legs), Awuzie conditional on Wiggins OUT (Washington); Hawkins OUT/Wiggins Q note (src 00f1ebe)
+68d4367 Practice digest Nov 4 + sweep update
+109b8b9 Week10 injury sweep 5PM update
+8c4a80f r6: OpenAI + superpowers reviews, fixes (rank wiring, current-QB windows, provenance keys), gate rerun
+cced724 r6 full gate build: inputs, assemble, film index, gate A/B/C (FAIL)
+a717d91 r6: run_gate on slips A/B/C (FAIL, adapter) + JAX 1H miss audit
+c690ed9 r6: TNF JAX@BAL re-pull (12 credits) + Rico 4-leg slip gates
+0c53542 week10: SEA backup QB profile (Lock/Milroe) for ARI@SEA
+4f0f9e3 week10: DaVon Hamilton/Murray IR impact on JAX run D and Henry U69.5
+34a74a1 Week 10 breaking news sweep Nov 4 12:10 PM
+6b0eaa8 Week 9 daily refresh 2026-11-04 10:03
+c415f28 week10: Strange target share vs BTJ snaps research (TNF JAX@BAL)
+cd06f27 r5 vet fixes: Washington main line o63.5 FD -114 erratum (2/4), ML shop book attribution
+750974f r5 addendum 4: layers (Washington overs, Strange right side, Lawrence scramble conflict)
+5ae12b9 r5 addendum 3: Hamilton/PFF not counted, JAX usage remap, Washington legs, Rodriguez conditional
+770f73b r5 rebuild: tiers flag-only (Rico 05:03 ET); card = Henry U69.5, Lawrence U12.5, BAL TT U14.5, JAX 1Q -2.5/ML (downgrade)
+ddc31a5 r5: addendum 2 (BAL D snapshot -> JAX hypotheses), Hawkins pending, participation 404 flagged
+eac33b2 codex_full Ghost6 vet fixes: N1 rush overs only, snap-based games played, +1/+3 tiers arm, UNRESOLVED listed, lock-order + spend-estimate notes, spec baseline label (EXPLORATORY)
+4d4bfed v5_1 codex_full: graded (pre-reg FAIL, 1 leg) + Nov-4 rules arms + notes
+3369e16 v5_1 codex_full: reads locked (sha256) + graded results.md
+8a9c154 r5 FINAL: +1/+3 tiers (no card), former+7 flag, JAX 1Q/1H legs, Fagnano addendum 4c6f0999
+91d9de7 DRAFT r5 JAX@BAL (not a card): +1/+2/+3 edge-bar side table; bar on hold pending Rico clarification; r4 stays live
+0404fb7 r4: regenerate rush_changes after N1/read fix
+0fbd32b TNF JAX@BAL r4: games-played rush window (0-carry fill), QB N1 fix, game-line §7/last-2, no-FD-fallback shop, SGP note; singles-first card
+a14b738 TNF JAX@BAL r3: policy_r3 (11-10 date gate, QB-dep +7, best-price shop/CLV, N1/last2 cols, PFF flags, wk9 label), slip + singles
+e9ca1a5 TNF JAX@BAL r3: Phase 4 PFF 2-defender blend + SRC cross-check, injury check, gate rerun: still no card
+a7887de vig/median/nflverse report: Ghost6 vet notes
+96e4b81 TNF JAX@BAL r2: odds pull (35 cr), weather, pricing overlay, checklist+report: no card
+08b9a47 TNF JAX@BAL r2: brainstorm read locked (sha256) before pricing + QB/def profiles
+295b522 v5_1 fresh: reads locked (sha256) + FINAL graded results.md
+721472b v5_1 fresh reads: run finished (auto)
+1f19221 v5_1 fresh reads WIP (auto)
+2f33e5f v6 WIP: more pre-grade reads (auto)
+2598aff v5_1 fresh reads WIP (auto)
+57f4467 v6 GRADE 2025 bucket (c) HINDSIGHT RISK (after lock)
+2ead69c v6 LOCK 2025: 167 Grok reads + locked_picks_2025.csv (pre-grade)
+a211404 vig_median_nflverse: results + report (T1 INSUFFICIENT, T2 FAIL, T3a INSUFFICIENT/data gap, T3b no gain)
+29a87ea v5_1 fresh reads WIP (auto)
+a8f9771 vig_median_nflverse: scripts, licenses, partial
+21e1815 vig_median_nflverse: PREREG (pass bars locked before results)
+9a7b059 v5_1 fresh reads WIP (auto)
+e4bb266 v6 WIP: more pre-grade reads (auto)
+aff3736 v5_1 fresh reads WIP (auto)
+a9dd9b5 v5_1 fresh reads WIP (auto)
+8968243 v6 WIP: more pre-grade reads (auto)
+7d65cc7 v5_1 fresh reads WIP (auto)
+51b733d v5_1 fresh: post.py (lock+grade), PARTIAL results, harness invalid-price fix (Sadiq -6), detached chain
+6d18c37 v5_1 fresh reads WIP (auto)
+9b3297b v5_1 fresh reads WIP (auto)
+5d724bb v6 WIP: more pre-grade reads (auto)
+ae60213 v5_1 fresh reads WIP (auto)
+03ca144 v5_1 fresh reads WIP (auto)
+059436f v6 WIP: more pre-grade reads (auto)
+a0f6c8f v5_1 fresh reads WIP (auto)
+41be60d v5_1 fresh reads WIP (auto)
+d18501a v5_1 fresh reads WIP (auto)
+b599038 v6 WIP: more pre-grade reads (auto)
+4ef7ed9 v5_1 fresh reads WIP (auto)
+a3bd813 v5_1 fresh reads WIP (auto)
+ed8cc0a v6 WIP: more pre-grade reads (auto)
+b321a6f v5_1 fresh reads WIP (auto)
+d45082e v5_1 fresh reads WIP (auto)
+3c6a173 v5_1 fresh reads WIP (auto)
+0bc4d42 v6 WIP: more pre-grade reads (auto)
+128e9b0 v5_1 fresh arm: system prompt snapshot + lock hashes
+c9baea8 v5_1 fresh arm: prereg, prompts, reads code locked before reads
+d3a06b2 v6 WIP: more pre-grade reads (auto)
+bd68ce3 v7_openai/v5_1: OpenAI review + report
+02fc44b v5_1: run + shared harness grading vs v5/v6/baseline
+32bcfd2 v5_1: steer to improve v5; OpenAI pre-registered plan + v5_1.py locked before run
+8de88d4 v6 WIP: more pre-grade reads (auto)
+8bd0dec v7_openai: run results (FAIL), fix log (1 crash fix approved by OpenAI)
+1428c94 v7_openai: spec, OpenAI pre-registered plan + v7.py (locked before run), data package
+f80fe05 fix call count
+692040f v5 leak audit: complete, verdict CLEAN (no leak found; small n)
+f9877f3 v6 WIP: more pre-grade reads (auto)
+4bfdd80 OpenAI deep-dive (gpt-6.1-sol): chunked full-brief review + ChatGPT MNF audit check
+063b3aa v6 WIP: more pre-grade reads (auto)
+e886482 v6 WIP: more pre-grade reads (auto)
+cd18ed0 Save Rico's ChatGPT audit share
+56ad2b7 v6 report.md + GAPS.md (2026 complete; 2025 pending), 2025 gate/grade scripts
+32a81ce v6 WIP: more pre-grade reads (auto)
+3479459 OpenAI (gpt-5.5) critique of backtest program: response + summary
+84c7c73 v6 GRADE 2026 wk1-8 (after lock 9308c91)
+393ae82 v5 leak audit: resumable masked rerun, 14/16
+9308c91 v6 LOCK 2026 wk1-8: 120 Grok reads + gated locked_picks.csv (pre-grade, leak test PASS)
+6638475 v6 WIP: more pre-grade reads (auto)
+cbf4527 OpenAI review: brief + request script (API out of credits, not sent)
+910e55f v6 WIP: more pre-grade reads (auto)
+1566bf2 v6 WIP: more pre-grade reads (auto)
+d48656b v6 WIP: more pre-grade reads (auto)
+12eaa7a v5 leak audit: prompt audit + more masked reads
+e5658ce v6 WIP: more pre-grade reads (auto)
+039ddce v5 leak audit: partial (probes, direct Q, masked reads so far)
+85598a5 v6 WIP: more pre-grade reads (auto)
+fc43d48 v6 WIP: more pre-grade reads (auto)
+2c4c77e v6 WIP: more pre-grade reads (auto)
+0563f80 v6 WIP: scripts, packs, 25 pre-grade Grok reads (no grading)
+b860c9a Team files: CBS coordinator brainstorm context (Nov 3)
+7a3d22e v5 graded: brainstorm Grok reads vs baseline, saved reads, Rico placed legs, ZONE_MOF, PRO_EDGE
+c71af73 v5 LOCK: grok-4.7 brainstorm reads wk3-8, saved reads, PRO_EDGE/ZONE_MOF tags (pre-grade)
+d63f2e7 Add root conftest: skip deprecated tools/sim_v6_fix duplicate tests, tools/ on sys.path
+c66be48 Week 9 daily refresh 2026-11-03 10:04: spreads/totals (2 credits), forecast, ESPN injuries, run-D tiers on full Wk8 pbp
+1b3f01e TNF JAX@BAL leg build + pre-gate screen, fresh week9 forecast, 1 odds call (11 credits)
+98f8199 Ghost6 audit fixes: MNF postmortem stats + SEA run/pass by qtr; N1 RB-carries current-QB; depth wiring (script_pass,target_share,defender_giving,rung,te_rank), depth_rule fail-closed, NO_PASS_YDS, zone coverage allowance, slot/primary matchup; MNF replay rerun
+13d41b9 v4 saved_reads: verbatim pre-kick reads (BetGuru/Project BlueBook transcript Wk5-7), placed slips + outcomes Wk5-8, coverage/gaps
+8fcb3c5 MNF CHI@SEA postmortem: enriched play log + explosives, read grades, slips graded, fixed-rules replay + door check, code notes; rm make_fixture.pre_form.py
+93adccb Confidence check: Brier/log loss vs market, sim_v5/v6/v6_fix x {old shrink, no-shrink opp .5, no-shrink opp 1.0}, wk3-8+MNF, 0 credits (TEST ONLY)
+761a74d Ledger: +4970 nflverse tackler/PBU rows, 105 games (all 121 covered); code notes for Ghost6
+ff4bb42 Backfill play logs wk1-8 from nflverse pbp (107 games)
+b44f348 Team database: 32 defense+offense files (teams/<T>.json for door TEAM_FILES, teams/defense|offense md+csv), builder, public sources
+7d4203d Yardage v4: graded + report
+2eb5f9b Yardage v4: brainstorms + picks + grade.py locked before results
+808dc89 Yardage v4: as-of input packs (no week-W outcomes)
+92d2fa3 Yardage v3: holdout graded
+e6e2aea Yardage v3: matchup/script rules + slip method locked (train wk3-6) before holdout
+eaa0948 Yardage v2: holdout graded, report
+282e20c Yardage v2: wk3-8 main pull raw + rules/edgecap/slip method locked (train wk3-6) before holdout
+9146435 Yardage wk3-8: holdout graded
+593ec21 Yardage wk3-8: rules + slip method locked before holdout
+1541eb1 Test D: no passyds + game lines (TEST ONLY, zero credits)
+87d39b1 Test C: 4-5 leg slips on rulebook replay pool (TEST ONLY, zero credits)
+57d1eb8 Rulebook replay wk6-8 + MNF: in-process gate (rules forced active), door stamps, slips A/B, report (TEST ONLY)
+a397f1f rico_method_wk8: grading, slips, report
+47223ba rico_method_wk8: slip method (pre-grade)
+3206cb8 rico_method_wk8: lock reconstructed picks (pre-outcome)
+a1ce22c backtest: Wk6-8 replay through rulebook on real Odds API prices (test only)
+536c185 rulebook: NBA_ONE_MARKET/NBA_ROLE_BUMP approval text - approved by Rico directly in Betting Hub
+16e02bc rulebook: add NBA_ONE_MARKET (BLOCK, Rico 2026-11-03 01:41 ET) and NBA_ROLE_BUMP (FLAG, Rico 2026-11-03 01:42 ET) + tests
+a055939 docs: odds bridge audit, gap report, data coverage timeline (2026-11-03)
+f0fa07d phase7: RULES_TO_CODE, CONTRIBUTING, Thursday door run (BLOCKED: no assembled legs)
+f35d194 phase6: regression tests for real misses + SCHEME_EDGE behavior; full suite 384 pass
+53cf26f odds: canonical tools/pull_odds.py (props+alts, game, 1H/2H/Q lines, snapshots, max quote age) + odds_quota planner/floor; deprecate runs/*/pull_odds.py copies (Rico 2026-11-03)
+0b6b553 phase5: assemble emits door fields, fails closed, exits 1 on gate FAIL; explanation required only when SCHEME_EDGE waives a cut; drop pre_form test
+ca48773 phase4: tools/door.py (build/check/swap/override/test), verify_stamp.py, slip rules, team files + ledger BLOCK, NBA stamp route
+6322cc5 phase3: oppadj full strength (sim_v6, Thu sim_v5), drop shrunk calc, div-by-zero guards, sim_v6_fix deprecated
+5d18f2f phase2: DEPTH_RECEIVER rule replaces #3/#4 ban (press_tier, snf WR4, rico4 pool, run_gate)
+9fd3875 phase1: rulebook + rules read thresholds/activation from it; last-2 WARN; SCHEME_EDGE explanation required
+e40ea99 docs: locked door spec + plan
+3152576 baseline before locked door
+
+===== Uncommitted working tree (git status --porcelain) at copy time =====
+ D backtests/v7_openai/out/legs.csv
+ D backtests/v7_openai/out/results.md
+ D backtests/v7_openai/out/slips.csv
+ D backtests/v7_openai/v5_1/codex_full/out/v5_1_picks.csv
+ D backtests/v7_openai/v5_1/codex_full/out/v5_1_picks.csv.sha256
+ D backtests/v7_openai/v5_1/codex_full/out/v5_1_slips.csv
+ D backtests/v7_openai/v5_1/codex_full/out/v5_1_slips.csv.sha256
+ D backtests/v7_openai/v5_1/fresh/out/v5_1_picks.csv
+ D backtests/v7_openai/v5_1/fresh/out/v5_1_picks.csv.sha256
+ D backtests/v7_openai/v5_1/fresh/out/v5_1_slips.csv
+ D backtests/v7_openai/v5_1/fresh/out/v5_1_slips.csv.sha256
+ D backtests/v7_openai/v5_1/out/results.md
+ D backtests/v7_openai/v5_1/out/v5_1_graded.csv
+ D backtests/v7_openai/v5_1/out/v5_1_picks.csv
+ D backtests/v7_openai/v5_1/out/v5_1_picks.csv.sha256
+ D backtests/v7_openai/v5_1/out/v5_1_slips.csv
+ D backtests/v7_openai/v5_1/out/v5_1_slips.csv.sha256
+ M live/2026-11-05_JAX_BAL/README.md
+ M live/2026-11-05_JAX_BAL/drive_conversions.md
+ M live/2026-11-05_JAX_BAL/drive_log.csv
+ M live/2026-11-05_JAX_BAL/live_meta.json
+ M live/2026-11-05_JAX_BAL/meyers_focus.md
+ M live/2026-11-05_JAX_BAL/pbp_live.csv
+ M live/2026-11-05_JAX_BAL/pbp_live.md
+ M live/2026-11-05_JAX_BAL/period_line_grades.csv
+ M live/2026-11-05_JAX_BAL/quarter_results.csv
+ M live/2026-11-05_JAX_BAL/quarter_results.md
+ M live/2026-11-05_JAX_BAL/raw/espn_plays_401873037.json
+ M live/2026-11-05_JAX_BAL/raw/espn_summary_401873037.json
+ M live/2026-11-05_JAX_BAL/red_zone_log.csv
+ M live/2026-11-05_JAX_BAL/team_conversion_summary.csv
+ M live/2026-11-05_JAX_BAL/third_down_log.csv
+ M live/tools/build_quarter_drive_logs.py
+ M matchup_master.csv
+ M matchup_master.jsonl
+ M runs/2026-11-05_JAX@BAL_r6/codex/assembly_results.json
+ M runs/2026-11-05_JAX@BAL_r6/gate_A/gate_output.txt
+ M runs/2026-11-05_JAX@BAL_r6/gate_A/report.md
+ M runs/2026-11-05_JAX@BAL_r6/gate_B/gate_output.txt
+ M runs/2026-11-05_JAX@BAL_r6/gate_B/report.md
+ M runs/2026-11-05_JAX@BAL_r6/gate_C/gate_output.txt
+ M runs/2026-11-05_JAX@BAL_r6/gate_C/report.md
+ D week8/breakdown/coverage/ARI_at_DAL.md
+ D week8/breakdown/coverage/ATL_at_TB.md
+ D week8/breakdown/coverage/BAL_at_BUF.md
+ D week8/breakdown/coverage/CAR_at_GB.md
+ D week8/breakdown/coverage/CLE_at_PIT.md
+ D week8/breakdown/coverage/IND_at_JAX.md
+ D week8/breakdown/coverage/KC_at_DEN.md
+ D week8/breakdown/coverage/LAC_at_LA.md
+ D week8/breakdown/coverage/LV_at_NYJ.md
+ D week8/breakdown/coverage/MIN_at_DET.md
+ D week8/breakdown/coverage/NE_at_MIA.md
+ D week8/breakdown/coverage/PHI_at_WAS.md
+ D week8/breakdown/coverage/TEN_at_CIN.md
+ D week8/breakdown/coverage/build_cov.py
+ D week8/breakdown/coverage/canvas_data.ts
+ D week8/breakdown/coverage/coverage.json
+ D week8/breakdown/coverage/coverage.pre_espn.json
+?? backtests/current_rules_wk6_8/raw/
+?? backtests/current_rules_wk6_8/sim100k.log
+?? backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/cap5_per_day.csv
+?? backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/cap5_per_day.py
+?? backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/m3_two_edge_sgp.py
+?? backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/m3_two_edge_sgp_all.csv
+?? backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/no_recyds_under_A_M2_25.csv
+?? backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/no_recyds_under_A_M2_25.py
+?? backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/sgp_5to6_all.csv
+?? backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/sgp_5to6_cap5_25.py
+?? backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/sgp_cap5_k5+6.csv
+?? backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/sgp_cap5_k5.csv
+?? backtests/rulebook_replay_wk6_8/test_d_nopass_gamelines/sgp_cap5_k6.csv
+?? backtests/v6_brainstorm_proedge/chain.log
+?? backtests/v6_brainstorm_proedge/finish25.done
+?? backtests/v6_brainstorm_proedge/finish25.log
+?? backtests/yardage_markets_wk3_8/v5/reads.log
+?? backtests/yardage_markets_wk3_8/v5/reads2.log
+?? backtests/yardage_markets_wk3_8/v5/reads3.log
+?? backtests/yardage_markets_wk3_8/v5/rejects.json
+?? backtests/yardage_markets_wk3_8/v5/saved.log
+?? cards/2026-11-05_thu0600.md
+?? cards/2026-11-12_thu0600.md
+?? defense/
+?? digests/practice_2026-11-05.md
+?? live/2026-11-05_JAX_BAL/FINALIZED.json
+?? live/2026-11-05_JAX_BAL/FINAL_CONFIRMED.json
+?? live/2026-11-05_JAX_BAL/actual_box_reconcile.csv
+?? live/2026-11-05_JAX_BAL/actual_explosives_ledger.csv
+?? live/2026-11-05_JAX_BAL/actual_jax_rb_touch_order.csv
+?? live/2026-11-05_JAX_BAL/actual_receiving_by_quarter.csv
+?? live/2026-11-05_JAX_BAL/actual_receiving_play_log.csv
+?? live/2026-11-05_JAX_BAL/actual_role_coverage_audit.md
+?? live/2026-11-05_JAX_BAL/actual_rushing_by_quarter.csv
+?? live/2026-11-05_JAX_BAL/actual_rushing_play_log.csv
+?? live/2026-11-05_JAX_BAL/actual_trick_plays.csv
+?? live/2026-11-05_JAX_BAL/audit_findings.md
+?? live/2026-11-05_JAX_BAL/defensive_coverage_profile.md
+?? live/2026-11-05_JAX_BAL/notes/evidence_nov5/
+?? live/2026-11-05_JAX_BAL/notes/pff_recap/
+?? live/2026-11-05_JAX_BAL/notes/te_snaps_w1_8_vs_nov5_BAL.csv
+?? live/2026-11-05_JAX_BAL/notes/te_usage_comparison.md
+?? live/2026-11-05_JAX_BAL/notes/te_usage_w1_8_vs_nov5_BAL.csv
+?? live/2026-11-05_JAX_BAL/period_lines_cleared_ledger.csv
+?? live/2026-11-05_JAX_BAL/period_q1_q2_q3_fd_dk_cleared.csv
+?? live/2026-11-05_JAX_BAL/possessions_final.csv
+?? live/2026-11-05_JAX_BAL/raw/espn_plays_401873037_20261105_215123.json
+?? live/2026-11-05_JAX_BAL/raw/espn_plays_401873037_20261105_220834.json
+?? live/2026-11-05_JAX_BAL/raw/espn_plays_401873037_20261105_222157.json
+?? live/2026-11-05_JAX_BAL/raw/espn_plays_401873037_20261105_224020.json
+?? live/2026-11-05_JAX_BAL/raw/espn_plays_401873037_20261105_224743.json
+?? live/2026-11-05_JAX_BAL/raw/espn_plays_401873037_20261105_230519.json
+?? live/2026-11-05_JAX_BAL/raw/espn_plays_401873037_20261105_231207.json
+?? live/2026-11-05_JAX_BAL/raw/espn_summary_401873037_20261105_215123.json
+?? live/2026-11-05_JAX_BAL/raw/espn_summary_401873037_20261105_220834.json
+?? live/2026-11-05_JAX_BAL/raw/espn_summary_401873037_20261105_222157.json
+?? live/2026-11-05_JAX_BAL/raw/espn_summary_401873037_20261105_224020.json
+?? live/2026-11-05_JAX_BAL/raw/espn_summary_401873037_20261105_224743.json
+?? live/2026-11-05_JAX_BAL/raw/espn_summary_401873037_20261105_230519.json
+?? live/2026-11-05_JAX_BAL/raw/espn_summary_401873037_20261105_231207.json
+?? outlier/outlier_props_2026-11-05.csv
+?? outlier/outlier_props_2026-11-05_notes.md
+?? outlier/parse.py
+?? outlier/parse2.py
+?? postmortems/2026-11-05_code_notes_for_ghost6.md
+?? postmortems/JAX_BAL_2026-11-05.md
+?? reviews/brainstorm_skill_2026-11-04/
+?? runs/2026-11-05_JAX@BAL_r6/odds/odds_live_fd_2026-11-05.csv
+?? runs/2026-11-05_JAX@BAL_r6/odds/odds_live_fd_2026-11-05.json
+?? runs/2026-11-05_JAX@BAL_r6/odds/odds_post_inactives_fd_2026-11-05_1902.csv
+?? runs/2026-11-05_JAX@BAL_r6/odds/odds_post_inactives_fd_2026-11-05_1902.json
+?? runs/2026-11-05_JAX@BAL_r6/proactive/
+?? runs/2026-11-05_JAX@BAL_r6/slips_rico_3/
+?? runs/2026-11-05_JAX@BAL_r6_gamesim_audit/
+?? runs/2026-11-05_JAX_BAL/
+?? runs/2026-11-05_matchup_run/
+?? runs/2026-11-05_shared_src/gate_output.txt
+?? runs/2026-11-08_DAL@IND/
+?? runs/2026-11-08_sunday_slate/
+?? runs/2026-11-09_BUF@MIN_r2/
+?? runs/2026-11-09_MNF_BUF@MIN/frozen_pregame_lines/
+?? runs/2026-11-09_MNF_BUF@MIN/live_pbp/
+?? runs/2026-11-12_WAS@NYG_scheduled/forecast_2026-11-12_1049.json
+?? runs/2026-11-12_WAS@NYG_scheduled/weather_hourly_2026-11-12_1052.json
+?? runs/2026-11-12_WAS@NYG_scheduled/weather_raw/
+?? runs/2026-11-12_matchup_run/
+?? runs/line_movement_wk10/.snap_gamelines_wrapper.py
+?? skill_draft/proposals/
+?? tools/schedule_2026_wk9_lines.json
+?? week10/bal_def_snapshot/
+?? week10/bal_secondary/
+?? week10/brainstorm_layers/
+?? week10/fagnano/
+?? week10/jax_usage/
+?? week10/key_players.csv
+?? week10/meyers_wash_strange/bal_vs_receiver_normals.csv
+?? week10/ngs/
+?? week10/outlier_projections.md
+?? week10/pff_jax_bal/
+?? week10/post_inactives_defensive_profile_2026-11-05.md
+?? week10/vet_r5/
+?? week9/research_sources/
+?? week9/weather_forecast/forecast_2026-11-08_0711.json

@@ -1,0 +1,114 @@
+# Week 8 ARI@DAL
+DAL spread -7.5, total 54.5
+Weather: not saved.
+## ARI offense (last 3 games: weeks [5, 6, 7])
+Rushers (carries/yds over L3): T.Allgeier 29.0/64; Z.Knight 23.0/136; J.Love 12.0/22; J.Brissett 11.0/37
+Targets (tgt/rec yds/air yds over L3): T.McBride 32.0/230/209; K.Bourne 22.0/126/136; Mi.Wilson 22.0/117/263; J.Brooks 16.0/81/240; E.Higgins 9.0/102/32; Z.Knight 7.0/27/19; T.Allgeier 7.0/49/0
+ARI QB EPA/dropback vs blitz -0.25 (n=83) vs no blitz 0.08
+## DAL defense (season to date, 7 games)
+Rush YPC allowed 4.92; 10+ yd runs allowed 24; 20+ yd pass plays allowed 23/224 att
+Pass YPA allowed by location: left 7.09 (81.0 att); middle 10.2 (41.0 att); right 7.11 (92.0 att)
+DAL blitz rate 26%
+## DAL offense (last 3 games: weeks [5, 6, 7])
+Rushers (carries/yds over L3): J.Williams 48.0/241; T.Goodson 12.0/38; D.Prescott 5.0/15; H.Luepke 2.0/8
+Targets (tgt/rec yds/air yds over L3): C.Lamb 36.0/153/385; G.Pickens 30.0/260/303; R.Flournoy 18.0/200/148; J.Ferguson 10.0/32/61; B.Spann-Ford 9.0/46/27; J.Williams 5.0/26/-5; J.Mingo 5.0/20/110
+DAL QB EPA/dropback vs blitz 0.02 (n=97) vs no blitz 0.21
+## ARI defense (season to date, 7 games)
+Rush YPC allowed 4.73; 10+ yd runs allowed 22; 20+ yd pass plays allowed 23/218 att
+Pass YPA allowed by location: left 8.51 (76.0 att); middle 8.34 (47.0 att); right 8.55 (78.0 att)
+ARI blitz rate 31%
+# SAVED PREGAME CHECKLIST (excerpt)
+# ARI @ DAL — Week 8 60-check manifest
+Game 401873024, Sun Nov 01 01:00 PM ET, AT&T Stadium (indoor), DAL -7 / 54.5. Built 2026-10-29 05:25 EDT. Status counts: {'PASS': 16, 'PARTIAL': 30, 'NOT_APPLICABLE': 4, 'UNAVAILABLE': 7, 'UNIMPLEMENTED': 3}
+
+| # | Check | Status | Reason | Evidence |
+|-|-|-|-|-|
+|1|P1.pbp|PASS|Repo SQLite plays (ESPN PBP) Wk1–7 + nflverse via overlay|repo/data/nfl_matchups.sqlite; fixes/fixes.sqlite|
+|2|P1.boxscores|PASS|player_stats + fix_player_game_usage|fixes/fixes.sqlite|
+|3|P1.tackles_sacks|PARTIAL|fix_play_credits reconciled; tackler≠coverage defender|fixes/FIXES.md|
+|4|P1.pressure|PARTIAL|Pressure is opponent-Sharp-allowed proxy + pbp sack/hit; no charted pressure source|defense/ARI_at_DAL.md|
+|5|P1.ol_snaps|PARTIAL|nflverse participation snaps only; Wk7 participation lag possible|fixes/fixes.sqlite fix_participation|
+|6|P1.air_yards|PARTIAL|NGS IAY per QB; per-target air yards via nflverse only where loaded|defense/raw|
+|7|P1.redzone|PASS|RZ targets/goal-line carries in baselines|team_baselines/ARI.md, DAL.md|
+|8|P1.scrambles|PARTIAL|fix_qb_rushing scramble flags from nflverse; ESPN PBP lacks explicit flag|fixes/fixes.sqlite fix_qb_rushing|
+|9|P2.team_defense|PASS|Production + explosive counts per game|defense/ARI_at_DAL.md|
+|10|P2.coverage|PASS|Sharp coverage pages dated Oct 20 = CURRENT per user (last games before slate)|defense/SOURCES.md|
+|11|P2.individual_assignments|PARTIAL|Only PBP-named defenders on big plays (weak signal); no charted assignment source|team_baselines/|
+|12|P2.weakest_link|PARTIAL|Alignment-level weakest link from Sharp ranks (see Soft spots); player-level unverified|defense/ARI_at_DAL.md|
+|13|P2.pressure_trend|PARTIAL|ESPN PRWR through Wk6 only; pbp sack/hit trend|defense/ARI_at_DAL.md|
+|14|P3.team_offense|PASS|QB/team production|team_baselines/|
+|15|P3.player_roles|PASS|Roles + L3 vs season shares; roster-checked 2026-10-29 05:25 EDT|defense/ARI_at_DAL.md; rosters/|
+|16|P3.ol_health|PARTIAL|OL designations from ESPN injuries; Thu practice pending|injuries.json|
+|17|P3.target_hierarchy|PASS|L3 vs season target/carry share (opportunity gate inputs)|team_baselines/|
+|18|P3.routes_gaps|PARTIAL|NGS separation/cushion; run gaps from pbp direction; no route participation|defense/raw|
+|19|P3.qb_blitz|PASS|FTN EPA vs blitz / no-blitz per offense|defense/ARI_at_DAL.md|
+|20|P4.slip_comparison|NOT_APPLICABLE|No slip supplied for this game|—|
+|21|P4.injury_alerts|PARTIAL|Wed status logged; Thursday reports PENDING|injuries.json; this file Injury impact|
+|22|P4.script_risk|PARTIAL|Backup-QB/workload risk noted from injuries; 10G labels pending|this file|
+|23|P5.bundle|PARTIAL|Markdown/JSON bundle; no engine-versioned bundle|week8/|
+|24|P5.provenance|PARTIAL|sha256 of inputs recorded below; engine code/model hash unavailable (nfl.py on user Mac)|this file|
+|25|P5.source_preservation|PASS|Repo SQLite untouched; fixes in overlay|fixes/PATCH_SPEC.md|
+|26|P6.live_policy|NOT_APPLICABLE|Pregame; live polling off|—|
+|27|P7.ngs_targeted_charts|PARTIAL|NGS public leaderboards (sep/cushion/YACOE/TTT); per-game targeted charts not read|defense/raw|
+|28|P7.all_routes|UNAVAILABLE|Route participation not in any public source loaded|—|
+|29|P7.run_concepts|UNAVAILABLE|No verified run-concept source; film pending|film/|
+|30|P7.strength_map|PARTIAL|Sharp alignment YPT + box rates; no side-level split|defense/ARI_at_DAL.md|
+|31|P7.rb_suppression|PARTIAL|RB YPC/rush+rec allowed + game state; RB quality adj not applied|defense/ARI_at_DAL.md|
+|32|P7.cb_suppression|UNAVAILABLE|Individual CB coverage stats are paid/not loaded|—|
+|33|P7.panthers_rule|PARTIAL|QB NGS/blitz review for: Jacoby Brissett, Dak Prescott; exact OL/pass-rush matchup not charted|defense/ARI_at_DAL.md|
+|34|P8.film|PARTIAL|Codex YouTube highlight notes done for ARI 2/6 games, DAL 2/6 (film/codex_out, still running; not yet verified vs pbp by this worker)|film/codex_out|
+|35|P8.personnel|UNAVAILABLE|Personnel packages need film; depth chart formation only|rosters/|
+|36|P8.scheme|PARTIAL|Coverage shells from Sharp (man/zone/MOFC); fronts/run fits need film|defense/ARI_at_DAL.md|
+|37|P8.missed_looks|UNAVAILABLE|Pending verified film notes|film/|
+|38|P8.film_notes|PARTIAL|Codex notes unverified; hypotheses only|film/codex_out|
+|39|P9.weather|NOT_APPLICABLE|NOT_APPLICABLE: indoor/roof (ESPN indoor=true)|slate.json|
+|40|P9.rest_travel|PASS|ARI last game 2026-10-25 (7 days rest); DAL last game 2026-10-27 (5 days). Time-zone change only from venue, no itineraries invented|ESPN team schedule API|
+|41|P9.stakes|PARTIAL|Records from ESPN scoreboard; divisional/rematch not a 2026 rematch; playoff-odds not pulled|defense/ARI_at_DAL.md|
+|42|P9.injury_spikes|PARTIAL|Exact-game availability: Wed designations; Thu/Fri + inactives pending|injuries.json|
+|43|P9.turnovers|PARTIAL|Turnovers in pbp/baselines; rolling interpretation not modeled|team_baselines/|
+|44|P9.situational_efficiency|PASS|3rd-down % and RZ TD % allowed|defense/ARI_at_
+# AVAILABLE PROPS (main line)
+bamknight (ARI) rushyds over 18.5 -116.5
+bamknight (ARI) rushyds under 18.5 -111.5
+elijahhiggins (ARI) recyds over 17.5 -110
+javontewilliams (DAL) rushrecyds under 92.5 -113
+kendrickbourne (ARI) recyds over 38.5 -114
+jeremiyahlove (ARI) recyds over 10.5 -120
+michaelwilson (ARI) recyds over 59.5 +nan
+jacobybrissett (ARI) rushyds under 9.5 -114.5
+jakeferguson (DAL) recyds under 17.5 -114
+javontewilliams (DAL) recyds over 11.5 -113
+javontewilliams (DAL) rushrecyds over 92.5 -113
+ryanflournoy (DAL) recyds over 38 +nan
+zonovanknight (nan) rushyds over 18.5 -115
+brevynspannford (DAL) recyds over 14.5 -115
+jeremiyahlove (ARI) rushrecyds over 59.5 -116
+tylerallgeier (ARI) rushyds under 13.5 -113
+jeremiyahlove (ARI) rushyds under 45.5 +nan
+georgepickens (DAL) recyds over 66 +nan
+jeremiyahlove (ARI) rushyds over 45.5 +nan
+treymcbride (ARI) recyds under 73.5 +nan
+dakprescott (DAL) rushyds over 8.5 -111.5
+kendrickbourne (ARI) recyds under 38.5 -112.5
+javontewilliams (DAL) recyds under 11.5 -115
+jacobybrissett (ARI) rushyds over 9.5 -114.5
+tylergoodson (DAL) rushyds over 20.5 -114.5
+zonovanknight (nan) rushyds under 18.5 -111
+tylergoodson (DAL) rushyds under 20.5 -118
+dakprescott (DAL) rushyds under 8.5 -114
+javontewilliams (DAL) rushyds under 77 +nan
+reggievirgil (ARI) recyds over 8.5 -113
+ryanflournoy (DAL) recyds under 38 +nan
+ceedeelamb (DAL) recyds under 85.5 -114
+ceedeelamb (DAL) recyds over 85.5 -120.5
+michaelwilson (ARI) recyds under 59.5 +nan
+tylerallgeier (ARI) rushyds over 13.5 -114
+brevynspannford (DAL) recyds under 14.5 -111
+treymcbride (ARI) recyds over 73.5 +nan
+jeremiyahlove (ARI) rushrecyds under 59.5 -110
+elijahhiggins (ARI) recyds under 17.5 -117
+georgepickens (DAL) recyds under 66 +nan
+jakeferguson (DAL) recyds over 17.5 -115
+reggievirgil (ARI) recyds under 8.5 -114
+jeremiyahlove (ARI) recyds under 10.5 -110
+javontewilliams (DAL) rushyds over 77 +nan

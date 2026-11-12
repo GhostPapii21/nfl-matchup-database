@@ -1,0 +1,39 @@
+{
+ "game": "Week 6 CHI@ATL / kickoff time MISSING / ATL +1, CHI -1 / total 51 / implied totals CHI 26, ATL 25 / weather MISSING: not saved. Moneylines, opening lines, movement, venue details, rest and travel MISSING. Source: supplied pre-kickoff pack; exact as-of timestamp not supplied.",
+ "script": {
+  "base": "CHI is a narrow favorite, so the working script is a competitive game rather than an early Atlanta rushing shutdown. Atlanta keeps Bi.Robinson involved throughout, with its passing game supporting sustained possessions against a CHI defense allowing 15 explosive completions in 143 attempts. Pace and halftime leadership are uncertain because the pack supplies neither pace data nor first-half markets.",
+  "flip1": "Atlanta leads early and protects that lead through Bi.Robinson and Br.Robinson. This supports Bijan's rushing over unless the secondary back absorbs substantially more work than the recent 65-to-31 carry split.",
+  "flip2": "Chicago builds a multi-score lead and Atlanta shifts toward passing. Bijan's rushing over becomes script-dependent and can fail despite productive touches."
+ },
+ "injury_fallout": "MISSING: CHI and ATL injury reports, practice trends, offensive-line availability, defensive absences, snap restrictions and final inactives. No absences, returns or replacement roles are inferred from usage. The pack establishes recent participation by Bi.Robinson and Br.Robinson, not either player's health. Final-report and approximately 90-minute inactive checks cannot be completed under the pack-only constraint.",
+ "matchup": {
+  "shell": "MISSING: CHI and ATL MOFO/MOFC rates, man/zone rates, box counts and individual coverage assignments. Location splits cannot establish which defender would cover a particular receiver.",
+  "pressure": "CHI blitzes 38%; ATL's QB has 0.12 EPA/dropback against blitz versus -0.27 without it. ATL blitzes 27%; CHI's QB has 0.20 EPA/dropback against blitz versus -0.04 without it. Source: supplied season-to-date pack. Actual pressure rates, sack rates, time to throw and check-down rates are MISSING; blitz frequency alone does not establish pressure effectiveness.",
+  "bleeds": "CHI has allowed 4.50 rushing yards per carry and 12 runs of at least 10 yards through five games, compared with ATL's 4.04 and eight. CHI also allows 13.61 YPA over the middle on 28 attempts, but positional receiving allowances are MISSING. Source: supplied defensive pack.",
+  "overlap": "The clearest usable overlap is Atlanta's leading recent ball carrier, Bi.Robinson, facing the more permissive rushing defense in this matchup. His 65 carries versus Br.Robinson's 31 establish a substantial lead, though not an exclusive backfield. Source: supplied weeks 3\u20135 offense and five-game defense summaries."
+ },
+ "form": "Weeks 3\u20135: Bi.Robinson recorded 65 carries for 425 yards and 11 targets for 53 receiving yards; Br.Robinson recorded 31 carries for 128 yards. Bijan's recent rushing workload is substantial, but his 6.54 yards per carry should not be carried forward unchanged. For context, CHI split 44 carries to D.Swift and 40 to K.Monangai, making its rushing volume less concentrated. Individual-game distributions, snaps, routes, red-zone work, coaching changes and comparable-opponent logs are MISSING. Source: supplied last-three-game pack.",
+ "edge_players": [
+  {
+   "player": "bijanrobinson",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Bijan Robinson can beat 95.5 rushing yards through lead-back volume against a CHI defense allowing 4.50 yards per carry and 12 runs of at least 10 yards, provided Atlanta stays competitive.",
+   "must_be_true": "Bi.Robinson carries >= 22 [because the pack records 65 carries across weeks 3\u20135 and CHI allows 4.50 rushing yards per carry]",
+   "kills_it": "IF Chicago builds a multi-score lead and Atlanta limits Bi.Robinson to 17 or fewer carries THEN bijanrobinson rushyds over 95.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Hypothesis first: Atlanta's leading rusher benefits from a competitive script and CHI's rushing vulnerability. Numerical check: Bijan averaged 21.67 carries and 141.67 rushing yards over the supplied three games. A simple sensitivity calculation using 22 carries at CHI's 4.50 allowed YPC gives 99 yards, only 3.5 above the line; this is not a fitted projection or simulation. His recent 6.54 YPC is not assumed sustainable. Over -112 requires 52.83% to break even. Normalizing the supplied over -112 and under -124.5 yields approximately 48.8% no-vig for the over, but the book is unidentified and this is not a Pinnacle benchmark. The narrow sensitivity margin and lack of a calibrated model keep confidence at lean; no demonstrated positive expected value or stake is claimed.",
+  "disagrees": "none",
+  "missing": "Calibrated projection, simulation median and distribution, Pinnacle prices, game-level rushing distribution, injury and inactive information, coverage charting, box counts, near-kickoff weather, exact fact timestamps, and persistent pre-kickoff read storage/hash. Postgame read-versus-result grading cannot yet be performed.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate only: bijanrobinson rushyds over 95.5 at -112, from AVAILABLE PROPS. Rushing yards best matches the carry-volume/run-defense hypothesis. No alternative rung is supplied. No wager or stake recommendation without validated probability and availability checks.",
+ "pre_mortem": "It is Monday and Bijan's over lost because the 425-yard recent total encouraged too much confidence in efficiency. CHI's 4.50 allowed YPC does not guarantee Bijan that efficiency, and even 22 carries at that rate only narrowly clears 95.5. Br.Robinson already handled 31 recent carries and could absorb important possessions without any injury or role change. Alternatively, Chicago's narrow pregame advantage becomes a substantial lead and Atlanta abandons enough rushing volume to strand Bijan below the number. These risks make this a lean, not a strong or price-validated play.",
+ "slip_story": "Fits an Atlanta-competitive or Atlanta-leading rushing story and survives the base script plus flip1. It is vulnerable to flip2. Only one candidate is retained; do not manufacture a 3\u20134-leg slip or add a second market for Bijan. This response records the hypothesis, but no persistent timestamped lock/hash or postgame grading is available.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

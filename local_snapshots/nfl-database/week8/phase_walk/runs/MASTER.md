@@ -1,0 +1,3 @@
+- 2026-10-31 19:43 EDT | runs/betguru_20261031T194324 | Phases 5–10G walk, Sun Nov 1 2026 | seed 20261101 | N=100000×3 | FD 19:37 snapshot
+- 2026-10-31 19:50 EDT | runs/betguru_audit_20261031T195019 | audit re-run v4 (YPC reg k=100 + full opp YPC) | 5 legs | seed 20261101 | N=100000×3
+- 2026-11-01 06:14 EST | runs/betguru_refresh_20261101T0612 | morning re-price of consensus (Walker 80+, Puka 8+) | v4 sims reused | FD 06:12 pull

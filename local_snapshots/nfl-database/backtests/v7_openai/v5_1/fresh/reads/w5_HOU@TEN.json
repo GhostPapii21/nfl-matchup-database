@@ -1,0 +1,48 @@
+{
+ "game": "HOU@TEN Week 5 / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this script is inferred only from L3 form and season defensive rates, not from a market number. Neither defense blitzes much (TEN 22%, HOU 21%), and both QBs are worse when not blitzed (Stroud -0.03 EPA/dropback, n=34; Ward -0.17, n=30), so the lean is lower-efficiency passing rather than a shootout. Tennessee's offense runs through Pollard (47 carries, 186 yards, 3.96 YPC, about 62 rush yards a game over weeks 2-4). Houston's run game has been poor (Montgomery 2.48 YPC on 27 carries, Marks 2.37 on 19), so Houston's viable path is short and middle throws, where Schultz has 19 targets and 179 yards, not a Montgomery clock-grind. Who leads and the pace are unknown without a spread.",
+  "flip1": "Houston blitzes well above its 21% rate. Ward's EPA vs blitz is +0.14 (n=30), Tate (26 targets, 230 yards, 312 air yards over L3) hits the explosives Houston has allowed (17 passes of 20+ on 156 attempts), Tennessee abandons the Pollard lean, and the game becomes a Tennessee pass script. Montgomery's rush under still holds; a Tate over would be a different stack and is not in this slip.",
+  "flip2": "Tennessee blitzes well above 22%. Stroud's EPA vs blitz is +0.47 (n=34), Houston's deep air (Hutchinson 304 air yards, Noel 125, Boutte 128 over L3) actually converts, and Houston either pulls away or trades scores. Schultz's over still holds on volume. Montgomery's under fails only if that lead turns into a clock-grind of 12+ carries rather than more throws."
+ },
+ "injury_fallout": "MISSING: injury report, practice participation (DNP/limited/full), questionable tags, game-time decisions, and inactives for both HOU and TEN. No absences, returns, snap limits, or next-man-up are assigned. Form-only notes, not injuries: N.Collins 8 targets and 118 yards over L3 against a 77.5 line; X.Hutchinson 20 targets, 134 yards, and 304 air yards against a 14.5 line; C.Ridley 5 targets and 48 yards against an 8.0 line. Those line-versus-usage gaps are unexplained in the pack and are not bet.",
+ "matchup": {
+  "shell": "MISSING: coverage charting. No MOFO/MOFC split and no man/zone rate. Only location YPA is in the pack. TEN: left 8.1 (40 att), middle 8.21 (24 att), right 7.52 (48 att). HOU: left 5.4 (43 att), middle 9.95 (38 att), right 8.35 (60 att).",
+  "pressure": "Pressure rate is not in the pack, only blitz rate. TEN blitzes 22%; HOU blitzes 21%. Stroud is +0.47 EPA/dropback vs blitz (n=34) and -0.03 when not blitzed. Ward is +0.14 vs blitz (n=30) and -0.17 when not blitzed. A low-blitz game points at each QB's worse split and away from deep-shot efficiency.",
+  "bleeds": "TEN rush defense allows 3.88 YPC and 11 runs of 10+ in 4 games, with 13 passes of 20+ on 120 attempts (10.8%). Softest pass location is the middle at 8.21 YPA, but only 24 attempts. HOU rush defense is tighter at 3.44 YPC and 8 runs of 10+, and has allowed 17 passes of 20+ on 156 attempts (10.9%), bleeding the middle (9.95) and right (8.35) while holding the left to 5.4.",
+  "overlap": "Schultz (19 targets, 179 yards, 135 air yards, 7.1 air yards per target) is the Houston option that overlaps TEN's softest listed area, the middle, without needing the deep shots Hutchinson is taking (304 air yards, only 134 rec yards, 6.7 yards per target). Montgomery does not overlap a weak run fit for an over: even at TEN's 3.88 YPC, his L3 pace of 9 carries is about 35 yards. Tate (312 air yards) would overlap HOU's explosive allowance, but alignment is missing and that overlap needs the blitz flip, so it is not the leg."
+ },
+ "form": "HOU weeks 2-4 totals, not per-game averages: Montgomery 27 carries/67 yards (2.48 YPC, 22.3/game), Marks 19/45 (2.37 YPC, 15/game), Stroud 7/51 (17/game, 7.3 YPC, small and possibly one-play skewed), Noel 3/25. Targets: Hutchinson 20/134/304, Schultz 19/179/135, Boutte 11/94/128, Wayne 11/53/173, Noel 10/133/125 (13.3 yards per target, explosive-looking), Marks 8/33/22, Collins 8/118/112. TEN weeks 2-4: Pollard 47/186 (3.96 YPC, 62/game) plus 9 targets/25 yards, Spears 12/53 (17.7/game) and not on the L3 target list, Ward 9/36, Singleton 7/12. Targets: Tate 26/230/312, Robinson 17/85/106 (28.3/game vs a 33.5 line), Helm 8/32/28 (10.7 vs 16.5), Ayomanor 7/102/76 (14.6 yards per target, fluky), Ridley 5/48/44, Bellinger 4/18/0. Passed: Hutchinson over 14.5 and Collins under 77.5 because the lines imply a different role than L3 and injury/role data is missing; Noel and Ayomanor overs look explosive-inflated; Pollard rushrec over 64.5 matchup-adjusts to about 54 rush (15.7 carries times HOU 3.44 YPC) plus 8.3 rec, under the rung.",
+ "edge_players": [
+  {
+   "player": "davidmontgomery",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Montgomery has 67 rush yards on 27 carries over the last three games, about 22 a game at 2.48 yards per carry, and even a full jump to the 3.88 yards per carry Tennessee has allowed is only about 35 yards on a 9-carry pace, still under 43.5.",
+   "must_be_true": "David Montgomery carries <= 11 because L3 was 27 carries and 67 rush yards (2.48 YPC, 22.3 yards/game) and 11 carries at TEN's 3.88 YPC allowed is 42.7",
+   "kills_it": "IF Montgomery records 12 or more carries or a run of 20+ yards THEN rush yards under 43.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "daltonschultz",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Schultz is Houston's steadiest pass-catcher at 179 yards on 19 targets over three games, about 60 a game, against a 34-yard line, and Tennessee's softest listed passing area is the middle at 8.21 yards per attempt, which fits a tight end at 7.1 air yards per target.",
+   "must_be_true": "Dalton Schultz targets >= 5 because L3 was 19 targets and 179 rec yards (59.7 yards/game) versus a 34.0 line",
+   "kills_it": "IF Schultz is held to 4 or fewer targets THEN rec yards over 34 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so this check is L3 form and season defensive rates against the listed lines only. Montgomery 67 yards on 27 carries is 22.3 per game versus 43.5; 9 carries times TEN 3.88 YPC allowed is 34.9, still under, and 11 carries at 3.88 is 42.7. Schultz 179 yards over 3 games is 59.7 versus 34.0. TEN middle 8.21 YPA on 24 attempts supports the area rather than opposing it. Stroud's no-blitz EPA of -0.03 and TEN's 22% blitz rate are already in the script as a volume risk, not a contradiction of the recorded 179 yards. TEN's 11 runs of 10+ cap how hard the Montgomery under can be; they do not put 9 carries over 43.5.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff time, weather, injury report and inactives, coverage shell and man/zone charting, pressure rate (blitz rate only), Pinnacle no-vig, projection and sim medians, game-by-game splits, Schultz price (listed +nan)",
+  "verdict": "agree"
+ },
+ "market_rung_price": "davidmontgomery rushyds under 43.5 at -114, main line not an alt. daltonschultz recyds over 34, price MISSING in the pack (+nan); do not size until a real price is posted. One market per player. No receptions, passing yards, or TDs.",
+ "pre_mortem": "It's Monday and both lost because the missing spread hid a Houston lead: Houston ground the clock, Montgomery got 14 carries, and one of the 10-plus yard runs Tennessee has already allowed 11 of this season pushed him through 43.5 even without a true efficiency fix. Schultz lost the same script from the other side, or lost a slog in which Tennessee stayed at a 22% blitz, Stroud sat on his -0.03 no-blitz EPA, and the 20 Houston targets Hutchinson has drawn (304 air yards, only 134 yards) plus Noel and Boutte ate the volume so Schultz finished on 4 targets around 25 yards. A late inactive not in this pack would void either leg. The counter is real on script because the spread is missing, but it is not stronger than 27 carries at 2.48 YPC versus 43.5, so the Montgomery under stays and Schultz stays a lean rather than a strong.",
+ "slip_story": "One story only: Houston's run game stays broken and the offense's answer is Schultz in the short and middle, not a shootout and not a favorite clock-grind. Stack is Montgomery rush yards under 43.5 with Schultz rec yards over 34. Do not add Hutchinson, Noel, Boutte, or Tate overs, a game total over, or Collins either side; those need the blitz flip, a role the pack does not confirm, or a total that was not saved. Do not add Marks under in the same slip without an inactive list, because a Montgomery scratch redistributes the carries. Pre-kickoff log only.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

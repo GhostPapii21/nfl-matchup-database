@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 DAL@HOU / kickoff MISSING / spread and total not saved; script inferred only from supplied team form / weather MISSING; venue conditions, moneyline, implied totals, rest, travel and opening-line movement MISSING",
+ "script": {
+  "base": "Working hypothesis, not a market-implied forecast: DAL's passing production gives it a plausible route to a narrow lead, while HOU can remain competitive by attacking DAL's vulnerable run defense. A competitive game preserves receiving opportunities for C.Lamb and D.Schultz; pace, halftime leadership and garbage time cannot be established from this pack.",
+  "flip1": "HOU controls possession through its running game against DAL's 5.23 YPC allowed and 15 runs allowed of 10-plus yards. Lamb can retain comeback opportunities, but Schultz's receiving volume becomes script-dependent if HOU needs fewer passes.",
+  "flip2": "DAL builds an early multi-score lead and shifts toward J.Williams, who has 43 carries across weeks 1\u20133. Lamb's yardage opportunity can stall, while Schultz could retain catch-up volume; neither over is insulated against every script."
+ },
+ "injury_fallout": "MISSING: DAL and HOU injury reports, practice-status trends, offensive-line availability, defensive absences, return restrictions and final inactives. No absence, return or next-man-up role is inferred from usage. Source for all available facts: supplied pre-kickoff Week 4 pack, containing weeks 1\u20133 offensive totals and three-game defensive statistics; exact collection timestamps are missing. Reassessment at final reports and approximately 90 minutes before kickoff remains required.",
+ "matchup": {
+  "shell": "MISSING: DAL and HOU MOFO/MOFC, man/zone rates and individual coverage assignments. Location splits do not establish either Lamb's or Schultz's alignment.",
+  "pressure": "HOU blitzes 23%; DAL QB EPA/dropback is 0.05 against blitzes over 44 dropbacks versus 0.45 without blitzes. DAL blitzes 27%; HOU QB EPA/dropback is 0.42 against blitzes over 25 dropbacks versus -0.13 without blitzes. These splits identify opposing pressure sensitivities, not causal forecasts. Pressure rates, sacks, time to throw and protection health are missing.",
+  "bleeds": "HOU allows 10.11 YPA through the middle and 9.48 to the right, versus 3.89 left, plus 13 completions of 20-plus yards on 108 attempts. DAL allows 9.0 YPA through the middle on 17 attempts and 5.23 rushing YPC, with 15 runs of 10-plus yards. Position-specific coverage allowances, rush EPA, stuff rate, box counts and YAC allowed are missing.",
+  "overlap": "Hypothesis before line comparison: Lamb's established target role can exploit HOU's middle/right passing vulnerability, while Schultz's leading HOU target role offers a route to exploiting DAL's middle vulnerability. Both overlaps require unverified route-location assumptions; Schultz is a demonstrated receiving participant, not merely a nominal TE."
+ },
+ "form": "Across weeks 1\u20133, Lamb has 26 targets, 309 receiving yards and 311 air yards; Pickens has nearly as many targets at 25 but 150 receiving yards. Schultz leads HOU with 25 targets and 205 receiving yards, with 157 air yards; Hutchinson follows with 21 targets, 120 receiving yards and 290 air yards. These aggregates support current involvement but cannot reveal weekly consistency, snap or route trends, red-zone usage, long-play dependence, play-caller changes or results against comparable defenses.",
+ "edge_players": [
+  {
+   "player": "ceedeelamb",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Lamb's established target role offers a path over 76.5 receiving yards against a HOU defense conceding substantial middle/right yardage and explosive passes, provided his routes access those areas.",
+   "must_be_true": "C.Lamb targets >= 8 [because the pack records 26 targets across weeks 1\u20133]",
+   "kills_it": "IF DAL builds an early multi-score lead before Lamb accumulates meaningful receiving yardage and shifts to a run-heavy finish THEN ceedeelamb recyds over 76.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "daltonschultz",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Schultz's team-leading receiving involvement gives him a path over 40.5 yards against DAL's vulnerable middle, provided his routes actually attack that area.",
+   "must_be_true": "D.Schultz targets >= 7 [because the pack records a HOU-leading 25 targets across weeks 1\u20133]",
+   "kills_it": "IF HOU controls the game on the ground and reduces Schultz to a low-volume receiving role THEN daltonschultz recyds over 40.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The hypotheses were formed from roles and defensive vulnerabilities before comparing the lines. Subsequent arithmetic checks: Lamb's three-game receiving total implies 103.0 yards per game versus 76.5; Schultz's implies 68.3 versus 40.5. Those aggregates support plausibility, not hit probabilities or projections. Lamb over -114 requires 53.27% to break even; Schultz over -113 requires 53.05%. No projection or simulation was run, and no quantified positive expected value is established. Both remain conditional leans.",
+  "disagrees": "none",
+  "missing": "Projection, simulation median, calibrated hit probabilities, Pinnacle no-vig prices, weekly outcome distributions, route-location confirmation, coverage charting, injury/inactive information, weather and market movement.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line candidates only: ceedeelamb recyds over 76.5 at -114; daltonschultz recyds over 40.5 at -113. Receiving yards matches the hypothesized coverage/explosive opportunity for Lamb and receiving-role opportunity for Schultz; receptions are unavailable. No alternate rung, staking recommendation or verified price edge.",
+ "pre_mortem": "It's Monday and both overs lost: HOU successfully ran against DAL's 5.23 YPC allowance, shortened the game and reduced Schultz's opportunities, while Lamb's routes encountered HOU's stronger left-side coverage or DAL's passing efficiency deteriorated against pressure. The pack does not establish where either player runs routes, and three-game totals can conceal a single inflated performance. Lamb's target competition from Pickens and Schultz's competition from Hutchinson further weaken any assumption of guaranteed volume. These counterarguments keep both reads at lean rather than strong.",
+ "slip_story": "Both candidates fit one competitive-game story: DAL generates passing production through Lamb while HOU continues involving Schultz. Lamb survives a HOU-led comeback script better; Schultz survives a DAL-led catch-up script better. Do not force a 3\u20134-leg slip from this game: only two conditional candidates qualify, and their shared script and joint price have not been modeled. No TDs, depth-receiver additions or second market on either player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 NYJ@DET / kickoff NOT in pack / spread NOT saved / total NOT saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this is form only, not a book number. Detroit has the heavier skill volume (Gibbs 45.0 carries/208 rush yards, St. Brown 27.0 targets/209 rec yards) while the Jets have allowed 1 pass of 20+ yards on 67 attempts and 4.09 rush YPC, so the base read is a Detroit-leaning game with explosives capped and Gibbs keeping a large carry share. The Jets can still run: Detroit has allowed 5.12 YPC and 10 runs of 10+ yards, so Hall (38.0 carries, 131 rush yards, plus 79 rec yards) stays in the game even if New York is not leading.",
+  "flip1": "Detroit gets up early and kills clock with Gibbs (already 45.0 carries). The Jets abandon the run, Hall's rush dies, and Detroit's 43% blitz pushes Hall and Wilson into checkdowns while St. Brown and Jameson Williams target volume stalls.",
+  "flip2": "A shootout or a Jets lead: Gibbs' 22.5-carry pace dips, Wilson (152 air yards) and St. Brown attack Detroit's middle (13.27 YPA on 15.0 attempts) and the 10 passes of 20+ yards on 94 attempts, and the Jameson Williams under dies if one deep shot hits."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, snap limits, and inactives for NYJ and DET. No absences, returns, or next-man-up inferred from usage dips.",
+ "matchup": {
+  "shell": "MISSING coverage charting: no MOFO/MOFC and no man/zone rate. Location splits only: DET allows 4.11 YPA left (27.0 att), 13.27 middle (15.0 att), 7.91 right (44.0 att). NYJ allows 5.73 left (22.0 att), 5.91 middle (11.0 att), 3.36 right (28.0 att).",
+  "pressure": "DET blitz rate 43%. NYJ QB EPA/dropback is 0.18 vs blitz (n=20) and 0.18 with no blitz, so pressure does not collapse the Jets and fits Hall's checkdowns (7.0 targets, 79 rec yards, 2 air yards). NYJ blitz rate 28%. DET QB EPA/dropback is 0.33 vs blitz (n=23) vs 0.18 without, so Goff is not forced off his first read when blitzed.",
+  "bleeds": "DET run defense bleeds: 5.12 YPC allowed and 10 runs of 10+ yards, plus 10 passes of 20+ on 94 attempts, worst through the middle (13.27 YPA). NYJ does not bleed through the air (1 pass of 20+ on 67 attempts; right side 3.36 YPA) and is only ordinary vs the run (4.09 YPC, 4 runs of 10+).",
+  "overlap": "Hall's 38.0-carry role and 3.45 YPC sample attack the exact Detroit bleed (5.12 YPC, 10 explosive runs), and his 2 air-yard receiving role overlaps the 43% blitz. Jameson Williams' 177.0 air yards and only 78.0 rec yards attack the Jets' non-bleed (1/67 explosives). St. Brown's 27.0 targets are a volume overlap, not a soft-zone overlap; the Jets' best pass side is right at 3.36 YPA."
+ },
+ "form": "Two-game sample only (weeks 1-2); no OC, QB, or teammate change is in the pack, and TD dependency is not in the pack. Hall 38.0/131 rush plus 7.0 targets/79 rec yards (about 105 combined per game). Allen 15.0/47 and Geno Smith 8.0/27 are secondary rushers. Wilson 14.0 targets/136 yards/152 air yards (68 per game, under a 78 line on form). Mitchell 15.0/123/237 has no listed prop. Gibbs 45.0/208 rush (104 per game, 4.62 YPC) and 13.0 targets/91 rec yards. St. Brown 27.0/209/218 (104.5 per game). Jameson Williams 13.0 targets/78 yards/177 air yards (39 per game, 6.0 yards per target). LaPorta 15.0/100/30 (50 per game vs a 46.5 line, thin). TeSlaa 6.0/26/84 and Vaki 3.0/14 are small roles.",
+ "edge_players": [
+  {
+   "player": "breecehall",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Detroit has allowed 5.12 yards per carry and 10 runs of 10-plus yards and blitzes 43 percent, which matches Hall's 38-carry role and his 79 receiving yards on only 2 air yards, so his 105 combined yards per game are above an 86 rush-plus-receiving line.",
+   "must_be_true": "Breece Hall carries >= 15 because the pack shows 38.0 carries and 131 rush yards over 2 games and Detroit has allowed 5.12 yards per carry",
+   "kills_it": "IF the Jets trail by multiple scores and Hall is held under 10 carries with fewer than 4 targets THEN breecehall rushrecyds over fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "jamesonwilliams",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Williams has turned 177 air yards into only 78 receiving yards (39 per game, 6.0 yards per target) and the Jets have allowed 1 pass of 20-plus yards on 67 attempts, so a 54-yard line sits above both his output and that defense's explosive rate.",
+   "must_be_true": "Jameson Williams targets <= 8 because the pack shows 13.0 targets and 78.0 receiving yards over 2 games (6.0 yards per target)",
+   "kills_it": "IF Jameson Williams catches one play of 40 or more yards THEN jamesonwilliams recyds under 54 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection model, sim median, or Pinnacle no-vig is in the pack, so the read is tested only on the given rates. Hall is at 131 rush yards plus 79 rec yards over 2 games (105 per game) vs an 86 line, with Detroit at 5.12 YPC and a 43% blitz; that agrees. Williams is at 78.0 rec yards on 13.0 targets (39 per game) vs a 54 line, and NYJ has allowed 1 pass of 20+ on 67 attempts; that agrees. Gibbs rush over 90.5 was not used: 22.5 carries times NYJ's 4.09 YPC allowed is about 92, a push, so that lean was dropped rather than flagged.",
+  "disagrees": "none",
+  "missing": "spread, total, weather, injuries/inactives, coverage shell (man/zone, MOFO/MOFC), sim median, projection model, Pinnacle no-vig, and prices on breecehall rushrecyds over 86 and jamesonwilliams recyds under 54 (both +nan)",
+  "verdict": "agree"
+ },
+ "market_rung_price": "breecehall rushrecyds over 86, price NOT in pack (+nan); jamesonwilliams recyds under 54, price NOT in pack (+nan). No alt rungs saved. Cannot confirm juice. Do not place bets.",
+ "pre_mortem": "Hall loses if the Jets fall behind, Allen (15.0 carries, 47 yards) and Geno Smith (8.0 carries, 27 yards) take the early-down work, his 3.45 YPC never jumps toward Detroit's 5.12 allowed, and the 79 receiving yards on 7 targets do not repeat, leaving him under 86 combined. Williams loses if Detroit trails and Goff (0.33 EPA vs blitz, n=23) hits one 40-plus shot out of the 177 air yards already aimed at him. The Hall counter needs a blowout pass-only script; the 43% blitz and 2 air-yard receiving role are why the combined line was taken instead of rush yards over 60. The Williams counter is one-play variance, not the two-game usage trend (78 yards on 13 targets). Neither counter is stronger than the read.",
+ "slip_story": "One matchup story, not a shootout stack: Detroit's run and blitz bleed feeds Hall rushrecyds over, and the Jets' explosive-pass lid feeds Jameson Williams recyds under. Both survive the base script and the Detroit-leads clock-kill flip; the shootout flip is what kills the Williams leg. Do not pair with Wilson or St. Brown overs, which need Detroit's 10 explosives and 13.27 middle YPA, or with any total that is not in the pack.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

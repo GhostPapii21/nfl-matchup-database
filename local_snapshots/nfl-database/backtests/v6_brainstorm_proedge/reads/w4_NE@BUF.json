@@ -1,0 +1,108 @@
+{
+ "game": "NE @ BUF Week 4 2026 (kickoff, venue, spread, total not in pack; weather not saved)",
+ "script": {
+  "base": "No spread or total is saved, so this is a form script, not a market script. Buffalo has been the more stable offense: James Cook 58 carries for 346 yards (6.0 YPC), Josh Allen 23 carries for 119, Dalton Kincaid 17 targets for 263 yards. New England allows 4.41 YPC and is without DT Christian Barmore (LB Christian Elliss questionable), and the secondary is missing CB Christian Gonzalez and S Brenden Schooler. Base case is a BUF-led game that feeds Cook on the ground, with Allen mixing designed runs, and intermediate throws to Kincaid when NE's 41% blitz or the middle of the field is there. NE's own run game is a committee (Stevenson 31/116, Henderson 24/99, Maye 13/85) and Drake Maye has been worse when blitzed (EPA/db -0.23 vs blitz, -0.08 vs none) while BUF blitzes 31%, so NE is not the side projected to control pace.",
+  "flip1": "Gonzalez and Schooler being out, with Woodson and Canada questionable, turns BUF into a pass funnel. Allen lives in Kincaid, D.J. Moore and Khalil Shakir, Cook's carries stall the way his 57-yard week did, and a Cook rush over dies even if the defense is bad.",
+  "flip2": "NE stays in it or grabs the lead, so Maye has to throw into a BUF defense that has allowed 14 passes of 20+ and 8.75 YPA to the right and 8.08 in the middle. Hollins (194 air yards) and Doubs (202 air yards) become the NE path, Stevenson and Henderson carries die if NE trails, and the BUF 31% blitz is the brake because NE's blitz EPA is negative."
+ },
+ "injury_fallout": "Source is the pack's pre-game nflverse injury report, not inactives. NE CB Christian Gonzalez Out (shoulder) and S Brenden Schooler Out (back) thin the shell for every BUF pass catcher; S Craig Woodson and CB Channing Canada are only Questionable, so they are not treated as out. NE DT Christian Barmore Out (shoulder) is the run-game fallout: the 4.41 YPC already allowed should not get better, which helps Cook and Allen as rushers, not a named backup. LB Christian Elliss Questionable (chest) would help TEs and backs only if he sits. BUF CB Christian Benford is Questionable (toe), not out, so NE WRs do not get a confirmed backup corner. BUF DE T.J. Sanders Doubtful (illness) is a small pass-rush loss, not enough to override Maye's poor blitz EPA. BUF RB Ray Davis Questionable (hamstring) is not in the week 1-3 rusher log (Cook and Allen have the carries), so his status does not create a new lead back; Ty Johnson is not a confirmed sleeper. NE T Morgan Moses Questionable (foot) would hurt NE rush efficiency and raise quick throws if he sits, but he is not ruled out. NE TE Eli Raridon Questionable (thigh) is a stay-away on his own 5.5 line; do not move Hunter Henry's number off a maybe. NE FB Reggie Gilliam and LB Dre'Mont Jones are Questionable only.",
+ "matchup": {
+  "shell": "No man/zone or MOFO/MOFC chart in the pack. Location YPA is the shell proxy. BUF defense: left 5.85 YPA (41 att), middle 8.08 (25), right 8.75 (44), plus 14 passes of 20+ (pack figure 14/119). NE defense: left 5.16 (37), middle 10.53 (19, thin sample), right 4.94 (36), only 5 passes of 20+ (5/99). NE is soft in the middle and sound outside; BUF is soft right and middle, tighter left.",
+  "pressure": "Blitz rates only; no pressure rate or sack log in the pack. BUF blitzes 31% and NE EPA/db is -0.23 vs blitz versus -0.08 with no blitz, so pressure should cut NE deep yards (Hollins, Doubs, Douglas air-yard profiles) and tilt Maye toward checkdowns (Stevenson 11 targets, -3 air yards). NE blitzes 41%, but BUF EPA/db is +0.23 vs blitz and +0.41 with no blitz, so the blitz does not put Allen in a negative script and can still feed a TE.",
+  "bleeds": "NE run defense bleeds efficiency (4.41 YPC, 7 runs of 10+) more than explosives, and the interior is without Barmore. NE pass defense bleeds the middle (10.53 YPA on 19 attempts) and is now missing Gonzalez and Schooler. BUF run defense is the tighter front (4.01 YPC, 9 runs of 10+). BUF pass defense bleeds explosives and the right/middle, not the left.",
+  "overlap": "The clean overlap is Kincaid (17 targets, 263 yards, 218 air yards, about 12.8 aDOT) into NE's middle and a safety/LB group missing Schooler with Elliss and Woodson questionable, with Gonzalez out thinning the shell behind them. Cook overlaps the run bleed (4.41 YPC, Barmore out), not a coverage player. NE's air-yard leaders Hollins and Doubs overlap BUF's explosive-pass allowance, but that overlap is cut by NE's negative blitz EPA, and there is no alignment chart to map either receiver to the right side. Moore (18 targets, 285 air yards, games of 100, 0 and 67) overlaps the same secondary but has a zero. Shakir (15 targets, only 84 yards) does not convert the middle he should see."
+ },
+ "form": "Avoiding season averages; week 1-3 logs from the pack only. Cook rush yards 57, 135, 154 versus 86.5, trend up after a quiet opener, 19.3 carries a game. Cook receiving 12, 4, 0, so he is not a receiving back. Allen rush 24, 72, 23 versus 31.5: median under, one spike. Kincaid 130, 95, 38 versus 48.5: yards declining, last game under. Moore 100, 0, 67. Shakir 40, 38, 6 versus 37.5. Knox 7, 5, 5 versus 9.5, four targets and 17 yards in three weeks. Coleman 1, 63, 37. Stevenson rush 51, 43, 22 versus 32.5; Henderson rush 76, 23 and a silent week inside 24 carries for 99 yards. Maye rush 47, 20, 18 versus 27.5. Hollins 51, 18, 87; Doubs 0, 96, 49; Douglas 20, 9, 38; Henry 26, 40, 5. Ty Johnson has a single listed receiving game of 50 and 0 rush yards. No similar-opponent splits are in the pack.",
+ "pro_edge": {
+  "implied_totals": "N/A. Spread and total were not saved, so favorite=(T+S)/2 and underdog=(T-S)/2 cannot be computed. No high-total volume cue and no low-total run cue from the market.",
+  "script_read": "Form, not a number, says BUF is the side more likely to lead, which would lift Cook's late carries and NE's pass attempts if they trail. The underdog-throws-more rule cannot be applied without a 3.5+ spread. Blowout starter-snap risk is unquantified. Build usage from shares: Cook has essentially all of the RB carries (58; Davis and Ty Johnson are not in the rusher log); Kincaid and Moore split the receiving lead (17 and 18 targets) with Kincaid holding the yards.",
+  "best_price": "No book beats the anchor on the carded leg. James Cook rush yards 86.5: consensus no-vig over 0.502 / under 0.498; best over -114.5, best under -112.5. Fair on 0.502 is about -101, so -114.5 is juiced relative to the anchor, not a best-price steal. Dalton Kincaid 48.5, D.J. Moore 52, Mack Hollins 43, Cook rush+rec 99.5 and several rush+rec lines have no two-sided price, so alt no-vig and best price cannot be shown. Pinnacle is not in the pack; anchor is consensus.",
+  "lagging": "No open-to-current spread or total is saved, so a lagging game line cannot be flagged. Incomplete two-sided props (Kincaid, Moore, Hollins, Cook rush+rec) are missing prices, not proven stale lines. No prop is shown moving or failing to move after a spread move.",
+  "sleepers": "Out or Doubtful: NE CB Gonzalez, NE S Schooler, NE DT Barmore, BUF DE Sanders (Doubtful, illness). None is an offensive skill player, so there is no same-position teammate whose prop failed to move. Gonzalez and Schooler out are a defensive boost for BUF pass catchers, but Kincaid and Moore have no saved two-sided price to diff. Ray Davis is Questionable, not out, and has no week 1-3 carries, so Ty Johnson's rush 4.5 (listed 0) and rec 11.5 (one 50-yard game) are not a confirmed sleeper. Raridon Questionable: do not bet 5.5. Benford Questionable: do not move NE WR lines until he is inactive."
+ },
+ "edge_players": [
+  {
+   "player": "jamescook",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Cook should beat 86.5 rushing yards because he is the entire Buffalo run game (58 carries, 346 yards, 6.0 YPC in three weeks) and New England allows 4.41 yards per carry without DT Christian Barmore.",
+   "must_be_true": "Cook keeps the lead-back share he already has (Davis is not in the carry log and is only Questionable), Barmore stays out, and the game gives him about 18-plus carries rather than a pass-only hole.",
+   "kills_it": "BUF trails and abandons the run (the 57-yard week), the Gonzalez and Schooler absences become a pass funnel, a blowout pulls him before 87, or his 6.0 YPC regresses to the 4.41 NE allows on a normal 19-carry day, which is about 85 and a push or under.",
+   "confidence": "lean",
+   "model_p": 0.57,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "Pack NE defense rush YPC 4.41 and 7 runs of 10+; nflverse injury report Christian Barmore Out (shoulder), Christian Elliss Questionable (chest)."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Pack BUF rushers weeks 1-3: Cook 58/346, Allen 23/119, no other RB carries listed. Usage is already concentrated, not an average-chasing add."
+    },
+    "script": {
+     "ok": true,
+     "source": "Form-inferred BUF lead script from the week 1-3 gap; no saved spread, so this is not a market script. Survives the base run script; the pass-funnel flip is the kill, not the base."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Available props last4 Cook rush yards 57, 135, 154 versus 86.5; trend is up and 2 of 3 cleared the number by a lot."
+    }
+   },
+   "primary_defender": {
+    "who": "NE interior run defense without DT Christian Barmore (Out, shoulder); LB Christian Elliss is Questionable and is not confirmed out. No named primary tackler is charted in the pack.",
+    "source": "Pack official injury report plus NE rush YPC 4.41. Coverage charting is absent."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Role and matchup, not price. Consensus no-vig over 0.502, best saved over -114.5, which does not beat fair. No lagging-line flag. Ray Davis Questionable is not a sleeper boost because he has no listed carries. Hand read 0.57 beats no-vig by about 7 points and the -114.5 price (implied about 0.534) by about 4 points; thin, and not a sim."
+  },
+  {
+   "player": "daltonkincaid",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "PASS, not a leg: Kincaid is the real middle-of-field overlap (17 targets, 263 yards) into a NE secondary missing Gonzalez and Schooler, but the card stops because the number is unpriceable and the yards trend is 130, 95, 38.",
+   "must_be_true": "Would have needed a shoppable two-sided price, a full route share, and the week-3 dip to be coverage rather than a role cut. Those are not shown.",
+   "kills_it": "The 38-yard week already lost to 48.5, there is no saved price to beat, and a repeat of that usage with Elliss and Woodson active loses again. A lean that the latest game disputes gets dropped, not forced.",
+   "confidence": "pass",
+   "model_p": 0.54,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "Pack NE YPA middle 10.53 on 19 attempts; Gonzalez Out, Schooler Out, Woodson and Elliss Questionable. Sample of 19 middle attempts is thin."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Pack BUF targets: Kincaid 17/263/218 air, second in targets to Moore (18) and first in yards. About 12.8 aDOT fits a seam TE more than a pure checkdown, which missing safeties would help."
+    },
+    "script": {
+     "ok": true,
+     "source": "Base, pass-funnel flip, and a competitive game all still throw. Only a late blowout bench would cut snaps, and that is after production."
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "Available props last4 Kincaid rec yards 130, 95, 38 versus 48.5. Declining, and the most recent game missed the line. Per-game targets are not in the pack, so the dip cannot be explained."
+    }
+   },
+   "primary_defender": {
+    "who": "NE middle linebacker/safety level, not Gonzalez. Brenden Schooler is Out; Craig Woodson and Christian Elliss are Questionable. Gonzalez Out thins the shell but is an outside corner, not the TE's primary defender. No man/zone chart.",
+    "source": "Pack injury report and NE middle YPA 10.53. Alignment not charted."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "No two-sided price saved, no-vig N/A, so best price versus anchor cannot be shown and the 3-point gate cannot be run. Not a sleeper (he is active). Dropped under the lean-plus-disagree rule; the matchup is noted so it is not silently ignored."
+  }
+ ],
+ "data_check": {
+  "notes": "Step 8 is incomplete on purpose: no projection file, no sims, no Pinnacle, no final inactives, no coverage chart. model_p values are hand reads, not sim medians, and neither is near 70%. Cook: last4 57/135/154, mean about 115, 5.97 YPC versus a defense allowing 4.41, agrees with the lean over. Price does not agree as value: best over -114.5 versus consensus no-vig 0.502. Regression of his YPC to 4.41 on 19.3 carries is about 85, so the edge is carry surplus plus Barmore, not the raw average. Kincaid considered and passed: 2 of 3 games cleared 48.5 by a lot but the trend disagrees (38 last), and there is no price. Also passed, not carded: Knox under 9.5 (3/3 under but a one-catch margin into a middle that allows 10.53 YPA, and the counter is as strong as the read); Shakir either side (40/38/6 around 37.5); Moore and Hollins (no price, a zero or an 18); Allen rush either side (median 24 under 31.5 but 23 carries and a 72 against a Barmore-less front); Stevenson rush over (2 of 3 hit, but BUF allows 4.01 YPC and a trailing script hurts); Doubs and Hollins overs (air yards into a blitz that NE has not handled). No leg was cut for a strong read the data merely disputed. Cook is a lean the recent form agrees with.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Carded rung is the main line only: James Cook rushing yards over 86.5, best saved price -114.5 (consensus). No alt rung in the pack. Do not take a short-priced alt. Kincaid receiving yards 48.5 has no saved price, so it is not priced and not carded. Cook rush+rec 99.5 is the same player and a worse number (he has 12, 4 and 0 receiving yards) and has no price; one market per player.",
+ "pre_mortem": "It is Monday and Cook under 86.5 lost the ticket because Buffalo looked at Gonzalez, Schooler and a questionable Canada and threw. Cook finished near the 57-yard week while Moore or Shakir soaked the script, or his efficiency regressed to the 4.41 NE already allows and 19 carries landed at 85. A blowout the other way is less likely from the form gap, but a blowout BUF leads could also pull him after a quiet first half. Weather was never saved, so wind or rain could have cut the whole offensive environment and left him short. The counter is strong enough to keep this a lean at a juiced -114.5, not a strong bet. Kincaid was left off because the same Monday recap is the 38-yard game repeating with no number to have beaten.",
+ "slip_story": "One story, one leg, not a parlay: Buffalo runs on a New England front missing Barmore. Cook rush over is the lead-back, positive-script leg. It can still cash in a competitive game if efficiency holds, and it loses the pass-funnel flip, so it is not stacked with BUF pass overs. Do not add NE receiver overs (those need Maye to win versus a blitz he has not won) or any total (none is saved). No touchdown legs. Kincaid was the correlated middle-of-field idea and was passed, so there is no same-game stack to build.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T13:34:19-0500"
+ }
+}

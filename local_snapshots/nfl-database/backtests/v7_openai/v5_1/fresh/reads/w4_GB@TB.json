@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 GB@TB / kickoff NOT saved / spread NOT saved / total NOT saved / weather NOT saved",
+ "script": {
+  "base": "Spread and total were not saved, so this script is inferred only from three-game form. Tampa blitzes 46% into a Jordan Love offense at -0.28 EPA/dropback vs blitz (n=58) and +0.19 when not blitzed, and TB has allowed 3.30 YPC, so Green Bay's committee (Lloyd 23/68, Johnson 12/38, Brooks 11/40) is unlikely to run efficiently and the GB pass game is the pressured one. Tampa's own passing has been inefficient either way (Mayfield -0.26 EPA vs blitz, n=43, and -0.25 unblitzed), so the stable TB path is Bucky Irving (40 carries, 180 yards, 4.5 YPC) against a GB run defense that has allowed 4.34 YPC and 8 runs of 10+.",
+  "flip1": "Green Bay leads early anyway, Tampa abandons the run, Irving's carries die, and Love still feeds Golden (30 targets, 416 air yards) and Watson (29 targets, 304 air yards) despite the blitz.",
+  "flip2": "It becomes a defensive slog: TB's blitz and GB's explosive suppression (5 passes of 20+ on 98 attempts) drag both passing games down, Irving still gets his carries in a close game, and GB's committee never finds a rushing rhythm against 3.30 YPC allowed."
+ },
+ "injury_fallout": "MISSING: injury report, practice participation, questionable tags, and inactives for both Green Bay and Tampa Bay. No absences, returns, or next-man-up are inferred from usage dips.",
+ "matchup": {
+  "shell": "MISSING: coverage charting (MOFO vs MOFC, man vs zone). Location splits only: TB allows 6.57 YPA left (44 att), 9.47 middle (17 att), 6.36 right (33 att). GB allows 7.66 left (35 att), 8.77 middle (13 att), 6.63 right (41 att).",
+  "pressure": "TB blitz rate 46%. Love EPA/dropback -0.28 vs blitz (n=58) vs +0.19 unblitzed, so the blitz is the GB passing risk. GB blitz rate 35%. Mayfield EPA/dropback -0.26 vs blitz (n=43) vs -0.25 unblitzed, so blitz is not what separates TB's poor passing. Pressure rate is not in the pack.",
+  "bleeds": "TB's strong side is the run (3.30 YPC allowed, 6 runs of 10+). TB's pass bleed is the middle (9.47 YPA) on only 17 attempts; outside is tighter (6.57 left, 6.36 right), with 8 passes of 20+ on 100 attempts. GB bleeds the run (4.34 YPC, 8 runs of 10+) and the middle (8.77 YPA on 13 att) but has allowed only 5 passes of 20+ on 98 attempts.",
+  "overlap": "Irving's workhorse rush role (40 carries, 4.5 YPC) attacks GB's 4.34 YPC run defense. Lloyd's 2.96 YPC on 23 carries runs into TB's 3.30 YPC run defense. GB's primary pass options, Golden (30 targets, 416 air yards) and Watson (29 targets, 304 air yards), overlap the 46% blitz that has already sunk Love, so they are not the bet."
+ },
+ "form": "GB L3 rush: Lloyd 23/68 (2.96 YPC), Johnson 12/38, Brooks 11/40, Love 2/0. GB targets: Golden 30/253/416, Watson 29/284/304, Kraft 17/106/128, Moore 11/37/78, Reed 8/24/45, Smith 6/66/43, Lloyd 6/13/2. TB L3 rush: Irving 40/180 (4.5 YPC), Mayfield 10/66, Gainwell 10/21, Godwin 2/15. TB targets: Egbuka 20/141/250, Otton 17/120/138, Irving 15/61/-33, Hurst 13/103/250, Godwin 11/111/52, Gainwell 10/22/-5, Tez Johnson 7/57/210. Irving is the only back with a true carry lead; Lloyd leads GB but in a three-man split and with 13 receiving yards.",
+ "edge_players": [
+  {
+   "player": "buckyirving",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Green Bay has allowed 4.34 yards per carry and 8 runs of 10+, and Irving is Tampa's only workhorse (40 carries, 180 yards, 4.5 YPC, about 60 rush yards a game), so 55.5 sits under a role the GB front has not been walling off.",
+   "must_be_true": "Bucky Irving carries >= 13 because he had 40 carries over the last 3 games",
+   "kills_it": "IF Green Bay leads by multiple scores and Tampa Bay abandons the run THEN Irving rush yards over 55.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "marshawnlloyd",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Lloyd is a committee back at 2.96 YPC (23 carries, 68 rush yards) with only 13 receiving yards on 6 targets, and he faces a Tampa run defense allowing 3.30 YPC, so 32.5 combined is above the 27.0 per game he has produced.",
+   "must_be_true": "Marshawn Lloyd rushrecyds <= 32 because he totaled 68 rush yards and 13 receiving yards over 3 games",
+   "kills_it": "IF Green Bay leads late and gives Lloyd 12 or more carries THEN Lloyd rushrecyds under 32.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Irving's L3 pace is 60.0 rush yards per game versus 55.5, and GB has allowed 4.34 YPC plus 8 runs of 10+, so the over is with the pack. Lloyd's L3 pace is 22.7 rush plus 4.3 receiving = 27.0 combined versus 32.5, and TB has allowed 3.30 YPC, so the under is with the pack. No model, sim median, or no-vig price is in the pack.",
+  "disagrees": "none",
+  "missing": "spread, total, moneyline, kickoff, rest/travel, line movement, weather, injury report, inactives, coverage shell and man/zone charting, pressure rate, no-vig price, model projection, sim median",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Bucky Irving rushyds over 55.5 at -115.5; Marshawn Lloyd rushrecyds under 32.5 at -115. No alt rungs in the pack. Prices are the listed main lines, not no-vig.",
+ "pre_mortem": "It's Monday and both legs lost because the missing spread was a Green Bay lead: Tampa chased through the air (Egbuka already has 20 targets and 250 air yards, Hurst 250 air yards), Irving fell under 55.5 on a cut carry count while Mayfield's 10 carries and 66 rush yards took the scramble work, and GB clock-killed with Lloyd above his 7.7-carry average so that even about 3 yards a carry on 12 carries plus a checkdown cleared 32.5. Both cushions are thin (4.5 yards for Irving, 5.5 for Lloyd), and with no injury report a limited Irving or a promoted Lloyd would not have been visible until inactives.",
+ "slip_story": "One run-game mismatch, not a shootout stack: Irving over into GB's 4.34 YPC run defense, Lloyd under into TB's 3.30 YPC run defense. They win together if the game stays close or TB-leaning and lower-efficiency. Do not pair them with GB WR overs, which need the flip where Love beats the 46% blitz.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

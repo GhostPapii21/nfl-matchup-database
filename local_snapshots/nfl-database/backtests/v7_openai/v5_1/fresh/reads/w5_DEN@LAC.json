@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 DEN@LAC / kickoff not in pack / spread NOT SAVED / total NOT SAVED / weather not saved",
+ "script": {
+  "base": "Spread and total are not saved, so the flow is inferred only from form. Base case is a competitive game in which LAC leans on Omarion Hampton (47 carries, 195 rush yards over weeks 2-4, 4.15 YPC) because DEN allows 5.02 YPC and 15 runs of 10+ and blitzes 39%, a look where Justin Herbert is -0.32 EPA/dropback (n=35) versus -0.10 when not blitzed. DEN does not need to abandon its own structure: LAC blitzes only 27%, and Bo Nix is +0.13 EPA when not blitzed versus -0.30 when blitzed (n=50), so Jaylen Waddle (24 targets, 183 yards, 264 air yards) stays the pass path while JK Dobbins (38 carries, 125 yards, 3.29 YPC) remains a moderate rusher against an LAC run defense that allows 4.13 YPC.",
+  "flip1": "Herbert's blitz EPA shows up early, LAC falls behind, and the run is abandoned: Hampton carries crash and the air-yard receivers (Tre Harris 206 air yards, Quentin Johnston 198) have to win against pressure, which is the path that kills a Hampton rush over.",
+  "flip2": "LAC controls and grinds Hampton plus Keaton Mitchell (already 23 carries, 115 yards): DEN trails, Dobbins carries stall, and if LAC's blitz rises above 27% Nix's -0.30 blitz EPA caps explosives and pushes checkdowns toward RJ Harvey (17 targets, -37 air yards) without giving Harvey the rush role."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, snap or rep limits, and inactives for both DEN and LAC. No absences, returns, or next-man-up inferred from usage. Observed L3 roles only: DEN carries Dobbins 38/125, J.Coleman 10/39, RJ Harvey 9/31, Bo Nix 8/26; DEN targets Waddle 24/183/264, Courtland Sutton 17/75/212, Harvey 17/109/-37, Evan Engram 8/23/43. LAC carries Hampton 47/195, Keaton Mitchell 23/115, Herbert 13/59, K.Vidal 6/31; LAC targets Tre Harris 15/189/206, Oronde Gadsden 13/54/87, Quentin Johnston 13/91/198, Ladd McConkey 10/101/131, Hampton 5/29/-15.",
+ "matchup": {
+  "shell": "MISSING: coverage charting, so no MOFO/MOFC or man/zone rate. Location proxy only: LAC allows 8.42 YPA left (45 att), 6.07 middle (29 att), 8.68 right (40 att). DEN allows 7.55 left (53 att), 9.09 middle (22 att), 6.05 right (63 att).",
+  "pressure": "LAC blitz rate 27%; DEN blitz rate 39%. Nix EPA/dropback -0.30 vs blitz (n=50) and +0.13 with no blitz. Herbert EPA/dropback -0.32 vs blitz (n=35) and -0.10 with no blitz. DEN's higher blitz is the pressure edge; it should suppress LAC deep air yards (Harris 206, Johnston 198) and tilt LAC toward the run, while LAC's 27% blitz is not enough by itself to force Nix off Waddle.",
+  "bleeds": "DEN run defense bleeds: 5.02 YPC allowed and 15 runs of 10+ in 4 games, plus middle passes at 9.09 YPA on only 22 attempts. LAC run defense does not bleed the same way (4.13 YPC, 11 runs of 10+); LAC's bleed is outside the numbers (left 8.42, right 8.68) with the middle tighter at 6.07. Explosives allowed are 13 passes of 20+ for both defenses (LAC on 124 att, DEN on 146).",
+  "overlap": "The clean overlap is Hampton, the LAC lead rusher at 4.15 YPC and 65.0 rush yards/game, into DEN's 5.02 YPC rush bleed, with DEN's 39% blitz giving Herbert a reason to hand off. Waddle (8 targets/game, 61 rec yards, 88 air yards) overlaps LAC's soft outside YPA, but 61 versus a 55.5 line is too thin to be a leg. Harris's air-yard role runs into the blitz, but his 63 rec yards/game contradicts an under, so that leg is not taken."
+ },
+ "form": "Avoiding season averages. DEN L3 rush: Dobbins 12.7 carries and 41.7 yards/game at 3.29 YPC; Harvey 3.0 carries and 10.3 rush yards/game but 5.7 targets and 36.3 rec yards with -37 air yards (checkdown back, not the rusher); Nix 2.7 carries and 8.7 rush yards/game. DEN L3 pass: Waddle 24 targets/183 yards/264 air is the converter; Sutton 17/75/212 is air yards without the yards (25.0 rec yards/game). LAC L3 rush: Hampton 15.7 carries and 65.0 yards/game; Mitchell 7.7 carries and 38.3 yards at 5.0 YPC, so a real committee already sits inside Hampton's 65-yard average; Herbert 4.3 carries and 19.7 rush yards. LAC L3 pass: Harris 5.0 targets, 63.0 rec yards, 68.7 air yards; Gadsden 4.3 targets and 18.0 rec yards; Johnston 4.3 targets, 30.3 yards, 66 air yards. No per-game splits in the pack, so a single spike inside those totals cannot be ruled out. Marvin Mims and Troy Franklin are not in the DEN L3 target list (lowest listed is Adkins at 5 targets); their roles are not quantified beyond that absence.",
+ "edge_players": [
+  {
+   "player": "omarionhampton",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Hampton is the LAC bellcow at 65.0 rush yards per game and faces a DEN defense allowing 5.02 YPC that also blitzes Herbert into a -0.32 EPA hole, so 41.5 is short of both the role and the bleed.",
+   "must_be_true": "Omarion Hampton carries >= 10 because L3 volume is 47 carries (15.7 per game) and 10 carries at DEN's 5.02 YPC allowed equals 50.2 yards",
+   "kills_it": "IF LAC trails by multiple scores and Hampton carries fall to 8 or fewer THEN omarionhampton rushyds over 41.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "rjharvey",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Harvey is the DEN checkdown back, not the rusher: 9 carries and 31 rush yards over three games behind Dobbins' 38 carries, so 26.5 rush yards requires a role the pack does not show.",
+   "must_be_true": "RJ Harvey carries <= 6 because L3 rush volume is 9 carries and 31 yards while Dobbins has 38 carries and 125 yards",
+   "kills_it": "IF Dobbins is inactive or Harvey carries rise to 8 or more THEN rjharvey rushyds under 26.5 fails",
+   "confidence": "strong"
+  }
+ ],
+ "data_check": {
+  "notes": "Pack counting stats agree with both reads. Hampton L3 total 195 rush yards is 65.0 per game versus a 41.5 line, and DEN allows 5.02 YPC with 15 runs of 10+; Mitchell's 23 carries are already inside that 65-yard average, so the committee does not contradict the over. Harvey L3 rush total is 31 yards on 9 carries versus a 26.5 line, so he can have cleared 26.5 in at most one of those three games and only if the other two combined for 4 or fewer yards. Juice is near even and slightly with the under (-116 under, -111 over), which does not contradict. No projection, sim median, or no-vig price is in the pack, so nothing is sized off a model probability.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, venue, coverage charting, injury report and inactives, per-game splits, model projection, sim median, Pinnacle no-vig",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only; no alt rungs in the pack. omarionhampton rushyds over 41.5 -114. rjharvey rushyds under 26.5 -116. No Pinnacle no-vig to reprice either rung. Not used: passing yards, receptions, TDs, or any prop with a +nan price.",
+ "pre_mortem": "It's Monday and this lost because the unreported week-5 role, not the L3 box score, was the real information. Hampton can miss 41.5 on a low-carry script even against a 5.02 YPC defense: if LAC is down early, Herbert's -0.32 blitz EPA forces dropbacks, Mitchell (23 carries, 5.0 YPC) and Herbert (13 carries, 59 yards) soak the remaining runs, and Hampton finishes at 8 carries and about 33 yards. Harvey can miss the under without ever becoming a 15-carry back: 8 carries at his L3 3.4 YPC is 27.5, and a single Dobbins inactives scratch that is not in this pack would hand him that role. The even price on 26.5, against a three-game total of only 31 rush yards, is the market hint that a role change may already be priced and this pack cannot see it.",
+ "slip_story": "One hierarchy story, not a shootout and not a total. LAC runs through Hampton into DEN's blitz and 5.02 YPC front (Hampton rush over 41.5, script-dependent: survives the base and the LAC-leads flip, dies if LAC abandons the run). DEN's rush stays Dobbins-led against a 4.13 YPC LAC front, so Harvey's rush line is a role miss (under 26.5) in the base and both flips unless the carry hierarchy flips. Do not add Dobbins over, Harris over, or a game over: those need the opposite script from DEN pressure and the Hampton run lean.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

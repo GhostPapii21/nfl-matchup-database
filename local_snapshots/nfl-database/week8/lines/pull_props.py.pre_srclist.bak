@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""Snapshot FanDuel + PrizePicks NFL player props for chosen games; diff two snapshots.
+Usage:
+  python3 pull_props.py pull [--tag YYYY-MM-DD]       # writes props_<tag>_fanduel.csv / _prizepicks.csv
+  python3 pull_props.py diff OLD.csv NEW.csv [--min 0.5]
+Sources: FanDuel public event-page JSON (sbapi.nj, same as week8/props pulls);
+PrizePicks public partner-api.prizepicks.com/projections (api.prizepicks.com is captcha-blocked from the box).
+No logins. If a source fails it is reported as BLOCKED, never substituted silently."""
+import json,csv,sys,re,os,datetime,urllib.request,glob
+from zoneinfo import ZoneInfo
+D=os.path.dirname(os.path.abspath(__file__)); RAW=os.path.join(D,'raw'); os.makedirs(RAW,exist_ok=True)
+ET=ZoneInfo('America/New_York')
+# game label (away@home) -> FanDuel eventId, ESPN team ids
+GAMES={'ATL@TB':(36215319,{'ATL':1,'TB':27}),'BAL@BUF':(36215313,{'BAL':33,'BUF':2}),'LAC@LAR':(36215316,{'LAC':24,'LAR':14})}
+PPTEAM={'LA':'LAR'}
+COLS=['game','player','team','market','line','over_odds','under_odds','source','pulled_at_ET']
+UA={'User-Agent':'Mozilla/5.0','Accept':'application/json'}
+def get(u):
+    return json.load(urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=30))
+norm=lambda s:re.sub(r'[^a-z]','',re.sub(r'\b(jr|sr|ii|iii|iv)\b\.?','',s.lower()))
+def rosters():
+    m={}
+    for g,(_,ids) in GAMES.items():
+        for ab,i in ids.items():
+            try:
+                r=get(f'https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/{i}/roster')
+                for grp in r['athletes']:
+                    for a in grp['items']: m[(g,norm(a['fullName']))]=ab
+            except Exception as e: print('roster fail',ab,e)
+    return m
+FDMK={'Receiving Yds':'rec_yds','Total Receptions':'receptions','Rushing Yds':'rush_yds','Rushing + Receiving Yds':'rush_rec_yds',
+      'Passing Yds':'pass_yds','Total Completions':'pass_completions','Passing Completions':'pass_completions','Pass Completions':'pass_completions'}
+def fd(now,ros,status):
+    rows=[]
+    for g,(ev,_) in GAMES.items():
+        for tab in ['passing-props','receiving-props','rushing-props','td-scorer-props']:
+            u=f'https://sbapi.nj.sportsbook.fanduel.com/api/event-page?_ak=FhMFpcPWXMeyZxOx&eventId={ev}&tab={tab}'
+            try: d=get(u)
+            except Exception as e: status.append(f'FanDuel {g} {tab}: BLOCKED/ERROR {e}'); continue
+            json.dump(d,open(f'{RAW}/fd_{ev}_{tab}_{now:%Y%m%dT%H%M}.json','w'))
+            if tab=='passing-props':
+                e=list(d['attachments']['events'].values())[0]
+                status.append(f"FanDuel {g}: '{e['name']}' kickoff {datetime.datetime.fromisoformat(e['openDate'].replace('Z','+00:00')).astimezone(ET):%a %b %d %I:%M %p} ET")
+            for m in d['attachments'].get('markets',{}).values():
+                nm=m['marketName']; od=lambda r:r.get('winRunnerOdds',{}).get('americanDisplayOdds',{}).get('americanOddsInt','')
+                tm=lambda p:ros.get((g,norm(p)),'')
+                if nm=='Any Time Touchdown Scorer':
+                    for r in m['runners']:
+                        rows.append([g,r['runnerName'],tm(r['runnerName']),'anytime_td','',od(r),'','FanDuel',f'{now:%Y-%m-%d %H:%M}'])
+                    continue
+                if ' - ' not in nm: continue
+                who,mk=nm.split(' - ',1); alt=mk.startswith('Alt ')
+                k=FDMK.get(mk[4:] if alt else mk) or ({'Receptions':'receptions','Passing Completions':'pass_completions'}.get(mk[4:]) if alt else None)
+                if not k: continue
+                if alt:
+                    for r in m['runners']:
+                        x=re.search(r'(\d+)\+',r['runnerName'])
+                        if x: rows.append([g,who,tm(who),k+'_alt',x.group(1)+'+',od(r),'','FanDuel',f'{now:%Y-%m-%d %H:%M}'])
+                else:
+                    o={('o' if r['runnerName'].endswith('Over') else 'u'):r for r in m['runners']}
+                    if 'o' in o: rows.append([g,who,tm(who),k,o['o'].get('handicap'),od(o['o']),od(o['u']) if 'u' in o else '','FanDuel',f'{now:%Y-%m-%d %H:%M}'])
+    return rows
+PPMK={'Receiving Yards':'rec_yds','Receptions':'receptions','Rush Yards':'rush_yds','Rush+Rec Yds':'rush_rec_yds','Pass Yards':'pass_yds',
+      'Pass Completions':'pass_completions','Anytime TDs':'anytime_td','Pass Attempts':'pass_attempts','Rec Targets':'rec_targets','Rush Attempts':'rush_attempts'}
+def pp(now,status):
+    rows=[]
+    try: d=get('https://partner-api.prizepicks.com/projections?league_id=9&per_page=10000')
+    except Exception as e: status.append(f'PrizePicks: BLOCKED/ERROR {e}'); return rows
+    json.dump(d,open(f'{RAW}/pp_{now:%Y%m%dT%H%M}.json','w'))
+    pl={x['id']:x['attributes'] for x in d['included'] if x['type']=='new_player'}
+    for x in d['data']:
+        a=x['attributes']; p=pl.get(x['relationships']['new_player']['data']['id'])
+        if not p or p.get('combo') or a.get('is_live'): continue
+        t=PPTEAM.get(p['team'],p['team']); g=next((g for g,(_,ids) in GAMES.items() if t in ids and a["description"] in set(ids)|{k for k,v in PPTEAM.items() if v in ids}),None)
+        mk=PPMK.get(a['stat_type'])
+        if not g or not mk: continue
+        ot=a.get('odds_type','standard')
+        rows.append([g,p['name'],t,mk+('' if ot=='standard' else '_'+ot),a['line_score'],'','','PrizePicks',f'{now:%Y-%m-%d %H:%M}'])
+    if not rows: status.append('PrizePicks: 0 rows for these games (board may not be posted)')
+    return rows
+def write(path,rows):
+    with open(path,'w',newline='') as f: w=csv.writer(f); w.writerow(COLS); w.writerows(rows)
+def diff(a,b,mn=0.5):
+    L=lambda p:{(r['game'],norm(r['player']),r['market'],'' if r['market'].endswith('_alt') else None,r['line'] if r['market'].endswith('_alt') else None):r for r in csv.DictReader(open(p))}
+    A,B=L(a),L(b)
+    for k in sorted(set(A)|set(B)):
+        o,n=A.get(k),B.get(k)
+        if not o: print('NEW    ',k[0],n['player'],n['market'],n['line'],n['over_odds'],n['under_odds']); continue
+        if not n: print('PULLED ',k[0],o['player'],o['market'],o['line']); continue
+        try: dl=float(n['line'] or 0)-float(o['line'] or 0)
+        except: dl=0
+        if abs(dl)>=mn: print(f"LINE   {k[0]} {n['player']} {n['market']}: {o['line']} -> {n['line']} ({dl:+g})  odds {o['over_odds']}/{o['under_odds']} -> {n['over_odds']}/{n['under_odds']}")
+        elif (o['over_odds'],o['under_odds'])!=(n['over_odds'],n['under_odds']) and not k[2].endswith('_alt'):
+            print(f"ODDS   {k[0]} {n['player']} {n['market']} {n['line']}: {o['over_odds']}/{o['under_odds']} -> {n['over_odds']}/{n['under_odds']}")
+if __name__=='__main__':
+    if len(sys.argv)>1 and sys.argv[1]=='diff':
+        mn=float(sys.argv[sys.argv.index('--min')+1]) if '--min' in sys.argv else 0.5; diff(sys.argv[2],sys.argv[3],mn); sys.exit()
+    now=datetime.datetime.now(ET); tag=sys.argv[sys.argv.index('--tag')+1] if '--tag' in sys.argv else f'{now:%Y-%m-%d}'
+    st=[]; ros=rosters(); f=fd(now,ros,st); p=pp(now,st)
+    write(f'{D}/props_{tag}_fanduel.csv',f); write(f'{D}/props_{tag}_prizepicks.csv',p)
+    print('\n'.join(st))
+    for src,rs in (('FanDuel',f),('PrizePicks',p)):
+        for g in GAMES: print(src,g,sum(r[0]==g for r in rs),'rows')

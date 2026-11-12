@@ -1,0 +1,141 @@
+# Week 8 1 PM edge players (2026-11-01)
+
+Edge = TD, explosive play, beat a pregame standard line (PrizePicks/FanDuel 10/30 pull, where one existed), or ≥70 rush/rec yds, ≥6 rec, ≥250 pass yds. Games: ATL@TB, CLE@PIT, IND@JAX, LV@NYJ, MIN@DET.
+
+## Archetype taxonomy (consistent labels used in CSV)
+- **WR-X outside volume**: boundary WR1, high target share, intermediate aDOT (London, Wilson, Jefferson).
+- **WR-slot separator**: inside alignment (ESPN slot% / middle-target proxy ≥50%), short aDOT, catch volume (St. Brown, K. Allen, Downs).
+- **WR-deep speed**: aDOT 14+, 20+air% high, boom/bust (Dotson, Jam. Williams, A. Mitchell).
+- **WR-YAC/screen**, **WR-contested-catch big**, **WR-rotational depth** (<10% tgt).
+- **TE-move/seam**: TE-as-primary, detached/seam usage (Bowers, Fannin, Hockenson, Pitts).
+- **TE-inline**: in-line/blocking TE with occasional chunk (D. Washington, Boerkircher).
+- **RB-power/volume early-down**: lead back, carries > targets (Irving-type volume, B. Allen, Taylor).
+- **RB-home-run zone runner**: elite RYOE/explosive-run rate (Gibbs, Warren, Tuten, Irving).
+- **RB-receiving/scat**: target-heavy back (Sampson, Gainwell normally).
+- **RB-committee/change-of-pace**.
+- **QB-pocket / QB-scrambler / QB-checkdown game-manager**.
+Defender labels: **press/man boundary CB beaten deep**, **zone safety late on seam**, **nickel vs big slot**, **run-fit: edge contain lost / interior fit missed (tackler of record)**.
+Labels come from week8/player_types/*.md (data thru Wk7) mapped to the taxonomy, corrected with ESPN alignment data in week8/breakdown/coverage.
+
+## Edge players (ranked by impact)
+| # | Game | Player | Team vs Def | Archetype | Line | Beat line | Explosives (defender, confidence) | Why the edge |
+|---|---|---|---|---|---|---|---|---|
+| 1 | MIN@DET | Jahmyr Gibbs | DET vs MIN (5 man/87 zone, MOFO 61, blitz 71%) | RB-home-run zone runner | 23-153 1TD; 2/4tgt 15y 0TD | — | 12y rush — run-fit: B.Murphy; H.Smith [confirmed-tackler]<br>19y rush — run-fit: B.Murphy [confirmed-tackler]<br>11y rush — run-fit: J.Metellus; I.Rodgers [confirmed-tackler]<br>30y rush — run-fit: not given [confirmed-tackler]<br>17y rush — run-fit: J.Metellus [confirmed-tackler]<br>14y rush — run-fit: B.Murphy [confirmed-tackler] | DET run-heavy (39 rushes; Goff sacked 4); MIN zone 87%/MOFO 61 + 71% blitz = light boxes; 6 run explosives, 153y. Rushing was the edge, not receiving. |
+| 2 | IND@JAX | Bhayshul Tuten | JAX vs IND (26/67, MOFC 50) | RB-home-run zone runner | 16-104 1TD; 2/2tgt 55y 1TD | — | 39y rush — run-fit: not given [confirmed-tackler]<br>30y pass — ? [unknown]<br>25y pass — ? [unknown] | JAX -10 favorite, IND run D 4.49/RB rec YPT 7.7 (soft vs RB receiving); 104 rush + 55 rec, 2 TD. |
+| 3 | ATL@TB | Bucky Irving | TB vs ATL (22/70, MOFC 60) | RB-home-run zone runner | 27-170 1TD | rush_rec_yds 170>90.5; rush_yds 170>68.5 | 24y rush — run-fit: J.Bates; S.Ebukam [confirmed-tackler]<br>12y rush — run-fit: K.Daniels [confirmed-tackler]<br>13y rush — run-fit: C.Thomas; X.Watts [confirmed-tackler]<br>46y rush — run-fit: C.Henderson [confirmed-tackler] | Rain (5.7mm) + TB lead → 56 rushes/3 passes; ATL run D 4.09 YPC, missed fits by Bates/Daniels/Henderson on 4 explosives (46y Henderson). Game-script RB rule spot. |
+| 4 | LV@NYJ | Braelon Allen | NYJ vs LV (21/70, MOFC/MOFO 47/47) | RB-power/volume early-down | 21-147 1TD; 2/2tgt 6y 0TD | — | 15y rush — run-fit: Q.Walker; T.Stukes [confirmed-tackler]<br>15y rush — run-fit: T.Stukes; J.Chinn [confirmed-tackler]<br>24y rush — run-fit: T.Johnson; E.Stokes [confirmed-tackler]<br>11y rush — run-fit: J.Chinn; T.Stukes [confirmed-tackler]<br>21y rush — run-fit: Shotgun [confirmed-tackler] | Backup promoted (Hall out) vs LV run D 5.17 YPC (worst-tier); 147 on 7.0 YPC, 5 run explosives. |
+| 5 | CLE@PIT | Jaylen Warren | PIT vs CLE (42 man/54, MOFC 73 (single-high man)) | RB-home-run zone runner | 17-143 1TD; 1/2tgt 0y 0TD | — | 15y rush — run-fit: R.Hickman; E.McNeil-Warren [confirmed-tackler]<br>51y rush — run-fit: C.Schwesinger [confirmed-tackler]<br>23y rush — run-fit: G.Delpit [confirmed-tackler]<br>13y rush — run-fit: E.McNeil-Warren [confirmed-tackler] | PIT favored, CLE run D 4.61 YPC; 51y up the middle (Schwesinger tackled) vs CLE single-high man front; clock-kill second half. |
+| 6 | LV@NYJ | Adonai Mitchell | NYJ vs LV (21/70, MOFC/MOFO 47/47) | WR-deep speed | 7/9tgt 142y 1TD | — | 20y pass — Darien Porter / tackler E.Stokes [inferred]<br>22y pass — Darien Porter / tackler J.McCoy [inferred]<br>47y pass — Darien Porter / tackler T.Stukes [inferred] | Deep shots vs LV boundary CB Darien Porter (pregame outside-left, inferred; 3 explosives incl. 47y) in shootout; LV WR-outside YPT 8.7. |
+| 7 | ATL@TB | Kenny Gainwell | TB vs ATL (22/70, MOFC 60) | RB-receiving/scat (used as volume back in rain) | 25-140 0TD; 0/1tgt 0y 0TD | rush_rec_yds 140>30.5; rush_yds 140>14.5 | 20y rush — run-fit: A.Terrell [confirmed-tackler]<br>28y rush — run-fit: K.Daniels; M.Smith [confirmed-tackler]<br>10y rush — run-fit: X.Watts [confirmed-tackler]<br>12y rush — run-fit: G.Dexter [confirmed-tackler]<br>12y rush — run-fit: X.Watts; K.Daniels [confirmed-tackler] | RB2 volume in rain run-fest (25 car); ATL edge contain failed (left/right end 28y, 20y). RB2 should be modeled when weather-flagged. |
+| 8 | CLE@PIT | Harold Fannin Jr. | CLE vs PIT (13/82, MOFO 52 (two-high zone)) | TE-move/seam | 10/12tgt 154y 0TD | — | 25y pass — Robert Spears-Jennings / tackler J.Ramsey, J.Dean [inferred]<br>37y pass — Robert Spears-Jennings / tackler J.Brisker, R.Spears-Jennings [inferred]<br>27y pass — Robert Spears-Jennings / tackler J.Brisker [inferred] | Trailing-script volume (Watson 39 att); PIT two-high zone (MOFO 52) leaves seams/underneath; pregame TE matchup S Spears-Jennings (inferred) — 10/12 for 154. |
+| 9 | LV@NYJ | Brock Bowers | LV vs NYJ (24/67, MOFO 50) | TE-move/seam | 7/10tgt 92y 2TD | — | 23y pass — D'Angelo Ponds / tackler D.Belton, M.Fitzpatrick [inferred]<br>27y pass — D'Angelo Ponds / tackler D.Belton [inferred] | TE-primary vs NYJ zone (67%), 2 TD; DPI declined on J.Brownlee on TD — NYJ LB/S seam coverage weak. TE YPT allowed 7.3. |
+| 10 | LV@NYJ | Kirk Cousins | LV vs NYJ (24/67, MOFO 50) | QB-pocket | 19/26 247y 3TD 0INT; 5-3 1TD | — | 23y pass — D'Angelo Ponds / tackler D.Belton, M.Fitzpatrick [inferred]<br>27y pass — D'Angelo Ponds / tackler D.Belton [inferred]<br>45y pass — tackler M.Fitzpatrick (FS1) (coverage unverified) [unknown] | Efficient vs NYJ zone; 3 TD went to TE/slot (Bowers, Nailor). |
+| 11 | MIN@DET | Kyler Murray | MIN vs DET (18/76, MOFO 49) | QB-scrambler | 17/29 210y 2TD 1INT; 4-35 0TD | — | 24y pass — tackler R.McCreary (NB1) (coverage unverified) [unknown]<br>22y pass — Christian Izien [inferred]<br>22y rush — run-fit: R.Ya-Sin [confirmed-tackler]<br>51y pass — D.J. Reed [inferred] | Scrambler 4-35 rush + 2 TD vs DET zone. |
+| 12 | IND@JAX | Trevor Lawrence | JAX vs IND (26/67, MOFC 50) | QB-pocket | 10/14 210y 3TD 0INT; 3-10 0TD | — | 46y pass — A.J. Haulcy [inferred]<br>31y pass — ? [unknown]<br>30y pass — ? [unknown]<br>25y pass — ? [unknown] | 10/14 210y 3TD — efficiency, not volume; IND zone (MOFC 50) beaten deep (46y, inferred Haulcy). |
+| 13 | CLE@PIT | Darnell Washington | PIT vs CLE (42 man/54, MOFC 73 (single-high man)) | TE-inline (YAC big body) | 3/5tgt 94y 0TD | — | 24y pass — ? [unknown]<br>58y pass — ? [unknown] | Big-body inline TE YAC vs CLE man (42%) — 94y on 3 catches incl. 58y; coverage defender unknown. |
+| 14 | ATL@TB | Jahan Dotson | ATL vs TB (17 man/78 zone, MOFC 59) | WR-deep speed | 2/5tgt 95y 0TD | rec_yds 95>25.5 | 76y pass — Zyon McCollum / tackler A.Winfield [inferred] | One 76y deep left shot vs TB zone (MOFC 59) — pregame matchup McCollum (outside right, inferred), Winfield tackled. Deep-speed WR vs single-high zone in garbage time. |
+| 15 | LV@NYJ | Geno Smith | NYJ vs LV (21/70, MOFC/MOFO 47/47) | QB-pocket | 20/32 290y 2TD 1INT; 1-4 0TD | — | 31y pass — Eric Stokes / tackler T.Stukes [inferred]<br>20y pass — Darien Porter / tackler E.Stokes [inferred]<br>22y pass — Darien Porter / tackler J.McCoy [inferred]<br>22y pass — ? [unknown]<br>47y pass — Darien Porter / tackler T.Stukes [inferred] | Shootout (38-33) vs LV zone; 290y 2TD. |
+| 16 | MIN@DET | Sione Vaki | DET vs MIN (5 man/87 zone, MOFO 61, blitz 71%) | RB-power/volume early-down | 11-65 0TD; 1/1tgt 5y 0TD | — | 10y rush — run-fit: J.Metellus; T.Jackson [confirmed-tackler]<br>12y rush — run-fit: H.Smith [confirmed-tackler]<br>10y rush — run-fit: B.Cashman [confirmed-tackler] | RB2 in DET run script (11-65). |
+| 17 | ATL@TB | Bijan Robinson | ATL vs TB (17 man/78 zone, MOFC 59) | RB-home-run zone runner | 19-76 0TD; 0/1tgt 0y 0TD | — | 26y rush — run-fit: J.Parrish [confirmed-tackler]<br>10y rush — run-fit: J.Trotter; J.Parrish [confirmed-tackler] | Script/volume; no specific matchup attribution — see explosives table. |
+| 18 | LV@NYJ | Mike Washington Jr. | LV vs NYJ (24/67, MOFO 50) | RB-committee/change-of-pace | 25-83 0TD | — | 15y rush — run-fit: J.Sherwood [confirmed-tackler] | Script/volume; no specific matchup attribution — see explosives table. |
+| 19 | LV@NYJ | Garrett Wilson | NYJ vs LV (21/70, MOFC/MOFO 47/47) | WR-X outside volume | 6/12tgt 83y 0TD | — | 31y pass — Eric Stokes / tackler T.Stukes [inferred] | Target volume (12) in shootout vs LV zone; pregame CB Eric Stokes (inferred). |
+| 20 | MIN@DET | Jameson Williams | DET vs MIN (5 man/87 zone, MOFO 61, blitz 71%) | WR-deep speed | 4/6tgt 70y 1TD | — | — | Deep speed vs MIN two-high zone when blitz left 1-on-1; 70y TD. |
+| 21 | IND@JAX | Chris Rodriguez Jr. | JAX vs IND (26/67, MOFC 50) | RB-committee/change-of-pace | 6-41 1TD; 1/1tgt 17y 0TD | — | 28y rush — run-fit: Shotgun [confirmed-tackler] | Script/volume; no specific matchup attribution — see explosives table. |
+| 22 | MIN@DET | T.J. Hockenson | MIN vs DET (18/76, MOFO 49) | TE-move/seam | 4/5tgt 58y 1TD | — | 22y pass — Christian Izien [inferred] | Seam TE vs DET (TE YPT 8.2 allowed, top-tier soft); pregame matchup S Izien (inferred) 22y. |
+| 23 | CLE@PIT | Rico Dowdle | PIT vs CLE (42 man/54, MOFC 73 (single-high man)) | RB-receiving/scat | 15-56 1TD | — | 15y rush — run-fit: R.Hickman [confirmed-tackler] | Script/volume; no specific matchup attribution — see explosives table. |
+| 24 | LV@NYJ | Ashton Jeanty | LV vs NYJ (24/67, MOFO 50) | RB-power/volume early-down | 2-9 0TD; 3/4tgt 64y 0TD | — | 45y pass — tackler M.Fitzpatrick (FS1) (coverage unverified) [unknown] | Receiving role (3/4, 64y incl. 23/27y vs Ponds-area, inferred) though only 2 carries. |
+| 25 | MIN@DET | Jordan Addison | MIN vs DET (18/76, MOFO 49) | WR-X outside volume | 3/8tgt 66y 0TD | — | 51y pass — D.J. Reed [inferred] | 51y vs D.J. Reed (inferred, outside-left). |
+| 26 | CLE@PIT | Dylan Sampson | CLE vs PIT (13/82, MOFO 52 (two-high zone)) | RB-receiving/scat | 1-7 0TD; 6/8tgt 62y 0TD | — | — | Check-down valve vs PIT zone while trailing (6/8). |
+| 27 | IND@JAX | Keenan Allen | IND vs JAX (21/73, MOFO 51) | WR-slot separator | 7/7tgt 67y 0TD | — | — | Trailing IND slot volume (7/7) vs JAX middle-of-field zone (JAX WR-mid YPT 15.7 season — softest area). |
+| 28 | CLE@PIT | Deshaun Watson | CLE vs PIT (13/82, MOFO 52 (two-high zone)) | QB-scrambler | 27/39 324y 0TD 0INT; 3-2 0TD | — | 25y pass — Robert Spears-Jennings / tackler J.Ramsey, J.Dean [inferred]<br>24y pass — Jalen Ramsey / tackler D.Everette, R.Spears-Jennings [inferred]<br>37y pass — Robert Spears-Jennings / tackler J.Brisker, R.Spears-Jennings [inferred]<br>27y pass — Robert Spears-Jennings / tackler J.Brisker [inferred] | Trailing all game → 324y garbage volume vs PIT soft-zone; losing-QB-in-blowout pattern. |
+| 29 | CLE@PIT | Pat Freiermuth | PIT vs CLE (42 man/54, MOFC 73 (single-high man)) | TE-move/seam | 1-1 1TD; 2/2tgt 35y 0TD | — | 28y pass — Grant Delpit / tackler R.Hickman [inferred] | Script/volume; no specific matchup attribution — see explosives table. |
+| 30 | IND@JAX | Brenton Strange | JAX vs IND (26/67, MOFC 50) | TE-move/seam | 2/2tgt 55y 0TD | — | 46y pass — A.J. Haulcy [inferred] | Script/volume; no specific matchup attribution — see explosives table. |
+| 31 | IND@JAX | DJ Giddens | IND vs JAX (21/73, MOFO 51) | RB-power/volume early-down | 6-43 0TD | — | 12y rush — run-fit: J.Mcleod [confirmed-tackler]<br>12y rush — run-fit: R.Lane [confirmed-tackler] | Script/volume; no specific matchup attribution — see explosives table. |
+| 32 | IND@JAX | Nate Boerkircher | JAX vs IND (26/67, MOFC 50) | TE-inline | 1/1tgt 31y 1TD | — | 31y pass — ? [unknown] | Script/volume; no specific matchup attribution — see explosives table. |
+| 33 | LV@NYJ | Jalen Nailor | LV vs NYJ (24/67, MOFO 50) | WR-deep speed | 4/4tgt 38y 1TD | — | — | Red-zone TD vs NYJ zone. |
+| 34 | MIN@DET | Amon-Ra St. Brown | DET vs MIN (5 man/87 zone, MOFO 61, blitz 71%) | WR-slot separator | 1-10 0TD; 7/8tgt 46y 0TD | — | — | Slot volume (7/8) but capped 46y — MIN soft-middle zone gave catches, not yards. |
+| 35 | IND@JAX | Jonathan Taylor | IND vs JAX (21/73, MOFO 51) | RB-power/volume early-down | 8-23 0TD; 4/5tgt 24y 0TD | — | 19y rush — run-fit: M.Brown [confirmed-tackler] | Script/volume; no specific matchup attribution — see explosives table. |
+| 36 | MIN@DET | Justin Jefferson | MIN vs DET (18/76, MOFO 49) | WR-X outside volume | 5/9tgt 33y 1TD | — | — | TD only; 33y — DET bracket/zone capped yards. |
+| 37 | CLE@PIT | KC Concepcion | CLE vs PIT (13/82, MOFO 52 (two-high zone)) | WR-X outside volume | 3/4tgt 37y 0TD | — | 24y pass — Jalen Ramsey / tackler D.Everette, R.Spears-Jennings [inferred] | Script/volume; no specific matchup attribution — see explosives table. |
+| 38 | IND@JAX | Josh Downs | IND vs JAX (21/73, MOFO 51) | WR-slot separator | 4/5tgt 23y 1TD | — | — | Script/volume; no specific matchup attribution — see explosives table. |
+| 39 | LV@NYJ | Isaiah Williams | NYJ vs LV (21/70, MOFC/MOFO 47/47) | WR-slot separator | 1/1tgt 18y 1TD | — | — | Script/volume; no specific matchup attribution — see explosives table. |
+| 40 | CLE@PIT | Denzel Boston | CLE vs PIT (13/82, MOFO 52 (two-high zone)) | WR-X outside volume | 6/11tgt 37y 0TD | — | — | Script/volume; no specific matchup attribution — see explosives table. |
+| 41 | IND@JAX | Seth McGowan | IND vs JAX (21/73, MOFO 51) | RB-committee/change-of-pace | 5-29 0TD | — | 16y rush — run-fit: K.Merriweather; R.Lane [confirmed-tackler] | Script/volume; no specific matchup attribution — see explosives table. |
+| 42 | MIN@DET | Jordan Mason | MIN vs DET (18/76, MOFO 49) | RB-power/volume early-down | 8-20 0TD | — | 10y rush — run-fit: B.Branch [confirmed-tackler]<br>11y rush — run-fit: T.Nowaske [confirmed-tackler] | Script/volume; no specific matchup attribution — see explosives table. |
+| 43 | IND@JAX | Parker Washington | JAX vs IND (26/67, MOFC 50) | WR-slot separator | 1-10 0TD; 1/2tgt 16y 0TD | — | 10y rush — run-fit: C.Allen; J.Tuimoloau [confirmed-tackler] | Script/volume; no specific matchup attribution — see explosives table. |
+| 44 | IND@JAX | Brian Thomas Jr. | JAX vs IND (26/67, MOFC 50) | WR-deep speed | 1/2tgt 12y 1TD | — | — | Script/volume; no specific matchup attribution — see explosives table. |
+| 45 | MIN@DET | Ben Yurosek | MIN vs DET (18/76, MOFO 49) | TE-inline | 1/2tgt 24y 0TD | — | 24y pass — tackler R.McCreary (NB1) (coverage unverified) [unknown] | Script/volume; no specific matchup attribution — see explosives table. |
+| 46 | LV@NYJ | Kenyon Sadiq | NYJ vs LV (21/70, MOFC/MOFO 47/47) | TE-inline | 1/2tgt 22y 0TD | — | 22y pass — ? [unknown] | Script/volume; no specific matchup attribution — see explosives table. |
+
+## Defensive vulnerability profiles (this week + season)
+### ATL defense — shell 22/70, MOFC 60
+- Week 8 explosives allowed: 0 pass 20+, 9 rush 10+ (177 yds)
+- Beaten by: Bucky Irving (RB-home-run zone runner), Kenny Gainwell (RB-receiving/scat (used as volume back in rain))
+- Season (thru Wk7): RB YPC 4.09, RB rec YPT 4.3, TE YPT 7.1, WR outside YPT 7.3, WR middle YPT 11.6, FTN blitz 25%
+
+### CLE defense — shell 42 man/54, MOFC 73 (single-high man)
+- Week 8 explosives allowed: 3 pass 20+, 5 rush 10+ (227 yds)
+- Beaten by: Jaylen Warren (RB-home-run zone runner), Darnell Washington (TE-inline (YAC big body)), Rico Dowdle (RB-receiving/scat), Pat Freiermuth (TE-move/seam)
+- Season (thru Wk7): RB YPC 4.61, RB rec YPT 3.9, TE YPT 6.1, WR outside YPT 7.8, WR middle YPT 8.8, FTN blitz 24%
+
+### DET defense — shell 18/76, MOFO 49
+- Week 8 explosives allowed: 3 pass 20+, 3 rush 10+ (140 yds)
+- Beaten by: Kyler Murray (QB-scrambler), T.J. Hockenson (TE-move/seam), Jordan Addison (WR-X outside volume), Justin Jefferson (WR-X outside volume), Jordan Mason (RB-power/volume early-down), Ben Yurosek (TE-inline)
+- Season (thru Wk7): RB YPC 4.12, RB rec YPT 4.2, TE YPT 8.2, WR outside YPT 7.1, WR middle YPT 12.2, FTN blitz 28%
+
+### IND defense — shell 26/67, MOFC 50
+- Week 8 explosives allowed: 4 pass 20+, 3 rush 10+ (209 yds)
+- Beaten by: Bhayshul Tuten (RB-home-run zone runner), Trevor Lawrence (QB-pocket), Chris Rodriguez Jr. (RB-committee/change-of-pace), Brenton Strange (TE-move/seam), Nate Boerkircher (TE-inline), Parker Washington (WR-slot separator), Brian Thomas Jr. (WR-deep speed)
+- Season (thru Wk7): RB YPC 4.49, RB rec YPT 7.7, TE YPT 6.3, WR outside YPT 8.1, WR middle YPT 9.5, FTN blitz 22%
+
+### JAX defense — shell 21/73, MOFO 51
+- Week 8 explosives allowed: 1 pass 20+, 4 rush 10+ (151 yds)
+- Beaten by: Keenan Allen (WR-slot separator), DJ Giddens (RB-power/volume early-down), Jonathan Taylor (RB-power/volume early-down), Josh Downs (WR-slot separator), Seth McGowan (RB-committee/change-of-pace)
+- Season (thru Wk7): RB YPC 2.97, RB rec YPT 5.8, TE YPT 5.6, WR outside YPT 8.9, WR middle YPT 15.7, FTN blitz 31%
+
+### LV defense — shell 21/70, MOFC/MOFO 47/47
+- Week 8 explosives allowed: 5 pass 20+, 5 rush 10+ (228 yds)
+- Beaten by: Braelon Allen (RB-power/volume early-down), Adonai Mitchell (WR-deep speed), Geno Smith (QB-pocket), Garrett Wilson (WR-X outside volume), Isaiah Williams (WR-slot separator), Kenyon Sadiq (TE-inline)
+- Season (thru Wk7): RB YPC 5.17, RB rec YPT 8.1, TE YPT 6.5, WR outside YPT 8.7, WR middle YPT 9.4, FTN blitz 27%
+
+### MIN defense — shell 5 man/87 zone, MOFO 61, blitz 71%
+- Week 8 explosives allowed: 0 pass 20+, 10 rush 10+ (145 yds)
+- Beaten by: Jahmyr Gibbs (RB-home-run zone runner), Sione Vaki (RB-power/volume early-down), Jameson Williams (WR-deep speed), Amon-Ra St. Brown (WR-slot separator)
+- Season (thru Wk7): RB YPC 4.06, RB rec YPT 4.0, TE YPT 6.1, WR outside YPT 5.4, WR middle YPT 12.4, FTN blitz 71%
+
+### NYJ defense — shell 24/67, MOFO 50
+- Week 8 explosives allowed: 3 pass 20+, 1 rush 10+ (110 yds)
+- Beaten by: Brock Bowers (TE-move/seam), Kirk Cousins (QB-pocket), Mike Washington Jr. (RB-committee/change-of-pace), Ashton Jeanty (RB-power/volume early-down), Jalen Nailor (WR-deep speed)
+- Season (thru Wk7): RB YPC 4.08, RB rec YPT 4.4, TE YPT 7.3, WR outside YPT 7.1, WR middle YPT 10.1, FTN blitz 38%
+
+### PIT defense — shell 13/82, MOFO 52 (two-high zone)
+- Week 8 explosives allowed: 4 pass 20+, 0 rush 10+ (113 yds)
+- Beaten by: Harold Fannin Jr. (TE-move/seam), Dylan Sampson (RB-receiving/scat), Deshaun Watson (QB-scrambler), KC Concepcion (WR-X outside volume), Denzel Boston (WR-X outside volume)
+- Season (thru Wk7): RB YPC 3.64, RB rec YPT 5.9, TE YPT 7.3, WR outside YPT 7.1, WR middle YPT 8.0, FTN blitz 27%
+
+### TB defense — shell 17 man/78 zone, MOFC 59
+- Week 8 explosives allowed: 1 pass 20+, 2 rush 10+ (112 yds)
+- Beaten by: Jahan Dotson (WR-deep speed), Bijan Robinson (RB-home-run zone runner)
+- Season (thru Wk7): RB YPC 3.60, RB rec YPT 5.6, TE YPT 7.6, WR outside YPT 6.3, WR middle YPT 12.0, FTN blitz 41%
+
+## Similar spots going forward — Week 9 (RESEARCH LEADS, NOT PICKS)
+Slate from ESPN scoreboard (week 9, pulled 2026-11-01). Season defense numbers thru Wk7 (week8/defense/defense_profiles.json). Any pick still goes through nfl-game-script-run + run_gate.py + Ghost6 vetting; check injuries/weather/spread first.
+
+| Archetype that hit in Wk8 | Week 9 game | Offense player type to check | Defense vulnerability (season) |
+|---|---|---|---|
+| RB power/home-run vs soft run D (Allen vs LV 5.17, Warren vs CLE 4.61) | DEN @ CAR | DEN lead back | CAR RB YPC 5.21 (worst in DB) |
+| same | LV @ SF | SF lead back | LV RB YPC 5.17 (Allen just ran 147 on them) |
+| same | CLE @ NO | CLE lead back (script risk: CLE dog) | NO RB YPC 4.90, RB rec YPT 7.1 |
+| same + RB receiving (Tuten vs IND) | DAL @ IND | DAL RBs (rush + receiving) | IND RB YPC 4.49, RB rec YPT 7.7 |
+| Rain/lead run-fest (Irving/Gainwell) | TB @ CHI (SNF, open-air) | Irving + RB2 if weather flags | CHI RB YPC 4.33, RB rec YPT 8.0 |
+| TE move/seam (Bowers, Fannin, Hockenson) | CIN vs ATL | Kyle Pitts (TE-move) | CIN TE YPT 9.3 (softest) |
+| same | DET @ MIA | Sam LaPorta | MIA TE YPT 9.1 |
+| same | HOU @ LAC | HOU TE | LAC TE YPT 9.1 |
+| same | LAR @ WSH | Rams TE (Rico's team) | WAS TE YPT 9.0, blitz 45% |
+| same | TB @ CHI | TB TE | CHI TE YPT 8.6 |
+| Slot separator vs soft middle zone (K. Allen vs JAX) | JAX @ BAL (TNF) | BAL slot / Flowers middle routes | JAX WR-middle YPT 15.7 (softest) |
+| same | TB @ CHI | TB slot (Godwin) | CHI WR-middle YPT 14.7 |
+| same | GB @ NE | GB slot | NE WR-middle YPT 12.8 |
+| same; also blitz-heavy zone light boxes (Gibbs vs MIN) | BUF @ MIN (MNF) | Shakir (slot) + James Cook rush | MIN WR-middle YPT 12.4, blitz 71%, zone 87% |
+| Deep speed vs boundary CB (A. Mitchell vs Porter) | LV @ SF / NYJ @ KC | check LV, NYJ deep WRs | LV out YPT 8.7 (as defense); KC out 5.8 = avoid |
+Avoid-type notes: SEA (YPC 3.40, TE 5.2, WR out 5.6) and SF (WR-mid 6.4) suppress these archetypes.

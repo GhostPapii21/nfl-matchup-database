@@ -1,0 +1,504 @@
+{
+ "season": 2026,
+ "week": 8,
+ "game": "BONUS_SLIP_4PM (4 PM rebuild + SNF fallback)",
+ "game_date": "2026-11-01",
+ "kickoff_et": "2026-11-01 04:25 PM (first leg); 8:20 PM",
+ "input_cutoff_et": "2026-11-01T11:52",
+ "skill": "/home/box/agent-data/workflows/nfl-game-script-run/SKILL.md",
+ "seed": 20261101,
+ "trials": 100000,
+ "sim_script": "/workspace/nfl-database/tools/sim_v6.py via runs/2026-11-01_BONUS_SLIP_4PM/sims4pm.py b1205",
+ "approved_exceptions": [
+  {
+   "input": "coverage.defenders",
+   "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+   "approved_by": "Rico",
+   "approved_on": "2026-11-01",
+   "valid_for_date": "2026-11-01",
+   "scope": "receiving legs",
+   "reason": "misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only"
+  }
+ ],
+ "sources": [
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse play_by_play_2026 (thru 2026-10-29)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "tool": "curl (github nflverse release)",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse snap_counts_2026 + players",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/snap_counts_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN depth charts API (24 teams)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/espn_depth_all.json",
+   "tool": "python urllib",
+   "pulled_et": "2026-11-01T07:14"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN box scores wk1-8 (two-source target check)",
+   "url_or_file": "/workspace/nfl-database/week8/phase_walk/src/espn_box.json",
+   "tool": "earlier urllib pull (Oct 31)",
+   "pulled_et": "2026-10-31T19:19"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "FTN charting via nflverse (blitzers, rushers)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "Sharp Football coverage schemes (man/zone, MOF; data Updated Oct 27)",
+   "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+   "tool": "Firecrawl scrape",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "ESPN WR/CB matchup cheatsheet wk8",
+   "url_or_file": "https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_WRCB.pdf",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:12"
+  },
+  {
+   "category": "ngs",
+   "name": "BACKUP nflverse nextgen_stats release (published copy, data through 2026 Wk8 / 2026-10-29; nextgenstats.nfl.com on hold) - accepted by Ghost6 for 2026-11-01 only",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "film",
+   "name": "Official NFL YouTube highlights (oEmbed-checked) + caption plays re-matched to fresh pbp",
+   "url_or_file": "https://www.youtube.com/@NFL",
+   "tool": "python urllib oEmbed",
+   "pulled_et": "2026-11-01T07:26"
+  },
+  {
+   "category": "weather",
+   "name": "NWS hourly + Open-Meteo",
+   "url_or_file": "https://api.weather.gov ; https://api.open-meteo.com",
+   "tool": "python urllib",
+   "pulled_et": "2026-11-01T07:10"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API b1205: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks player props",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_b1205.csv",
+   "tool": "pull_odds.py b1205",
+   "pulled_et": "2026-11-01T11:57"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API b1205: FanDuel/DK/Pinnacle spreads+totals",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_b1205.json",
+   "tool": "pull_lines.py b1205",
+   "pulled_et": "2026-11-01T11:57"
+  },
+  {
+   "category": "injuries_news",
+   "name": "ESPN injuries API",
+   "url_or_file": "/workspace/nfl-database/week8/inactives/espn_inj_20261101_1152.json",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T11:52"
+  },
+  {
+   "category": "injuries_news",
+   "name": "CBS Sports inactives (URL supplied in owner msg pt113u)",
+   "url_or_file": "owner message pt113u (CBS inactives, 11:46 ET)",
+   "tool": "owner-relayed",
+   "pulled_et": "2026-11-01T11:46"
+  }
+ ],
+ "flagged_gaps": [],
+ "pressure_inputs": {
+  "blitz_rate": {
+   "value": {
+    "KC": 0.268,
+    "DEN": 0.356
+   },
+   "definition": "defense FTN n_pass_rushers>=5 / charted dropbacks, season",
+   "l4": {
+    "KC": 0.24848484848484848,
+    "DEN": 0.34104046242774566
+   },
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet + play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "FTN charting"
+  },
+  "pressure_rate": {
+   "value": {
+    "KC": 0.199,
+    "DEN": 0.271
+   },
+   "definition": "defense (sack|qb_hit|scramble)/dropbacks",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "PROXY"
+  },
+  "checkdown_share": {
+   "value": {
+    "KC": 0.387,
+    "DEN": 0.376
+   },
+   "definition": "QB attempts with air_yards<=0 or RB target / attempts",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "nflverse pbp"
+  }
+ },
+ "sims": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Xavier Worthy Receptions Over 2.5 (alt)": {
+     "p": 0.72855,
+     "median": 4.0
+    },
+    "Stefon Diggs Receptions Over 3.5 (alt)": {
+     "p": 0.66508,
+     "median": 4.0
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Xavier Worthy Receptions Over 2.5 (alt)": {
+     "p": 0.729,
+     "median": 4.0
+    },
+    "Stefon Diggs Receptions Over 3.5 (alt)": {
+     "p": 0.66518,
+     "median": 4.0
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Xavier Worthy Receptions Over 2.5 (alt)": {
+     "p": 0.69531,
+     "median": 4.0
+    },
+    "Stefon Diggs Receptions Over 3.5 (alt)": {
+     "p": 0.67711,
+     "median": 5.0
+    }
+   }
+  }
+ ],
+ "legs": [
+  {
+   "name": "Xavier Worthy Receptions Over 2.5 (alt)",
+   "player": "Xavier Worthy",
+   "team": "KC",
+   "opp": "DEN",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 2.5,
+   "price_fd": -230,
+   "no_vig": 0.6518,
+   "status": "PASS",
+   "rung": "FD alt (de-vigged vs main)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 3.5,
+    "over": 118,
+    "under": -148,
+    "nv_over": 0.4345997476517594,
+    "nv_under": 0.5654002523482405,
+    "overround": 1.0554897898786624
+   },
+   "draftkings": {
+    "point": 3.5,
+    "over": 124,
+    "under": -158,
+    "nv_over": 0.42162374166557726,
+    "nv_under": 0.5783762583344229,
+    "overround": 1.0588316722037652
+   },
+   "prizepicks_lines": [],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Riley Moss",
+      "team": "DEN",
+      "pos": "CB",
+      "targets": 22.0,
+      "completions": 11.0,
+      "comp_pct": 50.0,
+      "yds": 145.0,
+      "ypt": 6.6,
+      "rating": 91.9,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 24.5% / zone 70.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 48.0% / open 48.3%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.5286,
+   "edge_mc_gr": 0.0956,
+   "shrunk_mc_gr": 0.087,
+   "recent_form": {
+    "values": [
+     2.0,
+     4.0,
+     7.0,
+     3.0
+    ],
+    "games": [
+     "2026_03_KC_MIA",
+     "2026_04_KC_LV",
+     "2026_06_LAC_KC",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "Patrick Mahomes",
+    "qb_gsis": "00-0033873",
+    "player_gsis": "00-0039894",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "KC@DEN",
+   "kickoff_et": "4:25 PM",
+   "bonus_grade": {
+    "avg_p": 0.7176,
+    "edge": 0.0658,
+    "shrunk": 0.0005,
+    "file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_b1205.csv",
+    "pulled_et": "2026-11-01T11:57"
+   }
+  },
+  {
+   "name": "Stefon Diggs Receptions Over 3.5 (alt)",
+   "player": "Stefon Diggs",
+   "team": "WSH",
+   "opp": "PHI",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 3.5,
+   "price_fd": -166,
+   "no_vig": 0.5825,
+   "status": "PASS",
+   "rung": "FD alt (de-vigged vs main)",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 4.5,
+    "over": 134,
+    "under": -163,
+    "nv_over": 0.4081189286490177,
+    "nv_under": 0.5918810713509823,
+    "pulled_et": "2026-11-01T08:36"
+   },
+   "draftkings": {
+    "point": 42.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    42.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Cooper DeJean",
+      "team": "PHI",
+      "pos": "DB",
+      "targets": 17.0,
+      "completions": 12.0,
+      "comp_pct": 70.6,
+      "yds": 108.0,
+      "ypt": 6.4,
+      "rating": 102.1,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 15.1% / zone 72.8%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 49.1% / open 43.4%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.6766,
+   "edge_mc_gr": 0.0941,
+   "shrunk_mc_gr": 0.0411,
+   "game": "PHI@WSH",
+   "correlation_fd7": "PHI@WSH: no overlap with the five legs; not an excluded player",
+   "pressure_inputs_game": {
+    "blitz_rate": {
+     "value": {
+      "PHI": 0.253,
+      "WSH": 0.455
+     },
+     "definition": "defense FTN n_pass_rushers>=5 / charted dropbacks, season",
+     "l4": {
+      "PHI": 0.25,
+      "WSH": 0.4632768361581921
+     },
+     "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet + play_by_play_2026.parquet",
+     "pulled_et": "2026-11-01T07:09",
+     "label": "FTN charting"
+    },
+    "pressure_rate": {
+     "value": {
+      "PHI": 0.14,
+      "WSH": 0.199
+     },
+     "definition": "defense (sack|qb_hit|scramble)/dropbacks",
+     "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+     "pulled_et": "2026-11-01T07:09",
+     "label": "PROXY"
+    },
+    "checkdown_share": {
+     "value": {
+      "PHI": 0.225,
+      "WSH": 0.228
+     },
+     "definition": "QB attempts with air_yards<=0 or RB target / attempts",
+     "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+     "pulled_et": "2026-11-01T07:09",
+     "label": "nflverse pbp"
+    }
+   },
+   "gaps": [],
+   "pff_crosscheck": "PFF: no Diggs row in pff_props csv; PFF projects ~5.6 targets (per Ghost6) - x .61 cr = ~3.4 rec, supports 4+ only thinly, not 5+",
+   "odds_pulled_et": "2026-11-01T07:44",
+   "rice_active_split": false,
+   "reprice_0836": {
+    "price": -166,
+    "no_vig": 0.5825,
+    "src": "FD alt (de-vigged vs main 4.5 two-way)",
+    "v6_avg_p": 0.6691,
+    "v6_edge": 0.0866,
+    "v6_shrunk": 0.0359,
+    "file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_r0835.csv",
+    "pulled_et": "2026-11-01T08:36"
+   },
+   "recent_form": {
+    "values": [
+     4.0,
+     5.0,
+     6.0
+    ],
+    "games": [
+     "2026_01_WAS_PHI",
+     "2026_02_WAS_DAL",
+     "2026_06_WAS_SF"
+    ],
+    "qb": "Jayden Daniels",
+    "qb_gsis": "00-0039910",
+    "player_gsis": "00-0031588",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "kickoff_et": "8:20 PM",
+   "bonus_grade": {
+    "avg_p": 0.6691,
+    "edge": 0.0866,
+    "shrunk": 0.0359,
+    "file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_b1205.csv",
+    "pulled_et": "2026-11-01T11:57"
+   }
+  }
+ ],
+ "grades": {
+  "Xavier Worthy Receptions Over 2.5 (alt)": {
+   "p": [
+    0.72855,
+    0.729,
+    0.69531
+   ],
+   "med": [
+    4.0,
+    4.0,
+    4.0
+   ],
+   "avg": 0.71762,
+   "nv": 0.6518230167486951,
+   "edge": 0.0657969832513049,
+   "sh": 0.0005109832513048307,
+   "price": -230,
+   "line": 2.5,
+   "game": "KC@DEN",
+   "kickoff_et": "4:25 PM",
+   "spread": "KC -1.5 (toss-up); total 41.5"
+  },
+  "Stefon Diggs Receptions Over 3.5 (alt)": {
+   "p": [
+    0.66508,
+    0.66518,
+    0.67711
+   ],
+   "med": [
+    4.0,
+    4.0,
+    5.0
+   ],
+   "avg": 0.6691233333333333,
+   "nv": 0.5825139437687655,
+   "edge": 0.08660938956456776,
+   "sh": 0.03587238956456773,
+   "price": -166,
+   "line": 3.5,
+   "game": "PHI@WSH",
+   "kickoff_et": "8:20 PM",
+   "spread": "WSH -5.5 (moderate favorite); total 40.5"
+  }
+ },
+ "cross_checks": []
+}

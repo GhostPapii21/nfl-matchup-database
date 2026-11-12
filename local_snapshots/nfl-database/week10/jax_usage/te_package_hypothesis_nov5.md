@@ -1,0 +1,1 @@
+Package/snaps hypothesis follow-up 2026-11-06 05:17:50 ET. Full write-up: live/2026-11-05_JAX_BAL/notes/te_usage_comparison.md. Snaps CSV: te_snaps_w1_8_vs_nov5_BAL.csv. Video for parent: notes/evidence_nov5/espn_jaguars_ravens_highlights_wsc.mp4

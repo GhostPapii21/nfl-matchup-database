@@ -1,0 +1,11 @@
+feature coverage {'opp_blitz': 1.0, 'opp_rushers': 1.0, 'opp_box': 1.0, 'opp_pa_faced': 1.0, 'opp_motion_faced': 1.0, 'snap_l2': 0.949, 'snap_trend': 1.0}
+rec n_fit 877 w {'a': np.float64(0.101), 'opp_blitz': np.float64(-0.033), 'opp_rushers': np.float64(-0.06), 'opp_box': np.float64(0.037), 'opp_pa_faced': np.float64(-0.039), 'opp_motion_faced': np.float64(-0.035), 'snap_l2': np.float64(-0.189), 'snap_trend': np.float64(-0.04)}
+rush n_fit 531 w {'a': np.float64(-0.24), 'opp_blitz': np.float64(0.01), 'opp_rushers': np.float64(-0.109), 'opp_box': np.float64(-0.317), 'opp_pa_faced': np.float64(-0.004), 'opp_motion_faced': np.float64(0.026), 'snap_l2': np.float64(-0.012), 'snap_trend': np.float64(0.241)}
+pass n_fit 27 w {'a': np.float64(0.191), 'opp_blitz': np.float64(0.215), 'opp_rushers': np.float64(-0.187), 'opp_box': np.float64(-0.09), 'opp_pa_faced': np.float64(-0.261), 'opp_motion_faced': np.float64(0.054), 'snap_l2': np.float64(0.348), 'snap_trend': np.float64(-0.379)}
+    market    n  brier_mkt  brier_model        d       lo       hi   ll_mkt  ll_model
+0      ALL  947    0.24641      0.24546 -0.00095 -0.00830  0.00686  0.68585   0.68482
+1  passyds   54    0.24969      0.25312  0.00343 -0.03449  0.04464  0.69252   0.71168
+2      rec  322    0.24004      0.24176  0.00172 -0.00434  0.00756  0.67295   0.67628
+3   recyds  326    0.25047      0.24871 -0.00176 -0.00785  0.00454  0.69409   0.69056
+4  rushrec   82    0.25066      0.24602 -0.00465 -0.03292  0.02511  0.69448   0.68573
+5  rushyds  163    0.24764      0.24345 -0.00419 -0.01938  0.01289  0.68832   0.68086

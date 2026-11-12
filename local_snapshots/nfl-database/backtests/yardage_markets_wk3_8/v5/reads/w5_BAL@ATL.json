@@ -1,0 +1,46 @@
+{
+ "game": "BAL@ATL Baltimore Ravens at Atlanta Falcons / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "No spread or total was saved for Baltimore Ravens at Atlanta Falcons, so the script is form-only. Atlanta's offense has been a run game: Bijan Robinson 64 carries for 411 yards (6.42 YPC) and Brian Robinson 35 carries for 163 over weeks 2-4, into a Baltimore run defense that has allowed 3.91 YPC and 11 runs of 10+. Baltimore's offense is Derrick Henry (65 carries, 230 yards, 3.54 YPC, about 77 a game) running into Atlanta's 2.99 YPC defense that has allowed only 2 runs of 10+ in four games. Base: Atlanta controls or leads on the ground, Baltimore's Henry efficiency stalls, and Baltimore has to throw (Mark Andrews 18 targets, Zay Flowers 16, Rashod Bateman 14) while Atlanta does not need a pass-heavy script. Pace and garbage time are unknown without a total.",
+  "flip1": "Baltimore Ravens get ahead behind Lamar Jackson's weeks 2-4 rushing role (12 carries, 104 yards) plus a heavy Henry count, Atlanta Falcons trail and abandon the run, Brian Robinson's carries collapse, and Drake London and Jahan Dotson targets spike.",
+  "flip2": "Both perimeters hold (Atlanta right side 5.23 YPA on 78 attempts, Baltimore right side 5.34 YPA on 53) and BAL@ATL becomes a low-event slog: Henry stays under easily, but Atlanta's backs also miss if the box is stacked and Baltimore's 11 explosive runs do not show up."
+ },
+ "injury_fallout": "No injury report, practice status, or inactives were saved for either the Baltimore Ravens or the Atlanta Falcons, so no next-man-up or missing-coverage boost can be assigned on either side. Lamar Jackson is in the Baltimore L3 rush log (12 carries, 104 yards) and is not on the prop board; Tyler Huntley is priced at 29.5 rush yards despite only 2 carries for 18 yards over those three Baltimore games, so that BAL line is passed without a QB status. Rashod Bateman's Baltimore receiving line of 17.5 versus 171 yards on 14 targets is also passed because the gap is unexplained and may be one spike (178 air yards, no game logs). No Atlanta or Baltimore offensive-line absences are listed.",
+ "matchup": {
+  "shell": "No coverage charting for Baltimore or Atlanta (MOFO/MOFC and man/zone unknown). Location proxy only: Atlanta Falcons allow middle 8.86 YPA (22 att) vs left 6.45 (78) and right 5.23 (78); Baltimore Ravens allow middle 8.54 (28 att) vs left 7.16 (55) and right 5.34 (53).",
+  "pressure": "Atlanta blitz rate 23%; Baltimore blitz rate 31%. Baltimore QB EPA/dropback is 0.39 on blitz (n=39) vs 0.33 unblitzed, so Atlanta's low blitz rate is not a pressure edge against BAL. Atlanta QB EPA is 0.12 on blitz (n=45) vs -0.41 unblitzed, so Baltimore's 31% blitz is Atlanta's better split, not a sack script.",
+  "bleeds": "Baltimore Ravens run defense bleeds: 3.91 YPC and 11 runs of 10+ in four games, plus 12 passes of 20+ on 145 attempts. Atlanta Falcons run defense does not bleed: 2.99 YPC and only 2 runs of 10+. Atlanta's pass bleed is the middle (8.86 YPA) and 15 explosives on 185 attempts, not the perimeter.",
+  "overlap": "Atlanta's carry duo, Bijan Robinson (21.3 carries a game) and Brian Robinson (11.7), attacks the exact spot the Baltimore Ravens give up (3.91 YPC, 11 runs of 10+). Baltimore's Derrick Henry (21.7 carries, 3.54 YPC) runs into Atlanta's strength, not a weak spot. Drake London (21 targets, 341 yards, 186 air yards for Atlanta) would overlap Baltimore's middle and explosive allowance, but that is a pass script, not this run-mismatch read."
+ },
+ "form": "Weeks 2-4 only for both teams. Baltimore: Derrick Henry 65/230 (76.7 ypg, 3.54 YPC) and only 6 targets for 25 rec yards; Justice Hill 8/42 rush and 5/34 receiving; Tyler Huntley 2/18. Zay Flowers 16 targets/202 yards sits on his 68.5 line (67.3 ypg); Mark Andrews 18/100 sits on his 31.5 line (33.3 ypg). Atlanta: Bijan Robinson 64/411 (137 ypg, 6.42 YPC, likely to cool) plus 8 targets/30 rec yards; Brian Robinson 35/163 (54.3 ypg, 4.66 YPC); Drake London 21/341/186 air is well above 80.5 but 16.2 yards per target can regress if Atlanta runs. No per-game splits, so spike-game risk is noted on Baltimore's Bateman (171 on 14 targets) and Devontez Walker (66 yards, 148 air on 5 targets).",
+ "edge_players": [
+  {
+   "player": "derrickhenry",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Baltimore Ravens back Derrick Henry is lined at 80.5 rush yards, already above his 76.7-yard weeks 2-4 average, and the Atlanta Falcons have allowed 2.99 YPC with only two runs of 10+ all year, so the BAL@ATL matchup pushes a back who is already short of the number further under.",
+   "must_be_true": "Henry plays his normal Baltimore role near 20 carries, Atlanta's run defense shows up close to that 2.99 YPC and 2-explosive profile, and he is active with no snap cap (none is listed for either team).",
+   "kills_it": "Baltimore leads big and Henry gets 24-plus clock-killing carries against Atlanta; at even 3.5 YPC that clears 80.5, or Atlanta's season run-defense rate was opponent-driven and does not travel to this Ravens front.",
+   "confidence": "strong"
+  },
+  {
+   "player": "brianrobinson",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Atlanta Falcons back Brian Robinson has a real 11.7-carry role at 54 rush yards a game, and 35.5 only needs about nine carries at the Baltimore Ravens' 3.91 YPC allowed, so the line prices a role cut the last three Atlanta games do not show.",
+   "must_be_true": "Brian Robinson stays in the 9-12 carry range beside Bijan for Atlanta, the Falcons are not forced into a pass-only chase by Baltimore, and the Ravens run defense stays near 3.91 YPC rather than a sudden stuff day.",
+   "kills_it": "Atlanta trails early, Bijan Robinson keeps the passing-down work (8 targets already in Atlanta's L3), and Brian Robinson is held to 6-7 carries against Baltimore.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection model, sims, or Pinnacle no-vig were saved for Baltimore at Atlanta, so nothing disagrees with the read and no 70% model probability is being trusted. Form arithmetic agrees for both teams: Baltimore's Henry 230/3=76.7 vs 80.5, and 22 carries at Atlanta's 2.99 YPC is about 66. Atlanta's Brian Robinson 163/3=54.3 vs 35.5, and 11.7 carries at Baltimore's 3.91 YPC is about 45.7, still over. Bijan Robinson's 6.42 YPC was not used as a leg because that Atlanta average would have forced a tighter 86.5 number. Verdict agree, not flag.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Baltimore Ravens Derrick Henry rush yards under 80.5 at -111.5; Atlanta Falcons Brian Robinson rush yards over 35.5 at -112. Both are main-board rush yards on the BAL@ATL board, not short-priced alts. No receptions, no passing yards, no TDs. Henry rush-plus-rec under 89.5 was skipped because the pure Baltimore rush under is the matchup market.",
+ "pre_mortem": "It's Monday and the BAL@ATL slip lost because the Baltimore Ravens jumped ahead, Derrick Henry got 24-26 clock-killing carries and cleared 80.5 at a modest 3.4 YPC after the Atlanta Falcons' 2.99 YPC mark, built on four unnamed opponents, did not travel, and one of the explosives Atlanta rarely allows still happened. Brian Robinson then lost the Atlanta backfield once the Falcons trailed: Bijan stayed in on passing downs and Brian finished on 6-7 carries under 35.5 against Baltimore. A late inactive is also possible because neither team's final injury report is in the pack, and weather for this outdoor-or-dome question was never saved.",
+ "slip_story": "One BAL@ATL story: run-game mismatch. Atlanta Falcons backs face the Baltimore Ravens defense that bleeds on the ground (3.91 YPC, 11 runs of 10+); Baltimore's lead back faces the Atlanta defense that does not (2.99 YPC, 2 runs of 10+). Henry under is the Ravens anchor, Brian Robinson over is the correlated Falcons carry-share leg. Do not add Drake London over, Zay Flowers over, or a total over; those need Baltimore or Atlanta to throw. No TDs, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

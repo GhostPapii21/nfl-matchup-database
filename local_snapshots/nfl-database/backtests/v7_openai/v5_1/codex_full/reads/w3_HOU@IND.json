@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 HOU@IND / kickoff MISSING / spread and total NOT SAVED; script inferred only from supplied team form / weather MISSING",
+ "script": {
+  "base": "Hypothesis, not a market-implied forecast: a competitive game lets Indianapolis sustain its Taylor-led rushing approach while Houston works through Schultz in the passing game. Neither team's supplied form establishes a reliable halftime leader; the base case does not require garbage time or unusually fast pace.",
+  "flip1": "Houston builds an early multi-score lead, forcing Indianapolis away from Taylor carries. Schultz can retain receiving opportunities while Houston establishes that lead, but Taylor's rushing over becomes script-dependent.",
+  "flip2": "Indianapolis leads early through its running game, increasing Houston's passing need. That supports Schultz's receiving opportunity and Taylor's carry volume, although a complete Houston offensive stall could still hurt Schultz."
+ },
+ "injury_fallout": "MISSING: HOU and IND injury reports, practice trends, final statuses, offensive-line availability, defensive absences, return restrictions and final inactives. No absences, returns or next-man-up assignments are inferred from usage. Source for all available facts: user-supplied Week 3 pre-kickoff pack covering Weeks 1\u20132; exact collection timestamps are missing. Schultz and Taylor require rechecking if subsequent availability information changes either role.",
+ "matchup": {
+  "shell": "MISSING: both teams' MOFO/MOFC, man/zone rates and player alignment charting. IND's middle-field allowance cannot establish that Schultz specifically faced or will face those defenders.",
+  "pressure": "Pack source: IND blitzes 25%; HOU QB EPA/dropback is 0.39 against blitz on 20 dropbacks versus -0.13 without blitz. HOU blitzes 17%; IND QB EPA/dropback is -0.02 against blitz on 19 dropbacks versus -0.22 without blitz. These small samples do not establish pressure getting home. MISSING: pressure rates, sacks, time to throw and check-down rates.",
+  "bleeds": "Pack source: IND allows 5.67 rushing yards per carry, 10 runs of at least 10 yards and 8 passes of at least 20 yards on 75 attempts. Its middle passing allowance is 11.88 yards per attempt on 17 attempts. HOU allows 4.12 rushing yards per carry and five runs of at least 10 yards; its middle and right passing allowances are 10.47 and 10.82 yards per attempt. Positional receiving allowances, box counts, rush EPA and stuff rates are missing.",
+  "overlap": "Schultz is Houston's supplied target leader, making his receiving role the clearest candidate to exploit IND's vulnerable passing defense, subject to missing alignment evidence. Taylor's overlap is sustained carry opportunity rather than a demonstrated weak HOU run defense; his rushing case should not be sold as an efficiency mismatch."
+ },
+ "form": "Only Weeks 1\u20132 are supplied despite the table's L3 label. Schultz has 22 targets, 175 receiving yards and 130 air yards, ahead of Hutchinson's 15 targets and Collins' 10. Taylor has 43 carries for 190 yards, while Jones has four carries and Burks and McGowan have two each. These establish recent opportunity concentration, not a proven three- or four-game trend. MISSING: individual-game splits, snaps, routes, red-zone usage, play-caller changes, comparable opponents and long-play distributions.",
+ "edge_players": [
+  {
+   "player": "daltonschultz",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Schultz's leading Houston target role offers a path over 49.5 receiving yards against an Indianapolis defense allowing substantial passing gains, without requiring Houston to lead.",
+   "must_be_true": "daltonschultz targets >= 8 [because the pack records 22 targets across Houston's first two games]",
+   "kills_it": "IF Indianapolis limits Schultz's receiving efficiency while Houston redirects targets to its outside receivers THEN daltonschultz recyds over 49.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jonathantaylor",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Taylor's concentrated Indianapolis carry role can take him over 81.5 rushing yards if the game stays competitive, even without assuming a favorable rushing-efficiency matchup.",
+   "must_be_true": "jonathantaylor carries >= 20 [because the pack records 43 carries across Indianapolis's first two games]",
+   "kills_it": "IF Houston builds an early multi-score lead and Indianapolis abandons sustained rushing possessions THEN jonathantaylor rushyds over 81.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The game-flow and role hypotheses precede these arithmetic checks; no projection or simulation was run. Schultz's supplied two-game totals translate to 11 targets and 87.5 receiving yards per game, supporting opportunity but not supplying a calibrated probability. Taylor's 43 carries translate to 21.5 per game; applying HOU's supplied 4.12 yards allowed per carry gives 88.6 yards as a simple sensitivity check, not a forecast. At 20 carries that falls to 82.4 yards, showing how thin Taylor's cushion is. Both -114 prices require approximately 53.27% wins before accounting for pushes; no positive expected value is established.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations and medians, Pinnacle prices and sharp no-vig probabilities, game-level distributions, injury information, coverage charting, weather, spread, total, moneyline, implied team totals, opening movement, kickoff time, venue configuration, rest and travel.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional research leans only: daltonschultz recyds over 49.5 at -114; jonathantaylor rushyds over 81.5 at -114. Schultz uses receiving yards because receptions are unavailable under the permitted markets. Taylor uses rushing yards for the carry-share thesis. No alternate rungs or staking recommendation; neither price has been validated against a calibrated fair probability.",
+ "pre_mortem": "Schultz: It is Monday and the over lost because two-game target concentration did not persist, IND's overall passing vulnerability did not translate to his actual routes, or Houston exploited IND's 5.67 rushing yards allowed per carry instead. Missing alignment and route data make that a meaningful counter-case. Taylor: The over lost because Houston's offense forced Indianapolis into catch-up passing, or HOU's 4.12 rushing yards allowed per carry overstated the efficiency Taylor actually achieved. Even 20 carries offer almost no cushion at that rate. These risks keep both selections at lean rather than strong.",
+ "slip_story": "Both leans fit a competitive game or an Indianapolis-led script: Taylor sustains rushing volume while Schultz receives opportunities in Houston's passing response. Taylor is explicitly script-dependent and does not survive the Houston-breakaway flip. Only two supported candidates are identified, so do not manufacture a three- or four-leg main slip. No TD legs, no duplicate player markets, and no claim of quantified joint value. Pre-kickoff timestamped storage, hashing and later separate read/result grading cannot be completed from this pack.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

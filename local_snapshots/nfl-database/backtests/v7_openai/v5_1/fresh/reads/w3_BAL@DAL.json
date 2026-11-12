@@ -1,0 +1,48 @@
+{
+ "game": "Baltimore @ Dallas (BAL @ DAL) / kickoff NOT saved / spread NOT saved / total NOT saved / weather not saved",
+ "script": {
+  "base": "Spread and total for Baltimore (BAL) at Dallas (DAL) were not saved, so the book's expected leader is unknown and this is form-only. Baltimore is the run side: Derrick Henry has 212 rush yards on 40 carries over weeks 1-2 and Lamar Jackson added 77 on 8, against a Dallas defense allowing 5.33 yards per carry and 8 runs of 10+. Dallas has not run it (Javonte Williams 71 yards on 24 carries, 2.96 YPC) into a Baltimore front allowing 3.62 YPC, so the base script is BAL leaning on Henry and the DAL rush total staying modest.",
+  "flip1": "Dallas (DAL) scores first and leads late, Baltimore (BAL) trails and throws, Henry's carries fall under 16, and Williams gets an 18-plus carry clock grind that can clear 56.5 even at a modest YPC.",
+  "flip2": "Shootout in Baltimore at Dallas: both teams throw, Henry's rush volume stalls under 92.5, CeeDee Lamb (197 rec yards on 17 targets for DAL) clears a yardage line, and Williams's rush stays low while his receiving work rises."
+ },
+ "injury_fallout": "MISSING: injury report, practice status, questionable tags, and inactives for both Baltimore (BAL) and Dallas (DAL). No absences, returns, or next-man-up guessed from usage for either team.",
+ "matchup": {
+  "shell": "MISSING for Baltimore (BAL) and Dallas (DAL): no MOFO/MOFC, man/zone rate, or coverage charting, so receivers cannot be mapped to zone defenders.",
+  "pressure": "Dallas (DAL) blitzes 27%; Baltimore (BAL) blitzes 32%. BAL QB EPA/dropback is 0.22 vs blitz (n=25) vs 0.28 with no blitz. DAL QB EPA/dropback falls from 0.48 with no blitz to 0.19 vs blitz (n=23), so Baltimore pressure constrains the Dallas passing game, not the Henry rush read.",
+  "bleeds": "Dallas (DAL) run defense bleeds at 5.33 YPC with 8 runs of 10+ and only 3 passes of 20+ on 66 attempts; pass YPA allowed is left 6.64 (28 att), middle 7.18 (11), right 6.88 (25). Baltimore (BAL) allows 3.62 rush YPC and 6 runs of 10+, and bleeds the middle in the pass game (9.28 YPA on 18 att) while the right side is 4.43 on 23 att, with 7 passes of 20+ on 70 attempts.",
+  "overlap": "Baltimore's Derrick Henry (40.0 carries, 5.3 YPC) attacks the spot Dallas gives up (5.33 YPC, 8 runs of 10+). That BAL-run vs DAL-run-defense overlap is the edge. Dallas's Javonte Williams (2.96 YPC) runs into Baltimore's 3.62 YPC front, the wrong side of the overlap."
+ },
+ "form": "Baltimore (BAL) weeks 1-2: Henry 40.0 carries/212 rush yards, Hill 8.0/24, Jackson 8.0/77; Andrews 13.0 targets/98 rec yards, Bateman 10.0/88, Flowers 6.0/150 on 91 air yards (fluky, not used). Dallas (DAL) weeks 1-2: Williams 24.0 carries/71 rush yards plus 9.0 targets/51 rec yards, Prescott 6.0/40, Demercado 5.0/15; Lamb 17.0/197/226 air, Pickens 14.0/68/187 air. No similar-defense splits for BAL or DAL in the pack.",
+ "edge_players": [
+  {
+   "player": "derrickhenry",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Baltimore (BAL) bellcow Derrick Henry beats 92.5 if he keeps the 40-carry, 212-yard role from weeks 1-2 against Dallas (DAL), which has allowed 5.33 yards per carry.",
+   "must_be_true": "derrickhenry carries >= 18 because BAL lists 40.0 carries and 212 rush yards over weeks 1-2 and DAL allows 5.33 YPC",
+   "kills_it": "IF Baltimore trails by multiple scores and Henry finishes under 16 carries THEN derrickhenry rushyds over 92.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "javontewilliams",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Dallas (DAL) back Javonte Williams stays under 56.5 in the base Baltimore (BAL) run script and in a DAL-trails flip: 71 rush yards on 24 carries (2.96 YPC) into a BAL defense allowing 3.62 YPC.",
+   "must_be_true": "javontewilliams carries <= 15 because DAL lists 24.0 carries and 71.0 rush yards over weeks 1-2 and BAL allows 3.62 YPC",
+   "kills_it": "IF Dallas leads late and Williams records 18 or more carries THEN javontewilliams rushyds under 56.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No sim or no-vig for Baltimore at Dallas, so no price gap to flag. Pack agrees: BAL Henry 212 rush yards on 40.0 carries vs 92.5, and DAL allows 5.33 YPC; DAL Williams 71.0 rush yards on 24.0 carries (2.96 YPC) vs 56.5, and BAL allows 3.62 YPC. Nothing present contradicts either side.",
+  "disagrees": "none",
+  "missing": "Baltimore at Dallas spread, total, moneyline, kickoff, weather, injury report, inactives, coverage shell, weekly splits, sim median, no-vig",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Baltimore derrickhenry rushyds over 92.5 at -114.5; Dallas javontewilliams rushyds under 56.5 at -114. Main lines only; no alt rung, no-vig, or sim for BAL or DAL.",
+ "pre_mortem": "Both Baltimore at Dallas legs lose if DAL leads early, BAL abandons Henry, and his 212-yard two-game total was one spike plus a quiet week already under 92.5, with Jackson's 77 rush yards stealing the scramble work. Williams then gets 18-plus carries in a Dallas lead and clears 56.5 near 3.2 YPC. No saved spread priced that DAL-leads flip.",
+ "slip_story": "One Baltimore (BAL) runs-it stack against Dallas (DAL): Henry rush yards over with Williams rush yards under. Do not add DAL pass overs or a total; those need a Dallas pass-heavy script that fights the Henry leg.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

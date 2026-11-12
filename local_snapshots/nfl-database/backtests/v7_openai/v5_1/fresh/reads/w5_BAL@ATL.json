@@ -1,0 +1,48 @@
+{
+ "game": "BAL@ATL Week 5 / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this is form-only. Atlanta should lean on the ground: Bijan Robinson averaged 21.3 carries and 137 rush yards (6.42 YPC) over weeks 2-4 into a Baltimore run defense that allows 3.91 YPC and has given up 11 runs of 10+ in 4 games. Baltimore still feeds Derrick Henry (65 carries, 230 yards, 3.54 YPC, 76.7 rush yards/game over weeks 2-4) but Atlanta allows only 2.99 YPC and 2 runs of 10+, so Henry's efficiency stays capped. Drake London (21 targets, 341 yards, 113.7/game) is the passing outlet, not a shootout base.",
+  "flip1": "Baltimore leads early off Lamar Jackson's rush explosives (12 carries, 104 yards over weeks 2-4) plus Zay Flowers and Rashod Bateman (67.3 and 57.0 rec yards/game). Atlanta then abandons the run, Brian Robinson's 11.7-carry role dies, and Henry climbs toward 23+ clock-killing carries.",
+  "flip2": "Both teams throw: Atlanta blitzes only 23% and Baltimore's QB posted 0.39 EPA/dropback vs blitz (n=39), so Flowers, Bateman and Mark Andrews (33.3 rec yards/game) see more air; Baltimore blitzes 31% into a Penix split of 0.12 EPA vs blitz (n=45) and -0.41 with no blitz, and London's 7 targets/game become the Atlanta script while both rush volumes stall."
+ },
+ "injury_fallout": "MISSING: final injury report, practice status, questionable tags, and inactives for BAL and ATL, including whether Lamar Jackson or Tyler Huntley (2 carries, 18 yards over weeks 2-4, but a 29.5 rushyds prop) is the quarterback. Do not infer absences, returns, or next-man-up. No offensive or defensive fallout can be assigned from this pack.",
+ "matchup": {
+  "shell": "MISSING: man/zone rate and MOFO vs MOFC charting. Location YPA only: ATL allows middle 8.86 (22 att), left 6.45 (78 att), right 5.23 (78 att). BAL allows middle 8.54 (28 att), left 7.16 (55 att), right 5.34 (53 att). Both are best on the right and bleed the middle on a small sample.",
+  "pressure": "ATL blitz rate is 23%. BAL QB EPA/dropback is 0.39 vs blitz (n=39) and 0.33 with no blitz, so Atlanta's low blitz is not a pressure edge against Baltimore. BAL blitz rate is 31%. ATL QB EPA is 0.12 vs blitz (n=45) and -0.41 with no blitz, so Baltimore's blitz rate is not the look that has crushed Penix.",
+  "bleeds": "ATL run defense is the stingy unit: 2.99 YPC allowed and only 2 runs of 10+ in 4 games, with 15 passes of 20+ on 185 attempts. BAL run defense bleeds explosives: 3.91 YPC and 11 runs of 10+, with 12 passes of 20+ on 145 attempts. Both pass defenses bleed the middle and are tightest on the right.",
+  "overlap": "Negative overlap for Henry: Baltimore's primary rusher (65 carries, 3.54 YPC over weeks 2-4) runs into Atlanta's best trait (2.99 YPC, 2 explosive runs). Positive overlap for Atlanta's backs: Bijan (64 carries, 6.42 YPC) and Brian Robinson (35 carries, 4.66 YPC) face a BAL run defense with 11 runs of 10+ and 3.91 YPC allowed. London is the primary target (21 targets, 341 yards) but his alignment vs Baltimore's middle leak is not charted, so that overlap is unconfirmed."
+ },
+ "form": "Weeks 2-4 aggregates only; no per-game splits. Henry 21.7 carries and 76.7 rush yards/game plus 6 targets/25 rec yards, already under an 80.5 rush line before the matchup. Justice Hill 8/42 rush and 5/34 receiving; Huntley 2/18 rush. Flowers 16 targets/202 yards (67.3/game) sits on 68.5. Bateman 14/171 (57/game) vs a 17.5 line is a price the pack cannot explain without an injury report, so he is not a leg. Andrews 18/100 (33.3) vs 31.5 is a push. Bijan 64/411 (137/game, 6.42 YPC) is efficiency-inflated versus 86.5. Brian Robinson 35/163 (54.3/game on 11.7 carries) has a real secondary role versus 35.5. London 21/341 (113.7, 16.2 yards/target) is hot and may not fully repeat. Dotson 10 targets/76 yards on 154 air yards is inefficient. Zaccheaus 6 targets/12 yards.",
+ "edge_players": [
+  {
+   "player": "derrickhenry",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Henry is already at 76.7 rush yards per game on 3.54 YPC over weeks 2-4, and Atlanta has allowed 2.99 YPC with only 2 runs of 10+ in four games, so 80.5 sits above both his recent role and this run defense.",
+   "must_be_true": "Derrick Henry YPC <= 3.7 because ATL allows 2.99 rush YPC and only 2 runs of 10+ yards in 4 games while Henry averaged 21.7 carries and 76.7 rush yards over weeks 2-4",
+   "kills_it": "IF Derrick Henry carries >= 23 AND breaks a run of 15+ yards THEN Henry rushyds under 80.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "brianrobinson",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Brian Robinson averaged 11.7 carries and 54.3 rush yards over weeks 2-4, and even if 4.66 YPC regresses to Baltimore's 3.91 YPC allowed he still projects near 46 yards, above 35.5, as long as Atlanta does not abandon the run.",
+   "must_be_true": "Brian Robinson carries >= 10 because he averaged 11.7 carries and 54.3 rush yards over weeks 2-4 and BAL allows 3.91 YPC",
+   "kills_it": "IF Atlanta trails and Brian Robinson carries <= 7 THEN Brian Robinson rushyds over 35.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Henry's weeks 2-4 mean of 76.7 rush yards is already under 80.5, and 21.7 carries times ATL's 2.99 YPC allowed is about 65 yards, so form and matchup both support the under. Brian Robinson's 11.7 carries times BAL's 3.91 YPC allowed is about 46 yards, still over 35.5, and his raw 54.3 mean agrees. Bijan was not used: 21.3 carries times 3.91 YPC is about 83, under his 86.5 line, so the 137-yard form does not survive regression. No projection model or sims were in the pack. Listed prices are the main lines, not de-vigged.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff time, weather, injury report and inactives, man/zone and MOFO/MOFC charting, per-game splits, opponent quality behind the YPC figures, no-vig price, and sim medians",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Derrick Henry rushyds under 80.5 at -111.5 (main line). Brian Robinson rushyds over 35.5 at -112 (main line). No receptions, passing yards, or TD legs. No short-priced alt rungs.",
+ "pre_mortem": "It's Monday and both lost because Atlanta's 2.99 YPC is only a four-game sample against unknown run offenses, Baltimore led, and Henry took 24 clock-killing carries with the one 15-plus yard run Atlanta rarely allows and cleared 80.5. Atlanta then trailed: Penix's -0.41 EPA when not blitzed showed up on the majority of dropbacks against a 31% blitz, Bijan kept the valuable carries (64 over weeks 2-4 versus Brian Robinson's 35), and Brian Robinson finished at 7 or fewer carries under 35.5. The missing spread may have had Baltimore favored, which is the one script that breaks both legs together. Huntley's 29.5 rush line also leaves a possible QB change undocumented; if Jackson sat, Henry's carry spike is the other way the under dies.",
+ "slip_story": "One ground-game mismatch script, not a shootout stack: Atlanta runs on Baltimore's 3.91 YPC and 11 explosive runs allowed (Brian Robinson over 35.5, script-dependent on Atlanta staying competitive) while Henry is efficiency-capped by Atlanta's 2.99 YPC run defense (Henry under 80.5, which also survives a Baltimore-trails flip). Do not pair these with same-game pass overs that need the shootout flip. No TDs. Main slip is these two legs only.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

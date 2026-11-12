@@ -1,0 +1,46 @@
+{
+ "game": "Week 5 MIN@NO / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread, total, and implied team totals are not in the pack, so the script is inferred from form only and is not a market read. Base: MIN keeps feeding Aaron Jones (60 carries, 257 rush yards over weeks 2-4) into a NO run defense that has allowed 5.27 YPC and 15 runs of 10+ in 4 games, while MIN's 73% blitz rate meets a NO QB at -0.19 EPA/dropback vs blitz (n=61) and +0.12 when not blitzed, so NO's downfield game (Olave 35 targets, 414 air yards) is disrupted more often than it is clean. Pace stays run-lean for MIN; Hockenson's short/middle targets (21 targets, 159 air yards, aDOT about 7.6) still show up because they already coexisted with the 20-carry Jones weeks.",
+  "flip1": "NO hits the unblitzed split early (+0.12 EPA) and Olave/Vele cash explosives of the type MIN has allowed (12 passes of 20+ on 146 attempts). NO leads, MIN abandons the run, and Jones's rush line dies even though the NO front is soft.",
+  "flip2": "Clock-kill the other way: MIN leads, Jones carries stay high, and NO never gets the 11-plus Olave targets that produced 103 receiving yards a game in weeks 2-4. A shootout is the less likely third path and is not the base."
+ },
+ "injury_fallout": "No injury report, practice status, snap limits, or inactives in the pack; final-inactives checkpoint cannot be run. Do not assign a cause to roles. Usage only: MIN carries in weeks 2-4 are Jones 60/257, Claiborne 6/13, Murray 5/38, Wentz 3/6, so Jones is the carry engine and the QB rush log is split between Murray and Wentz with no starter named. Targets: Hockenson 21/159/159, Addison 20/163/245, Jones 14/68/-5, Jefferson only 8/87/109, Price 3, Felton 3, Jennings 3. Jefferson is not the L3 target leader; whether that is injury, limit, or scheme is unknown, so his targets are not reassigned. NO carries are a committee: Kamara 25/74, Etienne 22/82, Shough 11/65, Miller 10/23. NO targets: Olave 35/309/414, Vele 22/157/253, Juwan Johnson 20/178/85, Kamara 14/47/5. Fant is not in the NO target log. No defensive absences are listed, so no backup-corner or backup-safety boost is claimed.",
+ "matchup": {
+  "shell": "MOFO/MOFC and man/zone rates are not in the pack; no coverage charting. Location splits only: NO pass YPA allowed left 7.86 (51 att), middle 9.17 (23 att), right 6.25 (48 att). MIN pass YPA allowed left 6.75 (44), middle 9.69 (29), right 5.32 (57). Both defenses bleed the middle on a small middle sample; MIN's right side (5.32) is the tighter zone.",
+  "pressure": "Pressure rate and time-to-throw are not in the pack; blitz is not pressure getting home. NO blitz rate 34%. MIN blitz rate 73%. MIN QB EPA/dropback -0.11 vs blitz (n=50) vs -0.04 unblitzed, a small split, and NO does not blitz often. NO QB EPA/dropback -0.19 vs blitz (n=61) vs +0.12 unblitzed, so NO's pass success in this pack lives on non-blitz downs.",
+  "bleeds": "NO run defense is the clear bleed: 5.27 YPC allowed and 15 runs of 10+ in 4 games, plus 11 passes of 20+ on 132 attempts. MIN run defense is tighter at 4.15 YPC and 11 runs of 10+, with 12 passes of 20+ on 146 attempts. MIN middle 9.69 YPA is the pass soft spot; right side 5.32 is not.",
+  "overlap": "Jones's 20 carries a game attack the exact NO leak (5.27 YPC, 15 explosive runs). That is the core overlap. Hockenson (aDOT ~7.6, 21 targets) overlaps NO's middle (9.17 YPA) more than Jefferson's reduced L3 role does. Olave (aDOT ~11.8, 103 yards/game) overlaps the blitz problem, not a soft zone we can chart, so he is not an edge leg."
+ },
+ "form": "Avoiding season averages. MIN weeks 2-4: Jones 20.0 carries and 85.7 rush yards per game at 4.28 YPC, plus 14 targets and 68 receiving yards (air yards -5, checkdowns). That 60-carry sample is not a one-play spike. Hockenson 7.0 targets and 53.0 receiving yards per game, air yards equal to receiving yards (no YAC in the log). Addison 20/163/245 in the same window. Jefferson 8/87/109, about 29 yards per game, a role change versus a normal WR1 with no cause in the pack. NO weeks 2-4: Olave 35/309/414 (103.0 yards/game) looks sticky but is downfield; Juwan Johnson 20/178/85 (59.3 yards, aDOT 4.25, YAC in the log); Kamara 8.3 carries and 24.7 rush yards at 2.96 YPC beside Etienne 22/82. What MIN allowed lately is the 4-game split, not a last-3 chart: 4.15 YPC, middle 9.69. What NO allowed: 5.27 YPC and 15 runs of 10+.",
+ "edge_players": [
+  {
+   "player": "aaronjones",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Jones is a 20-carry back at 85.7 rush yards per game over weeks 2-4, and NO has allowed 5.27 YPC and 15 runs of 10+ yards, so 71.5 is inside a role-plus-leak overlap even if he only gets the mid-teens.",
+   "must_be_true": "He keeps a high-teens carry share close to the L3 20.0 per game, stays active with no snap limit (inactives not in the pack), and MIN is not scripted out of the run. Spread is unknown, so a non-blowout script is assumed from form, not from a line.",
+   "kills_it": "Flip 1: NO scores early off the unblitzed pass game, MIN trails big, and carries fall under about 14 so even a 5-YPC leak misses 71.5. Also a late scratch or an OL injury not in this pack.",
+   "confidence": "strong"
+  },
+  {
+   "player": "tjhockenson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Hockenson was the MIN target leader in weeks 2-4 (21 targets, 159 yards, 53 a game) while Jones was already at 60 carries, and NO's softest pass zone is the middle (9.17 YPA) where a 7.6 aDOT tight end lives, so 40.5 sits under a role that has already shared the offense with the run game.",
+   "must_be_true": "The L3 target share holds near 7 targets a game, Jefferson does not take the tree back, and MIN still drops back enough in a Jones-lean script. NO's 34% blitz rate means the MIN QB is mostly in the milder -0.04 unblitzed EPA split.",
+   "kills_it": "Jefferson (8 targets and 87 yards in the same three games, but listed at a recyds 80 line with no price) is a full WR1 again and compresses Hockenson under 40.5, or a pure clock-kill cuts dropbacks. Middle YPA is only 23 attempts, so that zone edge can be noise.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection model, no sim median, and no Pinnacle no-vig in the pack, so step 8 cannot price a true edge or test the 70% suspicion rule. Pack counting stats agree with both overs: Jones 85.7 rush yards per game vs 71.5, and 16 carries at his 4.28 YPC is about 68, so he needs the NO leak or the full role, which the 5.27 YPC allowed supports. Hockenson 53.0 vs 40.5 also agrees, and those 159 yards already came with Jones at 60 carries. NO middle 9.17 YPA (23 att) agrees directionally but is a small sample, so it sizes Hockenson as a lean, not a strong. Olave 103.0 vs 80.5 was not used: MIN blitz 73% and NO QB -0.19 EPA vs blitz disagree with an over, and that is only a lean without a pressure rate, so the lean was dropped rather than flagged. Jefferson recyds 80 with price +nan is missing price data, not a no-vig. Verdict agree on the two kept legs; human should cut Hockenson if a late report shows Jefferson fully back.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only, one market per player, no TDs, no receptions, no passing yards. Aaron Jones rushyds over 71.5 -114 (rush market, not rushrecyds 95.5, because the edge is carry share plus a weak run defense). T.J. Hockenson recyds over 40.5 -115. Neither is a short-priced alt. Rungs not moved: no sim to justify an alt.",
+ "pre_mortem": "It's Monday and both overs lost. Jones finished under 71.5 because NO's +0.12 unblitzed EPA showed up, Olave's 11.7 targets a game kept NO ahead, and MIN cut the 20-carry role before the 5.27 YPC leak could pay 71.5; the 15 explosive runs allowed were against other lines, and this OL's health was never in the pack. Hockenson finished under 40.5 because the 21-target, 53-yard run was a Jefferson-light window (8 targets, 87 yards) and the 80.5 Jefferson number, even with a blank price, was the market saying that window was closing; Addison's 20 targets took the rest, and the middle 9.17 YPA on 23 throws never became Hockenson yards. If that Jefferson counter is the real story, the Hockenson lean should have been dropped at step 10.",
+ "slip_story": "One story: MIN's offense, not a shootout. Jones rush over is the run-control anchor against NO's 5.27 YPC front; Hockenson recyds over is the throw that already lived next to that run game and attacks the middle. They do not need opposite scripts. Do not add Olave or Vele overs (they need the blitz to fail, which is flip 1 and the path that kills Jones carries). Do not add Kamara rush over or a NO team total. No TDs. Two legs, under the 3-4 cap. Spread and total props are unavailable in the pack, so this cannot be a side or total stack.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

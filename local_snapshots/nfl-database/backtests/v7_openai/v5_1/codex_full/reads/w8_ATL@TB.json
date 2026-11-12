@@ -1,0 +1,48 @@
+{
+ "game": "ATL@TB / Week 8, Sun Nov 01, 1:00 PM ET per saved manifest / Raymond James Stadium, outdoor / supplied TB -2, total 43; implied TB 22.5, ATL 20.5 / supplied weather: wind 9.2 mph, 81.9 F, observation timestamp missing. Manifest built 2026-10-29 05:25 EDT lists TB -2.5/44.5; these are different snapshots, not verified opening-to-current movement. Moneylines and opening lines missing. Both teams have seven days' rest per manifest; travel itineraries missing.",
+ "script": {
+  "base": "Hypothesis before testing player lines: Tampa Bay holds a narrow lead into the second half, keeping Bucky Irving's rushing workload central while Atlanta remains close enough to retain its normal passing options. Atlanta can seek intermediate production through Kyle Pitts against Tampa Bay's weaker middle-of-field results; pace is unverified rather than assumed fast.",
+  "flip1": "Atlanta leads early and forces Tampa Bay toward passing, threatening Irving's rushing volume. Pitts can retain receiving opportunities in a competitive game, but an Atlanta clock-control finish would reduce them.",
+  "flip2": "Tampa Bay builds a substantial early lead and Atlanta shifts toward comeback passing. That supports Irving's clock-killing carries and Pitts' potential targets, although a sufficiently lopsided game introduces backup and reduced-snap risk."
+ },
+ "injury_fallout": "MISSING: actual ATL and TB player injury designations, practice progression, offensive-line availability, defensive absences, return restrictions, final injury reports and game-day inactives. The saved manifest says Wednesday designations were logged and Thursday/Friday reports remained pending, but supplies no player-specific entries. No absences, replacements or target redistribution are inferred for Irving, Pitts or their teammates. Recheck every candidate against final reports and inactives approximately 90 minutes before kickoff. Sources: supplied manifest checks 16, 21 and 42, built 2026-10-29 05:25 EDT; supplied usage covers Weeks 5-7, with extraction timestamp unspecified.",
+ "matchup": {
+  "shell": "MISSING: actual ATL/TB man-zone and MOFO/MOFC rates. Manifest checks 10 and 36 reference coverage sources but do not provide their values; no shell or defender assignment can be established from this excerpt.",
+  "pressure": "TB blitzes 41%; ATL QB EPA/dropback is -0.01 against blitz versus -0.14 without blitz. This does not support assuming Tampa Bay's blitz automatically overwhelms Michael Penix or forces checkdowns. ATL blitzes 25%; TB QB EPA/dropback is -0.18 against blitz versus -0.14 without it. Actual pressure rates, protection matchups and time-to-throw are missing. Source: supplied pregame matchup pack, season through Week 7.",
+  "bleeds": "TB allows 9.53 passing yards per attempt over the middle versus 6.04 left and 5.95 right; ATL allows 9.76 middle versus 6.38 left and 5.93 right. These are location splits, not TE-specific allowances. ATL allows 4.04 rushing yards per carry and TB 3.87, so neither is established as a soft rushing matchup. Source: supplied defensive results through seven games.",
+  "overlap": "Pitts offers a plausible middle-area receiving hypothesis: 18 targets, 124 receiving yards and 68 air yards over Weeks 5-7. His actual alignment and route map are missing, so the overlap remains conditional. Irving's rushing case rests on 64 carries over those weeks, not a claim that Atlanta's run defense is weak."
+ },
+ "form": "Weeks 5-7 supplied usage: Irving accumulated 64 carries for 317 yards, compared with Gainwell's 20/123 and Tucker's 12/70; this supports a leading rushing role but does not establish a snap guarantee. Pitts had 18 targets for 124 receiving yards, behind London's 32 targets and ahead of Dotson's 12. Pitts' 68 air yards suggest relatively short aggregate target depth, without proving route alignment or YAC repeatability. Individual-game distributions, routes, snaps, red-zone usage, similar-opponent samples and verified role changes are missing. Source: supplied L3 offense tables, available pre-kickoff; exact extraction time unspecified.",
+ "edge_players": [
+  {
+   "player": "buckyirving",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Irving's recent lead rushing workload gives him a plausible path above 70.5 yards in a narrowly favored Tampa Bay script without requiring a weak Atlanta run defense.",
+   "must_be_true": "buckyirving carries >= 18 [because the pack records 64 carries over Weeks 5-7]",
+   "kills_it": "IF Atlanta takes an early multi-score lead and Tampa Bay shifts away from Irving's rushing workload THEN buckyirving rushyds over 70.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "kylepitts",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Pitts' recent target involvement offers a path above 34.5 receiving yards if Atlanta uses him to attack Tampa Bay's comparatively vulnerable middle.",
+   "must_be_true": "kylepitts targets >= 5 [because the pack records 18 targets over Weeks 5-7]",
+   "kills_it": "IF Tampa Bay removes Pitts from the middle-area progression and Atlanta redirects those targets to London and Dotson THEN kylepitts recyds over 34.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Reads were formed from script, workload and matchup before testing the listed lines. Irving sensitivity check: 18 carries at Atlanta's allowed 4.04 YPC produces 72.72 yards, narrowly above 70.5; this is arithmetic, not a player projection. Pitts sensitivity check: five targets at his aggregate L3 124/18 receiving yards per target produces 34.44 yards, just below 34.5. His hypothesized matchup uplift therefore matters, and the read is flagged rather than treated as a clear edge. These aggregates do not establish outcome probabilities. No simulation or calibrated model was run. At -114 Irving requires approximately 53.27% to break even; at -112.5 Pitts requires approximately 52.94%. Neither number is a no-vig fair probability.",
+  "disagrees": "Pitts' five-target minimum condition produces only 34.44 receiving yards at his recent aggregate efficiency, slightly below the 34.5 line. That is a close numerical challenge to the proposed receiving over, not a decisive rejection.",
+  "missing": "Executable projection model, simulations and medians, calibrated hit probabilities, Pinnacle two-way prices, sharp no-vig probabilities, game-level usage distributions, coverage alignment, actual pressure rates, injury reports, final inactives and timestamped kickoff weather.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Candidates only: buckyirving rushyds over 70.5 at -114, a volume-driven main-line lean; kylepitts recyds over 34.5 at -112.5, a flagged matchup lean. Allowed markets exclude receptions, so Pitts' target hypothesis is expressed less directly through receiving yards. No alternate rung or positive expected value is established. Weather check: supplied 9.2 mph wind and 81.9 F do not independently support a weather under, but their timestamp is missing. The manifest's Oct 29 Open-Meteo forecast instead had 14.3 mph wind, 18.1 mph gusts and 47% precipitation probability; kickoff conditions remain unverified.",
+ "pre_mortem": "Irving: Tampa Bay can be a slight favorite and still trail for much of the game. Gainwell and Tucker already have meaningful recent carries, and Atlanta's 4.04 YPC allowed leaves little margin if Irving gets only 18 attempts; unknown health or workload limits could erase the volume premise. Pitts: middle-field defensive weakness does not prove Pitts will receive those targets, and his five-target efficiency check does not clear the line. London remains Atlanta's target leader, while missing route and coverage assignments prevent confirming Pitts as the beneficiary. The counter-case is substantial enough to keep Pitts flagged and both candidates below strong confidence.",
+ "slip_story": "The shared story is a competitive Tampa Bay lead: Irving retains rushing work while Atlanta keeps Pitts involved in its response. Both can also benefit from a larger Tampa Bay lead, subject to late-game snap risk. An Atlanta-led passing comeback by Tampa Bay is the main incompatible flip for Irving. These are two research candidates, not a priced or approved parlay; do not manufacture a third leg, add touchdowns or assume independent leg probabilities. Step 12: this JSON is the read artifact, but no persistent save, execution timestamp, cryptographic hash or postgame grading is available. On review, grade script and player-role reads separately from betting results; audit workload misses against Steps 2-3 and Pitts matchup misses against Steps 4-5.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

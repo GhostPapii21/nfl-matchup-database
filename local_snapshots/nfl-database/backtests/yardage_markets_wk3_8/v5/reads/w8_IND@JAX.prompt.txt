@@ -1,0 +1,113 @@
+# Week 8 IND@JAX
+JAX spread -10, total 45.5
+Weather: wind 13.7, temp 78.0
+## IND offense (last 3 games: weeks [5, 6, 7])
+Rushers (carries/yds over L3): J.Taylor 54.0/234; S.McGowan 20.0/89; D.Jones 10.0/47; D.Burks 1.0/7
+Targets (tgt/rec yds/air yds over L3): K.Allen 23.0/158/193; J.Downs 18.0/105/211; L.Treadwell 15.0/74/213; J.Taylor 11.0/109/-9; T.Warren 9.0/83/86; W.Mallory 9.0/20/98; M.Alie-Cox 5.0/15/11
+IND QB EPA/dropback vs blitz -0.12 (n=95) vs no blitz -0.18
+## JAX defense (season to date, 6 games)
+Rush YPC allowed 3.33; 10+ yd runs allowed 7; 20+ yd pass plays allowed 21/223 att
+Pass YPA allowed by location: left 6.68 (76.0 att); middle 11.06 (36.0 att); right 7.92 (100.0 att)
+JAX blitz rate 31%
+## JAX offense (last 3 games: weeks [4, 5, 6])
+Rushers (carries/yds over L3): B.Tuten 51.0/184; C.Rodriguez 19.0/95; T.Lawrence 6.0/39; L.Allen 1.0/1
+Targets (tgt/rec yds/air yds over L3): B.Strange 23.0/207/171; P.Washington 23.0/195/270; J.Meyers 17.0/153/183; B.Tuten 9.0/90/-23; J.Cameron 8.0/85/21; Bri.Thomas 8.0/17/89; N.Boerkircher 6.0/43/28
+JAX QB EPA/dropback vs blitz 0.14 (n=64) vs no blitz 0.33
+## IND defense (season to date, 7 games)
+Rush YPC allowed 5.02; 10+ yd runs allowed 19; 20+ yd pass plays allowed 19/225 att
+Pass YPA allowed by location: left 7.12 (78.0 att); middle 8.95 (37.0 att); right 7.28 (97.0 att)
+IND blitz rate 22%
+# SAVED PREGAME CHECKLIST (excerpt)
+# IND @ JAX — Week 8 60-check manifest
+Game 401873028, Sun Nov 01 01:00 PM ET, EverBank Stadium (outdoor), JAX -10 / 46.5. Built 2026-10-29 05:25 EDT. Status counts: {'PASS': 16, 'PARTIAL': 31, 'NOT_APPLICABLE': 3, 'UNAVAILABLE': 7, 'UNIMPLEMENTED': 3}
+
+| # | Check | Status | Reason | Evidence |
+|-|-|-|-|-|
+|1|P1.pbp|PASS|Repo SQLite plays (ESPN PBP) Wk1–7 + nflverse via overlay|repo/data/nfl_matchups.sqlite; fixes/fixes.sqlite|
+|2|P1.boxscores|PASS|player_stats + fix_player_game_usage|fixes/fixes.sqlite|
+|3|P1.tackles_sacks|PARTIAL|fix_play_credits reconciled; tackler≠coverage defender|fixes/FIXES.md|
+|4|P1.pressure|PARTIAL|Pressure is opponent-Sharp-allowed proxy + pbp sack/hit; no charted pressure source|defense/IND_at_JAX.md|
+|5|P1.ol_snaps|PARTIAL|nflverse participation snaps only; Wk7 participation lag possible|fixes/fixes.sqlite fix_participation|
+|6|P1.air_yards|PARTIAL|NGS IAY per QB; per-target air yards via nflverse only where loaded|defense/raw|
+|7|P1.redzone|PASS|RZ targets/goal-line carries in baselines|team_baselines/IND.md, JAX.md|
+|8|P1.scrambles|PARTIAL|fix_qb_rushing scramble flags from nflverse; ESPN PBP lacks explicit flag|fixes/fixes.sqlite fix_qb_rushing|
+|9|P2.team_defense|PASS|Production + explosive counts per game|defense/IND_at_JAX.md|
+|10|P2.coverage|PASS|Sharp coverage pages dated Oct 20 = CURRENT per user (last games before slate)|defense/SOURCES.md|
+|11|P2.individual_assignments|PARTIAL|Only PBP-named defenders on big plays (weak signal); no charted assignment source|team_baselines/|
+|12|P2.weakest_link|PARTIAL|Alignment-level weakest link from Sharp ranks (see Soft spots); player-level unverified|defense/IND_at_JAX.md|
+|13|P2.pressure_trend|PARTIAL|ESPN PRWR through Wk6 only; pbp sack/hit trend|defense/IND_at_JAX.md|
+|14|P3.team_offense|PASS|QB/team production|team_baselines/|
+|15|P3.player_roles|PASS|Roles + L3 vs season shares; roster-checked 2026-10-29 05:25 EDT|defense/IND_at_JAX.md; rosters/|
+|16|P3.ol_health|PARTIAL|OL designations from ESPN injuries; Thu practice pending|injuries.json|
+|17|P3.target_hierarchy|PASS|L3 vs season target/carry share (opportunity gate inputs)|team_baselines/|
+|18|P3.routes_gaps|PARTIAL|NGS separation/cushion; run gaps from pbp direction; no route participation|defense/raw|
+|19|P3.qb_blitz|PASS|FTN EPA vs blitz / no-blitz per offense|defense/IND_at_JAX.md|
+|20|P4.slip_comparison|NOT_APPLICABLE|No slip supplied for this game|—|
+|21|P4.injury_alerts|PARTIAL|Wed status logged; Thursday reports PENDING|injuries.json; this file Injury impact|
+|22|P4.script_risk|PARTIAL|Backup-QB/workload risk noted from injuries; 10G labels pending|this file|
+|23|P5.bundle|PARTIAL|Markdown/JSON bundle; no engine-versioned bundle|week8/|
+|24|P5.provenance|PARTIAL|sha256 of inputs recorded below; engine code/model hash unavailable (nfl.py on user Mac)|this file|
+|25|P5.source_preservation|PASS|Repo SQLite untouched; fixes in overlay|fixes/PATCH_SPEC.md|
+|26|P6.live_policy|NOT_APPLICABLE|Pregame; live polling off|—|
+|27|P7.ngs_targeted_charts|PARTIAL|NGS public leaderboards (sep/cushion/YACOE/TTT); per-game targeted charts not read|defense/raw|
+|28|P7.all_routes|UNAVAILABLE|Route participation not in any public source loaded|—|
+|29|P7.run_concepts|UNAVAILABLE|No verified run-concept source; film pending|film/|
+|30|P7.strength_map|PARTIAL|Sharp alignment YPT + box rates; no side-level split|defense/IND_at_JAX.md|
+|31|P7.rb_suppression|PARTIAL|RB YPC/rush+rec allowed + game state; RB quality adj not applied|defense/IND_at_JAX.md|
+|32|P7.cb_suppression|UNAVAILABLE|Individual CB coverage stats are paid/not loaded|—|
+|33|P7.panthers_rule|PARTIAL|QB NGS/blitz review for: Daniel Jones, Trevor Lawrence; exact OL/pass-rush matchup not charted|defense/IND_at_JAX.md|
+|34|P8.film|PARTIAL|Codex YouTube highlight notes done for IND 2/6 games, JAX 3/6 (film/codex_out, still running; not yet verified vs pbp by this worker)|film/codex_out|
+|35|P8.personnel|UNAVAILABLE|Personnel packages need film; depth chart formation only|rosters/|
+|36|P8.scheme|PARTIAL|Coverage shells from Sharp (man/zone/MOFC); fronts/run fits need film|defense/IND_at_JAX.md|
+|37|P8.missed_looks|UNAVAILABLE|Pending verified film notes|film/|
+|38|P8.film_notes|PARTIAL|Codex notes unverified; hypotheses only|film/codex_out|
+|39|P9.weather|PARTIAL|Forecast (Open-Meteo, pulled 2026-10-29 05:25 EDT) kickoff hr: 80.3°F, precip prob 33%, wind 14.6 mph gust 19.0 — 3-day-out forecast, re-pull Sat/Sun|https://api.open-meteo.com|
+|40|P9.rest_travel|PASS|IND last game 2026-10-25 (7 days rest); JAX last game 2026-10-18 (14 days). Time-zone change only from venue, no itineraries invented|ESPN team schedule API|
+|41|P9.stakes|PARTIAL|Records from ESPN scoreboard; divisional/rematch not a 2026 rematch; playoff-odds not pulled|defense/IND_at_JAX.md|
+|42|P9.injury_spikes|PARTIAL|Exact-game availability: Wed designations; Thu/Fri + inactives pending|injuries.json|
+|43|P9.turnovers|PARTIAL|Turnovers in pbp/baselines; rolling interp
+# AVAILABLE PROPS (main line)
+nateboerkircher (JAX) recyds over 8.5 -111
+ashtondulin (IND) recyds over 3.5 -115
+jonathantaylor (IND) rushyds over 49.5 -114
+brianthomasjr (JAX) recyds over 10.5 -114
+brianthomasjr (JAX) recyds under 10.5 -114
+bhayshultuten (JAX) recyds over 14.5 -110
+travishunter (JAX) recyds under 13.5 -112
+sethmcgowan (IND) rushyds over 24.5 -111
+danieljones (IND) rushyds under 8 +nan
+nateboerkircher (JAX) recyds under 8.5 -116
+joshdowns (IND) recyds over 33 +nan
+keenanallen (IND) recyds under 35.5 -114
+bhayshultuten (JAX) rushyds over 68 +nan
+keenanallen (IND) recyds over 35.5 -114
+jonathantaylor (IND) rushyds under 49.5 -114
+parkerwashington (JAX) recyds under 70.5 +nan
+joshcameron (JAX) recyds over 13.5 -112.5
+jonathantaylor (IND) rushrecyds over 68.5 -115
+bhayshultuten (JAX) rushrecyds over 85.5 -117.5
+tylerwarren (IND) recyds under 41 +nan
+bhayshultuten (JAX) recyds under 14.5 -117
+tylerwarren (IND) recyds over 41 +nan
+joshdowns (IND) recyds under 33 +nan
+joshcameron (JAX) recyds under 13.5 -115
+ashtondulin (IND) recyds under 3.5 -115
+brentonstrange (JAX) recyds under 41.5 -113
+parkerwashington (JAX) recyds over 70.5 +nan
+bhayshultuten (JAX) rushyds under 68 +nan
+jakobimeyers (JAX) recyds over 33.5 -114
+jonathantaylor (IND) recyds under 14.5 -109
+jonathantaylor (IND) recyds over 14.5 -119
+bhayshultuten (JAX) rushrecyds under 85.5 -110.5
+sethmcgowan (IND) rushyds under 24.5 -117.5
+brentonstrange (JAX) recyds over 41.5 -113
+travishunter (JAX) recyds over 13.5 -114.5
+trevorlawrence (JAX) rushyds over 11.5 -115
+jakobimeyers (JAX) recyds under 33.5 -114
+chrisrodriguezjr (JAX) rushyds over 32 +nan
+jonathantaylor (IND) rushrecyds under 68.5 -113
+laquontreadwell (IND) recyds over 23.5 -116.5
+trevorlawrence (JAX) rushyds under 11.5 -113
+laquontreadwell (IND) recyds under 23.5 -112
+chrisrodriguezjr (JAX) rushyds under 32 +nan
+danieljones (IND) rushyds over 8 +nan

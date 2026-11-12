@@ -1,0 +1,46 @@
+{
+ "game": "Week 5 LV@NE / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this script is form-only and is not a book-implied lean. Over weeks 2-4 LV has been pass-lean because the run is inefficient (Jeanty 55 carries, 162 yards, 2.95 YPC) while Bowers (24 targets, 202 yards, 254 air) and Tucker (19/206/307) carry the explosives; NE has split runs (Henderson 38/141, Stevenson 26/112, Maye 12/94) and thrown to Doubs (17/203/247). Base case: a competitive, moderate-pace game, LV staying pass-lean with Jeanty still touching the ball as the volume back and receiver, NE mixing Henderson/Stevenson runs into LV's leaky front with Doubs as the primary throw.",
+  "flip1": "NE gets ahead and LV abandons the 2.95 YPC run. Jeanty's rush path dies and checkdowns have to save a combined line; Bowers/Tucker/Mayer air yards rise. NE can then lean Henderson/Stevenson and shorten the game, which caps Doubs targets.",
+  "flip2": "LV controls the clock on Jeanty volume anyway and NE falls behind. Henderson's carries stall, Maye drops back more into only a 25% blitz (his EPA is +0.06 unblitzed vs -0.06 blitzed), and Doubs/Henry yardage becomes the NE path. A weather slog cannot be scripted \u2014 forecast not in pack."
+ },
+ "injury_fallout": "No injury report, practice trend, snap limit, or inactive list is in the pack, so no next-man-up can be named and none is invented. Cousins shows only as the LV QB rush line (2 carries, 9 yards over the last 3) and Maye as NE's rushing QB (12/94); no OL or coverage absences are listed. Any game-time scratch would touch these reads and cannot be re-run from this pack.",
+ "matchup": {
+  "shell": "MOFO/MOFC and man/zone rate are not in the pack, so WR/TE/RB cannot be mapped to specific zone defenders.",
+  "pressure": "NE blitzes 37%. LV QB EPA/dropback is +0.20 vs blitz (n=41) vs +0.15 unblitzed, so that blitz has not been a negative in this sample. LV blitzes 25%. Maye is -0.06 EPA vs blitz (n=45) and +0.06 without, so the lighter LV pressure is the friendlier pocket for NE throws.",
+  "bleeds": "NE pass YPA: middle 12.5 on 24 att, left 5.65 on 52, right 4.65 on 49; rush 4.44 YPC with 10 runs of 10+ and 10 passes of 20+ on 134 att. LV pass YPA: middle 9.0 on 20, left 7.73 on 52, right 5.74 on 54; rush 5.23 YPC with 13 runs of 10+ and 10 passes of 20+ on 139 att. NE is sound outside and soft in the middle; LV is the worse run defense and also leaks middle and left.",
+  "overlap": "LV's top option Bowers (24 targets, 10.6 air yards/target, TE profile) overlaps NE's middle bleed (12.5 YPA). That is the cleanest overlap, but his posted recyds rung is 74.5 against a 67.3 L3 pace, so it was a lean the form number did not confirm and it is not a leg. The playable overlap is Doubs, NE's top target (17 targets, 14.5 aDOT), into LV's middle (9.0) and left (7.73) with only a 25% blitz in front of Maye."
+ },
+ "form": "Jeanty is the LV engine, not a spot back: 18.3 carries and 54.0 rush yards per game plus 6.3 targets and 40.0 receiving yards (94.0 scrimmage) over weeks 2-4. Washington (17/79) is the only real complement. Tucker 68.7 rec yards/game on 16.2 air yards/target is deep and variance-heavy into NE's stronger outside (4.65/5.65 YPA), so the 41.5 line is an average trap, not a matchup edge. Mayer 45.7 rec yards/game on 5.2 aDOT is short-area and not the 12.5 YPA explosive overlap. NE: Henderson 47.0 rush yards/game and not listed in the target table; Stevenson 37.3 rush plus 46 rec yards; Maye 31.3 rush on only 4 attempts/game. Doubs 67.7 rec yards/game on 203 yards across three games is a stable WR1 role, not a one-play spike. Henry 35.7 vs a 37.5 line has no separation.",
+ "edge_players": [
+  {
+   "player": "ashtonjeanty",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Jeanty is the offense (55 carries and 19 targets over three games, 94 scrimmage yards/game) and 75.5 does not require one script: a clock-control day is the rush path, a trail-and-checkdown day is the 40-yard receiving path, and NE's run defense (4.44 YPC, 10 runs of 10+) is not a profile that erases an 18-carry back.",
+   "must_be_true": "He keeps the lead-back role and the 5-6 target receiving share; both paths cannot shrink at once. Inactives are not in the pack, so a full snap share is assumed from the week 2-4 role only.",
+   "kills_it": "NE boxes him and funnels targets to Bowers, Tucker and Mayer, so he posts something like 12 carries for 30 and 3 catches for 15. Washington stealing series plus a pass-only script does the same.",
+   "confidence": "strong"
+  },
+  {
+   "player": "romeodoubs",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Doubs is NE's primary receiver (17 targets, 203 yards, 247 air, 67.7 yards/game) and 49.5 sits well under that role against a LV pass defense that leaks the middle (9.0 YPA) and left (7.73) while blitzing only 25%, the pocket where Maye's EPA is positive.",
+   "must_be_true": "Doubs keeps WR1 target share and NE still throws a moderate amount \u2014 about 5 targets, not a 3-target run script. Alignment is not charted in the pack.",
+   "kills_it": "NE hammers LV's 5.23 YPC run defense with Henderson, Stevenson and Maye, Maye throws under 25 times, and Doubs finishes near 4 targets for the mid-30s.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack; this check is L3 form versus the posted rung only. Jeanty 94.0 scrimmage vs 75.5 agrees (about 18 yards of cushion). A dual-path cut (12 carries at 2.5 YPC plus targets falling to 3) is the only form path under the number; either path alone still clears. Doubs 67.7 vs 49.5 agrees. Not treated as a 70%+ ticket \u2014 no model, and -113/-115.5 are not short-priced alts. Dropped, not flagged: Bowers over 74.5 was the best schematic overlap but only a lean, and 67.3 vs 74.5 disagrees, so the lean rule drops it rather than forcing a strong flag. Tucker over 41.5 (68.7 vs 41.5) is an average trap into NE's best areas (right 4.65, left 5.65 YPA). Henderson rush 47.0 vs 47.5 is a push, committee (Stevenson 26 carries, Maye 12), and the 47.5 price is +nan; rushrec 58.5 needs a full YPC transfer he has not shown (3.71 YPC).",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Jeanty rushrecyds over 75.5 -113; Doubs recyds over 49.5 -115.5. Main lines only. No passing yards, TDs, or receptions. One market per player. Prices are the pack's posted numbers, not a no-vig.",
+ "pre_mortem": "It's Monday and both lost because NE took Jeanty away specifically \u2014 loaded boxes, Washington took the change-of-pace series, and Cousins' quick game went to Bowers and Mayer in the middle hole, so Jeanty finished about 12-31 rushing and 3-14 receiving, under 75.5. On the other side NE never needed Doubs: LV allowed 5.23 YPC and 13 runs of 10+ in four games, Henderson and Stevenson ran it, Maye threw under 25 times, and Doubs landed in the mid-30s. That run-script counter is real and is why Doubs is a lean, not a strong. It is not stronger than the Jeanty read, because the 19 targets and 120 receiving yards are already in his combined number and survive the trail flip. It is not stronger than the Doubs lean either unless the run script is extreme; a moderate NE run lean still clears 49.5 off a 67.7 pace.",
+ "slip_story": "One competitive, both-offenses-function story. Not a shootout stack and not a favorite-runs-the-clock stack. Jeanty rushrec over is the anchor and survives either lead; Doubs recyds over needs NE to keep a moderate pass volume, which fits the base script and fails only flip-1 if NE gets up big and clocks it. Do not add Henderson rush over or a game under on this slip \u2014 those need the run-heavy or low-event script that kills Doubs. No TD legs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

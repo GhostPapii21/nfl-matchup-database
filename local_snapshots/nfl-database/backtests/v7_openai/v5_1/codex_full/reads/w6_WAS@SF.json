@@ -1,0 +1,48 @@
+{
+ "game": "Week 6 WAS@SF / kickoff MISSING / SF -7 / total 51.5 / implied totals SF 29.25, WAS 22.25 / weather MISSING. Moneylines, opening lines, movement, venue details, rest and travel MISSING.",
+ "script": {
+  "base": "SF builds a lead through its passing offense, then shifts toward clock management. WAS faces a less favorable rushing script as a seven-point underdog; pace is unknown. Hypothesis formed from the supplied pre-kickoff market and matchup pack before checking player production.",
+  "flip1": "WAS keeps pace and forces sustained SF passing volume. Mike Evans benefits, while Rachaad White's rushing under remains viable only if his limited recent carry allocation persists.",
+  "flip2": "SF establishes an early commanding lead and reduces passing volume. Evans' receiving over becomes script-dependent, while White's rushing under benefits unless WAS continues running despite the deficit."
+ },
+ "injury_fallout": "MISSING: WAS and SF injury reports, practice trends, final inactives, offensive-line availability, defensive absences and player snap limits. No absence, return or next-man-up assignment can be inferred from the supplied usage. Final-report and approximately 90-minute pre-kickoff inactive checks cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: SF and WAS MOFO/MOFC, man/zone rates and coverage assignments. WAS allowing 10.15 YPA through the middle does not establish that Evans specifically attacks that weakness.",
+  "pressure": "Source: supplied pre-kickoff pack, defenses through five games. WAS blitzes 46%; SF QB EPA/dropback is 0.70 against blitzes across 47 dropbacks versus 0.30 without blitzes. SF blitzes 31%; WAS QB EPA/dropback falls to -0.20 against blitzes across 55 dropbacks versus 0.17 without. Pressure rates, sacks and time to throw are MISSING; blitz frequency is not pressure success.",
+  "bleeds": "Source: supplied defensive aggregates through five games. WAS has allowed 16 passes of 20-plus yards on 199 attempts, versus SF's nine on 184. SF allows 3.69 rushing YPC and only four runs of 10-plus yards, supporting resistance to WAS rushing efficiency. WAS allows 4.13 rushing YPC and 11 runs of 10-plus yards.",
+  "overlap": "Hypothesis: SF's ability to punish blitzes and WAS's conceded explosive passes favor Evans' downfield role. White instead faces SF's stronger supplied rushing profile while playing for the market underdog. Position-specific defensive allowances, box counts and receiver alignment data are MISSING."
+ },
+ "form": "Source: supplied pre-kickoff Weeks 3\u20135 aggregates. Evans led SF with 25 targets, 223 receiving yards and 377 air yards: 8.33 targets and 74.33 receiving yards per game. Kittle had 19 targets and McCaffrey 13, so Evans was not the only meaningful receiving option. White had 15 carries for 53 yards, versus Croskey-Merritt's 39 carries for 133 yards; White accounted for 21.7% of the 69 carries listed for WAS. His supplied three-game rushing average was 17.67 yards. These aggregates test the matchup reads, not establish them. Individual-game consistency, snaps, routes, red-zone usage, comparable-opponent results and reasons for role allocation are MISSING.",
+ "edge_players": [
+  {
+   "player": "mikeevans",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Evans can beat 65.5 receiving yards because his downfield role attacks a WAS defense conceding explosive passes, while SF's quarterback has performed well against the blitz-heavy approach WAS uses.",
+   "must_be_true": "Mike Evans targets >= 8 [because the pack records 25 targets across Weeks 3\u20135]",
+   "kills_it": "IF SF builds an early commanding lead and limits Evans to 65 or fewer receiving yards THEN Evans over 65.5 recyds fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "rachaadwhite",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "White can stay under 44.5 rushing yards because his limited recent carries meet SF's restrictive rushing defense in a game WAS is expected to trail.",
+   "must_be_true": "Rachaad White carries <= 10 [because the pack records 15 carries across Weeks 3\u20135 versus 39 for J.Croskey-Merritt]",
+   "kills_it": "IF White receives an expanded rushing role and reaches 45 rushing yards THEN White under 44.5 rushyds fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The available role and matchup numbers support both hypotheses without establishing a calibrated betting edge. Evans' 74.33 recent receiving yards per game exceeds 65.5, and White's 17.67 recent rushing yards per game is below 44.5. These are descriptive checks, not projections or simulations. Evans over -115 requires 53.49% to break even; normalizing the supplied -115/-115 pair gives 50.00%. White under -112 requires 52.83%; normalizing against over -116.5 gives approximately 49.54%. These normalized prices describe the supplied market, not Pinnacle or a model. Both remain conditional leans; no stake is justified from averages alone.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median and probabilities, calibration results, Pinnacle prices and source timestamps, individual-game distributions, injuries, coverage charting and weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line candidates only: mikeevans recyds over 65.5 at -115; rachaadwhite rushyds under 44.5 at -112. Receiving yards matches Evans' hypothesized explosive-play edge; rushing yards isolates White's carry-allocation and script risk. No alternate rung or stake selected.",
+ "pre_mortem": "Evans: It is Monday and the over lost because SF's efficient offense created an early lead without requiring sustained Evans volume. Kittle and McCaffrey absorbed production, and Evans' 377 recent air yards did not guarantee completed deep passes. Missing coverage assignments prevent confirming a direct matchup advantage. White: The under lost because his recent 15 carries understated his Week 6 role, WAS remained competitive, and additional carries overcame SF's 3.69 YPC allowed. The pack contains no injury or role-change information that can rule out that expansion. Both counter-cases cap confidence at lean.",
+ "slip_story": "Both candidates fit one conditional story: SF generates enough early passing production for Evans, takes control, and leaves WAS with limited White rushing volume. Evans also survives a competitive passing game; White can survive that flip only if his recent carry allocation holds. A rapid SF blowout threatens Evans, so this is not an automatic same-game parlay. Only two supported candidates exist; do not force a third or fourth leg or add TDs. Read uses only the supplied pre-kickoff pack, whose exact capture time is missing. No durable timestamped/hash-locked log or postgame read-versus-result grading can be completed here, and no bet is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

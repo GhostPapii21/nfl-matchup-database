@@ -1,0 +1,48 @@
+{
+ "game": "TEN@NYG Week 3 / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this script is inferred only from two-game form. TEN can run on NYG, which has allowed 5.47 YPC and 7 runs of 10+, through a committee (Pollard 21 carries/99 yards, Spears 10/53, Ward 8/28). NYG cannot run efficiently on TEN (3.59 YPC allowed, only 3 runs of 10+), so their path is the pass game, where Likely is the only converter (18 targets, 111 yards, 112 air) while Nabers (13 targets, 70 yards, 180 air) and Fields (10 targets, 55 yards, 202 air) have not cashed air yards. Who leads and the pace are unknown without a number.",
+  "flip1": "TEN pushes the blitz above its 24% rate and NYG's QB repeats the -0.63 EPA/dropback vs blitz (n=25) instead of the +0.48 with no blitz. The Giants' pass game stalls, Likely's targets dry up, and it becomes a low-event slog with TEN leaning further into the run.",
+  "flip2": "TEN's explosive leak shows up again (8 passes of 20+ on 64 attempts, right side 8.34 YPA on 29 attempts), Nabers or Fields finally connects, NYG jumps ahead, and TEN abandons the run so Spears's carries die while the pass game opens up."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, snap or rep limits, and inactives for both TEN and NYG. No absences, returns, or next-man-up are inferred. Usage lines present are Pollard, Spears, Ward, Singleton, Tate, W.Robinson, Helm, Ayomanor, Bellinger (TEN) and Skattebo, Singletary, Dart, Harris, Likely, Nabers, Fields, Mooney, T.Johnson (NYG). Ridley, Tracy, and Winston appear only on the prop board, not in those usage lines; that is not treated as an injury.",
+ "matchup": {
+  "shell": "MISSING: no coverage charting, so no MOFO/MOFC or man/zone rate. Location-only: NYG allows left 7.5 YPA (32 att), middle 12.0 YPA (5 att), right 7.48 YPA (27 att); TEN allows left 7.68 (19 att), middle 7.0 (13 att), right 8.34 (29 att).",
+  "pressure": "NYG blitz rate 25%; TEN blitz rate 24%. TEN QB EPA/dropback is -0.07 vs blitz (n=16) and -0.05 with no blitz, almost no split. NYG QB EPA/dropback is -0.63 vs blitz (n=25) and +0.48 with no blitz, a large negative blitz split that threatens deep and timing throws more than checkdowns.",
+  "bleeds": "NYG bleeds the run: 5.47 YPC allowed and 7 runs of 10+, with only 5 passes of 20+ on 65 attempts. TEN bleeds explosives and the right side: 8 passes of 20+ on 64 attempts, right-side 8.34 YPA, while the run defense is the stingy side at 3.59 YPC and 3 runs of 10+.",
+  "overlap": "NYG's real producer is Likely (18 targets, 111 yards), not the high-air non-converters Nabers and Fields, against a TEN pass defense that has already allowed 8 explosives. TEN's run volume attacks NYG's 5.47 YPC leak, but it is a committee, so the overlap used here is Spears's rush-plus-checkdown role (10 carries, 6 targets, -11 air yards), not a Pollard over that the 59.5 and 70.5 rungs already sit above."
+ },
+ "form": "Pack is two games (weeks 1-2), not 3-4, and only combined totals, so one-play spikes cannot be separated. Likely 18 targets/111 yards/112 air (about 9 targets and 55.5 yards per game) is volume, 6.2 yards per target, not a single bomb. Spears 10 carries/53 rush yards and 6 targets/41 rec yards/-11 air (about 26.5 rush and 20.5 rec per game). Pollard 21/99 rush and 3 targets/0 rec yards. Skattebo 30/117 rush (3.9 YPC) and 4 targets/19 rec. Nabers 70 yards on 180 air and Fields 55 on 202 air look like unconverted deep shots. Harris 4 carries/6 yards is a tiny share behind Skattebo but is not read as an injury.",
+ "edge_players": [
+  {
+   "player": "isaiahlikely",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Likely is NYG's only converted primary target at 18 targets and 111 yards over two games, and 38.5 sits about 17 yards under that per-game rate against a TEN defense that has allowed 8 passes of 20+ and does not have a shutdown location split.",
+   "must_be_true": "Isaiah Likely targets >= 6 because he has 18 targets and 111 receiving yards over 2 games",
+   "kills_it": "IF Likely is held to 4 or fewer targets THEN Likely recyds over 38.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "tyjaespears",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Spears is clearing a 32.5 rush-plus-rec line from a two-game base of 53 rush yards and 41 receiving yards, and NYG's 5.47 YPC with 7 runs of 10+ supports the rush half while his -11 air-yard targets give a checkdown floor if TEN has to throw. Script-dependent if TEN leads big and Pollard soaks the carries.",
+   "must_be_true": "Tyjae Spears targets >= 3 because he has 6 targets and 41 receiving yards over 2 games",
+   "kills_it": "IF Spears is held under 3 carries and under 3 targets THEN Spears rushrecyds over 32.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Likely 111 receiving yards on 18 targets over 2 games is about 55.5 per game versus a 38.5 line, and 111 yards on 112 air yards is not a one-play spike. Spears 53 rush plus 41 receiving is 94 over 2 games, about 47 per game versus 32.5, and NYG has allowed 5.47 YPC. TEN QB blitz split is flat; NYG's -0.63 EPA vs blitz is a script risk already in flip1, not a contradiction of Likely's recorded 55.5. No projection or sim was run; pack has no sim median.",
+  "disagrees": "none",
+  "missing": "weather, spread, total, kickoff, coverage shell and man/zone charting, Pinnacle no-vig, sim medians, injury report and inactives, game-by-game splits (combined two-game totals only)",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Isaiah Likely recyds over 38.5 at -113.5, a volume rung under his 55.5 two-game receiving rate, not a yards-per-target long shot. Tyjae Spears rushrecyds over 32.5 at -114.5, the combined rung under his 47.0 two-game rush-plus-rec, preferred to Spears rushyds over 16.5 because the receiving floor (41 yards on 6 targets) survives a pass-lean flip. No Pinnacle no-vig in the pack. No passing-yards, TD, or receptions legs.",
+ "pre_mortem": "It's Monday and this lost because TEN's blitz ticked above 24% and NYG's quarterback repeated the -0.63 EPA per dropback versus the blitz, so Likely never saw a sixth target and finished in the 20s, while TEN led and Pollard (21 carries to Spears's 10) soaked the clock against the 5.47 YPC defense, leaving Spears a couple of carries and one checkdown under 32.5. Two-game samples can also be role noise, and with no spread saved the lead script may be backwards.",
+ "slip_story": "One competitive-game stack, not a shootout and not a clock-kill: TEN still feeds Spears enough rush and checkdown work to clear 32.5 against NYG's 5.47 YPC run defense, and NYG, unable to run on TEN's 3.59 YPC defense, keeps the ball with Likely to clear 38.5. Do not pair this with a TEN total under or with Pollard rush overs, which need a different carry share.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,51 @@
+pbp max date 2026-11-02 ftn weeks [np.int32(6), np.int32(7), np.int32(8)] ['ftn_game_id', 'nflverse_game_id', 'season', 'week', 'ftn_play_id', 'nflverse_play_id', 'starting_hash', 'qb_location', 'n_offense_backfield', 'n_defense_box', 'is_no_huddle', 'is_motion', 'is_play_action', 'is_screen_pass', 'is_rpo', 'is_trick_play', 'is_qb_out_of_pocket', 'is_interception_worthy', 'is_throw_away', 'read_thrown', 'is_catchable_ball', 'is_contested_ball', 'is_created_reception', 'is_drop', 'is_qb_sneak', 'n_blitzers', 'n_pass_rushers', 'is_qb_fault_sack', 'date_pulled']
+game <ArrowStringArray>
+['2026_08_BAL_BUF']
+Length: 1, dtype: str
+passer_player_name
+J.Fagnano    24
+T.Huntley     5
+L.Jackson     1
+Name: count, dtype: int64
+FTN matched 24 / 24
+Fagnano dropbacks 24 att 21 cmp 10 yds 91.0 sacks 3 INT 1 EPA/db -0.431
+aDOT 4.29 behind LOS share 0.238 deep15+ share 0.19
+blitzed: db 14 att 12 cmp 6 yds 63 sacks 2 aDOT 5.3 EPA -0.12 LOW-SAMPLE
+not blitzed: db 10 att 9 cmp 4 yds 28 sacks 1 aDOT 2.9 EPA -0.86 LOW-SAMPLE
+pressured PROXY: db 9 att 6 cmp 2 yds 22 sacks 3 aDOT 7.3 EPA -0.85 LOW-SAMPLE
+clean PROXY: db 15 att 15 cmp 8 yds 69 sacks 0 aDOT 3.1 EPA -0.18 LOW-SAMPLE
+targets:
+                      tgt  rec   yds   adot  share
+receiver_player_name                              
+J.Hill                  6  3.0  21.0  -3.33   0.29
+M.Andrews               4  3.0  14.0   3.50   0.19
+Z.Flowers               4  0.0   0.0   7.00   0.19
+R.Bateman               3  1.0  22.0  12.00   0.14
+J.Lane                  1  1.0  13.0  13.00   0.05
+J.Cuevas                1  1.0  15.0  15.00   0.05
+D.Henry                 1  1.0   6.0   2.00   0.05
+M.Hibner                1  0.0   0.0   2.00   0.05
+blitzed targets: {'J.Hill': 3, 'Z.Flowers': 3, 'M.Andrews': 2, 'J.Cuevas': 1, 'J.Lane': 1, 'R.Bateman': 1, 'M.Hibner': 1}
+locations: {'right': 12, 'left': 6, 'middle': 3}
+    qtr   time  down  ydstogo  air_yards receiver_player_name  complete_pass  yards_gained                                                                                        desc
+0   2.0  09:39   1.0     10.0       15.0             J.Cuevas            1.0          15.0  (9:39) (Shotgun) 12-J.Fagnano pass short left to 85-J.Cuevas to BUF 20 for 15 yards (24-C.
+1   2.0  09:16   1.0     10.0       13.0               J.Lane            1.0          13.0  (9:16) (No Huddle) 12-J.Fagnano pass short left to 6-J.Lane pushed ob at BUF 7 for 13 yard
+3   2.0  07:50   2.0     16.0       -5.0               J.Hill            0.0           0.0                      (7:50) (Shotgun) 12-J.Fagnano pass incomplete short left to 43-J.Hill.
+4   2.0  07:47   3.0     16.0        2.0            M.Andrews            0.0           0.0  (7:47) (Shotgun) 12-J.Fagnano pass incomplete short right to 89-M.Andrews [15-G.Rousseau].
+5   2.0  05:54   2.0      9.0        2.0              D.Henry            1.0           6.0     (5:54) 12-J.Fagnano pass short right to 22-D.Henry to BAL 30 for 6 yards (8-T.Bernard).
+8   2.0  01:46   2.0     14.0       -6.0               J.Hill            1.0           9.0  (1:46) (Shotgun) 12-J.Fagnano pass short right to 43-J.Hill to BAL 23 for 9 yards (3-D.Ham
+9   2.0  01:36   3.0      5.0        1.0               J.Hill            1.0           7.0  (1:36) (Shotgun) 12-J.Fagnano pass short left to 43-J.Hill pushed ob at BAL 30 for 7 yards
+10  2.0  01:21   1.0      5.0       15.0            Z.Flowers            0.0           0.0  (1:21) (Shotgun) 12-J.Fagnano pass short left intended for 4-Z.Flowers INTERCEPTED by 21-D
+11  3.0  14:54   1.0     10.0        4.0            Z.Flowers            0.0           0.0                 (14:54) (Shotgun) 12-J.Fagnano pass incomplete short middle to 4-Z.Flowers.
+12  3.0  14:06   3.0      6.0       18.0            R.Bateman            1.0          22.0  (14:06) (Shotgun) 12-J.Fagnano pass deep right to 7-R.Bateman to BUF 43 for 22 yards (3-D.
+13  3.0  12:17   2.0     10.0        6.0            M.Andrews            1.0           6.0  (12:17) (Shotgun) 12-J.Fagnano pass short right to 89-M.Andrews to BUF 8 for 6 yards (8-T.
+14  3.0  11:35   3.0      4.0        8.0               J.Hill            0.0           0.0      (11:35) (Shotgun) 12-J.Fagnano pass incomplete short right to 43-J.Hill [8-T.Bernard].
+15  3.0  08:12   2.0      9.0        3.0            Z.Flowers            0.0           0.0             (8:12) 12-J.Fagnano pass incomplete short right to 4-Z.Flowers (15-G.Rousseau).
+16  3.0  08:06   3.0      9.0       16.0            R.Bateman            0.0           0.0      (8:06) (Shotgun) 12-J.Fagnano pass incomplete deep right to 7-R.Bateman [91-E.Oliver].
+17  3.0  02:02   1.0     10.0        2.0             M.Hibner            0.0           0.0                             (2:02) 12-J.Fagnano pass incomplete short right to 88-M.Hibner.
+18  3.0  01:11   3.0      6.0        6.0            Z.Flowers            0.0           0.0     (1:11) (Shotgun) 12-J.Fagnano pass incomplete short middle to 4-Z.Flowers (3-D.Hamlin).
+19  4.0  11:40   2.0      4.0       -6.0               J.Hill            1.0           5.0  (11:40) (Shotgun) 12-J.Fagnano pass short right to 43-J.Hill to BAL 37 for 5 yards (3-D.Ha
+20  4.0  10:19   2.0      3.0        0.0            M.Andrews            1.0           0.0  (10:19) (Shotgun) 12-J.Fagnano pass short left to 89-M.Andrews to BAL 44 for no gain (33-T
+21  4.0  09:39   3.0      3.0      -12.0               J.Hill            0.0           0.0  (9:39) (Shotgun) 12-J.Fagnano sacked at BAL 35 for -9 yards (96-D.Walker). FUMBLES (96-D.W
+22  4.0  09:35   4.0      3.0        2.0            R.Bateman            0.0           0.0  (9:35) (Shotgun) 12-J.Fagnano pass incomplete short right to 7-R.Bateman (47-C.Benford) [9
+23  4.0  04:33   3.0      5.0        6.0            M.Andrews            1.0           8.0  (4:33) (Shotgun) 12-J.Fagnano pass short middle to 89-M.Andrews to BAL 43 for 8 yards (25-

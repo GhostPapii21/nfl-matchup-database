@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 HOU@IND / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so the script is inferred only from two-game form. Indianapolis has lived on Jonathan Taylor (43 carries, 190 yards) while Houston's run game has been stuck (David Montgomery 26 carries for 70 yards, 2.69 YPC; Woody Marks 17 for 50, 2.94 YPC) and C.J. Stroud has fed Dalton Schultz (22 targets, 175 yards, 130 air yards). Base case is a competitive game: IND keeps Taylor as the carry engine against a Houston run defense allowing 4.12 YPC, and Houston keeps throwing to Schultz into the middle, where Indianapolis allows 11.88 YPA.",
+  "flip1": "Indianapolis gets ahead and leans further into Taylor clock work, so his rush-yard over survives, and Houston, already inefficient on the ground, abandons the run and funnels even more targets to Schultz.",
+  "flip2": "Houston gets ahead, Indianapolis is forced off the Taylor run and onto Daniel Jones (EPA/dropback -0.22 with no blitz, and Houston blitzes only 17%), so Taylor's carries fall under what 81.5 needs; Houston can also finally run against a defense allowing 5.67 YPC, which would cut Schultz's target volume."
+ },
+ "injury_fallout": "MISSING: final injury report, practice status (DNP/limited/full), questionable tags, game-time decisions, and inactives for both HOU and IND, offense and defense. No absences, returns, or next-man-up inferred from usage.",
+ "matchup": {
+  "shell": "Coverage shell not in the pack (no MOFO/MOFC, no man/zone rate). IND blitzes 25% and allows 11.88 YPA middle (17 att) and 11.0 YPA left (22 att) versus 8.19 YPA right (32 att). HOU blitzes only 17% and allows 10.47 YPA middle (17 att) and 10.82 YPA right (28 att) versus 4.0 YPA left (15 att).",
+  "pressure": "IND blitz rate 25%; Stroud EPA/dropback is +0.39 vs blitz (n=20) and -0.13 with no blitz, so Indianapolis pressure does not shut the Houston pass game down. HOU blitz rate 17%; Jones is -0.02 vs blitz (n=19) and -0.22 with no blitz, so he mostly sees the look he has been worse against.",
+  "bleeds": "IND run defense bleeds: 5.67 YPC allowed and 10 runs of 10+ yards, plus 8 passes of 20+ on 75 attempts. HOU run defense is tighter (4.12 YPC, 5 runs of 10+) but the pass defense bleeds middle and right and has allowed 9 passes of 20+ on 68 attempts.",
+  "overlap": "Houston's primary target is Dalton Schultz (22 targets, 175 yards, 130 air yards), and a TE attacks the middle, which is Indianapolis's worst pass location at 11.88 YPA. That is the clean overlap. Jonathan Taylor (43 carries, 190 yards) does not get a run-defense bleed \u2014 Houston allows only 4.12 YPC \u2014 so his case is carry share, not a soft front."
+ },
+ "form": "Only weeks 1-2 are in the pack, not a 3-4 game sample. Schultz is the Houston offense: 11 targets per game and 87.5 receiving yards per game, ahead of Hutchinson (15 targets, 69 yards, 169 air yards \u2014 opportunity without conversion), Collins (10/75/120), Noel (7/84/65, efficiency that may be one-play driven), Wayne (8/45/116) and Boutte (7/58/98). Montgomery leads Houston carries (26/70) over Marks (17/50) but neither has cleared 3.0 YPC. Taylor is a workhorse at 21.5 carries and 95 rush yards per game, plus 8 targets for 63 yards. Downs leads IND receivers (13/109/109); Warren has 12 targets but only 34 yards and 10 air yards; Allen 11/37/53.",
+ "edge_players": [
+  {
+   "player": "daltonschultz",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Schultz is Houston's primary target at 22 targets and 175 yards in two games, and he attacks the middle where Indianapolis allows 11.88 yards per attempt, so 49.5 sits under both the role and the soft spot.",
+   "must_be_true": "Dalton Schultz targets >= 7 because 22 targets and 175 receiving yards over 2 games",
+   "kills_it": "IF Houston commits to the run against the IND defense that allows 5.67 YPC and Dalton Schultz draws fewer than 6 targets THEN Dalton Schultz receiving yards over 49.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "jonathantaylor",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Taylor has 43 carries and 190 rush yards in two games, and 20 carries at Houston's 4.12 YPC allowed still clears 81.5, so the edge is carry share in a competitive or IND-led script rather than a leaky front.",
+   "must_be_true": "Jonathan Taylor carries >= 20 because 43 carries and 190 rush yards over 2 games and HOU allows 4.12 YPC",
+   "kills_it": "IF Houston leads by multiple scores and Indianapolis abandons the run THEN Jonathan Taylor rush yards over 81.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Schultz 175 receiving yards over 2 games is 87.5 per game versus a 49.5 line, with 130 air yards and IND middle YPA 11.88 supporting the over. Taylor 190 rush yards over 2 games is 95 per game versus 81.5; about 21.5 carries times HOU's 4.12 YPC allowed is about 88.6, still over 81.5. Both listed prices are -114. No sim median, projection model, or Pinnacle no-vig is in the pack.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, no-vig/Pinnacle price, sim median, projection model, coverage charting (man/zone, MOFO/MOFC), injuries and inactives",
+  "verdict": "agree"
+ },
+ "market_rung_price": "daltonschultz recyds over 49.5 at -114 (main line, no alt rung in pack); jonathantaylor rushyds over 81.5 at -114 (main line, no alt rung in pack). Neither is a short-priced alt.",
+ "pre_mortem": "It's Monday and both lost. Schultz's 87.5-yard pace was a two-game heater, Indianapolis took the middle away after 22 targets, and Houston finally ran against a defense allowing 5.67 YPC, so Schultz never saw a seventh target and finished under 49.5 \u2014 the -114 price already refused to buy the heater, and a late inactive not in this pack would explain the number. Taylor faced a Houston front that has allowed only 5 runs of 10+ yards and 4.12 YPC, Houston led, Indianapolis threw, and 15 carries at that efficiency landed in the mid-60s, short of 81.5. That counter is real on Taylor because the run defense is not a bleed and the spread is unknown, so he stays a lean; it is not stronger than the Schultz read, whose role and the middle bleed both point over.",
+ "slip_story": "One story: competitive game or Indianapolis controls the lead. Taylor rush yards over is the IND run-control leg; Schultz receiving yards over is Houston answering through the middle whether the game is close or Houston is chasing. They co-hit in the base script and in the IND-leads flip. Do not add Houston RB overs, which need Houston to run against the 5.67 YPC defense, or Indianapolis receiver overs that need Jones in a pass-heavy chase \u2014 those belong to the other flip.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

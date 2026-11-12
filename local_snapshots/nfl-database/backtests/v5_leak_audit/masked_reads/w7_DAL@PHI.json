@@ -1,0 +1,45 @@
+{
+ "game": "kickoff unknown / HOME +4 (AWAY -4) / total 43.5 / weather not saved",
+ "script": {
+  "base": "Market prices a modest AWAY lead: implied totals about 23.8\u201319.8 in a 43.5 game. AWAY leads by a score after halftime, stays mixed rather than a full clock-kill, and HOME keeps throwing while trailing but without efficiency (HOME QB EPA 0.00 clean, -0.26 vs blitz, n=89).",
+  "flip1": "AWAY jumps up by two scores early, funnels carries to PLY04 (L3 42/148) and stalls downfield yards \u2014 the path that misses PLY07 recyds over 64.5.",
+  "flip2": "Shootout or a late HOME chase: both passing games stay live, so PLY09 recyds under 49.5 dies on volume even if the QB stays inefficient, while AWAY overs cash together."
+ },
+ "injury_fallout": "No injury report, practice trend, or inactives in the pack \u2014 nobody confirmed out, no next-man-up share, no snap limit. Structural only: AWAY rush is PLY04 (42 of the listed L3 carries); HOME rush is a committee (PLY14 23/49, X11 14/55, X12 11/29, X13 7/20). HOME targets are split (PLY13 19, X15 17, PLY09 17, X17 14, PLY05 12). Props with no L3 role in the pack (PLY10, PLY16, PLY03, PLY02 UNK, PLY12 UNK) get no edge. Re-check not possible.",
+ "matchup": {
+  "shell": "No MOFO/MOFC or man/zone charting in the pack. Location only: HOME pass YPA left 7.23 (70 att), middle 7.21 (57), right 6.73 (90). AWAY pass YPA left 7.36 (67), middle 10.53 (38), right 7.32 (74).",
+  "pressure": "HOME blitz 25%; AWAY QB EPA/dropback 0.02 vs blitz vs 0.17 clean (n=89), so most AWAY dropbacks land in the good state. AWAY blitz 28%; HOME QB EPA -0.26 vs blitz vs 0.00 clean (n=89) \u2014 pressure is the HOME passing suppressant.",
+  "bleeds": "AWAY defense bleeds: rush 4.93 YPC, 21 runs of 10+ in 6 games, 22 passes of 20+ on 187 att, and middle 10.53 YPA on a small 38-attempt sample. HOME defense does not: rush 4.10 YPC, 16 runs of 10+, 19 explosives on 227 att, YPA flat 6.73\u20137.23.",
+  "overlap": "PLY07 (L3 27 tgt, 278 yds, 315 air, 11.7 aDOT) is the downfield piece that fits AWAY's clean-pocket state against a non-shutdown HOME secondary, not a mapped location hole. HOME primary target PLY13 (19 tgt, 4.5 aDOT, 89 yds) is not confirmed as the middle attacker; AWAY's 28% blitz works against HOME explosives (PLY05 13.3 aDOT) more than it creates a bettable overlap."
+ },
+ "form": "Avoiding season averages. AWAY L3: PLY04 14.0 carries and 49.3 rush yds/g (3.52 YPC) plus 15.7 rec yds; PLY07 9.0 tgt and 92.7 rec yds/g (10.3 yds/tgt); PLY01 15.0 tgt and 89.3 yds but line 80 is unpriced (+nan); PLY17 6.3 tgt and 55.7 yds at 5.6 aDOT; PLY11 4.0 rush yds/g and PLY08 4.7 \u2014 backups. HOME L3: no alpha (top target PLY13 29.7 yds/g); PLY09 5.7 tgt and 33.0 yds/g (5.8 yds/tgt); PLY05 37.7 yds on only 4.0 tgt/g; PLY14 7.7 carries, 16.3 rush yds at 2.13 YPC and 4.3 rec yds. No per-game splits, so a single explosive inside those L3 totals cannot be ruled out.",
+ "edge_players": [
+  {
+   "player": "PLY07",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "HOME blitzes only 25%, so AWAY's QB lives in the clean-pocket state (EPA 0.17 vs 0.02 blitzed), and PLY07 is the downfield answer at 92.7 L3 yards versus a 64.5 line against a HOME pass defense that is only average (YPA 6.73\u20137.23).",
+   "must_be_true": "PLY07 keeps about 9 targets and full snaps, the game stays inside a one-score AWAY lead so dropbacks do not crater, and the L3 278 yards are not one fluke bomb.",
+   "kills_it": "AWAY leads by 14+ early and clocks out through PLY04, or HOME's blitz actually gets home and the QB checks down away from the 11.7 aDOT role.",
+   "confidence": "lean"
+  },
+  {
+   "player": "PLY09",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "HOME's QB is flat without a blitz (EPA 0.00) and clearly bad into one (-0.26 on 89 dropbacks), AWAY blitzes 28%, and PLY09's 49.5 line needs about 50% more than his 33.0-yard L3 role in a split tree where nobody tops 6.3 targets a game.",
+   "must_be_true": "No unlisted injury funnels PLY09 the X15/PLY13 targets, snap share stays near 5\u20136 targets, and extra dog dropbacks do not turn into a yardage spike.",
+   "kills_it": "HOME falls behind and the middle bleed (AWAY 10.53 YPA, 22 explosives) or garbage volume pushes him through 49.5 on one or two plays.",
+   "confidence": "strong"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or no-vig/Pinnacle price in the pack, so step 8 cannot size a rung. Form agrees with both legs: PLY07 92.7 vs 64.5 (-113.5); PLY09 33.0 vs 49.5 (-113). Disagreeing data on the strong PLY09 under, not a cut: AWAY allows 4.93 YPC and especially middle 10.53 YPA plus 22 explosives/187, which can beat a 49.5 under if PLY09 is the player who sees that middle \u2014 alignment is not charted, and 38 middle attempts is a small sample. PLY07 lean is not contradicted by HOME's flat 6.73\u20137.23 YPA. Do not treat either leg as a 70%+ model number.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "PLY07 recyds over 64.5 -113.5; PLY09 recyds under 49.5 -113. Main lines only \u2014 no alt rungs and no no-vig in the pack. Passed unpriced PLY01 recyds 80 (+nan) and PLY14 rushrecyds 26.5 (+nan).",
+ "pre_mortem": "It's Monday and both legs lost because the -4 was the wrong script: AWAY led 20\u20133 at half, PLY04's carries jumped well past 14, and PLY07 never saw the 9-target downfield role once HOME sat in a soft shell. On the other leg, HOME abandoned the committee run (PLY14 already at 2.13 YPC), threw into AWAY's middle (10.53 YPA on 38 att) and explosives (22/187), and PLY09's 5.7 targets became 9 with one 25-yard catch that cleared 49.5 in garbage time. The L3 yardage gaps were also one-game spikes the pack cannot split out, and a late inactive the pack does not have would have rewritten both target trees 90 minutes before kick.",
+ "slip_story": "One moderate-AWAY-control story, not a shootout and not a clock massacre: AWAY still throws enough in a one-score lead for PLY07 to clear a line 28 yards under his L3, while HOME's blitz-vulnerable QB cannot lift PLY09 to an inflated 49.5. Do not pair these with a total under, with PLY04 rush over 64.5 (needs the clock-kill flip), or with HOME receiver overs. Same-game stack only if the human keeps the flagged PLY09 under after seeing the middle-bleed counter.",
+ "step6_limited": true,
+ "step12_limited": true
+}

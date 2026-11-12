@@ -1,0 +1,17 @@
+# v5 gaps and caveats
+- **Hindsight risk:** the Grok reads saw only the as-of packs, but the model's training data may include 2026 results or narratives. Reconstructed reads can't be fully blind. Saved reads are the only clean pregame set, and there are very few of them (14 legs).
+- **Design:** there were no trainable rules. All reads were locked before any grading (c71af73), so the "holdout" is just a later window, not a set of rules tuned on train.
+- **ZONE_MOF:** the zone-heavy label comes from Sharp's thru-wk7 snapshot in teams/*.json, which is hindsight for wk3–7. The middle-of-field YPA is as-of from the pack PBP.
+- **PRO_EDGE:** reimplemented offline, applied after the reads (not fed into Grok), no Pinnacle anchor, and the sleeper check is N/A. Most weeks have only consensus book data, so the best-price check is weak.
+- **Saved reads (13d41b9):** chatter was dropped and duplicates were deduped by Grok extraction (an additional 50 requests). Weeks 3–4 have none. Week 5 MNF, Week 6 Fri–Sat and Week 7 Thu–Fri weren't fully read. The Week 8 pack checklists yielded 0 endorsed edge legs. Only 14 saved legs matched a main prop.
+- **Unpriced legs:** 40 picks had a line with no saved price. They count toward hit rate but not ROI.
+- **Unresolved:** 3 legs had no PBP participation.
+- **Slips:** independent product pricing. Same-game correlation is not modeled.
+- **QB rushing legs** (Watson, Hurts, Jones, Willis, Herbert) were allowed as rushyds.
+- **Grok usage (grok-4.7):**
+  - Logged: 75 successful + 4 failed requests, 601,920 prompt tokens, 176,632 completion tokens and 1,007,378 reasoning tokens. Reported cost is **$7.93**.
+  - Saved-read extraction: 50 requests, 212,560 prompt tokens and 128,809 reasoning tokens, about $0.9–1.0 by list price ($2/M in, $6/M out).
+  - Unlogged: superseded old-format and killed runs, about 70–90 requests and about $6–8. Their usage wasn't persisted.
+  - **Estimated total: about $15–17.**
+  - Rejects: 11 logged re-prompts in the final format, 0 games dropped. Rejects in the killed runs weren't persisted.
+- **Odds API:** 0 calls. The balance is still 3,623.

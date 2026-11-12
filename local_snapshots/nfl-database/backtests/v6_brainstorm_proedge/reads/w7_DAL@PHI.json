@@ -1,0 +1,108 @@
+{
+ "game": "DAL @ PHI, Week 7 2026, kickoff time not saved, PHI +4 / DAL -4, total 43.5, weather not saved",
+ "script": {
+  "base": "Dallas is a 4-point favorite with a 23.8 implied total, so the base flow is a one-score game Dallas leads late but does not blow open. Javonte Williams (42 carries, 148 yards in weeks 4-6) gets the clock-killing carries. Dak still has to throw to get to 23.8, with CeeDee Lamb (44 targets) and George Pickens (27 targets, 278 yards) as the downfield pair. Philly's 19.8 implied total, with DeVonta Smith and Dontayvion Wicks out and Saquon Barkley questionable, points to a pass-leaning dog: short and intermediate throws to Dallas Goedert, Mikal Lemon and Darius Cooper rather than a Pierce/Bigsby/Shipley grind (Pierce 23 carries for 49 yards, 2.1 YPC).",
+  "flip1": "Dallas jumps ahead early and runs the clock. Williams's carries rise, Dak's attempts stall, and Pickens/Lamb yardage unders hit the way a lead-and-grind script kills QB and WR overs. Philly then abandons the run, so Goedert's targets can still rise even while Pickens dies.",
+  "flip2": "Barkley plays through the hamstring, Landon Dickerson (knee, questionable) holds up, and Philly controls the clock, or uncharted weather drags a 43.5 total into a teens slog. Both receiving overs die, and Dallas's late run script is the only thing that could push Williams toward 64.5 against a Philly run defense allowing 4.10 YPC."
+ },
+ "injury_fallout": "Source is the pre-game nflverse injury report in the pack; final inactives are not saved. PHI WR DeVonta Smith (hamstring) and WR Dontayvion Wicks (ankle) are out after combining for 31 targets in the weeks 4-6 window, about 10 targets a game off the board. Next men with a logged share are Lemon (19 targets, 89 yards), Goedert (17/99) and Cooper (12/113). Elijah Moore (last4 receiving yards: 4, not in the L3 target list) and Hollywood Brown (no prior games, no price) have no past share when the starters sat, so they are not projected. Saquon Barkley is questionable (hamstring), not out, so Dameon Pierce (23/49), Tank Bigsby (14/55) and Will Shipley (11/29) are only a committee bump if Barkley is limited or scratched. PHI G Landon Dickerson questionable (knee) and TE Grant Calcaterra questionable (back) plus TE Eli Stowers questionable (quad, no prior games) can funnel more to Goedert if the other tight ends sit, or stall the whole offense if the guard sits. PHI CB Michael Carter II out and CB Jakorian Bennett questionable thin the secondary, alignment not charted. PHI LB Nolan Smith out and LB Jonathan Greenard questionable, roles not charted. DAL T Drew Shelton out (hamstring) is the offensive-line loss: skill rule is pressure up, rush efficiency down, more quick throws. DAL WR KaVontae Turpin out is not in the L3 target list. DAL S P.J. Locke and LB Marist Liufau are questionable; DAL LB Dee Winters is out.",
+ "matchup": {
+  "shell": "Not charted. No MOFO/MOFC split and no man/zone rate in the pack, so WRs cannot be mapped to named zone defenders.",
+  "pressure": "PHI blitzes 25%. Dak's EPA/dropback is 0.01 against the blitz and 0.18 with no blitz, so pressure is how you bother Dallas, but Philly does not blitz often. DAL blitzes 28%. PHI EPA/dropback is -0.26 against the blitz and 0.00 with no blitz, so Dallas pressure puts Philly into bad plays and checkdowns. Shelton (T) out may raise pressure on Dak; starter vs backup snaps are not in the pack. Do not treat PHI LB absences as a confirmed pass-rush drop.",
+  "bleeds": "Dallas bleeds the middle: 10.53 YPA on 38 middle attempts versus 7.36 left (67) and 7.32 right (74). Dallas also allows 4.93 rush YPC, 21 runs of 10+ and 22 passes of 20+ over 6 games. Philly's pass YPA is flat (left 7.23, middle 7.21, right 6.73) with 19 passes of 20+. Philly's run defense is the sturdier unit at 4.10 YPC and 16 runs of 10+.",
+  "overlap": "Goedert is the overlap: the PHI tight end (17 targets, 99 yards, 5.3 aDOT in weeks 4-6) into the only soft zone on this Dallas defense, the middle at 10.53 YPA, with Smith and Wicks out. Pickens (315 air yards, 11.7 aDOT) does not attack that middle. Lamb is the primary Dallas target (44 targets, 368 air yards) but the 80-yard line has no two-sided price. A missing PHI CB helps Dallas pass-catchers only in general; who covers Pickens is not charted."
+ },
+ "form": "Avoiding season averages. Pickens last4 receiving yards 82, 75, 130, 73, all over 64.5, L3 278 yards on 27 targets. Lamb last4 112, 189, 9, 70 against an 80 line with no price; the 9-yard game is the floor. Flournoy last4 22, 37, 90, 40 versus 34.5, L3 167 yards on 18 targets at a 5.9 aDOT, median only about 38.5. Ferguson last4 23, 11, 19, 13 versus 17.5, L3 just 43 yards on 13 targets, splitting with Brevyn Spann-Ford (8 targets, 35 yards). Williams rush last4 98, 62, 45, 41 versus 64.5, trending down, L3 49.3 yards a game; rush+rec last4 103, 83, 62, 50 versus 81.5. Goedert last4 77, 4, 38, 61, mean 45, median exactly 49.5. Lemon last4 29, 27, 43, 19, only one over 39.5. Cooper last4 26, 33, 71, 9, the 71 looking fluky against 159 air yards. Barkley rush last4 83, 9, 82, 8; rush+rec 80, 20, 80, 10. Pierce rush last4 14, 35. No similar-defense splits are in the pack.",
+ "pro_edge": {
+  "implied_totals": "Saved scan: PHI 19.8, DAL 23.8. Checks as favorite (43.5+4)/2 = 23.75 and dog (43.5-4)/2 = 19.75.",
+  "script_read": "43.5 is a moderate total, not a shootout and not a priced slog, so it is not a blanket volume-over or blanket under. PHI +4 is a 3.5+ dog, so Philly should throw more and Goedert/Lemon/Cooper targets rise if they trail. Dallas can run Williams late if ahead, but a 4-point spread is not a blowout flag and starter snaps should hold. Build usage from shares: Lamb ~15 targets a game, Pickens ~9, Goedert ~6 before the Smith/Wicks redistribution.",
+  "best_price": "No saved price beats the anchor no-vig. Pickens over best -113.5 versus consensus no-vig over 0.498 (fair about +101). Goedert over best -115 versus no-vig over 0.502 (fair about -100). Book names and timestamps are not in the precomputed block. Anchor is consensus, not a named Pinnacle quote. Power devig vs overround not separately saved.",
+  "lagging": "No open-to-current spread or total move is saved, and no prop-move diff is saved, so nothing is a confirmed lagging line. Possible stale spots only: Pickens still a coin flip at 64.5 after 82/75/130/73, and Barkley 64.5 unshaded (no-vig over 0.499) despite a hamstring questionable tag. Low confidence without a timestamp.",
+  "sleepers": "Ruled out, not merely questionable: PHI WR Smith, PHI WR Wicks, PHI CB Carter II, PHI LB Nolan Smith, DAL WR Turpin, DAL T Shelton, DAL LB Winters. Barkley is questionable, so he is not a sleeper trigger and Pierce's 19.5 is not a confirmed handcuff. Same-position PHI WRs whose lines cannot be diffed: Lemon 39.5 (no-vig over 0.510), Cooper 39.5 (0.500), Moore 9.5 (0.506), Brown 10.5 with no two-sided price. Carter II out points at Dallas short options (Flournoy 34.5, Ferguson 17.5) without proof the lines did not move. Stowers questionable with no prior games is not a leg."
+ },
+ "edge_players": [
+  {
+   "player": "georgepickens",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Pickens has cleared 64.5 in all four logged games (73, 75, 82, 130) on a real 9-target, 11.7-aDOT role, and a 4-point spread is not big enough to take those routes away unless Dallas leads early and just runs.",
+   "must_be_true": "He plays a full route share, Dak stays near the recent 9 targets to him, the game stays inside one score through the third quarter, and Shelton's absence does not turn every dropback into a three-step throw.",
+   "kills_it": "Dallas leads big early and Williams grinds the clock; Shelton is a starting tackle and pressure cuts the 315-air-yard shot menu; Philly sits in a shell that takes away the outside and the 130-yard game does not repeat.",
+   "confidence": "lean",
+   "model_p": 0.56,
+   "scheme": {
+    "matchup": {
+     "ok": false,
+     "source": "Pack PHI YPA is flat (left 7.23, middle 7.21, right 6.73); the bleed is Dallas's middle, which a 11.7 aDOT Pickens does not attack. CB alignment not charted."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "PHI blitz rate 25% and Dak EPA/db 0.18 with no blitz vs 0.01 vs blitz, so most dropbacks are the ones that fit a downfield WR. Shelton out is the offset and is not proven to be a starter snap loss."
+    },
+    "script": {
+     "ok": true,
+     "source": "DAL implied 23.8, spread only 4, total 43.5; base script still needs Pickens's targets. Fails flip1 (early Dallas lead)."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Available props last4 recyds 82, 75, 130, 73, all over 64.5; L3 27 targets, 278 yards, 315 air yards."
+    }
+   },
+   "primary_defender": {
+    "who": "Uncharted. PHI CB Michael Carter II is out (abdomen) and CB Jakorian Bennett is questionable (knee); neither is mapped to Pickens.",
+    "source": "Pack official injury report; no coverage charting saved."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": false,
+   "pro_edge_support": "Not a price edge: best over -113.5 is worse than consensus no-vig 0.498. Possible lagging line versus the 73-130 form, unconfirmed. Not a sleeper. 3-pt gate not confirmed because model_p is a discounted form guess, not a sim, and the anchor is not Pinnacle."
+  },
+  {
+   "player": "dallasgoedert",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Goedert is the tight end running into the only soft zone Dallas has, 10.53 YPA in the middle versus about 7.3 outside, and Smith plus Wicks being out pulls about 10 targets a game toward the short and intermediate area he already works.",
+   "must_be_true": "Goedert plays a full snap share, Philly trails or stays close enough to throw, he gets a real piece of the Smith/Wicks targets rather than Lemon and Cooper taking all of them, and Dallas keeps bleeding the middle.",
+   "kills_it": "The 4-yard game in his last four repeats; Lemon (19 targets) and Cooper (9.4 yards per target) absorb the vacancy; Dickerson sits and the drive count collapses; Dallas brackets the tight end and the middle number was small-sample (38 attempts).",
+   "confidence": "lean",
+   "model_p": 0.54,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "Pack DAL YPA by location: middle 10.53 on 38 attempts vs left 7.36 and right 7.32. Goedert L3 17 targets, 90 air yards, 5.3 aDOT, the middle/hook profile."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "DAL blitz 28% and PHI EPA/db -0.26 vs blitz vs 0.00 with no blitz, so pressure pushes Hurts to checkdowns. Smith (14 targets) and Wicks (17) are out. Calcaterra and Stowers are questionable."
+    },
+    "script": {
+     "ok": true,
+     "source": "PHI +4, implied 19.8, dog of 3.5+ throws more. Survives the Dallas-leads flip; dies if Philly controls the clock or the game becomes a slog."
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "Last4 recyds 77, 4, 38, 61: mean 45, median 49.5, pinned to the line, with a 4-yard dud. L3 mean is only 33 yards (99 on 17 targets). Not a rising trend."
+    }
+   },
+   "primary_defender": {
+    "who": "No individual LB or safety named. Location proxy is Dallas middle-of-field coverage.",
+    "source": "Pack DAL defense YPA by location, middle 10.53 on 38 attempts; coverage charting not saved."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Not a price edge: best over -115 vs consensus no-vig over 0.502. Smith/Wicks out is the sleeper funnel, but both related lines sit near 50/50 and no CSV diff shows they failed to move. Gate not confirmed without sims."
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, no sims, and no named Pinnacle price in the pack, so step 8 cannot be run for real. Anchor no-vig is a coin flip on both legs (Pickens over 0.498, Goedert over 0.502). Form agrees with Pickens and does not agree with Goedert's mean, only his median. model_p 0.56 and 0.54 are discounted form guesses, not sim outputs, and are kept under 0.70 because past calibration on 70-80% legs was about 50%. They are not a passed 3-pt edge gate. Step 8 would drop a lean that the model disagrees with; the missing model is treated as a flag for the human, not a cut and not a bet. No stake. Quarter-Kelly is not proposed.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Main rungs only; no alt rungs saved. Pickens recyds over 64.5 at best saved -113.5 (available props same -113.5). Goedert recyds over 49.5 at best saved -115. Neither is shorter than -250. Do not take a shorter alt. Lamb 80, Brown 10.5 and Pierce rush+rec 26.5 have no two-sided price and are not used.",
+ "pre_mortem": "It's Monday and both overs lost. Pickens finished in the 40s because Shelton's absence brought pressure, Philly did not need to blitz, and Dallas led by 10 at half so Williams (not Pickens) closed the game; the 130-yard outlier was the trap and the market was right to leave 64.5 at a coin flip. Goedert finished under 30 because the vacated Smith and Wicks targets went to Lemon and Cooper, the 4-yard dud was the real floor, Dickerson's knee cut the drive count, and 38 middle attempts were not a stable bleed. Barkley also played and Philly never had to live in the pass game.",
+ "slip_story": "One story only: a competitive 23.8-19.8 pass game, not a Dallas clock-grind and not a total under. Pickens over and Goedert over can win together if both teams throw. Do not add Williams rush over, a game under, or any TD. Flournoy over 34.5 is the same-script alternate if Shelton is confirmed as a starting tackle, but the median gap is only about 4 yards, so he stays off the slip. No bet is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T14:04:51-0500"
+ }
+}

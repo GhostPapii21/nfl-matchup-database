@@ -1,0 +1,46 @@
+{
+ "game": "Sun Nov 01 2026 1:00 PM ET, Raymond James Stadium (outdoor) / TB -2 (checklist also lists -2.5) / total 43 (checklist 44.5) / wind 9.2 mph, temp 81.9 F; implied TB 22.5, ATL 20.5; both on 7 days rest; no open-line history beyond that checklist gap",
+ "script": {
+  "base": "One-score game, TB holding a late lead at home under a 43 total. Pace stays moderate and both offenses stay run-leaning: Irving keeps the early-down load, Bijan stays ATL's hub, and Penix's throws concentrate short and middle because TB blitzes 41% and his EPA is better vs blitz (-0.01, n=91) than vs no blitz (-0.14). Scoring lives in the 20s, not a shootout.",
+  "flip1": "ATL scores first and leads by 10+ at half. TB tilts pass, Irving falls off the 21.3 carry/game L3 pace, and Mayfield (EPA -0.18 vs blitz, n=89, vs -0.14 clean) faces obvious passing downs even though ATL blitzes only 25%.",
+  "flip2": "TB jumps ahead by two scores and clocks it with Irving and Gainwell. ATL abandons the run so Bijan's carry share dies, and Penix volume spikes to London, Pitts and Dotson; a late garbage drive can inflate ATL receiving without TB needing to throw."
+ },
+ "injury_fallout": "No named offensive or defensive scratches in the numeric pack. Checklist: Wed designations only, Thu/Fri reports and 90-min inactives PENDING, OL health PARTIAL. Usage alone: ATL carries sit with Bijan (46/210 L3) over Br.Robinson (9/17), Herbert (2/9) and Penix (5/11); targets London 32, Pitts 18, Bijan 14, Dotson 12. TB carries sit with Irving (64/317) over Gainwell (20/123), Tucker (12/70) and J.Daniels (9/64); targets Egbuka 25, Godwin 16, Irving 8, Otton 7, Hurst 7, Tez Johnson 6. Gainwell's rush line 14.5 and Tucker's 7.5 sit far under L3 yards, which may imply a role or health cut the pending report has not confirmed, so those overs are not free edges. Re-run if a late scratch hits Irving, Bijan, London or Pitts.",
+ "matchup": {
+  "shell": "Man/zone and MOFO/MOFC rates are not in the numeric pack (checklist cites Sharp coverage pages dated Oct 20 as current, percentages not pasted). Location splits are the usable shell proxy.",
+  "pressure": "TB blitz rate 41%; ATL blitz rate 25%. No charted pressure rate (checklist P1.pressure PARTIAL). Penix EPA/dropback -0.01 vs blitz (n=91) vs -0.14 with no blitz, so TB pressure funnels him to checkdowns rather than killing him. Mayfield -0.18 vs blitz (n=89) vs -0.14 clean, but ATL rarely blitzes so that weakness is less often tested.",
+  "bleeds": "TB pass YPA: middle 9.53 (49 att), left 6.04 (100), right 5.95 (95); only 16 passes of 20+ on 261 att. Rush YPC allowed 3.87, 14 runs of 10+. ATL pass YPA: middle 9.76 (41 att), left 6.38 (118), right 5.93 (126); 23 passes of 20+ on 303 att. Rush YPC allowed 4.04, 14 runs of 10+. Both defenses bleed the middle and hold the perimeter; ATL is the softer run front.",
+  "overlap": "Pitts is the overlap: 18 targets, 68 air yards (3.8 aDOT), 124 rec yds L3 into TB's 9.53 middle YPA, with a 41% blitz Penix has handled via shorter throws. Irving is the run overlap: 21.3 carries/game at 4.95 YPC into ATL's 4.04 YPC allowed in a TB -2 home script. London (348 air on 32 targets, about 10.9 aDOT, 82 yds/game) attacks the perimeter TB holds near 6 YPA, so he is not the bleed. Egbuka (25 tgt, 86 yds, 207 air) is inefficient and not on the prop list."
+ },
+ "form": "L3 only, no season averages. Bijan 15.3 car/70 rush yds and 4.7 tgt/23 rec yds per game, so rush 80.5 is above that role vs a 3.87 YPC defense. Irving 21.3 car/105.7 rush and 2.7 tgt/5.7 rec, so rush 70.5 and rush+rec 91.5 both sit under recent output, but 64 carries may regress and Gainwell still took 20. Pitts 6 tgt/41.3 rec yds per game vs a 34.5 line. Dotson 4 tgt/49 rec yds on 18.1 aDOT is chunk-inflated against a defense with only 16 explosives. Tez Johnson 2 tgt/34.7 rec yds is one-play noise around 31.5. Godwin 5.3 tgt/33.7 rec yds (3.2 aDOT) fits ATL's middle bleed but the 41 line is above L3 and unpriced. No similar-defense game splits in the pack.",
+ "edge_players": [
+  {
+   "player": "kylepitts",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Pitts is ATL's short/middle answer (6 targets and 41 rec yds per game L3, 3.8 aDOT) into the only area TB bleeds (9.53 YPA middle), and TB's 41% blitz is the look Penix has actually handled, which pushes throws to the TE.",
+   "must_be_true": "Pitts plays a normal route share with no snap limit (inactives still pending), ATL throws enough in a one-score game, and TB does not suddenly take away the middle.",
+   "kills_it": "A closed-middle shell, a Pitts inactive or rep limit, or a pure Bijan clock-grind that leaves Penix without the targets to clear 34.5.",
+   "confidence": "lean"
+  },
+  {
+   "player": "buckyirving",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Irving is the home favorite's bellcow at 21 carries and 106 rush yards per game over the last three, and ATL allows 4.04 YPC, so 70.5 still clears if he only regresses to the mid-teens in carries while TB is tied or leading.",
+   "must_be_true": "Irving is active with his L3 carry share, not a Gainwell or Tucker takeover, TB is not trailing by multiple scores, and the OL is not a late scratch pile.",
+   "kills_it": "Script-dependent: an ATL lead of 10+ kills the run, as does a late inactive or snap cap, or the 64-carry L3 being opponent-padded down to about 14 carries at 4.04 YPC (near 57 yards).",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection model, sim median, or Pinnacle no-vig in the pack, so step 8 cannot stamp a true edge percent; do not treat either leg as 70%+. Available pre-kickoff data agrees with both leans: Pitts L3 41.3 rec yds vs 34.5 at -112.5; Irving L3 105.7 rush yds vs 70.5 at -114, with ATL rush YPC allowed 4.04 supporting efficiency not just volume. The disagreement risk is regression and the missing opponent adjustment (checklist RB suppression PARTIAL), not a contradicting recent role. Gainwell rush 41 L3 vs a 14.5 line and Tucker 23 vs 7.5 were not selected because that market gap plus pending injuries means the average is not an edge. London 82 vs 79.5 is a push and fights TB's roughly 6.0 perimeter YPA, so no leg.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Kyle Pitts recyds over 34.5 at -112.5, main line, no alt rung in the pack. Bucky Irving rushyds over 70.5 at -114, main line. Irving rush+rec over 91.5 at -113 was passed because L3 receiving is only 5.7 yds/game, so 91.5 is a thinner version of the same rush bet. No short-priced alt anchors. Godwin, Otton and Hurst prices are +nan and unused.",
+ "pre_mortem": "It's Monday and both lost. Pitts went quiet because TB played the middle closed, London (32 L3 targets) soaked the volume, and one of three games carried the 124 yards; the 49 middle attempts are a small sample that did not show up, and a Bijan-heavy script (46 carries L3) kept Penix from feeding 34.5. Irving finished in the 50s: the 106-yard L3 was three soft fronts, Gainwell vultured the change-of-pace work he already had (20 carries, 6.15 YPC), ATL's 4.04 YPC allowed was opponent-driven, and a first-half ATL lead on only a 2-point spread flipped TB off the run. The pending inactive list, not the box score, is the miss if either was limited.",
+ "slip_story": "One-score TB home lean, not a shootout and not a blowout clock-kill. Irving rush over needs TB tied or leading so the carry share lives; Pitts rec over needs ATL throwing into the middle, which still happens in a one-score game and also survives the TB-leads flip. Do not add a total under, a London over, or a Dotson over; those need a different script or a chunk profile TB's 16 explosives do not support. No TD legs. Slip stops at these two until inactives and a no-vig price exist.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

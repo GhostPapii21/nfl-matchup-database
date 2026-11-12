@@ -1,0 +1,31 @@
+"""PRESS tier (OPT-IN, default OFF; advisory only, never changes run_gate pass/fail).
+PRESS = matchup grade + coverage (CB/S) + game script + QB + §7 (3 of last 4 with current QB) all clear AND
+>= models_required of the 3 sim_v6 medians clear the line. Default 2 of 3 (Rico, 2026-11-01), allowed only
+because all five context checks must align; one model alone never qualifies. A PRESS leg gets the full edge with
+the raw model average, no shrink (no 'borderline average' / carry-share haircut) and is eligible to move up a rung or
+anchor. Weather hard stop and injury/inactive status always override (BLOCKED); a WR3/WR4 must meet DEPTH_RECEIVER."""
+DEFAULT_MODELS_REQUIRED = 2
+CTX = ("matchup", "coverage", "script", "qb", "form7")
+BAD_INJ = {"out", "doubtful", "inactive", "ir", "injured reserve", "suspended", "suspension", "pup", "physically unable to perform", "nfi"}
+
+def evaluate(leg, models_required=DEFAULT_MODELS_REQUIRED):
+    if models_required not in (2, 3): raise ValueError("models_required must be 2 or 3 (one model never qualifies)")
+    OV = ("weather_stop", "injury_status", "on_inactives", "sec11_conflict", "wr_rank")
+    miss_ov = [k for k in OV if k not in leg or leg.get(k) == "MISSING"]
+    if miss_ov: return dict(tier="BLOCKED", reason=f"override input missing {miss_ov} (fail-closed)", models_clear=0)
+    if leg.get("weather_stop"): return dict(tier="BLOCKED", reason="weather hard stop overrides PRESS")
+    if str(leg.get("injury_status", "")).lower() in BAD_INJ: return dict(tier="BLOCKED", reason=f"injury/inactive ({leg.get('injury_status')}) overrides PRESS")
+    if leg.get("on_inactives"): return dict(tier="BLOCKED", reason="on inactives list overrides PRESS")
+    if leg.get("sec11_conflict"): return dict(tier="BLOCKED", reason="§11 one-slip rule overrides PRESS")
+    if leg.get("wr_rank") in (3, 4):   # DEPTH_RECEIVER rule replaces the old #3/#4 ban (rules/rulebook.py)
+        import depth_rule as _dr
+        ok, why = _dr.evaluate(dict(leg, type=leg.get("type", "WR"), side=leg.get("side", "over")))
+        if not ok: return dict(tier="BLOCKED", reason=f"DEPTH_RECEIVER not met (wr_rank={leg.get('wr_rank')}): " + "; ".join(why))
+    miss = [k for k in CTX if leg.get(k) is not True]
+    meds = [m for m in (leg.get("medians") if isinstance(leg.get("medians"), list) else []) if isinstance(m, (int, float))]
+    line = leg.get("line"); over = leg.get("side", "over") == "over"
+    n = sum((m > line) if over else (m < line) for m in meds) if isinstance(line, (int, float)) and len(meds) == 3 else 0
+    if miss or n < models_required:
+        return dict(tier="STANDARD", reason=f"context not aligned {miss}" if miss else f"{n}/3 models clear < {models_required}", models_clear=n)
+    return dict(tier="PRESS", reason=f"all context aligned; {n}/3 models clear", models_clear=n, shrink="none",
+                anchor_eligible=True, rung_up_eligible=True, exempt_cuts=["borderline average", "carry share"])

@@ -1,0 +1,39 @@
+{
+ "pulled_et": "2026-11-02T16:38",
+ "source": "tools/weather_forecast.py (api.weather.gov hourly + api.open-meteo.com)",
+ "thresholds": {
+  "precip_pct": 50,
+  "gust_mph": 20,
+  "wind_mph": 15
+ },
+ "window": "kickoff to kickoff+3.5h ET; worse source",
+ "games": {
+  "CHI@SEA": {
+   "roof": "open",
+   "nws": {
+    "precip_pct": 2,
+    "wind_mph": 1,
+    "gust_mph": null,
+    "short": [
+     "Cloudy"
+    ],
+    "hours": 3
+   },
+   "open_meteo": {
+    "precip_pct": 2,
+    "wind_mph": 2.7,
+    "gust_mph": 3.4,
+    "precip_in": 0,
+    "hours": 3
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": false,
+   "why": [],
+   "precip_pct": 2,
+   "gust_mph": 3.4,
+   "wind_mph": 2.7,
+   "kickoff_et": "2026-11-02T20:15"
+  }
+ }
+}

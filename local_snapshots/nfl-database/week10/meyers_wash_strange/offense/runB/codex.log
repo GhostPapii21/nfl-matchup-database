@@ -1,0 +1,292 @@
+Reading additional input from stdin...
+OpenAI Codex v0.163.0
+--------
+workdir: /workspace/nfl-database
+model: gpt-6.1-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: none
+reasoning summaries: none
+session id: 01a1a89c-2236-79f1-87ae-6868c6cc699d
+--------
+user
+You are in repo /workspace/nfl-database. Work ONLY in week10/meyers_wash_strange/offense/runB/. Do not git commit/merge/push. Do not print any env var/API key. Public pages only: no private/undocumented APIs, no logins, no PFF Premium. Do NOT invent numbers; if a number is not on a page you fetched, write UNAVAILABLE and why.
+Task: for JAX Week 1-8 2026 (Jakobi Meyers, Parker Washington, Brenton Strange, QB Trevor Lawrence) and BAL defense, try to fetch with curl (record URL + fetch time ET + HTTP status for every attempt in runB/fetch_log.csv; save raw HTML to runB/raw/):
+1. NFL Next Gen Stats public pages (nextgenstats.nfl.com/stats/receiving/2026/..., /stats/passing/2026/...): avg separation, cushion, % share of team air yards, aDOT; Lawrence time to throw, aggressiveness. Also check existing images in week10/ngs/ (route_meyers_wk3_vsNE.png, route_parker_washington_wk6.png, route_strange_wk4_vsCIN.png, receiving_table_page.webp) - describe what route types/field areas they show if you can view them; otherwise note.
+2. Pro-Football-Reference 2026 advanced pages: https://www.pro-football-reference.com/years/2026/opp.htm (advanced defense: blitz%, pressure%, hurry, qb knockdown for BAL), https://www.pro-football-reference.com/teams/jax/2026.htm , player advanced receiving for the 3 players, Lawrence advanced passing (pressure%, bad throw% etc.). PFR hides some tables in HTML comments - parse those.
+3. ESPN.com fallback: game logs for the 3 players (espn.com/nfl/player/gamelog/_/id/...) to cross-check targets/receptions/yards per week; note which team Meyers played for each week.
+Write runB/notes_b.md with tables of what was obtained (value, URL, fetch time) and an explicit list of what is missing. Sleep 3s between PFR requests.
+2026-11-04T22:09:28.106215Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when AuthRequired(AuthRequiredError { www_authenticate_header: "Bearer scope=\"create delete\", resource_metadata=\"https://mcp.windsor.ai/.well-known/oauth-protected-resource/facebook/\"" })
+2026-11-04T22:09:28.533233Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when UnexpectedServerResponse("HTTP 403: <!doctype html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content=\"IE=edge\"><meta name=robots content=\"noindex, nofollow\"><meta content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui\" name=viewport><title>携程旅行网</title><style type=text/css>blockquote,body,button,code,dd,div,dl,dt,em,fieldset,form,h1,h2,h3,h4,h5,h6,html,input,legend,li,ol,p,pre,td,textarea,th,ul{margin:0;padding:0}body{font-size:12px;font-family:Simsun,sans-serif;color:#333}fieldset,img{border:0 none}input,textarea{font-size:12px}textarea{resize:none}table{border-collapse:collapse;border-spacing:0}a{color:#003d7e;text-decoration:none}a:hover{text-decoration:underline}h1,h2,h3,h4,h5,h6{font-family:\"Times New Roman\",Simsun}li,ol,ul{list-style:none outside none}dfn{font-style:normal}@media screen and (min-width:751px){#footer,.content,.errorinfo{width:800px}.wrap{background:#016eca;width:100%;min-width:1200px;overflow:hidden}.content{position:relative;z-index:1;height:480px;margin:0 auto;padding-top:100px}.logo{position:relative;z-index:5;width:144px;height:54px;margin:0 auto;overflow:hidden;text-indent:-500px;background-position:0 0}.errorinfo{color:#fff;display:block;font-family:\"microsoft yahei\",simhei,sans-serif;font-size:24px;font-weight:400;text-align:center;margin:30px auto;padding:0}a.goback{display:block;position:relative;z-index:4;width:112px;margin:20px auto;padding:8px 0;color:#fff;font-family:\"microsoft yahei\",simhei,sans-serif;font-size:16px;text-align:center;text-decoration:none;background-color:#0f4dc5}a.goback:hover{background-color:#3f92f0}.tower{position:absolute;transform:translateZ(300px);z-index:2;top:143px;left:291px;width:116px;height:264px;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/tower.png) no-repeat}.beam{position:absolute;z-index:1;left:-10px;top:0;width:749px;height:359px;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/light.png) no-repeat;-webkit-animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam;-moz-animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam;animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam}.wave1{position:absolute;z-index:99;top:400px;height:180px;width:1200px;left:0;right:0;margin:auto;opacity:0;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/wave.png) repeat-x 0 0;-webkit-animation:50s linear 0s none infinite tweenxxpc;-moz-animation:50s linear 0s none infinite tweenxxpc;animation:50s linear 0s none infinite tweenxxpc}.wave{position:absolute;z-index:100;top:400px;height:180px;width:1200px;left:0;right:0;margin:auto;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/wave.png) repeat-x 0 0;-webkit-animation:50s linear 0s none infinite tweenxpc;-moz-animation:50s linear 0s none infinite tweenxpc;animation:50s linear 0s none infinite tweenxpc}#footer{margin:0 auto;text-align:center;color:#0053aa;font-family:arial;line-height:1.6;padding:8px 0 0 0;width:1200px}#footer a{color:#0053aa}.copyright{color:#333}.star1{background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/star.png) no-repeat;position:relative;top:164px;left:592px;height:60px;width:60px;opacity:0;-webkit-animation:2s linear 0s none infinite staracta;-moz-animation:2s linear 0s none infinite staracta;animation:2s linear 0s none infinite staracta}.star2{background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/star.png) no-repeat;position:relative;top:234px;left:245px;height:60px;width:60px;opacity:.8;-webkit-animation:2s linear 0s none infinite staract;-moz-animation:2s linear 0s none infinite staract;animation:2s linear 0s none infinite staract}.star3{background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/star.png) no-repeat;position:relative;top:252px;left:644px;height:60px;width:60px;opacity:.8;-webkit-animation:2s linear 0s none infinite staract;-moz-animation:2s linear 0s none infinite staract;animation:2s linear 0s none infinite staract}.star4{background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/star.png) no-repeat;position:relative;top:268px;left:264px;height:60px;width:60px;opacity:0;-webkit-animation:2s linear 0s none infinite staracta;-moz-animation:2s linear 0s none infinite staracta;animation:2s linear 0s none infinite staracta}.top{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/top.png);background-repeat:no-repeat;position:absolute;top:0;left:0;width:1200px;height:580px;z-index:999;right:0;margin:auto}.bg{background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/404_PC_bg.png) no-repeat center bottom;position:absolute;z-index:0;width:1200px;height:580px;min-width:1200px;left:0;right:0;margin:auto;overflow:hidden}.adv_t{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/PC_btA.png);background-repeat:no-repeat;position:relative;top:350px;left:470px;width:262px;height:28px;z-index:10000;cursor:pointer;display:none}.back_t{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/PC_btB.png);background-repeat:no-repeat;position:relative;top:433px;left:551px;width:98px;height:38px;z-index:10000;cursor:pointer}}@media screen and (max-width:750px){body html{overflow-x:hidden}.top{position:absolute;top:0;left:0;max-width:750px;width:100%;height:755px;z-index:999;right:0;margin:auto;min-width:350px}.mengceng{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/h5_top_1.png);height:755px;background-size:auto 910px;background-repeat:no-repeat;width:415px;position:relative;margin:0 auto}.wrap{background:#016eca;width:100%;min-width:400px}.bg{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/404_H5_bg.png);background-repeat:no-repeat;margin:0 auto;background-size:contain;height:755px;width:350px;overflow:hidden}.bg:before{content:\"\";display:block;padding-top:180%}#footer{margin:0 auto;text-align:center;color:#0053aa;font-family:arial;line-height:1.6;padding:8px 0 0 0}#footer a{color:#0053aa}.copyright{color:#333}.wave1{position:absolute;z-index:99;top:444px;height:180px;width:350px;left:0;right:0;margin:auto;opacity:0;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/wave.png) repeat-x 0 0;-webkit-animation:50s linear 0s none infinite tweenxx;-moz-animation:50s linear 0s none infinite tweenxx;animation:50s linear 0s none infinite tweenxx}.wave{position:absolute;z-index:100;top:444px;height:180px;width:350px;left:0;right:0;margin:auto;background:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/wave.png) repeat-x 0 0;-webkit-animation:50s linear 0s none infinite tweenx;-moz-animation:50s linear 0s none infinite tweenx;animation:50s linear 0s none infinite tweenx}@-webkit-keyframes tweenx{0%{background-position:100vw 0}50%{opacity:0}100%{background-position:0 0;opacity:1}}@-moz-keyframes tweenx{0%{background-position:100vw 0}50%{opacity:0}100%{background-position:0 0;opacity:1}}@keyframes tweenx{0%{background-position:100vw 0}50%{opacity:0}100%{background-position:0 0;opacity:1}}@keyframes tweenxx{0%{background-position:0 0;opacity:0}50%{opacity:1}100%{background-position:-100vw 0;opacity:0}}.tower{position:relative;transform:translateZ(300px);z-index:2;top:-370px;left:-53px;width:180px;height:180px;background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/tower_h5.png);background-repeat:no-repeat;background-size:contain}.beam{position:relative;z-index:1;left:-176px;top:-640px;width:484px;height:232px;background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/light.png);background-repeat:no-repeat;background-size:contain;-webkit-animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam;-moz-animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam;animation:6s cubic-bezier(.25,0,.75,1) 0s none infinite beam}.star1{background-image:url(https://webresource.c-ctrip.com/ares2/nfes/pc-home/*/default/others/star.png)... (truncated 6027 bytes)")
+codex
+I’ll fetch the public pages, log each attempt with its ET timestamp and HTTP status, and inspect the local NGS images. I’ll mark any metrics I can’t verify as UNAVAILABLE with the reason.
+exec
+/bin/bash -lc "pwd && rg --files -g AGENTS.md -g '*meyers*' -g '*washington*' -g '*strange*' -g '*receiving_table*' -g '*lawrence*' week10 | head -80" in /workspace/nfl-database
+ succeeded in 0ms:
+/workspace/nfl-database
+week10/fagnano/profile_v2/strange_catch_yds_2026.npy
+week10/brainstorm_layers/L2_lawrence_splits.csv
+week10/ngs/route_meyers_wk3_vsNE.png
+week10/ngs/route_strange_wk4_vsCIN.png
+week10/ngs/receiving_table_page.webp
+week10/ngs/route_parker_washington_wk6.png
+week10/strange_share/strange_share.md
+
+exec
+/bin/bash -lc 'ls -la week10/meyers_wash_strange/offense/runB; find .. -name AGENTS.md -print' in /workspace/nfl-database
+ succeeded in 12ms:
+total 24
+drwxr-xr-x 2 box box  4096 Nov  4 17:08 .
+drwxr-xr-x 4 box box  4096 Nov  4 17:08 ..
+-rw-r--r-- 1 box box 11461 Nov  4 17:09 codex.log
+-rw-r--r-- 1 box box  1758 Nov  4 17:08 prompt.md
+../sportsbook-odds-bridge/AGENTS.md
+
+exec
+/bin/bash -lc "rg -n 'espn.com/nfl/player|pro-football-reference.com/players|nextgenstats.nfl.com/stats' week10/meyers_wash_strange week10/ngs | head -70" in /workspace/nfl-database
+ succeeded in 0ms:
+week10/meyers_wash_strange/offense/runB/prompt.md:3:1. NFL Next Gen Stats public pages (nextgenstats.nfl.com/stats/receiving/2026/..., /stats/passing/2026/...): avg separation, cushion, % share of team air yards, aDOT; Lawrence time to throw, aggressiveness. Also check existing images in week10/ngs/ (route_meyers_wk3_vsNE.png, route_parker_washington_wk6.png, route_strange_wk4_vsCIN.png, receiving_table_page.webp) - describe what route types/field areas they show if you can view them; otherwise note.
+week10/meyers_wash_strange/offense/runB/prompt.md:5:3. ESPN.com fallback: game logs for the 3 players (espn.com/nfl/player/gamelog/_/id/...) to cross-check targets/receptions/yards per week; note which team Meyers played for each week.
+week10/meyers_wash_strange/offense/runB/codex.log:16:1. NFL Next Gen Stats public pages (nextgenstats.nfl.com/stats/receiving/2026/..., /stats/passing/2026/...): avg separation, cushion, % share of team air yards, aDOT; Lawrence time to throw, aggressiveness. Also check existing images in week10/ngs/ (route_meyers_wk3_vsNE.png, route_parker_washington_wk6.png, route_strange_wk4_vsCIN.png, receiving_table_page.webp) - describe what route types/field areas they show if you can view them; otherwise note.
+week10/meyers_wash_strange/offense/runB/codex.log:18:3. ESPN.com fallback: game logs for the 3 players (espn.com/nfl/player/gamelog/_/id/...) to cross-check targets/receptions/yards per week; note which team Meyers played for each week.
+
+exec
+/bin/bash -lc "cat > week10/meyers_wash_strange/offense/runB/fetch_pages.py <<'PY'
+import csv, subprocess, datetime, pathlib, time
+from zoneinfo import ZoneInfo
+ROOT=pathlib.Path(__file__).resolve().parent
+(ROOT/'raw').mkdir(exist_ok=True)
+def fetch(name,url,pfr=False):
+    if pfr: time.sleep(3)
+    start=datetime.datetime.now(ZoneInfo('America/New_York')).isoformat(timespec='seconds')
+    out=ROOT/'raw'/f'{name}.html'
+    r=subprocess.run(['curl','--location','--max-time','45','--silent','--show-error','--user-agent','Mozilla/5.0','--output',str(out),'--write-out','%{http_code}\\t%{url_effective}',url],capture_output=True,text=True)
+    parts=r.stdout.split('\\t',1)
+    with (ROOT/'fetch_log.csv').open('a',newline='') as f:
+        csv.writer(f).writerow([name,url,start,parts[0] or '000',parts[1] if len(parts)>1 else '',str(out.relative_to(ROOT)),r.returncode,r.stderr.strip()])
+    print(name,parts[0],out.stat().st_size if out.exists() else 0,flush=True)
+    return out
+if __name__=='__main__':
+    with (ROOT/'fetch_log.csv').open('w',newline='') as f: csv.writer(f).writerow(['attempt','url','fetch_time_ET','http_status','effective_url','raw_file','curl_exit','error'])
+    for typ in ['receiving','passing']:
+        fetch('ngs_'+typ+'_season',f'https://nextgenstats.nfl.com/stats/{typ}/2026/REG/all/ypa' if typ=='passing' else f'https://nextgenstats.nfl.com/stats/{typ}/2026/REG/all/yards')
+    fetch('espn_jax_roster','https://www.espn.com/nfl/team/roster/_/name/jax/jacksonville-jaguars')
+    for name,url in [
+      ('pfr_opp','https://www.pro-football-reference.com/years/2026/opp.htm'),
+      ('pfr_jax','https://www.pro-football-reference.com/teams/jax/2026.htm'),
+      ('pfr_meyers','https://www.pro-football-reference.com/players/M/MeyeJa01/gamelog/2026/advanced/'),
+      ('pfr_washington','https://www.pro-football-reference.com/players/W/WashPa00/gamelog/2026/advanced/'),
+      ('pfr_strange','https://www.pro-football-reference.com/players/S/StraBr00/gamelog/2026/advanced/'),
+      ('pfr_lawrence','https://www.pro-football-reference.com/players/L/LawrTr00/gamelog/2026/advanced/')]: fetch(name,url,True)
+PY
+python week10/meyers_wash_strange/offense/runB/fetch_pages.py" in /workspace/nfl-database
+ exited 127 in 0ms:
+/bin/bash: line 29: python: command not found
+
+exec
+/bin/bash -lc 'python3 week10/meyers_wash_strange/offense/runB/fetch_pages.py' in /workspace/nfl-database
+exec
+/bin/bash -lc "python3 - <<'PY'
+import re,pathlib
+p=pathlib.Path('week10/meyers_wash_strange/offense/runB/raw/espn_jax_roster.html').read_text()
+for name in ['Meyers','Washington','Strange','Lawrence']:
+ for m in list(re.finditer(name,p))[:3]: print(name,p[max(0,m.start()-240):m.end()+100])
+PY" in /workspace/nfl-database
+ succeeded in 0ms:
+Meyers lo"><figure class="Image aspect-ratio--parent"><div class="RatioFrame aspect-ratio--4x3"></div><div class="Image__Wrapper aspect-ratio--child"><img alt="https://a.espncdn.com/i/headshots/nfl/players/full/3916433.png" class="" title="Jakobi Meyers" data-mptype="image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAI
+Meyers /div></figure></div></a></div></td><td class="Table__TD"><div style="min-width:140px" class="inline"><a class="AnchorLink" tabindex="0" data-resource-id="AthleteName" href="https://www.espn.com/nfl/player/_/id/3916433/jakobi-meyers">Jakobi Meyers</a><span class="pl2 roster-jersey">3</span></div></td><td class="Table__TD"><div style="min-width:4
+Meyers age":23,"position":"WR","jersey":"12","salary":"$2,960,414","birthDate":"05/18/03","headshot":"https://a.espncdn.com/i/headshots/nfl/players/full/4685415.png","lastName":"Travis Hunter","experience":2,"college":"Colorado"},{"shortName":"J. Meyers","name":"Jakobi Meyers","href":"https://www.espn.com/nfl/player/_/id/3916433/jakobi-meyers","uid":"
+Washington nessee-titans" value="10">Tennessee Titans</option><option class="dropdown__option" data-resource-id="DropdownOption /nfl/team/roster/_/name/wsh/washington-commanders" data-url="/nfl/team/roster/_/name/wsh/washington-commanders" value="28">Washington Commanders</option></select><select class="dropdown__select dropdown__select--sizing absolute w-aut
+Washington lo"><figure class="Image aspect-ratio--parent"><div class="RatioFrame aspect-ratio--4x3"></div><div class="Image__Wrapper aspect-ratio--child"><img alt="https://a.espncdn.com/i/headshots/nfl/players/full/4432620.png" class="" title="Parker Washington" data-mptype="image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAI
+Washington ></figure></div></a></div></td><td class="Table__TD"><div style="min-width:140px" class="inline"><a class="AnchorLink" tabindex="0" data-resource-id="AthleteName" href="https://www.espn.com/nfl/player/_/id/4432620/parker-washington">Parker Washington</a><span class="pl2 roster-jersey">11</span></div></td><td class="Table__TD"><div style="min-width:
+Strange o"><figure class="Image aspect-ratio--parent"><div class="RatioFrame aspect-ratio--4x3"></div><div class="Image__Wrapper aspect-ratio--child"><img alt="https://a.espncdn.com/i/headshots/nfl/players/full/4430539.png" class="" title="Brenton Strange" data-mptype="image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAI
+Strange v></figure></div></a></div></td><td class="Table__TD"><div style="min-width:140px" class="inline"><a class="AnchorLink" tabindex="0" data-resource-id="AthleteName" href="https://www.espn.com/nfl/player/_/id/4430539/brenton-strange">Brenton Strange</a><span class="pl2 roster-jersey">85</span></div></td><td class="Table__TD"><div style="min-width:
+Strange 7,"position":"TE","jersey":"80","salary":"$2,000,000","birthDate":"01/21/99","headshot":"https://a.espncdn.com/i/headshots/nfl/players/full/4244049.png","lastName":"Quintin Morris","experience":5,"college":"Bowling Green"},{"shortName":"B. Strange","name":"Brenton Strange","href":"https://www.espn.com/nfl/player/_/id/4430539/brenton-strange","ui
+Lawrence lo"><figure class="Image aspect-ratio--parent"><div class="RatioFrame aspect-ratio--4x3"></div><div class="Image__Wrapper aspect-ratio--child"><img alt="https://a.espncdn.com/i/headshots/nfl/players/full/4360310.png" class="" title="Trevor Lawrence" data-mptype="image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAI
+Lawrence iv></figure></div></a></div></td><td class="Table__TD"><div style="min-width:140px" class="inline"><a class="AnchorLink" tabindex="0" data-resource-id="AthleteName" href="https://www.espn.com/nfl/player/_/id/4360310/trevor-lawrence">Trevor Lawrence</a><span class="pl2 roster-jersey">16</span></div></td><td class="Table__TD"><div style="min-width:
+Lawrence bs","age":23,"position":"QB","jersey":"10","salary":"$1,005,000","birthDate":"03/15/03","headshot":"https://a.espncdn.com/i/headshots/nfl/players/full/4889929.png","lastName":"Quinn Ewers","experience":2,"college":"Texas"},{"shortName":"T. Lawrence","name":"Trevor Lawrence","href":"https://www.espn.com/nfl/player/_/id/4360310/trevor-lawrence","ui
+
+exec
+/bin/bash -lc "python3 - <<'PY'
+import sys
+sys.path.insert(0,'week10/meyers_wash_strange/offense/runB')
+from fetch_pages import fetch
+for name,id in [('meyers','3916433'),('washington','4432620'),('strange','4430539')]: fetch('espn_'+name,f'https://www.espn.com/nfl/player/gamelog/_/id/{id}/type/nfl/year/2026')
+for typ in ['receiving','passing']: fetch('ngs_'+typ+'_week8',f'https://nextgenstats.nfl.com/stats/{typ}/2026/REG/8')
+PY" in /workspace/nfl-database
+ succeeded in 1260ms:
+espn_meyers 200 471340
+espn_washington 200 472068
+espn_strange 200 477212
+ngs_receiving_week8 200 31573
+ngs_passing_week8 200 31563
+
+ succeeded in 18764ms:
+ngs_receiving_season 404 20
+ngs_passing_season 404 20
+espn_jax_roster 200 619921
+pfr_opp 403 5506
+pfr_jax 403 5506
+pfr_meyers 403 5618
+pfr_washington 403 5618
+pfr_strange 403 5618
+pfr_lawrence 403 5618
+
+codex
+The ESPN game logs returned successfully. PFR has returned HTTP 403 for the pages checked so far. The NGS season URLs returned 404, while the Week 8 receiving page returned HTML; I’ll check whether it contains player data. I viewed all four local images: the route charts are readable, but the receiving-table screenshot does not show the three requested players.
+exec
+/bin/bash -lc "python3 - <<'PY'
+from pathlib import Path
+from bs4 import BeautifulSoup,Comment
+r=Path('week10/meyers_wash_strange/offense/runB/raw')
+for p in r.glob('*.html'):
+ s=BeautifulSoup(p.read_text(),'html.parser')
+ tables=s.find_all('table'); cs=s.find_all(string=lambda t:isinstance(t,Comment)); ct=sum(len(BeautifulSoup(str(c),'html.parser').find_all('table')) for c in cs)
+ print(p.name,'tables',len(tables),'comment tables',ct,'title',s.title.get_text() if s.title else '')
+ if p.name.startswith('espn_') and 'roster' not in p.name:
+  for t in tables: print(t.get_text(' | ',strip=True)[:16000])
+ if p.name.startswith('ngs_'): print(s.get_text(' ',strip=True)[-3000:])
+PY" in /workspace/nfl-database
+ succeeded in 89ms:
+pfr_meyers.html tables 0 comment tables 0 title Just a moment...
+espn_washington.html tables 2 comment tables 0 title Parker Washington 2026 Stats per Game - NFL - ESPN
+2026 Regular Season (JAX) | Receiving | Rushing | Fumbles | Date | OPP | Result | REC | TGTS | YDS | AVG | TD | LNG | CAR | YDS | AVG | LNG | TD | FUM | LST | FF | KB | Sun 9/13 | vs | CLE | W | 34-10 | 5 | 6 | 83 | 16.6 | 1 | 30 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | Sun 9/20 | @ | DEN | L | 20-13 | 7 | 12 | 98 | 14.0 | 0 | 32 | 0 | 0 | 0.0 | 0 | 0 | 1 | 0 | 0 | 0 | Sun 9/27 | vs | NE | W | 35-6 | 3 | 5 | 40 | 13.3 | 1 | 18 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | Sun 10/4 | @ | CIN | W | 22-17 | 1 | 3 | 7 | 7.0 | 0 | 7 | 1 | 3 | 3.0 | 3 | 0 | 0 | 0 | - | - | Sun 10/11 | vs | PHI | W | 19-17 | 6 | 9 | 124 | 20.7 | 2 | 51 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | NFL London Games | Sun 10/18 | vs | HOU | L | 34-31 | 4 | 11 | 64 | 16.0 | 0 | 27 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | NFL London Games | Sun 11/1 | vs | IND | W | 42-7 | 1 | 2 | 16 | 16.0 | 0 | 16 | 1 | 10 | 10.0 | 10 | 0 | 0 | 0 | - | - | Regular Season Stats | 27 | 48 | 432 | 16.0 | 4 | 51 | 2 | 13 | 6.5 | 10 | 0 | 1 | 0 | 0 | 0
+Team | W | L | T | PCT | PF | PA | Jacksonville | 5 | 2 | 0 | .714 | 196 | 111 | Houston | 2 | 5 | 0 | .286 | 165 | 170 | Indianapolis | 2 | 6 | 0 | .250 | 161 | 222 | Tennessee | 1 | 7 | 0 | .125 | 144 | 199
+ngs_receiving_week8.html tables 0 comment tables 0 title NGS | NFL Next Gen Stats
+NGS | NFL Next Gen Stats
+pfr_opp.html tables 0 comment tables 0 title Just a moment...
+espn_jax_roster.html tables 5 comment tables 0 title Jacksonville Jaguars NFL Roster - ESPN
+espn_strange.html tables 2 comment tables 0 title Brenton Strange 2026 Stats per Game - NFL - ESPN
+2026 Regular Season (JAX) | Receiving | Rushing | Fumbles | Date | OPP | Result | REC | TGTS | YDS | AVG | TD | LNG | CAR | YDS | AVG | LNG | TD | FUM | LST | FF | KB | Sun 9/13 | vs | CLE | W | 34-10 | 2 | 3 | 23 | 11.5 | 1 | 14 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | Sun 9/20 | @ | DEN | L | 20-13 | 2 | 2 | 17 | 8.5 | 0 | 14 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | Sun 9/27 | vs | NE | W | 35-6 | 3 | 5 | 32 | 10.7 | 0 | 23 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | Sun 10/4 | @ | CIN | W | 22-17 | 7 | 8 | 95 | 13.6 | 0 | 23 | 0 | 0 | 0.0 | 0 | 0 | 1 | 0 | - | - | Sun 10/11 | vs | PHI | W | 19-17 | 7 | 8 | 68 | 9.7 | 0 | 27 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | NFL London Games | Sun 10/18 | vs | HOU | L | 34-31 | 5 | 7 | 44 | 8.8 | 0 | 24 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | NFL London Games | Sun 11/1 | vs | IND | W | 42-7 | 2 | 2 | 55 | 27.5 | 0 | 46 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | Regular Season Stats | 28 | 35 | 334 | 11.9 | 1 | 46 | 0 | 0 | 0.0 | 0 | 0 | 1 | 0 | - | -
+Team | W | L | T | PCT | PF | PA | Jacksonville | 5 | 2 | 0 | .714 | 196 | 111 | Houston | 2 | 5 | 0 | .286 | 165 | 170 | Indianapolis | 2 | 6 | 0 | .250 | 161 | 222 | Tennessee | 1 | 7 | 0 | .125 | 144 | 199
+pfr_jax.html tables 0 comment tables 0 title Just a moment...
+ngs_receiving_season.html tables 0 comment tables 0 title 
+404 | Page Not Found
+pfr_washington.html tables 0 comment tables 0 title Just a moment...
+ngs_passing_season.html tables 0 comment tables 0 title 
+404 | Page Not Found
+pfr_lawrence.html tables 0 comment tables 0 title Just a moment...
+pfr_strange.html tables 0 comment tables 0 title Just a moment...
+ngs_passing_week8.html tables 0 comment tables 0 title NGS | NFL Next Gen Stats
+NGS | NFL Next Gen Stats
+espn_meyers.html tables 2 comment tables 0 title Jakobi Meyers 2026 Stats per Game - NFL - ESPN
+2026 Regular Season (JAX) | Receiving | Rushing | Fumbles | Date | OPP | Result | REC | TGTS | YDS | AVG | TD | LNG | CAR | YDS | AVG | LNG | TD | FUM | LST | FF | KB | Sun 9/13 | vs | CLE | W | 34-10 | 2 | 2 | 40 | 20.0 | 1 | 32 | 1 | 2 | 2.0 | 2 | 0 | 0 | 0 | - | - | Sun 9/20 | @ | DEN | L | 20-13 | 1 | 1 | 28 | 28.0 | 0 | 28 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | Sun 9/27 | vs | NE | W | 35-6 | 7 | 8 | 64 | 9.1 | 1 | 14 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | 0 | 0 | Sun 10/4 | @ | CIN | W | 22-17 | 3 | 4 | 33 | 11.0 | 0 | 22 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | Sun 10/11 | vs | PHI | W | 19-17 | 2 | 3 | 37 | 18.5 | 0 | 19 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | NFL London Games | Sun 10/18 | vs | HOU | L | 34-31 | 5 | 10 | 83 | 16.6 | 0 | 28 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | NFL London Games | Sun 11/1 | vs | IND | W | 42-7 | 2 | 3 | 24 | 12.0 | 0 | 14 | 0 | 0 | 0.0 | 0 | 0 | 0 | 0 | - | - | Regular Season Stats | 22 | 31 | 309 | 14.0 | 2 | 32 | 1 | 2 | 2.0 | 2 | 0 | 0 | 0 | 0 | 0
+Team | W | L | T | PCT | PF | PA | Jacksonville | 5 | 2 | 0 | .714 | 196 | 111 | Houston | 2 | 5 | 0 | .286 | 165 | 170 | Indianapolis | 2 | 6 | 0 | .250 | 161 | 222 | Tennessee | 1 | 7 | 0 | .125 | 144 | 199
+
+exec
+/bin/bash -lc "python3 - <<'PY'
+import sys
+sys.path.insert(0,'week10/meyers_wash_strange/offense/runB')
+from fetch_pages import fetch
+fetch('espn_jax_schedule','https://www.espn.com/nfl/team/schedule/_/name/jax/season/2026')
+for typ in ['receiving','passing']:
+ fetch('ngs_'+typ+'_all',f'https://nextgenstats.nfl.com/stats/{typ}/2026/REG/all')
+ for week in range(1,8): fetch(f'ngs_{typ}_week{week}',f'https://nextgenstats.nfl.com/stats/{typ}/2026/REG/{week}')
+PY" in /workspace/nfl-database
+exec
+/bin/bash -lc "python3 - <<'PY'
+from bs4 import BeautifulSoup
+from pathlib import Path
+s=BeautifulSoup(Path('week10/meyers_wash_strange/offense/runB/raw/espn_meyers.html').read_text(),'html.parser')
+for tr in s.select('table')[0].select('tr')[:6]: print([x.get_text(' ',strip=True) for x in tr.find_all(['td','th'])])
+PY" in /workspace/nfl-database
+ succeeded in 29ms:
+['2026 Regular Season (JAX)', 'Receiving', 'Rushing', 'Fumbles']
+['Date', 'OPP', 'Result', 'REC', 'TGTS', 'YDS', 'AVG', 'TD', 'LNG', 'CAR', 'YDS', 'AVG', 'LNG', 'TD', 'FUM', 'LST', 'FF', 'KB']
+['Sun 9/13', 'vs CLE', 'W 34-10', '2', '2', '40', '20.0', '1', '32', '1', '2', '2.0', '2', '0', '0', '0', '-', '-']
+['Sun 9/20', '@ DEN', 'L 20-13', '1', '1', '28', '28.0', '0', '28', '0', '0', '0.0', '0', '0', '0', '0', '-', '-']
+['Sun 9/27', 'vs NE', 'W 35-6', '7', '8', '64', '9.1', '1', '14', '0', '0', '0.0', '0', '0', '0', '0', '0', '0']
+['Sun 10/4', '@ CIN', 'W 22-17', '3', '4', '33', '11.0', '0', '22', '0', '0', '0.0', '0', '0', '0', '0', '-', '-']
+
+exec
+/bin/bash -lc "python3 - <<'PY'
+from bs4 import BeautifulSoup
+from pathlib import Path
+s=BeautifulSoup(Path('week10/meyers_wash_strange/offense/runB/raw/espn_jax_schedule.html').read_text(),'html.parser')
+for t in s.select('table'): print(t.get_text(' | ',strip=True)[:10000])
+PY" in /workspace/nfl-database
+ succeeded in 19ms:
+Regular Season | WK | DATE | OPPONENT | RESULT | W-L | Hi Pass | Hi Rush | Hi Rec | 1 | Sun, Sep 13 | vs | Cleveland | W | 34-10 | 1-0 | Lawrence | 245 | Tuten | 66 | Washington | 83 | 2 | Sun, Sep 20 | @ | Denver | L | 20-13 | 1-1 | Lawrence | 189 | Tuten | 65 | Washington | 98 | 3 | Sun, Sep 27 | vs | New England | W | 35-6 | 2-1 | Lawrence | 182 | Tuten | 73 | Meyers | 64 | 4 | Sun, Oct 4 | @ | Cincinnati | W | 22-17 | 3-1 | Lawrence | 227 | Tuten | 73 | Strange | 95 | 5 | Sun, Oct 11 | vs | Philadelphia | * | W | 19-17 | 4-1 | Lawrence | 331 | Tuten | 72 | Washington | 124 | 6 | Sun, Oct 18 | vs | Houston | * | L | 34-31 | 4-2 | Lawrence | 306 | Rodriguez Jr. | 55 | Meyers | 83 | 7 | BYE WEEK | 8 | Sun, Nov 1 | vs | Indianapolis | W | 42-7 | 5-2 | Lawrence | 210 | Tuten | 104 | Tuten | 55 | WK | DATE | OPPONENT | TIME | TV | tickets | 9 | Thu, Nov 5 | @ | Baltimore | 8:15 PM | Prime Video | Tickets as low as $32 | 10 | Sun, Nov 15 | @ | Tennessee | 1:00 PM | Fox | Tickets as low as $24 | 11 | Sun, Nov 22 | @ | New York | 1:00 PM | CBS | Tickets as low as $101 | 12 | Sun, Nov 29 | vs | Tennessee | 4:05 PM | CBS | Tickets as low as $135 | 13 | Sun, Dec 6 | @ | Chicago | 1:00 PM | Fox | Tickets as low as $348 | 14 | Mon, Dec 14 | vs | Pittsburgh | 8:15 PM | Tickets as low as $338 | 15 | Sun, Dec 20 | @ | Houston | 1:00 PM | CBS | Tickets as low as $78 | 16 | Sun, Dec 27 | @ | Dallas | 8:20 PM | NBC | Tickets as low as $52 | 17 | TBD - Flex Game | vs | Washington | TBD | Tickets as low as $152 | 18 | TBD - Flex Game | @ | Indianapolis | TBD | Tickets as low as $37 | Preseason | WK | DATE | OPPONENT | RESULT | W-L | Hi Pass | Hi Rush | Hi Rec | 1 | Sat, Aug 15 | @ | New Orleans | W | 24-20 | 1-0 | Bradley | 105 | Taylor | 78 | Pena | 58 | 2 | Fri, Aug 21 | vs | Carolina | L | 34-17 | 1-1 | Aguilar | 130 | Abdullah | 45 | Pena | 72 | 3 | Fri, Aug 28 | vs | Tampa Bay | W | 19-0 | 2-1 | Bradley | 77 | Taylor | 44 | Long | 47
+
+ succeeded in 5952ms:
+espn_jax_schedule 200 515298
+ngs_receiving_all 200 31581
+ngs_receiving_week1 200 31573
+ngs_receiving_week2 200 31573
+ngs_receiving_week3 200 31573
+ngs_receiving_week4 200 31573
+ngs_receiving_week5 200 31573
+ngs_receiving_week6 200 31573
+ngs_receiving_week7 200 31573
+ngs_passing_all 200 31571
+ngs_passing_week1 200 31563
+ngs_passing_week2 200 31563
+ngs_passing_week3 200 31563
+ngs_passing_week4 200 31563
+ngs_passing_week5 200 31563
+ngs_passing_week6 200 31563
+ngs_passing_week7 200 31563
+
+codex
+ESPN provides game rows for all three receivers and labels each log “2026 Regular Season (JAX),” including Meyers’s games. The JAX schedule confirms a Week 7 bye. All NGS week pages returned application HTML without player tables or metric values. PFR returned challenge pages with no tables, including inside HTML comments. I’m writing the verified game logs and the missing-metric list to `notes_b.md`.
+exec
+/bin/bash -lc "cat > week10/meyers_wash_strange/offense/runB/build_notes.py <<'PY'
+import csv,json,re
+from pathlib import Path
+from bs4 import BeautifulSoup,Comment
+R=Path(__file__).resolve().parent
+logs=list(csv.DictReader((R/'fetch_log.csv').open()))
+by={x['attempt']:x for x in logs}
+def source(key):
+ x=by[key];return f\"[{key}]({x['url']}) | {x['fetch_time_ET']}\"
+lines=['# JAX Weeks 1–8, 2026 / BAL defense — run B','', 'All network fetches used curl against public HTML pages. No login, private API, undocumented API, or PFF Premium was used. Raw responses, including errors/challenges, are in "'`raw/`. Times below are America/New_York with UTC offsets; they record request start. `fetch_log.csv` records every curl attempt, redirects, status, and curl exit. PFR requests were sequential with a 3-second sleep before each.'"','', '## Verified receiving game logs','', 'Values below are transcribed from fetched ESPN tables, not independently confirmed against NGS/PFR. Each row links to its source and records fetch time. ESPN labels all three logs **2026 Regular Season (JAX)**. Meyers therefore played for **JAX in every listed game**. Week 7 is a bye, not an observed zero-stat game.','', '| Player | Week | Date | Opponent | Team | Targets | Receptions | Yards | URL | Fetch time ET |','|---|---|---|---|---|---|---|---|---|---|']
+for player in ['meyers','washington','strange']:
+ s=BeautifulSoup((R/'raw'/f'espn_{player}.html').read_text(),'html.parser')
+ for tr in s.select('table')[0].select('tr'):
+  c=[x.get_text(' ',strip=True) for x in tr.find_all(['td','th'])]
+  if not c or not c[0].startswith('Sun '):continue
+  date=c[0].split()[-1];week={'9/13':1,'9/20':2,'9/27':3,'10/4':4,'10/11':5,'10/18':6,'11/1':8}[date]
+  lines.append(f'| {player.title()} | {week} | {c[0]} | {c[1]} | JAX | {c[4]} | {c[3]} | {c[5]} | {source(\"espn_\"+player)} |')
+ lines.append(f'| {player.title()} | 7 | BYE | — | JAX (season affiliation) | N/A (bye) | N/A (bye) | N/A (bye) | {source(\"espn_jax_schedule\")} |')
+lines+=['','Schedule/week mapping and Week 7 bye source: '+source('espn_jax_schedule')+'. The fetched schedule labels the forthcoming Baltimore game Week 9; the requested directory name is retained. No Weeks 9+ stats are used.','','## Requested advanced metrics','','| Subject | Requested values | Result / reason | URL | Fetch time ET |','|---|---|---|---|---|']
+for p in ['Meyers','Washington','Strange']:
+ lines.append(f'| {p}, Weeks 1–8 | Average separation; cushion; share of team air yards; aDOT / average intended air yards | UNAVAILABLE: NGS HTML is an application shell; no player rows or metric data. Season sorted URL returned 404. All/week routes returned 200 shells. | {source(\"ngs_receiving_all\")} |')
+ lines.append(f'| {p}, Weeks 1–8 | PFR advanced receiving fields | UNAVAILABLE: HTTP 403 challenge; no regular or comment-hidden tables. | {source(\"pfr_\"+p.lower())} |')
+lines += [f'| Trevor Lawrence, Weeks 1–8 | Time to throw; aggressiveness | UNAVAILABLE: NGS passing pages return application shells without player metrics. | {source(\"ngs_passing_all\")} |',f'| Trevor Lawrence, Weeks 1–8 | Pressure%; bad throw%; other advanced passing fields | UNAVAILABLE: PFR HTTP 403 challenge; no regular or comment-hidden tables. | {source(\"pfr_lawrence\")} |',f'| BAL defense, Weeks 1–8 | Blitz%; pressure%; hurries; QB knockdowns (and rates if present) | UNAVAILABLE: PFR opponent page HTTP 403 challenge; no tables. No verified Week 1–8 aggregate. | {source(\"pfr_opp\")} |',f'| JAX team, 2026 | Team receiving/passing cross-check | UNAVAILABLE: PFR team page HTTP 403 challenge. | {source(\"pfr_jax\")} |','','## HTML/comment parsing audit','', 'BeautifulSoup parsed every saved response and separately parsed each HTML comment for "'`<table>` elements. The audit is saved in `parse_audit.json`. All six PFR responses have title “Just a moment...” and contain no tables, including in comments. Successful NGS responses contain no tables and expose only the NGS title as visible text; HTTP 200 does not establish data availability. No attempt was made to bypass the challenge or obtain backing API data.'"','','## Existing local images (visually inspected)','', 'These are existing artifacts, not fresh page fetches. Original capture time and full route-chart URL are UNAVAILABLE. Filenames supply week/opponent context where not visible in the crop. Route names below are visual interpretations of shapes, not official play-call classifications. Green tracks are after-catch movement, not additional routes.','','| File under "'`week10/ngs/` | Visible content / interpretation |'"','|---|---|','| "'`route_meyers_wk3_vsNE.png` | Chart explicitly labels Jakobi Meyers / 2026 vs Patriots. Shows crossing/in-breaking and out-breaking shapes across the shallow and intermediate field, with a blue touchdown marker in the intermediate middle. Green extensions show after-catch movement across the middle and toward the right side. Crop cuts off statistical totals. |'"','| "'`route_parker_washington_wk6.png` | Page explicitly labels Parker Washington, Jacksonville, Week 6, season 2026. Shows shallow lateral/crossing shapes near the line, intermediate breaks from both sides, and deeper stems/breaks on both sides. Several green paths run toward the left sideline and upfield. Cookie overlay dims the chart. |'"','| "'`route_strange_wk4_vsCIN.png` | Chart explicitly labels Brenton Strange / 2026 vs Bengals. Shows short flat/underneath shapes around and behind the line, intermediate diagonal/crossing and out-breaking shapes, and green extensions through the middle and toward the right sideline. Gray incomplete paths also appear. Crop cuts off statistical totals. |'"','| "'`receiving_table_page.webp` | Address bar shows `https://nextgenstats.nfl.com/stats/receiving/2026/REG/all/yards`. Table headers include CUSH, SEP, TAY, TAY%, REC, TAR and YDS. The visible player rows do not include Meyers, Washington or Strange. Thus their requested numbers are UNAVAILABLE from this image. Regular Season selection does not establish a Week 1–8 cutoff. |'"','','## Explicit missing-data list','','- NGS separation, cushion, team air-yard share and aDOT for each of Meyers, Washington and Strange, weekly and Week 1–8 aggregate: UNAVAILABLE; no values in fetched HTML or visible target-player screenshot rows.','- Lawrence NGS time to throw and aggressiveness, weekly and Week 1–8 aggregate: UNAVAILABLE; application shells only.','- BAL defensive blitz%, pressure%, hurries and QB knockdowns for Weeks 1–8: UNAVAILABLE; PFR blocked.','- PFR advanced receiving for all three players and Lawrence advanced passing (including pressure% and bad throw%): UNAVAILABLE; PFR blocked, comments empty of tables.','- Independent cross-source numerical confirmation of ESPN receiving logs: UNAVAILABLE; NGS/PFR did not supply accessible values.','- Week 7 receiving statistics: N/A because ESPN schedule explicitly shows BYE WEEK; no zeros invented.','- Local screenshot original capture times and full route-chart page URLs: UNAVAILABLE; not recorded in the images.','','## Complete fetch manifest','','| Attempt | URL | Fetch time ET | HTTP | Raw HTML |','|---|---|---|---|---|']
+for x in logs:lines.append(f'| {x[\"attempt\"]} | {x[\"url\"]} | {x[\"fetch_time_ET\"]} | {x[\"http_status\"]} | [{x[\"raw_file\"]}]({x[\"raw_file\"]}) |')
+(R/'notes_b.md').write_text('\\n'.join(lines)+'\\n')
+audit=[]
+for x in logs:
+ p=R/x['raw_file'];s=BeautifulSoup(p.read_text(),'html.parser');comments=s.find_all(string=lambda t:isinstance(t,Comment))
+ audit.append({'attempt':x['attempt'],'title':s.title.get_text() if s.title else None,'tables':len(s.find_all('table')),'comments':len(comments),'tables_in_comments':sum(len(BeautifulSoup(str(c),'html.parser').find_all('table')) for c in comments)})
+(R/'parse_audit.json').write_text(json.dumps(audit,indent=2)+'\\n')
+print('Wrote notes_b.md and parse_audit.json;',len(logs),'logged fetches')
+PY
+python3 week10/meyers_wash_strange/offense/runB/build_notes.py
+ git status --short -- week10/meyers_wash_strange/offense/runB" in /workspace/nfl-database
+ succeeded in 236ms:
+Wrote notes_b.md and parse_audit.json; 31 logged fetches
+?? week10/meyers_wash_strange/offense/runB/
+
+codex
+Created [notes_b.md](/workspace/nfl-database/week10/meyers_wash_strange/offense/runB/notes_b.md), with:
+
+- ESPN Weeks 1–8 receiving logs; Meyers listed as JAX throughout, Week 7 confirmed as bye.
+- Descriptions of all four local images.
+- Explicit UNAVAILABLE entries for NGS metrics and blocked PFR data.
+
+All 31 curl attempts are recorded in `fetch_log.csv`; raw HTML and the comment-table parsing audit are saved in runB. PFR requests were spaced by 3 seconds.
+
+Only runB was modified. No commit, merge, or push.
+tokens used
+30,451
+Created [notes_b.md](/workspace/nfl-database/week10/meyers_wash_strange/offense/runB/notes_b.md), with:
+
+- ESPN Weeks 1–8 receiving logs; Meyers listed as JAX throughout, Week 7 confirmed as bye.
+- Descriptions of all four local images.
+- Explicit UNAVAILABLE entries for NGS metrics and blocked PFR data.
+
+All 31 curl attempts are recorded in `fetch_log.csv`; raw HTML and the comment-table parsing audit are saved in runB. PFR requests were spaced by 3 seconds.
+
+Only runB was modified. No commit, merge, or push.

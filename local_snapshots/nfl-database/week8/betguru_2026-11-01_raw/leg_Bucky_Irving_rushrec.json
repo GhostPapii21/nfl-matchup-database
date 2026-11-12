@@ -1,0 +1,166 @@
+{
+ "player": "Bucky Irving",
+ "team": "TB",
+ "opp": "ATL",
+ "pos": "RB",
+ "market": "rushrec",
+ "spread": -2.5,
+ "total": 44.5,
+ "status": "active (not on report)",
+ "logs_espn": [
+  {
+   "date": "2026-09-27",
+   "car": 15,
+   "rush": 46,
+   "tg": 4,
+   "rec": 2,
+   "ryd": 12
+  },
+  {
+   "date": "2026-10-04",
+   "car": 16,
+   "rush": 61,
+   "tg": 0,
+   "rec": 0,
+   "ryd": 0
+  },
+  {
+   "date": "2026-10-08",
+   "car": 21,
+   "rush": 165,
+   "tg": 3,
+   "rec": 2,
+   "ryd": 10
+  },
+  {
+   "date": "2026-10-18",
+   "car": 19,
+   "rush": 46,
+   "tg": 3,
+   "rec": 2,
+   "ryd": 3
+  },
+  {
+   "date": "2026-10-25",
+   "car": 24,
+   "rush": 106,
+   "tg": 2,
+   "rec": 1,
+   "ryd": 4
+  }
+ ],
+ "usage_nflverse": [
+  {
+   "week": 3,
+   "snap": 0.52,
+   "tg": 4.0,
+   "car": 15.0,
+   "team_tg": 35,
+   "team_car": 21
+  },
+  {
+   "week": 4,
+   "snap": 0.59,
+   "tg": 0.0,
+   "car": 16.0,
+   "team_tg": 26,
+   "team_car": 31
+  },
+  {
+   "week": 5,
+   "snap": 0.54,
+   "tg": 3.0,
+   "car": 21.0,
+   "team_tg": 25,
+   "team_car": 37
+  },
+  {
+   "week": 6,
+   "snap": 0.85,
+   "tg": 3.0,
+   "car": 19.0,
+   "team_tg": 41,
+   "team_car": 25
+  },
+  {
+   "week": 7,
+   "snap": 0.59,
+   "tg": 2.0,
+   "car": 24.0,
+   "team_tg": 11,
+   "team_car": 47
+  }
+ ],
+ "role": {
+  "pos": "RB",
+  "tgt_share": 0.11616161616161616,
+  "car_share": 0.5853658536585366,
+  "tgt_share_l3": 0.1038961038961039,
+  "car_share_l3": 0.5871559633027523,
+  "snap_l3": 0.66,
+  "tpg": 3.2857142857142856,
+  "cpg": 17.142857142857142
+ },
+ "fd_main": [
+  92.5,
+  -113
+ ],
+ "fd_ladder": {
+  "93": -113
+ },
+ "fd_pulled_at": "2026-10-31T18:49:12.331612",
+ "opp_def": {
+  "Metric": "Value (rank Rank (1 = most allowed))",
+  "Sharp YPT WR / TE / RB": "8.1 / 7.2 / 4.3 (rank 16 / 16 / 26)",
+  "Sharp YPT Outside / Slot": "9.4 / 6.5 (rank 8 / 26)",
+  "Blitz % (Sharp) / FTN blitz % (n=308)": "21.9 / 25.0 (rank 28 (1 = most blitz))",
+  "Pressure rate proxy (opp. Sharp pressure-allowed avg)": "36.1% (rank 3 (1 = most pressure))",
+  "WR tgt / rec / yds per g (pbp)": "21.3 / 13.7 / 169.9 (rank yds 8)",
+  "WR outside-proxy (L/R) YPT, middle-proxy YPT": "7.3, 11.6 (rank 19, 12)",
+  "TE tgt / rec / yds per g": "8.9 / 6.7 / 62.7 (rank rec 6, yds 9)",
+  "RB rec tgt / rec / yds per g": "8.6 / 6.1 / 37.1 (rank rec 2)",
+  "RB rush car / yds per g, YPC": "20.0 / 81.7, 4.09 (rank ypc 18)",
+  "RB rush+rec yds per g": "118.9 (rank 19)",
+  "3rd-down % allowed / RZ TD % allowed (trips)": "42.4 / 63.3 (30) (rank 10 / 14)",
+  "EPA/play allowed (pbp)": "-0.018 (rank 19)"
+ },
+ "opp_soft": [
+  "soft for outside WRs",
+  "soft for rush-receive RBs"
+ ],
+ "opp_hard": "- Hard slot: Sharp slot YPT 6.5 (rank 26/32)",
+ "opp_def_src": "/workspace/nfl-database/week8/defense/ATL_at_TB.md",
+ "weather": "82F, wind 14 mph (gust 21), precip 37% @kick (Open-Meteo, pulled now)",
+ "cov_proxy": [
+  {
+   "defender": "H.Perkins",
+   "plays": 7,
+   "rec_allowed": 7,
+   "yds_allowed": 47
+  },
+  {
+   "defender": "K.Daniels",
+   "plays": 6,
+   "rec_allowed": 6,
+   "yds_allowed": 34
+  },
+  {
+   "defender": "D.Deablo",
+   "plays": 3,
+   "rec_allowed": 3,
+   "yds_allowed": 19
+  }
+ ],
+ "matchup_factor": 0.951,
+ "rungs_eval": {
+  "93": {
+   "odds": -113,
+   "cons": 0.3806,
+   "fair": 0.5077,
+   "mc": 0.3995,
+   "bias": 0.3484,
+   "gr": 0.394
+  }
+ },
+ "cut": "no rung passing: price -300..-120, L4 hits>=3, all 3 model medians>=line & p>=60%, consensus 65-82%, edge 3-15pt vs de-vigged FD"
+}

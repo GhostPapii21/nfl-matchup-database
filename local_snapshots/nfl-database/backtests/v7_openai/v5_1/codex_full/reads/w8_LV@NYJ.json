@@ -1,0 +1,39 @@
+{
+ "game": "LV @ NYJ / Nov 1, 2026, 1:00 PM ET / MetLife Stadium, outdoor / NYJ -2, total 46.5 / implied totals: NYJ 24.25, LV 22.25 / supplied weather: wind 3.6 mph, temperature 61.9\u00b0F; observation timestamp missing. Both teams have seven days' rest; LV travels east across time zones. Moneyline and opening lines missing. Saved Oct 29, 05:25 EDT snapshot was NYJ -1.5, total 45.5; current supplied snapshot is -2/46.5, but its timestamp is missing.",
+ "script": {
+  "base": "NYJ plays a competitive first half and establishes a modest second-half lead, allowing Braelon Allen to remain central to its offense against LV's vulnerable run defense. This favors sustained rushing volume rather than requiring a blowout; pace data is missing, so neither elevated play volume nor substantial garbage time is assumed.",
+  "flip1": "LV establishes an early two-score lead, pushing Geno Smith toward passing and reducing Allen's rushing opportunities. Allen's rushing over is script-dependent against this flip.",
+  "flip2": "The game stays close but scoring disappoints, with both offenses sustaining fewer drives. Allen can still benefit from a run-oriented approach, provided NYJ maintains his recent carry concentration."
+ },
+ "injury_fallout": "MISSING: named LV and NYJ injury designations, practice trends, offensive-line availability, defensive absences, return restrictions, and final inactives. The saved Oct 29, 05:25 EDT checklist references Wednesday reports and pending Thursday updates but supplies no player-specific findings. No absences, returns, or replacement roles can be inferred. Allen's 58 carries versus Isaiah Davis's 10 over Weeks 5\u20137 establish observed usage, not an injury explanation. Any eventual availability change affecting Allen, Davis, or NYJ's offensive line requires reassessment.",
+ "matchup": {
+  "shell": "MISSING: actual LV and NYJ man/zone rates and MOFO/MOFC percentages. The saved checklist says coverage material exists, but its values are not included; individual coverage assignments and box-count tendencies cannot be established.",
+  "pressure": "LV blitzes 27%; NYJ's QB EPA/dropback is 0.07 against blitz versus 0.11 without blitz. NYJ blitzes 38%; LV's QB EPA/dropback declines from 0.16 without blitz to -0.01 against blitz. These supplied season-to-date figures describe blitz response, not measured pressure rates; pressure, sack, and offensive-line matchup details are missing.",
+  "bleeds": "Through seven games, LV allows 5.29 rushing yards per carry and 27 runs of at least 10 yards, compared with NYJ's 4.32 and 22. LV also allows 19 passes of at least 20 yards on 239 attempts. Those figures support testing a NYJ rushing edge, although rush EPA, stuff rate, opponent adjustment, and game-by-game trends are missing.",
+  "overlap": "Allen is NYJ's leading recent rusher with 58 carries and 298 yards across Weeks 5\u20137. His established rushing role attacks LV's documented rushing weakness directly, without requiring an unverified coverage assignment or receiving-role assumption."
+ },
+ "form": "Supplied Weeks 5\u20137 totals: Allen recorded 58 carries for 298 yards, while Davis had 10 for 29 and NYJ's other listed rushers combined for seven carries. Allen therefore handled 58 of 75 listed team carries, approximately 77%, and averaged 5.14 yards per carry. His 13 targets and 56 receiving yards are separate from the proposed rushing-only leg. Individual-game carry distributions, snaps, red-zone usage, explosive-run contributions, and comparable-opponent results are missing, so the three-game aggregate cannot establish game-to-game consistency. Source: supplied as-of pack; underlying recent-form extraction timestamp unspecified.",
+ "edge_players": [
+  {
+   "player": "braelonallen",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Allen's concentrated rushing role can clear 80.5 yards against LV's vulnerable run defense if the narrowly favored Jets keep the game competitive.",
+   "must_be_true": "B.Allen carries >= 18 [because the pack records 58 carries across Weeks 5\u20137 and NYJ is favored by 2]",
+   "kills_it": "IF LV builds an early two-score lead and NYJ shifts away from Allen's rushing workload THEN braelonallen rushyds over 80.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis is role concentration plus a favorable rushing matchup; the subsequent numerical check supports it directionally. Allen's recent workload is 19.33 carries per game, and his observed 5.14 yards per carry accompanies LV's 5.29 allowed. These are supporting descriptive statistics, not a calibrated projection or simulation. At -114, the over requires approximately 53.27% to break even. The supplied over and under are both -114, yielding a 50% two-way no-vig benchmark, but the book is unidentified and this is not a verified Pinnacle comparison. No quantified betting edge or stake is established.",
+  "disagrees": "none",
+  "missing": "Calibrated projection, simulation distribution and median, Pinnacle prices, opponent-adjusted rushing efficiency, individual-game workload variance, verified injuries and inactives, offensive-line health, and actual pressure and coverage values.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional lean: braelonallen rushyds over 80.5 at -114, using the supplied main line only. Prefer rushing yards to rushrecyds because the hypothesis concerns carries against LV's run defense, not receiving production. Missing modeling and availability checks prevent a priced-edge or staking recommendation.",
+ "pre_mortem": "It is Monday and Allen stayed below 81 rushing yards because LV scored early, NYJ lost possessions, or Davis absorbed more carries than the recent aggregate suggested. Even a competitive game could produce insufficient volume: Allen's three-game total does not reveal whether one unusually large workload drove the apparent stability, and LV's 5.29 yards allowed per carry is not opponent-adjusted. Missing offensive-line and availability information could also undermine the matchup. The strongest counter-case is fewer rushing opportunities rather than a proven scheme mismatch; that keeps this a lean, not a strong recommendation.",
+ "slip_story": "NYJ remains competitive or leads modestly and continues feeding Allen against LV's rushing weakness. The leg survives the base script and can survive the low-scoring flip, but is explicitly script-dependent against an early LV two-score lead. Only one leg qualifies here; do not manufacture a three- or four-leg slip or add a second market on Allen.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

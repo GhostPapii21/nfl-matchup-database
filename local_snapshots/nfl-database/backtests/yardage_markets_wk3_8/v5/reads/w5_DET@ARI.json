@@ -1,0 +1,48 @@
+{
+ "game": "Detroit Lions (DET) @ Arizona Cardinals (ARI) / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "DET @ ARI has no saved spread, total, moneyline, rest, travel or line move, so the script is inferred only from weeks 2-4 form. Base case is a competitive, pass-leaning game: the Detroit Lions (DET) spread 119 targets to Amon-Ra St. Brown (32), Sam LaPorta (24), Jahmyr Gibbs (23), Isaac TeSlaa (16) and Jameson Williams (16) while Gibbs also had 51 carries, and Jared Goff (0.19 EPA clean, 0.34 vs blitz, n=57) faces an Arizona Cardinals (ARI) defense that blitzes only 23% and allows about 9 YPA on the left, middle and right. ARI stays close enough that Jeremy Love (44 carries, 182 yards) keeps the lead-back share against a DET run defense allowing 4.72 YPC, with Michael Wilson (37 targets) and Trey McBride (33) as the Arizona Cardinals pass funnel.",
+  "flip1": "The Detroit Lions blitz at 31% and Arizona Cardinals QB Jacoby Brissett is -0.39 EPA/dropback vs the blitz (n=49) against +0.13 clean. ARI falls behind, abandons the run, Jeremy Love's rushing line dies, and DET either keeps throwing or, if the lead gets big, clocks it with Jahmyr Gibbs and stalls wide-receiver yards late.",
+  "flip2": "A low-event slog, or the Detroit Lions get up early and run: Gibbs carries rise, downfield looks to DET's Isaac TeSlaa (215 air yards) and Jameson Williams (234 air yards) dry up, and Detroit Lions receiving overs miss even though the Arizona Cardinals pass defense is soft."
+ },
+ "injury_fallout": "No injury report, practice status, snap limit or inactives are in the pack for the Detroit Lions (DET) or the Arizona Cardinals (ARI), so no next-man-up or coverage-backup fallout is assigned and the 90-minute inactive checkpoint cannot be run. Marvin Harrison Jr. has only 10 targets, 52 yards and 131 air yards over three games behind Michael Wilson and Trey McBride, but nothing in the pack calls that an ARI injury. A late scratch on DET or ARI would require a re-run that cannot be done from this pack.",
+ "matchup": {
+  "shell": "Man/zone and MOFO/MOFC are not charted for DET or ARI. Arizona Cardinals pass YPA allowed: left 9.36 (39 att), middle 8.74 (31), right 9.1 (39), so the Detroit Lions have no safe side to avoid. Detroit Lions pass YPA allowed: left 5.6 (55 att), middle 11.52 (33), right 8.16 (76); the middle is where the Arizona Cardinals can attack and the left is the only firm DET area.",
+  "pressure": "Arizona Cardinals blitz rate is 23%. Detroit Lions QB Jared Goff is better vs the blitz (0.34 EPA, n=57) than clean (0.19), so pressure is not the DET problem in this sample. Detroit Lions blitz rate is 31%. Arizona Cardinals QB Jacoby Brissett is -0.39 EPA vs the blitz (n=49) versus +0.13 clean, which is the pressure lever that can push ARI off the run.",
+  "bleeds": "The Arizona Cardinals bleed all three pass zones and have allowed 14 passes of 20+ on 118 attempts; their rush defense is ordinary at 4.22 YPC with 11 runs of 10+. The Detroit Lions bleed on the ground at 4.72 YPC and 16 runs of 10+, and bleed the middle at 11.52 YPA, with 20 passes of 20+ allowed on 182 attempts.",
+  "overlap": "DET primary target Amon-Ra St. Brown (32 targets, 303 air yards, 236 rec yards) attacks an Arizona Cardinals defense with no strong side, but his 81.5 line sits on a 78.7-yard mean, so that overlap is not the bet. The bettable overlaps are Detroit Lions Isaac TeSlaa (16 targets, 215 air yards) into that same soft low-blitz ARI shell, and Arizona Cardinals Jeremy Love (44 carries) into the DET 4.72 YPC run defense. ARI Trey McBride into the Detroit Lions middle bleed is real volume, but 49 yards per game versus 84.5 is a lean the form rejects, so it is dropped."
+ },
+ "form": "Detroit Lions (DET) L3: Jahmyr Gibbs 51 carries/197 rush yards (65.7 per game, 3.86 YPC) plus 23 targets/148 rec yards/60 air; Isaac TeSlaa 16/187/215 (62.3 rec yards per game, 11.7 yards per target); Jameson Williams 16/184/234 (61.3); Amon-Ra St. Brown 32/236/303 (78.7 vs an 81.5 line); Sam LaPorta 24/180/181 (60 vs 52.5, price missing). Arizona Cardinals (ARI) L3: Jeremy Love 44/182 rush (60.7 per game, 4.14 YPC) and only 9/27/2 receiving; Tyler Allgeier 15/51 rush and 8/26 receiving; Michael Wilson 37/202/335 (67.3 yards on about 112 air yards per game); Trey McBride 33/147/163 (49 per game); Marvin Harrison Jr. 10/52/131; Jacoby Brissett 9/29 rush. No game-level splits are in the pack, so a one-game spike inside the DET or ARI totals cannot be fully ruled out. TeSlaa air yards (215) exceed receiving yards (187), so the Detroit Lions role is downfield volume, not one screen.",
+ "edge_players": [
+  {
+   "player": "isaacteslaa",
+   "team": "DET",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Detroit Lions (DET) receiver Isaac TeSlaa has a real 16-target, 215-air-yard role, and the Arizona Cardinals (ARI) blitz only 23% while allowing 9.36/8.74/9.1 YPA left/middle/right and 14 explosives on 118 throws, so he does not need another 11.7 yards per target to clear 25.5.",
+   "must_be_true": "Isaac TeSlaa keeps a Detroit Lions route share near 5 targets, plays without a snap limit, and DET does not quit throwing early against the Arizona Cardinals.",
+   "kills_it": "The 187 DET yards were one spike week the L3 total hides, or St. Brown, LaPorta, Gibbs and Williams eat the target pie and TeSlaa finishes on 2 targets; a slog or an early Detroit Lions clock-kill also cuts the routes.",
+   "confidence": "lean"
+  },
+  {
+   "player": "jeremiyahlove",
+   "team": "ARI",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Arizona Cardinals (ARI) lead back Jeremy Love has 44 carries and 182 yards (4.14 YPC) into a Detroit Lions (DET) run defense allowing 4.72 YPC and 16 runs of 10+, so a competitive script clears 45.5 without a breakaway.",
+   "must_be_true": "The Arizona Cardinals stay close enough not to abandon the run, and Jeremy Love holds the carry share over Tyler Allgeier's 15 carries in the same three games.",
+   "kills_it": "The Detroit Lions blitz at 31%, Jacoby Brissett's -0.39 EPA vs the blitz puts ARI in a multi-score hole, the run is scrapped, and Allgeier or garbage time takes what is left. Script-dependent.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No model, sim median or Pinnacle no-vig is in the pack for Detroit Lions (DET) at Arizona Cardinals (ARI), so this is an L3-mean check only. DET Isaac TeSlaa at 62.3 rec yards per game vs 25.5 agrees with the over even after a rough cut (5 targets at about 6 yards per target still clears). ARI Jeremy Love at 60.7 rush yards per game vs 45.5 agrees; 14.7 carries at the Detroit Lions 4.72 YPC sketches about 69. The 62-vs-25.5 gap is not treated as a 70%+ lock. Arizona Cardinals Trey McBride over 84.5 was the middle-bleed idea, but 49 yards per game disagrees and that was only a lean, so it is dropped, not flagged. Form agrees with both kept legs.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Detroit Lions (DET) Isaac TeSlaa recyds over 25.5 at -109. Arizona Cardinals (ARI) Jeremy Love rushyds over 45.5 at -112. Both are main lines on the board, one market per player, no passing yards, receptions or touchdowns. Sam LaPorta 52.5 and Jared Goff rush 1.0 prices are missing and were not used.",
+ "pre_mortem": "It is Monday and both lost. Detroit Lions Isaac TeSlaa: the 25.5 line was right because the 187 yards and 215 air yards were front-loaded, and against the Arizona Cardinals he saw 2 targets for 14 yards while St. Brown, LaPorta and Gibbs took the pie. Arizona Cardinals Jeremy Love: the Detroit Lions blitzed early, Brissett's blitz EPA showed up, ARI trailed by multiple scores, Love had about 8 carries for under 30 yards, and Tyler Allgeier took the leftover work. That counter-case is why both are leans, but it is not stronger than 16 DET targets into a 9-YPA ARI defense or 44 ARI carries into a 4.72 YPC Detroit Lions run defense.",
+ "slip_story": "One competitive-game story for Detroit Lions (DET) @ Arizona Cardinals (ARI). Isaac TeSlaa recyds over needs DET to keep passing into the Arizona Cardinals soft 23% blitz shell. Jeremy Love rushyds over needs ARI close enough to give him about 15 carries against the Detroit Lions 4.72 YPC run defense. They win together only if the game stays competitive; a DET blowout is the shared break. Do not add a total, a Detroit Lions rush over, or Arizona Cardinals McBride or Wilson overs. No touchdown legs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

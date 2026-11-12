@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 MIA@MIN / kickoff NOT saved / spread NOT saved / total NOT saved / weather NOT saved",
+ "script": {
+  "base": "Spread and total were not saved, so this flow is inferred only from L3 form and the defensive splits, not from a book score. MIN can lean on Aaron Jones (52 carries, 203 rush yards over 3 games) into a MIA run defense allowing 3.82 YPC, and MIA blitzes only 32%, so MIN's QB (EPA -0.22 vs blitz, +0.02 with no blitz) mostly avoids his bad blitz sample. MIA is the pressured offense: MIN blitzes 73% and the MIA QB is -0.26 EPA/dropback vs blitz (n=31) versus +0.06 with no blitz, while MIN holds the run at 3.52 YPC with only 8 runs of 10+. Base case is MIN on schedule in the run game, MIA in long downs, deep air yards stalling, and a lower-event MIA skill game rather than a shootout.",
+  "flip1": "The 73% blitz backfires: Malik Willis (17 carries, 101 rush yards, 5.94 YPC over L3) scrambles and MIA throws quick into the middle, where MIN allows 10.04 YPA, so Dulcich, Achane and Washington short production rises and MIN cannot just hand the ball to Jones.",
+  "flip2": "MIA scores first anyway and MIN trails, Jones's 17.3 carries per game get cut, and dropbacks rise for Jefferson (18 targets, 179 rec yards) and Addison (16 targets, 221 air yards) against MIA's leaky secondary (middle 10.57 YPA, 9 passes of 20+ on 76 attempts), while MIA's own deep shots still mostly fail under pressure."
+ },
+ "injury_fallout": "MISSING: final injury report, practice participation (DNP/limited/full), questionable tags, snap limits, and inactives for both MIA and MIN. No absences, returns, or next-man-up are inferred from usage dips. Pack usage only: MIA rushes Achane 34/127, Gordon 20/48, Willis 17/101, Washington 3/9; MIA targets led by Washington 23, then Achane 12 and Dulcich 12. MIN rushes Jones 52/203, Mason 15/59, Wentz 5/8, Murray 4/26; MIN targets led by Jefferson 18, Addison 16, Hockenson 13. Jaylen Wright is absent from both L3 tables despite a 27.5 rush line, and Jauan Jennings (3 targets, 1 rec yard) and Tai Felton (2 targets, 0 rec yards) have posted lines far above that usage; the pack does not explain it and no role change is assumed.",
+ "matchup": {
+  "shell": "MISSING: coverage charting. No MOFO/MOFC split and no man-vs-zone rate, so no shell is assigned. Location splits only: MIN allows 7.11 YPA left (37 att), 10.04 middle (28 att), 5.25 right (48 att). MIA allows 8.62 left (26 att), 10.57 middle (23 att), 8.37 right (27 att).",
+  "pressure": "MIN blitz rate 73% against a MIA QB at -0.26 EPA/dropback vs blitz (n=31) and +0.06 with no blitz. That is the main pressure edge: it should cut deep WR yards and only theoretically lift TE/RB checkdowns, because the negative blitz EPA says drives may die before those catches become yards. MIA blitzes only 32%; MIN QB is -0.22 EPA vs blitz (n=40) and +0.02 with no blitz, so MIN mostly faces the less-bad look.",
+  "bleeds": "MIN bleeds the middle (10.04 YPA), is sound to the right (5.25), and is firm on the ground (3.52 YPC, 8 runs of 10+, 12 passes of 20+ on 127 attempts). MIA bleeds the middle worse (10.57 YPA) and is soft outside (left 8.62, right 8.37), with 3.82 YPC allowed, 9 runs of 10+, and 9 passes of 20+ on only 76 attempts.",
+  "overlap": "MIA's top target is Malik Washington (23 targets, 152 rec yards, 275 air yards), a high-air profile into a 73% blitz, which is a negative overlap for deep yards. The positive MIA overlap is short/middle: Dulcich (12 targets, 90 rec yards, 68 air yards) into MIN's 10.04 middle YPA. MIN's cleaner overlap is Jefferson (18 targets, 179 yards, 189 air) and Addison (16 targets, 111 yards, 221 air) into a secondary that leaks on every side, especially the middle. Jones's carry load meets only a moderate 3.82 YPC run defense, not a bleed."
+ },
+ "form": "Last-3-games roles only, no season averages. Jones is a stable lead back: 52 carries, 203 rush yards (67.7 per game, 3.90 YPC) and just 7 targets, 34 rec yards, -7 air yards (11.3 rec yards per game). Mason is the change-up (15/59). MIA's backfield is Achane-led (34/127 plus 12 targets and 49 rec yards); Gordon is the inefficient second back (20/48, 2.4 YPC) and does not appear in the target table. Willis's 17/101 rushing (5.94 YPC) is efficiency MIN's 3.52 YPC allowed should pressure. Washington is the usage king at 23 targets and 50.7 rec yards per game but on 275 air yards. Bell is the deep specialist: 10 targets, 92 rec yards, 180 air yards (about 18 air yards per target), 30.7 rec yards per game. Dulcich is steady at the number: 12 targets, 90 yards, 68 air, 30.0 per game. Addison's 111 yards on 221 air yards and Miller's 92 yards on 4 targets look fluky relative to opportunity. Hockenson is 13 targets and 76 yards (25.3 per game). No similar-defense or per-game splits are in the pack.",
+ "edge_players": [
+  {
+   "player": "aaronjones",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Aaron Jones is a runner who barely plays in the pass game, and MIA's 32% blitz rate does not force the checkdowns needed to lift him from 11 receiving yards a game through 19.5.",
+   "must_be_true": "aaronjones targets <= 4 because L3 targets are 7 with -7 air yards and 34 receiving yards and MIA blitz rate is 32%",
+   "kills_it": "IF MIN trails and Aaron Jones is schemed 6 or more checkdown or screen targets THEN recyds under 19.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "olliegordonii",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Ollie Gordon is the secondary back at 2.4 yards per carry with no row in the L3 target table, and MIN's run defense (3.52 YPC, only 8 runs of 10+) does not offer the explosive carry that would drag 16 rush yards a game through a 34.5 rush-plus-receiving line.",
+   "must_be_true": "olliegordonii carries <= 8 because he has 20 carries and 48 rush yards over 3 games behind Achane's 34 carries and MIN allows 3.52 YPC",
+   "kills_it": "IF Achane is inactive or Gordon is given 12 or more carries in a positive MIA run script THEN rushrecyds under 34.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so this check is L3 form versus the posted main line only. Jones has 34 receiving yards over 3 games (11.3 per game) on 7 targets and -7 air yards against a 19.5 line, which agrees with the under. Gordon has 48 rush yards over 3 games (16 per game) at 2.4 YPC, is absent from the target table, and faces a 34.5 rush-plus-receiving line, which agrees with the under; MIN's 3.52 YPC allowed and 8 runs of 10+ agree with a low ceiling. Prices are near even (Jones under -114, Gordon rushrec under -114), not short-priced alts. No model probability is present to treat as a 70%+ warning. Washington under 40.5 was not carded because his 50.7 rec yards per game would be a disagree; Willis rush under 30.5 was not carded because his 33.7 rush yards per game sits above 30.5 and a 73% blitz can add scrambles.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injury report, inactives, coverage shell and man/zone rate, per-game splits, snap counts, Pinnacle no-vig, and sim medians",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only; no alt rungs in the pack and no Pinnacle no-vig to re-price. aaronjones recyds under 19.5 -114 (paired over -113). olliegordonii rushrecyds under 34.5 -114 (paired over -114.5). Neither is a short-priced alt. They are still only playable inside the MIN-control / MIA-run-stalled story, not as standalone average bets.",
+ "pre_mortem": "It's Monday and both unders lost. Jones cleared 19.5 because MIN fell behind, a flip that cannot be priced with the spread missing, and the staff answered MIA's 10.57 middle YPA with screens, turning 2.3 targets a game into one 25-yard dump-off night; 19.5 is only a single screen above a three-game total of 34 yards, and there are no game splits to prove that night has not already happened once. Gordon cleared 34.5 because Achane did not keep the 34-carry lead share, which this pack cannot rule out with the injury report missing, and Gordon's 6.7 carries jumped into the teens against a front that has already allowed 8 runs of 10+, or he was suddenly targeted on blitz checkdowns the target table does not show. That Achane-absence case is the real hole in the Gordon leg, which is why it stays a lean and not a strong play; it is not dropped only because the pack still lists Achane as the lead back and contains no news that the role flipped.",
+ "slip_story": "One script only: MIN runs through a moderate MIA front and does not need Jones in the pass game, while MIA cannot sustain a ground game into a 73% blitz and a 3.52 YPC run defense, so the secondary back stays capped. Jones recyds under and Gordon rushrecyds under win together in that base script and still fit the blitz-backfires flip, because MIA's extra quick game would go to Washington, Dulcich and Achane rather than to Gordon's carries, and Jones still is not a MIN target. They do not belong with a shootout stack, MIA skill overs, a Willis rush over, or a total over. No TD legs and one market per player. A third leg was not forced: Addison under 62.5 fights MIA's leaky secondary and his own 221 air yards, and Washington under 40.5 fights a 50.7-yard L3.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

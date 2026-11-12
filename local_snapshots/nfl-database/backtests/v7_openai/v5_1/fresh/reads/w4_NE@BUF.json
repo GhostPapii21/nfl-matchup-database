@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 NE@BUF / kickoff NOT IN PACK / spread NOT IN PACK / total NOT IN PACK / weather NOT IN PACK",
+ "script": {
+  "base": "Spread and total are not in the pack, so the script is inferred only from team form, not from a market number. Buffalo has been the more productive offense: James Cook 58 carries for 346 yards (5.97 YPC, 115.3 yards/game) and Josh Allen 23 carries for 119 yards in the same three games Dalton Kincaid posted 17 targets for 263 yards. New England allows 4.41 rush YPC and 10.53 YPA over the middle, and Drake Maye is -0.08 EPA/dropback overall and -0.23 versus blitz (n=29) against a Buffalo blitz rate of 31%. Base flow: Buffalo controls possession with a Cook run lean, still throws enough for Kincaid to work the middle, and New England is more likely to trail into dropbacks Maye has not graded well on.",
+  "flip1": "New England hangs around or leads, Stevenson (31 carries, 116 yards L3) and Henderson (24 carries, 99 yards) keep the NE run game on the field, and Buffalo is forced pass-heavier. Cook's carries dip toward the mid-teens and 86.5 gets tight, while Kincaid's target count can rise.",
+  "flip2": "Buffalo gets up big early and clocks it with Cook. Cook's rush over is helped, but pass volume shrinks so Kincaid can fall to 3 or fewer targets, and Allen's designed-run need drops even though he has averaged 39.7 rush yards on 23 L3 carries."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, and inactives for both NE and BUF. No absence, return, or next-man-up is inferred from usage. On pack usage only, NE's backfield is already a committee (Stevenson 31 carries, Henderson 24, C.Kiner 14, Maye 13 over L3) and BUF rush work is Cook 58 and Allen 23, with Kincaid (17 targets, 263 yards) well ahead of Dawson Knox (4 targets, 17 yards).",
+ "matchup": {
+  "shell": "MISSING: MOFO/MOFC and man-vs-zone rates are not in the pack. Location splits only: BUF pass YPA allowed left 5.85 (41 att), middle 8.08 (25 att), right 8.75 (44 att). NE pass YPA allowed left 5.16 (37 att), middle 10.53 (19 att), right 4.94 (36 att).",
+  "pressure": "BUF blitz rate 31%. NE QB EPA/dropback vs blitz -0.23 (n=29) vs no blitz -0.08, so Maye's negative EPA gets worse when blitzed. That is a headwind for NE air-yard receivers (Romeo Doubs 202 air yards, Mack Hollins 194) and a checkdown lean toward Stevenson (11 targets, 63 rec yards) and Hunter Henry (10 targets, 71 rec yards). NE blitz rate 41%. BUF QB EPA/dropback vs blitz 0.23 (n=33) vs no blitz 0.39, so Allen stays positive when blitzed. Pressure rate and time-to-throw are not in the pack.",
+  "bleeds": "NE bleeds the middle (10.53 YPA on 19 att) but has allowed only 5 passes of 20+ on 99 attempts, with 4.41 rush YPC and 7 runs of 10+. BUF bleeds explosives and the right/middle (14 passes of 20+ on 119 att; right 8.75 YPA, middle 8.08) with rush YPC allowed 4.01 and 9 runs of 10+.",
+  "overlap": "The core overlap is Dalton Kincaid (17 targets, 263 rec yards, 218 air yards) into the middle, where NE allows 10.53 YPA, plus James Cook (58 carries, 346 yards, 5.97 YPC) into a NE run defense allowing 4.41 YPC. NE's air-yard options (Hollins 194 air yards, Doubs 202) overlap BUF's 14 explosives allowed, but Maye's -0.23 EPA versus a 31% blitz cuts against that overlap."
+ },
+ "form": "Last 3 games only. Cook 58/346 rush (19.3 carries, 115.3 yards/game) plus 8 targets for 16 rec yards; Allen 23/119 rush (39.7 yards/game). Kincaid 17 targets, 263 rec yards, 218 air yards (87.7 yards/game). D.J. Moore 18/167/285, Khalil Shakir 15/84/123 (28.0 yards/game), Keon Coleman 10/101/115 (33.7), Knox 4/17/8. NE: Stevenson 31/116 rush (38.7 yards/game) and 11 targets/63 rec yards; Henderson 24/99 rush (33.0); Maye 13/85 rush (28.3); Hollins 16/156/194 (52.0 rec yards/game); Doubs 11/145/202 (48.3); Demario Douglas 14/67/148 (22.3); Henry 10/71/84 (23.7); Kyle Williams 5/44/76 (14.7). No per-game splits, so a single long play inside these totals cannot be separated from the role. New OC, QB change, and coverage charting are not in the pack.",
+ "edge_players": [
+  {
+   "player": "jamescook",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "James Cook has averaged 115.3 rush yards on 19.3 carries at 5.97 YPC over the last three games, and New England allows 4.41 YPC, so his carry share beats 86.5 even if a couple of chunk runs come out.",
+   "must_be_true": "James Cook carries >= 15 because L3 he had 58 carries for 346 yards (5.97 YPC) and 15 carries at 5.97 YPC is 89.6 yards",
+   "kills_it": "IF Buffalo trails early and Cook finishes with 14 or fewer carries THEN James Cook rush yards over 86.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "daltonkincaid",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Dalton Kincaid has 263 receiving yards on 17 targets over the last three games (87.7 per game) and New England allows 10.53 YPA over the middle, so 48.5 sits under both his role and the area this defense gives up.",
+   "must_be_true": "Dalton Kincaid targets >= 4 because L3 he had 17 targets for 263 receiving yards (15.5 yards per target) and NE allows 10.53 YPA in the middle",
+   "kills_it": "IF New England takes away the middle and Kincaid finishes with 3 or fewer targets THEN Dalton Kincaid receiving yards over 48.5 fails",
+   "confidence": "strong"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so the test is L3 form versus the listed main lines. Cook's 115.3 rush-yard pace versus 86.5 is a 28.8-yard cushion. Applying NE's 4.41 YPC allowed to his 19.3-carry pace is about 85 yards, a close sizing caution, not a contradiction of the 115.3 actual. Kincaid's 87.7 receiving-yard pace versus 48.5 agrees. NE's 5 passes of 20+ on 99 attempts can trim his 15.5 yards per target, but the pack does not show the 263 yards were explosive-dependent. Allen rush over 31.5 (39.7 L3) and Coleman rec over 13.5 (33.7 L3) also clear their lines and were not selected. Stevenson rush over 32.5 (38.7 pace) is too thin in a trailing script. Henderson's 33.0 rush pace is under 40.5 but was left off to keep one Buffalo story. Cook over 86.5 is -114.5; Kincaid over 48.5 is +nan.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injury report, inactives, coverage shell and man/zone rate, pressure rate, no-vig/Pinnacle price, sim median, model projection, and per-game splits inside the L3 totals",
+  "verdict": "agree"
+ },
+ "market_rung_price": "James Cook rush yards over 86.5 at -114.5 (priced main line; rush+rec over 99.5 is the correlated alt but +nan, so the rush rung is the priced one). Dalton Kincaid receiving yards over 48.5, price +nan in the pack, so no higher rung is taken and the leg is not sized to a real price. No TD or reception markets.",
+ "pre_mortem": "It's Monday and both legs lost. Cook went under 86.5 because New England, with only 7 runs of 10+ allowed in three games, held him near the 4.41 YPC they allow and he never saw 18 carries: 16 carries at 4.4 YPC is about 70 yards, or Buffalo fell behind and passed. Kincaid went under 48.5 because NE's 5 explosives on 99 attempts and a middle bracket cut his 15.5 yards per target in half, and with Knox at 17 rec yards L3 and Shakir at 84 rec yards on 15 targets taking the checkdowns he finished near 4 targets for 35 yards. A late inactive would also void either read, and the pack has no injury report to rule that out. That efficiency counter-case is real but weaker than the role evidence (58 carries for 346 yards; 17 targets for 263 yards), so the legs stay, tied to those kill conditions.",
+ "slip_story": "One Buffalo-offense story: Cook rush yards over 86.5 and Kincaid receiving yards over 48.5 were already produced together in the same L3 window (346 rush yards and 263 rec yards). They win if Buffalo controls the game the way the form says, Cook carrying against 4.41 YPC allowed and Kincaid working the middle against 10.53 YPA. They do not need NE overs such as Hollins (52.0 rec yards/game) or Doubs (48.3), which need Maye to beat a 31% blitz he has graded -0.23 EPA against. Do not add a total under or an NE rushing over; those need the opposite script.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

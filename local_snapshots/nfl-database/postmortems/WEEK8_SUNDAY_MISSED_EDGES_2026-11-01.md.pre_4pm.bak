@@ -1,0 +1,242 @@
+# Week 8 Sunday, missed-edge postmortem (1 PM games), Nov 1 2026
+_Written about 5:00 PM ET by Blitz. Research only: no bets, no messages, and no gate, sim or rule changes. Every rule change below is marked **PROPOSAL** and has not been applied._
+
+**Data sources.** Box scores, plays and the DraftKings close come from the public ESPN site API summary, saved in playlogs/2026_wk8/*_box.json. Weather is the Open-Meteo hourly model. The candidate pool is every leg in runs/2026-11-01_*/run_manifest.json. Leg results come from /tmp/g/grades.json.
+**nflverse pbp:** Week 8 holds only 2026_08_CAR_GB (TNF). The Sunday pbp is **not posted yet**, so snap and route numbers are UNVERIFIED and the box scores are ESPN only.
+**What counts as an edge:** 90+ rush yards, 90+ receiving yards or 8+ catches, 280+ pass yards or 3+ pass TD, 2+ TD, or 120+ scrimmage yards. That gives 25 players. All are listed below; nothing was trimmed.
+
+**Ghost6 name check**
+- Tuten: ✅ 16-104, 1 rush TD, plus 2-55 and a receiving TD.
+- Higgins: ✅ 10-155, 2 TD.
+- Minshew: ✅ 17/23, 188 yards, 3 TD in relief of Brissett. Brissett's last snap was a Q3 4:21 sack, and Minshew was in by Q3 1:35. ESPN's play text doesn't give the reason.
+- "Rodriguez TD": **corrected.** It was Chris Rodriguez Jr. (JAX RB2): 6-41, 1 TD, plus 1-17 receiving. He is real but not a wide-margin edge, so he is listed only as RB2 evidence.
+
+## Miss categories (25 edges)
+| Category | n | Players |
+|-|-|-|
+| Never in candidate pool | 4 | Gainwell (TB), Braelon Allen (NYJ), Adonai Mitchell (NYJ), Chase Brown (receptions market; only his rush unders were in the pool) |
+| Cut by a gate rule | 9 | Tuten (P7 carry share, p .70), Allgeier (P6 clutch, p .77), Pollard (P6 clutch, p .64), Warren (P14 median, p .59; R+R P4 UNVERIFIED), Gibbs (O79.5 passed but dropped by §11; O87.5 cut by P14 median), Higgins (P14 MISSING model/price), Bowers (P4 ISS-05 TE mapping and P14 MISSING), Cousins (P14 edge +2.4 < +3), Burrow (P14 edge −1.0 / shrink, p .69) |
+| Modeled but priced low or on the wrong side | 7 | Irving (lean was U70.5; ran for 170, +99.5), Watson (U210.5 → 324, +113.5), Fannin (U34.5 → 154, +119.5), Geno Smith (U225.5 → 290, +64.5), Cam Ward (U192.5 → 304, +111.5), Chase (U79.5 → 141, +61.5), M. Wilson (U56.5 → 111, +54.5) |
+| In-game event | 2 | Minshew (replaced Brissett in Q3; not in the pool), Josh Allen 289 (Lamar left Q1 10:04, so BAL played Fagnano and Huntley; the model had him U247.5 and P14 flagged it MODEL-SUSPECT) |
+| Variance | 3 | Dotson (2-95 on 5 targets, one long play; we leaned U25.5), Darnell Washington (3-94; we leaned U20.5), Lawrence (10/14, 3 TD; his U237.5 yards would have **hit** at 210, so the edge was TD efficiency) |
+
+The biggest pattern: **11 of the 25 edges are RBs, or QBs/TEs on the trailing team.** We were on the under for 7 of them.
+
+---
+## ATL @ TB: TB 16-0 (TB −2.5, 43.5, rain)
+- **Edges:** Irving 27-170; Gainwell 25-140 (not in the pool); Dotson 2-95 (variance).
+- **Game-script read:** Rain and an ATL QB collapse (4 INT) drove the script. TB ran 56 times and threw 3 passes. With Egbuka OUT, the vacated targets went to the run game, not to Godwin (0 catches). The sims treated TB as a normal pass split and had Irving as an under (P14 primary-star rule). The model never generated a weather RB2.
+- **Signal score 3/4:** weather ✅, ATL run D ✅, total under ✅, margin ❌ (expected 2.5, actual 16).
+
+## CLE @ PIT: PIT 27-6 (PIT −3.5, 38.5)
+- **Edges:** Warren 17-143 (cut, P14 median); Watson 27/39 for 324 (we leaned under); Fannin 10-154 on 12 targets (we leaned under; P4 TE UNVERIFIED); D. Washington 3-94 (variance).
+- **Game-script read:** PIT built a lead and ran. CLE's trailing-pass volume went to Watson and Fannin. Line 98 (avoid blowout volume) pushed us to unders on the trailing team. That was backwards for the QB and TE.
+- **Signal score 2/4:** PIT run edge ✅, under ✅ (33), blowout size ❌, trailing pass volume ❌.
+
+## IND @ JAX: JAX 42-7 (JAX −10.5, 45.5)
+- **Edges:** Tuten 16-104 with 2 TD (cut by P7, p .70); Lawrence 3 TD (variance; the yards under would have hit).
+- **Game-script read:** JAX ran away with it, and the second-half clock-kill went to Tuten, then Rodriguez. P7 (60% carry share in 3 of the last 4) blocked the lead back in exactly the game script that hands him carries.
+- **Signal score 3/4:** spread/blowout ✅, IND run D ✅, JAX RB volume ✅, total ❌ (49 was over).
+
+## LV @ NYJ: LV 38-33 (NYJ −1.5, 46.5)
+- **Edges:** Braelon Allen 21-147 (backup with Hall out; not in the pool); Adonai Mitchell 7-142 (deep WR3; not in the pool); Bowers 7-92 with 2 TD (cut, P4/P14); Cousins 247 with 3 TD (cut, P14 edge); Geno 290 (we leaned under).
+- **Game-script read:** a shootout and upset. The final was 38-33: Sanders' field goal at 4:31 made it 35-33, and Gay's 53-yarder at 0:27 made it 38-33. The NYJ RB carries Hall vacated went to Allen in full, and we had no backup-RB candidate. Mitchell's deep targets had no pool entry.
+- **Signal score 2/4:** LV run D (5.17 YPC) ✅, Hall OUT fallout ✅ (we didn't act on it), total ❌ (71), winner ❌.
+
+## MIN @ DET: DET 19-15 (DET −3.5, 45.5)
+- **Edges:** Gibbs 23-153. His O79.5 alt passed but was dropped by §11, and O87.5 was cut by P14 median.
+- **Game-script read:** a close, low-scoring game. MIN's blitz rate held down Goff and St. Brown, and DET leaned on Gibbs. The model got the direction right but the sim median sat below the line.
+- **Signal score 3/4:** spread ✅, blitz D ✅, Gibbs volume ✅, total ❌ in size (34 vs 45.5; direction right).
+
+## BAL @ BUF: BUF 36-10 (BUF −3, 54.5)
+- **Edges:** Josh Allen 289 with 2 TD (in-game event; we had the under).
+- **Game-script read:** Lamar went out on his first throw (Q1 10:04, 0/1). Fagnano went 10/21 for 91 with 1 INT and Huntley 2/4 for 0. Flowers had 0 catches, and BUF got short fields. No pregame signal could have caught this. What we lack is any backup-QB fallout pass (see Gaps).
+- **Signal score 1/4:** spread direction ✅. Total, margin and BAL passing were all ❌.
+
+## TEN @ CIN: CIN 43-36, OT (CIN −13.5, 45.5)
+- **Edges:** Burrow 38/48 for 462 with 5 TD (cut, P14 edge/shrink, p .69); Chase 11-141 on 16 targets (we leaned under; P3 soft-WR-D rule cut it, correctly); Higgins 10-155 with 2 TD (cut, P14); Cam Ward 304 (we leaned under); Pollard 21-117 with 2 TD (cut, P6, p .64); Chase Brown 8 catches (not in the pool for that market).
+- **Game-script read:** TEN never got blown out. Pollard's rushing kept them level, and the game went to OT 34 points over the total. The 13.5-point spread drove P6 (no trailing overs) and P13 unders on TEN, and both failed. CIN's passing volume beat every sim.
+- **Signal score 1/4:** soft TEN WR D ✅ (P3 itself flagged it). Spread, total and blowout were all ❌.
+
+## ARI @ DAL: ARI 33-30, OT (DAL −7, 54.5; retractable roof, open/closed unknown)
+- **Edges:** Allgeier 11-147 with 2 TD (O13.5 cut by P6, p .77); Michael Wilson 8-111 on 15 targets (we leaned under; P4 MISSING); Minshew 188 yards and 3 TD in relief (in-game event).
+- **Game-script read:** an underdog upset. ARI threw 46 times, and a QB change in Q3 sparked the comeback. The DAL −7 spread drove the P6 cut on Allgeier, the clearest miss of the day: model p .77, line 13.5, actual 147.
+- **Signal score 1/4:** total over ✅. Spread, winner and ARI passing were all ❌.
+
+**Signal score overall: 16/32 (50%).** Pregame signals called the run-heavy favorite scripts (TB, PIT, JAX, DET) at 11 of 16. They called the shootout and upset games (LV@NYJ, BAL@BUF, TEN@CIN, ARI@DAL) at 5 of 16. Weather, run D and vacated-role signals were mostly right, and we acted on none of them through candidate generation. Spread and total signals were the least reliable inputs.
+
+---
+## User ticket grades (1 PM final; 4 PM legs pending)
+| Ticket | Result | Misses and reasons |
+|-|-|-|
+| FD 8-leg +816 | ❌ LOST | Flowers 60+ (0: in-game, Lamar out); P. Washington 40+ (16: JAX blowout spread the ball, P2/P14 cut); London 5+ (1: ATL QB collapse in the rain) |
+| FD 7-leg +694 | ❌ LOST (if placed) | Flowers 60+, P. Washington 40+ |
+| FD $51.50 SGP | ❌ LOST | Pickens 5+ (2; gate cut P2), Godwin 3+ (0; P4 UNVERIFIED, TB threw 3 passes in rain), Flowers 50+ (0). Higgins 50+ ✅. **Legs may be unknown:** only these 4 of the 8 legs are confirmed. |
+| FD Ticket 2 SGP+ $63 | ❌ LOST | Gibbs 5+ rec (2; model lean under), St. Brown 60+ (46; blitz), Godwin 4+, London 5+, Flowers 5+, Pickens 4+, Lamb 60+ (58, missed by 2) |
+| PP $40 6-pick Power | ⏳ ALIVE 4/4 | Higgins FS, Lamb 4.5, Bowers 8.5 targets and St. Brown 5.5 all hit. Stafford and Walker pending. |
+| PP $20 6-pick Power | ⏳ ALIVE 3/3 | Higgins 68.5, Lamb 4.5 and the Bowers halves all hit. Kyren+Walker TD, Stafford and Mahomes pending. |
+| PP $25 6-pick Power | ❌ LOST | Flowers 6 (0; in-game), Bijan 3.5 (0; we bet against the model's under flag). St. Brown 7 pushed; verify the reprice on the PP app. |
+| PP $300 bonus Flex | ❌ LOST (2/6 hit) | Goff FS (blitz slog), St. Brown 9.5 targets, Gibbs 5.5 rec (model under), LaPorta 5. Lamb ✅ and J. Williams FS ✅. |
+| UD $20 8-pick | ❌ LOST | London 5.5, Flowers 49.5, St. Brown 49.5 (46) |
+| PP $65 | ❌ LOST | Lamb 7.5 (7), Bijan 2.5 (0). Cook and Warren ✅; Puka 69.5 pending, but the ticket is already lost. |
+
+**Miss reasons:** 6 legs died in-game (Lamar out, so the BAL receivers had nothing), 5 from weather or ATL's QB collapse (London, Godwin), 4 went against a model under lean (Bijan, Gibbs receptions), 3 were the MIN blitz on DET passing, and 2 were near-misses (Lamb 58 vs 60, Lamb 7 vs 7.5).
+
+---
+## Candidate-generation gaps in PHASE_SCRIPT and run_gate
+1. **RB2 in blowouts or weather (Tuten, Rodriguez, Gainwell).** PHASE_SCRIPT.md line 92 says RB carries = team rushes × **L3 carry share**, adjusted down when the team trails. Nothing adjusts carries **up** for a projected leader's RB2. Line 106 (rule 5) only blocks backup RB overs when the lead back has a full workload, and no step generates them. Gainwell (rain, 140) and Rodriguez (TD) never reached the pool. The P7 gate (60% carry share in 3 of the last 4) cut Tuten at p .70, and he went for 104.
+2. **Backup-QB fallout (BAL: Fagnano, Huntley).** No phase re-projects receivers or the opposing offense when the QB is Q, or for live hedging. Line 6 (step 1, "Identify locked roles") locks roles before kickoff. The Flowers, Bateman and Andrews overs plus the Allen under were all priced as if Lamar played.
+3. **Backup CBs, and the Puka cut (LAC CBs out).** Line 9 (2A, HARD) requires PFR defender numbers, and "a leg missing this is cut." Waxter has no PFR sample, so P4 went UNVERIFIED. run_gate.py lines 285–289 (`bad = [... if st in BAD]` → fail unless CUT) then forced the cut. The rule treats a backup CB as *missing data* when it is a *soft matchup that should upgrade the leg*. The same mechanism cut Michael Wilson (P4 MISSING) and Fannin and Bowers (ISS-05 TE mapping).
+4. **This-week role check (Tucker).** Line 91 projects targets from **L3 target share** with no check on this week's snaps or routes. Tucker O3.5 went 0 for 0 on 1 target. The pbp isn't posted, so his snap count is UNVERIFIED.
+5. **Trailing-team volume (Watson, Fannin, Ward, Geno).** Line 98 ("avoid volume legs ... blown out, except receivers in garbage-time roles") plus the P13 under logic pushed QB and TE unders on trailers. Of the trailing-team pass/rec unders that P13 blocked, 5 of 6 lost; when this block fired it was right. The gap is that no step proposes the matching **over**.
+
+---
+## PROPOSALS (not applied; backtested on today's 1 PM data only, small samples)
+1. **PROPOSAL: backup or weather RB2 candidate.** When the starter is OUT, rain or wind is flagged, or the team is a 3+ point favorite, add the RB2 rush over to the pool. Backtest: Allen 147 and Gainwell 140 both cleared any line. For 3+ point favorites' RB2s (Dowdle 56, Rodriguez 41, Vaki 65, Davis 30, Perine 10, Goodson 14), **4/6 cleared an assumed 29.5**; no real RB2 lines were in the pool. All triggers combined: **6/8**.
+2. **PROPOSAL: P6 "no trailing overs" should not cut rush overs with sim p ≥ .60.** Backtest: P6 clutch-cut overs went 5/13 overall. The ones at p ≥ .60 (Allgeier .77, Pollard .64) went **2/2**.
+3. **PROPOSAL: P7 carry-share exemption for the lead back of a 7+ point favorite.** Backtest: Tuten was the only case, 1/1 (P7 overall went 2/5). Too thin; track it for 3 weeks.
+4. **PROPOSAL: on backup CBs, P4 UNVERIFIED should become "soft-matchup flag" instead of a cut.** When the mapped defender is a backup with fewer than 8 PFR targets *and* the starter is OUT, allow the over at the team's YPT-allowed rate. Backtest today: Puka was pending at 4 PM, and Wilson 111 on the P4 MISSING side. Sample is **1/1, untestable at scale.** Keep the rule otherwise: TE unders cut for P4 UNVERIFIED went 6/18, so those cuts were mostly right.
+5. **PROPOSAL: trailing-team QB/TE overs in projected 3.5+ point losses.** Generate the QB pass yards over and the TE receptions over for the underdog. Backtest (underdog starting QBs with a pool line): Watson 324 vs 210.5 ✅, Ward 304 vs 192.5 ✅, Cousins 247 vs 232.5 ✅, Brissett 119 vs 258.5 ❌ (benched), D. Jones 144 vs 192.5 ❌, Lamar 0 vs 237.5 ❌ (injured). That is **3/6, 3/4 excluding the in-game QB exits**. Fannin 154 was the TE case.
+6. **PROPOSAL: deep-speed WR3 vs a weak CB, and move-TEs vs leaky TE Ds.** Adonai Mitchell (7-142), Fannin, Darnell Washington. **Untestable:** there were no lines and no route data (pbp not posted).
+7. **PROPOSAL: a this-week role check before any target-share leg.** Require this week's inactives and reported snap or route role (Tucker). **Untestable today** (no snaps).
+8. **PROPOSAL: a live backup-QB fallout note.** On a QB injury, re-grade the open legs and mark them hedge candidates. Process only; no backtest.
+
+**Top 5 by evidence:** #1 RB2 (6/8), #2 P6 p≥.60 exemption (2/2), #5 trailing QB overs (3/6, or 3/4 excluding QB exits), #4 backup-CB upgrade (1/1), #3 P7 favorite exemption (1/1).
+
+---
+## BetGuru cross-check
+_Merged from postmortems/WEEK8_SUNDAY_MISSED_EDGES_BETGURU_XCHECK_2026-11-01.md (written 4:50 PM ET; source not edited)._
+- **Agrees:** rushing overs were underpriced (Gibbs, Tuten, Cook, Warren, Pollard), and shrink plus a low median killed them. RB receiving overs were overpriced (Gibbs and Bijan receptions). Shrink/underdog-block cuts went 8 of 9, with Lamb 60+ (58) the only miss. WR yardage misses came from script, weather and the QB, not price. Ticket grades match ours.
+- **Disagreements and notes:**
+  - BetGuru says Tuten 60+ was cut on the Bias median of 58.5. Our manifest shows the O59.5 cut as **P7 carry share** (p .70); the Bias median was a separate P14 note on O83.5.
+  - BetGuru lists "Allen" among the rushing overs that cleared. Braelon Allen was **never in our pool**, so it isn't a pricing miss.
+  - BetGuru counts the FD $51.50 SGP and Ticket 2 together. We grade them separately; both are lost.
+  - BetGuru has no closing prices (bet-log.csv has no Nov 1 rows). Same gap here.
+
+## Defense dissection
+_Merged from postmortems/WEEK8_DEFENSE_DISSECTION_2026-11-01.md, 4:50 PM ET. The source was not edited; headings were demoted one level._
+
+**Disagreements and notes against this postmortem:**
+- **Agrees:** Adonai Mitchell went deep against the LV outside CB (Porter); this matches proposal 6. CLE and IND leaked to TEs and RB receiving (Fannin, D. Washington, Tuten); this matches the move-TE and RB2 proposals. DAL's run fits gave up Allgeier's 63 and 52 yards; this matches the P6 Allgeier miss.
+- **Note:** CLE's TE leak is credited to the PIT TEs as the opponent. Our Fannin edge is CLE's own TE, so the two are separate findings.
+- **Note:** the "test_explosives FAIL on ARI@DAL Q5 5:13" data gap is now fixed. The cause was a leading space in ESPN's play text, not the OT label; see BUGLOG.md.
+- **Thresholds:** the dissection uses 15+ rushes and 20+ receptions as explosives. Our edge thresholds are season-line based (90+ rush yards and so on), so the counts are not comparable.
+
+Scope: the 8 final 1 PM games (ARI@DAL, ATL@TB, BAL@BUF, CLE@PIT, IND@JAX, LV@NYJ, MIN@DET, TEN@CIN), both defenses. 4 PM/SNF games (KC@DEN, LAC@LAR, NE@MIA, PHI@WSH) have STUB blocks only.
+Tools: playlogs/tools/defense_dissect_wk8.py and write_dissect_wk8.py. Raw output: playlogs/2026_wk8/_dissect_*.json.
+
+### Explosives at the new threshold (rush 15+, reception 20+): 73 total
+| Defense | Rush 15+ | Rec 20+ | Total |
+|---|---|---|---|
+| ARI | 0 | 2 | 2 |
+| ATL | 4 | 0 | 4 |
+| BAL | 1 | 4 | 5 |
+| BUF | 0 | 1 | 1 |
+| CIN | 2 | 5 | 7 |
+| CLE | 4 | 3 | 7 |
+| DAL | 3 | 4 | 7 |
+| DET | 1 | 3 | 4 |
+| IND | 2 | 4 | 6 |
+| JAX | 2 | 0 | 2 |
+| LV | 4 | 5 | 9 |
+| MIN | 3 | 1 | 4 |
+| NYJ | 1 | 3 | 4 |
+| PIT | 0 | 4 | 4 |
+| TB | 1 | 1 | 2 |
+| TEN | 0 | 5 | 5 |
+
+Confidence (73 plays): receptions 45 → inferred 22, unknown 23, confirmed 0. Rushes 28 → tackler-of-record 21, confirmed (penalty-named) 1, unknown 6.
+"Confirmed" = a defender named in ESPN play text for a penalty, INT or PBU (single source). "Inferred" = the pregame primary matchup for that WR (ESPN cheat sheet plus coverage.json). Two sources agree on a pregame matchup, but nothing confirms coverage on the play. TE and RB catches stay unknown because there's no free alignment or matchup source.
+
+### Methods
+- Defense = the non-possession team on the ESPN drive.
+- Shell: Week 8 FTN and participation data aren't published (nflverse has only CAR@GB). Every shell shown is the defense's pregame season tendency from Sharp (man/zone/MOFC/MOFO) and is labeled as a tendency. It's stale under the 48h coverage rule.
+- Alignment for WRs is the pregame target-side proxy plus the ESPN season alignment split, labeled. TE is "not charted"; RB is the backfield default.
+- QB-adjusted position allowances use the residual method in runs/2026-11-01_shared_src/features.py: YPT vs this defense minus the passer's own Week 1–7 YPT to that group. If he has fewer than 8 targets to the group, the league mean is used.
+- WR outside vs middle uses the ESPN pass_location proxy, the same proxy as the season profile.
+- Defender lines: per-defender targets are not public for free (PFF and FTN premium only, not authorized). Catches and yards are charged to the first tackler after the catch, as in the CAR_secondary.md method. PBU = named on an incompletion. These are proxies, not coverage charting.
+
+### Top defenders charged (tackler-after-catch proxy)
+- J.Battle (CIN S): 8 rec, 104 yds, 2 explosives, 2 PBU
+- J.Brisker (CLE S): 6 rec, 103 yds, 2 explosives
+- T.Stukes (NYJ S): 102 yds, 2 explosives; D.Belton (NYJ S): 96 yds, 2 explosives
+- A.Hill (CIN LB): 94 yds
+- C.Schwesinger (CLE LB): 89 yds, 2 explosives
+- M.Humphrey (BAL CB): 79 yds, 2 explosives
+
+### Limited their man or made plays (single source)
+- A.Hooker (TEN): 3 INT
+- D.Reed (DET): 2 PBU, 1 INT, though penalized earlier
+- A.Anzalone (TB): 2 INT
+- D.Burke (ARI): 2 PBU, though charged for Lamb's 27
+- E.Stokes (NYJ), A.Gardner (IND), G.Rousseau and R.Smith (BUF): 2 PBU each
+
+### Top 5 exploitable for Week 9 (RESEARCH LEADS ONLY; not picks)
+1. **LV outside CB (Darien Porter, inferred) → LV vs SF.**
+   - A.Mitchell went 20/22/47 against his pregame side.
+   - LV's WR_out QB-adjusted residual was +3.16 on 19 targets for 225 yards.
+   - Basis: single game, inferred.
+2. **CLE vs TEs (Brisker, Schwesinger) → CLE @ NO.**
+   - TE residual +12.08: 129 yards on 7 targets, with Washington 24/58 and Freiermuth 28.
+   - Season-to-date context is in week8/defense/CLE_at_PIT.md.
+3. **IND vs TE and RB receiving → DAL @ IND.**
+   - TE residual +15.6 (Strange 46, Boerkircher 31).
+   - RB receiving residual +8.7 (Tuten 30/25), plus Tuten's 39 run and Rodriguez's 28.
+   - Note: the JAX offense did this, and IND's season numbers were better.
+4. **CIN safeties and LB (Battle, A.Hill) and outside CBs → CIN vs ATL.**
+   - 5 explosive catches allowed: TE residual +4.68, WR_out +1.69.
+   - Caveat: ATL scored 0 in Week 8 and Penix threw 4 INTs.
+5. **DAL run fits and middle of the field → DAL @ IND (Taylor).**
+   - Allowed 165 rush yards on 18 RB carries, including Allgeier's 63 and 52.
+   - WR_mid residual +6.72. Mi.Wilson had 3 catches of 20+ against the inferred CB J.Porter Jr.
+- Honorable mention: BAL vs TE (Kincaid 40/23), relevant for JAX @ BAL. NYJ allowed 145 TE yards on 16 targets, but the residual is only +0.42; relevant for NYJ @ KC.
+
+### Data gaps
+- No Week 8 FTN, participation, or NGS coverage data, so no shells or coverage defenders on any play.
+- Per-defender targets aren't public.
+- Every play-text item is single source (ESPN).
+- MIN A.Jones (7 plays): position isn't resolved in nflverse; he's treated as unknown in the position split.
+- test_explosives.py FAILs on a row that was already in explosives_allowed.md before this work: ARI@DAL OT, "Q5 5:13", no drive match. It's an OT-label issue and wasn't caused by this append.
+- I didn't rerun build_edges_wk8.py, because rerunning would overwrite the manual EDGE and returns sections. The 8-game v2 table was appended instead.
+
+### Files updated (backups: *.pre_wk8dissect.bak)
+- defenders/ARI_secondary.md
+- defenders/ATL_secondary.md
+- defenders/BAL_secondary.md
+- defenders/BUF_secondary.md
+- defenders/CIN_secondary.md
+- defenders/CLE_secondary.md
+- defenders/DAL_secondary.md
+- defenders/DET_secondary.md
+- defenders/IND_secondary.md
+- defenders/JAX_secondary.md
+- defenders/LV_secondary.md
+- defenders/MIN_secondary.md
+- defenders/NYJ_secondary.md
+- defenders/PIT_secondary.md
+- defenders/TB_secondary.md
+- defenders/TEN_secondary.md
+- week8/defense/ARI_at_DAL.md
+- week8/defense/ATL_at_TB.md
+- week8/defense/BAL_at_BUF.md
+- week8/defense/CLE_at_PIT.md
+- week8/defense/IND_at_JAX.md
+- week8/defense/KC_at_DEN.md
+- week8/defense/LAC_at_LAR.md
+- week8/defense/LV_at_NYJ.md
+- week8/defense/MIN_at_DET.md
+- week8/defense/NE_at_MIA.md
+- week8/defense/PHI_at_WSH.md
+- week8/defense/TEN_at_CIN.md
+- playlogs/explosives_allowed.md (appended v2 table)
+- defender_ledger.csv (+319 dated rows)
+
+---
+## 4 PM games: KC @ DEN
+_Pending._
+## 4 PM games: NE @ MIA
+_Pending._
+## 4 PM games: LAC @ LAR (Puka backup-CB test case)
+_Pending._
+## SNF
+_Pending._

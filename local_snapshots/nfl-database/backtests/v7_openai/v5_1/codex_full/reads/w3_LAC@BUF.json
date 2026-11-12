@@ -1,0 +1,39 @@
+{
+ "game": "Week 3 LAC@BUF / kickoff time MISSING / spread and total NOT saved; script inferred only from team form / weather NOT saved. Moneyline, implied totals, opening movement, venue details, rest and travel MISSING.",
+ "script": {
+  "base": "Hypothesis before prop evaluation: Buffalo sustains offense more effectively through the air than Los Angeles and plays from a modest lead. Both defenses make rushing difficult, leaving Buffalo's secondary receiving options involved rather than requiring a run-heavy finish; pace and halftime score are unknown.",
+  "flip1": "Buffalo builds a large early lead and shifts toward clock management, reducing Josh Allen's passing volume and opportunities for Keon Coleman.",
+  "flip2": "Los Angeles protects Justin Herbert with quicker throws and takes the lead, forcing Buffalo to maintain its passing volume into the fourth quarter."
+ },
+ "injury_fallout": "MISSING: injury reports, practice participation, final injury designations, inactive lists, offensive-line availability and snap restrictions for both LAC and BUF. No absences, returns or next-man-up roles are inferred from usage. Source for all available facts: supplied pre-kickoff Week 3 pack covering Weeks 1\u20132; exact publication timestamps are missing. Final-report and approximately 90-minute inactive checkpoints cannot be completed.",
+ "matchup": {
+  "shell": "MISSING: LAC and BUF MOFO/MOFC rates, man/zone rates and receiver alignment charting. Coleman's routes cannot be assigned to particular coverage defenders.",
+  "pressure": "LAC blitzes 25%; Buffalo's QB EPA/dropback is 0.36 against blitzes across 26 dropbacks and 0.63 without blitzes. BUF blitzes 33%; Herbert's EPA/dropback falls from 0.09 without blitzes to -0.86 against blitzes across 14 dropbacks. These splits support the Buffalo offensive advantage hypothesis, but pressure rates, sacks and time to throw are missing.",
+  "bleeds": "LAC allows 3.14 rushing yards per carry and only three runs of 10+ yards, versus six passes of 20+ yards across 69 attempts. Its pass YPA allowed is 10.22 left, 5.64 middle and 7.0 right. BUF allows 3.65 rushing yards per carry and nine passes of 20+ yards across 83 attempts.",
+  "overlap": "The proposed edge is Buffalo passing involvement against a defense that has constrained rushing, not a proven Coleman-specific coverage mismatch. Coleman has eight targets, tied with D.Moore, while Kincaid leads Buffalo with 14; missing alignment data prevents claiming Coleman attacks LAC's weaker left-side coverage."
+ },
+ "form": "Only two games are available, not the requested three to four. Coleman has eight targets, 64 receiving yards and 52 air yards across Weeks 1\u20132. Buffalo's other receiving totals include Kincaid's 225 yards on 14 targets and Shakir's 78 on 12. Cook has 34 carries for 192 yards and Allen 16 for 96, so Buffalo's own rushing success remains a counterweight to projecting a pass-oriented game. LAC's Hampton has 35 carries for 137 yards; McConkey has 117 receiving yards on 10 targets. Per-game distributions, snaps, routes, red-zone usage and comparable-opponent logs are missing.",
+ "edge_players": [
+  {
+   "player": "keoncoleman",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Coleman can exceed 14.5 receiving yards through ordinary secondary-receiver involvement if LAC's difficult rushing matchup keeps Buffalo throwing.",
+   "must_be_true": "Keon Coleman targets >= 3 [because the pack records eight targets across Buffalo's first two games]",
+   "kills_it": "IF Buffalo establishes a large early lead and Coleman receives no more than one target during a run-heavy finish THEN Coleman recyds over 14.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The read was formed from the passing-versus-rushing matchup before testing Coleman's prop. His eight targets and 64 receiving yards across two games support the modest receiving-yard requirement, although aggregate totals do not establish either game's hit rate. Over 14.5 at -113.5 requires approximately 53.16% to break even. Normalizing the supplied over -113.5 and under -111.5 produces approximately 50.21% for the over; this is an offered-market comparison, not a Pinnacle benchmark or an independent probability estimate. No projection or simulation was run.",
+  "disagrees": "none",
+  "missing": "Independent projection, simulation median and distribution, Pinnacle prices, per-game receiving results, routes, snaps, coverage assignments, injury information and weather. The supplied price pair cannot independently establish positive expected value.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional lean only: keoncoleman recyds over 14.5 at -113.5, supplied main line. Receiving yards is the permitted market for this involvement hypothesis; receptions are unavailable under the constraints. No higher rung or staking recommendation is justified without an independent probability estimate.",
+ "pre_mortem": "It is Monday and Coleman missed because Buffalo's passing production remained concentrated in Kincaid and Shakir, while Cook and Allen sustained enough rushing efficiency to shorten the game. Coleman's eight aggregate targets do not establish a stable weekly floor, and 64 aggregate yards could conceal one productive game. Missing injury and route information could also hide a reduced role. The strongest objection is uncertain individual allocation, not evidence that LAC specifically shuts Coleman down; that keeps this a lean rather than a strong selection.",
+ "slip_story": "Fits a Buffalo sustained-passing story and also survives the Chargers-leading flip, which preserves Buffalo passing demand. It is vulnerable to the large-Buffalo-lead flip. Keep as a single conditional candidate; do not manufacture a three-leg slip or add conflicting run-clock legs. No wager placed. The read is recorded in this response, but no externally saved, timestamped or hashed pre-kickoff record can be verified. After the game, grade the Buffalo passing-script read and Coleman's involvement separately from whether over 14.5 hit; revisit Steps 2, 3 and 5 for any miss.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 ATL@GB / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this flow is inferred from two-game form only and is not a market script. GB profiles as the cleaner environment: Love is +0.16 EPA/dropback when not blitzed (n=46) and ATL blitzes only 21%, while Watson and Golden have taken 19 and 18 targets with 213 and 217 air yards. ATL has lived on Bijan (37 carries, 155 rush yards, 14 targets for 99 yards on -18 air yards) because Penix is negative EPA both vs blitz (-0.35, n=22) and off blitz (-0.80). Base read: GB functions through the two air-yard receivers, ATL stays checkdown-and-Bijan, and explosives lean GB (ATL 8 of 81, GB 2 of 72) without a priced lead or total.",
+  "flip1": "ATL stays close or leads, Bijan holds an 18-20 carry role, and GB pass volume dips so Golden/Watson fall well short of 9 targets apiece.",
+  "flip2": "GB gets ahead, ATL abandons the run into a 34% GB blitz, and a London or Pitts chunk (Pitts already has 52 air yards but only 15 receiving yards) becomes the ATL spike while GB receivers stall in a second-half run clock."
+ },
+ "injury_fallout": "MISSING: injury report, practice status, questionable tags, snap limits, and inactives for both ATL and GB. No absences, returns, or next-man-up inferred from usage.",
+ "matchup": {
+  "shell": "MISSING: no MOFO/MOFC, man/zone rate, or coverage charting in the pack, so WR/TE/RB cannot be mapped to specific zone defenders.",
+  "pressure": "GB blitz rate 34%; ATL blitz rate 21%. No pressure rate in the pack. Penix EPA/dropback -0.35 vs blitz (n=22) and -0.80 with no blitz. Love EPA/dropback -0.24 vs blitz (n=46) and +0.16 with no blitz, so ATL's low blitz rate is the friendlier look for GB's downfield game.",
+  "bleeds": "ATL allows 8 passes of 20+ on 81 attempts and 14.12 YPA in the middle on only 8 attempts (left 5.14 on 36, right 6.36 on 33); rush defense 3.41 YPC with 2 runs of 10+. GB allows 2 passes of 20+ on 72 attempts, outside YPA 5.67 left (21 att) and 5.74 right (35 att), middle 9.75 on only 8 att, and 3.05 YPC with 3 runs of 10+.",
+  "overlap": "GB's co-primary air-yard pair, Golden 217 air yards and Watson 213, overlaps ATL's explosive leakage and the thin middle sample, with Love's good no-blitz EPA against a 21% blitz. London (9 targets, 45 air yards, 80 yards) does not overlap a GB weak spot: GB's outside YPA is about 5.7 and explosives are 2 of 72."
+ },
+ "form": "Only weeks 1-2 are in the pack, not a 3-4 game role. ATL: Bijan 37/155 rush and 14 targets/99 yards/-18 air; Brian Robinson 20/82; London 9/80/45 air; Dotson 7/30/100 air; Pitts 4/15/52 air; Hooper 4/20/13. GB: Lloyd 19/57 (3.0 YPC), Brooks 11/40, K. Johnson 8/32, Love 1/0 rush; Watson 19/188/213 air; Golden 18/153/217 air; Kraft 9/80/92 air; Reed 8/24/45 air. No OC, QB, or teammate change is in the pack. Dotson, Pitts, Reed, and Moore show air yards far above receiving yards, so those deep misses are the fluky piece, not a role change.",
+ "edge_players": [
+  {
+   "player": "matthewgolden",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Golden is co-primary in GB's air-yard game at 18 targets, 153 yards and 217 air yards over two games, about 76.5 a game, and 55.5 sits under that pace against an ATL defense that has allowed 8 gains of 20-plus on 81 throws and blitzes only 21%, where Love is +0.16 EPA.",
+   "must_be_true": "Matthew Golden recyds >= 55.5 because 153 receiving yards and 217 air yards on 18 targets over weeks 1-2 and ATL allowed 8 passes of 20+ yards on 81 attempts",
+   "kills_it": "IF Golden targets fall to 6 or fewer in a Green Bay run-clock script THEN Golden recyds over 55.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "drakelondon",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "London is at 80 yards on 9 targets over two games, about 40 a game, and 67 requires a chunk GB has rarely allowed: 2 passes of 20-plus on 72 attempts and outside YPA of 5.67 and 5.74, with Penix negative EPA in both blitz states.",
+   "must_be_true": "Drake London recyds <= 67 because 80 receiving yards on 9 targets over weeks 1-2 and GB allowed 2 passes of 20+ yards on 72 attempts",
+   "kills_it": "IF London catches a 20-plus yard play and sees 8 or more targets THEN London recyds under 67 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Golden 153 yards over 2 games is about 76.5 vs 55.5, so the over agrees with the read and still clears a dip toward 7 targets at his 8.5 yards per target. London 80 yards over 2 games is about 40 vs 67, and even a volume bounce toward 8-10 targets stays under 67 if YPA is near GB's outside 5.7. No projection, sim median, or Pinnacle no-vig is in the pack; listed juice is Golden over 55.5 -113 and London under 67 +nan. Model-probability suspicion above 70% is not applicable because no model probability is in the pack.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, coverage shell, pressure rate, injuries/inactives, game-by-game splits, sim median, Pinnacle no-vig",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Matthew Golden recyds over 55.5 -113, main line only, no alt rung. Drake London recyds under 67, price not in pack (+nan); no short-priced alt taken. Passing yards, TDs, and receptions not used.",
+ "pre_mortem": "It's Monday and both lost because Watson (19 targets, 188 yards, 213 air yards) and Kraft (92 air yards) took the explosives ATL allows, GB protected a lead, and Golden finished on 6 targets around 50 yards, short of 55.5. London, stuck on 9 targets for 80 yards through two games, was the underfed WR1 and drew 8-plus targets; one of the two 20-plus gains GB has allowed on 72 throws was his, and 8 targets at his 8.9 yards per target is about 71, clearing 67. The counter is real because the samples are two games and the missing spread may already be in the 55.5 and 67, but it is not stronger than the read: Golden's line still sits about 21 yards under his pace and survives a modest target dip, and London still needs an explosive GB has produced on only 2 of 72 throws.",
+ "slip_story": "One GB-functional-pass / ATL-explosives-suppressed story: Golden over belongs with GB's air-yard game against a 21% blitz and an explosive-leaky ATL defense, and London under belongs with the same GB defense that has allowed 2 explosives on 72 throws. Not a shootout stack, not a clock-kill RB stack, and not mixed with a total. Watson over 71.5 was left off because a dip to 7 targets at 9.9 yards per target lands near 69 and fails the flip test.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

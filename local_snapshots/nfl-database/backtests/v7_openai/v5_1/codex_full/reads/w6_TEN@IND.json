@@ -1,0 +1,48 @@
+{
+ "game": "Week 6 TEN@IND / kickoff MISSING / IND -6.5 / total 43.5 / implied totals IND 25, TEN 18.5 / weather not saved. MISSING: moneyline, opening lines, line movement, venue configuration, rest and travel details.",
+ "script": {
+  "base": "IND's -6.5 spread supports a working hypothesis of Indianapolis building a lead and leaning on its ground game late. Tennessee shifts toward passing while Indianapolis limits receiving volume; pace and the timing of the lead are unverified.",
+  "flip1": "Tennessee stays competitive or leads, forcing Indianapolis to maintain passing volume. That increases Josh Downs' receiving opportunities and Jonathan Taylor's potential receiving work.",
+  "flip2": "Indianapolis leads but Tennessee's run defense, allowing 3.78 YPC, prevents effective clock control. Indianapolis keeps throwing, threatening both receiving unders even without a scoreboard reversal."
+ },
+ "injury_fallout": "MISSING: TEN and IND injury reports, practice trends, final designations, offensive-line availability, defensive absences, return restrictions and final inactives. No absences, returns or replacement roles are inferred from the supplied usage. Downs' 21 targets and Taylor's 11 targets over weeks 3\u20135 establish observed involvement only. Recheck both legs after injury reports and approximately 90-minute inactives if those become available.",
+ "matchup": {
+  "shell": "MISSING: TEN and IND MOFO/MOFC, man/zone rates and individual coverage assignments. Location splits cannot establish where Downs aligns or which defender covers Taylor.",
+  "pressure": "TEN blitzes 22%; IND QB EPA/dropback is -0.11 against blitzes over 60 dropbacks and -0.18 without blitzes. IND blitzes 20%; TEN QB EPA/dropback is 0.03 against blitzes over 37 dropbacks and -0.23 without. MISSING: pressure rates, protection health, time to throw and check-down rates; blitz frequency alone does not establish pressure-driven receiving volume.",
+  "bleeds": "TEN allows 3.78 rushing YPC, with 14 runs of at least 10 yards, and 15 passes of at least 20 yards on 156 attempts. TEN's passing YPA allowed is 8.02 left, 8.03 middle and 7.58 right. These figures do not establish a specific receiving weakness for Downs or Taylor. IND allows 5.21 rushing YPC, which gives Tennessee a potential route to keeping the game competitive.",
+  "overlap": "The proposed edge is Indianapolis receiving volume being constrained by a lead, not a demonstrated coverage mismatch. T.Warren leads IND with 24 recent targets, ahead of Downs' 21; Taylor has 11. MISSING: positional allowances, routes, alignment, motion, play-action and red-zone usage."
+ },
+ "form": "Weeks 3\u20135: Downs has 21 targets, 140 receiving yards and 267 air yards\u20147 targets, 46.7 receiving yards and 89 air yards per game. His air-yard involvement creates meaningful upside risk. Taylor has 58 carries for 208 yards and 11 targets for 43 receiving yards\u201419.3 carries, 3.7 targets and 14.3 receiving yards per game. These three-game aggregates test the script hypothesis but do not establish game-by-game consistency. MISSING: individual game distributions, snaps, routes, comparable opponents, role-change explanations and defensive last-three-game positional results.",
+ "edge_players": [
+  {
+   "player": "joshdowns",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Downs can stay below 55.5 receiving yards if favored Indianapolis protects a lead and his substantial air-yard involvement does not translate into improved production.",
+   "must_be_true": "Josh Downs targets <= 7 [because the pack records 21 targets across weeks 3\u20135 and lists IND as a 6.5-point favorite]",
+   "kills_it": "IF Indianapolis must sustain passing volume or Downs converts a deep target into an explosive gain THEN Josh Downs recyds under 55.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jonathantaylor",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Taylor can stay below 19.5 receiving yards if Indianapolis' favored script keeps his workload concentrated on carries rather than expanded receiving work.",
+   "must_be_true": "Jonathan Taylor targets <= 4 [because the pack records 11 targets versus 58 carries across weeks 3\u20135]",
+   "kills_it": "IF Tennessee forces Indianapolis into repeated check-downs or Taylor breaks a long reception THEN Jonathan Taylor recyds under 19.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The lead-and-limit-passing hypothesis comes first. The supplied three-game production then provides modest support: Downs' 46.7 receiving yards per game is below 55.5, and Taylor's 14.3 is below 19.5. Neither comparison estimates a hit probability. Downs' air yards and TEN's run resistance are explicit risks, not direct contradictions of the conditional script. No model or simulation was run; agreement means only that the supplied numbers do not clearly contradict these leans.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation distribution and median, calibrated probabilities, Pinnacle prices and sharp no-vig benchmark, individual-game results, coverage charting, injury information and weather. Positive expected value and stake size cannot be established.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line leans only: joshdowns recyds under 55.5 at -116.5, requiring approximately 53.8% to break even; jonathantaylor recyds under 19.5 at -116, requiring approximately 53.7%. No alternate rungs selected. Neither is established as a positive-EV bet.",
+ "pre_mortem": "It is Monday and these unders lost because Indianapolis could not control the game through rushing against TEN's 3.78-YPC defense. Downs' 267 recent air yards became actual receiving production, while Taylor gained receiving opportunities when Indianapolis needed passing answers. Alternatively, Tennessee exploited IND's 5.21 YPC allowed and kept Indianapolis from protecting a comfortable lead. A single explosive reception can beat either modest threshold. This counter-case limits both selections to script-dependent leans rather than strong plays.",
+ "slip_story": "Both leans belong to the same Indianapolis-leads-and-reduces-passing story, but both are vulnerable to a competitive game or ineffective IND rushing. Do not force a 3\u20134-leg main slip from this pack; no additional legs are justified and no joint probability is available. No bets placed. Step 12: this response records the pre-kickoff hypothesis, but an exact timestamp, locked hash, persistent log and subsequent results are unavailable. Grade script accuracy and receiving-role accuracy separately from whether each under hits.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

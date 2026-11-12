@@ -1,0 +1,108 @@
+{
+ "game": "BAL@DAL Week 3 2026 | kickoff not saved | spread not saved | total not saved | weather not saved",
+ "script": {
+  "base": "No spread or total is saved, so the script is inferred from two weeks of form and the injury report. Baltimore should be able to move the ball on a Cowboys defense that has allowed 5.33 YPC and 8 runs of 10+ and is without both safeties, CB Cobie Durant and LB DeMarvion Overshown. Henry stays the engine (40 carries, 212 yards) with a short-area receiving role already in the data (4 targets, 38 yards, -14 air yards). Dallas cannot lean on Javonte Williams (24 carries, 71 yards, 2.96 YPC) against a Ravens front at 3.65 YPC, so Dak throws more when Baltimore blitzes (32% blitz, Dak EPA/db 0.19 vs blitz and 0.48 vs none).",
+  "flip1": "Baltimore gets up and salts it with Henry on the ground. Henry rush volume rises, but his receiving touches can go to zero, and Dallas abandons the run so Javonte's carries fall further.",
+  "flip2": "Dallas keeps it close or leads through the middle, where Baltimore has allowed 9.28 YPA on 18 attempts and 7 passes of 20+. Dallas stays pass-heavy anyway; the kill for the Javonte under is a committed rushing plan plus a long run, not a shootout."
+ },
+ "injury_fallout": "Known pre-kick from the nflverse injury report, not inactives: BAL LT Ronnie Stanley Out (toe) \u2014 rushing efficiency down, more quick throws, so RB/TE catches are the stated beneficiaries (Henry already the checkdown back; Andrews 13 targets / 98 yards is the pass-game volume piece). BAL WR Zay Flowers Questionable (hamstring), not ruled out \u2014 do not treat Moore/Bateman as confirmed sleepers; Flowers' log is 6 targets for 150 yards and he is off the card. DAL S Malik Hooker Out, S P.J. Locke Out, CB Cobie Durant Out, LB DeMarvion Overshown Out \u2014 underneath and intermediate coverage is on backups. That helps Henry's screens and Andrews more than a named outside WR. No replacement defenders are named in the pack. Final inactives (~90 min pre-kick) are not in the pack.",
+ "matchup": {
+  "shell": "No MOFO/MOFC or man/zone charting in the pack. Proxy only: Dallas YPA is flat by side (left 6.64 on 28, middle 7.18 on 11, right 6.88 on 25). Baltimore bleeds the middle (9.28 on 18) and holds the right (4.43 on 23).",
+  "pressure": "Dallas blitzes 27%; Baltimore EPA/db is 0.22 vs blitz and 0.28 vs none, so pressure is not a Lamar kill. Baltimore blitzes 32%; Dak's EPA/db falls from 0.48 with no blitz to 0.19 when blitzed, which pushes Dallas off schedule and toward checkdowns rather than a healthy run game. Sack counts are not in the pack.",
+  "bleeds": "Dallas run defense is the bleed: 5.33 YPC and 8 runs of 10+, plus Overshown out. Pass defense has no clean location hole. Baltimore is the opposite: 3.65 YPC and only 6 runs of 10+, but 7 explosive passes and a middle-of-field leak.",
+  "overlap": "The carded overlap is not Henry's rush number (Stanley Out fights that). It is Henry's negative-air-yard targets into a linebacker-less Cowboys defense, and Javonte's rush attempts into a Ravens front that does not bleed. Lamb (17 targets, 226 air yards) and Pickens (14 targets, 187 air yards, only 68 yards) overlap Baltimore's middle/explosive leak, but neither is carded."
+ },
+ "form": "Two games only (weeks 1-2 totals, split by the prop logs). Henry rush 144 and 68 (40/212); receiving 19 and 19. Hill rush 18 and 6. Jackson 8/77 rush, prop log says no prior games \u2014 conflict, no leg. Andrews 49 and 49. Bateman 0 and 88. Flowers one logged 150, questionable. Moore 53 and 6. Javonte rush 41 and 30 (24/71); receiving 31 and 20; rush+rec 72 and 50. Dak rush 14 and 26. Lamb 44 and 153. Pickens 28 and 40 on 187 air yards. Flournoy 22 and 23. Ferguson 6 and 43. Demercado 7 and 8.",
+ "pro_edge": {
+  "implied_totals": "N/A \u2014 no saved spread or total, so favorite=(T+S)/2 cannot be computed. No blowout flag and no dog-throw number from the market.",
+  "script_read": "Form script, not a market script: Baltimore's run volume (Henry 20 carries/game, 5.3 YPC) against a 5.33 YPC Cowboys run defense and four defensive outs says Baltimore can control the ball. Dallas at 12 Javonte carries/game and 2.96 YPC against a 3.65 YPC Ravens run defense says Dallas is already pass-leaning, and a trailing or blitzed game would cut carries further. High-total volume overs cannot be assumed.",
+  "best_price": "No book beats a real anchor. Consensus no-vig is ~0.50 on every two-sided prop. Javonte rush under best -114 vs under fair 0.501. Henry rec over best -115 vs over fair 0.502. No Pinnacle feed in the pack. Andrews, Pickens, Bateman, Flowers, Henry rush+rec have no two-sided price.",
+  "lagging": "Cannot flag a lagging book. Spread and total movement are not saved, and there is no pre/post-injury line diff.",
+  "sleepers": "Out: Stanley, Hooker, Locke, Durant, Overshown. Same-position skill lines that might be stale: Henry rec 10.5 and Andrews rec 44 vs the LB/safety outs; no evidence either moved. Flowers is Questionable, not Out, so Moore 16.5 is not a confirmed sleeper. No IR note beyond these outs."
+ },
+ "edge_players": [
+  {
+   "player": "javontewilliams",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Javonte has gone 41 and 30 yards on 24 carries (2.96 YPC), and Baltimore allows 3.65 YPC, so 56.5 needs a carry spike the two-game role has not shown.",
+   "must_be_true": "He stays near 12 carries, Baltimore's front stays at that early-season stuff rate, and he does not rip a 20-plus run. Health is assumed; he is not on the injury report.",
+   "kills_it": "Dallas leads and commits to the run \u2014 about 16 carries at even 3.6 YPC clears 56.5 \u2014 or one explosive run. No spread is saved, so that flip cannot be priced.",
+   "confidence": "strong",
+   "model_p": 0.64,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "Pack BAL defense: rush YPC 3.65, 6 runs of 10+ in 2 games; Javonte 24/71."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "BAL blitz 32% and Dak EPA/db 0.19 vs blitz vs 0.48 vs none; Dallas is off schedule, not in a healthy run game."
+    },
+    "script": {
+     "ok": true,
+     "source": "Inferred only: depleted DAL defense (Hooker, Locke, Durant, Overshown out) plus a bad Dallas run rate makes a Dallas run-commit the less likely flip. Spread not saved."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Prop log last games rush yards 41 and 30, both under 56.5."
+    }
+   },
+   "primary_defender": {
+    "who": "Baltimore run front (no individual tackler charted)",
+    "source": "Pack BAL defense rush YPC 3.65 and 6 runs of 10+; coverage charting not in pack."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": false,
+   "pro_edge_support": "Anchor consensus no-vig under 0.501, best under -114. No price edge vs fair. Support is matchup and form, not a lagging number. Lead back (24 carries vs Demercado 5 and Luepke 2), so this is not a depth sleeper."
+  },
+  {
+   "player": "derrickhenry",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Henry has cleared 10.5 receiving yards in both games (19 and 19) on checkdowns, and Stanley being out plus Overshown being out is exactly the quick-throw, linebacker-missing spot that feeds a back.",
+   "must_be_true": "He keeps about two targets and stays in on passing downs. A single screen has been enough (4 targets, 38 yards, -14 air yards over two weeks).",
+   "kills_it": "A pure clock-grind with zero targets, or the targets going to Hill (3 targets, 22 yards) and Andrews instead. Flowers playing or sitting does not decide this leg.",
+   "confidence": "lean",
+   "model_p": 0.6,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "Injury report: DAL LB DeMarvion Overshown Out (hamstring). No RB-receiving-allowed chart; missing LB is the matchup proxy."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Stanley Out (toe) maps to more quick throws; Henry's own air yards are -14 on 4 targets, already the checkdown back."
+    },
+    "script": {
+     "ok": true,
+     "source": "Role is 2 targets a game, so it does not need a shootout. It fails only the zero-target blowout flip, which is tagged script-dependent."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Prop log recyds 19 and 19, both over 10.5; pack targets 4/38/-14."
+    }
+   },
+   "primary_defender": {
+    "who": "Cowboys linebacker group without DeMarvion Overshown (Out); safeties Hooker and Locke also Out, no backup named",
+    "source": "Official pre-game injury report in the pack. No coverage chart."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Anchor no-vig over 0.502, best over -115. No price edge. Sleeper angle only: Overshown/Hooker/Locke/Durant are out and there is no saved move on Henry's 10.5 receiving line."
+  }
+ ],
+ "data_check": {
+  "notes": "No sims and no Pinnacle; consensus no-vig is a coin flip, so these are read edges not price edges. Hand median for Javonte is about 12 carries times 3.0-3.6 YPC, roughly 36-43 yards, well under 56.5 \u2014 agree, and the 0.64 is already haircut from a naive two-game rate because n=2 and a carry spike is possible. Henry receiving median stays near 15-20 if the two-target role holds; 0.60 reflects the thin target count. Dropped, not flagged: Henry rush over 92.5 (mean 106, but 68-yard game plus Stanley Out disagrees with a lean). Dropped: Andrews over 44 (49 and 49, injury fit, but no price and a run-script cut). Dropped: Pickens under 65.5 (28 and 40, but 187 air yards into a defense that has allowed 7 explosives). Jackson rush log conflicts (pack 8/77 vs prop 'no prior games') \u2014 pass. Model probabilities above 70% were not used.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main rungs only, no alts. javontewilliams rushyds under 56.5 at -114 (consensus saved; anchor under fair 0.501). derrickhenry recyds over 10.5 at -115 (anchor over fair 0.502). One market per player. No TD, no receptions, no passing yards.",
+ "pre_mortem": "It's Monday and this lost because Dallas played a one-score game, handed Javonte 17-18 carries, and one 18-yard run pushed him to 60-plus, while Baltimore led by three scores and Henry never saw a target \u2014 Hill and Andrews took the dumps and Henry finished at 4 receiving yards. The missing spread is what would have told us Dallas was live to run. A late Flowers or Stanley inactive change does not directly flip these two, but an uncharted Dallas plan to sell out on Henry in the pass game would.",
+ "slip_story": "One story: Baltimore's front and Dallas's injuries, not a shootout stack. Javonte under wins if Dallas cannot run (base or pass-heavy flip). Henry receiving over wins if the quick game that Stanley's absence creates still finds the back once or twice. Do not add Henry rush over, a game under, or Lamb/Pickens overs \u2014 those need a different script. No bet is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T13:11:01-0500"
+ }
+}

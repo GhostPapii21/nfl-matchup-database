@@ -1,0 +1,48 @@
+{
+ "game": "Week 7 KC@SEA / kickoff time MISSING / SEA -3 / total 43 / implied totals SEA 23, KC 20 / weather not saved. Moneylines, opening lines, movement, venue details, rest and travel MISSING.",
+ "script": {
+  "base": "SEA leads narrowly into the second half in a moderate-scoring game, rather than forcing KC to abandon its running game immediately. Seattle's passing opportunities remain concentrated around J.Smith-Njigba, while J.Royals and T.Horton remain secondary options; exact pace and halftime scoring are unverified hypotheses.",
+  "flip1": "KC takes an early lead through K.Walker's rushing production, forcing SEA toward more passing. Horton's under becomes more vulnerable to extra opportunities, but can survive if Smith-Njigba, Shaheed and Kupp retain their target priority.",
+  "flip2": "Both offenses generate explosive plays and exceed the 43 total. Either secondary receiver can then beat a low yardage line on one catch; both proposed unders are vulnerable to this flip."
+ },
+ "injury_fallout": "MISSING: KC and SEA injury reports, practice-status trends, offensive-line availability, defensive absences, return restrictions and final inactives. No absence, return or next-man-up adjustment is inferred from usage. Source for all available claims: supplied pre-kickoff pack; exact observation and publication timestamps are not supplied. Recheck both teams' final reports and approximately 90-minute inactives before any actionable decision.",
+ "matchup": {
+  "shell": "MISSING: KC and SEA MOFO/MOFC, man/zone rates and receiver alignments. Royals and Horton cannot reliably be assigned to specific coverage defenders.",
+  "pressure": "SEA blitzes 21%; KC's supplied QB EPA/dropback is 0.34 against blitzes over 48 dropbacks versus 0.12 without blitzes. KC blitzes 27%; SEA's supplied QB EPA/dropback is 0.03 against blitzes over 81 dropbacks versus 0.05 without blitzes. Actual pressure rates, protection health and time to throw are MISSING; blitz frequency alone does not establish pressure getting home.",
+  "bleeds": "SEA has allowed only 8 passes of 20-plus yards on 197 attempts, supporting caution on low-volume KC receivers. KC has allowed 12 on 190 attempts and 8.15 YPA through the middle versus 6.57 left and 4.38 right. Both defenses have limited rushing efficiency: SEA 3.65 YPC allowed, KC 3.56.",
+  "overlap": "Royals' limited recent opportunities overlap with SEA's low explosive-pass allowance, forming the stronger under hypothesis. Horton's hypothesis rests on opportunity concentration elsewhere: Smith-Njigba has 30 targets, Shaheed 16 and Kupp 15 versus Horton's 6. KC's middle-field weakness cannot be assigned to Horton without alignment data."
+ },
+ "form": "KC weeks 3, 4 and 6: J.Royals recorded 7 targets, 35 receiving yards and 47 air yards combined, behind Worthy's 16 targets, Kelce's 11, Thornton's 10, and Gray's and Rice's 9 each. SEA weeks 4\u20136: T.Horton recorded 6 targets, 19 receiving yards and 32 air yards combined, versus Smith-Njigba's 30 targets and 312 yards. These aggregates support limited recent opportunity, not proven stable snap shares. Individual game logs, routes, snaps, red-zone usage, role-change news and comparable-opponent results are MISSING.",
+ "edge_players": [
+  {
+   "player": "jalenroyals",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Royals' limited recent target allocation meets a Seattle defense that has suppressed explosive passes, supporting under 21.5 receiving yards.",
+   "must_be_true": "J.Royals receiving_yards <= 21 [because the pack shows 35 yards on 7 targets across KC's last three games and SEA allowing 8 passes of 20-plus yards on 197 attempts]",
+   "kills_it": "IF Royals catches a single pass gaining at least 22 yards THEN Royals under 21.5 receiving yards fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "toryhorton",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Seattle's recent passing opportunities have favored Smith-Njigba, Shaheed and Kupp over Horton, supporting under 11.5 receiving yards if that allocation persists.",
+   "must_be_true": "T.Horton receiving_yards <= 11 [because the pack shows 19 yards on 6 targets across SEA's last three games, compared with 30 targets for Smith-Njigba, 16 for Shaheed and 15 for Kupp]",
+   "kills_it": "IF Horton catches a single pass gaining at least 12 yards THEN Horton under 11.5 receiving yards fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Read first: favor limited-opportunity receivers underneath a moderate-total game script, rather than selecting unders from averages alone. The supplied recent-role totals support both hypotheses, with a stronger defensive matchup argument for Royals. No projection or simulation was run, and aggregate totals cannot establish individual-game hit rates. Listed prices imply raw break-even probabilities of approximately 53.05% for Royals -113 and 52.61% for Horton -111; these are not modeled win probabilities or Pinnacle no-vig probabilities. Neither lean is established as a priced betting edge.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation medians, Pinnacle prices, sharp no-vig probabilities, game-by-game distributions, receiver routes and alignments, injuries, final inactives, weather and exact as-of timestamps. KC's middle-field weakness is known, but whether Horton attacks it is missing.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate main lines only: jalenroyals recyds under 21.5 at -113; toryhorton recyds under 11.5 at -111. Receiving yards is the available market that expresses these limited-opportunity hypotheses; receptions are unavailable under the constraints. No alternate rung, stake or actionable price edge is established.",
+ "pre_mortem": "Royals: It is Monday and the under lost because low recent volume concealed a route expansion or one explosive catch. SEA's 8 explosive completions allowed do not make another impossible, and KC's positive EPA against both blitz and non-blitz looks warns against treating this as offensive shutdown. Horton: The under lost because Seattle trailed and expanded its passing volume, or Horton attacked KC's vulnerable middle for a single 12-yard gain. His line is low enough that a minor opportunity change matters. Missing routes and injury information make both counter-cases material; neither candidate deserves strong confidence.",
+ "slip_story": "Both candidates fit one story: a competitive, moderate-scoring game in which established targets absorb most passing opportunities. Each can survive the opponent leading if target hierarchies persist, but both are vulnerable to an explosive shootout. Do not manufacture a 3\u20134-leg main slip from two unpriced leans; keep these as separate watchlist candidates pending validation. No bets placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

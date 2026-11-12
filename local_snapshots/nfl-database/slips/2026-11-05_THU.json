@@ -1,0 +1,183 @@
+{
+  "slip_id": "THU-2026-11-05",
+  "date": "2026-11-05",
+  "sport": "NFL",
+  "game": "JAX@BAL",
+  "final": "JAX 33 BAL 10",
+  "finalized_at_et": "2026-11-05 23:14:40 ET",
+  "placement_status": "PROPOSED_ONLY \u2014 post-inactives routine recorded No bets placed; graded proposed r6 Rico 4-leg + slips_rico_3 A/B/C",
+  "passing_yards_ban": "Lawrence 200+ kept off (would have hit at 242); ban honored",
+  "sources": [
+    "runs/2026-11-05_JAX@BAL_r6/report.md",
+    "runs/2026-11-05_JAX@BAL_r6/slips_rico_3/PROPOSED.md",
+    "runs/2026-11-05_JAX@BAL_r6/proactive/post_inactives_2026-11-05_1902.md",
+    "live/2026-11-05_JAX_BAL/actual_box_reconcile.csv",
+    "live/2026-11-05_JAX_BAL/FINALIZED.json"
+  ],
+  "cards": [
+    {
+      "card": "Rico4_r6_report",
+      "record": "2-2",
+      "legs": [
+        {
+          "leg": "Strange 4+ rec (o3.5)",
+          "line": 4,
+          "actual": 2,
+          "result": "LOSS",
+          "gate": "PASS 3/4 last-2 DOWNGRADE",
+          "note": "Hawkins OUT middle/seam prior; only 2 targets"
+        },
+        {
+          "leg": "Washington rec yds o63.5",
+          "line": 63.5,
+          "actual": 61,
+          "result": "LOSS",
+          "gate": "FAIL \u00a77 2/4; model opposed (\u22128.4)",
+          "note": "missed by 2.5; 40+ would hit"
+        },
+        {
+          "leg": "JAX 1H -6.5",
+          "line": -6.5,
+          "actual": "1H 17-3 (margin +14)",
+          "result": "WIN",
+          "gate": "CUT \u00a77 FAIL 2/4 \u2014 wrongly cut",
+          "note": "script vs Fagnano correct"
+        },
+        {
+          "leg": "Henry 40+ rush (o39.5)",
+          "line": 39.5,
+          "actual": 57,
+          "result": "WIN",
+          "gate": "PASS 4/4 N1 OK; \u2212130 cap",
+          "note": "Henry U69.5 was better priced edge and also hit"
+        }
+      ]
+    },
+    {
+      "card": "SlipA_proposed",
+      "record": "3-1",
+      "legs": [
+        {
+          "leg": "Strange 40+ rec yds",
+          "actual": 22,
+          "result": "LOSS"
+        },
+        {
+          "leg": "Washington 40+ rec yds",
+          "actual": 61,
+          "result": "WIN"
+        },
+        {
+          "leg": "Jaguars 1H winner / 1H cover",
+          "actual": "17-3",
+          "result": "WIN"
+        },
+        {
+          "leg": "Mark Andrews 2+ receptions",
+          "actual": 2,
+          "result": "WIN"
+        }
+      ]
+    },
+    {
+      "card": "SlipB_proposed",
+      "record": "4-0",
+      "legs": [
+        {
+          "leg": "Jakobi Meyers 25+ rec yds",
+          "actual": 65,
+          "result": "WIN"
+        },
+        {
+          "leg": "Justice Hill 2+ receptions",
+          "actual": 3,
+          "result": "WIN"
+        },
+        {
+          "leg": "Derrick Henry UNDER 69.5 rush",
+          "actual": 57,
+          "result": "WIN"
+        },
+        {
+          "leg": "Jaguars 1Q -2.5",
+          "actual": "Q1 10-3",
+          "result": "WIN"
+        }
+      ]
+    },
+    {
+      "card": "SlipC_proposed",
+      "record": "3-1",
+      "legs": [
+        {
+          "leg": "Zay Flowers UNDER 4.5 receptions",
+          "actual": 3,
+          "result": "WIN"
+        },
+        {
+          "leg": "Rashod Bateman UNDER 15.5 rec yds",
+          "actual": 6,
+          "result": "WIN"
+        },
+        {
+          "leg": "Baltimore team total UNDER 14.5",
+          "actual": 10,
+          "result": "WIN"
+        },
+        {
+          "leg": "Game UNDER 39.5",
+          "actual": 43,
+          "result": "LOSS",
+          "note": "Hill 65 TD + late JAX scores pushed total over"
+        }
+      ]
+    }
+  ],
+  "aggregate_proposed_legs": {
+    "wins": 12,
+    "losses": 4,
+    "record": "12-4"
+  },
+  "wrongly_cut_that_hit": [
+    {
+      "leg": "JAX 1H -6.5",
+      "cut_by": "\u00a77 FAIL 2/4 + no game model",
+      "actual": "WIN 17-3",
+      "phase": "\u00a77 / missing period game model (code note #2)"
+    },
+    {
+      "leg": "JAX 1H ML",
+      "cut_by": "\u00a77 FAIL 2/4",
+      "actual": "WIN",
+      "phase": "\u00a77"
+    },
+    {
+      "leg": "Washington 40+ / o39.5",
+      "cut_by": "\u00a77 with Wk8 window + \u2212130 cap on o39.5",
+      "actual": "WIN 61",
+      "phase": "\u00a77 windowing / cap130"
+    }
+  ],
+  "flagged_or_passed_that_lost": [
+    {
+      "leg": "Strange 4+",
+      "actual": 2,
+      "why": "volume concentrated on Meyers/Boerkircher/Washington; Strange only 2 tgts despite Hawkins OUT"
+    },
+    {
+      "leg": "Washington o63.5",
+      "actual": 61,
+      "why": "main rung too high; 50-yd TD + 11 = 61; model p .422 was closer than market"
+    },
+    {
+      "leg": "Strange 40+",
+      "actual": 22,
+      "why": "same volume miss; Boerkircher took the chunk TE shot"
+    },
+    {
+      "leg": "Game U39.5",
+      "actual": 43,
+      "why": "Hill 65 TD + JAX late TDs; BAL quiet otherwise"
+    }
+  ]
+}

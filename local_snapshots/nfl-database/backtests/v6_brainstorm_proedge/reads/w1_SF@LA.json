@@ -1,0 +1,108 @@
+{
+ "game": "SF @ LA Week 1 2026, kickoff 2026-09-10 20:35 ET, SoFi dome, LA -3.5, total 47.5",
+ "script": {
+  "base": "Dome, no saved weather. Market prices a one-score game: LA 25.5, SF 22.0, spread only 3.5, so not a blowout and not a clock-killing 38-point script. Both offenses stay live. LA protects a late lead with Kyren Williams carries; SF still gives Christian McCaffrey a full rush role because 22 implied points do not force a pass-only night. Total 47.5 in a dome is moderate volume, not a slog.",
+  "flip1": "LA gets up by 14+ early, runs the clock through Kyren Williams (Blake Corum mixes in; his 2025 last4 rush yards were 71, 48, 18, 59), and SF abandons the run. CMC rush yards stall toward the 23-yard floor in his last4, while George Kittle, Deebo Samuel and Mike Evans targets rise.",
+  "flip2": "SF hangs around or leads and it turns into a pass-leaning dome game. Puka Nacua (last4 181, 225, 47, 76) and Davante Adams stay live, Kyren's rush line dies if LA is chasing, and CMC's rush and Kittle's routes both stay on the field."
+ },
+ "injury_fallout": "Pre-game nflverse report only; inactives ~90 minutes before kick are not in the pack. LA DE Aaron Donald Out (not injury related, resting). No LA offensive skill player is out, so no target bump among Puka Nacua, Davante Adams, Kyren Williams, Blake Corum or Colby Parkinson. Donald's absence is opponent-side: SF's line and Christian McCaffrey face a Rams front without its best disruptor, which should help rush efficiency and time to throw for George Kittle. SF DT Alfred Collins Out (knee); SF DT James Thompson Jr. Questionable (hamstring). That thins the interior Kyren and Corum would run at. No SF skill player is listed out, so Kittle, CMC, Deebo Samuel, Mike Evans and Kyle Juszczyk are presumed full. Same-position sleeper lines for DEs/DTs are not in the prop menu and no movement diff is saved.",
+ "matchup": {
+  "shell": "MOFO/MOFC and man/zone rates are not in the pack. Cannot map Puka, Adams, Kittle, Deebo or Evans to a named coverage defender.",
+  "pressure": "No blitz or pressure-rate numbers saved. The only pressure fact is Aaron Donald Out (resting). Less disruption should mean more time for the SF QB, which helps CMC rush efficiency and Kittle's route tree rather than the blitz-checkdown boost.",
+  "bleeds": "No yards-allowed-by-position, explosive, YAC, YPC or stuff-rate charting. Proxy only: LA run game bleeds at a Collins-less (Thompson questionable) interior; SF run game bleeds at a Donald-less front.",
+  "overlap": "CMC, SF's engine, attacks the Donald-less front. That is the overlap. Kittle is the receiving overlap on the same missing rusher, not a charted LB/safety. Kyren would overlap the SF interior injuries, but last4 rush yards 78, 70, 92, 60 split 72.5 and Corum is a real committee, so he is not an edge leg. Puka's 93.5 line has no documented SF secondary weak spot."
+ },
+ "form": "Week 1: zero 2026 games. All logs are 2025 prior season (flagged fallback; team/QB may differ). CMC rush last4 73, 117, 140, 23 vs 57.5 (3 of 4 over; last4 median 95) on a 17-game sample. CMC rec last4 14, 29, 41, 34 all under 53.5. Kittle rec last4 67, 88, 115, 29 vs 67.5 (2 clear, 67 a near miss, 29 a dud; last4 median 77.5) on 11 games. Kyren rush last4 78, 70, 92, 60 vs 72.5 (split; mean 75). Corum rush last4 71, 48, 18, 59 vs 44.5. Puka 181 and 225 are ceiling games next to 47 and 76, not a base. Adams last4 62, 58, 29, 71 vs 57.5. Deebo 43, 35, 68, 20 vs 42.5. Evans 132, 31, 31, 34 vs 33.5, with 132 the fluky one. Juszczyk rush last4 0, 0, 0, 0. Parkinson last4 75, 21, 53, 36 vs 29.5 is form-only, no matchup, so not a leg.",
+ "pro_edge": {
+  "implied_totals": "LA 25.5, SF 22.0, matching (47.5+3.5)/2 and (47.5-3.5)/2 and the PRO-EDGE INPUTS block.",
+  "script_read": "Spread 3.5 is a dog-throws-more lean for SF if they trail, not a blowout flag, so starter snaps should hold in the base. Favorite LA's lead RB carries rise late. Total 47.5 dome favors volume over a weather under. Build usage from role, not raw averages: CMC is the SF rush engine; Kittle is the SF receiving weapon helped by less pressure; Puka is the LA passing alpha but his 93.5 rung already prices the ceiling.",
+  "best_price": "No two-sided price saved on any listed prop. Anchor no-vig N/A. No Pinnacle, Circa or BetOnline number. Cannot show a book that beats fair, and alt no-vig cannot be computed.",
+  "lagging": "No open-to-close spread/total move and no book-vs-consensus prop board saved. No lagging-line flag.",
+  "sleepers": "Aaron Donald Out (DE, resting) and Alfred Collins Out (DT, knee); James Thompson Jr. Questionable (DT, hamstring). No same-position teammate has a prop, and no offensive player is ruled out, so there is no unmoved skill-position sleeper. Fallout is opponent-side: SF skill vs no Donald, LA rush vs a short SF interior. CSV rerun/diff not available."
+ },
+ "edge_players": [
+  {
+   "player": "christianmccaffrey",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "CMC clears 57.5 rushing because Aaron Donald is resting and a 3.5-point dome game still gives him a full carry script, and three of his last four rush lines were 73, 117 and 140.",
+   "must_be_true": "CMC is active with a normal Week 1 snap and carry share (not on the injury report), the game stays within one score so SF does not abandon the run, and the Donald rest day actually shortens the LA front. Prior-season role must still be his 2026 role.",
+   "kills_it": "SF trails by two scores and becomes pass-only (the 23-yard game in the last4), a snap limit that is not in this report, or the rest of the LA front stuffs the run without Donald.",
+   "confidence": "strong",
+   "model_p": 0.63,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pre-game injury report: LA DE Aaron Donald Out, resting. No coverage chart in pack."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Missing interior disruptor fits RB rush efficiency (skill step 3). No 2026 OC/tendency chart; inferred from CMC's 2025 carry role only."
+    },
+    "script": {
+     "ok": true,
+     "source": "LA -3.5, SF implied 22.0, total 47.5. Base and the SF-leads flip keep carries; the blowout-trail flip does not. Script-dependent, not a blowout lock."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "2025 last4 rushyds 73, 117, 140, 23 vs line 57.5; 3 of 4 over; last4 median 95; 17 prior games. Week 1 has no 2026 log."
+    }
+   },
+   "primary_defender": {
+    "who": "LA interior front without Aaron Donald (Out, resting). Backup DT/DE not named in the pack.",
+    "source": "Official injury report in the pack (nflverse), pre-kick. No depth-chart backup listed."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "SF implied 22.0 and a 3.5 spread are not a blowout, so lead-RB carries hold in the base. Donald Out is the sleeper/absence, not a same-position skill sleeper. No saved price, so no best-price edge and the no-vig gate cannot pass. Line is a stand-in, not a shopped number."
+  },
+  {
+   "player": "georgekittle",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Kittle beats 67.5 because Donald resting should give the SF QB more time, and Kittle is the receiving weapon who lives on those intermediate snaps in a 22-point implied game.",
+   "must_be_true": "Kittle plays a full route share (not on the injury report), SF throws enough in a one-score script to support a 67.5 TE line, and the 2025 usage still holds in Week 1 2026.",
+   "kills_it": "The 29-yard dud in the last4 repeats, SF leans so hard on CMC runs that Kittle's routes dry up, or LA takes him away with a shell we cannot see in this pack. A 67-yard game loses by half a yard.",
+   "confidence": "lean",
+   "model_p": 0.56,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "Same Donald Out report. Pressure matchup only; TE coverage defender is not charted."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Less pressure fits a featured TE's receiving yards (skill step 3-4). No man/zone or target-share number in the pack; 2025 last4 is the usage evidence."
+    },
+    "script": {
+     "ok": true,
+     "source": "SF implied 22.0 as a 3.5 dog in a 47.5 dome. Base and the trail flip both keep him live; a pure CMC clock-grind is the miss."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "2025 last4 recyds 67, 88, 115, 29 vs 67.5; last4 median 77.5 above the line, but only 2 of 4 clear it. 11 prior games. Volatile, not a cut."
+    }
+   },
+   "primary_defender": {
+    "who": "Coverage defender not in pack. Pressure piece Aaron Donald is Out (resting), which is the matchup being used.",
+    "source": "Pack injury report. No coverage charting, no SF/LA defensive shell rates."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Dog in a 47.5 dome should keep passing volume up if SF trails, which helps a TE over. No two-sided price, no lagging flag, no offensive sleeper. Donald Out is the only pro-edge support, and it is indirect. Gate vs no-vig cannot be scored."
+  }
+ ],
+ "data_check": {
+  "notes": "No sims, no 3-sim file, no Pinnacle no-vig, no prices at all. edge_scan.py was not run live; PRO-EDGE INPUTS are the scan. Stand-in lines look like prior-season medians, so beating the number is not a proven CLV edge. CMC last4 agrees with rush over (3 of 4; median 95 vs 57.5). Kittle last4 median 77.5 agrees but the hit rate is 2 of 4, so the lean is flagged not sized. Treated any implied 70%+ as untrustworthy; model_p values are discounted last4 stand-ins, not calibrated sims. Prior-season fallback applies to every player. Kyren rush over was considered on the Collins/Thompson interior injuries and dropped as a lean: last4 78, 70, 92, 60 splits 72.5 and Corum's last4 shows a committee. Puka over 93.5 was not taken: 181 and 225 look like ceiling games, and there is no SF secondary overlap. CMC rec under 53.5 agrees with form (14, 29, 41, 34) but one market per player, and the Donald read is the rush side.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Main lines only, no alt rungs, no book, no juice. christianmccaffrey rushyds over 57.5, price not saved. georgekittle recyds over 67.5, price not saved. Anchor no-vig N/A on both. Do not invent a short alt. No stake: nothing is bet.",
+ "pre_mortem": "It's Monday and both lost. SF fell behind, CMC finished near that 23-yard last4 floor, and Kittle's 29-yard game showed up again because the Rams took the TE away with a shell this pack never charted. Or the opposite: SF ground the clock, CMC cleared 57.5, and Kittle stuck on 67 and lost by a half-yard. Donald resting did not matter because the rest of the LA front played its normal snaps. Both legs are the same SF offense in a 22-point implied total, so one stalled drive script kills the slip together. These lines may just be 2025 medians with no real price, so a correct read can still be a pick'em. Thompson playing would have been the counter on a Kyren leg we already refused to pair.",
+ "slip_story": "One story only: competitive dome, SF offense versus a Rams front without Aaron Donald. Stack is CMC rush yards over 57.5 with Kittle receiving yards over 67.5. Do not add a total under, do not add Puka or Adams overs (those need the pass-heavy flip and have no charted SF secondary bleed), and do not add Kyren rush over (opposite late-script, Corum committee, split last4). No TDs, no second market on CMC. Cap is these two. Nothing is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T12:06:11-0500"
+ }
+}

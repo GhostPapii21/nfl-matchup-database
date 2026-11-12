@@ -1,0 +1,2135 @@
+{
+  "season": 2026,
+  "week": 8,
+  "game_id": "401873026",
+  "game": "BAL@BUF",
+  "kickoff_et": "2026-11-01 01:00 PM",
+  "game_date": "2026-11-01",
+  "venue": null,
+  "input_cutoff_et": "2026-11-01T07:30",
+  "skill": "/home/box/agent-data/workflows/nfl-game-script-run/SKILL.md",
+  "seed": 20261101,
+  "trials": 100000,
+  "sim_script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+  "approved_exceptions": [
+    {
+      "input": "coverage.defenders",
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "approved_by": "Rico",
+      "approved_on": "2026-11-01",
+      "valid_for_date": "2026-11-01",
+      "scope": "receiving legs",
+      "reason": "misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only"
+    }
+  ],
+  "sources": [
+    {
+      "category": "core_stats_pbp",
+      "name": "nflverse play_by_play_2026 (thru 2026-10-29)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "tool": "curl (github nflverse release)",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "nflverse snap_counts_2026 + players",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/snap_counts_2026.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "ESPN depth charts API (24 teams)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/espn_depth_all.json",
+      "tool": "python urllib",
+      "pulled_et": "2026-11-01T07:14"
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "ESPN box scores wk1-8 (two-source target check)",
+      "url_or_file": "/workspace/nfl-database/week8/phase_walk/src/espn_box.json",
+      "tool": "earlier urllib pull (Oct 31)",
+      "pulled_et": "2026-10-31T19:19"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "FTN charting via nflverse (blitzers, rushers)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "Sharp Football coverage schemes (man/zone, MOF; data Updated Oct 27)",
+      "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+      "tool": "Firecrawl scrape",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "ESPN WR/CB matchup cheatsheet wk8",
+      "url_or_file": "https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_WRCB.pdf",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:12"
+    },
+    {
+      "category": "ngs",
+      "name": "BACKUP nflverse nextgen_stats release (published copy, data through 2026 Wk8 / 2026-10-29; nextgenstats.nfl.com on hold) - accepted by Ghost6 for 2026-11-01 only",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "film",
+      "name": "Official NFL YouTube highlights (oEmbed-checked) + caption plays re-matched to fresh pbp",
+      "url_or_file": "https://www.youtube.com/@NFL",
+      "tool": "python urllib oEmbed",
+      "pulled_et": "2026-11-01T07:26"
+    },
+    {
+      "category": "injuries_news",
+      "name": "ESPN injuries API",
+      "url_or_file": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+      "tool": "curl",
+      "pulled_et": "2026-11-01T07:09"
+    },
+    {
+      "category": "weather",
+      "name": "NWS hourly + Open-Meteo",
+      "url_or_file": "https://api.weather.gov ; https://api.open-meteo.com",
+      "tool": "python urllib",
+      "pulled_et": "2026-11-01T07:10"
+    },
+    {
+      "category": "odds_props",
+      "name": "The Odds API: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks, Underdog player props",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_final.csv",
+      "tool": "python urllib (The Odds API)",
+      "pulled_et": "2026-11-01T07:30"
+    },
+    {
+      "category": "odds_props",
+      "name": "The Odds API: FanDuel/DK/Pinnacle spreads+totals",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_final.json",
+      "tool": "python urllib (The Odds API)",
+      "pulled_et": "2026-11-01T07:30"
+    }
+  ],
+  "flagged_gaps": [
+    {
+      "category": "coverage_matchups",
+      "item": "PFR advanced defense live pull",
+      "status": "MISSING (HTTP 403, not routed around)",
+      "backup": "PFR cache pfr_def_adv_2026.html 2026-10-29 06:02 under Rico exception"
+    },
+    {
+      "category": "coverage_matchups",
+      "item": "Sharp pressure page / SumerSports",
+      "status": "ON HOLD (Ghost6)",
+      "backup": "pressure PROXY (sack|hit|scramble)/dropbacks from nflverse pbp"
+    },
+    {
+      "category": "ngs",
+      "item": "nextgenstats.nfl.com public pages",
+      "status": "ON HOLD (Ghost6)",
+      "backup": "nflverse nextgen_stats release parquet (labelled BACKUP)"
+    },
+    {
+      "category": "coverage_matchups",
+      "item": "PFF per-defender/props",
+      "status": "NOT PULLED (logged-out preview only; needs signed-in box browser, read-only)",
+      "backup": "none used as numbers"
+    },
+    {
+      "category": "core_stats_pbp",
+      "item": "nflverse pbp_participation_2026",
+      "status": "MISSING (HTTP 404 not published; corrupt 9-byte file kept out)",
+      "backup": "ESPN WR/CB cheatsheet alignment + ESPN depth"
+    }
+  ],
+  "pressure_inputs": {
+    "blitz_rate": {
+      "value": {
+        "BAL": 0.312,
+        "BUF": 0.355
+      },
+      "definition": "defense FTN n_pass_rushers>=5 / charted dropbacks, season",
+      "l4": {
+        "BAL": 0.2689655172413793,
+        "BUF": 0.3693181818181818
+      },
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet + play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "FTN charting"
+    },
+    "pressure_rate": {
+      "value": {
+        "BAL": 0.255,
+        "BUF": 0.198
+      },
+      "definition": "defense (sack|qb_hit|scramble)/dropbacks",
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "PROXY"
+    },
+    "checkdown_share": {
+      "value": {
+        "BAL": 0.302,
+        "BUF": 0.304
+      },
+      "definition": "QB attempts with air_yards<=0 or RB target / attempts",
+      "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-01T07:09",
+      "label": "nflverse pbp"
+    }
+  },
+  "sims": [
+    {
+      "model": "monte_carlo",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Lamar Jackson Pass Yds Under 237.5": {
+          "p": 0.6655,
+          "median": 206.26
+        },
+        "Derrick Henry Rush Yds Under 78.5": {
+          "p": 0.5851,
+          "median": 72.47
+        },
+        "Derrick Henry Rush+Rec Yds Under 89.5": {
+          "p": 0.5977,
+          "median": 81.88
+        },
+        "Zay Flowers Rec Yds Over 82.5": {
+          "p": 0.5955,
+          "median": 93.71
+        },
+        "Zay Flowers Receptions Over 6.5": {
+          "p": 0.566,
+          "median": 7.0
+        },
+        "Rashod Bateman Rec Yds Over 23.5": {
+          "p": 0.5504,
+          "median": 26.52
+        },
+        "Rashod Bateman Receptions Under 2.5": {
+          "p": 0.581,
+          "median": 2.0
+        },
+        "Mark Andrews Rec Yds Over 27.5": {
+          "p": 0.5679,
+          "median": 30.08
+        },
+        "Mark Andrews Receptions Under 3.5": {
+          "p": 0.5786,
+          "median": 3.0
+        },
+        "Josh Allen Pass Yds Under 247.5": {
+          "p": 0.6032,
+          "median": 227.66
+        },
+        "James Cook Rush Yds Under 82.5": {
+          "p": 0.4957,
+          "median": 82.53
+        },
+        "James Cook Rush+Rec Yds Under 96.5": {
+          "p": 0.5645,
+          "median": 91.0
+        },
+        "DJ Moore Rec Yds Over 49.5": {
+          "p": 0.3022,
+          "median": 24.47
+        },
+        "DJ Moore Receptions Under 4.5": {
+          "p": 0.7805,
+          "median": 2.0
+        },
+        "Khalil Shakir Rec Yds Under 41.5": {
+          "p": 0.5067,
+          "median": 40.77
+        },
+        "Khalil Shakir Receptions Under 3.5": {
+          "p": 0.465,
+          "median": 4.0
+        },
+        "Keon Coleman Rec Yds Over 29.5": {
+          "p": 0.6794,
+          "median": 43.8
+        },
+        "Keon Coleman Receptions Over 2.5": {
+          "p": 0.6344,
+          "median": 3.0
+        },
+        "Dalton Kincaid Rec Yds Under 46.5": {
+          "p": 0.6411,
+          "median": 34.52
+        },
+        "Dalton Kincaid Receptions Under 3.5": {
+          "p": 0.5464,
+          "median": 3.0
+        }
+      }
+    },
+    {
+      "model": "bias",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Lamar Jackson Pass Yds Under 237.5": {
+          "p": 0.8186,
+          "median": 174.18
+        },
+        "Derrick Henry Rush Yds Under 78.5": {
+          "p": 0.7147,
+          "median": 63.48
+        },
+        "Derrick Henry Rush+Rec Yds Under 89.5": {
+          "p": 0.7343,
+          "median": 71.25
+        },
+        "Zay Flowers Rec Yds Over 82.5": {
+          "p": 0.472,
+          "median": 79.33
+        },
+        "Zay Flowers Receptions Over 6.5": {
+          "p": 0.4494,
+          "median": 6.0
+        },
+        "Rashod Bateman Rec Yds Over 23.5": {
+          "p": 0.4721,
+          "median": 21.72
+        },
+        "Rashod Bateman Receptions Under 2.5": {
+          "p": 0.6379,
+          "median": 2.0
+        },
+        "Mark Andrews Rec Yds Over 27.5": {
+          "p": 0.4404,
+          "median": 25.0
+        },
+        "Mark Andrews Receptions Under 3.5": {
+          "p": 0.6593,
+          "median": 3.0
+        },
+        "Josh Allen Pass Yds Under 247.5": {
+          "p": 0.7849,
+          "median": 192.63
+        },
+        "James Cook Rush Yds Under 82.5": {
+          "p": 0.6381,
+          "median": 71.42
+        },
+        "James Cook Rush+Rec Yds Under 96.5": {
+          "p": 0.7038,
+          "median": 78.82
+        },
+        "DJ Moore Rec Yds Over 49.5": {
+          "p": 0.2479,
+          "median": 17.88
+        },
+        "DJ Moore Receptions Under 4.5": {
+          "p": 0.8118,
+          "median": 2.0
+        },
+        "Khalil Shakir Rec Yds Under 41.5": {
+          "p": 0.5879,
+          "median": 33.76
+        },
+        "Khalil Shakir Receptions Under 3.5": {
+          "p": 0.5522,
+          "median": 3.0
+        },
+        "Keon Coleman Rec Yds Over 29.5": {
+          "p": 0.5957,
+          "median": 36.18
+        },
+        "Keon Coleman Receptions Over 2.5": {
+          "p": 0.5564,
+          "median": 3.0
+        },
+        "Dalton Kincaid Rec Yds Under 46.5": {
+          "p": 0.7173,
+          "median": 28.11
+        },
+        "Dalton Kincaid Receptions Under 3.5": {
+          "p": 0.6191,
+          "median": 3.0
+        }
+      }
+    },
+    {
+      "model": "game_randomness",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+      "legs": {
+        "Lamar Jackson Pass Yds Under 237.5": {
+          "p": 0.6464,
+          "median": 205.38
+        },
+        "Derrick Henry Rush Yds Under 78.5": {
+          "p": 0.5876,
+          "median": 71.53
+        },
+        "Derrick Henry Rush+Rec Yds Under 89.5": {
+          "p": 0.5983,
+          "median": 81.04
+        },
+        "Zay Flowers Rec Yds Over 82.5": {
+          "p": 0.5802,
+          "median": 92.79
+        },
+        "Zay Flowers Receptions Over 6.5": {
+          "p": 0.5417,
+          "median": 7.0
+        },
+        "Rashod Bateman Rec Yds Over 23.5": {
+          "p": 0.5111,
+          "median": 24.69
+        },
+        "Rashod Bateman Receptions Under 2.5": {
+          "p": 0.606,
+          "median": 2.0
+        },
+        "Mark Andrews Rec Yds Over 27.5": {
+          "p": 0.5271,
+          "median": 28.82
+        },
+        "Mark Andrews Receptions Under 3.5": {
+          "p": 0.5988,
+          "median": 3.0
+        },
+        "Josh Allen Pass Yds Under 247.5": {
+          "p": 0.607,
+          "median": 225.81
+        },
+        "James Cook Rush Yds Under 82.5": {
+          "p": 0.5147,
+          "median": 80.9
+        },
+        "James Cook Rush+Rec Yds Under 96.5": {
+          "p": 0.5765,
+          "median": 89.14
+        },
+        "DJ Moore Rec Yds Over 49.5": {
+          "p": 0.3007,
+          "median": 18.83
+        },
+        "DJ Moore Receptions Under 4.5": {
+          "p": 0.767,
+          "median": 2.0
+        },
+        "Khalil Shakir Rec Yds Under 41.5": {
+          "p": 0.5156,
+          "median": 39.72
+        },
+        "Khalil Shakir Receptions Under 3.5": {
+          "p": 0.4884,
+          "median": 4.0
+        },
+        "Keon Coleman Rec Yds Over 29.5": {
+          "p": 0.6378,
+          "median": 41.89
+        },
+        "Keon Coleman Receptions Over 2.5": {
+          "p": 0.5836,
+          "median": 3.0
+        },
+        "Dalton Kincaid Rec Yds Under 46.5": {
+          "p": 0.6508,
+          "median": 32.88
+        },
+        "Dalton Kincaid Receptions Under 3.5": {
+          "p": 0.5674,
+          "median": 3.0
+        }
+      }
+    }
+  ],
+  "legs": [
+    {
+      "name": "Lamar Jackson Pass Yds Under 237.5",
+      "player": "Lamar Jackson",
+      "team": "BAL",
+      "opp": "BUF",
+      "type": "QB",
+      "market": "passyds",
+      "receiving": false,
+      "side": "under",
+      "line": 237.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 237.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "draftkings": {
+        "point": 238.5,
+        "over": -113,
+        "under": -111,
+        "nv_over": 0.5021058838394474,
+        "nv_under": 0.4978941161605526,
+        "overround": 1.056582782635783
+      },
+      "prizepicks_lines": [
+        238.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: starter by dropbacks last game: False; proj 31.8 pa; MC mean 212.2",
+        "P3 FAIL: under vs top-8 pass yds allowed (rank 2)",
+        "P14 UNVERIFIED: MODEL-SUSPECT: MC median 206.3 vs FD main 237.5 / book consensus 237.8 (>=12 yds) -> Debugging"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Christian Benford",
+            "team": "BUF",
+            "pos": "CB",
+            "targets": 20.0,
+            "completions": 12.0,
+            "comp_pct": 60.0,
+            "yds": 147.0,
+            "ypt": 7.4,
+            "rating": 116.0,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          },
+          {
+            "name": "Davison Igbinosun",
+            "team": "BUF",
+            "pos": "CB",
+            "targets": 16.0,
+            "completions": 9.0,
+            "comp_pct": 56.3,
+            "yds": 130.0,
+            "ypt": 8.1,
+            "rating": 103.6,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          },
+          {
+            "name": "Dee Alford",
+            "team": "BUF",
+            "pos": "CB",
+            "targets": 20.0,
+            "completions": 11.0,
+            "comp_pct": 55.0,
+            "yds": 175.0,
+            "ypt": 8.8,
+            "rating": 80.2,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 16.8% / zone 74.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 45.8% / open 49.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.656,
+      "edge_mc_gr": 0.156,
+      "shrunk_mc_gr": 0.1092,
+      "recent_form": {
+        "values": [],
+        "games": [],
+        "qb": "Tyler Huntley",
+        "qb_gsis": "00-0035993",
+        "player_gsis": "00-0034796",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Derrick Henry Rush Yds Under 78.5",
+      "player": "Derrick Henry",
+      "team": "BAL",
+      "opp": "BUF",
+      "type": "RB",
+      "market": "rushyds",
+      "receiving": false,
+      "side": "under",
+      "line": 78.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 78.5,
+        "over": -115,
+        "under": -110,
+        "nv_over": 0.5052301255230125,
+        "nv_under": 0.4947698744769875,
+        "overround": 1.0586932447397563
+      },
+      "draftkings": {
+        "point": 77.5,
+        "over": -111,
+        "under": -113,
+        "nv_over": 0.4978941161605526,
+        "nv_under": 0.5021058838394474,
+        "overround": 1.056582782635783
+      },
+      "prizepicks_lines": [
+        78.5
+      ],
+      "underdog_lines": [
+        79.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: under on primary star (Ghost6 rule) - BAL RB1 (148 car); cut 2026-11-01 07:34 ET"
+      ],
+      "avg_p_mc_gr": 0.5863,
+      "edge_mc_gr": 0.0863,
+      "shrunk_mc_gr": 0.0604,
+      "recent_form": {
+        "values": [
+          102.0,
+          58.0,
+          45.0
+        ],
+        "games": [
+          "2026_05_BAL_ATL",
+          "2026_06_BAL_CLE",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Tyler Huntley",
+        "qb_gsis": "00-0035993",
+        "player_gsis": "00-0032764",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Derrick Henry Rush+Rec Yds Under 89.5",
+      "player": "Derrick Henry",
+      "team": "BAL",
+      "opp": "BUF",
+      "type": "RB",
+      "market": "rushrec",
+      "receiving": true,
+      "side": "under",
+      "line": 89.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": null,
+      "draftkings": {
+        "point": 89.5,
+        "over": -112,
+        "under": -114,
+        "nv_over": 0.4979225527671597,
+        "nv_under": 0.5020774472328402,
+        "overround": 1.0610121671662847
+      },
+      "prizepicks_lines": [
+        89.5
+      ],
+      "underdog_lines": [
+        89.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 16.8% / zone 74.9%, MOF closed 45.8% / open 49.2%; awaiting ruling",
+        "P13 FAIL: underdog leg BLOCKED (10G)"
+      ],
+      "avg_p_mc_gr": 0.598,
+      "edge_mc_gr": 0.098,
+      "shrunk_mc_gr": 0.0686,
+      "recent_form": {
+        "values": [
+          120.0,
+          60.0,
+          49.0
+        ],
+        "games": [
+          "2026_05_BAL_ATL",
+          "2026_06_BAL_CLE",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Tyler Huntley",
+        "qb_gsis": "00-0035993",
+        "player_gsis": "00-0032764",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Zay Flowers Rec Yds Over 82.5",
+      "player": "Zay Flowers",
+      "team": "BAL",
+      "opp": "BUF",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "over",
+      "line": 82.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 85.5,
+        "over": -115,
+        "under": -109,
+        "nv_over": 0.5063197809142617,
+        "nv_under": 0.4936802190857384,
+        "overround": 1.0564148214087012
+      },
+      "draftkings": {
+        "point": 86.5,
+        "over": -110,
+        "under": -114,
+        "nv_over": 0.495787700084246,
+        "nv_under": 0.5042122999157539,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        85.5
+      ],
+      "underdog_lines": [],
+      "bar": "UD20 o49.5; FD 7-leg 60+; $51.50 SGP 50+ (brief-only)",
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P5 FAIL: top-10 blitz D and player blitzed share drops >4 pts",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+        "P14 FAIL: placed-ticket bar: UD20 o49.5; FD 7-leg 60+; $51.50 SGP 50+ (brief-only); a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Dee Alford",
+            "team": "BUF",
+            "pos": "CB",
+            "targets": 20.0,
+            "completions": 11.0,
+            "comp_pct": 55.0,
+            "yds": 175.0,
+            "ypt": 8.8,
+            "rating": 80.2,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 16.8% / zone 74.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 45.8% / open 49.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.5878,
+      "edge_mc_gr": 0.0878,
+      "shrunk_mc_gr": 0.0615,
+      "recent_form": {
+        "values": [
+          53.0,
+          66.0,
+          137.0
+        ],
+        "games": [
+          "2026_05_BAL_ATL",
+          "2026_06_BAL_CLE",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Tyler Huntley",
+        "qb_gsis": "00-0035993",
+        "player_gsis": "00-0039064",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Zay Flowers Receptions Over 6.5",
+      "player": "Zay Flowers",
+      "team": "BAL",
+      "opp": "BUF",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "over",
+      "line": 6.5,
+      "price_fd": 120,
+      "no_vig": 0.4248,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 6.5,
+        "over": 114,
+        "under": -143,
+        "nv_over": 0.44260682670940954,
+        "nv_under": 0.5573931732905906,
+        "overround": 1.0557670858813122
+      },
+      "draftkings": {
+        "point": 6.5,
+        "over": 113,
+        "under": -144,
+        "nv_over": 0.44305636257989545,
+        "nv_under": 0.5569436374201047,
+        "overround": 1.0596475025013468
+      },
+      "prizepicks_lines": [
+        6.0
+      ],
+      "underdog_lines": [],
+      "bar": "PP25 o6; Ticket 2 5+",
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P5 FAIL: top-10 blitz D and player blitzed share drops >4 pts",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+        "P14 FAIL: placed-ticket bar: PP25 o6; Ticket 2 5+; model p 0.449 < .45; a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Dee Alford",
+            "team": "BUF",
+            "pos": "CB",
+            "targets": 20.0,
+            "completions": 11.0,
+            "comp_pct": 55.0,
+            "yds": 175.0,
+            "ypt": 8.8,
+            "rating": 80.2,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 16.8% / zone 74.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 45.8% / open 49.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.5538,
+      "edge_mc_gr": 0.129,
+      "shrunk_mc_gr": 0.1129,
+      "recent_form": {
+        "values": [
+          8.0,
+          6.0,
+          8.0
+        ],
+        "games": [
+          "2026_05_BAL_ATL",
+          "2026_06_BAL_CLE",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Tyler Huntley",
+        "qb_gsis": "00-0035993",
+        "player_gsis": "00-0039064",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Rashod Bateman Rec Yds Over 23.5",
+      "player": "Rashod Bateman",
+      "team": "BAL",
+      "opp": "BUF",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "over",
+      "line": 23.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 23.5,
+        "over": -118,
+        "under": -106,
+        "nv_over": 0.5126539564703898,
+        "nv_under": 0.4873460435296103,
+        "overround": 1.0558475104658411
+      },
+      "draftkings": {
+        "point": 25.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "prizepicks_lines": [
+        25.5
+      ],
+      "underdog_lines": [
+        24.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: not top-2 target earner (#4); not 4+ tgt in each of last 3",
+        "P7 FAIL: snap share <60% in last 2",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+        "P14 FAIL: edge +1.1 < +3; a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Davison Igbinosun",
+            "team": "BUF",
+            "pos": "CB",
+            "targets": 16.0,
+            "completions": 9.0,
+            "comp_pct": 56.3,
+            "yds": 130.0,
+            "ypt": 8.1,
+            "rating": 103.6,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 16.8% / zone 74.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 45.8% / open 49.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.5308,
+      "edge_mc_gr": 0.0308,
+      "shrunk_mc_gr": 0.0215,
+      "recent_form": {
+        "values": [
+          62.0,
+          0.0,
+          33.0
+        ],
+        "games": [
+          "2026_05_BAL_ATL",
+          "2026_06_BAL_CLE",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Tyler Huntley",
+        "qb_gsis": "00-0035993",
+        "player_gsis": "00-0036550",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Rashod Bateman Receptions Under 2.5",
+      "player": "Rashod Bateman",
+      "team": "BAL",
+      "opp": "BUF",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 2.5,
+      "price_fd": -174,
+      "no_vig": 0.5936,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 2.5,
+        "over": 131,
+        "under": -165,
+        "nv_over": 0.4101214888183858,
+        "nv_under": 0.589878511181614,
+        "overround": 1.0555419423343952
+      },
+      "draftkings": {
+        "point": 2.5,
+        "over": 129,
+        "under": -165,
+        "nv_over": 0.412226802520028,
+        "nv_under": 0.587773197479972,
+        "overround": 1.0593227321413858
+      },
+      "prizepicks_lines": [
+        2.0
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: edge +1.5 < +3; shrunk edge -1.8 not > 0"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Davison Igbinosun",
+            "team": "BUF",
+            "pos": "CB",
+            "targets": 16.0,
+            "completions": 9.0,
+            "comp_pct": 56.3,
+            "yds": 130.0,
+            "ypt": 8.1,
+            "rating": 103.6,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 16.8% / zone 74.9%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 45.8% / open 49.2%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.5935,
+      "edge_mc_gr": -0.0001,
+      "shrunk_mc_gr": -0.0282,
+      "recent_form": {
+        "values": [
+          5.0,
+          0.0,
+          2.0
+        ],
+        "games": [
+          "2026_05_BAL_ATL",
+          "2026_06_BAL_CLE",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Tyler Huntley",
+        "qb_gsis": "00-0035993",
+        "player_gsis": "00-0036550",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Mark Andrews Rec Yds Over 27.5",
+      "player": "Mark Andrews",
+      "team": "BAL",
+      "opp": "BUF",
+      "type": "TE",
+      "market": "recyds",
+      "receiving": true,
+      "side": "over",
+      "line": 27.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 27.5,
+        "over": -115,
+        "under": -109,
+        "nv_over": 0.5063197809142617,
+        "nv_under": 0.4936802190857384,
+        "overround": 1.0564148214087012
+      },
+      "draftkings": {
+        "point": 28.5,
+        "over": -109,
+        "under": -115,
+        "nv_over": 0.4936802190857384,
+        "nv_under": 0.5063197809142617,
+        "overround": 1.0564148214087012
+      },
+      "prizepicks_lines": [
+        27.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: not 4+ tgt in each of last 3",
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 16.8% / zone 74.9%, MOF closed 45.8% / open 49.2%; no stand-in allowed",
+        "P7 FAIL: snap share <60% in last 2",
+        "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+        "P14 FAIL: edge +1.2 < +3; model p 0.440 < .45; a model median does not clear the line"
+      ],
+      "avg_p_mc_gr": 0.5475,
+      "edge_mc_gr": 0.0475,
+      "shrunk_mc_gr": 0.0333,
+      "recent_form": {
+        "values": [
+          28.0,
+          4.0,
+          23.0
+        ],
+        "games": [
+          "2026_05_BAL_ATL",
+          "2026_06_BAL_CLE",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Tyler Huntley",
+        "qb_gsis": "00-0035993",
+        "player_gsis": "00-0034753",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Mark Andrews Receptions Under 3.5",
+      "player": "Mark Andrews",
+      "team": "BAL",
+      "opp": "BUF",
+      "type": "TE",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 3.5,
+      "price_fd": -154,
+      "no_vig": 0.567,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 3.5,
+        "over": 101,
+        "under": -127,
+        "nv_over": 0.4706906919360524,
+        "nv_under": 0.5293093080639476,
+        "overround": 1.0569838034497119
+      },
+      "draftkings": {
+        "point": 3.5,
+        "over": 114,
+        "under": -146,
+        "nv_over": 0.44051285724518296,
+        "nv_under": 0.5594871427548169,
+        "overround": 1.0607856545855179
+      },
+      "prizepicks_lines": [],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P3 FAIL: under vs soft TE D (YPT>=8.0)",
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 16.8% / zone 74.9%, MOF closed 45.8% / open 49.2%; no stand-in allowed"
+      ],
+      "avg_p_mc_gr": 0.5887,
+      "edge_mc_gr": 0.0217,
+      "shrunk_mc_gr": -0.0049,
+      "recent_form": {
+        "values": [
+          4.0,
+          1.0,
+          3.0
+        ],
+        "games": [
+          "2026_05_BAL_ATL",
+          "2026_06_BAL_CLE",
+          "2026_07_CIN_BAL"
+        ],
+        "qb": "Tyler Huntley",
+        "qb_gsis": "00-0035993",
+        "player_gsis": "00-0034753",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Josh Allen Pass Yds Under 247.5",
+      "player": "Josh Allen",
+      "team": "BUF",
+      "opp": "BAL",
+      "type": "QB",
+      "market": "passyds",
+      "receiving": false,
+      "side": "under",
+      "line": 247.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 247.5,
+        "over": -121,
+        "under": -103,
+        "nv_over": 0.51901703080759,
+        "nv_under": 0.4809829691924101,
+        "overround": 1.054900474778771
+      },
+      "draftkings": {
+        "point": 248.5,
+        "over": -111,
+        "under": -113,
+        "nv_over": 0.4978941161605526,
+        "nv_under": 0.5021058838394474,
+        "overround": 1.056582782635783
+      },
+      "prizepicks_lines": [
+        247.5
+      ],
+      "underdog_lines": [
+        249.5
+      ],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P14 UNVERIFIED: MODEL-SUSPECT: MC median 227.7 vs FD main 247.5 / book consensus 247.8 (>=12 yds) -> Debugging"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Nate Wiggins",
+            "team": "BAL",
+            "pos": "CB",
+            "targets": 22.0,
+            "completions": 12.0,
+            "comp_pct": 54.5,
+            "yds": 94.0,
+            "ypt": 4.3,
+            "rating": 65.3,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          },
+          {
+            "name": "Marlon Humphrey",
+            "team": "BAL",
+            "pos": "CB",
+            "targets": 23.0,
+            "completions": 15.0,
+            "comp_pct": 65.2,
+            "yds": 215.0,
+            "ypt": 9.3,
+            "rating": 109.9,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          },
+          {
+            "name": "Kyle Hamilton",
+            "team": "BAL",
+            "pos": "S",
+            "targets": 18.0,
+            "completions": 11.0,
+            "comp_pct": 61.1,
+            "yds": 152.0,
+            "ypt": 8.4,
+            "rating": 65.0,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 15.9% / zone 78.6%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 36.4% / open 61.4%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.6051,
+      "edge_mc_gr": 0.1051,
+      "shrunk_mc_gr": 0.0736,
+      "recent_form": {
+        "values": [
+          204.0,
+          253.0,
+          210.0,
+          255.0
+        ],
+        "games": [
+          "2026_03_LAC_BUF",
+          "2026_04_NE_BUF",
+          "2026_05_BUF_LA",
+          "2026_06_BUF_LV"
+        ],
+        "qb": "Josh Allen",
+        "qb_gsis": "00-0034857",
+        "player_gsis": "00-0034857",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "James Cook Rush Yds Under 82.5",
+      "player": "James Cook",
+      "team": "BUF",
+      "opp": "BAL",
+      "type": "RB",
+      "market": "rushyds",
+      "receiving": false,
+      "side": "under",
+      "line": 82.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 82.5,
+        "over": -112,
+        "under": -112,
+        "nv_over": 0.5,
+        "nv_under": 0.5,
+        "overround": 1.0566037735849056
+      },
+      "draftkings": {
+        "point": 85.5,
+        "over": -110,
+        "under": -114,
+        "nv_over": 0.495787700084246,
+        "nv_under": 0.5042122999157539,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        83.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": "placed ticket on a different stat: Ticket 2 Cook 70+ rush+rec",
+      "explicit": null,
+      "cut_reasons": [
+        "P14 FAIL: a model median does not clear the line"
+      ],
+      "avg_p_mc_gr": 0.5052,
+      "edge_mc_gr": 0.0052,
+      "shrunk_mc_gr": 0.0036,
+      "recent_form": {
+        "values": [
+          154.0,
+          75.0,
+          111.0,
+          95.0
+        ],
+        "games": [
+          "2026_03_LAC_BUF",
+          "2026_04_NE_BUF",
+          "2026_05_BUF_LA",
+          "2026_06_BUF_LV"
+        ],
+        "qb": "Josh Allen",
+        "qb_gsis": "00-0034857",
+        "player_gsis": "00-0037248",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "James Cook Rush+Rec Yds Under 96.5",
+      "player": "James Cook",
+      "team": "BUF",
+      "opp": "BAL",
+      "type": "RB",
+      "market": "rushrec",
+      "receiving": true,
+      "side": "under",
+      "line": 96.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": null,
+      "draftkings": {
+        "point": 99.5,
+        "over": -114,
+        "under": -111,
+        "nv_over": 0.5031375502008032,
+        "nv_under": 0.4968624497991968,
+        "overround": 1.0587766310847322
+      },
+      "prizepicks_lines": [
+        99.5
+      ],
+      "underdog_lines": [
+        99.5
+      ],
+      "bar": "Ticket 2 Cook 70+ rush+rec",
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 15.9% / zone 78.6%, MOF closed 36.4% / open 61.4%; awaiting ruling",
+        "P14 FAIL: placed-ticket bar: Ticket 2 Cook 70+ rush+rec"
+      ],
+      "avg_p_mc_gr": 0.5705,
+      "edge_mc_gr": 0.0705,
+      "shrunk_mc_gr": 0.0494,
+      "recent_form": {
+        "values": [
+          154.0,
+          83.0,
+          118.0,
+          153.0
+        ],
+        "games": [
+          "2026_03_LAC_BUF",
+          "2026_04_NE_BUF",
+          "2026_05_BUF_LA",
+          "2026_06_BUF_LV"
+        ],
+        "qb": "Josh Allen",
+        "qb_gsis": "00-0034857",
+        "player_gsis": "00-0037248",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "DJ Moore Rec Yds Over 49.5",
+      "player": "DJ Moore",
+      "team": "BUF",
+      "opp": "BAL",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "over",
+      "line": 49.5,
+      "price_fd": -138,
+      "no_vig": 0.5465,
+      "status": "CUT",
+      "rung": "FD alt 49.5 (one rung below main 53.5): player Questionable (Phase 8 lower rung)",
+      "injury_status": "Questionable",
+      "pinnacle": {
+        "point": 53.5,
+        "over": -123,
+        "under": -102,
+        "nv_over": 0.5220625315179022,
+        "nv_under": 0.47793746848209784,
+        "overround": 1.0565200017759624
+      },
+      "draftkings": {
+        "point": 52.5,
+        "over": -113,
+        "under": -111,
+        "nv_over": 0.5021058838394474,
+        "nv_under": 0.4978941161605526,
+        "overround": 1.056582782635783
+      },
+      "prizepicks_lines": [
+        52.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": {
+        "line": 53.5,
+        "note": "BetGuru defender-regrade leg (run_additions item 1)"
+      },
+      "cut_reasons": [
+        "P2 FAIL: not top-2 target earner (#10); not 4+ tgt in each of last 3; proj yds 39.7 < 49.5",
+        "P7 UNVERIFIED: offense snap% last2 [] (snap rows missing); 2025 (CHI): target rank 2, share 14.7%, 54+ yds in 35% of 17 games; 2026 share 11.7%",
+        "P14 FAIL: edge -26.3 < +3; shrunk edge -19.8 not > 0; model p 0.248 < .45; a model median does not clear the line; MODEL-SUSPECT: MC median 24.5 vs FD main 53.5 / book consensus 53.2 (>=12 yds) -> Debugging"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Marlon Humphrey",
+            "team": "BAL",
+            "pos": "CB",
+            "targets": 23.0,
+            "completions": 15.0,
+            "comp_pct": 65.2,
+            "yds": 215.0,
+            "ypt": 9.3,
+            "rating": 109.9,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 15.9% / zone 78.6%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 36.4% / open 61.4%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.3014,
+      "edge_mc_gr": -0.245,
+      "shrunk_mc_gr": -0.1855,
+      "recent_form": {
+        "values": [
+          100.0,
+          0.0,
+          67.0,
+          11.0
+        ],
+        "games": [
+          "2026_01_BUF_HOU",
+          "2026_02_DET_BUF",
+          "2026_03_LAC_BUF",
+          "2026_04_NE_BUF"
+        ],
+        "qb": "Josh Allen",
+        "qb_gsis": "00-0034857",
+        "player_gsis": "00-0034827",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "DJ Moore Receptions Under 4.5",
+      "player": "DJ Moore",
+      "team": "BUF",
+      "opp": "BAL",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 4.5,
+      "price_fd": -174,
+      "no_vig": 0.5936,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Questionable",
+      "pinnacle": {
+        "point": 4.5,
+        "over": 114,
+        "under": -144,
+        "nv_over": 0.4419008982903506,
+        "nv_under": 0.5580991017096494,
+        "overround": 1.0574536540523978
+      },
+      "draftkings": {
+        "point": 4.5,
+        "over": 114,
+        "under": -145,
+        "nv_over": 0.4412029533585449,
+        "nv_under": 0.558797046641455,
+        "overround": 1.0591264543200458
+      },
+      "prizepicks_lines": [
+        4.0
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P3 FAIL: under vs soft WR D (YPT>=9.0)",
+        "P7 UNVERIFIED: offense snap% last2 [] (snap rows missing); 2025 (CHI): target rank 2, share 14.7%, 54+ yds in 35% of 17 games; 2026 share 11.7%",
+        "P14 UNVERIFIED: MODEL-SUSPECT: edge +19.3 pts > +15 implausible vs market (FD 4.5, consensus 4.5; possible role change the history-based sim cannot see) -> Debugging"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Marlon Humphrey",
+            "team": "BAL",
+            "pos": "CB",
+            "targets": 23.0,
+            "completions": 15.0,
+            "comp_pct": 65.2,
+            "yds": 215.0,
+            "ypt": 9.3,
+            "rating": 109.9,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 15.9% / zone 78.6%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 36.4% / open 61.4%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.7737,
+      "edge_mc_gr": 0.1801,
+      "shrunk_mc_gr": 0.098,
+      "recent_form": {
+        "values": [
+          5.0,
+          0.0,
+          6.0,
+          1.0
+        ],
+        "games": [
+          "2026_01_BUF_HOU",
+          "2026_02_DET_BUF",
+          "2026_03_LAC_BUF",
+          "2026_04_NE_BUF"
+        ],
+        "qb": "Josh Allen",
+        "qb_gsis": "00-0034857",
+        "player_gsis": "00-0034827",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Khalil Shakir Rec Yds Under 41.5",
+      "player": "Khalil Shakir",
+      "team": "BUF",
+      "opp": "BAL",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "under",
+      "line": 41.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 41.5,
+        "over": -115,
+        "under": -109,
+        "nv_over": 0.5063197809142617,
+        "nv_under": 0.4936802190857384,
+        "overround": 1.0564148214087012
+      },
+      "draftkings": {
+        "point": 41.5,
+        "over": -115,
+        "under": -109,
+        "nv_over": 0.5063197809142617,
+        "nv_under": 0.4936802190857384,
+        "overround": 1.0564148214087012
+      },
+      "prizepicks_lines": [
+        41.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P3 FAIL: under vs soft WR D (YPT>=9.0)",
+        "P4 UNVERIFIED: defender sample 3 tgt < 8: too thin to grade"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Keyon Martin",
+            "team": "BAL",
+            "pos": "CB",
+            "targets": 3.0,
+            "completions": 3.0,
+            "comp_pct": 100.0,
+            "yds": 23.0,
+            "ypt": 7.7,
+            "rating": 138.2,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 15.9% / zone 78.6%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 36.4% / open 61.4%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.5111,
+      "edge_mc_gr": 0.0111,
+      "shrunk_mc_gr": 0.0078,
+      "recent_form": {
+        "values": [
+          6.0,
+          82.0,
+          80.0,
+          34.0
+        ],
+        "games": [
+          "2026_03_LAC_BUF",
+          "2026_04_NE_BUF",
+          "2026_05_BUF_LA",
+          "2026_06_BUF_LV"
+        ],
+        "qb": "Josh Allen",
+        "qb_gsis": "00-0034857",
+        "player_gsis": "00-0037261",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Khalil Shakir Receptions Under 3.5",
+      "player": "Khalil Shakir",
+      "team": "BUF",
+      "opp": "BAL",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 3.5,
+      "price_fd": 116,
+      "no_vig": 0.433,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 3.5,
+        "over": -143,
+        "under": 113,
+        "nv_over": 0.5562373308497234,
+        "nv_under": 0.4437626691502767,
+        "overround": 1.0579609343302614
+      },
+      "draftkings": {
+        "point": 3.5,
+        "over": -141,
+        "under": 111,
+        "nv_over": 0.5524688492321405,
+        "nv_under": 0.44753115076785943,
+        "overround": 1.058995889953
+      },
+      "prizepicks_lines": [
+        4.0
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P3 FAIL: under vs soft WR D (YPT>=9.0)",
+        "P4 UNVERIFIED: defender sample 3 tgt < 8: too thin to grade",
+        "P14 FAIL: a model median does not clear the line"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Keyon Martin",
+            "team": "BAL",
+            "pos": "CB",
+            "targets": 3.0,
+            "completions": 3.0,
+            "comp_pct": 100.0,
+            "yds": 23.0,
+            "ypt": 7.7,
+            "rating": 138.2,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 15.9% / zone 78.6%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 36.4% / open 61.4%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.4767,
+      "edge_mc_gr": 0.0437,
+      "shrunk_mc_gr": 0.0507,
+      "recent_form": {
+        "values": [
+          1.0,
+          7.0,
+          3.0,
+          4.0
+        ],
+        "games": [
+          "2026_03_LAC_BUF",
+          "2026_04_NE_BUF",
+          "2026_05_BUF_LA",
+          "2026_06_BUF_LV"
+        ],
+        "qb": "Josh Allen",
+        "qb_gsis": "00-0034857",
+        "player_gsis": "00-0037261",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Keon Coleman Rec Yds Over 29.5",
+      "player": "Keon Coleman",
+      "team": "BUF",
+      "opp": "BAL",
+      "type": "WR",
+      "market": "recyds",
+      "receiving": true,
+      "side": "over",
+      "line": 29.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 29.5,
+        "over": -116,
+        "under": -108,
+        "nv_over": 0.5084288604180714,
+        "nv_under": 0.4915711395819285,
+        "overround": 1.0562678062678064
+      },
+      "draftkings": {
+        "point": 28.5,
+        "over": -113,
+        "under": -111,
+        "nv_over": 0.5021058838394474,
+        "nv_under": 0.4978941161605526,
+        "overround": 1.056582782635783
+      },
+      "prizepicks_lines": [
+        29.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: not 4+ tgt in each of last 3",
+        "P14 UNVERIFIED: MODEL-SUSPECT: MC median 43.8 vs FD main 29.5 / book consensus 29.2 (>=12 yds) -> Debugging"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Nate Wiggins",
+            "team": "BAL",
+            "pos": "CB",
+            "targets": 22.0,
+            "completions": 12.0,
+            "comp_pct": 54.5,
+            "yds": 94.0,
+            "ypt": 4.3,
+            "rating": 65.3,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 15.9% / zone 78.6%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 36.4% / open 61.4%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.6586,
+      "edge_mc_gr": 0.1586,
+      "shrunk_mc_gr": 0.111,
+      "recent_form": {
+        "values": [
+          37.0,
+          116.0,
+          7.0,
+          59.0
+        ],
+        "games": [
+          "2026_03_LAC_BUF",
+          "2026_04_NE_BUF",
+          "2026_05_BUF_LA",
+          "2026_06_BUF_LV"
+        ],
+        "qb": "Josh Allen",
+        "qb_gsis": "00-0034857",
+        "player_gsis": "00-0039901",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Keon Coleman Receptions Over 2.5",
+      "player": "Keon Coleman",
+      "team": "BUF",
+      "opp": "BAL",
+      "type": "WR",
+      "market": "rec",
+      "receiving": true,
+      "side": "over",
+      "line": 2.5,
+      "price_fd": 118,
+      "no_vig": 0.4283,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Active",
+      "pinnacle": {
+        "point": 2.5,
+        "over": 127,
+        "under": -161,
+        "nv_over": 0.4166201095024502,
+        "nv_under": 0.5833798904975498,
+        "overround": 1.0573868719091262
+      },
+      "draftkings": {
+        "point": 2.5,
+        "over": 116,
+        "under": -148,
+        "nv_over": 0.4368658399098084,
+        "nv_under": 0.5631341600901917,
+        "overround": 1.05973715651135
+      },
+      "prizepicks_lines": [],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P2 FAIL: 5+ tgt in <3 of last 4",
+        "P14 UNVERIFIED: MODEL-SUSPECT: edge +16.3 pts > +15 implausible vs market (FD 2.5, consensus 2.5; possible role change the history-based sim cannot see) -> Debugging"
+      ],
+      "coverage": {
+        "defenders": [
+          {
+            "name": "Nate Wiggins",
+            "team": "BAL",
+            "pos": "CB",
+            "targets": 22.0,
+            "completions": 12.0,
+            "comp_pct": 54.5,
+            "yds": 94.0,
+            "ypt": 4.3,
+            "rating": 65.3,
+            "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+            "pulled_et": "2026-10-29T06:02"
+          }
+        ],
+        "man_zone": {
+          "value": "man 15.9% / zone 78.6%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        },
+        "mof": {
+          "value": "MOF closed 36.4% / open 61.4%",
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+          "pulled_et": "2026-11-01T07:09"
+        }
+      },
+      "avg_p_mc_gr": 0.609,
+      "edge_mc_gr": 0.1807,
+      "shrunk_mc_gr": 0.148,
+      "recent_form": {
+        "values": [
+          1.0,
+          6.0,
+          1.0,
+          4.0
+        ],
+        "games": [
+          "2026_03_LAC_BUF",
+          "2026_04_NE_BUF",
+          "2026_05_BUF_LA",
+          "2026_06_BUF_LV"
+        ],
+        "qb": "Josh Allen",
+        "qb_gsis": "00-0034857",
+        "player_gsis": "00-0039901",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Dalton Kincaid Rec Yds Under 46.5",
+      "player": "Dalton Kincaid",
+      "team": "BUF",
+      "opp": "BAL",
+      "type": "TE",
+      "market": "recyds",
+      "receiving": true,
+      "side": "under",
+      "line": 46.5,
+      "price_fd": -113,
+      "no_vig": 0.5,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Questionable",
+      "pinnacle": {
+        "point": 46.5,
+        "over": -105,
+        "under": -120,
+        "nv_over": 0.48427672955974843,
+        "nv_under": 0.5157232704402516,
+        "overround": 1.057649667405765
+      },
+      "draftkings": {
+        "point": 45.5,
+        "over": -114,
+        "under": -110,
+        "nv_over": 0.5042122999157539,
+        "nv_under": 0.495787700084246,
+        "overround": 1.0565198041833557
+      },
+      "prizepicks_lines": [
+        46.5
+      ],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 15.9% / zone 78.6%, MOF closed 36.4% / open 61.4%; no stand-in allowed",
+        "P14 UNVERIFIED: MODEL-SUSPECT: edge +17.0 pts > +15 implausible vs market (FD 46.5, consensus 46.2; possible role change the history-based sim cannot see) -> Debugging"
+      ],
+      "avg_p_mc_gr": 0.646,
+      "edge_mc_gr": 0.146,
+      "shrunk_mc_gr": 0.1022,
+      "recent_form": {
+        "values": [
+          38.0,
+          7.0,
+          7.0,
+          38.0
+        ],
+        "games": [
+          "2026_03_LAC_BUF",
+          "2026_04_NE_BUF",
+          "2026_05_BUF_LA",
+          "2026_06_BUF_LV"
+        ],
+        "qb": "Josh Allen",
+        "qb_gsis": "00-0034857",
+        "player_gsis": "00-0038933",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    },
+    {
+      "name": "Dalton Kincaid Receptions Under 3.5",
+      "player": "Dalton Kincaid",
+      "team": "BUF",
+      "opp": "BAL",
+      "type": "TE",
+      "market": "rec",
+      "receiving": true,
+      "side": "under",
+      "line": 3.5,
+      "price_fd": -102,
+      "no_vig": 0.4718,
+      "status": "CUT",
+      "rung": "FD main",
+      "injury_status": "Questionable",
+      "pinnacle": {
+        "point": 3.5,
+        "over": -126,
+        "under": 100,
+        "nv_over": 0.5271966527196653,
+        "nv_under": 0.47280334728033474,
+        "overround": 1.0575221238938053
+      },
+      "draftkings": {
+        "point": 3.5,
+        "over": -133,
+        "under": 104,
+        "nv_over": 0.5379917512690355,
+        "nv_under": 0.4620082487309644,
+        "overround": 1.0610115290751494
+      },
+      "prizepicks_lines": [],
+      "underdog_lines": [],
+      "bar": null,
+      "stack_flag": null,
+      "explicit": null,
+      "cut_reasons": [
+        "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 15.9% / zone 78.6%, MOF closed 36.4% / open 61.4%; no stand-in allowed"
+      ],
+      "avg_p_mc_gr": 0.5569,
+      "edge_mc_gr": 0.0851,
+      "shrunk_mc_gr": 0.068,
+      "recent_form": {
+        "values": [
+          2.0,
+          1.0,
+          1.0,
+          7.0
+        ],
+        "games": [
+          "2026_03_LAC_BUF",
+          "2026_04_NE_BUF",
+          "2026_05_BUF_LA",
+          "2026_06_BUF_LV"
+        ],
+        "qb": "Josh Allen",
+        "qb_gsis": "00-0034857",
+        "player_gsis": "00-0038933",
+        "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+        "pulled_et": "2026-11-01T07:09",
+        "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+      }
+    }
+  ],
+  "edge_decision": "avg(monte_carlo, game_randomness); bias recorded, excluded from edge pending BUGLOG fix",
+  "cross_checks": [
+    {
+      "category": "odds_props",
+      "name": "PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source)",
+      "url_or_file": "/workspace/nfl-database/week8/lines/pff_props_2026-11-01.csv",
+      "pulled_et": "2026-11-01T07:34",
+      "tool": "computerUse browser",
+      "note": "parent gave 07:40; file mtime is 07:34 ET and the gate rejects future stamps, so the file mtime is used",
+      "use": "pick-side cross-check only (moved out of gated sources per Ghost6, BUG-2026-11-01-FORM)"
+    }
+  ]
+}

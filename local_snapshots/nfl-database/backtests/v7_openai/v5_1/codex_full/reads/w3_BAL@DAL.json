@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 BAL@DAL / kickoff not saved / spread and total not saved; implied totals, moneyline and movement unavailable / weather not saved. Script inferred only from supplied two-game form, not market expectations. Venue conditions, rest and travel not supplied.",
+ "script": {
+  "base": "Baltimore's rushing matchup offers a path to controlling possession and establishing a second-half lead through Derrick Henry. Dallas struggles to establish Javonte Williams against Baltimore's run defense and increasingly relies on its passing game; pace and halftime leadership remain uncertain.",
+  "flip1": "Dallas leads early through its passing game, forcing Baltimore toward more passing and reducing Henry's carries. Williams benefits from additional clock-management opportunities, threatening both proposed legs.",
+  "flip2": "The game stays competitive through passing explosives against Baltimore, which has allowed seven completions of 20-plus yards on 70 attempts. Henry can retain his rushing workload, while Williams' rushing under survives only if Dallas continues favoring its passing attack."
+ },
+ "injury_fallout": "MISSING: BAL and DAL injury reports, practice participation, offensive-line availability, defensive absences, return restrictions and final inactives. No absences, replacements or snap limits are inferred from usage. Recheck both proposed legs against final injury reports and approximately 90-minute inactives; those checkpoints are unavailable in this backtest pack. Source: supplied pre-kickoff pack covering Weeks 1\u20132; exact publication timestamps not supplied.",
+ "matchup": {
+  "shell": "MISSING: BAL and DAL MOFO/MOFC rates, man/zone rates and individual coverage assignments. Baltimore's middle-field allowance of 9.28 yards per attempt cannot establish a coverage shell or a specific receiver matchup.",
+  "pressure": "DAL blitzes 27%; BAL's quarterback EPA/dropback is 0.22 against blitzes over 25 dropbacks versus 0.28 without a blitz. BAL blitzes 32%; DAL's corresponding EPA is 0.19 over 23 blitzed dropbacks versus 0.48 without a blitz. Blitzing appears more disruptive to Dallas in this sample, but actual pressure rates, sacks and line health are missing.",
+  "bleeds": "DAL allows 5.33 rushing yards per carry and eight runs of 10-plus yards, supporting Baltimore's rushing hypothesis. BAL allows 3.62 rushing yards per carry but has conceded six runs of 10-plus yards. Baltimore's passing vulnerability is more apparent through the middle at 9.28 yards per attempt and seven passes of 20-plus yards allowed on 70 attempts.",
+  "overlap": "Henry's 40 carries for 212 yards directly overlap Dallas' rushing weakness. Williams' 24 carries for 71 yards meet a Baltimore defense allowing 3.62 yards per carry, favoring his rushing under rather than an under on combined rushing and receiving yards. Source: supplied Weeks 1\u20132 offense and defense summaries."
+ },
+ "form": "Only two games are supplied, despite the table's L3 labels; no third or fourth game is inferred. Henry has 40 carries for 212 yards, compared with Hill's eight carries for 24 yards and Jackson's eight for 77. Williams has 24 carries for 71 yards, plus nine receiving targets for 51 yards; Demercado has five carries for 15 yards. Lamb leads Dallas with 17 targets and 197 receiving yards, providing a plausible alternative to inefficient rushing. Snaps, routes, game-by-game splits, red-zone work, coaching changes and comparable-opponent results are missing. These usage totals test the matchup hypotheses rather than independently establish the picks.",
+ "edge_players": [
+  {
+   "player": "derrickhenry",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Henry can exceed 92.5 rushing yards because Baltimore's established lead runner faces a Dallas defense allowing 5.33 yards per carry and eight runs of at least 10 yards.",
+   "must_be_true": "derrickhenry carries >= 18 [because the pack records 40 carries across Baltimore's two supplied games]",
+   "kills_it": "IF Dallas establishes an early multi-score lead and Baltimore substantially reduces Henry's rushing workload THEN derrickhenry rushyds over 92.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "javontewilliams",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Williams can stay below 56.5 rushing yards because his inefficient rushing meets Baltimore's stronger run defense, with a Baltimore-led script limiting Dallas' rushing opportunities.",
+   "must_be_true": "javontewilliams carries <= 14 [because the pack records 24 carries across Dallas' two supplied games]",
+   "kills_it": "IF Dallas controls the game and Williams receives enough additional carries to reach 57 rushing yards THEN javontewilliams rushyds under 56.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The supplied numbers support both written matchup reads, but do not establish a priced betting edge. Henry's observed efficiency is 212/40 = 5.30 yards per carry; an illustrative 18 carries at that rate produces 95.4 yards, only slightly above 92.5. Williams' observed efficiency is 71/24 = 2.96; an illustrative 14 carries at Baltimore's allowed 3.62 produces 50.7 yards. These are sensitivity checks, not projections or simulations. Henry over -114.5 requires approximately 53.38% to break even; Williams under -114 requires approximately 53.27%. Normalizing the supplied two-sided prices gives approximately 50.00% for Henry's over and 50.10% for Williams' under, but the source is not identified as Pinnacle and these are market baselines, not model probabilities. Both legs survive a competitive, pass-oriented flip conditionally; both are vulnerable to an early Dallas lead.",
+  "disagrees": "none",
+  "missing": "Calibrated projection, simulation distribution and median, Pinnacle prices, independently estimated hit probabilities, game-level carry distributions, injury information, weather, coverage charting and exact source timestamps.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional lean singles: derrickhenry rushyds over 92.5 at -114.5; javontewilliams rushyds under 56.5 at -114. Main lines only, one market per player. No alternate-rung pricing supplied. Numerical value remains unverified; no stake recommendation or bet placement.",
+ "pre_mortem": "The strongest opposing case is that Dallas exploits Baltimore's seven allowed passing explosives and leads early. Henry then loses rushing opportunities while Williams gains them, creating a shared failure scenario. Even without that script flip, Henry's illustrative 18-carry result clears by less than three yards, while Baltimore has allowed six runs of 10-plus yards that could rescue Williams' total. Two-game samples do not resolve either player's workload distribution. These risks keep both selections at lean rather than strong.",
+ "slip_story": "Both leans belong to a Baltimore-controls-the-ground-game story: Henry accumulates rushing work while Dallas moves away from Williams' rushing attempts. Prefer separate evaluation as singles; no 3\u20134-leg main slip is justified from these two edges, and no touchdown or depth-receiver leg is added merely to fill a ticket.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

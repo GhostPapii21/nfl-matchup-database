@@ -1,0 +1,1696 @@
+{
+ "season": 2026,
+ "week": 8,
+ "game_id": "401873034",
+ "game": "NE@MIA",
+ "kickoff_et": "2026-11-01 04:25 PM",
+ "game_date": "2026-11-01",
+ "venue": null,
+ "input_cutoff_et": "2026-11-01T07:30",
+ "skill": "/home/box/agent-data/workflows/nfl-game-script-run/SKILL.md",
+ "seed": 20261101,
+ "trials": 100000,
+ "sim_script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+ "approved_exceptions": [
+  {
+   "input": "coverage.defenders",
+   "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+   "approved_by": "Rico",
+   "approved_on": "2026-11-01",
+   "valid_for_date": "2026-11-01",
+   "scope": "receiving legs",
+   "reason": "misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only"
+  }
+ ],
+ "sources": [
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse play_by_play_2026 (thru 2026-10-29)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "tool": "curl (github nflverse release)",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse snap_counts_2026 + players",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/snap_counts_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN depth charts API (24 teams)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/espn_depth_all.json",
+   "tool": "python urllib",
+   "pulled_et": "2026-11-01T07:14"
+  },
+  {
+   "category": "core_stats_pbp",
+   "name": "ESPN box scores wk1-8 (two-source target check)",
+   "url_or_file": "/workspace/nfl-database/week8/phase_walk/src/espn_box.json",
+   "tool": "earlier urllib pull (Oct 31)",
+   "pulled_et": "2026-10-31T19:19"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "FTN charting via nflverse (blitzers, rushers)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "Sharp Football coverage schemes (man/zone, MOF; data Updated Oct 27)",
+   "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+   "tool": "Firecrawl scrape",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "ESPN WR/CB matchup cheatsheet wk8",
+   "url_or_file": "https://g.espncdn.com/s/ffldraftkit/26/NFL26_CS_WRCB.pdf",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:12"
+  },
+  {
+   "category": "ngs",
+   "name": "BACKUP nflverse nextgen_stats release (published copy, data through 2026 Wk8 / 2026-10-29; nextgenstats.nfl.com on hold) - accepted by Ghost6 for 2026-11-01 only",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T07:09"
+  },
+  {
+   "category": "film",
+   "name": "Official NFL YouTube highlights (oEmbed-checked) + caption plays re-matched to fresh pbp",
+   "url_or_file": "https://www.youtube.com/@NFL",
+   "tool": "python urllib oEmbed",
+   "pulled_et": "2026-11-01T07:26"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks, Underdog player props",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/odds_g1529.csv",
+   "tool": "python urllib (The Odds API) pull_odds.py/pull_lines.py r0847",
+   "pulled_et": "2026-11-01T15:29"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API: FanDuel/DK/Pinnacle spreads+totals",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/lines_g1529.json",
+   "tool": "python urllib (The Odds API) pull_odds.py/pull_lines.py r0847",
+   "pulled_et": "2026-11-01T15:29"
+  },
+  {
+   "category": "weather",
+   "name": "NWS gridpoint forecast (api.weather.gov) kickoff..+3.5h max PoP/wind/gust; Open-Meteo cross-check DEN/MIA",
+   "url_or_file": "/workspace/nfl-database/week8/weather/nws_20261101_1530.json",
+   "tool": "week8/weather/pull_wx_1440.py",
+   "pulled_et": "2026-11-01T15:30"
+  },
+  {
+   "category": "injuries_news",
+   "name": "ESPN injuries API re-pull 15:30 (official 4 PM inactives)",
+   "url_or_file": "/workspace/nfl-database/week8/inactives/espn_inj_20261101_1530.json",
+   "tool": "curl",
+   "pulled_et": "2026-11-01T15:30"
+  },
+  {
+   "category": "injuries_news",
+   "name": "X reporters/beat writers inactives posts via x connector",
+   "url_or_file": "https://x.com/search (x connector search_posts_all)",
+   "pulled_et": "2026-11-01T15:01",
+   "tool": "x connector"
+  }
+ ],
+ "flagged_gaps": [
+  {
+   "category": "coverage_matchups",
+   "item": "PFR advanced defense live pull",
+   "status": "MISSING (HTTP 403, not routed around)",
+   "backup": "PFR cache pfr_def_adv_2026.html 2026-10-29 06:02 under Rico exception"
+  },
+  {
+   "category": "coverage_matchups",
+   "item": "Sharp pressure page / SumerSports",
+   "status": "ON HOLD (Ghost6)",
+   "backup": "pressure PROXY (sack|hit|scramble)/dropbacks from nflverse pbp"
+  },
+  {
+   "category": "ngs",
+   "item": "nextgenstats.nfl.com public pages",
+   "status": "ON HOLD (Ghost6)",
+   "backup": "nflverse nextgen_stats release parquet (labelled BACKUP)"
+  },
+  {
+   "category": "coverage_matchups",
+   "item": "PFF per-defender/props",
+   "status": "NOT PULLED (logged-out preview only; needs signed-in box browser, read-only)",
+   "backup": "none used as numbers"
+  },
+  {
+   "category": "core_stats_pbp",
+   "item": "nflverse pbp_participation_2026",
+   "status": "MISSING (HTTP 404 not published; corrupt 9-byte file kept out)",
+   "backup": "ESPN WR/CB cheatsheet alignment + ESPN depth"
+  }
+ ],
+ "pressure_inputs": {
+  "blitz_rate": {
+   "value": {
+    "NE": 0.39,
+    "MIA": 0.258
+   },
+   "definition": "defense FTN n_pass_rushers>=5 / charted dropbacks, season",
+   "l4": {
+    "NE": 0.3741496598639456,
+    "MIA": 0.19402985074626866
+   },
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/ftn_charting_2026.parquet + play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "FTN charting"
+  },
+  "pressure_rate": {
+   "value": {
+    "NE": 0.207,
+    "MIA": 0.189
+   },
+   "definition": "defense (sack|qb_hit|scramble)/dropbacks",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "PROXY"
+  },
+  "checkdown_share": {
+   "value": {
+    "NE": 0.282,
+    "MIA": 0.32
+   },
+   "definition": "QB attempts with air_yards<=0 or RB target / attempts",
+   "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T07:09",
+   "label": "nflverse pbp"
+  }
+ },
+ "sims": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Drake Maye Pass Yds Over 239.5": {
+     "p": 0.6083,
+     "median": 259.5
+    },
+    "Rhamondre Stevenson Rush Yds Under 58.5": {
+     "p": 0.8075,
+     "median": 36.52
+    },
+    "Rhamondre Stevenson Rush+Rec Yds Under 87.5": {
+     "p": 0.7928,
+     "median": 59.4
+    },
+    "DeMario Douglas Rec Yds Under 40.5": {
+     "p": 0.5178,
+     "median": 38.4
+    },
+    "DeMario Douglas Receptions Under 3.5": {
+     "p": 0.4928,
+     "median": 4.0
+    },
+    "Hunter Henry Rec Yds Under 45.5": {
+     "p": 0.5166,
+     "median": 44.44
+    },
+    "Hunter Henry Receptions Under 4.5": {
+     "p": 0.5436,
+     "median": 4.0
+    },
+    "Eli Raridon Rec Yds Under 27.5": {
+     "p": 0.5338,
+     "median": 24.89
+    },
+    "Eli Raridon Receptions Under 2.5": {
+     "p": 0.5145,
+     "median": 2.0
+    },
+    "Malik Willis Pass Yds Under 185.5": {
+     "p": 0.6708,
+     "median": 153.51
+    },
+    "Ollie Gordon II Rush Yds Under 64.5": {
+     "p": 0.5836,
+     "median": 55.31
+    },
+    "Ollie Gordon II Rush+Rec Yds Under 78.5": {
+     "p": 0.6141,
+     "median": 63.76
+    },
+    "Malik Washington Rec Yds Over 41.5": {
+     "p": 0.5665,
+     "median": 46.32
+    },
+    "Malik Washington Receptions Under 4.5": {
+     "p": 0.6067,
+     "median": 4.0
+    },
+    "Greg Dulcich Rec Yds Over 29.5": {
+     "p": 0.585,
+     "median": 35.43
+    },
+    "Greg Dulcich Receptions Over 3.5": {
+     "p": 0.529,
+     "median": 4.0
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Drake Maye Pass Yds Over 239.5": {
+     "p": 0.3816,
+     "median": 220.11
+    },
+    "Rhamondre Stevenson Rush Yds Under 58.5": {
+     "p": 0.8634,
+     "median": 31.88
+    },
+    "Rhamondre Stevenson Rush+Rec Yds Under 87.5": {
+     "p": 0.8648,
+     "median": 50.76
+    },
+    "DeMario Douglas Rec Yds Under 40.5": {
+     "p": 0.6026,
+     "median": 31.41
+    },
+    "DeMario Douglas Receptions Under 3.5": {
+     "p": 0.5761,
+     "median": 3.0
+    },
+    "Hunter Henry Rec Yds Under 45.5": {
+     "p": 0.6218,
+     "median": 37.72
+    },
+    "Hunter Henry Receptions Under 4.5": {
+     "p": 0.6349,
+     "median": 4.0
+    },
+    "Eli Raridon Rec Yds Under 27.5": {
+     "p": 0.6072,
+     "median": 22.89
+    },
+    "Eli Raridon Receptions Under 2.5": {
+     "p": 0.5873,
+     "median": 2.0
+    },
+    "Malik Willis Pass Yds Under 185.5": {
+     "p": 0.7936,
+     "median": 129.43
+    },
+    "Ollie Gordon II Rush Yds Under 64.5": {
+     "p": 0.6567,
+     "median": 47.54
+    },
+    "Ollie Gordon II Rush+Rec Yds Under 78.5": {
+     "p": 0.6893,
+     "median": 53.89
+    },
+    "Malik Washington Rec Yds Over 41.5": {
+     "p": 0.4579,
+     "median": 37.72
+    },
+    "Malik Washington Receptions Under 4.5": {
+     "p": 0.6866,
+     "median": 3.0
+    },
+    "Greg Dulcich Rec Yds Over 29.5": {
+     "p": 0.4894,
+     "median": 29.45
+    },
+    "Greg Dulcich Receptions Over 3.5": {
+     "p": 0.4413,
+     "median": 3.0
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "/workspace/nfl-database/runs/2026-11-01_shared_src/sim_v5.py",
+   "legs": {
+    "Drake Maye Pass Yds Over 239.5": {
+     "p": 0.6102,
+     "median": 259.5
+    },
+    "Rhamondre Stevenson Rush Yds Under 58.5": {
+     "p": 0.7987,
+     "median": 36.52
+    },
+    "Rhamondre Stevenson Rush+Rec Yds Under 87.5": {
+     "p": 0.7784,
+     "median": 58.24
+    },
+    "DeMario Douglas Rec Yds Under 40.5": {
+     "p": 0.5274,
+     "median": 37.33
+    },
+    "DeMario Douglas Receptions Under 3.5": {
+     "p": 0.5213,
+     "median": 3.0
+    },
+    "Hunter Henry Rec Yds Under 45.5": {
+     "p": 0.5353,
+     "median": 42.55
+    },
+    "Hunter Henry Receptions Under 4.5": {
+     "p": 0.5637,
+     "median": 4.0
+    },
+    "Eli Raridon Rec Yds Under 27.5": {
+     "p": 0.5582,
+     "median": 24.09
+    },
+    "Eli Raridon Receptions Under 2.5": {
+     "p": 0.5497,
+     "median": 2.0
+    },
+    "Malik Willis Pass Yds Under 185.5": {
+     "p": 0.6745,
+     "median": 153.51
+    },
+    "Ollie Gordon II Rush Yds Under 64.5": {
+     "p": 0.5854,
+     "median": 54.43
+    },
+    "Ollie Gordon II Rush+Rec Yds Under 78.5": {
+     "p": 0.6165,
+     "median": 62.34
+    },
+    "Malik Washington Rec Yds Over 41.5": {
+     "p": 0.5445,
+     "median": 45.22
+    },
+    "Malik Washington Receptions Under 4.5": {
+     "p": 0.6119,
+     "median": 4.0
+    },
+    "Greg Dulcich Rec Yds Over 29.5": {
+     "p": 0.5488,
+     "median": 33.66
+    },
+    "Greg Dulcich Receptions Over 3.5": {
+     "p": 0.4903,
+     "median": 3.0
+    }
+   }
+  }
+ ],
+ "legs": [
+  {
+   "name": "Drake Maye Pass Yds Over 239.5",
+   "player": "Drake Maye",
+   "team": "NE",
+   "opp": "MIA",
+   "type": "QB",
+   "market": "passyds",
+   "receiving": false,
+   "side": "over",
+   "line": 239.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 239.5,
+    "over": -114,
+    "under": -116,
+    "nv_over": 0.49797767351561234,
+    "nv_under": 0.5020223264843877,
+    "overround": 1.0697473174108687
+   },
+   "draftkings": {
+    "point": 237.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    238.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: model p 0.382 < .45; a model median does not clear the line; MODEL-SUSPECT: MC median 259.5 vs FD main 239.5 / book consensus 238.8 (>=12 yds) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Chris Johnson",
+      "team": "MIA",
+      "pos": "CB",
+      "targets": 19.0,
+      "completions": 13.0,
+      "comp_pct": 68.4,
+      "yds": 151.0,
+      "ypt": 7.9,
+      "rating": 131.8,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 18.1% / zone 73.4%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 42.1% / open 51.1%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.6092,
+   "edge_mc_gr": 0.1092,
+   "shrunk_mc_gr": 0.0765,
+   "recent_form": {
+    "values": [
+     269.0,
+     374.0,
+     235.0,
+     321.0
+    ],
+    "games": [
+     "2026_04_NE_BUF",
+     "2026_05_LV_NE",
+     "2026_06_NYJ_NE",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "Drake Maye",
+    "qb_gsis": "00-0039851",
+    "player_gsis": "00-0039851",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Rhamondre Stevenson Rush Yds Under 58.5",
+   "player": "Rhamondre Stevenson",
+   "team": "NE",
+   "opp": "MIA",
+   "type": "RB",
+   "market": "rushyds",
+   "receiving": false,
+   "side": "under",
+   "line": 58.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 60.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    59.5
+   ],
+   "underdog_lines": [
+    59.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P13 FAIL: 6.5+ favorite rush under vs clock-killing script",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 36.5 vs FD main 58.5 / book consensus 59.5 (>=12 yds) -> Debugging"
+   ],
+   "avg_p_mc_gr": 0.8031,
+   "edge_mc_gr": 0.3031,
+   "shrunk_mc_gr": 0.2122,
+   "recent_form": {
+    "values": [
+     47.0,
+     64.0,
+     36.0,
+     22.0
+    ],
+    "games": [
+     "2026_04_NE_BUF",
+     "2026_05_LV_NE",
+     "2026_06_NYJ_NE",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "Drake Maye",
+    "qb_gsis": "00-0039851",
+    "player_gsis": "00-0036875",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Rhamondre Stevenson Rush+Rec Yds Under 87.5",
+   "player": "Rhamondre Stevenson",
+   "team": "NE",
+   "opp": "MIA",
+   "type": "RB",
+   "market": "rushrec",
+   "receiving": true,
+   "side": "under",
+   "line": 87.5,
+   "price_fd": -115,
+   "no_vig": 0.5042,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 88.5,
+    "over": -111,
+    "under": -115,
+    "nv_over": 0.4958445875753168,
+    "nv_under": 0.5041554124246831,
+    "overround": 1.060950071641133
+   },
+   "prizepicks_lines": [
+    88.5
+   ],
+   "underdog_lines": [
+    89.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 18.1% / zone 73.4%, MOF closed 42.1% / open 51.1%; awaiting ruling",
+    "P13 FAIL: 6.5+ favorite rush under vs clock-killing script",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 59.4 vs FD main 87.5 / book consensus 88.0 (>=12 yds) -> Debugging"
+   ],
+   "avg_p_mc_gr": 0.7856,
+   "edge_mc_gr": 0.2814,
+   "shrunk_mc_gr": 0.1957,
+   "recent_form": {
+    "values": [
+     74.0,
+     85.0,
+     36.0,
+     115.0
+    ],
+    "games": [
+     "2026_04_NE_BUF",
+     "2026_05_LV_NE",
+     "2026_06_NYJ_NE",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "Drake Maye",
+    "qb_gsis": "00-0039851",
+    "player_gsis": "00-0036875",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "DeMario Douglas Rec Yds Under 40.5",
+   "player": "DeMario Douglas",
+   "team": "NE",
+   "opp": "MIA",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 40.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 39.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "draftkings": {
+    "point": 39.5,
+    "over": -110,
+    "under": -114,
+    "nv_over": 0.495787700084246,
+    "nv_under": 0.5042122999157539,
+    "overround": 1.0565198041833557
+   },
+   "prizepicks_lines": [
+    39.5
+   ],
+   "underdog_lines": [
+    39.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 MISSING: defender not in PFR cache"
+   ],
+   "avg_p_mc_gr": 0.5226,
+   "edge_mc_gr": 0.0226,
+   "shrunk_mc_gr": 0.0158,
+   "recent_form": {
+    "values": [
+     15.0,
+     65.0,
+     86.0,
+     23.0
+    ],
+    "games": [
+     "2026_04_NE_BUF",
+     "2026_05_LV_NE",
+     "2026_06_NYJ_NE",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "Drake Maye",
+    "qb_gsis": "00-0039851",
+    "player_gsis": "00-0038621",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "DeMario Douglas Receptions Under 3.5",
+   "player": "DeMario Douglas",
+   "team": "NE",
+   "opp": "MIA",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 3.5,
+   "price_fd": -122,
+   "no_vig": 0.5142,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 3.5,
+    "over": 102,
+    "under": -128,
+    "nv_over": 0.46859585662610986,
+    "nv_under": 0.5314041433738902,
+    "overround": 1.0564530137224248
+   },
+   "draftkings": {
+    "point": 3.5,
+    "over": -107,
+    "under": -119,
+    "nv_over": 0.487517163899638,
+    "nv_under": 0.512482836100362,
+    "overround": 1.0602872079941763
+   },
+   "prizepicks_lines": [
+    3.5
+   ],
+   "underdog_lines": [
+    3.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 MISSING: defender not in PFR cache",
+    "P14 FAIL: edge +1.6 < +3; a model median does not clear the line"
+   ],
+   "avg_p_mc_gr": 0.5071,
+   "edge_mc_gr": -0.0071,
+   "shrunk_mc_gr": -0.0093,
+   "recent_form": {
+    "values": [
+     2.0,
+     4.0,
+     7.0,
+     3.0
+    ],
+    "games": [
+     "2026_04_NE_BUF",
+     "2026_05_LV_NE",
+     "2026_06_NYJ_NE",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "Drake Maye",
+    "qb_gsis": "00-0039851",
+    "player_gsis": "00-0038621",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Hunter Henry Rec Yds Under 45.5",
+   "player": "Hunter Henry",
+   "team": "NE",
+   "opp": "MIA",
+   "type": "TE",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 45.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 44.5,
+    "over": -118,
+    "under": -106,
+    "nv_over": 0.5126539564703898,
+    "nv_under": 0.4873460435296103,
+    "overround": 1.0558475104658411
+   },
+   "draftkings": {
+    "point": 45.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    45.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P3 FAIL: under vs soft TE D (YPT>=8.0)",
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 18.1% / zone 73.4%, MOF closed 42.1% / open 51.1%; no stand-in allowed"
+   ],
+   "avg_p_mc_gr": 0.5259,
+   "edge_mc_gr": 0.0259,
+   "shrunk_mc_gr": 0.0182,
+   "recent_form": {
+    "values": [
+     62.0,
+     44.0,
+     48.0,
+     71.0
+    ],
+    "games": [
+     "2026_04_NE_BUF",
+     "2026_05_LV_NE",
+     "2026_06_NYJ_NE",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "Drake Maye",
+    "qb_gsis": "00-0039851",
+    "player_gsis": "00-0033090",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Hunter Henry Receptions Under 4.5",
+   "player": "Hunter Henry",
+   "team": "NE",
+   "opp": "MIA",
+   "type": "TE",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 4.5,
+   "price_fd": -160,
+   "no_vig": 0.5752,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 4.5,
+    "over": 113,
+    "under": -142,
+    "nv_over": 0.4444770965727509,
+    "nv_under": 0.555522903427249,
+    "overround": 1.0562604275792498
+   },
+   "draftkings": {
+    "point": 4.5,
+    "over": 105,
+    "under": -134,
+    "nv_over": 0.4599960684096717,
+    "nv_under": 0.5400039315903282,
+    "overround": 1.060454450698353
+   },
+   "prizepicks_lines": [
+    4.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P3 FAIL: under vs soft TE D (YPT>=8.0)",
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 18.1% / zone 73.4%, MOF closed 42.1% / open 51.1%; no stand-in allowed",
+    "P14 FAIL: edge +0.6 < +3; shrunk edge -1.9 not > 0"
+   ],
+   "avg_p_mc_gr": 0.5536,
+   "edge_mc_gr": -0.0216,
+   "shrunk_mc_gr": -0.0376,
+   "recent_form": {
+    "values": [
+     5.0,
+     3.0,
+     4.0,
+     7.0
+    ],
+    "games": [
+     "2026_04_NE_BUF",
+     "2026_05_LV_NE",
+     "2026_06_NYJ_NE",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "Drake Maye",
+    "qb_gsis": "00-0039851",
+    "player_gsis": "00-0033090",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Eli Raridon Rec Yds Under 27.5",
+   "player": "Eli Raridon",
+   "team": "NE",
+   "opp": "MIA",
+   "type": "TE",
+   "market": "recyds",
+   "receiving": true,
+   "side": "under",
+   "line": 27.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 27.5,
+    "over": -114,
+    "under": -114,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0654205607476634
+   },
+   "draftkings": {
+    "point": 25.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    25.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P3 FAIL: under vs soft TE D (YPT>=8.0)",
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 18.1% / zone 73.4%, MOF closed 42.1% / open 51.1%; no stand-in allowed"
+   ],
+   "avg_p_mc_gr": 0.546,
+   "edge_mc_gr": 0.046,
+   "shrunk_mc_gr": 0.0322,
+   "recent_form": {
+    "values": [
+     12.0,
+     57.0,
+     11.0,
+     56.0
+    ],
+    "games": [
+     "2026_04_NE_BUF",
+     "2026_05_LV_NE",
+     "2026_06_NYJ_NE",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "Drake Maye",
+    "qb_gsis": "00-0039851",
+    "player_gsis": "00-0041395",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Eli Raridon Receptions Under 2.5",
+   "player": "Eli Raridon",
+   "team": "NE",
+   "opp": "MIA",
+   "type": "TE",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 2.5,
+   "price_fd": -122,
+   "no_vig": 0.5142,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 2.5,
+    "over": 106,
+    "under": -133,
+    "nv_over": 0.4595842045051087,
+    "nv_under": 0.5404157954948913,
+    "overround": 1.0562523438476603
+   },
+   "draftkings": {
+    "point": 2.5,
+    "over": -107,
+    "under": -119,
+    "nv_over": 0.487517163899638,
+    "nv_under": 0.512482836100362,
+    "overround": 1.0602872079941763
+   },
+   "prizepicks_lines": [
+    2.5
+   ],
+   "underdog_lines": [
+    2.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P3 FAIL: under vs soft TE D (YPT>=8.0)",
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 18.1% / zone 73.4%, MOF closed 42.1% / open 51.1%; no stand-in allowed"
+   ],
+   "avg_p_mc_gr": 0.5321,
+   "edge_mc_gr": 0.0179,
+   "shrunk_mc_gr": 0.0083,
+   "recent_form": {
+    "values": [
+     1.0,
+     5.0,
+     1.0,
+     3.0
+    ],
+    "games": [
+     "2026_04_NE_BUF",
+     "2026_05_LV_NE",
+     "2026_06_NYJ_NE",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "Drake Maye",
+    "qb_gsis": "00-0039851",
+    "player_gsis": "00-0041395",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Malik Willis Pass Yds Under 185.5",
+   "player": "Malik Willis",
+   "team": "MIA",
+   "opp": "NE",
+   "type": "QB",
+   "market": "passyds",
+   "receiving": false,
+   "side": "under",
+   "line": 185.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 185.5,
+    "over": -110,
+    "under": -114,
+    "nv_over": 0.495787700084246,
+    "nv_under": 0.5042122999157539,
+    "overround": 1.0565198041833557
+   },
+   "draftkings": {
+    "point": 181.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    185.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P13 FAIL: trailing-team passing/receiving under BLOCKED",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 153.5 vs FD main 185.5 / book consensus 184.2 (>=12 yds) -> Debugging"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Christian Gonzalez",
+      "team": "NWE",
+      "pos": "CB",
+      "targets": 18.0,
+      "completions": 8.0,
+      "comp_pct": 44.4,
+      "yds": 43.0,
+      "ypt": 2.4,
+      "rating": 51.6,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     },
+     {
+      "name": "Marcus Jones",
+      "team": "NWE",
+      "pos": "CB",
+      "targets": 20.0,
+      "completions": 11.0,
+      "comp_pct": 55.0,
+      "yds": 125.0,
+      "ypt": 6.3,
+      "rating": 69.8,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 30.8% / zone 63.8%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 51.0% / open 45.4%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.6726,
+   "edge_mc_gr": 0.1726,
+   "shrunk_mc_gr": 0.1209,
+   "recent_form": {
+    "values": [
+     210.0,
+     85.0,
+     137.0,
+     208.0
+    ],
+    "games": [
+     "2026_03_KC_MIA",
+     "2026_04_MIA_MIN",
+     "2026_05_CIN_MIA",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Malik Willis",
+    "qb_gsis": "00-0038128",
+    "player_gsis": "00-0038128",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Ollie Gordon II Rush Yds Under 64.5",
+   "player": "Ollie Gordon II",
+   "team": "MIA",
+   "opp": "NE",
+   "type": "RB",
+   "market": "rushyds",
+   "receiving": false,
+   "side": "under",
+   "line": 64.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 60.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "draftkings": {
+    "point": 63.5,
+    "over": -115,
+    "under": -110,
+    "nv_over": 0.5052301255230125,
+    "nv_under": 0.4947698744769875,
+    "overround": 1.0586932447397563
+   },
+   "prizepicks_lines": [
+    62.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P14 FAIL: under on primary star (Ghost6 rule) - MIA RB1 (72 car); cut 2026-11-01 07:34 ET"
+   ],
+   "avg_p_mc_gr": 0.5845,
+   "edge_mc_gr": 0.0845,
+   "shrunk_mc_gr": 0.0592,
+   "recent_form": {
+    "values": [
+     41.0,
+     100.0,
+     88.0,
+     103.0
+    ],
+    "games": [
+     "2026_03_KC_MIA",
+     "2026_04_MIA_MIN",
+     "2026_05_CIN_MIA",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Malik Willis",
+    "qb_gsis": "00-0038128",
+    "player_gsis": "00-0040198",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Ollie Gordon II Rush+Rec Yds Under 78.5",
+   "player": "Ollie Gordon II",
+   "team": "MIA",
+   "opp": "NE",
+   "type": "RB",
+   "market": "rushrec",
+   "receiving": true,
+   "side": "under",
+   "line": 78.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": null,
+   "draftkings": {
+    "point": 77.5,
+    "over": -113,
+    "under": -113,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0610328638497653
+   },
+   "prizepicks_lines": [
+    77.5
+   ],
+   "underdog_lines": [
+    79.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P4 UNVERIFIED: RB receiving defender mapping: no LB/S alignment source; man 30.8% / zone 63.8%, MOF closed 51.0% / open 45.4%; awaiting ruling",
+    "P13 FAIL: trailing-team passing/receiving under BLOCKED; underdog leg BLOCKED (10G)",
+    "P14 UNVERIFIED: MODEL-SUSPECT: MC median 63.8 vs FD main 78.5 / book consensus 78.0 (>=12 yds) -> Debugging"
+   ],
+   "avg_p_mc_gr": 0.6153,
+   "edge_mc_gr": 0.1153,
+   "shrunk_mc_gr": 0.0807,
+   "recent_form": {
+    "values": [
+     55.0,
+     100.0,
+     88.0,
+     103.0
+    ],
+    "games": [
+     "2026_03_KC_MIA",
+     "2026_04_MIA_MIN",
+     "2026_05_CIN_MIA",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Malik Willis",
+    "qb_gsis": "00-0038128",
+    "player_gsis": "00-0040198",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Malik Washington Rec Yds Over 41.5",
+   "player": "Malik Washington",
+   "team": "MIA",
+   "opp": "NE",
+   "type": "WR",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 41.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 41.5,
+    "over": -111,
+    "under": -113,
+    "nv_over": 0.4978941161605526,
+    "nv_under": 0.5021058838394474,
+    "overround": 1.056582782635783
+   },
+   "draftkings": {
+    "point": 40.5,
+    "over": -113,
+    "under": -111,
+    "nv_over": 0.5021058838394474,
+    "nv_under": 0.4978941161605526,
+    "overround": 1.056582782635783
+   },
+   "prizepicks_lines": [
+    41.5
+   ],
+   "underdog_lines": [
+    39.5
+   ],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P2 FAIL: not 4+ tgt in each of last 3",
+    "P5 UNVERIFIED: Panthers rule CAUTION: user decides",
+    "P6 FAIL: vs-blitz D/F vs 35%+ blitz D; clutch D/F: no trailing-script overs",
+    "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+    "P14 FAIL: edge +2.3 < +3; a model median does not clear the line"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Marcus Jones",
+      "team": "NWE",
+      "pos": "CB",
+      "targets": 20.0,
+      "completions": 11.0,
+      "comp_pct": 55.0,
+      "yds": 125.0,
+      "ypt": 6.3,
+      "rating": 69.8,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 30.8% / zone 63.8%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 51.0% / open 45.4%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.5555,
+   "edge_mc_gr": 0.0555,
+   "shrunk_mc_gr": 0.0389,
+   "recent_form": {
+    "values": [
+     56.0,
+     67.0,
+     43.0,
+     27.0
+    ],
+    "games": [
+     "2026_03_KC_MIA",
+     "2026_04_MIA_MIN",
+     "2026_05_CIN_MIA",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Malik Willis",
+    "qb_gsis": "00-0038128",
+    "player_gsis": "00-0039880",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Malik Washington Receptions Under 4.5",
+   "player": "Malik Washington",
+   "team": "MIA",
+   "opp": "NE",
+   "type": "WR",
+   "market": "rec",
+   "receiving": true,
+   "side": "under",
+   "line": 4.5,
+   "price_fd": -140,
+   "no_vig": 0.5458,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 4.5,
+    "over": 112,
+    "under": -141,
+    "nv_over": 0.4463624240628241,
+    "nv_under": 0.5536375759371759,
+    "overround": 1.0567603538714476
+   },
+   "draftkings": {
+    "point": 4.5,
+    "over": 110,
+    "under": -140,
+    "nv_over": 0.449438202247191,
+    "nv_under": 0.550561797752809,
+    "overround": 1.0595238095238095
+   },
+   "prizepicks_lines": [
+    4.0
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P13 FAIL: trailing-team passing/receiving under BLOCKED"
+   ],
+   "coverage": {
+    "defenders": [
+     {
+      "name": "Marcus Jones",
+      "team": "NWE",
+      "pos": "CB",
+      "targets": 20.0,
+      "completions": 11.0,
+      "comp_pct": 55.0,
+      "yds": 125.0,
+      "ypt": 6.3,
+      "rating": 69.8,
+      "source": "/workspace/nfl-sim/mnf12/pfr_def_adv_2026.html",
+      "pulled_et": "2026-10-29T06:02"
+     }
+    ],
+    "man_zone": {
+     "value": "man 30.8% / zone 63.8%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    },
+    "mof": {
+     "value": "MOF closed 51.0% / open 45.4%",
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/ (Firecrawl; data Updated Oct 27)",
+     "pulled_et": "2026-11-01T07:09"
+    }
+   },
+   "avg_p_mc_gr": 0.6093,
+   "edge_mc_gr": 0.0635,
+   "shrunk_mc_gr": 0.0307,
+   "recent_form": {
+    "values": [
+     5.0,
+     5.0,
+     6.0,
+     3.0
+    ],
+    "games": [
+     "2026_03_KC_MIA",
+     "2026_04_MIA_MIN",
+     "2026_05_CIN_MIA",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Malik Willis",
+    "qb_gsis": "00-0038128",
+    "player_gsis": "00-0039880",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Greg Dulcich Rec Yds Over 29.5",
+   "player": "Greg Dulcich",
+   "team": "MIA",
+   "opp": "NE",
+   "type": "TE",
+   "market": "recyds",
+   "receiving": true,
+   "side": "over",
+   "line": 29.5,
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 29.5,
+    "over": -112,
+    "under": -112,
+    "nv_over": 0.5,
+    "nv_under": 0.5,
+    "overround": 1.0566037735849056
+   },
+   "draftkings": {
+    "point": 28.5,
+    "over": -109,
+    "under": -115,
+    "nv_over": 0.4936802190857384,
+    "nv_under": 0.5063197809142617,
+    "overround": 1.0564148214087012
+   },
+   "prizepicks_lines": [
+    28.5
+   ],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P2 FAIL: not top-2 target earner (#3)",
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 30.8% / zone 63.8%, MOF closed 51.0% / open 45.4%; no stand-in allowed",
+    "P5 UNVERIFIED: Panthers rule CAUTION: user decides",
+    "P6 FAIL: vs-blitz D/F vs 35%+ blitz D; clutch D/F: no trailing-script overs",
+    "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+    "P14 FAIL: a model median does not clear the line"
+   ],
+   "avg_p_mc_gr": 0.5669,
+   "edge_mc_gr": 0.0669,
+   "shrunk_mc_gr": 0.0468,
+   "recent_form": {
+    "values": [
+     55.0,
+     0.0,
+     37.0,
+     86.0
+    ],
+    "games": [
+     "2026_03_KC_MIA",
+     "2026_04_MIA_MIN",
+     "2026_05_CIN_MIA",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Malik Willis",
+    "qb_gsis": "00-0038128",
+    "player_gsis": "00-0037252",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  },
+  {
+   "name": "Greg Dulcich Receptions Over 3.5",
+   "player": "Greg Dulcich",
+   "team": "MIA",
+   "opp": "NE",
+   "type": "TE",
+   "market": "rec",
+   "receiving": true,
+   "side": "over",
+   "line": 3.5,
+   "price_fd": 116,
+   "no_vig": 0.433,
+   "status": "CUT",
+   "rung": "FD main",
+   "injury_status": "Active",
+   "pinnacle": {
+    "point": 3.5,
+    "over": 121,
+    "under": -152,
+    "nv_over": 0.4286297455436114,
+    "nv_under": 0.5713702544563886,
+    "overround": 1.0556632909574086
+   },
+   "draftkings": {
+    "point": 3.5,
+    "over": 120,
+    "under": -153,
+    "nv_over": 0.4291044776119403,
+    "nv_under": 0.5708955223880597,
+    "overround": 1.059288537549407
+   },
+   "prizepicks_lines": [],
+   "underdog_lines": [],
+   "bar": null,
+   "stack_flag": null,
+   "explicit": null,
+   "cut_reasons": [
+    "P2 FAIL: not top-2 target earner (#3)",
+    "P4 UNVERIFIED: TE defender mapping not ruled (ISS-05); man 30.8% / zone 63.8%, MOF closed 51.0% / open 45.4%; no stand-in allowed",
+    "P5 UNVERIFIED: Panthers rule CAUTION: user decides",
+    "P6 FAIL: clutch D/F: no trailing-script overs",
+    "P13 FAIL: 10G: underdog over BLOCKED (no written trap/elimination exception)",
+    "P14 FAIL: model p 0.441 < .45; a model median does not clear the line"
+   ],
+   "avg_p_mc_gr": 0.5097,
+   "edge_mc_gr": 0.0767,
+   "shrunk_mc_gr": 0.0738,
+   "recent_form": {
+    "values": [
+     5.0,
+     0.0,
+     4.0,
+     5.0
+    ],
+    "games": [
+     "2026_03_KC_MIA",
+     "2026_04_MIA_MIN",
+     "2026_05_CIN_MIA",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Malik Willis",
+    "qb_gsis": "00-0038128",
+    "player_gsis": "00-0037252",
+    "source": "/workspace/nfl-database/runs/2026-11-01_shared_src/play_by_play_2026.parquet (nflverse, thru 2026-10-29) + snap_counts_2026.parquet for activity",
+    "pulled_et": "2026-11-01T07:09",
+    "note": "last 4 games player was active (snaps>0 or pbp involvement) in which current QB (starter of team's latest game, most dropbacks) started"
+   },
+   "game": "NE@MIA"
+  }
+ ],
+ "edge_decision": "avg(monte_carlo, game_randomness); bias recorded, excluded from edge pending BUGLOG fix",
+ "cross_checks": [
+  {
+   "category": "odds_props",
+   "name": "PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source)",
+   "url_or_file": "/workspace/nfl-database/week8/lines/pff_props_2026-11-01.csv",
+   "pulled_et": "2026-11-01T07:34",
+   "tool": "computerUse browser",
+   "note": "parent gave 07:40; file mtime is 07:34 ET and the gate rejects future stamps, so the file mtime is used",
+   "use": "pick-side cross-check only (moved out of gated sources per Ghost6, BUG-2026-11-01-FORM)"
+  }
+ ],
+ "weather": {
+  "NE@MIA": {
+   "roof": "open",
+   "precip_pct": 69,
+   "gust_mph": 24.2,
+   "wind_mph": 13.8,
+   "source": "https://api.weather.gov/gridpoints/MFL/107,58",
+   "nws_update_utc": "2026-11-01T18:31:46+00:00",
+   "pulled_et": "2026-11-01T15:30"
+  }
+ },
+ "placed_legs": [],
+ "superseded_sources": [
+  {
+   "name": "ESPN injuries API",
+   "replaced_by": "espn_inj_20261101_1445.json at 14:43"
+  }
+ ],
+ "game_script_rb": {
+  "NE@MIA": {
+   "fav_team": "NE",
+   "fav_spread": -7.5,
+   "opp_ypc": 4.241,
+   "wx_flag": true,
+   "triggered": true,
+   "source": "FD spread lines_g1529.json; opp RB YPC nflverse pbp thru 2026-10-29; NWS https://api.weather.gov/gridpoints/MFL/107,58",
+   "pulled_et": "2026-11-01T15:30",
+   "lead_rb": "Rhamondre Stevenson",
+   "rb2": "Corey Kiner",
+   "boost": {
+    "lead": 1.0727,
+    "rb2": 1.1099,
+    "source": "tools/rb_script_boost.json"
+   },
+   "lead_projection": {
+    "market": "rushyds",
+    "median": {
+     "mc": 37.88284965337962,
+     "bias": 37.88284965337962,
+     "gr": 38.64887767430474
+    }
+   },
+   "rb2_projection": {
+    "market": "rushyds",
+    "median": {
+     "mc": 21.551382546338935,
+     "bias": 21.551382546338935,
+     "gr": 21.98717243731139
+    }
+   },
+   "model_order": [
+    "rushyds",
+    "rushyds",
+    "recyds",
+    "passyds"
+   ]
+  }
+ },
+ "rb_status": {
+  "NE": {
+   "rb1": "Rhamondre Stevenson",
+   "rb1_status": "Active",
+   "rb2": "TreVeyon Henderson",
+   "rb2_status": "Out",
+   "source": "week8/inactives/espn_inj_20261101_1530.json (ESPN injuries API 15:30) + pbp season RB carries thru 2026-10-29",
+   "pulled_et": "2026-11-01T15:30"
+  },
+  "MIA": {
+   "rb1": "Ollie Gordon II",
+   "rb1_status": "Not on ESPN injury list",
+   "rb2": "De'Von Achane",
+   "rb2_status": "Not on ESPN injury list",
+   "source": "week8/inactives/espn_inj_20261101_1530.json (ESPN injuries API 15:30) + pbp season RB carries thru 2026-10-29",
+   "pulled_et": "2026-11-01T15:30"
+  }
+ },
+ "rb_promotions": {}
+}

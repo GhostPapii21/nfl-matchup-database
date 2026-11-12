@@ -1,0 +1,76 @@
+# KC @ DEN game script
+
+Final: KC 24, DEN 28 (margin DEN +4)
+Pregame (DraftKings close, ESPN pickcenter): DEN -1.5, total 41.5. Favorite DEN result vs spread: +4 vs -1.5 → covered. Total 52 vs 41.5: OVER.
+Weather actuals: 54-60F, wind 5-13 mph (gusts to 16), precip 0.0 mm over 4-7 PM ET (Open-Meteo hourly model analysis, not a stadium sensor)
+
+**Script label: favorite close win / shootout (over by 10+)**
+
+## Score state by quarter
+- end Q1: KC 7-DEN 3
+- end Q2: KC 17-DEN 13
+- end Q3: KC 24-DEN 13
+- end Q4: KC 24-DEN 28
+
+## Run/pass and pace
+| Team | Rush att | Pass att | Sacks taken | Dropbacks | Pass rate | Total plays | TOP | Yards | Turnovers |
+|---|---|---|---|---|---|---|---|---|---|
+| KC | 24 | 41 | 2 | 43 | 64% | 67 | 31:29 | 399 | 0 |
+| DEN | 23 | 32 | 1 | 33 | 59% | 56 | 28:31 | 294 | 0 |
+
+## Backfield
+- KC: lead Kenneth Walker III 21 car 69 yds 0 TD (88% of team rushes); RB2 Emmett Johnson 1 car 15 yds 0 TD
+- DEN: lead Jonah Coleman 11 car 41 yds 1 TD (48% of team rushes); RB2 J.K. Dobbins 7 car 13 yds 0 TD
+
+## Target shares
+- KC (38 targets): Rashee Rice 8 tgt (21%) 7-53; Travis Kelce 7 tgt (18%) 5-67; Xavier Worthy 6 tgt (16%) 3-13; Emmett Johnson 5 tgt (13%) 5-128; Kenneth Walker III 5 tgt (13%) 4-15; Cyrus Allen 3 tgt (8%) 2-20; Noah Gray 2 tgt (5%) 2-15; Jake Briningstool 1 tgt (3%) 1-6; Jalen Royals 1 tgt (3%) 1-4
+- DEN (29 targets): Jaylen Waddle 6 tgt (21%) 3-39; Jonah Coleman 5 tgt (17%) 4-63; Courtland Sutton 4 tgt (14%) 4-53; Marvin Mims Jr. 3 tgt (10%) 2-10; Evan Engram 3 tgt (10%) 0-0; Adam Trautman 2 tgt (7%) 2-30; Nate Adkins 2 tgt (7%) 2-4; Troy Franklin 2 tgt (7%) 1-3; Adam Prentice 1 tgt (3%) 1-10; Lil'Jordan Humphrey 1 tgt (3%) 1-10
+
+## Pressure on each QB (ESPN gives sacks and QB hits; no pressure rate in public box)
+- KC QB: 2 sacks, 10 QB hits on 43 dropbacks (sack+hit rate proxy 23%; ESPN QB hits include sacks)
+- DEN QB: 1 sacks, 2 QB hits on 33 dropbacks (sack+hit rate proxy 6%; ESPN QB hits include sacks)
+
+## TD scorers / scoring plays
+- Q1 6:04 KC: Rashee Rice 11 Yd pass from Patrick Mahomes (Harrison Butker Kick) (KC 7-DEN 3)
+- Q2 7:40 KC: Emmett Johnson 73 Yd pass from Patrick Mahomes (Harrison Butker Kick) (KC 14-DEN 6)
+- Q2 1:15 DEN: Jaylen Waddle 1 Yd pass from Bo Nix (Wil Lutz Kick) (KC 14-DEN 13)
+- Q3 1:38 KC: Noah Gray 4 Yd pass from Patrick Mahomes (Harrison Butker Kick) (KC 24-DEN 13)
+- Q4 8:55 DEN: Nate Adkins 2 Yd pass from Bo Nix (Bo Nix Pass to Jaylen Waddle for Two-Point Conversion) (KC 24-DEN 21)
+- Q4 1:56 DEN: Jonah Coleman 5 Yd Rush (Wil Lutz Kick) (KC 24-DEN 28)
+
+## Who disappeared and why
+- Kenneth Walker III Rush Yds Over 85.5: 69.0 (efficiency/share: 21 car for 69; run-defense matchup / RB-share input)
+- Kenneth Walker III Rush+Rec Yds Over 107.5: 84.0 (efficiency/share: 21 car for 69; run-defense matchup / RB-share input)
+- Xavier Worthy Rec Yds Over 29.5: 13.0 (efficiency: volume came but yards/catches did not; defender coverage / matchup input)
+- Xavier Worthy Receptions Over 3.5: 3.0 (efficiency: volume came but yards/catches did not; defender coverage / matchup input)
+- J.K. Dobbins Rush Yds Over 29.5: 13.0 (efficiency/share: 7 car for 13; run-defense matchup / RB-share input)
+- Kenneth Walker III rushyds O97.5: 69.0 (volume was there (21 of 24 KC carries, 88%) but he ran for 3.3 YPC against DEN's front, and KC threw 41 times while leading. Run-defense efficiency input; a demon line needed 4.6+ YPC (judgment))
+- Kenneth Walker III rushyds O69.5: 69.0 (69 vs 69.5, missed by half a yard. 21 carries at 3.3 YPC against DEN's run D; efficiency/variance (judgment))
+- Kenneth Walker III td O0.5: 0.0 (KC's 3 TDs were all Mahomes passes (Rice 11, E. Johnson 73, Gray 4), and Walker had no carries inside the 5. Red-zone usage / TD variance (judgment))
+
+## Leg grades (runs folder legs and user slip legs)
+| Group | Source | Leg | Actual | Result | Input that should have caught the miss |
+|---|---|---|---|---|---|
+| cut | runs/KC@DEN | Patrick Mahomes Pass Yds Under 220.5 | 321.0 | MISS | explosive/efficiency outlier; defense explosives-allowed input |
+| cut | runs/KC@DEN | Kenneth Walker III Rush Yds Over 85.5 | 69.0 | MISS | efficiency/share: 21 car for 69; run-defense matchup / RB-share input |
+| cut | runs/KC@DEN | Kenneth Walker III Rush+Rec Yds Over 107.5 | 84.0 | MISS | efficiency/share: 21 car for 69; run-defense matchup / RB-share input |
+| cut | runs/KC@DEN | Rashee Rice Rec Yds Under 51.5 | 53.0 | MISS | volume: 8 targets; target-share / injury-redistribution input |
+| cut | runs/KC@DEN | Rashee Rice Receptions Under 4.5 | 7.0 | MISS | volume: 8 targets; target-share / injury-redistribution input |
+| cut | runs/KC@DEN | Xavier Worthy Rec Yds Over 29.5 | 13.0 | MISS | efficiency: volume came but yards/catches did not; defender coverage / matchup input |
+| cut | runs/KC@DEN | Xavier Worthy Receptions Over 3.5 | 3.0 | MISS | efficiency: volume came but yards/catches did not; defender coverage / matchup input |
+| cut | runs/KC@DEN | Travis Kelce Rec Yds Under 46.5 | 67.0 | MISS | explosive/efficiency outlier; defense explosives-allowed input |
+| cut | runs/KC@DEN | Travis Kelce Receptions Under 4.5 | 5.0 | MISS | explosive/efficiency outlier; defense explosives-allowed input |
+| cut | runs/KC@DEN | Bo Nix Pass Yds Under 208.5 | 222.0 | MISS | explosive/efficiency outlier; defense explosives-allowed input |
+| cut | runs/KC@DEN | J.K. Dobbins Rush Yds Over 29.5 | 13.0 | MISS | efficiency/share: 7 car for 13; run-defense matchup / RB-share input |
+| cut | runs/KC@DEN | Jonah Coleman Rush Yds Under 44.5 | 41.0 | HIT |  |
+| cut | runs/KC@DEN | Jonah Coleman Rush+Rec Yds Under 70.5 | 104.0 | MISS | explosive/efficiency outlier; defense explosives-allowed input |
+| cut | runs/KC@DEN | Courtland Sutton Rec Yds Under 40.5 | 53.0 | MISS | explosive/efficiency outlier; defense explosives-allowed input |
+| cut | runs/KC@DEN | Courtland Sutton Receptions Under 3.5 | 4.0 | MISS | explosive/efficiency outlier; defense explosives-allowed input |
+| cut | runs/KC@DEN | Evan Engram Rec Yds Under 24.5 | 0.0 | HIT |  |
+| cut | runs/KC@DEN | Evan Engram Receptions Under 2.5 | 0.0 | HIT |  |
+| slip | PP40 | Kenneth Walker III rushyds O97.5 | 69.0 | MISS | volume was there (21 of 24 KC carries, 88%) but he ran for 3.3 YPC against DEN's front, and KC threw 41 times while leading. Run-defense efficiency input; a demon line needed 4.6+ YPC (judgment) |
+| slip | UD20 | Kenneth Walker III rushyds O69.5 | 69.0 | MISS | 69 vs 69.5, missed by half a yard. 21 carries at 3.3 YPC against DEN's run D; efficiency/variance (judgment) |
+| slip | FD8 | Kenneth Walker III rushrec O79.5 | 84.0 | HIT |  |
+| slip | Single | Kenneth Walker III rushrec O79.5 | 84.0 | HIT |  |
+| slip | PP20 | Patrick Mahomes passyds O0.5 | 321.0 | HIT |  |
+| slip | FD7 | Kenneth Walker III td O0.5 | 0.0 | MISS | KC's 3 TDs were all Mahomes passes (Rice 11, E. Johnson 73, Gray 4), and Walker had no carries inside the 5. Red-zone usage / TD variance (judgment) |

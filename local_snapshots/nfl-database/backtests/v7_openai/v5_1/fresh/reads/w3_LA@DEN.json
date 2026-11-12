@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 LA@DEN / kickoff NOT saved / spread NOT saved / total NOT saved / weather not saved",
+ "script": {
+  "base": "Spread and total are NOT saved, so this is form-only, not a book script for who leads or how many points. Base flow is competitive and balanced, not a track meet: LA can run because DEN has allowed 5.41 YPC and 7 runs of 10+, with K.Williams (23/126) and B.Corum (22/133) splitting work, while D.Adams (16 targets, 221 yards, 271 air yards over weeks 1-2) stays the vertical primary when Stafford is unblitzed (EPA +0.22). DEN's pass game runs through J.Waddle (13/140/166) but is capped by LA allowing only 2 passes of 20+ on 68 attempts and blitzing 30%, where B.Nix EPA is -0.55.",
+  "flip1": "DEN blitzes at its 34% rate, Stafford's blitz EPA (-0.16 on 15 dropbacks) shows up in sacks and checkdowns, Adams' air yards stall, and DEN plays ahead so J.Dobbins' 9-carry pace rises while LA's 11-carry committee split dies.",
+  "flip2": "DEN's left-side bleed (9.36 YPA on 22 attempts) turns it into an LA pass game; Adams, T.Ferguson (10 targets) and P.Nacua (9 targets) soak throws, and both LA rush lines die as carries fall."
+ },
+ "injury_fallout": "MISSING: injury report, practice status, questionable tags, game-time decisions, and inactives for LA and DEN. No absence, return, snap limit, or next-man-up is inferred from usage. Pack roles only: LA rush split K.Williams 23 carries/126 yards and B.Corum 22/133; DEN rush J.Dobbins 18/72, J.Coleman 10/39, R.Harvey 3/18, B.Nix 4/12.",
+ "matchup": {
+  "shell": "MISSING: no MOFO/MOFC or man/zone charting, so WR-to-defender mapping is unavailable. Location splits only: DEN allows 9.36 YPA left (22 att), 6.83 middle (12 att), 3.86 right (22 att); LA allows 5.1 left (30 att), 6.29 middle (14 att), 4.32 right (22 att).",
+  "pressure": "DEN blitz rate 34%. Stafford EPA/dropback -0.16 vs blitz (n=15) vs +0.22 with no blitz. LA blitz rate 30%. Nix EPA/dropback -0.55 vs blitz (n=23) vs +0.16 with no blitz. Pressure that gets home is the Adams kill path and the Nix-scramble risk, not a receptions leg.",
+  "bleeds": "DEN run defense bleeds: 5.41 YPC allowed and 7 runs of 10+. DEN pass: 5 plays of 20+ on 60 attempts; left side is the bleed (9.36 YPA), right side is not (3.86). LA run defense is ordinary (4.43 YPC, 5 runs of 10+). LA pass defense does not bleed explosives: 2 plays of 20+ on 68 attempts, with middle the relative soft spot at 6.29 YPA.",
+  "overlap": "LA primary target D.Adams (16 targets, 221 rec yds, 271 air yds) is the vertical option, and DEN's pass bleed is the left side plus 5 explosives; alignment is MISSING so that overlap is unconfirmed. Clear negative overlap: J.Waddle (13 targets, 166 air yds, about 12.8 aDOT) against LA's 2/68 explosive rate, so Waddle over 59.5 is not an edge. Run overlap favors LA backs vs 5.41 YPC, but the 23/22 carry split blocks a single-back over."
+ },
+ "form": "Weeks listed are [1, 2] only (pack labels L3); no game splits, so one-play inflation cannot be separated. Adams 8.0 targets and 110.5 rec yds per game with 135.5 air yds. Ferguson 5.0 tgt/27 rec yds, Nacua 4.5 tgt/37 rec yds. Williams 11.5 car/63 rush/18 rec; Corum 11.0 car/66.5 rush and not on the target list (6.05 YPC may be a heater). DEN: Waddle 6.5 tgt/70 rec yds; Sutton 4.5 tgt/18 rec yds on 71 air yds (4.0 yards/target looks fluky, so the 36.5 under is not used). Dobbins 9.0 car/36 rush and absent from the target list; Harvey 1.5 car/9 rush and 2.0 tgt/11.5 rec with -22 air yards, a checkdown complement behind Dobbins and Coleman.",
+ "edge_players": [
+  {
+   "player": "davanteadams",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Adams beats 71.5 because weeks 1-2 already produced 221 receiving yards on 16 targets and 271 air yards, about 110.5 yards a game, and 71.5 sits a full cluster below that primary role even before DEN's left-side 9.36 YPA.",
+   "must_be_true": "D.Adams targets >= 6 because pack shows 16 targets over weeks 1-2, the most on LA",
+   "kills_it": "IF DEN blitzes at its 34% rate and Stafford's blitz EPA of -0.16 cuts Adams' downfield targets THEN Adams recyds over 71.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "rjharvey",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Harvey stays under 42.5 rush-plus-receiving yards because two games produced only 3 carries for 18 yards and 4 targets for 23 yards, about 20.5 a game, behind Dobbins (18 carries) and Coleman (10), so the line asks him to double the role.",
+   "must_be_true": "R.Harvey carries <= 4 because pack shows 3 carries over weeks 1-2 behind J.Dobbins (18) and J.Coleman (10)",
+   "kills_it": "IF Harvey is featured as the lead back or draws a checkdown game well above his 4 targets over 2 games THEN Harvey rushrecyds under 42.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Pack form agrees with both leans and no projection, sim median, or Pinnacle no-vig is in the pack, so this is not a sim check. Adams 221 rec yds over 2 games (110.5 per game) is well above 71.5. Harvey 18 rush plus 23 rec over 2 games (about 20.5 per game) is well below 42.5. DEN 5.41 YPC would support an LA back over, but that read was not taken because Williams 23 carries and Corum 22 carries make either rush line fail a committee pre-mortem. Stafford -0.16 EPA vs blitz and DEN's 34% blitz are the Adams kill path, not a contradiction of the 221-yard total already posted. Sutton 36 yards on 9 targets is a fluky-low efficiency and was not used as an under.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injuries/inactives, coverage shell and Adams alignment, game-by-game splits, Corum receiving, Pinnacle no-vig, projection and sim medians",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only, not short-priced alts. davanteadams recyds over 71.5 at -113.5 (under also -113.5). rjharvey rushrecyds under 42.5 at -116 (over -109); combined line is the rung because his rush under 20.5 and rec under 18.5 are thinner than the 42.5 combined under. No no-vig or sim median in the pack, so no rung move off the posted number.",
+ "pre_mortem": "It's Monday and both lost. DEN blitzed at or above 34%, Stafford's -0.16 blitz EPA became sacks and checkdowns, and Adams \u2014 possibly on the right, where DEN allows 3.86 YPA \u2014 finished near 45 yards, so 71.5 never had a path. Harvey lost on a role change the pack cannot see: injury report is MISSING, so a Dobbins or Coleman scratch is not ruled out, and his -22 air yards already mark him as the dump-off; one negative-script game of about 25 receiving yards plus 20 rush yards clears 42.5. Two-game samples, no spread, and no sim leave both leans exposed to a script the form cannot price.",
+ "slip_story": "Do not force these onto one correlated slip. Adams recyds over is the LA-pass story and needs Stafford functional enough to feed the primary (survives the base and the left-side shootout flip; pressure-dependent on flip 1). Harvey rushrecyds under is a DEN role story and wins when he stays the third back behind Dobbins and Coleman, including a DEN run-lead flip. They do not need opposite scripts, but they do not win for the same reason. LA rush overs (Corum 48, Williams 53.5 or 69.5) were dropped: the 22/23 carry split and unknown spread made the counter-case as strong as the read.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

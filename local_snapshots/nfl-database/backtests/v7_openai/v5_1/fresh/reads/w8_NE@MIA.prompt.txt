@@ -1,0 +1,117 @@
+# Week 8 NE@MIA
+MIA spread +7, total 41
+Weather: not saved.
+## NE offense (last 3 games: weeks [5, 6, 7])
+Rushers (carries/yds over L3): R.Stevenson 33.0/122; C.Kiner 21.0/122; T.Henderson 14.0/62; D.Maye 11.0/80
+Targets (tgt/rec yds/air yds over L3): D.Douglas 17.0/174/171; A.Brown 16.0/75/248; H.Henry 16.0/163/68; E.Raridon 12.0/124/92; R.Stevenson 8.0/114/26; E.Chism 8.0/73/72; K.Williams 5.0/103/96
+NE QB EPA/dropback vs blitz 0.18 (n=78) vs no blitz 0.22
+## MIA defense (season to date, 6 games)
+Rush YPC allowed 4.20; 10+ yd runs allowed 19; 20+ yd pass plays allowed 17/182 att
+Pass YPA allowed by location: left 7.24 (59.0 att); middle 10.14 (42.0 att); right 7.62 (74.0 att)
+MIA blitz rate 26%
+## MIA offense (last 3 games: weeks [4, 5, 7])
+Rushers (carries/yds over L3): O.Gordon 52.0/291; J.Wright 17.0/26; M.Willis 16.0/124; M.Washington 5.0/29
+Targets (tgt/rec yds/air yds over L3): M.Washington 16.0/137/163; K.Coleman 12.0/33/147; G.Dulcich 11.0/123/73; C.Bell 9.0/25/131; O.Gordon 5.0/0/-22; W.Kacmarek 4.0/20/18; C.Douglas 3.0/70/23
+MIA QB EPA/dropback vs blitz -0.03 (n=63) vs no blitz 0.00
+## NE defense (season to date, 7 games)
+Rush YPC allowed 4.01; 10+ yd runs allowed 16; 20+ yd pass plays allowed 23/242 att
+Pass YPA allowed by location: left 7.24 (92.0 att); middle 11.74 (42.0 att); right 5.71 (90.0 att)
+NE blitz rate 39%
+# SAVED PREGAME CHECKLIST (excerpt)
+# NE @ MIA — Week 8 60-check manifest
+Game 401873034, Sun Nov 01 04:25 PM ET, Hard Rock Stadium (outdoor), NE -7 / 43.5. Built 2026-10-29 05:25 EDT. Status counts: {'PASS': 16, 'PARTIAL': 31, 'NOT_APPLICABLE': 3, 'UNAVAILABLE': 7, 'UNIMPLEMENTED': 3}
+
+| # | Check | Status | Reason | Evidence |
+|-|-|-|-|-|
+|1|P1.pbp|PASS|Repo SQLite plays (ESPN PBP) Wk1–7 + nflverse via overlay|repo/data/nfl_matchups.sqlite; fixes/fixes.sqlite|
+|2|P1.boxscores|PASS|player_stats + fix_player_game_usage|fixes/fixes.sqlite|
+|3|P1.tackles_sacks|PARTIAL|fix_play_credits reconciled; tackler≠coverage defender|fixes/FIXES.md|
+|4|P1.pressure|PARTIAL|Pressure is opponent-Sharp-allowed proxy + pbp sack/hit; no charted pressure source|defense/NE_at_MIA.md|
+|5|P1.ol_snaps|PARTIAL|nflverse participation snaps only; Wk7 participation lag possible|fixes/fixes.sqlite fix_participation|
+|6|P1.air_yards|PARTIAL|NGS IAY per QB; per-target air yards via nflverse only where loaded|defense/raw|
+|7|P1.redzone|PASS|RZ targets/goal-line carries in baselines|team_baselines/NE.md, MIA.md|
+|8|P1.scrambles|PARTIAL|fix_qb_rushing scramble flags from nflverse; ESPN PBP lacks explicit flag|fixes/fixes.sqlite fix_qb_rushing|
+|9|P2.team_defense|PASS|Production + explosive counts per game|defense/NE_at_MIA.md|
+|10|P2.coverage|PASS|Sharp coverage pages dated Oct 20 = CURRENT per user (last games before slate)|defense/SOURCES.md|
+|11|P2.individual_assignments|PARTIAL|Only PBP-named defenders on big plays (weak signal); no charted assignment source|team_baselines/|
+|12|P2.weakest_link|PARTIAL|Alignment-level weakest link from Sharp ranks (see Soft spots); player-level unverified|defense/NE_at_MIA.md|
+|13|P2.pressure_trend|PARTIAL|ESPN PRWR through Wk6 only; pbp sack/hit trend|defense/NE_at_MIA.md|
+|14|P3.team_offense|PASS|QB/team production|team_baselines/|
+|15|P3.player_roles|PASS|Roles + L3 vs season shares; roster-checked 2026-10-29 05:25 EDT|defense/NE_at_MIA.md; rosters/|
+|16|P3.ol_health|PARTIAL|OL designations from ESPN injuries; Thu practice pending|injuries.json|
+|17|P3.target_hierarchy|PASS|L3 vs season target/carry share (opportunity gate inputs)|team_baselines/|
+|18|P3.routes_gaps|PARTIAL|NGS separation/cushion; run gaps from pbp direction; no route participation|defense/raw|
+|19|P3.qb_blitz|PASS|FTN EPA vs blitz / no-blitz per offense|defense/NE_at_MIA.md|
+|20|P4.slip_comparison|NOT_APPLICABLE|No slip supplied for this game|—|
+|21|P4.injury_alerts|PARTIAL|Wed status logged; Thursday reports PENDING|injuries.json; this file Injury impact|
+|22|P4.script_risk|PARTIAL|Backup-QB/workload risk noted from injuries; 10G labels pending|this file|
+|23|P5.bundle|PARTIAL|Markdown/JSON bundle; no engine-versioned bundle|week8/|
+|24|P5.provenance|PARTIAL|sha256 of inputs recorded below; engine code/model hash unavailable (nfl.py on user Mac)|this file|
+|25|P5.source_preservation|PASS|Repo SQLite untouched; fixes in overlay|fixes/PATCH_SPEC.md|
+|26|P6.live_policy|NOT_APPLICABLE|Pregame; live polling off|—|
+|27|P7.ngs_targeted_charts|PARTIAL|NGS public leaderboards (sep/cushion/YACOE/TTT); per-game targeted charts not read|defense/raw|
+|28|P7.all_routes|UNAVAILABLE|Route participation not in any public source loaded|—|
+|29|P7.run_concepts|UNAVAILABLE|No verified run-concept source; film pending|film/|
+|30|P7.strength_map|PARTIAL|Sharp alignment YPT + box rates; no side-level split|defense/NE_at_MIA.md|
+|31|P7.rb_suppression|PARTIAL|RB YPC/rush+rec allowed + game state; RB quality adj not applied|defense/NE_at_MIA.md|
+|32|P7.cb_suppression|UNAVAILABLE|Individual CB coverage stats are paid/not loaded|—|
+|33|P7.panthers_rule|PARTIAL|QB NGS/blitz review for: Drake Maye, Malik Willis; exact OL/pass-rush matchup not charted|defense/NE_at_MIA.md|
+|34|P8.film|PARTIAL|Codex YouTube highlight notes done for NE 2/6 games, MIA 1/5 (film/codex_out, still running; not yet verified vs pbp by this worker)|film/codex_out|
+|35|P8.personnel|UNAVAILABLE|Personnel packages need film; depth chart formation only|rosters/|
+|36|P8.scheme|PARTIAL|Coverage shells from Sharp (man/zone/MOFC); fronts/run fits need film|defense/NE_at_MIA.md|
+|37|P8.missed_looks|UNAVAILABLE|Pending verified film notes|film/|
+|38|P8.film_notes|PARTIAL|Codex notes unverified; hypotheses only|film/codex_out|
+|39|P9.weather|PARTIAL|Forecast (Open-Meteo, pulled 2026-10-29 05:25 EDT) kickoff hr: 83.1°F, precip prob 75%, wind 15.4 mph gust 17.7 — 3-day-out forecast, re-pull Sat/Sun|https://api.open-meteo.com|
+|40|P9.rest_travel|PASS|NE last game 2026-10-23 (9 days rest); MIA last game 2026-10-25 (7 days). Time-zone change only from venue, no itineraries invented|ESPN team schedule API|
+|41|P9.stakes|PARTIAL|Records from ESPN scoreboard; divisional/rematch not a 2026 rematch; playoff-odds not pulled|defense/NE_at_MIA.md|
+|42|P9.injury_spikes|PARTIAL|Exact-game availability: Wed designations; Thu/Fri + inactives pending|injuries.json|
+|43|P9.turnovers|PARTIAL|Turnovers in pbp/baselines; rolling interpretation not modeled|t
+# AVAILABLE PROPS (main line)
+malikwashington (MIA) recyds over 41.5 -113
+willkacmarek (MIA) recyds over 0.5 +111
+rhamondrestevenson (NE) rushyds under 59 +nan
+olliegordonii (MIA) rushyds under 61.5 -115.5
+coreykiner (NE) rushrecyds over 41.5 -110.5
+willkacmarek (MIA) recyds under 0.5 -142.5
+jaylenwright (MIA) rushyds over 14.5 -110.5
+olliegordonii (MIA) rushrecyds under 76.5 +nan
+coreykiner (NE) recyds under 0.5 -113
+drakemaye (NE) rushyds under 23.5 -114
+olliegordonii (MIA) rushrecyds over 76.5 +nan
+olliegordonii (MIA) rushyds over 61.5 -112
+malikwashington (MIA) rushrecyds under 50.5 -114
+demariodouglas (NE) recyds over 40.5 -114
+chrisbell (MIA) recyds under 18 +nan
+kylewilliams (NE) recyds under 23.5 -113
+eftonchismiii (NE) recyds over 27 +nan
+chrisbell (MIA) recyds over 18 +nan
+gregdulcich (MIA) recyds under 28.5 +nan
+coreykiner (NE) rushrecyds under 41.5 -117.5
+eliraridon (NE) recyds over 27 +nan
+calebdouglas (MIA) recyds over 37 +nan
+kylewilliams (NE) recyds over 23.5 -115
+olliegordonii (MIA) recyds over 9.5 -117
+olliegordonii (MIA) recyds under 9.5 -110
+malikwashington (MIA) rushyds under 5.5 -120
+malikwashington (MIA) rushyds over 5.5 -109
+rhamondrestevenson (NE) rushyds over 59 +nan
+rhamondrestevenson (NE) rushrecyds over 88.5 -115
+coreykiner (NE) rushyds under 34.5 -112
+rhamondrestevenson (NE) recyds under 24.5 -114
+coreykiner (NE) rushyds over 34.5 -114.5
+malikwashington (MIA) recyds under 41.5 -112
+malikwashington (MIA) rushrecyds over 50.5 -113.5
+demariodouglas (NE) recyds under 40.5 -114
+drakemaye (NE) rushyds over 23.5 -117
+eftonchismiii (NE) recyds under 27 +nan
+gregdulcich (MIA) recyds over 28.5 +nan
+calebdouglas (MIA) recyds under 37 +nan
+hunterhenry (NE) recyds over 45.5 -113.5
+coreykiner (NE) recyds over 0.5 -114
+jaylenwright (MIA) rushyds under 14.5 -117
+rhamondrestevenson (NE) rushrecyds under 88.5 -115
+hunterhenry (NE) recyds under 45.5 -113.5
+malikwillis (MIA) rushyds over 33.5 -115
+rhamondrestevenson (NE) recyds over 24.5 -114
+malikwillis (MIA) rushyds under 33.5 -113
+eliraridon (NE) recyds under 27 +nan

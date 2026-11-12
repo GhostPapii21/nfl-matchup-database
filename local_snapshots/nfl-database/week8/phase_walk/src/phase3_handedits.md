@@ -1,0 +1,6 @@
+## Film charts: reliability rule applied (README_RELIABILITY.md, Oct 31 7:35 PM ET)
+Rule: a film route or alignment read counts for 8A only if every catch or target it cites matches an nflverse pbp play (quarter/clock, receiver, yards). Otherwise it is UNVERIFIED, the item stays a GAP, and the leg carries it as a disclosed gap, not a pass. Match log: src/film_pbp_match.txt (±15 s clock, ±3 yds).
+- **Gibbs chart: UNVERIFIED.** 5 of 11 plays match; Q4 5:03 "~20" was actually 3 yds; 5 of the 6 GB@DET plays don't match; the "lost fumble Q3 1:26 at ARI" is wrong (his only lost fumble was 10/25 Q2 0:30, 4 yds). The OZ/IZ pattern is not used. The MIN matchup **CAUTION stands on pbp/FTN alone**: MIN vs edge runs 23 att, 2.26 YPC (#1); light-box (≤6) rate 37.6% vs league 44.4%. Gibbs edge 5.71 YPC.
+- **McBride chart: UNVERIFIED.** 2 of 6 plays match. Alignment was unclear anyway → 8A alignment GAP (disclosed), still PENDING Rico's TE mapping ruling.
+- **Puka, Bowers, Lamb summaries: UNVERIFIED** (implausible play counts; Lamb's two 40-yd TDs at PHI conflict with his 5-74). Their alignment/route 8A item = GAP (disclosed).
+- **Metcalf:** PENDING_FILM_RECHECK. His Phase 3 profile isn't in the table above (he was cut when it ran); it is in Phase 4.

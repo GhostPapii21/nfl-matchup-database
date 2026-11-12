@@ -1,0 +1,432 @@
+{
+  "Strange 4+ rec (o3.5)": {
+    "1": {
+      "status": "PASS",
+      "number": "7 REG games in pbp",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03 19:13"
+    },
+    "2": {
+      "status": "PASS",
+      "number": "last4 targets [8, 8, 7, 2]; 5+ targets in >=3/4; historical volume flag, not a read cut",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03 19:13"
+    },
+    "3": {
+      "status": "PASS",
+      "number": "Right-side TE fit supported; BAL TE right short/intermediate 16 targets/171 yards per addendum 4. Not a deep seam thesis.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum4_2026-11-04.md",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "4": {
+      "status": "MISSING",
+      "number": "Defender table available but man/zone and MOFO/MOFC unavailable; mapping is conditional on injuries",
+      "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv",
+      "pulled_et": "2026-11-04 07:05"
+    },
+    "5": {
+      "status": "PASS",
+      "number": "BAL defense 300 charted dropbacks, blitz .33, qbhit-or-sack .17 PROXY. Lawrence pressured proxy: 56 DB, sack rate .232; target counts recorded in L2. Real time-to-throw remains missing.",
+      "source": "/workspace/nfl-database/week10/brainstorm_layers/L2_bal_pressure.csv",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "6": {
+      "status": "PASS",
+      "number": "Lawrence 210 DB, 66% completions, 8.58 YPA; pressure proxy risk documented",
+      "source": "/workspace/nfl-database/week10/brainstorm_layers/L2_lawrence_splits.csv",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "8": {
+      "status": "PASS",
+      "number": "Official refresh: Hawkins OUT; Wiggins QUESTIONABLE; Fagnano FP; Jackson/Huntley OUT; Jenkins/Rosengarten/Simpson FP, no designation. Tuten QUESTIONABLE DNP; Meyers LP UNSPECIFIED. Austin Johnson practice squad, no injury designation found. Final inactives pending.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/injury_refresh.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "9": {
+      "status": "MISSING",
+      "number": "Route screenshots exist for Strange/Washington/Meyers; no verified numeric NGS separation/cushion/YAC-over-expected or Henry RYOE/box rate, no original screenshot pull timestamp. Pbp proxy cannot substitute.",
+      "source": "/workspace/nfl-database/week10/ngs",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "10": {
+      "status": "PASS",
+      "number": "Official NFL video downloaded, metadata verified; unique caption/pbp match for B.Strange play 1151 (9 yards) in 2026_08_IND_JAX. Highlights do not establish route/shell rates.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/film_play_matches.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "11": {
+      "status": "PASS",
+      "number": "Build forecast: precip 25%, gust 9.2 mph, wind 3 mph; flag=False. Pre-kick refresh pending.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/weather_forecast.json",
+      "pulled_et": "2026-11-04 15:21"
+    },
+    "12": {
+      "status": "MISSING",
+      "number": "Source audit incomplete: NGS numeric data, shell rates, final inactives and full quantitative 1H model absent. Odds 14:59 ET preserved; no new API call.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/sources.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "13": {
+      "status": "PASS",
+      "number": "Strange volume/right-side case can clear early before run-out; correlation with JAX 1H acknowledged",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum4_2026-11-04.md",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "14": {
+      "status": "PASS",
+      "number": "p=[0.55768, 0.55784, 0.51985]; medians=[4.0, 4.0, 4.0]; avg-no_vig=0.030352; stat disagreement is a flag, not a read cut",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/codex/sims.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "15": {
+      "status": "MISSING",
+      "number": "Pre-kick inactive/price/weather and placed-ticket audit unavailable. Slip B has two Strange stats: correlated same-player exposure; no joint probability supplied. No ticket approval inferred.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/briefs/CONTRACT.md",
+      "pulled_et": "2026-11-04 15:37"
+    }
+  },
+  "Strange 40+ rec yds (o39.5)": {
+    "1": {
+      "status": "PASS",
+      "number": "7 REG games in pbp",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03 19:13"
+    },
+    "2": {
+      "status": "FAIL",
+      "number": "last4 targets [8, 8, 7, 2]; 4+ targets each last three; historical volume flag, not a read cut",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03 19:13"
+    },
+    "3": {
+      "status": "PASS",
+      "number": "Right-side TE fit supported; BAL TE right short/intermediate 16 targets/171 yards per addendum 4. Not a deep seam thesis.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum4_2026-11-04.md",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "4": {
+      "status": "MISSING",
+      "number": "Defender table available but man/zone and MOFO/MOFC unavailable; mapping is conditional on injuries",
+      "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv",
+      "pulled_et": "2026-11-04 07:05"
+    },
+    "5": {
+      "status": "PASS",
+      "number": "BAL defense 300 charted dropbacks, blitz .33, qbhit-or-sack .17 PROXY. Lawrence pressured proxy: 56 DB, sack rate .232; target counts recorded in L2. Real time-to-throw remains missing.",
+      "source": "/workspace/nfl-database/week10/brainstorm_layers/L2_bal_pressure.csv",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "6": {
+      "status": "PASS",
+      "number": "Lawrence 210 DB, 66% completions, 8.58 YPA; pressure proxy risk documented",
+      "source": "/workspace/nfl-database/week10/brainstorm_layers/L2_lawrence_splits.csv",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "8": {
+      "status": "PASS",
+      "number": "Official refresh: Hawkins OUT; Wiggins QUESTIONABLE; Fagnano FP; Jackson/Huntley OUT; Jenkins/Rosengarten/Simpson FP, no designation. Tuten QUESTIONABLE DNP; Meyers LP UNSPECIFIED. Austin Johnson practice squad, no injury designation found. Final inactives pending.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/injury_refresh.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "9": {
+      "status": "MISSING",
+      "number": "Route screenshots exist for Strange/Washington/Meyers; no verified numeric NGS separation/cushion/YAC-over-expected or Henry RYOE/box rate, no original screenshot pull timestamp. Pbp proxy cannot substitute.",
+      "source": "/workspace/nfl-database/week10/ngs",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "10": {
+      "status": "PASS",
+      "number": "Official NFL video downloaded, metadata verified; unique caption/pbp match for B.Strange play 1151 (9 yards) in 2026_08_IND_JAX. Highlights do not establish route/shell rates.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/film_play_matches.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "11": {
+      "status": "PASS",
+      "number": "Build forecast: precip 25%, gust 9.2 mph, wind 3 mph; flag=False. Pre-kick refresh pending.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/weather_forecast.json",
+      "pulled_et": "2026-11-04 15:21"
+    },
+    "12": {
+      "status": "MISSING",
+      "number": "Source audit incomplete: NGS numeric data, shell rates, final inactives and full quantitative 1H model absent. Odds 14:59 ET preserved; no new API call.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/sources.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "13": {
+      "status": "PASS",
+      "number": "Strange volume/right-side case can clear early before run-out; correlation with JAX 1H acknowledged",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum4_2026-11-04.md",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "14": {
+      "status": "MISSING",
+      "number": "p=[0.52311, 0.51956, 0.49598]; medians=[41.91376939072847, 40.98235229315673, 38.92401753013751]; two-way no-vig at exact alt rung missing",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/codex/sims.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "15": {
+      "status": "MISSING",
+      "number": "Pre-kick inactive/price/weather and placed-ticket audit unavailable. Slip B has two Strange stats: correlated same-player exposure; no joint probability supplied. No ticket approval inferred.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/briefs/CONTRACT.md",
+      "pulled_et": "2026-11-04 15:37"
+    }
+  },
+  "Washington rec yds o63.5": {
+    "1": {
+      "status": "PASS",
+      "number": "7 REG games in pbp",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03 19:13"
+    },
+    "2": {
+      "status": "FAIL",
+      "number": "last4 targets [3, 9, 11, 2]; 4+ targets each last three; historical volume flag, not a read cut",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03 19:13"
+    },
+    "3": {
+      "status": "PASS",
+      "number": "Outside/left target role supported; pass_location is ball location, not verified alignment",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum2_2026-11-04.md",
+      "pulled_et": "2026-11-04 05:20"
+    },
+    "4": {
+      "status": "MISSING",
+      "number": "Defender table available but man/zone and MOFO/MOFC unavailable; mapping is conditional on injuries",
+      "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv",
+      "pulled_et": "2026-11-04 07:05"
+    },
+    "5": {
+      "status": "PASS",
+      "number": "BAL defense 300 charted dropbacks, blitz .33, qbhit-or-sack .17 PROXY. Lawrence pressured proxy: 56 DB, sack rate .232; target counts recorded in L2. Real time-to-throw remains missing.",
+      "source": "/workspace/nfl-database/week10/brainstorm_layers/L2_bal_pressure.csv",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "6": {
+      "status": "PASS",
+      "number": "Lawrence 210 DB, 66% completions, 8.58 YPA; pressure proxy risk documented",
+      "source": "/workspace/nfl-database/week10/brainstorm_layers/L2_lawrence_splits.csv",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "8": {
+      "status": "PASS",
+      "number": "Official refresh: Hawkins OUT; Wiggins QUESTIONABLE; Fagnano FP; Jackson/Huntley OUT; Jenkins/Rosengarten/Simpson FP, no designation. Tuten QUESTIONABLE DNP; Meyers LP UNSPECIFIED. Austin Johnson practice squad, no injury designation found. Final inactives pending.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/injury_refresh.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "9": {
+      "status": "MISSING",
+      "number": "Route screenshots exist for Strange/Washington/Meyers; no verified numeric NGS separation/cushion/YAC-over-expected or Henry RYOE/box rate, no original screenshot pull timestamp. Pbp proxy cannot substitute.",
+      "source": "/workspace/nfl-database/week10/ngs",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "10": {
+      "status": "PASS",
+      "number": "Official NFL video downloaded, metadata verified; unique caption/pbp match for P.Washington play 1711 (16 yards, QB hit) in 2026_08_IND_JAX. Highlights do not establish route/shell rates.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/film_play_matches.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "11": {
+      "status": "PASS",
+      "number": "Build forecast: precip 25%, gust 9.2 mph, wind 3 mph; flag=False. Pre-kick refresh pending.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/weather_forecast.json",
+      "pulled_et": "2026-11-04 15:21"
+    },
+    "12": {
+      "status": "MISSING",
+      "number": "Source audit incomplete: NGS numeric data, shell rates, final inactives and full quantitative 1H model absent. Odds 14:59 ET preserved; no new API call.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/sources.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "13": {
+      "status": "FAIL",
+      "number": "Original read avoids JAX WR yardage overs in run-out; remapped outside-WR1 target role argues for volume. Conflict flag only.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum4_2026-11-04.md",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "14": {
+      "status": "FAIL",
+      "number": "p=[0.41747, 0.41709, 0.42209]; medians=[54.931037421680244, 54.931037421680244, 53.14267525703374]; avg-no_vig=-0.087436; stat disagreement is a flag, not a read cut",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/codex/sims.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "15": {
+      "status": "MISSING",
+      "number": "Pre-kick inactive/price/weather and placed-ticket audit unavailable. Slip B has two Strange stats: correlated same-player exposure; no joint probability supplied. No ticket approval inferred.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/briefs/CONTRACT.md",
+      "pulled_et": "2026-11-04 15:37"
+    }
+  },
+  "JAX 1H -6.5": {
+    "1": {
+      "status": "PASS",
+      "number": "7 REG games in pbp; Fagnano opponent inference is only one relief game",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03 19:13"
+    },
+    "2": {
+      "status": "MISSING",
+      "number": "No sourced first-half possession/opportunity projection; full-game BAL drive estimates are not 1H opportunities",
+      "source": "/workspace/nfl-database/week10/fagnano/drive_sim.py",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "3": {
+      "status": "PASS",
+      "number": "Pressure/sack thesis supports JAX control; blitz-only claim refuted by Fagnano splits",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum_2026-11-04.md",
+      "pulled_et": "2026-11-04 05:20"
+    },
+    "4": {
+      "status": "MISSING",
+      "number": "Defender table available but man/zone and MOFO/MOFC unavailable; mapping is conditional on injuries",
+      "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv",
+      "pulled_et": "2026-11-04 07:05"
+    },
+    "5": {
+      "status": "PASS",
+      "number": "JAX blitz 30.4%, pressure 21.5% PROXY. Fagnano 3 sacks / 24 DB; 3 / 9 pressured proxy. Small sample.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/brainstorm_read.md",
+      "pulled_et": "2026-11-03 19:20"
+    },
+    "6": {
+      "status": "MISSING",
+      "number": "Fagnano confirmed starter, but only one relief game; no three-game current-QB baseline. Run/script thesis remains a hypothesis.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum_2026-11-04.md",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "8": {
+      "status": "PASS",
+      "number": "Official refresh: Hawkins OUT; Wiggins QUESTIONABLE; Fagnano FP; Jackson/Huntley OUT; Jenkins/Rosengarten/Simpson FP, no designation. Tuten QUESTIONABLE DNP; Meyers LP UNSPECIFIED. Austin Johnson practice squad, no injury designation found. Final inactives pending.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/injury_refresh.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "9": {
+      "status": "MISSING",
+      "number": "Route screenshots exist for Strange/Washington/Meyers; no verified numeric NGS separation/cushion/YAC-over-expected or Henry RYOE/box rate, no original screenshot pull timestamp. Pbp proxy cannot substitute.",
+      "source": "/workspace/nfl-database/week10/ngs",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "10": {
+      "status": "MISSING",
+      "number": "Five official NFL videos downloaded and metadata/captions verified; no rigorous caption-to-pbp play-ID mapping yet. Retrieval fulfilled, formal phase10 remains incomplete.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/film_index.md",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "11": {
+      "status": "PASS",
+      "number": "Build forecast: precip 25%, gust 9.2 mph, wind 3 mph; flag=False. Pre-kick refresh pending.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/weather_forecast.json",
+      "pulled_et": "2026-11-04 15:21"
+    },
+    "12": {
+      "status": "MISSING",
+      "number": "Source audit incomplete: NGS numeric data, shell rates, final inactives and full quantitative 1H model absent. Odds 14:59 ET preserved; no new API call.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/sources.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "13": {
+      "status": "PASS",
+      "number": "JAX early-control thesis; 5/7 historical covers, last4 2/4 is a contrary flag. No invented cover probability.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/n3_1h_script.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "14": {
+      "status": "MISSING",
+      "number": "p=[0.42173, 0.42035, 0.41393]; medians=[5.0, 4.0, 4.0]; wrapper flags unverified extension, not native sim_v6 spread_h1; flag against read",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/codex/sims.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "15": {
+      "status": "MISSING",
+      "number": "Pre-kick inactive/price/weather and placed-ticket audit unavailable. Slip B has two Strange stats: correlated same-player exposure; no joint probability supplied. No ticket approval inferred.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/briefs/CONTRACT.md",
+      "pulled_et": "2026-11-04 15:37"
+    }
+  },
+  "Henry 40+ rush (o39.5)": {
+    "1": {
+      "status": "PASS",
+      "number": "8 REG games in pbp; Fagnano opponent inference is only one relief game",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-03 19:13"
+    },
+    "2": {
+      "status": "PASS",
+      "number": "RB-only carry share 11/16=0.687500; current QB J.Fagnano, 1 game(s); QB carries excluded",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/codex/legs_extra.json",
+      "pulled_et": "2026-11-03 19:13"
+    },
+    "3": {
+      "status": "FAIL",
+      "number": "JAX RB run defense 3.28 YPC / 123 carries opposes rush over; original read was Henry UNDER. Flag only.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/brainstorm_read.md",
+      "pulled_et": "2026-11-03 19:20"
+    },
+    "4": {
+      "status": "N/A",
+      "number": "Pure rushing leg: receiving defender mapping not applicable",
+      "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv",
+      "pulled_et": "2026-11-04 07:05"
+    },
+    "5": {
+      "status": "PASS",
+      "number": "JAX blitz 30.4%, pressure 21.5% PROXY. Fagnano 3 sacks / 24 DB; 3 / 9 pressured proxy. Small sample.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/brainstorm_read.md",
+      "pulled_et": "2026-11-03 19:20"
+    },
+    "6": {
+      "status": "MISSING",
+      "number": "Fagnano confirmed starter, but only one relief game; no three-game current-QB baseline. Run/script thesis remains a hypothesis.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r5/read_addendum_2026-11-04.md",
+      "pulled_et": "2026-11-04 05:30"
+    },
+    "8": {
+      "status": "PASS",
+      "number": "Official refresh: Hawkins OUT; Wiggins QUESTIONABLE; Fagnano FP; Jackson/Huntley OUT; Jenkins/Rosengarten/Simpson FP, no designation. Tuten QUESTIONABLE DNP; Meyers LP UNSPECIFIED. Austin Johnson practice squad, no injury designation found. Final inactives pending.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/injury_refresh.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "9": {
+      "status": "MISSING",
+      "number": "Route screenshots exist for Strange/Washington/Meyers; no verified numeric NGS separation/cushion/YAC-over-expected or Henry RYOE/box rate, no original screenshot pull timestamp. Pbp proxy cannot substitute.",
+      "source": "/workspace/nfl-database/week10/ngs",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "10": {
+      "status": "MISSING",
+      "number": "Five official NFL videos downloaded and metadata/captions verified; no rigorous caption-to-pbp play-ID mapping yet. Retrieval fulfilled, formal phase10 remains incomplete.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/film_index.md",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "11": {
+      "status": "PASS",
+      "number": "Build forecast: precip 25%, gust 9.2 mph, wind 3 mph; flag=False. Pre-kick refresh pending.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/weather_forecast.json",
+      "pulled_et": "2026-11-04 15:21"
+    },
+    "12": {
+      "status": "MISSING",
+      "number": "Source audit incomplete: NGS numeric data, shell rates, final inactives and full quantitative 1H model absent. Odds 14:59 ET preserved; no new API call.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/grok/sources.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "13": {
+      "status": "FAIL",
+      "number": "Henry over conflicts with original trailing/run-volume read; low rung may coexist through early carries. Game-script disagreement flagged, not a cut.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/brainstorm_read.md",
+      "pulled_et": "2026-11-03 19:20"
+    },
+    "14": {
+      "status": "MISSING",
+      "number": "p=[0.53654, 0.53745, 0.53918]; medians=[41.828373096152276, 41.828373096152276, 41.86901016159314]; two-way no-vig at exact alt rung missing",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/codex/sims.json",
+      "pulled_et": "2026-11-04 15:37"
+    },
+    "15": {
+      "status": "MISSING",
+      "number": "Pre-kick inactive/price/weather and placed-ticket audit unavailable. Slip B has two Strange stats: correlated same-player exposure; no joint probability supplied. No ticket approval inferred.",
+      "source": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r6/briefs/CONTRACT.md",
+      "pulled_et": "2026-11-04 15:37"
+    }
+  }
+}

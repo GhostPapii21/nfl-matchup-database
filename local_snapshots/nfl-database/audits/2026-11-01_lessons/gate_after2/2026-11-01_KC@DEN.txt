@@ -1,0 +1,16 @@
+GATE: FAIL  run=/workspace/nfl-database/runs/2026-11-01_KC@DEN  checked_at=2026-11-01 12:00 ET
+Live legs: none
+Cut legs: ['Bo Nix Pass Yds Under 208.5', 'Courtland Sutton Rec Yds Under 40.5', 'Courtland Sutton Receptions Under 3.5', 'Evan Engram Rec Yds Under 24.5', 'Evan Engram Receptions Under 2.5', 'J.K. Dobbins Rush Yds Over 29.5', 'Jonah Coleman Rush Yds Under 44.5', 'Jonah Coleman Rush+Rec Yds Under 70.5', 'Kenneth Walker III Rush Yds Over 85.5', 'Kenneth Walker III Rush+Rec Yds Over 107.5', 'Patrick Mahomes Pass Yds Under 220.5', 'Rashee Rice Rec Yds Under 51.5', 'Rashee Rice Receptions Under 4.5', 'Travis Kelce Rec Yds Under 46.5', 'Travis Kelce Receptions Under 4.5', 'Xavier Worthy Rec Yds Over 29.5', 'Xavier Worthy Receptions Over 3.5']
+MISSES (10):
+  - game_script_rb KC@DEN: pull timestamp 2026-11-01T15:30 is in the future
+  - source injuries_news/ESPN injuries API re-pull 15:30 (official 4 PM inactives): pull timestamp 2026-11-01T15:30 is in the future
+  - source injuries_news/X reporters/beat writers inactives posts via x connector: pull timestamp 2026-11-01T15:01 is in the future
+  - source category injuries_news: missing or no fresh source
+  - source weather/NWS gridpoint forecast (api.weather.gov) kickoff..+3.5h max PoP/wind/gust; Open-Meteo cross-check DEN/MIA: pull timestamp 2026-11-01T15:30 is in the future
+  - source category weather: missing or no fresh source
+  - source odds_props/The Odds API re-pull 08:36: FanDuel main+alt, DraftKings, Pinnacle player props (12 events): pull timestamp 2026-11-01T15:29 is in the future
+  - source odds_props/The Odds API re-pull 08:36: FanDuel/DK/Pinnacle spreads+totals (28 games): pull timestamp 2026-11-01T15:29 is in the future
+  - source category odds_props: missing or no fresh source
+  - Phase 11 weather KC@DEN: pull timestamp 2026-11-01T15:30 is in the future
+Notes:
+  - cross-check (pick-side only, not a gated source): PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source) pulled 2026-11-01T07:34

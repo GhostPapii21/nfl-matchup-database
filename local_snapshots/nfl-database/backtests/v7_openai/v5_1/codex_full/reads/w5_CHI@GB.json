@@ -1,0 +1,39 @@
+{
+ "game": "Week 5 CHI@GB / kickoff MISSING / spread, total, implied totals, moneyline and opening-line movement MISSING; script inferred only from supplied team form / weather MISSING / venue details, rest and travel MISSING",
+ "script": {
+  "base": "Form-only hypothesis, not a market-implied forecast: CHI sustains possessions through its two-back rushing rotation and a passing attack that has remained productive against blitzes. Expect a competitive game with CHI better positioned to sustain drives; neither halftime leadership nor pace can be established from this pack.",
+  "flip1": "GB exploits CHI's middle-field allowance of 10.9 yards per attempt and produces an early lead. CHI shifts toward passing, reducing Swift's rushing opportunities and helping his rushing under.",
+  "flip2": "CHI builds a substantial early lead and repeatedly runs against GB's defense. Swift receives an unusually large portion of the closing carries, threatening his rushing under despite the recent split with Monangai."
+ },
+ "injury_fallout": "MISSING: CHI and GB injury reports, practice trends, offensive-line availability, defensive absences, return-to-play restrictions and final inactives. No absences, returns or next-man-up assignments are inferred from usage. Source for all available facts: supplied pre-kickoff Week 5 pack; exact collection timestamps are not provided. Any later availability change would require rechecking the read.",
+ "matchup": {
+  "shell": "MISSING: GB and CHI MOFO/MOFC rates, man/zone rates and individual coverage assignments. Location splits cannot establish defensive shells.",
+  "pressure": "Both defenses blitz at 40%. CHI's QB EPA/dropback is 0.25 against blitzes versus 0.20 without; GB's is -0.22 against blitzes versus 0.20 without. This supports CHI's relative ability to sustain offense against the stated blitz tendencies, but actual pressure rates, sacks and offensive-line health are missing.",
+  "bleeds": "GB allows 4.39 rushing yards per carry and has conceded 11 runs of 10-plus yards, so this is not a shutdown rushing matchup. CHI allows 4.94 rushing yards per carry and 10.9 passing yards per attempt through the middle, providing GB plausible routes to a script reversal.",
+  "overlap": "Swift's edge is shared rushing opportunity rather than a defensive weakness: his 51 carries nearly match Monangai's 50 over Weeks 2\u20134. GB's rushing allowance does not independently justify an over at Swift's 84.5-yard line."
+ },
+ "form": "Weeks 2\u20134, supplied pack: Swift recorded 51 carries for 187 yards, while Monangai recorded 50 for 224. Those totals establish a nearly even recent carry split, not an injury explanation. Swift also had 10 targets and 74 receiving yards, which do not count toward this rushing-only market. Individual-game distributions, snaps, routes, red-zone shares, play-caller changes and comparable-opponent logs are missing.",
+ "edge_players": [
+  {
+   "player": "dandreswift",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Swift's nearly even carry split with Monangai makes 84.5 rushing yards a demanding threshold unless his workload or efficiency rises materially.",
+   "must_be_true": "D.Swift carries <= 19 [because the pack records 51 Swift carries and 50 Monangai carries across Weeks 2\u20134]",
+   "kills_it": "IF CHI builds an early multi-score lead and Swift takes a disproportionate share of the closing rushing work THEN D.Swift rushyds under 84.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis is workload dilution; the subsequent arithmetic supports it. Swift's supplied totals equal 17 carries and 62.3 rushing yards per game at 3.67 yards per carry. At 17 carries, clearing 84.5 requires approximately 4.97 yards per carry; alternatively, maintaining his recent efficiency requires approximately 24 carries. These are sensitivity checks, not a fitted projection or simulation. GB's 4.39 YPC allowed and 11 explosive runs are upside risks, not evidence of a shutdown matchup. The under's -113 price requires approximately 53.1% to break even; no estimated win probability is established.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median and distribution, calibrated win probability, Pinnacle prices, sharp-book no-vig benchmark, individual-game workload variance and exact source timestamps.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate only: dandreswift rushyds under 84.5 at -113, as supplied. Rushing yards isolates the shared-carry hypothesis without adding receiving production. Missing model and sharp-price validation prevent a quantified value claim or staking recommendation; no alternative rung selected.",
+ "pre_mortem": "It is Monday and Swift's under lost because CHI controlled the game, accumulated substantially more rushing opportunities and gave Swift more work than the recent near-even split suggested. GB's 11 allowed runs of 10-plus yards also left an explosive-play route to failure without a workload spike. The pack has no game-by-game carry distribution or availability information to establish how stable that split is. This limits the read to a lean: it survives a competitive script and a GB-led passing script, but is vulnerable to a CHI runaway.",
+ "slip_story": "Single-leg candidate only, not a forced 3\u20134-leg slip. The story is that CHI retains its two-back rotation, or trails and reduces rushing volume, leaving Swift below an elevated individual rushing threshold. No second sufficiently validated edge is added, and no bet is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

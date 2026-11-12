@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 CAR@CLE / kickoff not in pack / spread NOT saved / total NOT saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so the script is inferred only from weeks 1-2 form. Carolina's pass game is the engine: Coker and McMillan each have 18 targets, and Bryce Young is better off the blitz (0.37 EPA/dropback, n not blitzed vs 0.18 vs blitz, n=24) against a Cleveland blitz rate of only 19%. Cleveland's dropback game is the fragile side: Watson is -0.20 EPA vs blitz (n=29) and Carolina blitzes 44%, so CLE is likelier to lean on Watson's legs (11 carries, 62 yards) and short targets than on Boston shot volume. Neither back is a proven clock-killer yet (Hubbard 22 carries/102 yards; Judkins 24/54) even though both run defenses leak (CLE 4.93 YPC, CAR 6.31).",
+  "flip1": "Carolina gets ahead and Hubbard's carries jump well above his 11-per-game pace against CLE's 4.93 YPC and 9 runs of 10+, so Coker and McMillan fall to 4 or fewer targets and both receiving overs die.",
+  "flip2": "Carolina's 44% blitz does not wreck Watson (his no-blitz EPA is already 0.27), Boston's 174 air yards cash, and the game becomes a shootout or a CLE-leaning script where Carolina never sustains the 9-target WR roles from weeks 1-2."
+ },
+ "injury_fallout": "MISSING: final injury report, inactives, practice status (DNP/limited/full), questionable tags, and any offensive or defensive absences for CAR and CLE. No returns, snap limits, or next-man-up inferred from usage.",
+ "matchup": {
+  "shell": "MISSING: man/zone rate and MOFO/MOFC charting. Location splits only: CLE allows middle 10.1 YPA on 10 att, left 7.09 on 23, right 6.79 on 24. CAR allows left 8.22 on 18, middle 6.59 on 17, right 5.92 on 26.",
+  "pressure": "CLE blitz rate 19%, which fits Young (EPA/dropback 0.18 vs blitz, n=24, vs 0.37 with no blitz). CAR blitz rate 44% is hostile to Watson (EPA -0.20 vs blitz, n=29, vs 0.27 with no blitz). Pressure getting home would cut Boston's deep air (174 air yards) and push CLE toward RB/TE checkdowns.",
+  "bleeds": "CLE run defense allows 4.93 YPC and 9 runs of 10+; pass explosives 7 of 61 attempts; middle is the YPA leak at 10.1. CAR run defense allows 6.31 YPC and 8 runs of 10+; pass explosives only 4 of 66; left side is the YPA leak at 8.22.",
+  "overlap": "CAR's co-primary targets, Coker (18 tgt, 204 rec yds, 172 air) and McMillan (18 tgt, 176 rec yds, 251 air), overlap a CLE defense that rarely blitzes and has already allowed 7 passes of 20+. That is the core edge. CLE's top option Boston (11 tgt, 154 yds, 174 air) overlaps the wrong trait: CAR's 44% blitz, where Watson's EPA is negative. Judkins' 24 carries overlap CAR's 6.31 YPC, but his own 2.25 YPC has not cashed it."
+ },
+ "form": "Window is weeks 1-2 only (pack says L3 but only two games). CAR: Hubbard 22/102 rush and 5 tgt/49 rec yds, so about 11 carries and 51 rush yards per game, not a 70-yard role yet; Brooks 9/30 and Dillon 8/25 are change-of-pace. Coker 18/204/172 and McMillan 18/176/251 are tied for the target lead, about 9 targets and 102 vs 88 receiving yards per game. Tremble 7/29 and Waller 5/61 are secondary. CLE: Judkins 24/54 rush (about 12 carries, 27 yards, 2.25 YPC) plus 7 tgt/44 rec yds; Watson 11/62 rush; Concepcion 11 tgt/71 rec yds and only 4/9 rush; Boston 11/154/174 is the explosive WR; Fannin 9/75/34; Jeudy 5/26/50 looks like a reduced role; Sanders 3/5 rush and 4/32 rec. No similar-defense or game-split logs in the pack, so a single long play inside Coker's 204 or McMillan's 176 cannot be isolated.",
+ "edge_players": [
+  {
+   "player": "jalencoker",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Coker is averaging about 102 receiving yards on 9 targets per game across weeks 1-2, and the 59-yard line sits far under that against a CLE defense that blitzes only 19% and has allowed 7 passes of 20+.",
+   "must_be_true": "Jalen Coker targets >= 6 because pack shows 18 targets and 204 receiving yards over weeks 1-2",
+   "kills_it": "IF Carolina leads and Hubbard soaks the script so Coker targets <= 4 THEN jalencoker recyds over 59 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "tetairoamcmillan",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "McMillan is the other 18-target Panther, at about 88 receiving yards and 125 air yards per game, and 62.5 is below that recent role against a low-blitz CLE defense that has already allowed 7 explosive passes.",
+   "must_be_true": "Tetairoa McMillan targets >= 6 because pack shows 18 targets, 176 receiving yards and 251 air yards over weeks 1-2",
+   "kills_it": "IF McMillan is held to targets <= 4 or his deep air does not convert the way 251 air yards became only 176 receiving yards THEN tetairoamcmillan recyds over 62.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim, or no-vig in the pack. Treating weeks 1-2 rows as totals: Coker about 102 rec yds/game vs 59; McMillan about 88 vs 62.5. CLE blitz 19% and Young off-blitz EPA 0.37 agree with a CAR pass stack. CLE 7 passes of 20+ on 61 attempts agree with explosive WR paths. Neither recent yardage rate nor the pressure split contradicts these two overs. Hubbard rush under 70.5 and Judkins rush under 61 were not used: CLE 4.93 YPC with 9 runs of 10+ and CAR 6.31 YPC would have contradicted those unders. Boston over 46 was not used because CAR's 44% blitz and Watson's -0.20 EPA vs blitz contradict a deep-air over.",
+  "disagrees": "none",
+  "missing": "spread, total, moneyline, line movement, kickoff, weather, injuries/inactives, coverage shell, snap counts, per-game splits, model projection, sim median, no-vig price; Coker over 59 price is +nan in the prop list",
+  "verdict": "agree"
+ },
+ "market_rung_price": "jalencoker recyds over 59, price not in pack (+nan), no alt rung. tetairoamcmillan recyds over 62.5 at -113, no alt rung and no no-vig. One market per player. Short-priced alts not taken. Do not add TDs or receptions.",
+ "pre_mortem": "It's Monday and both overs lost because the two-game spike did not travel: Coker's 204 yards on 172 air yards was one or two YAC plays, McMillan's 251 air yards again failed to convert (only 176 receiving yards so far), and Carolina either led and handed Hubbard more than 11 carries against a CLE run defense allowing 4.93 YPC and 9 runs of 10+, or Cleveland's 19% blitz ticked up and Young was forced off his 0.37 no-blitz EPA. A late scratch not in this pack, or CLE simply bracketing the two 18-target receivers, also loses both legs together. That clock-kill flip is real, but it is one path, not the base read, and the yardage gaps (102 vs 59, 88 vs 62.5) are why the legs stay.",
+ "slip_story": "One story only: Carolina pass volume vs a low-blitz Cleveland defense. Coker over 59 and McMillan over 62.5 win together if Young stays in his no-blitz environment and both keep a 6-plus target share. Do not mix this slip with a game-total under, a Hubbard rush over, or a Carolina clock-kill stack. CLE pass overs (Boston) need the opposite pressure story and stay off this ticket.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

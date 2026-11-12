@@ -1,0 +1,17 @@
+GATE: FAIL  run=/workspace/nfl-database/runs/2026-11-01_LAC@LAR  checked_at=2026-11-01 12:00 ET
+Live legs: none
+Cut legs: ['Blake Corum Rush Yds Under 46.5', 'Blake Corum Rush+Rec Yds Under 56.5', 'Justin Herbert Pass Yds Under 205.5', 'Kyren Williams Rush Yds Under 58.5', 'Kyren Williams Rush+Rec Yds Under 85.5', 'Ladd McConkey Rec Yds Under 47.5', 'Ladd McConkey Receptions Under 3.5', 'Matthew Stafford Pass Yds Over 248.5', 'Omarion Hampton Rush Yds Over 31.5', 'Omarion Hampton Rush+Rec Yds Over 40.5', 'Oronde Gadsden II Rec Yds Under 15.5', 'Oronde Gadsden II Receptions Under 1.5', 'Puka Nacua Rec Yds Over 91.5', 'Puka Nacua Receptions Over 7.5', 'Quentin Johnston Rec Yds Under 33.5', 'Quentin Johnston Receptions Under 2.5', 'Tyler Higbee Rec Yds Under 36.5', 'Tyler Higbee Receptions Under 3.5']
+SHARP CAUTION: Sharp coverage not confirmed (Sharp Football coverage schemes (man/zone, MOF; data Updated Oct 27): no second source); legs citing Sharp coverage cannot be PRESS (SRC-3)
+MISSES (10):
+  - game_script_rb LAC@LAR: pull timestamp 2026-11-01T15:30 is in the future
+  - source injuries_news/ESPN injuries API re-pull 15:30 (official 4 PM inactives): pull timestamp 2026-11-01T15:30 is in the future
+  - source injuries_news/X reporters/beat writers inactives posts via x connector: pull timestamp 2026-11-01T15:01 is in the future
+  - source category injuries_news: missing or no fresh source
+  - source weather/NWS gridpoint forecast (api.weather.gov) kickoff..+3.5h max PoP/wind/gust; Open-Meteo cross-check DEN/MIA: pull timestamp 2026-11-01T15:30 is in the future
+  - source category weather: missing or no fresh source
+  - source odds_props/The Odds API re-pull 08:36: FanDuel main+alt, DraftKings, Pinnacle player props (12 events): pull timestamp 2026-11-01T15:29 is in the future
+  - source odds_props/The Odds API re-pull 08:36: FanDuel/DK/Pinnacle spreads+totals (28 games): pull timestamp 2026-11-01T15:29 is in the future
+  - source category odds_props: missing or no fresh source
+  - Phase 11 weather LAC@LAR: pull timestamp 2026-11-01T15:30 is in the future
+Notes:
+  - cross-check (pick-side only, not a gated source): PFF player props page cross-check (pick side only, book unknown/logo only; not a no-vig source) pulled 2026-11-01T07:34

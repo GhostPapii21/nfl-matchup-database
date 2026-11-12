@@ -1,0 +1,46 @@
+{
+ "game": "TB@CAR Week 7 / kickoff not in pack / CAR -3 / total 45 / weather not saved",
+ "script": {
+  "base": "Book has Carolina -3 on a 45 total, implied about CAR 24-TB 21: a one-score game, not a shootout and not a slog. Carolina leads or stays within a score, feeds Chuba Hubbard (68 carries, 324 yards over weeks 3/4/6, 22.7 and 108 per game) and still throws to Tetairoa McMillan (30 targets, 295 yards). Tampa grinds with Bucky Irving (56 carries, 272 yards, 18.7 and 90.7 per game) because Baker's dropback EPA is negative vs blitz (-0.22, n=84) and clean (-0.16).",
+  "flip1": "Carolina is up two scores by halftime, Hubbard clocks it, Tampa abandons the run, and Irving's rush line dies while Mayfield is stuck in a negative-EPA dropback game.",
+  "flip2": "Tampa jumps ahead or it turns into a 30-point shootout: both teams throw, McMillan and Tampa's target leaders (Egbuka 29 targets, Godwin 18) get volume, and Hubbard's carry count drops if Carolina is chasing."
+ },
+ "injury_fallout": "No injury report, practice status, questionable tags, or inactives in the as-of pack, so no named scratch and no next-man-up from a real absence. Usage only: TB carries L3 are Irving 56, Daniels 17, Gainwell 9, Tucker 8, so only an Irving absence would move a real pile, and that is not indicated. CAR carries are Hubbard 68, Dillon 9 (18 yards, 2.0 YPC), Young 2; Dillon does not inherit volume unless Hubbard is limited, which is not in the pack. Passing volume is McMillan 30 targets on CAR and Egbuka 29 targets / 99 yards on TB; Egbuka is not on the available board. Final inactives ~90 minutes before kickoff were not available and would force a re-run.",
+ "matchup": {
+  "shell": "No MOFO/MOFC or man/zone charting in the pack. Location YPA stands in: CAR allows middle 8.12 (42 att) vs left 6.34 (59) and right 5.34 (88), so the middle is the soft spot and the right side is the strength. TB allows middle 8.78 (40 att) vs left 6.35 (92) and right 6.06 (81), same shape, plus more explosives (14 passes of 20+ on 225 att vs CAR 9 on 201).",
+  "pressure": "CAR blitzes 37%. TB QB EPA is worse vs blitz (-0.22, n=84) than clean (-0.16), so CAR pressure pushes Mayfield to check-downs; Irving has only 6 targets for 13 yards L3, so that bump is more Otton (12 targets, 66 yards) or Godwin than Irving. TB blitzes 42%. Bryce Young is still positive vs blitz (0.13 EPA, n=57) but better clean (0.23), so TB pressure trims explosives more than it collapses the CAR offense.",
+  "bleeds": "CAR run defense bleeds: 5.22 YPC allowed and 14 runs of 10+ in 5 games. CAR pass defense does not bleed explosives (9 of 20+ on 201) and is stingy right (5.34 YPA). TB run defense is the sturdy unit (3.72 YPC, 12 runs of 10+ in 6 games). TB pass defense bleeds the middle (8.78 YPA) and explosives.",
+  "overlap": "McMillan is the pass overlap: 30 targets, 299 air yards, 295 rec yards over 3 games into the TB middle/explosive leak. Irving is the run overlap: 56 carries at 4.86 YPC into a CAR front allowing 5.22 YPC. Godwin (75 air yards, 35.0 yards/game) would fit CAR's middle bleed, but 44.5 sits above that recent role, so the number does not match the overlap."
+ },
+ "form": "Last 3-4 only, no season averages. Irving weeks 4-6: 56/272 rush (90.7/g, 4.86 YPC) and 6 targets for 13 yards, stable pure-rusher role, no OC or QB change in the pack. Hubbard weeks 3/4/6 (week 5 absent from pack, reason not given): 68/324 (108/g, 4.76 YPC) plus 8 targets for 36 yards. McMillan 30/295/299 is a real 10-target role but a near 1:1 air-to-yards rate that can regress. Coker 17 targets / 115 yards on 228 air yards is air not converting, so his 66.5 over is a chase. Egbuka 29/99/225 is the same non-conversion and is not on the board. Tez Johnson 88 yards on 6 targets is explosive-sample noise. Dillon 9/18 and Young 2/15 are not rushing baselines. Godwin 18/105/75 is a steady 35 yards/game, under a 44.5 number.",
+ "edge_players": [
+  {
+   "player": "tetairoamcmillan",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "McMillan is Carolina's primary option at 10 targets and 98.3 receiving yards per game over weeks 3/4/6, and Tampa bleeds the middle at 8.78 YPA with 14 gains of 20+ on 225 attempts; 70.5 sits about 28 yards under that role, so a regression game still clears.",
+   "must_be_true": "McMillan plays a full route share, Young stays functional under TB's 42% blitz (EPA vs blitz still +0.13), and the ~10-target share holds instead of fully shifting to Waller (16 L3 targets) or Coker (17).",
+   "kills_it": "TB brackets him, the blitz turns the downfield shots into incompletions, and the 295-on-299 air conversion becomes a 4-for-45 while Waller and Tremble take the middle.",
+   "confidence": "strong"
+  },
+  {
+   "player": "buckyirving",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Irving has the TB carry share (56 of the listed L3 rushes, 90.7 yards/game at 4.86 YPC) into the softest part of Carolina's defense (5.22 YPC, 14 runs of 10+), and 66.5 is about 24 yards under that role if the game stays within a score.",
+   "must_be_true": "CAR -3 game stays competitive, Irving keeps a 15-plus carry share ahead of Daniels (17), Gainwell (9) and Tucker (8), and CAR's run leak shows up against this line.",
+   "kills_it": "Carolina leads by two scores and Tampa abandons the run; Irving is not a receiver (13 rec yards in three games), so a pass script does not bail out the rush line. Script-dependent.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so step 8 cannot size the edge and no 70% model probability is claimed. Form agrees on the numbers: McMillan 98.3 vs 70.5, Irving 90.7 vs 66.5. Both sides for the human: the strong McMillan read is flagged, not cut, because 295 receiving yards on 299 air yards is an efficiency spike that should not repeat, and TB's 42% blitz is the mechanism that would cut it; the -113 price is not de-vigged. Irving's form agrees but the leg is a lean and dies if the underdog-trails flip hits. Do not treat agreement as a bet size.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "McMillan recyds over 70.5 -113, main line only (explosive/middle overlap; no alt rung in the pack). Irving rushyds over 66.5 -113, not rushrecyds 87.5: L3 receiving is only 13 yards, so rush+rec (~95) has about a 7-yard cushion vs a 24-yard cushion on the rush line. No short-priced alt. Hubbard rush over 66 is not used (price +nan, and TB allows 3.72 YPC, the strong-run-defense case).",
+ "pre_mortem": "Monday both lost. McMillan: Tampa blitzed, Young's +0.13 vs-blitz edge did not produce downfield completions, the weeks 3/4/6 1:1 air conversion regressed, and he finished under 70.5 while Waller (16 targets L3) and Tremble (99 yards on 12 targets) took the middle TB actually gives up. Irving: Carolina led by two scores at half, Mayfield's negative dropback EPA forced throws, Irving had about 12 carries in the 40s, and Daniels/Tucker took the leftovers, so CAR's 5.22 YPC never got a full sample. The counter is stronger on Irving than on McMillan; Irving stays a lean, not a building-block.",
+ "slip_story": "One close-game story only: CAR -3, total 45, both feature backs get volume and Carolina still throws to McMillan. McMillan over survives either side leading. Irving rush over belongs only while Tampa is not trailing big; do not pair him with a TB pass-script stack, a total under, or Hubbard rush over (that RB needs the opposite lead, and TB's 3.72 YPC allowed is not the matchup). No TDs, no receptions, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

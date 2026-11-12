@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 DET@ARI / kickoff MISSING / spread and total NOT saved; script inferred only from supplied team form and matchup / weather NOT saved. Moneyline, implied totals, venue details, rest, travel and opening-line movement MISSING.",
+ "script": {
+  "base": "Hypothesis before prop evaluation: DET's passing efficiency gives it the cleaner offensive path, while ARI benefits from keeping its rushing attack involved rather than repeatedly exposing its quarterback to pressure. Expect a competitive game with DET leaning on distributed passing production and ARI using Jeremiyah Love to sustain possessions; halftime lead, pace and garbage time cannot be established from this pack.",
+  "flip1": "DET builds an early lead through efficient passing. ARI then reduces rushing opportunities, threatening Love's rushing over, while late clock-killing work threatens a Gibbs combined-yardage under.",
+  "flip2": "ARI establishes its rushing attack against DET's run defense and controls possession. Love's rushing over benefits, while fewer DET possessions can support Gibbs staying below his combined-yardage line."
+ },
+ "injury_fallout": "MISSING: DET and ARI injury reports, practice participation, offensive-line availability, defensive absences, final inactives and snap restrictions, including information for Jahmyr Gibbs and Jeremiyah Love. No absences, returns or replacement roles are inferred from usage. All statistical claims below come from the supplied pre-kickoff pack: offense weeks 2\u20134 and defense through four games. Exact publication timestamps are MISSING. Final reports and approximately 90-minute inactive checks cannot be completed in this backtest.",
+ "matchup": {
+  "shell": "MISSING: DET and ARI MOFO/MOFC, man/zone rates, alignment splits and individual coverage assignments. Location-level passing results do not establish a coverage shell.",
+  "pressure": "DET blitzes on 31% of plays; ARI's QB EPA/dropback is -0.39 against blitzes over 49 dropbacks versus 0.13 without blitzes. That supports an ARI incentive to preserve rushing opportunities, not proof it will do so. ARI blitzes at 23%; DET's QB EPA/dropback is 0.34 against blitzes over 57 dropbacks versus 0.19 without. Actual pressure rates, sacks and time to throw are MISSING.",
+  "bleeds": "DET allows 4.72 yards per carry and has allowed 16 runs of at least 10 yards. ARI allows 4.22 yards per carry and 11 such runs. ARI's pass YPA allowed is elevated across left/middle/right locations at 9.36/8.74/9.1. DET allows 11.52 YPA through the middle, but player-specific alignment data is unavailable.",
+  "overlap": "Love's leading ARI carry role directly overlaps DET's rushing vulnerability. Gibbs faces a more conditional under setup: DET has several productive receiving options capable of exploiting ARI's broad passing vulnerability, so an efficient DET offense need not concentrate its production in Gibbs."
+ },
+ "form": "Over weeks 2\u20134, Love recorded 44 carries for 182 yards, compared with Allgeier's 15 for 51. Gibbs recorded 51 carries for 197 yards plus 23 targets and 148 receiving yards. DET also supplied St. Brown 32 targets, LaPorta 24, and TeSlaa and Williams 16 each. These aggregates establish recent opportunity distribution but do not reveal individual-game consistency, routes, snaps, red-zone work, role trends or comparable-opponent results.",
+ "edge_players": [
+  {
+   "player": "jeremiyahlove",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Love's lead rushing role attacks a DET defense allowing 4.72 yards per carry and 16 gains of at least 10 yards, with ARI having a matchup-based reason to avoid excessive blitz-exposed passing.",
+   "must_be_true": "Jeremiyah Love rushing_yards >= 46 [because the pack records 44 carries for 182 yards over weeks 2\u20134 against a DET defense allowing 4.72 yards per carry]",
+   "kills_it": "IF DET establishes an early multi-score lead and ARI abandons Love's rushing workload THEN Love rushyds over 45.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jahmyrgibbs",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "DET can exploit ARI through its distributed passing attack without Gibbs accumulating the 134 combined yards required to beat this line.",
+   "must_be_true": "Jahmyr Gibbs rushing_plus_receiving_yards <= 133 [because the pack shows substantial receiving opportunity for St. Brown, LaPorta, TeSlaa and Williams alongside Gibbs]",
+   "kills_it": "IF Gibbs combines a breakaway gain with concentrated receiving work or a large clock-killing rushing workload THEN Gibbs rushrecyds under 133.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Read first, numerical check second: Love's recent rushing workload is 14.7 carries and 60.7 yards per game. At DET's allowed 4.72 yards per carry, 46 yards would require about 10 carries; this is a matchup sensitivity check, not a projection. Gibbs produced 345 combined yards over three games, or 115 per game, below 133.5. Neither calculation establishes a hit probability. Available evidence supports both hypotheses without proving a priced edge.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations and medians, calibrated probabilities, Pinnacle prices and sharp-book no-vig comparison; individual-game distributions, snaps/routes, injury information and exact fact timestamps. Supplied two-sided quotes are not identified as Pinnacle.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line leans only: Jeremiyah Love rushyds over 45.5 at -112; Jahmyr Gibbs rushrecyds under 133.5 at -113. Love uses rushing yards to isolate the run-defense matchup; Gibbs uses combined yards to test whether his total production stays distributed below the threshold. No alternate rungs, stake sizing or verified positive-EV claim.",
+ "pre_mortem": "It's Monday and both lost: DET scored quickly, forcing ARI to replace Love carries with dropbacks, while Gibbs supplied an explosive play and then accumulated late rushing yards. The strongest objection to Love is game-script fragility without a saved spread. The strongest objection to Gibbs is that ARI's broad defensive vulnerability also benefits him, and his 23 recent targets represent meaningful receiving opportunity. These risks limit both to leans; neither is a strong, model-validated edge.",
+ "slip_story": "One conditional story: ARI remains competitive through Love's rushing, while DET's offensive production is shared across its passing options rather than concentrated in Gibbs. Both legs can also survive ARI controlling possession. Love is explicitly script-dependent against an early DET runaway. Do not force a 3\u20134-leg slip from this pack; retain these as two conditional candidates, not a validated parlay. This response records the read, but no external save, pre-kickoff timestamp lock, hash or postgame grading is available. Grade the script and player-role hypotheses separately from eventual results.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,1089 @@
+{
+  "game": "JAX@BAL",
+  "kickoff_et": "2026-11-05T20:15",
+  "game_date": "2026-11-05",
+  "season": 2026,
+  "week": 9,
+  "venue": "M&T Bank Stadium (open air)",
+  "game_id": "2026_09_JAX_BAL",
+  "input_cutoff_et": "2026-11-05T16:49",
+  "sources": [
+    {
+      "category": "core_stats_pbp",
+      "name": "nflverse play_by_play_2026 (thru MNF wk8)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-05_matchup_run/src/play_by_play_2026.parquet",
+      "pulled_et": "2026-11-05T06:07",
+      "tool": "curl (nflverse release, 10 AM routine reuse)",
+      "season": 2026,
+      "data_week": 8
+    },
+    {
+      "category": "core_stats_pbp",
+      "name": "ESPN depth charts JAX/BAL",
+      "url_or_file": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/{jax,bal}/depthcharts",
+      "pulled_et": "2026-11-05T16:43",
+      "tool": "curl",
+      "season": 2026,
+      "data_week": 9
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "Sharp Football coverage schemes (man/zone, MOF)",
+      "url_or_file": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+      "pulled_et": "2026-11-05T16:42",
+      "tool": "firecrawl",
+      "season": 2026,
+      "data_week": 8,
+      "second_source": {
+        "name": "StatRankings CoverageIQ team pages BAL/JAX",
+        "url_or_file": "https://statrankings.com/nfl/coverage/team/bal ; https://statrankings.com/nfl/coverage/team/jax",
+        "pulled_et": "2026-11-05 16:42",
+        "agrees": true
+      }
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "StatRankings CoverageIQ BAL/JAX",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/bal",
+      "pulled_et": "2026-11-05T16:42",
+      "tool": "firecrawl",
+      "season": 2026,
+      "data_week": 8
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "PFR advanced defense (per-defender) cache",
+      "url_or_file": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv (PFR /years/2026/defense_advanced.htm, BAL G=8)",
+      "pulled_et": "2026-11-04T07:05",
+      "tool": "existing PFR extraction (live 403 Nov 5; cache)",
+      "season": 2026,
+      "data_week": 8
+    },
+    {
+      "category": "coverage_matchups",
+      "name": "FTN charting via nflverse (blitzers/rushers)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-05_matchup_run/src/ftn_charting_2026.parquet",
+      "pulled_et": "2026-11-05T06:07",
+      "tool": "curl (nflverse release)",
+      "season": 2026,
+      "data_week": 8
+    },
+    {
+      "category": "ngs",
+      "name": "nflverse Next Gen Stats passing/receiving/rushing",
+      "url_or_file": "https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/ngs_{passing,receiving,rushing}.parquet",
+      "pulled_et": "2026-11-05T16:43",
+      "tool": "curl",
+      "season": 2026,
+      "data_week": 8
+    },
+    {
+      "category": "film",
+      "name": "Official NFL YouTube highlights (captions matched to pbp)",
+      "url_or_file": "https://www.youtube.com/watch?v=SQT1S7J4s-o ; https://www.youtube.com/watch?v=WXw2IIj01Sg ; https://www.youtube.com/watch?v=R7zUguz0Aag ; https://www.youtube.com/watch?v=3xMS3qL2KwY",
+      "pulled_et": "2026-11-05T16:48",
+      "tool": "yt-dlp metadata+captions",
+      "season": 2026,
+      "data_week": 8
+    },
+    {
+      "category": "injuries_news",
+      "name": "ESPN injuries API",
+      "url_or_file": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+      "pulled_et": "2026-11-05T16:43",
+      "tool": "curl",
+      "season": 2026,
+      "data_week": 9
+    },
+    {
+      "category": "weather",
+      "name": "NWS hourly forecast (api.weather.gov) M&T Bank Stadium",
+      "url_or_file": "https://api.weather.gov/gridpoints/LWX/109,90/forecast/hourly",
+      "pulled_et": "2026-11-05T16:52",
+      "tool": "curl",
+      "season": 2026,
+      "data_week": 9
+    },
+    {
+      "category": "weather",
+      "name": "tools/weather_forecast.py (NWS + Open-Meteo)",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-05_JAX_BAL/src/weather/forecast_2026-11-05_1643.json",
+      "pulled_et": "2026-11-05T16:43",
+      "tool": "tools/weather_forecast.py",
+      "season": 2026,
+      "data_week": 9
+    },
+    {
+      "category": "odds_props",
+      "name": "The Odds API event odds FD/DK/Pinnacle",
+      "url_or_file": "/workspace/nfl-database/runs/2026-11-05_JAX_BAL/odds/odds_r1_1650.csv",
+      "pulled_et": "2026-11-05T16:49",
+      "tool": "urllib (pull_odds_tnf.py)",
+      "season": 2026,
+      "data_week": 9
+    }
+  ],
+  "flagged_gaps": [],
+  "pressure_inputs": {
+    "blitz_rate": {
+      "value": 0.3333,
+      "last4": 0.3605,
+      "n": 303,
+      "team": "BAL D",
+      "source": "FTN charting n_blitzers>0 or 5+ rushers (/workspace/nfl-database/runs/2026-11-05_matchup_run/src/ftn_charting_2026.parquet) joined to pbp",
+      "pulled_et": "2026-11-05T06:07"
+    },
+    "pressure_rate": {
+      "value": 0.2409,
+      "n": 303,
+      "label": "PROXY",
+      "team": "BAL D",
+      "source": "nflverse pbp (sack|qb_hit|scramble)/dropbacks",
+      "pulled_et": "2026-11-05T06:07"
+    },
+    "checkdown_share": {
+      "value": 0.2121,
+      "n": 198,
+      "qb": "T.Lawrence",
+      "source": "nflverse pbp: targets to RB or air_yards<=0",
+      "pulled_et": "2026-11-05T06:07"
+    },
+    "time_to_throw": {
+      "value": 2.751,
+      "qb": "T.Lawrence",
+      "source": "nflverse NGS passing season row (nextgenstats.nfl.com public data)",
+      "pulled_et": "2026-11-05T16:43"
+    },
+    "targets_under_pressure": {
+      "value": {
+        "J.Meyers": 7,
+        "P.Washington": 6,
+        "B.Strange": 2,
+        "Bri.Thomas": 2,
+        "L.Allen": 2,
+        "B.Tuten": 2,
+        "C.Rodriguez": 1
+      },
+      "n": 23,
+      "label": "PROXY, LOW-SAMPLE",
+      "source": "nflverse pbp + FTN join",
+      "pulled_et": "2026-11-05T06:07"
+    }
+  },
+  "sims": [
+    {
+      "model": "monte_carlo",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "tools/sim_v6.py",
+      "code_sha": "1c81119e879acc39",
+      "legs": {
+        "Lawrence rush yds U12.5": {
+          "p": 0.6365,
+          "median": 8.04
+        },
+        "Henry rush yds U71.5": {
+          "p": 0.7626,
+          "median": 53.67
+        },
+        "Meyers rec yds U38.5": {
+          "p": 0.466,
+          "median": 41.5
+        },
+        "Strange rec yds O32.5": {
+          "p": 0.6217,
+          "median": 40.98
+        },
+        "Strange 4+ rec (O3.5)": {
+          "p": 0.5617,
+          "median": 4.0
+        },
+        "Washington rec yds O60.5": {
+          "p": 0.4547,
+          "median": 54.93
+        },
+        "Flowers rec U4.5": {
+          "p": 0.2615,
+          "median": 6.0
+        }
+      }
+    },
+    {
+      "model": "bias",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "tools/sim_v6.py",
+      "code_sha": "1c81119e879acc39",
+      "legs": {
+        "Lawrence rush yds U12.5": {
+          "p": 0.64,
+          "median": 8.04
+        },
+        "Henry rush yds U71.5": {
+          "p": 0.7612,
+          "median": 53.67
+        },
+        "Meyers rec yds U38.5": {
+          "p": 0.4661,
+          "median": 41.5
+        },
+        "Strange rec yds O32.5": {
+          "p": 0.6205,
+          "median": 41.91
+        },
+        "Strange 4+ rec (O3.5)": {
+          "p": 0.5618,
+          "median": 4.0
+        },
+        "Washington rec yds O60.5": {
+          "p": 0.4534,
+          "median": 54.93
+        },
+        "Flowers rec U4.5": {
+          "p": 0.2635,
+          "median": 6.0
+        }
+      }
+    },
+    {
+      "model": "game_randomness",
+      "n": 100000,
+      "seed": 20261101,
+      "script": "tools/sim_v6.py",
+      "code_sha": "1c81119e879acc39",
+      "legs": {
+        "Lawrence rush yds U12.5": {
+          "p": 0.6381,
+          "median": 8.2
+        },
+        "Henry rush yds U71.5": {
+          "p": 0.738,
+          "median": 53.95
+        },
+        "Meyers rec yds U38.5": {
+          "p": 0.492,
+          "median": 40.28
+        },
+        "Strange rec yds O32.5": {
+          "p": 0.5735,
+          "median": 38.92
+        },
+        "Strange 4+ rec (O3.5)": {
+          "p": 0.5258,
+          "median": 4.0
+        },
+        "Washington rec yds O60.5": {
+          "p": 0.4464,
+          "median": 54.09
+        },
+        "Flowers rec U4.5": {
+          "p": 0.2869,
+          "median": 6.0
+        }
+      }
+    }
+  ],
+  "legs": [
+    {
+      "name": "Lawrence rush yds U12.5",
+      "player": "Trevor Lawrence",
+      "team": "JAX",
+      "opp": "BAL",
+      "game": "JAX@BAL",
+      "type": "QB",
+      "market": "rushyds",
+      "side": "under",
+      "line": 12.5,
+      "spread": -9.5,
+      "price": -113.0,
+      "price_fd": -113.0,
+      "book": "fanduel",
+      "no_vig": 0.5,
+      "no_vig_pinnacle": 0.5,
+      "receiving": false,
+      "status": "PASS",
+      "gaps": [],
+      "flags": [
+        "SCRAMBLE_CONFLICT: BAL allows 7.3% scramble rate vs 4.8% league; own-rate projection 11.0 but opp-adjusted 14.8 > 12.5 (flag, not a cut; Rico Nov 4 6:17 AM); build/lawrence_opp.json",
+        "MARKET_GAP: FD alt over 9.5 at -180 = 64.3% vig-in (one-sided alt) vs sim P(10+) .445/.440/.440 (build/law_alt_out.json); independent model and market-informed view kept separate"
+      ],
+      "cut_reasons": [],
+      "recent_form": {
+        "values": [
+          2.0,
+          25.0,
+          12.0,
+          10.0
+        ],
+        "games": [
+          "2026_04_JAX_CIN",
+          "2026_05_PHI_JAX",
+          "2026_06_HOU_JAX",
+          "2026_08_IND_JAX"
+        ],
+        "qb": "T.Lawrence",
+        "source": "nflverse play_by_play_2026.parquet (/workspace/nfl-database/runs/2026-11-05_matchup_run/src)",
+        "pulled_et": "2026-11-05T06:07"
+      },
+      "press_tier": {
+        "tier": "STANDARD",
+        "reason": "no press inputs on leg",
+        "models_clear": 0
+      }
+    },
+    {
+      "name": "Henry rush yds U71.5",
+      "player": "Derrick Henry",
+      "team": "BAL",
+      "opp": "JAX",
+      "game": "JAX@BAL",
+      "type": "RB",
+      "market": "rushyds",
+      "side": "under",
+      "line": 71.5,
+      "spread": 9.5,
+      "price": -113.0,
+      "price_fd": -113.0,
+      "book": "fanduel",
+      "no_vig": 0.5,
+      "no_vig_pinnacle": null,
+      "receiving": false,
+      "status": "CUT",
+      "gaps": [],
+      "flags": [],
+      "cut_reasons": [
+        "\u00a77 MISSING: only 1 game with current QB Fagnano (need 3 of 3 or 3 of 4)",
+        "P14 MODEL-SUSPECT: all 3 sim medians ~54 vs line 71.5 (17+ yds off the market main)"
+      ],
+      "recent_form": {
+        "values": [
+          53.0
+        ],
+        "games": [
+          "2026_08_BAL_BUF"
+        ],
+        "qb": "J.Fagnano",
+        "source": "nflverse play_by_play_2026.parquet (/workspace/nfl-database/runs/2026-11-05_matchup_run/src)",
+        "pulled_et": "2026-11-05T06:07"
+      },
+      "mirror": {
+        "no_rung_reason": "every Henry over rung also fails \u00a77 (1 game with Fagnano); rain + run-first BAL plan is the Flip B risk to the under"
+      }
+    },
+    {
+      "name": "Meyers rec yds U38.5",
+      "player": "Jakobi Meyers",
+      "team": "JAX",
+      "opp": "BAL",
+      "game": "JAX@BAL",
+      "type": "WR",
+      "market": "recyds",
+      "side": "under",
+      "line": 38.5,
+      "spread": -9.5,
+      "price": -113.0,
+      "price_fd": -113.0,
+      "book": "fanduel",
+      "no_vig": 0.5,
+      "no_vig_pinnacle": 0.49031841652323577,
+      "receiving": true,
+      "status": "CUT",
+      "gaps": [],
+      "flags": [],
+      "cut_reasons": [
+        "P14 edge -2.5 pts < +3",
+        "P14 median does not clear ([41.5, 41.5, 40.28] vs 38.5)"
+      ],
+      "recent_form": {
+        "values": [
+          33.0,
+          37.0,
+          83.0,
+          24.0
+        ],
+        "games": [
+          "2026_04_JAX_CIN",
+          "2026_05_PHI_JAX",
+          "2026_06_HOU_JAX",
+          "2026_08_IND_JAX"
+        ],
+        "qb": "T.Lawrence",
+        "source": "nflverse play_by_play_2026.parquet (/workspace/nfl-database/runs/2026-11-05_matchup_run/src)",
+        "pulled_et": "2026-11-05T06:07"
+      },
+      "wr_rank": 2,
+      "mirror": {
+        "no_rung_reason": "mirror over is a receiving OVER in a weather-flagged game (stop)"
+      },
+      "coverage": {
+        "man_zone": {
+          "man": 0.159,
+          "zone": 0.777,
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+          "pulled_et": "2026-11-05T16:42",
+          "data_through": "2026 wk8 (Sharp updated Nov 3)",
+          "second_source": {
+            "name": "StatRankings CoverageIQ BAL (vs WR cov snaps)",
+            "url_or_file": "https://statrankings.com/nfl/coverage/team/bal",
+            "pulled_et": "2026-11-05 16:42",
+            "agrees": true,
+            "note": "SR man 32.4% / zone 67.6% (zone-majority, same direction); two-high 54.4% vs Sharp MOF open 59.5%"
+          }
+        },
+        "mof": {
+          "open": 0.595,
+          "closed": 0.385,
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+          "pulled_et": "2026-11-05T16:42"
+        },
+        "defenders": [
+          {
+            "name": "Marlon Humphrey",
+            "targets": 42,
+            "comp_pct": 59.5,
+            "ypt": 8.5,
+            "rating": 87.3,
+            "primary": true,
+            "role": "RCB: Meyers left-side targets (int 8) face the defense right; N2 blend 1 of 2",
+            "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv (PFR /years/2026/defense_advanced.htm, BAL G=8)",
+            "pulled_et": "2026-11-04T07:05"
+          },
+          {
+            "name": "Nate Wiggins",
+            "targets": 36,
+            "comp_pct": 55.6,
+            "ypt": 6.1,
+            "rating": 83.2,
+            "primary": true,
+            "role": "LCB (Q illness; Awuzie if out); N2 blend 2 of 2",
+            "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv (PFR /years/2026/defense_advanced.htm, BAL G=8)",
+            "pulled_et": "2026-11-04T07:05"
+          },
+          {
+            "name": "Kyle Hamilton",
+            "targets": 34,
+            "comp_pct": 70.6,
+            "ypt": 6.0,
+            "rating": 83.5,
+            "primary": false,
+            "role": "slot (102 Meyers slot snaps)",
+            "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv (PFR /years/2026/defense_advanced.htm, BAL G=8)",
+            "pulled_et": "2026-11-04T07:05"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Strange rec yds O32.5",
+      "player": "Brenton Strange",
+      "team": "JAX",
+      "opp": "BAL",
+      "game": "JAX@BAL",
+      "type": "TE",
+      "market": "recyds",
+      "side": "over",
+      "line": 32.5,
+      "spread": -9.5,
+      "price": -113.0,
+      "price_fd": -113.0,
+      "book": "fanduel",
+      "no_vig": 0.5,
+      "no_vig_pinnacle": 0.5021645958699511,
+      "receiving": true,
+      "status": "CUT",
+      "gaps": [],
+      "flags": [],
+      "cut_reasons": [
+        "Phase 11 WEATHER FORECAST + NWS: precip 75% in the game window (open air) - receiving OVER must be CUT (stop, no mirror)"
+      ],
+      "recent_form": {
+        "values": [
+          95.0,
+          68.0,
+          44.0,
+          55.0
+        ],
+        "games": [
+          "2026_04_JAX_CIN",
+          "2026_05_PHI_JAX",
+          "2026_06_HOU_JAX",
+          "2026_08_IND_JAX"
+        ],
+        "qb": "T.Lawrence",
+        "source": "nflverse play_by_play_2026.parquet (/workspace/nfl-database/runs/2026-11-05_matchup_run/src)",
+        "pulled_et": "2026-11-05T06:07"
+      },
+      "te_rank": 1,
+      "coverage": {
+        "man_zone": {
+          "man": 0.159,
+          "zone": 0.777,
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+          "pulled_et": "2026-11-05T16:42",
+          "data_through": "2026 wk8 (Sharp updated Nov 3)",
+          "second_source": {
+            "name": "StatRankings CoverageIQ BAL (vs WR cov snaps)",
+            "url_or_file": "https://statrankings.com/nfl/coverage/team/bal",
+            "pulled_et": "2026-11-05 16:42",
+            "agrees": true,
+            "note": "SR man 32.4% / zone 67.6% (zone-majority, same direction); two-high 54.4% vs Sharp MOF open 59.5%"
+          }
+        },
+        "mof": {
+          "open": 0.595,
+          "closed": 0.385,
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+          "pulled_et": "2026-11-05T16:42"
+        },
+        "defenders": [
+          {
+            "name": "Malaki Starks",
+            "targets": 20,
+            "comp_pct": 85.0,
+            "ypt": 12.2,
+            "rating": 157.1,
+            "primary": true,
+            "role": "FS over the top / seam (Hawkins OUT); N2 blend 1 of 2",
+            "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv (PFR /years/2026/defense_advanced.htm, BAL G=8)",
+            "pulled_et": "2026-11-04T07:05"
+          },
+          {
+            "name": "Kyle Hamilton",
+            "targets": 34,
+            "comp_pct": 70.6,
+            "ypt": 6.0,
+            "rating": 83.5,
+            "primary": true,
+            "role": "box/slot; N2 blend 2 of 2",
+            "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv (PFR /years/2026/defense_advanced.htm, BAL G=8)",
+            "pulled_et": "2026-11-04T07:05"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Strange 4+ rec (O3.5)",
+      "player": "Brenton Strange",
+      "team": "JAX",
+      "opp": "BAL",
+      "game": "JAX@BAL",
+      "type": "TE",
+      "market": "rec",
+      "side": "over",
+      "line": 3.5,
+      "spread": -9.5,
+      "price": 102.0,
+      "price_fd": 102.0,
+      "book": "fanduel",
+      "no_vig": 0.46209273182957394,
+      "no_vig_pinnacle": 0.5,
+      "receiving": true,
+      "status": "CUT",
+      "gaps": [],
+      "flags": [],
+      "cut_reasons": [
+        "Phase 11 WEATHER FORECAST + NWS: precip 75% in the game window (open air) - receiving OVER must be CUT (stop, no mirror)"
+      ],
+      "recent_form": {
+        "values": [
+          7,
+          7,
+          5,
+          2
+        ],
+        "games": [
+          "2026_04_JAX_CIN",
+          "2026_05_PHI_JAX",
+          "2026_06_HOU_JAX",
+          "2026_08_IND_JAX"
+        ],
+        "qb": "T.Lawrence",
+        "source": "nflverse play_by_play_2026.parquet (/workspace/nfl-database/runs/2026-11-05_matchup_run/src)",
+        "pulled_et": "2026-11-05T06:07"
+      },
+      "te_rank": 1,
+      "coverage": {
+        "man_zone": {
+          "man": 0.159,
+          "zone": 0.777,
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+          "pulled_et": "2026-11-05T16:42",
+          "data_through": "2026 wk8 (Sharp updated Nov 3)",
+          "second_source": {
+            "name": "StatRankings CoverageIQ BAL (vs WR cov snaps)",
+            "url_or_file": "https://statrankings.com/nfl/coverage/team/bal",
+            "pulled_et": "2026-11-05 16:42",
+            "agrees": true,
+            "note": "SR man 32.4% / zone 67.6% (zone-majority, same direction); two-high 54.4% vs Sharp MOF open 59.5%"
+          }
+        },
+        "mof": {
+          "open": 0.595,
+          "closed": 0.385,
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+          "pulled_et": "2026-11-05T16:42"
+        },
+        "defenders": [
+          {
+            "name": "Malaki Starks",
+            "targets": 20,
+            "comp_pct": 85.0,
+            "ypt": 12.2,
+            "rating": 157.1,
+            "primary": true,
+            "role": "FS over the top / seam (Hawkins OUT); N2 blend 1 of 2",
+            "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv (PFR /years/2026/defense_advanced.htm, BAL G=8)",
+            "pulled_et": "2026-11-04T07:05"
+          },
+          {
+            "name": "Kyle Hamilton",
+            "targets": 34,
+            "comp_pct": 70.6,
+            "ypt": 6.0,
+            "rating": 83.5,
+            "primary": true,
+            "role": "box/slot; N2 blend 2 of 2",
+            "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv (PFR /years/2026/defense_advanced.htm, BAL G=8)",
+            "pulled_et": "2026-11-04T07:05"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Washington rec yds O60.5",
+      "player": "Parker Washington",
+      "team": "JAX",
+      "opp": "BAL",
+      "game": "JAX@BAL",
+      "type": "WR",
+      "market": "recyds",
+      "side": "over",
+      "line": 60.5,
+      "spread": -9.5,
+      "price": -113.0,
+      "price_fd": -113.0,
+      "book": "fanduel",
+      "no_vig": 0.5,
+      "no_vig_pinnacle": null,
+      "receiving": true,
+      "status": "CUT",
+      "gaps": [],
+      "flags": [],
+      "cut_reasons": [
+        "Phase 11 WEATHER FORECAST + NWS: precip 75% in the game window (open air) - receiving OVER must be CUT (stop, no mirror)"
+      ],
+      "recent_form": {
+        "values": [
+          7.0,
+          124.0,
+          64.0,
+          16.0
+        ],
+        "games": [
+          "2026_04_JAX_CIN",
+          "2026_05_PHI_JAX",
+          "2026_06_HOU_JAX",
+          "2026_08_IND_JAX"
+        ],
+        "qb": "T.Lawrence",
+        "source": "nflverse play_by_play_2026.parquet (/workspace/nfl-database/runs/2026-11-05_matchup_run/src)",
+        "pulled_et": "2026-11-05T06:07"
+      },
+      "wr_rank": 1,
+      "coverage": {
+        "man_zone": {
+          "man": 0.159,
+          "zone": 0.777,
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+          "pulled_et": "2026-11-05T16:42",
+          "data_through": "2026 wk8 (Sharp updated Nov 3)",
+          "second_source": {
+            "name": "StatRankings CoverageIQ BAL (vs WR cov snaps)",
+            "url_or_file": "https://statrankings.com/nfl/coverage/team/bal",
+            "pulled_et": "2026-11-05 16:42",
+            "agrees": true,
+            "note": "SR man 32.4% / zone 67.6% (zone-majority, same direction); two-high 54.4% vs Sharp MOF open 59.5%"
+          }
+        },
+        "mof": {
+          "open": 0.595,
+          "closed": 0.385,
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+          "pulled_et": "2026-11-05T16:42"
+        },
+        "defenders": [
+          {
+            "name": "Kyle Hamilton",
+            "targets": 34,
+            "comp_pct": 70.6,
+            "ypt": 6.0,
+            "rating": 83.5,
+            "primary": true,
+            "role": "slot (PFF proj 13.5 snaps); N2 blend 1 of 2",
+            "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv (PFR /years/2026/defense_advanced.htm, BAL G=8)",
+            "pulled_et": "2026-11-04T07:05"
+          },
+          {
+            "name": "Marlon Humphrey",
+            "targets": 42,
+            "comp_pct": 59.5,
+            "ypt": 8.5,
+            "rating": 87.3,
+            "primary": true,
+            "role": "RCB, left-heavy targets; N2 blend 2 of 2",
+            "source": "/workspace/nfl-database/week10/bal_secondary/defender_table.csv (PFR /years/2026/defense_advanced.htm, BAL G=8)",
+            "pulled_et": "2026-11-04T07:05"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Flowers rec U4.5",
+      "player": "Zay Flowers",
+      "team": "BAL",
+      "opp": "JAX",
+      "game": "JAX@BAL",
+      "type": "WR",
+      "market": "rec",
+      "side": "under",
+      "line": 4.5,
+      "spread": 9.5,
+      "price": -114.0,
+      "price_fd": -114.0,
+      "book": "fanduel",
+      "no_vig": 0.5,
+      "no_vig_pinnacle": 0.4956702459300312,
+      "receiving": true,
+      "status": "CUT",
+      "gaps": [
+        "MISSING JAX per-defender table in this run (leg CUT on \u00a77 first)"
+      ],
+      "flags": [],
+      "cut_reasons": [
+        "\u00a77 MISSING: only 1 game with current QB Fagnano",
+        "sims built on Lamar/Huntley-era BAL targets (QB-RETURN-type flag; model on wrong QB)"
+      ],
+      "recent_form": {
+        "values": [
+          0
+        ],
+        "games": [
+          "2026_08_BAL_BUF"
+        ],
+        "qb": "J.Fagnano",
+        "source": "nflverse play_by_play_2026.parquet (/workspace/nfl-database/runs/2026-11-05_matchup_run/src)",
+        "pulled_et": "2026-11-05T06:07"
+      },
+      "wr_rank": 1,
+      "mirror": {
+        "no_rung_reason": "mirror over is a receiving OVER in a weather-flagged game (stop)"
+      },
+      "coverage": {
+        "man_zone": {
+          "man": 0.189,
+          "zone": 0.753,
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+          "pulled_et": "2026-11-05T16:42"
+        },
+        "mof": {
+          "open": 0.522,
+          "closed": 0.449,
+          "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+          "pulled_et": "2026-11-05T16:42"
+        },
+        "defenders": []
+      }
+    },
+    {
+      "name": "Tuten rush yds O (no line)",
+      "player": "Bhayshul Tuten",
+      "team": "JAX",
+      "opp": "BAL",
+      "game": "JAX@BAL",
+      "type": "RB",
+      "market": "rushyds",
+      "side": "over",
+      "line": null,
+      "spread": -9.5,
+      "price": null,
+      "price_fd": null,
+      "book": "fanduel",
+      "no_vig": null,
+      "no_vig_pinnacle": null,
+      "receiving": false,
+      "status": "CUT",
+      "gaps": [],
+      "flags": [],
+      "cut_reasons": [
+        "NOLINE: no FanDuel/DK/Pinnacle rush line posted (Q, DNP all week)",
+        "Phase 7: 60%+ carry share in only 2 of last 4 (74,100,52,57%)"
+      ],
+      "recent_form": {
+        "values": [
+          73.0,
+          72.0,
+          39.0,
+          104.0
+        ],
+        "games": [
+          "2026_04_JAX_CIN",
+          "2026_05_PHI_JAX",
+          "2026_06_HOU_JAX",
+          "2026_08_IND_JAX"
+        ],
+        "qb": "T.Lawrence",
+        "source": "nflverse play_by_play_2026.parquet (/workspace/nfl-database/runs/2026-11-05_matchup_run/src)",
+        "pulled_et": "2026-11-05T06:07"
+      }
+    },
+    {
+      "name": "JAX -9.5",
+      "player": null,
+      "team": "JAX",
+      "opp": "BAL",
+      "game": "JAX@BAL",
+      "type": "GAME",
+      "market": "spread",
+      "side": "over",
+      "line": -9.5,
+      "spread": -9.5,
+      "price": -120.0,
+      "price_fd": null,
+      "book": "fanduel",
+      "no_vig": null,
+      "no_vig_pinnacle": null,
+      "receiving": false,
+      "status": "CUT",
+      "gaps": [],
+      "flags": [],
+      "cut_reasons": [
+        "P14 MISSING: tools/sim_v6.py has no game-line (spread/total/team-total/period) model - 3 model p unavailable"
+      ],
+      "recent_form": null
+    },
+    {
+      "name": "Game total U39.5",
+      "player": null,
+      "team": null,
+      "opp": null,
+      "game": "JAX@BAL",
+      "type": "GAME",
+      "market": "total",
+      "side": "under",
+      "line": 39.5,
+      "spread": 9.5,
+      "price": -110.0,
+      "price_fd": -110.0,
+      "book": "fanduel",
+      "no_vig": 0.5,
+      "no_vig_pinnacle": 0.4931277775232511,
+      "receiving": false,
+      "status": "CUT",
+      "gaps": [],
+      "flags": [],
+      "cut_reasons": [
+        "P14 MISSING: tools/sim_v6.py has no game-line (spread/total/team-total/period) model - 3 model p unavailable"
+      ],
+      "recent_form": null,
+      "mirror": {
+        "no_rung_reason": "no game-line model in sim_v6: the over 39.5 is equally unpriced (P14 MISSING); code note to Ghost6"
+      }
+    },
+    {
+      "name": "BAL team total U13.5",
+      "player": null,
+      "team": "BAL",
+      "opp": "JAX",
+      "game": "JAX@BAL",
+      "type": "GAME",
+      "market": "team_total",
+      "side": "under",
+      "line": 13.5,
+      "spread": 9.5,
+      "price": -108.0,
+      "price_fd": -108.0,
+      "book": "fanduel",
+      "no_vig": 0.48960239560805185,
+      "no_vig_pinnacle": null,
+      "receiving": false,
+      "status": "CUT",
+      "gaps": [],
+      "flags": [],
+      "cut_reasons": [
+        "P14 MISSING: tools/sim_v6.py has no game-line (spread/total/team-total/period) model - 3 model p unavailable"
+      ],
+      "recent_form": null,
+      "mirror": {
+        "no_rung_reason": "no game-line model in sim_v6: BAL TT over 13.5 equally unpriced (P14 MISSING); code note to Ghost6"
+      }
+    },
+    {
+      "name": "JAX 1H -6.5",
+      "player": null,
+      "team": "JAX",
+      "opp": "BAL",
+      "game": "JAX@BAL",
+      "type": "GAME",
+      "market": "1H spread",
+      "side": "over",
+      "line": -6.5,
+      "spread": -9.5,
+      "price": -105.0,
+      "price_fd": null,
+      "book": "fanduel",
+      "no_vig": null,
+      "no_vig_pinnacle": null,
+      "receiving": false,
+      "status": "CUT",
+      "gaps": [],
+      "flags": [],
+      "cut_reasons": [
+        "P14 MISSING: tools/sim_v6.py has no game-line (spread/total/team-total/period) model - 3 model p unavailable"
+      ],
+      "recent_form": null,
+      "script_read": {
+        "expected_winner": "JAX",
+        "source": "/workspace/nfl-database/runs/2026-11-05_JAX_BAL/read_addendum5_2026-11-05.md (base script: JAX leads by halftime)"
+      }
+    }
+  ],
+  "weather": {
+    "JAX@BAL": {
+      "roof": "open",
+      "precip_pct": 76,
+      "gust_mph": 12.5,
+      "wind_mph": 5,
+      "temp_f": 65,
+      "source": "https://api.weather.gov/gridpoints/LWX/109,90/forecast/hourly (gust from Open-Meteo via tools/weather_forecast.py)",
+      "provider": "nws+open-meteo",
+      "pulled_et": "2026-11-05T16:52"
+    }
+  },
+  "weather_forecast": {
+    "source": "tools/weather_forecast.py (api.weather.gov hourly + api.open-meteo.com)",
+    "file": "/workspace/nfl-database/runs/2026-11-05_JAX_BAL/src/weather/forecast_2026-11-05_1643.json",
+    "pulled_et": "2026-11-05T16:43",
+    "games": {
+      "JAX@BAL": {
+        "roof": "open",
+        "nws": {
+          "precip_pct": 75,
+          "wind_mph": 5,
+          "gust_mph": null,
+          "short": [
+            "Chance Showers And Thunderstorms",
+            "Scattered Showers And Thunderstorms",
+            "Showers And Thunderstorms"
+          ],
+          "hours": 3
+        },
+        "open_meteo": {
+          "precip_pct": 41,
+          "wind_mph": 3.7,
+          "gust_mph": 12.5,
+          "precip_in": 0,
+          "hours": 3
+        },
+        "notes": [],
+        "status": "OK",
+        "flag": true,
+        "why": [
+          "precip 75%"
+        ],
+        "precip_pct": 75,
+        "gust_mph": 12.5,
+        "wind_mph": 5,
+        "kickoff_et": "2026-11-05T20:15",
+        "provider": "nws+open-meteo"
+      }
+    }
+  },
+  "game_script_rb": {
+    "JAX@BAL": {
+      "fav_spread": -9.5,
+      "opp_ypc": 3.749,
+      "wx_flag": true,
+      "triggered": true,
+      "source": "tools/sim_v6.py price_game_script; opp_ypc = BAL RB YPC allowed (nflverse pbp)",
+      "pulled_et": "2026-11-05T06:07",
+      "boost": {
+        "lead": 1.0727,
+        "rb2": 1.1099,
+        "source": "tools/rb_script_boost.json"
+      },
+      "lead_rb": "Bhayshul Tuten",
+      "rb2": "Chris Rodriguez Jr.",
+      "rb2_projection": {
+        "median": {
+          "mc": 23.230141315296436,
+          "bias": 23.230141315296436,
+          "gr": 22.882640189757257
+        }
+      },
+      "model_order": [
+        "rushyds",
+        "rushyds",
+        "rushyds"
+      ],
+      "lead_projection": {
+        "median": {
+          "mc": 61.63379585765538,
+          "bias": 61.63379585765538,
+          "gr": 62.030360122874306
+        }
+      }
+    }
+  },
+  "target_share_pool": {
+    "source": "nflverse play_by_play_2026.parquet (pbp)",
+    "threshold": 0.22,
+    "players": [
+      {
+        "name": "P.Washington",
+        "team": "JAX",
+        "pos": "WR",
+        "share_season": 0.245,
+        "share_l3_current_qb": 0.229,
+        "qb_weeks": [
+          5,
+          6,
+          8
+        ],
+        "leg": "Washington rec yds O60.5"
+      },
+      {
+        "name": "Z.Flowers",
+        "team": "BAL",
+        "pos": "WR",
+        "share_season": 0.258,
+        "share_l3_current_qb": 0.192,
+        "qb_weeks": [
+          8
+        ],
+        "leg": "Flowers rec U4.5"
+      }
+    ],
+    "pulled_et": "2026-11-05T06:07"
+  },
+  "placed_legs": [],
+  "placed_legs_note": "slips/2026-11-05_THU.json has no placed legs; no open TNF tickets found on the box",
+  "cross_checks": [
+    {
+      "name": "PFF matchup tool projected defender snaps (alignment only, Nov 3)",
+      "url_or_file": "/workspace/nfl-database/week10/pff_jax_bal/receiver_matchups.csv",
+      "pulled_et": "2026-11-03T19:23"
+    },
+    {
+      "name": "Outlier props TNF (read-only)",
+      "url_or_file": "/workspace/nfl-database/outlier/outlier_props_2026-11-05.csv",
+      "pulled_et": "2026-11-05T10:14"
+    }
+  ],
+  "read": {
+    "locked": "/workspace/nfl-database/runs/2026-11-05_JAX@BAL_r2/brainstorm_read.md",
+    "addendum": "/workspace/nfl-database/runs/2026-11-05_JAX_BAL/read_addendum5_2026-11-05.md",
+    "sha256": "590b5c875e84a251375e5d2358b6b541c95baedb114a49f1326be5307daec9ba"
+  },
+  "gs_error": null,
+  "inactives": null
+}

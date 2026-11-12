@@ -1,0 +1,46 @@
+{
+ "game": "Week 7 DAL@PHI / kickoff time not in pack / PHI +4 (DAL -4), implied DAL 23.75 PHI 19.75 / total 43.5 / weather not saved",
+ "script": {
+  "base": "Book expects a one-score DAL lead in a moderate 43.5 game, not a shootout or a 38-point clock-kill. DAL's weeks 4-6 identity is pass-first (Lamb 45 targets, Pickens 27, Flournoy 19) and PHI blitzes only 25%, the split where Dak's EPA is 0.17 rather than 0.02. PHI's QB is 0.00 EPA unblitzed and -0.26 vs blitz, and the run game is a Pierce/Bigsby/Shipley split at 2.13/3.93/2.64 YPC. Base flow: DAL leads by a score late, keeps throwing, Williams stays near 14 carries, PHI trails without a clean rushing answer.",
+  "flip1": "DAL scores early and leads by 14, then runs the clock. Williams' carries jump past 18 and a chunk run (PHI has allowed 16 runs of 10+ in 6 games) clears 64.5 rush and 81.5 rush+rec, while Flournoy's intermediate targets die after halftime.",
+  "flip2": "PHI finds DAL's soft front (4.93 YPC allowed, 21 runs of 10+) and chews clock, or DAL's 28% blitz (PHI QB -0.26 EPA on 89 blitz dropbacks) turns it into a slog. DAL pass volume drops and Flournoy's over dies; Williams' under still survives because a trailing or clock-chewed DAL does not add carries."
+ },
+ "injury_fallout": "No injury report, practice trend, or inactives in the pack, so no named next-man-up from a scratch and no OL or coverage absence to reprice pressure. Pack conflict, not an injury note: Barkley is priced like a full back (rush 64.5, rush+rec 83.5, rec 13.5) but has zero carries on the week 4-6 rusher line, while Pierce 23/49, Bigsby 14/55 and Shipley 11/29 split the work. Elijah Moore is priced at 9.5 rec yards with no L3 targets. Hollywood Brown and Eli Stowers are team nan. Do not assign Barkley's carries. DAL tree as played is Lamb/Pickens/Flournoy.",
+ "matchup": {
+  "shell": "No MOFO/MOFC or man/zone charting in the pack. Location splits stand in: PHI allows 7.23 YPA left (70 att), 7.21 middle (57), 6.73 right (90), a compact even shell. DAL allows 7.36 left (67), 10.53 middle (38), 7.32 right (74); the middle is the only true bleed.",
+  "pressure": "PHI blitz rate 25%. Dak EPA 0.17 unblitzed vs 0.02 when blitzed (n=89), so he mostly sees his better split. DAL blitz rate 28%. PHI QB EPA -0.26 vs blitz vs 0.00 unblitzed (n=89). Pressure is a PHI problem. No pressure-rate-allowed or pass-rusher injury in the pack.",
+  "bleeds": "DAL bleeds the middle (10.53 YPA on 38 throws) and the run (4.93 YPC, 21 runs of 10+, 22 passes of 20+ on 187 att). PHI does not bleed a side: 4.10 YPC, 16 runs of 10+ in 6 games, 19 passes of 20+ on 227 att (8.4%). Short and intermediate throws are the realistic DAL path; deep efficiency is what PHI can take away.",
+  "overlap": "Best schematic overlap is PHI short/middle into DAL's middle bleed plus a 28% blitz: Goedert 5.3 aDOT and 33 rec yds/game, Lemon 4.5 aDOT and 29.7. That overlap does not clear Goedert 49.5 or Lemon 39.5, so it is a pass, not a bet. Lamb (45 targets, the primary) does not map to a PHI weak side; PHI's soundest side is right at 6.73 YPA. Flournoy's 5.6 aDOT is the DAL piece that fits the compact shell without needing a bleed."
+ },
+ "form": "Weeks 4-6 only. Williams 42/148 rush (14.0 carries, 49.3 yds, 3.52 YPC) plus 10 targets/47 rec yds. Lamb 45/268/368 air (89.3 rec yds). Pickens 27/278/315 (92.7 rec yds, 11.7 aDOT; no game log, so a long-play spike cannot be ruled out). Flournoy 19/167/107 (55.7 rec yds, 8.8 yards per target, 5.6 aDOT), a real third share, not a one-target cameo. Ferguson 13/43, Spann-Ford 8/35. PHI: Pierce 23/49 (2.13 YPC) and 10/13 receiving; Goedert 17/99; Lemon 19/89; Cooper 12/113 (37.7, at a 39.5 line); Smith 14/75 on 179 air, targets not converting. Barkley absent from the rusher line.",
+ "edge_players": [
+  {
+   "player": "ryanflournoy",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Flournoy is the third piece of a DAL pass tree that PHI's 25% blitz will not knock off schedule, and 19 targets for 167 yards (55.7 a game, 5.6 aDOT) is priced at 34.5 against a compact defense he does not need to explode on.",
+   "must_be_true": "Week 4-6 tree holds: about 5-6 targets, Dak in the unblitzed 0.17 EPA split, game stays competitive so second-half throws do not vanish. No unlisted scratch reshuffles his routes.",
+   "kills_it": "Flip 1: DAL up big and the pass volume dies after halftime. Or the 167 yards are one spike week the aggregate hides, and PHI's 6.73-7.23 YPA shell holds him in the mid-20s.",
+   "confidence": "lean"
+  },
+  {
+   "player": "javontewilliams",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Williams has been a 14-carry, 49.3-yard rusher plus 15.7 receiving yards, and a 4-point spread against PHI's 4.10 YPC front is not the clock-kill or the soft box that 81.5 combined yards requires.",
+   "must_be_true": "Game stays within a score, carry share stays in the low-to-mid teens, receiving stays checkdown residue (10 targets, -4 air yards over 3 games), no breakaway.",
+   "kills_it": "Flip 1: DAL leads by 14 early, Williams gets 18-plus carries and one of the 10+ runs PHI has allowed 16 times, plus a dump-off, and combined yards clear 81.5. Tagged script-dependent on that flip only.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so this is not a full step-8 price check. Available check is week 4-6 role vs the rung: Flournoy 55.7 rec yds vs 34.5 and Williams 49.3 rush + 15.7 rec = 65.0 vs 81.5 both agree. These are leans, not 70% model legs. A later sim median under ~30 for Flournoy or over ~90 for Williams would be a flag, not a silent cut; that sim is not here.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Flournoy recyds over 34.5 at -116 (intermediate volume yards; receptions not an allowed market). Williams rushrecyds under 81.5 at -111, not rushyds under 64.5: combined production is 65.0, so 81.5 still has room if carries tick up a few, while 64.5 rush is only 15 yards above 49.3 and dies faster on flip 1. No alt rungs in the pack. Lamb over 80 is unused; price is +nan and the gap is only 89.3 vs 80.",
+ "pre_mortem": "Monday both lost because the game was the blowout, not the one-score script a +4 and 43.5 describe. DAL led by two scores at half, Flournoy's 19-target pace was cut to a handful of second-half snaps and he finished under 34.5, and Williams added a 10+ run PHI has allowed 16 times in six games plus a checkdown to clear 81.5. The Flournoy-only loss is lumpiness: no game log, so a 90-yard week inside 167 mean-reverts against a PHI pass defense with no side over 7.23 YPA. That counter is the flip and the missing split, not a stronger base case, so both stay leans and neither is strong. Barkley taking a full snap count would only rewrite PHI rush reads already passed.",
+ "slip_story": "One story: competitive DAL lead, pass volume holds because PHI blitzes 25% and has not run anyone off the field, Williams does not get a clock-kill. Stack is Flournoy recyds over 34.5 with Williams rushrecyds under 81.5. They win together in the base and in flip 2's pass-volume dip only the Williams leg survives; flip 1 loses both, which is the same story failing, not two stories mixed. Do not add Pickens over 64.5 (11.7 aDOT into a defense with 19 explosives on 227 throws) or a Goedert/Lemon over (right overlap, wrong number). No TDs, one market per player, two legs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

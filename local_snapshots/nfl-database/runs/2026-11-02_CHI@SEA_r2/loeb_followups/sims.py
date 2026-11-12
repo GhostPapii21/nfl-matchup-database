@@ -1,0 +1,23 @@
+# Loeb follow-ups. Tag: fixed-model, copies only. sim_v6_fix, 3x100k, seed 20261101.
+import sys,json;sys.path.insert(0,'/workspace/nfl-database/tools/sim_v6_fix')
+import sim_v6 as V
+class E(V.Engine):
+    tb={}
+    def player(self,name,*a,**k):
+        r=list(super().player(name,*a,**k)); b=self.tb.get(name,1.0)
+        if b!=1.0: r[1]=r[1].copy(); r[1]['tgt']=r[1]['tgt']*b; r[1]['rec']=r[1]['rec']*b  # target-share boost, catch rate unchanged
+        return tuple(r)
+e=E();out={}
+legs=[('Roschon Johnson','CHI','SEA','rushyds',3.0,[4.5,9.5,12.5,14.5],None,1.0),
+      ('Roschon Johnson','CHI','SEA','rec',3.0,[0.5,1.5,2.5],'Caleb Williams',1.0),
+      ('Roschon Johnson','CHI','SEA','recyds',3.0,[4.5,9.5],'Caleb Williams',1.0)]
+for b in (1.0,1.07,1.144):
+    legs+=[('Jaxon Smith-Njigba','SEA','CHI','recyds',-3.0,[89.5,99.5,109.5],'Sam Darnold',b),
+           ('Cooper Kupp','SEA','CHI','recyds',-3.0,[24.5,29.5],'Sam Darnold',b),
+           ('AJ Barner','SEA','CHI','rec',-3.0,[2.5,3.5],'Sam Darnold',b)]
+for pl,t,o,mk,sp,r,cq,b in legs:
+    E.tb={pl:b}; L=dict(player=pl,team=t,opp=o,market=mk,spread=sp,rungs=r)
+    if cq: L['current_qb']=cq
+    s,info=e.sim(L); key=f'{pl}|{mk}|x{b}'; out[key]=dict(sims=s,info=info)
+    print(key,'n',info['n_games'],{m:(round(s[m]['median'],1),{k:round(v,3) for k,v in s[m]['rungs'].items()}) for m in ('mc','bias','gr')})
+json.dump(dict(tag='fixed-model, copies only',src=V.SRC,seed=V.SEED,n=V.N,out=out),open('raw_sims.json','w'),indent=1,default=float)

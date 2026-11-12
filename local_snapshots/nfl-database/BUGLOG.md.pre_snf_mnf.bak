@@ -1,0 +1,253 @@
+# BUGLOG — NFL database / source pulls
+
+Root-cause entries, newest first. No silent skips or stand-ins: find the cause, fix it, log evidence.
+
+## Entry format
+### YYYY-MM-DD HH:MM ET — <source / tool>
+- **Symptom:**
+- **Root cause:**
+- **Fix:**
+- **Evidence:** (command + output / file path showing it works after the fix)
+
+---
+
+### 2026-11-01 21:30 ET: assemble.py P14 / run_gate.py ("MISSING model/price" silently cut Higgins)
+- **Symptom:** in runs/2026-11-01_DFS_SLIPS, Tee Higgins Rec Yds O68.5 (PP DFS-only line) and Higgins Fantasy Score 14.5 came out as "P14 MISSING" and the leg was set to CUT. That is a silent cut indistinguishable from a real fail (postmortem: "Higgins (P14 MISSING model/price)").
+- **Root cause:** runs/2026-11-01_shared_src/assemble.py (lines ~104-107) sets `nvp=nan` when the slip line has no FD/Pinnacle/DK quote at that exact rung (DFS-only line). It made no re-pull attempt, even though FD alts at 69.5 and the book mains at 70.5/71.5 were already in the leg. Line ~314 then mapped nan to status MISSING, which is in BAD, so the leg became `status='CUT'`. run_gate.py accepted only PASS/CUT, so there was no way to say "held for data".
+- **Fix:**
+  - (1) New tools/price_hold.py `resolve_price()` tries a re-pull first, then a conservative bracket (over uses the nearest posted rung at or below the line, which has the higher no-vig p, so the bar is harder). If neither works, it returns HOLD.
+  - (2) assemble.py: on a missing price it calls resolve_price; P14 becomes HOLD and the leg status becomes HOLD (not CUT). A derived price is logged in the number but the leg still stays HOLD, because the edge is not re-run there (fail-closed).
+  - (3) run_gate.py:
+    - accepts the HOLD leg/checklist status
+    - excludes HOLD legs from live (blocked)
+    - prints "Held legs (...)"
+    - fails a PASS leg that has a HOLD phase
+    - fails a HOLD leg with no logged re-pull (`hold.reason` + `hold.repull_attempted_et`)
+  - Backups: run_gate.py.pre_scanpress.bak, assemble.py.pre_scanpress.bak.
+- **Not fixed (follow-up):** the "no sim model for fantasy score" MISSING path (no model exists for that market) still marks MISSING/CUT. assemble.py does not yet write the `hold` dict into the manifest, so a HOLD leg it emits will FAIL the gate until that dict is added (fail-closed, by design).
+- **Evidence:**
+  - tools/tests/test_hold.py has 7 tests. They were red before price_hold existed and are green after.
+  - Gate output plus exit code is byte-identical old vs new on all 16 runs/2026-11-01_* dirs.
+  - Full suite: 114 OK before, and the after-count is in backtests/scan_press/RESULTS.md.
+
+### 2026-11-01 ET: tools/slate_scan.py score (s_allow always 0)
+- **Root cause:** `DataFrame.div(series, level=0)` without `axis=0` aligned on columns, so every value was NaN and the opponent-allowed component was 0 for every candidate.
+- **Fix:** axis=0, plus NaN set to 0. Regression test: test_slate_scan.ScoreRegression (red, then green).
+
+### 2026-11-01 ET — tools/tests (run_gate test suite)
+- **Symptom:** unittest emitted ResourceWarning: unclosed file for run_manifest.json.
+- **Root cause:** tests used bare `json.load(open(...))` / `json.dump(..., open(...))` without closing handles.
+- **Fix:** switched to `with open(...)` blocks in test setUp/save.
+- **Evidence:** `python3 -m unittest -v test_run_gate` → 13 tests OK, no warnings.
+
+## 2026-11-01 01:01 ET: pbp_participation_2026.parquet unreadable
+- Source: week8/betguru_2026-11-01_raw/coverage_routes/pbp_participation_2026.parquet
+- Symptom: the free-source discovery found the file is not a valid parquet (fails to open).
+- Root cause: not yet traced (likely a saved HTML/error page or truncated download).
+- Fix: OPEN. Re-download it from the nflverse participation release and verify the parquet magic bytes before use. Until then, don't use it as a cross-check.
+- Evidence: /workspace/nfl-database/sources/free_source_discovery_2026-11-01.md
+
+### 2026-11-01 07:09 ET — nflverse pbp_participation_2026 (re-download attempt)
+- **Symptom:** re-download from the nflverse pbp_participation release returned HTTP 404; the saved file is 9 bytes, not a parquet.
+- **Root cause:** the 2026 participation asset isn't published on the nflverse release, so the earlier download saved a "Not Found" body.
+- **Fix:** kept it OUT of every run (open item stays OPEN). Used the ESPN WR/CB cheatsheet alignment plus the ESPN depth API instead; flagged in each manifest's flagged_gaps.
+- **Evidence:** runs/2026-11-01_shared_src/pull_log.txt; magic bytes checked with python (xxd isn't installed, so the pull_log "magic=" field is blank). First 4 bytes are not "PAR1".
+
+### 2026-11-01 07:09 ET — nflverse nextgen_stats ngs_2026_* assets
+- **Symptom:** the per-season ngs_2026_{passing,receiving,rushing}.parquet URLs returned 404.
+- **Root cause:** the release publishes all-season files (ngs_passing.parquet etc.), not per-season files.
+- **Fix:** pulled the all-season files and filtered to season 2026 week 0. Labelled as NGS BACKUP because nextgenstats.nfl.com is on hold per Ghost6.
+- **Evidence:** runs/2026-11-01_shared_src/ngs_*.parquet; features.json ngs (195 players).
+
+### 2026-11-01 07:09 ET — Pro Football Reference advanced defense (live pull)
+- **Symptom:** HTTP 403 on the live PFR page.
+- **Root cause:** the site blocks the fetch; not routed around (no stealth).
+- **Fix:** used the Oct 29 06:02 ET cache /workspace/nfl-sim/mnf12/pfr_def_adv_2026.html under Rico's one-day exception (manifest approved_exceptions, named in report Risks). It misses about the last 2 games per team.
+- **Evidence:** all 13 gate_output.txt files show the exception applied; GATE PASS.
+
+### 2026-11-01 07:15 ET — PFF player props / per-defender pages
+- **Symptom:** the Firecrawl scrape showed only the logged-out preview (no numbers).
+- **Root cause:** paywalled content; no paywall login from scripts.
+- **Fix:** no PFF numbers were used. Cross-check NOT DONE; it needs a read-only signed-in browser session.
+- **Evidence:** report.md Risks in every run folder.
+
+### 2026-11-01 07:26 ET — assemble.py (alts keys, ESPN week mapping, indoor roof)
+- **Symptom:** (1) TypeError comparing str and float alt keys. (2) Diggs ESPN box targets [9, None, 7] vs pbp [7, 9, 7]. (3) The LAR (SoFi, indoor) Puka over was cut for 15 mph wind.
+- **Root cause:** (1) JSON turned the alt-ladder keys into strings. (2) ESPN weeks came from the team's last 3 games, not the player's last 3 games. (3) The roof check matched exact strings and missed "fixed translucent roof (indoor)".
+- **Fix:** (1) cast keys with float() and look up via str(line). (2) map each played game's date to the team game_id and week. (3) substring match on dome/closed/indoor.
+- **Evidence:** dry run in /tmp/dry, then final run; the 13 gates PASS at 07:31 ET.
+
+### 2026-11-01 07:27 ET — sim_v5 role-change blind spot (Rachaad White WSH rush under)
+- **Symptom:** the Rachaad White rush U39.5 showed +27 pts edge (avg p .772) vs a market of 39.5–44.5.
+- **Root cause:** Croskey-Merritt has 0 carries since Week 6 and isn't on the injury report, and White is now depth-chart RB1. A history-weighted carry share (0.22–0.44) can't see the vacated role.
+- **Fix:** added a MODEL-SUSPECT trigger for edges over +15 pts and checked the MC median against the book consensus (FD/Pinnacle/DK). The leg now goes UNVERIFIED and is cut.
+- **Evidence:** runs/2026-11-01_PHI@WSH/checklist.md Phase 14 row.
+
+## BUG-2026-11-01-BIAS — bias model hard-coded flat haircuts (FIXED in tools/sim_v6.py, 2026-11-01; Nov 1 runs still on v5)
+- Found: Ghost6 vet 07:40 ET; confirmed by Blitz 07:36–07:45 ET.
+- Root cause: runs/2026-11-01_shared_src/sim_v5.py line 65 `vf,cf,yf=(0.92,0.97,0.95) if mode=='bias'` — flat volume/catch/yards cuts not calibrated to results.
+- Evidence (199 Nov 1 legs, median minus line, mean %): bias -16.3% (passyds -17.7, rec -16.9, recyds -20.5, rushrec -14.6, rushyds -4.9); MC -1.9%; GR -5.8%. Avg(p) edge on unders +13.3 pts vs overs +6.4 pts; MC alone is symmetric (+9.8 vs +10.9). 127/199 candidates and 15/19 passes were unders.
+- Today's handling: edge decision uses avg(MC, GR); bias p/median still recorded and the gate (unchanged) still requires every model p>=.45 and median clearing the line. Note added to every Nov 1 manifest (edge_decision) and report Risks.
+- Fix plan (not done, not in time for today): tools/sim_v6.py with bias-mode factors calibrated on model-vs-actual residuals by market (nflverse 2026 weekly + postmortems), test-first (median residual ~0 per market). sim_v5.py is in runs/ shared_src, not nfl-sim/.
+- Root cause, confirmed by backtest: (1) v5 line 65 applies a flat vol .92 x catch .97 x yds .95 cut. That is about a 15% cut on yards, but the uncut MC was already within -10% to +5% of actuals. Leak-free held-out median signed error (model minus actual, over model) with the cut: passyds -30.4%, rec -9.3%, recyds -12.9%, rushrec -17.2%, rushyds -8.7%. (2) Uncut MC/GR are off by market. MC: passyds -10.5, rec +2.5, recyds +4.3, rushrec -2.4, rushyds +5.0. GR: passyds -9.7, rec -1.4, recyds +2.3, rushrec -4.1, rushyds +2.6. Against ACTUALS, GR's -10% rec/recyds and +9% rushyds lean against the LINES mostly did NOT show up (rec -1.4%, rushyds +2.6%). Most of that lean is model-vs-market disagreement on today's slate, not a model error. The fitted multipliers fix the part that is real. A first fit on only today's leg players gave M of about 1.10-1.17 everywhere. It was rejected as selection-biased: those players were picked for being prominent now, which is look-ahead.
+- Fix (2026-11-01): tools/sim_v6.py (v5 untouched). It uses the same simulation core and a leak-free Engine(cutoff). The flat haircut is removed. Each model gets per-market multipliers M = 1 + n/(n+30)*(median(actual/model median) - 1), with M = 1.0 if n < 20. They are fitted on 2026 wk4-7 player-games: 1,096 rows, 110 passyds, 369 rec, 369 recyds, 122 rushrec, 126 rushyds. The universe is pre-cutoff usage thresholds: QB >=20 att, >=4 tgt, >=8 car, >=2 games. The model is fed only pbp before each week. Actuals are nflverse pbp aggregates (the nflverse weekly player_stats definition). No separate weekly file was pulled. Postmortems were not used, because their samples are tiny next to 1,096 rows. Multipliers are in tools/sim_v6_calib.json; the backtest is in tools/sim_v6_backtest.csv. The 'bias' model is now residual-calibrated MC (same multipliers, own RNG stream). Its old flat-haircut role is gone. A heavier-shrink variant (K=60) failed test (a): passyds -3.53%.
+- Tests: tools/tests/test_sim_v6.py, written first. RED: ImportError, then the below-line test failed with GR at 60.7%. GREEN: 5/5 OK at SIMV6_TEST_N=4000. (a) Leave-one-week-out held-out median signed error, all within +/-3%: passyds mc/bias -1.82, gr -2.10; rec -1.62/-0.68; recyds +1.54/+0.16; rushrec -0.33/-1.38; rushyds +0.81/-1.41. (b) Share of today's 201 simulated legs (legs_final.json FD lines; the 199-leg manifest set is a subset) with the median below the line: mc 55.7%, bias 54.7%, gr 56.2%. In v5 the figures were bias 85%, MC 52%, GR 57%. (c) Deterministic with a seed; a different seed gives different output. test_run_gate: 30/30 OK.
+- Status: FIXED (tests pass). Nov 1 run folders were NOT re-run or edited; they stay on v5 with the avg(MC,GR) edge handling. Future runs: point sim_script at /workspace/nfl-database/tools/sim_v6.py (`python3 tools/sim_v6.py run <legs.json> <out.json>`, or `import sim_v6; sim_v6.Engine().sim(leg)`). Refit weekly with `python3 tools/sim_v6.py fit` after the new pbp is pulled, then re-run `cd tools/tests && python3 -m unittest -v test_sim_v6 test_run_gate`. Once v6 is in use, the edge rule can go back to avg of all 3 models.
+
+## BUG-2026-11-01-FORM — run_gate did not enforce §7 last-4 / §14 yards cushion
+- Root cause: run_gate.py checked sims/coverage/edge only; no recent_form schema existed, so Worthy O29.5 (2/4), Diggs O42.5 yds
+  (median under cushion) and Dotson U25.5 (under 1/4) passed the gate.
+- Fix: check_form() (fail closed on missing recent_form/source/qb/price; §7 ≥3 of 4 or 3/3; §14 bands) + check_cross_checks();
+  PFF props moved to cross_checks (pick-side only, 07:34 ET). recent_form filled from nflverse pbp + snap counts in all 15 Nov 1 folders
+  (backups *.pre_form.*). Unsupported markets (TD, fantasy score, halves; all CUT legs) left unfilled.
+- Tests: RED 14 failures → GREEN test_run_gate 50/50 OK; test_sim_v6 5/5 OK.
+- Gate (--now 08:43 ET) after fill: Worthy, Diggs yds, Dotson U25.5 FAIL (stay WITHDRAWN); Addison rec U3.5 FAILS §7 (1 of 3) — newly
+  flagged, not auto-cut. Six all-CUT folders still FAIL on odds staleness (unrelated, pre-existing).
+- Status: FIXED (gate). Addison U3.5 needs Ghost6 decision.
+- 08:46–08:47 ET follow-up: cut Worthy O29.5, Diggs O42.5 yds, Dotson U25.5 (WITHDRAWN by Ghost6) and Addison U3.5 (fails §7; pending Ghost6
+  confirmation) in FD7/KC@DEN/PHI@WSH/ATL@TB/MIN@DET (backups *.pre_cut0846.*). Odds refreshed via The Odds API (pull_odds.py/pull_lines.py,
+  tag r0847, pulled_et 2026-11-01T08:47) for all 15 folders (backups run_manifest.pre_odds0847.json). Gate at real time 08:47 ET: 15/15 PASS.
+
+## BUG-2026-11-01-WX (logged 2026-11-01 14:44 ET): Phase 11 weather did not gate overs
+- **Symptom:** ATL@TB passed the gate this morning with a 59-63% storm chance and gusts up to 29 mph. Phase 11 was a free-text row; run_gate.py only checked that a weather source existed and was <48 h old.
+- **Fix (test-first):** tools/run_gate.py (backup tools/run_gate.py.bak_20261101_1440), with 12 new tests in tools/tests/test_run_gate.py `WeatherTest`.
+  - The manifest needs a `weather` block per game (roof, precip_pct, gust_mph, wind_mph, source, pulled_et). It fails closed if the block is missing, the roof is missing, or an open-air game lacks any of the 3 inputs.
+  - Weather sources and blocks must be under 6 h old.
+  - A game is flagged when its roof is open and precip ≥50%, gusts ≥20 mph, or sustained wind ≥15 mph.
+  - In a flagged game, any live passing/receiving OVER (rec, rec yds, pass yds, completions, rush+rec) fails the gate unless it is CUT.
+  - The output prints a WEATHER ALERT block with the user's placed legs in the game, from manifest `placed_legs` or a team match in week8/slips/slips_2026-11-01.md.
+- **Applied 14:41-14:43 ET:** week8/weather/pull_wx_1440.py (NWS gridpoints) and apply_wx_1442.py (manifest backups *.bak_1442). NE@MIA is FLAGGED (69% / 24.2 mph gusts). No live overs were in that folder.
+
+## BUG-2026-11-01-RBSCRIPT — game-script RB rule (opened & fixed 2026-11-01 ~15:25–15:31 ET)
+- Symptom: IND@JAX Tuten O59.5 (JAX -10.5 vs IND 4.49 RB YPC, sustained-wind flag) cut solely by Phase 7 carry share; Tuten ran 104 yds. RB2 Rodriguez was never modeled.
+- Fix (TDD; backups tools/run_gate.py.bak_20261101_1525, tools/sim_v6.py.bak_20261101_1525): trigger = fav by 7+ AND opp RB YPC >= 4.4, OR Phase-11 weather flag. sim_v6 `carry_boost` scales carries in all 3 models; `price_game_script` re-prices the lead back and models the RB2; weather games model rushing overs first. run_gate requires a `game_script_rb` block per game (fail closed when weather-flagged or any leg spread <= -7) and waives a Phase-7-only FAIL for a lead-RB rush leg re-priced on the boosted script; every other check still applies.
+- Fitted boosts (week8/rbscript/fit_rb_boost.py -> tools/rb_script_boost.json; 2025+2026 REG pbp; K=30 shrink): lead fav x1.001 (n36), lead wx x1.073 (n65), RB2 fav x1.017, RB2 wx x1.110. Favorite status alone barely moves carries.
+- Fixture: Tuten re-priced p .727/.726/.717 vs no-vig .577 (edge +14.6, shrunk +7.9); Rodriguez medians 29.9/29.9/29.5. sim_v6 calibration unchanged (boost 1.0 path identical) — no refit.
+- Tonight: only NE@MIA triggers (weather); no live legs there. PHI@WSH does not trigger (WSH -5.5, PHI 4.26 YPC, no weather).
+
+## BUG-2026-11-01-RBMISS — Allen/Pollard/Warren misses (fixes A, D, E, F; B and C NOT approved/not built) (2026-11-01 ~15:31–15:39 ET)
+- Postmortem: postmortems/RB_MISSES_2026-11-01.md. Backups: tools/run_gate.py.bak_20261101_1540, tools/sim_v6.py.bak_20261101_1540.
+- A promotion: sim_v6.promote_rb — RB1 OUT/IR -> RB2 share = own + tau x injured share (games both active); carries target vs RB2's own weighted carries (no double count). Gate: rb_status rb1 OUT/IR/inactive requires rb_promotions[team] (3-model p/median, tau+source) — fail closed.
+  Fit (week8/rbmiss/fit_rbmiss.py -> tools/rb_miss_fit.json): tau = 0.392 (n=66 RB1-absent team-games, 90% CI 0.28–0.50). The requested ~75% is NOT supported by pbp; fit used.
+- D dog-RB exception (gate): rush-yds over, underdog, all 3 medians > line, (backup out per rb_status OR share >= 70%), line <= main line -> waives only underdog/trailing-script FAILs on phases 6/7/13. Every other check still applies.
+- E split re-price: sim_v6.split_reprice prices both backs at lo/mid/hi carry share (last 4 active games; carries-based — Wk8 snap counts unpublished). Gate: split_flag leg needs split_reprice with both backs (fail closed).
+- F soft run D: >= 4.4 RB YPC allowed -> fitted YPC boost (`ypc_boost`, all 3 models). Fit on leak-free backtest residuals: 0.948 (n_soft 38, CI 0.57–1.32) -> applied 1.0 (model's existing opp-YPC multiplier already covers it). Gate requires the soft_run_d record. 4.3 -> no boost.
+- sim_v6 calibration unchanged (new keys default 1.0).
+
+## 2026-11-01 ~5:00 PM ET: test_explosives.py "no drive match ARI@DAL Q5 5:13"
+- Symptom: playlogs/tools/test_explosives.py FAILed on the ARI@DAL OT row (Q5 5:13, Allgeier 11-yd rush).
+- Root cause: **not the OT label.** Both the plays file and the row use "Q5". ESPN's play text has a leading space ("[Rush]  T.Allgeier ..."). The plays regex kept that space, while the markdown table cell was stripped, so the 60-character text keys never matched.
+- Fix: added play_key(clock, text) to test_explosives.py. It strips text whitespace and the score suffix, and maps OT/OT1 to Q5 as a guard. Both the drive-index side and the row lookup now use it. The main code is behind __name__ so it can be imported. Backup: test_explosives.py.pre_otfix.bak.
+- Test first: playlogs/tools/test_explosives_matchkey.py covers the leading-space case and OT vs Q5. It failed against the old file (no play_key; the import ran the old FAIL) and passes now.
+- TEN@CIN OT row (Q5 8:32, Higgins 21) matched before and after the fix.
+- Result: test_explosives.py PASS, 33 rows. No data rows were edited.
+- Note: the Allgeier row is an 11-yard rush, below the new 15+ rush threshold in the defense dissection. It is a legacy-threshold row and was left as is.
+
+## 2026-11-01 ~22:30 ET — PRESS wiring for Week 9 (press_inputs + copied-forward assemble)
+- New tools/press_inputs.py builds the per-leg `press` block. A missing input becomes MISSING; nothing defaults to pass.
+- press_tier.evaluate is fail-closed: a missing override gives BLOCKED. BAD_INJ now also covers the ESPN strings "Injured Reserve", "Suspension", PUP and NFI. Before this, those strings slipped past the injury block.
+- runs/2026-11-05_shared_src/assemble.py was copied forward (it needs --date >= 2026-11-05). Past run folders are untouched.
+- Inactives not posted means on_inactives=MISSING, which BLOCKS PRESS until runs/2026-11-05_shared_src/inactives.json exists. §11 needs placed_slips.json.
+- Questionable does NOT block PRESS. That is the existing design; Phase 8 only lowers a rung.
+- grade_press.py: QB pass-yds grading from *_box.json. Dry-run: backtests/scan_press/dryrun_wk9/. Suite 175 OK; 16 past runs byte-identical.
+
+## 2026-11-01 ~22:20 ET — slate_scan missed RB rush-yds candidates (Mike Washington Jr., LV Wk8)
+- Cause: RB2 got ryds only on a trigger (weather/favored/starter_out). As an underdog, LV gave Washington only rec/recyds, even though he had 45% and 43% of team carries in Weeks 6-7. In Week 8 he went 25-83.
+- Fix (tools/slate_scan.py, backup .pre_rb_rush.bak):
+  - Any active RB with >=20% of team carries in either of the team's last 2 games gets ryds (trigger carry_share). This includes RB3+.
+  - Passing depth_rb1=<pid> forces a ryds candidate (trigger depth_rb1).
+  - Role flip: RB2 out-carried RB1 last game -> swap roles (trigger role_flip).
+  - Rule 5 is untouched: non-RB1 rush overs keep rule5_conflict=True.
+- Audit Wk3-8 (Wk1-2 can't be scanned; the stand-in line needs 2 prior games): 58 RB ryds candidates were missing (51 carry_share, 7 role_flip). 31 went over the stand-in line. backtests/scan_press/rb_rush_missing_wk3_8.csv
+
+## 2026-11-01 ~22:45 ET — Source audit (SOURCE_AUDIT_2026-11-01.md): three pipeline bugs
+**SA-1 wind None-as-0 (fixed).** tools/scan_data.py and backtests/wk8_proposals/harness.py set wx with `g.wind.fillna(0) >= 15`. Root cause: nflverse `wind` is NaN in 31 of 75 2026 outdoor games, but the `weather` string still has "Wind: NE 13 mph". So missing wind silently read as calm. Fix: new `scan_data._wind_mph()` uses the numeric value, else parses the string ("Calm" = 0); unknown stays NaN. Test: tools/tests/test_wind_parse.py. Impact Wk1-8: one game crossed 15 mph (2026_06_HOU_JAX, 16 mph), and it was already flagged for rain, so no wx flag changed. Backups: *.pre_wind.bak.
+**SA-2 WX8 missed NE@MIA (fixed).** scan_data.WX8 only had ATL@TB, but phase15_4pm flagged NE@MIA (NWS PoP 53-69%, open air), which meets the 50%+ rain rule. Added it. Test is in test_wind_parse.py. Suites slate_scan, press_wire, rbmiss_sim, wind_parse and odds_pregame are all OK.
+**SA-3 in-play odds mixed into pregame pulls (helper landed; pull_odds patch pending).** runs/2026-11-01_shared_src/pull_odds.py has no kickoff check. The Odds API keeps returning live markets, so odds_i1435 has 5055/10206 rows, odds_b1442 5044, odds_g1529 3517 and odds_i1850 1062/2188 rows quoted after kickoff. Example: Stafford pass yds DK 168.5 vs Pinnacle 248.5. The 14:35, 15:29 and 18:51 re-pulls were used only for games not yet started (4 PM and SNF), so no placed leg was found priced off a live line. Any later reuse of those files for line history is contaminated. New tools/odds_pregame.py (pregame_events, flag_inplay; unknown kickoff = None, never pregame). Tests: tools/tests/test_odds_pregame.py. Patch: audits/source_audit_patches/pull_odds_pregame.patch.md.
+
+## 2026-11-01 ~23:30 ET — Lessons audit (audits/2026-11-01_lessons/CHECKLIST.md). Backups: *.pre_lessons_audit.bak
+**BUG-2026-11-01-PFFX (fixed).** The rule to cross-check PFF against a second source wasn't enforced anywhere. run_gate has a new check_pff, which reads manifest `pff_inputs`.
+- It adds a PFF CAUTION note when any of these is true: no second source; a second source with no link or time; a second source that is PFF; the two sources disagree beyond the tolerance; or PFF's projection says under while PFF's own matchup says over.
+- These notes are caution only. The exit code doesn't change.
+- PFF used for weather, game script or a prop projection is a FAIL.
+- Tests: test_lessons_audit.PFFCrossCheckTest (9).
+
+**BUG-2026-11-01-SIMV6 (fixed).** The Week 9 assemble.py imported and labeled sim_v5, and the gate accepted any sim script.
+- The gate now fails runs dated 2026-11-05 or later unless every sims[].script is sim_v6.py.
+- The assemble PREFLIGHT also requires sims meta.script to be sim_v6.py.
+- Tests: SimV6Test (4), Assemble9Test.
+
+**BUG-2026-11-01-WXSLIPS (fixed).** The weather alert listed placed legs from the Week 8 placed_slips file for any date. A Week 9 alert showed "Tee Higgins … Fantasy Score 14.5".
+- placed_in now uses that file only for 2026-11-01.
+- Other dates use manifest placed_legs, or else say "placed legs unknown".
+- Test: WeatherSlipsWeekTest.
+
+**BUG-2026-11-01-ASM9 (fixed).** runs/2026-11-05_shared_src/assemble.py had these problems:
+- hardcoded week8/ inputs and wk8 labels
+- hardcoded Nov 1 pull times
+- a fixed Phase 12 "PASS" text
+- missing inactives.json or placed_slips.json crashed with FileNotFoundError instead of a clear block
+
+Fixes:
+- paths now use WEEK
+- times now come from pull_times.json
+- a PREFLIGHT exits non-zero and lists every missing input before loading anything or writing any run folder
+
+Test: Assemble9Test (3).
+
+**BUG-2026-11-01-TTT (fixed; lesson 5).** Receiving legs only needed blitz rate, pressure rate and checkdown share. QB time to throw and targets under pressure weren't required.
+- The gate now fails runs dated 2026-11-05 or later that have live receiving legs and no pressure_inputs.time_to_throw or targets_under_pressure. Both must have a link and a time.
+- assemble PREFLIGHT now requires runs/2026-11-05_shared_src/qb_pressure.json.
+- **Week 9 runs will block until that file is pulled.**
+- Tests: PressureW9Test (2).
+
+Totals and checks:
+- Suite 186 → 205, all OK. The 186 baseline includes the 5 wind_parse/odds_pregame tests added by the source audit.
+- 16 Nov 1 gate outputs (--now 2026-11-01T12:00) are byte-identical before and after.
+
+## 2026-11-01 SA-8 LAC coverage source mislabel
+betguru_three_groups l.277 credits Sharp's numbers to "StatRankings/FTN". Not edited; flagged for the owner.
+
+## 2026-11-01 SA-9 CAR@GB missing from playlogs/game_scripts_2026.csv
+Hand-built file (no builder). Test playlogs/tools/test_game_scripts_wk8.py failed, then 2 rows were added from ESPN summary 401873023 (CRLF kept; pressure/qb_hits left blank, not 0). Test passes. Backup: game_scripts_2026.csv.pre_cargb.bak
+
+## 2026-11-01 22:47 ET source-list fixes (Rico)
+- SRC-4a pull_odds.py priced in-play rows (live lines after kickoff). Root cause: no kickoff filter on the events list. Fix: runs/2026-11-05_shared_src/pull_odds.py uses tools/odds_pregame.py windows; live and unknown-kickoff rows go to odds_<tag>_inplay_dropped.csv. Tests: test_srclist.OddsPatch.
+- SRC-4b week8/lines/pull_props.py diff() read a missing line as 0 (float('' or 0)). Fix: NOLINE skip; BADLINE on parse error.
+- SRC-1/2/3/5 gate rules: tools/srclist_rules.py (installed into run_gate.Gate). Tests: tools/tests/test_srclist.py.
+
+## 2026-11-02 Rico rules R1–R4 (runs ≥ 2026-11-05)
+- Added tools/rico4_rules.py (installed into run_gate.Gate): status MANUAL_REVIEW for PRESS P14-edge cuts; mirror-over requirement for eligible cut unders; target_share_pool block (≥22%, nflverse pbp); QB-RETURN recheck with no auto rung drop.
+- run_gate.py: live excludes MANUAL_REVIEW; check_rico4 runs after check_srclist; MR section printed. slate_scan.py: tgt_share22 pool (wk ≥ 9). 2026-11-05 assemble.py: MR/QB-return/mirrors/pool emitted (SRC lines untouched).
+- Tests: tools/tests/test_rico4.py (24). Suite 297 passed. Nov 1 gate outputs: 16/16 identical, old gate vs new gate.
+- Backups: *.pre_rico4.bak.
+
+## 2026-11-02 05:58 ET BUG-2026-11-02-BIASDUP: bias model was a copy of MC (fix staged, swap pending)
+- Root cause: in tools/sim_v6.py, fit, score and cross_validate used `col='pred_mc' if mode=='bias'`, and K_BIAS=30 equals SHRINK_K. So bias got MC's exact multipliers on MC's own preds, and the only difference was the RNG stream (bias/mc corr .999). That left 2 real models, not 3, and press 2-of-3 was effectively 2-of-2.
+- Fix (staged in tools/sim_v6_fix/, live files untouched until after 23:30 ET):
+  - New walk-forward Bias model, documented in the docstring.
+    - Volume: NB on the last 4 active games.
+    - Catch rate: 50/50 last-4 and season.
+    - Yardage regressed to the position mean 2× harder than MC (QB 0.5×); rush YPC K=200 vs 100.
+    - Rushing opp adj at half strength.
+  - Multipliers are fit on its OWN pred_bias with K_BIAS=5, chosen by LOWO CV.
+  - New bias/mc corr is .94–.98; bias == mc on 0% of rows.
+  - Refit on fresh nflverse pbp through 2026-11-01; calib stamps pbp_data_through, pbp_source, bias_design and k_bias.
+- Tests: sim_v6_fix/tests/test_biasdup.py (9). RED on live: 6 fail + 1 error. GREEN on the fix: 32/32 fix-suite tests pass, including test_sim_v6 held-out CV ±3% and below-line share 40–60% (bias .567).
+- Backtests (copies in sim_v6_fix/bt_*):
+  - scan_press wk4-7 PRESS k2 went from 13/16 (.812) to 14/17 (.824); k3 went from 12/14 (.857) to 10/12 (.833).
+  - softened_edges: PRESS-tagged legs went from 4/6 to 5/7.
+
+## 2026-11-02 BUG-2026-11-02-QBBLEND (staged with BIASDUP)
+- Under QB-RETURN, the blend used all of the team's games. Engine.qb_games() plus player(current_qb=) now keep only games where the named QB was the main passer. Legs carry `current_qb`; info.qb_filter records it. Tests: TestCurrentQBOnly (2).
+
+## 2026-11-02 BUG-2026-11-02-WXROOF run_gate weather crash (LIVE)
+- check_weather crashed with AttributeError when a weather entry was not a dict. It now fails closed ("roof status missing"). srclist_rules, check_forecast and coverage are kept. Tests: tools/tests/test_wx_roof.py (4; RED 3 crash, now GREEN). Suite 301 passed; 16 Nov 1 gate outputs identical. Backup run_gate.py.pre_wxroof.bak.
+
+## 2026-11-02 below_line_share leak (staged with BIASDUP)
+- With fresh pbp, below_line_share saw the Nov 1 games it was scoring. It now uses Engine(cutoff=legs_cutoff()), which is the legs_final odds_pulled date.
+
+## 2026-11-02 08:14 ET SNF-RULES: four SNF PHI@WSH postmortem rules added (Rico approved Nov 2, 8:14 AM ET)
+- Source: postmortems/2026-11-01_snf.md. Rules S1-S4 in PHASE_SCRIPT.md ("SNF postmortem rules 2026-11-02") and the nfl-game-script-run SKILL.md; runs dated >= 2026-11-05.
+- Code: new tools/snf_rules.py (check_snf mixin); run_gate.py (S2 WR3+ under team-coverage defender pass, check_snf hook, SNF RULES output section); rico4_rules.py (non-PRESS MANUAL_REVIEW allowed for S1). #3/#4 WR ban for overs unchanged; S4 WR3 overs are pool-only (BLOCKED_BY_WR34_BAN if they clear).
+- Backups: *.pre_snf_rules.bak. Tests: tools/tests/test_snf_rules.py.

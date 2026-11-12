@@ -1,0 +1,48 @@
+{
+ "game": "LA@PHI Week 4 / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread, total, and implied team totals were not saved, so this script is inferred only from the three-game pack, not from a market number. LA has the clearer pass engine (Adams 29 targets, 358 rec yds, 498 air yds) and an efficient split backfield (Williams 38/214, 5.63 YPC; Corum 28/148, 5.29 YPC), while PHI blitzes only 26% and Stafford's EPA is +0.22 when not blitzed. Base case: a competitive game, LA stays on schedule with Adams as the first read and Williams/Corum sharing carries, PHI moves it modestly through Smith (27/235) and Wicks (15/179) but LA's pass defense (5.25/4.89/5.34 YPA by side, only 5 passes of 20+ on 105 att) prevents a shootout, and Barkley stays near his 34-carry, 6-reception-yard sample rather than a 20-touch grind.",
+  "flip1": "PHI blitzes well above its 26% rate. Stafford's EPA flips from +0.22 unblitzed to -0.23 vs blitz (n=39), Adams' deep air yards stall, and checkdowns to Williams (12 targets) and Higbee (13 targets) rise while LA's run share falls if they trail.",
+  "flip2": "One side leads by multiple scores. If LA leads, Williams and Corum clock it and Adams' late targets dry up. If PHI leads, Barkley's carries spike above the 11.3 per game in this sample and Hurts' 14 carries/89 rush yards become a bigger share, which is the path that beats 88.5 scrimmage."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, game-time decisions, snap limits, and inactives for both LA and PHI. No absences, returns, or next-man-up inferred from usage dips (Nacua 9 targets, Ertz absent from the PHI target list, Cooper absent from the PHI target list).",
+ "matchup": {
+  "shell": "Coverage shell not in pack (no MOFO/MOFC, no man/zone rate). Location only: PHI allows 7.21 YPA left (24 att), 7.25 middle (24 att), 6.18 right (40 att). LA allows 5.25 left (44 att), 4.89 middle (18 att), 5.34 right (38 att).",
+  "pressure": "PHI blitz rate 26%; LA QB EPA/dropback -0.23 vs blitz (n=39) vs +0.22 with no blitz. LA blitz rate 27%; PHI QB EPA/dropback -0.14 vs blitz (n=37) vs -0.02 with no blitz. Neither defense is a high-blitz unit in this sample.",
+  "bleeds": "PHI bleeds left and middle throws (7.21 and 7.25 YPA) and has allowed 8 passes of 20+ on 92 attempts plus 8 rushes of 10+ at 4.09 YPC. LA is tighter: 5 passes of 20+ on 105 attempts, 4.00 rush YPC, 6 rushes of 10+.",
+  "overlap": "LA's primary is Davante Adams (29 of 91 listed LA targets, 498 air yards) into the PHI left/middle softness and a 26% blitz rate, which is the split where Stafford's EPA is positive. PHI's listed primary is DeVonta Smith (27 targets, 235 yards), who is not on the available board; Barkley's receiving overlap is empty (6 targets, 6 yards, -3 air yards) and LA has no RB-coverage split in the pack."
+ },
+ "form": "LA L3: Adams 29/358/498 (about 119 rec yds/game, 17.2 air yards per target); Williams 38/214 rush and 12/106/56 receiving; Corum 28/148 rush, a real committee not a cameo; Higbee 13/74/87; Nacua 9/74/115, well below a 76.5 line, role cause not in pack. PHI L3: Barkley 34/174 rush (58/game, 5.12 YPC) and 6/6/-3 receiving; Hurts 14/89 rush; Bigsby 14/36; Smith 27/235/323; Wicks 15/179/203 (59.7/game vs a 55.5 line, 13.5 aDOT) into an LA defense that has allowed only 5 explosives on 105 throws. No game-by-game splits, so one-play inflation cannot be separated from role.",
+ "edge_players": [
+  {
+   "player": "davanteadams",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Adams is LA's clear primary (29 targets, 358 yards, 498 air yards in three games) against a PHI pass defense that allows 7.21 YPA left and 7.25 middle and blitzes only 26%, the look where Stafford's EPA is +0.22, so 60.5 sits well under that role even after some regression.",
+   "must_be_true": "Davante Adams targets >= 7 because he had 29 targets and 498 air yards over the last 3 games",
+   "kills_it": "IF PHI blitzes well above its 26% rate and Stafford's -0.23 EPA versus blitz takes away the first read THEN Davante Adams recyds over 60.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "saquonbarkley",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Barkley's last three games are 174 rush yards and 6 receiving yards (60 scrimmage per game) against a line of 88.5, and LA allows 4.00 YPC with only 6 runs of 10+, so the under does not need a shutdown, only that the 11.3-carry, non-receiving role holds.",
+   "must_be_true": "Saquon Barkley carries <= 15 because he had 34 carries and 6 receiving yards over the last 3 games and LA allows 4.00 yards per carry",
+   "kills_it": "IF PHI leads and Saquon Barkley gets 18 or more carries THEN Saquon Barkley rushrecyds under 88.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so the step-8 price test cannot be run and neither leg is sized off a model. Pack form agrees with both leans: Adams 119.3 rec yds/game vs 60.5, with PHI at 7.21/7.25 YPA left/middle and a 26% blitz; Barkley 58.0 rush plus 2.0 rec = 60.0 scrimmage vs 88.5, with LA at 4.00 YPC allowed and Barkley at 6 receiving yards on 6 targets. Both stays leans, not strong, because there is no sim and the Adams yardage is air-yard heavy (498).",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injury report, inactives, coverage shell and man/zone, position-coverage yards allowed, game-by-game splits, no-vig, sim medians, projection model",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Davante Adams recyds over 60.5 at -113 (primary-target rung, not a short alt; juice nearly even with the under -111). Saquon Barkley rushrecyds under 88.5 at -114 (nearly even with the over -112). No no-vig or sim median in the pack, so the rung was not moved. Passed: Nacua 76.5 (9 targets/74 yards vs that line, but no injury report, so no return or absence guess), Wicks 55.5 (59.7 average into an LA defense with 5 explosives on 105 throws, mixed), Kyren rush 59.5 (71.3 average but Corum already has 28 carries, thin cushion), Higbee 32.5 (24.7 average, thin).",
+ "pre_mortem": "It's Monday and this lost because Adams' 358 yards on 498 air yards was an explosive spike, PHI has allowed only 8 passes of 20+ on 92 attempts, and a ordinary 7-target day at about 8 yards per target lands near 56, under 60.5, especially if Mumpfield (11 targets, 180 air yards), Nacua (9/74), Ferguson (12) or Higbee (13) took the first read we could not injury-check. Barkley under lost because 34 carries in three games can hide one 18-carry home script, LA's 4.00 YPC is not a stop unit, Hurts already has 89 rush yards at 6.36 YPC so the PHI run game is functional, and 16 carries at 5.12 YPC is 82 before one catch clears 88.5. The -114 juice already priced that bigger Barkley day, and the missing spread may have hidden a PHI lead script that feeds him.",
+ "slip_story": "One story only: competitive game inferred without a spread, LA's pass game is the engine, PHI does not grind Barkley into a bellcow. Adams recyds over is the primary-target leg into PHI's left/middle and 26% blitz. Barkley rushrecyds under is the other side of that same script, not a PHI shootout leg and not a total. They lose together only if PHI both blitzes Stafford off schedule and controls the clock with Barkley carries. Two legs, no TDs, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

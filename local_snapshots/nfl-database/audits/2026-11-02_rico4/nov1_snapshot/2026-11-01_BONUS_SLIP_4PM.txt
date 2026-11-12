@@ -1,0 +1,20 @@
+GATE: FAIL  run=/workspace/nfl-database/runs/2026-11-01_BONUS_SLIP_4PM  checked_at=2026-11-01 12:00 ET
+Live legs: ['Stefon Diggs Receptions Over 3.5 (alt)', 'Xavier Worthy Receptions Over 2.5 (alt)']
+Cut legs: none
+APPROVED EXCEPTIONS:
+  - leg Stefon Diggs Receptions Over 3.5 (alt) defender Cooper DeJean: coverage.defenders from /workspace/nfl-sim/mnf12/pfr_def_adv_2026.html (staleness waived; approved by Rico on 2026-11-01, valid 2026-11-01, scope receiving legs) — misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only
+  - leg Xavier Worthy Receptions Over 2.5 (alt) defender Riley Moss: coverage.defenders from /workspace/nfl-sim/mnf12/pfr_def_adv_2026.html (staleness waived; approved by Rico on 2026-11-01, valid 2026-11-01, scope receiving legs) — misses roughly the last 2 games per team; approved by Rico for Nov 1 receiving legs only
+MISSES (10):
+  - game_script_rb KC@DEN: pull timestamp 2026-11-01T15:30 is in the future
+  - game_script_rb PHI@WSH: pull timestamp 2026-11-01T15:30 is in the future
+  - source injuries_news/ESPN injuries API re-pull 15:30 (official 4 PM inactives): pull timestamp 2026-11-01T15:30 is in the future
+  - source weather/NWS gridpoint forecast (api.weather.gov) kickoff..+3.5h max PoP/wind/gust; Open-Meteo cross-check DEN/MIA: pull timestamp 2026-11-01T15:30 is in the future
+  - source category weather: missing or no fresh source
+  - source odds_props/The Odds API b1442: FanDuel main+alt, DraftKings, Pinnacle, PrizePicks player props: pull timestamp 2026-11-01T15:29 is in the future
+  - source odds_props/The Odds API b1442: FanDuel/DK/Pinnacle spreads+totals: pull timestamp 2026-11-01T15:29 is in the future
+  - source category odds_props: missing or no fresh source
+  - Phase 11 weather KC@DEN: pull timestamp 2026-11-01T15:30 is in the future
+  - Phase 11 weather PHI@WSH: pull timestamp 2026-11-01T15:30 is in the future
+Notes:
+  - Stefon Diggs Receptions Over 3.5 (alt): avg p 0.669, no-vig 0.583, edge +8.7, shrunk +3.6
+  - Xavier Worthy Receptions Over 2.5 (alt): avg p 0.718, no-vig 0.647, edge +7.0, shrunk +0.5

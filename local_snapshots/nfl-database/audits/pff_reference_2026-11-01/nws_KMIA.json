@@ -1,0 +1,2725 @@
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "s": "https://schema.org/",
+            "geo": "http://www.opengis.net/ont/geosparql#",
+            "unit": "http://codes.wmo.int/common/unit/",
+            "@vocab": "https://api.weather.gov/ontology#",
+            "geometry": {
+                "@id": "s:GeoCoordinates",
+                "@type": "geo:wktLiteral"
+            },
+            "city": "s:addressLocality",
+            "state": "s:addressRegion",
+            "distance": {
+                "@id": "s:Distance",
+                "@type": "s:QuantitativeValue"
+            },
+            "bearing": {
+                "@type": "s:QuantitativeValue"
+            },
+            "value": {
+                "@id": "s:value"
+            },
+            "unitCode": {
+                "@id": "s:unitCode",
+                "@type": "@id"
+            },
+            "forecastOffice": {
+                "@type": "@id"
+            },
+            "forecastGridData": {
+                "@type": "@id"
+            },
+            "publicZone": {
+                "@type": "@id"
+            },
+            "county": {
+                "@type": "@id"
+            }
+        }
+    ],
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:45:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:45:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T21:45:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 60,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 9.252,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101625.52,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 78.63985107242,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 27.614217970210557,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 365.76
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 609.6
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3352.8
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:40:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:40:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T21:40:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 21,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 90,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 12.96,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101659.39,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 73.970629005511,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26.587010868477222,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 365.76
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 609.6
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3352.8
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:35:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:35:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T21:35:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 70,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 9.252,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101659.39,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 78.63985107242,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 27.614217970210557,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 365.76
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 609.6
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3352.8
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:25:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:25:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T21:25:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 100,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 11.124,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101659.39,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 78.63985107242,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 27.614217970210557,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 365.76
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 609.6
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3352.8
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:10:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:10:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T21:10:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Partly Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 100,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 20.376,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101659.39,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 83.565344534735,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 27.79749079685333,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 365.76
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 609.6
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3352.8
+                        },
+                        "amount": "SCT"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:05:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T21:05:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T21:05:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/ovc?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 100,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 20.376,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101693.25,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 83.565344534735,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 27.79749079685333,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 365.76
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 609.6
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3352.8
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:53:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.29,
+                    25.79
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:53:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T20:53:00+00:00",
+                "rawMessage": "KMIA 012053Z COR 09018G23KT 10SM SCT012 BKN020CB OVC110 26/24 A3002 RMK AO2 RAE23 SLP164 CB N-NE MOV N P0001 60018 T02560239 58008 $",
+                "textDescription": "Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/ovc?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 25.6,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.9,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 42.48,
+                    "qualityControl": "C"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101660,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101640,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": 0.3,
+                    "qualityControl": "C"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": 4.6,
+                    "qualityControl": "C"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 90.343779336786,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26.57453201601611,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 370
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 610
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3350
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:51:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.29,
+                    25.79
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:51:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T20:51:00+00:00",
+                "rawMessage": "KMIA 012051Z 09016G23KT 10SM SCT012 BKN020CB OVC110 26/24 A3002 RMK AO2 LTG DSNT NE AND E RAE23 CB N-NE MOV N P0001 $",
+                "textDescription": "Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/ovc?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 24,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 42.48,
+                    "qualityControl": "C"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101660,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": 0.3,
+                    "qualityControl": "C"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 88.758945510938,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 27.991564761560557,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 370
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 610
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3350
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:45:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:45:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T20:45:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/ovc?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 24,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 50,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 12.96,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101659.39,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 88.758945510938,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 27.991564761560557,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 426.72
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 914.4
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3352.8
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:40:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:40:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T20:40:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/ovc?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 24,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 30,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 11.124,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101659.39,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 88.758945510938,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 27.991564761560557,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 426.72
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 914.4
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3352.8
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:35:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:35:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T20:35:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/ovc?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 24,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 30,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 12.96,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101659.39,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 88.758945510938,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 27.991564761560557,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 426.72
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 914.4
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3352.8
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:30:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T20:30:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T20:30:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Cloudy",
+                "icon": "https://api.weather.gov/icons/land/day/ovc?size=medium",
+                "presentWeather": [],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 25,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 24,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 10,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 9.252,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101659.39,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 94.191011834057,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 26.01498753122278,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 426.72
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 914.4
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3352.8
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T19:53:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.29,
+                    25.79
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T19:53:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T19:53:00+00:00",
+                "rawMessage": "KMIA 011953Z 36005KT 10SM -RA FEW013 SCT030 OVC110 24/23 A3003 RMK AO2 TSE29 SLP168 TS DSIPTD P0010 T02390228 $",
+                "textDescription": "Light Rain",
+                "icon": "https://api.weather.gov/icons/land/day/rain?size=medium",
+                "presentWeather": [
+                    {
+                        "intensity": "light",
+                        "modifier": null,
+                        "weather": "rain",
+                        "rawString": "-RA"
+                    }
+                ],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.9,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22.8,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 360,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 9.36,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101690,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101680,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": 2.5,
+                    "qualityControl": "C"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 93.575684398805,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 24.788920648191112,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 400
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 910
+                        },
+                        "amount": "SCT"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3350
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T19:30:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.29,
+                    25.79
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T19:30:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T19:30:00+00:00",
+                "rawMessage": "KMIA 011930Z VRB03KT 10SM RA FEW010 FEW022 OVC110 24/22 A3004 RMK AO2 TSE29 TS DSIPTD P0008 T02390222 $",
+                "textDescription": "Rain",
+                "icon": "https://api.weather.gov/icons/land/day/rain?size=medium",
+                "presentWeather": [
+                    {
+                        "intensity": null,
+                        "modifier": null,
+                        "weather": "rain",
+                        "rawString": "RA"
+                    }
+                ],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.9,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22.2,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 5.4,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101730,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": 2,
+                    "qualityControl": "C"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 90.226255221478,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 24.70146333078278,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 300
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 670
+                        },
+                        "amount": "FEW"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3350
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T18:53:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.29,
+                    25.79
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T18:53:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T18:53:00+00:00",
+                "rawMessage": "KMIA 011853Z 06003KT 7SM TSRA BKN025CB OVC100 23/22 A3005 RMK AO2 SLP176 OCNL LTGICCG OHD-NE-SE-S TS OHD-NE-SE-S MOV N P0007 T02330222 $",
+                "textDescription": "Thunderstorms and Rain",
+                "icon": "https://api.weather.gov/icons/land/day/tsra?size=medium",
+                "presentWeather": [
+                    {
+                        "intensity": null,
+                        "modifier": null,
+                        "weather": "thunderstorms",
+                        "rawString": "TS"
+                    },
+                    {
+                        "intensity": null,
+                        "modifier": null,
+                        "weather": "rain",
+                        "rawString": "RA"
+                    }
+                ],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.3,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22.2,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 60,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 5.4,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101760,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101760,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 11270,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": 1.8,
+                    "qualityControl": "C"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 93.54760435308,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 24.128187446997224,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 760
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3050
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T18:30:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T18:30:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T18:30:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Rain",
+                "icon": "https://api.weather.gov/icons/land/day/rain?size=medium",
+                "presentWeather": [
+                    {
+                        "intensity": null,
+                        "modifier": null,
+                        "weather": "rain",
+                        "rawString": "RA"
+                    }
+                ],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 80,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 16.668,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101693.25,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 94.105818040075,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.812763026602223,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 762
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3048
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T18:25:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T18:25:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T18:25:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Rain",
+                "icon": "https://api.weather.gov/icons/land/day/rain?size=medium",
+                "presentWeather": [
+                    {
+                        "intensity": null,
+                        "modifier": null,
+                        "weather": "rain",
+                        "rawString": "RA"
+                    }
+                ],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 90,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 16.668,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101693.25,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 94.105818040075,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.812763026602223,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 762
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3048
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T18:20:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T18:20:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T18:20:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Rain",
+                "icon": "https://api.weather.gov/icons/land/day/rain?size=medium",
+                "presentWeather": [
+                    {
+                        "intensity": null,
+                        "modifier": null,
+                        "weather": "rain",
+                        "rawString": "RA"
+                    }
+                ],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 21,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 60,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 7.416,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101693.25,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 88.518307938961,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.666866929517223,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 762
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3048
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T18:10:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T18:10:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T18:10:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Light Rain",
+                "icon": "https://api.weather.gov/icons/land/day/rain?size=medium",
+                "presentWeather": [
+                    {
+                        "intensity": "light",
+                        "modifier": null,
+                        "weather": "rain",
+                        "rawString": "-RA"
+                    }
+                ],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 20,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 50,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 16.668,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101693.25,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 83.223812842562,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.52862177977778,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 762
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3048
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T17:53:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.29,
+                    25.79
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T17:53:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T17:53:00+00:00",
+                "rawMessage": "KMIA 011753Z COR 08014G19KT 10SM -TSRA BKN025CB OVC100 23/21 A3004 RMK AO2 SLP173 OCNL LTGIC E-S TS E-S MOV N P0016 60104 T02330211 10278 20233 58019 $",
+                "textDescription": "Thunderstorms and Rain",
+                "icon": "https://api.weather.gov/icons/land/day/tsra?size=medium",
+                "presentWeather": [
+                    {
+                        "intensity": null,
+                        "modifier": null,
+                        "weather": "thunderstorms",
+                        "rawString": "TS"
+                    },
+                    {
+                        "intensity": null,
+                        "modifier": null,
+                        "weather": "rain",
+                        "rawString": "RA"
+                    }
+                ],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.3,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 21.1,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 35.28,
+                    "qualityControl": "C"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101730,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101730,
+                    "qualityControl": "V"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16090,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLastHour": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": 4.1,
+                    "qualityControl": "C"
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "precipitationLast6Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": 26.4,
+                    "qualityControl": "C"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 87.462940440347,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.969310111497776,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 760
+                        },
+                        "amount": "BKN"
+                    },
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 3050
+                        },
+                        "amount": "OVC"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T17:45:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T17:45:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T17:45:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Light Rain",
+                "icon": "https://api.weather.gov/icons/land/day/rain?size=medium",
+                "presentWeather": [
+                    {
+                        "intensity": "light",
+                        "modifier": null,
+                        "weather": "rain",
+                        "rawString": "-RA"
+                    }
+                ],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 22,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 120,
+                    "qualityControl": "V"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": 5.544,
+                    "qualityControl": "V"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101760.98,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 16093.44,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 94.105818040075,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 23.812763026602223,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 762
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T17:20:00+00:00",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.28,
+                    25.82
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/stations/KMIA/observations/2026-11-01T17:20:00+00:00",
+                "@type": "wx:ObservationStation",
+                "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 4
+                },
+                "station": "https://api.weather.gov/stations/KMIA",
+                "stationId": "KMIA",
+                "stationName": "Miami, Miami International Airport",
+                "timestamp": "2026-11-01T17:20:00+00:00",
+                "rawMessage": "",
+                "textDescription": "Heavy Rain and Fog/Mist",
+                "icon": "https://api.weather.gov/icons/land/day/rain?size=medium",
+                "presentWeather": [
+                    {
+                        "intensity": "heavy",
+                        "modifier": null,
+                        "weather": "rain",
+                        "rawString": "+RA"
+                    },
+                    {
+                        "intensity": null,
+                        "modifier": null,
+                        "weather": "fog_mist",
+                        "rawString": "BR"
+                    }
+                ],
+                "temperature": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 24,
+                    "qualityControl": "V"
+                },
+                "dewpoint": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 24,
+                    "qualityControl": "V"
+                },
+                "windDirection": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "windSpeed": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "windGust": {
+                    "unitCode": "wmoUnit:km_h-1",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "barometricPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": 101760.98,
+                    "qualityControl": "V"
+                },
+                "seaLevelPressure": {
+                    "unitCode": "wmoUnit:Pa",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "visibility": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 9656.06,
+                    "qualityControl": "C"
+                },
+                "maxTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "minTemperatureLast24Hours": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null
+                },
+                "precipitationLast3Hours": {
+                    "unitCode": "wmoUnit:mm",
+                    "value": null,
+                    "qualityControl": "Z"
+                },
+                "relativeHumidity": {
+                    "unitCode": "wmoUnit:percent",
+                    "value": 100,
+                    "qualityControl": "V"
+                },
+                "windChill": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": null,
+                    "qualityControl": "V"
+                },
+                "heatIndex": {
+                    "unitCode": "wmoUnit:degC",
+                    "value": 25.066666666666666,
+                    "qualityControl": "V"
+                },
+                "cloudLayers": [
+                    {
+                        "base": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 762
+                        },
+                        "amount": "BKN"
+                    }
+                ]
+            }
+        }
+    ],
+    "pagination": {
+        "next": "https://api.weather.gov/stations/KMIA/observations?cursor=eyJzIjoiMjAyNi0xMS0wMVQxNzoyMDowMCswMDowMCJ9"
+    }
+}

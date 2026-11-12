@@ -1,0 +1,48 @@
+{
+ "game": "Week 6 CAR@PHI / kickoff MISSING / PHI +3, CAR -3 / total 39 / implied totals CAR 21, PHI 18 / weather MISSING. Moneyline, opening lines, movement, rest, travel and venue conditions are not supplied.",
+ "script": {
+  "base": "The market points to Carolina leading a low-scoring, competitive game rather than a runaway. Carolina can maintain Hubbard's rushing involvement, while Philadelphia's offensive struggles against pressure favor stalled drives and continued backfield sharing rather than a Pierce-led attack.",
+  "flip1": "Philadelphia leads early, forcing Carolina toward Young and McMillan. Hubbard's rushing over becomes script-dependent, while Pierce's combined-yardage under remains viable only if Philadelphia continues sharing backfield work.",
+  "flip2": "Carolina builds a substantial lead and Philadelphia shifts toward passing. Hubbard benefits from clock-management carries, but Pierce could threaten his under through an expanded receiving role."
+ },
+ "injury_fallout": "MISSING: CAR and PHI injury reports, practice trends, final inactives, offensive-line availability, defensive absences and snap restrictions. Hubbard's 52 carries and Philadelphia's distributed rushing work are observations from the supplied usage tables, not evidence of injuries, returns or depth-chart changes. No next-man-up assumptions are made.",
+ "matchup": {
+  "shell": "MISSING: CAR and PHI MOFO/MOFC rates, man/zone splits and individual coverage assignments. Directional passing YPA cannot establish defensive shells.",
+  "pressure": "Source: supplied pre-kickoff pack. CAR blitzes 36%; PHI's QB EPA/dropback is -0.21 against blitzes across 70 dropbacks versus approximately 0.00 without blitzes. This supports a hypothesis of disrupted PHI possessions, although pressure and sack rates are missing. PHI blitzes 23%; CAR's QB EPA/dropback remains positive against blitzes at 0.17 versus 0.25 without them.",
+  "bleeds": "Source: supplied defensive tables. PHI allows 4.09 rushing yards per carry and has conceded 13 runs of 10+ yards across five games: not an obvious rushing-efficiency weakness. CAR allows 5.51 yards per carry and 14 runs of 10+ yards across four games, creating a meaningful counter-case to any Philadelphia rushing under.",
+  "overlap": "Hubbard's edge hypothesis is workload plus Carolina's favored script, not a soft PHI run defense. Pierce's under hypothesis is limited individual opportunity in a shared backfield despite a favorable CAR run-defense matchup."
+ },
+ "form": "Source: supplied last-three-game tables. CAR's window is weeks 2\u20134, not weeks 3\u20135: Hubbard recorded 52 carries for 257 yards, versus 12 carries for Dillon and five for Brooks. His eight targets produced 46 receiving yards. PHI's weeks 3\u20135 show Pierce with 11 carries for 14 yards and five targets for -2 receiving yards; Barkley had 17 carries, Bigsby 14 and Hurts 11. These aggregate windows support contrasting workload hypotheses but do not establish game-by-game consistency. MISSING: snaps, routes, individual-game usage, red-zone work, opponent comparability and explanations for role changes.",
+ "edge_players": [
+  {
+   "player": "chubahubbard",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Hubbard can exceed 70.5 rushing yards because Carolina is favored and its recent rushing workload is concentrated in him, allowing volume to offset Philadelphia's respectable run defense.",
+   "must_be_true": "C.Hubbard carries >= 18 [because the pack records 52 carries over CAR's last three supplied games and makes CAR a three-point favorite]",
+   "kills_it": "IF Philadelphia establishes an early two-score lead and Carolina abandons sustained rushing possessions THEN Hubbard over 70.5 rushing yards fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "dameonpierce",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Pierce can stay below 64.5 combined yards because his recent opportunities are sparse within a Philadelphia backfield that also allocates carries to Barkley, Bigsby and Hurts.",
+   "must_be_true": "D.Pierce carries_plus_targets <= 6 [because the pack records 11 carries and five targets over three games alongside carries for Barkley, Bigsby and Hurts]",
+   "kills_it": "IF Pierce becomes Philadelphia's lead back and receives at least 15 carries against CAR's 5.51-YPC run defense THEN Pierce under 64.5 rushing-plus-receiving yards fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written script and workload hypotheses precede this numerical check. Hubbard averaged 17.3 carries and 85.7 rushing yards in the supplied window. Multiplying those carries by PHI's 4.09 YPC allowed gives approximately 70.9 yards, a crude sensitivity check rather than a projection: his 70.5 over has little cushion at that efficiency. Pierce accumulated only 12 combined yards across three games, supporting the limited-role under hypothesis. Supplied paired prices imply approximately 50.7% proportional no-vig probability for Hubbard's over and 50.0% for Pierce's under; these are market reference points, not estimated hit probabilities or verified Pinnacle prices.",
+  "disagrees": "CAR's 5.51 rushing YPC allowed contradicts the favorable-matchup component one would want for Pierce's under: his opponent offers substantial rushing efficiency. The under therefore depends on limited opportunity rather than defensive resistance.",
+  "missing": "Projection model, simulations, simulated medians, calibrated hit probabilities, verified Pinnacle prices, injury and inactive information, game-by-game roles, coverage charting and weather. No quantified betting edge or stake can be established.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Conditional main-line candidates only: chubahubbard rushyds over 70.5 at -120; dameonpierce rushrecyds under 64.5 at -113. Hubbard's rushing market isolates the favored-script carry thesis; Pierce's combined market tests his total offensive role. Pierce remains flagged for the favorable opposing run defense. No alternative rung, stake or executable recommendation is established.",
+ "pre_mortem": "It is Monday and both lost: Philadelphia led early, cutting Hubbard's carries, while his recent 4.94 YPC proved unsustainable against a defense allowing 4.09. Meanwhile, Pierce received a larger share than the aggregate three-game table suggested, or broke an explosive run against Carolina's 5.51-YPC defense. Missing injury and inactive information could have explained that redistribution before kickoff. Hubbard's workload cushion is thin, and Pierce's opponent supplies a real counter-case; neither warrants strong confidence.",
+ "slip_story": "The shared story is Carolina controlling a modest-scoring game through Hubbard while Philadelphia distributes its backfield opportunities and struggles against pressure. Both candidates fit that story, but Hubbard is vulnerable to the Philadelphia-leads flip and Pierce is vulnerable to expanded receiving work. Do not manufacture a three- or four-leg slip from only two supported candidates; keep them conditional rather than present a completed parlay. Source provenance is the supplied as-of pack; exact collection timestamps are missing. No persistent pre-kickoff save, hash or postgame grading is available here. Later grading should separate the Carolina-control read and workload assumptions from the individual prop results.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 MIN@TB / kickoff: MISSING / spread, total, moneyline, implied totals and opening movement: MISSING / weather: not saved. Script inferred only from the supplied Weeks 1\u20132 team form; no market-implied favorite. Venue details, rest and travel: MISSING.",
+ "script": {
+  "base": "Tentative competitive-game hypothesis, not a forecast of either team leading: both offenses retain rushing involvement while using shorter throws against frequent blitzes. Minnesota concentrates receiving work around J.Jefferson and T.Hockenson rather than J.Addison; Tampa Bay's C.Otton remains involved against MIN's 78% blitz rate. Pace and garbage-time expectations cannot be established from this pack.",
+  "flip1": "Minnesota builds an early lead and reduces passing volume. Addison's receiving under can survive, while Otton's over can survive increased Tampa Bay passing demand; neither benefit is guaranteed.",
+  "flip2": "Tampa Bay builds an early lead behind B.Irving, who has 134 rushing yards on 25 carries. Minnesota's increased passing demand threatens Addison's under, while reduced Tampa Bay passing volume threatens Otton's over."
+ },
+ "injury_fallout": "MISSING: MIN and TB injury reports, practice trends, final designations, offensive-line availability, defensive absences, return restrictions and final inactives. No absences or next-man-up roles inferred. The MIN rushing table lists C.Wentz while available props include kylermurray; the starting quarterback is unconfirmed. Source for all observed statistics and prices: supplied pre-kickoff as-of pack, covering Weeks 1\u20132; exact collection timestamps and injury-report checkpoints were not supplied.",
+ "matchup": {
+  "shell": "MISSING: MOFO/MOFC, man/zone rates and player alignment. MIN's 78% and TB's 49% blitz rates do not establish coverage shells or individual assignments.",
+  "pressure": "MIN blitzes on 78% of the supplied sample; TB's QB EPA/dropback is 0.02 against blitzes over 14 dropbacks versus -0.33 without blitzes. TB blitzes on 49%; MIN's corresponding EPA is 0.10 over 26 blitz dropbacks versus approximately 0.00 without blitzes. Blitz frequency does not prove pressure gets home; pressure rate, sacks and time to throw are missing.",
+  "bleeds": "MIN allows 10.58 YPA over the middle on 19 attempts and nine completions of 20-plus yards on 84 attempts. TB allows 12.4 YPA over the middle on only 10 attempts, but just five 20-plus-yard pass plays on 68 attempts. TB allows 3.26 rushing YPC versus MIN's 3.85; box counts, rush EPA, stuff rates and position-specific receiving allowances are missing.",
+  "overlap": "Otton's 11 targets and 77 air yards support a receiving-involvement hypothesis against MIN's vulnerable middle, but his actual alignment and target locations are unavailable, so the overlap is provisional. Addison's under rests on his secondary target role and TB's relatively limited explosive-pass allowance, not an assumed cornerback matchup."
+ },
+ "form": "Only two games are supplied, despite the tables' L3 labels. Addison has seven targets, 21 receiving yards and 70 air yards, behind Jefferson's 16 targets and Hockenson's nine. Otton has 11 targets, 64 receiving yards and 77 air yards, tied with B.Irving and E.Egbuka for the largest listed TB target totals. These are aggregate roles, not proof of stable game-to-game usage. Snaps, routes, individual-game distributions, red-zone looks, play-caller changes and comparable-opponent results are missing.",
+ "edge_players": [
+  {
+   "player": "jordanaddison",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "Addison's secondary target role gives him a plausible path below 36.5 receiving yards against a TB defense that has allowed only five 20-plus-yard pass plays on 68 attempts.",
+   "must_be_true": "J.Addison targets <= 4 [because the pack records seven targets across two games, behind J.Jefferson's 16 and T.Hockenson's nine]",
+   "kills_it": "IF Minnesota falls substantially behind and expands Addison's downfield opportunities THEN jordanaddison recyds under 36.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "cadeotton",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Otton's established target involvement offers a plausible route above 27.5 receiving yards if Tampa Bay uses him against a MIN defense allowing 10.58 YPA over the middle.",
+   "must_be_true": "C.Otton targets >= 5 [because the pack records 11 targets across two games, tied for the largest listed TB target total]",
+   "kills_it": "IF Otton is retained as a blocker against MIN's blitzes and loses receiving opportunities THEN cadeotton recyds over 27.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Reads were formed from role and matchup before checking production against the offered rungs. Addison's 21 receiving yards across two games supports the under hypothesis; Otton's 64 across two games supports the over hypothesis. Neither aggregate establishes a hit rate. Otton's middle-field matchup remains unverified without alignment data. No projection or simulation was run. The listed paired prices imply approximately 50.1% no-vig for Addison under and 50.7% for Otton over, calculated by normalizing the two sides' implied probabilities; these are pack-price calculations, not verified Pinnacle benchmarks.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median, calibrated probabilities, verified Pinnacle prices, individual-game distributions, routes, alignments, pressure rates, injury reports, confirmed MIN quarterback, kickoff time, market snapshot and weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate main lines only: jordanaddison recyds under 36.5 at -114; cadeotton recyds over 27.5 at -117.5. Receiving yards are permitted; receptions are unavailable under the constraints. No alternate rung, quantified edge or stake recommendation is supported.",
+ "pre_mortem": "It's Monday and both lost: Addison's 70 air yards already signaled more opportunity than his 21 realized yards, and one explosive catch plus ordinary volume beat 36.5. TB's five explosive completions allowed came from only two games and did not establish durable suppression. Meanwhile, Otton's 11 targets were spread across an offense with Irving and Egbuka also at 11 and T.Hurst at 10; MIN's blitzes could force blocking rather than receiving work. MIN's middle-field YPA was not TE-specific. These counter-cases keep both selections at lean, with no claim of a priced betting edge.",
+ "slip_story": "Conditional short-area passing story: Minnesota's established target leaders keep Addison secondary while Otton participates in Tampa Bay's answers to MIN's blitzes. Both candidates can survive a competitive game or an early Minnesota lead; a Tampa Bay lead is the shared danger. Do not manufacture a 3\u20134-leg main slip from only two supported candidates. No TDs, no duplicate player markets, no bet placed. This JSON records the hypotheses, but a persistent timestamped pre-kickoff lock and hash cannot be verified here. Postgame grading must separate script accuracy, player-edge accuracy and leg results; review Step 4 for a false middle-field overlap and Step 5 for misleading aggregate roles.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

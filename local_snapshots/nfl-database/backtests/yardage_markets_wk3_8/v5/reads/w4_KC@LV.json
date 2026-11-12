@@ -1,0 +1,46 @@
+{
+ "game": "Week 4 KC@LV / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this is a form-only script, not a market script. Over weeks 1-3 KC has been a Walker run team (65 carries, 360 yards, 5.54 YPC) that still fed Kelce (18 targets, 231 yards) and Rice (17/190). LV has been Jeanty volume (63 carries, 206 yards, 3.27 YPC) with targets split Jeanty 17, Tucker 15, Mayer 14, Bowers 13. Base: KC's recent efficiency and the tighter defense (3.90 rush YPC allowed, 5 plays of 20+ on 99 throws vs LV 4.47 YPC and 7/106) point to a neutral-to-KC-leaning game that stays run-heavy with Walker while Kelce still sees about 6 targets; LV keeps Jeanty involved early.",
+  "flip1": "LV hangs or leads, KC chase-passes, Walker carries fall toward the mid-teens and Kelce/Rice/Worthy absorb the dropbacks, so the rush over is the leg that dies and Jeanty's rush line survives.",
+  "flip2": "KC gets up big and clocks it with Walker; Kelce/Rice second-half targets stall, LV abandons the run so Jeanty's rushing line dies, and Tucker's deep shots (228 air yards over L3) die against a defense that has allowed only 5 plays of 20+."
+ },
+ "injury_fallout": "No injury report, practice status, snap limits, or inactives in the pack, and no beat-writer news. No next-man-up or missing-coverage fallout can be applied. Walker (65 of the RB carries vs Johnson 16) and the LV target split (Jeanty 17, Tucker 15, Mayer 14, Bowers 13) are the only usage facts. A late scratch would touch these legs and cannot be re-run from this pack.",
+ "matchup": {
+  "shell": "Coverage charting is not in the pack (no MOFO/MOFC, no man/zone rate). Proxy only: LV blitz 21%, KC blitz 31%. Location YPA is the leak map.",
+  "pressure": "LV blitzes only 21%. Mahomes EPA/dropback is 0.41 vs blitz (n=27) vs 0.19 clean, so extra rushers have not slowed KC. KC blitzes 31%. Cousins EPA is 0.11 vs blitz (n=30) vs 0.16 clean, a mild hit to LV deep shots and a mild boost to checkdowns (Jeanty already has 17 targets).",
+  "bleeds": "LV leaks the middle: 9.83 YPA on only 12 attempts, left 7.26 on 39, right 5.91 on 45. Rush YPC allowed 4.47 with 8 runs of 10+. KC also leaks the middle (10.0 YPA on 20) but is sound outside (left 5.26 on 39, right 4.06 on 36) and has allowed only 5 explosives on 99 throws. KC rush YPC allowed 3.90 with 9 runs of 10+.",
+  "overlap": "Walker is the primary rusher (65 carries, 360 yards) into the softer run defense (4.47 YPC). Kelce is tied for the KC target lead (18) and leads the team in receiving yards (231, 118 air yards) into the only LV location that has leaked (middle 9.83). Tucker (228 air yards, 189 yards) attacks the outside, where KC has been best, so that is a negative overlap. Bowers (13 targets, 116 yards) would attack KC's soft middle, but the recent share does not match a 69.5 line."
+ },
+ "form": "Walker L3 role is stable volume, not a TD prop: 21.7 carries and 120 rush yards per game, plus 6 targets, 27.3 rec yards, 4 air yards. The 5.54 YPC is the part that can regress; the carry share vs Johnson (16 carries, 56 yards) is not. Kelce: 6 targets, 77 rec yards, about 39 air yards per game, alongside that same Walker workload, so the two have already coexisted. Game splits are not in the pack, so a hidden boom game cannot be ruled out. Rice 63.3 yards sits near his 57.5 line. Worthy 21 yards on 15 targets (4.2 YPT) despite 95 air yards is inefficiency, not a leg. Jeanty 68.7 rush on 21 carries at 3.27 YPC plus 32.3 rec yards is volume without efficiency. Bowers 38.7 yards on 4.3 targets does not support 69.5. Tucker 63 yards on 5 targets with 76 air yards is vertical and opponent-unknown.",
+ "edge_players": [
+  {
+   "player": "kennethwalkeriii",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Walker has averaged 120 rush yards on 21.7 carries at 5.54 YPC over the last 3 games, and LV has allowed 4.47 YPC with 8 runs of 10+, so 86.5 sits about 33 yards under a bellcow role against a soft run defense.",
+   "must_be_true": "Walker keeps the L3 share (65 carries vs Johnson 16 and Mahomes 7), KC is not in a pass-only chase, and there is no snap limit (health not in the pack).",
+   "kills_it": "Flip 1: KC falls behind early, carries drop to the mid-teens, and efficiency regresses under 4.5 so 16 carries finish near 67. A late scratch would also kill it.",
+   "confidence": "strong"
+  },
+  {
+   "player": "traviskelce",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Kelce has averaged 77 receiving yards on 6 targets into the only part of the LV defense that has leaked, the middle at 9.83 YPA, and 47.5 is about 30 yards under that role.",
+   "must_be_true": "He keeps roughly 5-6 targets in a game that is not a pure second-half clock-kill, and the middle leak is real rather than 12-attempt noise.",
+   "kills_it": "Flip 2: KC gets up big, dropbacks stall, 12.8 yards per target regresses, and 4 targets finish under 47.5. A thin middle sample (12 attempts) going cold also kills it.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so step 8 is pack-only. Walker L3 rush mean 120 vs 86.5; applying LV's 4.47 YPC to his 21.7 carry rate is about 97, still over. Kelce L3 mean 77 vs 47.5. Matchup splits agree (soft run D, soft middle). No model probability above 70% is being claimed. Jeanty rush 59 is listed at +nan and is unused. Bowers under 69.5 was not taken: L3 role (38.7 yards) supports an under but KC middle YPA of 10.0 disagrees, which would be a flag on a strong read, so the agreeing Kelce overlap was preferred.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "kennethwalkeriii rushyds over 86.5 -113.5 (volume plus weak run defense; main line, not a short alt). traviskelce recyds over 47.5 -119 (middle overlap; main line). No sim or no-vig to move the rung. One market per player.",
+ "pre_mortem": "It's Monday and both lost because the missing spread was a blowout the other way or a shootout this pack cannot see. Walker's 360 yards hid one explosive game, 5.54 YPC regressed, KC chased, and 16 carries at 4.2 YPC finished at 67 while Johnson's 16 L3 carries showed the committee. Kelce's 77 came on 12.8 yards per target that regressed, LV's middle 9.83 on 12 throws was noise and they lived on the right side (5.91), and a second-half clock-kill stalled him under 47.5 the way a lead stalls receiver yards. That counter is real, but it is not stronger than a 33-yard and a 29-yard cushion against roles that already posted 120 rush and 77 receiving in the same three-game window, so both legs stay.",
+ "slip_story": "One story only: KC base-script offense, not a shootout and not a pure under. Walker rush over is the run-volume anchor vs a 4.47 YPC defense; Kelce rec over is the middle overlap on the same offense. They coexisted in the L3 sample, so the slip does not need opposite scripts. Do not add Jeanty under (needs the abandon-run flip, and the 59 price is missing) or Tucker/Bowers (other offense; Tucker needs explosives KC has not allowed, 5 on 99). No TDs.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

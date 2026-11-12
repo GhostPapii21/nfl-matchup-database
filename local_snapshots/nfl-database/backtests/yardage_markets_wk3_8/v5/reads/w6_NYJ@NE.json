@@ -1,0 +1,46 @@
+{
+ "game": "NYJ@NE Week 6 / kickoff not in pack / NE -7 / total 42.5 / weather not saved; implied NE 24.75, NYJ 17.75",
+ "script": {
+  "base": "At NE -7 in a 42.5 total the book has New England leading by the second half and leaning on the Stevenson/Henderson/Maye run game (33/133, 26/87, 14/103 over the last 3) to control the clock, while the Jets (implied 17.75) throw more as they trail. Pace stays moderate, not a shootout.",
+  "flip1": "If the Jets hang within a score, Allen keeps something like his 14-carry L3 role (42/189) and Wilson (29 targets) does not need a pure comeback script, which caps both late Jets air yards and a full NE clock-kill.",
+  "flip2": "If NE jumps ahead early, Maye's designed runs and NE pass volume stall and the Jets abandon the run, so Allen's carries die while Wilson and Sadiq targets spike \u2014 still through a QB at -0.08 EPA vs the blitz, so the extra volume is short, not deep."
+ },
+ "injury_fallout": "No injury report, practice trend, or inactives in the pack, so no named scratch fallout. Usage only: Jets rushing has already moved to Braelon Allen (42 carries/189 yards L3) over Breece Hall (13/32, 3 targets); Garrett Wilson is the passing hub (29 targets/238 yards/255 air) with Kenyon Sadiq second (15/108/97). Patriots carries are a committee (Stevenson 33/133, Henderson 26/87, Maye 14/103) and targets are spread (Doubs 16, Douglas 13, Hollins 13, Chism 12, Henry 11, Stevenson 12). Final inactives not available.",
+ "matchup": {
+  "shell": "Coverage charting (MOFO/MOFC, man vs zone) is not in the pack. Location proxy: NE allows 12.71 YPA on 31 middle attempts vs 5.97 left (71 att) and 5.0 right (59 att). NYJ allows 8.12 middle (40 att) vs 5.17 left and 5.69 right.",
+  "pressure": "NE blitzes 34%. Jets QB EPA/dropback is -0.08 vs blitz (n=45) and +0.08 with no blitz, so pressure should cut deep yards and lift checkdowns to TE/RB. NYJ blitzes 39%; Maye is still +0.07 EPA vs blitz (n=54) but better clean at +0.21.",
+  "bleeds": "NE bleeds the middle (12.71 YPA) and has allowed 14 passes of 20+ on 173 attempts, with 4.06 rush YPC and 10 runs of 10+ in 5 games. NYJ bleeds the run (4.41 YPC, 15 runs of 10+) and is softer in the middle (8.12) than outside.",
+  "overlap": "The clean overlap is Sadiq (15 targets, 97 air yards, intermediate profile) into NE's middle hole, with the 34% blitz as a checkdown path. Wilson's 255 air yards attack the outside, where NE is stingy (5.0-5.97 YPA), so he is not the weak-spot overlap. NE's run game overlaps a 4.41 YPC Jets front, but no single back has a locked carry share."
+ },
+ "form": "Last 3 only, not season averages. Jets: Allen 14.0 carries and 63 rush yards/game at 4.5 YPC plus 11 receiving yards on 9 targets; Wilson 9.7 targets and 79.3 rec yards/g vs a 72.5 line; Sadiq 5.0 targets and 36.0 rec yards/g vs a 20.5 line; Isaiah Williams 7 targets/110 yards/118 air looks explosive-inflated. Pats: Stevenson 11.0 carries/44.3 rush and 21.3 rec yards; Henderson 8.7 carries/29.0 rush; Maye 4.7 carries/34.3 rush at 7.4 YPC (will not repeat); Henry 37.0 yards on 11 targets and only 68 air; Doubs 41.0 yards on 230 air (inefficient). NE has allowed 10 runs of 10+ in 5 games; NYJ has allowed 15.",
+ "edge_players": [
+  {
+   "player": "kenyonsadiq",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Sadiq is at 36 receiving yards a game on 5 targets, and NE is giving up 12.71 YPA in the middle while blitzing a QB who checks down, so 20.5 is short of both the role and the soft spot.",
+   "must_be_true": "Sadiq keeps about a 4-5 target share, stays healthy, and the Jets throw enough \u2014 the trailing script (implied 17.75) helps.",
+   "kills_it": "The Jets stay run-first in a close game, or the middle looks go to Wilson/Williams and Sadiq finishes on 1-2 targets.",
+   "confidence": "strong"
+  },
+  {
+   "player": "braelonallen",
+   "market": "rushrecyds",
+   "side": "under",
+   "edge_sentence": "Allen is at about 67 rush-plus-receiving yards a game (189 rush + 11 rec over 3 games) against an 84.5 line, and a trailing script plus NE allowing 4.06 YPC and only 10 explosive runs in 5 games makes a jump to 85 unlikely.",
+   "must_be_true": "He does not rip a long run, receiving stays inefficient (11 yards on 9 targets L3), and carries do not jump well past 14.",
+   "kills_it": "The game stays close, he gets 16+ carries and one 15-20 yard run, or dump-offs suddenly produce YAC.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so this is form-only and not a full step-8 price check. Sadiq L3 36.0 rec yards vs 20.5 over agrees. Allen L3 ~66.7 rush+rec vs 84.5 under agrees. Neither is a 70%+ model claim. Pack price on Sadiq over is listed as -6 (looks truncated); Allen under is -115. Wilson under 72.5 was considered and dropped: L3 79.3 disagrees and it was only a lean. Stevenson over 54.5 dropped as a lean that recent 44.3 yards disagrees with.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Kenyon Sadiq recyds over 20.5 at the pack price of -6; Braelon Allen rushrecyds under 84.5 -115. No alt rungs in the pack. No short-priced alt used as an anchor.",
+ "pre_mortem": "Monday, Sadiq over lost if NE took the middle away, the Jets never sustained drives, and Wilson (255 air yards of usage) plus Williams' shot plays took the few completions, leaving Sadiq on two targets. Allen under lost if the Jets hung around, he got the full L3 carry pace plus one chunk run against a defense that has already allowed 10 runs of 10+, and two dump-offs with YAC cleared 84.5. That counter is real enough to keep Allen a lean, not a builder. It is not stronger than the Sadiq read, whose line sits about 15 yards under a three-game role that also matches the only place NE's pass defense bleeds.",
+ "slip_story": "One story only: low-total NE lead (spread -7, total 42.5) and a trailing Jets offense that lives on short and middle throws. Sadiq over is the middle/checkdown leg; Allen rush+rec under is the same trailing script, because rush volume is capped and his receiving (11 yards on 9 targets) does not backfill. Do not pair with a Jets RB over or a shootout stack. No TDs, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

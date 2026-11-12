@@ -1,0 +1,108 @@
+{
+ "game": "Week 3 2025 Dallas Cowboys at Chicago Bears (DAL@CHI), kickoff 2025-09-21 16:25 ET, Chicago home, roof outdoors, spread CHI +1.5 (DAL -1.5), total 49.5, moneyline not in pack, implied team totals CHI 24.0 and DAL 25.5, rest and travel not in pack, open-to-close movement not saved, weather forecast not saved",
+ "script": {
+  "base": "Morning-of-kickoff read, weeks 1-2 only. The close (nflverse games.csv) has Chicago +1.5 and a 49.5 total, so the book expects Dallas to lead by a field goal or less and both teams to score: favorite DAL (49.5+1.5)/2 = 25.5, dog CHI (49.5-1.5)/2 = 24.0. That is a competitive, relatively high-play game, not a blowout and not a 3.5-point dog-throws script. Pace should support both passing games. Dallas's base lean is still Lamb-first through the air (24 targets, 222 yards, 303 air yards in two games) with Ferguson as the second look (18 targets, 101 yards, 112 air) and Javonte Williams as the lead runner (33 carries, 151 yards, about 16.5 carries and 75.5 rush yards a game) without a garbage-time benching. Chicago's base lean is Odunze-first (20 targets, 165 yards, 255 air) with Swift, if he plays through a questionable quad, as the lead back (29 carries, 116 yards). Neither starter group is projected into a snap-risk blowout at a 1.5 spread.",
+  "flip1": "Dallas jumps ahead by two scores. Chicago, the home dog, abandons the run, so Swift (already Questionable, 29 carries / 116 yards) and Monangai (7 carries / 28 yards) lose carries, and Caleb Williams throws more at a Dallas secondary missing DaRon Bland. Dallas then runs the clock with Javonte, which is how a Lamb/Ferguson yardage line can stall late even if the first half was fine. The 1.5 spread makes a true blowout the flip, not the base, but a two-score lead is enough to trim fourth-quarter routes.",
+  "flip2": "Chicago leads at home and Dallas is forced off the run. Javonte's 33-carry role shrinks, Sanders (9 carries, 68 yards, already had a 53-yard game) does not save a rush over, and Lamb, Pickens (13 targets, 152 air) and Ferguson targets rise. The other version of this flip is outdoor weather, which is not in the pack: wind 15+ or rain would cut Lamb's 12.6 aDOT and drag the 49.5 under, killing the pass overs together."
+ },
+ "injury_fallout": "Official pre-game nflverse injury report, known before kickoff. Final inactives (~90 minutes before kick) are not in the pack, so every snap assumption is pre-inactive. Chicago defense out: CB Jaylon Johnson (groin), CB Jaylon Jones (hamstring), slot CB Kyler Gordon (hamstring), LB T.J. Edwards (hamstring). LB D'Marco Jackson is Questionable (hamstring). That is three corners and the MIKE. Dallas pass-catchers face backups. Who gains: CeeDee Lamb, the primary target (24 of 80 tracked Dallas targets, 30 percent, 303 air yards), is the first beneficiary of Johnson being out; George Pickens (13 targets, 16 percent, 152 air) is the outside WR2 beneficiary; Jake Ferguson (18 targets, 22.5 percent, 112 air) is the beneficiary of Gordon (slot) and Edwards (LB) both being out, which is the skill's TE/slot/RB-receiving map. Javonte also gains a checkdown path (10 targets, 43 yards, minus-12 air) if Jackson sits, but his listed market edge is the run. Who loses on that side: no Dallas skill player is listed out, so nobody is absorbing a Dallas absence. Chicago offense: G Kiran Amegadjie Out (elbow) means pressure up, rush efficiency down, more quick throws, so Swift/Monangai rushing efficiency and Odunze deep yards are the losers, and short TE/RB catches (Kmet 6 targets / 60 yards, Swift 8 targets / 18 yards) are the gainers if Caleb gets sped up. RB D'Andre Swift Questionable (quadricep): if he is limited, Monangai is next man up. Monangai's share with Swift active has been 7 carries and 28 yards against Swift's 29 and 116, plus 4 targets and 19 yards. That is not a full role yet. Do not treat him as the starter until inactives. Dallas defense: CB DaRon Bland Out (foot). Who gains: Rome Odunze (20 of 64 tracked Chicago targets, 31 percent, 255 air) and, secondarily, DJ Moore (11 targets, 103 yards) and Olamide Zaccheaus (12 targets, 54 yards). No Dallas safety is listed out, so this is a corner absence, not a deep-safety absence.",
+ "matchup": {
+  "shell": "No MOFO/MOFC or man/zone charting was saved, so shell is inferred only from location splits and the injury report. Chicago, two games: YPA left 9.12 on 17 attempts, middle 13.9 on 10 attempts, right 8.71 on 21 attempts. The middle is the leak, on a small sample. Right is their least-bad side. With Johnson, Jones and Gordon all Out, any man matchup for Lamb or Pickens is a backup, and the slot (Gordon) is empty for Ferguson. Dallas, two games: left 7.23 on 31, middle 20.88 on 8, right 8.44 on 25. Dallas's middle number is uglier but it is 8 attempts, so it is a flag for fluke explosives, not a number to price an Odunze leg on. Bland being out is the real Chicago-receiver matchup fact.",
+  "pressure": "Chicago blitz rate is 19 percent. Dak Prescott's EPA per dropback is 0.14 against the blitz and 0.10 with no blitz, so Chicago's pressure plan is not a problem for Dallas, and they rarely bring extra rushers. No Dallas offensive lineman is on the injury report, so time-to-throw should hold. That supports Lamb's air yards (303 on 24 targets) rather than killing deep yards and dumping everything to the back. Dallas blitzes 18 percent. Caleb Williams's EPA per dropback is minus-0.24 when blitzed and plus-0.12 when not. Dallas does not blitz enough to force the bad version of Caleb, which is why a Chicago pass over is not automatically dead, and also why it is not a pressure-driven edge. Chicago G Amegadjie being out is the pressure risk on the Chicago side, and it points at shorter throws, not at a Prescott problem.",
+  "bleeds": "Chicago run defense has allowed 5.30 yards per carry and 9 runs of 10+ in two games. That is the clearest defensive bleed in the pack by play count. Chicago has also allowed 7 passes of 20+ on 51 attempts. Pass location bleed is the middle at 13.9 YPA, not the outside. Dallas run defense has allowed 4.38 YPC and 7 runs of 10+, a tighter front than Chicago's. Dallas has allowed 8 passes of 20+ on 68 attempts, with the middle at 20.88 YPA on only 8 throws. Do not treat that 20.88 as a stable scheme edge.",
+  "overlap": "The core overlap is Lamb into the missing Chicago corners. He is the top option (24 targets, 222 yards, 303 air, both games 110 and 112) and Chicago is without the CB1 (Johnson), the slot corner (Gordon) and another corner (Jones), while also bleeding the middle. The second overlap is Ferguson into that same middle: 18 targets, short air (112 on 18, about 6.2 aDOT), Edwards out, Gordon out. Pickens overlaps the backup-corner fact (152 air yards) but not the middle bleed; Chicago's right side is 8.71 YPA, their best zone. Javonte overlaps the run bleed (5.30 YPC allowed vs his own 4.58 YPC on 33 carries) but that is a different script from the pass stack. Odunze overlaps Bland being out, not a charted weak safety, and the Dallas middle sample is too small to call it the same kind of overlap."
+ },
+ "form": "Window is weeks 1-2 only. The pack's L3 labels are that window; there is no third game. Dallas rush: Javonte Williams 54 then 97 rush yards (33/151, 4.58 YPC); Miles Sanders 53 then 15 (9/68); Prescott 4/20; Turpin 4/15. Dallas targets: Lamb 110 then 112 receiving yards on 24 targets and 303 air; Ferguson 23 then 78 on 18 targets and 112 air (101 yards, 5.6 yards per target); Pickens 30 then 68 on 13 targets and 152 air (98 yards, 7.5 yards per target); Javonte receiving 10 then 33 (10 targets, 43 yards, minus-12 air); Tolbert 6 targets / 16 yards; Turpin 6/65; Schoonmaker 3/0. Chicago rush: Swift 53 then 63 (29/116, 4.0 YPC) and he is questionable; Caleb Williams 11/85 rushing; Monangai 0 then 28 (7/28); Moore 3/8. Chicago targets: Odunze 37 then 128 (20 targets, 165 yards, 255 air); Zaccheaus 42 then 12 (12 targets, 54 yards, 112 air); Moore 57 then 46 (11 targets, 103 yards, 132 air); Swift receiving 12 then 6; Kmet 6/60/74; Monangai receiving 11 then 8; Loveland 3/12/27. No game in the pack is against a defense missing three corners, so the two-game means are not this matchup. Fluke watch: Odunze's 128, Ferguson's 78, Sanders's 53 and Dallas's 20.88 middle YPA on 8 attempts can each be one-play inflation. Lamb's 110 and 112 are the opposite, a tight cluster on the number, not a trend through it. Chicago's defensive form that matters today is 5.30 YPC, 9 runs of 10+, and 7 explosives on 51 passes, plus the personnel outs.",
+ "pro_edge": {
+  "implied_totals": "Precomputed scan matches the close: CHI 24.0, DAL 25.5. Check: favorite Dallas (49.5+1.5)/2 = 25.5, underdog Chicago (49.5-1.5)/2 = 24.0. High total means more plays and a volume environment. It does not, by itself, put every over in play, because every stand-in line in this pack is the player's own two-game mean.",
+  "script_read": "Spread is 1.5, inside the 3.5 dog-throws-more flag, so Chicago is not forced into a pass-only script in the base case. It is also not a blowout flag, so starter late snaps are not the base risk for Lamb, Prescott, Odunze or Swift. The leader-runs-late lean is mild and belongs to Dallas: if they are ahead, Javonte's carry share (33 of 42 RB carries, Sanders 9) ticks up. Usage for any leg has to come from shares applied to team volume, not from the raw mean the stand-in already copied. Dallas tracked targets in the pack: Lamb 24, Ferguson 18, Pickens 13, Javonte 10, Tolbert 6, Turpin 6, Schoonmaker 3 (80). Chicago: Odunze 20, Zaccheaus 12, Moore 11, Swift 8, Kmet 6, Monangai 4, Loveland 3 (64). A 25.5-point Dallas day can feed Lamb and Ferguson together. It does not require a shootout.",
+  "best_price": "No two-sided price was saved on any prop, so anchor no-vig is N/A. Pinnacle, Circa and BetOnline are not in the pack. Power devig cannot be shown. No book can be named as best price. Stand-in rungs, all equal to the two-game mean: Lamb recyds 111.5 (110, 112), Ferguson recyds 50.5 (23, 78), Pickens recyds 49.5 (30, 68), Javonte rushyds 75.5 (54, 97), Javonte rushrecyds 97.5 (64, 130), Javonte recyds 21.5 (10, 33), Odunze recyds 82.5 (37, 128), Moore recyds 51.5 (57, 46), Swift rushyds 58.5 (53, 63), Swift rushrecyds 67.5 (65, 69), Zaccheaus recyds 27.5 (42, 12), Monangai rushyds 14.5 (0, 28), Sanders rushyds 34.5 (53, 15). Alt no-vig cannot be computed. Anything plus-300 or longer is not in the pack.",
+  "lagging": "No consensus line, no open, and no book-versus-book prop move was saved. The stand-ins are season medians, not market prices, so they cannot show a reaction to Johnson, Jones, Gordon, Edwards and Bland being Out or to Swift and Jackson being Questionable. Treat real-book lag as unverified. Do not pretend a stale price was found.",
+  "sleepers": "No skill-position player is ruled Out or placed on IR. Swift is Questionable (quad), not Out, so the sleeper check does not fire yet. Same-position teammate is Kyle Monangai: rushyds stand-in 14.5 (games 0, 28), rushrecyds 23.5 (11, 36), recyds 9.5 (11, 8), and there is no saved price to diff. Do not play Monangai before inactives. Edwards Out is a linebacker; there is no LB prop on the menu. The corner outs are coverage news for the opposing pass-catchers, which is the Lamb/Ferguson read, not a same-position sleeper prop. Bland Out is the mirror on the Chicago side and was considered for Odunze, then passed."
+ },
+ "edge_players": [
+  {
+   "player": "ceedeelamb",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Lamb is Dallas's WR1 (24 targets, 303 air yards, 110 and 112 already) and Chicago will play this game without Jaylon Johnson, Kyler Gordon and Jaylon Jones, in a 49.5 total that keeps him on the field.",
+   "must_be_true": "Lamb and Prescott both play a full snap share, neither is on the injury report, the three Chicago corners stay out through inactives, and the game stays inside a competitive script so Dallas does not spend the fourth quarter only handing the ball to Javonte.",
+   "kills_it": "Chicago brackets Lamb with safety help and the explosives go to Pickens or Ferguson, so he lands on 100-110 again; or the unsaved outdoor forecast brings 15-plus mph wind or rain and cuts the 12.6 aDOT; or Dallas is up big early and the late routes never come.",
+   "confidence": "strong",
+   "model_p": 0.57,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse injuries pre-game, before 2025-09-21 kickoff: CHI CB Jaylon Johnson Out (groin), CHI CB Jaylon Jones Out (hamstring), CHI CB Kyler Gordon Out (hamstring). CHI defensive splits in pack: middle 13.9 YPA on 10 attempts, left 9.12 on 17, right 8.71 on 21, 7 passes of 20+ on 51."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "DAL weeks 1-2 target log: Lamb 24 targets, 222 yards, 303 air yards, 30 percent of 80 tracked targets. CHI blitz rate 19 percent. Prescott EPA/db 0.14 vs blitz and 0.10 vs none. No DAL OL listed out."
+    },
+    "script": {
+     "ok": true,
+     "source": "nflverse games.csv closing line: CHI +1.5, total 49.5, implied DAL 25.5. Spread is not a 3.5-plus blowout flag, so WR1 snaps should hold in the base script and in the trail flip."
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "Lamb receiving yards weeks 1-2 only: 110 and 112. Stand-in median sits on the 111.5 rung. Form does not trend through the number; the edge is the new corner absences, not the mean."
+    }
+   },
+   "primary_defender": {
+    "who": "Jaylon Johnson (Chicago CB, Out, groin) is the missing CB1 who would have drawn the WR1. Jaylon Jones (Out, hamstring) and Kyler Gordon (Out, hamstring) are also unavailable, so the primary defender on the field is an unnamed backup. Replacement is not in the pack.",
+    "source": "nflverse injuries, official pre-game report in the pack"
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Scan support is matchup and script, not price. Lamb recyds 111.5 has no two-sided book, anchor no-vig N/A, stand-in equals the two-game mean (110, 112). The 3-point no-vig gate cannot clear. High total and a 1.5 spread keep WR1 volume on. Not a sleeper and not a confirmed lagging line. No stake."
+  },
+  {
+   "player": "jakeferguson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Ferguson is Dallas's second target (18 in two games, 112 air yards) and he runs into the exact hole Chicago just opened: T.J. Edwards and slot corner Kyler Gordon are out, and the middle has allowed 13.9 yards per attempt.",
+   "must_be_true": "Ferguson keeps about a 9-target, 22 percent share, Edwards remains out, Gordon remains out, and Prescott still throws underneath and middle instead of only taking shots to Lamb and Pickens.",
+   "kills_it": "Efficiency stays at 5.6 yards per target (101 yards on 18 targets) and he posts another 23-yard game while Lamb soaks the backup corners; or Dallas runs because Chicago allows 5.30 yards per carry and the pass volume never gets Ferguson to 50.5; or Jackson plays and the middle is less open than the Edwards absence implies.",
+   "confidence": "lean",
+   "model_p": 0.54,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse injuries: T.J. Edwards LB Out (hamstring), Kyler Gordon slot CB Out (hamstring), D'Marco Jackson LB Questionable (hamstring). CHI location split: middle 13.9 YPA on 10 attempts, the worst of left 9.12, middle 13.9, right 8.71."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Skill coverage rule in the brainstorm: missing slot corners and linebackers help TEs. Ferguson 18 targets and 112 air yards versus Pickens 13 targets, so the underneath role is his, not a depth TE (Schoonmaker has 3 targets and 0 yards)."
+    },
+    "script": {
+     "ok": true,
+     "source": "Implied DAL 25.5 in a 49.5 game, spread 1.5. Short and intermediate TE usage holds if Dallas leads or trails, which is why this pairs with Lamb instead of a Javonte rush over."
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "Ferguson receiving yards weeks 1-2: 23 and 78. 101 yards on 18 targets is 5.6 yards per target. Stand-in 50.5 is the mean, not a form edge. One miss, one boom."
+    }
+   },
+   "primary_defender": {
+    "who": "T.J. Edwards (Chicago LB, Out, hamstring) is the linebacker who would have sat in the hook and middle. Kyler Gordon (slot CB, Out, hamstring) is the other coverage piece on Ferguson's route area. D'Marco Jackson (LB) is only Questionable. The on-field replacement is not named in the pack.",
+    "source": "nflverse injuries, official pre-game report in the pack"
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Scan: jakeferguson recyds 50.5 has no two-sided price, no-vig N/A, stand-in equals the two-game mean of 23 and 78. Not a confirmed lagging line. He is not a sleeper replacement for an Out teammate. Gate cannot clear without an anchor. Support is the Edwards/Gordon absence plus middle YPA, in the same pass script as Lamb. No stake."
+  }
+ ],
+ "data_check": {
+  "notes": "Step 8 cannot be run as written. No projection file, no sims, no Pinnacle, Circa or BetOnline no-vig, and no live reprice are in the pack. model_p 0.57 for Lamb and 0.54 for Ferguson are qualitative read weights from the matchup, not sim medians, and both are under the 70 percent suspicion line. Stand-in medians do not beat the rungs: Lamb 111 versus 111.5, Ferguson 50.5 versus 50.5. That is non-confirmation, not a median that says the under. Per the brainstorm rule, the strong Lamb read is flagged and not cut. Ferguson is a lean; the two-game split does not disagree hard enough to force a drop, and it does not agree enough to size a bet. The pro-edge gate (raw model p must beat no-vig by 3 or more points) cannot be passed. No stake proposal. Other menu items checked and not used: Pickens recyds 49.5 (30, 68) faces the same backups but Chicago's outside YPA is the less-bad side; Javonte rushyds 75.5 is the run-defense lean (CHI 5.30 YPC, his 4.58 YPC, 33 of 42 RB carries) but it needs the Dallas-leads flip and was left off this slip; Odunze recyds 82.5 (37, 128) has Bland out but the number is a boom/bust mean, Dallas middle YPA is 8 attempts, and Amegadjie being out hurts deep efficiency; Swift is Questionable, so neither side of 58.5 is playable before inactives; Monangai is a conditional sleeper only.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Market is receiving yards, not receptions (receptions are not an allowed market) and not a TD. Main stand-in rungs only, no alt rungs, no book prices: ceedeelamb recyds over 111.5, no price, weeks 1-2 receiving yards 110 and 112; jakeferguson recyds over 50.5, no price, weeks 1-2 receiving yards 23 and 78. Lamb is the explosive/weak-secondary rung (303 air yards into three backup corners). Ferguson is the middle-volume rung (18 targets into Edwards and Gordon being out); recyds is the proxy because receptions are disallowed. Do not take a short-priced alt. Anchor fair is N/A on both. One market per player.",
+ "pre_mortem": "It is Monday and this slip lost. Chicago, even without Johnson, Jones and Gordon, doubled Lamb with a safety and he finished in the same 110-112 band he has lived in for two weeks, so 111.5 never cleared. The explosives that the backups did give up went to Pickens, who had the 152 air yards, not to the tight end. Ferguson saw his targets and the 5.6 yards per target held: another afternoon in the 20s or 30s, because the 78 was the chunk-play game and the 13.9 middle YPA was a couple of explosives on only 10 attempts, not a weekly hole. Dallas also ran more than this pass stack needed, because Chicago had allowed 5.30 yards per carry and 9 runs of 10-plus, so Javonte's 33-carry role ate the plays Ferguson needed to reach 50.5. The Lamb counter is real but weaker than the read, because three corners out is a lot of bodies to replace while still bracketing a 24-target WR1 in a 49.5 game. The Ferguson counter is close to the read, which is why he is a lean. If inactives bring back a corner the report has as Out, or if wind is posted later, both legs should be re-run before any number is trusted.",
+ "slip_story": "One script only: Dallas's passing game against a Chicago coverage unit that is missing CB1 Jaylon Johnson, slot CB Kyler Gordon, CB Jaylon Jones and MIKE T.J. Edwards, in a competitive 49.5 game where Dallas is favored to score 25.5 and Chicago blitzes only 19 percent. Lamb recyds over 111.5 and Ferguson recyds over 50.5 win together if Prescott has time and the backups give up the middle and the first-read throws. They lose together in the weather/slog flip. Not in this slip: Javonte Williams rushyds over 75.5, which is the other real Chicago hole (5.30 YPC, 9 runs of 10-plus, his 33 carries and 4.58 YPC) but it wants the Dallas-leads clock-kill flip that stalls this pass stack, and Sanders already posted 53 rush yards in one of two games. Not in this slip: a total under, Odunze over 82.5 (Bland is out, but 37 and 128 straddle 82.5 and Amegadjie is out), Moore 51.5, Zaccheaus 27.5, or Monangai, who needs a Swift inactive that is not confirmed. No TD legs. Two legs, one market each, both starters, not depth receivers.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T14:48:48-0500"
+ }
+}

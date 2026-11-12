@@ -1,0 +1,39 @@
+{
+ "game": "Week 4 DEN@SF / kickoff time MISSING / spread and total NOT saved; implied totals, moneyline and movement MISSING / weather NOT saved; venue surface, rest and travel details MISSING. Script inferred only from supplied pre-kickoff team form.",
+ "script": {
+  "base": "SF has the stronger offensive efficiency matchup and is the tentative second-half leader, not a market-confirmed favorite. Denver struggles to sustain drives, limiting J.Dobbins' rushing opportunities; pace and halftime margin cannot be established from the pack.",
+  "flip1": "Denver leads early and keeps running, giving Dobbins enough additional carries to threaten his under despite SF's resistance.",
+  "flip2": "Both offenses produce a low-scoring, competitive game. Dobbins' under can survive if Denver's rushing workload remains modest, but a sustained commitment to the run would threaten it."
+ },
+ "injury_fallout": "MISSING: DEN and SF injury reports, practice trends, final statuses, inactives, offensive-line availability and snap restrictions. No absences, returns or replacement roles inferred from usage. Source for all supplied usage and matchup facts: user-provided as-of pack, offense weeks 1\u20133 and defense through three games; exact publication timestamps not supplied. Final-report and approximately 90-minute inactive checkpoints cannot be completed.",
+ "matchup": {
+  "shell": "MISSING: SF and DEN MOFO/MOFC, man/zone rates and individual coverage assignments. Location splits cannot establish coverage shell or identify slot/TE defenders.",
+  "pressure": "SF blitzes 26%; DEN QB EPA/dropback is -0.40 against blitzes across 31 dropbacks versus 0.07 without blitzes. DEN blitzes 38%; SF QB EPA/dropback is 1.37 against blitzes across 25 dropbacks versus 0.39 without blitzes. These small samples support SF's relative offensive advantage, but pressure rates, sacks and time to throw are MISSING.",
+  "bleeds": "SF has allowed 3.79 rushing yards per carry, three runs of 10-plus yards and four pass plays of 20-plus yards on 108 attempts. DEN has allowed 5.30 rushing yards per carry, nine runs of 10-plus yards and 11 pass plays of 20-plus yards on 117 attempts. Rush EPA, stuff rates, box counts and positional receiving allowances are MISSING.",
+  "overlap": "Dobbins faces a defense whose supplied rushing efficiency and explosive-run allowances support limiting his yardage. SF's offensive matchup also supports a Denver trailing script. Waddle leads DEN with 21 targets, but the pack cannot establish whether his routes attack a specific coverage weakness."
+ },
+ "form": "Across weeks 1\u20133, Dobbins recorded 35 carries for 121 yards: 11.7 carries and 40.3 yards per game, with 3.46 yards per carry. He accounts for 35 of the 58 listed DEN carries; Coleman has 10, Nix eight and Harvey five. These aggregates support modest workload, but individual-game trends, snaps, carry sequences, red-zone roles and comparable-opponent results are MISSING. SF's McCaffrey has 35 carries for 166 yards, while Black has 25 for 107; that distribution prevents assuming an uncontested McCaffrey workload.",
+ "edge_players": [
+  {
+   "player": "jkdobbins",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Dobbins can stay under 59.5 rushing yards because his modest recent carry volume meets an SF defense allowing limited rushing efficiency and few explosive runs.",
+   "must_be_true": "J.Dobbins carries <= 15 [because the pack records 35 carries across weeks 1\u20133]",
+   "kills_it": "IF Denver builds an early lead and expands Dobbins' workload enough to reach 60 rushing yards THEN jkdobbins rushyds under 59.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis is modest Denver rushing volume against SF's resistance. Testing it against the pack: Dobbins' 121 yards on 35 carries and SF's 3.79 YPC allowed support the under. At SF's allowed YPC, roughly 16 carries would reach the line; this is a sensitivity check, not a projection. The -114 price requires approximately 53.3% wins before accounting for pushes, which cannot occur at 59.5. No model probability or simulated median is claimed.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations, calibrated win probability, Pinnacle no-vig benchmark, individual-game workload distribution, injuries, coverage charting and current weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional lean: jkdobbins rushyds under 59.5 at -114. Rushing yards fits the workload-plus-run-defense hypothesis. Pack support does not establish a quantified pricing edge; no alternate rung selected and no wager placed.",
+ "pre_mortem": "It is Monday and the under lost because Denver stayed ahead or competitive enough to feed Dobbins substantially more than his recent workload. SF's three-game defensive sample overstated its resistance, or one explosive run supplied the missing yardage. Missing offensive-line and injury information could also conceal a material matchup change. Those risks keep this a lean rather than a strong selection.",
+ "slip_story": "Single-leg candidate for an SF-controls-the-second-half script; it can also survive a competitive defensive game with modest Dobbins volume. No 3\u20134-leg slip is justified from this read, and no extra legs are added merely to fill one.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

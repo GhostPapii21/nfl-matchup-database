@@ -1,0 +1,470 @@
+{
+  "cells": [
+    {
+      "halves": {
+        "1": {
+          "flags": [],
+          "posterior_alpha": {
+            "DAL:00-0033077": 167.0,
+            "DAL:00-0037077": 0.0
+          },
+          "sample_size": 147
+        },
+        "2": {
+          "flags": [],
+          "posterior_alpha": {
+            "DAL:00-0033077": 189.0,
+            "DAL:00-0037077": 0.0
+          },
+          "sample_size": 169
+        }
+      },
+      "metrics": {
+        "heldout": {
+          "empirical": {
+            "kl": 3.906249982508272e-09,
+            "mae": 3.906249979810044e-09
+          },
+          "equal": {
+            "kl": 0.6931471805599453,
+            "mae": 0.5
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 9.999985000522107e-07,
+            "mae": 9.999979999829883e-07
+          },
+          "test_n": 60,
+          "train_n": 256
+        },
+        "same_set": {
+          "empirical": {
+            "kl": 3.164557055834633e-09,
+            "mae": 3.164556945908008e-09
+          },
+          "equal": {
+            "kl": 0.6931471805599453,
+            "mae": 0.5
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 9.999985000522107e-07,
+            "mae": 9.999979999829883e-07
+          },
+          "test_n": 316,
+          "train_n": 316
+        }
+      },
+      "role": "passer",
+      "sample_size": 316,
+      "shrinkage_strength": 20,
+      "team": "DAL",
+      "uncertainty": "Dirichlet posterior conditional on team empirical prior; zero prior mass fixed; within-game correlation unadjusted"
+    },
+    {
+      "halves": {
+        "1": {
+          "flags": [],
+          "posterior_alpha": {
+            "DAL:00-0036358": 50.32996632996633,
+            "DAL:00-0036997": 13.616161616161616,
+            "DAL:00-0037120": 5.4713804713804715,
+            "DAL:00-0037247": 31.175084175084173,
+            "DAL:00-0037801": 4.4713804713804715,
+            "DAL:00-0038041": 11.683501683501683,
+            "DAL:00-0038547": 2.202020202020202,
+            "DAL:00-0038738": 1.2693602693602695,
+            "DAL:00-0039062": 3.538720538720539,
+            "DAL:00-0039410": 23.03030303030303,
+            "DAL:00-0039530": 8.212121212121213,
+            "DAL:00-0040930": 0.0
+          },
+          "sample_size": 135
+        },
+        "2": {
+          "flags": [],
+          "posterior_alpha": {
+            "DAL:00-0036358": 56.32996632996633,
+            "DAL:00-0036997": 13.616161616161616,
+            "DAL:00-0037120": 2.4713804713804715,
+            "DAL:00-0037247": 39.17508417508417,
+            "DAL:00-0037801": 3.4713804713804715,
+            "DAL:00-0038041": 16.683501683501685,
+            "DAL:00-0038547": 1.202020202020202,
+            "DAL:00-0038738": 3.2693602693602695,
+            "DAL:00-0039062": 5.538720538720539,
+            "DAL:00-0039410": 28.03030303030303,
+            "DAL:00-0039530": 12.212121212121213,
+            "DAL:00-0040930": 0.0
+          },
+          "sample_size": 162
+        }
+      },
+      "metrics": {
+        "heldout": {
+          "empirical": {
+            "kl": 0.21556075489264692,
+            "mae": 0.03909465109485339
+          },
+          "equal": {
+            "kl": 0.869472788323292,
+            "mae": 0.0925925925925926
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 2.763088176607349,
+            "mae": 0.06944411111511106
+          },
+          "test_n": 54,
+          "train_n": 243
+        },
+        "same_set": {
+          "empirical": {
+            "kl": 3.367004629547687e-09,
+            "mae": 2.8795246553987293e-09
+          },
+          "equal": {
+            "kl": 0.5478850206443044,
+            "mae": 0.0712682379349046
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 3.550504904605682,
+            "mae": 0.06607660775410763
+          },
+          "test_n": 297,
+          "train_n": 297
+        }
+      },
+      "role": "target",
+      "sample_size": 297,
+      "shrinkage_strength": 20,
+      "team": "DAL",
+      "uncertainty": "Dirichlet posterior conditional on team empirical prior; zero prior mass fixed; within-game correlation unadjusted"
+    },
+    {
+      "halves": {
+        "1": {
+          "flags": [],
+          "posterior_alpha": {
+            "DAL:00-0033077": 10.526315789473685,
+            "DAL:00-0036997": 80.10526315789474,
+            "DAL:00-0037077": 0.0,
+            "DAL:00-0037120": 17.94736842105263,
+            "DAL:00-0038738": 1.4210526315789473
+          },
+          "sample_size": 90
+        },
+        "2": {
+          "flags": [],
+          "posterior_alpha": {
+            "DAL:00-0033077": 18.526315789473685,
+            "DAL:00-0036997": 82.10526315789474,
+            "DAL:00-0037077": 0.0,
+            "DAL:00-0037120": 15.947368421052632,
+            "DAL:00-0038738": 3.4210526315789473
+          },
+          "sample_size": 100
+        }
+      },
+      "metrics": {
+        "heldout": {
+          "empirical": {
+            "kl": 0.07119740768247339,
+            "mae": 0.05176416187458884
+          },
+          "equal": {
+            "kl": 0.6667970670260897,
+            "mae": 0.18285714285714286
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 1.8075190626406266,
+            "mae": 0.1731600398275065
+          },
+          "test_n": 77,
+          "train_n": 113
+        },
+        "same_set": {
+          "empirical": {
+            "kl": 5.2631582738517006e-09,
+            "mae": 5.3185594052656735e-09
+          },
+          "equal": {
+            "kl": 0.7383650447533935,
+            "mae": 0.20210526315789473
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 1.8338868444688763,
+            "mae": 0.19929811228136843
+          },
+          "test_n": 190,
+          "train_n": 190
+        }
+      },
+      "role": "carry",
+      "sample_size": 190,
+      "shrinkage_strength": 20,
+      "team": "DAL",
+      "uncertainty": "Dirichlet posterior conditional on team empirical prior; zero prior mass fixed; within-game correlation unadjusted"
+    },
+    {
+      "halves": {
+        "1": {
+          "flags": [],
+          "posterior_alpha": {
+            "IND:00-0035710": 170.79522184300342,
+            "IND:00-0039164": 0.20477815699658702,
+            "IND:00-0040206": 0.0
+          },
+          "sample_size": 151
+        },
+        "2": {
+          "flags": [],
+          "posterior_alpha": {
+            "IND:00-0035710": 158.79522184300342,
+            "IND:00-0039164": 3.204778156996587,
+            "IND:00-0040206": 0.0
+          },
+          "sample_size": 142
+        }
+      },
+      "metrics": {
+        "heldout": {
+          "empirical": {
+            "kl": 0.7648122160289094,
+            "mae": 0.03333333047210306
+          },
+          "equal": {
+            "kl": 0.9000970453222372,
+            "mae": 0.41111111111111115
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 0.4922623345483162,
+            "mae": 0.033332666668666654
+          },
+          "test_n": 60,
+          "train_n": 233
+        },
+        "same_set": {
+          "empirical": {
+            "kl": 3.412969676455326e-09,
+            "mae": 4.4807354981921775e-09
+          },
+          "equal": {
+            "kl": 1.041515804328022,
+            "mae": 0.4376185058778915
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 0.08436126539615584,
+            "mae": 0.006825271901886222
+          },
+          "test_n": 293,
+          "train_n": 293
+        }
+      },
+      "role": "passer",
+      "sample_size": 293,
+      "shrinkage_strength": 20,
+      "team": "IND",
+      "uncertainty": "Dirichlet posterior conditional on team empirical prior; zero prior mass fixed; within-game correlation unadjusted"
+    },
+    {
+      "halves": {
+        "1": {
+          "flags": [],
+          "posterior_alpha": {
+            "IND:00-0030279": 30.048582995951417,
+            "IND:00-0032951": 14.267206477732794,
+            "IND:00-0033217": 3.48582995951417,
+            "IND:00-0033439": 1.0809716599190284,
+            "IND:00-0035021": 7.566801619433198,
+            "IND:00-0036223": 21.510121457489877,
+            "IND:00-0037292": 4.4048582995951415,
+            "IND:00-0038394": 3.7287449392712553,
+            "IND:00-0038997": 34.12955465587044,
+            "IND:00-0039816": 0.0,
+            "IND:00-0040128": 26.724696356275302,
+            "IND:00-0040179": 0.0,
+            "IND:00-0041125": 2.4048582995951415,
+            "IND:00-0041132": 2.6477732793522266
+          },
+          "sample_size": 132
+        },
+        "2": {
+          "flags": [],
+          "posterior_alpha": {
+            "IND:00-0030279": 28.048582995951417,
+            "IND:00-0032951": 18.267206477732792,
+            "IND:00-0033217": 3.48582995951417,
+            "IND:00-0033439": 0.08097165991902834,
+            "IND:00-0035021": 0.5668016194331984,
+            "IND:00-0036223": 14.510121457489879,
+            "IND:00-0037292": 1.4048582995951417,
+            "IND:00-0038394": 6.728744939271255,
+            "IND:00-0038997": 25.129554655870447,
+            "IND:00-0039816": 0.0,
+            "IND:00-0040128": 26.724696356275302,
+            "IND:00-0040179": 0.0,
+            "IND:00-0041125": 3.4048582995951415,
+            "IND:00-0041132": 6.647773279352227
+          },
+          "sample_size": 115
+        }
+      },
+      "metrics": {
+        "heldout": {
+          "empirical": {
+            "kl": 0.09115311226262822,
+            "mae": 0.01877893983511774
+          },
+          "equal": {
+            "kl": 0.579038614208367,
+            "mae": 0.06382553021208483
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 3.9567794444443978,
+            "mae": 0.05322043138454884
+          },
+          "test_n": 51,
+          "train_n": 196
+        },
+        "same_set": {
+          "empirical": {
+            "kl": 8.097168564028189e-09,
+            "mae": 3.861256784876456e-09
+          },
+          "equal": {
+            "kl": 0.5664056404178593,
+            "mae": 0.06812360571759067
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 3.8928390601406337,
+            "mae": 0.05263043610622533
+          },
+          "test_n": 247,
+          "train_n": 247
+        }
+      },
+      "role": "target",
+      "sample_size": 247,
+      "shrinkage_strength": 20,
+      "team": "IND",
+      "uncertainty": "Dirichlet posterior conditional on team empirical prior; zero prior mass fixed; within-game correlation unadjusted"
+    },
+    {
+      "halves": {
+        "1": {
+          "flags": [],
+          "posterior_alpha": {
+            "IND:00-0035710": 16.293577981651374,
+            "IND:00-0036223": 85.57798165137615,
+            "IND:00-0039164": 0.1834862385321101,
+            "IND:00-0040179": 0.5504587155963303,
+            "IND:00-0040206": 0.0,
+            "IND:00-0041125": 23.394495412844037
+          },
+          "sample_size": 106
+        },
+        "2": {
+          "flags": [],
+          "posterior_alpha": {
+            "IND:00-0035710": 13.293577981651376,
+            "IND:00-0036223": 89.57798165137615,
+            "IND:00-0039164": 2.18348623853211,
+            "IND:00-0040179": 6.5504587155963305,
+            "IND:00-0040206": 0.0,
+            "IND:00-0041125": 20.394495412844037
+          },
+          "sample_size": 112
+        }
+      },
+      "metrics": {
+        "heldout": {
+          "empirical": {
+            "kl": 2.257589172417394,
+            "mae": 0.10474137394576168
+          },
+          "equal": {
+            "kl": 0.452770132032014,
+            "mae": 0.1302681992337165
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 1.9521951358192007,
+            "mae": 0.09578510728169348
+          },
+          "test_n": 58,
+          "train_n": 160
+        },
+        "same_set": {
+          "empirical": {
+            "kl": 4.587157397617846e-09,
+            "mae": 4.727435842892339e-09
+          },
+          "equal": {
+            "kl": 0.8375402141596936,
+            "mae": 0.17176350662589193
+          },
+          "evaluation_floor": 1e-06,
+          "legacy_depth": {
+            "kl": 1.7194250898746657,
+            "mae": 0.15647265341688277
+          },
+          "test_n": 218,
+          "train_n": 218
+        }
+      },
+      "role": "carry",
+      "sample_size": 218,
+      "shrinkage_strength": 20,
+      "team": "IND",
+      "uncertainty": "Dirichlet posterior conditional on team empirical prior; zero prior mass fixed; within-game correlation unadjusted"
+    }
+  ],
+  "exclusions": [
+    {
+      "count": 0,
+      "reason": "not ACT/available or position-ineligible; missing IDs excluded",
+      "role": "passer",
+      "team": "DAL"
+    },
+    {
+      "count": 0,
+      "reason": "not ACT/available or position-ineligible; missing IDs excluded",
+      "role": "target",
+      "team": "DAL"
+    },
+    {
+      "count": 10,
+      "reason": "not ACT/available or position-ineligible; missing IDs excluded",
+      "role": "carry",
+      "team": "DAL"
+    },
+    {
+      "count": 0,
+      "reason": "not ACT/available or position-ineligible; missing IDs excluded",
+      "role": "passer",
+      "team": "IND"
+    },
+    {
+      "count": 8,
+      "reason": "not ACT/available or position-ineligible; missing IDs excluded",
+      "role": "target",
+      "team": "IND"
+    },
+    {
+      "count": 8,
+      "reason": "not ACT/available or position-ineligible; missing IDs excluded",
+      "role": "carry",
+      "team": "IND"
+    }
+  ],
+  "prior": "team empirical -> half-state Dirichlet, strength 20; zero-count players retain zero mass",
+  "protocol": "train W1-6; hold W7-8"
+}

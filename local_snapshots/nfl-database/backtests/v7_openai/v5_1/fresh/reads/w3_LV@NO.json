@@ -1,0 +1,48 @@
+{
+ "game": "LV@NO Week 3 / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so the script is inferred only from two-game form. LV has been a Jeanty run team (44.0 carries, 150 rush yards) while NO has been pass-first through Olave (23.0 targets, 268 rec yards, 338 air yards) with a committee ground game (Etienne 18.0/71, Shough 12.0/32, Miller 9.0/30, Kamara 9.0/15). Base case is a competitive game in which LV keeps feeding Jeanty into a NO run defense allowing 4.96 YPC and 9 runs of 10+, and NO keeps throwing because that is the offense's identity and LV blitzes only 21%, leaving the NO QB nearer his +0.12 no-blitz EPA than his +0.04 blitz EPA.",
+  "flip1": "NO's 29% blitz gets home on the LV QB, who is -0.15 EPA/dropback vs blitz (n=19) against +0.20 with no blitz. LV falls behind, Jeanty's carries dry up, Tucker's 193 air yards stall, and short checkdowns (Jeanty 13.0 targets, Mayer 11.0 targets) rise instead of rush yards.",
+  "flip2": "LV gets ahead and clocks it with Jeanty. NO abandons its light run game, so Etienne and Kamara rush lines die while Olave, Vele (16.0 targets, 133 rec yards) and Johnson (11.0 targets, 120 rec yards) absorb a pass-heavy chase script."
+ },
+ "injury_fallout": "MISSING: injury report, practice status, questionable tags, and inactives for both LV and NO. No absences, returns, or next-man-up are inferred from usage dips. Recent roles only, not injury conclusions: Jeanty led LV rushes (44.0/150) with Washington (10.0/48) as a change-of-pace and Cousins 3.0/4; Etienne led NO rushes (18.0/71) ahead of Shough (12.0/32), Miller (9.0/30) and Kamara (9.0/15). Prop list tags brockbowers as team nan, but the pack has no inactive note, so Mayer's 11.0 targets are not treated as a Bowers-absence gain.",
+ "matchup": {
+  "shell": "MISSING: man/zone rate, MOFO vs MOFC, and any coverage charting, so WR/TE/RB cannot be mapped to specific zone defenders.",
+  "pressure": "NO blitz rate 29%. LV QB EPA/dropback is -0.15 vs blitz (n=19) and +0.20 with no blitz, so NO pressure is a problem for LV deep shots (Tucker 193 air yards on 11.0 targets) and a checkdown boost. LV blitz rate is only 21%. NO QB EPA/dropback is +0.04 vs blitz (n=37) and +0.12 with no blitz, so the low LV blitz rate leaves NO in the better environment.",
+  "bleeds": "NO bleeds the run: 4.96 YPC allowed and 9 runs of 10+ in 2 games, while pass explosives are scarce (4 of 73 attempts of 20+). NO pass YPA allowed: left 6.7 (27.0 att), middle 7.8 (15.0 att), right 5.3 (27.0 att). LV is tighter vs the run (4.02 YPC, 5 runs of 10+) and has allowed 6 passes of 20+ on 62 attempts. LV pass YPA allowed: left 7.43 (23.0 att), middle 10.7 (10.0 att), right 6.38 (21.0 att).",
+  "overlap": "Clean overlap is Jeanty (44.0 carries, 150 rush yards) into NO's 4.96 YPC and 9 explosive runs. Olave is NO's primary target (23.0/268/338) into a defense that rarely blitzes, which helps the NO QB, but his 14.7 air yards per target is not a confirmed attack on LV's middle soft spot (10.7 YPA, n=10 only) and alignment is not in the pack. Tucker over 41 was rejected: 146 rec yards on 193 air yards need explosives, and NO has allowed only 4 of 73 passes of 20+ while Cousins is negative vs a 29% blitz."
+ },
+ "form": "Jeanty last two games: 44.0 carries, 150 rush yards (3.41 YPC, 75 per game), plus 13.0 targets and 60 rec yards. That rush rate sits just above 69.5 before any matchup bump. Washington 10.0/48 (4.8 YPC) is the vulture, not the lead. Tucker 11.0/146/193 is explosive-dependent and was not selected. Mayer 11.0/55/46 is a short-area 27.5 per game vs a 21 line, too thin and unpriced (+nan). NO: Olave 23.0/268/338 is 134 rec yards per game vs 76.5, on 11.5 targets, not a one-target spike in this pack. Johnson 11.0/120/88 (60 per game vs 35.5) and Vele 16.0/133/132 also clear their lines, but Olave is the primary. Etienne rush+rec is 109 over two games, exactly 54.5 per game, so no edge vs 54.5. Kamara 9.0/15 rush and 6.0/7 receiving (7.5 rush yards per game vs a 24.5 line) was dropped: the line gap implies missing role news, and the counter-case is stronger than the two-game dip. Shough 12.0/32 is 16 rush yards per game vs 14.5, a push.",
+ "edge_players": [
+  {
+   "player": "ashtonjeanty",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Jeanty's 44.0-carry, 150-yard role runs into the soft spot in this pack, a NO defense allowing 4.96 YPC and 9 runs of 10+, so 69.5 is beatable if he keeps a lead-back share even a few carries under his 22-per-game pace.",
+   "must_be_true": "Ashton Jeanty carries >= 15 because NO allows 4.96 rush YPC and 15 carries at 4.96 YPC is 74.4 yards, above 69.5",
+   "kills_it": "IF NO's 29% blitz puts LV behind and Jeanty finishes under 16 carries at or below his 3.41 YPC THEN Jeanty rush yards over 69.5 fails",
+   "confidence": "strong"
+  },
+  {
+   "player": "chrisolave",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Olave is the NO offense: 23.0 targets, 268 rec yards and 338 air yards in two games against a 76.5 line, and LV blitzes only 21% so the NO QB is closer to his +0.12 no-blitz EPA than his blitz number.",
+   "must_be_true": "Chris Olave targets >= 7 because 268 rec yards on 23.0 targets is 11.65 yards per target and 7 targets at that rate clears 76.5",
+   "kills_it": "IF NO leads late and Olave finishes under 7 targets THEN Olave rec yards over 76.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim, or no-vig is in the pack, so this check is pack-only. Jeanty 150 rush yards on 44.0 carries is 75 per game vs 69.5, and NO's 4.96 YPC with 9 runs of 10+ agrees with the over; Washington 10.0/48 is a vulture risk, not a contradiction of the 44-carry role. Olave 268 rec yards on 23.0 targets is 134 per game vs 76.5, so the over agrees on volume. LV's 6 passes of 20+ on 62 attempts is a close call for an air-yard profile (338 air yards) but not a clear contradiction, because 7 targets at 11.65 yards per target still clears 76.5 without an outlier bomb. Model probabilities were not available and are not treated as above 70%.",
+  "disagrees": "none",
+  "missing": "spread, total, moneyline, kickoff, rest, travel, line movement, weather, injury report, inactives, coverage shell, play-by-play for fluky-play checks, sim median, no-vig price",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Jeanty rushyds over 69.5 at -113; Olave recyds over 76.5 at -115. No alt rungs and no no-vig in the pack, so these main lines are the rungs. Short-priced alts were not taken. Unpriced +nan props (Mayer, Tucker, Vele, Bowers, Fant, Etienne recyds) were not used.",
+ "pre_mortem": "It's Monday and both lost because the two-game samples were the trap. Jeanty stayed at 3.41 YPC, Washington stole the 10+ runs NO has been allowing (already 4.8 YPC on 10.0 carries), and the 29% NO blitz (LV QB -0.15 EPA vs blitz, n=19) cut the carry count under 16 so 69.5 never came. Olave's 268 yards were air-yard driven (338 air on 23.0 targets) and LV has allowed only 6 passes of 20+ on 62 attempts, so the bombs didn't travel, targets finished short of 7, and 76.5 was the regression number. A late scratch of either player would also void the role, and that inactive list is not in the pack.",
+ "slip_story": "One story only: LV runs into a soft NO run defense while NO still throws, because that is NO's two-game identity and LV blitzes only 21%. The stack is Jeanty rushyds over 69.5 with Olave recyds over 76.5. Both survive the base script and the LV-leads flip (Jeanty clocks it, NO chases through Olave). Do not add Tucker over (needs explosives NO has not allowed and a clean pocket the LV QB does not have vs blitz), Kamara under (role gap looks like missing news), a game total (not saved), or any TD. Both legs fail together if NO leads big and LV abandons the run while NO runs out the clock, or if unlisted weather turns it into a slog.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

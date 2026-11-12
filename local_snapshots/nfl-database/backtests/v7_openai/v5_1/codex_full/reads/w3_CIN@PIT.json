@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 CIN@PIT / kickoff MISSING / spread and total not saved; script inferred only from supplied team form / weather not saved. Moneyline, implied totals, venue details, rest, travel and opening-line movement MISSING.",
+ "script": {
+  "base": "Cincinnati sustains offense more effectively and plays a competitive game with a modest lead, rather than an assumed market-favorite script. Burrow's positive EPA/dropback without blitzing supports passing opportunities for Higgins, while Brown's established carry share supports continued rushing work. Pace and halftime scoring cannot be established from this pack.",
+  "flip1": "Pittsburgh's pressure disrupts Burrow: his -0.62 EPA/dropback against blitzes contrasts with 0.27 without them. Short possessions and a Pittsburgh lead could reduce Brown's carries while leaving Higgins dependent on less efficient comeback passing.",
+  "flip2": "Cincinnati builds a substantial early lead against a Pittsburgh passing offense with negative EPA/dropback both against blitzes and without them. Brown benefits from clock-management carries, but Higgins could lose second-half passing volume."
+ },
+ "injury_fallout": "MISSING: CIN and PIT injury reports, practice participation, final designations, offensive-line availability, defensive absences, returning-player restrictions and final inactives. No absences, returns or replacement roles are inferred from usage. Source for all available role information: supplied Weeks 1\u20132 pack, designated pre-kickoff; exact publication timestamps are not supplied. Final-report and approximately 90-minute inactive checks cannot be completed.",
+ "matchup": {
+  "shell": "MISSING: PIT and CIN MOFO/MOFC, man/zone rates and individual coverage assignments. Higgins cannot be assigned a specific corner or shell advantage from this pack.",
+  "pressure": "PIT blitzes 25%; Burrow has -0.62 EPA/dropback against blitzes over 24 dropbacks versus 0.27 without blitzes. CIN blitzes 11%; Rodgers has -0.36 EPA/dropback against blitzes over 23 dropbacks and -0.42 without blitzes. Actual pressure rates, sacks and time to throw are MISSING. Source: supplied pre-kickoff pack.",
+  "bleeds": "PIT has allowed 4.54 yards per rush, seven runs of at least 10 yards and seven passes of at least 20 yards on 51 attempts. Its supplied left/right passing YPA of 9.1/8.53 exceeds its middle YPA of 3.43, but these are small location samples, not receiver-specific coverage results. CIN has allowed 4.05 yards per rush and seven passes of at least 20 yards on 90 attempts. Source: supplied two-game defensive samples.",
+  "overlap": "Brown's 36 carries versus Perine's seven align with PIT's demonstrated rushing concessions. Higgins leads CIN with 16 targets and 210 air yards, creating a plausible receiving-yardage opportunity against PIT's explosive-pass concessions; his actual route-location overlap is MISSING."
+ },
+ "form": "Only two games are available despite the pack's L3 labels. Brown recorded 36 carries for 136 yards and 11 targets for 24 receiving yards; Perine had seven carries for 26 yards. Higgins recorded 16 targets, 154 receiving yards and 210 air yards, compared with Chase's 13 targets, 87 receiving yards and 115 air yards. PIT's Warren recorded 21 carries for 89 yards, while Metcalf's 19 targets and 266 air yards produced only 67 receiving yards. These totals establish preliminary roles, not stable efficiency or game-by-game consistency. Snaps, routes, red-zone work, individual-game distributions, comparable opponents and coaching changes are MISSING. Source: supplied Weeks 1\u20132 pack.",
+ "edge_players": [
+  {
+   "player": "teehiggins",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Higgins' team-leading target and air-yard opportunity gives him a path over 54.5 receiving yards against a Pittsburgh defense that has already conceded seven explosive passes on 51 attempts.",
+   "must_be_true": "T.Higgins targets >= 8 [because the pack records 16 targets across two games, the highest CIN total]",
+   "kills_it": "IF Cincinnati takes a substantial early lead and sharply reduces second-half passing THEN teehiggins recyds over 54.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "chasebrown",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Brown's dominant share of Cincinnati's listed running-back carries can carry him over 63.5 rushing yards against Pittsburgh's 4.54 yards-per-carry allowance if Cincinnati stays competitive or leads.",
+   "must_be_true": "C.Brown carries >= 15 [because the pack records 36 carries across two games versus seven for S.Perine]",
+   "kills_it": "IF Pittsburgh builds an early multi-score lead and Cincinnati abandons sustained rushing THEN chasebrown rushyds over 63.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The reads precede this numerical check. Higgins' supplied totals translate to eight targets, 77 receiving yards and 105 air yards per game; those summaries support opportunity but are not projections. Brown's totals translate to 18 carries and 68 rushing yards per game, with 3.78 yards per carry. At that observed efficiency, 15 carries yield only about 56.7 yards, so the rushing over needs additional volume or improved efficiency; PIT's 4.54 YPC allowance supports the latter possibility without proving it. Neither leg has a validated probability or justified stake. Source: supplied two-game pack and arithmetic derived from it.",
+  "disagrees": "none",
+  "missing": "Projection model, simulations, sim medians, Pinnacle prices and sharp no-vig probabilities; game-by-game distributions; injury/inactive reports; coverage and actual pressure charting; weather; exact source timestamps.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidates only: teehiggins recyds over 54.5 at -115, requiring 53.49% to break even; chasebrown rushyds over 63.5 at -114, requiring 53.27%. Higgins uses receiving yards because the hypothesis concerns downfield opportunity; Brown uses rushing yards because it concerns carry share and run-defense efficiency. Supplied prices are not identified as Pinnacle. No alternate rung, calibrated edge, stake or executable slip is established.",
+ "pre_mortem": "The strongest counter-case is that Cincinnati cannot sustain the balanced offense these candidates need. Burrow's -0.62 EPA/dropback against blitzes gives Pittsburgh a documented disruption path: stalled drives can hurt both legs, while a Pittsburgh lead specifically threatens Brown's carries. Conversely, a Cincinnati runaway can help Brown but strand Higgins below his line. Brown has only a 4.5-yard cushion between his two-game per-game output and this line, and Higgins' two-game aggregate does not establish consistent weekly production. Missing injury, coverage and weather information further limits conviction. Both remain leans, not strong plays.",
+ "slip_story": "The shared story is a competitive Cincinnati-controlled game: Higgins supplies passing production before Brown receives sustained rushing work. Higgins also has a plausible volume path in a trailing flip; Brown benefits in a Cincinnati-runaway flip. Neither survives every flip, so the pair is explicitly script-dependent rather than a robust correlation claim. Do not add a third leg merely to reach a slip-size target; no completed main slip is issued.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

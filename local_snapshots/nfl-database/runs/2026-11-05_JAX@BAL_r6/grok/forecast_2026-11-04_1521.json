@@ -1,0 +1,40 @@
+{
+ "pulled_et": "2026-11-04T15:21",
+ "source": "tools/weather_forecast.py (api.weather.gov hourly + api.open-meteo.com)",
+ "thresholds": {
+  "precip_pct": 50,
+  "gust_mph": 20,
+  "wind_mph": 15
+ },
+ "window": "kickoff to kickoff+3.5h ET; worse source",
+ "games": {
+  "JAX@BAL": {
+   "roof": "open",
+   "nws": {
+    "precip_pct": 21,
+    "wind_mph": 3,
+    "gust_mph": null,
+    "short": [
+     "Mostly Cloudy",
+     "Slight Chance Light Rain"
+    ],
+    "hours": 3
+   },
+   "open_meteo": {
+    "precip_pct": 25,
+    "wind_mph": 2.6,
+    "gust_mph": 9.2,
+    "precip_in": 0.23,
+    "hours": 3
+   },
+   "notes": [],
+   "status": "OK",
+   "flag": false,
+   "why": [],
+   "precip_pct": 25,
+   "gust_mph": 9.2,
+   "wind_mph": 3,
+   "kickoff_et": "2026-11-05T20:15"
+  }
+ }
+}

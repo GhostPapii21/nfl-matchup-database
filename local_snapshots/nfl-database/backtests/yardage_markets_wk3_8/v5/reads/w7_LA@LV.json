@@ -1,0 +1,46 @@
+{
+ "game": "Week 7 LA@LV / kickoff not in pack / LV +3.5 (LA -3.5, implied LA 26.25 LV 22.75) / total 49 / weather not saved",
+ "script": {
+  "base": "Books have LA by a field goal in a 49-point game, so a one-score contest with both pass games staying live rather than a three-quarter clock-kill. LA's last three weeks are Nacua-led (43 targets, 343 rec yds, 380 air) with Kyren still at 42 carries; LV's 22.75 implied total forces throws, and Bowers is the hub (30 targets, 266 rec yds) with Tucker, Mayer and Jeanty each at 20 targets.",
+  "flip1": "LA leads by 14+ early and runs clock: Kyren/Corum carries rise, Stafford's dropbacks fall, Nacua stalls under 84.5, and LV abandons Jeanty's 11.7 carries/game so Bowers/checkdowns become the only LV offense.",
+  "flip2": "Shootout or LV grabs the lead: both dropback counts stay high and Nacua plus Bowers clear together, while Jeanty's 3.06 YPC rush share dies; or LA's explosive clamp (11 passes of 20+ on 192 att) turns it into a slog and both receiving overs miss."
+ },
+ "injury_fallout": "No injury report, practice trend, questionable tag, or inactives in the pack, so no next-man-up or snap limit can be assigned. Usage only: LA targets Nacua 43, K.Williams 27, Adams 20, Higbee 16, Parkinson 8, Corum 8; carries K.Williams 42, Corum 19. LV targets Bowers 30, Jeanty/Tucker/Mayer 20 each, White 11; carries Jeanty 35, Washington 19. Nothing in the pack says any of those roles changed this week.",
+ "matchup": {
+  "shell": "Man/zone and MOFO/MOFC not charted. Location proxy: LV allows middle 8.56 YPA (34 att), left 7.58 (78), right 7.89 (81). LA allows middle 7.18 (38), left 5.68 (72), right 5.08 (71) \u2014 outside tight, middle the only leak.",
+  "pressure": "LV blitz rate 27%; Stafford EPA/dropback -0.08 vs blitz (n=80) vs +0.15 with no blitz, so most of his dropbacks are the better look. LA blitz rate 31%; Cousins EPA +0.09 vs blitz (n=68) vs +0.20 without \u2014 he bends to checkdowns, he does not collapse.",
+  "bleeds": "LV run D 5.18 YPC and 23 runs of 10+, plus 19 passes of 20+ on 209 att \u2014 leaks on the ground and through the air, worst in the middle. LA run D 4.35 YPC and 19 runs of 10+, but only 11 passes of 20+ on 192 att.",
+  "overlap": "Nacua is LA's primary (43 tgt, 380 air, 343 rec yds) into a defense with no safe zone and a middle at 8.56. Bowers is LV's primary (30 tgt, 332 air, 266 rec yds, 11.1 aDOT) into LA's middle leak at 7.18, not into the 5.08/5.68 outside that would choke Tucker (292 air on 20 tgt)."
+ },
+ "form": "Nacua L3 is a role, not a spike: 14.3 tgt/g, 114.3 rec yds/g, 8.0 yds/target. Kyren 42/179 (4.26 YPC, 59.7 rush yds/g) plus 27/111 receiving. Higbee 16/172. Bowers 30/266 (88.7/g). Jeanty rush 35/107 (3.06 YPC, 35.7/g) but 20/154 receiving. Tucker 20/182 on 14.6 aDOT; Mayer 20/179 on 4.75 aDOT. Defense last-3-4 splits and similar-player logs are not in the pack, only season-to-date.",
+ "edge_players": [
+  {
+   "player": "pukanacua",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Nacua is the offense (43 targets, 380 air yards, 343 receiving yards in three games) and Vegas leaks 7.58-8.56 YPA everywhere with 19 explosives allowed, while blitzing only 27% so Stafford mostly gets the +0.15 EPA look \u2014 84.5 sits under that role in a one-score game.",
+   "must_be_true": "Nacua keeps the WR1 route share, Stafford plays, and LA is not up multiple scores for three quarters.",
+   "kills_it": "Early LA lead turns into a clock-kill, or LV brackets Nacua and the Adams 20 / Higbee 16 targets eat the soft zones.",
+   "confidence": "strong"
+  },
+  {
+   "player": "brockbowers",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Bowers is the Raiders' hub (30 targets, 332 air yards, 88.7 yards a game) and a 3.5-point dog in a 49 total has to throw at the only place LA bleeds, the middle at 7.18 YPA, rather than the outside LA holds to 5.08-5.68.",
+   "must_be_true": "Bowers keeps about 10 targets, Cousins plays, and LV is not in a positive run script that cuts dropbacks.",
+   "kills_it": "LA's explosive clamp (11 of 192) turns his 11.1 aDOT throws into incompletions, or Mayer (20 targets, 59.7 yards, 4.75 aDOT) steals the middle and Bowers lands in the 50s.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig in the pack, so no rung resize and no 70% model probability to distrust. Nacua L3 114.3 rec yds vs 84.5 agrees with the strong read. Bowers L3 88.7 vs 72.5 agrees with the lean. Kyren rush over 67.5 was the other matchup idea (LV 5.18 YPC, 23 runs of 10+) but L3 is 59.7, so that lean was dropped, not flagged. Jeanty rec 51.3 vs 25.5 and Mayer 59.7 vs 30.5 were not used \u2014 gaps that wide with no injury note are average-chasing.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Nacua recyds over 84.5 at -114.5 (primary-target volume into a soft secondary, main line not a short alt). Bowers recyds over 72.5 at -114 (seam/intermediate into LA's middle, main line). No alt rung \u2014 no-vig and sims absent.",
+ "pre_mortem": "It's Monday and this lost because LA led big by half, Stafford threw under 28 times, and Nacua finished around 60 while Kyren and Corum closed it \u2014 a -3.5 that became a run script, with no coverage chart to rule out LV doubling him. Bowers went quiet in the 40s because LA's 11 explosives on 192 attempts showed up, Cousins lived on Mayer and Jeanty (Jeanty already has 154 rec yds on just 37 air yards), and the 266-yard L3 total may hide one spike we cannot split. A late inactive not in the pack could also sit either player. That counter is real but not stronger than the base: 3.5 is not a blowout number, and both edges are multi-game target roles into the stated soft zones, not TD luck.",
+ "slip_story": "One-score pass script at a 49 total: LA WR1 over with LV TE1 over, the same story (both teams throw, neither salts the clock for three quarters). Do not add a total under, a Kyren rush over (needs the clock-kill flip), or Tucker over (needs explosives LA does not allow). Two legs, no TDs, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

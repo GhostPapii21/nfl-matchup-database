@@ -1,0 +1,48 @@
+{
+ "game": "CIN @ PIT / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so the CIN @ PIT script is form-only. CIN QB Joe Burrow is +0.27 EPA/dropback when not blitzed, while PIT QB Aaron Rodgers is negative either way (-0.36 vs blitz, n=23; -0.42 with no blitz), so the base case is a competitive game with CIN the more functional offense: CIN RB Chase Brown keeps the rush share (36 carries, 136 yards) and CIN WR Tee Higgins stays the downfield target (16 targets, 210 air yards). PIT blitzes 25%, enough for some quick throws, not enough to assume the game flips. Who leads by halftime is unknown without a market line.",
+  "flip1": "PIT makes the blitz the plan and CIN QB Burrow's -0.62 EPA on 24 blitzed dropbacks shows up. CIN falls behind, CIN RB Brown's carries die, and CIN WR Higgins' deep air yards stall in favor of CIN checkdowns (Brown 11 targets at -27 air yards, CIN TE Mike Gesicki, CIN RB Samaje Perine).",
+  "flip2": "CIN gets ahead and drains the clock. CIN RB Brown's carries spike into a PIT run defense that has allowed 4.54 YPC and seven 10-plus runs, while the PIT Warren/Dowdle committee has to throw and CIN WR volume cools late."
+ },
+ "injury_fallout": "No CIN or PIT injury report, practice status, questionable tag, or inactive list is in the pack, so no next-man-up and no snap limit can be named; a late scratch on either team is unseen and would void any leg it touches. Shares assumed to hold for CIN: rush is Chase Brown 36/136 over Samaje Perine 7/26, Joe Burrow 4/21, and D.Meyers 1/10 (Brown 36 of 48 listed CIN carries). CIN targets led by Tee Higgins 16/154/210, then Ja'Marr Chase 13/87/115, Brown 11/24, Mike Gesicki 7/78, Perine 4/46, Drew Sample 3/19. PIT rush is a split, Jaylen Warren 21/89 and Rico Dowdle 15/37, not a bellcow. PIT targets led by DK Metcalf 19/67/266, then Roman Wilson 12/54/147, Pat Freiermuth 10/78/68, Warren 10/61.",
+ "matchup": {
+  "shell": "No CIN or PIT coverage charting, so MOFO/MOFC and man/zone are unknown. Location splits are the proxy: PIT allowed 9.1 YPA left (20 att) and 8.53 right (17 att) but 3.43 middle (7 att) \u2014 PIT outside leaks, PIT middle looks closed on a tiny sample. CIN allowed 8.89 middle (18 att) and 8.04 left (28 att) but 5.11 right (36 att).",
+  "pressure": "PIT blitz rate 25%. CIN QB Burrow is -0.62 EPA/dropback vs blitz (n=24) and +0.27 with no blitz \u2014 that split is the CIN kill switch, but blitz rate is not pressure rate (not in pack). CIN blitzes only 11%, and PIT QB Rodgers is poor either way, so CIN does not need pressure to bother PIT.",
+  "bleeds": "PIT run defense bleeds: 4.54 YPC and 7 runs of 10+ in two games, plus 7 passes of 20+ on only 51 attempts. CIN is tighter on explosive runs (4.05 YPC, 4 runs of 10+) and on explosive passes by rate (7 of 90) but CIN bleeds the middle (8.89 YPA) and the left (8.04); CIN's right side is the firm zone (5.11 on 36 att).",
+  "overlap": "Core overlap is CIN RB Chase Brown's carry share into PIT's 4.54 YPC and seven 10-plus runs. Second overlap is CIN WR Tee Higgins' downfield role (210 air yards, team-high CIN targets) into PIT's leaky left/right YPA and 20+ rate. The counter-overlap is PIT's 25% blitz into CIN QB Burrow's -0.62 blitz EPA, which would move the ball to CIN checkdowns and off Higgins. PIT TE Pat Freiermuth into CIN's soft middle is real, but 37.5 sits on his ~39-yard two-game pace, so it is not a priced edge."
+ },
+ "form": "CIN and PIT packs are two-game aggregates (weeks [1, 2], labeled L3) with no single-game splits, so one explosive week could be hidden. CIN RB Chase Brown 36/136 is about 18 carries and 68 rush yards per game at 3.78 YPC, plus 11 targets for only 24 yards \u2014 CIN rush volume is real, receiving yards are not. CIN WR Tee Higgins 16/154/210 is about 77 rec yards per game and is the CIN passing engine; CIN WR Ja'Marr Chase 13/87/115 is about 43.5 per game, and fading him under 77 loses the counter-case, so no Chase leg. CIN TE Gesicki 7/78/63 (~39 per game, 11.1 yards per target) is low-volume efficiency and treated as fluky. PIT WR DK Metcalf 19 targets and 266 air yards produced only 67 yards \u2014 opportunity without production, so a PIT under is a regression trap. PIT RB Jaylen Warren 21/89 (~44.5 rush per game) with PIT RB Rico Dowdle 15/37 is a committee. PIT QB Rodgers 1 carry for 5 yards makes the 0.5 rush line noise.",
+ "edge_players": [
+  {
+   "player": "chasebrown",
+   "team": "CIN",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "CIN RB Chase Brown has taken 36 of Cincinnati's listed carries for 136 yards, and PIT has allowed 4.54 yards per carry with seven runs of 10-plus, so 63.5 sits under the CIN workload he has already had.",
+   "must_be_true": "CIN RB Brown keeps a normal snap and carry share (about 15-18 carries, not a CIN Perine game) and CIN stays competitive enough not to abandon the run against PIT; no snap limit, which the pack cannot confirm.",
+   "kills_it": "Flip 1: PIT's blitz puts CIN in a hole, CIN RB Brown's carries drop toward 10, and the CIN rush line dies even if his checkdowns rise. Also a late CIN inactive or a vulture we cannot see.",
+   "confidence": "lean"
+  },
+  {
+   "player": "teehiggins",
+   "team": "CIN",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "CIN WR Tee Higgins leads Cincinnati in targets, yards, and air yards (16/154/210, about 77 per game) and PIT has leaked to both outside zones (9.1 left, 8.53 right) with seven 20-plus passes on 51 attempts, so 54.5 is short of the CIN role he has played.",
+   "must_be_true": "CIN QB Burrow is mostly unhurried (PIT blitz stays near 25%, not the game plan), CIN WR Higgins keeps the WR1 target share over CIN WR Chase, and Higgins is healthy \u2014 CIN health is not in the pack.",
+   "kills_it": "A PIT blitz-heavy script turns CIN QB Burrow's -0.62 blitz EPA into quick throws and CIN WR Higgins' 210 air yards never show up; or uncharted wind (weather not saved) kills the deep shots; or the 154 CIN yards were one week that does not travel.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No CIN or PIT projection, sim median, or Pinnacle no-vig is in the pack, so step 8 cannot be fully run and these leans should not be sized as confirmed model edges. Available form agrees and does not contradict: CIN RB Chase Brown 136 rush yards over two games (~68 per game) vs a 63.5 line; CIN WR Tee Higgins 154 rec yards (~77 per game) vs 54.5. Both are leans, so a later model disagreement would mean drop, not a flag. Two-game CIN/PIT samples are not 70% legs. Prices on the card are -114 (CIN Brown) and -115 (CIN Higgins), not no-vig.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "CIN chasebrown rushyds over 63.5 at -114; CIN teehiggins recyds over 54.5 at -115. No alt rungs and no no-vig in the pack. Short-priced alts not used. PIT jaylenwarren rushyds under 58 and several other CIN/PIT candidates are +nan and were not stamped as legs.",
+ "pre_mortem": "It's Monday and both CIN overs lost because the missing spread hid a PIT lead. PIT blitzed after seeing CIN QB Burrow at -0.62 EPA on 24 blitzed dropbacks, CIN trailed by the second quarter, and CIN RB Brown never saw his 18-carry pace \u2014 CIN RB Perine took the checkdowns and 63.5 rush yards was too high. CIN WR Higgins' 154 yards were one week-1 explosive that did not travel; with weather unsaved and PIT's middle the only firm zone (3.43 YPA on 7 attempts), the ball went underneath to CIN TE Gesicki and CIN RB Brown and Higgins finished in the 30s. A two-game CIN/PIT aggregate and no inactives list were not enough to know the target tree.",
+ "slip_story": "One CIN @ PIT story only: Cincinnati's offense is the functional unit in a competitive game inferred from EPA, not from a saved spread. Stack is CIN RB Chase Brown rush over (bellcow vs PIT allowing 4.54 YPC) with CIN WR Tee Higgins rec over (primary downfield target vs PIT outside leakage). They win together if CIN stays competitive and CIN QB Burrow is mostly unhurried; they lose together if the PIT blitz flip puts CIN in a hole. Do not add a total, a PIT Metcalf over, or a CIN Chase over \u2014 those need a shootout script, and no total was saved. No TD legs. One market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

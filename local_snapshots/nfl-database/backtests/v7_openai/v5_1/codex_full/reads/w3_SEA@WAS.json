@@ -1,0 +1,39 @@
+{
+ "game": "Week 3 SEA@WAS / kickoff not saved / spread and total not saved; moneyline, implied totals and opening movement unavailable / weather not saved. Script inferred only from Weeks 1\u20132 team form, not market expectations. Source throughout: supplied pre-kickoff pack; exact collection timestamps unavailable.",
+ "script": {
+  "base": "Seattle sustains offense through Jaxon Smith-Njigba against Washington's vulnerable passing defense, while Washington has fewer efficient answers against Seattle. A competitive opening followed by a Seattle second-half advantage is the working hypothesis; pace and halftime leadership cannot be established from this pack.",
+  "flip1": "Seattle establishes an early commanding lead and drains possessions through its shared backfield, suppressing Smith-Njigba's receiving opportunities.",
+  "flip2": "Washington sustains drives without needing explosive passes, keeping Seattle in a competitive, pass-active game. Smith-Njigba's target concentration can survive this flip, although possession volume remains uncertain."
+ },
+ "injury_fallout": "MISSING: SEA and WAS injury reports, practice participation, offensive-line availability, defensive absences, final inactives and player snap restrictions. No absence, return or next-man-up role is inferred. Washington's listed quarterback rushing props do not establish its starting quarterback. Source: supplied pack, which contains no injury or inactive information.",
+ "matchup": {
+  "shell": "MISSING: WAS and SEA MOFO/MOFC splits, man/zone rates and receiver alignment charting. Washington's directional weaknesses cannot be assigned specifically to Smith-Njigba's routes.",
+  "pressure": "WAS blitzes 43%; SEA's quarterback produced 0.38 EPA/dropback against blitzes over 19 dropbacks versus 0.43 without blitzes. This supports a hypothesis that blitzing alone will not derail Seattle, but actual pressure, sack and check-down rates are missing. SEA blitzes 23%; WAS quarterback EPA/dropback is -0.10 against blitzes over 20 dropbacks versus 0.23 otherwise. Source: supplied Weeks 1\u20132 pack.",
+  "bleeds": "WAS allowed seven passes of at least 20 yards on 61 attempts, with 13.1 YPA through the middle and 10.46 to the right, versus 3.95 left. SEA allowed no passes of at least 20 yards on 66 attempts and 3.73 rushing YPC, compared with WAS's 4.64. These are two-game samples, not established defensive baselines.",
+  "overlap": "Smith-Njigba is Seattle's clear supplied target leader with 22 targets and 197 air yards. Washington's explosive-pass concessions create a plausible receiving-yardage opportunity for that primary option, but the exact alignment-to-coverage overlap is unverified."
+ },
+ "form": "Only two games are supplied despite the tables' L3 labels. Smith-Njigba recorded 22 targets, 277 receiving yards and 197 air yards; Seattle's next-most-targeted receiver, Rashid Shaheed, had nine targets and 39 yards. Cooper Kupp had five targets and 55 yards. The read rests on target concentration rather than extrapolating Smith-Njigba's yardage average. Seattle also distributed 23 carries each to Jadarian Price and Emanuel Wilson, with 12 to George Holani, leaving an identifiable run-heavy script risk. MISSING: game-by-game splits, routes, snaps, red-zone usage and comparable-opponent samples. Source: supplied Weeks 1\u20132 offense tables.",
+ "edge_players": [
+  {
+   "player": "jaxonsmithnjigba",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Smith-Njigba can beat 91.5 receiving yards because Seattle concentrates its passing opportunities on him against a Washington defense that has already surrendered seven explosive completions.",
+   "must_be_true": "jaxonsmithnjigba targets >= 8 [because the pack records 22 targets across Seattle's first two games, versus nine for its next-most-targeted receiver]",
+   "kills_it": "IF Seattle takes an early commanding lead and its clock-draining offense leaves Smith-Njigba with 91 receiving yards or fewer THEN jaxonsmithnjigba recyds over 91.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis is supported directionally by Smith-Njigba's target concentration, Washington's seven explosive passes allowed and Seattle's positive EPA/dropback against blitzes. No supplied number clearly contradicts it. Over 91.5 at -117 requires approximately 53.9% wins to break even. Normalizing the supplied -117 over and -114 under produces approximately 50.3% for the over, but that is only a mechanical two-sided market estimate, not a Pinnacle benchmark or an independent projection. No probability edge is established; retain a research lean rather than a stamped bet.",
+  "disagrees": "none",
+  "missing": "Independent projection, simulation median and distribution, Pinnacle prices, verified price timestamp, game-by-game usage, coverage alignment, injury/inactive information, weather, spread and total.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate only: jaxonsmithnjigba recyds over 91.5 at -117, from the supplied main-line props. Receiving yards matches the explosive-opportunity hypothesis. No alternate rung is supplied, and missing independent pricing prevents a verified positive-EV recommendation.",
+ "pre_mortem": "It is Monday and Smith-Njigba missed because Washington prevented explosive gains and Seattle did not need sustained passing volume. His 277 yards on 22 targets may represent efficiency that does not repeat; aggregate directional YPA does not prove his particular routes attack Washington's weak spots. Seattle's shared rushing workload provides a credible way to protect a lead without feeding him. Those objections keep this a lean, not a strong selection.",
+ "slip_story": "Fits only a competitive Seattle passing-success story centered on Smith-Njigba's target dominance. It survives Washington keeping the game close, but is script-dependent against an early Seattle blowout. No slip is built: only one candidate qualifies, and manufacturing additional legs would exceed the evidence. No bet is placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

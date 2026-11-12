@@ -1,0 +1,48 @@
+{
+ "game": "Week 8 PHI@WAS / kickoff MISSING / WAS -5.5 / total 40.5 / implied totals WAS 23.0, PHI 17.5 / weather: wind 5.1, temperature 49.6; units and observation time not supplied. Moneyline, opening lines, venue details and travel MISSING.",
+ "script": {
+  "base": "Washington builds a modest lead and Philadelphia spends the second half chasing. Washington's passing offense benefits from facing Philadelphia's 25% blitz rate, while Washington's 46% blitz rate threatens Philadelphia's passing efficiency; pace is unknown.",
+  "flip1": "Philadelphia leads early, forcing Washington into more passing. That supports Treylon Burks' receiving opportunity but creates additional Philadelphia rushing opportunities that threaten Elijah Mitchell's under.",
+  "flip2": "Washington wins through rushing and defense rather than sustained passing. Burks' receiving over becomes vulnerable to reduced attempts, while Mitchell's under remains supported if his recent limited carry role persists."
+ },
+ "injury_fallout": "MISSING: PHI and WAS injury reports, practice participation, final inactives, offensive-line availability, defensive absences and player snap restrictions. Mitchell's three carries and Barkley's seven carries over PHI's last three games establish recorded usage only, not an injury explanation or a confirmed future depth chart. No next-man-up assumptions are made. Source: supplied pre-kickoff pack; individual publication timestamps are missing.",
+ "matchup": {
+  "shell": "MISSING: PHI and WAS MOFO/MOFC rates, man/zone rates and receiver alignment charting. Washington's 9.5 YPA allowed through the middle cannot be assigned to a specific Philadelphia receiver without alignment evidence.",
+  "pressure": "WAS blitzes 46%; PHI's supplied QB EPA/dropback is -0.23 against blitzes versus -0.03 without blitzes. PHI blitzes 25%; WAS's supplied QB EPA/dropback is -0.13 against blitzes versus 0.14 without blitzes. These splits support a relative Washington passing advantage, but actual pressure rates, sacks and quarterback identity for these splits are missing.",
+  "bleeds": "PHI allows 4.31 rushing YPC and 23 passes of 20-plus yards on 254 attempts. Its directional passing allowances are nearly flat: 7.06 left, 7.19 middle and 7.10 right. WAS allows 4.17 rushing YPC and 20 passes of 20-plus yards on 230 attempts.",
+  "overlap": "Burks' 225 air yards lead the listed WAS receivers over its supplied three-game window, making him a plausible beneficiary of PHI's demonstrated explosive-pass allowance. Mitchell's edge is limited carry opportunity rather than a dominant WAS run-defense matchup; PHI's listed carry leader is Pierce with 37."
+ },
+ "form": "PHI weeks 5\u20137: Mitchell recorded 3 carries for 11 yards, versus Pierce's 37 for 96 and Barkley's 7 for 62. WAS weeks 4\u20136: Burks recorded 14 targets, 139 receiving yards and 225 air yards; Okonkwo, Diggs and Williams each had more targets, so Burks is not established as the primary option. These are aggregate three-game samples, not evidence of consistent weekly usage. Individual game logs, snaps, routes, red-zone usage and comparable-opponent splits are missing. WAS's supplied window ends in Week 6; the reason is not supplied.",
+ "edge_players": [
+  {
+   "player": "elijahmitchell",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Mitchell's limited recorded rushing role, combined with Philadelphia being a 5.5-point underdog, favors staying below 28.5 rushing yards unless his workload changes materially.",
+   "must_be_true": "elijahmitchell carries <= 5 [because the pack records only 3 carries across PHI weeks 5\u20137, compared with D.Pierce's 37]",
+   "kills_it": "IF Mitchell receives a materially expanded rushing role or breaks a run that takes his total to at least 29 yards THEN elijahmitchell rushyds under 28.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "treylonburks",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Burks' recent downfield opportunity gives him a path above 21.5 receiving yards against a Philadelphia defense that has allowed 23 explosive passes.",
+   "must_be_true": "treylonburks targets >= 3 [because the pack records 14 targets and 225 air yards across WAS weeks 4\u20136]",
+   "kills_it": "IF Washington's rushing-led game plan or distribution to other receivers leaves Burks with 21 or fewer receiving yards THEN treylonburks recyds over 21.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The hypotheses are limited Mitchell rushing opportunity and Burks downfield opportunity. Testing those reads against the supplied aggregates: Mitchell averaged 1 carry and 3.7 rushing yards per game; Burks averaged 4.7 targets and 46.3 receiving yards. These are descriptive checks, not projections or simulations. Mitchell's under survives the base case and a Washington defensive-control win; Burks' over survives the base case and a Philadelphia early lead, but is vulnerable to Washington controlling the game entirely on the ground. Neither is upgraded beyond lean.",
+  "disagrees": "none",
+  "missing": "Calibrated projections, simulation distributions and medians, Pinnacle no-vig prices, individual game distributions, verified current roles, injury reports, final inactives, snap and route counts, coverage charting, and source publication timestamps.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Elijah Mitchell rushing yards UNDER 28.5 at -113; Treylon Burks receiving yards OVER 21.5 at -114. Listed-price break-even probabilities are approximately 53.1% and 53.3%, respectively; these are not fair probabilities or proof of positive expected value. Use the listed main lines only; no alternate rung is supported.",
+ "pre_mortem": "Mitchell's under loses because the three-game carry sample concealed a role change that the missing injury and inactive reports would have revealed. Philadelphia taking an early lead could also expand its rushing volume, and one explosive run can beat this line despite few carries. Burks' over loses because air yards do not guarantee catches: Washington can lead through its rushing attack, spread limited passing volume among Okonkwo, Diggs and Williams, or miss Burks on his downfield chances. His 139 aggregate yards may also be concentrated in one game; the pack cannot test that. Both counter-cases limit confidence, and neither leg has a verified pricing edge.",
+ "slip_story": "Conditional two-leg story: Washington produces enough early passing success for Burks, then protects a lead while Philadelphia's limited Mitchell rushing role persists. Do not force a 3\u20134-leg main slip from only two supported candidates. Treat these as research leans rather than a price-validated parlay; no TDs, no duplicate player markets, and no bet placement.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

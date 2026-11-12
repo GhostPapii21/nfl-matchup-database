@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 PHI@CHI / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so the script is inferred only from the two-game sample. Chicago has been a run offense (Swift 34 carries/169 yards, Monangai 20/147, Williams 15/107) with Raymond as the short target leader (14 targets, 124 yards, 72 air yards). Philadelphia has been light on the ground (Barkley 19/92, Bigsby 14/36, Hurts 10/64) and downfield through Smith (267 air yards) and Wicks (148 air yards). Base case: a competitive game where Chicago keeps both backs involved, because that is the offense on tape and PHI has allowed 7 runs of 10+, while PHI keeps a split backfield and shorter throws because CHI blitzes 39% and Hurts' EPA falls from 0.20 to 0.12 when blitzed. No shootout or slog call without a total.",
+  "flip1": "Chicago leads early and clocks it with Swift and Monangai, so Philadelphia abandons the run, Barkley and Bigsby carries die, and Smith/Wicks targets rise into a blitz that caps deep yards.",
+  "flip2": "Philadelphia leads early, Hurts and Barkley close on the ground, and Chicago abandons the run so Monangai and Swift carries die while Burden and Odunze air yards spike."
+ },
+ "injury_fallout": "MISSING: injury report, practice status, questionable tags, snap limits, and inactives for both PHI and CHI. No absences, returns, or next-man-up inferred from usage dips.",
+ "matchup": {
+  "shell": "Coverage shell not in pack (no MOFO/MOFC or man/zone charting). Location proxy: CHI YPA allowed left 7.15 (27 att), middle 10.5 (14 att), right 9.65 (17 att). PHI YPA allowed left 7.85 (13 att), middle 5.17 (12 att), right 6.31 (29 att).",
+  "pressure": "CHI blitz rate 39%; PHI QB EPA/dropback 0.12 vs blitz (n=22) vs 0.20 unblitzed, so Hurts is worse into the blitz he will see. PHI blitz rate 22%; CHI QB EPA 0.23 vs blitz (n=45) vs 0.27 unblitzed, so Williams is efficient either way and mostly gets the better look. Pressure rate not in pack.",
+  "bleeds": "CHI bleeds rush efficiency (4.88 YPC, 5 runs of 10+ in 2 games) and middle/right passing (10.5 and 9.65 YPA), with 7 gains of 20+ on 63 attempts. PHI is tighter on rush rate (4.16 YPC) but has allowed 7 runs of 10+ in 2 games, does not bleed the middle (5.17 YPA), and has only 5 gains of 20+ on 58 attempts.",
+  "overlap": "Smith (19 targets, 170 yards, 267 air yards) overlaps CHI's soft middle/right but also a 39% blitz that lowers Hurts' EPA, so it is not a clean primary-target edge and no Smith leg is taken. The used overlap is Chicago's run game into PHI's 7 runs of 10+ allowed, which supports Monangai even though Swift is the higher-carry back (34 to 20)."
+ },
+ "form": "Figures are two-game totals (weeks 1-2; labeled L3). PHI rush: Barkley 19/92 (~9.5 carries, 46 yards/game, 4.8 YPC), Bigsby 14/36 (~7 carries, 18 yards/game, 2.6 YPC), Hurts 10/64 (~5 carries, 32 yards/game), Shipley 9/28. PHI targets: Smith 19/170/267, Wicks 10/147/148, Goedert 7/81/56, Lemon 5/9/13, Barkley 4/8/3, Cooper 3/26/25, Mundt 3/8/8. CHI rush: Swift 34/169 (~17 carries, 84.5 yards/game, 5.0 YPC), Monangai 20/147 (~10 carries, 73.5 yards/game, 7.35 YPC), Williams 15/107. CHI targets: Raymond 14/124/72, Burden 12/95/123, Odunze 7/95/137, Swift 6/64/-11, Loveland 5/3/43, Kmet 4/35/56, Monangai 4/35/10. Monangai's 7.35 YPC and Odunze's yards on 7 targets look fluky and are not assumed to repeat.",
+ "edge_players": [
+  {
+   "player": "kylemonangai",
+   "market": "rushrecyds",
+   "side": "over",
+   "edge_sentence": "Monangai has 147 rush yards and 35 receiving yards in two games, about 91 combined per game, and even if 7.35 YPC falls to the 4.16 PHI allows, about 10 carries plus that receiving work still clears 52.5. Script-dependent: needs Chicago not to abandon the run.",
+   "must_be_true": "Kyle Monangai rushrecyds >= 53 because 20 carries for 147 rush yards and 4 targets for 35 receiving yards over 2 games",
+   "kills_it": "IF Chicago trails early and Monangai finishes with fewer than 6 carries and no reception THEN Monangai rushrecyds over 52.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "tankbigsby",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Bigsby already has 14 carries and 36 yards in two games, and Chicago allows 4.88 YPC, so a small carry share clears 12.5 without needing a jump off his 2.6 YPC. Script-dependent: needs Philadelphia not to abandon the run.",
+   "must_be_true": "Tank Bigsby carries >= 4 because CHI allows 4.88 YPC and 4 carries at that rate is about 19.5 yards",
+   "kills_it": "IF Philadelphia trails and Bigsby finishes with 2 or fewer carries THEN Bigsby rushyds over 12.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No model, sims, or no-vig in the pack; hand check only. Monangai at 10 carries times PHI's 4.16 YPC is about 42 rush yards plus 17.5 receiving yards, about 59, still over 52.5, so the read does not need 7.35 YPC to repeat. Bigsby at 7 carries and 2.57 YPC is already 18 yards per game, and 4 carries at CHI's 4.88 YPC is about 19.5, both over 12.5. Passed on Smith/Wicks overs because CHI's 39% blitz cuts Hurts' EPA, on Odunze because 95 yards on 7 targets looks fluky against a 26.5 line, on Barkley rush under 73.5 because CHI's 4.88 YPC allowed fights a low-usage under, and on Swift rush over 62 because a regressed 4.16 YPC projection sits near 62 and the price is missing.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injury report, inactives, coverage charting, pressure rate, no-vig prices, sim medians, projection model",
+  "verdict": "agree"
+ },
+ "market_rung_price": "kylemonangai rushrecyds over 52.5 -116.5; tankbigsby rushyds over 12.5 -114. No alt rungs. Swift rushyds 62 and rushrecyds 80 not used; prices are +nan.",
+ "pre_mortem": "It's Monday and this lost because the missing spread was a blowout. Chicago fell behind, Swift kept the lead-back carries (34 to Monangai's 20 in the sample), the 7.35 YPC regressed, the 35 receiving yards were one screen that did not repeat, and Monangai finished around 40 combined. Philadelphia also trailed, Barkley and Hurts took the remaining rushes, and Bigsby never got a fourth carry, so 12.5 died on volume rather than on Chicago's 4.88 YPC. The competitive both-run script was assumed only because no spread was saved.",
+ "slip_story": "One story: competitive game, both backfields stay involved. Monangai rushrecyds over and Bigsby rushyds over win together only if neither team abandons the run. Do not add same-game pass overs or a total under. Monangai dies on flip 2 (Chicago trails); Bigsby dies on flip 1 (Philadelphia trails). No TDs, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,48 @@
+{
+ "game": "Week 3 TEN@NYG / kickoff MISSING / spread and total NOT saved; implied totals, moneyline and movement MISSING / weather NOT saved. Script inferred only from Weeks 1\u20132 team form. Source throughout: supplied pre-kickoff pack; exact capture timestamps, venue details, rest and travel MISSING.",
+ "script": {
+  "base": "Tentative hypothesis, not a market-derived forecast: a competitive game lets TEN keep its rushing rotation involved against NYG's vulnerable run defense. NYG can retain rushing volume, but TEN's stronger run-defense results may push more of its production toward passing; the pack does not establish a halftime leader or pace.",
+  "flip1": "NYG builds an early lead through its passing game, shifting TEN toward throws and threatening Tyjae Spears' rushing opportunities while supporting Elic Ayomanor's receiving volume.",
+  "flip2": "TEN's rushing efficiency produces a comfortable lead and a clock-draining second half. That supports Spears' rushing opportunity but makes Ayomanor's receiving over more dependent on early targets."
+ },
+ "injury_fallout": "MISSING: TEN and NYG injury reports, practice trends, final designations, inactive lists, return-to-play restrictions and offensive-line availability. No absences, returns or next-man-up changes are inferred from the Weeks 1\u20132 usage. Spears' and Ayomanor's availability and roles require confirmation; no specific defensive backup matchup can be established. Recheck affected reads at final reports and approximately 90 minutes before kickoff; those checkpoints are unavailable in this pack.",
+ "matchup": {
+  "shell": "MISSING: NYG and TEN MOFO/MOFC rates, man/zone rates and receiver alignment charting. NYG's 12.0 middle-field YPA comes on only five attempts and does not establish a slot or TE coverage weakness.",
+  "pressure": "NYG blitzed 25%; TEN QB EPA/dropback was -0.07 against blitzes on 16 dropbacks versus -0.05 without blitzes. TEN blitzed 24%; NYG QB EPA/dropback was -0.63 against blitzes on 25 dropbacks versus 0.48 without blitzes. These are blitz splits, not pressure rates; sacks, time to throw and actual pressure rates are missing.",
+  "bleeds": "NYG allowed 5.47 rushing YPC and seven runs of at least 10 yards across two games, supporting a TEN rushing-efficiency hypothesis. TEN allowed 3.59 rushing YPC and three such runs. TEN conceded eight 20-plus-yard pass plays on 64 attempts; NYG conceded five on 65.",
+  "overlap": "Spears' 10 carries for 53 yards give him a demonstrated rushing role aligned with NYG's clearest supplied weakness. Ayomanor's six targets, 74 air yards and 80 receiving yards support a secondary low-threshold receiving hypothesis, but NYG's allowed YPA is fairly similar outside: 7.5 left and 7.48 right. This is not a proven coverage mismatch, and TEN target leader Carnell Tate had 11 targets."
+ },
+ "form": "Only Weeks 1\u20132 are available despite the table's L3 label; treat the supplied figures as two-game totals, not per-game averages. Spears recorded 10 carries for 53 yards, while Tony Pollard had 21 for 99 and Cam Ward eight for 28, so Spears is a secondary rushing option. Ayomanor recorded six targets for 80 yards on 74 air yards, behind Tate's 11 targets and Robinson's and Helm's seven each. NYG's Cam Skattebo had 30 carries for 117 yards, and Isaiah Likely led its supplied targets with 18. Game-level splits, routes, snaps, red-zone usage, comparable-opponent results and long-play concentration are missing.",
+ "edge_players": [
+  {
+   "player": "tyjaespears",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Spears can clear 16.5 rushing yards through his existing secondary role against a NYG defense allowing 5.47 yards per carry and seven double-digit runs through two games.",
+   "must_be_true": "Tyjae Spears carries >= 4 [because the pack records 10 carries across Weeks 1\u20132 and NYG allows 5.47 rushing YPC]",
+   "kills_it": "IF NYG takes an early multi-score lead and TEN reduces Spears to three or fewer carries without a long run THEN Spears rushyds over 16.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "elicayomanor",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Ayomanor's existing downfield involvement offers a plausible route past 13.5 receiving yards without requiring him to become TEN's primary target.",
+   "must_be_true": "Elic Ayomanor targets >= 2 [because the pack records six targets and 74 air yards across Weeks 1\u20132]",
+   "kills_it": "IF TEN's targets concentrate elsewhere and Ayomanor finishes with no catch longer than 13 yards and no additional receiving production THEN Ayomanor recyds over 13.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypotheses precede this check. Spears' two-game totals imply 5.0 carries and 26.5 rushing yards per game; Ayomanor's imply 3.0 targets and 40.0 receiving yards. Those summaries support plausibility, not calibrated probabilities or standalone selection. Neither supplied aggregate clearly contradicts its read. No projection or simulation was run because the necessary inputs and model are not supplied; neither lean is upgraded.",
+  "disagrees": "none",
+  "missing": "Game-level production distributions, snaps, routes, injury information, coverage charting, pressure rates, weather, projection model, simulated medians, Pinnacle prices and sharp no-vig probabilities. Exact fact-capture timestamps are also missing.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Tyjae Spears rushyds over 16.5 at -114.5: secondary carry opportunity plus weak opposing run defense; script-dependent if TEN trails substantially. Elic Ayomanor recyds over 13.5 at -113.5: existing air-yard involvement rather than a proven target-volume edge. Use only the supplied main lines; neither is a priced model edge or an automatic bet.",
+ "pre_mortem": "Spears' over loses if his modest carry role disappears, NYG improves its run defense, or TEN falls behind and substitutes passing opportunities for rushing attempts. Four carries would still require adequate efficiency; his two-game average cannot guarantee that. Ayomanor's over loses if his 80 yards were concentrated in one game or one long play, if his routes decline, or if TEN feeds Tate, Robinson and Helm while running successfully. NYG's supplied pass-defense numbers do not establish a special Ayomanor matchup, making that the weaker read. Neither candidate has verified health or game-level role stability, so both remain leans.",
+ "slip_story": "A competitive TEN offense generates enough rushing opportunity for Spears and selective downfield completions for Ayomanor. Spears survives the base case and TEN-leading flip; Ayomanor survives the base case and NYG-leading flip, but a low-volume TEN blowout threatens him. These are two watchlist candidates, not a completed 3\u20134-leg slip; do not manufacture additional legs or assume their joint probability is the product of independent chances.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

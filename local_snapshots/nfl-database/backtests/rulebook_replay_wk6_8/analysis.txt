@@ -1,0 +1,129 @@
+ALL candidates: n=4487 graded=4487 W-L=2380-2107 hit=53.0% P/L=$-3880.62 ROI=-8.6%
+GATE leg-pass: n=479 graded=479 W-L=253-226 hit=52.8% P/L=$-533.67 ROI=-11.1%
+POOL (gate+door): n=463 graded=463 W-L=241-222 hit=52.1% P/L=$-569.78 ROI=-12.3%
+blocked: n=4024 graded=4024 W-L=2139-1885 hit=53.2% P/L=$-3310.84 ROI=-8.2%
+SCHEME_EDGE-flag legs n=54 graded=54 W-L=33-21 hit=61.1% P/L=$-25.95 ROI=-4.8%
+non-SE n=409 graded=409 W-L=208-201 hit=50.9% P/L=$-543.82 ROI=-13.3%
+depth overs n=12 graded=12 W-L=10-2 hit=83.3% P/L=$+24.35 ROI=+20.3%
+non-depth n=451 graded=451 W-L=231-220 hit=51.2% P/L=$-594.12 ROI=-13.2%
+alt low rung n=198 graded=198 W-L=105-93 hit=53.0% P/L=$-422.70 ROI=-21.3%
+main n=265 graded=265 W-L=136-129 hit=51.3% P/L=$-147.08 ROI=-5.6%
+
+by week pool
+6 n=145 graded=145 W-L=81-64 hit=55.9% P/L=$-81.01 ROI=-5.6%
+7 n=209 graded=209 W-L=107-102 hit=51.2% P/L=$-349.80 ROI=-16.7%
+8 n=100 graded=100 W-L=48-52 hit=48.0% P/L=$-143.16 ROI=-14.3%
+9 n=9 graded=9 W-L=5-4 hit=55.6% P/L=$+4.21 ROI=+4.7%
+
+per market (pool)
+('passyds', 'over') n=22 graded=22 W-L=5-17 hit=22.7% P/L=$-131.15 ROI=-59.6%
+('passyds', 'under') n=4 graded=4 W-L=1-3 hit=25.0% P/L=$-21.15 ROI=-52.9%
+('rec', 'over') n=82 graded=82 W-L=47-35 hit=57.3% P/L=$-79.52 ROI=-9.7%
+('rec', 'under') n=85 graded=85 W-L=43-42 hit=50.6% P/L=$-100.24 ROI=-11.8%
+('recyds', 'over') n=131 graded=131 W-L=63-68 hit=48.1% P/L=$-323.72 ROI=-24.7%
+('recyds', 'under') n=72 graded=72 W-L=38-34 hit=52.8% P/L=$+0.14 ROI=+0.0%
+('rushyds', 'over') n=41 graded=41 W-L=24-17 hit=58.5% P/L=$-28.87 ROI=-7.0%
+('rushyds', 'under') n=26 graded=26 W-L=20-6 hit=76.9% P/L=$+114.73 ROI=+44.1%
+
+per market (all candidates)
+('passyds', 'over') n=271 graded=271 W-L=155-116 hit=57.2% P/L=$-7.27 ROI=-0.3%
+('passyds', 'under') n=83 graded=83 W-L=37-46 hit=44.6% P/L=$-131.44 ROI=-15.8%
+('rec', 'over') n=796 graded=796 W-L=430-366 hit=54.0% P/L=$-646.62 ROI=-8.1%
+('rec', 'under') n=507 graded=507 W-L=259-248 hit=51.1% P/L=$-414.37 ROI=-8.2%
+('recyds', 'over') n=1431 graded=1431 W-L=773-658 hit=54.0% P/L=$-1547.04 ROI=-10.8%
+('recyds', 'under') n=511 graded=511 W-L=260-251 hit=50.9% P/L=$-204.39 ROI=-4.0%
+('rushyds', 'over') n=637 graded=637 W-L=326-311 hit=51.2% P/L=$-1042.51 ROI=-16.4%
+('rushyds', 'under') n=251 graded=251 W-L=140-111 hit=55.8% P/L=$+113.03 ROI=+4.5%
+
+door blocks among gate-pass
+door_block
+            463
+RB_TRAIL      8
+INJURY        8
+Name: count, dtype: int64
+door flags
+door_flag
+               400
+SHORT_PRICE     63
+Name: count, dtype: int64
+
+slips by week/test
+                   n  won      pl
+week test method                 
+6    A    M1      36    3 -200.99
+          M2      37    6   24.85
+     B    M1      18    1  427.04
+          M2      19    1   14.25
+7    A    M1      47    0 -470.00
+          M2      47    0 -470.00
+     B    M1      24    0 -240.00
+          M2      24    0 -240.00
+8    A    M1      38    7  167.26
+          M2      38    4 -101.54
+     B    M1      19    0 -190.00
+          M2      20    0 -200.00
+9    A    M2       2    0  -20.00
+        n  won       pl  staked
+test                           
+A     245   20 -1070.42    2450
+B     124    2  -428.71    1240
+
+slip killers (leg-loss count by market side)
+killers
+rec under        221
+recyds over      158
+recyds under     141
+rec over         101
+rushyds over      56
+passyds over      40
+rushyds under     35
+passyds under     24
+Name: count, dtype: int64
+wk67_schemefit_off leg-pass 308 vs base same weeks 368
+   pool singles 296 hit 0.52 P/L -398.07
+wk8_truedate_coverage leg-pass 17 vs base same weeks 102
+   pool singles 15 hit 0.733 P/L 54.01
+
+gate miss rule counts (all candidates, leg-level)
+gate_misses
+edge sim median # does not clear over #                         3951
+edge avg(p)#no_vig = # pts < #                                  2643
+edge sim median # does not clear under #                        1652
+edge a model p # < #                                            1522
+§# FAIL over # hit # of # last games with current QB [#, #,     1442
+§# FAIL at # last# median # < # over line # (need #)             922
+§# FAIL only # games with current QB (need # of # or # of #)     886
+§# FAIL under # hit # of # last games with current QB [#, #,     788
+N# DO NOT PLAY, RB carry share # < # (committee back)            785
+§# FAIL at # cleared line by # (#) in only # of #                690
+DEPTH_RECEIVER not met: game script does not call for passin     219
+DEPTH_RECEIVER not met: his defender/coverage has not been s     105
+WEATHER flagged game HOU@JAX (gusts # mph) — passing/receivi      74
+WEATHER FORECAST flagged game HOU@JAX (gusts # mph) — passin      74
+N# no verified primary defender (receiving legs can't go on       72
+WEATHER flagged game PIT@TB (gusts # mph, sustained wind # m      67
+WEATHER FORECAST flagged game PIT@TB (gusts # mph, sustained      67
+WEATHER flagged game ATL@TB (precip #, gusts # mph) — passin      56
+WEATHER FORECAST flagged game ATL@TB (precip #, gusts # mph,      56
+per#defender coverage numbers missing                             54
+DEPTH_RECEIVER not met: depth receiver must be the low rung       52
+DEPTH_RECEIVER not met: QB target share # < #; his defender/      32
+DEPTH_RECEIVER not met: QB target share # < #                     31
+DEPTH_RECEIVER not met: QB target share # < #; depth receive      29
+WEATHER flagged game IND@JAX (gusts # mph) — passing/receivi      29
+Name: count, dtype: int64
+legs blocked ONLY by one rule
+gate_misses
+§# FAIL under # hit # of # last games wi    266
+§# FAIL only # games with current QB (ne    193
+edge avg(p)#no_vig = # pts < #              164
+N# DO NOT PLAY, RB carry share # < # (co     90
+§# FAIL over # hit # of # last games wit     65
+DEPTH_RECEIVER not met: game script does     40
+§# FAIL at # last# median # < # over lin     35
+§# FAIL at # cleared line by # (#) in on     10
+DEPTH_RECEIVER not met: QB target share       8
+DEPTH_RECEIVER not met: depth receiver m      8
+DEPTH_RECEIVER not met: his defender/cov      7
+edge sim median # does not clear over #       6
+Name: count, dtype: int64

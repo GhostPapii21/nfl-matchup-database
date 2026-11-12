@@ -1,0 +1,119 @@
+# Week 8 TEN@CIN
+CIN spread -13.5, total 46.5
+Weather: wind 4.1, temp 76.1
+## TEN offense (last 3 games: weeks [5, 6, 7])
+Rushers (carries/yds over L3): T.Pollard 58.0/257; C.Ward 5.0/15; M.Carter 3.0/7; T.Spears 3.0/1
+Targets (tgt/rec yds/air yds over L3): W.Robinson 20.0/82/120; C.Tate 19.0/145/267; E.Ayomanor 11.0/64/108; T.Spears 10.0/35/-32; D.Bellinger 6.0/9/40; T.Pollard 5.0/26/6; C.Ridley 5.0/33/43
+TEN QB EPA/dropback vs blitz -0.02 (n=50) vs no blitz -0.19
+## CIN defense (season to date, 6 games)
+Rush YPC allowed 4.88; 10+ yd runs allowed 21; 20+ yd pass plays allowed 19/221 att
+Pass YPA allowed by location: left 7.85 (61.0 att); middle 9.36 (50.0 att); right 6.62 (87.0 att)
+CIN blitz rate 17%
+## CIN offense (last 3 games: weeks [4, 5, 7])
+Rushers (carries/yds over L3): C.Brown 33.0/88; S.Perine 21.0/91; J.Burrow 7.0/30; T.Brooks 3.0/6
+Targets (tgt/rec yds/air yds over L3): T.Higgins 27.0/327/408; C.Brown 20.0/111/2; J.Chase 20.0/166/203; D.Meyers 13.0/94/82; M.Tinsley 8.0/56/103; M.Gesicki 8.0/50/88; E.All 6.0/51/17
+CIN QB EPA/dropback vs blitz 0.04 (n=63) vs no blitz 0.27
+## TEN defense (season to date, 7 games)
+Rush YPC allowed 4.37; 10+ yd runs allowed 23; 20+ yd pass plays allowed 24/240 att
+Pass YPA allowed by location: left 8.48 (83.0 att); middle 7.2 (46.0 att); right 7.29 (94.0 att)
+TEN blitz rate 24%
+# SAVED PREGAME CHECKLIST (excerpt)
+# TEN @ CIN — Week 8 60-check manifest
+Game 401873031, Sun Nov 01 01:00 PM ET, Paycor Stadium (outdoor), CIN -10 / 46.5. Built 2026-10-29 05:25 EDT. Status counts: {'PASS': 16, 'PARTIAL': 31, 'NOT_APPLICABLE': 3, 'UNAVAILABLE': 7, 'UNIMPLEMENTED': 3}
+
+| # | Check | Status | Reason | Evidence |
+|-|-|-|-|-|
+|1|P1.pbp|PASS|Repo SQLite plays (ESPN PBP) Wk1–7 + nflverse via overlay|repo/data/nfl_matchups.sqlite; fixes/fixes.sqlite|
+|2|P1.boxscores|PASS|player_stats + fix_player_game_usage|fixes/fixes.sqlite|
+|3|P1.tackles_sacks|PARTIAL|fix_play_credits reconciled; tackler≠coverage defender|fixes/FIXES.md|
+|4|P1.pressure|PARTIAL|Pressure is opponent-Sharp-allowed proxy + pbp sack/hit; no charted pressure source|defense/TEN_at_CIN.md|
+|5|P1.ol_snaps|PARTIAL|nflverse participation snaps only; Wk7 participation lag possible|fixes/fixes.sqlite fix_participation|
+|6|P1.air_yards|PARTIAL|NGS IAY per QB; per-target air yards via nflverse only where loaded|defense/raw|
+|7|P1.redzone|PASS|RZ targets/goal-line carries in baselines|team_baselines/TEN.md, CIN.md|
+|8|P1.scrambles|PARTIAL|fix_qb_rushing scramble flags from nflverse; ESPN PBP lacks explicit flag|fixes/fixes.sqlite fix_qb_rushing|
+|9|P2.team_defense|PASS|Production + explosive counts per game|defense/TEN_at_CIN.md|
+|10|P2.coverage|PASS|Sharp coverage pages dated Oct 20 = CURRENT per user (last games before slate)|defense/SOURCES.md|
+|11|P2.individual_assignments|PARTIAL|Only PBP-named defenders on big plays (weak signal); no charted assignment source|team_baselines/|
+|12|P2.weakest_link|PARTIAL|Alignment-level weakest link from Sharp ranks (see Soft spots); player-level unverified|defense/TEN_at_CIN.md|
+|13|P2.pressure_trend|PARTIAL|ESPN PRWR through Wk6 only; pbp sack/hit trend|defense/TEN_at_CIN.md|
+|14|P3.team_offense|PASS|QB/team production|team_baselines/|
+|15|P3.player_roles|PASS|Roles + L3 vs season shares; roster-checked 2026-10-29 05:25 EDT|defense/TEN_at_CIN.md; rosters/|
+|16|P3.ol_health|PARTIAL|OL designations from ESPN injuries; Thu practice pending|injuries.json|
+|17|P3.target_hierarchy|PASS|L3 vs season target/carry share (opportunity gate inputs)|team_baselines/|
+|18|P3.routes_gaps|PARTIAL|NGS separation/cushion; run gaps from pbp direction; no route participation|defense/raw|
+|19|P3.qb_blitz|PASS|FTN EPA vs blitz / no-blitz per offense|defense/TEN_at_CIN.md|
+|20|P4.slip_comparison|NOT_APPLICABLE|No slip supplied for this game|—|
+|21|P4.injury_alerts|PARTIAL|Wed status logged; Thursday reports PENDING|injuries.json; this file Injury impact|
+|22|P4.script_risk|PARTIAL|Backup-QB/workload risk noted from injuries; 10G labels pending|this file|
+|23|P5.bundle|PARTIAL|Markdown/JSON bundle; no engine-versioned bundle|week8/|
+|24|P5.provenance|PARTIAL|sha256 of inputs recorded below; engine code/model hash unavailable (nfl.py on user Mac)|this file|
+|25|P5.source_preservation|PASS|Repo SQLite untouched; fixes in overlay|fixes/PATCH_SPEC.md|
+|26|P6.live_policy|NOT_APPLICABLE|Pregame; live polling off|—|
+|27|P7.ngs_targeted_charts|PARTIAL|NGS public leaderboards (sep/cushion/YACOE/TTT); per-game targeted charts not read|defense/raw|
+|28|P7.all_routes|UNAVAILABLE|Route participation not in any public source loaded|—|
+|29|P7.run_concepts|UNAVAILABLE|No verified run-concept source; film pending|film/|
+|30|P7.strength_map|PARTIAL|Sharp alignment YPT + box rates; no side-level split|defense/TEN_at_CIN.md|
+|31|P7.rb_suppression|PARTIAL|RB YPC/rush+rec allowed + game state; RB quality adj not applied|defense/TEN_at_CIN.md|
+|32|P7.cb_suppression|UNAVAILABLE|Individual CB coverage stats are paid/not loaded|—|
+|33|P7.panthers_rule|PARTIAL|QB NGS/blitz review for: Cam Ward, Joe Burrow; exact OL/pass-rush matchup not charted|defense/TEN_at_CIN.md|
+|34|P8.film|PARTIAL|Codex YouTube highlight notes done for TEN 3/6 games, CIN 2/5 (film/codex_out, still running; not yet verified vs pbp by this worker)|film/codex_out|
+|35|P8.personnel|UNAVAILABLE|Personnel packages need film; depth chart formation only|rosters/|
+|36|P8.scheme|PARTIAL|Coverage shells from Sharp (man/zone/MOFC); fronts/run fits need film|defense/TEN_at_CIN.md|
+|37|P8.missed_looks|UNAVAILABLE|Pending verified film notes|film/|
+|38|P8.film_notes|PARTIAL|Codex notes unverified; hypotheses only|film/codex_out|
+|39|P9.weather|PARTIAL|Forecast (Open-Meteo, pulled 2026-10-29 05:25 EDT) kickoff hr: 60.8°F, precip prob 24%, wind 1.3 mph gust 4.3 — 3-day-out forecast, re-pull Sat/Sun|https://api.open-meteo.com|
+|40|P9.rest_travel|PASS|TEN last game 2026-10-25 (7 days rest); CIN last game 2026-10-25 (7 days). Time-zone change only from venue, no itineraries invented|ESPN team schedule API|
+|41|P9.stakes|PARTIAL|Records from ESPN scoreboard; divisional/rematch not a 2026 rematch; playoff-odds not pulled|defense/TEN_at_CIN.md|
+|42|P9.injury_spikes|PARTIAL|Exact-game availability: Wed designations; Thu/Fri + inactives pending|injuries.json|
+|43|P9.turnovers|PARTIAL|Turnovers in pbp/baselines; rolling interpretation not m
+# AVAILABLE PROPS (main line)
+drewsample (CIN) recyds under 8.5 -110.5
+chasebrown (CIN) recyds over 21.5 -114.5
+calvinridley (TEN) recyds under 22 +nan
+tonypollard (TEN) rushyds over 65.5 -113
+camward (TEN) rushyds under 9.5 -114
+michaelcarter (nan) rushyds under 11.5 -113
+samajeperine (CIN) rushrecyds over 35.5 -114
+mikegesicki (CIN) recyds over 22.5 -114
+michaelcarter (nan) recyds under 7.5 -114
+danielbellinger (TEN) recyds over 9.5 -115
+samajeperine (CIN) rushyds over 23.5 -114
+chimeredike (TEN) recyds under 9.5 -115.5
+samajeperine (CIN) rushrecyds under 35.5 -117
+chasebrown (CIN) rushrecyds under 85.5 -115
+joeburrow (CIN) rushyds over 5.5 -114
+joeburrow (CIN) rushyds under 5.5 -112.5
+mikegesicki (CIN) recyds under 22.5 -112.5
+samajeperine (CIN) recyds under 8 +nan
+chasebrown (CIN) rushyds over 60.5 +nan
+camward (TEN) rushyds over 9.5 -113.5
+michaelcarter (nan) recyds over 7.5 -115
+michaelcarter (nan) rushyds over 11.5 -114
+dohntemeyers (CIN) recyds over 12.5 -116
+tonypollard (TEN) recyds over 12.5 -115
+tonypollard (TEN) recyds under 12.5 -110
+chasebrown (CIN) rushrecyds over 85.5 -114
+drewsample (CIN) recyds over 8.5 -117.5
+michaelcarter (nan) rushrecyds under 23.5 -115
+samajeperine (CIN) rushyds under 23.5 -113
+teehiggins (CIN) recyds over 72.5 -115
+chimeredike (TEN) recyds over 9.5 -110
+elicayomanor (TEN) recyds under 33.5 -114
+jamarrchase (CIN) recyds over 83.5 -115
+tonypollard (TEN) rushyds under 65.5 -113
+gunnarhelm (TEN) recyds over 21.5 -115
+samajeperine (CIN) recyds over 8 +nan
+tonypollard (TEN) rushrecyds under 81.5 -115
+elicayomanor (TEN) recyds over 33.5 -111.5
+calvinridley (TEN) recyds over 22 +nan
+michaelcarter (nan) rushrecyds over 23.5 -113
+wandalerobinson (TEN) recyds over 48 +nan
+chasebrown (CIN) rushyds under 60.5 +nan
+jamarrchase (CIN) recyds under 83.5 -114
+gunnarhelm (TEN) recyds under 21.5 -113
+chasebrown (CIN) recyds under 21.5 -115
+wandalerobinson (TEN) recyds under 48 +nan
+tonypollard (TEN) rushrecyds over 81.5 -115
+dohntemeyers (CIN) recyds under 12.5 -111.5
+danielbellinger (TEN) recyds under 9.5 -115
+teehiggins (CIN) recyds under 72.5 -115

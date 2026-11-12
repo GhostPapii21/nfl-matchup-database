@@ -1,0 +1,348 @@
+{
+  "pulled_et": "2026-11-12T10:52",
+  "zone": "America/New_York",
+  "game": "WAS@NYG",
+  "venue": "MetLife Stadium, East Rutherford NJ, open air",
+  "coords": {
+    "lat": 40.8135,
+    "lon": -74.0745
+  },
+  "kickoff_et": "2026-11-12T20:15",
+  "window_requested": "19:00-23:00 ET (7-11 PM)",
+  "sources": {
+    "nws_hourly": "https://api.weather.gov/gridpoints/OKX/30,46/forecast/hourly",
+    "nws_gridpoint": "https://api.weather.gov/gridpoints/OKX/30,46",
+    "nws_office": "OKX grid 30,46",
+    "nws_updateTime_utc": "2026-11-12T15:28:01+00:00",
+    "nws_generatedAt_utc": "2026-11-12T15:42:42+00:00",
+    "nws_grid_updateTime_utc": "2026-11-12T15:28:01+00:00",
+    "open_meteo": "https://api.open-meteo.com/v1/forecast (hourly precip, pop, wind, gusts, temp F; America/New_York)",
+    "tool_snapshot": "forecast_2026-11-12_1049.json via tools/weather_forecast.py"
+  },
+  "thresholds": {
+    "precip_pct": 50,
+    "gust_mph": 20,
+    "wind_mph": 15,
+    "note": "GUST20 and PRECIP flags are inclusive; tool uses worse of NWS and Open-Meteo in kickoff-to-kickoff+3.5h window"
+  },
+  "nws_hourly_forecast": [
+    {
+      "et": "2026-11-12 19:00 ET",
+      "shortForecast": "Light Rain Likely",
+      "temperature_F": 53,
+      "windSpeed": "12 mph",
+      "windDirection": "NE",
+      "windGust_hourly_endpoint": null,
+      "precip_pct": 74,
+      "humidity_pct": 88
+    },
+    {
+      "et": "2026-11-12 20:00 ET",
+      "shortForecast": "Light Rain Likely",
+      "temperature_F": 52,
+      "windSpeed": "12 mph",
+      "windDirection": "NE",
+      "windGust_hourly_endpoint": null,
+      "precip_pct": 74,
+      "humidity_pct": 89
+    },
+    {
+      "et": "2026-11-12 21:00 ET",
+      "shortForecast": "Light Rain Likely",
+      "temperature_F": 51,
+      "windSpeed": "10 mph",
+      "windDirection": "NE",
+      "windGust_hourly_endpoint": null,
+      "precip_pct": 74,
+      "humidity_pct": 89
+    },
+    {
+      "et": "2026-11-12 22:00 ET",
+      "shortForecast": "Light Rain Likely",
+      "temperature_F": 50,
+      "windSpeed": "8 mph",
+      "windDirection": "NE",
+      "windGust_hourly_endpoint": null,
+      "precip_pct": 71,
+      "humidity_pct": 90
+    },
+    {
+      "et": "2026-11-12 23:00 ET",
+      "shortForecast": "Light Rain Likely",
+      "temperature_F": 49,
+      "windSpeed": "9 mph",
+      "windDirection": "NE",
+      "windGust_hourly_endpoint": null,
+      "precip_pct": 71,
+      "humidity_pct": 91
+    }
+  ],
+  "nws_gridpoint_converted": {
+    "windSpeed_mph": [
+      {
+        "et": "2026-11-12 18:00 ET",
+        "wind_mph": 11.5,
+        "raw_kmh": 18.52,
+        "validTime": "2026-11-12T23:00:00+00:00/PT3H"
+      },
+      {
+        "et": "2026-11-12 21:00 ET",
+        "wind_mph": 10.4,
+        "raw_kmh": 16.668,
+        "validTime": "2026-11-13T02:00:00+00:00/PT1H"
+      },
+      {
+        "et": "2026-11-12 22:00 ET",
+        "wind_mph": 8.1,
+        "raw_kmh": 12.964,
+        "validTime": "2026-11-13T03:00:00+00:00/PT1H"
+      },
+      {
+        "et": "2026-11-12 23:00 ET",
+        "wind_mph": 9.2,
+        "raw_kmh": 14.816,
+        "validTime": "2026-11-13T04:00:00+00:00/PT1H"
+      }
+    ],
+    "windGust_mph": [
+      {
+        "et": "2026-11-12 19:00 ET",
+        "gust_mph": 21.9,
+        "raw_kmh": 35.188
+      },
+      {
+        "et": "2026-11-12 20:00 ET",
+        "gust_mph": 19.6,
+        "raw_kmh": 31.484
+      },
+      {
+        "et": "2026-11-12 21:00 ET",
+        "gust_mph": 18.4,
+        "raw_kmh": 29.632
+      },
+      {
+        "et": "2026-11-12 22:00 ET",
+        "gust_mph": 11.5,
+        "raw_kmh": 18.52
+      },
+      {
+        "et": "2026-11-12 23:00 ET",
+        "gust_mph": 12.7,
+        "raw_kmh": 20.372
+      }
+    ],
+    "qpf": [
+      {
+        "et": "2026-11-12 19:00 ET",
+        "qpf_in": 0.14,
+        "raw_mm": 3.556,
+        "validTime": "2026-11-13T00:00:00+00:00/PT6H"
+      }
+    ],
+    "note": "forecastHourly periods do not include windGust (null). Gusts and QPF come from the gridpoint endpoint. windSpeed at 18:00 ET is valid PT3H (covers 7-8 PM at 11.5 mph); hourly forecast lists 12 mph NE at 19:00 and 20:00."
+  },
+  "open_meteo_hourly": [
+    {
+      "et": "2026-11-12 19:00 ET",
+      "precip_pct": 63,
+      "precip_in": 0.0,
+      "wind_mph": 14.7,
+      "gust_mph": 32.9,
+      "temp_F": 51.8,
+      "weather_code": 3
+    },
+    {
+      "et": "2026-11-12 20:00 ET",
+      "precip_pct": 46,
+      "precip_in": 0.0,
+      "wind_mph": 12.6,
+      "gust_mph": 31.8,
+      "temp_F": 51.3,
+      "weather_code": 3
+    },
+    {
+      "et": "2026-11-12 21:00 ET",
+      "precip_pct": 38,
+      "precip_in": 0.0,
+      "wind_mph": 11.4,
+      "gust_mph": 27.5,
+      "temp_F": 51.1,
+      "weather_code": 3
+    },
+    {
+      "et": "2026-11-12 22:00 ET",
+      "precip_pct": 32,
+      "precip_in": 0.055,
+      "wind_mph": 9.7,
+      "gust_mph": 24.6,
+      "temp_F": 50.2,
+      "weather_code": 61
+    },
+    {
+      "et": "2026-11-12 23:00 ET",
+      "precip_pct": 29,
+      "precip_in": 0.087,
+      "wind_mph": 10.8,
+      "gust_mph": 25.3,
+      "temp_F": 49.0,
+      "weather_code": 61
+    }
+  ],
+  "tool_window_kickoff_to_plus_3_5h": {
+    "this_pull_1049": {
+      "roof": "open",
+      "nws": {
+        "precip_pct": 74,
+        "wind_mph": 10,
+        "gust_mph": null,
+        "short": [
+          "Light Rain Likely"
+        ],
+        "hours": 3
+      },
+      "open_meteo": {
+        "precip_pct": 38,
+        "wind_mph": 9.7,
+        "gust_mph": 26.6,
+        "precip_in": 0.13,
+        "hours": 3
+      },
+      "notes": [],
+      "status": "OK",
+      "flag": true,
+      "why": [
+        "precip 74%",
+        "gusts 26.6 mph"
+      ],
+      "precip_pct": 74,
+      "gust_mph": 26.6,
+      "wind_mph": 10,
+      "kickoff_et": "2026-11-12T20:15"
+    },
+    "this_morning_0901": {
+      "roof": "open",
+      "nws": {
+        "precip_pct": 74,
+        "wind_mph": 13,
+        "gust_mph": null,
+        "short": [
+          "Light Rain Likely"
+        ],
+        "hours": 3
+      },
+      "open_meteo": {
+        "precip_pct": 43,
+        "wind_mph": 11.9,
+        "gust_mph": 29.5,
+        "precip_in": 0.02,
+        "hours": 3
+      },
+      "notes": [],
+      "status": "OK",
+      "flag": true,
+      "why": [
+        "precip 74%",
+        "gusts 29.5 mph"
+      ],
+      "precip_pct": 74,
+      "gust_mph": 29.5,
+      "wind_mph": 13,
+      "kickoff_et": "2026-11-12T20:15"
+    },
+    "early_morning_0553": {
+      "roof": "open",
+      "nws": {
+        "precip_pct": 74,
+        "wind_mph": 13,
+        "gust_mph": null,
+        "short": [
+          "Light Rain Likely"
+        ],
+        "hours": 3
+      },
+      "open_meteo": {
+        "precip_pct": 54,
+        "wind_mph": 12.1,
+        "gust_mph": 23.5,
+        "precip_in": 0.17,
+        "hours": 3
+      },
+      "notes": [],
+      "status": "OK",
+      "flag": true,
+      "why": [
+        "precip 74%",
+        "gusts 23.5 mph"
+      ],
+      "precip_pct": 74,
+      "gust_mph": 23.5,
+      "wind_mph": 13,
+      "kickoff_et": "2026-11-12T20:15"
+    }
+  },
+  "comparison_to_earlier": {
+    "nws_this_morning_stated": "74% chance of light rain; gusts about 20 mph (hourly endpoint had gusts null; 09:01 tool window NWS precip 74%, wind 13 mph, gust null)",
+    "open_meteo_earlier_stated_7_to_11": "35-45% rain chance; gusts 35.6 mph at 7 PM, about 29-30 at kickoff, 23 by 11 PM. 09:01 tool window: pop 43%, gust 29.5 mph, precip 0.02 in, wind 11.9 mph",
+    "now_nws": "Still Light Rain Likely. Pop 74% at 7-9 PM, 71% at 10-11 PM (unchanged at kickoff). Sustained 12 mph at 7-8 PM, 10/8/9 later (slightly down from 13 this morning in the tool window). Gridpoint gusts 21.9 mph at 7 PM, 19.6 at 8 PM, then 18.4/11.5/12.7. QPF 0.14 in over 6 hours starting 7 PM.",
+    "now_open_meteo_7_to_11": [
+      {
+        "et": "2026-11-12 19:00 ET",
+        "precip_pct": 63,
+        "precip_in": 0.0,
+        "wind_mph": 14.7,
+        "gust_mph": 32.9,
+        "temp_F": 51.8,
+        "weather_code": 3
+      },
+      {
+        "et": "2026-11-12 20:00 ET",
+        "precip_pct": 46,
+        "precip_in": 0.0,
+        "wind_mph": 12.6,
+        "gust_mph": 31.8,
+        "temp_F": 51.3,
+        "weather_code": 3
+      },
+      {
+        "et": "2026-11-12 21:00 ET",
+        "precip_pct": 38,
+        "precip_in": 0.0,
+        "wind_mph": 11.4,
+        "gust_mph": 27.5,
+        "temp_F": 51.1,
+        "weather_code": 3
+      },
+      {
+        "et": "2026-11-12 22:00 ET",
+        "precip_pct": 32,
+        "precip_in": 0.055,
+        "wind_mph": 9.7,
+        "gust_mph": 24.6,
+        "temp_F": 50.2,
+        "weather_code": 61
+      },
+      {
+        "et": "2026-11-12 23:00 ET",
+        "precip_pct": 29,
+        "precip_in": 0.087,
+        "wind_mph": 10.8,
+        "gust_mph": 25.3,
+        "temp_F": 49.0,
+        "weather_code": 61
+      }
+    ],
+    "trend": "Not trending to a normal game. NWS rain chance is unchanged at 74% around kickoff. Open-Meteo rain chance is mixed (higher at 7 PM at 63% than the earlier 35-45% band; 46% at 8 PM; then 38/32/29). OM game-window precip in the 10:49 tool file rose to 0.13 in from 0.02 in at 09:01 (0.17 in at 05:53). Gusts: OM still well above 20 (32.9 at 7 PM, 31.8 at 8 PM, 25.3 at 11 PM) though a bit below the earlier 35.6 / 29-30 / 23 profile at 7 PM and a bit above it at kickoff and 11 PM. NWS gridpoint gusts are only barely at 20 around 7-8 PM.",
+    "GUST20_still_applies": true,
+    "GUST20_reason": "Worse-of-sources rule still flags gusts because Open-Meteo remains 20+ throughout 7-11 PM (max 32.9; tool window max 26.6). NWS gridpoint alone would be 21.9 at 7 PM and 19.6 at kickoff, so NWS-only is borderline and would fade under 20 after 8 PM. Combined flag stays on. PRECIP flag also stays on from NWS 74%.",
+    "normal_game": false
+  },
+  "flags": {
+    "precip50": true,
+    "GUST20": true,
+    "nws_max_pop_7_to_11": 74,
+    "nws_max_gust_mph_7_to_11": 21.9,
+    "open_meteo_max_pop_7_to_11": 63,
+    "open_meteo_max_gust_mph_7_to_11": 32.9,
+    "open_meteo_precip_in_7_to_11": 0.142
+  }
+}

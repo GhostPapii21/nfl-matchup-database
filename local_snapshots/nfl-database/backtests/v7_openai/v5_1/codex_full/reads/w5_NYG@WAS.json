@@ -1,0 +1,48 @@
+{
+ "game": "Week 5 NYG@WAS / kickoff time MISSING / spread and total NOT SAVED; script inferred only from supplied team form, not market expectations / weather NOT SAVED. Moneyline, implied totals, venue details, rest, travel and opening-line movement MISSING.",
+ "script": {
+  "base": "Working hypothesis: a competitive game without an established favorite, with Washington retaining rushing opportunities and New York using short outlets against Washington's aggressive blitzing. A tentative Washington late lead is plausible if that pressure disrupts New York, but the pack does not establish halftime leadership or pace.",
+  "flip1": "New York handles Washington's blitz and builds an early lead. Washington's rushing volume becomes vulnerable, while Cam Skattebo's receiving opportunities could shrink if New York protects the lead on the ground.",
+  "flip2": "Washington's pressure produces stalled New York possessions rather than successful checkdowns, and Washington controls the second half. That supports Washington rushing opportunities but can defeat Skattebo's receiving over if his assignment is protection rather than receiving."
+ },
+ "injury_fallout": "MISSING: injury reports, practice trends, final injury designations, inactive lists and return-related snap limits for both NYG and WAS. No absence, return, next-man-up promotion or injury-related redistribution is inferred from usage. Skattebo's nine targets and Rachaad White's 15 carries are observed weeks 2\u20134 usage, not evidence of an injury-driven role change. Recheck any affected leg against final reports and approximately 90-minute inactives; neither checkpoint is available in this pack.",
+ "matchup": {
+  "shell": "MISSING: MOFO/MOFC, man/zone rates and coverage assignments. Washington's 11.36 YPA allowed through the middle on 25 attempts identifies a location-level vulnerability, but the pack does not establish which receivers attack it.",
+  "pressure": "The pregame pack lists WAS blitzing at 47%; NYG QB EPA/dropback is -0.55 against blitzes across 38 dropbacks versus +0.28 without a blitz. This motivates a short-outlet hypothesis for Skattebo, not a verified checkdown tendency. NYG blitzes at 34%, while WAS QB EPA/dropback is -0.25 against blitzes across 31 dropbacks versus +0.10 otherwise. Pressure rates, sacks, protection assignments and time to throw are missing.",
+  "bleeds": "NYG has allowed 4.88 rushing yards per carry and 11 runs of at least 10 yards through four games, giving White a plausible rushing-efficiency matchup. WAS has allowed 4.21 YPC and nine runs of at least 10 yards. Explosive passes allowed are 12/143 attempts for WAS and 8/138 for NYG. Position-specific receiving allowances, stuff rates, box counts and YAC allowed are missing.",
+  "overlap": "White's rushing role directly overlaps NYG's permissive rushing efficiency. Skattebo's existing receiving usage offers a possible outlet against WAS blitzing, but routes, middle-field alignment and blitz-target splits are unavailable. NYG's target leader is Isaiah Likely with 27 targets; the pack does not prove that Skattebo becomes the primary pressure answer."
+ },
+ "form": "Source: supplied pre-kickoff pack, offense weeks 2\u20134 and defense through week 4; exact collection timestamps are missing. Brainstorm hypotheses precede these numerical checks. White recorded 15 carries for 78 yards over three games: five carries per game and 5.20 YPC, versus J. Croskey-Merritt's 40 carries for 94 yards, or 2.35 YPC. White therefore has an efficiency case, not a lead-back volume case. Skattebo recorded nine targets, 67 receiving yards and 32 air yards over three games, alongside 50 carries for 154 yards. His receiving production supports the outlet hypothesis, but individual-game distributions are missing. Snaps, routes, red-zone work, play-caller changes and comparable-opponent game logs are also missing.",
+ "edge_players": [
+  {
+   "player": "rachaadwhite",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "White can beat 20.5 rushing yards on a modest workload because his recent rushing efficiency meets a Giants defense allowing 4.88 yards per carry.",
+   "must_be_true": "Rachaad White carries >= 5 [because the pack records 15 carries across weeks 2\u20134]",
+   "kills_it": "IF Washington falls behind early and White receives fewer than four carries THEN the Rachaad White rushyds over 20.5 leg fails.",
+   "confidence": "lean"
+  },
+  {
+   "player": "camskattebo",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Skattebo can beat 13.5 receiving yards if Washington's frequent blitzing sustains his existing short-outlet opportunities.",
+   "must_be_true": "Cam Skattebo targets >= 3 [because the pack records nine targets across weeks 2\u20134]",
+   "kills_it": "IF New York keeps Skattebo in protection and he finishes without a reception THEN the Cam Skattebo recyds over 13.5 leg fails.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "White's recent five-carry workload would require more than 4.10 YPC to clear 20.5; both his recent 5.20 YPC and NYG's 4.88 allowed support, rather than contradict, the hypothesis. Skattebo's 67 receiving yards on nine targets support the feasibility of 13.5, but do not establish a hit probability. No projection or simulation was run because none is supplied and game-level inputs are insufficient. At -113.5, White's break-even probability is 53.16%; the supplied symmetric opposite prices imply a proportional no-vig benchmark of 50.00%. At -118, Skattebo's break-even is 54.13%; paired with under -110, the supplied proportional no-vig over benchmark is approximately 50.82%. These are listed-market benchmarks, not verified Pinnacle prices, and do not prove positive expected value.",
+  "disagrees": "none",
+  "missing": "Projection, simulation median and distribution, calibrated probabilities, Pinnacle prices, game-level usage, routes, protection usage, verified checkdown tendency, injuries, inactives, weather and exact source timestamps.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line candidates only: rachaadwhite rushyds over 20.5 at -113.5; camskattebo recyds over 13.5 at -118. White's market expresses an efficiency-plus-minimum-workload hypothesis; Skattebo's expresses short receiving opportunity, with receptions unavailable under the permitted markets. Neither price has a demonstrated model edge. No alternate rungs or stakes recommended.",
+ "pre_mortem": "It is Monday and both lost: White remained behind Croskey-Merritt, whose 40 recent carries dwarf White's 15, and five carries provided too little margin if White's 5.20 YPC regressed. NYG's aggregate rushing allowance did not guarantee favorable blocking on White's particular attempts. Skattebo stayed in protection against Washington's blitz, while Likely, already carrying 27 recent targets, absorbed the short throws. NYG's poor blitz EPA translated into failed possessions rather than running-back receiving yards. The strongest objections are White's limited volume and the unverified link between blitzing and Skattebo targets; both remain leans, not strong recommendations.",
+ "slip_story": "Shared story: Washington retains rushing access while New York answers pressure with short throws. White's over fits the competitive base case and a Washington-control flip; Skattebo's over can fit both only if he releases into routes. Both are vulnerable to the New York-lead flip. Do not force a 3\u20134-leg slip from two candidates or claim strong correlation: keep these as conditional singles/watchlist legs, with no TDs and one market per player. Step 12: this JSON records the pregame hypotheses, but no external save, timestamp lock, hash or postgame grading has been performed. Later grade script accuracy and player-edge accuracy separately from bet results; review Steps 3\u20135 for workload/protection misses and Step 2 for script misses.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

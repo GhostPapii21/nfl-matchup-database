@@ -1,0 +1,26 @@
+{
+ "weights_fit_wk3_7": {
+  "s_allow": 0.1214,
+  "s_explosive": -0.0361,
+  "s_qb": -0.9104,
+  "s_script": -0.0805,
+  "s_weather": 1.1393,
+  "s_promo": 1.4347,
+  "s_rb2": -0.8152,
+  "s_deep": 0.5566,
+  "s_repeat": 0.63,
+  "m_ryds": 0.0752,
+  "m_rec": -0.1211,
+  "m_recyds": 0.0869
+ },
+ "intercept": -0.2077529315033353,
+ "valid_from_week": 8,
+ "fit_weeks": [
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "note": "walk-forward logistic fit (backtests/scan_press/fit_weights.py); used only for week >= valid_from_week so no outcome leaks into its own ranking"
+}

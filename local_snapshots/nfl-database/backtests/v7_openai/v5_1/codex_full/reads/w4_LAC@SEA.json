@@ -1,0 +1,48 @@
+{
+ "game": "Week 4 LAC@SEA / kickoff MISSING / spread, total, moneyline, implied totals and line movement MISSING; script inferred only from supplied Weeks 1\u20133 form / weather MISSING; venue configuration, rest and travel details MISSING",
+ "script": {
+  "base": "Hypothesis, not a market-implied script: SEA's passing advantage produces a competitive first half and a second-half lead, with J.Smith-Njigba driving the offense. LAC struggles to generate explosive plays against SEA, while SEA's divided backfield prevents a clear rushing-volume beneficiary; pace and garbage time cannot be established from this pack.",
+  "flip1": "LAC leads early, forcing SEA toward its passing game. Smith-Njigba's receiving over and E.Wilson's rushing under retain plausible paths through increased passing volume and reduced rushing opportunity.",
+  "flip2": "SEA builds a large early lead and shifts toward clock-killing carries. Smith-Njigba's yardage can stall before his line, while Wilson could receive enough additional carries to defeat his rushing under."
+ },
+ "injury_fallout": "MISSING: injury reports, practice trends, final designations, inactives and snap restrictions for both LAC and SEA. No absences, returns or next-man-up assignments are inferred from usage. Wilson's 32 carries, J.Price's 28 and G.Holani's 15 establish recent workload distribution only, not its medical cause. Source: supplied SEA offense, Weeks 1\u20133; exact report timestamps unavailable.",
+ "matchup": {
+  "shell": "MISSING: LAC and SEA MOFO/MOFC, man/zone rates and individual coverage assignments. Location-level passing results cannot establish Smith-Njigba's specific defender or alignment matchup.",
+  "pressure": "The supplied defensive pack lists LAC blitzing 25% and SEA blitzing 20%. SEA's offense has positive QB EPA/dropback against both blitzes (0.47, n=43) and non-blitzes (0.15); LAC's corresponding figures are -0.46 (n=25) and -0.03. Actual pressure rates, protection health and sack/checkdown effects are MISSING; blitz rate is not pressure rate.",
+  "bleeds": "Through three games, LAC allowed 9 passes of 20+ yards on 99 attempts, versus SEA's 2 on 99. LAC allowed 9.47 YPA left and 7.93 right, versus 5.67 middle. Its run defense allowed 4.00 YPC and eight runs of 10+ yards, so Wilson's under rests on workload division rather than an elite run-stopping matchup. Source: supplied defensive pack.",
+  "overlap": "Smith-Njigba owns SEA's largest supplied target total, 36, and 348 air yards, aligning the primary receiving option with LAC's demonstrated explosive-pass vulnerability. His route-location overlap is unverified. Wilson competes with Price and Holani for carries, making his rushing volume less secure than SEA's potential lead alone suggests."
+ },
+ "form": "Source: supplied Weeks 1\u20133 offense totals. Smith-Njigba recorded 36 targets, 405 receiving yards and 348 air yards; the next-highest listed SEA target totals are 12 each for R.Shaheed and A.Barner. Wilson recorded 32 carries for 109 yards, Price 28 for 119 and Holani 15 for 52. Wilson therefore handled 32 of the trio's 75 carries. These aggregates do not establish weekly trends, snaps, routes, red-zone usage, comparable-opponent results or whether individual long plays inflated production.",
+ "edge_players": [
+  {
+   "player": "jaxonsmithnjigba",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Smith-Njigba can exceed 93.5 receiving yards because SEA's concentrated target leader faces a LAC defense that has allowed nine explosive passes in three games.",
+   "must_be_true": "J.Smith-Njigba targets >= 10 [because the pack records 36 targets across Weeks 1\u20133]",
+   "kills_it": "IF SEA establishes an early multi-score lead and reduces passing before Smith-Njigba reaches 94 receiving yards THEN Smith-Njigba over 93.5 receiving yards fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "emanuelwilson",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Wilson can stay below 45.5 rushing yards because SEA's carries are divided among three backs and its clearest matchup advantage is through the air.",
+   "must_be_true": "E.Wilson carries <= 11 [because the pack records 32 carries for Wilson versus 43 combined for J.Price and G.Holani across Weeks 1\u20133]",
+   "kills_it": "IF SEA's early lead concentrates clock-killing work on Wilson and he reaches 46 rushing yards THEN Wilson under 45.5 rushing yards fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written matchup hypotheses precede these numerical checks. Smith-Njigba's target concentration and LAC's nine explosive passes allowed support the receiving read. For Wilson, 11 carries at LAC's supplied 4.00 YPC allowed would produce 44 yards; this is a sensitivity calculation, not a projection or simulation. Available prices imply break-even probabilities of 53.49% for Smith-Njigba over at -115 and 53.27% for Wilson under at -114, before accounting for vig. Neither establishes a quantified betting edge.",
+  "disagrees": "none",
+  "missing": "Projection model, simulated distributions and medians, Pinnacle no-vig prices, weekly workload splits, routes, coverage charting, injury/inactive information, weather, market snapshot and precise source timestamps. Missing information limits validation but does not itself contradict either read.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Conditional main-line leans only: jaxonsmithnjigba recyds over 93.5 at -115; emanuelwilson rushyds under 45.5 at -114. Receiving yards fits Smith-Njigba's target-plus-explosive matchup; rushing under isolates Wilson's divided carry opportunity. No alternate rung or stake is justified without modeled probabilities and verified availability.",
+ "pre_mortem": "It is Monday and both lost: SEA scored early through other players, then protected its lead on the ground. Smith-Njigba's 36 prior targets did not guarantee continued volume, while Wilson received a larger share than his prior 32-of-75 split suggested. LAC's eight runs of 10+ yards allowed also gave Wilson an explosive route over his line without a workload increase. Missing coverage assignments and injury information could conceal reasons for either role to change. Both legs survive a LAC-leads flip, but both are script-dependent against a SEA blowout; that limits confidence to lean.",
+ "slip_story": "Watchlist story: SEA wins primarily through Smith-Njigba and the passing game while its rushing work remains divided. These two legs fit that story, but no 3\u20134-leg main slip is built: the pack does not justify adding legs, and their shared SEA-blowout failure mode must not be treated as independent risk.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

@@ -1,0 +1,159 @@
+# RB receiving game-script backtest (2026 Wk3–8). Analysis only, no rules changed
+Generated 2026-11-01 (ET). Script `bt_rb_rec.py` (legs) + `analyze.py` (tables). Every leg: `rb_rec_legs.csv`.
+
+**Setup**
+- **Universe:** each team's lead RB (most carries over prior games, ≥2 prior games) who was active. Wk3–7 + Wk8 TNF graded from nflverse pbp; Wk8 Sunday graded from `playlogs/2026_wk8/*_box.json`, spread/total from `game_scripts_2026.csv`. ~155 player-games per market.
+- **Walk-forward:** week W uses only data before week W for both the sim (sim_v6 RAW, calib=None, 100k × mc/bias/gr; p = mean P(X ≥ line)) and every trigger.
+- **Lines:** real book lines (Wk8 run manifests) for 2 rec, 0 rec-yds, 15 rush+rec and 16 rush legs. Everything else is a **stand-in** (floor(prior median)+0.5). Stand-ins are not book lines; books shade RB receiving lines, so absolute ROI is indicative only.
+- **Triggers (pregame):**
+  - (a) projected pass attempts ≥ 40: team prior attempts avg + walk-forward OLS adjustment on spread and implied total (also a looser ≥35 variant). The projection correlates only r = 0.22 with actual attempts.
+  - (b) team is a 3+ point underdog.
+  - (c) favorite whose own pass D ranks bottom-8 in prior EPA/dropback allowed (shootout risk).
+  - (d) starting QB (last game) in the top third of a composite checkdown score (RB target share + share of throws at or behind the line).
+- ROI assumes every over is bet at that price. "hit − p" > 0 means the sim was too low.
+# RB receiving game-script backtest (2026 Wk3–8). Analysis only, no rules changed
+
+
+## Receptions OVER (lead RB)
+
+| Bucket | n | W | Hit | 90% CI | ROI −110 | ROI −130 | ROI −160 | mean sim p | hit − p |
+|---|---|---|---|---|---|---|---|---|---|
+| ALL lead RBs | 155 | 59 | 38.1% | 32%-45% | -27.3% | -32.7% | -38.1% | 0.37 | +0.008 |
+| a: proj PA>=40 | 13 | 3 | 23.1% | 10%-46% | -55.9% | -59.2% | -62.5% | 0.38 | -0.148 |
+|   not a | 142 | 56 | 39.4% | 33%-46% | -24.7% | -30.2% | -35.9% | 0.37 | +0.022 |
+| a2: proj PA>=35 (looser) | 54 | 19 | 35.2% | 25%-46% | -32.8% | -37.7% | -42.8% | 0.40 | -0.051 |
+|   not a35 | 101 | 40 | 39.6% | 32%-48% | -24.4% | -29.9% | -35.6% | 0.36 | +0.040 |
+| b: dog >=3 | 54 | 21 | 38.9% | 29%-50% | -25.8% | -31.2% | -36.8% | 0.36 | +0.028 |
+|   not b | 101 | 38 | 37.6% | 30%-46% | -28.2% | -33.4% | -38.9% | 0.38 | -0.003 |
+| c: fav w/ bottom-8 own pass D | 15 | 2 | 13.3% | 5%-33% | -74.5% | -76.4% | -78.3% | 0.36 | -0.223 |
+|   not c | 140 | 57 | 40.7% | 34%-48% | -22.3% | -28.0% | -33.8% | 0.37 | +0.033 |
+| d: QB checkdown top 1/3 | 46 | 15 | 32.6% | 22%-45% | -37.7% | -42.3% | -47.0% | 0.39 | -0.065 |
+|   not d | 109 | 44 | 40.4% | 33%-48% | -22.9% | -28.6% | -34.4% | 0.36 | +0.039 |
+| any trigger | 108 | 36 | 33.3% | 26%-41% | -36.4% | -41.0% | -45.8% | 0.37 | -0.039 |
+|   not any | 47 | 23 | 48.9% | 37%-61% | -6.6% | -13.4% | -20.5% | 0.37 | +0.115 |
+| real lines only | 2 | 0 | 0.0% | 0%-58% | -100.0% | -100.0% | -100.0% | 0.48 | -0.480 |
+| stand-ins only | 153 | 59 | 38.6% | 32%-45% | -26.4% | -31.8% | -37.3% | 0.37 | +0.014 |
+
+Signal on top of sim_v6 p (logistic hit ~ logit(p) + trigger; LR χ² 1df, ≥2.71 ≈ p<.10, ≥3.84 ≈ p<.05):
+
+| Trigger | coef | SE | LR χ² |
+|---|---|---|---|
+| a: proj PA>=40 | -0.77 | 0.65 | 1.43 |
+| a2: proj PA>=35 (looser) | -0.17 | 0.36 | 0.24 |
+| b: dog >=3 | +0.05 | 0.35 | 0.02 |
+| c: fav w/ bottom-8 own pass D | -1.51 | 0.78 | 5.02 |
+| d: QB checkdown top 1/3 | -0.33 | 0.37 | 0.78 |
+| any trigger | -0.65 | 0.35 | 3.32 |
+
+n per week (trigger legs / all):
+
+| week | trig_a | trig_a35 | trig_b | trig_c | trig_d | trig_any | all |
+|---|---|---|---|---|---|---|---|
+| 3 | 2 (0W) | 7 (3W) | 11 (1W) | 3 (1W) | 8 (0W) | 20 (2W) | 31 (9W) |
+| 4 | 3 (1W) | 9 (4W) | 10 (6W) | 3 (0W) | 8 (3W) | 20 (9W) | 29 (14W) |
+| 5 | 3 (1W) | 9 (2W) | 10 (1W) | 3 (0W) | 8 (3W) | 20 (5W) | 26 (8W) |
+| 6 | 1 (0W) | 7 (1W) | 4 (2W) | 2 (1W) | 7 (3W) | 13 (5W) | 21 (7W) |
+| 7 | 3 (1W) | 13 (6W) | 11 (6W) | 2 (0W) | 8 (3W) | 21 (9W) | 27 (14W) |
+| 8 | 1 (0W) | 9 (3W) | 8 (5W) | 2 (0W) | 7 (3W) | 14 (6W) | 21 (7W) |
+
+## Receiving yards OVER (lead RB)
+
+| Bucket | n | W | Hit | 90% CI | ROI −110 | ROI −130 | ROI −160 | mean sim p | hit − p |
+|---|---|---|---|---|---|---|---|---|---|
+| ALL lead RBs | 155 | 76 | 49.0% | 43%-56% | -6.4% | -13.3% | -20.3% | 0.42 | +0.071 |
+| a: proj PA>=40 | 13 | 3 | 23.1% | 10%-46% | -55.9% | -59.2% | -62.5% | 0.44 | -0.208 |
+|   not a | 142 | 73 | 51.4% | 45%-58% | -1.9% | -9.0% | -16.5% | 0.42 | +0.096 |
+| a2: proj PA>=35 (looser) | 54 | 24 | 44.4% | 34%-56% | -15.2% | -21.4% | -27.8% | 0.41 | +0.039 |
+|   not a35 | 101 | 52 | 51.5% | 43%-60% | -1.7% | -8.9% | -16.3% | 0.43 | +0.088 |
+| b: dog >=3 | 54 | 31 | 57.4% | 46%-68% | +9.6% | +1.6% | -6.7% | 0.41 | +0.162 |
+|   not b | 101 | 45 | 44.6% | 37%-53% | -14.9% | -21.2% | -27.6% | 0.42 | +0.022 |
+| c: fav w/ bottom-8 own pass D | 15 | 3 | 20.0% | 8%-41% | -61.8% | -64.6% | -67.5% | 0.38 | -0.182 |
+|   not c | 140 | 73 | 52.1% | 45%-59% | -0.5% | -7.7% | -15.3% | 0.42 | +0.098 |
+| d: QB checkdown top 1/3 | 46 | 19 | 41.3% | 30%-53% | -21.1% | -26.9% | -32.9% | 0.47 | -0.056 |
+|   not d | 109 | 57 | 52.3% | 44%-60% | -0.2% | -7.5% | -15.0% | 0.40 | +0.124 |
+| any trigger | 108 | 47 | 43.5% | 36%-51% | -16.9% | -23.0% | -29.3% | 0.43 | +0.001 |
+|   not any | 47 | 29 | 61.7% | 50%-72% | +17.8% | +9.2% | +0.3% | 0.39 | +0.231 |
+| real lines only | 0 | | | | | | | |
+| stand-ins only | 155 | 76 | 49.0% | 43%-56% | -6.4% | -13.3% | -20.3% | 0.42 | +0.071 |
+
+Signal on top of sim_v6 p (logistic hit ~ logit(p) + trigger; LR χ² 1df, ≥2.71 ≈ p<.10, ≥3.84 ≈ p<.05):
+
+| Trigger | coef | SE | LR χ² |
+|---|---|---|---|
+| a: proj PA>=40 | -1.26 | 0.68 | 4.01 |
+| a2: proj PA>=35 (looser) | -0.28 | 0.34 | 0.69 |
+| b: dog >=3 | +0.52 | 0.35 | 2.35 |
+| c: fav w/ bottom-8 own pass D | -1.47 | 0.67 | 6.00 |
+| d: QB checkdown top 1/3 | -0.45 | 0.36 | 1.55 |
+| any trigger | -0.76 | 0.37 | 4.43 |
+
+n per week (trigger legs / all):
+
+| week | trig_a | trig_a35 | trig_b | trig_c | trig_d | trig_any | all |
+|---|---|---|---|---|---|---|---|
+| 3 | 2 (0W) | 7 (4W) | 11 (4W) | 3 (1W) | 8 (1W) | 20 (5W) | 31 (12W) |
+| 4 | 3 (1W) | 9 (4W) | 10 (8W) | 3 (0W) | 8 (4W) | 20 (11W) | 29 (17W) |
+| 5 | 3 (1W) | 9 (4W) | 10 (6W) | 3 (1W) | 8 (4W) | 20 (10W) | 26 (14W) |
+| 6 | 1 (0W) | 7 (1W) | 4 (2W) | 2 (1W) | 7 (4W) | 13 (6W) | 21 (9W) |
+| 7 | 3 (1W) | 13 (6W) | 11 (6W) | 2 (0W) | 8 (3W) | 21 (9W) | 27 (14W) |
+| 8 | 1 (0W) | 9 (5W) | 8 (5W) | 2 (0W) | 7 (3W) | 14 (6W) | 21 (10W) |
+
+## Rush+Rec yards OVER (lead RB)
+
+| Bucket | n | W | Hit | 90% CI | ROI −110 | ROI −130 | ROI −160 | mean sim p | hit − p |
+|---|---|---|---|---|---|---|---|---|---|
+| ALL lead RBs | 155 | 74 | 47.7% | 41%-54% | -8.9% | -15.5% | -22.4% | 0.47 | +0.008 |
+| a: proj PA>=40 | 13 | 6 | 46.2% | 26%-68% | -11.9% | -18.3% | -25.0% | 0.53 | -0.072 |
+|   not a | 142 | 68 | 47.9% | 41%-55% | -8.6% | -15.3% | -22.2% | 0.46 | +0.015 |
+| a2: proj PA>=35 (looser) | 54 | 26 | 48.1% | 37%-59% | -8.1% | -14.8% | -21.8% | 0.49 | -0.005 |
+|   not a35 | 101 | 48 | 47.5% | 40%-56% | -9.3% | -15.9% | -22.8% | 0.46 | +0.014 |
+| b: dog >=3 | 54 | 23 | 42.6% | 32%-54% | -18.7% | -24.6% | -30.8% | 0.49 | -0.066 |
+|   not b | 101 | 51 | 50.5% | 42%-59% | -3.6% | -10.7% | -17.9% | 0.46 | +0.047 |
+| c: fav w/ bottom-8 own pass D | 15 | 7 | 46.7% | 28%-67% | -10.9% | -17.4% | -24.2% | 0.45 | +0.014 |
+|   not c | 140 | 67 | 47.9% | 41%-55% | -8.6% | -15.3% | -22.2% | 0.47 | +0.007 |
+| d: QB checkdown top 1/3 | 46 | 20 | 43.5% | 32%-56% | -17.0% | -23.1% | -29.3% | 0.51 | -0.080 |
+|   not d | 109 | 54 | 49.5% | 42%-57% | -5.4% | -12.4% | -19.5% | 0.45 | +0.044 |
+| any trigger | 108 | 49 | 45.4% | 38%-53% | -13.4% | -19.7% | -26.3% | 0.50 | -0.043 |
+|   not any | 47 | 25 | 53.2% | 41%-65% | +1.5% | -5.9% | -13.6% | 0.41 | +0.124 |
+| real lines only | 15 | 7 | 46.7% | 28%-67% | -10.9% | -17.4% | -24.2% | 0.49 | -0.022 |
+| stand-ins only | 140 | 67 | 47.9% | 41%-55% | -8.6% | -15.3% | -22.2% | 0.47 | +0.011 |
+
+Signal on top of sim_v6 p (logistic hit ~ logit(p) + trigger; LR χ² 1df, ≥2.71 ≈ p<.10, ≥3.84 ≈ p<.05):
+
+| Trigger | coef | SE | LR χ² |
+|---|---|---|---|
+| a: proj PA>=40 | -0.11 | 0.59 | 0.04 |
+| a2: proj PA>=35 (looser) | +0.01 | 0.34 | 0.00 |
+| b: dog >=3 | -0.34 | 0.34 | 1.00 |
+| c: fav w/ bottom-8 own pass D | -0.03 | 0.55 | 0.00 |
+| d: QB checkdown top 1/3 | -0.29 | 0.36 | 0.64 |
+| any trigger | -0.38 | 0.36 | 1.13 |
+
+n per week (trigger legs / all):
+
+| week | trig_a | trig_a35 | trig_b | trig_c | trig_d | trig_any | all |
+|---|---|---|---|---|---|---|---|
+| 3 | 2 (1W) | 7 (4W) | 11 (3W) | 3 (2W) | 8 (2W) | 20 (7W) | 31 (14W) |
+| 4 | 3 (2W) | 9 (7W) | 10 (6W) | 3 (1W) | 8 (6W) | 20 (12W) | 29 (16W) |
+| 5 | 3 (1W) | 9 (3W) | 10 (4W) | 3 (1W) | 8 (5W) | 20 (9W) | 26 (13W) |
+| 6 | 1 (0W) | 7 (1W) | 4 (2W) | 2 (1W) | 7 (1W) | 13 (4W) | 21 (6W) |
+| 7 | 3 (2W) | 13 (7W) | 11 (6W) | 2 (1W) | 8 (4W) | 21 (12W) | 27 (16W) |
+| 8 | 1 (0W) | 9 (4W) | 8 (2W) | 2 (1W) | 7 (2W) | 14 (5W) | 21 (9W) |
+
+## Claim: rush+rec beats rush-only for lead backs when script is uncertain
+
+Same player-games, both markets present. "Uncertain" = |spread| ≤ 7 or total ≥ 47. Compared (1) blind over hit rate, (2) over hit rate when sim p ≥ .55, (3) how often the over lands on one market but not the other.
+
+| Group | n games | rush-only over hit | rush+rec over hit | rush hit when p≥.55 (n) | rush+rec hit when p≥.55 (n) | rush+rec hit when rush missed |
+|---|---|---|---|---|---|---|
+| script uncertain | 137 | 46.7% | 48.2% | 52.8% (53) | 52.1% (48) | 13.7% (73) |
+| script clear | 18 | 38.9% | 44.4% | 75.0% (4) | 75.0% (4) | 9.1% (11) |
+| all | 155 | 45.8% | 47.7% | 54.4% (57) | 53.8% (52) | 13.1% (84) |
+
+## Chase Brown check (the trigger example)
+None of the four pregame triggers fired for Brown in Wk8: projected CIN attempts were 35.7 (Burrow actually threw 48), CIN was the favorite, its own pass D ranked 25th-worst of 32 (i.e. decent), and Burrow's checkdown score was below the top third. The spot was visible only in hindsight. Using actual team attempts ≥ 40 (hindsight, not usable pregame), lead-RB rec overs hit 51% vs 34% otherwise (n = 39), so the volume effect is real. The problem is that we can't forecast it pregame.
+
+## Read
+- **No trigger adds positive signal on top of sim_v6.** (a), (c), (d) and "any" all point the *wrong* way for rec and rec yds (c: 2/15 and 3/15; a: 3/13), and (c)/(a) are significant in the wrong direction on rec yds. (b) dog ≥3 is the only positive one: rec yds 31/54 (57%), +0.52 logit, but LR χ² 2.35 (not significant), and the same dogs went 23/54 on rush+rec, so it's just the trailing-script shift from rushing to receiving yards, not extra value.
+- The sim already prices RB receptions about right overall (hit − p ≈ +0.01). It runs low on rec yds (+0.07), but that gap sits in the **non-trigger** legs, not the triggered ones.
+- **Rush+rec vs rush-only:** in uncertain scripts, rush+rec overs hit 48.2% vs 46.7% blind and 52.1% vs 52.8% when p ≥ .55. No meaningful edge. When the rush over missed, rush+rec still cashed only 14% of the time, so the hedge almost never happens. Chase Brown was the exception, not the rule.

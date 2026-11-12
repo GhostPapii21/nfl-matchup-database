@@ -1,0 +1,167 @@
+{
+ "player": "Tony Pollard",
+ "team": "TEN",
+ "opp": "CIN",
+ "pos": "RB",
+ "market": "rushrec",
+ "spread": 12.5,
+ "total": 46.5,
+ "status": "active (not on report)",
+ "logs_espn": [
+  {
+   "date": "2026-09-27",
+   "car": 17,
+   "rush": 74,
+   "tg": 4,
+   "rec": 4,
+   "ryd": 22
+  },
+  {
+   "date": "2026-10-04",
+   "car": 16,
+   "rush": 48,
+   "tg": 4,
+   "rec": 2,
+   "ryd": 2
+  },
+  {
+   "date": "2026-10-11",
+   "car": 14,
+   "rush": 52,
+   "tg": 1,
+   "rec": 0,
+   "ryd": 0
+  },
+  {
+   "date": "2026-10-18",
+   "car": 19,
+   "rush": 76,
+   "tg": 1,
+   "rec": 0,
+   "ryd": 0
+  },
+  {
+   "date": "2026-10-25",
+   "car": 25,
+   "rush": 129,
+   "tg": 3,
+   "rec": 3,
+   "ryd": 26
+  }
+ ],
+ "usage_nflverse": [
+  {
+   "week": 3,
+   "snap": 0.53,
+   "tg": 4.0,
+   "car": 17.0,
+   "team_tg": 35,
+   "team_car": 21
+  },
+  {
+   "week": 4,
+   "snap": 0.53,
+   "tg": 4.0,
+   "car": 16.0,
+   "team_tg": 29,
+   "team_car": 26
+  },
+  {
+   "week": 5,
+   "snap": 0.48,
+   "tg": 1.0,
+   "car": 14.0,
+   "team_tg": 35,
+   "team_car": 18
+  },
+  {
+   "week": 6,
+   "snap": 0.76,
+   "tg": 1.0,
+   "car": 19.0,
+   "team_tg": 22,
+   "team_car": 22
+  },
+  {
+   "week": 7,
+   "snap": 0.75,
+   "tg": 3.0,
+   "car": 25.0,
+   "team_tg": 30,
+   "team_car": 30
+  }
+ ],
+ "role": {
+  "pos": "RB",
+  "tgt_share": 0.08163265306122448,
+  "car_share": 0.7,
+  "tgt_share_l3": 0.05747126436781609,
+  "car_share_l3": 0.8285714285714286,
+  "snap_l3": 0.6633333333333333,
+  "tpg": 2.2857142857142856,
+  "cpg": 16.0
+ },
+ "fd_main": [
+  84.5,
+  -113
+ ],
+ "fd_ladder": {
+  "85": -113
+ },
+ "fd_pulled_at": "2026-10-31T18:49:12.331612",
+ "opp_def": {
+  "Metric": "Value (rank Rank (1 = most allowed))",
+  "Sharp YPT WR / TE / RB": "7.6 / 9.4 / 6.8 (rank 20 / 1 / 7)",
+  "Sharp YPT Outside / Slot": "5.7 / 11.3 (rank 32 / 3)",
+  "Blitz % (Sharp) / FTN blitz % (n=235)": "17.2 / 16.6 (rank 32 (1 = most blitz))",
+  "Pressure rate proxy (opp. Sharp pressure-allowed avg)": "32.6% (rank 6 (1 = most pressure))",
+  "WR tgt / rec / yds per g (pbp)": "18.3 / 10.5 / 137.5 (rank yds 20)",
+  "WR outside-proxy (L/R) YPT, middle-proxy YPT": "7.1, 8.6 (rank 22, 26)",
+  "TE tgt / rec / yds per g": "9.2 / 6.8 / 84.8 (rank rec 5, yds 2)",
+  "RB rec tgt / rec / yds per g": "4.7 / 4.0 / 31.5 (rank rec 20)",
+  "RB rush car / yds per g, YPC": "19.5 / 80.5, 4.13 (rank ypc 14)",
+  "RB rush+rec yds per g": "112.0 (rank 23)",
+  "3rd-down % allowed / RZ TD % allowed (trips)": "48.1 / 44.0 (25) (rank 3 / 31)",
+  "EPA/play allowed (pbp)": "-0.041 (rank 23)"
+ },
+ "opp_soft": [
+  "soft for slot",
+  "soft for TEs",
+  "soft for rush-receive RBs"
+ ],
+ "opp_hard": "- Hard outside: Sharp outside YPT 5.7 (rank 32/32)",
+ "opp_def_src": "/workspace/nfl-database/week8/defense/TEN_at_CIN.md",
+ "weather": "70F, wind 5 mph (gust 7), precip 6% @kick (Open-Meteo, pulled now)",
+ "cov_proxy": [
+  {
+   "defender": "B.Carter",
+   "plays": 5,
+   "rec_allowed": 5,
+   "yds_allowed": 6
+  },
+  {
+   "defender": "D.Hill",
+   "plays": 4,
+   "rec_allowed": 4,
+   "yds_allowed": 35
+  },
+  {
+   "defender": "J.Battle",
+   "plays": 4,
+   "rec_allowed": 4,
+   "yds_allowed": 55
+  }
+ ],
+ "matchup_factor": 0.896,
+ "rungs_eval": {
+  "85": {
+   "odds": -113,
+   "cons": 0.2996,
+   "fair": 0.5077,
+   "mc": 0.3398,
+   "bias": 0.2854,
+   "gr": 0.2735
+  }
+ },
+ "cut": "no rung passing: price -300..-120, L4 hits>=3, all 3 model medians>=line & p>=60%, consensus 65-82%, edge 3-15pt vs de-vigged FD"
+}

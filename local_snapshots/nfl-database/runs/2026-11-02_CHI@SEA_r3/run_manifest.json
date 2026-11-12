@@ -1,0 +1,2600 @@
+{
+ "game": "CHI@SEA",
+ "season": 2026,
+ "week": 8,
+ "week_note": "parent task called it Week 9; ESPN scoreboard (16:38 ET) lists Week 8 (MNF of Week 8)",
+ "kickoff_et": "2026-11-02T20:15",
+ "game_date": "2026-11-02",
+ "venue": "Lumen Field",
+ "roof": "open",
+ "skill": "nfl-game-script-run + nfl-betting-script",
+ "seed": 20261101,
+ "trials": 100000,
+ "sim_script": "tools/sim_v6.py",
+ "parent_run": [
+  "runs/2026-11-02_CHI@SEA",
+  "runs/2026-11-02_CHI@SEA_r2"
+ ],
+ "input_cutoff_et": "2026-11-02T16:38",
+ "sources": [
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse pbp 2026 (release 14:29 ET, thru 2026-11-01 incl. Wk8 SNF)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-02T16:38",
+   "tool": "curl",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "Sharp coverage schemes + StatRankings CoverageIQ",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/src/coverage_profile.json",
+   "pulled_et": "2026-11-02T05:09",
+   "tool": "web",
+   "season": 2026,
+   "data_week": 8,
+   "second_source": {
+    "name": "StatRankings CoverageIQ team pages",
+    "url_or_file": "https://statrankings.com",
+    "pulled_et": "2026-11-02T05:09",
+    "agrees": true
+   }
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "PFR Bears advanced defense (thru Wk7)",
+   "url_or_file": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+   "pulled_et": "2026-11-02T05:10",
+   "tool": "web search",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "PFR Seahawks advanced defense (thru Wk7)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/src/pfr_sea_adv_fc.html",
+   "pulled_et": "2026-11-02T06:40",
+   "tool": "Firecrawl",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "FTN charting",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/src/ftn_charting_2026.parquet",
+   "pulled_et": "2026-11-02T05:03",
+   "tool": "curl",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "ngs",
+   "name": "nflverse NGS receiving/passing/rushing",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/src/ngs_receiving.parquet",
+   "pulled_et": "2026-11-02T05:03",
+   "tool": "curl",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "film",
+   "name": "NFL YouTube highlights Wk6-7 CHI/SEA, captions matched to pbp",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/src/film/",
+   "pulled_et": "2026-11-02T16:42",
+   "tool": "yt-dlp",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "injuries_news",
+   "name": "ESPN injuries + team news API",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/src/espn_injuries.json",
+   "pulled_et": "2026-11-02T16:38",
+   "tool": "curl",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "weather",
+   "name": "tools/weather_forecast.py (NWS + Open-Meteo)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/src/forecast_2026-11-02_1638.json",
+   "pulled_et": "2026-11-02T16:38",
+   "tool": "tools/weather_forecast.py",
+   "season": 2026,
+   "data_week": 8
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API FanDuel/DK/Pinnacle pregame (0 in-play rows dropped)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/src/odds_m1638.csv",
+   "pulled_et": "2026-11-02T16:38",
+   "tool": "pull_odds.py",
+   "season": 2026,
+   "data_week": 8
+  }
+ ],
+ "flagged_gaps": [],
+ "weather": {
+  "venue": "Lumen Field",
+  "roof": "open",
+  "precip_pct": 2,
+  "wind_mph": 2.7,
+  "gust_mph": 3.4,
+  "flag": false,
+  "source": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA_r3/src/forecast_2026-11-02_1638.json (tools/weather_forecast.py NWS+Open-Meteo)",
+  "pulled_et": "2026-11-02T16:38"
+ },
+ "weather_forecast": [
+  {
+   "game": "CHI@SEA",
+   "roof": "open",
+   "status": "OK",
+   "precip_pct": 2,
+   "wind_mph": 2.7,
+   "gust_mph": 3.4,
+   "flag": false,
+   "provider": "NWS/Open-Meteo",
+   "pulled_et": "2026-11-02T16:38"
+  }
+ ],
+ "pressure_inputs": {
+  "blitz_rate": {
+   "value": {
+    "CHI": 0.411,
+    "SEA": 0.221
+   },
+   "source": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA/src/features.json (FTN)",
+   "pulled_et": "2026-11-02T05:03",
+   "label": "FTN charting"
+  },
+  "pressure_rate": {
+   "value": {
+    "CHI": 0.223,
+    "SEA": 0.289
+   },
+   "source": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA/src/features.json (pbp)",
+   "pulled_et": "2026-11-02T05:03",
+   "label": "PROXY"
+  },
+  "checkdown_share": {
+   "value": {
+    "CHI": 0.306,
+    "SEA": 0.303
+   },
+   "source": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA/src/features.json",
+   "pulled_et": "2026-11-02T05:03"
+  },
+  "time_to_throw": {
+   "value": {
+    "Caleb Williams": 3.22,
+    "Sam Darnold": 3.0
+   },
+   "source": "/workspace/nfl-database/runs/2026-11-02_CHI@SEA/src/ngs_passing.parquet",
+   "pulled_et": "2026-11-02T05:03"
+  }
+ },
+ "sims": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Caleb Williams Pass Yds Over 224.5": {
+     "p": 0.5273,
+     "median": 228.81
+    },
+    "Luther Burden III Rec Yds Under 52.5": {
+     "p": 0.5533,
+     "median": 48.59
+    },
+    "Luther Burden III Receptions Under 4.5": {
+     "p": 0.5532,
+     "median": 4.0
+    },
+    "Rome Odunze Rec Yds Under 38.5": {
+     "p": 0.5165,
+     "median": 37.41
+    },
+    "Rome Odunze Receptions Under 3.5": {
+     "p": 0.5873,
+     "median": 3.0
+    },
+    "Colston Loveland Rec Yds Under 42.5": {
+     "p": 0.6989,
+     "median": 30.11
+    },
+    "Colston Loveland Receptions Under 4.5": {
+     "p": 0.6203,
+     "median": 4.0
+    },
+    "D'Andre Swift Rush Yds Under 59.5": {
+     "p": 0.6557,
+     "median": 51.4
+    },
+    "D'Andre Swift Rush+Rec Yds Under 86.5": {
+     "p": 0.622,
+     "median": 77.56
+    },
+    "D'Andre Swift Rec Yds Over 21.5": {
+     "p": 0.4184,
+     "median": 18.66
+    },
+    "D'Andre Swift Receptions Over 3.5": {
+     "p": 0.4632,
+     "median": 3.0
+    },
+    "D'Andre Swift Receptions Over 2.5": {
+     "p": 0.6754,
+     "median": 3.0
+    },
+    "Roschon Johnson Rush Yds Over 10.5": {
+     "p": 0.6538,
+     "median": 16.28
+    },
+    "Sam Darnold Pass Yds Over 238.5": {
+     "p": 0.523,
+     "median": 247.26
+    },
+    "Jaxon Smith-Njigba Rec Yds Over 99.5": {
+     "p": 0.6398,
+     "median": 119.08
+    },
+    "Jaxon Smith-Njigba Rec Yds Over 89.5": {
+     "p": 0.7113,
+     "median": 119.08
+    },
+    "Jaxon Smith-Njigba Rec Yds Over 109.5": {
+     "p": 0.5652,
+     "median": 119.08
+    },
+    "Jaxon Smith-Njigba Receptions Over 7.5": {
+     "p": 0.5621,
+     "median": 8.0
+    },
+    "Cooper Kupp Rec Yds Over 29.5": {
+     "p": 0.4979,
+     "median": 29.47
+    },
+    "Cooper Kupp Receptions Over 2.5": {
+     "p": 0.4682,
+     "median": 2.0
+    },
+    "AJ Barner Rec Yds Under 29.5": {
+     "p": 0.5873,
+     "median": 24.76
+    },
+    "AJ Barner Receptions Under 3.5": {
+     "p": 0.6868,
+     "median": 3.0
+    },
+    "Emanuel Wilson Rush Yds Over 19.5": {
+     "p": 0.9501,
+     "median": 63.23
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Caleb Williams Pass Yds Over 224.5": {
+     "p": 0.5278,
+     "median": 228.81
+    },
+    "Luther Burden III Rec Yds Under 52.5": {
+     "p": 0.5512,
+     "median": 48.59
+    },
+    "Luther Burden III Receptions Under 4.5": {
+     "p": 0.5527,
+     "median": 4.0
+    },
+    "Rome Odunze Rec Yds Under 38.5": {
+     "p": 0.5194,
+     "median": 37.41
+    },
+    "Rome Odunze Receptions Under 3.5": {
+     "p": 0.586,
+     "median": 3.0
+    },
+    "Colston Loveland Rec Yds Under 42.5": {
+     "p": 0.6992,
+     "median": 30.11
+    },
+    "Colston Loveland Receptions Under 4.5": {
+     "p": 0.6199,
+     "median": 4.0
+    },
+    "D'Andre Swift Rush Yds Under 59.5": {
+     "p": 0.658,
+     "median": 51.4
+    },
+    "D'Andre Swift Rush+Rec Yds Under 86.5": {
+     "p": 0.6262,
+     "median": 77.38
+    },
+    "D'Andre Swift Rec Yds Over 21.5": {
+     "p": 0.4213,
+     "median": 18.66
+    },
+    "D'Andre Swift Receptions Over 3.5": {
+     "p": 0.4653,
+     "median": 3.0
+    },
+    "D'Andre Swift Receptions Over 2.5": {
+     "p": 0.6763,
+     "median": 3.0
+    },
+    "Roschon Johnson Rush Yds Over 10.5": {
+     "p": 0.6533,
+     "median": 16.28
+    },
+    "Sam Darnold Pass Yds Over 238.5": {
+     "p": 0.5215,
+     "median": 246.09
+    },
+    "Jaxon Smith-Njigba Rec Yds Over 99.5": {
+     "p": 0.6424,
+     "median": 119.08
+    },
+    "Jaxon Smith-Njigba Rec Yds Over 89.5": {
+     "p": 0.7147,
+     "median": 119.08
+    },
+    "Jaxon Smith-Njigba Rec Yds Over 109.5": {
+     "p": 0.5687,
+     "median": 119.08
+    },
+    "Jaxon Smith-Njigba Receptions Over 7.5": {
+     "p": 0.5627,
+     "median": 8.0
+    },
+    "Cooper Kupp Rec Yds Over 29.5": {
+     "p": 0.502,
+     "median": 30.65
+    },
+    "Cooper Kupp Receptions Over 2.5": {
+     "p": 0.4698,
+     "median": 2.0
+    },
+    "AJ Barner Rec Yds Under 29.5": {
+     "p": 0.5874,
+     "median": 24.76
+    },
+    "AJ Barner Receptions Under 3.5": {
+     "p": 0.6904,
+     "median": 2.0
+    },
+    "Emanuel Wilson Rush Yds Over 19.5": {
+     "p": 0.9499,
+     "median": 63.23
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Caleb Williams Pass Yds Over 224.5": {
+     "p": 0.5239,
+     "median": 228.34
+    },
+    "Luther Burden III Rec Yds Under 52.5": {
+     "p": 0.5596,
+     "median": 46.96
+    },
+    "Luther Burden III Receptions Under 4.5": {
+     "p": 0.5475,
+     "median": 4.0
+    },
+    "Rome Odunze Rec Yds Under 38.5": {
+     "p": 0.5213,
+     "median": 37.34
+    },
+    "Rome Odunze Receptions Under 3.5": {
+     "p": 0.5679,
+     "median": 3.0
+    },
+    "Colston Loveland Rec Yds Under 42.5": {
+     "p": 0.6795,
+     "median": 28.94
+    },
+    "Colston Loveland Receptions Under 4.5": {
+     "p": 0.6029,
+     "median": 4.0
+    },
+    "D'Andre Swift Rush Yds Under 59.5": {
+     "p": 0.6245,
+     "median": 49.98
+    },
+    "D'Andre Swift Rush+Rec Yds Under 86.5": {
+     "p": 0.6037,
+     "median": 76.84
+    },
+    "D'Andre Swift Rec Yds Over 21.5": {
+     "p": 0.4296,
+     "median": 18.11
+    },
+    "D'Andre Swift Receptions Over 3.5": {
+     "p": 0.4702,
+     "median": 3.0
+    },
+    "D'Andre Swift Receptions Over 2.5": {
+     "p": 0.6507,
+     "median": 3.0
+    },
+    "Roschon Johnson Rush Yds Over 10.5": {
+     "p": 0.6022,
+     "median": 14.77
+    },
+    "Sam Darnold Pass Yds Over 238.5": {
+     "p": 0.5701,
+     "median": 259.66
+    },
+    "Jaxon Smith-Njigba Rec Yds Over 99.5": {
+     "p": 0.5924,
+     "median": 115.15
+    },
+    "Jaxon Smith-Njigba Rec Yds Over 89.5": {
+     "p": 0.6471,
+     "median": 115.15
+    },
+    "Jaxon Smith-Njigba Rec Yds Over 109.5": {
+     "p": 0.5337,
+     "median": 115.15
+    },
+    "Jaxon Smith-Njigba Receptions Over 7.5": {
+     "p": 0.525,
+     "median": 8.0
+    },
+    "Cooper Kupp Rec Yds Over 29.5": {
+     "p": 0.5152,
+     "median": 30.04
+    },
+    "Cooper Kupp Receptions Over 2.5": {
+     "p": 0.4787,
+     "median": 2.0
+    },
+    "AJ Barner Rec Yds Under 29.5": {
+     "p": 0.5881,
+     "median": 21.94
+    },
+    "AJ Barner Receptions Under 3.5": {
+     "p": 0.676,
+     "median": 2.0
+    },
+    "Emanuel Wilson Rush Yds Over 19.5": {
+     "p": 0.9147,
+     "median": 63.4
+    }
+   }
+  }
+ ],
+ "model_note": "BUG-2026-11-02-BIASDUP still present in live tools/sim_v6.py (bias == MC; K_BIAS = SHRINK_K = 30). Fix is STAGED in tools/sim_v6_fix/ (11:45 PM ET swap), NOT swapped in by this run. Only MC and GR are independent votes. Fit run 16:42 ET: calib multipliers unchanged (weeks 4-7). Unit tests: 108 OK.",
+ "placed_legs": [
+  {
+   "game": "CHI@SEA",
+   "leg": "JSN 70+ rec yds",
+   "source": "Ghost6 bankroll_slips.md (SGP, live 4:11 PM ET)"
+  },
+  {
+   "game": "CHI@SEA",
+   "leg": "JSN anytime TD",
+   "source": "Ghost6 bankroll_slips.md (SGP, live 4:11 PM ET)"
+  },
+  {
+   "game": "CHI@SEA",
+   "leg": "Swift 50+ rush+rec yds",
+   "source": "Ghost6 bankroll_slips.md (SGP, live 4:11 PM ET)"
+  },
+  {
+   "game": "CHI@SEA",
+   "leg": "Swift anytime TD",
+   "source": "Ghost6 bankroll_slips.md (SGP, live 4:11 PM ET)"
+  },
+  {
+   "game": "CHI@SEA",
+   "leg": "E. Wilson 15+ rush yds",
+   "source": "Ghost6 bankroll_slips.md (SGP, live 4:11 PM ET)"
+  },
+  {
+   "game": "CHI@SEA",
+   "leg": "Under 58.5 total",
+   "source": "Ghost6 bankroll_slips.md (SGP, live 4:11 PM ET)"
+  },
+  {
+   "game": "CHI@SEA",
+   "leg": "Swift 3+ receptions",
+   "source": "r2/odunze/results.md ~1:20 PM ET says placed; status UNCONFIRMED (7-leg ticket cashed out 4:10 PM ET)",
+   "status": "UNCONFIRMED"
+  },
+  {
+   "game": "CHI@SEA",
+   "leg": "Burden 4+ receptions",
+   "source": "r2/odunze/results.md ~1:20 PM ET says placed; status UNCONFIRMED (7-leg ticket cashed out 4:10 PM ET)",
+   "status": "UNCONFIRMED"
+  }
+ ],
+ "inactives_watch_650pm": [
+  "Malik Muhammad (CB, Q toe): if out, JSN primary defender -> Jaylon Johnson/Stevenson; rerun P4 (CHI then 1 CB out; depleted-secondary rule needs 2)",
+  "D'Marco Jackson (LB, Q)",
+  "Drew Lock (QB, Q): backup only",
+  "Uchenna Nwosu (LB, Doubtful)",
+  "Charbonnet / J. Price usage: SEA RB split",
+  "Montez Sweat + Jeffery Simmons active (first CHI game for Simmons); JSN 100+ rerun if both play",
+  "Bradford / Pili / O'Connell (Q)"
+ ],
+ "loeb_claims": {
+  "Quenton Nelson to SEA": "VERIFIED: ESPN \"Seahawks acquire Pro Bowl guard Quenton Nelson in trade with Colts\" (Oct 27, 7:51 PM ET)",
+  "Jeffery Simmons to CHI": "VERIFIED: ESPN \"Bears acquire All-Pro DT Jeffery Simmons in trade with Titans\"; ESPN injury feed 16:38 ET shows Active",
+  "Montez Sweat back": "VERIFIED: ESPN injury feed (16:38 ET): reinstated Fri Oct 23 after a two-game suspension; ESPN Oct 28 \"Montez Sweat returns to Bears\""
+ },
+ "questionable_wr": [],
+ "depleted_secondary": [],
+ "game_script_rb": {
+  "rule": "fav <= -7 AND opp RB YPC >= 4.4",
+  "spread": -3.5,
+  "chi_rb_ypc_allowed": 4.33,
+  "sea_rb_ypc_allowed": 3.4,
+  "triggered": false,
+  "source": "pbp thru 2026-11-01 (sim meta)"
+ },
+ "legs": [
+  {
+   "name": "Caleb Williams Pass Yds Over 224.5",
+   "player": "Caleb Williams",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "passyds",
+   "line": 224.5,
+   "side": "over",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.5273,
+    "bias": 0.5278,
+    "gr": 0.5239
+   },
+   "median": {
+    "mc": 228.81,
+    "bias": 228.81,
+    "gr": 228.34
+   },
+   "edge_3": 0.0263,
+   "shrunk": 0.0184,
+   "status": "CUT",
+   "cut_reasons": [
+    "P13 10G underdog over BLOCKED (CHI +3.5)",
+    "P14 edge +2.6 < +3"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     269.0,
+     138.0,
+     305.0,
+     308.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": false,
+   "type": "QB",
+   "gaps": [],
+   "books": {
+    "dk": 229.5,
+    "pin": 227.5
+   }
+  },
+  {
+   "name": "Luther Burden III Rec Yds Under 52.5",
+   "player": "Luther Burden III",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "recyds",
+   "line": 52.5,
+   "side": "under",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.5533,
+    "bias": 0.5512,
+    "gr": 0.5596
+   },
+   "median": {
+    "mc": 48.59,
+    "bias": 48.59,
+    "gr": 46.96
+   },
+   "edge_3": 0.0547,
+   "shrunk": 0.0383,
+   "status": "CUT",
+   "cut_reasons": [
+    "\u00a77 HARD: Williams-only form 1/4 unders (63,32,95,130)"
+   ],
+   "note": "line moved 51.5 -> 52.5; edge +5.5 alone not enough",
+   "recent_form": {
+    "values": [
+     63.0,
+     32.0,
+     95.0,
+     130.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     5,
+     7,
+     8,
+     4
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "WR",
+   "gaps": [],
+   "books": {
+    "dk": 53.5,
+    "pin": 51.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Nick Emmanwori",
+      "targets": 17,
+      "comp_pct": 52.9,
+      "ypt": 4.4,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "slot (ESPN WR/CB)"
+     },
+     {
+      "name": "Josh Jobe",
+      "targets": 32,
+      "comp_pct": 71.9,
+      "ypt": 6.6,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "outside"
+     }
+    ]
+   }
+  },
+  {
+   "name": "Luther Burden III Receptions Under 4.5",
+   "player": "Luther Burden III",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "rec",
+   "line": 4.5,
+   "side": "under",
+   "price_fd": -158,
+   "no_vig": 0.5717,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.5532,
+    "bias": 0.5527,
+    "gr": 0.5475
+   },
+   "median": {
+    "mc": 4.0,
+    "bias": 4.0,
+    "gr": 4.0
+   },
+   "edge_3": -0.0206,
+   "shrunk": -0.0359,
+   "status": "CUT",
+   "cut_reasons": [
+    "P14 negative edge"
+   ],
+   "note": "Burden 4+ open-ticket status ambiguous (r2/odunze 1:20 PM ET); under not nested in an over ticket but same player",
+   "recent_form": {
+    "values": [
+     5.0,
+     3.0,
+     8.0,
+     4.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     5,
+     7,
+     8,
+     4
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "WR",
+   "gaps": [],
+   "books": {
+    "dk": 4.5,
+    "pin": 4.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Nick Emmanwori",
+      "targets": 17,
+      "comp_pct": 52.9,
+      "ypt": 4.4,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "slot (ESPN WR/CB)"
+     },
+     {
+      "name": "Josh Jobe",
+      "targets": 32,
+      "comp_pct": 71.9,
+      "ypt": 6.6,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "outside"
+     }
+    ]
+   }
+  },
+  {
+   "name": "Rome Odunze Rec Yds Under 38.5",
+   "player": "Rome Odunze",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "recyds",
+   "line": 38.5,
+   "side": "under",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.5165,
+    "bias": 0.5194,
+    "gr": 0.5213
+   },
+   "median": {
+    "mc": 37.41,
+    "bias": 37.41,
+    "gr": 37.34
+   },
+   "edge_3": 0.0191,
+   "shrunk": 0.0133,
+   "status": "CUT",
+   "cut_reasons": [
+    "P14 edge < +3",
+    "\u00a77 0/4 unders"
+   ],
+   "note": "zone check: SEA zone 90% (Sharp)/82.3% (SR). Odunze averages 44.8 yds/g vs zone-heavy teams, so zone does not suppress him",
+   "recent_form": {
+    "values": [
+     52.0,
+     43.0,
+     39.0,
+     69.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     3,
+     4,
+     4,
+     5
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "WR",
+   "gaps": [],
+   "books": {
+    "dk": 40.5,
+    "pin": 38.5
+   },
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Devon Witherspoon",
+      "targets": 41,
+      "comp_pct": 63.4,
+      "ypt": 4.1,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "ESPN WR/CB primary"
+     }
+    ]
+   }
+  },
+  {
+   "name": "Rome Odunze Receptions Under 3.5",
+   "player": "Rome Odunze",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "rec",
+   "line": 3.5,
+   "side": "under",
+   "price_fd": -180,
+   "no_vig": 0.6007,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.5873,
+    "bias": 0.586,
+    "gr": 0.5679
+   },
+   "median": {
+    "mc": 3.0,
+    "bias": 3.0,
+    "gr": 3.0
+   },
+   "edge_3": -0.0203,
+   "shrunk": -0.0444,
+   "status": "CUT",
+   "cut_reasons": [
+    "P14 negative edge"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     2.0,
+     3.0,
+     3.0,
+     4.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     3,
+     4,
+     4,
+     5
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "WR",
+   "gaps": [],
+   "books": {
+    "dk": 3.5,
+    "pin": 3.5
+   },
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Devon Witherspoon",
+      "targets": 41,
+      "comp_pct": 63.4,
+      "ypt": 4.1,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "ESPN WR/CB primary"
+     }
+    ]
+   }
+  },
+  {
+   "name": "Colston Loveland Rec Yds Under 42.5",
+   "player": "Colston Loveland",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "recyds",
+   "line": 42.5,
+   "side": "under",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.6989,
+    "bias": 0.6992,
+    "gr": 0.6795
+   },
+   "median": {
+    "mc": 30.11,
+    "bias": 30.11,
+    "gr": 28.94
+   },
+   "edge_3": 0.1925,
+   "shrunk": 0.1348,
+   "status": "CUT",
+   "cut_reasons": [
+    "\u00a77 2/4",
+    "P4 ISS-05 TE defender UNVERIFIED",
+    "P13 could-trail TE under",
+    "P14 MODEL-SUSPECT (median 12+ below line)"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     0.0,
+     3.0,
+     65.0,
+     69.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     2,
+     3,
+     7,
+     12
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "TE",
+   "gaps": [],
+   "books": {
+    "dk": 44.5,
+    "pin": 42.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": []
+   }
+  },
+  {
+   "name": "Colston Loveland Receptions Under 4.5",
+   "player": "Colston Loveland",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "rec",
+   "line": 4.5,
+   "side": "under",
+   "price_fd": -154,
+   "no_vig": 0.567,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.6203,
+    "bias": 0.6199,
+    "gr": 0.6029
+   },
+   "median": {
+    "mc": 4.0,
+    "bias": 4.0,
+    "gr": 4.0
+   },
+   "edge_3": 0.0473,
+   "shrunk": 0.013,
+   "status": "CUT",
+   "cut_reasons": [
+    "\u00a77 2/4 (0,1,6,7)",
+    "P4 ISS-05"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     0.0,
+     1.0,
+     6.0,
+     7.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     2,
+     3,
+     7,
+     12
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "TE",
+   "gaps": [],
+   "books": {
+    "dk": 4.5,
+    "pin": 4.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": []
+   }
+  },
+  {
+   "name": "D'Andre Swift Rush Yds Under 59.5",
+   "player": "D'Andre Swift",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "rushyds",
+   "line": 59.5,
+   "side": "under",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.6557,
+    "bias": 0.658,
+    "gr": 0.6245
+   },
+   "median": {
+    "mc": 51.4,
+    "bias": 51.4,
+    "gr": 49.98
+   },
+   "edge_3": 0.1461,
+   "shrunk": 0.1022,
+   "status": "CUT",
+   "cut_reasons": [
+    "\u00a77 HARD: Williams-only 2/4 (124,45,44,78)",
+    "\u00a711 one slip per player (open SGP)"
+   ],
+   "note": "edge is large but form fails",
+   "recent_form": {
+    "values": [
+     124.0,
+     45.0,
+     44.0,
+     78.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     1,
+     5,
+     5,
+     4
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": false,
+   "type": "RB",
+   "gaps": [],
+   "books": {
+    "dk": 60.5,
+    "pin": 59.5
+   }
+  },
+  {
+   "name": "D'Andre Swift Rush+Rec Yds Under 86.5",
+   "player": "D'Andre Swift",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "rushrec",
+   "line": 86.5,
+   "side": "under",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.622,
+    "bias": 0.6262,
+    "gr": 0.6037
+   },
+   "median": {
+    "mc": 77.56,
+    "bias": 77.38,
+    "gr": 76.84
+   },
+   "edge_3": 0.1173,
+   "shrunk": 0.0821,
+   "status": "CUT",
+   "cut_reasons": [
+    "P13 10G underdog rush+rec under BLOCKED",
+    "\u00a77 1/4 (134,99,70,90)",
+    "\u00a711 one slip per player (open SGP)"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     134.0,
+     99.0,
+     70.0,
+     90.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     1,
+     5,
+     5,
+     4
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "RB",
+   "gaps": [],
+   "books": {
+    "dk": 87.5,
+    "pin": null
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Ernest Jones IV",
+      "targets": 38,
+      "comp_pct": 63.2,
+      "ypt": 5.0,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "LB (first tackler on RB catches, proxy)"
+     },
+     {
+      "name": "Drake Thomas",
+      "targets": 17,
+      "comp_pct": 58.8,
+      "ypt": 4.2,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "LB second"
+     }
+    ]
+   }
+  },
+  {
+   "name": "D'Andre Swift Rec Yds Over 21.5",
+   "player": "D'Andre Swift",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "recyds",
+   "line": 21.5,
+   "side": "over",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.4184,
+    "bias": 0.4213,
+    "gr": 0.4296
+   },
+   "median": {
+    "mc": 18.66,
+    "bias": 18.66,
+    "gr": 18.11
+   },
+   "edge_3": -0.0769,
+   "shrunk": -0.0538,
+   "status": "CUT",
+   "cut_reasons": [
+    "P13 10G underdog over",
+    "P14 model p < .45",
+    "\u00a711 one slip per player (open SGP)"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     10.0,
+     54.0,
+     26.0,
+     12.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     1,
+     5,
+     5,
+     4
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "RB",
+   "gaps": [],
+   "books": {
+    "dk": 21.5,
+    "pin": 17.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Ernest Jones IV",
+      "targets": 38,
+      "comp_pct": 63.2,
+      "ypt": 5.0,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "LB (first tackler on RB catches, proxy)"
+     },
+     {
+      "name": "Drake Thomas",
+      "targets": 17,
+      "comp_pct": 58.8,
+      "ypt": 4.2,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "LB second"
+     }
+    ]
+   }
+  },
+  {
+   "name": "D'Andre Swift Receptions Over 3.5",
+   "player": "D'Andre Swift",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "rec",
+   "line": 3.5,
+   "side": "over",
+   "price_fd": 112,
+   "no_vig": 0.4415,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.4632,
+    "bias": 0.4653,
+    "gr": 0.4702
+   },
+   "median": {
+    "mc": 3.0,
+    "bias": 3.0,
+    "gr": 3.0
+   },
+   "edge_3": 0.0248,
+   "shrunk": 0.0349,
+   "status": "CUT",
+   "cut_reasons": [
+    "P2 catches over needs 5+ tgt in 3 of L4 (1,5,5,4 = 2/4)",
+    "P13 10G underdog over",
+    "P14 edge +2.5 < +3 and medians 3.0 do not clear 3.5",
+    "P15 open-ticket status of Swift 3+ rec UNCONFIRMED (r2/odunze/results.md ~1:20 PM ET says placed; the 7-leg ticket holding it was cashed out per Ghost6 4:10 PM ET); barred fail-closed as nested rung"
+   ],
+   "note": "repriced +140 -> +112 (FD main), more than 20 cents; re-run through Phase 14 -> fails",
+   "recent_form": {
+    "values": [
+     1.0,
+     5.0,
+     4.0,
+     4.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     1,
+     5,
+     5,
+     4
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "RB",
+   "gaps": [],
+   "books": {
+    "dk": 3.5,
+    "pin": 3.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Ernest Jones IV",
+      "targets": 38,
+      "comp_pct": 63.2,
+      "ypt": 5.0,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "LB (first tackler on RB catches, proxy)"
+     },
+     {
+      "name": "Drake Thomas",
+      "targets": 17,
+      "comp_pct": 58.8,
+      "ypt": 4.2,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "LB second"
+     }
+    ]
+   }
+  },
+  {
+   "name": "D'Andre Swift Receptions Over 2.5",
+   "player": "D'Andre Swift",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "rec",
+   "line": 2.5,
+   "side": "over",
+   "price_fd": -225,
+   "no_vig": 0.6479,
+   "rung": "alt",
+   "press": false,
+   "p": {
+    "mc": 0.6754,
+    "bias": 0.6763,
+    "gr": 0.6507
+   },
+   "median": {
+    "mc": 3.0,
+    "bias": 3.0,
+    "gr": 3.0
+   },
+   "edge_3": 0.0195,
+   "shrunk": -0.0307,
+   "status": "CUT",
+   "cut_reasons": [
+    "P14 shrunk edge -3.1",
+    "P15 open-ticket status of Swift 3+ rec UNCONFIRMED (r2/odunze/results.md ~1:20 PM ET says placed; the 7-leg ticket holding it was cashed out per Ghost6 4:10 PM ET); barred fail-closed as nested rung",
+    "P2 tgt"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     1.0,
+     5.0,
+     4.0,
+     4.0
+    ],
+    "games": [
+     "2026_01_CHI_CAR",
+     "2026_02_MIN_CHI",
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     1,
+     5,
+     5,
+     4
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "RB",
+   "gaps": [],
+   "books": {
+    "dk": 3.5,
+    "pin": 3.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Ernest Jones IV",
+      "targets": 38,
+      "comp_pct": 63.2,
+      "ypt": 5.0,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "LB (first tackler on RB catches, proxy)"
+     },
+     {
+      "name": "Drake Thomas",
+      "targets": 17,
+      "comp_pct": 58.8,
+      "ypt": 4.2,
+      "source": "https://www.pro-football-reference.com/teams/sea/2026_advanced.htm",
+      "pulled_et": "2026-11-02T06:40",
+      "role": "LB second"
+     }
+    ]
+   }
+  },
+  {
+   "name": "Roschon Johnson Rush Yds Over 10.5",
+   "player": "Roschon Johnson",
+   "team": "CHI",
+   "opp": "SEA",
+   "market": "rushyds",
+   "line": 10.5,
+   "side": "over",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.6538,
+    "bias": 0.6533,
+    "gr": 0.6022
+   },
+   "median": {
+    "mc": 16.28,
+    "bias": 16.28,
+    "gr": 14.77
+   },
+   "edge_3": 0.1364,
+   "shrunk": 0.0955,
+   "status": "CUT",
+   "cut_reasons": [
+    "P3 SEA allows 3.40 YPC",
+    "P7 RB2 role",
+    "P13 underdog RB",
+    "P14 MODEL-SUSPECT (fixA boost)",
+    "\u00a77 only 2 games with carries"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     51.0,
+     13.0
+    ],
+    "games": [
+     "2026_06_CHI_ATL",
+     "2026_07_NE_CHI"
+    ],
+    "qb": "C.Williams",
+    "targets": [
+     2,
+     0
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": false,
+   "type": "RB",
+   "gaps": [],
+   "books": {
+    "dk": 10.5,
+    "pin": 12.5
+   }
+  },
+  {
+   "name": "Sam Darnold Pass Yds Over 238.5",
+   "player": "Sam Darnold",
+   "team": "SEA",
+   "opp": "CHI",
+   "market": "passyds",
+   "line": 238.5,
+   "side": "over",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.523,
+    "bias": 0.5215,
+    "gr": 0.5701
+   },
+   "median": {
+    "mc": 247.26,
+    "bias": 246.09,
+    "gr": 259.66
+   },
+   "edge_3": 0.0382,
+   "shrunk": 0.0267,
+   "status": "CUT",
+   "cut_reasons": [
+    "P8 backup LT (Cross OUT) -> no QB yardage over",
+    "\u00a77 2/4"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     168.0,
+     195.0,
+     278.0,
+     257.0
+    ],
+    "games": [
+     "2026_04_LAC_SEA",
+     "2026_05_SF_SEA",
+     "2026_06_SEA_DEN",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "S.Darnold",
+    "targets": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": false,
+   "type": "QB",
+   "gaps": [],
+   "books": {
+    "dk": 236.5,
+    "pin": 238.5
+   }
+  },
+  {
+   "name": "Jaxon Smith-Njigba Rec Yds Over 99.5",
+   "player": "Jaxon Smith-Njigba",
+   "team": "SEA",
+   "opp": "CHI",
+   "market": "recyds",
+   "line": 99.5,
+   "side": "over",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": true,
+   "p": {
+    "mc": 0.6398,
+    "bias": 0.6424,
+    "gr": 0.5924
+   },
+   "median": {
+    "mc": 119.08,
+    "bias": 119.08,
+    "gr": 115.15
+   },
+   "edge_3": 0.1249,
+   "shrunk": 0.0874,
+   "status": "CUT",
+   "cut_reasons": [
+    "\u00a714 cushion FAIL at -113 (L4 median 118 < 124.4; 1.10x hit 2/4)",
+    "P14 MODEL-SUSPECT (MC median 119.1, +19.6 vs line; press -> manual review)",
+    "\u00a711/\u00a715 BAR: nested rung of open ticket JSN 70+ rec yds (live SGP, Ghost6 bankroll_slips.md 4:11 PM ET)"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     76.0,
+     102.0,
+     134.0,
+     150.0
+    ],
+    "games": [
+     "2026_04_LAC_SEA",
+     "2026_05_SF_SEA",
+     "2026_06_SEA_DEN",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "S.Darnold",
+    "targets": [
+     6,
+     8,
+     16,
+     12
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "WR",
+   "gaps": [],
+   "books": {
+    "dk": 100.5,
+    "pin": 99.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Malik Muhammad (Q toe)",
+      "targets": 31,
+      "comp_pct": 54.8,
+      "ypt": 8.4,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "ESPN WR/CB primary"
+     },
+     {
+      "name": "Jaylon Johnson",
+      "targets": 31,
+      "comp_pct": 77.4,
+      "ypt": 14.4,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "outside"
+     },
+     {
+      "name": "Tyrique Stevenson",
+      "targets": 20,
+      "comp_pct": 60.0,
+      "ypt": 11.5,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "fill-in if Muhammad out"
+     }
+    ]
+   }
+  },
+  {
+   "name": "Jaxon Smith-Njigba Rec Yds Over 89.5",
+   "player": "Jaxon Smith-Njigba",
+   "team": "SEA",
+   "opp": "CHI",
+   "market": "recyds",
+   "line": 89.5,
+   "side": "over",
+   "price_fd": -166,
+   "no_vig": 0.5882,
+   "rung": "alt",
+   "press": true,
+   "p": {
+    "mc": 0.7113,
+    "bias": 0.7147,
+    "gr": 0.6471
+   },
+   "median": {
+    "mc": 119.08,
+    "bias": 119.08,
+    "gr": 115.15
+   },
+   "edge_3": 0.1029,
+   "shrunk": 0.0456,
+   "status": "CUT",
+   "cut_reasons": [
+    "P14 MODEL-SUSPECT (press -> MANUAL_REVIEW on numbers alone)",
+    "\u00a711/\u00a715 BAR: nested rung of open ticket JSN 70+ rec yds (live SGP, Ghost6 bankroll_slips.md 4:11 PM ET)"
+   ],
+   "note": "would be MANUAL_REVIEW (press) without the bar; the gate does not accept a MANUAL_REVIEW status for runs dated before 11-05, so status is CUT",
+   "recent_form": {
+    "values": [
+     76.0,
+     102.0,
+     134.0,
+     150.0
+    ],
+    "games": [
+     "2026_04_LAC_SEA",
+     "2026_05_SF_SEA",
+     "2026_06_SEA_DEN",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "S.Darnold",
+    "targets": [
+     6,
+     8,
+     16,
+     12
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "WR",
+   "gaps": [],
+   "books": {
+    "dk": 100.5,
+    "pin": 99.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Malik Muhammad (Q toe)",
+      "targets": 31,
+      "comp_pct": 54.8,
+      "ypt": 8.4,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "ESPN WR/CB primary"
+     },
+     {
+      "name": "Jaylon Johnson",
+      "targets": 31,
+      "comp_pct": 77.4,
+      "ypt": 14.4,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "outside"
+     },
+     {
+      "name": "Tyrique Stevenson",
+      "targets": 20,
+      "comp_pct": 60.0,
+      "ypt": 11.5,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "fill-in if Muhammad out"
+     }
+    ]
+   }
+  },
+  {
+   "name": "Jaxon Smith-Njigba Rec Yds Over 109.5",
+   "player": "Jaxon Smith-Njigba",
+   "team": "SEA",
+   "opp": "CHI",
+   "market": "recyds",
+   "line": 109.5,
+   "side": "over",
+   "price_fd": 124,
+   "no_vig": 0.4207,
+   "rung": "alt",
+   "press": false,
+   "p": {
+    "mc": 0.5652,
+    "bias": 0.5687,
+    "gr": 0.5337
+   },
+   "median": {
+    "mc": 119.08,
+    "bias": 119.08,
+    "gr": 115.15
+   },
+   "edge_3": 0.1351,
+   "shrunk": 0.1184,
+   "status": "CUT",
+   "cut_reasons": [
+    "\u00a77 2/4 at 109.5",
+    "\u00a711/\u00a715 BAR: nested rung of open ticket JSN 70+ rec yds (live SGP, Ghost6 bankroll_slips.md 4:11 PM ET)"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     76.0,
+     102.0,
+     134.0,
+     150.0
+    ],
+    "games": [
+     "2026_04_LAC_SEA",
+     "2026_05_SF_SEA",
+     "2026_06_SEA_DEN",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "S.Darnold",
+    "targets": [
+     6,
+     8,
+     16,
+     12
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "WR",
+   "gaps": [],
+   "books": {
+    "dk": 100.5,
+    "pin": 99.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Malik Muhammad (Q toe)",
+      "targets": 31,
+      "comp_pct": 54.8,
+      "ypt": 8.4,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "ESPN WR/CB primary"
+     },
+     {
+      "name": "Jaylon Johnson",
+      "targets": 31,
+      "comp_pct": 77.4,
+      "ypt": 14.4,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "outside"
+     },
+     {
+      "name": "Tyrique Stevenson",
+      "targets": 20,
+      "comp_pct": 60.0,
+      "ypt": 11.5,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "fill-in if Muhammad out"
+     }
+    ]
+   }
+  },
+  {
+   "name": "Jaxon Smith-Njigba Receptions Over 7.5",
+   "player": "Jaxon Smith-Njigba",
+   "team": "SEA",
+   "opp": "CHI",
+   "market": "rec",
+   "line": 7.5,
+   "side": "over",
+   "price_fd": 106,
+   "no_vig": 0.4542,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.5621,
+    "bias": 0.5627,
+    "gr": 0.525
+   },
+   "median": {
+    "mc": 8.0,
+    "bias": 8.0,
+    "gr": 8.0
+   },
+   "edge_3": 0.0957,
+   "shrunk": 0.0808,
+   "status": "CUT",
+   "cut_reasons": [
+    "\u00a77 2/4 (5,5,12,9)",
+    "\u00a711 same player as open SGP (JSN 70+, JSN TD)"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     5.0,
+     5.0,
+     12.0,
+     9.0
+    ],
+    "games": [
+     "2026_04_LAC_SEA",
+     "2026_05_SF_SEA",
+     "2026_06_SEA_DEN",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "S.Darnold",
+    "targets": [
+     6,
+     8,
+     16,
+     12
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "WR",
+   "gaps": [],
+   "books": {
+    "dk": 7.5,
+    "pin": 7.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": [
+     {
+      "name": "Malik Muhammad (Q toe)",
+      "targets": 31,
+      "comp_pct": 54.8,
+      "ypt": 8.4,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "ESPN WR/CB primary"
+     },
+     {
+      "name": "Jaylon Johnson",
+      "targets": 31,
+      "comp_pct": 77.4,
+      "ypt": 14.4,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "outside"
+     },
+     {
+      "name": "Tyrique Stevenson",
+      "targets": 20,
+      "comp_pct": 60.0,
+      "ypt": 11.5,
+      "source": "https://www.pro-football-reference.com/teams/chi/2026_advanced.htm",
+      "pulled_et": "2026-11-02T05:10",
+      "role": "fill-in if Muhammad out"
+     }
+    ]
+   }
+  },
+  {
+   "name": "Cooper Kupp Rec Yds Over 29.5",
+   "player": "Cooper Kupp",
+   "team": "SEA",
+   "opp": "CHI",
+   "market": "recyds",
+   "line": 29.5,
+   "side": "over",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.4979,
+    "bias": 0.502,
+    "gr": 0.5152
+   },
+   "median": {
+    "mc": 29.47,
+    "bias": 30.65,
+    "gr": 30.04
+   },
+   "edge_3": 0.005,
+   "shrunk": 0.0035,
+   "status": "CUT",
+   "cut_reasons": [
+    "P14 no edge",
+    "\u00a77 1/4"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     13.0,
+     15.0,
+     50.0,
+     20.0
+    ],
+    "games": [
+     "2026_04_LAC_SEA",
+     "2026_05_SF_SEA",
+     "2026_06_SEA_DEN",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "S.Darnold",
+    "targets": [
+     2,
+     3,
+     10,
+     2
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "WR",
+   "gaps": [],
+   "books": {
+    "dk": 28.5,
+    "pin": 29.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": []
+   }
+  },
+  {
+   "name": "Cooper Kupp Receptions Over 2.5",
+   "player": "Cooper Kupp",
+   "team": "SEA",
+   "opp": "CHI",
+   "market": "rec",
+   "line": 2.5,
+   "side": "over",
+   "price_fd": -160,
+   "no_vig": 0.5752,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.4682,
+    "bias": 0.4698,
+    "gr": 0.4787
+   },
+   "median": {
+    "mc": 2.0,
+    "bias": 2.0,
+    "gr": 2.0
+   },
+   "edge_3": -0.1029,
+   "shrunk": -0.0946,
+   "status": "CUT",
+   "cut_reasons": [
+    "P14 negative edge",
+    "\u00a77 1/4"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     1.0,
+     2.0,
+     5.0,
+     2.0
+    ],
+    "games": [
+     "2026_04_LAC_SEA",
+     "2026_05_SF_SEA",
+     "2026_06_SEA_DEN",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "S.Darnold",
+    "targets": [
+     2,
+     3,
+     10,
+     2
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "WR",
+   "gaps": [],
+   "books": {
+    "dk": 2.5,
+    "pin": 2.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": []
+   }
+  },
+  {
+   "name": "AJ Barner Rec Yds Under 29.5",
+   "player": "AJ Barner",
+   "team": "SEA",
+   "opp": "CHI",
+   "market": "recyds",
+   "line": 29.5,
+   "side": "under",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.5873,
+    "bias": 0.5874,
+    "gr": 0.5881
+   },
+   "median": {
+    "mc": 24.76,
+    "bias": 24.76,
+    "gr": 21.94
+   },
+   "edge_3": 0.0876,
+   "shrunk": 0.0613,
+   "status": "CUT",
+   "cut_reasons": [
+    "P3 soft CHI TE D (TE YPT 8.61)",
+    "P4 ISS-05"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     12.0,
+     20.0,
+     16.0,
+     42.0
+    ],
+    "games": [
+     "2026_04_LAC_SEA",
+     "2026_05_SF_SEA",
+     "2026_06_SEA_DEN",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "S.Darnold",
+    "targets": [
+     3,
+     5,
+     4,
+     5
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "TE",
+   "gaps": [],
+   "books": {
+    "dk": 30.5,
+    "pin": 28.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": []
+   }
+  },
+  {
+   "name": "AJ Barner Receptions Under 3.5",
+   "player": "AJ Barner",
+   "team": "SEA",
+   "opp": "CHI",
+   "market": "rec",
+   "line": 3.5,
+   "side": "under",
+   "price_fd": -168,
+   "no_vig": 0.5862,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.6868,
+    "bias": 0.6904,
+    "gr": 0.676
+   },
+   "median": {
+    "mc": 3.0,
+    "bias": 2.0,
+    "gr": 2.0
+   },
+   "edge_3": 0.0982,
+   "shrunk": 0.0429,
+   "status": "CUT",
+   "cut_reasons": [
+    "P3",
+    "P4 ISS-05"
+   ],
+   "note": "",
+   "recent_form": {
+    "values": [
+     1.0,
+     3.0,
+     3.0,
+     4.0
+    ],
+    "games": [
+     "2026_04_LAC_SEA",
+     "2026_05_SF_SEA",
+     "2026_06_SEA_DEN",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "S.Darnold",
+    "targets": [
+     3,
+     5,
+     4,
+     5
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": true,
+   "type": "TE",
+   "gaps": [],
+   "books": {
+    "dk": 3.5,
+    "pin": 3.5
+   },
+   "coverage": {
+    "man_zone": {
+     "man": 0.054000000000000006,
+     "zone": 0.9,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09",
+     "second_source": {
+      "name": "StatRankings CoverageIQ team pages (vs WR coverage snaps, thru 2026-10-30)",
+      "url_or_file": "https://statrankings.com/nfl/coverage/team/sea ; https://statrankings.com/nfl/coverage/team/chi",
+      "pulled_et": "2026-11-02 05:09",
+      "agrees": true,
+      "note": "Direction and shell agree: SEA zone #1 (Sharp 90.0% zone/5.4% man; SR 82.3%/17.7%, man #32), two-high SEA Sharp 60.6% vs SR 60.9%; CHI single-high Sharp 53.6% vs SR 54.0%, CHI man Sharp 29.9% (#3) vs SR 39.4% (#9) - man level differs by denominator (SR = WR coverage snaps), both top-10 man."
+     }
+    },
+    "mof": {
+     "open": 0.606,
+     "closed": 0.369,
+     "source": "https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/",
+     "pulled_et": "2026-11-02T05:09"
+    },
+    "defenders": []
+   }
+  },
+  {
+   "name": "Emanuel Wilson Rush Yds Over 19.5",
+   "player": "Emanuel Wilson",
+   "team": "SEA",
+   "opp": "CHI",
+   "market": "rushyds",
+   "line": 19.5,
+   "side": "over",
+   "price_fd": -113,
+   "no_vig": 0.5,
+   "rung": "main",
+   "press": false,
+   "p": {
+    "mc": 0.9501,
+    "bias": 0.9499,
+    "gr": 0.9147
+   },
+   "median": {
+    "mc": 63.23,
+    "bias": 63.23,
+    "gr": 63.4
+   },
+   "edge_3": 0.4382,
+   "shrunk": 0.3068,
+   "status": "CUT",
+   "cut_reasons": [
+    "P2/P7 role change: Charbonnet (no designation) + Price activated 4:05 PM ET -> 3-way committee",
+    "P14 MODEL-SUSPECT (sim p .95 on 63 median; no split data)",
+    "\u00a711 one slip per player (open SGP)"
+   ],
+   "note": "\u00a711: Wilson 15+ rush is on the open SGP",
+   "recent_form": {
+    "values": [
+     81.0,
+     61.0,
+     52.0,
+     100.0
+    ],
+    "games": [
+     "2026_04_LAC_SEA",
+     "2026_05_SF_SEA",
+     "2026_06_SEA_DEN",
+     "2026_07_KC_SEA"
+    ],
+    "qb": "S.Darnold",
+    "targets": [
+     4,
+     2,
+     1,
+     1
+    ],
+    "source": "nflverse play_by_play_2026.parquet (runs/2026-11-02_CHI@SEA_r3/src, release 2026-11-02 14:29 ET)",
+    "pulled_et": "2026-11-02T16:38"
+   },
+   "receiving": false,
+   "type": "RB",
+   "gaps": [],
+   "books": {
+    "dk": 20.5,
+    "pin": null
+   }
+  }
+ ]
+}

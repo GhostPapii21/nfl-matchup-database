@@ -1,0 +1,108 @@
+{
+ "game": "IND @ PIT, Week 5 2026 (kickoff time, spread, total, venue, rest/travel not saved; weather not saved)",
+ "script": {
+  "base": "No spread or total is saved, so the book\u2019s leader and point total are unknown and the script is inferred from weeks 2\u20134 form only. Base case is a competitive game with both workhorse backs involved: Jonathan Taylor 67 carries/255 yards (about 22.3 carries, 3.81 YPC) and Jaylen Warren 45/263 (15 carries, 5.84 YPC). IND\u2019s pass tree stays Downs-led (24 targets, 165 yards, 243 air) with Tyler Warren on short targets (22/117/36 air); PIT throws downfield to DK Metcalf (23/173/290 air) and Roman Wilson (18/162/242 air) and still dumps to Warren (14 targets, 116 yards, -9 air). IND\u2019s rush defense is the softer front (4.97 YPC, 12 runs of 10+ vs PIT\u2019s 4.56 YPC and 11 runs of 10+), so PIT can run without abandoning the pass.",
+  "flip1": "IND leads late: PIT abandons the run, Warren\u2019s carries die the way a trailing back\u2019s rushing line dies, and PIT target volume rises toward Wilson, Metcalf, Freiermuth and Warren\u2019s checkdowns. Taylor\u2019s rush attempts can stall if IND clocks out.",
+  "flip2": "PIT leads big, or an unknown weather/slog game cuts plays: PIT runs Warren late and Roman Wilson\u2019s routes stall; deep air-yard overs (Wilson, Metcalf, Downs) are the first to miss. Live weather is not in the pack, so this flip is untestable before kickoff."
+ },
+ "injury_fallout": "Source is the pre-game nflverse injury report in the pack, not the 90-minute inactive list (not saved). IND out: DE Arden Key (hamstring) thins the rush; WR Ashton Dulin (hamstring; 6 targets/29 yards/38 air in weeks 2\u20134) is a small target loss for Downs, Treadwell and Allen; TE Will Mallory (thumb) consolidates an already Tyler Warren-heavy TE room (22 targets L3); LB Jaylon Carlies (ribs) is the coverage loss that helps PIT TEs and RB receiving. IND questionable: WR Keenan Allen (resting, not injury; 14 targets/68 yards L3), CB Charvarius Ward (resting), WR Darius Slayton (knee; not in the L3 target list). PIT out: WR Michael Pittman (foot; 9 targets/31 yards/80 air L3) redistributes to Wilson, Metcalf, Bernard, Washington and Freiermuth; S DeShon Elliott (knee) and CB Jamel Dean (ankle) plus CB Jalen Ramsey questionable (wrist) weaken PIT\u2019s secondary for IND pass-catchers, not for PIT\u2019s own skill players. PIT RB Rico Dowdle questionable (toe; 7 carries/22 yards L3) would push carry share to Warren (already 45 of 57 listed RB carries) and T. Homer (5/15) if he sits.",
+ "matchup": {
+  "shell": "MOFO/MOFC and man/zone rates are not in the pack (coverage charting missing). Location YPA is the shell proxy. PIT defense: left 8.75 YPA on 51 attempts (bleed), middle 7.15 on 26 (best), right 7.27 on 37. IND defense: middle 8.83 on 30 and left 8.73 on 44 bleed; right 7.48 on 61 is the tighter side.",
+  "pressure": "PIT blitz rate 28%; IND EPA/db vs blitz -0.19 vs none -0.21, so IND is slightly negative either way and PIT\u2019s blitz is not a special kill shot. IND blitz rate 20%; PIT EPA/db vs blitz -0.39 vs none -0.05, so PIT\u2019s pass game is much worse when blitzed, but IND rarely blitzes and DE Arden Key is out, which further lowers pressure and protects deep routes and reduces forced checkdowns.",
+  "bleeds": "PIT rush defense 4.56 YPC with 11 runs of 10+ and 14 passes of 20+ (124 in the pack\u2019s 20+ pass field) over 4 games \u2014 average run defense, left-side pass bleed. IND rush defense 4.97 YPC with 12 runs of 10+ and 13 passes of 20+ \u2014 the clearer run bleed, plus middle/left pass explosives.",
+  "overlap": "Cleanest overlap is Jaylen Warren\u2019s checkdowns (14 targets, -9 air, 116 yards L3) into IND\u2019s middle bleed (8.83 YPA) with LB Jaylon Carlies out. Second overlap is Roman Wilson\u2019s air-yard role (242 air on 18 targets) into IND\u2019s 13 explosive passes allowed, with IND CB Ward only questionable and IND pressure light (20% blitz, Key out). Downs (24 targets, 243 air) would attack PIT\u2019s depleted secondary (Elliott out, Dean out, Ramsey Q), but PIT\u2019s middle \u2014 the likely slot area \u2014 is PIT\u2019s best zone at 7.15 YPA, and Downs\u2019 line is not short of his production."
+ },
+ "form": "Last-4 is prior game then weeks 2\u20134; L3 sums check out (Warren rec 34+49+33=116; Wilson 28+60+74=162; Taylor rush 92+68+95=255; Downs 72+77+16=165). Warren receiving floor is 27, 34, 49, 33 \u2014 all over 20.5, including the two low-rush games (46 and 43 rush yards). Warren rush is split and trending up: 46, 43, 127, 93 vs a 72.5 line; the 127 can be a one-game spike. Wilson 26, 28, 60, 74 \u2014 first two under 41, last two well over, with real air yards not just empty YAC. Metcalf 40, 27, 31, 115 is under 52.5 in three of four; the 115 looks explosive-dependent. Downs 37, 72, 77, 16 sits on a 55.5 line (L3 average 55) after a 16-yard week 4. Taylor rush 98, 92, 68, 95 is 3 of 4 over 84.5 but the line equals his L3 average (85.0) against a non-soft PIT run defense. Taylor receiving has collapsed (23, 40, 4, 2). Jones rush 4, 10, 5, 5 is mostly under 9.5 but already priced that way. Freiermuth 46, 32, 30, 17 is fading through 27.5. Treadwell 0, 61, 20, 42 is explosive on only 10 targets L3.",
+ "pro_edge": {
+  "implied_totals": "N/A. No saved spread or total, so favorite=(T+S)/2 and underdog=(T-S)/2 cannot be computed. No team-total script from the market.",
+  "script_read": "Skill-2 rules that need a number do not fire: no 3.5+ dog to force pass volume, no blowout flag, no high/low total to force volume overs or unders. Form stand-in: both offenses are RB-led with real target trees; the matchup tell is IND\u2019s 4.97 YPC rush defense versus PIT\u2019s 4.56, so a PIT run lean is friendlier than an IND run lean, while IND\u2019s 20% blitz and Key being out keep PIT\u2019s non-blitz pass EPA (-0.05) in play.",
+  "best_price": "Jaylen Warren recyds 20.5: anchor consensus no-vig over 0.500 / under 0.500; best over -113, best under -113. Roman Wilson recyds 41: no two-sided price saved, no-vig N/A, so no best-price edge pts. Other saved anchors are coin flips (Taylor rush 84.5 both -113.5, no-vig 0.500; Downs 55.5 both -114, no-vig 0.500; Jones rush under 9.5 best -120 vs no-vig under 0.510; Freiermuth 27.5 over -114 / under -113, no-vig over 0.501). No Pinnacle quote in the pack; anchor is consensus only.",
+  "lagging": "Scan did not flag a book off consensus or a prop that failed to move after a spread/total move (spread/total not saved). Manual only: Warren recyds 20.5 is priced 50/50 despite a four-game floor of 27 and an L3 average of 38.7, which looks unre-priced to the role; no movement CSV to prove it lagged. Wilson, Metcalf, Treadwell, Tyler Warren and Warren rush/rush+rec have no two-sided prices, so lag versus consensus cannot be measured.",
+  "sleepers": "Ruled out or questionable, same-position teammates, lines not shown as moved. PIT WR Michael Pittman Out (9 tgt L3) \u2192 Wilson, Metcalf, Bernard, Washington, Freiermuth; Wilson\u2019s 41 and Metcalf\u2019s 52.5 have no two-sided price, so a \u2018line didn\u2019t move\u2019 sleeper cannot be confirmed. IND WR Dulin Out (6 tgt) \u2192 Downs, Treadwell, Allen; Downs 55.5 is at his L3 average, not an obvious stale under-line. PIT RB Dowdle Questionable (7 car) \u2192 Warren/Homer carries; Warren rush 72.5 has no two-sided price. IND LB Carlies Out and DE Key Out are defensive holes for PIT skill players, not same-position offensive sleepers. PIT S Elliott Out, CB Dean Out, CB Ramsey Questionable help IND pass-catchers; not used as a priced leg because Downs\u2019 number is not short."
+ },
+ "edge_players": [
+  {
+   "player": "jaylenwarren",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Jaylen Warren has cleared 20.5 receiving yards in all four logged games (27, 34, 49, 33; L3 14 targets, 116 yards, -9 air) and IND is down LB Jaylon Carlies while allowing 8.83 YPA in the middle, so 20.5 is short of a checkdown role the market still prices as a coin flip.",
+   "must_be_true": "He keeps passing-down snaps (Dowdle is not a receiving replacement in the target list), stays healthy, and still sees about 3-plus targets; the competitive or trailing script can both feed checkdowns, which already hit in his two low-rush games (46 and 43 rush yards with 27 and 34 receiving).",
+   "kills_it": "IND\u2019s 20% blitz and Key being out mean fewer pressure-forced dumps, and a designed plan to take the flat away drops him from a 27-yard floor to the teens; a snap loss or injury does the same. One market only \u2014 not stacked with his rush or rush+rec.",
+   "confidence": "strong",
+   "model_p": 0.62,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "IND defense weeks-to-date: middle 8.83 YPA (30 attempts), left 8.73 (44); LB Jaylon Carlies Out (ribs) on the official injury report. Warren L3 targets 14 for 116 yards and -9 air yards."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Negative air yards are designed checkdowns, not a blitz-only role. IND blitz rate is only 20% and PIT EPA/db vs no blitz is -0.05, so the dump-off can exist without pressure. Key Out lowers pressure further but does not remove the RB target share already logged."
+    },
+    "script": {
+     "ok": true,
+     "source": "Receiving cleared 20.5 in both low-rush games (week-prior 46 rush/27 rec; week 2 43 rush/34 rec) and high-rush games (127/49 and 93/33). Survives the IND-leads flip (more targets) and is not dead in a PIT run script."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Last4 recyds 27, 34, 49, 33; L3 34+49+33=116 matches the team target line. No zero-yard game. 49 is the high, not the whole case; floor is still 27 vs a 20.5 line."
+    }
+   },
+   "primary_defender": {
+    "who": "IND linebackers, with Jaylon Carlies Out (ribs); replacement not named in the pack",
+    "source": "Official injury report in the pack. No coverage charting, so the specific flat defender is not known."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "Anchor consensus no-vig over 0.500; best saved over -113. Form-based 0.62 beats that no-vig by about 12 pts (gate is 3+). Not a same-position sleeper; support is the Carlies Out coverage hole plus Dowdle Questionable protecting Warren\u2019s snaps. No book-lag flag was printed; the 50/50 price versus a 27-yard floor is the price tell. No stake \u2014 sims missing and this read does not place a bet."
+  },
+  {
+   "player": "romanwilson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Roman Wilson\u2019s role has jumped from 26 and 28 yards to 60 and 74, with 18 targets and 242 air yards over weeks 2\u20134, and Pittman\u2019s 9 targets are gone while IND has allowed 13 passes of 20-plus yards, so 41 is inside a rising downfield role rather than a season average.",
+   "must_be_true": "PIT stays in the pass enough for a WR2 route share, Wilson keeps the Pittman targets instead of Bernard/Washington/Freiermuth, and at least one intermediate or explosive connection shows up the way the air yards say it should. Ward\u2019s status is a plus only if he sits; it is not required.",
+   "kills_it": "A PIT lead that turns into a Warren clock-kill, or the 60/74 games being one-play spikes that regress toward 26\u201328. No two-sided price is saved, so this lean is not sized. Explosive-play dependence is the red-team case.",
+   "confidence": "lean",
+   "model_p": 0.55,
+   "scheme": {
+    "matchup": {
+     "ok": true,
+     "source": "IND defense: 13 passes of 20+ in 4 games; left 8.73 YPA (44) and middle 8.83 (30). Wilson L3 18 targets, 162 yards, 242 air. Alignment vs a specific corner is not charted. IND CB Charvarius Ward is Questionable (resting), not confirmed out."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "IND blitz rate 20% and Arden Key Out mean deep routes are less likely to be killed by pressure. PIT EPA/db vs no blitz is -0.05 versus -0.39 when blitzed, so the light-blitz look fits a downfield WR better than a heavy-blitz look would."
+    },
+    "script": {
+     "ok": true,
+     "source": "Base competitive script keeps both QBs throwing. Tagged script-sensitive: the PIT-leads-and-runs flip cuts Wilson\u2019s routes. The IND-leads flip helps him. No spread, so neither flip is the base."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Last4 recyds 26, 28, 60, 74; L3 28+60+74=162 matches the target line. Direction is up, but two of four missed 41 and play-by-play is not in the pack, so a one-play inflation of 60 and 74 cannot be ruled out."
+    }
+   },
+   "primary_defender": {
+    "who": "IND perimeter/safety not charted; closest named corner is Charvarius Ward, Questionable (resting), not confirmed as Wilson\u2019s matchup",
+    "source": "Injury report in the pack. No man/zone or alignment charting. Do not treat Ward as the primary defender."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": true,
+   "pro_edge_support": "No two-sided price saved; anchor no-vig N/A; best price and edge pts unavailable \u2014 do not size. Sleeper context only: Pittman Out (9 targets/31 yards/80 air L3) is the same-position absence; Wilson\u2019s line movement was not saved, so the sleeper check is incomplete. Elliott/Dean/Ramsey are PIT defenders and do not cover Wilson."
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, no sims, no Pinnacle in the pack; model_p values are manual form estimates, not 3-sim outputs, and both are held under 0.70 because a 4-game hit rate would overstate (calibration warning). Warren recyds over: form agrees (4/4, floor 27, L3 38.7 vs 20.5) and consensus no-vig over is 0.500, so the read is not contradicted and is not cut. Wilson recyds over: form direction agrees but 2 of 4 missed and no-vig is N/A, so the lean is not sized. No saved number disagrees with the Warren strong read. Step 8 cannot be closed with a sim median.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only; no alt rungs saved. Jaylen Warren recyds over 20.5 at best -113 (consensus; anchor no-vig 0.500). Roman Wilson recyds over 41 has no saved price. Volume edge maps to receptions, which are not an available market, so Warren is expressed in recyds. Wilson is the explosive/air-yard recyds expression. Short-priced alts not taken.",
+ "pre_mortem": "It\u2019s Monday and both lost. Warren\u2019s 20.5 died because IND did not blitz (20%, Key out), Rodgers never had to dump off, and a linebacker replacement sat on the flat, turning 4.7 targets into two catches for 12 yards \u2014 the 27-yard floor was opponent-driven, not a right. Wilson\u2019s 41 died because the 60 and 74 were single explosives, Pittman\u2019s 9 low-value targets did not become a full route package, and PIT leaned on Warren\u2019s 5.84 YPC against a 4.97 rush defense and took the vertical shots away. That counter is real for Wilson (why he stays a lean, not a strong) and is not stronger than Warren\u2019s four-game floor plus the Carlies hole, so Warren stays and Wilson is not dropped.",
+ "slip_story": "One PIT skill-player story, not a total and not an IND stack: IND\u2019s front seven is short Key and Carlies, so Warren\u2019s checkdown yards and Wilson\u2019s downfield yards can hit together in a competitive game where PIT still throws. Do not add Warren rush or rush+rec (one market per player; rush needs the lead script that can kill Wilson). Do not pair with a game under or with Taylor rush-clock legs, which need a different leader. Downs was considered for the PIT-secondary injuries and passed because 55.5 equals his L3 average after a 16-yard week 4 and PIT\u2019s middle is their best zone (7.15 YPA).",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T13:43:13-0500"
+ }
+}

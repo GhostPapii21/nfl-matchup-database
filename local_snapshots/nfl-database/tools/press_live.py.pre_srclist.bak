@@ -1,0 +1,37 @@
+"""Week 9+ PRESS tagging (config: tools/gate_config.json). Tags live legs in run_manifest.json + report.md and
+appends real-line rows to backtests/scan_press/press_live_2026.csv. Never changes gate pass/fail."""
+import csv, json, os
+import press_tier as pt
+HERE = os.path.dirname(os.path.abspath(__file__))
+TRACKER = os.path.join(HERE, "..", "backtests", "scan_press", "press_live_2026.csv")
+FIELDS = ["date", "game", "leg", "line", "book", "price", "models_cleared", "result"]
+def cfg(): return json.load(open(os.path.join(HERE, "gate_config.json")))["press_tier"]
+def active_for(game_date):
+    c = cfg(); return bool(c.get("enabled")) and str(game_date)[:10] >= c["enabled_from"]
+def apply(run_dir, game_date, live):
+    k = cfg()["models_required"]; mp = os.path.join(run_dir, "run_manifest.json"); m = json.load(open(mp, encoding="utf-8"))
+    out, press = [f"PRESS TIER (on for runs >= {cfg()['enabled_from']}; models_required={k}):"], []
+    for l in m.get("legs", []):
+        if l.get("name") not in live: continue
+        inp = dict(l.get("press") or {}); inp.setdefault("line", l.get("line")); inp.setdefault("side", l.get("side", "over"))
+        r = pt.evaluate(inp, k) if l.get("press") else dict(tier="STANDARD", reason="no press inputs on leg", models_clear=0)
+        l["press_tier"] = r; out.append(f"  - {l['name']}: {r['tier']} ({r['reason']})")
+        if r["tier"] == "PRESS": press.append((l, r))
+    json.dump(m, open(mp, "w", encoding="utf-8"), indent=1)
+    rp = os.path.join(run_dir, "report.md")
+    if os.path.exists(rp) and press:
+        t = open(rp, encoding="utf-8").read(); t = t.split("\n## PRESS legs")[0].rstrip("\n")
+        t += "\n\n## PRESS legs\n" + "".join(f"- [PRESS] {l['name']} ({r['reason']})\n" for l, r in press)
+        open(rp, "w", encoding="utf-8").write(t)
+    tr = os.environ.get("PRESS_TRACKER", TRACKER); have = set()
+    if os.path.exists(tr): have = {(r["date"], r["game"], r["leg"]) for r in csv.DictReader(open(tr))}
+    new = not os.path.exists(tr)
+    with open(tr, "a", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS)
+        if new: w.writeheader()
+        for l, r in press:
+            key = (str(game_date)[:10], l.get("game", m.get("game", "")), l["name"])
+            if key in have: continue
+            w.writerow(dict(date=key[0], game=key[1], leg=key[2], line=l.get("line"), book=l.get("book", "FD" if l.get("price_fd") is not None else ""),
+                            price=l.get("price_fd", ""), models_cleared=r["models_clear"], result=""))
+    return out

@@ -1,0 +1,44 @@
+[
+  {
+    "category": "coverage_matchups",
+    "name": "week10 bal_def_snapshot + pff_jax_bal",
+    "url_or_file": "week10/bal_def_snapshot/ + week10/pff_jax_bal/receiver_matchups.csv",
+    "pulled_et": "2026-11-04 16:00",
+    "tool": "local analysis"
+  },
+  {
+    "category": "ngs",
+    "name": "week10/ngs",
+    "url_or_file": "week10/ngs/",
+    "pulled_et": "2026-11-04 16:00",
+    "tool": "local"
+  },
+  {
+    "category": "injuries_news",
+    "name": "ESPN + public news Nov 4 2026 (Meyers Q, Tuten Q ankle/foot, Austin Johnson, BAL injuries from sweep)",
+    "url_or_file": "week10/injury_sweep_2026-11-04.md + week10/news/espn_injuries_20261104_1210.json",
+    "pulled_et": "2026-11-04 16:00",
+    "tool": "ESPN/CBS/PFR"
+  },
+  {
+    "category": "weather",
+    "name": "NWS/Open-Meteo Baltimore M&T Bank Stadium",
+    "url_or_file": "grok/weather_forecast.json",
+    "pulled_et": "2026-11-04 16:00",
+    "tool": "tools/weather_forecast.py"
+  },
+  {
+    "category": "target_share_pool",
+    "name": "nflverse pbp threshold 0.22",
+    "url_or_file": "grok/target_share_pool.json",
+    "pulled_et": "2026-11-04 16:00",
+    "tool": "nflverse pbp + week10/jax_usage"
+  },
+  {
+    "category": "film",
+    "name": "NFL YouTube highlights (official NFL, ESPN, Jaguars, Ravens channels)",
+    "url_or_file": "grok/film_index.md",
+    "pulled_et": "2026-11-04 17:00",
+    "tool": "yt-dlp"
+  }
+]

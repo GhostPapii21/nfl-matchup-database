@@ -1,0 +1,39 @@
+{
+ "game": "Week 7 MIA@NYJ / kickoff MISSING / NYJ -3.5 / total 39.5 / implied totals NYJ 21.5, MIA 18 / weather MISSING; moneylines, opening lines, venue details, rest and travel MISSING",
+ "script": {
+  "base": "NYJ leads a relatively low-scoring game and leans on B.Allen, whose 55 carries dominate its supplied three-game rushing workload. MIA faces more passing situations; the hypothesis is that M.Willis retains meaningful rushing involvement while navigating NYJ's 37% blitz rate.",
+  "flip1": "NYJ builds a larger early lead and MIA abandons conventional rushing. Willis' rushing over can survive if passing situations generate scrambles, but the pack does not distinguish his scrambles from designed runs.",
+  "flip2": "MIA leads behind O.Gordon, who gained 229 yards on 44 carries in its supplied three-game window. Willis' over can still survive through his established rushing involvement, but a Gordon-dominated possession game would threaten his opportunity."
+ },
+ "injury_fallout": "MISSING: MIA and NYJ offensive, defensive and offensive-line injury reports; practice participation; final designations; inactive lists; return-to-play limits; replacement-player shares. No absences, returns or next-man-up changes are inferred. Source for all available usage: supplied as-of pack, MIA weeks 3\u20135 and NYJ weeks 4\u20136; exact publication timestamps are not supplied.",
+ "matchup": {
+  "shell": "MISSING: NYJ and MIA MOFO/MOFC rates, man/zone rates and coverage assignments. Location splits cannot establish which receivers or tight ends face particular defenders.",
+  "pressure": "NYJ blitzes 37%; MIA QB EPA/dropback is -0.35 against blitzes over 50 dropbacks versus -0.02 without blitzes. That supports concern about MIA's passing efficiency, not proof of extra Willis rushing yards. Pressure rate, containment discipline, sacks and Willis' scramble response are MISSING. MIA blitzes 27%; NYJ QB EPA/dropback is -0.11 against blitzes versus 0.13 without.",
+  "bleeds": "NYJ allows 4.38 rushing yards per carry and has conceded 18 runs of 10-plus yards through six games. Its middle passing YPA allowed is 7.67, compared with 4.94 left and 6.7 right. MIA allows 4.03 rushing yards per carry and 9.71 passing YPA through the middle. Neither defense's quarterback-specific rushing allowance is supplied.",
+  "overlap": "Willis' 19 carries for 141 yards establish actual rushing involvement against a NYJ defense that has allowed rushing gains. Whether his particular rushing concepts attack NYJ's vulnerabilities remains unverified; the blitz matchup is a hypothesis to test, not an established scramble advantage."
+ },
+ "form": "MIA weeks 3\u20135: Willis recorded 19 carries for 141 yards, Gordon 44 for 229, and Wright 11 for 18. Washington led targets with 23, followed by Coleman with 15 and Dulcich with 13. NYJ weeks 4\u20136: Allen recorded 55 carries for 253 yards, while Wilson led targets with 21. Individual-game distributions, snaps, routes, designed-run versus scramble splits, opponent comparisons and explanations for the different three-game windows are MISSING.",
+ "edge_players": [
+  {
+   "player": "malikwillis",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Willis' established rushing involvement gives him a plausible path over 30.5 yards against a NYJ defense allowing 4.38 yards per carry, without requiring MIA to control the game.",
+   "must_be_true": "Malik Willis rushing_attempts >= 5 [because the pack records 19 carries across MIA's last three supplied games; this is an opportunity condition, not a validated yardage threshold]",
+   "kills_it": "IF NYJ containment keeps Willis in the pocket and MIA assigns the meaningful rushing workload to Gordon THEN Willis rushyds over 30.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis starts with Willis' rushing role and the likely NYJ-leading script. The numerical check is supportive: his supplied three-game totals equal 6.33 carries and 47 rushing yards per game, versus a 30.5 line. These aggregates do not establish consistency or a hit probability. At -117.5, the break-even probability is approximately 54.02%. Normalizing the supplied over -117.5 and under -112.5 prices gives an approximately 50.51% no-vig over probability; this is a pack-price calculation, not a verified Pinnacle benchmark. No projection or simulation was fabricated, so a positive priced edge is not established.",
+  "disagrees": "none",
+  "missing": "Projection, simulation median and calibrated probability; verified Pinnacle prices and odds timestamps; individual-game rushing distribution; quarterback-specific defensive rushing data; designed-run/scramble splits; injury and inactive reports; coverage and pressure charting; weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate only: mal\u10d8\u10d9willis rushyds over 30.5 at -117.5, using player ID malikwillis. The rushing market directly expresses the role hypothesis; no alternate rung is supplied. Lean only, with no stake recommendation because the pack does not establish a probability above the price's 54.02% break-even threshold.",
+ "pre_mortem": "It is Monday and Willis stayed under because NYJ's blitzing disrupted MIA without creating useful escape lanes. Gordon absorbed the designed rushing work, and Willis' 141-yard aggregate concealed one unusually productive game or a few long runs. The pack cannot resolve those possibilities because it lacks game-level rushing results and scramble splits. The strongest opposing case is that poor EPA against blitzes means stalled drives rather than additional rushing production.",
+ "slip_story": "Single-candidate NYJ-leads/MIA-quarterback-mobility story, not a completed parlay. Do not force three or four legs from insufficiently verified edges. Recheck injuries and inactives before any prospective use. No bet is placed. No timestamped external read log, hash or postgame grading is available here; later grade the NYJ-leading script and Willis rushing-role hypothesis separately from whether over 30.5 wins.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

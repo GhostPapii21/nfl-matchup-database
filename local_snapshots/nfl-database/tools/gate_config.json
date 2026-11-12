@@ -1,0 +1,40 @@
+{
+  "_note": "Default config read by run_gate.py. PRESS turned on for Week 9 by user approval 2026-11-01 21:42 ET ('Turn the press tier on for Week 9 slips now'). Applies only to runs whose game_date >= enabled_from; earlier runs are untouched.",
+  "press_tier": {
+    "enabled": true,
+    "enabled_from": "2026-11-02",
+    "models_required": 2,
+    "requires_all_context": [
+      "matchup",
+      "coverage",
+      "script",
+      "qb",
+      "form7"
+    ],
+    "overrides": [
+      "weather_stop",
+      "injury/inactives",
+      "sec11_one_slip",
+      "wr3_wr4_ban"
+    ]
+  },
+  "pass_volume_cap": {
+    "enabled": false
+  },
+  "rule5": "untouched",
+  "noshrink": {
+    "enabled": true,
+    "from": "2026-11-02",
+    "source": "Rico in Betting Hub 2026-11-02 21:13 ET"
+  },
+  "scheme_edge": {
+    "enabled": true,
+    "keys": [
+      "matchup",
+      "scheme_fit",
+      "script",
+      "form_trend"
+    ],
+    "note": "averages/sims become flags, not cuts; last 2 games with current QB must clear"
+  }
+}

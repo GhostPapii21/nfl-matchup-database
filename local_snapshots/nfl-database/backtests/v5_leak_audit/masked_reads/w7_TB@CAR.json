@@ -1,0 +1,45 @@
+{
+ "game": "AWAY@HOME / kickoff not in pack / HOME -3 / total 45 / weather not saved",
+ "script": {
+  "base": "Book has a one-score game: HOME -3, total 45, implied about HOME 24 / AWAY 21. HOME leads late but not by enough to junk the run. PLY13 (68 carries, 324 rush yards over L3) keeps a bellcow script; PLY08 (56/272) stays in the run game as a 3-point dog. Pace moderate; both WR1s (PLY10 30 targets, X05 29) are involved but this is not priced as a shootout.",
+  "flip1": "HOME is up two scores by halftime, clocks with PLY13, and AWAY (QB EPA/dropback -0.22 vs blitz, n=84) abandons the run so PLY08 carries and rush yards die under 66.5.",
+  "flip2": "It becomes a shootout or AWAY leads late: both carry shares drop, rush overs miss together, and the path to 45 is PLY10 (295 rec yards / 299 air over L3) and AWAY's pass game into a defense that has allowed 14 passes of 20+ yards."
+ },
+ "injury_fallout": "No injury report, practice trend, questionable tags, or inactives in the pack, so fallout cannot be sourced. Edges assume PLY08 and PLY13 are full-go with no snap cap. If PLY08 sits, AWAY carries shown in L3 reroute to X02 (17/119), PLY15 (9/40) and PLY03 (8/28). If PLY13 sits, HOME's other rushers are a small share: PLY05 9/18, PLY06 2/15, X13 1/1. Re-check would be required at inactives; that checkpoint is not in the pack.",
+ "matchup": {
+  "shell": "MOFO/MOFC and man/zone not charted. Location YPA only: HOME allows left 6.34 (59 att), middle 8.12 (42), right 5.34 (88); AWAY allows left 6.35 (92), middle 8.78 (40), right 6.06 (81). Both leak the middle versus tighter outsides.",
+  "pressure": "HOME blitz rate 37%; AWAY blitz rate 42%. No pressure rate or time-to-throw in pack. AWAY QB EPA -0.22 vs blitz (n=84) vs -0.16 unblitzed, so HOME's blitz is a mild negative for AWAY passing. HOME QB EPA +0.13 vs blitz (n=57) vs +0.23 unblitzed, so AWAY's 42% blitz does not break HOME's dropback game.",
+  "bleeds": "HOME run D allows 5.22 YPC and 14 runs of 10+ (5 games) and has held explosives to 9 of 201 passes. AWAY run D is a strength at 3.72 YPC with only 12 runs of 10+ (6 games) but allows more explosives (14 of 225) and the softest middle (8.78 YPA).",
+  "overlap": "Clean overlap is PLY08's 56-carry, 4.86 YPC role into HOME's 5.22 YPC run bleed. PLY13's 68-carry role does not attack a bleed; AWAY's 3.72 YPC is the conflict, so his case is volume against a 66 number, not efficiency. Pass overlap would be whoever works the middle, but alignment is not in the pack; PLY10 is the HOME volume/air primary (30 tgt, 299 air) into explosives and a soft middle."
+ },
+ "form": "AWAY L3 role: PLY08 56/272 rush (~18.7 carries, 90.7 yards per game) and only 6 tgt/13 rec yards; X02 17/119 is the change-of-pace. Pass volume is X05 29/99/225 (3.4 yards per target on big air) and X06 18/105/75; PLY16 6/88/54 is explosive but tiny. HOME L3: PLY13 68/324 rush (~22.7 carries, 108 yards per game) plus 8 tgt/36 rec yards; PLY10 30/295/299 is the pass primary; PLY12 17/115/228 is air-rich and yard-poor (~38 rec yards per game). No OC or QB change is in the pack. No same-shell game splits beyond the season defensive totals.",
+ "edge_players": [
+  {
+   "player": "PLY08",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "PLY08 is an 18-19 carry back at 4.86 YPC (90.7 rush yards per game over L3) into a defense allowing 5.22 YPC, and 66.5 sits about 24 yards under that role in a one-score game that should not force AWAY off the run.",
+   "must_be_true": "He is active with no snap cap, keeps about 15+ carries, and the game stays within a score so AWAY does not abandon the run.",
+   "kills_it": "HOME leads by two scores and AWAY goes pass-only, or a stacked box holds him near 3 YPC on a short carry count.",
+   "confidence": "strong"
+  },
+  {
+   "player": "PLY13",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "PLY13 has 68 carries and 324 rush yards over L3 (about 108 per game), and even if efficiency falls to AWAY's 3.72 YPC, a 20-carry day is still about 74 yards, over a 66 line, in a HOME -3 script that supports the run.",
+   "must_be_true": "He stays the bellcow versus PLY05/PLY06, is full-go, and HOME is not stuck in a pass-only chase.",
+   "kills_it": "AWAY's 3.72 YPC run defense plus a shootout or a backup vulture cuts him to the mid-teens in carries at under 3.5 YPC.",
+   "confidence": "strong"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection model, sim median, or Pinnacle no-vig in the pack, so step 8 is qualitative only. PLY08: 17-19 carries at 4.8-5.2 YPC is about 82-99, above 66.5; HOME 5.22 YPC and 14 runs of 10+ agree. PLY13: 20-23 carries at the opponent's 3.72 YPC is about 74-86, still above 66, so the side agrees, but 3.72 YPC and only 12 runs of 10+ in 6 games disagree with repeating 4.76 YPC and 108 yards. That conflict flags the strong PLY13 read for the human; it does not cut it. No listed probability is treated as 70%+. Prices: PLY08 over 66.5 is -113; PLY13 rushyds over 66 is +nan in the pack.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "PLY08 rushyds over 66.5 -113 (rushing yards, not rush+rec 87.5, because the rush line has more cushion versus ~90.7 recent). PLY13 rushyds over 66 (price missing, listed +nan); rushrecyds over 85.5 -110.5 is the priced alt but is thinner once efficiency is cut to 3.72 YPC plus ~12 rec yards. No short-price alt. No-vig not in pack.",
+ "pre_mortem": "It's Monday and both rush overs lost because the base one-score script flipped: HOME led by 14 at half, AWAY's negative blitz EPA forced dropbacks into a 37% blitz, and PLY08 finished near 12 carries under 66.5 even though HOME allows 5.22 YPC. Separately AWAY sold out to the run (3.72 YPC, 12 explosive runs in 6 games), PLY05 or PLY06 vultured the short yards, and PLY13's carries fell into the mid-teens so 66 was not low enough. Inactives are not in the pack, so a surprise snap limit is an unpriced kill. That counter is the flip, not the HOME -3 base, so the legs stay with the blowout risk named rather than dropped.",
+ "slip_story": "One close-game story only: HOME -3, both bellcows keep carry share. PLY08 over is the soft-run-defense leg; PLY13 over is the favorite clock-control leg. They win together if it stays within a score and lose correlation if either team blows it open. Do not add same-game receiver overs or a total over; those need the shootout flip. No TD legs. One market per player.",
+ "step6_limited": true,
+ "step12_limited": true
+}

@@ -1,0 +1,108 @@
+{
+ "game": "TB @ CIN Week 1 2026, kickoff 2026-09-13 13:00 ET, outdoor, CIN -3.5, total 50.5",
+ "script": {
+  "base": "Market prices a competitive CIN win, not a blowout: CIN implied 27.0, TB 23.5 from the 50.5 close. Cincinnati leads by a score late and salts the clock with Chase Brown, while the 50.5 total keeps both passing games live and the +3.5 dog (TB) throws more, including checkdowns.",
+  "flip1": "CIN gets up big early, runs the clock, Brown's carries spike, CIN WR yards stall, and TB's pass volume turns into garbage time with starter-snap risk if the lead gets out of hand.",
+  "flip2": "TB scores first and leads, CIN abandons the run so Brown's rush line dies, and it becomes a shootout where Ja'Marr Chase and Tee Higgins, not the clock backs, clear."
+ },
+ "injury_fallout": "Pre-game nflverse report, not yet inactives (90 minutes out): TB RB Sean Tucker Doubtful (hamstring) pushes carries and snaps to Bucky Irving (rush line 62.5) and Kenny Gainwell (rush 20.5 / rec 25.5). TB WR Jalen McMillan Doubtful (knee) opens targets for Emeka Egbuka (40.5), Chris Godwin Jr (26.5) and Cade Otton (28.5); lines may already include that and no movement file exists. TB T Justin Skule Doubtful (oblique) is the OL hit: pressure up, rush efficiency down, quick throws up, so TB RB and TE catches are the skill fallout and deep WR yards are the loser. TB LB Christian Rozeboom Questionable (foot) is not out; if he sits, CIN TE/RB/slot would gain, unconfirmed. CIN DE Shemar Stewart Doubtful (knee) is a modest pass-rush trim for Tampa, not a coverage hole. No CIN skill player is out, so Chase Brown, Ja'Marr Chase and Tee Higgins keep their priced roles; Samaje Perine (rush line 26.5) remains the committee vulture.",
+ "matchup": {
+  "shell": "No MOFO/MOFC or man/zone charting in the pack. Cannot map WRs or TEs to zone defenders.",
+  "pressure": "No blitz or pressure rates, and no QB name or blitz splits in the pack. Only pressure clue is TB T Justin Skule Doubtful (oblique), which should raise Tampa's pressure rate and shorten time to throw. CIN DE Shemar Stewart Doubtful slightly trims the other side's rush.",
+  "bleeds": "No yards or targets allowed by WR1/WR2/slot/TE/RB, no explosive or YAC splits, no rush EPA or stuff rate for either defense.",
+  "overlap": "Cannot claim a primary-target-versus-weak-spot overlap. Market roles only: Ja'Marr Chase is the priced CIN alpha (recyds 95.5) and Emeka Egbuka is the priced TB alpha (40.5). Chase Brown is the priced lead back (53.5 vs Perine 26.5)."
+ },
+ "form": "Week 1: no 2026 games. All logs are 2025 prior-season and the pack says possibly a different team or QB, so this is a flagged fallback, not a role lock. Every main line equals the stand-in prior-game median, so the full sample is a coin flip versus the number; only last-4 trend plus today's script can be an edge. Chase Brown rush last4 53, 66, 101, 72 (3 of 4 over 53.5; 17-game median is the 53.5 line). Tee Higgins rec last4 92, 53, 59, 67 (3 of 4 over 56.5). Ja'Marr Chase rec last4 132, 109, 60, 96 (3 of 4 over 95.5, one 35-yard miss). Kenny Gainwell rec last4 46, 78, 12, 64 (3 of 4 over 25.5) but those spikes may not be a TB role. Egbuka rec last4 64, 40, 20, 8 is a clear fade versus 40.5. Bucky Irving rec last4 11, 0, 14, 13 all under 17.5. Cade Otton rec last4 19, 15, 33, 94 mostly under 28.5.",
+ "pro_edge": {
+  "implied_totals": "CIN 27.0, TB 23.5. Favorite = (50.5+3.5)/2, dog = (50.5-3.5)/2. High total means more plays and volume; 3.5 is not a blowout flag.",
+  "script_read": "Underdog TB (spread 3.5) should throw more, so TB WR/TE/RB targets rise. The leader runs late, so Chase Brown's carries rise. A true blowout would put starter late snaps at risk; that is a flip, not the base. Build usage from priced roles, not raw 2025 averages.",
+  "best_price": "No two-sided price saved on any prop. Anchor no-vig N/A. Cannot shop Pinnacle, Circa or BetOnline, and power-devig versus overround cannot be shown.",
+  "lagging": "No open line, no book-versus-consensus props, and no post-move prop file. Cannot flag a lagging book. Only the games.csv closing spread and total are known.",
+  "sleepers": "Sean Tucker Doubtful (RB, hamstring): same-position teammates Bucky Irving and Kenny Gainwell; whether their lines moved is unknown. Jalen McMillan Doubtful (WR, knee): Egbuka, Godwin and Otton are the receiving-corps sleepers, movement unknown. Skule Doubtful is OL, not a skill sleeper, but it is the quick-game flag. Rozeboom is Questionable, not out. Stewart Doubtful is a CIN edge, not a skill sleeper. Doubtful is not an inactive lock."
+ },
+ "edge_players": [
+  {
+   "player": "chasebrown",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Cincinnati is a 3.5-point home favorite in a 50.5 game, so the priced lead back should get the late carries, and Brown's last four rush lines (53, 66, 101, 72) already live on or through a 53.5 that only matches his full prior-season median.",
+   "must_be_true": "Brown is the every-down back on a full snap share, CIN is leading or tied late so the clock script arrives, and Perine does not take the grind series. No Brown injury tag in the report.",
+   "kills_it": "TB leads and CIN abandons the run, Perine (rush line 26.5, last4 42, 25, 5, 42) vultures the carry share, a late Brown scratch, or uncharted wind or rain that the pack does not have.",
+   "confidence": "lean",
+   "model_p": 0.75,
+   "scheme": {
+    "matchup": {
+     "ok": false,
+     "source": "Pack has no TB run-defense YPC, stuff rate, box count or front charting."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Skill 2 favorite-runs-late rule plus this week's role prices: Brown rush 53.5 versus Perine 26.5, CIN -3.5."
+    },
+    "script": {
+     "ok": true,
+     "source": "Closing line CIN -3.5, total 50.5, implied CIN 27.0; spread is not a blowout, so late carries are live in the base script."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "2025 last4 rushyds 53, 66, 101, 72, 3 of 4 over 53.5; flagged prior-season, possibly different context, 17-game median equals the line."
+    }
+   },
+   "primary_defender": {
+    "who": "Unidentified TB run front; Christian Rozeboom (LB) is only Questionable (foot) and is not charted as the primary fit.",
+    "source": "nflverse pre-game injury report; no coverage or run-fit charting in the pack."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": false,
+   "pro_edge_support": "Script support only from implied CIN 27.0 and the leader-runs-late rule. Not a sleeper (no CIN RB out). Best price and lagging flags unavailable (no-vig N/A). Price gate cannot run; no stake."
+  },
+  {
+   "player": "kennygainwell",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Tampa is the 3.5-point dog, Tucker is doubtful, and Skule's oblique points to quick throws, so the priced receiving back (rec line 25.5, above Irving's 17.5) should beat a season-median number; last four receiving lines were 46, 78, 12 and 64.",
+   "must_be_true": "Gainwell, not Irving, is the passing-down back today, Tucker sits or is severely limited, TB actually trails or stays pass-heavy, and the 2025 receiving role was not a different-team spot start.",
+   "kills_it": "Tucker plays, Irving takes the checkdowns, TB leads and runs the clock, Gainwell is capped or benched in a blowout, or the 12-yard last4 game is the real 2026 role.",
+   "confidence": "lean",
+   "model_p": 0.75,
+   "scheme": {
+    "matchup": {
+     "ok": false,
+     "source": "No CIN linebacker or nickel charting and no RB-receiving yards allowed in the pack."
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "Step 3 OL rule: Skule Doubtful (oblique) raises quick throws and RB catches; market already prices Gainwell rec 25.5 over Irving rec 17.5; Tucker Doubtful adds snaps."
+    },
+    "script": {
+     "ok": true,
+     "source": "Skill 2: dog of 3.5+ throws more, so RB targets rise; pairs with CIN leading late rather than a TB clock script."
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "Last4 recyds 46, 78, 12, 64, 3 of 4 over 25.5; flagged prior-season and possibly a different team, so the user owns this exception."
+    }
+   },
+   "primary_defender": {
+    "who": "Unidentified CIN linebacker or nickel; Shemar Stewart (DE, Doubtful, knee) is pass rush, not the coverage player.",
+    "source": "nflverse pre-game injury report; no CIN coverage charting in the pack."
+   },
+   "depth_script_pass": true,
+   "depth_defender_giving": false,
+   "pro_edge_support": "Sleeper candidate off Tucker Doubtful, same position, movement unknown. Skule Doubtful supports the catch path. Underdog-target rule. No anchor fair, no edge pts, gate cannot clear 3 points versus no-vig. No stake."
+  }
+ ],
+ "data_check": {
+  "notes": "No sims, no Pinnacle or other no-vig, no projection file. model_p 0.75 is only a last-4 hit rate, inside the band the skill says to distrust (70-80% tags have hit near 50%). Full-sample medians equal both lines, so there is no median edge, only script plus a short trend. Last-4 does not disagree with either lean, so they are flagged for the human, not cut. If missing no-vig is treated as a failed gate, do not size. Week-1 prior-season fallback stays flagged. Weather and inactives are still open.",
+  "verdict": "flag"
+ },
+ "market_rung_price": "Main lines only, no alt rung and no book price: Chase Brown rushyds over 53.5; Kenny Gainwell recyds over 25.5. No short-price alt to reject. Cannot stamp a rung or a CLV.",
+ "pre_mortem": "It's Monday and this lost because Tucker was active off a Doubtful tag and took third-down work, Gainwell's 46/78/64 spike was another team's 2025 role and he posted the 12-yard game again, and Tampa led so Brown never got the clock carries while Perine (last4 rush 42, 25, 5, 42) took the grind series. Unsaved wind or a late Skule activation would also kill the quick-throw story. The 0.75 last-4 rates were the overconfidence band, and a season-median line was never a plus-edge by itself.",
+ "slip_story": "One story only: CIN leads a high-scoring but not blown-out game. Brown rush over is the favorite clock leg; Gainwell rec over is the dog-throws and checkdown leg. They win together in the base and in a CIN lead. Do not add a total under, an Irving rush over, or a CIN WR over that needs the shootout flip. No TDs, one market per player, no bet placed.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_meta": {
+  "model": "grok-4.7",
+  "ts": "2026-11-03T12:06:29-0500"
+ }
+}

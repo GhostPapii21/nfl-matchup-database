@@ -1,0 +1,48 @@
+{
+ "game": "CHI@GB Week 5 / kickoff not saved / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total are not in the pack, so this is form-only. CHI's last 3 were run-leaning (110 rushes vs 90 targets) with a 51-50 Swift/Monangai split, so neither back is scripted for 85 rush yards against a GB run defense allowing 4.39 YPC. GB's last 3 were pass-leaning (97 targets vs 47 rushes) into a CHI defense that blitzes 40%, where Love's EPA is -0.22, which should shorten Golden's deep shots (368 air yards) rather than produce a shootout. Expect the split CHI run game to continue and still leave the short passing that already produced Raymond's 14 targets.",
+  "flip1": "GB's 4.39 YPC run defense stuffs the committee, Williams (blitz EPA +0.25, n=72) flips CHI pass-heavy, Swift carries fall further under 84.5, and Raymond/Burden/Odunze targets rise.",
+  "flip2": "CHI leads and clocks out through one back, or Monangai is out and Swift takes 22+ carries at even a modest YPC and clears 84.5; a deeper-only CHI pass script in that game can also drop Raymond under 3 targets."
+ },
+ "injury_fallout": "MISSING: injury report, practice status, questionable tags, game-time decisions, and inactives for both CHI and GB. No absences, returns, or next-man-up are inferred from usage dips. Observed L3 roles only: CHI rushes Swift 51/187, Monangai 50/224, Williams 5/42, R.Johnson 4/16; CHI targets Burden 24/156, Odunze 17/181, Loveland 16/91, Raymond 14/136, Swift 10/74, Kmet 4/13. GB rushes K.Johnson 20/80, Lloyd 17/44, Brooks 8/41, Love 2/4; GB targets Golden 25/179, Watson 24/184, Kraft 18/83, Moore 12/35, Lloyd 10/49. T.Bagent has a rush prop but no L3 usage line; that is not treated as an inactive ruling.",
+ "matchup": {
+  "shell": "MISSING man/zone and MOFO/MOFC charting. Location proxy only: GB allows a flat 6.78/6.95/7.02 YPA left/middle/right (46/19/51 att). CHI allows 6.44 left (41 att), 10.9 middle (20 att), 7.74 right (38 att).",
+  "pressure": "Both blitz 40%. CHI QB EPA/dropback is +0.25 vs blitz (n=72) vs +0.20 unblitzed, so GB pressure does not kill CHI passing. GB QB EPA/dropback is -0.22 vs blitz (n=66) vs +0.20 unblitzed, so CHI pressure kills GB deep shots and pushes checkdowns.",
+  "bleeds": "CHI bleeds the middle (10.9 YPA on 20 att) and the run (4.94 YPC, 10 runs of 10+, 9 passes of 20+ on 109 att). GB does not bleed a direction and suppresses explosives (6 passes of 20+ on 128 att) with a middling run defense (4.39 YPC, 11 runs of 10+).",
+  "overlap": "No priced primary-target overlap. Burden (24 targets, 202 air yards, about 8.4 aDOT) is CHI's top option but GB has no location hole. Golden (25 targets, 368 air yards, about 14.7 aDOT) fits CHI's explosive allowance (9/109) but Love's -0.22 blitz EPA cuts it, and 59.7 yds/game sits on a 57.5 line. Raymond (14 targets, 65 air yards, about 4.6 aDOT, 45.3 yds/game) does not need GB's scarce 20+ plays to clear 27.5."
+ },
+ "form": "L3 only, no season averages, no per-game splits so one-play spikes cannot be isolated. Swift 51/187 is 17.0 carries and 62.3 rush yds/game at 3.67 YPC beside Monangai 50/224. Raymond 14/136/65 air is 45.3 rec yds/game on short targets. Odunze 17/181/215 air (60.3/game) is the deeper CHI producer against a GB defense that has allowed only 6 explosives on 128 throws. GB pass leaders are on their numbers: Golden 179 yards (59.7) vs 57.5, Watson 184 (61.3) vs 61.5. Kraft 83 yards (27.7) is far under 49.5, but CHI's middle bleed and 40% blitz argue against fading him. K.Johnson 20/80 (26.7/game) and Lloyd 17/44 (14.7) are committee volumes; 6.7 and 5.7 carries times CHI's 4.94 YPC land near 33 and 28, so those unders are not clean.",
+ "edge_players": [
+  {
+   "player": "dandreswift",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Swift is a 17-carry, 62-yard back in an even split with Monangai, and even at the 4.39 YPC GB allows he projects near 75, short of 84.5.",
+   "must_be_true": "D.Swift carries <= 18 because L3 total is 51 carries in a 51-50 split with K.Monangai and GB allows 4.39 YPC",
+   "kills_it": "IF K.Monangai is inactive or D.Swift carries rise to 22+ in a CHI lead-and-clock script THEN Swift rushyds under 84.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "kalifraymond",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Raymond just averaged 45.3 receiving yards on short 4.6-aDOT targets, and 27.5 does not need the 20-yard shots this GB defense almost never allows.",
+   "must_be_true": "K.Raymond targets >= 4 because L3 total is 14 targets and 136 rec yards (45.3/game) vs a 27.5 line",
+   "kills_it": "IF K.Raymond is inactive or his targets fall below 3 in a deeper-only CHI pass script THEN Raymond recyds over 27.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No model, sim median, or no-vig price in the pack; check is pack rates only. Swift L3 62.3 rush yds and 17*4.39=74.6 both sit under 84.5. Raymond L3 45.3 rec yds on 65 air yards (ratio about 2.1, normal for short routes) sits over 27.5 and does not need GB's 6/128 explosive plays. A 30% haircut of his L3 pace is still about 31.7. Neither leg is rated above 70%. Kraft under 49.5 and GB RB unders were not carded because CHI middle 10.9 YPA, the 40% blitz, and 4.94 rush YPC allowed contradict those fades.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, weather, injury report, inactives, coverage shell, per-game splits, no-vig, sim median",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only: D.Swift rushyds under 84.5 -113; K.Raymond recyds over 27.5 -110. No alt rungs in the pack. No-vig and sim median missing, so rungs are not resized. Other +nan prices ignored.",
+ "pre_mortem": "It's Monday and both lost because the pack had no injury report and no spread. Monangai was a late scratch, Swift took a 22-plus carry clock-kill and cleared 84.5 at even 4 YPC, and Raymond's 136 yards were a role the 27.5 line had already faded: snap limit or 2 targets, finished under 20, while a run-heavy CHI script never forced the short volume this over needs. That missing inactive list is why both are leans, not strong; it is not stronger than the L3 rates unless a scratch actually hits.",
+ "slip_story": "One CHI continuation stack, not a shootout and not a GB stack: the L3 split backfield keeps Swift under 84.5, and Raymond's short-area role (already 45.3 yards a game inside that run lean) clears 27.5 without needing explosives GB doesn't allow. Do not add Odunze or Golden overs, a Kraft under, a total, or any TD. Two legs, one script.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

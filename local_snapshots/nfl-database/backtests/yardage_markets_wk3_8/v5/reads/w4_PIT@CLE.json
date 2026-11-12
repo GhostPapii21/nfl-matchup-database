@@ -1,0 +1,46 @@
+{
+ "game": "Week 4 PIT@CLE / kickoff not in pack / spread not saved / total not saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so the script is inferred only from three-game form. Pittsburgh's dropback EPA is negative (-0.17 unblitzed, -0.40 vs blitz, n=30), so the base flow is Jaylen Warren carrying the offense (38 carries, 216 yards, 5.68 YPC) with Pat Freiermuth as the intermediate outlet, not a DK Metcalf vertical game (98 yards on 339 air yards). Cleveland stays on schedule with Deshaun Watson's legs (20 carries, 109 yards) plus Quinshon Judkins' volume (42 carries) even though Judkins is stuck at 2.95 YPC, and throws just enough to Harold Fannin and Denzel Boston. Both run defenses are soft (CLE 4.67 YPC and 13 runs of 10+; PIT 4.56 YPC), so neither team is forced off the ground. Expect a competitive, run-leaning game, not a shootout.",
+  "flip1": "Pittsburgh's 27% blitz bothers Watson less than a typical blitz (CLE QB EPA -0.04 on 39 blitzed dropbacks vs +0.17 unblitzed) and Cleveland hits Pittsburgh's outside (8.15 YPA left, 8.0 right; 11 passes of 20+ on 89 attempts). CLE leads, Judkins' thin efficiency dies if they abandon the run, and Pittsburgh has to throw \u2014 Freiermuth's targets can rise, but Warren's rush volume stalls.",
+  "flip2": "A grind where explosives do not travel: Metcalf keeps failing to convert 339 air yards, Boston's 12.2 yards per target regresses, and the only production is Warren between the tackles and Watson scrambles. Thin roles (Jeudy 5 targets, Whiteheart 3, Pittman 8) stay under their lines."
+ },
+ "injury_fallout": "No injury report, practice status, questionable tags, or inactives are in the pack, so no next-man-up gain is assigned. Current usage is the baseline, not an injury cascade: PIT touches sit with Warren (38 carries, 14 targets), then Metcalf (24 targets), Roman Wilson (18), Freiermuth (14), and Michael Pittman (8). CLE touches sit with Judkins (42 carries) and Watson (20 carries), then KC Concepcion (20 targets), Fannin (18), and Denzel Boston (16), with Jerry Jeudy at 5. A late scratch of Freiermuth or Watson voids that leg; this pack cannot re-run inactives.",
+ "matchup": {
+  "shell": "Coverage charting is not in the pack (no MOFO/MOFC, no man/zone rate). Location splits are the proxy. CLE allows 9.44 YPA on 18 middle attempts versus 6.32 left (47 att) and 6.44 right (39 att), so the soft area is hook/middle, not the outside corner. PIT is the reverse: left 8.15 (34 att) and right 8.0 (28 att) versus middle 6.95 (19 att).",
+  "pressure": "CLE blitzes only 20%. That matters because Pittsburgh QB EPA falls from -0.17 unblitzed to -0.40 on 30 blitzed dropbacks, so a low blitz rate keeps PIT in checkdowns and intermediate throws (Warren, Freiermuth) rather than a sack script. PIT blitzes 27%. Cleveland's QB is about neutral vs the blitz (-0.04, n=39) and better when not blitzed (+0.17). No pressure rate or time-to-throw is in the pack.",
+  "bleeds": "CLE run defense allows 4.67 YPC and 13 runs of 10+, plus the middle at 9.44 YPA. PIT run defense allows 4.56 YPC and 9 runs of 10+, and bleeds outside passing (8.0-8.15 YPA) with 11 gains of 20+ on 89 attempts.",
+  "overlap": "Freiermuth's 14 targets and 118 air yards sit in the intermediate/middle area where CLE allowed 9.44 YPA \u2014 the cleanest overlap in the pack. Watson's 20 carries overlap PIT's 4.56 YPC and 9 explosive runs. Boston's 225 air yards would overlap PIT's outside bleed, but that yardage looks explosive-dependent and is not a selected leg."
+ },
+ "form": "PIT last 3: Warren 38/216 rush and 14/110 receiving (negative air yards, a real checkdown role); Freiermuth 14 targets, 108 yards, 118 air (36 yards/game, 7.7 yards/target \u2014 not a one-play spike); Wilson 18/114/247; Metcalf 24/98/339, so WR1 air yards are not converting (4.1 yards/target). Rico Dowdle 15/37 is change-of-pace. CLE last 3: Judkins 42/124 (2.95 YPC) is volume without efficiency; Watson 20/109 (5.45 YPC, 36.3 yards/game) is a repeated QB-run role; Boston 16/195/225 (12.2 YPT) looks fluky without game splits; Fannin 18/126 (42/game) sits on a 41-yard line; Concepcion 20/80 (26.7/game) is under a 37 line; Jeudy 5/26 is a non-factor. No similar-defense or game-by-game splits are in the pack.",
+ "edge_players": [
+  {
+   "player": "patfreiermuth",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Freiermuth is at 36 receiving yards a game on 14 targets over three weeks, and Cleveland is bleeding the middle at 9.44 yards per attempt, so 27.5 is short of both his role and the only soft zone in this pass defense.",
+   "must_be_true": "He is active with a normal snap share, Pittsburgh throws at least a moderate amount (CLE blitzes only 20%, so the QB is not stuck in a -0.40 blitz EPA), and those throws stay in the middle.",
+   "kills_it": "The 9.44 middle YPA on only 18 attempts was noise and CLE funnels PIT outside (6.3-6.4 YPA), Metcalf or Wilson take the intermediate targets, PIT leads big and only runs, or a late inactive this pack does not show.",
+   "confidence": "strong"
+  },
+  {
+   "player": "deshaunwatson",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Watson has 20 carries for 109 yards in three games, about 36 a game at 5.45 YPC, and 28.5 is under both that average and a 6-carry look against a Pittsburgh run defense allowing 4.56 YPC.",
+   "must_be_true": "The designed QB-run and scramble role holds near 6 carries, he is active, and Pittsburgh does not fully spy him out of the run game.",
+   "kills_it": "PIT's 27% blitz turns those plays into sacks instead of scrambles, Judkins (42 carries) and Raheim Sanders absorb the designed runs, or the 109 yards were one scramble-heavy game that cannot be split out.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No projection, sim median, or Pinnacle no-vig is in the pack, so step 8 cannot be fully priced. Available form agrees with both reads: Freiermuth 108/3 = 36 vs 27.5, and CLE middle 9.44 YPA supports the matchup; Watson 109/3 = 36.3 vs 28.5, and about 6.7 carries times PIT's 4.56 YPC is still about 30. Listed prices juice both overs slightly (Freiermuth over 27.5 -113.5, Watson over 28.5 -113.5). Dropped leans, not flagged, because they were not strong reads and the pack disagreed: Judkins rush under 56.5 (41.3-yard average, but 14 carries times 4.56 YPC allowed is about 64); Metcalf rec under 46.5 (32.7-yard average, but 339 air yards and the over is juiced -115.5). No leg is rated above 70%.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Main lines only; no alt rungs and no no-vig in the pack. patfreiermuth recyds over 27.5 at -113.5. deshaunwatson rushyds over 28.5 at -113.5. Do not take a shorter alt. Props listed at +nan (Boston, Fannin, Concepcion recyds) are unpriceable and were not used.",
+ "pre_mortem": "It's Monday and both legs lost. Freiermuth stayed under 27.5 because the 9.44 middle number was 18 attempts of noise, Cleveland sat in a shell that forced Pittsburgh outside where they allow only 6.3-6.4 YPA, and Metcalf's 339 air yards finally converted so the TE never saw a fourth target. Watson stayed under 28.5 because Pittsburgh spied the QB run, the 27% blitz produced sacks instead of scramble yards, and Judkins kept the designed carries \u2014 the 20 carries and 109 yards were not a weekly floor. The missing injury report and missing game splits are the brainstorm steps that would have caught either miss.",
+ "slip_story": "One non-shootout story, inferred with no spread on the card: both offenses stay on the ground and in the short game because PIT pass EPA is negative and both run defenses allow 4.5+ YPC. Freiermuth over is the PIT middle/checkdown leg; Watson rush over is the CLE QB-run leg. They can win together in that base script and do not need opposite scripts. Do not add Metcalf or Boston overs (those need explosives) or a total we cannot price. No TDs, no receptions, one market per player.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

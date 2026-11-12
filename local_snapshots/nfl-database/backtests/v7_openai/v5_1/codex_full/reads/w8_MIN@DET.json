@@ -1,0 +1,39 @@
+{
+ "game": "MIN@DET / Week 8, Sun Nov 01, 1:00 PM ET per saved manifest / Ford Field, indoor / supplied DET -3.5, total 46; implied DET 24.75, MIN 21.25 / manifest built 2026-10-29 05:25 EDT listed DET -3, total 46.5; opening lines and quote timestamps unavailable, so opening-to-current movement cannot be established / moneyline missing / both teams have 7 days rest per saved schedule check; travel itinerary missing / weather not saved.",
+ "script": {
+  "base": "Detroit leads into the second half, consistent with its -3.5 spread. Minnesota needs sustained passing production, and T.J. Hockenson's recent target leadership gives him a plausible path through Detroit's most permissive passing location: the middle. Pace is unavailable; a late Detroit pull-away could add Minnesota passing volume without guaranteeing efficiency.",
+  "flip1": "Minnesota leads early and protects the advantage with Aaron Jones, whose supplied recent workload is 53 carries across three games. Hockenson's over can survive a competitive version of this script through concentrated targets, but becomes script-dependent if Minnesota substantially reduces passing.",
+  "flip2": "Detroit's pressure disrupts Minnesota and the game becomes a low-efficiency slog. Minnesota's supplied QB EPA/dropback falls from 0.07 without blitz to -0.17 against blitz, creating a failure path even if Hockenson receives enough opportunities."
+ },
+ "injury_fallout": "MISSING: player-specific MIN and DET injury designations, practice trends, offensive-line availability, defensive absences, return restrictions, and final inactives. The saved manifest references Wednesday injury information and pending later reports but does not supply the actual designations. No absence, return, replacement role, or target redistribution is inferred from usage. Recheck Hockenson, Minnesota's quarterback and line, and Detroit's coverage personnel at the final-report and approximately 90-minute inactive checkpoints; those checkpoints cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: actual DET and MIN man/zone and MOFO/MOFC rates. The saved manifest references coverage sources dated Oct 20 but supplies no shell values or player assignments.",
+  "pressure": "DET blitzes 28%; Minnesota's QB EPA/dropback is -0.17 against blitz over 72 dropbacks versus 0.07 without blitz. MIN blitzes 71%, while Detroit's QB posts 0.38 EPA/dropback against blitz over 78 dropbacks versus 0.24 without blitz. These supplied splits support Detroit's offensive resilience, but blitz frequency is not measured pressure rate; protection matchups and charted pressure are missing.",
+  "bleeds": "DET allows 10.26 passing yards per attempt to the middle versus 5.96 left and 6.91 right, with 29 passes of 20-plus yards allowed on 280 attempts. Its rushing allowance is 4.30 yards per carry. MIN allows 8.71 yards per attempt to the middle versus 6.00 left and 4.79 right, with 12 passes of 20-plus yards on 198 attempts and 4.16 rushing yards per carry. These are supplied season-to-date defensive figures through six games, not recent opponent-specific results.",
+  "overlap": "Hockenson leads the supplied Minnesota last-three-game target list with 19 targets and 161 receiving yards. The hypothesis is that his receiving opportunities can exploit Detroit's middle-field weakness. His actual alignment and route-location distribution are missing, so the TE-to-middle overlap is a hypothesis, not a verified assignment advantage."
+ },
+ "form": "Across Minnesota's weeks 4, 5 and 7, Hockenson recorded 19 targets, 161 receiving yards and 123 air yards; Jefferson had 14 targets and 123 receiving yards, and Addison had nine targets and 72 yards. This establishes Hockenson's recent target leadership without assuming an injury-driven role change. Individual-game distributions, routes, snaps, red-zone usage, long-play dependence and results against comparable defenses are not supplied. Source: user-provided last-three-game pack, available pre-kickoff; individual extraction timestamps are missing.",
+ "edge_players": [
+  {
+   "player": "tjhockenson",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Hockenson can exceed 42.5 receiving yards because he leads Minnesota's recent target distribution and Detroit's largest supplied passing weakness is through the middle.",
+   "must_be_true": "T.J. Hockenson targets >= 6 [because the pack records 19 targets across Minnesota's last three games]",
+   "kills_it": "IF Detroit's pressure repeatedly forces Minnesota to end drives before Hockenson accumulates receiving production THEN Hockenson over 42.5 receiving yards fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "Read first: Minnesota's recent target leader may exploit Detroit's middle-field allowance. Test second: Hockenson's 19 targets, 161 receiving yards and 123 air yards over three games support the opportunity hypothesis, and Detroit's 10.26 middle YPA supports the location hypothesis. Neither establishes a calibrated hit probability. The listed over -115 and under -109 imply approximately 50.63% for the over after proportional vig removal; this is a calculation from the supplied pair, not a verified Pinnacle benchmark. At -115, the offered over requires 53.49% to break even. No projection or simulation was run, and positive expected value is not established.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median and distribution, calibrated hit probability, verified Pinnacle prices, individual-game role and yardage distributions, Hockenson alignment and routes, actual coverage-shell rates, charted pressure, player-specific injuries and final inactives.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Research lean only: tjhockenson recyds over 42.5 at -115, the supplied main line. Receiving yards is an allowed market and expresses the proposed middle-field matchup, although a pure target-volume thesis would ideally also be tested in receptions. No alternate rung, stake or executable value recommendation without a defensible projection and availability check.",
+ "pre_mortem": "It is Monday and Hockenson stayed under because the apparent matchup overlap was too broad: Detroit's middle-field YPA did not establish that Hockenson would run the routes exploiting it. Minnesota's negative EPA against blitz translated into stalled drives, or Jefferson and Addison captured the useful passing opportunities. The three-game aggregate may also conceal one disproportionately productive outing. Missing route distributions, individual-game logs and injury information prevent ruling those explanations out. This counter-case limits the selection to a lean rather than a strong or priced edge.",
+ "slip_story": "Conditional story: Detroit holds a modest lead while Minnesota sustains enough passing volume for Hockenson to exploit the middle. Keep this as one research leg; do not manufacture a 3\u20134-leg slip from this pack or add short-priced anchors. It is vulnerable to Minnesota run control and a pressure-driven slog.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "SAVED_READ_CONTEXT"
+}

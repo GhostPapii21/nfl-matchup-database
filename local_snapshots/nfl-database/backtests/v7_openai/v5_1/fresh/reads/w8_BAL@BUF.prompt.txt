@@ -1,0 +1,123 @@
+# Week 8 BAL@BUF
+BUF spread -3, total 55
+Weather: wind 8.0, temp 69.4
+## BAL offense (last 3 games: weeks [5, 6, 7])
+Rushers (carries/yds over L3): D.Henry 59.0/205; T.Huntley 13.0/62; J.Hill 7.0/80; R.Ali 4.0/19
+Targets (tgt/rec yds/air yds over L3): Z.Flowers 31.0/256/211; M.Andrews 14.0/55/86; J.Hill 11.0/40/-5; R.Bateman 11.0/95/163; J.Cuevas 10.0/105/47; J.Lane 10.0/65/105; D.Henry 5.0/24/0
+BAL QB EPA/dropback vs blitz 0.34 (n=72) vs no blitz 0.13
+## BUF defense (season to date, 6 games)
+Rush YPC allowed 3.90; 10+ yd runs allowed 18; 20+ yd pass plays allowed 26/255 att
+Pass YPA allowed by location: left 6.82 (89.0 att); middle 8.31 (59.0 att); right 7.39 (94.0 att)
+BUF blitz rate 35%
+## BUF offense (last 3 games: weeks [4, 5, 6])
+Rushers (carries/yds over L3): J.Cook 59.0/281; J.Allen 17.0/129; R.Davis 4.0/9; T.Johnson 2.0/6
+Targets (tgt/rec yds/air yds over L3): K.Shakir 17.0/196/73; K.Coleman 15.0/182/228; D.Kincaid 13.0/52/53; T.Johnson 8.0/105/-7; J.Palmer 7.0/40/157; D.Knox 6.0/19/32; J.Cook 6.0/73/-9
+BUF QB EPA/dropback vs blitz 0.35 (n=67) vs no blitz 0.32
+## BAL defense (season to date, 7 games)
+Rush YPC allowed 3.81; 10+ yd runs allowed 14; 20+ yd pass plays allowed 20/245 att
+Pass YPA allowed by location: left 6.68 (81.0 att); middle 9.04 (51.0 att); right 6.78 (95.0 att)
+BAL blitz rate 31%
+# SAVED PREGAME CHECKLIST (excerpt)
+# BAL @ BUF — Week 8 60-check manifest
+Game 401873026, Sun Nov 01 01:00 PM ET, Highmark Stadium (outdoor), BUF -3 / 54.5. Built 2026-10-29 05:25 EDT. Status counts: {'PASS': 16, 'PARTIAL': 31, 'NOT_APPLICABLE': 3, 'UNAVAILABLE': 7, 'UNIMPLEMENTED': 3}
+
+| # | Check | Status | Reason | Evidence |
+|-|-|-|-|-|
+|1|P1.pbp|PASS|Repo SQLite plays (ESPN PBP) Wk1–7 + nflverse via overlay|repo/data/nfl_matchups.sqlite; fixes/fixes.sqlite|
+|2|P1.boxscores|PASS|player_stats + fix_player_game_usage|fixes/fixes.sqlite|
+|3|P1.tackles_sacks|PARTIAL|fix_play_credits reconciled; tackler≠coverage defender|fixes/FIXES.md|
+|4|P1.pressure|PARTIAL|Pressure is opponent-Sharp-allowed proxy + pbp sack/hit; no charted pressure source|defense/BAL_at_BUF.md|
+|5|P1.ol_snaps|PARTIAL|nflverse participation snaps only; Wk7 participation lag possible|fixes/fixes.sqlite fix_participation|
+|6|P1.air_yards|PARTIAL|NGS IAY per QB; per-target air yards via nflverse only where loaded|defense/raw|
+|7|P1.redzone|PASS|RZ targets/goal-line carries in baselines|team_baselines/BAL.md, BUF.md|
+|8|P1.scrambles|PARTIAL|fix_qb_rushing scramble flags from nflverse; ESPN PBP lacks explicit flag|fixes/fixes.sqlite fix_qb_rushing|
+|9|P2.team_defense|PASS|Production + explosive counts per game|defense/BAL_at_BUF.md|
+|10|P2.coverage|PASS|Sharp coverage pages dated Oct 20 = CURRENT per user (last games before slate)|defense/SOURCES.md|
+|11|P2.individual_assignments|PARTIAL|Only PBP-named defenders on big plays (weak signal); no charted assignment source|team_baselines/|
+|12|P2.weakest_link|PARTIAL|Alignment-level weakest link from Sharp ranks (see Soft spots); player-level unverified|defense/BAL_at_BUF.md|
+|13|P2.pressure_trend|PARTIAL|ESPN PRWR through Wk6 only; pbp sack/hit trend|defense/BAL_at_BUF.md|
+|14|P3.team_offense|PASS|QB/team production|team_baselines/|
+|15|P3.player_roles|PASS|Roles + L3 vs season shares; roster-checked 2026-10-29 05:25 EDT|defense/BAL_at_BUF.md; rosters/|
+|16|P3.ol_health|PARTIAL|OL designations from ESPN injuries; Thu practice pending|injuries.json|
+|17|P3.target_hierarchy|PASS|L3 vs season target/carry share (opportunity gate inputs)|team_baselines/|
+|18|P3.routes_gaps|PARTIAL|NGS separation/cushion; run gaps from pbp direction; no route participation|defense/raw|
+|19|P3.qb_blitz|PASS|FTN EPA vs blitz / no-blitz per offense|defense/BAL_at_BUF.md|
+|20|P4.slip_comparison|NOT_APPLICABLE|No slip supplied for this game|—|
+|21|P4.injury_alerts|PARTIAL|Wed status logged; Thursday reports PENDING|injuries.json; this file Injury impact|
+|22|P4.script_risk|PARTIAL|Backup-QB/workload risk noted from injuries; 10G labels pending|this file|
+|23|P5.bundle|PARTIAL|Markdown/JSON bundle; no engine-versioned bundle|week8/|
+|24|P5.provenance|PARTIAL|sha256 of inputs recorded below; engine code/model hash unavailable (nfl.py on user Mac)|this file|
+|25|P5.source_preservation|PASS|Repo SQLite untouched; fixes in overlay|fixes/PATCH_SPEC.md|
+|26|P6.live_policy|NOT_APPLICABLE|Pregame; live polling off|—|
+|27|P7.ngs_targeted_charts|PARTIAL|NGS public leaderboards (sep/cushion/YACOE/TTT); per-game targeted charts not read|defense/raw|
+|28|P7.all_routes|UNAVAILABLE|Route participation not in any public source loaded|—|
+|29|P7.run_concepts|UNAVAILABLE|No verified run-concept source; film pending|film/|
+|30|P7.strength_map|PARTIAL|Sharp alignment YPT + box rates; no side-level split|defense/BAL_at_BUF.md|
+|31|P7.rb_suppression|PARTIAL|RB YPC/rush+rec allowed + game state; RB quality adj not applied|defense/BAL_at_BUF.md|
+|32|P7.cb_suppression|UNAVAILABLE|Individual CB coverage stats are paid/not loaded|—|
+|33|P7.panthers_rule|PARTIAL|QB NGS/blitz review for: Tyler Huntley, Josh Allen; exact OL/pass-rush matchup not charted|defense/BAL_at_BUF.md|
+|34|P8.film|PARTIAL|Codex YouTube highlight notes done for BAL 3/6 games, BUF 3/6 (film/codex_out, still running; not yet verified vs pbp by this worker)|film/codex_out|
+|35|P8.personnel|UNAVAILABLE|Personnel packages need film; depth chart formation only|rosters/|
+|36|P8.scheme|PARTIAL|Coverage shells from Sharp (man/zone/MOFC); fronts/run fits need film|defense/BAL_at_BUF.md|
+|37|P8.missed_looks|UNAVAILABLE|Pending verified film notes|film/|
+|38|P8.film_notes|PARTIAL|Codex notes unverified; hypotheses only|film/codex_out|
+|39|P9.weather|PARTIAL|Forecast (Open-Meteo, pulled 2026-10-29 05:25 EDT) kickoff hr: 64.4°F, precip prob 1%, wind 5.1 mph gust 6.3 — 3-day-out forecast, re-pull Sat/Sun|https://api.open-meteo.com|
+|40|P9.rest_travel|PASS|BAL last game 2026-10-25 (7 days rest); BUF last game 2026-10-18 (14 days). Time-zone change only from venue, no itineraries invented|ESPN team schedule API|
+|41|P9.stakes|PARTIAL|Records from ESPN scoreboard; divisional/rematch not a 2026 rematch; playoff-odds not pulled|defense/BAL_at_BUF.md|
+|42|P9.injury_spikes|PARTIAL|Exact-game availability: Wed designations; Thu/Fri + inactives pending|injuries.json|
+|43|P9.turnovers|PARTIAL|Turnovers in pbp/baselines; rolling interpretation
+# AVAILABLE PROPS (main line)
+daltonkincaid (BUF) recyds over 44 +nan
+jakobilane (BAL) recyds under 32 +nan
+jamescook (BUF) rushyds over 84.5 +nan
+djmoore (BUF) recyds under 53.5 -112.5
+joshallen (BUF) rushyds over 36.5 +nan
+jamescook (BUF) rushrecyds under 98.5 -117
+raydavis (BUF) rushyds over 4.5 -116
+derrickhenry (BAL) recyds under 6.5 -111
+joshallen (BUF) rushyds under 36.5 +nan
+joshpalmer (BUF) recyds over 9.5 -114
+derrickhenry (BAL) rushrecyds over 89.5 -113
+jakobilane (BAL) recyds over 32 +nan
+joshpalmer (BUF) recyds under 9.5 -114
+jamescook (BUF) recyds over 9.5 -112.5
+dawsonknox (BUF) recyds under 7.5 -112
+devontezwalker (BAL) recyds under 0.5 -182
+justicehill (BAL) rushyds over 9.5 -111
+justicehill (BAL) recyds under 11.5 -116
+khalilshakir (BUF) recyds over 41.5 -113.5
+tyjohnson (BUF) recyds over 13.5 -118.5
+justicehill (BAL) rushyds under 9.5 -115
+derrickhenry (BAL) recyds over 6.5 -117.5
+lamarjackson (nan) rushyds under 25.5 -113.5
+tyjohnson (BUF) rushyds over 2.5 -109.5
+markandrews (BAL) recyds over 27.5 -113
+joshcuevas (BAL) recyds over 9.5 -110
+zayflowers (BAL) recyds over 89.5 -113
+justicehill (BAL) rushrecyds over 24.5 -115
+markandrews (BAL) recyds under 27.5 -113
+derrickhenry (BAL) rushrecyds under 89.5 -113
+derrickhenry (BAL) rushyds under 79 +nan
+keoncoleman (BUF) recyds over 29.5 -113.5
+zayflowers (BAL) recyds under 89.5 -112
+rashodbateman (BAL) recyds over 25.5 -114
+lamarjackson (nan) rushyds over 25.5 -115
+jamescook (BUF) rushyds under 84.5 +nan
+raydavis (BUF) rushyds under 4.5 -111.5
+jamescook (BUF) recyds under 9.5 -114
+derrickhenry (BAL) rushyds over 79 +nan
+daltonkincaid (BUF) recyds under 44 +nan
+justicehill (BAL) recyds over 11.5 -115
+djmoore (BUF) recyds over 53.5 -113.5
+jamescook (BUF) rushrecyds over 98.5 -114
+keoncoleman (BUF) recyds under 29.5 -114
+tyjohnson (BUF) recyds under 13.5 -110
+tyjohnson (BUF) rushrecyds over 22.5 -110.5
+dawsonknox (BUF) recyds over 7.5 -115
+rashodbateman (BAL) recyds under 25.5 -115
+khalilshakir (BUF) recyds under 41.5 -113.5
+devontezwalker (BAL) recyds over 0.5 +141
+tyjohnson (BUF) rushrecyds under 22.5 -117.5
+tyjohnson (BUF) rushyds under 2.5 -117.5
+justicehill (BAL) rushrecyds under 24.5 -115
+joshcuevas (BAL) recyds under 9.5 -118

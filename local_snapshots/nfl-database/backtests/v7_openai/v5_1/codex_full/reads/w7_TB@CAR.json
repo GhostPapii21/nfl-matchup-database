@@ -1,0 +1,48 @@
+{
+ "game": "Week 7 TB@CAR / kickoff MISSING / CAR -3 / total 45 / implied totals CAR 24, TB 21 / weather not saved; moneyline, opening lines, movement, rest and travel MISSING",
+ "script": {
+  "base": "CAR leads a competitive game rather than forcing an early TB rushing abandonment. Hubbard anchors CAR's offense, while Irving remains TB's best matchup against a defense allowing 5.22 yards per carry. Pace data is missing.",
+  "flip1": "CAR builds a substantial early lead as TB's passing offense struggles against pressure; TB abandons enough rushing volume to threaten Irving's over.",
+  "flip2": "TB leads and forces CAR into a pass-heavy comeback. Coker's receiving under becomes more vulnerable, while Irving benefits from additional clock-management carries."
+ },
+ "injury_fallout": "MISSING: TB and CAR injury reports, practice trends, offensive-line availability, defensive absences, return-to-play restrictions and final inactives. No absences or next-man-up changes are inferred from usage. Source for all supplied facts: the user's pre-Week-7 pack; exact collection timestamps are missing. Final injury-report and approximately 90-minute pre-kickoff inactive checks cannot be completed from this pack.",
+ "matchup": {
+  "shell": "MISSING: CAR and TB MOFO/MOFC, man/zone rates and player alignment charting. Neither Coker nor any TB receiver can reliably be assigned to a particular coverage defender.",
+  "pressure": "CAR blitzes 37%; TB's QB EPA/dropback is -0.22 against blitz versus -0.16 without blitz. That supports a hypothesis that TB should avoid relying entirely on passing, but actual pressure rate and offensive-line health are missing. TB blitzes 42%; CAR's QB remains positive against blitz at 0.13 EPA/dropback versus 0.23 without blitz.",
+  "bleeds": "CAR allows 5.22 rushing yards per carry and 14 runs of 10-plus yards in five games, supporting Irving's rushing matchup. TB allows only 3.72 rushing yards per carry. Both defenses allow their highest listed passing YPA through the middle: CAR 8.12 and TB 8.78. TB has allowed 14 passes of 20-plus yards on 225 attempts.",
+  "overlap": "Irving's established rushing workload attacks CAR's clearest documented weakness. Coker's under rests on CAR's likely lead and McMillan's larger target role, not a proven individual coverage mismatch; Coker's alignment is missing."
+ },
+ "form": "TB weeks 4\u20136: Irving recorded 56 carries for 272 yards, with Gainwell at nine carries and Tucker at eight. CAR weeks 3, 4 and 6: Hubbard recorded 68 carries for 324 yards, supporting a run-centered base script. Coker had 17 targets, 115 receiving yards and 228 air yards, while McMillan led with 30 targets and 295 receiving yards. These are three-game aggregates, not individual-game distributions; snaps, routes, red-zone usage, comparable-opponent results and explosive-play concentration are missing.",
+ "edge_players": [
+  {
+   "player": "buckyirving",
+   "market": "rushyds",
+   "side": "over",
+   "edge_sentence": "Irving's established rushing role attacks CAR's 5.22-YPC run defense, giving him a path over 66.5 yards if TB stays competitive.",
+   "must_be_true": "Bucky Irving carries >= 14 [because the pack records 56 carries for 272 yards across TB's last three games]",
+   "kills_it": "IF CAR builds an early multi-score lead and TB abandons its rushing attack THEN Irving rushyds over 66.5 fails",
+   "confidence": "lean"
+  },
+  {
+   "player": "jalencoker",
+   "market": "recyds",
+   "side": "under",
+   "edge_sentence": "A CAR lead favors Hubbard's established rushing workload, leaving secondary target Coker a demanding 66.5-yard receiving line behind McMillan's larger role.",
+   "must_be_true": "Jalen Coker targets <= 6 [because the pack records 17 targets across CAR's last three games versus McMillan's 30]",
+   "kills_it": "IF TB forces a pass-heavy CAR comeback and Coker converts his downfield opportunities into a large receiving gain THEN Coker recyds under 66.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The matchup hypotheses precede the numerical check. Irving's 56 carries and 272 yards imply 18.7 carries per game and 4.86 yards per carry; CAR's 5.22 YPC allowed supports the rushing read. Coker's 17 targets and 115 yards imply 5.7 targets and 38.3 receiving yards per game, consistent with the under hypothesis but insufficient to establish its hit probability. His 228 air yards preserve meaningful explosive-play risk. No projection or simulation was run, and no calibrated edge or stake is claimed.",
+  "disagrees": "none",
+  "missing": "Projection model, simulation median, calibrated probabilities, Pinnacle prices/no-vig benchmark, individual-game distributions, routes, snaps, injury information, coverage charting and weather. Listed prices are available, but their sportsbook and collection timestamps are unspecified.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Candidate 1: buckyirving rushyds over 66.5 at -113, a carry-volume/run-matchup market rather than a receiving bet. Candidate 2: jalencoker recyds under 66.5 at -112, a secondary-receiver opportunity/script market. Both are main lines; neither is a short-priced alternate anchor. Positive expected value is unverified without a calibrated probability and benchmark price.",
+ "pre_mortem": "Irving's strongest counter-case is that CAR's 37% blitz rate compounds TB's negative passing EPA, creates failed drives and produces a deficit that removes rushing volume. His recent rushing production cannot guarantee carries in that script. Coker's strongest counter-case is his 228 recent air yards: limited targets can still produce more than 66.5 yards through one explosive catch, and TB has allowed 14 passes of 20-plus yards. Missing injury and alignment information could materially change either role. Both remain provisional leans rather than strong selections.",
+ "slip_story": "One coherent candidate story is a competitive, run-centered game: CAR leads narrowly, Hubbard limits CAR's passing demand, and TB keeps feeding Irving against the weaker run defense. Both candidates survive that base case; Irving also benefits if TB leads, but Coker's under is more fragile in that flip. Do not force a 3\u20134-leg slip from only two supported candidates. No priced parlay or stake is recommended without joint-probability testing.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

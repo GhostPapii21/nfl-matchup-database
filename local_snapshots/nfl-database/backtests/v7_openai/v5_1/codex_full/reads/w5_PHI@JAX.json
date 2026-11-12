@@ -1,0 +1,39 @@
+{
+ "game": "Week 5 PHI@JAX / kickoff MISSING / spread and total not saved; implied totals, moneyline and movement MISSING / weather not saved. Script inferred only from supplied team form; venue conditions, rest and travel details MISSING.",
+ "script": {
+  "base": "JAX sustains offense more effectively and plays from a competitive or modestly positive position: Lawrence's supplied EPA/dropback is 0.43 without blitz, while PHI blitzes 20%. PHI encounters resistance running against JAX's 3.41 YPC allowed, leaving Shipley with a secondary rushing role rather than assuming a lead-back workload. Pace and halftime score cannot be established from this pack.",
+  "flip1": "PHI builds an early lead and increases rushing volume. Shipley's under becomes vulnerable if he receives a substantially larger share of that work, although Bigsby and Barkley also have more carries than Shipley over weeks 2\u20134.",
+  "flip2": "JAX builds a large early lead and PHI shifts toward passing. That supports Shipley's rushing under, but the pack does not establish which PHI backs would handle passing-down snaps."
+ },
+ "injury_fallout": "MISSING: PHI and JAX injury reports, practice trends, final inactives, offensive-line availability, defensive absences and snap restrictions. No absence, return or next-man-up assignment is inferred from usage. Source for workload observations: supplied weeks 2\u20134 offensive summaries, available as of this Week 5 pack; exact publication timestamps are missing. Final-report and approximately 90-minute pre-kickoff checks cannot be completed.",
+ "matchup": {
+  "shell": "MISSING: PHI and JAX MOFO/MOFC, man/zone rates and individual coverage assignments. Location splits cannot establish coverage shells.",
+  "pressure": "JAX blitzes 26%; PHI's QB EPA/dropback is -0.21 against blitz over 53 dropbacks versus -0.02 without blitz. PHI blitzes 20%; JAX's corresponding splits are -0.10 over 33 blitz dropbacks versus 0.43 without blitz. Source: supplied pre-Week 5 pack. Pressure rates and line health are missing, so blitz frequency is not treated as pressure success.",
+  "bleeds": "JAX allows 3.41 rushing YPC and five runs of 10+ yards through four games, a difficult rushing backdrop for Shipley. Its passing vulnerability is greater: 16 completions of 20+ yards on 148 attempts and 10.86 YPA over the middle on 22 attempts. PHI allows 4.16 rushing YPC and 6.39 middle-field passing YPA. Source: supplied defensive summaries.",
+  "overlap": "The selected edge is Shipley's limited rushing opportunity meeting JAX's low rushing YPC allowed, not a presumed coverage mismatch. Smith leads PHI with 21 targets, but he has no available prop; receiver alignments are missing, preventing a verified primary-target overlap with JAX's middle-field weakness."
+ },
+ "form": "Over weeks 2\u20134, Shipley recorded 13 carries for 47 yards, behind Bigsby's 27 carries and Barkley's 21; Hurts also had 14 carries. Shipley's aggregate workload is 4.33 carries per game and 3.62 yards per carry, used only to test the role-based read, not to select a leg from averages alone. JAX's Tuten recorded 45 carries for 211 yards, supporting the possibility of sustained JAX rushing possessions. MISSING: individual-game distributions, snaps, routes, red-zone work, coaching changes and comparable-opponent results. Source: supplied last-three-game summaries.",
+ "edge_players": [
+  {
+   "player": "willshipley",
+   "market": "rushyds",
+   "side": "under",
+   "edge_sentence": "Shipley's secondary rushing role behind multiple PHI ball carriers meets a JAX defense allowing only 3.41 yards per carry, favoring under 33.5 rushing yards.",
+   "must_be_true": "W.Shipley carries <= 7 [because the pack records only 13 carries across weeks 2\u20134, behind Bigsby, Barkley and Hurts]",
+   "kills_it": "IF Shipley receives an expanded rushing role or breaks a run that overwhelms his limited-volume cushion THEN Shipley rushyds under 33.5 fails.",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "The written hypothesis is limited opportunity against a difficult rushing matchup. The supplied workload and defensive efficiency support it. At JAX's 3.41 YPC allowed, approximately 10 carries would produce 34.1 yards; this is a sensitivity calculation, not a player projection. Under -118 requires 54.13% to break even. Normalizing the supplied under -118 and over -113 prices gives approximately 50.5% for the under, but that is an offered-market reference, not a Pinnacle estimate. No quantified betting edge or stake is established.",
+  "disagrees": "none",
+  "missing": "Player projection, simulation distribution and median, Pinnacle no-vig prices, individual-game carry variation, injuries, final inactives and kickoff weather.",
+  "verdict": "agree"
+ },
+ "market_rung_price": "Lean only: willshipley rushyds under 33.5 at -118. Main line; no alternate rung selected. Missing model and sharp-price validation prevent a fully priced recommendation.",
+ "pre_mortem": "It is Monday and Shipley's under lost because PHI led early and distributed more rushing work to him than the three-game aggregate suggested, or because one explosive run supplied most of the required yardage. The aggregate hides weekly workload changes, and missing injury information could conceal a major role change. JAX's 3.41 YPC allowed does not cap an individual runner's outcome. These risks keep the selection a lean rather than a strong read.",
+ "slip_story": "Fits a JAX-control or PHI-pass-heavy story and survives the JAX-big-lead flip. A PHI clock-killing lead is the vulnerable flip. Only one leg qualifies; do not manufacture a three-leg slip. This response records the hypothesis, but no external save, timestamped lock or hash is available. Afterward, grade script and workload accuracy separately from the wager result; check Steps 2, 3 and 5 for any miss.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}

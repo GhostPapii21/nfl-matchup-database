@@ -1,0 +1,6807 @@
+{
+ "season": 2026,
+ "week": 8,
+ "game_id": "2026_08_LV_NYJ",
+ "game": "LV@NYJ",
+ "kickoff_et": "2026-11-01T13:00",
+ "game_date": "2026-11-01",
+ "input_cutoff_et": "2026-11-01T12:25",
+ "seed": 20261101,
+ "trials": 100000,
+ "sim_script": "tools/sim_v6.py",
+ "sources": [
+  {
+   "category": "core_stats_pbp",
+   "name": "nflverse pbp",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-02_shared_src/play_by_play_2026.parquet",
+   "pulled_et": "2026-11-01T12:25",
+   "season": 2026,
+   "data_week": 7,
+   "week_kind": "through",
+   "true_asof": "through week 7",
+   "label": "REPLAY STAMP"
+  },
+  {
+   "category": "coverage_matchups",
+   "name": "pbp defender credit PROXY + Sharp coverage schemes (HINDSIGHT wk6-7)",
+   "url_or_file": "/tmp/sharp.html",
+   "pulled_et": "2026-11-01T12:25",
+   "season": 2026,
+   "data_week": 7,
+   "week_kind": "through",
+   "true_asof": "2026-10-27 (Sharp); pbp through week 7",
+   "label": "REPLAY STAMP"
+  },
+  {
+   "category": "ngs",
+   "name": "NFL NGS passing/receiving (nflverse)",
+   "url_or_file": "/workspace/nfl-database/runs/2026-11-01_shared_src/ngs_passing.parquet",
+   "pulled_et": "2026-11-01T12:25",
+   "season": 2026,
+   "data_week": 7,
+   "week_kind": "through",
+   "true_asof": "weeks<8 used",
+   "label": "REPLAY STAMP"
+  },
+  {
+   "category": "injuries_news",
+   "name": "nflverse weekly injury report + ESPN game injuries/inactives",
+   "url_or_file": "/tmp/inj26.parquet ; espn/401873029.json",
+   "pulled_et": "2026-11-01T12:25",
+   "season": 2026,
+   "data_week": 8,
+   "week_kind": "label",
+   "true_asof": "ESPN summary fetched post-game (inactives published ~90m pre-kick)",
+   "label": "REPLAY STAMP"
+  },
+  {
+   "category": "weather",
+   "name": "Open-Meteo",
+   "url_or_file": "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=40.814&longitude=-74.074&hourly=precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=mph&timezone=UTC&start_date=2026-10-30&end_date=2026-11-01",
+   "pulled_et": "2026-11-01T12:25",
+   "season": 2026,
+   "data_week": 8,
+   "week_kind": "label",
+   "true_asof": "archive pulled after the fact",
+   "label": "REPLAY STAMP"
+  },
+  {
+   "category": "odds_props",
+   "name": "The Odds API historical snapshot",
+   "url_or_file": "/workspace/nfl-database/backtests/rulebook_replay_wk6_8/raw/",
+   "pulled_et": "2026-11-01T12:25",
+   "season": 2026,
+   "data_week": 8,
+   "week_kind": "label",
+   "true_asof": "snapshot 2026-11-01T17:25:36Z UTC",
+   "label": "REPLAY STAMP"
+  }
+ ],
+ "flagged_gaps": [],
+ "pressure_inputs": {
+  "blitz_rate": {
+   "value": {
+    "NYJ": 0.093,
+    "LV": 0.06
+   },
+   "label": "FTN n_blitzers/n_pass_rushers (defense)",
+   "source": "FTN charting 2026",
+   "pulled_et": "2026-11-01T12:25",
+   "true_asof": "weeks<8"
+  },
+  "pressure_rate": {
+   "value": {
+    "NYJ": 0.155,
+    "LV": 0.197
+   },
+   "label": "PROXY sack|qb_hit per dropback (defense)",
+   "source": "nflverse pbp",
+   "pulled_et": "2026-11-01T12:25",
+   "true_asof": "weeks<8"
+  },
+  "checkdown_share": {
+   "value": {
+    "NYJ": 0.137,
+    "LV": 0.144
+   },
+   "label": "FTN read_thrown==CHK share (offense)",
+   "source": "FTN charting 2026",
+   "pulled_et": "2026-11-01T12:25",
+   "true_asof": "weeks<8"
+  },
+  "time_to_throw": {
+   "value": {
+    "NYJ": 2.77,
+    "LV": 2.69
+   },
+   "label": "NGS avg_time_to_throw, attempt-weighted (offense)",
+   "source": "NGS passing",
+   "pulled_et": "2026-11-01T12:25",
+   "true_asof": "weeks<8"
+  },
+  "targets_under_pressure": {
+   "value": {
+    "NYJ": 0.106,
+    "LV": 0.128
+   },
+   "label": "PROXY share of targets with qb_hit (offense)",
+   "source": "nflverse pbp",
+   "pulled_et": "2026-11-01T12:25",
+   "true_asof": "weeks<8"
+  }
+ },
+ "weather": {
+  "LV@NYJ": {
+   "roof": "outdoors",
+   "precip_pct": 0,
+   "gust_mph": 9.4,
+   "wind_mph": 7.8,
+   "source": "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=40.814&longitude=-74.074&hourly=precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m&wind_speed_unit=mph&timezone=UTC&start_date=2026-10-30&end_date=2026-11-01",
+   "provider": "open-meteo",
+   "pulled_et": "2026-11-01T11:30",
+   "label": "REPLAY STAMP: Open-Meteo historical-forecast archive, kickoff hours; pulled after the fact"
+  }
+ },
+ "weather_forecast": {
+  "source": "open-meteo previous-runs API",
+  "provider": "open-meteo",
+  "pulled_et": "2026-10-31T14:00",
+  "label": "REPLAY STAMP (day-1 forecast)",
+  "games": {
+   "LV@NYJ": {
+    "roof": "outdoors",
+    "status": "OK",
+    "kickoff_et": "2026-11-01T13:00",
+    "provider": "open-meteo",
+    "source": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=40.814&longitude=-74.074&hourly=precipitation_probability_previous_day1,wind_speed_10m_previous_day1,wind_gusts_10m_previous_day1&wind_speed_unit=mph&timezone=UTC&start_date=2026-10-30&end_date=2026-11-01",
+    "precip_pct": 1,
+    "gust_mph": 5.8,
+    "wind_mph": 3.5,
+    "label": "Open-Meteo previous-runs day-1 forecast"
+   }
+  }
+ },
+ "sims": [
+  {
+   "model": "monte_carlo",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Kirk Cousins passyds over 231.5": {
+     "p": 0.5655,
+     "median": 244.69
+    },
+    "Kirk Cousins passyds under 231.5": {
+     "p": 0.4345,
+     "median": 244.69
+    },
+    "Geno Smith passyds over 225.5": {
+     "p": 0.5752,
+     "median": 242.98
+    },
+    "Geno Smith passyds under 225.5": {
+     "p": 0.4248,
+     "median": 242.98
+    },
+    "Brock Bowers recyds over 70.5": {
+     "p": 0.5486,
+     "median": 74.42
+    },
+    "Brock Bowers recyds under 70.5": {
+     "p": 0.4514,
+     "median": 74.42
+    },
+    "Garrett Wilson recyds over 63.5": {
+     "p": 0.4911,
+     "median": 62.46
+    },
+    "Garrett Wilson recyds under 63.5": {
+     "p": 0.5089,
+     "median": 62.46
+    },
+    "Tre Tucker recyds over 48.5": {
+     "p": 0.5847,
+     "median": 56.58
+    },
+    "Tre Tucker recyds under 48.5": {
+     "p": 0.4153,
+     "median": 56.58
+    },
+    "Ashton Jeanty recyds over 27.5": {
+     "p": 0.5417,
+     "median": 29.21
+    },
+    "Ashton Jeanty recyds under 27.5": {
+     "p": 0.4583,
+     "median": 29.21
+    },
+    "Michael Mayer recyds over 25.5": {
+     "p": 0.6185,
+     "median": 34.58
+    },
+    "Michael Mayer recyds under 25.5": {
+     "p": 0.3815,
+     "median": 34.58
+    },
+    "Adonai Mitchell recyds over 25.5": {
+     "p": 0.5457,
+     "median": 28.98
+    },
+    "Adonai Mitchell recyds under 25.5": {
+     "p": 0.4543,
+     "median": 28.98
+    },
+    "Mason Taylor recyds over 21.5": {
+     "p": 0.6608,
+     "median": 28.97
+    },
+    "Mason Taylor recyds under 21.5": {
+     "p": 0.3392,
+     "median": 28.97
+    },
+    "Jalen Nailor recyds over 16.5": {
+     "p": 0.5217,
+     "median": 17.49
+    },
+    "Jalen Nailor recyds under 16.5": {
+     "p": 0.4783,
+     "median": 17.49
+    },
+    "Kenyon Sadiq recyds over 16.5": {
+     "p": 0.4047,
+     "median": 11.8
+    },
+    "Kenyon Sadiq recyds under 16.5": {
+     "p": 0.5954,
+     "median": 11.8
+    },
+    "Braelon Allen recyds over 16.5": {
+     "p": 0.5711,
+     "median": 20.89
+    },
+    "Braelon Allen recyds under 16.5": {
+     "p": 0.4289,
+     "median": 20.89
+    },
+    "Brock Bowers rec over 5.5": {
+     "p": 0.6115,
+     "median": 6.22
+    },
+    "Brock Bowers rec under 5.5": {
+     "p": 0.3885,
+     "median": 6.22
+    },
+    "Garrett Wilson rec over 5.5": {
+     "p": 0.3251,
+     "median": 4.27
+    },
+    "Garrett Wilson rec under 5.5": {
+     "p": 0.6749,
+     "median": 4.27
+    },
+    "Ashton Jeanty rec over 3.5": {
+     "p": 0.6399,
+     "median": 4.24
+    },
+    "Ashton Jeanty rec under 3.5": {
+     "p": 0.3601,
+     "median": 4.24
+    },
+    "Tre Tucker rec over 3.5": {
+     "p": 0.6334,
+     "median": 4.22
+    },
+    "Tre Tucker rec under 3.5": {
+     "p": 0.3666,
+     "median": 4.22
+    },
+    "Michael Mayer rec over 2.5": {
+     "p": 0.6511,
+     "median": 3.48
+    },
+    "Michael Mayer rec under 2.5": {
+     "p": 0.3489,
+     "median": 3.48
+    },
+    "Braelon Allen rec over 2.5": {
+     "p": 0.5498,
+     "median": 2.75
+    },
+    "Braelon Allen rec under 2.5": {
+     "p": 0.4502,
+     "median": 2.75
+    },
+    "Mason Taylor rec over 2.5": {
+     "p": 0.7581,
+     "median": 3.83
+    },
+    "Mason Taylor rec under 2.5": {
+     "p": 0.2419,
+     "median": 3.83
+    },
+    "Adonai Mitchell rec over 2.5": {
+     "p": 0.432,
+     "median": 2.1
+    },
+    "Adonai Mitchell rec under 2.5": {
+     "p": 0.568,
+     "median": 2.1
+    },
+    "Kenyon Sadiq rec over 1.5": {
+     "p": 0.6033,
+     "median": 1.95
+    },
+    "Kenyon Sadiq rec under 1.5": {
+     "p": 0.3967,
+     "median": 1.95
+    },
+    "Jalen Nailor rec over 1.5": {
+     "p": 0.479,
+     "median": 1.44
+    },
+    "Jalen Nailor rec under 1.5": {
+     "p": 0.521,
+     "median": 1.44
+    },
+    "Braelon Allen rushyds over 79.5": {
+     "p": 0.4485,
+     "median": 73.69
+    },
+    "Braelon Allen rushyds under 79.5": {
+     "p": 0.5515,
+     "median": 73.69
+    },
+    "Ashton Jeanty rushyds over 50.5": {
+     "p": 0.3792,
+     "median": 41.51
+    },
+    "Ashton Jeanty rushyds under 50.5": {
+     "p": 0.6208,
+     "median": 41.51
+    },
+    "Mike Washington Jr. rushyds over 31.5": {
+     "p": 0.2959,
+     "median": 19.47
+    },
+    "Mike Washington Jr. rushyds under 31.5": {
+     "p": 0.7041,
+     "median": 19.47
+    },
+    "Isaiah Davis rushyds over 9.5": {
+     "p": 0.5288,
+     "median": 11.67
+    },
+    "Isaiah Davis rushyds under 9.5": {
+     "p": 0.4712,
+     "median": 11.67
+    },
+    "Geno Smith rushyds over 6.5": {
+     "p": 0.6407,
+     "median": 11.75
+    },
+    "Geno Smith rushyds under 6.5": {
+     "p": 0.3593,
+     "median": 11.75
+    },
+    "Kirk Cousins rushyds over 0.5": {
+     "p": 0.5016,
+     "median": 13.56
+    },
+    "Kirk Cousins rushyds under 0.5": {
+     "p": 0.4984,
+     "median": 13.56
+    }
+   }
+  },
+  {
+   "model": "bias",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Kirk Cousins passyds over 231.5": {
+     "p": 0.5643,
+     "median": 244.69
+    },
+    "Kirk Cousins passyds under 231.5": {
+     "p": 0.4357,
+     "median": 244.69
+    },
+    "Geno Smith passyds over 225.5": {
+     "p": 0.5734,
+     "median": 242.98
+    },
+    "Geno Smith passyds under 225.5": {
+     "p": 0.4266,
+     "median": 242.98
+    },
+    "Brock Bowers recyds over 70.5": {
+     "p": 0.5499,
+     "median": 74.42
+    },
+    "Brock Bowers recyds under 70.5": {
+     "p": 0.4501,
+     "median": 74.42
+    },
+    "Garrett Wilson recyds over 63.5": {
+     "p": 0.4923,
+     "median": 62.46
+    },
+    "Garrett Wilson recyds under 63.5": {
+     "p": 0.5077,
+     "median": 62.46
+    },
+    "Tre Tucker recyds over 48.5": {
+     "p": 0.5875,
+     "median": 56.58
+    },
+    "Tre Tucker recyds under 48.5": {
+     "p": 0.4125,
+     "median": 56.58
+    },
+    "Ashton Jeanty recyds over 27.5": {
+     "p": 0.5422,
+     "median": 29.21
+    },
+    "Ashton Jeanty recyds under 27.5": {
+     "p": 0.4578,
+     "median": 29.21
+    },
+    "Michael Mayer recyds over 25.5": {
+     "p": 0.6201,
+     "median": 34.58
+    },
+    "Michael Mayer recyds under 25.5": {
+     "p": 0.3799,
+     "median": 34.58
+    },
+    "Adonai Mitchell recyds over 25.5": {
+     "p": 0.5453,
+     "median": 28.98
+    },
+    "Adonai Mitchell recyds under 25.5": {
+     "p": 0.4547,
+     "median": 28.98
+    },
+    "Mason Taylor recyds over 21.5": {
+     "p": 0.6597,
+     "median": 28.06
+    },
+    "Mason Taylor recyds under 21.5": {
+     "p": 0.3403,
+     "median": 28.06
+    },
+    "Jalen Nailor recyds over 16.5": {
+     "p": 0.5206,
+     "median": 17.49
+    },
+    "Jalen Nailor recyds under 16.5": {
+     "p": 0.4794,
+     "median": 17.49
+    },
+    "Kenyon Sadiq recyds over 16.5": {
+     "p": 0.4063,
+     "median": 11.8
+    },
+    "Kenyon Sadiq recyds under 16.5": {
+     "p": 0.5937,
+     "median": 11.8
+    },
+    "Braelon Allen recyds over 16.5": {
+     "p": 0.5732,
+     "median": 20.89
+    },
+    "Braelon Allen recyds under 16.5": {
+     "p": 0.4268,
+     "median": 20.89
+    },
+    "Brock Bowers rec over 5.5": {
+     "p": 0.613,
+     "median": 6.22
+    },
+    "Brock Bowers rec under 5.5": {
+     "p": 0.387,
+     "median": 6.22
+    },
+    "Garrett Wilson rec over 5.5": {
+     "p": 0.3294,
+     "median": 4.28
+    },
+    "Garrett Wilson rec under 5.5": {
+     "p": 0.6706,
+     "median": 4.28
+    },
+    "Ashton Jeanty rec over 3.5": {
+     "p": 0.6395,
+     "median": 4.24
+    },
+    "Ashton Jeanty rec under 3.5": {
+     "p": 0.3605,
+     "median": 4.24
+    },
+    "Tre Tucker rec over 3.5": {
+     "p": 0.6296,
+     "median": 4.2
+    },
+    "Tre Tucker rec under 3.5": {
+     "p": 0.3704,
+     "median": 4.2
+    },
+    "Michael Mayer rec over 2.5": {
+     "p": 0.6506,
+     "median": 3.48
+    },
+    "Michael Mayer rec under 2.5": {
+     "p": 0.3494,
+     "median": 3.48
+    },
+    "Braelon Allen rec over 2.5": {
+     "p": 0.5511,
+     "median": 2.76
+    },
+    "Braelon Allen rec under 2.5": {
+     "p": 0.4489,
+     "median": 2.76
+    },
+    "Mason Taylor rec over 2.5": {
+     "p": 0.7601,
+     "median": 3.85
+    },
+    "Mason Taylor rec under 2.5": {
+     "p": 0.2399,
+     "median": 3.85
+    },
+    "Adonai Mitchell rec over 2.5": {
+     "p": 0.4307,
+     "median": 2.09
+    },
+    "Adonai Mitchell rec under 2.5": {
+     "p": 0.5693,
+     "median": 2.09
+    },
+    "Kenyon Sadiq rec over 1.5": {
+     "p": 0.6009,
+     "median": 1.94
+    },
+    "Kenyon Sadiq rec under 1.5": {
+     "p": 0.3991,
+     "median": 1.94
+    },
+    "Jalen Nailor rec over 1.5": {
+     "p": 0.4828,
+     "median": 1.45
+    },
+    "Jalen Nailor rec under 1.5": {
+     "p": 0.5172,
+     "median": 1.45
+    },
+    "Braelon Allen rushyds over 79.5": {
+     "p": 0.4497,
+     "median": 74.82
+    },
+    "Braelon Allen rushyds under 79.5": {
+     "p": 0.5503,
+     "median": 74.82
+    },
+    "Ashton Jeanty rushyds over 50.5": {
+     "p": 0.3805,
+     "median": 41.51
+    },
+    "Ashton Jeanty rushyds under 50.5": {
+     "p": 0.6195,
+     "median": 41.51
+    },
+    "Mike Washington Jr. rushyds over 31.5": {
+     "p": 0.2976,
+     "median": 19.47
+    },
+    "Mike Washington Jr. rushyds under 31.5": {
+     "p": 0.7024,
+     "median": 19.47
+    },
+    "Isaiah Davis rushyds over 9.5": {
+     "p": 0.5326,
+     "median": 11.67
+    },
+    "Isaiah Davis rushyds under 9.5": {
+     "p": 0.4674,
+     "median": 11.67
+    },
+    "Geno Smith rushyds over 6.5": {
+     "p": 0.6373,
+     "median": 11.75
+    },
+    "Geno Smith rushyds under 6.5": {
+     "p": 0.3627,
+     "median": 11.75
+    },
+    "Kirk Cousins rushyds over 0.5": {
+     "p": 0.5049,
+     "median": 13.56
+    },
+    "Kirk Cousins rushyds under 0.5": {
+     "p": 0.4951,
+     "median": 13.56
+    }
+   }
+  },
+  {
+   "model": "game_randomness",
+   "n": 100000,
+   "seed": 20261101,
+   "script": "tools/sim_v6.py",
+   "legs": {
+    "Kirk Cousins passyds over 231.5": {
+     "p": 0.5647,
+     "median": 244.69
+    },
+    "Kirk Cousins passyds under 231.5": {
+     "p": 0.4353,
+     "median": 244.69
+    },
+    "Geno Smith passyds over 225.5": {
+     "p": 0.5456,
+     "median": 237.7
+    },
+    "Geno Smith passyds under 225.5": {
+     "p": 0.4544,
+     "median": 237.7
+    },
+    "Brock Bowers recyds over 70.5": {
+     "p": 0.5168,
+     "median": 71.69
+    },
+    "Brock Bowers recyds under 70.5": {
+     "p": 0.4832,
+     "median": 71.69
+    },
+    "Garrett Wilson recyds over 63.5": {
+     "p": 0.4658,
+     "median": 58.71
+    },
+    "Garrett Wilson recyds under 63.5": {
+     "p": 0.5342,
+     "median": 58.71
+    },
+    "Tre Tucker recyds over 48.5": {
+     "p": 0.5602,
+     "median": 54.01
+    },
+    "Tre Tucker recyds under 48.5": {
+     "p": 0.4398,
+     "median": 54.01
+    },
+    "Ashton Jeanty recyds over 27.5": {
+     "p": 0.5222,
+     "median": 28.42
+    },
+    "Ashton Jeanty recyds under 27.5": {
+     "p": 0.4778,
+     "median": 28.42
+    },
+    "Michael Mayer recyds over 25.5": {
+     "p": 0.5735,
+     "median": 31.44
+    },
+    "Michael Mayer recyds under 25.5": {
+     "p": 0.4265,
+     "median": 31.44
+    },
+    "Adonai Mitchell recyds over 25.5": {
+     "p": 0.5614,
+     "median": 30.14
+    },
+    "Adonai Mitchell recyds under 25.5": {
+     "p": 0.4386,
+     "median": 30.14
+    },
+    "Mason Taylor recyds over 21.5": {
+     "p": 0.6079,
+     "median": 26.25
+    },
+    "Mason Taylor recyds under 21.5": {
+     "p": 0.3921,
+     "median": 26.25
+    },
+    "Jalen Nailor recyds over 16.5": {
+     "p": 0.5008,
+     "median": 17.49
+    },
+    "Jalen Nailor recyds under 16.5": {
+     "p": 0.4992,
+     "median": 17.49
+    },
+    "Kenyon Sadiq recyds over 16.5": {
+     "p": 0.3792,
+     "median": 9.44
+    },
+    "Kenyon Sadiq recyds under 16.5": {
+     "p": 0.6208,
+     "median": 9.44
+    },
+    "Braelon Allen recyds over 16.5": {
+     "p": 0.5093,
+     "median": 17.68
+    },
+    "Braelon Allen recyds under 16.5": {
+     "p": 0.4907,
+     "median": 17.68
+    },
+    "Brock Bowers rec over 5.5": {
+     "p": 0.5579,
+     "median": 5.96
+    },
+    "Brock Bowers rec under 5.5": {
+     "p": 0.4421,
+     "median": 5.96
+    },
+    "Garrett Wilson rec over 5.5": {
+     "p": 0.3249,
+     "median": 4.06
+    },
+    "Garrett Wilson rec under 5.5": {
+     "p": 0.6751,
+     "median": 4.06
+    },
+    "Ashton Jeanty rec over 3.5": {
+     "p": 0.5998,
+     "median": 4.1
+    },
+    "Ashton Jeanty rec under 3.5": {
+     "p": 0.4002,
+     "median": 4.1
+    },
+    "Tre Tucker rec over 3.5": {
+     "p": 0.5917,
+     "median": 4.06
+    },
+    "Tre Tucker rec under 3.5": {
+     "p": 0.4083,
+     "median": 4.06
+    },
+    "Michael Mayer rec over 2.5": {
+     "p": 0.5973,
+     "median": 3.23
+    },
+    "Michael Mayer rec under 2.5": {
+     "p": 0.4027,
+     "median": 3.23
+    },
+    "Braelon Allen rec over 2.5": {
+     "p": 0.4742,
+     "median": 2.36
+    },
+    "Braelon Allen rec under 2.5": {
+     "p": 0.5258,
+     "median": 2.36
+    },
+    "Mason Taylor rec over 2.5": {
+     "p": 0.6809,
+     "median": 3.59
+    },
+    "Mason Taylor rec under 2.5": {
+     "p": 0.3191,
+     "median": 3.59
+    },
+    "Adonai Mitchell rec over 2.5": {
+     "p": 0.4438,
+     "median": 2.19
+    },
+    "Adonai Mitchell rec under 2.5": {
+     "p": 0.5562,
+     "median": 2.19
+    },
+    "Kenyon Sadiq rec over 1.5": {
+     "p": 0.5224,
+     "median": 1.63
+    },
+    "Kenyon Sadiq rec under 1.5": {
+     "p": 0.4776,
+     "median": 1.63
+    },
+    "Jalen Nailor rec over 1.5": {
+     "p": 0.4691,
+     "median": 1.4
+    },
+    "Jalen Nailor rec under 1.5": {
+     "p": 0.5309,
+     "median": 1.4
+    },
+    "Braelon Allen rushyds over 79.5": {
+     "p": 0.4521,
+     "median": 73.69
+    },
+    "Braelon Allen rushyds under 79.5": {
+     "p": 0.5479,
+     "median": 73.69
+    },
+    "Ashton Jeanty rushyds over 50.5": {
+     "p": 0.382,
+     "median": 42.66
+    },
+    "Ashton Jeanty rushyds under 50.5": {
+     "p": 0.618,
+     "median": 42.66
+    },
+    "Mike Washington Jr. rushyds over 31.5": {
+     "p": 0.3027,
+     "median": 17.7
+    },
+    "Mike Washington Jr. rushyds under 31.5": {
+     "p": 0.6973,
+     "median": 17.7
+    },
+    "Isaiah Davis rushyds over 9.5": {
+     "p": 0.4805,
+     "median": 8.34
+    },
+    "Isaiah Davis rushyds under 9.5": {
+     "p": 0.5194,
+     "median": 8.34
+    },
+    "Geno Smith rushyds over 6.5": {
+     "p": 0.604,
+     "median": 11.75
+    },
+    "Geno Smith rushyds under 6.5": {
+     "p": 0.396,
+     "median": 11.75
+    },
+    "Kirk Cousins rushyds over 0.5": {
+     "p": 0.4969,
+     "median": 0.0
+    },
+    "Kirk Cousins rushyds under 0.5": {
+     "p": 0.5031,
+     "median": 0.0
+    }
+   }
+  }
+ ],
+ "legs": [
+  {
+   "name": "Kirk Cousins passyds over 231.5",
+   "player": "Kirk Cousins",
+   "gsis": "00-0029604",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "QB",
+   "market": "passyds",
+   "side": "over",
+   "line": 231.5,
+   "price": -113.0,
+   "no_vig": 0.4995,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     365.0,
+     243.0,
+     313.0,
+     295.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.95 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 301.0 vs all 304.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 304.0 vs last4 304.0 vs line 231.5"
+    }
+   }
+  },
+  {
+   "name": "Kirk Cousins passyds under 231.5",
+   "player": "Kirk Cousins",
+   "gsis": "00-0029604",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "QB",
+   "market": "passyds",
+   "side": "under",
+   "line": 231.5,
+   "price": -113.0,
+   "no_vig": 0.5005,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     365.0,
+     243.0,
+     313.0,
+     295.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.95 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 301.0 vs all 304.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 304.0 vs last4 304.0 vs line 231.5"
+    }
+   }
+  },
+  {
+   "name": "Geno Smith passyds over 225.5",
+   "player": "Geno Smith",
+   "gsis": "00-0030565",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "QB",
+   "market": "passyds",
+   "side": "over",
+   "line": 225.5,
+   "price": -113.0,
+   "no_vig": 0.4983,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     119.0,
+     182.0,
+     252.0,
+     287.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.10 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 210.0 vs all 210.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 269.5 vs last4 210.0 vs line 225.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): opp allowance ratio 1.10 vs league 1.00; opp high-man (21.4%); player avg vs that bucket 210.0 vs all 210.0; team spread -1.5, total 46.5; last2 269.5 vs last4 210.0 vs line 225.5."
+   }
+  },
+  {
+   "name": "Geno Smith passyds under 225.5",
+   "player": "Geno Smith",
+   "gsis": "00-0030565",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "QB",
+   "market": "passyds",
+   "side": "under",
+   "line": 225.5,
+   "price": -113.0,
+   "no_vig": 0.5017,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     119.0,
+     182.0,
+     252.0,
+     287.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.10 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 210.0 vs all 210.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 269.5 vs last4 210.0 vs line 225.5"
+    }
+   }
+  },
+  {
+   "name": "Brock Bowers recyds over 70.5",
+   "player": "Brock Bowers",
+   "gsis": "00-0039338",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "recyds",
+   "side": "over",
+   "line": 70.5,
+   "price": -118.0,
+   "no_vig": 0.5017,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "betrivers",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     86.0,
+     110.0,
+     70.0,
+     73.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Dane Belton",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.87,
+      "ypt": 9.26,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Dane Belton 9.26 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 89.66666666666667 vs all 84.75"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 71.5 vs last4 84.8 vs line 70.5"
+    }
+   }
+  },
+  {
+   "name": "Brock Bowers recyds under 70.5",
+   "player": "Brock Bowers",
+   "gsis": "00-0039338",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "recyds",
+   "side": "under",
+   "line": 70.5,
+   "price": -113.0,
+   "no_vig": 0.4983,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "betrivers",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     86.0,
+     110.0,
+     70.0,
+     73.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Dane Belton",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.87,
+      "ypt": 9.26,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Dane Belton 9.26 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 89.66666666666667 vs all 84.75"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 71.5 vs last4 84.8 vs line 70.5"
+    }
+   }
+  },
+  {
+   "name": "Garrett Wilson recyds over 63.5",
+   "player": "Garrett Wilson",
+   "gsis": "00-0037740",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "recyds",
+   "side": "over",
+   "line": 63.5,
+   "price": -111.0,
+   "no_vig": 0.4989,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     27.0,
+     104.0,
+     44.0,
+     26.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Hezekiah Masses",
+      "pos": "CB",
+      "targets": 18,
+      "comp_pct": 0.667,
+      "ypt": 8.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Hezekiah Masses 8.28 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 50.25 vs all 50.25"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 35.0 vs last4 50.2 vs line 63.5"
+    }
+   }
+  },
+  {
+   "name": "Garrett Wilson recyds under 63.5",
+   "player": "Garrett Wilson",
+   "gsis": "00-0037740",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "recyds",
+   "side": "under",
+   "line": 63.5,
+   "price": -113.0,
+   "no_vig": 0.5011,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     27.0,
+     104.0,
+     44.0,
+     26.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Hezekiah Masses",
+      "pos": "CB",
+      "targets": 18,
+      "comp_pct": 0.667,
+      "ypt": 8.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Hezekiah Masses 8.28 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 50.25 vs all 50.25"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 35.0 vs last4 50.2 vs line 63.5"
+    }
+   }
+  },
+  {
+   "name": "Tre Tucker recyds over 48.5",
+   "player": "Tre Tucker",
+   "gsis": "00-0038563",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "recyds",
+   "side": "over",
+   "line": 48.5,
+   "price": -113.0,
+   "no_vig": 0.4978,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     44.0,
+     41.0,
+     97.0,
+     103.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Azareye'h Thomas",
+      "pos": "CB",
+      "targets": 25,
+      "comp_pct": 0.84,
+      "ypt": 6.92,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Azareye'h Thomas 6.92 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 62.666666666666664 vs all 71.25"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 100.0 vs last4 71.2 vs line 48.5"
+    }
+   }
+  },
+  {
+   "name": "Tre Tucker recyds under 48.5",
+   "player": "Tre Tucker",
+   "gsis": "00-0038563",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "recyds",
+   "side": "under",
+   "line": 48.5,
+   "price": -113.0,
+   "no_vig": 0.5022,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     44.0,
+     41.0,
+     97.0,
+     103.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Azareye'h Thomas",
+      "pos": "CB",
+      "targets": 25,
+      "comp_pct": 0.84,
+      "ypt": 6.92,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Azareye'h Thomas 6.92 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 62.666666666666664 vs all 71.25"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 100.0 vs last4 71.2 vs line 48.5"
+    }
+   }
+  },
+  {
+   "name": "Ashton Jeanty recyds over 27.5",
+   "player": "Ashton Jeanty",
+   "gsis": "00-0040122",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "recyds",
+   "side": "over",
+   "line": 27.5,
+   "price": -113.0,
+   "no_vig": 0.5044,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     68.0,
+     50.0,
+     36.0,
+     61.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Demario Davis",
+      "pos": "OLB",
+      "targets": 19,
+      "comp_pct": 0.789,
+      "ypt": 7.53,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.573,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.58,
+     0.67,
+     0.5,
+     0.57
+    ],
+    "may_trail": true,
+    "tgt_pg": 7.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Demario Davis 7.53 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.40 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 48.5 vs last4 53.8 vs line 27.5"
+    }
+   }
+  },
+  {
+   "name": "Ashton Jeanty recyds under 27.5",
+   "player": "Ashton Jeanty",
+   "gsis": "00-0040122",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "recyds",
+   "side": "under",
+   "line": 27.5,
+   "price": -113.0,
+   "no_vig": 0.4956,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     68.0,
+     50.0,
+     36.0,
+     61.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Demario Davis",
+      "pos": "OLB",
+      "targets": 19,
+      "comp_pct": 0.789,
+      "ypt": 7.53,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.573,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.58,
+     0.67,
+     0.5,
+     0.57
+    ],
+    "may_trail": true,
+    "tgt_pg": 7.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Demario Davis 7.53 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.40 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 48.5 vs last4 53.8 vs line 27.5"
+    }
+   }
+  },
+  {
+   "name": "Michael Mayer recyds over 25.5",
+   "player": "Michael Mayer",
+   "gsis": "00-0039066",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "recyds",
+   "side": "over",
+   "line": 25.5,
+   "price": -113.0,
+   "no_vig": 0.5038,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     82.0,
+     2.0,
+     95.0,
+     32.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Dane Belton",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.87,
+      "ypt": 9.26,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE2->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread +1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.132,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Dane Belton 9.26 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 38.666666666666664 vs all 52.75"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 63.5 vs last4 52.8 vs line 25.5"
+    }
+   }
+  },
+  {
+   "name": "Michael Mayer recyds under 25.5",
+   "player": "Michael Mayer",
+   "gsis": "00-0039066",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "recyds",
+   "side": "under",
+   "line": 25.5,
+   "price": -113.0,
+   "no_vig": 0.4962,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     82.0,
+     2.0,
+     95.0,
+     32.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Dane Belton",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.87,
+      "ypt": 9.26,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE2->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread +1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.132,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Dane Belton 9.26 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 38.666666666666664 vs all 52.75"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 63.5 vs last4 52.8 vs line 25.5"
+    }
+   }
+  },
+  {
+   "name": "Adonai Mitchell recyds over 25.5",
+   "player": "Adonai Mitchell",
+   "gsis": "00-0039890",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "recyds",
+   "side": "over",
+   "line": 25.5,
+   "price": -113.0,
+   "no_vig": 0.5007,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     60.0,
+     63.0,
+     0.0
+    ],
+    "games": [
+     "2026_01_NYJ_TEN",
+     "2026_02_GB_NYJ",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 5,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Taron Johnson",
+      "pos": "CB",
+      "targets": 14,
+      "comp_pct": 0.857,
+      "ypt": 8.43,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR5->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Taron Johnson 8.43 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 0.0 vs all 41.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 31.5 vs last4 41.0 vs line 25.5"
+    }
+   }
+  },
+  {
+   "name": "Adonai Mitchell recyds under 25.5",
+   "player": "Adonai Mitchell",
+   "gsis": "00-0039890",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "recyds",
+   "side": "under",
+   "line": 25.5,
+   "price": -111.0,
+   "no_vig": 0.4993,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     60.0,
+     63.0,
+     0.0
+    ],
+    "games": [
+     "2026_01_NYJ_TEN",
+     "2026_02_GB_NYJ",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 5,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Taron Johnson",
+      "pos": "CB",
+      "targets": 14,
+      "comp_pct": 0.857,
+      "ypt": 8.43,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR5->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Taron Johnson 8.43 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 0.0 vs all 41.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 31.5 vs last4 41.0 vs line 25.5"
+    }
+   }
+  },
+  {
+   "name": "Mason Taylor recyds over 21.5",
+   "player": "Mason Taylor",
+   "gsis": "00-0040736",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "recyds",
+   "side": "over",
+   "line": 21.5,
+   "price": -112.0,
+   "no_vig": 0.5,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     -2.0,
+     24.0,
+     33.0,
+     62.0
+    ],
+    "games": [
+     "2026_01_NYJ_TEN",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Chinn",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.957,
+      "ypt": 13.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Chinn 13.04 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 39.666666666666664 vs all 29.25"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 47.5 vs last4 29.2 vs line 21.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): primary Jeremy Chinn 13.04 ypt vs league S 10.97; opp high-man (21.4%); player avg vs that bucket 39.666666666666664 vs all 29.25; team spread -1.5, total 46.5; last2 47.5 vs last4 29.2 vs line 21.5."
+   }
+  },
+  {
+   "name": "Mason Taylor recyds under 21.5",
+   "player": "Mason Taylor",
+   "gsis": "00-0040736",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "recyds",
+   "side": "under",
+   "line": 21.5,
+   "price": -112.0,
+   "no_vig": 0.5,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     -2.0,
+     24.0,
+     33.0,
+     62.0
+    ],
+    "games": [
+     "2026_01_NYJ_TEN",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Chinn",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.957,
+      "ypt": 13.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Chinn 13.04 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 39.666666666666664 vs all 29.25"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 47.5 vs last4 29.2 vs line 21.5"
+    }
+   }
+  },
+  {
+   "name": "Jalen Nailor recyds over 16.5",
+   "player": "Jalen Nailor",
+   "gsis": "00-0037291",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "recyds",
+   "side": "over",
+   "line": 16.5,
+   "price": -115.0,
+   "no_vig": 0.5028,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     9.0,
+     16.0,
+     9.0,
+     14.0
+    ],
+    "games": [
+     "2026_02_LV_LAC",
+     "2026_03_LV_NO",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "D'Angelo Ponds",
+      "pos": "CB",
+      "targets": 1,
+      "comp_pct": 1.0,
+      "ypt": 5.0,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread +1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.052,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary D'Angelo Ponds 5.0 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 14.0 vs all 12.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 11.5 vs last4 12.0 vs line 16.5"
+    }
+   }
+  },
+  {
+   "name": "Jalen Nailor recyds under 16.5",
+   "player": "Jalen Nailor",
+   "gsis": "00-0037291",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "recyds",
+   "side": "under",
+   "line": 16.5,
+   "price": -109.0,
+   "no_vig": 0.4972,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     9.0,
+     16.0,
+     9.0,
+     14.0
+    ],
+    "games": [
+     "2026_02_LV_LAC",
+     "2026_03_LV_NO",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "D'Angelo Ponds",
+      "pos": "CB",
+      "targets": 1,
+      "comp_pct": 1.0,
+      "ypt": 5.0,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread +1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.052,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary D'Angelo Ponds 5.0 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 14.0 vs all 12.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 11.5 vs last4 12.0 vs line 16.5"
+    }
+   }
+  },
+  {
+   "name": "Kenyon Sadiq recyds over 16.5",
+   "player": "Kenyon Sadiq",
+   "gsis": "00-0041032",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "recyds",
+   "side": "over",
+   "line": 16.5,
+   "price": -113.0,
+   "no_vig": 0.5054,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     3.0,
+     12.0,
+     6.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Chinn",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.957,
+      "ypt": 13.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE2->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread -1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.105,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": true,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Chinn 13.04 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 5.25 vs all 5.25"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 9.0 vs last4 5.2 vs line 16.5"
+    }
+   }
+  },
+  {
+   "name": "Kenyon Sadiq recyds under 16.5",
+   "player": "Kenyon Sadiq",
+   "gsis": "00-0041032",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "recyds",
+   "side": "under",
+   "line": 16.5,
+   "price": -113.0,
+   "no_vig": 0.4946,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     3.0,
+     12.0,
+     6.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Chinn",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.957,
+      "ypt": 13.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE2->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread -1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.105,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": true,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Chinn 13.04 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 5.25 vs all 5.25"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 9.0 vs last4 5.2 vs line 16.5"
+    }
+   }
+  },
+  {
+   "name": "Braelon Allen recyds over 16.5",
+   "player": "Braelon Allen",
+   "gsis": "00-0039794",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "recyds",
+   "side": "over",
+   "line": 16.5,
+   "price": -107.0,
+   "no_vig": 0.4941,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     8.0,
+     0.0,
+     26.0,
+     30.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Quay Walker",
+      "pos": "LB",
+      "targets": 18,
+      "comp_pct": 1.0,
+      "ypt": 10.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.867,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "True",
+    "shares": [
+     1.0,
+     0.92,
+     0.71,
+     0.89
+    ],
+    "may_trail": false,
+    "tgt_pg": 3.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Quay Walker 10.28 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.11 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 28.0 vs last4 16.0 vs line 16.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): primary Quay Walker 10.28 ypt vs league LB 6.83; opp avg box 6.11 vs league 6.42 (FTN, weeks<8); team spread -1.5, total 46.5; last2 28.0 vs last4 16.0 vs line 16.5."
+   }
+  },
+  {
+   "name": "Braelon Allen recyds under 16.5",
+   "player": "Braelon Allen",
+   "gsis": "00-0039794",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "recyds",
+   "side": "under",
+   "line": 16.5,
+   "price": -118.0,
+   "no_vig": 0.5059,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     8.0,
+     0.0,
+     26.0,
+     30.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Quay Walker",
+      "pos": "LB",
+      "targets": 18,
+      "comp_pct": 1.0,
+      "ypt": 10.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.867,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "True",
+    "shares": [
+     1.0,
+     0.92,
+     0.71,
+     0.89
+    ],
+    "may_trail": false,
+    "tgt_pg": 3.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Quay Walker 10.28 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.11 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 28.0 vs last4 16.0 vs line 16.5"
+    }
+   }
+  },
+  {
+   "name": "Brock Bowers rec over 5.5",
+   "player": "Brock Bowers",
+   "gsis": "00-0039338",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "rec",
+   "side": "over",
+   "line": 5.5,
+   "price": -154.0,
+   "no_vig": 0.566,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     6.0,
+     8.0,
+     4.0,
+     6.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Dane Belton",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.87,
+      "ypt": 9.26,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Dane Belton 9.26 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 6.666666666666667 vs all 6.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 5.0 vs last4 6.0 vs line 5.5"
+    }
+   }
+  },
+  {
+   "name": "Brock Bowers rec under 5.5",
+   "player": "Brock Bowers",
+   "gsis": "00-0039338",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "rec",
+   "side": "under",
+   "line": 5.5,
+   "price": 116.0,
+   "no_vig": 0.434,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     6.0,
+     8.0,
+     4.0,
+     6.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Dane Belton",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.87,
+      "ypt": 9.26,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Dane Belton 9.26 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 6.666666666666667 vs all 6.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 5.0 vs last4 6.0 vs line 5.5"
+    }
+   }
+  },
+  {
+   "name": "Garrett Wilson rec over 5.5",
+   "player": "Garrett Wilson",
+   "gsis": "00-0037740",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "rec",
+   "side": "over",
+   "line": 5.5,
+   "price": -102.0,
+   "no_vig": 0.4722,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     3.0,
+     7.0,
+     4.0,
+     2.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Hezekiah Masses",
+      "pos": "CB",
+      "targets": 18,
+      "comp_pct": 0.667,
+      "ypt": 8.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Hezekiah Masses 8.28 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 4.0 vs all 4.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 3.0 vs last4 4.0 vs line 5.5"
+    }
+   }
+  },
+  {
+   "name": "Garrett Wilson rec under 5.5",
+   "player": "Garrett Wilson",
+   "gsis": "00-0037740",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "rec",
+   "side": "under",
+   "line": 5.5,
+   "price": -130.0,
+   "no_vig": 0.5278,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     3.0,
+     7.0,
+     4.0,
+     2.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Hezekiah Masses",
+      "pos": "CB",
+      "targets": 18,
+      "comp_pct": 0.667,
+      "ypt": 8.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Hezekiah Masses 8.28 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 4.0 vs all 4.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 3.0 vs last4 4.0 vs line 5.5"
+    }
+   }
+  },
+  {
+   "name": "Ashton Jeanty rec over 3.5",
+   "player": "Ashton Jeanty",
+   "gsis": "00-0040122",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rec",
+   "side": "over",
+   "line": 3.5,
+   "price": -125.0,
+   "no_vig": 0.5387,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     6.0,
+     3.0,
+     4.0,
+     8.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Demario Davis",
+      "pos": "OLB",
+      "targets": 19,
+      "comp_pct": 0.789,
+      "ypt": 7.53,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.573,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.58,
+     0.67,
+     0.5,
+     0.57
+    ],
+    "may_trail": true,
+    "tgt_pg": 7.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Demario Davis 7.53 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.40 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 6.0 vs last4 5.2 vs line 3.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): primary Demario Davis 7.53 ypt vs league LB 6.83; opp avg box 6.40 vs league 6.42 (FTN, weeks<8); team spread +1.5, total 46.5; last2 6.0 vs last4 5.2 vs line 3.5."
+   }
+  },
+  {
+   "name": "Ashton Jeanty rec under 3.5",
+   "player": "Ashton Jeanty",
+   "gsis": "00-0040122",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rec",
+   "side": "under",
+   "line": 3.5,
+   "price": -106.0,
+   "no_vig": 0.4613,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     6.0,
+     3.0,
+     4.0,
+     8.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Demario Davis",
+      "pos": "OLB",
+      "targets": 19,
+      "comp_pct": 0.789,
+      "ypt": 7.53,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.573,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.58,
+     0.67,
+     0.5,
+     0.57
+    ],
+    "may_trail": true,
+    "tgt_pg": 7.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Demario Davis 7.53 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.40 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 6.0 vs last4 5.2 vs line 3.5"
+    }
+   }
+  },
+  {
+   "name": "Tre Tucker rec over 3.5",
+   "player": "Tre Tucker",
+   "gsis": "00-0038563",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "rec",
+   "side": "over",
+   "line": 3.5,
+   "price": -120.0,
+   "no_vig": 0.5241,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     4.0,
+     4.0,
+     5.0,
+     5.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Azareye'h Thomas",
+      "pos": "CB",
+      "targets": 25,
+      "comp_pct": 0.84,
+      "ypt": 6.92,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Azareye'h Thomas 6.92 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 4.333333333333333 vs all 4.5"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 5.0 vs last4 4.5 vs line 3.5"
+    }
+   }
+  },
+  {
+   "name": "Tre Tucker rec under 3.5",
+   "player": "Tre Tucker",
+   "gsis": "00-0038563",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "rec",
+   "side": "under",
+   "line": 3.5,
+   "price": -110.0,
+   "no_vig": 0.4759,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     4.0,
+     4.0,
+     5.0,
+     5.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Azareye'h Thomas",
+      "pos": "CB",
+      "targets": 25,
+      "comp_pct": 0.84,
+      "ypt": 6.92,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR1->CB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Azareye'h Thomas 6.92 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 4.333333333333333 vs all 4.5"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 5.0 vs last4 4.5 vs line 3.5"
+    }
+   }
+  },
+  {
+   "name": "Michael Mayer rec over 2.5",
+   "player": "Michael Mayer",
+   "gsis": "00-0039066",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "rec",
+   "side": "over",
+   "line": 2.5,
+   "price": -168.0,
+   "no_vig": 0.589,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     8.0,
+     1.0,
+     7.0,
+     3.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Dane Belton",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.87,
+      "ypt": 9.26,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE2->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread +1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.132,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Dane Belton 9.26 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 4.0 vs all 4.75"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 5.0 vs last4 4.8 vs line 2.5"
+    }
+   }
+  },
+  {
+   "name": "Michael Mayer rec under 2.5",
+   "player": "Michael Mayer",
+   "gsis": "00-0039066",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "rec",
+   "side": "under",
+   "line": 2.5,
+   "price": 126.0,
+   "no_vig": 0.411,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     8.0,
+     1.0,
+     7.0,
+     3.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Dane Belton",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.87,
+      "ypt": 9.26,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE2->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread +1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.132,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Dane Belton 9.26 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 4.0 vs all 4.75"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 5.0 vs last4 4.8 vs line 2.5"
+    }
+   }
+  },
+  {
+   "name": "Braelon Allen rec over 2.5",
+   "player": "Braelon Allen",
+   "gsis": "00-0039794",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rec",
+   "side": "over",
+   "line": 2.5,
+   "price": -114.0,
+   "no_vig": 0.5191,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     2.0,
+     1.0,
+     2.0,
+     6.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Quay Walker",
+      "pos": "LB",
+      "targets": 18,
+      "comp_pct": 1.0,
+      "ypt": 10.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.867,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "True",
+    "shares": [
+     1.0,
+     0.92,
+     0.71,
+     0.89
+    ],
+    "may_trail": false,
+    "tgt_pg": 3.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Quay Walker 10.28 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.11 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 4.0 vs last4 2.8 vs line 2.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): primary Quay Walker 10.28 ypt vs league LB 6.83; opp avg box 6.11 vs league 6.42 (FTN, weeks<8); team spread -1.5, total 46.5; last2 4.0 vs last4 2.8 vs line 2.5."
+   }
+  },
+  {
+   "name": "Braelon Allen rec under 2.5",
+   "player": "Braelon Allen",
+   "gsis": "00-0039794",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rec",
+   "side": "under",
+   "line": 2.5,
+   "price": -114.0,
+   "no_vig": 0.4809,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     2.0,
+     1.0,
+     2.0,
+     6.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Quay Walker",
+      "pos": "LB",
+      "targets": 18,
+      "comp_pct": 1.0,
+      "ypt": 10.28,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule RBNone->LB#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "carry_share": {
+    "value": 0.867,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "True",
+    "shares": [
+     1.0,
+     0.92,
+     0.71,
+     0.89
+    ],
+    "may_trail": false,
+    "tgt_pg": 3.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Quay Walker 10.28 ypt vs league LB 6.83"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.11 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 4.0 vs last4 2.8 vs line 2.5"
+    }
+   }
+  },
+  {
+   "name": "Mason Taylor rec over 2.5",
+   "player": "Mason Taylor",
+   "gsis": "00-0040736",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "rec",
+   "side": "over",
+   "line": 2.5,
+   "price": -138.0,
+   "no_vig": 0.5326,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     2.0,
+     3.0,
+     4.0,
+     5.0
+    ],
+    "games": [
+     "2026_01_NYJ_TEN",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Chinn",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.957,
+      "ypt": 13.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Chinn 13.04 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 4.0 vs all 3.5"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 4.5 vs last4 3.5 vs line 2.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): primary Jeremy Chinn 13.04 ypt vs league S 10.97; opp high-man (21.4%); player avg vs that bucket 4.0 vs all 3.5; team spread -1.5, total 46.5; last2 4.5 vs last4 3.5 vs line 2.5."
+   }
+  },
+  {
+   "name": "Mason Taylor rec under 2.5",
+   "player": "Mason Taylor",
+   "gsis": "00-0040736",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "rec",
+   "side": "under",
+   "line": 2.5,
+   "price": 104.0,
+   "no_vig": 0.4674,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     2.0,
+     3.0,
+     4.0,
+     5.0
+    ],
+    "games": [
+     "2026_01_NYJ_TEN",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 1,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Chinn",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.957,
+      "ypt": 13.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE1->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Chinn 13.04 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 4.0 vs all 3.5"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 4.5 vs last4 3.5 vs line 2.5"
+    }
+   }
+  },
+  {
+   "name": "Adonai Mitchell rec over 2.5",
+   "player": "Adonai Mitchell",
+   "gsis": "00-0039890",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "rec",
+   "side": "over",
+   "line": 2.5,
+   "price": 154.0,
+   "no_vig": 0.3929,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     3.0,
+     6.0,
+     0.0
+    ],
+    "games": [
+     "2026_01_NYJ_TEN",
+     "2026_02_GB_NYJ",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 5,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Taron Johnson",
+      "pos": "CB",
+      "targets": 14,
+      "comp_pct": 0.857,
+      "ypt": 8.43,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR5->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Taron Johnson 8.43 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 0.0 vs all 3.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 3.0 vs last4 3.0 vs line 2.5"
+    }
+   }
+  },
+  {
+   "name": "Adonai Mitchell rec under 2.5",
+   "player": "Adonai Mitchell",
+   "gsis": "00-0039890",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "rec",
+   "side": "under",
+   "line": 2.5,
+   "price": -210.0,
+   "no_vig": 0.6071,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     3.0,
+     6.0,
+     0.0
+    ],
+    "games": [
+     "2026_01_NYJ_TEN",
+     "2026_02_GB_NYJ",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 5,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Taron Johnson",
+      "pos": "CB",
+      "targets": 14,
+      "comp_pct": 0.857,
+      "ypt": 8.43,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR5->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Taron Johnson 8.43 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 0.0 vs all 3.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 3.0 vs last4 3.0 vs line 2.5"
+    }
+   }
+  },
+  {
+   "name": "Kenyon Sadiq rec over 1.5",
+   "player": "Kenyon Sadiq",
+   "gsis": "00-0041032",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "rec",
+   "side": "over",
+   "line": 1.5,
+   "price": -188.0,
+   "no_vig": 0.5962,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     2.0,
+     1.0,
+     1.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Chinn",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.957,
+      "ypt": 13.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE2->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread -1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.105,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": true,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Chinn 13.04 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 1.0 vs all 1.0"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 1.0 vs last4 1.0 vs line 1.5"
+    }
+   }
+  },
+  {
+   "name": "Kenyon Sadiq rec under 1.5",
+   "player": "Kenyon Sadiq",
+   "gsis": "00-0041032",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "TE",
+   "market": "rec",
+   "side": "under",
+   "line": 1.5,
+   "price": 140.0,
+   "no_vig": 0.4038,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     2.0,
+     1.0,
+     1.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "te_rank": 2,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "Jeremy Chinn",
+      "pos": "SAF",
+      "targets": 23,
+      "comp_pct": 0.957,
+      "ypt": 13.04,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule TE2->S#1; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread -1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.105,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": true,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary Jeremy Chinn 13.04 ypt vs league S 10.97"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (21.4%); player avg vs that bucket 1.0 vs all 1.0"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 1.0 vs last4 1.0 vs line 1.5"
+    }
+   }
+  },
+  {
+   "name": "Jalen Nailor rec over 1.5",
+   "player": "Jalen Nailor",
+   "gsis": "00-0037291",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "rec",
+   "side": "over",
+   "line": 1.5,
+   "price": -130.0,
+   "no_vig": 0.5304,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     1.0,
+     1.0,
+     1.0,
+     2.0
+    ],
+    "games": [
+     "2026_02_LV_LAC",
+     "2026_03_LV_NO",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "D'Angelo Ponds",
+      "pos": "CB",
+      "targets": 1,
+      "comp_pct": 1.0,
+      "ypt": 5.0,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread +1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.052,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary D'Angelo Ponds 5.0 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 2.0 vs all 1.25"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 1.5 vs last4 1.2 vs line 1.5"
+    }
+   }
+  },
+  {
+   "name": "Jalen Nailor rec under 1.5",
+   "player": "Jalen Nailor",
+   "gsis": "00-0037291",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "WR",
+   "market": "rec",
+   "side": "under",
+   "line": 1.5,
+   "price": -102.0,
+   "no_vig": 0.4696,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": true,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     1.0,
+     1.0,
+     1.0,
+     2.0
+    ],
+    "games": [
+     "2026_02_LV_LAC",
+     "2026_03_LV_NO",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "wr_rank": 3,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "defenders": [
+     {
+      "name": "D'Angelo Ponds",
+      "pos": "CB",
+      "targets": 1,
+      "comp_pct": 1.0,
+      "ypt": 5.0,
+      "primary": true,
+      "source": "PROXY pbp credit (INT/PBU/tackler on targeted plays) weeks<8; rule WR3->CB#3; nflverse pbp",
+      "pulled_et": "2026-11-01T12:25",
+      "true_asof": "pbp through week 7"
+     }
+    ]
+   },
+   "depth": {
+    "script_pass": {
+     "ok": false,
+     "source": "odds snapshot 2026-11-01T17:25:36Z: team spread +1.5, total 46.5",
+     "detail": "ok if team is a 3+ pt dog or total >= 47"
+    },
+    "target_share": {
+     "value": 0.052,
+     "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4"
+    },
+    "defender_giving": {
+     "ok": false,
+     "source": "pbp credit PROXY ypt vs league bucket avg / opp allowance ratio"
+    }
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp (credit PROXY)",
+     "detail": "primary D'Angelo Ponds 5.0 ypt vs league CB 8.78"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27) x pbp splits (PROXY)",
+     "detail": "opp high-man (23.8%); player avg vs that bucket 2.0 vs all 1.25"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 1.5 vs last4 1.2 vs line 1.5"
+    }
+   }
+  },
+  {
+   "name": "Braelon Allen rushyds over 79.5",
+   "player": "Braelon Allen",
+   "gsis": "00-0039794",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 79.5,
+   "price": -112.0,
+   "no_vig": 0.499,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     59.0,
+     116.0,
+     78.0,
+     104.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.867,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "True",
+    "shares": [
+     1.0,
+     0.92,
+     0.71,
+     0.89
+    ],
+    "may_trail": false,
+    "tgt_pg": 3.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 5.17,
+   "soft_run_d": {
+    "soft": true,
+    "opp_ypc": 5.171597633136095,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": true,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.25 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.11 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 91.0 vs last4 89.2 vs line 79.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): opp allowance ratio 1.25 vs league 1.00; opp avg box 6.11 vs league 6.42 (FTN, weeks<8); team spread -1.5, total 46.5; last2 91.0 vs last4 89.2 vs line 79.5."
+   }
+  },
+  {
+   "name": "Braelon Allen rushyds under 79.5",
+   "player": "Braelon Allen",
+   "gsis": "00-0039794",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 79.5,
+   "price": -112.0,
+   "no_vig": 0.501,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     59.0,
+     116.0,
+     78.0,
+     104.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "nan",
+   "injury_source": "nflverse injuries_2026 weekly report (/tmp/inj26.parquet)",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.867,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "True",
+    "shares": [
+     1.0,
+     0.92,
+     0.71,
+     0.89
+    ],
+    "may_trail": false,
+    "tgt_pg": 3.75,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 5.17,
+   "soft_run_d": {
+    "soft": true,
+    "opp_ypc": 5.171597633136095,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": true,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.25 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.11 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 91.0 vs last4 89.2 vs line 79.5"
+    }
+   }
+  },
+  {
+   "name": "Ashton Jeanty rushyds over 50.5",
+   "player": "Ashton Jeanty",
+   "gsis": "00-0040122",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 50.5,
+   "price": -114.0,
+   "no_vig": 0.498,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     58.0,
+     27.0,
+     22.0,
+     15.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.573,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.58,
+     0.67,
+     0.5,
+     0.57
+    ],
+    "may_trail": true,
+    "tgt_pg": 7.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 4.08,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.076502732240437,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.99 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.40 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 18.5 vs last4 30.5 vs line 50.5"
+    }
+   }
+  },
+  {
+   "name": "Ashton Jeanty rushyds under 50.5",
+   "player": "Ashton Jeanty",
+   "gsis": "00-0040122",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 50.5,
+   "price": -110.0,
+   "no_vig": 0.502,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     58.0,
+     27.0,
+     22.0,
+     15.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.573,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.58,
+     0.67,
+     0.5,
+     0.57
+    ],
+    "may_trail": true,
+    "tgt_pg": 7.0,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 4.08,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.076502732240437,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.99 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.40 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 18.5 vs last4 30.5 vs line 50.5"
+    }
+   }
+  },
+  {
+   "name": "Mike Washington Jr. rushyds over 31.5",
+   "player": "Mike Washington Jr.",
+   "gsis": "00-0040878",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 31.5,
+   "price": -113.0,
+   "no_vig": 0.5015,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     18.0,
+     5.0,
+     43.0,
+     27.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.333,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.35,
+     0.07,
+     0.45,
+     0.43
+    ],
+    "may_trail": true,
+    "tgt_pg": 1.25,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 4.08,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.076502732240437,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.99 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.40 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 35.0 vs last4 23.2 vs line 31.5"
+    }
+   }
+  },
+  {
+   "name": "Mike Washington Jr. rushyds under 31.5",
+   "player": "Mike Washington Jr.",
+   "gsis": "00-0040878",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 31.5,
+   "price": -113.0,
+   "no_vig": 0.4985,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     18.0,
+     5.0,
+     43.0,
+     27.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.333,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.35,
+     0.07,
+     0.45,
+     0.43
+    ],
+    "may_trail": true,
+    "tgt_pg": 1.25,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 4.08,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.076502732240437,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.99 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.40 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 35.0 vs last4 23.2 vs line 31.5"
+    }
+   }
+  },
+  {
+   "name": "Isaiah Davis rushyds over 9.5",
+   "player": "Isaiah Davis",
+   "gsis": "00-0039798",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 9.5,
+   "price": -112.0,
+   "no_vig": 0.5,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     8.0,
+     16.0,
+     5.0
+    ],
+    "games": [
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.12,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.0,
+     0.08,
+     0.29,
+     0.05
+    ],
+    "may_trail": false,
+    "tgt_pg": 1.5,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 5.17,
+   "soft_run_d": {
+    "soft": true,
+    "opp_ypc": 5.171597633136095,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": true,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.25 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.11 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 10.5 vs last4 9.7 vs line 9.5"
+    },
+    "explanation": "AUTO-GENERATED (harness, not analyst): opp allowance ratio 1.25 vs league 1.00; opp avg box 6.11 vs league 6.42 (FTN, weeks<8); team spread -1.5, total 46.5; last2 10.5 vs last4 9.7 vs line 9.5."
+   }
+  },
+  {
+   "name": "Isaiah Davis rushyds under 9.5",
+   "player": "Isaiah Davis",
+   "gsis": "00-0039798",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "RB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 9.5,
+   "price": -112.0,
+   "no_vig": 0.5,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "draftkings",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     8.0,
+     16.0,
+     5.0
+    ],
+    "games": [
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "carry_share": {
+    "value": 0.12,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) last 4 team games, share of team RB carries"
+   },
+   "rb_role": {
+    "share60_3of4": "False",
+    "shares": [
+     0.0,
+     0.08,
+     0.29,
+     0.05
+    ],
+    "may_trail": false,
+    "tgt_pg": 1.5,
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src)"
+   },
+   "opp_rb_ypc": 5.17,
+   "soft_run_d": {
+    "soft": true,
+    "opp_ypc": 5.171597633136095,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": true,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.25 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.11 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 10.5 vs last4 9.7 vs line 9.5"
+    }
+   }
+  },
+  {
+   "name": "Geno Smith rushyds over 6.5",
+   "player": "Geno Smith",
+   "gsis": "00-0030565",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "QB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 6.5,
+   "price": -113.0,
+   "no_vig": 0.5012,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     7.0,
+     -1.0,
+     0.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "opp_rb_ypc": 5.17,
+   "soft_run_d": {
+    "soft": true,
+    "opp_ypc": 5.171597633136095,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": true,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.25 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.11 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 -0.5 vs last4 1.5 vs line 6.5"
+    }
+   }
+  },
+  {
+   "name": "Geno Smith rushyds under 6.5",
+   "player": "Geno Smith",
+   "gsis": "00-0030565",
+   "team": "NYJ",
+   "opp": "LV",
+   "game": "LV@NYJ",
+   "type": "QB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 6.5,
+   "price": -113.0,
+   "no_vig": 0.4988,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": -1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     7.0,
+     -1.0,
+     0.0
+    ],
+    "games": [
+     "2026_04_NYJ_CHI",
+     "2026_05_CLE_NYJ",
+     "2026_06_NYJ_NE",
+     "2026_07_MIA_NYJ"
+    ],
+    "qb": "Geno Smith",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 21.4,
+      "zone": 70.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 47.2,
+      "middle_open": 47.2
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "opp_rb_ypc": 5.17,
+   "soft_run_d": {
+    "soft": true,
+    "opp_ypc": 5.171597633136095,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": true,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 1.25 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.11 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread -1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 -0.5 vs last4 1.5 vs line 6.5"
+    }
+   }
+  },
+  {
+   "name": "Kirk Cousins rushyds over 0.5",
+   "player": "Kirk Cousins",
+   "gsis": "00-0029604",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "QB",
+   "market": "rushyds",
+   "side": "over",
+   "line": 0.5,
+   "price": -102.0,
+   "no_vig": 0.4707,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "opp_rb_ypc": 4.08,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.076502732240437,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": false,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.99 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": true,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.40 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": false,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": true,
+     "source": "nflverse pbp",
+     "detail": "last2 3.0 vs last4 1.5 vs line 0.5"
+    }
+   }
+  },
+  {
+   "name": "Kirk Cousins rushyds under 0.5",
+   "player": "Kirk Cousins",
+   "gsis": "00-0029604",
+   "team": "LV",
+   "opp": "NYJ",
+   "game": "LV@NYJ",
+   "type": "QB",
+   "market": "rushyds",
+   "side": "under",
+   "line": 0.5,
+   "price": -125.0,
+   "no_vig": 0.5293,
+   "no_vig_note": "two-way consensus no-vig (v1 real_lines)",
+   "book": "fanduel",
+   "rung": "main",
+   "status": "PASS",
+   "spread": 1.5,
+   "receiving": false,
+   "kind": "main",
+   "recent_form": {
+    "values": [
+     0.0,
+     0.0,
+     0.0,
+     6.0
+    ],
+    "games": [
+     "2026_04_KC_LV",
+     "2026_05_LV_NE",
+     "2026_06_BUF_LV",
+     "2026_07_LA_LV"
+    ],
+    "qb": "Kirk Cousins",
+    "source": "nflverse play_by_play_2026.parquet weeks<8 (/workspace/nfl-database/runs/2026-11-02_shared_src) ; appearance = had a target/carry/pass that game (PROXY for active)",
+    "pulled_et": "2026-11-01T12:25",
+    "true_asof": "pbp through week 7"
+   },
+   "injury_status": "active",
+   "injury_source": "not on nflverse weekly report or ESPN game injuries",
+   "weather_stop": false,
+   "coverage": {
+    "man_zone": {
+     "value": {
+      "man": 23.8,
+      "zone": 66.6
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    },
+    "mof": {
+     "value": {
+      "middle_closed": 45.2,
+      "middle_open": 50.0
+     },
+     "source": "sharpfootballanalysis.com coverage-schemes table (/tmp/sharp.html, as of 2026-10-27)",
+     "pulled_et": "2026-10-27T12:00",
+     "true_asof": "2026-10-27",
+     "label": "TRUE DATE"
+    }
+   },
+   "opp_rb_ypc": 4.08,
+   "soft_run_d": {
+    "soft": false,
+    "opp_ypc": 4.076502732240437,
+    "fitted": 0.9479,
+    "applied": 1.0,
+    "source": "tools/rb_miss_fit.json",
+    "resimmed": false,
+    "ypc_boost_used": 1.0
+   },
+   "scheme_edge": {
+    "matchup": {
+     "ok": true,
+     "source": "nflverse pbp allowance",
+     "detail": "opp allowance ratio 0.99 vs league 1.00"
+    },
+    "scheme_fit": {
+     "ok": false,
+     "source": "FTN charting n_defense_box",
+     "detail": "opp avg box 6.40 vs league 6.42 (FTN, weeks<8)"
+    },
+    "script": {
+     "ok": true,
+     "source": "The Odds API snapshot 2026-11-01T17:25:36Z",
+     "detail": "team spread +1.5, total 46.5"
+    },
+    "form_trend": {
+     "ok": false,
+     "source": "nflverse pbp",
+     "detail": "last2 3.0 vs last4 1.5 vs line 0.5"
+    }
+   }
+  }
+ ],
+ "target_share_pool": {
+  "source": "nflverse pbp last 4 team games",
+  "players": [
+   {
+    "name": "Garrett Wilson",
+    "team": "NYJ",
+    "share": 0.229,
+    "leg": "Garrett Wilson recyds over 63.5"
+   }
+  ]
+ },
+ "depleted_secondary": [],
+ "game_script_rb": {
+  "LV@NYJ": {
+   "fav_spread": -1.5,
+   "opp_ypc": 5.172,
+   "wx_flag": false,
+   "triggered": false,
+   "source": "odds snapshot 2026-11-01T17:25:36Z + sim_v6.opp_rb_ypc",
+   "pulled_et": "2026-11-01T12:25",
+   "team": "NYJ"
+  }
+ }
+}

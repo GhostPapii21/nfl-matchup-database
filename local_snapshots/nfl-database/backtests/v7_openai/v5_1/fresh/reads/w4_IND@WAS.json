@@ -1,0 +1,39 @@
+{
+ "game": "Week 4 IND@WAS / kickoff not in pack / spread NOT saved / total NOT saved / weather not saved",
+ "script": {
+  "base": "Spread and total were not saved, so this is a tendency script only, not the book's expected leader or point total. IND has been a Taylor game on the ground (66 carries, 258 yards, 22.0 per game at 3.91 YPC) with Downs the pass leader (24 targets, 186 yards, 281 air yards). WAS blitzes 47%, and that is the IND QB's less-bad state (EPA/dropback -0.03 on 32 blitz dropbacks vs -0.20 with no blitz), so the base flow is Taylor carries plus blitz checkdowns to his screen role (11 targets, 67 yards, -14 air yards), not a clean deep script. WAS can stay balanced against an IND defense that blitzes only 23% and allows 5.08 YPC, because WAS QB EPA is +0.17 with no blitz vs -0.04 when blitzed, with Croskey-Merritt the lead runner (47 carries, 142 yards) inside a committee.",
+  "flip1": "IND gets ahead and stays on the ground: Taylor's carries climb past 22.0 per game, WAS has to throw (Diggs and McLaurin already at 22 targets each), and Taylor's receiving chances shrink if WAS cannot keep blitzing. That flip would cash a Taylor rush over and can stall his rec-yards line.",
+  "flip2": "WAS gets ahead, IND abandons the run, and Taylor's 66-carry role dies while Downs (8.0 targets/g, 11.7 aDOT) and Warren (7.3 targets/g) absorb throws. Croskey-Merritt's 15.7 carries at 3.02 YPC would miss a 61 rush line in that script; Taylor checkdowns can still show up if the 47% blitz travels with a WAS lead."
+ },
+ "injury_fallout": "MISSING: injury report, practice status (DNP/limited/full), questionable tags, snap limits, and inactives for both IND and WAS. No absences, returns, or next-man-up are inferred from usage. Pack usage only, not an inactive call: WAS L3 targets do not list Treylon Burks, WAS rushers list J.Daniels (12 carries, 100 yards) and not Marcus Mariota, and IND targets do not list Mo Alie-Cox.",
+ "matchup": {
+  "shell": "MISSING: MOFO/MOFC and man-vs-zone charting, so no shell is assigned. Location YPA is the stand-in. WAS: left 5.29 (35 att), middle 12.29 (21 att), right 9.39 (46 att). IND: left 8.61 (31 att), middle 10.74 (23 att), right 8.16 (44 att). Both bleed the middle; WAS left is the only strong side in the pack.",
+  "pressure": "WAS blitz rate 47%. IND QB EPA/dropback -0.03 vs blitz (n=32) vs -0.20 with no blitz, so WAS pressure is the less-bad IND passing state and should force quick throws more than it should collapse the dropback. IND blitz rate 23%. WAS QB EPA -0.04 vs blitz (n=25) vs +0.17 with no blitz, so WAS mostly sees the look where their QB has been positive.",
+  "bleeds": "WAS run defense allows 4.00 YPC and only 5 runs of 10+ in 3 games, with 11 passes of 20+ on 107 attempts; the bleed is middle (12.29 YPA) and right (9.39), not the run front. IND allows 5.08 YPC and 10 runs of 10+, plus 10 passes of 20+ on 105 attempts; middle 10.74 YPA is the soft throw area and right 8.16 is their best side.",
+  "overlap": "IND's primary target is Downs (24 targets, 281 air yards), but alignment is not in the pack, so overlap with WAS middle/right is unconfirmed and WAS left at 5.29 YPA is a cap if he lives there. The confirmed overlap is Taylor's screen role (-14 air yards, 11 targets, 67 yards) into a 47% blitz. WAS co-primaries Diggs and McLaurin (22 targets each; 45.0 and 47.0 rec yards/g) overlap IND's soft middle, but Diggs 57.5 sits above 45.0 per game, so that overlap is not a carded leg."
+ },
+ "form": "L3 only, not season averages. Taylor's rush role is heavy and stable (66 carries, 86.0 yards/g, 3.91 YPC) with a real receiving slice (3.7 targets/g, 22.3 rec yards/g) across 11 targets, not a one-target spike. Downs is the air-yards leader at 62.0 rec yards/g, still short of 72. Warren's 22 targets produced 29.7 yards on 38 air yards. WAS backfield is a committee: Croskey-Merritt 15.7 carries at 3.02 YPC (47.3 yards/g), R.White 7.3 carries at 4.55 YPC, J.Daniels 4.0 carries at 8.33 YPC, K.Allen 3.0 carries and 13.3 yards/g. Diggs 45.0 and McLaurin 47.0 rec yards/g on equal target volume; McLaurin has the downfield air yards (286). A.Williams 34.3 rec yards/g on 3.7 targets and 123 air yards looks chunk-dependent. D.Brown has 7.0 rec yards/g on 134 air yards. Per-game splits are not in the pack, so one-play inflation cannot be separated.",
+ "edge_players": [
+  {
+   "player": "jonathantaylor",
+   "market": "recyds",
+   "side": "over",
+   "edge_sentence": "Taylor's screen role already clears 19.5 (11 targets, 67 yards, -14 air yards, 22.3 per game at 6.1 yards per target), and WAS blitzes 47%, the IND QB's less-bad state at -0.03 EPA per dropback versus -0.20 with no blitz, which is the path to the short targets that keep him over that line.",
+   "must_be_true": "J.Taylor yards per target >= 5.3 [because he has 67 rec yards on 11 targets over 3 games and WAS blitz rate is 47%]",
+   "kills_it": "IF Taylor finishes with 2 or fewer targets THEN jonathantaylor recyds over 19.5 fails",
+   "confidence": "lean"
+  }
+ ],
+ "data_check": {
+  "notes": "No model, sim median, or Pinnacle no-vig is in the pack, so the test is L3 production versus the listed line. Taylor 67 rec yards over 3 games is 22.3 per game versus 19.5, and the 47% WAS blitz plus the IND QB EPA split agrees with the checkdown read. Croskey-Merritt rush over 61 was the other brainstorm (IND allows 5.08 YPC and 10 runs of 10+) and was dropped as a lean because his own 3.02 YPC and 47.3 yards per game contradict it. Downs over 72, Warren under 58.5, and Diggs over 57.5 were not carded: recent yards sit on the wrong side of those lines or the location/blitz splits cut the side.",
+  "disagrees": "none",
+  "missing": "spread, total, kickoff, line movement, weather, dome/outdoor, coverage shell, receiver alignment, per-game splits, injury report, inactives, model projection, sim median, and no-vig price",
+  "verdict": "agree"
+ },
+ "market_rung_price": "jonathantaylor recyds over 19.5 at -113.5. Paired under is also -113.5, a pick'em main line, not a short-priced alt. No higher or lower rung, no no-vig, and no stake: the rung is named only.",
+ "pre_mortem": "It's Monday and Taylor rec yards over 19.5 lost because the 67 yards were bunched in one screen, WAS sat in zone instead of the 47% blitz, and he finished with 2 targets under 15 yards while IND just handed him the ball the way the 66 carries say they will. A snap cap or inactive would do the same and cannot be checked in this pack. That counter is why this is a lean, not a strong; 11 targets is still a role, so the counter does not outweigh the read.",
+ "slip_story": "WAS-blitz checkdown story only. Taylor rec yards over 19.5 survives the base script and the trail flip if the blitz shows up, and it is the only prop that cleared the data test. No second leg, no TD, no same-game total mixed in, and no Croskey-Merritt rush leg, which needs a WAS run script this pack cannot confirm. Not a wager.",
+ "step6_limited": true,
+ "step12_limited": true,
+ "_tag": "RECONSTRUCTED"
+}
