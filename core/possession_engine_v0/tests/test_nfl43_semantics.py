@@ -235,6 +235,23 @@ def test_week9_penalty_gap_is_unknown_not_zero(sims):
     assert pen["source_pulled_et"].startswith("2026-11-01")
 
 
+def test_week8_missing_games_are_unknown_not_zero(sims):
+    """Review residual R1: PEN also lacks two W8 games; they are unknown, not zero. WAS has 6 of 7 team-games."""
+    meta, _ = sims
+    pen = meta["penalties"]
+    assert pen["unknown_games"] == ["2026_08_CHI_SEA", "2026_08_PHI_WAS"]
+    assert pen["unknown_games_by_team"]["WAS"] == ["2026_08_PHI_WAS"]
+    assert pen["unknown_games_by_team"]["CHI"] == ["2026_08_CHI_SEA"]
+    assert "NYG" not in pen["unknown_games_by_team"]
+    assert pen["unknown_games_for_modeled_teams"]["WAS"] == ["2026_08_PHI_WAS"]
+    assert pen["unknown_games_for_modeled_teams"]["NYG"] == []
+    assert "UNKNOWN" in pen["unknown_games_policy"] and "zero" in pen["unknown_games_policy"]
+    assert pen["pbp_games_in_pen_weeks"] == 121
+    # Rates still come from games that exist (WAS 6 team-games), not from inventing a zero-penalty W8 game.
+    pm = build_penalty_model(["WAS", "NYG"], week_asof_exclusive=10, pbp_path=PBP_W9)
+    assert pm.meta["unknown_games"] == ["2026_08_CHI_SEA", "2026_08_PHI_WAS"]
+
+
 def test_zero_return_rate_never_invents_return_td():
     cfg = _cfg_w9()
     hist = load_team_history(PBP, teams=["NYG", "WAS"], season=2026, weeks=(1, 8))
@@ -265,6 +282,18 @@ def test_enabled_semantics_metadata(sims):
     assert meta["penalties"]["week_asof_exclusive"] == 10
     assert meta["returns"]["label"] == "AS_OF_LEAGUE_RATE_NOT_TEAM_FIT"
     assert meta["returns"]["weeks"] == list(range(1, 10))
+    assert meta["still_unsupported"] == [
+        "kick-play fouls", "joint_producer penalties/return yards", "blocked kicks/onside/fakes"]
+    assert meta["still_unsupported_status"] == "OK"
+
+
+def test_attach_semantics_refuses_when_config_enables_still_unsupported():
+    cfg = copy.deepcopy(load_config(CFG))
+    cfg["semantics"]["kick_play_fouls"] = True
+    class C:
+        pass
+    with pytest.raises(ValueError, match="still-unsupported"):
+        attach_semantics(C(), cfg, PBP_W9)
 
 
 # ---------- review T2: previously untested rules ----------
@@ -387,13 +416,65 @@ def test_bounds_doc_cites_derived_figures():
     figs = json.loads((ROOT / "bounds/bounds_figures.json").read_text())
     doc = (ROOT / "SEMANTICS_BOUNDS.md").read_text()
     pen, pbp = figs["penalty_log"]["figures"], figs["pbp"]["figures"]
+    unk = figs["unknown"]
     for needle in (f"{pen['accepted_flags_per_team_game']:.2f}", f"{pen['scrimmage_flags_per_team_game']:.2f}",
                    f"{pbp['ot_games']}/{pbp['games']}", f"{pbp['interception_return_tds']} of {pbp['interceptions']}",
-                   "pulled", "unknown", "research only, not validated"):
+                   "pulled", "unknown", "research only, not validated",
+                   *unk["penalty_log_games_unknown"], "119 of 121", "6 of 7"):
         assert needle in doc, needle
+    assert unk["penalty_log_games_unknown"] == ["2026_08_CHI_SEA", "2026_08_PHI_WAS"]
+    assert unk["penalty_log_weeks_unknown"] == [9]
+    assert unk["pbp_games_in_pen_weeks"] == 121 and unk["pen_games_in_log"] == 119
+    assert figs["penalty_log"]["figures"]["scrimmage_by_team_per_team_game"]["WSH"]["unknown_games"] == ["2026_08_PHI_WAS"]
 
 
 def test_sensitivity_script_refuses_100k(capsys):
     sys.path.insert(0, str(ROOT / "bounds"))
     import sensitivity
     assert sensitivity.main(["--n", "100000", "--out", "/dev/null"]) == 2
+
+
+def test_sensitivity_diag_arm_restores_defense_conditioning(monkeypatch):
+    """Ghost6 side note: the DIAG arm must restore PlayCatalog.enable_defense_conditioning after each run."""
+    sys.path.insert(0, str(ROOT / "bounds"))
+    import simulate
+    import sensitivity
+    original = simulate.PlayCatalog.enable_defense_conditioning
+
+    def _armed():
+        cat = simulate.PlayCatalog.__new__(simulate.PlayCatalog)
+        simulate.PlayCatalog.enable_defense_conditioning(cat, True)
+        return getattr(cat, "_defense_cond", "missing")
+
+    assert _armed() is True
+
+    def fake_games(cfg, pbp_path=None, n=0, seed=0):
+        fake_games.saw = _armed()
+        if getattr(fake_games, "boom", False):
+            raise RuntimeError("boom")
+        z = np.zeros(2)
+        return {"arrays": {k: z for k in ("fg_home", "fg_away", "went_ot", "n_pen", "pen_yds_home",
+                                          "pen_yds_away", "ret_td_home", "ret_td_away", "def_td_home", "def_td_away")},
+                "evidence_summary": {"defense_cond_flag_events": 0}}
+
+    monkeypatch.setattr(simulate, "simulate_games", fake_games)
+    sensitivity._run_arm(("DIAG_all_nfl43_h2h_off", sensitivity.ALL, 2, 1))
+    assert fake_games.saw is False, "DIAG arm should force _defense_cond off during the run"
+    assert _armed() is True
+    assert simulate.PlayCatalog.enable_defense_conditioning is original
+
+    fake_games.boom = True
+    try:
+        sensitivity._run_arm(("DIAG_all_nfl43_h2h_off", sensitivity.ALL, 2, 1))
+    except RuntimeError:
+        pass
+    else:
+        raise AssertionError("expected boom")
+    assert _armed() is True
+    assert simulate.PlayCatalog.enable_defense_conditioning is original
+
+    # A following non-DIAG arm in the same process must see the original method.
+    fake_games.boom = False
+    sensitivity._run_arm(("legacy", None, 2, 1))
+    assert fake_games.saw is True
+    assert simulate.PlayCatalog.enable_defense_conditioning is original
