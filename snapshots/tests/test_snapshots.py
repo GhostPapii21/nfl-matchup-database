@@ -72,3 +72,12 @@ def test_score_refuses_tampered_lock(tmp_path):
     import pytest
     with pytest.raises(SystemExit, match="REFUSED"):
         score.score(tmp_path, {"home_score": 1, "away_score": 0}, {"home": "NYG"})
+
+
+def test_lock_refuses_before_any_sim_while_nfl43_review_pending(capsys):
+    """Ghost6 d65ad98 F1: no 100k lock while the NFL-43 bounds review is pending. The guard runs before the config is
+    even read, so a bogus config path still gets the review refusal (exit 2), not a crash."""
+    assert lock.review_guard()["status"] == "UNSUPPORTED"
+    assert lock.main(["--config", "/nonexistent.json", "--pbp", "/nonexistent.parquet"]) == 2
+    out = capsys.readouterr().out
+    assert "REFUSED" in out and "review" in out and "Nothing was simulated" in out

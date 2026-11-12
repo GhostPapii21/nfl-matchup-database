@@ -13,8 +13,12 @@
     "decontam_sha256": "8a9d72949c122923ca149b635cd04290373112abc50930b85de5332491a201a1",
     "linear": "NFL-42"
   },
-  "unsupported_semantics": [],
-  "DEFERRED_100K": false,
+  "unsupported_semantics": [
+    "penalties",
+    "returns",
+    "official_overtime"
+  ],
+  "DEFERRED_100K": true,
   "PFF": "NOT_READY_NO_DUPLICATE",
   "entrypoint_enforced": false,
   "pristine_protocol_complete": false,
@@ -28,6 +32,8 @@
       "joint_producer penalties/return yards",
       "blocked kicks/onside/fakes"
     ],
-    "review": "PENDING_GHOST6 (NFL-43 AC4); this branch is unmerged"
+    "review": "PENDING (see known_flags/NFL43_REVIEW.json). Ghost6 did NOT accept the bounds at d65ad98 (Nov 12 ~12:45 PM ET); fixes on PR #19 await re-review.",
+    "review_status_file": "known_flags/NFL43_REVIEW.json",
+    "deferred_note": "100k stays DEFERRED pending NFL-43 bounds review. c4c5616 set DEFERRED_100K false and emptied unsupported_semantics before review; reverted. The semantics are implemented on the opt-in path but stay listed unsupported until the review status is ACCEPTED for the current SEMANTICS_BOUNDS.md and Rico un-defers 100k."
   }
 }

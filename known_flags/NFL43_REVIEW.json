@@ -1,0 +1,22 @@
+{
+  "issue": "NFL-43",
+  "criterion": 4,
+  "what": "Ghost6 review of core/possession_engine_v0/SEMANTICS_BOUNDS.md (descriptive bounds for penalties, returns, official OT)",
+  "status": "PENDING",
+  "allowed_status": ["PENDING", "NOT_ACCEPTED", "ACCEPTED"],
+  "reviewer": "Ghost6",
+  "accepted_bounds_sha256": null,
+  "accepted_commit": null,
+  "history": [
+    {
+      "verdict": "NOT_ACCEPTED",
+      "reviewer": "Ghost6",
+      "commit": "d65ad9834abd6e09979061091743ace0c75d8bc8",
+      "file": "docs/ACCEPTANCE_STATUS.md",
+      "at_et": "2026-11-12 about 12:45 PM ET",
+      "defects": ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "F1", "T1", "T2", "T3", "T4", "T5"]
+    }
+  ],
+  "how_to_accept": "Only the reviewer flips this: set status to ACCEPTED, accepted_bounds_sha256 to sha256 of the reviewed SEMANTICS_BOUNDS.md and accepted_commit to the reviewed commit. Any later edit to SEMANTICS_BOUNDS.md changes its sha256 and puts the guard back to refusing. Accepting the bounds does not by itself un-defer 100k: DEFERRED_100K in KNOWN_LIMITATIONS.json is Rico's call.",
+  "guarded_by": ["pipeline/hooks.py nfl43_review / nfl43_semantics (sim100k G2)", "rocket R2", "snapshots/lock.py (refuses before any sim)"]
+}

@@ -9,10 +9,46 @@ sys.path.insert(0, str(ROOT))
 from rocket_gate import cli
 
 
-def test_repo_checks_pass_in_selftest_mode():
+def test_repo_as_committed_fails_r2_while_nfl43_review_pending():
+    """Ghost6 d65ad98 F1: rocket must not pass while the NFL-43 bounds review is pending."""
     r = cli.run(None, skip_pytest=True)
-    assert r["status"] == "PASS_SELFTEST", r
-    assert r["projection_ready"] is False
+    by = {c["check"]: c for c in r["checks"]}
+    assert by["R1_nfl42_entrypoint"]["status"] == "PASS" and by["R3_safety"]["status"] == "PASS"
+    assert by["R2_nfl43_semantics"]["status"] == "FAIL"
+    assert any("REVIEW_PENDING" in w for w in by["R2_nfl43_semantics"]["detail"])
+    assert r["status"] == "FAIL" and r["projection_ready"] is False
+
+
+def _accepted_repo(tmp_path, review="ACCEPTED", edit=False):
+    import hashlib
+    root = _fake_repo(tmp_path)
+    (root / "known_flags/KNOWN_LIMITATIONS.json").write_text(json.dumps(
+        {"projection_ready": False, "unsupported_semantics": [], "DEFERRED_100K": False}))
+    b = root / "core/possession_engine_v0/SEMANTICS_BOUNDS.md"
+    b.write_text("bounds v1")
+    (root / "core/possession_engine_v0/semantics.py").write_text("official_2025_regular_season")
+    (root / "known_flags/NFL43_REVIEW.json").write_text(json.dumps(
+        {"status": review, "accepted_bounds_sha256": hashlib.sha256(b"bounds v1").hexdigest()}))
+    if edit:
+        b.write_text("bounds v2")
+    return root
+
+
+def test_r2_passes_only_when_review_accepted_for_current_bounds(tmp_path):
+    assert cli.r2_semantics(_accepted_repo(tmp_path / "ok"))["status"] == "PASS"
+    assert cli.r2_semantics(_accepted_repo(tmp_path / "pend", review="PENDING"))["status"] == "FAIL"
+    assert cli.r2_semantics(_accepted_repo(tmp_path / "edit", edit=True))["status"] == "FAIL"
+
+
+def test_r5_flags_locks_made_before_review(tmp_path):
+    locks = sorted((ROOT / "snapshots").glob("*/*/LOCK.json"))
+    if not locks:
+        import pytest
+        pytest.skip("no locked snapshot in repo")
+    gid = locks[-1].parent.parent.name
+    r = cli.r5_snapshot(gid)
+    assert r["status"] == "FAIL"
+    assert any("KNOWN_MODEL_ERROR_UNREVIEWED_BOUNDS" in p for p in r["detail"]["problems"])
 
 
 def test_skip_pytest_can_never_exit_zero():

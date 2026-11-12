@@ -53,11 +53,19 @@ GOOD_FLAGS = {"DEFERRED_100K": False, "unsupported_semantics": []}
 OK_INACTIVES = lambda when: (lambda pk: {"status": "OK", "retrieved_utc": iso(when), "inactives": {}})
 
 
-def semantics_root(tmp_path, present=True):
+def semantics_root(tmp_path, present=True, review="ACCEPTED", edit_after_accept=False):
+    """Fake repo root: bounds file at its real path plus the NFL-43 review status file (reviewer-flipped)."""
+    import hashlib
     r = tmp_path / "repo"
-    r.mkdir(exist_ok=True)
+    (r / "core/possession_engine_v0").mkdir(parents=True, exist_ok=True)
+    (r / "known_flags").mkdir(exist_ok=True)
+    b = r / "core/possession_engine_v0/SEMANTICS_BOUNDS.md"
     if present:
-        (r / "SEMANTICS_BOUNDS.md").write_text("bounds")
+        b.write_text("bounds")
+    sha = hashlib.sha256(b"bounds").hexdigest()
+    (r / "known_flags/NFL43_REVIEW.json").write_text(json.dumps({"status": review, "accepted_bounds_sha256": sha}))
+    if present and edit_after_accept:
+        b.write_text("bounds edited after review")
     return r
 
 
@@ -191,6 +199,7 @@ def test_engine_not_called_when_refused(tmp_path):
 
 
 @pytest.mark.parametrize("breaker", ["deferred", "semantics_file", "semantics_flag", "flags_unreadable", "stale_odds",
+                                     "review_pending", "review_not_accepted", "bounds_edited_after_review", "review_file_missing",
                                      "no_freeze", "inactives_not_yet", "rocket_unset", "rocket_fails", "phase_missing"])
 def test_each_gate_alone_refuses(tmp_path, breaker, monkeypatch):
     now = KO - timedelta(minutes=60)
@@ -206,6 +215,15 @@ def test_each_gate_alone_refuses(tmp_path, breaker, monkeypatch):
         root = semantics_root(tmp_path / "empty", present=False)
     elif breaker == "semantics_flag":
         flags["unsupported_semantics"] = ["official_overtime"]
+    elif breaker == "review_pending":
+        root = semantics_root(tmp_path / "rp", review="PENDING")
+    elif breaker == "review_not_accepted":
+        root = semantics_root(tmp_path / "rn", review="NOT_ACCEPTED")
+    elif breaker == "bounds_edited_after_review":
+        root = semantics_root(tmp_path / "re", edit_after_accept=True)
+    elif breaker == "review_file_missing":
+        root = semantics_root(tmp_path / "rm")
+        (root / "known_flags/NFL43_REVIEW.json").unlink()
     elif breaker == "flags_unreadable":
         flags = {"_error": "cannot read"}
     elif breaker == "stale_odds":
@@ -265,6 +283,23 @@ def test_no_override_switch():
         S.main(["--game", "2026_10_WAS_NYG", "--force"])
     src = (ROOT / "pipeline" / "sim100k.py").read_text()
     assert "os.environ" not in src and "TRIALS = 100_000" in src
+
+
+def test_nfl43_review_guard_unit(tmp_path):
+    assert H.nfl43_review(semantics_root(tmp_path / "a"))["status"] == "OK"
+    for kw in ({"review": "PENDING"}, {"review": "NOT_ACCEPTED"}, {"edit_after_accept": True}):
+        rv = H.nfl43_review(semantics_root(tmp_path / str(len(str(kw))) / "x", **kw))
+        assert rv["status"] == "PENDING_REVIEW" and rv["reason"], kw
+    sem = H.nfl43_semantics(GOOD_FLAGS, root=semantics_root(tmp_path / "p", review="PENDING"))
+    assert sem["status"] == "UNSUPPORTED" and "review" in sem["reason"]
+
+
+def test_repo_as_committed_is_review_pending_and_deferred():
+    """NFL-43 AC4 (Ghost6 d65ad98): until the reviewer flips NFL43_REVIEW.json, the shipped repo refuses 100k."""
+    flags = H.known_flags()
+    assert flags["DEFERRED_100K"] is True and flags["unsupported_semantics"]
+    assert H.nfl43_review()["status"] == "PENDING_REVIEW"
+    assert H.nfl43_semantics(flags)["status"] == "UNSUPPORTED"
 
 
 def test_shipped_hooks_fail_closed():

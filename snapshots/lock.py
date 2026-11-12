@@ -10,6 +10,10 @@ kickoff. Engine: core/possession_engine_v0 legacy possession path + NFL-43 seman
 Model weights unchanged. Output: snapshots/<game_id>/<locked_utc>/ with LOCK.json (sha256 of every file,
 git commit, seed, n, runtime). Research only: projection_ready=false, no stakes, no picks.
 
+NFL-43 review guard (Ghost6 d65ad98, F1): refuses (exit 2) BEFORE any sim while the NFL-43 bounds review is not
+ACCEPTED for the current SEMANTICS_BOUNDS.md, or 100k is DEFERRED, or semantics are still listed unsupported
+(pipeline.hooks.nfl43_semantics). The review state is written into LOCK.json.
+
 This is NOT the 100k entry point (that is Ghost6's `python -m pipeline.sim100k`); it is the snapshot locker.
 """
 from __future__ import annotations
@@ -40,6 +44,14 @@ def sha256(p: Path) -> str:
 
 def _utc(s: str) -> datetime:
     return datetime.fromisoformat(str(s).replace("Z", "+00:00")).astimezone(timezone.utc)
+
+
+def review_guard(root: Path = ROOT) -> dict:
+    """NFL-43 AC4: no 100k lock while the bounds review is pending. Read-only."""
+    sys.path.insert(0, str(root))
+    from pipeline import hooks
+    flags = hooks.known_flags(root / "known_flags" / "KNOWN_LIMITATIONS.json")
+    return hooks.nfl43_semantics(flags, root=root)
 
 
 def _chunk(args):
@@ -230,6 +242,10 @@ def main(argv=None) -> int:
     ap.add_argument("--n", type=int, default=100_000)
     ap.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 2) - 1))
     a = ap.parse_args(argv)
+    guard = review_guard()
+    if guard["status"] != "OK":
+        print("lock: REFUSED  " + guard["reason"] + " Nothing was simulated.")
+        return 2
     sys.path.insert(0, str(ENGINE))
     from config_load import load_config
     from simulate import stable_seed
@@ -290,6 +306,7 @@ def main(argv=None) -> int:
             "code_commit": _git("rev-parse", "HEAD"), "code_dirty": _code_dirty(),
             "engine_tree_sha256": hashlib.sha256(b"".join(sha256(p).encode() for p in sorted(ENGINE.glob("*.py")))).hexdigest(),
             "config_id": cfg["config_id"], "model_weights_changed": False,
+            "nfl43_review": guard.get("review"),
             "sim": {"n": sim["n"], "seed": seed, "chunks": sim["chunks"], "chunk_seeds": sim["chunk_seeds"],
                     "runtime_sec": sim["runtime_sec"], "statuses": sim["statuses"]},
             "inputs": {"pbp_url": a.pbp_url, "pbp_sha256": sha256(a.pbp), "pbp_local_name": Path(a.pbp).name,

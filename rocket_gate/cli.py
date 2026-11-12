@@ -7,12 +7,16 @@
 
 Checks
   R1 nfl42_entrypoint   single validation entrypoint routes to the decontam protocol; contaminated bytes unchanged
-  R2 nfl43_semantics    SEMANTICS_BOUNDS.md present, known_flags consistent, pipeline.hooks.nfl43_semantics OK
+  R2 nfl43_semantics    SEMANTICS_BOUNDS.md present, known_flags consistent, DEFERRED_100K false, and the NFL-43 bounds
+                        review ACCEPTED for the current bounds file (known_flags/NFL43_REVIEW.json via
+                        pipeline.hooks.nfl43_semantics). While review is pending R2 FAILS, so rocket (and the 100k
+                        gate G6 that runs it) refuses.
   R3 safety             projection_ready false everywhere; no money/stake keys in snapshot/config/phase15 files
   R4 test_suites        pytest: possession engine, period engine, pipeline, phase15, snapshots, rocket
   R5 snapshot <game>    newest snapshots/<game>/*/LOCK.json: every file hash matches, locked before kickoff,
                         n == 100,000, code commit is an ancestor of HEAD, as-of checks passed, price freeze
-                        pulled before the lock, projection_ready false
+                        pulled before the lock, projection_ready false, and locked under ACCEPTED NFL-43 review
+                        (locks made before review are flagged KNOWN_MODEL_ERROR_UNREVIEWED_BOUNDS)
 No network, no API keys, no credits. Never flips projection_ready.
 """
 from __future__ import annotations
@@ -57,14 +61,19 @@ def r2_semantics(root: Path = ROOT):
         return _ok("R2_nfl43_semantics", False, f"flags unreadable: {e!r}")
     if flags.get("unsupported_semantics"):
         why.append(f"unsupported_semantics={flags['unsupported_semantics']}")
+    if flags.get("DEFERRED_100K") is not False:
+        why.append("DEFERRED_100K is not false (100k deferred pending NFL-43 bounds review)")
     sem = (root / "core/possession_engine_v0/semantics.py")
     if not sem.exists() or "official_2025_regular_season" not in sem.read_text():
         why.append("semantics.py missing or lacks official OT")
     try:
         sys.path.insert(0, str(root))
         from pipeline import hooks
+        rv = hooks.nfl43_review(root)
+        if rv["status"] != "OK":
+            why.append("REVIEW_PENDING: " + rv["reason"])
         h = hooks.nfl43_semantics(flags, root=root)
-        if h["status"] != "OK":
+        if h["status"] != "OK" and rv["status"] == "OK":
             why.append(h.get("reason"))
     except Exception as e:
         why.append(f"pipeline.hooks.nfl43_semantics failed: {e!r}")
@@ -155,6 +164,9 @@ def r5_snapshot(game_id: str, root: Path = ROOT):
         why.append("projection_ready not false")
     if lk.get("asof_checks") != "PASS":
         why.append("as-of checks not PASS")
+    if lk.get("nfl43_review") != "ACCEPTED":
+        why.append("KNOWN_MODEL_ERROR_UNREVIEWED_BOUNDS: locked while the NFL-43 bounds review was not ACCEPTED "
+                   f"(LOCK nfl43_review={lk.get('nfl43_review')!r})")
     if lk.get("code_dirty"):
         why.append("sim ran on uncommitted engine code")
     c = lk.get("code_commit", "")

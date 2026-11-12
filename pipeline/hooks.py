@@ -11,7 +11,9 @@ refuses. Binding a hook is a reviewed code change (pull request), never an envir
   rocket_validation    BetGuru   NFL-49   ROCKET_COMMAND: argv list; the gate runs it and requires exit code 0
   official_inactives   unassigned NFL-46/49 {"status": "OK", "retrieved_utc": iso, "inactives": {team: [names]}}  fn(packet)
   nfl43_semantics      BetGuru   NFL-43   SEMANTICS_BOUNDS.md must exist in the repo AND known_flags/KNOWN_LIMITATIONS.json must
-                                            have "unsupported_semantics" empty and "DEFERRED_100K" false; no function hook
+                                            have "unsupported_semantics" empty and "DEFERRED_100K" false AND the review
+                                            status file known_flags/NFL43_REVIEW.json must say ACCEPTED for the sha256 of
+                                            the current SEMANTICS_BOUNDS.md (the reviewer flips it); no function hook
 
 Spends nothing: no hook here makes a network call or uses an API key.
 """
@@ -29,6 +31,8 @@ FLAGS = ROOT / "known_flags" / "KNOWN_LIMITATIONS.json"
 REQUIRED_BOOKS = ("fanduel", "draftkings", "hardrockbet", "williamhill_us")
 PRICE_FREEZE_DIR = ROOT / "pregame" / "price_freezes"
 SEMANTICS_BOUNDS_NAME = "SEMANTICS_BOUNDS.md"
+SEMANTICS_BOUNDS_PATH = "core/possession_engine_v0/SEMANTICS_BOUNDS.md"
+NFL43_REVIEW_NAME = "known_flags/NFL43_REVIEW.json"
 
 # >>> ROCKET HOOK (BetGuru, NFL-49) <<<
 # When BetGuru's `rocket` validation command lands, set this to its argv in a reviewed PR, e.g.
@@ -136,8 +140,33 @@ def rocket_validation(game_id: str, impl=None, command: list[str] | None = None)
     return {"status": "PASS", "detail": tail}
 
 
+def nfl43_review(root: Path = ROOT) -> dict:
+    """NFL-43 AC4 review guard. OK only if known_flags/NFL43_REVIEW.json says ACCEPTED and its accepted_bounds_sha256
+    equals the sha256 of the current SEMANTICS_BOUNDS.md. Missing/unreadable file, PENDING, NOT_ACCEPTED, or a bounds
+    file edited after acceptance -> PENDING_REVIEW (every 100k path refuses). Read-only; never flips the file."""
+    import hashlib
+    root = Path(root)
+    f, bounds = root / NFL43_REVIEW_NAME, root / SEMANTICS_BOUNDS_PATH
+    try:
+        rv = json.loads(f.read_text())
+    except (OSError, ValueError) as e:
+        return {"status": "PENDING_REVIEW", "reason": f"NFL-43 bounds review status unreadable ({NFL43_REVIEW_NAME}): {e!r}"}
+    st = rv.get("status")
+    if st != "ACCEPTED":
+        return {"status": "PENDING_REVIEW", "reason": f"NFL-43 bounds review is {st!r} in {NFL43_REVIEW_NAME}, not ACCEPTED; "
+                "no 100k run until the reviewer accepts the bounds."}
+    if not bounds.exists():
+        return {"status": "PENDING_REVIEW", "reason": f"{SEMANTICS_BOUNDS_PATH} missing"}
+    cur = hashlib.sha256(bounds.read_bytes()).hexdigest()
+    if rv.get("accepted_bounds_sha256") != cur:
+        return {"status": "PENDING_REVIEW", "reason": "SEMANTICS_BOUNDS.md changed after the accepted review "
+                f"(accepted {str(rv.get('accepted_bounds_sha256'))[:12]}, current {cur[:12]}); needs re-review."}
+    return {"status": "OK", "accepted_commit": rv.get("accepted_commit"), "bounds_sha256": cur}
+
+
 def nfl43_semantics(flags: dict | None = None, root: Path = ROOT) -> dict:
-    """NFL-43 (BetGuru). Supported only when SEMANTICS_BOUNDS.md exists AND the flags no longer list unsupported semantics."""
+    """NFL-43 (BetGuru). Supported only when SEMANTICS_BOUNDS.md exists, the flags no longer list unsupported semantics,
+    DEFERRED_100K is false, and the bounds review (nfl43_review) is ACCEPTED for the current bounds file."""
     flags = known_flags() if flags is None else flags
     found = sorted(p for p in Path(root).rglob(SEMANTICS_BOUNDS_NAME) if ".git" not in p.parts)
     why = []
@@ -146,9 +175,15 @@ def nfl43_semantics(flags: dict | None = None, root: Path = ROOT) -> dict:
     uns = flags.get("unsupported_semantics")
     if uns is None or uns:
         why.append("known_flags lists unsupported semantics: " + (", ".join(uns) if uns else "flag missing"))
+    if flags.get("DEFERRED_100K") is not False:
+        why.append("DEFERRED_100K is not false (100k deferred pending NFL-43 bounds review)")
+    rv = nfl43_review(root)
+    if rv["status"] != "OK":
+        why.append(rv["reason"])
     if why:
-        return {"status": "UNSUPPORTED", "reason": "NFL-43 (penalties, returns, overtime) not closed: " + "; ".join(why) + "."}
-    return {"status": "OK", "files": [str(p.relative_to(root)) for p in found]}
+        return {"status": "UNSUPPORTED", "review": rv["status"],
+                "reason": "NFL-43 (penalties, returns, overtime) not closed: " + "; ".join(why) + "."}
+    return {"status": "OK", "review": "ACCEPTED", "files": [str(p.relative_to(root)) for p in found]}
 
 
 def known_flags(path: Path = FLAGS) -> dict:
