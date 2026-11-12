@@ -20,4 +20,11 @@ Suggested name: NFL model GitHub sync (routine-only).
 - Bypass odds authentication or invent ORCA, FTN, or Pinnacle quotes.
 - Duplicate the PFF browser lane.
 - Claim `projection_ready` without the NFL-49 gate.
-- Treat the 15-phase ledger or the 100k workflow as present. They are the NFL-56 goal, and they are not implemented.
+- Treat a 100k run as available. The entry point (`python -m pipeline.sim100k`) exists but refuses until NFL-43, `rocket`, the four-book feed and inactives land and `DEFERRED_100K` is cleared.
+
+## Scheduled automation now in the repository (NFL-56)
+
+`pipeline/workflow_to_install/nfl-source-of-truth.yml` (to be moved into `.github/workflows/` by the owner; see the README there) runs without anyone keeping a session open. After each scheduled
+pregame-packet build it re-checks the phase ledger and the 100k gate for the slate and commits
+`pipeline/ledgers/`. It runs again just after inactives post. It passes no API keys, so it spends no Odds API
+credits. A saved chat routine is optional: it only has to read `pipeline/ledgers/INDEX.md`.

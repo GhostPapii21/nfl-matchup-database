@@ -26,6 +26,35 @@ A useful first request is: "Read this repository's manifest, schema and data-gap
 
 For every Thursday, Sunday and Monday game, a scheduled workflow builds a research packet from current public data: what each defense allows by position, explosive plays, pass rush, each offense's usage and form, injuries, depth charts, roster moves, matchup edges, and research-only projections, with the 15-phase ledger showing what is filled and what is missing. Start at [pregame/packets/INDEX.md](pregame/packets/INDEX.md). To have ChatGPT or Grok turn a packet into a breakdown with a brainstorm and a critical review, paste [pregame/ANALYST_PROMPT.md](pregame/ANALYST_PROMPT.md). Details and limits: [pregame/README.md](pregame/README.md). Research only; `projection_ready` is false.
 
+## Projection pipeline: goal vs current status (NFL-56)
+
+### Goal: what this repository is meant to do
+
+The repository is the single source of truth for every step from pulling data to running simulations. Bots fetch and run everything from here: source pulls, freshness checks, news, injuries, inactives, weather, four-book prices, all 15 phases, and a 100,000-trial simulation that runs only when every input is present and fresh. Routines keep it current, so nobody has to keep a session open. Picks are allowed only after the NFL-49 acceptance gate passes and Rico sets `projection_ready`.
+
+### Current status: what works now and what is blocked
+
+**Works now**
+
+- Pulls: scheduled pregame packets (`.github/workflows/nfl-pregame-packets.yml`).
+- Per-phase checks: `python -m pipeline.phases --game <id> --phase <n>`. Each of the 15 phases is marked AUTO, PARTIAL, MISSING, STALE or NOT_YET, with the missing inputs named. See [docs/PHASE_WORKFLOWS.md](docs/PHASE_WORKFLOWS.md).
+- Freshness windows for each source: [docs/DATA_FRESHNESS.md](docs/DATA_FRESHNESS.md).
+- The 100k entry point, `python -m pipeline.sim100k --game <id>`. It is fail-closed: it exits 2 with a plain reason whenever any required input is missing or stale, and it has no override.
+- A scheduled workflow that runs after every packet build and after inactives post, and commits [pipeline/ledgers/INDEX.md](pipeline/ledgers/INDEX.md). It is written and ready, but **not installed yet**: it sits in `pipeline/workflow_to_install/` until the owner moves it into `.github/workflows/`, because the building bot's GitHub access cannot write workflow files. Until then, run `python -m pipeline.slate` by hand.
+
+**Blocked or pending**
+
+| Piece | Status | Owner |
+| --- | --- | --- |
+| `projection_ready` | **false** (only Rico flips it, through NFL-49) | Rico |
+| 100k runs | **Refused today.** `DEFERRED_100K` is true. | — |
+| NFL-43 penalties, returns, overtime | **Pending dependency.** Unsupported, and `SEMANTICS_BOUNDS.md` does not exist yet. | BetGuru |
+| `rocket` validation command | **Pending dependency.** The hook `ROCKET_COMMAND` is unset. | BetGuru |
+| Four-book price feed (FanDuel, DraftKings, Hard Rock, Caesars) | **Pending dependency.** It is on an unmerged branch. Until a freeze file exists for a game, phase 13 is MISSING. | Blitz |
+| Official inactives (phase 15) | **No source yet.** NOT_YET before T-90, MISSING after. | unassigned (NFL-46 / NFL-49) |
+| Calibration, pristine holdout, end-to-end run | Not done (NFL-44, NFL-45, NFL-49) | BetGuru / NFL-49 |
+| Man/zone, routes, line grades, defender assignment | No free source. Shown as not available, never filled in. | — |
+
 ## Coverage
 
 The initial release covers all 93 games in Weeks 1–6 and 13 Week 7 games, including all 12 October 25 games. Consult `manifest.json` for the latest game counts and dates. Layers include ESPN play-by-play and player/box-score statistics, offensive and defensive profiles, external observations and gaps, supplemental public datasets, and official NGS chart URL indexes.
@@ -60,11 +89,11 @@ The matchup snapshot above is unchanged. A portable research checkpoint of the p
 | Penalties, returns, official overtime | Unsupported. See NFL-43. |
 | Calibration | Not fitted. Quotes are `NOLINE` until authenticated book access exists. See NFL-45. |
 | Pristine evaluation | Protocol incomplete. Weeks already inspected are development evidence, not an untouched holdout. See NFL-44. |
-| 100k trials and the 15-phase ledger | Deferred. Phase 15 inactives are `NOT_YET`. NFL-56 records the source-of-truth goal. Those workflows are not implemented here. |
+| 100k trials and the 15-phase ledger | Ledger and fail-closed 100k entry point exist (`pipeline/`, NFL-56). 100k runs are still refused (`DEFERRED_100K`, NFL-43, `rocket`, four-book feed, inactives). Phase 15 inactives are `NOT_YET`. See "Projection pipeline: goal vs current status". |
 | ORCA / FTN model mirrors | `ACCESS_UNKNOWN`. No quotes are invented. NFL-53, NFL-54, NFL-55. |
 | Pinnacle and other books | No actionable lines are published. Pinnacle Q2–Q4 spreads were already absent in the saved research set. Odds-bridge still needs authentication. NFL-25, NFL-45. |
 
-Open work, with live issue URLs, is in [OPEN_LINEAR_ITEMS.md](OPEN_LINEAR_ITEMS.md) (22 items, including NFL-16 and NFL-54). Source access and the public refresh steps are in [docs/SOURCE_STATUS.md](docs/SOURCE_STATUS.md) and [docs/DATA_UPDATE.md](docs/DATA_UPDATE.md). The proposed routine is documentation only: [docs/PROPOSED_ROUTINE_BOOTSTRAP.md](docs/PROPOSED_ROUTINE_BOOTSTRAP.md). The parent applies any saved routine after this commit is verified. Nothing in this repository runs on a loop.
+Open work, with live issue URLs, is in [OPEN_LINEAR_ITEMS.md](OPEN_LINEAR_ITEMS.md) (22 items, including NFL-16 and NFL-54). Source access and the public refresh steps are in [docs/SOURCE_STATUS.md](docs/SOURCE_STATUS.md) and [docs/DATA_UPDATE.md](docs/DATA_UPDATE.md). The proposed routine is documentation only: [docs/PROPOSED_ROUTINE_BOOTSTRAP.md](docs/PROPOSED_ROUTINE_BOOTSTRAP.md). The parent applies any saved routine after this commit is verified. The scheduled GitHub Actions workflows (pregame packets, NFL-56 ledgers) run at fixed times; nothing runs on a continuous loop.
 
 Bounded check, after `python3 -m pip install -r requirements-smoke.txt`:
 
