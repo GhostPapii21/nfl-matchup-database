@@ -1,5 +1,20 @@
-# Four-book price feed (`pregame/multibook.py`)
+# Book prices, same-line consensus and price freezes
 
 Research only; `projection_ready` stays false and nothing here is a pick.
 
-**Usage.** With `ODDS_API_KEY` set (never printed or written), run `python -m pregame.multibook --home NYG --away WAS --out pregame/price_freezes` from the repo root (`--dry-run` reads the free `/events` balance and prints the cost plan without a paid call; `--floor` defaults to 800 credits). It pulls one game's moneyline, spread and total, then rush-yards and receiving-yards props, from FanDuel, DraftKings, Hard Rock Bet and Caesars (`williamhill_us`), with Pinnacle as a reference that is excluded from consensus. Cost is markets x ceil(books/10): 3 + 2 = 5 credits per full pull; each paid call is refused if it would leave fewer than the floor, or if the balance is unknown or the game has started. Every row is de-vigged per book with two-way multiplicative normalization; `consensus` gives the four books' median main line and mean no-vig at that line, plus Pinnacle's line. Each run writes `raw_<UTC>.json` (response bodies, sha256 in the freeze), `freeze_<UTC>.json` (meta, steps, credits before/after, rows, consensus) and `table_<UTC>.md` under `pregame/price_freezes/<ET date>_<AWAY>@<HOME>/`. For an end-to-end run, call `pregame.multibook.run(home, away, out, floor)` and read `meta["consensus"]` (or load the newest `freeze_*.json`) for the market line and no-vig probability of each leg; books or props a book doesn't offer are listed in `books_missing` / `props_missing`, never filled in. The player list is `WAS_NYG_PROPS`; pass `props=` for another game. Offline tests: `pregame/tests/test_multibook.py` (run by `scripts/test_offline.sh`).
+**Usage.** Everything lives in `pregame/odds.py`, the same pull path the packet builder uses, so one pull feeds both the packet's
+"Book prices and no-vig" section and a timestamped freeze (no second credit spend). Books are FanDuel, DraftKings, Hard Rock Bet and
+Caesars (`williamhill_us`), plus Pinnacle as a reference that is never counted. Each paid call is estimated first (game lines 3
+credits for the whole slate; props up to 7 per game: pass yds, pass attempts, completions, rush yds, rush attempts, receiving yds,
+receptions) after a free `/events` balance read, and is refused if it would leave fewer than `ODDS_CREDIT_FLOOR` (default 800) or if
+the balance is unknown; every run prints `odds credits used this run=… remaining=…` ("unknown" when the provider did not report it).
+`odds.consensus(markets, odds.roster_from_packet(packet))` gives each book's own line and a consensus only from books at the same
+line (the line most books quote, with `n_books_at_line`); fewer than two books on one line, a tie between lines, or a player not
+matched on full name + team gives the literal `no consensus` with a reason. Labels carry the real count (for example
+`three-book prop consensus` when Caesars has `no props`). Passing yards are stored as reference fields flagged `never_a_leg`.
+Between packet runs, `python -m pregame.multibook --game 2026_10_WAS_NYG [--compare <earlier freeze_*.json>]` writes
+`pregame/price_freezes/<ET date>_<AWAY>@<HOME>/{raw,freeze,table}_<UTC>.*` using the packet's player list (`--dry-run` prints the
+cost plan for 0 credits; `--movement OLD NEW` compares two freezes offline). For the end-to-end run, read `consensus` from the newest
+`freeze_*.json` (schema `price-freeze/2`). The workflow change that adds `pregame/price_freezes` to the commit and sets the floor is
+in `pregame/install/nfl-pregame-packets.yml`: copy it over `.github/workflows/nfl-pregame-packets.yml` (needs a token with the
+`workflow` scope). Tests: `pregame/tests/test_multibook.py`.

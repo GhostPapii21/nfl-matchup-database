@@ -12,7 +12,7 @@ before each Thursday, Sunday and Monday kickoff window). Each run:
 2. Downloads current public data: play-by-play, weekly rosters, official injury reports, depth charts, snap
    counts, FTN charting (blitz, play-action), Pro Football Reference defender stats (all via nflverse), and
    the ESPN live injury list when it can be reached, the National Weather Service kickoff forecast for outdoor
-   games, and (when the `ODDS_API_KEY` secret is set) Pinnacle, DraftKings and FanDuel prices.
+   games, and (when the `ODDS_API_KEY` secret is set) FanDuel, DraftKings, Hard Rock Bet and Caesars prices with Pinnacle as the reference (see `MULTIBOOK.md`).
 3. Builds one packet per game and commits it under `pregame/packets/<game_id>/`:
    - `brief.md`: readable breakdown.
    - `packet.json`: the same data for tools.
@@ -37,7 +37,7 @@ For each team, over its last eight games:
   arrived from or left for another team in the last four weeks.
 - **Weather:** kickoff temperature, wind and precipitation chance, with flags for wind 15+, precipitation 50%+
   and freezing.
-- **Book prices and no-vig:** spread, total and moneyline at Pinnacle, DraftKings and FanDuel, each with its
+- **Book prices and no-vig:** spread, total and moneyline at FanDuel, DraftKings, Hard Rock Bet, Caesars and Pinnacle (reference), each with its
   no-vig probability and hold, the best retail price per side with its break-even, and the line's movement
   since the first snapshot. Player props (passing, rushing and receiving yards, receptions, carries) are pulled
   for games inside 36 hours of kickoff and shown beside the research baseline.

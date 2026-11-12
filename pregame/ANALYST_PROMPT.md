@@ -52,7 +52,7 @@ On a trigger: open `pregame/packets/INDEX.md`, name the game or games you will r
 | Official injury report, practice status, depth chart, players who changed teams | Injuries, lines, roster moves | nflverse; ESPN live list when reachable |
 | Kickoff forecast for outdoor US games | Weather | US National Weather Service |
 | Passing and receiver lines for dry, rain and the forecast | Rain-adjusted passing | Measured from 2018-2026 play-by-play (`research/weather/README.md`) |
-| Pinnacle, DraftKings, FanDuel spread / total / moneyline, with no-vig and hold; player props inside 36 hours of kickoff | Book prices and no-vig | The Odds API (needs the repository's `ODDS_API_KEY`) |
+| FanDuel, DraftKings, Hard Rock Bet, Caesars spread / total / moneyline (Pinnacle as reference), with no-vig, hold and a same-line consensus; player props inside 36 hours of kickoff (passing yards are reference only, never a leg) | Book prices and no-vig | The Odds API (needs the repository's `ODDS_API_KEY`) |
 | Line movement from the first snapshot this pipeline took to now | Line movement | Pipeline snapshots |
 | Offense by formation (shotgun, under center, no huddle) and passing by zone (short or deep, left / middle / right), for and against | "By formation and pass zone" under each team | nflverse play-by-play (NFL Savant's download is the same data) |
 | Which API keys the run could see and whether each answered | Keyed connectors in this run | Pipeline check |

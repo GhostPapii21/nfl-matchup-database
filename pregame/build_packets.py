@@ -97,7 +97,8 @@ def main(argv=None):
     conn = C.check(season, int(slate.week.iloc[0]), [(g.away_team, g.home_team) for g in slate.itertuples()], offline=a.offline)
     print("pregame: connectors " + ", ".join(f"{k}={v['status']}" for k, v in conn["sources"].items()))
     lines = {"status": "SKIPPED_OFFLINE", "events": {}} if a.offline else O.fetch_game_lines()
-    src_pub["book_odds"] = {"status": lines["status"], "url": "https://the-odds-api.com (Pinnacle, DraftKings, FanDuel)", "retrieved_utc": lines.get("retrieved_utc")}
+    src_pub["book_odds"] = {"status": lines["status"], "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
+                            "retrieved_utc": lines.get("retrieved_utc")}
     now = datetime.now(timezone.utc)
     index = []
     for g in slate.itertuples():
@@ -119,6 +120,13 @@ def main(argv=None):
             books["status"] = "OK_BUT_GAME_NOT_LISTED"
         wx = W.forecast(g.home_team, g.roof, g.location, g.gameday, g.gametime, offline=a.offline)
         pk = PK.build(g, data=data, window=a.window, espn=espn, pbp_path=src["pbp"]["path"], sources=src_pub, books=books, weather=wx)
+        if books.get("markets"):   # same pull feeds the packet and the freeze: no second credit spend
+            books["consensus"] = O.consensus(books["markets"], O.roster_from_packet(pk))
+            if ev and books.get("props_status") == "OK":
+                fz = O.write_freeze(g.game_id, g.away_team, g.home_team, books["markets"], books["consensus"], ev, ROOT / "pregame" / "price_freezes",
+                                    meta={"event_id": ev.get("id"), "commence_utc": ev.get("commence_time"), "lines_retrieved_utc": lines.get("retrieved_utc"),
+                                          "props_retrieved_utc": books.get("retrieved_utc"), "written_by": "pregame.build_packets"})
+                books["freeze"] = {"pulled_utc": fz["pulled_utc"], "files": [str(Path(x).relative_to(ROOT)) if str(x).startswith(str(ROOT)) else x for x in fz["files"]]}
         pk["connectors"] = conn
         pk = _clean(pk)
         d = out / g.game_id; d.mkdir(exist_ok=True)
@@ -132,8 +140,9 @@ def main(argv=None):
                       "phases": {str(p["phase"]): p["status"] for p in pk["phase_ledger"]}})
         print(f"pregame: wrote {g.game_id} ({pk['game']['slot']})")
     q = O.quota()
-    if q:
-        print(f"pregame: odds credits remaining={q.get('credits_remaining')} used={q.get('credits_used')}")
+    print("pregame: " + O.credit_line() + (f" (account total used={q.get('credits_used')})" if q.get("credits_used") is not None else ""))
+    for c in O.CREDIT_LOG:
+        print(f"pregame: credit check {c['call']}: estimate {c['estimate_credits']}, {c['decision']}")
     stale = sorted({g["game_id"] for g in index if g.get("stale")})
     if stale:
         print("pregame: WARNING play-by-play not yet posted for a team's last game in: " + ", ".join(stale))
