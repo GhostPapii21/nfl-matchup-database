@@ -1,0 +1,74 @@
+{
+ "schema": "snapshot-lock/1",
+ "game_id": "2026_10_WAS_NYG",
+ "locked_utc": "2026-11-12T17:12:58+00:00",
+ "kickoff_utc": "2026-11-13T01:15:00+00:00",
+ "projection_ready": false,
+ "research_only": true,
+ "code_commit": "79f0ca78ebbd0c4bc2aba0467f5530bd88c9b152",
+ "code_dirty": false,
+ "engine_tree_sha256": "660b7558fba8a50d0755620d96a32c90b6a8edfca4ad20abb010bf9395d7d061",
+ "config_id": "was_nyg_2026-11-12_data_only_nfl43",
+ "model_weights_changed": false,
+ "sim": {
+  "n": 100000,
+  "seed": 1918467127,
+  "chunks": 7,
+  "chunk_seeds": [
+   1918467127,
+   1919467130,
+   1920467133,
+   1921467136,
+   1922467139,
+   1923467142,
+   1924467145
+  ],
+  "runtime_sec": 661.0,
+  "statuses": [
+   "OK"
+  ]
+ },
+ "inputs": {
+  "pbp_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
+  "pbp_sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+  "pbp_local_name": "pbp_2026_20261112T1116.parquet",
+  "price_freeze_origin": "research/multibook-price-feed-2026-11-12@c50fb4c:pregame/price_freezes/2026-11-12_WAS@NYG/freeze_20261112T161430Z.json",
+  "price_freeze_sha256": "2e2a9484c13792f7edcbb435ce459cca6d623ac21449e723b63b52bf9225b66d",
+  "packet_path": "/workspace/nfl49_data/packet_main_aca9406_WAS_NYG.json",
+  "packet_sha256": "895013ca2fed0df9f2f05761c57756d7a3952d8857a97cca953f2a888d5231fb",
+  "packet_generated_utc": "2026-11-12T11:16:38+00:00",
+  "price_freeze_pulled_utc": "2026-11-12T16:14:30Z",
+  "price_status": "OK",
+  "price_freeze_books": [
+   "fanduel",
+   "draftkings",
+   "hardrockbet",
+   "williamhill_us",
+   "pinnacle"
+  ]
+ },
+ "asof_checks": "PASS",
+ "limitations": [
+  "Vertical slice: empirical team-only snap resampling + explicit same-team coarser fallbacks",
+  "Clock costs use empirical median deltas when available else fixed means \u2014 not a situational clock model",
+  "OT rule: official 2025 regular-season (both possess, then sudden death, ties allowed)",
+  "No league silent pool; proposed pooling config default false",
+  "W1-8 development set; no betting edge claim",
+  "Inspired conceptually by NFLSimulatoR/nflfastR (MIT); no R source copied",
+  "See FEATURE_MATRIX.md for unimplemented coverage/route/pressure fields",
+  "data_only config: no injury/inactive adjustment; Phase 15 inactives not applied to the sim",
+  "team scores only; player yards are bootstrap credits, not a player projection model"
+ ],
+ "scoring": {
+  "command": "python3 -m snapshots.score --snapshot snapshots/2026_10_WAS_NYG/20261112T171258Z",
+  "status": "NOT_SCORED_UNTIL_FINAL"
+ },
+ "files": {
+  "inputs/team_prices_freeze_20261112T161430Z.json": "17b957374154f507328903fd6280165613035d096a53cde275c0962154768fb4",
+  "inputs/was_nyg_2026-11-12_data_only_nfl43.json": "d379cf3a3a809469c59d43cab7f780947845479c6b2b1658ae981af35db89b38",
+  "report.md": "797b2bddadd99eb2742f20dd8181a416d5da637327eb8e42904af09d8c83289a",
+  "sim_arrays.npz": "1b9ca235957d55998eebbe2f0c5554df0737d03aebeef8502220742ae6cbefe0",
+  "sim_meta.json": "6c133e62d2ca028503fcc856fbba12efb9ea920976010a8dce0c9d25c189a485",
+  "summary.json": "029b0734a10ab278d2af62a1c895d5393ecac87e7760de4f5688928619a09461"
+ }
+}

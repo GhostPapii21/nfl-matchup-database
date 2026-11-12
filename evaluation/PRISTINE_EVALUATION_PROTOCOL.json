@@ -1,0 +1,48 @@
+{
+ "schema": "pristine-evaluation-protocol/1",
+ "issue": "NFL-44",
+ "scope": "future-only games locked under snapshots/<game_id>/<locked_utc>/ before kickoff",
+ "historical_pristine_claim": false,
+ "historical_note": "No 2025/2026 game already played when this protocol was written counts as pristine holdout evidence; weeks 1-9 of 2026 were seen during development.",
+ "eligible_snapshot": {
+  "lock_before_kickoff": true,
+  "n_sims": 100000,
+  "code_dirty": false,
+  "asof_checks": "PASS",
+  "projection_ready": false,
+  "covered_by_freeze": "lock hash listed in PROTOCOL_FREEZE.json, or locked after the freeze"
+ },
+ "primary_metrics": [
+  "win_logloss",
+  "win_brier",
+  "margin_crps",
+  "total_crps"
+ ],
+ "secondary_metrics": [
+  "margin_pit",
+  "total_pit",
+  "brier_model_mean_lines",
+  "brier_book_mean_lines"
+ ],
+ "comparison": "model vs each book's own no-vig probability at the frozen quote (raw model only; no market anchoring)",
+ "min_coverage": {
+  "games_scored": 30,
+  "weeks": 3
+ },
+ "insufficient_coverage_status": "UNSCORABLE_INSUFFICIENT_COVERAGE",
+ "unscorable_reasons": [
+  "NO_PROTOCOL_FREEZE",
+  "NOT_FINAL",
+  "LOCK_HASH_MISMATCH",
+  "LOCKED_AFTER_KICKOFF",
+  "NOT_COVERED_BY_PROTOCOL_FREEZE",
+  "CODE_DIRTY",
+  "N_SIMS_NOT_100K",
+  "ASOF_NOT_PASS",
+  "NOLINE",
+  "DUPLICATE_LATER_LOCK"
+ ],
+ "one_lock_per_game": "the latest eligible lock before kickoff is scored; earlier locks are recorded but not scored",
+ "outcome_source": "ESPN scoreboard STATUS_FINAL (snapshots/score.py)",
+ "no_stakes": true
+}
