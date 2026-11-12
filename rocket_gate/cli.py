@@ -87,6 +87,15 @@ def r3_safety(root: Path = ROOT):
     for p in sorted((root / "snapshots").glob("*/*/LOCK.json")):
         if json.loads(p.read_text()).get("projection_ready") is not False:
             why.append(f"{p.relative_to(root)} projection_ready not false")
+    # no player numbers published from snapshots (team-bootstrap credits are not a player model)
+    for p in sorted((root / "snapshots").glob("*/*/summary.json")):
+        if "player_mean_yards_top" in json.loads(p.read_text()):
+            why.append(f"{p.relative_to(root)} publishes player numbers")
+    for p in sorted((root / "snapshots").glob("*/*/inputs/*.json")):
+        d = json.loads(p.read_text())
+        if isinstance(d, dict) and (any(r.get("player") for r in d.get("rows") or [] if isinstance(r, dict))
+                                    or "team_projection" in d or "consensus" in (d.get("meta") or {})):
+            why.append(f"{p.relative_to(root)} republishes player rows / packet projections")
     scan = [*(root / "snapshots").rglob("*.json"), *(root / "snapshots").rglob("*.md"),
             *(root / "phase15").rglob("*.json"), *(root / "core/possession_engine_v0/config").glob("*.json")]
     for p in scan:

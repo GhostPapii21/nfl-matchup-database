@@ -259,12 +259,15 @@ def main(argv=None) -> int:
     d = OUT / g["game_id"] / locked.strftime("%Y%m%dT%H%M%SZ")
     (d / "inputs").mkdir(parents=True, exist_ok=True)
     shutil.copy2(cfg_path, d / "inputs" / cfg_path.name)
-    if a.price_freeze:
-        shutil.copy2(a.price_freeze, d / "inputs" / Path(a.price_freeze).name)
-    elif freeze is not None:
-        (d / "inputs" / "prices_from_packet.json").write_text(json.dumps(freeze, indent=1) + "\n")
-    if a.packet:
-        shutil.copy2(a.packet, d / "inputs" / "packet.json")
+    # Only team-level markets are republished here. Player rows (props) and the packet itself are NOT copied:
+    # this repo publishes no player numbers from this track (Rico/NFL-49). Source files are pinned by sha256.
+    if freeze is not None:
+        team_only = {"meta": {k: v for k, v in (freeze.get("meta") or {}).items() if k != "consensus"},
+                     "rows": [r for r in freeze.get("rows") or [] if not r.get("player")
+                              and r.get("market") in ("h2h", "spreads", "totals")],
+                     "note": "team markets only; player rows stripped; full source pinned in LOCK.inputs"}
+        name = ("team_prices_" + Path(a.price_freeze).name) if a.price_freeze else "team_prices_from_packet.json"
+        (d / "inputs" / name).write_text(json.dumps(team_only, indent=1) + "\n")
     np.savez_compressed(d / "sim_arrays.npz", **{k: v.astype(np.int16 if v.dtype != bool else bool) for k, v in sim["arrays"].items()})
     home_name = away_name = None
     for r in (freeze or {}).get("rows") or []:
@@ -277,10 +280,8 @@ def main(argv=None) -> int:
             break
     lines = market_lines(freeze, home_name, away_name)
     s = summarize(sim["arrays"], lines, g["home"], g["away"], home_name, away_name)
-    top = {kind: {tm: dict(sorted(pl.items(), key=lambda x: -x[1])[:6]) for tm, pl in teams.items()} for kind, teams in sim["joint"].items()}
-    s["player_mean_yards_top"] = top
-    s["player_mean_yards_note"] = ("Team-bootstrap player credits (historical rows), NOT a player projection model; "
-                                   "no inactive/role adjustment (data_only config). Do not publish as player projections.")
+    s["player_outputs"] = ("WITHHELD: the possession sim's player credits are team-bootstrap historical rows, not a "
+                           "player projection model; no player numbers are published from this snapshot.")
     (d / "summary.json").write_text(json.dumps(s, indent=1) + "\n")
     meta = {"semantics": sim["semantics"], "evidence_summary": sim["evidence_summary"], "history_evidence": sim["history_evidence"]}
     (d / "sim_meta.json").write_text(json.dumps(meta, indent=1, default=str) + "\n")
@@ -293,6 +294,9 @@ def main(argv=None) -> int:
                     "runtime_sec": sim["runtime_sec"], "statuses": sim["statuses"]},
             "inputs": {"pbp_url": a.pbp_url, "pbp_sha256": sha256(a.pbp), "pbp_local_name": Path(a.pbp).name,
                        "price_freeze_origin": a.price_freeze_origin,
+                       "price_freeze_sha256": sha256(a.price_freeze) if a.price_freeze else None,
+                       "packet_path": a.packet, "packet_sha256": sha256(a.packet) if a.packet else None,
+                       "packet_generated_utc": (packet or {}).get("generated_utc"),
                        "price_freeze_pulled_utc": ((freeze or {}).get("meta") or {}).get("pulled_utc"),
                        "price_status": ((freeze or {}).get("meta") or {}).get("status", "NOLINE"),
                        "price_freeze_books": ((freeze or {}).get("meta") or {}).get("books")},

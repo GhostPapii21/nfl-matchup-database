@@ -4,8 +4,8 @@
     python3 -m snapshots.score --all                       # every unscored snapshot whose game is final
     [--final-json f.json]  offline: {"home_score": int, "away_score": int, "source": "...", "quarters": {...}}
 
-Final score source: ESPN public scoreboard (game must report STATUS_FINAL), cross-checked against nflverse
-games.parquet when that already has the result (mismatch -> refuse). Writes SCORE.json next to LOCK.json
+Final score source: ESPN public scoreboard (game must report STATUS_FINAL). NOT yet cross-checked against
+nflverse games (TODO; Ghost6's grading loop uses nflverse). Writes SCORE.json next to LOCK.json
 (never edits locked files; refuses if LOCK hashes no longer match). Metrics: win log-loss / Brier (ex-tie),
 margin and total CRPS, PIT of the actual margin/total, per-book spread/total/moneyline Brier for model vs
 the book's own no-vig probability. Research only; no stakes; one game is not calibration evidence on its own.

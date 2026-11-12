@@ -65,3 +65,20 @@ def test_tampered_snapshot_fails(tmp_path):
     (dst / "summary.json").write_text("{}")
     r = cli.r5_snapshot(gid, root)
     assert r["status"] == "FAIL" and any("hash mismatch" in p for p in r["detail"]["problems"])
+
+
+def test_r3_rejects_player_numbers_in_snapshot(tmp_path):
+    from rocket_gate.cli import r3_safety
+    (tmp_path / "known_flags").mkdir()
+    (tmp_path / "known_flags/KNOWN_LIMITATIONS.json").write_text(json.dumps({"projection_ready": False}))
+    d = tmp_path / "snapshots/G/20260101T000000Z"
+    (d / "inputs").mkdir(parents=True)
+    (d / "LOCK.json").write_text(json.dumps({"projection_ready": False}))
+    (d / "summary.json").write_text(json.dumps({"n": 1}))
+    (d / "inputs/team_prices.json").write_text(json.dumps({"meta": {}, "rows": [{"market": "h2h", "player": None}]}))
+    assert r3_safety(tmp_path)["status"] == "PASS"
+    (d / "inputs/team_prices.json").write_text(json.dumps({"rows": [{"market": "player_rush_yds", "player": "X"}]}))
+    assert r3_safety(tmp_path)["status"] == "FAIL"
+    (d / "inputs/team_prices.json").unlink()
+    (d / "summary.json").write_text(json.dumps({"player_mean_yards_top": {}}))
+    assert r3_safety(tmp_path)["status"] == "FAIL"
