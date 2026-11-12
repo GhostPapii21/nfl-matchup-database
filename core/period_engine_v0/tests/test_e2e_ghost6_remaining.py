@@ -105,12 +105,12 @@ def test_e2e_fg_joint_coherent_with_regulation():
     assert float((A["fg_home"] < A["reg_home"]).mean()) == 0.0
 
 
-def test_e2e_demo_report_json_retains_decisive_fields():
-    """After demo run, artifact must retain push/decisive for two-way markets."""
-    # invoke main lightly
+def test_e2e_demo_report_json_retains_decisive_fields(tmp_path):
+    """After demo run, artifact must retain push/decisive for two-way markets.
+    Writes to tmp_path so the tracked artifact is never rewritten by the test run (NFL-43 review T5)."""
     from demo_jaxbal_report import main
-    main()
-    rep = json.loads((ROOT / "artifacts/demo_jaxbal_period_report.json").read_text())
+    main(out_dir=tmp_path)
+    rep = json.loads((tmp_path / "demo_jaxbal_period_report.json").read_text())
     assert rep.get("outcome_meta", {}).get("fg_scope") == "includes_ot_if_reg_tied"
     assert "league_team_quarter_bootstrap" in (rep.get("source_composition") or "")
     two_way = [m for m in rep["markets"] if "3-way" not in m["market"]]

@@ -1,0 +1,66 @@
+name: NFL-56 source of truth (phase ledgers + 100k gate)
+
+# Runs by itself after every scheduled pregame-packet build, and again just after official inactives post.
+# Pull: the "NFL pregame packets" workflow pulls public data and commits pregame/packets/ (unchanged by NFL-56).
+# Run:  this workflow re-checks every phase and freshness window (pipeline/phases.py, pipeline/freshness.py) and
+#       calls the fail-closed 100k entry point (pipeline/sim100k.py) for each game in the slate.
+# Push: it commits pipeline/ledgers/ back to the branch.
+# No API keys or secrets are passed in, so it cannot spend Odds API credits. projection_ready stays false.
+# workflow_run and schedule triggers only fire once this file is on the default branch.
+
+on:
+  workflow_run:
+    workflows: ["NFL pregame packets (Thursday, Sunday, Monday)"]
+    types: [completed]
+    branches: [main]
+  schedule:
+    # UTC. Eastern is UTC-5 from November. Each lands after the T-90 inactive posting for that window.
+    - cron: "50 23 * * 4"   # Thu 6:50 PM ET  (8:15 PM kickoff)
+    - cron: "40 16 * * 0"   # Sun 11:40 AM ET (1:00 PM kickoffs)
+    - cron: "0 20 * * 0"    # Sun 3:00 PM ET  (4:05 / 4:25 PM kickoffs)
+    - cron: "55 23 * * 0"   # Sun 6:55 PM ET  (8:20 PM kickoff)
+    - cron: "50 23 * * 1"   # Mon 6:50 PM ET  (8:15 PM kickoff)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nfl-source-of-truth
+  cancel-in-progress: false
+
+jobs:
+  ledgers:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-test.txt
+      - run: python -m pip install --disable-pip-version-check -r requirements-test.txt
+      - name: Check the gate before trusting it
+        run: python -m pytest -q -p no:cacheprovider pipeline/tests
+      - name: Phase ledgers and 100k gate for the slate (a refusal is recorded, not hidden)
+        run: python -m pipeline.slate
+      - name: Commit ledgers
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pipeline/ledgers
+          if git diff --cached --quiet; then
+            echo "No ledger changes."
+            exit 0
+          fi
+          git commit -m "nfl56: refresh phase ledgers $(date -u +%Y-%m-%dT%H:%MZ)"
+          branch="$(git rev-parse --abbrev-ref HEAD)"
+          for i in 1 2 3; do
+            git pull --rebase origin "$branch" && git push origin "HEAD:$branch" && exit 0
+            sleep 10
+          done
+          echo "push failed after 3 attempts"; exit 1

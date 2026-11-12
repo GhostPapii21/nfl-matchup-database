@@ -13,14 +13,23 @@
     "decontam_sha256": "8a9d72949c122923ca149b635cd04290373112abc50930b85de5332491a201a1",
     "linear": "NFL-42"
   },
-  "unsupported_semantics": [
-    "penalties",
-    "returns",
-    "official_overtime"
-  ],
-  "DEFERRED_100K": true,
+  "unsupported_semantics": [],
+  "DEFERRED_100K": false,
   "PFF": "NOT_READY_NO_DUPLICATE",
   "entrypoint_enforced": false,
   "pristine_protocol_complete": false,
-  "production_validated": false
+  "production_validated": false,
+  "nfl43": {
+    "stamped_et": "2026-11-12 BetGuru",
+    "bounds": "core/possession_engine_v0/SEMANTICS_BOUNDS.md",
+    "supported_path": "core/possession_engine_v0 possession game-state path with cfg['semantics'] (penalties canonical_log_v1, returns asof_league_v1, overtime official_2025_regular_season)",
+    "still_unsupported": [
+      "kick-play fouls",
+      "joint_producer penalties/return yards",
+      "blocked kicks/onside/fakes"
+    ],
+    "review": "ACCEPTED by Ghost6 for SEMANTICS_BOUNDS.md sha256 975e84cc... at 32b9b92 (Nov 12 ~3:05 PM ET); see known_flags/NFL43_REVIEW.json.",
+    "review_status_file": "known_flags/NFL43_REVIEW.json",
+    "deferred_note": "100k un-deferred Nov 12 ~3:05 PM ET on Rico's OK in Betting Hub (3:00 PM ET) after Ghost6 accepted the NFL-43 bounds. still_unsupported stays enforced. Research only, not validated; projection_ready stays false."
+  }
 }

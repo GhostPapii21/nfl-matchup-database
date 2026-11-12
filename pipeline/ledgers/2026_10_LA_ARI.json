@@ -1,0 +1,411 @@
+{
+ "schema": "nfl56-phase-ledger/1",
+ "game_id": "2026_10_LA_ARI",
+ "checked_utc": "2026-11-12T16:21:03+00:00",
+ "packet_generated_utc": "2026-11-12T11:16:58+00:00",
+ "projection_ready": false,
+ "research_only": true,
+ "freshness": [
+  {
+   "source": "schedule",
+   "status": "FRESH",
+   "reason": "304 min old; limit 1440 min.",
+   "retrieved_utc": "2026-11-12T11:16:35+00:00",
+   "age_minutes": 304.5,
+   "max_age_minutes": 1440
+  },
+  {
+   "source": "play_by_play",
+   "status": "FRESH",
+   "reason": "304 min old; limit 1440 min.",
+   "retrieved_utc": "2026-11-12T11:16:35+00:00",
+   "age_minutes": 304.5,
+   "max_age_minutes": 1440
+  },
+  {
+   "source": "rosters",
+   "status": "FRESH",
+   "reason": "304 min old; limit 1440 min.",
+   "retrieved_utc": "2026-11-12T11:16:35+00:00",
+   "age_minutes": 304.5,
+   "max_age_minutes": 1440
+  },
+  {
+   "source": "depth_charts",
+   "status": "FRESH",
+   "reason": "304 min old; limit 1440 min.",
+   "retrieved_utc": "2026-11-12T11:16:35+00:00",
+   "age_minutes": 304.5,
+   "max_age_minutes": 1440
+  },
+  {
+   "source": "snap_counts",
+   "status": "FRESH",
+   "reason": "304 min old; limit 1440 min.",
+   "retrieved_utc": "2026-11-12T11:16:35+00:00",
+   "age_minutes": 304.5,
+   "max_age_minutes": 1440
+  },
+  {
+   "source": "ftn_charting",
+   "status": "FRESH",
+   "reason": "304 min old; limit 1440 min.",
+   "retrieved_utc": "2026-11-12T11:16:36+00:00",
+   "age_minutes": 304.5,
+   "max_age_minutes": 1440
+  },
+  {
+   "source": "pfr_defense",
+   "status": "FRESH",
+   "reason": "304 min old; limit 1440 min.",
+   "retrieved_utc": "2026-11-12T11:16:36+00:00",
+   "age_minutes": 304.5,
+   "max_age_minutes": 1440
+  },
+  {
+   "source": "official_injuries",
+   "status": "FRESH",
+   "reason": "304 min old; limit 720 min.",
+   "retrieved_utc": "2026-11-12T11:16:35+00:00",
+   "age_minutes": 304.5,
+   "max_age_minutes": 720
+  },
+  {
+   "source": "news_injuries",
+   "status": "FRESH",
+   "reason": "304 min old; limit 360 min.",
+   "retrieved_utc": "2026-11-12T11:16:36+00:00",
+   "age_minutes": 304.5,
+   "max_age_minutes": 360
+  },
+  {
+   "source": "weather",
+   "status": "FRESH",
+   "reason": "304 min old; limit 360 min.",
+   "retrieved_utc": "2026-11-12T11:16:57+00:00",
+   "age_minutes": 304.1,
+   "max_age_minutes": 360
+  },
+  {
+   "source": "odds",
+   "status": "FRESH",
+   "reason": "304 min old; limit 360 min.",
+   "retrieved_utc": "2026-11-12T11:16:37+00:00",
+   "age_minutes": 304.4,
+   "max_age_minutes": 360
+  },
+  {
+   "source": "official_inactives",
+   "status": "NOT_YET",
+   "reason": "Inactives post about Sun 02:35 PM ET (T-90); not available yet.",
+   "retrieved_utc": null,
+   "age_minutes": null,
+   "max_age_minutes": null
+  },
+  {
+   "source": "four_book_prices",
+   "status": "MISSING",
+   "reason": "No pregame/price_freezes/*_LA@ARI/freeze_*.json for this game (run Blitz's `python -m pregame.multibook`; see pregame/MULTIBOOK.md once merged).",
+   "retrieved_utc": null,
+   "age_minutes": null,
+   "max_age_minutes": null
+  }
+ ],
+ "phases": [
+  {
+   "phase": 1,
+   "name": "Slate, schedule, venue",
+   "status": "MISSING",
+   "packet_status": "AUTO",
+   "filled": [
+    "game.kickoff_et",
+    "game.date",
+    "game.site",
+    "game.listed_qbs",
+    "schedule: FRESH"
+   ],
+   "missing": [
+    "game.roof"
+   ],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Schedule, kickoff, site, roof, surface, rest days, listed QBs.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 1"
+  },
+  {
+   "phase": 2,
+   "name": "Player identity and position",
+   "status": "AUTO",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.LA.offense.players",
+    "teams.ARI.offense.players",
+    "rosters: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Positions from weekly rosters (GSIS IDs). Name-only joins are used for snap counts and PFR defenders.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 2"
+  },
+  {
+   "phase": 3,
+   "name": "Verified player game history",
+   "status": "AUTO",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.LA.offense.players",
+    "teams.ARI.offense.players",
+    "teams.LA.offense.by_game",
+    "teams.ARI.offense.by_game",
+    "play_by_play: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Per-game logs for QBs, receivers and rushers over the window, from play-by-play.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 3"
+  },
+  {
+   "phase": 4,
+   "name": "Role, snaps, routes, opportunity",
+   "status": "PARTIAL",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.LA.offense.players",
+    "teams.ARI.offense.players",
+    "teams.LA.offense.offense_snap_share",
+    "teams.ARI.offense.offense_snap_share",
+    "snap_counts: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "routes run / route participation (no free source)"
+   ],
+   "packet_detail": "Target share, air-yards share, carry share, red-zone looks, snap share. Routes run and route participation are NOT available.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 4"
+  },
+  {
+   "phase": 5,
+   "name": "Team offense/defense baselines",
+   "status": "AUTO",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.LA.defense.allowed",
+    "teams.ARI.defense.allowed",
+    "teams.LA.offense.produced",
+    "teams.ARI.offense.produced",
+    "teams.LA.defense.rank",
+    "teams.ARI.defense.rank",
+    "play_by_play: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Allowed and produced tables with league ranks and game-by-game trends.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 5"
+  },
+  {
+   "phase": 6,
+   "name": "Opponent context and game script",
+   "status": "PARTIAL",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "market.home_spread",
+    "market.total",
+    "schedule: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "the script call itself (analyst)"
+   ],
+   "packet_detail": "Market spread/total, neutral pass rate, pace. The script call itself is the analyst's.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 6"
+  },
+  {
+   "phase": 7,
+   "name": "Coverage structure and shell",
+   "status": "PARTIAL",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.LA.defense.allowed.dropbacks_charted",
+    "teams.ARI.defense.allowed.dropbacks_charted",
+    "ftn_charting: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "man/zone and shell (no free source)"
+   ],
+   "packet_detail": "Blitz and play-action rates from FTN charting. Man/zone and shell are NOT in any free source here.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 7"
+  },
+  {
+   "phase": 8,
+   "name": "Defender assignment and explosive allowance",
+   "status": "PARTIAL",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.LA.defense.defenders",
+    "teams.ARI.defense.defenders",
+    "pfr_defense: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "who covers whom (no confirmed assignment)"
+   ],
+   "packet_detail": "Per-defender targets/yards allowed (PFR) and explosive plays allowed. Who covers whom is NOT known.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 8"
+  },
+  {
+   "phase": 9,
+   "name": "QB pressure, blitz, scramble",
+   "status": "PARTIAL",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.LA.defense.allowed",
+    "teams.ARI.defense.allowed",
+    "play_by_play: FRESH",
+    "ftn_charting: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "true pressure rate (sacks + hits is a floor)"
+   ],
+   "packet_detail": "Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 9"
+  },
+  {
+   "phase": 10,
+   "name": "Offensive line, pass rush, coaching",
+   "status": "PARTIAL",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.LA.depth_chart",
+    "teams.ARI.depth_chart",
+    "game.coaches",
+    "depth_charts: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "line grades (paid source)"
+   ],
+   "packet_detail": "Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 10"
+  },
+  {
+   "phase": 11,
+   "name": "Injury and depth chart",
+   "status": "AUTO",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.LA.injuries.official_report",
+    "teams.ARI.injuries.official_report",
+    "teams.LA.injuries.espn_live",
+    "teams.ARI.injuries.espn_live",
+    "teams.LA.depth_chart",
+    "teams.ARI.depth_chart",
+    "official_injuries: FRESH",
+    "news_injuries: FRESH",
+    "depth_charts: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 11"
+  },
+  {
+   "phase": 12,
+   "name": "Weather, roof, travel",
+   "status": "MISSING",
+   "packet_status": "AUTO",
+   "filled": [
+    "weather.status",
+    "weather: FRESH"
+   ],
+   "missing": [
+    "game.roof"
+   ],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Roof, surface, rest days, site; National Weather Service kickoff forecast: OK.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 12"
+  },
+  {
+   "phase": 13,
+   "name": "Timestamped book prices",
+   "status": "MISSING",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "books.markets",
+    "odds: FRESH"
+   ],
+   "missing": [
+    "four_book_prices: No pregame/price_freezes/*_LA@ARI/freeze_*.json for this game (run Blitz's `python -m pregame.multibook`; see pregame/MULTIBOOK.md once merged)."
+   ],
+   "stale": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "true opening line"
+   ],
+   "packet_detail": "Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 13"
+  },
+  {
+   "phase": 14,
+   "name": "Projection and simulation (100k)",
+   "status": "NOT_YET",
+   "packet_status": "PARTIAL_RESEARCH_ONLY",
+   "filled": [
+    "team_projection"
+   ],
+   "missing": [],
+   "stale": [],
+   "not_yet": [
+    "100k entry point refused: G1: DEFERRED_100K is set in known_flags/KNOWN_LIMITATIONS.json (100k runs are deferred); G2: NFL-43 (penalties, returns, overtime) not closed: SEMANTICS_BOUNDS.md does not exist yet; known_flags lists unsupported semantics: penalties, returns, official_overtime; G4: official_inactives NOT_YET: Inactives post about Sun 02:35 PM ET (T-90); not available yet; G4: four_book_prices MISSING: No pregame/price_freezes/*_LA@ARI/freeze_*.json for this game (run Blitz's `python -m pregame.multibook`; see pregame/MULTIBOOK.md once merged); G5: phase 1 (Slate, schedule, venue) is MISSING; G5: phase 12 (Weather, roof, travel) is MISSING; G5: phase 13 (Timestamped book prices) is MISSING; G5: phase 15 (Final inactive pregame freeze) is NOT_YET"
+   ],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Period-engine team scores; player baselines. Not the three-model consensus; not validated.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 14"
+  },
+  {
+   "phase": 15,
+   "name": "Final inactive pregame freeze",
+   "status": "NOT_YET",
+   "packet_status": "PENDING",
+   "filled": [],
+   "missing": [],
+   "stale": [],
+   "not_yet": [
+    "official_inactives: Inactives post about Sun 02:35 PM ET (T-90); not available yet."
+   ],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call.",
+   "command": "python -m pipeline.phases --game 2026_10_LA_ARI --phase 15"
+  }
+ ],
+ "summary": {
+  "AUTO": 4,
+  "MISSING": 3,
+  "NOT_YET": 2,
+  "PARTIAL": 6
+ }
+}

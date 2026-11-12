@@ -1,0 +1,27 @@
+{
+ "schema": "nfl56-sim100k/1",
+ "game_id": "2026_10_HOU_CLE",
+ "trials_requested": 100000,
+ "projection_ready": false,
+ "research_only": true,
+ "ran": false,
+ "ok": false,
+ "gates": {
+  "G1_flags": "REFUSED",
+  "G2_nfl43": "REFUSED",
+  "G3_packet": "PASS",
+  "G4_freshness": "REFUSED",
+  "G5_phases": "REFUSED",
+  "G6_rocket": "NOT_RUN (earlier gates refused)"
+ },
+ "reasons": [
+  "G1: DEFERRED_100K is set in known_flags/KNOWN_LIMITATIONS.json (100k runs are deferred).",
+  "G2: NFL-43 (penalties, returns, overtime) not closed: SEMANTICS_BOUNDS.md does not exist yet; known_flags lists unsupported semantics: penalties, returns, official_overtime.",
+  "G4: official_inactives NOT_YET: Inactives post about Sun 11:30 AM ET (T-90); not available yet.",
+  "G4: four_book_prices MISSING: No pregame/price_freezes/*_HOU@CLE/freeze_*.json for this game (run Blitz's `python -m pregame.multibook`; see pregame/MULTIBOOK.md once merged).",
+  "G5: phase 13 (Timestamped book prices) is MISSING",
+  "G5: phase 15 (Final inactive pregame freeze) is NOT_YET"
+ ],
+ "checked_utc": "2026-11-12T16:21:03+00:00",
+ "status": "REFUSED"
+}

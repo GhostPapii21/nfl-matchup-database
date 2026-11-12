@@ -1,0 +1,106 @@
+{
+ "semantics": {
+  "status": "NFL43_SEMANTICS_V1",
+  "overtime": "official_2025_regular_season",
+  "penalties": {
+   "mode": "canonical_log_v1",
+   "source": "data/redistributable/teams/penalty_plays_2026.csv (canonical, ESPN-reconciled 228/238)",
+   "weeks_used": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "week_asof_exclusive": 10,
+   "coverage_gap_weeks": [
+    9
+   ],
+   "kick_play_fouls_excluded": true,
+   "per_team": {
+    "NYG|offense": {
+     "fouls": 29,
+     "no_play": 28,
+     "snaps_run": 463.0,
+     "rate_per_snap": 0.059063136456211814,
+     "yards": 174
+    },
+    "NYG|defense": {
+     "fouls": 16,
+     "no_play": 13,
+     "snaps_run": 414.0,
+     "rate_per_snap": 0.03747072599531616,
+     "yards": 197
+    },
+    "WAS|offense": {
+     "fouls": 28,
+     "no_play": 25,
+     "snaps_run": 381.0,
+     "rate_per_snap": 0.06896551724137931,
+     "yards": 199
+    },
+    "WAS|defense": {
+     "fouls": 12,
+     "no_play": 6,
+     "snaps_run": 381.0,
+     "rate_per_snap": 0.031007751937984496,
+     "yards": 112
+    }
+   }
+  },
+  "returns": {
+   "mode": "asof_league_v1",
+   "kick_return_td_rate": 0.0007122507122507123,
+   "punt_return_td_rate": 0.000968054211035818,
+   "source": "nflverse play_by_play (league, weeks < target)",
+   "weeks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "kickoffs": 1404,
+   "kick_return_tds": 1,
+   "punts": 1033,
+   "punt_return_tds": 1,
+   "mean_kick_return_yards": 20.553418803418804,
+   "mean_punt_return_yards": 4.0242013552758955,
+   "label": "AS_OF_LEAGUE_RATE_NOT_TEAM_FIT"
+  }
+ },
+ "evidence_summary": {
+  "min_n_state": 5,
+  "games_with_sparse_flags": 0,
+  "sparse_rate": 0.0,
+  "games_with_coarse_flags": 14262,
+  "coarse_rate": 0.998320033599328,
+  "defense_cond_flag_events": 1620119,
+  "def_interaction_events": 1620119,
+  "blitz_strata_events": 0,
+  "blitz_coarse_down_events": 0,
+  "per_snap_coarse_fraction": 0.0,
+  "note": "sparse_rate = hard SPARSE/EMPTY/FALLBACK only; coarse_rate = COARSE_* support gaps"
+ },
+ "history_evidence": {
+  "n_games": 15,
+  "n_plays": 1375,
+  "teams": [
+   "NYG",
+   "WAS"
+  ],
+  "weeks": [
+   1,
+   9
+  ],
+  "season": 2026,
+  "source": "/workspace/nfl49_data/pbp_2026_20261112T1116.parquet"
+ }
+}

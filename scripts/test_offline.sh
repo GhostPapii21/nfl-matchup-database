@@ -20,8 +20,12 @@ run core/period_engine_v0               tests
 run core/possession_engine_v0           tests
 run data/gamebooks                      tests
 run .                                   pregame/tests
+run .                                   pipeline/tests
 run data/redistributable/teams          tests
 run market_calibration                  tests reviews/test_independent_false_pass.py
 run research/nfl_sim_integration_2026-11-06/source_run_gate tests
+run .                                   rocket_gate/tests
+run .                                   phase15/tests
+run .                                   snapshots/tests
 [ "$status" = 0 ] && echo "test_offline: all suites passed" || echo "test_offline: FAILURES above"
 exit "$status"

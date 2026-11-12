@@ -32,6 +32,12 @@ class GameState:
     # Optional zero-arg callable returning the receiving team's yardline_100 after a kickoff
     # (set by simulate_one from the as-of kickoff outcomes). None = legacy fixed own-25.
     kickoff_sampler: Optional[Callable[[], int]] = field(default=None, repr=False, compare=False)
+    # NFL-43 accounting (populated only when cfg["semantics"] enables a path)
+    penalty_yards: dict = field(default_factory=dict)
+    special_scores: dict = field(default_factory=lambda: {"kick_return_td": {}, "punt_return_td": {}, "def_return_td": {}})
+    ot_rule: str = "single_possession_approx_declared_limitation"
+    ot_tracker: object = field(default=None, repr=False, compare=False)
+    ot_coin: Optional[Callable[[], int]] = field(default=None, repr=False, compare=False)
 
     @classmethod
     def new_game(cls, home: str, away: str) -> "GameState":
@@ -114,8 +120,15 @@ def start_ot_if_tied(st: GameState) -> GameState:
             st.in_ot = True
             st.qtr = 5
             st.game_seconds_remaining = 600
-            st.events.append({"type": "ot_start", "rule": "single_possession_approx_declared_limitation"})
-            apply_kickoff(st, receiving=st.away, yardline_100=kickoff_spot(st))
+            if st.ot_rule == "official_2025_regular_season":
+                from semantics import OTTracker
+                receiver = st.home if (st.ot_coin is not None and st.ot_coin() == 0) else st.away
+                st.events.append({"type": "ot_start", "rule": st.ot_rule, "receiver": receiver})
+                apply_kickoff(st, receiving=receiver, yardline_100=kickoff_spot(st))
+                st.ot_tracker = OTTracker(st, receiver)
+            else:
+                st.events.append({"type": "ot_start", "rule": "single_possession_approx_declared_limitation"})
+                apply_kickoff(st, receiving=st.away, yardline_100=kickoff_spot(st))
         else:
             st.final = True
             st.events.append({"type": "final", "score": (st.score_home, st.score_away)})
