@@ -4,35 +4,35 @@
 
 Market (schedule consensus, not a timestamped quote): NYJ +8.5, total 50.5.
 
-Generated 2026-11-12T11:16:43+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-12T16:16:02+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-12T11:16:41+00:00 UTC. At kickoff: 49 F, wind 12 mph NW, 0% chance of precipitation, Mostly Sunny. During the game: low 49 F, wind up to 12 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-12T16:16:00+00:00 UTC. At kickoff: 49 F, wind 12 mph NW, 0% chance of precipitation, Mostly Sunny. During the game: low 49 F, wind up to 12 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-12T11:16:37+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-12T16:15:53+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | NYJ +8.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-12T11:14:43Z |
-| spread | fanduel | NYJ +7.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-12T11:16:29Z |
-| spread | pinnacle | NYJ +8.5 | -114 | +101 | 51.7% | 48.3% | 3.0% | 2026-11-12T11:16:12Z |
-| total | draftkings | Over 50.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-12T11:14:43Z |
-| total | fanduel | Over 50.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-12T11:16:29Z |
-| total | pinnacle | Over 51 | -107 | -109 | 49.8% | 50.2% | 3.8% | 2026-11-12T11:16:12Z |
-| moneyline | draftkings | NYJ | +340 | -440 | 21.8% | 78.2% | 4.2% | 2026-11-12T11:14:43Z |
-| moneyline | fanduel | NYJ | +370 | -480 | 20.4% | 79.5% | 4.0% | 2026-11-12T11:16:29Z |
-| moneyline | pinnacle | NYJ | +339 | -424 | 22.0% | 78.0% | 3.7% | 2026-11-12T11:16:12Z |
+| spread | draftkings | NYJ +8.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-12T16:15:37Z |
+| spread | fanduel | NYJ +7.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-12T16:15:36Z |
+| spread | pinnacle | NYJ +8.5 | -114 | +101 | 51.7% | 48.3% | 3.0% | 2026-11-12T16:15:37Z |
+| total | draftkings | Over 50.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-12T16:15:37Z |
+| total | fanduel | Over 50.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-12T16:15:36Z |
+| total | pinnacle | Over 51 | -107 | -109 | 49.8% | 50.2% | 3.8% | 2026-11-12T16:15:37Z |
+| moneyline | draftkings | NYJ | +340 | -440 | 21.8% | 78.2% | 4.2% | 2026-11-12T16:15:37Z |
+| moneyline | fanduel | NYJ | +370 | -480 | 20.4% | 79.5% | 4.0% | 2026-11-12T16:15:36Z |
+| moneyline | pinnacle | NYJ | +339 | -425 | 22.0% | 78.0% | 3.7% | 2026-11-12T16:15:37Z |
 
-### Line movement: first seen 2026-11-11T18:17:56+00:00 to 2026-11-12T11:15:21+00:00 (3 snapshots)
+### Line movement: first seen 2026-11-11T18:17:56+00:00 to 2026-11-12T16:16:00+00:00 (4 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
 | moneyline | draftkings | n/a | n/a | n/a | +310 / -395 | +340 / -440 |
 | moneyline | fanduel | n/a | n/a | n/a | +370 / -480 | +370 / -480 |
-| moneyline | pinnacle | n/a | n/a | n/a | +339 / -424 | +339 / -424 |
+| moneyline | pinnacle | n/a | n/a | n/a | +339 / -424 | +339 / -425 |
 | spread | draftkings | 8.5 | 8.5 | 0.0 | -110 / -110 | -112 / -108 |
 | spread | fanduel | 7.5 | 7.5 | 0.0 | -105 / -115 | -105 / -115 |
 | spread | pinnacle | 8.5 | 8.5 | 0.0 | -114 / +101 | -114 / +101 |
@@ -42,7 +42,7 @@ Retrieved 2026-11-12T11:16:37+00:00 UTC. No-vig = each side's share of the two i
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 79 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 74 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -239,28 +239,28 @@ Blitz rate 37.4% and play-action faced 25.2% on 326 charted dropbacks (FTN). Dee
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Christian Benford | 6 | 40 | 22 | 223 | 5.6 | 3 | 0 | 2 |
-| Davison Igbinosun | 7 | 33 | 17 | 194 | 5.9 | 2 | 1 | 2 |
-| Terrel Bernard | 7 | 33 | 23 | 196 | 5.9 | 1 | 0 | 8 |
-| Cole Bishop | 7 | 31 | 19 | 229 | 7.4 | 1 | 0 | 5 |
-| Maxwell Hairston | 7 | 23 | 12 | 149 | 6.5 | 2 | 0 | 3 |
+| Christian Benford | 7 | 44 | 24 | 262 | 6.0 | 3 | 0 | 2 |
+| Terrel Bernard | 8 | 40 | 26 | 210 | 5.2 | 1 | 1 | 8 |
+| Davison Igbinosun | 8 | 35 | 17 | 194 | 5.5 | 2 | 1 | 2 |
+| Cole Bishop | 8 | 33 | 20 | 234 | 7.1 | 1 | 0 | 5 |
+| Maxwell Hairston | 8 | 28 | 14 | 184 | 6.6 | 2 | 0 | 3 |
 | C.J. Gardner-Johnson | 6 | 21 | 13 | 218 | 10.4 | 1 | 1 | 6 |
-| Dorian Williams | 7 | 18 | 13 | 126 | 7.0 | 2 | 1 | 4 |
-| Damar Hamlin | 6 | 13 | 9 | 172 | 13.2 | 0 | 0 | 0 |
-| Kaleb Elarms-Orr | 7 | 12 | 7 | 96 | 8.0 | 0 | 0 | 0 |
-| DeAundre Alford | 2 | 11 | 6 | 108 | 9.8 | 1 | 0 | 3 |
+| Dorian Williams | 8 | 20 | 13 | 126 | 6.3 | 2 | 2 | 4 |
+| Damar Hamlin | 7 | 15 | 10 | 184 | 12.3 | 0 | 0 | 0 |
+| Dee Alford | 4 | 14 | 8 | 88 | 6.3 | 0 | 1 | 1 |
+| Kaleb Elarms-Orr | 8 | 14 | 9 | 116 | 8.3 | 0 | 0 | 0 |
 
 ### BUF pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| Gregory Rousseau | 7 | 31 | 7.0 | 11 | 22 |
-| Bradley Chubb | 6 | 11 | 1.5 | 4 | 20 |
+| Gregory Rousseau | 8 | 35 | 8.0 | 12 | 24 |
+| Ed Oliver | 5 | 13 | 0.5 | 1 | 0 |
+| Bradley Chubb | 7 | 12 | 1.5 | 5 | 22 |
 | Deone Walker | 7 | 10 | 1.0 | 4 | 0 |
-| Ed Oliver | 4 | 10 | 0.5 | 1 | 0 |
 | T.J. Parker | 5 | 4 | 1.5 | 1 | 6 |
+| Terrel Bernard | 8 | 4 | 0.0 | 0 | 16 |
 | DeWayne Carter | 4 | 3 | 1.0 | 2 | 0 |
-| Terrel Bernard | 7 | 3 | 0.0 | 0 | 16 |
 | Landon Jackson | 2 | 3 | 1.0 | 2 | 0 |
 
 ### BUF offense: what it produces (rank 1 = best offense)
@@ -362,7 +362,7 @@ Neutral-situation pass rate 54.2%; 62.5 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 15 | 5% | 40% | 11.33 | 6 |
 | defense allows | Deep right | 26 | 9% | 42% | 9.77 | 9 |
 
-### BUF lines (depth chart as of 2026-11-12T07:01:31Z)
+### BUF lines (depth chart as of 2026-11-12T15:57:12Z)
 
 Offensive line: LT Dion Dawkins, LG Alec Anderson, C Connor McGovern, RG O'Cyrus Torrence, RT Spencer Brown.  
 Defensive front: LDE T.J. Sanders, NT Deone Walker, RDE Ed Oliver, WLB Greg Rousseau, SLB Bradley Chubb.
@@ -586,7 +586,7 @@ Neutral-situation pass rate 49.6%; 57.8 plays per game; target share WR 56% / TE
 | defense allows | Deep middle | 10 | 4% | 50% | 15.3 | 5 |
 | defense allows | Deep right | 14 | 6% | 50% | 14.57 | 6 |
 
-### NYJ lines (depth chart as of 2026-11-12T07:01:31Z)
+### NYJ lines (depth chart as of 2026-11-12T15:57:12Z)
 
 Offensive line: LT Olu Fashanu, LG Dylan Parham, C Josh Myers, RG Joe Tippmann, RT Armand Membou.  
 Defensive front: LDE David Bailey, LDT Darrell Jackson Jr., RDT Jowon Briggs, RDE Kingsley Enagbare, WLB Demario Davis, SLB Trevin Wallace.
@@ -647,16 +647,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-12T11:16:35+00:00 | 3a46c9894cb2 |
-| pbp | OK | 2026-11-12T11:16:35+00:00 | 1028614beb74 |
-| rosters | OK | 2026-11-12T11:16:35+00:00 | 6e8cdefcd32b |
-| injuries | OK | 2026-11-12T11:16:35+00:00 | ef3ce4b778a7 |
-| depth_charts | OK | 2026-11-12T11:16:35+00:00 | 9bc7e51cbd83 |
-| snap_counts | OK | 2026-11-12T11:16:35+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-12T11:16:36+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-12T11:16:36+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-12T11:16:36+00:00 |  |
+| games | OK | 2026-11-12T16:15:50+00:00 | 5a228d78c03e |
+| pbp | OK | 2026-11-12T16:15:51+00:00 | 1028614beb74 |
+| rosters | OK | 2026-11-12T16:15:51+00:00 | c11a409d73b9 |
+| injuries | OK | 2026-11-12T16:15:51+00:00 | a72cc1afc722 |
+| depth_charts | OK | 2026-11-12T16:15:51+00:00 | 8633b61b70c3 |
+| snap_counts | OK | 2026-11-12T16:15:51+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-12T16:15:51+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-12T16:15:51+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-12T16:15:52+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-12T11:16:37+00:00 |  |
+| book_odds | OK | 2026-11-12T16:15:53+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

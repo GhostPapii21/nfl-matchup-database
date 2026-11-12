@@ -4,45 +4,45 @@
 
 Market (schedule consensus, not a timestamped quote): GB -3, total 42.5.
 
-Generated 2026-11-12T11:16:56+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-12T16:16:25+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-12T11:16:54+00:00 UTC. At kickoff: 44 F, wind 2 mph NNW, 0% chance of precipitation, Mostly Sunny. During the game: low 44 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-12T16:16:22+00:00 UTC. At kickoff: 44 F, wind 2 mph NNW, 0% chance of precipitation, Mostly Sunny. During the game: low 44 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-12T11:16:37+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-12T16:15:53+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | GB -3 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-12T11:14:43Z |
-| spread | fanduel | GB -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-12T11:16:29Z |
-| spread | pinnacle | GB -3 | -111 | -101 | 51.1% | 48.9% | 2.9% | 2026-11-12T11:16:12Z |
-| total | draftkings | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-12T11:14:43Z |
-| total | fanduel | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-12T11:16:29Z |
-| total | pinnacle | Over 42 | -111 | -105 | 50.7% | 49.3% | 3.8% | 2026-11-12T11:16:12Z |
-| moneyline | draftkings | GB | -162 | +136 | 59.3% | 40.7% | 4.2% | 2026-11-12T11:14:43Z |
-| moneyline | fanduel | GB | -164 | +138 | 59.7% | 40.4% | 4.1% | 2026-11-12T11:16:29Z |
-| moneyline | pinnacle | GB | -168 | +147 | 60.8% | 39.2% | 3.2% | 2026-11-12T11:16:12Z |
+| spread | draftkings | GB -3 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-12T16:15:37Z |
+| spread | fanduel | GB -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-12T16:15:36Z |
+| spread | pinnacle | GB -3 | -111 | -101 | 51.1% | 48.9% | 2.9% | 2026-11-12T16:15:36Z |
+| total | draftkings | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-12T16:15:37Z |
+| total | fanduel | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-12T16:15:36Z |
+| total | pinnacle | Over 42 | -107 | -109 | 49.8% | 50.2% | 3.8% | 2026-11-12T16:15:36Z |
+| moneyline | draftkings | GB | -162 | +136 | 59.3% | 40.7% | 4.2% | 2026-11-12T16:15:37Z |
+| moneyline | fanduel | GB | -164 | +138 | 59.7% | 40.4% | 4.1% | 2026-11-12T16:15:36Z |
+| moneyline | pinnacle | GB | -167 | +147 | 60.7% | 39.3% | 3.0% | 2026-11-12T16:15:36Z |
 
-### Line movement: first seen 2026-11-11T18:18:07+00:00 to 2026-11-11T22:07:29+00:00 (3 snapshots)
+### Line movement: first seen 2026-11-11T18:18:07+00:00 to 2026-11-12T16:16:22+00:00 (4 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
 | moneyline | draftkings | n/a | n/a | n/a | -166 / +140 | -162 / +136 |
 | moneyline | fanduel | n/a | n/a | n/a | -172 / +144 | -164 / +138 |
-| moneyline | pinnacle | n/a | n/a | n/a | -179 / +157 | -168 / +147 |
+| moneyline | pinnacle | n/a | n/a | n/a | -179 / +157 | -167 / +147 |
 | spread | draftkings | -3.5 | -3.0 | 0.5 | -105 / -115 | -112 / -108 |
 | spread | fanduel | -3.5 | -3.0 | 0.5 | -105 / -115 | -110 / -110 |
 | spread | pinnacle | -3.5 | -3.0 | 0.5 | +100 / -112 | -111 / -101 |
 | total | draftkings | 42.5 | 42.5 | 0.0 | -105 / -115 | -105 / -115 |
 | total | fanduel | 42.5 | 42.5 | 0.0 | -105 / -115 | -105 / -115 |
-| total | pinnacle | 42.0 | 42.0 | 0.0 | -111 / -105 | -111 / -105 |
+| total | pinnacle | 42.0 | 42.0 | 0.0 | -111 / -105 | -107 / -109 |
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 79 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 74 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -235,29 +235,29 @@ Blitz rate 73.1% and play-action faced 23.2% on 271 charted dropbacks (FTN). Dee
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Byron Murphy | 7 | 40 | 26 | 310 | 7.8 | 0 | 3 | 4 |
-| Josh Metellus | 7 | 32 | 21 | 285 | 8.9 | 1 | 0 | 4 |
-| Isaiah Rodgers | 7 | 24 | 8 | 128 | 5.3 | 0 | 1 | 3 |
-| James Pierre | 7 | 21 | 10 | 91 | 4.3 | 0 | 2 | 1 |
-| Blake Cashman | 7 | 21 | 15 | 137 | 6.5 | 0 | 0 | 2 |
-| Eric Wilson | 7 | 17 | 14 | 108 | 6.4 | 0 | 0 | 9 |
-| Andrew Van Ginkel | 7 | 15 | 5 | 22 | 1.5 | 0 | 1 | 2 |
-| Harrison Smith | 7 | 15 | 8 | 62 | 4.1 | 1 | 1 | 2 |
-| Theo Jackson | 3 | 4 | 4 | 104 | 26.0 | 2 | 0 | 0 |
-| Dallas Turner | 7 | 2 | 2 | 8 | 4.0 | 0 | 0 | 3 |
+| Byron Murphy | 8 | 44 | 28 | 330 | 7.5 | 0 | 4 | 4 |
+| Josh Metellus | 8 | 36 | 24 | 306 | 8.5 | 1 | 0 | 5 |
+| Isaiah Rodgers | 8 | 29 | 12 | 179 | 6.2 | 0 | 1 | 3 |
+| Blake Cashman | 8 | 24 | 16 | 142 | 5.9 | 0 | 0 | 3 |
+| James Pierre | 8 | 24 | 12 | 107 | 4.5 | 0 | 2 | 1 |
+| Eric Wilson | 8 | 18 | 15 | 120 | 6.7 | 0 | 0 | 9 |
+| Andrew Van Ginkel | 8 | 17 | 6 | 34 | 2.0 | 0 | 1 | 4 |
+| Harrison Smith | 8 | 16 | 9 | 87 | 5.4 | 2 | 1 | 2 |
+| Jacob Thomas | 2 | 4 | 3 | 48 | 12.0 | 0 | 0 | 0 |
+| Dallas Turner | 8 | 4 | 4 | 19 | 4.8 | 0 | 0 | 4 |
 
 ### MIN pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| Dallas Turner | 7 | 27 | 6.0 | 9 | 71 |
-| Andrew Van Ginkel | 7 | 15 | 6.5 | 3 | 58 |
-| Blake Cashman | 7 | 13 | 4.5 | 3 | 56 |
-| Eric Wilson | 7 | 10 | 3.0 | 3 | 57 |
-| Tyrion Ingram-Dawkins | 4 | 5 | 0.5 | 3 | 0 |
+| Dallas Turner | 8 | 28 | 7.0 | 9 | 88 |
+| Andrew Van Ginkel | 8 | 20 | 7.5 | 4 | 69 |
+| Blake Cashman | 8 | 13 | 4.5 | 3 | 58 |
+| Eric Wilson | 8 | 10 | 3.0 | 3 | 66 |
+| Jalen Redmond | 5 | 6 | 1.0 | 3 | 0 |
+| Tyrion Ingram-Dawkins | 5 | 6 | 1.0 | 3 | 0 |
+| Harrison Smith | 8 | 5 | 0.5 | 1 | 15 |
 | Levi Drake Rodriguez | 5 | 5 | 1.0 | 2 | 0 |
-| Harrison Smith | 7 | 4 | 0.5 | 1 | 13 |
-| Jalen Redmond | 4 | 4 | 0.5 | 3 | 0 |
 
 ### MIN offense: what it produces (rank 1 = best offense)
 
@@ -361,7 +361,7 @@ Neutral-situation pass rate 51.6%; 55.6 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 14 | 6% | 43% | 17.79 | 5 |
 | defense allows | Deep right | 16 | 7% | 31% | 7.88 | 4 |
 
-### MIN lines (depth chart as of 2026-11-12T07:01:31Z)
+### MIN lines (depth chart as of 2026-11-12T15:57:12Z)
 
 Offensive line: LT Christian Darrisaw, LG Joe Huber, C Blake Brandel, RG Will Fries, RT Brian O'Neill.  
 Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WLB Andrew Van Ginkel, SLB Dallas Turner.
@@ -380,7 +380,7 @@ Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WL
 | Jay Ward | S |  | none listed | Limited Participation in Practice |  |
 | Jauan Jennings | WR |  | none listed | Did Not Participate In Practice |  |
 
-ESPN live list (designations only): Theo Jackson (S) Questionable; Demond Claiborne (RB) Injured Reserve; Tyrion Ingram-Dawkins (DE) Questionable; Kyler Murray (QB) Doubtful; Carson Wentz (QB) Questionable; T.J. Hockenson (TE) Questionable; Blake Cashman (LB) Questionable; Jauan Jennings (WR) Questionable; Jay Ward (S) Questionable; Kyle Van Noy (LB) Questionable.
+ESPN live list (designations only): Theo Jackson (S) Questionable; Demond Claiborne (RB) Injured Reserve; Tyrion Ingram-Dawkins (DE) Questionable; Kyler Murray (QB) Doubtful; Carson Wentz (QB) Questionable; T.J. Hockenson (TE) Questionable; Blake Cashman (LB) Questionable; Jay Ward (S) Questionable; Kyle Van Noy (LB) Questionable; Jauan Jennings (WR) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -583,7 +583,7 @@ Neutral-situation pass rate 55.0%; 60.8 plays per game; target share WR 65% / TE
 | defense allows | Deep middle | 10 | 3% | 40% | 8.3 | 2 |
 | defense allows | Deep right | 15 | 5% | 47% | 12.33 | 6 |
 
-### GB lines (depth chart as of 2026-11-12T07:01:31Z)
+### GB lines (depth chart as of 2026-11-12T15:57:12Z)
 
 Offensive line: LT Jordan Morgan, LG Aaron Banks, C Sean Rhyan, RG Travis Glover, RT Anthony Belton.  
 Defensive front: LDE Karl Brooks, NT Chris McClellan, RDE Devonte Wyatt, WLB Lukas Van Ness, SLB Barryn Sorrell.
@@ -653,16 +653,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-12T11:16:35+00:00 | 3a46c9894cb2 |
-| pbp | OK | 2026-11-12T11:16:35+00:00 | 1028614beb74 |
-| rosters | OK | 2026-11-12T11:16:35+00:00 | 6e8cdefcd32b |
-| injuries | OK | 2026-11-12T11:16:35+00:00 | ef3ce4b778a7 |
-| depth_charts | OK | 2026-11-12T11:16:35+00:00 | 9bc7e51cbd83 |
-| snap_counts | OK | 2026-11-12T11:16:35+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-12T11:16:36+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-12T11:16:36+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-12T11:16:36+00:00 |  |
+| games | OK | 2026-11-12T16:15:50+00:00 | 5a228d78c03e |
+| pbp | OK | 2026-11-12T16:15:51+00:00 | 1028614beb74 |
+| rosters | OK | 2026-11-12T16:15:51+00:00 | c11a409d73b9 |
+| injuries | OK | 2026-11-12T16:15:51+00:00 | a72cc1afc722 |
+| depth_charts | OK | 2026-11-12T16:15:51+00:00 | 8633b61b70c3 |
+| snap_counts | OK | 2026-11-12T16:15:51+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-12T16:15:51+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-12T16:15:51+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-12T16:15:52+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-12T11:16:37+00:00 |  |
+| book_odds | OK | 2026-11-12T16:15:53+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
