@@ -1,0 +1,72 @@
+{
+ "schema": "snapshot-lock/1",
+ "game_id": "2026_10_BUF_NYJ",
+ "locked_utc": "2026-11-12T17:20:55+00:00",
+ "kickoff_utc": "2026-11-15T18:00:00+00:00",
+ "projection_ready": false,
+ "research_only": true,
+ "code_commit": "a7a1a9fddff2abdd9b2278d02f695d088b517a1a",
+ "code_dirty": false,
+ "engine_tree_sha256": "660b7558fba8a50d0755620d96a32c90b6a8edfca4ad20abb010bf9395d7d061",
+ "config_id": "buf_nyj_2026-11-15_data_only_nfl43",
+ "model_weights_changed": false,
+ "sim": {
+  "n": 100000,
+  "seed": 1797353313,
+  "chunks": 7,
+  "chunk_seeds": [
+   1797353313,
+   1798353316,
+   1799353319,
+   1800353322,
+   1801353325,
+   1802353328,
+   1803353331
+  ],
+  "runtime_sec": 376.6,
+  "statuses": [
+   "OK"
+  ]
+ },
+ "inputs": {
+  "pbp_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
+  "pbp_sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+  "pbp_local_name": "pbp_2026_20261112T1116.parquet",
+  "price_freeze_origin": "",
+  "price_freeze_sha256": null,
+  "packet_path": "pregame/packets/2026_10_BUF_NYJ/packet.json",
+  "packet_sha256": "41b37f3cba003143c608b2530559f9ee777ad49f08468379f682cb0ee887187e",
+  "packet_generated_utc": "2026-11-12T11:16:43+00:00",
+  "price_freeze_pulled_utc": "2026-11-12T11:16:37+00:00",
+  "price_status": "PACKET_TWO_BOOK_NOT_FOUR_BOOK",
+  "price_freeze_books": [
+   "draftkings",
+   "fanduel",
+   "pinnacle"
+  ]
+ },
+ "asof_checks": "PASS",
+ "limitations": [
+  "Vertical slice: empirical team-only snap resampling + explicit same-team coarser fallbacks",
+  "Clock costs use empirical median deltas when available else fixed means \u2014 not a situational clock model",
+  "OT rule: official 2025 regular-season (both possess, then sudden death, ties allowed)",
+  "No league silent pool; proposed pooling config default false",
+  "W1-8 development set; no betting edge claim",
+  "Inspired conceptually by NFLSimulatoR/nflfastR (MIT); no R source copied",
+  "See FEATURE_MATRIX.md for unimplemented coverage/route/pressure fields",
+  "data_only config: no injury/inactive adjustment; Phase 15 inactives not applied to the sim",
+  "team scores only; player yards are bootstrap credits, not a player projection model"
+ ],
+ "scoring": {
+  "command": "python3 -m snapshots.score --snapshot snapshots/2026_10_BUF_NYJ/20261112T172055Z",
+  "status": "NOT_SCORED_UNTIL_FINAL"
+ },
+ "files": {
+  "inputs/buf_nyj_2026-11-15_data_only_nfl43.json": "69e3d019b741553cdac395ae624e657b3391c20423d4879740976d4a3bb3355f",
+  "inputs/team_prices_from_packet.json": "955d5d24c4987153e25d7b37e1fc97f376d78bb06a591c49dac67e0803206c5e",
+  "report.md": "31f3f534feb84445582c89276bac49ffdfc65c0cb16c442b0914f5c04466ff69",
+  "sim_arrays.npz": "8464969702f284e4d3e14418b15e037a9c2dd1b3b396911bcf88afc5b1c0cff1",
+  "sim_meta.json": "3897fd39094c8d0a9cc2f65ea0b4c61c411b66d48dbb95aada915f92867e884c",
+  "summary.json": "470878333a1e8726ce2d17cd719e71010c2e1d17e504f9380f2aff4799394b82"
+ }
+}

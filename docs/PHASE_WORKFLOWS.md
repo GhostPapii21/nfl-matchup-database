@@ -28,12 +28,19 @@ then lists what is FILLED, MISSING, STALE or NOT_YET. `--write` saves `pipeline/
 
 Phase 14's command is the 100k entry point, `python -m pipeline.sim100k --game <game_id>`. It is NOT_YET
 whenever that entry point refuses. See the README section "Projection pipeline: goal vs current status".
+When every gate passes it runs the NFL-43 possession engine (`core/possession_engine_v0` `simulate_games`, through
+`snapshots/lock.py` `run_sim`, the same call the snapshot locker makes) for exactly 100,000 trials, on the game's single
+`data_only` config and the newest committed as-of PBP `data/historical/nflverse/pbp_<season>_w1_<wk-1>_pulled_*.parquet`.
+G2 also checks that config's `semantics` block (penalties / returns / overtime modes must each be documented in the
+reviewed `SEMANTICS_BOUNDS.md`, `ot_rule` must equal the overtime mode), and G7 checks the as-of inputs (no target game
+or week >= target in the PBP, every history week present, before kickoff). After the run, a trial count other than
+100,000, a non-OK chunk, or engine-reported semantics different from the gated config is a refusal.
 
 ## Hooks for pieces other owners are building (`pipeline/hooks.py`)
 
 | Hook | Owner | Until it lands |
 | --- | --- | --- |
-| NFL-43 semantics: `SEMANTICS_BOUNDS.md` present, and `known_flags/KNOWN_LIMITATIONS.json` with `unsupported_semantics` empty and `DEFERRED_100K` false | BetGuru | 100k gate G1/G2 refuse |
+| NFL-43 semantics: `SEMANTICS_BOUNDS.md` present, `known_flags/KNOWN_LIMITATIONS.json` with `unsupported_semantics` empty and `DEFERRED_100K` false, `known_flags/NFL43_REVIEW.json` ACCEPTED for the current bounds file, and the engine config's `semantics` modes documented in it | BetGuru / reviewer | 100k gate G1/G2 refuse |
 | `ROCKET_COMMAND`, the `rocket` validation command, run with the game id and required to exit 0 | BetGuru | 100k gate G6 refuses |
 | Four-book freeze: newest `pregame/price_freezes/*_<AWAY>@<HOME>/freeze_*.json`, read only, Blitz's module never imported | Blitz | phase 13 MISSING; gate G4/G5 refuse |
 | `official_inactives` in `REGISTRY` | no owner yet (NFL-46 / NFL-49) | phase 15 NOT_YET or MISSING; gate refuses |

@@ -10,7 +10,9 @@ from market import build_mirror, novig_two_way, novig_three_way
 ROOT = Path(__file__).resolve().parent
 ART = ROOT / "artifacts"
 
-def main():
+def main(out_dir=None):
+    """out_dir: where to write the report (tests pass a tmp dir so the tracked artifact is not rewritten)."""
+    out = Path(out_dir) if out_dir is not None else ART
     p26 = period_table_from_pbp(load_pbp(ROOT/"data/play_by_play_2026.parquet"))
     p25 = period_table_from_pbp(load_pbp(ROOT/"data/play_by_play_2025.parquet"))
     hist = pd.concat([p25, p26], ignore_index=True)
@@ -117,8 +119,8 @@ def main():
             }
         report["markets"].append(entry)
 
-    (ART/"demo_jaxbal_period_report.json").write_text(json.dumps(report, indent=2, default=str)+"\n")
-    print("wrote", ART/"demo_jaxbal_period_report.json")
+    (out/"demo_jaxbal_period_report.json").write_text(json.dumps(report, indent=2, default=str)+"\n")
+    print("wrote", out/"demo_jaxbal_period_report.json")
     for e in report["markets"]:
         print(e["market"], "raw_mc", e["raw"].get("monte_carlo"), "decisive", e["raw"].get("p_win_decisive"), "push", e["raw"].get("p_push"), "basis", e["mirror"].get("comparison_basis"), "flags", e["mirror"]["flags"][:3])
 

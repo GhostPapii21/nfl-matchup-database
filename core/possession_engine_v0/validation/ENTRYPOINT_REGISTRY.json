@@ -1,0 +1,24 @@
+{
+  "schema": "nfl42-validation-entrypoint/1",
+  "linear": "NFL-42",
+  "validation_entrypoint": "core/possession_engine_v0/validation/entrypoint.py:run_validation",
+  "authorized": {
+    "path": "core/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/validate.py",
+    "sha256": "8a9d72949c122923ca149b635cd04290373112abc50930b85de5332491a201a1",
+    "metrics": "core/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/role_policy_metrics.json",
+    "required_status": "RESEARCH_PROVISIONAL_NOT_PROMOTED",
+    "required_accepted_policy": null
+  },
+  "deny": [
+    {
+      "path": "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py",
+      "sha256": "29b6b0c2644f256a705b09b5e1a56716dd355d79eb07a6187b9c3df495ff93e9",
+      "reason": "HISTORICAL_CONTAMINATED_W7_8_ACCEPTANCE_GATE"
+    },
+    {
+      "path": "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/role_policy_metrics.json",
+      "sha256": "62b8bc7a0165f975f53bae7dd999117fe43ea754382026c75bdde35d0d0a8e16",
+      "reason": "CONTAMINATED_METRICS_accepted_policy_from_W7_8"
+    }
+  ]
+}
