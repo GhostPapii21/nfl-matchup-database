@@ -1,0 +1,86 @@
+{
+ "label": "research only, not validated",
+ "regraded_from": "backtest_after_wp12_n2000_per_game.csv",
+ "lines_sha256": "6e330ca155e285e919716ecc3d53dce0d0c74c4cc3d83c927fbdcba872a85212",
+ "lines_ref": "ba83615:data/lines/lines_wk04_09_2026.csv",
+ "games_with_close": 88,
+ "results_new_off": {
+  "games": 88,
+  "weeks": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "decided_games": 87,
+  "ties": 1,
+  "mae_home_pts": 7.2380852272727285,
+  "mae_away_pts": 8.868335227272727,
+  "mae_total": 11.385249999999997,
+  "mae_margin": 10.691443181818181,
+  "total_bias_sim_minus_actual": -0.09387499999999994,
+  "margin_bias_sim_minus_actual": 0.5831363636363633,
+  "mean_sim_total": 45.95157954545454,
+  "mean_actual_total": 46.04545454545455,
+  "brier_model": 0.2515019281609196,
+  "logloss_model": 0.7101445397811207,
+  "brier_coinflip": 0.25,
+  "logloss_coinflip": 0.6931471805599453,
+  "market_games_with_close_total": 88,
+  "mae_total_close": 10.325757575757576,
+  "mae_total_model_same_games": 11.385249999999997,
+  "total_bias_close_minus_actual": -0.7310606060606062,
+  "mean_model_minus_close_total": 0.637185606060606,
+  "corr_model_total_vs_close": 0.5419429018644204,
+  "mae_margin_close": 8.982954545454545,
+  "mae_margin_model_same_games": 10.691443181818181,
+  "mean_abs_model_margin_minus_close": 5.82853409090909,
+  "corr_model_margin_vs_close": 0.5387079277125594,
+  "market_wp_games": 87,
+  "brier_close_devig": 0.20550674149666737,
+  "logloss_close_devig": 0.6016669912499022,
+  "brier_model_same_games": 0.2515019281609196,
+  "logloss_model_same_games": 0.7101445397811207,
+  "calibration_table_p_home_win": [
+   {
+    "bin": "[0.00,0.20)",
+    "n": 8,
+    "mean_p_home": 0.168,
+    "home_win_rate": 0.5
+   },
+   {
+    "bin": "[0.20,0.35)",
+    "n": 15,
+    "mean_p_home": 0.282,
+    "home_win_rate": 0.2
+   },
+   {
+    "bin": "[0.35,0.50)",
+    "n": 19,
+    "mean_p_home": 0.414,
+    "home_win_rate": 0.421
+   },
+   {
+    "bin": "[0.50,0.65)",
+    "n": 22,
+    "mean_p_home": 0.565,
+    "home_win_rate": 0.455
+   },
+   {
+    "bin": "[0.65,0.80)",
+    "n": 15,
+    "mean_p_home": 0.712,
+    "home_win_rate": 0.6
+   },
+   {
+    "bin": "[0.80,1.00)",
+    "n": 8,
+    "mean_p_home": 0.869,
+    "home_win_rate": 0.625
+   }
+  ],
+  "pit_total_quartiles": null
+ }
+}
