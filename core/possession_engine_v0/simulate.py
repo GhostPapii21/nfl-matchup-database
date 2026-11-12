@@ -752,6 +752,8 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
             "W1-8 development set; no betting edge claim",
             "Inspired conceptually by NFLSimulatoR/nflfastR (MIT); no R source copied",
             "See FEATURE_MATRIX.md for unimplemented coverage/route/pressure fields",
+            "NFL-43 still_unsupported (not invented): " + ", ".join(
+                semantics_meta.get("still_unsupported") or []),
         ],
         "source_composition": source_composition(cfg),
     }
@@ -838,16 +840,31 @@ def attach_semantics(catalog, cfg: dict, pbp_path) -> dict:
     if not sc:
         return {"status": "LEGACY_UNSUPPORTED", "penalties": "UNSUPPORTED", "returns": "UNSUPPORTED",
                 "overtime": "single_possession_approx_declared_limitation"}
+    # NFL-43 residual R2: record still_unsupported in every opt-in run; refuse if this config enables one.
+    try:
+        repo = Path(__file__).resolve().parents[2]
+        import sys
+        if str(repo) not in sys.path:
+            sys.path.insert(0, str(repo))
+        from pipeline import hooks
+        flags = hooks.known_flags()
+        ex = hooks.nfl43_still_unsupported(flags, cfg=cfg)
+    except Exception as e:
+        raise ValueError(f"UNSUPPORTED: nfl43.still_unsupported could not be enforced ({e!r})") from e
+    if ex["status"] != "OK":
+        raise ValueError("UNSUPPORTED: " + ex["reason"])
     from semantics import build_penalty_model, build_return_model, OT_RULES
     wk = int(cfg["game"]["week_asof_exclusive"])
     season = int(cfg["game"].get("season", cfg["history"]["season"]))
     sem: dict = {"penalties": None, "returns": None, "overtime": sc.get("overtime", OT_RULES[0])}
-    meta: dict = {"status": "NFL43_SEMANTICS_V1", "overtime": sem["overtime"]}
+    meta: dict = {"status": "NFL43_SEMANTICS_V1", "overtime": sem["overtime"],
+                  "still_unsupported": ex.get("exclusions") or [],
+                  "still_unsupported_status": ex["status"]}
     if sem["overtime"] not in OT_RULES:
         raise ValueError(f"unknown ot rule {sem['overtime']}")
     if sc.get("penalties") == "canonical_log_v1":
         teams = [cfg["game"]["home"], cfg["game"]["away"]]
-        pm = build_penalty_model(teams, week_asof_exclusive=wk, season=season)
+        pm = build_penalty_model(teams, week_asof_exclusive=wk, season=season, pbp_path=pbp_path)
         sem["penalties"] = pm
         meta["penalties"] = {"mode": "canonical_log_v1", **pm.meta}
     else:

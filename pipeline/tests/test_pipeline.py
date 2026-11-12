@@ -49,7 +49,9 @@ def freeze_dir(tmp_path, pulled, books=BOOKS, status="OK", game="2026-11-12_WAS@
     return tmp_path / "price_freezes"
 
 
-GOOD_FLAGS = {"DEFERRED_100K": False, "unsupported_semantics": []}
+STILL_UNSUPPORTED = ["kick-play fouls", "joint_producer penalties/return yards", "blocked kicks/onside/fakes"]
+GOOD_FLAGS = {"DEFERRED_100K": False, "unsupported_semantics": [],
+              "nfl43": {"still_unsupported": STILL_UNSUPPORTED}}
 OK_INACTIVES = lambda when: (lambda pk: {"status": "OK", "retrieved_utc": iso(when), "inactives": {}})
 
 
@@ -200,6 +202,7 @@ def test_engine_not_called_when_refused(tmp_path):
 
 @pytest.mark.parametrize("breaker", ["deferred", "semantics_file", "semantics_flag", "flags_unreadable", "stale_odds",
                                      "review_pending", "review_not_accepted", "bounds_edited_after_review", "review_file_missing",
+                                     "still_unsupported_missing", "still_unsupported_enabled",
                                      "no_freeze", "inactives_not_yet", "rocket_unset", "rocket_fails", "phase_missing"])
 def test_each_gate_alone_refuses(tmp_path, breaker, monkeypatch):
     now = KO - timedelta(minutes=60)
@@ -224,6 +227,12 @@ def test_each_gate_alone_refuses(tmp_path, breaker, monkeypatch):
     elif breaker == "review_file_missing":
         root = semantics_root(tmp_path / "rm")
         (root / "known_flags/NFL43_REVIEW.json").unlink()
+    elif breaker == "still_unsupported_missing":
+        flags = {"DEFERRED_100K": False, "unsupported_semantics": []}
+    elif breaker == "still_unsupported_enabled":
+        cfg_dir = (root / "core/possession_engine_v0/config")
+        cfg_dir.mkdir(parents=True, exist_ok=True)
+        (cfg_dir / "bad.json").write_text(json.dumps({"config_id": "bad", "semantics": {"kick_play_fouls": True}}))
     elif breaker == "flags_unreadable":
         flags = {"_error": "cannot read"}
     elif breaker == "stale_odds":
@@ -292,14 +301,50 @@ def test_nfl43_review_guard_unit(tmp_path):
         assert rv["status"] == "PENDING_REVIEW" and rv["reason"], kw
     sem = H.nfl43_semantics(GOOD_FLAGS, root=semantics_root(tmp_path / "p", review="PENDING"))
     assert sem["status"] == "UNSUPPORTED" and "review" in sem["reason"]
+    ok = H.nfl43_semantics(GOOD_FLAGS, root=semantics_root(tmp_path / "ok"))
+    assert ok["status"] == "OK" and ok["still_unsupported"] == STILL_UNSUPPORTED
+
+
+
+def test_still_unsupported_missing_fails_closed(tmp_path):
+    flags = {"DEFERRED_100K": False, "unsupported_semantics": []}
+    ex = H.nfl43_still_unsupported(flags)
+    assert ex["status"] == "FAILED" and "still_unsupported" in ex["reason"]
+    sem = H.nfl43_semantics(flags, root=semantics_root(tmp_path))
+    assert sem["status"] == "UNSUPPORTED" and "still_unsupported" in sem["reason"]
+
+
+def test_still_unsupported_enabled_config_is_refused(tmp_path):
+    cfg = {"semantics": {"penalties": "canonical_log_v1", "kick_play_fouls": True}}
+    ex = H.nfl43_still_unsupported(GOOD_FLAGS, cfg=cfg)
+    assert ex["status"] == "REFUSED" and "kick-play fouls" in ex["enabled"]
+    sem = H.nfl43_semantics(GOOD_FLAGS, root=semantics_root(tmp_path), cfg=cfg)
+    assert sem["status"] == "UNSUPPORTED" and "kick-play fouls" in sem["reason"]
+    # Review is OK/ACCEPTED; enabling an exclusion still refuses.
+    assert sem["review"] == "OK" and sem["still_unsupported_status"] == "REFUSED"
+
+
+def test_still_unsupported_scan_finds_bad_snapshot_config(tmp_path):
+    root = semantics_root(tmp_path)
+    d = root / "core/possession_engine_v0/config"
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "bad.json").write_text(json.dumps({
+        "config_id": "bad", "semantics": {"blocked_kicks": "asof_league_v1"}
+    }))
+    ex = H.nfl43_still_unsupported(GOOD_FLAGS, root=root, scan_repo=True)
+    assert ex["status"] == "REFUSED" and "blocked kicks/onside/fakes" in ex["enabled"]
 
 
 def test_repo_as_committed_is_review_pending_and_deferred():
     """NFL-43 AC4 (Ghost6 d65ad98): until the reviewer flips NFL43_REVIEW.json, the shipped repo refuses 100k."""
     flags = H.known_flags()
     assert flags["DEFERRED_100K"] is True and flags["unsupported_semantics"]
+    assert flags["nfl43"]["still_unsupported"] == STILL_UNSUPPORTED
     assert H.nfl43_review()["status"] == "PENDING_REVIEW"
     assert H.nfl43_semantics(flags)["status"] == "UNSUPPORTED"
+    # R2: the exclusions are readable and current committed configs do not enable them.
+    ex = H.nfl43_still_unsupported(flags, scan_repo=True)
+    assert ex["status"] == "OK" and ex["exclusions"] == STILL_UNSUPPORTED and not ex["enabled"]
 
 
 def test_shipped_hooks_fail_closed():

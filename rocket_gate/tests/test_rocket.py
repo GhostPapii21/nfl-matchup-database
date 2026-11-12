@@ -23,7 +23,9 @@ def _accepted_repo(tmp_path, review="ACCEPTED", edit=False):
     import hashlib
     root = _fake_repo(tmp_path)
     (root / "known_flags/KNOWN_LIMITATIONS.json").write_text(json.dumps(
-        {"projection_ready": False, "unsupported_semantics": [], "DEFERRED_100K": False}))
+        {"projection_ready": False, "unsupported_semantics": [], "DEFERRED_100K": False,
+         "nfl43": {"still_unsupported": [
+             "kick-play fouls", "joint_producer penalties/return yards", "blocked kicks/onside/fakes"]}}))
     b = root / "core/possession_engine_v0/SEMANTICS_BOUNDS.md"
     b.write_text("bounds v1")
     (root / "core/possession_engine_v0/semantics.py").write_text("official_2025_regular_season")
@@ -35,9 +37,34 @@ def _accepted_repo(tmp_path, review="ACCEPTED", edit=False):
 
 
 def test_r2_passes_only_when_review_accepted_for_current_bounds(tmp_path):
-    assert cli.r2_semantics(_accepted_repo(tmp_path / "ok"))["status"] == "PASS"
+    r = cli.r2_semantics(_accepted_repo(tmp_path / "ok"))
+    assert r["status"] == "PASS"
+    assert r["detail"]["still_unsupported"] == [
+        "kick-play fouls", "joint_producer penalties/return yards", "blocked kicks/onside/fakes"]
     assert cli.r2_semantics(_accepted_repo(tmp_path / "pend", review="PENDING"))["status"] == "FAIL"
     assert cli.r2_semantics(_accepted_repo(tmp_path / "edit", edit=True))["status"] == "FAIL"
+
+
+def test_r2_fails_when_still_unsupported_missing(tmp_path):
+    root = _accepted_repo(tmp_path)
+    (root / "known_flags/KNOWN_LIMITATIONS.json").write_text(json.dumps(
+        {"projection_ready": False, "unsupported_semantics": [], "DEFERRED_100K": False}))
+    r = cli.r2_semantics(root)
+    assert r["status"] == "FAIL"
+    assert any("STILL_UNSUPPORTED" in str(x) or "still_unsupported" in str(x) for x in r["detail"])
+
+
+def test_r2_fails_when_a_config_enables_still_unsupported(tmp_path):
+    root = _accepted_repo(tmp_path)
+    d = root / "core/possession_engine_v0/config"
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "bad.json").write_text(json.dumps({
+        "config_id": "bad", "semantics": {"penalties": "canonical_log_v1", "kick_play_fouls": True}
+    }))
+    r = cli.r2_semantics(root)
+    assert r["status"] == "FAIL"
+    blob = json.dumps(r["detail"])
+    assert "kick-play fouls" in blob and "STILL_UNSUPPORTED" in blob
 
 
 def test_r5_flags_locks_made_before_review(tmp_path):

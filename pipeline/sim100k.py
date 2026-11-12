@@ -47,7 +47,7 @@ def preflight(pk: dict | None, now: datetime | None = None, flags: dict | None =
     else:
         gates["G1_flags"] = "PASS"
 
-    sem = hooks.nfl43_semantics(flags, root=root or hooks.ROOT)
+    sem = hooks.nfl43_semantics(flags, root=root or hooks.ROOT, scan_repo=True)
     gates["G2_nfl43"] = "PASS" if sem["status"] == "OK" else "REFUSED"
     if sem["status"] != "OK":
         reasons.append("G2: " + sem["reason"])
