@@ -230,6 +230,8 @@ REQUIRED_DENY = {
 }
 REQUIRED_AUTHORIZED = ("core/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/validate.py",
                        "8a9d72949c122923ca149b635cd04290373112abc50930b85de5332491a201a1")
+REQUIRED_METRICS = ("core/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/role_policy_metrics.json",
+                    "RESEARCH_PROVISIONAL_NOT_PROMOTED")
 
 
 def nfl42_entrypoint(root: Path = ROOT) -> dict:
@@ -260,6 +262,8 @@ def nfl42_entrypoint(root: Path = ROOT) -> dict:
         if r.get("status") != "PASS":
             bad = [k for k, v in (r.get("checks") or {}).items() if not v]
             why.append(f"run_validation status {r.get('status')!r} (failed checks: {bad})")
+        if r.get("policy_status") != REQUIRED_METRICS[1]:
+            why.append(f"decontam metrics status {r.get('policy_status')!r}, not {REQUIRED_METRICS[1]!r}")
         if r.get("accepted_policy") is not None:
             why.append(f"run_validation set accepted_policy={r.get('accepted_policy')!r} (W7-8 promotion)")
         denied = []
@@ -277,6 +281,11 @@ def nfl42_entrypoint(root: Path = ROOT) -> dict:
         auth = reg.get("authorized") or {}
         if (auth.get("path"), auth.get("sha256")) != REQUIRED_AUTHORIZED:
             why.append(f"registry authorized entry {auth.get('path')!r} is not the sanctioned decontam validator")
+        if (auth.get("metrics"), auth.get("required_status")) != REQUIRED_METRICS:
+            why.append(f"registry authorized metrics/required_status {auth.get('metrics')!r}/{auth.get('required_status')!r} "
+                       "is not the sanctioned decontam metrics with RESEARCH_PROVISIONAL_NOT_PROMOTED")
+        if "required_accepted_policy" not in auth or auth.get("required_accepted_policy") is not None:
+            why.append("registry authorized.required_accepted_policy is not null")
     except Exception as e:  # unreadable registry, import error, hash error: refuse
         return {"status": "FAILED", "reason": f"NFL-42 entrypoint check raised {e!r}"}
     if why:

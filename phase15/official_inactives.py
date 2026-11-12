@@ -258,8 +258,13 @@ def validate_record(rec: dict, gid: str, away: str, home: str, packet_kickoff: d
         if v.get("status") != "OK":
             why.append(f"{t}: status {v.get('status')!r} ({v.get('reason')})")
         names = (rec.get("inactives") or {}).get(t)
-        if not v.get("players") or not names:
-            why.append(f"{t}: no parsed inactive list")
+        players = v.get("players")
+        pnames = [p.get("name") for p in players] if isinstance(players, list) and all(isinstance(p, dict) for p in players) else None
+        ok_names = lambda xs: isinstance(xs, list) and xs and all(isinstance(x, str) and x.strip() for x in xs)
+        if not ok_names(pnames) or not ok_names(names):
+            why.append(f"{t}: no parsed inactive list with non-blank player names")
+        elif [x.strip() for x in pnames] != [x.strip() for x in names]:
+            why.append(f"{t}: exported inactives {names} do not match parsed players {pnames}")
         url, site = str(v.get("url") or ""), CLUB_SITES.get(t, ("", "", ""))[1]
         if not (site and url.startswith(site + "/news/") and url != CLUB_SITES[t][0] and "inactive" in url.lower()):
             why.append(f"{t}: source {url or None!r} is not an official {site or '?'} Inactives article")

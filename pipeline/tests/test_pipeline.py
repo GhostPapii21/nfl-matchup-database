@@ -657,6 +657,15 @@ def test_entrypoint_guard_rehashed_authorized_fails(tmp_path):
     assert H.nfl42_entrypoint(r)["status"] == "FAILED"
 
 
+@pytest.mark.parametrize("field,val", [("metrics", "core/possession_engine_v0/validation/ENTRYPOINT_REGISTRY.json"),
+                                       ("required_status", None), ("required_accepted_policy", "mix_equal_0.25")])
+def test_entrypoint_guard_metrics_retarget_fails(tmp_path, field, val):
+    r = ep_root(tmp_path)
+    f = r / "core/possession_engine_v0/validation/ENTRYPOINT_REGISTRY.json"
+    reg = json.loads(f.read_text()); reg["authorized"][field] = val; f.write_text(json.dumps(reg))
+    assert H.nfl42_entrypoint(r)["status"] == "FAILED"
+
+
 def test_lock_run_sim_direct_call_refuses_when_entrypoint_broken(monkeypatch):
     from snapshots import lock as LK
     monkeypatch.setattr(H, "nfl42_entrypoint", lambda *a, **k: {"status": "FAILED", "reason": "tampered"})
@@ -824,6 +833,10 @@ def _set(path, val):
     ("published_missing", _set(["teams", "NYG", "published_utc"], None), None),
     ("kickoff_mismatch", _set(["kickoff_utc"], "2026-11-16T18:00:00+00:00"), None),
     ("top_status_incomplete", _set(["status"], "INCOMPLETE"), None),
+    ("blank_player_dict", _set(["teams", "WAS", "players"], [{}]), None),
+    ("blank_export_name", _set(["inactives", "WAS"], [""]), None),
+    ("export_mismatch", _set(["inactives", "WAS"], ["Somebody Else"]), None),
+    ("players_not_list", _set(["teams", "WAS", "players"], "Lucas Patrick"), None),
     ("pulled_after_kickoff", None, KO + timedelta(minutes=5)),
     ("pulled_in_future", None, KO - timedelta(minutes=30)),
 ])
