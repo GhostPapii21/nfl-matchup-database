@@ -2,11 +2,15 @@
   "issue": "NFL-43",
   "criterion": 4,
   "what": "Ghost6 review of core/possession_engine_v0/SEMANTICS_BOUNDS.md (descriptive bounds for penalties, returns, official OT)",
-  "status": "PENDING",
-  "allowed_status": ["PENDING", "NOT_ACCEPTED", "ACCEPTED"],
+  "status": "ACCEPTED",
+  "allowed_status": [
+    "PENDING",
+    "NOT_ACCEPTED",
+    "ACCEPTED"
+  ],
   "reviewer": "Ghost6",
-  "accepted_bounds_sha256": null,
-  "accepted_commit": null,
+  "accepted_bounds_sha256": "975e84cccc2dc27e420ad058663a940f2c80d9fdc5a09e23c20e81bc5ee37ef7",
+  "accepted_commit": "32b9b921407167ef4eb76811aaddb17714483792",
   "history": [
     {
       "verdict": "NOT_ACCEPTED",
@@ -14,9 +18,45 @@
       "commit": "d65ad9834abd6e09979061091743ace0c75d8bc8",
       "file": "docs/ACCEPTANCE_STATUS.md",
       "at_et": "2026-11-12 about 12:45 PM ET",
-      "defects": ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "F1", "T1", "T2", "T3", "T4", "T5"]
+      "defects": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "F1",
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ]
+    },
+    {
+      "verdict": "NOT_ACCEPTED",
+      "reviewer": "Ghost6",
+      "commit": "26a844d",
+      "file": "docs/ACCEPTANCE_STATUS.md",
+      "at_et": "2026-11-12 about 2:40 PM ET",
+      "defects": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "verdict": "ACCEPTED",
+      "reviewer": "Ghost6",
+      "commit": "32b9b921407167ef4eb76811aaddb17714483792",
+      "at_et": "2026-11-12 about 3:05 PM ET",
+      "note": "R1 (d27c10b) and R2 (a155935) verified fixed; sensitivity restore (32b9b92); all offline suites pass. Flip authorized by Rico in Betting Hub, Nov 12 3:00 PM ET. Accepting the bounds is not validation: research only, projection_ready stays false."
     }
   ],
   "how_to_accept": "Only the reviewer flips this: set status to ACCEPTED, accepted_bounds_sha256 to sha256 of the reviewed SEMANTICS_BOUNDS.md and accepted_commit to the reviewed commit. Any later edit to SEMANTICS_BOUNDS.md changes its sha256 and puts the guard back to refusing. Accepting the bounds does not by itself un-defer 100k: DEFERRED_100K in KNOWN_LIMITATIONS.json is Rico's call.",
-  "guarded_by": ["pipeline/hooks.py nfl43_review / nfl43_semantics (sim100k G2)", "rocket R2", "snapshots/lock.py (refuses before any sim)"]
+  "guarded_by": [
+    "pipeline/hooks.py nfl43_review / nfl43_semantics (sim100k G2)",
+    "rocket R2",
+    "snapshots/lock.py (refuses before any sim)"
+  ]
 }
