@@ -6,7 +6,8 @@
     ./rocket --json out.json ...  # also write the report
 
 Checks
-  R1 nfl42_entrypoint   single validation entrypoint routes to the decontam protocol; contaminated bytes unchanged
+  R1 nfl42_entrypoint   single validation entrypoint routes to the decontam protocol; contaminated bytes unchanged;
+                        same enforcement as 100k G0 / snapshot locker (pipeline.hooks.nfl42_entrypoint)
   R2 nfl43_semantics    SEMANTICS_BOUNDS.md present, known_flags consistent, DEFERRED_100K false, the NFL-43 bounds
                         review ACCEPTED for the current bounds file (known_flags/NFL43_REVIEW.json via
                         pipeline.hooks.nfl43_semantics), and nfl43.still_unsupported listed and not enabled by any
@@ -41,12 +42,19 @@ def _ok(name, passed, detail=None):
     return {"check": name, "status": "PASS" if passed else "FAIL", "detail": detail}
 
 
-def r1_entrypoint():
-    sys.path.insert(0, str(ROOT / "core" / "possession_engine_v0"))
+def r1_entrypoint(root: Path = ROOT):
+    """NFL-42: run_validation PASS with accepted_policy null AND the same enforcement the 100k gate (G0) and the
+    snapshot locker use (pipeline.hooks.nfl42_entrypoint: registry target, deny-listed files rejected by invoke())."""
+    sys.path.insert(0, str(root / "core" / "possession_engine_v0"))
     try:
         from validation.entrypoint import run_validation
         r = run_validation()
-        return _ok("R1_nfl42_entrypoint", r["status"] == "PASS" and r["accepted_policy"] is None, r["checks"])
+        sys.path.insert(0, str(root))
+        from pipeline import hooks
+        ep = hooks.nfl42_entrypoint(root)
+        ok = r["status"] == "PASS" and r["accepted_policy"] is None and ep["status"] == "OK"
+        detail = {**r["checks"], "enforced_g0": ep["status"]} if ok else {**r["checks"], "enforced_g0": ep}
+        return _ok("R1_nfl42_entrypoint", ok, detail)
     except Exception as e:
         return _ok("R1_nfl42_entrypoint", False, repr(e))
 

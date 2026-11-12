@@ -144,3 +144,16 @@ def test_r3_rejects_player_numbers_in_snapshot(tmp_path):
     (d / "inputs/team_prices.json").unlink()
     (d / "summary.json").write_text(json.dumps({"player_mean_yards_top": {}}))
     assert r3_safety(tmp_path)["status"] == "FAIL"
+
+
+def test_r1_passes_on_repo_and_reports_g0_enforcement():
+    r = cli.r1_entrypoint()
+    assert r["status"] == "PASS" and r["detail"]["enforced_g0"] == "OK"
+
+
+def test_r1_fails_when_entrypoint_enforcement_fails(monkeypatch):
+    sys.path.insert(0, str(cli.ROOT))
+    from pipeline import hooks
+    monkeypatch.setattr(hooks, "nfl42_entrypoint", lambda *a, **k: {"status": "FAILED", "reason": "deny list empty"})
+    r = cli.r1_entrypoint()
+    assert r["status"] == "FAIL" and r["detail"]["enforced_g0"]["status"] == "FAILED"

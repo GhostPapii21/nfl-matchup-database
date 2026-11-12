@@ -10,6 +10,10 @@ refuses. Binding a hook is a reviewed code change (pull request), never an envir
                                             `python -m pregame.multibook` (Blitz's module is never imported or edited)
   rocket_validation    BetGuru   NFL-49   ROCKET_COMMAND: argv list; the gate runs it and requires exit code 0
   official_inactives   unassigned NFL-46/49 {"status": "OK", "retrieved_utc": iso, "inactives": {team: [names]}}  fn(packet)
+  nfl42_entrypoint     Blitz     NFL-42/49 NOT a function hook: in-process check of the single validation entrypoint
+                                            core/possession_engine_v0/validation/entrypoint.py (registry PASS, every deny-listed
+                                            contaminated file still rejected by invoke(), accepted_policy null). G0 of the 100k
+                                            gate and the snapshot locker refuse unless it is OK.
   nfl43_semantics      BetGuru   NFL-43   SEMANTICS_BOUNDS.md must exist in the repo AND known_flags/KNOWN_LIMITATIONS.json must
                                             have "unsupported_semantics" empty and "DEFERRED_100K" false AND the review
                                             status file known_flags/NFL43_REVIEW.json must say ACCEPTED for the sha256 of
@@ -52,6 +56,7 @@ REGISTRY: dict[str, str | None] = {
 }
 PENDING_REASON = {
     "official_inactives": "No official-inactives pull exists yet (NFL-46 / NFL-49); Phase 15 stays NOT_YET.",
+    "nfl42_entrypoint": "NFL-42 entrypoint check not bound.",
 }
 
 
@@ -210,6 +215,57 @@ def nfl43_semantics(flags: dict | None = None, root: Path = ROOT, cfg: dict | No
                 "reason": "NFL-43 (penalties, returns, overtime) not closed: " + "; ".join(why) + "."}
     return {"status": "OK", "review": "ACCEPTED", "files": [str(p.relative_to(root)) for p in found],
             "still_unsupported": ex["exclusions"], "still_unsupported_status": "OK"}
+
+
+ENTRYPOINT_REL = Path("core") / "possession_engine_v0" / "validation" / "entrypoint.py"
+ENTRYPOINT_TARGET = "core/possession_engine_v0/validation/entrypoint.py:run_validation"
+
+
+def nfl42_entrypoint(root: Path = ROOT, impl=None) -> dict:
+    """NFL-42 enforcement for every 100k path (sim100k G0, snapshots.lock). OK only when ALL hold:
+      * the registry's ``validation_entrypoint`` is the one sanctioned target (ENTRYPOINT_TARGET);
+      * ``run_validation()`` returns PASS (authorized decontam validator bytes match, contaminated bytes unchanged,
+        decontam metrics status as registered) with ``accepted_policy`` null;
+      * every deny-listed contaminated file is actually REJECTED by ``invoke()`` (ContaminatedEntrypoint).
+    The module is loaded from ``root`` by file path, so a tampered copy is checked as-is. Read-only; never runs the
+    contaminated validator; no network. Anything unexpected (missing file, exception) is FAILED (fail closed)."""
+    if impl is not None:
+        return _call("nfl42_entrypoint", impl, ok=("OK",))
+    import importlib.util
+    root = Path(root)
+    f = root / ENTRYPOINT_REL
+    if not f.exists():
+        return {"status": "FAILED", "reason": f"NFL-42 validation entrypoint {ENTRYPOINT_REL} missing"}
+    try:
+        spec = importlib.util.spec_from_file_location(f"_nfl42_entrypoint_{abs(hash(str(f)))}", f)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        reg = mod.registry()
+        why = []
+        if reg.get("validation_entrypoint") != ENTRYPOINT_TARGET:
+            why.append(f"registry validation_entrypoint is {reg.get('validation_entrypoint')!r}, not {ENTRYPOINT_TARGET!r}")
+        r = mod.run_validation()
+        if r.get("status") != "PASS":
+            bad = [k for k, v in (r.get("checks") or {}).items() if not v]
+            why.append(f"run_validation status {r.get('status')!r} (failed checks: {bad})")
+        if r.get("accepted_policy") is not None:
+            why.append(f"run_validation set accepted_policy={r.get('accepted_policy')!r} (W7-8 promotion)")
+        denied = []
+        for d in reg.get("deny") or []:
+            try:
+                mod.invoke(root / d["path"], reg)
+            except mod.ContaminatedEntrypoint:
+                denied.append(d["path"])
+                continue
+            why.append(f"deny-listed {d['path']} was NOT rejected by invoke()")
+        if not reg.get("deny"):
+            why.append("registry deny list is empty (contaminated suite_fix path not blocked)")
+    except Exception as e:  # unreadable registry, import error, hash error: refuse
+        return {"status": "FAILED", "reason": f"NFL-42 entrypoint check raised {e!r}"}
+    if why:
+        return {"status": "FAILED", "reason": "NFL-42 single validation entrypoint not enforced: " + "; ".join(why)}
+    return {"status": "OK", "entrypoint": reg["validation_entrypoint"], "authorized": reg["authorized"]["path"],
+            "authorized_sha256": reg["authorized"]["sha256"], "denied": denied, "policy_status": r.get("policy_status")}
 
 
 def known_flags(path: Path = FLAGS) -> dict:

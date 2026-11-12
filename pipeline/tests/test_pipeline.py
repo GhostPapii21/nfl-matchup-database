@@ -52,7 +52,9 @@ def freeze_dir(tmp_path, pulled, books=BOOKS, status="OK", game="2026-11-12_WAS@
 STILL_UNSUPPORTED = ["kick-play fouls", "joint_producer penalties/return yards", "blocked kicks/onside/fakes"]
 GOOD_FLAGS = {"DEFERRED_100K": False, "unsupported_semantics": [],
               "nfl43": {"still_unsupported": STILL_UNSUPPORTED}}
-OK_INACTIVES = lambda when: (lambda pk: {"status": "OK", "retrieved_utc": iso(when), "inactives": {}})
+OK_INACTIVES = lambda when: (lambda pk: {"status": "OK", "retrieved_utc": iso(when), "inactives": {},
+                                         "sources": {"WAS": "https://www.commanders.com/news/inactives-x",
+                                                     "NYG": "https://www.giants.com/news/inactives-x"}})
 
 
 BOUNDS_TEXT = "bounds: `canonical_log_v1` `asof_league_v1` `official_2025_regular_season`"
@@ -535,3 +537,223 @@ def test_phase_cli_strict_exit(tmp_path, capsys):
     assert P.main(["--game", "g", "--packet", str(p), "--phase", "1"]) == 0
     assert P.main(["--game", "g", "--packet", str(p), "--phase", "15", "--strict"]) == 3
     assert P.main(["--game", "g", "--packet", str(tmp_path / "none.json")]) == 2
+
+
+# ---------------- NFL-42 entrypoint enforcement (G0) ----------------
+
+EP_FILES = ["core/possession_engine_v0/validation/entrypoint.py",
+            "core/possession_engine_v0/validation/ENTRYPOINT_REGISTRY.json",
+            "core/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/validate.py",
+            "core/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/role_policy_metrics.json",
+            "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py",
+            "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/role_policy_metrics.json"]
+
+
+def ep_root(tmp_path):
+    """Byte-for-byte copy of the NFL-42 entrypoint, its registry and the files it pins, under a fake root."""
+    r = tmp_path / "ep"
+    for rel in EP_FILES:
+        (r / rel).parent.mkdir(parents=True, exist_ok=True)
+        (r / rel).write_bytes((ROOT / rel).read_bytes())
+    return r
+
+
+def test_entrypoint_guard_real_repo_ok():
+    ep = H.nfl42_entrypoint()
+    assert ep["status"] == "OK", ep
+    assert ep["entrypoint"] == H.ENTRYPOINT_TARGET
+    assert len(ep["denied"]) == 2 and all("dal_ind_suite_fix" in d for d in ep["denied"])
+
+
+def test_entrypoint_guard_copy_ok(tmp_path):
+    assert H.nfl42_entrypoint(ep_root(tmp_path))["status"] == "OK"
+
+
+@pytest.mark.parametrize("tamper", ["authorized_bytes", "contaminated_bytes", "metrics_promoted", "registry_retarget",
+                                    "deny_list_empty", "registry_missing", "entrypoint_missing", "registry_garbage"])
+def test_entrypoint_guard_tampering_fails_closed(tmp_path, tamper):
+    r = ep_root(tmp_path)
+    reg_f = r / "core/possession_engine_v0/validation/ENTRYPOINT_REGISTRY.json"
+    reg = json.loads(reg_f.read_text())
+    if tamper == "authorized_bytes":
+        f = r / reg["authorized"]["path"]; f.write_bytes(f.read_bytes() + b"\n# edited\n")
+    elif tamper == "contaminated_bytes":
+        f = r / reg["deny"][0]["path"]; f.write_bytes(f.read_bytes() + b"\n# edited\n")
+    elif tamper == "metrics_promoted":
+        f = r / reg["authorized"]["metrics"]; m = json.loads(f.read_text()); m["accepted_policy"] = "mix_equal_0.25"
+        f.write_text(json.dumps(m))
+    elif tamper == "registry_retarget":
+        reg["validation_entrypoint"] = "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py:main"
+        reg_f.write_text(json.dumps(reg))
+    elif tamper == "deny_list_empty":
+        reg["deny"] = []; reg_f.write_text(json.dumps(reg))
+    elif tamper == "registry_missing":
+        reg_f.unlink()
+    elif tamper == "entrypoint_missing":
+        (r / "core/possession_engine_v0/validation/entrypoint.py").unlink()
+    elif tamper == "registry_garbage":
+        reg_f.write_text("{not json")
+    ep = H.nfl42_entrypoint(r)
+    assert ep["status"] == "FAILED" and ep["reason"], tamper
+
+
+@pytest.mark.parametrize("ep_result", [{"status": "FAILED", "reason": "x"}, {"status": "PASS"}, None, "OK"])
+def test_g0_refuses_unless_entrypoint_ok(tmp_path, ep_result):
+    now = KO - timedelta(minutes=60)
+    pk, hi = all_green(tmp_path, now)
+    root = semantics_root(tmp_path)
+    pf = S.preflight(pk, now=now, flags=GOOD_FLAGS, hook_impls=hi, root=root, rocket_impl=lambda g: {"status": "PASS"},
+                     entrypoint_impl=lambda: ep_result)
+    assert pf["ok"] is False and pf["gates"]["G0_entrypoint"] == "REFUSED"
+    assert any(r.startswith("G0:") for r in pf["reasons"]) and "engine_inputs" not in pf
+    assert pf["gates"]["G6_rocket"].startswith("NOT_RUN")
+    code, rep = S.run("2026_10_WAS_NYG", packet=_write(tmp_path / "pk_g0.json", pk), engine=_must_not_run, now=now,
+                      flags=GOOD_FLAGS, hook_impls=hi, root=root, rocket_impl=lambda g: {"status": "PASS"},
+                      entrypoint_impl=lambda: ep_result)
+    assert code == 2 and rep["status"] == "REFUSED" and "result" not in rep
+
+
+def test_g0_raising_entrypoint_refuses(tmp_path):
+    now = KO - timedelta(minutes=60)
+    pk, hi = all_green(tmp_path, now)
+    def boom():
+        raise RuntimeError("registry gone")
+    pf = S.preflight(pk, now=now, flags=GOOD_FLAGS, hook_impls=hi, root=semantics_root(tmp_path),
+                     rocket_impl=lambda g: {"status": "PASS"}, entrypoint_impl=boom)
+    assert pf["gates"]["G0_entrypoint"] == "REFUSED" and not pf["ok"]
+
+
+def test_g0_passes_on_real_repo_in_all_green(tmp_path):
+    now = KO - timedelta(minutes=60)
+    pk, hi = all_green(tmp_path, now)
+    pf = S.preflight(pk, now=now, flags=GOOD_FLAGS, hook_impls=hi, root=semantics_root(tmp_path),
+                     rocket_impl=lambda g: {"status": "PASS"})
+    assert pf["ok"], pf["reasons"]
+    assert pf["gates"]["G0_entrypoint"] == "PASS" and pf["entrypoint"]["status"] == "OK"
+
+
+def test_default_engine_rechecks_entrypoint(monkeypatch):
+    monkeypatch.setattr(H, "nfl42_entrypoint", lambda *a, **k: {"status": "FAILED", "reason": "tampered"})
+    with pytest.raises(RuntimeError, match="tampered"):
+        S.default_engine({}, S.TRIALS, {"config_path": REAL_CFG, "pbp": "x"})
+
+
+def test_snapshot_locker_refuses_when_entrypoint_not_enforced(monkeypatch, capsys):
+    from snapshots import lock as LK
+    monkeypatch.setattr(LK, "review_guard", lambda *a, **k: {"status": "OK"})
+    monkeypatch.setattr(H, "nfl42_entrypoint", lambda *a, **k: {"status": "FAILED", "reason": "NFL-42 tampered."})
+    monkeypatch.setattr(LK, "run_sim", _must_not_run)
+    code = LK.main(["--config", str(REAL_CFG), "--pbp", "nope.parquet"])
+    assert code == 2 and "NFL-42 tampered." in capsys.readouterr().out
+
+
+# ---------------- Phase 15 per game (NFL-46) ----------------
+
+def _incomplete_inactives(when):
+    return lambda pk: {"status": "INCOMPLETE", "reason": "inactives_x.json: not OK for {'WAS': 'no club inactives article'}",
+                       "retrieved_utc": iso(when), "file": "phase15/inactives/2026_10_WAS_NYG/inactives_x.json",
+                       "sources": {"WAS": "https://www.commanders.com/news/football/football-news-archive",
+                                   "NYG": "https://www.giants.com/news/inactives-x"}}
+
+
+def test_phase15_not_yet_before_t90(tmp_path):
+    now = KO - timedelta(hours=3)
+    pk, hi = all_green(tmp_path, now)
+    p = P.phase15_status(pk, now, hi)
+    assert p["status"] == "NOT_YET" and p["pull_utc"] is None and "T-90" in p["reason"] and p["source"]
+    led = P.ledger(pk, now, phases=[15], hook_impls=hi, gate={"ran": False})
+    assert led["phase15"]["status"] == "NOT_YET" and led["phases"][0]["status"] == "NOT_YET"
+
+
+def test_phase15_auto_after_t90_with_sources_and_pull_time(tmp_path):
+    now = KO - timedelta(minutes=60)
+    pk, hi = all_green(tmp_path, now)
+    pk["phase_ledger"][14]["status"] = "PENDING"   # the packet builder's placeholder no longer decides Phase 15
+    led = P.ledger(pk, now, phases=[15], hook_impls=hi, gate={"ran": False})
+    p = led["phase15"]
+    assert p["status"] == "AUTO" and led["phases"][0]["status"] == "AUTO"
+    assert set(p["source_urls"]) == {"WAS", "NYG"} and p["pull_utc"] and p["pull_et"].endswith("ET")
+    assert "Phase 15 (official inactives): AUTO" in P.render(led)
+
+
+@pytest.mark.parametrize("case", ["no_pull", "incomplete", "pulled_early", "no_timestamp", "no_source_url",
+                                  "hook_raises", "kickoff_unknown"])
+def test_phase15_missing_cases(tmp_path, case):
+    now = KO - timedelta(minutes=60)
+    pk, hi = all_green(tmp_path, now)
+    if case == "no_pull":
+        hi["official_inactives"] = lambda pk: {"status": "MISSING", "reason": "No phase15/inactives file"}
+    elif case == "incomplete":
+        hi["official_inactives"] = _incomplete_inactives(now - timedelta(minutes=1))
+    elif case == "pulled_early":
+        hi["official_inactives"] = OK_INACTIVES(KO - timedelta(minutes=100))
+    elif case == "no_timestamp":
+        ok = OK_INACTIVES(now)
+        hi["official_inactives"] = lambda pk: {**ok(pk), "retrieved_utc": None}
+    elif case == "no_source_url":
+        ok = OK_INACTIVES(now)
+        hi["official_inactives"] = lambda pk: {**ok(pk), "sources": {"WAS": "https://www.commanders.com/x"}}
+    elif case == "hook_raises":
+        def boom(pk):
+            raise OSError("disk")
+        hi["official_inactives"] = boom
+    elif case == "kickoff_unknown":
+        del pk["weather"]["kickoff_utc"]; del pk["game"]["kickoff_et"]
+    p = P.phase15_status(pk, now, hi)
+    assert p["status"] == "MISSING" and p["reason"] and p["source"], case
+    led = P.ledger(pk, now, phases=[15], hook_impls=hi, gate={"ran": False})
+    assert led["phases"][0]["status"] == "MISSING" and led["phases"][0]["missing"], case
+    if case == "incomplete":
+        assert p["pull_utc"] and p["file"] and p["source_urls"]["NYG"]
+
+
+def test_phase15_status_is_always_one_of_three(tmp_path):
+    for mins in (600, 121, 91, 89, 30, 1):
+        now = KO - timedelta(minutes=mins)
+        pk, hi = all_green(tmp_path / str(mins), now)
+        assert P.phase15_status(pk, now, hi)["status"] in P.PHASE15_STATUSES
+
+
+def test_phase15_missing_blocks_100k_gate(tmp_path):
+    now = KO - timedelta(minutes=60)
+    pk, hi = all_green(tmp_path, now)
+    hi["official_inactives"] = _incomplete_inactives(now)
+    pf = S.preflight(pk, now=now, flags=GOOD_FLAGS, hook_impls=hi, root=semantics_root(tmp_path),
+                     rocket_impl=lambda g: {"status": "PASS"})
+    assert not pf["ok"] and any("phase 15" in r for r in pf["reasons"])
+
+
+def test_phase15_real_hook_reads_pull_file(tmp_path, monkeypatch):
+    """End to end with the real phase15 hook: an OK pull file under phase15/inactives/<game>/ makes Phase 15 AUTO."""
+    from phase15 import official_inactives as OI
+    now = KO - timedelta(minutes=60)
+    d = tmp_path / "inactives" / "2026_10_WAS_NYG"
+    d.mkdir(parents=True)
+    teams = {t: {"team": t, "status": "OK", "url": f"https://club.example/{t}/news/inactives", "published_utc": iso(KO - timedelta(minutes=90)),
+                 "players": [{"pos": "C", "name": "Lucas Patrick", "note": None}]} for t in ("WAS", "NYG")}
+    (d / "inactives_20261113T001500Z.json").write_text(json.dumps({"status": "OK", "game_id": "2026_10_WAS_NYG",
+        "retrieved_utc": iso(KO - timedelta(minutes=60)), "teams": teams,
+        "inactives": {t: ["Lucas Patrick"] for t in teams}}))
+    pk, hi = all_green(tmp_path, now)
+    hi["official_inactives"] = lambda pk: OI.hook(pk, out_dir=tmp_path / "inactives")
+    p = P.phase15_status(pk, now, hi)
+    assert p["status"] == "AUTO" and p["source_urls"]["WAS"].endswith("/inactives") and p["published_utc"]["NYG"]
+
+
+def test_every_written_ledger_has_phase15_block(tmp_path, monkeypatch):
+    """pipeline.slate writes a Phase 15 status (AUTO/NOT_YET/MISSING + source + pull time) for each game."""
+    from pipeline import slate as SL
+    now = KO - timedelta(hours=3)
+    pk = packet(now)
+    pkd = tmp_path / "packets" / "2026_10_WAS_NYG"
+    pkd.mkdir(parents=True)
+    (pkd / "packet.json").write_text(json.dumps(pk))
+    (tmp_path / "packets" / "latest.json").write_text(json.dumps({"games": [{"game_id": "2026_10_WAS_NYG", "date": "2026-11-12", "kickoff_et": "20:15"}]}))
+    monkeypatch.setattr(P, "PACKETS", tmp_path / "packets")
+    monkeypatch.setattr(P, "LEDGERS", tmp_path / "ledgers")
+    monkeypatch.setattr(S, "run", lambda gid, *a, **k: (2, {"status": "REFUSED", "reasons": ["G4: test"]}))
+    assert SL.main([]) == 0
+    led = json.loads((tmp_path / "ledgers" / "2026_10_WAS_NYG.json").read_text())
+    assert led["phase15"]["status"] in P.PHASE15_STATUSES and "source" in led["phase15"] and "pull_utc" in led["phase15"]
+    idx = (tmp_path / "ledgers" / "INDEX.md").read_text()
+    assert "Phase 15 inactives" in idx and led["phase15"]["status"] in idx

@@ -11,6 +11,10 @@ is skipped silently: a phase whose inputs are absent is MISSING, one that cannot
     python -m pipeline.phases --game 2026_10_WAS_NYG --strict        # exit 3 if any phase is not filled
 
 Statuses: AUTO / PARTIAL (from the packet builder, all checked inputs present and fresh), MISSING, STALE, NOT_YET.
+Phase 15 (official inactives, NFL-46) is decided per game by `phase15_status` from the official-inactives hook, not by
+the packet builder's PENDING placeholder: AUTO (both clubs' official Inactives articles pulled after T-90), NOT_YET
+(before T-90) or MISSING (window open but no complete official pull, or pulled too early), always with the source and
+pull time. Every ledger carries it as a top-level "phase15" block. ESPN/wire lists are never used for Phase 15.
 No network, no API credits, no model run.
 """
 from __future__ import annotations
@@ -74,7 +78,53 @@ def load_packet(game_id: str, packet: Path | None = None) -> dict:
     return json.loads(p.read_text())
 
 
-def run_phase(n: int, pk: dict, fresh_rows: list[dict], gate: dict | None = None) -> dict:
+PHASE15_STATUSES = ("AUTO", "NOT_YET", "MISSING")
+PHASE15_SOURCE = "club official site 'Inactives' article (phase15/official_inactives.py); ESPN/wire not used"
+
+
+def _et(iso: str | None) -> str | None:
+    d = freshness.parse_utc(iso)
+    return None if d is None else d.astimezone(freshness.ET).strftime("%Y-%m-%d %I:%M %p ET")
+
+
+def phase15_status(pk: dict, now: datetime | None = None, hook_impls=None) -> dict:
+    """Per-game Phase 15 status (NFL-46): exactly one of AUTO / NOT_YET / MISSING, with source and pull time.
+    Read-only (the hook reads the newest phase15/inactives/<game>/inactives_*.json; no network). Never invents a
+    status: anything other than a complete official pull after T-90 is NOT_YET (window not open) or MISSING."""
+    from datetime import timedelta
+    now = now or datetime.now(timezone.utc)
+    ko = freshness.kickoff_utc(pk)
+    base = {"status": "MISSING", "source": PHASE15_SOURCE, "source_urls": {}, "pull_utc": None, "pull_et": None,
+            "published_utc": {}, "file": None, "kickoff_utc": ko.isoformat() if ko else None,
+            "posts_utc": None, "checked_utc": now.isoformat(timespec="seconds")}
+    if ko is None:
+        return {**base, "reason": "Kickoff time unknown, so the T-90 inactive window cannot be placed."}
+    posts = ko - timedelta(minutes=freshness.INACTIVES_POST_MINUTES_BEFORE_KICKOFF)
+    base["posts_utc"] = posts.isoformat()
+    if now < posts:
+        return {**base, "status": "NOT_YET",
+                "reason": f"Official inactives post about {posts.astimezone(freshness.ET):%a %I:%M %p} ET (T-90); not available yet."}
+    res = hooks.official_inactives(pk, impl=(hook_impls or {}).get("official_inactives"))
+    detail = res.get("detail") if isinstance(res.get("detail"), dict) else res
+    base.update(source_urls=detail.get("sources") or {}, pull_utc=detail.get("retrieved_utc"),
+                pull_et=_et(detail.get("retrieved_utc")), file=detail.get("file"),
+                published_utc=detail.get("published_utc") or {})
+    if res.get("status") != "OK":
+        return {**base, "reason": res.get("reason", "No official inactives pull.")}
+    got = freshness.parse_utc(res.get("retrieved_utc"))
+    if got is None:
+        return {**base, "reason": "Official inactives pull has no retrieved_utc; pull time unknown is treated as missing."}
+    if got < posts:
+        return {**base, "reason": "Official inactives were pulled before they post (T-90); pull again."}
+    g = pk.get("game") or {}
+    no_src = [t for t in (g.get("away"), g.get("home")) if not (t and base["source_urls"].get(t))]
+    if no_src:
+        return {**base, "reason": f"Official inactives pull has no source URL for {no_src}; not accepted."}
+    return {**base, "status": "AUTO", "inactives": res.get("inactives") or {},
+            "reason": "Both clubs' official Inactives articles pulled after T-90."}
+
+
+def run_phase(n: int, pk: dict, fresh_rows: list[dict], gate: dict | None = None, p15: dict | None = None) -> dict:
     name, inputs, sources, unavailable = PHASES[n]
     built = {r["phase"]: r for r in pk.get("phase_ledger") or []}.get(n, {})
     filled, missing, stale, not_yet = [], [], [], []
@@ -98,6 +148,16 @@ def run_phase(n: int, pk: dict, fresh_rows: list[dict], gate: dict | None = None
         g = gate or {}
         if not g.get("ran"):
             not_yet.append("100k entry point refused: " + "; ".join(r.rstrip(".") for r in (g.get("reasons") or ["gate not evaluated"])))
+    if n == 15 and p15 is not None:
+        # NFL-46: Phase 15 is decided by the official-inactives pull, never by the packet's PENDING placeholder.
+        status = p15["status"]
+        line = f"official_inactives: {p15['reason']} (source: {p15['source_urls'] or p15['source']}; pulled {p15['pull_utc'] or 'never'})"
+        filled, missing, stale, not_yet = (([line], [], [], []) if status == "AUTO" else
+                                           ([], [], [], [line]) if status == "NOT_YET" else ([], [line], [], []))
+        return {"phase": n, "name": name, "status": status, "packet_status": built.get("status"),
+                "filled": filled, "missing": missing, "stale": stale, "not_yet": not_yet,
+                "not_available_from_free_sources": unavailable, "packet_detail": built.get("detail"), "phase15": p15,
+                "command": f"python -m pipeline.phases --game {(pk.get('game') or {}).get('game_id')} --phase {n}"}
     if missing:
         status = "MISSING"
     elif stale:
@@ -121,16 +181,24 @@ def ledger(pk: dict, now: datetime | None = None, phases=None, hook_impls=None, 
     if gate is None and (phases is None or 14 in phases):
         from . import sim100k  # local import: sim100k imports this module
         gate = sim100k.preflight(pk, now=now, hook_impls=hook_impls, include_phases=False)
-    out = [run_phase(n, pk, rows, gate) for n in (phases or PHASES)]
+    p15 = phase15_status(pk, now, hook_impls)
+    out = [run_phase(n, pk, rows, gate, p15) for n in (phases or PHASES)]
     return {"schema": "nfl56-phase-ledger/1", "game_id": (pk.get("game") or {}).get("game_id"),
             "checked_utc": now.isoformat(timespec="seconds"), "packet_generated_utc": pk.get("generated_utc"),
-            "projection_ready": False, "research_only": True, "freshness": rows, "phases": out,
+            "projection_ready": False, "research_only": True, "phase15": p15, "freshness": rows, "phases": out,
             "summary": {s: sum(1 for p in out if p["status"] == s) for s in sorted({p["status"] for p in out})}}
 
 
 def render(led: dict) -> str:
     L = [f"# Phase ledger {led['game_id']}", "", f"Checked {led['checked_utc']} (UTC); packet built {led['packet_generated_utc']}. "
-         "Research only; projection_ready is false.", "", "| Phase | Name | Status | Missing / stale / not yet |", "| --- | --- | --- | --- |"]
+         "Research only; projection_ready is false.", ""]
+    p15 = led.get("phase15")
+    if p15:
+        src = ", ".join(f"{t}: {u}" for t, u in (p15.get("source_urls") or {}).items() if u) or p15["source"]
+        L += [f"**Phase 15 (official inactives): {p15['status']}**. Source: {src}. Pulled: "
+              f"{(p15['pull_utc'] + ' UTC (' + p15['pull_et'] + ')') if p15.get('pull_utc') and p15.get('pull_et') else 'not pulled'}. "
+              f"{p15['reason']}", ""]
+    L += ["| Phase | Name | Status | Missing / stale / not yet |", "| --- | --- | --- | --- |"]
     for p in led["phases"]:
         why = "; ".join(p["missing"] + p["stale"] + p["not_yet"]) or (", ".join(p["not_available_from_free_sources"]) and
                                                                      "not in free sources: " + ", ".join(p["not_available_from_free_sources"])) or "-"

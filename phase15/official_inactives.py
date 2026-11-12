@@ -1,6 +1,7 @@
 """Phase 15: official game-day inactives, timestamped (NFL-49 / NFL-56 hook `official_inactives`).
 
     python -m phase15.official_inactives --game 2026_10_WAS_NYG [--kickoff-utc 2026-11-13T01:15:00Z]
+    python -m phase15.official_inactives --slate      # every game in pregame/packets/latest.json inside [T-120m, kickoff]
 
 Source of record: each club's official site (NFL Clubs platform), the "Inactives" article the club
 publishes ~90 minutes before kickoff (e.g. giants.com/news/inactives-..., commanders.com/news/inactives-...).
@@ -177,36 +178,78 @@ def newest(game_id: str, out_dir: Path = OUT) -> Path | None:
     return files[-1] if files else None
 
 
+def _rel(f: Path) -> str:
+    return str(f.relative_to(ROOT)) if f.is_relative_to(ROOT) else str(f)
+
+
 def hook(pk: dict, out_dir: Path = OUT) -> dict:
-    """pipeline.hooks REGISTRY['official_inactives'] contract. Read-only, no network."""
+    """pipeline.hooks REGISTRY['official_inactives'] contract. Read-only, no network.
+
+    OK: {"status": "OK", "retrieved_utc", "inactives": {team: [names]}, "file", "sources": {team: url},
+         "published_utc": {team: iso}}
+    Otherwise MISSING (no pull file) or INCOMPLETE (a team's club article missing/unparsed); INCOMPLETE still carries
+    the pull time, file and per-team source/reason so the ledger shows what was tried and when."""
     gid = (pk.get("game") or {}).get("game_id")
     f = newest(gid, out_dir) if gid else None
     if f is None:
         return {"status": "MISSING", "reason": f"No phase15/inactives/{gid}/inactives_*.json; run "
                 f"`python -m phase15.official_inactives --game {gid}` after T-90."}
-    rec = json.loads(f.read_text())
-    if rec.get("status") != "OK":
-        bad = {t: v.get("reason") for t, v in rec.get("teams", {}).items() if v.get("status") != "OK"}
-        return {"status": "INCOMPLETE", "reason": f"{f.name}: not OK for {bad}", "file": str(f)}
+    try:
+        rec = json.loads(f.read_text())
+    except (OSError, ValueError) as e:
+        return {"status": "INCOMPLETE", "reason": f"{f.name} unreadable: {e!r}", "file": _rel(f)}
+    teams = rec.get("teams") or {}
+    sources = {t: v.get("url") or v.get("index_url") for t, v in teams.items()}
+    if rec.get("status") != "OK" or rec.get("game_id") not in (None, gid):
+        bad = {t: v.get("reason") for t, v in teams.items() if v.get("status") != "OK"}
+        why = f"{f.name}: not OK for {bad}" if bad else f"{f.name}: status {rec.get('status')!r} game {rec.get('game_id')!r}"
+        return {"status": "INCOMPLETE", "reason": why, "file": _rel(f),
+                "retrieved_utc": rec.get("retrieved_utc"), "sources": sources}
     return {"status": "OK", "retrieved_utc": rec["retrieved_utc"], "inactives": rec["inactives"],
-            "file": str(f.relative_to(ROOT)) if f.is_relative_to(ROOT) else str(f),
-            "sources": {t: v.get("url") for t, v in rec["teams"].items()}}
+            "file": _rel(f), "sources": sources,
+            "published_utc": {t: v.get("published_utc") for t, v in teams.items()}}
 
 
 def _kickoff_from_packet(game_id: str) -> datetime | None:
     p = ROOT / "pregame" / "packets" / game_id / "packet.json"
     if not p.exists():
         return None
-    w = json.loads(p.read_text()).get("weather") or {}
-    ko = w.get("kickoff_utc")
-    return datetime.fromisoformat(ko.replace("Z", "+00:00")) if ko else None
+    sys.path.insert(0, str(ROOT))
+    from pipeline import freshness  # weather.kickoff_utc, else game.date + kickoff_et (ET); indoor games too
+    return freshness.kickoff_utc(json.loads(p.read_text()))
+
+
+def slate(now: datetime | None = None, getter=_get, out_dir: Path = OUT, index: Path | None = None) -> list[dict]:
+    """Pull every game in pregame/packets/latest.json whose inactive window is open ([T-120m, kickoff]).
+    Games outside the window are listed as skipped (never pulled early, never pulled after kickoff)."""
+    now = now or datetime.now(timezone.utc)
+    index = index or (ROOT / "pregame" / "packets" / "latest.json")
+    rows = []
+    for g in json.loads(Path(index).read_text()).get("games") or []:
+        gid = g["game_id"]
+        ko = _kickoff_from_packet(gid)
+        if ko is None:
+            rows.append({"game_id": gid, "action": "SKIPPED", "why": "kickoff unknown"}); continue
+        if not (ko - EARLIEST_BEFORE_KICKOFF <= now <= ko):
+            rows.append({"game_id": gid, "action": "SKIPPED", "kickoff_utc": ko.isoformat(),
+                         "why": "outside the inactive window [T-120m, kickoff]"}); continue
+        f = pull(gid, ko, now=now, getter=getter, out_dir=out_dir)
+        rows.append({"game_id": gid, "action": "PULLED", "file": _rel(f), "status": json.loads(f.read_text())["status"]})
+    return rows
 
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--game", required=True)
+    ap.add_argument("--game")
+    ap.add_argument("--slate", action="store_true", help="pull every game in pregame/packets/latest.json inside [T-120m, kickoff]")
     ap.add_argument("--kickoff-utc")
     a = ap.parse_args(argv)
+    if a.slate:
+        for r in slate():
+            print(json.dumps(r))
+        return 0
+    if not a.game:
+        ap.error("--game or --slate is required")
     ko = datetime.fromisoformat(a.kickoff_utc.replace("Z", "+00:00")) if a.kickoff_utc else _kickoff_from_packet(a.game)
     if ko is None:
         print("kickoff unknown: pass --kickoff-utc", file=sys.stderr)

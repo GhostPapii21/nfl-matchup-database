@@ -1,0 +1,44 @@
+name: rocket (NFL-49 single validation command)
+
+# Runs ./rocket (rocket_gate/cli.py: R1 NFL-42 entrypoint, R2 NFL-43 semantics, R3 safety, R4 test suites) on every
+# pull request and on pushes to main. Fails the check if rocket exits non-zero.
+# No secrets are passed in, no network data pulls, no Odds API credits. Read-only (contents: read). Never flips
+# projection_ready. Install: git mv pipeline/workflow_to_install/rocket-ci.yml .github/workflows/rocket-ci.yml
+# (needs a token with the `workflow` scope, or GitHub's web editor).
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rocket-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  rocket:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # R5 (when a game id is passed) checks the lock's code commit is an ancestor of HEAD
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-test.txt
+      - run: python -m pip install --disable-pip-version-check -r requirements-test.txt
+      - name: ./rocket (fail closed)
+        run: python3 rocket --json rocket_report.json
+      - name: Keep the rocket report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rocket-report
+          path: rocket_report.json
+          if-no-files-found: ignore
