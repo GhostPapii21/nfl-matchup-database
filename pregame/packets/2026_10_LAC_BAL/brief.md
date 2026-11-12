@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): BAL -4.5, total 38.5.
 
-Generated 2026-11-11T22:07:42+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-12T11:15:46+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-11T22:07:40+00:00 UTC. At kickoff: 42 F, wind 2 mph N, 0% chance of precipitation, Partly Cloudy. During the game: low 39 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-12T11:15:45+00:00 UTC. At kickoff: 44 F, wind 3 mph NW, 0% chance of precipitation, Mostly Clear. During the game: low 39 F, wind up to 3 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-11T22:07:10+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-12T11:15:16+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | BAL -4.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-11T22:05:55Z |
-| spread | fanduel | BAL -4.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-11T22:06:33Z |
-| spread | pinnacle | BAL -4.5 | +100 | -113 | 48.5% | 51.5% | 3.0% | 2026-11-11T22:06:32Z |
-| total | draftkings | Over 38.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-11T22:05:55Z |
-| total | fanduel | Over 38.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-11T22:06:33Z |
-| total | pinnacle | Over 38.5 | -111 | -105 | 50.7% | 49.3% | 3.8% | 2026-11-11T22:06:32Z |
-| moneyline | draftkings | BAL | -205 | +170 | 64.5% | 35.5% | 4.2% | 2026-11-11T22:05:55Z |
-| moneyline | fanduel | BAL | -200 | +168 | 64.1% | 35.9% | 4.0% | 2026-11-11T22:06:33Z |
-| moneyline | pinnacle | BAL | -206 | +179 | 65.3% | 34.7% | 3.2% | 2026-11-11T22:06:32Z |
+| spread | draftkings | BAL -4.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-12T11:14:43Z |
+| spread | fanduel | BAL -4.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-12T11:14:41Z |
+| spread | pinnacle | BAL -4.5 | +100 | -113 | 48.5% | 51.5% | 3.0% | 2026-11-12T11:14:58Z |
+| total | draftkings | Over 38.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-12T11:14:43Z |
+| total | fanduel | Over 38.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-12T11:14:41Z |
+| total | pinnacle | Over 38.5 | -111 | -105 | 50.7% | 49.3% | 3.8% | 2026-11-12T11:14:58Z |
+| moneyline | draftkings | BAL | -225 | +185 | 66.4% | 33.6% | 4.3% | 2026-11-12T11:14:43Z |
+| moneyline | fanduel | BAL | -200 | +168 | 64.1% | 35.9% | 4.0% | 2026-11-12T11:14:41Z |
+| moneyline | pinnacle | BAL | -206 | +179 | 65.3% | 34.7% | 3.2% | 2026-11-12T11:14:58Z |
 
-### Line movement: first seen 2026-11-11T18:18:16+00:00 to 2026-11-11T22:07:40+00:00 (5 snapshots)
+### Line movement: first seen 2026-11-11T18:18:16+00:00 to 2026-11-12T11:15:45+00:00 (6 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
-| moneyline | draftkings | n/a | n/a | n/a | -218 / +180 | -205 / +170 |
+| moneyline | draftkings | n/a | n/a | n/a | -218 / +180 | -225 / +185 |
 | moneyline | fanduel | n/a | n/a | n/a | -215 / +180 | -200 / +168 |
 | moneyline | pinnacle | n/a | n/a | n/a | -206 / +179 | -206 / +179 |
 | spread | draftkings | -4.5 | -4.5 | 0.0 | -108 / -112 | -108 / -112 |
@@ -42,7 +42,7 @@ Retrieved 2026-11-11T22:07:10+00:00 UTC. No-vig = each side's share of the two i
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 123 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 110 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -117,6 +117,55 @@ Bootstrap of each team's real quarter scores. 'matchup_pair' includes the oppone
 | T.Huntley | QB | passing yards | 5 | 143.2 | 0.991 | 12.5 | 25.0 | 37.5 | 50.0 | 62.4 | 163.5 |
 
 The player's own games in the window (recency-weighted mean; percentiles of his game log), scaled by half of the opponent's allowed-per-game deviation from league average for that position, capped at +/-15%. This is NOT the three-model consensus and has not been validated against prices. Injury replacements, role changes and game script are not applied: the analyst must adjust for them.
+
+## Rain-adjusted passing (measured)
+
+Forecast: 0% chance of rain at kickoff, wind up to 3 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+
+### LAC passing
+
+| Line | Dry | Rain | At the forecast |
+|---|---|---|---|
+| Team pass attempts | 30.1 | 28.8 | 30.1 |
+| Team completion rate | 60.6% | 56.9% | 60.6% |
+| Team completions | 18.2 | 16.4 | 18.2 |
+| Team pass yards | 201.9 | 172.5 | 201.9 |
+| J.Herbert completion rate (233 attempts) | 61.8% | 58.1% | 61.8% |
+| J.Herbert yards per attempt | 6.83 | 6.01 | 6.83 |
+
+| Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
+|---|---|---|---|---|---|---|
+| T.Harris | WR | 7 | 15% | 5.0 / 3.0 / 37.4 | 4.8 / 2.7 / 31.8 | 5.0 / 3.0 / 37.4 |
+| Q.Johnston | WR | 7 | 13% | 4.3 / 1.9 / 37.1 | 4.1 / 1.7 / 31.5 | 4.3 / 1.9 / 37.1 |
+| O.Gadsden | TE | 8 | 12% | 3.6 / 2.4 / 21.5 | 3.5 / 2.1 / 18.2 | 3.6 / 2.4 / 21.5 |
+| L.McConkey | WR | 6 | 10% | 4.0 / 2.8 / 47.7 | 3.8 / 2.5 / 40.4 | 4.0 / 2.8 / 47.7 |
+| K.Mitchell | RB | 7 | 9% | 3.1 / 2.6 / 14.7 | 3.0 / 2.4 / 12.3 | 3.1 / 2.6 / 14.7 |
+| C.Kolar | TE | 5 | 9% | 4.0 / 2.6 / 25.8 | 3.8 / 2.3 / 21.8 | 4.0 / 2.6 / 25.8 |
+| K.Vidal | RB | 6 | 7% | 2.8 / 1.7 / 9.3 | 2.7 / 1.5 / 7.8 | 2.8 / 1.7 / 9.3 |
+| O.Hampton | RB | 6 | 6% | 2.2 / 1.8 / 10.5 | 2.1 / 1.7 / 8.7 | 2.2 / 1.8 / 10.5 |
+
+### BAL passing
+
+| Line | Dry | Rain | At the forecast |
+|---|---|---|---|
+| Team pass attempts | 27.6 | 26.4 | 27.6 |
+| Team completion rate | 67.0% | 62.9% | 67.0% |
+| Team completions | 18.5 | 16.6 | 18.5 |
+| Team pass yards | 189.8 | 162.1 | 189.8 |
+| T.Huntley completion rate (110 attempts, small sample) | 69.1% | 64.9% | 69.1% |
+| T.Huntley yards per attempt | 6.61 | 5.81 | 6.61 |
+
+| Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
+|---|---|---|---|---|---|---|
+| Z.Flowers | WR | 7 | 27% | 8.3 / 5.4 / 66.3 | 7.9 / 4.9 / 56.2 | 8.3 / 5.4 / 66.3 |
+| M.Andrews | TE | 8 | 17% | 4.6 / 3.4 / 23.5 | 4.4 / 3.0 / 19.9 | 4.6 / 3.4 / 23.5 |
+| R.Bateman | WR | 8 | 14% | 3.8 / 2.5 / 36.8 | 3.6 / 2.2 / 31.2 | 3.8 / 2.5 / 36.8 |
+| J.Hill | RB | 7 | 12% | 3.9 / 2.7 / 14.4 | 3.7 / 2.5 / 12.0 | 3.9 / 2.7 / 14.4 |
+| D.Henry | RB | 7 | 6% | 1.9 / 1.6 / 8.0 | 1.8 / 1.4 / 6.7 | 1.9 / 1.6 / 8.0 |
+| J.Cuevas | TE | 5 | 6% | 2.6 / 2.0 / 26.8 | 2.5 / 1.8 / 22.7 | 2.6 / 2.0 / 26.8 |
+| J.Lane | WR | 3 | 5% | 3.7 / 2.7 / 26.0 | 3.5 / 2.4 / 22.1 | 3.7 / 2.7 / 26.0 |
+| D.Walker | WR | 5 | 4% | 1.8 / 0.8 / 15.0 | 1.7 / 0.7 / 12.7 | 1.8 / 0.8 / 15.0 |
+| M.Hibner | TE | 4 | 3% | 1.8 / 1.2 / 15.5 | 1.7 / 1.1 / 13.1 | 1.8 / 1.2 / 15.5 |
 
 ## LAC (last 8 games: weeks 1, 2, 3, 4, 5, 6, 8, 9)
 
@@ -313,7 +362,7 @@ Neutral-situation pass rate 40.7%; 62.0 plays per game; target share WR 51% / TE
 | defense allows | Deep middle | 6 | 3% | 33% | 14.33 | 2 |
 | defense allows | Deep right | 16 | 7% | 62% | 19.0 | 8 |
 
-### LAC lines (depth chart as of 2026-11-11T07:02:21Z)
+### LAC lines (depth chart as of 2026-11-12T07:01:31Z)
 
 Offensive line: LT Joe Alt, LG Kayode Awosika, C Jake Slaughter, RG Cole Strange, RT Travis Burke.  
 Defensive front: LDE Teair Tart, NT Jamaree Caldwell, RDE Justin Eboigbe, WLB Tuli Tuipulotu, SLB Khalil Mack.
@@ -527,7 +576,7 @@ Neutral-situation pass rate 52.2%; 58.2 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 10 | 4% | 70% | 21.7 | 6 |
 | defense allows | Deep right | 13 | 5% | 69% | 20.0 | 5 |
 
-### BAL lines (depth chart as of 2026-11-11T07:02:21Z)
+### BAL lines (depth chart as of 2026-11-12T07:01:31Z)
 
 Offensive line: LT Ronnie Stanley, LG John Simpson, C Cam Jurgens, RG Olaivavega Ioane, RT Roger Rosengarten.  
 Defensive front: LDE Nnamdi Madubuike, NT Travis Jones, RDE Calais Campbell, WLB Mike Green, SLB Trey Hendrickson.
@@ -543,8 +592,8 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 
 ### BAL roster moves (last 4 weeks)
 
-Arrived: Jacoby Brissett (QB) from ARI.  
-Left for another team: Xavier Guillory (WR) to CLE.
+Arrived: Jacoby Brissett (QB) from ARI; Ryan Neuzil (OL) from ATL.  
+Left for another team: Andrew Vorhees (OL) to ATL; Xavier Guillory (WR) to CLE.
 
 ## Keyed connectors in this run
 
@@ -580,16 +629,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-11T22:07:07+00:00 | bac9f226a580 |
-| pbp | OK | 2026-11-11T22:07:08+00:00 | 8211d9a24b0e |
-| rosters | OK | 2026-11-11T22:07:08+00:00 | ad5aaeefbae7 |
-| injuries | OK | 2026-11-11T22:07:08+00:00 | 91fd27378ada |
-| depth_charts | OK | 2026-11-11T22:07:09+00:00 | 82b047a27003 |
-| snap_counts | OK | 2026-11-11T22:07:09+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-11T22:07:09+00:00 | 03eef74c47b4 |
-| pfr_def | OK | 2026-11-11T22:07:09+00:00 | 99358137e06d |
-| espn_injuries | OK | 2026-11-11T22:07:10+00:00 |  |
+| games | OK | 2026-11-12T11:15:13+00:00 | 3a46c9894cb2 |
+| pbp | OK | 2026-11-12T11:15:13+00:00 | 1028614beb74 |
+| rosters | OK | 2026-11-12T11:15:13+00:00 | 6e8cdefcd32b |
+| injuries | OK | 2026-11-12T11:15:13+00:00 | ef3ce4b778a7 |
+| depth_charts | OK | 2026-11-12T11:15:14+00:00 | 9bc7e51cbd83 |
+| snap_counts | OK | 2026-11-12T11:15:14+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-12T11:15:14+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-12T11:15:15+00:00 | 99358137e06d |
+| espn_injuries | OK | 2026-11-12T11:15:15+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-11T22:07:10+00:00 |  |
+| book_odds | OK | 2026-11-12T11:15:16+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

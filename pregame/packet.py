@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from . import metrics as M, splits as SP
+from . import metrics as M, rain_model as RM, splits as SP
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = "pregame-packet/1"
@@ -119,7 +119,7 @@ def _factor(def_sum, def_league, key):
     return float(np.clip(1 + 0.5 * (a / b - 1), 0.85, 1.15))
 
 
-def player_baselines(off_players, opp_def_sum, league_def_avg):
+def player_baselines(off_players, opp_def_sum, league_def_avg, listed_qb=None):
     out = []
     for r in off_players["receivers"]:
         if r["pos"] not in M.POS_GROUPS or r["games"] < 4 or (r["target_share"] or 0) < 0.08:
@@ -136,7 +136,9 @@ def player_baselines(off_players, opp_def_sum, league_def_avg):
         f = _factor(opp_def_sum, league_def_avg, "rb_rush_yards_pg" if r["pos"] == "RB" else "rush_yards_pg")
         out.append({"player": r["player"], "pos": r["pos"], "carry_share": r["carry_share"],
                     "rushing_yards": _baseline([g["yards"] for g in r["log"]], f), "carries": _baseline([g["carries"] for g in r["log"]], 1.0)})
-    for r in off_players["quarterbacks"][:1]:
+    qbs = off_players["quarterbacks"]
+    starter = [q for q in qbs if listed_qb and q["player"].replace(" ", "").lower() == _short(listed_qb).replace(" ", "").lower()]
+    for r in (starter or qbs)[:1]:                           # the schedule's listed starter when he has thrown; else the most-used passer
         f = _factor(opp_def_sum, league_def_avg, "pass_yards_pg")
         out.append({"player": r["player"], "pos": "QB", "passing_yards": _baseline([g["yards"] for g in r["log"]], f),
                     "pass_attempts": _baseline([g["att"] for g in r["log"]], 1.0)})
@@ -188,6 +190,40 @@ def team_projection(home, away, season, week, pbp_path, spread_home, total, n=20
         return out
     except Exception as exc:
         return {"status": f"UNAVAILABLE: {type(exc).__name__}: {str(exc)[:160]}"}
+
+
+def rain_adjusted(off, weather, listed_qb=None):
+    """Passing lines for dry, rain and the forecast, from the measured rain/wind effects (pregame/rain_model.py)."""
+    wx = weather or {}
+    if wx.get("status") != "OK":
+        return {"status": "NOT_APPLICABLE: " + str(wx.get("status", "no forecast"))[:60]}
+    try:
+        meta = RM.coefficients()["_meta"]
+    except Exception as exc:
+        return {"status": f"UNAVAILABLE: {type(exc).__name__}"}
+    rain_p = float(wx["at_kickoff"].get("precip_chance_pct") or 0) / 100.0
+    wind = float(wx["during_game"].get("wind_mph_max") or wx["at_kickoff"].get("wind_mph") or 0)
+    cases = (("dry", 0.0), ("rain", 1.0), ("forecast", rain_p))
+    pr, P = off["produced"], off["players"]
+    team = {"attempts": pr["pass_att_pg"], "completion_pct": pr["completion_rate"], "yards": pr["pass_yards_pg"]}
+    out = {"status": "OK", "rain_chance": rain_p, "wind_mph": wind,
+           "basis": f"{meta['rain_team_games']} team-games in rain since {meta['seasons'][0]}, each compared with the same team's dry games that season",
+           "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; "
+                   "'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
+           "team_passing": {k: RM.adjust_qb(team["attempts"], team["completion_pct"], team["yards"], r, wind) for k, r in cases}, "receivers": []}
+    q = next((x for x in P["quarterbacks"] if listed_qb and x["player"].replace(" ", "").lower() == _short(listed_qb).replace(" ", "").lower()), None)
+    if q and q["attempts"]:
+        cp, ypa = q["completions"] / q["attempts"], q["yards"] / q["attempts"]
+        out["listed_qb"] = {"player": q["player"], "attempts_in_window": q["attempts"], "small_sample": q["attempts"] < 150,
+                            **{k: {"completion_pct": round(cp * RM.factor("completion_pct", r, wind), 3),
+                                   "yards_per_attempt": round(ypa * RM.factor("yards_per_attempt", r, wind), 2)} for k, r in cases}}
+    for r in P["receivers"]:
+        if r["pos"] not in M.POS_GROUPS or not r["targets"] or r["games"] < 3:
+            continue
+        t, cr, ypt = r["targets"] / r["games"], r["receptions"] / r["targets"], r["yards"] / r["targets"]
+        out["receivers"].append({"player": r["player"], "pos": r["pos"], "games": r["games"], "target_share": r["target_share"],
+                                 **{k: RM.adjust_receiver(r["pos"], t, cr, ypt, rr, wind) for k, rr in cases}})
+    return out
 
 
 # ------------------------------------------------------------------ edges
@@ -279,7 +315,8 @@ def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None, books
         o, d = teams[off]["offense"], teams[dfn]["defense"]
         matchup[f"{off}_offense_vs_{dfn}_defense"] = {
             "edges": edges(off, o["produced"], o["rank"], dfn, d["allowed"], d["rank"], n_teams=len(lg_def)),
-            "player_baselines": player_baselines(o["players"], d["allowed"], lg_def_avg)}
+            "player_baselines": player_baselines(o["players"], d["allowed"], lg_def_avg, listed_qb=(game.away_qb_name if off == away else game.home_qb_name)),
+            "rain_adjusted": rain_adjusted(o, weather, listed_qb=(game.away_qb_name if off == away else game.home_qb_name))}
     spread_home = None if pd.isna(game.spread_line) else -float(game.spread_line)     # nflverse: positive = home favoured
     total = None if pd.isna(game.total_line) else float(game.total_line)
     packet = {
