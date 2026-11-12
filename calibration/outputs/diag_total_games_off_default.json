@@ -1,0 +1,319 @@
+{
+ "label": "research only, not validated",
+ "generated_by": "calibration/diagnose_total.py",
+ "run_utc": "2026-11-12T19:50:08+00:00",
+ "engine": {
+  "git_head": "1324744852362e4915e193eb978fcd742d8c7218",
+  "engine_tree": "36146e0bbfd5588f70388c9c22cf21c162cd2c75",
+  "engine_py_sha256": "4561e7cc5f31fb94e297feae467b87e70727c00e95cdc2272afabc128ae29387",
+  "engine_dirty": false,
+  "simulate_sha256": "9d5e3cfa3df713379519953ac088d15814455ea6a402226572f32516ece28744"
+ },
+ "pbp": "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet",
+ "pbp_sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+ "pbp_pulled_et": "2026-11-12 11:16 AM ET",
+ "n_per_game": 2000,
+ "seed": 4949,
+ "h2h": "off",
+ "accounting": "default",
+ "actual_definitions": "nflverse W1..week-1, offense rows of the same two teams: snaps = pass/run/kneel/spike with a down; drives = distinct (game, drive) with fixed_drive_result; rz = drive_inside20",
+ "sim_definitions": "drive = run of snaps by one offense ended by a score, punt, FG try, turnover, downs or half end; rz trip = a snap taken at yardline_100 <= 20",
+ "pooled_per_team_game": {
+  "points_pg": {
+   "sim": 20.4255,
+   "actual_same_teams_prior_weeks": 22.125,
+   "sim_minus_actual": -1.6995
+  },
+  "snaps_pg": {
+   "sim": 67.2673,
+   "actual_same_teams_prior_weeks": 63.9375,
+   "sim_minus_actual": 3.3298
+  },
+  "kneels_pg": {
+   "sim": 0.0,
+   "actual_same_teams_prior_weeks": 0.6875,
+   "sim_minus_actual": -0.6875
+  },
+  "yards_per_snap": {
+   "sim": 5.2322,
+   "actual_same_teams_prior_weeks": 5.1525,
+   "sim_minus_actual": 0.0797
+  },
+  "drives_pg": {
+   "sim": 11.959,
+   "actual_same_teams_prior_weeks": 11.4375,
+   "sim_minus_actual": 0.5215
+  },
+  "td_per_drive": {
+   "sim": 0.1753,
+   "actual_same_teams_prior_weeks": 0.1967,
+   "sim_minus_actual": -0.0213
+  },
+  "fga_per_drive": {
+   "sim": 0.1807,
+   "actual_same_teams_prior_weeks": 0.224,
+   "sim_minus_actual": -0.0432
+  },
+  "punt_per_drive": {
+   "sim": 0.4297,
+   "actual_same_teams_prior_weeks": 0.3772,
+   "sim_minus_actual": 0.0525
+  },
+  "turnover_per_drive": {
+   "sim": 0.0798,
+   "actual_same_teams_prior_weeks": 0.0818,
+   "sim_minus_actual": -0.002
+  },
+  "downs_per_drive": {
+   "sim": 0.055,
+   "actual_same_teams_prior_weeks": 0.0438,
+   "sim_minus_actual": 0.0111
+  },
+  "end_half_per_drive": {
+   "sim": 0.0393,
+   "actual_same_teams_prior_weeks": 0.0766,
+   "sim_minus_actual": -0.0373
+  },
+  "rz_trips_pg": {
+   "sim": 3.0343,
+   "actual_same_teams_prior_weeks": 2.6875,
+   "sim_minus_actual": 0.3468
+  },
+  "rz_td_rate": {
+   "sim": 0.5881,
+   "actual_same_teams_prior_weeks": 0.6028,
+   "sim_minus_actual": -0.0147
+  },
+  "points_per_drive": {
+   "sim": 1.7081,
+   "actual_same_teams_prior_weeks": 1.9342,
+   "sim_minus_actual": -0.2261
+  }
+ },
+ "games": [
+  {
+   "game": "2026_10_WAS_NYG",
+   "sim": {
+    "teams": {
+     "NYG": {
+      "points_pg": 19.8565,
+      "snaps_pg": 66.6855,
+      "kneels_pg": 0.0,
+      "yards_per_snap": 5.1493353127741415,
+      "drives_pg": 11.9845,
+      "td_per_drive": 0.17898118402937127,
+      "fga_per_drive": 0.1563686428303225,
+      "punt_per_drive": 0.44711919562768576,
+      "turnover_per_drive": 0.11335474988526847,
+      "downs_per_drive": 0.02569986232216613,
+      "end_half_per_drive": 0.039259042930451835,
+      "rz_trips_pg": 2.941,
+      "rz_td_rate": 0.6633798027881673,
+      "points_per_drive": 1.6568484292210772
+     },
+     "WAS": {
+      "points_pg": 20.9945,
+      "snaps_pg": 67.849,
+      "kneels_pg": 0.0,
+      "yards_per_snap": 5.314993588704329,
+      "drives_pg": 11.9335,
+      "td_per_drive": 0.1717015125487074,
+      "fga_per_drive": 0.20505300205304394,
+      "punt_per_drive": 0.41224284577031045,
+      "turnover_per_drive": 0.04621443834583316,
+      "downs_per_drive": 0.08421670088406587,
+      "end_half_per_drive": 0.03930112707923074,
+      "rz_trips_pg": 3.1275,
+      "rz_td_rate": 0.5128697042366107,
+      "points_per_drive": 1.759291071353752
+     }
+    },
+    "depth_counts": {
+     "le20|td": 7110,
+     "le20|fga": 3461,
+     "gt50|punt": 15428,
+     "21_35|fga": 3842,
+     "gt50|end_period": 1025,
+     "gt50|turnover": 1749,
+     "36_50|punt": 4530,
+     "21_35|downs": 543,
+     "36_50|downs": 738,
+     "36_50|fga": 1286,
+     "le20|downs": 694,
+     "gt50|downs": 651,
+     "21_35|td": 1063,
+     "36_50|turnover": 988,
+     "le20|turnover": 427,
+     "21_35|punt": 581,
+     "36_50|end_period": 365,
+     "gt50|safety": 180,
+     "21_35|turnover": 656,
+     "21_35|end_period": 276,
+     "le20|end_period": 213,
+     "gt50|fga": 53,
+     "36_50|td": 189,
+     "gt50|td": 26,
+     "le20|punt": 17
+    },
+    "total_mean": 40.851,
+    "max_steps_rate": 0.0,
+    "h2h": {
+     "mode": "off"
+    }
+   },
+   "actual_prior_weeks": {
+    "NYG": {
+     "games": 8,
+     "points_pg": 22.75,
+     "snaps_pg": 65.875,
+     "no_play_rows_pg": 6.5,
+     "kneels_pg": 0.875,
+     "yards_per_snap": 5.056925996204933,
+     "drives_pg": 11.5,
+     "td_per_drive": 0.20652173913043478,
+     "fga_per_drive": 0.2391304347826087,
+     "punt_per_drive": 0.358695652173913,
+     "turnover_per_drive": 0.10869565217391304,
+     "downs_per_drive": 0.021739130434782608,
+     "end_half_per_drive": 0.06521739130434782,
+     "rz_trips_pg": 2.75,
+     "rz_td_rate": 0.6818181818181818,
+     "points_per_drive": 1.9782608695652173
+    },
+    "WAS": {
+     "games": 8,
+     "points_pg": 21.5,
+     "snaps_pg": 62.0,
+     "no_play_rows_pg": 6.25,
+     "kneels_pg": 0.5,
+     "yards_per_snap": 5.247983870967742,
+     "drives_pg": 11.375,
+     "td_per_drive": 0.18681318681318682,
+     "fga_per_drive": 0.2087912087912088,
+     "punt_per_drive": 0.3956043956043956,
+     "turnover_per_drive": 0.054945054945054944,
+     "downs_per_drive": 0.06593406593406594,
+     "end_half_per_drive": 0.08791208791208792,
+     "rz_trips_pg": 2.625,
+     "rz_td_rate": 0.5238095238095238,
+     "points_per_drive": 1.89010989010989
+    }
+   },
+   "actual_depth_counts": {
+    "le20|td": 27,
+    "gt50|punt": 55,
+    "21_35|turnover": 3,
+    "21_35|end_period": 3,
+    "36_50|fga": 9,
+    "gt50|end_period": 2,
+    "36_50|punt": 12,
+    "le20|turnover": 1,
+    "le20|fga": 12,
+    "21_35|fga": 20,
+    "21_35|downs": 2,
+    "le20|end_period": 1,
+    "gt50|turnover": 6,
+    "36_50|end_period": 2,
+    "21_35|td": 6,
+    "36_50|turnover": 5,
+    "gt50|downs": 2,
+    "36_50|td": 2,
+    "21_35|punt": 2,
+    "le20|downs": 3,
+    "36_50|downs": 1
+   }
+  }
+ ],
+ "drive_depth_table": {
+  "definition": "deepest snap yardline_100 of the drive (le20 = reached the red zone)",
+  "sim": {
+   "le20": {
+    "share_of_drives": 0.2587,
+    "td_rate": 0.5964,
+    "fga_rate": 0.2903,
+    "punt_rate": 0.0014
+   },
+   "21_35": {
+    "share_of_drives": 0.151,
+    "td_rate": 0.1527,
+    "fga_rate": 0.5519,
+    "punt_rate": 0.0835
+   },
+   "36_50": {
+    "share_of_drives": 0.1757,
+    "td_rate": 0.0233,
+    "fga_rate": 0.1588,
+    "punt_rate": 0.5595
+   },
+   "gt50": {
+    "share_of_drives": 0.4147,
+    "td_rate": 0.0014,
+    "fga_rate": 0.0028,
+    "punt_rate": 0.8072
+   }
+  },
+  "actual_same_teams_prior_weeks": {
+   "le20": {
+    "share_of_drives": 0.25,
+    "td_rate": 0.6136,
+    "fga_rate": 0.2727,
+    "punt_rate": 0.0
+   },
+   "21_35": {
+    "share_of_drives": 0.2045,
+    "td_rate": 0.1667,
+    "fga_rate": 0.5556,
+    "punt_rate": 0.0556
+   },
+   "36_50": {
+    "share_of_drives": 0.1761,
+    "td_rate": 0.0645,
+    "fga_rate": 0.2903,
+    "punt_rate": 0.3871
+   },
+   "gt50": {
+    "share_of_drives": 0.3693,
+    "td_rate": 0.0,
+    "fga_rate": 0.0,
+    "punt_rate": 0.8462
+   }
+  }
+ },
+ "goal_line_censoring": {
+  "definition": "league pass/run rows before the latest target week; share whose gain was capped at the goal line",
+  "by_yl_bucket": {
+   "RZ": {
+    "rows": 2620,
+    "censored_share": 0.1977,
+    "yardline_range": [
+     1,
+     20
+    ]
+   },
+   "backed": {
+    "rows": 1430,
+    "censored_share": 0.0021,
+    "yardline_range": [
+     81,
+     99
+    ]
+   },
+   "opp50to20": {
+    "rows": 5352,
+    "censored_share": 0.0228,
+    "yardline_range": [
+     21,
+     50
+    ]
+   },
+   "own20to50": {
+    "rows": 7269,
+    "censored_share": 0.0034,
+    "yardline_range": [
+     51,
+     80
+    ]
+   }
+  }
+ }
+}

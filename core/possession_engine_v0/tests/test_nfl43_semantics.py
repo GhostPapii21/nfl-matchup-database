@@ -435,21 +435,15 @@ def test_sensitivity_script_refuses_100k(capsys):
 
 
 def test_sensitivity_diag_arm_restores_defense_conditioning(monkeypatch):
-    """Ghost6 side note: the DIAG arm must restore PlayCatalog.enable_defense_conditioning after each run."""
+    """Ghost6 side note, updated for NFL-49 A: the DIAG arm turns h2h off through cfg (defense_interaction.h2h=off),
+    every other arm pins legacy_always, and PlayCatalog.enable_defense_conditioning is never monkeypatched."""
     sys.path.insert(0, str(ROOT / "bounds"))
     import simulate
     import sensitivity
     original = simulate.PlayCatalog.enable_defense_conditioning
 
-    def _armed():
-        cat = simulate.PlayCatalog.__new__(simulate.PlayCatalog)
-        simulate.PlayCatalog.enable_defense_conditioning(cat, True)
-        return getattr(cat, "_defense_cond", "missing")
-
-    assert _armed() is True
-
     def fake_games(cfg, pbp_path=None, n=0, seed=0):
-        fake_games.saw = _armed()
+        fake_games.saw = (cfg.get("defense_interaction") or {}).get("h2h")
         if getattr(fake_games, "boom", False):
             raise RuntimeError("boom")
         z = np.zeros(2)
@@ -459,8 +453,7 @@ def test_sensitivity_diag_arm_restores_defense_conditioning(monkeypatch):
 
     monkeypatch.setattr(simulate, "simulate_games", fake_games)
     sensitivity._run_arm(("DIAG_all_nfl43_h2h_off", sensitivity.ALL, 2, 1))
-    assert fake_games.saw is False, "DIAG arm should force _defense_cond off during the run"
-    assert _armed() is True
+    assert fake_games.saw == "off", "DIAG arm should run with h2h off"
     assert simulate.PlayCatalog.enable_defense_conditioning is original
 
     fake_games.boom = True
@@ -470,11 +463,10 @@ def test_sensitivity_diag_arm_restores_defense_conditioning(monkeypatch):
         pass
     else:
         raise AssertionError("expected boom")
-    assert _armed() is True
     assert simulate.PlayCatalog.enable_defense_conditioning is original
 
-    # A following non-DIAG arm in the same process must see the original method.
+    # A following non-DIAG arm reproduces the documented (pre-NFL-49) always-on table.
     fake_games.boom = False
     sensitivity._run_arm(("legacy", None, 2, 1))
-    assert fake_games.saw is True
+    assert fake_games.saw == "legacy_always"
     assert simulate.PlayCatalog.enable_defense_conditioning is original

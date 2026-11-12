@@ -27,5 +27,6 @@ run research/nfl_sim_integration_2026-11-06/source_run_gate tests
 run .                                   rocket_gate/tests
 run .                                   phase15/tests
 run .                                   snapshots/tests
+run .                                   calibration/tests
 [ "$status" = 0 ] && echo "test_offline: all suites passed" || echo "test_offline: FAILURES above"
 exit "$status"

@@ -9,8 +9,9 @@ Arms (same config, same seed, same committed W1-9 PBP):
   returns_only      returns asof_league_v1 (league kick/punt return-TD rate + league defensive-return pool)
   official_ot_only  overtime official_2025_regular_season
   all_nfl43         all three
-  DIAG_all_nfl43_h2h_off   all three, head-to-head defense conditioning switched off IN MEMORY for this run only
-                           (diagnostic for review D7; the engine default is unchanged)
+  DIAG_all_nfl43_h2h_off   all three, cfg defense_interaction.h2h = "off" (diagnostic for review D7)
+All other arms pin defense_interaction.h2h = "legacy_always" so the table keeps describing the pre-NFL-49 engine
+(NFL-49 A made "off" the engine default).
 
 Never a 100k run (n is capped at 20,000). No network, no API credits. Output label: research only, not validated.
 """
@@ -56,15 +57,12 @@ def _run_arm(args):
         cfg.pop("semantics", None)
     else:
         cfg["semantics"] = dict(sem)
-    original = simulate.PlayCatalog.enable_defense_conditioning
-    try:
-        if name.startswith("DIAG_") and "h2h_off" in name:
-            simulate.PlayCatalog.enable_defense_conditioning = (
-                lambda self, enabled=True: setattr(self, "_defense_cond", False)
-            )
-        out = simulate.simulate_games(cfg, pbp_path=str(PBP), n=n, seed=seed)
-    finally:
-        simulate.PlayCatalog.enable_defense_conditioning = original
+    # NFL-49 A: h2h is now a config policy (default off). The table documents the pre-NFL-49 engine, so the
+    # non-DIAG arms pin legacy_always (identical RNG stream to the old forced-on path) and the DIAG arm pins off.
+    cfg.setdefault("defense_interaction", {})["h2h"] = (
+        "off" if (name.startswith("DIAG_") and "h2h_off" in name) else "legacy_always")
+    cfg["accounting"] = "legacy"  # NFL-49 B clock/kneel/kickoff fixes postdate this table
+    out = simulate.simulate_games(cfg, pbp_path=str(PBP), n=n, seed=seed)
     A = out["arrays"]
     h, a = cfg["game"]["home"], cfg["game"]["away"]
     hp, ap = A["fg_home"].astype(float), A["fg_away"].astype(float)
@@ -108,7 +106,7 @@ def main(argv=None) -> int:
            "pbp": str(PBP.relative_to(REPO)), "pbp_sha256": hashlib.sha256(PBP.read_bytes()).hexdigest(),
            "pbp_pulled_et": "2026-11-12 11:16 AM ET",
            "note": ("Arms differ only in cfg['semantics']; the DIAG arm also turns off head-to-head defense "
-                    "conditioning in memory and restores the original method after each arm. Nothing tuned, no weights changed."),
+                    "conditioning via cfg defense_interaction.h2h=off; other arms pin legacy_always. Nothing tuned, no weights changed."),
            "arms": res}
     Path(a.out).write_text(json.dumps(doc, indent=1) + "\n")
     print(json.dumps(doc, indent=1))
