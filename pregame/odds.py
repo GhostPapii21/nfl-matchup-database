@@ -1,6 +1,8 @@
 """Book prices, no-vig probabilities and line movement for a pregame packet.
 
-Source: The Odds API (the-odds-api.com), key from the ODDS_API_KEY environment variable / repository secret.
+Source: The Odds API (the-odds-api.com), key from the ODDS_API_KEY environment variable / repository secret. Books: FanDuel,
+DraftKings, Hard Rock Bet, Caesars (williamhill_us), and Pinnacle as the sharp reference (never in a consensus). Every paid
+call is estimated first and refused if it would leave fewer than ODDS_CREDIT_FLOOR (default 800) credits.
 Without a key every function returns a labelled "NO_KEY" status and the packet carries no book prices: nothing
 is ever invented. De-vigging is done here, in code, so a chat model never does the arithmetic.
 
@@ -10,19 +12,30 @@ pregame/line_history/<game_id>.jsonl. It is not the true opening line unless the
 from __future__ import annotations
 
 import json
+import math
 import os
+import re
+import statistics
+import unicodedata
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
 API = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl"
-BOOKS = ("pinnacle", "draftkings", "fanduel")
-SHARP = "pinnacle"
+SHARP = "pinnacle"                                   # reference only: never part of a consensus
+RETAIL = ("fanduel", "draftkings", "hardrockbet", "williamhill_us")   # williamhill_us = Caesars on The Odds API
+BOOKS = (SHARP,) + RETAIL
+BOOK_LABEL = {"pinnacle": "Pinnacle", "fanduel": "FanDuel", "draftkings": "DraftKings", "hardrockbet": "Hard Rock Bet",
+              "williamhill_us": "Caesars"}
 GAME_MARKETS = ("h2h", "spreads", "totals")
-PROP_MARKETS = ("player_pass_yds", "player_rush_yds", "player_reception_yds", "player_receptions", "player_rush_attempts")
-PROP_STAT = {"player_pass_yds": "passing_yards", "player_rush_yds": "rushing_yards", "player_reception_yds": "receiving_yards",
-             "player_receptions": "receptions", "player_rush_attempts": "carries"}
+PROP_MARKETS = ("player_pass_yds", "player_pass_attempts", "player_pass_completions", "player_rush_yds", "player_rush_attempts",
+                "player_reception_yds", "player_receptions")
+PROP_STAT = {"player_pass_yds": "passing_yards", "player_pass_attempts": "passing_attempts", "player_pass_completions": "completions",
+             "player_rush_yds": "rushing_yards", "player_rush_attempts": "carries", "player_reception_yds": "receiving_yards",
+             "player_receptions": "receptions"}
+NEVER_A_LEG = {"passing_yards": "Rico rule: passing-yards legs are banned. Kept as a reference field only."}
+DEFAULT_FLOOR = int(os.environ.get("ODDS_CREDIT_FLOOR", "800") or 800)
 TEAM = {"Arizona Cardinals": "ARI", "Atlanta Falcons": "ATL", "Baltimore Ravens": "BAL", "Buffalo Bills": "BUF", "Carolina Panthers": "CAR",
         "Chicago Bears": "CHI", "Cincinnati Bengals": "CIN", "Cleveland Browns": "CLE", "Dallas Cowboys": "DAL", "Denver Broncos": "DEN",
         "Detroit Lions": "DET", "Green Bay Packers": "GB", "Houston Texans": "HOU", "Indianapolis Colts": "IND", "Jacksonville Jaguars": "JAX",
@@ -72,15 +85,56 @@ def _q(key, **params):
     return urllib.parse.urlencode({"apiKey": key, "oddsFormat": "american", "bookmakers": ",".join(BOOKS), **params})
 
 
-def fetch_game_lines(key=None, fetch=_get) -> dict:
-    """All upcoming games, main markets, the three books. One request."""
+def estimate_cost(n_markets: int, n_books: int = len(BOOKS)) -> int:
+    """The Odds API charge for one odds call: markets x region units (each 10 bookmakers is one unit). It is an upper
+    bound: the provider bills only markets it returns. The bulk /odds call costs the same for one game or the slate."""
+    return int(n_markets) * max(1, math.ceil(n_books / 10))
+
+
+def floor_check(remaining, estimate: int, floor: int = DEFAULT_FLOOR):
+    """Fail closed: an unknown balance, or a call that would leave fewer than `floor` credits, is refused."""
+    if remaining is None:
+        return False, "SKIPPED_UNKNOWN_BALANCE: credit balance unknown; paid call refused"
+    if remaining - estimate < floor:
+        return False, f"SKIPPED_CREDIT_FLOOR: {remaining} - {estimate} < floor {floor}"
+    return True, f"OK: {remaining} - {estimate} = {remaining - estimate} >= floor {floor}"
+
+
+def read_balance(key, fetch=_get):
+    """Read the live balance from the free /events list (costs 0 credits). None when it cannot be read."""
+    QUOTA.pop("credits_remaining", None)          # never trust an earlier reading: unknown stays unknown
+    fetch(f"{API}/events?{urllib.parse.urlencode({'apiKey': key})}")   # a network failure propagates as UNAVAILABLE
+    return QUOTA.get("credits_remaining")
+
+
+CREDIT_LOG = []   # one entry per paid-call decision this process made: estimate, floor check, balance after
+
+
+def _guard(key, fetch, n_markets, floor, what):
+    """None when the call may go ahead; otherwise the refusal status. floor=None disables the guard (tests only)."""
+    if floor is None:
+        return None
+    est = estimate_cost(n_markets)
+    before = read_balance(key, fetch)
+    ok, why = floor_check(before, est, floor)
+    CREDIT_LOG.append({"call": what, "estimate_credits": est, "balance_before": before, "floor": floor, "decision": why})
+    return None if ok else why
+
+
+def fetch_game_lines(key=None, fetch=_get, floor=DEFAULT_FLOOR) -> dict:
+    """All upcoming games, main markets, all five books. One request (3 credits)."""
     key = key if key is not None else os.environ.get("ODDS_API_KEY", "").strip()
     if not key:
         return {"status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices", "events": {}}
     try:
+        refused = _guard(key, fetch, len(GAME_MARKETS), floor, "game_lines")
+        if refused:
+            return {"status": refused, "events": {}}
         data = fetch(f"{API}/odds?{_q(key, markets=','.join(GAME_MARKETS))}")
     except Exception as exc:
         return {"status": f"UNAVAILABLE: {type(exc).__name__}: {str(exc)[:120]}".replace(key, "***"), "events": {}}
+    if CREDIT_LOG and floor is not None:
+        CREDIT_LOG[-1].update(balance_after=QUOTA.get("credits_remaining"), actual_credits=QUOTA.get("last_call_cost"))
     events = {}
     for e in data:
         h, a = TEAM.get(e.get("home_team")), TEAM.get(e.get("away_team"))
@@ -89,15 +143,29 @@ def fetch_game_lines(key=None, fetch=_get) -> dict:
     return {"status": "OK", "retrieved_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"), "events": events}
 
 
-def fetch_props(event_id, key=None, fetch=_get, markets=PROP_MARKETS) -> dict:
+def fetch_props(event_id, key=None, fetch=_get, markets=PROP_MARKETS, floor=DEFAULT_FLOOR) -> dict:
+    """One game's player props, all five books (at most len(markets) credits)."""
     key = key if key is not None else os.environ.get("ODDS_API_KEY", "").strip()
     if not key:
         return {"status": "NO_KEY", "event": None}
     try:
-        return {"status": "OK", "retrieved_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-                "event": fetch(f"{API}/events/{event_id}/odds?{_q(key, markets=','.join(markets))}")}
+        refused = _guard(key, fetch, len(markets), floor, f"props:{event_id}")
+        if refused:
+            return {"status": refused, "event": None}
+        ev = fetch(f"{API}/events/{event_id}/odds?{_q(key, markets=','.join(markets))}")
     except Exception as exc:
         return {"status": f"UNAVAILABLE: {type(exc).__name__}: {str(exc)[:120]}".replace(key, "***"), "event": None}
+    if CREDIT_LOG and floor is not None:
+        CREDIT_LOG[-1].update(balance_after=QUOTA.get("credits_remaining"), actual_credits=QUOTA.get("last_call_cost"))
+    return {"status": "OK", "retrieved_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"), "event": ev}
+
+
+def credit_line(start_remaining=None) -> str:
+    """'credits used this run=X remaining=Y'; either is 'unknown' when not reported by the provider."""
+    rem = QUOTA.get("credits_remaining")
+    first = start_remaining if start_remaining is not None else next((c["balance_before"] for c in CREDIT_LOG if c.get("balance_before") is not None), None)
+    used = (first - rem) if None not in (first, rem) else None
+    return f"odds credits used this run={'unknown' if used is None else used} remaining={'unknown' if rem is None else rem}"
 
 
 def _pairs(market, home, away):
@@ -184,3 +252,201 @@ def record_and_movement(game_id, markets, history_dir: Path, now=None) -> dict:
             moves.append(row)
     return {"status": "OK", "snapshots": len(prev), "first_seen_utc": first["t"], "current_utc": last["t"], "moves": moves,
             "note": "First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs."}
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# Same-line consensus, player matching and timestamped freezes. One pull (fetch_game_lines + fetch_props) feeds the
+# packet's book-price section and the freeze; there is no second credit spend.
+
+_WORDS = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five"}
+_SUFFIX = {"jr", "sr", "ii", "iii", "iv", "v"}
+
+
+def norm_name(name) -> str:
+    """'D'Andre Swift Jr.' -> 'dandre swift'. Accents, punctuation and generational suffixes are dropped."""
+    s = unicodedata.normalize("NFKD", str(name)).encode("ascii", "ignore").decode().lower()
+    s = re.sub(r"[.'`\u2019]", "", s)
+    s = re.sub(r"[^a-z0-9]+", " ", s).split()
+    while s and s[-1] in _SUFFIX:
+        s.pop()
+    return " ".join(s)
+
+
+def _is_full_name(name) -> bool:
+    """'J.J. McCarthy' and 'Malik Nabers' are full names; the play-by-play form 'S.Diggs' (one token) is not."""
+    return len(str(name).split()) >= 2
+
+
+def roster_from_packet(pk) -> dict:
+    """{team: {normalized full name: {display names}}} from the packet's own player lists: depth chart (starters, second
+    string), the official injury report and ESPN's live injury list. Abbreviated play-by-play names ('S.Diggs') are not
+    used, so every match is on a full name."""
+    out = {}
+    for team, t in (pk.get("teams") or {}).items():
+        names = {}
+        dc = t.get("depth_chart") or {}
+        inj = t.get("injuries") or {}
+        for lst in (dc.get("starters"), dc.get("second_string"), dc.get("third_string"), inj.get("official_report"), inj.get("espn_live")):
+            for r in lst or []:
+                n = r.get("player") if isinstance(r, dict) else None
+                if n and _is_full_name(n):
+                    names.setdefault(norm_name(n), set()).add(str(n).strip())
+        out[team] = names
+    return out
+
+
+def match_player(name, roster, home=None, away=None) -> dict:
+    """Full-name + team match. Fail closed: a name on both teams, on neither, or spelled two different ways on one team
+    (two people) is not matched, and its market gets no consensus."""
+    n = norm_name(name)
+    hits = [team for team, names in roster.items() if n in names]
+    if not hits:
+        return {"status": "UNMATCHED", "team": None, "reason": f"'{name}' is not on either team's packet player list"}
+    if len(hits) > 1:
+        return {"status": "AMBIGUOUS", "team": None, "reason": f"'{name}' matches players on {', '.join(sorted(hits))}"}
+    spellings = roster[hits[0]][n]
+    if len({s.replace(".", "").lower() for s in spellings}) > 1:
+        return {"status": "AMBIGUOUS", "team": None, "reason": f"'{name}' matches {len(spellings)} differently written names on {hits[0]}: {sorted(spellings)}"}
+    return {"status": "MATCHED", "team": hits[0], "reason": None}
+
+
+def _books_with_props(markets) -> set:
+    return {b for label, m in markets.items() if "|" in label for b in m["books"]}
+
+
+def consensus(markets: dict, roster: dict | None = None) -> dict:
+    """Per market: each retail book's own line, then a consensus from books at the SAME line only.
+
+    The consensus line is the line quoted by the most retail books. Its no-vig probability is the mean of those books'
+    no-vig probabilities, all at that one line; probabilities quoted at different lines are never averaged and no line is
+    adjusted. Fewer than two books on one line, or a tie between lines, gives the literal 'no consensus' with a reason.
+    Pinnacle is shown as a reference and never counted. Player props need a full-name + team match first."""
+    with_props = _books_with_props(markets)
+    out = {}
+    for label, m in markets.items():
+        is_prop = "|" in label
+        stat, player = label.split("|", 1) if is_prop else (label, None)
+        a, b = m["sides"]
+        own = {}
+        for book in RETAIL:
+            q = m["books"].get(book)
+            if q:
+                own[book] = q["line"]
+            elif is_prop and book not in with_props:
+                own[book] = "no props"
+            else:
+                own[book] = "not offered"
+        quoting = [bk for bk in RETAIL if bk in m["books"]]
+        n = len(quoting)
+        kind = "prop" if is_prop else "game-line"
+        rec = {"market": label, "stat": stat, "player": player, "sides": [a, b], "book_lines": own, "n_books_quoting": n,
+               "label": f"{_WORDS.get(n, str(n))}-book {kind} consensus" if n else f"no retail {kind} quotes",
+               "reference": ({"book": SHARP, "line": m["books"][SHARP]["line"], "no_vig": m["books"][SHARP]["no_vig"]}
+                             if SHARP in m["books"] else {"book": None, "note": "Pinnacle did not list this market"})}
+        if stat in NEVER_A_LEG:
+            rec["never_a_leg"] = True
+            rec["never_a_leg_reason"] = NEVER_A_LEG[stat]
+        if is_prop:
+            mt = match_player(player, roster or {}) if roster is not None else {"status": "UNMATCHED", "team": None, "reason": "no packet roster supplied"}
+            rec.update(team=mt["team"], match=mt["status"], match_reason=mt["reason"])
+            if mt["status"] != "MATCHED":
+                rec.update(consensus="no consensus", reason=f"player match failed closed: {mt['reason']}")
+                out[label] = rec
+                continue
+        by_line = {}
+        for bk in quoting:
+            by_line.setdefault(m["books"][bk]["line"], []).append(bk)
+        if not by_line:
+            rec.update(consensus="no consensus", reason="no retail book quotes this market")
+        else:
+            top = max(len(v) for v in by_line.values())
+            lead = [ln for ln, v in by_line.items() if len(v) == top]
+            if top < 2:
+                rec.update(consensus="no consensus", reason=f"fewer than 2 books share a line ({', '.join(f'{BOOK_LABEL[bk]} {own[bk]}' for bk in quoting)})")
+            elif len(lead) > 1:
+                rec.update(consensus="no consensus", reason=f"books split evenly between lines {sorted(lead, key=lambda x: (x is None, x))}")
+            else:
+                ln, at = lead[0], by_line[lead[0]]
+                rec.update(consensus={"line": ln, "n_books_at_line": len(at), "books_at_line": at,
+                                      "no_vig": {s: round(statistics.mean(m["books"][bk]["no_vig"][s] for bk in at), 4) for s in (a, b)},
+                                      "books_off_line": {bk: own[bk] for bk in quoting if bk not in at}},
+                           reason=None)
+        out[label] = rec
+    return out
+
+
+def write_freeze(game_id, away, home, markets, cons, raw, out_dir: Path, meta=None, now=None) -> dict:
+    """Write raw_<UTC>.json (response bodies, never the key), freeze_<UTC>.json and table_<UTC>.md for one game."""
+    from zoneinfo import ZoneInfo
+    now = now or datetime.now(timezone.utc)
+    et = now.astimezone(ZoneInfo("America/New_York"))
+    stamp = now.strftime("%Y%m%dT%H%M%SZ")
+    d = Path(out_dir) / f"{et:%Y-%m-%d}_{away}@{home}"
+    d.mkdir(parents=True, exist_ok=True)
+    raw_b = json.dumps(raw, indent=1, sort_keys=True).encode()
+    import hashlib
+    m = {"schema": "price-freeze/2", "game_id": game_id, "game": f"{away}@{home}", "source": "The Odds API v4 (the-odds-api.com)",
+         "pulled_utc": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "pulled_et": f"{et:%Y-%m-%d %I:%M %p} ET", "books": list(BOOKS),
+         "consensus_books": list(RETAIL), "reference_book": SHARP, "devig": "two-way multiplicative (proportional)",
+         "consensus_rule": "same line only; mean no-vig of books at the modal line; <2 books or a tie = 'no consensus'",
+         "credits": list(CREDIT_LOG), "credit_summary": credit_line(), "raw_sha256": hashlib.sha256(raw_b).hexdigest(),
+         "projection_ready": False, "research_only": True, **(meta or {})}
+    (d / f"raw_{stamp}.json").write_bytes(raw_b)
+    (d / f"freeze_{stamp}.json").write_text(json.dumps({"meta": m, "markets": markets, "consensus": cons}, indent=1, sort_keys=True, default=str) + "\n")
+    (d / f"table_{stamp}.md").write_text(consensus_table(m, cons))
+    m["files"] = [str(d / f"{p}_{stamp}.{x}") for p, x in (("raw", "json"), ("freeze", "json"), ("table", "md"))]
+    return m
+
+
+def _fmt(x):
+    return "" if x is None else (f"{x:g}" if isinstance(x, (int, float)) else str(x))
+
+
+def consensus_table(meta, cons) -> str:
+    L = [f"# {meta['game']} price freeze ({meta['pulled_et']}; {meta['pulled_utc']} UTC)", "",
+         f"Source: {meta['source']}. Research only, projection_ready=false. De-vig: {meta['devig']}. Consensus: {meta['consensus_rule']}. "
+         f"Pinnacle is reference only. {meta['credit_summary']}.", "",
+         "| Market | Team | Label | " + " | ".join(BOOK_LABEL[b] for b in RETAIL) + " | Consensus line | n at line | No-vig A | Pinnacle line | Pinnacle no-vig A | Note |",
+         "|" + "---|" * (9 + len(RETAIL))]
+    for label, c in sorted(cons.items(), key=lambda kv: ("|" in kv[0], kv[0])):
+        a = c["sides"][0]
+        cc = c["consensus"]
+        ref = c["reference"]
+        note = "; ".join(x for x in (c.get("reason"), "NEVER A LEG (reference only)" if c.get("never_a_leg") else None) if x)
+        L.append(f"| {label} | {c.get('team') or ''} | {c['label']} | " + " | ".join(_fmt(c["book_lines"][b]) for b in RETAIL)
+                 + f" | {cc if isinstance(cc, str) else _fmt(cc['line'])} {'' if isinstance(cc, str) else a} | {'' if isinstance(cc, str) else cc['n_books_at_line']} | "
+                 + f"{'' if isinstance(cc, str) else cc['no_vig'][a]} | {_fmt(ref.get('line')) if ref.get('book') else 'n/a'} | "
+                 + f"{ref['no_vig'].get(a, '') if ref.get('book') else 'n/a'} | {note} |")
+    return "\n".join(L) + "\n"
+
+
+def _old_freeze_markets(f) -> dict:
+    """Map a schema-1 multibook freeze (11:14 AM ET, rows with full team names, away-side spread) to summarize_event's shape."""
+    out = {}
+    for r in f.get("rows", []):
+        mk = {"h2h": "moneyline", "spreads": "spread", "totals": "total"}.get(r["market"]) or f"{PROP_STAT.get(r['market'], r['market'])}|{r['player']}"
+        sa, sb = TEAM.get(r["side_a"], r["side_a"]), TEAM.get(r["side_b"], r["side_b"])
+        line = r["line"]
+        if mk == "spread":   # schema 1 stored the away line; summarize_event stores the home line
+            line = -line if line is not None else None
+        out.setdefault(mk, {"books": {}})["books"][r["book"]] = {"line": line, "prices": {sa: r["price_a"], sb: r["price_b"]},
+                                                                  "no_vig": {sa: r["novig_a"], sb: r["novig_b"]}}
+    return out
+
+
+def movement_vs_freeze(markets: dict, old_freeze: dict) -> list[dict]:
+    """Per market and book: line, prices and no-vig in an earlier freeze against now. Reads schema 1 and 2 freezes."""
+    old = old_freeze.get("markets") or _old_freeze_markets(old_freeze)
+    rows = []
+    for label, m in markets.items():
+        for book, q in m["books"].items():
+            o = (old.get(label) or {}).get("books", {}).get(book)
+            if not o:
+                rows.append({"market": label, "book": book, "then": "not quoted", "now_line": q["line"], "now_prices": q["prices"]})
+                continue
+            r = {"market": label, "book": book, "then_line": o["line"], "now_line": q["line"], "then_prices": o["prices"], "now_prices": q["prices"],
+                 "then_no_vig": o["no_vig"], "now_no_vig": q["no_vig"]}
+            if isinstance(o["line"], (int, float)) and isinstance(q["line"], (int, float)):
+                r["line_move"] = round(q["line"] - o["line"], 2)
+            rows.append(r)
+    return rows

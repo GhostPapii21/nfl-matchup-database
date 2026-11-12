@@ -186,7 +186,7 @@ def test_no_key_and_failure_never_invent(tmp_path):
         raise OSError("down apiKey=SECRETKEY")
     r = O.fetch_game_lines(key="SECRETKEY", fetch=boom)
     assert r["status"].startswith("UNAVAILABLE") and "SECRETKEY" not in r["status"] and r["events"] == {}
-    ok = O.fetch_game_lines(key="k", fetch=lambda url, timeout=0: [_event()])
+    ok = O.fetch_game_lines(key="k", fetch=lambda url, timeout=0: [_event()], floor=None)
     assert list(ok["events"]) == [("LAC", "BAL")]
 
 
