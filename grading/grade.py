@@ -9,7 +9,9 @@ What it grades, from the packet committed before kickoff:
 Against:
   * the actual result from nflverse (free public releases; same source the packet builder uses)
   * the closing line: the latest saved snapshot before kickoff from the same book (packet books section,
-    pregame/line_history, saved price freezes). If none exists it is "unknown" and never estimated.
+    pregame/line_history, saved price freezes, optionally read from another git ref with --freeze-ref).
+    If none exists it is "unknown" and never estimated. Grading is per book; freeze consensus is reference only,
+    and a "no consensus" market's consensus is "unknown".
 Writes grading/results/<game>.jsonl (one row per graded item) and <game>.summary.json.
 
 Refuses (exit 2, nothing written) if the game is not final or no packet was generated before kickoff.
@@ -19,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -53,7 +56,8 @@ def _baselines(pk: dict) -> dict:
 
 
 def grade_game(game_id: str, pk: dict, pk_source: str, pk_pulled: str, kickoff: datetime, actuals,
-               snapshots: list[dict], history: list[dict], cfg: dict = CONFIG, now: datetime | None = None) -> list[dict]:
+               snapshots: list[dict], history: list[dict], cfg: dict = CONFIG, now: datetime | None = None,
+               consensus: list[dict] | None = None) -> list[dict]:
     now = now or datetime.now(timezone.utc)
     g = pk.get("game") or {}
     home, away = g.get("home"), g.get("away")
@@ -77,7 +81,11 @@ def grade_game(game_id: str, pk: dict, pk_source: str, pk_pulled: str, kickoff: 
                 "kind": kind, "market_type": mt, "market_key": key, "side": C.u(side), "projection_ready": False,
                 "packet": {"source": pk_source, "generated_utc": C.u(pk_pulled)}, **extra}
 
+    def cons(key):
+        return S.closing_consensus(consensus or [], key, kickoff)
+
     def closing(key, book, side, bet_line, bet_prices, market):
+        """Per book only: the bet book's own latest pre-kickoff quote. No other book or consensus is substituted."""
         cq = C.closing_quote(snapshots, key, book, kickoff) if C.known(book) else None
         mins = C.UNKNOWN
         if cq:
@@ -119,6 +127,7 @@ def grade_game(game_id: str, pk: dict, pk_source: str, pk_pulled: str, kickoff: 
             "best_retail_break_even": C.fig(best["break_even"], bk_src, bk_pulled, book=best["book"], price=best["price"]),
             "actual": C.fig(actual, pbp_src, pbp_pulled), "result": C.prop_result(actual, side, line),
             "closing_line": close_line, "closing_price": close_price, "clv": clv,
+            "closing_consensus_reference_only": cons(key),
             "edge_rule": C.edge_decision(model_prob, best["break_even"], vol, record(stat), cfg),
         }))
 
@@ -186,6 +195,7 @@ def grade_game(game_id: str, pk: dict, pk_source: str, pk_pulled: str, kickoff: 
                 "best_retail_break_even": C.fig(best["break_even"], bk_src, bk_pulled, book=book, price=best["price"]),
                 "actual": C.fig(actual_team["home_margin"] if market != "total" else actual_team["total"], games_src, games_pulled),
                 "result": res, "closing_line": close_line, "closing_price": close_price, "clv": clv,
+                "closing_consensus_reference_only": cons(market),
                 "edge_rule": C.edge_decision(prob, best["break_even"],
                                              {"supports": False, "reason": "volume condition applies to player props only"},
                                              record(market), cfg),
@@ -222,6 +232,9 @@ def main(argv=None) -> int:
     ap.add_argument("--cache", default="/tmp/nfl_grading_cache", help="where nflverse files are cached")
     ap.add_argument("--offline", action="store_true", help="use cached nflverse files only")
     ap.add_argument("--write", action="store_true", help="write grading/results/<game>.jsonl and .summary.json")
+    ap.add_argument("--freeze-ref", default=None,
+                    help="git ref (branch, tag or sha) to read pregame/price_freezes/*_<AWAY>@<HOME>/freeze*.json from, "
+                         "as data only via git ls-tree/show; default: the current working tree. Fetch the ref first.")
     a = ap.parse_args(argv)
     season = int(a.game.split("_")[0])
     actuals = S.load_actuals(a.game, season, Path(a.cache), offline=a.offline)
@@ -234,10 +247,16 @@ def main(argv=None) -> int:
     if pk is None:
         print(f"grading: REFUSED {a.game}: {pk_source}; nothing graded"); return EXIT_REFUSED
     g = pk.get("game") or {}
-    snaps = (S.packet_snapshots(pk, pk_source) + S.line_history_snapshots(a.game)
-             + S.freeze_snapshots(g.get("away", ""), g.get("home", "")))
+    try:
+        fz_snaps, fz_cons = S.freeze_data(g.get("away", ""), g.get("home", ""), ref=a.freeze_ref)
+    except subprocess.CalledProcessError as exc:
+        print(f"grading: REFUSED {a.game}: --freeze-ref {a.freeze_ref!r} not readable ({(exc.stderr or '').strip()[:160]}); "
+              "run `git fetch origin` first; nothing graded"); return EXIT_REFUSED
+    print(f"grading: {len(fz_snaps)} per-book freeze quotes from {a.freeze_ref or 'working tree'} "
+          f"({len({s['source'] for s in fz_snaps})} files)")
+    snaps = S.packet_snapshots(pk, pk_source) + S.line_history_snapshots(a.game) + fz_snaps
     history = load_graded_rows(RESULTS)
-    rows = grade_game(a.game, pk, pk_source, pk_pulled, kickoff, actuals, snaps, history)
+    rows = grade_game(a.game, pk, pk_source, pk_pulled, kickoff, actuals, snaps, history, consensus=fz_cons)
     summ = summarize(a.game, rows, kickoff, pk_source, actuals)
     print(json.dumps({k: summ[k] for k in ("game_id", "kickoff_utc", "packet_source", "counts", "validation")}, indent=1))
     if a.write:

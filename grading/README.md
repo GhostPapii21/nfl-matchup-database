@@ -11,6 +11,16 @@ Then commit `grading/results/`. The command refuses (exit 2, nothing written) wh
 nflverse yet, or when no pregame packet was generated before kickoff. nflverse usually posts final
 play-by-play the morning after a game, so run it the next day. `--offline` reuses cached nflverse files.
 
+To read the freezes from another branch, for example Blitz's closing freeze, use `--freeze-ref`:
+
+    git fetch origin research/multibook-price-feed-2026-11-12
+    python -m grading.grade --game 2026_10_WAS_NYG --freeze-ref origin/research/multibook-price-feed-2026-11-12 --write
+
+`--freeze-ref` takes any git ref. By default the grader reads freezes from the current working tree. Files are
+listed with `git ls-tree` and read with `git show`. They're data only, so no code from that ref is imported or
+run. A ref that can't be read stops the command with exit 2. Each quote's source is recorded as
+`git:<ref>@<sha>:<path>`.
+
 ## What gets graded
 
 Everything comes from the **pregame packet committed before kickoff**. The grader walks git history for
@@ -34,7 +44,15 @@ surname and team. Anything other than exactly one match is `unknown`.
 **Closing line** means the latest snapshot this repo saved **before kickoff** from the same book. It comes from
 the packet's book section, `pregame/line_history/<game>.jsonl`, or a saved freeze in
 `pregame/price_freezes/*_<AWAY>@<HOME>/freeze_*.json`, which is read as data and never run. Each row records the
-snapshot source, its pull time and how many minutes before kickoff it was taken. If no snapshot exists, the
+snapshot source, its pull time and how many minutes before kickoff it was taken. Both freeze formats are
+parsed: schema 1 (`freeze_*.json`, a `rows` list) and schema 2 (`freeze_v2_*.json`, `markets` plus `consensus`).
+When a v1 and a v2 file share a pull time, the v2 quote wins. A book marked `"no props"` doesn't count as a quote.
+
+**Grading is per book.** A prop's closing line and CLV come only from the **same book's** own pre-kickoff
+quotes. No other book's line and no consensus line is ever substituted. The freeze consensus is copied into
+`closing_consensus_reference_only` for reference. When a market's consensus says `"no consensus"`, that field's
+value is `"unknown"` and the reason is kept. It's never treated as missing data to fill in or as zero, and the
+per-book lines in that market are still used. If no snapshot exists, the
 closing line is `unknown` and is never estimated. CLV is only measured against a snapshot saved **after** the bet
 quote. Otherwise it is `unknown`, because comparing a quote with itself would count as a fake tie.
 

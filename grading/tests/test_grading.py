@@ -354,3 +354,94 @@ def test_package_never_calls_paid_sources():
     for banned in ("the-odds-api", "ODDS_API_KEY", "pregame.odds", "pregame.multibook", "from pregame", "import pregame"):
         assert banned not in src
     assert G.CONFIG["min_holdout_props_per_market_type"] >= 1
+
+
+# ---------------------------------------------------------------- freeze_v2, --freeze-ref, "no consensus"
+def _v2(pulled="2026-11-13T00:00:00Z"):
+    q = lambda line, o, u_: {"line": line, "prices": {"Over": o, "Under": u_}, "last_update": pulled}
+    return {"meta": {"schema": "price-freeze/2", "pulled_utc": pulled},
+            "markets": {
+                "receptions|Malik Nabers": {"books": {"draftkings": q(6.5, -110, -110), "fanduel": q(5.5, -150, 120),
+                                                      "williamhill_us": "no props"}},
+                "spread": {"books": {"draftkings": {"line": -3.0, "prices": {"NYG": -110, "WAS": -110}}}}},
+            "consensus": {
+                "receptions|Malik Nabers": {"consensus": "no consensus", "reason": "books split 1-1",
+                                            "book_lines": {"draftkings": 6.5, "fanduel": 5.5, "williamhill_us": "no props"}},
+                "spread": {"consensus": {"line": -3.0, "n_books_at_line": 2, "books_at_line": ["draftkings", "hardrockbet"],
+                                         "no_vig": {"NYG": 0.5, "WAS": 0.5}}}}}
+
+
+def _repo_with_freeze_branch(tmp_path):
+    run = lambda *a: subprocess.run(["git", "-C", str(tmp_path), *a], check=True, capture_output=True)
+    run("init", "-q", "-b", "main"); run("config", "user.email", "t@t"); run("config", "user.name", "t")
+    (tmp_path / "README").write_text("x"); run("add", "-A"); run("commit", "-qm", "base")
+    run("checkout", "-q", "-b", "research/feed")
+    d = tmp_path / "pregame/price_freezes/2026-11-12_WAS@NYG"
+    d.mkdir(parents=True)
+    (d / "freeze_v2_20261113T000000Z.json").write_text(json.dumps(_v2()))
+    (d / "raw_20261113T000000Z.json").write_text("{}")                          # not a freeze: ignored
+    (d / "freeze_v2_broken.json").write_text("{not json")                       # unparseable: skipped
+    run("add", "-A"); run("commit", "-qm", "freeze")
+    run("checkout", "-q", "main")
+    return tmp_path
+
+
+def test_freeze_ref_reads_other_branch_as_data(tmp_path):
+    root = _repo_with_freeze_branch(tmp_path)
+    assert S.freeze_snapshots("WAS", "NYG", root=root) == []                    # default: working tree (main) has none
+    snaps, cons = S.freeze_data("WAS", "NYG", root=root, ref="research/feed")
+    books = {(s["market_key"], s["book"]) for s in snaps}
+    assert ("receptions|Malik Nabers", "draftkings") in books and ("receptions|Malik Nabers", "fanduel") in books
+    assert ("receptions|Malik Nabers", "williamhill_us") not in books           # "no props" is not a quote
+    assert all(s["source"].startswith("git:research/feed@") and "freeze_v2_20261113T000000Z.json" in s["source"] for s in snaps)
+    sp = [s for s in snaps if s["market_key"] == "spread"][0]
+    assert sp["line"] == -3.0 and sp["snapshot_utc"] == "2026-11-13T00:00:00Z"   # v2 spread is already the home handicap
+    assert {c["market_key"] for c in cons} == {"receptions|Malik Nabers", "spread"}
+    with pytest.raises(subprocess.CalledProcessError):
+        S.freeze_data("WAS", "NYG", root=root, ref="no/such/ref")
+
+
+def test_no_consensus_is_unknown_but_per_book_lines_still_grade():
+    pk = _packet()
+    fz_snaps, fz_cons = [], []
+    # build from the v2 dict directly through the same parser path
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        d = Path(td) / "pregame/price_freezes/2026-11-12_WAS@NYG"
+        d.mkdir(parents=True)
+        (d / "freeze_v2_20261113T000000Z.json").write_text(json.dumps(_v2()))
+        fz_snaps, fz_cons = S.freeze_data("WAS", "NYG", root=Path(td))
+    nc = S.closing_consensus(fz_cons, "receptions|Malik Nabers", KO)
+    assert nc["value"] == C.UNKNOWN and nc["reason"] == "no consensus"
+    assert nc["value"] not in (0, None, "")
+    ok = S.closing_consensus(fz_cons, "spread", KO)
+    assert ok["value"]["line"] == -3.0 and ok["value"]["n_books_at_line"] == 2
+    rows = G.grade_game("2026_10_WAS_NYG", pk, "git:abc:p", pk["generated_utc"], KO, _actuals(),
+                        S.packet_snapshots(pk, "git:abc:p") + fz_snaps, [], CFG, consensus=fz_cons)
+    nab = [r for r in rows if r.get("player") == "Malik Nabers" and r["kind"] == "flagged_prop"][0]
+    assert nab["closing_consensus_reference_only"]["value"] == C.UNKNOWN
+    # per-book close still used: the DraftKings bet (5.5) closes at DraftKings 6.5 in the freeze
+    assert nab["book"] == "draftkings" and nab["closing_line"]["value"] == 6.5
+    assert nab["clv"]["line_points"] == 1.0 and nab["clv"]["positive"] is True
+
+
+def test_clv_is_per_book_never_borrowed_from_another_book():
+    pk = _packet()
+    other = _snap("2026-11-13T00:30:00+00:00", 7.5, {"Over": -110, "Under": -110}, book="fanduel")
+    rows = _grade(snapshots=S.packet_snapshots(pk, "git:abc:p") + [other])
+    nab = [r for r in rows if r.get("player") == "Malik Nabers" and r["kind"] == "flagged_prop"][0]
+    assert nab["book"] == "draftkings"
+    assert nab["closing_line"]["value"] == 5.5                                  # DraftKings' own pre-kick quote
+    assert nab["clv"]["positive"] == C.UNKNOWN                                  # no later DraftKings snapshot
+
+
+def test_freeze_v2_listed_before_v1_on_same_pull_time(tmp_path):
+    d = tmp_path / "pregame/price_freezes/2026-11-12_WAS@NYG"
+    d.mkdir(parents=True)
+    (d / "freeze_v2_20261113T000000Z.json").write_text(json.dumps(_v2()))
+    (d / "freeze_20261113T000000Z.json").write_text(json.dumps({"meta": {"pulled_utc": "2026-11-13T00:00:00Z"}, "rows": [
+        {"book": "draftkings", "market": "player_receptions", "line": 9.5, "player": "Malik Nabers",
+         "price_a": -110, "price_b": -110, "side_a": "Over", "side_b": "Under"}]}))
+    snaps = S.freeze_snapshots("WAS", "NYG", root=tmp_path)
+    q = C.closing_quote(snaps, "receptions|Malik Nabers", "draftkings", KO)
+    assert q["line"] == 6.5 and "freeze_v2_" in q["source"]

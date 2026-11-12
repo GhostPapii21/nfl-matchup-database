@@ -20,7 +20,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from .core import UNKNOWN, known, parse_utc
+from .core import UNKNOWN, known, parse_utc, u
 
 ROOT = Path(__file__).resolve().parents[1]
 ET = ZoneInfo("America/New_York")
@@ -134,17 +134,78 @@ def line_history_snapshots(game_id: str, root: Path = ROOT) -> list[dict]:
     return out
 
 
-def freeze_snapshots(away: str, home: str, root: Path = ROOT) -> list[dict]:
-    """Saved four-book freezes (Blitz's files), read as data. Unparseable rows are skipped, never guessed."""
-    out = []
-    for f in sorted(glob.glob(str(root / f"pregame/price_freezes/*_{away}@{home}/freeze_*.json"))):
-        rel = str(Path(f).relative_to(root))
+FREEZE_DIR = "pregame/price_freezes"
+
+
+def _freeze_files(away: str, home: str, root: Path, ref: str | None):
+    """Yield (relative path, text, source label) for every saved freeze of this game.
+
+    ref=None reads the working tree. A git ref reads the files at that ref with `git ls-tree` / `git show`
+    (data only: nothing on that ref is imported or executed). v2 files are listed first so that when a v1 and a
+    v2 file share a pull time, the v2 quote wins.
+    """
+    pat = re.compile(rf"^{re.escape(FREEZE_DIR)}/[^/]*_{re.escape(away)}@{re.escape(home)}/freeze_[^/]*\.json$")
+    if ref is None:
+        rels = [str(Path(f).relative_to(root)) for f in glob.glob(str(root / FREEZE_DIR / f"*_{away}@{home}" / "freeze_*.json"))]
+        rels = [r for r in rels if pat.match(r)]
+        read, label = (lambda r: (root / r).read_text()), (lambda r: f"file:{r}")
+    else:
+        sha = _git(root, "rev-parse", "--verify", f"{ref}^{{commit}}").strip()
+        rels = [r for r in _git(root, "ls-tree", "-r", "--name-only", sha, "--", FREEZE_DIR + "/").split() if pat.match(r)]
+        read, label = (lambda r: _git(root, "show", f"{sha}:{r}")), (lambda r: f"git:{ref}@{sha}:{r}")
+    for rel in sorted(rels, key=lambda r: (0 if "/freeze_v2_" in r else 1, r)):
         try:
-            d = json.loads(Path(f).read_text())
-        except (OSError, json.JSONDecodeError):
+            yield rel, read(rel), label(rel)
+        except (OSError, subprocess.CalledProcessError):
+            continue
+
+
+def _consensus_entry(c: dict | None, source: str, pulled):
+    """A freeze market's consensus. A "no consensus" string (or anything that is not a same-line consensus) is
+    unknown, recorded with the reason; it is never treated as missing data to be filled or as zero."""
+    if not isinstance(c, dict):
+        return None
+    raw = c.get("consensus")
+    if isinstance(raw, dict) and (known(raw.get("line")) or isinstance(raw.get("no_vig"), dict)):   # moneyline has no line
+        val = {"line": raw.get("line") if known(raw.get("line")) else "n/a (no line)", "n_books_at_line": u(raw.get("n_books_at_line")),
+               "books_at_line": raw.get("books_at_line") or [], "no_vig": raw.get("no_vig") or UNKNOWN}
+        reason = ""
+    else:
+        val = UNKNOWN
+        reason = str(raw) if isinstance(raw, str) and raw else (c.get("reason") or "no same-line consensus in freeze")
+    return {"value": val, "reason": reason, "label": c.get("label") or UNKNOWN,
+            "book_lines": c.get("book_lines") or {}, "source": source, "pulled_utc": pulled or UNKNOWN}
+
+
+def freeze_data(away: str, home: str, root: Path = ROOT, ref: str | None = None) -> tuple[list[dict], list[dict]]:
+    """Saved price freezes (Blitz's files), read as data. Returns (per-book snapshots, consensus records).
+
+    Handles schema 1 (`rows` list, spread line quoted for side_a) and schema 2 / freeze_v2 (`markets` keyed like
+    the packet's book section, spread line = home handicap, plus a `consensus` block). Per-book lines are what
+    grading uses; consensus is reported for reference only. Unparseable rows are skipped, never guessed.
+    """
+    snaps, cons = [], []
+    for rel, text, src in _freeze_files(away, home, root, ref):
+        try:
+            d = json.loads(text)
+        except json.JSONDecodeError:
             continue
         pulled = (d.get("meta") or {}).get("pulled_utc")
-        for r in d.get("rows") or []:
+        if isinstance(d.get("markets"), dict):                                   # schema 2 (freeze_v2_*.json)
+            for key, m in d["markets"].items():
+                for bk, q in ((m or {}).get("books") or {}).items():
+                    if not isinstance(q, dict) or not isinstance(q.get("prices"), dict):
+                        continue                                                   # e.g. a book with "no props"
+                    if key != "moneyline" and not known(q.get("line")):
+                        continue
+                    snaps.append({"market_key": key, "book": bk, "line": q.get("line"), "prices": q["prices"],
+                                  "snapshot_utc": pulled, "quote_utc": q.get("last_update"), "source": src})
+            for key, c in (d.get("consensus") or {}).items():
+                e = _consensus_entry(c, src, pulled)
+                if e:
+                    cons.append(dict(e, market_key=key))
+            continue
+        for r in d.get("rows") or []:                                              # schema 1
             mk = FREEZE_MARKETS.get(r.get("market"))
             if mk is None:
                 continue
@@ -159,10 +220,28 @@ def freeze_snapshots(away: str, home: str, root: Path = ROOT) -> list[dict]:
                     continue
                 line = float(line) if a == home else -float(line)       # store as the home handicap
             key = mk if mk in ("moneyline", "spread", "total") else f"{mk}|{r.get('player')}"
-            out.append({"market_key": key, "book": r.get("book"), "line": line,
-                        "prices": {a: r.get("price_a"), b: r.get("price_b")},
-                        "snapshot_utc": pulled, "quote_utc": r.get("book_last_update"), "source": f"file:{rel}"})
-    return out
+            snaps.append({"market_key": key, "book": r.get("book"), "line": line,
+                          "prices": {a: r.get("price_a"), b: r.get("price_b")},
+                          "snapshot_utc": pulled, "quote_utc": r.get("book_last_update"), "source": src})
+    return snaps, cons
+
+
+def freeze_snapshots(away: str, home: str, root: Path = ROOT, ref: str | None = None) -> list[dict]:
+    return freeze_data(away, home, root, ref)[0]
+
+
+def closing_consensus(cons: list[dict], market_key: str, kickoff) -> dict:
+    """Consensus from the latest freeze before kickoff, for reference only (never used for CLV)."""
+    best = None
+    for c in cons:
+        t = parse_utc(c.get("pulled_utc"))
+        if c.get("market_key") != market_key or t is None or t >= kickoff:
+            continue
+        if best is None or t > parse_utc(best["pulled_utc"]):
+            best = c
+    if best is None:
+        return {"value": UNKNOWN, "reason": "no saved freeze consensus before kickoff", "source": UNKNOWN, "pulled_utc": UNKNOWN}
+    return {k: v for k, v in best.items() if k != "market_key"}
 
 
 # ---------------------------------------------------------------- actual results (nflverse, free)
