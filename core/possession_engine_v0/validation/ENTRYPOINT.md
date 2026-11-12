@@ -26,17 +26,27 @@ sha256) raise `ContaminatedEntrypoint`.
 
 ## Where it is enforced
 
-All three call `pipeline/hooks.py:nfl42_entrypoint`. It returns OK only if the registry target equals the path above,
-`run_validation()` is PASS with `accepted_policy` null, and every deny-listed file is actually rejected by `invoke()`.
+All of these call `pipeline/hooks.py:nfl42_entrypoint`. It returns OK only if the registry target equals the path above,
+the registry still lists the full sanctioned inventory (both deny entries and the authorized decontam validator, with
+the sha256 values pinned in `hooks.REQUIRED_DENY` / `REQUIRED_AUTHORIZED`), `run_validation()` is PASS with
+`accepted_policy` null, and every deny-listed file is actually rejected by `invoke()`. The function has no injection
+parameter; tests monkeypatch it.
 A missing file, an unreadable registry, an exception, or tampered bytes are all FAILED (fail closed).
 
 | Path into the engine | Check | Effect when not OK |
 | --- | --- | --- |
 | `python -m pipeline.sim100k` (the 100k entry point) | gate **G0**, before every other gate; checked again inside `default_engine` right before the sim | REFUSED, exit 2, nothing simulated |
+| `python -m pipeline.sim100k`, any engine (default or injected) | rechecked in `run()` immediately before the engine call | REFUSED, exit 2 |
 | `python -m snapshots.lock` (the snapshot locker) | right after the NFL-43 review guard | REFUSED, exit 2, nothing simulated |
+| `snapshots.lock.run_sim` (shared orchestration used by the locker and `default_engine`, and by direct callers) | `_require_nfl42()` at entry | raises, nothing simulated |
 | `./rocket` | **R1** | rocket FAIL; the 100k gate G6 (which runs rocket) refuses too |
 
 There is no override flag, environment variable or force switch.
+
+**Residual (not enforced here):** research scripts that import `simulate.simulate_games` directly (for example under
+`core/possession_engine_v0/runs/` and `research/`) are not routed through this guard. Guarding the engine function
+itself would touch engine code and was left out on purpose (no engine changes in this track). They are not the 100k
+entry point and cannot write `pipeline/ledgers/*.sim100k.json` or `snapshots/*/LOCK.json` through the gated paths.
 
 ## Tests
 
