@@ -61,6 +61,7 @@ def _run_arm(args):
     # non-DIAG arms pin legacy_always (identical RNG stream to the old forced-on path) and the DIAG arm pins off.
     cfg.setdefault("defense_interaction", {})["h2h"] = (
         "off" if (name.startswith("DIAG_") and "h2h_off" in name) else "legacy_always")
+    cfg["accounting"] = "legacy"  # NFL-49 B clock/kneel/kickoff fixes postdate this table
     out = simulate.simulate_games(cfg, pbp_path=str(PBP), n=n, seed=seed)
     A = out["arrays"]
     h, a = cfg["game"]["home"], cfg["game"]["away"]

@@ -38,10 +38,13 @@ def _other(st: GameState, team: str) -> str:
 class PlayCatalog:
     """Pre-index team snaps for fast sampling; optional defense conditioning + empirical clock."""
 
-    def __init__(self, df: pd.DataFrame, min_n: int, games_df: Optional[pd.DataFrame] = None):
+    def __init__(self, df: pd.DataFrame, min_n: int, games_df: Optional[pd.DataFrame] = None,
+                 exclude_clock_mgmt: bool = False):
         self.df = df
         self.min_n = min_n
-        self.snaps = df[df["play_type"].isin(["pass", "run", "qb_kneel", "qb_spike"])].copy()
+        self.clock_df = games_df if games_df is not None and len(games_df) else df
+        snap_types = ["pass", "run"] if exclude_clock_mgmt else ["pass", "run", "qb_kneel", "qb_spike"]
+        self.snaps = df[df["play_type"].isin(snap_types)].copy()
         self.snaps["_db"] = self.snaps["ydstogo"].map(dist_bucket)
         self.snaps["_yl"] = self.snaps["yardline_100"].map(yl_bucket)
         self.cells: dict[tuple, pd.DataFrame] = {}
@@ -108,20 +111,35 @@ class PlayCatalog:
                     self.specials[kind][team] = sub.reset_index(drop=True)
 
     @staticmethod
-    def build_empirical_clock(df: pd.DataFrame) -> dict:
-        """Median seconds consumed between successive snaps by play_type when timestamps exist."""
+    def build_empirical_clock(df: pd.DataFrame, stat: str = "legacy_median") -> dict:
+        """Seconds consumed from a snap to the next row, by play_type, when timestamps exist.
+
+        stat="legacy_median" (pre-NFL-49): median of deltas in [3, 55] s over the rows given (offense-only rows, so a
+        "next row" can sit after the opponent's whole drive). stat="mean" (NFL-49 B): MEAN of deltas in [0, 60] s where
+        the next row is in the same game AND quarter, over every row of the as-of games. Run/pass deltas are bimodal
+        (clock stopped vs running), so the median overstated run 38 s vs mean 33.3 s on the W1-9 file; the means
+        are what sum to the 3,600 s of regulation.
+        """
         out = {"pass": 22, "run": 28, "punt": 10, "field_goal": 7, "extra_point": 4, "qb_kneel": 40, "qb_spike": 2}
         meta_source = "fixed_defaults"
         if "game_seconds_remaining" in df.columns and "play_id" in df.columns:
             d = df.sort_values(["game_id", "play_id"]).copy()
             d["_next"] = d.groupby("game_id")["game_seconds_remaining"].shift(-1)
             d["_delta"] = d["game_seconds_remaining"] - d["_next"]
-            # positive small deltas = clock ran
-            for pt in ("pass", "run", "punt", "field_goal", "qb_kneel"):
-                sub = d[(d["play_type"] == pt) & d["_delta"].between(3, 55)]
-                if len(sub) >= 30:
-                    out[pt] = float(sub["_delta"].median())
-                    meta_source = "empirical_median_delta"
+            if stat == "mean":
+                same_q = (d.groupby("game_id")["qtr"].shift(-1) == d["qtr"]) if "qtr" in d.columns else True
+                for pt in ("pass", "run", "punt", "field_goal", "qb_kneel", "kickoff"):
+                    sub = d[(d["play_type"] == pt) & same_q & d["_delta"].between(0, 60)]
+                    if len(sub) >= 30:
+                        out[pt] = float(sub["_delta"].mean())
+                        meta_source = "empirical_mean_delta_same_qtr"
+            else:
+                # positive small deltas = clock ran
+                for pt in ("pass", "run", "punt", "field_goal", "qb_kneel"):
+                    sub = d[(d["play_type"] == pt) & d["_delta"].between(3, 55)]
+                    if len(sub) >= 30:
+                        out[pt] = float(sub["_delta"].median())
+                        meta_source = "empirical_median_delta"
         out["source"] = meta_source
         return out
 
@@ -205,6 +223,28 @@ class PlayCatalog:
             return team.iloc[int(rng.integers(0, len(team)))], "COARSE_ANY_DOWN_SAME_TEAM"
         return None, "EMPTY_TEAM_SNAPS"
 
+
+
+ACCOUNTING_DEFAULTS = {"clock": "mean", "exclude_clock_mgmt_snaps": True, "kickoff_clock": True}
+ACCOUNTING_LEGACY = {"clock": "legacy_median", "exclude_clock_mgmt_snaps": False, "kickoff_clock": False}
+
+
+def accounting_from_cfg(cfg: dict) -> dict:
+    """NFL-49 B accounting fixes (cfg["accounting"]; "legacy" reproduces the pre-NFL-49 engine).
+    clock: "mean" | "legacy_median" (see PlayCatalog.build_empirical_clock).
+    exclude_clock_mgmt_snaps: kneels/spikes are end-of-half clock decisions, not play outcomes; the legacy pool let a
+    random 1st-and-10 snap be a kneel (-1 yd, ~30 s) at any time.
+    kickoff_clock: charge the as-of mean kickoff clock (needs clock "mean"); legacy kickoffs took 0 s."""
+    a = cfg.get("accounting")
+    if a == "legacy":
+        return dict(ACCOUNTING_LEGACY)
+    out = dict(ACCOUNTING_DEFAULTS)
+    out.update(a or {})
+    if out["clock"] not in ("mean", "legacy_median"):
+        raise ValueError(f"unknown accounting.clock {out['clock']!r}")
+    if out["kickoff_clock"] and out["clock"] != "mean":
+        out["kickoff_clock"] = False  # legacy clock map has no kickoff entry
+    return out
 
 
 H2H_MODES = ("off", "shrunk", "legacy_always")
@@ -571,13 +611,19 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
     allow_pool = bool(cfg.get("proposed_pooling", {}).get("enabled", False))
     # Default research improvements (still labeled; not market-fit).
     # Duck-type EffectsCatalog / PlayCatalog: prefer methods on wrapper, else base.
+    acc = accounting_from_cfg(cfg)
+    def _clock(cat):
+        if acc["clock"] == "mean":
+            src = getattr(cat, "clock_df", None)
+            return PlayCatalog.build_empirical_clock(src if src is not None else df, stat="mean")
+        return PlayCatalog.build_empirical_clock(df)
     def _ensure_clock(cat):
         target = cat
         if getattr(cat, "clock_map", None) is None and hasattr(cat, "set_empirical_clock"):
-            target.set_empirical_clock(PlayCatalog.build_empirical_clock(df))
+            target.set_empirical_clock(_clock(cat))
         elif getattr(cat, "clock_map", None) is None and hasattr(cat, "base"):
             if getattr(cat.base, "clock_map", None) is None:
-                cat.base.set_empirical_clock(PlayCatalog.build_empirical_clock(df))
+                cat.base.set_empirical_clock(_clock(cat.base))
             # mirror attributes for getattr(catalog, "clock_map") sites
             cat.clock_map = cat.base.clock_map
             cat.clock_meta = getattr(cat.base, "clock_meta", {"source": "fixed_defaults"})
@@ -597,8 +643,16 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
         if st.in_ot and st.ot_tracker is not None and not st.final:
             st.ot_tracker.update(st, prev_pos, prev_scores)
     _post(None, (0, 0)) if (sem is not None and sem.get("returns") is not None) else None
+    ko_sec = int(round(float((getattr(catalog, "clock_map", None) or {}).get("kickoff", 0.0)))) if acc["kickoff_clock"] else 0
+    ev_ptr = 0
     while not st.final and steps < max_steps:
         steps += 1
+        if ko_sec > 0:
+            # NFL-49 B: kickoffs run the game clock (W1-9 mean 4.8 s each, about 49 s a game); legacy charged 0.
+            while ev_ptr < len(st.events):
+                if st.events[ev_ptr].get("type") == "kickoff" and st.game_seconds_remaining > 0:
+                    st.game_seconds_remaining -= ko_sec
+                ev_ptr += 1
         prev_pos, prev_scores = st.possession, (st.score_home, st.score_away)
         if st.game_seconds_remaining <= 0:
             _advance_period(st, home)
@@ -840,7 +894,8 @@ def build_catalog(df: pd.DataFrame, cfg: dict, games_df: Optional[pd.DataFrame] 
     from effects.apply_supported import EffectsCatalog, annotate_snaps
     from effects.evidence_tables import load_ftn_join
     min_n = int(cfg["min_n_state"])
-    base = PlayCatalog(df, min_n=min_n, games_df=games_df)
+    acc = accounting_from_cfg(cfg)
+    base = PlayCatalog(df, min_n=min_n, games_df=games_df, exclude_clock_mgmt=acc["exclude_clock_mgmt_snaps"])
     di = cfg.get("defense_interaction") or {}
     if di.get("mode") == "opponent_allowed":
         base.enable_defense_allowed(float(di.get("weight", 0.0)))
@@ -874,6 +929,7 @@ def build_catalog(df: pd.DataFrame, cfg: dict, games_df: Optional[pd.DataFrame] 
         "blitz_semantics": "conditions yards on CALLED pass only; run/pass choice from base sampler",
         "defense_blitz_rates": def_rates,
         "defense_interaction": def_prov,
+        "accounting": acc,
         "pressure_coverage": "NOT_EXECUTED_adapters_only (2026 participation unpublished)",
     }
     return cat, prov
