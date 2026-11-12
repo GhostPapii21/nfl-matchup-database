@@ -54,14 +54,20 @@
      "flags": 45,
      "yards": 371,
      "flags_per_team_game": 6.43,
-     "yards_per_team_game": 53.0
+     "yards_per_team_game": 53.0,
+     "unknown_games": [],
+     "unknown_games_policy": null
     },
     "WSH": {
      "team_games": 6,
      "flags": 40,
      "yards": 311,
      "flags_per_team_game": 6.67,
-     "yards_per_team_game": 51.8
+     "yards_per_team_game": 51.8,
+     "unknown_games": [
+      "2026_08_PHI_WAS"
+     ],
+     "unknown_games_policy": "UNKNOWN, not zero"
     }
    },
    "boxscore_match_team_games": "228 of 238 (PENALTY_NOTES.md; not re-derived here)"
@@ -113,6 +119,27 @@
   "penalty_log_weeks_unknown": [
    9
   ],
-  "note": "The canonical penalty log stops at week 8. Week 9 penalty data is UNKNOWN (not zero). Sims as-of week 10 use W1-8 penalty rates only (coverage_gap_weeks in sim meta)."
+  "penalty_log_games_unknown": [
+   "2026_08_CHI_SEA",
+   "2026_08_PHI_WAS"
+  ],
+  "penalty_log_games_unknown_by_team": {
+   "CHI": [
+    "2026_08_CHI_SEA"
+   ],
+   "PHI": [
+    "2026_08_PHI_WAS"
+   ],
+   "SEA": [
+    "2026_08_CHI_SEA"
+   ],
+   "WAS": [
+    "2026_08_PHI_WAS"
+   ]
+  },
+  "pbp_games_in_pen_weeks": 121,
+  "pen_games_in_log": 119,
+  "policy": "UNKNOWN: no canonical penalty data for these weeks/games; rates use weeks_used / games present in PEN only and do not treat the gap as zero penalties",
+  "note": "The canonical penalty log is not a complete W1-8 file: it has 119 of 121 PBP games in weeks [1, 2, 3, 4, 5, 6, 7, 8]. Unknown (not zero): 2026_08_CHI_SEA, 2026_08_PHI_WAS; weeks 9. PENALTY_NOTES.md: Week 8 SNF/MNF were not final when PEN was pulled (2026-11-01 ~9 PM ET). Sims use rates from games that exist in PEN only."
  }
 }
