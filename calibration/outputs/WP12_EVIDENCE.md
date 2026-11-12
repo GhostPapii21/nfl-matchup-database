@@ -37,7 +37,7 @@ Actual = the same two teams' as-of rate (weeks 1..w-1) from the PBP above, pass/
 | Before (9beb9b0), runs finished 6:25-6:37 PM ET | 66.89 | 62.08 | +4.81 |
 | After (440dd6a), runs finished 6:30-6:40 PM ET | 63.73 | 62.08 | +1.65 |
 Actual includes 0.78 kneels per team-game that the sim pool excludes by design (NFL-49 B), so the like-for-like
-residual is about +2.4. Drives per team-game: before 12.05, after 11.64, actual 10.85.
+residual is about +2.4. Drives per team-game: before 12.05, after 11.64, actual 10.84.
 Per-week files: `diag_total_w0{4..9}_off_{before,after}_wp12_n200.json`.
 
 ## Red zone (WP2), league pool replay of every actual W1-9 red-zone pass/run state, 12 draws per state
