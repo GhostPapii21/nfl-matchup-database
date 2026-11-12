@@ -46,6 +46,8 @@ For each team, over its last eight games:
   same nflverse play-by-play, so no second download is made.
 - **Keyed connectors:** which API keys the run could see and whether each one answered. Names and statuses
   only; never a key.
+- **Rain-adjusted passing:** for outdoor games, each team's passing line and every receiver's targets, receptions and
+  yards for dry, rain and the forecast, from measured rain and wind effects (`research/weather/README.md`).
 - **Matchup edges:** where a top-10 unit meets a bottom-10 unit.
 - **Projections (research only):** period-engine team scores from two samplers, and per-player baselines with
   the Floor / MAIN / Median percentile labels from `workflows/operational_specs/PHASE_SCRIPT.md`.

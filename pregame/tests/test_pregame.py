@@ -300,3 +300,40 @@ def test_freshness_flag_and_quota(world, monkeypatch):
     assert O.quota()["warning"] is None
     monkeypatch.setattr(O, "QUOTA", {})
     assert O.quota() == {}
+
+
+# ---------------------------------------------------------------- rain model
+from pregame import rain_model as RM  # noqa: E402
+
+
+def test_rain_model_uses_measured_effects_only():
+    c = RM.coefficients()
+    assert c["_meta"]["rain_team_games"] >= 150                       # fitted on a real sample
+    assert c["completion_pct"]["rain"] < 0 and c["pass_yards"]["rain"] < 0 and c["wr_yards_per_target"]["rain"] < 0
+    assert c["wr_target_share"]["rain"] == 0.0                         # no clear effect: left at no change
+    assert RM.factor("completion_pct", 0, 5) == 1.0                    # dry and calm: nothing changes
+    assert RM.factor("completion_pct", 1, 10) == pytest.approx(1 + c["completion_pct"]["rain"])
+    assert RM.factor("completion_pct", 1, 20) == pytest.approx(1 + c["completion_pct"]["rain"] + c["completion_pct"]["wind"])   # 20 mph = one wind step
+    assert RM.factor("completion_pct", 0.5, 10) == pytest.approx(1 + 0.5 * c["completion_pct"]["rain"])                       # forecast chance scales it
+    dry, wet = RM.adjust_receiver("WR", 10, 0.65, 8.0, 0, 5), RM.adjust_receiver("WR", 10, 0.65, 8.0, 1, 5)
+    assert dry == {"targets": 10.0, "catch_rate": 0.65, "receptions": 6.5, "yards_per_target": 8.0, "yards": 80.0}
+    assert wet["targets"] < 10 and wet["receptions"] < 6.5 and wet["yards"] < 80 and wet["yards"] > 55      # down, but not absurdly
+    q = RM.adjust_qb(34, 0.65, 240, 1, 20)
+    assert q["attempts"] < 34 and q["completion_pct"] < 0.65 and q["yards"] < 240 and q["completions"] == pytest.approx(q["attempts"] * q["completion_pct"], abs=0.06)
+
+
+def test_rain_adjusted_block_needs_a_forecast():
+    assert PK.rain_adjusted({}, {"status": "INDOOR"})["status"].startswith("NOT_APPLICABLE")
+    off = {"produced": {"pass_att_pg": 34.0, "completion_rate": 0.64, "pass_yards_pg": 230.0},
+           "players": {"quarterbacks": [{"player": "J.Winston", "attempts": 166, "completions": 96, "yards": 1028}, {"player": "J.McCarthy", "attempts": 63, "completions": 43, "yards": 622}],
+                       "receivers": [{"player": "M.Nabers", "pos": "WR", "games": 8, "targets": 78, "receptions": 53, "yards": 648, "target_share": 0.3},
+                                     {"player": "X.Rare", "pos": "WR", "games": 2, "targets": 3, "receptions": 1, "yards": 9, "target_share": 0.01}]}}
+    wx = {"status": "OK", "at_kickoff": {"precip_chance_pct": 74, "wind_mph": 10.0}, "during_game": {"wind_mph_max": 12.0}}
+    ra = PK.rain_adjusted(off, wx, listed_qb="J.J. McCarthy")
+    assert ra["status"] == "OK" and ra["rain_chance"] == 0.74 and ra["wind_mph"] == 12.0
+    assert ra["listed_qb"]["player"] == "J.McCarthy" and ra["listed_qb"]["small_sample"] is True          # the listed starter, flagged
+    tp = ra["team_passing"]
+    assert tp["dry"]["yards"] > tp["forecast"]["yards"] > tp["rain"]["yards"]
+    assert [r["player"] for r in ra["receivers"]] == ["M.Nabers"]                                           # under three games: left out
+    n = ra["receivers"][0]
+    assert n["dry"]["yards"] > n["forecast"]["yards"] > n["rain"]["yards"]

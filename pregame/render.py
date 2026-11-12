@@ -232,6 +232,26 @@ def brief(pk):
             L += [f"### {key.replace('_', ' ')}", "", table(["Player", "Pos", "Stat", "G", "Wtd mean", "Opp factor", "Floor p5", "p10", "MAIN p15", "p20", "p25", "Median"], rows), ""]
     if pk["matchup"]:
         L += [next(iter(pk["matchup"].values()))["player_baselines"]["method"], ""]
+    ra_any = [mu.get("rain_adjusted") for mu in pk["matchup"].values() if (mu.get("rain_adjusted") or {}).get("status") == "OK"]
+    if ra_any:
+        r0 = ra_any[0]
+        L += ["## Rain-adjusted passing (measured)", "",
+              f"Forecast: {f(r0['rain_chance'], 0, True)} chance of rain at kickoff, wind up to {r0['wind_mph']:g} mph. Basis: {r0['basis']}. {r0['note']}", ""]
+        for key, mu in pk["matchup"].items():
+            ra = mu.get("rain_adjusted") or {}
+            if ra.get("status") != "OK":
+                continue
+            tp = ra["team_passing"]; lq = ra.get("listed_qb")
+            L += [f"### {key.split('_offense')[0]} passing", "",
+                  table(["Line", "Dry", "Rain", "At the forecast"],
+                        [["Team pass attempts", tp["dry"]["attempts"], tp["rain"]["attempts"], tp["forecast"]["attempts"]],
+                         ["Team completion rate", f(tp["dry"]["completion_pct"], 1, True), f(tp["rain"]["completion_pct"], 1, True), f(tp["forecast"]["completion_pct"], 1, True)],
+                         ["Team completions", tp["dry"]["completions"], tp["rain"]["completions"], tp["forecast"]["completions"]],
+                         ["Team pass yards", tp["dry"]["yards"], tp["rain"]["yards"], tp["forecast"]["yards"]]]
+                        + ([[f"{lq['player']} completion rate ({lq['attempts_in_window']} attempts{', small sample' if lq['small_sample'] else ''})", f(lq["dry"]["completion_pct"], 1, True), f(lq["rain"]["completion_pct"], 1, True), f(lq["forecast"]["completion_pct"], 1, True)],
+                             [f"{lq['player']} yards per attempt", lq["dry"]["yards_per_attempt"], lq["rain"]["yards_per_attempt"], lq["forecast"]["yards_per_attempt"]]] if lq else [])), "",
+                  table(["Receiver", "Pos", "G", "Share", "Dry: tgt / rec / yds", "Rain: tgt / rec / yds", "Forecast: tgt / rec / yds"],
+                        [[r["player"], r["pos"], r["games"], f(r["target_share"], 0, True)] + [f"{r[k]['targets']} / {r[k]['receptions']} / {r[k]['yards']}" for k in ("dry", "rain", "forecast")] for r in ra["receivers"]]), ""]
     for team, t in pk["teams"].items():
         L += [team_section(team, t)]
     cn = pk.get("connectors") or {}
