@@ -69,7 +69,17 @@ def _chunk(args):
             "limitations": out.get("limitations"), "history_evidence": out.get("history_evidence")}
 
 
+def _require_nfl42() -> None:
+    """NFL-42 guard on the shared orchestration path (main(), pipeline.sim100k default_engine, direct callers)."""
+    sys.path.insert(0, str(ROOT))
+    from pipeline import hooks as _h
+    ep = _h.nfl42_entrypoint(ROOT)
+    if ep.get("status") != "OK":
+        raise RuntimeError("NFL-42 single validation entrypoint not enforced; refusing to simulate: " + str(ep.get("reason")))
+
+
 def run_sim(cfg: dict, pbp: str, n: int, seed: int, workers: int) -> dict:
+    _require_nfl42()
     k = max(1, workers)
     sizes = [n // k + (1 if i < n % k else 0) for i in range(k)]
     jobs = [(cfg, pbp, s, seed + 1000003 * i) for i, s in enumerate(sizes) if s > 0]

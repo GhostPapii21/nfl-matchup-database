@@ -199,15 +199,74 @@ def hook(pk: dict, out_dir: Path = OUT) -> dict:
     except (OSError, ValueError) as e:
         return {"status": "INCOMPLETE", "reason": f"{f.name} unreadable: {e!r}", "file": _rel(f)}
     teams = rec.get("teams") or {}
-    sources = {t: v.get("url") or v.get("index_url") for t, v in teams.items()}
-    if rec.get("status") != "OK" or rec.get("game_id") not in (None, gid):
-        bad = {t: v.get("reason") for t, v in teams.items() if v.get("status") != "OK"}
-        why = f"{f.name}: not OK for {bad}" if bad else f"{f.name}: status {rec.get('status')!r} game {rec.get('game_id')!r}"
-        return {"status": "INCOMPLETE", "reason": why, "file": _rel(f),
+    try:
+        _, _, away, home = str(gid).split("_")
+    except ValueError:
+        return {"status": "INCOMPLETE", "reason": f"game id {gid!r} is not SEASON_WEEK_AWAY_HOME", "file": _rel(f)}
+    sources = {t: (teams.get(t) or {}).get("url") or (teams.get(t) or {}).get("index_url") for t in (away, home)}
+    why = validate_record(rec, gid, away, home, _kickoff_of(pk))
+    if why:
+        return {"status": "INCOMPLETE", "reason": f"{f.name}: " + "; ".join(why), "file": _rel(f),
                 "retrieved_utc": rec.get("retrieved_utc"), "sources": sources}
-    return {"status": "OK", "retrieved_utc": rec["retrieved_utc"], "inactives": rec["inactives"],
-            "file": _rel(f), "sources": sources,
-            "published_utc": {t: v.get("published_utc") for t, v in teams.items()}}
+    return {"status": "OK", "retrieved_utc": rec["retrieved_utc"], "inactives": {t: rec["inactives"][t] for t in (away, home)},
+            "file": _rel(f), "sources": {t: teams[t]["url"] for t in (away, home)},
+            "published_utc": {t: teams[t]["published_utc"] for t in (away, home)}, "kickoff_utc": rec.get("kickoff_utc")}
+
+
+def _iso(s) -> datetime | None:
+    try:
+        d = datetime.fromisoformat(str(s).replace("Z", "+00:00"))
+    except (TypeError, ValueError):
+        return None
+    return d if d.tzinfo else d.replace(tzinfo=timezone.utc)
+
+
+def _kickoff_of(pk: dict) -> datetime | None:
+    try:
+        sys.path.insert(0, str(ROOT))
+        from pipeline import freshness
+        return freshness.kickoff_utc(pk)
+    except Exception:
+        return None
+
+
+def validate_record(rec: dict, gid: str, away: str, home: str, packet_kickoff: datetime | None) -> list[str]:
+    """Every reason a pull file is NOT acceptable official evidence for this game (empty list = acceptable).
+    Exact game id; kickoff matches the packet; both teams present with status OK, a parsed non-empty list, an
+    official club article URL (club site /news/..., not the index page) published inside [T-120m, kickoff]; the
+    pull itself after T-120m and before kickoff."""
+    why = []
+    if rec.get("status") != "OK":
+        why.append(f"status {rec.get('status')!r}")
+    if rec.get("game_id") != gid:
+        why.append(f"game_id {rec.get('game_id')!r} != {gid!r}")
+    ko = _iso(rec.get("kickoff_utc"))
+    if ko is None:
+        why.append("kickoff_utc missing")
+    elif packet_kickoff is not None and ko != packet_kickoff:
+        why.append(f"kickoff_utc {ko.isoformat()} != packet kickoff {packet_kickoff.isoformat()}")
+    got = _iso(rec.get("retrieved_utc"))
+    if got is None:
+        why.append("retrieved_utc missing")
+    elif ko is not None and not (ko - EARLIEST_BEFORE_KICKOFF <= got < ko):
+        why.append(f"pulled {got.isoformat()} outside [T-120m, kickoff)")
+    teams = rec.get("teams") or {}
+    for t in (away, home):
+        v = teams.get(t)
+        if not isinstance(v, dict):
+            why.append(f"{t}: no team record"); continue
+        if v.get("status") != "OK":
+            why.append(f"{t}: status {v.get('status')!r} ({v.get('reason')})")
+        names = (rec.get("inactives") or {}).get(t)
+        if not v.get("players") or not names:
+            why.append(f"{t}: no parsed inactive list")
+        url, site = str(v.get("url") or ""), CLUB_SITES.get(t, ("", "", ""))[1]
+        if not (site and url.startswith(site + "/news/") and url != CLUB_SITES[t][0] and "inactive" in url.lower()):
+            why.append(f"{t}: source {url or None!r} is not an official {site or '?'} Inactives article")
+        pub = _iso(v.get("published_utc"))
+        if pub is None or ko is None or not (ko - EARLIEST_BEFORE_KICKOFF <= pub <= ko):
+            why.append(f"{t}: article published {v.get('published_utc')!r} outside [T-120m, kickoff]")
+    return why
 
 
 def _kickoff_from_packet(game_id: str) -> datetime | None:

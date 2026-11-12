@@ -112,10 +112,9 @@ def phase15_status(pk: dict, now: datetime | None = None, hook_impls=None) -> di
     if res.get("status") != "OK":
         return {**base, "reason": res.get("reason", "No official inactives pull.")}
     got = freshness.parse_utc(res.get("retrieved_utc"))
-    if got is None:
-        return {**base, "reason": "Official inactives pull has no retrieved_utc; pull time unknown is treated as missing."}
-    if got < posts:
-        return {**base, "reason": "Official inactives were pulled before they post (T-90); pull again."}
+    bad = freshness.inactives_pull_time_problem(got, posts, ko, now)
+    if bad:
+        return {**base, "reason": bad}
     g = pk.get("game") or {}
     no_src = [t for t in (g.get("away"), g.get("home")) if not (t and base["source_urls"].get(t))]
     if no_src:

@@ -147,7 +147,7 @@ def asof_check(ec: dict, now: datetime, root: Path) -> tuple[list[str], dict]:
 
 def preflight(pk: dict | None, now: datetime | None = None, flags: dict | None = None, hook_impls=None,
               include_phases: bool = True, rocket_impl=None, rocket_command=None, root: Path | None = None,
-              game_id: str | None = None, entrypoint_impl=None) -> dict:
+              game_id: str | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
     root = Path(root or hooks.ROOT)
     flags = hooks.known_flags() if flags is None else flags
@@ -155,8 +155,13 @@ def preflight(pk: dict | None, now: datetime | None = None, flags: dict | None =
     gid = game_id or ((pk or {}).get("game") or {}).get("game_id")
 
     # G0 (NFL-42): the validation entrypoint is checked in the real repo code (hooks.ROOT), never a test root, so a
-    # fixture root cannot stand in for the enforced registry. Tests inject entrypoint_impl instead.
-    ep = hooks.nfl42_entrypoint(impl=entrypoint_impl)
+    # fixture root cannot stand in for the enforced registry. No injection parameter (tests monkeypatch hooks).
+    try:
+        ep = hooks.nfl42_entrypoint()
+    except Exception as e:  # fail closed
+        ep = {"status": "FAILED", "reason": f"NFL-42 entrypoint check raised {e!r}"}
+    if not isinstance(ep, dict):
+        ep = {"status": "FAILED", "reason": f"NFL-42 entrypoint check returned {type(ep).__name__}"}
     gates["G0_entrypoint"] = "PASS" if ep.get("status") == "OK" else "REFUSED"
     if ep.get("status") != "OK":
         reasons.append("G0: " + str(ep.get("reason", "NFL-42 entrypoint not enforced")))
@@ -268,6 +273,14 @@ def run(game_id: str, packet: Path | None = None, engine=default_engine, **kw) -
               "research_only": True, **pf}
     if not pf["ok"]:
         report["status"] = "REFUSED"
+        return EXIT_REFUSED, report
+    try:  # NFL-42 recheck immediately before ANY engine call (default or injected)
+        ep = hooks.nfl42_entrypoint()
+    except Exception as e:
+        ep = {"status": "FAILED", "reason": repr(e)}
+    if not isinstance(ep, dict) or ep.get("status") != "OK":
+        report.update(status="REFUSED", ran=False, ok=False,
+                      reasons=["G0: " + str(ep.get("reason") if isinstance(ep, dict) else ep)])
         return EXIT_REFUSED, report
     try:
         report["result"] = engine(pk, TRIALS, inputs)

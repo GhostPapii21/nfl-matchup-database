@@ -56,7 +56,6 @@ REGISTRY: dict[str, str | None] = {
 }
 PENDING_REASON = {
     "official_inactives": "No official-inactives pull exists yet (NFL-46 / NFL-49); Phase 15 stays NOT_YET.",
-    "nfl42_entrypoint": "NFL-42 entrypoint check not bound.",
 }
 
 
@@ -221,16 +220,29 @@ ENTRYPOINT_REL = Path("core") / "possession_engine_v0" / "validation" / "entrypo
 ENTRYPOINT_TARGET = "core/possession_engine_v0/validation/entrypoint.py:run_validation"
 
 
-def nfl42_entrypoint(root: Path = ROOT, impl=None) -> dict:
+# The sanctioned NFL-42 inventory (Linear NFL-42; known_flags contaminated_validator). A registry that drops or
+# re-hashes any of these entries is not the enforced registry. Changing this list is a reviewed code change.
+REQUIRED_DENY = {
+    "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py":
+        "29b6b0c2644f256a705b09b5e1a56716dd355d79eb07a6187b9c3df495ff93e9",
+    "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/role_policy_metrics.json":
+        "62b8bc7a0165f975f53bae7dd999117fe43ea754382026c75bdde35d0d0a8e16",
+}
+REQUIRED_AUTHORIZED = ("core/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/validate.py",
+                       "8a9d72949c122923ca149b635cd04290373112abc50930b85de5332491a201a1")
+
+
+def nfl42_entrypoint(root: Path = ROOT) -> dict:
     """NFL-42 enforcement for every 100k path (sim100k G0, snapshots.lock). OK only when ALL hold:
       * the registry's ``validation_entrypoint`` is the one sanctioned target (ENTRYPOINT_TARGET);
       * ``run_validation()`` returns PASS (authorized decontam validator bytes match, contaminated bytes unchanged,
         decontam metrics status as registered) with ``accepted_policy`` null;
       * every deny-listed contaminated file is actually REJECTED by ``invoke()`` (ContaminatedEntrypoint).
+      * the registry still lists the full sanctioned inventory (REQUIRED_DENY with the same sha256, and the
+        authorized decontam path/sha256 REQUIRED_AUTHORIZED); dropping one entry is a failure.
     The module is loaded from ``root`` by file path, so a tampered copy is checked as-is. Read-only; never runs the
-    contaminated validator; no network. Anything unexpected (missing file, exception) is FAILED (fail closed)."""
-    if impl is not None:
-        return _call("nfl42_entrypoint", impl, ok=("OK",))
+    contaminated validator; no network. Anything unexpected (missing file, exception) is FAILED (fail closed).
+    There is deliberately no injection parameter: tests monkeypatch this function, production cannot bypass it."""
     import importlib.util
     root = Path(root)
     f = root / ENTRYPOINT_REL
@@ -258,8 +270,13 @@ def nfl42_entrypoint(root: Path = ROOT, impl=None) -> dict:
                 denied.append(d["path"])
                 continue
             why.append(f"deny-listed {d['path']} was NOT rejected by invoke()")
-        if not reg.get("deny"):
-            why.append("registry deny list is empty (contaminated suite_fix path not blocked)")
+        have = {d.get("path"): d.get("sha256") for d in reg.get("deny") or []}
+        for path, sha in REQUIRED_DENY.items():
+            if have.get(path) != sha:
+                why.append(f"registry deny list lacks sanctioned entry {path} (sha256 {sha[:12]}...)")
+        auth = reg.get("authorized") or {}
+        if (auth.get("path"), auth.get("sha256")) != REQUIRED_AUTHORIZED:
+            why.append(f"registry authorized entry {auth.get('path')!r} is not the sanctioned decontam validator")
     except Exception as e:  # unreadable registry, import error, hash error: refuse
         return {"status": "FAILED", "reason": f"NFL-42 entrypoint check raised {e!r}"}
     if why:
