@@ -1,15 +1,9 @@
 {
  "n_rungs_raw": 5206,
- "n_graded": 5129,
- "n_player_games_graded": 444,
+ "n_graded": 5138,
+ "n_player_games_graded": 445,
  "games": 29,
- "unmatched_player_names": [
-  [
-   "2026_08_BAL_BUF",
-   "Joshua Palmer",
-   0
-  ]
- ],
+ "unmatched_player_names": [],
  "void_no_offense_snaps": [
   [
    "2026_08_ATL_TB",
@@ -44,8 +38,48 @@
    "Roschon Johnson"
   ]
  ],
- "rungs_unmatched": 9,
+ "rungs_unmatched": 0,
  "rungs_void": 68,
+ "name_match_bugfix": {
+  "description": "Joshua/Josh first-name alias applied only when the exact full_name or football_name+last_name match is empty. Pre-registered grading rules unchanged.",
+  "alias_matches": [
+   {
+    "game_id": "2026_08_BAL_BUF",
+    "listed_name": "Joshua Palmer",
+    "roster_name": "Josh Palmer",
+    "gsis_id": "00-0036988",
+    "note": "Joshua/Josh first-name alias (name-matching bug fix)"
+   }
+  ]
+ },
+ "cluster_bootstrap": {
+  "seed": 20261113,
+  "reps": 10000,
+  "method": "resample clusters with replacement; percentile 95% CI (numpy nanquantile, linear) on margin=hit-mean(BE) and ROI=profit/n; clusters = player-game (game_id, player) and game (game_id)"
+ },
+ "nflverse_inputs": [
+  {
+   "path": "play_by_play_2026.parquet",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
+   "source": "nflverse public release (github.com/nflverse/nflverse-data)",
+   "pull_time": "2026-11-13T15:15:54Z",
+   "sha256": "d3a9d3e2873dffc4bf27ba482894d87a4d8324af14ae1d3fbfaa294a87f96fd2"
+  },
+  {
+   "path": "roster_weekly_2026.parquet",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
+   "source": "nflverse public release (github.com/nflverse/nflverse-data)",
+   "pull_time": "2026-11-13T15:15:54Z",
+   "sha256": "b5d7cbd68ec7280391010349f284364c1d6a27ee8683d481566fa962a2d3c77c"
+  },
+  {
+   "path": "snap_counts_2026.parquet",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
+   "source": "nflverse public release (github.com/nflverse/nflverse-data)",
+   "pull_time": "2026-11-13T15:15:54Z",
+   "sha256": "1d2e15675f9a3bc9eba04c1197a7650be7957b8f2fbb657c8df80d40c25e1f03"
+  }
+ ],
  "input_sha256": {
   "2026_08_ARI_DAL__2026-11-01T163000Z.json": "3debd1584392b8adffdbd429cec8c9ce7a120ddeedfac3e307702655dcbc14b7",
   "2026_08_ATL_TB__2026-11-01T163000Z.json": "c484ee8e6d3e0f5643b9f07c2da5504ac555e84d37538317e08bb5ce201f4048",

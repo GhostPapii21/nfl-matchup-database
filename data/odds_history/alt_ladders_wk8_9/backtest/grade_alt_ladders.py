@@ -2,15 +2,38 @@
 """Grade FanDuel alt over rungs (Wk8-9 2026) vs nflverse actuals. Rules: ../PREREG_BACKTEST.md.
 Usage: grade_alt_ladders.py --nflverse DIR --wk9-pr41-raw DIR --out DIR
 Research only. No engine changes. projection_ready stays false.
+
+Review fixes (PR #42, refs NFL-75): Joshua/Josh first-name alias is a name-matching
+bug fix only (pre-registered grading rules unchanged). Tables report player-game
+(and game) cluster-bootstrap CIs for margin and ROI; independent-rung Wilson CIs
+are labeled as too narrow. nflverse inputs are sha256-pinned in meta.json.
 """
 from __future__ import annotations
 import argparse, glob, hashlib, json, math, re, unicodedata
 from pathlib import Path
+import numpy as np
 import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 RAW = HERE.parent / "raw"
 MK = {"player_rush_yds_alternate": "rush", "player_reception_yds_alternate": "rec"}
+
+# Cluster bootstrap (fixed; reported in meta.json / tables.md / REPORT.md).
+BOOT_SEED = 20261113
+BOOT_REPS = 10_000
+
+NFLVERSE_FILES = [
+    ("play_by_play_2026.parquet",
+     "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet"),
+    ("roster_weekly_2026.parquet",
+     "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet"),
+    ("snap_counts_2026.parquet",
+     "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet"),
+]
+
+# Joshua <-> Josh only; applied when the exact name match is empty. Not a grading-rule change.
+FIRST_NAME_ALIASES = {"joshua": "josh", "josh": "joshua"}
+
 
 def norm(s):
     s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode().lower()
@@ -18,9 +41,22 @@ def norm(s):
     s = re.sub(r"\b(jr|sr|ii|iii|iv|v)\b", "", s)
     return re.sub(r"\s+", " ", s).strip()
 
+
+def query_keys(player, exact_only=False):
+    k = norm(player)
+    keys = {k}
+    if exact_only:
+        return keys
+    parts = k.split()
+    if parts and parts[0] in FIRST_NAME_ALIASES:
+        keys.add(" ".join([FIRST_NAME_ALIASES[parts[0]], *parts[1:]]).strip())
+    return keys
+
+
 def dec(am):
     am = float(am)
     return 1 + am / 100 if am > 0 else 1 + 100 / -am
+
 
 def wilson(k, n, z=1.96):
     if n == 0:
@@ -28,6 +64,65 @@ def wilson(k, n, z=1.96):
     p = k / n; d = 1 + z * z / n
     c = (p + z * z / (2 * n)) / d; h = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d
     return (c - h, c + h)
+
+
+def pin_nflverse(nv: Path):
+    rows = []
+    for name, url in NFLVERSE_FILES:
+        p = nv / name
+        sha = hashlib.sha256(p.read_bytes()).hexdigest()
+        ts_path = nv / f"{name}.retrieved_utc"
+        pull_time = None
+        if ts_path.exists():
+            raw = ts_path.read_text().strip()
+            pull_time = raw.replace("+00:00", "Z")
+            if pull_time.endswith("UTC"):
+                pull_time = pull_time[:-3].strip() + "Z"
+        rows.append({
+            "path": name,
+            "url": url,
+            "source": "nflverse public release (github.com/nflverse/nflverse-data)",
+            "pull_time": pull_time,
+            "sha256": sha,
+        })
+    return rows
+
+
+def cluster_boot_ci(g, cluster_cols, seed=BOOT_SEED, reps=BOOT_REPS):
+    """Percentile 95% CIs for (hit-avg_be, ROI) by resampling clusters with replacement.
+
+    Each cluster's rungs travel together. Quantiles use numpy's default linear method.
+    Returns None bounds when there are fewer than 2 clusters.
+    """
+    nan = {"margin_lo": None, "margin_hi": None, "roi_lo": None, "roi_hi": None, "n_clusters": 0}
+    if g is None or g.empty:
+        return nan
+    cl = g.groupby(cluster_cols, sort=False).agg(
+        n=("win", "size"), wins=("win", "sum"), profit=("profit", "sum"), be_sum=("be", "sum"),
+    )
+    n_cl = len(cl)
+    if n_cl < 2:
+        return {**nan, "n_clusters": int(n_cl)}
+    n = cl.n.to_numpy(dtype=float)
+    wins = cl.wins.to_numpy(dtype=float)
+    profit = cl.profit.to_numpy(dtype=float)
+    be_sum = cl.be_sum.to_numpy(dtype=float)
+    rng = np.random.default_rng(seed)
+    idx = rng.integers(0, n_cl, size=(reps, n_cl))
+    n_b = n[idx].sum(axis=1)
+    ok = n_b > 0
+    margin_b = np.full(reps, np.nan)
+    roi_b = np.full(reps, np.nan)
+    margin_b[ok] = wins[idx][ok].sum(axis=1) / n_b[ok] - be_sum[idx][ok].sum(axis=1) / n_b[ok]
+    roi_b[ok] = profit[idx][ok].sum(axis=1) / n_b[ok]
+    lo_m, hi_m = np.nanquantile(margin_b, [0.025, 0.975])
+    lo_r, hi_r = np.nanquantile(roi_b, [0.025, 0.975])
+    return {
+        "margin_lo": float(lo_m), "margin_hi": float(hi_m),
+        "roi_lo": float(lo_r), "roi_hi": float(hi_r),
+        "n_clusters": int(n_cl),
+    }
+
 
 def load_rungs(wk9_dir):
     files = sorted(glob.glob(str(RAW / "2026_*__*.json"))) + sorted(glob.glob(str(Path(wk9_dir) / "2026_09_*.json")))
@@ -48,12 +143,32 @@ def load_rungs(wk9_dir):
                                  "rung": float(o["point"]), "price": int(o["price"])})
     return pd.DataFrame(rows), hashes
 
+
+def roster_mask(rw, keys):
+    return (rw.full_name.map(norm).isin(keys)) | (
+        (rw.football_name.fillna("") + " " + rw.last_name.fillna("")).map(norm).isin(keys)
+    )
+
+
+def match_player(rw, player):
+    """Exact full_name or football_name+last_name first; Joshua/Josh alias only if exact is empty."""
+    exact = rw[roster_mask(rw, query_keys(player, exact_only=True))]
+    n_exact = exact.gsis_id.nunique()
+    if n_exact == 1:
+        return exact, False
+    if n_exact > 1:
+        return exact, False
+    aliased = rw[roster_mask(rw, query_keys(player, exact_only=False))]
+    return aliased, aliased.gsis_id.nunique() == 1
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--nflverse", required=True); ap.add_argument("--wk9-pr41-raw", required=True)
     ap.add_argument("--out", default=str(HERE))
     a = ap.parse_args(); nv = Path(a.nflverse); out = Path(a.out)
     R, hashes = load_rungs(a.wk9_pr41_raw)
+    nflverse_inputs = pin_nflverse(nv)
     pbp = pd.read_parquet(nv / "play_by_play_2026.parquet")
     pbp = pbp[(pbp.season_type == "REG") & (pbp.week <= 9) & (pbp.two_point_attempt.fillna(0) == 0)]
     ros = pd.read_parquet(nv / "roster_weekly_2026.parquet")
@@ -87,16 +202,21 @@ def main():
         return ry, recy, cs, ts
 
     # roster lookup for matching names per game
-    out_rows, unmatched, voids = [], set(), set()
+    out_rows, unmatched, voids, alias_matches = [], set(), set(), []
     cache = {}
     for (gid, wk, player), grp in R.groupby(["game_id", "week", "player"]):
         _, _, away, home = gid.split("_")
         rw = ros[(ros.week == wk) & (ros.team.isin([away, home]))]
-        key = norm(player)
-        cand = rw[(rw.full_name.map(norm) == key) | ((rw.football_name.fillna("") + " " + rw.last_name.fillna("")).map(norm) == key)]
+        cand, used_alias = match_player(rw, player)
         if cand.gsis_id.nunique() != 1:
             unmatched.add((gid, player, int(cand.gsis_id.nunique()))); continue
         pid = cand.gsis_id.iloc[0]; team = cand.team.iloc[0]; pos = cand.position.iloc[0]
+        if used_alias:
+            roster_name = cand.full_name.iloc[0]
+            alias_matches.append({
+                "game_id": gid, "listed_name": player, "roster_name": roster_name,
+                "gsis_id": pid, "note": "Joshua/Josh first-name alias (name-matching bug fix)",
+            })
         pg = played[(played.game_id == gid) & (played.pid == pid)]
         if pg.empty:
             voids.add((gid, player)); continue
@@ -143,10 +263,17 @@ def main():
         rows = []
         for k, g in df.groupby(by, sort=False):
             n = len(g); w = int(g.win.sum()); lo, hi = wilson(w, n)
+            pg = cluster_boot_ci(g, ["game_id", "player"])
+            gm = cluster_boot_ci(g, ["game_id"])
             rows.append({**dict(zip(by if isinstance(by, list) else [by], k if isinstance(k, tuple) else [k])),
                          "n_rungs": n, "n_player_games": g[["game_id", "player"]].drop_duplicates().shape[0],
-                         "n_games": g.game_id.nunique(), "wins": w, "hit": w / n, "ci_lo": lo, "ci_hi": hi,
-                         "avg_be": g.be.mean(), "margin": w / n - g.be.mean(), "roi": g.profit.sum() / n})
+                         "n_games": g.game_id.nunique(), "wins": w, "hit": w / n,
+                         "wilson_indep_rung_ci_lo": lo, "wilson_indep_rung_ci_hi": hi,
+                         "avg_be": g.be.mean(), "margin": w / n - g.be.mean(), "roi": g.profit.sum() / n,
+                         "margin_pg_ci_lo": pg["margin_lo"], "margin_pg_ci_hi": pg["margin_hi"],
+                         "roi_pg_ci_lo": pg["roi_lo"], "roi_pg_ci_hi": pg["roi_hi"],
+                         "margin_game_ci_lo": gm["margin_lo"], "margin_game_ci_hi": gm["margin_hi"],
+                         "roi_game_ci_lo": gm["roi_lo"], "roi_game_ci_hi": gm["roi_hi"]})
         return pd.DataFrame(rows)
     relorder = ["<=50%", "50-75%", "75-100%", ">100%", "no prior games"]
     G["rel_band"] = pd.Categorical(G.rel_band, relorder, ordered=True)
@@ -168,7 +295,16 @@ def main():
         tabs["rico_floor_one_rung_per_player_game"] = summ(one, ["market"])
     out.mkdir(parents=True, exist_ok=True)
     G.to_csv(out / "graded_rungs.csv", index=False)
+    ci_note = (
+        f"CI notes: `wilson_indep_rung_ci_*` treats every rung as independent and is too narrow "
+        f"(one game settles a whole ladder), except on `rico_floor_one_rung_per_player_game` where "
+        f"n_rungs = n_player_games. `*_pg_ci_*` = cluster bootstrap over player-games; "
+        f"`*_game_ci_*` = cluster bootstrap over games. Both are percentile 95% intervals on "
+        f"margin (hit − mean break-even) and flat 1u ROI. seed={BOOT_SEED}, reps={BOOT_REPS}, "
+        f"numpy default_rng + nanquantile (linear).\n\n"
+    )
     with open(out / "tables.md", "w") as f:
+        f.write(ci_note)
         for name, t in tabs.items():
             f.write(f"## {name}\n\n")
             f.write(t.to_markdown(index=False, floatfmt=".3f") if not t.empty else "(empty)\n")
@@ -178,6 +314,12 @@ def main():
             "void_no_offense_snaps": sorted([list(v) for v in voids]),
             "rungs_unmatched": int(R.merge(pd.DataFrame([(u[0], u[1]) for u in unmatched], columns=["game_id", "player"])).shape[0]) if unmatched else 0,
             "rungs_void": int(R.merge(pd.DataFrame(list(voids), columns=["game_id", "player"])).shape[0]) if voids else 0,
+            "name_match_bugfix": {
+                "description": "Joshua/Josh first-name alias applied only when the exact full_name or football_name+last_name match is empty. Pre-registered grading rules unchanged.",
+                "alias_matches": alias_matches,
+            },
+            "cluster_bootstrap": {"seed": BOOT_SEED, "reps": BOOT_REPS, "method": "resample clusters with replacement; percentile 95% CI (numpy nanquantile, linear) on margin=hit-mean(BE) and ROI=profit/n; clusters = player-game (game_id, player) and game (game_id)"},
+            "nflverse_inputs": nflverse_inputs,
             "input_sha256": hashes}
     json.dump(meta, open(out / "meta.json", "w"), indent=1)
     print(json.dumps({k: v for k, v in meta.items() if k != "input_sha256"}, indent=1))
