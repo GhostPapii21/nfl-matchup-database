@@ -157,7 +157,7 @@ def test_outcomes_toy_frames_scores_and_drops():
     assert dropped == 1  # the blocked FG has no next play in its half
     presnap, fake, blocked, flagged = arr
     assert presnap[:7].tolist() == [0, 0, 1, 5, 4, 10, 65]  # kicking team keeps, 5 yards back (60 -> 65)
-    assert presnap[7:].tolist() == [60, 4, 5]               # own LOS, own down, own distance
+    assert presnap[7:].tolist() == [60, 4, 5, 0]            # own LOS, own down, own distance, not anchored
     assert fake[:7].tolist() == [0, 0, 1, -12, 1, 10, 43]   # kicking team gains 12, first down
     assert blocked[:3].tolist() == [0, 6, -1]               # receiving-team TD
     assert flagged[:7].tolist() == [0, 0, 0, 35, 1, 10, 95]  # receiving frame: 100 - 40 = 60 -> 95, shift +35
@@ -178,7 +178,7 @@ def _st(yl=40):
 
 def test_apply_outcome_kicking_and_receiving_ball():
     st = _st(40)
-    simulate._apply_rare_outcome(np.random.default_rng(0), _Cat(), st, "AAA", np.array([0, 0, 1, -12, 1, 10, 0, 40, 4, 6.]),
+    simulate._apply_rare_outcome(np.random.default_rng(0), _Cat(), st, "AAA", np.array([0, 0, 1, -12, 1, 10, 0, 40, 4, 6., 0]),
                                  kind="punt", cls="fake", ref_yl=40)
     assert (st.possession, st.yardline_100, st.down, st.ydstogo) == ("AAA", 28, 1, 10)
     st = _st(40)
@@ -207,8 +207,8 @@ def test_apply_outcome_scores():
 def test_unknown_class_never_drawn():
     m = rp.RarePlayModel(mode="asof_league_v1",
                          formation={"punt": {"p": {"presnap": None, "fake": None, "blocked": None, "flagged": None},
-                                             "pools": {"presnap": np.zeros((0, 10))}}},
-                         xp={}, onside={"cells": {}, "pool": np.zeros((0, 10))},
+                                             "pools": {"presnap": np.zeros((0, 11))}}},
+                         xp={}, onside={"cells": {}, "pool": np.zeros((0, 11))},
                          clean_punt_return_td_rate=None, clean_kick_return_td_rate=None)
     rng = np.random.default_rng(0)
     assert {m.draw_formation_class(rng, "punt") for _ in range(200)} == {"clean"}
@@ -217,7 +217,7 @@ def test_unknown_class_never_drawn():
 def test_onside_rate_cells_and_coarsening():
     cells = {("other",): (100, 0), ("q4_trailing", 0, 0): (20, 18), ("q4_trailing", 0, 1): (4, 4),
              ("q4_trailing", 0, 2): (2, 0)}
-    m = rp.RarePlayModel(mode="asof_league_v1", formation={}, xp={}, onside={"cells": cells, "pool": np.zeros((1, 10))},
+    m = rp.RarePlayModel(mode="asof_league_v1", formation={}, xp={}, onside={"cells": cells, "pool": np.zeros((1, 11))},
                          clean_punt_return_td_rate=None, clean_kick_return_td_rate=None)
     assert m.onside_rate(2, 7, 100) == (0.0, "cell")            # not Q4: observed zero
     assert m.onside_rate(4, -3, 100) == (0.0, "cell")           # leading: observed zero
@@ -227,7 +227,7 @@ def test_onside_rate_cells_and_coarsening():
 
 
 def test_onside_only_on_latest_kickoff():
-    pool = np.array([[0, 0, 1, 0, 1, 10, 52, np.nan, np.nan, np.nan]])  # kicking team recovers at its own 48 (yardline_100 52)
+    pool = np.array([[0, 0, 1, 0, 1, 10, 52, np.nan, np.nan, np.nan, 0]])  # kicking team recovers at its own 48 (yardline_100 52)
     m = rp.RarePlayModel(mode="asof_league_v1", formation={}, xp={},
                          onside={"cells": {("q4_trailing", 0, 0): (10, 10)}, "pool": pool},
                          clean_punt_return_td_rate=None, clean_kick_return_td_rate=None)
@@ -247,7 +247,7 @@ def test_onside_only_on_latest_kickoff():
 
 def test_pat_block_draw():
     m = rp.RarePlayModel(mode="asof_league_v1", formation={}, xp={"p_block": 1.0, "p_def2_given_block": 1.0},
-                         onside={"cells": {}, "pool": np.zeros((0, 10))},
+                         onside={"cells": {}, "pool": np.zeros((0, 11))},
                          clean_punt_return_td_rate=None, clean_kick_return_td_rate=None)
     st = _st()
     simulate._attempt_pat(np.random.default_rng(0), _Cat(m), st, "AAA")
@@ -345,8 +345,8 @@ def test_rare_research_smoke_runs_and_labels():
 
 
 # ---------------------------------------------------------------- review pass 1 fixes (live semantics, bands, cap)
-def _pres(shift, next_down=4, row_togo=10.0):
-    return np.array([0, 0, 1, shift, next_down, 10, 0, 50, 4, row_togo], dtype=float)
+def _pres(shift, next_down=4, row_togo=10.0, row_down=4):
+    return np.array([0, 0, 1, shift, next_down, 10, 0, 50, row_down, row_togo, 0], dtype=float)
 
 
 @pytest.mark.parametrize("shift,live_togo,want", [
@@ -388,14 +388,34 @@ def test_fake_runs_through_live_snap_mechanics():
 
 
 def test_outcome_draw_prefers_nearby_line_of_scrimmage():
-    far = np.array([[0, 0, 0, 57, 1, 10, 90, 67, 4, 10.]] * 10)
-    near = np.array([[0, 0, 0, 20, 1, 10, 80, 41, 4, 10.]] * 6)
+    far = np.array([[0, 0, 0, 57, 1, 10, 90, 67, 4, 10., 0]] * 10)
+    near = np.array([[0, 0, 0, 20, 1, 10, 80, 41, 4, 10., 0]] * 6)
     m = rp.RarePlayModel(mode="asof_league_v1", formation={"punt": {"p": {}, "pools": {"flagged": np.vstack([far, near])}}},
-                         xp={}, onside={"cells": {}, "pool": np.zeros((0, 10))},
+                         xp={}, onside={"cells": {}, "pool": np.zeros((0, 11))},
                          clean_punt_return_td_rate=None, clean_kick_return_td_rate=None)
     rng = np.random.default_rng(0)
     rows = [m.draw_outcome(rng, "punt", "flagged", 40) for _ in range(50)]
-    assert all(r[7] == 41 and tag == "band5" for r, tag in rows)
+    assert all(r[7] == 41 and tag == "band1" for r, tag in rows)
+    exact = np.array([[0, 0, 0, 30, 1, 10, 90, 40, 4, 10., 0]] * 5)
+    m.formation["punt"]["pools"]["flagged"] = np.vstack([far, near, exact])
+    assert all(m.draw_outcome(rng, "punt", "flagged", 40)[1] == "band0" for _ in range(20))
+
+
+def test_presnap_first_down_row_is_not_auto_first_down():
+    """Review pass 2: a 1st-and-10 row that stays 1st down after a 5-yard defensive foul is NOT an automatic first
+    down; applied at live 4th-and-8 it gives 4th-and-3."""
+    st = _st(40); st.ydstogo = 8
+    simulate._apply_presnap(st, _pres(-5, next_down=1, row_togo=10.0, row_down=1), 11, "field_goal", "band0")
+    assert (st.yardline_100, st.down, st.ydstogo) == (35, 4, 3)
+
+
+def test_touchback_rows_keep_absolute_spot():
+    """Review pass 1/2 example: a flagged punt from LOS 67 that was a touchback with receiving-team holding put the
+    receiver at 90. From live LOS 40 the old translation gave 117 -> clipped 99; the anchored row keeps 90."""
+    st = _st(40)
+    row = np.array([0, 0, 0, 57, 1, 10, 90, 67, 4, 10., 1])
+    simulate._apply_rare_outcome(np.random.default_rng(0), _Cat(), st, "AAA", row, kind="punt", cls="flagged", ref_yl=40)
+    assert (st.possession, st.yardline_100) == ("BBB", 90)
 
 
 @needs_pbp

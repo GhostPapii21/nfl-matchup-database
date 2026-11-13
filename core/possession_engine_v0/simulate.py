@@ -869,8 +869,11 @@ def _apply_presnap(st: GameState, row, clock_sec: int, kind: str, band: str) -> 
     shift = int(row[3])
     new_yl = int(np.clip(yl0 + shift, 1, 99))
     gained = yl0 - new_yl  # > 0: defensive foul
-    row_gained, row_next_down, row_togo = -shift, int(row[4]), row[9]
-    auto_first = gained > 0 and row_next_down == 1 and not np.isnan(row_togo) and row_gained < float(row_togo)
+    row_gained, row_next_down, row_down, row_togo = -shift, int(row[4]), row[8], row[9]
+    # automatic first down only with evidence the foul reset the down: the row was NOT already first down, the next
+    # play is first down, and the foul's yardage was short of the row's own line to gain (review pass 2)
+    auto_first = (gained > 0 and row_next_down == 1 and not np.isnan(row_down) and int(row_down) > 1
+                  and not np.isnan(row_togo) and row_gained < float(row_togo))
     st.yardline_100 = new_yl
     if gained > 0 and (gained >= st.ydstogo or auto_first):
         st.down = 1
@@ -945,8 +948,11 @@ def _apply_rare_outcome(rng, catalog, st: GameState, kicker: str, row, *, kind: 
             st.events.append({"type": "final_ot"})
         return
     keep = int(possessor) == 1
-    if ref_yl is None:
+    anchored = len(row) > 10 and float(row[10]) == 1
+    if ref_yl is None or anchored:
+        # onside rows (no LOS) and touchback rows (spot fixed by rule from the receiving 20) keep the absolute spot
         new_yl = int(abs_yl)
+        ev["spot"] = "absolute"
     else:
         new_yl = int(ref_yl + shift) if keep else int(100 - ref_yl + shift)
     st.possession = kicker if keep else recv

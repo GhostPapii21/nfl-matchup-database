@@ -65,7 +65,7 @@ _COLS = ["game_id", "play_id", "season", "week", "season_type", "game_half", "qt
 # Outcome pools are sampled from rows whose line of scrimmage is near the live one (|row - live| <= band), widening
 # through these bands until at least BAND_MIN_N rows qualify, else the whole pool. STRUCTURAL (not fitted): it bounds
 # the field-position error of translating an outcome by its LOS shift (touchbacks, half-distance, goal lines).
-LOS_BANDS = (5, 10, 20)
+LOS_BANDS = (0, 1, 2, 5, 10, 20)
 BAND_MIN_N = 5
 # Fake / aborted-snap rows are kept as full play rows and run through the engine's normal snap mechanics
 # (live down, distance, goal line, turnovers, defensive returns); these are the columns that path reads.
@@ -138,7 +138,9 @@ def _outcomes(d: pd.DataFrame, idx: np.ndarray, *, kicker_is_posteam: bool) -> t
     """Empirical outcome of each row in idx (positions in d, sorted by game_id/play_id).
 
     Row layout: [kick_pts, recv_pts, possessor (1 kicking team / 0 receiving team), shift, down, ydstogo, abs_yl,
-    los_yl (the row's own yardline_100, kicking frame; NaN for kickoffs), row_down, row_ydstogo].
+    los_yl (the row's own yardline_100, kicking frame; NaN for kickoffs), row_down, row_ydstogo, anchored].
+    anchored = 1 for touchback rows (touchback / punt_in_endzone): their next spot is fixed by the rules (the
+    receiving 20 plus any enforcement from it), so the engine uses the absolute spot instead of translating it.
     shift = next yardline_100 in the possessor's frame minus the reference: the row's own yardline_100 (kicking team)
     or 100 - yardline_100 (receiving team). Rows with no next scrimmage row in the same game half are dropped (count
     returned). Points scored on the row come from the score columns (TD 6, FG 3, safety 2; the PAT is a later row)."""
@@ -149,6 +151,8 @@ def _outcomes(d: pd.DataFrame, idx: np.ndarray, *, kicker_is_posteam: bool) -> t
     ps, psp = d["posteam_score"].to_numpy(float), d["posteam_score_post"].to_numpy(float)
     ds, dsp = d["defteam_score"].to_numpy(float), d["defteam_score_post"].to_numpy(float)
     dfn = d["defteam"].to_numpy()
+    z = pd.Series(0, index=d.index)
+    anc = ((_num(d.get("touchback", z)) == 1) | (_num(d.get("punt_in_endzone", z)) == 1)).to_numpy().astype(float)
     out, dropped = [], 0
     for i in idx:
         dp = 0.0 if np.isnan(psp[i]) or np.isnan(ps[i]) else psp[i] - ps[i]
@@ -156,7 +160,7 @@ def _outcomes(d: pd.DataFrame, idx: np.ndarray, *, kicker_is_posteam: bool) -> t
         kick_pts, recv_pts = (dp, dd) if kicker_is_posteam else (dd, dp)
         kicker = pos[i] if kicker_is_posteam else dfn[i]
         ref_yl = yl[i] if not np.isnan(yl[i]) else np.nan
-        own = [ref_yl if kicker_is_posteam else np.nan, dn[i], tg[i]]
+        own = [ref_yl if kicker_is_posteam else np.nan, dn[i], tg[i], anc[i] if kicker_is_posteam else 0.0]
         if kick_pts > 0 or recv_pts > 0:
             out.append([kick_pts, recv_pts, -1, 0, 0, 0, -1, *own]); continue
         j = i + 1
@@ -175,7 +179,7 @@ def _outcomes(d: pd.DataFrame, idx: np.ndarray, *, kicker_is_posteam: bool) -> t
             ref = ref_yl if mine else 100 - ref_yl
         shift = 0 if np.isnan(ref) else int(yl[j] - ref)
         out.append([0, 0, mine, shift, int(dn[j]), int(tg[j]), int(yl[j]), *own])
-    return (np.asarray(out, dtype=float) if out else np.zeros((0, 10))), dropped
+    return (np.asarray(out, dtype=float) if out else np.zeros((0, 11))), dropped
 
 
 @dataclass
@@ -291,7 +295,7 @@ def build_rare_play_model(pbp_path, *, season: int, week_asof_exclusive: int,
             if c == "fake":
                 fr = sub[m & sub["yardline_100"].notna()][list(FAKE_ROW_COLS)].reset_index(drop=True)
                 pools["fake_rows"], dropped[c] = fr, int(m.sum()) - len(fr)
-                pools[c] = np.zeros((len(fr), 10))  # placeholder so draw_formation_class sees a non-empty pool
+                pools[c] = np.zeros((len(fr), 11))  # placeholder so draw_formation_class sees a non-empty pool
                 if not len(fr):
                     p[c] = None
             elif c != "clean":
@@ -322,7 +326,7 @@ def build_rare_play_model(pbp_path, *, season: int, week_asof_exclusive: int,
         cells[key] = (a + 1, b + int(bool(ons)))
     ons_idx = np.flatnonzero(((_num(d["kickoff_attempt"]) == 1) & d["_onside"] &
                               (d["season"] >= DYNAMIC_KICKOFF_FIRST_SEASON)).to_numpy())
-    opool, odrop = _outcomes(d, ons_idx, kicker_is_posteam=False)
+    opool, odrop = _outcomes(d, ons_idx, kicker_is_posteam=False)  # onside rows use absolute spots (ref_yl None)
     n_ons = int(len(ons_idx))
     rec = int(_num(d.loc[ons_idx, "own_kickoff_recovery"]).sum()) if n_ons else 0
     onside = {"cells": cells, "pool": opool, "n_onside": n_ons, "own_recoveries": rec, "dropped": odrop}
