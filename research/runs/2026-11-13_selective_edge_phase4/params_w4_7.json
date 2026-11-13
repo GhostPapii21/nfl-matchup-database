@@ -1,0 +1,122 @@
+{
+ "schema": "nfl75-selective-edge-params/1",
+ "train_weeks": [
+  4,
+  5,
+  6,
+  7
+ ],
+ "strong_markets": [
+  "rushyds"
+ ],
+ "alt_min_cushion": null,
+ "rules": {
+  "carry_share_min": 0.6,
+  "carry_last_n": 4,
+  "carry_need": 3,
+  "usual_last_n": 4,
+  "usual_need": 3,
+  "strong_min_n": 30,
+  "strong_min_margin": 0.03,
+  "cushion_grid": [
+   0.1,
+   0.2,
+   0.3,
+   0.4,
+   0.5
+  ],
+  "edge_tiers": "flags only (+1 >= 0.01, +3 >= 0.03); not cuts",
+  "excluded_markets": "pass*",
+  "receiving_needs_verified_defender": true
+ },
+ "train_strong_under_by_market": [
+  {
+   "market": "rushyds",
+   "n": 101,
+   "W": 60,
+   "L": 41,
+   "P": 0,
+   "hit": 0.594059405940594,
+   "be": 0.532126426178945,
+   "margin": 0.06193297976164902,
+   "roi": 0.11421414260360861,
+   "margin_lo": -0.03986362110371099,
+   "margin_hi": 0.159704095187739
+  }
+ ],
+ "train_alt_floor_by_cushion": [
+  {
+   "cushion": 0.1,
+   "n": 122,
+   "W": 68,
+   "L": 54,
+   "P": 0,
+   "hit": 0.5573770491803278,
+   "be": 0.6593057853420737,
+   "margin": -0.10192873616174591,
+   "roi": -0.17639298555773344,
+   "margin_lo": -0.22251344887254038,
+   "margin_hi": 0.02842384513971046
+  },
+  {
+   "cushion": 0.2,
+   "n": 99,
+   "W": 59,
+   "L": 40,
+   "P": 0,
+   "hit": 0.5959595959595959,
+   "be": 0.7001423473567672,
+   "margin": -0.10418275139717126,
+   "roi": -0.19929436689945335,
+   "margin_lo": -0.21089934147192133,
+   "margin_hi": 0.0032940010525536953
+  },
+  {
+   "cushion": 0.3,
+   "n": 81,
+   "W": 51,
+   "L": 30,
+   "P": 0,
+   "hit": 0.6296296296296297,
+   "be": 0.7461673501271868,
+   "margin": -0.11653772049755717,
+   "roi": -0.22408372683251418,
+   "margin_lo": -0.24093038856888405,
+   "margin_hi": 0.005061737941139132
+  },
+  {
+   "cushion": 0.4,
+   "n": 61,
+   "W": 40,
+   "L": 21,
+   "P": 0,
+   "hit": 0.6557377049180327,
+   "be": 0.7829281101823495,
+   "margin": -0.1271904052643168,
+   "roi": -0.22310764582967682,
+   "margin_lo": -0.278729277942445,
+   "margin_hi": 0.01639933267636511
+  },
+  {
+   "cushion": 0.5,
+   "n": 51,
+   "W": 35,
+   "L": 16,
+   "P": 0,
+   "hit": 0.6862745098039216,
+   "be": 0.8100455070303838,
+   "margin": -0.12377099722646223,
+   "roi": -0.1990952863216371,
+   "margin_lo": -0.292480043289264,
+   "margin_hi": 0.03541911944009459
+  }
+ ],
+ "n_train_legs": 14900,
+ "projection_ready": false,
+ "inputs_sha256": {
+  "candidates.csv": "5aa84712855aca5aa0a4680c4e367e64c6d4f076cc0a7f87397220aef71f6f23",
+  "legs_with_probs.csv": "3a945f3c778689059bb7a1d7e71f1e9ba99af324d52e1f9b5d380b5bc3b769a2",
+  "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+  "legs_w4_9.csv (built)": "67cfbf3e8820891d180dfa74fd81665dd5ed739572152347133133cceac8b7ed"
+ }
+}
