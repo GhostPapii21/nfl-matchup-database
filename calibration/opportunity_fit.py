@@ -56,6 +56,9 @@ SOURCES = {
     "depth_qb1": {"path": NFLV / "derived_pit/depth_qb1_snapshots_2025_2026.csv",
                   "sha256": "c1ab52498fad542f62677e02977494a9283e4e3d78e6d2eb08a3344b0068d5d2",
                   "use": "point-in-time QB1 (latest snapshot before 04:00 UTC of game day); see derived_pit/README.md"},
+    "depth_skill": {"path": NFLV / "derived_pit/depth_skill_snapshots_2025_2026.csv.gz",
+                    "sha256": "943a55ac51569c242a6a5396f117efffb2438fbbd2e9575444afe744d0941e67",
+                    "use": "point-in-time RB/WR/TE/FB depth ranks (latest snapshot before 04:00 UTC of game day)"},
     "games": {"path": NFLV / "games.csv", "sha256": "c606cb6cdf94d6a1c1e939e23ed524223dc7aeaa01a4e2982b0cb5db42bae017",
               "use": "game day per (season, week, team) only", "committed": "d9779a1 (2026-11-11 10:07 AM ET)"},
     "players": {"path": PBP_DIR / "players.parquet",
@@ -70,7 +73,8 @@ HOLDOUT_FIRST_WEEK = 10
 GRID = {"lam": (0.2, 0.35, 0.5, 0.65, 0.8, 0.9, 1.0), "gamma": (0.75, 1.0, 1.5, 2.0, 3.0, 5.0), "K": (0, 1, 2, 3, 99),
         "alpha": (0.0, 0.5, 0.8, 1.0)}
 KAPPA_GRID = (0.1, 0.2, 0.5, 1.0, 2.0, 5.0, 10.0, 20.0, 40.0, 80.0, 160.0, 400.0, 1000.0)
-M_GRID = (2.0, 5.0, 10.0, 20.0, 50.0, 100.0, 200.0, 500.0, 1000.0, 2000.0, 5000.0)
+M_GRID = (2.0, 5.0, 10.0, 20.0, 50.0, 100.0, 200.0, 500.0, 1000.0, 2000.0, 5000.0, 10000.0, 20000.0, 50000.0,
+          100000.0, 1e9)  # 1e9 ~ pure position prior
 STATUS_OUT = "Out"
 COLS = ["season", "season_type", "week", "game_id", "play_id", "posteam", "play_type", "yardline_100", "yards_gained",
         "air_yards", "complete_pass", "interception", "fumble_lost", "sack", "qb_scramble", "two_point_attempt",
@@ -254,8 +258,42 @@ def played_matrix(inp) -> np.ndarray:
     return out
 
 
-def base_shares(inp, lam: float, gamma: float, K: int, u: float):
-    """-> (keep mask, base share vector over kept candidates + UNLISTED at the end)."""
+DEPTH_GRID = {"force": (False, "top", True), "br": (0.0, 0.1, 0.25, 0.5, 1.0), "bo": (0.0, 0.5, 1.0, 2.0, 3.0, 4.0, 6.0)}
+DEPTH_TOP = {"RB": 2, "WR": 3, "TE": 1, "FB": 1}  # force="top": only these ranks are force-kept
+GRID_2B = {**GRID, "gamma": (0.4, 0.5, 0.6, 0.75, 1.0, 1.5, 2.0, 3.0, 5.0)}  # Phase 2b: gamma grid extended below 0.75
+
+
+@lru_cache(maxsize=1)
+def _depth_skill():
+    d = pd.read_csv(SOURCES["depth_skill"]["path"], dtype={"gsis_id": str})
+    return {k: g for k, g in d.groupby(["season", "team"])}
+
+
+@lru_cache(maxsize=None)
+def depth_skill(season: int, team: str, week: int):
+    """{gsis_id: (pos_abb, rank)} from the latest RB/WR/TE/FB depth snapshot with dt < 04:00 UTC on game day, or
+    None (unknown: no dated snapshot, e.g. 2024)."""
+    gd = _gamedays().get((season, week, team))
+    d = _depth_skill().get((season, team))
+    if gd is None or d is None:
+        return None
+    d = d[d["dt"] < f"{gd}T04:00:00Z"]
+    if not len(d):
+        return None
+    last = d[d["dt"] == d["dt"].max()]
+    out = {}
+    for r in last.itertuples():
+        if isinstance(r.gsis_id, str) and r.gsis_id not in out:
+            out[r.gsis_id] = (r.pos_abb, int(r.pos_rank))
+    return out
+
+
+def base_shares(inp, lam: float, gamma: float, K: int, u: float, dp: dict | None = None):
+    """-> (keep mask, base share vector over kept candidates + UNLISTED at the end).
+    dp (Phase 2b depth signal, None = off): with a point-in-time RB/WR/TE/FB depth chart known for the game,
+    force=True keeps every charted player with rows for the team this season (not Out) even if stale, force="top"
+    only those at rank <= DEPTH_TOP[pos] (RB2, WR3, TE1, FB1); each kept
+    player's weight is multiplied by exp(-br * (rank - 1)) if charted, exp(-bo) if not charted."""
     C, T = inp["C"], inp["T"]
     W = len(inp["weeks"])
     age = np.arange(W)[::-1].astype(float)  # most recent game age 0
@@ -273,7 +311,21 @@ def base_shares(inp, lam: float, gamma: float, K: int, u: float):
         gap = W - 1 - idx.max()  # team games since last seen
         if gap <= K or all(inp["st_hist"][j, idx.max() + 1:]):
             keep[j] = r[j] > 0
-    s = np.where(keep, r, 0.0) ** gamma
+    mult = np.ones(len(r))
+    if dp is not None and inp["slot"] != "dropback":
+        ch = depth_skill(inp["season"], inp["team"], inp["week"])
+        if ch:
+            for j, pid in enumerate(inp["pids"]):
+                if pid in ch:
+                    fk = dp.get("force")
+                    if fk == "top":
+                        fk = ch[pid][1] <= DEPTH_TOP.get(ch[pid][0], 0)
+                    if fk and r[j] > 0 and inp["status"][j] != "Out":
+                        keep[j] = True
+                    mult[j] = math.exp(-dp.get("br", 0.0) * (ch[pid][1] - 1))
+                else:
+                    mult[j] = math.exp(-dp.get("bo", 0.0))
+    s = (np.where(keep, r, 0.0) ** gamma) * mult
     s = np.where(keep, s, 0.0)
     if s.sum() > 0:
         s = s / s.sum() * (1 - u)
@@ -281,11 +333,11 @@ def base_shares(inp, lam: float, gamma: float, K: int, u: float):
     return keep, np.array([1.0])
 
 
-def predict(inp, lam, gamma, K, alpha, u, p_q=1.0, p_d=0.0, expected=True):
+def predict(inp, lam, gamma, K, alpha, u, p_q=1.0, p_d=0.0, expected=True, dp=None):
     """Expected share vector after availability (Out removed; Q/D at their fitted play probability in expectation is
     approximated by Q=in, D=out for fitting; the sim draws them)."""
     om = _feat_mod()
-    keep, s = base_shares(inp, lam, gamma, K, u)
+    keep, s = base_shares(inp, lam, gamma, K, u, dp)
     st = [inp["status"][j] for j in np.where(keep)[0]] + [None]
     pos = [inp["pos"][j] for j in np.where(keep)[0]] + [om.UNLISTED]
     out = np.array([x in ("Out", "Doubtful") for x in st])
@@ -325,10 +377,10 @@ def train_set(eval_season: int, eval_week: int, slot: str, seasons=(2024, 2025))
     return out
 
 
-def _u_for(train, lam, gamma, K):
+def _u_for(train, lam, gamma, K, dp=None):
     num = den = 0.0
     for x in train:
-        keep, _ = base_shares(x, lam, gamma, K, 0.0)
+        keep, _ = base_shares(x, lam, gamma, K, 0.0, dp)
         a = x["actual"]
         listed = sum(a["by_pid"][p] for j, p in enumerate(x["pids"]) if keep[j])
         num += a["total"] - listed
@@ -351,10 +403,10 @@ def _dm_ll(preds, kappas) -> np.ndarray:
     return np.array(out)
 
 
-def _preds(train, lam, gamma, K, alpha, u):
+def _preds(train, lam, gamma, K, alpha, u, dp=None):
     out = []
     for x in train:
-        keep, pr = predict(x, lam, gamma, K, alpha, u)
+        keep, pr = predict(x, lam, gamma, K, alpha, u, dp=dp)
         _, cnt = _ll(x, keep, pr)
         pr = np.clip(pr, 1e-4, 1)
         out.append((pr / pr.sum(), cnt))
@@ -386,6 +438,47 @@ def fit_slot(train: list) -> dict:
     return {"lam": lam, "gamma": gamma, "K": int(K), "alpha": best_a, "u": u, "kappa": kappa,
             "objective": "dirichlet_multinomial", "train_team_games": len(train), "train_dm_ll": float(ll.max()),
             "at_grid_edge": edges}
+
+
+def fit_slot_depth(train: list, start: dict) -> dict:
+    """Phase 2b: carry/target slot with the point-in-time depth signal (see base_shares dp). Staged search starting
+    from `start` (a Phase 2 fit for the same week): depth grid | (lam, K, gamma) | alpha, each step maximising the
+    Dirichlet-multinomial likelihood with kappa profiled. Games without a dated depth chart (2024) are unaffected."""
+    kap = np.array(KAPPA_GRID)
+    cur = {"lam": start["lam"], "gamma": start["gamma"], "K": start["K"], "alpha": start["alpha"],
+           "dp": {"force": False, "br": 0.0, "bo": 0.0}}
+
+    def score(c):
+        u = _u_for(train, c["lam"], c["gamma"], c["K"], c["dp"])
+        ll = _dm_ll(_preds(train, c["lam"], c["gamma"], c["K"], c["alpha"], u, c["dp"]), kap)
+        return float(ll.max()), u, float(kap[int(np.argmax(ll))])
+
+    trace = []
+    base_ll = score(cur)[0]
+    for stage in ("depth", "share", "depth", "alpha"):
+        if stage == "depth":
+            cands = [{"dp": {"force": f, "br": br, "bo": bo}} for f in DEPTH_GRID["force"] for br in DEPTH_GRID["br"]
+                     for bo in DEPTH_GRID["bo"]]
+        elif stage == "share":
+            cands = [{"lam": l, "K": k, "gamma": g} for l in GRID_2B["lam"] for k in GRID_2B["K"] for g in GRID_2B["gamma"]]
+        else:
+            cands = [{"alpha": a} for a in GRID["alpha"]]
+        best = max(((score({**cur, **c})[0], c) for c in cands), key=lambda t: t[0])
+        cur.update(best[1])
+        trace.append({"stage": stage, "ll": best[0], **{k: v for k, v in best[1].items()}})
+    ll, u, kappa = score(cur)
+    D = DEPTH_GRID
+    return {"lam": cur["lam"], "gamma": cur["gamma"], "K": int(cur["K"]), "alpha": cur["alpha"], "u": u,
+            "kappa": kappa, "depth": cur["dp"], "objective": "dirichlet_multinomial", "search": "staged grid",
+            "search_trace": trace, "train_team_games": len(train), "train_dm_ll": ll,
+            "train_dm_ll_without_depth_start": base_ll,
+            "train_games_with_depth_chart": int(sum(1 for x in train if depth_skill(x["season"], x["team"], x["week"]))),
+            "at_grid_edge": {"lam": cur["lam"] in (GRID["lam"][0], GRID["lam"][-1]),
+                             "gamma": cur["gamma"] in (GRID_2B["gamma"][0], GRID_2B["gamma"][-1]),
+                             "K": cur["K"] in (GRID["K"][0], GRID["K"][-1]),
+                             "kappa": kappa in (KAPPA_GRID[0], KAPPA_GRID[-1]),
+                             "br": cur["dp"]["br"] in (D["br"][0], D["br"][-1]),
+                             "bo": cur["dp"]["bo"] in (D["bo"][0], D["bo"][-1])}}
 
 
 STARTER_GRID = {"lam": (0.2, 0.35, 0.5, 0.65, 0.8, 1.0), "K": (0, 1, 2, 99), "start_gamma": (0.5, 1.0, 2.0, 3.0),
@@ -680,7 +773,7 @@ def build_model(eval_season: int, eval_week: int, teams, params: dict, *, name_s
                 keep, s0 = _starter_base(x, p["lam"], p["K"])
                 s = np.append(s0[:-1] * (1 - p["u"]), p["u"]) if len(s0) > 1 else np.array([1.0])
             else:
-                keep, s = base_shares(x, p["lam"], p["gamma"], p["K"], p["u"])
+                keep, s = base_shares(x, p["lam"], p["gamma"], p["K"], p["u"], p.get("depth"))
             idx = list(np.where(keep)[0])
             names, poss, av, pids, stat = [], [], [], [], []
             shares = []

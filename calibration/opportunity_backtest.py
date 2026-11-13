@@ -72,14 +72,15 @@ def _summ(box, n):
 
 
 def _job(args):
-    gid, home, away, week, n, seed, model_path = args
+    gid, home, away, week, n, seed, model_path = args[:7]
+    ip = args[7] if len(args) > 7 else None
     engine_path()
     import simulate
     model = json.loads(Path(model_path).read_text())
     cfg = make_cfg(home, away, week, h2h="off")
     t0 = time.time()
     o = simulate.simulate_games(cfg, pbp_path=str(PBP), n=n, seed=simulate.stable_seed(seed, week, gid),
-                                opportunity_model=model)
+                                opportunity_model=model, **({"int_pool": ip} if ip is not None else {}))
     if max(o["history_evidence"]["weeks"]) >= week:
         raise RuntimeError(f"{gid}: history leaks week >= {week}")
     ob = o["player_box_opportunity"]
@@ -87,7 +88,9 @@ def _job(args):
             "name_locked": _summ(o["player_box"], n), "opportunity": _summ(ob, n),
             "recon": {"name_locked_failures": o["player_box"]["reconciliation"]["failures"],
                       "opportunity_failures": ob["reconciliation"]["failures"]},
-            "secs": round(time.time() - t0, 1)}
+            "secs": round(time.time() - t0, 1),
+            **({"int_pool": {"spec": o["int_pool"]["spec"], "counts": o["int_pool"]["counts"],
+                             "teams": {t: o["int_pool"]["teams"].get(t) for t in (home, away)}}} if ip is not None else {})}
 
 
 def games_for_week(week: int) -> list:
@@ -107,7 +110,17 @@ def main(argv=None):
     ap.add_argument("--seed", type=int, default=20261113)
     ap.add_argument("--workers", type=int, default=7)
     ap.add_argument("--refit", action="store_true")
+    ap.add_argument("--variant", choices=("phase2", "phase2b"), default="phase2",
+                    help="phase2b: depth-signal params from research/runs/2026-11-13_opportunity_phase2b/params "
+                         "(fitted by fit2b, frozen before scoring) + opt-in engine INT pooling fitted walk-forward")
     a = ap.parse_args(argv)
+    global OUT
+    if a.variant == "phase2b":
+        OUT = F.ROOT / "research/runs/2026-11-13_opportunity_phase2b"
+        missing = [w for w in a.weeks if not (OUT / f"params/params_2026_w{w:02d}.json").exists()]
+        if missing or a.refit:
+            raise SystemExit(f"phase2b params must be fitted and frozen first by calibration/opportunity_fit2b.py "
+                             f"(missing weeks {missing}); --refit is not allowed here")
     if any(w >= F.HOLDOUT_FIRST_WEEK for w in a.weeks):
         raise SystemExit("weeks >= 10 are the reserved live holdout; refused")
     if a.n > 20_000:
@@ -122,13 +135,17 @@ def main(argv=None):
             (OUT / f"params/params_2026_w{w:02d}.json").write_text(json.dumps(p, indent=1, default=str) + "\n")
             print(f"froze params week {w}", flush=True)
     jobs = []
+    ipspec = {}
+    if a.variant == "phase2b":
+        for w in a.weeks:  # frozen by calibration/opportunity_intcap.py before scoring
+            ipspec[w] = json.loads((OUT / f"int_pool/int_pool_2026_w{w:02d}.json").read_text())
     for w in a.weeks:
         params = json.loads((OUT / f"params/params_2026_w{w:02d}.json").read_text())  # frozen before scoring
         for gid, home, away in games_for_week(w):
             m = F.build_model(2026, w, [home, away], params)
-            mp = mdir / f"model_2026_w{w:02d}_{away}_{home}.json"
+            mp = mdir / f"model_{a.variant}_2026_w{w:02d}_{away}_{home}.json"
             mp.write_text(json.dumps(m, default=float))
-            jobs.append((gid, home, away, w, a.n, a.seed, str(mp)))
+            jobs.append((gid, home, away, w, a.n, a.seed, str(mp)) + ((ipspec[w],) if ipspec else ()))
     print(f"{len(jobs)} games", flush=True)
     res = []
     with ProcessPoolExecutor(max_workers=a.workers) as ex:
@@ -138,6 +155,7 @@ def main(argv=None):
     acts = {w: {f"{t}|{nm}": v for (t, nm), v in actual_lines(w).items()} for w in a.weeks}
     (OUT / "backtest_raw.json").write_text(json.dumps({"games": res, "actual": {str(k): v for k, v in acts.items()},
                                                         "n": a.n, "seed": a.seed, "weeks": a.weeks,
+                                                        "variant": a.variant,
                                                         "engine": engine_version(), "sources": src},
                                                        default=float) + "\n")
     print("wrote", OUT / "backtest_raw.json")
