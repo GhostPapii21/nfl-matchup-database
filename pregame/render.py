@@ -139,6 +139,9 @@ def _px(v):
     return "n/a" if v is None else format(int(v), "+d")
 
 
+O_RETAIL = ("fanduel", "draftkings", "hardrockbet", "williamhill_us")
+
+
 def market_section(pk):
     g, bk, wx = pk["game"], pk.get("books") or {}, pk.get("weather") or {}
     L = ["## Weather", ""]
@@ -152,7 +155,7 @@ def market_section(pk):
     L += ["## Book prices and no-vig", ""]
     mk = bk.get("markets")
     if not mk:
-        return L + [f"No book prices in this packet: {bk.get('status', 'NOT_REQUESTED')}. Do not quote Pinnacle, DraftKings or FanDuel numbers from memory.", ""]
+        return L + [f"No book prices in this packet: {bk.get('status', 'NOT_REQUESTED')}. Do not quote book numbers from memory.", ""]
     rows = []
     for label in ("spread", "total", "moneyline"):
         m = mk.get(label)
@@ -165,8 +168,20 @@ def market_section(pk):
     cr = bk.get("api_credits") or {}
     if cr.get("warning"):
         L += [f"**Odds API credits: {cr['warning']}** ({cr.get('credits_remaining')} left).", ""]
-    L += [f"Retrieved {bk.get('retrieved_utc')} UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.", "",
+    L += [f"Retrieved {bk.get('retrieved_utc')} UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.", "",
           table(["Market", "Book", "Side A / line", "Price A", "Price B", "No-vig A", "No-vig B", "Hold", "Book updated"], rows), ""]
+    cons = bk.get("consensus") or {}
+    if cons:
+        def _c(c):
+            cc = c["consensus"]
+            return ("no consensus" if isinstance(cc, str) else f"{c['sides'][0]} {f(cc['line'])}: {f(cc['no_vig'][c['sides'][0]], 1, True)} ({cc['n_books_at_line']} at line)")
+        crow = [[k, c.get("team") or "", c["label"]] + [str(c["book_lines"][b]) if c["book_lines"][b] is not None else "" for b in O_RETAIL]
+                + [_c(c), "; ".join(x for x in (c.get("reason"), "NEVER A LEG (passing yards: reference only)" if c.get("never_a_leg") else None) if x)]
+                for k, c in sorted(cons.items(), key=lambda kv: ("|" in kv[0], kv[0]))]
+        L += ["### Same-line consensus (retail books only)", "",
+              "Consensus uses only books quoting the same line; probabilities at different lines are never averaged. "
+              "Fewer than two books on one line, a tie between lines, or a player not matched on full name + team gives 'no consensus'.", "",
+              table(["Market", "Team", "Label", "FanDuel", "DraftKings", "Hard Rock Bet", "Caesars", "Consensus", "Note"], crow), ""]
     mv = bk.get("movement") or {}
     if mv.get("moves"):
         L += [f"### Line movement: first seen {mv['first_seen_utc']} to {mv['current_utc']} ({mv['snapshots']} snapshots)", "",
