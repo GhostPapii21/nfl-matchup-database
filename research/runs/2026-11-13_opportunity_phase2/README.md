@@ -46,6 +46,20 @@ Several values sit on a grid edge: K=0, beta_last=0, and m at 1000-5000 in some 
 - **Point in time:** availability is the weekly report status only. Game-day inactives are not used.
 - **Snaps:** unknown. There is no snap model, and nflverse snap counts in the repo stop at Week 7.
 
+## Holdout freeze (Weeks 10-12)
+`holdout_freeze_manifest.json` records model commit b6e955c and the sha256 of the model code
+(opportunity.py, player_box.py, simulate.py, state.py, opportunity_fit/backtest/report.py) and of the frozen params
+for Weeks 10-12 (all = the Week-10 fit on data through 2026 Week 9). `calibration/opportunity_holdout_grade.py`
+calls `opportunity_freeze.check_freeze(week)` before touching any actual and refuses if the manifest is absent or
+any hash differs; any model change (e.g. the follow-up depth-signal PR) must be re-frozen and committed before
+Week 10-12 actuals are read. Holdout grading itself is not implemented or run here. W10 TNF had already been played
+at freeze time; its actuals were never read.
+
+## Research guard
+`opportunity_model` runs only through `simulate_games(opportunity_model=...)` with n <= 20,000; a config key
+`opportunity_model`/`opportunity` is refused by simulate_games and by `snapshots/lock.run_sim` (the 100k path);
+the output block is labelled UNACCEPTED_RESEARCH_ONLY.
+
 ## Provenance gaps (labelled, not fixed)
 - `injuries_2026_pulled_20261113T0526Z.parquet` was retrieved 2026-11-13T05:26:36Z = **00:26 AM ET Nov 13, after the
   Nov 12 TNF kickoff**, and nflverse gives **no publication time** for its rows: publication time UNKNOWN. Its Week 10
