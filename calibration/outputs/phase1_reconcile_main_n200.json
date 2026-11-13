@@ -1,0 +1,281 @@
+{
+ "label": "research only, not validated",
+ "generated_by": "calibration/phase1_reconcile.py",
+ "command": "python3 -m calibration.phase1_reconcile --weeks 4-9 --n 200 --workers 7 --tag main",
+ "run_utc": "2026-11-13T08:06:36+00:00",
+ "runtime_sec": 124.4,
+ "engine": {
+  "git_head": "ef5f230bee4f0e7aa21da1f446ed84698d5bd71e",
+  "engine_tree": "c61fa15aa13cf2af211d91cc8f2a675dd0a3d599",
+  "engine_py_sha256": "c079d2db3d6d8d377f7221f49957736b58e3629cdd89d22b47be20ba5a4c007e",
+  "engine_dirty": false,
+  "simulate_sha256": "84b4450ccd3ca9948276750cdf87f10df9fe248230ca9e3bc413a67088743e47"
+ },
+ "accounting_override": null,
+ "n_per_game": 200,
+ "seed": 4949,
+ "weeks": [
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "pbp": {
+  "path": "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet",
+  "sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+  "pulled_et": "2026-11-12 11:16 AM ET"
+ },
+ "sim_games": 17600,
+ "sim_team_games": 35200,
+ "actual_team_games": 928,
+ "per_team_game": {
+  "snaps": {
+   "sim": 63.732,
+   "actual": 61.251,
+   "sim_minus_actual": 2.481
+  },
+  "pass": {
+   "sim": 36.865,
+   "actual": 35.281,
+   "sim_minus_actual": 1.584
+  },
+  "run": {
+   "sim": 26.867,
+   "actual": 25.97,
+   "sim_minus_actual": 0.897
+  },
+  "targets": {
+   "sim": 32.956,
+   "actual": 31.58,
+   "sim_minus_actual": 1.376
+  },
+  "carries": {
+   "sim": 26.867,
+   "actual": 25.97,
+   "sim_minus_actual": 0.897
+  },
+  "sacks": {
+   "sim": 2.409,
+   "actual": 2.261,
+   "sim_minus_actual": 0.148
+  },
+  "penalty_events": {
+   "sim": 6.844,
+   "actual": null,
+   "note": "sim: all enforced fouls (no-play + live-ball); actual column counts only no-play rows here"
+  },
+  "no_play_penalties": {
+   "sim": 5.816,
+   "actual": 5.425,
+   "sim_minus_actual": 0.391
+  },
+  "turnovers": {
+   "sim": 1.195,
+   "actual": 1.261,
+   "sim_minus_actual": -0.066
+  },
+  "tds": {
+   "sim": 2.499,
+   "actual": 2.481,
+   "sim_minus_actual": 0.018
+  },
+  "punts": {
+   "sim": 4.484,
+   "actual": 3.792,
+   "sim_minus_actual": 0.692
+  },
+  "fga": {
+   "sim": 1.846,
+   "actual": 2.064,
+   "sim_minus_actual": -0.218
+  },
+  "kneels": {
+   "sim": 0.0,
+   "actual": 0.776,
+   "sim_minus_actual": -0.776
+  },
+  "drives": {
+   "sim": 11.53,
+   "actual": 10.531,
+   "note": "possessions with >= 1 pass/run snap (both sides)",
+   "sim_minus_actual": 0.999
+  }
+ },
+ "fourth_down_by_band": {
+  "01_10": {
+   "sim_per_team_game": 0.529,
+   "actual_per_team_game": 0.558,
+   "sim_mix": {
+    "punt": 0.029,
+    "field_goal": 0.683,
+    "go": 0.288
+   },
+   "actual_mix": {
+    "punt": 0.0,
+    "field_goal": 0.548,
+    "go": 0.452
+   }
+  },
+  "11_20": {
+   "sim_per_team_game": 0.67,
+   "actual_per_team_game": 0.627,
+   "sim_mix": {
+    "punt": 0.031,
+    "field_goal": 0.736,
+    "go": 0.234
+   },
+   "actual_mix": {
+    "punt": 0.0,
+    "field_goal": 0.765,
+    "go": 0.235
+   }
+  },
+  "21_35": {
+   "sim_per_team_game": 1.103,
+   "actual_per_team_game": 1.027,
+   "sim_mix": {
+    "punt": 0.034,
+    "field_goal": 0.744,
+    "go": 0.222
+   },
+   "actual_mix": {
+    "punt": 0.0,
+    "field_goal": 0.778,
+    "go": 0.222
+   }
+  },
+  "36_45": {
+   "sim_per_team_game": 0.897,
+   "actual_per_team_game": 0.775,
+   "sim_mix": {
+    "punt": 0.652,
+    "field_goal": 0.146,
+    "go": 0.202
+   },
+   "actual_mix": {
+    "punt": 0.305,
+    "field_goal": 0.36,
+    "go": 0.335
+   }
+  },
+  "46_60": {
+   "sim_per_team_game": 1.555,
+   "actual_per_team_game": 1.443,
+   "sim_mix": {
+    "punt": 0.745,
+    "field_goal": 0.027,
+    "go": 0.228
+   },
+   "actual_mix": {
+    "punt": 0.788,
+    "field_goal": 0.007,
+    "go": 0.205
+   }
+  },
+  "61_99": {
+   "sim_per_team_game": 2.858,
+   "actual_per_team_game": 2.605,
+   "sim_mix": {
+    "punt": 0.934,
+    "field_goal": 0.0,
+    "go": 0.066
+   },
+   "actual_mix": {
+    "punt": 0.929,
+    "field_goal": 0.0,
+    "go": 0.071
+   }
+  }
+ },
+ "inside10": {
+  "uncensored": {
+   "snaps_per_team_game": 3.843,
+   "td_share": 0.354
+  },
+  "GL_CENSOR_RESOLVED": {
+   "snaps_per_team_game": 0.248,
+   "td_share": 0.6886
+  },
+  "all_sim": {
+   "snaps_per_team_game": 4.091,
+   "td_share": 0.3742
+  },
+  "actual": {
+   "snaps_per_team_game": 4.659,
+   "td_share": 0.3249
+  }
+ },
+ "inside3": {
+  "uncensored": {
+   "snaps_per_team_game": 1.047,
+   "td_share": 0.5678
+  },
+  "GL_CENSOR_RESOLVED": {
+   "snaps_per_team_game": 0.076,
+   "td_share": 0.8202
+  },
+  "by_source_row_yardline|src_le3": {
+   "share_of_in3_snaps": 0.2357,
+   "snaps_per_team_game": 0.265,
+   "td_share": 0.4243
+  },
+  "by_source_row_yardline|src_4_10": {
+   "share_of_in3_snaps": 0.1048,
+   "snaps_per_team_game": 0.118,
+   "td_share": 0.6478
+  },
+  "by_source_row_yardline|src_11_20": {
+   "share_of_in3_snaps": 0.1497,
+   "snaps_per_team_game": 0.168,
+   "td_share": 0.5988
+  },
+  "by_source_row_yardline|src_other": {
+   "share_of_in3_snaps": 0.5098,
+   "snaps_per_team_game": 0.572,
+   "td_share": 0.6419
+  },
+  "all_sim": {
+   "snaps_per_team_game": 1.123,
+   "td_share": 0.5848
+  },
+  "actual": {
+   "snaps_per_team_game": 1.692,
+   "td_share": 0.4822
+  }
+ },
+ "clock_seconds_per_game": {
+  "clock_cost_field_goal": 19.36,
+  "clock_cost_pass": 1570.94,
+  "clock_cost_punt": 80.58,
+  "clock_cost_run": 1817.16,
+  "kickoff_fixed": 50.37,
+  "total_charged_via_clock_cost_and_kickoff_per_game": 3538.4,
+  "mean_charged_per_event": {
+   "pass": 21.306,
+   "run": 33.818,
+   "punt": 8.984,
+   "field_goal": 5.236
+  },
+  "events_per_game": {
+   "pass": 73.73,
+   "run": 53.73,
+   "punt": 8.97,
+   "field_goal": 3.7
+  },
+  "mean_clock_map_target": {
+   "pass": 21.85,
+   "run": 34.336,
+   "punt": 9.364,
+   "field_goal": 4.713,
+   "extra_point": 4.0,
+   "qb_kneel": 39.774,
+   "qb_spike": 2.0,
+   "kickoff": 4.753,
+   "no_play_penalty": 11.311
+  }
+ },
+ "sim_points_per_game": 45.902,
+ "sim_ot_rate": 0.0348
+}

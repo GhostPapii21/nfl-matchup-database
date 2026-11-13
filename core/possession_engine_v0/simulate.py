@@ -17,11 +17,19 @@ def stable_seed(base: int, week: int, game_id: str) -> int:
     return (base + week * 1000 + int(digest[:8], 16)) % (2**31 - 1)
 
 
-def _clock_cost(play_type: str, rng: np.random.Generator, cost_map: dict | None = None) -> int:
+def _clock_cost(play_type: str, rng: np.random.Generator, cost_map: dict | None = None,
+                rounding: str = "truncate") -> int:
+    """Seconds charged for one clock event: max(3, N(mu, 4)) in whole seconds.
+    rounding "truncate" (default, pre-Phase-1): int() drops the fraction, so the mean charge is ~0.5 s below mu for
+    every event with mu >= ~10 s. "round" (Phase 1 opt-in, accounting.clock_rounding): nearest second, mean ~= mu.
+    Both consume exactly one normal draw, so the RNG stream is identical."""
     defaults = {"pass": 22, "run": 28, "punt": 10, "field_goal": 7, "extra_point": 4, "qb_kneel": 40, "qb_spike": 2}
     means = {**defaults, **(cost_map or {})}
     mu = float(means.get(play_type, 24))
-    return int(max(3, rng.normal(mu, 4)))
+    x = max(3, rng.normal(mu, 4))
+    if rounding == "round":
+        return int(round(x))
+    return int(x)
 
 
 def _credit_player(st: GameState, team: str, kind: str, name: Optional[str], yards: float) -> None:
@@ -99,6 +107,7 @@ class PlayCatalog:
         # State-conditioned 4th-down decisions (observed team rows only)
         self.fourth_cells: dict[tuple, pd.DataFrame] = {}
         f4 = df[(df["down"] == 4) & df["play_type"].isin(["punt", "field_goal", "pass", "run"])].copy()
+        self._f4 = f4  # Phase 1: source rows for the opt-in v1_fringe 4th-down cells (built lazily)
         if len(f4):
             f4["_y4"] = f4["yardline_100"].map(yl4_bucket)
             f4["_t4"] = f4["ydstogo"].map(togo4_bucket)
@@ -230,6 +239,24 @@ class PlayCatalog:
         """Mixture weight is a STRUCTURAL ASSUMPTION (not fitted)."""
         self._def_allowed_w = float(np.clip(weight, 0.0, 1.0))
 
+    def _goal_line_local(self, team: str, down: int):
+        """Phase 1 opt-in (accounting.goal_line_pool="local5"): the offense's own pass/run rows run at yardline <= 5,
+        same down if >= min_n, else any down if >= min_n, else None (the v0 chain applies). Memoised."""
+        cache = self.__dict__.setdefault("_gl_local_cache", {})
+        k = (team, down)
+        if k not in cache:
+            t = self.by_team.get(team)
+            res = None
+            if t is not None and len(t):
+                g = t[t["yardline_100"] <= GOAL_LINE_LOCAL_YL]
+                gd = g[g["down"] == down]
+                if len(gd) >= self.min_n:
+                    res = (gd, f"GL_LOCAL_SAME_DOWN_n={len(gd)}")
+                elif len(g) >= self.min_n:
+                    res = (g, f"GL_LOCAL_ANY_DOWN_n={len(g)}")
+            cache[k] = res
+        return cache[k]
+
     def sample_snap(self, rng: np.random.Generator, st: GameState, allow_pool: bool) -> tuple[Optional[pd.Series], str]:
         if self._def_allowed_w > 0 and st.possession is not None:
             defense = st.home if st.possession == st.away else st.away
@@ -263,6 +290,13 @@ class PlayCatalog:
                 if w >= 1.0 or (w > 0.0 and rng.random() < w):
                     self._last_pool, self._last_pool_foreign = use, False
                     return use.iloc[int(rng.integers(0, len(use)))], f"DEF_COND_vs_{defense}_n={len(use)}"
+        if getattr(self, "goal_line_pool", "v0") == "local5" and st.possession is not None \
+                and float(st.yardline_100) <= GOAL_LINE_LOCAL_YL:
+            gl = self._goal_line_local(st.possession, int(st.down))
+            if gl is not None:
+                pool, tag = gl
+                self._last_pool, self._last_pool_foreign = pool, False
+                return pool.iloc[int(rng.integers(0, len(pool)))], tag
         key = (st.possession, int(st.down), dist_bucket(st.ydstogo), yl_bucket(st.yardline_100))
         cell = self.cells.get(key)
         if cell is not None and len(cell) >= self.min_n:
@@ -324,12 +358,15 @@ def _clean_kick_mask(sub: pd.DataFrame, kind: str) -> pd.Series:
 
 ACCOUNTING_DEFAULTS = {"clock": "mean", "exclude_clock_mgmt_snaps": True, "kickoff_clock": True,
                        "no_play_clock": "asof_mean", "unmodeled_row_clock": "attribute_to_prior_play",
-                       "goal_line_censoring": "redistribute_right"}
+                       "goal_line_censoring": "redistribute_right", "clock_rounding": "truncate",
+                       "fourth_down_yl_buckets": "v0", "goal_line_pool": "v0"}
 ACCOUNTING_LEGACY = {"clock": "legacy_median", "exclude_clock_mgmt_snaps": False, "kickoff_clock": False,
-                     "no_play_clock": "flat_4s", "unmodeled_row_clock": "drop", "goal_line_censoring": "truncate"}
+                     "no_play_clock": "flat_4s", "unmodeled_row_clock": "drop", "goal_line_censoring": "truncate",
+                     "clock_rounding": "truncate", "fourth_down_yl_buckets": "v0", "goal_line_pool": "v0"}
 # Pre-WP1/WP2 engine (NFL-49 B accounting, 2026-11-12 main 9beb9b0): use accounting=PRE_WP12 to reproduce it.
 ACCOUNTING_PRE_WP12 = {"clock": "mean", "exclude_clock_mgmt_snaps": True, "kickoff_clock": True,
-                       "no_play_clock": "flat_4s", "unmodeled_row_clock": "drop", "goal_line_censoring": "truncate"}
+                       "no_play_clock": "flat_4s", "unmodeled_row_clock": "drop", "goal_line_censoring": "truncate",
+                       "clock_rounding": "truncate", "fourth_down_yl_buckets": "v0", "goal_line_pool": "v0"}
 
 
 def accounting_from_cfg(cfg: dict) -> dict:
@@ -343,7 +380,14 @@ def accounting_from_cfg(cfg: dict) -> dict:
     unmodeled_row_clock (WP1): "attribute_to_prior_play" books timeout / unmodeled-row seconds on the prior modeled
     play when the mean clock is built (needs clock "mean"); "drop" = pre-WP1.
     goal_line_censoring (WP2): "redistribute_right" resolves sampled rows whose gain was cut off by THEIR goal line
-    when the ball is now further out (see _resolve_goal_line_censoring); "truncate" = pre-WP2."""
+    when the ball is now further out (see _resolve_goal_line_censoring); "truncate" = pre-WP2.
+    clock_rounding (Phase 1 opt-in): "truncate" (default) = int() of each clock draw, ~0.5 s short per event;
+    "round" = nearest second (mean charge equals the as-of mean). See _clock_cost.
+    fourth_down_yl_buckets (Phase 1 opt-in): "v0" (default) = fg_range <=35 / mid 36-60 / own; "v1_fringe" adds a
+    36-45 "fringe" cell so 4th downs at the opponent 36-45 are not drawn from the punt-heavy 46-60 mix.
+    goal_line_pool (Phase 1 opt-in): "v0" (default) = unchanged snap pools; "local5" = at yardline <= 5 draw from the
+    offense's own rows run at yardline <= 5 (same down, else any down, each needing min_n) before the v0 chain, so a
+    sparse 2nd-and-goal cell no longer falls back to the team's whole-field same-down pool."""
     a = cfg.get("accounting")
     if a == "legacy":
         return dict(ACCOUNTING_LEGACY)
@@ -361,6 +405,12 @@ def accounting_from_cfg(cfg: dict) -> dict:
         raise ValueError(f"unknown accounting.unmodeled_row_clock {out['unmodeled_row_clock']!r}")
     if out["goal_line_censoring"] not in ("redistribute_right", "truncate"):
         raise ValueError(f"unknown accounting.goal_line_censoring {out['goal_line_censoring']!r}")
+    if out["clock_rounding"] not in ("truncate", "round"):
+        raise ValueError(f"unknown accounting.clock_rounding {out['clock_rounding']!r}")
+    if out["goal_line_pool"] not in ("v0", "local5"):
+        raise ValueError(f"unknown accounting.goal_line_pool {out['goal_line_pool']!r}")
+    if out["fourth_down_yl_buckets"] not in ("v0", "v1_fringe"):
+        raise ValueError(f"unknown accounting.fourth_down_yl_buckets {out['fourth_down_yl_buckets']!r}")
     if out["clock"] != "mean":
         out["no_play_clock"], out["unmodeled_row_clock"] = "flat_4s", "drop"  # legacy median map has neither
     return out
@@ -382,13 +432,41 @@ def h2h_policy_from_cfg(cfg: dict) -> dict:
     return dict(h)
 
 
+GOAL_LINE_LOCAL_YL = 5  # Phase 1 opt-in goal_line_pool="local5": structural boundary (goal-to-go inside the 5), not fitted
 MAX_FG_KICK = 66  # physical guard (longest observed NFL makes ~66-67); not a fitted parameter
+
+
+def _fourth_cells_v1(catalog) -> dict:
+    """Phase 1 opt-in: the same (team, yl, togo) / (team, yl) / (team,) cells as PlayCatalog.fourth_cells, keyed by
+    yl4_bucket_v1. Built once from the catalog's own 4th-down rows and cached on the object that holds them."""
+    holder = catalog if getattr(catalog, "_f4", None) is not None and "_f4" in getattr(catalog, "__dict__", {}) \
+        else getattr(catalog, "base", catalog)
+    cache = holder.__dict__.get("_fourth_cells_v1")
+    if cache is not None:
+        return cache
+    cache = {}
+    f4 = getattr(holder, "_f4", None)
+    if f4 is not None and len(f4):
+        f4 = f4.assign(_y4=f4["yardline_100"].map(yl4_bucket_v1), _t4=f4["ydstogo"].map(togo4_bucket))
+        for team, g in f4.groupby("posteam"):
+            cache[(team,)] = g
+            for y, gy in g.groupby("_y4"):
+                cache[(team, y)] = gy
+                for tg, gt in gy.groupby("_t4"):
+                    cache[(team, y, tg)] = gt
+    holder.__dict__["_fourth_cells_v1"] = cache
+    return cache
 
 
 def _fourth_down_decision(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -> str:
     """Condition on observed team 4th-down rows by field-position x distance bucket, explicit coarsening."""
-    cells = getattr(catalog, "fourth_cells", {}) or {}
-    team, y, tg = st.possession, yl4_bucket(st.yardline_100), togo4_bucket(st.ydstogo)
+    scheme = getattr(catalog, "fourth_down_yl_buckets", "v0")
+    if scheme == "v1_fringe":
+        cells = _fourth_cells_v1(catalog)
+        team, y, tg = st.possession, yl4_bucket_v1(st.yardline_100), togo4_bucket(st.ydstogo)
+    else:
+        cells = getattr(catalog, "fourth_cells", {}) or {}
+        team, y, tg = st.possession, yl4_bucket(st.yardline_100), togo4_bucket(st.ydstogo)
     chain = [((team, y, tg), None), ((team, y), "COARSE_4TH_YL_ONLY"), ((team,), "COARSE_4TH_TEAM_WIDE")]
     sub, flag = None, None
     for key, fl in chain:
@@ -419,7 +497,7 @@ def _missed_fg_recv_yl(yl: int) -> int:
 
 def _attempt_fg(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -> None:
     plays = catalog.specials["field_goal"].get(st.possession)
-    st.game_seconds_remaining -= _clock_cost("field_goal", rng, getattr(catalog, "clock_map", None))
+    st.game_seconds_remaining -= _clock_cost("field_goal", rng, getattr(catalog, "clock_map", None), rounding=getattr(catalog, "clock_rounding", "truncate"))
     if plays is None or len(plays) == 0:
         st.sparse_flags.append("SPARSE_FG")
         st.possession = _other(st, st.possession)
@@ -516,7 +594,7 @@ def _punt_fixed(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -
     offense = st.possession
     yl = st.yardline_100
     plays = catalog.specials["punt"].get(offense)
-    st.game_seconds_remaining -= _clock_cost("punt", rng, getattr(catalog, "clock_map", None))
+    st.game_seconds_remaining -= _clock_cost("punt", rng, getattr(catalog, "clock_map", None), rounding=getattr(catalog, "clock_rounding", "truncate"))
     net = 40
     is_tb = False
     if plays is not None and len(plays):
@@ -677,7 +755,7 @@ def _apply_row(rng: np.random.Generator, catalog, st: GameState, row, gl_tag: Op
     rows use the same mechanics."""
     play_type = str(row["play_type"])
     yards = float(row["yards_gained"]) if pd.notna(row["yards_gained"]) else 0.0
-    st.game_seconds_remaining -= _clock_cost(play_type, rng, getattr(catalog, "clock_map", None))
+    st.game_seconds_remaining -= _clock_cost(play_type, rng, getattr(catalog, "clock_map", None), rounding=getattr(catalog, "clock_rounding", "truncate"))
     hist_yards = yards
     yards = float(min(yards, st.yardline_100)) if yards > 0 else float(max(yards, -(100 - st.yardline_100)))
     # Always count the offensive play as a snap for pace/accounting (before early exits); realized yards.
@@ -861,7 +939,7 @@ def _rare_kick_formation(rng: np.random.Generator, catalog, st: GameState, kind:
     elif cls == "fake":
         _apply_fake(rng, catalog, st, row, kind, band)
     else:
-        st.game_seconds_remaining -= _clock_cost(kind, rng, getattr(catalog, "clock_map", None))
+        st.game_seconds_remaining -= _clock_cost(kind, rng, getattr(catalog, "clock_map", None), rounding=getattr(catalog, "clock_rounding", "truncate"))
         _apply_rare_outcome(rng, catalog, st, kicker, row, kind=kind, cls=cls, ref_yl=yl0, extra={"los_band": band})
     return True
 
@@ -1060,6 +1138,11 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
     # (default "off"). Catalogs built elsewhere keep whatever policy they were given.
     _ensure_clock(catalog)
     catalog.goal_line_censoring = acc["goal_line_censoring"]
+    catalog.clock_rounding = acc["clock_rounding"]
+    catalog.fourth_down_yl_buckets = acc["fourth_down_yl_buckets"]
+    for _c in (catalog, getattr(catalog, "base", None)):
+        if _c is not None:
+            _c.goal_line_pool = acc["goal_line_pool"]
     sem = getattr(catalog, "semantics", None)
     rpm = sem.get("rare_plays") if isinstance(sem, dict) else None
     if rpm is not None and rpm.research_budget is not None:
@@ -1434,6 +1517,12 @@ def kickoff_start_yardlines(df: Optional[pd.DataFrame], exclude_onside: bool = F
 def yl4_bucket(yl) -> str:
     yl = float(yl)
     return "fg_range" if yl <= 35 else ("mid" if yl <= 60 else "own")
+
+
+def yl4_bucket_v1(yl) -> str:
+    """Phase 1 opt-in 4th-down field-position cells: splits v0 "mid" (36-60) at 45."""
+    yl = float(yl)
+    return "fg_range" if yl <= 35 else ("fringe" if yl <= 45 else ("mid" if yl <= 60 else "own"))
 
 
 def togo4_bucket(tg) -> str:
