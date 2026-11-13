@@ -35,12 +35,16 @@ Unit test (runs in CI): W8 Jacoby Brissett rushyds 9.5. Engine triples (p_mc, p_
 p_model = **0.42037777777777774** = candidates.csv text; after pandas' default read (how Phase 4 read it)
 **0.4203777777777777** = the Phase 4 in-memory value.
 
-**pandas version matters for the last ulp.** Phase 4 ran on the box's pandas 3.0.6, whose C float parser lands 1 ulp
-off the written text for some values (e.g. Brissett `0.42037777777777774` is read back as `0.4203777777777777`).
-pandas 3.1.x parses the text exactly under every `float_precision`. So the 83/83 + 5/5 bit-exact result holds on
-pandas 3.0.6, which is the box Sunday runs use. On 3.1.1 (CI), 77/83 + 4/5 legs are exact and the rest differ by
-1 ulp (2.2e-16). The parser is pinned to `"high"`. `meta.json` records `pandas_version` and `phase4_bit_exact_env`.
-The two in-memory-value tests skip off 3.0.6. The engine-run and ensemble text-value tests pass on both versions.
+**pandas version and the last ulp.** Phase 4 ran on the box's pandas 3.0.6, whose C float parser lands 1 ulp off
+the written text for some values (e.g. Brissett `0.42037777777777774` is read back as `0.4203777777777777`).
+pandas 3.1.x parses the text exactly. On the box (3.0.6), all 83/83 + 5/5 legs are bit-exact. On 3.1.1 (CI),
+77/83 + 4/5 are bit-exact and the rest differ by 1 ulp (2.2e-16). The tests are therefore version-independent:
+- `test_reproduce_every_w8_w9_phase4_leg_within_tolerance_on_any_pandas` runs all 88 legs from the committed
+  fixture `calibration/tests/fixtures/simv56_phase4_w8_w9_legs.csv` (legs inputs plus the verbatim Phase 4
+  candidates.csv p_model text) and asserts |diff| <= 1e-12 on every pandas version.
+- Bit-exact assertions are kept only where they hold on every version: the Brissett engine run and the ensemble
+  arithmetic.
+- `meta.json` still records `pandas_version` / `phase4_bit_exact_env`.
 
 ## QB / availability gate
 Sources: nflverse `depth_charts_2026.parquet` (ESPN-fed, timestamped `dt` snapshots) and `injuries_2026.parquet`

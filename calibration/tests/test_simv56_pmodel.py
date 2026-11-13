@@ -26,7 +26,8 @@ W8_LEG = dict(player="Jacoby Brissett", gsis="00-0033119", team="ARI", opp="DAL"
 W8_TRIPLES = {"sim_v5": (0.5985, 0.566, 0.56415), "sim_v6": (0.5985, 0.60605, 0.56415),
               "sim_v6_fix": (0.5985, 0.5566, 0.56415)}
 W8_P_MODEL_UNDER = 0.42037777777777774            # candidates.csv text, exact
-W8_P_MODEL_PHASE4_IN_MEMORY = 0.4203777777777777  # after pd.read_csv on box pandas 3.0.6 (default parser = "high"), as Phase 4 used it
+W8_P_MODEL_PHASE4_IN_MEMORY = 0.4203777777777777  # after pd.read_csv on box pandas 3.0.6 (1 ulp below the text)
+TOL = 1e-12                                       # cross-pandas-version tolerance (Ghost6)
 
 
 def test_settings_are_the_phase4_ones():
@@ -60,14 +61,6 @@ def test_ensemble_arithmetic_reproduces_phase4_p_model_bit_for_bit():
     assert ens.p_over.iloc[0] == 1 - W8_P_MODEL_UNDER
 
 
-@pytest.mark.skipif(not SV.BIT_EXACT_ENV, reason="Phase 4's 1-ulp CSV parse is only reproducible on pandas 3.0.6")
-def test_phase4_in_memory_value_after_csv_parse():
-    import io
-    buf = io.StringIO()
-    pd.DataFrame({"p_under": [W8_P_MODEL_UNDER]}).to_csv(buf, index=False)
-    assert pd.read_csv(io.StringIO(buf.getvalue()), float_precision="high").p_under.iloc[0] == W8_P_MODEL_PHASE4_IN_MEMORY
-
-
 def test_reproduce_w8_leg_from_committed_inputs_bit_for_bit(tmp_path):
     """Runs the three vendored engines on the committed W1-9 PBP (cut at the W8 rule) + committed players table."""
     src = SV.make_src(tmp_path / "src")
@@ -77,6 +70,45 @@ def test_reproduce_w8_leg_from_committed_inputs_bit_for_bit(tmp_path):
         r = per[e].iloc[0]
         assert (r.p_mc, r.p_bias, r.p_gr) == t, e
     assert SV.ensemble(per).p_under.iloc[0] == W8_P_MODEL_UNDER
+
+
+PHASE4_LEGS = Path(__file__).parent / "fixtures" / "simv56_phase4_w8_w9_legs.csv"
+
+
+def test_phase4_in_memory_value_is_within_tolerance_on_any_pandas():
+    """Replaces the pandas-3.0.6-only test: the CSV hand-off moves the value by at most 1 ulp on any version."""
+    import io
+    buf = io.StringIO()
+    pd.DataFrame({"p_under": [W8_P_MODEL_UNDER]}).to_csv(buf, index=False)
+    for fp in (None, "high", "round_trip", "legacy"):
+        v = pd.read_csv(io.StringIO(buf.getvalue()), float_precision=fp).p_under.iloc[0]
+        assert abs(v - W8_P_MODEL_UNDER) <= TOL and abs(v - W8_P_MODEL_PHASE4_IN_MEMORY) <= TOL
+    assert abs(SV._csv_rt(pd.DataFrame({"p_under": [W8_P_MODEL_UNDER]})).p_under.iloc[0] - W8_P_MODEL_UNDER) <= TOL
+
+
+def test_phase4_legs_fixture_matches_the_committed_reproduction():
+    f = pd.read_csv(PHASE4_LEGS, dtype={"gsis": str, "phase4_p_model": str})
+    assert f.groupby("week").size().to_dict() == {8: 83, 9: 5} and f.phase4_p_model.notna().all()
+    r = pd.read_csv(Path(SV.ROOT) / "research/runs/2026-11-13_simv56_pmodel/reproduction_w8_w9.csv",
+                    dtype={"gsis": str}, float_precision="round_trip")
+    m = f.assign(p=f.phase4_p_model.astype(float)).merge(r, on=["week", "gsis", "line"])
+    assert len(m) == 88 and (m.p == m.p_model).all()
+
+
+def test_reproduce_every_w8_w9_phase4_leg_within_tolerance_on_any_pandas(tmp_path):
+    """All 83 Week 8 + 5 Week 9 Phase 4 rush-yds Under legs, run on the committed PBP + players table with the
+    vendored engines; |p_under - Phase 4 p_model| <= 1e-12 on every pandas version (bit-exact on the box's 3.0.6)."""
+    f = pd.read_csv(PHASE4_LEGS, dtype={"gsis": str, "phase4_p_model": str})
+    src = SV.make_src(tmp_path / "src")
+    for w, n in ((8, 83), (9, 5)):
+        lw = f[f.week == w]
+        per = SV.run_all(lw[["player", "gsis", "team", "opp", "market", "spread", "line"]], week=w, src=src,
+                         workdir=tmp_path / f"w{w}")
+        m = SV.ensemble(per).merge(lw.assign(want=lw.phase4_p_model.astype(float))[["gsis", "line", "want"]],
+                                   on=["gsis", "line"])
+        assert len(m) == n, (w, len(m))
+        d = (m.p_under - m.want).abs()
+        assert d.max() <= TOL, (w, m.loc[d.idxmax()].to_dict())
 
 
 # ------------------------------------------------------------------ QB / availability gate
@@ -250,19 +282,13 @@ def test_grade_subcommand_labels_unsettled_legs_without_crashing(tmp_path):
     assert g.label.iloc[0] == "STRONG UNDER" and (g.projection_ready == False).all()  # noqa: E712
 
 
-@pytest.mark.skipif(not SV.BIT_EXACT_ENV, reason="Phase 4's 1-ulp CSV parse is only reproducible on pandas 3.0.6")
-def test_csv_handoffs_pin_the_phase4_float_parser():
-    """Phase 4 ran on pandas 3.0.6 (default parser "high"); pandas 3.1 changed the default, so the parser is pinned."""
-    import io
-    import pandas as pd
-    assert SV.FLOAT_PRECISION == "high"
-    df = pd.DataFrame({"p_under": [W8_P_MODEL_UNDER]})
-    assert SV._csv_rt(df).p_under.iloc[0] == W8_P_MODEL_PHASE4_IN_MEMORY
-
-
 # ------------------------------------------------------------------ embedded provenance (Ghost6, PR #44 follow-up)
 import hashlib as _hl  # noqa: E402
 import re as _re  # noqa: E402
+
+
+def test_csv_handoff_parser_is_pinned():
+    assert SV.FLOAT_PRECISION == "high"
 
 
 def _prov_fixture():
