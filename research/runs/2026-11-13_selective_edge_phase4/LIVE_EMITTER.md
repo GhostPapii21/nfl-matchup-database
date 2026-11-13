@@ -31,6 +31,7 @@ python3 -m calibration.selective_edge_emit --date 2026-11-15 \
   --probs pipeline/ledgers            # dir of <game>.rush_dist.cdf.csv, or the files themselves
   --roster data/historical/nflverse/roster_weekly_2026_w1_10_pulled_20261113T1633Z.parquet \
   --pbp data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet \
+  [--prob-source sim_v5_v6_ensemble --qb-override-applied]
   [--commit] [--push]
 ```
 Pull times default to the `<file>.retrieved_utc` sidecar or `<file>.provenance.json`; pass `--roster-pulled-utc` /
@@ -40,14 +41,25 @@ unknown, at/after kickoff, or in the future. If no game survives nothing is writ
 
 Writes (never overwrites) `research/runs/<date>_live_flags/flags_<UTCstamp>.{csv,json,md}`: every leg with label,
 reason, edge, price, provenance, `emitted_utc`, `emitted_et`, `kickoff_utc`, `kickoff_et`, `minutes_to_kickoff`,
-`price_minutes_before_kickoff`; the JSON has run time UTC + ET, input sha256s, emitter code sha256s, the freeze manifest
-sha256 and per-game refusals. `--commit` stages only that run's files on the current `research/*` branch (refuses any
-other path, and refuses pregame/ or .github/); `--push` pushes that branch only after checking the branch diff vs
-origin/main does not touch pregame/ or .github/. Commit messages say "refs NFL-75".
+`price_minutes_before_kickoff`, `countable`, `prob_source`, `countable_reason`; the JSON has run time UTC + ET, input
+sha256s, emitter code sha256s, the freeze manifest sha256, per-game refusals, and the countable stamp. `--commit`
+stages only that run's files on the current `research/*` branch (refuses any other path, and refuses pregame/ or
+.github/); `--push` pushes that branch only after checking the branch diff vs origin/main does not touch pregame/ or
+.github/. Commit messages say "refs NFL-75".
+
+## Countable stamp
+Every flag gets `countable`, `prob_source` and `countable_reason`. `countable=true` only when the caller declares
+`--prob-source sim_v5_v6_ensemble` (the legacy sim_v5/v6 ensemble the Phase 4 classifier was fit on) AND
+`--qb-override-applied` (depth-chart/inactives QB override). Missing or unknown sources, and PR #43's
+`nfl75-rush-dist/1` possession-engine output, are fail-closed `countable=false` (reasons:
+`prob_source_missing`, `prob_source_unknown`, `prob_source_not_fit_ensemble`, `qb_override_missing`). STRONG UNDER
+labels are still written; the markdown summary marks non-countable flags `[NOT COUNTABLE: <reason>]`. The default CLI
+path (no `--prob-source`) is not countable.
 
 ## Still blocking a countable Sunday spot
 1. Sunday freeze_v2 price files (a paid Odds API pull that needs approval; none exist for Sunday yet).
-2. Per-game `rush_dist` CDFs from a gated 100k sim run (PR #43). Its own README flags that starter identity comes from
-   history, not the depth chart, and that player means sit far from the market. Its `p_model` is the possession engine,
-   not the sim ensemble the W4-7 fit and the 21-6 used, so Week 10 flags test a different model through the same gates.
+2. Per-game probabilities from the legacy sim_v5/v6 ensemble the classifier was fit on, with the depth-chart/inactives
+   QB override applied. The only source wired today is PR #43's `rush_dist` CDFs; those flags stay `countable=false`
+   (`prob_source_not_fit_ensemble`) even if they print STRONG UNDER. PR #43 also notes that starter identity comes from
+   history, not the depth chart, and that player means sit far from the market.
 3. Receiving legs stay INSUFFICIENT EVIDENCE until a main-defender source exists.

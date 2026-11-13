@@ -22,9 +22,14 @@ at/after kickoff or in the future. If no game survives, nothing is written. Week
 frozen classifier's freeze manifest is checked by selective_edge_live.grade_live before anything is labeled.
 
 Outputs (never overwritten): research/runs/<date>_live_flags/flags_<UTCstamp>.csv (every leg, its label, reason,
-edge, prices, provenance, emitted_utc, emitted_et, kickoff_utc, kickoff_et, minutes_to_kickoff),
-flags_<UTCstamp>.json (run manifest: UTC + ET run time, input sha256s, code sha256s, freeze-manifest sha256, per-game
-kickoff / price pull / refusal) and flags_<UTCstamp>.md (candidate labels only).
+edge, prices, provenance, emitted_utc, emitted_et, kickoff_utc, kickoff_et, minutes_to_kickoff, countable,
+prob_source, countable_reason), flags_<UTCstamp>.json (run manifest: UTC + ET run time, input sha256s, code sha256s,
+freeze-manifest sha256, per-game kickoff / price pull / refusal, prob_source, countable) and flags_<UTCstamp>.md
+(candidate labels only; non-countable flags are marked "[NOT COUNTABLE: <reason>]").
+--prob-source and --qb-override-applied are the caller's declaration of where p_model came from. countable=true only
+when --prob-source is sim_v5_v6_ensemble (the legacy ensemble the Phase 4 classifier was fit on) AND
+--qb-override-applied (depth-chart/inactives QB override). Missing or unknown sources, and PR #43's
+nfl75-rush-dist/1 possession-engine output, are fail-closed countable=false. STRONG UNDER labels are still written.
 --commit stages only that run's files on the current research/* branch; --push pushes that branch. Both refuse if any
 staged path is outside the run directory or if the branch diff vs origin/main touches pregame/ or .github/.
 projection_ready is always false. Receiving legs stay INSUFFICIENT EVIDENCE (no verified main defender)."""
@@ -50,6 +55,11 @@ ET = ZoneInfo("America/New_York")
 PROB_COLS = ("game_id", "gsis", "line", "p_under", "p_over")
 PROB_SCHEMA = "nfl75-rush-dist/1"
 SCHEMA = "nfl75-selective-edge-live-flags/1"
+# Declared p_model family. countable=true only for the legacy ensemble the Phase 4 classifier was fit on,
+# and only when the caller also certifies the depth-chart/inactives QB override was applied.
+FIT_ENSEMBLE_PROB_SOURCE = "sim_v5_v6_ensemble"
+# Known sources that are not the fit ensemble, including PR #43's possession-engine rush_dist.
+NON_FIT_PROB_SOURCES = frozenset({PROB_SCHEMA, "possession_engine"})
 
 
 class EmitError(RuntimeError):
@@ -142,6 +152,49 @@ def attach_probs(legs: pd.DataFrame, cdf: pd.DataFrame, source: str) -> pd.DataF
     return out
 
 
+# ---------------------------------------------------------------- countable stamp
+def _declared_prob_source(prob_source) -> str:
+    if prob_source is None or (isinstance(prob_source, float) and np.isnan(prob_source)):
+        return ""
+    return str(prob_source).strip()
+
+
+def countable_decision(prob_source: str | None = None, qb_override_applied: bool = False) -> tuple[bool, str, str]:
+    """Return (countable, canonical source, reason). Fail closed on a missing or unknown source."""
+    src = _declared_prob_source(prob_source)
+    if not src:
+        return False, "", "prob_source_missing"
+    if src == FIT_ENSEMBLE_PROB_SOURCE:
+        if not qb_override_applied:
+            return False, src, "qb_override_missing"
+        return True, src, "fit_ensemble_with_qb_override"
+    if src in NON_FIT_PROB_SOURCES:
+        return False, src, "prob_source_not_fit_ensemble"
+    return False, src, "prob_source_unknown"
+
+
+def not_countable_mark(countable: bool, reason: str) -> str:
+    return "" if countable else f"[NOT COUNTABLE: {reason}]"
+
+
+def stamp_countable(legs: pd.DataFrame, *, prob_source: str | None = None,
+                    qb_override_applied: bool = False) -> pd.DataFrame:
+    """Stamp every flag with countable, prob_source, countable_reason, and a writer mark.
+
+    countable=true only when the declared source is the legacy sim_v5/v6 ensemble the Phase 4
+    classifier was fit on AND qb_override_applied is true. PR #43's nfl75-rush-dist/1 output,
+    a missing source, an unknown source, or a missing QB override are all countable=false.
+    Labels are left unchanged.
+    """
+    countable, src, reason = countable_decision(prob_source, bool(qb_override_applied))
+    out = legs.copy()
+    out["prob_source"] = src
+    out["countable"] = countable
+    out["countable_reason"] = reason
+    out["countable_mark"] = not_countable_mark(countable, reason)
+    return out
+
+
 # ---------------------------------------------------------------- git guards
 def guard_paths(paths, run_dir: str):
     run_dir = str(run_dir).rstrip("/") + "/"
@@ -197,7 +250,8 @@ def _game_meta(path) -> dict:
 
 def emit(*, freeze_paths, probs: pd.DataFrame, probs_source: str, roster: pd.DataFrame, pbp: pd.DataFrame,
          date: str, roster_source: str, roster_pulled_utc: str, pbp_source: str, pbp_pulled_utc: str,
-         out_root=None, now: datetime | None = None, input_shas: dict | None = None) -> dict:
+         out_root=None, now: datetime | None = None, input_shas: dict | None = None,
+         prob_source: str | None = None, qb_override_applied: bool = False) -> dict:
     now = (now or datetime.now(timezone.utc)).astimezone(timezone.utc).replace(microsecond=0)
     out_root = Path(out_root) if out_root is not None else ROOT / "research/runs"
     games, refused, legs = {}, {}, []
@@ -249,6 +303,8 @@ def emit(*, freeze_paths, probs: pd.DataFrame, probs_source: str, roster: pd.Dat
     run_utc, run_et = fmt_utc(now), fmt_et(now)
     graded["emitted_utc"], graded["emitted_et"] = run_utc, run_et
     graded["projection_ready"] = False
+    graded = stamp_countable(graded, prob_source=prob_source, qb_override_applied=qb_override_applied)
+    countable, declared_src, countable_reason = countable_decision(prob_source, bool(qb_override_applied))
     out_dir = out_root / f"{date}_live_flags"
     stamp = now.strftime("%Y%m%dT%H%M%SZ")
     paths = {k: out_dir / f"flags_{stamp}.{k}" for k in ("csv", "json", "md")}
@@ -272,16 +328,26 @@ def emit(*, freeze_paths, probs: pd.DataFrame, probs_source: str, roster: pd.Dat
         "pbp": {"source": pbp_source, "pulled_utc": pbp_pulled_utc},
         "games": games, "refused_games": refused, "emitted_games": sorted(set(graded.game_id)),
         "label_counts": counts.to_dict("records"), "files": {k: p.name for k, p in paths.items()},
+        "prob_source": declared_src, "qb_override_applied": bool(qb_override_applied),
+        "countable": countable, "countable_reason": countable_reason,
         "research_only": True, "projection_ready": False,
         "note": "Research flags from the frozen Phase 4 classifier; not picks, not vetted. Receiving legs stay "
-                "INSUFFICIENT EVIDENCE without a verified main defender. Counts toward graduation only when the "
-                "file was committed with a timestamp before kickoff."}
+                "INSUFFICIENT EVIDENCE without a verified main defender. A flag is countable toward a Sunday "
+                "graduation spot only when p_model is the legacy sim_v5/v6 ensemble the classifier was fit on "
+                "and the depth-chart/inactives QB override was applied; otherwise countable=false. The file "
+                "must still be committed with a timestamp before kickoff."}
     paths["json"].write_text(json.dumps(manifest, indent=1, default=str) + "\n")
     cand = graded[graded.label.isin(se.CANDIDATE_LABELS)]
     show = ["game_id", "player", "position", "market", "side", "line", "dec", "p_nv", "p_model", "edge", "edge_tier",
-            "label", "season_carry_share", "price_source"]
+            "label", "countable", "countable_mark", "season_carry_share", "price_source"]
+    countable_line = (
+        f"countable={str(countable).lower()} prob_source={declared_src or '(missing)'} "
+        f"qb_override_applied={str(bool(qb_override_applied)).lower()}"
+        + ("" if countable else f". Non-countable flags are marked [NOT COUNTABLE: {countable_reason}].")
+    )
     md = [f"# Live flags {date}, run {run_utc} ({run_et})", "",
-          "Research only, not picks, not vetted. projection_ready false. refs NFL-75.", "",
+          "Research only, not picks, not vetted. projection_ready false. refs NFL-75.",
+          countable_line, "",
           f"Games emitted: {', '.join(manifest['emitted_games'])}. Refused: {refused or 'none'}.", "",
           "Candidate labels:" if len(cand) else "No candidate labels (every leg is INSUFFICIENT EVIDENCE or NO EDGE).",
           ""]
@@ -303,6 +369,11 @@ def main(argv=None):
     ap.add_argument("--roster-pulled-utc", help="defaults to <roster>.retrieved_utc sidecar")
     ap.add_argument("--pbp", required=True)
     ap.add_argument("--pbp-pulled-utc", help="defaults to <pbp>.retrieved_utc sidecar or provenance.json")
+    ap.add_argument("--prob-source", default=None,
+                    help="Declared p_model family. countable=true only for sim_v5_v6_ensemble with "
+                         "--qb-override-applied. Missing or unknown sources default to countable=false.")
+    ap.add_argument("--qb-override-applied", action="store_true",
+                    help="Caller certifies the depth-chart/inactives QB override was applied to these probabilities.")
     ap.add_argument("--commit", action="store_true")
     ap.add_argument("--push", action="store_true")
     a = ap.parse_args(argv)
@@ -328,7 +399,7 @@ def main(argv=None):
              roster=roster, pbp=pbp, date=a.date, roster_source=f"{a.roster} sha256={shas['roster'][:12]}",
              roster_pulled_utc=pulled(a.roster, a.roster_pulled_utc),
              pbp_source=f"{a.pbp} sha256={shas['pbp'][:12]}", pbp_pulled_utc=pulled(a.pbp, a.pbp_pulled_utc),
-             input_shas=shas)
+             input_shas=shas, prob_source=a.prob_source, qb_override_applied=a.qb_override_applied)
     print(json.dumps({k: str(v) for k, v in r.items()}, indent=1))
     if a.commit or a.push:
         rel = str(r["out_dir"].relative_to(ROOT))
