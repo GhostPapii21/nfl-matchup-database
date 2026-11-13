@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): TEN +10.5, total 46.5.
 
-Generated 2026-11-13T21:40:56+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-13T22:32:07+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-13T21:40:54+00:00 UTC. At kickoff: 53 F, wind 5 mph NE, 0% chance of precipitation, Sunny. During the game: low 53 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-13T22:32:06+00:00 UTC. At kickoff: 53 F, wind 5 mph NE, 0% chance of precipitation, Sunny. During the game: low 53 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-13T21:40:17+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-13T22:31:58+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T21:39:22Z |
-| spread | williamhill_us | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T21:39:40Z |
-| spread | fanduel | TEN +10.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:40:16Z |
-| spread | hardrockbet | TEN +10.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-13T21:39:22Z |
-| spread | pinnacle | TEN +10.5 | -102 | -110 | 49.1% | 50.9% | 2.9% | 2026-11-13T21:39:40Z |
-| total | draftkings | Over 46.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:39:22Z |
-| total | williamhill_us | Over 46.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T21:39:40Z |
-| total | fanduel | Over 46.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-13T21:40:16Z |
-| total | hardrockbet | Over 46 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-13T21:39:22Z |
-| total | pinnacle | Over 46.5 | -104 | -112 | 49.1% | 50.9% | 3.8% | 2026-11-13T21:39:40Z |
-| moneyline | draftkings | TEN | +500 | -700 | 16.0% | 84.0% | 4.2% | 2026-11-13T21:39:22Z |
-| moneyline | williamhill_us | TEN | +425 | -590 | 18.2% | 81.8% | 4.5% | 2026-11-13T21:39:40Z |
-| moneyline | fanduel | TEN | +490 | -670 | 16.3% | 83.7% | 4.0% | 2026-11-13T21:40:16Z |
-| moneyline | hardrockbet | TEN | +450 | -700 | 17.2% | 82.8% | 5.7% | 2026-11-13T21:39:22Z |
-| moneyline | pinnacle | TEN | +427 | -560 | 18.3% | 81.7% | 3.8% | 2026-11-13T21:39:40Z |
+| spread | draftkings | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T22:30:50Z |
+| spread | williamhill_us | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T22:31:28Z |
+| spread | fanduel | TEN +10.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T22:31:45Z |
+| spread | hardrockbet | TEN +10.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-13T22:30:51Z |
+| spread | pinnacle | TEN +10.5 | -102 | -110 | 49.1% | 50.9% | 2.9% | 2026-11-13T22:31:26Z |
+| total | draftkings | Over 46.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T22:30:50Z |
+| total | williamhill_us | Over 46.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T22:31:28Z |
+| total | fanduel | Over 46.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-13T22:31:45Z |
+| total | hardrockbet | Over 46 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-13T22:30:51Z |
+| total | pinnacle | Over 46.5 | -104 | -112 | 49.1% | 50.9% | 3.8% | 2026-11-13T22:31:26Z |
+| moneyline | draftkings | TEN | +500 | -700 | 16.0% | 84.0% | 4.2% | 2026-11-13T22:30:50Z |
+| moneyline | williamhill_us | TEN | +425 | -590 | 18.2% | 81.8% | 4.5% | 2026-11-13T22:31:28Z |
+| moneyline | fanduel | TEN | +490 | -670 | 16.3% | 83.7% | 4.0% | 2026-11-13T22:31:45Z |
+| moneyline | hardrockbet | TEN | +450 | -700 | 17.2% | 82.8% | 5.7% | 2026-11-13T22:30:51Z |
+| moneyline | pinnacle | TEN | +427 | -560 | 18.3% | 81.7% | 3.8% | 2026-11-13T22:31:26Z |
 
 ### Same-line consensus (retail books only)
 
@@ -58,7 +58,7 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 44 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 43 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -401,7 +401,7 @@ Defensive front: LDE Travon Walker, LDT Arik Armstead, RDT None, RDE Josh Hines-
 | Chris Rodriguez Jr. | RB |  | none listed | Limited Participation in Practice |  |
 | Jakobi Meyers | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Ezra Cleveland (G) Questionable; Antonio Johnson (S) Questionable; Branson Combs (LB) Questionable; Robert Hainsey (C) Questionable; B.J. Green II (DE) Injured Reserve; Chris Rodriguez Jr. (RB) Questionable; Travon Walker (DE) Questionable; Jessie Bates III (S) Out.
+ESPN live list (designations only): Ezra Cleveland (G) Questionable; Branson Combs (LB) Questionable; Robert Hainsey (C) Questionable; B.J. Green II (DE) Injured Reserve; Jessie Bates III (S) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -670,16 +670,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-13T21:40:14+00:00 | 6e7c85cd0e4d |
-| pbp | OK | 2026-11-13T21:40:14+00:00 | 63d725b49ed1 |
-| rosters | OK | 2026-11-13T21:40:15+00:00 | 99651c418f80 |
-| injuries | OK | 2026-11-13T21:40:15+00:00 | 65d181dfc372 |
-| depth_charts | OK | 2026-11-13T21:40:15+00:00 | 341d1eddeaf6 |
-| snap_counts | OK | 2026-11-13T21:40:15+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-13T21:40:16+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-13T21:40:16+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-13T21:40:17+00:00 |  |
+| games | OK | 2026-11-13T22:31:54+00:00 | 922ba2a74c84 |
+| pbp | OK | 2026-11-13T22:31:55+00:00 | 63d725b49ed1 |
+| rosters | OK | 2026-11-13T22:31:55+00:00 | 99651c418f80 |
+| injuries | OK | 2026-11-13T22:31:55+00:00 | 65d181dfc372 |
+| depth_charts | OK | 2026-11-13T22:31:55+00:00 | 341d1eddeaf6 |
+| snap_counts | OK | 2026-11-13T22:31:56+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-13T22:31:56+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-13T22:31:56+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-13T22:31:57+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-13T21:40:17+00:00 |  |
+| book_odds | OK | 2026-11-13T22:31:58+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

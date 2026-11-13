@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): DET -3, total 49.5.
 
-Generated 2026-11-13T21:40:19+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-13T22:31:59+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,25 +12,25 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-13T21:40:17+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-13T22:31:58+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | DET -3 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-13T21:39:21Z |
-| spread | williamhill_us | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T21:39:40Z |
-| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T21:40:16Z |
-| spread | pinnacle | DET -2.5 | -115 | +102 | 51.9% | 48.1% | 3.0% | 2026-11-13T21:39:40Z |
-| spread | hardrockbet | DET -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:39:22Z |
-| total | draftkings | Over 49.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-13T21:39:21Z |
-| total | williamhill_us | Over 49.5 | -117 | -104 | 51.4% | 48.6% | 4.9% | 2026-11-13T21:39:40Z |
-| total | fanduel | Over 49.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:40:16Z |
-| total | pinnacle | Over 49 | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-13T21:39:40Z |
-| total | hardrockbet | Over 50 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:39:22Z |
-| moneyline | draftkings | DET | -155 | +130 | 58.3% | 41.7% | 4.3% | 2026-11-13T21:39:21Z |
-| moneyline | williamhill_us | DET | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-13T21:39:40Z |
-| moneyline | fanduel | DET | -152 | +128 | 57.9% | 42.1% | 4.2% | 2026-11-13T21:40:16Z |
-| moneyline | pinnacle | DET | -147 | +130 | 57.8% | 42.2% | 3.0% | 2026-11-13T21:39:40Z |
-| moneyline | hardrockbet | DET | -150 | +130 | 58.0% | 42.0% | 3.5% | 2026-11-13T21:39:22Z |
+| spread | draftkings | DET -3 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-13T22:30:50Z |
+| spread | williamhill_us | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T22:31:28Z |
+| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T22:31:45Z |
+| spread | pinnacle | DET -2.5 | -115 | +102 | 51.9% | 48.1% | 3.0% | 2026-11-13T22:31:26Z |
+| spread | hardrockbet | DET -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T22:30:50Z |
+| total | draftkings | Over 49.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-13T22:30:50Z |
+| total | williamhill_us | Over 49.5 | -117 | -104 | 51.4% | 48.6% | 4.9% | 2026-11-13T22:31:28Z |
+| total | fanduel | Over 49.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T22:31:45Z |
+| total | pinnacle | Over 49 | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-13T22:31:26Z |
+| total | hardrockbet | Over 50 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T22:30:50Z |
+| moneyline | draftkings | DET | -155 | +130 | 58.3% | 41.7% | 4.3% | 2026-11-13T22:30:50Z |
+| moneyline | williamhill_us | DET | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-13T22:31:28Z |
+| moneyline | fanduel | DET | -152 | +128 | 57.9% | 42.1% | 4.2% | 2026-11-13T22:31:45Z |
+| moneyline | pinnacle | DET | -147 | +130 | 57.8% | 42.2% | 3.0% | 2026-11-13T22:31:26Z |
+| moneyline | hardrockbet | DET | -150 | +130 | 58.0% | 42.0% | 3.5% | 2026-11-13T22:30:50Z |
 
 ### Same-line consensus (retail books only)
 
@@ -58,7 +58,7 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 41 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 40 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -625,16 +625,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-13T21:40:14+00:00 | 6e7c85cd0e4d |
-| pbp | OK | 2026-11-13T21:40:14+00:00 | 63d725b49ed1 |
-| rosters | OK | 2026-11-13T21:40:15+00:00 | 99651c418f80 |
-| injuries | OK | 2026-11-13T21:40:15+00:00 | 65d181dfc372 |
-| depth_charts | OK | 2026-11-13T21:40:15+00:00 | 341d1eddeaf6 |
-| snap_counts | OK | 2026-11-13T21:40:15+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-13T21:40:16+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-13T21:40:16+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-13T21:40:17+00:00 |  |
+| games | OK | 2026-11-13T22:31:54+00:00 | 922ba2a74c84 |
+| pbp | OK | 2026-11-13T22:31:55+00:00 | 63d725b49ed1 |
+| rosters | OK | 2026-11-13T22:31:55+00:00 | 99651c418f80 |
+| injuries | OK | 2026-11-13T22:31:55+00:00 | 65d181dfc372 |
+| depth_charts | OK | 2026-11-13T22:31:55+00:00 | 341d1eddeaf6 |
+| snap_counts | OK | 2026-11-13T22:31:56+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-13T22:31:56+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-13T22:31:56+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-13T22:31:57+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-13T21:40:17+00:00 |  |
+| book_odds | OK | 2026-11-13T22:31:58+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
