@@ -35,6 +35,9 @@ def grade_live(legs: pd.DataFrame, pbp: pd.DataFrame, context: pd.DataFrame | No
     weeks = sorted(int(w) for w in pd.Series(legs.week).dropna().unique())
     if not weeks or any(w not in se.HOLDOUT_WEEKS for w in weeks):
         raise LiveGradeError(f"live grader accepts only weeks 10-12 (holdout); got {weeks}")
+    missing = [c for c in ("position", "gsis") if c not in legs]
+    if missing:  # PR #40 review fix 1: join a roster first (calibration.selective_edge_roster); never guess
+        raise LiveGradeError(f"live legs have no {missing} column(s); join a sourced roster before grading")
     for w in weeks:
         check_freeze(w, root=root)
     params = load_params(root)
@@ -48,6 +51,13 @@ def grade_live(legs: pd.DataFrame, pbp: pd.DataFrame, context: pd.DataFrame | No
     out["source"] = out.get("source", "live")
     out["projection_ready"] = False
     return out
+
+
+def _same_line(a, b) -> bool:
+    try:
+        return a is not None and b is not None and abs(float(a) - float(b)) < 1e-9
+    except (TypeError, ValueError):
+        return False
 
 
 def legs_from_freeze_v2(path: str, roster: pd.DataFrame | None = None) -> pd.DataFrame:
@@ -66,7 +76,7 @@ def legs_from_freeze_v2(path: str, roster: pd.DataFrame | None = None) -> pd.Dat
         line = cons.get("line")
         for side in ("Over", "Under"):
             best = (mk.get("best_retail_price") or {}).get(side) or {}
-            ok = best.get("price") is not None and line is not None and best.get("line") == line
+            ok = best.get("price") is not None and _same_line(best.get("line"), line)  # off-consensus -> dropped
             rows.append(dict(week=int(meta["game_id"].split("_")[1]), game_id=meta["game_id"], player=player,
                              market=FREEZE_MARKETS[stat], side=side, kind="main", line=line,
                              dec=float(se.american_to_decimal(best["price"])) if ok else np.nan,
