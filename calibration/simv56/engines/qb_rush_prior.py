@@ -1,6 +1,8 @@
 """NFL-75 sim bug fix (refs NFL-75, Linear comment 6ce79e04): QB rush YPC prior + separate kneel model.
 
-Opt-in only: an engine uses this module only when a leg carries ``qb_rush_prior=True`` AND the rusher's
+Opt-in only: an engine uses this module only when a leg carries ``qb_rush_prior`` (True / "prior" = the QB-prior fix
+only; "components" = designed runs + scrambles + kneels as separate components with a heavy-tailed per-carry
+mixture, see the component section below) AND the rusher's
 position_group is QB AND the market is rushyds / rushrec. Without that key every engine path is unchanged (the
 Phase 4 W8-9 reproduction tests still hold bit-for-bit / within 1e-12).
 
@@ -95,3 +97,78 @@ def sim_kneel_yards(rng: np.random.Generator, spread: float, n: int, table: dict
     for i in range(int(cnt.max()) if n else 0):
         tot += np.where(cnt > i, rng.choice(yds, n), 0.0)
     return tot
+
+
+# ------------------------------------------------------------------ component model (leg qb_rush_prior="components")
+# Y = sum(designed-run yards) + sum(scramble yards) + sum(kneel yards). Per component:
+#   volume: the engine's own vol() machinery on that component's per-game counts (same 0.6/0.4 weights, NB / GR share);
+#   per-carry yards: a mixture, not a resample of the player's own carries, so runs longer than his longest observed
+#   one are reachable: with prob p0 a non-positive atom (resampled from the league QB pool of that component's <= 0
+#   gains), else a lognormal bulk + heavy right tail, log-mean shrunk player -> league QB (same n/(n+K) weight, K=100),
+#   sigma = league QB log-sd for that component (tail parameter fully pooled, i.e. heavily shrunk).
+#   Opponent factor multiplies all non-kneel yards, as in the engines. Kneels: kneel_table / sim_kneel_yards above.
+COMPONENTS = ("scr", "des")
+
+
+def scramble_mask(ru: pd.DataFrame) -> np.ndarray:
+    if "qb_scramble" not in ru:
+        return np.zeros(len(ru), dtype=bool)
+    return pd.to_numeric(ru["qb_scramble"], errors="coerce").fillna(0).values == 1
+
+
+def _yard_params(y_player: np.ndarray, y_league: np.ndarray, k: float) -> dict:
+    yl = np.asarray(y_league, dtype=float)
+    yp = np.asarray(y_player, dtype=float)
+    posl = yl[yl > 0]
+    mu_l = float(np.log(posl).mean()) if len(posl) else 0.0
+    sd_l = float(np.log(posl).std(ddof=1)) if len(posl) > 1 else 0.0
+    p0_l = float((yl <= 0).mean()) if len(yl) else 0.0
+    n = len(yp)
+    posp = yp[yp > 0]
+    w = n / (n + k)
+    p0 = w * (float((yp <= 0).mean()) if n else 0.0) + (1 - w) * p0_l
+    wp = len(posp) / (len(posp) + k)
+    mu = wp * (float(np.log(posp).mean()) if len(posp) else 0.0) + (1 - wp) * mu_l
+    neg = yl[yl <= 0]
+    return dict(n=n, p0=float(p0), mu=float(mu), sigma=sd_l, mu_league=mu_l, p0_league=p0_l,
+                neg_pool=neg if len(neg) else np.array([0.0]), league_n=int(len(yl)))
+
+
+def component_inputs(ru: pd.DataFrame, gsis: str, opp: str, game_ids, k: float = K_YPC) -> dict:
+    """Per-game scramble / designed-run counts (kneels excluded) aligned to game_ids, per-component yard params, and
+    the non-kneel opponent YPC ratio. ru: rush_attempt == 1 rows before the cutoff with a ``pg`` column."""
+    base = qb_rush_inputs(ru, gsis, opp, game_ids)
+    kn, sc = kneel_mask(ru), scramble_mask(ru)
+    nk = ru[~kn].assign(_scr=sc[~kn])
+    out = dict(opp_ratio=base["opp_ratio"], lg_qb=base["lg_qb"], n_kneels_player=base["n_kneels_player"])
+    for c, m in (("scr", nk._scr), ("des", ~nk._scr)):
+        part = nk[m.values]
+        mine = part[part.rusher_player_id == gsis]
+        out[c + "_car"] = mine.groupby("game_id").size().reindex(list(game_ids), fill_value=0).astype(int).values
+        out[c] = _yard_params(mine.rushing_yards.dropna().values, part[part.pg == QB].rushing_yards.dropna().values, k)
+    return out
+
+
+def draw_yards(rng: np.random.Generator, prm: dict, size: int) -> np.ndarray:
+    neg = rng.random(size) < prm["p0"]
+    pos = rng.lognormal(prm["mu"], prm["sigma"], size) if prm["sigma"] > 0 else np.full(size, np.exp(prm["mu"]))
+    return np.where(neg, rng.choice(prm["neg_pool"], size), pos)
+
+
+def sim_component_yards(rng: np.random.Generator, counts: np.ndarray, prm: dict) -> np.ndarray:
+    counts = np.asarray(counts)
+    tot = np.zeros(len(counts))
+    for i in range(int(counts.max()) if len(counts) else 0):
+        tot += np.where(counts > i, draw_yards(rng, prm, len(counts)), 0.0)
+    return tot
+
+
+def component_rush(rng, volf, has, prm: dict, opp_mult: float, n: int, cb: float = 1.0, scale=None) -> np.ndarray:
+    """volf(col) -> per-trial counts from the engine's vol(); has[col] False -> zero counts (avoids NB at mean 0)."""
+    tot = np.zeros(n)
+    for c in COMPONENTS:
+        C = volf(c + "_car") if has[c] else np.zeros(n, dtype=int)
+        if cb != 1.0 and scale is not None:
+            C = scale(rng, C, cb)
+        tot += sim_component_yards(rng, C, prm[c])
+    return tot * float(opp_mult)

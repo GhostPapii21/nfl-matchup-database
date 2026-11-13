@@ -176,3 +176,78 @@ def test_run_all_passes_flag_only_when_asked(tmp_path):
 def test_run_cli_has_no_qb_rush_prior_switch():
     """A probability file stamped prob_source=sim_v5_v6_ensemble (the Phase 4 fit inputs) cannot carry the fix."""
     assert "qb_rush_prior" not in inspect.getsource(SV.main)
+
+
+# ------------------------------------------------------------------ component model (qb_rush_prior="components")
+def _ru_components():
+    rows = []
+    for i in range(300):
+        rows.append(dict(game_id=f"g{i % 6}", posteam="AAA", defteam="BBB", rusher_player_id="R1", pg="RB",
+                         rushing_yards=float(i % 9 - 2), qb_kneel=0, qb_scramble=0))
+    scr = [6, 9, 12, 4, 15, 8, 0, 22, 7, 11]          # player's longest scramble = 22
+    for i, y in enumerate(scr):
+        rows.append(dict(game_id=f"g{i % 4}", posteam="AAA", defteam="BBB", rusher_player_id="Q1", pg="QB",
+                         rushing_yards=float(y), qb_kneel=0, qb_scramble=1))
+    for i, y in enumerate([1, 2, -1, 3, 0, 1]):
+        rows.append(dict(game_id=f"g{i % 3}", posteam="AAA", defteam="BBB", rusher_player_id="Q1", pg="QB",
+                         rushing_yards=float(y), qb_kneel=0, qb_scramble=0))
+    for i in range(4):
+        rows.append(dict(game_id=f"g{i}", posteam="AAA", defteam="BBB", rusher_player_id="Q1", pg="QB",
+                         rushing_yards=-1.0, qb_kneel=1, qb_scramble=0))
+    for i in range(60):                                 # league QB pool incl. a few long scrambles
+        rows.append(dict(game_id="g9", posteam="DDD", defteam="CCC", rusher_player_id="Q2", pg="QB",
+                         rushing_yards=float([5, 8, 3, 41, 10, -2][i % 6]), qb_kneel=0, qb_scramble=int(i % 2 == 0)))
+    return pd.DataFrame(rows)
+
+
+def test_components_split_scrambles_designed_and_drop_kneels():
+    qc = QRP.component_inputs(_ru_components(), "Q1", "BBB", ["g0", "g1", "g2", "g3"])
+    assert list(qc["scr_car"]) == [3, 3, 2, 2] and list(qc["des_car"]) == [2, 2, 2, 0]   # kneels in no component
+    assert qc["scr"]["n"] == 10 and qc["des"]["n"] == 6 and qc["n_kneels_player"] == 4
+    assert qc["scr"]["mu"] != qc["des"]["mu"]                                          # separate yard models
+    assert (qc["des"]["neg_pool"] <= 0).all() and 0 < qc["des"]["p0"] < 1
+
+
+def test_component_yards_have_a_heavy_right_tail_past_the_players_longest_run():
+    qc = QRP.component_inputs(_ru_components(), "Q1", "BBB", ["g0", "g1", "g2", "g3"])
+    y = QRP.draw_yards(np.random.default_rng(3), qc["scr"], 200_000)
+    assert (y > 22).mean() > 0.01                    # beyond his longest observed scramble (a resampler gives 0)
+    assert (y > 50).mean() > 0                       # 50+ yard spikes are reachable
+    assert (y <= 0).mean() == pytest.approx(qc["scr"]["p0"], abs=0.005)               # explicit non-positive atom
+    assert y.max() > 3 * np.median(y[y > 0])
+
+
+def test_component_rush_zero_volume_component_is_zero_not_an_error():
+    qc = QRP.component_inputs(_ru_components(), "Q1", "BBB", ["g0", "g1", "g2", "g3"])
+    rng = np.random.default_rng(0)
+    out = QRP.component_rush(rng, lambda c: np.full(100, 2), dict(scr=False, des=False), qc, 1.0, 100)
+    assert not out.any()
+
+
+@pytest.fixture(scope="module")
+def probe_components():
+    base = dict(player="Drake Maye", team="NE", opp="MIA", market="rushyds", spread=-7.0, rungs=[80.0])
+    rb = dict(player="Derrick Henry", team="BAL", opp="BUF", market="rushyds", spread=-1.5, rungs=[77.5])
+    legs = dict(maye_prior=dict(base, qb_rush_prior=True), maye_comp=dict(base, qb_rush_prior="components"),
+                rb_off=rb, rb_comp=dict(rb, qb_rush_prior="components"))
+    with tempfile.TemporaryDirectory(dir="/tmp") as td:
+        src = SV.make_src(Path(td) / "src")
+        env = dict(os.environ, CC_OPP="0.5", CC_SRC=str(src), CC_CUTOFF="2026-10-29", SIMV6_SRC=str(src),
+                   PYTHONDONTWRITEBYTECODE="1")
+        r = subprocess.run([sys.executable, "-c", _PROBE, str(ENGINE_DIR), json.dumps(legs)], env=env,
+                           capture_output=True, text=True, cwd=ENGINE_DIR, timeout=300)
+    assert r.returncode == 0, r.stderr[-800:]
+    return json.loads(r.stdout.strip().splitlines()[-1])
+
+
+def test_engine_components_reach_spike_games(probe_components):
+    # P(Maye >= 80) with his own-carry resampler is ~0.3%; the component tail makes such a game several times likelier
+    assert probe_components["maye_comp"]["p"]["mc"] > 3 * probe_components["maye_prior"]["p"]["mc"]
+    assert probe_components["rb_comp"] == probe_components["rb_off"]                    # non-QB unchanged
+
+
+def test_run_all_rejects_unknown_mode(tmp_path):
+    legs = pd.DataFrame([dict(player="Drake Maye", gsis=None, team="NE", opp="MIA", market="rushyds", spread=-7.0,
+                              line=23.5)])
+    with pytest.raises(SV.SimV56Error):
+        SV.run_all(legs, week=8, src=tmp_path, workdir=tmp_path / "w", n=10, qb_rush_prior="tail")

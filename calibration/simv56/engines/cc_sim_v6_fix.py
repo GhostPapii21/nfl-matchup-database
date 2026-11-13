@@ -86,6 +86,8 @@ class Engine:
         if len(a)==0: raise ValueError('no active games before cutoff' + (f' with QB {cq}' if cq else ''))
         QF=bool(leg.get('qb_rush_prior')) and PG=='QB' and mkt in('rushyds','rushrec')   # NFL-75 QB rush prior fix (opt-in; qb_rush_prior.py)
         if QF: import qb_rush_prior as QRP; qr=QRP.qb_rush_inputs(ru,g,opp,a.game_id.values); ypc_rush=qr['ypc']; a=a.assign(car=qr['car']); KT=QRP.kneel_table(ru,tg)
+        QC=QF and leg.get('qb_rush_prior')=='components'
+        if QC: qc=QRP.component_inputs(ru,g,opp,a.game_id.values); a=a.assign(scr_car=qc['scr_car'],des_car=qc['des_car']); QH={c:bool(a[c+'_car'].sum()>0) for c in QRP.COMPONENTS}; qc_b=QRP.component_inputs(ru,g,opp,a.game_id.values,k=100*BIAS_REG)
         l3=a.tail(3); w=lambda col:0.6*a[col].mean()+0.4*l3[col].mean()
         cr=(a.rec.sum()+1)/(a.tgt.sum()+2); pgk=None if qb else PG
         A_ypt,r_ypt=self.oppadj(opp,pgk,'ypt'); A_cr,r_cr=self.oppadj(opp,pgk,'cr')
@@ -131,13 +133,15 @@ class Engine:
                         for i in range(int(C.max())): tot+=np.where(C>i,rng.choice(yc,N),0)
                     x=tot*(Ab_rec_y if mode=='bias' else A_rec_y)
             if mkt in ('rushyds','rushrec'):
+              if QC: x=x+QRP.component_rush(rng,lambda c:vol(c,'ra',self.bR),QH,qc_b if mode=='bias' else qc,(1+BIAS_OPP*(qc['opp_ratio']-1)) if mode=='bias' else qc['opp_ratio'],N,float(leg.get('carry_boost',1.0)),scale_count)*float(leg.get('ypc_boost',1.0))   # NFL-75 components
+              else:
                 Cr=vol('car','ra',self.bR); tot=np.zeros(N)
                 cb=float(leg.get('carry_boost',1.0))
                 if cb!=1.0: Cr=scale_count(rng,Cr,cb)   # game-script RB boost / promotion / split share (all three models)
                 if len(ypc_rush):
                     for i in range(int(Cr.max())): tot+=np.where(Cr>i,rng.choice(ypc_rush,N),0)
                 x=x+tot*(Ab_ypc if mode=='bias' else A_ypc)*float(leg.get('ypc_boost',1.0))   # BUG-2026-11-01-RBMISS F (all three models)
-                if QF: x=x+QRP.sim_kneel_yards(QRP.kneel_rng(self.seed,name,mkt,mode),spread,N,KT)   # NFL-75 separate kneel model
+              if QF: x=x+QRP.sim_kneel_yards(QRP.kneel_rng(self.seed,name,mkt,mode),spread,N,KT)   # NFL-75 separate kneel model
             if isinstance(x,int): x=np.zeros(N)
             x=np.asarray(x)
             x=scale_count(rng,x.astype(int),M).astype(float) if mkt in('rec','comp') else x.astype(float)*M

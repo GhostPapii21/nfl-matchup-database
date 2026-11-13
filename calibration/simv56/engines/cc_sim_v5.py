@@ -48,6 +48,8 @@ def sim(leg):
     d,a,yc,ypc_rush,g=player(name,team,qb,leg.get('gsis')); PG=pos.get(g,'WR')
     QF=bool(leg.get('qb_rush_prior')) and PG=='QB' and mkt in('rushyds','rushrec')   # NFL-75 QB rush prior fix (opt-in; qb_rush_prior.py)
     if QF: import qb_rush_prior as QRP; qr=QRP.qb_rush_inputs(ru,g,opp,a.game_id.values); ypc_rush=qr['ypc']; a=a.assign(car=qr['car']); KT=QRP.kneel_table(ru,tg)
+    QC=QF and leg.get('qb_rush_prior')=='components'
+    if QC: qc=QRP.component_inputs(ru,g,opp,a.game_id.values); a=a.assign(scr_car=qc['scr_car'],des_car=qc['des_car']); QH={c:bool(a[c+'_car'].sum()>0) for c in QRP.COMPONENTS}
     l3=a.tail(3); w=lambda col:0.6*a[col].mean()+0.4*l3[col].mean()
     cr=(a.rec.sum()+1)/(a.tgt.sum()+2)
     pgk=None if qb else PG
@@ -86,10 +88,12 @@ def sim(leg):
                 for i in range(int(C.max())): tot+=np.where(C>i,rng.choice(yc,N),0)
                 x=tot*yf*A_rec_y
         if mkt in ('rushyds','rushrec'):
+          if QC: x=x+QRP.component_rush(rng,lambda c:vol(c,'ra',bR),QH,qc,qc['opp_ratio'],N)*yf   # NFL-75 components
+          else:
             Cr=vol('car','ra',bR); tot=np.zeros(N)
             for i in range(int(Cr.max())): tot+=np.where(Cr>i,rng.choice(ypc_rush,N),0)
             x=x+tot*yf*A_ypc
-            if QF: x=x+QRP.sim_kneel_yards(QRP.kneel_rng(SEED,name,mkt,mode),spread,N,KT)   # NFL-75 separate kneel model
+          if QF: x=x+QRP.sim_kneel_yards(QRP.kneel_rng(SEED,name,mkt,mode),spread,N,KT)   # NFL-75 separate kneel model
         x=np.asarray(x,dtype=float)
         out[mode]=dict(mean=float(x.mean()),median=float(np.median(x)),p10=float(np.percentile(x,10)),p90=float(np.percentile(x,90)),
                        rungs={str(k):float((x>=k).mean()) for k in leg['rungs']})
