@@ -1,0 +1,694 @@
+<title>NFL Game Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a slate rail of game chips (left on desktop, a scroller on phones) and one game sheet with a
+   direction switch (who has the ball) and tabs. Field hash marks run under the header. */
+:root {
+  --bg: #eceff3; --surface: #ffffff; --surface-2: #f5f7f9; --ink: #13202c; --muted: #586776; --line: #d4dbe2;
+  --accent: #d9531a; --accent-ink: #ffffff; --accent-soft: #fbe3d6;
+  --good: #1d7f47; --good-soft: #dcf1e4; --warn: #9a6512; --warn-soft: #f8ecd4; --bad: #bd2f2f; --bad-soft: #f8dddd;
+  --chart: #2f5f8a; --chart-soft: #d9e6f1;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0d141b; --surface: #151f29; --surface-2: #1b2733; --ink: #e5ecf2; --muted: #93a2b1; --line: #283644;
+  --accent: #ff7b3f; --accent-ink: #1a0d05; --accent-soft: #3a2216;
+  --good: #52c483; --good-soft: #163626; --warn: #e3ab45; --warn-soft: #3a2c12; --bad: #f27373; --bad-soft: #3d1b1d;
+  --chart: #7fb2e0; --chart-soft: #1f3447; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0d141b; --surface: #151f29; --surface-2: #1b2733; --ink: #e5ecf2; --muted: #93a2b1; --line: #283644;
+  --accent: #ff7b3f; --accent-ink: #1a0d05; --accent-soft: #3a2216;
+  --good: #52c483; --good-soft: #163626; --warn: #e3ab45; --warn-soft: #3a2c12; --bad: #f27373; --bad-soft: #3d1b1d;
+  --chart: #7fb2e0; --chart-soft: #1f3447; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 14px; line-height: 1.45; margin: 0;
+  font-variant-numeric: tabular-nums; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+a { color: var(--chart); }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* header */
+.top { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; }
+.top .wrap { display: flex; align-items: center; gap: 14px; padding-block: 10px; flex-wrap: wrap; }
+.brand { font-family: var(--font-display); font-weight: 700; font-size: 24px; letter-spacing: .02em; text-transform: uppercase; line-height: 1; }
+.brand span { color: var(--accent); }
+.meta { color: var(--muted); font-size: 12px; }
+.flag-research { margin-left: auto; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
+.hash { height: 6px; background:
+  repeating-linear-gradient(90deg, transparent 0 22px, var(--line) 22px 24px) top/100% 3px no-repeat,
+  repeating-linear-gradient(90deg, transparent 0 22px, var(--line) 22px 24px) bottom/100% 3px no-repeat; }
+
+/* shell */
+.shell { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 18px; padding-block: 16px 40px; align-items: start; }
+@media (max-width: 860px) { .shell { grid-template-columns: minmax(0, 1fr); } }
+
+/* slate rail */
+.rail { display: flex; flex-direction: column; gap: 14px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 64px); max-height: calc(100vh - 90px); overflow: auto; padding-right: 2px; }
+.rail h3 { font-family: var(--font-display); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; font-weight: 600; }
+.rail .group { display: flex; flex-direction: column; gap: 6px; }
+@media (max-width: 860px) {
+  .rail { position: static; max-height: none; flex-direction: row; overflow-x: auto; gap: 10px; padding-bottom: 6px; }
+  .rail .group { flex-direction: row; gap: 8px; }
+  .rail .group h3 { writing-mode: vertical-rl; transform: rotate(180deg); margin: 0; font-size: 11px; }
+}
+.chip-game { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; text-align: left; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r); padding: 8px 10px; cursor: pointer; min-width: 190px; }
+.chip-game:hover { border-color: var(--muted); }
+.chip-game[aria-current="true"] { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.chip-game .teams { font-family: var(--font-display); font-weight: 700; font-size: 19px; letter-spacing: .02em; line-height: 1.1; }
+.chip-game .when { color: var(--muted); font-size: 12px; text-align: right; }
+.chip-game .line { color: var(--muted); font-size: 12px; grid-column: 1 / -1; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
+.dot.good { background: var(--good); } .dot.warn { background: var(--warn); } .dot.bad { background: var(--bad); } .dot.unknown { background: var(--line); }
+
+/* game sheet */
+.sheet { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.scoreboard { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.sb-main { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 16px 18px 12px; }
+.team { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.team.home { text-align: right; align-items: flex-end; }
+.team .abbr { font-family: var(--font-display); font-weight: 700; font-size: 46px; line-height: .9; letter-spacing: .01em; }
+.team .name { color: var(--muted); font-size: 13px; }
+.team .qb { font-size: 12px; color: var(--muted); }
+.vs { text-align: center; display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.vs .at { font-family: var(--font-display); font-size: 22px; color: var(--muted); font-weight: 600; }
+.vs .kick { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.vs .final { font-family: var(--font-display); font-size: 28px; font-weight: 700; }
+.sb-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); border-top: 1px solid var(--line); }
+.sb-strip > div { padding: 10px 14px; border-right: 1px solid var(--line); min-width: 0; }
+.sb-strip > div:last-child { border-right: 0; }
+.k { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.v { font-family: var(--font-display); font-size: 22px; font-weight: 700; line-height: 1.1; }
+.v small { font-family: var(--font-body); font-size: 12px; color: var(--muted); font-weight: 500; }
+.flags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; border-top: 1px solid var(--line); background: var(--surface-2); }
+.pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 500;
+  background: var(--surface); border: 1px solid var(--line); }
+.pill.good { background: var(--good-soft); border-color: transparent; color: var(--good); }
+.pill.warn { background: var(--warn-soft); border-color: transparent; color: var(--warn); }
+.pill.bad { background: var(--bad-soft); border-color: transparent; color: var(--bad); }
+.pill.info { background: var(--chart-soft); border-color: transparent; color: var(--chart); }
+
+.controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.seg { display: inline-flex; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 3px; gap: 2px; flex-wrap: wrap; }
+.seg button { border: 0; background: transparent; padding: 6px 14px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 13px; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.tabs { display: flex; gap: 4px; overflow-x: auto; border-bottom: 1px solid var(--line); }
+.tabs button { border: 0; background: transparent; padding: 9px 12px; cursor: pointer; font-weight: 600; color: var(--muted); white-space: nowrap;
+  border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.card h4 { margin: 0; font-family: var(--font-display); font-size: 18px; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; text-wrap: balance; }
+.card .sub { color: var(--muted); font-size: 12px; margin-top: -6px; }
+.section-title { font-family: var(--font-display); font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: .02em; margin: 6px 0 -4px; }
+.note { color: var(--muted); font-size: 12px; }
+.empty { color: var(--muted); font-style: italic; }
+
+.statrow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; align-items: baseline; }
+.statrow .lab { color: var(--muted); }
+.statrow .val { font-weight: 600; text-align: right; }
+.rank { font-size: 11px; font-weight: 600; border-radius: 6px; padding: 1px 6px; margin-left: 6px; white-space: nowrap; }
+.rank.good { background: var(--good-soft); color: var(--good); } .rank.bad { background: var(--bad-soft); color: var(--bad); } .rank.mid { background: var(--surface-2); color: var(--muted); }
+
+.bar { position: relative; height: 8px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
+.bar i { position: absolute; inset: 0 auto 0 0; background: var(--chart); border-radius: 4px; }
+.bar b { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink); opacity: .55; }
+.vsrow { display: grid; grid-template-columns: 92px minmax(0, 1fr) 56px; gap: 8px; align-items: center; font-size: 12px; }
+.vsrow .who { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vsrow .num { text-align: right; font-weight: 600; }
+
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child, .tl { text-align: left; }
+th { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+tr.hl td { background: var(--good-soft); }
+tr.lo td { color: var(--muted); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; border-radius: 4px; padding: 2px 6px; background: var(--surface-2); color: var(--ink); }
+.tag.t-primary { background: var(--accent); color: var(--accent-ink); }
+.tag.t-red-zone-1, .tag.t-goal-line-back { background: var(--bad-soft); color: var(--bad); }
+.tag.t-volume, .tag.t-lead-back, .tag.t-most-on-field { background: var(--chart-soft); color: var(--chart); }
+.tag.t-boom-bust, .tag.t-deep-threat { background: var(--warn-soft); color: var(--warn); }
+.tag.t-steady, .tag.t-possession, .tag.t-rising { background: var(--good-soft); color: var(--good); }
+.tag.t-falling { background: var(--bad-soft); color: var(--bad); }
+.tag.g-target { background: var(--good-soft); color: var(--good); } .tag.g-avoid { background: var(--bad-soft); color: var(--bad); }
+
+.player-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.player-head .nm { font-weight: 700; font-size: 15px; }
+.player-head .pos { color: var(--muted); font-size: 12px; font-weight: 600; }
+.nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.nums div { background: var(--surface-2); border-radius: 8px; padding: 6px 8px; min-width: 0; }
+.nums .v { font-size: 19px; }
+.spark { width: 100%; height: 46px; display: block; }
+.spark text { fill: var(--muted); font-size: 9px; font-family: var(--font-body); }
+
+.banner { border-radius: var(--r); padding: 12px 14px; font-weight: 600; display: flex; gap: 10px; align-items: flex-start; }
+.banner.good { background: var(--good-soft); color: var(--good); } .banner.warn { background: var(--warn-soft); color: var(--warn); }
+.banner.bad { background: var(--bad-soft); color: var(--bad); } .banner.unknown { background: var(--surface-2); color: var(--muted); }
+
+.list { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.list li { display: flex; gap: 8px; align-items: flex-start; }
+.list li .dot { margin-top: 6px; }
+.inj { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.inj:last-child { border-bottom: 0; }
+.inj .nm { font-weight: 600; }
+.inj .c { grid-column: 1 / -1; color: var(--muted); font-size: 12px; }
+.qline { display: grid; grid-template-columns: 1.4fr repeat(5, minmax(0, 1fr)); gap: 4px; font-size: 12px; align-items: center; padding: 5px 0; border-bottom: 1px solid var(--line); }
+.qline.h { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+.qline span:not(:first-child) { text-align: right; }
+textarea { width: 100%; min-height: 360px; font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--surface-2); color: var(--ink);
+  border: 1px solid var(--line); border-radius: var(--r); padding: 12px; resize: vertical; }
+.btn { background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 999px; padding: 9px 18px; font-weight: 700; cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); text-decoration: none; display: inline-block; }
+.toast { color: var(--good); font-weight: 600; font-size: 13px; }
+footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
+@media (max-width: 520px) {
+  .team .abbr { font-size: 36px; } .sb-main { padding: 12px; gap: 6px; } .nums { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .qline { grid-template-columns: 1.2fr repeat(4, minmax(0, 1fr)); } .qline span:nth-child(6) { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) { .chip-game, .seg button, .tabs button { transition: background .15s, border-color .15s, color .15s; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Game <span>Board</span></div>
+    <div class="meta" id="meta"></div>
+    <div class="flag-research">Research only</div>
+  </div>
+  <div class="hash" aria-hidden="true"></div>
+</header>
+<main class="wrap shell">
+  <nav class="rail" id="rail" aria-label="Games"></nav>
+  <section class="sheet" id="sheet" aria-live="polite"></section>
+</main>
+<footer class="wrap" id="foot"></footer>
+
+<script>
+const BOARD = /*__BOARD_DATA__*/null;
+(function () {
+  "use strict";
+  const games = (BOARD && BOARD.games) || [];
+  const state = { gi: 0, dir: 0, tab: "overview" };
+  const TABS = [["overview", "Overview"], ["matchup", "What the defense allows"], ["defenders", "Defenders"], ["qb", "Quarterback"],
+                ["players", "Receivers & backs"], ["injuries", "Injuries"], ["h2h", "Last meeting"], ["odds", "Odds"], ["weather", "Weather & rest"],
+                ["grok", "Copy for Grok"]];
+
+  // ---------------------------------------------------------------- helpers
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const isNum = (x) => typeof x === "number" && isFinite(x);
+  const n = (x, d = 1) => isNum(x) ? x.toFixed(d) : "–";
+  const pct = (x, d = 0) => isNum(x) ? (x * 100).toFixed(d) + "%" : "–";
+  const ord = (k) => { const s = ["th", "st", "nd", "rd"], v = k % 100; return k + (s[(v - 20) % 10] || s[v] || s[0]); };
+  const american = (p) => isNum(p) ? (p > 0 ? "+" + p : String(p)) : "–";
+  const signed = (x, d = 1) => isNum(x) ? (x > 0 ? "+" : "") + x.toFixed(d) : "–";
+  const BOOK = { pinnacle: "Pinnacle", draftkings: "DraftKings", fanduel: "FanDuel", hardrockbet: "Hard Rock", williamhill_us: "Caesars", caesars: "Caesars" };
+  const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const G = () => games[state.gi];
+  const sideKeys = (g) => Object.keys(g.sides);
+  const S = () => { const g = G(); return g.sides[sideKeys(g)[state.dir]]; };
+  function kickoffDate(g) {
+    const [y, m, d] = g.game.date.split("-").map(Number); const [hh, mm] = (g.game.kickoff_et || "13:00").split(":").map(Number);
+    const offset = (m > 3 && m < 11) || (m === 11 && d < 2) ? 4 : 5;   // EDT before early November, EST after (approximate)
+    return new Date(Date.UTC(y, m - 1, d, hh + offset, mm));
+  }
+  function kickLabel(g) {
+    const dt = kickoffDate(g);
+    const wd = g.game.weekday ? g.game.weekday.slice(0, 3) : "";
+    const [hh, mm] = (g.game.kickoff_et || "").split(":").map(Number);
+    const t = isNum(hh) ? `${((hh + 11) % 12) + 1}:${String(mm).padStart(2, "0")} ${hh >= 12 ? "PM" : "AM"} ET` : "";
+    return `${wd} ${dt.getUTCMonth() + 1}/${g.game.date.slice(8)} · ${t}`;
+  }
+  const isFinal = (g) => !!g.result;
+  // ranks: 1 = best at its own job. For an offense looking at a defense, a high rank number is a soft spot.
+  function rankChip(r, forOffenseView, defense) {
+    if (!r || !isNum(r.rank)) return "";
+    const of = r.of || 32;
+    let cls = "mid";
+    if (defense) cls = r.rank >= of - 8 ? "good" : r.rank <= 8 ? "bad" : "mid";
+    else cls = r.rank <= 8 ? "good" : r.rank >= of - 8 ? "bad" : "mid";
+    if (!forOffenseView) cls = cls === "good" ? "bad" : cls === "bad" ? "good" : cls;
+    return `<span class="rank ${cls}" title="1 = best at its own job">${ord(r.rank)}</span>`;
+  }
+  function spark(vals, labels, { w = 240, h = 46, avg = null, fmt = (v) => v } = {}) {
+    const xs = vals.map((v) => (isNum(v) ? v : null));
+    const good = xs.filter((v) => v != null);
+    if (good.length < 2) return `<div class="note">Not enough games for a trend.</div>`;
+    const max = Math.max(...good, avg || 0) || 1, min = 0, pad = 12, top = 6, bot = 12;
+    const X = (i) => pad + (i * (w - 2 * pad)) / (xs.length - 1);
+    const Y = (v) => top + (1 - (v - min) / (max - min)) * (h - top - bot);
+    let d = "", a = "";
+    xs.forEach((v, i) => { if (v == null) return; d += (d ? "L" : "M") + X(i).toFixed(1) + " " + Y(v).toFixed(1); });
+    const firstI = xs.findIndex((v) => v != null), lastI = xs.length - 1 - [...xs].reverse().findIndex((v) => v != null);
+    a = d + `L${X(lastI).toFixed(1)} ${h - bot}L${X(firstI).toFixed(1)} ${h - bot}Z`;
+    const avgLine = isNum(avg) ? `<line x1="${pad}" x2="${w - pad}" y1="${Y(avg).toFixed(1)}" y2="${Y(avg).toFixed(1)}" stroke="var(--muted)" stroke-dasharray="3 3" stroke-width="1"/>` : "";
+    const dots = xs.map((v, i) => v == null ? "" : `<circle cx="${X(i).toFixed(1)}" cy="${Y(v).toFixed(1)}" r="${i === lastI ? 3.2 : 2}" fill="${i === lastI ? "var(--accent)" : "var(--chart)"}"><title>${esc((labels[i] || "") + ": " + fmt(v))}</title></circle>`).join("");
+    const lab = xs.map((v, i) => (i === firstI || i === lastI) && labels[i] ? `<text x="${X(i).toFixed(1)}" y="${h - 1}" text-anchor="${i === firstI ? "start" : "end"}">${esc(labels[i])}</text>` : "").join("");
+    return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="trend"><path d="${a}" fill="var(--chart-soft)" stroke="none"/>${avgLine}<path d="${d}" fill="none" stroke="var(--chart)" stroke-width="1.8"/>${dots}${lab}</svg>`;
+  }
+  function vsBar(label, value, max, avg, fmt) {
+    const w = isNum(value) && max ? Math.max(2, Math.min(100, (value / max) * 100)) : 0;
+    const m = isNum(avg) && max ? Math.min(100, (avg / max) * 100) : null;
+    return `<div class="vsrow"><span class="who">${esc(label)}</span><div class="bar"><i style="width:${w}%"></i>${m != null ? `<b style="left:${m}%" title="league average"></b>` : ""}</div><span class="num">${fmt(value)}</span></div>`;
+  }
+  const tagHtml = (t) => `<span class="tag t-${slug(t.tag)}" title="${esc(t.why || "")}">${esc(t.tag)}</span>`;
+  const lvlDot = (l) => `<span class="dot ${l === "info" ? "unknown" : esc(l)}"></span>`;
+
+  // ---------------------------------------------------------------- slate rail
+  function renderRail() {
+    const groups = [];
+    games.forEach((g, i) => {
+      const key = g.game.date + "|" + g.game.slot;
+      let grp = groups.find((x) => x.key === key);
+      if (!grp) groups.push((grp = { key, label: g.game.slot, items: [] }));
+      grp.items.push(i);
+    });
+    document.getElementById("rail").innerHTML = groups.map((grp) => `<div class="group"><h3>${esc(grp.label)}</h3>${grp.items.map((i) => {
+      const g = games[i], m = g.market || {}, wv = g.weather_verdict || {};
+      const highs = Object.values(g.sides).reduce((a, s) => a + (s.offense_injuries || []).filter((x) => x.impact === "high" && x.status_level >= 2).length, 0);
+      const ctxWarn = Object.values(g.context || {}).some((c) => (c.flags || []).some((f) => f.level === "warn"));
+      const line = isFinal(g) ? `Final: ${g.game.away} ${g.result.away_score}, ${g.game.home} ${g.result.home_score}`
+        : `${g.game.home} ${signed(m.home_spread, 1)} · O/U ${n(m.total, 1)}`;
+      return `<button class="chip-game" data-i="${i}" aria-current="${i === state.gi}">
+        <span class="teams">${esc(g.game.away)} @ ${esc(g.game.home)}</span><span class="when">${esc(kickLabel(g).split(" · ")[1] || "")}</span>
+        <span class="line">${esc(line)} ${lvlDot(wv.level || "unknown")}${highs ? `<span title="key injuries">${highs} inj</span>` : ""}${ctxWarn ? `<span title="rest or travel flag">rest/travel</span>` : ""}</span>
+      </button>`; }).join("")}</div>`).join("");
+    document.querySelectorAll(".chip-game").forEach((b) => b.addEventListener("click", () => { state.gi = +b.dataset.i; state.dir = 0; go(); }));
+  }
+
+  // ---------------------------------------------------------------- scoreboard header
+  function bookLine(g, mk, side) {
+    const m = (g.books && g.books.markets && g.books.markets[mk]) || null;
+    if (!m) return null;
+    return { ref: m.reference || {}, best: (m.best_retail_price || {})[side], books: m.books || {} };
+  }
+  function renderHeader(g) {
+    const a = g.game.away, h = g.game.home, m = g.market || {}, wv = g.weather_verdict || {};
+    const sp = bookLine(g, "spread", h), tot = bookLine(g, "total", "Over"), ml = bookLine(g, "moneyline", h);
+    const spRef = sp && isNum(sp.ref.line) ? sp.ref.line : m.home_spread;
+    const flags = [];
+    if (wv.headline) flags.push(`<span class="pill ${wv.level === "good" ? "good" : wv.level === "bad" ? "bad" : wv.level === "warn" ? "warn" : ""}">${esc(wv.headline.split(".")[0])}</span>`);
+    Object.entries(g.context || {}).forEach(([t, c]) => (c.flags || []).forEach((f) => flags.push(`<span class="pill ${f.level}">${esc(t)}: ${esc(f.text)}</span>`)));
+    if (g.game.division_game) flags.push(`<span class="pill info">Division game</span>`);
+    const centre = isFinal(g) ? `<div class="final">${g.result.away_score} – ${g.result.home_score}</div><div class="kick">Final</div>`
+      : `<div class="at">@</div><div class="kick">${esc(kickLabel(g))}</div>`;
+    const nv = (x, side) => x && x.ref && x.ref.no_vig ? pct(x.ref.no_vig[side], 1) : "–";
+    return `<div class="scoreboard">
+      <div class="sb-main">
+        <div class="team"><span class="abbr">${esc(a)}</span><span class="name">${esc(g.teams[a].name)}</span><span class="qb">QB ${esc((g.game.listed_qbs || {})[a] || "unknown")}</span></div>
+        <div class="vs">${centre}</div>
+        <div class="team home"><span class="abbr">${esc(h)}</span><span class="name">${esc(g.teams[h].name)}</span><span class="qb">QB ${esc((g.game.listed_qbs || {})[h] || "unknown")}</span></div>
+      </div>
+      <div class="sb-strip">
+        <div><div class="k">Spread (${esc(h)})</div><div class="v">${signed(spRef, 1)} <small>no-vig ${nv(sp, h)}</small></div></div>
+        <div><div class="k">Total</div><div class="v">${n(tot && isNum(tot.ref.line) ? tot.ref.line : m.total, 1)} <small>over ${nv(tot, "Over")}</small></div></div>
+        <div><div class="k">Moneyline</div><div class="v">${american((m.moneyline || {})[a])} / ${american((m.moneyline || {})[h])} <small>${esc(h)} ${nv(ml, h)}</small></div></div>
+        <div><div class="k">Venue</div><div class="v" style="font-size:16px">${esc(g.game.roof)} · ${esc(g.game.surface)}<br><small>${esc(g.game.site === "Neutral" ? "Neutral site" : h + " home")}</small></div></div>
+      </div>
+      ${flags.length ? `<div class="flags">${flags.join("")}</div>` : ""}
+    </div>`;
+  }
+
+  // ---------------------------------------------------------------- overview
+  function edgeClass(e, s) {
+    const t = (e.edge || "").toUpperCase();
+    const def = s.defense.toUpperCase(), off = s.offense.toUpperCase();
+    if ((t.includes(def) && /WEAK|SOFT/.test(t)) || (t.includes(off) && /STRENGTH|EDGE|STRONG/.test(t))) return "good";
+    if ((t.includes(def) && /STRENGTH|STRONG/.test(t)) || (t.includes(off) && /WEAK/.test(t))) return "bad";
+    return "warn";
+  }
+  function edgesCard(s) {
+    const es = s.edges || [];
+    if (!es.length) return `<div class="card"><h4>${esc(s.offense)} offense vs ${esc(s.defense)} defense</h4><p class="empty">No ranked edges in the packet.</p></div>`;
+    return `<div class="card"><h4>${esc(s.offense)} offense vs ${esc(s.defense)} defense</h4><div class="sub">Where the ranks line up. 1 = best at its own job.</div>
+      <ul class="list">${es.map((e) => `<li>${lvlDot(edgeClass(e, s))}<div><b>${esc(e.area)}</b>: ${esc(e.edge.toLowerCase())}<div class="note">${esc(s.offense)} ${ord(e.offense_rank)} (${n(e.offense_value, e.is_rate ? 3 : 1)}), ${esc(s.defense)} ${ord(e.defense_rank)} (${n(e.defense_value, e.is_rate ? 3 : 1)}), league ${n(e.league_avg, e.is_rate ? 3 : 1)}</div></div></li>`).join("")}</ul></div>`;
+  }
+  function topReceiversCard(s) {
+    const rec = ((s.roles || {}).receivers || []).slice(0, 4);
+    return `<div class="card"><h4>${esc(s.offense)} pass catchers</h4><div class="sub">Roles from target share, depth, swings and snaps</div>
+      ${rec.map((r) => `<div><div class="player-head"><span class="nm">${esc(r.full_name || r.player)} <span class="pos">${esc(r.pos)}</span></span><span class="note">${pct(r.target_share)} tgt · ${n(r.yards_pg, 0)} yds/g</span></div><div class="tags">${(r.tags || []).map(tagHtml).join("")}</div></div>`).join("") || `<p class="empty">No receiver data.</p>`}</div>`;
+  }
+  function targetsCard(s) {
+    const cov = ((s.defenders || {}).coverage || []).filter((c) => c.grade === "target");
+    const avoid = ((s.defenders || {}).coverage || []).filter((c) => c.grade === "avoid").slice(0, 2);
+    return `<div class="card"><h4>${esc(s.defense)} defenders to attack</h4><div class="sub">Targets, yards and TDs allowed per defender this season</div>
+      ${cov.length ? `<ul class="list">${cov.map((c) => `<li>${lvlDot("good")}<div><b>${esc(c.player)}</b> <span class="pos note">${esc(c.position)}</span><div class="note">${esc(c.why.join(" · "))} · ${c.targets} targets</div></div></li>`).join("")}</ul>` : `<p class="empty">No defender stands out as a soft spot.</p>`}
+      ${avoid.length ? `<div class="note">Avoid: ${avoid.map((c) => `${esc(c.player)} (${esc(c.why[0] || "")})`).join("; ")}</div>` : ""}</div>`;
+  }
+  function injSummaryCard(g) {
+    const rows = [];
+    Object.values(g.sides).forEach((s) => (s.offense_injuries || []).filter((x) => x.impact !== "low" && x.status_level >= 2).forEach((x) => rows.push([s.offense, x])));
+    return `<div class="card"><h4>Injuries that matter</h4><div class="sub">Starters and high-snap players listed Out, Doubtful or Questionable</div>
+      ${rows.length ? rows.slice(0, 10).map(([t, x]) => `<div class="inj"><span class="nm">${esc(t)} ${esc(x.player)} <span class="pos note">${esc(x.position)}</span></span><span class="pill ${x.status_level >= 3 ? "bad" : "warn"}">${esc(x.game_status || x.espn || x.practice || "listed")}</span><span class="c">${x.snap_share != null ? pct(x.snap_share) + " of snaps" : ""}${x.next_up ? ` · next up: ${esc(x.next_up)}` : ""}</span></div>`).join("") : `<p class="empty">No starter or high-snap player listed Out, Doubtful or Questionable.</p>`}</div>`;
+  }
+  function lastMeetingCard(g) {
+    const L = g.h2h && g.h2h.last;
+    if (!L) return `<div class="card"><h4>Last meeting</h4><p class="empty">These teams have not met in the schedule data.</p></div>`;
+    const co = (L.carryover || []).filter((c) => c.kind !== "player").concat((L.carryover || []).filter((c) => c.kind === "player").slice(0, 3));
+    return `<div class="card"><h4>Last meeting</h4><div class="sub">${esc(L.date)} · week ${L.week} ${L.season}</div><div class="v">${esc(L.score)}</div>
+      <ul class="list">${co.map((c) => `<li>${lvlDot(c.level)}<span>${esc(c.text)}</span></li>`).join("")}</ul>
+      <a class="btn ghost" href="${esc(L.highlights_url)}" target="_blank" rel="noopener">Watch highlights</a></div>`;
+  }
+  function qbQuickCard(s) {
+    const q = s.qb || {}, c = q.this_season || {}, all = c.all || {}, b = c.vs_blitz || {}, nb = c.no_blitz || {};
+    const da = s.defense_allowed || {};
+    return `<div class="card"><h4>${esc(q.player || s.offense + " QB")} vs ${esc(s.defense)}</h4><div class="sub">${esc(s.defense)} blitzes ${pct(da.blitz_rate)} of dropbacks; pressure ${pct(da.pressure_rate)}</div>
+      <div class="statrow"><span class="lab">Season</span><span class="val">${n(all.yards_per_attempt, 2)} YPA · ${all.td ?? "–"} TD / ${all.int ?? "–"} INT</span>
+      <span class="lab">Against the blitz</span><span class="val">${n(b.yards_per_attempt, 2)} YPA · ${b.td ?? "–"} / ${b.int ?? "–"}</span>
+      <span class="lab">No blitz</span><span class="val">${n(nb.yards_per_attempt, 2)} YPA · ${nb.td ?? "–"} / ${nb.int ?? "–"}</span>
+      <span class="lab">Pressured (PFR)</span><span class="val">${pct((c.pressured || {}).pressure_rate)}</span>
+      <span class="lab">Red zone</span><span class="val">${(c.red_zone || {}).td ?? "–"} TD on ${(c.red_zone || {}).attempts ?? "–"} att</span></div></div>`;
+  }
+  function renderOverview(g) {
+    const ks = sideKeys(g), s1 = g.sides[ks[0]], s2 = g.sides[ks[1]];
+    return `<div class="grid two">${edgesCard(s1)}${edgesCard(s2)}</div>
+      <div class="grid two">${topReceiversCard(s1)}${topReceiversCard(s2)}</div>
+      <div class="grid two">${targetsCard(s1)}${targetsCard(s2)}</div>
+      <div class="grid two">${qbQuickCard(s1)}${qbQuickCard(s2)}</div>
+      <div class="grid two">${injSummaryCard(g)}${lastMeetingCard(g)}</div>`;
+  }
+
+  // ---------------------------------------------------------------- matchup (what the defense allows)
+  const POS = [
+    { key: "wr", title: "Wide receivers", rows: [["wr_targets_pg", "Targets / game", 1], ["wr_receptions_pg", "Receptions / game", 1], ["wr_rec_yards_pg", "Yards / game", 1], ["wr_yards_per_target", "Yards / target", 2], ["wr_rec_td", "TDs (window)", 0], ["wr_explosive", "20+ yd catches (window)", 0]], trend: "wr_rec_yards" },
+    { key: "te", title: "Tight ends", rows: [["te_targets_pg", "Targets / game", 1], ["te_receptions_pg", "Receptions / game", 1], ["te_rec_yards_pg", "Yards / game", 1], ["te_yards_per_target", "Yards / target", 2], ["te_rec_td", "TDs (window)", 0], ["te_explosive", "20+ yd catches (window)", 0]], trend: "te_rec_yards" },
+    { key: "rbr", title: "Running backs: rushing", rows: [["rb_carries_pg", "Carries / game", 1], ["rb_rush_yards_pg", "Rush yards / game", 1], ["rb_yards_per_carry", "Yards / carry", 2], ["rush_td", "Rush TDs (all, window)", 0], ["explosive_rush_pg", "15+ yd runs / game", 2]], trend: "rb_rush_yards" },
+    { key: "rbc", title: "Running backs: receiving", rows: [["rb_targets_pg", "Targets / game", 1], ["rb_receptions_pg", "Receptions / game", 1], ["rb_rec_yards_pg", "Yards / game", 1], ["rb_yards_per_target", "Yards / target", 2], ["rb_rec_td", "TDs (window)", 0]], trend: "rb_rec_yards" },
+    { key: "pass", title: "Passing game", rows: [["pass_yards_pg", "Pass yards / game", 1], ["yards_per_pass_attempt", "Yards / attempt", 2], ["completion_rate", "Completion %", "p"], ["explosive_pass_pg", "20+ yd passes / game", 2], ["sack_rate", "Sack rate", "p"], ["pressure_rate", "Pressure (sacks + hits)", "p"], ["blitz_rate", "Blitz rate", "p"]], trend: "pass_yards" },
+    { key: "sit", title: "Situational", rows: [["points_pg", "Points / game", 1], ["third_down_rate", "Third-down rate", "p"], ["red_zone_td_rate", "Red-zone TD rate", "p"], ["red_zone_drives", "Red-zone trips (window)", 0], ["takeaways_pg", "Takeaways / game", 2]], trend: "points" },
+  ];
+  function fmtV(v, d) { return d === "p" ? pct(v) : n(v, d); }
+  function posCard(s, P) {
+    const da = s.defense_allowed || {}, dr = s.defense_rank || {}, op = s.offense_produced || {}, or_ = s.offense_rank || {};
+    const lbl = (s.defense_by_game || []).map((x) => `wk ${x.week} ${x.opp}`);
+    const trendVals = (s.defense_by_game || []).map((x) => x[P.trend]);
+    const lgAvg = (dr[P.rows[2] ? P.rows[2][0] : ""] || {}).league_avg;
+    const rows = P.rows.map(([k, label, d]) => {
+      const max = Math.max(da[k] || 0, op[k] || 0, (dr[k] || {}).league_avg || 0) * 1.15 || 1;
+      return `<div style="display:flex;flex-direction:column;gap:3px"><div class="statrow"><span class="lab">${esc(label)}</span><span class="val">${fmtV(da[k], d)}${rankChip(dr[k], true, true)}</span></div>
+        ${isNum(op[k]) ? vsBar(`${s.offense} gets`, op[k], max, (dr[k] || or_[k] || {}).league_avg, (v) => fmtV(v, d)) + vsBar(`${s.defense} allows`, da[k], max, (dr[k] || {}).league_avg, (v) => fmtV(v, d)) : ""}</div>`;
+    }).join("");
+    return `<div class="card"><h4>${esc(P.title)}</h4><div class="sub">${esc(s.defense)} defense, last ${(da.games || "?")} games. Bar tick = league average. Rank chip: green = soft spot for ${esc(s.offense)}.</div>${rows}
+      <div><div class="k">${esc(s.defense)} allowed, game by game</div>${spark(trendVals, lbl, { avg: lgAvg && P.trend.endsWith("yards") ? null : null, fmt: (v) => v })}</div></div>`;
+  }
+  function linesAllowedCard(s) {
+    const L = s.top_lines_allowed || [];
+    return `<div class="card"><h4>Who hurt ${esc(s.defense)}</h4><div class="sub">Top receiver and rusher against this defense each week</div><div class="tablewrap"><table>
+      <thead><tr><th>Week</th><th class="tl">Top receiver</th><th>Line</th><th class="tl">Top rusher</th><th>Line</th></tr></thead><tbody>
+      ${L.map((x) => `<tr><td>${x.week} ${esc(x.opp)}</td><td class="tl">${esc((x.top_receiver || {}).player || "")} ${esc((x.top_receiver || {}).pos || "")}</td><td>${x.top_receiver ? `${x.top_receiver.receptions}-${x.top_receiver.yards}${x.top_receiver.td ? ", " + x.top_receiver.td + " TD" : ""}` : ""}</td><td class="tl">${esc((x.top_rusher || {}).player || "")}</td><td>${x.top_rusher ? `${x.top_rusher.carries}-${x.top_rusher.yards}${x.top_rusher.td ? ", " + x.top_rusher.td + " TD" : ""}` : ""}</td></tr>`).join("")}
+      </tbody></table></div></div>`;
+  }
+  function runDirCard(s) {
+    const d = s.run_defense_by_direction || [], o = s.run_game_by_direction || [];
+    const by = {}; d.forEach((x) => (by[x.direction] = { d: x })); o.forEach((x) => ((by[x.direction] = by[x.direction] || {}).o = x));
+    return `<div class="card"><h4>Run direction</h4><div class="sub">${esc(s.offense)} runs vs ${esc(s.defense)} run defense, yards per carry</div><div class="tablewrap"><table>
+      <thead><tr><th>Direction</th><th>${esc(s.offense)} carries</th><th>${esc(s.offense)} YPC</th><th>${esc(s.defense)} allows YPC</th><th>15+ allowed</th></tr></thead><tbody>
+      ${Object.entries(by).map(([k, v]) => { const good = v.d && v.d.ypc >= 4.6, bad = v.d && v.d.ypc <= 3.4; return `<tr class="${good ? "hl" : ""}"><td>${esc(k)}</td><td>${v.o ? v.o.carries : "–"}</td><td>${v.o ? n(v.o.ypc, 2) : "–"}</td><td>${v.d ? n(v.d.ypc, 2) : "–"}${bad ? ' <span class="rank bad">tough</span>' : good ? ' <span class="rank good">soft</span>' : ""}</td><td>${v.d ? v.d.explosive : "–"}</td></tr>`; }).join("")}
+      </tbody></table></div></div>`;
+  }
+  function zonesCard(s) {
+    const o = (s.pass_zones || {}).offense || [], d = (s.pass_zones || {}).defense_allowed || [];
+    const by = {}; o.forEach((x) => (by[x.zone] = { o: x })); d.forEach((x) => ((by[x.zone] = by[x.zone] || {}).d = x));
+    return `<div class="card"><h4>Pass zones</h4><div class="sub">Where ${esc(s.offense)} throws and what ${esc(s.defense)} allows there</div><div class="tablewrap"><table>
+      <thead><tr><th>Zone</th><th>${esc(s.offense)} share</th><th>${esc(s.offense)} YPA</th><th>${esc(s.defense)} allows YPA</th><th>Comp % allowed</th></tr></thead><tbody>
+      ${Object.entries(by).map(([k, v]) => `<tr class="${v.d && v.o && v.d.yards_per_attempt >= 8 && v.o.share >= 0.1 ? "hl" : ""}"><td>${esc(k)}</td><td>${v.o ? pct(v.o.share) : "–"}</td><td>${v.o ? n(v.o.yards_per_attempt, 2) : "–"}</td><td>${v.d ? n(v.d.yards_per_attempt, 2) : "–"}</td><td>${v.d ? pct(v.d.completion_rate) : "–"}</td></tr>`).join("")}
+      </tbody></table></div></div>`;
+  }
+  function renderMatchup(g) {
+    const s = S();
+    return `<div class="grid">${POS.map((P) => posCard(s, P)).join("")}</div><div class="grid two">${linesAllowedCard(s)}${runDirCard(s)}${zonesCard(s)}</div>`;
+  }
+
+  // ---------------------------------------------------------------- defenders
+  function renderDefenders(g) {
+    const s = S(), D = s.defenders || {}, cov = (D.coverage || []).slice();
+    const order = { target: 0, neutral: 1, avoid: 2, "small sample": 3 };
+    cov.sort((a, b) => order[a.grade] - order[b.grade] || (b.yards || 0) - (a.yards || 0));
+    const lg = D.league || {};
+    const cp = s.coverage_profile;
+    const covCard = cp ? `<div class="card"><h4>${esc(s.defense)} coverage profile</h4><div class="sub">${esc(cp.note)}</div>
+        <div>${vsBar("Zone", cp.zone_rate, 1, null, (v) => pct(v))}${vsBar("Man", cp.man_rate, 1, null, (v) => pct(v))}</div>
+        <div class="k">Coverage shells</div><div>${(cp.shells || []).map((x) => vsBar(x.shell, x.rate, 1, null, (v) => pct(v))).join("")}</div>
+        <div class="statrow"><span class="lab">Pressure rate</span><span class="val">${pct(cp.pressure_rate)}</span><span class="lab">Rushes 5 or more</span><span class="val">${pct(cp.five_plus_rushers_rate)}</span>
+        <span class="lab">Allowed vs man</span><span class="val">${n((cp.allowed_vs_man || {}).yards_per_attempt, 2)} YPA</span><span class="lab">Allowed vs zone</span><span class="val">${n((cp.allowed_vs_zone || {}).yards_per_attempt, 2)} YPA</span></div></div>`
+      : `<div class="card"><h4>${esc(s.defense)} coverage profile</h4><p class="empty">Man/zone data not available.</p></div>`;
+    const rush = (D.pass_rush || []).slice(0, 8);
+    return `<div class="card"><h4>${esc(s.defense)} defenders in coverage</h4><div class="sub">This season, Pro Football Reference. League: ${n(lg.yards_per_target, 1)} yds/target, ${pct(lg.completion_pct)} completions. Green rows are soft spots for ${esc(s.offense)}.</div>
+      <div class="tablewrap"><table><thead><tr><th>Defender</th><th>Pos</th><th>Grade</th><th>Tgt</th><th>Comp</th><th>Comp %</th><th>Yds</th><th>Yds/tgt</th><th>TD</th><th>INT</th><th>Missed tkl</th><th>Why</th></tr></thead><tbody>
+      ${cov.map((c) => `<tr class="${c.grade === "target" ? "hl" : c.grade === "small sample" ? "lo" : ""}"><td>${esc(c.player)}</td><td>${esc(c.position)}</td><td><span class="tag g-${slug(c.grade)}">${esc(c.grade)}</span></td><td>${c.targets}</td><td>${c.completions}</td><td>${pct(c.completion_pct)}</td><td>${c.yards}</td><td>${n(c.yards_per_target, 1)}</td><td>${c.td_allowed}</td><td>${c.interceptions}</td><td>${c.missed_tackles ?? "–"}</td><td style="text-align:left">${esc((c.why || []).join(" · "))}</td></tr>`).join("")}
+      </tbody></table></div></div>
+      <div class="grid two">${covCard}
+      <div class="card"><h4>${esc(s.defense)} pass rush</h4><div class="sub">Pressures, sacks and hurries this season</div><div class="tablewrap"><table><thead><tr><th>Player</th><th>Pressures</th><th>Sacks</th><th>Hurries</th><th>Blitzes</th></tr></thead><tbody>
+      ${rush.map((r) => `<tr><td>${esc(r.player)}</td><td>${r.pressures}</td><td>${r.sacks}</td><td>${r.hurries}</td><td>${r.blitzes}</td></tr>`).join("") || `<tr><td colspan="5" class="empty">No pass-rush data.</td></tr>`}</tbody></table></div>
+      <div class="statrow"><span class="lab">Team sack rate</span><span class="val">${pct((s.defense_allowed || {}).sack_rate, 1)}${rankChip((s.defense_rank || {}).sack_rate, false, true)}</span><span class="lab">Blitz rate</span><span class="val">${pct((s.defense_allowed || {}).blitz_rate)}</span><span class="lab">Sack rate when blitzing</span><span class="val">${pct((s.defense_allowed || {}).sack_rate_when_blitzing, 1)}</span></div></div></div>`;
+  }
+
+  // ---------------------------------------------------------------- quarterback
+  function qLine(label, x) {
+    if (!x) return `<div class="qline"><span>${esc(label)}</span><span>–</span><span>–</span><span>–</span><span>–</span><span>–</span></div>`;
+    return `<div class="qline"><span>${esc(label)} <span class="note">(${x.dropbacks})</span></span><span>${pct(x.completion_pct)}</span><span>${n(x.yards_per_attempt, 2)}</span><span>${x.td}/${x.int}</span><span>${pct(x.sack_rate, 1)}</span><span>${signed(x.epa_per_dropback, 2)}</span></div>`;
+  }
+  const qHead = `<div class="qline h"><span>Split (dropbacks)</span><span>Comp %</span><span>YPA</span><span>TD/INT</span><span>Sack %</span><span>EPA/db</span></div>`;
+  function qbNotes(s) {
+    const q = s.qb || {}, c = q.this_season || {}, L = q.last_season, da = s.defense_allowed || {}, cp = s.coverage_profile, out = [];
+    const b = c.vs_blitz, nb = c.no_blitz;
+    if (b && nb && isNum(b.yards_per_attempt) && isNum(nb.yards_per_attempt) && b.dropbacks >= 25) {
+      const diff = b.yards_per_attempt - nb.yards_per_attempt;
+      out.push([diff >= 0.5 ? "good" : diff <= -0.5 ? "bad" : "info", `Against the blitz: ${n(b.yards_per_attempt, 2)} YPA vs ${n(nb.yards_per_attempt, 2)} without it. ${s.defense} blitzes ${pct(da.blitz_rate)} of dropbacks.`]);
+    }
+    if (L && L.pressured && L.clean) out.push(["info", `Last season under pressure: ${pct(L.pressured.completion_pct)} completions and ${n(L.pressured.yards_per_attempt, 2)} YPA, against ${n(L.clean.yards_per_attempt, 2)} when clean. ${s.defense} pressure rate now: ${pct(da.pressure_rate)} (sacks + hits).`]);
+    if (L && L.vs_man && L.vs_zone && cp) {
+      const better = L.vs_man.yards_per_attempt > L.vs_zone.yards_per_attempt ? "man" : "zone";
+      const heavy = cp.man_rate >= 0.35 ? "man" : "zone";
+      out.push([better === heavy ? "good" : "warn", `${L.season}: ${n(L.vs_man.yards_per_attempt, 2)} YPA vs man, ${n(L.vs_zone.yards_per_attempt, 2)} vs zone. ${s.defense} played ${pct(cp.zone_rate)} zone in ${cp.season}.`]);
+    }
+    if (c.red_zone && c.red_zone.attempts) out.push(["info", `Red zone this season: ${c.red_zone.td} TD and ${c.red_zone.int} INT on ${c.red_zone.attempts} attempts. ${s.defense} allows a ${pct(da.red_zone_td_rate)} red-zone TD rate${(s.defense_rank || {}).red_zone_td_rate ? " (" + ord(s.defense_rank.red_zone_td_rate.rank) + ")" : ""}.`]);
+    return out;
+  }
+  function renderQB(g) {
+    const s = S(), q = s.qb || {}, c = q.this_season, L = q.last_season;
+    const pkq = (s.quarterbacks || [])[0];
+    const log = pkq && pkq.log ? pkq.log : [];
+    return `<div class="grid two"><div class="card"><h4>${esc(q.player || "QB")}: this season</h4><div class="sub">FTN charting for blitzes, Pro Football Reference for pressure</div>
+        ${c ? qHead + qLine("All dropbacks", c.all) + qLine("Against the blitz", c.vs_blitz) + qLine("No blitz", c.no_blitz) + qLine("Play action", c.play_action) + qLine("Out of the pocket", c.out_of_pocket) : `<p class="empty">No dropbacks for this QB this season.</p>`}
+        ${c ? `<div class="statrow"><span class="lab">Blitzed on</span><span class="val">${pct(c.blitzed_rate)} of dropbacks</span><span class="lab">Pressured (PFR)</span><span class="val">${pct((c.pressured || {}).pressure_rate)} · ${(c.pressured || {}).times_pressured ?? "–"} times</span><span class="lab">Bad-throw rate</span><span class="val">${pct((c.pressured || {}).bad_throw_pct, 1)}</span><span class="lab">Third down</span><span class="val">${pct((c.third_down || {}).conversion_rate)} converted on ${(c.third_down || {}).dropbacks ?? "–"} dropbacks</span></div>` : ""}
+        ${log.length ? `<div class="k">Passing yards by game</div>${spark(log.map((x) => x.yards), log.map((x) => "wk " + x.week), { fmt: (v) => v + " yds" })}` : ""}</div>
+      <div class="card"><h4>${esc(q.player || "QB")}: ${L ? L.season : "last season"} man/zone and pressure</h4><div class="sub">${L ? "NGS participation data, " + esc((L.teams || []).join(", ")) : "Not available"}</div>
+        ${L ? qHead + qLine("All", L.all) + qLine("Vs man", L.vs_man) + qLine("Vs zone", L.vs_zone) + qLine("Under pressure", L.pressured) + qLine("Clean pocket", L.clean) +
+        `<div class="statrow"><span class="lab">Pressure rate</span><span class="val">${pct(L.pressure_rate)}</span><span class="lab">Time to throw</span><span class="val">${n(L.avg_time_to_throw, 2)} s</span></div>` : `<p class="empty">No ${esc(String((G().game.season || 0) - 1))} coverage data for this QB.</p>`}</div></div>
+      <div class="card"><h4>What it means against ${esc(s.defense)}</h4><ul class="list">${qbNotes(s).map(([l, t]) => `<li>${lvlDot(l)}<span>${esc(t)}</span></li>`).join("") || `<li class="empty">Not enough data for a read.</li>`}</ul>
+        <div class="note">${esc((q.notes || []).join(" "))}</div></div>`;
+  }
+
+  // ---------------------------------------------------------------- receivers and backs
+  function baselineFor(s, p) { return ((s.baselines || {}).players || []).find((x) => x.player === p.player); }
+  function rainFor(s, p) { return ((s.rain || {}).receivers || []).find((x) => x.player === p.player); }
+  function recCard(s, r) {
+    const b = baselineFor(s, r), rn = rainFor(s, r);
+    const log = r.log || [];
+    const posKey = (r.pos || "").toLowerCase() === "te" ? "te" : (r.pos || "").toLowerCase() === "rb" ? "rb" : "wr";
+    const dr = (s.defense_rank || {})[posKey + "_rec_yards_pg"];
+    return `<div class="card"><div class="player-head"><span class="nm">${esc(r.full_name || r.player)} <span class="pos">${esc(r.pos)}</span></span><span class="note">${r.snap_share != null ? pct(r.snap_share) + " snaps" : ""}</span></div>
+      <div class="tags">${(r.tags || []).map(tagHtml).join("") || '<span class="note">No standout role</span>'}</div>
+      <div class="nums"><div><div class="k">Target share</div><div class="v">${pct(r.target_share)}</div></div><div><div class="k">Tgt / g</div><div class="v">${n(r.targets_pg, 1)}</div></div>
+      <div><div class="k">Rec / g</div><div class="v">${n(r.receptions_pg, 1)}</div></div><div><div class="k">Yds / g</div><div class="v">${n(r.yards_pg, 0)}</div></div></div>
+      <div class="statrow"><span class="lab">Avg depth of target</span><span class="val">${n(r.avg_depth_of_target, 1)} yds</span><span class="lab">Air-yards share</span><span class="val">${pct(r.air_yards_share)}</span>
+      <span class="lab">Red-zone targets</span><span class="val">${r.red_zone_targets ?? "–"}</span><span class="lab">TDs · 20+ yd catches</span><span class="val">${r.td} · ${r.explosive ?? "–"}</span>
+      ${b ? `<span class="lab">Baseline median (yds / rec)</span><span class="val">${n((b.receiving_yards || {}).p50, 1)} / ${n((b.receptions || {}).p50, 1)}</span>` : ""}
+      ${rn && (s.rain || {}).rain_chance >= 0.3 ? `<span class="lab">Forecast-adjusted yards</span><span class="val">${n(rn.forecast.yards, 1)}</span>` : ""}
+      <span class="lab">${esc(s.defense)} vs ${posKey.toUpperCase()}s</span><span class="val">${n(((s.defense_allowed || {})[posKey + "_rec_yards_pg"]), 1)} yds/g${rankChip(dr, true, true)}</span></div>
+      <div><div class="k">Yards by game (targets in tooltip)</div>${spark(log.map((x) => x.yards), log.map((x) => `wk ${x.week} · ${x.targets} tgt, ${x.receptions} rec`), { fmt: (v) => v + " yds" })}</div></div>`;
+  }
+  function rushCard(s, r) {
+    const log = r.log || [];
+    return `<div class="card"><div class="player-head"><span class="nm">${esc(r.full_name || r.player)} <span class="pos">${esc(r.pos)}</span></span><span class="note">${r.snap_share != null ? pct(r.snap_share) + " snaps" : ""}</span></div>
+      <div class="tags">${(r.tags || []).map(tagHtml).join("") || '<span class="note">No standout role</span>'}</div>
+      <div class="nums"><div><div class="k">Carry share</div><div class="v">${pct(r.carry_share)}</div></div><div><div class="k">Car / g</div><div class="v">${n(r.carries_pg, 1)}</div></div>
+      <div><div class="k">Yds / g</div><div class="v">${n(r.yards_pg, 0)}</div></div><div><div class="k">YPC</div><div class="v">${n(r.yards_per_carry, 2)}</div></div></div>
+      <div class="statrow"><span class="lab">Red-zone carries</span><span class="val">${r.red_zone_carries ?? "–"}</span><span class="lab">TDs · 15+ yd runs</span><span class="val">${r.td} · ${r.explosive ?? "–"}</span>
+      <span class="lab">${esc(s.defense)} vs RBs</span><span class="val">${n((s.defense_allowed || {}).rb_rush_yards_pg, 1)} yds/g${rankChip((s.defense_rank || {}).rb_rush_yards_pg, true, true)}</span></div>
+      <div><div class="k">Rush yards by game</div>${spark(log.map((x) => x.yards), log.map((x) => `wk ${x.week} · ${x.carries} car`), { fmt: (v) => v + " yds" })}</div></div>`;
+  }
+  function renderPlayers(g) {
+    const s = S(), R = s.roles || {};
+    const rec = (R.receivers || []).filter((r) => r.targets >= 8);
+    const rush = (R.rushers || []).filter((r) => r.carries >= 8);
+    return `<div class="section-title">${esc(s.offense)} pass catchers</div><div class="grid">${rec.map((r) => recCard(s, r)).join("") || '<p class="empty">No receivers with 8+ targets.</p>'}</div>
+      <div class="section-title">${esc(s.offense)} ball carriers</div><div class="grid">${rush.map((r) => rushCard(s, r)).join("") || '<p class="empty">No rushers with 8+ carries.</p>'}</div>
+      <p class="note">Roles: Primary = top target share; Volume = 7+ targets a game; Deep threat = 13+ yard average depth; Possession = short targets caught 72%+; Boom-bust and Steady come from how much the yardage swings game to game; Rising and Falling compare the last three games with the window; Lead back = 60%+ of carries.</p>`;
+  }
+
+  // ---------------------------------------------------------------- injuries
+  function injCard(team, list, returning) {
+    const show = (list || []).filter((x) => x.status_level >= 2 || x.impact !== "low" || x.practice);
+    return `<div class="card"><h4>${esc(team)} injury report</h4><div class="sub">Official report, ESPN updates, snap share and who is next up on the depth chart</div>
+      ${show.length ? show.map((x) => `<div class="inj"><span class="nm">${esc(x.player)} <span class="pos note">${esc(x.position || "")}${x.starter_slot ? " · starter " + esc(x.starter_slot) : ""}</span></span>
+        <span class="pill ${x.impact === "high" ? (x.status_level >= 3 ? "bad" : "warn") : ""}">${esc(x.game_status || x.espn || "On report")}</span>
+        <span class="c">${esc(x.practice || "")}${x.snap_share != null ? " · " + pct(x.snap_share) + " of snaps" : ""}${x.next_up ? " · next up: " + esc(x.next_up) : ""}${x.espn_comment ? "<br>" + esc(x.espn_comment) : ""}</span></div>`).join("") : '<p class="empty">Nobody listed.</p>'}
+      <div class="k" style="margin-top:6px">Back from injury</div>
+      ${(returning || []).length ? `<ul class="list">${returning.map((r) => `<li>${lvlDot(r.status === "Working back in" ? "warn" : "good")}<span><b>${esc(r.player)}</b> ${esc(r.position)}: missed ${r.games_missed} game${r.games_missed > 1 ? "s" : ""}, ${pct(r.snap_pct_before)} of snaps before, ${pct(r.snap_pct_last_game)} last game. ${esc(r.status)}.</span></li>`).join("")}</ul>` : '<p class="empty">No regular returned from a missed game in the last two weeks.</p>'}</div>`;
+  }
+  function renderInjuries(g) {
+    const ks = sideKeys(g), s1 = g.sides[ks[0]], s2 = g.sides[ks[1]];
+    const mv = (t) => { const r = g.teams[t].roster_moves || {}; const a = (r.arrivals_from_other_teams || []).map((x) => `${x.player} (${x.position}) from ${x.from}`); const d = (r.departures_to_other_teams || []).map((x) => `${x.player} (${x.position}) to ${x.to}`);
+      return `<div class="card"><h4>${esc(t)} roster moves</h4><div class="sub">Last ${r.window_weeks || 4} weeks</div><div class="statrow"><span class="lab">Arrived</span><span class="val" style="white-space:normal">${esc(a.join(", ") || "none")}</span><span class="lab">Left</span><span class="val" style="white-space:normal">${esc(d.join(", ") || "none")}</span></div></div>`; };
+    return `<div class="grid two">${injCard(s1.offense, s1.offense_injuries, s1.returning)}${injCard(s2.offense, s2.offense_injuries, s2.returning)}</div><div class="grid two">${mv(s1.offense)}${mv(s2.offense)}</div>`;
+  }
+
+  // ---------------------------------------------------------------- last meeting
+  function renderH2H(g) {
+    const H = g.h2h || {}, L = H.last;
+    if (!L) return `<div class="card"><p class="empty">These teams have not met in the schedule data since 1999.</p></div>`;
+    const teams = [L.away, L.home];
+    const box = L.box || {}, ld = L.leaders || {}, q = L.quarters || {};
+    const rowsB = [["Pass yards", "pass_yards"], ["Rush yards", "rush_yards"], ["Plays", "plays"], ["Turnovers", "turnovers"], ["Sacks taken", "sacks_taken"], ["Third down", "third_down"], ["Red zone", "red_zone"], ["Explosive plays", "explosive"]];
+    const qt = q.labels ? `<div class="tablewrap"><table><thead><tr><th>Team</th>${q.labels.map((l) => `<th>${l}</th>`).join("")}<th>Final</th></tr></thead><tbody>${teams.map((t) => `<tr><td>${esc(t)}</td>${(q[t] || []).map((v) => `<td>${v}</td>`).join("")}<td><b>${(q[t] || []).reduce((a, b) => a + b, 0)}</b></td></tr>`).join("")}</tbody></table></div>` : "";
+    const leaders = teams.map((t) => { const l = ld[t] || {}; return `<div class="card"><h4>${esc(t)} leaders</h4>${["passing", "rushing", "receiving"].map((k) => (l[k] || []).map((p) => `<div class="statrow"><span class="lab">${esc(p.player)}</span><span class="val">${esc(p.line)}</span></div>`).join("")).join("")}</div>`; }).join("");
+    return `<div class="grid two"><div class="card"><h4>${esc(L.score)}</h4><div class="sub">${esc(L.date)} · week ${L.week}, ${L.season} · ${esc(L.stadium)}</div>${qt}
+        <a class="btn ghost" href="${esc(L.highlights_url)}" target="_blank" rel="noopener">Watch highlights on YouTube</a></div>
+      <div class="card"><h4>What carries over</h4><ul class="list">${(L.carryover || []).map((c) => `<li>${lvlDot(c.level)}<span>${esc(c.text)}</span></li>`).join("") || '<li class="empty">No notes.</li>'}</ul></div></div>
+      ${box[L.away] ? `<div class="card"><h4>Team box</h4><div class="tablewrap"><table><thead><tr><th></th>${teams.map((t) => `<th>${esc(t)}</th>`).join("")}</tr></thead><tbody>${rowsB.map(([lab, k]) => `<tr><td>${lab}</td>${teams.map((t) => `<td>${esc((box[t] || {})[k])}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>` : `<p class="note">${esc(L.breakdown_status || "")}</p>`}
+      <div class="grid two">${leaders}</div>
+      <div class="card"><h4>Recent meetings</h4><div class="sub">${H.record ? Object.entries(H.record).map(([t, w]) => `${t} ${w}`).join(", ") + " in the " + esc(H.record_note) : ""}. Spread is the closing home line from nflverse.</div><div class="tablewrap"><table>
+        <thead><tr><th>Date</th><th>Score</th><th>Winner</th><th>Home line</th><th>Covered</th><th>Total</th><th>O/U line</th><th>Result</th></tr></thead><tbody>
+        ${(H.meetings || []).map((m) => `<tr><td>${esc(m.date)}${m.game_type !== "REG" ? " (" + esc(m.game_type) + ")" : ""}</td><td>${esc(m.score)}</td><td>${esc(m.winner)}</td><td>${m.closing_spread_home != null ? esc(m.home) + " " + signed(-m.closing_spread_home, 1) : "–"}</td><td>${esc(m.covered || "–")}</td><td>${m.total}</td><td>${n(m.closing_total, 1)}</td><td>${esc(m.over_under || "–")}</td></tr>`).join("")}
+        </tbody></table></div></div>`;
+  }
+
+  // ---------------------------------------------------------------- odds
+  function renderOdds(g) {
+    const B = g.books || {}, M = B.markets || {};
+    if (!B.markets) return `<div class="card"><p class="empty">No book prices in this packet (${esc(B.status || "not fetched")}).</p></div>`;
+    const mkTable = (key, title) => {
+      const m = M[key]; if (!m) return "";
+      const sides = m.sides || [];
+      return `<div class="card"><h4>${esc(title)}</h4><div class="sub">Pinnacle no-vig is the sharp reference. Best price is the best retail number.</div><div class="tablewrap"><table>
+        <thead><tr><th>Book</th><th>Line</th>${sides.map((s) => `<th>${esc(s)}</th><th>${esc(s)} no-vig</th>`).join("")}<th>Hold</th></tr></thead><tbody>
+        ${Object.entries(m.books || {}).map(([b, v]) => `<tr><td>${esc(BOOK[b] || b)}</td><td>${v.line != null ? n(v.line, 1) : "–"}</td>${sides.map((s) => `<td>${american(v.prices[s])}</td><td>${pct(v.no_vig[s], 1)}</td>`).join("")}<td>${pct(v.hold, 1)}</td></tr>`).join("")}
+        </tbody></table></div><div class="statrow">${sides.map((s) => { const b = (m.best_retail_price || {})[s]; return b ? `<span class="lab">Best ${esc(s)}</span><span class="val">${esc(BOOK[b.book] || b.book)} ${b.line != null ? n(b.line, 1) + " " : ""}${american(b.price)} (break-even ${pct(b.break_even, 1)})</span>` : ""; }).join("")}</div></div>`;
+    };
+    const mv = (B.movement || {}).moves || [];
+    const props = Object.keys(M).filter((k) => !["spread", "total", "moneyline"].includes(k));
+    const tp = (g.team_projection || {}).samplers || {}, mp = tp.matchup_pair;
+    return `<div class="grid two">${mkTable("spread", "Spread")}${mkTable("total", "Total")}${mkTable("moneyline", "Moneyline")}
+      <div class="card"><h4>Line movement</h4><div class="sub">${esc((B.movement || {}).note || "")} ${B.movement && B.movement.snapshots ? B.movement.snapshots + " snapshots since " + esc((B.movement.first_seen_utc || "").slice(0, 16).replace("T", " ")) + " UTC" : ""}</div>
+        <div class="tablewrap"><table><thead><tr><th>Market</th><th>Book</th><th>First</th><th>Now</th><th>Move</th></tr></thead><tbody>
+        ${mv.map((x) => { const fp = Object.entries(x.first_prices || {}).map(([k, v]) => k + " " + american(v)).join(" / "), cp = Object.entries(x.current_prices || {}).map(([k, v]) => k + " " + american(v)).join(" / ");
+          return `<tr><td>${esc(x.market)}</td><td>${esc(BOOK[x.book] || x.book)}</td><td>${x.first_line != null ? n(x.first_line, 1) + " · " : ""}${esc(fp)}</td><td>${x.current_line != null ? n(x.current_line, 1) + " · " : ""}${esc(cp)}</td><td>${x.line_move ? signed(x.line_move, 1) : "–"}</td></tr>`; }).join("") || `<tr><td colspan="5" class="empty">No movement yet.</td></tr>`}
+        </tbody></table></div></div></div>
+      <div class="card"><h4>Player props</h4>${props.length ? `<div class="tablewrap"><table><thead><tr><th>Market</th><th>Pinnacle line</th><th>No-vig</th><th>Best price</th></tr></thead><tbody>${props.map((k) => { const m = M[k], r = m.reference || {}, s0 = (m.sides || [])[0], b = (m.best_retail_price || {})[s0];
+          return `<tr><td>${esc(k)}</td><td>${r.line != null ? n(r.line, 1) : "–"}</td><td>${r.no_vig ? esc(s0) + " " + pct(r.no_vig[s0], 1) : "–"}</td><td>${b ? esc(BOOK[b.book] || b.book) + " " + american(b.price) : "–"}</td></tr>`; }).join("")}</tbody></table></div>` : `<p class="empty">${esc(B.props_status || "Props are pulled inside 36 hours of kickoff.")}</p>`}</div>
+      ${mp ? `<div class="card"><h4>Research simulation (not validated)</h4><div class="sub">${esc((g.team_projection || {}).note || "")}</div>
+        <div class="statrow"><span class="lab">Score</span><span class="val">${esc(g.game.away)} ${n(mp.away_points, 1)} · ${esc(g.game.home)} ${n(mp.home_points, 1)}</span><span class="lab">Total</span><span class="val">${n(mp.total, 1)} (10th–90th: ${(mp.total_p10_p50_p90 || []).join(" / ")})</span>
+        <span class="lab">${esc(g.game.home)} covers the market spread</span><span class="val">${pct(mp.home_covers_market_spread, 1)}</span><span class="lab">Over the market total</span><span class="val">${pct(mp.over_market_total, 1)}</span></div></div>` : ""}`;
+  }
+
+  // ---------------------------------------------------------------- weather and rest
+  function renderWeather(g) {
+    const W = g.weather || {}, v = g.weather_verdict || {}, k = W.at_kickoff || {}, dg = W.during_game || {};
+    const ctx = Object.entries(g.context || {});
+    const rainTbl = (s) => { const r = s.rain || {}; if (!r.team_passing) return ""; const tp = r.team_passing;
+      return `<div class="card"><h4>${esc(s.offense)} passing: dry, rain, forecast</h4><div class="sub">${esc(r.basis || "")}</div><div class="tablewrap"><table><thead><tr><th></th><th>Attempts</th><th>Comp %</th><th>Yards</th></tr></thead><tbody>
+        ${["dry", "rain", "forecast"].map((c) => `<tr><td>${c}</td><td>${n((tp[c] || {}).attempts, 1)}</td><td>${pct((tp[c] || {}).completion_pct, 1)}</td><td>${n((tp[c] || {}).yards, 1)}</td></tr>`).join("")}</tbody></table></div>
+        <div class="tablewrap"><table><thead><tr><th>Receiver</th><th>Dry yds</th><th>Rain yds</th><th>Forecast yds</th><th>Forecast rec</th></tr></thead><tbody>${(r.receivers || []).slice(0, 5).map((x) => `<tr><td>${esc(x.player)}</td><td>${n(x.dry.yards, 1)}</td><td>${n(x.rain.yards, 1)}</td><td>${n(x.forecast.yards, 1)}</td><td>${n(x.forecast.receptions, 1)}</td></tr>`).join("")}</tbody></table></div></div>`; };
+    const ks = sideKeys(g);
+    return `<div class="banner ${esc(v.level || "unknown")}">${esc(v.headline || "No forecast")}</div>
+      ${(v.details || []).length ? `<ul class="list">${v.details.map((d) => `<li>${lvlDot("warn")}<span>${esc(d)}</span></li>`).join("")}</ul>` : ""}
+      <div class="grid two"><div class="card"><h4>Forecast at kickoff</h4><div class="sub">${esc(W.source || "")} · pulled ${esc((W.retrieved_utc || "").slice(0, 16).replace("T", " "))} UTC</div>
+        ${W.status === "OK" ? `<div class="nums"><div><div class="k">Temp</div><div class="v">${k.temp_f ?? "–"}°</div></div><div><div class="k">Wind</div><div class="v">${n(k.wind_mph, 0)} <small>${esc(k.wind_dir || "")}</small></div></div><div><div class="k">Rain</div><div class="v">${k.precip_chance_pct ?? "–"}%</div></div><div><div class="k">Sky</div><div class="v" style="font-size:15px">${esc(k.summary || "")}</div></div></div>
+        <div class="statrow"><span class="lab">During the game</span><span class="val">low ${dg.temp_f_min ?? "–"}°, wind up to ${n(dg.wind_mph_max, 0)} mph, rain up to ${dg.precip_chance_pct_max ?? "–"}%</span></div>` : `<p class="empty">${esc(W.status || "Not available")}</p>`}</div>
+      ${ctx.map(([t, c]) => `<div class="card"><h4>${esc(t)} rest and travel</h4><div class="statrow"><span class="lab">Days of rest</span><span class="val">${c.rest_days ?? "–"}</span>
+        ${c.last_game ? `<span class="lab">Last game</span><span class="val" style="white-space:normal">Week ${c.last_game.week} ${esc(c.last_game.weekday)}, ${c.last_game.site} vs ${esc(c.last_game.opponent)} ${c.last_game.score ? "(" + esc(c.last_game.score) + ")" : ""}</span><span class="lab">Where</span><span class="val">${esc(c.last_game.stadium)}</span>` : ""}</div>
+        ${(c.flags || []).length ? `<ul class="list">${c.flags.map((f) => `<li>${lvlDot(f.level)}<span>${esc(f.text)}</span></li>`).join("")}</ul>` : '<p class="note">No rest or travel flags.</p>'}</div>`).join("")}</div>
+      <div class="grid two">${rainTbl(g.sides[ks[0]])}${rainTbl(g.sides[ks[1]])}</div>`;
+  }
+
+  // ---------------------------------------------------------------- copy for grok
+  function grokText(g) {
+    const L = [], a = g.game.away, h = g.game.home, m = g.market || {};
+    L.push(`Analyze ${a} at ${h} (${g.game.slot}, ${kickLabel(g)}). Use pregame/ANALYST_PROMPT.md in GhostPapii21/nfl-matchup-database, and dashboard/data/${g.game.game_id}.json for everything below.`);
+    L.push(`Packet built ${g.generated_utc}. Research only; projection_ready is false.`, "");
+    L.push(`Market: ${h} ${signed(m.home_spread, 1)}, total ${n(m.total, 1)}, ML ${a} ${american((m.moneyline || {})[a])} / ${h} ${american((m.moneyline || {})[h])}.`);
+    L.push(`Weather: ${(g.weather_verdict || {}).headline || "n/a"}`);
+    Object.entries(g.context || {}).forEach(([t, c]) => (c.flags || []).forEach((f) => L.push(`${t}: ${f.text}`)));
+    Object.values(g.sides).forEach((s) => {
+      const da = s.defense_allowed || {}, dr = s.defense_rank || {};
+      const rk = (k) => dr[k] ? ` (${ord(dr[k].rank)})` : "";
+      L.push("", `## ${s.offense} offense vs ${s.defense} defense`);
+      L.push(`${s.defense} allows per game: WR ${n(da.wr_receptions_pg, 1)} rec / ${n(da.wr_rec_yards_pg, 1)} yds${rk("wr_rec_yards_pg")}, TE ${n(da.te_receptions_pg, 1)} / ${n(da.te_rec_yards_pg, 1)}${rk("te_rec_yards_pg")}, RB rush ${n(da.rb_rush_yards_pg, 1)}${rk("rb_rush_yards_pg")}, RB rec ${n(da.rb_rec_yards_pg, 1)}${rk("rb_rec_yards_pg")}. Blitz ${pct(da.blitz_rate)}, pressure ${pct(da.pressure_rate)}, red-zone TD ${pct(da.red_zone_td_rate)}.`);
+      (s.edges || []).forEach((e) => L.push(`- Edge: ${e.area}: ${e.edge.toLowerCase()} (${s.offense} ${ord(e.offense_rank)}, ${s.defense} ${ord(e.defense_rank)})`));
+      const tg = ((s.defenders || {}).coverage || []).filter((c) => c.grade === "target");
+      if (tg.length) L.push(`Defenders to attack: ${tg.map((c) => `${c.player} ${c.position} (${c.why.join(", ")})`).join("; ")}`);
+      const q = s.qb || {}, c = q.this_season || {};
+      if (c.all) L.push(`QB ${q.player}: ${n(c.all.yards_per_attempt, 2)} YPA, vs blitz ${n((c.vs_blitz || {}).yards_per_attempt, 2)}, no blitz ${n((c.no_blitz || {}).yards_per_attempt, 2)}, pressured ${pct((c.pressured || {}).pressure_rate)}; red zone ${(c.red_zone || {}).td} TD on ${(c.red_zone || {}).attempts} att.`);
+      if (q.last_season && q.last_season.vs_man) L.push(`QB ${q.last_season.season}: vs man ${n(q.last_season.vs_man.yards_per_attempt, 2)} YPA, vs zone ${n(q.last_season.vs_zone.yards_per_attempt, 2)}, under pressure ${n((q.last_season.pressured || {}).yards_per_attempt, 2)}.`);
+      if (s.coverage_profile) L.push(`${s.defense} coverage ${s.coverage_profile.season}: ${pct(s.coverage_profile.zone_rate)} zone, shells ${(s.coverage_profile.shells || []).map((x) => x.shell + " " + pct(x.rate)).join(", ")}.`);
+      ((s.roles || {}).receivers || []).slice(0, 5).forEach((r) => L.push(`- ${r.full_name || r.player} ${r.pos}: ${pct(r.target_share)} tgt share, ${n(r.targets_pg, 1)} tgt/g, ${n(r.yards_pg, 0)} yds/g, aDOT ${n(r.avg_depth_of_target, 1)}, RZ tgt ${r.red_zone_targets}. Roles: ${(r.tags || []).map((t) => t.tag).join(", ") || "none"}.`));
+      ((s.roles || {}).rushers || []).slice(0, 3).forEach((r) => L.push(`- ${r.full_name || r.player} ${r.pos}: ${pct(r.carry_share)} of carries, ${n(r.yards_pg, 0)} yds/g, ${n(r.yards_per_carry, 2)} YPC, RZ carries ${r.red_zone_carries}. Roles: ${(r.tags || []).map((t) => t.tag).join(", ") || "none"}.`));
+      const inj = (s.offense_injuries || []).filter((x) => x.status_level >= 2 && x.impact !== "low");
+      if (inj.length) L.push(`${s.offense} injuries: ${inj.map((x) => `${x.player} ${x.position} ${x.game_status || x.espn || ""}${x.next_up ? " (next: " + x.next_up + ")" : ""}`).join("; ")}`);
+      (s.returning || []).forEach((r) => L.push(`${s.offense} back from injury: ${r.player} ${r.position}, ${pct(r.snap_pct_before)} snaps before, ${pct(r.snap_pct_last_game)} last game (${r.status}).`));
+    });
+    const H = g.h2h && g.h2h.last;
+    if (H) { L.push("", `## Last meeting: ${H.score} (${H.date})`); (H.carryover || []).forEach((c) => L.push(`- ${c.text}`)); }
+    L.push("", "Run the six layers (research, opportunity, brainstorm, critical review, market, value). No invented numbers. Research only.");
+    return L.join("\n");
+  }
+  function renderGrok(g) {
+    return `<div class="card"><h4>One paste for Grok or ChatGPT</h4><div class="sub">Everything on this board for ${esc(g.game.away)} at ${esc(g.game.home)}, plus the instruction to run your analyst prompt.</div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn" id="copy">Copy</button><span class="toast" id="copied" hidden>Copied</span></div>
+      <label for="grok-text" class="k">Text to paste</label><textarea id="grok-text" readonly>${esc(grokText(g))}</textarea></div>`;
+  }
+
+  // ---------------------------------------------------------------- page
+  function renderSheet() {
+    const g = G();
+    if (!g) { document.getElementById("sheet").innerHTML = `<div class="card"><p class="empty">No games on the board yet. Packets are built Tuesday morning for the week.</p></div>`; return; }
+    const ks = sideKeys(g);
+    const dirNeeded = ["matchup", "defenders", "qb", "players"].includes(state.tab);
+    const dirBtns = ks.map((k, i) => { const s = g.sides[k]; return `<button aria-pressed="${i === state.dir}" data-dir="${i}">${esc(s.offense)} offense vs ${esc(s.defense)} defense</button>`; }).join("");
+    const body = { overview: renderOverview, matchup: renderMatchup, defenders: renderDefenders, qb: renderQB, players: renderPlayers, injuries: renderInjuries,
+                   h2h: renderH2H, odds: renderOdds, weather: renderWeather, grok: renderGrok }[state.tab](g);
+    document.getElementById("sheet").innerHTML = renderHeader(g) +
+      `<div class="tabs" role="tablist">${TABS.map(([k, l]) => `<button role="tab" aria-selected="${k === state.tab}" data-tab="${k}">${esc(l)}</button>`).join("")}</div>` +
+      (dirNeeded ? `<div class="controls"><div class="seg" role="group" aria-label="Which offense">${dirBtns}</div></div>` : "") + body;
+    document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => { state.tab = b.dataset.tab; save(); renderSheet(); }));
+    document.querySelectorAll("[data-dir]").forEach((b) => b.addEventListener("click", () => { state.dir = +b.dataset.dir; renderSheet(); }));
+    const cp = document.getElementById("copy");
+    if (cp) cp.addEventListener("click", () => {
+      const ta = document.getElementById("grok-text");
+      const ok = () => { const t = document.getElementById("copied"); t.hidden = false; setTimeout(() => (t.hidden = true), 1800); };
+      try { navigator.clipboard.writeText(ta.value).then(ok, () => { ta.focus(); ta.select(); }); } catch (e) { ta.focus(); ta.select(); }
+    });
+  }
+  function save() { try { localStorage.setItem("board-tab", state.tab); } catch (e) { /* storage blocked */ } }
+  function go() {
+    const g = G();
+    if (g) { const h = `${g.game.away}-${g.game.home}`; if (location.hash.slice(1) !== h) history.replaceState(null, "", "#" + h); }
+    renderRail(); renderSheet();
+  }
+  function fromHash() {
+    const h = location.hash.slice(1).toUpperCase();
+    const i = games.findIndex((g) => `${g.game.away}-${g.game.home}` === h);
+    if (i >= 0) state.gi = i;
+    else { const now = Date.now(); const j = games.findIndex((g) => !g.result && kickoffDate(g).getTime() > now - 4 * 3600e3); state.gi = j >= 0 ? j : 0; }
+  }
+  try { const t = localStorage.getItem("board-tab"); if (t && TABS.some(([k]) => k === t)) state.tab = t; } catch (e) { /* storage blocked */ }
+  const built = BOARD && BOARD.built_utc ? new Date(BOARD.built_utc) : null;
+  document.getElementById("meta").textContent = games.length ? `Week ${games[0].game.week} · ${games.length} games · updated ${built ? built.toLocaleString([], { weekday: "short", hour: "numeric", minute: "2-digit" }) : "?"}` : "No games";
+  document.getElementById("foot").innerHTML = `Data: nflverse play-by-play, FTN charting, NGS participation (last season), Pro Football Reference, the official injury report and ESPN, the National Weather Service, and The Odds API. Built from GhostPapii21/nfl-matchup-database. Research only: no number here is a validated projection or a bet recommendation.`;
+  fromHash(); go();
+  window.addEventListener("hashchange", () => { fromHash(); renderRail(); renderSheet(); });
+})();
+</script>

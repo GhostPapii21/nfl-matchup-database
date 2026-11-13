@@ -20,6 +20,7 @@ run core/period_engine_v0               tests
 run core/possession_engine_v0           tests
 run data/gamebooks                      tests
 run .                                   pregame/tests
+run .                                   dashboard/tests
 run .                                   pipeline/tests
 run .                                   grading/tests
 run data/redistributable/teams          tests

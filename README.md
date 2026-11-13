@@ -26,6 +26,8 @@ A useful first request is: "Read this repository's manifest, schema and data-gap
 
 For every Thursday, Sunday and Monday game, a scheduled workflow builds a research packet from current public data: what each defense allows by position, explosive plays, pass rush, each offense's usage and form, injuries, depth charts, roster moves, matchup edges, and research-only projections, with the 15-phase ledger showing what is filled and what is missing. Start at [pregame/packets/INDEX.md](pregame/packets/INDEX.md). To have ChatGPT or Grok turn a packet into a breakdown with a brainstorm and a critical review, paste [pregame/ANALYST_PROMPT.md](pregame/ANALYST_PROMPT.md). Details and limits: [pregame/README.md](pregame/README.md). Research only; `projection_ready` is false.
 
+**Game board.** The same run builds a clickable page for the slate: pick a game and see what each defense allows by position, defenders to attack, the quarterback against the blitz, pressure, man and zone, receiver roles, injuries and players working back, the last meeting with highlights, odds, weather and rest. See [dashboard/README.md](dashboard/README.md).
+
 ## Projection pipeline: goal vs current status (NFL-56)
 
 ### Goal: what this repository is meant to do
