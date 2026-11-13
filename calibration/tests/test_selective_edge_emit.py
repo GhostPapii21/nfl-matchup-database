@@ -289,102 +289,233 @@ def test_commit_message_refs_never_closes():
     assert "refs NFL-75" in msg
     assert not any(w in msg.lower() for w in ("closes", "fixes", "resolves"))
 
-# ---------------------------------------------------------------- countable stamp (Ghost6 review of PR #44)
-# countable=true only when p_model is the legacy sim_v5/v6 ensemble the Phase 4 classifier was
-# fit on AND the depth-chart/inactives QB override was applied. Everything else is fail-closed.
+# ---------------------------------------------------------------- countable stamp (Ghost6 review of PR #44 + follow-up)
+# countable=true only when the probability FILE's embedded, digest-verified provenance says the legacy sim_v5/v6
+# ensemble the Phase 4 classifier was fit on AND carries an ok QB override entry for that flag's team. The CLI
+# --prob-source / --qb-override-applied flags are recorded but can never make a flag countable.
+import hashlib  # noqa: E402
+from pathlib import Path  # noqa: E402
+
+FIXTURE = Path(__file__).parent / "fixtures" / "simv56_2026_10_WAS_NYG.simv56.probs.csv"
+SHA40 = "4844e12db89c5848dc13e53d52c8babf71f9174b"
+DEPTH = "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet"
+INJ = "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet"
 
 
-def test_stamp_countable_new_engine_is_false_even_with_qb_override():
-    legs = pd.DataFrame([dict(player="X", label=se.STRONG_UNDER)])
-    # PR #43 possession-engine rush_dist, with or without a claimed override, is never countable.
-    for override in (False, True):
-        out = EM.stamp_countable(legs, prob_source=EM.PROB_SCHEMA, qb_override_applied=override)
-        assert bool(out.countable.iloc[0]) is False
-        assert out.prob_source.iloc[0] == "nfl75-rush-dist/1"
-        assert out.countable_reason.iloc[0] == "prob_source_not_fit_ensemble"
-        assert out.countable_mark.iloc[0] == "[NOT COUNTABLE: prob_source_not_fit_ensemble]"
+def _qb(team, starter, gsis, gate="ok", **kw):
+    d = dict(team=team, starter=starter, starter_gsis=gsis, qb_gate=gate, prior_team_primary_games=6, skipped=None,
+             depth_source=DEPTH, depth_dt="2026-11-14T15:00:00Z", depth_retrieved_utc="2026-11-15T12:00:00+00:00",
+             injury_source=INJ, injury_retrieved_utc="2026-11-15T12:00:00+00:00", inactives_source=None,
+             inactives_retrieved_utc=None, as_of="2026-11-15T12:00:05Z")
+    d.update(kw)
+    return d
 
 
-def test_stamp_countable_legacy_source_without_override_is_false():
-    legs = pd.DataFrame([dict(player="X", label=se.STRONG_UNDER)])
-    out = EM.stamp_countable(legs, prob_source=EM.FIT_ENSEMBLE_PROB_SOURCE, qb_override_applied=False)
-    assert bool(out.countable.iloc[0]) is False
-    assert out.prob_source.iloc[0] == EM.FIT_ENSEMBLE_PROB_SOURCE
-    assert out.countable_reason.iloc[0] == "qb_override_missing"
-    assert out.countable_mark.iloc[0] == "[NOT COUNTABLE: qb_override_missing]"
+QB_BOTH = [_qb("NYG", "J.Dart", "00-QBN"), _qb("WAS", "Jayden Daniels", "00-QB1")]
 
 
-def test_stamp_countable_legacy_source_with_override_is_true():
+def _canon(x):
+    return json.dumps(x, sort_keys=True, separators=(",", ":"))
+
+
+def _write_simv56(path, *, qb=QB_BOTH, prob_source="sim_v5_v6_ensemble", code_sha=SHA40, dirty=False,
+                  rows=None, tamper=None):
+    """Independent writer of the nfl75-simv56-probs/1 spec (mirrors calibration/simv56_pmodel.py on PR #45)."""
+    rows = rows or [("WAS", "J.Daniels", "00-QB1", "QB", 38.5, 0.8083333333333333),
+                    ("NYG", "C.Skattebo", "00-RB1", "RB", 70.5, 0.675)]
+    data = [dict(game_id=GAME, team=t, player=p, gsis=g, position=pos, market="rushyds", line=repr(float(ln)),
+                 p_under=repr(pu), p_over=repr(1 - pu)) for t, p, g, pos, ln, pu in rows]
+    srt = sorted(data, key=lambda r: (r["game_id"], r["gsis"], r["market"], float(r["line"])))
+    body = "".join(",".join(r[c] for c in ("game_id", "team", "gsis", "market", "line", "p_under", "p_over")) + "\n"
+                   for r in srt)
+    prov = dict(prob_schema="nfl75-simv56-probs/1", prob_source=prob_source,
+                p_model_settings="simv56 ens(sim_v5,sim_v6,sim_v6_fix)|opp0.5|n20000", code_git_sha=code_sha,
+                code_dirty=dirty, code_sha256="c" * 64, inputs_sha256={"pbp": "a" * 64, "players": "b" * 64},
+                qb_overrides=qb, generated_utc="2026-11-15T12:00:10Z",
+                data_sha256=hashlib.sha256(body.encode()).hexdigest())
+    text = {k: (_canon(v) if k in ("inputs_sha256", "qb_overrides") else ("true" if v is True else "false"
+                if v is False else v)) for k, v in prov.items()}
+    text["provenance_sha256"] = hashlib.sha256(_canon(prov).encode()).hexdigest()
+    t = pd.DataFrame(data)
+    for k, v in text.items():
+        t[k] = v
+    if tamper:
+        tamper(t)
+    t.to_csv(path, index=False)
+    return path
+
+
+def _legs_joined():
+    return RJ.join_roster(_legs(), _roster(), _pbp(), **PROV).assign(p_model=np.nan)
+
+
+def _stamped(tmp_path, cli_source=None, cli_qb=False, **kw):
+    f = _write_simv56(tmp_path / f"{GAME}.simv56.probs.csv", **kw)
+    probs, _ = EM.load_probs([f])
+    out = EM.attach_probs(_legs_joined(), probs, source="simv56")
+    return EM.stamp_countable(out, prob_source=cli_source, qb_override_applied=cli_qb).set_index("player")
+
+
+def test_verified_legacy_file_with_team_qb_override_is_countable_without_cli_flags(tmp_path):
+    out = _stamped(tmp_path)
+    for p in ("Jayden Daniels", "Cam Skattebo"):
+        assert bool(out.loc[p, "countable"]) is True, out.loc[p, "countable_reason"]
+        assert out.loc[p, "countable_reason"] == "embedded_fit_ensemble_with_qb_override"
+        assert out.loc[p, "prob_source"] == EM.FIT_ENSEMBLE_PROB_SOURCE and out.loc[p, "countable_mark"] == ""
+    assert json.loads(out.loc["Jayden Daniels", "qb_override_entry"])["starter_gsis"] == "00-QB1"
+    assert out.loc["Jayden Daniels", "prob_code_git_sha"] == SHA40
+
+
+def test_simv56_p_model_is_the_exact_file_value_at_the_exact_line(tmp_path):
+    out = _stamped(tmp_path, rows=[("WAS", "J.Daniels", "00-QB1", "QB", 38.5, 0.1 + 0.2),
+                                   ("NYG", "C.Skattebo", "00-RB1", "RB", 70.5, 0.675)])
+    assert out.loc["Jayden Daniels", "p_model"] == 0.1 + 0.2             # Under: p_under, no renormalisation
+    assert out.loc["Jayden Daniels", "p_model_match"] == "gsis"
+    legs = pd.DataFrame([dict(week=10, game_id=GAME, gsis="00-QB1", team="WAS", market="rushyds", side="Over",
+                              line=30.0)])
+    f = _write_simv56(tmp_path / "int.simv56.probs.csv", rows=[("WAS", "J.Daniels", "00-QB1", "QB", 30.0, 0.4)])
+    o = EM.attach_probs(legs, EM.load_probs([f])[0], source="s")
+    assert o.p_model.iloc[0] == 1 - 0.4                                  # integer line: P(X>=L), as in the fit
+    legs.loc[0, "line"] = 30.5
+    assert EM.attach_probs(legs, EM.load_probs([f])[0], source="s").p_model_match.iloc[0] == "line_off_grid"
+
+
+def test_cli_flags_alone_never_make_a_flag_countable(tmp_path):
     legs = pd.DataFrame([dict(player="X", label=se.STRONG_UNDER)])
     out = EM.stamp_countable(legs, prob_source=EM.FIT_ENSEMBLE_PROB_SOURCE, qb_override_applied=True)
-    assert bool(out.countable.iloc[0]) is True
-    assert out.prob_source.iloc[0] == EM.FIT_ENSEMBLE_PROB_SOURCE
-    assert out.countable_mark.iloc[0] == ""
+    assert bool(out.countable.iloc[0]) is False
+    assert out.countable_reason.iloc[0] == "p_model_not_from_probs_file"
+    assert out.countable_mark.iloc[0] == "[NOT COUNTABLE: p_model_not_from_probs_file]"
+    # PR #43 rush_dist CDF (no embedded provenance) + both CLI flags -> still not countable
+    o = EM.attach_probs(_legs_joined(), _cdf(CDF_ROWS), source="p.csv")
+    o = EM.stamp_countable(o, prob_source=EM.FIT_ENSEMBLE_PROB_SOURCE, qb_override_applied=True)
+    rush = o[o.p_model_match == "gsis"]
+    assert len(rush) and (rush.countable == False).all()  # noqa: E712
+    assert (rush.countable_reason == "prob_provenance_missing").all()
 
 
-def test_stamp_countable_missing_or_unknown_source_is_false():
-    legs = pd.DataFrame([dict(player="X", label=se.STRONG_UNDER)])
-    missing = EM.stamp_countable(legs)
-    assert bool(missing.countable.iloc[0]) is False
-    assert missing.prob_source.iloc[0] == ""
-    assert missing.countable_reason.iloc[0] == "prob_source_missing"
-    assert missing.countable_mark.iloc[0] == "[NOT COUNTABLE: prob_source_missing]"
-    unknown = EM.stamp_countable(legs, prob_source="some_unregistered_model", qb_override_applied=True)
-    assert bool(unknown.countable.iloc[0]) is False
-    assert unknown.countable_reason.iloc[0] == "prob_source_unknown"
-    assert unknown.countable_mark.iloc[0] == "[NOT COUNTABLE: prob_source_unknown]"
+def test_embedded_non_legacy_source_is_not_countable(tmp_path):
+    out = _stamped(tmp_path, prob_source="possession_engine", cli_source=EM.FIT_ENSEMBLE_PROB_SOURCE, cli_qb=True)
+    assert not out.loc["Jayden Daniels", "countable"]
+    assert out.loc["Jayden Daniels", "countable_reason"] == "embedded_prob_source_not_fit_ensemble"
 
 
-def _emit_countable(tmp_path, **kw):
-    return EM.emit(freeze_paths=[_freeze(tmp_path)], probs=_cdf(CDF_ROWS), probs_source="p.csv",
-                   roster=_roster(), pbp=_pbp(), date="2026-11-15", out_root=tmp_path / "research/runs",
-                   now=_t("2026-11-15T16:00:00Z"), **PROV, **kw)
+def test_cli_prob_source_contradicting_the_file_is_not_countable(tmp_path):
+    out = _stamped(tmp_path, cli_source=EM.PROB_SCHEMA)
+    assert not out.loc["Jayden Daniels", "countable"]
+    assert out.loc["Jayden Daniels", "countable_reason"] == "cli_prob_source_mismatch"
+    assert bool(_stamped(tmp_path, cli_source=EM.FIT_ENSEMBLE_PROB_SOURCE).loc["Jayden Daniels", "countable"])
 
 
-def test_emitter_new_engine_source_flags_not_countable(tmp_path):
-    r = _emit_countable(tmp_path, prob_source=EM.PROB_SCHEMA, qb_override_applied=True)
+def test_qb_override_must_cover_the_flags_team(tmp_path):
+    out = _stamped(tmp_path, qb=[_qb("WAS", "Jayden Daniels", "00-QB1")])          # no NYG entry
+    assert bool(out.loc["Jayden Daniels", "countable"]) is True
+    assert not out.loc["Cam Skattebo", "countable"]
+    assert out.loc["Cam Skattebo", "countable_reason"] == "qb_override_missing_for_team"
+    out = _stamped(tmp_path, qb=[])
+    assert (out.loc[["Jayden Daniels", "Cam Skattebo"], "countable_reason"] == "qb_override_missing_for_team").all()
+
+
+def test_qb_override_not_ok_or_incomplete_for_team_is_not_countable(tmp_path):
+    out = _stamped(tmp_path, qb=[_qb("WAS", "K.Cousins", "00-QBX", gate="qb_starter_thin_history"),
+                                 _qb("NYG", "J.Dart", "00-QBN", depth_retrieved_utc=None)])
+    assert out.loc["Jayden Daniels", "countable_reason"] == "qb_override_not_ok_for_team"
+    assert out.loc["Cam Skattebo", "countable_reason"] == "qb_override_incomplete_for_team"
+    out = _stamped(tmp_path, qb=[_qb("WAS", None, None), _qb("NYG", "J.Dart", "00-QBN", depth_source="")])
+    assert out.loc["Jayden Daniels", "countable_reason"] == "qb_override_incomplete_for_team"
+    assert out.loc["Cam Skattebo", "countable_reason"] == "qb_override_incomplete_for_team"
+
+
+def test_flag_team_must_match_the_probability_row_team(tmp_path):
+    out = _stamped(tmp_path, rows=[("NYG", "J.Daniels", "00-QB1", "QB", 38.5, 0.8),
+                                   ("NYG", "C.Skattebo", "00-RB1", "RB", 70.5, 0.675)])
+    assert out.loc["Jayden Daniels", "countable_reason"] == "prob_team_mismatch"
+    assert bool(out.loc["Cam Skattebo", "countable"]) is True
+
+
+@pytest.mark.parametrize("tamper,reason", [
+    (lambda t: t.__setitem__("p_under", t.p_under.where(t.gsis != "00-QB1", "0.1")), "prob_data_digest_mismatch"),
+    (lambda t: t.__setitem__("qb_overrides", t.qb_overrides.str.replace("J.Dart", "Someone")),
+     "prob_provenance_digest_mismatch"),
+    (lambda t: t.__setitem__("prob_source", "sim_v5_v6_ensemble "), "prob_provenance_digest_mismatch"),
+    (lambda t: t.drop(columns=["qb_overrides"], inplace=True), "prob_provenance_missing"),
+    (lambda t: t.__setitem__("generated_utc", ["2026-11-15T12:00:10Z", "2026-11-15T12:00:11Z"]),
+     "prob_provenance_inconsistent"),
+    (lambda t: t.__setitem__("inputs_sha256", "not json"), "prob_provenance_incomplete"),
+])
+def test_tampered_or_missing_provenance_is_not_countable(tmp_path, tamper, reason):
+    out = _stamped(tmp_path, tamper=tamper, cli_source=EM.FIT_ENSEMBLE_PROB_SOURCE, cli_qb=True)
+    assert (out.loc[["Jayden Daniels", "Cam Skattebo"], "countable"] == False).all()  # noqa: E712
+    assert (out.loc[["Jayden Daniels", "Cam Skattebo"], "countable_reason"] == reason).all()
+
+
+@pytest.mark.parametrize("kw,reason", [(dict(code_sha="abc123"), "prob_provenance_incomplete"),
+                                       (dict(code_sha=""), "prob_provenance_incomplete"),
+                                       (dict(dirty=True), "prob_code_dirty")])
+def test_code_identity_must_be_a_clean_full_git_sha(tmp_path, kw, reason):
+    out = _stamped(tmp_path, **kw)
+    assert out.loc["Jayden Daniels", "countable_reason"] == reason
+
+
+def test_golden_file_written_by_simv56_pipeline_verifies():
+    """Cross-PR spec check: a file produced by `simv56_pmodel run` (PR #45, code 4844e12) verifies here."""
+    probs, shas = EM.load_probs([FIXTURE])
+    assert set(probs.prov_status) == {"ok"} and set(probs.prob_source) == {EM.FIT_ENSEMBLE_PROB_SOURCE}
+    assert set(probs.prov_code_git_sha) == {SHA40}
+    teams = {d["team"] for d in json.loads(probs.prov_qb_overrides.iloc[0])}
+    assert teams == {"WAS", "NYG"}
+    assert probs.set_index("gsis").loc["00-0039910", "p_under"] == 0.7417777777777779
+    assert list(shas) == [str(FIXTURE)]
+
+
+def test_probs_dir_picks_up_simv56_files(tmp_path):
+    _write_simv56(tmp_path / f"{GAME}.simv56.probs.csv")
+    probs, shas = EM.load_probs([tmp_path])
+    assert len(shas) == 1 and set(probs.prov_status) == {"ok"}
+
+
+def test_same_player_in_two_probability_files_is_ambiguous(tmp_path):
+    a = _write_simv56(tmp_path / "a.simv56.probs.csv")
+    b = _write_simv56(tmp_path / "b.simv56.probs.csv", rows=[("WAS", "J.Daniels", "00-QB1", "QB", 38.5, 0.5)])
+    out = EM.attach_probs(_legs_joined(), EM.load_probs([a, b])[0], source="s").set_index("player")
+    assert out.loc["Jayden Daniels", "p_model_match"] == "ambiguous_probs"
+    assert pd.isna(out.loc["Jayden Daniels", "p_model"])
+
+
+def _emit_files(tmp_path, files, **kw):
+    probs, shas = EM.load_probs(files)
+    return EM.emit(freeze_paths=[_freeze(tmp_path)], probs=probs, probs_source="simv56", roster=_roster(),
+                   pbp=_pbp(), date="2026-11-15", out_root=tmp_path / "research/runs",
+                   now=_t("2026-11-15T16:00:00Z"), input_shas={"probs": shas}, **PROV, **kw)
+
+
+def test_emitter_counts_verified_legacy_file_and_records_provenance(tmp_path):
+    f = _write_simv56(tmp_path / f"{GAME}.simv56.probs.csv", qb=[_qb("WAS", "Jayden Daniels", "00-QB1")])
+    r = _emit_files(tmp_path, [f])
+    flags = pd.read_csv(r["flags_csv"])
+    u = flags[flags.side == "Under"].set_index("player")
+    assert u.loc["Jayden Daniels", "label"] == se.STRONG_UNDER and bool(u.loc["Jayden Daniels", "countable"])
+    assert u.loc["Cam Skattebo", "countable_reason"] == "qb_override_missing_for_team"
+    assert u.loc["Nobody Here", "countable_reason"] == "p_model_not_from_probs_file"
+    m = json.loads(r["manifest_json"].read_text())
+    assert m["countable"] is True and m["countable_counts"]["embedded_fit_ensemble_with_qb_override"] >= 1
+    pf = m["prob_files_provenance"][str(f)]
+    assert pf["status"] == "ok" and pf["prob_source"] == EM.FIT_ENSEMBLE_PROB_SOURCE and pf["code_git_sha"] == SHA40
+    assert pf["qb_override_teams_ok"] == ["WAS"] and pf["provenance_sha256"]
+    assert m["prob_source_declared"] == "" and m["qb_override_declared"] is False
+    md = r["summary_md"].read_text()
+    assert "[NOT COUNTABLE: qb_override_missing_for_team]" in md
+
+
+def test_emitter_cli_flags_with_rush_dist_probs_are_not_countable(tmp_path):
+    r = EM.emit(freeze_paths=[_freeze(tmp_path)], probs=_cdf(CDF_ROWS), probs_source="p.csv", roster=_roster(),
+                pbp=_pbp(), date="2026-11-15", out_root=tmp_path / "research/runs", now=_t("2026-11-15T16:00:00Z"),
+                prob_source=EM.FIT_ENSEMBLE_PROB_SOURCE, qb_override_applied=True, **PROV)
     flags = pd.read_csv(r["flags_csv"])
     assert (flags.countable == False).all()  # noqa: E712
-    assert (flags.prob_source == "nfl75-rush-dist/1").all()
-    assert (flags.countable_reason == "prob_source_not_fit_ensemble").all()
-    under = flags[flags.side == "Under"].set_index("player")
-    assert under.loc["Jayden Daniels", "label"] == se.STRONG_UNDER  # labels are unchanged
-    md = r["summary_md"].read_text()
-    assert "[NOT COUNTABLE: prob_source_not_fit_ensemble]" in md
+    rush = flags[flags.p_model_match == "gsis"]
+    assert len(rush) and (rush.countable_reason == "prob_provenance_missing").all()
     m = json.loads(r["manifest_json"].read_text())
-    assert m["countable"] is False and m["countable_reason"] == "prob_source_not_fit_ensemble"
-    assert m["prob_source"] == "nfl75-rush-dist/1"
-
-
-def test_emitter_legacy_source_without_override_not_countable(tmp_path):
-    r = _emit_countable(tmp_path, prob_source=EM.FIT_ENSEMBLE_PROB_SOURCE, qb_override_applied=False)
-    flags = pd.read_csv(r["flags_csv"])
-    assert (flags.countable == False).all()  # noqa: E712
-    assert (flags.countable_reason == "qb_override_missing").all()
-    md = r["summary_md"].read_text()
-    assert "[NOT COUNTABLE: qb_override_missing]" in md
-    assert json.loads(r["manifest_json"].read_text())["countable"] is False
-
-
-def test_emitter_legacy_source_with_override_is_countable(tmp_path):
-    r = _emit_countable(tmp_path, prob_source=EM.FIT_ENSEMBLE_PROB_SOURCE, qb_override_applied=True)
-    flags = pd.read_csv(r["flags_csv"])
-    assert (flags.countable == True).all()  # noqa: E712
-    assert (flags.prob_source == EM.FIT_ENSEMBLE_PROB_SOURCE).all()
-    under = flags[flags.side == "Under"].set_index("player")
-    assert under.loc["Jayden Daniels", "label"] == se.STRONG_UNDER
-    md = r["summary_md"].read_text()
-    assert "NOT COUNTABLE" not in md
-    m = json.loads(r["manifest_json"].read_text())
-    assert m["countable"] is True and m["qb_override_applied"] is True
-
-
-def test_emitter_missing_source_defaults_not_countable(tmp_path):
-    # fail closed: emit() / _run() with no declared source
-    r = _run(tmp_path, _t("2026-11-15T16:00:00Z"))
-    flags = pd.read_csv(r["flags_csv"])
-    assert (flags.countable == False).all()  # noqa: E712
-    assert (flags.countable_reason == "prob_source_missing").all()
-    assert "[NOT COUNTABLE: prob_source_missing]" in r["summary_md"].read_text()
-    m = json.loads(r["manifest_json"].read_text())
-    assert m["countable"] is False and m["prob_source"] == "" and m["qb_override_applied"] is False
+    assert m["countable"] is False and m["prob_source_declared"] == EM.FIT_ENSEMBLE_PROB_SOURCE
+    assert m["qb_override_declared"] is True
+    assert "[NOT COUNTABLE: prob_provenance_missing]" in r["summary_md"].read_text()
