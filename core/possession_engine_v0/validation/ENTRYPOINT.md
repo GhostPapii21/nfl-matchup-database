@@ -59,5 +59,5 @@ entry point and cannot write `pipeline/ledgers/*.sim100k.json` or `snapshots/*/L
 
 ## Flag
 
-`known_flags/KNOWN_LIMITATIONS.json` `entrypoint_enforced` is flipped only by a reviewed change after Ghost6 verifies
-the commit evidence (Linear NFL-75 / NFL-49 pillar 2). This file documents the enforcement; it does not flip the flag.
+`known_flags/KNOWN_LIMITATIONS.json` `entrypoint_enforced` is **true** since Nov 12 2026 (~7:55 PM ET), citing [ba19e77](https://github.com/GhostPapii21/nfl-matchup-database/commit/ba19e775996b5070e247ad64569912b8d59bd806)
+(PR #24), after Ghost6 verified the commit evidence (Linear NFL-75 / NFL-49 pillar 2).
