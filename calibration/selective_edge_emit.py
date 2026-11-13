@@ -286,8 +286,7 @@ def emit(*, freeze_paths, probs: pd.DataFrame, probs_source: str, roster: pd.Dat
           "Candidate labels:" if len(cand) else "No candidate labels (every leg is INSUFFICIENT EVIDENCE or NO EDGE).",
           ""]
     if len(cand):
-        md.append(cand[[c for c in show if c in cand]].to_markdown(index=False) if hasattr(cand, "to_markdown")
-                  else cand[[c for c in show if c in cand]].to_string(index=False))
+        md.append(cand[[c for c in show if c in cand]].to_string(index=False))  # no tabulate dependency
     md += ["", "Reasons:", "", graded.groupby(["label", "reason"]).size().rename("n").reset_index()
            .to_string(index=False)]
     paths["md"].write_text("\n".join(md) + "\n")
