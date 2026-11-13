@@ -84,6 +84,11 @@ class Engine:
         qb=mkt in('passyds','comp'); cq=leg.get('current_qb') if mkt!='rushyds' else None
         d,a,yc,ypc_rush,g=self.player(name,team,qb,leg.get('gsis'),current_qb=cq); PG=self.pos.get(g,'WR')
         if len(a)==0: raise ValueError('no active games before cutoff' + (f' with QB {cq}' if cq else ''))
+        import qb_rush_prior as QRP
+        QF=QRP.flag_on(leg.get('qb_rush_prior')) and PG=='QB' and mkt in('rushyds','rushrec')   # NFL-75 QB rush prior fix (opt-in; qb_rush_prior.py)
+        if QF: qr=QRP.qb_rush_inputs(ru,g,opp,a.game_id.values); ypc_rush=qr['ypc']; a=a.assign(car=qr['car']); KT=QRP.kneel_table(ru,tg)
+        QC=QF and leg.get('qb_rush_prior')=='components'
+        if QC: qc=QRP.component_inputs(ru,g,opp,a.game_id.values); a=a.assign(scr_car=qc['scr_car'],des_car=qc['des_car']); QH={c:bool(a[c+'_car'].sum()>0) for c in QRP.COMPONENTS}; qc_b=QRP.component_inputs(ru,g,opp,a.game_id.values,k=100*BIAS_REG)
         l3=a.tail(3); w=lambda col:0.6*a[col].mean()+0.4*l3[col].mean()
         cr=(a.rec.sum()+1)/(a.tgt.sum()+2); pgk=None if qb else PG
         A_ypt,r_ypt=self.oppadj(opp,pgk,'ypt'); A_cr,r_cr=self.oppadj(opp,pgk,'cr')
@@ -95,7 +100,10 @@ class Engine:
             K=100 if qb else 30; wv=len(yc)/(len(yc)+K); A_rec_y*=(wv*yc.mean()+(1-wv)*lg)/yc.mean()
             wb=len(yc)/(len(yc)+K*(BIAS_REG_QB if qb else BIAS_REG)); Ab_rec_y*=(wb*yc.mean()+(1-wb)*lg)/yc.mean()
         A_ypc=Ab_ypc=1.0
-        if len(ypc_rush):
+        if QF:
+            _pm=float(ypc_rush.mean()) if len(ypc_rush) else 0.0
+            A_ypc=QRP.ypc_factor(_pm,len(ypc_rush),qr['lg_qb'],qr['opp_ratio']); Ab_ypc=QRP.ypc_factor(_pm,len(ypc_rush),qr['lg_qb'],1+BIAS_OPP*(qr['opp_ratio']-1),k=100*BIAS_REG)
+        elif len(ypc_rush):
             lgA=ru.rushing_yards.mean(); pm=ypc_rush.mean(); wv=len(ypc_rush)/(len(ypc_rush)+100); oppY=ru[ru.defteam==opp].rushing_yards.mean()
             A_ypc=((wv*pm+(1-wv)*lgA)/pm)*(oppY/lgA)
             wb=len(ypc_rush)/(len(ypc_rush)+100*BIAS_REG); Ab_ypc=((wb*pm+(1-wb)*lgA)/pm)*(1+BIAS_OPP*(oppY/lgA-1))
@@ -126,18 +134,23 @@ class Engine:
                         for i in range(int(C.max())): tot+=np.where(C>i,rng.choice(yc,N),0)
                     x=tot*(Ab_rec_y if mode=='bias' else A_rec_y)
             if mkt in ('rushyds','rushrec'):
-                Cr=vol('car','ra',self.bR); tot=np.zeros(N)
+              if QC: x=x+QRP.component_rush(rng,lambda c:vol(c,'ra',self.bR),QH,qc_b if mode=='bias' else qc,(1+BIAS_OPP*(qc['opp_ratio']-1)) if mode=='bias' else qc['opp_ratio'],N,float(leg.get('carry_boost',1.0)),scale_count)*float(leg.get('ypc_boost',1.0))   # NFL-75 components
+              else:
+                Cr=vol('car','ra',self.bR) if (not QF or a['car'].sum()>0) else np.zeros(N,dtype=int)  # kneels-only: skip nb() at mean 0
+                tot=np.zeros(N)
                 cb=float(leg.get('carry_boost',1.0))
                 if cb!=1.0: Cr=scale_count(rng,Cr,cb)   # game-script RB boost / promotion / split share (all three models)
                 if len(ypc_rush):
                     for i in range(int(Cr.max())): tot+=np.where(Cr>i,rng.choice(ypc_rush,N),0)
                 x=x+tot*(Ab_ypc if mode=='bias' else A_ypc)*float(leg.get('ypc_boost',1.0))   # BUG-2026-11-01-RBMISS F (all three models)
+              if QF: x=x+QRP.sim_kneel_yards(QRP.kneel_rng(self.seed,name,mkt,mode),spread,N,KT)   # NFL-75 separate kneel model
             if isinstance(x,int): x=np.zeros(N)
             x=np.asarray(x)
             x=scale_count(rng,x.astype(int),M).astype(float) if mkt in('rec','comp') else x.astype(float)*M
             out[mode]=dict(mean=float(x.mean()),median=float(np.median(x)),cmedian=float(np.median(x+rng.uniform(-.5,.5,N))) if mkt in('rec','comp') else float(np.median(x)),
                            p10=float(np.percentile(x,10)),p90=float(np.percentile(x,90)),M=M,rungs={str(k):float((x>=k).mean()) for k in leg.get('rungs',[])})
         info.update(qb_filter=cq,n_games=len(a),w_tgt=float(w('tgt')),w_car=float(w('car')),cr=float(cr),A_ypc=float(A_ypc),A_rec_y=float(A_rec_y),pos=PG)
+        if QF: info['qb_rush_prior']=dict(lg_qb=qr['lg_qb'],lg_all_nk=qr['lg_all_nk'],opp_ratio=qr['opp_ratio'],n_nk=int(len(ypc_rush)),n_kneels=qr['n_kneels_player'])
         return out,info
 # ---------- BUG-2026-11-01-RBSCRIPT: game-script RB rule ----------
 FAV_SPREAD, FAV_YPC = -7.0, 4.4

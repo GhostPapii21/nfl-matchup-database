@@ -46,6 +46,11 @@ def sim(leg):
     name,mkt,spread=leg['player'],leg['market'],float(leg['spread']); team=NV.get(leg['team'],leg['team']); opp=NV.get(leg['opp'],leg['opp'])
     qb=mkt in('passyds','comp')
     d,a,yc,ypc_rush,g=player(name,team,qb,leg.get('gsis')); PG=pos.get(g,'WR')
+    import qb_rush_prior as QRP
+    QF=QRP.flag_on(leg.get('qb_rush_prior')) and PG=='QB' and mkt in('rushyds','rushrec')   # NFL-75 QB rush prior fix (opt-in; qb_rush_prior.py)
+    if QF: qr=QRP.qb_rush_inputs(ru,g,opp,a.game_id.values); ypc_rush=qr['ypc']; a=a.assign(car=qr['car']); KT=QRP.kneel_table(ru,tg)
+    QC=QF and leg.get('qb_rush_prior')=='components'
+    if QC: qc=QRP.component_inputs(ru,g,opp,a.game_id.values); a=a.assign(scr_car=qc['scr_car'],des_car=qc['des_car']); QH={c:bool(a[c+'_car'].sum()>0) for c in QRP.COMPONENTS}
     l3=a.tail(3); w=lambda col:0.6*a[col].mean()+0.4*l3[col].mean()
     cr=(a.rec.sum()+1)/(a.tgt.sum()+2)
     pgk=None if qb else PG
@@ -57,7 +62,8 @@ def sim(leg):
         K=100 if qb else 30; wv=len(yc)/(len(yc)+K); A_rec_y*=(wv*yc.mean()+(1-wv)*lg)/yc.mean()
         info['ycreg']=dict(player=float(yc.mean()),n=int(len(yc)),w=float(wv),league=float(lg))
     A_ypc=1.0
-    if len(ypc_rush):
+    if QF: A_ypc=QRP.ypc_factor(float(ypc_rush.mean()) if len(ypc_rush) else 0.0,len(ypc_rush),qr['lg_qb'],qr['opp_ratio']); info['qb_rush_prior']=dict(lg_qb=qr['lg_qb'],lg_all_nk=qr['lg_all_nk'],opp_ratio=qr['opp_ratio'],n_nk=int(len(ypc_rush)),n_kneels=qr['n_kneels_player'])
+    elif len(ypc_rush):
         lgA=ru.rushing_yards.mean(); pm=ypc_rush.mean(); wv=len(ypc_rush)/(len(ypc_rush)+100); oppY=ru[ru.defteam==opp].rushing_yards.mean()
         A_ypc=((wv*pm+(1-wv)*lgA)/pm)*(oppY/lgA); info['ypcreg']=dict(player=float(pm),n=int(len(ypc_rush)),w=float(wv),league=float(lgA),opp=float(oppY))
     out={}
@@ -83,9 +89,14 @@ def sim(leg):
                 for i in range(int(C.max())): tot+=np.where(C>i,rng.choice(yc,N),0)
                 x=tot*yf*A_rec_y
         if mkt in ('rushyds','rushrec'):
-            Cr=vol('car','ra',bR); tot=np.zeros(N)
-            for i in range(int(Cr.max())): tot+=np.where(Cr>i,rng.choice(ypc_rush,N),0)
+          if QC: x=x+QRP.component_rush(rng,lambda c:vol(c,'ra',bR),QH,qc,qc['opp_ratio'],N)*yf   # NFL-75 components
+          else:
+            Cr=vol('car','ra',bR) if (not QF or a['car'].sum()>0) else np.zeros(N,dtype=int)  # kneels-only: skip nb() at mean 0 (v6 has[c] pattern)
+            tot=np.zeros(N)
+            if len(ypc_rush):
+              for i in range(int(Cr.max())): tot+=np.where(Cr>i,rng.choice(ypc_rush,N),0)
             x=x+tot*yf*A_ypc
+          if QF: x=x+QRP.sim_kneel_yards(QRP.kneel_rng(SEED,name,mkt,mode),spread,N,KT)   # NFL-75 separate kneel model
         x=np.asarray(x,dtype=float)
         out[mode]=dict(mean=float(x.mean()),median=float(np.median(x)),p10=float(np.percentile(x,10)),p90=float(np.percentile(x,90)),
                        rungs={str(k):float((x>=k).mean()) for k in leg['rungs']})

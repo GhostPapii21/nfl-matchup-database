@@ -1,0 +1,54 @@
+{
+ "runs": [
+  {
+   "week": 8,
+   "legs": 83,
+   "cutoff": "2026-10-29",
+   "runtime_sec": 9.1,
+   "engine_errors": {
+    "sim_v5": 0,
+    "sim_v6": 0,
+    "sim_v6_fix": 0
+   }
+  },
+  {
+   "week": 9,
+   "legs": 5,
+   "cutoff": "2026-11-02",
+   "runtime_sec": 1.7,
+   "engine_errors": {
+    "sim_v5": 0,
+    "sim_v6": 0,
+    "sim_v6_fix": 0
+   }
+  }
+ ],
+ "n_trials": 20000,
+ "opp": "0.5",
+ "engines": [
+  "sim_v5",
+  "sim_v6",
+  "sim_v6_fix"
+ ],
+ "engine_sha256": {
+  "cc_sim_v5.py": "da49b5a5db49af25a12768e18214b88fe366077f3db280d6d5ac4ae5ee949236",
+  "cc_sim_v6.py": "0624b81111cd0ead395fdc8fb1f138bce3ae7c2be1d3778aea1022051ebc7542",
+  "cc_sim_v6_fix.py": "1c8ba53652028819418005b8ffd34c0417bd621d4a72ab62e548a5a8f8cec797",
+  "qb_rush_prior.py": "548a839687c81ccafc57567676abd74da0dad1364358e24945a82a422416c590",
+  "sim_v6_backtest.csv": "7ef40c67c5d3c0b6d5cafdb274969b9cd8b4226c96ffef3d9f7da136510bf07d",
+  "sim_v6_fix_backtest.csv": "f8f4c1b6eb91c15532e76961dc44d91f42ac34bd37525017bc54319ac663af98",
+  "rb_script_boost.json": "7c6893baa35f9371644e2a48c92a074e78cef23d447f52aa29830d4ec2921850",
+  "rb_miss_fit.json": "3d5ded3377c134460261fe77ffcca5247ed66108794abcbea6fc43984b197de2"
+ },
+ "pbp": "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet",
+ "pbp_sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+ "legs_w4_9_sha256": "67cfbf3e8820891d180dfa74fd81665dd5ed739572152347133133cceac8b7ed",
+ "params_w4_7_sha256": "90f7f30a817c892d4e5f2e57080bd504365e5dc9d278e6cf6df329520b452b62",
+ "pandas_version": "3.0.6",
+ "bootstrap": "game-cluster, B=10000, seed=0 (selective_edge.summarize)",
+ "odds_api_credits": 0,
+ "qb_rush_prior": false,
+ "mode": "off",
+ "label": "unfixed Phase 4 ensemble (control)",
+ "code_sha": "b7c9a7d95a63164508eeb8880ecfd5fe21b59759"
+}

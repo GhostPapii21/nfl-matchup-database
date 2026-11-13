@@ -1,0 +1,54 @@
+{
+ "runs": [
+  {
+   "week": 8,
+   "legs": 83,
+   "cutoff": "2026-10-29",
+   "runtime_sec": 14.6,
+   "engine_errors": {
+    "sim_v5": 0,
+    "sim_v6": 0,
+    "sim_v6_fix": 0
+   }
+  },
+  {
+   "week": 9,
+   "legs": 5,
+   "cutoff": "2026-11-02",
+   "runtime_sec": 1.8,
+   "engine_errors": {
+    "sim_v5": 0,
+    "sim_v6": 0,
+    "sim_v6_fix": 0
+   }
+  }
+ ],
+ "n_trials": 20000,
+ "opp": "0.5",
+ "engines": [
+  "sim_v5",
+  "sim_v6",
+  "sim_v6_fix"
+ ],
+ "engine_sha256": {
+  "cc_sim_v5.py": "977a927b78b75a710a3c89a62702d4c5976189e6ac2bfe22db019b1e69c825f5",
+  "cc_sim_v6.py": "6f276926072e7f848ae40bb1e4a384b8ed236b1298b7a13ed9171f67c6440b21",
+  "cc_sim_v6_fix.py": "584ab37e536300b32471af8e2cffca81cf124b6af28d9df4aa8faf94a894314e",
+  "qb_rush_prior.py": "c1fa4176a2fe0612c90366898b0e6195362fdfceb847427c4fe74163051f727d",
+  "sim_v6_backtest.csv": "7ef40c67c5d3c0b6d5cafdb274969b9cd8b4226c96ffef3d9f7da136510bf07d",
+  "sim_v6_fix_backtest.csv": "f8f4c1b6eb91c15532e76961dc44d91f42ac34bd37525017bc54319ac663af98",
+  "rb_script_boost.json": "7c6893baa35f9371644e2a48c92a074e78cef23d447f52aa29830d4ec2921850",
+  "rb_miss_fit.json": "3d5ded3377c134460261fe77ffcca5247ed66108794abcbea6fc43984b197de2"
+ },
+ "pbp": "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet",
+ "pbp_sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+ "legs_w4_9_sha256": "67cfbf3e8820891d180dfa74fd81665dd5ed739572152347133133cceac8b7ed",
+ "params_w4_7_sha256": "90f7f30a817c892d4e5f2e57080bd504365e5dc9d278e6cf6df329520b452b62",
+ "pandas_version": "3.0.6",
+ "bootstrap": "game-cluster, B=10000, seed=0 (selective_edge.summarize)",
+ "odds_api_credits": 0,
+ "qb_rush_prior": "components",
+ "mode": "components",
+ "label": "QB-prior fix + designed/scramble/kneel components",
+ "code_sha": "a5a69b04d241c5c14e27a3feb4aa0aca8aede9e2"
+}
