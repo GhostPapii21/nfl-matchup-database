@@ -1,15 +1,33 @@
 {
  "actual_sources": {
-  "espn_summary": {
-   "retrieved_utc": "2026-11-13T05:29:07+00:00",
-   "sha256": "f4e853c9543884e22d80a1476be74d33fb60da59361e877191234490ee46dec5",
-   "status": "STATUS_FINAL",
-   "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873052"
+  "games": {
+   "retrieved_utc": "2026-11-13T15:15:53+00:00",
+   "sha256": "177ac66ed4e9e02c2af22a794f0aa821d049691837ef2c76c518f11f2ae93b19",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet"
+  },
+  "pbp": {
+   "retrieved_utc": "2026-11-13T15:15:54+00:00",
+   "sha256": "d3a9d3e2873dffc4bf27ba482894d87a4d8324af14ae1d3fbfaa294a87f96fd2",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet"
+  },
+  "rosters": {
+   "retrieved_utc": "2026-11-13T15:15:54+00:00",
+   "sha256": "b5d7cbd68ec7280391010349f284364c1d6a27ee8683d481566fa962a2d3c77c",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet"
+  },
+  "snap_counts": {
+   "retrieved_utc": "2026-11-13T15:15:54+00:00",
+   "sha256": "1d2e15675f9a3bc9eba04c1197a7650be7957b8f2fbb657c8df80d40c25e1f03",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet"
   }
  },
  "counts": {
   "flagged_prop": {
-   "actual_known": 74,
+   "actual_known": 78,
    "closing_known": 78,
    "edges": 0,
    "rows": 78
@@ -36,12 +54,12 @@
  "final_score": {
   "NYG": 21,
   "WAS": 24,
-  "pulled_utc": "2026-11-13T05:29:07+00:00",
-  "source": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873052 saved grading/results/sources/espn_summary_2026_10_WAS_NYG_401873052.json sha256_full_response=f4e853c9543884e22d80a1476be74d33fb60da59361e877191234490ee46dec5"
+  "pulled_utc": "2026-11-13T15:15:53+00:00",
+  "source": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet sha256=177ac66ed4e9e02c2af22a794f0aa821d049691837ef2c76c518f11f2ae93b19"
  },
- "freeze_ref": "working tree",
+ "freeze_ref": "origin/research/multibook-price-feed-2026-11-12",
  "game_id": "2026_10_WAS_NYG",
- "graded_utc": "2026-11-13T08:18:56+00:00",
+ "graded_utc": "2026-11-13T15:15:54+00:00",
  "holdout_by_market_type": {
   "carries": {
    "beat_close": 0,
@@ -127,11 +145,11 @@
    "win": 1
   },
   "report_slip": {
-   "loss": 3,
+   "loss": 0,
    "push": 0,
    "rows": 5,
-   "unknown": 1,
-   "win": 1
+   "unknown": 5,
+   "win": 0
   },
   "report_team_read": {
    "loss": 4,
@@ -141,17 +159,17 @@
    "win": 2
   },
   "research_leg": {
-   "loss": 5,
+   "loss": 0,
    "push": 0,
    "rows": 28,
-   "unknown": 0,
-   "win": 23
+   "unknown": 28,
+   "win": 0
   },
   "research_team_probability": {
-   "loss": 1,
+   "loss": 0,
    "push": 0,
    "rows": 10,
-   "unknown": 0,
+   "unknown": 1,
    "win": 0
   },
   "research_team_projection": {
