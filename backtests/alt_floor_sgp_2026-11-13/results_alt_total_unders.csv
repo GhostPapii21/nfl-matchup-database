@@ -1,0 +1,10 @@
+rule,week,n,W,L,P,hit,be,margin_pts,roi,med_price_dec,fd_share,margin_ci,roi_ci,games,ready_NFL75,label
+alt U >= main+7,8,1,1,0,0,1.0,0.7368,26.32,0.3571,1.357,1.0,"[np.float64(26.32), np.float64(26.32)]","[np.float64(0.3571), np.float64(0.3571)]",1,False,SMALL_n<30
+alt U >= main+7,9,1,1,0,0,1.0,0.8,20.0,0.25,1.25,1.0,"[np.float64(20.0), np.float64(20.0)]","[np.float64(0.25), np.float64(0.25)]",1,False,SMALL_n<30
+alt U >= main+7,8-9,2,2,0,0,1.0,0.7684,23.16,0.3036,1.304,1.0,"[np.float64(20.0), np.float64(26.32)]","[np.float64(0.25), np.float64(0.3571)]",2,False,SMALL_n<30
+alt U >= main+10,8,1,1,0,0,1.0,0.8,20.0,0.25,1.25,1.0,"[np.float64(20.0), np.float64(20.0)]","[np.float64(0.25), np.float64(0.25)]",1,False,SMALL_n<30
+alt U >= main+10,9,1,1,0,0,1.0,0.8667,13.33,0.1538,1.154,1.0,"[np.float64(13.33), np.float64(13.33)]","[np.float64(0.1538), np.float64(0.1538)]",1,False,SMALL_n<30
+alt U >= main+10,8-9,2,2,0,0,1.0,0.8333,16.67,0.2019,1.202,1.0,"[np.float64(13.33), np.float64(20.0)]","[np.float64(0.1538), np.float64(0.25)]",2,False,SMALL_n<30
+alt U >= main+14,8,1,1,0,0,1.0,0.878,12.2,0.1389,1.139,1.0,"[np.float64(12.2), np.float64(12.2)]","[np.float64(0.1389), np.float64(0.1389)]",1,False,SMALL_n<30
+alt U >= main+14,9,1,1,0,0,1.0,0.9231,7.69,0.0833,1.083,1.0,"[np.float64(7.69), np.float64(7.69)]","[np.float64(0.0833), np.float64(0.0833)]",1,False,SMALL_n<30
+alt U >= main+14,8-9,2,2,0,0,1.0,0.9006,9.94,0.1111,1.111,1.0,"[np.float64(7.69), np.float64(12.2)]","[np.float64(0.0833), np.float64(0.1389)]",2,False,SMALL_n<30

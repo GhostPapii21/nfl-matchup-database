@@ -1,0 +1,14 @@
+rule,split,market,n,W,L,P,hit,be,margin_pts,roi,med_price_dec,fd_share,margin_ci,roi_ci,games,ready_NFL75,label
+floor<=p40 + cushion,oos_wk8_9,rec,56,45,11,0,0.8036,0.8688,-6.53,-0.0805,1.114,0.857,"[np.float64(-15.8), np.float64(1.26)]","[np.float64(-0.1866), np.float64(0.0112)]",15,False,ok
+floor<=p40 + cushion,oos_wk8_9,recyds,52,45,7,0,0.8654,0.8741,-0.87,-0.0102,1.118,0.788,"[np.float64(-11.21), np.float64(7.69)]","[np.float64(-0.1414), np.float64(0.0971)]",15,False,ok
+floor<=p40 + cushion,oos_wk8_9,rushrec,7,5,2,0,0.7143,0.826,-11.17,-0.2073,1.141,0.0,"[np.float64(-39.44), np.float64(11.39)]","[np.float64(-0.5437), np.float64(0.1302)]",5,False,SMALL_n<30
+floor<=p40 + cushion,oos_wk8_9,rushyds,11,9,2,0,0.8182,0.8412,-2.3,-0.0894,1.118,0.909,"[np.float64(-18.26), np.float64(10.89)]","[np.float64(-0.3413), np.float64(0.1271)]",9,False,SMALL_n<30
+floor<=p40 + cushion,train_wk6_7,rec,96,80,16,0,0.8333,0.8592,-2.58,-0.0332,1.138,0.812,"[np.float64(-8.69), np.float64(3.19)]","[np.float64(-0.1106), np.float64(0.0395)]",28,False,ok
+floor<=p40 + cushion,train_wk6_7,recyds,88,74,14,0,0.8409,0.8438,-0.29,-0.0079,1.167,0.898,"[np.float64(-7.23), np.float64(6.26)]","[np.float64(-0.0898), np.float64(0.0711)]",28,False,ok
+floor<=p40 + cushion,train_wk6_7,rushyds,18,15,3,0,0.8333,0.8709,-3.76,-0.0695,1.077,0.722,"[np.float64(-19.85), np.float64(8.95)]","[np.float64(-0.2724), np.float64(0.1012)]",15,False,SMALL_n<30
+floor<=p40 + cushion,oos_wk8_9,ALL,126,104,22,0,0.8254,0.8662,-4.08,-0.0593,1.118,0.786,"[np.float64(-11.49), np.float64(2.93)]","[np.float64(-0.1482), np.float64(0.0292)]",15,False,ok
+floor<=p40 + cushion,train_wk6_7,ALL,202,169,33,0,0.8366,0.8535,-1.69,-0.0254,1.149,0.842,"[np.float64(-6.78), np.float64(3.03)]","[np.float64(-0.0862), np.float64(0.0308)]",28,False,ok
+floor<=p40 + cushion (FanDuel-priced only),oos_wk8_9,ALL,99,82,17,0,0.8283,0.8521,-2.38,-0.0392,1.133,1.0,"[np.float64(-10.21), np.float64(5.29)]","[np.float64(-0.1378), np.float64(0.0587)]",15,False,ok
+floor<=p40 + cushion (FanDuel-priced only),train_wk6_7,ALL,170,140,30,0,0.8235,0.8413,-1.77,-0.0257,1.167,1.0,"[np.float64(-7.53), np.float64(3.77)]","[np.float64(-0.0953), np.float64(0.042)]",28,False,ok
+floor<=p40 (FanDuel-priced only),oos_wk8_9,ALL,134,79,55,0,0.5896,0.6661,-7.65,-0.1426,1.445,1.0,"[np.float64(-16.69), np.float64(1.19)]","[np.float64(-0.292), np.float64(0.0104)]",15,False,ok
+floor<=p40 (FanDuel-priced only),train_wk6_7,ALL,221,135,86,0,0.6109,0.6562,-4.54,-0.073,1.476,1.0,"[np.float64(-13.16), np.float64(3.27)]","[np.float64(-0.2178), np.float64(0.0678)]",28,False,ok
