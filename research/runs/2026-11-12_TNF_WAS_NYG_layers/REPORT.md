@@ -3,7 +3,9 @@ Written about 6:00 PM ET, Thu Nov 12, 2026. Kickoff 8:15 PM ET, MetLife Stadium,
 Input: GhostPapii21/nfl-matchup-database main **fb9167b** (packet refresh 22:11Z = 5:11 PM ET). Main was re-checked at 5:39 PM ET and is unchanged.
 Gates: `projection_ready` = false. NFL-44/45 are open. Phase 15 inactives are NOT_YET (they post about 6:45 PM ET). The 7 PM price freeze is not done. Every read is capped at **Lean**.
 Engine cross-check: **Ghost6 10k pre-gate preview, main fb9167b, seed 20261112, pre-inactives, no injury adjustments, research only.** It is not the official 100k. The official 100k is BetGuru's at about 7:10 PM ET, gated on inactives and the 7 PM freeze.
-No simulation was run for this report. The game-script numbers below are **script-based** (scenario-weighted, closed-form normal approximations in `script_layer.py`). Leg probabilities are closed-form (`legs.py`, `script_layer.py`).
+> **Labeling rule (NFL item 4, added Nov 13, 2026).** Every number in this report that was typed in by hand rather than produced by the engine or a fitted model is labeled **analyst read**. That covers the scenario scores and scenario weights, the quarter splits, the lognormal sigma values, the margin/total SDs (13.5 / 13.0), the forecast medians and zero-yard masses in `legs.py`, and the typed-in leg probabilities (Fields 2+ rec 0.72, Daniels 25+ rush 0.47, Likely 40+ 0.56). Probabilities computed from those inputs are analyst reads too. No "Edge" column is printed from analyst reads: an edge is shown only when it comes from the engine or a fitted model, and none is shown in this report. The only engine output here is the Ghost6 10k pre-gate preview (`ghost6_10k_preview_result.json`). Market prices, de-vigged probabilities and game-log hit rates are data, not analyst reads.
+
+No simulation was run for this report. The game-script numbers below are **analyst read** (hand-set scenario weights and scores, closed-form normal approximations in `script_layer.py`). Leg probabilities are **analyst read** (closed-form from hand-set medians and sigmas in `legs.py`, `script_layer.py`).
 
 ## 1. Rule gates (Rico's rules) applied to every leg
 | Gate | Rule | Status |
@@ -17,7 +19,7 @@ No simulation was run for this report. The game-script numbers below are **scrip
 ## 2. Projected score: game-script (script-based) vs Ghost6 10k pre-gate preview
 | Source | NYG | WAS | Total | NYG margin | NYG win | NYG -1.5 | NYG -2.5 | Over 40.5 |
 |---|---|---|---|---|---|---|---|---|
-| **Game script (script-based, scenario-weighted, not a sim)** | **21.5** | **18.3** | **39.8** | **+3.3** | 59.5% | 55.2% | 52.2% | 47.7% |
+| **Game script: analyst read (hand-set scenarios, not a sim, not fitted)** | **21.5** | **18.3** | **39.8** | **+3.3** | 59.5% | 55.2% | 52.2% | 47.7% |
 | Ghost6 10k pre-gate preview (fb9167b, seed 20261112, pre-inactives, no injury adj., research only) | 20.4 (median 20) | 21.2 (median 20) | 41.6 (median 41) | -0.8 | 48.6% | 44.3% | 41.9% | 51.9% |
 | Market (Pinnacle no-vig) | | | 40.5 | NYG -2.5 | 53.7% | | 48.2% (NYG +103) | 51.4% |
 
@@ -29,15 +31,15 @@ No simulation was run for this report. The game-script numbers below are **scrip
 
 So the script is lower on WAS points (18.3 vs 21.2) and on the total (39.8 vs 41.6). The preview's WAS lean agrees with the market's move toward WAS (section 5). The script's NYG lean does not. Win-probability scores were coin-flip level in the NFL-49 backtest, so the preview is **not a side read**. The script is not validated either. Because the two disagree, the side is **Pass**.
 
-### Script scenarios (weights are analyst judgment)
-| Scenario | Weight | Score | Flow and prop effect |
+### Script scenarios (analyst read: weights and scores are hand-set)
+| Scenario | Weight (analyst read) | Score (analyst read) | Flow and prop effect |
 |---|---|---|---|
 | Base: rain grind | 50% | NYG 21-18 | Field-position game. NYG targets go to Nabers and Likely. WAS gets short Daniels throws and White carries. |
 | NYG early lead | 25% | NYG 27-14 | NYG runs late (more Skattebo, less Nabers/Likely volume). WAS pass catchers get catch-up volume. |
 | WAS leads / upset | 25% | WAS 23-17 | NYG passes more (Nabers/Likely up), Skattebo carries drop, Daniels scrambles more. |
 Every slip below stacks NYG pass-catcher overs with Skattebo overs. In scenarios 2 and 3 those pull against each other.
 
-### Flow by half and quarter (script-based)
+### Flow by half and quarter (analyst read: hand-set quarter splits)
 | | Q1 | Q2 | Q3 | Q4 | 1H | 2H |
 |---|---|---|---|---|---|---|
 | NYG | 4.5 | 7.8 | 3.3 | 6.0 | 12.3 | 9.3 |
@@ -45,20 +47,20 @@ Every slip below stacks NYG pass-catcher overs with Skattebo overs. In scenarios
 The Q1 rate is low (rain, scripted openers). Q2 is the highest-scoring quarter (two-minute drill). The 2H is roughly even. 1H/2H/quarter market prices are MISSING from the packet, so there is no de-vig row for them.
 
 ## 3. Side and total reads (capped at Lean) with de-vig
-Consensus no-vig is the mean of the DK/FD/Pinnacle no-vig at the same line (packet 22:11Z = 5:11 PM ET). Edge = our probability minus Pinnacle no-vig, or minus consensus when Pinnacle does not post that line.
-| Market | Posted line (FD / DK / Pin) | Pinnacle no-vig | Consensus no-vig | Our prob (script) | Ghost6 10k preview | Edge (script) | Best price | Tier |
-|---|---|---|---|---|---|---|---|---|
-| NYG -1.5 | -110 / -115 / (Pin posts -2.5) | n/a | 50.6% | 55.2% | 44.3% | +4.6 | FD -110 | **Pass** (script and preview conflict; reverse line movement against NYG) |
-| NYG -2.5 | n/a / n/a / +103 | 48.2% | 48.2% | 52.2% | 41.9% | +4.0 | Pin +103 (reference) | **Pass** |
-| WAS +2.5 | n/a / n/a / -113 | 51.8% | 51.8% | 47.8% | 58.1% | -4.0 | Pin -113 | **Pass** (the preview leans WAS, but win-prob scores were coin-flip level in the backtest) |
-| NYG ML | -122 / -125 / -122 | 53.7% | 53.2% | 59.5% | 48.6% | +5.8 | FD/Pin -122 | **Pass** (same driver as the spread; conflict) |
-| Under 40.5 | -105 / -105 / +100 | 48.6% | 48.8% | 52.3% | 48.1% | +3.7 | Pin +100 / FD,DK -105 (retail breakeven 51.2%) | **Lean, low** (rain, total down 1 against 95% Over handle; the preview has no edge) |
-| Over 40.5 | -115 / -115 / -112 | 51.4% | 51.2% | 47.7% | 51.9% | -3.7 | | **Pass** (preview 51.9% vs retail -115 breakeven 53.5%: no edge) |
-| NYG 1H 3-way | MISSING | MISSING | MISSING | ~50% (script, about 14% tie mass) | n/a | n/a | n/a | **N/A** (no price) |
+Consensus no-vig is the mean of the DK/FD/Pinnacle no-vig at the same line (packet 22:11Z = 5:11 PM ET). The script column is an **analyst read**, so no edge is computed from it (the former "Edge (script)" column was removed under item 4).
+| Market | Posted line (FD / DK / Pin) | Pinnacle no-vig | Consensus no-vig | Analyst read (script) | Ghost6 10k preview (engine) | Best price | Tier |
+|---|---|---|---|---|---|---|---|
+| NYG -1.5 | -110 / -115 / (Pin posts -2.5) | n/a | 50.6% | 55.2% | 44.3% | FD -110 | **Pass** (script and preview conflict; reverse line movement against NYG) |
+| NYG -2.5 | n/a / n/a / +103 | 48.2% | 48.2% | 52.2% | 41.9% | Pin +103 (reference) | **Pass** |
+| WAS +2.5 | n/a / n/a / -113 | 51.8% | 51.8% | 47.8% | 58.1% | Pin -113 | **Pass** (the preview leans WAS, but win-prob scores were coin-flip level in the backtest) |
+| NYG ML | -122 / -125 / -122 | 53.7% | 53.2% | 59.5% | 48.6% | FD/Pin -122 | **Pass** (same driver as the spread; conflict) |
+| Under 40.5 | -105 / -105 / +100 | 48.6% | 48.8% | 52.3% | 48.1% | Pin +100 / FD,DK -105 (retail breakeven 51.2%) | **Lean, low** (rain, total down 1 against 95% Over handle; the preview has no edge) |
+| Over 40.5 | -115 / -115 / -112 | 51.4% | 51.2% | 47.7% | 51.9% | | **Pass** (preview 51.9% vs retail -115 breakeven 53.5%: no edge) |
+| NYG 1H 3-way | MISSING | MISSING | MISSING | ~50% (script, about 14% tie mass) | n/a | n/a | **N/A** (no price) |
 The total and team-points layer is superseded by BetGuru's official 100k at about 7:10 PM ET.
 
 ## 4. Props and value (reference only; gates applied)
-| Read | Market | Our prob | Gate | Tier |
+| Read | Market | Analyst read | Gate | Tier |
 |---|---|---|---|---|
 | A.Williams receiving yards UNDER 37.5 | FD -113 (no-vig 50.0%) | ~58% (rain forecast 31.4, median 25.7) | rule-fail: defender unverified | Flag only |
 | Likely receptions OVER 4.5 | FD +102 (no-vig 46.2%; Pin 47.2%) | ~52% (forecast 5.3 rec; 5 of 8 games with 5+) | rule-fail: defender unverified | Flag only |
@@ -99,17 +101,17 @@ The total and team-points layer is superseded by BetGuru's official 100k at abou
 | Weather change (NWS rain under 50%) | Withdraw the Under lean. |
 
 ## 8. Slip grades
-All leg probabilities are closed-form and market-anchored. "Joint" multiplies the legs as if independent; same-player and same-team correlation pushes the true joint higher, so a range is given. The price is the SGP total as logged. FD alt-ladder leg prices are MISSING.
+All leg probabilities are **analyst reads** (closed-form from hand-set medians/sigmas, or typed in). "Joint" multiplies the legs as if independent; same-player and same-team correlation pushes the true joint higher, so a range is given. The price is the SGP total as logged. FD alt-ladder leg prices are MISSING. The former EV column was removed under item 4 because it was computed from analyst-read leg probabilities, which makes it an edge that did not come from the engine or a fitted model.
 
 **bet-log.csv TNF pending:** 4 slips, 31 leg rows. Total pending stake **$318** (A $125 + B $18 + C $75 + D $100). The screenshot slip (7-pick +950 boosted to +1235, $65) is **not** in bet-log.csv: there is no matching ID, price, stake or leg set, so it is a **fifth slip**. With it, TNF exposure is $383. bet-log.csv was not edited.
 
-| Slip | Price / stake | Legs that pass the gates | Rule-fail legs | Joint (indep / adj) | Book implied | EV | Verdict |
-|---|---|---|---|---|---|---|---|
-| D (6 legs) | +335 / $100 | none | Skattebo 30+ R+R (G-RB); Likely 3+ rec, Nabers 60+, Diggs 3+ rec, Williams 15+, Fields 10+ (G-DEF) | 18.9% / 19-24% | 23.0% | -$18 | **Gate FAIL, 6/6 legs.** Least-bad price. C+ on price, FAIL on rules |
-| A (8 legs) | +413 / $125 | Under 54.5 (~86%) | Skattebo 25+ rush (G-RB); Likely 20+, Nabers 40+, Fields 15+, Okonkwo 15+, Williams 20+, Diggs 25+ (G-DEF) | 13.6% / 14-19% | 19.5% | -$38 | **Gate FAIL, 7/8.** C- |
-| C (7 legs) | +559 / $75 | NYG 1H 3-way (~45-50%, no price) | Skattebo 40+ R+R (G-RB); Likely 4+ rec, Likely 30+, Diggs 3+ rec, Williams 15+, Nabers 60+ (G-DEF) | 5.4% / 5-9% | 15.2% | -$48 | **Gate FAIL, 6/7.** D |
-| B (10 legs) | +1179 / $18 | Under 55.5 (~87.5%) | Skattebo 30+ R+R (G-RB); 8 receiving legs (G-DEF) | 2.0% / 2-5% | 7.8% | -$14 | **Gate FAIL, 9/10.** F (lottery) |
-| **Screenshot (7 legs)** | +950, 30% boost to +1235 on $10; $65 stake, $711 payout (effective 9.94-to-1, implied 9.1%) | Daniels 25+ rush (QB, not covered by G-RB; ~47%, Lean cap) | Skattebo 50+ R+R (~80%) and White 25+ rush (~76%) (G-RB); Fields 2+ rec (~72%), Diggs 30+ (~62%), Likely 40+ (~56%), Nabers 50+ (~63%) (G-DEF) | 4.5% / 5-8% | 9.1% | about -$33 (-$13 to -$33 depending on correlation) | **Gate FAIL, 6/7.** D. Daniels 25+ is the weakest leg; Likely 40+ is next. |
+| Slip | Price / stake | Legs that pass the gates | Rule-fail legs | Joint, analyst read (indep / adj) | Book implied | Verdict |
+|---|---|---|---|---|---|---|
+| D (6 legs) | +335 / $100 | none | Skattebo 30+ R+R (G-RB); Likely 3+ rec, Nabers 60+, Diggs 3+ rec, Williams 15+, Fields 10+ (G-DEF) | 18.9% / 19-24% | 23.0% | **Gate FAIL, 6/6 legs.** Least-bad price. C+ on price, FAIL on rules |
+| A (8 legs) | +413 / $125 | Under 54.5 (~86%) | Skattebo 25+ rush (G-RB); Likely 20+, Nabers 40+, Fields 15+, Okonkwo 15+, Williams 20+, Diggs 25+ (G-DEF) | 13.6% / 14-19% | 19.5% | **Gate FAIL, 7/8.** C- |
+| C (7 legs) | +559 / $75 | NYG 1H 3-way (~45-50%, no price) | Skattebo 40+ R+R (G-RB); Likely 4+ rec, Likely 30+, Diggs 3+ rec, Williams 15+, Nabers 60+ (G-DEF) | 5.4% / 5-9% | 15.2% | **Gate FAIL, 6/7.** D |
+| B (10 legs) | +1179 / $18 | Under 55.5 (~87.5%) | Skattebo 30+ R+R (G-RB); 8 receiving legs (G-DEF) | 2.0% / 2-5% | 7.8% | **Gate FAIL, 9/10.** F (lottery) |
+| **Screenshot (7 legs)** | +950, 30% boost to +1235 on $10; $65 stake, $711 payout (effective 9.94-to-1, implied 9.1%) | Daniels 25+ rush (QB, not covered by G-RB; ~47% analyst read, typed in; Lean cap) | Skattebo 50+ R+R (~80%) and White 25+ rush (~76%) (G-RB); Fields 2+ rec (~72%, typed in), Diggs 30+ (~62%), Likely 40+ (~56%, typed in), Nabers 50+ (~63%) (G-DEF); all analyst reads | 4.5% / 5-8% | 9.1% | **Gate FAIL, 6/7.** D. Daniels 25+ is the weakest leg; Likely 40+ is next. |
 
 ## 9. Phase / status ledger
 PASS (auto): 1, 2, 3, 5, 11, 12. PARTIAL: 4, 6, 7, 8 (who-covers-whom MISSING), 9, 10, 13 (no FD alt ladders, no true opener), 14 (script-based plus Ghost6 10k preview; official 100k pending about 7:10 PM ET). PENDING: 15 (inactives about 6:45 PM ET).
