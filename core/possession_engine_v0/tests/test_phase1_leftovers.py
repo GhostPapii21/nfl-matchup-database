@@ -148,3 +148,61 @@ def test_opt_ins_change_output_only_when_enabled():
     assert _run({"clock_rounding": "round"}) != GOLDEN_MAIN_3DAD900
     assert _run({"fourth_down_yl_buckets": "v1_fringe"}) != GOLDEN_MAIN_3DAD900
     assert _run({"clock_rounding": "truncate", "fourth_down_yl_buckets": "v0"}) == GOLDEN_MAIN_3DAD900
+
+
+# ---------------------------------------------------------------- (b) goal-line TD over-count (inside the 3)
+# Ghost6 audit: inside the 3 the sim scores on 51.8% of snaps vs 46.5% actual. phase1_reconcile splits the inside-3
+# snaps by the yardline the sampled row came from: rows that really were run inside the 3 score at ~the actual rate;
+# rows drawn from deeper (4-20, the "RZ" cell spans 1-20) or from the team-wide COARSE_SAME_DOWN fallback (any field
+# position) score ~65-70%. TD crediting itself is right; the pool is too wide at the goal line.
+# Opt-in fix: accounting.goal_line_pool = "local5": at yardline <= 5 draw from the offense's own rows run at
+# yardline <= 5 (same down if >= min_n, else any down), else the unchanged v0 chain.
+def _real_catalog(goal_line_pool):
+    from pbp_filter import load_team_history
+    cfg = json.loads(CFG.read_text())
+    cfg["accounting"] = {"goal_line_pool": goal_line_pool}
+    h = load_team_history(str(PBP), teams=cfg["history"]["teams"], season=cfg["history"]["season"],
+                          weeks=(cfg["history"]["weeks_inclusive"][0], cfg["history"]["weeks_inclusive"][-1]))
+    cat, _ = simulate.build_catalog(h["df"], cfg, games_df=h.get("games_df"))
+    for c in (cat, getattr(cat, "base", None)):
+        if c is not None:
+            c.goal_line_pool = goal_line_pool
+    return cat, cfg
+
+
+def _source_yardlines(goal_line_pool, n=300):
+    cat, cfg = _real_catalog(goal_line_pool)
+    rng = np.random.default_rng(99)
+    out = []
+    for _ in range(n):
+        st = SimpleNamespace(possession=cfg["game"]["home"], home=cfg["game"]["home"], away=cfg["game"]["away"],
+                             down=2, ydstogo=2, yardline_100=2)  # 2nd-and-goal at the 2: NYG cell is sparse
+        row, _tag = cat.sample_snap(rng, st, False)
+        out.append(int(row["yardline_100"]))
+    return out
+
+
+def test_accounting_goal_line_pool_default_and_validation():
+    assert accounting_from_cfg({})["goal_line_pool"] == "v0"
+    assert accounting_from_cfg({"accounting": "legacy"})["goal_line_pool"] == "v0"
+    with pytest.raises(ValueError):
+        accounting_from_cfg({"accounting": {"goal_line_pool": "everywhere"}})
+
+
+@pytest.mark.skipif(not PBP.exists(), reason="PBP parquet not present")
+def test_v0_goal_line_draws_rows_from_deeper_field_positions():
+    ys = _source_yardlines("v0")
+    assert max(ys) > 5  # characterizes the over-count source
+
+
+@pytest.mark.skipif(not PBP.exists(), reason="PBP parquet not present")
+def test_local5_goal_line_draws_only_goal_line_rows_and_is_deterministic():
+    ys = _source_yardlines("local5")
+    assert max(ys) <= 5
+    assert ys == _source_yardlines("local5")
+
+
+@pytest.mark.skipif(not PBP.exists(), reason="PBP parquet not present")
+def test_goal_line_pool_opt_in_only():
+    assert _run({"goal_line_pool": "v0"}) == GOLDEN_MAIN_3DAD900
+    assert _run({"goal_line_pool": "local5"}) != GOLDEN_MAIN_3DAD900

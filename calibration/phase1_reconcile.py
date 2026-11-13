@@ -78,6 +78,17 @@ def sim_counts(job):
             tag = gl_tag or "uncensored"
             C[f"in10|snaps|{tag}"] += 1
             C[f"in10|td|{tag}"] += int(td)
+        if y <= 3:
+            tag = gl_tag or "uncensored"
+            C[f"in3|snaps|{tag}"] += 1
+            C[f"in3|td|{tag}"] += int(td)
+            try:
+                sy = int(row.get("yardline_100"))
+            except (TypeError, ValueError):
+                sy = -1
+            src = "src_le3" if 0 < sy <= 3 else ("src_4_10" if 3 < sy <= 10 else ("src_11_20" if 10 < sy <= 20 else "src_other"))
+            C[f"in3src|snaps|{src}"] += 1
+            C[f"in3src|td|{src}"] += int(td)
 
     def fourth(rng, catalog, st):
         d = o_4th(rng, catalog, st)
@@ -148,6 +159,9 @@ def actual_counts(pbp, teams, weeks) -> dict:
             f4 = x[(x.down == 4) & x.play_type.isin(["punt", "field_goal", "pass", "run"])]
             for r in f4.itertuples():
                 out[f"4th|{band(int(r.yardline_100))}|{'go' if r.play_type in ('pass', 'run') else r.play_type}"] += 1
+            r3 = sn[sn.yardline_100 <= 3]
+            out["in3|snaps"] += len(r3)
+            out["in3|td"] += int(((r3.touchdown == 1) & (r3.td_team == t)).sum())
             r10 = sn[sn.yardline_100 <= 10]
             out["in10|snaps"] += len(r10)
             out["in10|td"] += int(((r10.touchdown == 1) & (r10.td_team == t)).sum())
@@ -192,6 +206,19 @@ def summarize(res, jobs, pbp) -> dict:
     s_all = sum(S.get(f"in10|snaps|{t}", 0) for t in GL_TAGS); t_all = sum(S.get(f"in10|td|{t}", 0) for t in GL_TAGS)
     gl["all_sim"] = {"snaps_per_team_game": round(s_all / tg, 3), "td_share": round(t_all / max(s_all, 1), 4)}
     gl["actual"] = {"snaps_per_team_game": round(A["in10|snaps"] / atg, 3), "td_share": round(A["in10|td"] / max(A["in10|snaps"], 1), 4)}
+    gl3 = {}
+    for tag in GL_TAGS:
+        s3, t3 = S.get(f"in3|snaps|{tag}", 0), S.get(f"in3|td|{tag}", 0)
+        if s3:
+            gl3[tag] = {"snaps_per_team_game": round(s3 / tg, 3), "td_share": round(t3 / s3, 4)}
+    s3a = sum(S.get(f"in3|snaps|{t}", 0) for t in GL_TAGS); t3a = sum(S.get(f"in3|td|{t}", 0) for t in GL_TAGS)
+    for src in ("src_le3", "src_4_10", "src_11_20", "src_other"):
+        s_, t_ = S.get(f"in3src|snaps|{src}", 0), S.get(f"in3src|td|{src}", 0)
+        if s_:
+            gl3[f"by_source_row_yardline|{src}"] = {"share_of_in3_snaps": None, "snaps_per_team_game": round(s_ / tg, 3),
+                                                    "td_share": round(t_ / s_, 4)}
+    gl3["all_sim"] = {"snaps_per_team_game": round(s3a / tg, 3), "td_share": round(t3a / max(s3a, 1), 4)}
+    gl3["actual"] = {"snaps_per_team_game": round(A["in3|snaps"] / atg, 3), "td_share": round(A["in3|td"] / max(A["in3|snaps"], 1), 4)}
     clock = {k: round(v / games, 2) for k, v in sorted(secs.items())}
     clock["total_charged_via_clock_cost_and_kickoff_per_game"] = round(sum(secs.values()) / games, 1)
     clock["mean_charged_per_event"] = {k[11:]: round(secs[k] / max(S.get("clock_events_" + k[11:], 0), 1), 3)
@@ -202,7 +229,7 @@ def summarize(res, jobs, pbp) -> dict:
         cm.update(r["clock_map"])
     clock["mean_clock_map_target"] = {k: round(v / len(res), 3) for k, v in cm.items()}
     return {"sim_games": games, "sim_team_games": tg, "actual_team_games": atg, "per_team_game": table,
-            "fourth_down_by_band": fourth, "inside10": gl, "clock_seconds_per_game": clock,
+            "fourth_down_by_band": fourth, "inside10": gl, "inside3": gl3, "clock_seconds_per_game": clock,
             "sim_points_per_game": round(S["points"] / games, 3), "sim_ot_rate": round(S["ot_games"] / games, 4)}
 
 

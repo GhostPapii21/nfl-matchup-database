@@ -239,6 +239,24 @@ class PlayCatalog:
         """Mixture weight is a STRUCTURAL ASSUMPTION (not fitted)."""
         self._def_allowed_w = float(np.clip(weight, 0.0, 1.0))
 
+    def _goal_line_local(self, team: str, down: int):
+        """Phase 1 opt-in (accounting.goal_line_pool="local5"): the offense's own pass/run rows run at yardline <= 5,
+        same down if >= min_n, else any down if >= min_n, else None (the v0 chain applies). Memoised."""
+        cache = self.__dict__.setdefault("_gl_local_cache", {})
+        k = (team, down)
+        if k not in cache:
+            t = self.by_team.get(team)
+            res = None
+            if t is not None and len(t):
+                g = t[t["yardline_100"] <= GOAL_LINE_LOCAL_YL]
+                gd = g[g["down"] == down]
+                if len(gd) >= self.min_n:
+                    res = (gd, f"GL_LOCAL_SAME_DOWN_n={len(gd)}")
+                elif len(g) >= self.min_n:
+                    res = (g, f"GL_LOCAL_ANY_DOWN_n={len(g)}")
+            cache[k] = res
+        return cache[k]
+
     def sample_snap(self, rng: np.random.Generator, st: GameState, allow_pool: bool) -> tuple[Optional[pd.Series], str]:
         if self._def_allowed_w > 0 and st.possession is not None:
             defense = st.home if st.possession == st.away else st.away
@@ -272,6 +290,13 @@ class PlayCatalog:
                 if w >= 1.0 or (w > 0.0 and rng.random() < w):
                     self._last_pool, self._last_pool_foreign = use, False
                     return use.iloc[int(rng.integers(0, len(use)))], f"DEF_COND_vs_{defense}_n={len(use)}"
+        if getattr(self, "goal_line_pool", "v0") == "local5" and st.possession is not None \
+                and float(st.yardline_100) <= GOAL_LINE_LOCAL_YL:
+            gl = self._goal_line_local(st.possession, int(st.down))
+            if gl is not None:
+                pool, tag = gl
+                self._last_pool, self._last_pool_foreign = pool, False
+                return pool.iloc[int(rng.integers(0, len(pool)))], tag
         key = (st.possession, int(st.down), dist_bucket(st.ydstogo), yl_bucket(st.yardline_100))
         cell = self.cells.get(key)
         if cell is not None and len(cell) >= self.min_n:
@@ -334,14 +359,14 @@ def _clean_kick_mask(sub: pd.DataFrame, kind: str) -> pd.Series:
 ACCOUNTING_DEFAULTS = {"clock": "mean", "exclude_clock_mgmt_snaps": True, "kickoff_clock": True,
                        "no_play_clock": "asof_mean", "unmodeled_row_clock": "attribute_to_prior_play",
                        "goal_line_censoring": "redistribute_right", "clock_rounding": "truncate",
-                       "fourth_down_yl_buckets": "v0"}
+                       "fourth_down_yl_buckets": "v0", "goal_line_pool": "v0"}
 ACCOUNTING_LEGACY = {"clock": "legacy_median", "exclude_clock_mgmt_snaps": False, "kickoff_clock": False,
                      "no_play_clock": "flat_4s", "unmodeled_row_clock": "drop", "goal_line_censoring": "truncate",
-                     "clock_rounding": "truncate", "fourth_down_yl_buckets": "v0"}
+                     "clock_rounding": "truncate", "fourth_down_yl_buckets": "v0", "goal_line_pool": "v0"}
 # Pre-WP1/WP2 engine (NFL-49 B accounting, 2026-11-12 main 9beb9b0): use accounting=PRE_WP12 to reproduce it.
 ACCOUNTING_PRE_WP12 = {"clock": "mean", "exclude_clock_mgmt_snaps": True, "kickoff_clock": True,
                        "no_play_clock": "flat_4s", "unmodeled_row_clock": "drop", "goal_line_censoring": "truncate",
-                       "clock_rounding": "truncate", "fourth_down_yl_buckets": "v0"}
+                       "clock_rounding": "truncate", "fourth_down_yl_buckets": "v0", "goal_line_pool": "v0"}
 
 
 def accounting_from_cfg(cfg: dict) -> dict:
@@ -359,7 +384,10 @@ def accounting_from_cfg(cfg: dict) -> dict:
     clock_rounding (Phase 1 opt-in): "truncate" (default) = int() of each clock draw, ~0.5 s short per event;
     "round" = nearest second (mean charge equals the as-of mean). See _clock_cost.
     fourth_down_yl_buckets (Phase 1 opt-in): "v0" (default) = fg_range <=35 / mid 36-60 / own; "v1_fringe" adds a
-    36-45 "fringe" cell so 4th downs at the opponent 36-45 are not drawn from the punt-heavy 46-60 mix."""
+    36-45 "fringe" cell so 4th downs at the opponent 36-45 are not drawn from the punt-heavy 46-60 mix.
+    goal_line_pool (Phase 1 opt-in): "v0" (default) = unchanged snap pools; "local5" = at yardline <= 5 draw from the
+    offense's own rows run at yardline <= 5 (same down, else any down, each needing min_n) before the v0 chain, so a
+    sparse 2nd-and-goal cell no longer falls back to the team's whole-field same-down pool."""
     a = cfg.get("accounting")
     if a == "legacy":
         return dict(ACCOUNTING_LEGACY)
@@ -379,6 +407,8 @@ def accounting_from_cfg(cfg: dict) -> dict:
         raise ValueError(f"unknown accounting.goal_line_censoring {out['goal_line_censoring']!r}")
     if out["clock_rounding"] not in ("truncate", "round"):
         raise ValueError(f"unknown accounting.clock_rounding {out['clock_rounding']!r}")
+    if out["goal_line_pool"] not in ("v0", "local5"):
+        raise ValueError(f"unknown accounting.goal_line_pool {out['goal_line_pool']!r}")
     if out["fourth_down_yl_buckets"] not in ("v0", "v1_fringe"):
         raise ValueError(f"unknown accounting.fourth_down_yl_buckets {out['fourth_down_yl_buckets']!r}")
     if out["clock"] != "mean":
@@ -402,6 +432,7 @@ def h2h_policy_from_cfg(cfg: dict) -> dict:
     return dict(h)
 
 
+GOAL_LINE_LOCAL_YL = 5  # Phase 1 opt-in goal_line_pool="local5": structural boundary (goal-to-go inside the 5), not fitted
 MAX_FG_KICK = 66  # physical guard (longest observed NFL makes ~66-67); not a fitted parameter
 
 
@@ -1105,6 +1136,9 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
     catalog.goal_line_censoring = acc["goal_line_censoring"]
     catalog.clock_rounding = acc["clock_rounding"]
     catalog.fourth_down_yl_buckets = acc["fourth_down_yl_buckets"]
+    for _c in (catalog, getattr(catalog, "base", None)):
+        if _c is not None:
+            _c.goal_line_pool = acc["goal_line_pool"]
     sem = getattr(catalog, "semantics", None)
     rpm = sem.get("rare_plays") if isinstance(sem, dict) else None
     if rpm is not None and rpm.research_budget is not None:
