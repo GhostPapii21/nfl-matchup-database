@@ -170,3 +170,42 @@ def test_model_files_are_point_in_time():
         meta = m["meta"]
         assert meta["projection_ready"] is False
         assert meta["params"]["data_max_week_used"]["week"] < meta["eval_week"]
+
+
+# ------------------------------------------------------------------ 6. research guard (review item 4)
+def test_opportunity_model_refused_above_research_cap():
+    import simulate
+    cfg, _ = __import__("_player_box_golden").variant_cfg("was_nyg_lock")
+    with pytest.raises(ValueError, match="never 100k"):
+        simulate.simulate_games(cfg, pbp_path=str(G.PBG.PBP), n=simulate.RESEARCH_MAX_N + 1, seed=1,
+                                opportunity_model=model("was_nyg_lock"))
+
+
+def test_opportunity_model_never_enabled_from_a_config():
+    import simulate
+    cfg, _ = __import__("_player_box_golden").variant_cfg("was_nyg_lock")
+    for key in ("opportunity_model", "opportunity"):
+        c = dict(cfg)
+        c[key] = model("was_nyg_lock")
+        with pytest.raises(ValueError, match="UNSUPPORTED"):
+            simulate.simulate_games(c, pbp_path=str(G.PBG.PBP), n=2, seed=1)
+
+
+def test_lock_and_100k_path_refuse_opportunity_model():
+    import inspect
+    sys.path.insert(0, str(REPO))
+    from snapshots import lock
+    assert "opportunity_model" not in inspect.signature(lock.run_sim).parameters
+    cfg, _ = __import__("_player_box_golden").variant_cfg("was_nyg_lock")
+    c = dict(cfg)
+    c["opportunity_model"] = {"schema": "nfl75-opportunity/1"}
+    with pytest.raises(ValueError, match="UNSUPPORTED"):
+        lock.run_sim(c, str(G.PBG.PBP), 2, 1, 1)
+    src = (REPO / "pipeline/sim100k.py").read_text()
+    assert "opportunity_model" not in src.replace("refuses opportunity_model", "")
+
+
+@needs_pbp
+def test_opt_in_output_is_labelled_research_only():
+    ob = _run("was_nyg_lock", 20261112, opp=True)["player_box_opportunity"]
+    assert ob["label"].startswith("UNACCEPTED_RESEARCH_ONLY") and ob["research_only"] is True
