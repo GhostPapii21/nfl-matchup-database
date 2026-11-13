@@ -663,6 +663,10 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
         y0 = _gl_censored_at(row)
         if y0 is not None and y0 < int(st.yardline_100):
             gl_tag = "GL_CENSOR_TRUNCATED"  # pre-WP2 behaviour, tagged only (no flag, no change)
+    wx = getattr(catalog, "weather", None)
+    if wx is not None:  # NFL-75 item 6, opt-in only (environment_adjust.py); None draws nothing
+        from environment_adjust import apply_weather_row
+        row = apply_weather_row(rng, wx, row)
     _apply_row(rng, catalog, st, row, gl_tag)
 
 
@@ -1221,11 +1225,14 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
     wk = (cfg.get("game") or {}).get("week_asof_exclusive")
     if wk is not None and int(cfg["history"]["weeks_inclusive"][-1]) >= int(wk):
         raise ValueError(f"history weeks {cfg['history']['weeks_inclusive']} not strictly before target week {wk}")
+    import environment_adjust as envadj
+    env_on = envadj.check_research_call(cfg, research_unaccepted, n, RESEARCH_MAX_N)  # [] unless opted in
     hist = load_team_history(
         pbp_path,
         teams=cfg["history"]["teams"],
         season=cfg["history"]["season"],
         weeks=(cfg["history"]["weeks_inclusive"][0], cfg["history"]["weeks_inclusive"][-1]),
+        **({"extra_cols": envadj.ID_COLS} if envadj.availability_mode(cfg) != "off" else {}),
     )
     if hist["status"] != "OK":
         return {"status": hist["status"], "n_completed": 0, "error": "history_load_failed", "pooling_silently_applied": False}
@@ -1239,12 +1246,17 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
             if isinstance(m, dict) and m.get("sparse_qb"):
                 qb_status[team] = f"SPARSE_QB_HISTORY n_pass={m.get('n_pass_after')}"
 
+    avail_meta = None
+    if envadj.availability_mode(cfg) != "off":
+        df, avail_meta = envadj.apply_availability(df, cfg)
     catalog, effects_prov = build_catalog(df, cfg, games_df=hist.get("games_df"))
+    catalog.weather = envadj.build_weather(cfg)  # None unless opted in
     research_unaccepted = tuple(research_unaccepted or ())
     if research_unaccepted:
-        bad = [x for x in research_unaccepted if x != "rare_plays"]
+        from environment_adjust import RESEARCH_NAMES as _ENV_NAMES
+        bad = [x for x in research_unaccepted if x != "rare_plays" and x not in _ENV_NAMES.values()]
         if bad:
-            raise ValueError(f"research_unaccepted only allows 'rare_plays', got {bad}")
+            raise ValueError(f"research_unaccepted only allows 'rare_plays', {', '.join(repr(v) for v in _ENV_NAMES.values())}; got {bad}")
         if int(n) > RESEARCH_MAX_N:
             raise ValueError(f"research_unaccepted runs are capped at n={RESEARCH_MAX_N} (got {n}); never 100k")
     semantics_meta = attach_semantics(catalog, cfg, pbp_path, research_unaccepted=research_unaccepted, research_n=int(n))
@@ -1364,6 +1376,9 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
                                "(band0 = exact, no translation); all: whole-class pool fallback, NO distance bound; "
                                "absolute: onside rows, row spot used as-is")}
            if _rare_model(catalog) is not None else {}),
+        **({"environment_adjustments": {"enabled": env_on, "weather": catalog.weather, "availability": avail_meta,
+                                        "label": "UNACCEPTED_RESEARCH_ONLY: opt-in NFL-75 item 6 adjustment"}}
+           if env_on else {}),
         "player_joint": joint_acc,
         "player_samples": player_samples,
         **({"player_box": box_acc.result()} if box_acc is not None else {}),
