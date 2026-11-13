@@ -62,7 +62,11 @@ python - <<'PY'
 import glob, pandas as pd
 from calibration.selective_edge_live import legs_from_freeze_v2
 ros = pd.read_parquet("data/historical/nflverse/ros_2026.parquet")
-fs = [f for f in sorted(glob.glob("pregame/price_freezes/*/freeze_v2_*.json")) if "2026-11-1" in f]  # Week 10 freezes
+import os
+newest = {}
+for f in sorted(glob.glob("pregame/price_freezes/2026-11-1[2-6]_*/freeze_v2_*.json")):   # Week 10 game dirs
+    newest[os.path.dirname(f)] = f                                                      # newest freeze per game
+fs = list(newest.values())
 pd.concat([legs_from_freeze_v2(f, ros) for f in fs]).to_csv("/tmp/legs_w10_0700.csv", index=False)
 PY
 python -m calibration.simv56_pmodel run --legs /tmp/legs_w10_0700.csv --week 10 --sources /tmp/w10_src_0700 --out /tmp/w10_simv56_0700
@@ -75,8 +79,7 @@ python -m calibration.simv56_pmodel run --legs /tmp/legs_w10_1130.csv --week 10 
     --inactives /tmp/w10_inactives.csv --out /tmp/w10_simv56_1130
 python -m calibration.simv56_pmodel grade --legs /tmp/w10_simv56_1130/legs_p.csv --out /tmp/w10_simv56_1130/graded
 ```
-Each newest freeze per game is used (all freezes are read; dedupe legs to the newest freeze per game before `run` if
-several exist). `run` writes `legs_p.csv`, `ensemble.csv`, `qb_starters.csv`, per-engine CSV/JSON and `meta.json`.
+The snippet keeps only the newest freeze per game. `run` writes `legs_p.csv`, `ensemble.csv`, `qb_starters.csv`, per-engine CSV/JSON and `meta.json`.
 
 Runtime: W8 83 legs 10.5 s total (3 engines in parallel), TNF 6 players 1.8 s -> about 0.1-0.15 s per player; a full
 Sunday slate (~100-150 rush legs, ~70-90 players) is well under a minute. Disk: per run ~0.1 MB output + 3.4 MB fetched
