@@ -72,6 +72,8 @@ class Engine:
         name,mkt,spread=leg['player'],leg['market'],float(leg['spread']); team=NV.get(leg['team'],leg['team']); opp=NV.get(leg['opp'],leg['opp'])
         qb=mkt in('passyds','comp'); d,a,yc,ypc_rush,g=self.player(name,team,qb,leg.get('gsis')); PG=self.pos.get(g,'WR')
         if len(a)==0: raise ValueError('no active games before cutoff')
+        QF=bool(leg.get('qb_rush_prior')) and PG=='QB' and mkt in('rushyds','rushrec')   # NFL-75 QB rush prior fix (opt-in; qb_rush_prior.py)
+        if QF: import qb_rush_prior as QRP; qr=QRP.qb_rush_inputs(ru,g,opp,a.game_id.values); ypc_rush=qr['ypc']; a=a.assign(car=qr['car']); KT=QRP.kneel_table(ru,tg)
         l3=a.tail(3); w=lambda col:0.6*a[col].mean()+0.4*l3[col].mean()
         cr=(a.rec.sum()+1)/(a.tgt.sum()+2); pgk=None if qb else PG
         A_ypt,r_ypt=self.oppadj(opp,pgk,'ypt'); A_cr,r_cr=self.oppadj(opp,pgk,'cr')
@@ -80,7 +82,8 @@ class Engine:
             lg=(pp[pp.complete_pass==1].receiving_yards.mean() if qb else pp[(pp.pg==PG)&(pp.complete_pass==1)].receiving_yards.mean())
             K=100 if qb else 30; wv=len(yc)/(len(yc)+K); A_rec_y*=(wv*yc.mean()+(1-wv)*lg)/yc.mean()
         A_ypc=1.0
-        if len(ypc_rush):
+        if QF: A_ypc=QRP.ypc_factor(float(ypc_rush.mean()) if len(ypc_rush) else 0.0,len(ypc_rush),qr['lg_qb'],qr['opp_ratio'])
+        elif len(ypc_rush):
             lgA=ru.rushing_yards.mean(); pm=ypc_rush.mean(); wv=len(ypc_rush)/(len(ypc_rush)+100); oppY=ru[ru.defteam==opp].rushing_yards.mean()
             A_ypc=((wv*pm+(1-wv)*lgA)/pm)*(oppY/lgA) if pm and lgA and oppY==oppY else 1.0   # guard divide-by-zero
         out={}
@@ -113,12 +116,14 @@ class Engine:
                 if len(ypc_rush):
                     for i in range(int(Cr.max())): tot+=np.where(Cr>i,rng.choice(ypc_rush,N),0)
                 x=x+tot*A_ypc*float(leg.get('ypc_boost',1.0))   # BUG-2026-11-01-RBMISS F (all three models)
+                if QF: x=x+QRP.sim_kneel_yards(QRP.kneel_rng(self.seed,name,mkt,mode),spread,N,KT)   # NFL-75 separate kneel model
             if isinstance(x,int): x=np.zeros(N)
             x=np.asarray(x)
             x=scale_count(rng,x.astype(int),M).astype(float) if mkt in('rec','comp') else x.astype(float)*M
             out[mode]=dict(mean=float(x.mean()),median=float(np.median(x)),cmedian=float(np.median(x+rng.uniform(-.5,.5,N))) if mkt in('rec','comp') else float(np.median(x)),
                            p10=float(np.percentile(x,10)),p90=float(np.percentile(x,90)),M=M,rungs={str(k):float((x>=k).mean()) for k in leg.get('rungs',[])})
         info.update(n_games=len(a),w_tgt=float(w('tgt')),w_car=float(w('car')),cr=float(cr),A_ypc=float(A_ypc),A_rec_y=float(A_rec_y),pos=PG)
+        if QF: info['qb_rush_prior']=dict(lg_qb=qr['lg_qb'],lg_all_nk=qr['lg_all_nk'],opp_ratio=qr['opp_ratio'],n_nk=int(len(ypc_rush)),n_kneels=qr['n_kneels_player'])
         return out,info
 # ---------- BUG-2026-11-01-RBSCRIPT: game-script RB rule ----------
 FAV_SPREAD, FAV_YPC = -7.0, 4.4
