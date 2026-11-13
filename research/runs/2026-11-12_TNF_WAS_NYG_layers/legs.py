@@ -1,5 +1,8 @@
 import numpy as np, json
 from scipy import stats
+# ANALYST READ (NFL item 4): every probability this file produces is an analyst read, not an engine
+# or fitted-model output. The medians, sigma values (0.45-0.85), zero-yard masses (p0) and reception
+# means (lam) below are hand-set, not fitted. Do not compute or print an "Edge" from these numbers.
 # Analytic leg probabilities (closed-form; NOT a Monte Carlo). Yards: zero-inflated lognormal.
 # Market-anchored: lognormal median = FD main line (no-vig ~50%), sigma by position.
 # Model-anchored: median = rain-adjusted forecast mean * med/mean ratio from game log.
@@ -16,7 +19,7 @@ def p_rec_pois(lam, k):  # P(X>=k), slight overdispersion via negbin r=12
     r=12; p=r/(r+lam); return 1-stats.nbinom.cdf(k-1, r, p)
 def emp(l,thr): return sum(x>=thr for x in l)/len(l)
 legs = [
- # name, kind, threshold, market main line, model median, sigma, p0, lam(rec)
+ # name, kind, threshold, market main line, forecast median (analyst read), sigma (analyst read), p0 (analyst read), lam(rec, analyst read)
  ('Nabers 40+ yds','yds','Nabers',40,66.5,62.0,0.70,0.02),
  ('Nabers 60+ yds','yds','Nabers',60,66.5,62.0,0.70,0.02),
  ('Nabers O67.5 yds','yds','Nabers',68,66.5,62.0,0.70,0.02),
@@ -48,6 +51,9 @@ for L in legs:
     else:
         lam=L[8]; pmod=p_rec_pois(lam,thr); e=emp(rec_logs[key],thr)
         pm=None
-    out[name]=dict(market=pm,model=pmod,empirical=e)
+    out[name]=dict(market=pm,model=pmod,empirical=e,
+                   label='analyst read',
+                   note='market = analyst read (market-median, hand-set sigma); model = analyst read (hand-set median/sigma); empirical = game-log hit rate')
     print(f"{name:22s} mkt={pm if pm is None else round(pm,3)} model={pmod:.3f} emp={e:.2f}")
+out={'_provenance':{'label':'analyst read','source':'legs.py closed-form, hand-set medians/sigmas/p0/lam','edge':'none; edges only from engine or fitted model (NFL item 4)'},**out}
 json.dump(out,open('legs.json','w'),indent=1)

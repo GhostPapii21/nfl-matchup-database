@@ -1,0 +1,273 @@
+{
+ "label": "research only, not validated",
+ "set_label": "BACKTEST on already-seen weeks 4-9 (NOT a clean holdout)",
+ "command": "python3 -m calibration.slip_joint_validation --n 2000 --workers 7 --tag wk04_09",
+ "run_utc": "2026-11-13T06:00:48+00:00",
+ "runtime_sec": 1706.5,
+ "engine": {
+  "git_head": "3dad900c4c7125ac60db6071df6820f403949634",
+  "engine_tree": "d15ed01a0fbc2f48f8ce34256f4a19d3411ba449",
+  "engine_py_sha256": "43c866c0d31f114fd539c324c3e99c6b48d7333d04aad8e63fdf85e2b6087685",
+  "engine_dirty": false,
+  "simulate_sha256": "8907179f68edacfbf6567683740ef213e191c29f928c6d3b6ba7440dfc77c76e"
+ },
+ "arm": "new_off",
+ "n_per_game": 2000,
+ "seed_base": 20261112,
+ "pbp": {
+  "path": "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet",
+  "sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+  "pulled_et": "2026-11-12 11:16 AM ET"
+ },
+ "lines": {
+  "ref": "ba83615",
+  "path": "data/lines/lines_wk04_09_2026.csv",
+  "sha256": "6e330ca155e285e919716ecc3d53dce0d0c74c4cc3d83c927fbdcba872a85212",
+  "sha256_matches_readme": true
+ },
+ "families": {
+  "G2_total_x_side": "game total vs close total x home/away vs close spread (4 slips/game)",
+  "S2_qb_wr1": "same team: QB1 pass yds >= sim median and WR1 rec yds >= sim median",
+  "S2_qb_teampts": "same team: QB1 pass yds >= sim median and team points >= sim median",
+  "S2_rb_win": "same team: RB1 rush yds >= sim median and team wins",
+  "S2_rb_qb": "same team: RB1 rush yds >= sim median and QB1 pass yds >= sim median",
+  "X2_qb_qb": "both QB1s pass yds >= their sim medians",
+  "S3_qb_wr1_over": "same team: QB1, WR1 at sim medians and game total over the close total"
+ },
+ "slips_built": 1320,
+ "slips_graded": 1128,
+ "slips_void": 192,
+ "results": {
+  "ALL": {
+   "slips": 1128,
+   "games": 88,
+   "hit_rate": 0.23315602836879432,
+   "mean_p_joint": 0.26511613475177304,
+   "brier_p_joint": 0.1879324370567376,
+   "logloss_p_joint": 0.5706612814291404,
+   "mean_p_indep": 0.22876273655972962,
+   "brier_p_indep": 0.18498760146785417,
+   "logloss_p_indep": 0.5643706533017272,
+   "brier_improvement_joint_vs_indep": -0.0029448355888834314,
+   "brier_improvement_ci95_game_bootstrap": [
+    -0.006841666624624162,
+    0.0013425598839974043
+   ],
+   "mean_lift_joint_over_indep": 1.2015829485392695
+  },
+  "G2_total_x_side": {
+   "slips": 340,
+   "games": 85,
+   "hit_rate": 0.25,
+   "mean_p_joint": 0.24728676470588234,
+   "brier_p_joint": 0.2108757257352941,
+   "logloss_p_joint": 0.6333850845627753,
+   "mean_p_indep": 0.24728676470588234,
+   "brier_p_indep": 0.20932356695253493,
+   "logloss_p_indep": 0.6293460844785701,
+   "brier_improvement_joint_vs_indep": -0.00155215878275919,
+   "brier_improvement_ci95_game_bootstrap": [
+    -0.0029684116573512652,
+    -0.0001462366397867012
+   ],
+   "mean_lift_joint_over_indep": 1.0031188975170242
+  },
+  "S2_qb_wr1": {
+   "slips": 142,
+   "games": 86,
+   "hit_rate": 0.19014084507042253,
+   "mean_p_joint": 0.33533802816901404,
+   "brier_p_joint": 0.17225584154929577,
+   "logloss_p_joint": 0.5322419626238363,
+   "mean_p_indep": 0.24552717077464786,
+   "brier_p_indep": 0.15710313258590447,
+   "logloss_p_indep": 0.49531619355565865,
+   "brier_improvement_joint_vs_indep": -0.015152708963391288,
+   "brier_improvement_ci95_game_bootstrap": [
+    -0.028063291105769515,
+    -0.001298356138188006
+   ],
+   "mean_lift_joint_over_indep": 1.3656024104424824
+  },
+  "S2_qb_teampts": {
+   "slips": 154,
+   "games": 87,
+   "hit_rate": 0.2987012987012987,
+   "mean_p_joint": 0.31870454545454546,
+   "brier_p_joint": 0.21295706006493506,
+   "logloss_p_joint": 0.6178953770346673,
+   "mean_p_indep": 0.23004431168831166,
+   "brier_p_indep": 0.21550820953382552,
+   "logloss_p_indep": 0.6262528379732691,
+   "brier_improvement_joint_vs_indep": 0.002551149468890423,
+   "brier_improvement_ci95_game_bootstrap": [
+    -0.011280970530445956,
+    0.01663988340264991
+   ],
+   "mean_lift_joint_over_indep": 1.3868861126951575
+  },
+  "S2_rb_win": {
+   "slips": 150,
+   "games": 86,
+   "hit_rate": 0.2866666666666667,
+   "mean_p_joint": 0.2791033333333333,
+   "brier_p_joint": 0.210767375,
+   "logloss_p_joint": 0.6252835834419399,
+   "mean_p_indep": 0.24874952999999997,
+   "brier_p_indep": 0.21071464568541085,
+   "logloss_p_indep": 0.6310070957480381,
+   "brier_improvement_joint_vs_indep": -5.272931458916358e-05,
+   "brier_improvement_ci95_game_bootstrap": [
+    -0.0038891973769881166,
+    0.003816920894032664
+   ],
+   "mean_lift_joint_over_indep": 1.1500527574454202
+  },
+  "S2_rb_qb": {
+   "slips": 133,
+   "games": 80,
+   "hit_rate": 0.21052631578947367,
+   "mean_p_joint": 0.2448984962406015,
+   "brier_p_joint": 0.1673146635338346,
+   "logloss_p_joint": 0.5177104091319772,
+   "mean_p_indep": 0.24421769924812028,
+   "brier_p_indep": 0.16755160698990884,
+   "logloss_p_indep": 0.518399138686871,
+   "brier_improvement_joint_vs_indep": 0.0002369434560742506,
+   "brier_improvement_ci95_game_bootstrap": [
+    -0.000925093667851228,
+    0.0014471901029760336
+   ],
+   "mean_lift_joint_over_indep": 1.0029256308159922
+  },
+  "X2_qb_qb": {
+   "slips": 67,
+   "games": 67,
+   "hit_rate": 0.2537313432835821,
+   "mean_p_joint": 0.22610447761194027,
+   "brier_p_joint": 0.19034765671641796,
+   "logloss_p_joint": 0.5691887498473002,
+   "mean_p_indep": 0.2466115858208955,
+   "brier_p_indep": 0.18970015622425654,
+   "logloss_p_indep": 0.5673323281683886,
+   "brier_improvement_joint_vs_indep": -0.0006475004921613879,
+   "brier_improvement_ci95_game_bootstrap": [
+    -0.005749102968332543,
+    0.0036793504194851103
+   ],
+   "mean_lift_joint_over_indep": 0.9168250372209505
+  },
+  "S3_qb_wr1_over": {
+   "slips": 142,
+   "games": 86,
+   "hit_rate": 0.11971830985915492,
+   "mean_p_joint": 0.20203521126760562,
+   "brier_p_joint": 0.11558504225352113,
+   "logloss_p_joint": 0.4002611392548601,
+   "mean_p_indep": 0.12224524534771124,
+   "brier_p_indep": 0.10843395455616452,
+   "logloss_p_indep": 0.3820082808028573,
+   "brier_improvement_joint_vs_indep": -0.0071510876973565896,
+   "brier_improvement_ci95_game_bootstrap": [
+    -0.017225590986443613,
+    0.00447160173155348
+   ],
+   "mean_lift_joint_over_indep": 1.6866537827427994
+  }
+ },
+ "calibration_bins": {
+  "p_joint": [
+   {
+    "bin": "[0.0,0.1)",
+    "n": 49,
+    "mean_pred": 0.07055102040816327,
+    "hit_rate": 0.30612244897959184
+   },
+   {
+    "bin": "[0.1,0.2)",
+    "n": 199,
+    "mean_pred": 0.155178391959799,
+    "hit_rate": 0.19095477386934673
+   },
+   {
+    "bin": "[0.2,0.3)",
+    "n": 438,
+    "mean_pred": 0.24532990867579907,
+    "hit_rate": 0.2374429223744292
+   },
+   {
+    "bin": "[0.3,0.4)",
+    "n": 378,
+    "mean_pred": 0.33562566137566135,
+    "hit_rate": 0.23015873015873015
+   },
+   {
+    "bin": "[0.4,0.5)",
+    "n": 47,
+    "mean_pred": 0.43460638297872334,
+    "hit_rate": 0.3191489361702128
+   },
+   {
+    "bin": "[0.5,0.6)",
+    "n": 11,
+    "mean_pred": 0.5474999999999999,
+    "hit_rate": 0.2727272727272727
+   },
+   {
+    "bin": "[0.6,1.0)",
+    "n": 6,
+    "mean_pred": 0.65725,
+    "hit_rate": 0.16666666666666666
+   }
+  ],
+  "p_indep": [
+   {
+    "bin": "[0.0,0.1)",
+    "n": 87,
+    "mean_pred": 0.0704483551034483,
+    "hit_rate": 0.22988505747126436
+   },
+   {
+    "bin": "[0.1,0.2)",
+    "n": 257,
+    "mean_pred": 0.1488509258574903,
+    "hit_rate": 0.19455252918287938
+   },
+   {
+    "bin": "[0.2,0.3)",
+    "n": 629,
+    "mean_pred": 0.24313143958664551,
+    "hit_rate": 0.24165341812400637
+   },
+   {
+    "bin": "[0.3,0.4)",
+    "n": 100,
+    "mean_pred": 0.34466791499999994,
+    "hit_rate": 0.28
+   },
+   {
+    "bin": "[0.4,0.5)",
+    "n": 38,
+    "mean_pred": 0.4308529013157895,
+    "hit_rate": 0.23684210526315788
+   },
+   {
+    "bin": "[0.5,0.6)",
+    "n": 12,
+    "mean_pred": 0.549198,
+    "hit_rate": 0.25
+   },
+   {
+    "bin": "[0.6,1.0)",
+    "n": 5,
+    "mean_pred": 0.66028375,
+    "hit_rate": 0.2
+   }
+  ]
+ },
+ "notes": [
+  "p_joint = share of sim trials where every leg hits; p_indep = product of the same trials' marginals",
+  "brier_improvement_joint_vs_indep > 0 means joint beats independence; CI is a game-clustered bootstrap",
+  "thresholds are close lines or sim medians; no prices, no alt lines"
+ ]
+}
