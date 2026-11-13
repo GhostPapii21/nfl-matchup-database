@@ -113,10 +113,10 @@ def main():
     mA = R.metrics(_pair(r2, r2b, "main", "p2b"))
     mB = R.metrics(_pair(r2, r2b, "p2opp", "p2b"))
     it = int_table(r2, r2b)
-    for m in (mA, mB):
-        m.pop("int_zero", None)
-    (RUN2B / "metrics.json").write_text(json.dumps({"A_main_vs_2b": mA, "B_phase2_vs_2b": mB, "C_int": it}, indent=1) + "\n")
     md = markdown(mA, mB, it, r2b)
+    for m in (mA, mB):
+        m.pop("int_zero", None)  # superseded by C_int (the Phase 2 reason labels assume an unpooled engine)
+    (RUN2B / "metrics.json").write_text(json.dumps({"A_main_vs_2b": mA, "B_phase2_vs_2b": mB, "C_int": it}, indent=1) + "\n")
     (RUN2B / "metrics.md").write_text(md)
     print(md)
 
