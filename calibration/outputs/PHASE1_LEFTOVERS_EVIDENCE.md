@@ -8,7 +8,22 @@ first (commit f48c2a3, 13 failing), then the engine change (05f5044, ca67748).
 Repro tool: `python3 -m calibration.phase1_reconcile --weeks 4-9 --n 200 --workers 5 [--accounting JSON] --tag T`
 (88 games, 17,600 sims per arm, seed 4949). It compares the sim with the same two teams' weeks 1..w-1 actual rates,
 using the PBP the sim samples from (sha256 1028614b..., pulled 2026-11-12 11:16 AM ET). Outputs:
-`phase1_reconcile_{main,round,round_v1,all}_n200.json`, all on a clean engine (cf16d9d / ca67748).
+`phase1_reconcile_{main,round,round_v1,all}_n200.json`. All four were re-run on a clean engine after the rebase onto
+main e2e5f49. Every figure is identical to the pre-rebase runs (cf16d9d / ca67748). The only change is that
+`share_of_in3_snaps` is now filled in.
+
+**Which arm each 'after' figure comes from.** Arms are cumulative: `main` is the defaults; `round` adds
+`clock_rounding=round`; `round_v1` adds `fourth_down_yl_buckets=v1_fringe`; `all` adds `goal_line_pool=local5`.
+Each 'After' line below names its arm.
+| Per team-game unless noted | main | round | round_v1 | all | actual |
+|---|---|---|---|---|---|
+| Snaps (pass+run) | 63.73 | 62.59 | 62.58 | 62.47 | 61.25 |
+| Drives with a snap | 11.53 | 11.32 | 11.34 | 11.29 | 10.53 |
+| Inside-3 TD share | 58.5% | 59.2% | 58.2% | 54.0% | 48.2% |
+| Inside-10 TD share | 37.4% | 37.5% | 37.3% | 34.8% | 32.5% |
+| 36-45 4th-down mix punt/FG/go | .652/.146/.202 | .649/.152/.199 | .435/.305/.260 | .438/.302/.260 | .305/.360/.335 |
+| Punts per game (both teams) | 8.97 | 8.82 | 8.53 | 8.51 | 7.58 |
+| FG attempts | 1.85 | 1.80 | 1.93 | 1.95 | 2.06 |
 
 ## (a) Residual excess snaps
 - **Where:** `core/possession_engine_v0/simulate.py::_clock_cost`, which returns `int(max(3, rng.normal(mu, 4)))`.
@@ -21,7 +36,8 @@ using the PBP the sim samples from (sha256 1028614b..., pulled 2026-11-12 11:16 
   normal draw, so the RNG stream is identical.
 - **Tests:** `test_truncate_default_is_half_second_short` (characterizes the bug), `test_round_is_unbiased` (|mean - mu|
   < 0.03 over 200k draws), `test_rounding_consumes_identical_rng_stream`, `test_round_keeps_three_second_floor`.
-- **After:** pass 21.81 / run 34.31 / punt 9.45 s charged. Snaps 62.59 (+1.34) and drives 11.32 vs 10.53.
+- **After (arm `round`, clock fix only):** pass 21.81 / run 34.31 / punt 9.45 s charged. Snaps 62.59 (+1.34) and
+  drives 11.32 vs 10.53. With all three opt-ins (`all`), snaps are 62.47.
   **Remaining +1.3 snaps/team** includes 0.78 kneels per team-game that the sim excludes by design (NFL-49 B), so the
   like-for-like residual is about +0.5 snaps and +0.8 drives.
 
@@ -31,12 +47,12 @@ using the PBP the sim samples from (sha256 1028614b..., pulled 2026-11-12 11:16 
   from **any** field position.
 - **Repro / observed** (game context, weeks 4-9): inside-3 TD share is 58.5% sim vs 48.2% actual. Split by the
   yardline the sampled row was actually run from:
-  | Source row | Inside-3 snaps / team-game | TD share |
-  |---|---|---|
-  | run at yardline <= 3 | 0.265 | 42.4% |
-  | 4-10 | 0.118 | 64.8% |
-  | 11-20 | 0.168 | 59.9% |
-  | beyond the 20 (COARSE_SAME_DOWN) | 0.572 | 64.2% |
+  | Source row (arm `main`) | Share of inside-3 snaps | Inside-3 snaps / team-game | TD share |
+  |---|---|---|---|
+  | run at yardline <= 3 | 23.6% | 0.265 | 42.4% |
+  | 4-10 | 10.5% | 0.118 | 64.8% |
+  | 11-20 | 15.0% | 0.168 | 59.9% |
+  | beyond the 20 (COARSE_SAME_DOWN) | 51.0% | 0.572 | 64.2% |
   Rows really run inside the 3 score at about the actual rate, so **TD crediting is correct**. The over-count comes
   from gains drawn at deeper field positions and applied at the goal line. Example (unit test): NYG 2nd-and-goal at
   the 2 draws 97.7% of its rows from beyond the 5, up to its own 5. Rows resolved by WP2 censoring score 82% but are
@@ -50,8 +66,8 @@ using the PBP the sim samples from (sha256 1028614b..., pulled 2026-11-12 11:16 
 - **Tests:** `test_v0_goal_line_draws_rows_from_deeper_field_positions` (characterizes the bug),
   `test_local5_goal_line_draws_only_goal_line_rows_and_is_deterministic`, `test_goal_line_pool_opt_in_only`, and
   accounting validation.
-- **After (all three opt-ins):** inside-3 TD share 54.0% (from 58.5%; actual 48.2%), inside-10 34.8% (from 37.4%;
-  actual 32.5%). Rows from beyond the 20 fall from 0.572 to 0.078 inside-3 snaps per team-game. **Remaining:** rows
+- **After (arm `all`, all three opt-ins; the goal-line pool is the only one that moves it):** inside-3 TD share 54.0% (from 58.5%; actual 48.2%), inside-10 34.8% (from 37.4%;
+  actual 32.5%). Rows from beyond the 20 fall from 0.572 to 0.078 inside-3 snaps per team-game (51.0% to 6.6% of inside-3 snaps). **Remaining:** rows
   run at the 4-5 still score 66% when used at 1-3, and censored-resolved rows 77%. Not fixed here; a tighter local
   band trades off against sample size (min_n).
 
@@ -67,10 +83,11 @@ using the PBP the sim samples from (sha256 1028614b..., pulled 2026-11-12 11:16 
   with the same coarsening chain.
 - **Tests:** `test_v1_bucket_boundaries`, `test_v0_mixes_own_side_punts_into_opponent_40`,
   `test_v1_fringe_cell_separates_opponent_40`, `test_v1_is_deterministic_for_fixed_seed`.
-- **After:** the 36-45 mix is 0.438 / 0.302 / 0.260. Punts are 8.51 per game (+12%) and FGA 1.95 vs 2.06 per team.
-  **Remaining:** the extra drives (+0.75/team) and the FG-range team-wide fallback punts.
+- **After (arm `all`; the 4th-down fix alone, arm `round_v1`, gives 36-45 mix .435/.305/.260, 8.53 punts, FGA 1.93):**
+  the 36-45 mix is 0.438 / 0.302 / 0.260. Punts are 8.51 per game (+12%) and FGA 1.95 vs 2.06 per team.
+  **Remaining:** the extra drives (+0.75/team in `all`) and the FG-range team-wide fallback punts.
 
-## (d) Reconciliation, per team-game (sim main -> sim all opt-ins | actual)
+## (d) Reconciliation, per team-game (arm `main` -> arm `all` | actual)
 | | main | all opt-ins | actual |
 |---|---|---|---|
 | Snaps (pass+run) | 63.73 | 62.47 | 61.25 (+0.78 kneels not simulated) |
@@ -90,7 +107,7 @@ Clock budget (main): pass 1,571 + run 1,817 + punt 81 + FG 19 + kickoff 50 = 3,5
 ## Before / after backtest vs the close (weeks 4-9, 88 games, n=500 per game, seed base 20261112, h2h off)
 `python3 -m calibration.backtest --n 500 --arms new_off,p1_all --workers 3 --tag phase1` (engine ca67748, clean;
 lines ba83615 sha256 matches README). Outputs: `backtest_phase1_n500.json` and `_per_game.csv`.
-| Metric | Before (new_off) | After (p1_all) | Close |
+| Metric | Before (arm new_off = defaults) | After (arm p1_all = all three opt-ins) | Close |
 |---|---|---|---|
 | Brier, home win | 0.2499 | 0.2492 | 0.2055 |
 | Log loss | 0.7071 | 0.6993 | |
