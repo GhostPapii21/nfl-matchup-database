@@ -110,12 +110,12 @@ def main(argv=None):
     ap.add_argument("--seed", type=int, default=20261113)
     ap.add_argument("--workers", type=int, default=7)
     ap.add_argument("--refit", action="store_true")
-    ap.add_argument("--variant", choices=("phase2", "phase2b"), default="phase2",
+    ap.add_argument("--variant", choices=("phase2", "phase2b", "phase2b_noint"), default="phase2",
                     help="phase2b: depth-signal params from research/runs/2026-11-13_opportunity_phase2b/params "
                          "(fitted by fit2b, frozen before scoring) + opt-in engine INT pooling fitted walk-forward")
     a = ap.parse_args(argv)
     global OUT
-    if a.variant == "phase2b":
+    if a.variant in ("phase2b", "phase2b_noint"):
         OUT = F.ROOT / "research/runs/2026-11-13_opportunity_phase2b"
         missing = [w for w in a.weeks if not (OUT / f"params/params_2026_w{w:02d}.json").exists()]
         if missing or a.refit:
@@ -134,6 +134,10 @@ def main(argv=None):
         for w, p in ex.map(_fit, todo):
             (OUT / f"params/params_2026_w{w:02d}.json").write_text(json.dumps(p, indent=1, default=str) + "\n")
             print(f"froze params week {w}", flush=True)
+    raw_out = OUT / "backtest_raw.json"
+    if a.variant == "phase2b_noint":  # depth effect alone: Phase 2b params, engine WITHOUT INT pooling
+        raw_out = OUT / "noint/backtest_raw_noint.json"
+        raw_out.parent.mkdir(exist_ok=True)
     jobs = []
     ipspec = {}
     if a.variant == "phase2b":
@@ -153,12 +157,12 @@ def main(argv=None):
             print(f"{r['game_id']} {r['secs']}s recon {r['recon']}", flush=True)
             res.append(r)
     acts = {w: {f"{t}|{nm}": v for (t, nm), v in actual_lines(w).items()} for w in a.weeks}
-    (OUT / "backtest_raw.json").write_text(json.dumps({"games": res, "actual": {str(k): v for k, v in acts.items()},
+    raw_out.write_text(json.dumps({"games": res, "actual": {str(k): v for k, v in acts.items()},
                                                         "n": a.n, "seed": a.seed, "weeks": a.weeks,
                                                         "variant": a.variant,
                                                         "engine": engine_version(), "sources": src},
                                                        default=float) + "\n")
-    print("wrote", OUT / "backtest_raw.json")
+    print("wrote", raw_out)
 
 
 if __name__ == "__main__":
