@@ -354,6 +354,156 @@ def attach(legs: pd.DataFrame, ens: pd.DataFrame, gate: pd.DataFrame) -> pd.Data
     return out
 
 
+# ------------------------------------------------------------------ embedded provenance
+# Every probability output carries its own provenance, so a consumer (calibration/selective_edge_emit.py) can verify
+# where p_model came from instead of trusting a CLI flag. Spec `nfl75-simv56-probs/1` (all fields are CSV text):
+#   data columns  game_id, team, player, gsis, position, market, line, p_under, p_over   (floats written as repr())
+#   provenance    prob_schema, prob_source, p_model_settings, code_git_sha, code_dirty ("true"/"false"), code_sha256,
+#                 inputs_sha256 (canonical JSON {name: sha256}), qb_overrides (canonical JSON list, one entry per team:
+#                 team, starter, starter_gsis, qb_gate, prior_team_primary_games, skipped, depth_source, depth_dt,
+#                 depth_retrieved_utc, injury_source, injury_retrieved_utc, inactives_source,
+#                 inactives_retrieved_utc, as_of), generated_utc, data_sha256, provenance_sha256 (same on every row)
+#   data_sha256       = sha256 of "game_id,team,gsis,market,line,p_under,p_over\n" per row (file text), rows sorted
+#                       by (game_id, gsis, market, float(line))
+#   provenance_sha256 = sha256 of canonical JSON (sort_keys, separators=(",", ":")) of the provenance fields above
+#                       except provenance_sha256 itself (inputs_sha256 / qb_overrides as objects, code_dirty as bool)
+PROBS_SCHEMA = "nfl75-simv56-probs/1"
+PROB_SOURCE_ID = "sim_v5_v6_ensemble"
+DATA_COLUMNS = ("game_id", "team", "player", "gsis", "position", "market", "line", "p_under", "p_over")
+PROVENANCE_FIELDS = ("prob_schema", "prob_source", "p_model_settings", "code_git_sha", "code_dirty", "code_sha256",
+                     "inputs_sha256", "qb_overrides", "generated_utc", "data_sha256", "provenance_sha256")
+PROBS_COLUMNS = DATA_COLUMNS + PROVENANCE_FIELDS
+QB_OVERRIDE_FIELDS = ("team", "starter", "starter_gsis", "qb_gate", "prior_team_primary_games", "skipped",
+                      "depth_source", "depth_dt", "depth_retrieved_utc", "injury_source", "injury_retrieved_utc",
+                      "inactives_source", "inactives_retrieved_utc", "as_of")
+_JSON_FIELDS = ("inputs_sha256", "qb_overrides")
+CODE_PATHS = ("calibration/simv56_pmodel.py", "calibration/simv56")
+
+
+def _canon(x) -> str:
+    return json.dumps(x, sort_keys=True, separators=(",", ":"))
+
+
+def _clean(v):
+    if v is None or (isinstance(v, float) and np.isnan(v)) or v is pd.NaT:
+        return None
+    if isinstance(v, (np.integer,)):
+        return int(v)
+    if isinstance(v, (np.floating,)):
+        return None if np.isnan(v) else float(v)
+    if isinstance(v, (pd.Timestamp, datetime)):
+        return v.isoformat()
+    if isinstance(v, str) and v.strip() == "":
+        return None
+    return v if isinstance(v, (str, int, float, bool)) else str(v)
+
+
+def code_identity(root: Path = ROOT) -> tuple:
+    """(git HEAD sha, dirty?) for the simv56 code paths. Dirty means p_model may not match the recorded commit."""
+    def git(*a):
+        r = subprocess.run(["git", *a], cwd=root, capture_output=True, text=True)
+        return r.stdout.strip() if r.returncode == 0 else None
+    head = git("rev-parse", "HEAD") or ""
+    st = git("status", "--porcelain", "--", *CODE_PATHS)
+    return head, (st is None or st != "")
+
+
+def qb_override_list(starters: pd.DataFrame, history: dict, teams=None) -> list:
+    out = []
+    for r in starters.to_dict("records"):
+        if teams is not None and r.get("team") not in teams:
+            continue
+        g, team = _clean(r.get("starter_gsis")), r.get("team")
+        n = int(history.get((g, team), history.get(g, 0))) if g else 0
+        gate = "qb_starter_unknown" if not g else ("qb_starter_thin_history" if n < MIN_STARTER_GAMES else "ok")
+        d = {k: _clean(r.get(k)) for k in QB_OVERRIDE_FIELDS}
+        d.update(team=team, starter_gsis=g, qb_gate=gate, prior_team_primary_games=n)
+        out.append(d)
+    return sorted(out, key=lambda d: str(d["team"]))
+
+
+def build_provenance(starters: pd.DataFrame, history: dict, inputs_sha256: dict, teams=None,
+                     generated_utc: str | None = None) -> dict:
+    head, dirty = code_identity()
+    return dict(prob_schema=PROBS_SCHEMA, prob_source=PROB_SOURCE_ID, p_model_settings=P_MODEL_SOURCE,
+                code_git_sha=head, code_dirty=bool(dirty), code_sha256=_sha(Path(__file__)),
+                inputs_sha256={str(k): str(v) for k, v in inputs_sha256.items()},
+                qb_overrides=qb_override_list(starters, history, teams),
+                generated_utc=generated_utc or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+
+
+def provenance_digest(prov: dict) -> str:
+    return hashlib.sha256(_canon({k: v for k, v in prov.items() if k != "provenance_sha256"}).encode()).hexdigest()
+
+
+def data_digest(t: pd.DataFrame) -> str:
+    rows = sorted(t[list(DATA_COLUMNS)].astype(str).to_dict("records"),
+                  key=lambda r: (r["game_id"], r["gsis"], r["market"], float(r["line"])))
+    body = "".join(",".join(r[c] for c in ("game_id", "team", "gsis", "market", "line", "p_under", "p_over")) + "\n"
+                   for r in rows)
+    return hashlib.sha256(body.encode()).hexdigest()
+
+
+def provenance_from_row(row) -> dict:
+    """Rebuild the provenance dict from one file row (all text), exactly as it was digested."""
+    d = {}
+    for k in PROVENANCE_FIELDS:
+        if k == "provenance_sha256" or k not in row.index:
+            continue
+        v = row[k]
+        d[k] = json.loads(v) if k in _JSON_FIELDS else ((v == "true") if k == "code_dirty" else v)
+    return d
+
+
+def _prov_text(prov: dict) -> dict:
+    t = {k: (_canon(v) if k in _JSON_FIELDS else ("true" if v else "false") if k == "code_dirty" else v)
+         for k, v in prov.items()}
+    t["provenance_sha256"] = provenance_digest(prov)
+    return t
+
+
+def stamp_provenance(df: pd.DataFrame, prov: dict) -> pd.DataFrame:
+    """Run-level provenance on every row of ensemble.csv / legs_p.csv."""
+    out = df.copy()
+    for k, v in _prov_text(prov).items():
+        out[k] = v
+    return out
+
+
+def write_probs_files(res: pd.DataFrame, ens: pd.DataFrame, starters: pd.DataFrame, history: dict,
+                      inputs_sha256: dict, out_dir: Path, generated_utc: str | None = None) -> list:
+    """One `<game_id>.simv56.probs.csv` per game: the ensemble p_under / p_over at each priced line of every gate-ok
+    rush leg that was simulated, plus that game's embedded provenance (both teams' QB override entries)."""
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    key = {(g, m, float(l)): (pu, po) for g, m, l, pu, po in
+           zip(ens.gsis, ens.market, ens.line, ens.p_under, ens.p_over)}
+    ok = res[(res.market == "rushyds") & (res.p_model_match == "gsis")]
+    files = []
+    for gid, g in ok.groupby("game_id", sort=True):
+        rows = []
+        for r in g.drop_duplicates(["gsis", "market", "line"]).itertuples(index=False):
+            hit = key.get((r.gsis, r.market, float(r.line)))
+            if hit is None:
+                continue
+            rows.append(dict(game_id=gid, team=r.team, player=r.player, gsis=r.gsis, position=_clean(r.position) or "",
+                             market=r.market, line=repr(float(r.line)), p_under=repr(float(hit[0])),
+                             p_over=repr(float(hit[1]))))
+        if not rows:
+            continue
+        t = pd.DataFrame(rows).sort_values(["gsis", "line"], key=lambda c: c.map(lambda v: float(v) if c.name ==
+                                                                                 "line" else v), kind="stable")
+        parts = str(gid).split("_")
+        prov = build_provenance(starters, history, inputs_sha256, teams=parts[2:4], generated_utc=generated_utc)
+        prov["data_sha256"] = data_digest(t)
+        for k, v in _prov_text(prov).items():
+            t[k] = v
+        f = out_dir / f"{gid}.simv56.probs.csv"
+        t[list(PROBS_COLUMNS)].to_csv(f, index=False)
+        files.append(f)
+    return files
+
+
 # ------------------------------------------------------------------ CLI
 def fetch(out_dir: Path) -> dict:
     out_dir = Path(out_dir)
@@ -386,16 +536,28 @@ def run_cli(a) -> int:
         pbp = pbp[pbp.game_date < cutoff]                    # as-of: nothing on or after the cutoff
     legs = pd.read_csv(a.legs)
     legs = legs[legs.week == week].reset_index(drop=True)
-    hs = {}
+    hs, hs_files = {}, {}
     for f in sorted(glob.glob(str(ROOT / a.freeze_glob))):
         gid, line = home_spread_from_freeze(f)
         if gid.startswith(f"2026_{week:02d}_") and line is not None:
             hs[gid] = line                                   # newest freeze per game wins (sorted by name/time)
+            hs_files[gid] = f
     if a.home_spreads:
         hs.update({r.game_id: float(r.home_spread) for r in pd.read_csv(a.home_spreads).itertuples()})
     x = leg_inputs(legs, team_of_from_pbp(pbp, cutoff), hs)
     st = qb_starters(depth, inj, week, as_of, man, ina)
-    gate = gate_legs(x, st, inj, week, starter_history(pbp, cutoff), ina)
+    hist = starter_history(pbp, cutoff)
+    gate = gate_legs(x, st, inj, week, hist, ina)
+    inputs = {"pbp": _sha(a.pbp), "players": _sha(PLAYERS_DEFAULT), "games_csv": _sha(GAMES_CSV),
+              "depth_charts": man["depth_charts"]["sha256"], "injuries": man["injuries"]["sha256"],
+              "legs": _sha(a.legs), "engines_SHA256SUMS": _sha(ENGINE_DIR / "SHA256SUMS"),
+              "home_spreads": hashlib.sha256(_canon({k: hs[k] for k in sorted(hs)}).encode()).hexdigest()}
+    if a.inactives:
+        inputs["inactives"] = _sha(a.inactives)
+    if a.home_spreads:
+        inputs["home_spreads_csv"] = _sha(a.home_spreads)
+    for gid, f in sorted(hs_files.items()):
+        inputs[f"freeze:{Path(f).parent.name}/{Path(f).name}"] = _sha(f)
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     st.to_csv(out / "qb_starters.csv", index=False)
@@ -406,9 +568,12 @@ def run_cli(a) -> int:
                   week, make_src(out / "src", pbp=Path(a.pbp)), out, n=N_TRIALS, cutoff=cutoff) if len(runnable) \
         else {e: pd.DataFrame(columns=["gsis", "market", "line", "p_mc", "p_bias", "p_gr"]) for e in ENGINES}
     ens = ensemble(per)
-    ens.to_csv(out / "ensemble.csv", index=False)
     res = attach(x, ens, gate)
-    res.to_csv(out / "legs_p.csv", index=False)
+    gen = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    prov = build_provenance(st, hist, inputs, generated_utc=gen)
+    stamp_provenance(ens, prov).to_csv(out / "ensemble.csv", index=False)
+    stamp_provenance(res, prov).to_csv(out / "legs_p.csv", index=False)
+    probs_files = write_probs_files(res, ens, st, hist, inputs, out / "probs", generated_utc=gen)
     meta = dict(schema="nfl75-simv56-pmodel/1", pandas_version=pd.__version__,
                 phase4_bit_exact_env=BIT_EXACT_ENV, week=week, cutoff=cutoff, as_of=as_of, n=N_TRIALS, opp=OPP,
                 engines=list(ENGINES), engine_sha256=verify_engines(), pbp=Path(a.pbp).name, pbp_sha256=_sha(a.pbp),
@@ -416,6 +581,8 @@ def run_cli(a) -> int:
                 n_rush_legs=int((x.market == "rushyds").sum()), n_sim_players=int(runnable.gsis.nunique()),
                 gate_counts=res[res.market == "rushyds"].gate.value_counts().to_dict(),
                 p_model_filled=int(res[res.market == "rushyds"].p_model.notna().sum()),
+                provenance=dict(prov, provenance_sha256=provenance_digest(prov)),
+                probs_files=[str(f.relative_to(out)) for f in probs_files],
                 research_only=True, projection_ready=False)
     (out / "meta.json").write_text(json.dumps(meta, indent=1, default=str))
     print(json.dumps({k: meta[k] for k in ("week", "cutoff", "as_of", "runtime_sec", "n_rush_legs", "n_sim_players",
