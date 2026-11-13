@@ -2,16 +2,16 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Share+Tech+Mono&family=Inter:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: a slate rail of game chips (left on desktop, a scroller on phones) and one game sheet with a
    direction switch (who has the ball) and tabs. Field hash marks run under the header. */
 /* One visual world: a night stadium seen through a holographic HUD. Dark only, by design. */
 :root {
   --bg: #050a14; --surface: rgba(12, 22, 40, .78); --surface-2: rgba(20, 34, 60, .72); --ink: #e6f1ff; --muted: #8ea3c2; --line: rgba(80, 140, 220, .22);
-  --accent: #22d3ee; --accent-2: #c084fc; --accent-ink: #03141b; --accent-soft: rgba(34, 211, 238, .14);
+  --accent: #22d3ee; --accent-2: #c084fc; --accent-ink: #03141b; --accent-soft: color-mix(in srgb, var(--accent) 14%, transparent);
   --good: #34d399; --good-soft: rgba(52, 211, 153, .14); --warn: #fbbf24; --warn-soft: rgba(251, 191, 36, .14); --bad: #fb7185; --bad-soft: rgba(251, 113, 133, .15);
-  --chart: #38bdf8; --chart-soft: rgba(56, 189, 248, .16); --turf: #06142a; --turf-line: #12335c;
+  --chart: #38bdf8; --chart-soft: color-mix(in srgb, var(--chart) 16%, transparent); --turf: #06142a; --turf-line: #12335c;
   --ta: #22d3ee; --tb: #c084fc;
   --font-display: "Chakra Petch", "Rajdhani", "Arial Narrow", sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -20,8 +20,8 @@
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 14px; line-height: 1.45; margin: 0;
   font-variant-numeric: tabular-nums;
-  background-image: radial-gradient(1200px 600px at 85% -10%, rgba(192, 132, 252, .12), transparent 60%), radial-gradient(900px 500px at 0% 0%, rgba(34, 211, 238, .10), transparent 60%),
-    linear-gradient(rgba(56, 189, 248, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, .045) 1px, transparent 1px);
+  background-image: radial-gradient(1200px 600px at 85% -10%, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent 60%), radial-gradient(900px 500px at 0% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%),
+    linear-gradient(color-mix(in srgb, var(--chart) 4%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--chart) 4%, transparent) 1px, transparent 1px);
   background-size: auto, auto, 32px 32px, 32px 32px; background-attachment: fixed; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: #050a14; }
 a { color: var(--chart); }
@@ -33,7 +33,7 @@ button { font: inherit; color: inherit; }
 .top { background: rgba(5, 10, 20, .86); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; }
 .top .wrap { display: flex; align-items: center; gap: 14px; padding-block: 10px; flex-wrap: wrap; }
 .brand { font-family: var(--font-display); font-weight: 700; font-size: 24px; letter-spacing: .02em; text-transform: uppercase; line-height: 1; }
-.brand span { color: var(--accent); text-shadow: 0 0 14px rgba(34, 211, 238, .7); }
+.brand span { color: var(--accent); text-shadow: 0 0 14px color-mix(in srgb, var(--accent) 70%, transparent); }
 .meta { color: var(--muted); font-size: 12px; }
 .flag-research { margin-left: auto; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted);
   border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
@@ -58,7 +58,7 @@ button { font: inherit; color: inherit; }
   border-radius: var(--r); padding: 8px 10px; cursor: pointer; min-width: 190px; }
 .chip-game:hover { border-color: var(--muted); }
 .chip-game { background: linear-gradient(90deg, var(--ca, transparent) 0 4px, var(--surface) 4px calc(100% - 4px), var(--cb, transparent) calc(100% - 4px)); }
-.chip-game[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 16px rgba(34, 211, 238, .35); }
+.chip-game[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 35%, transparent); }
 .chip-game .teams { font-family: var(--font-display); font-weight: 700; font-size: 19px; letter-spacing: .02em; line-height: 1.1; }
 .chip-game .when { color: var(--muted); font-size: 12px; text-align: right; }
 .chip-game .line { color: var(--muted); font-size: 12px; grid-column: 1 / -1; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
@@ -68,7 +68,7 @@ button { font: inherit; color: inherit; }
 /* game sheet */
 .sheet { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 .scoreboard { background: linear-gradient(100deg, color-mix(in srgb, var(--ta) 38%, transparent), rgba(5, 10, 20, .55) 38%, rgba(5, 10, 20, .55) 62%, color-mix(in srgb, var(--tb) 38%, transparent)), url("__FIELD_IMG__") center/cover, #06142a;
-  border: 1px solid rgba(34, 211, 238, .35); border-radius: var(--r); overflow: hidden; box-shadow: 0 0 30px rgba(34, 211, 238, .12), 0 0 0 1px rgba(192, 132, 252, .12) inset;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); border-radius: var(--r); overflow: hidden; box-shadow: 0 0 30px color-mix(in srgb, var(--accent) 12%, transparent), 0 0 0 1px color-mix(in srgb, var(--accent-2) 12%, transparent) inset;
   clip-path: polygon(0 14px, 14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px)); }
 .sb-strip, .flags { background: rgba(5, 10, 20, .55); }
 .sb-main { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 16px 18px 12px; }
@@ -100,17 +100,17 @@ button { font: inherit; color: inherit; }
 .controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .seg { display: inline-flex; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 3px; gap: 2px; flex-wrap: wrap; }
 .seg button { border: 0; background: transparent; padding: 6px 14px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 13px; }
-.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 12px rgba(34, 211, 238, .5); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 50%, transparent); }
 .tabs { display: flex; gap: 4px; overflow-x: auto; border-bottom: 1px solid var(--line); }
 .tabs button { border: 0; background: transparent; padding: 9px 12px; cursor: pointer; font-weight: 600; color: var(--muted); white-space: nowrap;
   border-bottom: 2px solid transparent; margin-bottom: -1px; }
-.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); text-shadow: 0 0 10px rgba(34, 211, 238, .6); }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); text-shadow: 0 0 10px color-mix(in srgb, var(--accent) 60%, transparent); }
 
 .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 .grid.two { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; min-width: 0; display: flex; flex-direction: column; gap: 10px;
-  backdrop-filter: blur(6px); box-shadow: 0 0 0 1px rgba(34, 211, 238, .04) inset, 0 10px 30px rgba(0, 0, 0, .35); }
-.card h4 { color: var(--ink); text-shadow: 0 0 12px rgba(34, 211, 238, .25); }
+  backdrop-filter: blur(6px); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 4%, transparent) inset, 0 10px 30px rgba(0, 0, 0, .35); }
+.card h4 { color: var(--ink); text-shadow: 0 0 12px color-mix(in srgb, var(--accent) 25%, transparent); }
 .card h4 { margin: 0; font-family: var(--font-display); font-size: 18px; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; text-wrap: balance; }
 .card .sub { color: var(--muted); font-size: 12px; margin-top: -6px; }
 .section-title { font-family: var(--font-display); font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: .02em; margin: 6px 0 -4px; }
@@ -196,28 +196,79 @@ textarea { width: 100%; min-height: 360px; font: 12px/1.5 ui-monospace, SFMono-R
 .simbox .seg button { padding: 4px 10px; font-size: 12px; }
 .simstats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
 .simstats div { background: var(--surface); border-radius: 6px; padding: 6px 8px; }
-.pgrid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+/* ---- skins: three looks from the Higgsfield concepts. Neon Grid (default), Chrome & Gold, Hologram HUD. */
+:root[data-skin="chrome"] {
+  --bg: #0a0a0d; --surface: rgba(26, 26, 32, .86); --surface-2: rgba(40, 40, 48, .8); --ink: #f4f4f5; --muted: #a1a1aa; --line: rgba(255, 255, 255, .13);
+  --accent: #f5c451; --accent-2: #e5484d; --accent-ink: #1a1203; --accent-soft: rgba(245, 196, 81, .14);
+  --chart: #d4d4d8; --chart-soft: rgba(212, 212, 216, .12); --turf: #121216; --turf-line: #2a2a33;
+  --font-display: "Chakra Petch", "Arial Narrow", sans-serif; }
+:root[data-skin="hud"] {
+  --bg: #020a09; --surface: rgba(5, 24, 22, .8); --surface-2: rgba(8, 36, 33, .75); --ink: #d9fff7; --muted: #7fb3aa; --line: rgba(45, 212, 191, .24);
+  --accent: #2dd4bf; --accent-2: #f59e0b; --accent-ink: #02110f; --accent-soft: rgba(45, 212, 191, .14);
+  --chart: #5eead4; --chart-soft: rgba(94, 234, 212, .12); --turf: #04110f; --turf-line: #0f3b34;
+  --good: #4ade80; --font-display: "Share Tech Mono", "Chakra Petch", ui-monospace, monospace; }
+:root[data-skin="hud"] body { background-image: repeating-linear-gradient(0deg, rgba(45, 212, 191, .035) 0 1px, transparent 1px 3px), radial-gradient(900px 500px at 50% -10%, rgba(45, 212, 191, .10), transparent 60%); background-size: auto; }
+:root[data-skin="chrome"] body { background-image: radial-gradient(900px 420px at 15% -10%, rgba(255, 255, 255, .10), transparent 60%), radial-gradient(900px 420px at 85% -10%, rgba(245, 196, 81, .10), transparent 60%); background-size: auto; }
+.skins { display: inline-flex; gap: 6px; align-items: center; }
+.skins button { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 4px 10px 4px 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+.skins button[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 60%, transparent); }
+.skins i { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
+
+/* ---- player card v2 */
+.pgrid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
 .pcard { --tc: var(--accent); position: relative; padding: 2px; min-width: 0;
-  background: conic-gradient(from 210deg, #9fb4d8, var(--accent), #e9d5ff, var(--accent-2), #cfe8ff, var(--tc), #9fb4d8);
-  clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px);
-  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--tc) 45%, transparent)); }
-.pcard.hot { filter: drop-shadow(0 0 16px rgba(34, 211, 238, .75)); }
-.pc-in { background: linear-gradient(180deg, #0a1426, #060c18 60%); clip-path: inherit; padding: 14px; display: flex; flex-direction: column; gap: 10px; height: 100%; }
-.pc-top { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; align-items: center; }
-.pc-photo { position: relative; width: 96px; height: 96px; border-radius: 12px; overflow: hidden;
-  background: radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--tc) 70%, #fff 0%), #0a1426 75%); border: 1px solid rgba(255, 255, 255, .25); box-shadow: 0 0 18px color-mix(in srgb, var(--tc) 60%, transparent) inset; }
-.pc-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
-.pc-photo .ini { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-size: 34px; font-weight: 700; color: #fff; opacity: .8; }
-.pc-num { position: absolute; right: 4px; bottom: 0; font-family: var(--font-display); font-weight: 700; font-size: 22px; color: #fff; text-shadow: 0 0 8px var(--tc); }
-.pc-name { font-family: var(--font-display); font-weight: 700; font-size: 21px; line-height: 1.05; text-transform: uppercase; letter-spacing: .03em; }
-.pc-meta { color: var(--muted); font-size: 12px; }
-.pc-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: rgba(34, 211, 238, .25); border-radius: 8px; overflow: hidden; }
-.pc-stats div { background: #08111f; padding: 6px 8px; }
-.pc-stats .v { font-family: var(--font-display); font-size: 20px; color: #fff; }
-.pc-trend { font-size: 11px; color: var(--muted); }
-.pc-trend b.up { color: var(--good); } .pc-trend b.dn { color: var(--bad); }
-details.pc-more summary, details.pc-log summary { cursor: pointer; color: var(--accent); font-weight: 600; font-size: 13px; padding: 4px 0; }
-details.pc-log table td, details.pc-log table th { padding: 4px 6px; font-size: 12px; }
+  clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px);
+  background: linear-gradient(160deg, var(--accent), color-mix(in srgb, var(--accent) 30%, transparent) 30%, transparent 50%, color-mix(in srgb, var(--accent-2) 40%, transparent) 75%, var(--accent-2));
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--accent) 35%, transparent)); }
+:root[data-skin="chrome"] .pcard { background: linear-gradient(135deg, #f4f4f5, #71717a 18%, #e4e4e7 34%, var(--tc) 50%, #52525b 66%, #f5c451 82%, #a1a1aa); filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .6)); }
+:root[data-skin="hud"] .pcard { background: color-mix(in srgb, var(--accent) 45%, transparent); filter: none; }
+.pcard.hot { filter: drop-shadow(0 0 18px color-mix(in srgb, var(--accent) 80%, transparent)); }
+.pc-in { background: linear-gradient(180deg, color-mix(in srgb, var(--tc) 22%, #070d18), #060b16 45%); clip-path: inherit; padding: 12px; display: flex; flex-direction: column; gap: 10px; height: 100%; position: relative; }
+:root[data-skin="chrome"] .pc-in { background: linear-gradient(180deg, color-mix(in srgb, var(--tc) 30%, #141418), #0e0e12 50%); }
+:root[data-skin="hud"] .pc-in { background: linear-gradient(180deg, rgba(5, 30, 27, .92), rgba(2, 12, 11, .96)); }
+:root[data-skin="hud"] .pc-in::before, :root[data-skin="hud"] .pc-in::after { content: ""; position: absolute; width: 22px; height: 22px; border: 2px solid var(--accent-2); pointer-events: none; }
+:root[data-skin="hud"] .pc-in::before { top: 8px; left: 8px; border-right: 0; border-bottom: 0; }
+:root[data-skin="hud"] .pc-in::after { bottom: 8px; right: 8px; border-left: 0; border-top: 0; }
+.pc-hero { position: relative; height: 178px; border-radius: 10px; overflow: hidden; display: grid; place-items: end center;
+  background: radial-gradient(circle at 50% 75%, color-mix(in srgb, var(--tc) 75%, transparent), transparent 70%), linear-gradient(180deg, transparent, rgba(0, 0, 0, .35)); }
+.pc-logo { position: absolute; inset: -10% -10% auto auto; width: 75%; opacity: .16; filter: saturate(1.1); pointer-events: none; }
+:root[data-skin="hud"] .pc-logo { filter: grayscale(1) sepia(1) hue-rotate(120deg) saturate(3); opacity: .14; }
+.pc-hero img.ph { position: relative; height: 172px; width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .6)); }
+:root[data-skin="hud"] .pc-hero img.ph { filter: grayscale(.3) drop-shadow(0 0 10px rgba(45, 212, 191, .45)); }
+.pc-hero .ini { font-family: var(--font-display); font-size: 64px; font-weight: 700; color: #fff; opacity: .85; align-self: center; }
+.pc-hero .num { position: absolute; left: 10px; top: 6px; font-family: var(--font-display); font-weight: 700; font-size: 40px; color: #fff; opacity: .9; text-shadow: 0 0 14px var(--tc); }
+.pc-hero .badge { position: absolute; right: 10px; top: 10px; }
+.pc-plate { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 6px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 22%, transparent), color-mix(in srgb, var(--accent-2) 14%, transparent)); border: 1px solid var(--line); }
+:root[data-skin="chrome"] .pc-plate { background: linear-gradient(180deg, #3f3f46, #18181b); border-color: #71717a; }
+.pc-plate .nm { font-family: var(--font-display); font-weight: 700; font-size: 19px; text-transform: uppercase; letter-spacing: .04em; line-height: 1.05; }
+.pc-plate .mt { color: var(--muted); font-size: 11px; text-align: right; }
+.pc-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.pc-tabs button { border: 1px solid var(--line); background: var(--surface-2); color: var(--muted); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 5px 0; cursor: pointer;
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); }
+.pc-tabs button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.pc-chart svg { width: 100%; height: auto; display: block; }
+.b3 { transform-box: fill-box; transform-origin: 50% 100%; animation: rise .6s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--d) * 70ms); }
+@keyframes rise { from { transform: scaleY(.02); opacity: .2; } to { transform: scaleY(1); opacity: 1; } }
+.pc-car { position: relative; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); overflow: hidden; }
+.pc-track { display: flex; transition: transform .5s cubic-bezier(.3, .8, .2, 1); }
+.pc-slide { min-width: 100%; padding: 10px 24px 22px; display: flex; flex-direction: column; gap: 4px; min-height: 108px; }
+.pc-slide .k2 { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); font-weight: 700; }
+.pc-slide .hl { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1; color: #fff; text-transform: uppercase; }
+:root[data-skin="hud"] .pc-slide .hl { color: var(--accent); }
+.pc-slide .sb { font-size: 12px; color: var(--muted); }
+.pc-slide .row3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.pc-slide .row3 b { display: block; font-family: var(--font-display); font-size: 22px; color: #fff; }
+.pc-slide .row3 span { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.up { color: var(--good) !important; } .dn { color: var(--bad) !important; }
+.pc-dots { position: absolute; bottom: 6px; left: 0; right: 0; display: flex; gap: 6px; justify-content: center; }
+.pc-dots button { width: 7px; height: 7px; padding: 0; border-radius: 50%; border: 0; background: var(--line); cursor: pointer; }
+.pc-dots button[aria-current="true"] { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+.pc-arrow { position: absolute; top: 40%; border: 0; background: transparent; color: var(--accent); font-size: 18px; cursor: pointer; padding: 2px 6px; }
+.pc-arrow.l { left: 0; } .pc-arrow.r { right: 0; }
+.dchip { display: flex; justify-content: space-between; gap: 6px; font-size: 12px; padding: 3px 0; border-bottom: 1px dashed var(--line); }
+.dchip:last-child { border-bottom: 0; }
+@media (prefers-reduced-motion: reduce) { .pc-track { transition: none; } .b3 { animation: none; } }
 .toast { color: var(--good); font-weight: 600; font-size: 13px; }
 footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
 @media (max-width: 520px) {
@@ -231,6 +282,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
   <div class="wrap">
     <div class="brand">Game <span>Board</span></div>
     <div class="meta" id="meta"></div>
+    <div class="skins" id="skins" role="group" aria-label="Design"><button data-skin="neon"><i style="background:linear-gradient(135deg,#22d3ee,#c084fc)"></i>Neon</button><button data-skin="chrome"><i style="background:linear-gradient(135deg,#f4f4f5,#71717a,#f5c451)"></i>Chrome</button><button data-skin="hud"><i style="background:linear-gradient(135deg,#2dd4bf,#f59e0b)"></i>HUD</button></div>
     <div class="flag-research">Research only</div>
   </div>
   <div class="hash" aria-hidden="true"></div>
@@ -1024,27 +1076,106 @@ const BOARD = /*__BOARD_DATA__*/null;
       rec ? `<tr><td>${x.week}</td><td>${esc(x.opp)}</td><td>${pct(x.snap_pct)}</td><td>${x.targets}</td><td>${pct(x.target_share)}</td><td>${x.receptions}</td><td>${x.rec_yards}</td><td>${x.rec_td}</td><td>${x.air_yards}</td></tr>`
           : `<tr><td>${x.week}</td><td>${esc(x.opp)}</td><td>${pct(x.snap_pct)}</td><td>${x.carries}</td><td>${pct(x.carry_share)}</td><td>${x.rush_yards}</td><td>${x.rush_td}</td><td>${x.targets}</td><td>${x.receptions}</td><td>${x.rec_yards}</td></tr>`).join("")}</tbody></table></div>`;
   }
+  function bars3d(vals, labels, fmt, sub) {
+    const W = 300, H = 150, base = 112, dx = 12, dy = -8, n5 = vals.length || 1, slot = (W - 40) / n5, bw = Math.min(30, slot * 0.5);
+    const mx = Math.max(...vals.filter(isNum), 1);
+    const floor = `<polygon points="14,${base} ${W - 26},${base} ${W - 26 + dx},${base + dy} ${14 + dx},${base + dy}" fill="color-mix(in srgb, var(--accent) 10%, transparent)" stroke="var(--line)"/>` +
+      [0.25, 0.5, 0.75, 1].map((f) => `<line x1="14" x2="${W - 26}" y1="${base - f * 82}" y2="${base - f * 82}" stroke="var(--line)" stroke-dasharray="2 4"/>`).join("");
+    const bars = vals.map((v, i) => {
+      const x = 22 + i * slot + (slot - bw) / 2, h = isNum(v) ? Math.max(2, (v / mx) * 82) : 0, y = base - h;
+      const c = `color-mix(in srgb, var(--accent) ${100 - i * 18}%, var(--accent-2))`;
+      const lab = `<text x="${x + bw / 2}" y="${base + 14}" text-anchor="middle" font-size="8.5" fill="var(--muted)">${esc(labels[i] || "")}</text><text x="${x + bw / 2}" y="${base + 24}" text-anchor="middle" font-size="7.5" fill="var(--muted)">${esc((sub || [])[i] || "")}</text>`;
+      if (!isNum(v)) return `<text x="${x + bw / 2}" y="${base - 6}" text-anchor="middle" font-size="9" fill="var(--muted)">DNP</text>` + lab;
+      return `<g class="b3" style="--d:${i}"><rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${c}" opacity=".92"/>
+        <polygon points="${x},${y} ${x + dx},${y + dy} ${x + bw + dx},${y + dy} ${x + bw},${y}" fill="${c}" opacity=".6"/>
+        <polygon points="${x + bw},${y} ${x + bw + dx},${y + dy} ${x + bw + dx},${base + dy} ${x + bw},${base}" fill="${c}" opacity=".38"/></g>
+        <text x="${x + bw / 2 + dx / 2}" y="${y + dy - 4}" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ink)">${fmt(v)}</text>` + lab;
+    }).join("");
+    return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Last five games">${floor}${bars}</svg>`;
+  }
+  const METRICS = { rec: [["targets", "Targets", (v) => v], ["receptions", "Catches", (v) => v], ["rec_yards", "Yards", (v) => v], ["target_share", "Share", (v) => pct(v)]],
+                    rush: [["carries", "Carries", (v) => v], ["rush_yards", "Yards", (v) => v], ["carry_share", "Share", (v) => pct(v)], ["targets", "Targets", (v) => v]] };
+  function chartFor(log, kind, mi) {
+    const [k, , fmt] = METRICS[kind][mi], L = log.slice(-5);
+    return bars3d(L.map((x) => (x.played ? x[k] : null)), L.map((x) => "wk " + x.week), fmt, L.map((x) => x.opp));
+  }
+  function ring(p, label) {
+    const r = 30, c = 2 * Math.PI * r, v = isNum(p) ? p : 0;
+    return `<svg viewBox="0 0 80 80" width="74" height="74"><circle cx="40" cy="40" r="${r}" fill="none" stroke="var(--line)" stroke-width="8"/><circle cx="40" cy="40" r="${r}" fill="none" stroke="var(--accent)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${(c * v).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 40 40)" style="filter:drop-shadow(0 0 4px var(--accent))"/><text x="40" y="44" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">${pct(v)}</text><text x="40" y="57" text-anchor="middle" font-size="7" fill="var(--muted)">${esc(label)}</text></svg>`;
+  }
+  function slidesFor(g, s, r, rec, vis, opp, log) {
+    const team = s.offense, qb = last((g.game.listed_qbs || {})[team] || "the QB");
+    const all = ((s.roles || {})[rec ? "receivers" : "rushers"] || []).filter((x) => rec || x.pos === "RB");
+    const rank = all.slice().sort((a, b) => (rec ? (b.target_share || 0) - (a.target_share || 0) : (b.carry_share || 0) - (a.carry_share || 0))).findIndex((x) => x.player_id === r.player_id) + 1;
+    const out = [];
+    if (rec) out.push(`<div class="k2">Role</div><div class="hl">#${rank} target</div><div class="sb">${pct(r.target_share)} of ${esc(qb)}'s targets · ${n(r.targets_pg, 1)} a game${r.red_zone_targets ? ` · ${r.red_zone_targets} in the red zone` : ""}</div>${vsBar("share", r.target_share, 0.4, null, (v) => pct(v))}`);
+    else out.push(`<div class="k2">Role</div><div class="hl">${(r.carry_share || 0) >= 0.6 ? "Lead back" : "#" + rank + " back"}</div><div class="sb">${pct(r.carry_share)} of carries · ${n(r.carries_pg, 1)} a game${(r.carry_share || 0) < 0.6 ? " · under 60%: your rule says no rushing legs" : ""}</div>${vsBar("share", r.carry_share, 1, null, (v) => pct(v))}`);
+    const l5 = log.slice(-5), keys = rec ? [["targets", "tgt"], ["receptions", "rec"], ["rec_yards", "yds"]] : [["carries", "car"], ["rush_yards", "yds"], ["targets", "tgt"]];
+    out.push(`<div class="k2">Last 5 games (season)</div><div class="row3">${keys.map(([k, l]) => { const a = avg(l5, k), b = avg(log, k); const cls = a != null && b != null ? (a >= b * 1.1 ? "up" : a <= b * 0.9 ? "dn" : "") : "";
+      return `<div><b class="${cls}">${n(a, 1)}${cls === "up" ? "▲" : cls === "dn" ? "▼" : ""}</b><span>${l} (${n(b, 1)})</span></div>`; }).join("")}</div>`);
+    if (opp && !opp.status) out.push(`<div class="k2">Opportunity this game</div><div style="display:flex;gap:12px;align-items:center">${ring((opp.yards || {})["70"], "70+ yds")}<div><div class="hl" style="font-size:22px">${n(opp.yards_median, 0)} yds</div><div class="sb">median · ${rec ? `${n(opp.targets_mean, 1)} targets, ${n(opp.receptions_mean, 1)} catches` : `${n(opp.carries_mean, 1)} carries`} · 80+ ${pct((opp.yards || {})["80"])}</div></div></div>`);
+    const pk = rec ? ((r.pos || "WR").toLowerCase()) : "rb", key = rec ? pk + "_rec_yards_pg" : "rb_rush_yards_pg";
+    const val = (s.defense_allowed || {})[key], rk = (s.defense_rank || {})[key];
+    out.push(`<div class="k2">${esc(s.defense)} allows to ${rec ? esc((r.pos || "WR") + "s") : "RBs"}</div><div class="hl">${n(val, 0)} <span style="font-size:13px">yds / game</span> ${rankChip(rk, true, true)}</div>${vsBar("vs league", val, Math.max(val || 0, (rk || {}).league_avg || 0) * 1.25, (rk || {}).league_avg, (v) => n(v, 0))}<div class="sb">${rec ? `${n((s.defense_allowed || {})[pk + "_receptions_pg"], 1)} catches a game to the position` : `${n((s.defense_allowed || {}).rb_yards_per_carry, 2)} yards per carry`}</div>`);
+    if (rec) {
+      const ds = ((vis.size || {}).defenders || []).slice(0, 3);
+      out.push(`<div class="k2">Who he'll see</div>${ds.length ? ds.map((d) => `<div class="dchip"><span>${lvlDot(d.grade === "target" ? "good" : d.grade === "avoid" ? "bad" : "info")} ${esc(d.player)} <span class="note">${esc(d.position)}${d.height_in ? " · " + ft(d.height_in) : ""}</span></span><span>${n(d.yards_per_target, 1)} y/tgt</span></div>`).join("") : `<div class="sb">No coverage data for this position.</div>`}`);
+    } else {
+      const rm = vis.runs, dd = {}; (s.run_defense_by_direction || []).forEach((d) => (dd[d.direction] = d));
+      const top = rm && rm.carries ? rm.cells.slice().sort((a, b) => b.carries - a.carries)[0] : null;
+      out.push(`<div class="k2">Where he runs</div>${top ? `<div class="hl" style="font-size:20px">${esc(top.direction)} · ${pct(top.carries / rm.carries)}</div><div class="sb">${n(top.ypc, 1)} yards per carry there; ${esc(s.defense)} allows ${dd[top.direction] ? n(dd[top.direction].ypc, 1) : "–"} on that side</div>` : `<div class="sb">No carries this season.</div>`}`);
+    }
+    return out;
+  }
   function playerCard(s, r, rec) {
     const g = G(), vis = (((s.visual || {})[rec ? "receivers" : "rushers"]) || {})[r.player_id] || {}, card = vis.card || {}, log = card.log || [];
     const opp = oppFor(s, r.player_id, rec ? "receivers" : "rushers");
     const edges = rec ? recEdges(s, r, vis, opp) : rushEdges(s, r, vis);
     const hot = edges.filter(([l]) => l === "good").length >= 2;
     const name = r.full_name || r.player, ini = name.split(" ").map((x) => x[0]).join("").slice(0, 2);
-    const stats = rec ? [["Tgt share", pct(r.target_share)], ["Tgt / g", n(r.targets_pg, 1)], ["Rec / g", n(r.receptions_pg, 1)], ["Yds / g", n(r.yards_pg, 0)]]
-      : [["Carry share", pct(r.carry_share)], ["Car / g", n(r.carries_pg, 1)], ["Yds / g", n(r.yards_pg, 0)], ["YPC", n(r.yards_per_carry, 2)]];
+    const id = slug(s.offense + "-" + r.player_id), kind = rec ? "rec" : "rush";
+    const slides = slidesFor(g, s, r, rec, vis, opp, log);
+    const logo = (g.teams[s.offense] || {}).logo;
     return `<div class="pcard ${hot ? "hot" : ""}" style="--tc:${teamColor(g, s.offense)}"><div class="pc-in">
-      ${hot ? `<span class="ribbon">Mismatch</span>` : ""}
-      <div class="pc-top"><div class="pc-photo">${card.photo ? `<img src="${card.photo}" alt="${esc(name)}">` : `<span class="ini">${esc(ini)}</span>`}${card.jersey != null ? `<span class="pc-num">${card.jersey}</span>` : ""}</div>
-        <div><div class="pc-name">${esc(name)}</div><div class="pc-meta">${esc(r.pos)} · ${esc(g.teams[s.offense].name)}${r.snap_share != null ? ` · ${pct(r.snap_share)} snaps` : ""}</div>
-        <div class="tags" style="margin-top:6px">${(r.tags || []).map(tagHtml).join("")}</div></div></div>
-      <div class="pc-stats">${stats.map(([k, v]) => `<div><div class="k">${k}</div><div class="v">${v}</div></div>`).join("")}</div>
-      ${opp && !opp.status ? `<div class="note">This game: ${rec ? `${n(opp.targets_mean, 1)} targets, ${n(opp.receptions_mean, 1)} catches` : `${n(opp.carries_mean, 1)} carries`}, median ${n(opp.yards_median, 0)} yards · 70+ ${pct((opp.yards || {})["70"])} · 80+ ${pct((opp.yards || {})["80"])}</div>` : ""}
-      <div><div class="k">Last 5 games: ${rec ? "catches / targets (bars), yards (line), target share (top)" : "carries (bars), rush yards (line), carry share (top)"}</div>${last5Svg(log, rec)}${trendRow(log, rec ? [["targets", "tgt"], ["receptions", "rec"], ["rec_yards", "yds"]] : [["carries", "car"], ["rush_yards", "yds"]])}</div>
-      ${edges.length ? `<ul class="list">${edges.slice(0, 4).map(([l, t]) => `<li>${lvlDot(l)}<span>${esc(t)}</span></li>`).join("")}</ul>` : ""}
+      <div class="pc-hero">${logo ? `<img class="pc-logo" src="${logo}" alt="">` : ""}${card.photo ? `<img class="ph" src="${card.photo}" alt="${esc(name)}">` : `<span class="ini">${esc(ini)}</span>`}
+        ${card.jersey != null ? `<span class="num">${card.jersey}</span>` : ""}${hot ? `<span class="badge ribbon">Mismatch</span>` : ""}</div>
+      <div class="pc-plate"><span class="nm">${esc(name)}</span><span class="mt">${esc(r.pos)} · ${esc(s.offense)}<br>${(r.tags || []).slice(0, 2).map((t) => esc(t.tag)).join(" · ")}</span></div>
+      <div class="pc-tabs" role="group" aria-label="Last five games">${METRICS[kind].map(([, l], i) => `<button data-card="${esc(id)}" data-mi="${i}" aria-pressed="${i === 0}">${l}</button>`).join("")}</div>
+      <div class="pc-chart" id="ch-${esc(id)}" data-kind="${kind}">${chartFor(log, kind, 0)}</div>
+      <div class="pc-car" data-car="${esc(id)}" data-i="0"><div class="pc-track">${slides.map((x) => `<div class="pc-slide">${x}</div>`).join("")}</div>
+        <button class="pc-arrow l" data-step="-1" aria-label="Previous">‹</button><button class="pc-arrow r" data-step="1" aria-label="Next">›</button>
+        <div class="pc-dots">${slides.map((_, i) => `<button data-go="${i}" aria-label="Slide ${i + 1}" aria-current="${i === 0}"></button>`).join("")}</div></div>
       <details class="pc-log"><summary>Season game log (${log.filter((x) => x.played).length} games)</summary>${logTable(log, rec)}</details>
-      <details class="pc-more"><summary>Matchup numbers, ladder and trend</summary>${rec ? recCard(s, r) : rushCard(s, r)}</details>
     </div></div>`;
   }
+  function logFor(id) {
+    for (const sd of Object.values(G().sides)) for (const kind of ["receivers", "rushers"]) for (const [pid, v] of Object.entries(((sd.visual || {})[kind]) || {}))
+      if (slug(sd.offense + "-" + pid) === id) return (v.card || {}).log || [];
+    return [];
+  }
+  function carGo(el, i) {
+    const n2 = el.querySelectorAll(".pc-slide").length; if (!n2) return;
+    const k = ((i % n2) + n2) % n2; el.dataset.i = k;
+    el.querySelector(".pc-track").style.transform = `translateX(-${k * 100}%)`;
+    el.querySelectorAll(".pc-dots button").forEach((b, j) => b.setAttribute("aria-current", j === k));
+  }
+  function initCards() {
+    document.querySelectorAll(".pc-tabs button").forEach((b) => b.addEventListener("click", () => {
+      const id = b.dataset.card, box = document.getElementById("ch-" + id);
+      box.innerHTML = chartFor(logFor(id), box.dataset.kind, +b.dataset.mi);
+      b.parentElement.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    }));
+    document.querySelectorAll(".pc-car").forEach((el) => {
+      el.addEventListener("pointerenter", () => (el.dataset.hold = "1")); el.addEventListener("pointerleave", () => delete el.dataset.hold);
+      el.addEventListener("focusin", () => (el.dataset.hold = "1")); el.addEventListener("focusout", () => delete el.dataset.hold);
+      el.querySelectorAll("[data-step]").forEach((b) => b.addEventListener("click", () => carGo(el, +el.dataset.i + +b.dataset.step)));
+      el.querySelectorAll("[data-go]").forEach((b) => b.addEventListener("click", () => carGo(el, +b.dataset.go)));
+      let x0 = null; el.addEventListener("pointerdown", (e) => (x0 = e.clientX)); el.addEventListener("pointerup", (e) => { if (x0 != null && Math.abs(e.clientX - x0) > 30) carGo(el, +el.dataset.i + (e.clientX < x0 ? 1 : -1)); x0 = null; });
+    });
+  }
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion) setInterval(() => { if (document.hidden) return; document.querySelectorAll(".pc-car").forEach((el) => { if (!el.dataset.hold) carGo(el, +el.dataset.i + 1); }); }, 2000);
+
   function renderPlayers(g) {
     const s = S(), R = s.roles || {};
     const rec = (R.receivers || []).filter((r) => r.targets >= 8);
@@ -1196,6 +1327,7 @@ const BOARD = /*__BOARD_DATA__*/null;
     document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => { state.tab = b.dataset.tab; save(); renderSheet(); }));
     document.querySelectorAll("[data-dir]").forEach((b) => b.addEventListener("click", () => { state.dir = +b.dataset.dir; renderSheet(); }));
     document.querySelectorAll("[data-sim]").forEach((b) => b.addEventListener("click", () => runSim(b.dataset.sim, "exp")));
+    initCards();
     const cp = document.getElementById("copy");
     if (cp) cp.addEventListener("click", () => {
       const ta = document.getElementById("grok-text");
@@ -1215,6 +1347,10 @@ const BOARD = /*__BOARD_DATA__*/null;
     if (i >= 0) state.gi = i;
     else { const now = Date.now(); const j = games.findIndex((g) => !g.result && kickoffDate(g).getTime() > now - 4 * 3600e3); state.gi = j >= 0 ? j : 0; }
   }
+  function setSkin(k) { document.documentElement.setAttribute("data-skin", k); document.querySelectorAll("#skins button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.skin === k)); try { localStorage.setItem("board-skin", k); } catch (e) { /* storage blocked */ } }
+  let skin0 = "neon"; try { skin0 = localStorage.getItem("board-skin") || "neon"; } catch (e) { /* storage blocked */ }
+  setSkin(skin0);
+  document.querySelectorAll("#skins button").forEach((b) => b.addEventListener("click", () => setSkin(b.dataset.skin)));
   try { const t = localStorage.getItem("board-tab"); if (t && TABS.some(([k]) => k === t)) state.tab = t; } catch (e) { /* storage blocked */ }
   const built = BOARD && BOARD.built_utc ? new Date(BOARD.built_utc) : null;
   document.getElementById("meta").textContent = games.length ? `Week ${games[0].game.week} · ${games.length} games · updated ${built ? built.toLocaleString([], { weekday: "short", hour: "numeric", minute: "2-digit" }) : "?"}` : "No games";

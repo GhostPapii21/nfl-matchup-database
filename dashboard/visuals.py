@@ -332,3 +332,25 @@ def headshot_data_uri(url: str | None, cache_dir, fetch) -> str | None:
         except Exception:  # noqa: BLE001 - a missing photo falls back to initials
             return None
     return "data:image/webp;base64," + base64.b64encode(f.read_bytes()).decode()
+
+
+def team_logo_data_uri(team: str, cache_dir, fetch) -> str | None:
+    """The team's logo (nflverse squared logo), as a small embedded WebP for faded card backgrounds."""
+    import base64
+    from pathlib import Path
+    cache = Path(cache_dir)
+    cache.mkdir(parents=True, exist_ok=True)
+    f = cache / f"{team}.webp"
+    if not f.exists():
+        if fetch is None:
+            return None
+        try:
+            import io
+            from PIL import Image
+            raw = fetch(f"https://raw.githubusercontent.com/nflverse/nflverse-pbp/master/squared_logos/{team}.png")
+            im = Image.open(io.BytesIO(raw)).convert("RGBA")
+            im.thumbnail((180, 180))
+            im.save(f, "WEBP", quality=80)
+        except Exception:  # noqa: BLE001 - the card falls back to team colors
+            return None
+    return "data:image/webp;base64," + base64.b64encode(f.read_bytes()).decode()
