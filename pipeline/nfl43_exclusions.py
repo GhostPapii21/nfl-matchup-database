@@ -23,6 +23,7 @@ ENABLE_PATHS: dict[str, tuple[tuple[str, ...], ...]] = {
         ("semantics", "kick-play fouls"),
         ("semantics", "include_kick_play_fouls"),
         ("semantics", "penalties_include_kick_plays"),
+        ("semantics", "rare_plays"),  # NFL-75 rare_plays.py covers kick-play fouls
         ("kick_play_fouls",),
     ),
     "joint_producer penalties/return yards": (
@@ -41,6 +42,7 @@ ENABLE_PATHS: dict[str, tuple[tuple[str, ...], ...]] = {
         ("semantics", "fakes"),
         ("semantics", "fake_punts"),
         ("semantics", "blocked kicks/onside/fakes"),
+        ("semantics", "rare_plays"),  # NFL-75 rare_plays.py covers blocked kicks / onside / fakes
         ("blocked_kicks",),
         ("onside_kicks",),
         ("fake_punts",),

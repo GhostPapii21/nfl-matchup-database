@@ -39,11 +39,20 @@ class PlayCatalog:
     """Pre-index team snaps for fast sampling; optional defense conditioning + empirical clock."""
 
     def __init__(self, df: pd.DataFrame, min_n: int, games_df: Optional[pd.DataFrame] = None,
-                 exclude_clock_mgmt: bool = False):
+                 exclude_clock_mgmt: bool = False, rare_plays: bool = False):
         self.df = df
         self.min_n = min_n
         self.clock_df = games_df if games_df is not None and len(games_df) else df
+        # NFL-75 rare plays (opt-in, rare_plays.py): kick-formation pass/run rows (fakes / aborted snaps) leave the
+        # scrimmage pools and count as punt / FG decisions; blocked and penalty-flagged kicks leave the team kick pools;
+        # onside kicks leave the kickoff start pool. Each is resampled from its own as-of league pool instead.
+        # rare_plays=False builds exactly the pre-NFL-75 catalog.
+        self.rare_plays = bool(rare_plays)
         snap_types = ["pass", "run"] if exclude_clock_mgmt else ["pass", "run", "qb_kneel", "qb_spike"]
+        if self.rare_plays:
+            df = _recode_kick_formation(df)
+            if games_df is not None and len(games_df):
+                games_df = _recode_kick_formation(games_df)
         self.snaps = df[df["play_type"].isin(snap_types)].copy()
         self.snaps["_db"] = self.snaps["ydstogo"].map(dist_bucket)
         self.snaps["_yl"] = self.snaps["yardline_100"].map(yl_bucket)
@@ -85,7 +94,8 @@ class PlayCatalog:
                         self.def_allowed_cells[(str(deff), int(down), str(db))] = cell
         # Kickoff outcomes: receiving team's first scrimmage yardline_100 after each as-of kickoff
         # in games involving these teams (touchbacks at the 35 under the 2025 rule, returns, short kicks).
-        self.kickoff_starts = kickoff_start_yardlines(games_df if games_df is not None else df)
+        self.kickoff_starts = kickoff_start_yardlines(games_df if games_df is not None else df,
+                                                      exclude_onside=self.rare_plays)
         # State-conditioned 4th-down decisions (observed team rows only)
         self.fourth_cells: dict[tuple, pd.DataFrame] = {}
         f4 = df[(df["down"] == 4) & df["play_type"].isin(["punt", "field_goal", "pass", "run"])].copy()
@@ -109,6 +119,8 @@ class PlayCatalog:
                 self.fourth_probs[team] = (p_punt/s, p_fg/s, p_go/s) if s > 0 else (1.0, 0.0, 0.0)
             for kind, ptype in [("punt","punt"),("field_goal","field_goal"),("extra_point","extra_point")]:
                 sub = g[g["play_type"] == ptype]
+                if self.rare_plays:
+                    sub = sub[_clean_kick_mask(sub, kind)]
                 if len(sub) >= 3:
                     self.specials[kind][team] = sub.reset_index(drop=True)
 
@@ -270,6 +282,46 @@ class PlayCatalog:
 
 
 
+def _recode_kick_formation(df: pd.DataFrame) -> pd.DataFrame:
+    """NFL-75 rare plays: pass/run rows run from punt / field-goal formation (fakes and aborted snaps, per desc) are
+    recoded to play_type "punt" / "field_goal" so the 4th-down decision counts them as kick decisions, and they leave
+    every pass/run pool. They are not used as kick rows (they have no kick_distance / field_goal_result and are
+    dropped from the team kick pools by _clean_kick_mask). The league fake rate and outcome pool live in rare_plays."""
+    if "desc" not in df.columns or not len(df):
+        return df
+    desc = df["desc"].fillna("").astype(str).str.lower()
+    run_pass = df["play_type"].isin(["pass", "run"]) & df["down"].notna()  # two-point tries have no down
+    punt_f = run_pass & desc.str.contains("(punt formation)", regex=False)
+    fg_f = run_pass & desc.str.contains("(field goal formation)", regex=False) & ~punt_f
+    if not (punt_f.any() or fg_f.any()):
+        return df
+    out = df.copy()
+    out.loc[punt_f, "play_type"] = "punt"
+    out.loc[fg_f, "play_type"] = "field_goal"
+    out["_kick_formation_snap"] = punt_f | fg_f
+    return out
+
+
+def _clean_kick_mask(sub: pd.DataFrame, kind: str) -> pd.Series:
+    """Team kick rows the existing punt / FG / PAT mechanics keep under rare plays: not blocked, not penalty-flagged
+    (punt / FG), not a recoded formation snap."""
+    m = pd.Series(True, index=sub.index)
+    if "_kick_formation_snap" in sub.columns:
+        m &= ~sub["_kick_formation_snap"].fillna(False).astype(bool)
+    if kind == "punt":
+        if "punt_blocked" in sub.columns:
+            m &= pd.to_numeric(sub["punt_blocked"], errors="coerce").fillna(0) != 1
+        if "desc" in sub.columns:  # the team history (pbp_filter.COLS) has no punt_blocked column: use desc
+            m &= ~sub["desc"].fillna("").astype(str).str.contains("punt is BLOCKED", case=False, regex=False)
+    elif kind == "field_goal" and "field_goal_result" in sub.columns:
+        m &= sub["field_goal_result"] != "blocked"
+    elif kind == "extra_point" and "extra_point_result" in sub.columns:
+        m &= sub["extra_point_result"] != "blocked"
+    if kind in ("punt", "field_goal") and "penalty" in sub.columns:
+        m &= pd.to_numeric(sub["penalty"], errors="coerce").fillna(0) != 1
+    return m
+
+
 ACCOUNTING_DEFAULTS = {"clock": "mean", "exclude_clock_mgmt_snaps": True, "kickoff_clock": True,
                        "no_play_clock": "asof_mean", "unmodeled_row_clock": "attribute_to_prior_play",
                        "goal_line_censoring": "redistribute_right"}
@@ -405,9 +457,26 @@ def _attempt_fg(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -
         st.down, st.ydstogo = 1, 10
 
 
+def _rare_model(catalog):
+    sem = getattr(catalog, "semantics", None)
+    return sem.get("rare_plays") if isinstance(sem, dict) else None
+
+
 def _attempt_pat(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, scoring_team: str) -> None:
     plays = catalog.specials["extra_point"].get(scoring_team)
     # PAT is a dead-ball interval — do NOT consume game clock
+    rp = _rare_model(catalog)
+    if rp is not None and rp.xp.get("p_block") is not None:
+        # NFL-75: as-of league blocked-PAT rate; blocked rows are out of the team PAT pool (rare plays catalog).
+        if rng.random() < rp.xp["p_block"]:
+            defense = _other(st, scoring_team)
+            ev = {"type": "pat", "result": "blocked", "team": scoring_team, "rare_play": True}
+            p2 = rp.xp.get("p_def2_given_block")
+            if p2 is not None and p2 > 0 and rng.random() < p2:
+                st.add_score(defense, 2)
+                ev["def_two_point"] = defense
+            st.events.append(ev)
+            return
     if plays is None or len(plays) == 0:
         st.sparse_flags.append("SPARSE_PAT assume_made")
         st.add_score(scoring_team, 1)
@@ -485,7 +554,11 @@ def _punt_fixed(rng: np.random.Generator, catalog: PlayCatalog, st: GameState) -
     if sem is not None and sem.get("returns") is not None and not is_tb:
         # NFL-43: punt net stays the field-position quantity above; a return TD is a separate
         # as-of league-rate event and never adds return yards on top of the net.
-        if rng.random() < sem["returns"].punt_return_td_rate:
+        rp = sem.get("rare_plays")
+        rate = sem["returns"].punt_return_td_rate
+        if rp is not None and rp.clean_punt_return_td_rate is not None:
+            rate = rp.clean_punt_return_td_rate  # NFL-75: blocked / flagged punts carry their own return TDs
+        if rng.random() < rate:
             recv = st.possession
             st.events.append({"type": "punt_return_td", "team": recv, "from_yl": recv_yl})
             st.special_scores["punt_return_td"][recv] = st.special_scores["punt_return_td"].get(recv, 0) + 1
@@ -735,11 +808,16 @@ def _process_kickoff_returns(rng: np.random.Generator, catalog, st: GameState, s
     """NFL-43: roll an as-of league-rate kickoff-return TD for each new kickoff event."""
     sem = getattr(catalog, "semantics", None)
     rate = sem["returns"].kick_return_td_rate
+    rp = sem.get("rare_plays")
+    if rp is not None and rp.clean_kick_return_td_rate is not None:
+        rate = rp.clean_kick_return_td_rate  # NFL-75: onside kicks are resampled from their own pool
     i = seen[0]
     while i < len(st.events):
         e = st.events[i]
         i += 1
         if e.get("type") != "kickoff" or st.final:
+            continue
+        if rp is not None and _rare_onside(rng, catalog, st, e, rp):
             continue
         if rng.random() < rate:
             recv = e["receiving"]
@@ -750,6 +828,89 @@ def _process_kickoff_returns(rng: np.random.Generator, catalog, st: GameState, s
             apply_kickoff(st, receiving=_other(st, recv), yardline_100=kickoff_spot(st))
     seen[0] = i
 
+
+
+def _rare_kick_formation(rng: np.random.Generator, catalog, st: GameState, kind: str, rp, np_sec: int) -> bool:
+    """NFL-75: one as-of league draw per punt / FG decision: presnap foul, fake (or aborted snap), blocked kick or
+    penalty-flagged kick, each resampled from the real rows of that class; "clean" returns False so the existing team
+    punt / FG mechanics run. Returns True when this function resolved the play."""
+    cls = rp.draw_formation_class(rng, kind)
+    if cls == "clean":
+        return False
+    row = rp.draw_outcome(rng, kind, cls)
+    kicker = st.possession
+    if cls == "presnap":
+        st.game_seconds_remaining -= int(np_sec)
+    else:
+        st.game_seconds_remaining -= _clock_cost(kind, rng, getattr(catalog, "clock_map", None))
+    _apply_rare_outcome(rng, catalog, st, kicker, row, kind=kind, cls=cls, ref_yl=int(st.yardline_100))
+    return True
+
+
+def _apply_rare_outcome(rng, catalog, st: GameState, kicker: str, row, *, kind: str, cls: str, ref_yl: Optional[int],
+                        extra: Optional[dict] = None) -> None:
+    """Apply one resampled rare-play outcome row (rare_plays._outcomes layout).
+
+    Scored rows: kicking-team TD (6 + PAT, then it kicks off), kicking-team FG (3, then it kicks off), receiving-team
+    TD (6 + PAT, then it kicks off), receiving-team safety (2, the kicking team free-kicks). Other rows: the next
+    possessor gets the ball at (reference + shift) in its own frame, reference = the kick's line of scrimmage
+    (ref_yl, kicking frame) or 100 - ref_yl (receiving frame); ref_yl None (onside) uses the row's absolute spot."""
+    recv = _other(st, kicker)
+    kick_pts, recv_pts, possessor, shift, down, togo, abs_yl = (float(x) for x in row)
+    ev = {"type": "rare_play", "kind": kind, "cls": cls, "team": kicker, "from_yl": ref_yl, **(extra or {})}
+    if int(possessor) == -1:
+        if kick_pts > 0:
+            st.add_score(kicker, int(kick_pts))
+            ev["result"] = {6: "kicking_td", 3: "kicking_fg"}.get(int(kick_pts), f"kicking_{int(kick_pts)}")
+            st.events.append(ev)
+            if int(kick_pts) == 6:
+                _attempt_pat(rng, catalog, st, kicker)
+            apply_kickoff(st, receiving=recv, yardline_100=kickoff_spot(st))
+        else:
+            st.add_score(recv, int(recv_pts))
+            ev["result"] = {6: "receiving_td", 2: "receiving_safety"}.get(int(recv_pts), f"receiving_{int(recv_pts)}")
+            st.events.append(ev)
+            if int(recv_pts) == 6:
+                _attempt_pat(rng, catalog, st, recv)
+                apply_kickoff(st, receiving=kicker, yardline_100=kickoff_spot(st))
+            else:  # safety: the scored-upon (kicking) team free-kicks to the scorer
+                apply_kickoff(st, receiving=recv, yardline_100=kickoff_spot(st))
+        if st.in_ot and st.ot_tracker is None:
+            st.final = True
+            st.events.append({"type": "final_ot"})
+        return
+    keep = int(possessor) == 1
+    if ref_yl is None:
+        new_yl = int(abs_yl)
+    else:
+        new_yl = int(ref_yl + shift) if keep else int(100 - ref_yl + shift)
+    st.possession = kicker if keep else recv
+    st.yardline_100 = int(np.clip(new_yl, 1, 99))
+    st.down = int(np.clip(int(down), 1, 4))
+    st.ydstogo = int(max(1, min(int(togo), st.yardline_100)))
+    ev.update({"result": "kicking_team_ball" if keep else "receiving_team_ball", "new_yl": st.yardline_100,
+               "down": st.down, "ydstogo": st.ydstogo})
+    st.events.append(ev)
+
+
+def _rare_onside(rng, catalog, st: GameState, e: dict, rp) -> bool:
+    """NFL-75: onside decision for a kickoff that just happened (event e), from the as-of dynamic-kickoff-era rate in
+    the kicking team's (quarter, deficit, seconds) cell. Only the latest kickoff with the state still on it can be
+    changed. Returns True when an onside kick was taken (its outcome replaces the kickoff and its return-TD roll)."""
+    recv = e.get("receiving")
+    kicker = _other(st, recv)
+    if st.possession != recv or e is not next((x for x in reversed(st.events) if x.get("type") == "kickoff"), None):
+        return False
+    lead = (st.score_home - st.score_away) if recv == st.home else (st.score_away - st.score_home)
+    rate, tag = rp.onside_rate(int(st.qtr), int(lead), int(st.game_seconds_remaining))
+    if rate is None or rate <= 0 or not len(rp.onside["pool"]):
+        return False
+    if rng.random() >= rate:
+        return False
+    row = rp.onside["pool"][int(rng.integers(0, len(rp.onside["pool"])))]
+    _apply_rare_outcome(rng, catalog, st, kicker, row, kind="kickoff", cls="onside", ref_yl=None,
+                        extra={"onside_cell": tag, "onside_rate": rate})
+    return True
 
 
 def _advance_period(st: GameState, home: str) -> None:
@@ -853,6 +1014,11 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
             continue
         if st.down == 4:
             decision = _fourth_down_decision(rng, catalog, st)
+            rp = sem.get("rare_plays") if sem is not None else None
+            if rp is not None and decision in ("punt", "field_goal"):
+                if _rare_kick_formation(rng, catalog, st, decision, rp, np_sec):
+                    _post(prev_pos, prev_scores)
+                    continue
             if decision == "punt":
                 _punt_fixed(rng, catalog, st)
                 _post(prev_pos, prev_scores)
@@ -885,13 +1051,74 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
     return st
 
 
+ST_COUNT_KEYS = ("fg_made", "pat_good", "pat_blocked", "def_two_point", "kick_return_td", "punt_return_td",
+                 "safety", "punt_blocked", "fg_blocked", "blocked_kick_td", "fake", "fake_kicking_td", "fake_def_td",
+                 "kick_foul_presnap", "kick_foul_flagged", "flagged_kick_return_td", "onside_attempt", "onside_recovered",
+                 "punt_plays", "fg_plays")
+
+
+def special_teams_counts(st: GameState) -> dict:
+    """Per-game special-teams event counts (both teams), read from the event log. Diagnostic only; no RNG."""
+    c = dict.fromkeys(ST_COUNT_KEYS, 0)
+    for e in st.events:
+        t = e.get("type")
+        if t == "punt":
+            c["punt_plays"] += 1
+        elif t == "field_goal" or t == "fg_sparse_miss_default":
+            c["fg_plays"] += 1
+            c["fg_made"] += int(e.get("result") == "made")
+        elif t == "pat":
+            if e.get("result") == "good":
+                c["pat_good"] += 1
+            elif e.get("result") == "blocked":
+                c["pat_blocked"] += 1
+                c["def_two_point"] += int(e.get("def_two_point") is not None)
+        elif t == "kick_return_td":
+            c["kick_return_td"] += 1
+        elif t == "punt_return_td":
+            c["punt_return_td"] += 1
+        elif t == "safety":
+            c["safety"] += 1
+        elif t == "rare_play":
+            cls, kind, res = e.get("cls"), e.get("kind"), e.get("result")
+            if cls in ("fake", "blocked", "flagged"):
+                c["punt_plays" if kind == "punt" else "fg_plays"] += 1
+            c["fg_made"] += int(res == "kicking_fg")
+            c["safety"] += int(res == "receiving_safety")
+            if cls == "blocked":
+                c["punt_blocked" if kind == "punt" else "fg_blocked"] += 1
+                c["blocked_kick_td"] += int(res == "receiving_td")
+            elif cls == "fake":
+                c["fake"] += 1
+                c["fake_kicking_td"] += int(res == "kicking_td")
+                c["fake_def_td"] += int(res == "receiving_td")
+            elif cls == "presnap":
+                c["kick_foul_presnap"] += 1
+            elif cls == "flagged":
+                c["kick_foul_flagged"] += 1
+                c["flagged_kick_return_td"] += int(res == "receiving_td")
+            elif cls == "onside":
+                c["onside_attempt"] += 1
+                c["onside_recovered"] += int(res in ("kicking_team_ball", "kicking_td"))
+                c["kick_return_td"] += int(res == "receiving_td")
+    return c
+
+
 def source_composition(cfg):
     weeks = cfg['history']['weeks_inclusive']
     game = cfg['game']
     return f"team_only_{game['season']}_w{min(weeks)}_{max(weeks)}_{game['away']}_{game['home']}_empirical_not_possession_EP_model"
 
 
-def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dict[str, Any]:
+RESEARCH_MAX_N = 20_000  # research_unaccepted runs are capped here (never a 100k / lock run)
+
+
+def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
+                   research_unaccepted: tuple = ()) -> dict[str, Any]:
+    """research_unaccepted: names of still_unsupported NFL-43 semantics this RESEARCH call may run although Ghost6 has
+    not accepted their bounds (only "rare_plays" is recognised). n must be <= RESEARCH_MAX_N; the output is labeled
+    UNACCEPTED_RESEARCH_ONLY. Configs alone can never do this: a config that enables rare plays is refused by
+    nfl43.still_unsupported in every lock / 100k / rocket path, which never pass this argument."""
     if "joint_producer" in cfg:
         # The frozen model path owns its input reads, seed policy and ledger.
         # Never reuse historical yard-row player assignments as opportunities.
@@ -928,7 +1155,14 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
                 qb_status[team] = f"SPARSE_QB_HISTORY n_pass={m.get('n_pass_after')}"
 
     catalog, effects_prov = build_catalog(df, cfg, games_df=hist.get("games_df"))
-    semantics_meta = attach_semantics(catalog, cfg, pbp_path)
+    research_unaccepted = tuple(research_unaccepted or ())
+    if research_unaccepted:
+        bad = [x for x in research_unaccepted if x != "rare_plays"]
+        if bad:
+            raise ValueError(f"research_unaccepted only allows 'rare_plays', got {bad}")
+        if int(n) > RESEARCH_MAX_N:
+            raise ValueError(f"research_unaccepted runs are capped at n={RESEARCH_MAX_N} (got {n}); never 100k")
+    semantics_meta = attach_semantics(catalog, cfg, pbp_path, research_unaccepted=research_unaccepted)
     rng = np.random.default_rng(seed)
     buckets = {k: [] for k in [
         "q1_home","q1_away","q2_home","q2_away","q3_home","q3_away","q4_home","q4_away",
@@ -937,6 +1171,7 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
         "pen_yds_home","pen_yds_away","n_pen","ret_td_home","ret_td_away","def_td_home","def_td_away","tie",
     ]}
     joint_acc = {"pass_yards": {}, "rush_yards": {}, "rec_yards": {}}
+    st_counts = {k: [] for k in ST_COUNT_KEYS}
     sparse_counts = 0
     coarse_counts = 0
     def_cond_plays = 0
@@ -963,6 +1198,8 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
             "def_td_home": ss["def_return_td"].get(hm, 0), "def_td_away": ss["def_return_td"].get(aw, 0),
             "tie": int(st.score_home == st.score_away),
         })
+        for k, v in special_teams_counts(st).items():
+            st_counts[k].append(v)
         for k in buckets:
             if k == "went_ot":
                 buckets[k].append(bool(st.in_ot))
@@ -1022,6 +1259,7 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
             "note": "sparse_rate = hard SPARSE/EMPTY/FALLBACK only; coarse_rate = COARSE_* support gaps",
         },
         "arrays": {k: np.asarray(v) for k, v in buckets.items()},
+        "special_teams_counts": {k: np.asarray(v, dtype=int) for k, v in st_counts.items()},
         "player_joint": joint_acc,
         "player_samples": player_samples,
         "effects_provenance": effects_prov,
@@ -1046,11 +1284,13 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int) -> dic
 _SCRIMMAGE = ("run", "pass", "punt", "field_goal", "qb_kneel", "qb_spike")
 
 
-def kickoff_start_yardlines(df: Optional[pd.DataFrame]) -> Optional[np.ndarray]:
+def kickoff_start_yardlines(df: Optional[pd.DataFrame], exclude_onside: bool = False) -> Optional[np.ndarray]:
     """yardline_100 of the receiving team's first scrimmage play after each kickoff.
 
     Kickoffs recovered by the kicking team (onside) or returned for a score have no such
     play by the receiving team and are left out. Returns None when the columns are missing.
+    exclude_onside (NFL-75 rare plays): also leave out every onside kick (desc), because rare plays resamples
+    onside kicks from their own as-of pool; False keeps the pre-NFL-75 pool exactly.
     """
     need = {"game_id", "play_id", "play_type", "posteam", "yardline_100", "kickoff_attempt"}
     if df is None or not len(df) or not need <= set(df.columns):
@@ -1058,8 +1298,11 @@ def kickoff_start_yardlines(df: Optional[pd.DataFrame]) -> Optional[np.ndarray]:
     d = df.sort_values(["game_id", "play_id"])
     gid, pt, pos, yl = (d[c].to_numpy() for c in ("game_id", "play_type", "posteam", "yardline_100"))
     ko = d["kickoff_attempt"].fillna(0).to_numpy() == 1
+    starts = ko
+    if exclude_onside and "desc" in d.columns:
+        starts = ko & ~d["desc"].fillna("").astype(str).str.lower().str.contains("onside", regex=False).to_numpy()
     out = []
-    for i in np.flatnonzero(ko):
+    for i in np.flatnonzero(starts):
         j = i + 1
         while j < len(d) and gid[j] == gid[i] and pt[j] not in _SCRIMMAGE and not ko[j]:
             j += 1
@@ -1084,7 +1327,10 @@ def build_catalog(df: pd.DataFrame, cfg: dict, games_df: Optional[pd.DataFrame] 
     from effects.evidence_tables import load_ftn_join
     min_n = int(cfg["min_n_state"])
     acc = accounting_from_cfg(cfg)
-    base = PlayCatalog(df, min_n=min_n, games_df=games_df, exclude_clock_mgmt=acc["exclude_clock_mgmt_snaps"])
+    from rare_plays import mode_from_cfg
+    rare = mode_from_cfg(cfg) != "off"
+    base = PlayCatalog(df, min_n=min_n, games_df=games_df, exclude_clock_mgmt=acc["exclude_clock_mgmt_snaps"],
+                       rare_plays=rare)
     di = cfg.get("defense_interaction") or {}
     if di.get("mode") == "opponent_allowed":
         base.enable_defense_allowed(float(di.get("weight", 0.0)))
@@ -1119,17 +1365,27 @@ def build_catalog(df: pd.DataFrame, cfg: dict, games_df: Optional[pd.DataFrame] 
         "defense_blitz_rates": def_rates,
         "defense_interaction": def_prov,
         "accounting": acc,
+        "rare_plays_catalog": rare,
         "pressure_coverage": "NOT_EXECUTED_adapters_only (2026 participation unpublished)",
     }
     return cat, prov
 
 
-def attach_semantics(catalog, cfg: dict, pbp_path) -> dict:
-    """NFL-43: build opt-in penalty / return / OT semantics from cfg["semantics"]."""
+def attach_semantics(catalog, cfg: dict, pbp_path, research_unaccepted: tuple = ()) -> dict:
+    """NFL-43: build opt-in penalty / return / OT semantics from cfg["semantics"].
+    NFL-75: cfg["semantics"]["rare_plays"] = "asof_league_v1" adds rare_plays.py (refused by nfl43.still_unsupported
+    unless this is a capped research call with research_unaccepted=("rare_plays",))."""
+    from rare_plays import mode_from_cfg, build_rare_play_model
     sc = cfg.get("semantics")
     if not sc:
         return {"status": "LEGACY_UNSUPPORTED", "penalties": "UNSUPPORTED", "returns": "UNSUPPORTED",
                 "overtime": "single_possession_approx_declared_limitation"}
+    rare_mode = mode_from_cfg(cfg)
+    gate_cfg = cfg
+    research_rare = rare_mode != "off" and "rare_plays" in tuple(research_unaccepted or ())
+    if research_rare:
+        # Only the rare_plays key is lifted for this capped research call; everything else is still checked.
+        gate_cfg = {**cfg, "semantics": {k: v for k, v in sc.items() if k != "rare_plays"}}
     # NFL-43 residual R2: record still_unsupported in every opt-in run; refuse if this config enables one.
     try:
         repo = Path(__file__).resolve().parents[2]
@@ -1138,7 +1394,7 @@ def attach_semantics(catalog, cfg: dict, pbp_path) -> dict:
             sys.path.insert(0, str(repo))
         from pipeline import hooks
         flags = hooks.known_flags()
-        ex = hooks.nfl43_still_unsupported(flags, cfg=cfg)
+        ex = hooks.nfl43_still_unsupported(flags, cfg=gate_cfg)
     except Exception as e:
         raise ValueError(f"UNSUPPORTED: nfl43.still_unsupported could not be enforced ({e!r})") from e
     if ex["status"] != "OK":
@@ -1152,9 +1408,12 @@ def attach_semantics(catalog, cfg: dict, pbp_path) -> dict:
                   "still_unsupported_status": ex["status"]}
     if sem["overtime"] not in OT_RULES:
         raise ValueError(f"unknown ot rule {sem['overtime']}")
+    if rare_mode != "off" and sc.get("returns") != "asof_league_v1":
+        raise ValueError("UNSUPPORTED: semantics.rare_plays needs returns asof_league_v1 (kickoffs are processed there)")
     if sc.get("penalties") == "canonical_log_v1":
         teams = [cfg["game"]["home"], cfg["game"]["away"]]
-        pm = build_penalty_model(teams, week_asof_exclusive=wk, season=season, pbp_path=pbp_path)
+        pm = build_penalty_model(teams, week_asof_exclusive=wk, season=season, pbp_path=pbp_path,
+                                 **({"exclude_kick_formation": True} if rare_mode != "off" else {}))
         sem["penalties"] = pm
         meta["penalties"] = {"mode": "canonical_log_v1", **pm.meta}
     else:
@@ -1166,6 +1425,19 @@ def attach_semantics(catalog, cfg: dict, pbp_path) -> dict:
                            "punt_return_td_rate": rm.punt_return_td_rate, **rm.meta}
     else:
         meta["returns"] = "UNSUPPORTED"
+    sem["rare_plays"] = None
+    if rare_mode != "off":
+        base_cat = getattr(catalog, "base", catalog)
+        if not getattr(base_cat, "rare_plays", False):
+            raise ValueError("UNSUPPORTED: semantics.rare_plays needs a catalog built with rare_plays=True "
+                             "(build_catalog with the same cfg); a pre-NFL-75 catalog would double count")
+        rpm = build_rare_play_model(pbp_path, season=season, week_asof_exclusive=wk, mode=rare_mode)
+        sem["rare_plays"] = rpm
+        meta["rare_plays"] = {**rpm.meta, "gate": ("UNACCEPTED_RESEARCH_ONLY: nfl43.still_unsupported still lists these; "
+                                                   "refused for locks / 100k / rocket until Ghost6 accepts the bounds")
+                                                  if research_rare else "ACCEPTED_BY_GATE"}
+    else:
+        meta["rare_plays"] = "off"
     catalog.semantics = sem
     if hasattr(catalog, "base"):
         catalog.base.semantics = sem

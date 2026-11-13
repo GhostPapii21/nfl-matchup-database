@@ -144,7 +144,10 @@ def _truthy(s: pd.Series) -> pd.Series:
 def build_penalty_model(teams, *, week_asof_exclusive: int, season: int = 2026,
                         log_path: Path | str = CANONICAL_PENALTY_LOG,
                         games_path: Path | str = CANONICAL_PENALTY_GAMES,
-                        pbp_path=_PBP_UNSET) -> PenaltyModel:
+                        pbp_path=_PBP_UNSET, exclude_kick_formation: bool = False) -> PenaltyModel:
+    """exclude_kick_formation (NFL-75 rare plays only): drop accepted pre-snap fouls whose text says "Punt formation" /
+    "Field Goal formation" (the log files them as play_type "Penalty", so they sat in the scrimmage rates); rare plays
+    draws them on kick decisions instead. False = the pre-NFL-75 model exactly."""
     log = pd.read_csv(log_path)
     games = pd.read_csv(games_path)
     log = log[(log["season"] == season) & (log["week"] < int(week_asof_exclusive))]
@@ -158,6 +161,11 @@ def build_penalty_model(teams, *, week_asof_exclusive: int, season: int = 2026,
         season_filter = "game_id present in season-filtered penalty log (file has no season column)"
     games = games[games["week"] < int(week_asof_exclusive)]
     acc = log[(log["status"] == "accepted") & ~log["play_type"].isin(KICK_PLAY_TYPES)].copy()
+    n_kick_form = 0
+    if exclude_kick_formation:
+        kf = acc["text"].fillna("").astype(str).str.contains(r"punt formation|field goal formation", case=False, regex=True)
+        n_kick_form = int(kf.sum())
+        acc = acc[~kf].copy()
     acc["no_play_b"] = _truthy(acc["no_play"])
     acc["auto_b"] = _truthy(acc["auto_first_down"])
     rates, pools, per_team = {}, {}, {}
@@ -204,7 +212,8 @@ def build_penalty_model(teams, *, week_asof_exclusive: int, season: int = 2026,
             "unknown_games_policy": cov["policy"] if (cov["unknown_games"] or gap) else None,
             "pbp_games_in_pen_weeks": cov["pbp_games_in_pen_weeks"],
             "season_filter": season_filter, "games_in_file": n_games_file,
-            "kick_play_fouls_excluded": True, "per_team": per_team}
+            "kick_play_fouls_excluded": True, "per_team": per_team,
+            **({"kick_formation_presnap_excluded": n_kick_form} if exclude_kick_formation else {})}
     return PenaltyModel(rates=rates, pools=pools, meta=meta)
 
 
