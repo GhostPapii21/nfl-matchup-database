@@ -21,6 +21,27 @@ listed with `git ls-tree` and read with `git show`. They're data only, so no cod
 run. A ref that can't be read stops the command with exit 2. Each quote's source is recorded as
 `git:<ref>@<sha>:<path>`.
 
+## Same-night grading from the ESPN box score
+
+    python -m grading.grade --game 2026_10_WAS_NYG --freeze-ref origin/research/multibook-price-feed-2026-11-12 --write
+
+`--actuals auto` (default) uses nflverse when it has the final play-by-play and otherwise falls back to ESPN's free
+public summary API (`--actuals espn` forces it; the event id is looked up on ESPN's weekly scoreboard or given with
+`--espn-event`). The response's header and box score are saved to `grading/results/sources/espn_summary_<game>_<event>.json`
+with the pull time and the sha256 of the full response; `--offline` re-grades from that file. ESPN lists only players
+who recorded a stat, so a player missing from the box is `unknown`. The grader refuses if ESPN's status is not
+`STATUS_FINAL` or its teams don't match the game id.
+
+## Research artifacts (`grading/research_runs.py`)
+
+Besides the packet, each run grades what was committed for the game: `research/runs/*_<AWAY>_<HOME>*/legs.json`,
+`script_layer.json`, `*preview_result.json`, an optional `grading_spec.json` (flagged props, team reads and slips
+transcribed from that run's REPORT.md with line citations), locked snapshots under `snapshots/<game>/`, and the
+`pipeline/ledgers/<game>.sim100k.json` status. Output: `grading/results/<game>.research.jsonl` and a readable
+`grading/results/<game>.md`. Typed or analyst-computed probabilities are labelled `analyst read`, never `edge`.
+Alt-ladder rungs have no saved alt price, so their closing line is `unknown`; the latest saved pre-kickoff main line
+is shown as reference only. Research rows never enter the packet CLV holdout.
+
 ## What gets graded
 
 Everything comes from the **pregame packet committed before kickoff**. The grader walks git history for

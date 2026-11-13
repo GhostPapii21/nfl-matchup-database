@@ -1,0 +1,33 @@
+{
+ "_doc": "Machine-readable list of the reads and slips in REPORT.md, for grading/research_runs.py. Transcribed from REPORT.md (line numbers cited); no new numbers. Quotes came from the packet at main fb9167b (books retrieved 2026-11-12T22:11:36Z). Leg names use the same grammar as legs.json.",
+ "game_id": "2026_10_WAS_NYG",
+ "report": "research/runs/2026-11-12_TNF_WAS_NYG_layers/REPORT.md",
+ "bet_quote_source": "packet fb9167b books (2026-11-12T22:11:36Z)",
+ "flagged_props": [
+  {"player": "Antonio Williams", "team": "WAS", "stat": "receiving_yards", "side": "Under", "line": 37.5, "book": "fanduel", "tier": "Flag only", "analyst_read": "~58%", "cite": "REPORT.md:63"},
+  {"player": "Isaiah Likely", "team": "NYG", "stat": "receptions", "side": "Over", "line": 4.5, "book": "fanduel", "tier": "Flag only", "analyst_read": "~52%", "cite": "REPORT.md:64"},
+  {"player": "Cam Skattebo", "team": "NYG", "stat": "rushing_yards", "side": "Under", "line": 63.5, "book": "fanduel", "tier": "Flag only", "analyst_read": "~55%", "cite": "REPORT.md:65"},
+  {"player": "Malik Nabers", "team": "NYG", "stat": "receiving_yards", "side": null, "line": 66.5, "book": "fanduel", "tier": "Pass", "analyst_read": "~48-50%", "cite": "REPORT.md:66"}
+ ],
+ "team_reads": [
+  {"market": "spread", "side": "NYG", "home_line": -1.5, "book": "fanduel", "tier": "Pass", "cite": "REPORT.md:51"},
+  {"market": "spread", "side": "NYG", "home_line": -2.5, "book": "pinnacle", "tier": "Pass", "cite": "REPORT.md:52"},
+  {"market": "spread", "side": "WAS", "home_line": -2.5, "book": "pinnacle", "tier": "Pass", "cite": "REPORT.md:53"},
+  {"market": "moneyline", "side": "NYG", "home_line": null, "book": "fanduel", "tier": "Pass", "cite": "REPORT.md:54"},
+  {"market": "total", "side": "Under", "line": 40.5, "book": "fanduel", "tier": "Lean, low", "cite": "REPORT.md:55"},
+  {"market": "total", "side": "Over", "line": 40.5, "book": "fanduel", "tier": "Pass", "cite": "REPORT.md:56"}
+ ],
+ "slips": [
+  {"slip": "A", "price": "+413", "stake_usd": 125, "cite": "REPORT.md:109", "complete": true,
+   "legs": ["Under 54.5", "Skattebo 25+ rush", "Likely 20+ yds", "Nabers 40+ yds", "Fields 15+ yds", "Okonkwo 15+ yds", "A.Williams 20+ yds", "Diggs 25+ yds"]},
+  {"slip": "B", "price": "+1179", "stake_usd": 18, "cite": "REPORT.md:111", "complete": false,
+   "note": "REPORT lists only 2 of 10 legs (the 8 receiving legs are not named); bet-log.csv is not in the repo",
+   "legs": ["Under 55.5", "Skattebo 30+ R+R"]},
+  {"slip": "C", "price": "+559", "stake_usd": 75, "cite": "REPORT.md:110", "complete": true,
+   "legs": ["NYG 1H 3-way", "Skattebo 40+ R+R", "Likely 4+ rec", "Likely 30+ yds", "Diggs 3+ rec", "A.Williams 15+ yds", "Nabers 60+ yds"]},
+  {"slip": "D", "price": "+335", "stake_usd": 100, "cite": "REPORT.md:108", "complete": true,
+   "legs": ["Skattebo 30+ R+R", "Likely 3+ rec", "Nabers 60+ yds", "Diggs 3+ rec", "A.Williams 15+ yds", "Fields 10+ yds"]},
+  {"slip": "Screenshot", "price": "+950 boosted to +1235", "stake_usd": 65, "cite": "REPORT.md:112", "complete": true,
+   "legs": ["Daniels 25+ rush", "Skattebo 50+ rush+rec", "White 25+ rush", "Fields 2+ rec", "Diggs 30+ rec yds", "Likely 40+ rec yds", "Nabers 50+ rec yds"]}
+ ]
+}

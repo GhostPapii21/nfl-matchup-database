@@ -27,6 +27,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from . import core as C
+from . import espn as E
+from . import research_runs as R
 from . import sources as S
 
 ROOT = S.ROOT
@@ -38,6 +40,8 @@ EXIT_REFUSED = 2
 def load_graded_rows(results_dir: Path) -> list[dict]:
     rows = []
     for f in sorted(results_dir.glob("*.jsonl")):
+        if f.name.endswith(".research.jsonl"):   # research-artifact grades never enter the packet CLV holdout
+            continue
         for ln in f.read_text().splitlines():
             if ln.strip():
                 rows.append(json.loads(ln))
@@ -235,14 +239,34 @@ def main(argv=None) -> int:
     ap.add_argument("--freeze-ref", default=None,
                     help="git ref (branch, tag or sha) to read pregame/price_freezes/*_<AWAY>@<HOME>/freeze*.json from, "
                          "as data only via git ls-tree/show; default: the current working tree. Fetch the ref first.")
+    ap.add_argument("--actuals", choices=("auto", "nflverse", "espn"), default="auto",
+                    help="result source: nflverse play-by-play, ESPN public box score, or auto (nflverse when final, "
+                         "else ESPN). ESPN is final minutes after the game; nflverse the next morning.")
+    ap.add_argument("--espn-event", default=None, help="ESPN event id (default: looked up on ESPN's weekly scoreboard)")
     a = ap.parse_args(argv)
     season = int(a.game.split("_")[0])
-    actuals = S.load_actuals(a.game, season, Path(a.cache), offline=a.offline)
-    kickoff = S.kickoff_from_games(actuals.games_df, a.game)
+    actuals, kickoff = None, None
+    if a.actuals in ("auto", "nflverse"):
+        try:
+            nv = S.load_actuals(a.game, season, Path(a.cache), offline=a.offline)
+            kickoff = S.kickoff_from_games(nv.games_df, a.game)
+            if kickoff is not None and nv.final():
+                actuals = nv
+        except SystemExit as exc:
+            print(f"grading: nflverse unavailable ({exc})")
+        if actuals is None and a.actuals == "nflverse":
+            print(f"grading: REFUSED {a.game}: game not final in nflverse (score or play-by-play missing); nothing graded"); return EXIT_REFUSED
+    if actuals is None:
+        print(f"grading: nflverse not final for {a.game}; using ESPN public box score")
+        actuals = E.load(a.game, a.espn_event, offline=a.offline)
+        kickoff = kickoff or actuals.kickoff
+        if not actuals.final():
+            print(f"grading: REFUSED {a.game}: ESPN status {actuals.status.get('name')} is not final; nothing graded"); return EXIT_REFUSED
+        g_ = a.game.split("_")
+        if (actuals.away, actuals.home) != (g_[2], g_[3]):
+            print(f"grading: REFUSED {a.game}: ESPN event teams {actuals.away}@{actuals.home} do not match; nothing graded"); return EXIT_REFUSED
     if kickoff is None:
-        print(f"grading: REFUSED {a.game}: kickoff unknown in nflverse schedule; nothing graded"); return EXIT_REFUSED
-    if not actuals.final():
-        print(f"grading: REFUSED {a.game}: game not final in nflverse (score or play-by-play missing); nothing graded"); return EXIT_REFUSED
+        print(f"grading: REFUSED {a.game}: kickoff unknown; nothing graded"); return EXIT_REFUSED
     pk, pk_source, pk_pulled = S.packet_before_kickoff(a.game, kickoff)
     if pk is None:
         print(f"grading: REFUSED {a.game}: {pk_source}; nothing graded"); return EXIT_REFUSED
@@ -256,14 +280,24 @@ def main(argv=None) -> int:
           f"({len({s['source'] for s in fz_snaps})} files)")
     snaps = S.packet_snapshots(pk, pk_source) + S.line_history_snapshots(a.game) + fz_snaps
     history = load_graded_rows(RESULTS)
-    rows = grade_game(a.game, pk, pk_source, pk_pulled, kickoff, actuals, snaps, history, consensus=fz_cons)
+    now = datetime.now(timezone.utc)
+    rows = grade_game(a.game, pk, pk_source, pk_pulled, kickoff, actuals, snaps, history, consensus=fz_cons, now=now)
     summ = summarize(a.game, rows, kickoff, pk_source, actuals)
-    print(json.dumps({k: summ[k] for k in ("game_id", "kickoff_utc", "packet_source", "counts", "validation")}, indent=1))
+    rrows = R.grade_research(a.game, actuals, snaps, kickoff, g.get("home"), g.get("away"), now)
+    summ["research_artifacts"] = R.summarize_research(rrows)
+    summ["final_score"] = {g.get("away"): actuals.score(g.get("away")), g.get("home"): actuals.score(g.get("home")),
+                           "source": actuals.src("games")[0], "pulled_utc": actuals.src("games")[1]}
+    summ["freeze_ref"] = a.freeze_ref or "working tree"
+    print(json.dumps({k: summ[k] for k in ("game_id", "kickoff_utc", "packet_source", "counts", "validation",
+                                           "research_artifacts", "final_score")}, indent=1, default=str))
     if a.write:
         RESULTS.mkdir(parents=True, exist_ok=True)
         (RESULTS / f"{a.game}.jsonl").write_text("".join(json.dumps(r, sort_keys=True, default=str) + "\n" for r in rows))
         (RESULTS / f"{a.game}.summary.json").write_text(json.dumps(summ, indent=1, sort_keys=True, default=str) + "\n")
-        print(f"grading: wrote grading/results/{a.game}.jsonl ({len(rows)} rows) and .summary.json")
+        (RESULTS / f"{a.game}.research.jsonl").write_text("".join(json.dumps(r, sort_keys=True, default=str) + "\n" for r in rrows))
+        (RESULTS / f"{a.game}.md").write_text(R.render_markdown(a.game, summ, rows, rrows))
+        print(f"grading: wrote grading/results/{a.game}.jsonl ({len(rows)} rows), .research.jsonl ({len(rrows)} rows), "
+              ".summary.json and .md")
     return 0
 
 
