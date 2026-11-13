@@ -60,7 +60,17 @@ _COLS = ["game_id", "play_id", "season", "week", "season_type", "game_half", "qt
          "punt_attempt", "punt_blocked", "field_goal_attempt", "field_goal_result", "extra_point_attempt",
          "extra_point_result", "two_point_attempt", "kickoff_attempt", "own_kickoff_recovery", "return_touchdown",
          "defensive_extra_point_conv", "score_differential", "posteam_score", "posteam_score_post",
-         "defteam_score", "defteam_score_post"]
+         "defteam_score", "defteam_score_post", "yards_gained", "interception", "fumble_lost", "sack",
+         "complete_pass", "touchback", "punt_in_endzone"]
+# Outcome pools are sampled from rows whose line of scrimmage is near the live one (|row - live| <= band), widening
+# through these bands until at least BAND_MIN_N rows qualify, else the whole pool. STRUCTURAL (not fitted): it bounds
+# the field-position error of translating an outcome by its LOS shift (touchbacks, half-distance, goal lines).
+LOS_BANDS = (5, 10, 20)
+BAND_MIN_N = 5
+# Fake / aborted-snap rows are kept as full play rows and run through the engine's normal snap mechanics
+# (live down, distance, goal line, turnovers, defensive returns); these are the columns that path reads.
+FAKE_ROW_COLS = ("play_type", "yards_gained", "interception", "fumble_lost", "sack", "complete_pass", "yardline_100",
+                 "down", "ydstogo")
 _SCRIM_NEXT = ("pass", "run", "punt", "field_goal", "qb_kneel", "qb_spike", "no_play")
 PUNT_FORM, FG_FORM = "(punt formation)", "(field goal formation)"
 
@@ -127,7 +137,8 @@ def classify(d: pd.DataFrame) -> pd.DataFrame:
 def _outcomes(d: pd.DataFrame, idx: np.ndarray, *, kicker_is_posteam: bool) -> tuple[np.ndarray, int]:
     """Empirical outcome of each row in idx (positions in d, sorted by game_id/play_id).
 
-    Row layout: [kick_pts, recv_pts, possessor (1 kicking team / 0 receiving team), shift, down, ydstogo, abs_yl].
+    Row layout: [kick_pts, recv_pts, possessor (1 kicking team / 0 receiving team), shift, down, ydstogo, abs_yl,
+    los_yl (the row's own yardline_100, kicking frame; NaN for kickoffs), row_down, row_ydstogo].
     shift = next yardline_100 in the possessor's frame minus the reference: the row's own yardline_100 (kicking team)
     or 100 - yardline_100 (receiving team). Rows with no next scrimmage row in the same game half are dropped (count
     returned). Points scored on the row come from the score columns (TD 6, FG 3, safety 2; the PAT is a later row)."""
@@ -145,8 +156,9 @@ def _outcomes(d: pd.DataFrame, idx: np.ndarray, *, kicker_is_posteam: bool) -> t
         kick_pts, recv_pts = (dp, dd) if kicker_is_posteam else (dd, dp)
         kicker = pos[i] if kicker_is_posteam else dfn[i]
         ref_yl = yl[i] if not np.isnan(yl[i]) else np.nan
+        own = [ref_yl if kicker_is_posteam else np.nan, dn[i], tg[i]]
         if kick_pts > 0 or recv_pts > 0:
-            out.append([kick_pts, recv_pts, -1, 0, 0, 0, -1]); continue
+            out.append([kick_pts, recv_pts, -1, 0, 0, 0, -1, *own]); continue
         j = i + 1
         while j < len(d) and g[j] == g[i] and gh[j] == gh[i]:
             if ko[j] == 1:
@@ -162,8 +174,8 @@ def _outcomes(d: pd.DataFrame, idx: np.ndarray, *, kicker_is_posteam: bool) -> t
         else:
             ref = ref_yl if mine else 100 - ref_yl
         shift = 0 if np.isnan(ref) else int(yl[j] - ref)
-        out.append([0, 0, mine, shift, int(dn[j]), int(tg[j]), int(yl[j])])
-    return (np.asarray(out, dtype=float) if out else np.zeros((0, 7))), dropped
+        out.append([0, 0, mine, shift, int(dn[j]), int(tg[j]), int(yl[j]), *own])
+    return (np.asarray(out, dtype=float) if out else np.zeros((0, 10))), dropped
 
 
 @dataclass
@@ -175,6 +187,9 @@ class RarePlayModel:
     clean_punt_return_td_rate: Optional[float]
     clean_kick_return_td_rate: Optional[float]
     meta: dict = field(default_factory=dict)
+    # Capped research use (simulate_games research_unaccepted): games this model may still simulate; None = no cap
+    # (only once the NFL-43 gate accepts rare plays). simulate_one decrements it and refuses at zero.
+    research_budget: Optional[int] = None
 
     # ---- kick-formation decision ---------------------------------------------------------------------------------
     def draw_formation_class(self, rng: np.random.Generator, kind: str) -> str:
@@ -192,9 +207,25 @@ class RarePlayModel:
                 return c
         return "clean"
 
-    def draw_outcome(self, rng: np.random.Generator, kind: str, cls: str) -> np.ndarray:
-        pool = self.formation[kind]["pools"][cls]
-        return pool[int(rng.integers(0, len(pool)))]
+    def draw_outcome(self, rng: np.random.Generator, kind: str, cls: str, live_yl: int):
+        """Resample one outcome of this class from rows whose LOS is within a widening band of the live LOS.
+        Returns (row, tag). Fakes return a pandas row (FAKE_ROW_COLS) for the engine's snap mechanics."""
+        if cls == "fake":
+            rows = self.formation[kind]["fake_rows"]
+            los = rows["yardline_100"].to_numpy(float)
+        else:
+            rows = self.formation[kind]["pools"][cls]
+            los = rows[:, 7]
+        idx, tag = None, "all"
+        for b in LOS_BANDS:
+            m = np.flatnonzero(np.abs(los - float(live_yl)) <= b)
+            if len(m) >= BAND_MIN_N:
+                idx, tag = m, f"band{b}"
+                break
+        if idx is None:
+            idx = np.arange(len(los))
+        k = int(idx[int(rng.integers(0, len(idx)))])
+        return (rows.iloc[k] if cls == "fake" else rows[k]), tag
 
     # ---- onside ----------------------------------------------------------------------------------------------------
     @staticmethod
@@ -257,16 +288,23 @@ def build_rare_play_model(pbp_path, *, season: int, week_asof_exclusive: int,
             p[c] = (n[c] / n_all) if n_all else None
             cn = int(((sub["season"] == season) & m).sum()); cd = int((sub["season"] == season).sum())
             cur_only[c] = {"n": cn, "of": cd, "rate": (cn / cd) if cd else None}
-            if c != "clean":
+            if c == "fake":
+                fr = sub[m & sub["yardline_100"].notna()][list(FAKE_ROW_COLS)].reset_index(drop=True)
+                pools["fake_rows"], dropped[c] = fr, int(m.sum()) - len(fr)
+                pools[c] = np.zeros((len(fr), 10))  # placeholder so draw_formation_class sees a non-empty pool
+                if not len(fr):
+                    p[c] = None
+            elif c != "clean":
                 arr, dr = _outcomes(d, np.flatnonzero((d["_form"] == kind).to_numpy() & (d["_cls"] == c).to_numpy()),
                                     kicker_is_posteam=True)
                 pools[c], dropped[c] = arr, dr
                 if not len(arr):
                     p[c] = None  # no usable outcome rows: UNKNOWN, never zero
-        formation[kind] = {"p": p, "n": n, "pools": pools}
+        formation[kind] = {"p": p, "n": n, "pools": pools, "fake_rows": pools.pop("fake_rows")}
         fmeta[kind] = {"formation_rows": n_all, "n": n, "rate": p, "outcome_rows_dropped_no_next_play": dropped,
                        "current_season_only": cur_only,
-                       "outcome_summary": {c: _summ(pools[c]) for c in pools}}
+                       "outcome_summary": {**{c: _summ(pools[c]) for c in pools if c != "fake"},
+                                           "fake": _fake_summ(formation[kind]["fake_rows"])}}
     xp = d[_num(d["extra_point_attempt"]) == 1]
     nb = int((xp["extra_point_result"] == "blocked").sum())
     nd2 = int(((xp["extra_point_result"] == "blocked") & (_num(xp["defensive_extra_point_conv"]) == 1)).sum())
@@ -290,6 +328,8 @@ def build_rare_play_model(pbp_path, *, season: int, week_asof_exclusive: int,
     onside = {"cells": cells, "pool": opool, "n_onside": n_ons, "own_recoveries": rec, "dropped": odrop}
     # clean return-TD rates (blocked / flagged punts and onside kicks are resampled from their own pools)
     cp = d[(d["_form"] == "punt") & (d["_cls"] == "clean") & (d["season"] == season)]
+    # same population the engine rolls the return TD on: punts that are not touchbacks
+    cp = cp[(_num(cp["touchback"]) != 1) & (_num(cp["punt_in_endzone"]) != 1)]
     nko = cur[(_num(cur["kickoff_attempt"]) == 1)]
     nko = nko[~nko["desc"].fillna("").str.lower().str.contains("onside", regex=False)]
     cprt = float(_num(cp["return_touchdown"]).sum() / len(cp)) if len(cp) else None
@@ -303,7 +343,8 @@ def build_rare_play_model(pbp_path, *, season: int, week_asof_exclusive: int,
                        "cells": {"|".join(map(str, k)): {"kickoffs": v[0], "onside": v[1]} for k, v in sorted(cells.items(), key=str)},
                        "structural": {"sec_edges": ONSIDE_SEC_EDGES, "deficit_edges": ONSIDE_DEFICIT_EDGES,
                                       "min_cell_n": ONSIDE_MIN_CELL_N}},
-            "clean_punt_return_td_rate": {"rate": cprt, "punts": int(len(cp)), "source": "current season weeks < target, clean punts"},
+            "clean_punt_return_td_rate": {"rate": cprt, "punts": int(len(cp)),
+                                          "source": "current season weeks < target, clean non-touchback punts"},
             "clean_kick_return_td_rate": {"rate": ckrt, "kickoffs": int(len(nko)),
                                           "source": "current season weeks < target, non-onside kickoffs"},
             "kickoff_fouls": "already in the as-of kickoff start pool (next scrimmage spot after each kickoff); "
@@ -314,6 +355,15 @@ def build_rare_play_model(pbp_path, *, season: int, week_asof_exclusive: int,
                             "kick-foul enforcement is resampled, not rule-coded (no per-foul type model)"]}
     return RarePlayModel(mode=mode, formation=formation, xp=xpm, onside=onside,
                          clean_punt_return_td_rate=cprt, clean_kick_return_td_rate=ckrt, meta=meta)
+
+
+def _fake_summ(fr: pd.DataFrame) -> dict:
+    if not len(fr):
+        return {"rows": 0}
+    return {"rows": int(len(fr)), "pass": int((fr["play_type"] == "pass").sum()), "run": int((fr["play_type"] == "run").sum()),
+            "turnovers": int(((_num(fr["interception"]) == 1) | (_num(fr["fumble_lost"]) == 1)).sum()),
+            "mean_yards": float(_num(fr["yards_gained"]).mean()),
+            "gained_line_to_gain": int((_num(fr["yards_gained"]) >= _num(fr["ydstogo"])).sum())}
 
 
 def _summ(arr: np.ndarray) -> dict:

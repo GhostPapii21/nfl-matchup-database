@@ -663,6 +663,14 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
         y0 = _gl_censored_at(row)
         if y0 is not None and y0 < int(st.yardline_100):
             gl_tag = "GL_CENSOR_TRUNCATED"  # pre-WP2 behaviour, tagged only (no flag, no change)
+    _apply_row(rng, catalog, st, row, gl_tag)
+
+
+def _apply_row(rng: np.random.Generator, catalog, st: GameState, row, gl_tag: Optional[str] = None,
+               extra_ev: Optional[dict] = None) -> None:
+    """Apply one pass/run row at the LIVE state (clock, goal line, first down, turnovers, safeties, TDs).
+    Split out of _apply_snap unchanged (same operations, same RNG order) so NFL-75 fake / aborted kick-formation
+    rows use the same mechanics."""
     play_type = str(row["play_type"])
     yards = float(row["yards_gained"]) if pd.notna(row["yards_gained"]) else 0.0
     st.game_seconds_remaining -= _clock_cost(play_type, rng, getattr(catalog, "clock_map", None))
@@ -670,6 +678,8 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
     yards = float(min(yards, st.yardline_100)) if yards > 0 else float(max(yards, -(100 - st.yardline_100)))
     # Always count the offensive play as a snap for pace/accounting (before early exits); realized yards.
     ev = {"type": "snap", "play_type": play_type, "yards": yards, "hist_yards": hist_yards, "down": st.down}
+    if extra_ev:
+        ev.update(extra_ev)
     if gl_tag is not None:
         ev["goal_line_censoring"] = gl_tag
         if gl_tag == "GL_CENSOR_UNRESOLVED":
@@ -837,14 +847,69 @@ def _rare_kick_formation(rng: np.random.Generator, catalog, st: GameState, kind:
     cls = rp.draw_formation_class(rng, kind)
     if cls == "clean":
         return False
-    row = rp.draw_outcome(rng, kind, cls)
+    yl0 = int(st.yardline_100)
+    row, band = rp.draw_outcome(rng, kind, cls, yl0)
     kicker = st.possession
     if cls == "presnap":
-        st.game_seconds_remaining -= int(np_sec)
+        _apply_presnap(st, row, int(np_sec), kind, band)
+    elif cls == "fake":
+        _apply_fake(rng, catalog, st, row, kind, band)
     else:
         st.game_seconds_remaining -= _clock_cost(kind, rng, getattr(catalog, "clock_map", None))
-    _apply_rare_outcome(rng, catalog, st, kicker, row, kind=kind, cls=cls, ref_yl=int(st.yardline_100))
+        _apply_rare_outcome(rng, catalog, st, kicker, row, kind=kind, cls=cls, ref_yl=yl0, extra={"los_band": band})
     return True
+
+
+def _apply_presnap(st: GameState, row, clock_sec: int, kind: str, band: str) -> None:
+    """Pre-snap (no-play) foul in kick formation at the LIVE down and distance: the line of scrimmage moves by the
+    resampled row's shift; a defensive foul gives a first down if its yardage reaches the live line to gain or the
+    row itself was an automatic first down (next down 1 although its yardage was short of the row's own distance);
+    otherwise the live down repeats with the distance adjusted. The 4th-down decision is then made again."""
+    yl0 = int(st.yardline_100)
+    shift = int(row[3])
+    new_yl = int(np.clip(yl0 + shift, 1, 99))
+    gained = yl0 - new_yl  # > 0: defensive foul
+    row_gained, row_next_down, row_togo = -shift, int(row[4]), row[9]
+    auto_first = gained > 0 and row_next_down == 1 and not np.isnan(row_togo) and row_gained < float(row_togo)
+    st.yardline_100 = new_yl
+    if gained > 0 and (gained >= st.ydstogo or auto_first):
+        st.down = 1
+        st.ydstogo = 10 if new_yl >= 10 else max(1, new_yl)
+    else:
+        st.ydstogo = int(max(1, min(st.ydstogo - gained, 40)))
+        if st.ydstogo > new_yl:
+            st.ydstogo = max(1, new_yl)
+    st.game_seconds_remaining -= int(clock_sec)
+    st.events.append({"type": "rare_play", "kind": kind, "cls": "presnap", "team": st.possession, "from_yl": yl0,
+                      "new_yl": new_yl, "down": st.down, "ydstogo": st.ydstogo, "result": "kicking_team_ball",
+                      "auto_first_down": bool(auto_first), "los_band": band})
+    if st.game_seconds_remaining <= 0 and gained > 0:
+        st.game_seconds_remaining = 1  # a period cannot end on an accepted defensive foul: one untimed down
+        st.events.append({"type": "untimed_down", "qtr": st.qtr})
+
+
+def _apply_fake(rng: np.random.Generator, catalog, st: GameState, row, kind: str, band: str) -> None:
+    """Fake / aborted kick-formation snap: the resampled league row (no player names) runs through the normal snap
+    mechanics at the LIVE down, distance and field position, so conversion, TDs, turnovers and defensive returns
+    follow the live situation, not the historical one."""
+    kicker, yl0 = st.possession, int(st.yardline_100)
+    sc0 = (st.score_home, st.score_away)
+    r = row.copy()
+    for c in ("passer_player_name", "rusher_player_name", "receiver_player_name"):
+        r[c] = None
+    _apply_row(rng, catalog, st, r, None, extra_ev={"rare_fake": kind})
+    kick_gain = (st.score_home - sc0[0]) if kicker == st.home else (st.score_away - sc0[1])
+    recv_gain = (st.score_away - sc0[1]) if kicker == st.home else (st.score_home - sc0[0])
+    if kick_gain >= 6:
+        res = "kicking_td"
+    elif recv_gain >= 6:
+        res = "receiving_td"
+    elif recv_gain == 2:
+        res = "receiving_safety"
+    else:
+        res = "kicking_team_ball" if st.possession == kicker else "receiving_team_ball"
+    st.events.append({"type": "rare_play", "kind": kind, "cls": "fake", "team": kicker, "from_yl": yl0,
+                      "result": res, "los_band": band})
 
 
 def _apply_rare_outcome(rng, catalog, st: GameState, kicker: str, row, *, kind: str, cls: str, ref_yl: Optional[int],
@@ -856,7 +921,7 @@ def _apply_rare_outcome(rng, catalog, st: GameState, kicker: str, row, *, kind: 
     possessor gets the ball at (reference + shift) in its own frame, reference = the kick's line of scrimmage
     (ref_yl, kicking frame) or 100 - ref_yl (receiving frame); ref_yl None (onside) uses the row's absolute spot."""
     recv = _other(st, kicker)
-    kick_pts, recv_pts, possessor, shift, down, togo, abs_yl = (float(x) for x in row)
+    kick_pts, recv_pts, possessor, shift, down, togo, abs_yl = (float(x) for x in list(row)[:7])
     ev = {"type": "rare_play", "kind": kind, "cls": cls, "team": kicker, "from_yl": ref_yl, **(extra or {})}
     if int(possessor) == -1:
         if kick_pts > 0:
@@ -980,6 +1045,11 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
     _ensure_clock(catalog)
     catalog.goal_line_censoring = acc["goal_line_censoring"]
     sem = getattr(catalog, "semantics", None)
+    rpm = sem.get("rare_plays") if isinstance(sem, dict) else None
+    if rpm is not None and rpm.research_budget is not None:
+        if rpm.research_budget <= 0:
+            raise ValueError(f"rare plays research budget exhausted (capped at n={RESEARCH_MAX_N}); never 100k")
+        rpm.research_budget -= 1
     if sem is not None:
         st.ot_rule = sem.get("overtime") or st.ot_rule
         st.ot_coin = lambda: int(rng.integers(0, 2))
@@ -1084,7 +1154,7 @@ def special_teams_counts(st: GameState) -> dict:
             if cls in ("fake", "blocked", "flagged"):
                 c["punt_plays" if kind == "punt" else "fg_plays"] += 1
             c["fg_made"] += int(res == "kicking_fg")
-            c["safety"] += int(res == "receiving_safety")
+            c["safety"] += int(res == "receiving_safety" and cls != "fake")  # a fake's safety is a "safety" event
             if cls == "blocked":
                 c["punt_blocked" if kind == "punt" else "fg_blocked"] += 1
                 c["blocked_kick_td"] += int(res == "receiving_td")
@@ -1162,7 +1232,7 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
             raise ValueError(f"research_unaccepted only allows 'rare_plays', got {bad}")
         if int(n) > RESEARCH_MAX_N:
             raise ValueError(f"research_unaccepted runs are capped at n={RESEARCH_MAX_N} (got {n}); never 100k")
-    semantics_meta = attach_semantics(catalog, cfg, pbp_path, research_unaccepted=research_unaccepted)
+    semantics_meta = attach_semantics(catalog, cfg, pbp_path, research_unaccepted=research_unaccepted, research_n=int(n))
     rng = np.random.default_rng(seed)
     buckets = {k: [] for k in [
         "q1_home","q1_away","q2_home","q2_away","q3_home","q3_away","q4_home","q4_away",
@@ -1371,7 +1441,7 @@ def build_catalog(df: pd.DataFrame, cfg: dict, games_df: Optional[pd.DataFrame] 
     return cat, prov
 
 
-def attach_semantics(catalog, cfg: dict, pbp_path, research_unaccepted: tuple = ()) -> dict:
+def attach_semantics(catalog, cfg: dict, pbp_path, research_unaccepted: tuple = (), research_n: Optional[int] = None) -> dict:
     """NFL-43: build opt-in penalty / return / OT semantics from cfg["semantics"].
     NFL-75: cfg["semantics"]["rare_plays"] = "asof_league_v1" adds rare_plays.py (refused by nfl43.still_unsupported
     unless this is a capped research call with research_unaccepted=("rare_plays",))."""
@@ -1383,6 +1453,8 @@ def attach_semantics(catalog, cfg: dict, pbp_path, research_unaccepted: tuple = 
     rare_mode = mode_from_cfg(cfg)
     gate_cfg = cfg
     research_rare = rare_mode != "off" and "rare_plays" in tuple(research_unaccepted or ())
+    if research_rare and (research_n is None or not 0 < int(research_n) <= RESEARCH_MAX_N):
+        raise ValueError(f"research_unaccepted needs research_n in 1..{RESEARCH_MAX_N} (got {research_n}); never 100k")
     if research_rare:
         # Only the rare_plays key is lifted for this capped research call; everything else is still checked.
         gate_cfg = {**cfg, "semantics": {k: v for k, v in sc.items() if k != "rare_plays"}}
@@ -1432,6 +1504,8 @@ def attach_semantics(catalog, cfg: dict, pbp_path, research_unaccepted: tuple = 
             raise ValueError("UNSUPPORTED: semantics.rare_plays needs a catalog built with rare_plays=True "
                              "(build_catalog with the same cfg); a pre-NFL-75 catalog would double count")
         rpm = build_rare_play_model(pbp_path, season=season, week_asof_exclusive=wk, mode=rare_mode)
+        if research_rare:
+            rpm.research_budget = int(research_n)  # simulate_one refuses once this many games have run
         sem["rare_plays"] = rpm
         meta["rare_plays"] = {**rpm.meta, "gate": ("UNACCEPTED_RESEARCH_ONLY: nfl43.still_unsupported still lists these; "
                                                    "refused for locks / 100k / rocket until Ghost6 accepts the bounds")
