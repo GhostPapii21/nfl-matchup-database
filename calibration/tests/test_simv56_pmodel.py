@@ -17,13 +17,16 @@ sys.path.insert(0, str(ROOT))
 from calibration import simv56_pmodel as SV  # noqa: E402
 
 # Phase 4 input for this leg: candidates.csv (sha256 5aa84712...6f23 in the Phase 4 freeze manifest), kind=under,
-# week 8, Jacoby Brissett (00-0033119) rushyds 9.5. p_model there = 0.4203777777777777 (repr). The per-engine
+# week 8, Jacoby Brissett (00-0033119) rushyds 9.5. The file stores p_model as the text 0.42037777777777774 (exact repr);
+# selective_edge_run.build reads it with pandas' default C float parser, which yields 0.4203777777777777 in memory
+# (one ulp lower). The Sunday path goes through the same CSV read in selective_edge_live, so both are checked. The per-engine
 # (p_mc, p_bias, p_gr) triples are the saved confidence_check_2026-11-03 sims/<engine>_opp0.5_w8.csv rows.
 W8_LEG = dict(player="Jacoby Brissett", gsis="00-0033119", team="ARI", opp="DAL", market="rushyds",
               spread=7.0, line=9.5)
 W8_TRIPLES = {"sim_v5": (0.5985, 0.566, 0.56415), "sim_v6": (0.5985, 0.60605, 0.56415),
               "sim_v6_fix": (0.5985, 0.5566, 0.56415)}
-W8_P_MODEL_UNDER = 0.4203777777777777
+W8_P_MODEL_UNDER = 0.42037777777777774            # candidates.csv text, exact
+W8_P_MODEL_PHASE4_IN_MEMORY = 0.4203777777777777  # after pd.read_csv (default parser), as Phase 4 used it
 
 
 def test_settings_are_the_phase4_ones():
@@ -55,6 +58,10 @@ def test_ensemble_arithmetic_reproduces_phase4_p_model_bit_for_bit():
     ens = SV.ensemble(per)
     assert ens.p_under.iloc[0] == W8_P_MODEL_UNDER       # exact float equality, not approx
     assert ens.p_over.iloc[0] == 1 - W8_P_MODEL_UNDER
+    import io
+    buf = io.StringIO()
+    ens[["p_under"]].to_csv(buf, index=False)
+    assert pd.read_csv(io.StringIO(buf.getvalue())).p_under.iloc[0] == W8_P_MODEL_PHASE4_IN_MEMORY
 
 
 def test_reproduce_w8_leg_from_committed_inputs_bit_for_bit(tmp_path):
@@ -122,7 +129,7 @@ def test_gate_blocks_non_starters_out_doubtful_and_unknown_teams():
     st = SV.qb_starters(DEPTH, INJ, week=10, as_of="2026-11-15T12:00:00Z", source=SRC_META)
     hist = {"00-M": 6, "00-W": 4, "00-A": 8, "00-C": 0}
     g = SV.gate_legs(legs, st, INJ, week=10, starter_history=hist)
-    r = dict(zip(g.player, g.gate))
+    r = dict(zip(legs.player, g.gate))
     assert r["Carson Wentz"] == "qb_not_starter"
     assert r["Kyler Murray"] == "ok"
     assert r["Kirk Cousins"] == "out_or_doubtful"
