@@ -9,13 +9,13 @@ The flags files are the source of truth; if this page disagrees with them, the f
 
 | Flag | Value | Meaning |
 | --- | --- | --- |
-| projection_ready | false | Gate. Stays false until every NFL-75 box is checked with a commit link. |
+| projection_ready | false | Gate. Stays false until every NFL-75 box is checked with a commit link. Unchanged by the Nov 12 Phase15 / entrypoint_enforced flips. |
 | full_integration_acceptance | false | No end-to-end acceptance run yet (NFL-49 pillar 4). |
 | production_validated | false | Needs the live holdout (Weeks 10–12) graded. Calendar-bound. |
 | calibration_fitted_claim | false | No fitted calibration (NFL-45). |
 | quotes | NOLINE | Multibook feed is on unmerged branch `research/multibook-price-feed-2026-11-12`. |
-| Phase15 | NOT_YET | `phase15/` exists; not wired per game. |
-| entrypoint_enforced | false | Single entrypoint exists (rocket R1) but the flag is not flipped. |
+| Phase15 | AUTO | Wired per game at [ba19e77](https://github.com/GhostPapii21/nfl-matchup-database/commit/ba19e775996b5070e247ad64569912b8d59bd806) (PR #24). Each game ledger shows AUTO / NOT_YET / MISSING with source and pull time; a game that is not AUTO still blocks its 100k. First live AUTO: WAS@NYG, pulled 6:58 PM ET Nov 12. Verified by Ghost6 7:45 PM ET. |
+| entrypoint_enforced | true | NFL-42 guard enforced at sim100k G0 (rechecked before every engine call), the snapshot locker and rocket R1, with no override: [ba19e77](https://github.com/GhostPapii21/nfl-matchup-database/commit/ba19e775996b5070e247ad64569912b8d59bd806) (PR #24). Verified by Ghost6 7:45 PM ET. Residual: research scripts that call `simulate_games` directly are not guarded. |
 | pristine_protocol_complete | false | Protocol and freeze exist in `evaluation/`; aggregation rules missing (NFL-44 #1). |
 | DEFERRED_100K | false | Un-deferred Nov 12 ~3:05 PM ET on Rico's OK. 100k still gated per game. |
 | PFF | NOT_READY_NO_DUPLICATE | Only if Rico supplies access (NFL-47/48). |
@@ -35,3 +35,7 @@ Source: PR #21 backtest as quoted in NFL-75. Known causes under investigation: p
 
 - Code and data items: possible from Nov 12 after 7:30 PM ET (engine/pregame merges are frozen until then).
 - Live holdout: protocol `min_coverage` is 30 scored games over 3 weeks (`evaluation/PRISTINE_EVALUATION_PROTOCOL.json`). Weeks 10–12 finish with MNF on **Nov 30, 2026** (Week 12), so `production_validated` cannot pass before Dec 1, and only if the sim beats or matches the close on those games. If it does not, `projection_ready` stays false.
+
+## Flag changes
+
+- Nov 12 2026 ~7:55 PM ET: `Phase15` NOT_YET → AUTO and `entrypoint_enforced` false → true, citing [ba19e77](https://github.com/GhostPapii21/nfl-matchup-database/commit/ba19e775996b5070e247ad64569912b8d59bd806) (PR #24), after Ghost6 verified both NFL-75 boxes (7:45 PM ET). `projection_ready` stays false. refs NFL-75
