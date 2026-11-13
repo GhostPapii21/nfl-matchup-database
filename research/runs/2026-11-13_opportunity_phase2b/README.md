@@ -22,7 +22,7 @@ Depends on PR #38 (Phase 2 opportunity model). This branch starts from the #38 h
    - `int_pool` is refused from a config, refused above n = 20,000, and refused by `snapshots/lock.run_sim`. It does not appear in `pipeline/sim100k.py`.
 5. **Freeze.**
    - The holdout manifest now freezes the 2b model (`holdout_freeze_manifest.json`, model commit 7a0d45b). It covers the code, the 2b W10 params and the W10 INT-pool spec.
-   - The #38 manifest is superseded and would now refuse, because simulate.py and opportunity_fit.py changed.
+   - The #38 manifest (`../2026-11-13_opportunity_phase2/holdout_freeze_manifest.json`, model b6e955c) is marked `SUPERSEDED`. It would now refuse, because simulate.py, opportunity_fit.py and opportunity_backtest.py changed.
 
 ## Fitted depth parameters (W4-W10, every week)
 | slot | force | br | bo | lam | gamma | K |

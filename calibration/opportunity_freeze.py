@@ -25,7 +25,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 # Phase 2b (refs NFL-75): the frozen holdout model is now the Phase 2b model (depth signal + opt-in INT pooling).
 # The Phase 2 manifest (research/runs/2026-11-13_opportunity_phase2/holdout_freeze_manifest.json, model b6e955c)
-# is superseded: its code hashes no longer match (simulate.py / opportunity_fit.py changed), so it would refuse.
+# is superseded (marked status SUPERSEDED in the file): its code hashes no longer match (simulate.py, opportunity_fit.py
+# and opportunity_backtest.py changed), so it would refuse.
 RUN = ROOT / "research/runs/2026-11-13_opportunity_phase2b"
 HOLDOUT_MANIFEST = RUN / "holdout_freeze_manifest.json"
 HOLDOUT_WEEKS = (10, 11, 12)

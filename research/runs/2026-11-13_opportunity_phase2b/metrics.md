@@ -109,16 +109,16 @@ Brier summary (computed): 5 of 21 thresholds have a 95% CI fully below 0 (WR rec
 | Phase 2b name-locked + INT pooling | 8 | 3 | 0.416 | 0.279 [0.247, 0.314] | -0.019 [-0.046, +0.005] |
 | Phase 2b opportunity (depth + INT pooling) | 9 | 5 | 0.432 | 0.279 [0.254, 0.307] | -0.019 [-0.050, +0.010] |
 
-Remaining Phase 2b zero-probability QB-games (QB not an opportunity candidate):
+Remaining Phase 2b zero-probability QB-games: QBs the model did not list as candidates (not all backups; some started, see actual attempts):
 
-| game | team | QB | 2b mean att |
-|---|---|---|---|
-| 2026_04_IND_WAS | WAS | A.Kaliakmanis | 0.0 |
-| 2026_04_NYJ_CHI | CHI | T.Bagent | 0.0 |
-| 2026_05_CHI_GB | CHI | C.Keenum | 0.0 |
-| 2026_06_CAR_PHI | PHI | T.McKee | 0.0 |
-| 2026_08_ARI_DAL | ARI | G.Minshew | 0.0 |
-| 2026_08_BAL_BUF | BAL | J.Fagnano | 0.0 |
-| 2026_09_ARI_SEA | SEA | D.Lock | 0.0 |
-| 2026_09_BUF_MIN | MIN | C.Wentz | 0.0 |
-| 2026_09_NYG_PHI | PHI | J.Milton | 0.0 |
+| game | team | QB | 2b mean att | actual att |
+|---|---|---|---|---|
+| 2026_04_IND_WAS | WAS | A.Kaliakmanis | 0.0 | 33 |
+| 2026_04_NYJ_CHI | CHI | T.Bagent | 0.0 | 34 |
+| 2026_05_CHI_GB | CHI | C.Keenum | 0.0 | 19 |
+| 2026_06_CAR_PHI | PHI | T.McKee | 0.0 | 45 |
+| 2026_08_ARI_DAL | ARI | G.Minshew | 0.0 | 20 |
+| 2026_08_BAL_BUF | BAL | J.Fagnano | 0.0 | 21 |
+| 2026_09_ARI_SEA | SEA | D.Lock | 0.0 | 28 |
+| 2026_09_BUF_MIN | MIN | C.Wentz | 0.0 | 24 |
+| 2026_09_NYG_PHI | PHI | J.Milton | 0.0 | 33 |
