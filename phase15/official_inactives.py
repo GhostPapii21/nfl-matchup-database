@@ -159,8 +159,9 @@ def fetch_team(team: str, kickoff_utc: datetime, now: datetime, getter=_get) -> 
     return res
 
 
-def pull(game_id: str, kickoff_utc: datetime, now: datetime | None = None, getter=_get, out_dir: Path = OUT) -> Path:
+def pull(game_id: str, kickoff_utc: datetime, now: datetime | None = None, getter=_get, out_dir: Path | None = None) -> Path:
     now = now or datetime.now(timezone.utc)
+    out_dir = out_dir or OUT
     _, _, away, home = game_id.split("_")
     teams = {t: fetch_team(t, kickoff_utc, now, getter) for t in (away, home)}
     ok = all(v["status"] == "OK" for v in teams.values())
@@ -174,7 +175,8 @@ def pull(game_id: str, kickoff_utc: datetime, now: datetime | None = None, gette
     return f
 
 
-def newest(game_id: str, out_dir: Path = OUT) -> Path | None:
+def newest(game_id: str, out_dir: Path | None = None) -> Path | None:
+    out_dir = out_dir or OUT
     files = sorted((Path(out_dir) / game_id).glob("inactives_*.json"))
     return files[-1] if files else None
 
@@ -183,7 +185,7 @@ def _rel(f: Path) -> str:
     return str(f.relative_to(ROOT)) if f.is_relative_to(ROOT) else str(f)
 
 
-def hook(pk: dict, out_dir: Path = OUT) -> dict:
+def hook(pk: dict, out_dir: Path | None = None) -> dict:
     """pipeline.hooks REGISTRY['official_inactives'] contract. Read-only, no network.
 
     OK: {"status": "OK", "retrieved_utc", "inactives": {team: [names]}, "file", "sources": {team: url},
@@ -286,7 +288,7 @@ def _kickoff_from_packet(game_id: str) -> datetime | None:
     return freshness.kickoff_utc(json.loads(p.read_text()))
 
 
-def slate(now: datetime | None = None, getter=_get, out_dir: Path = OUT, index: Path | None = None) -> list[dict]:
+def slate(now: datetime | None = None, getter=_get, out_dir: Path | None = None, index: Path | None = None) -> list[dict]:
     """Pull every game in pregame/packets/latest.json whose inactive window is open ([T-120m, kickoff]).
     Games outside the window are listed as skipped (never pulled early, never pulled after kickoff)."""
     now = now or datetime.now(timezone.utc)

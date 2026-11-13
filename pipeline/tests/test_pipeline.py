@@ -12,6 +12,13 @@ sys.path.insert(0, str(ROOT))
 from pipeline import freshness as F, hooks as H, phases as P, sim100k as S  # noqa: E402
 
 KO = datetime(2026, 11, 13, 1, 15, tzinfo=timezone.utc)          # Thu 8:15 PM ET
+
+
+@pytest.fixture(autouse=True)
+def _isolate_committed_inactives(tmp_path_factory, monkeypatch):
+    """Hermetic: committed phase15/inactives evidence (real pulls) must never leak into these tests."""
+    from phase15 import official_inactives as _OI
+    monkeypatch.setattr(_OI, "OUT", tmp_path_factory.mktemp("no_inactives"))
 BOOKS = list(H.REQUIRED_BOOKS)
 
 
