@@ -1,0 +1,37 @@
+{
+ "schema": "nfl75-selective-edge-freeze/1",
+ "classifier_commit": "43d45ae1e021fc252b4cc6a2fa468493008efe43",
+ "frozen_at_utc": "2026-11-13T16:03:14Z",
+ "fit_weeks": [
+  4,
+  5,
+  6,
+  7
+ ],
+ "eval_weeks": [
+  8,
+  9
+ ],
+ "holdout_weeks": [
+  10,
+  11,
+  12
+ ],
+ "params": {
+  "path": "research/runs/2026-11-13_selective_edge_phase4/params_w4_7.json",
+  "sha256": "90f7f30a817c892d4e5f2e57080bd504365e5dc9d278e6cf6df329520b452b62"
+ },
+ "code_sha256": {
+  "calibration/selective_edge.py": "5ef7151df8a87e8cd4d132979e2dc459a7478b7eb013c686656bd4f71bbc9f08",
+  "calibration/selective_edge_live.py": "00ea4ccd6f0b49a515cad388faa54bbc48d4c2fd61af5e5c2a8e43b77eb2a653",
+  "calibration/selective_edge_run.py": "096e7763bc76c85d06abe77d1482a9b9274023d1d933d18f47596ea1e6882ba9"
+ },
+ "inputs_sha256": {
+  "candidates.csv": "5aa84712855aca5aa0a4680c4e367e64c6d4f076cc0a7f87397220aef71f6f23",
+  "legs_with_probs.csv": "3a945f3c778689059bb7a1d7e71f1e9ba99af324d52e1f9b5d380b5bc3b769a2",
+  "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+  "legs_w4_9.csv (built)": "67cfbf3e8820891d180dfa74fd81665dd5ed739572152347133133cceac8b7ed"
+ },
+ "rule": "Weeks 8-9 eval and Weeks 10-12 live grading refuse unless every code/params sha256 matches",
+ "projection_ready": false
+}
