@@ -80,7 +80,7 @@ def _require_nfl42() -> None:
 
 
 def run_sim(cfg: dict, pbp: str, n: int, seed: int, workers: int) -> dict:
-    for _k in ("opportunity_model", "opportunity"):  # NFL-75 Phase 2 opportunity model is research only
+    for _k in ("opportunity_model", "opportunity", "int_pool"):  # NFL-75 Phase 2 opportunity model is research only
         if _k in cfg:
             raise ValueError(f"UNSUPPORTED: lock / 100k path refuses {_k!r} (research only, simulate_games kwarg)")
     _require_nfl42()

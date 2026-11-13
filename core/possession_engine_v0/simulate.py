@@ -745,6 +745,9 @@ def _apply_snap(rng: np.random.Generator, catalog: PlayCatalog, st: GameState, a
     if wx is not None:  # NFL-75 item 6, opt-in only (environment_adjust.py); None draws nothing
         from environment_adjust import apply_weather_row
         row = apply_weather_row(rng, wx, row)
+    ip = getattr(catalog, "_int_pool", None)
+    if ip is not None:  # NFL-75 Phase 2b, opt-in only (int_pool.py; own RNG). None draws nothing
+        row = ip.apply(st, row)
     _apply_row(rng, catalog, st, row, gl_tag)
 
 
@@ -1303,7 +1306,7 @@ RESEARCH_MAX_N = 20_000  # research_unaccepted runs are capped here (never a 100
 
 def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
                    research_unaccepted: tuple = (), record_players: bool = True,
-                   opportunity_model: Optional[dict] = None) -> dict[str, Any]:
+                   opportunity_model: Optional[dict] = None, int_pool: Optional[dict] = None) -> dict[str, Any]:
     """research_unaccepted: names of still_unsupported NFL-43 semantics this RESEARCH call may run although Ghost6 has
     not accepted their bounds (only "rare_plays" is recognised). n must be <= RESEARCH_MAX_N; the output is labeled
     UNACCEPTED_RESEARCH_ONLY. Configs alone can never do this: a config that enables rare plays is refused by
@@ -1329,12 +1332,14 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
             result["shared_projections"] = [shared_projection(t) for t in result["trials"]]
             result["path_semantics"] = "SHARED_ACCOUNTING_V1"
         return result
-    for _k in ("opportunity_model", "opportunity"):  # NFL-75 Phase 2: never enabled from a config (lock / 100k)
+    for _k in ("opportunity_model", "opportunity", "int_pool"):  # NFL-75 Phase 2/2b: never from a config (lock / 100k)
         if _k in cfg:
             raise ValueError(f"UNSUPPORTED: config key {_k!r}; the opportunity model is research only and is passed "
                              f"only as simulate_games(opportunity_model=...) with n <= {RESEARCH_MAX_N}")
     if opportunity_model is not None and int(n) > RESEARCH_MAX_N:
         raise ValueError(f"opportunity_model runs are capped at n={RESEARCH_MAX_N} (got {n}); never 100k")
+    if int_pool is not None and int(n) > RESEARCH_MAX_N:
+        raise ValueError(f"int_pool runs are capped at n={RESEARCH_MAX_N} (got {n}); never 100k")
     wk = (cfg.get("game") or {}).get("week_asof_exclusive")
     if wk is not None and int(cfg["history"]["weeks_inclusive"][-1]) >= int(wk):
         raise ValueError(f"history weeks {cfg['history']['weeks_inclusive']} not strictly before target week {wk}")
@@ -1389,6 +1394,13 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
         catalog._opportunity = {"model": opportunity_model, "lookup": load_opp_lookup(pbp_path, gsrc["game_id"].unique()),
                                 "rng": np.random.default_rng(np.random.SeedSequence([int(seed) % (2 ** 63), SALT]))}
         opp_acc = Accumulator()
+    if int_pool is not None:  # NFL-75 Phase 2b (opt-in): team INT rate pooled toward a league rate, own RNG
+        from int_pool import IntPool, SALT as _IP_SALT
+        _bt = getattr(catalog, "by_team", None)
+        if _bt is None and hasattr(catalog, "base"):
+            _bt = getattr(catalog.base, "by_team", None)
+        catalog._int_pool = IntPool(int_pool, _bt, np.random.default_rng(
+            np.random.SeedSequence([int(seed) % (2 ** 63), _IP_SALT])))
     rng = np.random.default_rng(seed)
     buckets = {k: [] for k in [
         "q1_home","q1_away","q2_home","q2_away","q3_home","q3_away","q4_home","q4_away",
@@ -1508,6 +1520,10 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
         "player_samples": player_samples,
         **({"player_box": box_acc.result()} if box_acc is not None else {}),
         **({"player_box_opportunity": _opp_result(opp_acc, opportunity_model)} if opp_acc is not None else {}),
+        **({"int_pool": {"spec": catalog._int_pool.spec, "teams": catalog._int_pool.table,
+                         "counts": catalog._int_pool.counts,
+                         "label": "UNACCEPTED_RESEARCH_ONLY: opt-in NFL-75 Phase 2b INT pooling (not in lock / 100k paths)"}}
+           if int_pool is not None else {}),
         "effects_provenance": effects_prov,
         "semantics": semantics_meta,
         "limitations": [

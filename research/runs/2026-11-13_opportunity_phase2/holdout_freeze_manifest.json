@@ -36,5 +36,10 @@
  },
  "rule": "grading of weeks 10-12 refuses unless every code/params sha256 here matches the tree",
  "week10_note": "W10 TNF (WAS@NYG, Nov 12) was already played when this was frozen; its actuals were never read by the fit or this manifest",
- "projection_ready": false
+ "projection_ready": false,
+ "status": "SUPERSEDED",
+ "superseded_by": {
+  "manifest": "research/runs/2026-11-13_opportunity_phase2b/holdout_freeze_manifest.json",
+  "why": "Phase 2b (PR #39) changed core/possession_engine_v0/simulate.py, calibration/opportunity_fit.py and calibration/opportunity_backtest.py, so this manifest's code hashes no longer match and check_freeze refuses it. Kept for provenance only; never grade against it."
+ }
 }
