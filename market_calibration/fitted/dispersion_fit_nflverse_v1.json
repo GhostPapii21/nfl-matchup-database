@@ -48,6 +48,8 @@
   }
  },
  "line_size_proxy": "player trailing mean of previous <=8 REG games (>=3); no historical prop lines used",
+ "player_sigma_reference": "trailing_mean",
+ "player_sigma_note": "sigma = sd(log(y / trailing_mean)); centre = trailing_mean * med_ratio, with p0. NOT centred on a book line; not valid as a drop-in for legs.py line-centred sigmas.",
  "train_window": {
   "seasons": "2018..2026",
   "last_week_inclusive_of_last_season": 9,

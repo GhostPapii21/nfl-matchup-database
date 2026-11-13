@@ -8,6 +8,13 @@ Builds on PR #23 (`market_calibration/dispersion.py`, frozen NFL-64 baselines, u
 WR 0.70 / TE 0.75 / RB rush 0.45 typed in `legs.py`). `mode="fitted_nflverse_v1"` (or env `NFL_DISPERSION_MODE`)
 reads `dispersion_fit_nflverse_v1.json`. No existing caller is changed, so default output is identical to main.
 
+**Centre guard.** Fitted player sigmas are dispersion of log(yards) around the player's **trailing mean** (centre =
+trailing mean x fitted median ratio, with a fitted p0). The fixed `legs.py` sigmas are centred on the **book main
+line**. They are not interchangeable. `yard_sigma(..., mode="fitted_nflverse_v1")` and `yard_cell` raise unless
+called with `reference="trailing_mean"`; `reference="book_line"` (or none) raises. The JSON carries
+`player_sigma_reference: "trailing_mean"`. Do not use them in `legs.py` / line-centred pricing until they are
+re-tested against saved prop lines (PR #25 inventory). Game SDs are residual SDs around the close.
+
 ## Source
 nflverse-data release assets `play_by_play_2018..2026.parquet` + `players.parquet`, retrieved 2026-11-13 05:25-05:26 UTC
 (12:25-12:26 AM ET); sha256 of each file is in the JSON. Regular season only. Fit window 2018 .. 2026 week 9.
@@ -42,9 +49,17 @@ Close: `ba83615:data/lines/lines_wk04_09_2026.csv` (sha256 matches README). Boot
 | over close total, engine centre (88) | 0.2841 | 0.2849 | +0.0008 [-0.0007, +0.0024] | 0.200 -> 0.200 |
 | home cover close, engine centre (85) | 0.2915 | 0.2957 | +0.0043 [+0.0021, +0.0064] | 0.193 -> 0.190 |
 | home win, close centre (87) | 0.2088 | 0.2079 | -0.0009 [-0.0021, +0.0004] | 0.110 -> 0.115 |
-| rec:WR all thresholds (1,887) | 0.2366 | 0.2355 | -0.0010 [-0.0025, +0.0004] | 0.029 -> 0.029 |
-| rec:TE all thresholds (1,017) | 0.2418 | 0.2404 | -0.0014 [-0.0029, +0.0001] | 0.041 -> 0.028 |
-| rush:RB all thresholds (1,179) | 0.2447 | 0.2349 | -0.0098 [-0.0157, -0.0040] | 0.096 -> 0.062 |
+
+Player level (headline = per threshold, CI = **game-cluster bootstrap**, 88 games, B 2,000):
+
+| stat (n per threshold) | 0.5x trailing mean | 0.75x | 1.0x | all thresholds |
+|---|---|---|---|---|
+| rec:WR (629) | -0.0010 [-0.0046, +0.0025] | -0.0015 [-0.0041, +0.0011] | -0.0006 [-0.0016, +0.0004] | -0.0010 [-0.0031, +0.0010] |
+| rec:TE (339) | -0.0024 [-0.0065, +0.0016] | -0.0015 [-0.0041, +0.0012] | -0.0004 [-0.0013, +0.0006] | -0.0014 [-0.0036, +0.0006] |
+| rush:RB (393) | -0.0060 [-0.0204, +0.0079] | +0.0009 [-0.0038, +0.0055] | **-0.0243 [-0.0332, -0.0157]** | **-0.0098 [-0.0146, -0.0047]** |
+
+(Brier diff fitted - fixed; both arms share the fitted p0 / median ratio, only sigma differs. RB rush Brier all
+thresholds 0.2447 -> 0.2349; at 1.0x 0.2735 -> 0.2492. The RB gain is essentially all at the 1.0x threshold.)
 
 Reference: close de-vigged moneyline Brier 0.2055 (ECE 0.116), engine sim P(home) Brier 0.2515.
 Margin / total MAE do not depend on the SD: engine 10.69 / 11.39, close 8.98 / 10.33 (same before and after).
@@ -54,9 +69,14 @@ Margin / total MAE do not depend on the SD: engine 10.69 / 11.39, close 8.98 / 1
   (CI spans 0). Around the engine's mean it is worse (CI excludes 0) because the engine's centre is far from the close
   (mean |model - close| margin 5.8), so a wider SD is hiding centre error. Do not turn fitted game SDs on for engine-centred probabilities.
 - Props: fitted sigmas are better for RB rushing (CI excludes 0), neutral-to-slightly-better for WR/TE.
-- Player-level CIs resample player-game-thresholds independently (3 thresholds per player-game are correlated),
-  so they are somewhat too narrow. Weeks 4-9 were already seen while building the engine; not a clean holdout.
-- Recommendation: OK to opt in for RB rush-yard props only; keep game SDs fixed until the engine centre beats the close.
+- Player-level CIs are clustered by game (row-bootstrap CIs are also in the JSON). Positions come from the current
+  nflverse `players.parquet`, not as of each game (minor point-in-time caveat). Weeks 4-9 were already seen while building the engine; not a clean holdout.
+- Recommendation: fitted RB rush sigma only, and only around a trailing-mean centre (the 1.0x result); keep game SDs
+  fixed for engine-centred probabilities; do not use any fitted player sigma around a book line.
+
+Tests: `tests/test_fitted_dispersion.py` refits from the pinned nflverse files (sha256-checked; skipped with the reason
+when absent or re-published; dir = `NFLVERSE_PBP_DIR`, default `/tmp/nflverse_pbp`) and reproduces the committed fit to
+1e-12 plus the frozen week-4 walk-forward SDs.
 
 Reproduce: `python3 -m market_calibration.fit_dispersion_nflverse --pbp-dir <dir> --players <players.parquet>` then
 `python3 -m market_calibration.backtest_dispersion_wk04_09 --pbp-dir <dir> --players <players.parquet>` (needs scipy).

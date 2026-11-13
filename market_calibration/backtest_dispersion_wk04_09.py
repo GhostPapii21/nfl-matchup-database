@@ -49,6 +49,18 @@ def boot(p0, p1, y, rng):
             "diff_ci95": q(b1 - b0)}
 
 
+def boot_cluster(p0, p1, y, cl, rng):
+    """Bootstrap resampling whole games (clusters), so correlated thresholds / players in one game move together."""
+    d = pd.DataFrame({"e0": (np.asarray(p0, float) - np.asarray(y, float)) ** 2,
+                      "e1": (np.asarray(p1, float) - np.asarray(y, float)) ** 2, "cl": np.asarray(cl)})
+    g = d.groupby("cl").agg(s0=("e0", "sum"), s1=("e1", "sum"), n=("e0", "size"))
+    S0, S1, N = g.s0.values, g.s1.values, g.n.values
+    i = rng.integers(0, len(g), size=(B, len(g)))
+    n = N[i].sum(1); b0 = S0[i].sum(1) / n; b1 = S1[i].sum(1) / n
+    q = lambda a: [float(np.percentile(a, 2.5)), float(np.percentile(a, 97.5))]
+    return {"n_game_clusters": int(len(g)), "diff_ci95_by_game": q(b1 - b0)}
+
+
 def score(name, p0, p1, y, rng):
     return {"market": name, "n": int(len(y)), "brier_before": brier(p0, y), "brier_after": brier(p1, y),
             "ece_before": ece(p0, y), "ece_after": ece(p1, y), **boot(p0, p1, y, rng)}
@@ -93,13 +105,13 @@ def main(argv=None):
             key = f"{t.stat}:{t.pos}"
             if key not in D.FIXED_VALUES["yard_sigma"]:
                 continue
-            cell = D.yard_cell(t.stat, t.pos, t.trail_mean, fit)
+            cell = D.yard_cell(t.stat, t.pos, t.trail_mean, fit, reference=D.TRAILING_MEAN)
             if cell["sigma"] is None:
                 continue
             med = t.trail_mean * cell["med_ratio"]
             for mult in (0.5, 0.75, 1.0):
                 thr = math.floor(t.trail_mean * mult) + 0.5
-                pr = {"key": key, "week": w, "mult": mult, "y": float(t.yards >= thr), "pid": t.pid}
+                pr = {"key": key, "week": w, "mult": mult, "y": float(t.yards >= thr), "pid": t.pid, "game_id": t.game_id}
                 for arm, sig in (("before", D.FIXED_VALUES["yard_sigma"][key]), ("after", cell["sigma"])):
                     pr[arm] = (1 - cell["p0"]) * (1 - lognorm.cdf(thr, sig, scale=med))
                 prow.append(pr)
@@ -123,12 +135,14 @@ def main(argv=None):
            "note": "MAE does not depend on the SD; identical before/after by construction"}
     props = []
     for (key, mult), s in p.groupby(["key", "mult"]):
-        props.append({**score(f"{key} >= {mult}x trailing mean", s.before, s.after, s.y, rng), "key": key, "mult": mult})
+        props.append({**score(f"{key} >= {mult}x trailing mean", s.before, s.after, s.y, rng),
+                      **boot_cluster(s.before, s.after, s.y, s.game_id, rng), "key": key, "mult": mult})
     for key, s in p.groupby("key"):
-        props.append({**score(f"{key} all thresholds", s.before, s.after, s.y, rng), "key": key, "mult": "all"})
+        props.append({**score(f"{key} all thresholds", s.before, s.after, s.y, rng),
+                      **boot_cluster(s.before, s.after, s.y, s.game_id, rng), "key": key, "mult": "all"})
     doc = {"label": "research only, not validated; BACKTEST on already-seen 2026 weeks 4-9 (walk-forward fit, frozen per week)",
            "generated_by": "market_calibration/backtest_dispersion_wk04_09.py", "weeks": list(WEEKS),
-           "fit_rule": "fit on 2018..2025 + 2026 weeks 1..w-1, frozen, scored on week w", "bootstrap": {"B": B, "seed": SEED},
+           "fit_rule": "fit on 2018..2025 + 2026 weeks 1..w-1, frozen, scored on week w", "bootstrap": {"B": B, "seed": SEED, "player_level": "row bootstrap (diff_ci95) and game-cluster bootstrap (diff_ci95_by_game, headline)"},
            "engine_centres": {"path": str(ENGINE_CSV.relative_to(ROOT)), "sha256": F.sha256(ENGINE_CSV)},
            "lines": lines_meta, "sources": meta, "games_scored": int(len(g)),
            "fits_by_test_week": fits, "game_level": game, "game_reference": ref, "player_level": props}
@@ -136,7 +150,8 @@ def main(argv=None):
     for s in game + props:
         print(f"{s['market']:<45} n={s['n']:<5} brier {s['brier_before']:.4f} -> {s['brier_after']:.4f} "
               f"(diff {s['diff_after_minus_before']:+.4f} CI {s['diff_ci95'][0]:+.4f},{s['diff_ci95'][1]:+.4f}) "
-              f"ECE {s['ece_before']:.3f} -> {s['ece_after']:.3f}")
+              f"ECE {s['ece_before']:.3f} -> {s['ece_after']:.3f}"
+              + (f" | by-game CI {s['diff_ci95_by_game'][0]:+.4f},{s['diff_ci95_by_game'][1]:+.4f}" if "diff_ci95_by_game" in s else ""))
     print(json.dumps(ref, indent=1))
     return 0
 

@@ -92,3 +92,86 @@ def test_trailing_mean_uses_only_prior_games():
                              "week": [1, 2, 3, 4, 5]})
     tm = F.trailing_mean(pbp_like)
     assert np.isnan(tm.iloc[2]) and tm.iloc[3] == 20.0 and tm.iloc[4] == 25.0
+
+
+# ---------------------------------------------------------------- reproduction from the pinned nflverse files
+import os
+from pathlib import Path
+
+_PBP_DIR = Path(os.environ.get("NFLVERSE_PBP_DIR", "/tmp/nflverse_pbp"))
+_FIT = json.loads(D.FIT_PATH.read_text())
+_PINNED = _FIT["sources"]["files"]
+
+
+def _pinned_ok():
+    for name, meta in _PINNED.items():
+        f = _PBP_DIR / name
+        if not f.is_file():
+            return False, f"pinned nflverse file absent: {f} (set NFLVERSE_PBP_DIR)"
+        if F.sha256(f) != meta["sha256"]:
+            return False, f"{f} sha256 differs from the pinned value (nflverse re-published); cannot reproduce"
+    return True, ""
+
+
+@pytest.fixture(scope="module")
+def refit():
+    ok, why = _pinned_ok()
+    if not ok:
+        pytest.skip(why)
+    pbp, meta = F.load_pbp(_PBP_DIR)
+    players = pd.read_parquet(_PBP_DIR / "players.parquet", columns=["gsis_id", "position"])
+    return F.game_table(pbp), F.player_games(pbp, players), meta
+
+
+def _flat(d, pre=""):
+    out = {}
+    for k, v in d.items():
+        if isinstance(v, dict):
+            out.update(_flat(v, f"{pre}{k}/"))
+        else:
+            out[f"{pre}{k}"] = v
+    return out
+
+
+def test_refit_from_pinned_files_reproduces_committed_fit(refit):
+    games, pg, meta = refit
+    assert {k: v["sha256"] for k, v in meta.items()} == {k: v["sha256"] for k, v in _PINNED.items() if k in meta}
+    new = _flat(F.fit(games, pg, 2026, 9))
+    old = _flat({k: _FIT[k] for k in ("train_window", "margin_sd_by_abs_spread", "total_sd_by_total_line",
+                                      "player_yards_lognormal")})
+    assert set(new) == set(old)
+    for k, v in old.items():
+        if isinstance(v, float):
+            assert new[k] == pytest.approx(v, rel=0, abs=1e-12), k
+        else:
+            assert new[k] == v, k
+
+
+def test_refit_reproduces_one_walk_forward_week(refit):
+    games, pg, _ = refit
+    bt = json.loads((D.FIT_PATH.parent / "backtest_dispersion_wk04_09.json").read_text())
+    f = F.fit(games, pg, 2026, 3)  # frozen fit used to score week 4
+    for k, v in bt["fits_by_test_week"]["4"]["margin"].items():
+        assert round(f["margin_sd_by_abs_spread"]["values"][k]["sd"], 3) == v
+    for k, v in bt["fits_by_test_week"]["4"]["total"].items():
+        assert round(f["total_sd_by_total_line"]["values"][k]["sd"], 3) == v
+
+
+# ---------------------------------------------------------------- centre guard
+def test_fitted_player_sigma_requires_trailing_mean_reference():
+    assert _FIT["player_sigma_reference"] == "trailing_mean"
+    with pytest.raises(ValueError, match="trailing mean"):
+        D.yard_sigma("rush", "RB", 63.5, "fitted_nflverse_v1")                       # no reference
+    with pytest.raises(ValueError, match="book line"):
+        D.yard_sigma("rush", "RB", 63.5, "fitted_nflverse_v1", reference="book_line")
+    with pytest.raises(ValueError):
+        D.yard_cell("rec", "WR", 60.0, reference="market_line")
+    s = D.yard_sigma("rush", "RB", 63.5, "fitted_nflverse_v1", reference="trailing_mean")
+    assert s == pytest.approx(_FIT["player_yards_lognormal"]["rush:RB"]["cells"]["[50,70)"]["sigma"])
+    assert D.yard_cell("rush", "RB", 63.5, reference="trailing_mean")["reference"] == "trailing_mean"
+
+
+def test_fixed_sigmas_are_book_line_centred_only():
+    assert D.yard_sigma("rec", "WR", 66.5, "fixed", reference="book_line") == 0.70
+    with pytest.raises(ValueError):
+        D.yard_sigma("rec", "WR", 66.5, "fixed", reference="trailing_mean")

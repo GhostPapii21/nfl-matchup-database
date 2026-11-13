@@ -169,6 +169,9 @@ def main(argv=None):
            "generated_by": "market_calibration/fit_dispersion_nflverse.py",
            "sources": {"release": "https://github.com/nflverse/nflverse-data/releases", "files": meta},
            "line_size_proxy": "player trailing mean of previous <=8 REG games (>=3); no historical prop lines used",
+           "player_sigma_reference": "trailing_mean",
+           "player_sigma_note": ("sigma = sd(log(y / trailing_mean)); centre = trailing_mean * med_ratio, with p0. NOT "
+                                 "centred on a book line; not valid as a drop-in for legs.py line-centred sigmas."),
            **fit(games, pg, a.train_end_season, a.train_end_week)}
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     Path(a.out).write_text(json.dumps(doc, indent=1) + "\n")
