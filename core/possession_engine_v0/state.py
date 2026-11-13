@@ -40,6 +40,8 @@ class GameState:
     ot_coin: Optional[Callable[[], int]] = field(default=None, repr=False, compare=False)
     # NFL-75 per-player box recorder (player_box.BoxRecorder). Observational only: None = not recording.
     player_box: object = field(default=None, repr=False, compare=False)
+    # NFL-75 Phase 2 opt-in opportunity recorder (opportunity.OpportunityRecorder). None = off.
+    opp_box: object = field(default=None, repr=False, compare=False)
 
     @classmethod
     def new_game(cls, home: str, away: str) -> "GameState":

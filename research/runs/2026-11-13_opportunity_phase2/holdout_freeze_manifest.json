@@ -1,0 +1,40 @@
+{
+ "schema": "nfl75-opportunity-holdout-freeze/1",
+ "model_commit": "b6e955c3e350e0e33fc37fe0d15c0c7867a713fb",
+ "frozen_at_utc": "2026-11-13T10:07:44Z",
+ "holdout_weeks": [
+  10,
+  11,
+  12
+ ],
+ "params": {
+  "10": {
+   "path": "research/runs/2026-11-13_opportunity_phase2/params/params_2026_w10.json",
+   "sha256": "1137fbd45638fb28ad76906c7a2077ef3173e0144a8f771d0f9d565f706ec548"
+  },
+  "11": {
+   "path": "research/runs/2026-11-13_opportunity_phase2/params/params_2026_w10.json",
+   "sha256": "1137fbd45638fb28ad76906c7a2077ef3173e0144a8f771d0f9d565f706ec548"
+  },
+  "12": {
+   "path": "research/runs/2026-11-13_opportunity_phase2/params/params_2026_w10.json",
+   "sha256": "1137fbd45638fb28ad76906c7a2077ef3173e0144a8f771d0f9d565f706ec548"
+  }
+ },
+ "code_sha256": {
+  "core/possession_engine_v0/opportunity.py": "e6d4bcdfb077cec045def4c8b50df7e5e7c2479e4db84c86df073524c66ba233",
+  "core/possession_engine_v0/player_box.py": "7a854da107186f962494d1570e51c9e5fdec8d602583197ae13d93d2b8de7c8d",
+  "core/possession_engine_v0/simulate.py": "ab73aaca4aa561f3062e0ecc0e9bca62c7b070b657d494d2444fa393238ce158",
+  "core/possession_engine_v0/state.py": "aaf3ef2b028261958cef60aded0aacc243d1abda4c6fcc3aa28b42c3d78f9a8e",
+  "calibration/opportunity_fit.py": "a4d87a13e0d5f7838796a8c16ecbeabc2b9a323fcb7264d40add1e65305f98b3",
+  "calibration/opportunity_backtest.py": "911f18913f6438fc0fac910ae8ed950827a6432bd3e814221951928e91320667",
+  "calibration/opportunity_report.py": "ca8151616c302e9632c55c00f8ac7db8ea0b74a7898f4a02b81bdb5de230d3c7"
+ },
+ "data_max_week_used_for_fit": {
+  "season": 2026,
+  "week": 9
+ },
+ "rule": "grading of weeks 10-12 refuses unless every code/params sha256 here matches the tree",
+ "week10_note": "W10 TNF (WAS@NYG, Nov 12) was already played when this was frozen; its actuals were never read by the fit or this manifest",
+ "projection_ready": false
+}

@@ -1,0 +1,176 @@
+{
+ "eval_season": 2026,
+ "eval_week": 9,
+ "slots": {
+  "dropback": {
+   "mode": "starter",
+   "lam": 0.35,
+   "K": 0,
+   "start_gamma": 1.0,
+   "rho": 0.975,
+   "u_start": 0.058875219683655534,
+   "beta_last": 0.0,
+   "beta_dc": 2.0,
+   "train_games_with_depth_signal": 658,
+   "search": "staged grid",
+   "search_trace": [
+    {
+     "stage": "share",
+     "ll": -7090.258452260584,
+     "lam": 0.35,
+     "K": 0,
+     "g": 1.0
+    },
+    {
+     "stage": "boosts",
+     "ll": -7090.258452260584,
+     "b": 0.0,
+     "bd": 2.0,
+     "rho": 0.975
+    },
+    {
+     "stage": "share",
+     "ll": -7090.258452260584,
+     "lam": 0.35,
+     "K": 0,
+     "g": 1.0
+    }
+   ],
+   "gamma": 1.0,
+   "alpha": 0.0,
+   "u": 0.058875219683655534,
+   "kappa": null,
+   "objective": "starter_mixture_multinomial",
+   "train_team_games": 1138,
+   "train_ll": -7090.258452260584,
+   "at_grid_edge": {
+    "lam": false,
+    "K": true,
+    "start_gamma": false,
+    "rho": false,
+    "beta_last": true,
+    "beta_dc": false
+   }
+  },
+  "carry": {
+   "lam": 0.8,
+   "gamma": 0.75,
+   "K": 0,
+   "alpha": 0.5,
+   "u": 0.07167261699105532,
+   "kappa": 5.0,
+   "objective": "dirichlet_multinomial",
+   "train_team_games": 1138,
+   "train_dm_ll": -23758.071002954573,
+   "at_grid_edge": {
+    "lam": false,
+    "gamma": true,
+    "K": true,
+    "kappa": false
+   }
+  },
+  "target": {
+   "lam": 0.8,
+   "gamma": 1.0,
+   "K": 0,
+   "alpha": 0.5,
+   "u": 0.09522601020782223,
+   "kappa": 40.0,
+   "objective": "dirichlet_multinomial",
+   "train_team_games": 1138,
+   "train_dm_ll": -71482.35486302766,
+   "at_grid_edge": {
+    "lam": false,
+    "gamma": false,
+    "K": true,
+    "kappa": false
+   }
+  }
+ },
+ "lik": {
+  "dropback": {
+   "m": 1000.0,
+   "heldout_week": [
+    2026,
+    8
+   ],
+   "heldout_rows": 1017,
+   "ll_by_m": {
+    "2.0": -1797.48,
+    "5.0": -1794.56,
+    "10.0": -1792.22,
+    "20.0": -1789.65,
+    "50.0": -1785.71,
+    "100.0": -1782.25,
+    "200.0": -1778.57,
+    "500.0": -1774.45,
+    "1000.0": -1772.99,
+    "2000.0": -1773.34,
+    "5000.0": -1775.44
+   },
+   "m_at_grid_edge": false
+  },
+  "carry": {
+   "m": 5000.0,
+   "heldout_week": [
+    2026,
+    8
+   ],
+   "heldout_rows": 703,
+   "ll_by_m": {
+    "2.0": -1407.92,
+    "5.0": -1385.56,
+    "10.0": -1371.19,
+    "20.0": -1359.21,
+    "50.0": -1347.17,
+    "100.0": -1340.69,
+    "200.0": -1336.07,
+    "500.0": -1332.32,
+    "1000.0": -1330.98,
+    "2000.0": -1330.5,
+    "5000.0": -1330.45
+   },
+   "m_at_grid_edge": true
+  },
+  "target": {
+   "m": 200.0,
+   "heldout_week": [
+    2026,
+    8
+   ],
+   "heldout_rows": 830,
+   "ll_by_m": {
+    "2.0": -2136.19,
+    "5.0": -2084.69,
+    "10.0": -2050.61,
+    "20.0": -2021.8,
+    "50.0": -1993.44,
+    "100.0": -1980.3,
+    "200.0": -1974.36,
+    "500.0": -1974.92,
+    "1000.0": -1978.25,
+    "2000.0": -1981.6,
+    "5000.0": -1984.62
+   },
+   "m_at_grid_edge": false
+  }
+ },
+ "availability": {
+  "Questionable": {
+   "p_play": 0.6697459584295612,
+   "n": 431,
+   "played": 289,
+   "prior": "Beta(1,1)"
+  },
+  "Doubtful": {
+   "p_play": 0.016666666666666666,
+   "n": 58,
+   "played": 0,
+   "prior": "Beta(1,1)"
+  }
+ },
+ "data_max_week_used": {
+  "season": 2026,
+  "week": 8
+ }
+}
