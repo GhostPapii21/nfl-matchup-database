@@ -1,0 +1,49 @@
+{
+ "schema": "nfl75-simv56-pmodel/1",
+ "week": 10,
+ "cutoff": "2026-11-12",
+ "as_of": "2026-11-12T23:00:00Z",
+ "n": 20000,
+ "opp": "0.5",
+ "engines": [
+  "sim_v5",
+  "sim_v6",
+  "sim_v6_fix"
+ ],
+ "engine_sha256": {
+  "cc_sim_v5.py": "e06e67969745e8f34e1dd15ac270e53128cbb0234fe701e2f726b350f64aaea1",
+  "cc_sim_v6.py": "8875e39b4d32b0bea614e967372f96d6e1e6200357013519a1d358adb45607c6",
+  "cc_sim_v6_fix.py": "83ce08cb40e982386c7f09dbdafef22b6f19a881caf1e3749d1f7761535b3cfe",
+  "sim_v6_backtest.csv": "7ef40c67c5d3c0b6d5cafdb274969b9cd8b4226c96ffef3d9f7da136510bf07d",
+  "sim_v6_fix_backtest.csv": "f8f4c1b6eb91c15532e76961dc44d91f42ac34bd37525017bc54319ac663af98",
+  "rb_script_boost.json": "7c6893baa35f9371644e2a48c92a074e78cef23d447f52aa29830d4ec2921850",
+  "rb_miss_fit.json": "3d5ded3377c134460261fe77ffcca5247ed66108794abcbea6fc43984b197de2"
+ },
+ "pbp": "pbp_2026_w1_9_pulled_20261112T1116ET.parquet",
+ "pbp_sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+ "players": "players_slim_shared_src_20261102.parquet",
+ "sources": {
+  "depth_charts": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
+   "file": "depth_charts_2026.parquet",
+   "sha256": "341d1eddeaf64c7aaaed4cd190bffc941dcaa201e6689ef17a8070798120abce",
+   "retrieved_utc": "2026-11-13T16:46:51+00:00"
+  },
+  "injuries": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
+   "file": "injuries_2026.parquet",
+   "sha256": "65d181dfc37234327d60311099c65feaae6ef3e41650cb14c1ff44c7cb4dd84c",
+   "retrieved_utc": "2026-11-13T16:46:51+00:00"
+  }
+ },
+ "inactives": null,
+ "runtime_sec": 1.8,
+ "n_rush_legs": 12,
+ "n_sim_players": 6,
+ "gate_counts": {
+  "ok": 12
+ },
+ "p_model_filled": 12,
+ "research_only": true,
+ "projection_ready": false
+}

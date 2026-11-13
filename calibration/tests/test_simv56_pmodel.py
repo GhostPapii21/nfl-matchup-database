@@ -220,3 +220,27 @@ def test_module_has_no_odds_api_and_only_allowlisted_urls():
     import re
     urls = set(re.findall(r"https?://[^\s\"']+", src))
     assert urls and all(u.startswith("https://github.com/nflverse/nflverse-data/releases/download/") for u in urls)
+
+
+def test_thin_history_counts_only_the_leg_teams_games():
+    """The engines build a player's log from his CURRENT team's games, so prior games for another team don't count."""
+    pbp = pd.DataFrame({"game_id": ["a"] * 12 + ["b"] * 12, "game_date": "2026-10-01", "season_type": "REG",
+                        "pass_attempt": 1, "two_point_attempt": 0, "passer_player_id": "00-C",
+                        "posteam": ["LV"] * 12 + ["LV"] * 12})
+    hist = SV.starter_history(pbp, cutoff="2026-11-12")
+    assert hist == {("00-C", "LV"): 2}
+    st = SV.qb_starters(DEPTH, INJ.iloc[[1]], week=10, as_of="2026-11-15T12:00:00Z", source=SRC_META)
+    legs = _legs().iloc[[2]].assign(team="MIN")
+    assert SV.gate_legs(legs, st, INJ.iloc[[1]], week=10, starter_history=hist).gate.iloc[0] == "qb_starter_thin_history"
+
+
+def test_grade_subcommand_labels_unsettled_legs_without_crashing(tmp_path):
+    """selective_edge_live's CLI writes live_graded.csv and then crashes in graduation() when no leg is settled yet
+    (pre-game); `grade` calls the frozen grade_live() and writes the labels only."""
+    legs = _legs().iloc[[1]].assign(team="MIN", p_model=0.6, gsis="00-0035228")
+    f = tmp_path / "legs_p.csv"
+    legs.to_csv(f, index=False)
+    out = tmp_path / "g"
+    assert SV.main(["grade", "--legs", str(f), "--out", str(out)]) == 0
+    g = pd.read_csv(out / "live_graded.csv")
+    assert g.label.iloc[0] == "STRONG UNDER" and (g.projection_ready == False).all()  # noqa: E712
