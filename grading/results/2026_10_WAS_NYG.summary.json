@@ -1,0 +1,167 @@
+{
+ "actual_sources": {
+  "espn_summary": {
+   "retrieved_utc": "2026-11-13T05:29:07+00:00",
+   "sha256": "f4e853c9543884e22d80a1476be74d33fb60da59361e877191234490ee46dec5",
+   "status": "STATUS_FINAL",
+   "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873052"
+  }
+ },
+ "counts": {
+  "flagged_prop": {
+   "actual_known": 74,
+   "closing_known": 78,
+   "edges": 0,
+   "rows": 78
+  },
+  "player_projection": {
+   "actual_known": 37,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 44
+  },
+  "team_market": {
+   "actual_known": 6,
+   "closing_known": 4,
+   "edges": 0,
+   "rows": 6
+  },
+  "team_projection": {
+   "actual_known": 8,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 8
+  }
+ },
+ "final_score": {
+  "NYG": 21,
+  "WAS": 24,
+  "pulled_utc": "2026-11-13T05:29:07+00:00",
+  "source": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873052 saved grading/results/sources/espn_summary_2026_10_WAS_NYG_401873052.json sha256_full_response=f4e853c9543884e22d80a1476be74d33fb60da59361e877191234490ee46dec5"
+ },
+ "freeze_ref": "working tree",
+ "game_id": "2026_10_WAS_NYG",
+ "graded_utc": "2026-11-13T08:18:56+00:00",
+ "holdout_by_market_type": {
+  "carries": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "moneyline": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "passing_yards": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "receiving_yards": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "receptions": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "rushing_yards": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "spread": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "total": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  }
+ },
+ "kickoff_utc": "2026-11-13T01:15:00+00:00",
+ "packet_source": "git:fb9167b587d6df43a36b9d49b64235ad72709d87:pregame/packets/2026_10_WAS_NYG/packet.json",
+ "projection_ready": false,
+ "research_artifacts": {
+  "official_100k": {
+   "loss": 0,
+   "push": 0,
+   "rows": 1,
+   "unknown": 0,
+   "win": 0
+  },
+  "report_flagged_prop": {
+   "loss": 2,
+   "push": 0,
+   "rows": 4,
+   "unknown": 1,
+   "win": 1
+  },
+  "report_slip": {
+   "loss": 3,
+   "push": 0,
+   "rows": 5,
+   "unknown": 1,
+   "win": 1
+  },
+  "report_team_read": {
+   "loss": 4,
+   "push": 0,
+   "rows": 6,
+   "unknown": 0,
+   "win": 2
+  },
+  "research_leg": {
+   "loss": 5,
+   "push": 0,
+   "rows": 28,
+   "unknown": 0,
+   "win": 23
+  },
+  "research_team_probability": {
+   "loss": 1,
+   "push": 0,
+   "rows": 10,
+   "unknown": 0,
+   "win": 0
+  },
+  "research_team_projection": {
+   "loss": 0,
+   "push": 0,
+   "rows": 12,
+   "unknown": 0,
+   "win": 0
+  }
+ },
+ "schema": "grading.summary.v1",
+ "validation": "research only, not validated"
+}
