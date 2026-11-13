@@ -39,6 +39,9 @@ ARMS = {
     "new_shrunk": {"h2h": {"mode": "shrunk"}, "accounting": None},
     # the engine as it was for the TNF / BUF@NYJ locks: h2h always on, legacy accounting
     "legacy_old": {"h2h": "legacy_always", "accounting": "legacy"},
+    # NFL-75 rare special-teams plays (core/possession_engine_v0/rare_plays.py) on top of new_off. Still listed in
+    # nfl43.still_unsupported, so it runs only as a capped research call (simulate_games research_unaccepted).
+    "rare_v1": {"h2h": "off", "accounting": None, "rare_plays": "asof_league_v1"},
 }
 
 
@@ -92,8 +95,13 @@ def _sim_game(job):
     cfg = make_cfg(home, away, week, h2h=ARMS[arm]["h2h"])
     if ARMS[arm]["accounting"] is not None:
         cfg["accounting"] = ARMS[arm]["accounting"]
+    research = ()
+    if ARMS[arm].get("rare_plays"):
+        cfg["semantics"]["rare_plays"] = ARMS[arm]["rare_plays"]
+        research = ("rare_plays",)
     t0 = time.time()
-    o = simulate.simulate_games(cfg, pbp_path=str(PBP), n=n, seed=simulate.stable_seed(seed, week, gid))
+    o = simulate.simulate_games(cfg, pbp_path=str(PBP), n=n, seed=simulate.stable_seed(seed, week, gid),
+                                research_unaccepted=research)
     ev = o["history_evidence"]
     if max(ev["weeks"]) >= week:
         raise RuntimeError(f"{gid}: history leaks week >= {week}")
@@ -108,6 +116,7 @@ def _sim_game(job):
             "h2h": o["effects_provenance"]["defense_interaction"]["h2h"],
             "accounting": o["effects_provenance"].get("accounting", "absent (pre-NFL-49 engine)"),
             "def_cond_snaps_per_game": o["evidence_summary"]["defense_cond_flag_events"] / n,
+            **{f"st_{k}": float(np.mean(v)) for k, v in (o.get("special_teams_counts") or {}).items()},
             "_totals": (hp + ap), "_margins": m}
 
 
