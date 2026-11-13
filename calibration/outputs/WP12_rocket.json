@@ -1,0 +1,49 @@
+{
+ "schema": "rocket/1",
+ "game_id": null,
+ "status": "PASS",
+ "checks": [
+  {
+   "check": "R1_nfl42_entrypoint",
+   "status": "PASS",
+   "detail": {
+    "deny_bytes_unchanged:core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py": true,
+    "deny_bytes_unchanged:core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/role_policy_metrics.json": true,
+    "authorized_sha256": true,
+    "decontam_status": true,
+    "accepted_policy_null": true
+   }
+  },
+  {
+   "check": "R2_nfl43_semantics",
+   "status": "PASS",
+   "detail": {
+    "ok": true,
+    "still_unsupported": [
+     "kick-play fouls",
+     "joint_producer penalties/return yards",
+     "blocked kicks/onside/fakes"
+    ]
+   }
+  },
+  {
+   "check": "R3_safety",
+   "status": "PASS",
+   "detail": "OK"
+  },
+  {
+   "check": "R4_test_suites",
+   "status": "PASS",
+   "detail": {
+    "core/possession_engine_v0/tests": "exit 0: 258 passed in 104.97s (0:01:44)",
+    "core/period_engine_v0/tests": "exit 0: 40 passed, 1 skipped in 11.16s",
+    "pipeline/tests": "exit 0: 60 passed in 0.92s",
+    "phase15/tests": "exit 0: 8 passed in 0.04s",
+    "snapshots/tests": "exit 0: 10 passed in 0.34s",
+    "rocket_gate/tests": "exit 0: 12 passed in 0.16s",
+    "evaluation/tests": "exit 0: 7 passed in 0.03s"
+   }
+  }
+ ],
+ "projection_ready": false
+}

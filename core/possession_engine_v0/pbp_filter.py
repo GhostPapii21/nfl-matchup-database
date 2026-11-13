@@ -25,6 +25,9 @@ COLS = [
     "return_touchdown",
     "touchback",
     "punt_in_endzone",
+    # WP1 clock bookkeeping (simulate.PlayCatalog.build_empirical_clock): no-play penalty rows vs timeouts
+    "penalty",
+    "timeout",
 ]
 
 

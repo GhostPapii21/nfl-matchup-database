@@ -1,0 +1,13 @@
+- **SHOULD-FIX — Clock conservation fails after filtering.** [simulate.py:162](/tmp/wt-engine-fix/core/possession_engine_v0/simulate.py:162): dropping timeouts merges intervals, then reapplies `[0,60]`, discarding merged intervals above 60 seconds. Local W1–8 retained totals fall from **439,907 to 439,673 seconds**. Same-quarter filtering is consistent, and retained penalty rows prevent direct double counting, but telescoping conservation does not survive this window. Add boundary tests and qualify the conservation claim.
+
+- **SHOULD-FIX — Unresolved chains do not preserve the original draw.** [simulate.py:560](/tmp/wt-engine-fix/core/possession_engine_v0/simulate.py:560): after `2-yard TD → 6-yard TD → no candidates`, the function returns the 6-yard replacement rather than the promised original 2-yard row. Preserve the initial row for failure returns. The existing unresolved test only covers failure before any replacement.
+
+- **SHOULD-FIX — Arbitrary redraw limit truncates valid chains.** [simulate.py:546](/tmp/wt-engine-fix/core/possession_engine_v0/simulate.py:546): 25 replacements can stop a strictly increasing chain despite eligible candidates remaining. This changes the redistribution distribution and introduces an unnecessary parameter. Terminate through increasing censoring thresholds and candidate exhaustion; test a chain exceeding 25 steps.
+
+- **SHOULD-FIX — Tests do not establish mechanics-only correctness or exact compatibility.** [test_penalty_clock.py:140](/tmp/wt-engine-fix/core/possession_engine_v0/tests/test_penalty_clock.py:140) changes both WP1 and WP2, confounding the pace comparison. [test_goal_line_truncation.py:174](/tmp/wt-engine-fix/core/possession_engine_v0/tests/test_goal_line_truncation.py:174) gates correctness on historical TD agreement with dataset-specific tolerances. Add isolated clock comparisons, redistribution-frequency/tie tests, wrapper/blitz and defense-allowed integration tests, and seeded legacy/pre-WP12 behavioral regressions. Dictionary assertions alone cannot establish exact old behavior or RNG compatibility.
+
+- **NIT — “No parameters” overstates the implementation.** [simulate.py:525](/tmp/wt-engine-fix/core/possession_engine_v0/simulate.py:525): the redraw cap and whole-team fallback are explicit modeling choices. I found no changed weights or evidence of outcome fitting; the historical outcome thresholds are nevertheless brittle acceptance criteria.
+
+All **16 tests passed**. Play-type preservation, foreign-name blanking, and `_last_pool` updates appear correct on the inspected sampling paths.
+
+**REQUEST CHANGES**

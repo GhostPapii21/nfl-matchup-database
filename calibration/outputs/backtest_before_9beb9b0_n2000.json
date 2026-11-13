@@ -1,0 +1,110 @@
+{
+ "label": "research only, not validated",
+ "set_label": "BACKTEST on already-seen weeks 4-9 (NOT a clean holdout; weeks >= 10 reserved as live holdout)",
+ "generated_by": "calibration/backtest.py",
+ "command": "python3 -m calibration.backtest --n 2000 --arms new_off --workers 4 --tag before_9beb9b0",
+ "run_utc": "2026-11-12T23:28:24+00:00",
+ "runtime_sec": 1503.7,
+ "engine": {
+  "git_head": "9beb9b0718aa3b0ca05dad674b6d579c6fc83f88",
+  "engine_tree": "72f1116ba168ce212427254584d48b41579551fe",
+  "engine_py_sha256": "6d5fcf9185e874e2839ddbd7146bfc5866b72a6e37237c3c1f9032fb6f1795c1",
+  "engine_dirty": false,
+  "simulate_sha256": "47f0e9f56a16dfe6f80d23cde46fd29751d67a5597ab44d138f48fa6167a7725"
+ },
+ "arms": {
+  "new_off": {
+   "h2h": "off",
+   "accounting": null
+  }
+ },
+ "n_per_game": 2000,
+ "seed_base": 20261112,
+ "pbp": {
+  "path": "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet",
+  "sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+  "pulled_et": "2026-11-12 11:16 AM ET",
+  "use": "history weeks 1..week-1 only per game (point in time); actual final scores from the same file"
+ },
+ "lines": {
+  "status": "UNAVAILABLE",
+  "error": "Command '['git', 'show', 'ba83615:data/lines/lines_wk04_09_2026.csv']' returned non-zero exit status 128.",
+  "graded_against": "close",
+  "close_rule": "consensus close; 2026_09_BUF_MIN = mean DK/FD/Pinnacle closes",
+  "games_with_close": 0,
+  "known_limits": "wk4-5 consensus closes only; consensus pulled_utc is the games.csv fetch time (after kickoff by design), the quote time itself is unknown"
+ },
+ "results": {
+  "new_off": {
+   "games": 88,
+   "weeks": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "decided_games": 87,
+   "ties": 1,
+   "mae_home_pts": 7.228335227272726,
+   "mae_away_pts": 8.747761363636364,
+   "mae_total": 11.342789772727274,
+   "mae_margin": 10.429664772727273,
+   "total_bias_sim_minus_actual": -1.1008579545454547,
+   "margin_bias_sim_minus_actual": 0.5743011363636362,
+   "mean_sim_total": 44.94459659090909,
+   "mean_actual_total": 46.04545454545455,
+   "brier_model": 0.24900076508620692,
+   "logloss_model": 0.7007358889503481,
+   "brier_coinflip": 0.25,
+   "logloss_coinflip": 0.6931471805599453,
+   "market_games_with_close_total": 0,
+   "calibration_table_p_home_win": [
+    {
+     "bin": "[0.00,0.20)",
+     "n": 7,
+     "mean_p_home": 0.166,
+     "home_win_rate": 0.286
+    },
+    {
+     "bin": "[0.20,0.35)",
+     "n": 15,
+     "mean_p_home": 0.274,
+     "home_win_rate": 0.333
+    },
+    {
+     "bin": "[0.35,0.50)",
+     "n": 19,
+     "mean_p_home": 0.415,
+     "home_win_rate": 0.421
+    },
+    {
+     "bin": "[0.50,0.65)",
+     "n": 24,
+     "mean_p_home": 0.566,
+     "home_win_rate": 0.417
+    },
+    {
+     "bin": "[0.65,0.80)",
+     "n": 14,
+     "mean_p_home": 0.708,
+     "home_win_rate": 0.643
+    },
+    {
+     "bin": "[0.80,1.00)",
+     "n": 8,
+     "mean_p_home": 0.856,
+     "home_win_rate": 0.625
+    }
+   ],
+   "pit_total_quartiles": {
+    "q1_share(<.25)": 0.239,
+    "q2": 0.216,
+    "q3": 0.239,
+    "q4_share(>=.75)": 0.307,
+    "note": "uniform 0.25 each if the simulated total distribution is calibrated"
+   }
+  }
+ }
+}
