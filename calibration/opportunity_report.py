@@ -112,10 +112,51 @@ def metrics(raw) -> dict:
                     "brier_opp": _boot(gidx, v, lambda d: d["o"].mean(), rng),
                     "opp_minus_base": _boot(gidx, v, lambda d: (d["o"] - d["b"]).mean(), rng),
                     "climatology_brier": round(float(y.mean() * (1 - y.mean())), 4)})
+    below = [f"{r['group']} {r['stat']} {r['threshold']}" for r in out["brier"] if r["opp_minus_base"][2] < 0]
+    above = [f"{r['group']} {r['stat']} {r['threshold']}" for r in out["brier"] if r["opp_minus_base"][1] > 0]
+    out["brier_summary"] = {"thresholds": len(out["brier"]), "ci_fully_below_zero": len(below),
+                            "ci_fully_below_zero_list": below, "ci_fully_above_zero": len(above),
+                            "point_estimate_le_zero": int(sum(1 for r in out["brier"] if r["opp_minus_base"][0] <= 0))}
+    out["int_zero"] = int_zero_table(raw, rows)
     out["recon"] = {"games": len(raw["games"]),
                     "name_locked_failed_trials": int(sum(g["recon"]["name_locked_failures"] for g in raw["games"])),
                     "opportunity_failed_trials": int(sum(g["recon"]["opportunity_failures"] for g in raw["games"]))}
     out["unknown_position_player_games"] = int(sum(1 for r in rows if r["grp"] == "UNK"))
+    return out
+
+
+def team_pool_int_rows(team: str, week: int) -> int:
+    """Interception dropback rows in the team's own 2026 history before `week` (the engine's team row pool)."""
+    o = F.opp_rows(2026)
+    d = o[(o["team"] == team) & (o["week"] < week) & (o["slot"] == "dropback")]
+    return int(d["feat"].fillna("").str.endswith("|int").sum())
+
+
+def int_zero_table(raw, rows=None, min_att: int = 10) -> dict:
+    """History-capped events check: QB-games with >= min_att actual attempts; how many get P(INT>=1)=0 per model,
+    how many of those had an actual INT, mean P, actual rate, Brier (descriptive, no CI). For the opportunity model's
+    zero-probability games the reason is classified: QB not a candidate (no opportunity line) vs team row pool without
+    any INT row before the eval week (engine-level cap)."""
+    rows = rows if rows is not None else build_rows(raw)
+    q = [r for r in rows if r["grp"] == "QB" and r["act"].get("pass_att", 0) >= min_att]
+    y = np.array([float(r["act"].get("int_thrown", 0) >= 1) for r in q])
+    out = {"qb_games": len(q), "min_actual_attempts": min_att, "models": {}}
+    for m, lab in (("base", "name_locked_main"), ("opp", "opportunity")):
+        p = np.array([float(r[m].get("int_thrown", {}).get("p_ge1", 0.0)) for r in q])
+        z = p == 0
+        out["models"][lab] = {"p_zero_games": int(z.sum()), "p_zero_with_actual_int": int(y[z].sum()),
+                              "mean_p": round(float(p.mean()), 4), "actual_rate": round(float(y.mean()), 4),
+                              "brier": round(float(np.mean((p - y) ** 2)), 4)}
+    zl = []
+    for r in q:
+        if float(r["opp"].get("int_thrown", {}).get("p_ge1", 0.0)) == 0:
+            att = float(r["opp"].get("pass_att", {}).get("mean", 0.0))
+            pool = team_pool_int_rows(r["team"], r["week"])
+            zl.append({"game": r["game"], "team": r["team"], "qb": r["name"], "opp_mean_att": round(att, 1),
+                       "team_pool_int_rows": pool,
+                       "reason": "not_a_candidate" if att == 0 else ("team_pool_no_int_rows" if pool == 0 else "other")})
+    out["opportunity_p_zero_games"] = zl
+    out["reason_counts"] = {k: sum(1 for z in zl if z["reason"] == k) for k in ("not_a_candidate", "team_pool_no_int_rows", "other")}
     return out
 
 
@@ -148,8 +189,29 @@ def markdown(m, raw) -> str:
     for r in m["brier"]:
         L.append(f"| {r['group']} | {r['stat']} | {r['threshold']} | {r['n_player_games']} | {r['base_rate']} | "
                  f"{fmtp(r['brier_base'])} | {fmtp(r['brier_opp'])} | {fmt(r['opp_minus_base'])} | {r['climatology_brier']} |")
+    bs = m["brier_summary"]
     L += ["", "Negative opp-main = the opportunity model is better (lower MAE / Brier). A CI that crosses 0 is not a "
-          "demonstrated difference.", ""]
+          "demonstrated difference.", "",
+          f"Brier summary (computed): {bs['ci_fully_below_zero']} of {bs['thresholds']} thresholds have a 95% CI fully "
+          f"below 0 ({', '.join(bs['ci_fully_below_zero_list'])}); {bs['ci_fully_above_zero']} fully above 0; "
+          f"{bs['point_estimate_le_zero']} of {bs['thresholds']} point estimates <= 0.", ""]
+    iz = m["int_zero"]
+    L += [f"## History-capped events: QB interceptions (QBs with >= {iz['min_actual_attempts']} actual attempts)", "",
+          "| model | QB-games | games with P(INT>=1)=0 | of those, actual INT games | mean P(INT>=1) | actual rate | Brier |",
+          "|---|---|---|---|---|---|---|"]
+    for lab, v in iz["models"].items():
+        L.append(f"| {lab} | {iz['qb_games']} | {v['p_zero_games']} | {v['p_zero_with_actual_int']} | {v['mean_p']:.3f} | "
+                 f"{v['actual_rate']:.3f} | {v['brier']:.4f} |")
+    rc = iz["reason_counts"]
+    L += ["", f"INT Brier is slightly WORSE with the opportunity model ({iz['models']['opportunity']['brier']:.4f} vs "
+          f"{iz['models']['name_locked_main']['brier']:.4f}); the gain is only in the zero-probability column. Do not price "
+          "INT props from this model.", "",
+          f"Opportunity-model P(INT>=1)=0 games by reason: not a candidate {rc['not_a_candidate']}, team row pool had no "
+          f"INT row before the eval week {rc['team_pool_no_int_rows']} (engine-level cap), other {rc['other']}:", "",
+          "| game | team | QB | opp mean att | team pool INT rows | reason |", "|---|---|---|---|---|---|"]
+    for z in iz["opportunity_p_zero_games"]:
+        L.append(f"| {z['game']} | {z['team']} | {z['qb']} | {z['opp_mean_att']} | {z['team_pool_int_rows']} | {z['reason']} |")
+    L.append("")
     return "\n".join(L)
 
 

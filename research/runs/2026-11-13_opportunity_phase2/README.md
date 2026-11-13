@@ -47,7 +47,14 @@ Several values sit on a grid edge: K=0, beta_last=0, and m at 1000-5000 in some 
 - **Snaps:** unknown. There is no snap model, and nflverse snap counts in the repo stop at Week 7.
 
 ## Results
-See `metrics.md` (walk-forward Weeks 4-9) and `sanity_was_nyg_n20000.md` (WAS@NYG, projection only).
+See `metrics.md` (walk-forward Weeks 4-9) and `sanity_was_nyg_n20000.md` (WAS@NYG, projection only). Every figure in
+`metrics.md` is produced by `python3 -m calibration.opportunity_report` from `backtest_raw.json` (including the
+Brier summary and the zero-INT table).
+- Brier: **10 of 21** thresholds have a 95% CI fully below 0, none fully above 0, all 21 point estimates <= 0
+  (an earlier chat summary said 11; that was wrong, metrics.json `brier_summary` is the source).
+- Zero-INT QB-games (178 with >= 10 actual attempts): 30 (main) -> 19 (opportunity); 9 of the 19 are QBs who were
+  not candidates, 10 are starters whose team pool had no INT row before the eval week (engine-level cap).
+  INT Brier is slightly worse (0.3016 vs 0.2982): do not price INT props from this model.
 
 ## Reproduce
 ```

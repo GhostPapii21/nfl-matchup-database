@@ -804,6 +804,203 @@
    "climatology_brier": 0.014
   }
  ],
+ "brier_summary": {
+  "thresholds": 21,
+  "ci_fully_below_zero": 10,
+  "ci_fully_below_zero_list": [
+   "RB rec >= 3",
+   "TE rec >= 5",
+   "RB rec_yds >= 25",
+   "WR rec_yds >= 25",
+   "WR rec_yds >= 50",
+   "TE rec_yds >= 50",
+   "TE rec_yds >= 75",
+   "RB rush_yds >= 25",
+   "RB rush_yds >= 50",
+   "QB rush_yds >= 25"
+  ],
+  "ci_fully_above_zero": 0,
+  "point_estimate_le_zero": 21
+ },
+ "int_zero": {
+  "qb_games": 178,
+  "min_actual_attempts": 10,
+  "models": {
+   "name_locked_main": {
+    "p_zero_games": 30,
+    "p_zero_with_actual_int": 11,
+    "mean_p": 0.3838,
+    "actual_rate": 0.5225,
+    "brier": 0.2982
+   },
+   "opportunity": {
+    "p_zero_games": 19,
+    "p_zero_with_actual_int": 8,
+    "mean_p": 0.4019,
+    "actual_rate": 0.5225,
+    "brier": 0.3016
+   }
+  },
+  "opportunity_p_zero_games": [
+   {
+    "game": "2026_04_DAL_HOU",
+    "team": "HOU",
+    "qb": "C.Stroud",
+    "opp_mean_att": 32.7,
+    "team_pool_int_rows": 0,
+    "reason": "team_pool_no_int_rows"
+   },
+   {
+    "game": "2026_04_DET_CAR",
+    "team": "DET",
+    "qb": "J.Goff",
+    "opp_mean_att": 35.3,
+    "team_pool_int_rows": 0,
+    "reason": "team_pool_no_int_rows"
+   },
+   {
+    "game": "2026_04_IND_WAS",
+    "team": "WAS",
+    "qb": "A.Kaliakmanis",
+    "opp_mean_att": 0.0,
+    "team_pool_int_rows": 0,
+    "reason": "not_a_candidate"
+   },
+   {
+    "game": "2026_04_NYJ_CHI",
+    "team": "CHI",
+    "qb": "T.Bagent",
+    "opp_mean_att": 0.0,
+    "team_pool_int_rows": 1,
+    "reason": "not_a_candidate"
+   },
+   {
+    "game": "2026_04_NYJ_CHI",
+    "team": "NYJ",
+    "qb": "G.Smith",
+    "opp_mean_att": 28.8,
+    "team_pool_int_rows": 0,
+    "reason": "team_pool_no_int_rows"
+   },
+   {
+    "game": "2026_05_CHI_GB",
+    "team": "CHI",
+    "qb": "C.Keenum",
+    "opp_mean_att": 0.0,
+    "team_pool_int_rows": 2,
+    "reason": "not_a_candidate"
+   },
+   {
+    "game": "2026_05_CLE_NYJ",
+    "team": "NYJ",
+    "qb": "G.Smith",
+    "opp_mean_att": 28.6,
+    "team_pool_int_rows": 0,
+    "reason": "team_pool_no_int_rows"
+   },
+   {
+    "game": "2026_05_DET_ARI",
+    "team": "DET",
+    "qb": "J.Goff",
+    "opp_mean_att": 37.9,
+    "team_pool_int_rows": 0,
+    "reason": "team_pool_no_int_rows"
+   },
+   {
+    "game": "2026_05_HOU_TEN",
+    "team": "HOU",
+    "qb": "C.Stroud",
+    "opp_mean_att": 34.7,
+    "team_pool_int_rows": 0,
+    "reason": "team_pool_no_int_rows"
+   },
+   {
+    "game": "2026_06_CAR_PHI",
+    "team": "PHI",
+    "qb": "T.McKee",
+    "opp_mean_att": 0.0,
+    "team_pool_int_rows": 4,
+    "reason": "not_a_candidate"
+   },
+   {
+    "game": "2026_06_HOU_JAX",
+    "team": "HOU",
+    "qb": "C.Stroud",
+    "opp_mean_att": 32.8,
+    "team_pool_int_rows": 0,
+    "reason": "team_pool_no_int_rows"
+   },
+   {
+    "game": "2026_06_NYJ_NE",
+    "team": "NYJ",
+    "qb": "G.Smith",
+    "opp_mean_att": 28.0,
+    "team_pool_int_rows": 0,
+    "reason": "team_pool_no_int_rows"
+   },
+   {
+    "game": "2026_07_GB_DET",
+    "team": "DET",
+    "qb": "J.Goff",
+    "opp_mean_att": 38.0,
+    "team_pool_int_rows": 0,
+    "reason": "team_pool_no_int_rows"
+   },
+   {
+    "game": "2026_08_ARI_DAL",
+    "team": "ARI",
+    "qb": "G.Minshew",
+    "opp_mean_att": 0.0,
+    "team_pool_int_rows": 6,
+    "reason": "not_a_candidate"
+   },
+   {
+    "game": "2026_08_BAL_BUF",
+    "team": "BAL",
+    "qb": "J.Fagnano",
+    "opp_mean_att": 0.0,
+    "team_pool_int_rows": 2,
+    "reason": "not_a_candidate"
+   },
+   {
+    "game": "2026_08_MIN_DET",
+    "team": "DET",
+    "qb": "J.Goff",
+    "opp_mean_att": 35.3,
+    "team_pool_int_rows": 0,
+    "reason": "team_pool_no_int_rows"
+   },
+   {
+    "game": "2026_09_ARI_SEA",
+    "team": "SEA",
+    "qb": "D.Lock",
+    "opp_mean_att": 0.0,
+    "team_pool_int_rows": 9,
+    "reason": "not_a_candidate"
+   },
+   {
+    "game": "2026_09_BUF_MIN",
+    "team": "MIN",
+    "qb": "C.Wentz",
+    "opp_mean_att": 0.0,
+    "team_pool_int_rows": 3,
+    "reason": "not_a_candidate"
+   },
+   {
+    "game": "2026_09_NYG_PHI",
+    "team": "PHI",
+    "qb": "J.Milton",
+    "opp_mean_att": 0.0,
+    "team_pool_int_rows": 6,
+    "reason": "not_a_candidate"
+   }
+  ],
+  "reason_counts": {
+   "not_a_candidate": 9,
+   "team_pool_no_int_rows": 10,
+   "other": 0
+  }
+ },
  "recon": {
   "games": 88,
   "name_locked_failed_trials": 0,

@@ -43,14 +43,37 @@ Nominal p10-p90 coverage is 0.80 (counts are discrete and the interval is inclus
 
 Negative opp-main = the opportunity model is better (lower MAE / Brier). A CI that crosses 0 is not a demonstrated difference.
 
+Brier summary (computed): 10 of 21 thresholds have a 95% CI fully below 0 (RB rec >= 3, TE rec >= 5, RB rec_yds >= 25, WR rec_yds >= 25, WR rec_yds >= 50, TE rec_yds >= 50, TE rec_yds >= 75, RB rush_yds >= 25, RB rush_yds >= 50, QB rush_yds >= 25); 0 fully above 0; 21 of 21 point estimates <= 0.
+
 ## History-capped events: QB interceptions (QBs with >= 10 actual attempts)
 
-| stat | model | QB-games | games with P(INT>=1)=0 | of those, actual INT games | mean P(INT>=1) | actual rate | Brier |
-|---|---|---|---|---|---|---|---|
-| int_thrown | main | 178 | 30 | 11 | 0.384 | 0.522 | 0.2982 |
-| int_thrown | opp | 178 | 19 | 8 | 0.402 | 0.522 | 0.3016 |
+| model | QB-games | games with P(INT>=1)=0 | of those, actual INT games | mean P(INT>=1) | actual rate | Brier |
+|---|---|---|---|---|---|---|
+| name_locked_main | 178 | 30 | 11 | 0.384 | 0.522 | 0.2982 |
+| opportunity | 178 | 19 | 8 | 0.402 | 0.522 | 0.3016 |
 
-Brier here has no CI (single descriptive check); the point is the zero-probability column.
-Why 19 QB-games still have P(INT>=1)=0 with the opportunity model (listed per game in the run README):
-- 10 are QBs who were not candidates (first start, or not seen in the team's last game and not the depth-chart QB1): UNLISTED took those dropbacks (C.Keenum, T.Bagent, A.Kaliakmanis, T.McKee, J.Milton, G.Minshew, J.Fagnano, D.Lock, C.Wentz).
-- 9 are starters who do get the dropbacks (C.Stroud x3, J.Goff x4, G.Smith x3; 28-38 sim attempts) but whose TEAM had no interception rows in the weeks before the eval week. That cap sits in the engine's team row pool, not in player attribution, so this layer can't fix it without changing core engine sampling. It is still open.
+INT Brier is slightly WORSE with the opportunity model (0.3016 vs 0.2982); the gain is only in the zero-probability column. Do not price INT props from this model.
+
+Opportunity-model P(INT>=1)=0 games by reason: not a candidate 9, team row pool had no INT row before the eval week 10 (engine-level cap), other 0:
+
+| game | team | QB | opp mean att | team pool INT rows | reason |
+|---|---|---|---|---|---|
+| 2026_04_DAL_HOU | HOU | C.Stroud | 32.7 | 0 | team_pool_no_int_rows |
+| 2026_04_DET_CAR | DET | J.Goff | 35.3 | 0 | team_pool_no_int_rows |
+| 2026_04_IND_WAS | WAS | A.Kaliakmanis | 0.0 | 0 | not_a_candidate |
+| 2026_04_NYJ_CHI | CHI | T.Bagent | 0.0 | 1 | not_a_candidate |
+| 2026_04_NYJ_CHI | NYJ | G.Smith | 28.8 | 0 | team_pool_no_int_rows |
+| 2026_05_CHI_GB | CHI | C.Keenum | 0.0 | 2 | not_a_candidate |
+| 2026_05_CLE_NYJ | NYJ | G.Smith | 28.6 | 0 | team_pool_no_int_rows |
+| 2026_05_DET_ARI | DET | J.Goff | 37.9 | 0 | team_pool_no_int_rows |
+| 2026_05_HOU_TEN | HOU | C.Stroud | 34.7 | 0 | team_pool_no_int_rows |
+| 2026_06_CAR_PHI | PHI | T.McKee | 0.0 | 4 | not_a_candidate |
+| 2026_06_HOU_JAX | HOU | C.Stroud | 32.8 | 0 | team_pool_no_int_rows |
+| 2026_06_NYJ_NE | NYJ | G.Smith | 28.0 | 0 | team_pool_no_int_rows |
+| 2026_07_GB_DET | DET | J.Goff | 38.0 | 0 | team_pool_no_int_rows |
+| 2026_08_ARI_DAL | ARI | G.Minshew | 0.0 | 6 | not_a_candidate |
+| 2026_08_BAL_BUF | BAL | J.Fagnano | 0.0 | 2 | not_a_candidate |
+| 2026_08_MIN_DET | DET | J.Goff | 35.3 | 0 | team_pool_no_int_rows |
+| 2026_09_ARI_SEA | SEA | D.Lock | 0.0 | 9 | not_a_candidate |
+| 2026_09_BUF_MIN | MIN | C.Wentz | 0.0 | 3 | not_a_candidate |
+| 2026_09_NYG_PHI | PHI | J.Milton | 0.0 | 6 | not_a_candidate |
