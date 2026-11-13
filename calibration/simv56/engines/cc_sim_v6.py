@@ -71,6 +71,8 @@ class Engine:
         N=self.n; tg=self.tg; pp=self.pp; ru=self.ru
         name,mkt,spread=leg['player'],leg['market'],float(leg['spread']); team=NV.get(leg['team'],leg['team']); opp=NV.get(leg['opp'],leg['opp'])
         qb=mkt in('passyds','comp'); d,a,yc,ypc_rush,g=self.player(name,team,qb,leg.get('gsis')); PG=self.pos.get(g,'WR')
+        VF=bool(leg.get('volume_fix'))   # NFL-75 volume_fix (opt-in; volume_fix.py)
+        if VF: import volume_fix as VFX; a=VFX.active_games(d,self.p,g); mbar=VFX.mean_margin(tg,team,a.game_id)
         if len(a)==0: raise ValueError('no active games before cutoff')
         l3=a.tail(3); w=lambda col:0.6*a[col].mean()+0.4*l3[col].mean()
         cr=(a.rec.sum()+1)/(a.tgt.sum()+2); pgk=None if qb else PG
@@ -83,6 +85,7 @@ class Engine:
         if len(ypc_rush):
             lgA=ru.rushing_yards.mean(); pm=ypc_rush.mean(); wv=len(ypc_rush)/(len(ypc_rush)+100); oppY=ru[ru.defteam==opp].rushing_yards.mean()
             A_ypc=((wv*pm+(1-wv)*lgA)/pm)*(oppY/lgA) if pm and lgA and oppY==oppY else 1.0   # guard divide-by-zero
+            if VF and not VFX.ypc_ratio_ok(pm): A_ypc=(oppY/lgA) if lgA and oppY==oppY else 1.0
         out={}
         for mode in MODES:
             rng=np.random.default_rng(self.seed+int(hashlib.md5(f'{name}|{mkt}|{mode}'.encode()).hexdigest()[:6],16))
@@ -96,6 +99,7 @@ class Engine:
                 tm=tg[tg.posteam==team][teamcol]; sig=np.std(np.log(tm),ddof=1)
                 Mg=rng.normal(-spread,SD_MARGIN,N); pace=rng.lognormal(0,sig,N)
                 TV=tm.mean()*pace*np.exp(b*(Mg-(-spread)))*np.exp(b*(-spread)); TV=TV*(mean/(m_s*TV.mean()))
+                if VF: TV=VFX.script_tv(tm.mean(),pace,b,Mg,spread,mean,m_s,mbar)
                 return rng.binomial(np.maximum(np.round(TV).astype(int),0),np.clip(sh,0,1))
             x=0
             if mkt in ('rec','recyds','rushrec','passyds','comp'):
@@ -109,7 +113,7 @@ class Engine:
             if mkt in ('rushyds','rushrec'):
                 Cr=vol('car','ra',self.bR); tot=np.zeros(N)
                 cb=float(leg.get('carry_boost',1.0))
-                if cb!=1.0: Cr=scale_count(rng,Cr,cb)   # game-script RB boost / promotion / split share (all three models)
+                if cb!=1.0: Cr=(VFX.scale_count if VF else scale_count)(rng,Cr,cb)   # game-script RB boost / promotion / split share (all three models)
                 if len(ypc_rush):
                     for i in range(int(Cr.max())): tot+=np.where(Cr>i,rng.choice(ypc_rush,N),0)
                 x=x+tot*A_ypc*float(leg.get('ypc_boost',1.0))   # BUG-2026-11-01-RBMISS F (all three models)

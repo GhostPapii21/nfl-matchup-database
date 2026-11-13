@@ -46,6 +46,8 @@ def sim(leg):
     name,mkt,spread=leg['player'],leg['market'],float(leg['spread']); team=NV.get(leg['team'],leg['team']); opp=NV.get(leg['opp'],leg['opp'])
     qb=mkt in('passyds','comp')
     d,a,yc,ypc_rush,g=player(name,team,qb,leg.get('gsis')); PG=pos.get(g,'WR')
+    VF=bool(leg.get('volume_fix'))   # NFL-75 volume_fix (opt-in; volume_fix.py)
+    if VF: import volume_fix as VFX; a=VFX.active_games(d,p,g); mbar=VFX.mean_margin(tg,team,a.game_id)
     l3=a.tail(3); w=lambda col:0.6*a[col].mean()+0.4*l3[col].mean()
     cr=(a.rec.sum()+1)/(a.tgt.sum()+2)
     pgk=None if qb else PG
@@ -59,7 +61,7 @@ def sim(leg):
     A_ypc=1.0
     if len(ypc_rush):
         lgA=ru.rushing_yards.mean(); pm=ypc_rush.mean(); wv=len(ypc_rush)/(len(ypc_rush)+100); oppY=ru[ru.defteam==opp].rushing_yards.mean()
-        A_ypc=((wv*pm+(1-wv)*lgA)/pm)*(oppY/lgA); info['ypcreg']=dict(player=float(pm),n=int(len(ypc_rush)),w=float(wv),league=float(lgA),opp=float(oppY))
+        A_ypc=((wv*pm+(1-wv)*lgA)/pm)*(oppY/lgA) if not (VF and not VFX.ypc_ratio_ok(pm)) else oppY/lgA; info['ypcreg']=dict(player=float(pm),n=int(len(ypc_rush)),w=float(wv),league=float(lgA),opp=float(oppY))
     out={}
     for mode in ['mc','bias','gr']:
         rng=np.random.default_rng(SEED+int(hashlib.md5(f'{name}|{mkt}|{mode}'.encode()).hexdigest()[:6],16))
@@ -73,6 +75,7 @@ def sim(leg):
             tm=tg[tg.posteam==team][teamcol]; sig=np.std(np.log(tm),ddof=1)
             M=rng.normal(-spread,SD_MARGIN,N); pace=rng.lognormal(0,sig,N)
             TV=tm.mean()*pace*np.exp(b*(M-(-spread)))*np.exp(b*(-spread)); TV=TV*(mean/(m_s*TV.mean()))
+            if VF: TV=VFX.script_tv(tm.mean(),pace,b,M,spread,mean,m_s,mbar)
             return rng.binomial(np.maximum(np.round(TV).astype(int),0),np.clip(sh,0,1))
         x=0
         if mkt in ('rec','recyds','rushrec','passyds','comp'):
