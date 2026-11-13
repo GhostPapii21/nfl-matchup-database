@@ -35,17 +35,26 @@ data/lines/README.md) or the sim's own player/team medians. Outputs:
 
 Read: positive Δ means the joint method beat independence. **Overall it did not** (CI spans 0, point estimate worse).
 It is clearly worse on QB1+WR1 stacks: the sim puts their joint at 0.335 (lift 1.37) but they hit 0.190, below even
-the independent 0.246. Two causes are visible in the data, and neither is fixed here:
-1. Player marginals are biased. Legs set at the sim's own median should hit ~50%. They hit 47% (pass yds), 41% (rush
-   yds), 35% (rec yds). The WR1 choice by sim mean also selects players whose sim median runs high.
-2. The yard-row bootstrap pins a receiver's yards to his QB's yards in the same rows, so the sim overstates their
-   correlation compared with real games.
+the independent 0.246. What the data shows (neither point is fixed here):
+1. **Main identified issue: player marginals are biased.** Legs set at the sim's own median should hit about 50%.
+   Counted once per distinct leg, they hit **46.8% for passing yards (72/154), 40.4% for rushing yards (61/151) and
+   34.5% for receiving yards (49/142)**. Picking WR1 by sim mean also selects players whose sim median runs high. Even
+   with the realized correlation, an independent product of about 0.25 times lift 1.19 is about 0.29, still far above
+   the 0.19 hit rate.
+2. **Correlation overstatement: plausible, not established.** In the real games, the 142 QB1 + WR1 slips show a
+   realized lift of **1.19** (P(QB leg) 0.465, P(WR leg) 0.345, P(both) 0.190), with a 95% game-bootstrap CI of about
+   **[0.93, 1.44]** (Ghost6's review; an independent rerun with 5,000 resamples gives [0.94, 1.45]). The sim's mean
+   lift on the same slips is **1.37**, which sits inside that range. Because the yard-row bootstrap ties a receiver's
+   yards to his QB's in the same rows, overstatement is plausible, but this sample does not show it.
 Same-team QB1 + team points is the only family where joint points the right way (+0.0026), and that is not
 significant.
 
 **Recommendation:** keep reporting the independent product as the baseline and show p_joint next to it, labeled
 "sim joint, not validated". Do not price slips from p_joint until a holdout (weeks 10-12) shows it beats independence.
 Fixing the player-marginal bias is the precondition.
+
+Figures above are recomputed from `calibration/outputs/slip_joint_validation_wk04_09_n2000_slips.csv` (unique legs
+per game/player/line; QB1 + WR1 family for the lift).
 
 Tests: `slips/tests` (10 synthetic exact-answer tests + 1 seeded engine integration test) and
 `calibration/tests/test_slip_joint_validation.py` (grading, void and sign rules).
