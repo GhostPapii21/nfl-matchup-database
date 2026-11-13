@@ -62,8 +62,11 @@ def actual_counts(game_ids) -> pd.DataFrame:
 
 
 def compare(per_game_paths: list[str]) -> dict:
-    frames = [pd.read_csv(p) for p in per_game_paths]
+    frames = [pd.read_csv(p).assign(_src=Path(p).stem.replace("_per_game", "")) for p in per_game_paths]
     per = pd.concat(frames, ignore_index=True)
+    # the same arm from two runs is reported per run (arm@run), never averaged together
+    dup = per.groupby("arm")["_src"].nunique()
+    per["arm"] = [f"{a}@{s}" if dup[a] > 1 else a for a, s in zip(per["arm"], per["_src"])]
     games = sorted(per["game_id"].unique())
     act = actual_counts(games)
     res = {"games": len(games), "actual": {}, "arms": {}}
