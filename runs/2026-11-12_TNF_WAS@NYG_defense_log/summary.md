@@ -1,0 +1,79 @@
+# TNF WAS@NYG defensive matchup log (ESPN play text, tackler = defender credited)
+
+## Zone totals (offense, play type, zone): plays, yards
+- NYG pass middle: 12 plays, 157 yds
+- NYG pass outside: 11 plays, 140 yds
+- NYG run middle: 15 plays, 55 yds
+- NYG run outside: 8 plays, 34 yds
+- WSH pass middle: 6 plays, 63 yds
+- WSH pass outside: 18 plays, 200 yds
+- WSH run middle: 10 plays, 41 yds
+- WSH run outside: 15 plays, 44 yds
+
+## Defenders credited (offense attacking, defender, zone, type): plays, yards
+- vs NYG (none/ob) middle pass: 3, 78 yds
+- vs WSH (none/ob) outside pass: 4, 70 yds
+- vs NYG Q.Martin middle pass: 4, 45 yds
+- vs WSH (none/ob) middle pass: 3, 38 yds
+- vs NYG A.Robertson outside pass: 3, 37 yds
+- vs NYG (none/ob) outside pass: 2, 37 yds
+- vs WSH K.Thibodeaux outside pass: 1, 30 yds
+- vs NYG T.Amos outside pass: 3, 29 yds
+- vs NYG F.Luvu middle pass: 3, 27 yds
+- vs NYG P.Butler outside pass: 1, 25 yds
+- vs WSH A.Phillips outside pass: 1, 24 yds
+- vs WSH G.Newsome outside pass: 2, 22 yds
+- vs WSH A.Washington outside pass: 4, 20 yds
+- vs WSH M.McFadden middle pass: 2, 20 yds
+- vs NYG J.Reaves middle pass: 3, 19 yds
+- vs NYG N.Cross middle run: 3, 19 yds
+- vs NYG S.Styles outside pass: 3, 18 yds
+- vs WSH G.Newsome outside run: 1, 18 yds
+- vs NYG S.Styles middle pass: 2, 16 yds
+- vs WSH A.Reese middle run: 4, 16 yds
+- vs NYG N.Cross middle pass: 1, 16 yds
+- vs NYG S.Styles middle run: 4, 15 yds
+- vs WSH M.McFadden middle run: 3, 14 yds
+- vs WSH M.McFadden outside pass: 2, 13 yds
+- vs NYG (none/ob) outside run: 1, 13 yds
+- vs WSH D.Banks outside pass: 2, 12 yds
+- vs NYG F.Luvu middle run: 2, 11 yds
+- vs WSH A.Reese outside pass: 2, 11 yds
+- vs WSH K.Thibodeaux outside run: 3, 11 yds
+- vs WSH A.Phillips middle run: 2, 11 yds
+- vs WSH J.Holland middle run: 2, 11 yds
+- vs NYG P.Butler middle pass: 1, 10 yds
+- vs NYG J.Reaves middle run: 3, 10 yds
+- vs NYG S.Styles outside run: 3, 9 yds
+- vs NYG J.Reaves outside run: 1, 8 yds
+- vs NYG T.Settle middle run: 2, 8 yds
+- vs NYG O.Oweh outside run: 2, 7 yds
+- vs NYG P.Butler outside run: 1, 7 yds
+- vs WSH S.Harris outside run: 2, 6 yds
+- vs NYG N.Cross outside pass: 1, 6 yds
+- vs WSH J.Holland outside pass: 1, 6 yds
+- vs NYG S.Tuttle middle run: 2, 5 yds
+- vs WSH M.McFadden outside run: 3, 5 yds
+- vs WSH J.Pinnock outside pass: 1, 5 yds
+- vs NYG T.Amos middle run: 1, 5 yds
+- vs WSH A.Washington middle pass: 1, 5 yds
+- vs WSH A.Reese middle pass: 1, 5 yds
+- vs WSH A.Washington middle run: 1, 5 yds
+- vs WSH A.Reese outside run: 2, 4 yds
+- vs NYG D.Wise middle run: 2, 4 yds
+- vs NYG K.Chaisson outside run: 1, 3 yds
+- vs NYG C.Omenihu outside run: 1, 3 yds
+- vs WSH B.Jamison-Travis outside run: 2, 3 yds
+- vs WSH D.Alexander middle run: 1, 3 yds
+- vs NYG J.Newton middle run: 1, 3 yds
+- vs WSH A.Carter middle run: 2, 3 yds
+- vs WSH G.Newsome middle run: 1, 2 yds
+- vs WSH A.Phillips outside run: 2, 2 yds
+- vs NYG O.Oweh middle run: 1, 1 yds
+- vs NYG K.Chaisson middle run: 1, 1 yds
+- vs NYG (none/ob) middle run: 1, 1 yds
+- vs WSH D.Smoot outside run: 1, 0 yds
+- vs WSH D.Reader, K.Thibodeaux outside run: 1, 0 yds
+- vs WSH A.Carter, A.Reese outside run: 1, -1 yds
+- vs WSH D.Banks middle run: 1, -1 yds
+- vs NYG A.Robertson outside run: 1, -2 yds
