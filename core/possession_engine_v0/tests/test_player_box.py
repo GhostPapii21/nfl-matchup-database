@@ -86,7 +86,7 @@ def test_every_trial_reconciles(name):
 def test_box_has_real_players_and_plausible_volume():
     pb = _run("was_nyg_lock", 20261112)["player_box"]
     names = {(t, p) for t, p, s in pb["columns"]}
-    assert ("NYG", "J.Dart") in names or any(t == "NYG" and p.endswith("Dart") for t, p in names)
+    assert ("NYG", "M.Nabers") in names and ("WAS", "S.Diggs") in names and ("NYG", "C.Skattebo") in names
     tix = {tuple(c): j for j, c in enumerate(pb["team_columns"])}
     for team in ("NYG", "WAS"):
         plays = pb["team_values"][:, tix[(team, "plays")]]
@@ -105,6 +105,7 @@ def _st():
 class _Cat:
     clock_map = None
     semantics = None
+    specials = {"extra_point": {}}  # no PAT pool -> engine's own "assume made" branch, no RNG draw
 
 
 def _row(pt, gain, **kw):
@@ -204,3 +205,29 @@ def test_summary_quantiles():
     vals = np.array([[1, 10], [3, 30], [5, 50]], dtype=float)
     s = PB.summarize(cols, vals)
     assert s["NYG"]["A"]["rec"]["median"] == 3 and s["NYG"]["A"]["rec_yds"]["mean"] == 30
+
+
+@needs_pbp
+def test_run_sim_chunks_merge_in_trial_order():
+    """The 100k orchestration (snapshots/lock.run_sim) keeps per-trial box lines aligned with the score arrays."""
+    if str(G.REPO) not in sys.path:
+        sys.path.insert(0, str(G.REPO))
+    from snapshots import lock as L
+    import player_box as PB
+    cfg, _ = G.variant_cfg("was_nyg_lock")
+    try:
+        L._require_nfl42()
+    except RuntimeError as e:
+        pytest.skip(f"NFL-42 entrypoint not enforced in this checkout: {e}")
+    sim = L.run_sim(cfg, str(G.PBP), 40, 20261112, 2)
+    pb = sim["player_box"]
+    assert pb["reconciliation"] == {**pb["reconciliation"], "trials": 40, "failures": 0}
+    assert pb["values"].shape[0] == pb["team_values"].shape[0] == len(sim["arrays"]["fg_home"]) == 40
+    # chunk 0 is trials [0, 20) with seed 20261112: same lines as a direct simulate_games call
+    direct = G.run("was_nyg_lock", 20, 20261112)["player_box"]
+    ci = {tuple(c): j for j, c in enumerate(pb["columns"])}
+    for j, c in enumerate(direct["columns"]):
+        assert np.array_equal(pb["values"][:20, ci[tuple(c)]], direct["values"][:, j]), c
+    assert np.array_equal(sim["arrays"]["fg_home"][:20], G.run("was_nyg_lock", 20, 20261112)["arrays"]["fg_home"])
+    s = PB.summarize(pb["columns"], pb["values"])
+    assert "M.Nabers" in s["NYG"] and s["NYG"]["M.Nabers"]["targets"]["median"] >= 0
