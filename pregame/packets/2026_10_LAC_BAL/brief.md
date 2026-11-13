@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): BAL -4.5, total 38.5.
 
-Generated 2026-11-13T21:36:50+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-13T21:41:15+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-13T21:36:49+00:00 UTC. At kickoff: 44 F, wind 2 mph N, 0% chance of precipitation, Clear. During the game: low 39 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-13T21:41:14+00:00 UTC. At kickoff: 44 F, wind 2 mph N, 0% chance of precipitation, Clear. During the game: low 39 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-13T21:36:25+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-13T21:40:17+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | BAL -4.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T21:35:34Z |
-| spread | williamhill_us | BAL -4.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-13T21:35:35Z |
-| spread | fanduel | BAL -4.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:35:54Z |
-| spread | pinnacle | BAL -4.5 | -103 | -109 | 49.3% | 50.7% | 2.9% | 2026-11-13T21:35:53Z |
-| spread | hardrockbet | BAL -4 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:35:36Z |
-| total | draftkings | Over 38.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:35:34Z |
-| total | williamhill_us | Over 38.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:35:35Z |
-| total | fanduel | Over 38.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-13T21:35:54Z |
-| total | pinnacle | Over 38.5 | -119 | +102 | 52.3% | 47.7% | 3.8% | 2026-11-13T21:35:53Z |
-| total | hardrockbet | Over 39 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:35:36Z |
-| moneyline | draftkings | BAL | -218 | +180 | 65.8% | 34.2% | 4.3% | 2026-11-13T21:35:34Z |
-| moneyline | williamhill_us | BAL | -213 | +178 | 65.4% | 34.6% | 4.0% | 2026-11-13T21:35:35Z |
-| moneyline | fanduel | BAL | -225 | +188 | 66.6% | 33.4% | 4.0% | 2026-11-13T21:35:54Z |
-| moneyline | pinnacle | BAL | -212 | +183 | 65.8% | 34.2% | 3.3% | 2026-11-13T21:35:53Z |
-| moneyline | hardrockbet | BAL | -220 | +185 | 66.2% | 33.8% | 3.8% | 2026-11-13T21:35:36Z |
+| spread | draftkings | BAL -4.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T21:39:22Z |
+| spread | williamhill_us | BAL -4.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-13T21:39:41Z |
+| spread | fanduel | BAL -4.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:40:16Z |
+| spread | pinnacle | BAL -4.5 | -103 | -109 | 49.3% | 50.7% | 2.9% | 2026-11-13T21:39:40Z |
+| spread | hardrockbet | BAL -4 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:39:22Z |
+| total | draftkings | Over 38.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:39:22Z |
+| total | williamhill_us | Over 38.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:39:41Z |
+| total | fanduel | Over 38.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-13T21:40:16Z |
+| total | pinnacle | Over 38.5 | -119 | +102 | 52.3% | 47.7% | 3.8% | 2026-11-13T21:39:40Z |
+| total | hardrockbet | Over 39 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:39:22Z |
+| moneyline | draftkings | BAL | -218 | +180 | 65.8% | 34.2% | 4.3% | 2026-11-13T21:39:22Z |
+| moneyline | williamhill_us | BAL | -213 | +178 | 65.4% | 34.6% | 4.0% | 2026-11-13T21:39:41Z |
+| moneyline | fanduel | BAL | -225 | +188 | 66.6% | 33.4% | 4.0% | 2026-11-13T21:40:16Z |
+| moneyline | pinnacle | BAL | -212 | +183 | 65.8% | 34.2% | 3.3% | 2026-11-13T21:39:40Z |
+| moneyline | hardrockbet | BAL | -220 | +185 | 66.2% | 33.8% | 3.8% | 2026-11-13T21:39:22Z |
 
 ### Same-line consensus (retail books only)
 
@@ -645,16 +645,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-13T21:36:24+00:00 | 67077133b6fa |
-| pbp | OK | 2026-11-13T21:36:24+00:00 | 63d725b49ed1 |
-| rosters | OK | 2026-11-13T21:36:24+00:00 | 99651c418f80 |
-| injuries | OK | 2026-11-13T21:36:24+00:00 | 65d181dfc372 |
-| depth_charts | OK | 2026-11-13T21:36:24+00:00 | 341d1eddeaf6 |
-| snap_counts | OK | 2026-11-13T21:36:24+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-13T21:36:24+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-13T21:36:24+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-13T21:36:25+00:00 |  |
+| games | OK | 2026-11-13T21:40:14+00:00 | 6e7c85cd0e4d |
+| pbp | OK | 2026-11-13T21:40:14+00:00 | 63d725b49ed1 |
+| rosters | OK | 2026-11-13T21:40:15+00:00 | 99651c418f80 |
+| injuries | OK | 2026-11-13T21:40:15+00:00 | 65d181dfc372 |
+| depth_charts | OK | 2026-11-13T21:40:15+00:00 | 341d1eddeaf6 |
+| snap_counts | OK | 2026-11-13T21:40:15+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-13T21:40:16+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-13T21:40:16+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-13T21:40:17+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-13T21:36:25+00:00 |  |
+| book_odds | OK | 2026-11-13T21:40:17+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

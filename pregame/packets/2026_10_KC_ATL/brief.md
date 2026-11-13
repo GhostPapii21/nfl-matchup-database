@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): ATL +3, total 47.5.
 
-Generated 2026-11-13T21:36:36+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-13T21:40:58+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-13T21:36:35+00:00 UTC. At kickoff: 55 F, wind 0 mph , 0% chance of precipitation, Mostly Sunny. During the game: low 55 F, wind up to 0 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-13T21:40:57+00:00 UTC. At kickoff: 55 F, wind 0 mph , 0% chance of precipitation, Mostly Sunny. During the game: low 55 F, wind up to 0 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-13T21:36:25+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-13T21:40:17+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | ATL +3 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-13T21:35:34Z |
-| spread | williamhill_us | ATL +3 | +101 | -121 | 47.6% | 52.4% | 4.5% | 2026-11-13T21:35:35Z |
-| spread | fanduel | ATL +3.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T21:35:54Z |
-| spread | hardrockbet | ATL +3.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T21:35:36Z |
-| spread | pinnacle | ATL +3.5 | -125 | +111 | 54.0% | 46.0% | 2.9% | 2026-11-13T21:35:53Z |
-| total | draftkings | Over 47.5 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-13T21:35:34Z |
-| total | williamhill_us | Over 47 | -114 | -107 | 50.7% | 49.2% | 5.0% | 2026-11-13T21:35:35Z |
-| total | fanduel | Over 47.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-13T21:35:54Z |
-| total | hardrockbet | Over 47 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-13T21:35:36Z |
-| total | pinnacle | Over 48 | +104 | -122 | 47.1% | 52.8% | 4.0% | 2026-11-13T21:35:53Z |
-| moneyline | draftkings | ATL | +145 | -175 | 39.1% | 60.9% | 4.5% | 2026-11-13T21:35:34Z |
-| moneyline | williamhill_us | ATL | +153 | -182 | 38.0% | 62.0% | 4.1% | 2026-11-13T21:35:35Z |
-| moneyline | fanduel | ATL | +142 | -168 | 39.7% | 60.3% | 4.0% | 2026-11-13T21:35:54Z |
-| moneyline | hardrockbet | ATL | +155 | -180 | 37.9% | 62.1% | 3.5% | 2026-11-13T21:35:36Z |
-| moneyline | pinnacle | ATL | +149 | -170 | 38.9% | 61.1% | 3.1% | 2026-11-13T21:35:53Z |
+| spread | draftkings | ATL +3 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-13T21:39:22Z |
+| spread | williamhill_us | ATL +3 | +101 | -121 | 47.6% | 52.4% | 4.5% | 2026-11-13T21:39:40Z |
+| spread | fanduel | ATL +3.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T21:40:16Z |
+| spread | hardrockbet | ATL +3.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T21:39:22Z |
+| spread | pinnacle | ATL +3.5 | -125 | +111 | 54.0% | 46.0% | 2.9% | 2026-11-13T21:39:40Z |
+| total | draftkings | Over 47.5 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-13T21:39:22Z |
+| total | williamhill_us | Over 47 | -114 | -107 | 50.7% | 49.2% | 5.0% | 2026-11-13T21:39:40Z |
+| total | fanduel | Over 47.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-13T21:40:16Z |
+| total | hardrockbet | Over 47 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-13T21:39:22Z |
+| total | pinnacle | Over 48 | +104 | -122 | 47.1% | 52.8% | 4.0% | 2026-11-13T21:39:40Z |
+| moneyline | draftkings | ATL | +145 | -175 | 39.1% | 60.9% | 4.5% | 2026-11-13T21:39:22Z |
+| moneyline | williamhill_us | ATL | +153 | -182 | 38.0% | 62.0% | 4.1% | 2026-11-13T21:39:40Z |
+| moneyline | fanduel | ATL | +142 | -168 | 39.7% | 60.3% | 4.0% | 2026-11-13T21:40:16Z |
+| moneyline | hardrockbet | ATL | +155 | -180 | 37.9% | 62.1% | 3.5% | 2026-11-13T21:39:22Z |
+| moneyline | pinnacle | ATL | +149 | -170 | 38.9% | 61.1% | 3.1% | 2026-11-13T21:39:40Z |
 
 ### Same-line consensus (retail books only)
 
@@ -665,16 +665,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-13T21:36:24+00:00 | 67077133b6fa |
-| pbp | OK | 2026-11-13T21:36:24+00:00 | 63d725b49ed1 |
-| rosters | OK | 2026-11-13T21:36:24+00:00 | 99651c418f80 |
-| injuries | OK | 2026-11-13T21:36:24+00:00 | 65d181dfc372 |
-| depth_charts | OK | 2026-11-13T21:36:24+00:00 | 341d1eddeaf6 |
-| snap_counts | OK | 2026-11-13T21:36:24+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-13T21:36:24+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-13T21:36:24+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-13T21:36:25+00:00 |  |
+| games | OK | 2026-11-13T21:40:14+00:00 | 6e7c85cd0e4d |
+| pbp | OK | 2026-11-13T21:40:14+00:00 | 63d725b49ed1 |
+| rosters | OK | 2026-11-13T21:40:15+00:00 | 99651c418f80 |
+| injuries | OK | 2026-11-13T21:40:15+00:00 | 65d181dfc372 |
+| depth_charts | OK | 2026-11-13T21:40:15+00:00 | 341d1eddeaf6 |
+| snap_counts | OK | 2026-11-13T21:40:15+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-13T21:40:16+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-13T21:40:16+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-13T21:40:17+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-13T21:36:25+00:00 |  |
+| book_odds | OK | 2026-11-13T21:40:17+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
