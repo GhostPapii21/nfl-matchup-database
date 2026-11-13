@@ -23,7 +23,7 @@ def main(argv=None):
     except FreezeError as e:
         raise SystemExit(f"REFUSED: {e}")
     raise SystemExit(f"freeze verified ({m['model_commit'][:7]}); holdout grading itself is a separate, approved "
-                     f"step (Rico's readiness bar) and is not implemented in PR #38")
+                     f"step (Rico's readiness bar) and is not implemented in PR #38 / the Phase 2b PR")
 
 
 if __name__ == "__main__":

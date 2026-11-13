@@ -23,14 +23,21 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-RUN = ROOT / "research/runs/2026-11-13_opportunity_phase2"
+# Phase 2b (refs NFL-75): the frozen holdout model is now the Phase 2b model (depth signal + opt-in INT pooling).
+# The Phase 2 manifest (research/runs/2026-11-13_opportunity_phase2/holdout_freeze_manifest.json, model b6e955c)
+# is superseded: its code hashes no longer match (simulate.py / opportunity_fit.py changed), so it would refuse.
+RUN = ROOT / "research/runs/2026-11-13_opportunity_phase2b"
 HOLDOUT_MANIFEST = RUN / "holdout_freeze_manifest.json"
 HOLDOUT_WEEKS = (10, 11, 12)
 CODE_FILES = ("core/possession_engine_v0/opportunity.py", "core/possession_engine_v0/player_box.py",
               "core/possession_engine_v0/simulate.py", "core/possession_engine_v0/state.py",
               "calibration/opportunity_fit.py", "calibration/opportunity_backtest.py",
-              "calibration/opportunity_report.py")
-PARAMS = {w: "research/runs/2026-11-13_opportunity_phase2/params/params_2026_w10.json" for w in HOLDOUT_WEEKS}
+              "calibration/opportunity_report.py",
+              "core/possession_engine_v0/int_pool.py", "calibration/opportunity_intcap.py",
+              "calibration/opportunity_fit2b.py", "calibration/opportunity_report_2b.py",
+              "data/historical/nflverse/derived_pit/depth_skill_snapshots_2025_2026.csv.gz",
+              "research/runs/2026-11-13_opportunity_phase2b/int_pool/int_pool_2026_w10.json")  # INT-pool spec (W10 fit)
+PARAMS = {w: "research/runs/2026-11-13_opportunity_phase2b/params/params_2026_w10.json" for w in HOLDOUT_WEEKS}
 
 
 class FreezeError(RuntimeError):
@@ -52,7 +59,10 @@ def build_manifest(root: Path = ROOT) -> dict:
         meta = json.loads((root / p).read_text())
         if meta["data_max_week_used"]["season"] != 2026 or meta["data_max_week_used"]["week"] >= 10:
             raise FreezeError(f"params for week {w} were fit with data from week >= 10")
-    return {"schema": "nfl75-opportunity-holdout-freeze/1", "model_commit": head,
+    ip = json.loads((root / CODE_FILES[-1]).read_text())
+    if ip["meta"]["eval_week"] != 10 or "weeks 4..9" not in ip["meta"]["fitted_on"]:
+        raise FreezeError("INT-pool spec must be the week-10 fit on data through week 9")
+    return {"schema": "nfl75-opportunity-holdout-freeze/1", "model_commit": head, "model": "phase2b",
             "frozen_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "holdout_weeks": list(HOLDOUT_WEEKS), "params": params,
             "code_sha256": {f: _sha(root / f) for f in CODE_FILES},
