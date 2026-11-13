@@ -28,7 +28,7 @@
  },
  "result": null,
  "generated_utc": "2026-11-13T02:49:39+00:00",
- "board_built_utc": "2026-11-13T21:35:10+00:00",
+ "board_built_utc": "2026-11-13T21:39:01+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": -2.5,
@@ -2636,7 +2636,11 @@
         "tag": "Boom-bust",
         "why": "yards swing widely game to game (CV 0.68)"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "volume-supported",
+       "why": "8.9 targets a game"
+      }
      },
      {
       "player": "J.Coker",
@@ -2718,7 +2722,11 @@
         "tag": "Falling",
         "why": "4.7 targets a game over the last 3 vs 7.0"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "shrinking",
+       "why": "4.7 targets a game over the last 3 vs 7.0 in the window"
+      }
      },
      {
       "player": "D.Waller",
@@ -2798,7 +2806,11 @@
         "tag": "Boom-bust",
         "why": "yards swing widely game to game (CV 0.74)"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "low volume",
+       "why": "4.4 targets a game"
+      }
      },
      {
       "player": "C.Hubbard",
@@ -2886,7 +2898,11 @@
         "tag": "Rising",
         "why": "6.0 targets a game over the last 3 vs 3.9"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "expanding",
+       "why": "6.0 targets a game over the last 3 vs 3.9 in the window"
+      }
      },
      {
       "player": "T.Tremble",
@@ -2966,7 +2982,11 @@
         "tag": "Boom-bust",
         "why": "yards swing widely game to game (CV 0.67)"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "low volume",
+       "why": "3.8 targets a game"
+      }
      },
      {
       "player": "J.Metchie",
@@ -3029,7 +3049,11 @@
       "catch_rate": 0.636,
       "yards_cv": 0.41,
       "targets_last3_pg": 3.0,
-      "tags": []
+      "tags": [],
+      "opportunity": {
+       "label": "low volume",
+       "why": "3.7 targets a game"
+      }
      },
      {
       "player": "M.Evans",
@@ -3109,7 +3133,11 @@
         "tag": "Boom-bust",
         "why": "yards swing widely game to game (CV 0.75)"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "efficiency-driven",
+       "why": "10.5 yards per target on 1.8 targets a game"
+      }
      },
      {
       "player": "B.Tremayne",
@@ -3171,7 +3199,11 @@
         "tag": "Boom-bust",
         "why": "yards swing widely game to game (CV 1.38)"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "shrinking",
+       "why": "1.0 targets a game over the last 3 vs 2.4 in the window"
+      }
      },
      {
       "player": "X.Legette",
@@ -3210,7 +3242,11 @@
       "catch_rate": 0.333,
       "yards_cv": null,
       "targets_last3_pg": 3.0,
-      "tags": []
+      "tags": [],
+      "opportunity": {
+       "label": "efficiency-driven",
+       "why": "10.7 yards per target on 3.0 targets a game"
+      }
      }
     ],
     "rushers": [
@@ -3282,7 +3318,11 @@
         "tag": "Goal-line back",
         "why": "20 red-zone carries"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "volume-supported",
+       "why": "16.8 carries a game"
+      }
      },
      {
       "player": "A.Dillon",
@@ -3323,7 +3363,11 @@
       "carries_pg": 4.2,
       "yards_pg": 10.8,
       "yards_cv": 1.31,
-      "tags": []
+      "tags": [],
+      "opportunity": {
+       "label": "low volume",
+       "why": "4.2 carries a game"
+      }
      },
      {
       "player": "T.Etienne",
@@ -3364,7 +3408,11 @@
       "carries_pg": 2.5,
       "yards_pg": 3.8,
       "yards_cv": 1.18,
-      "tags": []
+      "tags": [],
+      "opportunity": {
+       "label": "low volume",
+       "why": "2.5 carries a game"
+      }
      },
      {
       "player": "J.Brooks",
@@ -3395,7 +3443,11 @@
       "carries_pg": 4.5,
       "yards_pg": 15.0,
       "yards_cv": null,
-      "tags": []
+      "tags": [],
+      "opportunity": {
+       "label": "low volume",
+       "why": "4.5 carries a game"
+      }
      },
      {
       "player": "A.Tyus",
@@ -3421,7 +3473,11 @@
       "carries_pg": 3.0,
       "yards_pg": 23.0,
       "yards_cv": null,
-      "tags": []
+      "tags": [],
+      "opportunity": {
+       "label": "efficiency-driven",
+       "why": "7.7 yards per carry on 3.0 carries"
+      }
      }
     ]
    },
@@ -4678,7 +4734,63 @@
      "games_since_return": 4,
      "status": "Full workload again"
     }
-   ]
+   ],
+   "offense_units_hurt": {
+    "offensive_line": [],
+    "secondary": [
+     {
+      "player": "Jaycee Horn",
+      "slot": "CB",
+      "status": "Injured Reserve"
+     }
+    ],
+    "linebackers": [
+     {
+      "player": "Bobby Okereke",
+      "slot": "RILB",
+      "status": "Questionable"
+     }
+    ],
+    "defensive_line": []
+   },
+   "defense_units_hurt": {
+    "offensive_line": [
+     {
+      "player": "Erik McCoy",
+      "slot": "C",
+      "status": "Doubtful"
+     },
+     {
+      "player": "David Edwards",
+      "slot": "LG",
+      "status": "Questionable"
+     },
+     {
+      "player": "Taliese Fuaga",
+      "slot": "RT",
+      "status": "Questionable"
+     },
+     {
+      "player": "Kelvin Banks Jr.",
+      "slot": "LT",
+      "status": "Questionable"
+     }
+    ],
+    "secondary": [
+     {
+      "player": "Quincy Riley",
+      "slot": "CB",
+      "status": "Questionable"
+     },
+     {
+      "player": "Martin Emerson Jr.",
+      "slot": "RCB",
+      "status": "Questionable"
+     }
+    ],
+    "linebackers": [],
+    "defensive_line": []
+   }
   },
   "NO_vs_CAR": {
    "offense": "NO",
@@ -6492,7 +6604,11 @@
         "tag": "Deep threat",
         "why": "13.3-yard average target depth"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "volume-supported",
+       "why": "10.4 targets a game"
+      }
      },
      {
       "player": "D.Vele",
@@ -6572,7 +6688,11 @@
         "tag": "Most on field",
         "why": "92% of offensive snaps"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "shrinking",
+       "why": "5.0 targets a game over the last 3 vs 6.5 in the window"
+      }
      },
      {
       "player": "J.Johnson",
@@ -6660,7 +6780,11 @@
         "tag": "Falling",
         "why": "2.3 targets a game over the last 3 vs 4.9"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "shrinking",
+       "why": "2.3 targets a game over the last 3 vs 4.9 in the window"
+      }
      },
      {
       "player": "A.Kamara",
@@ -6738,7 +6862,11 @@
         "tag": "Boom-bust",
         "why": "yards swing widely game to game (CV 1.02)"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "low volume",
+       "why": "4.4 targets a game"
+      }
      },
      {
       "player": "B.Lance",
@@ -6818,7 +6946,11 @@
         "tag": "Boom-bust",
         "why": "yards swing widely game to game (CV 1.42)"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "low volume",
+       "why": "2.9 targets a game"
+      }
      },
      {
       "player": "N.Fant",
@@ -6886,7 +7018,11 @@
         "tag": "Boom-bust",
         "why": "yards swing widely game to game (CV 0.86)"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "shrinking",
+       "why": "1.7 targets a game over the last 3 vs 3.0 in the window"
+      }
      },
      {
       "player": "T.Etienne",
@@ -6931,7 +7067,11 @@
       "catch_rate": 0.846,
       "yards_cv": 0.79,
       "targets_last3_pg": 4.3,
-      "tags": []
+      "tags": [],
+      "opportunity": {
+       "label": "low volume",
+       "why": "4.3 targets a game"
+      }
      },
      {
       "player": "K.Miller",
@@ -6987,7 +7127,11 @@
         "tag": "Boom-bust",
         "why": "yards swing widely game to game (CV 1.02)"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "low volume",
+       "why": "3.2 targets a game"
+      }
      },
      {
       "player": "C.Donaldson",
@@ -7043,7 +7187,11 @@
         "tag": "Boom-bust",
         "why": "yards swing widely game to game (CV 1.68)"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "low volume",
+       "why": "1.5 targets a game"
+      }
      }
     ],
     "rushers": [
@@ -7105,7 +7253,11 @@
         "tag": "Goal-line back",
         "why": "12 red-zone carries"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "expanding",
+       "why": "12.7 carries a game over the last 3 vs 9.5 in the window"
+      }
      },
      {
       "player": "A.Kamara",
@@ -7166,7 +7318,11 @@
         "tag": "Committee",
         "why": "25% of team carries; no back above 60%"
        }
-      ]
+      ],
+      "opportunity": {
+       "label": "low volume",
+       "why": "6.7 carries a game"
+      }
      },
      {
       "player": "T.Etienne",
@@ -7202,7 +7358,11 @@
       "carries_pg": 10.0,
       "yards_pg": 42.7,
       "yards_cv": 0.38,
-      "tags": []
+      "tags": [],
+      "opportunity": {
+       "label": "low volume",
+       "why": "10.0 carries a game"
+      }
      },
      {
       "player": "T.Shough",
@@ -7253,7 +7413,11 @@
       "carries_pg": 2.8,
       "yards_pg": 3.3,
       "yards_cv": 1.36,
-      "tags": []
+      "tags": [],
+      "opportunity": {
+       "label": "low volume",
+       "why": "2.8 carries a game"
+      }
      },
      {
       "player": "C.Donaldson",
@@ -7304,7 +7468,11 @@
       "carries_pg": 2.8,
       "yards_pg": 13.5,
       "yards_cv": 1.03,
-      "tags": []
+      "tags": [],
+      "opportunity": {
+       "label": "expanding",
+       "why": "4.3 carries a game over the last 3 vs 2.8 in the window"
+      }
      }
     ]
    },
@@ -8548,7 +8716,63 @@
      "games_since_return": 2,
      "status": "Full workload again"
     }
-   ]
+   ],
+   "offense_units_hurt": {
+    "offensive_line": [
+     {
+      "player": "Erik McCoy",
+      "slot": "C",
+      "status": "Doubtful"
+     },
+     {
+      "player": "David Edwards",
+      "slot": "LG",
+      "status": "Questionable"
+     },
+     {
+      "player": "Taliese Fuaga",
+      "slot": "RT",
+      "status": "Questionable"
+     },
+     {
+      "player": "Kelvin Banks Jr.",
+      "slot": "LT",
+      "status": "Questionable"
+     }
+    ],
+    "secondary": [
+     {
+      "player": "Quincy Riley",
+      "slot": "CB",
+      "status": "Questionable"
+     },
+     {
+      "player": "Martin Emerson Jr.",
+      "slot": "RCB",
+      "status": "Questionable"
+     }
+    ],
+    "linebackers": [],
+    "defensive_line": []
+   },
+   "defense_units_hurt": {
+    "offensive_line": [],
+    "secondary": [
+     {
+      "player": "Jaycee Horn",
+      "slot": "CB",
+      "status": "Injured Reserve"
+     }
+    ],
+    "linebackers": [
+     {
+      "player": "Bobby Okereke",
+      "slot": "RILB",
+      "status": "Questionable"
+     }
+    ],
+    "defensive_line": []
+   }
   }
  },
  "teams": {
@@ -8810,6 +9034,142 @@
       "player": "John Metchie III"
      }
     ]
+   },
+   "trends": {
+    "games": [
+     {
+      "week": 1,
+      "opp": "CHI",
+      "site": "home",
+      "pf": 37,
+      "pa": 59,
+      "su": "L",
+      "fav_by": -3.0,
+      "ats": "L",
+      "ou": "O",
+      "total_line": 47.5
+     },
+     {
+      "week": 2,
+      "opp": "ATL",
+      "site": "away",
+      "pf": 34,
+      "pa": 3,
+      "su": "W",
+      "fav_by": 2.5,
+      "ats": "W",
+      "ou": "U",
+      "total_line": 43.5
+     },
+     {
+      "week": 3,
+      "opp": "CLE",
+      "site": "away",
+      "pf": 18,
+      "pa": 21,
+      "su": "L",
+      "fav_by": 2.5,
+      "ats": "L",
+      "ou": "U",
+      "total_line": 41.5
+     },
+     {
+      "week": 4,
+      "opp": "DET",
+      "site": "home",
+      "pf": 32,
+      "pa": 26,
+      "su": "W",
+      "fav_by": -4.5,
+      "ats": "W",
+      "ou": "O",
+      "total_line": 52.5
+     },
+     {
+      "week": 6,
+      "opp": "PHI",
+      "site": "away",
+      "pf": 25,
+      "pa": 14,
+      "su": "W",
+      "fav_by": 3.0,
+      "ats": "W",
+      "ou": "U",
+      "total_line": 39.5
+     },
+     {
+      "week": 7,
+      "opp": "TB",
+      "site": "home",
+      "pf": 13,
+      "pa": 43,
+      "su": "L",
+      "fav_by": 3.0,
+      "ats": "L",
+      "ou": "O",
+      "total_line": 44.5
+     },
+     {
+      "week": 8,
+      "opp": "GB",
+      "site": "away",
+      "pf": 19,
+      "pa": 27,
+      "su": "L",
+      "fav_by": -3.5,
+      "ats": "L",
+      "ou": "U",
+      "total_line": 47.5
+     },
+     {
+      "week": 9,
+      "opp": "DEN",
+      "site": "home",
+      "pf": 21,
+      "pa": 26,
+      "su": "L",
+      "fav_by": -3.0,
+      "ats": "L",
+      "ou": "O",
+      "total_line": 44.5
+     }
+    ],
+    "straight_up": "3-5",
+    "ats": "3-5-0",
+    "over_under": "4-4-0",
+    "ats_as_favorite": "2-2-0",
+    "ats_as_underdog": "1-3-0",
+    "ats_home": "1-3-0",
+    "ats_away": "2-2-0",
+    "last5_ats": "WWLLL",
+    "last5_ou": "OUOUO",
+    "points_for_pg": 24.9,
+    "points_against_pg": 27.4,
+    "note": "Closing lines from the nflverse schedule. W-L-P against the spread; O-U-P against the total."
+   },
+   "quarters": {
+    "games": 8,
+    "for": [
+     3.8,
+     8.2,
+     6.6,
+     6.2
+    ],
+    "against": [
+     5.0,
+     11.6,
+     3.4,
+     7.4
+    ],
+    "first_half": [
+     12.0,
+     16.6
+    ],
+    "second_half": [
+     12.8,
+     10.8
+    ],
+    "note": "Overtime points are left out."
    }
   },
   "NO": {
@@ -9079,6 +9439,142 @@
       "player": "Bryce Lance"
      }
     ]
+   },
+   "trends": {
+    "games": [
+     {
+      "week": 1,
+      "opp": "DET",
+      "site": "away",
+      "pf": 30,
+      "pa": 31,
+      "su": "L",
+      "fav_by": -7.0,
+      "ats": "W",
+      "ou": "O",
+      "total_line": 49.5
+     },
+     {
+      "week": 2,
+      "opp": "BAL",
+      "site": "away",
+      "pf": 24,
+      "pa": 17,
+      "su": "W",
+      "fav_by": -8.5,
+      "ats": "W",
+      "ou": "U",
+      "total_line": 45.5
+     },
+     {
+      "week": 3,
+      "opp": "LV",
+      "site": "home",
+      "pf": 27,
+      "pa": 35,
+      "su": "L",
+      "fav_by": 3.5,
+      "ats": "L",
+      "ou": "O",
+      "total_line": 43.5
+     },
+     {
+      "week": 4,
+      "opp": "ATL",
+      "site": "home",
+      "pf": 24,
+      "pa": 45,
+      "su": "L",
+      "fav_by": 1.5,
+      "ats": "L",
+      "ou": "O",
+      "total_line": 47.5
+     },
+     {
+      "week": 5,
+      "opp": "MIN",
+      "site": "home",
+      "pf": 13,
+      "pa": 23,
+      "su": "L",
+      "fav_by": -2.5,
+      "ats": "L",
+      "ou": "U",
+      "total_line": 41.5
+     },
+     {
+      "week": 6,
+      "opp": "NYG",
+      "site": "away",
+      "pf": 34,
+      "pa": 27,
+      "su": "W",
+      "fav_by": 1.5,
+      "ats": "W",
+      "ou": "O",
+      "total_line": 46.5
+     },
+     {
+      "week": 7,
+      "opp": "PIT",
+      "site": "home",
+      "pf": 10,
+      "pa": 16,
+      "su": "L",
+      "fav_by": -3.0,
+      "ats": "L",
+      "ou": "U",
+      "total_line": 43.5
+     },
+     {
+      "week": 9,
+      "opp": "CLE",
+      "site": "home",
+      "pf": 23,
+      "pa": 22,
+      "su": "W",
+      "fav_by": 4.5,
+      "ats": "L",
+      "ou": "O",
+      "total_line": 43.5
+     }
+    ],
+    "straight_up": "3-5",
+    "ats": "3-5-0",
+    "over_under": "5-3-0",
+    "ats_as_favorite": "1-3-0",
+    "ats_as_underdog": "2-2-0",
+    "ats_home": "0-5-0",
+    "ats_away": "3-0-0",
+    "last5_ats": "LLWLL",
+    "last5_ou": "OUOUO",
+    "points_for_pg": 23.1,
+    "points_against_pg": 27.0,
+    "note": "Closing lines from the nflverse schedule. W-L-P against the spread; O-U-P against the total."
+   },
+   "quarters": {
+    "games": 8,
+    "for": [
+     1.1,
+     5.9,
+     7.5,
+     7.0
+    ],
+    "against": [
+     5.5,
+     6.1,
+     5.4,
+     8.4
+    ],
+    "first_half": [
+     7.0,
+     11.6
+    ],
+    "second_half": [
+     14.5,
+     13.8
+    ],
+    "note": "Overtime points are left out."
    }
   }
  },

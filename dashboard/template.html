@@ -301,6 +301,8 @@ const BOARD = /*__BOARD_DATA__*/null;
     if (wv.headline) flags.push(`<span class="pill ${wv.level === "good" ? "good" : wv.level === "bad" ? "bad" : wv.level === "warn" ? "warn" : ""}">${esc(wv.headline.split(".")[0])}</span>`);
     Object.entries(g.context || {}).forEach(([t, c]) => (c.flags || []).forEach((f) => flags.push(`<span class="pill ${f.level}">${esc(t)}: ${esc(f.text)}</span>`)));
     if (g.game.division_game) flags.push(`<span class="pill info">Division game</span>`);
+    if (!isFinal(g) && g.game.kickoff_et) { const [kh, km] = g.game.kickoff_et.split(":").map(Number); const mins = kh * 60 + km - 90, ih = Math.floor(mins / 60), im = mins % 60;
+      flags.push(`<span class="pill info">Inactives about ${ih % 12 || 12}:${String(im).padStart(2, "0")} ${ih >= 12 ? "PM" : "AM"} ET</span>`); }
     const centre = isFinal(g) ? `<div class="final">${g.result.away_score} – ${g.result.home_score}</div><div class="kick">Final</div>`
       : `<div class="at">@</div><div class="kick">${esc(kickLabel(g))}</div>`;
     const nv = (x, side) => x && x.ref && x.ref.no_vig ? pct(x.ref.no_vig[side], 1) : "–";
@@ -370,13 +372,79 @@ const BOARD = /*__BOARD_DATA__*/null;
       <span class="lab">Pressured (PFR)</span><span class="val">${pct((c.pressured || {}).pressure_rate)}</span>
       <span class="lab">Red zone</span><span class="val">${(c.red_zone || {}).td ?? "–"} TD on ${(c.red_zone || {}).attempts ?? "–"} att</span></div></div>`;
   }
+  function lineOf(g, mk) { const m = g.books && g.books.markets && g.books.markets[mk]; return m && m.reference && isNum(m.reference.line) ? m.reference.line : null; }
+  function implied(g) {
+    const m = g.market || {}, sp = lineOf(g, "spread") ?? m.home_spread, tot = lineOf(g, "total") ?? m.total;
+    if (!isNum(sp) || !isNum(tot)) return null;
+    return { [g.game.home]: tot / 2 - sp / 2, [g.game.away]: tot / 2 + sp / 2, spread: sp, total: tot };
+  }
+  function scriptCard(g) {
+    const im = implied(g), a = g.game.away, h = g.game.home;
+    const rows = Object.values(g.sides).map((s) => {
+      const op = s.offense_produced || {}, da = s.defense_allowed || {};
+      const plays = isNum(op.plays_pg) && isNum(da.plays_pg) ? (op.plays_pg + da.plays_pg) / 2 : null;
+      const pr = op.neutral_pass_rate;
+      return `<span class="lab">${esc(s.offense)}: implied points</span><span class="val">${im ? n(im[s.offense], 1) : "–"}</span>
+        <span class="lab">${esc(s.offense)}: plays (own pace vs ${esc(s.defense)} allowed)</span><span class="val">${n(plays, 1)}</span>
+        <span class="lab">${esc(s.offense)}: neutral-script pass rate</span><span class="val">${pct(pr)}${isNum(plays) && isNum(pr) ? ` · about ${n(plays * pr * 0.93, 0)} pass attempts` : ""}</span>`;
+    }).join("");
+    let lean = "Close game: no strong script lean.";
+    if (im && Math.abs(im.spread) >= 6.5) { const fav = im.spread < 0 ? h : a, dog = fav === h ? a : h; lean = `${fav} favored by ${Math.abs(im.spread)}: ${fav} likely runs more late, ${dog} likely passes more while chasing.`; }
+    else if (im && Math.abs(im.spread) >= 3.5) { const fav = im.spread < 0 ? h : a; lean = `${fav} a moderate favorite: a slight run lean for ${fav} if it leads.`; }
+    return `<div class="card"><h4>Game script and volume</h4><div class="sub">Implied team totals come from the spread and total. Plays and pass attempts are rough volume guides, not projections.</div>
+      <div class="statrow">${rows}</div><div class="note">${esc(lean)}</div></div>`;
+  }
+  function trendsCard(g) {
+    const ts = [g.game.away, g.game.home];
+    const T = (t) => (g.teams[t] || {}).trends || {};
+    const r = (lab, k) => `<tr><td>${lab}</td>${ts.map((t) => `<td>${esc(T(t)[k] || "–")}</td>`).join("")}</tr>`;
+    return `<div class="card"><h4>Betting trends this season</h4><div class="sub">Closing lines from the nflverse schedule. Against the spread is W-L-P; totals are O-U-P.</div><div class="tablewrap"><table>
+      <thead><tr><th></th>${ts.map((t) => `<th>${esc(t)}</th>`).join("")}</tr></thead><tbody>
+      ${r("Record", "straight_up")}${r("Against the spread", "ats")}${r("As favorite", "ats_as_favorite")}${r("As underdog", "ats_as_underdog")}${r("At home", "ats_home")}${r("On the road", "ats_away")}${r("Over / under", "over_under")}${r("Last 5 ATS (old to new)", "last5_ats")}${r("Last 5 totals", "last5_ou")}${r("Points for / game", "points_for_pg")}${r("Points against / game", "points_against_pg")}
+      </tbody></table></div></div>`;
+  }
+  function quartersCard(g) {
+    const ts = [g.game.away, g.game.home];
+    const Q = (t) => (g.teams[t] || {}).quarters;
+    if (!Q(ts[0]) || !Q(ts[1])) return "";
+    const row = (t, k, lab) => `<tr><td>${esc(t)} ${lab}</td>${Q(t)[k].map((v) => `<td>${n(v, 1)}</td>`).join("")}<td><b>${n(Q(t)[k === "for" ? "first_half" : "first_half"][k === "for" ? 0 : 1], 1)}</b></td><td><b>${n(Q(t).second_half[k === "for" ? 0 : 1], 1)}</b></td></tr>`;
+    return `<div class="card"><h4>Scoring by quarter</h4><div class="sub">Average points scored and allowed over each team's last ${Q(ts[0]).games} games. Useful for first-half and quarter lines.</div><div class="tablewrap"><table>
+      <thead><tr><th></th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>1H</th><th>2H</th></tr></thead><tbody>
+      ${ts.map((t) => row(t, "for", "scores") + row(t, "against", "allows")).join("")}</tbody></table></div></div>`;
+  }
+  function rulesCard(g) {
+    const items = [];
+    Object.values(g.sides).forEach((s) => {
+      ((s.roles || {}).rushers || []).filter((r) => r.pos === "RB" && r.carries >= 8).sort((x, y) => (y.carry_share || 0) - (x.carry_share || 0)).slice(0, 2).forEach((r) => {
+        if ((r.carry_share || 0) < 0.6) items.push(["bad", `${s.offense} ${r.full_name || r.player}: ${pct(r.carry_share)} of carries. Under 60%: do not play his rushing legs.`]);
+        else items.push(["good", `${s.offense} ${r.full_name || r.player}: ${pct(r.carry_share)} of carries. Passes the 60% rule.`]);
+      });
+      (s.offense_injuries || []).forEach((x) => {
+        if ((x.espn || "").toLowerCase() === "out" && !x.game_status && /full/i.test(x.practice || ""))
+          items.push(["warn", `${s.offense} ${x.player}: ESPN says Out, but the official report has full practice and no designation. The official report wins; confirm at inactives.`]);
+      });
+      ((s.qb || {}).notes || []).filter((t) => /no dropbacks/.test(t)).forEach((t) => items.push(["warn", `${s.offense} QB starter gate: ${t}`]));
+    });
+    items.push(["warn", "Receiving legs need a verified main defender. Free data cannot show who covers whom, so check the matchup before playing any receiving leg."]);
+    items.push(["info", "Passing-yards props are banned under your rules."]);
+    return `<div class="card"><h4>Your rules</h4><div class="sub">The rule gates your bots apply, checked against this game</div><ul class="list">${items.map(([l, t]) => `<li>${lvlDot(l)}<span>${esc(t)}</span></li>`).join("")}</ul></div>`;
+  }
+  function phasesCard(g) {
+    const P = g.phase_ledger || [];
+    if (!P.length) return "";
+    const lv = (st) => /^AUTO/.test(st) ? "good" : /PARTIAL|PENDING|NOT_YET/.test(st) ? "warn" : "bad";
+    return `<div class="card"><h4>Data checklist</h4><div class="sub">The 15-phase ledger from the packet: what is filled and what is still missing</div><ul class="list">${P.map((p) => `<li>${lvlDot(lv(p.status))}<span><b>${p.phase}. ${esc(p.name)}</b> <span class="note">${esc(p.status)}${p.detail ? " · " + esc(p.detail) : ""}</span></span></li>`).join("")}</ul></div>`;
+  }
   function renderOverview(g) {
     const ks = sideKeys(g), s1 = g.sides[ks[0]], s2 = g.sides[ks[1]];
     return `<div class="grid two">${edgesCard(s1)}${edgesCard(s2)}</div>
       <div class="grid two">${topReceiversCard(s1)}${topReceiversCard(s2)}</div>
       <div class="grid two">${targetsCard(s1)}${targetsCard(s2)}</div>
       <div class="grid two">${qbQuickCard(s1)}${qbQuickCard(s2)}</div>
-      <div class="grid two">${injSummaryCard(g)}${lastMeetingCard(g)}</div>`;
+      <div class="grid two">${injSummaryCard(g)}${lastMeetingCard(g)}</div>
+      <div class="grid two">${scriptCard(g)}${rulesCard(g)}</div>
+      <div class="grid two">${trendsCard(g)}${quartersCard(g)}</div>
+      ${phasesCard(g)}`;
   }
 
   // ---------------------------------------------------------------- matchup (what the defense allows)
@@ -425,9 +493,18 @@ const BOARD = /*__BOARD_DATA__*/null;
       ${Object.entries(by).map(([k, v]) => `<tr class="${v.d && v.o && v.d.yards_per_attempt >= 8 && v.o.share >= 0.1 ? "hl" : ""}"><td>${esc(k)}</td><td>${v.o ? pct(v.o.share) : "–"}</td><td>${v.o ? n(v.o.yards_per_attempt, 2) : "–"}</td><td>${v.d ? n(v.d.yards_per_attempt, 2) : "–"}</td><td>${v.d ? pct(v.d.completion_rate) : "–"}</td></tr>`).join("")}
       </tbody></table></div></div>`;
   }
+  function unitBanner(s) {
+    const d = s.defense_units_hurt || {}, o = s.offense_units_hurt || {}, out = [];
+    const fmt = (arr) => arr.map((x) => `${x.player} ${x.slot} (${x.status})`).join(", ");
+    if ((d.secondary || []).length) out.push(["good", `${s.defense} secondary banged up: ${fmt(d.secondary)}. Helps ${s.offense} receivers.`]);
+    if ((d.linebackers || []).length) out.push(["good", `${s.defense} linebackers banged up: ${fmt(d.linebackers)}. Helps ${s.offense} backs and tight ends.`]);
+    if ((d.defensive_line || []).length) out.push(["good", `${s.defense} defensive line banged up: ${fmt(d.defensive_line)}.`]);
+    if ((o.offensive_line || []).length) out.push(["bad", `${s.offense} offensive line banged up: ${fmt(o.offensive_line)}. More pressure and fewer clean runs.`]);
+    return out.length ? `<ul class="list card">${out.map(([l, t]) => `<li>${lvlDot(l)}<span>${esc(t)}</span></li>`).join("")}</ul>` : "";
+  }
   function renderMatchup(g) {
     const s = S();
-    return `<div class="grid">${POS.map((P) => posCard(s, P)).join("")}</div><div class="grid two">${linesAllowedCard(s)}${runDirCard(s)}${zonesCard(s)}</div>`;
+    return `${unitBanner(s)}<div class="grid">${POS.map((P) => posCard(s, P)).join("")}</div><div class="grid two">${linesAllowedCard(s)}${runDirCard(s)}${zonesCard(s)}</div>`;
   }
 
   // ---------------------------------------------------------------- defenders
@@ -492,6 +569,13 @@ const BOARD = /*__BOARD_DATA__*/null;
   }
 
   // ---------------------------------------------------------------- receivers and backs
+  const LADDER = [["p5", "Floor"], ["p10", "Slight Edge"], ["p15", "MAIN"], ["p20", "Edge"], ["p25", "Pure Edge"], ["p50", "Median"]];
+  function ladder(b, key, label) {
+    const x = b && b[key]; if (!x) return "";
+    return `<div><div class="k">${esc(label)} ladder, scaled for this defense</div><div class="tags">${LADDER.map(([k, l]) => `<span class="tag${l === "MAIN" ? " t-primary" : ""}" title="${k}">${l} ${n(x[k], 1)}</span>`).join("")}</div></div>`;
+  }
+  const OPP = { "volume-supported": "good", expanding: "good", "efficiency-driven": "warn", shrinking: "bad", "low volume": "mid" };
+  const oppChip = (o) => o ? `<span class="rank ${OPP[o.label] || "mid"}" title="${esc(o.why)}">${esc(o.label)}</span>` : "";
   function baselineFor(s, p) { return ((s.baselines || {}).players || []).find((x) => x.player === p.player); }
   function rainFor(s, p) { return ((s.rain || {}).receivers || []).find((x) => x.player === p.player); }
   function recCard(s, r) {
@@ -501,6 +585,7 @@ const BOARD = /*__BOARD_DATA__*/null;
     const dr = (s.defense_rank || {})[posKey + "_rec_yards_pg"];
     return `<div class="card"><div class="player-head"><span class="nm">${esc(r.full_name || r.player)} <span class="pos">${esc(r.pos)}</span></span><span class="note">${r.snap_share != null ? pct(r.snap_share) + " snaps" : ""}</span></div>
       <div class="tags">${(r.tags || []).map(tagHtml).join("") || '<span class="note">No standout role</span>'}</div>
+      <div class="note">Opportunity: ${oppChip(r.opportunity)} ${esc((r.opportunity || {}).why || "")}</div>
       <div class="nums"><div><div class="k">Target share</div><div class="v">${pct(r.target_share)}</div></div><div><div class="k">Tgt / g</div><div class="v">${n(r.targets_pg, 1)}</div></div>
       <div><div class="k">Rec / g</div><div class="v">${n(r.receptions_pg, 1)}</div></div><div><div class="k">Yds / g</div><div class="v">${n(r.yards_pg, 0)}</div></div></div>
       <div class="statrow"><span class="lab">Avg depth of target</span><span class="val">${n(r.avg_depth_of_target, 1)} yds</span><span class="lab">Air-yards share</span><span class="val">${pct(r.air_yards_share)}</span>
@@ -508,16 +593,20 @@ const BOARD = /*__BOARD_DATA__*/null;
       ${b ? `<span class="lab">Baseline median (yds / rec)</span><span class="val">${n((b.receiving_yards || {}).p50, 1)} / ${n((b.receptions || {}).p50, 1)}</span>` : ""}
       ${rn && (s.rain || {}).rain_chance >= 0.3 ? `<span class="lab">Forecast-adjusted yards</span><span class="val">${n(rn.forecast.yards, 1)}</span>` : ""}
       <span class="lab">${esc(s.defense)} vs ${posKey.toUpperCase()}s</span><span class="val">${n(((s.defense_allowed || {})[posKey + "_rec_yards_pg"]), 1)} yds/g${rankChip(dr, true, true)}</span></div>
+      ${ladder(b, "receiving_yards", "Receiving yards")}${ladder(b, "receptions", "Receptions")}
       <div><div class="k">Yards by game (targets in tooltip)</div>${spark(log.map((x) => x.yards), log.map((x) => `wk ${x.week} · ${x.targets} tgt, ${x.receptions} rec`), { fmt: (v) => v + " yds" })}</div></div>`;
   }
   function rushCard(s, r) {
-    const log = r.log || [];
+    const log = r.log || [], b = baselineFor(s, r);
+    const rule = r.pos === "RB" ? ((r.carry_share || 0) < 0.6 ? `<div class="banner bad" style="padding:6px 10px;font-size:12px">Under 60% of carries: do not play his rushing legs (your rule)</div>` : "") : "";
     return `<div class="card"><div class="player-head"><span class="nm">${esc(r.full_name || r.player)} <span class="pos">${esc(r.pos)}</span></span><span class="note">${r.snap_share != null ? pct(r.snap_share) + " snaps" : ""}</span></div>
       <div class="tags">${(r.tags || []).map(tagHtml).join("") || '<span class="note">No standout role</span>'}</div>
+      ${rule}<div class="note">Opportunity: ${oppChip(r.opportunity)} ${esc((r.opportunity || {}).why || "")}</div>
       <div class="nums"><div><div class="k">Carry share</div><div class="v">${pct(r.carry_share)}</div></div><div><div class="k">Car / g</div><div class="v">${n(r.carries_pg, 1)}</div></div>
       <div><div class="k">Yds / g</div><div class="v">${n(r.yards_pg, 0)}</div></div><div><div class="k">YPC</div><div class="v">${n(r.yards_per_carry, 2)}</div></div></div>
       <div class="statrow"><span class="lab">Red-zone carries</span><span class="val">${r.red_zone_carries ?? "–"}</span><span class="lab">TDs · 15+ yd runs</span><span class="val">${r.td} · ${r.explosive ?? "–"}</span>
       <span class="lab">${esc(s.defense)} vs RBs</span><span class="val">${n((s.defense_allowed || {}).rb_rush_yards_pg, 1)} yds/g${rankChip((s.defense_rank || {}).rb_rush_yards_pg, true, true)}</span></div>
+      ${ladder(b, "rushing_yards", "Rushing yards")}${ladder(b, "carries", "Carries")}
       <div><div class="k">Rush yards by game</div>${spark(log.map((x) => x.yards), log.map((x) => `wk ${x.week} · ${x.carries} car`), { fmt: (v) => v + " yds" })}</div></div>`;
   }
   function renderPlayers(g) {

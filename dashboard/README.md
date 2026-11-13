@@ -16,13 +16,18 @@ packet refresh (Tuesday, Thursday, Saturday, Sunday and Monday; see `.github/wor
 | Last meeting | Score by quarter, team box, leaders, what carries over (same QB, coach change, who is still on the team), highlights link, recent meetings against the spread and total | nflverse schedules and play-by-play |
 | Odds | Every book's spread, total and moneyline with no-vig and hold, best price, line movement, props inside 36 hours, the research simulation | The Odds API, pipeline snapshots |
 | Weather & rest | Forecast, a plain verdict (including NWS alerts such as hurricane warnings), rain-adjusted passing, rest days, short week, bye, coming off an international game, time zones, body clock | NWS, nflverse schedules |
+| Overview extras | Implied team totals, plays and pass attempts from pace, script lean; your rule gates (backs under 60% of carries, receiving legs need a verified defender, official report over ESPN, QB starter gate, passing-yards ban); betting trends (against the spread as favorite / underdog / home / road, over-under, last five); scoring by quarter and half; the 15-phase data checklist | nflverse schedules and play-by-play, the packet |
 | Copy for Grok | The whole game as one paste, with the instruction to run `pregame/ANALYST_PROMPT.md` | this board |
+
+Each player also gets the analyst prompt's opportunity label (expanding, shrinking, volume-supported, efficiency-driven, low volume) and a
+prop ladder from his game log scaled for this defense: Floor (p5), Slight Edge (p10), MAIN (p15), Edge (p20), Pure Edge (p25), Median.
 
 Role tags: Primary (top target share), Volume (7+ targets a game), Deep threat (13+ yard average depth), Possession (short
 targets caught 72%+), Boom-bust / Steady (how much yardage swings game to game), Rising / Falling (last three games against
 the window), Red-zone #1, Most on field, Lead back (60%+ of carries), Committee, Goal-line back.
 
 Man/zone and coverage shells are only published free through last season, so those panels say which season they use.
+Referee crews are blank in the free 2026 schedule data, so crew tendencies are not shown.
 
 ## Files
 

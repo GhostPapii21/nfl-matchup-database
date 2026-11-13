@@ -514,6 +514,10 @@ def receiver_roles(players: dict, snap_share: dict, id_to_name: dict) -> dict:
         gl = max(rbs, key=lambda r: r.get("red_zone_carries") or 0)
         if (gl.get("red_zone_carries") or 0) >= 4:
             gl["tags"].append({"tag": "Goal-line back", "why": f"{gl['red_zone_carries']} red-zone carries"})
+    for r in rec:
+        r["opportunity"] = opportunity_label(r, "rec")
+    for r in rush:
+        r["opportunity"] = opportunity_label(r, "rush")
     return {"receivers": rec, "rushers": rush}
 
 
@@ -648,3 +652,100 @@ def nws_alerts(home: str, roof: str, *, offline: bool, fetch_json=None) -> list[
                  "ends": f["properties"].get("ends")} for f in d.get("features", [])][:5]
     except Exception:  # noqa: BLE001 - alerts are optional
         return []
+
+
+# ----------------------------------------------------------------------------------------------- betting trends
+def team_trends(games: pd.DataFrame, season: int, team: str, before: str) -> dict:
+    """This season's record straight up, against the closing spread and against the closing total (nflverse lines)."""
+    g = games[(games.season == season) & (games.game_type == "REG") & (games.gameday < before) & games.home_score.notna() &
+              ((games.home_team == team) | (games.away_team == team))].sort_values("gameday")
+    rows = []
+    for r in g.itertuples():
+        home = r.home_team == team
+        pf, pa = (r.home_score, r.away_score) if home else (r.away_score, r.home_score)
+        line = None if pd.isna(r.spread_line) else (r.spread_line if home else -r.spread_line)   # points this team was favoured by
+        ats = None if line is None else ("W" if pf - pa > line else "L" if pf - pa < line else "P")
+        ou = None if pd.isna(r.total_line) else ("O" if pf + pa > r.total_line else "U" if pf + pa < r.total_line else "P")
+        rows.append({"week": int(r.week), "opp": (r.away_team if home else r.home_team), "site": "home" if home else "away",
+                     "pf": int(pf), "pa": int(pa), "su": "W" if pf > pa else "L" if pf < pa else "T", "fav_by": _f(line, 1),
+                     "ats": ats, "ou": ou, "total_line": _f(r.total_line, 1)})
+
+    def rec(sel, k, keys):
+        x = [r[k] for r in sel if r[k]]
+        return "-".join(str(x.count(c)) for c in keys)
+
+    fav = [r for r in rows if r["fav_by"] is not None and r["fav_by"] > 0]
+    dog = [r for r in rows if r["fav_by"] is not None and r["fav_by"] < 0]
+    out = {"games": rows, "straight_up": rec(rows, "su", "WLT").rstrip("-0") if rows else "0-0",
+           "ats": rec(rows, "ats", "WLP"), "over_under": rec(rows, "ou", "OUP"),
+           "ats_as_favorite": rec(fav, "ats", "WLP"), "ats_as_underdog": rec(dog, "ats", "WLP"),
+           "ats_home": rec([r for r in rows if r["site"] == "home"], "ats", "WLP"),
+           "ats_away": rec([r for r in rows if r["site"] == "away"], "ats", "WLP"),
+           "last5_ats": "".join(r["ats"] or "-" for r in rows[-5:]), "last5_ou": "".join(r["ou"] or "-" for r in rows[-5:]),
+           "points_for_pg": _f(sum(r["pf"] for r in rows) / len(rows), 1) if rows else None,
+           "points_against_pg": _f(sum(r["pa"] for r in rows) / len(rows), 1) if rows else None,
+           "note": "Closing lines from the nflverse schedule. W-L-P against the spread; O-U-P against the total."}
+    return out
+
+
+def quarter_scoring(pbp: pd.DataFrame | None, team: str, weeks) -> dict | None:
+    """Average points scored and allowed by quarter over the trend window (from the running score in play-by-play)."""
+    if pbp is None:
+        return None
+    gs = pbp[((pbp.home_team == team) | (pbp.away_team == team)) & pbp.week.isin(list(weeks))]
+    if not len(gs):
+        return None
+    tot = {"for": [0.0] * 4, "against": [0.0] * 4}
+    n = 0
+    for gid, pl in gs.groupby("game_id"):
+        h, a = pl.home_team.iloc[0], pl.away_team.iloc[0]
+        q = _quarters(pl, h, a)
+        mine, theirs = (q[h], q[a]) if team == h else (q[a], q[h])
+        for i in range(min(4, len(mine))):
+            tot["for"][i] += mine[i]; tot["against"][i] += theirs[i]
+        n += 1
+    f = [_f(x / n, 1) for x in tot["for"]]
+    ag = [_f(x / n, 1) for x in tot["against"]]
+    return {"games": n, "for": f, "against": ag, "first_half": [_f(f[0] + f[1], 1), _f(ag[0] + ag[1], 1)],
+            "second_half": [_f(f[2] + f[3], 1), _f(ag[2] + ag[3], 1)], "note": "Overtime points are left out."}
+
+
+def opportunity_label(r: dict, kind: str) -> dict:
+    """The analyst prompt's labels: expanding, shrinking, volume-supported or efficiency-driven."""
+    log = r.get("log", [])
+    key = "targets" if kind == "rec" else "carries"
+    per = r.get("targets_pg") if kind == "rec" else r.get("carries_pg")
+    last3 = [x.get(key, 0) for x in log[-3:]]
+    l3 = sum(last3) / len(last3) if last3 else None
+    if per and l3 is not None and r.get("games", 0) >= 5:
+        if l3 >= per * 1.2 and l3 - per >= 1.0:
+            return {"label": "expanding", "why": f"{l3:.1f} {key} a game over the last 3 vs {per:.1f} in the window"}
+        if l3 <= per * 0.8 and per - l3 >= 1.0:
+            return {"label": "shrinking", "why": f"{l3:.1f} {key} a game over the last 3 vs {per:.1f} in the window"}
+    if kind == "rec":
+        ypt = r.get("yards_per_target") or 0
+        td_share = _div(r.get("td", 0), max(r.get("receptions", 0), 1)) or 0
+        if (per or 0) >= 6:
+            return {"label": "volume-supported", "why": f"{per:.1f} targets a game"}
+        if ypt >= 10.5 or td_share >= 0.2:
+            return {"label": "efficiency-driven", "why": f"{ypt:.1f} yards per target on {per or 0:.1f} targets a game" if ypt >= 10.5
+                    else f"{r.get('td')} TDs on {r.get('receptions')} catches"}
+        return {"label": "low volume", "why": f"{per or 0:.1f} targets a game"}
+    if (per or 0) >= 12:
+        return {"label": "volume-supported", "why": f"{per:.1f} carries a game"}
+    if (r.get("yards_per_carry") or 0) >= 5.2:
+        return {"label": "efficiency-driven", "why": f"{r['yards_per_carry']:.1f} yards per carry on {per or 0:.1f} carries"}
+    return {"label": "low volume", "why": f"{per or 0:.1f} carries a game"}
+
+
+def unit_injuries(inj: list[dict]) -> dict:
+    """Offensive-line and secondary starters listed Out, Doubtful or Questionable."""
+    ol = {"LT", "LG", "C", "RG", "RT", "T", "G", "OL"}
+    db = {"CB", "S", "FS", "SS", "NB", "RCB", "LCB", "DB", "SAF"}
+    lb = {"LB", "ILB", "OLB", "MLB", "LILB", "RILB", "WILL", "MIKE", "SAM"}
+    dl = {"DE", "DT", "NT", "LDE", "RDE", "LDT", "RDT", "EDGE", "DL"}
+
+    def pick(group):
+        return [{"player": x["player"], "slot": x.get("starter_slot") or x.get("position"), "status": x.get("game_status") or x.get("espn") or x.get("practice")}
+                for x in inj if x.get("status_level", 0) >= 2 and (x.get("starter_slot") in group or (x.get("position") in group and (x.get("snap_share") or 0) >= 0.5))]
+    return {"offensive_line": pick(ol), "secondary": pick(db), "linebackers": pick(lb), "defensive_line": pick(dl)}

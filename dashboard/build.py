@@ -99,6 +99,8 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
             "defenders": X.defenders_with_positions(tp["defense"].get("defenders", {}), rosters, team, pfr_def, weeks),
             "coverage_profile": X.coverage_profile(data, season, team),
             "window": tp["window"],
+            "trends": X.team_trends(games, season, team, g["date"]),
+            "quarters": X.quarter_scoring(data.get("pbp", season), team, weeks),
             "depth_chart": tp.get("depth_chart", {}),
         }
     sides = {}
@@ -108,6 +110,7 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
             "qb": e_off["qb"], "roles": e_off["roles"], "offense_injuries": e_off["injuries"], "returning": e_off["returning"],
             "defenders": e_def["defenders"], "coverage_profile": e_def["coverage_profile"],
             "defense_injuries": e_def["injuries"], "defense_returning": e_def["returning"],
+            "offense_units_hurt": X.unit_injuries(e_off["injuries"]), "defense_units_hurt": X.unit_injuries(e_def["injuries"]),
         })
     result = None
     if len(row) and pd.notna(grow.get("home_score")):
@@ -122,7 +125,8 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
         "h2h": X.head_to_head(games, data, grow, pk, rosters),
         "sides": sides,
         "teams": {t: {"name": X.TEAM_NAMES.get(t, t), "roster_moves": ex_team[t]["roster_moves"], "window": ex_team[t]["window"],
-                      "depth_chart": ex_team[t]["depth_chart"]} for t in (away, home)},
+                      "depth_chart": ex_team[t]["depth_chart"],
+                      "trends": ex_team[t]["trends"], "quarters": ex_team[t]["quarters"]} for t in (away, home)},
         "team_projection": pk.get("team_projection", {}),
         "phase_ledger": pk.get("phase_ledger", []),
         "sources": pk.get("sources", {}),
