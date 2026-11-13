@@ -42,6 +42,11 @@ ARMS = {
     # NFL-75 rare special-teams plays (core/possession_engine_v0/rare_plays.py) on top of new_off. Still listed in
     # nfl43.still_unsupported, so it runs only as a capped research call (simulate_games research_unaccepted).
     "rare_v1": {"h2h": "off", "accounting": None, "rare_plays": "asof_league_v1"},
+    # Phase 1 leftovers (refs NFL-75), opt-in accounting on top of new_off: unbiased clock rounding and the 36-45
+    # "fringe" 4th-down cell. Defaults are unchanged; these arms exist only for the before/after backtest.
+    "p1_round": {"h2h": "off", "accounting": {"clock_rounding": "round"}},
+    "p1_v1": {"h2h": "off", "accounting": {"fourth_down_yl_buckets": "v1_fringe"}},
+    "p1_round_v1": {"h2h": "off", "accounting": {"clock_rounding": "round", "fourth_down_yl_buckets": "v1_fringe"}},
 }
 
 
