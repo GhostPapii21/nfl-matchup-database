@@ -1,0 +1,332 @@
+{
+ "label": "research only, not validated; BACKTEST on already-seen 2026 weeks 4-9 (not a clean holdout)",
+ "generated_by": "calibration/weather_injury_backtest.py",
+ "n_per_game": 2000,
+ "seed_base": 20261112,
+ "engine": {
+  "git_head": "4e33c391f99d3bf28d37c3df29e00bf361da8d6c",
+  "engine_tree": "5e8362541d3d45294a3a1e013237d0807dae252c",
+  "engine_py_sha256": "ffb0cb7cde56f7a44095df044e257e3723053813dda173eed2e7f295913215ba",
+  "engine_dirty": false,
+  "simulate_sha256": "2e9a21cc49febdabc417fcbfdecb821b67f6563397501040487354c51053c712"
+ },
+ "runtime_sec": 3197.7,
+ "weather_effects": {
+  "path": "research/weather/rain_effects_train_2018_2025.json",
+  "seasons": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024,
+   2025
+  ],
+  "sha256": "8022099f1b4703f396191a924458317cf189c922d387217e67ad17689d3e2b52",
+  "pooled_used": {
+   "completion_pct": {
+    "any_rain": {
+     "change": -0.03619615181450818,
+     "se": 0.006783297367492465,
+     "pct_of_baseline": -0.05550745800708904,
+     "clear": true
+    },
+    "wind10": {
+     "change": -0.022271729806982447,
+     "se": 0.005983051228341631,
+     "pct_of_baseline": -0.03415410326881206,
+     "clear": true
+    }
+   },
+   "yards_per_completion": {
+    "any_rain": {
+     "change": -0.6175097402130341,
+     "se": 0.1728053850284733,
+     "pct_of_baseline": -0.05514102535299733,
+     "clear": true
+    },
+    "wind10": {
+     "change": -0.569535406886321,
+     "se": 0.17626709794175321,
+     "pct_of_baseline": -0.0508571189495958,
+     "clear": true
+    }
+   }
+  }
+ },
+ "injuries": {
+  "path": "data/historical/nflverse/injuries_2026_pulled_20261113T0526Z.parquet",
+  "sha256": "a72cc1afc7224baf6cafdc81950d807fd603ee9c02e7348b38151fcc1af8fa36",
+  "pulled_utc": "2026-11-13T05:26:36Z"
+ },
+ "pbp": {
+  "path": "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet",
+  "sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8"
+ },
+ "lines": {
+  "ref": "ba83615",
+  "path": "data/lines/lines_wk04_09_2026.csv",
+  "sha256": "6e330ca155e285e919716ecc3d53dce0d0c74c4cc3d83c927fbdcba872a85212",
+  "sha256_matches_readme": true
+ },
+ "baseline_reproduces_committed_csv": {
+  "all": true,
+  "n": 72,
+  "mismatches": []
+ },
+ "bootstrap": {
+  "B": 2000,
+  "seed": 20261113
+ },
+ "results": {
+  "weather": {
+   "arm": "weather",
+   "n_games": 19,
+   "n_decided": 19,
+   "brier_base": 0.3079062763157895,
+   "brier_arm": 0.31018875657894734,
+   "brier_diff": 0.00228248026315786,
+   "brier_diff_ci95": [
+    -0.007764186019736837,
+    0.011319713486842149
+   ],
+   "ece_base": 0.30060526315789476,
+   "ece_arm": 0.252342105263158,
+   "brier_close": 0.2067790007304376,
+   "mae_margin_base": 13.774947368421053,
+   "mae_margin_arm": 13.837105263157893,
+   "mae_margin_diff_ci95": [
+    -0.19543881578947167,
+    0.3080421052631569
+   ],
+   "mae_total_base": 12.916105263157894,
+   "mae_total_arm": 12.756894736842106,
+   "mae_total_diff_ci95": [
+    -1.4064164473684166,
+    1.191049342105263
+   ],
+   "mae_margin_close": 10.342105263157896,
+   "mae_total_close": 11.342105263157896,
+   "mean_shift_total_arm_minus_base": -1.9902105263157892,
+   "mean_shift_margin_arm_minus_base": 0.04015789473684236,
+   "per_game": {
+    "2026_04_LA_PHI": {
+     "tier": "rain",
+     "rain": 1.0,
+     "wind_mph": 9.0,
+     "text": "Rain Temp: 62\u00b0 F, Humidity: 87%, Wind: NE 9 mph",
+     "keep_completion": 0.944492541992911,
+     "ypc_factor": 0.9448589746470026,
+     "total_shift": -6.025500000000001
+    },
+    "2026_04_NE_BUF": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 11.0,
+     "text": "Cloudy Temp: 69\u00b0 F, Humidity: 54%, Wind: S 11 mph",
+     "keep_completion": 0.9965845896731188,
+     "ypc_factor": 0.9949142881050405,
+     "total_shift": 0.16099999999999426
+    },
+    "2026_04_PIT_CLE": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 11.0,
+     "text": "Cloudy Temp: 77\u00b0 F, Humidity: 60%, Wind: S 11 mph",
+     "keep_completion": 0.9965845896731188,
+     "ypc_factor": 0.9949142881050405,
+     "total_shift": 0.19599999999999795
+    },
+    "2026_05_CHI_GB": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 13.0,
+     "text": "Sunny Temp: 73\u00b0 F, Humidity: 50%, Wind: S 13 mph",
+     "keep_completion": 0.9897537690193564,
+     "ypc_factor": 0.9847428643151213,
+     "total_shift": -0.15350000000000108
+    },
+    "2026_05_CIN_MIA": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 12.0,
+     "text": "Partly Cloudy Temp: 90\u00b0 F, Humidity: 65%, Wind: SE 12 mph",
+     "keep_completion": 0.9931691793462376,
+     "ypc_factor": 0.9898285762100808,
+     "total_shift": 0.04250000000000398
+    },
+    "2026_05_CLE_NYJ": {
+     "tier": "heavy",
+     "rain": 1.0,
+     "wind_mph": 11.0,
+     "text": "Steady rain from Hurricane Isaias Temp: 64\u00b0 F, Humidity: 86%, Wind: E 11 mph",
+     "keep_completion": 0.9410771316660298,
+     "ypc_factor": 0.9397732627520431,
+     "total_shift": -4.525499999999994
+    },
+    "2026_05_IND_PIT": {
+     "tier": "rain",
+     "rain": 1.0,
+     "wind_mph": 11.0,
+     "text": "Rain Temp: 62\u00b0 F, Humidity: 90%, Wind: E 11 mph",
+     "keep_completion": 0.9410771316660298,
+     "ypc_factor": 0.9397732627520431,
+     "total_shift": -4.274500000000003
+    },
+    "2026_06_HOU_JAX": {
+     "tier": "heavy",
+     "rain": 1.0,
+     "wind_mph": 16.0,
+     "text": "Rain Temp: 58\u00b0 F, Humidity: 52%, Wind: NE 16 mph",
+     "keep_completion": 0.9240000800316237,
+     "ypc_factor": 0.9143447032772452,
+     "total_shift": -8.272000000000006
+    },
+    "2026_06_LAC_KC": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 13.0,
+     "text": "Temp: 68\u00b0 F, Humidity: 40%, Wind: S 13 mph",
+     "keep_completion": 0.9897537690193564,
+     "ypc_factor": 0.9847428643151213,
+     "total_shift": -0.8765000000000001
+    },
+    "2026_06_PIT_TB": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 14.0,
+     "text": "Clear Temp: 77\u00b0 F, Humidity: 64%, Wind: NE 14 mph",
+     "keep_completion": 0.9863383586924752,
+     "ypc_factor": 0.9796571524201617,
+     "total_shift": -1.4770000000000039
+    },
+    "2026_06_SEA_DEN": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 11.0,
+     "text": "Clear Temp: 53\u00b0 F, Humidity: 49%, Wind: E 11 mph",
+     "keep_completion": 0.9965845896731188,
+     "ypc_factor": 0.9949142881050405,
+     "total_shift": 0.7530000000000001
+    },
+    "2026_07_TB_CAR": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 13.0,
+     "text": "Sunny Temp: 66\u00b0 F, Humidity: 50%, Wind: NE 13 mph",
+     "keep_completion": 0.9897537690193564,
+     "ypc_factor": 0.9847428643151213,
+     "total_shift": -0.29999999999999716
+    },
+    "2026_08_ATL_TB": {
+     "tier": "rain",
+     "rain": 1.0,
+     "wind_mph": 9.0,
+     "text": "Rain Temp: 78\u00b0 F, Humidity: 81%, Wind: E 9 mph",
+     "keep_completion": 0.944492541992911,
+     "ypc_factor": 0.9448589746470026,
+     "total_shift": -3.0159999999999982
+    },
+    "2026_08_IND_JAX": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 17.0,
+     "text": "Temp: 78\u00b0 F, Humidity: 70%, Wind: E 17 mph",
+     "keep_completion": 0.9760921277118315,
+     "ypc_factor": 0.964400016735283,
+     "total_shift": -1.4409999999999954
+    },
+    "2026_08_NE_MIA": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 15.0,
+     "text": "Cloudy Temp: 77\u00b0 F, Humidity: 90%, Wind: E 15 mph",
+     "keep_completion": 0.982922948365594,
+     "ypc_factor": 0.9745714405252021,
+     "total_shift": -1.5324999999999989
+    },
+    "2026_09_ARI_SEA": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 13.0,
+     "text": "Cloudy Temp: 56\u00b0 F, Humidity: 76%, Wind: SW 13 mph",
+     "keep_completion": 0.9897537690193564,
+     "ypc_factor": 0.9847428643151213,
+     "total_shift": -0.25799999999999557
+    },
+    "2026_09_GB_NE": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 15.0,
+     "text": "Clear Temp: 52\u00b0 F, Humidity: 65%, Wind: NW 15 mph",
+     "keep_completion": 0.982922948365594,
+     "ypc_factor": 0.9745714405252021,
+     "total_shift": -1.6899999999999977
+    },
+    "2026_09_JAX_BAL": {
+     "tier": "rain",
+     "rain": 1.0,
+     "wind_mph": 4.0,
+     "text": "Rain Temp: 70\u00b0 F, Humidity: 92%, Wind: N 4 mph",
+     "keep_completion": 0.944492541992911,
+     "ypc_factor": 0.9448589746470026,
+     "total_shift": -4.618499999999997
+    },
+    "2026_09_NYG_PHI": {
+     "tier": "dry",
+     "rain": 0.0,
+     "wind_mph": 11.0,
+     "text": "Sunny Temp: 57\u00b0 F, Humidity: 47%, Wind: W 11 mph",
+     "keep_completion": 0.9965845896731188,
+     "ypc_factor": 0.9949142881050405,
+     "total_shift": -0.5060000000000002
+    }
+   }
+  },
+  "injury": {
+   "arm": "injury",
+   "n_games": 70,
+   "n_decided": 69,
+   "brier_base": 0.2564510317028985,
+   "brier_arm": 0.2501843804347826,
+   "brier_diff": -0.00626665126811593,
+   "brier_diff_ci95": [
+    -0.023376667730978254,
+    0.01030687993659417
+   ],
+   "ece_base": 0.1655615942028986,
+   "ece_arm": 0.16176086956521743,
+   "brier_close": 0.20932333077352872,
+   "mae_margin_base": 10.818678571428572,
+   "mae_margin_arm": 10.9647,
+   "mae_margin_diff_ci95": [
+    -0.5285828571428539,
+    0.8326467857142835
+   ],
+   "mae_total_base": 11.529449999999995,
+   "mae_total_arm": 12.092071428571433,
+   "mae_total_diff_ci95": [
+    -0.23724285714285406,
+    1.3431158928571398
+   ],
+   "mae_margin_close": 9.364285714285714,
+   "mae_total_close": 10.480952380952381,
+   "mean_shift_total_arm_minus_base": -0.40127857142857165,
+   "mean_shift_margin_arm_minus_base": -0.26817857142857127,
+   "games_with_qb_out_kept_sparse": [
+    "2026_04_GB_TB",
+    "2026_04_IND_WAS",
+    "2026_04_NYJ_CHI",
+    "2026_05_BAL_ATL",
+    "2026_05_TB_DAL",
+    "2026_06_BAL_CLE",
+    "2026_06_CAR_PHI",
+    "2026_09_ARI_SEA",
+    "2026_09_BUF_MIN",
+    "2026_09_JAX_BAL"
+   ],
+   "rows_removed_total": 3326
+  }
+ }
+}
