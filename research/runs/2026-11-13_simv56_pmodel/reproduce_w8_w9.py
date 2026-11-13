@@ -30,7 +30,7 @@ def main(argv=None):
     sha_c = hashlib.sha256(CANDS.read_bytes()).hexdigest()
     assert sha_c in want, "candidates.csv differs from the Phase 4 freeze manifest"
     C = pd.read_csv(CANDS, low_memory=False, float_precision="round_trip")
-    C4 = pd.read_csv(CANDS, low_memory=False)                       # exactly how selective_edge_run reads it
+    C4 = pd.read_csv(CANDS, low_memory=False, float_precision="high")  # selective_edge_run default read on box pandas 3.0.6 = "high"
     sel = (C.kind == "under") & (C.market == "rushyds")
     L = pd.read_csv(LEGS)
     rows, summary = [], []
@@ -45,7 +45,7 @@ def main(argv=None):
         c = C[sel & (C.week == w)][["gsis", "rung", "p_model"]]
         c4 = C4[sel & (C4.week == w)][["gsis", "p_model"]].rename(columns={"p_model": "p_model_phase4_mem"})
         m = ens.merge(c.assign(line=c.rung.astype(float)).drop(columns="rung"), on=["gsis", "line"]).merge(c4, on="gsis")
-        rt_csv = pd.read_csv(pd.io.common.StringIO(m[["p_under"]].to_csv(index=False))).p_under.values
+        rt_csv = pd.read_csv(pd.io.common.StringIO(m[["p_under"]].to_csv(index=False)), float_precision="high").p_under.values
         m["exact_file"] = m.p_under == m.p_model
         m["exact_phase4_mem_after_csv"] = rt_csv == m.p_model_phase4_mem.values
         rows.append(m.assign(week=w))

@@ -26,7 +26,7 @@ W8_LEG = dict(player="Jacoby Brissett", gsis="00-0033119", team="ARI", opp="DAL"
 W8_TRIPLES = {"sim_v5": (0.5985, 0.566, 0.56415), "sim_v6": (0.5985, 0.60605, 0.56415),
               "sim_v6_fix": (0.5985, 0.5566, 0.56415)}
 W8_P_MODEL_UNDER = 0.42037777777777774            # candidates.csv text, exact
-W8_P_MODEL_PHASE4_IN_MEMORY = 0.4203777777777777  # after pd.read_csv (default parser), as Phase 4 used it
+W8_P_MODEL_PHASE4_IN_MEMORY = 0.4203777777777777  # after pd.read_csv on box pandas 3.0.6 (default parser = "high"), as Phase 4 used it
 
 
 def test_settings_are_the_phase4_ones():
@@ -58,10 +58,14 @@ def test_ensemble_arithmetic_reproduces_phase4_p_model_bit_for_bit():
     ens = SV.ensemble(per)
     assert ens.p_under.iloc[0] == W8_P_MODEL_UNDER       # exact float equality, not approx
     assert ens.p_over.iloc[0] == 1 - W8_P_MODEL_UNDER
+
+
+@pytest.mark.skipif(not SV.BIT_EXACT_ENV, reason="Phase 4's 1-ulp CSV parse is only reproducible on pandas 3.0.6")
+def test_phase4_in_memory_value_after_csv_parse():
     import io
     buf = io.StringIO()
-    ens[["p_under"]].to_csv(buf, index=False)
-    assert pd.read_csv(io.StringIO(buf.getvalue())).p_under.iloc[0] == W8_P_MODEL_PHASE4_IN_MEMORY
+    pd.DataFrame({"p_under": [W8_P_MODEL_UNDER]}).to_csv(buf, index=False)
+    assert pd.read_csv(io.StringIO(buf.getvalue()), float_precision="high").p_under.iloc[0] == W8_P_MODEL_PHASE4_IN_MEMORY
 
 
 def test_reproduce_w8_leg_from_committed_inputs_bit_for_bit(tmp_path):
@@ -244,3 +248,13 @@ def test_grade_subcommand_labels_unsettled_legs_without_crashing(tmp_path):
     assert SV.main(["grade", "--legs", str(f), "--out", str(out)]) == 0
     g = pd.read_csv(out / "live_graded.csv")
     assert g.label.iloc[0] == "STRONG UNDER" and (g.projection_ready == False).all()  # noqa: E712
+
+
+@pytest.mark.skipif(not SV.BIT_EXACT_ENV, reason="Phase 4's 1-ulp CSV parse is only reproducible on pandas 3.0.6")
+def test_csv_handoffs_pin_the_phase4_float_parser():
+    """Phase 4 ran on pandas 3.0.6 (default parser "high"); pandas 3.1 changed the default, so the parser is pinned."""
+    import io
+    import pandas as pd
+    assert SV.FLOAT_PRECISION == "high"
+    df = pd.DataFrame({"p_under": [W8_P_MODEL_UNDER]})
+    assert SV._csv_rt(df).p_under.iloc[0] == W8_P_MODEL_PHASE4_IN_MEMORY

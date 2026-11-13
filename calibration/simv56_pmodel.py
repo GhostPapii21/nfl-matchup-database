@@ -124,7 +124,7 @@ def _worker(engine: str, legs_json: str, week: int, cutoff: str, src: str, n: in
         calib = None
     else:
         M = importlib.import_module("cc_sim_" + engine.split("sim_")[1])
-        bt = pd.read_csv(ENGINE_DIR / f"{engine}_backtest.csv")
+        bt = pd.read_csv(ENGINE_DIR / f"{engine}_backtest.csv", float_precision=FLOAT_PRECISION)
         tr = bt[bt.week < min(week, 8)]
         calib = M.fit(tr) if len(tr) else None
         E = M.Engine(cutoff=cutoff, calib=calib, n=n)
@@ -179,14 +179,23 @@ def run_all(legs: pd.DataFrame, week: int, src: Path, workdir: Path, n: int = N_
         so, se = p.communicate()
         if p.returncode != 0:
             raise SimV56Error(f"{e} worker failed: {se.decode()[-600:]}")
-        res[e] = pd.read_csv(out)
+        res[e] = pd.read_csv(out, float_precision=FLOAT_PRECISION)
     return res
 
 
+# The original pipeline ran on the box's pandas 3.0.6, whose C float parser ("high", the default) can land 1 ulp off
+# the written text. pandas 3.1.x parses the text exactly under every float_precision, so the Phase 4 values are only
+# bit-reproducible on pandas 3.0.6 (on 3.1.x a few legs differ by 1 ulp, ~2e-16). The parser is pinned to "high" and
+# the run records whether it is in the bit-exact environment.
+FLOAT_PRECISION = "high"
+PHASE4_PANDAS = "3.0.6"
+BIT_EXACT_ENV = pd.__version__ == PHASE4_PANDAS
+
+
 def _csv_rt(df: pd.DataFrame) -> pd.DataFrame:
-    """One pandas to_csv -> read_csv (default C parser) round trip, as the original pipeline did between stages."""
+    """One pandas to_csv -> read_csv round trip, as the original pipeline did between stages (parser pinned, see FLOAT_PRECISION)."""
     import io
-    return pd.read_csv(io.StringIO(df.to_csv(index=False)))
+    return pd.read_csv(io.StringIO(df.to_csv(index=False)), float_precision=FLOAT_PRECISION)
 
 
 def ensemble(per: dict) -> pd.DataFrame:
@@ -400,7 +409,8 @@ def run_cli(a) -> int:
     ens.to_csv(out / "ensemble.csv", index=False)
     res = attach(x, ens, gate)
     res.to_csv(out / "legs_p.csv", index=False)
-    meta = dict(schema="nfl75-simv56-pmodel/1", week=week, cutoff=cutoff, as_of=as_of, n=N_TRIALS, opp=OPP,
+    meta = dict(schema="nfl75-simv56-pmodel/1", pandas_version=pd.__version__,
+                phase4_bit_exact_env=BIT_EXACT_ENV, week=week, cutoff=cutoff, as_of=as_of, n=N_TRIALS, opp=OPP,
                 engines=list(ENGINES), engine_sha256=verify_engines(), pbp=Path(a.pbp).name, pbp_sha256=_sha(a.pbp),
                 players=PLAYERS_DEFAULT.name, sources=man, inactives=a.inactives, runtime_sec=round(time.time() - t0, 1),
                 n_rush_legs=int((x.market == "rushyds").sum()), n_sim_players=int(runnable.gsis.nunique()),

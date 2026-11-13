@@ -35,6 +35,13 @@ Unit test (runs in CI): W8 Jacoby Brissett rushyds 9.5. Engine triples (p_mc, p_
 p_model = **0.42037777777777774** = candidates.csv text; after pandas' default read (how Phase 4 read it)
 **0.4203777777777777** = the Phase 4 in-memory value.
 
+**pandas version matters for the last ulp.** Phase 4 ran on the box's pandas 3.0.6, whose C float parser lands 1 ulp
+off the written text for some values (e.g. Brissett `0.42037777777777774` is read back as `0.4203777777777777`).
+pandas 3.1.x parses the text exactly under every `float_precision`. So the 83/83 + 5/5 bit-exact result holds on
+pandas 3.0.6, which is the box Sunday runs use. On 3.1.1 (CI), 77/83 + 4/5 legs are exact and the rest differ by
+1 ulp (2.2e-16). The parser is pinned to `"high"`. `meta.json` records `pandas_version` and `phase4_bit_exact_env`.
+The two in-memory-value tests skip off 3.0.6. The engine-run and ensemble text-value tests pass on both versions.
+
 ## QB / availability gate
 Sources: nflverse `depth_charts_2026.parquet` (ESPN-fed, timestamped `dt` snapshots) and `injuries_2026.parquet`
 (official NFL injury reports), pulled by `fetch` with URL, sha256 and retrieved_utc in `sources.json`; optional
