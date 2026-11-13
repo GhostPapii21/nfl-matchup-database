@@ -72,8 +72,9 @@ class Engine:
         name,mkt,spread=leg['player'],leg['market'],float(leg['spread']); team=NV.get(leg['team'],leg['team']); opp=NV.get(leg['opp'],leg['opp'])
         qb=mkt in('passyds','comp'); d,a,yc,ypc_rush,g=self.player(name,team,qb,leg.get('gsis')); PG=self.pos.get(g,'WR')
         if len(a)==0: raise ValueError('no active games before cutoff')
-        QF=bool(leg.get('qb_rush_prior')) and PG=='QB' and mkt in('rushyds','rushrec')   # NFL-75 QB rush prior fix (opt-in; qb_rush_prior.py)
-        if QF: import qb_rush_prior as QRP; qr=QRP.qb_rush_inputs(ru,g,opp,a.game_id.values); ypc_rush=qr['ypc']; a=a.assign(car=qr['car']); KT=QRP.kneel_table(ru,tg)
+        import qb_rush_prior as QRP
+        QF=QRP.flag_on(leg.get('qb_rush_prior')) and PG=='QB' and mkt in('rushyds','rushrec')   # NFL-75 QB rush prior fix (opt-in; qb_rush_prior.py)
+        if QF: qr=QRP.qb_rush_inputs(ru,g,opp,a.game_id.values); ypc_rush=qr['ypc']; a=a.assign(car=qr['car']); KT=QRP.kneel_table(ru,tg)
         QC=QF and leg.get('qb_rush_prior')=='components'
         if QC: qc=QRP.component_inputs(ru,g,opp,a.game_id.values); a=a.assign(scr_car=qc['scr_car'],des_car=qc['des_car']); QH={c:bool(a[c+'_car'].sum()>0) for c in QRP.COMPONENTS}
         l3=a.tail(3); w=lambda col:0.6*a[col].mean()+0.4*l3[col].mean()
@@ -114,7 +115,8 @@ class Engine:
             if mkt in ('rushyds','rushrec'):
               if QC: x=x+QRP.component_rush(rng,lambda c:vol(c,'ra',self.bR),QH,qc,qc['opp_ratio'],N,float(leg.get('carry_boost',1.0)),scale_count)*float(leg.get('ypc_boost',1.0))   # NFL-75 components
               else:
-                Cr=vol('car','ra',self.bR); tot=np.zeros(N)
+                Cr=vol('car','ra',self.bR) if (not QF or a['car'].sum()>0) else np.zeros(N,dtype=int)  # kneels-only: skip nb() at mean 0
+                tot=np.zeros(N)
                 cb=float(leg.get('carry_boost',1.0))
                 if cb!=1.0: Cr=scale_count(rng,Cr,cb)   # game-script RB boost / promotion / split share (all three models)
                 if len(ypc_rush):

@@ -1,10 +1,12 @@
 """NFL-75 sim bug fix (refs NFL-75, Linear comment 6ce79e04): QB rush YPC prior + separate kneel model.
 
-Opt-in only: an engine uses this module only when a leg carries ``qb_rush_prior`` (True / "prior" = the QB-prior fix
-only; "components" = designed runs + scrambles + kneels as separate components with a heavy-tailed per-carry
-mixture, see the component section below) AND the rusher's
-position_group is QB AND the market is rushyds / rushrec. Without that key every engine path is unchanged (the
-Phase 4 W8-9 reproduction tests still hold bit-for-bit / within 1e-12).
+Opt-in only: an engine uses this module only when a leg carries ``qb_rush_prior`` in the explicit allowlist
+(True / "prior" = the QB-prior fix only; "components" = designed runs + scrambles + kneels as separate components
+with a heavy-tailed per-carry mixture, see the component section below) AND the rusher's
+position_group is QB AND the market is rushyds / rushrec. Other values (None, False, the string "false", "off",
+"", 0, ...) stay off: ``bool("false")`` is True, so a bare truthiness check would turn the fix on by mistake.
+Without an allowlisted key every engine path is unchanged (the Phase 4 W8-9 reproduction tests still hold
+bit-for-bit / within 1e-12).
 
 The bug (all three vendored engines, sim_v5 / sim_v6 / sim_v6_fix):
   * a rusher's play-level YPC sample includes kneels (qb_kneel == 1, ~-1 yd each) and kneels count as carries;
@@ -32,7 +34,18 @@ import pandas as pd
 
 QB = "QB"
 SD_MARGIN = 13.5
+
 K_YPC = 100          # unchanged engine shrink weight n/(n+100)
+
+
+def flag_on(value) -> bool:
+    """Explicit allowlist: the fix is on only for True, "prior", or "components".
+
+    Everything else (None, False, "false", "False", "off", "", 0, "True", 1, ...) is off.
+    ``value is True`` is required so that 1 is not treated as on (because 1 == True).
+    """
+    return value is True or value in ("prior", "components")
+
 
 
 def kneel_mask(ru: pd.DataFrame) -> np.ndarray:

@@ -251,3 +251,179 @@ def test_run_all_rejects_unknown_mode(tmp_path):
                               line=23.5)])
     with pytest.raises(SV.SimV56Error):
         SV.run_all(legs, week=8, src=tmp_path, workdir=tmp_path / "w", n=10, qb_rush_prior="tail")
+
+
+# ------------------------------------------------------------------ flag allowlist (True / "prior" / "components" only)
+@pytest.mark.parametrize("val", [None, False, "false", "False", "off", "", 0, "True", 1, "yes"])
+def test_flag_allowlist_stays_off(val):
+    assert QRP.flag_on(val) is False
+
+
+@pytest.mark.parametrize("val", [True, "prior", "components"])
+def test_flag_allowlist_turns_on(val):
+    assert QRP.flag_on(val) is True
+
+
+def test_engines_use_flag_allowlist_not_bool_truthiness():
+    """The string 'false' must not enable the fix; engines call flag_on, not bool(leg.get(...))."""
+    for name in ("cc_sim_v5.py", "cc_sim_v6.py", "cc_sim_v6_fix.py"):
+        src = (ENGINE_DIR / name).read_text()
+        assert "bool(leg.get('qb_rush_prior'))" not in src
+        assert "QRP.flag_on(leg.get('qb_rush_prior'))" in src
+
+
+# ------------------------------------------------------------------ kneels-only QB (v5 nb() NaN crash; Mullens / Tyrod / Mac Jones)
+def _kneels_only_src(dest: Path) -> Path:
+    """Tiny synthetic PBP: 'Kneel Only' is a QB whose only carries are kneels. League has a starter QB,
+    RBs and enough pass/rush volume for the engines' polyfit and opponent-adjustment paths."""
+    dest = Path(dest)
+    dest.mkdir(parents=True, exist_ok=True)
+    pl = pd.DataFrame([
+        dict(gsis_id="K1", display_name="Kneel Only", latest_team="AAA", position_group="QB"),
+        dict(gsis_id="Q1", display_name="Starter QB", latest_team="AAA", position_group="QB"),
+        dict(gsis_id="R1", display_name="Team RB", latest_team="AAA", position_group="RB"),
+        dict(gsis_id="W1", display_name="Team WR", latest_team="AAA", position_group="WR"),
+        dict(gsis_id="Q2", display_name="Other QB", latest_team="BBB", position_group="QB"),
+        dict(gsis_id="R2", display_name="Other RB", latest_team="BBB", position_group="RB"),
+        dict(gsis_id="W2", display_name="Other WR", latest_team="BBB", position_group="WR"),
+    ])
+    games = [
+        ("g0", "2026-09-13", 28, 10),
+        ("g1", "2026-09-20", 21, 17),
+        ("g2", "2026-09-27", 14, 24),
+        ("g3", "2026-10-04", 31, 7),
+        ("g4", "2026-10-11", 17, 20),
+        ("g5", "2026-10-18", 24, 14),
+    ]
+    rows = []
+
+    def add(**kw):
+        base = dict(season_type="REG", two_point_attempt=0, sack=0, pass_attempt=0, rush_attempt=0,
+                    play_type="run", complete_pass=0, receiving_yards=0.0, passing_yards=0.0,
+                    rushing_yards=0.0, qb_kneel=0, qb_scramble=0, home_team="AAA",
+                    rusher_player_id=None, receiver_player_id=None, passer_player_id=None)
+        base.update(kw)
+        rows.append(base)
+
+    for gid, date, hs, aws in games:
+        common = dict(game_id=gid, game_date=date, home_score=hs, away_score=aws)
+        for _ in range(15):
+            add(**common, posteam="AAA", defteam="BBB", play_type="pass", pass_attempt=1,
+                passer_player_id="Q1", receiver_player_id="W1", complete_pass=1,
+                passing_yards=8.0, receiving_yards=8.0)
+        for _ in range(12):
+            add(**common, posteam="AAA", defteam="BBB", play_type="run", rush_attempt=1,
+                rusher_player_id="R1", rushing_yards=4.0)
+        for _ in range(3):
+            add(**common, posteam="AAA", defteam="BBB", play_type="run", rush_attempt=1,
+                rusher_player_id="Q1", rushing_yards=7.0, qb_scramble=1)
+        for _ in range(2):
+            add(**common, posteam="AAA", defteam="BBB", play_type="run", rush_attempt=1,
+                rusher_player_id="K1", rushing_yards=-1.0, qb_kneel=1)
+        # a few QB receptions so v5 oppadj(pg=QB) is not a divide-by-zero
+        add(**common, posteam="AAA", defteam="BBB", play_type="pass", pass_attempt=1,
+            passer_player_id="Q1", receiver_player_id="Q2", complete_pass=1,
+            passing_yards=3.0, receiving_yards=3.0)
+        for _ in range(12):
+            add(**common, posteam="BBB", defteam="AAA", play_type="pass", pass_attempt=1,
+                passer_player_id="Q2", receiver_player_id="W2", complete_pass=1,
+                passing_yards=7.0, receiving_yards=7.0)
+        for _ in range(10):
+            add(**common, posteam="BBB", defteam="AAA", play_type="run", rush_attempt=1,
+                rusher_player_id="R2", rushing_yards=4.0)
+        add(**common, posteam="BBB", defteam="AAA", play_type="pass", pass_attempt=1,
+            passer_player_id="Q2", receiver_player_id="Q1", complete_pass=1,
+            passing_yards=2.0, receiving_yards=2.0)
+    pd.DataFrame(rows).to_parquet(dest / "play_by_play_2026.parquet")
+    pl.to_parquet(dest / "players.parquet")
+    return dest
+
+
+_KNEEL_PROBE = r"""
+import json, sys, warnings
+warnings.filterwarnings('ignore')
+sys.path.insert(0, sys.argv[1])
+engine, legs, n = sys.argv[2], json.loads(sys.argv[3]), int(sys.argv[4])
+out = {}
+if engine == 'v5':
+    import cc_sim_v5 as M
+    M.N = n
+    def run(leg):
+        return M.sim(leg)
+elif engine == 'v6':
+    import cc_sim_v6 as M
+    E = M.Engine(cutoff='2026-10-29', calib=None, n=n)
+    def run(leg):
+        return E.sim(leg)
+else:
+    import cc_sim_v6_fix as M
+    E = M.Engine(cutoff='2026-10-29', calib=None, n=n)
+    def run(leg):
+        return E.sim(leg)
+for key, leg in legs.items():
+    try:
+        o, info = run(leg)
+        out[key] = dict(ok=True, mean={m: float(o[m]['mean']) for m in o},
+                        A_ypc=info['A_ypc'], w_car=info['w_car'], qrp=info.get('qb_rush_prior'))
+    except Exception as ex:
+        out[key] = dict(ok=False, error=repr(ex))
+print(json.dumps(out))
+"""
+
+
+def _run_kneel_probe(src: Path, engine: str, legs: dict, n: int = 800) -> dict:
+    env = dict(os.environ, CC_OPP="0.5", CC_SRC=str(src), CC_CUTOFF="2026-10-29", SIMV6_SRC=str(src),
+               PYTHONDONTWRITEBYTECODE="1")
+    r = subprocess.run([sys.executable, "-c", _KNEEL_PROBE, str(ENGINE_DIR), engine, json.dumps(legs), str(n)],
+                       env=env, capture_output=True, text=True, cwd=ENGINE_DIR, timeout=120)
+    assert r.returncode == 0, r.stderr[-800:] or r.stdout[-800:]
+    return json.loads(r.stdout.strip().splitlines()[-1])
+
+
+def _kneel_legs():
+    base = dict(player="Kneel Only", gsis="K1", team="AAA", opp="BBB", market="rushyds",
+                spread=-7.0, rungs=[0.5])
+    starter = dict(player="Starter QB", gsis="Q1", team="AAA", opp="BBB", market="rushyds",
+                   spread=-7.0, rungs=[20.5])
+    return {
+        "kneel_off": dict(base),
+        "kneel_false": dict(base, qb_rush_prior="false"),
+        "kneel_False": dict(base, qb_rush_prior="False"),
+        "kneel_offstr": dict(base, qb_rush_prior="off"),
+        "kneel_empty": dict(base, qb_rush_prior=""),
+        "kneel_zero": dict(base, qb_rush_prior=0),
+        "kneel_on": dict(base, qb_rush_prior=True),
+        "kneel_prior": dict(base, qb_rush_prior="prior"),
+        "kneel_comp": dict(base, qb_rush_prior="components"),
+        "starter_off": dict(starter),
+        "starter_false": dict(starter, qb_rush_prior="false"),
+        "starter_on": dict(starter, qb_rush_prior=True),
+    }
+
+
+@pytest.mark.parametrize("engine", ["v5", "v6", "v6_fix"])
+def test_kneels_only_qb_does_not_crash_when_flag_is_on(engine, tmp_path):
+    """v5 used to hit NaN in nb() for a QB whose only carries are kneels (Mullens, Tyrod, Mac Jones)."""
+    src = _kneels_only_src(tmp_path / "src")
+    out = _run_kneel_probe(src, engine, _kneel_legs())
+    for key, row in out.items():
+        assert row.get("ok"), f"{engine} {key} crashed: {row}"
+        assert all(math.isfinite(v) for v in row["mean"].values()), (engine, key, row)
+    on, off = out["kneel_on"], out["kneel_off"]
+    assert on["qrp"] is not None and off["qrp"] is None
+    assert on["w_car"] == 0                                   # kneels removed from carry volume
+    assert off["w_car"] > 0                                   # flag off still counts kneels as carries
+    # allowlist: these stay on the unfixed path
+    for key in ("kneel_false", "kneel_False", "kneel_offstr", "kneel_empty", "kneel_zero"):
+        assert out[key]["qrp"] is None
+        assert out[key]["mean"] == off["mean"]
+        assert out[key]["w_car"] == off["w_car"]
+    # True and "prior" both turn the QB-prior fix on (same mode)
+    assert out["kneel_prior"]["mean"] == on["mean"]
+    assert out["kneel_prior"]["qrp"] is not None
+    assert out["kneel_comp"]["qrp"] is not None
+    # "false" also leaves a scrambling QB on the unfixed path
+    assert out["starter_false"]["mean"] == out["starter_off"]["mean"]
+    assert out["starter_false"]["qrp"] is None
+    assert out["starter_on"]["qrp"] is not None
+    assert out["starter_on"]["mean"] != out["starter_off"]["mean"]
