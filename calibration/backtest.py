@@ -47,6 +47,9 @@ ARMS = {
     "p1_round": {"h2h": "off", "accounting": {"clock_rounding": "round"}},
     "p1_v1": {"h2h": "off", "accounting": {"fourth_down_yl_buckets": "v1_fringe"}},
     "p1_round_v1": {"h2h": "off", "accounting": {"clock_rounding": "round", "fourth_down_yl_buckets": "v1_fringe"}},
+    "p1_gl": {"h2h": "off", "accounting": {"goal_line_pool": "local5"}},
+    "p1_all": {"h2h": "off", "accounting": {"clock_rounding": "round", "fourth_down_yl_buckets": "v1_fringe",
+                                            "goal_line_pool": "local5"}},
 }
 
 
