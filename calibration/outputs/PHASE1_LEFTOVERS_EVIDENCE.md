@@ -75,10 +75,10 @@ using the PBP the sim samples from (sha256 1028614b..., pulled 2026-11-12 11:16 
 |---|---|---|---|
 | Snaps (pass+run) | 63.73 | 62.47 | 61.25 (+0.78 kneels not simulated) |
 | Possessions with a snap | 11.53 | 11.29 | 10.53 |
-| Pass plays / targets | 36.87 / 32.96 | 36.0 / 32.11 | 35.28 / 31.58 |
+| Pass plays / targets | 36.87 / 32.96 | 35.91 / 32.11 | 35.28 / 31.58 |
 | Carries | 26.87 | 26.57 | 25.97 |
 | Sacks | 2.41 | 2.34 | 2.26 |
-| No-play penalties | 5.82 | ~5.7 | 5.43 |
+| No-play penalties | 5.82 | 5.71 | 5.43 |
 | Turnovers | 1.20 | 1.17 | 1.26 |
 | Offensive TDs (pass/run) | 2.50 | 2.40 | 2.48 |
 | Punts | 4.48 | 4.26 | 3.79 |
