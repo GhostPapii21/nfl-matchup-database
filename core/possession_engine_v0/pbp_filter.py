@@ -37,13 +37,14 @@ def load_team_history(
     teams: Sequence[str],
     season: int,
     weeks: tuple[int, int],
+    extra_cols: Sequence[str] = (),
 ) -> dict:
     path = Path(pbp_path)
     if not path.exists():
         return {"status": "PBP_MISSING", "df": None, "evidence": {}}
     import pyarrow.parquet as pq
     available = set(pq.ParquetFile(path).schema_arrow.names)
-    use = [c for c in COLS if c in available]
+    use = [c for c in COLS if c in available] + [c for c in extra_cols if c in available and c not in COLS]
     df = pd.read_parquet(path, columns=use)
     w0, w1 = weeks
     # Games involving either team, weeks in range, season match
@@ -78,7 +79,7 @@ def load_involvement_plays(pbp_path, *, teams, season, weeks):
     from pathlib import Path
     path = Path(pbp_path)
     available = set(pq.ParquetFile(path).schema_arrow.names)
-    use = [c for c in COLS if c in available]
+    use = [c for c in COLS if c in available] + [c for c in extra_cols if c in available and c not in COLS]
     df = __import__("pandas").read_parquet(path, columns=use)
     w0, w1 = weeks
     invol = df["home_team"].isin(teams) | df["away_team"].isin(teams)
