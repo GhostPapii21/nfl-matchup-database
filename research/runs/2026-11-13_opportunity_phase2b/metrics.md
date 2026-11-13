@@ -100,6 +100,56 @@ Negative opp-p2 = the opportunity model is better (lower MAE / Brier). A CI that
 Brier summary (computed): 5 of 21 thresholds have a 95% CI fully below 0 (WR rec >= 3, WR rec >= 5, WR rec_yds >= 25, WR rec_yds >= 50, RB rush_yds >= 25); 1 fully above 0; 17 of 21 point estimates <= 0.
 
 
+## D. Phase 2 opportunity model (PR #38) vs Phase 2b WITHOUT INT pooling (depth signal + grids only)
+
+Same params as 2b, engine without int_pool, same games / n / seed. Name-locked lines identical to the Phase 2 run: True (the engine stream is unchanged without pooling).
+
+n = 2000 trials per game, 88 games, seed 20261113; engine git head e10c2be (engine dirty=False). 95% CIs: game-cluster bootstrap (2000 resamples). Reconciliation failures: name-locked 0, opportunity 0. Research only, not validated; projection_ready=false.
+
+## Opportunity calibration (sim vs actual per player-game)
+
+| pos | stat | player-games | actual mean | ME p2 | ME 2b-noint | MAE p2 | MAE 2b-noint | MAE 2b-noint-p2 | p10-p90 cov p2 | p10-p90 cov 2b-noint | cov 2b-noint-p2 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| QB | pass_att | 209 | 27.785 | -1.675 [-2.855, -0.661] | -1.647 [-2.701, -0.629] | 7.988 [6.961, 8.963] | 8.009 [6.981, 9.116] | +0.021 [-0.017, +0.058] | 0.646 [0.579, 0.712] | 0.641 [0.573, 0.704] | -0.005 [-0.020, +0.010] |
+| QB | carries | 183 | 2.721 | -0.090 [-0.379, +0.194] | -0.087 [-0.390, +0.194] | 1.558 [1.340, 1.796] | 1.558 [1.340, 1.790] | -0.001 [-0.005, +0.004] | 0.809 [0.747, 0.866] | 0.798 [0.737, 0.856] | -0.011 [-0.028, +0.000] |
+| RB | carries | 488 | 8.133 | -0.681 [-0.966, -0.406] | -0.628 [-0.935, -0.351] | 4.245 [3.889, 4.614] | 3.989 [3.632, 4.387] | -0.256 [-0.398, -0.124] | 0.736 [0.697, 0.774] | 0.725 [0.682, 0.767] | -0.010 [-0.036, +0.018] |
+| RB | targets | 438 | 2.276 | -0.003 [-0.158, +0.143] | +0.118 [-0.048, +0.284] | 1.683 [1.557, 1.811] | 1.703 [1.576, 1.832] | +0.020 [-0.019, +0.059] | 0.794 [0.758, 0.831] | 0.806 [0.773, 0.839] | +0.011 [-0.011, +0.036] |
+| WR | targets | 776 | 4.128 | -0.358 [-0.541, -0.167] | -0.510 [-0.704, -0.326] | 2.352 [2.191, 2.517] | 2.240 [2.073, 2.405] | -0.111 [-0.143, -0.079] | 0.749 [0.719, 0.781] | 0.769 [0.742, 0.796] | +0.021 [+0.005, +0.037] |
+| TE | targets | 444 | 3.074 | -0.218 [-0.419, -0.018] | -0.068 [-0.255, +0.119] | 1.724 [1.604, 1.855] | 1.696 [1.579, 1.828] | -0.029 [-0.061, +0.003] | 0.779 [0.741, 0.817] | 0.790 [0.752, 0.830] | +0.011 [-0.002, +0.025] |
+
+Nominal p10-p90 coverage is 0.80 (counts are discrete and the interval is inclusive, so a calibrated model can sit somewhat above 0.80).
+
+## Brier on reception / yard thresholds
+
+| pos | stat | threshold | player-games | base rate | Brier p2 | Brier 2b-noint | opp-p2 | climatology |
+|---|---|---|---|---|---|---|---|---|
+| RB | rec | >= 3 | 438 | 0.2603 | 0.174 [0.154, 0.195] | 0.177 [0.158, 0.196] | +0.003 [-0.002, +0.009] | 0.1925 |
+| RB | rec | >= 5 | 438 | 0.0776 | 0.072 [0.058, 0.089] | 0.073 [0.059, 0.088] | +0.000 [-0.003, +0.002] | 0.0716 |
+| WR | rec | >= 3 | 776 | 0.4162 | 0.180 [0.166, 0.196] | 0.176 [0.161, 0.192] | -0.004 [-0.007, -0.001] | 0.243 |
+| WR | rec | >= 5 | 776 | 0.1946 | 0.120 [0.107, 0.134] | 0.116 [0.103, 0.131] | -0.004 [-0.007, -0.002] | 0.1567 |
+| TE | rec | >= 3 | 444 | 0.3446 | 0.166 [0.146, 0.187] | 0.162 [0.142, 0.184] | -0.004 [-0.007, -0.000] | 0.2258 |
+| TE | rec | >= 5 | 444 | 0.1532 | 0.100 [0.084, 0.118] | 0.098 [0.084, 0.113] | -0.002 [-0.007, +0.001] | 0.1297 |
+| RB | rec_yds | >= 25 | 438 | 0.1804 | 0.145 [0.124, 0.166] | 0.143 [0.124, 0.162] | -0.002 [-0.005, +0.001] | 0.1478 |
+| RB | rec_yds | >= 50 | 438 | 0.0571 | 0.053 [0.036, 0.071] | 0.052 [0.036, 0.071] | -0.000 [-0.002, +0.001] | 0.0538 |
+| RB | rec_yds | >= 75 | 438 | 0.0068 | 0.007 [0.001, 0.015] | 0.007 [0.001, 0.015] | -0.000 [-0.001, +0.000] | 0.0068 |
+| WR | rec_yds | >= 25 | 776 | 0.4665 | 0.211 [0.195, 0.229] | 0.205 [0.187, 0.222] | -0.006 [-0.009, -0.003] | 0.2489 |
+| WR | rec_yds | >= 50 | 776 | 0.2629 | 0.158 [0.143, 0.172] | 0.154 [0.141, 0.168] | -0.003 [-0.006, -0.001] | 0.1938 |
+| WR | rec_yds | >= 75 | 776 | 0.1302 | 0.099 [0.085, 0.111] | 0.097 [0.084, 0.110] | -0.001 [-0.003, +0.000] | 0.1132 |
+| TE | rec_yds | >= 25 | 444 | 0.3356 | 0.171 [0.152, 0.191] | 0.169 [0.151, 0.188] | -0.002 [-0.005, +0.001] | 0.223 |
+| TE | rec_yds | >= 50 | 444 | 0.1577 | 0.102 [0.085, 0.121] | 0.101 [0.086, 0.117] | -0.001 [-0.005, +0.002] | 0.1328 |
+| TE | rec_yds | >= 75 | 444 | 0.0541 | 0.045 [0.031, 0.060] | 0.046 [0.032, 0.061] | +0.001 [-0.000, +0.003] | 0.0511 |
+| RB | rush_yds | >= 25 | 488 | 0.4693 | 0.194 [0.172, 0.219] | 0.186 [0.163, 0.211] | -0.008 [-0.015, -0.002] | 0.2491 |
+| RB | rush_yds | >= 50 | 488 | 0.2725 | 0.148 [0.130, 0.169] | 0.147 [0.127, 0.167] | -0.002 [-0.006, +0.003] | 0.1983 |
+| RB | rush_yds | >= 75 | 488 | 0.1332 | 0.095 [0.078, 0.112] | 0.096 [0.079, 0.113] | +0.001 [-0.002, +0.004] | 0.1155 |
+| QB | rush_yds | >= 25 | 183 | 0.2077 | 0.161 [0.126, 0.196] | 0.161 [0.126, 0.197] | -0.000 [-0.001, +0.000] | 0.1645 |
+| QB | rush_yds | >= 50 | 183 | 0.0601 | 0.066 [0.038, 0.093] | 0.066 [0.040, 0.093] | +0.000 [-0.000, +0.000] | 0.0565 |
+| QB | rush_yds | >= 75 | 183 | 0.0164 | 0.017 [0.001, 0.036] | 0.017 [0.001, 0.036] | -0.000 [-0.000, +0.000] | 0.0161 |
+
+Negative opp-p2 = the opportunity model is better (lower MAE / Brier). A CI that crosses 0 is not a demonstrated difference.
+
+Brier summary (computed): 6 of 21 thresholds have a 95% CI fully below 0 (WR rec >= 3, WR rec >= 5, TE rec >= 3, WR rec_yds >= 25, WR rec_yds >= 50, RB rush_yds >= 25); 0 fully above 0; 17 of 21 point estimates <= 0.
+
+
 ## C. QB interceptions (QB-games with >= 10 actual attempts: 178; actual INT rate 0.522)
 
 | model | games with P(INT>=1)=0 | of those, actual INT | mean P(INT>=1) | Brier [95% CI] | minus main [95% CI] |
@@ -108,6 +158,7 @@ Brier summary (computed): 5 of 21 thresholds have a 95% CI fully below 0 (WR rec
 | Phase 2 opportunity (PR #38) | 19 | 8 | 0.402 | 0.302 [0.264, 0.337] | +0.003 [-0.018, +0.024] |
 | Phase 2b name-locked + INT pooling | 8 | 3 | 0.416 | 0.279 [0.247, 0.314] | -0.019 [-0.046, +0.005] |
 | Phase 2b opportunity (depth + INT pooling) | 9 | 5 | 0.432 | 0.279 [0.254, 0.307] | -0.019 [-0.050, +0.010] |
+| Phase 2b opportunity WITHOUT INT pooling (depth only) | 19 | 8 | 0.402 | 0.302 [0.264, 0.338] | +0.004 [-0.017, +0.025] |
 
 Remaining Phase 2b zero-probability QB-games: QBs the model did not list as candidates (not all backups; some started, see actual attempts):
 

@@ -82,7 +82,7 @@ LAB = {"main": "main (name-locked, no INT pooling)", "p2opp": "Phase 2 opportuni
        "p2b_noint": "Phase 2b opportunity WITHOUT INT pooling (depth only)"}
 
 
-def markdown(mA, mB, it, r2b, mD=None, nl_identical=None) -> str:
+def markdown(mA, mB, it, r2b, mD=None, nl_identical=None, rn=None) -> str:
     def body(m, raw, a_lab, b_lab):
         s = R.markdown(m, raw).split("## History-capped events")[0]
         s = s.split("\n", 2)[2]  # drop the Phase 2 title line
@@ -105,7 +105,7 @@ def markdown(mA, mB, it, r2b, mD=None, nl_identical=None) -> str:
          *((["## D. Phase 2 opportunity model (PR #38) vs Phase 2b WITHOUT INT pooling (depth signal + grids only)", "",
               f"Same params as 2b, engine without int_pool, same games / n / seed. Name-locked lines identical to the "
               f"Phase 2 run: {nl_identical} (the engine stream is unchanged without pooling).", "",
-              body(mD, r2b, "p2", "2b-noint")]) if mD is not None else []),
+              body(mD, rn or r2b, "p2", "2b-noint")]) if mD is not None else []),
          f"## C. QB interceptions (QB-games with >= {it['min_actual_attempts']} actual attempts: {it['qb_games']}; "
          f"actual INT rate {it['actual_rate']:.3f})", "",
          "| model | games with P(INT>=1)=0 | of those, actual INT | mean P(INT>=1) | Brier [95% CI] | minus main [95% CI] |",
@@ -137,7 +137,7 @@ def main():
         same = all(by2[g["game_id"]] == g["name_locked"] for g in rn["games"]) and len(rn["games"]) == len(r2["games"])
         mD = R.metrics(_pair(r2, r2b, "p2opp", "p2b_noint", rn))
     it = int_table(r2, r2b, rn=rn)
-    md = markdown(mA, mB, it, r2b, mD, same)
+    md = markdown(mA, mB, it, r2b, mD, same, rn)
     for m in (mA, mB, mD):
         if m is not None:
             m.pop("int_zero", None)  # superseded by C_int (the Phase 2 reason labels assume an unpooled engine)
