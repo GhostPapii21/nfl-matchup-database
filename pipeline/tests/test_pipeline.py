@@ -355,8 +355,9 @@ def test_default_engine_is_possession_engine_not_period_engine():
 
 class _FakeLock:
     """Stands in for snapshots.lock: records the run_sim call and returns engine-shaped output."""
-    def __init__(self, n_done=None, semantics=None, statuses=("OK",)):
+    def __init__(self, n_done=None, semantics=None, statuses=("OK",), box_failures=0, no_box=False):
         self.calls, self.n_done, self.semantics, self.statuses = [], n_done, semantics, list(statuses)
+        self.box_failures, self.no_box = box_failures, no_box
 
     def run_sim(self, cfg, pbp, n, seed, workers):
         import numpy as np
@@ -367,9 +368,14 @@ class _FakeLock:
                   **{k: z for k in ("h1_home", "h1_away", "h2_home", "h2_away")}}
         sem = self.semantics or {"status": "NFL43_SEMANTICS_V1", "penalties": {"mode": "canonical_log_v1"},
                                  "returns": {"mode": "asof_league_v1"}, "overtime": "official_2025_regular_season"}
+        # NFL-75 per-player box (shape of player_box.Accumulator.result / merge)
+        box = None if self.no_box else {
+            "schema": "nfl75-player-box/1", "columns": [["NYG", "M.Nabers", "rec"]], "values": np.ones((m, 1)),
+            "team_columns": [["NYG", "rec"]], "team_values": np.ones((m, 1)),
+            "reconciliation": {"trials": n, "failures": self.box_failures, "first_failures": [], "checks": []}}
         return {"arrays": arrays, "joint": {}, "n": n if self.n_done is None else self.n_done, "chunks": 1,
                 "chunk_seeds": [seed], "runtime_sec": 0.0, "statuses": self.statuses, "semantics": sem,
-                "evidence_summary": {}, "limitations": [], "history_evidence": {}}
+                "evidence_summary": {}, "limitations": [], "history_evidence": {}, "player_box": box}
 
     market_lines = staticmethod(lambda freeze, h, a: {"spreads": [], "totals": [], "h2h": []})
 
@@ -395,9 +401,13 @@ def test_default_engine_calls_possession_run_sim_with_100k(tmp_path, monkeypatch
     assert out["engine"].startswith("core/possession_engine_v0") and out["n"] == 100_000
     assert out["semantics_used"] == json.loads(REAL_CFG.read_text())["semantics"]
     assert out["model_weights_changed"] is False
+    assert out["player_box"]["reconciliation"]["failures"] == 0  # NFL-75
+    assert out["player_box"]["summary"]["NYG"]["M.Nabers"]["rec"]["median"] == 1.0
+    assert out["player_box_trials"]["values"].shape == (50, 1)
 
 
 @pytest.mark.parametrize("fake_kw", [{"n_done": 99_999}, {"statuses": ("OK", "ERROR")},
+                                     {"box_failures": 1}, {"no_box": True},
                                      {"semantics": {"status": "LEGACY_UNSUPPORTED", "penalties": "UNSUPPORTED",
                                                     "returns": "UNSUPPORTED", "overtime": "single_possession_approx_declared_limitation"}}])
 def test_engine_output_mismatch_is_refusal(tmp_path, monkeypatch, fake_kw):

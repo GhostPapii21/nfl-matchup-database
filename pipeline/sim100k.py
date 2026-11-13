@@ -246,6 +246,13 @@ def default_engine(pk: dict, trials: int, inputs: dict, workers: int | None = No
            "overtime": used.get("overtime")}
     if used.get("status") != "NFL43_SEMANTICS_V1" or any(got[k] != want.get(k) for k in SEMANTICS_KEYS):
         raise RuntimeError(f"engine ran semantics {got} (status {used.get('status')}), not the gated {want}")
+    # NFL-75: per-player box lines must exist for every trial and reconcile exactly with the team ledger and the
+    # engine's own events; anything else is a refusal (observational layer, game results unaffected).
+    from player_box import summarize as _box_summary
+    pb = sim.get("player_box") or {}
+    rec = pb.get("reconciliation") or {}
+    if rec.get("trials") != trials or rec.get("failures") != 0:
+        raise RuntimeError(f"per-player box reconciliation failed or missing: {rec or 'no player_box'}")
     freeze = json.loads(Path(inputs["price_freeze"]).read_text()) if inputs.get("price_freeze") else None
     lines = L.market_lines(freeze, g.get("home_name"), g.get("away_name"))
     summary = L.summarize(sim["arrays"], lines, g["home"], g["away"], g.get("home_name"), g.get("away_name"))
@@ -259,7 +266,15 @@ def default_engine(pk: dict, trials: int, inputs: dict, workers: int | None = No
             "price_freeze_pulled_utc": ((freeze or {}).get("meta") or {}).get("pulled_utc"),
             "n": sim["n"], "seed": seed, "chunks": sim["chunks"], "chunk_seeds": sim["chunk_seeds"],
             "runtime_sec": sim["runtime_sec"], "model_weights_changed": False,
-            "nfl42_entrypoint": {"status": ep["status"], "authorized_sha256": ep.get("authorized_sha256")}, "summary": summary}
+            "nfl42_entrypoint": {"status": ep["status"], "authorized_sha256": ep.get("authorized_sha256")}, "summary": summary,
+            "player_box": {"schema": pb.get("schema"), "reconciliation": rec, "n_columns": len(pb["columns"]),
+                           "summary": _box_summary(pb["columns"], pb["values"]),
+                           "team_summary": _box_summary([[t, "TEAM", s] for t, s in pb["team_columns"]],
+                                                        pb["team_values"]),
+                           "attribution": "core/possession_engine_v0/player_box.py docstring", "research_only": True},
+            # per-trial lines (n x columns); main() writes them to an .npz with --write, never into the JSON report
+            "player_box_trials": {"columns": pb["columns"], "values": pb["values"],
+                                  "team_columns": pb["team_columns"], "team_values": pb["team_values"]}}
 
 
 def run(game_id: str, packet: Path | None = None, engine=default_engine, **kw) -> tuple[int, dict]:
@@ -298,6 +313,7 @@ def main(argv=None) -> int:
     ap.add_argument("--write", action="store_true", help="write pipeline/ledgers/<game>.sim100k.json")
     a = ap.parse_args(argv)
     code, rep = run(a.game, a.packet)
+    box_trials = (rep.get("result") or {}).pop("player_box_trials", None) if isinstance(rep.get("result"), dict) else None
     if rep["status"] == "REFUSED":
         print(f"sim100k: REFUSED for {a.game}. Nothing was simulated. Reasons:")
         for r in rep["reasons"]:
@@ -306,6 +322,13 @@ def main(argv=None) -> int:
         print(f"sim100k: ran {TRIALS:,} trials for {a.game} (research only; projection_ready stays false).")
     if a.write:
         PH.LEDGERS.mkdir(parents=True, exist_ok=True)
+        if box_trials is not None:  # NFL-75: per-trial per-player box lines, same trial order as the summary arrays
+            import numpy as np
+            np.savez_compressed(PH.LEDGERS / f"{a.game}.sim100k.player_box.npz",
+                                columns=np.array(["|".join(c) for c in box_trials["columns"]]),
+                                values=box_trials["values"].astype(np.float32),
+                                team_columns=np.array(["|".join(c) for c in box_trials["team_columns"]]),
+                                team_values=box_trials["team_values"].astype(np.float32))
         (PH.LEDGERS / f"{a.game}.sim100k.json").write_text(json.dumps(rep, indent=1, default=str) + "\n")
     return code
 

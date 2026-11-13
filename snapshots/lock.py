@@ -65,6 +65,7 @@ def _chunk(args):
     arrays = {k: np.asarray(v) for k, v in out["arrays"].items()}
     joint = out.get("player_joint") or {}
     return {"arrays": arrays, "joint": joint, "n": out["n_completed"], "status": out["status"],
+            "player_box": out.get("player_box"),
             "semantics": out.get("semantics"), "evidence_summary": out.get("evidence_summary"),
             "limitations": out.get("limitations"), "history_evidence": out.get("history_evidence")}
 
@@ -95,7 +96,13 @@ def run_sim(cfg: dict, pbp: str, n: int, seed: int, workers: int) -> dict:
                 for pl, v in players.items():
                     joint.setdefault(kind, {}).setdefault(team, {}).setdefault(pl, 0.0)
                     joint[kind][team][pl] += v * p["n"] / n
+    # NFL-75: per-trial per-player box lines, chunk order preserved (same order as arrays)
+    if str(ENGINE) not in sys.path:
+        sys.path.insert(0, str(ENGINE))
+    from player_box import merge as _merge_box
+    player_box = _merge_box([p.get("player_box") for p in parts])
     return {"arrays": arrays, "joint": joint, "n": int(sum(p["n"] for p in parts)), "chunks": len(parts),
+            "player_box": player_box,
             "chunk_seeds": [j[3] for j in jobs], "runtime_sec": round(time.time() - t0, 1),
             "statuses": sorted({p["status"] for p in parts}), "semantics": parts[0]["semantics"],
             "evidence_summary": parts[0]["evidence_summary"], "limitations": parts[0]["limitations"],
