@@ -687,6 +687,8 @@ def _apply_row(rng: np.random.Generator, catalog, st: GameState, row, gl_tag: Op
     st.events.append(ev)
     if st.player_box is not None:  # NFL-75: observational per-player box line (no RNG, no state change)
         st.player_box.snap(st, row, play_type, yards)
+        if st.opp_box is not None:  # NFL-75 Phase 2: opt-in opportunity recorder (own RNG, no state change)
+            st.opp_box.snap(st, row, play_type, yards)
 
     def _i(c):
         v = row.get(c)
@@ -1019,6 +1021,11 @@ def simulate_one(df: pd.DataFrame, catalog: PlayCatalog, cfg: dict, rng: np.rand
     if lookup is not None:  # NFL-75: per-player box recorder (observational only)
         from player_box import BoxRecorder
         st.player_box = BoxRecorder(home=home, away=away, lookup=lookup)
+        opp = getattr(catalog, "_opportunity", None)
+        if opp is not None:  # NFL-75 Phase 2 (opt-in): second observational recorder with its own RNG stream
+            from opportunity import OpportunityRecorder
+            st.opp_box = OpportunityRecorder(home=home, away=away, lookup=lookup, model=opp["model"],
+                                             rng=opp["rng"], opp_lookup=opp["lookup"], name_locked=st.player_box)
     allow_pool = bool(cfg.get("proposed_pooling", {}).get("enabled", False))
     # Default research improvements (still labeled; not market-fit).
     # Duck-type EffectsCatalog / PlayCatalog: prefer methods on wrapper, else base.
@@ -1192,18 +1199,34 @@ def source_composition(cfg):
     return f"team_only_{game['season']}_w{min(weeks)}_{max(weeks)}_{game['away']}_{game['home']}_empirical_not_possession_EP_model"
 
 
+def _opp_result(acc, model: dict) -> dict:
+    """NFL-75 Phase 2: opportunity-recorder result with its own reconciliation check list."""
+    from opportunity import RECON_CHECKS, SCHEMA
+    r = acc.result()
+    r["schema"] = SCHEMA
+    r["reconciliation"]["checks"] = list(RECON_CHECKS)
+    r["attribution"] = "opportunity.py module docstring"
+    r["model_meta"] = model.get("meta", {})
+    return r
+
+
 RESEARCH_MAX_N = 20_000  # research_unaccepted runs are capped here (never a 100k / lock run)
 
 
 def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
-                   research_unaccepted: tuple = (), record_players: bool = True) -> dict[str, Any]:
+                   research_unaccepted: tuple = (), record_players: bool = True,
+                   opportunity_model: Optional[dict] = None) -> dict[str, Any]:
     """research_unaccepted: names of still_unsupported NFL-43 semantics this RESEARCH call may run although Ghost6 has
     not accepted their bounds (only "rare_plays" is recognised). n must be <= RESEARCH_MAX_N; the output is labeled
     UNACCEPTED_RESEARCH_ONLY. Configs alone can never do this: a config that enables rare plays is refused by
     nfl43.still_unsupported in every lock / 100k / rocket path, which never pass this argument.
     record_players (NFL-75): attach the observational per-player box recorder (player_box.py) and return
     result["player_box"] (per-trial player lines, team ledger, per-trial reconciliation). Game results are
-    bit-identical with it on or off."""
+    bit-identical with it on or off.
+    opportunity_model (NFL-75 Phase 2, opt-in, default None = off): a frozen model dict from
+    calibration/opportunity_fit.py. Adds result["player_box_opportunity"]: per-player lines with every sampled
+    opportunity re-attributed to the point-in-time roster by role/share (opportunity.py). Uses its own RNG stream, so
+    every other output block (games, yard ledger, name-locked player_box) is byte-identical with it on or off."""
     if "joint_producer" in cfg:
         # The frozen model path owns its input reads, seed policy and ledger.
         # Never reuse historical yard-row player assignments as opportunities.
@@ -1254,6 +1277,16 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
         gsrc = hist.get("games_df") if hist.get("games_df") is not None else df
         catalog._player_box_lookup = load_lookup(pbp_path, gsrc["game_id"].unique())
         box_acc = Accumulator()
+    opp_acc = None
+    if opportunity_model is not None:
+        if not record_players:
+            raise ValueError("opportunity_model needs record_players=True (it reconciles against the name-locked box)")
+        from opportunity import load_opp_lookup, SALT, SCHEMA as _OPP_SCHEMA
+        if opportunity_model.get("schema") != _OPP_SCHEMA:
+            raise ValueError(f"opportunity_model schema must be {_OPP_SCHEMA}")
+        catalog._opportunity = {"model": opportunity_model, "lookup": load_opp_lookup(pbp_path, gsrc["game_id"].unique()),
+                                "rng": np.random.default_rng(np.random.SeedSequence([int(seed) % (2 ** 63), SALT]))}
+        opp_acc = Accumulator()
     rng = np.random.default_rng(seed)
     buckets = {k: [] for k in [
         "q1_home","q1_away","q2_home","q2_away","q3_home","q3_away","q4_home","q4_away",
@@ -1317,6 +1350,8 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
         n_coarse_blitz += sum(1 for f in st.sparse_flags if f.startswith("COARSE_BLITZ"))
         if box_acc is not None:
             box_acc.add(st.player_box, st)
+        if opp_acc is not None:
+            opp_acc.add(st.opp_box, st)
         player_samples.append({f"{k}|{tm}|{pl}": y for k, d in st.player_counts.items() for tm, pls in d.items() for pl, y in pls.items()})
         for kind in ("pass_yards", "rush_yards", "rec_yards"):
             for team, players in st.player_counts.get(kind, {}).items():
@@ -1367,6 +1402,7 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
         "player_joint": joint_acc,
         "player_samples": player_samples,
         **({"player_box": box_acc.result()} if box_acc is not None else {}),
+        **({"player_box_opportunity": _opp_result(opp_acc, opportunity_model)} if opp_acc is not None else {}),
         "effects_provenance": effects_prov,
         "semantics": semantics_meta,
         "limitations": [
