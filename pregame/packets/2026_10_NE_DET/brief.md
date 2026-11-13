@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-15, 09:30 ET.** Site: Neutral; roof: dome; surface: fieldturf. Rest: NE 7 days, DET 7 days. Listed QBs: Drake Maye (NE), Jared Goff (DET).
 
-Market (schedule consensus, not a timestamped quote): DET -3, total 49.5.
+Market (schedule consensus, not a timestamped quote): DET -2.5, total 49.5.
 
-Generated 2026-11-13T22:52:31+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-13T23:06:39+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,25 +12,25 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-13T22:52:29+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-13T23:06:37+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | DET -2.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-13T22:49:35Z |
-| spread | williamhill_us | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T22:50:12Z |
-| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T22:51:45Z |
-| spread | pinnacle | DET -2.5 | -115 | +102 | 51.9% | 48.1% | 3.0% | 2026-11-13T22:52:04Z |
-| spread | hardrockbet | DET -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T22:52:06Z |
-| total | draftkings | Over 49.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-13T22:49:35Z |
-| total | williamhill_us | Over 49.5 | -117 | -104 | 51.4% | 48.6% | 4.9% | 2026-11-13T22:50:12Z |
-| total | fanduel | Over 49.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T22:51:45Z |
-| total | pinnacle | Over 49 | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-13T22:52:04Z |
-| total | hardrockbet | Over 50 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T22:52:06Z |
-| moneyline | draftkings | DET | -148 | +124 | 57.2% | 42.8% | 4.3% | 2026-11-13T22:49:35Z |
-| moneyline | williamhill_us | DET | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-13T22:50:12Z |
-| moneyline | fanduel | DET | -152 | +128 | 57.9% | 42.1% | 4.2% | 2026-11-13T22:51:45Z |
-| moneyline | pinnacle | DET | -147 | +130 | 57.8% | 42.2% | 3.0% | 2026-11-13T22:52:04Z |
-| moneyline | hardrockbet | DET | -150 | +130 | 58.0% | 42.0% | 3.5% | 2026-11-13T22:52:06Z |
+| spread | draftkings | DET -2.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-13T23:05:48Z |
+| spread | williamhill_us | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T23:05:49Z |
+| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T23:06:09Z |
+| spread | pinnacle | DET -2.5 | -115 | +102 | 51.9% | 48.1% | 3.0% | 2026-11-13T23:06:09Z |
+| spread | hardrockbet | DET -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T23:05:50Z |
+| total | draftkings | Over 49.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-13T23:05:48Z |
+| total | williamhill_us | Over 49.5 | -117 | -104 | 51.4% | 48.6% | 4.9% | 2026-11-13T23:05:49Z |
+| total | fanduel | Over 49.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T23:06:09Z |
+| total | pinnacle | Over 49 | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-13T23:06:09Z |
+| total | hardrockbet | Over 50 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T23:05:50Z |
+| moneyline | draftkings | DET | -148 | +124 | 57.2% | 42.8% | 4.3% | 2026-11-13T23:05:48Z |
+| moneyline | williamhill_us | DET | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-13T23:05:49Z |
+| moneyline | fanduel | DET | -152 | +128 | 57.9% | 42.1% | 4.2% | 2026-11-13T23:06:09Z |
+| moneyline | pinnacle | DET | -147 | +130 | 57.8% | 42.2% | 3.0% | 2026-11-13T23:06:09Z |
+| moneyline | hardrockbet | DET | -150 | +130 | 58.0% | 42.0% | 3.5% | 2026-11-13T23:05:50Z |
 
 ### Same-line consensus (retail books only)
 
@@ -58,7 +58,7 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 40 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 39 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -88,8 +88,8 @@ Player props: NOT_FETCHED: kickoff is 40 hours away (props are pulled inside 36 
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | NE 25.5 - DET 23.9 | 49.4 | -1.6 | 41.2% | 36.3% | 48.9% | NE 12.9 - DET 11.8 |
-| independent | NE 27.0 - DET 27.6 | 54.6 | +0.6 | 48.0% | 41.7% | 65.6% | NE 15.3 - DET 13.7 |
+| matchup_pair | NE 25.5 - DET 23.9 | 49.4 | -1.6 | 41.2% | 40.8% | 48.9% | NE 12.9 - DET 11.8 |
+| independent | NE 27.0 - DET 27.6 | 54.6 | +0.6 | 48.0% | 43.8% | 65.6% | NE 15.3 - DET 13.7 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -357,7 +357,7 @@ Defensive front: LDE Christian Barmore, NT Cory Durden, RDE Milton Williams, WLB
 | Brenden Schooler | S |  | Questionable | Limited Participation in Practice | Hamstring |
 | Cameron Latu | TE |  | Questionable | Limited Participation in Practice | Back |
 
-ESPN live list (designations only): Reggie Gilliam (FB) Injured Reserve; Walter Rouse (OL) Questionable; Cameron Latu (TE) Questionable; Carlton Davis III (CB) Out; Ben Brown (C) Out; TreVeyon Henderson (RB) Out; A.J. Brown (WR) Questionable; Rhamondre Stevenson (RB) Questionable; Kevin Byard (S) Questionable; Charles Woods (CB) Questionable.
+ESPN live list (designations only): Reggie Gilliam (FB) Injured Reserve; Walter Rouse (OL) Questionable; Cameron Latu (TE) Questionable; Carlton Davis III (CB) Out; Ben Brown (C) Out; TreVeyon Henderson (RB) Out; A.J. Brown (WR) Questionable; Rhamondre Stevenson (RB) Questionable; Kevin Byard (S) Questionable; Charles Woods (CB) Questionable; Brenden Schooler (S) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -625,16 +625,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-13T22:52:28+00:00 | 1821c02fa1eb |
-| pbp | OK | 2026-11-13T22:52:28+00:00 | 63d725b49ed1 |
-| rosters | OK | 2026-11-13T22:52:28+00:00 | 99651c418f80 |
-| injuries | OK | 2026-11-13T22:52:28+00:00 | 65d181dfc372 |
-| depth_charts | OK | 2026-11-13T22:52:28+00:00 | 341d1eddeaf6 |
-| snap_counts | OK | 2026-11-13T22:52:28+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-13T22:52:28+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-13T22:52:28+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-13T22:52:29+00:00 |  |
+| games | OK | 2026-11-13T23:06:35+00:00 | 9186df1ea1b1 |
+| pbp | OK | 2026-11-13T23:06:36+00:00 | 63d725b49ed1 |
+| rosters | OK | 2026-11-13T23:06:36+00:00 | 99651c418f80 |
+| injuries | OK | 2026-11-13T23:06:36+00:00 | 65d181dfc372 |
+| depth_charts | OK | 2026-11-13T23:06:36+00:00 | 341d1eddeaf6 |
+| snap_counts | OK | 2026-11-13T23:06:36+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-13T23:06:36+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-13T23:06:36+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-13T23:06:37+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-13T22:52:29+00:00 |  |
+| book_odds | OK | 2026-11-13T23:06:37+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
