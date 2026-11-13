@@ -92,6 +92,39 @@ Runtime: W8 83 legs 10.5 s total (3 engines in parallel), TNF 6 players 1.8 s ->
 Sunday slate (~100-150 rush legs, ~70-90 players) is well under a minute. Disk: per run ~0.1 MB output + 3.4 MB fetched
 parquet (box-local); committed: engines 284 KB + players table 476 KB.
 
+## Embedded provenance (Ghost6 follow-up to PR #44)
+The probability files carry their own provenance, so the PR #44 emitter can verify where p_model came from instead
+of trusting `--prob-source` / `--qb-override-applied`.
+
+- `run` now also writes `probs/<game_id>.simv56.probs.csv`, one file per game. It uses schema
+  `nfl75-simv56-probs/1` (spec at the top of the provenance block in `calibration/simv56_pmodel.py`).
+- Each row holds the ensemble `p_under` / `p_over` at a priced line of a gate-ok rush leg, written as `repr()`, so the
+  values round-trip exactly.
+- Every row carries the same provenance fields:
+  - `prob_source=sim_v5_v6_ensemble`
+  - `p_model_settings`
+  - `code_git_sha`, plus `code_dirty` for the simv56 code paths
+  - `code_sha256` of `simv56_pmodel.py`
+  - `inputs_sha256`: pbp, players, games.csv, depth chart, injuries, legs, engines `SHA256SUMS`, home spreads, the
+    freezes used, and the inactives CSV if given
+  - `qb_overrides`: one entry per team in the game. Each entry has the team, the starter and starter gsis, a
+    `qb_gate` (ok / qb_starter_unknown / qb_starter_thin_history), prior primary games for that team, the skipped
+    QBs, and the depth-chart, injury and inactives source URLs with their retrieved-UTC timestamps, plus `as_of`
+  - `generated_utc`
+  - `data_sha256`, the digest of the data rows
+  - `provenance_sha256`, the digest of the canonical JSON of the fields above
+- `ensemble.csv` and `legs_p.csv` carry the same run-level provenance columns. `meta.json` has the full provenance
+  block.
+- Demo: `demo_w10_WAS_NYG/probs/2026_10_WAS_NYG.simv56.probs.csv`. It was regenerated at code sha 4844e12 (clean),
+  and its probabilities are bit-identical to the earlier demo.
+
+Feeding the emitter (the companion draft PR off main teaches `calibration/selective_edge_emit.py` to verify this):
+
+```bash
+python3 -m calibration.selective_edge_emit --date 2026-11-15 --freeze <freeze_v2 files> \
+  --probs /tmp/w10_simv56_1130/probs --roster <roster parquet> --pbp <pbp parquet>
+```
+
 ## Remaining blockers / caveats
 - **No automated inactives source.** The 11:30 re-run needs an inactives CSV someone produces (gamebook / team PR);
   without it the gate uses the injury report only.
