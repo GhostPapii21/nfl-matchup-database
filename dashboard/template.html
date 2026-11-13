@@ -172,6 +172,15 @@ textarea { width: 100%; min-height: 360px; font: 12px/1.5 ui-monospace, SFMono-R
   border: 1px solid var(--line); border-radius: var(--r); padding: 12px; resize: vertical; }
 .btn { background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 999px; padding: 9px 18px; font-weight: 700; cursor: pointer; }
 .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); text-decoration: none; display: inline-block; }
+.chance { display: grid; grid-template-columns: 70px minmax(0, 1fr) 44px; gap: 8px; align-items: center; font-size: 12px; }
+.chance .bar { height: 10px; }
+.chance .bar i { background: var(--accent); }
+.chance.hl .lab2 { font-weight: 700; color: var(--ink); }
+.chance .lab2 { color: var(--muted); }
+.chance .num { text-align: right; font-weight: 600; }
+.big { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1; }
+.flow { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.flow .arrow { color: var(--muted); }
 .toast { color: var(--good); font-weight: 600; font-size: 13px; }
 footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
 @media (max-width: 520px) {
@@ -202,7 +211,7 @@ const BOARD = /*__BOARD_DATA__*/null;
   const games = (BOARD && BOARD.games) || [];
   const state = { gi: 0, dir: 0, tab: "overview" };
   const TABS = [["overview", "Overview"], ["matchup", "What the defense allows"], ["defenders", "Defenders"], ["qb", "Quarterback"],
-                ["players", "Receivers & backs"], ["injuries", "Injuries"], ["h2h", "Last meeting"], ["odds", "Odds"], ["weather", "Weather & rest"],
+                ["players", "Receivers & backs"], ["opportunity", "Opportunity"], ["injuries", "Injuries"], ["h2h", "Last meeting"], ["odds", "Odds"], ["weather", "Weather & rest"],
                 ["grok", "Copy for Grok"]];
 
   // ---------------------------------------------------------------- helpers
@@ -437,7 +446,7 @@ const BOARD = /*__BOARD_DATA__*/null;
   }
   function renderOverview(g) {
     const ks = sideKeys(g), s1 = g.sides[ks[0]], s2 = g.sides[ks[1]];
-    return `<div class="grid two">${edgesCard(s1)}${edgesCard(s2)}</div>
+    return `${oppLeadersCard(g)}<div class="grid two">${edgesCard(s1)}${edgesCard(s2)}</div>
       <div class="grid two">${topReceiversCard(s1)}${topReceiversCard(s2)}</div>
       <div class="grid two">${targetsCard(s1)}${targetsCard(s2)}</div>
       <div class="grid two">${qbQuickCard(s1)}${qbQuickCard(s2)}</div>
@@ -618,6 +627,58 @@ const BOARD = /*__BOARD_DATA__*/null;
       <p class="note">Roles: Primary = top target share; Volume = 7+ targets a game; Deep threat = 13+ yard average depth; Possession = short targets caught 72%+; Boom-bust and Steady come from how much the yardage swings game to game; Rising and Falling compare the last three games with the window; Lead back = 60%+ of carries.</p>`;
   }
 
+  // ---------------------------------------------------------------- opportunity
+  function chanceRows(obj, label, hl, hist, histKey) {
+    return Object.entries(obj || {}).map(([t, p]) => `<div class="chance ${hl.includes(+t) ? "hl" : ""}"><span class="lab2">${t}+ ${label}</span><div class="bar"><i style="width:${Math.max(1, (p || 0) * 100)}%"></i></div><span class="num">${pct(p)}</span></div>`).join("");
+  }
+  function oppRecCard(o, r, s) {
+    if (r.status) return `<div class="card"><div class="player-head"><span class="nm">${esc(r.player)} <span class="pos">${esc(r.pos)}</span></span><span class="pill bad">Out</span></div><p class="note">${esc(r.status)}. His share goes to the others.</p></div>`;
+    const I = r.inputs || {}, H = r.history || {};
+    const need70 = (r.targets_needed || {})["70"], c70 = (r.targets_needed_chance || {})["70"];
+    const pk = (r.pos || "").toUpperCase();
+    return `<div class="card"><div class="player-head"><span class="nm">${esc(r.player)} <span class="pos">${esc(r.pos)}</span></span><span class="note">middle half ${(r.yards_p25_p75 || []).join("–")} yds</span></div>
+      <div class="flow"><span class="big">${n(r.targets_mean, 1)}</span><span class="note">targets</span><span class="arrow">→</span><span class="big">${n(r.receptions_mean, 1)}</span><span class="note">catches</span><span class="arrow">→</span><span class="big">${n(r.yards_median, 0)}</span><span class="note">yards (median)</span></div>
+      <div class="note">To reach 70 yards he needs about <b>${need70 ?? "–"} targets</b> at ${n(I.yards_per_target, 1)} yards per target. This game projects ${n(r.targets_mean, 1)}; he gets ${need70 ?? "–"}+ targets in ${pct(c70)} of simulations.</div>
+      <div class="note">${esc(s.defense)} allows ${n(I.def_allows_position_yards_pg, 1)} yards a game to ${esc(pk)}s. He has drawn ${pct(I.position_share)} of ${esc(s.offense)}'s ${esc(pk)} targets, so his slice is about <b>${n(I.his_slice_of_that, 0)} yards</b> before this game's volume and his efficiency.</div>
+      <div><div class="k">Chance of reaching</div>${chanceRows(r.yards, "yds", [70, 80])}</div>
+      <div><div class="k">Catches</div>${chanceRows(Object.fromEntries(Object.entries(r.receptions || {}).filter(([t]) => +t >= 3 && +t <= 7)), "rec", [])}</div>
+      <div class="note">His last ${H.games} games: 50+ in ${H["50"]}, 70+ in ${H["70"]}, 80+ in ${H["80"]}, 100+ in ${H["100"]}.</div>
+      <div class="note">Share used ${pct(I.target_share_used, 1)} (window ${pct(I.target_share_window, 1)}, last 3 ${pct(I.target_share_last3, 1)}${I.injury_bump ? `, +${pct(I.injury_bump, 1)} from teammates out` : ""}) · catch rate ${pct(I.catch_rate)} vs this defense · ${n(I.yards_per_catch, 1)} yds per catch</div></div>`;
+  }
+  function oppRushCard(o, r, s) {
+    if (r.status) return `<div class="card"><div class="player-head"><span class="nm">${esc(r.player)} <span class="pos">${esc(r.pos)}</span></span><span class="pill bad">Out</span></div><p class="note">${esc(r.status)}. His carries go to the others.</p></div>`;
+    const I = r.inputs || {}, H = r.history || {};
+    const rule = (I.carry_share_window || 0) < 0.6 ? `<div class="banner bad" style="padding:6px 10px;font-size:12px">Under 60% of carries: do not play his rushing legs (your rule)</div>` : "";
+    return `<div class="card"><div class="player-head"><span class="nm">${esc(r.player)} <span class="pos">${esc(r.pos)}</span></span><span class="note">middle half ${(r.yards_p25_p75 || []).join("–")} yds</span></div>${rule}
+      <div class="flow"><span class="big">${n(r.carries_mean, 1)}</span><span class="note">carries</span><span class="arrow">→</span><span class="big">${n(r.yards_median, 0)}</span><span class="note">rush yards (median)</span></div>
+      <div class="note">${esc(s.defense)} allows ${n(I.def_yards_per_carry_allowed, 2)} yards per carry to backs (league ${n(I.league_yards_per_carry, 2)}). His adjusted rate: ${n(I.yards_per_carry, 2)}.</div>
+      <div><div class="k">Chance of reaching</div>${chanceRows(r.yards, "yds", [70, 80])}</div>
+      <div><div class="k">Carries</div>${chanceRows(r.carries, "car", [])}</div>
+      <div class="note">His last ${H.games} games: 50+ in ${H["50"]}, 70+ in ${H["70"]}, 100+ in ${H["100"]}. Carry share used ${pct(I.carry_share_used, 1)} (window ${pct(I.carry_share_window, 1)}, last 3 ${pct(I.carry_share_last3, 1)}${I.injury_bump ? `, +${pct(I.injury_bump, 1)} from teammates out` : ""}).</div></div>`;
+  }
+  function renderOpportunity(g) {
+    const s = S(), o = s.opportunity;
+    if (!o || o.error) return `<div class="card"><p class="empty">Opportunity not available${o && o.error ? ": " + esc(o.error) : ""}.</p></div>`;
+    const sm = o.script_pass_multiplier, wm = o.weather_attempts_multiplier;
+    return `<div class="card"><h4>${esc(o.team)} volume this game</h4><div class="sub">Does this game give the chance? Volume first, then what he does with it, simulated 20,000 times.</div>
+      <div class="nums"><div><div class="k">Plays</div><div class="v">${n(o.plays, 1)}</div></div><div><div class="k">Pass attempts</div><div class="v">${n(o.team_pass_attempts, 1)}</div></div><div><div class="k">Rush attempts</div><div class="v">${n(o.team_rush_attempts, 1)}</div></div><div><div class="k">Implied margin</div><div class="v">${signed(o.implied_margin, 1)}</div></div></div>
+      <div class="note">Script: ${isNum(sm) && sm !== 1 ? (sm < 1 ? `favored, so about ${pct(1 - sm)} fewer passes` : `trailing, so about ${pct(sm - 1)} more passes`) : "neutral"}. Weather: ${isNum(wm) && Math.abs(wm - 1) > 0.005 ? `${pct(1 - wm, 1)} fewer attempts` : "no effect"}.${o.missing_target_share ? ` Teammates out free up ${pct(o.missing_target_share)} of targets.` : ""}${o.missing_carry_share ? ` Backs out free up ${pct(o.missing_carry_share)} of carries.` : ""}</div>
+      <div class="note">Tested on 2024–2026 games using only what was known before each game: when it gave a 70+ yard chance of about 13%, receivers hit about 13%, and it beat each player's own hit history at every line. Highest-percentage calls (60%+) run a little hot. It does not see props, coverage assignments or late news.</div></div>
+      <div class="section-title">${esc(o.team)} pass catchers</div><div class="grid">${(o.receivers || []).map((r) => oppRecCard(o, r, s)).join("") || '<p class="empty">No receivers with 8+ targets.</p>'}</div>
+      <div class="section-title">${esc(o.team)} running backs</div><div class="grid">${(o.rushers || []).map((r) => oppRushCard(o, r, s)).join("") || '<p class="empty">No backs with 8+ carries.</p>'}</div>`;
+  }
+  function oppLeadersCard(g) {
+    const rows = [];
+    Object.values(g.sides).forEach((s) => { const o = s.opportunity; if (!o || o.error) return;
+      (o.receivers || []).filter((r) => !r.status).forEach((r) => rows.push([s.offense, r.player, r.pos, r.yards_median, (r.yards || {})["70"], (r.yards || {})["80"], "rec"]));
+      (o.rushers || []).filter((r) => !r.status).forEach((r) => rows.push([s.offense, r.player, r.pos, r.yards_median, (r.yards || {})["70"], (r.yards || {})["80"], "rush"])); });
+    rows.sort((a, b) => (b[4] || 0) - (a[4] || 0));
+    if (!rows.length) return "";
+    return `<div class="card"><h4>Who has the opportunity</h4><div class="sub">Chance of 70+ and 80+ yards in this game, from volume and efficiency against this defense</div><div class="tablewrap"><table>
+      <thead><tr><th>Player</th><th>Type</th><th>Median yds</th><th>70+</th><th>80+</th></tr></thead><tbody>
+      ${rows.slice(0, 10).map((x) => `<tr><td>${esc(x[0])} ${esc(x[1])} <span class="note">${esc(x[2])}</span></td><td>${x[6] === "rec" ? "receiving" : "rushing"}</td><td>${n(x[3], 0)}</td><td>${pct(x[4])}</td><td>${pct(x[5])}</td></tr>`).join("")}</tbody></table></div></div>`;
+  }
+
   // ---------------------------------------------------------------- injuries
   function injCard(team, list, returning) {
     const show = (list || []).filter((x) => x.status_level >= 2 || x.impact !== "low" || x.practice);
@@ -725,6 +786,10 @@ const BOARD = /*__BOARD_DATA__*/null;
       if (s.coverage_profile) L.push(`${s.defense} coverage ${s.coverage_profile.season}: ${pct(s.coverage_profile.zone_rate)} zone, shells ${(s.coverage_profile.shells || []).map((x) => x.shell + " " + pct(x.rate)).join(", ")}.`);
       ((s.roles || {}).receivers || []).slice(0, 5).forEach((r) => L.push(`- ${r.full_name || r.player} ${r.pos}: ${pct(r.target_share)} tgt share, ${n(r.targets_pg, 1)} tgt/g, ${n(r.yards_pg, 0)} yds/g, aDOT ${n(r.avg_depth_of_target, 1)}, RZ tgt ${r.red_zone_targets}. Roles: ${(r.tags || []).map((t) => t.tag).join(", ") || "none"}.`));
       ((s.roles || {}).rushers || []).slice(0, 3).forEach((r) => L.push(`- ${r.full_name || r.player} ${r.pos}: ${pct(r.carry_share)} of carries, ${n(r.yards_pg, 0)} yds/g, ${n(r.yards_per_carry, 2)} YPC, RZ carries ${r.red_zone_carries}. Roles: ${(r.tags || []).map((t) => t.tag).join(", ") || "none"}.`));
+      const o = s.opportunity;
+      if (o && !o.error) { L.push(`Volume this game: ${n(o.team_pass_attempts, 1)} pass attempts, ${n(o.team_rush_attempts, 1)} rush attempts (implied margin ${signed(o.implied_margin, 1)}).`);
+        (o.receivers || []).filter((r) => !r.status).slice(0, 5).forEach((r) => L.push(`- Opportunity ${r.player}: ${n(r.targets_mean, 1)} targets, median ${n(r.yards_median, 0)} yds, 70+ ${pct((r.yards || {})["70"])}, 80+ ${pct((r.yards || {})["80"])}, needs ${(r.targets_needed || {})["70"]} targets for 70.`));
+        (o.rushers || []).filter((r) => !r.status).slice(0, 3).forEach((r) => L.push(`- Opportunity ${r.player}: ${n(r.carries_mean, 1)} carries, median ${n(r.yards_median, 0)} rush yds, 70+ ${pct((r.yards || {})["70"])}.`)); }
       const inj = (s.offense_injuries || []).filter((x) => x.status_level >= 2 && x.impact !== "low");
       if (inj.length) L.push(`${s.offense} injuries: ${inj.map((x) => `${x.player} ${x.position} ${x.game_status || x.espn || ""}${x.next_up ? " (next: " + x.next_up + ")" : ""}`).join("; ")}`);
       (s.returning || []).forEach((r) => L.push(`${s.offense} back from injury: ${r.player} ${r.position}, ${pct(r.snap_pct_before)} snaps before, ${pct(r.snap_pct_last_game)} last game (${r.status}).`));
@@ -745,9 +810,9 @@ const BOARD = /*__BOARD_DATA__*/null;
     const g = G();
     if (!g) { document.getElementById("sheet").innerHTML = `<div class="card"><p class="empty">No games on the board yet. Packets are built Tuesday morning for the week.</p></div>`; return; }
     const ks = sideKeys(g);
-    const dirNeeded = ["matchup", "defenders", "qb", "players"].includes(state.tab);
+    const dirNeeded = ["matchup", "defenders", "qb", "players", "opportunity"].includes(state.tab);
     const dirBtns = ks.map((k, i) => { const s = g.sides[k]; return `<button aria-pressed="${i === state.dir}" data-dir="${i}">${esc(s.offense)} offense vs ${esc(s.defense)} defense</button>`; }).join("");
-    const body = { overview: renderOverview, matchup: renderMatchup, defenders: renderDefenders, qb: renderQB, players: renderPlayers, injuries: renderInjuries,
+    const body = { overview: renderOverview, matchup: renderMatchup, defenders: renderDefenders, qb: renderQB, players: renderPlayers, opportunity: renderOpportunity, injuries: renderInjuries,
                    h2h: renderH2H, odds: renderOdds, weather: renderWeather, grok: renderGrok }[state.tab](g);
     document.getElementById("sheet").innerHTML = renderHeader(g) +
       `<div class="tabs" role="tablist">${TABS.map(([k, l]) => `<button role="tab" aria-selected="${k === state.tab}" data-tab="${k}">${esc(l)}</button>`).join("")}</div>` +

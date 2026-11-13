@@ -27,8 +27,12 @@
   }
  },
  "result": null,
+ "implied_points": {
+  "CLE": 17.75,
+  "HOU": 22.75
+ },
  "generated_utc": "2026-11-13T21:36:32+00:00",
- "board_built_utc": "2026-11-13T21:39:26+00:00",
+ "board_built_utc": "2026-11-13T22:30:27+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": 4.5,
@@ -5283,6 +5287,688 @@
       "status": "Questionable"
      }
     ]
+   },
+   "opportunity": {
+    "team": "HOU",
+    "vs": "CLE",
+    "team_pass_attempts": 34.0,
+    "team_rush_attempts": 28.1,
+    "plays": 62.4,
+    "pass_ratio": 0.576,
+    "script_pass_multiplier": 0.95,
+    "weather_attempts_multiplier": 0.994,
+    "implied_margin": 5.0,
+    "missing_target_share": 0.041,
+    "missing_carry_share": 0.0,
+    "receivers": [
+     {
+      "player": "Dalton Schultz",
+      "pos": "TE",
+      "inputs": {
+       "target_share_window": 0.175,
+       "target_share_last3": 0.165,
+       "target_share_used": 0.178,
+       "injury_bump": 0.007,
+       "catch_rate": 0.722,
+       "yards_per_catch": 11.1,
+       "yards_per_target": 7.91,
+       "dispersion_k": 4.0,
+       "def_catch_rate_allowed": 0.698,
+       "def_yards_per_catch_allowed": 11.1,
+       "league_catch_rate": 0.723,
+       "league_yards_per_catch": 10.1,
+       "position_share": 0.701,
+       "def_allows_position_yards_pg": 61.0,
+       "his_slice_of_that": 42.8
+      },
+      "history": {
+       "games": 8,
+       "50": 1,
+       "70": 1,
+       "80": 1,
+       "100": 1
+      },
+      "targets_mean": 5.4,
+      "receptions_mean": 3.8,
+      "yards_mean": 42.1,
+      "yards_median": 33.5,
+      "yards_p25_p75": [
+       15.0,
+       60.0
+      ],
+      "yards": {
+       "20": 0.68,
+       "30": 0.549,
+       "40": 0.423,
+       "50": 0.324,
+       "60": 0.25,
+       "70": 0.19,
+       "80": 0.138,
+       "90": 0.103,
+       "100": 0.075,
+       "120": 0.04
+      },
+      "receptions": {
+       "2": 0.78,
+       "3": 0.614,
+       "4": 0.459,
+       "5": 0.335,
+       "6": 0.236,
+       "7": 0.164,
+       "8": 0.111
+      },
+      "targets_needed": {
+       "50": 7,
+       "60": 8,
+       "70": 9,
+       "80": 11,
+       "100": 13
+      },
+      "targets_needed_chance": {
+       "50": 0.315,
+       "60": 0.239,
+       "70": 0.178,
+       "80": 0.099,
+       "100": 0.052
+      }
+     },
+     {
+      "player": "Xavier Hutchinson",
+      "pos": "WR",
+      "inputs": {
+       "target_share_window": 0.168,
+       "target_share_last3": 0.144,
+       "target_share_used": 0.165,
+       "injury_bump": 0.006,
+       "catch_rate": 0.543,
+       "yards_per_catch": 12.5,
+       "yards_per_target": 6.7,
+       "dispersion_k": 50.0,
+       "def_catch_rate_allowed": 0.552,
+       "def_yards_per_catch_allowed": 13.0,
+       "league_catch_rate": 0.624,
+       "league_yards_per_catch": 12.6,
+       "position_share": 0.266,
+       "def_allows_position_yards_pg": 138.6,
+       "his_slice_of_that": 36.9
+      },
+      "history": {
+       "games": 8,
+       "50": 2,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "targets_mean": 5.0,
+      "receptions_mean": 2.7,
+      "yards_mean": 32.9,
+      "yards_median": 26.4,
+      "yards_p25_p75": [
+       12.0,
+       48.0
+      ],
+      "yards": {
+       "20": 0.607,
+       "30": 0.455,
+       "40": 0.33,
+       "50": 0.227,
+       "60": 0.155,
+       "70": 0.103,
+       "80": 0.069,
+       "90": 0.042,
+       "100": 0.026,
+       "120": 0.011
+      },
+      "receptions": {
+       "2": 0.716,
+       "3": 0.479,
+       "4": 0.283,
+       "5": 0.147,
+       "6": 0.073,
+       "7": 0.033,
+       "8": 0.014
+      },
+      "targets_needed": {
+       "50": 8,
+       "60": 9,
+       "70": 11,
+       "80": 12,
+       "100": 15
+      },
+      "targets_needed_chance": {
+       "50": 0.162,
+       "60": 0.101,
+       "70": 0.034,
+       "80": 0.019,
+       "100": 0.003
+      }
+     },
+     {
+      "player": "Nico Collins",
+      "pos": "WR",
+      "inputs": {
+       "target_share_window": 0.146,
+       "target_share_last3": 0.144,
+       "target_share_used": 0.151,
+       "injury_bump": 0.006,
+       "catch_rate": 0.632,
+       "yards_per_catch": 13.4,
+       "yards_per_target": 8.37,
+       "dispersion_k": 50.0,
+       "def_catch_rate_allowed": 0.552,
+       "def_yards_per_catch_allowed": 13.0,
+       "league_catch_rate": 0.624,
+       "league_yards_per_catch": 12.6,
+       "position_share": 0.231,
+       "def_allows_position_yards_pg": 138.6,
+       "his_slice_of_that": 32.0
+      },
+      "history": {
+       "games": 6,
+       "50": 5,
+       "70": 3,
+       "80": 1,
+       "100": 1
+      },
+      "targets_mean": 4.5,
+      "receptions_mean": 2.8,
+      "yards_mean": 37.3,
+      "yards_median": 31.5,
+      "yards_p25_p75": [
+       15.0,
+       54.0
+      ],
+      "yards": {
+       "20": 0.656,
+       "30": 0.516,
+       "40": 0.378,
+       "50": 0.284,
+       "60": 0.199,
+       "70": 0.14,
+       "80": 0.095,
+       "90": 0.065,
+       "100": 0.041,
+       "120": 0.017
+      },
+      "receptions": {
+       "2": 0.742,
+       "3": 0.517,
+       "4": 0.319,
+       "5": 0.171,
+       "6": 0.088,
+       "7": 0.039,
+       "8": 0.016
+      },
+      "targets_needed": {
+       "50": 6,
+       "60": 8,
+       "70": 9,
+       "80": 10,
+       "100": 12
+      },
+      "targets_needed_chance": {
+       "50": 0.313,
+       "60": 0.119,
+       "70": 0.068,
+       "80": 0.037,
+       "100": 0.009
+      }
+     },
+     {
+      "player": "Kayshon Boutte",
+      "pos": "WR",
+      "inputs": {
+       "target_share_window": 0.104,
+       "target_share_last3": 0.103,
+       "target_share_used": 0.108,
+       "injury_bump": 0.004,
+       "catch_rate": 0.609,
+       "yards_per_catch": 14.7,
+       "yards_per_target": 8.82,
+       "dispersion_k": 50.0,
+       "def_catch_rate_allowed": 0.552,
+       "def_yards_per_catch_allowed": 13.0,
+       "league_catch_rate": 0.624,
+       "league_yards_per_catch": 12.6,
+       "position_share": 0.166,
+       "def_allows_position_yards_pg": 138.6,
+       "his_slice_of_that": 23.0
+      },
+      "history": {
+       "games": 8,
+       "50": 1,
+       "70": 1,
+       "80": 1,
+       "100": 1
+      },
+      "targets_mean": 3.3,
+      "receptions_mean": 2.0,
+      "yards_mean": 28.7,
+      "yards_median": 21.8,
+      "yards_p25_p75": [
+       7.0,
+       42.0
+      ],
+      "yards": {
+       "20": 0.524,
+       "30": 0.377,
+       "40": 0.274,
+       "50": 0.191,
+       "60": 0.131,
+       "70": 0.086,
+       "80": 0.059,
+       "90": 0.039,
+       "100": 0.025,
+       "120": 0.009
+      },
+      "receptions": {
+       "2": 0.564,
+       "3": 0.315,
+       "4": 0.151,
+       "5": 0.064,
+       "6": 0.025,
+       "7": 0.009,
+       "8": 0.004
+      },
+      "targets_needed": {
+       "50": 6,
+       "60": 7,
+       "70": 8,
+       "80": 10,
+       "100": 12
+      },
+      "targets_needed_chance": {
+       "50": 0.136,
+       "60": 0.07,
+       "70": 0.034,
+       "80": 0.007,
+       "100": 0.001
+      }
+     },
+     {
+      "player": "Jaylin Noel",
+      "pos": "WR",
+      "inputs": {
+       "target_share_window": 0.086,
+       "target_share_last3": 0.118,
+       "target_share_used": 0.103,
+       "injury_bump": 0.004,
+       "catch_rate": 0.657,
+       "yards_per_catch": 14.9,
+       "yards_per_target": 9.7,
+       "dispersion_k": 50.0,
+       "def_catch_rate_allowed": 0.552,
+       "def_yards_per_catch_allowed": 13.0,
+       "league_catch_rate": 0.624,
+       "league_yards_per_catch": 12.6,
+       "position_share": 0.136,
+       "def_allows_position_yards_pg": 138.6,
+       "his_slice_of_that": 18.9
+      },
+      "history": {
+       "games": 7,
+       "50": 3,
+       "70": 2,
+       "80": 2,
+       "100": 1
+      },
+      "targets_mean": 3.1,
+      "receptions_mean": 2.0,
+      "yards_mean": 29.9,
+      "yards_median": 23.4,
+      "yards_p25_p75": [
+       8.0,
+       44.0
+      ],
+      "yards": {
+       "20": 0.537,
+       "30": 0.405,
+       "40": 0.288,
+       "50": 0.206,
+       "60": 0.141,
+       "70": 0.099,
+       "80": 0.064,
+       "90": 0.042,
+       "100": 0.029,
+       "120": 0.012
+      },
+      "receptions": {
+       "2": 0.576,
+       "3": 0.329,
+       "4": 0.159,
+       "5": 0.069,
+       "6": 0.027,
+       "7": 0.009,
+       "8": 0.003
+      },
+      "targets_needed": {
+       "50": 6,
+       "60": 7,
+       "70": 8,
+       "80": 9,
+       "100": 11
+      },
+      "targets_needed_chance": {
+       "50": 0.118,
+       "60": 0.06,
+       "70": 0.029,
+       "80": 0.011,
+       "100": 0.002
+      }
+     },
+     {
+      "player": "Woody Marks",
+      "pos": "RB",
+      "inputs": {
+       "target_share_window": 0.078,
+       "target_share_last3": 0.082,
+       "target_share_used": 0.083,
+       "injury_bump": 0.003,
+       "catch_rate": 0.734,
+       "yards_per_catch": 5.8,
+       "yards_per_target": 4.19,
+       "dispersion_k": 6.4,
+       "def_catch_rate_allowed": 0.732,
+       "def_yards_per_catch_allowed": 4.7,
+       "league_catch_rate": 0.781,
+       "league_yards_per_catch": 7.4,
+       "position_share": 0.656,
+       "def_allows_position_yards_pg": 17.5,
+       "his_slice_of_that": 11.5
+      },
+      "history": {
+       "games": 8,
+       "50": 0,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "targets_mean": 2.5,
+      "receptions_mean": 1.8,
+      "yards_mean": 10.5,
+      "yards_median": 6.9,
+      "yards_p25_p75": [
+       0.0,
+       15.0
+      ],
+      "yards": {
+       "20": 0.176,
+       "30": 0.08,
+       "40": 0.037,
+       "50": 0.018,
+       "60": 0.008,
+       "70": 0.003,
+       "80": 0.001,
+       "90": 0.001,
+       "100": 0.0,
+       "120": 0.0
+      },
+      "receptions": {
+       "2": 0.504,
+       "3": 0.286,
+       "4": 0.142,
+       "5": 0.066,
+       "6": 0.03,
+       "7": 0.012,
+       "8": 0.005
+      },
+      "targets_needed": {
+       "50": 12,
+       "60": 15,
+       "70": 17,
+       "80": 20,
+       "100": 24
+      },
+      "targets_needed_chance": {
+       "50": 0.001,
+       "60": 0.0,
+       "70": 0.0,
+       "80": 0.0,
+       "100": 0.0
+      }
+     },
+     {
+      "player": "Foster Moreau",
+      "pos": "TE",
+      "inputs": {
+       "target_share_window": 0.052,
+       "target_share_last3": 0.066,
+       "target_share_used": 0.06,
+       "injury_bump": 0.002,
+       "catch_rate": 0.727,
+       "yards_per_catch": 9.5,
+       "yards_per_target": 6.78,
+       "dispersion_k": 50.0,
+       "def_catch_rate_allowed": 0.698,
+       "def_yards_per_catch_allowed": 11.1,
+       "league_catch_rate": 0.723,
+       "league_yards_per_catch": 10.1,
+       "position_share": 0.209,
+       "def_allows_position_yards_pg": 61.0,
+       "his_slice_of_that": 12.7
+      },
+      "history": {
+       "games": 6,
+       "50": 0,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "targets_mean": 1.8,
+      "receptions_mean": 1.3,
+      "yards_mean": 12.2,
+      "yards_median": 8.3,
+      "yards_p25_p75": [
+       0.0,
+       19.0
+      ],
+      "yards": {
+       "20": 0.237,
+       "30": 0.111,
+       "40": 0.051,
+       "50": 0.022,
+       "60": 0.009,
+       "70": 0.004,
+       "80": 0.001,
+       "90": 0.001,
+       "100": 0.0,
+       "120": 0.0
+      },
+      "receptions": {
+       "2": 0.374,
+       "3": 0.155,
+       "4": 0.054,
+       "5": 0.016,
+       "6": 0.004,
+       "7": 0.001,
+       "8": 0.0
+      },
+      "targets_needed": {
+       "50": 8,
+       "60": 9,
+       "70": 11,
+       "80": 12,
+       "100": 15
+      },
+      "targets_needed_chance": {
+       "50": 0.001,
+       "60": 0.0,
+       "70": 0.0,
+       "80": 0.0,
+       "100": 0.0
+      }
+     },
+     {
+      "player": "Jared Wayne",
+      "pos": "WR",
+      "inputs": {
+       "target_share_window": 0.045,
+       "target_share_last3": 0.107,
+       "target_share_used": 0.046,
+       "injury_bump": 0.002,
+       "catch_rate": 0.525,
+       "yards_per_catch": 13.3,
+       "yards_per_target": 6.9,
+       "dispersion_k": 3.2,
+       "def_catch_rate_allowed": 0.552,
+       "def_yards_per_catch_allowed": 13.0,
+       "league_catch_rate": 0.624,
+       "league_yards_per_catch": 12.6,
+       "position_share": 0.071,
+       "def_allows_position_yards_pg": 138.6,
+       "his_slice_of_that": 9.8
+      },
+      "history": {
+       "games": 3,
+       "50": 0,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "targets_mean": 1.4,
+      "receptions_mean": 0.7,
+      "yards_mean": 9.8,
+      "yards_median": 0.0,
+      "yards_p25_p75": [
+       0.0,
+       15.0
+      ],
+      "yards": {
+       "20": 0.176,
+       "30": 0.103,
+       "40": 0.059,
+       "50": 0.035,
+       "60": 0.019,
+       "70": 0.01,
+       "80": 0.006,
+       "90": 0.004,
+       "100": 0.002,
+       "120": 0.001
+      },
+      "receptions": {
+       "2": 0.179,
+       "3": 0.059,
+       "4": 0.019,
+       "5": 0.006,
+       "6": 0.002,
+       "7": 0.001,
+       "8": 0.0
+      },
+      "targets_needed": {
+       "50": 8,
+       "60": 9,
+       "70": 11,
+       "80": 12,
+       "100": 15
+      },
+      "targets_needed_chance": {
+       "50": 0.005,
+       "60": 0.002,
+       "70": 0.0,
+       "80": 0.0,
+       "100": 0.0
+      }
+     },
+     {
+      "player": "Marvin Harrison Jr.",
+      "pos": "WR",
+      "status": "OUT: no projection"
+     }
+    ],
+    "rushers": [
+     {
+      "player": "Woody Marks",
+      "pos": "RB",
+      "inputs": {
+       "carry_share_window": 0.528,
+       "carry_share_last3": 0.722,
+       "carry_share_used": 0.606,
+       "injury_bump": 0.0,
+       "yards_per_carry": 4.14,
+       "def_yards_per_carry_allowed": 4.92,
+       "league_yards_per_carry": 4.35,
+       "dispersion_k": 7.6
+      },
+      "history": {
+       "games": 8,
+       "50": 4,
+       "70": 1,
+       "80": 0,
+       "100": 0
+      },
+      "carries_mean": 14.1,
+      "yards_mean": 58.3,
+      "yards_median": 50.4,
+      "yards_p25_p75": [
+       30.0,
+       78.0
+      ],
+      "yards": {
+       "30": 0.752,
+       "40": 0.624,
+       "50": 0.503,
+       "60": 0.395,
+       "70": 0.308,
+       "80": 0.236,
+       "100": 0.135,
+       "120": 0.074
+      },
+      "carries": {
+       "8": 0.822,
+       "10": 0.705,
+       "12": 0.582,
+       "15": 0.414,
+       "18": 0.273,
+       "20": 0.205
+      }
+     },
+     {
+      "player": "David Montgomery",
+      "pos": "RB",
+      "inputs": {
+       "carry_share_window": 0.289,
+       "carry_share_last3": 0.419,
+       "carry_share_used": 0.341,
+       "injury_bump": 0.0,
+       "yards_per_carry": 3.8,
+       "def_yards_per_carry_allowed": 4.92,
+       "league_yards_per_carry": 4.35,
+       "dispersion_k": 4.3
+      },
+      "history": {
+       "games": 5,
+       "50": 1,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "carries_mean": 8.3,
+      "yards_mean": 31.4,
+      "yards_median": 24.5,
+      "yards_p25_p75": [
+       12.0,
+       43.0
+      ],
+      "yards": {
+       "30": 0.413,
+       "40": 0.282,
+       "50": 0.197,
+       "60": 0.135,
+       "70": 0.093,
+       "80": 0.064,
+       "100": 0.028,
+       "120": 0.012
+      },
+      "carries": {
+       "8": 0.48,
+       "10": 0.336,
+       "12": 0.228,
+       "15": 0.122,
+       "18": 0.065,
+       "20": 0.043
+      }
+     }
+    ]
    }
   },
   "CLE_vs_HOU": {
@@ -9461,6 +10147,775 @@
       "player": "Will Anderson Jr.",
       "slot": "LDE",
       "status": "Questionable"
+     }
+    ]
+   },
+   "opportunity": {
+    "team": "CLE",
+    "vs": "HOU",
+    "team_pass_attempts": 34.4,
+    "team_rush_attempts": 28.1,
+    "plays": 62.9,
+    "pass_ratio": 0.524,
+    "script_pass_multiplier": 1.05,
+    "weather_attempts_multiplier": 0.994,
+    "implied_margin": -5.0,
+    "missing_target_share": 0.0,
+    "missing_carry_share": 0.0,
+    "receivers": [
+     {
+      "player": "Denzel Boston",
+      "pos": "WR",
+      "inputs": {
+       "target_share_window": 0.22,
+       "target_share_last3": 0.25,
+       "target_share_used": 0.232,
+       "injury_bump": 0.0,
+       "catch_rate": 0.562,
+       "yards_per_catch": 14.9,
+       "yards_per_target": 8.26,
+       "dispersion_k": 50.0,
+       "def_catch_rate_allowed": 0.601,
+       "def_yards_per_catch_allowed": 14.4,
+       "league_catch_rate": 0.624,
+       "league_yards_per_catch": 12.6,
+       "position_share": 0.392,
+       "def_allows_position_yards_pg": 187.5,
+       "his_slice_of_that": 73.4
+      },
+      "history": {
+       "games": 8,
+       "50": 3,
+       "70": 3,
+       "80": 3,
+       "100": 0
+      },
+      "targets_mean": 7.0,
+      "receptions_mean": 3.9,
+      "yards_mean": 57.5,
+      "yards_median": 50.0,
+      "yards_p25_p75": [
+       27.0,
+       80.0
+      ],
+      "yards": {
+       "20": 0.817,
+       "30": 0.717,
+       "40": 0.605,
+       "50": 0.507,
+       "60": 0.407,
+       "70": 0.318,
+       "80": 0.253,
+       "90": 0.194,
+       "100": 0.147,
+       "120": 0.079
+      },
+      "receptions": {
+       "2": 0.87,
+       "3": 0.71,
+       "4": 0.524,
+       "5": 0.358,
+       "6": 0.22,
+       "7": 0.125,
+       "8": 0.068
+      },
+      "targets_needed": {
+       "50": 7,
+       "60": 8,
+       "70": 9,
+       "80": 10,
+       "100": 13
+      },
+      "targets_needed_chance": {
+       "50": 0.518,
+       "60": 0.402,
+       "70": 0.294,
+       "80": 0.211,
+       "100": 0.065
+      }
+     },
+     {
+      "player": "Harold Fannin Jr.",
+      "pos": "TE",
+      "inputs": {
+       "target_share_window": 0.197,
+       "target_share_last3": 0.221,
+       "target_share_used": 0.207,
+       "injury_bump": 0.0,
+       "catch_rate": 0.719,
+       "yards_per_catch": 11.3,
+       "yards_per_target": 8.05,
+       "dispersion_k": 6.9,
+       "def_catch_rate_allowed": 0.74,
+       "def_yards_per_catch_allowed": 10.0,
+       "league_catch_rate": 0.723,
+       "league_yards_per_catch": 10.1,
+       "position_share": 0.909,
+       "def_allows_position_yards_pg": 46.2,
+       "his_slice_of_that": 42.0
+      },
+      "history": {
+       "games": 8,
+       "50": 4,
+       "70": 2,
+       "80": 2,
+       "100": 1
+      },
+      "targets_mean": 6.3,
+      "receptions_mean": 4.5,
+      "yards_mean": 50.1,
+      "yards_median": 43.1,
+      "yards_p25_p75": [
+       22.0,
+       70.0
+      ],
+      "yards": {
+       "20": 0.767,
+       "30": 0.643,
+       "40": 0.529,
+       "50": 0.42,
+       "60": 0.328,
+       "70": 0.249,
+       "80": 0.186,
+       "90": 0.141,
+       "100": 0.104,
+       "120": 0.053
+      },
+      "receptions": {
+       "2": 0.861,
+       "3": 0.722,
+       "4": 0.567,
+       "5": 0.428,
+       "6": 0.307,
+       "7": 0.214,
+       "8": 0.145
+      },
+      "targets_needed": {
+       "50": 7,
+       "60": 8,
+       "70": 9,
+       "80": 10,
+       "100": 13
+      },
+      "targets_needed_chance": {
+       "50": 0.409,
+       "60": 0.319,
+       "70": 0.244,
+       "80": 0.179,
+       "100": 0.068
+      }
+     },
+     {
+      "player": "KC Concepcion",
+      "pos": "WR",
+      "inputs": {
+       "target_share_window": 0.197,
+       "target_share_last3": 0.192,
+       "target_share_used": 0.195,
+       "injury_bump": 0.0,
+       "catch_rate": 0.632,
+       "yards_per_catch": 13.1,
+       "yards_per_target": 8.19,
+       "dispersion_k": 19.9,
+       "def_catch_rate_allowed": 0.601,
+       "def_yards_per_catch_allowed": 14.4,
+       "league_catch_rate": 0.624,
+       "league_yards_per_catch": 12.6,
+       "position_share": 0.35,
+       "def_allows_position_yards_pg": 187.5,
+       "his_slice_of_that": 65.6
+      },
+      "history": {
+       "games": 8,
+       "50": 3,
+       "70": 2,
+       "80": 2,
+       "100": 1
+      },
+      "targets_mean": 5.9,
+      "receptions_mean": 3.7,
+      "yards_mean": 47.9,
+      "yards_median": 41.1,
+      "yards_p25_p75": [
+       21.0,
+       68.0
+      ],
+      "yards": {
+       "20": 0.761,
+       "30": 0.632,
+       "40": 0.519,
+       "50": 0.403,
+       "60": 0.31,
+       "70": 0.231,
+       "80": 0.174,
+       "90": 0.125,
+       "100": 0.09,
+       "120": 0.045
+      },
+      "receptions": {
+       "2": 0.838,
+       "3": 0.666,
+       "4": 0.482,
+       "5": 0.324,
+       "6": 0.201,
+       "7": 0.117,
+       "8": 0.064
+      },
+      "targets_needed": {
+       "50": 7,
+       "60": 8,
+       "70": 9,
+       "80": 10,
+       "100": 13
+      },
+      "targets_needed_chance": {
+       "50": 0.38,
+       "60": 0.276,
+       "70": 0.191,
+       "80": 0.129,
+       "100": 0.033
+      }
+     },
+     {
+      "player": "Jerry Jeudy",
+      "pos": "WR",
+      "inputs": {
+       "target_share_window": 0.094,
+       "target_share_last3": 0.087,
+       "target_share_used": 0.091,
+       "injury_bump": 0.0,
+       "catch_rate": 0.628,
+       "yards_per_catch": 13.0,
+       "yards_per_target": 8.05,
+       "dispersion_k": 13.7,
+       "def_catch_rate_allowed": 0.601,
+       "def_yards_per_catch_allowed": 14.4,
+       "league_catch_rate": 0.624,
+       "league_yards_per_catch": 12.6,
+       "position_share": 0.168,
+       "def_allows_position_yards_pg": 187.5,
+       "his_slice_of_that": 31.5
+      },
+      "history": {
+       "games": 7,
+       "50": 1,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "targets_mean": 2.8,
+      "receptions_mean": 1.8,
+      "yards_mean": 22.6,
+      "yards_median": 16.2,
+      "yards_p25_p75": [
+       4.0,
+       34.0
+      ],
+      "yards": {
+       "20": 0.433,
+       "30": 0.289,
+       "40": 0.192,
+       "50": 0.124,
+       "60": 0.079,
+       "70": 0.052,
+       "80": 0.033,
+       "90": 0.019,
+       "100": 0.011,
+       "120": 0.004
+      },
+      "receptions": {
+       "2": 0.5,
+       "3": 0.263,
+       "4": 0.119,
+       "5": 0.051,
+       "6": 0.02,
+       "7": 0.008,
+       "8": 0.003
+      },
+      "targets_needed": {
+       "50": 7,
+       "60": 8,
+       "70": 9,
+       "80": 10,
+       "100": 13
+      },
+      "targets_needed_chance": {
+       "50": 0.05,
+       "60": 0.025,
+       "70": 0.011,
+       "80": 0.005,
+       "100": 0.001
+      }
+     },
+     {
+      "player": "Quinshon Judkins",
+      "pos": "RB",
+      "inputs": {
+       "target_share_window": 0.087,
+       "target_share_last3": 0.038,
+       "target_share_used": 0.067,
+       "injury_bump": 0.0,
+       "catch_rate": 0.83,
+       "yards_per_catch": 5.7,
+       "yards_per_target": 4.62,
+       "dispersion_k": 4.9,
+       "def_catch_rate_allowed": 0.787,
+       "def_yards_per_catch_allowed": 5.0,
+       "league_catch_rate": 0.781,
+       "league_yards_per_catch": 7.4,
+       "position_share": 0.393,
+       "def_allows_position_yards_pg": 23.2,
+       "his_slice_of_that": 9.1
+      },
+      "history": {
+       "games": 7,
+       "50": 0,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "targets_mean": 2.1,
+      "receptions_mean": 1.7,
+      "yards_mean": 9.5,
+      "yards_median": 6.0,
+      "yards_p25_p75": [
+       0.0,
+       14.0
+      ],
+      "yards": {
+       "20": 0.15,
+       "30": 0.067,
+       "40": 0.028,
+       "50": 0.014,
+       "60": 0.006,
+       "70": 0.002,
+       "80": 0.001,
+       "90": 0.0,
+       "100": 0.0,
+       "120": 0.0
+      },
+      "receptions": {
+       "2": 0.469,
+       "3": 0.257,
+       "4": 0.129,
+       "5": 0.06,
+       "6": 0.025,
+       "7": 0.01,
+       "8": 0.005
+      },
+      "targets_needed": {
+       "50": 11,
+       "60": 13,
+       "70": 16,
+       "80": 18,
+       "100": 22
+      },
+      "targets_needed_chance": {
+       "50": 0.001,
+       "60": 0.0,
+       "70": 0.0,
+       "80": 0.0,
+       "100": 0.0
+      }
+     },
+     {
+      "player": "Dylan Sampson",
+      "pos": "RB",
+      "inputs": {
+       "target_share_window": 0.067,
+       "target_share_last3": 0.163,
+       "target_share_used": 0.067,
+       "injury_bump": 0.0,
+       "catch_rate": 0.762,
+       "yards_per_catch": 6.9,
+       "yards_per_target": 5.2,
+       "dispersion_k": 48.2,
+       "def_catch_rate_allowed": 0.787,
+       "def_yards_per_catch_allowed": 5.0,
+       "league_catch_rate": 0.781,
+       "league_yards_per_catch": 7.4,
+       "position_share": 0.304,
+       "def_allows_position_yards_pg": 23.2,
+       "his_slice_of_that": 7.1
+      },
+      "history": {
+       "games": 3,
+       "50": 1,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "targets_mean": 2.1,
+      "receptions_mean": 1.6,
+      "yards_mean": 10.6,
+      "yards_median": 7.4,
+      "yards_p25_p75": [
+       0.0,
+       16.0
+      ],
+      "yards": {
+       "20": 0.179,
+       "30": 0.08,
+       "40": 0.036,
+       "50": 0.018,
+       "60": 0.01,
+       "70": 0.004,
+       "80": 0.002,
+       "90": 0.001,
+       "100": 0.0,
+       "120": 0.0
+      },
+      "receptions": {
+       "2": 0.45,
+       "3": 0.208,
+       "4": 0.083,
+       "5": 0.029,
+       "6": 0.009,
+       "7": 0.002,
+       "8": 0.001
+      },
+      "targets_needed": {
+       "50": 10,
+       "60": 12,
+       "70": 14,
+       "80": 16,
+       "100": 20
+      },
+      "targets_needed_chance": {
+       "50": 0.0,
+       "60": 0.0,
+       "70": 0.0,
+       "80": 0.0,
+       "100": 0.0
+      }
+     },
+     {
+      "player": "Raheim Sanders",
+      "pos": "RB",
+      "inputs": {
+       "target_share_window": 0.035,
+       "target_share_last3": 0.084,
+       "target_share_used": 0.035,
+       "injury_bump": 0.0,
+       "catch_rate": 0.804,
+       "yards_per_catch": 6.0,
+       "yards_per_target": 4.73,
+       "dispersion_k": 3.8,
+       "def_catch_rate_allowed": 0.787,
+       "def_yards_per_catch_allowed": 5.0,
+       "league_catch_rate": 0.781,
+       "league_yards_per_catch": 7.4,
+       "position_share": 0.161,
+       "def_allows_position_yards_pg": 23.2,
+       "his_slice_of_that": 3.7
+      },
+      "history": {
+       "games": 4,
+       "50": 0,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "targets_mean": 1.1,
+      "receptions_mean": 0.9,
+      "yards_mean": 5.3,
+      "yards_median": 0.8,
+      "yards_p25_p75": [
+       0.0,
+       8.0
+      ],
+      "yards": {
+       "20": 0.065,
+       "30": 0.025,
+       "40": 0.01,
+       "50": 0.005,
+       "60": 0.002,
+       "70": 0.001,
+       "80": 0.0,
+       "90": 0.0,
+       "100": 0.0,
+       "120": 0.0
+      },
+      "receptions": {
+       "2": 0.229,
+       "3": 0.083,
+       "4": 0.029,
+       "5": 0.008,
+       "6": 0.002,
+       "7": 0.001,
+       "8": 0.0
+      },
+      "targets_needed": {
+       "50": 11,
+       "60": 13,
+       "70": 15,
+       "80": 17,
+       "100": 22
+      },
+      "targets_needed_chance": {
+       "50": 0.0,
+       "60": 0.0,
+       "70": 0.0,
+       "80": 0.0,
+       "100": 0.0
+      }
+     },
+     {
+      "player": "Isaiah Bond",
+      "pos": "WR",
+      "inputs": {
+       "target_share_window": 0.035,
+       "target_share_last3": 0.095,
+       "target_share_used": 0.035,
+       "injury_bump": 0.0,
+       "catch_rate": 0.6,
+       "yards_per_catch": 14.3,
+       "yards_per_target": 8.49,
+       "dispersion_k": 3.0,
+       "def_catch_rate_allowed": 0.601,
+       "def_yards_per_catch_allowed": 14.4,
+       "league_catch_rate": 0.624,
+       "league_yards_per_catch": 12.6,
+       "position_share": 0.063,
+       "def_allows_position_yards_pg": 187.5,
+       "his_slice_of_that": 11.8
+      },
+      "history": {
+       "games": 3,
+       "50": 1,
+       "70": 1,
+       "80": 0,
+       "100": 0
+      },
+      "targets_mean": 1.1,
+      "receptions_mean": 0.7,
+      "yards_mean": 9.4,
+      "yards_median": 0.0,
+      "yards_p25_p75": [
+       0.0,
+       13.0
+      ],
+      "yards": {
+       "20": 0.177,
+       "30": 0.101,
+       "40": 0.062,
+       "50": 0.037,
+       "60": 0.021,
+       "70": 0.012,
+       "80": 0.007,
+       "90": 0.004,
+       "100": 0.002,
+       "120": 0.001
+      },
+      "receptions": {
+       "2": 0.15,
+       "3": 0.045,
+       "4": 0.013,
+       "5": 0.003,
+       "6": 0.001,
+       "7": 0.0,
+       "8": 0.0
+      },
+      "targets_needed": {
+       "50": 6,
+       "60": 8,
+       "70": 9,
+       "80": 10,
+       "100": 12
+      },
+      "targets_needed_chance": {
+       "50": 0.008,
+       "60": 0.001,
+       "70": 0.0,
+       "80": 0.0,
+       "100": 0.0
+      }
+     }
+    ],
+    "rushers": [
+     {
+      "player": "Quinshon Judkins",
+      "pos": "RB",
+      "inputs": {
+       "carry_share_window": 0.594,
+       "carry_share_last3": 0.642,
+       "carry_share_used": 0.613,
+       "injury_bump": 0.0,
+       "yards_per_carry": 3.66,
+       "def_yards_per_carry_allowed": 4.16,
+       "league_yards_per_carry": 4.35,
+       "dispersion_k": 50.0
+      },
+      "history": {
+       "games": 7,
+       "50": 3,
+       "70": 2,
+       "80": 1,
+       "100": 0
+      },
+      "carries_mean": 14.3,
+      "yards_mean": 52.2,
+      "yards_median": 46.4,
+      "yards_p25_p75": [
+       30.0,
+       68.0
+      ],
+      "yards": {
+       "30": 0.743,
+       "40": 0.593,
+       "50": 0.451,
+       "60": 0.33,
+       "70": 0.239,
+       "80": 0.168,
+       "100": 0.079,
+       "120": 0.036
+      },
+      "carries": {
+       "8": 0.907,
+       "10": 0.802,
+       "12": 0.665,
+       "15": 0.441,
+       "18": 0.258,
+       "20": 0.169
+      }
+     },
+     {
+      "player": "Dylan Sampson",
+      "pos": "RB",
+      "inputs": {
+       "carry_share_window": 0.086,
+       "carry_share_last3": 0.224,
+       "carry_share_used": 0.086,
+       "injury_bump": 0.0,
+       "yards_per_carry": 4.36,
+       "def_yards_per_carry_allowed": 4.16,
+       "league_yards_per_carry": 4.35,
+       "dispersion_k": 3.1
+      },
+      "history": {
+       "games": 3,
+       "50": 0,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "carries_mean": 2.5,
+      "yards_mean": 11.0,
+      "yards_median": 7.0,
+      "yards_p25_p75": [
+       1.0,
+       16.0
+      ],
+      "yards": {
+       "30": 0.089,
+       "40": 0.045,
+       "50": 0.023,
+       "60": 0.013,
+       "70": 0.007,
+       "80": 0.004,
+       "100": 0.001,
+       "120": 0.0
+      },
+      "carries": {
+       "8": 0.034,
+       "10": 0.013,
+       "12": 0.004,
+       "15": 0.001,
+       "18": 0.0,
+       "20": 0.0
+      }
+     },
+     {
+      "player": "Jaleel McLaughlin",
+      "pos": "RB",
+      "inputs": {
+       "carry_share_window": 0.063,
+       "carry_share_last3": 0.172,
+       "carry_share_used": 0.063,
+       "injury_bump": 0.0,
+       "yards_per_carry": 4.59,
+       "def_yards_per_carry_allowed": 4.16,
+       "league_yards_per_carry": 4.35,
+       "dispersion_k": 3.0
+      },
+      "history": {
+       "games": 3,
+       "50": 0,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "carries_mean": 2.0,
+      "yards_mean": 9.2,
+      "yards_median": 5.2,
+      "yards_p25_p75": [
+       0.0,
+       13.0
+      ],
+      "yards": {
+       "30": 0.063,
+       "40": 0.031,
+       "50": 0.017,
+       "60": 0.009,
+       "70": 0.005,
+       "80": 0.002,
+       "100": 0.001,
+       "120": 0.0
+      },
+      "carries": {
+       "8": 0.017,
+       "10": 0.005,
+       "12": 0.001,
+       "15": 0.0,
+       "18": 0.0,
+       "20": 0.0
+      }
+     },
+     {
+      "player": "Audric Estim\u00e9",
+      "pos": "RB",
+      "inputs": {
+       "carry_share_window": 0.051,
+       "carry_share_last3": 0.391,
+       "carry_share_used": 0.051,
+       "injury_bump": 0.0,
+       "yards_per_carry": 3.97,
+       "def_yards_per_carry_allowed": 4.16,
+       "league_yards_per_carry": 4.35,
+       "dispersion_k": 8.0
+      },
+      "history": {
+       "games": 1,
+       "50": 0,
+       "70": 0,
+       "80": 0,
+       "100": 0
+      },
+      "carries_mean": 1.7,
+      "yards_mean": 6.8,
+      "yards_median": 3.6,
+      "yards_p25_p75": [
+       0.0,
+       10.0
+      ],
+      "yards": {
+       "30": 0.032,
+       "40": 0.016,
+       "50": 0.009,
+       "60": 0.005,
+       "70": 0.003,
+       "80": 0.001,
+       "100": 0.0,
+       "120": 0.0
+      },
+      "carries": {
+       "8": 0.005,
+       "10": 0.001,
+       "12": 0.0,
+       "15": 0.0,
+       "18": 0.0,
+       "20": 0.0
+      }
      }
     ]
    }

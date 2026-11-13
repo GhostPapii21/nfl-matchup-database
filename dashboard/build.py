@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from dashboard import extras as X  # noqa: E402
+from dashboard import opportunity as OP  # noqa: E402
 
 PACKETS = ROOT / "pregame" / "packets"
 OUT = ROOT / "dashboard"
@@ -71,6 +72,30 @@ def side(pk: dict, off: str, dfn: str, ex: dict) -> dict:
     }
 
 
+def implied_points(pk: dict) -> dict | None:
+    """Implied team points from the sharp spread and total (Pinnacle when listed, else the schedule consensus)."""
+    g, m = pk["game"], pk.get("market", {})
+    mk = (pk.get("books") or {}).get("markets") or {}
+    sp = ((mk.get("spread") or {}).get("reference") or {}).get("line")
+    tot = ((mk.get("total") or {}).get("reference") or {}).get("line")
+    sp = sp if sp is not None else m.get("home_spread")
+    tot = tot if tot is not None else m.get("total")
+    if sp is None or tot is None:
+        return None
+    return {g["home"]: tot / 2 - sp / 2, g["away"]: tot / 2 + sp / 2}
+
+
+_POOLS: dict = {}
+
+
+def pools_for(data: X.Data, season: int) -> dict | None:
+    """League per-catch and per-carry outcomes from the previous season (as in the backtest)."""
+    if season not in _POOLS:
+        pb, ro = data.get("pbp", season - 1), data.get("rosters", season - 1)
+        _POOLS[season] = OP.league_pools(pb[pb.season_type == "REG"], ro) if pb is not None else None
+    return _POOLS[season]
+
+
 def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) -> dict:
     g = pk["game"]
     season, away, home = int(g["season"]), g["away"], g["home"]
@@ -115,10 +140,18 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
     result = None
     if len(row) and pd.notna(grow.get("home_score")):
         result = {"away_score": int(grow["away_score"]), "home_score": int(grow["home_score"])}
+    pools = pools_for(data, season)
+    imp = implied_points(pk)
+    for key, sd in sides.items():
+        out_names = {x["player"] for x in sd.get("offense_injuries", []) if x.get("status_level", 0) >= 3}
+        try:
+            sd["opportunity"] = OP.board_side(sd, g, imp, pools, out_names, seed=sum(map(ord, g["game_id"] + key))) if pools else None
+        except Exception as e:  # noqa: BLE001 - the board still renders without this section
+            sd["opportunity"] = {"error": f"{type(e).__name__}: {e}"[:200]}
     alerts = X.nws_alerts(home, g.get("roof"), offline=offline, fetch_json=_get_json)
     return _clean({
         "schema": "game-board/1",
-        "game": g, "result": result, "generated_utc": pk["generated_utc"], "board_built_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "game": g, "result": result, "implied_points": imp, "generated_utc": pk["generated_utc"], "board_built_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "market": pk.get("market", {}), "books": pk.get("books", {}), "weather": pk.get("weather", {}),
         "weather_verdict": X.weather_verdict(pk.get("weather", {}), g.get("roof"), alerts), "weather_alerts": alerts,
         "context": X.schedule_context(games, grow, pk),

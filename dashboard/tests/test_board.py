@@ -89,3 +89,24 @@ def test_render_site_embeds_data_safely():
 def test_template_has_placeholder_once():
     tpl = (Path(__file__).resolve().parents[1] / "template.html").read_text()
     assert tpl.count("/*__BOARD_DATA__*/null") == 1
+
+
+def test_opportunity_more_volume_means_better_chances():
+    import numpy as np
+    from dashboard import opportunity as O
+    pool = np.array([5.0, 8.0, 12.0, 15.0, 25.0, 40.0])
+    lo = O.summary_receiver(*O.simulate_receiver(exp_targets=4, k=8, catch_rate=0.65, ypr=12, pool=pool, n=4000, seed=1), 7.8)
+    hi = O.summary_receiver(*O.simulate_receiver(exp_targets=10, k=8, catch_rate=0.65, ypr=12, pool=pool, n=4000, seed=1), 7.8)
+    assert hi["yards"]["70"] > lo["yards"]["70"] and hi["targets_mean"] > lo["targets_mean"]
+    # the fitted volume correction is applied: 10 raw targets come out below 10
+    assert hi["targets_mean"] < 10
+    assert hi["targets_needed"]["70"] == 9
+
+
+def test_opportunity_rain_and_defense_factors_are_bounded():
+    from dashboard import opportunity as O
+    assert O.def_factor(None, 0.65) == 1.0
+    assert 0.8 <= O.def_factor(0.1, 0.65) <= 1.2 and 0.8 <= O.def_factor(5, 0.65) <= 1.2
+    p, r = O.script_multipliers(14)
+    assert p == 0.9 and abs(r - 1.12) < 1e-9
+    assert O.script_multipliers(None) == (1.0, 1.0)
