@@ -27,21 +27,21 @@
   }
  },
  "result": null,
- "generated_utc": "2026-11-13T02:50:15+00:00",
- "board_built_utc": "2026-11-13T21:35:19+00:00",
+ "generated_utc": "2026-11-13T21:36:50+00:00",
+ "board_built_utc": "2026-11-13T21:36:59+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": -4.5,
   "total": 38.5,
   "moneyline": {
-   "LAC": 190.0,
-   "BAL": -230.0
+   "LAC": 180.0,
+   "BAL": -218.0
   }
  },
  "books": {
   "status": "OK",
-  "props_status": "NOT_FETCHED: kickoff is 94 hours away (props are pulled inside 36 hours)",
-  "retrieved_utc": "2026-11-13T02:49:26+00:00",
+  "props_status": "NOT_FETCHED: kickoff is 76 hours away (props are pulled inside 36 hours)",
+  "retrieved_utc": "2026-11-13T21:36:25+00:00",
   "markets": {
    "moneyline": {
     "sides": [
@@ -52,28 +52,41 @@
      "draftkings": {
       "line": null,
       "prices": {
-       "BAL": -230,
-       "LAC": 190
+       "BAL": -218,
+       "LAC": 180
       },
       "no_vig": {
-       "BAL": 0.669,
-       "LAC": 0.331
+       "BAL": 0.6575,
+       "LAC": 0.3425
       },
-      "hold": 0.0418,
-      "last_update": "2026-11-13T02:48:52Z"
+      "hold": 0.0427,
+      "last_update": "2026-11-13T21:35:34Z"
+     },
+     "williamhill_us": {
+      "line": null,
+      "prices": {
+       "BAL": -213,
+       "LAC": 178
+      },
+      "no_vig": {
+       "BAL": 0.6542,
+       "LAC": 0.3458
+      },
+      "hold": 0.0402,
+      "last_update": "2026-11-13T21:35:35Z"
      },
      "fanduel": {
       "line": null,
       "prices": {
-       "BAL": -220,
+       "BAL": -225,
        "LAC": 188
       },
       "no_vig": {
-       "BAL": 0.6644,
-       "LAC": 0.3356
+       "BAL": 0.666,
+       "LAC": 0.334
       },
-      "hold": 0.0347,
-      "last_update": "2026-11-13T02:49:11Z"
+      "hold": 0.0395,
+      "last_update": "2026-11-13T21:35:54Z"
      },
      "pinnacle": {
       "line": null,
@@ -86,7 +99,20 @@
        "LAC": 0.3421
       },
       "hold": 0.0328,
-      "last_update": "2026-11-13T02:49:13Z"
+      "last_update": "2026-11-13T21:35:53Z"
+     },
+     "hardrockbet": {
+      "line": null,
+      "prices": {
+       "BAL": -220,
+       "LAC": 185
+      },
+      "no_vig": {
+       "BAL": 0.6621,
+       "LAC": 0.3379
+      },
+      "hold": 0.0384,
+      "last_update": "2026-11-13T21:35:36Z"
      }
     },
     "reference": {
@@ -100,16 +126,16 @@
     "books_agree_on_line": true,
     "best_retail_price": {
      "BAL": {
-      "book": "fanduel",
-      "price": -220,
+      "book": "williamhill_us",
+      "price": -213,
       "line": null,
-      "break_even": 0.6875
+      "break_even": 0.6805
      },
      "LAC": {
-      "book": "draftkings",
-      "price": 190,
+      "book": "fanduel",
+      "price": 188,
       "line": null,
-      "break_even": 0.3448
+      "break_even": 0.3472
      }
     }
    },
@@ -130,7 +156,20 @@
        "LAC": 0.5043
       },
       "hold": 0.0475,
-      "last_update": "2026-11-13T02:48:52Z"
+      "last_update": "2026-11-13T21:35:34Z"
+     },
+     "williamhill_us": {
+      "line": -4.5,
+      "prices": {
+       "BAL": -106,
+       "LAC": -114
+      },
+      "no_vig": {
+       "BAL": 0.4913,
+       "LAC": 0.5087
+      },
+      "hold": 0.0473,
+      "last_update": "2026-11-13T21:35:35Z"
      },
      "fanduel": {
       "line": -4.5,
@@ -143,7 +182,7 @@
        "LAC": 0.5
       },
       "hold": 0.0476,
-      "last_update": "2026-11-13T02:49:11Z"
+      "last_update": "2026-11-13T21:35:54Z"
      },
      "pinnacle": {
       "line": -4.5,
@@ -156,7 +195,20 @@
        "LAC": 0.5069
       },
       "hold": 0.0289,
-      "last_update": "2026-11-13T02:49:13Z"
+      "last_update": "2026-11-13T21:35:53Z"
+     },
+     "hardrockbet": {
+      "line": -4.0,
+      "prices": {
+       "BAL": -110,
+       "LAC": -110
+      },
+      "no_vig": {
+       "BAL": 0.5,
+       "LAC": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-13T21:35:36Z"
      }
     },
     "reference": {
@@ -167,13 +219,13 @@
       "LAC": 0.5069
      }
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "best_retail_price": {
      "BAL": {
-      "book": "draftkings",
-      "price": -108,
+      "book": "williamhill_us",
+      "price": -106,
       "line": -4.5,
-      "break_even": 0.5192
+      "break_even": 0.5146
      },
      "LAC": {
       "book": "fanduel",
@@ -200,7 +252,20 @@
        "Under": 0.5
       },
       "hold": 0.0476,
-      "last_update": "2026-11-13T02:48:52Z"
+      "last_update": "2026-11-13T21:35:34Z"
+     },
+     "williamhill_us": {
+      "line": 38.5,
+      "prices": {
+       "Over": -110,
+       "Under": -110
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-13T21:35:35Z"
      },
      "fanduel": {
       "line": 38.5,
@@ -213,7 +278,7 @@
        "Under": 0.4892
       },
       "hold": 0.0471,
-      "last_update": "2026-11-13T02:49:11Z"
+      "last_update": "2026-11-13T21:35:54Z"
      },
      "pinnacle": {
       "line": 38.5,
@@ -226,7 +291,20 @@
        "Under": 0.4767
       },
       "hold": 0.0384,
-      "last_update": "2026-11-13T02:49:13Z"
+      "last_update": "2026-11-13T21:35:53Z"
+     },
+     "hardrockbet": {
+      "line": 39.0,
+      "prices": {
+       "Over": -110,
+       "Under": -110
+      },
+      "no_vig": {
+       "Over": 0.5,
+       "Under": 0.5
+      },
+      "hold": 0.0476,
+      "last_update": "2026-11-13T21:35:36Z"
      }
     },
     "reference": {
@@ -237,7 +315,7 @@
       "Under": 0.4767
      }
     },
-    "books_agree_on_line": true,
+    "books_agree_on_line": false,
     "best_retail_price": {
      "Over": {
       "book": "draftkings",
@@ -255,16 +333,16 @@
    }
   },
   "api_credits": {
-   "credits_remaining": 1740,
-   "credits_used": 18260,
+   "credits_remaining": 994,
+   "credits_used": 19006,
    "last_call_cost": 3,
    "warning": null
   },
   "movement": {
    "status": "OK",
-   "snapshots": 8,
+   "snapshots": 10,
    "first_seen_utc": "2026-11-11T18:18:16+00:00",
-   "current_utc": "2026-11-13T02:50:12+00:00",
+   "current_utc": "2026-11-13T21:36:49+00:00",
    "moves": [
     {
      "market": "moneyline",
@@ -276,8 +354,8 @@
       "LAC": 180
      },
      "current_prices": {
-      "BAL": -230,
-      "LAC": 190
+      "BAL": -218,
+      "LAC": 180
      }
     },
     {
@@ -290,7 +368,7 @@
       "LAC": 180
      },
      "current_prices": {
-      "BAL": -220,
+      "BAL": -225,
       "LAC": 188
      }
     },
@@ -400,13 +478,140 @@
     }
    ],
    "note": "First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs."
+  },
+  "consensus": {
+   "moneyline": {
+    "market": "moneyline",
+    "stat": "moneyline",
+    "player": null,
+    "sides": [
+     "BAL",
+     "LAC"
+    ],
+    "book_lines": {
+     "fanduel": null,
+     "draftkings": null,
+     "hardrockbet": null,
+     "williamhill_us": null
+    },
+    "n_books_quoting": 4,
+    "label": "four-book game-line consensus",
+    "reference": {
+     "book": "pinnacle",
+     "line": null,
+     "no_vig": {
+      "BAL": 0.6579,
+      "LAC": 0.3421
+     }
+    },
+    "consensus": {
+     "line": null,
+     "n_books_at_line": 4,
+     "books_at_line": [
+      "fanduel",
+      "draftkings",
+      "hardrockbet",
+      "williamhill_us"
+     ],
+     "no_vig": {
+      "BAL": 0.66,
+      "LAC": 0.3401
+     },
+     "books_off_line": {}
+    },
+    "reason": null
+   },
+   "spread": {
+    "market": "spread",
+    "stat": "spread",
+    "player": null,
+    "sides": [
+     "BAL",
+     "LAC"
+    ],
+    "book_lines": {
+     "fanduel": -4.5,
+     "draftkings": -4.5,
+     "hardrockbet": -4.0,
+     "williamhill_us": -4.5
+    },
+    "n_books_quoting": 4,
+    "label": "four-book game-line consensus",
+    "reference": {
+     "book": "pinnacle",
+     "line": -4.5,
+     "no_vig": {
+      "BAL": 0.4931,
+      "LAC": 0.5069
+     }
+    },
+    "consensus": {
+     "line": -4.5,
+     "n_books_at_line": 3,
+     "books_at_line": [
+      "fanduel",
+      "draftkings",
+      "williamhill_us"
+     ],
+     "no_vig": {
+      "BAL": 0.4957,
+      "LAC": 0.5043
+     },
+     "books_off_line": {
+      "hardrockbet": -4.0
+     }
+    },
+    "reason": null
+   },
+   "total": {
+    "market": "total",
+    "stat": "total",
+    "player": null,
+    "sides": [
+     "Over",
+     "Under"
+    ],
+    "book_lines": {
+     "fanduel": 38.5,
+     "draftkings": 38.5,
+     "hardrockbet": 39.0,
+     "williamhill_us": 38.5
+    },
+    "n_books_quoting": 4,
+    "label": "four-book game-line consensus",
+    "reference": {
+     "book": "pinnacle",
+     "line": 38.5,
+     "no_vig": {
+      "Over": 0.5233,
+      "Under": 0.4767
+     }
+    },
+    "consensus": {
+     "line": 38.5,
+     "n_books_at_line": 3,
+     "books_at_line": [
+      "fanduel",
+      "draftkings",
+      "williamhill_us"
+     ],
+     "no_vig": {
+      "Over": 0.5036,
+      "Under": 0.4964
+     },
+     "books_off_line": {
+      "hardrockbet": 39.0
+     }
+    },
+    "reason": null
+   }
   }
  },
  "weather": {
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/LWX/109,90/forecast/hourly",
-  "retrieved_utc": "2026-11-13T02:50:12+00:00",
+  "retrieved_utc": "2026-11-13T21:36:49+00:00",
   "kickoff_utc": "2026-11-17T01:15:00+00:00",
   "roof": "outdoors",
   "at_kickoff": {
@@ -414,7 +619,7 @@
    "wind_mph": 2.0,
    "wind_dir": "N",
    "precip_chance_pct": 0,
-   "summary": "Mostly Clear"
+   "summary": "Clear"
   },
   "during_game": {
    "temp_f_min": 39,
@@ -940,7 +1145,7 @@
     "pass_epa_per_dropback": {
      "rank": 24,
      "of": 32,
-     "league_avg": 0.04661463394322174
+     "league_avg": 0.04661463394322173
     },
     "rush_epa_per_carry": {
      "rank": 14,
@@ -1532,7 +1737,7 @@
     "rush_epa_per_carry": {
      "rank": 32,
      "of": 32,
-     "league_avg": -0.08668658169274072
+     "league_avg": -0.08668658169274074
     },
     "takeaways_pg": {
      "rank": 32,
@@ -4448,9 +4653,9 @@
      }
     ],
     "league": {
-     "yards_per_target": 7.23,
+     "yards_per_target": 7.22,
      "completion_pct": 0.624,
-     "td_per_target": 0.0465
+     "td_per_target": 0.0463
     },
     "weeks": [
      2,
@@ -4546,7 +4751,7 @@
      "practice": null,
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "Jackson, who is scheduled to undergo surgery on his injured right thumb, has told teammates he plans to return later this season, Ian Rapoport of NFL Network reports.",
+     "espn_comment": "Jackson (thumb) is \"doing well\" and is expected to be out for \"6-to-10 weeks,\" per head coach Jesse Minter.",
      "starter_slot": null,
      "snap_share": 0.635,
      "next_up": null,
@@ -4975,7 +5180,7 @@
     "third_down_rate": 0.35051546391752575,
     "red_zone_drives": 32,
     "red_zone_td_rate": 0.53125,
-    "pass_epa_per_dropback": 0.0586653605690001,
+    "pass_epa_per_dropback": 0.05866536056900008,
     "rush_epa_per_carry": -0.06220607017367509,
     "neutral_pass_rate": 0.5633187772925764,
     "blitz_rate": 0.24705882352941178,
@@ -5098,7 +5303,7 @@
     "pass_epa_per_dropback": {
      "rank": 16,
      "of": 32,
-     "league_avg": 0.04661463394322174
+     "league_avg": 0.04661463394322173
     },
     "rush_epa_per_carry": {
      "rank": 21,
@@ -5690,7 +5895,7 @@
     "rush_epa_per_carry": {
      "rank": 20,
      "of": 32,
-     "league_avg": -0.08668658169274072
+     "league_avg": -0.08668658169274074
     },
     "takeaways_pg": {
      "rank": 14,
@@ -7775,7 +7980,7 @@
      "practice": null,
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "Jackson, who is scheduled to undergo surgery on his injured right thumb, has told teammates he plans to return later this season, Ian Rapoport of NFL Network reports.",
+     "espn_comment": "Jackson (thumb) is \"doing well\" and is expected to be out for \"6-to-10 weeks,\" per head coach Jesse Minter.",
      "starter_slot": null,
      "snap_share": 0.635,
      "next_up": null,
@@ -8400,9 +8605,9 @@
      }
     ],
     "league": {
-     "yards_per_target": 7.23,
+     "yards_per_target": 7.22,
      "completion_pct": 0.624,
-     "td_per_target": 0.0465
+     "td_per_target": 0.0463
     },
     "weeks": [
      1,
@@ -8923,7 +9128,14 @@
    "name": "Los Angeles Chargers",
    "roster_moves": {
     "window_weeks": 4,
-    "arrivals_from_other_teams": [],
+    "arrivals_from_other_teams": [
+     {
+      "player": "Zion Childress",
+      "position": "DB",
+      "from": "CAR",
+      "status": "DEV"
+     }
+    ],
     "departures_to_other_teams": [
      {
       "player": "Marquez Valdes-Scantling",
@@ -8954,7 +9166,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-12T15:57:12Z",
+    "as_of": "2026-11-13T15:17:47Z",
     "starters": [
      {
       "slot": "WR",
@@ -9201,16 +9413,33 @@
       "status": "ACT"
      },
      {
+      "player": "Riley Patterson",
+      "position": "K",
+      "from": "MIA",
+      "status": "ACT"
+     },
+     {
       "player": "Ryan Neuzil",
       "position": "OL",
       "from": "ATL",
       "status": "ACT"
+     },
+     {
+      "player": "Harrison Mevis",
+      "position": "K",
+      "from": "LA",
+      "status": "DEV"
      }
     ],
     "departures_to_other_teams": [
      {
       "player": "Andrew Vorhees",
       "position": "OL",
+      "to": "ATL"
+     },
+     {
+      "player": "Jake Moody",
+      "position": "K",
       "to": "ATL"
      },
      {
@@ -9237,7 +9466,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-12T15:57:12Z",
+    "as_of": "2026-11-13T15:17:47Z",
     "starters": [
      {
       "slot": "WR",
@@ -9656,63 +9885,63 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-13T02:49:22+00:00",
-   "sha256": "dff8c18054eaa47f8684785b137ba8d9e7e9f71ec8ed42b12e7e96cb1a0355f9",
-   "bytes": 523823
+   "retrieved_utc": "2026-11-13T21:36:24+00:00",
+   "sha256": "67077133b6fa44c3afe494b7703754c2e42ff6322d46fa364308276decd29900",
+   "bytes": 523836
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-13T02:49:23+00:00",
-   "sha256": "6555b925b9507d3f803092f20b06f2c015588e6562918d37027cd386d2607cc3",
-   "bytes": 10122154
+   "retrieved_utc": "2026-11-13T21:36:24+00:00",
+   "sha256": "63d725b49ed1d28d17bc63b32685903c0b4c5d7748e1bd8081b986b09aa2d841",
+   "bytes": 10197719
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-13T02:49:23+00:00",
-   "sha256": "c11a409d73b9a1b2e77a7d8e7d3903e7ae5d9250ba764c7c63552d51867df2e5",
-   "bytes": 818687
+   "retrieved_utc": "2026-11-13T21:36:24+00:00",
+   "sha256": "99651c418f80e63b1e170e3741766f83965a9a30ab00c39931c26682811e1a0d",
+   "bytes": 819492
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-13T02:49:23+00:00",
-   "sha256": "a72cc1afc7224baf6cafdc81950d807fd603ee9c02e7348b38151fcc1af8fa36",
-   "bytes": 64510
+   "retrieved_utc": "2026-11-13T21:36:24+00:00",
+   "sha256": "65d181dfc37234327d60311099c65feaae6ef3e41650cb14c1ff44c7cb4dd84c",
+   "bytes": 64908
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-13T02:49:23+00:00",
-   "sha256": "8633b61b70c35eaf919c8aef9934c8802723de4dfb6aeb7f354dfc09237a5ced",
-   "bytes": 3465032
+   "retrieved_utc": "2026-11-13T21:36:24+00:00",
+   "sha256": "341d1eddeaf64c7aaaed4cd190bffc941dcaa201e6689ef17a8070798120abce",
+   "bytes": 3424877
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-13T02:49:24+00:00",
-   "sha256": "78c013d97bde36622c435c878cacf48e1c8b3f58d02967c9e0ed2fc884f449e9",
-   "bytes": 134114
+   "retrieved_utc": "2026-11-13T21:36:24+00:00",
+   "sha256": "1d2e15675f9a3bc9eba04c1197a7650be7957b8f2fbb657c8df80d40c25e1f03",
+   "bytes": 134793
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-13T02:49:24+00:00",
+   "retrieved_utc": "2026-11-13T21:36:24+00:00",
    "sha256": "75783665c9e46731eb87b54b7bc12db85c338ebf5e4306136565397a64912b53",
    "bytes": 287339
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-13T02:49:24+00:00",
+   "retrieved_utc": "2026-11-13T21:36:24+00:00",
    "sha256": "19447a6a6bd5be1867241c9bbbfe7fc14c8b9b95aabd3fe9586579030381be11",
    "bytes": 93288
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-13T02:49:25+00:00"
+   "retrieved_utc": "2026-11-13T21:36:25+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
@@ -9720,8 +9949,8 @@
   },
   "book_odds": {
    "status": "OK",
-   "url": "https://the-odds-api.com (Pinnacle, DraftKings, FanDuel)",
-   "retrieved_utc": "2026-11-13T02:49:26+00:00"
+   "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
+   "retrieved_utc": "2026-11-13T21:36:25+00:00"
   }
  },
  "data_gaps": {},
