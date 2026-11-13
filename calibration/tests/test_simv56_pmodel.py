@@ -258,3 +258,100 @@ def test_csv_handoffs_pin_the_phase4_float_parser():
     assert SV.FLOAT_PRECISION == "high"
     df = pd.DataFrame({"p_under": [W8_P_MODEL_UNDER]})
     assert SV._csv_rt(df).p_under.iloc[0] == W8_P_MODEL_PHASE4_IN_MEMORY
+
+
+# ------------------------------------------------------------------ embedded provenance (Ghost6, PR #44 follow-up)
+import hashlib as _hl  # noqa: E402
+import re as _re  # noqa: E402
+
+
+def _prov_fixture():
+    st = pd.DataFrame([
+        dict(team="WAS", starter="J.Daniels", starter_gsis="00-0039910", depth_dt="2026-11-12T00:00:00Z", skipped="",
+             depth_source=SV.SOURCE_URLS["depth_charts"], depth_retrieved_utc="2026-11-15T12:00:00+00:00",
+             injury_source=SV.SOURCE_URLS["injuries"], injury_retrieved_utc="2026-11-15T12:00:01+00:00",
+             inactives_source=None, inactives_retrieved_utc=None, as_of="2026-11-15T12:00:05Z", week=10),
+        dict(team="NYG", starter="J.Dart", starter_gsis="00-0040000", depth_dt="2026-11-12T00:00:00Z", skipped="",
+             depth_source=SV.SOURCE_URLS["depth_charts"], depth_retrieved_utc="2026-11-15T12:00:00+00:00",
+             injury_source=SV.SOURCE_URLS["injuries"], injury_retrieved_utc="2026-11-15T12:00:01+00:00",
+             inactives_source=None, inactives_retrieved_utc=None, as_of="2026-11-15T12:00:05Z", week=10),
+        dict(team="MIN", starter="K.Cousins", starter_gsis="00-0029604", depth_dt="2026-11-12T00:00:00Z", skipped="",
+             depth_source=SV.SOURCE_URLS["depth_charts"], depth_retrieved_utc="2026-11-15T12:00:00+00:00",
+             injury_source=SV.SOURCE_URLS["injuries"], injury_retrieved_utc="2026-11-15T12:00:01+00:00",
+             inactives_source=None, inactives_retrieved_utc=None, as_of="2026-11-15T12:00:05Z", week=10)])
+    hist = {("00-0039910", "WAS"): 7, ("00-0040000", "NYG"): 6, ("00-0029604", "LV"): 9}
+    res = pd.DataFrame([
+        dict(week=10, game_id="2026_10_WAS_NYG", player="Jayden Daniels", gsis="00-0039910", team="WAS",
+             position="QB", market="rushyds", side="Under", line=34.5, p_model=0.742, p_model_match="gsis"),
+        dict(week=10, game_id="2026_10_WAS_NYG", player="Jayden Daniels", gsis="00-0039910", team="WAS",
+             position="QB", market="rushyds", side="Over", line=34.5, p_model=0.258, p_model_match="gsis"),
+        dict(week=10, game_id="2026_10_WAS_NYG", player="Cam Skattebo", gsis="00-0040001", team="NYG",
+             position="RB", market="rushyds", side="Under", line=60.0, p_model=0.5, p_model_match="gsis"),
+        dict(week=10, game_id="2026_10_WAS_NYG", player="Gated Guy", gsis="00-0040002", team="NYG",
+             position="QB", market="rushyds", side="Under", line=9.5, p_model=np.nan,
+             p_model_match="gated:qb_not_starter")])
+    ens = pd.DataFrame([dict(gsis="00-0039910", market="rushyds", line=34.5, p_over=0.1 + 0.2, p_under=1 - (0.1 + 0.2)),
+                        dict(gsis="00-0040001", market="rushyds", line=60.0, p_over=0.5, p_under=0.5)])
+    return st, hist, res, ens
+
+
+def _prov(st, hist, teams=None):
+    return SV.build_provenance(st, hist, inputs_sha256={"pbp": "a" * 64, "players": "b" * 64}, teams=teams,
+                               generated_utc="2026-11-15T12:00:10Z")
+
+
+def test_qb_override_list_carries_team_starter_source_timestamp_and_gate():
+    st, hist, _, _ = _prov_fixture()
+    q = {d["team"]: d for d in SV.qb_override_list(st, hist)}
+    assert q["WAS"]["starter_gsis"] == "00-0039910" and q["WAS"]["qb_gate"] == "ok"
+    assert q["WAS"]["depth_source"].startswith("https://github.com/nflverse/") and q["WAS"]["depth_retrieved_utc"]
+    assert q["WAS"]["injury_retrieved_utc"] and q["WAS"]["prior_team_primary_games"] == 7
+    assert q["MIN"]["qb_gate"] == "qb_starter_thin_history"        # Cousins: 0 MIN games
+    assert all(v is None or isinstance(v, (str, int)) for d in q.values() for v in d.values())   # JSON-clean, no NaN
+
+
+def test_build_provenance_has_source_code_sha_inputs_and_digest():
+    st, hist, _, _ = _prov_fixture()
+    p = _prov(st, hist)
+    assert p["prob_source"] == "sim_v5_v6_ensemble" == SV.PROB_SOURCE_ID
+    assert p["prob_schema"] == SV.PROBS_SCHEMA and p["p_model_settings"] == SV.P_MODEL_SOURCE
+    assert _re.fullmatch(r"[0-9a-f]{40}", p["code_git_sha"])
+    assert p["code_sha256"] == SV._sha(Path(SV.__file__))
+    assert p["inputs_sha256"] == {"pbp": "a" * 64, "players": "b" * 64}
+    assert {d["team"] for d in p["qb_overrides"]} == {"WAS", "NYG", "MIN"}
+    assert {d["team"] for d in _prov(st, hist, teams=["WAS", "NYG"])["qb_overrides"]} == {"WAS", "NYG"}
+
+
+def test_probs_file_embeds_verifiable_provenance_per_game(tmp_path):
+    st, hist, res, ens = _prov_fixture()
+    files = SV.write_probs_files(res, ens, st, hist, {"pbp": "a" * 64}, tmp_path, generated_utc="2026-11-15T12:00:10Z")
+    assert [f.name for f in files] == ["2026_10_WAS_NYG.simv56.probs.csv"]
+    t = pd.read_csv(files[0], dtype=str, keep_default_na=False)
+    assert list(t.columns) == list(SV.PROBS_COLUMNS)
+    assert len(t) == 2 and set(t.gsis) == {"00-0039910", "00-0040001"}           # gated / no-sim legs not written
+    assert (t.prob_source == "sim_v5_v6_ensemble").all() and (t.prob_schema == SV.PROBS_SCHEMA).all()
+    for c in SV.PROVENANCE_FIELDS:
+        assert t[c].nunique() == 1                                               # identical on every row
+    q = json.loads(t.qb_overrides.iloc[0])
+    assert {d["team"] for d in q} == {"WAS", "NYG"}                             # the game's two teams
+    r = t.set_index("gsis").loc["00-0039910"]
+    assert float(r.p_under) == 1 - (0.1 + 0.2) and float(r.p_over) == 0.1 + 0.2  # exact text round trip
+    assert r.p_under == repr(1 - (0.1 + 0.2))
+    # both digests recompute from the file text alone
+    assert SV.data_digest(t) == t.data_sha256.iloc[0]
+    prov = SV.provenance_from_row(t.iloc[0])
+    assert SV.provenance_digest(prov) == t.provenance_sha256.iloc[0]
+    canon = json.dumps(prov, sort_keys=True, separators=(",", ":"))
+    assert _hl.sha256(canon.encode()).hexdigest() == t.provenance_sha256.iloc[0]
+
+
+def test_ensemble_and_legs_outputs_carry_run_provenance_columns():
+    st, hist, res, ens = _prov_fixture()
+    p = _prov(st, hist)
+    for df in (res, ens):
+        out = SV.stamp_provenance(df, p)
+        assert (out.prob_source == "sim_v5_v6_ensemble").all()
+        assert (out.code_git_sha == p["code_git_sha"]).all()
+        assert json.loads(out.qb_overrides.iloc[0]) == p["qb_overrides"]
+        assert json.loads(out.inputs_sha256.iloc[0]) == p["inputs_sha256"]
+        assert (out.provenance_sha256 == SV.provenance_digest(p)).all()
