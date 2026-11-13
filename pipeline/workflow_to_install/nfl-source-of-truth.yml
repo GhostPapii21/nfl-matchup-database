@@ -46,13 +46,15 @@ jobs:
       - run: python -m pip install --disable-pip-version-check -r requirements-test.txt
       - name: Check the gate before trusting it
         run: python -m pytest -q -p no:cacheprovider pipeline/tests
+      - name: Phase 15 official inactives (club sites; only games inside [T-120m, kickoff]; no keys)
+        run: python -m phase15.official_inactives --slate
       - name: Phase ledgers and 100k gate for the slate (a refusal is recorded, not hidden)
         run: python -m pipeline.slate
       - name: Commit ledgers
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pipeline/ledgers
+          git add pipeline/ledgers phase15/inactives 2>/dev/null || git add pipeline/ledgers
           if git diff --cached --quiet; then
             echo "No ledger changes."
             exit 0

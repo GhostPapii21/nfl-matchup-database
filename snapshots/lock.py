@@ -14,6 +14,9 @@ NFL-43 review guard (Ghost6 d65ad98, F1): refuses (exit 2) BEFORE any sim while 
 ACCEPTED for the current SEMANTICS_BOUNDS.md, or 100k is DEFERRED, or semantics are still listed unsupported
 (pipeline.hooks.nfl43_semantics). The review state is written into LOCK.json.
 
+NFL-42 entrypoint guard: also refuses (exit 2) BEFORE any sim unless pipeline.hooks.nfl42_entrypoint is OK (the
+single validation entrypoint routes only to the decontam validator and still rejects the contaminated suite_fix files).
+
 This is NOT the 100k entry point (that is Ghost6's `python -m pipeline.sim100k`); it is the snapshot locker.
 """
 from __future__ import annotations
@@ -66,7 +69,17 @@ def _chunk(args):
             "limitations": out.get("limitations"), "history_evidence": out.get("history_evidence")}
 
 
+def _require_nfl42() -> None:
+    """NFL-42 guard on the shared orchestration path (main(), pipeline.sim100k default_engine, direct callers)."""
+    sys.path.insert(0, str(ROOT))
+    from pipeline import hooks as _h
+    ep = _h.nfl42_entrypoint(ROOT)
+    if ep.get("status") != "OK":
+        raise RuntimeError("NFL-42 single validation entrypoint not enforced; refusing to simulate: " + str(ep.get("reason")))
+
+
 def run_sim(cfg: dict, pbp: str, n: int, seed: int, workers: int) -> dict:
+    _require_nfl42()
     k = max(1, workers)
     sizes = [n // k + (1 if i < n % k else 0) for i in range(k)]
     jobs = [(cfg, pbp, s, seed + 1000003 * i) for i, s in enumerate(sizes) if s > 0]
@@ -245,6 +258,12 @@ def main(argv=None) -> int:
     guard = review_guard()
     if guard["status"] != "OK":
         print("lock: REFUSED  " + guard["reason"] + " Nothing was simulated.")
+        return 2
+    sys.path.insert(0, str(ROOT))
+    from pipeline import hooks as _hooks
+    ep = _hooks.nfl42_entrypoint(ROOT)  # NFL-42: same single-entrypoint enforcement as the 100k gate (G0)
+    if ep["status"] != "OK":
+        print("lock: REFUSED  " + ep["reason"] + " Nothing was simulated.")
         return 2
     sys.path.insert(0, str(ENGINE))
     from config_load import load_config

@@ -4,7 +4,8 @@
   "full_integration_acceptance": false,
   "calibration_fitted_claim": false,
   "quotes": "NOLINE",
-  "Phase15": "NOT_YET",
+  "Phase15": "AUTO",
+  "Phase15_note": "Wired per game at ba19e77 (PR #24, refs NFL-46): each pipeline/ledgers/<game>.json carries phase15 AUTO / NOT_YET / MISSING with source URLs and pull time from both clubs' official Inactives articles; NOT_YET or MISSING for a game still blocks its 100k. Verified by Ghost6 Nov 12 7:45 PM ET (NFL-75). Flag flipped Nov 12 2026 ~7:55 PM ET.",
   "contaminated_validator": {
     "path": "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py",
     "sha256": "29b6b0c2644f256a705b09b5e1a56716dd355d79eb07a6187b9c3df495ff93e9",
@@ -16,7 +17,8 @@
   "unsupported_semantics": [],
   "DEFERRED_100K": false,
   "PFF": "NOT_READY_NO_DUPLICATE",
-  "entrypoint_enforced": false,
+  "entrypoint_enforced": true,
+  "entrypoint_enforced_note": "NFL-42 guard pipeline/hooks.py:nfl42_entrypoint enforced at sim100k G0 (rechecked before any engine call), snapshots.lock main()/run_sim and rocket R1; no override. ba19e77 (PR #24). Verified by Ghost6 Nov 12 7:45 PM ET (NFL-75). Residual: research scripts calling simulate_games directly are not guarded.",
   "pristine_protocol_complete": false,
   "production_validated": false,
   "nfl43": {

@@ -94,3 +94,66 @@ def test_status_update_active_and_inactive(tmp_path):
     inv["teams"]["NYG"] = {"status": "MISSING", "reason": "not yet"}
     (tmp_path / "phase15/inactives" / g / "inactives_3.json").write_text(_j.dumps(inv))
     assert update(g, "Cam Skattebo", tmp_path)["status"] == "NO_DESIGNATION_PENDING_INACTIVES"
+
+
+# ---- NFL-46: hook detail for the per-game ledger, slate puller ----
+
+def test_ok_hook_carries_sources_published_and_file(tmp_path):
+    oi.pull("2026_10_WAS_NYG", KO, now=KO - timedelta(minutes=80), getter=fake_get(PAGES), out_dir=tmp_path)
+    h = oi.hook({"game": {"game_id": "2026_10_WAS_NYG"}}, out_dir=tmp_path)
+    assert h["status"] == "OK" and h["file"].endswith(".json")
+    assert h["sources"]["NYG"].startswith("https://www.giants.com/news/inactives")
+    assert h["sources"]["WAS"].startswith("https://www.commanders.com/news/inactives")
+    assert h["published_utc"]["NYG"].startswith("2026-11-12T23:45")
+
+
+def test_incomplete_hook_keeps_pull_time_and_sources(tmp_path):
+    pages = dict(PAGES); del pages["/news/inactives-giants-commanders-week-10"]
+    oi.pull("2026_10_WAS_NYG", KO, now=KO - timedelta(minutes=80), getter=fake_get(pages), out_dir=tmp_path)
+    h = oi.hook({"game": {"game_id": "2026_10_WAS_NYG"}}, out_dir=tmp_path)
+    assert h["status"] == "INCOMPLETE" and h["retrieved_utc"] and h["file"]
+    assert h["sources"]["WAS"].startswith("https://www.commanders.com/news/inactives")
+    assert h["sources"]["NYG"] == oi.CLUB_SITES["NYG"][0]   # index page tried; no article -> not a source of names
+
+
+def test_unreadable_pull_file_is_incomplete(tmp_path):
+    d = tmp_path / "2026_10_WAS_NYG"; d.mkdir()
+    (d / "inactives_20261113T000000Z.json").write_text("{broken")
+    assert oi.hook({"game": {"game_id": "2026_10_WAS_NYG"}}, out_dir=tmp_path)["status"] == "INCOMPLETE"
+
+
+def test_pull_file_for_other_game_is_not_ok(tmp_path):
+    f = oi.pull("2026_10_WAS_NYG", KO, now=KO - timedelta(minutes=80), getter=fake_get(PAGES), out_dir=tmp_path)
+    d = tmp_path / "2026_10_DAL_PHI"; d.mkdir()
+    (d / f.name).write_text(f.read_text())
+    assert oi.hook({"game": {"game_id": "2026_10_DAL_PHI"}}, out_dir=tmp_path)["status"] == "INCOMPLETE"
+
+
+def test_slate_pulls_only_inside_window(tmp_path, monkeypatch):
+    idx = tmp_path / "latest.json"
+    idx.write_text(json.dumps({"games": [{"game_id": "2026_10_WAS_NYG"}, {"game_id": "2026_10_DAL_PHI"}, {"game_id": "2026_10_X_Y"}]}))
+    kos = {"2026_10_WAS_NYG": KO, "2026_10_DAL_PHI": KO + timedelta(days=3), "2026_10_X_Y": None}
+    monkeypatch.setattr(oi, "_kickoff_from_packet", lambda g: kos[g])
+    rows = oi.slate(now=KO - timedelta(minutes=80), getter=fake_get(PAGES), out_dir=tmp_path / "out", index=idx)
+    by = {r["game_id"]: r for r in rows}
+    assert by["2026_10_WAS_NYG"]["action"] == "PULLED" and by["2026_10_WAS_NYG"]["status"] == "OK"
+    assert by["2026_10_DAL_PHI"]["action"] == "SKIPPED" and by["2026_10_X_Y"]["action"] == "SKIPPED"
+    assert not (tmp_path / "out" / "2026_10_DAL_PHI").exists()
+
+
+def test_slate_never_pulls_after_kickoff(tmp_path, monkeypatch):
+    idx = tmp_path / "latest.json"
+    idx.write_text(json.dumps({"games": [{"game_id": "2026_10_WAS_NYG"}]}))
+    monkeypatch.setattr(oi, "_kickoff_from_packet", lambda g: KO)
+    def no_net(*a, **k):
+        raise AssertionError("network used outside window")
+    rows = oi.slate(now=KO + timedelta(minutes=1), getter=no_net, out_dir=tmp_path / "out", index=idx)
+    assert rows[0]["action"] == "SKIPPED"
+
+
+def test_kickoff_from_packet_uses_date_and_et_for_indoor(tmp_path, monkeypatch):
+    g = "2026_10_DAL_DET"
+    d = tmp_path / "pregame" / "packets" / g; d.mkdir(parents=True)
+    (d / "packet.json").write_text(json.dumps({"game": {"date": "2026-11-15", "kickoff_et": "13:00"}, "weather": {"status": "INDOOR"}}))
+    monkeypatch.setattr(oi, "ROOT", tmp_path)
+    assert oi._kickoff_from_packet(g) == datetime(2026, 11, 15, 18, 0, tzinfo=timezone.utc)

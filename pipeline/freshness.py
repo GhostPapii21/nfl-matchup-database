@@ -141,9 +141,27 @@ def inactives_row(pk, now, ko, hook_impls=None):
     if res.get("status") != "OK":
         return _row("official_inactives", "MISSING", res.get("reason", "No inactives source."))
     got = parse_utc(res.get("retrieved_utc"))
-    if got is None or got < posts:
-        return _row("official_inactives", "STALE", "Inactives were pulled before they post (T-90); pull again.", res.get("retrieved_utc"))
+    bad = inactives_pull_time_problem(got, posts, ko, now)
+    if bad:
+        return _row("official_inactives", "STALE" if got is not None and got < posts else "MISSING", bad, res.get("retrieved_utc"))
     return _row("official_inactives", "FRESH", "Pulled after the T-90 posting time.", res.get("retrieved_utc"))
+
+
+CLOCK_SKEW = timedelta(minutes=2)
+
+
+def inactives_pull_time_problem(got, posts, ko, now) -> str | None:
+    """Shared by freshness and the Phase 15 ledger: a usable official-inactives pull is posts <= pulled < kickoff and
+    not in the future (pulled <= now + 2 min clock skew). Returns the reason it is not usable, or None."""
+    if got is None:
+        return "Official inactives pull has no retrieved_utc; pull time unknown is treated as missing."
+    if got < posts:
+        return "Inactives were pulled before they post (T-90); pull again."
+    if got >= ko:
+        return "Inactives pull is stamped at/after kickoff; not a pregame freeze."
+    if got > now + CLOCK_SKEW:
+        return "Inactives pull is stamped in the future; not accepted."
+    return None
 
 
 def four_book_row(pk, now, htk, hook_impls=None):

@@ -51,7 +51,7 @@ The repository is the single source of truth for every step from pulling data to
 | NFL-43 penalties, returns, overtime | **Bounds accepted** by Ghost6 at 32b9b92 (`known_flags/NFL43_REVIEW.json`). Still unsupported and enforced: kick-play fouls, joint_producer penalties/return yards, blocked kicks/onside/fakes. | BetGuru |
 | `rocket` validation command | **Exists** (`./rocket`, `rocket_gate/`). R1–R4 pass on main at fe8bbcb (all 7 suites present). Passing rocket is not validation. | BetGuru |
 | Four-book price feed (FanDuel, DraftKings, Hard Rock, Caesars) | **Pending dependency.** It is on an unmerged branch. Until a freeze file exists for a game, phase 13 is MISSING. | Blitz |
-| Official inactives (phase 15) | `phase15/` parser and records exist; `Phase15` flag is still NOT_YET until wired per game. NOT_YET before T-90, MISSING after. | NFL-46 / NFL-75 |
+| Official inactives (phase 15) | **Wired per game**, `Phase15` flag AUTO since [ba19e77](https://github.com/GhostPapii21/nfl-matchup-database/commit/ba19e775996b5070e247ad64569912b8d59bd806) (PR #24). Each game ledger shows AUTO / NOT_YET / MISSING with source and pull time; NOT_YET before T-90, MISSING until both clubs' official Inactives articles are pulled, and a non-AUTO game still blocks its 100k. | NFL-46 / NFL-75 |
 | Calibration, pristine holdout, end-to-end run | Not done. Pristine protocol and freeze exist (`evaluation/`), aggregation rules still missing (NFL-44). Calibration not fitted, quotes NOLINE (NFL-45). Live holdout Weeks 10–12 not graded (NFL-7). | NFL-75 |
 | Man/zone, routes, line grades, defender assignment | No free source. Shown as not available, never filled in. | — |
 
@@ -85,11 +85,11 @@ The matchup snapshot above is unchanged. A portable research checkpoint of the p
 | --- | --- |
 | Production validation | Not validated. Acceptance is fail-closed. |
 | `projection_ready` | false |
-| Validation entrypoint | Not enforced. `core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py` is the historical contaminated validator (`sha256 29b6b0c2644f256a705b09b5e1a56716dd355d79eb07a6187b9c3df495ff93e9`). Do not promote it. See NFL-42. |
+| Validation entrypoint | **Enforced** (`entrypoint_enforced` true since [ba19e77](https://github.com/GhostPapii21/nfl-matchup-database/commit/ba19e775996b5070e247ad64569912b8d59bd806), PR #24): the 100k gate G0, the snapshot locker and rocket R1 refuse unless the single NFL-42 entrypoint routes only to the decontam validator. `core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py` is the historical contaminated validator (`sha256 29b6b0c2644f256a705b09b5e1a56716dd355d79eb07a6187b9c3df495ff93e9`); it is deny-listed. See NFL-42 and `core/possession_engine_v0/validation/ENTRYPOINT.md`. |
 | Penalties, returns, official overtime | Unsupported. See NFL-43. |
 | Calibration | Not fitted. Quotes are `NOLINE` until authenticated book access exists. See NFL-45. |
 | Pristine evaluation | Protocol incomplete. Weeks already inspected are development evidence, not an untouched holdout. See NFL-44. |
-| 100k trials and the 15-phase ledger | Ledger and fail-closed 100k entry point exist (`pipeline/`, NFL-56). 100k runs are allowed only through the fail-closed gate (inactives, price freeze); `DEFERRED_100K` is false since Nov 12. Phase 15 inactives are `NOT_YET`. See "Projection pipeline: goal vs current status". |
+| 100k trials and the 15-phase ledger | Ledger and fail-closed 100k entry point exist (`pipeline/`, NFL-56). 100k runs are allowed only through the fail-closed gate (inactives, price freeze); `DEFERRED_100K` is false since Nov 12. Phase 15 inactives are wired per game (`Phase15` AUTO since ba19e77); each game's ledger carries its own status. See "Projection pipeline: goal vs current status". |
 | ORCA / FTN model mirrors | `ACCESS_UNKNOWN`. No quotes are invented. NFL-53, NFL-54, NFL-55. |
 | Pinnacle and other books | No actionable lines are published. Pinnacle Q2–Q4 spreads were already absent in the saved research set. Odds-bridge still needs authentication. NFL-25, NFL-45. |
 

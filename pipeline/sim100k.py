@@ -3,6 +3,9 @@
     python -m pipeline.sim100k --game 2026_10_WAS_NYG
 
 It refuses, printing every reason and exiting 2, unless ALL of these pass:
+  G0 entrypoint NFL-42 single validation entrypoint enforced (pipeline/hooks.py nfl42_entrypoint): the registry routes
+                only to the decontam validator, run_validation() is PASS with accepted_policy null, and every
+                deny-listed contaminated suite_fix file is rejected by invoke(). Checked again inside the engine call.
   G1 flags      known_flags/KNOWN_LIMITATIONS.json readable and "DEFERRED_100K" is false
   G2 NFL-43     SEMANTICS_BOUNDS.md exists, no semantics are listed unsupported, the bounds review is ACCEPTED for the
                 current bounds file (BetGuru / reviewer), AND the engine config this entry point will actually run
@@ -151,6 +154,18 @@ def preflight(pk: dict | None, now: datetime | None = None, flags: dict | None =
     reasons, gates = [], {}
     gid = game_id or ((pk or {}).get("game") or {}).get("game_id")
 
+    # G0 (NFL-42): the validation entrypoint is checked in the real repo code (hooks.ROOT), never a test root, so a
+    # fixture root cannot stand in for the enforced registry. No injection parameter (tests monkeypatch hooks).
+    try:
+        ep = hooks.nfl42_entrypoint()
+    except Exception as e:  # fail closed
+        ep = {"status": "FAILED", "reason": f"NFL-42 entrypoint check raised {e!r}"}
+    if not isinstance(ep, dict):
+        ep = {"status": "FAILED", "reason": f"NFL-42 entrypoint check returned {type(ep).__name__}"}
+    gates["G0_entrypoint"] = "PASS" if ep.get("status") == "OK" else "REFUSED"
+    if ep.get("status") != "OK":
+        reasons.append("G0: " + str(ep.get("reason", "NFL-42 entrypoint not enforced")))
+
     if "_error" in flags:
         gates["G1_flags"] = "REFUSED"; reasons.append(f"G1: {flags['_error']}")
     elif flags.get("DEFERRED_100K") is not False:
@@ -189,7 +204,8 @@ def preflight(pk: dict | None, now: datetime | None = None, flags: dict | None =
         gates["G6_rocket"] = "PASS" if r.get("status") == "PASS" else "REFUSED"
         if r.get("status") != "PASS":
             reasons.append("G6: " + r.get("reason", "rocket did not pass"))
-    out = {"ran": not reasons, "ok": not reasons, "gates": gates, "reasons": reasons, "checked_utc": now.isoformat(timespec="seconds")}
+    out = {"ran": not reasons, "ok": not reasons, "gates": gates, "reasons": reasons, "checked_utc": now.isoformat(timespec="seconds"),
+           "entrypoint": {k: ep.get(k) for k in ("status", "entrypoint", "authorized_sha256", "denied") if k in ep}}
     if not reasons:
         freeze = hooks.newest_price_freeze(pk, base=(hook_impls or {}).get("price_freeze_dir"))
         out["engine_inputs"] = {"config_path": ec["path"], "cfg": ec["cfg"], "pbp": asof["pbp"],
@@ -207,6 +223,9 @@ def default_engine(pk: dict, trials: int, inputs: dict, workers: int | None = No
     from the gated inputs. Formulas and weights unchanged. Any mismatch after the run is a refusal."""
     import os
     root = hooks.ROOT
+    ep = hooks.nfl42_entrypoint(root)  # NFL-42: re-checked at the engine call, not only in preflight
+    if ep.get("status") != "OK":
+        raise RuntimeError(ep.get("reason", "NFL-42 entrypoint not enforced"))
     sys.path.insert(0, str(root))
     sys.path.insert(0, str(root / ENGINE_REL))
     from snapshots import lock as L
@@ -239,7 +258,8 @@ def default_engine(pk: dict, trials: int, inputs: dict, workers: int | None = No
             "price_freeze": Path(inputs["price_freeze"]).name if inputs.get("price_freeze") else None,
             "price_freeze_pulled_utc": ((freeze or {}).get("meta") or {}).get("pulled_utc"),
             "n": sim["n"], "seed": seed, "chunks": sim["chunks"], "chunk_seeds": sim["chunk_seeds"],
-            "runtime_sec": sim["runtime_sec"], "model_weights_changed": False, "summary": summary}
+            "runtime_sec": sim["runtime_sec"], "model_weights_changed": False,
+            "nfl42_entrypoint": {"status": ep["status"], "authorized_sha256": ep.get("authorized_sha256")}, "summary": summary}
 
 
 def run(game_id: str, packet: Path | None = None, engine=default_engine, **kw) -> tuple[int, dict]:
@@ -253,6 +273,14 @@ def run(game_id: str, packet: Path | None = None, engine=default_engine, **kw) -
               "research_only": True, **pf}
     if not pf["ok"]:
         report["status"] = "REFUSED"
+        return EXIT_REFUSED, report
+    try:  # NFL-42 recheck immediately before ANY engine call (default or injected)
+        ep = hooks.nfl42_entrypoint()
+    except Exception as e:
+        ep = {"status": "FAILED", "reason": repr(e)}
+    if not isinstance(ep, dict) or ep.get("status") != "OK":
+        report.update(status="REFUSED", ran=False, ok=False,
+                      reasons=["G0: " + str(ep.get("reason") if isinstance(ep, dict) else ep)])
         return EXIT_REFUSED, report
     try:
         report["result"] = engine(pk, TRIALS, inputs)

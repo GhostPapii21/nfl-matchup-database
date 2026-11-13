@@ -12,6 +12,43 @@ Pytest's local configuration disables its cache. The tests complete in well unde
 30 seconds. These commands write only inside `market_calibration/`. Run the suite with `cd market_calibration && python3 -m pytest tests reviews/test_independent_false_pass.py -q`; tests that need the unpublished saved quote CSVs are skipped with that reason until the files are supplied.
 The existing engine `market.py` and `settlement.py` are imported read-only.
 
+
+## Canonical path (NFL-45)
+
+The Linear issue names `research/market_calibration/`. That path is not in this
+repository. **`market_calibration/` is canonical and is not moved.** Import and
+run the package from the repository root as `market_calibration`.
+
+`quote_ledger.build_quote_provenance_ledger()` writes a book, as-of
+(`last_update_utc`), repo-relative path, and SHA-256 for every saved quote that
+is already published in-repo (`certified_asof` and `asof_sources` inventories).
+Research quotes are separated from actionable quotes. Actionable quotes stay
+empty and `NOLINE` until an authenticated refresh succeeds. Package CSVs under
+`saved_quotes/` remain unpublished; their absence is `ABSENT_NOLINE`, not a
+fitted calibration. `independently_calibrated` and `calibration.fitted` stay
+false until the live holdout (NFL-7) is graded.
+
+## Push-aware probability (NFL-62)
+
+`push_probability.push_aware_probs(values, line)` reports `P(over)`, `P(push)`,
+and `P(under)` from a sim distribution. Those three numbers sum to 1. Integer
+lines keep push mass; half-lines have `P(push)=0` for integer-valued scores.
+`conditional_nonpush` is the only quantity that may be blended with two-way
+no-vig prices. `push_weighted_ev` is `P(win)*(decimal-1) - P(loss)`. Continuous
+yard values use exact equality only; this does not claim sportsbook yard pushes
+are discretized.
+
+## Dispersion by market (NFL-64)
+
+`dispersion.dispersion_report()` computes SD, CV, and method-of-moments
+negative-binomial kappa (`kappa = mean^2 / (variance - mean)`) from saved
+`snapshots/*/sim_arrays.npz` totals/team points and from the published
+DAL@IND `player_samples`. Snapshot `vs_market` lines are reused as the saved
+lines; no prices are invented. The frozen suave-bets `dist.ts` defaults named
+in NFL-64 (lognormal CV 0.55, NB kappa 4 or 2.5, normal SD `max(mean*0.22, 0.6)`)
+are recorded and **not changed**. Empirical moments are research-only and are
+not applied as model weights.
+
 ## Saved quotes and identity
 
 `quotes.load_saved_quotes()` reads exactly these three files:
@@ -76,7 +113,7 @@ score audit can `PASS`. A PASS has `scope=SCORE_CONVENTION_ONLY`,
 `book_rules_verified=false`, and label `hindsight_settlement_audit`. It verifies
 arithmetic under the declared convention, not sportsbook rules or model quality.
 
-`python -m research.market_calibration.audit` writes
+`python3 -m market_calibration.audit` writes
 `artifacts/saved_quote_audit.json`. It independently reads evidence-only actual
 scores from the cleared file, derives H1 from Q1+Q2, and compares saved W/L/P
 labels. The grades file's repeated `q1_*` fields are never used as H1 totals.
@@ -115,7 +152,7 @@ no-vig market probabilities in the audit are never labelled raw model outputs.
 
 ## Required edge delivery guard
 
-`guard_edge_delivery` is exported from `research.market_calibration` and implemented
+`guard_edge_delivery` is exported from `market_calibration` and implemented
 in `delivery_guard.py`. `separate_outputs` calls it on every return, with or without
 a caller-proposed anchor, and adds a separate `delivery_guard` envelope. Any future
 consumer that surfaces edges must use this check immediately before delivery:
