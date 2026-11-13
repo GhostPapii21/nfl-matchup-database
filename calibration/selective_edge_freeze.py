@@ -21,7 +21,7 @@ RUN = ROOT / "research/runs/2026-11-13_selective_edge_phase4"
 MANIFEST = RUN / "freeze_manifest.json"
 PARAMS_FILE = "research/runs/2026-11-13_selective_edge_phase4/params_w4_7.json"
 CODE_FILES = ("calibration/selective_edge.py", "calibration/selective_edge_live.py",
-              "calibration/selective_edge_run.py")
+              "calibration/selective_edge_run.py", "calibration/selective_edge_freeze.py")  # checker hashes itself
 FIT_WEEKS, EVAL_WEEKS, HOLDOUT_WEEKS = (4, 5, 6, 7), (8, 9), (10, 11, 12)
 
 
