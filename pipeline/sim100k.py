@@ -311,7 +311,12 @@ def main(argv=None) -> int:
     ap.add_argument("--game", required=True)
     ap.add_argument("--packet", type=Path)
     ap.add_argument("--write", action="store_true", help="write pipeline/ledgers/<game>.sim100k.json")
+    ap.add_argument("--rush-dist", action="store_true",
+                    help="NFL-75 opt-in: also write <game>.rush_dist.{json,cdf.csv,summary.csv} (per-player rushing-"
+                         "yards distribution + P(under L)) from the per-player box lines; needs --write")
     a = ap.parse_args(argv)
+    if a.rush_dist and not a.write:
+        ap.error("--rush-dist needs --write")
     code, rep = run(a.game, a.packet)
     box_trials = (rep.get("result") or {}).pop("player_box_trials", None) if isinstance(rep.get("result"), dict) else None
     if rep["status"] == "REFUSED":
@@ -330,6 +335,15 @@ def main(argv=None) -> int:
                                 team_columns=np.array(["|".join(c) for c in box_trials["team_columns"]]),
                                 team_values=box_trials["team_values"].astype(np.float32))
         (PH.LEDGERS / f"{a.game}.sim100k.json").write_text(json.dumps(rep, indent=1, default=str) + "\n")
+        if a.rush_dist and box_trials is not None and rep["status"] != "REFUSED":  # opt-in, observational only
+            from . import rush_dist as RD
+            res = rep.get("result") or {}
+            pbp = res.get("pbp")
+            pbp_path = (hooks.ROOT / PBP_REL / pbp) if pbp else None
+            d = RD.build_from_box(box_trials["columns"], box_trials["values"], a.game,
+                                  pbp_path=pbp_path if pbp_path and pbp_path.exists() else None,
+                                  meta={k: res.get(k) for k in ("n", "seed", "config_id", "pbp") if k in res})
+            RD.write(d, PH.LEDGERS)
     return code
 
 
