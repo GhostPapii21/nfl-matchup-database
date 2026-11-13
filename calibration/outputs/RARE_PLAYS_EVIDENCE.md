@@ -84,7 +84,7 @@ limitation, error up to the band width).
 `./rocket`: PASS (R1-R4), possession engine suite 291 passed (`RARE_PLAYS_rocket.json`). New:
 `core/possession_engine_v0/tests/test_rare_plays.py` (33 tests: off-mode golden, gate / research cap / budget,
 classification, outcome resampling and bands, presnap live semantics, fakes, PAT, onside, catalog exclusions,
-provenance, penalty-model exclusion). `bash scripts/test_offline.sh`: see PR.
+provenance, penalty-model exclusion). `bash scripts/test_offline.sh`: all suites passed (2026-11-12 ~10:40 PM ET).
 
 ## Independent review
 Four static passes by a separate reviewer (codex, read-only sandbox): pass 1 REQUEST CHANGES (historical down/distance
