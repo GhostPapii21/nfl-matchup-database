@@ -21,7 +21,9 @@ Depends on PR #38 (Phase 2 opportunity model). This branch starts from the #38 h
    - Default `int_pool=None` makes no draws and is bit-identical to main (golden digests).
    - `int_pool` is refused from a config, refused above n = 20,000, and refused by `snapshots/lock.run_sim`. It does not appear in `pipeline/sim100k.py`.
 5. **Freeze.**
-   - The holdout manifest now freezes the 2b model (`holdout_freeze_manifest.json`, model commit 7a0d45b). It covers the code, the 2b W10 params and the W10 INT-pool spec.
+   - The holdout manifest now freezes the 2b model (`holdout_freeze_manifest.json`). It covers the code, the 2b W10 params and the W10 INT-pool spec.
+   - It was first frozen at 7a0d45b (pre-rebase; 94b4c26 after the rebase onto main 7364335, same tree).
+   - It was re-frozen at **f63daba** after review: only two harness files changed, opportunity_backtest.py (no-INT-pool variant) and opportunity_report_2b.py. All model code, params and the INT-pool spec hashes are unchanged. Both freezes are recorded in the manifest.
    - The #38 manifest (`../2026-11-13_opportunity_phase2/holdout_freeze_manifest.json`, model b6e955c) is marked `SUPERSEDED`. It would now refuse, because simulate.py, opportunity_fit.py and opportunity_backtest.py changed.
 
 ## Fitted depth parameters (W4-W10, every week)
@@ -45,3 +47,36 @@ Depends on PR #38 (Phase 2 opportunity model). This branch starts from the #38 h
 - A real fix needs a signal the committed data does not have, such as an IR-return / practice-report flag. It is left unknown, not guessed.
 
 ## Results: see metrics.md (walk-forward W4-9, n=2000, 88 games, same seed as #38)
+
+## Depth effect alone (review item 4)
+- `noint/backtest_raw_noint.json`: Phase 2b params with the engine WITHOUT INT pooling. Same 88 games, n=2000, seed 20261113. Section D of metrics.md has the tables.
+- The name-locked lines are byte-identical to the #38 run, so the engine stream is unchanged.
+- Vs #38:
+
+  | Measure | Change |
+  |---|---|
+  | RB carries MAE | −0.256 [−0.398, −0.124] |
+  | WR targets MAE | −0.111 [−0.143, −0.079] |
+  | TE targets MAE | −0.029 [−0.061, +0.003] |
+  | QB attempts MAE | +0.021 [−0.017, +0.058] |
+  | RB targets MAE | +0.020 [−0.019, +0.059] |
+  | Brier, 21 thresholds | 6 fully below 0, 0 above |
+  | INT | unchanged (19 zero-P games; Brier 0.302 vs main 0.298) |
+
+- So the INT improvement in the full 2b run comes entirely from INT pooling. The opportunity gains come from the depth signal and grids.
+
+## Zero-INT QB-games left in 2b
+- These are QBs the model did not list as candidates. They are not all backups: some started.
+- Actual attempts in our PBP count (non-sack pass plays): Kaliakmanis 33 (W4), Bagent 34, McKee 45, Milton 33, Lock 28, Wentz 24, Fagnano 21, Minshew 20, Keenum 19.
+
+## Commit map after the rebase onto main 7364335 (#38 squash; trees identical)
+| pre-rebase | after rebase |
+|---|---|
+| 6de940f | 23d9d84 |
+| 2218448 | e2ba0ac |
+| 7a0d45b | 94b4c26 |
+| 98d3f47 | a9dd394 |
+| cbd1450 | 125f64a |
+| 2bf54a6 | 3390cd3 |
+
+The backtest_raw.json engine head 2218448 is pre-rebase, so read it through this map.

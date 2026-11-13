@@ -1,8 +1,8 @@
 {
  "schema": "nfl75-opportunity-holdout-freeze/1",
- "model_commit": "7a0d45b28d876229d0646b2912cad193f3ef6bf9",
+ "model_commit": "f63daba40d22bc128ef8413c728c497d43077bc9",
  "model": "phase2b",
- "frozen_at_utc": "2026-11-13T10:50:17Z",
+ "frozen_at_utc": "2026-11-13T11:48:18Z",
  "holdout_weeks": [
   10,
   11,
@@ -28,12 +28,12 @@
   "core/possession_engine_v0/simulate.py": "53c40a9ae9f3f1a0905e97d2ade82983b1b5f1f2987002c837e0975e413c8f0a",
   "core/possession_engine_v0/state.py": "aaf3ef2b028261958cef60aded0aacc243d1abda4c6fcc3aa28b42c3d78f9a8e",
   "calibration/opportunity_fit.py": "6f4fe260fb43c352e14c3e93adf940339d86929300fde317f36cf1a1b78470f9",
-  "calibration/opportunity_backtest.py": "18f0ad670942dc5050b517b3cab49df1b305a541699f2c787be2e2b943feaecb",
+  "calibration/opportunity_backtest.py": "6dd9d8799171ce82fc355b26aec1ab8770f4044ac001fe70ce7189e2db2f8eb2",
   "calibration/opportunity_report.py": "ca8151616c302e9632c55c00f8ac7db8ea0b74a7898f4a02b81bdb5de230d3c7",
   "core/possession_engine_v0/int_pool.py": "000cc7b62ad09c42680ab4517f9af37fb5c43f2a0d304cfa5687e1cf8f4b6674",
   "calibration/opportunity_intcap.py": "6ed25acfea1c4ba620045f58432ab1f1c93bbd9a758a0e4272e572fab11b22a0",
   "calibration/opportunity_fit2b.py": "2ac0d0eff58debd91fc9b901484b04ab119ce45bb27fe1787bfc6f7a21b299b5",
-  "calibration/opportunity_report_2b.py": "eb226029b727d754bb7bd1c05fe52570947bc4d5a446b3bbc47f022b85fd3298",
+  "calibration/opportunity_report_2b.py": "29bea8290ef6b49f4c9c0748a2f05adee10a5ad87a3c00204a41676d1a17ceff",
   "data/historical/nflverse/derived_pit/depth_skill_snapshots_2025_2026.csv.gz": "943a55ac51569c242a6a5396f117efffb2438fbbd2e9575444afe744d0941e67",
   "research/runs/2026-11-13_opportunity_phase2b/int_pool/int_pool_2026_w10.json": "a4f7e5eab14cc62609198fbebc99dcd8752e6f94714dd4ab332651c92f1b5da3"
  },
@@ -43,5 +43,12 @@
  },
  "rule": "grading of weeks 10-12 refuses unless every code/params sha256 here matches the tree",
  "week10_note": "W10 TNF (WAS@NYG, Nov 12) was already played when this was frozen; its actuals were never read by the fit or this manifest",
- "projection_ready": false
+ "projection_ready": false,
+ "previous_freezes": [
+  {
+   "model_commit": "7a0d45b28d876229d0646b2912cad193f3ef6bf9",
+   "frozen_at_utc": "2026-11-13T10:50:17Z",
+   "note": "First 2b freeze, PR #39 before the rebase onto main 7364335 (#38 squash). After the rebase that commit is 94b4c26 (identical tree). Re-frozen at f63daba because two harness files changed: calibration/opportunity_backtest.py (new phase2b_noint variant) and calibration/opportunity_report_2b.py (section D, wording). Engine code (simulate.py, int_pool.py, opportunity.py, player_box.py, state.py), opportunity_fit.py / fit2b / intcap, the depth table, the W10 params and the W10 INT-pool spec have the SAME sha256 as in the 7a0d45b freeze."
+  }
+ ]
 }
