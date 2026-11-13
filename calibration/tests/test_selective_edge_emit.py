@@ -209,7 +209,7 @@ def test_emitter_writes_timestamped_flags_utc_and_et(tmp_path):
     assert (flags.emitted_et == "2026-11-15 11:00:00 EST").all()
     assert (flags.kickoff_et == "2026-11-15 13:00:00 EST").all()
     assert (flags.minutes_to_kickoff == 120.0).all() and (flags.projection_ready == False).all()  # noqa: E712
-    f = flags.set_index("player")
+    f = flags[flags.side == "Under"].set_index("player")
     assert f.loc["Jayden Daniels", "label"] == se.STRONG_UNDER  # QB, model 0.808 vs no-vig 0.5
     assert f.loc["Cam Skattebo", "label"] == se.STRONG_UNDER    # RB at 70% in 4/4 prior games
     assert f.loc["Nobody Here", "reason"] == "position_unknown"
@@ -229,9 +229,11 @@ def test_emitter_refuses_game_already_kicked_off(tmp_path):
 
 
 def test_emitter_refuses_price_pulled_at_or_after_kickoff_or_missing(tmp_path):
-    for pulled in ("2026-11-15T18:05:00Z", None):
+    for pulled, why in (("2026-11-15T18:05:00Z", "price_pulled_after_kickoff"), ("2026-11-15T18:00:00Z",
+                        "price_pulled_after_kickoff"), (None, "price_pull_time_unknown"),
+                        ("2026-11-15T16:30:00Z", "price_pull_time_in_future")):
         fz = _freeze(tmp_path, pulled=pulled, name=f"fz_{pulled}.json")
-        with pytest.raises(EM.EmitError, match="no game"):
+        with pytest.raises(EM.EmitError, match=f"no game.*{why}"):
             _run(tmp_path, _t("2026-11-15T16:00:00Z"), freeze=fz)
 
 
@@ -267,9 +269,12 @@ def test_emitter_refuses_non_holdout_week(tmp_path):
 # ---------------------------------------------------------------- commit / push guards (no real git)
 def test_git_guard_refuses_pregame_github_and_outside_paths():
     EM.guard_paths(["research/runs/2026-11-15_live_flags/flags_x.csv"], "research/runs/2026-11-15_live_flags")
-    for bad in ("pregame/x.json", ".github/workflows/a.yml", "calibration/selective_edge.py"):
-        with pytest.raises(EM.EmitError):
+    for bad, why in (("pregame/x.json", "pregame"), (".github/workflows/a.yml", "github"),
+                     ("calibration/selective_edge.py", "outside")):
+        with pytest.raises(EM.EmitError, match=why):
             EM.guard_paths([bad], "research/runs/2026-11-15_live_flags")
+    with pytest.raises(EM.EmitError, match="pregame"):   # even under a run dir named like pregame
+        EM.guard_paths(["pregame/runs/x.csv"], "pregame/runs")
 
 
 def test_git_guard_refuses_non_research_branch():
