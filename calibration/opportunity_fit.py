@@ -48,16 +48,22 @@ SOURCES = {
     "inj_2025": {"path": NFLV / "injuries_2025.parquet",
                  "sha256": "c7637c2f6347194426a8582a984aac82a6bf8ab06af72cdd96666a2e0733ab24"},
     "inj_2026": {"path": NFLV / "injuries/injuries_2026_pulled_20261113T0526Z.parquet",
-                 "sha256": "a72cc1afc7224baf6cafdc81950d807fd603ee9c02e7348b38151fcc1af8fa36"},
+                 "sha256": "a72cc1afc7224baf6cafdc81950d807fd603ee9c02e7348b38151fcc1af8fa36",
+                 "retrieved_utc": "2026-11-13T05:26:36Z (00:26 AM ET Nov 13, AFTER the Nov 12 TNF kickoff)",
+                 "publication_time": "UNKNOWN (the nflverse file carries no per-row publication timestamp)",
+                 "provenance_gap": "its Week 10 rows feed the WAS@NYG sanity model (e.g. C.Yankoff Out); pregame "
+                                   "publication of those statuses is assumed, not proven"},
     "depth_qb1": {"path": NFLV / "derived_pit/depth_qb1_snapshots_2025_2026.csv",
                   "sha256": "c1ab52498fad542f62677e02977494a9283e4e3d78e6d2eb08a3344b0068d5d2",
                   "use": "point-in-time QB1 (latest snapshot before 04:00 UTC of game day); see derived_pit/README.md"},
-    "games": {"path": NFLV / "games.csv", "sha256": None, "use": "game day per (season, week, team) only"},
+    "games": {"path": NFLV / "games.csv", "sha256": "c606cb6cdf94d6a1c1e939e23ed524223dc7aeaa01a4e2982b0cb5db42bae017",
+              "use": "game day per (season, week, team) only", "committed": "d9779a1 (2026-11-11 10:07 AM ET)"},
     "players": {"path": PBP_DIR / "players.parquet",
                 "sha256": "4f885ccfeb4853f3cde70b1507c3349fb843bd8a54047dc940e89050ee313342",
                 "url": "https://github.com/nflverse/nflverse-data/releases/download/players/players.parquet",
                 "retrieved_utc": "2026-11-13T05:26:36Z", "committed": False,
-                "use": "position only (gsis_id -> position); latest_team/status are NOT read (post-date info)"},
+                "use": "position only (gsis_id -> position); latest_team/status are NOT read (post-date info)",
+                "provenance_gap": "position is the CURRENT snapshot (retrieved 2026-11-13), not point in time"},
 }
 SLOTS = ("dropback", "carry", "target")
 HOLDOUT_FIRST_WEEK = 10
@@ -83,8 +89,6 @@ def verify_sources(keys=None) -> dict:
             continue
         p = Path(v["path"])
         h = sha256(p) if p.exists() else None
-        if v["sha256"] is None and h is not None:
-            v = {**v, "sha256": h}
         if h != v["sha256"]:
             raise RuntimeError(f"{k}: sha256 mismatch or missing ({p}): {h}")
         out[k] = {kk: (str(vv) if isinstance(vv, Path) else vv) for kk, vv in v.items()}

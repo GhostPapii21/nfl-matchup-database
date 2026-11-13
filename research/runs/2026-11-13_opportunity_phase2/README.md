@@ -46,6 +46,18 @@ Several values sit on a grid edge: K=0, beta_last=0, and m at 1000-5000 in some 
 - **Point in time:** availability is the weekly report status only. Game-day inactives are not used.
 - **Snaps:** unknown. There is no snap model, and nflverse snap counts in the repo stop at Week 7.
 
+## Provenance gaps (labelled, not fixed)
+- `injuries_2026_pulled_20261113T0526Z.parquet` was retrieved 2026-11-13T05:26:36Z = **00:26 AM ET Nov 13, after the
+  Nov 12 TNF kickoff**, and nflverse gives **no publication time** for its rows: publication time UNKNOWN. Its Week 10
+  rows feed the WAS@NYG sanity model (WAS Out: C.Yankoff, and a non-skill player); pregame publication is assumed,
+  not proven. For W4-9 the statuses are the weekly report; check (Ghost6 review, re-verified by me): 0 of 148 W4-9
+  QB/RB/WR/TE Out rows and 0 of 5 Doubtful rows recorded any opportunity that week.
+- Positions come from the **current** nflverse `players.parquet` (retrieved 2026-11-13), not a point-in-time
+  roster; position changes during the season are not reflected.
+- `games.csv` (game day only) is now sha-pinned: c606cb6cdf94d6a1c1e939e23ed524223dc7aeaa01a4e2982b0cb5db42bae017
+  (committed d9779a1, 2026-11-11 10:07 AM ET; contains no W10+ scores).
+- 2025 PBP and players.parquet are not committed (sha256-pinned, read from NFLVERSE_PBP_DIR).
+
 ## Results
 See `metrics.md` (walk-forward Weeks 4-9) and `sanity_was_nyg_n20000.md` (WAS@NYG, projection only). Every figure in
 `metrics.md` is produced by `python3 -m calibration.opportunity_report` from `backtest_raw.json` (including the
