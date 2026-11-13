@@ -6,7 +6,9 @@ with a machine-readable `reason` and an `edge_tier` flag.
 
 Rico's rules, encoded as gates (checked in this order):
   1. Passing-yards markets (any market starting with "pass") are excluded -> NO EDGE (excluded_market_passing).
-  2. RB/FB rushing legs: the back needs >=60% of team carries in at least 3 of his last 4 prior games
+  2. Rushing legs (rushyds, rushrec) with an unknown / non-canonical position (not QB/RB/FB/WR/TE after upper-casing)
+     or no player id (gsis) -> INSUFFICIENT EVIDENCE (position_unknown / player_id_unknown), so a missing position can
+     never skip the RB gate. RB/FB rushing legs: the back needs >=60% of team carries in at least 3 of his last 4 prior games
      (same gate as backtests/selective_under_alt_2026-11-12, the gate behind the 18-5 OOS result).
      Fewer than 3 prior games -> INSUFFICIENT EVIDENCE; gate fails -> NO EDGE (do_not_play_rb_carry_lt_60).
   3. Receiving legs (recyds, rec, rushrec) need a verified main defender, else INSUFFICIENT EVIDENCE.
@@ -44,6 +46,7 @@ RUSH_MARKETS = ("rushyds", "rushrec")          # RB carry gate applies
 RECEIVING_MARKETS = ("recyds", "rec", "rushrec")  # defender gate applies
 PROP_MARKETS = ("rushyds", "recyds", "rec", "rushrec")
 RB_POSITIONS = ("RB", "FB")
+RUSH_POSITIONS = ("QB", "RB", "FB", "WR", "TE")  # canonical; anything else on a rushing leg -> INSUFFICIENT
 CARRY_SHARE_MIN = 0.60
 CARRY_LAST_N, CARRY_NEED = 4, 3
 USUAL_LAST_N, USUAL_NEED = 4, 3
@@ -127,6 +130,14 @@ def attach_context(legs: pd.DataFrame, pbp: pd.DataFrame) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------- classifier
+def _blank(v) -> bool:
+    return v is None or (isinstance(v, float) and np.isnan(v)) or str(v).strip() in ("", "nan", "None", "NaN")
+
+
+def _canon_pos(v) -> str:
+    return "" if _blank(v) else str(v).strip().upper()
+
+
 def _classify_row(r, strong, cushion_min):
     m, kind, side = str(r.market), str(r.kind), str(r.side)
     dec = r.dec
@@ -134,7 +145,12 @@ def _classify_row(r, strong, cushion_min):
         return NO_EDGE, "excluded_market_passing", np.nan, np.nan
     if m not in PROP_MARKETS:
         return INSUFFICIENT, "unsupported_market", np.nan, np.nan
-    if m in RUSH_MARKETS and str(r.position) in RB_POSITIONS:
+    if m in RUSH_MARKETS:  # PR #40 review fix 1: an unknown position or player id never skips the RB carry gate
+        if _canon_pos(r.position) not in RUSH_POSITIONS:
+            return INSUFFICIENT, "position_unknown", np.nan, np.nan
+        if _blank(r.gsis):
+            return INSUFFICIENT, "player_id_unknown", np.nan, np.nan
+    if m in RUSH_MARKETS and _canon_pos(r.position) in RB_POSITIONS:
         n_prior = r.carry_n_prior
         if not (pd.notna(n_prior) and n_prior >= CARRY_NEED):
             return INSUFFICIENT, "carry_history_unknown", np.nan, np.nan
@@ -177,7 +193,7 @@ def _classify_row(r, strong, cushion_min):
 
 def classify(legs: pd.DataFrame, params: dict) -> pd.DataFrame:
     df = legs.copy()
-    for c, v in (("p_nv", np.nan), ("defender_verified", False), ("carry_n_prior", np.nan), ("carry_n60", np.nan),
+    for c, v in (("position", np.nan), ("gsis", np.nan), ("p_nv", np.nan), ("defender_verified", False), ("carry_n_prior", np.nan), ("carry_n60", np.nan),
                  ("usual", np.nan), ("price_source", None), ("p_model", np.nan), ("dec", np.nan)):
         if c not in df:
             df[c] = v
