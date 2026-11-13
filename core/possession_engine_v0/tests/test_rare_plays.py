@@ -95,6 +95,7 @@ def test_off_reproduces_main_d817a3b_bit_for_bit(mode):
     assert o["semantics"]["rare_plays"] == "off"
     assert all(int(v.sum()) == 0 for k, v in o["special_teams_counts"].items()
                if k in ("punt_blocked", "fg_blocked", "fake", "onside_attempt", "kick_foul_presnap", "kick_foul_flagged"))
+    assert "rare_band_usage" not in o  # off-mode output keys unchanged
 
 
 @needs_pbp
@@ -342,6 +343,13 @@ def test_rare_research_smoke_runs_and_labels():
     assert 15 < float(tot.mean()) < 80
     sc = o["special_teams_counts"]
     assert int(sc["kick_foul_flagged"].sum() + sc["kick_foul_presnap"].sum()) > 0
+    bu = o["rare_band_usage"]
+    n_rare = int(sum(int(sc[k].sum()) for k in ("kick_foul_presnap", "kick_foul_flagged", "punt_blocked", "fg_blocked",
+                                                 "fake", "onside_attempt")))
+    assert sum(v for k, v in bu.items() if k.startswith("all|all|")) == n_rare
+    assert all(k.split("|")[2] in ("band0", "band1", "band2", "band5", "band10", "band20", "all", "absolute")
+               for k in bu)
+    assert "NO distance bound" in o["rare_band_note"]
 
 
 # ---------------------------------------------------------------- review pass 1 fixes (live semantics, bands, cap)
@@ -443,4 +451,9 @@ def test_clean_punt_return_rate_population_excludes_touchbacks():
     m = rp.build_rare_play_model(PBP, season=2026, week_asof_exclusive=10)
     info = m.meta["clean_punt_return_td_rate"]
     assert "non-touchback" in info["source"]
-    assert info["punts"] < m.meta["formation"]["punt"]["current_season_only"]["clean"]["n"]
+    assert info["punts"] < m.meta["formation"]["punt"]["n"]["clean"]
+    assert "pooled" in info["source"]
+    assert info["rate"] == info["return_tds"] / info["punts"]
+    cs = info["current_season_only"]
+    assert cs["punts"] < m.meta["formation"]["punt"]["current_season_only"]["clean"]["n"]
+    assert info["return_tds"] > cs["tds"] >= 0

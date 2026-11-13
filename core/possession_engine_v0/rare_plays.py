@@ -331,12 +331,16 @@ def build_rare_play_model(pbp_path, *, season: int, week_asof_exclusive: int,
     rec = int(_num(d.loc[ons_idx, "own_kickoff_recovery"]).sum()) if n_ons else 0
     onside = {"cells": cells, "pool": opool, "n_onside": n_ons, "own_recoveries": rec, "dropped": odrop}
     # clean return-TD rates (blocked / flagged punts and onside kicks are resampled from their own pools)
-    cp = d[(d["_form"] == "punt") & (d["_cls"] == "clean") & (d["season"] == season)]
+    # pooled over the same rows as the formation class rates (current season weeks < target + prior REG seasons), so
+    # P(clean) x P(return TD | clean) and the flagged / blocked pools describe one population (review pass 3: the
+    # current-season-only rate was 0 / 935 in W1-9 2026 because its only punt-return TD carried a flag)
+    cp = d[(d["_form"] == "punt") & (d["_cls"] == "clean")]
     # same population the engine rolls the return TD on: punts that are not touchbacks
     cp = cp[(_num(cp["touchback"]) != 1) & (_num(cp["punt_in_endzone"]) != 1)]
     nko = cur[(_num(cur["kickoff_attempt"]) == 1)]
     nko = nko[~nko["desc"].fillna("").str.lower().str.contains("onside", regex=False)]
     cprt = float(_num(cp["return_touchdown"]).sum() / len(cp)) if len(cp) else None
+    n_cprt_td = int(_num(cp["return_touchdown"]).sum())
     ckrt = float(_num(nko["return_touchdown"]).sum() / len(nko)) if len(nko) else None
     meta = {"mode": mode, "label": "AS_OF_LEAGUE_COUNT_RATIOS_NOT_FITTED research only, not validated",
             "sources": sources, "season": season, "week_asof_exclusive": int(week_asof_exclusive),
@@ -347,8 +351,10 @@ def build_rare_play_model(pbp_path, *, season: int, week_asof_exclusive: int,
                        "cells": {"|".join(map(str, k)): {"kickoffs": v[0], "onside": v[1]} for k, v in sorted(cells.items(), key=str)},
                        "structural": {"sec_edges": ONSIDE_SEC_EDGES, "deficit_edges": ONSIDE_DEFICIT_EDGES,
                                       "min_cell_n": ONSIDE_MIN_CELL_N}},
-            "clean_punt_return_td_rate": {"rate": cprt, "punts": int(len(cp)),
-                                          "source": "current season weeks < target, clean non-touchback punts"},
+            "clean_punt_return_td_rate": {"rate": cprt, "punts": int(len(cp)), "return_tds": n_cprt_td,
+                                          "source": "pooled like the formation rates (current season weeks < target + prior REG seasons), clean non-touchback punts",
+                                          "current_season_only": {"tds": int(_num(cp.loc[cp["season"] == season, "return_touchdown"]).sum()),
+                                                                  "punts": int((cp["season"] == season).sum())}},
             "clean_kick_return_td_rate": {"rate": ckrt, "kickoffs": int(len(nko)),
                                           "source": "current season weeks < target, non-onside kickoffs"},
             "kickoff_fouls": "already in the as-of kickoff start pool (next scrimmage spot after each kickoff); "

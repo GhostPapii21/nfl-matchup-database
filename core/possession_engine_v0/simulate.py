@@ -1248,6 +1248,7 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
     ]}
     joint_acc = {"pass_yards": {}, "rush_yards": {}, "rec_yards": {}}
     st_counts = {k: [] for k in ST_COUNT_KEYS}
+    band_usage: dict[str, int] = {}  # NFL-75 review pass 3: rare-play outcome sampling band per kind|class|band
     sparse_counts = 0
     coarse_counts = 0
     def_cond_plays = 0
@@ -1276,6 +1277,11 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
         })
         for k, v in special_teams_counts(st).items():
             st_counts[k].append(v)
+        for e in st.events:
+            if e.get("type") == "rare_play":
+                tag = e.get("los_band") or ("absolute" if e.get("from_yl") is None else "none")
+                for key in (f"{e.get('kind')}|{e.get('cls')}|{tag}", f"all|all|{tag}"):
+                    band_usage[key] = band_usage.get(key, 0) + 1
         for k in buckets:
             if k == "went_ot":
                 buckets[k].append(bool(st.in_ot))
@@ -1336,6 +1342,11 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
         },
         "arrays": {k: np.asarray(v) for k, v in buckets.items()},
         "special_teams_counts": {k: np.asarray(v, dtype=int) for k, v in st_counts.items()},
+        **({"rare_band_usage": dict(sorted(band_usage.items())),
+            "rare_band_note": ("band<b>: outcome row drawn from rows whose LOS is within b yards of the live LOS "
+                               "(band0 = exact, no translation); all: whole-class pool fallback, NO distance bound; "
+                               "absolute: onside rows, row spot used as-is")}
+           if _rare_model(catalog) is not None else {}),
         "player_joint": joint_acc,
         "player_samples": player_samples,
         "effects_provenance": effects_prov,
