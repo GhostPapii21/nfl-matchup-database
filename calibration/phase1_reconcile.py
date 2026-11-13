@@ -21,6 +21,8 @@ import pandas as pd
 from calibration.common import PBP, PBP_PULLED_ET, MAX_N, LABEL, ROOT, engine_path, engine_version, make_cfg, sha256
 
 BANDS = [(10, "01_10"), (20, "11_20"), (35, "21_35"), (45, "36_45"), (60, "46_60"), (100, "61_99")]
+DRIVE_END = {"touchdown", "punt", "field_goal", "turnover", "turnover_on_downs", "safety", "halftime", "def_return",
+             "def_return_td", "fg_sparse_miss_default", "kickoff", "ot_start"}
 GL_TAGS = ("uncensored", "GL_CENSOR_RESOLVED", "GL_CENSOR_UNRESOLVED", "GL_CENSOR_TRUNCATED")
 
 
@@ -48,8 +50,15 @@ def sim_counts(job):
         C[f"clock_events_{play_type}"] += 1
         return v
 
+    last = {"st": None, "team": None, "n_ev": 0}
+
     def row_wrap(rng, catalog, st, row, gl_tag=None, extra_ev=None):
         team, y = st.possession, int(st.yardline_100)
+        # possession with >= 1 snap: a new drive starts when the offense changes or a drive-ending event
+        # (score, punt, FG try, turnover, downs, half end) happened since this team's previous snap
+        ended = any(e.get("type") in DRIVE_END for e in st.events[last["n_ev"]:]) if last["st"] is st else True
+        if last["st"] is not st or team != last["team"] or ended:
+            C[f"{team}|drives"] += 1
         n0 = len(st.events)
         o_row(rng, catalog, st, row, gl_tag, extra_ev)
         pt = str(row.get("play_type"))
@@ -64,6 +73,7 @@ def sim_counts(job):
         if pt == "run":
             C[f"{team}|carries"] += 1
         td = any(e.get("type") == "touchdown" and e.get("team") == team for e in st.events[n0:])
+        last.update(st=st, team=team, n_ev=len(st.events))
         if y <= 10:
             tag = gl_tag or "uncensored"
             C[f"in10|snaps|{tag}"] += 1
@@ -89,6 +99,8 @@ def sim_counts(job):
                     C["kickoffs"] += 1
                 elif ty == "penalty":
                     C[f"{e.get('offense')}|penalty_events"] += 1
+                    if e.get("no_play") and not e.get("live_ball"):
+                        C[f"{e.get('offense')}|no_play_penalties"] += 1
                 elif ty == "turnover":
                     C[f"{e.get('team')}|turnovers"] += 1
                 elif ty == "touchdown":
@@ -132,7 +144,7 @@ def actual_counts(pbp, teams, weeks) -> dict:
             out["turnovers"] += int(((x.interception == 1) | (x.fumble_lost == 1)).sum())
             out["tds"] += int(((x.touchdown == 1) & (x.td_team == t) & x.play_type.isin(["pass", "run"])).sum())
             out["punts"] += int((x.play_type == "punt").sum()); out["fga"] += int((x.play_type == "field_goal").sum())
-            out["drives"] += int(x.drive.dropna().nunique())
+            out["drives"] += int(sn.drive.dropna().nunique())
             f4 = x[(x.down == 4) & x.play_type.isin(["punt", "field_goal", "pass", "run"])]
             for r in f4.itertuples():
                 out[f"4th|{band(int(r.yardline_100))}|{'go' if r.play_type in ('pass', 'run') else r.play_type}"] += 1
@@ -160,7 +172,8 @@ def summarize(res, jobs, pbp) -> dict:
     table["punts"] = {"sim": round(S["punts"] / tg, 3), "actual": round(A["punts"] / atg, 3)}
     table["fga"] = {"sim": round(S["fga"] / tg, 3), "actual": round(A["fga"] / atg, 3)}
     table["kneels"] = {"sim": 0.0, "actual": round(A["kneels"] / atg, 3)}
-    table["drives"] = {"sim": None, "actual": round(A["drives"] / atg, 3), "note": "sim drives come from diagnose_total"}
+    table["drives"] = {"sim": round(S.get("drives", 0) / tg, 3), "actual": round(A["drives"] / atg, 3),
+                       "note": "possessions with >= 1 pass/run snap (both sides)"}
     for k, v in table.items():
         if v["sim"] is not None and v["actual"] is not None:
             v["sim_minus_actual"] = round(v["sim"] - v["actual"], 3)
