@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-15, 09:30 ET.** Site: Neutral; roof: dome; surface: fieldturf. Rest: NE 7 days, DET 7 days. Listed QBs: Drake Maye (NE), Jared Goff (DET).
 
-Market (schedule consensus, not a timestamped quote): DET -2.5, total 51.5.
+Market (schedule consensus, not a timestamped quote): DET -2.5, total 50.5.
 
-Generated 2026-11-12T21:17:05+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-13T02:49:32+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,37 +12,37 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-12T21:17:00+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-13T02:49:26+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-12T21:16:12Z |
-| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-12T21:15:52Z |
-| spread | pinnacle | DET -2.5 | -117 | +104 | 52.4% | 47.6% | 2.9% | 2026-11-12T21:16:32Z |
-| total | draftkings | Over 51.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-12T21:16:12Z |
-| total | fanduel | Over 50.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-12T21:15:52Z |
-| total | pinnacle | Over 51 | -105 | -111 | 49.3% | 50.7% | 3.8% | 2026-11-12T21:16:32Z |
-| moneyline | draftkings | DET | -155 | +130 | 58.3% | 41.7% | 4.3% | 2026-11-12T21:16:12Z |
-| moneyline | fanduel | DET | -152 | +128 | 57.9% | 42.1% | 4.2% | 2026-11-12T21:15:52Z |
-| moneyline | pinnacle | DET | -148 | +131 | 58.0% | 42.0% | 3.0% | 2026-11-12T21:16:32Z |
+| spread | draftkings | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T02:48:52Z |
+| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-13T02:49:10Z |
+| spread | pinnacle | DET -2.5 | -115 | +102 | 51.9% | 48.1% | 3.0% | 2026-11-13T02:49:12Z |
+| total | draftkings | Over 50.5 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-13T02:48:52Z |
+| total | fanduel | Over 49.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-13T02:49:10Z |
+| total | pinnacle | Over 50 | -108 | -108 | 50.0% | 50.0% | 3.9% | 2026-11-13T02:49:12Z |
+| moneyline | draftkings | DET | -148 | +124 | 57.2% | 42.8% | 4.3% | 2026-11-13T02:48:52Z |
+| moneyline | fanduel | DET | -146 | +124 | 57.1% | 42.9% | 4.0% | 2026-11-13T02:49:10Z |
+| moneyline | pinnacle | DET | -146 | +129 | 57.6% | 42.4% | 3.0% | 2026-11-13T02:49:12Z |
 
-### Line movement: first seen 2026-11-11T18:17:55+00:00 to 2026-11-12T21:17:03+00:00 (4 snapshots)
+### Line movement: first seen 2026-11-11T18:17:55+00:00 to 2026-11-13T02:49:29+00:00 (5 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
-| moneyline | draftkings | n/a | n/a | n/a | -155 / +130 | -155 / +130 |
-| moneyline | fanduel | n/a | n/a | n/a | -152 / +128 | -152 / +128 |
-| moneyline | pinnacle | n/a | n/a | n/a | -158 / +139 | -148 / +131 |
+| moneyline | draftkings | n/a | n/a | n/a | -155 / +130 | -148 / +124 |
+| moneyline | fanduel | n/a | n/a | n/a | -152 / +128 | -146 / +124 |
+| moneyline | pinnacle | n/a | n/a | n/a | -158 / +139 | -146 / +129 |
 | spread | draftkings | -2.5 | -2.5 | 0.0 | -120 / +100 | -120 / +100 |
 | spread | fanduel | -2.5 | -2.5 | 0.0 | -120 / +100 | -120 / +100 |
-| spread | pinnacle | -2.5 | -2.5 | 0.0 | -125 / +111 | -117 / +104 |
-| total | draftkings | 51.5 | 51.5 | 0.0 | +100 / -120 | +100 / -120 |
-| total | fanduel | 50.5 | 50.5 | 0.0 | -110 / -110 | -115 / -105 |
-| total | pinnacle | 51.0 | 51.0 | 0.0 | -105 / -111 | -105 / -111 |
+| spread | pinnacle | -2.5 | -2.5 | 0.0 | -125 / +111 | -115 / +102 |
+| total | draftkings | 51.5 | 50.5 | -1.0 | +100 / -120 | -102 / -118 |
+| total | fanduel | 50.5 | 49.5 | -1.0 | -110 / -110 | -115 / -105 |
+| total | pinnacle | 51.0 | 50.0 | -1.0 | -105 / -111 | -108 / -108 |
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 65 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 60 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -72,8 +72,8 @@ Player props: NOT_FETCHED: kickoff is 65 hours away (props are pulled inside 36 
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | NE 25.5 - DET 23.9 | 49.4 | -1.6 | 41.2% | 40.8% | 43.9% | NE 12.9 - DET 11.8 |
-| independent | NE 27.0 - DET 27.6 | 54.6 | +0.6 | 48.0% | 43.8% | 56.1% | NE 15.3 - DET 13.7 |
+| matchup_pair | NE 25.5 - DET 23.9 | 49.4 | -1.6 | 41.2% | 40.8% | 48.9% | NE 12.9 - DET 11.8 |
+| independent | NE 27.0 - DET 27.6 | 54.6 | +0.6 | 48.0% | 43.8% | 61.5% | NE 15.3 - DET 13.7 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -341,7 +341,7 @@ Defensive front: LDE Christian Barmore, NT Cory Durden, RDE Milton Williams, WLB
 | Brenden Schooler | S |  | none listed | Did Not Participate In Practice |  |
 | Cameron Latu | TE |  | none listed | Did Not Participate In Practice |  |
 
-ESPN live list (designations only): Reggie Gilliam (FB) Injured Reserve; Hunter Henry (TE) Questionable; Walter Rouse (OL) Questionable; Cameron Latu (TE) Questionable; Morgan Moses (OT) Questionable; Kevin Byard (S) Questionable; Carlton Davis III (CB) Out; Will Campbell (OT) Questionable; Charles Woods (CB) Questionable; Ben Brown (C) Out; TreVeyon Henderson (RB) Out; A.J. Brown (WR) Questionable; Rhamondre Stevenson (RB) Doubtful.
+ESPN live list (designations only): Reggie Gilliam (FB) Injured Reserve; TreVeyon Henderson (RB) Out; Walter Rouse (OL) Questionable; Cameron Latu (TE) Questionable; Morgan Moses (OT) Questionable; Carlton Davis III (CB) Out; Kevin Byard (S) Questionable; Ben Brown (C) Out; Charles Woods (CB) Questionable; A.J. Brown (WR) Questionable; Rhamondre Stevenson (RB) Questionable; Hunter Henry (TE) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -565,7 +565,7 @@ Defensive front: LDE Aidan Hutchinson, LDT Alim McNeill, RDT Tyleik Williams, RD
 | Sione Vaki | RB |  | none listed | Did Not Participate In Practice |  |
 | Kerby Joseph | S |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Isiah Pacheco (RB) Injured Reserve; Jimmy Rolder (LB) Injured Reserve; Jack Campbell (LB) Injured Reserve; DJ Wonnum (LB) Questionable; Cade Mays (C) Questionable; Amon-Ra St. Brown (WR) Questionable; Jared Goff (QB) Questionable; Sione Vaki (RB) Questionable; Jacob Saylors (RB) Out; Brian Branch (S) Questionable; Kerby Joseph (S) Out; D.J. Reed (CB) Questionable.
+ESPN live list (designations only): Isiah Pacheco (RB) Injured Reserve; Jimmy Rolder (LB) Injured Reserve; Jack Campbell (LB) Injured Reserve; Amon-Ra St. Brown (WR) Questionable; Sione Vaki (RB) Questionable; Kerby Joseph (S) Out; D.J. Reed (CB) Out; DJ Wonnum (LB) Questionable; Cade Mays (C) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -609,16 +609,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-12T21:16:58+00:00 | 94e0430f54ba |
-| pbp | OK | 2026-11-12T21:16:58+00:00 | 6555b925b950 |
-| rosters | OK | 2026-11-12T21:16:58+00:00 | c11a409d73b9 |
-| injuries | OK | 2026-11-12T21:16:58+00:00 | a72cc1afc722 |
-| depth_charts | OK | 2026-11-12T21:16:59+00:00 | 8633b61b70c3 |
-| snap_counts | OK | 2026-11-12T21:16:59+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-12T21:16:59+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-12T21:16:59+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-12T21:17:00+00:00 |  |
+| games | OK | 2026-11-13T02:49:22+00:00 | dff8c18054ea |
+| pbp | OK | 2026-11-13T02:49:23+00:00 | 6555b925b950 |
+| rosters | OK | 2026-11-13T02:49:23+00:00 | c11a409d73b9 |
+| injuries | OK | 2026-11-13T02:49:23+00:00 | a72cc1afc722 |
+| depth_charts | OK | 2026-11-13T02:49:23+00:00 | 8633b61b70c3 |
+| snap_counts | OK | 2026-11-13T02:49:24+00:00 | 78c013d97bde |
+| ftn | OK | 2026-11-13T02:49:24+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-13T02:49:24+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-13T02:49:25+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-12T21:17:00+00:00 |  |
+| book_odds | OK | 2026-11-13T02:49:26+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
