@@ -1,0 +1,58 @@
+# NFL-75 Phase 2: player opportunity model (opt-in, research only)
+
+Rico's Nov 13 12:25 AM repair spec, Phase 2. This is research only and not validated. projection_ready stays false. No Odds API pulls and no paid credits were used. Weeks 10-12 were never read for scoring.
+
+## What it is
+- `core/possession_engine_v0/opportunity.py` is a second recorder. It only observes; it never changes the game. It runs on the same snaps as the name-locked `player_box` recorder from main (#36).
+- It is opt-in through `simulate.simulate_games(..., opportunity_model=<frozen dict>)`. When that argument is left out, the output is byte-identical to main 6bc0c54. With it on, every block that already existed is still byte-identical, including games, the yard ledger and the name-locked box. The model only adds `player_box_opportunity`.
+- It draws all its randomness from its own RNG stream (seed from the run seed plus SALT). It never touches the engine's RNG.
+- Each sampled opportunity is re-attributed to the point-in-time roster in one of three slots:
+  - **dropback:** pass attempts, sacks, QB scrambles and QB runs, kneels and spikes. Each trial draws one starter from a fitted starter mixture.
+  - **carry:** every other run.
+  - **target:** pass rows that had a receiver.
+- Players marked Out on the weekly injury report get availability 0. Questionable and Doubtful players play with a fitted probability. The share of a player who sits is redistributed by the documented `redistribute(alpha)` rule, with alpha fitted. Game-to-game role noise is a Dirichlet draw with fitted kappa.
+- Inside each slot, the player for a snap is drawn with probability proportional to pi_p × L_p(feature cell). L_p is the player's empirical-Bayes distribution over feature cells (zone × depth or yards bucket × result), shrunk toward his position prior with fitted strength m. Any listed player can therefore record an INT or TD; a player's own history no longer caps him.
+- Team totals do not change. In every trial the opportunity team ledger equals the name-locked team ledger (check `team_ledger_eq_name_locked`, plus the #36 checks that don't refer to names).
+
+## Fit, freeze, score (walk-forward)
+- `calibration/opportunity_fit.py` fits on 2024 and 2025 regular seasons plus 2026 weeks before the eval week only. Guards and tests raise an error if the eval week or anything later is read. Parameters for each week are frozen in `params/params_2026_wNN.json` before scoring.
+- `calibration/opportunity_backtest.py` covers 2026 Weeks 4-9: 88 games, n=2000 per game, h2h off, history weeks 1..w-1. One engine run per game feeds both recorders. Weeks 10 and later are refused.
+- `calibration/opportunity_report.py` writes `metrics.md` / `metrics.json`. CIs are a game-cluster bootstrap with 2000 resamples.
+
+Fitted parameters per eval week:
+
+| eval wk | dropback (starter mixture) | carry | target | EB m (db/carry/tgt) | P(play) Q / D |
+|---|---|---|---|---|---|
+| 4 | lam 0.5, K 0, gamma 1.0, beta_last 0.0, beta_dc 2.0, rho 0.975, u 0.064 | lam 0.8, gamma 0.75, K 0, alpha 0.5, kappa 5.0, u 0.070 | lam 0.8, gamma 1.0, K 0, alpha 0.5, kappa 40.0, u 0.095 | 500/1000/500 | 0.66 (n=376) / 0.02 (n=58) |
+| 5 | lam 0.5, K 0, gamma 1.0, beta_last 0.0, beta_dc 2.0, rho 0.975, u 0.063 | lam 0.8, gamma 0.75, K 0, alpha 0.5, kappa 5.0, u 0.070 | lam 0.8, gamma 0.75, K 0, alpha 0.5, kappa 20.0, u 0.094 | 1000/2000/200 | 0.66 (n=384) / 0.02 (n=58) |
+| 6 | lam 0.35, K 0, gamma 1.0, beta_last 0.0, beta_dc 2.0, rho 0.975, u 0.062 | lam 0.8, gamma 0.75, K 0, alpha 0.5, kappa 5.0, u 0.070 | lam 0.8, gamma 0.75, K 0, alpha 0.5, kappa 20.0, u 0.095 | 200/5000/200 | 0.66 (n=400) / 0.02 (n=58) |
+| 7 | lam 0.35, K 0, gamma 1.0, beta_last 0.0, beta_dc 2.0, rho 0.975, u 0.061 | lam 0.8, gamma 0.75, K 0, alpha 0.5, kappa 5.0, u 0.070 | lam 0.8, gamma 0.75, K 0, alpha 0.5, kappa 20.0, u 0.095 | 200/1000/200 | 0.67 (n=414) / 0.02 (n=58) |
+| 8 | lam 0.35, K 0, gamma 1.0, beta_last 0.0, beta_dc 2.0, rho 0.975, u 0.059 | lam 0.8, gamma 0.75, K 0, alpha 0.5, kappa 5.0, u 0.072 | lam 0.8, gamma 0.75, K 0, alpha 0.5, kappa 20.0, u 0.095 | 1000/5000/1000 | 0.67 (n=421) / 0.02 (n=58) |
+| 9 | lam 0.35, K 0, gamma 1.0, beta_last 0.0, beta_dc 2.0, rho 0.975, u 0.059 | lam 0.8, gamma 0.75, K 0, alpha 0.5, kappa 5.0, u 0.072 | lam 0.8, gamma 1.0, K 0, alpha 0.5, kappa 40.0, u 0.095 | 1000/5000/200 | 0.67 (n=431) / 0.02 (n=58) |
+| 10 (WAS@NYG model only, never scored) | lam 0.35, K 0, gamma 1.0, beta_last 0.0, beta_dc 2.0, rho 0.975, u 0.060 | lam 0.8, gamma 0.75, K 0, alpha 0.5, kappa 5.0, u 0.072 | lam 0.8, gamma 1.0, K 0, alpha 0.5, kappa 40.0, u 0.096 | 1000/2000/200 | 0.66 (n=442) / 0.02 (n=59) |
+
+Several values sit on a grid edge: K=0, beta_last=0, and m at 1000-5000 in some weeks. Each params file records its `at_grid_edge` flags.
+
+## Data (sha256 is verified on every fit)
+- **2026 PBP:** committed file `pbp_2026_w1_9_pulled_20261112T1116ET.parquet`, sha 1028614b...
+- **2024 PBP:** committed file, sha 3fd2896b...
+- **2025 PBP:** not committed. Read from /tmp/nflverse_pbp, sha c6ecedd6..., retrieved 2026-11-13T05:25:07Z.
+- **Injuries:**
+  - 2024 (new file under `data/historical/nflverse/injuries/`, sha 7ebabbba..., retrieved 2026-11-13T07:17:03Z)
+  - 2025 (existing committed file, sha c7637c2f...)
+  - 2026 (new file, sha a72cc1af..., retrieved 2026-11-13T05:26:36Z)
+- **players.parquet:** not committed, sha 4f885ccf.... Only the position field is used.
+- **Depth-chart QB1 snapshots 2025-2026:** a derived table, documented in `data/historical/nflverse/derived_pit/README.md`. It uses the latest snapshot before 04:00 UTC on game day.
+- **Point in time:** availability is the weekly report status only. Game-day inactives are not used.
+- **Snaps:** unknown. There is no snap model, and nflverse snap counts in the repo stop at Week 7.
+
+## Results
+See `metrics.md` (walk-forward Weeks 4-9) and `sanity_was_nyg_n20000.md` (WAS@NYG, projection only).
+
+## Reproduce
+```
+python3 -m calibration.opportunity_backtest --weeks 4 5 6 7 8 9 --n 2000 --workers 6   # reuses frozen params/
+python3 -m calibration.opportunity_report
+python3 -m calibration.opportunity_fixtures
+python3 research/runs/2026-11-13_opportunity_phase2/run_sanity_was_nyg.py
+```
