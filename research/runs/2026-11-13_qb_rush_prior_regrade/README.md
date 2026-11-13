@@ -2,7 +2,7 @@
 
 **Research only, not validated. Not a pick list. `projection_ready` stays false. 0 Odds API credits. refs NFL-75.**
 Fix logged on Linear NFL-75 (comment 6ce79e04). The engine change touches **only the QB rush YPC prior and kneel
-handling**, and only when a leg carries `qb_rush_prior=True` (default off). No betting-rule gate, no frozen classifier
+handling**, and only when a leg carries `qb_rush_prior` in the allowlist True / "prior" / "components" (default off; the string "false" stays off). No betting-rule gate, no frozen classifier
 file (`calibration/selective_edge*.py`, `params_w4_7.json`, freeze manifest), no shrink weight (K=100), opponent
 strength, volume model or fitted multiplier changed. No `pregame/` or `.github/` change.
 
@@ -47,6 +47,9 @@ It refuses unless HEAD is that sha and `calibration/` is clean. Rerun it after t
 QB-gate PRs land; this is **not** the final regrade. Committed runs, all at code `b7c9a7d`:
 `off_b7c9a7d/` (control: reproduces 18-5 exactly), `prior_b7c9a7d/` (**QB-prior fix only**),
 `components_b7c9a7d/` (QB-prior fix + components).
+Review follow-up at code `a5a69b0` (flag allowlist + kneels-only nb() guard): `off_a5a69b0/`,
+`prior_a5a69b0/`, `components_a5a69b0/`. Summaries, the 23-spot tables and all 88 p_model values match the
+`b7c9a7d` runs exactly (max abs 0). Off mode still reproduces the 18-5 and all 88 Phase 4 legs with |d_p|=0.
 Same 88 W8-9 rushyds legs (committed fixture), same engines/settings (opp 0.5, n=20,000, cutoffs W8 2026-10-29,
 W9 2026-11-02, calib rule weeks < min(W,8)), committed W1-9 PBP, `qb_rush_prior=True`. Prices, outcomes and gates from
 the box-local Phase 4 `legs_w4_9.csv` (sha256 = freeze manifest). Frozen classifier + the 18-5 study rule (gated,
