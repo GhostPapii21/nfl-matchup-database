@@ -1294,6 +1294,7 @@ def _opp_result(acc, model: dict) -> dict:
     r["reconciliation"]["checks"] = list(RECON_CHECKS)
     r["attribution"] = "opportunity.py module docstring"
     r["model_meta"] = model.get("meta", {})
+    r["label"] = "UNACCEPTED_RESEARCH_ONLY: opt-in NFL-75 Phase 2 opportunity model (not in lock / 100k paths)"
     return r
 
 
@@ -1328,6 +1329,12 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
             result["shared_projections"] = [shared_projection(t) for t in result["trials"]]
             result["path_semantics"] = "SHARED_ACCOUNTING_V1"
         return result
+    for _k in ("opportunity_model", "opportunity"):  # NFL-75 Phase 2: never enabled from a config (lock / 100k)
+        if _k in cfg:
+            raise ValueError(f"UNSUPPORTED: config key {_k!r}; the opportunity model is research only and is passed "
+                             f"only as simulate_games(opportunity_model=...) with n <= {RESEARCH_MAX_N}")
+    if opportunity_model is not None and int(n) > RESEARCH_MAX_N:
+        raise ValueError(f"opportunity_model runs are capped at n={RESEARCH_MAX_N} (got {n}); never 100k")
     wk = (cfg.get("game") or {}).get("week_asof_exclusive")
     if wk is not None and int(cfg["history"]["weeks_inclusive"][-1]) >= int(wk):
         raise ValueError(f"history weeks {cfg['history']['weeks_inclusive']} not strictly before target week {wk}")
