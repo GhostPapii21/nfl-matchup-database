@@ -257,8 +257,9 @@ def main(argv=None) -> int:
         if actuals is None and a.actuals == "nflverse":
             print(f"grading: REFUSED {a.game}: game not final in nflverse (score or play-by-play missing); nothing graded"); return EXIT_REFUSED
     if actuals is None:
-        print(f"grading: nflverse not final for {a.game}; using ESPN public box score")
-        actuals = E.load(a.game, a.espn_event, offline=a.offline)
+        why = "--actuals espn" if a.actuals == "espn" else "nflverse not final"
+        print(f"grading: {why} for {a.game}; using ESPN public box score")
+        actuals = E.load(a.game, a.espn_event, offline=a.offline, save=a.write)
         kickoff = kickoff or actuals.kickoff
         if not actuals.final():
             print(f"grading: REFUSED {a.game}: ESPN status {actuals.status.get('name')} is not final; nothing graded"); return EXIT_REFUSED

@@ -44,6 +44,43 @@ def parse_leg(name: str) -> dict | None:
     return None
 
 
+def _num(v) -> bool:
+    return isinstance(v, (int, float)) and not isinstance(v, bool)
+
+
+def leg_entries(legs: dict):
+    """(name, {probability_name: value}) for real legs in a legs.json-style dict. Metadata is skipped: keys starting
+    with "_" (e.g. "_provenance") and entries with no numeric or null probability. Text fields inside a leg ("label",
+    "note") are not probabilities and are dropped; a null probability (e.g. no market median) is kept as unknown."""
+    for name, v in (legs or {}).items():
+        if str(name).startswith("_"):
+            continue
+        if _num(v):
+            yield name, {"p": v}
+            continue
+        if not isinstance(v, dict):
+            continue
+        probs = {k: x for k, x in v.items() if _num(x) or x is None}
+        if any(_num(x) for x in probs.values()):
+            yield name, probs
+
+
+def resolve_cite(report: Path, anchor: str | None, root: Path = ROOT) -> str:
+    """'REPORT.md:<line>' for the single line of `report` that starts with `anchor` (whitespace-trimmed).
+    Anchoring on text, not a stored line number, keeps citations right when lines are added above the row."""
+    name = report.name
+    if not anchor:
+        return f"{name}:unknown (no anchor)"
+    try:
+        lines = report.read_text().splitlines()
+    except OSError:
+        return f"{name}:unknown (report not readable)"
+    hits = [i for i, ln in enumerate(lines, 1) if ln.strip().startswith(anchor.strip())]
+    if len(hits) != 1:
+        return f"{name}:unknown ({len(hits)} lines match anchor {anchor!r})"
+    return f"{name}:{hits[0]}"
+
+
 def run_dirs(game_id: str, root: Path = ROOT) -> list[Path]:
     _, _, away, home = game_id.split("_")
     return [Path(p) for p in sorted(glob.glob(str(root / "research" / "runs" / f"*_{away}_{home}*"))) if Path(p).is_dir()]
@@ -198,8 +235,8 @@ def grade_research(game_id, actuals, snapshots, kickoff, home, away, now, root: 
         legs_p = d / "legs.json"
         if legs_p.exists():
             art, com = _rel(legs_p, root), _commit_time(legs_p, root)
-            for name, probs in json.loads(legs_p.read_text()).items():
-                rows.append(ctx.grade_leg(name, art, com, probs if isinstance(probs, dict) else {"p": probs}))
+            for name, probs in leg_entries(json.loads(legs_p.read_text())):
+                rows.append(ctx.grade_leg(name, art, com, probs))
         sl_p = d / "script_layer.json"
         if sl_p.exists():
             art, com = _rel(sl_p, root), _commit_time(sl_p, root)
@@ -259,6 +296,8 @@ def grade_research(game_id, actuals, snapshots, kickoff, home, away, now, root: 
 def _grade_spec(ctx: Ctx, sp: Path, root: Path, prior_rows: list[dict]) -> list[dict]:
     spec = json.loads(sp.read_text())
     art, com = _rel(sp, root), _commit_time(sp, root)
+    report = root / spec["report"] if spec.get("report") else sp.parent / "REPORT.md"
+    cite = lambda item: resolve_cite(report, item.get("anchor"), root) if item.get("anchor") else item.get("cite", C.UNKNOWN)
     rows = []
     for f in spec.get("flagged_props") or []:
         who = ctx.a.resolve_full(f["player"], f.get("team"))
@@ -270,7 +309,7 @@ def _grade_spec(ctx: Ctx, sp: Path, root: Path, prior_rows: list[dict]) -> list[
         clv = C.clv(f["stat"], side, ctx.home, (bq or {}).get("line"), (bq or {}).get("prices") or {}, cq,
                     bet_utc=(bq or {}).get("snapshot_utc")) if side and bq else {"positive": C.UNKNOWN, "reason": "no side (Pass) or no saved bet quote"}
         rows.append(ctx.base("report_flagged_prop", art, com, {
-            "cite": f.get("cite"), "player": f["player"], "team": f.get("team"), "stat": f["stat"], "side": C.u(side),
+            "cite": cite(f), "player": f["player"], "team": f.get("team"), "stat": f["stat"], "side": C.u(side),
             "tier": f.get("tier"), "analyst_read": C.fig(f.get("analyst_read"), art, com, label=ANALYST),
             "book": f["book"], "report_line": f["line"],
             "bet_quote": C.fig((bq or {}).get("line"), (bq or {}).get("source"), (bq or {}).get("snapshot_utc"),
@@ -294,7 +333,7 @@ def _grade_spec(ctx: Ctx, sp: Path, root: Path, prior_rows: list[dict]) -> list[
         clv = C.clv(mkt, side, ctx.home, (bq or {}).get("line"), (bq or {}).get("prices") or {}, cq,
                     bet_utc=(bq or {}).get("snapshot_utc")) if bq else {"positive": C.UNKNOWN, "reason": "no saved bet quote"}
         rows.append(ctx.base("report_team_read", art, com, {
-            "cite": t.get("cite"), "market": mkt, "side": side, "tier": t.get("tier"), "book": book,
+            "cite": cite(t), "market": mkt, "side": side, "tier": t.get("tier"), "book": book,
             "report_line": t.get("home_line", t.get("line")),
             "bet_quote": C.fig((bq or {}).get("line"), (bq or {}).get("source"), (bq or {}).get("snapshot_utc"),
                                prices=json.dumps((bq or {}).get("prices")) if bq else None),
@@ -314,7 +353,7 @@ def _grade_spec(ctx: Ctx, sp: Path, root: Path, prior_rows: list[dict]) -> list[
         else:
             slip = "win"
         rows.append(ctx.base("report_slip", art, com, {
-            "cite": s.get("cite"), "slip": s["slip"], "price": s.get("price"), "stake_usd": s.get("stake_usd"),
+            "cite": cite(s), "slip": s["slip"], "price": s.get("price"), "stake_usd": s.get("stake_usd"),
             "complete_leg_list": s.get("complete", True), "note": s.get("note", ""),
             "legs": [{"leg": l["leg"], "actual": l["actual"]["value"], "result": l["result"],
                       "margin_vs_rung": l.get("margin_vs_rung", C.UNKNOWN)} for l in legs],

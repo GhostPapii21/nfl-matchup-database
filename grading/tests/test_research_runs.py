@@ -199,3 +199,58 @@ def test_stored_was_nyg_grade_is_consistent():
         cl = r.get("closing_line")
         if isinstance(cl, dict) and cl["value"] not in (C.UNKNOWN, None):
             assert cl["pulled_utc"] != C.UNKNOWN
+
+
+# ---------------------------------------------------------------- metadata keys and text-anchored citations
+def test_leg_entries_skip_metadata_and_text_fields():
+    legs = {"_provenance": {"label": "analyst read", "edge": "none"},
+            "Nabers 40+ yds": {"market": 0.75, "model": 0.72, "empirical": 0.75, "label": "analyst read", "note": "x"},
+            "Nabers 5+ rec": {"market": None, "model": 0.67, "empirical": 0.875, "label": "analyst read"},
+            "Fields 2+ rec": 0.72,
+            "_anything": 0.5,
+            "notes": {"label": "text only"}}
+    out = dict(R.leg_entries(legs))
+    assert list(out) == ["Nabers 40+ yds", "Nabers 5+ rec", "Fields 2+ rec"]
+    assert out["Nabers 40+ yds"] == {"market": 0.75, "model": 0.72, "empirical": 0.75}
+    assert out["Nabers 5+ rec"]["market"] is None and out["Fields 2+ rec"] == {"p": 0.72}
+
+
+def test_grade_research_never_emits_a_provenance_leg(tmp_path):
+    d = tmp_path / "research" / "runs" / "2026-11-12_TNF_WAS_NYG_layers"; d.mkdir(parents=True)
+    (d / "legs.json").write_text(json.dumps({"_provenance": {"label": "analyst read"},
+                                             "Nabers 40+ yds": {"model": 0.72, "label": "analyst read"}}))
+    rows = R.grade_research("2026_10_WAS_NYG", actuals(), [], KO, "NYG", "WAS", NOW, root=tmp_path)
+    legs = [r for r in rows if r["kind"] == "research_leg"]
+    assert [r["leg"] for r in legs] == ["Nabers 40+ yds"] and legs[0]["result"] == "win"
+    assert set(legs[0]["analyst_probabilities"]) == {"model"}
+
+
+def test_resolve_cite_follows_the_row_when_lines_shift(tmp_path):
+    rep = tmp_path / "REPORT.md"
+    body = ["# r", "| A (8 legs) | +413 |", "| B (10 legs) | +1179 |"]
+    rep.write_text("\n".join(body))
+    assert R.resolve_cite(rep, "| A (8 legs) |") == "REPORT.md:2"
+    rep.write_text("\n".join(["# r", "> added", "", *body[1:]]))
+    assert R.resolve_cite(rep, "| A (8 legs) |") == "REPORT.md:4"
+    assert "unknown" in R.resolve_cite(rep, "| Z (1 leg) |")
+    rep.write_text("\n".join(body + ["| A (8 legs) | dup |"]))
+    assert "2 lines match" in R.resolve_cite(rep, "| A (8 legs) |")          # ambiguous anchor: unknown, never a guess
+
+
+def test_spec_slip_cites_resolve_from_anchor(tmp_path):
+    (tmp_path / "REPORT.md").write_text("x\ny\n| A (8 legs) | +413 |\n")
+    spec = {"slips": [{"slip": "A", "anchor": "| A (8 legs) |", "legs": ["Under 54.5"], "complete": True}]}
+    p = tmp_path / "grading_spec.json"; p.write_text(json.dumps(spec))
+    r = R._grade_spec(ctx(), p, tmp_path, [])[0]
+    assert r["cite"] == "REPORT.md:3" and r["result"] == "win"
+
+
+def test_espn_dry_run_never_overwrites_the_saved_source(tmp_path):
+    raw = json.dumps(summary()).encode()
+    E.load("2026_10_WAS_NYG", "401873052", fetch=lambda url: raw, root=tmp_path)
+    saved = tmp_path / "espn_summary_2026_10_WAS_NYG_401873052.json"
+    before = saved.read_text()
+    saved.write_text(before.replace('"retrieved_utc": "', '"retrieved_utc": "KEEP'))
+    kept = saved.read_text()
+    E.load("2026_10_WAS_NYG", "401873052", fetch=lambda url: raw, root=tmp_path, save=False)
+    assert saved.read_text() == kept                    # a dry run (no --write) leaves the cited copy alone

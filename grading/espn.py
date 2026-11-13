@@ -54,8 +54,10 @@ def saved_path(game_id: str, event: str, root: Path = SOURCES_DIR) -> Path:
     return root / f"espn_summary_{game_id}_{event}.json"
 
 
-def fetch_summary(game_id: str, event: str, *, offline: bool = False, fetch=_get, root: Path = SOURCES_DIR) -> dict:
-    """Pull (or reuse the saved copy of) the ESPN summary. Returns the saved record {url, retrieved_utc, sha256_full_response, header, boxscore}."""
+def fetch_summary(game_id: str, event: str, *, offline: bool = False, fetch=_get, root: Path = SOURCES_DIR,
+                  save: bool = True) -> dict:
+    """Pull (or reuse the saved copy of) the ESPN summary. Returns the saved record {url, retrieved_utc, sha256_full_response, header, boxscore}.
+    save=False (a dry run) never overwrites the saved copy, so the stored grade and its cited source stay in step."""
     p = saved_path(game_id, event, root)
     if offline:
         if not p.exists():
@@ -69,8 +71,9 @@ def fetch_summary(game_id: str, event: str, *, offline: bool = False, fetch=_get
            "sha256_full_response": hashlib.sha256(raw).hexdigest(), "bytes_full_response": len(raw),
            "note": "header + boxscore kept from the full public response; nothing edited",
            "header": d.get("header"), "boxscore": d.get("boxscore")}
-    root.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps(rec, indent=1, sort_keys=True) + "\n")
+    if save:
+        root.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(rec, indent=1, sort_keys=True) + "\n")
     return rec
 
 
@@ -189,7 +192,8 @@ class ESPNActuals:
         return v
 
 
-def load(game_id: str, event: str | None = None, *, offline: bool = False, fetch=_get, root: Path = SOURCES_DIR) -> ESPNActuals:
+def load(game_id: str, event: str | None = None, *, offline: bool = False, fetch=_get, root: Path = SOURCES_DIR,
+         save: bool = True) -> ESPNActuals:
     if event is None:
         saved = sorted(root.glob(f"espn_summary_{game_id}_*.json")) if offline else []
         if saved:
@@ -198,7 +202,7 @@ def load(game_id: str, event: str | None = None, *, offline: bool = False, fetch
             event = find_event(game_id, fetch=fetch)
         if event is None:
             raise SystemExit(f"grading: no ESPN event found for {game_id}; nothing graded")
-    rec = fetch_summary(game_id, event, offline=offline, fetch=fetch, root=root)
+    rec = fetch_summary(game_id, event, offline=offline, fetch=fetch, root=root, save=save)
     p = saved_path(game_id, event, root)
     try:
         rel = str(p.relative_to(ROOT))
