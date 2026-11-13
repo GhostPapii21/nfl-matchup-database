@@ -193,17 +193,25 @@ class OpportunityRecorder(BoxRecorder):
 
     def _starter_pi(self, names, base, out, sm) -> np.ndarray:
         """Dropback slot, starter mixture (fitted in calibration/opportunity_fit.fit_starter): one starter per trial
-        drawn with P ~ share^start_gamma among players who play (UNLISTED with u_start); he takes rho of the
+        drawn with P ~ share^start_gamma (x exp(beta_last) for last game's top passer, x exp(beta_dc) for the point-in-time depth-chart QB1) among players who play (UNLISTED with u_start); he takes rho of the
         dropbacks, the rest is spread over the other players who play in proportion to share."""
         s = np.asarray(base, dtype=float)
         unl = np.array([n == UNLISTED for n in names])
         avail = ~np.asarray(out, dtype=bool)
         u = float(sm["u_start"])
         w = np.where(avail & ~unl, np.maximum(s, 0.0) ** float(sm["start_gamma"]), 0.0)
+        if sm.get("last_top") in names:  # most dropbacks in the team's most recent game: exp(beta_last) boost
+            w[names.index(sm["last_top"])] *= float(np.exp(float(sm.get("beta_last", 0.0))))
+        u_w = u
+        dq = sm.get("depth_qb1")  # point-in-time depth-chart QB1: exp(beta_dc) boost (UNLISTED if not a candidate)
+        if dq == UNLISTED:
+            u_w = u * float(np.exp(float(sm.get("beta_dc", 0.0))))
+        elif dq in names:
+            w[names.index(dq)] *= float(np.exp(float(sm.get("beta_dc", 0.0))))
         p = np.zeros(len(s))
         if w.sum() > 0:
             p = (1 - u) * w / w.sum()
-            p[unl] = u
+            p[unl] = u_w
         else:
             p[unl] = 1.0
         if p.sum() <= 0:

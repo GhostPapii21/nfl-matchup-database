@@ -49,6 +49,10 @@ SOURCES = {
                  "sha256": "c7637c2f6347194426a8582a984aac82a6bf8ab06af72cdd96666a2e0733ab24"},
     "inj_2026": {"path": NFLV / "injuries/injuries_2026_pulled_20261113T0526Z.parquet",
                  "sha256": "a72cc1afc7224baf6cafdc81950d807fd603ee9c02e7348b38151fcc1af8fa36"},
+    "depth_qb1": {"path": NFLV / "derived_pit/depth_qb1_snapshots_2025_2026.csv",
+                  "sha256": "c1ab52498fad542f62677e02977494a9283e4e3d78e6d2eb08a3344b0068d5d2",
+                  "use": "point-in-time QB1 (latest snapshot before 04:00 UTC of game day); see derived_pit/README.md"},
+    "games": {"path": NFLV / "games.csv", "sha256": None, "use": "game day per (season, week, team) only"},
     "players": {"path": PBP_DIR / "players.parquet",
                 "sha256": "4f885ccfeb4853f3cde70b1507c3349fb843bd8a54047dc940e89050ee313342",
                 "url": "https://github.com/nflverse/nflverse-data/releases/download/players/players.parquet",
@@ -79,6 +83,8 @@ def verify_sources(keys=None) -> dict:
             continue
         p = Path(v["path"])
         h = sha256(p) if p.exists() else None
+        if v["sha256"] is None and h is not None:
+            v = {**v, "sha256": h}
         if h != v["sha256"]:
             raise RuntimeError(f"{k}: sha256 mismatch or missing ({p}): {h}")
         out[k] = {kk: (str(vv) if isinstance(vv, Path) else vv) for kk, vv in v.items()}
@@ -378,28 +384,106 @@ def fit_slot(train: list) -> dict:
             "at_grid_edge": edges}
 
 
-STARTER_GRID = {"lam": (0.2, 0.35, 0.5, 0.65, 0.8, 1.0), "K": (0, 1, 2, 3, 99), "start_gamma": (1.0, 2.0, 3.0, 5.0, 8.0),
-                "rho": (0.85, 0.9, 0.95, 0.975, 0.99, 0.995)}
+STARTER_GRID = {"lam": (0.2, 0.35, 0.5, 0.65, 0.8, 1.0), "K": (0, 1, 2, 99), "start_gamma": (0.5, 1.0, 2.0, 3.0),
+                "rho": (0.9, 0.95, 0.975, 0.99),
+                "beta_last": (0.0, 1.0, 2.0, 3.0), "beta_dc": (0.0, 1.0, 2.0, 3.0, 4.0, 6.0)}
 
 
-def starter_parts(inp, lam, K, start_gamma, u_start, avail_q=1.0):
-    """Dropback slot, starter mixture: P(start) over kept candidates + UNLISTED and the spread vector used for the
+@lru_cache(maxsize=1)
+def _depth():
+    d = pd.read_csv(SOURCES["depth_qb1"]["path"], dtype={"gsis_id": str})
+    return {k: g.sort_values("dt") for k, g in d.groupby(["season", "team"])}
+
+
+@lru_cache(maxsize=1)
+def _gamedays():
+    g = pd.read_csv(SOURCES["games"]["path"], usecols=["season", "week", "gameday", "home_team", "away_team"])
+    out = {}
+    for r in g.itertuples():
+        out[(int(r.season), int(r.week), r.home_team)] = r.gameday
+        out[(int(r.season), int(r.week), r.away_team)] = r.gameday
+    return out
+
+
+def depth_qb1(season: int, team: str, week: int):
+    """gsis_id of the depth-chart QB1 in the latest snapshot with dt < 04:00 UTC on game day (None = unknown)."""
+    gd = _gamedays().get((season, week, team))
+    d = _depth().get((season, team))
+    if gd is None or d is None:
+        return None
+    cut = f"{gd}T04:00:00Z"
+    d = d[d["dt"] < cut]
+    if not len(d):
+        return None
+    v = d.iloc[-1]["gsis_id"]
+    return v if isinstance(v, str) else None
+
+
+def last_top(inp, keep) -> int | None:
+    """Index (into pids) of the kept candidate with the most slot rows in the team's most recent game."""
+    idx = np.where(keep)[0]
+    if not len(idx):
+        return None
+    c = inp["C"][idx, -1]
+    return int(idx[int(np.argmax(c))]) if c.max() > 0 else None
+
+
+def starter_parts(inp, lam, K, start_gamma, u_start, beta_last=0.0, beta_dc=0.0):
+    """Depth signal: the point-in-time depth-chart QB1 (depth_qb1) is kept as a candidate even if stale (unless Out)
+    and his start weight is multiplied by exp(beta_dc); if he has no rows for the team, UNLISTED gets the boost. Dropback slot, starter mixture: P(start) over kept candidates + UNLISTED and the spread vector used for the
     non-starter remainder. Out / Doubtful players cannot start (fitting; the sim draws Q/D availability)."""
-    keep, s = base_shares(inp, lam, 1.0, K, 0.0)
+    keep, s = _starter_base(inp, lam, K)
     idx = np.where(keep)[0]
     r = s[:-1] if len(s) > 1 else np.array([])
     out = np.array([inp["status"][j] in ("Out", "Doubtful") for j in idx], dtype=bool)
     w = np.where(out, 0.0, r ** start_gamma) if len(r) else r
+    lt = last_top(inp, keep)
+    if lt is not None and len(w):
+        w = w * np.where(idx == lt, math.exp(beta_last), 1.0)
+    dc = inp.get("_dc_idx", "none")
+    u_w = u_start
+    if dc == "unlisted":
+        u_w = u_start * math.exp(beta_dc)
+    elif dc not in ("none", None) and len(w):
+        w = w * np.where(idx == dc, math.exp(beta_dc), 1.0)
     if len(w) and w.sum() > 0:
-        p_start = np.append((1 - u_start) * w / w.sum(), u_start)
+        p_start = np.append((1 - u_start) * w / w.sum(), u_w)
+        p_start = p_start / p_start.sum()
     else:
         p_start = np.append(np.zeros(len(r)), 1.0)
     spread = np.append(np.where(out, 0.0, r), max(u_start, 1e-3)) if len(r) else np.array([1.0])
     return keep, p_start, spread
 
 
-def _starter_ll(inp, lam, K, start_gamma, rho, u_start) -> float:
-    keep, p_start, spread = starter_parts(inp, lam, K, start_gamma, u_start)
+def _starter_base(inp, lam, K):
+    """base_shares with the depth-chart QB1 force-kept (if he has rows for the team and is not Out)."""
+    keep, s = base_shares(inp, lam, 1.0, K, 0.0)
+    q = inp.get("_dc_pid", "unset")
+    if q == "unset":
+        q = depth_qb1(inp["season"], inp["team"], inp["week"])
+        inp["_dc_pid"] = q
+    inp["_dc_idx"] = "none"
+    if q is None:
+        return keep, s
+    if q in inp["pids"]:
+        j = inp["pids"].index(q)
+        if not keep[j] and inp["status"][j] != "Out":
+            keep2, s2 = base_shares(inp, lam, 1.0, 99, 0.0)
+            if keep2[j]:
+                keep = keep.copy(); keep[j] = True
+                r = np.zeros(len(keep))
+                r[keep2] = s2[:-1]
+                rr = r[keep]
+                s = np.append(rr / rr.sum(), 0.0) if rr.sum() > 0 else s
+        if keep[j]:
+            inp["_dc_idx"] = j
+    else:
+        inp["_dc_idx"] = "unlisted"
+    return keep, s
+
+
+def _starter_ll(inp, lam, K, start_gamma, rho, u_start, beta_last=0.0, beta_dc=0.0) -> float:
+    keep, p_start, spread = starter_parts(inp, lam, K, start_gamma, u_start, beta_last, beta_dc)
     a = inp["actual"]
     ids = [p for j, p in enumerate(inp["pids"]) if keep[j]]
     c = np.array([a["by_pid"][p] for p in ids] + [a["total"] - sum(a["by_pid"][p] for p in ids)], dtype=float)
@@ -422,32 +506,48 @@ def _starter_ll(inp, lam, K, start_gamma, rho, u_start) -> float:
 
 def fit_starter(train: list) -> dict:
     """Dropback slot: per game one starter drawn from P(start_p) ~ r_p^start_gamma (r = recency-weighted dropback
-    share over games played, lam / K as for the other slots; Out/Doubtful cannot start; u_start = P(starter is
+    share over games played, lam / K as for the other slots) times exp(beta_last) for the player with the most
+    dropbacks in the team's most recent game; Out/Doubtful cannot start; u_start = P(starter is
     someone outside the list) = train frequency of games whose top dropback player was unlisted); the starter takes
     rho of the dropbacks, the rest is spread over the others in proportion to r. Fit by maximum likelihood."""
-    best = None
-    for lam in STARTER_GRID["lam"]:
-        for K in STARTER_GRID["K"]:
+    G = STARTER_GRID
+    u_cache = {}
+
+    def u_for(lam, K):
+        if (lam, K) not in u_cache:
             n_unl = 0
             for x in train:
-                keep, _ = base_shares(x, lam, 1.0, K, 0.0)
+                keep, _ = _starter_base(x, lam, K)
                 a = x["actual"]
                 ids = [p for j, p in enumerate(x["pids"]) if keep[j]]
                 top = max([a["by_pid"][p] for p in ids] or [0])
                 n_unl += int(a["total"] - sum(a["by_pid"][p] for p in ids) > top)
-            u = min(max(n_unl / len(train), 1e-3), 0.5)
-            for g in STARTER_GRID["start_gamma"]:
-                for rho in STARTER_GRID["rho"]:
-                    ll = sum(_starter_ll(x, lam, K, g, rho, u) for x in train)
-                    if best is None or ll > best[0]:
-                        best = (ll, lam, K, g, rho, u)
-    ll, lam, K, g, rho, u = best
-    G = STARTER_GRID
-    return {"mode": "starter", "lam": lam, "K": int(K), "start_gamma": g, "rho": rho, "u_start": u,
+            u_cache[(lam, K)] = min(max(n_unl / len(train), 1e-3), 0.5)
+        return u_cache[(lam, K)]
+
+    def ll(lam, K, g, rho, b, bd):
+        return sum(_starter_ll(x, lam, K, g, rho, u_for(lam, K), b, bd) for x in train)
+
+    # staged (coordinate) grid search: (lam, K, gamma) | (beta_last, beta_dc, rho) | (lam, K, gamma) again
+    cur = {"lam": 0.5, "K": 1, "g": 1.0, "rho": 0.975, "b": 0.0, "bd": 2.0}
+    trace = []
+    for stage in ("share", "boosts", "share"):
+        cands = ([{"lam": l, "K": k, "g": g} for l in G["lam"] for k in G["K"] for g in G["start_gamma"]]
+                 if stage == "share" else
+                 [{"b": b, "bd": bd, "rho": r} for b in G["beta_last"] for bd in G["beta_dc"] for r in G["rho"]])
+        scored = [(ll(**{**cur, **c}), c) for c in cands]
+        v, c = max(scored, key=lambda t: t[0])
+        cur.update(c)
+        trace.append({"stage": stage, "ll": v, **c})
+    best = (trace[-1]["ll"], cur["lam"], cur["K"], cur["g"], cur["rho"], u_for(cur["lam"], cur["K"]), cur["b"], cur["bd"])
+    ll, lam, K, g, rho, u, b, bd = best
+    n_dc = sum(1 for x in train if x.get("_dc_pid") not in (None, "unset"))
+    return {"mode": "starter", "lam": lam, "K": int(K), "start_gamma": g, "rho": rho, "u_start": u, "beta_last": b,
+            "beta_dc": bd, "train_games_with_depth_signal": n_dc, "search": "staged grid", "search_trace": trace,
             "gamma": 1.0, "alpha": 0.0, "u": u, "kappa": None, "objective": "starter_mixture_multinomial",
             "train_team_games": len(train), "train_ll": ll,
             "at_grid_edge": {k: v in (G[k][0], G[k][-1]) for k, v in (("lam", lam), ("K", K), ("start_gamma", g),
-                                                                      ("rho", rho))}}
+                                                                      ("rho", rho), ("beta_last", b), ("beta_dc", bd))}}
 
 
 def fit_availability(eval_season: int, eval_week: int, seasons=(2024, 2025), min_r: float = 0.10) -> dict:
@@ -572,7 +672,11 @@ def build_model(eval_season: int, eval_week: int, teams, params: dict, *, name_s
             x = team_game_inputs(eval_season, team, eval_week, slot)
             if x is None:
                 raise RuntimeError(f"no history for {team} before week {eval_week}")
-            keep, s = base_shares(x, p["lam"], p["gamma"], p["K"], p["u"])
+            if p.get("mode") == "starter":
+                keep, s0 = _starter_base(x, p["lam"], p["K"])
+                s = np.append(s0[:-1] * (1 - p["u"]), p["u"]) if len(s0) > 1 else np.array([1.0])
+            else:
+                keep, s = base_shares(x, p["lam"], p["gamma"], p["K"], p["u"])
             idx = list(np.where(keep)[0])
             names, poss, av, pids, stat = [], [], [], [], []
             shares = []
@@ -593,8 +697,14 @@ def build_model(eval_season: int, eval_week: int, teams, params: dict, *, name_s
             tm["slots"][slot] = {"players": names, "pos": poss, "share": shares, "avail": av,
                                  "alpha": p["alpha"], "kappa": p["kappa"]}
             if p.get("mode") == "starter":
+                lt = last_top(x, keep)
                 tm["slots"][slot].update({"mode": "starter", "start_gamma": p["start_gamma"], "rho": p["rho"],
-                                          "u_start": p["u_start"]})
+                                          "u_start": p["u_start"], "beta_last": p.get("beta_last", 0.0),
+                                          "last_top": x["names"][lt] if lt is not None else None,
+                                          "beta_dc": p.get("beta_dc", 0.0),
+                                          "depth_qb1": (x["names"][x["_dc_idx"]] if isinstance(x.get("_dc_idx"), int)
+                                                        else ("UNLISTED" if x.get("_dc_idx") == "unlisted" else None)),
+                                          "depth_qb1_gsis": x.get("_dc_pid") if x.get("_dc_pid") != "unset" else None})
             tm["candidates"][slot] = [{"name": n, "gsis_id": i, "pos": q, "status": t, "base_share": round(v, 4),
                                        "avail": a} for n, i, q, t, v, a in zip(names, pids, poss, stat, shares, av)]
             pri = fit_priors(rows, slot)
