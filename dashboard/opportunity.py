@@ -257,6 +257,9 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
                        "position_share": _f(r.get("targets", 0) / pos_targets, 3),
                        "def_allows_position_yards_pg": _f(d_yds, 1), "his_slice_of_that": _f(slice_, 1)},
             "history": {"games": len(hist), **{str(t): sum(1 for h in hist if h >= t) for t in (50, 70, 80, 100)}},
+            "player_id": r.get("player_id"),
+            "sim": {"targets_raw": _f(exp_t, 3), "k": _f(k, 2), "catch_rate": _f(cr_adj, 4), "ypr": _f(ypr_adj, 3),
+                    "rain_yards": _f(ry, 4), "rain_catch": _f(rc, 4), "pool": P},
             **summary_receiver(tg, rc_, yd, cr_adj * ypr_adj * ry)})
     for i, r in enumerate(rush):
         name = r.get("full_name") or r["player"]
@@ -284,5 +287,7 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
                        "injury_bump": _f(bump, 3), "yards_per_carry": _f(ypc_adj, 2), "def_yards_per_carry_allowed": _f(d_ypc, 2),
                        "league_yards_per_carry": _f(pools["ypc"], 2), "dispersion_k": _f(k, 1)},
             "history": {"games": len(hist), **{str(t): sum(1 for h in hist if h >= t) for t in (50, 70, 80, 100)}},
+            "player_id": r.get("player_id"),
+            "sim": {"carries_raw": _f(exp_c, 3), "k": _f(k, 2), "ypc": _f(ypc_adj, 3)},
             **summary_rusher(car, yd)})
     return res

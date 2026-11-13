@@ -10,7 +10,7 @@
   --bg: #eceff3; --surface: #ffffff; --surface-2: #f5f7f9; --ink: #13202c; --muted: #586776; --line: #d4dbe2;
   --accent: #d9531a; --accent-ink: #ffffff; --accent-soft: #fbe3d6;
   --good: #1d7f47; --good-soft: #dcf1e4; --warn: #9a6512; --warn-soft: #f8ecd4; --bad: #bd2f2f; --bad-soft: #f8dddd;
-  --chart: #2f5f8a; --chart-soft: #d9e6f1;
+  --chart: #2f5f8a; --chart-soft: #d9e6f1; --turf: #e3efe4; --turf-line: #c6dcc8;
   --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --r: 10px;
@@ -19,12 +19,12 @@
   --bg: #0d141b; --surface: #151f29; --surface-2: #1b2733; --ink: #e5ecf2; --muted: #93a2b1; --line: #283644;
   --accent: #ff7b3f; --accent-ink: #1a0d05; --accent-soft: #3a2216;
   --good: #52c483; --good-soft: #163626; --warn: #e3ab45; --warn-soft: #3a2c12; --bad: #f27373; --bad-soft: #3d1b1d;
-  --chart: #7fb2e0; --chart-soft: #1f3447; color-scheme: dark; } }
+  --chart: #7fb2e0; --chart-soft: #1f3447; --turf: #14261b; --turf-line: #22402c; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg: #0d141b; --surface: #151f29; --surface-2: #1b2733; --ink: #e5ecf2; --muted: #93a2b1; --line: #283644;
   --accent: #ff7b3f; --accent-ink: #1a0d05; --accent-soft: #3a2216;
   --good: #52c483; --good-soft: #163626; --warn: #e3ab45; --warn-soft: #3a2c12; --bad: #f27373; --bad-soft: #3d1b1d;
-  --chart: #7fb2e0; --chart-soft: #1f3447; color-scheme: dark; }
+  --chart: #7fb2e0; --chart-soft: #1f3447; --turf: #14261b; --turf-line: #22402c; color-scheme: dark; }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 14px; line-height: 1.45; margin: 0;
   font-variant-numeric: tabular-nums; }
@@ -181,6 +181,18 @@ textarea { width: 100%; min-height: 360px; font: 12px/1.5 ui-monospace, SFMono-R
 .big { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1; }
 .flow { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
 .flow .arrow { color: var(--muted); }
+[hidden] { display: none !important; }
+.fieldsvg { width: 100%; height: auto; display: block; border-radius: 8px; }
+.fieldsvg.wide { max-width: 620px; margin: 0 auto; }
+.fieldsvg text { font-family: var(--font-body); }
+.edge-card { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.ribbon { align-self: flex-start; background: var(--accent); color: var(--accent-ink); font-family: var(--font-display); font-weight: 700; letter-spacing: .06em; font-size: 13px; padding: 2px 10px; border-radius: 4px; text-transform: uppercase; }
+.viz-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.viz-row > div { min-width: 0; }
+.simbox { background: var(--surface-2); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+.simbox .seg button { padding: 4px 10px; font-size: 12px; }
+.simstats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.simstats div { background: var(--surface); border-radius: 6px; padding: 6px 8px; }
 .toast { color: var(--good); font-weight: 600; font-size: 13px; }
 footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
 @media (max-width: 520px) {
@@ -211,7 +223,7 @@ const BOARD = /*__BOARD_DATA__*/null;
   const games = (BOARD && BOARD.games) || [];
   const state = { gi: 0, dir: 0, tab: "overview" };
   const TABS = [["overview", "Overview"], ["matchup", "What the defense allows"], ["defenders", "Defenders"], ["qb", "Quarterback"],
-                ["players", "Receivers & backs"], ["opportunity", "Opportunity"], ["injuries", "Injuries"], ["h2h", "Last meeting"], ["odds", "Odds"], ["weather", "Weather & rest"],
+                ["players", "Receivers & backs"], ["opportunity", "Opportunity"], ["field", "Field view"], ["injuries", "Injuries"], ["h2h", "Last meeting"], ["odds", "Odds"], ["weather", "Weather & rest"],
                 ["grok", "Copy for Grok"]];
 
   // ---------------------------------------------------------------- helpers
@@ -679,6 +691,275 @@ const BOARD = /*__BOARD_DATA__*/null;
       ${rows.slice(0, 10).map((x) => `<tr><td>${esc(x[0])} ${esc(x[1])} <span class="note">${esc(x[2])}</span></td><td>${x[6] === "rec" ? "receiving" : "rushing"}</td><td>${n(x[3], 0)}</td><td>${pct(x[4])}</td><td>${pct(x[5])}</td></tr>`).join("")}</tbody></table></div></div>`;
   }
 
+  // ---------------------------------------------------------------- field view (visual matchups)
+  const last = (nm) => String(nm || "").split(" ").slice(-1)[0].replace(/^[A-Z]\./, "");
+  const ft = (inch) => isNum(inch) ? `${Math.floor(inch / 12)}'${Math.round(inch % 12)}"` : "–";
+  function covByPos(s, pos) { return (((s.defenders || {}).coverage) || []).filter((c) => c.position === pos).sort((a, b) => (b.targets || 0) - (a.targets || 0)); }
+  function formationSvg(s) {
+    const V = s.visual || {}, P = V.personnel, SH = V.shell, R = (s.roles || {}).receivers || [], RU = (s.roles || {}).rushers || [];
+    const grp = P && P.personnel && P.personnel[0] ? P.personnel[0].group : "11";
+    const nRB = +grp[0] || 1, nTE = +grp[1] || 1, nWR = Math.max(0, 5 - nRB - nTE);
+    const wrs = R.filter((r) => r.pos === "WR").slice(0, nWR), tes = R.filter((r) => r.pos === "TE").slice(0, nTE);
+    const rb = RU.filter((r) => r.pos === "RB")[0];
+    const gun = !P || !P.formations || !P.formations[0] || /shotgun|pistol/i.test(P.formations[0].formation);
+    const los = 168, W = 360;
+    const dot = (x, y, label, sub, fill, stroke) => `<g><circle cx="${x}" cy="${y}" r="7" fill="${fill}" stroke="${stroke}" stroke-width="2"/><text x="${x}" y="${y + 18}" text-anchor="middle" font-size="8.5" font-weight="600" fill="var(--ink)">${esc(label)}</text>${sub ? `<text x="${x}" y="${y + 27}" text-anchor="middle" font-size="7.5" fill="var(--muted)">${esc(sub)}</text>` : ""}</g>`;
+    const xmark = (x, y, label, grade) => { const c = grade === "target" ? "var(--good)" : grade === "avoid" ? "var(--bad)" : "var(--ink)";
+      return `<g><path d="M${x - 6} ${y - 6}L${x + 6} ${y + 6}M${x + 6} ${y - 6}L${x - 6} ${y + 6}" stroke="${c}" stroke-width="2.6"/><text x="${x}" y="${y - 10}" text-anchor="middle" font-size="8.5" font-weight="600" fill="${c}">${esc(label)}</text></g>`; };
+    let off = "";
+    [150, 165, 180, 195, 210].forEach((x, i) => (off += `<rect x="${x - 6}" y="${los + 4}" width="12" height="12" rx="2" fill="var(--surface)" stroke="var(--muted)"/><text x="${x}" y="${los + 26}" text-anchor="middle" font-size="6.5" fill="var(--muted)">${["LT", "LG", "C", "RG", "RT"][i]}</text>`));
+    const wrX = [30, 330, 262, 98];
+    wrs.forEach((r, i) => (off += dot(wrX[i], i < 2 ? los + 10 : los + 16, last(r.full_name || r.player), `${pct(r.target_share)} tgt`, "var(--accent-soft)", "var(--accent)")));
+    const teX = [228, 132, 240];
+    tes.forEach((r, i) => (off += dot(teX[i], los + 10, last(r.full_name || r.player), `${pct(r.target_share)} tgt`, "var(--chart-soft)", "var(--chart)")));
+    off += dot(180, gun ? los + 44 : los + 26, "QB", "", "var(--surface)", "var(--muted)");
+    if (rb) off += dot(gun ? 200 : 180, gun ? los + 44 : los + 58, last(rb.full_name || rb.player), `${pct(rb.carry_share)} car`, "var(--warn-soft)", "var(--warn)");
+    // defense
+    const cbs = covByPos(s, "CB"), ss = covByPos(s, "S"), lbs = covByPos(s, "LB");
+    const front = V.defense_starters || {};
+    let def = "";
+    [["RDE", 134], ["RDT", 166], ["LDT", 196], ["LDE", 228]].forEach(([k, x], i) => (def += xmark(x, los - (i % 2 ? 22 : 12), last(front[k] || front[k.replace("D", "")] || k), "")));
+    lbs.slice(0, nWR >= 3 ? 2 : 3).forEach((c, i, a) => (def += xmark(a.length === 2 ? [160, 200][i] : [150, 180, 210][i], los - 50, last(c.player), c.grade)));
+    if (cbs[0]) def += xmark(30, los - 22, last(cbs[0].player), cbs[0].grade);
+    if (cbs[1]) def += xmark(330, los - 22, last(cbs[1].player), cbs[1].grade);
+    if (nWR >= 3 && cbs[2]) def += xmark(258, los - 30, last(cbs[2].player), cbs[2].grade);
+    const twoHigh = SH && SH.mofo_rate >= 0.5;
+    if (twoHigh) { if (ss[0]) def += xmark(105, 52, last(ss[0].player), ss[0].grade); if (ss[1]) def += xmark(255, 52, last(ss[1].player), ss[1].grade); }
+    else { if (ss[0]) def += xmark(180, 34, last(ss[0].player), ss[0].grade); if (ss[1]) def += xmark(245, los - 62, last(ss[1].player), ss[1].grade); }
+    const zones = twoHigh ? `<ellipse cx="105" cy="52" rx="70" ry="28" fill="var(--chart)" opacity=".10"/><ellipse cx="255" cy="52" rx="70" ry="28" fill="var(--chart)" opacity=".10"/>`
+      : `<ellipse cx="180" cy="34" rx="95" ry="24" fill="var(--chart)" opacity=".10"/>`;
+    const yardlines = [20, 60, 100, 140].map((y) => `<line x1="0" x2="${W}" y1="${y}" y2="${y}" stroke="var(--turf-line)" stroke-width="1"/>`).join("") +
+      [0, 1, 2, 3, 4, 5].map((i) => `<line x1="${120}" x2="${126}" y1="${i * 40}" y2="${i * 40}" stroke="var(--turf-line)"/><line x1="${234}" x2="${240}" y1="${i * 40}" y2="${i * 40}" stroke="var(--turf-line)"/>`).join("");
+    return `<svg class="fieldsvg wide" viewBox="0 0 ${W} 240" role="img" aria-label="Formation and coverage shell">
+      <rect x="0" y="0" width="${W}" height="240" fill="var(--turf)"/>${yardlines}${zones}
+      <line x1="0" x2="${W}" y1="${los}" y2="${los}" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      ${def}${off}
+      <text x="6" y="12" font-size="8" fill="var(--muted)">${esc(s.defense)} ${twoHigh ? "two-high (middle open)" : "single-high (middle closed)"} look</text>
+      <text x="6" y="236" font-size="8" fill="var(--muted)">${esc(s.offense)} ${esc(grp)} personnel · ${gun ? "shotgun" : "under center"}</text></svg>`;
+  }
+  function shellCard(s) {
+    const SH = (s.visual || {}).shell, P = (s.visual || {}).personnel;
+    const bar = (lab, v, max, fmt) => vsBar(lab, v, max, null, fmt);
+    const help = SH ? (SH.mofo_rate >= 0.5
+      ? `Two-high shells take away the deep middle and outside go routes. They give up the short and intermediate middle: tight ends, slot receivers and backs on option routes, digs and crossers.`
+      : `Single-high shells leave outside receivers one-on-one more often and open seams and posts against Cover 3 and Cover 1. Big, fast outside receivers and vertical tight ends benefit; underneath zones are tighter.`) : "";
+    return `<div class="card"><h4>${esc(s.offense)} formation vs ${esc(s.defense)} shell</h4><div class="sub">Most-used personnel and formation (${P ? P.season : "n/a"}), with ${esc(s.defense)}'s most-used shell (${SH ? SH.season : "n/a"}). Defenders in green allow the most per target; red are the toughest. Spots on the field are typical alignments: where each receiver lines up is not in free data.</div>
+      ${formationSvg(s)}
+      ${SH ? `<div class="viz-row"><div><div class="k">${esc(s.defense)} shell mix</div>${bar("Middle open", SH.mofo_rate, 1, (v) => pct(v))}${bar("Middle closed", SH.mofc_rate, 1, (v) => pct(v))}${bar("Man", SH.man_rate, 1, (v) => pct(v))}${bar("Zone", SH.zone_rate, 1, (v) => pct(v))}</div>
+        <div><div class="k">20+ yard passes allowed per dropback</div>${bar("vs man", (SH.vs_man || {}).explosive_rate, 0.2, (v) => pct(v, 1))}${bar("vs zone", (SH.vs_zone || {}).explosive_rate, 0.2, (v) => pct(v, 1))}${bar("middle open", (SH.vs_mofo || {}).explosive_rate, 0.2, (v) => pct(v, 1))}${bar("middle closed", (SH.vs_mofc || {}).explosive_rate, 0.2, (v) => pct(v, 1))}</div>
+        <div><div class="k">Yards per attempt allowed</div>${bar("vs man", (SH.vs_man || {}).yards_per_attempt, 10, (v) => n(v, 1))}${bar("vs zone", (SH.vs_zone || {}).yards_per_attempt, 10, (v) => n(v, 1))}${bar("middle open", (SH.vs_mofo || {}).yards_per_attempt, 10, (v) => n(v, 1))}${bar("middle closed", (SH.vs_mofc || {}).yards_per_attempt, 10, (v) => n(v, 1))}</div></div>
+        <div class="note">${esc(help)} Shell and man/zone data are from ${SH.season}, the latest free season. Who gets beaten in man coverage is not published per defender; the defender grades above use all coverage snaps.</div>` : `<p class="empty">No shell data for ${esc(s.defense)}.</p>`}</div>`;
+  }
+  function targetMapSvg(tm, s) {
+    if (!tm || !tm.targets) return `<p class="empty">No targets this season.</p>`;
+    const rows = { deep: [8, 52], intermediate: [52, 96], short: [96, 140], behind: [140, 166] }, lanes = { left: 0, middle: 1, right: 2 };
+    const max = Math.max(...tm.cells.map((c) => c.targets), 1);
+    const dz = {}; ((s.pass_zones || {}).defense_allowed || []).forEach((z) => (dz[z.zone.toLowerCase()] = z));
+    let g = "";
+    tm.cells.forEach((c) => {
+      const [y0, y1] = rows[c.depth], x0 = 10 + lanes[c.lane] * 93;
+      const op = c.targets ? 0.12 + 0.75 * (c.targets / max) : 0;
+      g += `<rect x="${x0}" y="${y0}" width="91" height="${y1 - y0 - 2}" rx="4" fill="var(--accent)" opacity="${op.toFixed(2)}"/>`;
+      if (c.targets) g += `<text x="${x0 + 45}" y="${(y0 + y1) / 2 - 1}" text-anchor="middle" font-size="11" font-weight="700" fill="var(--ink)">${c.targets}</text><text x="${x0 + 45}" y="${(y0 + y1) / 2 + 10}" text-anchor="middle" font-size="7.5" fill="var(--ink)">${n(c.yards_per_target, 1)} y/t</text>`;
+    });
+    ["left", "middle", "right"].forEach((l, i) => {
+      const d = dz["deep " + l], sh = dz["short " + l], x = 10 + i * 93 + 45;
+      if (d) g += `<text x="${x}" y="6" text-anchor="middle" font-size="7" fill="${d.yards_per_attempt >= 11 ? "var(--good)" : "var(--muted)"}">${esc(s.defense)} deep ${n(d.yards_per_attempt, 1)} ypa</text>`;
+      if (sh) g += `<text x="${x}" y="178" text-anchor="middle" font-size="7" fill="${sh.yards_per_attempt >= 6.8 ? "var(--good)" : "var(--muted)"}">${esc(s.defense)} short ${n(sh.yards_per_attempt, 1)} ypa</text>`;
+    });
+    return `<svg class="fieldsvg" viewBox="0 0 300 182" role="img" aria-label="Where his targets go"><rect x="0" y="0" width="300" height="182" fill="var(--turf)"/>
+      <line x1="0" x2="300" y1="140" y2="140" stroke="var(--accent)" stroke-dasharray="4 3"/>${g}
+      <text x="296" y="48" text-anchor="end" font-size="6.5" fill="var(--muted)">20+</text><text x="296" y="92" text-anchor="end" font-size="6.5" fill="var(--muted)">10-19</text><text x="296" y="136" text-anchor="end" font-size="6.5" fill="var(--muted)">0-9</text></svg>`;
+  }
+  const ROUTE_PATH = { "GO": "M60 150L60 18", "HITCH/CURL": "M60 150L60 100L67 108", "SLANT": "M60 150L60 138L112 98", "QUICK OUT": "M60 150L60 130L18 130",
+    "DEEP OUT": "M60 150L60 88L14 88", "IN/DIG": "M60 150L60 88L150 88", "POST": "M60 150L60 92L122 28", "CORNER": "M60 150L60 92L18 44",
+    "SHALLOW CROSS/DRAG": "M60 150L60 142L196 126", "SCREEN": "M60 150L42 160", "SWING": "M60 150Q34 166 18 146", "WHEEL": "M60 150Q30 140 24 96L24 24",
+    "TEXAS/ANGLE": "M60 150L40 134L92 110", "FLAT": "M60 150L16 146" };
+  function routeTreeSvg(rt) {
+    if (!rt) return `<p class="empty">No route data (routes are free through last season only).</p>`;
+    const top = rt.routes.slice(0, 8);
+    const ends = top.map((r) => { const d = ROUTE_PATH[r.route] || "M60 150L60 120"; const nums = d.match(/-?\d+(\.\d+)?/g).map(Number); return [nums[nums.length - 2], nums[nums.length - 1]]; });
+    const paths = top.map((r, i) => `<path d="${ROUTE_PATH[r.route] || "M60 150L60 120"}" fill="none" stroke="var(--accent)" stroke-linecap="round" stroke-linejoin="round" stroke-width="${(1.5 + r.share * 16).toFixed(1)}" opacity="${(0.35 + r.share * 2).toFixed(2)}"><title>${esc(r.route)}: ${r.targets} targets, ${n(r.yards_per_target, 1)} yards per target</title></path>`).join("");
+    const labels = top.map((r, i) => { const [x, y] = ends[i]; return `<text x="${Math.min(214, x + 3)}" y="${Math.max(9, y - 2)}" font-size="7" fill="var(--ink)">${esc(r.route.split("/")[0].toLowerCase())} ${pct(r.share)} · ${n(r.yards_per_target, 1)}</text>`; }).join("");
+    return `<svg class="fieldsvg" viewBox="0 0 230 170" role="img" aria-label="Route tree"><rect x="0" y="0" width="230" height="170" fill="var(--turf)"/><line x1="0" x2="230" y1="150" y2="150" stroke="var(--accent)" stroke-dasharray="4 3"/>${paths}<circle cx="60" cy="150" r="5" fill="var(--accent)"/>${labels}<text x="226" y="166" text-anchor="end" font-size="6.5" fill="var(--muted)">${rt.season} targeted routes · inside →</text></svg>`;
+  }
+  function sizeSvg(sz) {
+    if (!sz || !sz.player) return "";
+    const ppl = [Object.assign({ me: true }, sz.player, { player: sz.player.name })].concat(sz.defenders || []);
+    const H = 150, base = 140, scale = (inch) => ((inch - 60) / 22) * 110;
+    const w = 300 / ppl.length;
+    const bodies = ppl.map((p, i) => { const h = p.height_in ? scale(p.height_in) : 40, bw = p.weight ? Math.max(14, Math.min(34, (p.weight - 150) / 4)) : 18, x = i * w + w / 2;
+      const col = p.me ? "var(--accent)" : p.grade === "target" ? "var(--good)" : p.grade === "avoid" ? "var(--bad)" : "var(--muted)";
+      return `<g><circle cx="${x}" cy="${base - h - 6}" r="6" fill="${col}"/><rect x="${x - bw / 2}" y="${base - h}" width="${bw}" height="${h}" rx="6" fill="${col}" opacity="${p.me ? 0.9 : 0.55}"/>
+        <text x="${x}" y="${base + 10}" text-anchor="middle" font-size="7.5" font-weight="600" fill="var(--ink)">${esc(last(p.player))}</text><text x="${x}" y="${base + 19}" text-anchor="middle" font-size="7" fill="var(--muted)">${ft(p.height_in)} ${p.weight ? Math.round(p.weight) : "–"}${p.forty ? " · " + n(p.forty, 2) : ""}</text></g>`; }).join("");
+    return `<svg class="fieldsvg" viewBox="0 0 300 ${H + 12}" role="img" aria-label="Size and speed"><line x1="0" x2="300" y1="${base}" y2="${base}" stroke="var(--line)"/>${bodies}</svg>`;
+  }
+  function splitBars(rt, sh, s) {
+    if (!rt) return "";
+    const rows = [["man", rt.vs_man], ["zone", rt.vs_zone], ["2-high", rt.vs_mofo], ["1-high", rt.vs_mofc]].filter(([, v]) => v);
+    return `<div class="k">His ${rt.season} yards per target by coverage (targets in brackets)</div>${rows.map(([l, v]) => vsBar(`${l} (${v.targets})`, v.yards_per_target, 14, null, (x) => n(x, 1))).join("")}
+      ${sh ? `<div class="note">${esc(s.defense)} played ${pct(sh.man_rate)} man and ${pct(sh.mofc_rate)} middle-closed in ${sh.season}.</div>` : ""}`;
+  }
+  function tierBars(t, label, s, rankKey) {
+    if (!t) return "";
+    const rk = ((s.defense_rank || {})[rankKey] || {}).rank;
+    const tierNow = !isNum(rk) ? null : rk <= 10 ? "top" : rk > 22 ? "bottom" : "middle";
+    const mx = Math.max(...["top", "middle", "bottom"].map((k) => (t[k] || {}).yards || 0), 1) * 1.15;
+    return `<div class="k">${esc(label)} per game by defense tier (2025-26, games in brackets)</div>${["top", "middle", "bottom"].map((k) => vsBar(`${k === "top" ? "Top 10" : k === "bottom" ? "Bot 10" : "Middle"} (${(t[k] || {}).games || 0})${k === tierNow ? " ◀" : ""}`, (t[k] || {}).yards, mx, null, (v) => n(v, 0))).join("")}
+      ${tierNow ? `<div class="note">${esc(s.defense)} ranks ${ord(rk)} against this position: the ◀ row is the tier he faces.</div>` : ""}`;
+  }
+  function recEdges(s, r, vis, opp) {
+    const e = [];
+    ((vis.size || {}).edges || []).forEach((x) => e.push([x.level, x.text]));
+    const t = vis.tiers, pk = (r.pos || "WR").toLowerCase(), rk = ((s.defense_rank || {})[pk + "_rec_yards_pg"] || {}).rank;
+    if (t && isNum(rk) && rk > 22 && (t.bottom || {}).games >= 3 && (t.bottom.yards || 0) >= ((t.middle || {}).yards || 0) * 1.1) e.push(["good", `Soft matchup: ${s.defense} ranks ${ord(rk)} against ${r.pos}s, and he averages ${n(t.bottom.yards, 0)} yards against bottom-10 defenses.`]);
+    if (t && isNum(rk) && rk <= 10 && (t.top || {}).games >= 3 && (t.top.yards || 0) <= ((t.middle || {}).yards || 0) * 0.85) e.push(["bad", `Tough matchup: ${s.defense} ranks ${ord(rk)} against ${r.pos}s, and he averages only ${n(t.top.yards, 0)} yards against top-10 defenses.`]);
+    const rt = vis.routes, sh = (s.visual || {}).shell;
+    if (rt && sh) {
+      const heavy = sh.mofc_rate >= 0.55 ? ["vs_mofc", "middle-closed"] : sh.mofo_rate >= 0.5 ? ["vs_mofo", "middle-open"] : null;
+      const all = (rt.vs_man && rt.vs_zone) ? ((rt.vs_man.yards_per_target * rt.vs_man.targets + rt.vs_zone.yards_per_target * rt.vs_zone.targets) / (rt.vs_man.targets + rt.vs_zone.targets)) : null;
+      if (heavy && rt[heavy[0]] && rt[heavy[0]].targets >= 20 && all && rt[heavy[0]].yards_per_target >= all * 1.15) e.push(["good", `Coverage fit: ${s.defense} leans ${heavy[1]}, where he averaged ${n(rt[heavy[0]].yards_per_target, 1)} yards per target in ${rt.season} (${n(all, 1)} overall).`]);
+    }
+    const tm = vis.targets;
+    if (tm && tm.targets >= 10) {
+      const best = tm.cells.slice().sort((a, b) => b.targets - a.targets)[0];
+      const dz = ((s.pass_zones || {}).defense_allowed || []).find((z) => z.zone.toLowerCase() === `${best.depth === "deep" ? "deep" : "short"} ${best.lane}`);
+      if (dz && ((best.depth === "deep" && dz.yards_per_attempt >= 11) || (best.depth !== "deep" && dz.yards_per_attempt >= 6.8))) e.push(["good", `His most-targeted area (${best.depth} ${best.lane}) is where ${s.defense} allows ${n(dz.yards_per_attempt, 1)} yards per attempt.`]);
+    }
+    const tgtCB = ((vis.size || {}).defenders || []).filter((d) => d.grade === "target").map((d) => d.player);
+    if (tgtCB.length) e.push(["good", `Likely coverage includes ${tgtCB.join(", ")}, graded a defender to attack.`]);
+    if (opp && (opp.yards || {})["70"] >= 0.4) e.push(["good", `Opportunity: ${pct(opp.yards["70"])} chance at 70+ yards in this game.`]);
+    return e;
+  }
+  function oppFor(s, pid, kind) { const o = s.opportunity; if (!o || o.error) return null; return (o[kind] || []).find((x) => x.player_id === pid); }
+  function fieldRecCard(s, r) {
+    const vis = ((s.visual || {}).receivers || {})[r.player_id] || {}, opp = oppFor(s, r.player_id, "receivers");
+    const edges = recEdges(s, r, vis, opp), hot = edges.filter(([l]) => l === "good").length >= 2;
+    const sid = slug(s.offense + "-" + r.player_id);
+    return `<div class="card ${hot ? "edge-card" : ""}">${hot ? `<span class="ribbon">Mismatch</span>` : ""}
+      <div class="player-head"><span class="nm">${esc(r.full_name || r.player)} <span class="pos">${esc(r.pos)}</span></span><span class="note">${pct(r.target_share)} of targets</span></div>
+      <div class="tags">${(r.tags || []).map(tagHtml).join("")}</div>
+      ${edges.length ? `<ul class="list">${edges.map(([l, t]) => `<li>${lvlDot(l)}<span>${esc(t)}</span></li>`).join("")}</ul>` : `<p class="note">No clear mismatch from size, tier, coverage or zone.</p>`}
+      <div class="viz-row"><div><div class="k">Size and speed vs likely coverage</div>${sizeSvg(vis.size) || '<p class="empty">No size data.</p>'}</div>
+        <div><div class="k">Where his targets go this season</div>${targetMapSvg(vis.targets, s)}</div>
+        <div><div class="k">Route tree</div>${routeTreeSvg(vis.routes)}</div></div>
+      <div class="viz-row"><div>${splitBars(vis.routes, (s.visual || {}).shell, s)}</div><div>${tierBars(vis.tiers, "Yards", s, (r.pos || "WR").toLowerCase() + "_rec_yards_pg")}</div></div>
+      ${opp && opp.sim ? `<button class="btn ghost" data-sim="${esc(sid)}">Simulate this game</button><div class="simbox" id="sim-${esc(sid)}" hidden></div>` : ""}</div>`;
+  }
+  function runGapSvg(rm, s) {
+    if (!rm || !rm.carries) return `<p class="empty">No carries this season.</p>`;
+    const dd = {}; (s.run_defense_by_direction || []).forEach((d) => (dd[d.direction] = d));
+    const front = (s.visual || {}).defense_starters || {};
+    const facing = { "left end": front.RDE || front.ROLB, "left tackle": front.RDE || front.RDT, "left guard": front.RDT, "middle": front.NT || front.MLB || front.LILB, "right guard": front.LDT, "right tackle": front.LDE || front.LDT, "right end": front.LDE || front.LOLB };
+    const xs = [30, 75, 120, 165, 210, 255, 300];
+    const max = Math.max(...rm.cells.map((c) => c.carries), 1);
+    let g = "";
+    rm.cells.forEach((c, i) => {
+      const h = (c.carries / max) * 80, x = xs[i], d = dd[c.direction];
+      const col = !isNum(c.ypc) ? "var(--line)" : c.ypc >= 4.8 ? "var(--good)" : c.ypc <= 3.3 ? "var(--bad)" : "var(--chart)";
+      g += `<rect x="${x - 15}" y="${100 - h}" width="30" height="${h}" rx="4" fill="${col}" opacity=".85"><title>${esc(c.direction)}: ${c.carries} carries, ${n(c.ypc, 1)} per carry</title></rect>
+        <text x="${x}" y="${96 - h}" text-anchor="middle" font-size="8" font-weight="700" fill="var(--ink)">${c.carries ? pct(c.carries / rm.carries) : ""}</text>
+        <text x="${x}" y="112" text-anchor="middle" font-size="7" fill="var(--muted)">${esc(c.direction.replace("middle", "mid"))}</text>
+        <text x="${x}" y="122" text-anchor="middle" font-size="7.5" fill="var(--ink)">${isNum(c.ypc) ? n(c.ypc, 1) + " ypc" : ""}</text>
+        <text x="${x}" y="136" text-anchor="middle" font-size="7.5" font-weight="600" fill="${d && d.ypc >= 4.6 ? "var(--good)" : d && d.ypc <= 3.4 ? "var(--bad)" : "var(--muted)"}">${d ? "allows " + n(d.ypc, 1) : ""}</text>
+        <text x="${x}" y="146" text-anchor="middle" font-size="6.5" fill="var(--muted)">${esc(last(facing[c.direction] || ""))}</text>`;
+    });
+    return `<svg class="fieldsvg" viewBox="0 0 330 152" role="img" aria-label="Run direction"><rect x="0" y="0" width="330" height="152" fill="var(--turf)"/><line x1="0" x2="330" y1="102" y2="102" stroke="var(--accent)" stroke-dasharray="4 3"/>${g}</svg>`;
+  }
+  function rushEdges(s, r, vis) {
+    const e = [], rm = vis.runs;
+    if ((r.carry_share || 0) < 0.6) e.push(["bad", `Under 60% of carries (${pct(r.carry_share)}): your rule says do not play his rushing legs.`]);
+    if (rm && rm.carries >= 20) {
+      const dd = {}; (s.run_defense_by_direction || []).forEach((d) => (dd[d.direction] = d));
+      rm.cells.filter((c) => c.carries / rm.carries >= 0.15 && dd[c.direction] && dd[c.direction].ypc >= 4.6).forEach((c) => e.push(["good", `Runs ${pct(c.carries / rm.carries)} of the time to the ${c.direction}, where ${s.defense} allows ${n(dd[c.direction].ypc, 1)} yards per carry.`]));
+      rm.cells.filter((c) => c.carries / rm.carries >= 0.2 && dd[c.direction] && dd[c.direction].ypc <= 3.4).forEach((c) => e.push(["bad", `His favorite gap (${c.direction}, ${pct(c.carries / rm.carries)}) is where ${s.defense} allows only ${n(dd[c.direction].ypc, 1)}.`]));
+    }
+    const t = vis.tiers, rk = ((s.defense_rank || {}).rb_rush_yards_pg || {}).rank;
+    if (t && isNum(rk) && rk > 22 && (t.bottom || {}).games >= 3) e.push(["good", `${s.defense} ranks ${ord(rk)} against running backs; he averages ${n(t.bottom.yards, 0)} rushing yards against bottom-10 run defenses.`]);
+    return e;
+  }
+  function fieldRushCard(s, r) {
+    const vis = ((s.visual || {}).rushers || {})[r.player_id] || {}, opp = oppFor(s, r.player_id, "rushers");
+    const edges = rushEdges(s, r, vis), hot = edges.filter(([l]) => l === "good").length >= 2;
+    const sid = slug(s.offense + "-" + r.player_id);
+    return `<div class="card ${hot ? "edge-card" : ""}">${hot ? `<span class="ribbon">Mismatch</span>` : ""}
+      <div class="player-head"><span class="nm">${esc(r.full_name || r.player)} <span class="pos">RB</span></span><span class="note">${pct(r.carry_share)} of carries</span></div>
+      ${edges.length ? `<ul class="list">${edges.map(([l, t]) => `<li>${lvlDot(l)}<span>${esc(t)}</span></li>`).join("")}</ul>` : ""}
+      <div class="viz-row"><div><div class="k">Where he runs (bars, his yards per carry) against what ${esc(s.defense)} allows there, with the defender lined up on that side</div>${runGapSvg(vis.runs, s)}</div>
+        <div>${tierBars(vis.tiers, "Rushing yards", s, "rb_rush_yards_pg")}</div></div>
+      ${opp && opp.sim ? `<button class="btn ghost" data-sim="${esc(sid)}">Simulate this game</button><div class="simbox" id="sim-${esc(sid)}" hidden></div>` : ""}</div>`;
+  }
+  function renderField(g) {
+    const s = S(), V = s.visual;
+    if (!V) return `<div class="card"><p class="empty">Visual views not built${s.visual_error ? ": " + esc(s.visual_error) : ""}.</p></div>`;
+    const rec = ((s.roles || {}).receivers || []).filter((r) => r.targets >= 8 && V.receivers[r.player_id]);
+    const rush = ((s.roles || {}).rushers || []).filter((r) => r.pos === "RB" && r.carries >= 8 && V.rushers[r.player_id]);
+    return `${shellCard(s)}<div class="section-title">${esc(s.offense)} pass catchers vs ${esc(s.defense)}</div><div class="grid two">${rec.map((r) => fieldRecCard(s, r)).join("")}</div>
+      <div class="section-title">${esc(s.offense)} running backs vs ${esc(s.defense)}</div><div class="grid two">${rush.map((r) => fieldRushCard(s, r)).join("") || '<p class="empty">No backs with 8+ carries.</p>'}</div>`;
+  }
+
+  // ---------------------------------------------------------------- in-page simulation
+  function gammaDraw(k) {
+    if (k < 1) return gammaDraw(k + 1) * Math.pow(Math.random(), 1 / k);
+    const d = k - 1 / 3, c = 1 / Math.sqrt(9 * d);
+    for (;;) { let x, v; do { const u1 = Math.random() || 1e-12, u2 = Math.random(); x = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2); v = 1 + c * x; } while (v <= 0);
+      v = v * v * v; const u = Math.random(); if (u < 1 - 0.0331 * x ** 4 || Math.log(u) < 0.5 * x * x + d * (1 - v + Math.log(v))) return d * v; }
+  }
+  function poissonDraw(l) { if (l <= 0) return 0; if (l > 40) return Math.max(0, Math.round(l + Math.sqrt(l) * gammaNorm())); const L = Math.exp(-l); let k = 0, p = 1; do { k++; p *= Math.random(); } while (p > L); return k - 1; }
+  function gammaNorm() { const u1 = Math.random() || 1e-12, u2 = Math.random(); return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2); }
+  function findSim(sid) {
+    for (const sd of Object.values(G().sides)) { const o = sd.opportunity; if (!o || o.error) continue;
+      for (const kind of ["receivers", "rushers"]) for (const p of o[kind] || []) if (slug(sd.offense + "-" + p.player_id) === sid) return { sd, o, p, kind }; }
+    return null;
+  }
+  function runSim(sid, scen) {
+    const box = document.getElementById("sim-" + sid), F = findSim(sid), SIM = (BOARD && BOARD.sim) || {};
+    if (!box || !F || !SIM.pools) return;
+    const { o, p, kind } = F, rec = kind === "receivers", m0 = o.implied_margin || 0;
+    const clamp = (m) => Math.max(-10, Math.min(10, m));
+    const target = scen === "lead" ? 10 : scen === "trail" ? -10 : m0;
+    const pm = (m) => 1 - 0.01 * clamp(m), rmul = (m) => 1 + 0.012 * clamp(m);
+    const sp = p.sim, cal = SIM.volume_cal[rec ? "rec" : "rush"], cv = SIM.share_cv[rec ? "rec" : "rush"];
+    const raw = rec ? sp.targets_raw * pm(target) / pm(m0) : sp.carries_raw * rmul(target) / rmul(m0);
+    const mean = Math.max(0, cal[0] + cal[1] * raw), k = sp.k || 8;
+    const pool = SIM.pools[rec ? sp.pool : "carry"], pmean = pool.reduce((a, b) => a + b, 0) / pool.length;
+    const scale = rec ? (sp.ypr / pmean) * (sp.rain_yards || 1) : 1, shift = rec ? 0 : sp.ypc - pmean, cr = rec ? Math.min(0.95, sp.catch_rate * (sp.rain_catch || 1)) : 0;
+    const N = 5000, yards = [], vols = [], recs = [];
+    const bins = rec ? [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 120, 150] : [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 120, 150];
+    box.hidden = false;
+    box.innerHTML = `<div class="controls"><div class="seg" role="group" aria-label="Game script">${[["exp", "Expected script"], ["lead", `${esc(o.team)} leads big`], ["trail", `${esc(o.team)} trails big`]].map(([k2, l]) => `<button data-scen="${k2}" data-sid="${esc(sid)}" aria-pressed="${k2 === scen}">${l}</button>`).join("")}</div></div>
+      <svg class="fieldsvg" viewBox="0 0 320 120" id="simh-${esc(sid)}"></svg><div class="simstats" id="sims-${esc(sid)}"></div>
+      <div class="note">Each run plays this game ${N.toLocaleString()} times: ${rec ? "targets from team attempts and his share, catches from his catch rate against this defense, and each catch's yards from real catches at his position" : "carries from team rushes and his share, and each carry's yards from real carries"}. The script buttons move his volume the way the market's spread does.</div>`;
+    box.querySelectorAll("[data-scen]").forEach((b) => b.addEventListener("click", () => runSim(b.dataset.sid, b.dataset.scen)));
+    let done = 0;
+    const svg = document.getElementById("simh-" + sid), st = document.getElementById("sims-" + sid);
+    const med = (a) => { const b = a.slice().sort((x, y) => x - y); return b.length ? b[Math.floor(b.length / 2)] : 0; };
+    function draw() {
+      const counts = bins.map(() => 0);
+      yards.forEach((y) => { let i = bins.length - 1; while (i > 0 && y < bins[i]) i--; counts[i]++; });
+      const mx = Math.max(...counts, 1), bw = 300 / bins.length;
+      const my = med(yards);
+      svg.innerHTML = counts.map((c, i) => `<rect x="${10 + i * bw}" y="${100 - (c / mx) * 88}" width="${bw - 2}" height="${(c / mx) * 88}" rx="2" fill="${bins[i] >= 70 ? "var(--accent)" : "var(--chart)"}" opacity=".85"></rect><text x="${10 + i * bw + bw / 2}" y="112" text-anchor="middle" font-size="6.5" fill="var(--muted)">${bins[i]}${i === bins.length - 1 ? "+" : ""}</text>`).join("") +
+        `<text x="312" y="10" text-anchor="end" font-size="8" fill="var(--muted)">${done.toLocaleString()} games · median ${Math.round(my)} yds</text>`;
+      const ge = (t) => yards.filter((y) => y >= t).length / Math.max(yards.length, 1);
+      st.innerHTML = `<div><div class="k">${rec ? "Targets" : "Carries"} (median)</div><div class="v">${med(vols)}</div></div>${rec ? `<div><div class="k">Catches (median)</div><div class="v">${med(recs)}</div></div>` : ""}<div><div class="k">Yards (median)</div><div class="v">${Math.round(my)}</div></div><div><div class="k">70+ / 80+</div><div class="v">${pct(ge(70))} <small>/ ${pct(ge(80))}</small></div></div>`;
+    }
+    function chunk() {
+      for (let i = 0; i < 250 && done < N; i++, done++) {
+        const mult = cv > 0 ? gammaDraw(1 / (cv * cv)) * cv * cv : 1;
+        const lam = (mean > 0 ? gammaDraw(k) * (mean / k) : 0) * mult;
+        const v = poissonDraw(lam); vols.push(v);
+        let y = 0, r = 0;
+        if (rec) { for (let j = 0; j < v; j++) if (Math.random() < cr) { r++; y += pool[Math.floor(Math.random() * pool.length)] * scale; } recs.push(r); }
+        else for (let j = 0; j < v; j++) y += pool[Math.floor(Math.random() * pool.length)] + shift;
+        yards.push(y);
+      }
+      draw();
+      if (done < N) requestAnimationFrame(chunk);
+    }
+    requestAnimationFrame(chunk);
+  }
+
   // ---------------------------------------------------------------- injuries
   function injCard(team, list, returning) {
     const show = (list || []).filter((x) => x.status_level >= 2 || x.impact !== "low" || x.practice);
@@ -810,15 +1091,16 @@ const BOARD = /*__BOARD_DATA__*/null;
     const g = G();
     if (!g) { document.getElementById("sheet").innerHTML = `<div class="card"><p class="empty">No games on the board yet. Packets are built Tuesday morning for the week.</p></div>`; return; }
     const ks = sideKeys(g);
-    const dirNeeded = ["matchup", "defenders", "qb", "players", "opportunity"].includes(state.tab);
+    const dirNeeded = ["matchup", "defenders", "qb", "players", "opportunity", "field"].includes(state.tab);
     const dirBtns = ks.map((k, i) => { const s = g.sides[k]; return `<button aria-pressed="${i === state.dir}" data-dir="${i}">${esc(s.offense)} offense vs ${esc(s.defense)} defense</button>`; }).join("");
-    const body = { overview: renderOverview, matchup: renderMatchup, defenders: renderDefenders, qb: renderQB, players: renderPlayers, opportunity: renderOpportunity, injuries: renderInjuries,
+    const body = { overview: renderOverview, matchup: renderMatchup, defenders: renderDefenders, qb: renderQB, players: renderPlayers, opportunity: renderOpportunity, field: renderField, injuries: renderInjuries,
                    h2h: renderH2H, odds: renderOdds, weather: renderWeather, grok: renderGrok }[state.tab](g);
     document.getElementById("sheet").innerHTML = renderHeader(g) +
       `<div class="tabs" role="tablist">${TABS.map(([k, l]) => `<button role="tab" aria-selected="${k === state.tab}" data-tab="${k}">${esc(l)}</button>`).join("")}</div>` +
       (dirNeeded ? `<div class="controls"><div class="seg" role="group" aria-label="Which offense">${dirBtns}</div></div>` : "") + body;
     document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => { state.tab = b.dataset.tab; save(); renderSheet(); }));
     document.querySelectorAll("[data-dir]").forEach((b) => b.addEventListener("click", () => { state.dir = +b.dataset.dir; renderSheet(); }));
+    document.querySelectorAll("[data-sim]").forEach((b) => b.addEventListener("click", () => runSim(b.dataset.sim, "exp")));
     const cp = document.getElementById("copy");
     if (cp) cp.addEventListener("click", () => {
       const ta = document.getElementById("grok-text");

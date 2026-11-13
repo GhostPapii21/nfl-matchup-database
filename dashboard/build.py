@@ -24,6 +24,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from dashboard import extras as X  # noqa: E402
 from dashboard import opportunity as OP  # noqa: E402
+from dashboard import visuals as V  # noqa: E402
 
 PACKETS = ROOT / "pregame" / "packets"
 OUT = ROOT / "dashboard"
@@ -96,6 +97,58 @@ def pools_for(data: X.Data, season: int) -> dict | None:
     return _POOLS[season]
 
 
+_VIS: dict = {}
+
+
+def _vis_context(data: X.Data, season: int, week: int) -> dict:
+    key = (season, week)
+    if key not in _VIS:
+        cur, prev = data.get("pbp", season), data.get("pbp", season - 1)
+        r_cur, r_prev = data.get("rosters", season), data.get("rosters", season - 1)
+        pos = {}
+        for r in (r_prev, r_cur):
+            if r is not None:
+                pos.update(dict(zip(r.gsis_id, r.position)))
+        prev_reg = prev[prev.season_type == "REG"] if prev is not None else None
+        seasons = []
+        if prev_reg is not None:
+            seasons.append((prev_reg, V.position_ranks(prev_reg, pos)))
+        if cur is not None:
+            seasons.append((cur, V.position_ranks(cur, pos, through_week=week)))
+        _VIS[key] = {"cur": cur, "prev": prev_reg, "part": data.get("participation", season - 1), "seasons": seasons,
+                     "bodies": V.Bodies(r_cur, data.get("combine"))}
+    return _VIS[key]
+
+
+def add_visuals(sides: dict, pk: dict, data: X.Data, season: int, games: pd.DataFrame) -> None:
+    ctx = _vis_context(data, season, int(pk["game"]["week"]))
+    for key, sd in sides.items():
+        off, dfn = sd["offense"], sd["defense"]
+        weeks = pk["teams"][off]["window"]["weeks"]
+        vis = {"receivers": {}, "rushers": {},
+               "personnel": V.personnel(ctx["part"], ctx["prev"], off),
+               "shell": V.defense_shell(ctx["part"], ctx["prev"], dfn),
+               "offense_starters": V.defense_front(pk["teams"][off].get("depth_chart", {})),
+               "defense_starters": V.defense_front(pk["teams"][dfn].get("depth_chart", {}))}
+        cov = (sd.get("defenders") or {}).get("coverage", [])
+        for r in (sd.get("roles") or {}).get("receivers", []):
+            pid = r.get("player_id")
+            if not pid or (r.get("targets") or 0) < 8:
+                continue
+            vis["receivers"][pid] = {
+                "size": V.size_matchup(r, cov, ctx["bodies"], dfn),
+                "targets": V.target_map(ctx["cur"], pid, weeks) if ctx["cur"] is not None else None,
+                "routes": V.route_tree(ctx["prev"], ctx["part"], pid),
+                "tiers": V.tier_splits(ctx["seasons"], pid, (r.get("pos") or "WR").upper(), "rec")}
+        for r in (sd.get("roles") or {}).get("rushers", []):
+            pid = r.get("player_id")
+            if not pid or (r.get("carries") or 0) < 8 or r.get("pos") != "RB":
+                continue
+            vis["rushers"][pid] = {"runs": V.run_map(ctx["cur"], pid, weeks) if ctx["cur"] is not None else None,
+                                   "tiers": V.tier_splits(ctx["seasons"], pid, "RB", "rush")}
+        sd["visual"] = vis
+
+
 def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) -> dict:
     g = pk["game"]
     season, away, home = int(g["season"]), g["away"], g["home"]
@@ -148,6 +201,11 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
             sd["opportunity"] = OP.board_side(sd, g, imp, pools, out_names, seed=sum(map(ord, g["game_id"] + key))) if pools else None
         except Exception as e:  # noqa: BLE001 - the board still renders without this section
             sd["opportunity"] = {"error": f"{type(e).__name__}: {e}"[:200]}
+    try:
+        add_visuals(sides, pk, data, season, games)
+    except Exception as e:  # noqa: BLE001 - the board still renders without the visual views
+        for sd in sides.values():
+            sd["visual_error"] = f"{type(e).__name__}: {e}"[:200]
     alerts = X.nws_alerts(home, g.get("roof"), offline=offline, fetch_json=_get_json)
     return _clean({
         "schema": "game-board/1",
@@ -168,9 +226,17 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
     })
 
 
+def sim_settings() -> dict:
+    pools = next((p for p in _POOLS.values() if p), None)
+    if not pools:
+        return {}
+    return {"pools": {**{k: V.pool_quantiles(v) for k, v in pools["catch"].items()}, "carry": V.pool_quantiles(pools["carry"])},
+            "volume_cal": OP.VOLUME_CAL, "share_cv": OP.SHARE_CV}
+
+
 def render_site(boards: list[dict], built: str) -> str:
     tpl = (OUT / "template.html").read_text()
-    payload = json.dumps({"built_utc": built, "games": boards}, separators=(",", ":"), allow_nan=False)
+    payload = json.dumps({"built_utc": built, "sim": sim_settings(), "games": boards}, separators=(",", ":"), allow_nan=False)
     payload = payload.replace("</", "<\\/")   # safe inside a <script> element
     return tpl.replace("/*__BOARD_DATA__*/null", payload)
 

@@ -23,6 +23,7 @@ EXTRA_DATASETS = {
     "pfr_def": "pfr_advstats/advstats_week_def_{season}.parquet",
     "participation": "pbp_participation/pbp_participation_{season}.parquet",
     "games": "schedules/games.parquet",
+    "combine": "combine/combine.parquet",
 }
 
 TEAM_NAMES = {
