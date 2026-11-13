@@ -60,7 +60,9 @@ def legs_from_freeze_v2(path: str, roster: pd.DataFrame | None = None) -> pd.Dat
         stat, _, player = key.partition("|")
         if stat not in FREEZE_MARKETS or not player:
             continue
-        cons = d.get("consensus", {}).get(key, {}).get("consensus") or {}
+        cons = (d.get("consensus", {}).get(key) or {})
+        cons = cons.get("consensus") if isinstance(cons, dict) else None
+        cons = cons if isinstance(cons, dict) else {}  # "no consensus" -> no line, no price
         line = cons.get("line")
         for side in ("Over", "Under"):
             best = (mk.get("best_retail_price") or {}).get(side) or {}
@@ -68,7 +70,7 @@ def legs_from_freeze_v2(path: str, roster: pd.DataFrame | None = None) -> pd.Dat
             rows.append(dict(week=int(meta["game_id"].split("_")[1]), game_id=meta["game_id"], player=player,
                              market=FREEZE_MARKETS[stat], side=side, kind="main", line=line,
                              dec=float(se.american_to_decimal(best["price"])) if ok else np.nan,
-                             p_nv=(cons.get("no_vig") or {}).get(side, np.nan),
+                             p_nv=(cons.get("no_vig") or {}).get(side, np.nan) if ok else np.nan,
                              price_source=(f"freeze_v2 {Path(path).name} {best.get('book')} pulled "
                                            f"{meta.get('pulled_utc')}") if ok else None,
                              p_model=np.nan, defender_verified=False, actual=np.nan, source="live"))
