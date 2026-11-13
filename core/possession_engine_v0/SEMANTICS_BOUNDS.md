@@ -7,7 +7,8 @@ R1 (week 8 penalty-log games labeled unknown) and R2 (`nfl43.still_unsupported` 
 **DEFERRED** (`DEFERRED_100K: true`) until the reviewer sets the status file to ACCEPTED for this file's sha256 and Rico
 un-defers 100k. Review status is still PENDING; this file's sha256 will change.
 
-Written 2026-11-12 (BetGuru), revised 2026-11-12 late afternoon ET. Engine: `core/possession_engine_v0` possession game-state
+Written 2026-11-12 (BetGuru), revised 2026-11-12 late afternoon ET. Revised 2026-11-13: section 2 clock
+line for PR #26 (`no_play_clock = "asof_mean"`) and rare special-teams plays for PR #28. Engine: `core/possession_engine_v0` possession game-state
 path (`simulate.py` + `semantics.py`), opt-in through `cfg["semantics"]`. Configs without that block are unchanged (legacy,
 `LEGACY_UNSUPPORTED`). The frozen joint producer (`joint_producer.py`) still rejects penalties and return yards as
 UNSUPPORTED. No model weights changed.
@@ -41,14 +42,55 @@ no pull time) is **no longer cited**.
 Punt net remains a separate PBP field-position quantity (`_punt_net_from_row`). Punt return yards are implied
 (`kick_distance - net`) and never added a second time; a punt-return TD is a separate event.
 
+**Rare special-teams plays (opt-in `semantics.rare_plays = "asof_league_v1"`, NFL-75; research-gated).**
+- Absent / `"off"` reproduces main d817a3b bit for bit (golden test `test_off_reproduces_main_d817a3b_bit_for_bit`).
+- Each punt or FG decision draws one kick-formation class (pre-snap foul / fake-or-aborted / blocked / penalty-flagged /
+  clean) from as-of league count ratios over nflverse PBP: 2026 REG weeks < target
+  (`pbp_2026_w1_9_pulled_20261112T1116ET.parquet`, pulled 2026-11-12 11:16 AM ET) plus 2018/2020/2022/2024 REG
+  (pulled 2026-11-06 7:28–7:29 AM ET, `data/historical/MANIFEST.md`).
+  - As of week 10, punt formation (9,765 rows): pre-snap foul 267 (2.73%), fake/aborted 104 (1.07%), blocked 55 (0.56%),
+    flagged 853 (8.74%).
+  - FG formation (4,767 rows): pre-snap 94 (1.97%), fake 15 (0.31%), blocked 78 (1.64%), flagged 9 (0.19%).
+- Outcomes are resampled from real rows of the class (enforcement is whatever happened on those rows, not rule-coded):
+  exact-LOS rows first, then 1/2/5/10/20-yard bands (min 5 rows), then the whole pool. Touchbacks keep their absolute
+  spot; other rows outside the exact band are translated by the LOS shift (error up to the band width). Band usage
+  (3 games, n=2,000, seed 777; `calibration/outputs/rare_plays_band_usage.json`): 61.0% exact-LOS, 24.8% within 1 yd,
+  3 of 8,674 whole-pool.
+- Fakes run through the normal snap mechanics at the live down/distance; they are removed from the pass/run pools.
+  Blocked/flagged kicks are removed from team kick pools; kick-formation pre-snap fouls are removed from the scrimmage
+  penalty rates; onside kicks are removed from the kickoff-start pool (no double counting).
+- PAT block: 40/5,620 (0.71%). Defensive two-point given a block: 0/40 (observed zero, not assumed).
+- Onside (2024+ and 2026 only, dynamic kickoff): decision by kicking-team Q4 deficit × seconds cell, cells with < 10
+  kickoffs coarsened to the seconds bucket; 72 onside of 4,207 kickoffs, 0 of 3,905 outside Q4-trailing; recovery 3/72.
+- Clean punt-return TD 25/7,840 clean non-touchback punts (pooled). Clean kick-return TD: current-season non-onside
+  kickoffs (1/1,382).
+- Weeks 4–9 backtest (88 games, n=2,000, seed 20261112, h2h off; `calibration/outputs/backtest_rare_plays_v2_n2000.json`
+  vs `backtest_rare_plays_n2000.json` new_off): Brier 0.2515 → 0.2530, total MAE 11.39 → 11.41, total bias −0.09 → +0.35
+  (mean sim total 45.95 → 46.39 vs actual 46.05). Within noise; not an accuracy fix. Blocked punts (0.053/game vs
+  0.011 actual) and fakes (0.110 vs 0.057) run high because the engine punts ~16% too often in both arms (8.98 vs 7.73
+  punt plays/game, `rare_plays_st_compare_n2000.json`).
+
 ## 2. Still UNSUPPORTED (rejected, not invented)
 
-* Kick-play fouls (kickoff/punt/FG/try rows): excluded from the foul model. Exposure (PEN, W1-8): 224 of 1,736 accepted
-  flags (12.9%), 1,921 of 14,068 yards (13.7%). Their field-position effect is partly inside the empirical kickoff start
-  spots and punt nets already. A test checks the filter on a synthetic log.
+* Kick-play fouls on punt/FG plays, blocked punts/FGs/PATs, onside kicks and fake/aborted kick-formation snaps:
+  implemented, opt-in (`semantics.rare_plays`), research-gated. `nfl43.still_unsupported` still lists
+  "kick-play fouls" and "blocked kicks/onside/fakes", so lock / 100k / rocket refuse the setting; it runs only via
+  `simulate_games(..., research_unaccepted=("rare_plays",))`, n ≤ 20,000. Off-mode default is unchanged: kick-play fouls
+  stay excluded from the scrimmage foul model (exposure PEN W1-8: 224 of 1,736 accepted flags, 12.9%).
+* Still unsupported inside rare mode: kickoff fouls (their field-position effect stays in the empirical kickoff-start
+  pool) and PAT/try fouls (carried to the kickoff or re-tries); two-point tries (engine always kicks); rule-coded
+  kick-foul enforcement (resampled instead); player yardage credit on fakes (team outcome only); exact spot translation
+  outside the exact-LOS band; blitz-strata pools may still hold fake snaps; off-mode punt-return-TD denominator
+  unchanged (kept for bit-identity); priors use only 2018/2020/2022/2024 (no 2019/2021/2023/2025 PBP in the repo).
+* Lifting the two `nfl43.still_unsupported` entries is a separate, explicit step after review.
 * Declined / offsetting fouls (PEN: 249 rows): no effect by definition; not simulated.
-* Blocked punts/FGs, onside kicks, fake punts, 2-point tries after penalties: not modeled.
-* Penalty-specific clock rules (10-second runoff, clock start/stop): a flat 4 s per no-play.
+* Penalty-specific clock rules (10-second runoff, clock start/stop by foul type): not modeled. Since PR #26 (WP1,
+  default `accounting.no_play_clock = "asof_mean"`), each no-play foul charges the as-of mean clock of no-play penalty
+  rows from the catalog clock map, rounded to whole seconds (`simulate.no_play_clock_sec`). It falls back to the flat
+  `NO_PLAY_CLOCK_SEC` = 4 s when the map has fewer than 30 as-of no-play rows, and when `no_play_clock` is `"flat_4s"`
+  (including `legacy` and `pre_wp12` accounting). A defensive no-play foul as time expires still gives one untimed
+  down. With `semantics.rare_plays = "asof_league_v1"`, kick-formation pre-snap fouls charge the same per-no-play
+  seconds.
 * Joint producer (player opportunity path): still raises UNSUPPORTED on penalties/return yards.
 * Team-specific return-TD rates: league rate only (team samples are 0-1 events).
 
