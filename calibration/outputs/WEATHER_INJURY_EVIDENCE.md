@@ -2,6 +2,13 @@
 
 `projection_ready` untouched. No engine weight or default changed. Not turned on anywhere.
 
+**Both stay OFF** until (a) a forecast-based weather version (pregame NWS / forecast snapshot) exists and is
+backtested -- the weather test below used kickoff observations, which makes it optimistic -- and (b) injury evidence
+with known publication times is available.
+
+Rebased onto main 6bc0c54 (PR #36 player box recorder). Off is bit-identical to 6bc0c54 on the full output including
+`player_box` (5 configs, n=60, seed 20261113: WAS@NYG w10, JAX@BAL w9, IND@PIT w5, CLE@NYJ w5, SEA@DEN w6).
+
 ## What changed
 - `core/possession_engine_v0/environment_adjust.py` (new) + three opt-in hooks in `simulate.py` and an optional
   `extra_cols` argument in `pbp_filter.load_team_history` (default `()` = unchanged column set).
@@ -27,8 +34,10 @@ n=2000 and matched `backtest_after_wp12_n2000_per_game.csv` on all 72.
   Train coefficients: completion -5.55% rain, -3.42% per 10 mph; yards/completion -5.51% rain, -5.09% per 10 mph.
 - Evidence: weather = the game's nflverse `weather`/`roof`/`wind` (kickoff observation; wind parsed from the text when
   the numeric field is blank) -- available at kickoff, not a pregame forecast, so optimistic.
-  Injuries = nflverse `injuries_2026` (final game-status report, before kickoff), report_status Out, QB/RB/WR/TE/FB;
-  file committed as `data/historical/nflverse/injuries_2026_pulled_20261113T0526Z.parquet`.
+  Injuries = nflverse `injuries_2026`, report_status Out, QB/RB/WR/TE/FB; file committed as
+  `data/historical/nflverse/injuries_2026_pulled_20261113T0526Z.parquet`. **Publication time UNKNOWN**: the file has
+  no publication or modified timestamp, so "published before kickoff" cannot be verified from it. Consistency check
+  only: 0 of the 148 W4-9 skill-position Out rows recorded a pass, rush or target for that team that week.
 - Graded vs consensus close (`ba83615:data/lines/lines_wk04_09_2026.csv`). Each arm vs baseline on the games it
   touches. Bootstrap 2,000 (seed 20261113). n = 2,000 sims/game. Weeks >= 10 never used.
 
@@ -42,8 +51,14 @@ games, total MAE 14.69 -> 13.86 and bias +2.40 -> -2.72 (n = 6, not meaningful).
 in 10 games a listed-Out QB's passer rows were kept because the backup had < 50 pass rows (flagged in output).
 ECE with <= 70 games over 10 bins is very noisy.
 
+Provenance: the committed backtest JSON/CSV were generated at 4e33c39; Ghost6 re-ran at bc8d12f and got a
+byte-identical per-game CSV and identical `results` (only `engine` and `runtime_sec` differ). After this change the
+script writes its train-only weather fit and outputs to `calibration/outputs/runs/weather_injury_<UTC tag>/`
+(git-ignored) and records whether that fit is byte-identical to the committed
+`research/weather/rain_effects_train_2018_2025.json` (it is: smoke run 2026-11-13); the committed files are never overwritten.
+
 ## Recommendation
-Do not turn either on. Every CI spans zero, the engine stays well behind the close on every metric, and the
+Do not turn either on (see the OFF conditions above). Every CI spans zero, the engine stays well behind the close on every metric, and the
 weather sample is tiny. Revisit after the Weeks 10-12 holdout is graded (not used for tuning here).
 
-Reproduce: `python3 -m calibration.weather_injury_backtest --pbp-dir <folder of nflverse play_by_play_2018..2025.parquet> --n 2000 --workers 8` (~53 min on 8 cores).
+Reproduce: `python3 -m calibration.weather_injury_backtest --pbp-dir <folder of nflverse play_by_play_2018..2025.parquet> --n 2000 --workers 8 [--run-tag TAG]` (~53 min on 8 cores).

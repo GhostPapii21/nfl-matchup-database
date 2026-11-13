@@ -1256,7 +1256,7 @@ def simulate_games(cfg: dict, *, pbp_path: str | Path, n: int, seed: int,
         from environment_adjust import RESEARCH_NAMES as _ENV_NAMES
         bad = [x for x in research_unaccepted if x != "rare_plays" and x not in _ENV_NAMES.values()]
         if bad:
-            raise ValueError(f"research_unaccepted only allows 'rare_plays', got {bad}")
+            raise ValueError(f"research_unaccepted only allows 'rare_plays', {', '.join(repr(v) for v in _ENV_NAMES.values())}; got {bad}")
         if int(n) > RESEARCH_MAX_N:
             raise ValueError(f"research_unaccepted runs are capped at n={RESEARCH_MAX_N} (got {n}); never 100k")
     semantics_meta = attach_semantics(catalog, cfg, pbp_path, research_unaccepted=research_unaccepted, research_n=int(n))

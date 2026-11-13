@@ -13,11 +13,14 @@ Point-in-time evidence:
   * Weather: the nflverse play-by-play `weather` / `roof` / `wind` fields of the game itself (kickoff observation
     recorded by the home team; wind parsed from the text when the numeric field is blank). This is a kickoff
     observation, not a pregame forecast, so it is an optimistic (upper-bound) test of a forecast-driven adjustment.
-  * Injuries: nflverse injuries_2026 (final game-status report, published before kickoff), report_status == "Out",
-    skill positions QB/RB/WR/TE/FB. Doubtful/Questionable are not used.
+  * Injuries: nflverse injuries_2026, report_status == "Out", skill positions QB/RB/WR/TE/FB (Doubtful/Questionable
+    not used). PUBLICATION TIME UNKNOWN: the file has no publication / modified timestamp, so "published before
+    kickoff" cannot be verified from it. Consistency check only: 0 of the 148 W4-9 skill "Out" rows recorded a pass,
+    rush or target for that team that week in play-by-play.
 Arms: baseline = main engine defaults (adjustments off, h2h off) -- re-simulated for the games each arm touches and
 checked against calibration/outputs/backtest_after_wp12_n2000_per_game.csv; weather; injury. Same seed per game.
-Research only, not validated. n <= 20,000, never 100k.
+Both adjustments stay OFF until a forecast-based weather version (pregame NWS / forecast snapshot) exists and is
+backtested: kickoff observations make this weather test optimistic. Research only, not validated. n <= 20,000, never 100k.
 """
 from __future__ import annotations
 import argparse, hashlib, json, math, re, sys, time
@@ -32,13 +35,15 @@ from calibration.backtest import load_lines, close_for_games
 OUT = ROOT / "calibration/outputs"
 INJ = ROOT / "data/historical/nflverse/injuries_2026_pulled_20261113T0526Z.parquet"
 INJ_PULLED_UTC = "2026-11-13T05:26:36Z"  # https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet
-TRAIN_EFFECTS = "research/weather/rain_effects_train_2018_2025.json"
+TRAIN_EFFECTS = "research/weather/rain_effects_train_2018_2025.json"  # committed reference copy; never written here
 BASE_CSV = OUT / "backtest_after_wp12_n2000_per_game.csv"
 SKILL = ("QB", "RB", "WR", "TE", "FB")
 B, BOOT_SEED = 2000, 20261113
 
 
-def fit_train_effects(pbp_dir: Path) -> dict:
+def fit_train_effects(pbp_dir: Path, out_rel: str) -> dict:
+    """Refit on 2018-2025 and write to the RUN-SPECIFIC path out_rel (under calibration/outputs/runs/). The committed
+    research/weather/rain_effects_train_2018_2025.json is only compared against, never overwritten."""
     sys.path.insert(0, str(ROOT / "research/weather"))
     import fit_rain_effects as fre
     import pyarrow.parquet as pq
@@ -55,7 +60,9 @@ def fit_train_effects(pbp_dir: Path) -> dict:
     res.update(seasons=sorted(int(s) for s in pbp.season.unique()),
                method="research/weather/fit_rain_effects.py fit(), TRAIN ONLY 2018-2025 (no 2026 rows)",
                sources={f.name: {"sha256": sha256(f)} for f in files})
-    (ROOT / TRAIN_EFFECTS).write_text(json.dumps(res, indent=1) + "\n")
+    out = ROOT / out_rel
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(res, indent=1) + "\n")
     return res
 
 
@@ -100,21 +107,21 @@ def injury_specs(games: pd.DataFrame) -> dict:
 
 
 def _sim(job):
-    gid, home, away, week, arm, n, seed, extra = job
+    gid, home, away, week, arm, n, seed, extra, effects_rel = job
     engine_path()
     import simulate
     cfg = make_cfg(home, away, week, h2h="off")
     research = ()
     if arm == "weather":
         cfg["environment"] = {"weather": {"mode": "rain_wind_v1", "rain": extra["rain"], "wind_mph": extra["wind_mph"] or 0.0,
-                                          "effects_path": TRAIN_EFFECTS,
+                                          "effects_path": effects_rel,
                                           "evidence": {"source": "nflverse pbp weather/roof/wind (kickoff observation)",
                                                        "asof": "kickoff", "text": extra["text"]}}}
         research = ("weather_rain_wind_v1",)
     elif arm == "injury":
         cfg["availability"] = {"mode": "injury_report_out_v1", "out_player_ids": extra,
                                "evidence": {"source": f"nflverse injuries_2026 report_status=Out (pulled {INJ_PULLED_UTC})",
-                                            "asof": "final game-status report, before kickoff"}}
+                                            "asof": "UNKNOWN (file has no publication timestamp; 0/148 W4-9 Out rows played)"}}
         research = ("injury_report_out_v1",)
     o = simulate.simulate_games(cfg, pbp_path=str(PBP), n=n, seed=simulate.stable_seed(seed, week, gid),
                                 research_unaccepted=research)
@@ -169,9 +176,13 @@ def main(argv=None):
     ap.add_argument("--n", type=int, default=2000)
     ap.add_argument("--seed", type=int, default=20261112)
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--run-tag", default=None, help="run-specific output folder name (default: UTC timestamp)")
     a = ap.parse_args(argv)
     t0 = time.time()
-    eff = fit_train_effects(Path(a.pbp_dir))
+    tag = a.run_tag or time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
+    effects_rel = f"calibration/outputs/runs/weather_injury_{tag}/rain_effects_train_2018_2025.json"
+    eff = fit_train_effects(Path(a.pbp_dir), effects_rel)
+    effects_match_committed = sha256(ROOT / effects_rel) == sha256(ROOT / TRAIN_EFFECTS)
     pbp = pd.read_parquet(PBP, columns=["game_id", "week", "season", "home_team", "away_team", "home_score",
                                          "away_score", "weather", "roof", "wind"])
     games = pbp.drop_duplicates("game_id")
@@ -182,12 +193,12 @@ def main(argv=None):
     for r in games.itertuples():
         w = wx[r.game_id]
         if w["on"]:
-            jobs.append((r.game_id, r.home_team, r.away_team, int(r.week), "weather", a.n, a.seed, w))
+            jobs.append((r.game_id, r.home_team, r.away_team, int(r.week), "weather", a.n, a.seed, w, effects_rel))
         if inj[r.game_id]:
-            jobs.append((r.game_id, r.home_team, r.away_team, int(r.week), "injury", a.n, a.seed, inj[r.game_id]))
+            jobs.append((r.game_id, r.home_team, r.away_team, int(r.week), "injury", a.n, a.seed, inj[r.game_id], effects_rel))
     touched = sorted({j[0] for j in jobs})
     g_by = games.set_index("game_id")
-    jobs += [(gid, g_by.loc[gid].home_team, g_by.loc[gid].away_team, int(g_by.loc[gid].week), "baseline", a.n, a.seed, None)
+    jobs += [(gid, g_by.loc[gid].home_team, g_by.loc[gid].away_team, int(g_by.loc[gid].week), "baseline", a.n, a.seed, None, effects_rel)
              for gid in touched]
     rows = []
     with ProcessPoolExecutor(max_workers=a.workers) as ex:
@@ -223,18 +234,21 @@ def main(argv=None):
                                         {"keep_completion": s.loc[gid].keep_completion, "ypc_factor": s.loc[gid].ypc_factor,
                                          "total_shift": float(s.loc[gid].sim_total - base.loc[gid].sim_total)} for gid in s.index}
     stem = f"weather_injury_backtest_wk04_09_n{a.n}"
-    R.to_csv(OUT / f"{stem}_per_game.csv", index=False, float_format="%.4f")
+    run_dir = ROOT / effects_rel.rsplit("/", 1)[0]
+    R.to_csv(run_dir / f"{stem}_per_game.csv", index=False, float_format="%.4f")
     doc = {"label": "research only, not validated; BACKTEST on already-seen 2026 weeks 4-9 (not a clean holdout)",
            "generated_by": "calibration/weather_injury_backtest.py", "n_per_game": a.n, "seed_base": a.seed,
            "engine": engine_version(), "runtime_sec": round(time.time() - t0, 1),
-           "weather_effects": {"path": TRAIN_EFFECTS, "seasons": eff["seasons"], "sha256": sha256(ROOT / TRAIN_EFFECTS),
+           "weather_effects": {"path": effects_rel, "seasons": eff["seasons"], "sha256": sha256(ROOT / effects_rel),
+                               "committed_reference": TRAIN_EFFECTS, "byte_identical_to_committed": effects_match_committed,
                                "pooled_used": {m: eff["pooled"][m] for m in ("completion_pct", "yards_per_completion")}},
            "injuries": {"path": str(INJ.relative_to(ROOT)), "sha256": sha256(INJ), "pulled_utc": INJ_PULLED_UTC},
            "pbp": {"path": str(PBP.relative_to(ROOT)), "sha256": sha256(PBP)}, "lines": lines_meta,
            "baseline_reproduces_committed_csv": {"all": all(repro.values()), "n": len(repro),
                                                  "mismatches": [k for k, v in repro.items() if not v]},
            "bootstrap": {"B": B, "seed": BOOT_SEED}, "results": results}
-    (OUT / f"{stem}.json").write_text(json.dumps(doc, indent=1, default=float) + "\n")
+    (run_dir / f"{stem}.json").write_text(json.dumps(doc, indent=1, default=float) + "\n")
+    print("wrote", run_dir.relative_to(ROOT), "(committed results under calibration/outputs/ are not overwritten)")
     print(json.dumps({k: {kk: vv for kk, vv in v.items() if kk != "per_game"} for k, v in results.items()}, indent=1, default=float))
     print("baseline reproduces committed csv:", doc["baseline_reproduces_committed_csv"])
     return 0

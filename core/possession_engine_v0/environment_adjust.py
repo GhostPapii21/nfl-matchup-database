@@ -4,6 +4,9 @@ Both are OFF unless a config asks for them AND the call names them in simulate_g
 n <= RESEARCH_MAX_N. Off (absent key, None or "off") changes nothing: no extra RNG draws, no catalog change, no new
 output keys, so default output is bit-identical to main 3dad900 (tests/test_environment_adjust.py).
 
+Status: both stay OFF (no config enables them) until a forecast-based weather version exists -- the only backtest so
+far used kickoff weather observations, which is optimistic -- and injury evidence has known publication times.
+
 Weather  cfg["environment"]["weather"] = {
     "mode": "rain_wind_v1", "rain": R (0..1), "wind_mph": float,
     "effects_path": repo-relative path to a fit_rain_effects.py JSON (uses its "pooled" any_rain / wind10 model),

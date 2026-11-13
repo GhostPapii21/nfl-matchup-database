@@ -21,6 +21,7 @@ TRAIN = "research/weather/rain_effects_train_2018_2025.json"
 needs_pbp = pytest.mark.skipif(not PBP.exists(), reason="committed nflverse W1-9 PBP missing")
 
 # Golden values computed 2026-11-13 ~12:40 AM ET on main 3dad900 BEFORE this change (n=60, seed 20261112, h2h off).
+# Unchanged on main 6bc0c54 (PR #36 player box recorder adds output, not RNG draws); re-checked after the rebase.
 GOLDEN = {("NYG", "WAS", 10): (1152, 1401, "18984268e877d4cb"), ("BAL", "JAX", 9): (1295, 1558, "a59ceb83b0aec394"),
           ("PIT", "IND", 5): (1099, 1272, "4869e54224982391"), ("NYJ", "CLE", 5): (1121, 1039, "83f0455a297eb30a")}
 EVID = {"source": "test", "asof": "test"}
@@ -149,3 +150,29 @@ def test_enabled_runs_are_deterministic_and_labeled():
     env = a["environment_adjustments"]
     assert env["enabled"] == ["weather_rain_wind_v1"] and env["label"].startswith("UNACCEPTED_RESEARCH_ONLY")
     assert env["weather"]["keep_completion"] < 1 and env["weather"]["ypc_factor"] < 1
+
+
+@needs_pbp
+def test_off_keeps_player_box_identical_to_key_absent():
+    """PR #36 player box recorder: explicit "off" adjustments give the same per-player box as no key at all."""
+    a = simulate.simulate_games(make_cfg("NYJ", "CLE", 5, h2h="off"), pbp_path=str(PBP), n=30, seed=11)
+    cfg = make_cfg("NYJ", "CLE", 5, h2h="off")
+    cfg["environment"] = {"weather": {"mode": "off"}}; cfg["availability"] = {"mode": "off"}
+    b = simulate.simulate_games(cfg, pbp_path=str(PBP), n=30, seed=11)
+    assert "player_box" in a and json.dumps(a["player_box"], sort_keys=True, default=str) == \
+        json.dumps(b["player_box"], sort_keys=True, default=str)
+
+
+@needs_pbp
+def test_unknown_research_name_error_lists_all_allowed():
+    with pytest.raises(ValueError) as e:
+        simulate.simulate_games(make_cfg("NYJ", "CLE", 5, h2h="off"), pbp_path=str(PBP), n=2, seed=1,
+                                research_unaccepted=("nope",))
+    msg = str(e.value)
+    assert "'rare_plays'" in msg and "'weather_rain_wind_v1'" in msg and "'injury_report_out_v1'" in msg
+
+
+def test_backtest_never_writes_committed_effects_file():
+    src = (REPO / "calibration/weather_injury_backtest.py").read_text()
+    assert "(ROOT / TRAIN_EFFECTS).write_text" not in src
+    assert "calibration/outputs/runs/" in src
