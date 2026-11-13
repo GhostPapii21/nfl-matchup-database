@@ -4,34 +4,50 @@
 
 Market (schedule consensus, not a timestamped quote): BAL -4.5, total 38.5.
 
-Generated 2026-11-13T02:50:15+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-13T21:36:50+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-13T02:50:12+00:00 UTC. At kickoff: 44 F, wind 2 mph N, 0% chance of precipitation, Mostly Clear. During the game: low 39 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-13T21:36:49+00:00 UTC. At kickoff: 44 F, wind 2 mph N, 0% chance of precipitation, Clear. During the game: low 39 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-13T02:49:26+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
+Retrieved 2026-11-13T21:36:25+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | BAL -4.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T02:48:52Z |
-| spread | fanduel | BAL -4.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T02:49:11Z |
-| spread | pinnacle | BAL -4.5 | -103 | -109 | 49.3% | 50.7% | 2.9% | 2026-11-13T02:49:13Z |
-| total | draftkings | Over 38.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T02:48:52Z |
-| total | fanduel | Over 38.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-13T02:49:11Z |
-| total | pinnacle | Over 38.5 | -119 | +102 | 52.3% | 47.7% | 3.8% | 2026-11-13T02:49:13Z |
-| moneyline | draftkings | BAL | -230 | +190 | 66.9% | 33.1% | 4.2% | 2026-11-13T02:48:52Z |
-| moneyline | fanduel | BAL | -220 | +188 | 66.4% | 33.6% | 3.5% | 2026-11-13T02:49:11Z |
-| moneyline | pinnacle | BAL | -212 | +183 | 65.8% | 34.2% | 3.3% | 2026-11-13T02:49:13Z |
+| spread | draftkings | BAL -4.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T21:35:34Z |
+| spread | williamhill_us | BAL -4.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-13T21:35:35Z |
+| spread | fanduel | BAL -4.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:35:54Z |
+| spread | pinnacle | BAL -4.5 | -103 | -109 | 49.3% | 50.7% | 2.9% | 2026-11-13T21:35:53Z |
+| spread | hardrockbet | BAL -4 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:35:36Z |
+| total | draftkings | Over 38.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:35:34Z |
+| total | williamhill_us | Over 38.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:35:35Z |
+| total | fanduel | Over 38.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-13T21:35:54Z |
+| total | pinnacle | Over 38.5 | -119 | +102 | 52.3% | 47.7% | 3.8% | 2026-11-13T21:35:53Z |
+| total | hardrockbet | Over 39 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T21:35:36Z |
+| moneyline | draftkings | BAL | -218 | +180 | 65.8% | 34.2% | 4.3% | 2026-11-13T21:35:34Z |
+| moneyline | williamhill_us | BAL | -213 | +178 | 65.4% | 34.6% | 4.0% | 2026-11-13T21:35:35Z |
+| moneyline | fanduel | BAL | -225 | +188 | 66.6% | 33.4% | 4.0% | 2026-11-13T21:35:54Z |
+| moneyline | pinnacle | BAL | -212 | +183 | 65.8% | 34.2% | 3.3% | 2026-11-13T21:35:53Z |
+| moneyline | hardrockbet | BAL | -220 | +185 | 66.2% | 33.8% | 3.8% | 2026-11-13T21:35:36Z |
 
-### Line movement: first seen 2026-11-11T18:18:16+00:00 to 2026-11-13T02:50:12+00:00 (8 snapshots)
+### Same-line consensus (retail books only)
+
+Consensus uses only books quoting the same line; probabilities at different lines are never averaged. Fewer than two books on one line, a tie between lines, or a player not matched on full name + team gives 'no consensus'.
+
+| Market | Team | Label | FanDuel | DraftKings | Hard Rock Bet | Caesars | Consensus | Note |
+|---|---|---|---|---|---|---|---|---|
+| moneyline |  | four-book game-line consensus |  |  |  |  | BAL n/a: 66.0% (4 at line) |  |
+| spread |  | four-book game-line consensus | -4.5 | -4.5 | -4.0 | -4.5 | BAL -4.5: 49.6% (3 at line) |  |
+| total |  | four-book game-line consensus | 38.5 | 38.5 | 39.0 | 38.5 | Over 38.5: 50.4% (3 at line) |  |
+
+### Line movement: first seen 2026-11-11T18:18:16+00:00 to 2026-11-13T21:36:49+00:00 (10 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
-| moneyline | draftkings | n/a | n/a | n/a | -218 / +180 | -230 / +190 |
-| moneyline | fanduel | n/a | n/a | n/a | -215 / +180 | -220 / +188 |
+| moneyline | draftkings | n/a | n/a | n/a | -218 / +180 | -218 / +180 |
+| moneyline | fanduel | n/a | n/a | n/a | -215 / +180 | -225 / +188 |
 | moneyline | pinnacle | n/a | n/a | n/a | -206 / +179 | -212 / +183 |
 | spread | draftkings | -4.5 | -4.5 | 0.0 | -108 / -112 | -108 / -112 |
 | spread | fanduel | -4.5 | -4.5 | 0.0 | -105 / -115 | -110 / -110 |
@@ -42,7 +58,7 @@ Retrieved 2026-11-13T02:49:26+00:00 UTC. No-vig = each side's share of the two i
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 94 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 76 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -362,7 +378,7 @@ Neutral-situation pass rate 40.7%; 62.0 plays per game; target share WR 51% / TE
 | defense allows | Deep middle | 6 | 3% | 33% | 14.33 | 2 |
 | defense allows | Deep right | 16 | 7% | 62% | 19.0 | 8 |
 
-### LAC lines (depth chart as of 2026-11-12T15:57:12Z)
+### LAC lines (depth chart as of 2026-11-13T15:17:47Z)
 
 Offensive line: LT Joe Alt, LG Kayode Awosika, C Jake Slaughter, RG Cole Strange, RT Travis Burke.  
 Defensive front: LDE Teair Tart, NT Jamaree Caldwell, RDE Justin Eboigbe, WLB Tuli Tuipulotu, SLB Khalil Mack.
@@ -378,7 +394,7 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 
 ### LAC roster moves (last 4 weeks)
 
-Arrived: none.  
+Arrived: Zion Childress (DB) from CAR.  
 Left for another team: Marquez Valdes-Scantling (WR) to PIT; Gregory Desrosiers (RB) to NYG.
 
 ## BAL (last 8 games: weeks 2, 3, 4, 5, 6, 7, 8, 9)
@@ -576,7 +592,7 @@ Neutral-situation pass rate 52.2%; 58.2 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 10 | 4% | 70% | 21.7 | 6 |
 | defense allows | Deep right | 13 | 5% | 69% | 20.0 | 5 |
 
-### BAL lines (depth chart as of 2026-11-12T15:57:12Z)
+### BAL lines (depth chart as of 2026-11-13T15:17:47Z)
 
 Offensive line: LT Ronnie Stanley, LG John Simpson, C Cam Jurgens, RG Olaivavega Ioane, RT Roger Rosengarten.  
 Defensive front: LDE Nnamdi Madubuike, NT Travis Jones, RDE Calais Campbell, WLB Mike Green, SLB Trey Hendrickson.
@@ -585,15 +601,15 @@ Defensive front: LDE Nnamdi Madubuike, NT Travis Jones, RDE Calais Campbell, WLB
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Adisa Isaac (LB) Questionable; Lamar Jackson (QB) Injured Reserve; Olaivavega Ioane (G) Questionable; Rashod Bateman (WR) Questionable; Jaylinn Hawkins (S) Questionable.
+ESPN live list (designations only): Adisa Isaac (LB) Questionable; Olaivavega Ioane (G) Questionable; Rashod Bateman (WR) Questionable; Jaylinn Hawkins (S) Questionable; Lamar Jackson (QB) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### BAL roster moves (last 4 weeks)
 
-Arrived: Jacoby Brissett (QB) from ARI; Ryan Neuzil (OL) from ATL.  
-Left for another team: Andrew Vorhees (OL) to ATL; Xavier Guillory (WR) to CLE.
+Arrived: Jacoby Brissett (QB) from ARI; Riley Patterson (K) from MIA; Ryan Neuzil (OL) from ATL; Harrison Mevis (K) from LA.  
+Left for another team: Andrew Vorhees (OL) to ATL; Jake Moody (K) to ATL; Xavier Guillory (WR) to CLE.
 
 ## Keyed connectors in this run
 
@@ -629,16 +645,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-13T02:49:22+00:00 | dff8c18054ea |
-| pbp | OK | 2026-11-13T02:49:23+00:00 | 6555b925b950 |
-| rosters | OK | 2026-11-13T02:49:23+00:00 | c11a409d73b9 |
-| injuries | OK | 2026-11-13T02:49:23+00:00 | a72cc1afc722 |
-| depth_charts | OK | 2026-11-13T02:49:23+00:00 | 8633b61b70c3 |
-| snap_counts | OK | 2026-11-13T02:49:24+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-13T02:49:24+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-13T02:49:24+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-13T02:49:25+00:00 |  |
+| games | OK | 2026-11-13T21:36:24+00:00 | 67077133b6fa |
+| pbp | OK | 2026-11-13T21:36:24+00:00 | 63d725b49ed1 |
+| rosters | OK | 2026-11-13T21:36:24+00:00 | 99651c418f80 |
+| injuries | OK | 2026-11-13T21:36:24+00:00 | 65d181dfc372 |
+| depth_charts | OK | 2026-11-13T21:36:24+00:00 | 341d1eddeaf6 |
+| snap_counts | OK | 2026-11-13T21:36:24+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-13T21:36:24+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-13T21:36:24+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-13T21:36:25+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-13T02:49:26+00:00 |  |
+| book_odds | OK | 2026-11-13T21:36:25+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
