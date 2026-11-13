@@ -212,10 +212,12 @@ def summarize(res, jobs, pbp) -> dict:
         if s3:
             gl3[tag] = {"snaps_per_team_game": round(s3 / tg, 3), "td_share": round(t3 / s3, 4)}
     s3a = sum(S.get(f"in3|snaps|{t}", 0) for t in GL_TAGS); t3a = sum(S.get(f"in3|td|{t}", 0) for t in GL_TAGS)
+    s3src = sum(S.get(f"in3src|snaps|{src}", 0) for src in ("src_le3", "src_4_10", "src_11_20", "src_other"))
     for src in ("src_le3", "src_4_10", "src_11_20", "src_other"):
         s_, t_ = S.get(f"in3src|snaps|{src}", 0), S.get(f"in3src|td|{src}", 0)
         if s_:
-            gl3[f"by_source_row_yardline|{src}"] = {"share_of_in3_snaps": None, "snaps_per_team_game": round(s_ / tg, 3),
+            gl3[f"by_source_row_yardline|{src}"] = {"share_of_in3_snaps": round(s_ / s3src, 4),
+                                                    "snaps_per_team_game": round(s_ / tg, 3),
                                                     "td_share": round(t_ / s_, 4)}
     gl3["all_sim"] = {"snaps_per_team_game": round(s3a / tg, 3), "td_share": round(t3a / max(s3a, 1), 4)}
     gl3["actual"] = {"snaps_per_team_game": round(A["in3|snaps"] / atg, 3), "td_share": round(A["in3|td"] / max(A["in3|snaps"], 1), 4)}
