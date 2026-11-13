@@ -11,7 +11,9 @@ packet refresh (Tuesday, Thursday, Saturday, Sunday and Monday; see `.github/wor
 | What the defense allows | Per game to WRs, TEs and RBs (targets, receptions, yards, TDs, explosives), passing, situational; each against what the offense gets and the league average, with ranks and an 8-game trend; who hurt this defense each week; run direction; pass zones | nflverse play-by-play |
 | Defenders | Every coverage defender with position, targets, completions, yards, yards per target, TDs, INTs, missed tackles and a target / avoid grade; pass rushers; last season's man/zone mix and coverage shells | Pro Football Reference, NGS participation (last season) |
 | Quarterback | Against the blitz and without it, play action, out of the pocket, pressure rate, red zone, third down; last season against man and zone, under pressure and clean | FTN charting, PFR, NGS participation |
-| Receivers & backs | Target and carry share, per-game volume, depth, red-zone looks, snaps, game-by-game trend, baseline median, forecast-adjusted yards; role tags | nflverse, PFR snap counts |
+| Player cards | Holographic card per pass catcher and back, styled in team colors: official headshot and jersey number, role tags, key numbers, this game's opportunity, a last-5 chart (catches/targets, yards, target or carry share), last 5 against the season, mismatch notes, and the full season game log | nflverse rosters, play-by-play, snap counts |
+| Field view | Formation with the defense's shell, size and speed against likely coverage, target heat map against the defense's zones, route tree (last season), coverage splits, tier splits, run gaps against the front, mismatch highlights, and an animated game simulator | nflverse, NGS participation, combine |
+| Receivers & backs (old) | Target and carry share, per-game volume, depth, red-zone looks, snaps, game-by-game trend, baseline median, forecast-adjusted yards; role tags | nflverse, PFR snap counts |
 | Opportunity | For every pass catcher and back: this game's volume (pace, pass/run mix, script from the spread, weather, teammates out, his share), his efficiency against this defense, and 20,000 simulations giving targets, catches, median yards, the chance of 20+ to 120+ yards, how many targets he needs for 70, and his slice of what the defense allows his position. Tested on 2024-2026: [OPPORTUNITY.md](OPPORTUNITY.md) | nflverse play-by-play, the packet |
 | Injuries | Official report and ESPN, snap share, starter slot and next man up; players back from a missed game and whether they are still working back in; roster moves | nflverse, ESPN, snap counts |
 | Last meeting | Score by quarter, team box, leaders, what carries over (same QB, coach change, who is still on the team), highlights link, recent meetings against the spread and total | nflverse schedules and play-by-play |
@@ -40,3 +42,12 @@ GitHub Pages must be switched on once: repository Settings > Pages > Source: **G
 run publishes the board.
 
 Research only. Nothing on the board is a validated projection or a bet recommendation.
+
+## Design and tested adjustments
+
+The look follows design concepts generated with Higgsfield (a holographic field and chrome trading-card frames); the field
+render is `dashboard/assets/field_holo.webp`. Team colors come from nflverse.
+
+Coverage (man/zone, middle open/closed), quarterback-pressure and opponent-tier adjustments to the projection were fitted on
+2023-2024 and tested on 2025. None improved it beyond luck, so they are shown as context only and not applied. See
+`dashboard/results/coverage_backtest.md` and `dashboard/coverage_model.py`.

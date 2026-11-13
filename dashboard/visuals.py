@@ -271,3 +271,64 @@ def pool_quantiles(pool: np.ndarray, q: int = 200) -> list[float]:
     if pool is None or not len(pool):
         return []
     return [round(float(x), 1) for x in np.quantile(pool, np.linspace(0, 1, q))]
+
+
+# ----------------------------------------------------------------------------------------------- player cards
+def season_log(pbp: pd.DataFrame, snaps: pd.DataFrame | None, player_id: str, full_name: str, team: str) -> list[dict]:
+    """Every game this season for one player: usage and production, with his share of team targets and carries."""
+    q = pbp[(pbp.season_type == "REG") & (pbp.two_point_attempt != 1) & (pbp.posteam == team)]
+    out = []
+    for (gid, wk), g in q.groupby(["game_id", "week"]):
+        tg = g[(g.pass_attempt == 1) & (g.sack != 1) & g.receiver_player_id.notna()]
+        car = g[(g.rush_attempt == 1) & (g.qb_scramble != 1)]
+        mine_t, mine_c = tg[tg.receiver_player_id == player_id], car[car.rusher_player_id == player_id]
+        opp = g.defteam.dropna().iloc[0] if g.defteam.notna().any() else "?"
+        home = g.home_team.iloc[0] == team
+        snap = None
+        if snaps is not None and len(snaps):
+            s = snaps[(snaps.game_id == gid) & (snaps.player == full_name)]
+            if len(s):
+                snap = _f(s.offense_pct.iloc[0], 3)
+        if not len(mine_t) and not len(mine_c) and not snap:
+            out.append({"week": int(wk), "opp": ("" if home else "@") + opp, "played": False})
+            continue
+        out.append({"week": int(wk), "opp": ("" if home else "@") + opp, "played": True, "snap_pct": snap,
+                    "targets": int(len(mine_t)), "team_targets": int(len(tg)), "target_share": _f(len(mine_t) / len(tg), 3) if len(tg) else None,
+                    "receptions": int(mine_t.complete_pass.sum()), "rec_yards": int(mine_t.receiving_yards.fillna(0).sum()),
+                    "rec_td": int(mine_t.pass_touchdown.sum()), "air_yards": int(mine_t.air_yards.fillna(0).sum()),
+                    "carries": int(len(mine_c)), "team_carries": int(len(car)), "carry_share": _f(len(mine_c) / len(car), 3) if len(car) else None,
+                    "rush_yards": int(mine_c.rushing_yards.fillna(0).sum()), "rush_td": int(mine_c.rush_touchdown.fillna(0).sum())})
+    return sorted(out, key=lambda x: x["week"])
+
+
+def team_colors(path) -> dict:
+    try:
+        t = pd.read_csv(path)
+    except Exception:  # noqa: BLE001
+        return {}
+    return {r.team_abbr: {"primary": r.team_color, "secondary": r.team_color2, "tertiary": r.team_color3} for r in t.itertuples()}
+
+
+def headshot_data_uri(url: str | None, cache_dir, fetch) -> str | None:
+    """A small WebP thumbnail of the official headshot, embedded so the page needs no outside image host."""
+    if not url or not isinstance(url, str):
+        return None
+    import base64
+    import hashlib
+    import io
+    from pathlib import Path
+    cache = Path(cache_dir)
+    cache.mkdir(parents=True, exist_ok=True)
+    f = cache / (hashlib.sha1(url.encode()).hexdigest()[:16] + ".webp")
+    if not f.exists():
+        if fetch is None:
+            return None
+        try:
+            from PIL import Image
+            raw = fetch(url.replace("f_auto,q_auto", "c_fill,w_200,h_200,f_png"))
+            im = Image.open(io.BytesIO(raw)).convert("RGBA")
+            im.thumbnail((128, 128))
+            im.save(f, "WEBP", quality=72)
+        except Exception:  # noqa: BLE001 - a missing photo falls back to initials
+            return None
+    return "data:image/webp;base64," + base64.b64encode(f.read_bytes()).decode()

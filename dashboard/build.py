@@ -87,6 +87,7 @@ def implied_points(pk: dict) -> dict | None:
 
 
 _POOLS: dict = {}
+TEAM_COLORS = V.team_colors(ROOT / "pregame" / ".cache" / "teams_colors_logos.csv") if (ROOT / "pregame" / ".cache" / "teams_colors_logos.csv").exists() else {}
 
 
 def pools_for(data: X.Data, season: int) -> dict | None:
@@ -115,9 +116,30 @@ def _vis_context(data: X.Data, season: int, week: int) -> dict:
             seasons.append((prev_reg, V.position_ranks(prev_reg, pos)))
         if cur is not None:
             seasons.append((cur, V.position_ranks(cur, pos, through_week=week)))
+        info = {}
+        if r_cur is not None:
+            for r in r_cur.sort_values("week").itertuples():
+                info[r.gsis_id] = {"headshot_url": getattr(r, "headshot_url", None), "jersey": _num(getattr(r, "jersey_number", None)),
+                                   "full_name": r.full_name}
         _VIS[key] = {"cur": cur, "prev": prev_reg, "part": data.get("participation", season - 1), "seasons": seasons,
-                     "bodies": V.Bodies(r_cur, data.get("combine"))}
+                     "bodies": V.Bodies(r_cur, data.get("combine")), "snaps": data.get("snaps", season), "info": info,
+                     "offline": data.offline}
     return _VIS[key]
+
+
+def _num(x):
+    try:
+        return int(x)
+    except (TypeError, ValueError):
+        return None
+
+
+def _card(ctx, pid, team):
+    inf = ctx["info"].get(pid, {})
+    name = inf.get("full_name") or pid
+    return {"photo": V.headshot_data_uri(inf.get("headshot_url"), ROOT / "pregame" / ".cache" / "headshots", None if ctx["offline"] else (lambda u: _get(u, timeout=15))),
+            "jersey": inf.get("jersey"),
+            "log": V.season_log(ctx["cur"], ctx["snaps"], pid, name, team) if ctx["cur"] is not None else []}
 
 
 def add_visuals(sides: dict, pk: dict, data: X.Data, season: int, games: pd.DataFrame) -> None:
@@ -139,13 +161,15 @@ def add_visuals(sides: dict, pk: dict, data: X.Data, season: int, games: pd.Data
                 "size": V.size_matchup(r, cov, ctx["bodies"], dfn),
                 "targets": V.target_map(ctx["cur"], pid, weeks) if ctx["cur"] is not None else None,
                 "routes": V.route_tree(ctx["prev"], ctx["part"], pid),
-                "tiers": V.tier_splits(ctx["seasons"], pid, (r.get("pos") or "WR").upper(), "rec")}
+                "tiers": V.tier_splits(ctx["seasons"], pid, (r.get("pos") or "WR").upper(), "rec"),
+                "card": _card(ctx, pid, off)}
         for r in (sd.get("roles") or {}).get("rushers", []):
             pid = r.get("player_id")
             if not pid or (r.get("carries") or 0) < 8 or r.get("pos") != "RB":
                 continue
             vis["rushers"][pid] = {"runs": V.run_map(ctx["cur"], pid, weeks) if ctx["cur"] is not None else None,
-                                   "tiers": V.tier_splits(ctx["seasons"], pid, "RB", "rush")}
+                                   "tiers": V.tier_splits(ctx["seasons"], pid, "RB", "rush"),
+                                   "card": _card(ctx, pid, off)}
         sd["visual"] = vis
 
 
@@ -217,7 +241,8 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
         "sides": sides,
         "teams": {t: {"name": X.TEAM_NAMES.get(t, t), "roster_moves": ex_team[t]["roster_moves"], "window": ex_team[t]["window"],
                       "depth_chart": ex_team[t]["depth_chart"],
-                      "trends": ex_team[t]["trends"], "quarters": ex_team[t]["quarters"]} for t in (away, home)},
+                      "trends": ex_team[t]["trends"], "quarters": ex_team[t]["quarters"],
+                      "colors": TEAM_COLORS.get(t)} for t in (away, home)},
         "team_projection": pk.get("team_projection", {}),
         "phase_ledger": pk.get("phase_ledger", []),
         "sources": pk.get("sources", {}),
@@ -238,7 +263,9 @@ def render_site(boards: list[dict], built: str) -> str:
     tpl = (OUT / "template.html").read_text()
     payload = json.dumps({"built_utc": built, "sim": sim_settings(), "games": boards}, separators=(",", ":"), allow_nan=False)
     payload = payload.replace("</", "<\\/")   # safe inside a <script> element
-    return tpl.replace("/*__BOARD_DATA__*/null", payload)
+    img = OUT / "assets" / "field_holo.webp"
+    field = ("data:image/webp;base64," + __import__("base64").b64encode(img.read_bytes()).decode()) if img.exists() else ""
+    return tpl.replace("/*__BOARD_DATA__*/null", payload).replace("__FIELD_IMG__", field)
 
 
 def main(argv=None) -> int:
@@ -250,6 +277,13 @@ def main(argv=None) -> int:
     idx = json.loads((PACKETS / "latest.json").read_text())
     ids = [x["game_id"] for x in idx["games"] if not a.game or x["game_id"] in a.game]
     data = X.Data(Path(a.cache), offline=a.offline, fetch=_get)
+    colors = Path(a.cache) / "teams_colors_logos.csv"
+    if not colors.exists() and not a.offline:
+        try:
+            colors.write_bytes(_get("https://github.com/nflverse/nflverse-data/releases/download/teams/teams_colors_logos.csv"))
+        except Exception as e:  # noqa: BLE001 - team colors are cosmetic
+            print(f"board: team colors not available ({e})")
+    TEAM_COLORS.update(V.team_colors(colors) if colors.exists() else {})
     games = data.get("games")
     if games is None:
         print("board: schedule not available; nothing built")

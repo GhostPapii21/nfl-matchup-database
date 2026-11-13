@@ -64,10 +64,18 @@ jobs:
           if [ -n "${{ inputs.week }}" ]; then args+=(--week "${{ inputs.week }}"); fi
           if [ -n "${{ inputs.weekdays }}" ]; then args+=(--weekdays "${{ inputs.weekdays }}"); fi
           python -m pregame.build_packets "${args[@]}"
+      - name: Restore cached player photos
+        uses: actions/cache@v4
+        with:
+          path: pregame/.cache/headshots
+          key: board-headshots-${{ github.run_id }}
+          restore-keys: board-headshots-
       - name: Build the game board
         id: board
         continue-on-error: true   # a board failure never blocks the packets
-        run: python -m dashboard.build
+        run: |
+          python -m pip install --disable-pip-version-check pillow
+          python -m dashboard.build
       - name: Commit refreshed packets
         run: |
           git config user.name "github-actions[bot]"
