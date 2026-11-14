@@ -1,0 +1,66 @@
+{
+ "runs": [
+  {
+   "week": 8,
+   "legs": 83,
+   "cutoff": "2026-10-29",
+   "runtime_sec": 9.2,
+   "engine_errors": {
+    "sim_v5": 0,
+    "sim_v6": 0,
+    "sim_v6_fix": 0
+   }
+  },
+  {
+   "week": 9,
+   "legs": 5,
+   "cutoff": "2026-11-02",
+   "runtime_sec": 1.4,
+   "engine_errors": {
+    "sim_v5": 0,
+    "sim_v6": 0,
+    "sim_v6_fix": 0
+   }
+  }
+ ],
+ "n_trials": 20000,
+ "opp": "0.5",
+ "engines": [
+  "sim_v5",
+  "sim_v6",
+  "sim_v6_fix"
+ ],
+ "engine_sha256": {
+  "cc_sim_v5.py": "a1b7fed65a23bd8d3e6b6087d79c6c1deec01c7a5fe2f82a6ead3f278ea47267",
+  "cc_sim_v6.py": "2248cd17d31f65d6575c324f049d5b274dee6d5f6910fef145d44bb685e05028",
+  "cc_sim_v6_fix.py": "9493e3a242d4dbb23cfd2aceb5dafd9c8fc30960f31f36a4f923b1c0f651e582",
+  "qb_rush_prior.py": "c1fa4176a2fe0612c90366898b0e6195362fdfceb847427c4fe74163051f727d",
+  "volume_fix.py": "11f941e8e1539b5f826e8e06ce1e73515cd90257212dbc29162d7e54accb40d2",
+  "sim_v6_backtest.csv": "7ef40c67c5d3c0b6d5cafdb274969b9cd8b4226c96ffef3d9f7da136510bf07d",
+  "sim_v6_fix_backtest.csv": "f8f4c1b6eb91c15532e76961dc44d91f42ac34bd37525017bc54319ac663af98",
+  "rb_script_boost.json": "7c6893baa35f9371644e2a48c92a074e78cef23d447f52aa29830d4ec2921850",
+  "rb_miss_fit.json": "3d5ded3377c134460261fe77ffcca5247ed66108794abcbea6fc43984b197de2"
+ },
+ "pbp": "data/historical/nflverse/pbp_2026_w1_9_pulled_20261112T1116ET.parquet",
+ "pbp_sha256": "1028614beb746bea596633bb2215948d19ddcc34f8928e74a3338635122ec5b8",
+ "legs_w4_9_sha256": "67cfbf3e8820891d180dfa74fd81665dd5ed739572152347133133cceac8b7ed",
+ "params_w4_7_sha256": "90f7f30a817c892d4e5f2e57080bd504365e5dc9d278e6cf6df329520b452b62",
+ "pandas_version": "3.0.6",
+ "bootstrap": "game-cluster, B=10000, seed=0 (selective_edge.summarize)",
+ "odds_api_credits": 0,
+ "qb_rush_prior": false,
+ "volume_fix": true,
+ "ev_gate": true,
+ "mode": "off",
+ "label": "combined, unmerged, research only, not counted: unfixed Phase 4 ensemble (control) + volume_fix + EV gate",
+ "code_sha": "527e3a1a6e28e51662f5e45caa74a2e8a5d7be40",
+ "diagnostic_only": true,
+ "counted": false,
+ "projection_ready": false,
+ "combined_of": [
+  "PR A settlement/EV",
+  "PR B volume_fix",
+  "PR C QB gate",
+  "PR #47 qb_rush_prior f4ce5e1"
+ ]
+}
