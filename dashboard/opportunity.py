@@ -219,8 +219,10 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
             continue
         pk = _pos_key(r.get("pos"))
         P = pk.upper()
-        share = r.get("target_share") or 0
         log = r.get("log", [])
+        # Share over the games he played (as in the backtest), not diluted by games he missed.
+        played_team = sum(weeks_targets.get(x["week"], 0) for x in log)
+        share = (sum(x.get("targets", 0) for x in log) / played_team) if played_team else (r.get("target_share") or 0)
         l3 = log[-3:]
         l3_team = sum(weeks_targets.get(x["week"], 0) for x in l3)
         share_l3 = (sum(x.get("targets", 0) for x in l3) / l3_team) if l3_team else None
@@ -266,8 +268,9 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
         if name.lower() in out_names:
             res["rushers"].append({"player": name, "pos": r.get("pos"), "status": "OUT: no projection"})
             continue
-        share = r.get("carry_share") or 0
         log = r.get("log", [])
+        played_team = sum(weeks_carries.get(x["week"], 0) for x in log)
+        share = (sum(x.get("carries", 0) for x in log) / played_team) if played_team else (r.get("carry_share") or 0)
         l3 = log[-3:]
         l3_team = sum(weeks_carries.get(x["week"], 0) for x in l3)
         share_l3 = (sum(x.get("carries", 0) for x in l3) / l3_team) if l3_team else None
