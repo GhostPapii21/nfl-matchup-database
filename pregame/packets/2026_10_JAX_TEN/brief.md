@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): TEN +10.5, total 46.5.
 
-Generated 2026-11-14T02:40:18+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T02:48:44+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T02:40:17+00:00 UTC. At kickoff: 53 F, wind 5 mph NE, 0% chance of precipitation, Sunny. During the game: low 53 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-14T02:48:43+00:00 UTC. At kickoff: 53 F, wind 5 mph NE, 0% chance of precipitation, Sunny. During the game: low 53 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-14T02:40:10+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-14T02:48:36+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T02:39:49Z |
-| spread | williamhill_us | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T02:40:09Z |
-| spread | fanduel | TEN +10.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:39:48Z |
-| spread | hardrockbet | TEN +10.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T02:40:07Z |
-| spread | pinnacle | TEN +10.5 | -102 | -110 | 49.1% | 50.9% | 2.9% | 2026-11-14T02:39:31Z |
-| total | draftkings | Over 46.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:39:49Z |
-| total | williamhill_us | Over 46.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T02:40:09Z |
-| total | fanduel | Over 46.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-14T02:39:48Z |
-| total | hardrockbet | Over 46 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T02:40:07Z |
-| total | pinnacle | Over 46.5 | -104 | -112 | 49.1% | 50.9% | 3.8% | 2026-11-14T02:39:31Z |
-| moneyline | draftkings | TEN | +500 | -700 | 16.0% | 84.0% | 4.2% | 2026-11-14T02:39:49Z |
-| moneyline | williamhill_us | TEN | +425 | -590 | 18.2% | 81.8% | 4.5% | 2026-11-14T02:40:09Z |
-| moneyline | fanduel | TEN | +490 | -670 | 16.3% | 83.7% | 4.0% | 2026-11-14T02:39:48Z |
-| moneyline | hardrockbet | TEN | +450 | -700 | 17.2% | 82.8% | 5.7% | 2026-11-14T02:40:07Z |
-| moneyline | pinnacle | TEN | +427 | -560 | 18.3% | 81.7% | 3.8% | 2026-11-14T02:39:31Z |
+| spread | draftkings | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T02:48:26Z |
+| spread | williamhill_us | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T02:45:58Z |
+| spread | fanduel | TEN +10.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:48:27Z |
+| spread | hardrockbet | TEN +10.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T02:47:31Z |
+| spread | pinnacle | TEN +10.5 | -102 | -110 | 49.1% | 50.9% | 2.9% | 2026-11-14T02:48:25Z |
+| total | draftkings | Over 46.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:48:26Z |
+| total | williamhill_us | Over 46.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T02:45:58Z |
+| total | fanduel | Over 46.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-14T02:48:27Z |
+| total | hardrockbet | Over 46 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T02:47:31Z |
+| total | pinnacle | Over 46.5 | -104 | -112 | 49.1% | 50.9% | 3.8% | 2026-11-14T02:48:25Z |
+| moneyline | draftkings | TEN | +500 | -700 | 16.0% | 84.0% | 4.2% | 2026-11-14T02:48:26Z |
+| moneyline | williamhill_us | TEN | +425 | -590 | 18.2% | 81.8% | 4.5% | 2026-11-14T02:45:58Z |
+| moneyline | fanduel | TEN | +490 | -670 | 16.3% | 83.7% | 4.0% | 2026-11-14T02:48:27Z |
+| moneyline | hardrockbet | TEN | +450 | -700 | 17.2% | 82.8% | 5.7% | 2026-11-14T02:47:31Z |
+| moneyline | pinnacle | TEN | +427 | -560 | 18.3% | 81.7% | 3.8% | 2026-11-14T02:48:25Z |
 
 ### Same-line consensus (retail books only)
 
@@ -670,16 +670,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T02:40:06+00:00 | 7d97bdafcc21 |
-| pbp | OK | 2026-11-14T02:40:06+00:00 | 63d725b49ed1 |
-| rosters | OK | 2026-11-14T02:40:07+00:00 | 99651c418f80 |
-| injuries | OK | 2026-11-14T02:40:07+00:00 | 65d181dfc372 |
-| depth_charts | OK | 2026-11-14T02:40:07+00:00 | 341d1eddeaf6 |
-| snap_counts | OK | 2026-11-14T02:40:08+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T02:40:08+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-14T02:40:08+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T02:40:09+00:00 |  |
+| games | OK | 2026-11-14T02:48:32+00:00 | 6d2092872efe |
+| pbp | OK | 2026-11-14T02:48:32+00:00 | 63d725b49ed1 |
+| rosters | OK | 2026-11-14T02:48:32+00:00 | 99651c418f80 |
+| injuries | OK | 2026-11-14T02:48:33+00:00 | 65d181dfc372 |
+| depth_charts | OK | 2026-11-14T02:48:33+00:00 | 341d1eddeaf6 |
+| snap_counts | OK | 2026-11-14T02:48:33+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T02:48:34+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-14T02:48:34+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T02:48:35+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-14T02:40:10+00:00 |  |
+| book_odds | OK | 2026-11-14T02:48:36+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
