@@ -1,0 +1,333 @@
+<title>Receiver Breakout Equations</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a research report. Answer first, then the defense-tier evidence, the equations with a live calculator, the anatomy of a breakout game, receptions, and a checklist. */
+:root{
+  --bg:#f3f5f2; --panel:#ffffff; --ink:#15201a; --muted:#5d6b62; --line:#d5ddd6;
+  --turf:#1f6b45; --turf-soft:#e3efe7; --gold:#a87a08;
+  --good:#1d7a46; --good-bg:#e1f2e7; --warn:#9a6500; --warn-bg:#fbf0d9; --bad:#b3362c; --bad-bg:#f8e3e0;
+  --bar:#9fb3a6; --bar-hi:#1f6b45;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif; --f-body:Inter,system-ui,-apple-system,"Segoe UI",sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1512; --panel:#16201b; --ink:#e4ece6; --muted:#93a399; --line:#2a3830;
+  --turf:#5fc08b; --turf-soft:#1b2d23; --gold:#e0b84a;
+  --good:#6fd39a; --good-bg:#183324; --warn:#f0c062; --warn-bg:#352a12; --bad:#f08a80; --bad-bg:#3a1c19;
+  --bar:#3e5246; --bar-hi:#5fc08b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1512; --panel:#16201b; --ink:#e4ece6; --muted:#93a399; --line:#2a3830;
+  --turf:#5fc08b; --turf-soft:#1b2d23; --gold:#e0b84a;
+  --good:#6fd39a; --good-bg:#183324; --warn:#f0c062; --warn-bg:#352a12; --bad:#f08a80; --bad-bg:#3a1c19;
+  --bar:#3e5246; --bar-hi:#5fc08b; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--f-body)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:grid;gap:36px}
+h1,h2,h3{font-family:var(--f-display);letter-spacing:.01em;text-wrap:balance;margin:0}
+h1{font-size:2.6rem;line-height:1.02} h2{font-size:1.85rem} h3{font-size:1.2rem}
+p{margin:0;max-width:72ch} .muted{color:var(--muted)} .small{font-size:.86rem}
+.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.75rem;color:var(--muted)}
+section{display:grid;gap:14px;border-top:3px solid var(--turf);padding-top:18px}
+.lead{display:grid;gap:12px}
+.answers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:10px}
+.ans{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;gap:6px;align-content:start}
+.ans b.big{font:600 2rem/1 var(--f-display);color:var(--turf);font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:.9rem}
+caption{text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding-bottom:6px}
+th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500}
+tr.em td{background:var(--turf-soft)}
+.up{color:var(--good);font-weight:600} .down{color:var(--bad);font-weight:600}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:18px}
+.callout{background:var(--turf-soft);border-radius:6px;padding:14px 16px;display:grid;gap:8px}
+.eq{font:500 .92rem/1.7 var(--f-mono);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px;overflow-x:auto;white-space:pre}
+.calc{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:16px}
+.presets{display:flex;gap:8px;flex-wrap:wrap}
+button{font:600 .9rem var(--f-body);border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:6px 12px;border-radius:4px;cursor:pointer}
+button:hover,button:focus-visible{border-color:var(--turf);color:var(--turf);outline:none}
+button[aria-pressed="true"]{background:var(--turf);border-color:var(--turf);color:var(--panel)}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:12px}
+label{display:grid;grid-template-rows:1fr auto;align-items:end;gap:4px;font-size:.8rem;color:var(--muted)}
+input,select{font:500 1rem var(--f-mono);padding:6px 8px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);min-width:0;width:100%}
+input:focus-visible,select:focus-visible{outline:2px solid var(--turf);outline-offset:1px}
+.out{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px}
+.o{border-left:3px solid var(--turf);padding:4px 10px;display:grid}
+.o span{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.o b{font:600 1.8rem/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.o small{color:var(--muted);font-size:.78rem}
+.ladder{display:grid;gap:4px}
+.lrow{display:grid;grid-template-columns:9em 1fr 4.5em 3.5em;gap:8px;align-items:center;font:500 .85rem var(--f-mono)}
+.lbar{height:12px;background:var(--bar);border-radius:2px;min-width:2px}
+.lrow.hi .lbar{background:var(--bar-hi)}
+.lrow span:last-child,.lrow span:nth-child(3){text-align:right}
+.check{display:grid;gap:10px;counter-reset:c;padding:0;margin:0;list-style:none}
+.check li{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 14px 12px 50px;position:relative;max-width:90ch}
+.check li::before{counter-increment:c;content:counter(c);position:absolute;left:14px;top:10px;font:600 1.4rem var(--f-display);color:var(--turf)}
+.foot{font-size:.84rem;color:var(--muted);display:grid;gap:6px}
+</style>
+
+<div class="wrap">
+<header class="lead">
+  <p class="eyebrow">Research · 10,001 WR and TE games, 2022 to Week 9 of 2026 · fit on 2022–24, tested on 2025–26</p>
+  <h1>Receiver Breakout Equations</h1>
+  <p>What changes for a receiver against a top-5 or bottom-5 pass defense, what turns a normal 50–60 yard receiver into an 80–100 yard game, and when his catches go up. Every input is something known before kickoff; the in-game tables show what the breakout games looked like after the fact.</p>
+</header>
+
+<div class="answers">
+  <div class="ans"><span class="eyebrow">Bottom-5 vs top-5 defense, pre-game</span><b class="big">±4–6%</b><p class="small">That is the yards swing for the same receiver. The defense changes yards per target, not targets. Even against the worst defenses, a 52-yard receiver projects to about 54.</p></div>
+  <div class="ans"><span class="eyebrow">What an 80+ game takes</span><b class="big">+3 targets and a 30+ catch</b><p class="small">With both, normal receivers hit 80 in 88% of games. With neither, 3.5%. Targets averaged 9.5 in their 80+ games against 6.6 normally.</p></div>
+  <div class="ans"><span class="eyebrow">Catches go up with</span><b class="big">Targets × catch rate</b><p class="small">Catches track targets almost one for one. Catches fall about 1.6% for each extra yard of average depth of target (aDOT); catch rate runs from 71% for short receivers to 60% for deep ones. Implied team total adds about 0.9% per point.</p></div>
+</div>
+
+<section>
+  <h2>Top 5 vs bottom 5 defenses</h2>
+  <p>Defenses ranked each week by pass yards per attempt allowed going into the game. "Normal" means a WR or TE averaging 45–65 yards a game coming in (1,866 games).</p>
+  <div class="scroll"><table>
+    <caption>Normal receivers by the defense's pre-game rank</caption>
+    <thead><tr><th>Defense</th><th>Games</th><th>Targets</th><th>Catches</th><th>Catch rate</th><th>Yds/target vs his own</th><th>Yards</th><th>80+</th><th>100+</th></tr></thead>
+    <tbody>
+      <tr><td>Top 5 (stingiest)</td><td>318</td><td>6.26</td><td>4.14</td><td>66.1%</td><td>0.99×</td><td>51.3</td><td>23.9%</td><td>12.3%</td></tr>
+      <tr><td>Middle 22</td><td>1,258</td><td>6.39</td><td>4.12</td><td>64.5%</td><td>0.97×</td><td>51.0</td><td>20.0%</td><td>10.6%</td></tr>
+      <tr class="em"><td>Bottom 5 (most generous)</td><td>290</td><td>6.43</td><td>4.33</td><td>67.3%</td><td>1.04×</td><td>54.8</td><td>22.1%</td><td>9.7%</td></tr>
+    </tbody></table></div>
+  <div class="two">
+    <div class="scroll"><table>
+      <caption>Same receivers, ranked by how the defense finished the season</caption>
+      <thead><tr><th>Defense</th><th>Catches</th><th>Yds/target vs his</th><th>Yards</th><th>80+</th></tr></thead>
+      <tbody>
+        <tr><td>Top 5</td><td>3.91</td><td class="down">0.88×</td><td>44.9</td><td>19.8%</td></tr>
+        <tr><td>Middle</td><td>4.25</td><td>0.98×</td><td>52.5</td><td>21.0%</td></tr>
+        <tr><td>Bottom 5</td><td>4.04</td><td class="up">1.10×</td><td>55.2</td><td>22.3%</td></tr>
+      </tbody></table></div>
+    <div class="scroll"><table>
+      <caption>All WR/TE, yards vs his average, by part of the season</caption>
+      <thead><tr><th>Weeks</th><th>Top 5</th><th>Middle</th><th>Bottom 5</th><th>Gap</th></tr></thead>
+      <tbody>
+        <tr><td>Weeks 4–7</td><td>0.97×</td><td>0.96×</td><td>1.02×</td><td>5%</td></tr>
+        <tr class="em"><td>Weeks 8–18</td><td>0.86×</td><td>0.94×</td><td>1.00×</td><td>14%</td></tr>
+      </tbody></table></div>
+  </div>
+  <div class="callout">
+    <p><b>Real defense quality matters about one for one.</b> Measured on full-season numbers, a defense that allows 10% more yards per attempt gives a receiver about 9% more yards (elasticity 0.91 ± 0.16). It has no effect on his targets (−0.01 ± 0.11).</p>
+    <p><b>Pre-game ranks catch only a slice of that.</b> Only 61% of the defenses ranked bottom 5 going into a game finished the season there, and 57% of the top 5. The pre-game position-specific measure (yards allowed to WRs or TEs) carries an elasticity of 0.18. The ranks firm up after Week 8, when the yards gap between top-5 and bottom-5 defenses grows from 5% to 14%.</p>
+    <p><b>The tier does not move the 80+ rate.</b> Normal receivers hit 80 in 20–24% of games in every tier. A bad defense raises the average a little and makes almost no difference to the breakout chance.</p>
+  </div>
+  <div class="scroll"><table>
+    <caption>Who gains against bad defenses: normal receivers by aDOT (about 90–125 games per cell, so read the direction, not the decimals)</caption>
+    <thead><tr><th>Receiver type</th><th>Yds vs top 5</th><th>Yds vs middle</th><th>Yds vs bottom 5</th><th>Catches vs bottom 5 (middle)</th><th>80+ vs bottom 5 (middle)</th></tr></thead>
+    <tbody>
+      <tr><td>Short (aDOT under 8)</td><td>49.3</td><td>49.3</td><td>54.2</td><td>4.73 (4.63)</td><td>19% (17%)</td></tr>
+      <tr><td>Intermediate</td><td>53.4</td><td>56.4</td><td>50.6</td><td>4.12 (4.48)</td><td>17% (26%)</td></tr>
+      <tr class="em"><td>Deep (aDOT 11.5+)</td><td>50.6</td><td>47.0</td><td>58.9</td><td>4.18 (3.37)</td><td>29% (17%)</td></tr>
+    </tbody></table></div>
+  <p class="small muted">Deep receivers gain the most against bad defenses (+25% yards, +0.8 catches), because more of their deep throws get completed. Deep receivers also hit 80 more often against top-5 defenses than the middle (29%), which is a sign that their game-to-game noise is large.</p>
+</section>
+
+<section>
+  <h2>The equations</h2>
+  <p>Fit on 2022–24 with a log link, so every term is a percentage multiplier. Tested on 2025–26: the yards equation correlates 0.530 with what happened, against 0.507 for the player's season average; the receptions equation scores 0.577.</p>
+<div class="eq">Targets (T)   = 0.6 × his targets per game + 0.4 × (last-3 target share × team targets per game)
+YPT           = his yards per target, shrunk toward 8.0 by 30 targets
+D             = yards the defense allows to his position per game ÷ league average
+
+Yards         = 1.176 × T^1.069 × YPT^0.828 × D^0.181 × e^(0.0090 × (implied − 22))
+Receptions    = 0.579 × T^1.035 × D^0.099 × e^(−0.0159 × (aDOT − 9)) × e^(0.0085 × (implied − 22))
+
+P(80+)        = 1 / (1 + e^−(−10.851 + 2.401 × ln Yards + 0.0297 × (aDOT − 9)))
+P(100+)       = 1 / (1 + e^−(−12.792 + 2.681 × ln Yards + 0.0357 × (aDOT − 9)))</div>
+  <div class="two">
+    <div class="callout">
+      <p><b>How to read the exponents.</b> Targets carry more than 1-for-1 (1.07): 10% more targets gives 10.7% more yards. Efficiency carries 0.83, because a high yards-per-target partly regresses. The defense carries 0.18: a defense allowing 24% more yards to WRs than average (a typical bottom 5) adds 4%. Each point of implied team total adds 0.9%, so 28 vs 22 adds 5.5%.</p>
+    </div>
+    <div class="scroll"><table>
+      <caption>Targets needed for an 80-yard projection</caption>
+      <thead><tr><th>His yards per target</th><th>Targets a game</th></tr></thead>
+      <tbody><tr><td>7.0</td><td>11.5</td></tr><tr><td>8.0</td><td>10.4</td></tr><tr class="em"><td>9.0</td><td>9.5</td></tr><tr><td>10.0</td><td>8.7</td></tr></tbody></table></div>
+  </div>
+  <p class="small muted">The 80+ model ranks all receivers well on 2025–26 (AUC 0.79, where 0.5 is a coin flip) and is calibrated: predictions of 24% hit 24%, and the top tenth, predicted at 40%, hit 36%. Among normal 45–65 yard receivers it ranks poorly (AUC 0.57), because which of them breaks out on a given Sunday is mostly decided during the game.</p>
+</section>
+
+<section>
+  <h2>Calculator</h2>
+  <div class="calc">
+    <div class="presets" role="group" aria-label="Examples">
+      <button type="button" data-preset="normal" aria-pressed="true">Typical 50–60 yard WR</button>
+      <button type="button" data-preset="golden" aria-pressed="false">Matthew Golden, Week 10 at MIN</button>
+      <button type="button" data-preset="chase" aria-pressed="false">Ja'Marr Chase, Week 10 vs PIT</button>
+    </div>
+    <div class="fields">
+      <label for="tpg">Targets per game this season<input id="tpg" type="number" step="0.1" min="0"></label>
+      <label for="games">Games played<input id="games" type="number" step="1" min="1"></label>
+      <label for="l3">Target share, last 3 games (%)<input id="l3" type="number" step="0.5" min="0"></label>
+      <label for="team">Team targets per game<input id="team" type="number" step="0.5" min="10"></label>
+      <label for="ypt">Yards per target this season<input id="ypt" type="number" step="0.1" min="0"></label>
+      <label for="adot">aDOT (average depth of target, yards)<input id="adot" type="number" step="0.1"></label>
+      <label for="imp">Team implied total<input id="imp" type="number" step="0.5"></label>
+      <label for="pos">Position<select id="pos"><option value="WR">WR</option><option value="TE">TE</option></select></label>
+      <label for="tier">Defense vs his position<select id="tier"><option value="top">Top 5 (allows least)</option><option value="avg">Average</option><option value="bottom">Bottom 5 (allows most)</option><option value="custom">Custom ratio</option></select></label>
+      <label for="d">Ratio to league (1.00 = average)<input id="d" type="number" step="0.01" min="0.4" max="2.5"></label>
+    </div>
+    <div class="out" aria-live="polite">
+      <div class="o"><span>Projected targets</span><b id="oT">–</b><small>blend of season and last 3</small></div>
+      <div class="o"><span>Expected yards</span><b id="oY">–</b><small id="oYs"></small></div>
+      <div class="o"><span>Expected catches</span><b id="oR">–</b><small id="oRs"></small></div>
+      <div class="o"><span>80+ chance</span><b id="o80">–</b><small id="o80s"></small></div>
+      <div class="o"><span>100+ chance</span><b id="o100">–</b><small></small></div>
+    </div>
+    <div>
+      <p class="eyebrow" style="margin-bottom:6px">If he gets this many targets in the game (WR history, 2022–26: median yards, 80+ rate)</p>
+      <div class="ladder" id="ladder"></div>
+    </div>
+  </div>
+  <p class="small muted">Golden and Chase use the Week 10 board numbers: Golden 8.9 targets a game, 32.4% share over his last 3, Minnesota allowing 0.81× league WR yards; Chase 9.1 targets, 34%, Pittsburgh 0.94×. aDOT values are approximate.</p>
+</section>
+
+<section>
+  <h2>What an 80+ game looks like</h2>
+  <p>The 392 games in which a normal 45–65 yard receiver reached 80, compared with his other 1,474.</p>
+  <div class="two">
+    <div class="scroll"><table>
+      <caption>In-game, 80+ games vs the rest</caption>
+      <thead><tr><th></th><th>80+ games</th><th>Others</th></tr></thead>
+      <tbody>
+        <tr><td>Targets (his average 6.6)</td><td><b>9.5</b></td><td>5.5</td></tr>
+        <tr><td>Targets up 3+ on his average</td><td><b>46%</b></td><td>9%</td></tr>
+        <tr><td>Catches</td><td><b>6.9</b></td><td>3.4</td></tr>
+        <tr><td>Yards per target (his average 8.5)</td><td><b>11.2</b></td><td>6.7</td></tr>
+        <tr><td>Had a catch of 30+</td><td><b>61%</b></td><td>12%</td></tr>
+        <tr><td>Had 2+ catches of 20+</td><td><b>61%</b></td><td>6%</td></tr>
+        <tr><td>Longest catch (median)</td><td><b>34</b></td><td>16</td></tr>
+        <tr><td>Team pass volume vs its average</td><td><b>+7%</b></td><td>−4%</td></tr>
+        <tr><td>Game went 7+ over the total</td><td><b>39%</b></td><td>27%</td></tr>
+        <tr><td>His team lost</td><td>43%</td><td>47%</td></tr>
+      </tbody></table></div>
+    <div class="scroll"><table>
+      <caption>The two ways to 80</caption>
+      <thead><tr><th>Path</th><th>Share of games</th><th>Hit 80</th><th>Share of all 80s</th></tr></thead>
+      <tbody>
+        <tr class="em"><td>+2 targets and a 30+ catch</td><td>7%</td><td><b>88%</b></td><td>29%</td></tr>
+        <tr><td>+2 targets, no 30+ catch</td><td>17%</td><td>35%</td><td>29%</td></tr>
+        <tr><td>Usual targets, a 30+ catch</td><td>16%</td><td>44%</td><td>33%</td></tr>
+        <tr><td>Neither</td><td>61%</td><td>3.5%</td><td>10%</td></tr>
+      </tbody></table></div>
+  </div>
+  <div class="callout">
+    <p><b>An 80-yard game from a 55-yard receiver is volume plus one big play.</b> The volume comes from the team throwing more than usual (+7%) and from him getting a bigger slice. The big play is the part nobody forecasts: a recent run of big plays does not predict the next one, and in this repo's earlier research neither did a defense's explosive-play rate.</p>
+    <p><b>Shootouts help, blowouts don't.</b> His 80+ games ran 7+ points over the total 39% of the time, against 27% otherwise. Trailing by 8+ gave his team the most targets (34.2) but him the fewest yards (48.2) and the lowest 80+ rate (16%). Teams that fall far behind are usually bad passing offenses. Close games were best: 23% hit 80.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Pre-game boosters for a normal receiver</h2>
+  <div class="two">
+    <div class="scroll"><table>
+      <caption>80+ rate with and without each factor (normal receivers)</caption>
+      <thead><tr><th>Factor</th><th>Games with</th><th>80+ with</th><th>80+ without</th><th>Catches with / without</th></tr></thead>
+      <tbody>
+        <tr class="em"><td>7.5+ projected targets</td><td>487</td><td><b>26.1%</b></td><td>19.2%</td><td>5.07 / 3.84</td></tr>
+        <tr><td>Team implied 24+</td><td>656</td><td>23.0%</td><td>19.9%</td><td>4.19 / 4.14</td></tr>
+        <tr><td>Target share up 3+ pts, last 3</td><td>334</td><td>22.2%</td><td>20.8%</td><td>4.28 / 4.13</td></tr>
+        <tr><td>Defense bottom 5</td><td>290</td><td>22.1%</td><td>20.8%</td><td>4.33 / 4.13</td></tr>
+        <tr><td>Defense bottom 10</td><td>604</td><td>21.5%</td><td>20.8%</td><td>4.16 / 4.16</td></tr>
+        <tr><td>Underdog by 3+</td><td>644</td><td>21.0%</td><td>21.0%</td><td>4.32 / 4.07</td></tr>
+      </tbody></table></div>
+    <div class="scroll"><table>
+      <caption>Game total and missing teammates</caption>
+      <thead><tr><th>Normal receivers by game total</th><th>Games</th><th>Yards</th><th>80+</th></tr></thead>
+      <tbody>
+        <tr><td>40.5 or less</td><td>363</td><td>49.4</td><td>20.1%</td></tr>
+        <tr><td>41–44.5</td><td>718</td><td>50.5</td><td>18.9%</td></tr>
+        <tr class="em"><td>45–48.5</td><td>529</td><td>54.4</td><td>23.1%</td></tr>
+        <tr class="em"><td>49+</td><td>256</td><td>52.5</td><td>23.8%</td></tr>
+      </tbody>
+      <thead><tr><th>All WR/TE, team target share missing</th><th>Games</th><th>Targets vs avg</th><th>Yards vs avg</th></tr></thead>
+      <tbody>
+        <tr><td>None</td><td>6,094</td><td>0.92×</td><td>0.92×</td></tr>
+        <tr><td>10–20%</td><td>1,344</td><td>0.96×</td><td>1.00×</td></tr>
+        <tr class="em"><td>20%+</td><td>882</td><td><b>1.07×</b></td><td><b>1.05×</b></td></tr>
+      </tbody></table></div>
+  </div>
+  <p class="small muted">"Missing" is the target share of receivers or backs who played the team's previous game and not this one. The ×0.92 baseline is below 1 because averages coming in include a player's best stretch; compare rows to each other. With all four main boosters (7.5+ targets, implied 24+, a bottom-10 defense, rising share) the 80+ rate was 43%, but on only 14 games.</p>
+</section>
+
+<section>
+  <h2>When catches go up</h2>
+  <div class="two">
+    <div class="scroll"><table>
+      <caption>Catch rate by receiver type (all WR/TE)</caption>
+      <thead><tr><th>Type</th><th>Games</th><th>Catch rate</th></tr></thead>
+      <tbody><tr class="em"><td>Short (aDOT under 8)</td><td>4,051</td><td>70.9%</td></tr><tr><td>Intermediate</td><td>3,086</td><td>64.6%</td></tr><tr><td>Deep (11.5+)</td><td>2,864</td><td>59.8%</td></tr></tbody></table></div>
+    <div class="scroll"><table>
+      <caption>By point spread (all WR/TE)</caption>
+      <thead><tr><th>His team</th><th>Team targets</th><th>His targets vs avg</th><th>Catches</th></tr></thead>
+      <tbody>
+        <tr><td>Favored by 7+</td><td>31.4</td><td>0.93×</td><td>2.94</td></tr>
+        <tr><td>Favored by 3–6.5</td><td>31.1</td><td>0.91×</td><td>2.91</td></tr>
+        <tr><td>Within 2.5</td><td>31.5</td><td>0.95×</td><td>2.92</td></tr>
+        <tr class="em"><td>Underdog by 3–6.5</td><td>32.4</td><td>0.97×</td><td>2.89</td></tr>
+        <tr><td>Underdog by 7+</td><td>30.4</td><td>0.93×</td><td>2.64</td></tr>
+      </tbody></table></div>
+  </div>
+  <div class="callout">
+    <p><b>Catches are a volume stat with a catch-rate dial.</b> They track projected targets almost one for one (exponent 1.04). The dial is depth: each yard of aDOT costs about 1.6% of catches, so a slot receiver with a 6-yard aDOT catches about 10% more than a 12-yard deep threat on the same targets. Implied total adds 0.85% a point. A bad defense against his position adds a little (exponent 0.10), about 2% for a typical bottom 5.</p>
+    <p><b>Small underdogs throw the most.</b> Teams 3–6.5 point underdogs averaged 32.4 targets. Big underdogs throw less (30.4) and their receivers catch the fewest passes. They tend to be weak offenses. Among normal receivers, close games produced the most catches (4.34) and big leads the fewest (3.83).</p>
+  </div>
+</section>
+
+<section>
+  <h2>The reasoning, in order</h2>
+  <ol class="check">
+    <li><b>Start with volume.</b> Projected targets drive everything with an exponent above 1. Blend his season targets with last-3 share times team targets. If that blend is under 7.5 for a 50–60 yard receiver, an 80-yard game needs a big play and is roughly a 1-in-5 shot whatever the matchup.</li>
+    <li><b>Look for added volume.</b> The biggest pre-game lift is a teammate out: 20%+ of the team's target share missing raised the remaining receivers' targets about 15% against games with nobody missing. Next are a rising last-3 share, a game total of 45+, and a small-underdog script.</li>
+    <li><b>Then the defense, mostly for efficiency.</b> A bottom-5 defense adds about 4–6% to yards and about 2% to catches, through yards per target, not targets. Trust the ranks more after Week 8. Deep receivers gain most against bad defenses; short receivers barely move.</li>
+    <li><b>The team total.</b> 0.9% more yards and catches per point of implied total. It matters most combined with volume: a 9.5+ target receiver at 28+ implied hit 80 in 62% of games, against 39% at 20–24.</li>
+    <li><b>Price the big play, don't predict it.</b> 61% of breakouts had a 30+ catch, and nothing pre-game reliably says which week it comes. For yards overs on 50–60 yard receivers, the edge has to come from the number, not a feeling about the matchup. Catches are steadier because they depend on targets and depth, not on one long gain.</li>
+    <li><b>For catches, favor short-aDOT receivers with rising targets</b> in close games or as small underdogs. Avoid deep threats and big underdogs.</li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <p>Data: nflverse play-by-play, weekly rosters and schedules; 10,001 WR/TE games from Week 4 on (3+ games of history), 2022 to Week 9 of 2026. Defense ranks use only games before the one being predicted. Scripts: <code>research/opportunity_tiers_2026-11-14/study.py</code> and <code>equations.py</code> in the repo. Research only: these equations have not been graded against prop prices.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var C={y0:0.1619,yT:1.0689,yY:0.8281,yI:0.0090,yD:0.1809,r0:-0.5457,rT:1.0353,rA:-0.0159,rI:0.0085,rD:0.0994,
+         p80:[-10.8509,2.4006,0.0297],p100:[-12.7916,2.6805,0.0357]};
+  var TIER={WR:{top:0.79,avg:1.0,bottom:1.24},TE:{top:0.66,avg:1.0,bottom:1.38}};
+  var P={normal:{tpg:6.6,games:8,l3:21,team:31.5,ypt:8.5,adot:10.2,imp:22,pos:"WR",tier:"avg"},
+         golden:{tpg:8.9,games:9,l3:32.4,team:32.1,ypt:8.1,adot:10.5,imp:22.5,pos:"WR",tier:"custom",d:0.81},
+         chase:{tpg:9.1,games:8,l3:34,team:36.0,ypt:8.9,adot:10.1,imp:26,pos:"WR",tier:"custom",d:0.94}};
+  var LAD=[["0–5",13,2],["6–7",49,16],["8–9",61,32],["10–11",81,51],["12+",101,75]];
+  var $=function(id){return document.getElementById(id)};
+  var ids=["tpg","games","l3","team","ypt","adot","imp","pos","tier","d"];
+  function sig(x){return 1/(1+Math.exp(-x))}
+  function set(p){ids.forEach(function(k){if(p[k]!==undefined)$(k).value=p[k]});if(p.tier!=="custom")$("d").value=TIER[p.pos][p.tier].toFixed(2);calc()}
+  function calc(){
+    var tpg=+$("tpg").value,g=+$("games").value,l3=+$("l3").value/100,team=+$("team").value,ypt=+$("ypt").value,adot=+$("adot").value,imp=+$("imp").value;
+    var pos=$("pos").value,tier=$("tier").value;
+    if(tier!=="custom"){$("d").value=TIER[pos][tier].toFixed(2)}
+    var D=Math.min(2.5,Math.max(0.4,+$("d").value||1));
+    var T=Math.max(0.5,0.6*tpg+0.4*l3*team);
+    var ys=Math.max(2,(ypt*tpg*g+8*30)/(tpg*g+30));
+    var Y=Math.exp(C.y0+C.yT*Math.log(T)+C.yY*Math.log(ys)+C.yI*(imp-22)+C.yD*Math.log(D));
+    var R=Math.exp(C.r0+C.rT*Math.log(T)+C.rA*(adot-9)+C.rI*(imp-22)+C.rD*Math.log(D));
+    var p80=sig(C.p80[0]+C.p80[1]*Math.log(Y)+C.p80[2]*(adot-9)), p100=sig(C.p100[0]+C.p100[1]*Math.log(Y)+C.p100[2]*(adot-9));
+    var Ya=Math.exp(C.y0+C.yT*Math.log(T)+C.yY*Math.log(ys)+C.yI*(imp-22));
+    $("oT").textContent=T.toFixed(1);$("oY").textContent=Y.toFixed(0);$("oR").textContent=R.toFixed(1);
+    $("o80").textContent=(p80*100).toFixed(0)+"%";$("o100").textContent=(p100*100).toFixed(0)+"%";
+    var dd=(Y/Ya-1)*100;$("oYs").textContent="defense "+(dd>=0?"+":"")+dd.toFixed(1)+"% vs average";
+    $("oRs").textContent="catch rate about "+(Math.min(95,Math.max(40,(0.665-0.0147*(adot-9))*100))).toFixed(0)+"%";
+    $("o80s").textContent="normal receivers: 21%";
+    var cur=T<6?0:T<8?1:T<10?2:T<12?3:4;
+    $("ladder").innerHTML=LAD.map(function(l,i){return '<div class="lrow'+(i===cur?' hi':'')+'"><span>'+l[0]+' targets</span><div class="lbar" style="width:'+(l[1]/101*100).toFixed(0)+'%"></div><span>'+l[1]+' yds</span><span>'+l[2]+'%</span></div>'}).join("");
+  }
+  ids.forEach(function(k){$(k).addEventListener("input",function(){if(k==="d")$("tier").value="custom";calc()})});
+  document.querySelectorAll("[data-preset]").forEach(function(b){b.addEventListener("click",function(){
+    document.querySelectorAll("[data-preset]").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});set(P[b.dataset.preset])})});
+  set(P.normal);
+})();
+</script>

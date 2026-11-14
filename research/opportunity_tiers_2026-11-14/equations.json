@@ -1,0 +1,291 @@
+{
+ "yards": {
+  "coef": {
+   "const": 0.1619,
+   "log_tgt": 1.0689,
+   "log_ypt": 0.8281,
+   "imp_c": 0.009,
+   "log_def_pos": 0.1809
+  },
+  "se": {
+   "const": 0.1672,
+   "log_tgt": 0.0208,
+   "log_ypt": 0.0806,
+   "imp_c": 0.0028,
+   "log_def_pos": 0.053
+  },
+  "test_corr": 0.53,
+  "baseline_corr": 0.507
+ },
+ "receptions": {
+  "coef": {
+   "const": -0.5457,
+   "log_tgt": 1.0353,
+   "adot_c": -0.0159,
+   "imp_c": 0.0085,
+   "log_def_pos": 0.0994
+  },
+  "se": {
+   "const": 0.0306,
+   "log_tgt": 0.0174,
+   "adot_c": 0.0025,
+   "imp_c": 0.0023,
+   "log_def_pos": 0.0443
+  },
+  "test_corr": 0.577
+ },
+ "p80": {
+  "coef": {
+   "const": -10.8509,
+   "log_pred": 2.4006,
+   "adot_c": 0.0297
+  },
+  "test_auc": 0.788,
+  "normal_test_auc": 0.573,
+  "calibration": [
+   {
+    "pred": 0.007,
+    "hit": 0.003,
+    "n": 302
+   },
+   {
+    "pred": 0.014,
+    "hit": 0.01,
+    "n": 301
+   },
+   {
+    "pred": 0.025,
+    "hit": 0.03,
+    "n": 301
+   },
+   {
+    "pred": 0.038,
+    "hit": 0.076,
+    "n": 301
+   },
+   {
+    "pred": 0.056,
+    "hit": 0.05,
+    "n": 302
+   },
+   {
+    "pred": 0.081,
+    "hit": 0.06,
+    "n": 301
+   },
+   {
+    "pred": 0.116,
+    "hit": 0.123,
+    "n": 301
+   },
+   {
+    "pred": 0.166,
+    "hit": 0.176,
+    "n": 301
+   },
+   {
+    "pred": 0.242,
+    "hit": 0.236,
+    "n": 301
+   },
+   {
+    "pred": 0.403,
+    "hit": 0.361,
+    "n": 302
+   }
+  ]
+ },
+ "p100": {
+  "coef": {
+   "const": -12.7916,
+   "log_pred": 2.6805,
+   "adot_c": 0.0357
+  },
+  "test_auc": 0.833,
+  "normal_test_auc": 0.595,
+  "calibration": [
+   {
+    "pred": 0.002,
+    "hit": 0.0,
+    "n": 302
+   },
+   {
+    "pred": 0.005,
+    "hit": 0.0,
+    "n": 301
+   },
+   {
+    "pred": 0.008,
+    "hit": 0.007,
+    "n": 301
+   },
+   {
+    "pred": 0.014,
+    "hit": 0.02,
+    "n": 301
+   },
+   {
+    "pred": 0.021,
+    "hit": 0.01,
+    "n": 302
+   },
+   {
+    "pred": 0.033,
+    "hit": 0.03,
+    "n": 301
+   },
+   {
+    "pred": 0.05,
+    "hit": 0.053,
+    "n": 301
+   },
+   {
+    "pred": 0.078,
+    "hit": 0.076,
+    "n": 301
+   },
+   {
+    "pred": 0.125,
+    "hit": 0.103,
+    "n": 301
+   },
+   {
+    "pred": 0.253,
+    "hit": 0.228,
+    "n": 302
+   }
+  ]
+ },
+ "true_defense": {
+  "yards_elasticity": 0.909,
+  "yards_se": 0.156,
+  "targets_elasticity": -0.011,
+  "targets_se": 0.114,
+  "pregame_tier_ratio": {
+   "bottom5": 1.14,
+   "middle": 0.999,
+   "top5": 0.869
+  },
+  "season_tier_ratio": {
+   "bottom5": 1.11,
+   "middle": 1.0,
+   "top5": 0.891
+  }
+ },
+ "tier_by_season_phase": [
+  {
+   "weeks": "4-7",
+   "tier": "bottom5",
+   "n": 397,
+   "yards_vs_avg": 1.017,
+   "ypt_vs_his": 1.035,
+   "targets_vs_avg": 0.973
+  },
+  {
+   "weeks": "4-7",
+   "tier": "middle",
+   "n": 1543,
+   "yards_vs_avg": 0.959,
+   "ypt_vs_his": 0.99,
+   "targets_vs_avg": 0.959
+  },
+  {
+   "weeks": "4-7",
+   "tier": "top5",
+   "n": 389,
+   "yards_vs_avg": 0.966,
+   "ypt_vs_his": 1.009,
+   "targets_vs_avg": 0.953
+  },
+  {
+   "weeks": "8-18",
+   "tier": "bottom5",
+   "n": 1282,
+   "yards_vs_avg": 0.997,
+   "ypt_vs_his": 1.037,
+   "targets_vs_avg": 0.941
+  },
+  {
+   "weeks": "8-18",
+   "tier": "middle",
+   "n": 5109,
+   "yards_vs_avg": 0.939,
+   "ypt_vs_his": 0.986,
+   "targets_vs_avg": 0.933
+  },
+  {
+   "weeks": "8-18",
+   "tier": "top5",
+   "n": 1281,
+   "yards_vs_avg": 0.858,
+   "ypt_vs_his": 0.947,
+   "targets_vs_avg": 0.896
+  }
+ ],
+ "missing_teammates": [
+  {
+   "missing": "none",
+   "n": 6094,
+   "targets_vs_avg": 0.921,
+   "yards_vs_avg": 0.921,
+   "p80": 0.111
+  },
+  {
+   "missing": "under 10%",
+   "n": 1160,
+   "targets_vs_avg": 0.909,
+   "yards_vs_avg": 0.927,
+   "p80": 0.116
+  },
+  {
+   "missing": "10-20%",
+   "n": 1344,
+   "targets_vs_avg": 0.958,
+   "yards_vs_avg": 0.995,
+   "p80": 0.117
+  },
+  {
+   "missing": "20%+",
+   "n": 882,
+   "targets_vs_avg": 1.068,
+   "yards_vs_avg": 1.053,
+   "p80": 0.096
+  }
+ ],
+ "total_line_normal": [
+  {
+   "total": "40.5 or less",
+   "n": 363,
+   "catches": 3.88,
+   "yards": 49.4,
+   "p80": 0.201
+  },
+  {
+   "total": "41-44.5",
+   "n": 718,
+   "catches": 4.21,
+   "yards": 50.5,
+   "p80": 0.189
+  },
+  {
+   "total": "45-48.5",
+   "n": 529,
+   "catches": 4.29,
+   "yards": 54.4,
+   "p80": 0.231
+  },
+  {
+   "total": "49+",
+   "n": 256,
+   "catches": 4.15,
+   "yards": 52.5,
+   "p80": 0.238
+  }
+ ],
+ "targets_for_80_mean": {
+  "7.0": 11.5,
+  "8.0": 10.4,
+  "9.0": 9.5,
+  "10.0": 8.7
+ }
+}
