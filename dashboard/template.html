@@ -329,6 +329,38 @@ textarea { width: 100%; min-height: 360px; font: 12px/1.5 ui-monospace, SFMono-R
 .steps ul { padding-left: 18px; margin: 6px 0 0; display: flex; flex-direction: column; gap: 4px; }
 @media (max-width: 520px) { .gt-teams b { font-size: 32px; } .hero { padding-top: 8px; } }
 @media (prefers-reduced-motion: reduce) { #game.enter, #home.enter-back { animation: none; } .gtile, .gtile.warp { transition: none; } }
+/* ---- player-card tour and help bubble */
+.tour { position: fixed; inset: 0; z-index: 60; pointer-events: none; }
+.tour-hole { position: fixed; border-radius: 10px; border: 2px solid var(--accent); box-shadow: 0 0 0 9999px rgba(2, 6, 14, .72), 0 0 24px color-mix(in srgb, var(--accent) 60%, transparent); transition: all .3s ease; pointer-events: none; }
+.tour-tip { position: fixed; width: min(340px, calc(100vw - 32px)); background: #08111f; border: 1px solid var(--accent); border-radius: 12px; padding: 14px 16px; pointer-events: auto; box-shadow: 0 12px 40px rgba(0, 0, 0, .6); display: flex; flex-direction: column; gap: 8px; transition: top .3s ease, left .3s ease; }
+:root[data-skin="chrome"] .tour-tip { background: #141418; } :root[data-skin="hud"] .tour-tip { background: #031210; }
+.tour-tip h3 { margin: 0; font-family: var(--font-display); font-size: 18px; text-transform: uppercase; letter-spacing: .03em; color: var(--accent); }
+.tour-tip p { margin: 0; line-height: 1.5; }
+.tour-tip .tnav { display: flex; gap: 8px; align-items: center; justify-content: space-between; margin-top: 4px; }
+.tour-tip .tnav span { font-size: 12px; color: var(--muted); }
+.tour-tip .tnav div { display: flex; gap: 6px; }
+.btn.sm { padding: 6px 14px; font-size: 13px; }
+.tourbtn { align-self: flex-start; }
+.help-fab { position: fixed; z-index: 55; right: max(18px, calc(env(safe-area-inset-right, 0px) + 12px)); bottom: max(18px, calc(env(safe-area-inset-bottom, 0px) + 12px)); width: 56px; height: 56px; border-radius: 50%;
+  border: 1px solid var(--accent); background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink); font-family: var(--font-display); font-size: 26px; font-weight: 700; cursor: pointer;
+  box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 60%, transparent); }
+.help-panel { position: fixed; z-index: 56; right: max(16px, calc(env(safe-area-inset-right, 0px) + 10px)); bottom: max(84px, calc(env(safe-area-inset-bottom, 0px) + 80px)); width: min(380px, calc(100vw - 32px)); max-height: min(70vh, 560px);
+  display: flex; flex-direction: column; background: #08111f; border: 1px solid var(--accent); border-radius: 14px; box-shadow: 0 16px 50px rgba(0, 0, 0, .65); overflow: hidden; }
+:root[data-skin="chrome"] .help-panel { background: #141418; } :root[data-skin="hud"] .help-panel { background: #031210; }
+.help-head { padding: 12px 14px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+.help-head b { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .04em; font-size: 16px; }
+.help-head .ctx { font-size: 12px; color: var(--accent); }
+.help-head button { border: 0; background: none; color: var(--ink); font-size: 22px; cursor: pointer; line-height: 1; }
+.help-log { flex: 1; overflow: auto; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; min-height: 120px; }
+.msg { max-width: 92%; padding: 8px 11px; border-radius: 12px; line-height: 1.45; white-space: pre-wrap; font-size: 13.5px; }
+.msg.me { align-self: flex-end; background: var(--accent); color: var(--accent-ink); border-bottom-right-radius: 4px; }
+.msg.bot { align-self: flex-start; background: var(--surface-2); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+.msg.bot.note { color: var(--muted); font-size: 12px; }
+.help-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 14px 8px; }
+.help-chips button { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 4px 10px; font-size: 12px; cursor: pointer; }
+.help-form { display: flex; gap: 6px; padding: 10px 12px; border-top: 1px solid var(--line); }
+.help-form input { flex: 1; min-width: 0; background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; font: inherit; }
+.help-form button { border: 0; border-radius: 999px; padding: 8px 14px; font-weight: 700; cursor: pointer; background: var(--accent); color: var(--accent-ink); }
 .toast { color: var(--good); font-weight: 600; font-size: 13px; }
 footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
 @media (max-width: 520px) {
@@ -353,6 +385,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
   <section id="game" hidden><div id="gamebar"></div><div class="sheet" id="sheet"></div></section>
 </main>
 <div class="howto" id="howto" hidden></div>
+<button class="help-fab" id="help-fab" aria-label="Ask about this screen" aria-expanded="false" title="Ask about this screen">?</button>
 <footer class="wrap" id="foot"></footer>
 
 <script>
@@ -1216,13 +1249,13 @@ const BOARD = /*__BOARD_DATA__*/null;
     });
   }
   const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduceMotion) setInterval(() => { if (document.hidden) return; document.querySelectorAll(".pc-car").forEach((el) => { if (!el.dataset.hold) carGo(el, +el.dataset.i + 1); }); }, 2000);
+  if (!reduceMotion) setInterval(() => { if (document.hidden) return; document.querySelectorAll(".pc-car").forEach((el) => { if (!el.dataset.hold) carGo(el, +el.dataset.i + 1); }); }, 4000);
 
   function renderPlayers(g) {
     const s = S(), R = s.roles || {};
     const rec = (R.receivers || []).filter((r) => r.targets >= 8);
     const rush = (R.rushers || []).filter((r) => r.carries >= 8 && r.pos === "RB");
-    return `<div class="section-title">${esc(s.offense)} pass catchers</div><div class="pgrid">${rec.map((r) => playerCard(s, r, true)).join("") || '<p class="empty">No receivers with 8+ targets.</p>'}</div>
+    return `<button class="btn ghost sm tourbtn" data-tour>Take the player-card tour</button><div class="section-title">${esc(s.offense)} pass catchers</div><div class="pgrid">${rec.map((r) => playerCard(s, r, true)).join("") || '<p class="empty">No receivers with 8+ targets.</p>'}</div>
       <div class="section-title">${esc(s.offense)} running backs</div><div class="pgrid">${rush.map((r) => playerCard(s, r, false)).join("") || '<p class="empty">No backs with 8+ carries.</p>'}</div>
       <p class="note">Photos: official NFL headshots via nflverse rosters. Cards glow when two or more edges line up (size, speed, soft defense tier, coverage fit, target zone, a defender to attack, or a 40%+ chance at 70 yards). Roles: Primary = top target share; Volume = 7+ targets a game; Deep threat = 13+ yard average depth; Possession = short targets caught 72%+; Boom-bust and Steady come from game-to-game swings; Lead back = 60%+ of carries.</p>`;
   }
@@ -1294,12 +1327,13 @@ const BOARD = /*__BOARD_DATA__*/null;
         <li><b>Pick which offense.</b> Inside a game, the switch under the tabs flips between "Team A offense vs Team B defense" and the reverse.</li>
         <li><b>Read the tabs.</b>
           <ul><li><b>Overview</b>: who has the best chance at 70+ yards, the rank edges, defenders to attack, QB against the blitz, injuries, last meeting, your rules, trends.</li>
-          <li><b>Player cards</b>: photo over the team logo, a 3D chart of the last 5 games (tap Targets, Catches, Yards or Share), and a strip that swipes every 2 seconds: role, recent form, opportunity, what the defense allows, who he'll see. Hover or touch to pause; swipe or use the arrows. The season game log opens under the card.</li>
+          <li><b>Player cards</b>: photo over the team logo, a 3D chart of the last 5 games (tap Targets, Catches, Yards or Share), and a strip that swipes every 4 seconds: role, recent form, opportunity, what the defense allows, who he'll see. Hover or touch to pause; swipe or use the arrows. The season game log opens under the card.</li>
           <li><b>Opportunity</b>: this game's volume and each player's chance at 20 to 120 yards, from 20,000 simulated games.</li>
           <li><b>Field view</b>: formation against the defense's shell, size and speed against likely coverage, where his targets go, route tree, run gaps, and "Simulate this game".</li>
           <li><b>What the defense allows</b>, <b>Defenders</b>, <b>Quarterback</b>, <b>Injuries</b>, <b>Last meeting</b>, <b>Odds</b>, <b>Weather & rest</b>: the detail behind every number.</li>
           <li><b>Copy for Grok</b>: one tap copies the whole game for ChatGPT or Grok.</li></ul></li>
         <li><b>Read the colors.</b> Green is good for the offense you're looking at, red is tough, amber is a caution. A glowing card with a "Mismatch" badge has two or more edges lined up. Rank chips: 1st means best at its own job, so a defense ranked 28th against receivers is a soft spot.</li>
+        <li><b>Get help.</b> On Player cards, "Take the player-card tour" walks through every part of a card (it runs by itself the first time). The <b>?</b> bubble in the corner answers questions about whatever screen you're on.</li>
         <li><b>Keep it in proportion.</b> Everything here is research. The projections were tested on past games but are not betting advice; your rule gates still apply.</li>
       </ol><button class="btn" data-howto-close>Got it</button></div>`;
   }
@@ -1329,6 +1363,155 @@ const BOARD = /*__BOARD_DATA__*/null;
       const gb = document.getElementById("gamebar").querySelector('[aria-current="true"]'); if (gb) gb.scrollIntoView({ block: "nearest", inline: "center" });
       game.classList.remove("enter"); if (animate && !reduceMotion) { void game.offsetWidth; game.classList.add("enter"); }
     }
+  }
+
+  // ---------------------------------------------------------------- player-card tour
+  const TOUR = [
+    { sel: ".seg", title: "Pick the offense", text: "Player cards show one team's pass catchers and backs at a time. Flip this switch to see the other team." },
+    { sel: ".pcard .pc-hero", title: "Who he is", text: "His official photo and jersey number over his team's logo, in the team's colors. A glowing card with a MISMATCH badge has two or more edges lined up for this game." },
+    { sel: ".pcard .pc-plate", title: "Name and role", text: "Name, position and team, with his top role tags: Primary, Volume, Deep threat, Possession, Red-zone #1, Lead back and more." },
+    { sel: ".pcard .pc-tabs", title: "Pick a stat", text: "Tap Targets, Catches, Yards or Share (Carries, Yards, Share or Targets for backs) to redraw the chart." },
+    { sel: ".pcard .pc-chart", title: "Last 5 games in 3D", text: "One bar per game, oldest on the left, with the week and opponent underneath. DNP means he did not play." },
+    { sel: ".pcard .pc-car", title: "The info strip", text: "This swipes every 4 seconds through five facts: his role, last 5 against his season, his chance this game, what the defense allows his position, and who he will see in coverage. Hover or touch it to pause." },
+    { sel: ".pcard .pc-dots", title: "Move it yourself", text: "Tap a dot to jump to a fact, or swipe left and right. The arrows on the sides work too." },
+    { sel: ".pcard .pc-log", title: "Season game log", text: "Open this for every game this season: snaps, targets, share, catches, yards, touchdowns and air yards." },
+    { sel: ".help-fab", title: "Ask anytime", text: "Questions about whatever screen you are on? Tap this bubble and ask in plain words." },
+  ];
+  let tourI = -1;
+  function startTour() {
+    if (state.view !== "game" || state.tab !== "players") { state.view = "game"; state.tab = "players"; save(); render(false); }
+    tourI = 0; document.querySelectorAll(".pc-car").forEach((el) => (el.dataset.hold = "tour"));
+    let t = document.getElementById("tour");
+    if (!t) { t = document.createElement("div"); t.id = "tour"; t.className = "tour"; document.body.appendChild(t); }
+    t.innerHTML = `<div class="tour-hole"></div><div class="tour-tip" role="dialog" aria-live="polite"></div>`; t.hidden = false;
+    showStep();
+  }
+  function endTour() {
+    const t = document.getElementById("tour"); if (t) t.hidden = true; tourI = -1;
+    document.querySelectorAll('.pc-car[data-hold="tour"]').forEach((el) => delete el.dataset.hold);
+    try { localStorage.setItem("board-tour-cards", "1"); } catch (e) { /* storage blocked */ }
+  }
+  function showStep() {
+    const t = document.getElementById("tour"); if (!t || tourI < 0) return;
+    let step = TOUR[tourI], el = document.querySelector(step.sel);
+    while (!el && tourI < TOUR.length - 1) { tourI++; step = TOUR[tourI]; el = document.querySelector(step.sel); }
+    if (!el) return endTour();
+    el.scrollIntoView({ block: "center", behavior: reduceMotion ? "auto" : "smooth" });
+    setTimeout(() => {
+      const r = el.getBoundingClientRect(), hole = t.querySelector(".tour-hole"), tip = t.querySelector(".tour-tip");
+      Object.assign(hole.style, { top: r.top - 6 + "px", left: r.left - 6 + "px", width: r.width + 12 + "px", height: r.height + 12 + "px" });
+      tip.innerHTML = `<h3>${esc(step.title)}</h3><p>${esc(step.text)}</p><div class="tnav"><span>${tourI + 1} of ${TOUR.length}</span><div>
+        <button class="btn ghost sm" data-t="skip">Skip</button>${tourI > 0 ? `<button class="btn ghost sm" data-t="back">Back</button>` : ""}<button class="btn sm" data-t="next">${tourI === TOUR.length - 1 ? "Done" : "Next"}</button></div></div>`;
+      const below = r.bottom + 12 + 200 < innerHeight, top = below ? r.bottom + 12 : Math.max(12, r.top - 12 - tip.offsetHeight);
+      tip.style.top = Math.min(top, innerHeight - tip.offsetHeight - 12) + "px";
+      tip.style.left = Math.max(16, Math.min(r.left, innerWidth - tip.offsetWidth - 16)) + "px";
+      tip.querySelector('[data-t="next"]').addEventListener("click", () => { if (tourI >= TOUR.length - 1) endTour(); else { tourI++; showStep(); } });
+      const bk = tip.querySelector('[data-t="back"]'); if (bk) bk.addEventListener("click", () => { tourI--; showStep(); });
+      tip.querySelector('[data-t="skip"]').addEventListener("click", endTour);
+      tip.querySelector('[data-t="next"]').focus();
+    }, reduceMotion ? 0 : 320);
+  }
+  window.addEventListener("resize", () => { if (tourI >= 0) showStep(); });
+
+  // ---------------------------------------------------------------- help bubble
+  const HELP_FAQ = [
+    [["player card", "card", "carousel", "swipe", "strip"], "Each player card shows his photo over the team logo, a 3D chart of his last 5 games (tap Targets, Catches, Yards or Share), and a strip that swipes every 4 seconds through his role, recent form, his chance this game, what the defense allows his position, and who he'll see in coverage. Hover or touch the strip to pause it; tap the dots or swipe to move it. The season game log opens under the card."],
+    [["target share", "share"], "Target share is the part of his team's targets that went to him. 25% means one of every four passes thrown to a receiver went his way. It's the best single sign of how much the offense looks for him."],
+    [["opportunity", "70", "80", "chance", "simulat", "median"], "Opportunity asks whether this game gives him the chance: team plays and pass/run mix (moved by the spread and weather), his share, then his catch rate and yards per catch against this defense, simulated 20,000 times. The median is the middle result; 70+ is how often he reached 70 yards. Tested on 2024 to 2026 games: when it said about 13% for 70+ yards, receivers hit about 13%."],
+    [["mismatch", "edge", "glow", "badge"], "A MISMATCH badge means at least two real edges line up: a size or speed edge on the likely coverage, a soft defense tier, a coverage fit, his favorite target zone being one the defense struggles in, or a 40%+ chance at 70 yards."],
+    [["rank", "28th", "1st", "chip"], "Rank chips: 1st means best at its own job. A defense ranked 28th against receivers allows a lot to them, which is good for the offense (shown green)."],
+    [["color", "green", "red", "amber", "yellow"], "Green is good for the offense you're viewing, red is tough, amber is a caution."],
+    [["offense", "switch", "other team"], "Inside a game, the switch under the tabs flips between one team's offense against the other's defense and the reverse."],
+    [["field", "route", "heat", "formation"], "Field view shows the formation against the defense's shell, size and speed against likely coverage, where his targets go this season, his route tree from last season, run gaps for backs, and a Simulate button."],
+    [["grok", "copy", "chatgpt"], "Copy for Grok puts the whole game into one paste with the instruction to run your analyst prompt."],
+    [["look", "neon", "chrome", "hud", "theme"], "Neon, Chrome and HUD at the top switch the board's look. Your choice is remembered."],
+    [["tour", "tutorial"], "Tap 'Take the tour' at the top of Player cards to see the walkthrough again."],
+    [["bet", "pick", "advice", "lock"], "Everything here is research. The projections are tested but they are not betting advice, and your rule gates still apply."],
+    [["data", "source", "where", "update"], "Data comes from nflverse play-by-play, FTN charting, NGS (last season for coverage and routes), Pro Football Reference, the official injury report and ESPN, the National Weather Service and The Odds API. The board rebuilds with each scheduled packet refresh."],
+  ];
+  function faqAnswer(q) {
+    const t = q.toLowerCase(); let best = null, score = 0;
+    HELP_FAQ.forEach(([keys, a]) => { const s = keys.filter((k) => t.includes(k)).length; if (s > score) { score = s; best = a; } });
+    return best || "Here's what's on this screen: " + contextLabel() + ". Try asking about player cards, target share, opportunity, mismatches, ranks, colors or the field view.";
+  }
+  function contextLabel() {
+    if (state.view !== "game" || !G()) return "the home screen (all games and highlights)";
+    const g = G(), tab = (TABS.find(([k]) => k === state.tab) || [])[1] || state.tab, s = S();
+    return `${g.game.away} @ ${g.game.home} · ${tab}${["matchup", "defenders", "qb", "players", "opportunity", "field"].includes(state.tab) ? ` · ${s.offense} offense vs ${s.defense} defense` : ""}`;
+  }
+  function screenData() {
+    if (state.view !== "game" || !G()) {
+      return games.map((g) => `${g.game.away} @ ${g.game.home} ${g.game.slot} ${kickLabel(g)}; ${g.game.home} spread ${signed((g.market || {}).home_spread, 1)}, total ${n((g.market || {}).total, 1)}; weather: ${(g.weather_verdict || {}).headline || "n/a"}`).join("\n");
+    }
+    const g = G(), s = S(), L = [`Game: ${g.game.away} @ ${g.game.home}, ${kickLabel(g)}. Spread ${g.game.home} ${signed((g.market || {}).home_spread, 1)}, total ${n((g.market || {}).total, 1)}. Weather: ${(g.weather_verdict || {}).headline || "n/a"}.`];
+    const da = s.defense_allowed || {}, dr = s.defense_rank || {};
+    L.push(`Viewing ${s.offense} offense vs ${s.defense} defense. ${s.defense} allows per game: WR ${n(da.wr_rec_yards_pg, 1)} yds (rank ${(dr.wr_rec_yards_pg || {}).rank}), TE ${n(da.te_rec_yards_pg, 1)} (rank ${(dr.te_rec_yards_pg || {}).rank}), RB rush ${n(da.rb_rush_yards_pg, 1)} (rank ${(dr.rb_rush_yards_pg || {}).rank}); blitz ${pct(da.blitz_rate)}, pressure ${pct(da.pressure_rate)}. Rank 1 = allows the least.`);
+    const o = s.opportunity || {};
+    ((s.roles || {}).receivers || []).filter((r) => r.targets >= 8).slice(0, 8).forEach((r) => {
+      const op = (o.receivers || []).find((x) => x.player_id === r.player_id) || {}, log = ((((s.visual || {}).receivers || {})[r.player_id] || {}).card || {}).log || [];
+      L.push(`${r.full_name || r.player} ${r.pos}: target share ${pct(r.target_share)}, ${n(r.targets_pg, 1)} tgt/g, ${n(r.yards_pg, 0)} yds/g, roles ${(r.tags || []).map((t) => t.tag).join("/") || "none"}; last 5 avg tgt ${n(avg(log.slice(-5), "targets"), 1)}, yds ${n(avg(log.slice(-5), "rec_yards"), 1)}; this game median ${n(op.yards_median, 0)} yds, 70+ ${pct((op.yards || {})["70"])}.`);
+    });
+    ((s.roles || {}).rushers || []).filter((r) => r.pos === "RB" && r.carries >= 8).slice(0, 4).forEach((r) => {
+      const op = (o.rushers || []).find((x) => x.player_id === r.player_id) || {};
+      L.push(`${r.full_name || r.player} RB: carry share ${pct(r.carry_share)}, ${n(r.yards_pg, 0)} yds/g; this game median ${n(op.yards_median, 0)} rush yds, 70+ ${pct((op.yards || {})["70"])}.`);
+    });
+    return L.join("\n").slice(0, 7000);
+  }
+  const HELP_RULES = `You are the help assistant inside an NFL research "game board" web page. Answer the viewer's question about the part of the board they are looking at, in plain words, in at most 120 words. Use only the screen data and guide below; if something is not there, say so. Never give betting advice or picks; numbers are research, tested but not a guarantee.
+
+Guide to the board:
+- Home: every game as a tile; tap to enter. Highlights: best chance at 70+ yards, mismatch spotlight, weather watch, key players out.
+- Inside a game: tabs Overview, Player cards, Opportunity, Field view, What the defense allows, Defenders, Quarterback, Injuries, Last meeting, Odds, Weather & rest, Copy for Grok. A switch flips which team's offense is shown. "All games" goes back.
+- Player card: photo over team logo; 3D chart of last 5 games with tabs Targets/Catches/Yards/Share; an info strip that swipes every 4 seconds (role, last 5 vs season, this game's chance, what the defense allows his position, who he'll see in coverage); hover/touch pauses; season game log underneath. MISMATCH badge = two or more edges (size/speed, soft defense tier, coverage fit, target zone, 40%+ chance at 70 yards).
+- Opportunity: team volume (plays, pass/run mix moved by spread and weather) x his share, then catch rate and yards per catch vs this defense, simulated 20,000 times; median and chance of each yardage. Backtested 2024-2026.
+- Rank chips: 1st = best at its own job; a defense ranked 28th vs WRs is a soft spot (green). Green good for the offense, red tough, amber caution.`;
+  let helpTurns = [], helpCtl = null, sampleFn;
+  const sampleReady = (window.claude && window.claude.use ? window.claude.use("sample").catch(() => null) : Promise.resolve(null)).then((f) => (sampleFn = f));
+  function helpChips() {
+    if (state.view !== "game") return ["How do I use this board?", "What does Mismatch mean?", "Which game has the best opportunities?"];
+    return { players: ["What's on a player card?", "What is target share?", "How do I stop the carousel?"], opportunity: ["How is the 70+ chance worked out?", "What does median mean?", "Who has the best chance here?"],
+      field: ["What is a two-high shell?", "How do I read the heat map?", "What does Simulate do?"] }[state.tab] || ["What am I looking at?", "What do the colors mean?", "What do the rank chips mean?"];
+  }
+  function openHelp() {
+    let p = document.getElementById("help-panel");
+    if (!p) {
+      p = document.createElement("div"); p.id = "help-panel"; p.className = "help-panel"; p.setAttribute("role", "dialog"); p.setAttribute("aria-label", "Ask about this screen");
+      p.innerHTML = `<div class="help-head"><div><b>Ask about this screen</b><div class="ctx" id="help-ctx"></div></div><button aria-label="Close" data-hclose>×</button></div>
+        <div class="help-log" id="help-log" aria-live="polite"></div><div class="help-chips" id="help-chips"></div>
+        <form class="help-form" id="help-form"><label for="help-q" class="k" hidden>Your question</label><input id="help-q" autocomplete="off" placeholder="Ask a question…"><button type="submit" id="help-send">Ask</button></form>`;
+      document.body.appendChild(p);
+      p.querySelector("[data-hclose]").addEventListener("click", closeHelp);
+      p.querySelector("#help-form").addEventListener("submit", (e) => { e.preventDefault(); const q = p.querySelector("#help-q").value.trim(); if (q) ask(q); });
+      addMsg("bot", "Hi! Ask me anything about the part of the board you're on. I can see what's on this screen.");
+    }
+    p.hidden = false;
+    p.querySelector("#help-ctx").textContent = "You're on: " + contextLabel();
+    p.querySelector("#help-chips").innerHTML = helpChips().map((c) => `<button type="button">${esc(c)}</button>`).join("");
+    p.querySelectorAll("#help-chips button").forEach((b) => b.addEventListener("click", () => ask(b.textContent)));
+    p.querySelector("#help-q").focus();
+    document.getElementById("help-fab").setAttribute("aria-expanded", "true");
+  }
+  function closeHelp() { const p = document.getElementById("help-panel"); if (p) p.hidden = true; if (helpCtl) helpCtl.abort(); document.getElementById("help-fab").setAttribute("aria-expanded", "false"); }
+  function addMsg(who, text, cls = "") { const log = document.getElementById("help-log"); const d = document.createElement("div"); d.className = `msg ${who} ${cls}`; d.textContent = text; log.appendChild(d); log.scrollTop = log.scrollHeight; return d; }
+  async function ask(q) {
+    const input = document.getElementById("help-q"), send = document.getElementById("help-send");
+    input.value = ""; addMsg("me", q);
+    await sampleReady;
+    if (!sampleFn) { addMsg("bot", faqAnswer(q)); return; }
+    const bubble = addMsg("bot", "Thinking…"); send.disabled = true;
+    helpTurns.push({ role: "user", content: q });
+    const ctx = `${HELP_RULES}\n\nThe viewer is on: ${contextLabel()}.\nScreen data:\n${screenData()}`;
+    helpCtl = new AbortController();
+    try {
+      const { text } = await sampleFn([{ role: "user", content: ctx }, ...helpTurns.slice(-8)], { modelTier: "quick", cache: false, signal: helpCtl.signal, onText: ({ text }) => { bubble.textContent = text; document.getElementById("help-log").scrollTop = 1e9; } });
+      helpTurns.push({ role: "assistant", content: text });
+    } catch (e) {
+      helpTurns.pop();
+      if (e && e.code === "cancelled") { bubble.textContent = e.text || "Stopped."; }
+      else if (e && ["not_granted", "sampling_disabled", "not_declared", "capability_disabled", "capability_removed"].includes(e.code)) { sampleFn = null; bubble.textContent = faqAnswer(q); addMsg("bot", "Live answers are off here, so I'm answering from the built-in guide.", "note"); }
+      else if (e && e.code === "rate_limited") { bubble.textContent = e.text || faqAnswer(q); addMsg("bot", "Too many questions at once. Try again in a minute.", "note"); }
+      else { bubble.textContent = (e && e.text) || faqAnswer(q); }
+    } finally { send.disabled = false; helpCtl = null; }
   }
 
   // ---------------------------------------------------------------- injuries
@@ -1474,6 +1657,8 @@ const BOARD = /*__BOARD_DATA__*/null;
     document.querySelectorAll("[data-dir]").forEach((b) => b.addEventListener("click", () => { state.dir = +b.dataset.dir; renderSheet(); }));
     document.querySelectorAll("[data-sim]").forEach((b) => b.addEventListener("click", () => runSim(b.dataset.sim, "exp")));
     initCards();
+    document.querySelectorAll("[data-tour]").forEach((b) => b.addEventListener("click", startTour));
+    if (state.tab === "players" && tourI < 0) { let done = null; try { done = localStorage.getItem("board-tour-cards"); } catch (e) { /* storage blocked */ } if (!done && document.getElementById("howto").hidden) setTimeout(startTour, 500); }
     const cp = document.getElementById("copy");
     if (cp) cp.addEventListener("click", () => {
       const ta = document.getElementById("grok-text");
@@ -1496,6 +1681,8 @@ const BOARD = /*__BOARD_DATA__*/null;
   document.getElementById("meta").textContent = games.length ? `Week ${games[0].game.week} · ${games.length} games · updated ${built ? built.toLocaleString([], { weekday: "short", hour: "numeric", minute: "2-digit" }) : "?"}` : "No games";
   document.getElementById("foot").innerHTML = `Data: nflverse play-by-play, FTN charting, NGS participation (last season), Pro Football Reference, the official injury report and ESPN, the National Weather Service, and The Odds API. Built from GhostPapii21/nfl-matchup-database. Research only: no number here is a validated projection or a bet recommendation.`;
   document.querySelectorAll("header [data-howto]").forEach((b) => b.addEventListener("click", openHowto));
+  document.getElementById("help-fab").addEventListener("click", () => { const p = document.getElementById("help-panel"); if (p && !p.hidden) closeHelp(); else openHelp(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") { if (tourI >= 0) endTour(); else closeHelp(); } });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !document.getElementById("howto").hidden) closeHowto(); });
   document.getElementById("howto").addEventListener("click", (e) => { if (e.target.id === "howto") closeHowto(); });
   fromHash(); render(false);
