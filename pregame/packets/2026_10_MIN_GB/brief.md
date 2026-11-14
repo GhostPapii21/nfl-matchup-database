@@ -2,47 +2,17 @@
 
 **Sunday 2026-11-15, 13:00 ET.** Site: Home; roof: outdoors; surface: grass. Rest: MIN 6 days, GB 7 days. Listed QBs: Kirk Cousins (MIN), Jordan Love (GB).
 
-Market (schedule consensus, not a timestamped quote): GB -3, total 41.5.
+Market (schedule consensus, not a timestamped quote): GB -2.5, total 42.5.
 
-Generated 2026-11-13T02:49:57+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T19:43:45+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-13T02:49:54+00:00 UTC. At kickoff: 45 F, wind 2 mph WNW, 0% chance of precipitation, Sunny. During the game: low 45 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-14T19:43:43+00:00 UTC. At kickoff: 43 F, wind 1 mph W, 0% chance of precipitation, Mostly Sunny. During the game: low 43 F, wind up to 1 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-13T02:49:26+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
-
-| Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
-|---|---|---|---|---|---|---|---|---|
-| spread | draftkings | GB -3 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-13T02:48:52Z |
-| spread | fanduel | GB -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T02:49:10Z |
-| spread | pinnacle | GB -3 | -102 | -110 | 49.1% | 50.9% | 2.9% | 2026-11-13T02:49:12Z |
-| total | draftkings | Over 41.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-13T02:48:52Z |
-| total | fanduel | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-13T02:49:10Z |
-| total | pinnacle | Over 42 | -108 | -108 | 50.0% | 50.0% | 3.9% | 2026-11-13T02:49:12Z |
-| moneyline | draftkings | GB | -148 | +124 | 57.2% | 42.8% | 4.3% | 2026-11-13T02:48:52Z |
-| moneyline | fanduel | GB | -164 | +138 | 59.7% | 40.4% | 4.1% | 2026-11-13T02:49:10Z |
-| moneyline | pinnacle | GB | -156 | +137 | 59.1% | 40.9% | 3.1% | 2026-11-13T02:49:12Z |
-
-### Line movement: first seen 2026-11-11T18:18:07+00:00 to 2026-11-13T02:49:54+00:00 (5 snapshots)
-
-| Market | Book | First line | Now | Move | First prices | Prices now |
-|---|---|---|---|---|---|---|
-| moneyline | draftkings | n/a | n/a | n/a | -166 / +140 | -148 / +124 |
-| moneyline | fanduel | n/a | n/a | n/a | -172 / +144 | -164 / +138 |
-| moneyline | pinnacle | n/a | n/a | n/a | -179 / +157 | -156 / +137 |
-| spread | draftkings | -3.5 | -3.0 | 0.5 | -105 / -115 | -105 / -115 |
-| spread | fanduel | -3.5 | -3.0 | 0.5 | -105 / -115 | -110 / -110 |
-| spread | pinnacle | -3.5 | -3.0 | 0.5 | +100 / -112 | -102 / -110 |
-| total | draftkings | 42.5 | 41.5 | -1.0 | -105 / -115 | -115 / -105 |
-| total | fanduel | 42.5 | 42.5 | 0.0 | -105 / -115 | -105 / -115 |
-| total | pinnacle | 42.0 | 42.0 | 0.0 | -111 / -105 | -108 / -108 |
-
-First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
-
-Player props: NOT_FETCHED: kickoff is 63 hours away (props are pulled inside 36 hours).
+No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not quote book numbers from memory.
 
 ## Matchup edges
 
@@ -78,8 +48,8 @@ Player props: NOT_FETCHED: kickoff is 63 hours away (props are pulled inside 36 
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | MIN 20.4 - GB 20.5 | 40.9 | +0.2 | 49.1% | 43.6% | 45.1% | MIN 9.1 - GB 10.3 |
-| independent | MIN 19.6 - GB 23.3 | 42.9 | +3.6 | 63.3% | 56.3% | 53.1% | MIN 9.4 - GB 11.2 |
+| matchup_pair | MIN 20.4 - GB 20.5 | 40.9 | +0.2 | 49.1% | 46.5% | 45.1% | MIN 9.1 - GB 10.3 |
+| independent | MIN 19.6 - GB 23.3 | 42.9 | +3.6 | 63.3% | 57.3% | 50.5% | MIN 9.4 - GB 11.2 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -121,7 +91,7 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 0% chance of rain at kickoff, wind up to 2 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 0% chance of rain at kickoff, wind up to 1 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### MIN passing
 
@@ -361,7 +331,7 @@ Neutral-situation pass rate 51.6%; 55.6 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 14 | 6% | 43% | 17.79 | 5 |
 | defense allows | Deep right | 16 | 7% | 31% | 7.88 | 4 |
 
-### MIN lines (depth chart as of 2026-11-12T15:57:12Z)
+### MIN lines (depth chart as of 2026-11-14T14:04:32Z)
 
 Offensive line: LT Christian Darrisaw, LG Joe Huber, C Blake Brandel, RG Will Fries, RT Brian O'Neill.  
 Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WLB Andrew Van Ginkel, SLB Dallas Turner.
@@ -370,24 +340,28 @@ Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WL
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Blake Cashman | LB | yes | none listed | Did Not Participate In Practice |  |
-| T.J. Hockenson | TE | yes | none listed | Did Not Participate In Practice |  |
-| Tyrion Ingram-Dawkins | DT |  | none listed | Did Not Participate In Practice |  |
-| Kyle Van Noy | LB |  | none listed | Did Not Participate In Practice |  |
-| Carson Wentz | QB |  | none listed | Limited Participation in Practice |  |
-| Kyler Murray | QB |  | none listed | Did Not Participate In Practice |  |
+| Blake Cashman | LB | yes | Out | Limited Participation in Practice | Concussion |
+| Harrison Smith | S | yes | none listed | Limited Participation in Practice |  |
+| Josh Metellus | S | yes | Questionable | Limited Participation in Practice | Shoulder |
+| Christian Darrisaw | T | yes | none listed | Did Not Participate In Practice |  |
+| T.J. Hockenson | TE | yes | Out | Did Not Participate In Practice | Wrist |
+| Tyrion Ingram-Dawkins | DT |  | Out | Did Not Participate In Practice | Ankle |
+| Kyle Van Noy | LB |  | Questionable | Limited Participation in Practice | Calf |
+| Carson Wentz | QB |  | none listed | Full Participation in Practice |  |
+| Kyler Murray | QB |  | Out | Did Not Participate In Practice | Hamstring |
 | Theo Jackson | S |  | none listed | Full Participation in Practice |  |
-| Jay Ward | S |  | none listed | Limited Participation in Practice |  |
-| Jauan Jennings | WR |  | none listed | Did Not Participate In Practice |  |
+| Jay Ward | S |  | none listed | Full Participation in Practice |  |
+| Jauan Jennings | WR |  | Out | Did Not Participate In Practice | Calf |
+| Jordan Addison | WR |  | Questionable | Limited Participation in Practice | Thumb |
 
-ESPN live list (designations only): Demond Claiborne (RB) Injured Reserve; Kyle Van Noy (LB) Questionable; Tyrion Ingram-Dawkins (DE) Questionable; Kyler Murray (QB) Doubtful; Jay Ward (S) Questionable; T.J. Hockenson (TE) Questionable; Carson Wentz (QB) Questionable; Jauan Jennings (WR) Questionable; Blake Cashman (LB) Questionable.
+ESPN live list (designations only): Demond Claiborne (RB) Injured Reserve; Kyle Van Noy (LB) Questionable; T.J. Hockenson (TE) Out; Jordan Addison (WR) Questionable; Kyler Murray (QB) Out; Jauan Jennings (WR) Out; Blake Cashman (LB) Out; Joshua Metellus (S) Questionable; Tyrion Ingram-Dawkins (DE) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### MIN roster moves (last 4 weeks)
 
-Arrived: Kirk Cousins (QB) from LV.  
+Arrived: Kirk Cousins (QB) from LV; Josh Ross (LB) from SEA; Damon Bankston (RB) from GB.  
 Left for another team: Natrone Brooks (DB) to IND; Cam Grandy (TE) to CIN.
 
 ## GB (last 8 games: weeks 2, 3, 4, 5, 6, 7, 8, 9)
@@ -583,7 +557,7 @@ Neutral-situation pass rate 55.0%; 60.8 plays per game; target share WR 65% / TE
 | defense allows | Deep middle | 10 | 3% | 40% | 8.3 | 2 |
 | defense allows | Deep right | 15 | 5% | 47% | 12.33 | 6 |
 
-### GB lines (depth chart as of 2026-11-12T15:57:12Z)
+### GB lines (depth chart as of 2026-11-14T14:04:32Z)
 
 Offensive line: LT Jordan Morgan, LG Aaron Banks, C Sean Rhyan, RG Travis Glover, RT Anthony Belton.  
 Defensive front: LDE Karl Brooks, NT Chris McClellan, RDE Devonte Wyatt, WLB Lukas Van Ness, SLB Barryn Sorrell.
@@ -592,24 +566,25 @@ Defensive front: LDE Karl Brooks, NT Chris McClellan, RDE Devonte Wyatt, WLB Luk
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Sean Rhyan | C | yes | none listed | Did Not Participate In Practice |  |
+| Sean Rhyan | C | yes | Out | Did Not Participate In Practice | Ankle |
 | Aaron Banks | G | yes | none listed | Limited Participation in Practice |  |
-| Travis Glover | G | yes | none listed | Limited Participation in Practice |  |
-| Trey Smack | K | yes | none listed | Limited Participation in Practice |  |
-| Zaire Franklin | LB | yes | none listed | Did Not Participate In Practice |  |
-| Lukas Van Ness | LB | yes | none listed | Did Not Participate In Practice |  |
-| Ty'Ron Hopper | LB | yes | none listed | Limited Participation in Practice |  |
-| Josh Jacobs | RB | yes | none listed | Did Not Participate In Practice |  |
-| Javon Bullard | S | yes | none listed | Did Not Participate In Practice |  |
+| Travis Glover | G | yes | Questionable | Limited Participation in Practice | Knee |
+| Trey Smack | K | yes | none listed | Full Participation in Practice |  |
+| Zaire Franklin | LB | yes | Doubtful | Did Not Participate In Practice | Shin |
+| Lukas Van Ness | LB | yes | Questionable | Limited Participation in Practice | Back |
+| Ty'Ron Hopper | LB | yes | none listed | Full Participation in Practice |  |
+| Josh Jacobs | RB | yes | Out | Did Not Participate In Practice | Finger |
+| Xavier McKinney | S | yes | Questionable | Limited Participation in Practice | Foot |
+| Javon Bullard | S | yes | Questionable | Limited Participation in Practice | Ankle |
 | Bo Melton | WR | yes | none listed | Full Participation in Practice |  |
-| Kevin Zeitler | G |  | none listed | Limited Participation in Practice |  |
-| Micah Parsons | LB |  | none listed | Limited Participation in Practice |  |
-| Chris Brooks | RB |  | none listed | Limited Participation in Practice |  |
-| Josh Whyle | TE |  | none listed | Did Not Participate In Practice |  |
-| Skyy Moore | WR |  | none listed | Limited Participation in Practice |  |
+| Kevin Zeitler | G |  | Questionable | Did Not Participate In Practice | Ankle |
+| Micah Parsons | LB |  | Out | Limited Participation in Practice | Knee |
+| Chris Brooks | RB |  | Questionable | Limited Participation in Practice | Ankle |
+| Josh Whyle | TE |  | Out | Did Not Participate In Practice | Concussion |
+| Skyy Moore | WR |  | Questionable | Limited Participation in Practice | Ankle |
 | Savion Williams | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Lukas Van Ness (DE) Questionable; Javon Bullard (S) Questionable; Ty'Ron Hopper (LB) Questionable; Josh Jacobs (RB) Out; Josh Whyle (TE) Questionable; Micah Parsons (DE) Out; Savion Williams (WR) Questionable; Chris Brooks (RB) Injured Reserve; Skyy Moore (WR) Injured Reserve; Zaire Franklin (LB) Doubtful; Warren Brinson (DT) Injured Reserve; Sean Rhyan (G) Questionable; Aaron Banks (G) Questionable; Travis Glover (OT) Questionable; Kevin Zeitler (G) Questionable.
+ESPN live list (designations only): Warren Brinson (DT) Injured Reserve; Micah Parsons (DE) Out; Xavier McKinney (S) Questionable; Chris Brooks (RB) Injured Reserve; Skyy Moore (WR) Injured Reserve; Josh Whyle (TE) Out; Zaire Franklin (LB) Doubtful; Javon Bullard (S) Questionable; Lukas Van Ness (DE) Questionable; Sean Rhyan (G) Out; Travis Glover (OT) Questionable; Kevin Zeitler (G) Questionable; Josh Jacobs (RB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -617,7 +592,7 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 ### GB roster moves (last 4 weeks)
 
 Arrived: none.  
-Left for another team: Kedon Slovis (QB) to BAL.
+Left for another team: Kedon Slovis (QB) to BAL; Damon Bankston (RB) to MIN.
 
 ## Keyed connectors in this run
 
@@ -645,7 +620,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
-| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line. |
+| 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -653,16 +628,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-13T02:49:22+00:00 | dff8c18054ea |
-| pbp | OK | 2026-11-13T02:49:23+00:00 | 6555b925b950 |
-| rosters | OK | 2026-11-13T02:49:23+00:00 | c11a409d73b9 |
-| injuries | OK | 2026-11-13T02:49:23+00:00 | a72cc1afc722 |
-| depth_charts | OK | 2026-11-13T02:49:23+00:00 | 8633b61b70c3 |
-| snap_counts | OK | 2026-11-13T02:49:24+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-13T02:49:24+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-13T02:49:24+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-13T02:49:25+00:00 |  |
+| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
+| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
+| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
+| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
+| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
+| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
+| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-13T02:49:26+00:00 |  |
+| book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

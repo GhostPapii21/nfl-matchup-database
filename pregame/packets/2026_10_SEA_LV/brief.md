@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): LV +6.5, total 40.5.
 
-Generated 2026-11-13T02:50:04+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T19:43:48+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,37 +12,7 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-13T02:49:26+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; DraftKings and FanDuel are the prices available to bet.
-
-| Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
-|---|---|---|---|---|---|---|---|---|
-| spread | draftkings | LV +6.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T02:48:52Z |
-| spread | fanduel | LV +6.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-13T02:49:11Z |
-| spread | pinnacle | LV +6.5 | -103 | -109 | 49.3% | 50.7% | 2.9% | 2026-11-13T02:49:12Z |
-| total | draftkings | Over 40.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-13T02:48:52Z |
-| total | fanduel | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T02:49:11Z |
-| total | pinnacle | Over 40.5 | -108 | -108 | 50.0% | 50.0% | 3.9% | 2026-11-13T02:49:12Z |
-| moneyline | draftkings | LV | +240 | -298 | 28.2% | 71.8% | 4.3% | 2026-11-13T02:48:52Z |
-| moneyline | fanduel | LV | +235 | -290 | 28.6% | 71.4% | 4.2% | 2026-11-13T02:49:11Z |
-| moneyline | pinnacle | LV | +237 | -281 | 28.7% | 71.3% | 3.4% | 2026-11-13T02:49:12Z |
-
-### Line movement: first seen 2026-11-11T18:18:10+00:00 to 2026-11-12T21:17:26+00:00 (4 snapshots)
-
-| Market | Book | First line | Now | Move | First prices | Prices now |
-|---|---|---|---|---|---|---|
-| moneyline | draftkings | n/a | n/a | n/a | +240 / -298 | +240 / -298 |
-| moneyline | fanduel | n/a | n/a | n/a | +245 / -300 | +235 / -290 |
-| moneyline | pinnacle | n/a | n/a | n/a | +236 / -280 | +237 / -281 |
-| spread | draftkings | 6.5 | 6.5 | 0.0 | -112 / -108 | -108 / -112 |
-| spread | fanduel | 6.5 | 6.5 | 0.0 | -110 / -110 | -115 / -105 |
-| spread | pinnacle | 6.5 | 6.5 | 0.0 | -104 / -108 | -103 / -109 |
-| total | draftkings | 40.5 | 40.5 | 0.0 | -112 / -108 | -112 / -108 |
-| total | fanduel | 40.5 | 40.5 | 0.0 | -110 / -110 | -110 / -110 |
-| total | pinnacle | 40.5 | 40.5 | 0.0 | -109 / -107 | -108 / -108 |
-
-First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
-
-Player props: NOT_FETCHED: kickoff is 66 hours away (props are pulled inside 36 hours).
+No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not quote book numbers from memory.
 
 ## Matchup edges
 
@@ -317,7 +287,7 @@ Neutral-situation pass rate 48.0%; 63.8 plays per game; target share WR 65% / TE
 | defense allows | Deep middle | 9 | 4% | 67% | 14.33 | 4 |
 | defense allows | Deep right | 20 | 8% | 25% | 6.7 | 3 |
 
-### SEA lines (depth chart as of 2026-11-12T15:57:12Z)
+### SEA lines (depth chart as of 2026-11-14T14:04:32Z)
 
 Offensive line: LT Charles Cross, LG Quenton Nelson, C Jalen Sundell, RG Grey Zabel, RT Abraham Lucas.  
 Defensive front: LDE Leonard Williams, NT Byron Murphy II, RDE Jarran Reed, WLB DeMarcus Lawrence, SLB Uchenna Nwosu.
@@ -326,23 +296,23 @@ Defensive front: LDE Leonard Williams, NT Byron Murphy II, RDE Jarran Reed, WLB 
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Leonard Williams | DT | yes | none listed | Did Not Participate In Practice |  |
-| Jarran Reed | DT | yes | none listed | Did Not Participate In Practice |  |
-| Quenton Nelson | G | yes | none listed | Did Not Participate In Practice |  |
-| Uchenna Nwosu | LB | yes | none listed | Limited Participation in Practice |  |
-| Sam Darnold | QB | yes | none listed | Did Not Participate In Practice |  |
-| Charles Cross | T | yes | none listed | Did Not Participate In Practice |  |
+| Leonard Williams | DT | yes | Out | Did Not Participate In Practice | Stinger |
+| Jarran Reed | DT | yes | none listed | Full Participation in Practice |  |
+| Quenton Nelson | G | yes | Out | Did Not Participate In Practice | Knee |
+| Uchenna Nwosu | LB | yes | none listed | Full Participation in Practice |  |
+| Sam Darnold | QB | yes | Out | Did Not Participate In Practice | Ribs |
+| Charles Cross | T | yes | Out | Did Not Participate In Practice | Ankle |
 | AJ Barner | TE | yes | none listed | Full Participation in Practice |  |
 | Rashid Shaheed | WR | yes | none listed | Full Participation in Practice |  |
-| Jaxon Smith-Njigba | WR | yes | none listed | Did Not Participate In Practice |  |
-| Brandon Pili | DT |  | none listed | Did Not Participate In Practice |  |
-| Anthony Bradford | G |  | none listed | Limited Participation in Practice |  |
-| Patrick O'Connell | LB |  | none listed | Limited Participation in Practice |  |
-| Derick Hall | LB |  | none listed | Limited Participation in Practice |  |
-| Connor O'Toole | LB |  | none listed | Limited Participation in Practice |  |
+| Jaxon Smith-Njigba | WR | yes | none listed | Full Participation in Practice |  |
+| Brandon Pili | DT |  | none listed | Full Participation in Practice |  |
+| Anthony Bradford | G |  | none listed | Full Participation in Practice |  |
+| Patrick O'Connell | LB |  | none listed | Full Participation in Practice |  |
+| Derick Hall | LB |  | none listed | Did Not Participate In Practice |  |
+| Connor O'Toole | LB |  | none listed | Full Participation in Practice |  |
 | Drew Lock | QB |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Sam Darnold (QB) Out; Quenton Nelson (G) Doubtful; Brandon Pili (DT) Questionable; Uchenna Nwosu (LB) Questionable; Anthony Bradford (G) Questionable; Patrick O'Connell (LB) Questionable; Connor O'Toole (LB) Questionable; Leonard Williams (DT) Questionable; Derick Hall (LB) Questionable; Drew Lock (QB) Questionable; Charles Cross (OT) Doubtful.
+ESPN live list (designations only): Sam Darnold (QB) Out; Leonard Williams (DT) Out; Charles Cross (OT) Out; Quenton Nelson (G) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -350,7 +320,7 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 ### SEA roster moves (last 4 weeks)
 
 Arrived: none.  
-Left for another team: Jimmy Ciarlo (LB) to TEN; Christian Haynes (OL) to MIA; Robert Henry Jr. (RB) to WAS.
+Left for another team: Josh Ross (LB) to MIN; Jimmy Ciarlo (LB) to TEN; Christian Haynes (OL) to MIA; Robert Henry Jr. (RB) to WAS.
 
 ## LV (last 8 games: weeks 2, 3, 4, 5, 6, 7, 8, 9)
 
@@ -547,7 +517,7 @@ Neutral-situation pass rate 54.8%; 60.0 plays per game; target share WR 38% / TE
 | defense allows | Deep middle | 12 | 5% | 50% | 14.42 | 4 |
 | defense allows | Deep right | 21 | 8% | 38% | 10.05 | 4 |
 
-### LV lines (depth chart as of 2026-11-12T15:57:12Z)
+### LV lines (depth chart as of 2026-11-14T14:04:32Z)
 
 Offensive line: LT Kolton Miller, LG Spencer Burford, C Tyler Linderbaum, RG Trey Zuhn III, RT DJ Glaze.  
 Defensive front: LDE Folorunso Fatukasi, NT Adam Butler, RDE Tonka Hemingway, WLB Maxx Crosby, SLB Kwity Paye.
@@ -556,20 +526,21 @@ Defensive front: LDE Folorunso Fatukasi, NT Adam Butler, RDE Tonka Hemingway, WL
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Trey Zuhn III | C | yes | none listed | Limited Participation in Practice |  |
-| Foley Fatukasi | DT | yes | none listed | Limited Participation in Practice |  |
-| Thomas Booker | DT |  | none listed | Limited Participation in Practice |  |
+| Trey Zuhn III | C | yes | none listed | Full Participation in Practice |  |
+| Foley Fatukasi | DT | yes | none listed | Full Participation in Practice |  |
+| Thomas Booker | DT |  | Questionable | Full Participation in Practice | Ankle |
 | Ian Thomas | TE |  | none listed | Full Participation in Practice |  |
+| Dont'e Thornton Jr. | WR |  | Questionable | Did Not Participate In Practice | Back |
 
-ESPN live list (designations only): Thomas Booker IV (DT) Questionable; Trey Zuhn III (C) Questionable.
+ESPN live list (designations only): Dont'e Thornton Jr. (WR) Questionable; Thomas Booker IV (DT) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### LV roster moves (last 4 weeks)
 
-Arrived: none.  
-Left for another team: Kirk Cousins (QB) to MIN; Jonah Laulu (DL) to TEN.
+Arrived: Chris Williams (DL) from CLE.  
+Left for another team: Kirk Cousins (QB) to MIN; Phillip Dorsett (WR) to ARI; Tyler Scott (WR) to LA; Jonah Laulu (DL) to TEN.
 
 ## Keyed connectors in this run
 
@@ -597,7 +568,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: INDOOR. |
-| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line. |
+| 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -605,16 +576,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-13T02:49:22+00:00 | dff8c18054ea |
-| pbp | OK | 2026-11-13T02:49:23+00:00 | 6555b925b950 |
-| rosters | OK | 2026-11-13T02:49:23+00:00 | c11a409d73b9 |
-| injuries | OK | 2026-11-13T02:49:23+00:00 | a72cc1afc722 |
-| depth_charts | OK | 2026-11-13T02:49:23+00:00 | 8633b61b70c3 |
-| snap_counts | OK | 2026-11-13T02:49:24+00:00 | 78c013d97bde |
-| ftn | OK | 2026-11-13T02:49:24+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-13T02:49:24+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-13T02:49:25+00:00 |  |
+| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
+| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
+| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
+| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
+| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
+| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
+| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-13T02:49:26+00:00 |  |
+| book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
