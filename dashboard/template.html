@@ -375,6 +375,12 @@ textarea { width: 100%; min-height: 360px; font: 12px/1.5 ui-monospace, SFMono-R
 @media (max-width: 520px) { .gloss { grid-template-columns: minmax(0, 1fr); } .gloss dd { margin-bottom: 6px; } }
 .badge.ribbon { border: 0; cursor: help; font: inherit; }
 .pc-tabs { grid-template-columns: repeat(4, 1fr) 22px; align-items: center; }
+/* ---- Know Ball mode: tutorials and hints off */
+.kb-btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 4px 12px; font-weight: 700; font-size: 12px; cursor: pointer; }
+.kb-btn[aria-pressed="true"] { border-color: var(--accent); background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: var(--accent-ink); box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 50%, transparent); }
+:root[data-knowball="1"] .gq, :root[data-knowball="1"] .tourbtn, :root[data-knowball="1"] [data-glossary], :root[data-knowball="1"] .help-fab, :root[data-knowball="1"] .helpbtn, :root[data-knowball="1"] .hero-help { display: none !important; }
+:root[data-knowball="1"] .tag { cursor: default; }
+.kb-toast { position: fixed; z-index: 72; left: 50%; transform: translateX(-50%); bottom: max(20px, calc(env(safe-area-inset-bottom, 0px) + 14px)); background: #08111f; border: 1px solid var(--accent); color: var(--ink); border-radius: 999px; padding: 8px 16px; font-size: 13px; box-shadow: 0 8px 24px rgba(0, 0, 0, .5); max-width: calc(100vw - 32px); text-align: center; }
 .toast { color: var(--good); font-weight: 600; font-size: 13px; }
 footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
 @media (max-width: 520px) {
@@ -389,6 +395,7 @@ footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
     <div class="brand">Game <span>Board</span></div>
     <div class="meta" id="meta"></div>
     <div class="skins" id="skins" role="group" aria-label="Design"><button data-skin="neon"><i style="background:linear-gradient(135deg,#22d3ee,#c084fc)"></i>Neon</button><button data-skin="chrome"><i style="background:linear-gradient(135deg,#f4f4f5,#71717a,#f5c451)"></i>Chrome</button><button data-skin="hud"><i style="background:linear-gradient(135deg,#2dd4bf,#f59e0b)"></i>HUD</button></div>
+    <button class="kb-btn" id="kb-btn" aria-pressed="false" title="Turn tutorials and hints off">🏈 Know Ball Mode</button>
     <button class="helpbtn" data-howto>How to use</button>
     <div class="flag-research">Research only</div>
   </div>
@@ -1319,7 +1326,7 @@ const BOARD = /*__BOARD_DATA__*/null;
     const wx = games.map((g, gi) => [g, gi]).filter(([g]) => ["warn", "bad"].includes((g.weather_verdict || {}).level));
     const inj = []; games.forEach((g, gi) => Object.values(g.sides).forEach((s) => (s.offense_injuries || []).filter((x) => x.impact === "high" && x.status_level >= 3).forEach((x) => inj.push([g, gi, s, x]))));
     const groups = []; games.forEach((g, i) => { const key = g.game.date + "|" + g.game.slot; let grp = groups.find((x) => x.key === key); if (!grp) groups.push((grp = { key, label: g.game.slot, items: [] })); grp.items.push(i); });
-    return `<section class="hero"><div><div class="eyebrow">Week ${games[0] ? games[0].game.week : ""} slate</div><h1>Pick a game to step inside</h1><p class="note">Every game below opens its own room: player cards, opportunity, field view, matchups, injuries, odds and weather. New here? <button class="linkbtn" data-howto>How to use this board</button></p></div></section>
+    return `<section class="hero"><div><div class="eyebrow">Week ${games[0] ? games[0].game.week : ""} slate</div><h1>Pick a game to step inside</h1><p class="note">Every game below opens its own room: player cards, opportunity, field view, matchups, injuries, odds and weather. <span class="hero-help">New here? <button class="linkbtn" data-howto>How to use this board</button></span></p></div></section>
       ${groups.map((grp) => `<div class="slot-h">${esc(grp.label)}</div><div class="tiles">${grp.items.map((i) => gameTile(games[i], i)).join("")}</div>`).join("")}
       <div class="section-title">Highlights</div>
       <div class="grid two">
@@ -1351,9 +1358,11 @@ const BOARD = /*__BOARD_DATA__*/null;
         <li><b>Read the colors.</b> Green is good for the offense you're looking at, red is tough, amber is a caution. A glowing card with a "Mismatch" badge has two or more edges lined up. Rank chips: 1st means best at its own job, so a defense ranked 28th against receivers is a soft spot.</li>
         <li><b>Get help.</b> On Player cards, "Take the player-card tour" walks through every part of a card (it runs by itself the first time). The <b>?</b> bubble in the corner answers questions about whatever screen you're on.</li>
         <li><b>Keep it in proportion.</b> Everything here is research. The projections were tested on past games but are not betting advice; your rule gates still apply.</li>
-      </ol><h2 style="font-size:20px;margin-top:6px">Words on the board</h2>${glossaryHtml()}<button class="btn" data-howto-close>Got it</button></div>`;
+        <li><b>Know ball already?</b> Tap <b>🏈 Know Ball Mode</b> at the top to turn off the tutorials, the ? marks and the help bubble. Tap it again any time to bring them back.</li>
+      </ol><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px"><button class="btn" data-howto-close>Got it</button><button class="btn ghost" data-knowball-on>🏈 I know ball: skip the tutorials</button></div><h2 style="font-size:20px;margin-top:6px">Words on the board</h2>${glossaryHtml()}<button class="btn" data-howto-close>Got it</button></div>`;
   }
-  function openHowto() { const o = document.getElementById("howto"); o.innerHTML = howtoHtml(); o.hidden = false; o.querySelectorAll("[data-howto-close]").forEach((b) => b.addEventListener("click", closeHowto)); o.querySelector(".close").focus(); try { localStorage.setItem("board-howto", "1"); } catch (e) { /* storage blocked */ } }
+  function openHowto() { const o = document.getElementById("howto"); o.innerHTML = howtoHtml(); o.hidden = false; o.querySelectorAll("[data-howto-close]").forEach((b) => b.addEventListener("click", closeHowto));
+    o.querySelectorAll("[data-knowball-on]").forEach((b) => b.addEventListener("click", () => { closeHowto(); setKnowBall(true, true); })); o.querySelector(".close").focus(); try { localStorage.setItem("board-howto", "1"); } catch (e) { /* storage blocked */ } }
   function closeHowto() { document.getElementById("howto").hidden = true; }
   function enterGame(i, opts = {}, fromEl = null) {
     state.gi = +i; state.dir = isNum(opts.dir) && opts.dir >= 0 ? opts.dir : 0; if (opts.tab) state.tab = opts.tab;
@@ -1415,10 +1424,14 @@ const BOARD = /*__BOARD_DATA__*/null;
   function glossBtn(key, label) { return `<button type="button" class="gq" data-gloss="${esc(key)}" aria-label="What does ${esc(label || (GLOSSARY[key] || [key])[0])} mean?">?</button>`; }
   const cardEdges = {};
   function showGloss(btn) {
+    if (knowBall() && !btn.dataset.edges) return;
     let pop = document.getElementById("gloss-pop");
-    if (!pop) { pop = document.createElement("div"); pop.id = "gloss-pop"; pop.className = "gloss-pop"; pop.setAttribute("role", "dialog"); document.body.appendChild(pop); }
+    if (!pop) { pop = document.createElement("div"); pop.id = "gloss-pop"; pop.className = "gloss-pop"; pop.hidden = true; pop.setAttribute("role", "dialog"); document.body.appendChild(pop); }
     let html;
-    if (btn.dataset.edges) {
+    if (btn.dataset.edges && knowBall()) {
+      const e = cardEdges[btn.dataset.edges] || [];
+      html = `<b>Edges</b><ul class="list">${e.map(([l, t]) => `<li>${lvlDot(l)}<span>${esc(t)}</span></li>`).join("")}</ul>`;
+    } else if (btn.dataset.edges) {
       const e = cardEdges[btn.dataset.edges] || [];
       html = `<b>Why the Mismatch badge</b><p>${esc(GLOSSARY.mismatch[1])}</p><div class="k">This player's edges</div><ul class="list">${e.map(([l, t]) => `<li>${lvlDot(l)}<span>${esc(t)}</span></li>`).join("")}</ul><button type="button" class="linkbtn" data-gloss="edge">How each edge is found</button>`;
     } else {
@@ -1455,7 +1468,7 @@ const BOARD = /*__BOARD_DATA__*/null;
     { sel: ".pcard .pc-car", title: "The info strip", text: "This swipes every 4 seconds through five facts: his role, last 5 against his season, his chance this game, what the defense allows his position, and who he will see in coverage. Hover or touch it to pause." },
     { sel: ".pcard .pc-dots", title: "Move it yourself", text: "Tap a dot to jump to a fact, or swipe left and right. The arrows on the sides work too." },
     { sel: ".pcard .pc-log", title: "Season game log", text: "Open this for every game this season: snaps, targets, share, catches, yards, touchdowns and air yards." },
-    { sel: ".help-fab", title: "Ask anytime", text: "Questions about whatever screen you are on? Tap this bubble and ask in plain words." },
+    { sel: ".help-fab", title: "Ask anytime", text: "Questions about whatever screen you are on? Tap this bubble and ask in plain words. Know ball already? '🏈 Know Ball Mode' at the top turns all of these hints off." },
   ];
   let tourI = -1;
   function startTour() {
@@ -1745,7 +1758,7 @@ Definitions (use these exact meanings):
     initCards();
     document.querySelectorAll("[data-tour]").forEach((b) => b.addEventListener("click", startTour));
     document.querySelectorAll("[data-glossary]").forEach((b) => b.addEventListener("click", openGlossary));
-    if (state.tab === "players" && tourI < 0) { let done = null; try { done = localStorage.getItem("board-tour-cards"); } catch (e) { /* storage blocked */ } if (!done && document.getElementById("howto").hidden) setTimeout(startTour, 500); }
+    if (state.tab === "players" && tourI < 0) { let done = null; try { done = localStorage.getItem("board-tour-cards"); } catch (e) { /* storage blocked */ } if (!done && !knowBall() && document.getElementById("howto").hidden) setTimeout(startTour, 500); }
     const cp = document.getElementById("copy");
     if (cp) cp.addEventListener("click", () => {
       const ta = document.getElementById("grok-text");
@@ -1759,6 +1772,18 @@ Definitions (use these exact meanings):
     const i = games.findIndex((g) => `${g.game.away}-${g.game.home}` === h);
     if (i >= 0) { state.gi = i; state.view = "game"; } else state.view = "home";
   }
+  const knowBall = () => document.documentElement.getAttribute("data-knowball") === "1";
+  function setKnowBall(on, announce) {
+    document.documentElement.setAttribute("data-knowball", on ? "1" : "0");
+    const b = document.getElementById("kb-btn"); if (b) { b.setAttribute("aria-pressed", on); b.title = on ? "Know Ball Mode is on: tap to bring the tutorials back" : "Turn tutorials and hints off"; }
+    try { localStorage.setItem("board-knowball", on ? "1" : "0"); } catch (e) { /* storage blocked */ }
+    if (on) { if (tourI >= 0) endTour(); closeHelp(); hideGloss(); }
+    if (announce) {
+      let t = document.getElementById("kb-toast"); if (!t) { t = document.createElement("div"); t.id = "kb-toast"; t.className = "kb-toast"; t.setAttribute("role", "status"); document.body.appendChild(t); }
+      t.textContent = on ? "🏈 Know Ball Mode on: tutorials, ? marks and the help bubble are hidden. Tap the button again to bring them back." : "Tutorials and hints are back.";
+      t.hidden = false; clearTimeout(t._h); t._h = setTimeout(() => (t.hidden = true), 3500);
+    }
+  }
   function setSkin(k) { document.documentElement.setAttribute("data-skin", k); document.querySelectorAll("#skins button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.skin === k)); try { localStorage.setItem("board-skin", k); } catch (e) { /* storage blocked */ } }
   let skin0 = "neon"; try { skin0 = localStorage.getItem("board-skin") || "neon"; } catch (e) { /* storage blocked */ }
   setSkin(skin0);
@@ -1767,6 +1792,9 @@ Definitions (use these exact meanings):
   const built = BOARD && BOARD.built_utc ? new Date(BOARD.built_utc) : null;
   document.getElementById("meta").textContent = games.length ? `Week ${games[0].game.week} · ${games.length} games · updated ${built ? built.toLocaleString([], { weekday: "short", hour: "numeric", minute: "2-digit" }) : "?"}` : "No games";
   document.getElementById("foot").innerHTML = `Data: nflverse play-by-play, FTN charting, NGS participation (last season), Pro Football Reference, the official injury report and ESPN, the National Weather Service, and The Odds API. Built from GhostPapii21/nfl-matchup-database. Research only: no number here is a validated projection or a bet recommendation.`;
+  let kb0 = false; try { kb0 = localStorage.getItem("board-knowball") === "1"; } catch (e) { /* storage blocked */ }
+  setKnowBall(kb0, false);
+  document.getElementById("kb-btn").addEventListener("click", () => setKnowBall(!knowBall(), true));
   document.querySelectorAll("header [data-howto]").forEach((b) => b.addEventListener("click", openHowto));
   document.getElementById("help-fab").addEventListener("click", () => { const p = document.getElementById("help-panel"); if (p && !p.hidden) closeHelp(); else openHelp(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") { if (tourI >= 0) endTour(); else closeHelp(); } });
@@ -1774,7 +1802,7 @@ Definitions (use these exact meanings):
   document.getElementById("howto").addEventListener("click", (e) => { if (e.target.id === "howto") closeHowto(); });
   fromHash(); render(false);
   let seen = null; try { seen = localStorage.getItem("board-howto"); } catch (e) { /* storage blocked */ }
-  if (!seen && state.view === "home" && games.length) openHowto();
+  if (!seen && !knowBall() && state.view === "home" && games.length) openHowto();
   window.addEventListener("hashchange", () => { fromHash(); render(true); });
 })();
 </script>
