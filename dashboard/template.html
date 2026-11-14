@@ -319,7 +319,7 @@ textarea { width: 100%; min-height: 360px; font: 12px/1.5 ui-monospace, SFMono-R
 .tabs button.feature { border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
 .linkbtn { border: 0; background: none; color: var(--accent); font-weight: 700; cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 2px; }
 .helpbtn { border: 1px solid var(--accent); background: var(--accent-soft); color: var(--ink); border-radius: 999px; padding: 4px 12px; font-weight: 700; font-size: 12px; cursor: pointer; }
-.howto { position: fixed; inset: 0; z-index: 50; background: rgba(2, 6, 14, .72); backdrop-filter: blur(4px); display: grid; place-items: center;
+.howto { position: fixed; inset: 0; z-index: 58; background: rgba(2, 6, 14, .72); backdrop-filter: blur(4px); display: grid; place-items: center;
   padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
 .howto-box { position: relative; max-width: 680px; width: 100%; max-height: 88vh; overflow: auto; background: #08111f; border: 1px solid var(--accent); border-radius: 12px; padding: 20px 22px; box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 35%, transparent); }
 :root[data-skin="chrome"] .howto-box { background: #141418; } :root[data-skin="hud"] .howto-box { background: #031210; }
@@ -361,6 +361,20 @@ textarea { width: 100%; min-height: 360px; font: 12px/1.5 ui-monospace, SFMono-R
 .help-form { display: flex; gap: 6px; padding: 10px 12px; border-top: 1px solid var(--line); }
 .help-form input { flex: 1; min-width: 0; background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; font: inherit; }
 .help-form button { border: 0; border-radius: 999px; padding: 8px 14px; font-weight: 700; cursor: pointer; background: var(--accent); color: var(--accent-ink); }
+/* ---- glossary popovers */
+.tag { border: 0; font-family: inherit; cursor: help; }
+.gq { width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--accent); background: transparent; color: var(--accent); font-size: 11px; font-weight: 700; line-height: 1; cursor: help; padding: 0; vertical-align: middle; flex: none; }
+.gloss-pop { position: fixed; z-index: 70; background: #08111f; border: 1px solid var(--accent); border-radius: 12px; padding: 12px 14px; box-shadow: 0 12px 36px rgba(0, 0, 0, .6); font-size: 13px; line-height: 1.5; display: flex; flex-direction: column; gap: 6px; max-height: 70vh; overflow: auto; }
+:root[data-skin="chrome"] .gloss-pop { background: #141418; } :root[data-skin="hud"] .gloss-pop { background: #031210; }
+.gloss-pop b { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .04em; color: var(--accent); font-size: 15px; padding-right: 20px; }
+.gloss-pop p { margin: 0; }
+.gloss-pop .x { position: absolute; right: 8px; top: 4px; border: 0; background: none; color: var(--ink); font-size: 20px; cursor: pointer; }
+.gloss { display: grid; grid-template-columns: minmax(110px, 160px) minmax(0, 1fr); gap: 8px 14px; margin: 0 0 12px; line-height: 1.5; }
+.gloss dt { font-weight: 700; color: var(--accent); }
+.gloss dd { margin: 0; }
+@media (max-width: 520px) { .gloss { grid-template-columns: minmax(0, 1fr); } .gloss dd { margin-bottom: 6px; } }
+.badge.ribbon { border: 0; cursor: help; font: inherit; }
+.pc-tabs { grid-template-columns: repeat(4, 1fr) 22px; align-items: center; }
 .toast { color: var(--good); font-weight: 600; font-size: 13px; }
 footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
 @media (max-width: 520px) {
@@ -456,7 +470,7 @@ const BOARD = /*__BOARD_DATA__*/null;
     const m = isNum(avg) && max ? Math.min(100, (avg / max) * 100) : null;
     return `<div class="vsrow"><span class="who">${esc(label)}</span><div class="bar"><i style="width:${w}%"></i>${m != null ? `<b style="left:${m}%" title="league average"></b>` : ""}</div><span class="num">${fmt(value)}</span></div>`;
   }
-  const tagHtml = (t) => `<span class="tag t-${slug(t.tag)}" title="${esc(t.why || "")}">${esc(t.tag)}</span>`;
+  const tagHtml = (t) => `<button type="button" class="tag t-${slug(t.tag)}" data-gloss="${slug(t.tag)}" title="${esc(t.why || "")}">${esc(t.tag)}</button>`;
   const lvlDot = (l) => `<span class="dot ${l === "info" ? "unknown" : esc(l)}"></span>`;
 
   // ---------------------------------------------------------------- scoreboard header
@@ -1183,18 +1197,18 @@ const BOARD = /*__BOARD_DATA__*/null;
     const all = ((s.roles || {})[rec ? "receivers" : "rushers"] || []).filter((x) => rec || x.pos === "RB");
     const rank = all.slice().sort((a, b) => (rec ? (b.target_share || 0) - (a.target_share || 0) : (b.carry_share || 0) - (a.carry_share || 0))).findIndex((x) => x.player_id === r.player_id) + 1;
     const out = [];
-    if (rec) out.push(`<div class="k2">Role</div><div class="hl">#${rank} target</div><div class="sb">${pct(r.target_share)} of ${esc(qb)}'s targets · ${n(r.targets_pg, 1)} a game${r.red_zone_targets ? ` · ${r.red_zone_targets} in the red zone` : ""}</div>${vsBar("share", r.target_share, 0.4, null, (v) => pct(v))}`);
-    else out.push(`<div class="k2">Role</div><div class="hl">${(r.carry_share || 0) >= 0.6 ? "Lead back" : "#" + rank + " back"}</div><div class="sb">${pct(r.carry_share)} of carries · ${n(r.carries_pg, 1)} a game${(r.carry_share || 0) < 0.6 ? " · under 60%: your rule says no rushing legs" : ""}</div>${vsBar("share", r.carry_share, 1, null, (v) => pct(v))}`);
+    if (rec) out.push(`<div class="k2">Role ${glossBtn("target-share")}</div><div class="hl">#${rank} target</div><div class="sb">${pct(r.target_share)} of ${esc(qb)}'s targets · ${n(r.targets_pg, 1)} a game${r.red_zone_targets ? ` · ${r.red_zone_targets} in the red zone` : ""}</div>${vsBar("share", r.target_share, 0.4, null, (v) => pct(v))}`);
+    else out.push(`<div class="k2">Role ${glossBtn("carry-share")}</div><div class="hl">${(r.carry_share || 0) >= 0.6 ? "Lead back" : "#" + rank + " back"}</div><div class="sb">${pct(r.carry_share)} of carries · ${n(r.carries_pg, 1)} a game${(r.carry_share || 0) < 0.6 ? " · under 60%: your rule says no rushing legs" : ""}</div>${vsBar("share", r.carry_share, 1, null, (v) => pct(v))}`);
     const l5 = log.slice(-5), keys = rec ? [["targets", "tgt"], ["receptions", "rec"], ["rec_yards", "yds"]] : [["carries", "car"], ["rush_yards", "yds"], ["targets", "tgt"]];
     out.push(`<div class="k2">Last 5 games (season)</div><div class="row3">${keys.map(([k, l]) => { const a = avg(l5, k), b = avg(log, k); const cls = a != null && b != null ? (a >= b * 1.1 ? "up" : a <= b * 0.9 ? "dn" : "") : "";
       return `<div><b class="${cls}">${n(a, 1)}${cls === "up" ? "▲" : cls === "dn" ? "▼" : ""}</b><span>${l} (${n(b, 1)})</span></div>`; }).join("")}</div>`);
-    if (opp && !opp.status) out.push(`<div class="k2">Opportunity this game</div><div style="display:flex;gap:12px;align-items:center">${ring((opp.yards || {})["70"], "70+ yds")}<div><div class="hl" style="font-size:22px">${n(opp.yards_median, 0)} yds</div><div class="sb">median · ${rec ? `${n(opp.targets_mean, 1)} targets, ${n(opp.receptions_mean, 1)} catches` : `${n(opp.carries_mean, 1)} carries`} · 80+ ${pct((opp.yards || {})["80"])}</div></div></div>`);
+    if (opp && !opp.status) out.push(`<div class="k2">Opportunity this game ${glossBtn("opportunity")}</div><div style="display:flex;gap:12px;align-items:center">${ring((opp.yards || {})["70"], "70+ yds")}<div><div class="hl" style="font-size:22px">${n(opp.yards_median, 0)} yds</div><div class="sb">median · ${rec ? `${n(opp.targets_mean, 1)} targets, ${n(opp.receptions_mean, 1)} catches` : `${n(opp.carries_mean, 1)} carries`} · 80+ ${pct((opp.yards || {})["80"])}</div></div></div>`);
     const pk = rec ? ((r.pos || "WR").toLowerCase()) : "rb", key = rec ? pk + "_rec_yards_pg" : "rb_rush_yards_pg";
     const val = (s.defense_allowed || {})[key], rk = (s.defense_rank || {})[key];
-    out.push(`<div class="k2">${esc(s.defense)} allows to ${rec ? esc((r.pos || "WR") + "s") : "RBs"}</div><div class="hl">${n(val, 0)} <span style="font-size:13px">yds / game</span> ${rankChip(rk, true, true)}</div>${vsBar("vs league", val, Math.max(val || 0, (rk || {}).league_avg || 0) * 1.25, (rk || {}).league_avg, (v) => n(v, 0))}<div class="sb">${rec ? `${n((s.defense_allowed || {})[pk + "_receptions_pg"], 1)} catches a game to the position` : `${n((s.defense_allowed || {}).rb_yards_per_carry, 2)} yards per carry`}</div>`);
+    out.push(`<div class="k2">${esc(s.defense)} allows to ${rec ? esc((r.pos || "WR") + "s") : "RBs"} ${glossBtn("rank")}</div><div class="hl">${n(val, 0)} <span style="font-size:13px">yds / game</span> ${rankChip(rk, true, true)}</div>${vsBar("vs league", val, Math.max(val || 0, (rk || {}).league_avg || 0) * 1.25, (rk || {}).league_avg, (v) => n(v, 0))}<div class="sb">${rec ? `${n((s.defense_allowed || {})[pk + "_receptions_pg"], 1)} catches a game to the position` : `${n((s.defense_allowed || {}).rb_yards_per_carry, 2)} yards per carry`}</div>`);
     if (rec) {
       const ds = ((vis.size || {}).defenders || []).slice(0, 3);
-      out.push(`<div class="k2">Who he'll see</div>${ds.length ? ds.map((d) => `<div class="dchip"><span>${lvlDot(d.grade === "target" ? "good" : d.grade === "avoid" ? "bad" : "info")} ${esc(d.player)} <span class="note">${esc(d.position)}${d.height_in ? " · " + ft(d.height_in) : ""}</span></span><span>${n(d.yards_per_target, 1)} y/tgt</span></div>`).join("") : `<div class="sb">No coverage data for this position.</div>`}`);
+      out.push(`<div class="k2">Who he'll see ${glossBtn("who-he-sees")}</div>${ds.length ? ds.map((d) => `<div class="dchip"><span>${lvlDot(d.grade === "target" ? "good" : d.grade === "avoid" ? "bad" : "info")} ${esc(d.player)} <span class="note">${esc(d.position)}${d.height_in ? " · " + ft(d.height_in) : ""}</span></span><span>${n(d.yards_per_target, 1)} y/tgt</span></div>`).join("") : `<div class="sb">No coverage data for this position.</div>`}`);
     } else {
       const rm = vis.runs, dd = {}; (s.run_defense_by_direction || []).forEach((d) => (dd[d.direction] = d));
       const top = rm && rm.carries ? rm.cells.slice().sort((a, b) => b.carries - a.carries)[0] : null;
@@ -1210,12 +1224,13 @@ const BOARD = /*__BOARD_DATA__*/null;
     const name = r.full_name || r.player, ini = name.split(" ").map((x) => x[0]).join("").slice(0, 2);
     const id = slug(s.offense + "-" + r.player_id), kind = rec ? "rec" : "rush";
     const slides = slidesFor(g, s, r, rec, vis, opp, log);
+    cardEdges[id] = edges;
     const logo = (g.teams[s.offense] || {}).logo;
     return `<div class="pcard ${hot ? "hot" : ""}" style="--tc:${teamColor(g, s.offense)}"><div class="pc-in">
       <div class="pc-hero">${logo ? `<img class="pc-logo" src="${logo}" alt="">` : ""}${card.photo ? `<img class="ph" src="${card.photo}" alt="${esc(name)}">` : `<span class="ini">${esc(ini)}</span>`}
-        ${card.jersey != null ? `<span class="num">${card.jersey}</span>` : ""}${hot ? `<span class="badge ribbon">Mismatch</span>` : ""}</div>
-      <div class="pc-plate"><span class="nm">${esc(name)}</span><span class="mt">${esc(r.pos)} · ${esc(s.offense)}<br>${(r.tags || []).slice(0, 2).map((t) => esc(t.tag)).join(" · ")}</span></div>
-      <div class="pc-tabs" role="group" aria-label="Last five games">${METRICS[kind].map(([, l], i) => `<button data-card="${esc(id)}" data-mi="${i}" aria-pressed="${i === 0}">${l}</button>`).join("")}</div>
+        ${card.jersey != null ? `<span class="num">${card.jersey}</span>` : ""}${hot ? `<button type="button" class="badge ribbon" data-edges="${esc(id)}" aria-label="Why the Mismatch badge">Mismatch ?</button>` : ""}</div>
+      <div class="pc-plate"><span class="nm">${esc(name)}</span><span class="mt">${esc(r.pos)} · ${esc(s.offense)}<span class="tags" style="justify-content:flex-end;margin-top:3px">${(r.tags || []).slice(0, 3).map(tagHtml).join("")}</span></span></div>
+      <div class="pc-tabs" role="group" aria-label="Last five games">${METRICS[kind].map(([, l], i) => `<button data-card="${esc(id)}" data-mi="${i}" aria-pressed="${i === 0}">${l}</button>`).join("")}<button type="button" class="gq" id="gq-${esc(id)}" data-gloss="${kind === "rec" ? "targets" : "carries"}" aria-label="What does this stat mean?">?</button></div>
       <div class="pc-chart" id="ch-${esc(id)}" data-kind="${kind}">${chartFor(log, kind, 0)}</div>
       <div class="pc-car" data-car="${esc(id)}" data-i="0"><div class="pc-track">${slides.map((x) => `<div class="pc-slide">${x}</div>`).join("")}</div>
         <button class="pc-arrow l" data-step="-1" aria-label="Previous">‹</button><button class="pc-arrow r" data-step="1" aria-label="Next">›</button>
@@ -1235,10 +1250,11 @@ const BOARD = /*__BOARD_DATA__*/null;
     el.querySelectorAll(".pc-dots button").forEach((b, j) => b.setAttribute("aria-current", j === k));
   }
   function initCards() {
-    document.querySelectorAll(".pc-tabs button").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll(".pc-tabs button[data-mi]").forEach((b) => b.addEventListener("click", () => {
       const id = b.dataset.card, box = document.getElementById("ch-" + id);
       box.innerHTML = chartFor(logFor(id), box.dataset.kind, +b.dataset.mi);
-      b.parentElement.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+      b.parentElement.querySelectorAll("button[data-mi]").forEach((x) => x.setAttribute("aria-pressed", x === b));
+      const gq = document.getElementById("gq-" + id); if (gq) gq.dataset.gloss = ({ Targets: "targets", Catches: "catches", Yards: "yards", Share: "share", Carries: "carries" })[b.textContent] || "share";
     }));
     document.querySelectorAll(".pc-car").forEach((el) => {
       el.addEventListener("pointerenter", () => (el.dataset.hold = "1")); el.addEventListener("pointerleave", () => delete el.dataset.hold);
@@ -1255,7 +1271,7 @@ const BOARD = /*__BOARD_DATA__*/null;
     const s = S(), R = s.roles || {};
     const rec = (R.receivers || []).filter((r) => r.targets >= 8);
     const rush = (R.rushers || []).filter((r) => r.carries >= 8 && r.pos === "RB");
-    return `<button class="btn ghost sm tourbtn" data-tour>Take the player-card tour</button><div class="section-title">${esc(s.offense)} pass catchers</div><div class="pgrid">${rec.map((r) => playerCard(s, r, true)).join("") || '<p class="empty">No receivers with 8+ targets.</p>'}</div>
+    return `<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost sm tourbtn" data-tour>Take the player-card tour</button><button class="btn ghost sm" data-glossary>What the words mean</button></div><div class="section-title">${esc(s.offense)} pass catchers</div><div class="pgrid">${rec.map((r) => playerCard(s, r, true)).join("") || '<p class="empty">No receivers with 8+ targets.</p>'}</div>
       <div class="section-title">${esc(s.offense)} running backs</div><div class="pgrid">${rush.map((r) => playerCard(s, r, false)).join("") || '<p class="empty">No backs with 8+ carries.</p>'}</div>
       <p class="note">Photos: official NFL headshots via nflverse rosters. Cards glow when two or more edges line up (size, speed, soft defense tier, coverage fit, target zone, a defender to attack, or a 40%+ chance at 70 yards). Roles: Primary = top target share; Volume = 7+ targets a game; Deep threat = 13+ yard average depth; Possession = short targets caught 72%+; Boom-bust and Steady come from game-to-game swings; Lead back = 60%+ of carries.</p>`;
   }
@@ -1335,7 +1351,7 @@ const BOARD = /*__BOARD_DATA__*/null;
         <li><b>Read the colors.</b> Green is good for the offense you're looking at, red is tough, amber is a caution. A glowing card with a "Mismatch" badge has two or more edges lined up. Rank chips: 1st means best at its own job, so a defense ranked 28th against receivers is a soft spot.</li>
         <li><b>Get help.</b> On Player cards, "Take the player-card tour" walks through every part of a card (it runs by itself the first time). The <b>?</b> bubble in the corner answers questions about whatever screen you're on.</li>
         <li><b>Keep it in proportion.</b> Everything here is research. The projections were tested on past games but are not betting advice; your rule gates still apply.</li>
-      </ol><button class="btn" data-howto-close>Got it</button></div>`;
+      </ol><h2 style="font-size:20px;margin-top:6px">Words on the board</h2>${glossaryHtml()}<button class="btn" data-howto-close>Got it</button></div>`;
   }
   function openHowto() { const o = document.getElementById("howto"); o.innerHTML = howtoHtml(); o.hidden = false; o.querySelectorAll("[data-howto-close]").forEach((b) => b.addEventListener("click", closeHowto)); o.querySelector(".close").focus(); try { localStorage.setItem("board-howto", "1"); } catch (e) { /* storage blocked */ } }
   function closeHowto() { document.getElementById("howto").hidden = true; }
@@ -1365,11 +1381,75 @@ const BOARD = /*__BOARD_DATA__*/null;
     }
   }
 
+  // ---------------------------------------------------------------- glossary: one source for tags, popovers, the guide and the help bubble
+  const GLOSSARY = {
+    "targets": ["Targets", "A target is a pass thrown to him, caught or not. Five targets means the quarterback threw his way five times. Sacks and throwaways don't count. Targets show how much the offense looks for him, which is the start of every catch and every yard."],
+    "catches": ["Catches", "Catches (receptions) are targets he caught. Catches ÷ targets is his catch rate."],
+    "yards": ["Yards", "Receiving yards for pass catchers, rushing yards for backs, in that game."],
+    "share": ["Share", "Target share is his part of the team's targets: if the team threw to receivers 30 times and 9 went to him, his share is 30%. Carry share is the same for running plays. Share is steadier than yards from week to week, so it's the best sign of his role."],
+    "target-share": ["Target share", "His part of the team's targets. 25% means one of every four passes thrown to a receiver went to him. It's the clearest sign of how much the quarterback looks for him."],
+    "carry-share": ["Carry share", "His part of the team's running-back carries. Your rule: under 60% means do not play his rushing legs."],
+    "carries": ["Carries", "Runs where he got the ball (quarterback scrambles don't count)."],
+    "dnp": ["DNP", "Did not play: he was out that week, so the chart leaves a gap instead of a zero."],
+    "edge": ["Edge", "An edge is one specific reason this game favors him, each found by a fixed rule from the data, never by feel:\n• Size: 3+ inches taller than the defenders who see the most targets at his position (corners for receivers; safeties and linebackers for tight ends and backs).\n• Weight (tight ends, backs): 25+ lb heavier than those safeties and linebackers.\n• Speed: a combine 40-yard dash at least 0.08 s faster than theirs.\n• Soft defense: the defense ranks 23rd or worse against his position and he averages at least 10% more against bottom-10 defenses than middle ones (3+ games).\n• Coverage fit: the defense leans on one shell (single-high or two-high, last season) and he gained 15%+ more per target against that shell (20+ targets).\n• Target zone: the area he's thrown to most is where this defense allows the most (11+ yards per attempt deep, 6.8+ short).\n• Opportunity: a 40%+ chance at 70+ yards in this game's simulation.\n• Running backs: he runs 15%+ of the time to a side where the defense allows 4.6+ yards per carry, or the defense ranks 23rd or worse against backs.\n• Defender to attack: the likely coverage includes a defender who gives up a lot per target (shown, but not enough alone)."],
+    "mismatch": ["Mismatch", "A MISMATCH badge means at least two edges line up for this game, not counting 'defender to attack' by itself. One edge can be noise; two pointing the same way is worth a look. Tap the badge on a card to see that player's edges. It's research, not a pick: your rule gates still apply."],
+    "boom-bust": ["Boom-bust", "His yards swing a lot from game to game: big games and quiet games instead of the same number each week (for example 120, 15, 90, 10). Measured as the spread of his yards ÷ his average (0.65 or more, 4+ games). Overs can hit big but miss often; a median is safer to think about than an average."],
+    "steady": ["Steady", "His yards are similar from game to game (spread ÷ average 0.35 or less, 30+ yards a game). Easier to project."],
+    "primary": ["Primary", "He has the highest target share on his team: the quarterback's first look."],
+    "volume": ["Volume", "7 or more targets a game. Lots of chances, even when the yards per catch are modest."],
+    "deep-threat": ["Deep threat", "His targets travel 13+ yards past the line on average (15+ targets). Fewer catches, bigger plays, more boom-bust."],
+    "possession": ["Possession", "Short targets (under 7.5 yards on average) caught 72%+ of the time. Reliable catches, fewer long gains."],
+    "red-zone-1": ["Red-zone #1", "The most targets inside the opponent's 20 on his team (3+). Touchdown chances."],
+    "most-on-field": ["Most on field", "The highest share of offensive snaps among the team's pass catchers. Being on the field is the first step to a target."],
+    "rising": ["Rising", "His targets over the last 3 games are 30%+ above his average for the window (and up by 1.5+ a game). A growing role."],
+    "falling": ["Falling", "His targets over the last 3 games are 30%+ below his window average (and down by 1.5+ a game). A shrinking role: check for injury or a new teammate."],
+    "lead-back": ["Lead back", "60% or more of the team's running-back carries. Passes your 60% rule."],
+    "committee": ["Committee", "The carries are split: under 60% for him. Your rule says not to play his rushing legs."],
+    "goal-line-back": ["Goal-line back", "The most carries inside the opponent's 20 on his team (4+). Touchdown chances."],
+    "running-qb": ["Running QB", "A quarterback with 5+ carries a game."],
+    "opportunity": ["Opportunity", "Does this game give him the chance? Team plays and pass/run mix (moved by the spread and weather) × his share give his targets or carries; his catch rate and yards per catch against this defense turn those into yards, simulated 20,000 times. The median is the middle result; '70+' is how often he reached 70 yards. Tested on 2024–2026 games."],
+    "rank": ["Rank", "1st means best at its own job. A defense ranked 28th against receivers allows a lot to them: a soft spot, shown green for the offense."],
+    "who-he-sees": ["Who he'll see", "The defenders who've been targeted most at the position that usually covers him, with the yards they allow per target. Green = gives up a lot, red = tough. Who covers whom on each play isn't in free data, so this is the likely coverage, not a confirmed one."],
+  };
+  const GLOSS_KEY = { "red-zone-1": "red-zone-1" };
+  function glossBtn(key, label) { return `<button type="button" class="gq" data-gloss="${esc(key)}" aria-label="What does ${esc(label || (GLOSSARY[key] || [key])[0])} mean?">?</button>`; }
+  const cardEdges = {};
+  function showGloss(btn) {
+    let pop = document.getElementById("gloss-pop");
+    if (!pop) { pop = document.createElement("div"); pop.id = "gloss-pop"; pop.className = "gloss-pop"; pop.setAttribute("role", "dialog"); document.body.appendChild(pop); }
+    let html;
+    if (btn.dataset.edges) {
+      const e = cardEdges[btn.dataset.edges] || [];
+      html = `<b>Why the Mismatch badge</b><p>${esc(GLOSSARY.mismatch[1])}</p><div class="k">This player's edges</div><ul class="list">${e.map(([l, t]) => `<li>${lvlDot(l)}<span>${esc(t)}</span></li>`).join("")}</ul><button type="button" class="linkbtn" data-gloss="edge">How each edge is found</button>`;
+    } else {
+      const g = GLOSSARY[btn.dataset.gloss] || [btn.dataset.gloss, "No definition yet."];
+      html = `<b>${esc(g[0])}</b><p>${esc(g[1]).replace(/\n/g, "<br>")}</p>`;
+    }
+    pop.innerHTML = `<button type="button" class="x" aria-label="Close">×</button>${html}`; pop.hidden = false;
+    const r = btn.getBoundingClientRect(), w = Math.min(340, innerWidth - 32);
+    pop.style.width = w + "px"; pop.style.left = Math.max(16, Math.min(r.left, innerWidth - w - 16)) + "px";
+    const h = pop.offsetHeight; pop.style.top = (r.bottom + 8 + h < innerHeight ? r.bottom + 8 : Math.max(12, r.top - h - 8)) + "px";
+    pop.querySelector(".x").addEventListener("click", hideGloss);
+    pop.querySelectorAll("[data-gloss]").forEach((b) => b.addEventListener("click", (ev) => { ev.stopPropagation(); showGloss(b); }));
+    pop.querySelector(".x").focus();
+  }
+  function hideGloss() { const p = document.getElementById("gloss-pop"); if (p) p.hidden = true; }
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-gloss],[data-edges]");
+    if (b && !b.closest(".gloss-pop")) { e.preventDefault(); e.stopPropagation(); showGloss(b); return; }
+    if (!e.target.closest(".gloss-pop")) hideGloss();
+  }, true);
+  function glossaryHtml() {
+    const order = ["targets", "target-share", "carry-share", "catches", "carries", "edge", "mismatch", "boom-bust", "steady", "primary", "volume", "deep-threat", "possession", "red-zone-1", "most-on-field", "rising", "falling", "lead-back", "committee", "goal-line-back", "opportunity", "rank", "who-he-sees", "dnp"];
+    return `<dl class="gloss">${order.map((k) => `<dt>${esc(GLOSSARY[k][0])}</dt><dd>${esc(GLOSSARY[k][1]).replace(/\n/g, "<br>")}</dd>`).join("")}</dl>`;
+  }
+  function openGlossary() { const o = document.getElementById("howto"); o.innerHTML = `<div class="howto-box" role="dialog" aria-modal="true" aria-labelledby="gl-t"><button class="close" data-howto-close aria-label="Close">×</button><h2 id="gl-t">Words on the board</h2>${glossaryHtml()}<button class="btn" data-howto-close>Got it</button></div>`; o.hidden = false; o.querySelectorAll("[data-howto-close]").forEach((b) => b.addEventListener("click", closeHowto)); o.querySelector(".close").focus(); }
+
   // ---------------------------------------------------------------- player-card tour
   const TOUR = [
     { sel: ".seg", title: "Pick the offense", text: "Player cards show one team's pass catchers and backs at a time. Flip this switch to see the other team." },
-    { sel: ".pcard .pc-hero", title: "Who he is", text: "His official photo and jersey number over his team's logo, in the team's colors. A glowing card with a MISMATCH badge has two or more edges lined up for this game." },
-    { sel: ".pcard .pc-plate", title: "Name and role", text: "Name, position and team, with his top role tags: Primary, Volume, Deep threat, Possession, Red-zone #1, Lead back and more." },
+    { sel: ".pcard .pc-hero", title: "Who he is", text: "His official photo and jersey number over his team's logo, in the team's colors. A glowing card with a MISMATCH badge has two or more edges lined up for this game: tap the badge to see them." },
+    { sel: ".pcard .pc-plate", title: "Name and role", text: "Name, position and team, with his role tags: Primary, Volume, Boom-bust, Deep threat and more. Tap any tag, or any small ? on the card, to see what it means and how it was worked out." },
     { sel: ".pcard .pc-tabs", title: "Pick a stat", text: "Tap Targets, Catches, Yards or Share (Carries, Yards, Share or Targets for backs) to redraw the chart." },
     { sel: ".pcard .pc-chart", title: "Last 5 games in 3D", text: "One bar per game, oldest on the left, with the week and opponent underneath. DNP means he did not play." },
     { sel: ".pcard .pc-car", title: "The info strip", text: "This swipes every 4 seconds through five facts: his role, last 5 against his season, his chance this game, what the defense allows his position, and who he will see in coverage. Hover or touch it to pause." },
@@ -1429,6 +1509,9 @@ const BOARD = /*__BOARD_DATA__*/null;
     [["bet", "pick", "advice", "lock"], "Everything here is research. The projections are tested but they are not betting advice, and your rule gates still apply."],
     [["data", "source", "where", "update"], "Data comes from nflverse play-by-play, FTN charting, NGS (last season for coverage and routes), Pro Football Reference, the official injury report and ESPN, the National Weather Service and The Odds API. The board rebuilds with each scheduled packet refresh."],
   ];
+  [[["target", "targets"], "targets"], [["catch", "reception"], "catches"], [["boom", "bust"], "boom-bust"], [["steady"], "steady"], [["edge", "how did we find", "how do you find"], "edge"], [["mismatch"], "mismatch"],
+    [["deep threat"], "deep-threat"], [["possession"], "possession"], [["primary"], "primary"], [["volume"], "volume"], [["rising"], "rising"], [["falling"], "falling"], [["lead back", "committee", "60%"], "carry-share"], [["dnp", "did not play"], "dnp"], [["red zone", "red-zone"], "red-zone-1"]]
+    .forEach(([keys, k]) => HELP_FAQ.unshift([keys, GLOSSARY[k][0] + ": " + GLOSSARY[k][1]]));
   function faqAnswer(q) {
     const t = q.toLowerCase(); let best = null, score = 0;
     HELP_FAQ.forEach(([keys, a]) => { const s = keys.filter((k) => t.includes(k)).length; if (s > score) { score = s; best = a; } });
@@ -1464,7 +1547,10 @@ Guide to the board:
 - Inside a game: tabs Overview, Player cards, Opportunity, Field view, What the defense allows, Defenders, Quarterback, Injuries, Last meeting, Odds, Weather & rest, Copy for Grok. A switch flips which team's offense is shown. "All games" goes back.
 - Player card: photo over team logo; 3D chart of last 5 games with tabs Targets/Catches/Yards/Share; an info strip that swipes every 4 seconds (role, last 5 vs season, this game's chance, what the defense allows his position, who he'll see in coverage); hover/touch pauses; season game log underneath. MISMATCH badge = two or more edges (size/speed, soft defense tier, coverage fit, target zone, 40%+ chance at 70 yards).
 - Opportunity: team volume (plays, pass/run mix moved by spread and weather) x his share, then catch rate and yards per catch vs this defense, simulated 20,000 times; median and chance of each yardage. Backtested 2024-2026.
-- Rank chips: 1st = best at its own job; a defense ranked 28th vs WRs is a soft spot (green). Green good for the offense, red tough, amber caution.`;
+- Rank chips: 1st = best at its own job; a defense ranked 28th vs WRs is a soft spot (green). Green good for the offense, red tough, amber caution.
+
+Definitions (use these exact meanings):
+` + Object.values(GLOSSARY).map(([t, d]) => `- ${t}: ${d.replace(/\n/g, " ")}`).join("\n");
   let helpTurns = [], helpCtl = null, sampleFn;
   const sampleReady = (window.claude && window.claude.use ? window.claude.use("sample").catch(() => null) : Promise.resolve(null)).then((f) => (sampleFn = f));
   function helpChips() {
@@ -1658,6 +1744,7 @@ Guide to the board:
     document.querySelectorAll("[data-sim]").forEach((b) => b.addEventListener("click", () => runSim(b.dataset.sim, "exp")));
     initCards();
     document.querySelectorAll("[data-tour]").forEach((b) => b.addEventListener("click", startTour));
+    document.querySelectorAll("[data-glossary]").forEach((b) => b.addEventListener("click", openGlossary));
     if (state.tab === "players" && tourI < 0) { let done = null; try { done = localStorage.getItem("board-tour-cards"); } catch (e) { /* storage blocked */ } if (!done && document.getElementById("howto").hidden) setTimeout(startTour, 500); }
     const cp = document.getElementById("copy");
     if (cp) cp.addEventListener("click", () => {

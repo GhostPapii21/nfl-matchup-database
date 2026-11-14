@@ -9,6 +9,7 @@ packet refresh (Tuesday, Thursday, Saturday, Sunday and Monday; see `.github/wor
 - **Inside a game:** "‹ All games" goes back; the strip next to it switches games. Tabs wrap so all twelve show on a phone; Player cards, Opportunity and Field view are outlined. The offense switch under the tabs flips which side has the ball.
 - **How to use:** the button at the top opens a short guide. It opens by itself on a first visit.
 - **Player-card tour:** the first time someone opens Player cards, a nine-step walkthrough spotlights each part of a card (offense switch, photo and badge, name and roles, stat tabs, 3D chart, info strip, dots and arrows, game log, help bubble). "Take the player-card tour" replays it.
+- **What the words mean:** every role tag on a card, the small ? marks, the chart's ? (it follows the selected stat) and the Mismatch badge open a short definition. The badge lists that player's own edges and links to how each edge is found. "What the words mean" on Player cards and the How-to guide show the full glossary (targets, target share, carry share, edge, mismatch, boom-bust, steady and every role tag), and the help bubble uses the same definitions.
 - **Help bubble:** the ? in the corner answers questions about the screen in view. On claude.ai it asks Claude with a short summary of what is on screen (each viewer's first question asks them to allow it, and it uses their own Claude usage); anywhere else, or if they decline, it answers from a built-in guide.
 
 ## What a game shows
