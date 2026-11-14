@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): NO -2.5, total 48.5.
 
-Generated 2026-11-14T11:37:43+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T19:13:23+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,25 +12,25 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-14T11:37:38+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-14T19:13:18+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | NO -2.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T11:36:55Z |
-| spread | williamhill_us | NO -2.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-14T11:35:53Z |
-| spread | fanduel | NO -1.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-14T11:37:13Z |
-| spread | hardrockbet | NO -2 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
-| spread | pinnacle | NO -2.5 | -104 | -108 | 49.5% | 50.5% | 2.9% | 2026-11-14T11:37:26Z |
-| total | draftkings | Over 48.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T11:36:55Z |
-| total | williamhill_us | Over 49 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:35:53Z |
-| total | fanduel | Over 48.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T11:37:13Z |
-| total | hardrockbet | Over 49 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
-| total | pinnacle | Over 48.5 | -114 | -103 | 51.2% | 48.8% | 4.0% | 2026-11-14T11:37:26Z |
-| moneyline | draftkings | NO | -135 | +114 | 55.1% | 44.9% | 4.2% | 2026-11-14T11:36:55Z |
-| moneyline | williamhill_us | NO | -137 | +113 | 55.2% | 44.8% | 4.8% | 2026-11-14T11:35:53Z |
-| moneyline | fanduel | NO | -138 | +118 | 55.8% | 44.2% | 3.9% | 2026-11-14T11:37:13Z |
-| moneyline | hardrockbet | NO | -140 | +120 | 56.2% | 43.8% | 3.8% | 2026-11-14T11:37:13Z |
-| moneyline | pinnacle | NO | -134 | +119 | 55.6% | 44.4% | 2.9% | 2026-11-14T11:37:26Z |
+| spread | draftkings | NO -2.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T19:12:25Z |
+| spread | williamhill_us | NO -2.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-14T19:11:55Z |
+| spread | fanduel | NO -1.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-14T19:13:13Z |
+| spread | hardrockbet | NO -2 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:12:12Z |
+| spread | pinnacle | NO -2.5 | -104 | -108 | 49.5% | 50.5% | 2.9% | 2026-11-14T19:13:12Z |
+| total | draftkings | Over 48.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T19:12:25Z |
+| total | williamhill_us | Over 49 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:11:55Z |
+| total | fanduel | Over 48.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T19:13:13Z |
+| total | hardrockbet | Over 49 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:12:12Z |
+| total | pinnacle | Over 48.5 | -114 | -103 | 51.2% | 48.8% | 4.0% | 2026-11-14T19:13:12Z |
+| moneyline | draftkings | NO | -135 | +114 | 55.1% | 44.9% | 4.2% | 2026-11-14T19:12:25Z |
+| moneyline | williamhill_us | NO | -137 | +113 | 55.2% | 44.8% | 4.8% | 2026-11-14T19:11:55Z |
+| moneyline | fanduel | NO | -138 | +118 | 55.8% | 44.2% | 3.9% | 2026-11-14T19:13:13Z |
+| moneyline | hardrockbet | NO | -140 | +120 | 56.2% | 43.8% | 3.8% | 2026-11-14T19:12:12Z |
+| moneyline | pinnacle | NO | -134 | +119 | 55.6% | 44.4% | 2.9% | 2026-11-14T19:13:12Z |
 
 ### Same-line consensus (retail books only)
 
@@ -39,53 +39,61 @@ Consensus uses only books quoting the same line; probabilities at different line
 | Market | Team | Label | FanDuel | DraftKings | Hard Rock Bet | Caesars | Consensus | Note |
 |---|---|---|---|---|---|---|---|---|
 | moneyline |  | four-book game-line consensus |  |  |  |  | NO n/a: 55.6% (4 at line) |  |
-| spread |  | four-book game-line consensus | -1.5 | -2.5 | -2.0 | -2.5 | NO -2.5: 49.5% (2 at line) |  |
+| spread |  | four-book game-line consensus | -1.5 | -2.5 | -2.0 | -2.5 | NO -2.5: 49.1% (2 at line) |  |
 | total |  | four-book game-line consensus | 48.5 | 48.5 | 49.0 | 49.0 | no consensus | books split evenly between lines [48.5, 49.0] |
 | carries|Bryce Young | CAR | two-book prop consensus | not offered | 2.5 | 2.5 | no props | Over 2.5: 42.9% (2 at line) |  |
 | carries|Chuba Hubbard | CAR | two-book prop consensus | not offered | 18.5 | 18.5 | no props | Over 18.5: 47.8% (2 at line) |  |
-| carries|Tyler Shough | NO | two-book prop consensus | not offered | 4.5 | 4.5 | no props | Over 4.5: 52.6% (2 at line) |  |
+| carries|Travis Etienne Jr. |  | two-book prop consensus | not offered | 9.5 | 9.5 | no props | no consensus | player match failed closed: 'Travis Etienne Jr.' matches 2 differently written names on NO: ['Travis Etienne', 'Travis Etienne Jr.'] |
+| carries|Tyler Shough | NO | two-book prop consensus | not offered | 4.5 | 4.5 | no props | Over 4.5: 54.0% (2 at line) |  |
 | completions|Bryce Young | CAR | two-book prop consensus | not offered | 22.5 | 22.5 | no props | Over 22.5: 50.4% (2 at line) |  |
 | completions|Tyler Shough | NO | two-book prop consensus | not offered | 24.5 | 24.5 | no props | Over 24.5: 49.9% (2 at line) |  |
 | passing_attempts|Bryce Young | CAR | two-book prop consensus | not offered | 36.5 | 36.5 | no props | Over 36.5: 48.6% (2 at line) |  |
 | passing_attempts|Tyler Shough | NO | two-book prop consensus | not offered | 35.5 | 35.5 | no props | Over 35.5: 51.4% (2 at line) |  |
-| passing_yards|Bryce Young | CAR | three-book prop consensus | 244.5 | 244.5 | 244.5 | no props | Over 244.5: 49.9% (3 at line) | NEVER A LEG (passing yards: reference only) |
-| passing_yards|Tyler Shough | NO | three-book prop consensus | 252.5 | 250.5 | 251.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 252.5, DraftKings 250.5, Hard Rock Bet 251.5); NEVER A LEG (passing yards: reference only) |
-| receiving_yards|Chris Olave | NO | three-book prop consensus | 73.5 | 74.5 | 73.5 | no props | Over 73.5: 50.0% (2 at line) |  |
-| receiving_yards|Chuba Hubbard | CAR | three-book prop consensus | 17.5 | 17.5 | 17.5 | no props | Over 17.5: 49.9% (3 at line) |  |
-| receiving_yards|Darren Waller | CAR | three-book prop consensus | 29.5 | 28.5 | 29.5 | no props | Over 29.5: 50.0% (2 at line) |  |
-| receiving_yards|Devaughn Vele | NO | three-book prop consensus | 29.5 | 29.5 | 29.5 | no props | Over 29.5: 50.1% (3 at line) |  |
-| receiving_yards|Jalen Coker | CAR | three-book prop consensus | 47.5 | 49.5 | 48.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 47.5, DraftKings 49.5, Hard Rock Bet 48.5) |
-| receiving_yards|John Metchie III | CAR | three-book prop consensus | 7.5 | 7.5 | 7.5 | no props | Over 7.5: 50.3% (3 at line) |  |
-| receiving_yards|Jordyn Tyson | NO | three-book prop consensus | 41.5 | 41.5 | 41.5 | no props | Over 41.5: 50.0% (3 at line) |  |
-| receiving_yards|Juwan Johnson | NO | three-book prop consensus | 24.5 | 23.5 | 24.5 | no props | Over 24.5: 50.0% (2 at line) |  |
-| receiving_yards|Noah Fant | NO | three-book prop consensus | 8.5 | 7.5 | 7.5 | no props | Over 7.5: 49.7% (2 at line) |  |
-| receiving_yards|Tetairoa McMillan | CAR | three-book prop consensus | 65.5 | 66.5 | 65.5 | no props | Over 65.5: 50.0% (2 at line) |  |
-| receiving_yards|Tommy Tremble | CAR | three-book prop consensus | 14.5 | 13.5 | 14.5 | no props | Over 14.5: 50.0% (2 at line) |  |
-| receiving_yards|Xavier Legette | CAR | three-book prop consensus | 12.5 | 11.5 | 12.5 | no props | Over 12.5: 50.0% (2 at line) |  |
-| receptions|Chris Olave | NO | three-book prop consensus | 5.5 | 5.5 | 5.5 | no props | Over 5.5: 54.9% (3 at line) |  |
-| receptions|Chuba Hubbard | CAR | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 55.1% (3 at line) |  |
-| receptions|Darren Waller | CAR | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 50.1% (3 at line) |  |
-| receptions|Devaughn Vele | NO | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 44.2% (3 at line) |  |
-| receptions|Jalen Coker | CAR | three-book prop consensus | 4.5 | 4.5 | 4.5 | no props | Over 4.5: 44.4% (3 at line) |  |
-| receptions|John Metchie III | CAR | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 38.0% (3 at line) |  |
-| receptions|Jordyn Tyson | NO | three-book prop consensus | 4.5 | 3.5 | 3.5 | no props | Over 3.5: 58.8% (2 at line) |  |
-| receptions|Juwan Johnson | NO | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 56.4% (3 at line) |  |
+| passing_yards|Bryce Young | CAR | three-book prop consensus | 244.5 | 247.5 | 245.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 244.5, DraftKings 247.5, Hard Rock Bet 245.5); NEVER A LEG (passing yards: reference only) |
+| passing_yards|Tyler Shough | NO | three-book prop consensus | 252.5 | 251.5 | 251.5 | no props | Over 251.5: 49.9% (2 at line) | NEVER A LEG (passing yards: reference only) |
+| receiving_yards|Alvin Kamara | NO | three-book prop consensus | 15.5 | 15.5 | 15.5 | no props | Over 15.5: 50.1% (3 at line) |  |
+| receiving_yards|Chris Olave | NO | three-book prop consensus | 73.5 | 74.5 | 74.5 | no props | Over 74.5: 50.0% (2 at line) |  |
+| receiving_yards|Chuba Hubbard | CAR | three-book prop consensus | 18.5 | 17.5 | 18.5 | no props | Over 18.5: 49.5% (2 at line) |  |
+| receiving_yards|Darren Waller | CAR | three-book prop consensus | 29.5 | 27.5 | 28.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 29.5, DraftKings 27.5, Hard Rock Bet 28.5) |
+| receiving_yards|Devaughn Vele | NO | three-book prop consensus | 29.5 | 29.5 | 29.5 | no props | Over 29.5: 50.0% (3 at line) |  |
+| receiving_yards|Jalen Coker | CAR | three-book prop consensus | 49.5 | 52.5 | 50.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 49.5, DraftKings 52.5, Hard Rock Bet 50.5) |
+| receiving_yards|John Metchie III | CAR | three-book prop consensus | 7.5 | 7.5 | 7.5 | no props | Over 7.5: 49.8% (3 at line) |  |
+| receiving_yards|Jordyn Tyson | NO | three-book prop consensus | 41.5 | 40.5 | 41.5 | no props | Over 41.5: 50.0% (2 at line) |  |
+| receiving_yards|Juwan Johnson | NO | three-book prop consensus | 24.5 | 24.5 | 24.5 | no props | Over 24.5: 49.8% (3 at line) |  |
+| receiving_yards|Noah Fant | NO | three-book prop consensus | 8.5 | 6.5 | 7.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 8.5, DraftKings 6.5, Hard Rock Bet 7.5) |
+| receiving_yards|Tetairoa McMillan | CAR | three-book prop consensus | 65.5 | 64.5 | 65.5 | no props | Over 65.5: 50.0% (2 at line) |  |
+| receiving_yards|Tommy Tremble | CAR | three-book prop consensus | 14.5 | 15.5 | 14.5 | no props | Over 14.5: 50.0% (2 at line) |  |
+| receiving_yards|Travis Etienne Jr. |  | three-book prop consensus | 10.5 | 10.5 | 10.5 | no props | no consensus | player match failed closed: 'Travis Etienne Jr.' matches 2 differently written names on NO: ['Travis Etienne', 'Travis Etienne Jr.'] |
+| receiving_yards|Xavier Legette | CAR | three-book prop consensus | 12.5 | 10.5 | 11.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 12.5, DraftKings 10.5, Hard Rock Bet 11.5) |
+| receptions|Alvin Kamara | NO | three-book prop consensus | 3.5 | 2.5 | 2.5 | no props | Over 2.5: 58.1% (2 at line) |  |
+| receptions|Chris Olave | NO | three-book prop consensus | 5.5 | 5.5 | 5.5 | no props | Over 5.5: 55.1% (3 at line) |  |
+| receptions|Chuba Hubbard | CAR | three-book prop consensus | 3.5 | 2.5 | 3.5 | no props | Over 3.5: 41.7% (2 at line) |  |
+| receptions|Darren Waller | CAR | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 49.5% (3 at line) |  |
+| receptions|Devaughn Vele | NO | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 44.7% (3 at line) |  |
+| receptions|Jalen Coker | CAR | three-book prop consensus | 4.5 | 4.5 | 4.5 | no props | Over 4.5: 47.1% (3 at line) |  |
+| receptions|John Metchie III | CAR | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 37.6% (3 at line) |  |
+| receptions|Jordyn Tyson | NO | three-book prop consensus | 4.5 | 3.5 | 3.5 | no props | Over 3.5: 58.4% (2 at line) |  |
+| receptions|Juwan Johnson | NO | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 56.7% (3 at line) |  |
 | receptions|Noah Fant | NO | three-book prop consensus | 0.5 | 0.5 | 1.5 | no props | Over 0.5: 66.9% (2 at line) |  |
-| receptions|Tetairoa McMillan | CAR | three-book prop consensus | 5.5 | 5.5 | 5.5 | no props | Over 5.5: 42.5% (3 at line) |  |
+| receptions|Tetairoa McMillan | CAR | three-book prop consensus | 5.5 | 4.5 | 5.5 | no props | Over 5.5: 42.2% (2 at line) |  |
 | receptions|Tommy Tremble | CAR | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 39.8% (3 at line) |  |
-| receptions|Xavier Legette | CAR | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 44.1% (3 at line) |  |
-| rushing_yards|Bryce Young | CAR | three-book prop consensus | 7.5 | 8.5 | 7.5 | no props | Over 7.5: 50.0% (2 at line) |  |
-| rushing_yards|Chuba Hubbard | CAR | three-book prop consensus | 79.5 | 80.5 | 79.5 | no props | Over 79.5: 50.0% (2 at line) |  |
-| rushing_yards|Tyler Shough | NO | three-book prop consensus | 16.5 | 18.5 | 17.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 16.5, DraftKings 18.5, Hard Rock Bet 17.5) |
+| receptions|Travis Etienne Jr. |  | three-book prop consensus | 1.5 | 1.5 | 2.5 | no props | no consensus | player match failed closed: 'Travis Etienne Jr.' matches 2 differently written names on NO: ['Travis Etienne', 'Travis Etienne Jr.'] |
+| receptions|Xavier Legette | CAR | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 42.9% (3 at line) |  |
+| rushing_yards|Alvin Kamara | NO | three-book prop consensus | 14.5 | 15.5 | 14.5 | no props | Over 14.5: 50.5% (2 at line) |  |
+| rushing_yards|Audric Estime | NO | three-book prop consensus | 23.5 | 22.5 | 23.5 | no props | Over 23.5: 49.5% (2 at line) |  |
+| rushing_yards|Bryce Young | CAR | three-book prop consensus | 7.5 | 8.5 | 7.5 | no props | Over 7.5: 50.5% (2 at line) |  |
+| rushing_yards|Chuba Hubbard | CAR | three-book prop consensus | 79.5 | 79.5 | 79.5 | no props | Over 79.5: 49.9% (3 at line) |  |
+| rushing_yards|Travis Etienne Jr. |  | two-book prop consensus | 35.5 | 34.5 | not offered | no props | no consensus | player match failed closed: 'Travis Etienne Jr.' matches 2 differently written names on NO: ['Travis Etienne', 'Travis Etienne Jr.'] |
+| rushing_yards|Tyler Shough | NO | three-book prop consensus | 16.5 | 16.5 | 16.5 | no props | Over 16.5: 50.4% (3 at line) |  |
 
-### Line movement: first seen 2026-11-11T18:17:58+00:00 to 2026-11-14T11:37:42+00:00 (9 snapshots)
+### Line movement: first seen 2026-11-11T18:17:58+00:00 to 2026-11-14T19:13:22+00:00 (10 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
 | moneyline | draftkings | n/a | n/a | n/a | -135 / +114 | -135 / +114 |
 | moneyline | fanduel | n/a | n/a | n/a | -138 / +118 | -138 / +118 |
 | moneyline | pinnacle | n/a | n/a | n/a | -138 / +122 | -134 / +119 |
-| spread | draftkings | -2.5 | -2.5 | 0.0 | -108 / -112 | -108 / -112 |
+| spread | draftkings | -2.5 | -2.5 | 0.0 | -108 / -112 | -105 / -115 |
 | spread | fanduel | -2.5 | -1.5 | 1.0 | -110 / -110 | -120 / +100 |
 | spread | pinnacle | -2.0 | -2.5 | -0.5 | -114 / +101 | -104 / -108 |
 | total | draftkings | 48.5 | 48.5 | 0.0 | -115 / -105 | -115 / -105 |
@@ -98,46 +106,46 @@ First seen by this pipeline, not the true opening line. Snapshots are only as fr
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Bryce Young | passing yards | draftkings | 244.5 | -111 / -113 | 49.8% | 50.2% | 278.0 | 296.6 | 8 | 33.5 |
-| Bryce Young | passing yards | fanduel | 244.5 | -114 / -114 | 50.0% | 50.2% | 278.0 | 296.6 | 8 | 33.5 |
-| Bryce Young | passing yards | hardrockbet | 244.5 | -115 / -115 | 50.0% | 50.2% | 278.0 | 296.6 | 8 | 33.5 |
-| Tyler Shough | passing yards | fanduel | 252.5 | -114 / -114 | 50.0% | 49.6% | 233.2 | 252.8 | 8 | -19.3 |
+| Bryce Young | passing yards | fanduel | 244.5 | -113 / -113 | 50.0% | 50.2% | 278.0 | 296.6 | 8 | 33.5 |
+| Bryce Young | passing yards | hardrockbet | 245.5 | -115 / -115 | 50.0% | n/a | 278.0 | 296.6 | 8 | 32.5 |
+| Bryce Young | passing yards | draftkings | 247.5 | -111 / -113 | 49.8% | n/a | 278.0 | 296.6 | 8 | 30.5 |
+| Tyler Shough | passing yards | fanduel | 252.5 | -113 / -113 | 50.0% | 49.6% | 233.2 | 252.8 | 8 | -19.3 |
+| Tyler Shough | passing yards | draftkings | 251.5 | -111 / -113 | 49.8% | n/a | 233.2 | 252.8 | 8 | -18.3 |
 | Tyler Shough | passing yards | hardrockbet | 251.5 | -115 / -115 | 50.0% | n/a | 233.2 | 252.8 | 8 | -18.3 |
-| Tyler Shough | passing yards | draftkings | 250.5 | -113 / -111 | 50.2% | n/a | 233.2 | 252.8 | 8 | -17.3 |
-| Darren Waller | receiving yards | draftkings | 28.5 | -115 / -109 | 50.6% | n/a | 42.7 | 37.7 | 8 | 14.2 |
-| Devaughn Vele | receiving yards | draftkings | 29.5 | -114 / -110 | 50.4% | 50.0% | 42.9 | 47.8 | 8 | 13.4 |
-| Devaughn Vele | receiving yards | fanduel | 29.5 | -114 / -114 | 50.0% | 50.0% | 42.9 | 47.8 | 8 | 13.4 |
+| Darren Waller | receiving yards | draftkings | 27.5 | -115 / -109 | 50.6% | n/a | 42.7 | 37.7 | 8 | 15.2 |
+| Darren Waller | receiving yards | hardrockbet | 28.5 | -115 / -115 | 50.0% | n/a | 42.7 | 37.7 | 8 | 14.2 |
+| Devaughn Vele | receiving yards | draftkings | 29.5 | -112 / -112 | 50.0% | 50.0% | 42.9 | 47.8 | 8 | 13.4 |
+| Devaughn Vele | receiving yards | fanduel | 29.5 | -113 / -113 | 50.0% | 50.0% | 42.9 | 47.8 | 8 | 13.4 |
 | Devaughn Vele | receiving yards | hardrockbet | 29.5 | -115 / -115 | 50.0% | 50.0% | 42.9 | 47.8 | 8 | 13.4 |
-| Darren Waller | receiving yards | fanduel | 29.5 | -114 / -114 | 50.0% | 49.8% | 42.7 | 37.7 | 8 | 13.2 |
-| Darren Waller | receiving yards | hardrockbet | 29.5 | -115 / -115 | 50.0% | 49.8% | 42.7 | 37.7 | 8 | 13.2 |
-| Tetairoa McMillan | receiving yards | fanduel | 65.5 | -114 / -114 | 50.0% | 50.0% | 77.5 | 68.3 | 8 | 12.0 |
+| Darren Waller | receiving yards | fanduel | 29.5 | -113 / -113 | 50.0% | 49.8% | 42.7 | 37.7 | 8 | 13.2 |
+| Tetairoa McMillan | receiving yards | draftkings | 64.5 | -110 / -114 | 49.6% | n/a | 77.5 | 68.3 | 8 | 13.0 |
+| Tetairoa McMillan | receiving yards | fanduel | 65.5 | -113 / -113 | 50.0% | 50.0% | 77.5 | 68.3 | 8 | 12.0 |
 | Tetairoa McMillan | receiving yards | hardrockbet | 65.5 | -115 / -115 | 50.0% | 50.0% | 77.5 | 68.3 | 8 | 12.0 |
-| Chris Olave | receiving yards | fanduel | 73.5 | -114 / -114 | 50.0% | 50.0% | 85.4 | 91.6 | 8 | 11.9 |
-| Chris Olave | receiving yards | hardrockbet | 73.5 | -115 / -115 | 50.0% | 50.0% | 85.4 | 91.6 | 8 | 11.9 |
-| Tetairoa McMillan | receiving yards | draftkings | 66.5 | -111 / -113 | 49.8% | n/a | 77.5 | 68.3 | 8 | 11.0 |
-| Chris Olave | receiving yards | draftkings | 74.5 | -113 / -111 | 50.2% | n/a | 85.4 | 91.6 | 8 | 10.9 |
-| Tommy Tremble | receiving yards | draftkings | 13.5 | -114 / -110 | 50.4% | n/a | 24.4 | 23.5 | 8 | 10.9 |
-| Tommy Tremble | receiving yards | fanduel | 14.5 | -114 / -114 | 50.0% | 50.0% | 24.4 | 23.5 | 8 | 9.9 |
+| Chris Olave | receiving yards | fanduel | 73.5 | -113 / -113 | 50.0% | 50.0% | 85.4 | 91.6 | 8 | 11.9 |
+| Chris Olave | receiving yards | draftkings | 74.5 | -112 / -112 | 50.0% | n/a | 85.4 | 91.6 | 8 | 10.9 |
+| Chris Olave | receiving yards | hardrockbet | 74.5 | -115 / -115 | 50.0% | n/a | 85.4 | 91.6 | 8 | 10.9 |
+| Alvin Kamara | rushing yards | fanduel | 14.5 | -113 / -113 | 50.0% | n/a | 24.6 | 25.2 | 7 | 10.1 |
+| Alvin Kamara | rushing yards | hardrockbet | 14.5 | -120 / -110 | 51.0% | n/a | 24.6 | 25.2 | 7 | 10.1 |
+| Tommy Tremble | receiving yards | fanduel | 14.5 | -113 / -113 | 50.0% | 50.0% | 24.4 | 23.5 | 8 | 9.9 |
 | Tommy Tremble | receiving yards | hardrockbet | 14.5 | -115 / -115 | 50.0% | 50.0% | 24.4 | 23.5 | 8 | 9.9 |
-| Chuba Hubbard | rushing yards | fanduel | 79.5 | -114 / -114 | 50.0% | 50.0% | 87.2 | 88.8 | 8 | 7.7 |
+| Alvin Kamara | rushing yards | draftkings | 15.5 | -112 / -112 | 50.0% | n/a | 24.6 | 25.2 | 7 | 9.1 |
+| Tommy Tremble | receiving yards | draftkings | 15.5 | -107 / -117 | 48.9% | n/a | 24.4 | 23.5 | 8 | 8.9 |
+| Chuba Hubbard | rushing yards | draftkings | 79.5 | -110 / -114 | 49.6% | 50.0% | 87.2 | 88.8 | 8 | 7.7 |
+| Chuba Hubbard | rushing yards | fanduel | 79.5 | -113 / -113 | 50.0% | 50.0% | 87.2 | 88.8 | 8 | 7.7 |
 | Chuba Hubbard | rushing yards | hardrockbet | 79.5 | -115 / -115 | 50.0% | 50.0% | 87.2 | 88.8 | 8 | 7.7 |
-| Chuba Hubbard | rushing yards | draftkings | 80.5 | -112 / -112 | 50.0% | n/a | 87.2 | 88.8 | 8 | 6.7 |
-| Juwan Johnson | receiving yards | draftkings | 23.5 | -115 / -109 | 50.6% | n/a | 30.1 | 40.5 | 8 | 6.6 |
-| Juwan Johnson | receiving yards | fanduel | 24.5 | -114 / -114 | 50.0% | 49.8% | 30.1 | 40.5 | 8 | 5.6 |
+| Juwan Johnson | receiving yards | draftkings | 24.5 | -109 / -115 | 49.4% | 49.8% | 30.1 | 40.5 | 8 | 5.6 |
+| Juwan Johnson | receiving yards | fanduel | 24.5 | -113 / -113 | 50.0% | 49.8% | 30.1 | 40.5 | 8 | 5.6 |
 | Juwan Johnson | receiving yards | hardrockbet | 24.5 | -115 / -115 | 50.0% | 49.8% | 30.1 | 40.5 | 8 | 5.6 |
-| Jalen Coker | receiving yards | fanduel | 47.5 | -114 / -114 | 50.0% | 50.8% | 50.7 | 35.7 | 7 | 3.2 |
-| Jalen Coker | receiving yards | hardrockbet | 48.5 | -115 / -115 | 50.0% | n/a | 50.7 | 35.7 | 7 | 2.2 |
-| Chris Olave | receptions | draftkings | 5.5 | -143 / +112 | 55.5% | 57.2% | 7.0 | 7.8 | 8 | 1.5 |
-| Chris Olave | receptions | fanduel | 5.5 | -138 / +104 | 54.2% | 57.2% | 7.0 | 7.8 | 8 | 1.5 |
-| Chris Olave | receptions | hardrockbet | 5.5 | -140 / +110 | 55.1% | 57.2% | 7.0 | 7.8 | 8 | 1.5 |
+| Jalen Coker | receiving yards | draftkings | 52.5 | -113 / -111 | 50.2% | n/a | 50.7 | 35.7 | 7 | -1.8 |
+| Chris Olave | receptions | draftkings | 5.5 | -146 / +114 | 56.0% | 53.3% | 7.0 | 7.8 | 8 | 1.5 |
+| Chris Olave | receptions | fanduel | 5.5 | -138 / +104 | 54.2% | 53.3% | 7.0 | 7.8 | 8 | 1.5 |
+| Chris Olave | receptions | hardrockbet | 5.5 | -140 / +110 | 55.1% | 53.3% | 7.0 | 7.8 | 8 | 1.5 |
 | Chuba Hubbard | carries | draftkings | 18.5 | -102 / -125 | 47.6% | 48.3% | 17.1 | 17.5 | 8 | -1.4 |
 | Chuba Hubbard | carries | hardrockbet | 18.5 | -105 / -125 | 48.0% | 48.3% | 17.1 | 17.5 | 8 | -1.4 |
-| Jalen Coker | receiving yards | draftkings | 49.5 | -114 / -110 | 50.4% | n/a | 50.7 | 35.7 | 7 | 1.2 |
-| Devaughn Vele | receptions | draftkings | 3.5 | +115 / -146 | 43.9% | 42.3% | 4.3 | 4.7 | 8 | 0.8 |
+| Jalen Coker | receiving yards | fanduel | 49.5 | -113 / -113 | 50.0% | n/a | 50.7 | 35.7 | 7 | 1.2 |
+| Tetairoa McMillan | receptions | draftkings | 4.5 | -150 / +118 | 56.7% | n/a | 5.6 | 4.9 | 8 | 1.1 |
+| Devaughn Vele | receptions | draftkings | 3.5 | +107 / -136 | 45.6% | 42.3% | 4.3 | 4.7 | 8 | 0.8 |
 | Devaughn Vele | receptions | fanduel | 3.5 | +108 / -144 | 44.9% | 42.3% | 4.3 | 4.7 | 8 | 0.8 |
-| Devaughn Vele | receptions | hardrockbet | 3.5 | +115 / -150 | 43.7% | 42.3% | 4.3 | 4.7 | 8 | 0.8 |
-| Jalen Coker | receptions | draftkings | 4.5 | +114 / -145 | 44.1% | 48.0% | 3.9 | 3.9 | 7 | -0.6 |
-| Jalen Coker | receptions | fanduel | 4.5 | +112 / -148 | 44.1% | 48.0% | 3.9 | 3.9 | 7 | -0.6 |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -412,7 +420,7 @@ Neutral-situation pass rate 60.2%; 65.1 plays per game; target share WR 59% / TE
 | defense allows | Deep middle | 8 | 3% | 25% | 8.88 | 1 |
 | defense allows | Deep right | 24 | 9% | 25% | 7.67 | 4 |
 
-### CAR lines (depth chart as of 2026-11-14T07:01:50Z)
+### CAR lines (depth chart as of 2026-11-14T14:04:32Z)
 
 Offensive line: LT Rasheed Walker, LG Damien Lewis, C Luke Fortner, RG Robert Hunt, RT Monroe Freeling.  
 Defensive front: LDE Derrick Brown, NT Lee Hunter, RDE Tershawn Wharton, WLB Patrick Jones II, SLB Jaelan Phillips.
@@ -434,7 +442,7 @@ Defensive front: LDE Derrick Brown, NT Lee Hunter, RDE Tershawn Wharton, WLB Pat
 | Jonathon Brooks | RB |  | Doubtful | Limited Participation in Practice | Groin |
 | Xavier Legette | WR |  | Questionable | Full Participation in Practice | Knee |
 
-ESPN live list (designations only): Jaycee Horn (CB) Injured Reserve; Bobby Okereke (LB) Out; Jonathon Brooks (RB) Injured Reserve; Jaelan Phillips (LB) Questionable; Xavier Legette (WR) Injured Reserve; Will Lee III (CB) Questionable; Mike Jackson (CB) Injured Reserve.
+ESPN live list (designations only): Jaycee Horn (CB) Injured Reserve; Bobby Okereke (LB) Out; Jonathon Brooks (RB) Injured Reserve; Jaelan Phillips (LB) Questionable; Will Lee III (CB) Questionable; Mike Jackson (CB) Injured Reserve; Xavier Legette (WR) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -637,9 +645,9 @@ Neutral-situation pass rate 53.4%; 65.9 plays per game; target share WR 57% / TE
 | defense allows | Deep middle | 10 | 4% | 50% | 16.3 | 5 |
 | defense allows | Deep right | 19 | 8% | 47% | 14.0 | 5 |
 
-### NO lines (depth chart as of 2026-11-14T07:01:50Z)
+### NO lines (depth chart as of 2026-11-14T14:04:32Z)
 
-Offensive line: LT Kelvin Banks Jr., LG David Edwards, C Cesar Ruiz, RG Jeremiah Wright, RT Taliese Fuaga.  
+Offensive line: LT Kelvin Banks Jr., LG David Edwards, C William Sherman, RG Jeremiah Wright, RT Asim Richards.  
 Defensive front: LDE Cameron Jordan, NT Nathan Shepherd, RDE Vernon Broughton, WLB Carl Granderson, SLB Chase Young.
 
 ### NO injuries
@@ -649,17 +657,17 @@ Defensive front: LDE Cameron Jordan, NT Nathan Shepherd, RDE Vernon Broughton, W
 | Martin Emerson | CB | yes | Questionable | Limited Participation in Practice | Shin |
 | David Edwards | G | yes | none listed | Full Participation in Practice |  |
 | Alvin Kamara | RB | yes | none listed | Full Participation in Practice |  |
-| Taliese Fuaga | T | yes | Out | Did Not Participate In Practice | Knee |
+| Asim Richards | T | yes | none listed | Full Participation in Practice |  |
 | Kelvin Banks Jr. | T | yes | none listed | Full Participation in Practice |  |
 | Erik McCoy | C |  | Out | Did Not Participate In Practice | Biceps |
 | Quincy Riley | CB |  | none listed | Full Participation in Practice |  |
 | Christen Miller | DT |  | Out | Did Not Participate In Practice | Knee |
 | Travis Etienne | RB |  | Questionable | Full Participation in Practice | Hamstring |
 | CJ Donaldson | RB |  | Out | Did Not Participate In Practice | Shoulder |
-| Asim Richards | T |  | none listed | Full Participation in Practice |  |
+| Taliese Fuaga | T |  | Out | Did Not Participate In Practice | Knee |
 | Noah Fant | TE |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Travis Etienne Jr. (RB) Injured Reserve; CJ Donaldson (RB) Out; Martin Emerson Jr. (CB) Questionable; Taliese Fuaga (OT) Out; Christen Miller (DT) Out; Erik McCoy (C) Out.
+ESPN live list (designations only): CJ Donaldson (RB) Out; Martin Emerson Jr. (CB) Questionable; Taliese Fuaga (OT) Out; Christen Miller (DT) Out; Erik McCoy (C) Out; Travis Etienne Jr. (RB) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -703,16 +711,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T11:37:34+00:00 | 6fce4badec51 |
-| pbp | OK | 2026-11-14T11:37:35+00:00 | 9f8b1f936f8f |
-| rosters | OK | 2026-11-14T11:37:35+00:00 | 9e6a21c736d9 |
-| injuries | OK | 2026-11-14T11:37:35+00:00 | 2c0d89d0e3ac |
-| depth_charts | OK | 2026-11-14T11:37:36+00:00 | ae00893a3710 |
-| snap_counts | OK | 2026-11-14T11:37:36+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T11:37:36+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-14T11:37:36+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T11:37:37+00:00 |  |
+| games | OK | 2026-11-14T19:13:16+00:00 | 187e797b8389 |
+| pbp | OK | 2026-11-14T19:13:16+00:00 | 90b9e3d96e1f |
+| rosters | OK | 2026-11-14T19:13:16+00:00 | d7134cc8f857 |
+| injuries | OK | 2026-11-14T19:13:16+00:00 | 87a9f1f13fc0 |
+| depth_charts | OK | 2026-11-14T19:13:16+00:00 | 3cedf53d51f0 |
+| snap_counts | OK | 2026-11-14T19:13:16+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T19:13:17+00:00 | 019f5d5f7b16 |
+| pfr_def | OK | 2026-11-14T19:13:17+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T19:13:17+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-14T11:37:38+00:00 |  |
+| book_odds | OK | 2026-11-14T19:13:18+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

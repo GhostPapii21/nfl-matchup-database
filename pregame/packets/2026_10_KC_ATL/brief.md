@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): ATL +3, total 47.5.
 
-Generated 2026-11-14T11:37:48+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T19:13:29+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T11:37:47+00:00 UTC. At kickoff: 54 F, wind 0 mph , 0% chance of precipitation, Mostly Sunny. During the game: low 54 F, wind up to 0 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-14T19:13:28+00:00 UTC. At kickoff: 56 F, wind 0 mph , 0% chance of precipitation, Partly Sunny. During the game: low 56 F, wind up to 0 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-14T11:37:38+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-14T19:13:18+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | ATL +3 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-14T11:36:55Z |
-| spread | williamhill_us | ATL +3 | +101 | -121 | 47.6% | 52.4% | 4.5% | 2026-11-14T11:35:53Z |
-| spread | fanduel | ATL +3.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-14T11:37:13Z |
-| spread | hardrockbet | ATL +3 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-14T11:37:13Z |
-| spread | pinnacle | ATL +3.5 | -124 | +110 | 53.8% | 46.2% | 3.0% | 2026-11-14T11:37:26Z |
-| total | draftkings | Over 47.5 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-14T11:36:55Z |
-| total | williamhill_us | Over 47 | -113 | -107 | 50.6% | 49.4% | 4.7% | 2026-11-14T11:35:53Z |
-| total | fanduel | Over 47.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T11:37:13Z |
-| total | hardrockbet | Over 47 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T11:37:13Z |
-| total | pinnacle | Over 48 | +104 | -122 | 47.1% | 52.8% | 4.0% | 2026-11-14T11:37:26Z |
-| moneyline | draftkings | ATL | +145 | -175 | 39.1% | 60.9% | 4.5% | 2026-11-14T11:36:55Z |
-| moneyline | williamhill_us | ATL | +153 | -182 | 38.0% | 62.0% | 4.1% | 2026-11-14T11:35:53Z |
-| moneyline | fanduel | ATL | +144 | -172 | 39.3% | 60.7% | 4.2% | 2026-11-14T11:37:13Z |
-| moneyline | hardrockbet | ATL | +155 | -185 | 37.7% | 62.3% | 4.1% | 2026-11-14T11:37:13Z |
-| moneyline | pinnacle | ATL | +151 | -171 | 38.7% | 61.3% | 2.9% | 2026-11-14T11:37:26Z |
+| spread | draftkings | ATL +3 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T19:12:25Z |
+| spread | williamhill_us | ATL +3 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-14T19:11:55Z |
+| spread | fanduel | ATL +3.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-14T19:13:13Z |
+| spread | hardrockbet | ATL +3 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-14T19:12:12Z |
+| spread | pinnacle | ATL +3.5 | -127 | +113 | 54.4% | 45.6% | 2.9% | 2026-11-14T19:13:13Z |
+| total | draftkings | Over 47.5 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-14T19:12:25Z |
+| total | williamhill_us | Over 47 | -113 | -107 | 50.6% | 49.4% | 4.7% | 2026-11-14T19:11:55Z |
+| total | fanduel | Over 47.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T19:13:13Z |
+| total | hardrockbet | Over 47 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T19:12:12Z |
+| total | pinnacle | Over 47 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-14T19:13:13Z |
+| moneyline | draftkings | ATL | +140 | -166 | 40.0% | 60.0% | 4.1% | 2026-11-14T19:12:25Z |
+| moneyline | williamhill_us | ATL | +147 | -173 | 39.0% | 61.0% | 3.9% | 2026-11-14T19:11:55Z |
+| moneyline | fanduel | ATL | +144 | -172 | 39.3% | 60.7% | 4.2% | 2026-11-14T19:13:13Z |
+| moneyline | hardrockbet | ATL | +155 | -185 | 37.7% | 62.3% | 4.1% | 2026-11-14T19:12:12Z |
+| moneyline | pinnacle | ATL | +148 | -168 | 39.1% | 60.9% | 3.0% | 2026-11-14T19:13:13Z |
 
 ### Same-line consensus (retail books only)
 
@@ -38,57 +38,61 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 | Market | Team | Label | FanDuel | DraftKings | Hard Rock Bet | Caesars | Consensus | Note |
 |---|---|---|---|---|---|---|---|---|
-| moneyline |  | four-book game-line consensus |  |  |  |  | ATL n/a: 38.5% (4 at line) |  |
-| spread |  | four-book game-line consensus | 3.5 | 3.0 | 3.0 | 3.0 | ATL 3.0: 47.9% (3 at line) |  |
+| moneyline |  | four-book game-line consensus |  |  |  |  | ATL n/a: 39.0% (4 at line) |  |
+| spread |  | four-book game-line consensus | 3.5 | 3.0 | 3.0 | 3.0 | ATL 3.0: 48.8% (3 at line) |  |
 | total |  | four-book game-line consensus | 47.5 | 47.5 | 47.0 | 47.0 | no consensus | books split evenly between lines [47.0, 47.5] |
-| carries|Bijan Robinson | ATL | two-book prop consensus | not offered | 19.5 | 19.5 | no props | Over 19.5: 51.3% (2 at line) |  |
-| carries|Patrick Mahomes | KC | two-book prop consensus | not offered | 2.5 | 2.5 | no props | Over 2.5: 54.2% (2 at line) |  |
+| carries|Bijan Robinson | ATL | two-book prop consensus | not offered | 19.5 | 19.5 | no props | Over 19.5: 51.8% (2 at line) |  |
+| carries|Emmett Johnson | KC | one-book prop consensus | not offered | 16.5 | not offered | no props | no consensus | fewer than 2 books share a line (DraftKings 16.5) |
+| carries|Patrick Mahomes | KC | two-book prop consensus | not offered | 2.5 | 2.5 | no props | Over 2.5: 56.4% (2 at line) |  |
 | completions|Michael Penix Jr. | ATL | two-book prop consensus | not offered | 20.5 | 20.5 | no props | Over 20.5: 48.4% (2 at line) |  |
-| completions|Patrick Mahomes | KC | two-book prop consensus | not offered | 21.5 | 21.5 | no props | Over 21.5: 52.5% (2 at line) |  |
+| completions|Patrick Mahomes | KC | two-book prop consensus | not offered | 21.5 | 21.5 | no props | Over 21.5: 52.6% (2 at line) |  |
 | passing_attempts|Michael Penix Jr. | ATL | two-book prop consensus | not offered | 31.5 | 31.5 | no props | Over 31.5: 50.7% (2 at line) |  |
-| passing_attempts|Patrick Mahomes | KC | two-book prop consensus | not offered | 32.5 | 32.5 | no props | Over 32.5: 52.1% (2 at line) |  |
-| passing_yards|Michael Penix Jr. | ATL | three-book prop consensus | 215.5 | 212.5 | 215.5 | no props | Over 215.5: 50.0% (2 at line) | NEVER A LEG (passing yards: reference only) |
-| passing_yards|Patrick Mahomes | KC | three-book prop consensus | 239.5 | 239.5 | 238.5 | no props | Over 239.5: 50.1% (2 at line) | NEVER A LEG (passing yards: reference only) |
+| passing_attempts|Patrick Mahomes | KC | two-book prop consensus | not offered | 32.5 | 33.5 | no props | no consensus | fewer than 2 books share a line (DraftKings 32.5, Hard Rock Bet 33.5) |
+| passing_yards|Michael Penix Jr. | ATL | three-book prop consensus | 215.5 | 214.5 | 215.5 | no props | Over 215.5: 50.0% (2 at line) | NEVER A LEG (passing yards: reference only) |
+| passing_yards|Patrick Mahomes | KC | three-book prop consensus | 239.5 | 238.5 | 239.5 | no props | Over 239.5: 50.0% (2 at line) | NEVER A LEG (passing yards: reference only) |
 | receiving_yards|Bijan Robinson | ATL | three-book prop consensus | 28.5 | 27.5 | 28.5 | no props | Over 28.5: 50.0% (2 at line) |  |
 | receiving_yards|Drake London | ATL | three-book prop consensus | 72.5 | 71.5 | 72.5 | no props | Over 72.5: 50.0% (2 at line) |  |
-| receiving_yards|Jahan Dotson | ATL | three-book prop consensus | 28.5 | 28.5 | 28.5 | no props | Over 28.5: 49.9% (3 at line) |  |
+| receiving_yards|Emmett Johnson | KC | two-book prop consensus | 24.5 | 24.5 | not offered | no props | Over 24.5: 50.4% (2 at line) |  |
+| receiving_yards|Jahan Dotson | ATL | three-book prop consensus | 28.5 | 28.5 | 28.5 | no props | Over 28.5: 50.2% (3 at line) |  |
 | receiving_yards|Josh Downs | KC | three-book prop consensus | 21.5 | 21.5 | 21.5 | no props | Over 21.5: 49.7% (3 at line) |  |
 | receiving_yards|Khalil Herbert | ATL | three-book prop consensus | 2.5 | 3.5 | 2.5 | no props | Over 2.5: 50.5% (2 at line) |  |
 | receiving_yards|Kyle Pitts | ATL | three-book prop consensus | 37.5 | 38.5 | 37.5 | no props | Over 37.5: 50.0% (2 at line) |  |
-| receiving_yards|Noah Gray | KC | three-book prop consensus | 10.5 | 11.5 | 10.5 | no props | Over 10.5: 50.0% (2 at line) |  |
-| receiving_yards|Olamide Zaccheaus | ATL | three-book prop consensus | 8.5 | 7.5 | 8.5 | no props | Over 8.5: 50.0% (2 at line) |  |
-| receiving_yards|Rashee Rice | KC | three-book prop consensus | 54.5 | 56.5 | 55.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 54.5, DraftKings 56.5, Hard Rock Bet 55.5) |
-| receiving_yards|Travis Kelce | KC | three-book prop consensus | 48.5 | 48.5 | 48.5 | no props | Over 48.5: 50.0% (3 at line) |  |
-| receiving_yards|Xavier Worthy | KC | three-book prop consensus | 26.5 | 26.5 | 26.5 | no props | Over 26.5: 50.0% (3 at line) |  |
-| receptions|Bijan Robinson | ATL | three-book prop consensus | 4.5 | 3.5 | 3.5 | no props | Over 3.5: 58.0% (2 at line) |  |
+| receiving_yards|Noah Gray | KC | three-book prop consensus | 12.5 | 12.5 | 12.5 | no props | Over 12.5: 49.3% (3 at line) |  |
+| receiving_yards|Olamide Zaccheaus | ATL | three-book prop consensus | 8.5 | 8.5 | 8.5 | no props | Over 8.5: 49.7% (3 at line) |  |
+| receiving_yards|Rashee Rice | KC | three-book prop consensus | 55.5 | 55.5 | 55.5 | no props | Over 55.5: 49.9% (3 at line) |  |
+| receiving_yards|Travis Kelce | KC | three-book prop consensus | 48.5 | 47.5 | 48.5 | no props | Over 48.5: 50.0% (2 at line) |  |
+| receiving_yards|Xavier Worthy | KC | three-book prop consensus | 26.5 | 27.5 | 26.5 | no props | Over 26.5: 50.0% (2 at line) |  |
+| receptions|Bijan Robinson | ATL | three-book prop consensus | 4.5 | 4.5 | 3.5 | no props | Over 4.5: 41.2% (2 at line) |  |
 | receptions|Drake London | ATL | three-book prop consensus | 5.5 | 5.5 | 5.5 | no props | Over 5.5: 51.5% (3 at line) |  |
-| receptions|Jahan Dotson | ATL | three-book prop consensus | 2.5 | 2.5 | 1.5 | no props | Over 2.5: 37.8% (2 at line) |  |
-| receptions|Josh Downs | KC | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 42.2% (3 at line) |  |
-| receptions|Khalil Herbert | ATL | three-book prop consensus | 0.5 | 0.5 | 0.5 | no props | Over 0.5: 61.7% (3 at line) |  |
+| receptions|Emmett Johnson | KC | two-book prop consensus | 3.5 | 3.5 | not offered | no props | Over 3.5: 44.3% (2 at line) |  |
+| receptions|Jahan Dotson | ATL | three-book prop consensus | 2.5 | 2.5 | 1.5 | no props | Over 2.5: 38.3% (2 at line) |  |
+| receptions|Josh Downs | KC | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 41.9% (3 at line) |  |
+| receptions|Khalil Herbert | ATL | three-book prop consensus | 0.5 | 0.5 | 0.5 | no props | Over 0.5: 62.1% (3 at line) |  |
 | receptions|Kyle Pitts | ATL | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 57.5% (3 at line) |  |
-| receptions|Noah Gray | KC | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 41.8% (3 at line) |  |
+| receptions|Noah Gray | KC | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 46.3% (3 at line) |  |
 | receptions|Olamide Zaccheaus | ATL | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 42.0% (3 at line) |  |
-| receptions|Rashee Rice | KC | three-book prop consensus | 5.5 | 5.5 | 5.5 | no props | Over 5.5: 43.2% (3 at line) |  |
-| receptions|Travis Kelce | KC | three-book prop consensus | 4.5 | 4.5 | 4.5 | no props | Over 4.5: 42.7% (3 at line) |  |
-| receptions|Xavier Worthy | KC | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 53.0% (3 at line) |  |
+| receptions|Rashee Rice | KC | three-book prop consensus | 5.5 | 5.5 | 5.5 | no props | Over 5.5: 47.3% (3 at line) |  |
+| receptions|Travis Kelce | KC | three-book prop consensus | 4.5 | 4.5 | 4.5 | no props | Over 4.5: 41.7% (3 at line) |  |
+| receptions|Xavier Worthy | KC | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 53.7% (3 at line) |  |
 | rushing_yards|Bijan Robinson | ATL | three-book prop consensus | 83.5 | 84.5 | 83.5 | no props | Over 83.5: 50.0% (2 at line) |  |
+| rushing_yards|Emmett Johnson | KC | two-book prop consensus | 73.5 | 72.5 | not offered | no props | no consensus | fewer than 2 books share a line (FanDuel 73.5, DraftKings 72.5) |
 | rushing_yards|Khalil Herbert | ATL | three-book prop consensus | 8.5 | 9.5 | 8.5 | no props | Over 8.5: 50.5% (2 at line) |  |
 | rushing_yards|Michael Penix Jr. | ATL | three-book prop consensus | 7.5 | 8.5 | 7.5 | no props | Over 7.5: 50.5% (2 at line) |  |
-| rushing_yards|Patrick Mahomes | KC | three-book prop consensus | 8.5 | 9.5 | 8.5 | no props | Over 8.5: 50.5% (2 at line) |  |
+| rushing_yards|Patrick Mahomes | KC | three-book prop consensus | 8.5 | 8.5 | 8.5 | no props | Over 8.5: 49.8% (3 at line) |  |
 
-### Line movement: first seen 2026-11-11T18:18:03+00:00 to 2026-11-14T11:37:47+00:00 (9 snapshots)
+### Line movement: first seen 2026-11-11T18:18:03+00:00 to 2026-11-14T19:13:28+00:00 (10 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
-| moneyline | draftkings | n/a | n/a | n/a | +154 / -185 | +145 / -175 |
+| moneyline | draftkings | n/a | n/a | n/a | +154 / -185 | +140 / -166 |
 | moneyline | fanduel | n/a | n/a | n/a | +148 / -176 | +144 / -172 |
-| moneyline | pinnacle | n/a | n/a | n/a | +156 / -178 | +151 / -171 |
-| spread | draftkings | 3.5 | 3.0 | -0.5 | -118 / -102 | -102 / -118 |
+| moneyline | pinnacle | n/a | n/a | n/a | +156 / -178 | +148 / -168 |
+| spread | draftkings | 3.5 | 3.0 | -0.5 | -118 / -102 | -108 / -112 |
 | spread | fanduel | 3.5 | 3.5 | 0.0 | -115 / -105 | -120 / +100 |
-| spread | pinnacle | 3.5 | 3.5 | 0.0 | -117 / +104 | -124 / +110 |
+| spread | pinnacle | 3.5 | 3.5 | 0.0 | -117 / +104 | -127 / +113 |
 | total | draftkings | 45.5 | 47.5 | 2.0 | -112 / -108 | -102 / -118 |
 | total | fanduel | 45.5 | 47.5 | 2.0 | -110 / -110 | -105 / -115 |
-| total | pinnacle | 45.5 | 48.0 | 2.5 | -111 / -105 | +104 / -122 |
+| total | pinnacle | 45.5 | 47.0 | 1.5 | -111 / -105 | -109 / -107 |
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
@@ -96,46 +100,46 @@ First seen by this pipeline, not the true opening line. Snapshots are only as fr
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Patrick Mahomes | passing yards | hardrockbet | 238.5 | -115 / -115 | 50.0% | n/a | 258.9 | 248.7 | 8 | 20.4 |
-| Patrick Mahomes | passing yards | draftkings | 239.5 | -113 / -111 | 50.2% | n/a | 258.9 | 248.7 | 8 | 19.4 |
-| Patrick Mahomes | passing yards | fanduel | 239.5 | -114 / -114 | 50.0% | n/a | 258.9 | 248.7 | 8 | 19.4 |
-| Xavier Worthy | receiving yards | draftkings | 26.5 | -112 / -112 | 50.0% | 50.0% | 37.5 | 23.7 | 8 | 11.0 |
-| Xavier Worthy | receiving yards | fanduel | 26.5 | -114 / -114 | 50.0% | 50.0% | 37.5 | 23.7 | 8 | 11.0 |
+| Patrick Mahomes | passing yards | draftkings | 238.5 | -112 / -112 | 50.0% | n/a | 258.9 | 248.7 | 8 | 20.4 |
+| Patrick Mahomes | passing yards | fanduel | 239.5 | -113 / -113 | 50.0% | n/a | 258.9 | 248.7 | 8 | 19.4 |
+| Patrick Mahomes | passing yards | hardrockbet | 239.5 | -115 / -115 | 50.0% | n/a | 258.9 | 248.7 | 8 | 19.4 |
+| Xavier Worthy | receiving yards | fanduel | 26.5 | -113 / -113 | 50.0% | 50.0% | 37.5 | 23.7 | 8 | 11.0 |
 | Xavier Worthy | receiving yards | hardrockbet | 26.5 | -115 / -115 | 50.0% | 50.0% | 37.5 | 23.7 | 8 | 11.0 |
-| Jahan Dotson | receiving yards | draftkings | 28.5 | -110 / -114 | 49.6% | 50.0% | 38.6 | 30.9 | 8 | 10.1 |
-| Jahan Dotson | receiving yards | fanduel | 28.5 | -114 / -114 | 50.0% | 50.0% | 38.6 | 30.9 | 8 | 10.1 |
+| Jahan Dotson | receiving yards | draftkings | 28.5 | -115 / -110 | 50.5% | 50.0% | 38.6 | 30.9 | 8 | 10.1 |
+| Jahan Dotson | receiving yards | fanduel | 28.5 | -113 / -113 | 50.0% | 50.0% | 38.6 | 30.9 | 8 | 10.1 |
 | Jahan Dotson | receiving yards | hardrockbet | 28.5 | -115 / -115 | 50.0% | 50.0% | 38.6 | 30.9 | 8 | 10.1 |
+| Xavier Worthy | receiving yards | draftkings | 27.5 | -115 / -109 | 50.6% | n/a | 37.5 | 23.7 | 8 | 10.0 |
 | Kyle Pitts | receiving yards | draftkings | 38.5 | -112 / -112 | 50.0% | n/a | 30.0 | 24.5 | 8 | -8.5 |
-| Rashee Rice | receiving yards | fanduel | 54.5 | -114 / -114 | 50.0% | 49.8% | 62.7 | 55.9 | 5 | 8.2 |
-| Kyle Pitts | receiving yards | fanduel | 37.5 | -114 / -114 | 50.0% | 50.0% | 30.0 | 24.5 | 8 | -7.5 |
-| Kyle Pitts | receiving yards | hardrockbet | 37.5 | -115 / -115 | 50.0% | 50.0% | 30.0 | 24.5 | 8 | -7.5 |
-| Travis Kelce | receiving yards | draftkings | 48.5 | -112 / -112 | 50.0% | n/a | 55.9 | 59.4 | 8 | 7.4 |
-| Travis Kelce | receiving yards | fanduel | 48.5 | -114 / -114 | 50.0% | n/a | 55.9 | 59.4 | 8 | 7.4 |
+| Travis Kelce | receiving yards | draftkings | 47.5 | -110 / -114 | 49.6% | 51.5% | 55.9 | 59.4 | 8 | 8.4 |
+| Kyle Pitts | receiving yards | fanduel | 37.5 | -113 / -113 | 50.0% | 49.7% | 30.0 | 24.5 | 8 | -7.5 |
+| Kyle Pitts | receiving yards | hardrockbet | 37.5 | -115 / -115 | 50.0% | 49.7% | 30.0 | 24.5 | 8 | -7.5 |
+| Travis Kelce | receiving yards | fanduel | 48.5 | -113 / -113 | 50.0% | n/a | 55.9 | 59.4 | 8 | 7.4 |
 | Travis Kelce | receiving yards | hardrockbet | 48.5 | -115 / -115 | 50.0% | n/a | 55.9 | 59.4 | 8 | 7.4 |
+| Rashee Rice | receiving yards | draftkings | 55.5 | -111 / -113 | 49.8% | n/a | 62.7 | 55.9 | 5 | 7.2 |
+| Rashee Rice | receiving yards | fanduel | 55.5 | -113 / -113 | 50.0% | n/a | 62.7 | 55.9 | 5 | 7.2 |
 | Rashee Rice | receiving yards | hardrockbet | 55.5 | -115 / -115 | 50.0% | n/a | 62.7 | 55.9 | 5 | 7.2 |
-| Rashee Rice | receiving yards | draftkings | 56.5 | -113 / -111 | 50.2% | n/a | 62.7 | 55.9 | 5 | 6.2 |
-| Drake London | receiving yards | fanduel | 72.5 | -114 / -114 | 50.0% | 49.8% | 69.8 | 65.3 | 8 | -2.7 |
-| Drake London | receiving yards | hardrockbet | 72.5 | -115 / -115 | 50.0% | 49.8% | 69.8 | 65.3 | 8 | -2.7 |
-| Xavier Worthy | receptions | draftkings | 2.5 | -129 / +101 | 53.1% | 53.6% | 4.5 | 3.7 | 8 | 2.0 |
+| Drake London | receiving yards | fanduel | 72.5 | -113 / -113 | 50.0% | 49.6% | 69.8 | 65.3 | 8 | -2.7 |
+| Drake London | receiving yards | hardrockbet | 72.5 | -115 / -115 | 50.0% | 49.6% | 69.8 | 65.3 | 8 | -2.7 |
+| Xavier Worthy | receptions | draftkings | 2.5 | -141 / +110 | 55.1% | 53.6% | 4.5 | 3.7 | 8 | 2.0 |
 | Xavier Worthy | receptions | fanduel | 2.5 | -130 / -102 | 52.8% | 53.6% | 4.5 | 3.7 | 8 | 2.0 |
 | Xavier Worthy | receptions | hardrockbet | 2.5 | -130 / +100 | 53.1% | 53.6% | 4.5 | 3.7 | 8 | 2.0 |
-| Drake London | receiving yards | draftkings | 71.5 | -112 / -112 | 50.0% | n/a | 69.8 | 65.3 | 8 | -1.7 |
+| Drake London | receiving yards | draftkings | 71.5 | -114 / -110 | 50.4% | n/a | 69.8 | 65.3 | 8 | -1.7 |
 | Drake London | receptions | draftkings | 5.5 | -127 / +100 | 52.8% | 51.7% | 4.7 | 4.7 | 8 | -0.8 |
 | Drake London | receptions | fanduel | 5.5 | -118 / -112 | 50.6% | 51.7% | 4.7 | 4.7 | 8 | -0.8 |
 | Drake London | receptions | hardrockbet | 5.5 | -120 / -110 | 51.0% | 51.7% | 4.7 | 4.7 | 8 | -0.8 |
-| Jahan Dotson | receptions | draftkings | 2.5 | +143 / -184 | 38.8% | 36.9% | 1.8 | 1.9 | 8 | -0.7 |
+| Jahan Dotson | receptions | draftkings | 2.5 | +137 / -176 | 39.8% | 36.9% | 1.8 | 1.9 | 8 | -0.7 |
 | Jahan Dotson | receptions | fanduel | 2.5 | +154 / -210 | 36.8% | 36.9% | 1.8 | 1.9 | 8 | -0.7 |
-| Travis Kelce | receptions | draftkings | 4.5 | +112 / -142 | 44.6% | 42.4% | 4.1 | 4.0 | 8 | -0.4 |
-| Travis Kelce | receptions | fanduel | 4.5 | +128 / -172 | 40.9% | 42.4% | 4.1 | 4.0 | 8 | -0.4 |
-| Travis Kelce | receptions | hardrockbet | 4.5 | +120 / -160 | 42.5% | 42.4% | 4.1 | 4.0 | 8 | -0.4 |
+| Travis Kelce | receptions | draftkings | 4.5 | +124 / -158 | 42.2% | 45.4% | 4.1 | 4.0 | 8 | -0.4 |
+| Travis Kelce | receptions | fanduel | 4.5 | +128 / -172 | 40.9% | 45.4% | 4.1 | 4.0 | 8 | -0.4 |
+| Travis Kelce | receptions | hardrockbet | 4.5 | +125 / -160 | 41.9% | 45.4% | 4.1 | 4.0 | 8 | -0.4 |
 | Jahan Dotson | receptions | hardrockbet | 1.5 | -185 / +140 | 60.9% | n/a | 1.8 | 1.9 | 8 | 0.3 |
-| Rashee Rice | receptions | draftkings | 5.5 | +117 / -150 | 43.4% | 44.9% | 5.7 | 5.4 | 5 | 0.2 |
-| Rashee Rice | receptions | fanduel | 5.5 | +116 / -154 | 43.3% | 44.9% | 5.7 | 5.4 | 5 | 0.2 |
-| Rashee Rice | receptions | hardrockbet | 5.5 | +120 / -155 | 42.8% | 44.9% | 5.7 | 5.4 | 5 | 0.2 |
+| Rashee Rice | receptions | draftkings | 5.5 | +102 / -129 | 46.8% | 50.4% | 5.7 | 5.4 | 5 | 0.2 |
+| Rashee Rice | receptions | fanduel | 5.5 | -102 / -130 | 47.2% | 50.4% | 5.7 | 5.4 | 5 | 0.2 |
+| Rashee Rice | receptions | hardrockbet | 5.5 | -105 / -125 | 48.0% | 50.4% | 5.7 | 5.4 | 5 | 0.2 |
 | Kyle Pitts | receptions | draftkings | 3.5 | -155 / +122 | 57.4% | 54.3% | 3.6 | 3.3 | 8 | 0.1 |
 | Kyle Pitts | receptions | fanduel | 3.5 | -162 / +122 | 57.9% | 54.3% | 3.6 | 3.3 | 8 | 0.1 |
 | Kyle Pitts | receptions | hardrockbet | 3.5 | -155 / +120 | 57.2% | 54.3% | 3.6 | 3.3 | 8 | 0.1 |
-| Patrick Mahomes | passing attempts | draftkings | 32.5 | -124 / -103 | 52.2% | 52.6% | n/a | n/a | n/a | n/a |
+| Patrick Mahomes | passing attempts | draftkings | 32.5 | -119 / -107 | 51.2% | 55.5% | n/a | n/a | n/a | n/a |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -454,9 +458,9 @@ Neutral-situation pass rate 60.0%; 60.5 plays per game; target share WR 50% / TE
 | defense allows | Deep middle | 12 | 4% | 42% | 13.67 | 4 |
 | defense allows | Deep right | 10 | 4% | 20% | 3.7 | 1 |
 
-### KC lines (depth chart as of 2026-11-14T07:01:50Z)
+### KC lines (depth chart as of 2026-11-14T14:04:32Z)
 
-Offensive line: LT Kahlil Benson, LG Kingsley Suamataia, C Creed Humphrey, RG Trey Smith, RT Jaylon Moore.  
+Offensive line: LT Kahlil Benson, LG Kingsley Suamataia, C Creed Humphrey, RG Trey Smith, RT Joshua Ezeudu.  
 Defensive front: LDE George Karlaftis, LDT Chris Jones, RDT Khyiris Tonga, RDE Felix Anudike-Uzomah, WLB Drue Tranquill, SLB Jeffrey Bassa.
 
 ### KC injuries
@@ -467,7 +471,6 @@ Defensive front: LDE George Karlaftis, LDT Chris Jones, RDT Khyiris Tonga, RDE F
 | Jeffrey Bassa | LB | yes | none listed | Full Participation in Practice |  |
 | Patrick Mahomes | QB | yes | none listed | Full Participation in Practice |  |
 | Kenneth Walker III | RB | yes | Questionable | Did Not Participate In Practice | Groin |
-| Jaylon Moore | T | yes | Out | Did Not Participate In Practice | Ankle |
 | Travis Kelce | TE | yes | none listed | Full Participation in Practice |  |
 | Rashee Rice | WR | yes | none listed | Full Participation in Practice |  |
 | Omarr Norman-Lott | DT |  | Out | Limited Participation in Practice | Knee |
@@ -475,9 +478,10 @@ Defensive front: LDE George Karlaftis, LDT Chris Jones, RDT Khyiris Tonga, RDE F
 | Justin Fields | QB |  | none listed | Full Participation in Practice |  |
 | Jaydn Ott | RB |  | Questionable | Limited Participation in Practice | Hamstring |
 | Jaden Hicks | S |  | none listed | Full Participation in Practice |  |
+| Jaylon Moore | T |  | Out | Did Not Participate In Practice | Ankle |
 | Xavier Worthy | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Kenneth Walker III (RB) Questionable; Mansoor Delane (CB) Questionable; Jaydn Ott (RB) Questionable; Peter Woods (DT) Out; Jaylon Moore (OT) Out.
+ESPN live list (designations only): Mansoor Delane (CB) Questionable; Jaydn Ott (RB) Questionable; Peter Woods (DT) Out; Jaylon Moore (OT) Out; Kenneth Walker III (RB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -682,7 +686,7 @@ Neutral-situation pass rate 45.3%; 58.1 plays per game; target share WR 56% / TE
 | defense allows | Deep middle | 6 | 2% | 83% | 25.5 | 4 |
 | defense allows | Deep right | 18 | 6% | 44% | 12.44 | 6 |
 
-### ATL lines (depth chart as of 2026-11-14T07:01:50Z)
+### ATL lines (depth chart as of 2026-11-14T14:04:32Z)
 
 Offensive line: LT Jake Matthews, LG Matthew Bergeron, C Corey Levin, RG Chris Lindstrom, RT Jawaan Taylor.  
 Defensive front: LDE Maason Smith, NT Gervon Dexter Sr., RDE Brandon Dorlus, WLB Cameron Thomas, SLB James Pearce Jr..
@@ -747,16 +751,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T11:37:34+00:00 | 6fce4badec51 |
-| pbp | OK | 2026-11-14T11:37:35+00:00 | 9f8b1f936f8f |
-| rosters | OK | 2026-11-14T11:37:35+00:00 | 9e6a21c736d9 |
-| injuries | OK | 2026-11-14T11:37:35+00:00 | 2c0d89d0e3ac |
-| depth_charts | OK | 2026-11-14T11:37:36+00:00 | ae00893a3710 |
-| snap_counts | OK | 2026-11-14T11:37:36+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T11:37:36+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-14T11:37:36+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T11:37:37+00:00 |  |
+| games | OK | 2026-11-14T19:13:16+00:00 | 187e797b8389 |
+| pbp | OK | 2026-11-14T19:13:16+00:00 | 90b9e3d96e1f |
+| rosters | OK | 2026-11-14T19:13:16+00:00 | d7134cc8f857 |
+| injuries | OK | 2026-11-14T19:13:16+00:00 | 87a9f1f13fc0 |
+| depth_charts | OK | 2026-11-14T19:13:16+00:00 | 3cedf53d51f0 |
+| snap_counts | OK | 2026-11-14T19:13:16+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T19:13:17+00:00 | 019f5d5f7b16 |
+| pfr_def | OK | 2026-11-14T19:13:17+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T19:13:17+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-14T11:37:38+00:00 |  |
+| book_odds | OK | 2026-11-14T19:13:18+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

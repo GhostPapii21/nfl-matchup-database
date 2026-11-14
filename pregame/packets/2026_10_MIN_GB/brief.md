@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): GB -2.5, total 42.5.
 
-Generated 2026-11-14T11:37:53+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T19:13:34+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T11:37:52+00:00 UTC. At kickoff: 45 F, wind 1 mph W, 0% chance of precipitation, Sunny. During the game: low 45 F, wind up to 1 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-14T19:13:32+00:00 UTC. At kickoff: 43 F, wind 1 mph W, 0% chance of precipitation, Mostly Sunny. During the game: low 43 F, wind up to 1 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-14T11:37:38+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-14T19:13:18+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | GB -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-14T11:36:55Z |
-| spread | williamhill_us | GB -3 | -104 | -117 | 48.6% | 51.4% | 4.9% | 2026-11-14T11:35:53Z |
-| spread | fanduel | GB -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
-| spread | hardrockbet | GB -3 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T11:37:13Z |
-| spread | pinnacle | GB -3 | +101 | -113 | 48.4% | 51.6% | 2.8% | 2026-11-14T11:37:26Z |
-| total | draftkings | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T11:36:55Z |
-| total | williamhill_us | Over 42 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-14T11:35:53Z |
-| total | fanduel | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T11:37:13Z |
-| total | hardrockbet | Over 42 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
-| total | pinnacle | Over 42 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-14T11:37:26Z |
-| moneyline | draftkings | GB | -148 | +124 | 57.2% | 42.8% | 4.3% | 2026-11-14T11:36:55Z |
-| moneyline | williamhill_us | GB | -159 | +134 | 59.0% | 41.0% | 4.1% | 2026-11-14T11:35:53Z |
-| moneyline | fanduel | GB | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-14T11:37:13Z |
-| moneyline | hardrockbet | GB | -155 | +135 | 58.8% | 41.2% | 3.3% | 2026-11-14T11:37:13Z |
-| moneyline | pinnacle | GB | -152 | +134 | 58.5% | 41.5% | 3.0% | 2026-11-14T11:37:26Z |
+| spread | draftkings | GB -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-14T19:12:25Z |
+| spread | williamhill_us | GB -3 | -104 | -117 | 48.6% | 51.4% | 4.9% | 2026-11-14T19:11:55Z |
+| spread | fanduel | GB -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:13:13Z |
+| spread | hardrockbet | GB -3 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T19:12:12Z |
+| spread | pinnacle | GB -3 | +101 | -113 | 48.4% | 51.6% | 2.8% | 2026-11-14T19:13:12Z |
+| total | draftkings | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T19:12:25Z |
+| total | williamhill_us | Over 42 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-14T19:11:55Z |
+| total | fanduel | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T19:13:13Z |
+| total | hardrockbet | Over 42 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:12:12Z |
+| total | pinnacle | Over 42 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-14T19:13:12Z |
+| moneyline | draftkings | GB | -148 | +124 | 57.2% | 42.8% | 4.3% | 2026-11-14T19:12:25Z |
+| moneyline | williamhill_us | GB | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-14T19:11:55Z |
+| moneyline | fanduel | GB | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-14T19:13:13Z |
+| moneyline | hardrockbet | GB | -155 | +135 | 58.8% | 41.2% | 3.3% | 2026-11-14T19:12:12Z |
+| moneyline | pinnacle | GB | -152 | +134 | 58.5% | 41.5% | 3.0% | 2026-11-14T19:13:12Z |
 
 ### Same-line consensus (retail books only)
 
@@ -38,46 +38,46 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 | Market | Team | Label | FanDuel | DraftKings | Hard Rock Bet | Caesars | Consensus | Note |
 |---|---|---|---|---|---|---|---|---|
-| moneyline |  | four-book game-line consensus |  |  |  |  | GB n/a: 58.3% (4 at line) |  |
+| moneyline |  | four-book game-line consensus |  |  |  |  | GB n/a: 58.1% (4 at line) |  |
 | spread |  | four-book game-line consensus | -3.0 | -2.5 | -3.0 | -3.0 | GB -3.0: 49.2% (3 at line) |  |
 | total |  | four-book game-line consensus | 42.5 | 42.5 | 42.0 | 42.0 | no consensus | books split evenly between lines [42.0, 42.5] |
-| carries|Aaron Jones | MIN | two-book prop consensus | not offered | 7.5 | 7.5 | no props | Over 7.5: 53.0% (2 at line) |  |
-| carries|Jordan Mason | MIN | two-book prop consensus | not offered | 11.5 | 11.5 | no props | Over 11.5: 51.8% (2 at line) |  |
+| carries|Aaron Jones | MIN | two-book prop consensus | not offered | 8.5 | 7.5 | no props | no consensus | fewer than 2 books share a line (DraftKings 8.5, Hard Rock Bet 7.5) |
+| carries|Jordan Mason | MIN | two-book prop consensus | not offered | 11.5 | 11.5 | no props | Over 11.5: 48.4% (2 at line) |  |
 | carries|Kaleb Johnson | GB | two-book prop consensus | not offered | 9.5 | 9.5 | no props | Over 9.5: 48.1% (2 at line) |  |
 | completions|Jordan Love | GB | two-book prop consensus | not offered | 21.5 | 21.5 | no props | Over 21.5: 49.3% (2 at line) |  |
 | completions|Kirk Cousins | MIN | two-book prop consensus | not offered | 20.5 | 20.5 | no props | Over 20.5: 52.9% (2 at line) |  |
 | passing_attempts|Jordan Love | GB | two-book prop consensus | not offered | 36.5 | 36.5 | no props | Over 36.5: 50.0% (2 at line) |  |
-| passing_attempts|Kirk Cousins | MIN | two-book prop consensus | not offered | 32.5 | 32.5 | no props | Over 32.5: 52.1% (2 at line) |  |
+| passing_attempts|Kirk Cousins | MIN | two-book prop consensus | not offered | 33.5 | 33.5 | no props | Over 33.5: 49.8% (2 at line) |  |
 | passing_yards|Jordan Love | GB | three-book prop consensus | 251.5 | 253.5 | 252.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 251.5, DraftKings 253.5, Hard Rock Bet 252.5); NEVER A LEG (passing yards: reference only) |
 | passing_yards|Kirk Cousins | MIN | three-book prop consensus | 232.5 | 231.5 | 232.5 | no props | Over 232.5: 50.0% (2 at line) | NEVER A LEG (passing yards: reference only) |
-| receiving_yards|Aaron Jones | MIN | three-book prop consensus | 10.5 | 10.5 | 10.5 | no props | Over 10.5: 50.0% (3 at line) |  |
+| receiving_yards|Aaron Jones | MIN | three-book prop consensus | 10.5 | 10.5 | 10.5 | no props | Over 10.5: 49.7% (3 at line) |  |
 | receiving_yards|Ben Yurosek | MIN | three-book prop consensus | 9.5 | 10.5 | 10.5 | no props | Over 10.5: 50.0% (2 at line) |  |
 | receiving_yards|Christian Watson | GB | three-book prop consensus | 75.5 | 75.5 | 75.5 | no props | Over 75.5: 49.9% (3 at line) |  |
-| receiving_yards|Gavin Bartholomew |  | three-book prop consensus | 20.5 | 21.5 | 20.5 | no props | no consensus | player match failed closed: 'Gavin Bartholomew' is not on either team's packet player list |
-| receiving_yards|Jordan Addison | MIN | three-book prop consensus | 49.5 | 51.5 | 50.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 49.5, DraftKings 51.5, Hard Rock Bet 50.5) |
-| receiving_yards|Jordan Mason | MIN | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 50.9% (3 at line) |  |
-| receiving_yards|Justin Jefferson | MIN | three-book prop consensus | 80.5 | 83.5 | 81.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 80.5, DraftKings 83.5, Hard Rock Bet 81.5) |
+| receiving_yards|Gavin Bartholomew |  | three-book prop consensus | 20.5 | 20.5 | 20.5 | no props | no consensus | player match failed closed: 'Gavin Bartholomew' is not on either team's packet player list |
+| receiving_yards|Jordan Addison | MIN | three-book prop consensus | 49.5 | 50.5 | 50.5 | no props | Over 50.5: 50.1% (2 at line) |  |
+| receiving_yards|Jordan Mason | MIN | three-book prop consensus | 4.5 | 5.5 | 4.5 | no props | Over 4.5: 50.5% (2 at line) |  |
+| receiving_yards|Justin Jefferson | MIN | three-book prop consensus | 80.5 | 82.5 | 81.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 80.5, DraftKings 82.5, Hard Rock Bet 81.5) |
 | receiving_yards|Matthew Golden | GB | three-book prop consensus | 69.5 | 69.5 | 69.5 | no props | Over 69.5: 50.1% (3 at line) |  |
 | receiving_yards|Savion Williams | GB | three-book prop consensus | 20.5 | 19.5 | 20.5 | no props | Over 20.5: 50.0% (2 at line) |  |
 | receiving_yards|Tucker Kraft | GB | three-book prop consensus | 37.5 | 36.5 | 37.5 | no props | Over 37.5: 50.0% (2 at line) |  |
-| receptions|Aaron Jones | MIN | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 60.5% (3 at line) |  |
-| receptions|Ben Yurosek | MIN | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 40.6% (3 at line) |  |
+| receptions|Aaron Jones | MIN | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 59.9% (3 at line) |  |
+| receptions|Ben Yurosek | MIN | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 40.7% (3 at line) |  |
 | receptions|Christian Watson | GB | three-book prop consensus | 4.5 | 4.5 | 4.5 | no props | Over 4.5: 55.2% (3 at line) |  |
 | receptions|Gavin Bartholomew |  | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | no consensus | player match failed closed: 'Gavin Bartholomew' is not on either team's packet player list |
-| receptions|Jordan Addison | MIN | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 56.2% (3 at line) |  |
-| receptions|Jordan Mason | MIN | three-book prop consensus | 0.5 | 0.5 | 0.5 | no props | Over 0.5: 62.5% (3 at line) |  |
-| receptions|Justin Jefferson | MIN | three-book prop consensus | 6.5 | 6.5 | 6.5 | no props | Over 6.5: 48.8% (3 at line) |  |
+| receptions|Jordan Addison | MIN | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 55.8% (3 at line) |  |
+| receptions|Jordan Mason | MIN | three-book prop consensus | 1.5 | 1.5 | 0.5 | no props | Over 1.5: 35.1% (2 at line) |  |
+| receptions|Justin Jefferson | MIN | three-book prop consensus | 6.5 | 6.5 | 6.5 | no props | Over 6.5: 48.4% (3 at line) |  |
 | receptions|Matthew Golden | GB | three-book prop consensus | 5.5 | 5.5 | 5.5 | no props | Over 5.5: 45.3% (3 at line) |  |
 | receptions|Savion Williams | GB | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 42.1% (3 at line) |  |
 | receptions|Tucker Kraft | GB | three-book prop consensus | 4.5 | 4.5 | 3.5 | no props | Over 4.5: 40.5% (2 at line) |  |
-| rushing_yards|Aaron Jones | MIN | three-book prop consensus | 27.5 | 27.5 | 27.5 | no props | Over 27.5: 50.2% (3 at line) |  |
-| rushing_yards|Jordan Love | GB | three-book prop consensus | 4.5 | 3.5 | 4.5 | no props | Over 4.5: 48.9% (2 at line) |  |
-| rushing_yards|Jordan Mason | MIN | three-book prop consensus | 45.5 | 46.5 | 45.5 | no props | Over 45.5: 50.5% (2 at line) |  |
-| rushing_yards|Kaleb Johnson | GB | three-book prop consensus | 28.5 | 28.5 | 28.5 | no props | Over 28.5: 49.7% (3 at line) |  |
-| rushing_yards|Kirk Cousins | MIN | three-book prop consensus | 0.5 | 0.5 | 0.5 | no props | Over 0.5: 49.4% (3 at line) |  |
-| rushing_yards|MarShawn Lloyd | GB | three-book prop consensus | 14.5 | 15.5 | 14.5 | no props | Over 14.5: 50.5% (2 at line) |  |
+| rushing_yards|Aaron Jones | MIN | three-book prop consensus | 27.5 | 27.5 | 27.5 | no props | Over 27.5: 49.7% (3 at line) |  |
+| rushing_yards|Jordan Love | GB | three-book prop consensus | 4.5 | 3.5 | 4.5 | no props | Over 4.5: 48.8% (2 at line) |  |
+| rushing_yards|Jordan Mason | MIN | three-book prop consensus | 45.5 | 46.5 | 46.5 | no props | Over 46.5: 50.4% (2 at line) |  |
+| rushing_yards|Kaleb Johnson | GB | three-book prop consensus | 28.5 | 28.5 | 28.5 | no props | Over 28.5: 49.8% (3 at line) |  |
+| rushing_yards|Kirk Cousins | MIN | three-book prop consensus | 0.5 | 0.5 | 0.5 | no props | Over 0.5: 49.6% (3 at line) |  |
+| rushing_yards|MarShawn Lloyd | GB | three-book prop consensus | 14.5 | 14.5 | 14.5 | no props | Over 14.5: 50.3% (3 at line) |  |
 
-### Line movement: first seen 2026-11-11T18:18:07+00:00 to 2026-11-14T11:37:51+00:00 (13 snapshots)
+### Line movement: first seen 2026-11-11T18:18:07+00:00 to 2026-11-14T19:13:32+00:00 (14 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
@@ -97,46 +97,46 @@ First seen by this pipeline, not the true opening line. Snapshots are only as fr
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Aaron Jones | rushing yards | draftkings | 27.5 | -115 / -109 | 50.6% | 50.0% | 55.2 | 48.9 | 8 | 27.7 |
-| Aaron Jones | rushing yards | fanduel | 27.5 | -114 / -114 | 50.0% | 50.0% | 55.2 | 48.9 | 8 | 27.7 |
+| Aaron Jones | rushing yards | draftkings | 27.5 | -108 / -116 | 49.2% | 50.0% | 55.2 | 48.9 | 8 | 27.7 |
+| Aaron Jones | rushing yards | fanduel | 27.5 | -113 / -113 | 50.0% | 50.0% | 55.2 | 48.9 | 8 | 27.7 |
 | Aaron Jones | rushing yards | hardrockbet | 27.5 | -115 / -115 | 50.0% | 50.0% | 55.2 | 48.9 | 8 | 27.7 |
-| Justin Jefferson | receiving yards | draftkings | 83.5 | -112 / -112 | 50.0% | n/a | 57.0 | 58.1 | 7 | -26.5 |
+| Justin Jefferson | receiving yards | draftkings | 82.5 | -114 / -110 | 50.4% | n/a | 57.0 | 58.1 | 7 | -25.5 |
 | Justin Jefferson | receiving yards | hardrockbet | 81.5 | -115 / -115 | 50.0% | n/a | 57.0 | 58.1 | 7 | -24.5 |
-| Justin Jefferson | receiving yards | fanduel | 80.5 | -114 / -114 | 50.0% | 50.0% | 57.0 | 58.1 | 7 | -23.5 |
+| Justin Jefferson | receiving yards | fanduel | 80.5 | -113 / -113 | 50.0% | 50.0% | 57.0 | 58.1 | 7 | -23.5 |
 | Matthew Golden | receiving yards | draftkings | 69.5 | -113 / -111 | 50.2% | 49.8% | 82.1 | 81.0 | 8 | 12.6 |
-| Matthew Golden | receiving yards | fanduel | 69.5 | -114 / -114 | 50.0% | 49.8% | 82.1 | 81.0 | 8 | 12.6 |
+| Matthew Golden | receiving yards | fanduel | 69.5 | -113 / -113 | 50.0% | 49.8% | 82.1 | 81.0 | 8 | 12.6 |
 | Matthew Golden | receiving yards | hardrockbet | 69.5 | -115 / -115 | 50.0% | 49.8% | 82.1 | 81.0 | 8 | 12.6 |
 | Christian Watson | receiving yards | draftkings | 75.5 | -111 / -113 | 49.8% | 50.2% | 87.9 | 72.4 | 8 | 12.4 |
-| Christian Watson | receiving yards | fanduel | 75.5 | -114 / -114 | 50.0% | 50.2% | 87.9 | 72.4 | 8 | 12.4 |
+| Christian Watson | receiving yards | fanduel | 75.5 | -113 / -113 | 50.0% | 50.2% | 87.9 | 72.4 | 8 | 12.4 |
 | Christian Watson | receiving yards | hardrockbet | 75.5 | -115 / -115 | 50.0% | 50.2% | 87.9 | 72.4 | 8 | 12.4 |
-| Jordan Addison | receiving yards | draftkings | 51.5 | -111 / -113 | 49.8% | n/a | 43.5 | 29.6 | 7 | -8.0 |
-| Jordan Love | passing yards | fanduel | 251.5 | -114 / -114 | 50.0% | 50.0% | 259.0 | 253.2 | 8 | 7.5 |
+| Jordan Love | passing yards | fanduel | 251.5 | -113 / -113 | 50.0% | 50.0% | 259.0 | 253.2 | 8 | 7.5 |
+| Jordan Addison | receiving yards | draftkings | 50.5 | -113 / -111 | 50.2% | 50.0% | 43.5 | 29.6 | 7 | -7.0 |
 | Jordan Addison | receiving yards | hardrockbet | 50.5 | -115 / -115 | 50.0% | 50.0% | 43.5 | 29.6 | 7 | -7.0 |
 | Jordan Love | passing yards | hardrockbet | 252.5 | -115 / -115 | 50.0% | n/a | 259.0 | 253.2 | 8 | 6.5 |
-| Jordan Addison | receiving yards | fanduel | 49.5 | -114 / -114 | 50.0% | n/a | 43.5 | 29.6 | 7 | -6.0 |
-| Aaron Jones | carries | draftkings | 7.5 | -134 / +105 | 54.0% | 51.3% | 13.4 | 14.5 | 8 | 5.9 |
-| Aaron Jones | carries | hardrockbet | 7.5 | -125 / -105 | 52.0% | 51.3% | 13.4 | 14.5 | 8 | 5.9 |
+| Jordan Addison | receiving yards | fanduel | 49.5 | -113 / -113 | 50.0% | n/a | 43.5 | 29.6 | 7 | -6.0 |
+| Aaron Jones | carries | hardrockbet | 7.5 | -120 / -110 | 51.0% | 51.3% | 13.4 | 14.5 | 8 | 5.9 |
 | Jordan Love | passing yards | draftkings | 253.5 | -112 / -112 | 50.0% | n/a | 259.0 | 253.2 | 8 | 5.5 |
-| Tucker Kraft | receiving yards | fanduel | 37.5 | -114 / -114 | 50.0% | 48.2% | 33.1 | 36.4 | 8 | -4.4 |
+| Aaron Jones | carries | draftkings | 8.5 | +109 / -139 | 45.1% | n/a | 13.4 | 14.5 | 8 | 4.9 |
+| Tucker Kraft | receiving yards | fanduel | 37.5 | -113 / -113 | 50.0% | 48.2% | 33.1 | 36.4 | 8 | -4.4 |
 | Tucker Kraft | receiving yards | hardrockbet | 37.5 | -115 / -115 | 50.0% | 48.2% | 33.1 | 36.4 | 8 | -4.4 |
-| Jordan Mason | rushing yards | draftkings | 46.5 | -110 / -114 | 49.6% | 50.6% | 42.1 | 46.9 | 4 | -4.4 |
-| Kaleb Johnson | rushing yards | draftkings | 28.5 | -108 / -116 | 49.2% | 50.0% | 32.0 | 30.7 | 6 | 3.5 |
-| Kaleb Johnson | rushing yards | fanduel | 28.5 | -114 / -114 | 50.0% | 50.0% | 32.0 | 30.7 | 6 | 3.5 |
+| Jordan Mason | rushing yards | draftkings | 46.5 | -116 / -109 | 50.7% | 50.6% | 42.1 | 46.9 | 4 | -4.4 |
+| Jordan Mason | rushing yards | hardrockbet | 46.5 | -115 / -115 | 50.0% | 50.6% | 42.1 | 46.9 | 4 | -4.4 |
+| Kaleb Johnson | rushing yards | draftkings | 28.5 | -109 / -115 | 49.4% | 50.0% | 32.0 | 30.7 | 6 | 3.5 |
+| Kaleb Johnson | rushing yards | fanduel | 28.5 | -113 / -113 | 50.0% | 50.0% | 32.0 | 30.7 | 6 | 3.5 |
 | Kaleb Johnson | rushing yards | hardrockbet | 28.5 | -115 / -115 | 50.0% | 50.0% | 32.0 | 30.7 | 6 | 3.5 |
 | Tucker Kraft | receiving yards | draftkings | 36.5 | -110 / -114 | 49.6% | n/a | 33.1 | 36.4 | 8 | -3.4 |
-| Jordan Mason | rushing yards | fanduel | 45.5 | -114 / -114 | 50.0% | n/a | 42.1 | 46.9 | 4 | -3.4 |
-| Jordan Mason | rushing yards | hardrockbet | 45.5 | -120 / -110 | 51.0% | n/a | 42.1 | 46.9 | 4 | -3.4 |
-| Kaleb Johnson | carries | draftkings | 9.5 | -105 / -122 | 48.2% | 47.0% | 7.2 | 7.5 | 6 | -2.3 |
-| Kaleb Johnson | carries | hardrockbet | 9.5 | -105 / -125 | 48.0% | 47.0% | 7.2 | 7.5 | 6 | -2.3 |
-| MarShawn Lloyd | rushing yards | fanduel | 14.5 | -114 / -114 | 50.0% | n/a | 16.5 | 13.8 | 7 | 2.0 |
-| MarShawn Lloyd | rushing yards | hardrockbet | 14.5 | -120 / -110 | 51.0% | n/a | 16.5 | 13.8 | 7 | 2.0 |
-| Justin Jefferson | receptions | draftkings | 6.5 | -114 / -112 | 50.2% | 48.0% | 4.9 | 4.5 | 7 | -1.6 |
+| Jordan Mason | rushing yards | fanduel | 45.5 | -113 / -113 | 50.0% | n/a | 42.1 | 46.9 | 4 | -3.4 |
+| Kaleb Johnson | carries | draftkings | 9.5 | -105 / -122 | 48.2% | 46.2% | 7.2 | 7.5 | 6 | -2.3 |
+| Kaleb Johnson | carries | hardrockbet | 9.5 | -105 / -125 | 48.0% | 46.2% | 7.2 | 7.5 | 6 | -2.3 |
+| MarShawn Lloyd | rushing yards | draftkings | 14.5 | -117 / -108 | 50.9% | n/a | 16.5 | 13.8 | 7 | 2.0 |
+| MarShawn Lloyd | rushing yards | fanduel | 14.5 | -113 / -113 | 50.0% | n/a | 16.5 | 13.8 | 7 | 2.0 |
+| MarShawn Lloyd | rushing yards | hardrockbet | 14.5 | -115 / -115 | 50.0% | n/a | 16.5 | 13.8 | 7 | 2.0 |
+| Justin Jefferson | receptions | draftkings | 6.5 | -109 / -117 | 49.2% | 48.0% | 4.9 | 4.5 | 7 | -1.6 |
 | Justin Jefferson | receptions | fanduel | 6.5 | -106 / -125 | 48.1% | 48.0% | 4.9 | 4.5 | 7 | -1.6 |
 | Justin Jefferson | receptions | hardrockbet | 6.5 | -105 / -125 | 48.0% | 48.0% | 4.9 | 4.5 | 7 | -1.6 |
-| Jordan Mason | carries | draftkings | 11.5 | -126 / -101 | 52.6% | 48.5% | 10.1 | 11.5 | 4 | -1.4 |
-| Jordan Mason | carries | hardrockbet | 11.5 | -120 / -110 | 51.0% | 48.5% | 10.1 | 11.5 | 4 | -1.4 |
+| Jordan Mason | carries | draftkings | 11.5 | -103 / -124 | 47.8% | 48.3% | 10.1 | 11.5 | 4 | -1.4 |
+| Jordan Mason | carries | hardrockbet | 11.5 | -110 / -120 | 49.0% | 48.3% | 10.1 | 11.5 | 4 | -1.4 |
 | Tucker Kraft | receptions | draftkings | 4.5 | +130 / -166 | 41.1% | 40.6% | 3.5 | 3.9 | 8 | -1.0 |
-| Tucker Kraft | receptions | fanduel | 4.5 | +134 / -180 | 39.9% | 40.6% | 3.5 | 3.9 | 8 | -1.0 |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -457,7 +457,7 @@ Neutral-situation pass rate 51.6%; 55.6 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 14 | 6% | 43% | 17.79 | 5 |
 | defense allows | Deep right | 16 | 7% | 31% | 7.88 | 4 |
 
-### MIN lines (depth chart as of 2026-11-14T07:01:50Z)
+### MIN lines (depth chart as of 2026-11-14T14:04:32Z)
 
 Offensive line: LT Christian Darrisaw, LG Joe Huber, C Blake Brandel, RG Will Fries, RT Brian O'Neill.  
 Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WLB Andrew Van Ginkel, SLB Dallas Turner.
@@ -683,7 +683,7 @@ Neutral-situation pass rate 55.0%; 60.8 plays per game; target share WR 65% / TE
 | defense allows | Deep middle | 10 | 3% | 40% | 8.3 | 2 |
 | defense allows | Deep right | 15 | 5% | 47% | 12.33 | 6 |
 
-### GB lines (depth chart as of 2026-11-14T07:01:50Z)
+### GB lines (depth chart as of 2026-11-14T14:04:32Z)
 
 Offensive line: LT Jordan Morgan, LG Aaron Banks, C Sean Rhyan, RG Travis Glover, RT Anthony Belton.  
 Defensive front: LDE Karl Brooks, NT Chris McClellan, RDE Devonte Wyatt, WLB Lukas Van Ness, SLB Barryn Sorrell.
@@ -710,7 +710,7 @@ Defensive front: LDE Karl Brooks, NT Chris McClellan, RDE Devonte Wyatt, WLB Luk
 | Skyy Moore | WR |  | Questionable | Limited Participation in Practice | Ankle |
 | Savion Williams | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Josh Jacobs (RB) Out; Warren Brinson (DT) Injured Reserve; Micah Parsons (DE) Out; Xavier McKinney (S) Questionable; Chris Brooks (RB) Injured Reserve; Skyy Moore (WR) Injured Reserve; Josh Whyle (TE) Out; Zaire Franklin (LB) Doubtful; Javon Bullard (S) Questionable; Lukas Van Ness (DE) Questionable; Sean Rhyan (G) Out; Travis Glover (OT) Questionable; Kevin Zeitler (G) Questionable.
+ESPN live list (designations only): Warren Brinson (DT) Injured Reserve; Micah Parsons (DE) Out; Xavier McKinney (S) Questionable; Chris Brooks (RB) Injured Reserve; Skyy Moore (WR) Injured Reserve; Josh Whyle (TE) Out; Zaire Franklin (LB) Doubtful; Javon Bullard (S) Questionable; Lukas Van Ness (DE) Questionable; Sean Rhyan (G) Out; Travis Glover (OT) Questionable; Kevin Zeitler (G) Questionable; Josh Jacobs (RB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -754,16 +754,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T11:37:34+00:00 | 6fce4badec51 |
-| pbp | OK | 2026-11-14T11:37:35+00:00 | 9f8b1f936f8f |
-| rosters | OK | 2026-11-14T11:37:35+00:00 | 9e6a21c736d9 |
-| injuries | OK | 2026-11-14T11:37:35+00:00 | 2c0d89d0e3ac |
-| depth_charts | OK | 2026-11-14T11:37:36+00:00 | ae00893a3710 |
-| snap_counts | OK | 2026-11-14T11:37:36+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T11:37:36+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-14T11:37:36+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T11:37:37+00:00 |  |
+| games | OK | 2026-11-14T19:13:16+00:00 | 187e797b8389 |
+| pbp | OK | 2026-11-14T19:13:16+00:00 | 90b9e3d96e1f |
+| rosters | OK | 2026-11-14T19:13:16+00:00 | d7134cc8f857 |
+| injuries | OK | 2026-11-14T19:13:16+00:00 | 87a9f1f13fc0 |
+| depth_charts | OK | 2026-11-14T19:13:16+00:00 | 3cedf53d51f0 |
+| snap_counts | OK | 2026-11-14T19:13:16+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T19:13:17+00:00 | 019f5d5f7b16 |
+| pfr_def | OK | 2026-11-14T19:13:17+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T19:13:17+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-14T11:37:38+00:00 |  |
+| book_odds | OK | 2026-11-14T19:13:18+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

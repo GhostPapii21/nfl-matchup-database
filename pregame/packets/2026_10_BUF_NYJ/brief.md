@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): NYJ +8.5, total 50.5.
 
-Generated 2026-11-14T11:37:41+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T19:13:21+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T11:37:40+00:00 UTC. At kickoff: 50 F, wind 14 mph NW, 0% chance of precipitation, Sunny. During the game: low 49 F, wind up to 15 mph, precipitation chance up to 0%. Roof: outdoors. Flags: WIND_15_PLUS.
+National Weather Service, retrieved 2026-11-14T19:13:20+00:00 UTC. At kickoff: 51 F, wind 12 mph NW, 1% chance of precipitation, Sunny. During the game: low 50 F, wind up to 12 mph, precipitation chance up to 1%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-14T11:37:38+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-14T19:13:18+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | NYJ +8.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T11:36:55Z |
-| spread | williamhill_us | NYJ +7.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T11:35:53Z |
-| spread | fanduel | NYJ +7.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
-| spread | hardrockbet | NYJ +8 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
-| spread | pinnacle | NYJ +8.5 | -116 | +103 | 52.2% | 47.8% | 3.0% | 2026-11-14T11:37:26Z |
-| total | draftkings | Over 50.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-14T11:36:55Z |
-| total | williamhill_us | Over 51 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-14T11:35:53Z |
-| total | fanduel | Over 50.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T11:37:13Z |
-| total | hardrockbet | Over 51 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
-| total | pinnacle | Over 51 | -105 | -111 | 49.3% | 50.7% | 3.8% | 2026-11-14T11:37:26Z |
-| moneyline | draftkings | NYJ | +330 | -425 | 22.3% | 77.7% | 4.2% | 2026-11-14T11:36:55Z |
-| moneyline | williamhill_us | NYJ | +330 | -420 | 22.4% | 77.6% | 4.0% | 2026-11-14T11:35:53Z |
-| moneyline | fanduel | NYJ | +350 | -450 | 21.4% | 78.6% | 4.0% | 2026-11-14T11:37:13Z |
-| moneyline | hardrockbet | NYJ | +350 | -475 | 21.2% | 78.8% | 4.8% | 2026-11-14T11:37:13Z |
-| moneyline | pinnacle | NYJ | +337 | -422 | 22.1% | 77.9% | 3.7% | 2026-11-14T11:37:26Z |
+| spread | draftkings | NYJ +8.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T19:12:25Z |
+| spread | williamhill_us | NYJ +7.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T19:11:55Z |
+| spread | fanduel | NYJ +7.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:13:13Z |
+| spread | hardrockbet | NYJ +8 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:12:12Z |
+| spread | pinnacle | NYJ +8.5 | -116 | +103 | 52.2% | 47.8% | 3.0% | 2026-11-14T19:13:12Z |
+| total | draftkings | Over 50.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T19:12:25Z |
+| total | williamhill_us | Over 51 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-14T19:11:55Z |
+| total | fanduel | Over 50.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T19:13:13Z |
+| total | hardrockbet | Over 51 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:12:12Z |
+| total | pinnacle | Over 51 | -105 | -111 | 49.3% | 50.7% | 3.8% | 2026-11-14T19:13:12Z |
+| moneyline | draftkings | NYJ | +330 | -425 | 22.3% | 77.7% | 4.2% | 2026-11-14T19:12:25Z |
+| moneyline | williamhill_us | NYJ | +330 | -420 | 22.4% | 77.6% | 4.0% | 2026-11-14T19:11:55Z |
+| moneyline | fanduel | NYJ | +360 | -460 | 20.9% | 79.1% | 3.9% | 2026-11-14T19:13:13Z |
+| moneyline | hardrockbet | NYJ | +350 | -475 | 21.2% | 78.8% | 4.8% | 2026-11-14T19:12:12Z |
+| moneyline | pinnacle | NYJ | +337 | -422 | 22.1% | 77.9% | 3.7% | 2026-11-14T19:13:12Z |
 
 ### Same-line consensus (retail books only)
 
@@ -38,7 +38,7 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 | Market | Team | Label | FanDuel | DraftKings | Hard Rock Bet | Caesars | Consensus | Note |
 |---|---|---|---|---|---|---|---|---|
-| moneyline |  | four-book game-line consensus |  |  |  |  | NYJ n/a: 21.8% (4 at line) |  |
+| moneyline |  | four-book game-line consensus |  |  |  |  | NYJ n/a: 21.7% (4 at line) |  |
 | spread |  | four-book game-line consensus | 7.5 | 8.5 | 8.0 | 7.5 | NYJ 7.5: 49.8% (2 at line) |  |
 | total |  | four-book game-line consensus | 50.5 | 50.5 | 51.0 | 51.0 | no consensus | books split evenly between lines [50.5, 51.0] |
 | carries|Breece Hall | NYJ | two-book prop consensus | not offered | 13.5 | 13.5 | no props | Over 13.5: 47.9% (2 at line) |  |
@@ -46,55 +46,55 @@ Consensus uses only books quoting the same line; probabilities at different line
 | carries|Josh Allen | BUF | two-book prop consensus | not offered | 6.5 | 7.5 | no props | no consensus | fewer than 2 books share a line (DraftKings 6.5, Hard Rock Bet 7.5) |
 | completions|Geno Smith | NYJ | two-book prop consensus | not offered | 20.5 | 20.5 | no props | Over 20.5: 48.5% (2 at line) |  |
 | completions|Josh Allen | BUF | two-book prop consensus | not offered | 19.5 | 19.5 | no props | Over 19.5: 51.0% (2 at line) |  |
-| passing_attempts|Geno Smith | NYJ | two-book prop consensus | not offered | 31.5 | 31.5 | no props | Over 31.5: 48.2% (2 at line) |  |
+| passing_attempts|Geno Smith | NYJ | two-book prop consensus | not offered | 31.5 | 31.5 | no props | Over 31.5: 51.8% (2 at line) |  |
 | passing_attempts|Josh Allen | BUF | two-book prop consensus | not offered | 28.5 | 28.5 | no props | Over 28.5: 50.1% (2 at line) |  |
-| passing_yards|Geno Smith | NYJ | three-book prop consensus | 223.5 | 223.5 | 222.5 | no props | Over 223.5: 49.9% (2 at line) | NEVER A LEG (passing yards: reference only) |
-| passing_yards|Josh Allen | BUF | three-book prop consensus | 235.5 | 235.5 | 236.5 | no props | Over 235.5: 49.9% (2 at line) | NEVER A LEG (passing yards: reference only) |
-| receiving_yards|Adonai Mitchell | NYJ | three-book prop consensus | 36.5 | 35.5 | 36.5 | no props | Over 36.5: 50.0% (2 at line) |  |
+| passing_yards|Geno Smith | NYJ | three-book prop consensus | 221.5 | 223.5 | 221.5 | no props | Over 221.5: 50.0% (2 at line) | NEVER A LEG (passing yards: reference only) |
+| passing_yards|Josh Allen | BUF | three-book prop consensus | 235.5 | 234.5 | 235.5 | no props | Over 235.5: 50.0% (2 at line) | NEVER A LEG (passing yards: reference only) |
+| receiving_yards|Adonai Mitchell | NYJ | three-book prop consensus | 36.5 | 34.5 | 36.5 | no props | Over 36.5: 50.0% (2 at line) |  |
 | receiving_yards|Braelon Allen | NYJ | three-book prop consensus | 6.5 | 7.5 | 6.5 | no props | Over 6.5: 50.5% (2 at line) |  |
 | receiving_yards|Breece Hall | NYJ | three-book prop consensus | 17.5 | 17.5 | 17.5 | no props | Over 17.5: 49.9% (3 at line) |  |
-| receiving_yards|DJ Moore | BUF | three-book prop consensus | 46.5 | 45.5 | 46.5 | no props | Over 46.5: 50.0% (2 at line) |  |
+| receiving_yards|DJ Moore | BUF | three-book prop consensus | 45.5 | 46.5 | 46.5 | no props | Over 46.5: 50.2% (2 at line) |  |
 | receiving_yards|Dalton Kincaid | BUF | three-book prop consensus | 41.5 | 42.5 | 41.5 | no props | Over 41.5: 50.0% (2 at line) |  |
-| receiving_yards|Dawson Knox | BUF | three-book prop consensus | 11.5 | 12.5 | 11.5 | no props | Over 11.5: 50.0% (2 at line) |  |
-| receiving_yards|Garrett Wilson | NYJ | three-book prop consensus | 61.5 | 61.5 | 60.5 | no props | Over 61.5: 50.0% (2 at line) |  |
+| receiving_yards|Dawson Knox | BUF | three-book prop consensus | 11.5 | 11.5 | 11.5 | no props | Over 11.5: 49.6% (3 at line) |  |
+| receiving_yards|Garrett Wilson | NYJ | three-book prop consensus | 60.5 | 60.5 | 60.5 | no props | Over 60.5: 50.1% (3 at line) |  |
 | receiving_yards|James Cook | BUF | three-book prop consensus | 7.5 | 7.5 | 7.5 | no props | Over 7.5: 50.2% (3 at line) |  |
 | receiving_yards|Kenyon Sadiq | NYJ | three-book prop consensus | 21.5 | 22.5 | 21.5 | no props | Over 21.5: 50.0% (2 at line) |  |
-| receiving_yards|Keon Coleman | BUF | three-book prop consensus | 26.5 | 26.5 | 26.5 | no props | Over 26.5: 50.2% (3 at line) |  |
-| receiving_yards|Khalil Shakir | BUF | three-book prop consensus | 44.5 | 44.5 | 44.5 | no props | Over 44.5: 50.1% (3 at line) |  |
+| receiving_yards|Keon Coleman | BUF | three-book prop consensus | 27.5 | 26.5 | 26.5 | no props | Over 26.5: 50.3% (2 at line) |  |
+| receiving_yards|Khalil Shakir | BUF | three-book prop consensus | 43.5 | 44.5 | 44.5 | no props | Over 44.5: 50.2% (2 at line) |  |
 | receiving_yards|Mason Taylor | NYJ | three-book prop consensus | 15.5 | 15.5 | 15.5 | no props | Over 15.5: 50.1% (3 at line) |  |
-| receiving_yards|Omar Cooper Jr. | NYJ | three-book prop consensus | 37.5 | 37.5 | 37.5 | no props | Over 37.5: 49.9% (3 at line) |  |
+| receiving_yards|Omar Cooper Jr. | NYJ | three-book prop consensus | 35.5 | 37.5 | 36.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 35.5, DraftKings 37.5, Hard Rock Bet 36.5) |
 | receiving_yards|Ty Johnson | BUF | three-book prop consensus | 15.5 | 15.5 | 15.5 | no props | Over 15.5: 50.1% (3 at line) |  |
 | receptions|Adonai Mitchell | NYJ | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 53.3% (3 at line) |  |
 | receptions|Braelon Allen | NYJ | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 45.5% (3 at line) |  |
-| receptions|Breece Hall | NYJ | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 49.3% (3 at line) |  |
+| receptions|Breece Hall | NYJ | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 49.5% (3 at line) |  |
 | receptions|DJ Moore | BUF | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 46.8% (3 at line) |  |
 | receptions|Dalton Kincaid | BUF | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 47.2% (3 at line) |  |
-| receptions|Dawson Knox | BUF | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 47.3% (3 at line) |  |
+| receptions|Dawson Knox | BUF | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 46.2% (3 at line) |  |
 | receptions|Garrett Wilson | NYJ | three-book prop consensus | 5.5 | 5.5 | 5.5 | no props | Over 5.5: 45.4% (3 at line) |  |
-| receptions|James Cook | BUF | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 44.1% (3 at line) |  |
+| receptions|James Cook | BUF | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 43.9% (3 at line) |  |
 | receptions|Kenyon Sadiq | NYJ | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 42.6% (3 at line) |  |
-| receptions|Keon Coleman | BUF | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 43.3% (3 at line) |  |
-| receptions|Khalil Shakir | BUF | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 53.9% (3 at line) |  |
-| receptions|Mason Taylor | NYJ | three-book prop consensus | 1.5 | 2.5 | 2.5 | no props | Over 2.5: 40.0% (2 at line) |  |
-| receptions|Omar Cooper Jr. | NYJ | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 45.1% (3 at line) |  |
-| receptions|Ty Johnson | BUF | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 58.4% (3 at line) |  |
+| receptions|Keon Coleman | BUF | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 43.4% (3 at line) |  |
+| receptions|Khalil Shakir | BUF | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 54.2% (3 at line) |  |
+| receptions|Mason Taylor | NYJ | three-book prop consensus | 1.5 | 2.5 | 2.5 | no props | Over 2.5: 40.5% (2 at line) |  |
+| receptions|Omar Cooper Jr. | NYJ | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 45.0% (3 at line) |  |
+| receptions|Ty Johnson | BUF | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 58.6% (3 at line) |  |
 | rushing_yards|Braelon Allen | NYJ | three-book prop consensus | 33.5 | 33.5 | 33.5 | no props | Over 33.5: 50.2% (3 at line) |  |
-| rushing_yards|Breece Hall | NYJ | three-book prop consensus | 52.5 | 53.5 | 52.5 | no props | Over 52.5: 50.0% (2 at line) |  |
+| rushing_yards|Breece Hall | NYJ | three-book prop consensus | 53.5 | 53.5 | 52.5 | no props | Over 53.5: 50.0% (2 at line) |  |
 | rushing_yards|Geno Smith | NYJ | three-book prop consensus | 5.5 | 4.5 | 5.5 | no props | Over 5.5: 49.5% (2 at line) |  |
 | rushing_yards|James Cook | BUF | three-book prop consensus | 91.5 | 91.5 | 92.5 | no props | Over 91.5: 50.2% (2 at line) |  |
 | rushing_yards|Josh Allen | BUF | three-book prop consensus | 27.5 | 27.5 | 27.5 | no props | Over 27.5: 50.4% (3 at line) |  |
 
-### Line movement: first seen 2026-11-11T18:17:56+00:00 to 2026-11-13T22:32:00+00:00 (8 snapshots)
+### Line movement: first seen 2026-11-11T18:17:56+00:00 to 2026-11-14T19:13:20+00:00 (9 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
 | moneyline | draftkings | n/a | n/a | n/a | +310 / -395 | +330 / -425 |
-| moneyline | fanduel | n/a | n/a | n/a | +370 / -480 | +350 / -450 |
+| moneyline | fanduel | n/a | n/a | n/a | +370 / -480 | +360 / -460 |
 | moneyline | pinnacle | n/a | n/a | n/a | +339 / -424 | +337 / -422 |
 | spread | draftkings | 8.5 | 8.5 | 0.0 | -110 / -110 | -115 / -105 |
 | spread | fanduel | 7.5 | 7.5 | 0.0 | -105 / -115 | -110 / -110 |
 | spread | pinnacle | 8.5 | 8.5 | 0.0 | -114 / +101 | -116 / +103 |
-| total | draftkings | 50.5 | 50.5 | 0.0 | -115 / -105 | -118 / -102 |
+| total | draftkings | 50.5 | 50.5 | 0.0 | -115 / -105 | -115 / -105 |
 | total | fanduel | 50.5 | 50.5 | 0.0 | -120 / +100 | -115 / -105 |
 | total | pinnacle | 51.0 | 51.0 | 0.0 | -107 / -109 | -105 / -111 |
 
@@ -105,45 +105,45 @@ First seen by this pipeline, not the true opening line. Snapshots are only as fr
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Braelon Allen | rushing yards | draftkings | 33.5 | -115 / -109 | 50.6% | 48.7% | 69.2 | 62.9 | 8 | 35.7 |
-| Braelon Allen | rushing yards | fanduel | 33.5 | -114 / -114 | 50.0% | 48.7% | 69.2 | 62.9 | 8 | 35.7 |
+| Braelon Allen | rushing yards | fanduel | 33.5 | -113 / -113 | 50.0% | 48.7% | 69.2 | 62.9 | 8 | 35.7 |
 | Braelon Allen | rushing yards | hardrockbet | 33.5 | -115 / -115 | 50.0% | 48.7% | 69.2 | 62.9 | 8 | 35.7 |
 | James Cook | rushing yards | draftkings | 91.5 | -114 / -110 | 50.4% | 50.0% | 115.2 | 114.8 | 8 | 23.7 |
-| James Cook | rushing yards | fanduel | 91.5 | -114 / -114 | 50.0% | 50.0% | 115.2 | 114.8 | 8 | 23.7 |
+| James Cook | rushing yards | fanduel | 91.5 | -113 / -113 | 50.0% | 50.0% | 115.2 | 114.8 | 8 | 23.7 |
 | James Cook | rushing yards | hardrockbet | 92.5 | -115 / -115 | 50.0% | n/a | 115.2 | 114.8 | 8 | 22.7 |
-| Geno Smith | passing yards | hardrockbet | 222.5 | -115 / -115 | 50.0% | n/a | 240.8 | 259.0 | 8 | 18.3 |
+| Geno Smith | passing yards | fanduel | 221.5 | -113 / -113 | 50.0% | n/a | 240.8 | 259.0 | 8 | 19.3 |
+| Geno Smith | passing yards | hardrockbet | 221.5 | -115 / -115 | 50.0% | n/a | 240.8 | 259.0 | 8 | 19.3 |
 | Geno Smith | passing yards | draftkings | 223.5 | -111 / -113 | 49.8% | n/a | 240.8 | 259.0 | 8 | 17.3 |
-| Geno Smith | passing yards | fanduel | 223.5 | -114 / -114 | 50.0% | n/a | 240.8 | 259.0 | 8 | 17.3 |
-| Mason Taylor | receiving yards | draftkings | 15.5 | -114 / -110 | 50.4% | 50.4% | 31.3 | 26.4 | 5 | 15.8 |
-| Mason Taylor | receiving yards | fanduel | 15.5 | -114 / -114 | 50.0% | 50.4% | 31.3 | 26.4 | 5 | 15.8 |
-| Mason Taylor | receiving yards | hardrockbet | 15.5 | -115 / -115 | 50.0% | 50.4% | 31.3 | 26.4 | 5 | 15.8 |
-| Adonai Mitchell | receiving yards | draftkings | 35.5 | -110 / -114 | 49.6% | n/a | 49.6 | 31.3 | 4 | 14.1 |
-| Adonai Mitchell | receiving yards | fanduel | 36.5 | -114 / -114 | 50.0% | 50.0% | 49.6 | 31.3 | 4 | 13.1 |
+| Mason Taylor | receiving yards | draftkings | 15.5 | -114 / -110 | 50.4% | 50.6% | 31.3 | 26.4 | 5 | 15.8 |
+| Mason Taylor | receiving yards | fanduel | 15.5 | -113 / -113 | 50.0% | 50.6% | 31.3 | 26.4 | 5 | 15.8 |
+| Mason Taylor | receiving yards | hardrockbet | 15.5 | -115 / -115 | 50.0% | 50.6% | 31.3 | 26.4 | 5 | 15.8 |
+| Adonai Mitchell | receiving yards | draftkings | 34.5 | -114 / -110 | 50.4% | n/a | 49.6 | 31.3 | 4 | 15.1 |
+| Adonai Mitchell | receiving yards | fanduel | 36.5 | -113 / -113 | 50.0% | 50.0% | 49.6 | 31.3 | 4 | 13.1 |
 | Adonai Mitchell | receiving yards | hardrockbet | 36.5 | -115 / -115 | 50.0% | 50.0% | 49.6 | 31.3 | 4 | 13.1 |
 | Breece Hall | rushing yards | draftkings | 53.5 | -112 / -112 | 50.0% | n/a | 40.6 | 29.4 | 3 | -12.9 |
-| Dalton Kincaid | receiving yards | fanduel | 41.5 | -114 / -114 | 50.0% | 50.0% | 54.2 | 42.0 | 8 | 12.7 |
+| Breece Hall | rushing yards | fanduel | 53.5 | -113 / -113 | 50.0% | n/a | 40.6 | 29.4 | 3 | -12.9 |
+| Dalton Kincaid | receiving yards | fanduel | 41.5 | -113 / -113 | 50.0% | 50.0% | 54.2 | 42.0 | 8 | 12.7 |
 | Dalton Kincaid | receiving yards | hardrockbet | 41.5 | -115 / -115 | 50.0% | 50.0% | 54.2 | 42.0 | 8 | 12.7 |
-| Breece Hall | rushing yards | fanduel | 52.5 | -114 / -114 | 50.0% | 50.0% | 40.6 | 29.4 | 3 | -11.9 |
-| Breece Hall | rushing yards | hardrockbet | 52.5 | -115 / -115 | 50.0% | 50.0% | 40.6 | 29.4 | 3 | -11.9 |
-| Dalton Kincaid | receiving yards | draftkings | 42.5 | -114 / -110 | 50.4% | n/a | 54.2 | 42.0 | 8 | 11.7 |
+| Breece Hall | rushing yards | hardrockbet | 52.5 | -120 / -110 | 51.0% | 50.0% | 40.6 | 29.4 | 3 | -11.9 |
+| Dalton Kincaid | receiving yards | draftkings | 42.5 | -115 / -109 | 50.6% | n/a | 54.2 | 42.0 | 8 | 11.7 |
+| Josh Allen | passing yards | draftkings | 234.5 | -113 / -111 | 50.2% | n/a | 243.8 | 243.2 | 8 | 9.3 |
 | Keon Coleman | receiving yards | draftkings | 26.5 | -115 / -109 | 50.6% | n/a | 35.2 | 27.1 | 8 | 8.7 |
-| Keon Coleman | receiving yards | fanduel | 26.5 | -114 / -114 | 50.0% | n/a | 35.2 | 27.1 | 8 | 8.7 |
 | Keon Coleman | receiving yards | hardrockbet | 26.5 | -115 / -115 | 50.0% | n/a | 35.2 | 27.1 | 8 | 8.7 |
-| Josh Allen | passing yards | draftkings | 235.5 | -111 / -113 | 49.8% | 50.2% | 243.8 | 243.2 | 8 | 8.3 |
-| Josh Allen | passing yards | fanduel | 235.5 | -114 / -114 | 50.0% | 50.2% | 243.8 | 243.2 | 8 | 8.3 |
-| Josh Allen | passing yards | hardrockbet | 236.5 | -115 / -115 | 50.0% | n/a | 243.8 | 243.2 | 8 | 7.3 |
-| Kenyon Sadiq | receiving yards | fanduel | 21.5 | -114 / -114 | 50.0% | 50.0% | 28.3 | 15.9 | 8 | 6.8 |
+| Josh Allen | passing yards | fanduel | 235.5 | -113 / -113 | 50.0% | 49.5% | 243.8 | 243.2 | 8 | 8.3 |
+| Josh Allen | passing yards | hardrockbet | 235.5 | -115 / -115 | 50.0% | 49.5% | 243.8 | 243.2 | 8 | 8.3 |
+| Keon Coleman | receiving yards | fanduel | 27.5 | -113 / -113 | 50.0% | n/a | 35.2 | 27.1 | 8 | 7.7 |
+| Kenyon Sadiq | receiving yards | fanduel | 21.5 | -113 / -113 | 50.0% | 50.0% | 28.3 | 15.9 | 8 | 6.8 |
 | Kenyon Sadiq | receiving yards | hardrockbet | 21.5 | -115 / -115 | 50.0% | 50.0% | 28.3 | 15.9 | 8 | 6.8 |
 | Kenyon Sadiq | receiving yards | draftkings | 22.5 | -115 / -109 | 50.6% | n/a | 28.3 | 15.9 | 8 | 5.8 |
-| DJ Moore | receiving yards | draftkings | 45.5 | -112 / -112 | 50.0% | n/a | 48.2 | 61.6 | 5 | 2.7 |
-| Khalil Shakir | receiving yards | draftkings | 44.5 | -113 / -111 | 50.2% | 50.0% | 47.2 | 42.7 | 8 | 2.7 |
-| Khalil Shakir | receiving yards | fanduel | 44.5 | -114 / -114 | 50.0% | 50.0% | 47.2 | 42.7 | 8 | 2.7 |
-| Khalil Shakir | receiving yards | hardrockbet | 44.5 | -115 / -115 | 50.0% | 50.0% | 47.2 | 42.7 | 8 | 2.7 |
+| Khalil Shakir | receiving yards | fanduel | 43.5 | -113 / -113 | 50.0% | n/a | 47.2 | 42.7 | 8 | 3.7 |
+| DJ Moore | receiving yards | fanduel | 45.5 | -113 / -113 | 50.0% | n/a | 48.2 | 61.6 | 5 | 2.7 |
+| Khalil Shakir | receiving yards | draftkings | 44.5 | -114 / -110 | 50.4% | 49.8% | 47.2 | 42.7 | 8 | 2.7 |
+| Khalil Shakir | receiving yards | hardrockbet | 44.5 | -115 / -115 | 50.0% | 49.8% | 47.2 | 42.7 | 8 | 2.7 |
 | James Cook | carries | draftkings | 19.5 | -110 / -116 | 49.4% | 50.2% | 21.9 | 21.5 | 8 | 2.4 |
 | James Cook | carries | hardrockbet | 19.5 | -120 / -110 | 51.0% | 50.2% | 21.9 | 21.5 | 8 | 2.4 |
+| Garrett Wilson | receiving yards | draftkings | 60.5 | -114 / -110 | 50.4% | n/a | 62.6 | 56.7 | 7 | 2.1 |
+| Garrett Wilson | receiving yards | fanduel | 60.5 | -113 / -113 | 50.0% | n/a | 62.6 | 56.7 | 7 | 2.1 |
 | Garrett Wilson | receiving yards | hardrockbet | 60.5 | -115 / -115 | 50.0% | n/a | 62.6 | 56.7 | 7 | 2.1 |
-| DJ Moore | receiving yards | fanduel | 46.5 | -114 / -114 | 50.0% | n/a | 48.2 | 61.6 | 5 | 1.7 |
-| DJ Moore | receiving yards | hardrockbet | 46.5 | -115 / -115 | 50.0% | n/a | 48.2 | 61.6 | 5 | 1.7 |
-| Mason Taylor | receptions | fanduel | 1.5 | -215 / +158 | 63.8% | 63.8% | 3.2 | 3.1 | 5 | 1.7 |
+| DJ Moore | receiving yards | draftkings | 46.5 | -114 / -110 | 50.4% | n/a | 48.2 | 61.6 | 5 | 1.7 |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -224,52 +224,52 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 0% chance of rain at kickoff, wind up to 15 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 1% chance of rain at kickoff, wind up to 12 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### BUF passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 28.9 | 27.6 | 28.9 |
-| Team completion rate | 65.0% | 61.0% | 65.0% |
-| Team completions | 18.8 | 16.8 | 18.8 |
-| Team pass yards | 238.4 | 201.5 | 238.4 |
-| J.Allen completion rate (236 attempts) | 65.0% | 61.0% | 65.0% |
-| J.Allen yards per attempt | 8.23 | 7.2 | 8.23 |
+| Team pass attempts | 29.3 | 28.0 | 29.2 |
+| Team completion rate | 65.6% | 61.6% | 65.6% |
+| Team completions | 19.2 | 17.2 | 19.2 |
+| Team pass yards | 247.4 | 210.5 | 247.0 |
+| J.Allen completion rate (236 attempts) | 65.6% | 61.6% | 65.6% |
+| J.Allen yards per attempt | 8.45 | 7.41 | 8.43 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| K.Shakir | WR | 8 | 19% | 5.1 / 3.7 / 45.8 | 4.9 / 3.3 / 38.5 | 5.1 / 3.7 / 45.8 |
-| D.Kincaid | TE | 8 | 17% | 4.5 / 3.4 / 47.4 | 4.3 / 3.0 / 39.7 | 4.5 / 3.4 / 47.4 |
-| K.Coleman | WR | 8 | 15% | 4.0 / 2.8 / 36.8 | 3.9 / 2.5 / 30.9 | 4.0 / 2.8 / 36.8 |
-| D.Moore | WR | 5 | 14% | 6.3 / 3.7 / 52.6 | 6.0 / 3.3 / 44.2 | 6.3 / 3.7 / 52.6 |
-| J.Cook | RB | 8 | 8% | 2.3 / 1.5 / 13.8 | 2.2 / 1.4 / 11.5 | 2.3 / 1.5 / 13.8 |
-| T.Johnson | RB | 6 | 8% | 2.8 / 2.8 / 35.1 | 2.7 / 2.6 / 29.2 | 2.8 / 2.8 / 35.1 |
-| D.Knox | TE | 8 | 8% | 2.0 / 1.5 / 8.7 | 1.9 / 1.3 / 7.3 | 2.0 / 1.5 / 8.7 |
-| J.Palmer | WR | 5 | 5% | 2.3 / 0.8 / 21.6 | 2.2 / 0.7 / 18.2 | 2.3 / 0.8 / 21.6 |
-| R.Davis | RB | 4 | 2% | 1.0 / 0.8 / 10.0 | 1.0 / 0.7 / 8.4 | 1.0 / 0.8 / 10.0 |
+| K.Shakir | WR | 8 | 19% | 5.2 / 3.8 / 48.1 | 5.0 / 3.4 / 40.7 | 5.2 / 3.8 / 48.0 |
+| D.Kincaid | TE | 8 | 17% | 4.6 / 3.6 / 51.1 | 4.4 / 3.2 / 43.1 | 4.6 / 3.6 / 51.0 |
+| K.Coleman | WR | 8 | 15% | 4.1 / 2.8 / 38.6 | 3.9 / 2.5 / 32.7 | 4.1 / 2.8 / 38.6 |
+| D.Moore | WR | 5 | 14% | 6.3 / 3.7 / 55.2 | 6.1 / 3.3 / 46.7 | 6.3 / 3.7 / 55.1 |
+| J.Cook | RB | 8 | 8% | 2.3 / 1.5 / 13.8 | 2.2 / 1.4 / 11.5 | 2.3 / 1.5 / 13.7 |
+| T.Johnson | RB | 6 | 8% | 2.8 / 2.8 / 35.1 | 2.7 / 2.6 / 29.2 | 2.8 / 2.8 / 35.0 |
+| D.Knox | TE | 8 | 8% | 2.1 / 1.6 / 9.4 | 2.0 / 1.4 / 7.9 | 2.1 / 1.6 / 9.4 |
+| J.Palmer | WR | 5 | 5% | 2.4 / 0.8 / 22.7 | 2.3 / 0.7 / 19.2 | 2.4 / 0.8 / 22.6 |
+| R.Davis | RB | 4 | 2% | 1.0 / 0.8 / 10.0 | 1.0 / 0.7 / 8.3 | 1.0 / 0.8 / 10.0 |
 
 ### NYJ passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 30.1 | 28.8 | 30.1 |
-| Team completion rate | 65.5% | 61.5% | 65.5% |
-| Team completions | 19.7 | 17.7 | 19.7 |
-| Team pass yards | 219.1 | 185.2 | 219.1 |
-| G.Smith completion rate (246 attempts) | 65.5% | 61.5% | 65.5% |
-| G.Smith yards per attempt | 7.26 | 6.34 | 7.26 |
+| Team pass attempts | 30.5 | 29.2 | 30.5 |
+| Team completion rate | 66.2% | 62.2% | 66.2% |
+| Team completions | 20.2 | 18.1 | 20.2 |
+| Team pass yards | 227.4 | 193.5 | 227.0 |
+| G.Smith completion rate (246 attempts) | 66.2% | 62.2% | 66.2% |
+| G.Smith yards per attempt | 7.45 | 6.54 | 7.44 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| G.Wilson | WR | 7 | 24% | 7.8 / 5.1 / 59.0 | 7.5 / 4.5 / 49.7 | 7.8 / 5.1 / 59.0 |
-| A.Mitchell | WR | 4 | 13% | 7.6 / 3.1 / 47.3 | 7.3 / 2.8 / 39.8 | 7.6 / 3.1 / 47.3 |
-| K.Sadiq | TE | 8 | 12% | 3.3 / 2.0 / 23.6 | 3.2 / 1.8 / 19.8 | 3.3 / 2.0 / 23.6 |
-| B.Allen | RB | 8 | 10% | 2.9 / 2.4 / 12.8 | 2.8 / 2.2 / 10.7 | 2.9 / 2.4 / 12.8 |
-| O.Cooper | WR | 3 | 10% | 7.5 / 6.1 / 84.9 | 7.2 / 5.4 / 71.4 | 7.5 / 6.1 / 84.9 |
-| M.Taylor | TE | 5 | 9% | 4.1 / 2.9 / 26.3 | 4.0 / 2.6 / 22.1 | 4.1 / 2.9 / 26.3 |
-| I.Williams | WR | 5 | 6% | 2.7 / 2.1 / 29.9 | 2.6 / 1.9 / 25.1 | 2.7 / 2.1 / 29.9 |
-| B.Hall | RB | 3 | 5% | 4.0 / 3.7 / 37.5 | 3.8 / 3.4 / 31.2 | 4.0 / 3.7 / 37.5 |
+| G.Wilson | WR | 7 | 24% | 7.9 / 5.2 / 62.0 | 7.6 / 4.7 / 52.4 | 7.9 / 5.2 / 61.9 |
+| A.Mitchell | WR | 4 | 13% | 7.7 / 3.2 / 49.6 | 7.3 / 2.9 / 42.0 | 7.7 / 3.2 / 49.6 |
+| K.Sadiq | TE | 8 | 12% | 3.4 / 2.2 / 25.5 | 3.3 / 1.9 / 21.5 | 3.4 / 2.2 / 25.4 |
+| B.Allen | RB | 8 | 10% | 2.9 / 2.4 / 12.8 | 2.8 / 2.2 / 10.6 | 2.9 / 2.4 / 12.7 |
+| O.Cooper | WR | 3 | 10% | 7.6 / 6.2 / 89.1 | 7.3 / 5.6 / 75.4 | 7.6 / 6.2 / 89.0 |
+| M.Taylor | TE | 5 | 9% | 4.3 / 3.1 / 28.4 | 4.1 / 2.7 / 23.9 | 4.3 / 3.1 / 28.3 |
+| I.Williams | WR | 5 | 6% | 2.8 / 2.2 / 31.4 | 2.7 / 1.9 / 26.5 | 2.8 / 2.2 / 31.3 |
+| B.Hall | RB | 3 | 5% | 4.0 / 3.7 / 37.4 | 3.8 / 3.4 / 31.1 | 4.0 / 3.7 / 37.3 |
 
 ## BUF (last 8 games: weeks 1, 2, 3, 4, 5, 6, 8, 9)
 
@@ -465,7 +465,7 @@ Neutral-situation pass rate 54.2%; 62.5 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 15 | 5% | 40% | 11.33 | 6 |
 | defense allows | Deep right | 26 | 9% | 42% | 9.77 | 9 |
 
-### BUF lines (depth chart as of 2026-11-14T07:01:50Z)
+### BUF lines (depth chart as of 2026-11-14T14:04:32Z)
 
 Offensive line: LT Dion Dawkins, LG Alec Anderson, C Connor McGovern, RG O'Cyrus Torrence, RT Spencer Brown.  
 Defensive front: LDE T.J. Sanders, NT Deone Walker, RDE Ed Oliver, WLB Greg Rousseau, SLB Bradley Chubb.
@@ -692,7 +692,7 @@ Neutral-situation pass rate 49.6%; 57.8 plays per game; target share WR 56% / TE
 | defense allows | Deep middle | 10 | 4% | 50% | 15.3 | 5 |
 | defense allows | Deep right | 14 | 6% | 50% | 14.57 | 6 |
 
-### NYJ lines (depth chart as of 2026-11-14T07:01:50Z)
+### NYJ lines (depth chart as of 2026-11-14T14:04:32Z)
 
 Offensive line: LT Olu Fashanu, LG Dylan Parham, C Josh Myers, RG Joe Tippmann, RT Armand Membou.  
 Defensive front: LDE David Bailey, LDT Darrell Jackson Jr., RDT Jowon Briggs, RDE Kingsley Enagbare, WLB Demario Davis, SLB Trevin Wallace.
@@ -711,7 +711,7 @@ Defensive front: LDE David Bailey, LDT Darrell Jackson Jr., RDT Jowon Briggs, RD
 | Adonai Mitchell | WR |  | Questionable | Full Participation in Practice | Knee |
 | Omar Cooper Jr. | WR |  | Questionable | Full Participation in Practice | Ankle |
 
-ESPN live list (designations only): VJ Payne (S) Injured Reserve; Garrett Wilson (WR) Questionable; Adonai Mitchell (WR) Questionable; Omar Cooper Jr. (WR) Questionable; Trevin Wallace (LB) Out; Jarvis Brownlee Jr. (CB) Questionable; Joseph Ossai (DE) Questionable; Harrison Phillips (DT) Questionable; Nahshon Wright (CB) Questionable.
+ESPN live list (designations only): VJ Payne (S) Injured Reserve; Trevin Wallace (LB) Out; Jarvis Brownlee Jr. (CB) Questionable; Joseph Ossai (DE) Questionable; Harrison Phillips (DT) Questionable; Nahshon Wright (CB) Questionable; Omar Cooper Jr. (WR) Questionable; Garrett Wilson (WR) Questionable; Adonai Mitchell (WR) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -755,16 +755,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T11:37:34+00:00 | 6fce4badec51 |
-| pbp | OK | 2026-11-14T11:37:35+00:00 | 9f8b1f936f8f |
-| rosters | OK | 2026-11-14T11:37:35+00:00 | 9e6a21c736d9 |
-| injuries | OK | 2026-11-14T11:37:35+00:00 | 2c0d89d0e3ac |
-| depth_charts | OK | 2026-11-14T11:37:36+00:00 | ae00893a3710 |
-| snap_counts | OK | 2026-11-14T11:37:36+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T11:37:36+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-14T11:37:36+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T11:37:37+00:00 |  |
+| games | OK | 2026-11-14T19:13:16+00:00 | 187e797b8389 |
+| pbp | OK | 2026-11-14T19:13:16+00:00 | 90b9e3d96e1f |
+| rosters | OK | 2026-11-14T19:13:16+00:00 | d7134cc8f857 |
+| injuries | OK | 2026-11-14T19:13:16+00:00 | 87a9f1f13fc0 |
+| depth_charts | OK | 2026-11-14T19:13:16+00:00 | 3cedf53d51f0 |
+| snap_counts | OK | 2026-11-14T19:13:16+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T19:13:17+00:00 | 019f5d5f7b16 |
+| pfr_def | OK | 2026-11-14T19:13:17+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T19:13:17+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-14T11:37:38+00:00 |  |
+| book_odds | OK | 2026-11-14T19:13:18+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
