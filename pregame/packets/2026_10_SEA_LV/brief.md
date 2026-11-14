@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): LV +6.5, total 40.5.
 
-Generated 2026-11-14T19:13:38+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T19:22:53+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,25 +12,25 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-14T19:13:18+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-14T19:22:17+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | LV +6.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T19:12:26Z |
-| spread | williamhill_us | LV +6.5 | -114 | -106 | 50.9% | 49.1% | 4.7% | 2026-11-14T19:11:55Z |
-| spread | fanduel | LV +6.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:13:13Z |
-| spread | hardrockbet | LV +6.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:12:12Z |
-| spread | pinnacle | LV +6.5 | -103 | -109 | 49.3% | 50.7% | 2.9% | 2026-11-14T19:13:12Z |
-| total | draftkings | Over 40.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-14T19:12:26Z |
-| total | williamhill_us | Over 40.5 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-14T19:11:55Z |
-| total | fanduel | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:13:13Z |
-| total | hardrockbet | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:12:12Z |
-| total | pinnacle | Over 40.5 | -110 | -106 | 50.4% | 49.5% | 3.8% | 2026-11-14T19:13:12Z |
-| moneyline | draftkings | LV | +245 | -305 | 27.8% | 72.2% | 4.3% | 2026-11-14T19:12:26Z |
-| moneyline | williamhill_us | LV | +240 | -310 | 28.0% | 72.0% | 5.0% | 2026-11-14T19:11:55Z |
-| moneyline | fanduel | LV | +245 | -300 | 27.9% | 72.1% | 4.0% | 2026-11-14T19:13:13Z |
-| moneyline | hardrockbet | LV | +240 | -325 | 27.8% | 72.2% | 5.9% | 2026-11-14T19:12:12Z |
-| moneyline | pinnacle | LV | +238 | -282 | 28.6% | 71.4% | 3.4% | 2026-11-14T19:13:12Z |
+| spread | draftkings | LV +6.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T19:21:59Z |
+| spread | williamhill_us | LV +6.5 | -114 | -106 | 50.9% | 49.1% | 4.7% | 2026-11-14T19:21:27Z |
+| spread | fanduel | LV +6.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:22:15Z |
+| spread | hardrockbet | LV +6.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:21:42Z |
+| spread | pinnacle | LV +6.5 | -103 | -109 | 49.3% | 50.7% | 2.9% | 2026-11-14T19:22:15Z |
+| total | draftkings | Over 40.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-14T19:21:59Z |
+| total | williamhill_us | Over 40.5 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-14T19:21:27Z |
+| total | fanduel | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:22:15Z |
+| total | hardrockbet | Over 40.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:21:42Z |
+| total | pinnacle | Over 40.5 | -110 | -106 | 50.4% | 49.5% | 3.8% | 2026-11-14T19:22:15Z |
+| moneyline | draftkings | LV | +245 | -305 | 27.8% | 72.2% | 4.3% | 2026-11-14T19:21:59Z |
+| moneyline | williamhill_us | LV | +240 | -310 | 28.0% | 72.0% | 5.0% | 2026-11-14T19:21:27Z |
+| moneyline | fanduel | LV | +245 | -300 | 27.9% | 72.1% | 4.0% | 2026-11-14T19:22:15Z |
+| moneyline | hardrockbet | LV | +240 | -325 | 27.8% | 72.2% | 5.9% | 2026-11-14T19:21:42Z |
+| moneyline | pinnacle | LV | +238 | -282 | 28.6% | 71.4% | 3.4% | 2026-11-14T19:22:15Z |
 
 ### Same-line consensus (retail books only)
 
@@ -58,7 +58,7 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: SKIPPED_CREDIT_FLOOR: 804 - 7 < floor 800.
+Player props: SKIPPED_CREDIT_FLOOR: 801 - 7 < floor 800.
 
 ## Matchup edges
 
@@ -622,16 +622,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:13:16+00:00 | 187e797b8389 |
-| pbp | OK | 2026-11-14T19:13:16+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:13:16+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:13:16+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:13:16+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:13:16+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:13:17+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:13:17+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:13:17+00:00 |  |
+| games | OK | 2026-11-14T19:22:13+00:00 | 187e797b8389 |
+| pbp | OK | 2026-11-14T19:22:13+00:00 | 90b9e3d96e1f |
+| rosters | OK | 2026-11-14T19:22:14+00:00 | d7134cc8f857 |
+| injuries | OK | 2026-11-14T19:22:14+00:00 | 87a9f1f13fc0 |
+| depth_charts | OK | 2026-11-14T19:22:14+00:00 | 3cedf53d51f0 |
+| snap_counts | OK | 2026-11-14T19:22:15+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T19:22:15+00:00 | 019f5d5f7b16 |
+| pfr_def | OK | 2026-11-14T19:22:15+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T19:22:16+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-14T19:13:18+00:00 |  |
+| book_odds | OK | 2026-11-14T19:22:17+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

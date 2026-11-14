@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): IND -4.5, total 37.5.
 
-Generated 2026-11-14T19:13:32+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T19:22:42+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T19:13:30+00:00 UTC. At kickoff: 49 F, wind 3 mph NNE, 0% chance of precipitation, Mostly Sunny. During the game: low 49 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-14T19:22:40+00:00 UTC. At kickoff: 49 F, wind 3 mph NNE, 0% chance of precipitation, Mostly Sunny. During the game: low 49 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-14T19:13:18+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-14T19:22:17+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | IND -4.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T19:12:25Z |
-| spread | williamhill_us | IND -4.5 | -104 | -117 | 48.6% | 51.4% | 4.9% | 2026-11-14T19:11:55Z |
-| spread | fanduel | IND -3.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T19:13:13Z |
-| spread | hardrockbet | IND -4 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:12:12Z |
-| spread | pinnacle | IND -4 | -112 | -101 | 51.2% | 48.8% | 3.1% | 2026-11-14T19:13:12Z |
-| total | draftkings | Over 37.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:12:25Z |
-| total | williamhill_us | Over 37.5 | -114 | -106 | 50.9% | 49.1% | 4.7% | 2026-11-14T19:11:55Z |
-| total | fanduel | Over 38.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T19:13:13Z |
-| total | hardrockbet | Over 38 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:12:12Z |
-| total | pinnacle | Over 38 | -104 | -113 | 49.0% | 51.0% | 4.0% | 2026-11-14T19:13:12Z |
-| moneyline | draftkings | IND | -218 | +180 | 65.8% | 34.2% | 4.3% | 2026-11-14T19:12:25Z |
-| moneyline | williamhill_us | IND | -205 | +169 | 64.4% | 35.6% | 4.4% | 2026-11-14T19:11:55Z |
-| moneyline | fanduel | IND | -210 | +176 | 65.1% | 34.8% | 4.0% | 2026-11-14T19:13:13Z |
-| moneyline | hardrockbet | IND | -210 | +175 | 65.1% | 34.9% | 4.1% | 2026-11-14T19:12:12Z |
-| moneyline | pinnacle | IND | -205 | +178 | 65.1% | 34.9% | 3.2% | 2026-11-14T19:13:12Z |
+| spread | draftkings | IND -4.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T19:21:59Z |
+| spread | williamhill_us | IND -4.5 | -104 | -117 | 48.6% | 51.4% | 4.9% | 2026-11-14T19:21:27Z |
+| spread | fanduel | IND -3.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T19:22:15Z |
+| spread | hardrockbet | IND -4 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:21:42Z |
+| spread | pinnacle | IND -4 | -112 | -101 | 51.2% | 48.8% | 3.1% | 2026-11-14T19:22:15Z |
+| total | draftkings | Over 37.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:21:59Z |
+| total | williamhill_us | Over 37.5 | -114 | -106 | 50.9% | 49.1% | 4.7% | 2026-11-14T19:21:27Z |
+| total | fanduel | Over 38.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T19:22:15Z |
+| total | hardrockbet | Over 38 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T19:21:42Z |
+| total | pinnacle | Over 38 | -104 | -113 | 49.0% | 51.0% | 4.0% | 2026-11-14T19:22:15Z |
+| moneyline | draftkings | IND | -218 | +180 | 65.8% | 34.2% | 4.3% | 2026-11-14T19:21:59Z |
+| moneyline | williamhill_us | IND | -205 | +169 | 64.4% | 35.6% | 4.4% | 2026-11-14T19:21:27Z |
+| moneyline | fanduel | IND | -210 | +176 | 65.1% | 34.8% | 4.0% | 2026-11-14T19:22:15Z |
+| moneyline | hardrockbet | IND | -210 | +175 | 65.1% | 34.9% | 4.1% | 2026-11-14T19:21:42Z |
+| moneyline | pinnacle | IND | -205 | +178 | 65.1% | 34.9% | 3.2% | 2026-11-14T19:22:15Z |
 
 ### Same-line consensus (retail books only)
 
@@ -41,42 +41,6 @@ Consensus uses only books quoting the same line; probabilities at different line
 | moneyline |  | four-book game-line consensus |  |  |  |  | IND n/a: 65.1% (4 at line) |  |
 | spread |  | four-book game-line consensus | -3.5 | -4.5 | -4.0 | -4.5 | IND -4.5: 49.1% (2 at line) |  |
 | total |  | four-book game-line consensus | 38.5 | 37.5 | 38.0 | 37.5 | Over 37.5: 50.4% (2 at line) |  |
-| carries|Jonathan Taylor | IND | two-book prop consensus | not offered | 15.5 | 15.5 | no props | Over 15.5: 51.5% (2 at line) |  |
-| carries|Ollie Gordon II | MIA | two-book prop consensus | not offered | 18.5 | 17.5 | no props | no consensus | fewer than 2 books share a line (DraftKings 18.5, Hard Rock Bet 17.5) |
-| completions|Daniel Jones | IND | two-book prop consensus | not offered | 18.5 | 18.5 | no props | Over 18.5: 53.5% (2 at line) |  |
-| completions|Kyle McCord | MIA | two-book prop consensus | not offered | 16.5 | 16.5 | no props | Over 16.5: 47.4% (2 at line) |  |
-| passing_attempts|Daniel Jones | IND | two-book prop consensus | not offered | 29.5 | 29.5 | no props | Over 29.5: 51.2% (2 at line) |  |
-| passing_attempts|Kyle McCord | MIA | two-book prop consensus | not offered | 27.5 | 27.5 | no props | Over 27.5: 51.2% (2 at line) |  |
-| passing_yards|Daniel Jones | IND | three-book prop consensus | 183.5 | 185.5 | 184.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 183.5, DraftKings 185.5, Hard Rock Bet 184.5); NEVER A LEG (passing yards: reference only) |
-| passing_yards|Kyle McCord | MIA | three-book prop consensus | 158.5 | 160.5 | 159.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 158.5, DraftKings 160.5, Hard Rock Bet 159.5); NEVER A LEG (passing yards: reference only) |
-| receiving_yards|Anthony Gould | IND | three-book prop consensus | 15.5 | 16.5 | 15.5 | no props | Over 15.5: 50.0% (2 at line) |  |
-| receiving_yards|Ashton Dulin | IND | three-book prop consensus | 15.5 | 14.5 | 14.5 | no props | Over 14.5: 50.3% (2 at line) |  |
-| receiving_yards|Caleb Douglas | MIA | three-book prop consensus | 42.5 | 42.5 | 42.5 | no props | Over 42.5: 49.8% (3 at line) |  |
-| receiving_yards|Deion Burks | IND | three-book prop consensus | 17.5 | 15.5 | 16.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 17.5, DraftKings 15.5, Hard Rock Bet 16.5) |
-| receiving_yards|Greg Dulcich | MIA | three-book prop consensus | 34.5 | 33.5 | 33.5 | no props | Over 33.5: 50.4% (2 at line) |  |
-| receiving_yards|Jonathan Taylor | IND | three-book prop consensus | 21.5 | 22.5 | 21.5 | no props | Over 21.5: 50.0% (2 at line) |  |
-| receiving_yards|Kevin Coleman Jr. | MIA | three-book prop consensus | 18.5 | 16.5 | 17.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 18.5, DraftKings 16.5, Hard Rock Bet 17.5) |
-| receiving_yards|Laquon Treadwell | IND | three-book prop consensus | 28.5 | 27.5 | 28.5 | no props | Over 28.5: 50.0% (2 at line) |  |
-| receiving_yards|Malik Washington | MIA | three-book prop consensus | 35.5 | 33.5 | 34.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 35.5, DraftKings 33.5, Hard Rock Bet 34.5) |
-| receiving_yards|Ollie Gordon II | MIA | three-book prop consensus | 5.5 | 5.5 | 5.5 | no props | Over 5.5: 50.1% (3 at line) |  |
-| receiving_yards|Tyler Warren | IND | three-book prop consensus | 44.5 | 46.5 | 44.5 | no props | Over 44.5: 50.5% (2 at line) |  |
-| receptions|Anthony Gould | IND | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 58.0% (3 at line) |  |
-| receptions|Ashton Dulin | IND | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 46.5% (3 at line) |  |
-| receptions|Caleb Douglas | MIA | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 48.1% (3 at line) |  |
-| receptions|Deion Burks | IND | three-book prop consensus | 2.5 | 1.5 | 1.5 | no props | Over 1.5: 57.8% (2 at line) |  |
-| receptions|Greg Dulcich | MIA | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 48.7% (3 at line) |  |
-| receptions|Jonathan Taylor | IND | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 45.4% (3 at line) |  |
-| receptions|Kevin Coleman Jr. | MIA | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 56.4% (3 at line) |  |
-| receptions|Laquon Treadwell | IND | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 42.9% (3 at line) |  |
-| receptions|Malik Washington | MIA | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 49.0% (3 at line) |  |
-| receptions|Ollie Gordon II | MIA | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 49.2% (3 at line) |  |
-| receptions|Tyler Warren | IND | three-book prop consensus | 5.5 | 5.5 | 5.5 | no props | Over 5.5: 54.5% (3 at line) |  |
-| rushing_yards|Daniel Jones | IND | three-book prop consensus | 7.5 | 8.5 | 7.5 | no props | Over 7.5: 51.2% (2 at line) |  |
-| rushing_yards|Jaylen Wright | MIA | three-book prop consensus | 12.5 | 12.5 | 12.5 | no props | Over 12.5: 49.5% (3 at line) |  |
-| rushing_yards|Jonathan Taylor | IND | three-book prop consensus | 69.5 | 69.5 | 70.5 | no props | Over 69.5: 50.1% (2 at line) |  |
-| rushing_yards|Kyle McCord | MIA | three-book prop consensus | 7.5 | 7.5 | 7.5 | no props | Over 7.5: 49.5% (3 at line) |  |
-| rushing_yards|Ollie Gordon II | MIA | three-book prop consensus | 72.5 | 75.5 | 73.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 72.5, DraftKings 75.5, Hard Rock Bet 73.5) |
-| rushing_yards|Seth McGowan | IND | three-book prop consensus | 25.5 | 24.5 | 25.5 | no props | Over 25.5: 50.0% (2 at line) |  |
 
 ### Line movement: first seen 2026-11-11T18:18:05+00:00 to 2026-11-14T19:13:30+00:00 (12 snapshots)
 
@@ -94,52 +58,7 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-### Player props beside the research baseline
-
-| Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Caleb Douglas | receiving yards | draftkings | 42.5 | -110 / -115 | 49.5% | 50.0% | 55.9 | 67.1 | 5 | 13.4 |
-| Caleb Douglas | receiving yards | fanduel | 42.5 | -113 / -113 | 50.0% | 50.0% | 55.9 | 67.1 | 5 | 13.4 |
-| Caleb Douglas | receiving yards | hardrockbet | 42.5 | -115 / -115 | 50.0% | 50.0% | 55.9 | 67.1 | 5 | 13.4 |
-| Laquon Treadwell | receiving yards | fanduel | 28.5 | -113 / -113 | 50.0% | 50.0% | 21.8 | 18.8 | 8 | -6.7 |
-| Laquon Treadwell | receiving yards | hardrockbet | 28.5 | -115 / -115 | 50.0% | 50.0% | 21.8 | 18.8 | 8 | -6.7 |
-| Malik Washington | receiving yards | draftkings | 33.5 | -114 / -110 | 50.4% | n/a | 39.9 | 41.2 | 8 | 6.4 |
-| Seth McGowan | rushing yards | draftkings | 24.5 | -117 / -108 | 50.9% | n/a | 30.3 | 29.6 | 8 | 5.8 |
-| Laquon Treadwell | receiving yards | draftkings | 27.5 | -115 / -109 | 50.6% | n/a | 21.8 | 18.8 | 8 | -5.7 |
-| Malik Washington | receiving yards | hardrockbet | 34.5 | -115 / -115 | 50.0% | n/a | 39.9 | 41.2 | 8 | 5.4 |
-| Seth McGowan | rushing yards | fanduel | 25.5 | -113 / -113 | 50.0% | 48.9% | 30.3 | 29.6 | 8 | 4.8 |
-| Seth McGowan | rushing yards | hardrockbet | 25.5 | -115 / -115 | 50.0% | 48.9% | 30.3 | 29.6 | 8 | 4.8 |
-| Malik Washington | receiving yards | fanduel | 35.5 | -113 / -113 | 50.0% | 50.0% | 39.9 | 41.2 | 8 | 4.4 |
-| Greg Dulcich | receiving yards | draftkings | 33.5 | -111 / -113 | 49.8% | n/a | 37.3 | 34.7 | 7 | 3.8 |
-| Greg Dulcich | receiving yards | hardrockbet | 33.5 | -120 / -110 | 51.0% | n/a | 37.3 | 34.7 | 7 | 3.8 |
-| Tyler Warren | receiving yards | fanduel | 44.5 | -113 / -113 | 50.0% | 51.4% | 47.9 | 46.1 | 6 | 3.4 |
-| Tyler Warren | receiving yards | hardrockbet | 44.5 | -120 / -110 | 51.0% | 51.4% | 47.9 | 46.1 | 6 | 3.4 |
-| Greg Dulcich | receiving yards | fanduel | 34.5 | -113 / -113 | 50.0% | 49.6% | 37.3 | 34.7 | 7 | 2.8 |
-| Daniel Jones | passing yards | fanduel | 183.5 | -113 / -113 | 50.0% | 50.0% | 185.8 | 190.8 | 8 | 2.3 |
-| Tyler Warren | receiving yards | draftkings | 46.5 | -111 / -113 | 49.8% | n/a | 47.9 | 46.1 | 6 | 1.4 |
-| Daniel Jones | passing yards | hardrockbet | 184.5 | -115 / -115 | 50.0% | n/a | 185.8 | 190.8 | 8 | 1.3 |
-| Jonathan Taylor | carries | draftkings | 15.5 | -123 / -104 | 52.0% | 48.9% | 16.8 | 19.0 | 8 | 1.3 |
-| Jonathan Taylor | carries | hardrockbet | 15.5 | -120 / -110 | 51.0% | 48.9% | 16.8 | 19.0 | 8 | 1.3 |
-| Jonathan Taylor | rushing yards | draftkings | 69.5 | -113 / -111 | 50.2% | 50.0% | 70.6 | 84.6 | 8 | 1.1 |
-| Jonathan Taylor | rushing yards | fanduel | 69.5 | -113 / -113 | 50.0% | 50.0% | 70.6 | 84.6 | 8 | 1.1 |
-| Laquon Treadwell | receptions | draftkings | 2.5 | +119 / -152 | 43.1% | 44.1% | 1.7 | 1.8 | 8 | -0.8 |
-| Laquon Treadwell | receptions | fanduel | 2.5 | +118 / -158 | 42.8% | 44.1% | 1.7 | 1.8 | 8 | -0.8 |
-| Laquon Treadwell | receptions | hardrockbet | 2.5 | +120 / -155 | 42.8% | 44.1% | 1.7 | 1.8 | 8 | -0.8 |
-| Tyler Warren | receptions | draftkings | 5.5 | -142 / +111 | 55.3% | 55.0% | 6.1 | 6.0 | 6 | 0.6 |
-| Tyler Warren | receptions | fanduel | 5.5 | -138 / +104 | 54.2% | 55.0% | 6.1 | 6.0 | 6 | 0.6 |
-| Tyler Warren | receptions | hardrockbet | 5.5 | -135 / +105 | 54.1% | 55.0% | 6.1 | 6.0 | 6 | 0.6 |
-| Daniel Jones | passing yards | draftkings | 185.5 | -113 / -111 | 50.2% | n/a | 185.8 | 190.8 | 8 | 0.3 |
-| Malik Washington | receptions | draftkings | 3.5 | -110 / -116 | 49.4% | 50.0% | 3.8 | 4.2 | 8 | 0.3 |
-| Malik Washington | receptions | fanduel | 3.5 | -108 / -122 | 48.6% | 50.0% | 3.8 | 4.2 | 8 | 0.3 |
-| Malik Washington | receptions | hardrockbet | 3.5 | -110 / -120 | 49.0% | 50.0% | 3.8 | 4.2 | 8 | 0.3 |
-| Greg Dulcich | receptions | draftkings | 3.5 | -102 / -125 | 47.6% | 47.8% | 3.2 | 3.7 | 7 | -0.3 |
-| Greg Dulcich | receptions | fanduel | 3.5 | -112 / -118 | 49.4% | 47.8% | 3.2 | 3.7 | 7 | -0.3 |
-| Greg Dulcich | receptions | hardrockbet | 3.5 | -110 / -120 | 49.0% | 47.8% | 3.2 | 3.7 | 7 | -0.3 |
-| Caleb Douglas | receptions | draftkings | 3.5 | -114 / -112 | 50.2% | 46.9% | 3.7 | 3.7 | 5 | 0.2 |
-| Caleb Douglas | receptions | fanduel | 3.5 | +102 / -136 | 46.2% | 46.9% | 3.7 | 3.7 | 5 | 0.2 |
-| Caleb Douglas | receptions | hardrockbet | 3.5 | -105 / -125 | 48.0% | 46.9% | 3.7 | 3.7 | 5 | 0.2 |
-
-baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
+Player props: SKIPPED_CREDIT_FLOOR: 801 - 7 < floor 800.
 
 ## Matchup edges
 
@@ -742,7 +661,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
-| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, player props. No FTN model, no true opening line. |
+| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -750,16 +669,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:13:16+00:00 | 187e797b8389 |
-| pbp | OK | 2026-11-14T19:13:16+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:13:16+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:13:16+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:13:16+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:13:16+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:13:17+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:13:17+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:13:17+00:00 |  |
+| games | OK | 2026-11-14T19:22:13+00:00 | 187e797b8389 |
+| pbp | OK | 2026-11-14T19:22:13+00:00 | 90b9e3d96e1f |
+| rosters | OK | 2026-11-14T19:22:14+00:00 | d7134cc8f857 |
+| injuries | OK | 2026-11-14T19:22:14+00:00 | 87a9f1f13fc0 |
+| depth_charts | OK | 2026-11-14T19:22:14+00:00 | 3cedf53d51f0 |
+| snap_counts | OK | 2026-11-14T19:22:15+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T19:22:15+00:00 | 019f5d5f7b16 |
+| pfr_def | OK | 2026-11-14T19:22:15+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T19:22:16+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-14T19:13:18+00:00 |  |
+| book_odds | OK | 2026-11-14T19:22:17+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
