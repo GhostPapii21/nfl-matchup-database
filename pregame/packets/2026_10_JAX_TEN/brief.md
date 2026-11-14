@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): TEN +10.5, total 46.5.
 
-Generated 2026-11-14T02:48:44+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T11:37:47+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T02:48:43+00:00 UTC. At kickoff: 53 F, wind 5 mph NE, 0% chance of precipitation, Sunny. During the game: low 53 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-14T11:37:46+00:00 UTC. At kickoff: 54 F, wind 5 mph NE, 0% chance of precipitation, Mostly Sunny. During the game: low 54 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-14T02:48:36+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-14T11:37:38+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T02:48:26Z |
-| spread | williamhill_us | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T02:45:58Z |
-| spread | fanduel | TEN +10.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:48:27Z |
-| spread | hardrockbet | TEN +10.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T02:47:31Z |
-| spread | pinnacle | TEN +10.5 | -102 | -110 | 49.1% | 50.9% | 2.9% | 2026-11-14T02:48:25Z |
-| total | draftkings | Over 46.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:48:26Z |
-| total | williamhill_us | Over 46.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T02:45:58Z |
-| total | fanduel | Over 46.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-14T02:48:27Z |
-| total | hardrockbet | Over 46 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T02:47:31Z |
-| total | pinnacle | Over 46.5 | -104 | -112 | 49.1% | 50.9% | 3.8% | 2026-11-14T02:48:25Z |
-| moneyline | draftkings | TEN | +500 | -700 | 16.0% | 84.0% | 4.2% | 2026-11-14T02:48:26Z |
-| moneyline | williamhill_us | TEN | +425 | -590 | 18.2% | 81.8% | 4.5% | 2026-11-14T02:45:58Z |
-| moneyline | fanduel | TEN | +490 | -670 | 16.3% | 83.7% | 4.0% | 2026-11-14T02:48:27Z |
-| moneyline | hardrockbet | TEN | +450 | -700 | 17.2% | 82.8% | 5.7% | 2026-11-14T02:47:31Z |
-| moneyline | pinnacle | TEN | +427 | -560 | 18.3% | 81.7% | 3.8% | 2026-11-14T02:48:25Z |
+| spread | draftkings | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T11:36:55Z |
+| spread | williamhill_us | TEN +10.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T11:35:53Z |
+| spread | fanduel | TEN +10.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
+| spread | hardrockbet | TEN +11 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
+| spread | pinnacle | TEN +10.5 | -102 | -110 | 49.1% | 50.9% | 2.9% | 2026-11-14T11:37:26Z |
+| total | draftkings | Over 46.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:36:55Z |
+| total | williamhill_us | Over 46.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T11:35:53Z |
+| total | fanduel | Over 46.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-14T11:37:13Z |
+| total | hardrockbet | Over 46 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
+| total | pinnacle | Over 46.5 | -104 | -112 | 49.1% | 50.9% | 3.8% | 2026-11-14T11:37:26Z |
+| moneyline | draftkings | TEN | +500 | -700 | 16.0% | 84.0% | 4.2% | 2026-11-14T11:36:55Z |
+| moneyline | williamhill_us | TEN | +425 | -590 | 18.2% | 81.8% | 4.5% | 2026-11-14T11:35:53Z |
+| moneyline | fanduel | TEN | +490 | -670 | 16.3% | 83.7% | 4.0% | 2026-11-14T11:37:13Z |
+| moneyline | hardrockbet | TEN | +475 | -700 | 16.6% | 83.4% | 4.9% | 2026-11-14T11:37:13Z |
+| moneyline | pinnacle | TEN | +428 | -562 | 18.2% | 81.8% | 3.8% | 2026-11-14T11:37:26Z |
 
 ### Same-line consensus (retail books only)
 
@@ -38,17 +38,59 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 | Market | Team | Label | FanDuel | DraftKings | Hard Rock Bet | Caesars | Consensus | Note |
 |---|---|---|---|---|---|---|---|---|
-| moneyline |  | four-book game-line consensus |  |  |  |  | TEN n/a: 16.9% (4 at line) |  |
-| spread |  | four-book game-line consensus | 10.5 | 10.5 | 10.5 | 10.5 | TEN 10.5: 49.5% (4 at line) |  |
+| moneyline |  | four-book game-line consensus |  |  |  |  | TEN n/a: 16.8% (4 at line) |  |
+| spread |  | four-book game-line consensus | 10.5 | 10.5 | 11.0 | 10.5 | TEN 10.5: 49.7% (3 at line) |  |
 | total |  | four-book game-line consensus | 46.5 | 46.5 | 46.0 | 46.5 | Over 46.5: 49.1% (3 at line) |  |
+| carries|Bhayshul Tuten | JAX | two-book prop consensus | not offered | 15.5 | 15.5 | no props | Over 15.5: 47.4% (2 at line) |  |
+| carries|Tony Pollard | TEN | two-book prop consensus | not offered | 15.5 | 15.5 | no props | Over 15.5: 47.3% (2 at line) |  |
+| carries|Trevor Lawrence | JAX | two-book prop consensus | not offered | 3.5 | 2.5 | no props | no consensus | fewer than 2 books share a line (DraftKings 3.5, Hard Rock Bet 2.5) |
+| completions|Cam Ward | TEN | two-book prop consensus | not offered | 20.5 | 20.5 | no props | Over 20.5: 47.1% (2 at line) |  |
+| completions|Trevor Lawrence | JAX | two-book prop consensus | not offered | 19.5 | 19.5 | no props | Over 19.5: 51.9% (2 at line) |  |
+| passing_attempts|Cam Ward | TEN | two-book prop consensus | not offered | 32.5 | 32.5 | no props | Over 32.5: 48.9% (2 at line) |  |
+| passing_attempts|Trevor Lawrence | JAX | two-book prop consensus | not offered | 29.5 | 29.5 | no props | Over 29.5: 50.5% (2 at line) |  |
+| passing_yards|Cam Ward | TEN | three-book prop consensus | 195.5 | 197.5 | 195.5 | no props | Over 195.5: 50.0% (2 at line) | NEVER A LEG (passing yards: reference only) |
+| passing_yards|Trevor Lawrence | JAX | three-book prop consensus | 247.5 | 246.5 | 247.5 | no props | Over 247.5: 50.0% (2 at line) | NEVER A LEG (passing yards: reference only) |
+| receiving_yards|Bhayshul Tuten | JAX | three-book prop consensus | 13.5 | 13.5 | 13.5 | no props | Over 13.5: 49.6% (3 at line) |  |
+| receiving_yards|Brenton Strange | JAX | three-book prop consensus | 35.5 | 35.5 | 35.5 | no props | Over 35.5: 49.9% (3 at line) |  |
+| receiving_yards|Brian Thomas Jr | JAX | three-book prop consensus | 9.5 | 8.5 | 9.5 | no props | Over 9.5: 49.5% (2 at line) |  |
+| receiving_yards|Calvin Ridley | TEN | three-book prop consensus | 15.5 | 14.5 | 15.5 | no props | Over 15.5: 49.5% (2 at line) |  |
+| receiving_yards|Chimere Dike | TEN | three-book prop consensus | 29.5 | 28.5 | 28.5 | no props | Over 28.5: 50.5% (2 at line) |  |
+| receiving_yards|Daniel Bellinger | TEN | three-book prop consensus | 9.5 | 9.5 | 9.5 | no props | Over 9.5: 49.9% (3 at line) |  |
+| receiving_yards|Elic Ayomanor | TEN | three-book prop consensus | 26.5 | 27.5 | 26.5 | no props | Over 26.5: 50.0% (2 at line) |  |
+| receiving_yards|Gunnar Helm | TEN | three-book prop consensus | 28.5 | 28.5 | 28.5 | no props | Over 28.5: 49.9% (3 at line) |  |
+| receiving_yards|Jakobi Meyers | JAX | three-book prop consensus | 41.5 | 41.5 | 41.5 | no props | Over 41.5: 50.2% (3 at line) |  |
+| receiving_yards|Josh Cameron | JAX | three-book prop consensus | 6.5 | 7.5 | 6.5 | no props | Over 6.5: 50.0% (2 at line) |  |
+| receiving_yards|Nate Boerkircher | JAX | three-book prop consensus | 10.5 | 10.5 | 10.5 | no props | Over 10.5: 50.0% (3 at line) |  |
+| receiving_yards|Parker Washington | JAX | three-book prop consensus | 60.5 | 60.5 | 60.5 | no props | Over 60.5: 49.9% (3 at line) |  |
+| receiving_yards|Travis Hunter | JAX | three-book prop consensus | 9.5 | 9.5 | 9.5 | no props | Over 9.5: 49.7% (3 at line) |  |
+| receiving_yards|Wan'Dale Robinson | TEN | three-book prop consensus | 37.5 | 38.5 | 37.5 | no props | Over 37.5: 50.0% (2 at line) |  |
+| receptions|Bhayshul Tuten | JAX | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 56.2% (3 at line) |  |
+| receptions|Brenton Strange | JAX | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 43.1% (3 at line) |  |
+| receptions|Brian Thomas Jr | JAX | three-book prop consensus | 0.5 | 0.5 | 0.5 | no props | Over 0.5: 64.3% (3 at line) |  |
+| receptions|Calvin Ridley | TEN | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 40.6% (3 at line) |  |
+| receptions|Chimere Dike | TEN | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 56.9% (3 at line) |  |
+| receptions|Daniel Bellinger | TEN | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 43.9% (3 at line) |  |
+| receptions|Elic Ayomanor | TEN | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 44.0% (3 at line) |  |
+| receptions|Gunnar Helm | TEN | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 45.3% (3 at line) |  |
+| receptions|Jakobi Meyers | JAX | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 50.0% (3 at line) |  |
+| receptions|Josh Cameron | JAX | three-book prop consensus | 0.5 | 0.5 | 0.5 | no props | Over 0.5: 64.0% (3 at line) |  |
+| receptions|Nate Boerkircher | JAX | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 43.7% (3 at line) |  |
+| receptions|Parker Washington | JAX | three-book prop consensus | 4.5 | 4.5 | 4.5 | no props | Over 4.5: 43.0% (3 at line) |  |
+| receptions|Travis Hunter | JAX | three-book prop consensus | 1.5 | 0.5 | 0.5 | no props | Over 0.5: 64.6% (2 at line) |  |
+| receptions|Wan'Dale Robinson | TEN | three-book prop consensus | 5.5 | 4.5 | 4.5 | no props | Over 4.5: 54.8% (2 at line) |  |
+| rushing_yards|Bhayshul Tuten | JAX | three-book prop consensus | 68.5 | 67.5 | 68.5 | no props | Over 68.5: 50.0% (2 at line) |  |
+| rushing_yards|Cam Ward | TEN | three-book prop consensus | 11.5 | 11.5 | 11.5 | no props | Over 11.5: 49.7% (3 at line) |  |
+| rushing_yards|Chris Rodriguez Jr. | JAX | three-book prop consensus | 31.5 | 31.5 | 29.5 | no props | Over 31.5: 50.1% (2 at line) |  |
+| rushing_yards|Tony Pollard | TEN | three-book prop consensus | 58.5 | 57.5 | 58.5 | no props | Over 58.5: 50.0% (2 at line) |  |
+| rushing_yards|Trevor Lawrence | JAX | three-book prop consensus | 7.5 | 8.5 | 7.5 | no props | Over 7.5: 50.5% (2 at line) |  |
 
-### Line movement: first seen 2026-11-11T18:18:01+00:00 to 2026-11-13T21:36:33+00:00 (7 snapshots)
+### Line movement: first seen 2026-11-11T18:18:01+00:00 to 2026-11-14T11:37:45+00:00 (8 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
 | moneyline | draftkings | n/a | n/a | n/a | +400 / -535 | +500 / -700 |
 | moneyline | fanduel | n/a | n/a | n/a | +430 / -590 | +490 / -670 |
-| moneyline | pinnacle | n/a | n/a | n/a | +427 / -560 | +427 / -560 |
+| moneyline | pinnacle | n/a | n/a | n/a | +427 / -560 | +428 / -562 |
 | spread | draftkings | 10.5 | 10.5 | 0.0 | -112 / -108 | -108 / -112 |
 | spread | fanduel | 10.5 | 10.5 | 0.0 | -115 / -105 | -110 / -110 |
 | spread | pinnacle | 10.5 | 10.5 | 0.0 | -102 / -110 | -102 / -110 |
@@ -58,7 +100,52 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 39 hours away (props are pulled inside 36 hours).
+### Player props beside the research baseline
+
+| Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Trevor Lawrence | passing yards | draftkings | 246.5 | -111 / -113 | 49.8% | n/a | 264.6 | 253.5 | 8 | 18.1 |
+| Trevor Lawrence | passing yards | fanduel | 247.5 | -114 / -114 | 50.0% | 50.4% | 264.6 | 253.5 | 8 | 17.1 |
+| Trevor Lawrence | passing yards | hardrockbet | 247.5 | -115 / -115 | 50.0% | 50.4% | 264.6 | 253.5 | 8 | 17.1 |
+| Jakobi Meyers | receiving yards | draftkings | 41.5 | -115 / -109 | 50.6% | 50.2% | 55.2 | 44.3 | 8 | 13.7 |
+| Jakobi Meyers | receiving yards | fanduel | 41.5 | -114 / -114 | 50.0% | 50.2% | 55.2 | 44.3 | 8 | 13.7 |
+| Jakobi Meyers | receiving yards | hardrockbet | 41.5 | -115 / -115 | 50.0% | 50.2% | 55.2 | 44.3 | 8 | 13.7 |
+| Tony Pollard | rushing yards | draftkings | 57.5 | -110 / -114 | 49.6% | n/a | 69.2 | 59.8 | 8 | 11.7 |
+| Tony Pollard | rushing yards | fanduel | 58.5 | -114 / -114 | 50.0% | 50.0% | 69.2 | 59.8 | 8 | 10.7 |
+| Tony Pollard | rushing yards | hardrockbet | 58.5 | -115 / -115 | 50.0% | 50.0% | 69.2 | 59.8 | 8 | 10.7 |
+| Parker Washington | receiving yards | draftkings | 60.5 | -111 / -113 | 49.8% | 49.8% | 68.3 | 71.9 | 8 | 7.8 |
+| Parker Washington | receiving yards | fanduel | 60.5 | -114 / -114 | 50.0% | 49.8% | 68.3 | 71.9 | 8 | 7.8 |
+| Parker Washington | receiving yards | hardrockbet | 60.5 | -115 / -115 | 50.0% | 49.8% | 68.3 | 71.9 | 8 | 7.8 |
+| Gunnar Helm | receiving yards | draftkings | 28.5 | -111 / -113 | 49.8% | n/a | 21.5 | 11.9 | 7 | -7.0 |
+| Gunnar Helm | receiving yards | fanduel | 28.5 | -114 / -114 | 50.0% | n/a | 21.5 | 11.9 | 7 | -7.0 |
+| Gunnar Helm | receiving yards | hardrockbet | 28.5 | -115 / -115 | 50.0% | n/a | 21.5 | 11.9 | 7 | -7.0 |
+| Cam Ward | passing yards | draftkings | 197.5 | -111 / -113 | 49.8% | n/a | 191.9 | 182.4 | 8 | -5.6 |
+| Brenton Strange | receiving yards | draftkings | 35.5 | -111 / -113 | 49.8% | 50.6% | 40.6 | 33.8 | 8 | 5.1 |
+| Brenton Strange | receiving yards | fanduel | 35.5 | -114 / -114 | 50.0% | 50.6% | 40.6 | 33.8 | 8 | 5.1 |
+| Brenton Strange | receiving yards | hardrockbet | 35.5 | -115 / -115 | 50.0% | 50.6% | 40.6 | 33.8 | 8 | 5.1 |
+| Cam Ward | passing yards | fanduel | 195.5 | -114 / -114 | 50.0% | 50.0% | 191.9 | 182.4 | 8 | -3.6 |
+| Cam Ward | passing yards | hardrockbet | 195.5 | -115 / -115 | 50.0% | 50.0% | 191.9 | 182.4 | 8 | -3.6 |
+| Wan'Dale Robinson | receiving yards | draftkings | 38.5 | -109 / -115 | 49.4% | n/a | 36.0 | 32.7 | 8 | -2.5 |
+| Elic Ayomanor | receiving yards | fanduel | 26.5 | -114 / -114 | 50.0% | 50.0% | 28.8 | 21.2 | 8 | 2.3 |
+| Elic Ayomanor | receiving yards | hardrockbet | 26.5 | -115 / -115 | 50.0% | 50.0% | 28.8 | 21.2 | 8 | 2.3 |
+| Tony Pollard | carries | draftkings | 15.5 | +102 / -130 | 46.7% | 48.5% | 17.6 | 16.5 | 8 | 2.1 |
+| Tony Pollard | carries | hardrockbet | 15.5 | -105 / -125 | 48.0% | 48.5% | 17.6 | 16.5 | 8 | 2.1 |
+| Bhayshul Tuten | rushing yards | fanduel | 68.5 | -114 / -114 | 50.0% | n/a | 66.5 | 71.6 | 8 | -2.0 |
+| Bhayshul Tuten | rushing yards | hardrockbet | 68.5 | -115 / -115 | 50.0% | n/a | 66.5 | 71.6 | 8 | -2.0 |
+| Wan'Dale Robinson | receiving yards | fanduel | 37.5 | -114 / -114 | 50.0% | 50.0% | 36.0 | 32.7 | 8 | -1.5 |
+| Wan'Dale Robinson | receiving yards | hardrockbet | 37.5 | -115 / -115 | 50.0% | 50.0% | 36.0 | 32.7 | 8 | -1.5 |
+| Elic Ayomanor | receiving yards | draftkings | 27.5 | -110 / -114 | 49.6% | n/a | 28.8 | 21.2 | 8 | 1.3 |
+| Gunnar Helm | receptions | draftkings | 3.5 | +109 / -139 | 45.1% | 43.9% | 2.2 | 1.7 | 7 | -1.3 |
+| Gunnar Helm | receptions | fanduel | 3.5 | +104 / -138 | 45.8% | 43.9% | 2.2 | 1.7 | 7 | -1.3 |
+| Gunnar Helm | receptions | hardrockbet | 3.5 | +110 / -140 | 44.9% | 43.9% | 2.2 | 1.7 | 7 | -1.3 |
+| Bhayshul Tuten | rushing yards | draftkings | 67.5 | -111 / -113 | 49.8% | 50.2% | 66.5 | 71.6 | 8 | -1.0 |
+| Wan'Dale Robinson | receptions | fanduel | 5.5 | +134 / -180 | 39.9% | 39.8% | 4.7 | 4.7 | 8 | -0.8 |
+| Elic Ayomanor | receptions | draftkings | 2.5 | +114 / -145 | 44.1% | 44.1% | 1.8 | 1.0 | 8 | -0.7 |
+| Elic Ayomanor | receptions | fanduel | 2.5 | +112 / -148 | 44.1% | 44.1% | 1.8 | 1.0 | 8 | -0.7 |
+| Elic Ayomanor | receptions | hardrockbet | 2.5 | +115 / -150 | 43.7% | 44.1% | 1.8 | 1.0 | 8 | -0.7 |
+| Parker Washington | receptions | draftkings | 4.5 | +120 / -154 | 42.9% | 47.5% | 3.9 | 4.0 | 8 | -0.6 |
+
+baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
 ## Matchup edges
 
@@ -380,7 +467,7 @@ Neutral-situation pass rate 54.5%; 57.8 plays per game; target share WR 61% / TE
 | defense allows | Deep middle | 6 | 2% | 83% | 30.5 | 4 |
 | defense allows | Deep right | 21 | 8% | 52% | 15.57 | 8 |
 
-### JAX lines (depth chart as of 2026-11-13T15:17:47Z)
+### JAX lines (depth chart as of 2026-11-14T07:01:50Z)
 
 Offensive line: LT Walker Little, LG Emmanuel Pregnon, C Robert Hainsey, RG Ezra Cleveland, RT Cole Van Lanen.  
 Defensive front: LDE Travon Walker, LDT Arik Armstead, RDT None, RDE Josh Hines-Allen, WLB Foyesade Oluokun, SLB Dennis Gardeck.
@@ -389,15 +476,15 @@ Defensive front: LDE Travon Walker, LDT Arik Armstead, RDT None, RDE Josh Hines-
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Robert Hainsey | C | yes | none listed | Limited Participation in Practice |  |
+| Robert Hainsey | C | yes | Questionable | Limited Participation in Practice | Concussion |
 | Travon Walker | DE | yes | none listed | Limited Participation in Practice |  |
-| Ezra Cleveland | G | yes | none listed | Limited Participation in Practice |  |
-| Bhayshul Tuten | RB | yes | none listed | Did Not Participate In Practice |  |
-| Jessie Bates | S | yes | none listed | Did Not Participate In Practice |  |
+| Ezra Cleveland | G | yes | none listed | Full Participation in Practice |  |
+| Bhayshul Tuten | RB | yes | none listed | Limited Participation in Practice |  |
+| Jessie Bates | S | yes | Out | Limited Participation in Practice | Not injury related - resting player |
 | Antonio Johnson | S | yes | none listed | Limited Participation in Practice |  |
-| BJ Green II | DE |  | none listed | Full Participation in Practice |  |
-| Jordan Davis | DT |  | none listed | Did Not Participate In Practice |  |
-| Branson Combs | LB |  | none listed | Limited Participation in Practice |  |
+| BJ Green II | DE |  | Out | Full Participation in Practice | Forearm |
+| Jordan Davis | DT |  | Out | Limited Participation in Practice | Not injury related - resting player |
+| Branson Combs | LB |  | none listed | Full Participation in Practice |  |
 | Chris Rodriguez Jr. | RB |  | none listed | Limited Participation in Practice |  |
 | Jakobi Meyers | WR |  | none listed | Limited Participation in Practice |  |
 
@@ -604,7 +691,7 @@ Neutral-situation pass rate 47.6%; 56.1 plays per game; target share WR 65% / TE
 | defense allows | Deep middle | 6 | 2% | 50% | 14.83 | 3 |
 | defense allows | Deep right | 33 | 12% | 46% | 10.94 | 9 |
 
-### TEN lines (depth chart as of 2026-11-13T15:17:47Z)
+### TEN lines (depth chart as of 2026-11-14T07:01:50Z)
 
 Offensive line: LT Dan Moore Jr., LG Peter Skoronski, C Austin Schlottmann, RG Atonio Mafi, RT JC Latham.  
 Defensive front: LDE Jacob Martin, LDT John Franklin-Myers, RDT Solomon Thomas, RDE Jermaine Johnson II, WLB Cedric Gray, SLB Cody Barton.
@@ -615,16 +702,16 @@ Defensive front: LDE Jacob Martin, LDT John Franklin-Myers, RDT Solomon Thomas, 
 |---|---|---|---|---|---|
 | Marcus Harris | CB | yes | none listed | Full Participation in Practice |  |
 | John Franklin-Myers | DE | yes | none listed | Full Participation in Practice |  |
-| Peter Skoronski | G | yes | none listed | Did Not Participate In Practice |  |
-| Cody Barton | LB | yes | none listed | Did Not Participate In Practice |  |
-| Anthony Hill Jr. | LB | yes | none listed | Did Not Participate In Practice |  |
-| Tommy Townsend | P | yes | none listed | Full Participation in Practice |  |
-| Tony Pollard | RB | yes | none listed | Did Not Participate In Practice |  |
-| Kevin Winston Jr. | S | yes | none listed | Limited Participation in Practice |  |
+| Peter Skoronski | G | yes | Out | Did Not Participate In Practice | Hamstring |
+| Cody Barton | LB | yes | Out | Did Not Participate In Practice | Concussion |
+| Anthony Hill Jr. | LB | yes | Out | Did Not Participate In Practice | Neck |
+| Tommy Townsend | P | yes | Out | Did Not Participate In Practice | Knee |
+| Tony Pollard | RB | yes | none listed | Full Participation in Practice |  |
+| Kevin Winston Jr. | S | yes | none listed | Full Participation in Practice |  |
 | JC Latham | T | yes | none listed | Full Participation in Practice |  |
-| Carnell Tate | WR | yes | none listed | Did Not Participate In Practice |  |
+| Carnell Tate | WR | yes | Out | Did Not Participate In Practice | Shoulder |
 | Jaylon Jones | CB |  | none listed | Full Participation in Practice |  |
-| Tyjae Spears | RB |  | none listed | Limited Participation in Practice |  |
+| Tyjae Spears | RB |  | Questionable | Full Participation in Practice | Knee |
 
 ESPN live list (designations only): James Williams Sr. (LB) Injured Reserve; Carnell Tate (WR) Out; Tyjae Spears (RB) Questionable; Anthony Hill Jr. (LB) Out; Cody Barton (LB) Out; Peter Skoronski (G) Out; Tommy Townsend (P) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
@@ -662,7 +749,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
-| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line. |
+| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, player props. No FTN model, no true opening line. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -670,16 +757,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T02:48:32+00:00 | 6d2092872efe |
-| pbp | OK | 2026-11-14T02:48:32+00:00 | 63d725b49ed1 |
-| rosters | OK | 2026-11-14T02:48:32+00:00 | 99651c418f80 |
-| injuries | OK | 2026-11-14T02:48:33+00:00 | 65d181dfc372 |
-| depth_charts | OK | 2026-11-14T02:48:33+00:00 | 341d1eddeaf6 |
-| snap_counts | OK | 2026-11-14T02:48:33+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T02:48:34+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-14T02:48:34+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T02:48:35+00:00 |  |
+| games | OK | 2026-11-14T11:37:34+00:00 | 6fce4badec51 |
+| pbp | OK | 2026-11-14T11:37:35+00:00 | 9f8b1f936f8f |
+| rosters | OK | 2026-11-14T11:37:35+00:00 | 9e6a21c736d9 |
+| injuries | OK | 2026-11-14T11:37:35+00:00 | 2c0d89d0e3ac |
+| depth_charts | OK | 2026-11-14T11:37:36+00:00 | ae00893a3710 |
+| snap_counts | OK | 2026-11-14T11:37:36+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T11:37:36+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-14T11:37:36+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T11:37:37+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-14T02:48:36+00:00 |  |
+| book_odds | OK | 2026-11-14T11:37:38+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

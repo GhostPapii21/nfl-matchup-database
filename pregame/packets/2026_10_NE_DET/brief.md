@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): DET -2.5, total 49.5.
 
-Generated 2026-11-14T02:48:37+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T11:37:39+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,25 +12,25 @@ INDOOR
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-14T02:48:36+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-14T11:37:38+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | DET -2.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-14T02:48:26Z |
-| spread | williamhill_us | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-14T02:45:57Z |
-| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-14T02:48:27Z |
-| spread | pinnacle | DET -2.5 | -115 | +102 | 51.9% | 48.1% | 3.0% | 2026-11-14T02:48:25Z |
-| spread | hardrockbet | DET -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:47:31Z |
-| total | draftkings | Over 49.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-14T02:48:26Z |
-| total | williamhill_us | Over 49.5 | -117 | -104 | 51.4% | 48.6% | 4.9% | 2026-11-14T02:45:57Z |
-| total | fanduel | Over 49.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:48:27Z |
-| total | pinnacle | Over 49 | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-14T02:48:25Z |
-| total | hardrockbet | Over 49.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:47:31Z |
-| moneyline | draftkings | DET | -148 | +124 | 57.2% | 42.8% | 4.3% | 2026-11-14T02:48:26Z |
-| moneyline | williamhill_us | DET | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-14T02:45:57Z |
-| moneyline | fanduel | DET | -152 | +128 | 57.9% | 42.1% | 4.2% | 2026-11-14T02:48:27Z |
-| moneyline | pinnacle | DET | -147 | +130 | 57.8% | 42.2% | 3.0% | 2026-11-14T02:48:25Z |
-| moneyline | hardrockbet | DET | -150 | +130 | 58.0% | 42.0% | 3.5% | 2026-11-14T02:47:31Z |
+| spread | draftkings | DET -2.5 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-14T11:36:55Z |
+| spread | williamhill_us | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-14T11:35:53Z |
+| spread | fanduel | DET -2.5 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-14T11:37:13Z |
+| spread | pinnacle | DET -2.5 | -114 | +102 | 51.8% | 48.2% | 2.8% | 2026-11-14T11:37:26Z |
+| spread | hardrockbet | DET -3 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T11:37:13Z |
+| total | draftkings | Over 49.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-14T11:36:55Z |
+| total | williamhill_us | Over 49.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:35:53Z |
+| total | fanduel | Over 49.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
+| total | pinnacle | Over 49 | -113 | -103 | 51.1% | 48.9% | 3.8% | 2026-11-14T11:37:26Z |
+| total | hardrockbet | Over 49.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
+| moneyline | draftkings | DET | -148 | +124 | 57.2% | 42.8% | 4.3% | 2026-11-14T11:36:55Z |
+| moneyline | williamhill_us | DET | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-14T11:35:53Z |
+| moneyline | fanduel | DET | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-14T11:37:13Z |
+| moneyline | pinnacle | DET | -147 | +130 | 57.8% | 42.2% | 3.0% | 2026-11-14T11:37:26Z |
+| moneyline | hardrockbet | DET | -155 | +130 | 58.3% | 41.7% | 4.3% | 2026-11-14T11:37:13Z |
 
 ### Same-line consensus (retail books only)
 
@@ -38,51 +38,51 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 | Market | Team | Label | FanDuel | DraftKings | Hard Rock Bet | Caesars | Consensus | Note |
 |---|---|---|---|---|---|---|---|---|
-| moneyline |  | four-book game-line consensus |  |  |  |  | DET n/a: 57.8% (4 at line) |  |
+| moneyline |  | four-book game-line consensus |  |  |  |  | DET n/a: 58.0% (4 at line) |  |
 | spread |  | four-book game-line consensus | -2.5 | -2.5 | -3.0 | -2.5 | DET -2.5: 52.0% (3 at line) |  |
-| total |  | four-book game-line consensus | 49.5 | 49.5 | 49.5 | 49.5 | Over 49.5: 50.5% (4 at line) |  |
+| total |  | four-book game-line consensus | 49.5 | 49.5 | 49.5 | 49.5 | Over 49.5: 50.1% (4 at line) |  |
 | carries|Drake Maye | NE | two-book prop consensus | not offered | 4.5 | 4.5 | no props | Over 4.5: 48.2% (2 at line) |  |
-| carries|Jahmyr Gibbs | DET | two-book prop consensus | not offered | 20.5 | 20.5 | no props | Over 20.5: 48.3% (2 at line) |  |
+| carries|Jahmyr Gibbs | DET | two-book prop consensus | not offered | 20.5 | 20.5 | no props | Over 20.5: 47.8% (2 at line) |  |
 | completions|Drake Maye | NE | two-book prop consensus | not offered | 21.5 | 21.5 | no props | Over 21.5: 47.9% (2 at line) |  |
 | completions|Jared Goff | DET | two-book prop consensus | not offered | 22.5 | 22.5 | no props | Over 22.5: 49.4% (2 at line) |  |
-| passing_attempts|Drake Maye | NE | two-book prop consensus | not offered | 34.5 | 34.5 | no props | Over 34.5: 50.1% (2 at line) |  |
+| passing_attempts|Drake Maye | NE | two-book prop consensus | not offered | 34.5 | 34.5 | no props | Over 34.5: 49.6% (2 at line) |  |
 | passing_attempts|Jared Goff | DET | two-book prop consensus | not offered | 34.5 | 34.5 | no props | Over 34.5: 51.2% (2 at line) |  |
-| passing_yards|Drake Maye | NE | three-book prop consensus | 262.5 | 262.5 | 262.5 | no props | Over 262.5: 49.9% (3 at line) | NEVER A LEG (passing yards: reference only) |
-| passing_yards|Jared Goff | DET | three-book prop consensus | 268.5 | 264.5 | 267.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 268.5, DraftKings 264.5, Hard Rock Bet 267.5); NEVER A LEG (passing yards: reference only) |
-| receiving_yards|A.J. Brown | NE | three-book prop consensus | 50.5 | 50.5 | 50.5 | no props | Over 50.5: 49.9% (3 at line) |  |
-| receiving_yards|Amon-Ra St. Brown | DET | three-book prop consensus | 78.5 | 80.5 | 79.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 78.5, DraftKings 80.5, Hard Rock Bet 79.5) |
-| receiving_yards|Eli Raridon | NE | three-book prop consensus | 27.5 | 27.5 | 27.5 | no props | Over 27.5: 49.9% (3 at line) |  |
-| receiving_yards|Hunter Henry | NE | three-book prop consensus | 35.5 | 35.5 | 35.5 | no props | Over 35.5: 50.1% (3 at line) |  |
-| receiving_yards|Isaac TeSlaa | DET | three-book prop consensus | 15.5 | 15.5 | 15.5 | no props | Over 15.5: 50.0% (3 at line) |  |
-| receiving_yards|Jahmyr Gibbs | DET | three-book prop consensus | 31.5 | 32.5 | 32.5 | no props | Over 32.5: 50.2% (2 at line) |  |
+| passing_yards|Drake Maye | NE | three-book prop consensus | 260.5 | 262.5 | 261.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 260.5, DraftKings 262.5, Hard Rock Bet 261.5); NEVER A LEG (passing yards: reference only) |
+| passing_yards|Jared Goff | DET | three-book prop consensus | 268.5 | 269.5 | 268.5 | no props | Over 268.5: 50.0% (2 at line) | NEVER A LEG (passing yards: reference only) |
+| receiving_yards|A.J. Brown | NE | three-book prop consensus | 50.5 | 51.5 | 50.5 | no props | Over 50.5: 50.0% (2 at line) |  |
+| receiving_yards|Amon-Ra St. Brown | DET | three-book prop consensus | 81.5 | 81.5 | 81.5 | no props | Over 81.5: 49.9% (3 at line) |  |
+| receiving_yards|Eli Raridon | NE | three-book prop consensus | 26.5 | 27.5 | 27.5 | no props | Over 27.5: 49.9% (2 at line) |  |
+| receiving_yards|Hunter Henry | NE | three-book prop consensus | 37.5 | 35.5 | 36.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 37.5, DraftKings 35.5, Hard Rock Bet 36.5) |
+| receiving_yards|Isaac TeSlaa | DET | three-book prop consensus | 15.5 | 13.5 | 14.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 15.5, DraftKings 13.5, Hard Rock Bet 14.5) |
+| receiving_yards|Jahmyr Gibbs | DET | three-book prop consensus | 31.5 | 33.5 | 32.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 31.5, DraftKings 33.5, Hard Rock Bet 32.5) |
 | receiving_yards|Jameson Williams | DET | three-book prop consensus | 56.5 | 55.5 | 56.5 | no props | Over 56.5: 50.0% (2 at line) |  |
-| receiving_yards|Sam LaPorta | DET | three-book prop consensus | 42.5 | 41.5 | 42.5 | no props | Over 42.5: 50.0% (2 at line) |  |
-| receptions|A.J. Brown | NE | three-book prop consensus | 3.5 | 3.5 | 4.5 | no props | Over 3.5: 57.6% (2 at line) |  |
-| receptions|Amon-Ra St. Brown | DET | three-book prop consensus | 7.5 | 7.5 | 7.5 | no props | Over 7.5: 46.0% (3 at line) |  |
-| receptions|Eli Raridon | NE | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 45.8% (3 at line) |  |
-| receptions|Hunter Henry | NE | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 44.0% (3 at line) |  |
-| receptions|Isaac TeSlaa | DET | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 41.8% (3 at line) |  |
-| receptions|Jahmyr Gibbs | DET | three-book prop consensus | 4.5 | 3.5 | 4.5 | no props | Over 4.5: 45.2% (2 at line) |  |
-| receptions|Jameson Williams | DET | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 53.5% (3 at line) |  |
+| receiving_yards|Sam LaPorta | DET | three-book prop consensus | 41.5 | 41.5 | 41.5 | no props | Over 41.5: 50.1% (3 at line) |  |
+| receptions|A.J. Brown | NE | three-book prop consensus | 3.5 | 3.5 | 4.5 | no props | Over 3.5: 58.6% (2 at line) |  |
+| receptions|Amon-Ra St. Brown | DET | three-book prop consensus | 7.5 | 7.5 | 7.5 | no props | Over 7.5: 45.7% (3 at line) |  |
+| receptions|Eli Raridon | NE | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 43.4% (3 at line) |  |
+| receptions|Hunter Henry | NE | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 44.8% (3 at line) |  |
+| receptions|Isaac TeSlaa | DET | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 41.1% (3 at line) |  |
+| receptions|Jahmyr Gibbs | DET | three-book prop consensus | 4.5 | 4.5 | 4.5 | no props | Over 4.5: 45.2% (3 at line) |  |
+| receptions|Jameson Williams | DET | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 53.9% (3 at line) |  |
 | receptions|Sam LaPorta | DET | three-book prop consensus | 4.5 | 3.5 | 3.5 | no props | Over 3.5: 58.3% (2 at line) |  |
 | rushing_yards|Drake Maye | NE | three-book prop consensus | 26.5 | 27.5 | 27.5 | no props | Over 27.5: 49.8% (2 at line) |  |
-| rushing_yards|Jahmyr Gibbs | DET | three-book prop consensus | 92.5 | 91.5 | 92.5 | no props | Over 92.5: 50.0% (2 at line) |  |
-| rushing_yards|Jared Goff | DET | three-book prop consensus | 0.5 | 0.5 | 0.5 | no props | Over 0.5: 46.8% (3 at line) |  |
+| rushing_yards|Jahmyr Gibbs | DET | three-book prop consensus | 90.5 | 91.5 | 91.5 | no props | Over 91.5: 50.2% (2 at line) |  |
+| rushing_yards|Jared Goff | DET | three-book prop consensus | 0.5 | 0.5 | 0.5 | no props | Over 0.5: 46.4% (3 at line) |  |
 | rushing_yards|Sione Vaki | DET | three-book prop consensus | 12.5 | 13.5 | 12.5 | no props | Over 12.5: 50.5% (2 at line) |  |
 
-### Line movement: first seen 2026-11-11T18:17:55+00:00 to 2026-11-14T00:02:15+00:00 (9 snapshots)
+### Line movement: first seen 2026-11-11T18:17:55+00:00 to 2026-11-14T11:37:38+00:00 (10 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
 | moneyline | draftkings | n/a | n/a | n/a | -155 / +130 | -148 / +124 |
-| moneyline | fanduel | n/a | n/a | n/a | -152 / +128 | -152 / +128 |
+| moneyline | fanduel | n/a | n/a | n/a | -152 / +128 | -154 / +130 |
 | moneyline | pinnacle | n/a | n/a | n/a | -158 / +139 | -147 / +130 |
 | spread | draftkings | -2.5 | -2.5 | 0.0 | -120 / +100 | -118 / -102 |
 | spread | fanduel | -2.5 | -2.5 | 0.0 | -120 / +100 | -120 / +100 |
-| spread | pinnacle | -2.5 | -2.5 | 0.0 | -125 / +111 | -115 / +102 |
+| spread | pinnacle | -2.5 | -2.5 | 0.0 | -125 / +111 | -114 / +102 |
 | total | draftkings | 51.5 | 49.5 | -2.0 | +100 / -120 | -112 / -108 |
 | total | fanduel | 50.5 | 49.5 | -1.0 | -110 / -110 | -110 / -110 |
-| total | pinnacle | 51.0 | 49.0 | -2.0 | -105 / -111 | -112 / -104 |
+| total | pinnacle | 51.0 | 49.0 | -2.0 | -105 / -111 | -113 / -103 |
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
@@ -90,44 +90,44 @@ First seen by this pipeline, not the true opening line. Snapshots are only as fr
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Drake Maye | passing yards | draftkings | 262.5 | -111 / -113 | 49.8% | 49.8% | 294.4 | 277.9 | 8 | 31.9 |
-| Drake Maye | passing yards | fanduel | 262.5 | -114 / -114 | 50.0% | 49.8% | 294.4 | 277.9 | 8 | 31.9 |
-| Drake Maye | passing yards | hardrockbet | 262.5 | -115 / -115 | 50.0% | 49.8% | 294.4 | 277.9 | 8 | 31.9 |
-| Isaac TeSlaa | receiving yards | draftkings | 15.5 | -112 / -112 | 50.0% | 50.0% | 31.1 | 11.0 | 7 | 15.6 |
+| Drake Maye | passing yards | fanduel | 260.5 | -114 / -114 | 50.0% | n/a | 294.4 | 277.9 | 8 | 33.9 |
+| Drake Maye | passing yards | hardrockbet | 261.5 | -115 / -115 | 50.0% | n/a | 294.4 | 277.9 | 8 | 32.9 |
+| Drake Maye | passing yards | draftkings | 262.5 | -111 / -113 | 49.8% | 50.2% | 294.4 | 277.9 | 8 | 31.9 |
+| Isaac TeSlaa | receiving yards | draftkings | 13.5 | -114 / -110 | 50.4% | n/a | 31.1 | 11.0 | 7 | 17.6 |
+| Isaac TeSlaa | receiving yards | hardrockbet | 14.5 | -120 / -110 | 51.0% | n/a | 31.1 | 11.0 | 7 | 16.6 |
 | Isaac TeSlaa | receiving yards | fanduel | 15.5 | -114 / -114 | 50.0% | 50.0% | 31.1 | 11.0 | 7 | 15.6 |
-| Isaac TeSlaa | receiving yards | hardrockbet | 15.5 | -115 / -115 | 50.0% | 50.0% | 31.1 | 11.0 | 7 | 15.6 |
-| Hunter Henry | receiving yards | draftkings | 35.5 | -113 / -111 | 50.2% | 51.4% | 49.0 | 48.3 | 8 | 13.5 |
-| Hunter Henry | receiving yards | fanduel | 35.5 | -114 / -114 | 50.0% | 51.4% | 49.0 | 48.3 | 8 | 13.5 |
-| Hunter Henry | receiving yards | hardrockbet | 35.5 | -115 / -115 | 50.0% | 51.4% | 49.0 | 48.3 | 8 | 13.5 |
+| Hunter Henry | receiving yards | draftkings | 35.5 | -113 / -111 | 50.2% | 51.1% | 49.0 | 48.3 | 8 | 13.5 |
+| Hunter Henry | receiving yards | hardrockbet | 36.5 | -115 / -115 | 50.0% | n/a | 49.0 | 48.3 | 8 | 12.5 |
+| Hunter Henry | receiving yards | fanduel | 37.5 | -114 / -114 | 50.0% | n/a | 49.0 | 48.3 | 8 | 11.5 |
+| Eli Raridon | receiving yards | fanduel | 26.5 | -114 / -114 | 50.0% | n/a | 37.6 | 34.5 | 7 | 11.1 |
+| Jahmyr Gibbs | rushing yards | fanduel | 90.5 | -114 / -114 | 50.0% | n/a | 101.1 | 102.1 | 8 | 10.6 |
 | Eli Raridon | receiving yards | draftkings | 27.5 | -111 / -113 | 49.8% | 50.0% | 37.6 | 34.5 | 7 | 10.1 |
-| Eli Raridon | receiving yards | fanduel | 27.5 | -114 / -114 | 50.0% | 50.0% | 37.6 | 34.5 | 7 | 10.1 |
 | Eli Raridon | receiving yards | hardrockbet | 27.5 | -115 / -115 | 50.0% | 50.0% | 37.6 | 34.5 | 7 | 10.1 |
 | Jameson Williams | receiving yards | draftkings | 55.5 | -110 / -114 | 49.6% | n/a | 65.2 | 52.7 | 8 | 9.7 |
 | Jahmyr Gibbs | rushing yards | draftkings | 91.5 | -114 / -110 | 50.4% | n/a | 101.1 | 102.1 | 8 | 9.6 |
-| Jameson Williams | receiving yards | fanduel | 56.5 | -114 / -114 | 50.0% | 50.0% | 65.2 | 52.7 | 8 | 8.7 |
-| Jameson Williams | receiving yards | hardrockbet | 56.5 | -115 / -115 | 50.0% | 50.0% | 65.2 | 52.7 | 8 | 8.7 |
-| Jahmyr Gibbs | rushing yards | fanduel | 92.5 | -114 / -114 | 50.0% | 50.0% | 101.1 | 102.1 | 8 | 8.6 |
-| Jahmyr Gibbs | rushing yards | hardrockbet | 92.5 | -115 / -115 | 50.0% | 50.0% | 101.1 | 102.1 | 8 | 8.6 |
-| Jared Goff | passing yards | draftkings | 264.5 | -111 / -113 | 49.8% | n/a | 272.9 | 282.8 | 8 | 8.4 |
-| Jared Goff | passing yards | hardrockbet | 267.5 | -115 / -115 | 50.0% | n/a | 272.9 | 282.8 | 8 | 5.4 |
+| Jahmyr Gibbs | rushing yards | hardrockbet | 91.5 | -115 / -115 | 50.0% | n/a | 101.1 | 102.1 | 8 | 9.6 |
+| Jameson Williams | receiving yards | fanduel | 56.5 | -114 / -114 | 50.0% | 51.0% | 65.2 | 52.7 | 8 | 8.7 |
+| Jameson Williams | receiving yards | hardrockbet | 56.5 | -115 / -115 | 50.0% | 51.0% | 65.2 | 52.7 | 8 | 8.7 |
 | Sam LaPorta | receiving yards | draftkings | 41.5 | -113 / -111 | 50.2% | n/a | 46.4 | 44.3 | 8 | 4.9 |
-| Jared Goff | passing yards | fanduel | 268.5 | -114 / -114 | 50.0% | 51.0% | 272.9 | 282.8 | 8 | 4.4 |
-| Sam LaPorta | receiving yards | fanduel | 42.5 | -114 / -114 | 50.0% | 50.2% | 46.4 | 44.3 | 8 | 3.9 |
-| Sam LaPorta | receiving yards | hardrockbet | 42.5 | -115 / -115 | 50.0% | 50.2% | 46.4 | 44.3 | 8 | 3.9 |
-| Jahmyr Gibbs | carries | draftkings | 20.5 | -102 / -124 | 47.7% | 48.6% | 22.2 | 21.5 | 8 | 1.7 |
-| Jahmyr Gibbs | carries | hardrockbet | 20.5 | -110 / -120 | 49.0% | 48.6% | 22.2 | 21.5 | 8 | 1.7 |
+| Sam LaPorta | receiving yards | fanduel | 41.5 | -114 / -114 | 50.0% | n/a | 46.4 | 44.3 | 8 | 4.9 |
+| Sam LaPorta | receiving yards | hardrockbet | 41.5 | -115 / -115 | 50.0% | n/a | 46.4 | 44.3 | 8 | 4.9 |
+| Jared Goff | passing yards | fanduel | 268.5 | -114 / -114 | 50.0% | 51.5% | 272.9 | 282.8 | 8 | 4.4 |
+| Jared Goff | passing yards | hardrockbet | 268.5 | -115 / -115 | 50.0% | 51.5% | 272.9 | 282.8 | 8 | 4.4 |
+| Jared Goff | passing yards | draftkings | 269.5 | -113 / -111 | 50.2% | n/a | 272.9 | 282.8 | 8 | 3.4 |
+| Jahmyr Gibbs | carries | draftkings | 20.5 | -102 / -124 | 47.7% | 48.5% | 22.2 | 21.5 | 8 | 1.7 |
+| Jahmyr Gibbs | carries | hardrockbet | 20.5 | -105 / -125 | 48.0% | 48.5% | 22.2 | 21.5 | 8 | 1.7 |
 | Hunter Henry | receptions | draftkings | 3.5 | +110 / -141 | 44.9% | 43.3% | 4.3 | 3.4 | 8 | 0.8 |
-| Hunter Henry | receptions | fanduel | 3.5 | +116 / -154 | 43.3% | 43.3% | 4.3 | 3.4 | 8 | 0.8 |
-| Hunter Henry | receptions | hardrockbet | 3.5 | +115 / -150 | 43.7% | 43.3% | 4.3 | 3.4 | 8 | 0.8 |
+| Hunter Henry | receptions | fanduel | 3.5 | +106 / -140 | 45.4% | 43.3% | 4.3 | 3.4 | 8 | 0.8 |
+| Hunter Henry | receptions | hardrockbet | 3.5 | +115 / -145 | 44.0% | 43.3% | 4.3 | 3.4 | 8 | 0.8 |
 | Sam LaPorta | receptions | draftkings | 3.5 | -162 / +126 | 58.3% | n/a | 4.1 | 4.4 | 8 | 0.6 |
 | Sam LaPorta | receptions | hardrockbet | 3.5 | -165 / +125 | 58.4% | n/a | 4.1 | 4.4 | 8 | 0.6 |
 | Sam LaPorta | receptions | fanduel | 4.5 | +124 / -166 | 41.7% | 41.7% | 4.1 | 4.4 | 8 | -0.4 |
-| Jameson Williams | receptions | draftkings | 3.5 | -130 / +102 | 53.3% | 53.7% | 3.7 | 4.3 | 8 | 0.2 |
-| Jameson Williams | receptions | fanduel | 3.5 | -138 / +104 | 54.2% | 53.7% | 3.7 | 4.3 | 8 | 0.2 |
-| Jameson Williams | receptions | hardrockbet | 3.5 | -130 / +100 | 53.1% | 53.7% | 3.7 | 4.3 | 8 | 0.2 |
-| Isaac TeSlaa | receptions | draftkings | 1.5 | +125 / -160 | 41.9% | 42.5% | 1.7 | 1.1 | 7 | 0.2 |
-| Isaac TeSlaa | receptions | fanduel | 1.5 | +124 / -166 | 41.7% | 42.5% | 1.7 | 1.1 | 7 | 0.2 |
-| Isaac TeSlaa | receptions | hardrockbet | 1.5 | +125 / -165 | 41.6% | 42.5% | 1.7 | 1.1 | 7 | 0.2 |
+| Jameson Williams | receptions | draftkings | 3.5 | -130 / +102 | 53.3% | 53.6% | 3.7 | 4.3 | 8 | 0.2 |
+| Jameson Williams | receptions | fanduel | 3.5 | -138 / +104 | 54.2% | 53.6% | 3.7 | 4.3 | 8 | 0.2 |
+| Jameson Williams | receptions | hardrockbet | 3.5 | -135 / +105 | 54.1% | 53.6% | 3.7 | 4.3 | 8 | 0.2 |
+| Isaac TeSlaa | receptions | draftkings | 1.5 | +137 / -176 | 39.8% | 42.4% | 1.7 | 1.1 | 7 | 0.2 |
+| Isaac TeSlaa | receptions | fanduel | 1.5 | +124 / -166 | 41.7% | 42.4% | 1.7 | 1.1 | 7 | 0.2 |
+| Isaac TeSlaa | receptions | hardrockbet | 1.5 | +125 / -165 | 41.6% | 42.4% | 1.7 | 1.1 | 7 | 0.2 |
 | Jared Goff | passing attempts | draftkings | 34.5 | -120 / -106 | 51.5% | 52.8% | n/a | n/a | n/a | n/a |
 | Jared Goff | passing attempts | hardrockbet | 34.5 | -120 / -110 | 51.0% | 52.8% | n/a | n/a | n/a | n/a |
 
@@ -405,7 +405,7 @@ Neutral-situation pass rate 54.2%; 59.8 plays per game; target share WR 59% / TE
 | defense allows | Deep middle | 9 | 3% | 56% | 18.33 | 4 |
 | defense allows | Deep right | 16 | 6% | 62% | 16.94 | 7 |
 
-### NE lines (depth chart as of 2026-11-13T15:17:47Z)
+### NE lines (depth chart as of 2026-11-14T07:01:50Z)
 
 Offensive line: LT Will Campbell, LG Walter Rouse, C Jared Wilson, RG Matt Pryor, RT Morgan Moses.  
 Defensive front: LDE Christian Barmore, NT Cory Durden, RDE Milton Williams, WLB Elijah Ponder, SLB Dre'Mont Jones.
@@ -635,7 +635,7 @@ Neutral-situation pass rate 50.2%; 64.5 plays per game; target share WR 58% / TE
 | defense allows | Deep middle | 18 | 6% | 56% | 16.44 | 8 |
 | defense allows | Deep right | 27 | 9% | 56% | 14.22 | 11 |
 
-### DET lines (depth chart as of 2026-11-13T15:17:47Z)
+### DET lines (depth chart as of 2026-11-14T07:01:50Z)
 
 Offensive line: LT Penei Sewell, LG Christian Mahogany, C Juice Scruggs, RG Tate Ratledge, RT Blake Miller.  
 Defensive front: LDE Aidan Hutchinson, LDT Alim McNeill, RDT Tyleik Williams, RDE Tyler Lacy, WLB Derrick Barnes, SLB Malcolm Rodriguez.
@@ -647,12 +647,12 @@ Defensive front: LDE Aidan Hutchinson, LDT Alim McNeill, RDT Tyleik Williams, RD
 | D.J. Reed | CB | yes | Out | Did Not Participate In Practice | Hip |
 | Jared Goff | QB | yes | none listed | Full Participation in Practice |  |
 | Brian Branch | S | yes | none listed | Full Participation in Practice |  |
-| Amon-Ra St. Brown | WR | yes | none listed | Limited Participation in Practice |  |
+| Amon-Ra St. Brown | WR | yes | Questionable | Limited Participation in Practice | Rib |
 | Cade Mays | C |  | Out | Did Not Participate In Practice | Ankle |
 | DJ Wonnum | DE |  | none listed | Full Participation in Practice |  |
 | Jacob Saylors | RB |  | none listed | Full Participation in Practice |  |
-| Sione Vaki | RB |  | none listed | Did Not Participate In Practice |  |
-| Kerby Joseph | S |  | Out | Full Participation in Practice | Knee |
+| Sione Vaki | RB |  | Questionable | Limited Participation in Practice | Ankle |
+| Kerby Joseph | S |  | Out | Did Not Participate In Practice | Knee |
 
 ESPN live list (designations only): Isiah Pacheco (RB) Injured Reserve; Jimmy Rolder (LB) Injured Reserve; Jack Campbell (LB) Injured Reserve; Kerby Joseph (S) Out; D.J. Reed (CB) Out; Cade Mays (C) Out; Amon-Ra St. Brown (WR) Questionable; Sione Vaki (RB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
@@ -698,16 +698,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T02:48:32+00:00 | 6d2092872efe |
-| pbp | OK | 2026-11-14T02:48:32+00:00 | 63d725b49ed1 |
-| rosters | OK | 2026-11-14T02:48:32+00:00 | 99651c418f80 |
-| injuries | OK | 2026-11-14T02:48:33+00:00 | 65d181dfc372 |
-| depth_charts | OK | 2026-11-14T02:48:33+00:00 | 341d1eddeaf6 |
-| snap_counts | OK | 2026-11-14T02:48:33+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T02:48:34+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-14T02:48:34+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T02:48:35+00:00 |  |
+| games | OK | 2026-11-14T11:37:34+00:00 | 6fce4badec51 |
+| pbp | OK | 2026-11-14T11:37:35+00:00 | 9f8b1f936f8f |
+| rosters | OK | 2026-11-14T11:37:35+00:00 | 9e6a21c736d9 |
+| injuries | OK | 2026-11-14T11:37:35+00:00 | 2c0d89d0e3ac |
+| depth_charts | OK | 2026-11-14T11:37:36+00:00 | ae00893a3710 |
+| snap_counts | OK | 2026-11-14T11:37:36+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T11:37:36+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-14T11:37:36+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T11:37:37+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-14T02:48:36+00:00 |  |
+| book_odds | OK | 2026-11-14T11:37:38+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

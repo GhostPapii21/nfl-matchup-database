@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): ARI +9.5, total 39.5.
 
-Generated 2026-11-14T02:48:50+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T11:37:55+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T02:48:49+00:00 UTC. At kickoff: 76 F, wind 5 mph E, 0% chance of precipitation, Sunny. During the game: low 75 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-14T11:37:54+00:00 UTC. At kickoff: 75 F, wind 5 mph E, 0% chance of precipitation, Sunny. During the game: low 75 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-14T02:48:36+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-14T11:37:38+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | ARI +9.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T02:48:26Z |
-| spread | williamhill_us | ARI +9.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T02:45:58Z |
-| spread | fanduel | ARI +9.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:48:27Z |
-| spread | pinnacle | ARI +9.5 | -107 | -105 | 50.2% | 49.8% | 2.9% | 2026-11-14T02:48:25Z |
-| spread | hardrockbet | ARI +9.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:47:32Z |
-| total | draftkings | Over 39.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T02:48:26Z |
-| total | williamhill_us | Over 39.5 | -108 | -113 | 49.5% | 50.5% | 5.0% | 2026-11-14T02:45:58Z |
-| total | fanduel | Over 39.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:48:27Z |
-| total | pinnacle | Over 39.5 | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-14T02:48:25Z |
-| total | hardrockbet | Over 39.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T02:47:32Z |
-| moneyline | draftkings | ARI | +380 | -500 | 20.0% | 80.0% | 4.2% | 2026-11-14T02:48:26Z |
-| moneyline | williamhill_us | ARI | +360 | -480 | 20.8% | 79.2% | 4.5% | 2026-11-14T02:45:58Z |
-| moneyline | fanduel | ARI | +385 | -500 | 19.8% | 80.2% | 4.0% | 2026-11-14T02:48:27Z |
-| moneyline | pinnacle | ARI | +352 | -443 | 21.3% | 78.7% | 3.7% | 2026-11-14T02:48:25Z |
-| moneyline | hardrockbet | ARI | +375 | -525 | 20.0% | 80.0% | 5.1% | 2026-11-14T02:47:32Z |
+| spread | draftkings | ARI +9.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T11:36:55Z |
+| spread | williamhill_us | ARI +9.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-14T11:35:53Z |
+| spread | fanduel | ARI +9.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
+| spread | pinnacle | ARI +9.5 | -107 | -105 | 50.2% | 49.8% | 2.9% | 2026-11-14T11:37:26Z |
+| spread | hardrockbet | ARI +9.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
+| total | draftkings | Over 39.5 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T11:36:55Z |
+| total | williamhill_us | Over 39.5 | -108 | -113 | 49.5% | 50.5% | 5.0% | 2026-11-14T11:35:53Z |
+| total | fanduel | Over 39.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
+| total | pinnacle | Over 39.5 | -112 | -104 | 50.9% | 49.1% | 3.8% | 2026-11-14T11:37:26Z |
+| total | hardrockbet | Over 39.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T11:37:13Z |
+| moneyline | draftkings | ARI | +380 | -500 | 20.0% | 80.0% | 4.2% | 2026-11-14T11:36:55Z |
+| moneyline | williamhill_us | ARI | +360 | -480 | 20.8% | 79.2% | 4.5% | 2026-11-14T11:35:53Z |
+| moneyline | fanduel | ARI | +410 | -550 | 18.8% | 81.2% | 4.2% | 2026-11-14T11:37:13Z |
+| moneyline | pinnacle | ARI | +352 | -443 | 21.3% | 78.7% | 3.7% | 2026-11-14T11:37:26Z |
+| moneyline | hardrockbet | ARI | +375 | -500 | 20.2% | 79.8% | 4.4% | 2026-11-14T11:37:13Z |
 
 ### Same-line consensus (retail books only)
 
@@ -38,16 +38,67 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 | Market | Team | Label | FanDuel | DraftKings | Hard Rock Bet | Caesars | Consensus | Note |
 |---|---|---|---|---|---|---|---|---|
-| moneyline |  | four-book game-line consensus |  |  |  |  | ARI n/a: 20.2% (4 at line) |  |
+| moneyline |  | four-book game-line consensus |  |  |  |  | ARI n/a: 19.9% (4 at line) |  |
 | spread |  | four-book game-line consensus | 9.5 | 9.5 | 9.5 | 9.5 | ARI 9.5: 50.2% (4 at line) |  |
 | total |  | four-book game-line consensus | 39.5 | 39.5 | 39.5 | 39.5 | Over 39.5: 49.8% (4 at line) |  |
+| carries|Bam Knight | ARI | one-book prop consensus | not offered | not offered | 8.5 | no props | no consensus | fewer than 2 books share a line (Hard Rock Bet 8.5) |
+| carries|Blake Corum | LA | two-book prop consensus | not offered | 12.5 | 11.5 | no props | no consensus | fewer than 2 books share a line (DraftKings 12.5, Hard Rock Bet 11.5) |
+| carries|Carson Beck | ARI | two-book prop consensus | not offered | 2.5 | 3.5 | no props | no consensus | fewer than 2 books share a line (DraftKings 2.5, Hard Rock Bet 3.5) |
+| carries|Kyren Williams | LA | two-book prop consensus | not offered | 14.5 | 15.5 | no props | no consensus | fewer than 2 books share a line (DraftKings 14.5, Hard Rock Bet 15.5) |
+| carries|Tyler Allgeier | ARI | two-book prop consensus | not offered | 9.5 | 10.5 | no props | no consensus | fewer than 2 books share a line (DraftKings 9.5, Hard Rock Bet 10.5) |
+| carries|Zonovan Knight |  | one-book prop consensus | not offered | 8.5 | not offered | no props | no consensus | player match failed closed: 'Zonovan Knight' is not on either team's packet player list |
+| completions|Carson Beck | ARI | two-book prop consensus | not offered | 18.5 | 18.5 | no props | Over 18.5: 52.1% (2 at line) |  |
+| completions|Matthew Stafford | LA | two-book prop consensus | not offered | 20.5 | 20.5 | no props | Over 20.5: 47.2% (2 at line) |  |
+| passing_attempts|Carson Beck | ARI | two-book prop consensus | not offered | 31.5 | 31.5 | no props | Over 31.5: 50.0% (2 at line) |  |
+| passing_attempts|Matthew Stafford | LA | two-book prop consensus | not offered | 30.5 | 29.5 | no props | no consensus | fewer than 2 books share a line (DraftKings 30.5, Hard Rock Bet 29.5) |
+| passing_yards|Carson Beck | ARI | three-book prop consensus | 175.5 | 174.5 | 176.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 175.5, DraftKings 174.5, Hard Rock Bet 176.5); NEVER A LEG (passing yards: reference only) |
+| passing_yards|Matthew Stafford | LA | three-book prop consensus | 212.5 | 212.5 | 212.5 | no props | Over 212.5: 50.1% (3 at line) | NEVER A LEG (passing yards: reference only) |
+| receiving_yards|Bam Knight | ARI | two-book prop consensus | 6.5 | not offered | 6.5 | no props | Over 6.5: 50.0% (2 at line) |  |
+| receiving_yards|Blake Corum | LA | three-book prop consensus | 6.5 | 6.5 | 6.5 | no props | Over 6.5: 50.2% (3 at line) |  |
+| receiving_yards|CJ Daniels | LA | three-book prop consensus | 14.5 | 12.5 | 13.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 14.5, DraftKings 12.5, Hard Rock Bet 13.5) |
+| receiving_yards|Colby Parkinson | LA | three-book prop consensus | 31.5 | 30.5 | 31.5 | no props | Over 31.5: 50.0% (2 at line) |  |
+| receiving_yards|Davis Allen | LA | three-book prop consensus | 13.5 | 12.5 | 13.5 | no props | Over 13.5: 50.0% (2 at line) |  |
+| receiving_yards|Devin Duvernay | ARI | two-book prop consensus | not offered | 12.5 | 12.5 | no props | Over 12.5: 50.2% (2 at line) |  |
+| receiving_yards|Elijah Higgins | ARI | three-book prop consensus | 18.5 | 18.5 | 18.5 | no props | Over 18.5: 50.1% (3 at line) |  |
+| receiving_yards|Konata Mumpfield | LA | three-book prop consensus | 29.5 | 29.5 | 29.5 | no props | Over 29.5: 49.9% (3 at line) |  |
+| receiving_yards|Kyren Williams | LA | three-book prop consensus | 19.5 | 20.5 | 20.5 | no props | Over 20.5: 50.1% (2 at line) |  |
+| receiving_yards|Reggie Virgil | ARI | three-book prop consensus | 24.5 | 26.5 | 24.5 | no props | Over 24.5: 50.5% (2 at line) |  |
+| receiving_yards|Simi Fehoko | ARI | two-book prop consensus | not offered | 13.5 | 13.5 | no props | Over 13.5: 49.7% (2 at line) |  |
+| receiving_yards|Trey McBride | ARI | three-book prop consensus | 59.5 | 60.5 | 59.5 | no props | Over 59.5: 50.0% (2 at line) |  |
+| receiving_yards|Tutu Atwell | LA | three-book prop consensus | 29.5 | 29.5 | 29.5 | no props | Over 29.5: 50.2% (3 at line) |  |
+| receiving_yards|Tyler Allgeier | ARI | three-book prop consensus | 10.5 | 10.5 | 10.5 | no props | Over 10.5: 50.3% (3 at line) |  |
+| receiving_yards|Tyler Higbee | LA | three-book prop consensus | 35.5 | 35.5 | 35.5 | no props | Over 35.5: 50.1% (3 at line) |  |
+| receiving_yards|Zonovan Knight |  | one-book prop consensus | not offered | 6.5 | not offered | no props | no consensus | player match failed closed: 'Zonovan Knight' is not on either team's packet player list |
+| receptions|Bam Knight | ARI | two-book prop consensus | 1.5 | not offered | 1.5 | no props | Over 1.5: 44.5% (2 at line) |  |
+| receptions|Blake Corum | LA | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 40.2% (3 at line) |  |
+| receptions|CJ Daniels | LA | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 41.8% (3 at line) |  |
+| receptions|Colby Parkinson | LA | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 50.5% (3 at line) |  |
+| receptions|Davis Allen | LA | three-book prop consensus | 1.5 | 1.5 | 1.5 | no props | Over 1.5: 52.9% (3 at line) |  |
+| receptions|Devin Duvernay | ARI | two-book prop consensus | not offered | 1.5 | 1.5 | no props | Over 1.5: 44.6% (2 at line) |  |
+| receptions|Elijah Higgins | ARI | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 49.0% (3 at line) |  |
+| receptions|Konata Mumpfield | LA | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 44.6% (3 at line) |  |
+| receptions|Kyren Williams | LA | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 56.8% (3 at line) |  |
+| receptions|Reggie Virgil | ARI | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 44.9% (3 at line) |  |
+| receptions|Simi Fehoko | ARI | two-book prop consensus | not offered | 1.5 | 1.5 | no props | Over 1.5: 42.9% (2 at line) |  |
+| receptions|Trey McBride | ARI | three-book prop consensus | 6.5 | 7.5 | 6.5 | no props | Over 6.5: 54.8% (2 at line) |  |
+| receptions|Tutu Atwell | LA | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 46.3% (3 at line) |  |
+| receptions|Tyler Allgeier | ARI | three-book prop consensus | 2.5 | 2.5 | 2.5 | no props | Over 2.5: 44.9% (3 at line) |  |
+| receptions|Tyler Higbee | LA | three-book prop consensus | 3.5 | 3.5 | 3.5 | no props | Over 3.5: 52.6% (3 at line) |  |
+| receptions|Zonovan Knight |  | one-book prop consensus | not offered | 1.5 | not offered | no props | no consensus | player match failed closed: 'Zonovan Knight' is not on either team's packet player list |
+| rushing_yards|Bam Knight | ARI | two-book prop consensus | 29.5 | not offered | 29.5 | no props | Over 29.5: 50.5% (2 at line) |  |
+| rushing_yards|Blake Corum | LA | three-book prop consensus | 57.5 | 59.5 | 58.5 | no props | no consensus | fewer than 2 books share a line (FanDuel 57.5, DraftKings 59.5, Hard Rock Bet 58.5) |
+| rushing_yards|Carson Beck | ARI | three-book prop consensus | 11.5 | 10.5 | 11.5 | no props | Over 11.5: 50.0% (2 at line) |  |
+| rushing_yards|Kyren Williams | LA | three-book prop consensus | 64.5 | 64.5 | 64.5 | no props | Over 64.5: 49.9% (3 at line) |  |
+| rushing_yards|Matthew Stafford | LA | three-book prop consensus | 0.5 | 0.5 | 0.5 | no props | Over 0.5: 43.4% (3 at line) |  |
+| rushing_yards|Tyler Allgeier | ARI | three-book prop consensus | 34.5 | 33.5 | 33.5 | no props | Over 33.5: 50.8% (2 at line) |  |
+| rushing_yards|Zonovan Knight |  | one-book prop consensus | not offered | 30.5 | not offered | no props | no consensus | player match failed closed: 'Zonovan Knight' is not on either team's packet player list |
 
-### Line movement: first seen 2026-11-11T18:18:09+00:00 to 2026-11-13T22:32:15+00:00 (9 snapshots)
+### Line movement: first seen 2026-11-11T18:18:09+00:00 to 2026-11-14T11:37:53+00:00 (10 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
 | moneyline | draftkings | n/a | n/a | n/a | +340 / -440 | +380 / -500 |
-| moneyline | fanduel | n/a | n/a | n/a | +340 / -430 | +385 / -500 |
+| moneyline | fanduel | n/a | n/a | n/a | +340 / -430 | +410 / -550 |
 | moneyline | pinnacle | n/a | n/a | n/a | +347 / -437 | +352 / -443 |
 | spread | draftkings | 9.5 | 9.5 | 0.0 | -108 / -112 | -108 / -112 |
 | spread | fanduel | 9.5 | 9.5 | 0.0 | -110 / -110 | -110 / -110 |
@@ -58,7 +109,52 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 42 hours away (props are pulled inside 36 hours).
+### Player props beside the research baseline
+
+| Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Matthew Stafford | passing yards | draftkings | 212.5 | -113 / -111 | 50.2% | 50.0% | 262.4 | 271.7 | 8 | 49.9 |
+| Matthew Stafford | passing yards | fanduel | 212.5 | -114 / -114 | 50.0% | 50.0% | 262.4 | 271.7 | 8 | 49.9 |
+| Matthew Stafford | passing yards | hardrockbet | 212.5 | -115 / -115 | 50.0% | 50.0% | 262.4 | 271.7 | 8 | 49.9 |
+| Kyren Williams | rushing yards | draftkings | 64.5 | -110 / -114 | 49.6% | 50.0% | 71.3 | 72.6 | 8 | 6.8 |
+| Kyren Williams | rushing yards | fanduel | 64.5 | -114 / -114 | 50.0% | 50.0% | 71.3 | 72.6 | 8 | 6.8 |
+| Kyren Williams | rushing yards | hardrockbet | 64.5 | -115 / -115 | 50.0% | 50.0% | 71.3 | 72.6 | 8 | 6.8 |
+| Tyler Allgeier | rushing yards | draftkings | 33.5 | -115 / -109 | 50.6% | n/a | 38.7 | 25.0 | 8 | 5.2 |
+| Tyler Allgeier | rushing yards | hardrockbet | 33.5 | -120 / -110 | 51.0% | n/a | 38.7 | 25.0 | 8 | 5.2 |
+| Blake Corum | rushing yards | draftkings | 59.5 | -110 / -114 | 49.6% | n/a | 55.0 | 53.4 | 8 | -4.5 |
+| Tyler Higbee | receiving yards | draftkings | 35.5 | -113 / -111 | 50.2% | 50.0% | 31.3 | 20.1 | 7 | -4.2 |
+| Tyler Higbee | receiving yards | fanduel | 35.5 | -114 / -114 | 50.0% | 50.0% | 31.3 | 20.1 | 7 | -4.2 |
+| Tyler Higbee | receiving yards | hardrockbet | 35.5 | -115 / -115 | 50.0% | 50.0% | 31.3 | 20.1 | 7 | -4.2 |
+| Tyler Allgeier | rushing yards | fanduel | 34.5 | -114 / -114 | 50.0% | 50.0% | 38.7 | 25.0 | 8 | 4.2 |
+| Blake Corum | rushing yards | hardrockbet | 58.5 | -115 / -115 | 50.0% | n/a | 55.0 | 53.4 | 8 | -3.5 |
+| Blake Corum | carries | draftkings | 12.5 | +104 / -132 | 46.3% | n/a | 9.8 | 10.0 | 8 | -2.7 |
+| Zonovan Knight | carries | draftkings | 8.5 | -109 / -117 | 49.2% | n/a | 5.9 | 3.0 | 5 | -2.6 |
+| Blake Corum | rushing yards | fanduel | 57.5 | -114 / -114 | 50.0% | 50.0% | 55.0 | 53.4 | 8 | -2.5 |
+| Trey McBride | receiving yards | fanduel | 59.5 | -114 / -114 | 50.0% | 50.0% | 61.4 | 57.0 | 8 | 1.9 |
+| Trey McBride | receiving yards | hardrockbet | 59.5 | -115 / -115 | 50.0% | 50.0% | 61.4 | 57.0 | 8 | 1.9 |
+| Blake Corum | carries | hardrockbet | 11.5 | -125 / -105 | 52.0% | 53.0% | 9.8 | 10.0 | 8 | -1.7 |
+| Trey McBride | receptions | fanduel | 6.5 | -138 / +104 | 54.2% | 56.2% | 7.9 | 7.5 | 8 | 1.4 |
+| Trey McBride | receptions | hardrockbet | 6.5 | -145 / +110 | 55.4% | 56.2% | 7.9 | 7.5 | 8 | 1.4 |
+| Trey McBride | receiving yards | draftkings | 60.5 | -109 / -115 | 49.4% | n/a | 61.4 | 57.0 | 8 | 0.9 |
+| Kyren Williams | carries | hardrockbet | 15.5 | -110 / -120 | 49.0% | 47.2% | 14.6 | 15.5 | 8 | -0.9 |
+| Zonovan Knight | rushing yards | draftkings | 30.5 | -116 / -108 | 50.8% | n/a | 29.7 | 21.0 | 5 | -0.8 |
+| Tyler Allgeier | carries | hardrockbet | 10.5 | +100 / -130 | 46.9% | n/a | 9.9 | 8.0 | 8 | -0.6 |
+| Tyler Higbee | receptions | draftkings | 3.5 | -128 / +101 | 53.0% | 52.6% | 3.0 | 3.8 | 7 | -0.5 |
+| Tyler Higbee | receptions | fanduel | 3.5 | -130 / -102 | 52.8% | 52.6% | 3.0 | 3.8 | 7 | -0.5 |
+| Tyler Higbee | receptions | hardrockbet | 3.5 | -125 / -105 | 52.0% | 52.6% | 3.0 | 3.8 | 7 | -0.5 |
+| Trey McBride | receptions | draftkings | 7.5 | +108 / -138 | 45.3% | n/a | 7.9 | 7.5 | 8 | 0.4 |
+| Tyler Allgeier | carries | draftkings | 9.5 | -133 / +104 | 53.8% | 53.3% | 9.9 | 8.0 | 8 | 0.4 |
+| Kyren Williams | carries | draftkings | 14.5 | -131 / +102 | 53.4% | n/a | 14.6 | 15.5 | 8 | 0.1 |
+| Carson Beck | passing attempts | draftkings | 31.5 | -113 / -113 | 50.0% | 50.4% | n/a | n/a | n/a | n/a |
+| Carson Beck | passing attempts | hardrockbet | 31.5 | -115 / -115 | 50.0% | 50.4% | n/a | n/a | n/a | n/a |
+| Matthew Stafford | passing attempts | draftkings | 30.5 | -101 / -127 | 47.3% | n/a | n/a | n/a | n/a | n/a |
+| Matthew Stafford | passing attempts | hardrockbet | 29.5 | -125 / -105 | 52.0% | 52.8% | n/a | n/a | n/a | n/a |
+| Matthew Stafford | completions | draftkings | 20.5 | -101 / -126 | 47.4% | n/a | n/a | n/a | n/a | n/a |
+| Matthew Stafford | completions | hardrockbet | 20.5 | +100 / -130 | 46.9% | n/a | n/a | n/a | n/a | n/a |
+| Carson Beck | completions | draftkings | 18.5 | -124 / -103 | 52.2% | 51.5% | n/a | n/a | n/a | n/a |
+| Carson Beck | completions | hardrockbet | 18.5 | -125 / -105 | 52.0% | 51.5% | n/a | n/a | n/a | n/a |
+
+baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
 ## Matchup edges
 
@@ -375,7 +471,7 @@ Neutral-situation pass rate 62.1%; 67.0 plays per game; target share WR 54% / TE
 | defense allows | Deep middle | 11 | 4% | 36% | 7.27 | 3 |
 | defense allows | Deep right | 16 | 6% | 25% | 8.5 | 3 |
 
-### LA lines (depth chart as of 2026-11-13T15:17:47Z)
+### LA lines (depth chart as of 2026-11-14T07:01:50Z)
 
 Offensive line: LT Alaric Jackson, LG Beaux Limmer, C Coleman Shelton, RG Kevin Dotson, RT Warren McClendon Jr..  
 Defensive front: LDE Braden Fiske, NT Ty Hamilton, RDE Aaron Donald, WLB Byron Young, SLB Myles Garrett.
@@ -384,16 +480,19 @@ Defensive front: LDE Braden Fiske, NT Ty Hamilton, RDE Aaron Donald, WLB Byron Y
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Trent McDuffie | CB | yes | none listed | Did Not Participate In Practice |  |
-| Myles Garrett | LB | yes | none listed | Limited Participation in Practice |  |
-| Joe Cardona | LS | yes | none listed | Limited Participation in Practice |  |
+| Trent McDuffie | CB | yes | Questionable | Limited Participation in Practice | Back |
+| Aaron Donald | DT | yes | none listed | Did Not Participate In Practice |  |
+| Braden Fiske | DT | yes | none listed | Did Not Participate In Practice |  |
+| Myles Garrett | LB | yes | Questionable | Did Not Participate In Practice | Knee |
+| Byron Young | LB | yes | none listed | Did Not Participate In Practice |  |
+| Joe Cardona | LS | yes | Questionable | Limited Participation in Practice | Ankle |
 | Matthew Stafford | QB | yes | none listed | Full Participation in Practice |  |
-| Kam Curl | S | yes | none listed | Did Not Participate In Practice |  |
-| Tyler Higbee | TE | yes | none listed | Did Not Participate In Practice |  |
-| Steve Avila | G |  | none listed | Did Not Participate In Practice |  |
-| Colby Parkinson | TE |  | none listed | Limited Participation in Practice |  |
-| Davis Allen | TE |  | none listed | Did Not Participate In Practice |  |
-| Terrance Ferguson | TE |  | none listed | Did Not Participate In Practice |  |
+| Kam Curl | S | yes | Questionable | Limited Participation in Practice | Toe |
+| Tyler Higbee | TE | yes | none listed | Limited Participation in Practice |  |
+| Steve Avila | G |  | Out | Did Not Participate In Practice | Hamstring |
+| Colby Parkinson | TE |  | none listed | Full Participation in Practice |  |
+| Davis Allen | TE |  | Questionable | Limited Participation in Practice | Oblique |
+| Terrance Ferguson | TE |  | Out | Did Not Participate In Practice | Ankle |
 | Puka Nacua | WR |  | none listed | Did Not Participate In Practice |  |
 
 ESPN live list (designations only): Terrance Ferguson (TE) Injured Reserve; Joe Cardona (LS) Questionable; Jordan Whittington (WR) Injured Reserve; Davante Adams (WR) Injured Reserve; Puka Nacua (WR) Injured Reserve; Myles Garrett (DE) Questionable; Davis Allen (TE) Questionable; Kam Curl (S) Questionable; Trent McDuffie (CB) Questionable; Steve Avila (G) Out.
@@ -403,7 +502,7 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 
 ### LA roster moves (last 4 weeks)
 
-Arrived: Xavier Smith (WR) from SF.  
+Arrived: Xavier Smith (WR) from SF; Tyler Scott (WR) from LV.  
 Left for another team: Harrison Mevis (K) to BAL; Elias Neal (LB) to NE; Jamie Sheriff (LB) to SEA; Austin Blaske (OL) to CLE.
 
 ## ARI (last 8 games: weeks 2, 3, 4, 5, 6, 7, 8, 9)
@@ -601,7 +700,7 @@ Neutral-situation pass rate 49.0%; 66.4 plays per game; target share WR 51% / TE
 | defense allows | Deep middle | 7 | 3% | 43% | 8.86 | 2 |
 | defense allows | Deep right | 20 | 9% | 40% | 15.55 | 8 |
 
-### ARI lines (depth chart as of 2026-11-13T15:17:47Z)
+### ARI lines (depth chart as of 2026-11-14T07:01:50Z)
 
 Offensive line: LT Jayden Williams, LG Isaac Seumalo, C Hjalte Froholdt, RG Isaiah Adams, RT Elijah Wilkinson.  
 Defensive front: LDE Josh Sweat, LDT Roy Lopez, RDT Walter Nolen III, RDE Dante Stills, WLB Jack Gibbens, SLB Zaven Collins.
@@ -610,21 +709,21 @@ Defensive front: LDE Josh Sweat, LDT Roy Lopez, RDT Walter Nolen III, RDE Dante 
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Hjalte Froholdt | C | yes | none listed | Did Not Participate In Practice |  |
-| Max Melton | CB | yes | none listed | Limited Participation in Practice |  |
-| Roy Lopez | DT | yes | none listed | Did Not Participate In Practice |  |
-| Dante Stills | DT | yes | none listed | Limited Participation in Practice |  |
+| Hjalte Froholdt | C | yes | Out | Did Not Participate In Practice | Concussion |
+| Max Melton | CB | yes | Questionable | Limited Participation in Practice | Knee |
+| Roy Lopez | DT | yes | Questionable | Limited Participation in Practice | Toe |
+| Dante Stills | DT | yes | none listed | Full Participation in Practice |  |
 | Isaac Seumalo | G | yes | none listed | Full Participation in Practice |  |
-| Josh Sweat | LB | yes | none listed | Did Not Participate In Practice |  |
+| Josh Sweat | LB | yes | none listed | Full Participation in Practice |  |
 | Mack Wilson | LB | yes | none listed | Full Participation in Practice |  |
 | Budda Baker | S | yes | none listed | Full Participation in Practice |  |
-| Andrew Wingard | S | yes | none listed | Did Not Participate In Practice |  |
-| Jayden Williams | T | yes | none listed | Limited Participation in Practice |  |
-| Zachary Carter | DT |  | none listed | Limited Participation in Practice |  |
-| Darius Robinson | DT |  | none listed | Did Not Participate In Practice |  |
-| Jon Gaines II | G |  | none listed | Did Not Participate In Practice |  |
+| Andrew Wingard | S | yes | Questionable | Did Not Participate In Practice | Groin |
+| Jayden Williams | T | yes | Questionable | Limited Participation in Practice | Knee |
+| Zachary Carter | DT |  | Out | Limited Participation in Practice | Knee |
+| Darius Robinson | DT |  | Questionable | Limited Participation in Practice | Wrist |
+| Jon Gaines II | G |  | Out | Did Not Participate In Practice | Ankle |
 | Bam Knight | RB |  | none listed | Full Participation in Practice |  |
-| Hunter Long | TE |  | none listed | Limited Participation in Practice |  |
+| Hunter Long | TE |  | Questionable | Limited Participation in Practice | Knee |
 
 ESPN live list (designations only): Michael Wilson (WR) Injured Reserve; Gardner Minshew II (QB) Injured Reserve; Hunter Long (TE) Injured Reserve; Max Melton (CB) Questionable; Darius Robinson (DE) Questionable; Andrew Wingard (S) Questionable; Hjalte Froholdt (C) Out; Jon Gaines II (G) Out; Zachary Carter (DT) Injured Reserve; Jayden Williams (OT) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
@@ -662,7 +761,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
-| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, no player props in this run. No FTN model, no true opening line. |
+| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, player props. No FTN model, no true opening line. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -670,16 +769,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T02:48:32+00:00 | 6d2092872efe |
-| pbp | OK | 2026-11-14T02:48:32+00:00 | 63d725b49ed1 |
-| rosters | OK | 2026-11-14T02:48:32+00:00 | 99651c418f80 |
-| injuries | OK | 2026-11-14T02:48:33+00:00 | 65d181dfc372 |
-| depth_charts | OK | 2026-11-14T02:48:33+00:00 | 341d1eddeaf6 |
-| snap_counts | OK | 2026-11-14T02:48:33+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T02:48:34+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-14T02:48:34+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T02:48:35+00:00 |  |
+| games | OK | 2026-11-14T11:37:34+00:00 | 6fce4badec51 |
+| pbp | OK | 2026-11-14T11:37:35+00:00 | 9f8b1f936f8f |
+| rosters | OK | 2026-11-14T11:37:35+00:00 | 9e6a21c736d9 |
+| injuries | OK | 2026-11-14T11:37:35+00:00 | 2c0d89d0e3ac |
+| depth_charts | OK | 2026-11-14T11:37:36+00:00 | ae00893a3710 |
+| snap_counts | OK | 2026-11-14T11:37:36+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T11:37:36+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-14T11:37:36+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T11:37:37+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-14T02:48:36+00:00 |  |
+| book_odds | OK | 2026-11-14T11:37:38+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
