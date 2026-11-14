@@ -83,7 +83,7 @@ class Engine:
         name,mkt,spread=leg['player'],leg['market'],float(leg['spread']); team=NV.get(leg['team'],leg['team']); opp=NV.get(leg['opp'],leg['opp'])
         qb=mkt in('passyds','comp'); cq=leg.get('current_qb') if mkt!='rushyds' else None
         d,a,yc,ypc_rush,g=self.player(name,team,qb,leg.get('gsis'),current_qb=cq); PG=self.pos.get(g,'WR')
-        VF=bool(leg.get('volume_fix'))   # NFL-75 volume_fix (opt-in; volume_fix.py)
+        _v=leg.get('volume_fix'); VF=(_v is True or _v=='true')   # NFL-75 volume_fix allowlist (opt-in; volume_fix.py)
         if VF: import volume_fix as VFX; a=VFX.active_games(d,self.p,g); mbar=VFX.mean_margin(tg,team,a.game_id)
         if len(a)==0: raise ValueError('no active games before cutoff' + (f' with QB {cq}' if cq else ''))
         l3=a.tail(3); w=lambda col:0.6*a[col].mean()+0.4*l3[col].mean()

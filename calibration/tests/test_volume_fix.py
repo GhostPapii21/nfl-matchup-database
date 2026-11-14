@@ -89,6 +89,13 @@ def test_ypc_ratio_guard(pm, ok):
     assert VFX.ypc_ratio_ok(pm) is ok
 
 
+def test_flag_allowlist_rejects_the_string_false_and_other_truthy_values():
+    """Same class of bug as the qb_rush_prior bool() review: only True or 'true' turn the fix on."""
+    assert VFX.flag_on(True) is True and VFX.flag_on("true") is True
+    for v in (False, None, "false", "False", "off", "", 0, "True", 1, "yes"):
+        assert VFX.flag_on(v) is False, v
+
+
 def test_bad_volume_fix_value_is_refused(tmp_path):
     with pytest.raises(SV.SimV56Error, match="volume_fix"):
         SV.run_all(pd.DataFrame([STAFFORD]), week=8, src=tmp_path, workdir=tmp_path, volume_fix="yes")

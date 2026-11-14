@@ -1,6 +1,7 @@
 """NFL-75 volume fixes for the simv56 engines (outside-AI review memo B2, B3, B8, B9; refs NFL-75). OPT-IN ONLY.
 
 The engines call these only when the leg carries volume_fix=True (calibration.simv56_pmodel.run_all(volume_fix=True)).
+The engine flag is an explicit allowlist (True or the string "true"); bool() is not used, so the string "false" stays off.
 Without that key the engines run byte-for-byte the Phase 4 code path, so the 88-leg W8-9 reproduction, the countable
 `run` CLI and every #46 provenance digest are unchanged.
 
@@ -16,6 +17,15 @@ Without that key the engines run byte-for-byte the Phase 4 code path, so the 88-
                    <= 0 (it was undefined at 0 and flipped sign below 0); the opponent factor still applies.
 No weights, no fitted constants. Research only; projection_ready stays false."""
 import numpy as np
+
+
+def flag_on(value) -> bool:
+    """The volume fix is on only for True or the string "true".
+
+    Everything else (None, False, "false", "False", "off", "", 0, "True", 1, ...) is off.
+    ``value is True`` is required so that 1 is not treated as on (because 1 == True).
+    """
+    return value is True or value == "true"
 
 
 def active_games(d, pbp, gsis):

@@ -135,7 +135,7 @@ def _worker(engine: str, legs_json: str, week: int, cutoff: str, src: str, n: in
     for L in legs:
         leg = dict(player=L["player"], gsis=L["gsis"], team=L["team"], opp=L["opp"], market=L["market"],
                    spread=L["spread"], rungs=list(L["lines"]))
-        if L.get("volume_fix"):          # NFL-75 B2/B3/B8/B9, opt-in only (engines/volume_fix.py)
+        if L.get("volume_fix") is True:  # NFL-75 B2/B3/B8/B9, opt-in only; "false" stays off
             leg["volume_fix"] = True
         try:
             o = run(leg)
