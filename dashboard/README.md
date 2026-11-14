@@ -3,6 +3,12 @@
 One page per slate: click a game and everything for it is there. It is rebuilt automatically after every pregame
 packet refresh (Tuesday, Thursday, Saturday, Sunday and Monday; see `.github/workflows/nfl-pregame-packets.yml`).
 
+## Getting around
+
+- **Home:** every game on the slate as a tile in its teams' colors, grouped by window, plus highlights (best chance at 70+ yards, mismatch spotlight, weather watch, key players out). Tap a tile to step inside the game; tap a highlighted player to open his card.
+- **Inside a game:** "‹ All games" goes back; the strip next to it switches games. Tabs wrap so all twelve show on a phone; Player cards, Opportunity and Field view are outlined. The offense switch under the tabs flips which side has the ball.
+- **How to use:** the button at the top opens a short guide. It opens by itself on a first visit.
+
 ## What a game shows
 
 | Tab | What is on it | Source |

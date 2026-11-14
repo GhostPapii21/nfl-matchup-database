@@ -269,6 +269,66 @@ textarea { width: 100%; min-height: 360px; font: 12px/1.5 ui-monospace, SFMono-R
 .dchip { display: flex; justify-content: space-between; gap: 6px; font-size: 12px; padding: 3px 0; border-bottom: 1px dashed var(--line); }
 .dchip:last-child { border-bottom: 0; }
 @media (prefers-reduced-motion: reduce) { .pc-track { transition: none; } .b3 { animation: none; } }
+/* ---- home, game entry and how-to */
+.app { padding-block: 16px 40px; display: flex; flex-direction: column; gap: 16px; }
+.hero { padding: 18px 4px 4px; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(28px, 5vw, 44px); line-height: 1; margin: 6px 0 8px; text-transform: uppercase; letter-spacing: .02em; text-shadow: 0 0 22px color-mix(in srgb, var(--accent) 45%, transparent); text-wrap: balance; }
+.eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.slot-h { font-family: var(--font-display); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+.tiles { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.gtile { position: relative; overflow: hidden; text-align: left; cursor: pointer; color: var(--ink); min-height: 168px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; border: 1px solid var(--line);
+  background: linear-gradient(110deg, color-mix(in srgb, var(--ta) 35%, transparent), rgba(5, 10, 20, .7) 40%, rgba(5, 10, 20, .7) 60%, color-mix(in srgb, var(--tb) 35%, transparent)), url("__FIELD_IMG__") center/cover, #06142a;
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px); transition: transform .18s, box-shadow .18s, border-color .18s; }
+:root[data-skin="chrome"] .gtile { background: linear-gradient(110deg, color-mix(in srgb, var(--ta) 45%, #18181b), #18181b 40%, #18181b 60%, color-mix(in srgb, var(--tb) 45%, #18181b)); border-color: #71717a; }
+:root[data-skin="hud"] .gtile { background: linear-gradient(110deg, color-mix(in srgb, var(--ta) 20%, transparent), rgba(3, 18, 16, .9) 40%, rgba(3, 18, 16, .9) 60%, color-mix(in srgb, var(--tb) 20%, transparent)), #04110f; }
+.gtile:hover, .gtile:focus-visible { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 45%, transparent); }
+.gtile .gl { position: absolute; top: 50%; width: 120px; transform: translateY(-50%); opacity: .14; pointer-events: none; }
+.gtile .gl.l { left: -20px; } .gtile .gl.r { right: -20px; }
+.gt-when { font-size: 12px; color: #c9d7ee; position: relative; }
+.gt-teams { display: flex; align-items: baseline; gap: 10px; font-family: var(--font-display); position: relative; }
+.gt-teams b { font-size: 40px; color: #fff; line-height: 1; letter-spacing: .03em; }
+.gt-teams i { font-style: normal; color: var(--muted); font-size: 18px; }
+.gt-line { font-size: 13px; color: #dbe6f7; position: relative; }
+.gt-chips { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; font-size: 12px; color: var(--muted); position: relative; }
+.gt-go { position: relative; margin-top: auto; align-self: flex-end; font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .06em; text-transform: uppercase; }
+.gtile.warp, .mini.warp { transform: scale(1.06); box-shadow: 0 0 60px color-mix(in srgb, var(--accent) 80%, transparent); filter: brightness(1.3); transition: transform .26s ease-in, box-shadow .26s, filter .26s; }
+#game.enter { animation: dive .5s cubic-bezier(.15, .8, .25, 1) both; transform-origin: 50% 0; }
+#home.enter-back { animation: rise-back .4s ease-out both; }
+@keyframes dive { 0% { opacity: 0; transform: perspective(900px) translateZ(-260px) rotateX(8deg); filter: blur(6px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes rise-back { 0% { opacity: 0; transform: scale(1.04); } 100% { opacity: 1; transform: none; } }
+.minis { display: grid; gap: 8px; }
+.mini { position: relative; overflow: hidden; display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 10px; align-items: center; text-align: left; cursor: pointer; color: var(--ink);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--tc) 28%, transparent), var(--surface-2) 45%); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; }
+.mini:hover, .mini:focus-visible { border-color: var(--accent); }
+.mini .gl { position: absolute; right: 60px; width: 70px; opacity: .1; pointer-events: none; }
+.mini .mp { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; object-position: top; background: color-mix(in srgb, var(--tc) 60%, #0a1426); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; }
+.mini .mn { display: flex; flex-direction: column; min-width: 0; font-size: 12px; color: var(--muted); }
+.mini .mn b { font-size: 14px; color: var(--ink); }
+.mini .why { color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mini svg { width: 56px; height: 56px; }
+.gamebar { display: flex; gap: 10px; align-items: center; }
+.gamebar .back { flex: none; border: 1px solid var(--accent); background: var(--accent-soft); color: var(--ink); border-radius: 999px; padding: 7px 14px; font-weight: 700; cursor: pointer; }
+.gchips { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; min-width: 0; }
+.gchip { flex: none; border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: 5px 12px; font-family: var(--font-display); font-weight: 700; font-size: 14px; cursor: pointer; display: flex; flex-direction: column; line-height: 1.1;
+  background: linear-gradient(90deg, var(--ca) 0 3px, var(--surface) 3px calc(100% - 3px), var(--cb) calc(100% - 3px)); }
+.gchip small { font-family: var(--font-body); font-weight: 500; font-size: 10px; color: var(--muted); }
+.gchip[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 50%, transparent); }
+.tabs { flex-wrap: wrap; overflow: visible; gap: 6px; border-bottom: 0; }
+.tabs button { border: 1px solid var(--line); border-radius: 999px; margin: 0; padding: 7px 13px; background: var(--surface); }
+.tabs button[aria-selected="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.tabs button.feature { border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
+.linkbtn { border: 0; background: none; color: var(--accent); font-weight: 700; cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 2px; }
+.helpbtn { border: 1px solid var(--accent); background: var(--accent-soft); color: var(--ink); border-radius: 999px; padding: 4px 12px; font-weight: 700; font-size: 12px; cursor: pointer; }
+.howto { position: fixed; inset: 0; z-index: 50; background: rgba(2, 6, 14, .72); backdrop-filter: blur(4px); display: grid; place-items: center;
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.howto-box { position: relative; max-width: 680px; width: 100%; max-height: 88vh; overflow: auto; background: #08111f; border: 1px solid var(--accent); border-radius: 12px; padding: 20px 22px; box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 35%, transparent); }
+:root[data-skin="chrome"] .howto-box { background: #141418; } :root[data-skin="hud"] .howto-box { background: #031210; }
+.howto-box h2 { font-family: var(--font-display); text-transform: uppercase; margin: 0 0 10px; font-size: 24px; }
+.howto-box .close { position: absolute; right: 12px; top: 8px; border: 0; background: none; color: var(--ink); font-size: 26px; cursor: pointer; }
+.steps { display: flex; flex-direction: column; gap: 10px; padding-left: 20px; line-height: 1.5; max-width: 65ch; }
+.steps ul { padding-left: 18px; margin: 6px 0 0; display: flex; flex-direction: column; gap: 4px; }
+@media (max-width: 520px) { .gt-teams b { font-size: 32px; } .hero { padding-top: 8px; } }
+@media (prefers-reduced-motion: reduce) { #game.enter, #home.enter-back { animation: none; } .gtile, .gtile.warp { transition: none; } }
 .toast { color: var(--good); font-weight: 600; font-size: 13px; }
 footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
 @media (max-width: 520px) {
@@ -283,14 +343,16 @@ footer { color: var(--muted); font-size: 12px; padding-block: 10px 30px; }
     <div class="brand">Game <span>Board</span></div>
     <div class="meta" id="meta"></div>
     <div class="skins" id="skins" role="group" aria-label="Design"><button data-skin="neon"><i style="background:linear-gradient(135deg,#22d3ee,#c084fc)"></i>Neon</button><button data-skin="chrome"><i style="background:linear-gradient(135deg,#f4f4f5,#71717a,#f5c451)"></i>Chrome</button><button data-skin="hud"><i style="background:linear-gradient(135deg,#2dd4bf,#f59e0b)"></i>HUD</button></div>
+    <button class="helpbtn" data-howto>How to use</button>
     <div class="flag-research">Research only</div>
   </div>
   <div class="hash" aria-hidden="true"></div>
 </header>
-<main class="wrap shell">
-  <nav class="rail" id="rail" aria-label="Games"></nav>
-  <section class="sheet" id="sheet" aria-live="polite"></section>
+<main class="wrap app">
+  <section id="home" aria-live="polite"></section>
+  <section id="game" hidden><div id="gamebar"></div><div class="sheet" id="sheet"></div></section>
 </main>
+<div class="howto" id="howto" hidden></div>
 <footer class="wrap" id="foot"></footer>
 
 <script>
@@ -298,10 +360,11 @@ const BOARD = /*__BOARD_DATA__*/null;
 (function () {
   "use strict";
   const games = (BOARD && BOARD.games) || [];
-  const state = { gi: 0, dir: 0, tab: "overview" };
-  const TABS = [["overview", "Overview"], ["matchup", "What the defense allows"], ["defenders", "Defenders"], ["qb", "Quarterback"],
-                ["players", "Player cards"], ["opportunity", "Opportunity"], ["field", "Field view"], ["injuries", "Injuries"], ["h2h", "Last meeting"], ["odds", "Odds"], ["weather", "Weather & rest"],
+  const state = { gi: 0, dir: 0, tab: "overview", view: "home" };
+  const TABS = [["overview", "Overview"], ["players", "Player cards"], ["opportunity", "Opportunity"], ["field", "Field view"], ["matchup", "What the defense allows"],
+                ["defenders", "Defenders"], ["qb", "Quarterback"], ["injuries", "Injuries"], ["h2h", "Last meeting"], ["odds", "Odds"], ["weather", "Weather & rest"],
                 ["grok", "Copy for Grok"]];
+  const FEATURE = new Set(["players", "opportunity", "field"]);
 
   // ---------------------------------------------------------------- helpers
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -362,28 +425,6 @@ const BOARD = /*__BOARD_DATA__*/null;
   }
   const tagHtml = (t) => `<span class="tag t-${slug(t.tag)}" title="${esc(t.why || "")}">${esc(t.tag)}</span>`;
   const lvlDot = (l) => `<span class="dot ${l === "info" ? "unknown" : esc(l)}"></span>`;
-
-  // ---------------------------------------------------------------- slate rail
-  function renderRail() {
-    const groups = [];
-    games.forEach((g, i) => {
-      const key = g.game.date + "|" + g.game.slot;
-      let grp = groups.find((x) => x.key === key);
-      if (!grp) groups.push((grp = { key, label: g.game.slot, items: [] }));
-      grp.items.push(i);
-    });
-    document.getElementById("rail").innerHTML = groups.map((grp) => `<div class="group"><h3>${esc(grp.label)}</h3>${grp.items.map((i) => {
-      const g = games[i], m = g.market || {}, wv = g.weather_verdict || {};
-      const highs = Object.values(g.sides).reduce((a, s) => a + (s.offense_injuries || []).filter((x) => x.impact === "high" && x.status_level >= 2).length, 0);
-      const ctxWarn = Object.values(g.context || {}).some((c) => (c.flags || []).some((f) => f.level === "warn"));
-      const line = isFinal(g) ? `Final: ${g.game.away} ${g.result.away_score}, ${g.game.home} ${g.result.home_score}`
-        : `${g.game.home} ${signed(m.home_spread, 1)} · O/U ${n(m.total, 1)}`;
-      return `<button class="chip-game" data-i="${i}" aria-current="${i === state.gi}" style="--ca:${teamColor(g, g.game.away)};--cb:${teamColor(g, g.game.home)}">
-        <span class="teams">${esc(g.game.away)} @ ${esc(g.game.home)}</span><span class="when">${esc(kickLabel(g).split(" · ")[1] || "")}</span>
-        <span class="line">${esc(line)} ${lvlDot(wv.level || "unknown")}${highs ? `<span title="key injuries">${highs} inj</span>` : ""}${ctxWarn ? `<span title="rest or travel flag">rest/travel</span>` : ""}</span>
-      </button>`; }).join("")}</div>`).join("");
-    document.querySelectorAll(".chip-game").forEach((b) => b.addEventListener("click", () => { state.gi = +b.dataset.i; state.dir = 0; go(); }));
-  }
 
   // ---------------------------------------------------------------- scoreboard header
   function bookLine(g, mk, side) {
@@ -901,10 +942,11 @@ const BOARD = /*__BOARD_DATA__*/null;
     if (opp && (opp.yards || {})["70"] >= 0.4) e.push(["good", `Opportunity: ${pct(opp.yards["70"])} chance at 70+ yards in this game.`]);
     return e;
   }
+  const isHot = (edges) => edges.filter(([l, t]) => l === "good" && !/^Likely coverage includes/.test(t)).length >= 2;
   function oppFor(s, pid, kind) { const o = s.opportunity; if (!o || o.error) return null; return (o[kind] || []).find((x) => x.player_id === pid); }
   function fieldRecCard(s, r) {
     const vis = ((s.visual || {}).receivers || {})[r.player_id] || {}, opp = oppFor(s, r.player_id, "receivers");
-    const edges = recEdges(s, r, vis, opp), hot = edges.filter(([l]) => l === "good").length >= 2;
+    const edges = recEdges(s, r, vis, opp), hot = isHot(edges);
     const sid = slug(s.offense + "-" + r.player_id);
     return `<div class="card ${hot ? "edge-card" : ""}">${hot ? `<span class="ribbon">Mismatch</span>` : ""}
       <div class="player-head"><span class="nm">${esc(r.full_name || r.player)} <span class="pos">${esc(r.pos)}</span></span><span class="note">${pct(r.target_share)} of targets</span></div>
@@ -950,7 +992,7 @@ const BOARD = /*__BOARD_DATA__*/null;
   }
   function fieldRushCard(s, r) {
     const vis = ((s.visual || {}).rushers || {})[r.player_id] || {}, opp = oppFor(s, r.player_id, "rushers");
-    const edges = rushEdges(s, r, vis), hot = edges.filter(([l]) => l === "good").length >= 2;
+    const edges = rushEdges(s, r, vis), hot = isHot(edges);
     const sid = slug(s.offense + "-" + r.player_id);
     return `<div class="card ${hot ? "edge-card" : ""}">${hot ? `<span class="ribbon">Mismatch</span>` : ""}
       <div class="player-head"><span class="nm">${esc(r.full_name || r.player)} <span class="pos">RB</span></span><span class="note">${pct(r.carry_share)} of carries</span></div>
@@ -1131,7 +1173,7 @@ const BOARD = /*__BOARD_DATA__*/null;
     const g = G(), vis = (((s.visual || {})[rec ? "receivers" : "rushers"]) || {})[r.player_id] || {}, card = vis.card || {}, log = card.log || [];
     const opp = oppFor(s, r.player_id, rec ? "receivers" : "rushers");
     const edges = rec ? recEdges(s, r, vis, opp) : rushEdges(s, r, vis);
-    const hot = edges.filter(([l]) => l === "good").length >= 2;
+    const hot = isHot(edges);
     const name = r.full_name || r.player, ini = name.split(" ").map((x) => x[0]).join("").slice(0, 2);
     const id = slug(s.offense + "-" + r.player_id), kind = rec ? "rec" : "rush";
     const slides = slidesFor(g, s, r, rec, vis, opp, log);
@@ -1183,6 +1225,110 @@ const BOARD = /*__BOARD_DATA__*/null;
     return `<div class="section-title">${esc(s.offense)} pass catchers</div><div class="pgrid">${rec.map((r) => playerCard(s, r, true)).join("") || '<p class="empty">No receivers with 8+ targets.</p>'}</div>
       <div class="section-title">${esc(s.offense)} running backs</div><div class="pgrid">${rush.map((r) => playerCard(s, r, false)).join("") || '<p class="empty">No backs with 8+ carries.</p>'}</div>
       <p class="note">Photos: official NFL headshots via nflverse rosters. Cards glow when two or more edges line up (size, speed, soft defense tier, coverage fit, target zone, a defender to attack, or a 40%+ chance at 70 yards). Roles: Primary = top target share; Volume = 7+ targets a game; Deep threat = 13+ yard average depth; Possession = short targets caught 72%+; Boom-bust and Steady come from game-to-game swings; Lead back = 60%+ of carries.</p>`;
+  }
+
+  // ---------------------------------------------------------------- home: slate tiles and highlights
+  function hotPlayers(g) {
+    const out = [];
+    Object.values(g.sides).forEach((s) => {
+      const V = s.visual || {};
+      ((s.roles || {}).receivers || []).filter((r) => r.targets >= 8 && (V.receivers || {})[r.player_id]).forEach((r) => {
+        const vis = V.receivers[r.player_id], opp = oppFor(s, r.player_id, "receivers"), e = recEdges(s, r, vis, opp);
+        out.push({ s, r, rec: true, vis, opp, hot: isHot(e), good: e.filter(([l, t]) => l === "good" && !/^Likely coverage includes/.test(t)), p70: opp && opp.yards ? opp.yards["70"] : null });
+      });
+      ((s.roles || {}).rushers || []).filter((r) => r.pos === "RB" && r.carries >= 8 && (V.rushers || {})[r.player_id]).forEach((r) => {
+        const vis = V.rushers[r.player_id], opp = oppFor(s, r.player_id, "rushers"), e = rushEdges(s, r, vis);
+        out.push({ s, r, rec: false, vis, opp, hot: isHot(e), good: e.filter(([l, t]) => l === "good" && !/^Likely coverage includes/.test(t)), p70: opp && opp.yards ? opp.yards["70"] : null });
+      });
+    });
+    return out;
+  }
+  function gameTile(g, i) {
+    const a = g.game.away, h = g.game.home, m = g.market || {}, wv = g.weather_verdict || {};
+    const mm = hotPlayers(g).filter((x) => x.hot).length;
+    const highs = Object.values(g.sides).reduce((acc, s) => acc + (s.offense_injuries || []).filter((x) => x.impact === "high" && x.status_level >= 3).length, 0);
+    const la = (g.teams[a] || {}).logo, lh = (g.teams[h] || {}).logo;
+    return `<button class="gtile" data-enter="${i}" style="--ta:${teamColor(g, a)};--tb:${teamColor(g, h)}" aria-label="Open ${esc(a)} at ${esc(h)}">
+      ${la ? `<img class="gl l" src="${la}" alt="">` : ""}${lh ? `<img class="gl r" src="${lh}" alt="">` : ""}
+      <span class="gt-when">${esc(kickLabel(g))}</span>
+      <span class="gt-teams"><b style="text-shadow:0 0 14px var(--ta)">${esc(a)}</b><i>@</i><b style="text-shadow:0 0 14px var(--tb)">${esc(h)}</b></span>
+      <span class="gt-line">${isFinal(g) ? `Final ${g.result.away_score}–${g.result.home_score}` : `${esc(h)} ${signed(m.home_spread, 1)} · O/U ${n(m.total, 1)}`}</span>
+      <span class="gt-chips">${lvlDot(wv.level || "unknown")}<span>${wv.level === "bad" ? "weather" : wv.level === "warn" ? "watch weather" : "clear"}</span>${mm ? `<span class="pill good">${mm} mismatch${mm > 1 ? "es" : ""}</span>` : ""}${highs ? `<span class="pill bad">${highs} out</span>` : ""}</span>
+      <span class="gt-go">Enter game ›</span></button>`;
+  }
+  function miniPlayer(x, gi, why) {
+    const g = games[gi], card = (x.vis || {}).card || {}, logo = (g.teams[x.s.offense] || {}).logo, name = x.r.full_name || x.r.player;
+    return `<button class="mini" data-enter="${gi}" data-tab-go="players" data-dir-go="${sideKeys(g).indexOf(x.s.offense + "_vs_" + x.s.defense)}" style="--tc:${teamColor(g, x.s.offense)}">
+      ${logo ? `<img class="gl r" src="${logo}" alt="">` : ""}${card.photo ? `<img class="mp" src="${card.photo}" alt="">` : `<span class="mp ini">${esc(name.split(" ").map((w) => w[0]).join("").slice(0, 2))}</span>`}
+      <span class="mn"><b>${esc(name)}</b><span>${esc(x.r.pos)} · ${esc(x.s.offense)} vs ${esc(x.s.defense)}</span><span class="why">${esc(why)}</span></span>
+      ${isNum(x.p70) ? ring(x.p70, "70+ yds") : ""}</button>`;
+  }
+  function renderHome() {
+    const all = []; games.forEach((g, gi) => hotPlayers(g).forEach((x) => all.push(Object.assign({ gi }, x))));
+    const topOpp = all.filter((x) => isNum(x.p70)).sort((a, b) => b.p70 - a.p70).slice(0, 8);
+    const mism = all.filter((x) => x.hot).sort((a, b) => b.good.length - a.good.length || (b.p70 || 0) - (a.p70 || 0)).slice(0, 8);
+    const wx = games.map((g, gi) => [g, gi]).filter(([g]) => ["warn", "bad"].includes((g.weather_verdict || {}).level));
+    const inj = []; games.forEach((g, gi) => Object.values(g.sides).forEach((s) => (s.offense_injuries || []).filter((x) => x.impact === "high" && x.status_level >= 3).forEach((x) => inj.push([g, gi, s, x]))));
+    const groups = []; games.forEach((g, i) => { const key = g.game.date + "|" + g.game.slot; let grp = groups.find((x) => x.key === key); if (!grp) groups.push((grp = { key, label: g.game.slot, items: [] })); grp.items.push(i); });
+    return `<section class="hero"><div><div class="eyebrow">Week ${games[0] ? games[0].game.week : ""} slate</div><h1>Pick a game to step inside</h1><p class="note">Every game below opens its own room: player cards, opportunity, field view, matchups, injuries, odds and weather. New here? <button class="linkbtn" data-howto>How to use this board</button></p></div></section>
+      ${groups.map((grp) => `<div class="slot-h">${esc(grp.label)}</div><div class="tiles">${grp.items.map((i) => gameTile(games[i], i)).join("")}</div>`).join("")}
+      <div class="section-title">Highlights</div>
+      <div class="grid two">
+        <div class="card"><h4>Best chance at 70+ yards</h4><div class="sub">Across the slate, from each player's volume and efficiency against this week's defense. Tap a player to open his card.</div><div class="minis">${topOpp.map((x) => miniPlayer(x, x.gi, `median ${n((x.opp || {}).yards_median, 0)} yds`)).join("") || '<p class="empty">No projections yet.</p>'}</div></div>
+        <div class="card"><h4>Mismatch spotlight</h4><div class="sub">Two or more edges line up: size, speed, soft defense, coverage fit, target zone or a defender to attack.</div><div class="minis">${mism.map((x) => miniPlayer(x, x.gi, x.good[0][1])).join("") || '<p class="empty">No player has two edges lined up this week.</p>'}</div></div>
+      </div>
+      <div class="grid two">
+        <div class="card"><h4>Weather watch</h4>${wx.length ? `<ul class="list">${wx.map(([g, gi]) => `<li>${lvlDot(g.weather_verdict.level)}<span><button class="linkbtn" data-enter="${gi}" data-tab-go="weather">${esc(g.game.away)} @ ${esc(g.game.home)}</button>: ${esc(g.weather_verdict.headline)}</span></li>`).join("")}</ul>` : '<p class="empty">No weather concerns on this slate.</p>'}</div>
+        <div class="card"><h4>Key players out or doubtful</h4>${inj.length ? `<ul class="list">${inj.slice(0, 12).map(([g, gi, s, x]) => `<li>${lvlDot("bad")}<span><button class="linkbtn" data-enter="${gi}" data-tab-go="injuries">${esc(s.offense)} ${esc(x.player)}</button> ${esc(x.position || "")}: ${esc(x.game_status || x.espn || "")}${x.next_up ? ` · next up ${esc(x.next_up)}` : ""}</span></li>`).join("")}</ul>` : '<p class="empty">No starters listed out or doubtful.</p>'}</div>
+      </div>`;
+  }
+  function renderGameBar() {
+    return `<div class="gamebar"><button class="back" data-home>‹ All games</button><div class="gchips">${games.map((g, i) => `<button class="gchip" data-enter="${i}" aria-current="${i === state.gi}" style="--ca:${teamColor(g, g.game.away)};--cb:${teamColor(g, g.game.home)}">${esc(g.game.away)} @ ${esc(g.game.home)}<small>${esc((kickLabel(g).split(" · ")[1] || ""))}</small></button>`).join("")}</div></div>`;
+  }
+  function howtoHtml() {
+    return `<div class="howto-box" role="dialog" aria-modal="true" aria-labelledby="howto-t"><button class="close" data-howto-close aria-label="Close">×</button>
+      <h2 id="howto-t">How to use the game board</h2>
+      <ol class="steps">
+        <li><b>Pick a game.</b> The home screen shows every game on the slate. Tap a tile to step inside it. Use "‹ All games" or the strip of games at the top to switch.</li>
+        <li><b>Choose a look.</b> Neon, Chrome or HUD at the top of the page. Your pick is remembered.</li>
+        <li><b>Pick which offense.</b> Inside a game, the switch under the tabs flips between "Team A offense vs Team B defense" and the reverse.</li>
+        <li><b>Read the tabs.</b>
+          <ul><li><b>Overview</b>: who has the best chance at 70+ yards, the rank edges, defenders to attack, QB against the blitz, injuries, last meeting, your rules, trends.</li>
+          <li><b>Player cards</b>: photo over the team logo, a 3D chart of the last 5 games (tap Targets, Catches, Yards or Share), and a strip that swipes every 2 seconds: role, recent form, opportunity, what the defense allows, who he'll see. Hover or touch to pause; swipe or use the arrows. The season game log opens under the card.</li>
+          <li><b>Opportunity</b>: this game's volume and each player's chance at 20 to 120 yards, from 20,000 simulated games.</li>
+          <li><b>Field view</b>: formation against the defense's shell, size and speed against likely coverage, where his targets go, route tree, run gaps, and "Simulate this game".</li>
+          <li><b>What the defense allows</b>, <b>Defenders</b>, <b>Quarterback</b>, <b>Injuries</b>, <b>Last meeting</b>, <b>Odds</b>, <b>Weather & rest</b>: the detail behind every number.</li>
+          <li><b>Copy for Grok</b>: one tap copies the whole game for ChatGPT or Grok.</li></ul></li>
+        <li><b>Read the colors.</b> Green is good for the offense you're looking at, red is tough, amber is a caution. A glowing card with a "Mismatch" badge has two or more edges lined up. Rank chips: 1st means best at its own job, so a defense ranked 28th against receivers is a soft spot.</li>
+        <li><b>Keep it in proportion.</b> Everything here is research. The projections were tested on past games but are not betting advice; your rule gates still apply.</li>
+      </ol><button class="btn" data-howto-close>Got it</button></div>`;
+  }
+  function openHowto() { const o = document.getElementById("howto"); o.innerHTML = howtoHtml(); o.hidden = false; o.querySelectorAll("[data-howto-close]").forEach((b) => b.addEventListener("click", closeHowto)); o.querySelector(".close").focus(); try { localStorage.setItem("board-howto", "1"); } catch (e) { /* storage blocked */ } }
+  function closeHowto() { document.getElementById("howto").hidden = true; }
+  function enterGame(i, opts = {}, fromEl = null) {
+    state.gi = +i; state.dir = isNum(opts.dir) && opts.dir >= 0 ? opts.dir : 0; if (opts.tab) state.tab = opts.tab;
+    state.view = "game";
+    const go2 = () => { const g = G(); history.replaceState(null, "", "#" + `${g.game.away}-${g.game.home}`); render(true); window.scrollTo({ top: 0 }); };
+    if (fromEl && !reduceMotion) { fromEl.classList.add("warp"); setTimeout(go2, 260); } else go2();
+  }
+  function goHome() { state.view = "home"; history.replaceState(null, "", "#home"); render(true); window.scrollTo({ top: 0 }); }
+  function bindNav(root) {
+    root.querySelectorAll("[data-enter]").forEach((b) => b.addEventListener("click", (e) => { e.preventDefault(); enterGame(b.dataset.enter, { tab: b.dataset.tabGo, dir: b.dataset.dirGo != null ? +b.dataset.dirGo : undefined }, b.classList.contains("gtile") || b.classList.contains("mini") ? b : null); }));
+    root.querySelectorAll("[data-home]").forEach((b) => b.addEventListener("click", goHome));
+    root.querySelectorAll("[data-howto]").forEach((b) => b.addEventListener("click", openHowto));
+  }
+  function render(animate) {
+    const home = document.getElementById("home"), game = document.getElementById("game");
+    if (state.view === "home" || !G()) {
+      game.hidden = true; home.hidden = false; home.innerHTML = renderHome(); bindNav(home);
+      home.classList.remove("enter"); if (animate && !reduceMotion) { void home.offsetWidth; home.classList.add("enter-back"); }
+    } else {
+      home.hidden = true; game.hidden = false;
+      document.getElementById("gamebar").innerHTML = renderGameBar(); bindNav(document.getElementById("gamebar"));
+      renderSheet();
+      const gb = document.getElementById("gamebar").querySelector('[aria-current="true"]'); if (gb) gb.scrollIntoView({ block: "nearest", inline: "center" });
+      game.classList.remove("enter"); if (animate && !reduceMotion) { void game.offsetWidth; game.classList.add("enter"); }
+    }
   }
 
   // ---------------------------------------------------------------- injuries
@@ -1322,7 +1468,7 @@ const BOARD = /*__BOARD_DATA__*/null;
                    h2h: renderH2H, odds: renderOdds, weather: renderWeather, grok: renderGrok }[state.tab](g);
     const sh = document.getElementById("sheet"); sh.style.setProperty("--ta", teamColor(g, g.game.away)); sh.style.setProperty("--tb", teamColor(g, g.game.home));
     document.getElementById("sheet").innerHTML = renderHeader(g) +
-      `<div class="tabs" role="tablist">${TABS.map(([k, l]) => `<button role="tab" aria-selected="${k === state.tab}" data-tab="${k}">${esc(l)}</button>`).join("")}</div>` +
+      `<div class="tabs" role="tablist">${TABS.map(([k, l]) => `<button role="tab" class="${FEATURE.has(k) ? "feature" : ""}" aria-selected="${k === state.tab}" data-tab="${k}">${esc(l)}</button>`).join("")}</div>` +
       (dirNeeded ? `<div class="controls"><div class="seg" role="group" aria-label="Which offense">${dirBtns}</div></div>` : "") + body;
     document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => { state.tab = b.dataset.tab; save(); renderSheet(); }));
     document.querySelectorAll("[data-dir]").forEach((b) => b.addEventListener("click", () => { state.dir = +b.dataset.dir; renderSheet(); }));
@@ -1336,16 +1482,10 @@ const BOARD = /*__BOARD_DATA__*/null;
     });
   }
   function save() { try { localStorage.setItem("board-tab", state.tab); } catch (e) { /* storage blocked */ } }
-  function go() {
-    const g = G();
-    if (g) { const h = `${g.game.away}-${g.game.home}`; if (location.hash.slice(1) !== h) history.replaceState(null, "", "#" + h); }
-    renderRail(); renderSheet();
-  }
   function fromHash() {
     const h = location.hash.slice(1).toUpperCase();
     const i = games.findIndex((g) => `${g.game.away}-${g.game.home}` === h);
-    if (i >= 0) state.gi = i;
-    else { const now = Date.now(); const j = games.findIndex((g) => !g.result && kickoffDate(g).getTime() > now - 4 * 3600e3); state.gi = j >= 0 ? j : 0; }
+    if (i >= 0) { state.gi = i; state.view = "game"; } else state.view = "home";
   }
   function setSkin(k) { document.documentElement.setAttribute("data-skin", k); document.querySelectorAll("#skins button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.skin === k)); try { localStorage.setItem("board-skin", k); } catch (e) { /* storage blocked */ } }
   let skin0 = "neon"; try { skin0 = localStorage.getItem("board-skin") || "neon"; } catch (e) { /* storage blocked */ }
@@ -1355,7 +1495,12 @@ const BOARD = /*__BOARD_DATA__*/null;
   const built = BOARD && BOARD.built_utc ? new Date(BOARD.built_utc) : null;
   document.getElementById("meta").textContent = games.length ? `Week ${games[0].game.week} · ${games.length} games · updated ${built ? built.toLocaleString([], { weekday: "short", hour: "numeric", minute: "2-digit" }) : "?"}` : "No games";
   document.getElementById("foot").innerHTML = `Data: nflverse play-by-play, FTN charting, NGS participation (last season), Pro Football Reference, the official injury report and ESPN, the National Weather Service, and The Odds API. Built from GhostPapii21/nfl-matchup-database. Research only: no number here is a validated projection or a bet recommendation.`;
-  fromHash(); go();
-  window.addEventListener("hashchange", () => { fromHash(); renderRail(); renderSheet(); });
+  document.querySelectorAll("header [data-howto]").forEach((b) => b.addEventListener("click", openHowto));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !document.getElementById("howto").hidden) closeHowto(); });
+  document.getElementById("howto").addEventListener("click", (e) => { if (e.target.id === "howto") closeHowto(); });
+  fromHash(); render(false);
+  let seen = null; try { seen = localStorage.getItem("board-howto"); } catch (e) { /* storage blocked */ }
+  if (!seen && state.view === "home" && games.length) openHowto();
+  window.addEventListener("hashchange", () => { fromHash(); render(true); });
 })();
 </script>
