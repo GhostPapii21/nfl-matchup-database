@@ -4,33 +4,33 @@
 
 Market (schedule consensus, not a timestamped quote): GB -3, total 42.5.
 
-Generated 2026-11-13T23:16:41+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-14T00:02:43+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-13T23:16:40+00:00 UTC. At kickoff: 45 F, wind 2 mph WNW, 0% chance of precipitation, Sunny. During the game: low 45 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-14T00:02:40+00:00 UTC. At kickoff: 45 F, wind 2 mph WNW, 0% chance of precipitation, Sunny. During the game: low 45 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-13T23:16:26+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-14T00:02:15+00:00 UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | GB -3 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-13T23:15:51Z |
-| spread | williamhill_us | GB -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T23:15:50Z |
-| spread | fanduel | GB -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T23:16:11Z |
-| spread | hardrockbet | GB -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T23:15:51Z |
-| spread | pinnacle | GB -3 | -102 | -110 | 49.1% | 50.9% | 2.9% | 2026-11-13T23:16:10Z |
-| total | draftkings | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-13T23:15:51Z |
-| total | williamhill_us | Over 42 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-13T23:15:50Z |
-| total | fanduel | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-13T23:16:11Z |
-| total | hardrockbet | Over 42 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-13T23:15:51Z |
-| total | pinnacle | Over 42 | -108 | -108 | 50.0% | 50.0% | 3.9% | 2026-11-13T23:16:10Z |
-| moneyline | draftkings | GB | -162 | +136 | 59.3% | 40.7% | 4.2% | 2026-11-13T23:15:51Z |
-| moneyline | williamhill_us | GB | -159 | +134 | 59.0% | 41.0% | 4.1% | 2026-11-13T23:15:50Z |
-| moneyline | fanduel | GB | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-13T23:16:11Z |
-| moneyline | hardrockbet | GB | -160 | +135 | 59.1% | 40.9% | 4.1% | 2026-11-13T23:15:51Z |
-| moneyline | pinnacle | GB | -156 | +137 | 59.1% | 40.9% | 3.1% | 2026-11-13T23:16:10Z |
+| spread | draftkings | GB -3 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-14T00:01:15Z |
+| spread | williamhill_us | GB -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T00:01:44Z |
+| spread | fanduel | GB -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T00:02:14Z |
+| spread | hardrockbet | GB -3 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T00:01:16Z |
+| spread | pinnacle | GB -3 | -102 | -110 | 49.1% | 50.9% | 2.9% | 2026-11-14T00:02:14Z |
+| total | draftkings | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T00:01:15Z |
+| total | williamhill_us | Over 42 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-14T00:01:44Z |
+| total | fanduel | Over 42.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-14T00:02:14Z |
+| total | hardrockbet | Over 42 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-14T00:01:16Z |
+| total | pinnacle | Over 42 | -108 | -108 | 50.0% | 50.0% | 3.9% | 2026-11-14T00:02:14Z |
+| moneyline | draftkings | GB | -155 | +130 | 58.3% | 41.7% | 4.3% | 2026-11-14T00:01:15Z |
+| moneyline | williamhill_us | GB | -159 | +134 | 59.0% | 41.0% | 4.1% | 2026-11-14T00:01:44Z |
+| moneyline | fanduel | GB | -154 | +130 | 58.2% | 41.8% | 4.1% | 2026-11-14T00:02:14Z |
+| moneyline | hardrockbet | GB | -160 | +135 | 59.1% | 40.9% | 4.1% | 2026-11-14T00:01:16Z |
+| moneyline | pinnacle | GB | -156 | +137 | 59.1% | 40.9% | 3.1% | 2026-11-14T00:02:14Z |
 
 ### Same-line consensus (retail books only)
 
@@ -38,15 +38,15 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 | Market | Team | Label | FanDuel | DraftKings | Hard Rock Bet | Caesars | Consensus | Note |
 |---|---|---|---|---|---|---|---|---|
-| moneyline |  | four-book game-line consensus |  |  |  |  | GB n/a: 58.9% (4 at line) |  |
+| moneyline |  | four-book game-line consensus |  |  |  |  | GB n/a: 58.7% (4 at line) |  |
 | spread |  | four-book game-line consensus | -3.0 | -3.0 | -3.0 | -3.0 | GB -3.0: 49.9% (4 at line) |  |
 | total |  | four-book game-line consensus | 42.5 | 42.5 | 42.0 | 42.0 | no consensus | books split evenly between lines [42.0, 42.5] |
 
-### Line movement: first seen 2026-11-11T18:18:07+00:00 to 2026-11-13T23:16:40+00:00 (10 snapshots)
+### Line movement: first seen 2026-11-11T18:18:07+00:00 to 2026-11-14T00:02:40+00:00 (11 snapshots)
 
 | Market | Book | First line | Now | Move | First prices | Prices now |
 |---|---|---|---|---|---|---|
-| moneyline | draftkings | n/a | n/a | n/a | -166 / +140 | -162 / +136 |
+| moneyline | draftkings | n/a | n/a | n/a | -166 / +140 | -155 / +130 |
 | moneyline | fanduel | n/a | n/a | n/a | -172 / +144 | -154 / +130 |
 | moneyline | pinnacle | n/a | n/a | n/a | -179 / +157 | -156 / +137 |
 | spread | draftkings | -3.5 | -3.0 | 0.5 | -105 / -115 | -108 / -112 |
@@ -58,7 +58,7 @@ Consensus uses only books quoting the same line; probabilities at different line
 
 First seen by this pipeline, not the true opening line. Snapshots are only as frequent as the workflow runs.
 
-Player props: NOT_FETCHED: kickoff is 43 hours away (props are pulled inside 36 hours).
+Player props: NOT_FETCHED: kickoff is 42 hours away (props are pulled inside 36 hours).
 
 ## Matchup edges
 
@@ -669,16 +669,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-13T23:16:25+00:00 | 9186df1ea1b1 |
-| pbp | OK | 2026-11-13T23:16:25+00:00 | 63d725b49ed1 |
-| rosters | OK | 2026-11-13T23:16:25+00:00 | 99651c418f80 |
-| injuries | OK | 2026-11-13T23:16:25+00:00 | 65d181dfc372 |
-| depth_charts | OK | 2026-11-13T23:16:25+00:00 | 341d1eddeaf6 |
-| snap_counts | OK | 2026-11-13T23:16:25+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-13T23:16:25+00:00 | 75783665c9e4 |
-| pfr_def | OK | 2026-11-13T23:16:25+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-13T23:16:26+00:00 |  |
+| games | OK | 2026-11-14T00:02:12+00:00 | 5e574b28c810 |
+| pbp | OK | 2026-11-14T00:02:12+00:00 | 63d725b49ed1 |
+| rosters | OK | 2026-11-14T00:02:12+00:00 | 99651c418f80 |
+| injuries | OK | 2026-11-14T00:02:12+00:00 | 65d181dfc372 |
+| depth_charts | OK | 2026-11-14T00:02:13+00:00 | 341d1eddeaf6 |
+| snap_counts | OK | 2026-11-14T00:02:13+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-14T00:02:13+00:00 | 75783665c9e4 |
+| pfr_def | OK | 2026-11-14T00:02:13+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-14T00:02:14+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | OK | 2026-11-13T23:16:26+00:00 |  |
+| book_odds | OK | 2026-11-14T00:02:15+00:00 |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
