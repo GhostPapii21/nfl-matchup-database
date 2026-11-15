@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): LV +6.5, total 40.5.
 
-Generated 2026-11-15T19:53:18+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-15T23:27:21+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -312,7 +312,7 @@ Defensive front: LDE Leonard Williams, NT Byron Murphy II, RDE Jarran Reed, WLB 
 | Connor O'Toole | LB |  | none listed | Full Participation in Practice |  |
 | Drew Lock | QB |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Leonard Williams (DT) Out; Emanuel Wilson (RB) Out; Quenton Nelson (G) Out; Avery Smith (CB) Out; Charles Cross (OT) Out; Sam Darnold (QB) Out; Deven Eastern (DT) Out.
+ESPN live list (designations only): Leonard Williams (DT) Out; Quenton Nelson (G) Out; Avery Smith (CB) Out; Charles Cross (OT) Out; Sam Darnold (QB) Out; Deven Eastern (DT) Out; Emanuel Wilson (RB) Out; Abraham Lucas (OT) Questionable; Jarran Reed (DT) Questionable; George Holani (RB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -532,7 +532,7 @@ Defensive front: LDE Folorunso Fatukasi, NT Adam Butler, RDE Tonka Hemingway, WL
 | Ian Thomas | TE |  | none listed | Full Participation in Practice |  |
 | Dont'e Thornton Jr. | WR |  | Questionable | Did Not Participate In Practice | Back |
 
-ESPN live list (designations only): Dont'e Thornton Jr. (WR) Questionable; Thomas Booker IV (DT) Questionable.
+ESPN live list (designations only): Tristin McCollum (S) Out; Dalton Johnson (S) Out; Bryce Cabeldue (G) Out; Dont'e Thornton Jr. (WR) Out; Thomas Booker IV (DT) Out; Malik Benson (WR) Out; Brock Bowers (TE) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -576,15 +576,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-15T19:52:56+00:00 | ef32fb7dcd72 |
-| pbp | OK | 2026-11-15T19:52:56+00:00 | 786671a1ef96 |
-| rosters | OK | 2026-11-15T19:52:56+00:00 | b4f7dd20cba3 |
-| injuries | OK | 2026-11-15T19:52:57+00:00 | 87be8ab6f700 |
-| depth_charts | OK | 2026-11-15T19:52:57+00:00 | 2b712dbd51b5 |
-| snap_counts | OK | 2026-11-15T19:52:57+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-15T19:52:57+00:00 | 07ef9d37335f |
-| pfr_def | OK | 2026-11-15T19:52:57+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-15T19:52:58+00:00 |  |
+| games | OK | 2026-11-15T23:27:15+00:00 | cd3c58097db6 |
+| pbp | OK | 2026-11-15T23:27:16+00:00 | 7038a4626d81 |
+| rosters | OK | 2026-11-15T23:27:16+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-15T23:27:16+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-15T23:27:16+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-15T23:27:16+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-15T23:27:16+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-15T23:27:17+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-15T23:27:17+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

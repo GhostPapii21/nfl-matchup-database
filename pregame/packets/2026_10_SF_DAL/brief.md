@@ -2,13 +2,13 @@
 
 **Sunday 2026-11-15, 16:25 ET.** Site: Home; roof: not listed; surface: matrixturf. Rest: SF 7 days, DAL 7 days. Listed QBs: Brock Purdy (SF), Dak Prescott (DAL).
 
-Market (schedule consensus, not a timestamped quote): DAL +4.5, total 55.5.
+Market (schedule consensus, not a timestamped quote): DAL +3.5, total 55.5.
 
-Generated 2026-11-15T19:53:20+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-15T23:27:23+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-15T19:53:19+00:00 UTC. At kickoff: 50 F, wind 10 mph ENE, 20% chance of precipitation, Slight Chance Rain Showers. During the game: low 49 F, wind up to 10 mph, precipitation chance up to 23%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-15T23:27:22+00:00 UTC. At kickoff: 49 F, wind 10 mph ENE, 20% chance of precipitation, Slight Chance Rain Showers. During the game: low 49 F, wind up to 10 mph, precipitation chance up to 23%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
@@ -48,8 +48,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | SF 27.8 - DAL 24.3 | 52.2 | -3.5 | 34.4% | 51.1% | 42.9% | SF 14.2 - DAL 12.1 |
-| independent | SF 26.9 - DAL 27.5 | 54.4 | +0.6 | 51.9% | 64.7% | 46.4% | SF 13.9 - DAL 14.5 |
+| matchup_pair | SF 27.8 - DAL 24.3 | 52.2 | -3.5 | 34.4% | 45.1% | 42.9% | SF 14.2 - DAL 12.1 |
+| independent | SF 26.9 - DAL 27.5 | 54.4 | +0.6 | 51.9% | 61.2% | 46.4% | SF 13.9 - DAL 14.5 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -355,7 +355,7 @@ Defensive front: LDE Keion White, LDT Osa Odighizuwa, RDT DeForest Buckner, RDE 
 | Siran Neal | S |  | none listed | Full Participation in Practice |  |
 | Demarcus Robinson | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Brandon Aiyuk (WR) Out; Upton Stout (CB) Questionable; Dre Greenlaw (LB) Questionable; Deommodore Lenoir (CB) Questionable; Renardo Green (CB) Questionable; Gracen Halton (DT) Injured Reserve; Nate Hobbs (CB) Injured Reserve; C.J. West (DT) Injured Reserve; Trent Williams (OT) Questionable; Mike Evans (WR) Out.
+ESPN live list (designations only): Brandon Aiyuk (WR) Out; Gracen Halton (DT) Injured Reserve; Nate Hobbs (CB) Injured Reserve; C.J. West (DT) Injured Reserve; Mike Evans (WR) Out; Kurtis Rourke (QB) Out; Tatum Bethune (LB) Out; Enrique Cruz Jr. (OT) Out; Brandin Cooks (WR) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -587,7 +587,7 @@ Defensive front: LDE Quinnen Williams, NT Otito Ogbonnia, RDE Kenny Clark, WLB R
 | George Pickens | WR |  | none listed | Full Participation in Practice |  |
 | Jonathan Mingo | WR |  | Out | Did Not Participate In Practice | Ankle |
 
-ESPN live list (designations only): Jake Ferguson (TE) Out; P.J. Locke (S) Out; Devin Moore (CB) Injured Reserve; Alijah Clark (S) Questionable; Juanyeh Thomas (S) Doubtful; Jonathan Mingo (WR) Out; Donovan Ezeiruaku (LB) Out; Tyler Goodson (RB) Injured Reserve; Jonathan Bullard (DT) Questionable; DaRon Bland (CB) Questionable; Joey Porter Jr. (CB) Questionable.
+ESPN live list (designations only): Devin Moore (CB) Injured Reserve; Tyler Goodson (RB) Injured Reserve; Juanyeh Thomas (S) Out; Jonathan Mingo (WR) Out; Derion Kendrick (CB) Out; P.J. Locke (S) Out; Ajani Cornelius (OT) Out; Donovan Ezeiruaku (LB) Out; Jake Ferguson (TE) Out; DaRon Bland (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -631,15 +631,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-15T19:52:56+00:00 | ef32fb7dcd72 |
-| pbp | OK | 2026-11-15T19:52:56+00:00 | 786671a1ef96 |
-| rosters | OK | 2026-11-15T19:52:56+00:00 | b4f7dd20cba3 |
-| injuries | OK | 2026-11-15T19:52:57+00:00 | 87be8ab6f700 |
-| depth_charts | OK | 2026-11-15T19:52:57+00:00 | 2b712dbd51b5 |
-| snap_counts | OK | 2026-11-15T19:52:57+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-15T19:52:57+00:00 | 07ef9d37335f |
-| pfr_def | OK | 2026-11-15T19:52:57+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-15T19:52:58+00:00 |  |
+| games | OK | 2026-11-15T23:27:15+00:00 | cd3c58097db6 |
+| pbp | OK | 2026-11-15T23:27:16+00:00 | 7038a4626d81 |
+| rosters | OK | 2026-11-15T23:27:16+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-15T23:27:16+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-15T23:27:16+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-15T23:27:16+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-15T23:27:16+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-15T23:27:17+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-15T23:27:17+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): CIN -3.5, total 49.5.
 
-Generated 2026-11-15T19:53:23+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-15T23:27:25+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-15T19:53:21+00:00 UTC. At kickoff: 43 F, wind 0 mph , 0% chance of precipitation, Mostly Cloudy. During the game: low 40 F, wind up to 0 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-15T23:27:24+00:00 UTC. At kickoff: 43 F, wind 0 mph , 0% chance of precipitation, Mostly Cloudy. During the game: low 40 F, wind up to 0 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -622,15 +622,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-15T19:52:56+00:00 | ef32fb7dcd72 |
-| pbp | OK | 2026-11-15T19:52:56+00:00 | 786671a1ef96 |
-| rosters | OK | 2026-11-15T19:52:56+00:00 | b4f7dd20cba3 |
-| injuries | OK | 2026-11-15T19:52:57+00:00 | 87be8ab6f700 |
-| depth_charts | OK | 2026-11-15T19:52:57+00:00 | 2b712dbd51b5 |
-| snap_counts | OK | 2026-11-15T19:52:57+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-15T19:52:57+00:00 | 07ef9d37335f |
-| pfr_def | OK | 2026-11-15T19:52:57+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-15T19:52:58+00:00 |  |
+| games | OK | 2026-11-15T23:27:15+00:00 | cd3c58097db6 |
+| pbp | OK | 2026-11-15T23:27:16+00:00 | 7038a4626d81 |
+| rosters | OK | 2026-11-15T23:27:16+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-15T23:27:16+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-15T23:27:16+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-15T23:27:16+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-15T23:27:16+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-15T23:27:17+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-15T23:27:17+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 
