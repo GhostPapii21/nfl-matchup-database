@@ -42,6 +42,8 @@ def test_vendored_engines_are_byte_identical_to_pinned_sums(tmp_path):
     bad = tmp_path / "engines"
     bad.mkdir()
     for f in SV.ENGINE_DIR.iterdir():
+        if not f.is_file():
+            continue  # skip __pycache__ if a test imported volume_fix from this dir
         (bad / f.name).write_bytes(f.read_bytes())
     (bad / "cc_sim_v5.py").write_text((bad / "cc_sim_v5.py").read_text() + "\n# edit\n")
     with pytest.raises(SV.SimV56Error, match="cc_sim_v5.py"):

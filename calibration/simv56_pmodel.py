@@ -137,6 +137,8 @@ def _worker(engine: str, legs_json: str, week: int, cutoff: str, src: str, n: in
                    spread=L["spread"], rungs=list(L["lines"]))
         if L.get("qb_rush_prior"):          # NFL-75 opt-in QB rush YPC prior + kneel model (engines/qb_rush_prior.py)
             leg["qb_rush_prior"] = L["qb_rush_prior"]
+        if L.get("volume_fix") is True:  # NFL-75 B2/B3/B8/B9, opt-in only; "false" stays off
+            leg["volume_fix"] = True
         try:
             o = run(leg)
         except Exception as ex:  # noqa: BLE001  (same as run_sims: error row, no probability)
@@ -154,14 +156,18 @@ def _worker(engine: str, legs_json: str, week: int, cutoff: str, src: str, n: in
 
 
 def run_all(legs: pd.DataFrame, week: int, src: Path, workdir: Path, n: int = N_TRIALS,
-            cutoff: str | None = None, qb_rush_prior: bool | str = False) -> dict:
+            cutoff: str | None = None, qb_rush_prior: bool | str = False, volume_fix: bool = False) -> dict:
     """legs: player, gsis, team, opp, market, spread, line (one row per line). Returns {engine: DataFrame}.
     qb_rush_prior=True (or "prior") turns on the NFL-75 QB rush YPC prior + kneel model in all three engines (QB rush
     legs only); "components" models designed runs, scrambles and kneels separately with a heavy-tailed per-carry mixture.
-    Default False = the Phase 4 fit ensemble, unchanged. The `run` CLI does not expose it, so a probability file
-    stamped prob_source=sim_v5_v6_ensemble can never carry the fixed prior."""
+    volume_fix=True turns on the NFL-75 volume fixes in all three engines (engines/volume_fix.py: keep zero-carry games
+    the player played, spread moves expected volume, no 2x carry-boost cap, YPC ratio guard).
+    Default False for both = the Phase 4 fit ensemble, unchanged. The `run` CLI exposes neither, so a probability file
+    stamped prob_source=sim_v5_v6_ensemble can never carry them."""
     if qb_rush_prior not in (False, None, True, "prior", "components"):
         raise SimV56Error(f"qb_rush_prior must be False, True/'prior' or 'components', got {qb_rush_prior!r}")
+    if volume_fix not in (False, True):
+        raise SimV56Error(f"volume_fix must be True or False, got {volume_fix!r}")
     verify_engines()
     cutoff = cutoff or cutoff_for_week(week)
     workdir = Path(workdir)
@@ -174,6 +180,8 @@ def run_all(legs: pd.DataFrame, week: int, src: Path, workdir: Path, n: int = N_
         r["spread"] = float(r["spread"])
         if qb_rush_prior:
             r["qb_rush_prior"] = qb_rush_prior
+        if volume_fix:
+            r["volume_fix"] = True
         recs.append(r)
     lj = workdir / "engine_legs.json"
     lj.write_text(json.dumps(recs, indent=1))
