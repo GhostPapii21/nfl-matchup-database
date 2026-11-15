@@ -17,3 +17,7 @@ The 15 official 2026 Week 9 NFL Game Summaries were supplied by the owner and ar
 ## Model checkpoint additions
 
 The model tree follows the same rule. nflverse play-by-play, roster, game, and depth-chart files that were already redistributable are included as regular files. FTN charting parquets, raw ESPN API bodies, scraped book pages, and saved book-quote audits are hash-only. See `inventory/EXCLUSIONS.json` and `docs/SOURCE_STATUS.md`. ORCA and FTN model mirrors were not retrieved. No odds credential is included.
+
+## 2026 scheme and opportunity profiles
+
+`data/scheme_profiles/2026/` is a research extract. It does not change `projection_ready` or model weights. Play-level counts cite the nflverse 2026 play-by-play release `https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet`, retrieved 2026-11-15T12:45:04Z, sha256 `05f37f2f65d3db42d9036cef0da1554d6fdbb861f6005a454756e14c34a836d8`. Final-score identity cites the nflverse schedule release retrieved 2026-11-15T12:44:36Z; spread and moneyline columns were not copied. Week 9 gamebook PDFs remain the owner-supplied files under `data/gamebooks/2026/wk09/` and keep the NFL media-assistance restriction quoted above. The Week 10 Commanders at Giants gamebook was hashed for a cross-check and was not added to the repo. Route, coverage, man/zone, blocking, matchup, and personnel fields are unknown.
