@@ -220,14 +220,19 @@ def ensemble(per: dict) -> pd.DataFrame:
 
 
 # ------------------------------------------------------------------ QB / availability gate
+def _upper(s: pd.Series) -> pd.Series:
+    """Case- and whitespace-insensitive text match (NFL-75 B4: a lowercase 'qb' / 'out' must not skip the gate)."""
+    return s.astype(str).str.strip().str.upper()
+
+
 def _week_inj(inj: pd.DataFrame, week: int) -> pd.DataFrame:
     i = inj[inj.week == week] if "week" in inj else inj
-    return i[i.report_status.isin(OUT_STATUSES)]
+    return i[_upper(i.report_status).isin([x.upper() for x in OUT_STATUSES])]
 
 
 def qb_starters(depth: pd.DataFrame, inj: pd.DataFrame, week: int, as_of: str, source: dict,
                 inactives: pd.DataFrame | None = None) -> pd.DataFrame:
-    d = depth[(depth.pos_abb == "QB") & (depth.dt <= as_of)]
+    d = depth[(_upper(depth.pos_abb) == "QB") & (depth.dt <= as_of)]
     out_ids = set(_week_inj(inj, week).gsis_id.dropna())
     ina_ids = set(inactives.gsis_id.dropna()) if inactives is not None and len(inactives) else set()
     rows = []
@@ -277,7 +282,7 @@ def gate_legs(legs: pd.DataFrame, starters: pd.DataFrame, inj: pd.DataFrame, wee
         m = {c: (st.loc[team, c] if team in st.index else None) for c in meta_cols}
         if g in ina_ids or g in out_ids:
             gate, det = "out_or_doubtful", "inactive" if g in ina_ids else "injury report Out/Doubtful"
-        elif str(getattr(r, "position", "")) == "QB":
+        elif str(getattr(r, "position", "")).strip().upper() == "QB":
             if team not in st.index or pd.isna(st.loc[team, "starter_gsis"]):
                 gate, det = "qb_starter_unknown", f"no depth-chart QB for {team}"
             elif st.loc[team, "starter_gsis"] != g:
@@ -337,12 +342,13 @@ def attach(legs: pd.DataFrame, ens: pd.DataFrame, gate: pd.DataFrame) -> pd.Data
     gates = list(gate.gate)
     src, match = [], []
     for i, (idx, r) in enumerate(out.iterrows()):
+        if gates[i] != "ok":    # NFL-75 B4: gate first, on every leg; a preset p_model on a blocked leg is blanked
+            out.at[idx, "p_model"] = np.nan
+            src.append(None); match.append(f"gated:{gates[i]}"); continue
         if r.market != "rushyds":
             src.append(None); match.append(None); continue
         if pd.notna(r.p_model):
             src.append(None); match.append("preset"); continue
-        if gates[i] != "ok":
-            src.append(None); match.append(f"gated:{gates[i]}"); continue
         hit = key.get((r.gsis, "rushyds", float(r.line))) if pd.notna(r.line) else None
         if hit is None:
             src.append(None); match.append("no_sim"); continue
