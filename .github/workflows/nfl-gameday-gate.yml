@@ -10,8 +10,9 @@ name: NFL game-day gate (inactives, prices, locked snapshot, 100k)
 # game is due (40 to 88 minutes before kickoff, 100k not already run). A tick with nothing due spends no credits.
 #
 # Credits: one attempt costs up to 10 Odds API credits per game (game lines 3 + props 7), twice if the lock ran long
-# and prices had to be refreshed. The floor below which nothing is spent comes from the manual input, else the
-# repository variable ODDS_CREDIT_FLOOR, else 300.
+# and prices had to be refreshed. Nothing is spent below the credit floor. The floor is the owner's setting: the manual
+# input, else the repository variable ODDS_CREDIT_FLOOR (Settings > Secrets and variables > Actions > Variables), else
+# the code default in pregame/odds.py (800). This workflow never lowers it on its own.
 # Scheduled runs only fire from the default branch.
 
 on:
@@ -25,7 +26,7 @@ on:
         description: "Game ids, comma separated (blank = every game in its window)"
         required: false
       credit_floor:
-        description: "Do not spend Odds API credits below this balance (blank = repository variable or 300)"
+        description: "Do not spend Odds API credits below this balance (blank = repository variable, else 800)"
         required: false
       open_minutes:
         description: "Window opens this many minutes before kickoff (default 88)"
@@ -72,7 +73,7 @@ jobs:
     env:
       GAME: ${{ matrix.game_id }}
       ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-      ODDS_CREDIT_FLOOR: ${{ inputs.credit_floor || vars.ODDS_CREDIT_FLOOR || '300' }}
+      ODDS_CREDIT_FLOOR: ${{ inputs.credit_floor || vars.ODDS_CREDIT_FLOOR || '' }}   # blank = code default (800)
     steps:
       - uses: actions/checkout@v4
         with:
@@ -106,9 +107,23 @@ jobs:
         if: steps.inactives.outputs.ok == '1'
         run: python -m pregame.build_packets --game "$GAME" --no-index
 
+      - name: Did prices arrive (credit floor, missing book)? If not, skip the lock and let the gate record why
+        id: prices
+        if: steps.inactives.outputs.ok == '1'
+        run: |
+          python - <<'PY' | tee -a "$GITHUB_STEP_SUMMARY"
+          import os
+          from pipeline import freshness as F, phases as P
+          rows = {r["source"]: r for r in F.check(P.load_packet(os.environ["GAME"]))}
+          bad = [f"{k}: {rows[k]['status']} ({rows[k]['reason']})" for k in ("odds", "four_book_prices") if rows[k]["status"] != "FRESH"]
+          print("prices: " + ("fresh from all four books" if not bad else "NOT usable: " + "; ".join(bad)))
+          if not bad:
+              open(os.environ["GITHUB_OUTPUT"], "a").write("ok=1\n")
+          PY
+
       - name: Lock the 100k snapshot before kickoff
         id: lock
-        if: steps.inactives.outputs.ok == '1'
+        if: steps.prices.outputs.ok == '1'
         run: |
           freeze="$(python -c "import json,sys; from pipeline import hooks as H, phases as P; f=H.newest_price_freeze(P.load_packet('$GAME')); print(f or '')")"
           args=(--config "${{ matrix.config }}" --pbp "${{ matrix.pbp }}" --packet "pregame/packets/$GAME/packet.json" --workers "$(nproc)")
@@ -116,7 +131,7 @@ jobs:
           python -m snapshots.lock "${args[@]}"
 
       - name: Refresh prices if the lock took more than 10 minutes (the gate needs them under 20 minutes old)
-        if: steps.inactives.outputs.ok == '1'
+        if: steps.prices.outputs.ok == '1'
         run: |
           age="$(python -c "import json; from datetime import datetime, timezone; from pipeline import freshness as F, phases as P; pk=P.load_packet('$GAME'); t=F.parse_utc((pk.get('books') or {}).get('retrieved_utc')); print(int((datetime.now(timezone.utc)-t).total_seconds()//60) if t else 999)")"
           echo "packet prices are $age minutes old"
