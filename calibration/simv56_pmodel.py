@@ -135,6 +135,10 @@ def _worker(engine: str, legs_json: str, week: int, cutoff: str, src: str, n: in
     for L in legs:
         leg = dict(player=L["player"], gsis=L["gsis"], team=L["team"], opp=L["opp"], market=L["market"],
                    spread=L["spread"], rungs=list(L["lines"]))
+        if L.get("qb_rush_prior"):          # NFL-75 opt-in QB rush YPC prior + kneel model (engines/qb_rush_prior.py)
+            leg["qb_rush_prior"] = L["qb_rush_prior"]
+        if L.get("volume_fix") is True:  # NFL-75 B2/B3/B8/B9, opt-in only; "false" stays off
+            leg["volume_fix"] = True
         try:
             o = run(leg)
         except Exception as ex:  # noqa: BLE001  (same as run_sims: error row, no probability)
@@ -152,8 +156,18 @@ def _worker(engine: str, legs_json: str, week: int, cutoff: str, src: str, n: in
 
 
 def run_all(legs: pd.DataFrame, week: int, src: Path, workdir: Path, n: int = N_TRIALS,
-            cutoff: str | None = None) -> dict:
-    """legs: player, gsis, team, opp, market, spread, line (one row per line). Returns {engine: DataFrame}."""
+            cutoff: str | None = None, qb_rush_prior: bool | str = False, volume_fix: bool = False) -> dict:
+    """legs: player, gsis, team, opp, market, spread, line (one row per line). Returns {engine: DataFrame}.
+    qb_rush_prior=True (or "prior") turns on the NFL-75 QB rush YPC prior + kneel model in all three engines (QB rush
+    legs only); "components" models designed runs, scrambles and kneels separately with a heavy-tailed per-carry mixture.
+    volume_fix=True turns on the NFL-75 volume fixes in all three engines (engines/volume_fix.py: keep zero-carry games
+    the player played, spread moves expected volume, no 2x carry-boost cap, YPC ratio guard).
+    Default False for both = the Phase 4 fit ensemble, unchanged. The `run` CLI exposes neither, so a probability file
+    stamped prob_source=sim_v5_v6_ensemble can never carry them."""
+    if qb_rush_prior not in (False, None, True, "prior", "components"):
+        raise SimV56Error(f"qb_rush_prior must be False, True/'prior' or 'components', got {qb_rush_prior!r}")
+    if volume_fix not in (False, True):
+        raise SimV56Error(f"volume_fix must be True or False, got {volume_fix!r}")
     verify_engines()
     cutoff = cutoff or cutoff_for_week(week)
     workdir = Path(workdir)
@@ -164,6 +178,10 @@ def run_all(legs: pd.DataFrame, week: int, src: Path, workdir: Path, n: int = N_
     for r in grp.to_dict("records"):
         r["gsis"] = None if pd.isna(r["gsis"]) else r["gsis"]
         r["spread"] = float(r["spread"])
+        if qb_rush_prior:
+            r["qb_rush_prior"] = qb_rush_prior
+        if volume_fix:
+            r["volume_fix"] = True
         recs.append(r)
     lj = workdir / "engine_legs.json"
     lj.write_text(json.dumps(recs, indent=1))
@@ -220,14 +238,19 @@ def ensemble(per: dict) -> pd.DataFrame:
 
 
 # ------------------------------------------------------------------ QB / availability gate
+def _upper(s: pd.Series) -> pd.Series:
+    """Case- and whitespace-insensitive text match (NFL-75 B4: a lowercase 'qb' / 'out' must not skip the gate)."""
+    return s.astype(str).str.strip().str.upper()
+
+
 def _week_inj(inj: pd.DataFrame, week: int) -> pd.DataFrame:
     i = inj[inj.week == week] if "week" in inj else inj
-    return i[i.report_status.isin(OUT_STATUSES)]
+    return i[_upper(i.report_status).isin([x.upper() for x in OUT_STATUSES])]
 
 
 def qb_starters(depth: pd.DataFrame, inj: pd.DataFrame, week: int, as_of: str, source: dict,
                 inactives: pd.DataFrame | None = None) -> pd.DataFrame:
-    d = depth[(depth.pos_abb == "QB") & (depth.dt <= as_of)]
+    d = depth[(_upper(depth.pos_abb) == "QB") & (depth.dt <= as_of)]
     out_ids = set(_week_inj(inj, week).gsis_id.dropna())
     ina_ids = set(inactives.gsis_id.dropna()) if inactives is not None and len(inactives) else set()
     rows = []
@@ -277,7 +300,7 @@ def gate_legs(legs: pd.DataFrame, starters: pd.DataFrame, inj: pd.DataFrame, wee
         m = {c: (st.loc[team, c] if team in st.index else None) for c in meta_cols}
         if g in ina_ids or g in out_ids:
             gate, det = "out_or_doubtful", "inactive" if g in ina_ids else "injury report Out/Doubtful"
-        elif str(getattr(r, "position", "")) == "QB":
+        elif str(getattr(r, "position", "")).strip().upper() == "QB":
             if team not in st.index or pd.isna(st.loc[team, "starter_gsis"]):
                 gate, det = "qb_starter_unknown", f"no depth-chart QB for {team}"
             elif st.loc[team, "starter_gsis"] != g:
@@ -337,12 +360,13 @@ def attach(legs: pd.DataFrame, ens: pd.DataFrame, gate: pd.DataFrame) -> pd.Data
     gates = list(gate.gate)
     src, match = [], []
     for i, (idx, r) in enumerate(out.iterrows()):
+        if gates[i] != "ok":    # NFL-75 B4: gate first, on every leg; a preset p_model on a blocked leg is blanked
+            out.at[idx, "p_model"] = np.nan
+            src.append(None); match.append(f"gated:{gates[i]}"); continue
         if r.market != "rushyds":
             src.append(None); match.append(None); continue
         if pd.notna(r.p_model):
             src.append(None); match.append("preset"); continue
-        if gates[i] != "ok":
-            src.append(None); match.append(f"gated:{gates[i]}"); continue
         hit = key.get((r.gsis, "rushyds", float(r.line))) if pd.notna(r.line) else None
         if hit is None:
             src.append(None); match.append("no_sim"); continue

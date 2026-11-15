@@ -3,6 +3,8 @@ gates and selector features. Flags depend only on pre-kick info; outcome columns
 import glob, numpy as np, pandas as pd
 from scipy.stats import norm
 from common import *
+import sys; sys.path.insert(0,REPO)
+from calibration.settlement_ev import ev_at_price, settle_outcome   # NFL-75 B5/B6: one settlement + EV module
 NAMES={'Arizona Cardinals':'ARI','Atlanta Falcons':'ATL','Baltimore Ravens':'BAL','Buffalo Bills':'BUF','Carolina Panthers':'CAR',
 'Chicago Bears':'CHI','Cincinnati Bengals':'CIN','Cleveland Browns':'CLE','Dallas Cowboys':'DAL','Denver Broncos':'DEN','Detroit Lions':'DET',
 'Green Bay Packers':'GB','Houston Texans':'HOU','Indianapolis Colts':'IND','Jacksonville Jaguars':'JAX','Kansas City Chiefs':'KC',
@@ -53,9 +55,9 @@ S=S.groupby(['week','gsis','market','rung']).p_over.mean().reset_index()   # ens
 A=A.merge(S,on=['week','gsis','market','rung'],how='inner')
 keep=['week','game_id','player','gsis','team','market','line','team_spread','is_rb','carry_share','n_prior','n60','gate_rb','rec_ungated','skew','ev_main','actual','position']
 A=A.merge(L[keep],on=['week','game_id','gsis','market'],how='inner',suffixes=('','_l'))
-A=A.assign(kind='alt',side='Over',p_model=A.p_over,p_nv=np.nan,main_line=A.line,
-           push=(A.actual==A.rung).astype(int))
-A['win']=np.where(A.push==1,np.nan,(A.actual>=A.rung).astype(float))
+A=A.assign(kind='alt',side='Over',p_model=A.p_over,p_nv=np.nan,main_line=A.line)
+# p_model = P(x >= rung) treats the rung as an "X+" milestone, so settle it the same way (equality wins, no push)
+A['win'],A['push']=settle_outcome(A.actual,A.rung,'Over',milestone=True)
 A['edge']=A.p_model-1/A.dec; A['rung_off']=(A.rung-A.main_line)/A.main_line.clip(lower=1)
 A['ev']=A.p_model*A.dec-1; A['ev_better']=(A.ev>A.ev_main).astype(int)
 # ---------- games ----------
@@ -86,7 +88,7 @@ for gid,q in Q.groupby('game_id'):
             mu,sd,act=g.sim_total,g.sim_total_sd,g.act_total
             evs={}
             for side in ('Under','Over'):
-                pw,pp=pnorm_win(mu,sd,Lm,side); evs[side]=pw*piv[side].max()-(1-pw-pp)
+                pw,pp=pnorm_win(mu,sd,Lm,side); evs[side]=float(ev_at_price(pw,pp,piv[side].max()))
             pw,pp=pnorm_win(mu,sd,Lm,'Under')
             rows.append(dict(kind='under',market='total',side='Under',week=wk,game_id=gid,rung=Lm,main_line=Lm,
                 p_model=pw/(1-pp),p_nv=nvU,dec=piv['Under'].max(),push=int(act==Lm),win=np.nan if act==Lm else float(act<Lm),
@@ -97,7 +99,7 @@ for gid,q in Q.groupby('game_id'):
                 rows.append(dict(kind='alt',market='total',side=r.selection,week=wk,game_id=gid,rung=r.line,main_line=Lm,
                     p_model=pw/(1-pp),p_nv=np.nan,dec=r.dec,push=int(act==r.line),
                     win=np.nan if act==r.line else float((act<r.line) if r.selection=='Under' else (act>r.line)),
-                    team_spread=np.nan,rung_off=(r.line-Lm)/Lm,ev_main=max(evs.values()),ev=pw*r.dec-(1-pw-pp)))
+                    team_spread=np.nan,rung_off=(r.line-Lm)/Lm,ev_main=max(evs.values()),ev=float(ev_at_price(pw,pp,r.dec))))
         else:
             # home handicap Lm; away handicap -Lm
             s=q[q.market=='spreads'].assign(team=lambda x:x.selection.map(NAMES))
@@ -117,7 +119,7 @@ for gid,q in Q.groupby('game_id'):
                 return pw,pp
             evs={}
             for t,h in ((home,Lm),(away,-Lm)):
-                pw,pp=cover(t,h); evs[t]=pw*piv[t].max()-(1-pw-pp)
+                pw,pp=cover(t,h); evs[t]=float(ev_at_price(pw,pp,piv[t].max()))
             for t,h,nv in ((home,Lm,nvH),(away,-Lm,1-nvH)):
                 pw,pp=cover(t,h); am=act if t==home else -act
                 rows.append(dict(kind='spread',market='spread',side=t,week=wk,game_id=gid,rung=h,main_line=h,
@@ -129,7 +131,7 @@ for gid,q in Q.groupby('game_id'):
                 pw,pp=cover(t,h); am=act if t==home else -act
                 rows.append(dict(kind='alt',market='spread',side=t,week=wk,game_id=gid,rung=h,main_line=Lm if t==home else -Lm,
                     p_model=pw/(1-pp),p_nv=np.nan,dec=r.dec,push=int(am==-h),win=np.nan if am==-h else float(am>-h),
-                    team_spread=h,rung_off=(h-(Lm if t==home else -Lm))/7.0,ev_main=max(evs.values()),ev=pw*r.dec-(1-pw-pp)))
+                    team_spread=h,rung_off=(h-(Lm if t==home else -Lm))/7.0,ev_main=max(evs.values()),ev=float(ev_at_price(pw,pp,r.dec))))
 GC=pd.DataFrame(rows)
 GC['edge']=np.where(GC.kind=='alt',GC.p_model-1/GC.dec,GC.p_model-GC.p_nv)
 if 'ev' in GC: GC['ev_better']=(GC.ev>GC.ev_main).astype(int)

@@ -39,6 +39,10 @@ prob_provenance_digest_mismatch, embedded_prob_source_not_fit_ensemble, cli_prob
 qb_override_missing_for_team, qb_override_incomplete_for_team, qb_override_not_ok_for_team.
 --prob-source / --qb-override-applied are recorded (prob_source_declared, qb_override_declared); a declared source
 that contradicts the file vetoes, but neither flag can make a flag countable. STRONG UNDER labels are still written.
+EV gate (NFL-75 B1, calibration/settlement_ev.py): after the frozen classifier labels a leg, any candidate label whose
+EV at the actual graded price, P(win)(dec-1) - P(loss) with pushes refunded, is not > 0 becomes NO EDGE
+(reason ev_not_positive_at_price, or push_prob_missing_integer_line when an integer line has no push probability).
+label_pre_ev / reason_pre_ev keep the classifier's output; ev, be_true, edge_vs_be, p_push_used are written per leg.
 --commit stages only that run's files on the current research/* branch; --push pushes that branch. Both refuse if any
 staged path is outside the run directory or if the branch diff vs origin/main touches pregame/ or .github/.
 projection_ready is always false. Receiving legs stay INSUFFICIENT EVIDENCE (no verified main defender)."""
@@ -59,6 +63,7 @@ import pandas as pd
 from calibration import selective_edge as se
 from calibration import selective_edge_live as LV
 from calibration import selective_edge_roster as RJ
+from calibration import settlement_ev as SEV
 from calibration.selective_edge_freeze import MANIFEST, ROOT
 
 ET = ZoneInfo("America/New_York")
@@ -227,6 +232,7 @@ def attach_probs(legs: pd.DataFrame, cdf: pd.DataFrame, source: str) -> pd.DataF
     idx = {k: g.set_index(g.line.round(1)) for k, g in cdf.groupby(["game_id", "gsis"])}
     prov = {c: [None] * len(out) for c in PROV_COLS}
     match, src = [], []
+    p_push, basis = [np.nan] * len(out), [""] * len(out)   # NFL-75 B1/B6: push mass + basis for the EV gate
     for n, (i, r) in enumerate(out.iterrows()):
         if str(r.get("market")) != "rushyds":
             match.append(None); src.append(None); continue
@@ -248,6 +254,8 @@ def attach_probs(legs: pd.DataFrame, cdf: pd.DataFrame, source: str) -> pd.DataF
             if k not in h.index or side not in ("Under", "Over"):
                 match.append("line_off_grid" if k not in h.index else "undefined"); src.append(None); continue
             out.at[i, "p_model"] = float(h.loc[k, "p_under" if side == "Under" else "p_over"])
+            if abs(L - round(L)) >= 1e-9:      # P(X>=L) has no push mass only on a half line; integer stays NaN
+                p_push[n] = 0.0
             match.append("gsis"); src.append(source)
             for c in PROV_COLS:
                 prov[c][n] = h[c].iloc[0] if c in h else None
@@ -263,12 +271,14 @@ def attach_probs(legs: pd.DataFrame, cdf: pd.DataFrame, source: str) -> pd.DataF
         if pu + po <= 0 or side not in ("Under", "Over"):
             match.append("undefined"); src.append(None); continue
         out.at[i, "p_model"] = (pu if side == "Under" else po) / (pu + po)
+        p_push[n], basis[n] = max(0.0, 1.0 - pu - po), "decisive"
         match.append("gsis"); src.append(source)
         for c in PROV_COLS:
             prov[c][n] = h[c].iloc[0] if c in h else None
         if "prov_status" not in h:
             prov["prov_status"][n] = "prob_provenance_missing"
     out["p_model_match"], out["p_model_source"] = match, src
+    out["p_push"], out["p_model_basis"] = p_push, basis
     for c in PROV_COLS:
         out[c] = prov[c]
     return out
@@ -473,6 +483,9 @@ def emit(*, freeze_paths, probs: pd.DataFrame, probs_source: str, roster: pd.Dat
                           pbp_source=pbp_source, pbp_pulled_utc=pbp_pulled_utc)
     legs = attach_probs(legs, probs, probs_source)
     graded = LV.grade_live(legs, pbp)          # weeks 10-12 + freeze manifest checked here; frozen params; no refit
+    # NFL-75 B1: a candidate label needs EV > 0 at the actual price (push-aware), not just p_model >= no-vig.
+    # Applied after the frozen classifier so its freeze manifest stays valid; label_pre_ev keeps its own label.
+    graded = SEV.apply_ev_gate(graded, se.CANDIDATE_LABELS, se.NO_EDGE)
     run_utc, run_et = fmt_utc(now), fmt_et(now)
     graded["emitted_utc"], graded["emitted_et"] = run_utc, run_et
     graded["projection_ready"] = False
