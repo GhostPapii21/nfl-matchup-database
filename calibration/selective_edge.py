@@ -23,7 +23,10 @@ Rico's rules, encoded as gates (checked in this order):
 
 `fit` refuses any row outside Weeks 4-7; `evaluate` refuses anything but Weeks 8-9. Weeks 10-12 are holdout and are
 graded only by calibration/selective_edge_live.py after the freeze manifest check. `graduation` is report-only and
-never changes projection_ready. Research only, not validated."""
+never changes projection_ready. Stricter readiness checks (week-clustered bootstrap, >=4 distinct weeks, profit CI
+lower bound > 0, countable legs only) are reported next to Rico's n>=30 / +3-pt bar; they are not themselves the bar.
+`fit` will not promote a market or alt cushion unless the week-clustered profit CI and margin CI lower bounds are
+both > 0 (and the week bootstrap is not degenerate). Research only, not validated."""
 from __future__ import annotations
 
 import numpy as np
@@ -54,6 +57,7 @@ STRONG_MIN_N, STRONG_MIN_MARGIN = 30, 0.03
 CUSHION_GRID = (0.10, 0.20, 0.30, 0.40, 0.50)
 GRAD_MIN_N, GRAD_MIN_MARGIN = 30, 0.03
 BOOT_B, BOOT_SEED = 10000, 0
+READY_MIN_WEEKS = 4   # report flag only; does not change the n>=30 / +3-pt bar
 
 
 class HoldoutError(RuntimeError):
@@ -230,13 +234,49 @@ def settle(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def summarize(df: pd.DataFrame, B: int = BOOT_B, seed: int = BOOT_SEED) -> dict:
-    """Hit rate vs mean break-even of the real graded price; margin CI by game-cluster bootstrap."""
+def is_countable(v) -> bool:
+    """True only for an explicit countable stamp (True, 1, or the string "true"/"1"). The string "false" is not countable."""
+    if v is True or v == 1:
+        return True
+    if isinstance(v, str) and v.strip().lower() in {"true", "1"}:
+        return True
+    return False
+
+
+def countable_rows(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
+    """Keep only countable legs when the column is present. If it is absent (legacy W4-7 fit rows), keep all and
+    record countable_filter='absent'. Live / emitter rows must carry the flag; only countable==True legs count."""
+    if "countable" not in df.columns:
+        return df, dict(countable_filter="absent", n_excluded_not_countable=0)
+    mask = df["countable"].map(is_countable)
+    return df.loc[mask].copy(), dict(countable_filter="countable_only",
+                                     n_excluded_not_countable=int((~mask).sum()))
+
+
+def _empty_summary(**extra) -> dict:
+    out = dict(n=0, W=0, L=0, P=0, hit=np.nan, be=np.nan, margin=np.nan, margin_lo=np.nan, margin_hi=np.nan,
+               roi=np.nan, roi_lo=np.nan, roi_hi=np.nan, n_weeks=0, weeks_ge_4=False,
+               profit_ci_gt_0=False, week_bootstrap_degenerate=True, cluster="game")
+    out.update(extra)
+    return out
+
+
+def summarize(df: pd.DataFrame, B: int = BOOT_B, seed: int = BOOT_SEED, cluster: str = "game") -> dict:
+    """Hit rate vs mean break-even of the real graded price; margin and profit/ROI CIs by cluster bootstrap.
+
+    cluster='game' is the original game-cluster margin CI (Rico's graduation bar). cluster='week' resamples
+    weeks, so one Week-8 slate is one draw rather than 13. n_weeks and weeks_ge_4 are always reported.
+    A week bootstrap with fewer than 2 distinct weeks is degenerate (the CI collapses to the point estimate)
+    and is flagged; it does not count as a passing CI for promotion."""
+    if cluster not in ("game", "week"):
+        raise ValueError(f"cluster must be 'game' or 'week', got {cluster!r}")
     d = df[df.win.notna() | (df.push == 1)]
     n = int(len(d))
+    weeks = pd.to_numeric(d["week"], errors="coerce") if "week" in d and n else pd.Series(dtype=float)
+    n_weeks = int(weeks.dropna().nunique()) if n else 0
+    base = dict(n_weeks=n_weeks, weeks_ge_4=n_weeks >= READY_MIN_WEEKS, cluster=cluster)
     if n == 0:
-        return dict(n=0, W=0, L=0, P=0, hit=np.nan, be=np.nan, margin=np.nan, margin_lo=np.nan, margin_hi=np.nan,
-                    roi=np.nan)
+        return _empty_summary(**base)
     nonpush = (d.push != 1).values
     w = int(((d.win == 1).values & nonpush).sum())
     l_ = int(((d.win == 0).values & nonpush).sum())
@@ -244,19 +284,35 @@ def summarize(df: pd.DataFrame, B: int = BOOT_B, seed: int = BOOT_SEED) -> dict:
     hit = w / max(w + l_, 1)
     beb = float(be[nonpush].mean()) if nonpush.any() else np.nan
     prof = np.where(~nonpush, 0.0, np.where(d.win.values == 1, d.dec.values - 1, -1.0))
-    out = dict(n=n, W=w, L=l_, P=n - w - l_, hit=hit, be=beb, margin=hit - beb, roi=float(prof.mean()))
-    g = pd.DataFrame(dict(game_id=d.game_id.values, np_=nonpush.astype(int), w=((d.win.values == 1) & nonpush)
-                          .astype(int), beN=be * nonpush))
-    S = g.groupby("game_id")[["np_", "w", "beN"]].sum().values
+    out = dict(n=n, W=w, L=l_, P=n - w - l_, hit=hit, be=beb, margin=hit - beb, roi=float(prof.mean()), **base)
+    key = d.week.values if cluster == "week" else d.game_id.values
+    if cluster == "week":
+        key = weeks.fillna(-1).astype(int).values
+    g = pd.DataFrame(dict(key=key, np_=nonpush.astype(int), w=((d.win.values == 1) & nonpush).astype(int),
+                          beN=be * nonpush, prof=prof, n_=np.ones(n, dtype=int)))
+    S = g.groupby("key")[["np_", "w", "beN", "prof", "n_"]].sum().values
     rng = np.random.default_rng(seed)
     k = len(S)
-    idx = rng.integers(0, k, (B, k))
-    s = S[idx].sum(axis=1)
+    degenerate = k < 2
+    out["week_bootstrap_degenerate"] = bool(degenerate) if cluster == "week" else False
+    idx = rng.integers(0, k, (B, k)) if k else np.zeros((0, 0), dtype=int)
+    s = S[idx].sum(axis=1) if k else np.zeros((0, 5))
     ok = s[:, 0] > 0
     m = s[ok, 1] / s[ok, 0] - s[ok, 2] / s[ok, 0]
+    r = s[ok, 3] / s[ok, 4]
     out["margin_lo"] = float(np.percentile(m, 2.5)) if len(m) else np.nan
     out["margin_hi"] = float(np.percentile(m, 97.5)) if len(m) else np.nan
+    out["roi_lo"] = float(np.percentile(r, 2.5)) if len(r) else np.nan
+    out["roi_hi"] = float(np.percentile(r, 97.5)) if len(r) else np.nan
+    out["profit_ci_gt_0"] = bool(np.isfinite(out["roi_lo"]) and out["roi_lo"] > 0 and not out["week_bootstrap_degenerate"])
     return out
+
+
+def ci_clears_zero(s: dict) -> bool:
+    """True when the week-clustered margin and profit CIs both have lower bound > 0 and the bootstrap is not degenerate."""
+    return (not s.get("week_bootstrap_degenerate", True)
+            and np.isfinite(s.get("margin_lo", np.nan)) and s["margin_lo"] > 0
+            and np.isfinite(s.get("roi_lo", np.nan)) and s["roi_lo"] > 0)
 
 
 def table(df: pd.DataFrame, by=("label", "market", "side"), **kw) -> pd.DataFrame:
@@ -280,26 +336,32 @@ def _weeks_guard(df: pd.DataFrame, allowed, what: str):
 
 def fit(legs: pd.DataFrame, B: int = 2000) -> dict:
     """Fit on Weeks 4-7 only: (a) which markets are STRONG UNDER markets (n>=30 and margin >= +3 pts over the real
-    price's break-even, gated legs with non-negative model edge); (b) the minimum alt-floor cushion (smallest grid value
-    with n>=30 and margin >= +3 pts); None if no cushion qualifies. Edge tiers are not fit; they stay flags."""
+    price's break-even, gated legs with non-negative model edge, AND week-clustered margin and profit CIs both > 0);
+    (b) the minimum alt-floor cushion (smallest grid value that clears the same bar); None if no cushion qualifies.
+    A market cannot be promoted without the CI check. Countable legs only, when the column is present. Edge tiers
+    are not fit; they stay flags."""
     _weeks_guard(legs, TRAIN_WEEKS, "fit")
     every = {"strong_markets": list(PROP_MARKETS), "alt_min_cushion": 0.0}
     c = settle(classify(legs, every))
+    c, cmeta = countable_rows(c)
     strong, strong_rows = [], []
     su = c[(c.label == STRONG_UNDER)]
     for m, g in su.groupby("market"):
-        s = summarize(g, B=B)
-        strong_rows.append(dict(market=m, **s))
-        if s["n"] >= STRONG_MIN_N and s["margin"] >= STRONG_MIN_MARGIN - 1e-12:
+        s = summarize(g, B=B, cluster="week")
+        strong_rows.append(dict(market=m, **s, promoted=False, **{k: cmeta[k] for k in cmeta}))
+        # n>=30 and +3 pts are necessary but not sufficient: the week-clustered CIs must also clear 0.
+        if s["n"] >= STRONG_MIN_N and s["margin"] >= STRONG_MIN_MARGIN - 1e-12 and ci_clears_zero(s):
             strong.append(m)
+            strong_rows[-1]["promoted"] = True
     cush, cush_rows = None, []
     al = c[c.label == ALT_LINE]
     for cm in CUSHION_GRID:
         g = al[al.cushion >= cm - 1e-12]
-        s = summarize(g, B=B) if len(g) else dict(n=0)
-        cush_rows.append(dict(cushion=cm, **s))
-        if cush is None and s["n"] >= STRONG_MIN_N and s["margin"] >= STRONG_MIN_MARGIN - 1e-12:
+        s = summarize(g, B=B, cluster="week") if len(g) else _empty_summary(cluster="week")
+        cush_rows.append(dict(cushion=cm, **s, promoted=False, **{k: cmeta[k] for k in cmeta}))
+        if cush is None and s["n"] >= STRONG_MIN_N and s["margin"] >= STRONG_MIN_MARGIN - 1e-12 and ci_clears_zero(s):
             cush = cm
+            cush_rows[-1]["promoted"] = True
     clean = lambda rows: [{k: (None if isinstance(v, float) and not np.isfinite(v) else v) for k, v in r.items()}
                           for r in rows]
     return {"schema": "nfl75-selective-edge-params/1", "train_weeks": list(TRAIN_WEEKS),
@@ -308,7 +370,9 @@ def fit(legs: pd.DataFrame, B: int = 2000) -> dict:
                       "usual_last_n": USUAL_LAST_N, "usual_need": USUAL_NEED, "strong_min_n": STRONG_MIN_N,
                       "strong_min_margin": STRONG_MIN_MARGIN, "cushion_grid": list(CUSHION_GRID),
                       "edge_tiers": "flags only (+1 >= 0.01, +3 >= 0.03); not cuts",
-                      "excluded_markets": "pass*", "receiving_needs_verified_defender": True},
+                      "excluded_markets": "pass*", "receiving_needs_verified_defender": True,
+                      "promote_requires_week_clustered_ci": True,
+                      "countable_filter": cmeta["countable_filter"]},
             "train_strong_under_by_market": clean(strong_rows), "train_alt_floor_by_cushion": clean(cush_rows),
             "n_train_legs": int(len(legs)), "projection_ready": False}
 
@@ -323,18 +387,23 @@ def evaluate(legs: pd.DataFrame, params: dict) -> pd.DataFrame:
 def graduation(graded: pd.DataFrame, sources=("live",), min_n: int = GRAD_MIN_N, min_margin: float = GRAD_MIN_MARGIN,
                B: int = BOOT_B, seed: int = BOOT_SEED) -> pd.DataFrame:
     """Per (label, market, side): 'spot-ready, research' when n >= 30 settled legs at real prices from `sources`,
-    margin >= +3 pts over break-even and the 95% game-cluster bootstrap CI lower bound > 0. Report only:
+    margin >= +3 pts over break-even and the 95% game-cluster bootstrap CI lower bound > 0 (Rico's bar, unchanged).
+    Only countable legs count when the column is present. Report-only columns (not gates on `status`): n_weeks,
+    weeks_ge_4, week-clustered margin and profit/ROI CIs, profit_ci_gt_0, strict_checks_pass. Report only:
     projection_ready is always False and nothing here writes it."""
     g = graded[graded.label.isin(CANDIDATE_LABELS)]
     if "source" in g:
         g = g[g.source.isin(sources)]
+    g, cmeta = countable_rows(g)
     real = (g.dec > 1) & g.dec.notna()
     if "price_source" in g:
         real &= g.price_source.notna() & (g.price_source.astype(str).str.strip() != "")
     rows = []
     for k, grp in g.groupby(["label", "market", "side"]):
         r = real.loc[grp.index]
-        s = summarize(grp[r], B=B, seed=seed)
+        priced = grp[r]
+        s = summarize(priced, B=B, seed=seed, cluster="game")          # Rico's bar: game-cluster margin CI
+        w = summarize(priced, B=B, seed=seed, cluster="week")          # report-only week-clustered layer
         ok = (s["n"] >= min_n and np.isfinite(s["margin"]) and s["margin"] >= min_margin - 1e-12
               and np.isfinite(s["margin_lo"]) and s["margin_lo"] > 0)
         why = [] if ok else [x for x, bad in (("n<%d" % min_n, s["n"] < min_n),
@@ -343,7 +412,21 @@ def graduation(graded: pd.DataFrame, sources=("live",), min_n: int = GRAD_MIN_N,
                                              ("CI lower bound <= 0",
                                               not (np.isfinite(s.get("margin_lo", np.nan)) and s["margin_lo"] > 0)))
                                  if bad]
-        rows.append(dict(label=k[0], market=k[1], side=k[2], sources="+".join(sources), **s,
-                         excluded_no_real_price=int((~r).sum()), status=SPOT_READY if ok else NOT_YET,
-                         why_not="; ".join(why), projection_ready=False))
+        strict_ok = bool(w["weeks_ge_4"] and ci_clears_zero(w))
+        # weeks_ge_4 and profit CI are report flags, not gates on status. strict_checks_pass records whether they all clear.
+        # Build via update so week-cluster keys can overwrite the same-named game-cluster fields from s
+        # (weeks_ge_4, profit_ci_gt_0, week_bootstrap_degenerate) without a dict() keyword clash.
+        row = dict(label=k[0], market=k[1], side=k[2], sources="+".join(sources))
+        row.update(s)
+        row.update(week_n=w["n"], week_n_weeks=w["n_weeks"], weeks_ge_4=w["weeks_ge_4"],
+                   week_margin_lo=w["margin_lo"], week_margin_hi=w["margin_hi"],
+                   week_roi=w["roi"], week_roi_lo=w["roi_lo"], week_roi_hi=w["roi_hi"],
+                   profit_ci_gt_0=w["profit_ci_gt_0"],
+                   week_bootstrap_degenerate=w["week_bootstrap_degenerate"],
+                   strict_checks_pass=strict_ok,
+                   countable_filter=cmeta["countable_filter"],
+                   n_excluded_not_countable=cmeta["n_excluded_not_countable"],
+                   excluded_no_real_price=int((~r).sum()), status=SPOT_READY if ok else NOT_YET,
+                   why_not="; ".join(why), projection_ready=False)
+        rows.append(row)
     return pd.DataFrame(rows)
