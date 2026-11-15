@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): ATL +3, total 47.5.
 
-Generated 2026-11-14T19:43:41+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-15T19:53:09+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T19:43:40+00:00 UTC. At kickoff: 56 F, wind 0 mph , 0% chance of precipitation, Partly Sunny. During the game: low 56 F, wind up to 0 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-15T19:53:08+00:00 UTC. At kickoff: 53 F, wind 0 mph , 0% chance of precipitation, Partly Sunny. During the game: low 53 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
@@ -91,7 +91,7 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 0% chance of rain at kickoff, wind up to 0 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 0% chance of rain at kickoff, wind up to 5 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### KC passing
 
@@ -329,7 +329,7 @@ Neutral-situation pass rate 60.0%; 60.5 plays per game; target share WR 50% / TE
 | defense allows | Deep middle | 12 | 4% | 42% | 13.67 | 4 |
 | defense allows | Deep right | 10 | 4% | 20% | 3.7 | 1 |
 
-### KC lines (depth chart as of 2026-11-14T14:04:32Z)
+### KC lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Kahlil Benson, LG Kingsley Suamataia, C Creed Humphrey, RG Trey Smith, RT Joshua Ezeudu.  
 Defensive front: LDE George Karlaftis, LDT Chris Jones, RDT Khyiris Tonga, RDE Felix Anudike-Uzomah, WLB Drue Tranquill, SLB Jeffrey Bassa.
@@ -352,7 +352,7 @@ Defensive front: LDE George Karlaftis, LDT Chris Jones, RDT Khyiris Tonga, RDE F
 | Jaylon Moore | T |  | Out | Did Not Participate In Practice | Ankle |
 | Xavier Worthy | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Mansoor Delane (CB) Questionable; Jaydn Ott (RB) Questionable; Peter Woods (DT) Out; Jaylon Moore (OT) Out; Kenneth Walker III (RB) Out.
+ESPN live list (designations only): Kenneth Walker III (RB) Out; Peter Woods (DT) Out; Ben VanSumeren (FB) Out; Jaylon Moore (OT) Out; Melvin Smith Jr. (CB) Out; Jaydn Ott (RB) Out; Garrett Nussmeier (QB) Out; Jared Wiley (TE) Questionable; Trey Smith (G) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -557,7 +557,7 @@ Neutral-situation pass rate 45.3%; 58.1 plays per game; target share WR 56% / TE
 | defense allows | Deep middle | 6 | 2% | 83% | 25.5 | 4 |
 | defense allows | Deep right | 18 | 6% | 44% | 12.44 | 6 |
 
-### ATL lines (depth chart as of 2026-11-14T14:04:32Z)
+### ATL lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Jake Matthews, LG Matthew Bergeron, C Corey Levin, RG Chris Lindstrom, RT Jawaan Taylor.  
 Defensive front: LDE Maason Smith, NT Gervon Dexter Sr., RDE Brandon Dorlus, WLB Cameron Thomas, SLB James Pearce Jr..
@@ -578,7 +578,7 @@ Defensive front: LDE Maason Smith, NT Gervon Dexter Sr., RDE Brandon Dorlus, WLB
 | Josh Woods | LB |  | Questionable | Full Participation in Practice | Ankle |
 | Zachariah Branch | WR |  | Out | Did Not Participate In Practice | Hamstring |
 
-ESPN live list (designations only): Samson Ebukam (DE) Injured Reserve; Brian Robinson Jr. (RB) Injured Reserve; Gervon Dexter Sr. (DT) Questionable; Josh Woods (LB) Questionable; James Pearce Jr. (LB) Questionable; Zachariah Branch (WR) Out; Divine Deablo (LB) Doubtful.
+ESPN live list (designations only): Brian Robinson Jr. (RB) Injured Reserve; Divine Deablo (LB) Out; Avieon Terrell (CB) Out; Cameron Williams (OL) Out; Jack Strand (QB) Out; Robert Longerbeam (CB) Out; Zachariah Branch (WR) Out; Andy Dalton (QB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -622,15 +622,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
-| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
+| games | OK | 2026-11-15T19:52:56+00:00 | ef32fb7dcd72 |
+| pbp | OK | 2026-11-15T19:52:56+00:00 | 786671a1ef96 |
+| rosters | OK | 2026-11-15T19:52:56+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-15T19:52:57+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-15T19:52:57+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-15T19:52:57+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-15T19:52:57+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-15T19:52:57+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-15T19:52:58+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

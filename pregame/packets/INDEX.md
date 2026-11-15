@@ -4,18 +4,17 @@ Research only. `projection_ready` is false. Start with `pregame/ANALYST_PROMPT.m
 
 | Game | Slot | Kickoff (ET) | Brief | Data | Updated (UTC) | Book prices | Weather | Play-by-play |
 |---|---|---|---|---|---|---|---|---|
-| NE at DET (week 10) | Sunday early window | 2026-11-15 09:30 | [brief](2026_10_NE_DET/brief.md) | [json](2026_10_NE_DET/packet.json) | 2026-11-14T19:43:31+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | INDOOR | current |
-| BUF at NYJ (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_BUF_NYJ/brief.md) | [json](2026_10_BUF_NYJ/packet.json) | 2026-11-14T19:43:33+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
-| CAR at NO (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_CAR_NO/brief.md) | [json](2026_10_CAR_NO/packet.json) | 2026-11-14T19:43:35+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | INDOOR | current |
-| HOU at CLE (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_HOU_CLE/brief.md) | [json](2026_10_HOU_CLE/packet.json) | 2026-11-14T19:43:37+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
-| JAX at TEN (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_JAX_TEN/brief.md) | [json](2026_10_JAX_TEN/packet.json) | 2026-11-14T19:43:39+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
-| KC at ATL (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_KC_ATL/brief.md) | [json](2026_10_KC_ATL/packet.json) | 2026-11-14T19:43:41+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
-| MIA at IND (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_MIA_IND/brief.md) | [json](2026_10_MIA_IND/packet.json) | 2026-11-14T19:43:43+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
-| MIN at GB (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_MIN_GB/brief.md) | [json](2026_10_MIN_GB/packet.json) | 2026-11-14T19:43:45+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
-| LA at ARI (week 10) | Sunday late window | 2026-11-15 16:05 | [brief](2026_10_LA_ARI/brief.md) | [json](2026_10_LA_ARI/packet.json) | 2026-11-14T19:43:47+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
-| SEA at LV (week 10) | Sunday late window | 2026-11-15 16:05 | [brief](2026_10_SEA_LV/brief.md) | [json](2026_10_SEA_LV/packet.json) | 2026-11-14T19:43:48+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | INDOOR | current |
-| SF at DAL (week 10) | Sunday late window | 2026-11-15 16:25 | [brief](2026_10_SF_DAL/brief.md) | [json](2026_10_SF_DAL/packet.json) | 2026-11-14T19:43:50+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
-| PIT at CIN (week 10) | Sunday Night Football | 2026-11-15 20:20 | [brief](2026_10_PIT_CIN/brief.md) | [json](2026_10_PIT_CIN/packet.json) | 2026-11-14T19:43:52+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
-| LAC at BAL (week 10) | Monday Night Football | 2026-11-16 20:15 | [brief](2026_10_LAC_BAL/brief.md) | [json](2026_10_LAC_BAL/packet.json) | 2026-11-14T19:43:54+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| BUF at NYJ (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_BUF_NYJ/brief.md) | [json](2026_10_BUF_NYJ/packet.json) | 2026-11-15T19:53:00+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| CAR at NO (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_CAR_NO/brief.md) | [json](2026_10_CAR_NO/packet.json) | 2026-11-15T19:53:02+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | INDOOR | current |
+| HOU at CLE (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_HOU_CLE/brief.md) | [json](2026_10_HOU_CLE/packet.json) | 2026-11-15T19:53:04+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| JAX at TEN (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_JAX_TEN/brief.md) | [json](2026_10_JAX_TEN/packet.json) | 2026-11-15T19:53:07+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| KC at ATL (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_KC_ATL/brief.md) | [json](2026_10_KC_ATL/packet.json) | 2026-11-15T19:53:09+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| MIA at IND (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_MIA_IND/brief.md) | [json](2026_10_MIA_IND/packet.json) | 2026-11-15T19:53:11+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| MIN at GB (week 10) | Sunday early window | 2026-11-15 13:00 | [brief](2026_10_MIN_GB/brief.md) | [json](2026_10_MIN_GB/packet.json) | 2026-11-15T19:53:14+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| LA at ARI (week 10) | Sunday late window | 2026-11-15 16:05 | [brief](2026_10_LA_ARI/brief.md) | [json](2026_10_LA_ARI/packet.json) | 2026-11-15T19:53:16+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| SEA at LV (week 10) | Sunday late window | 2026-11-15 16:05 | [brief](2026_10_SEA_LV/brief.md) | [json](2026_10_SEA_LV/packet.json) | 2026-11-15T19:53:18+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | INDOOR | current |
+| SF at DAL (week 10) | Sunday late window | 2026-11-15 16:25 | [brief](2026_10_SF_DAL/brief.md) | [json](2026_10_SF_DAL/packet.json) | 2026-11-15T19:53:20+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| PIT at CIN (week 10) | Sunday Night Football | 2026-11-15 20:20 | [brief](2026_10_PIT_CIN/brief.md) | [json](2026_10_PIT_CIN/packet.json) | 2026-11-15T19:53:23+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| LAC at BAL (week 10) | Monday Night Football | 2026-11-16 20:15 | [brief](2026_10_LAC_BAL/brief.md) | [json](2026_10_LAC_BAL/packet.json) | 2026-11-15T19:53:25+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
 
 Odds API credits remaining: 801 (used 19199).

@@ -1,14 +1,14 @@
 # MIA at IND: Week 10, Sunday early window
 
-**Sunday 2026-11-15, 13:00 ET.** Site: Home; roof: not listed; surface: fieldturf. Rest: MIA 7 days, IND 7 days. Listed QBs: Malik Willis (MIA), Daniel Jones (IND).
+**Sunday 2026-11-15, 13:00 ET.** Site: Home; roof: not listed; surface: fieldturf. Rest: MIA 7 days, IND 7 days. Listed QBs: Kyle McCord (MIA), Daniel Jones (IND).
 
 Market (schedule consensus, not a timestamped quote): IND -4.5, total 37.5.
 
-Generated 2026-11-14T19:43:43+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-15T19:53:11+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T19:43:41+00:00 UTC. At kickoff: 49 F, wind 3 mph NNE, 0% chance of precipitation, Mostly Sunny. During the game: low 49 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-15T19:53:10+00:00 UTC. At kickoff: 49 F, wind 3 mph NNW, 0% chance of precipitation, Partly Sunny. During the game: low 49 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
@@ -98,8 +98,6 @@ Forecast: 0% chance of rain at kickoff, wind up to 5 mph. Basis: 211 team-games 
 | Team completion rate | 58.9% | 55.4% | 58.9% |
 | Team completions | 15.2 | 13.7 | 15.2 |
 | Team pass yards | 180.2 | 154.0 | 180.2 |
-| M.Willis completion rate (206 attempts) | 58.7% | 55.2% | 58.7% |
-| M.Willis yards per attempt | 6.78 | 5.96 | 6.78 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
@@ -329,7 +327,7 @@ Neutral-situation pass rate 49.7%; 55.5 plays per game; target share WR 64% / TE
 | defense allows | Deep middle | 12 | 5% | 58% | 21.42 | 6 |
 | defense allows | Deep right | 15 | 7% | 73% | 20.87 | 8 |
 
-### MIA lines (depth chart as of 2026-11-14T14:04:32Z)
+### MIA lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Patrick Paul, LG Kadyn Proctor, C Andrew Meyer, RG Jonah Savaiinaea, RT Austin Jackson.  
 Defensive front: LDE Chop Robinson, LDT Jordan Phillips, RDT Zeek Biggers, RDE Josh Uche, WLB Jordyn Brooks, SLB Willie Gay Jr..
@@ -350,7 +348,7 @@ Defensive front: LDE Chop Robinson, LDT Jordan Phillips, RDT Zeek Biggers, RDE J
 | Jared Wayne | WR |  | Out | Did Not Participate In Practice | Quadricep |
 | Chris Bell | WR |  | Doubtful | Did Not Participate In Practice | Knee |
 
-ESPN live list (designations only): Zach Sieler (DT) Injured Reserve; Malik Willis (QB) Injured Reserve; Darrell Baker Jr. (CB) Out; Chris Bell (WR) Doubtful; Jared Wayne (WR) Out; Aaron Brewer (C) Out.
+ESPN live list (designations only): Zach Sieler (DT) Injured Reserve; Malik Willis (QB) Injured Reserve; Darrell Baker Jr. (CB) Out; Caedan Wallace (OT) Out; Jared Wayne (WR) Out; Justin Joly (TE) Out; Aaron Brewer (C) Out; Marcellas Dial Jr. (CB) Out; Chris Bell (WR) Out; Zeek Biggers (DT) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -555,10 +553,10 @@ Neutral-situation pass rate 52.7%; 65.0 plays per game; target share WR 59% / TE
 | defense allows | Deep middle | 4 | 2% | 100% | 18.75 | 2 |
 | defense allows | Deep right | 32 | 13% | 47% | 14.84 | 12 |
 
-### IND lines (depth chart as of 2026-11-14T14:04:32Z)
+### IND lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Bernhard Raimann, LG Jalen Farmer, C Tanor Bortolini, RG Matt Goncalves, RT Luke Tenuta.  
-Defensive front: LDE Jaylahn Tuimoloau, LDT Grover Stewart, RDT Adetomiwa Adebawore, RDE Laiatu Latu, WLB Akeem Davis-Gaither, SLB Bryce Boettcher.
+Defensive front: LDE Arden Key, LDT Grover Stewart, RDT Adetomiwa Adebawore, RDE Laiatu Latu, WLB Tahj Chambers, SLB Bryce Boettcher.
 
 ### IND injuries
 
@@ -566,20 +564,20 @@ Defensive front: LDE Jaylahn Tuimoloau, LDT Grover Stewart, RDT Adetomiwa Adebaw
 |---|---|---|---|---|---|
 | Charvarius Ward | CB | yes | none listed | Full Participation in Practice |  |
 | Justin Walley | CB | yes | none listed | Full Participation in Practice |  |
+| Arden Key | DE | yes | none listed | Full Participation in Practice |  |
 | Grover Stewart | DT | yes | none listed | Full Participation in Practice |  |
-| Akeem Davis-Gaither | LB | yes | Out | Did Not Participate In Practice | Knee |
 | CJ Allen | LB | yes | none listed | Full Participation in Practice |  |
 | Luke Rhodes | LS | yes | Out | Did Not Participate In Practice | Hamstring |
 | Jonathan Taylor | RB | yes | none listed | Full Participation in Practice |  |
 | A.J. Haulcy | S | yes | none listed | Full Participation in Practice |  |
-| Arden Key | DE |  | Questionable | Full Participation in Practice | Hamstring |
 | Jerry Tillery | DT |  | Out | Did Not Participate In Practice | Calf |
+| Akeem Davis-Gaither | LB |  | Out | Did Not Participate In Practice | Knee |
 | Jaylon Carlies | LB |  | Out | Did Not Participate In Practice | Neck |
 | Jalen Travis | T |  | Out | Did Not Participate In Practice | Knee |
 | Mo Alie-Cox | TE |  | Out | Did Not Participate In Practice | Groin |
 | Will Mallory | TE |  | Questionable | Limited Participation in Practice | Hamstring |
 
-ESPN live list (designations only): Alec Pierce (WR) Injured Reserve; Luke Rhodes (LS) Out; Jerry Tillery (DT) Out; Jaylon Carlies (LB) Out; Jalen Travis (OT) Out; Will Mallory (TE) Out; Mo Alie-Cox (TE) Injured Reserve; Akeem Davis-Gaither (LB) Injured Reserve.
+ESPN live list (designations only): Alec Pierce (WR) Injured Reserve; Will Mallory (TE) Out; Mo Alie-Cox (TE) Injured Reserve; Akeem Davis-Gaither (LB) Injured Reserve; Luke Rhodes (LS) Out; Jerry Tillery (DT) Out; Jalen Travis (OT) Out; Jaylon Carlies (LB) Out; Riley Leonard (QB) Out; Bernhard Raimann (OT) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -623,15 +621,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
-| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
+| games | OK | 2026-11-15T19:52:56+00:00 | ef32fb7dcd72 |
+| pbp | OK | 2026-11-15T19:52:56+00:00 | 786671a1ef96 |
+| rosters | OK | 2026-11-15T19:52:56+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-15T19:52:57+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-15T19:52:57+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-15T19:52:57+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-15T19:52:57+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-15T19:52:57+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-15T19:52:58+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

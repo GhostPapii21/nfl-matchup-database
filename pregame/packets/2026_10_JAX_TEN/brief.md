@@ -2,13 +2,13 @@
 
 **Sunday 2026-11-15, 13:00 ET.** Site: Home; roof: outdoors; surface: grass. Rest: JAX 10 days, TEN 14 days. Listed QBs: Trevor Lawrence (JAX), Cam Ward (TEN).
 
-Market (schedule consensus, not a timestamped quote): TEN +10.5, total 46.5.
+Market (schedule consensus, not a timestamped quote): TEN +10.5, total 45.5.
 
-Generated 2026-11-14T19:43:39+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-15T19:53:07+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T19:43:38+00:00 UTC. At kickoff: 54 F, wind 5 mph NE, 0% chance of precipitation, Sunny. During the game: low 54 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-15T19:53:05+00:00 UTC. At kickoff: 52 F, wind 5 mph NNE, 0% chance of precipitation, Sunny. During the game: low 52 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -47,8 +47,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | JAX 27.5 - TEN 17.9 | 45.3 | -9.6 | 23.0% | 58.0% | 46.2% | JAX 14.8 - TEN 7.9 |
-| independent | JAX 27.9 - TEN 17.3 | 45.1 | -10.6 | 21.9% | 49.5% | 46.7% | JAX 15.2 - TEN 7.7 |
+| matchup_pair | JAX 27.5 - TEN 17.9 | 45.3 | -9.6 | 23.0% | 58.0% | 48.4% | JAX 14.8 - TEN 7.9 |
+| independent | JAX 27.9 - TEN 17.3 | 45.1 | -10.6 | 21.9% | 49.5% | 49.4% | JAX 15.2 - TEN 7.7 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -334,7 +334,7 @@ Neutral-situation pass rate 54.5%; 57.8 plays per game; target share WR 61% / TE
 | defense allows | Deep middle | 6 | 2% | 83% | 30.5 | 4 |
 | defense allows | Deep right | 21 | 8% | 52% | 15.57 | 8 |
 
-### JAX lines (depth chart as of 2026-11-14T14:04:32Z)
+### JAX lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Walker Little, LG Emmanuel Pregnon, C Robert Hainsey, RG Ezra Cleveland, RT Cole Van Lanen.  
 Defensive front: LDE Travon Walker, LDT Arik Armstead, RDT None, RDE Josh Hines-Allen, WLB Foyesade Oluokun, SLB Dennis Gardeck.
@@ -355,7 +355,7 @@ Defensive front: LDE Travon Walker, LDT Arik Armstead, RDT None, RDE Josh Hines-
 | Chris Rodriguez Jr. | RB |  | none listed | Limited Participation in Practice |  |
 | Jakobi Meyers | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Jessie Bates III (S) Out; B.J. Green II (DE) Injured Reserve.
+ESPN live list (designations only): B.J. Green II (DE) Injured Reserve; Wesley Williams (DE) Out; Albert Regis (DT) Out; Jessie Bates III (S) Out; CJ Williams (WR) Out; Danny Striggow (DE) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -558,7 +558,7 @@ Neutral-situation pass rate 47.6%; 56.1 plays per game; target share WR 65% / TE
 | defense allows | Deep middle | 6 | 2% | 50% | 14.83 | 3 |
 | defense allows | Deep right | 33 | 12% | 46% | 10.94 | 9 |
 
-### TEN lines (depth chart as of 2026-11-14T14:04:32Z)
+### TEN lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Dan Moore Jr., LG James Hudson III, C Austin Schlottmann, RG Atonio Mafi, RT JC Latham.  
 Defensive front: LDE Jacob Martin, LDT John Franklin-Myers, RDT Solomon Thomas, RDE Jermaine Johnson II, WLB Cedric Gray, SLB Cody Barton.
@@ -571,16 +571,16 @@ Defensive front: LDE Jacob Martin, LDT John Franklin-Myers, RDT Solomon Thomas, 
 | John Franklin-Myers | DE | yes | none listed | Full Participation in Practice |  |
 | Cody Barton | LB | yes | Out | Did Not Participate In Practice | Concussion |
 | Anthony Hill Jr. | LB | yes | Out | Did Not Participate In Practice | Neck |
-| Tommy Townsend | P | yes | Out | Did Not Participate In Practice | Knee |
 | Tony Pollard | RB | yes | none listed | Full Participation in Practice |  |
 | Kevin Winston Jr. | S | yes | none listed | Full Participation in Practice |  |
 | JC Latham | T | yes | none listed | Full Participation in Practice |  |
 | Carnell Tate | WR | yes | Out | Did Not Participate In Practice | Shoulder |
 | Jaylon Jones | CB |  | none listed | Full Participation in Practice |  |
 | Peter Skoronski | G |  | Out | Did Not Participate In Practice | Hamstring |
+| Tommy Townsend | P |  | Out | Did Not Participate In Practice | Knee |
 | Tyjae Spears | RB |  | Questionable | Full Participation in Practice | Knee |
 
-ESPN live list (designations only): James Williams Sr. (LB) Injured Reserve; Carnell Tate (WR) Out; Tyjae Spears (RB) Questionable; Anthony Hill Jr. (LB) Out; Cody Barton (LB) Out; Peter Skoronski (G) Out; Tommy Townsend (P) Out.
+ESPN live list (designations only): James Williams Sr. (LB) Injured Reserve; Peter Skoronski (G) Injured Reserve; Tommy Townsend (P) Injured Reserve; Carnell Tate (WR) Out; Anthony Hill Jr. (LB) Out; Jaylon Jones (CB) Out; Jackie Marshall (DT) Out; Cody Barton (LB) Out; Brandon Crenshaw-Dickson (OT) Out; Nicholas Singleton (RB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -624,15 +624,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
-| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
+| games | OK | 2026-11-15T19:52:56+00:00 | ef32fb7dcd72 |
+| pbp | OK | 2026-11-15T19:52:56+00:00 | 786671a1ef96 |
+| rosters | OK | 2026-11-15T19:52:56+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-15T19:52:57+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-15T19:52:57+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-15T19:52:57+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-15T19:52:57+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-15T19:52:57+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-15T19:52:58+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

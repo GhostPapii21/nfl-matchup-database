@@ -2,13 +2,13 @@
 
 **Sunday 2026-11-15, 16:05 ET.** Site: Home; roof: not listed; surface: grass. Rest: LA 7 days, ARI 7 days. Listed QBs: Matthew Stafford (LA), Gardner Minshew (ARI).
 
-Market (schedule consensus, not a timestamped quote): ARI +9.5, total 39.5.
+Market (schedule consensus, not a timestamped quote): ARI +9.5, total 38.5.
 
-Generated 2026-11-14T19:43:47+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-15T19:53:16+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T19:43:45+00:00 UTC. At kickoff: 76 F, wind 5 mph N, 0% chance of precipitation, Sunny. During the game: low 74 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-15T19:53:14+00:00 UTC. At kickoff: 75 F, wind 5 mph ENE, 0% chance of precipitation, Sunny. During the game: low 75 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
@@ -48,7 +48,7 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
 | matchup_pair | LA 28.5 - ARI 20.4 | 48.9 | -8.1 | 26.3% | 57.7% | 74.8% | LA 14.2 - ARI 9.9 |
-| independent | LA 28.0 - ARI 20.5 | 48.5 | -7.5 | 24.5% | 58.1% | 80.6% | LA 14.1 - ARI 9.9 |
+| independent | LA 28.0 - ARI 20.5 | 48.5 | -7.5 | 24.5% | 58.1% | 82.0% | LA 14.1 - ARI 9.9 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -329,7 +329,7 @@ Neutral-situation pass rate 62.1%; 67.0 plays per game; target share WR 54% / TE
 | defense allows | Deep middle | 11 | 4% | 36% | 7.27 | 3 |
 | defense allows | Deep right | 16 | 6% | 25% | 8.5 | 3 |
 
-### LA lines (depth chart as of 2026-11-14T14:04:32Z)
+### LA lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Alaric Jackson, LG Beaux Limmer, C Coleman Shelton, RG Kevin Dotson, RT Warren McClendon Jr..  
 Defensive front: LDE Braden Fiske, NT Ty Hamilton, RDE Aaron Donald, WLB Byron Young, SLB Myles Garrett.
@@ -353,7 +353,7 @@ Defensive front: LDE Braden Fiske, NT Ty Hamilton, RDE Aaron Donald, WLB Byron Y
 | Terrance Ferguson | TE |  | Out | Did Not Participate In Practice | Ankle |
 | Puka Nacua | WR |  | none listed | Did Not Participate In Practice |  |
 
-ESPN live list (designations only): Terrance Ferguson (TE) Injured Reserve; Joe Cardona (LS) Questionable; Jordan Whittington (WR) Injured Reserve; Davante Adams (WR) Injured Reserve; Puka Nacua (WR) Injured Reserve; Myles Garrett (DE) Questionable; Davis Allen (TE) Questionable; Kam Curl (S) Questionable; Trent McDuffie (CB) Questionable; Steve Avila (G) Out.
+ESPN live list (designations only): Terrance Ferguson (TE) Injured Reserve; Jordan Whittington (WR) Injured Reserve; Puka Nacua (WR) Injured Reserve; Davante Adams (WR) Injured Reserve; Keagen Trost (OT) Out; Darryl Peterson III (LB) Out; Maximus Pulley (S) Out; Ty Simpson (QB) Out; Desjuan Johnson (DE) Out; Joe Cardona (LS) Out; Steve Avila (G) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -558,7 +558,7 @@ Neutral-situation pass rate 49.0%; 66.4 plays per game; target share WR 51% / TE
 | defense allows | Deep middle | 7 | 3% | 43% | 8.86 | 2 |
 | defense allows | Deep right | 20 | 9% | 40% | 15.55 | 8 |
 
-### ARI lines (depth chart as of 2026-11-14T14:04:32Z)
+### ARI lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Jayden Williams, LG Isaac Seumalo, C Hayden Conner, RG Isaiah Adams, RT Elijah Wilkinson.  
 Defensive front: LDE Josh Sweat, LDT Roy Lopez, RDT Walter Nolen III, RDE Dante Stills, WLB Jack Gibbens, SLB Zaven Collins.
@@ -583,7 +583,7 @@ Defensive front: LDE Josh Sweat, LDT Roy Lopez, RDT Walter Nolen III, RDE Dante 
 | Bam Knight | RB |  | none listed | Full Participation in Practice |  |
 | Hunter Long | TE |  | Questionable | Limited Participation in Practice | Knee |
 
-ESPN live list (designations only): Michael Wilson (WR) Injured Reserve; Gardner Minshew II (QB) Injured Reserve; Hunter Long (TE) Injured Reserve; Max Melton (CB) Questionable; Darius Robinson (DE) Questionable; Andrew Wingard (S) Questionable; Hjalte Froholdt (C) Out; Jon Gaines II (G) Out; Zachary Carter (DT) Injured Reserve; Jayden Williams (OT) Questionable.
+ESPN live list (designations only): Michael Wilson (WR) Injured Reserve; Zachary Carter (DT) Injured Reserve; Gardner Minshew II (QB) Injured Reserve; Jayden Williams (OT) Out; Starling Thomas V (CB) Out; Eku Leota (LB) Out; Hjalte Froholdt (C) Out; Jon Gaines II (G) Out; Joey Aguilar (QB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -627,15 +627,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
-| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
+| games | OK | 2026-11-15T19:52:56+00:00 | ef32fb7dcd72 |
+| pbp | OK | 2026-11-15T19:52:56+00:00 | 786671a1ef96 |
+| rosters | OK | 2026-11-15T19:52:56+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-15T19:52:57+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-15T19:52:57+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-15T19:52:57+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-15T19:52:57+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-15T19:52:57+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-15T19:52:58+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-15, 13:00 ET.** Site: Home; roof: dome; surface: sportturf. Rest: CAR 7 days, NO 7 days. Listed QBs: Bryce Young (CAR), Tyler Shough (NO).
 
-Market (schedule consensus, not a timestamped quote): NO -2.5, total 48.5.
+Market (schedule consensus, not a timestamped quote): NO -1.5, total 48.5.
 
-Generated 2026-11-14T19:43:35+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-15T19:53:02+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -47,8 +47,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | CAR 22.1 - NO 21.8 | 43.9 | -0.3 | 46.8% | 44.2% | 34.5% | CAR 11.8 - NO 11.1 |
-| independent | CAR 20.3 - NO 19.2 | 39.5 | -1.1 | 48.2% | 42.1% | 22.1% | CAR 9.2 - NO 7.9 |
+| matchup_pair | CAR 22.1 - NO 21.8 | 43.9 | -0.3 | 46.8% | 46.2% | 34.5% | CAR 11.8 - NO 11.1 |
+| independent | CAR 20.3 - NO 19.2 | 39.5 | -1.1 | 48.2% | 44.3% | 22.1% | CAR 9.2 - NO 7.9 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -285,7 +285,7 @@ Neutral-situation pass rate 60.2%; 65.1 plays per game; target share WR 59% / TE
 | defense allows | Deep middle | 8 | 3% | 25% | 8.88 | 1 |
 | defense allows | Deep right | 24 | 9% | 25% | 7.67 | 4 |
 
-### CAR lines (depth chart as of 2026-11-14T14:04:32Z)
+### CAR lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Rasheed Walker, LG Damien Lewis, C Luke Fortner, RG Robert Hunt, RT Monroe Freeling.  
 Defensive front: LDE Derrick Brown, NT Lee Hunter, RDE Tershawn Wharton, WLB Patrick Jones II, SLB Jaelan Phillips.
@@ -307,7 +307,7 @@ Defensive front: LDE Derrick Brown, NT Lee Hunter, RDE Tershawn Wharton, WLB Pat
 | Jonathon Brooks | RB |  | Doubtful | Limited Participation in Practice | Groin |
 | Xavier Legette | WR |  | Questionable | Full Participation in Practice | Knee |
 
-ESPN live list (designations only): Jaycee Horn (CB) Injured Reserve; Bobby Okereke (LB) Out; Jaelan Phillips (LB) Questionable; Will Lee III (CB) Questionable; Xavier Legette (WR) Questionable; Jonathon Brooks (RB) Injured Reserve; Mike Jackson (CB) Injured Reserve.
+ESPN live list (designations only): Jaycee Horn (CB) Injured Reserve; Jonathon Brooks (RB) Injured Reserve; Mike Jackson (CB) Injured Reserve; Brady Christensen (G) Injured Reserve; Bobby Okereke (LB) Out; Sam Hecht (C) Out; AJ Dillon (RB) Out; TeRah Edwards (DT) Out; Ja'Tavion Sanders (TE) Out; Will Lee III (CB) Out; Haynes King (QB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -510,9 +510,9 @@ Neutral-situation pass rate 53.4%; 65.9 plays per game; target share WR 57% / TE
 | defense allows | Deep middle | 10 | 4% | 50% | 16.3 | 5 |
 | defense allows | Deep right | 19 | 8% | 47% | 14.0 | 5 |
 
-### NO lines (depth chart as of 2026-11-14T14:04:32Z)
+### NO lines (depth chart as of 2026-11-15T14:41:31Z)
 
-Offensive line: LT Kelvin Banks Jr., LG David Edwards, C William Sherman, RG Jeremiah Wright, RT Asim Richards.  
+Offensive line: LT Kelvin Banks Jr., LG David Edwards, C William Sherman, RG Jeremiah Wright, RT Taliese Fuaga.  
 Defensive front: LDE Cameron Jordan, NT Nathan Shepherd, RDE Vernon Broughton, WLB Carl Granderson, SLB Chase Young.
 
 ### NO injuries
@@ -521,18 +521,18 @@ Defensive front: LDE Cameron Jordan, NT Nathan Shepherd, RDE Vernon Broughton, W
 |---|---|---|---|---|---|
 | Martin Emerson | CB | yes | Questionable | Limited Participation in Practice | Shin |
 | David Edwards | G | yes | none listed | Full Participation in Practice |  |
-| Alvin Kamara | RB | yes | none listed | Full Participation in Practice |  |
-| Asim Richards | T | yes | none listed | Full Participation in Practice |  |
+| Travis Etienne | RB | yes | Questionable | Full Participation in Practice | Hamstring |
+| Taliese Fuaga | T | yes | Out | Did Not Participate In Practice | Knee |
 | Kelvin Banks Jr. | T | yes | none listed | Full Participation in Practice |  |
 | Erik McCoy | C |  | Out | Did Not Participate In Practice | Biceps |
 | Quincy Riley | CB |  | none listed | Full Participation in Practice |  |
 | Christen Miller | DT |  | Out | Did Not Participate In Practice | Knee |
-| Travis Etienne | RB |  | Questionable | Full Participation in Practice | Hamstring |
+| Alvin Kamara | RB |  | none listed | Full Participation in Practice |  |
 | CJ Donaldson | RB |  | Out | Did Not Participate In Practice | Shoulder |
-| Taliese Fuaga | T |  | Out | Did Not Participate In Practice | Knee |
+| Asim Richards | T |  | none listed | Full Participation in Practice |  |
 | Noah Fant | TE |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): CJ Donaldson (RB) Out; Martin Emerson Jr. (CB) Questionable; Taliese Fuaga (OT) Out; Christen Miller (DT) Out; Erik McCoy (C) Out; Travis Etienne Jr. (RB) Injured Reserve.
+ESPN live list (designations only): Christen Miller (DT) Injured Reserve; Mike Reid (CB) Out; Erik McCoy (C) Out; CJ Donaldson (RB) Out; Jaylan Ford (LB) Out; Taliese Fuaga (OT) Out; Zach Wilson (QB) Out; Pete Werner (LB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -576,15 +576,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
-| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
+| games | OK | 2026-11-15T19:52:56+00:00 | ef32fb7dcd72 |
+| pbp | OK | 2026-11-15T19:52:56+00:00 | 786671a1ef96 |
+| rosters | OK | 2026-11-15T19:52:56+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-15T19:52:57+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-15T19:52:57+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-15T19:52:57+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-15T19:52:57+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-15T19:52:57+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-15T19:52:58+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 
