@@ -42,7 +42,7 @@ The repository is the single source of truth for every step from pulling data to
 - Per-phase checks: `python -m pipeline.phases --game <id> --phase <n>`. Each of the 15 phases is marked AUTO, PARTIAL, MISSING, STALE or NOT_YET, with the missing inputs named. See [docs/PHASE_WORKFLOWS.md](docs/PHASE_WORKFLOWS.md).
 - Freshness windows for each source: [docs/DATA_FRESHNESS.md](docs/DATA_FRESHNESS.md).
 - The 100k entry point, `python -m pipeline.sim100k --game <id>`. It is fail-closed: it exits 2 with a plain reason whenever any required input is missing or stale, and it has no override.
-- A scheduled workflow that runs after every packet build and after inactives post, and commits [pipeline/ledgers/INDEX.md](pipeline/ledgers/INDEX.md). It is written and ready, but **not installed yet**: it sits in `pipeline/workflow_to_install/` until the owner moves it into `.github/workflows/`, because the building bot's GitHub access cannot write workflow files. Until then, run `python -m pipeline.slate` by hand.
+- A game-day workflow, [.github/workflows/nfl-gameday-gate.yml](.github/workflows/nfl-gameday-gate.yml), that runs the whole pre-kickoff chain for each game in order (official inactives, fresh packet and price freeze, locked snapshot, the 100k entry point) 40 to 88 minutes before kickoff and commits the result and [pipeline/ledgers/INDEX.md](pipeline/ledgers/INDEX.md). It only runs on a schedule once it is on `main`. What it runs, what it costs in Odds API credits and how the credit floor is set: [pipeline/workflow_to_install/README.md](pipeline/workflow_to_install/README.md).
 
 **Blocked or pending**
 
