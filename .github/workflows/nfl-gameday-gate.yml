@@ -1,0 +1,196 @@
+name: NFL game-day gate (inactives, prices, locked snapshot, 100k)
+
+# NFL-56 / NFL-49: runs the whole pre-kickoff chain for each game, in order, inside the window where it can pass:
+#   official inactives (after T-90) -> fresh packet and four-book price freeze -> locked 100k snapshot ->
+#   price refresh if needed -> fail-closed 100k entry point (which runs ./rocket for the game) -> ledger -> commit.
+# Nothing here changes a gate, a model weight or projection_ready. A refusal is recorded and fails the job.
+#
+# Timing: GitHub starts scheduled jobs late (4 to 7 hours on this repo), so a schedule aimed at T-75 minutes misses
+# every game. This schedule ticks every 15 minutes on game days and `python -m pipeline.window` decides whether any
+# game is due (40 to 88 minutes before kickoff, 100k not already run). A tick with nothing due spends no credits.
+#
+# Credits: one attempt costs up to 10 Odds API credits per game (game lines 3 + props 7), twice if the lock ran long
+# and prices had to be refreshed. The floor below which nothing is spent comes from the manual input, else the
+# repository variable ODDS_CREDIT_FLOOR, else 300.
+# Scheduled runs only fire from the default branch.
+
+on:
+  schedule:
+    - cron: "*/15 * * * 0,1,4"       # Sunday, Monday, Thursday (UTC), all day: late starts still land in a window
+    - cron: "*/15 0-6 * * 2,5"       # late Monday / Thursday games finish after midnight UTC
+    - cron: "*/15 16-23 * * 5,6"     # Friday and Saturday games (late season, holidays)
+  workflow_dispatch:
+    inputs:
+      games:
+        description: "Game ids, comma separated (blank = every game in its window)"
+        required: false
+      credit_floor:
+        description: "Do not spend Odds API credits below this balance (blank = repository variable or 300)"
+        required: false
+      open_minutes:
+        description: "Window opens this many minutes before kickoff (default 88)"
+        required: false
+      close_minutes:
+        description: "Window closes this many minutes before kickoff (default 40)"
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  due:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      count: ${{ steps.w.outputs.count }}
+      matrix: ${{ steps.w.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - id: w
+        name: Which games are due now
+        run: |
+          args=(--github)
+          if [ -n "${{ inputs.games }}" ]; then args+=(--games "${{ inputs.games }}"); fi
+          if [ -n "${{ inputs.open_minutes }}" ]; then args+=(--open "${{ inputs.open_minutes }}"); fi
+          if [ -n "${{ inputs.close_minutes }}" ]; then args+=(--close "${{ inputs.close_minutes }}"); fi
+          python -m pipeline.window "${args[@]}" | tee -a "$GITHUB_STEP_SUMMARY"
+
+  game:
+    needs: due
+    if: needs.due.outputs.count != '0' && needs.due.outputs.count != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.due.outputs.matrix) }}
+    concurrency:
+      group: nfl-gameday-${{ matrix.game_id }}
+      cancel-in-progress: false
+    env:
+      GAME: ${{ matrix.game_id }}
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      ODDS_CREDIT_FLOOR: ${{ inputs.credit_floor || vars.ODDS_CREDIT_FLOOR || '300' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0     # rocket R5 checks the lock's code commit is an ancestor of HEAD
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-test.txt
+      - run: python -m pip install --disable-pip-version-check -r requirements-test.txt
+
+      - name: Skip if the 100k already ran (an earlier tick finished while this one waited)
+        id: skip
+        run: |
+          if python -m pipeline.window --games "$GAME" --open 100000 --close -100000 | grep -q "100k already ran"; then
+            echo "done=1" >> "$GITHUB_OUTPUT"; echo "$GAME: 100k already ran; nothing to do." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Official inactives from both club sites (free; no keys)
+        id: inactives
+        if: steps.skip.outputs.done != '1'
+        run: |
+          set +e
+          python -m phase15.official_inactives --game "$GAME"; code=$?
+          set -e
+          if [ "$code" = "0" ]; then echo "ok=1" >> "$GITHUB_OUTPUT"; else
+            echo "$GAME: official inactives are not posted yet for both teams (exit $code). No credits spent; the next tick retries." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Fresh packet and four-book price freeze for this game
+        if: steps.inactives.outputs.ok == '1'
+        run: python -m pregame.build_packets --game "$GAME" --no-index
+
+      - name: Lock the 100k snapshot before kickoff
+        id: lock
+        if: steps.inactives.outputs.ok == '1'
+        run: |
+          freeze="$(python -c "import json,sys; from pipeline import hooks as H, phases as P; f=H.newest_price_freeze(P.load_packet('$GAME')); print(f or '')")"
+          args=(--config "${{ matrix.config }}" --pbp "${{ matrix.pbp }}" --packet "pregame/packets/$GAME/packet.json" --workers "$(nproc)")
+          if [ -n "$freeze" ]; then args+=(--price-freeze "$freeze" --price-freeze-origin "${GITHUB_REF_NAME}@${GITHUB_SHA}"); fi
+          python -m snapshots.lock "${args[@]}"
+
+      - name: Refresh prices if the lock took more than 10 minutes (the gate needs them under 20 minutes old)
+        if: steps.inactives.outputs.ok == '1'
+        run: |
+          age="$(python -c "import json; from datetime import datetime, timezone; from pipeline import freshness as F, phases as P; pk=P.load_packet('$GAME'); t=F.parse_utc((pk.get('books') or {}).get('retrieved_utc')); print(int((datetime.now(timezone.utc)-t).total_seconds()//60) if t else 999)")"
+          echo "packet prices are $age minutes old"
+          if [ "$age" -ge 10 ]; then python -m pregame.build_packets --game "$GAME" --no-index; fi
+
+      - name: 100k entry point (fail closed; runs ./rocket for this game first)
+        id: gate
+        if: steps.inactives.outputs.ok == '1'
+        run: |
+          set +e
+          python -m pipeline.sim100k --game "$GAME" --write --rush-dist | tee gate.log; code=${PIPESTATUS[0]}
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          { echo '```'; cat gate.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Phase ledger for this game
+        if: steps.inactives.outputs.ok == '1'
+        run: python -m pipeline.slate --game "$GAME" --from-report || true
+
+      - name: Keep the per-trial player lines as a run artifact (too large for the repository)
+        if: steps.inactives.outputs.ok == '1'
+        uses: actions/upload-artifact@v4
+        with:
+          name: sim100k-player-box-${{ matrix.game_id }}
+          path: pipeline/ledgers/${{ matrix.game_id }}.sim100k.player_box.npz
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Commit this game's files
+        if: always() && steps.skip.outputs.done != '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f "pipeline/ledgers/$GAME.sim100k.player_box.npz" gate.log
+          pair="$(echo "$GAME" | awk -F_ '{print $3"@"$4}')"
+          git add "pregame/packets/$GAME" "phase15/inactives/$GAME" "snapshots/$GAME" 2>/dev/null || true
+          git add pregame/line_history pregame/price_freezes/*_"$pair" 2>/dev/null || true
+          git add pipeline/ledgers/"$GAME".* 2>/dev/null || true
+          if git diff --cached --quiet; then echo "Nothing to commit for $GAME."; exit 0; fi
+          git commit -q -m "gameday: $GAME $(date -u +%Y-%m-%dT%H:%MZ) (100k exit ${{ steps.gate.outputs.code || 'not run' }})"
+          for i in 1 2 3 4 5 6; do
+            # merge, never rebase: a rebase would rewrite the commit a snapshot LOCK may point at
+            git pull -q --no-rebase --no-edit origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((RANDOM % 20 + 5))
+          done
+          echo "push failed after 6 attempts"; exit 1
+
+      - name: Fail the job if the 100k was refused
+        if: steps.inactives.outputs.ok == '1'
+        run: python -m pipeline.slate --game "$GAME" --from-report --expect "$GAME"
+
+  index:
+    needs: [due, game]
+    if: always() && needs.due.outputs.count != '0' && needs.due.outputs.count != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}   # the branch tip, after the game jobs pushed
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild the slate index from the ledgers
+        run: python -m pipeline.slate --index-only | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Commit the index
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pipeline/ledgers/INDEX.md
+          if git diff --cached --quiet; then echo "Index unchanged."; exit 0; fi
+          git commit -q -m "gameday: slate index $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3 4; do
+            git pull -q --no-rebase --no-edit origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep 7
+          done
+          exit 1
