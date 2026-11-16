@@ -69,9 +69,9 @@ def break_even(a):
 def kind_of(name: str) -> str | None:
     """Market kind from a book's market name; None when it is not one we keep."""
     n = (name or "").lower()
-    if re.search(r"\balt(ernate)?\b|\d+\+", n) and "receiving" in n and "yard" in n:
+    if re.search(r"\balt(ernate)?\b|\d+\+", n) and "receiving" in n and "yd" in n.replace("yard", "yd"):
         return "alt_receiving_yards"
-    if re.search(r"\balt(ernate)?\b|\d+\+", n) and "rush" in n and "yard" in n:
+    if re.search(r"\balt(ernate)?\b|\d+\+", n) and "rush" in n and "yd" in n.replace("yard", "yd"):
         return "alt_rushing_yards"
     if "receiving yards" in n or "receiving yds" in n or n.endswith("rec yds"):
         return "receiving_yards"
@@ -197,6 +197,7 @@ def fanduel(probe: dict | None = None) -> dict:
             a, _, h = nm.partition(" @ ")
             out["events"][str(e.get("eventId", eid))] = {"name": nm, "away": team_of(a), "home": team_of(h), "start": e.get("openDate")}
         for m in mk.values():
+          try:
             kind = kind_of(m.get("marketName", "")) or kind_of(m.get("marketType", "").replace("_", " "))
             if not kind:
                 continue
@@ -209,13 +210,15 @@ def fanduel(probe: dict | None = None) -> dict:
                 if kind in ("receiving_yards", "receptions", "rushing_yards"):
                     player = re.sub(r"\s*-\s*.*$", "", m.get("marketName", ""))
                     side = "Over" if "over" in name.lower() else "Under" if "under" in name.lower() else name
-                    mm = re.search(r"([\d.]+)", name)
+                    mm = re.search(r"(\d+(?:\.\d+)?)", name)
                     line = float(mm.group(1)) if (not line and mm) else line
                 elif kind.startswith("alt_"):
                     mm = re.search(r"(\d+)\+", name) or re.search(r"(\d+)\+", m.get("marketName", ""))
                     player = re.sub(r"\s*\d+\+.*$", "", name).strip() or None
                     line, side = (float(mm.group(1)) - 0.5 if mm else None), "Over"
                 out["rows"].append(_row("fanduel", ev, kind, player, side, line, odds))
+          except Exception as e:  # noqa: BLE001 - one odd market never sinks the run
+            out.setdefault("errors", []).append(f"{m.get('marketName')}: {type(e).__name__}"[:120])
     out["status"] = "OK" if out["rows"] else "NO_ROWS: endpoint answered but no kept markets were found (format may have changed)"
     out["state"] = st_used
     return out
