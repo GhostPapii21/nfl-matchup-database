@@ -1,0 +1,76 @@
+# Game board
+
+One page per slate: click a game and everything for it is there. It is rebuilt automatically after every pregame
+packet refresh (Tuesday, Thursday, Saturday, Sunday and Monday; see `.github/workflows/nfl-pregame-packets.yml`).
+
+## Getting around
+
+- **Home:** every game on the slate as a tile in its teams' colors, grouped by window, plus highlights (best chance at 70+ yards, mismatch spotlight, weather watch, key players out). Tap a tile to step inside the game; tap a highlighted player to open his card.
+- **Inside a game:** "‹ All games" goes back; the strip next to it switches games. Tabs wrap so all twelve show on a phone; Player cards, Opportunity and Field view are outlined. The offense switch under the tabs flips which side has the ball.
+- **How to use:** the button at the top opens a short guide. It opens by itself on a first visit.
+- **Player-card tour:** the first time someone opens Player cards, a nine-step walkthrough spotlights each part of a card (offense switch, photo and badge, name and roles, stat tabs, 3D chart, info strip, dots and arrows, game log, help bubble). "Take the player-card tour" replays it.
+- **What the words mean:** every role tag on a card, the small ? marks, the chart's ? (it follows the selected stat) and the Mismatch badge open a short definition. The badge lists that player's own edges and links to how each edge is found. "What the words mean" on Player cards and the How-to guide show the full glossary (targets, target share, carry share, edge, mismatch, boom-bust, steady and every role tag), and the help bubble uses the same definitions.
+- **🏈 Know Ball Mode:** a switch in the header (and "I know ball: skip the tutorials" in the guide) turns off the first-visit guide, the player-card tour, the ? marks and definitions, the glossary and tour buttons, and the help bubble. The Mismatch badge still lists the player's edges. It is remembered; tap it again to bring the tutorials back.
+- **Help bubble:** the ? in the corner answers questions about the screen in view. On claude.ai it asks Claude with a short summary of what is on screen (each viewer's first question asks them to allow it, and it uses their own Claude usage); anywhere else, or if they decline, it answers from a built-in guide.
+
+## What a game shows
+
+| Tab | What is on it | Source |
+| --- | --- | --- |
+| Overview | Rank edges both ways, pass-catcher roles, defenders to attack, QB against the blitz, injuries that matter, last meeting | all below |
+| What the defense allows | Per game to WRs, TEs and RBs (targets, receptions, yards, TDs, explosives), passing, situational; each against what the offense gets and the league average, with ranks and an 8-game trend; who hurt this defense each week; run direction; pass zones | nflverse play-by-play |
+| Defenders | Every coverage defender with position, targets, completions, yards, yards per target, TDs, INTs, missed tackles and a target / avoid grade; pass rushers; last season's man/zone mix and coverage shells | Pro Football Reference, NGS participation (last season) |
+| Quarterback | Against the blitz and without it, play action, out of the pocket, pressure rate, red zone, third down; last season against man and zone, under pressure and clean | FTN charting, PFR, NGS participation |
+| Player cards | One card per pass catcher and back in team colors: official headshot and jersey number over the faded team logo; a 3D last-5 chart with tabs (targets, catches, yards, share; carries for backs); and a carousel that swipes every 4 seconds through role (#1 target and share of the QB's targets), last 5 against the season, this game's opportunity (median yards and 70+ chance), what the defense allows his position, and who he'll see in coverage (where a back runs, for backs). The carousel pauses on hover or touch and stays still for viewers who turn off motion. The season game log sits under the card | nflverse rosters, logos, play-by-play, snap counts, PFR |
+| Field view | Formation with the defense's shell, size and speed against likely coverage, target heat map against the defense's zones, route tree (last season), coverage splits, tier splits, run gaps against the front, mismatch highlights, and an animated game simulator | nflverse, NGS participation, combine |
+| Receivers & backs (old) | Target and carry share, per-game volume, depth, red-zone looks, snaps, game-by-game trend, baseline median, forecast-adjusted yards; role tags | nflverse, PFR snap counts |
+| Opportunity | For every pass catcher and back: this game's volume (pace, pass/run mix, script from the spread, weather, teammates out, his share), his efficiency against this defense, and 20,000 simulations giving targets, catches, median yards, the chance of 20+ to 120+ yards, how many targets he needs for 70, and his slice of what the defense allows his position. Tested on 2024-2026: [OPPORTUNITY.md](OPPORTUNITY.md) | nflverse play-by-play, the packet |
+| Injuries | Official report and ESPN, snap share, starter slot and next man up; players back from a missed game and whether they are still working back in; roster moves | nflverse, ESPN, snap counts |
+| Last meeting | Score by quarter, team box, leaders, what carries over (same QB, coach change, who is still on the team), highlights link, recent meetings against the spread and total | nflverse schedules and play-by-play |
+| Odds | Every book's spread, total and moneyline with no-vig and hold, best price, line movement, props inside 36 hours, the research simulation | The Odds API, pipeline snapshots |
+| Weather & rest | Forecast, a plain verdict (including NWS alerts such as hurricane warnings), rain-adjusted passing, rest days, short week, bye, coming off an international game, time zones, body clock | NWS, nflverse schedules |
+| Overview extras | Implied team totals, plays and pass attempts from pace, script lean; your rule gates (backs under 60% of carries, receiving legs need a verified defender, official report over ESPN, QB starter gate, passing-yards ban); betting trends (against the spread as favorite / underdog / home / road, over-under, last five); scoring by quarter and half; the 15-phase data checklist | nflverse schedules and play-by-play, the packet |
+| Copy for Grok | The whole game as one paste, with the instruction to run `pregame/ANALYST_PROMPT.md` | this board |
+
+Each player also gets the analyst prompt's opportunity label (expanding, shrinking, volume-supported, efficiency-driven, low volume) and a
+prop ladder from his game log scaled for this defense: Floor (p5), Slight Edge (p10), MAIN (p15), Edge (p20), Pure Edge (p25), Median.
+
+Role tags: Primary (top target share), Volume (7+ targets a game), Deep threat (13+ yard average depth), Possession (short
+targets caught 72%+), Boom-bust / Steady (how much yardage swings game to game), Rising / Falling (last three games against
+the window), Red-zone #1, Most on field, Lead back (60%+ of carries), Committee, Goal-line back.
+
+Man/zone and coverage shells are only published free through last season, so those panels say which season they use.
+Referee crews are blank in the free 2026 schedule data, so crew tendencies are not shown.
+
+## Files
+
+- `dashboard/data/<game_id>.json`: one file per game, everything on the board. ChatGPT or Grok can read these from the repository.
+- `dashboard/site/index.html`: the page (built in the workflow and published to GitHub Pages; not committed).
+- Build locally: `python3 -m dashboard.build`, then open `dashboard/site/index.html`.
+
+GitHub Pages must be switched on once: repository Settings > Pages > Source: **GitHub Actions**. After that every scheduled
+run publishes the board.
+
+Research only. Nothing on the board is a validated projection or a bet recommendation.
+
+## Design and tested adjustments
+
+Three looks, chosen at the top of the page and remembered: Neon (cyan and magenta), Chrome (gunmetal, gold and team color) and HUD (teal and amber heads-up display). They follow design concepts generated with Higgsfield (a holographic field and chrome trading-card frames); the field
+render is `dashboard/assets/field_holo.webp`. Team colors come from nflverse.
+
+Coverage (man/zone, middle open/closed), quarterback-pressure and opponent-tier adjustments to the projection were fitted on
+2023-2024 and tested on 2025. None improved it beyond luck, so they are shown as context only and not applied. See
+`dashboard/results/coverage_backtest.md` and `dashboard/coverage_model.py`.
+
+
+## 80-yard watch (stars)
+
+`dashboard/watch.py` stars the players with a real chance at 80+ yards, using weights fitted in
+`research/watch_model_2026-11-16/` (`dashboard/watch_model.json`, 2022 to 2026, checked on 2025-26).
+Receivers: his targets (0.6 season + 0.4 last three x team targets, scaled for teammates out), yards a game, team implied
+total, his team's pass volume, how often the defense gives up 20+ yard completions, and how many 80+ yard games it has
+allowed to his position. Backs: carries, yards per carry, spread, team total and the rushing yards the defense allows.
+Every factor was fitted, so ones that do not predict (the defense's big-play rate) carry almost no weight and are shown as
+context. Stars: 3 = 50%+ for 80 yards, 2 = 40%+, 1 = 30%+. The board shows them on the home screen, at the top of each
+game's Overview, and next to the name on player cards. Refit with
+`python3 research/watch_model_2026-11-16/fit.py --data DIR`. Research only; not graded against prices.

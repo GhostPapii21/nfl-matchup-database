@@ -1,0 +1,356 @@
+{
+ "rematch": {
+  "pairs": 1380,
+  "corr_residual": 0.035,
+  "big_first_100_then_avg_second": 62.0,
+  "their_avg_before": 67.5
+ },
+ "short_vs_man": {
+  "Intercept": {
+   "coef": -0.0064,
+   "p": 0.0
+  },
+  "opp_man": {
+   "coef": 0.0292,
+   "p": 0.0907
+  },
+  "short": {
+   "coef": -0.0091,
+   "p": 0.0019
+  },
+  "opp_man:short": {
+   "coef": 0.0275,
+   "p": 0.5255
+  }
+ },
+ "la_ari_meetings": [
+  {
+   "season": "2024",
+   "week": "17",
+   "away_team": "ARI",
+   "away_score": "9.0",
+   "home_team": "LA",
+   "home_score": "13.0",
+   "spread_line": "6.5",
+   "total_line": "48.0"
+  },
+  {
+   "season": "2025",
+   "week": "14",
+   "away_team": "LA",
+   "away_score": "45.0",
+   "home_team": "ARI",
+   "home_score": "17.0",
+   "spread_line": "-9.5",
+   "total_line": "49.5"
+  },
+  {
+   "season": "2025",
+   "week": "18",
+   "away_team": "ARI",
+   "away_score": "20.0",
+   "home_team": "LA",
+   "home_score": "37.0",
+   "spread_line": "14.5",
+   "total_line": "49.5"
+  },
+  {
+   "season": "2026",
+   "week": "6",
+   "away_team": "ARI",
+   "away_score": "18.0",
+   "home_team": "LA",
+   "home_score": "16.0",
+   "spread_line": "12.5",
+   "total_line": "51.5"
+  },
+  {
+   "season": "2026",
+   "week": "10",
+   "away_team": "LA",
+   "away_score": NaN,
+   "home_team": "ARI",
+   "home_score": NaN,
+   "spread_line": "-9.5",
+   "total_line": "39.5"
+  }
+ ],
+ "la_ari_projection": {
+  "home_points": 20.4,
+  "away_points": 28.5,
+  "home_margin": -8.1,
+  "total": 48.9,
+  "home_win": 0.263,
+  "away_win": 0.732,
+  "total_p10_p50_p90": [
+   33.0,
+   49.0,
+   66.0
+  ],
+  "first_half": {
+   "home": 9.9,
+   "away": 14.2
+  },
+  "by_quarter": {
+   "q1": {
+    "home": 3.9,
+    "away": 5.6
+   },
+   "q2": {
+    "home": 5.9,
+    "away": 8.7
+   },
+   "q3": {
+    "home": 4.3,
+    "away": 6.0
+   },
+   "q4": {
+    "home": 5.9,
+    "away": 7.9
+   }
+  },
+  "home_covers_market_spread": 0.577,
+  "over_market_total": 0.748
+ },
+ "la_ari_market": {
+  "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
+  "home_spread": 9.5,
+  "total": 39.5,
+  "moneyline": {
+   "LA": -500.0,
+   "ARI": 380.0
+  }
+ },
+ "la_ari_inj": {
+  "LA": [
+   [
+    "Steve Avila",
+    "G",
+    "Out"
+   ],
+   [
+    "Trent McDuffie",
+    "CB",
+    "Questionable"
+   ],
+   [
+    "Myles Garrett",
+    "LB",
+    "Questionable"
+   ],
+   [
+    "Puka Nacua",
+    "WR",
+    "Injured Reserve"
+   ],
+   [
+    "Davante Adams",
+    "WR",
+    "Injured Reserve"
+   ],
+   [
+    "Davis Allen",
+    "TE",
+    "Questionable"
+   ],
+   [
+    "Joe Cardona",
+    "LS",
+    "Questionable"
+   ],
+   [
+    "Kam Curl",
+    "S",
+    "Questionable"
+   ]
+  ],
+  "ARI": [
+   [
+    "Hjalte Froholdt",
+    "C",
+    "Out"
+   ],
+   [
+    "Andrew Wingard",
+    "S",
+    "Questionable"
+   ],
+   [
+    "Max Melton",
+    "CB",
+    "Questionable"
+   ],
+   [
+    "Jayden Williams",
+    "T",
+    "Questionable"
+   ],
+   [
+    "Michael Wilson",
+    "WR",
+    "Injured Reserve"
+   ],
+   [
+    "Gardner Minshew II",
+    "QB",
+    "Injured Reserve"
+   ],
+   [
+    "Hunter Long",
+    "TE",
+    "Injured Reserve"
+   ],
+   [
+    "Zachary Carter",
+    "DT",
+    "Injured Reserve"
+   ]
+  ]
+ },
+ "sim": {
+  "Justin Jefferson": {
+   "game": "2026_10_MIN_GB",
+   "kind": "receivers",
+   "targets": 10.3,
+   "median": 69.5,
+   "p70": 0.494,
+   "p100": 0.262,
+   "p50": 0.684
+  },
+  "Jordan Addison": {
+   "game": "2026_10_MIN_GB",
+   "kind": "receivers",
+   "targets": 6.3,
+   "median": 39.4,
+   "p70": 0.23,
+   "p100": 0.089,
+   "p50": 0.389
+  },
+  "Matthew Golden": {
+   "game": "2026_10_MIN_GB",
+   "kind": "receivers",
+   "targets": 10.2,
+   "median": 74.6,
+   "p70": 0.541,
+   "p100": 0.313,
+   "p50": 0.71
+  },
+  "Christian Watson": {
+   "game": "2026_10_MIN_GB",
+   "kind": "receivers",
+   "targets": 8.1,
+   "median": 69.0,
+   "p70": 0.496,
+   "p100": 0.278,
+   "p50": 0.658
+  },
+  "Ja'Marr Chase": {
+   "game": "2026_10_PIT_CIN",
+   "kind": "receivers",
+   "targets": 9.2,
+   "median": 64.6,
+   "p70": 0.455,
+   "p100": 0.256,
+   "p50": 0.625
+  },
+  "Tee Higgins": {
+   "game": "2026_10_PIT_CIN",
+   "kind": "receivers",
+   "targets": 7.3,
+   "median": 60.2,
+   "p70": 0.42,
+   "p100": 0.226,
+   "p50": 0.591
+  },
+  "Khalil Shakir": {
+   "game": "2026_10_BUF_NYJ",
+   "kind": "receivers",
+   "targets": 4.5,
+   "median": 31.8,
+   "p70": 0.143,
+   "p100": 0.045,
+   "p50": 0.291
+  },
+  "Dalton Kincaid": {
+   "game": "2026_10_BUF_NYJ",
+   "kind": "receivers",
+   "targets": 4.3,
+   "median": 35.3,
+   "p70": 0.186,
+   "p100": 0.066,
+   "p50": 0.337
+  },
+  "Keon Coleman": {
+   "game": "2026_10_BUF_NYJ",
+   "kind": "receivers",
+   "targets": 3.8,
+   "median": 25.8,
+   "p70": 0.112,
+   "p100": 0.036,
+   "p50": 0.227
+  },
+  "DJ Moore": {
+   "game": "2026_10_BUF_NYJ",
+   "kind": "receivers",
+   "targets": 3.6,
+   "median": 23.4,
+   "p70": 0.095,
+   "p100": 0.028,
+   "p50": 0.203
+  },
+  "James Cook": {
+   "game": "2026_10_BUF_NYJ",
+   "kind": "rushers",
+   "targets": 22.3,
+   "median": 94.7,
+   "p70": 0.721,
+   "p100": 0.455,
+   "p50": 0.878
+  },
+  "DeMario Douglas": {
+   "game": "2026_10_NE_DET",
+   "kind": "receivers",
+   "targets": 5.1,
+   "median": 40.4,
+   "p70": 0.235,
+   "p100": 0.092,
+   "p50": 0.396
+  },
+  "Hunter Henry": {
+   "game": "2026_10_NE_DET",
+   "kind": "receivers",
+   "targets": 4.3,
+   "median": 33.6,
+   "p70": 0.142,
+   "p100": 0.04,
+   "p50": 0.301
+  },
+  "Eli Raridon": {
+   "game": "2026_10_NE_DET",
+   "kind": "receivers",
+   "targets": 3.8,
+   "median": 26.9,
+   "p70": 0.093,
+   "p100": 0.023,
+   "p50": 0.22
+  },
+  "Kyren Williams": {
+   "game": "2026_10_LA_ARI",
+   "kind": "rushers",
+   "targets": 13.4,
+   "median": 54.0,
+   "p70": 0.314,
+   "p100": 0.115,
+   "p50": 0.556
+  },
+  "Trey McBride": {
+   "game": "2026_10_LA_ARI",
+   "kind": "receivers",
+   "targets": 12.5,
+   "median": 68.8,
+   "p70": 0.487,
+   "p100": 0.215,
+   "p50": 0.707
+  }
+ }
+}

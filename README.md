@@ -26,6 +26,8 @@ A useful first request is: "Read this repository's manifest, schema and data-gap
 
 For every Thursday, Sunday and Monday game, a scheduled workflow builds a research packet from current public data: what each defense allows by position, explosive plays, pass rush, each offense's usage and form, injuries, depth charts, roster moves, matchup edges, and research-only projections, with the 15-phase ledger showing what is filled and what is missing. Start at [pregame/packets/INDEX.md](pregame/packets/INDEX.md). To have ChatGPT or Grok turn a packet into a breakdown with a brainstorm and a critical review, paste [pregame/ANALYST_PROMPT.md](pregame/ANALYST_PROMPT.md). Details and limits: [pregame/README.md](pregame/README.md). Research only; `projection_ready` is false.
 
+**Game board.** The same run builds a clickable page for the slate: pick a game and see what each defense allows by position, defenders to attack, the quarterback against the blitz, pressure, man and zone, receiver roles, injuries and players working back, the last meeting with highlights, odds, weather and rest. See [dashboard/README.md](dashboard/README.md).
+
 ## Projection pipeline: goal vs current status (NFL-56)
 
 ### Goal: what this repository is meant to do
@@ -40,7 +42,7 @@ The repository is the single source of truth for every step from pulling data to
 - Per-phase checks: `python -m pipeline.phases --game <id> --phase <n>`. Each of the 15 phases is marked AUTO, PARTIAL, MISSING, STALE or NOT_YET, with the missing inputs named. See [docs/PHASE_WORKFLOWS.md](docs/PHASE_WORKFLOWS.md).
 - Freshness windows for each source: [docs/DATA_FRESHNESS.md](docs/DATA_FRESHNESS.md).
 - The 100k entry point, `python -m pipeline.sim100k --game <id>`. It is fail-closed: it exits 2 with a plain reason whenever any required input is missing or stale, and it has no override.
-- A scheduled workflow that runs after every packet build and after inactives post, and commits [pipeline/ledgers/INDEX.md](pipeline/ledgers/INDEX.md). It is written and ready, but **not installed yet**: it sits in `pipeline/workflow_to_install/` until the owner moves it into `.github/workflows/`, because the building bot's GitHub access cannot write workflow files. Until then, run `python -m pipeline.slate` by hand.
+- A game-day workflow, [.github/workflows/nfl-gameday-gate.yml](.github/workflows/nfl-gameday-gate.yml), that runs the whole pre-kickoff chain for each game in order (official inactives, fresh packet and price freeze, locked snapshot, the 100k entry point) 40 to 88 minutes before kickoff and commits the result and [pipeline/ledgers/INDEX.md](pipeline/ledgers/INDEX.md). It only runs on a schedule once it is on `main`. What it runs, what it costs in Odds API credits and how the credit floor is set: [pipeline/workflow_to_install/README.md](pipeline/workflow_to_install/README.md).
 
 **Blocked or pending**
 

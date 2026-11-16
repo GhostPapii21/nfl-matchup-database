@@ -74,6 +74,8 @@ def main(argv=None):
     ap.add_argument("--offline", action="store_true", help="use cached downloads only")
     ap.add_argument("--props-within-hours", type=float, default=36.0,
                     help="fetch player-prop lines only for games kicking off within this many hours (each game costs API credits); 0 = never")
+    ap.add_argument("--no-index", action="store_true",
+                    help="do not rewrite latest.json / INDEX.md (use with --game: one game's refresh must not drop the rest of the slate)")
     a = ap.parse_args(argv)
 
     today = date.fromisoformat(a.today) if a.today else (datetime.now(timezone.utc) - timedelta(hours=5)).date()
@@ -146,6 +148,9 @@ def main(argv=None):
     stale = sorted({g["game_id"] for g in index if g.get("stale")})
     if stale:
         print("pregame: WARNING play-by-play not yet posted for a team's last game in: " + ", ".join(stale))
+    if a.no_index:
+        print("pregame: --no-index: latest.json and INDEX.md left as they were")
+        return 0
     (out / "latest.json").write_text(json.dumps({"schema": "pregame-index/1", "season": season, "games": index}, indent=1) + "\n")
     lines = ["# Pregame packets: current slate", "",
              "Research only. `projection_ready` is false. Start with `pregame/ANALYST_PROMPT.md`, then open a brief.", "",

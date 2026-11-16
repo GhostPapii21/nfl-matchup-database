@@ -47,3 +47,15 @@ or week >= target in the PBP, every history week present, before kickoff). After
 
 Binding a hook is a reviewed pull request that also updates `test_shipped_hooks_fail_closed`. Neither an
 environment variable nor a flag can bind one.
+
+## Game day: one workflow runs the chain in order (`.github/workflows/nfl-gameday-gate.yml`)
+
+Phases 10 to 13 and 15 have freshness limits that tighten to minutes near kickoff, and the 100k entry point also needs
+a locked snapshot. No single earlier workflow produced all of them inside the same window, so every game was refused.
+The game-day workflow does: `pipeline.window` (games 40 to 88 minutes from kickoff) → official inactives → that game's
+packet and price freeze → `snapshots.lock` → price refresh if the lock ran long → `pipeline.sim100k` (runs `./rocket`
+for the game) → ledger → commit. One job per game, in parallel. A refusal is committed and fails the job, and
+`pipeline.slate` prints how many games ran, so a run where everything was refused no longer reads as a success.
+
+It ticks every 15 minutes on game days because GitHub starts scheduled jobs hours late on this repo. Details, credit
+cost and the credit floor: `pipeline/workflow_to_install/README.md`.

@@ -1,0 +1,51 @@
+{
+ "_intro": "<p>Packers–Vikings and Steelers–Bengals, built from the repo’s pregame board (lines, props, injuries, weather, rest, coverage shells, opportunity simulation) plus box scores and per-defender coverage stats through Week 9. Each game covers both passing offenses: how the defense gives up explosive plays, who is covering and what they allow, the receivers who already went off against it, and each receiver’s path to 80–100 yards against today’s FanDuel and DraftKings lines.</p><p class=\"small muted\">Steelers–Bengals props are not in yet. The odds pull skipped that game because it would have taken the odds account below its 800-credit floor. Everything else for that game is current.</p>",
+ "_foot": "<p><b>How to read the sim columns.</b> “Needs” is the break-even chance at the over price. “Sim” is the opportunity model’s chance of the over. “Gap” is sim minus needs. The sim has been backtested for 70+ yard calibration but never graded against prop prices, and it runs conservative on big-play receivers like Watson and Higgins, whose seasons beat it.</p><p><b>Coverage data.</b> Man/zone and shell rates are 2025 charting, the latest free source. Coordinator or roster changes since then make it context, not current fact. Defender stats credit the nearest charted defender and are noisy. In this repo’s earlier research, a defense’s per-position allowed numbers barely repeated from one half of a season to the next.</p>",
+ "2026_10_MIN_GB": {
+  "read": "<p><b>The 28-point rule fails here.</b> Green Bay’s implied total is 22.5 and Minnesota’s 19.5, both in the 20–24 bucket. History says a 9.5+ target receiver in that bucket reaches 80 yards 39% of the time, against 62% at 28+. Volume has to carry it.</p><p><b>Minnesota is stingy against everyone.</b> It allows the 4th-fewest WR yards (120 a game), the fewest TE catches, 2.0 explosive catches a game (4th fewest), and has the highest pressure rate. Wide receivers are its least-bad spot, not a weakness. The holes are in personnel: slot corner Byron Murphy Jr. allows 44 yards a game and Josh Metellus 41. Metellus is questionable, Cashman is out, and his replacement Ivan Pace Jr. has not been targeted all season.</p><p><b>Green Bay’s line is banged up against the league’s best pressure</b> (center Rhyan out, Zeitler and Glover questionable), and Jacobs is out. That points to quick throws and volume for Golden, with fewer clean deep shots.</p><p><b>The other way, Green Bay’s pass defense is the soft one.</b> It allows the 2nd-most WR catches (14.5 a game) and is missing Micah Parsons. Five receivers have gone for 80+ on it, including Jefferson’s 92 in Week 1. Jefferson’s volume is real (11.2 projected targets), but he has averaged 45 yards over his last 3, and the prices are about fair.</p>",
+  "GB": {
+   "summary": "Minnesota was zone on 81% of dropbacks last season and two-high on 59%, mostly Cover 2. Watson was at his best against two-high shells (15.5 yds/target on 18 targets); Golden was at his worst (5.9 on 20). Kraft feasted against man (13.5 yds/target), but Minnesota rarely plays it.",
+   "players": {
+    "Matthew Golden": {"verdict": "Best 80+ path", "kind": "good", "text": "The clearest volume case on the slate: 10+ targets in 6 of 9 games and 11.7 a game over the last 3. In his 6 games with 8+ targets he averaged 6.7 catches and 97 yards, with 80+ in 4. Over 5.5 catches (+106/+107) is about fair to slightly positive by the sim. Over 69.5 yards is just under the price. A two-high, zone-heavy defense is his weakest coverage on last year’s small sample, so lean catches over yards."},
+    "Christian Watson": {"verdict": "Explosive, yards over catches", "kind": "good", "text": "The most explosive receiver of the four teams: 1.9 catches of 20+ a game, with at least one in 8 of 9 games. He’s had 8+ targets in 8 of 9 games, averaging 104 yards in those with 80+ in 5. The sim says 42% for over 75.5 yards against 53% needed, but it has undershot him all year (80+ in 5 of 9). He faced Minnesota’s two-high zone in Week 1 and went for 147. If Metellus sits, this gets better."},
+    "Tucker Kraft": {"verdict": "Catch floor only", "kind": "mute", "text": "Minnesota allows the fewest TE catches in the league, but Cashman, who covers tight ends, is out. Kraft has never reached 70 yards this season. Over 4.5 catches at +130/+134 sims at 24%, and over 37.5 yards at 35%: both below the price. 3+ catches (60% sim, 7 of 9 this season) is the only version that holds up."},
+    "Skyy Moore": {"verdict": "Low volume", "kind": "mute"},
+    "Savion Williams": {"verdict": "Low volume", "kind": "mute"}
+   }
+  },
+  "MIN": {
+   "summary": "Green Bay was zone on 82% of dropbacks last season, mostly Cover 3 and Cover 2. Jefferson against zone: 8.7 yds/target, against man 4.2. That fits. The worry is form, not matchup.",
+   "players": {
+    "Justin Jefferson": {"verdict": "Volume yes, price fair", "kind": "warn", "text": "11.2 projected targets is the most of anyone here, and Green Bay gives up WR catches in bulk. But he has 1 game of 80+ in 7 and averaged 61 yards in his 8+ target games. Over 6.5 catches is about break-even at both books. Over 80.5 (FD) and 83.5 (DK) yards sim about 7 points under the price."},
+    "Jordan Addison": {"verdict": "Below price", "kind": "bad", "text": "Questionable (thumb). Under 7 targets in 5 of 7 games. Over 49.5 yards sims at 44% against 53% needed."},
+    "Myles Price": {"verdict": "Low volume", "kind": "mute"},
+    "Gavin Bartholomew": {"verdict": "Low volume", "kind": "mute", "text": "Starting with Hockenson out, but Green Bay allows the 2nd-fewest TE yards. Over 2.5 catches sims at 40%."}
+   }
+  }
+ },
+ "2026_10_PIT_CIN": {
+  "read": "<p><b>The best 80–100 yard setup of the two games.</b> The total is 49.5 and Cincinnati’s implied 26.0 is the highest here. It’s in the 24–28 bucket, where a 9.5+ target receiver reaches 80 yards 51% of the time. Chase has averaged 11.7 targets and 119 yards over his last 3, and Higgins 112 yards.</p><p><b>Pittsburgh gives up explosives.</b> It allows 3.4 catches of 20+ a game (8th most) and 99 explosive yards a game. Chase (98) and Higgins (90) both went for big days against it in Week 3. Jalen Ramsey allows a low 5.4 yds/target but 5 TDs, and Jamel Dean (45 yds/g) and Asante Samuel Jr. (41) are the corners to target. Pittsburgh played man 35% of the time last season, one of the higher rates, and both Chase and Higgins were better against zone.</p><p><b>Travel and rest favor Pittsburgh.</b> The Steelers come off a bye with 14 days. The Bengals played in Madrid in Week 9 with no bye after it. Kickoff is 42°F with no wind or rain.</p><p><b>For Pittsburgh, Cincinnati’s soft spot is tight ends:</b> 80.6 TE yards allowed a game (2nd most), with Schultz (140) and Strange (95) going off. Its linebacker Barrett Carter allows 41 yards a game in coverage, and safety Kyle Dugger is out. The catch is that this repo’s research found a defense’s TE allowances don’t raise TE targets, and Pittsburgh splits tight end work between Freiermuth and Washington.</p>",
+  "CIN": {
+   "summary": "Iosivas (WR3) is doubtful, which concentrates targets on Chase and Higgins. Props for this game are not in this pull.",
+   "players": {
+    "Ja'Marr Chase": {"verdict": "Top 80–100 candidate", "kind": "good", "text": "Target share is up to 34% over the last 3 from 25% for the season. In his 5 games with 8+ targets: 8.6 catches, 109 yards, 70+ in all 5 and 100+ in 2. Against defenses in the top 12 for explosives allowed he has averaged 105 yards. The sim (9.2 targets, 38% for 80+) is below his recent run because it blends the full window."},
+    "Tee Higgins": {"verdict": "Boom profile", "kind": "good", "text": "80+ in 5 of 8 and 100+ in 3, with 1.25 explosive catches a game. In 3 games with 8+ targets he averaged 136 yards. He is the more boom-or-bust of the two: 32 yards and 22 yards in two of his last 6. Better against zone (9.3 yds/target) than man (7.7, but 6 TDs)."},
+    "Erick All": {"verdict": "Low volume", "kind": "mute"},
+    "Mike Gesicki": {"verdict": "Low volume", "kind": "mute", "text": "Two 70+ games (78, 76) on 6–7 targets, and 3-37 against Pittsburgh in Week 3."},
+    "Dohnte Meyers": {"verdict": "Low volume", "kind": "mute"},
+    "Mitchell Tinsley": {"verdict": "Low volume", "kind": "mute"}
+   }
+  },
+  "PIT": {
+   "summary": "Cincinnati played one-high on 64% of dropbacks last season with 25% Cover 1, and allowed 8.3 yds/att against its own zone. Corner Jalen Davis is doubtful and safety Kyle Dugger is out.",
+   "players": {
+    "DK Metcalf": {"verdict": "Volume, little explosiveness", "kind": "warn", "text": "8.4 projected targets and 29% of targets over the last 3, but only 4 explosive catches all season and 2 games of 80+. 3-31 against Cincinnati in Week 3. A catches angle more than a yards one."},
+    "Germie Bernard": {"verdict": "Rising role", "kind": "mute", "text": "Share is up to 23% over the last 3. 80+ in 2 games (11-87, 6-80) but no 100s."},
+    "Roman Wilson": {"verdict": "Low volume", "kind": "mute"},
+    "Pat Freiermuth": {"verdict": "TE matchup, low volume", "kind": "warn", "text": "Never reached 50 yards this season. The matchup is good but the role is shared."},
+    "Darnell Washington": {"verdict": "TE matchup, low volume", "kind": "warn", "text": "94 yards last game and 67 against Cincinnati in Week 3, on 4–5 targets. He gets there on explosives, not volume."},
+    "Michael Pittman": {"verdict": "Low volume", "kind": "mute"}
+   }
+  }
+ }
+}

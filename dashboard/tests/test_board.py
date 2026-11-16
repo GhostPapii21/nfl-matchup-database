@@ -1,0 +1,216 @@
+"""Offline tests for the game board's extra sections. No network."""
+import json
+from pathlib import Path
+
+import pandas as pd
+
+from dashboard import extras as X
+from dashboard.build import render_site
+
+
+def test_weather_verdict_levels():
+    ok = {"status": "OK", "during_game": {"precip_chance_pct_max": 10, "wind_mph_max": 5, "temp_f_min": 50}}
+    assert X.weather_verdict(ok, "outdoors")["level"] == "good"
+    assert X.weather_verdict(ok, "dome")["headline"].startswith("Indoors")
+    storm = {"status": "OK", "during_game": {"precip_chance_pct_max": 80, "wind_mph_max": 18, "temp_f_min": 50}}
+    v = X.weather_verdict(storm, "outdoors")
+    assert v["level"] == "bad" and v["headline"].startswith("Weather game")
+    hurricane = X.weather_verdict(ok, "outdoors", [{"event": "Hurricane Warning", "headline": "Hurricane warning in effect"}])
+    assert hurricane["level"] == "bad" and "Hurricane" in hurricane["details"][0]
+    assert X.weather_verdict({"status": "UNAVAILABLE"}, "outdoors")["level"] == "unknown"
+
+
+def _rec(name, pid, share, tgt, rec, yds, adot, rz, log_yds):
+    return {"player": name, "player_id": pid, "pos": "WR", "games": len(log_yds), "targets": tgt, "receptions": rec, "yards": yds,
+            "td": 1, "target_share": share, "avg_depth_of_target": adot, "red_zone_targets": rz,
+            "log": [{"week": i + 1, "targets": tgt // len(log_yds), "receptions": 3, "yards": y} for i, y in enumerate(log_yds)]}
+
+
+def test_receiver_roles_tags():
+    players = {"receivers": [
+        _rec("A.One", "1", 0.30, 80, 50, 700, 9.0, 12, [90, 85, 80, 95, 88, 92, 87, 83]),
+        _rec("B.Two", "2", 0.20, 56, 30, 500, 15.0, 2, [5, 150, 10, 120, 0, 140, 20, 55]),
+    ], "rushers": [
+        {"player": "C.Back", "player_id": "3", "pos": "RB", "games": 8, "carries": 140, "yards": 600, "td": 4, "carry_share": 0.7,
+         "yards_per_carry": 4.3, "red_zone_carries": 15, "log": [{"week": 1, "carries": 17, "yards": 75}] * 8},
+    ]}
+    r = X.receiver_roles(players, {"Alpha One": 0.95, "Beta Two": 0.80}, {"1": "Alpha One", "2": "Beta Two"})
+    tags = {x["player"]: {t["tag"] for t in x["tags"]} for x in r["receivers"]}
+    assert {"Primary", "Red-zone #1", "Steady", "Most on field"} <= tags["A.One"] and "Volume" not in tags["A.One"]
+    assert {"Deep threat", "Boom-bust", "Volume"} <= tags["B.Two"]
+    rb = {t["tag"] for t in r["rushers"][0]["tags"]}
+    assert {"Lead back", "Goal-line back"} <= rb
+
+
+def test_returning_players_flags_reduced_snaps():
+    games = pd.DataFrame([{"game_id": f"g{i}", "season": 2026, "game_type": "REG", "gameday": f"2026-10-0{i}", "home_team": "AAA",
+                           "away_team": "BBB", "home_score": 20} for i in range(1, 7)])
+    rows = []
+    for i in range(1, 7):
+        if i not in (3, 4):   # Hurt Guy missed games 3 and 4
+            pct = 0.9 if i < 3 else (0.4 if i == 5 else 0.5)
+            rows.append({"game_id": f"g{i}", "team": "AAA", "player": "Hurt Guy", "position": "WR", "offense_pct": pct, "defense_pct": 0.0})
+        rows.append({"game_id": f"g{i}", "team": "AAA", "player": "Healthy Guy", "position": "WR", "offense_pct": 0.8, "defense_pct": 0.0})
+    out = X.returning_players(pd.DataFrame(rows), games, 2026, "AAA", "2026-10-09")
+    assert [r["player"] for r in out] == ["Hurt Guy"]
+    assert out[0]["status"] == "Working back in" and out[0]["games_missed"] == 2
+
+
+def test_same_player_matches_abbreviated_names():
+    assert X._same_player("J.Love", "Jordan Love")
+    assert not X._same_player("C.Wentz", "Kirk Cousins")
+    assert not X._same_player(None, "Kirk Cousins")
+
+
+def test_schedule_context_flags_short_week_and_international():
+    games = pd.DataFrame([
+        {"game_id": "a", "season": 2026, "week": 9, "gameday": "2026-11-01", "weekday": "Sunday", "home_team": "JAX", "away_team": "HOU",
+         "location": "Neutral", "stadium": "Wembley Stadium", "home_score": 20, "away_score": 17},
+        {"game_id": "b", "season": 2026, "week": 9, "gameday": "2026-11-02", "weekday": "Monday", "home_team": "SEA", "away_team": "LA",
+         "location": "Home", "stadium": "Lumen Field", "home_score": 24, "away_score": 21},
+    ])
+    g = pd.Series({"season": 2026, "gameday": "2026-11-06", "away_team": "SEA", "home_team": "JAX", "location": "Home", "stadium": "EverBank"})
+    pk = {"game": {"away_rest_days": 4, "home_rest_days": 5, "kickoff_et": "13:00"}}
+    c = X.schedule_context(games, g, pk)
+    seattle = " | ".join(f["text"] for f in c["SEA"]["flags"])
+    jax = " | ".join(f["text"] for f in c["JAX"]["flags"])
+    assert "Short week" in seattle and "time zones" in seattle and "10:00 AM body clock" in seattle and "Monday" in seattle
+    assert "international" in jax and "Short week: 5 days" in jax
+
+
+def test_render_site_embeds_data_safely():
+    html = render_site([{"game": {"note": "</script><b>"}}], "2026-11-13T00:00:00+00:00")
+    assert "/*__BOARD_DATA__*/" not in html
+    assert "</script><b>" not in html.split("const BOARD = ", 1)[1].split(";\n", 1)[0]
+    payload = html.split("const BOARD = ", 1)[1].split(";\n", 1)[0]
+    assert json.loads(payload.replace("<\\/", "</"))["built_utc"].startswith("2026-11-13")
+
+
+def test_template_has_placeholder_once():
+    tpl = (Path(__file__).resolve().parents[1] / "template.html").read_text()
+    assert tpl.count("/*__BOARD_DATA__*/null") == 1
+
+
+def test_opportunity_more_volume_means_better_chances():
+    import numpy as np
+    from dashboard import opportunity as O
+    pool = np.array([5.0, 8.0, 12.0, 15.0, 25.0, 40.0])
+    lo = O.summary_receiver(*O.simulate_receiver(exp_targets=4, k=8, catch_rate=0.65, ypr=12, pool=pool, n=4000, seed=1), 7.8)
+    hi = O.summary_receiver(*O.simulate_receiver(exp_targets=10, k=8, catch_rate=0.65, ypr=12, pool=pool, n=4000, seed=1), 7.8)
+    assert hi["yards"]["70"] > lo["yards"]["70"] and hi["targets_mean"] > lo["targets_mean"]
+    # the fitted volume correction is applied: 10 raw targets come out below 10
+    assert hi["targets_mean"] < 10
+    assert hi["targets_needed"]["70"] == 9
+
+
+def test_opportunity_rain_and_defense_factors_are_bounded():
+    from dashboard import opportunity as O
+    assert O.def_factor(None, 0.65) == 1.0
+    assert 0.8 <= O.def_factor(0.1, 0.65) <= 1.2 and 0.8 <= O.def_factor(5, 0.65) <= 1.2
+    p, r = O.script_multipliers(14)
+    assert p == 0.9 and abs(r - 1.12) < 1e-9
+    assert O.script_multipliers(None) == (1.0, 1.0)
+
+
+# ------------------------------------------------------------------------------------------- teammate out
+def _side(recs, rushers):
+    by_game = [{"week": w, "wr_targets": 20, "te_targets": 6, "rb_targets": 6, "carries": 25} for w in (5, 6, 7, 8, 9)]
+    return {"offense": "AAA", "defense": "BBB", "offense_produced": {"plays_pg": 62, "pass_att_pg": 34, "rush_att_pg": 25},
+            "defense_allowed": {"plays_pg": 62}, "offense_by_game": by_game, "roles": {"receivers": recs, "rushers": rushers}}
+
+
+def _r(name, pos, share, per_game):
+    log = [{"week": w, "targets": per_game, "receptions": int(per_game * 0.65), "yards": per_game * 8} for w in (5, 6, 7, 8, 9)]
+    return {"player": name, "full_name": name, "player_id": name, "pos": pos, "targets": per_game * 5, "receptions": int(per_game * 0.65) * 5,
+            "yards": per_game * 40, "target_share": share, "log": log}
+
+
+def _b(name, share, per_game):
+    log = [{"week": w, "carries": per_game, "yards": per_game * 4} for w in (5, 6, 7, 8, 9)]
+    return {"player": name, "full_name": name, "player_id": name, "pos": "RB", "carries": per_game * 5, "yards": per_game * 20,
+            "carry_share": share, "log": log}
+
+
+def _pools():
+    import numpy as np
+    one = np.array([3.0, 6.0, 9.0, 12.0, 20.0, 35.0])
+    return {"catch": {"WR": one, "TE": one, "RB": one}, "catch_rate": {"WR": 0.62, "TE": 0.7, "RB": 0.78},
+            "ypr": {"WR": 12.6, "TE": 10.5, "RB": 7.8}, "carry": np.array([0.0, 2.0, 3.0, 4.0, 5.0, 9.0]), "ypc": 4.3}
+
+
+def test_missing_receiver_helps_the_top_player_at_his_position_most():
+    from dashboard import opportunity as O
+    recs = [_r("Star WR", "WR", 0.30, 10), _r("WR Two", "WR", 0.20, 6), _r("WR Three", "WR", 0.10, 3), _r("Tight End", "TE", 0.15, 5)]
+    side = _side(recs, [])
+    base = {r["player"]: r for r in O.board_side(side, {}, None, _pools(), set())["receivers"]}
+    out = {r["player"]: r for r in O.board_side(side, {}, None, _pools(), {"Star WR"})["receivers"]}
+    assert out["Star WR"]["status"].startswith("OUT")
+    bump = {n: out[n]["inputs"]["injury_bump"] for n in ("WR Two", "WR Three", "Tight End")}
+    prop = 0.20 / 0.45                                                        # his slice of the healthy share
+    assert abs(bump["WR Two"] - max(O.OUT_TOP_SAME, O.OUT_REST_SAME * prop) * 0.30) < 1e-3
+    assert bump["WR Two"] >= O.OUT_TOP_SAME * 0.30                            # top healthy receiver: at least 18% of the missing share
+    assert bump["WR Two"] > bump["WR Three"] > 0 and bump["WR Two"] > bump["Tight End"] > 0
+    assert sum(bump.values()) < 0.30 * 0.8                                    # less than the old rule: the rest goes to replacements
+    assert out["WR Two"]["targets_mean"] > base["WR Two"]["targets_mean"]
+
+
+def test_missing_lead_back_moves_carries_to_the_next_back():
+    from dashboard import opportunity as O
+    side = _side([], [_b("Lead Back", 0.70, 17), _b("Backup", 0.20, 5), _b("Third", 0.10, 2)])
+    base = {r["player"]: r for r in O.board_side(side, {}, None, _pools(), set())["rushers"]}
+    out = {r["player"]: r for r in O.board_side(side, {}, None, _pools(), {"lead back"})["rushers"]}   # names match case-insensitively
+    assert out["Lead Back"]["status"].startswith("OUT")
+    assert abs(out["Backup"]["inputs"]["injury_bump"] - O.OUT_TOP_RB * 0.70) < 1e-3
+    assert out["Backup"]["carries_mean"] > base["Backup"]["carries_mean"] * 1.8
+    assert out["Backup"]["inputs"]["carry_share_used"] <= 0.95 and out["Third"]["inputs"]["injury_bump"] > 0
+
+
+def test_espn_out_beats_a_friday_questionable():
+    pk = {"injuries": {"official_report": [{"player": "Lead Back", "position": "RB", "game_status": "Questionable"}],
+                       "espn_live": [{"player": "Lead Back", "position": "RB", "status": "Out", "comment": "ruled out"},
+                                     {"player": "Other Guy", "position": "WR", "status": "Questionable"}]}}
+    rows = {r["player"]: r for r in X.injury_impact(pk, {}, {})}
+    assert rows["Lead Back"]["status_level"] == 3 and rows["Other Guy"]["status_level"] == 2
+
+
+# ------------------------------------------------------------------------------------------- 80-yard watch
+def _watch_side(log_t, log_y, share=0.30):
+    from dashboard import watch as W
+    by_game = [{"week": w, "wr_targets": 24, "te_targets": 6, "rb_targets": 6, "pass_yards": 300} for w in range(1, 9)]
+    log = [{"week": w, "targets": t, "yards": y, "receptions": int(t * 0.65)} for w, (t, y) in enumerate(zip(log_t, log_y), 1)]
+    rec = {"player": "Star", "full_name": "Star", "player_id": "p1", "pos": "WR", "log": log, "explosive": 10, "games": len(log), "target_share": share}
+    opp = {"receivers": [{"player_id": "p1", "player": "Star", "inputs": {"target_share_window": share, "target_share_last3": share, "target_share_used": share, "injury_bump": 0}}], "rushers": []}
+    return {"offense": "AAA", "defense": "BBB", "offense_by_game": by_game, "roles": {"receivers": [rec], "rushers": []}, "opportunity": opp,
+            "offense_rank": {"pass_yards_pg": {"rank": 1}}}, W
+
+
+def test_watch_stars_follow_volume_and_game_type():
+    model = __import__("dashboard.watch", fromlist=["x"]).load_model()
+    assert model and model["stars"] == {"3": 0.5, "2": 0.4, "1": 0.3}
+    alpha, W = _watch_side([11, 10, 12, 9, 11, 10, 12, 11], [110, 95, 120, 80, 105, 99, 130, 90])
+    low, _ = _watch_side([5, 4, 6, 5, 4, 5, 6, 5], [40, 35, 50, 45, 30, 38, 55, 42])
+    dctx = {"BBB": {"games": 9, "ex_rate_rel": 1.0, "g80_WR_pg": 0.5, "g80_TE_pg": 0.1, "g80_rank": 10, "ex_rank": 10}}
+    hi = W.watch_side(alpha, {"AAA": 28.0, "BBB": 21.0}, dctx, model)["receivers"][0]
+    lo = W.watch_side(low, {"AAA": 28.0, "BBB": 21.0}, dctx, model)["receivers"][0]
+    assert hi["tier"] == "alpha" and hi["stars"] >= 2 and hi["p80"] > 0.4 and lo["stars"] == 0 and lo["p80"] < hi["p80"] / 3
+    low_team = W.watch_side(alpha, {"AAA": 18.0, "BBB": 24.0}, dctx, model)["receivers"][0]
+    assert low_team["p80"] < hi["p80"]                                    # same player, team expected to score less
+    stingy = {"BBB": {**dctx["BBB"], "g80_WR_pg": 0.1}}
+    assert W.watch_side(alpha, {"AAA": 28.0, "BBB": 21.0}, stingy, model)["receivers"][0]["p80"] < hi["p80"]
+
+
+def test_watch_skips_players_who_are_out_and_missing_inputs():
+    from dashboard import watch as W
+    side, _ = _watch_side([8, 9, 10], [70, 80, 90])
+    side["opportunity"]["receivers"][0]["status"] = "OUT: no projection"
+    model = W.load_model()
+    assert W.watch_side(side, {"AAA": 25.0, "BBB": 22.0}, {}, model)["receivers"] == []
+    assert W.watch_side(side, None, {}, model) is None and W.watch_side(side, {"AAA": 25.0}, {}, None) is None
+
+
+def test_blend_with_book_sits_between_the_two_and_is_symmetric():
+    from dashboard import watch as W
+    b = W.blend_with_book(0.20, 0.40)
+    assert 0.20 < b < 0.40 and abs(W.blend_with_book(0.30, 0.30) - 0.30) < 1e-9
+    assert abs(W.blend_with_book(0.20, 0.40) - W.blend_with_book(0.40, 0.20)) < 1e-9
+    assert W.blend_with_book(0.0, 1.0) > 0 and W.blend_with_book(0.0, 1.0) < 1   # clipped, no log(0)
