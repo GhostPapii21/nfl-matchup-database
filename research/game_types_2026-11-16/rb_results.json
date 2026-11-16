@@ -1,0 +1,471 @@
+{
+ "n": 1855,
+ "n_train": 1271,
+ "n_test": 584,
+ "per_week": 27.7,
+ "hit80": 0.281,
+ "hit100": 0.162,
+ "yards": 62.4,
+ "added": {
+  "missed tackles a game": {
+   "auc": 0.6516,
+   "odds_80_per_sd": 0.918,
+   "z": -1.2,
+   "yards_pct_per_sd": -1.2,
+   "yards_z": -0.69
+  },
+  "tackles broken by backs a game": {
+   "auc": 0.6571,
+   "odds_80_per_sd": 1.023,
+   "z": 0.32,
+   "yards_pct_per_sd": 0.7,
+   "yards_z": 0.4
+  },
+  "yards after contact per carry allowed": {
+   "auc": 0.6448,
+   "odds_80_per_sd": 1.16,
+   "z": 2.23,
+   "yards_pct_per_sd": 4.2,
+   "yards_z": 2.52
+  },
+  "yards before contact per carry allowed": {
+   "auc": 0.6614,
+   "odds_80_per_sd": 1.237,
+   "z": 3.01,
+   "yards_pct_per_sd": 5.3,
+   "yards_z": 2.96
+  },
+  "yards per carry allowed to backs": {
+   "auc": 0.6486,
+   "odds_80_per_sd": 1.349,
+   "z": 4.41,
+   "yards_pct_per_sd": 7.1,
+   "yards_z": 4.19
+  },
+  "RB rushing yards allowed a game": {
+   "auc": 0.6518,
+   "odds_80_per_sd": 1.371,
+   "z": 4.66,
+   "yards_pct_per_sd": 9.1,
+   "yards_z": 5.37
+  },
+  "runs of 10+ allowed a game": {
+   "auc": 0.6575,
+   "odds_80_per_sd": 1.35,
+   "z": 4.43,
+   "yards_pct_per_sd": 7.6,
+   "yards_z": 4.5
+  }
+ },
+ "base": {
+  "auc": 0.6555,
+  "coef": {
+   "const": -10.382,
+   "l_car": 2.452,
+   "l_ypc": 2.487,
+   "spread": 0.033,
+   "implied": -0.038
+  }
+ },
+ "all_auc": 0.6529,
+ "splits_all_lead_backs": {
+  "missed tackles a game": {
+   "lowest third": {
+    "n": 620,
+    "yards": 64.3,
+    "carries": 14.3,
+    "ypc": 4.5,
+    "hit80": 0.315,
+    "hit100": 0.182,
+    "avg": 4.06
+   },
+   "middle": {
+    "n": 619,
+    "yards": 60.3,
+    "carries": 13.9,
+    "ypc": 4.33,
+    "hit80": 0.258,
+    "hit100": 0.137,
+    "avg": 5.48
+   },
+   "highest third": {
+    "n": 616,
+    "yards": 62.7,
+    "carries": 14.6,
+    "ypc": 4.31,
+    "hit80": 0.271,
+    "hit100": 0.167,
+    "avg": 7.43
+   }
+  },
+  "tackles broken by backs a game": {
+   "lowest third": {
+    "n": 619,
+    "yards": 62.6,
+    "carries": 14.3,
+    "ypc": 4.39,
+    "hit80": 0.288,
+    "hit100": 0.157,
+    "avg": 0.92
+   },
+   "middle": {
+    "n": 627,
+    "yards": 58.7,
+    "carries": 13.8,
+    "ypc": 4.26,
+    "hit80": 0.236,
+    "hit100": 0.14,
+    "avg": 1.57
+   },
+   "highest third": {
+    "n": 609,
+    "yards": 66.1,
+    "carries": 14.8,
+    "ypc": 4.48,
+    "hit80": 0.322,
+    "hit100": 0.19,
+    "avg": 2.4
+   }
+  },
+  "yards after contact per carry allowed": {
+   "lowest third": {
+    "n": 620,
+    "yards": 58.7,
+    "carries": 13.8,
+    "ypc": 4.26,
+    "hit80": 0.252,
+    "hit100": 0.132,
+    "avg": 1.37
+   },
+   "middle": {
+    "n": 617,
+    "yards": 62.0,
+    "carries": 14.2,
+    "ypc": 4.37,
+    "hit80": 0.282,
+    "hit100": 0.165,
+    "avg": 1.73
+   },
+   "highest third": {
+    "n": 618,
+    "yards": 66.6,
+    "carries": 14.8,
+    "ypc": 4.5,
+    "hit80": 0.311,
+    "hit100": 0.189,
+    "avg": 2.15
+   }
+  },
+  "yards before contact per carry allowed": {
+   "lowest third": {
+    "n": 619,
+    "yards": 60.3,
+    "carries": 14.2,
+    "ypc": 4.23,
+    "hit80": 0.244,
+    "hit100": 0.153,
+    "avg": 2.12
+   },
+   "middle": {
+    "n": 618,
+    "yards": 62.2,
+    "carries": 14.1,
+    "ypc": 4.41,
+    "hit80": 0.286,
+    "hit100": 0.157,
+    "avg": 2.57
+   },
+   "highest third": {
+    "n": 618,
+    "yards": 64.9,
+    "carries": 14.5,
+    "ypc": 4.48,
+    "hit80": 0.314,
+    "hit100": 0.176,
+    "avg": 3.02
+   }
+  },
+  "yards per carry allowed to backs": {
+   "lowest third": {
+    "n": 619,
+    "yards": 59.3,
+    "carries": 13.8,
+    "ypc": 4.29,
+    "hit80": 0.249,
+    "hit100": 0.149,
+    "avg": 3.66
+   },
+   "middle": {
+    "n": 618,
+    "yards": 61.8,
+    "carries": 14.6,
+    "ypc": 4.25,
+    "hit80": 0.259,
+    "hit100": 0.147,
+    "avg": 4.23
+   },
+   "highest third": {
+    "n": 618,
+    "yards": 66.2,
+    "carries": 14.4,
+    "ypc": 4.59,
+    "hit80": 0.337,
+    "hit100": 0.191,
+    "avg": 4.88
+   }
+  },
+  "RB rushing yards allowed a game": {
+   "lowest third": {
+    "n": 619,
+    "yards": 57.6,
+    "carries": 13.8,
+    "ypc": 4.19,
+    "hit80": 0.241,
+    "hit100": 0.141,
+    "avg": 71.29
+   },
+   "middle": {
+    "n": 618,
+    "yards": 62.2,
+    "carries": 14.1,
+    "ypc": 4.41,
+    "hit80": 0.269,
+    "hit100": 0.159,
+    "avg": 91.35
+   },
+   "highest third": {
+    "n": 618,
+    "yards": 67.5,
+    "carries": 14.9,
+    "ypc": 4.51,
+    "hit80": 0.335,
+    "hit100": 0.188,
+    "avg": 113.54
+   }
+  },
+  "runs of 10+ allowed a game": {
+   "lowest third": {
+    "n": 621,
+    "yards": 58.6,
+    "carries": 13.7,
+    "ypc": 4.28,
+    "hit80": 0.233,
+    "hit100": 0.132,
+    "avg": 1.37
+   },
+   "middle": {
+    "n": 649,
+    "yards": 62.0,
+    "carries": 14.4,
+    "ypc": 4.31,
+    "hit80": 0.28,
+    "hit100": 0.168,
+    "avg": 2.19
+   },
+   "highest third": {
+    "n": 585,
+    "yards": 67.0,
+    "carries": 14.7,
+    "ypc": 4.55,
+    "hit80": 0.333,
+    "hit100": 0.188,
+    "avg": 2.97
+   }
+  }
+ },
+ "splits_environment": {
+  "spread (his team favored by)": {
+   "lowest third": {
+    "n": 653,
+    "yards": 56.8,
+    "carries": 13.7,
+    "ypc": 4.14,
+    "hit80": 0.225,
+    "hit100": 0.127,
+    "avg": -6.0
+   },
+   "middle": {
+    "n": 614,
+    "yards": 63.0,
+    "carries": 14.4,
+    "ypc": 4.37,
+    "hit80": 0.292,
+    "hit100": 0.16,
+    "avg": 0.8
+   },
+   "highest third": {
+    "n": 588,
+    "yards": 68.1,
+    "carries": 14.7,
+    "ypc": 4.64,
+    "hit80": 0.333,
+    "hit100": 0.204,
+    "avg": 6.98
+   }
+  },
+  "team implied total": {
+   "lowest third": {
+    "n": 633,
+    "yards": 57.3,
+    "carries": 14.0,
+    "ypc": 4.1,
+    "hit80": 0.24,
+    "hit100": 0.12,
+    "avg": 18.14
+   },
+   "middle": {
+    "n": 627,
+    "yards": 61.5,
+    "carries": 14.1,
+    "ypc": 4.37,
+    "hit80": 0.271,
+    "hit100": 0.166,
+    "avg": 22.39
+   },
+   "highest third": {
+    "n": 595,
+    "yards": 68.9,
+    "carries": 14.8,
+    "ypc": 4.66,
+    "hit80": 0.336,
+    "hit100": 0.203,
+    "avg": 26.51
+   }
+  },
+  "his carries a game": {
+   "lowest third": {
+    "n": 619,
+    "yards": 53.5,
+    "carries": 12.2,
+    "ypc": 4.39,
+    "hit80": 0.21,
+    "hit100": 0.113,
+    "avg": 11.59
+   },
+   "middle": {
+    "n": 618,
+    "yards": 59.7,
+    "carries": 14.0,
+    "ypc": 4.27,
+    "hit80": 0.241,
+    "hit100": 0.134,
+    "avg": 14.23
+   },
+   "highest third": {
+    "n": 618,
+    "yards": 74.2,
+    "carries": 16.7,
+    "ypc": 4.45,
+    "hit80": 0.393,
+    "hit100": 0.239,
+    "avg": 17.83
+   }
+  }
+ },
+ "workhorses_15_plus": {
+  "n": 745,
+  "hit80": 0.377,
+  "hit100": 0.231,
+  "by_missed_tackles": {
+   "lowest third": {
+    "n": 249,
+    "yards": 75.7,
+    "carries": 16.8,
+    "ypc": 4.52,
+    "hit80": 0.422,
+    "hit100": 0.249,
+    "avg": 4.04
+   },
+   "middle": {
+    "n": 253,
+    "yards": 69.0,
+    "carries": 15.8,
+    "ypc": 4.37,
+    "hit80": 0.34,
+    "hit100": 0.198,
+    "avg": 5.53
+   },
+   "highest third": {
+    "n": 243,
+    "yards": 73.3,
+    "carries": 16.5,
+    "ypc": 4.43,
+    "hit80": 0.37,
+    "hit100": 0.247,
+    "avg": 7.42
+   }
+  },
+  "by_rb_yards_allowed": {
+   "lowest third": {
+    "n": 250,
+    "yards": 67.7,
+    "carries": 15.7,
+    "ypc": 4.32,
+    "hit80": 0.316,
+    "hit100": 0.192,
+    "avg": 70.8
+   },
+   "middle": {
+    "n": 247,
+    "yards": 72.6,
+    "carries": 16.5,
+    "ypc": 4.41,
+    "hit80": 0.385,
+    "hit100": 0.239,
+    "avg": 90.84
+   },
+   "highest third": {
+    "n": 248,
+    "yards": 77.7,
+    "carries": 17.0,
+    "ypc": 4.58,
+    "hit80": 0.431,
+    "hit100": 0.262,
+    "avg": 113.4
+   }
+  },
+  "by_spread": {
+   "lowest third": {
+    "n": 282,
+    "yards": 66.2,
+    "carries": 15.9,
+    "ypc": 4.15,
+    "hit80": 0.319,
+    "hit100": 0.177,
+    "avg": -5.42
+   },
+   "middle": {
+    "n": 244,
+    "yards": 72.9,
+    "carries": 16.4,
+    "ypc": 4.44,
+    "hit80": 0.393,
+    "hit100": 0.238,
+    "avg": 1.88
+   },
+   "highest third": {
+    "n": 219,
+    "yards": 80.6,
+    "carries": 16.8,
+    "ypc": 4.79,
+    "hit80": 0.434,
+    "hit100": 0.292,
+    "avg": 7.8
+   }
+  }
+ },
+ "workhorse_combo": {
+  "favored by 3+ against a soft run defense": {
+   "n": 173,
+   "hit80": 0.486,
+   "hit100": 0.306,
+   "yards": 82.6
+  },
+  "underdog by 3+ against a tough run defense": {
+   "n": 138,
+   "hit80": 0.312,
+   "hit100": 0.152,
+   "yards": 64.1
+  }
+ }
+}

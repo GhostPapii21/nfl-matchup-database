@@ -27,3 +27,30 @@ do not, for alphas or tier B, early or late in the season. `slate.py` therefore 
 team's implied total (31.5 / 41.7 / 50%), tier B likewise (26 / 31 / 32.5%), and takes 7 points off against a defense
 in the lowest third for 80+ games allowed to the position (research/coverage_db_2026-11-16). Defense big-play rate,
 missed tackles and broken tackles are shown as context, not used. The running-back tackle numbers are untested.
+
+## Running backs: do a defense's tackling numbers predict rushing yards? (`test_rb.py`)
+
+1,855 lead-back games (10+ carries a game coming in), 2022 to week 10 of 2026; fit 2022-24, held out 2025-26.
+Lead backs hit 80+ rushing yards in 28% of games and 100+ in 16%; backs with 15+ carries a game, 38% and 23%.
+
+| Added to carries, yards per carry, spread and team total | Odds of 80+ per standard deviation | z |
+| --- | --- | --- |
+| Missed tackles a game (PFR) | -8% | -1.2 |
+| Tackles broken by backs a game (PFR) | +2% | 0.3 |
+| Yards after contact per carry allowed | +16% | 2.2 |
+| Yards before contact per carry allowed | +24% | 3.0 |
+| Yards per carry allowed to backs | +35% | 4.4 |
+| Runs of 10+ allowed a game | +35% | 4.4 |
+| RB rushing yards allowed a game | +37% | 4.7 |
+
+Missed and broken tackle counts carry no signal. What a run defense has actually allowed does: by thirds of RB rushing
+yards allowed, lead backs hit 80+ in 24% / 27% / 34% of games (58 / 62 / 68 yards). On the held-out seasons the tough
+third is still lowest (26%) but the middle and soft thirds are not separated (33% / 31%).
+
+Backs with 15+ carries: favored by 3+ against a soft run defense, 49% hit 80+ and 31% hit 100+ (173 games; 40% and 22% on
+the 50 held-out games); underdog by 3+ against a tough one, 31% and 15% (24% held out).
+
+Model used for `rb_week11.json` (all seasons): logit P(80+) = -15.60 + 2.39 ln(carries) + 2.39 ln(yards per carry)
++ 0.018 spread - 0.020 implied + 1.14 ln(RB yards the defense allows a game), with carries = 0.6 season + 0.4 last three
+and yards per carry shrunk toward the league with 40 carries. Fit on 2022-24 it was calibrated on 2025-26 by fifths:
+predicted 12 / 20 / 27 / 34 / 48%, happened 18 / 20 / 27 / 37 / 47%. Research only; not graded against prices.
