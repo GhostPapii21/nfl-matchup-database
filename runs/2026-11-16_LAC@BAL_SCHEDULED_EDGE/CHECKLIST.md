@@ -1,0 +1,17 @@
+# Checklist — LAC@BAL MNF scheduled edge run (2026-11-16)
+- Packet read (INDEX, brief, json): PASS (9:57 PM ET Nov 15)
+- ANALYST_PROMPT v2 followed: PASS
+- QB identity: FAIL in packet (Huntley listed). Officially corrected: baltimoreravens.com depth chart (QB1 Brissett) pulled 8:55 AM ET Nov 16; Minter confirmation in official News & Notes, Nov 9, 5:21 PM ET. NFL.com official IR does not name a starter. All packet BAL passing and pace baselines marked STALE (built on Huntley). No re-sim.
+- Injuries live: PASS (chargers.com). BAL Stanley/Campbell UNKNOWN.
+- Weather: PASS (NWS)
+- Book prices/no-vig: Packet BLOCKED (credit floor). Public quotes de-vigged by hand. Pinnacle MISSING, DK MISSING, FD STALE. No Odds API credits spent (801, floor 800).
+- Props: MISSING. Henry floor is an UNPRICED LEAN (not an edge); cannot be graded vs break-even until a real FD/DK alt price exists.
+- Line movement: partial (38.5 to 39). Openers PAYWALLED.
+- FTN model: MISSING (gated)
+- Coverage/defender assignment: BLOCKED. No receiving leg playable.
+- 60% carry gate: Henry PASS (73%); Hampton/Hill DO-NOT-PLAY
+- Passing yards: excluded
+- 3x100k sims: NOT RUN (gates NFL-49/56 unmet; no re-sim on this vet)
+- Labels: Henry UNPRICED LEAN; Herbert sacks WATCH (blitz rate is not pressure; NGS + packet sack/pressure-allowed cited); total under WEAKEN. No slips.
+- Phase 15 inactives: PENDING (6:50 PM ET routine)
+- projection_ready: false (unchanged)
