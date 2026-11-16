@@ -90,6 +90,7 @@ button { font: inherit; color: inherit; }
 .v { font-family: var(--font-display); font-size: 22px; font-weight: 700; line-height: 1.1; }
 .v small { font-family: var(--font-body); font-size: 12px; color: var(--muted); font-weight: 500; }
 .flags { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; border-top: 1px solid var(--line); background: var(--surface-2); }
+.wstars { color: var(--warn); letter-spacing: 1px; font-size: 12px; white-space: nowrap; cursor: help; }
 .pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 500;
   background: var(--surface); border: 1px solid var(--line); }
 .pill.good { background: var(--good-soft); border-color: transparent; color: var(--good); }
@@ -630,7 +631,7 @@ const BOARD = /*__BOARD_DATA__*/null;
   }
   function renderOverview(g) {
     const ks = sideKeys(g), s1 = g.sides[ks[0]], s2 = g.sides[ks[1]];
-    return `${oppLeadersCard(g)}<div class="grid two">${edgesCard(s1)}${edgesCard(s2)}</div>
+    return `${watchCard(g)}${oppLeadersCard(g)}<div class="grid two">${edgesCard(s1)}${edgesCard(s2)}</div>
       <div class="grid two">${topReceiversCard(s1)}${topReceiversCard(s2)}</div>
       <div class="grid two">${targetsCard(s1)}${targetsCard(s2)}</div>
       <div class="grid two">${qbQuickCard(s1)}${qbQuickCard(s2)}</div>
@@ -997,6 +998,20 @@ const BOARD = /*__BOARD_DATA__*/null;
     return e;
   }
   const isHot = (edges) => edges.filter(([l, t]) => l === "good" && !/^Likely coverage includes/.test(t)).length >= 2;
+  // ---- 80-yard watch (dashboard/watch.py): stars from fitted weights
+  const starStr = (k) => "★".repeat(k) + "☆".repeat(3 - k);
+  function watchFor(s, pid) { const w = s.watch; if (!w || w.error) return null; return (w.receivers || []).concat(w.rushers || []).find((x) => x.player_id === pid) || null; }
+  function watchBadge(x) { return x && x.stars ? `<span class="wstars" title="${esc("80+ yds " + pct(x.p80) + ", 100+ " + pct(x.p100) + ". " + (x.why || []).join("; "))}">${starStr(x.stars)}</span>` : ""; }
+  function watchRows(s, min) { const w = s.watch; if (!w || w.error) return []; return (w.receivers || []).concat(w.rushers || []).filter((x) => x.stars >= (min || 1)).sort((a, b) => b.p80 - a.p80); }
+  function watchCard(g) {
+    const ks = sideKeys(g), rows = [];
+    ks.forEach((k) => watchRows(g.sides[k], 1).forEach((x) => rows.push(Object.assign({ off: g.sides[k].offense, def: g.sides[k].defense }, x))));
+    rows.sort((a, b) => b.p80 - a.p80);
+    const ctx = ks.map((k) => { const c = (g.sides[k].watch || {}).context; return c ? `${esc(g.sides[k].offense)}: expected to score ${n(c.implied, 0)}${c.pass_yards_last5 ? `, ${n(c.pass_yards_last5, 0)} passing yds/g over its last 5 (#${c.pass_offense_rank})` : ""}; ${esc(g.sides[k].defense)} has allowed 80+ games at rank #${c.defense_g80_rank ?? "–"} of 32 and big plays at #${c.defense_explosive_rank ?? "–"}` : ""; }).filter(Boolean);
+    return `<div class="card"><h4>80-yard watch</h4><div class="sub">★★★ 50%+ · ★★ 40%+ · ★ 30%+ for 80 yards. Weights fitted on 2022–26: his targets or carries, yards a game, team total, pass volume and how often the defense gives up 80+ games.</div>
+      ${rows.length ? `<table class="tbl"><thead><tr><th></th><th>Player</th><th>80+</th><th>100+</th><th style="text-align:left">Why</th></tr></thead><tbody>${rows.map((x) => `<tr><td class="wstars">${starStr(x.stars)}</td><td>${esc(x.player)} <span class="pos">${esc(x.pos)} · ${esc(x.off)}</span>${x.tier ? ` <span class="tag t-primary">${esc(x.tier)}</span>` : ""}</td><td><b>${pct(x.p80)}</b></td><td>${pct(x.p100)}</td><td style="text-align:left" class="note">${esc((x.why || []).slice(0, 4).join(" · "))}</td></tr>`).join("")}</tbody></table>` : `<p class="empty">Nobody in this game reaches 30% for 80 yards.</p>`}
+      <div class="note" style="margin-top:8px">${ctx.join("<br>")}</div></div>`;
+  }
   function oppFor(s, pid, kind) { const o = s.opportunity; if (!o || o.error) return null; return (o[kind] || []).find((x) => x.player_id === pid); }
   function fieldRecCard(s, r) {
     const vis = ((s.visual || {}).receivers || {})[r.player_id] || {}, opp = oppFor(s, r.player_id, "receivers");
@@ -1236,7 +1251,7 @@ const BOARD = /*__BOARD_DATA__*/null;
     return `<div class="pcard ${hot ? "hot" : ""}" style="--tc:${teamColor(g, s.offense)}"><div class="pc-in">
       <div class="pc-hero">${logo ? `<img class="pc-logo" src="${logo}" alt="">` : ""}${card.photo ? `<img class="ph" src="${card.photo}" alt="${esc(name)}">` : `<span class="ini">${esc(ini)}</span>`}
         ${card.jersey != null ? `<span class="num">${card.jersey}</span>` : ""}${hot ? `<button type="button" class="badge ribbon" data-edges="${esc(id)}" aria-label="Why the Mismatch badge">Mismatch ?</button>` : ""}</div>
-      <div class="pc-plate"><span class="nm">${esc(name)}</span><span class="mt">${esc(r.pos)} · ${esc(s.offense)}<span class="tags" style="justify-content:flex-end;margin-top:3px">${(r.tags || []).slice(0, 3).map(tagHtml).join("")}</span></span></div>
+      <div class="pc-plate"><span class="nm">${esc(name)} ${watchBadge(watchFor(s, r.player_id))}</span><span class="mt">${esc(r.pos)} · ${esc(s.offense)}<span class="tags" style="justify-content:flex-end;margin-top:3px">${(r.tags || []).slice(0, 3).map(tagHtml).join("")}</span></span></div>
       <div class="pc-tabs" role="group" aria-label="Last five games">${METRICS[kind].map(([, l], i) => `<button data-card="${esc(id)}" data-mi="${i}" aria-pressed="${i === 0}">${l}</button>`).join("")}<button type="button" class="gq" id="gq-${esc(id)}" data-gloss="${kind === "rec" ? "targets" : "carries"}" aria-label="What does this stat mean?">?</button></div>
       <div class="pc-chart" id="ch-${esc(id)}" data-kind="${kind}">${chartFor(log, kind, 0)}</div>
       <div class="pc-car" data-car="${esc(id)}" data-i="0"><div class="pc-track">${slides.map((x) => `<div class="pc-slide">${x}</div>`).join("")}</div>
@@ -1323,11 +1338,16 @@ const BOARD = /*__BOARD_DATA__*/null;
     const all = []; games.forEach((g, gi) => hotPlayers(g).forEach((x) => all.push(Object.assign({ gi }, x))));
     const topOpp = all.filter((x) => isNum(x.p70)).sort((a, b) => b.p70 - a.p70).slice(0, 8);
     const mism = all.filter((x) => x.hot).sort((a, b) => b.good.length - a.good.length || (b.p70 || 0) - (a.p70 || 0)).slice(0, 8);
+    const stars80 = []; games.forEach((g, gi) => sideKeys(g).forEach((k) => watchRows(g.sides[k], 1).forEach((x) => stars80.push(Object.assign({ gi, off: g.sides[k].offense, def: g.sides[k].defense }, x)))));
+    stars80.sort((a, b) => b.p80 - a.p80);
     const wx = games.map((g, gi) => [g, gi]).filter(([g]) => ["warn", "bad"].includes((g.weather_verdict || {}).level));
     const inj = []; games.forEach((g, gi) => Object.values(g.sides).forEach((s) => (s.offense_injuries || []).filter((x) => x.impact === "high" && x.status_level >= 3).forEach((x) => inj.push([g, gi, s, x]))));
     const groups = []; games.forEach((g, i) => { const key = g.game.date + "|" + g.game.slot; let grp = groups.find((x) => x.key === key); if (!grp) groups.push((grp = { key, label: g.game.slot, items: [] })); grp.items.push(i); });
     return `<section class="hero"><div><div class="eyebrow">Week ${games[0] ? games[0].game.week : ""} slate</div><h1>Pick a game to step inside</h1><p class="note">Every game below opens its own room: player cards, opportunity, field view, matchups, injuries, odds and weather. <span class="hero-help">New here? <button class="linkbtn" data-howto>How to use this board</button></span></p></div></section>
       ${groups.map((grp) => `<div class="slot-h">${esc(grp.label)}</div><div class="tiles">${grp.items.map((i) => gameTile(games[i], i)).join("")}</div>`).join("")}
+      <div class="section-title">80-yard watch</div>
+      <div class="card"><div class="sub">Starred from fitted weights (2022–26). ★★★ is 50%+ for 80 yards, ★★ 40%+, ★ 30%+. Tap a game for the reasons behind each star.</div>
+        ${stars80.length ? `<table class="tbl"><thead><tr><th></th><th>Player</th><th>Game</th><th>80+</th><th>100+</th><th style="text-align:left">Why</th></tr></thead><tbody>${stars80.slice(0, 24).map((x) => `<tr><td class="wstars">${starStr(x.stars)}</td><td><button class="linkbtn" data-enter="${x.gi}" data-tab-go="overview">${esc(x.player)}</button> <span class="pos">${esc(x.pos)} · ${esc(x.off)}</span></td><td>${esc(x.off)} vs ${esc(x.def)}</td><td><b>${pct(x.p80)}</b></td><td>${pct(x.p100)}</td><td style="text-align:left" class="note">${esc((x.why || []).slice(0, 3).join(" · "))}</td></tr>`).join("")}</tbody></table>` : '<p class="empty">No player reaches 30% for 80 yards.</p>'}</div>
       <div class="section-title">Highlights</div>
       <div class="grid two">
         <div class="card"><h4>Best chance at 70+ yards</h4><div class="sub">Across the slate, from each player's volume and efficiency against this week's defense. Tap a player to open his card.</div><div class="minis">${topOpp.map((x) => miniPlayer(x, x.gi, `median ${n((x.opp || {}).yards_median, 0)} yds`)).join("") || '<p class="empty">No projections yet.</p>'}</div></div>

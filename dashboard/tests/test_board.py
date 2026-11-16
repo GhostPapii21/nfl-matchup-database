@@ -171,3 +171,38 @@ def test_espn_out_beats_a_friday_questionable():
                                      {"player": "Other Guy", "position": "WR", "status": "Questionable"}]}}
     rows = {r["player"]: r for r in X.injury_impact(pk, {}, {})}
     assert rows["Lead Back"]["status_level"] == 3 and rows["Other Guy"]["status_level"] == 2
+
+
+# ------------------------------------------------------------------------------------------- 80-yard watch
+def _watch_side(log_t, log_y, share=0.30):
+    from dashboard import watch as W
+    by_game = [{"week": w, "wr_targets": 24, "te_targets": 6, "rb_targets": 6, "pass_yards": 300} for w in range(1, 9)]
+    log = [{"week": w, "targets": t, "yards": y, "receptions": int(t * 0.65)} for w, (t, y) in enumerate(zip(log_t, log_y), 1)]
+    rec = {"player": "Star", "full_name": "Star", "player_id": "p1", "pos": "WR", "log": log, "explosive": 10, "games": len(log), "target_share": share}
+    opp = {"receivers": [{"player_id": "p1", "player": "Star", "inputs": {"target_share_window": share, "target_share_last3": share, "target_share_used": share, "injury_bump": 0}}], "rushers": []}
+    return {"offense": "AAA", "defense": "BBB", "offense_by_game": by_game, "roles": {"receivers": [rec], "rushers": []}, "opportunity": opp,
+            "offense_rank": {"pass_yards_pg": {"rank": 1}}}, W
+
+
+def test_watch_stars_follow_volume_and_game_type():
+    model = __import__("dashboard.watch", fromlist=["x"]).load_model()
+    assert model and model["stars"] == {"3": 0.5, "2": 0.4, "1": 0.3}
+    alpha, W = _watch_side([11, 10, 12, 9, 11, 10, 12, 11], [110, 95, 120, 80, 105, 99, 130, 90])
+    low, _ = _watch_side([5, 4, 6, 5, 4, 5, 6, 5], [40, 35, 50, 45, 30, 38, 55, 42])
+    dctx = {"BBB": {"games": 9, "ex_rate_rel": 1.0, "g80_WR_pg": 0.5, "g80_TE_pg": 0.1, "g80_rank": 10, "ex_rank": 10}}
+    hi = W.watch_side(alpha, {"AAA": 28.0, "BBB": 21.0}, dctx, model)["receivers"][0]
+    lo = W.watch_side(low, {"AAA": 28.0, "BBB": 21.0}, dctx, model)["receivers"][0]
+    assert hi["tier"] == "alpha" and hi["stars"] >= 2 and hi["p80"] > 0.4 and lo["stars"] == 0 and lo["p80"] < hi["p80"] / 3
+    low_team = W.watch_side(alpha, {"AAA": 18.0, "BBB": 24.0}, dctx, model)["receivers"][0]
+    assert low_team["p80"] < hi["p80"]                                    # same player, team expected to score less
+    stingy = {"BBB": {**dctx["BBB"], "g80_WR_pg": 0.1}}
+    assert W.watch_side(alpha, {"AAA": 28.0, "BBB": 21.0}, stingy, model)["receivers"][0]["p80"] < hi["p80"]
+
+
+def test_watch_skips_players_who_are_out_and_missing_inputs():
+    from dashboard import watch as W
+    side, _ = _watch_side([8, 9, 10], [70, 80, 90])
+    side["opportunity"]["receivers"][0]["status"] = "OUT: no projection"
+    model = W.load_model()
+    assert W.watch_side(side, {"AAA": 25.0, "BBB": 22.0}, {}, model)["receivers"] == []
+    assert W.watch_side(side, None, {}, model) is None and W.watch_side(side, {"AAA": 25.0}, {}, None) is None

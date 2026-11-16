@@ -61,3 +61,16 @@ render is `dashboard/assets/field_holo.webp`. Team colors come from nflverse.
 Coverage (man/zone, middle open/closed), quarterback-pressure and opponent-tier adjustments to the projection were fitted on
 2023-2024 and tested on 2025. None improved it beyond luck, so they are shown as context only and not applied. See
 `dashboard/results/coverage_backtest.md` and `dashboard/coverage_model.py`.
+
+
+## 80-yard watch (stars)
+
+`dashboard/watch.py` stars the players with a real chance at 80+ yards, using weights fitted in
+`research/watch_model_2026-11-16/` (`dashboard/watch_model.json`, 2022 to 2026, checked on 2025-26).
+Receivers: his targets (0.6 season + 0.4 last three x team targets, scaled for teammates out), yards a game, team implied
+total, his team's pass volume, how often the defense gives up 20+ yard completions, and how many 80+ yard games it has
+allowed to his position. Backs: carries, yards per carry, spread, team total and the rushing yards the defense allows.
+Every factor was fitted, so ones that do not predict (the defense's big-play rate) carry almost no weight and are shown as
+context. Stars: 3 = 50%+ for 80 yards, 2 = 40%+, 1 = 30%+. The board shows them on the home screen, at the top of each
+game's Overview, and next to the name on player cards. Refit with
+`python3 research/watch_model_2026-11-16/fit.py --data DIR`. Research only; not graded against prices.

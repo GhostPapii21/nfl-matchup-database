@@ -1,0 +1,238 @@
+{
+ "fitted": "2022 to 2026 (weights), checked on 2025-2026 with weights from 2022-2024",
+ "receiver": {
+  "label": "WR/TE receiving yards",
+  "n": 8070,
+  "features": [
+   "l_tgt",
+   "l_yds",
+   "implied",
+   "team_pass",
+   "l_ex",
+   "g80_pg"
+  ],
+  "models": {
+   "80": {
+    "coef": {
+     "const": -8.7095,
+     "l_tgt": 1.4588,
+     "l_yds": 1.1156,
+     "implied": 0.0384,
+     "team_pass": -0.027,
+     "l_ex": 0.0833,
+     "g80_pg": 0.2776
+    },
+    "z": {
+     "const": -15.92,
+     "l_tgt": 7.0,
+     "l_yds": 6.29,
+     "implied": 3.54,
+     "team_pass": -2.57,
+     "l_ex": 0.39,
+     "g80_pg": 1.85
+    },
+    "holdout_auc": 0.802,
+    "holdout_calibration": [
+     {
+      "predicted": 0.008,
+      "happened": 0.004,
+      "n": 449
+     },
+     {
+      "predicted": 0.026,
+      "happened": 0.042,
+      "n": 449
+     },
+     {
+      "predicted": 0.062,
+      "happened": 0.047,
+      "n": 448
+     },
+     {
+      "predicted": 0.139,
+      "happened": 0.136,
+      "n": 449
+     },
+     {
+      "predicted": 0.321,
+      "happened": 0.274,
+      "n": 449
+     }
+    ]
+   },
+   "100": {
+    "coef": {
+     "const": -10.2017,
+     "l_tgt": 1.8721,
+     "l_yds": 1.1627,
+     "implied": 0.0413,
+     "team_pass": -0.0399,
+     "l_ex": -0.3169,
+     "g80_pg": 0.2807
+    },
+    "z": {
+     "const": -13.38,
+     "l_tgt": 6.11,
+     "l_yds": 4.56,
+     "implied": 2.8,
+     "team_pass": -2.75,
+     "l_ex": -1.12,
+     "g80_pg": 1.37
+    },
+    "holdout_auc": 0.854,
+    "holdout_calibration": [
+     {
+      "predicted": 0.003,
+      "happened": 0.0,
+      "n": 449
+     },
+     {
+      "predicted": 0.009,
+      "happened": 0.009,
+      "n": 449
+     },
+     {
+      "predicted": 0.025,
+      "happened": 0.011,
+      "n": 448
+     },
+     {
+      "predicted": 0.064,
+      "happened": 0.058,
+      "n": 449
+     },
+     {
+      "predicted": 0.19,
+      "happened": 0.151,
+      "n": 449
+     }
+    ]
+   }
+  },
+  "effect_per_sd_80": {
+   "l_tgt": 123.2,
+   "l_yds": 118.4,
+   "implied": 16.3,
+   "team_pass": -10.4,
+   "l_ex": 1.6,
+   "g80_pg": 7.7
+  }
+ },
+ "rusher": {
+  "label": "RB rushing yards",
+  "n": 1855,
+  "features": [
+   "l_car",
+   "l_ypc",
+   "spread",
+   "implied",
+   "l_d"
+  ],
+  "models": {
+   "80": {
+    "coef": {
+     "const": -15.601,
+     "l_car": 2.3911,
+     "l_ypc": 2.394,
+     "spread": 0.0185,
+     "implied": -0.0196,
+     "l_d": 1.1389
+    },
+    "z": {
+     "const": -9.43,
+     "l_car": 8.51,
+     "l_ypc": 5.08,
+     "spread": 1.18,
+     "implied": -0.78,
+     "l_d": 4.22
+    },
+    "holdout_auc": 0.652,
+    "holdout_calibration": [
+     {
+      "predicted": 0.123,
+      "happened": 0.179,
+      "n": 117
+     },
+     {
+      "predicted": 0.204,
+      "happened": 0.197,
+      "n": 117
+     },
+     {
+      "predicted": 0.267,
+      "happened": 0.267,
+      "n": 116
+     },
+     {
+      "predicted": 0.344,
+      "happened": 0.368,
+      "n": 117
+     },
+     {
+      "predicted": 0.481,
+      "happened": 0.47,
+      "n": 117
+     }
+    ]
+   },
+   "100": {
+    "coef": {
+     "const": -17.3203,
+     "l_car": 2.3525,
+     "l_ypc": 2.6163,
+     "spread": -0.0034,
+     "implied": 0.0263,
+     "l_d": 1.0756
+    },
+    "z": {
+     "const": -8.65,
+     "l_car": 6.99,
+     "l_ypc": 4.59,
+     "spread": -0.18,
+     "implied": 0.86,
+     "l_d": 3.28
+    },
+    "holdout_auc": 0.654,
+    "holdout_calibration": [
+     {
+      "predicted": 0.06,
+      "happened": 0.094,
+      "n": 117
+     },
+     {
+      "predicted": 0.107,
+      "happened": 0.12,
+      "n": 117
+     },
+     {
+      "predicted": 0.148,
+      "happened": 0.129,
+      "n": 116
+     },
+     {
+      "predicted": 0.203,
+      "happened": 0.188,
+      "n": 117
+     },
+     {
+      "predicted": 0.325,
+      "happened": 0.325,
+      "n": 117
+     }
+    ]
+   }
+  },
+  "effect_per_sd_80": {
+   "l_car": 62.2,
+   "l_ypc": 33.6,
+   "spread": 11.8,
+   "implied": -7.1,
+   "l_d": 28.3
+  }
+ },
+ "stars": {
+  "3": 0.5,
+  "2": 0.4,
+  "1": 0.3
+ }
+}

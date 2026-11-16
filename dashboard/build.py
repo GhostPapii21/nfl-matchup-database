@@ -25,6 +25,7 @@ if str(ROOT) not in sys.path:
 from dashboard import extras as X  # noqa: E402
 from dashboard import opportunity as OP  # noqa: E402
 from dashboard import visuals as V  # noqa: E402
+from dashboard import watch as WT  # noqa: E402
 
 PACKETS = ROOT / "pregame" / "packets"
 OUT = ROOT / "dashboard"
@@ -239,6 +240,14 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
             sd["opportunity"] = OP.board_side(sd, g, imp, pools, out_names, seed=sum(map(ord, g["game_id"] + key))) if pools else None
         except Exception as e:  # noqa: BLE001 - the board still renders without this section
             sd["opportunity"] = {"error": f"{type(e).__name__}: {e}"[:200]}
+    try:  # 80-yard watch: stars from the fitted weights (dashboard/watch_model.json); the board renders without it
+        model = WT.load_model()
+        dctx = WT.defense_context(data.get("pbp", season), rosters, int(g["week"]))
+        for sd in sides.values():
+            sd["watch"] = WT.watch_side(sd, imp, dctx, model)
+    except Exception as e:  # noqa: BLE001
+        for sd in sides.values():
+            sd["watch"] = {"error": f"{type(e).__name__}: {e}"[:200]}
     try:
         add_visuals(sides, pk, data, season, games)
     except Exception as e:  # noqa: BLE001 - the board still renders without the visual views
