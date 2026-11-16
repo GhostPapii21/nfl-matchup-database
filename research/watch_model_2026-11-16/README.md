@@ -20,3 +20,15 @@ Ranking accuracy 0.802. For backs (1,855 games; carries, yards per carry, spread
 Not in the weights, because they did not predict: the defense's big-play rate, yards allowed to other lead receivers,
 missed and broken tackles, and individual cornerback records (see `coverage_db_2026-11-16` and `game_types_2026-11-16`).
 The team's last-five passing form is shown as context; as a standalone factor it was weaker than implied total and volume.
+
+## Track record of the stars (2025-26, weights fitted on 2022-24 only)
+
+| Stars | Players a week | Predicted | Hit 80+ | Hit 100+ |
+| --- | --- | --- | --- | --- |
+| ★★★ (50%+) | 3.7 | 55.8% | 51.2% | 31.7% |
+| ★★ (40-50%) | 5.6 | 43.9% | 43.1% | 29.3% |
+| ★ (30-40%) | 11.3 | 34.3% | 34.5% | 19.3% |
+| All stars | 20.6 | | 39.9% | |
+
+The stars caught 45% of the 399 receiving and rushing 80-yard games in those 22 weeks. The other 55% came from players
+rated under 30%, which is the ceiling of a pregame model with public data. Not graded against prices.

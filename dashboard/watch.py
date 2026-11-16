@@ -91,7 +91,7 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None) -> di
            "defense_g80_rank": d.get("g80_rank"), "defense_explosive_rank": d.get("ex_rank")}
     rec_m, rus_m = model["receiver"]["models"]["80"]["coef"], model["rusher"]["models"]["80"]["coef"]
     rec_100, rus_100 = model["receiver"]["models"]["100"]["coef"], model["rusher"]["models"]["100"]["coef"]
-    out = {"receivers": [], "rushers": [], "context": ctx}
+    out = {"receivers": [], "rushers": [], "context": ctx, "record": model.get("star_record")}
     for r in (sd.get("roles") or {}).get("receivers", []):
         o = by_player.get(r.get("player_id"))
         log = [x for x in r.get("log", [])]

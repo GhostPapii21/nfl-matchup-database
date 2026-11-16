@@ -60,6 +60,24 @@ def fit_block(r, X, label):
     return out
 
 
+def star_record(r, X, b, XB, cuts):
+    """What the stars did on 2025-26 with weights fitted on 2022-24 only (receivers and backs together)."""
+    parts = []
+    for d, cols, y in ((r, X, "hit80"), (b.assign(hit80=(b.y_yds >= 80).astype(int)), XB, "hit80")):
+        tr, te = d[d.season <= 2024], d[d.season >= 2025]
+        m = sm.GLM(tr[y], sm.add_constant(tr[cols]), family=sm.families.Binomial()).fit()
+        parts.append(te.assign(p=m.predict(sm.add_constant(te[cols], has_constant="add")))[["season", "week", "p", "hit80", "y_yds"]])
+    a = pd.concat(parts)
+    weeks = a.groupby(["season", "week"]).ngroups
+    out = {"weeks": int(weeks), "seasons": "2025-2026", "all_80_games": int(a.hit80.sum())}
+    for lab, lo, hi in (("3", cuts["3"], 2), ("2", cuts["2"], cuts["3"]), ("1", cuts["1"], cuts["2"])):
+        x = a[(a.p >= lo) & (a.p < hi)]
+        out[lab] = {"per_week": round(len(x) / weeks, 1), "predicted": round(float(x.p.mean()), 3), "hit80": round(float(x.hit80.mean()), 3), "hit100": round(float((x.y_yds >= 100).mean()), 3)}
+    s = a[a.p >= cuts["1"]]
+    out["all_stars"] = {"per_week": round(len(s) / weeks, 1), "hit80": round(float(s.hit80.mean()), 3), "share_of_all_80_games_caught": round(float(s.hit80.sum() / a.hit80.sum()), 3)}
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--data", required=True); a = ap.parse_args()
     res = {"fitted": "2022 to 2026 (weights), checked on 2025-2026 with weights from 2022-2024"}
@@ -71,6 +89,7 @@ def main():
     b["l_car"], b["l_ypc"], b["l_d"] = np.log(0.6 * b.car_pg + 0.4 * b.car_l3), np.log(b.ypc), np.log(b.d_yds_pg)
     res["rusher"] = fit_block(b, ["l_car", "l_ypc", "spread", "implied", "l_d"], "RB rushing yards")
     res["stars"] = {"3": 0.50, "2": 0.40, "1": 0.30}
+    res["star_record"] = star_record(r, ["l_tgt", "l_yds", "implied", "team_pass", "l_ex", "g80_pg"], b, ["l_car", "l_ypc", "spread", "implied", "l_d"], res["stars"])
     (ROOT / "dashboard" / "watch_model.json").write_text(json.dumps(res, indent=1) + "\n")
     print(json.dumps(res, indent=1))
 
