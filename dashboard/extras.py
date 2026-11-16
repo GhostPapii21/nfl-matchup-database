@@ -583,8 +583,9 @@ def injury_impact(team_pk: dict, snap_share: dict, def_snaps: dict) -> list[dict
         x["starter_slot"] = slot
         x["snap_share"] = share
         x["next_up"] = second.get(slot) if slot else None
-        status = (x.get("game_status") or x.get("espn") or "").lower()
-        weight = 3 if status in ("out", "injured reserve", "doubtful") else 2 if status == "questionable" else 1
+        # The stronger of the two reports wins: a Friday "Questionable" that ESPN has since moved to "Out" is out.
+        lvl = lambda st: 3 if st in ("out", "injured reserve", "doubtful") else 2 if st == "questionable" else 1
+        weight = max(lvl((x.get("game_status") or "").lower()), lvl((x.get("espn") or "").lower()))
         imp = (share or 0) + (0.5 if slot else 0)
         x["impact"] = "high" if imp >= 0.9 and weight >= 2 else "medium" if imp >= 0.5 and weight >= 2 else "low"
         x["status_level"] = weight

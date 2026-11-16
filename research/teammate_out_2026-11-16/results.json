@@ -1,0 +1,168 @@
+{
+ "targets": {
+  "fit": {
+   "label": "targets: fit 2022-2024",
+   "n": 11044,
+   "n_with_out": 3918,
+   "coef": {
+    "const": -0.013,
+    "x_same": 0.324,
+    "x_other": 0.193,
+    "x_top_same": 0.11
+   },
+   "se": {
+    "const": 0.0,
+    "x_same": 0.102,
+    "x_other": 0.054,
+    "x_top_same": 0.032
+   }
+  },
+  "who_gains_2022_2026": [
+   {
+    "who": "top healthy player, same position group as the missing one",
+    "n": 830,
+    "base_share": 0.168,
+    "actual_share": 0.187,
+    "gain_pts": 0.019,
+    "missing_share": 0.215,
+    "gain_as_share_of_missing": 0.088
+   },
+   {
+    "who": "second in that group",
+    "n": 634,
+    "base_share": 0.115,
+    "actual_share": 0.126,
+    "gain_pts": 0.011,
+    "missing_share": 0.217,
+    "gain_as_share_of_missing": 0.05
+   },
+   {
+    "who": "third or lower in that group",
+    "n": 695,
+    "base_share": 0.072,
+    "actual_share": 0.076,
+    "gain_pts": 0.004,
+    "missing_share": 0.208,
+    "gain_as_share_of_missing": 0.021
+   },
+   {
+    "who": "top player of a different group",
+    "n": 1403,
+    "base_share": 0.161,
+    "actual_share": 0.158,
+    "gain_pts": -0.003,
+    "missing_share": 0.184,
+    "gain_as_share_of_missing": -0.017
+   },
+   {
+    "who": "everyone else in a different group",
+    "n": 2180,
+    "base_share": 0.081,
+    "actual_share": 0.068,
+    "gain_pts": -0.013,
+    "missing_share": 0.174,
+    "gain_as_share_of_missing": -0.075
+   }
+  ],
+  "test_2025_2026": {
+   "label": "holdout 2025-2026",
+   "n": 1824,
+   "mae": {
+    "no_bump": 0.057,
+    "current_80pct": 0.061,
+    "fitted": 0.057
+   },
+   "bias_top_same_group": {
+    "no_bump": -0.019,
+    "current_80pct": 0.018,
+    "fitted": 0.015
+   }
+  },
+  "games_with_someone_out": 761,
+  "team_volume_when_out": 30.984,
+  "team_volume_otherwise": 31.587
+ },
+ "carries": {
+  "fit": {
+   "label": "carries: fit 2022-2024",
+   "n": 3205,
+   "n_with_out": 500,
+   "coef": {
+    "const": -0.037,
+    "x_same": 0.456,
+    "x_other": 0.0,
+    "x_top_same": 0.057
+   },
+   "se": {
+    "const": 0.002,
+    "x_same": 0.109,
+    "x_other": 0.0,
+    "x_top_same": 0.098
+   }
+  },
+  "who_gains_2022_2026": [
+   {
+    "who": "top healthy player, same position group as the missing one",
+    "n": 364,
+    "base_share": 0.491,
+    "actual_share": 0.641,
+    "gain_pts": 0.149,
+    "missing_share": 0.465,
+    "gain_as_share_of_missing": 0.321
+   },
+   {
+    "who": "second in that group",
+    "n": 238,
+    "base_share": 0.222,
+    "actual_share": 0.251,
+    "gain_pts": 0.029,
+    "missing_share": 0.44,
+    "gain_as_share_of_missing": 0.065
+   },
+   {
+    "who": "third or lower in that group",
+    "n": 67,
+    "base_share": 0.115,
+    "actual_share": 0.073,
+    "gain_pts": -0.043,
+    "missing_share": 0.383,
+    "gain_as_share_of_missing": -0.111
+   },
+   {
+    "who": "top player of a different group",
+    "n": 0,
+    "base_share": null,
+    "actual_share": null,
+    "gain_pts": null,
+    "missing_share": null,
+    "gain_as_share_of_missing": null
+   },
+   {
+    "who": "everyone else in a different group",
+    "n": 0,
+    "base_share": null,
+    "actual_share": null,
+    "gain_pts": null,
+    "missing_share": null,
+    "gain_as_share_of_missing": null
+   }
+  ],
+  "test_2025_2026": {
+   "label": "holdout 2025-2026",
+   "n": 169,
+   "mae": {
+    "no_bump": 0.21,
+    "current_80pct": 0.184,
+    "fitted": 0.162
+   },
+   "bias_top_same_group": {
+    "no_bump": -0.16,
+    "current_80pct": 0.144,
+    "fitted": 0.039
+   }
+  },
+  "games_with_someone_out": 364,
+  "team_volume_when_out": 21.124,
+  "team_volume_otherwise": 22.158
+ }
+}

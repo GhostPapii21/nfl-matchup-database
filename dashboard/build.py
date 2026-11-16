@@ -98,6 +98,17 @@ def pools_for(data: X.Data, season: int) -> dict | None:
     return _POOLS[season]
 
 
+def official_inactives(pk: dict) -> dict:
+    """Game-day inactives by team from the newest verified club-site pull (phase15/inactives/<game>/), or {}.
+    Read-only, no network: the pull itself is `python -m phase15.official_inactives`."""
+    try:
+        from phase15 import official_inactives as OI
+        res = OI.hook(pk)
+        return {t: list(v or []) for t, v in (res.get("inactives") or {}).items()} if res.get("status") == "OK" else {}
+    except Exception:  # noqa: BLE001 - the board still builds without the inactives pull
+        return {}
+
+
 _VIS: dict = {}
 
 
@@ -219,8 +230,11 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
         result = {"away_score": int(grow["away_score"]), "home_score": int(grow["home_score"])}
     pools = pools_for(data, season)
     imp = implied_points(pk)
+    inactives = official_inactives(pk)
     for key, sd in sides.items():
         out_names = {x["player"] for x in sd.get("offense_injuries", []) if x.get("status_level", 0) >= 3}
+        out_names |= set(inactives.get(sd.get("offense"), []))
+        sd["official_inactives"] = sorted(inactives.get(sd.get("offense"), [])) if inactives else None
         try:
             sd["opportunity"] = OP.board_side(sd, g, imp, pools, out_names, seed=sum(map(ord, g["game_id"] + key))) if pools else None
         except Exception as e:  # noqa: BLE001 - the board still renders without this section

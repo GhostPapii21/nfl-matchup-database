@@ -10,8 +10,14 @@ two parts and simulates the game 20,000 times.
 - **Pass/run mix:** the offense's pass-attempt share of plays, moved by the script the market implies. A team favoured by
   7 passes about 7% less and runs about 8% more (capped at 10%).
 - **Weather:** the measured rain and wind effect on attempts (`research/weather/README.md`).
-- **His share:** 60% his share over the window, 40% his share over the last three games. Teammates listed Out or Doubtful
-  free up their share; 80% of it is spread over the rest in proportion to their own shares.
+- **His share:** 60% his share over the window, 40% his share over the last three games. Teammates who are out free up their share. A player
+  counts as out when the official report or ESPN's live list says Out, Doubtful or Injured Reserve (the stronger of the
+  two wins), or when he is on the official game-day inactive list (`phase15/inactives/`). Where the work goes was fit on
+  2022-24 and checked on 2025-26 (`research/teammate_out_2026-11-16/`): the top healthy player at the missing player's
+  position gets at least 18% of the missing target share; others at that position get 90% of it times their own slice of
+  the healthy share; other positions get 20% of it times their slice. For carries the top healthy back gets 42% of the
+  missing share and other backs 51% of it times their slice. The rest goes to replacements with no history, who are not
+  projected. (Before Nov 16 2026 the rule spread 80% of the missing share over everyone in proportion, which over-projected.)
 - **Volume correction:** in testing, share x team volume overstated what players got by about 12% for pass catchers and
   15-20% for backs (in-game injuries, rotation, lost work), most at the top. A fitted correction (2024-2025 games) is
   applied: targets = 0.048 + 0.877 x raw; carries = 0.589 + 0.799 x raw.

@@ -36,6 +36,12 @@ DEF_WEIGHT = 0.5      # how much of the defense's deviation from league average 
 # Volume correction fitted on 2024-2025 (dashboard/backtest_opportunity.py): raw share x team volume overstates what
 # players get (in-game injuries, rotation, lost work), most at the top. Checked on 2026 games the fit never saw.
 VOLUME_CAL = {"rec": (0.048, 0.877), "rush": (0.589, 0.799)}
+# Share of a missing teammate's work that moves to the players who do play (research/teammate_out_2026-11-16).
+OUT_TOP_SAME = 0.18      # targets: top healthy player at the same position gets 18% of the missing share
+OUT_REST_SAME = 0.90     # targets: others at that position get 90% of it times their own slice of the healthy share
+OUT_OTHER_GROUP = 0.20   # targets: other positions get 20% of it times their own slice
+OUT_TOP_RB = 0.42        # carries: the top healthy back gets 42% of the missing share
+OUT_REST_RB = 0.51       # carries: other backs get 51% of it times their own slice
 # Game-to-game uncertainty in the player's share itself (role changes), as a coefficient of variation.
 SHARE_CV = {"rec": 0.25, "rush": 0.25}
 
@@ -204,10 +210,41 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
     rec = [r for r in roles.get("receivers", []) if (r.get("targets") or 0) >= 8]
     rush = [r for r in roles.get("rushers", []) if (r.get("carries") or 0) >= 8 and r.get("pos") == "RB"]
     out_names = {n.lower() for n in injuries_out}
-    missing_share = sum(r.get("target_share") or 0 for r in rec if (r.get("full_name") or "").lower() in out_names)
-    missing_carry = sum(r.get("carry_share") or 0 for r in rush if (r.get("full_name") or "").lower() in out_names)
-    healthy_share = sum(r.get("target_share") or 0 for r in rec if (r.get("full_name") or "").lower() not in out_names) or 1
-    healthy_carry = sum(r.get("carry_share") or 0 for r in rush if (r.get("full_name") or "").lower() not in out_names) or 1
+    is_out = lambda r: (r.get("full_name") or r.get("player") or "").lower() in out_names
+    missing_share = sum(r.get("target_share") or 0 for r in rec if is_out(r))
+    missing_carry = sum(r.get("carry_share") or 0 for r in rush if is_out(r))
+    healthy_share = sum(r.get("target_share") or 0 for r in rec if not is_out(r)) or 1
+    healthy_carry = sum(r.get("carry_share") or 0 for r in rush if not is_out(r)) or 1
+    # Who gets a missing player's work (research/teammate_out_2026-11-16, fit 2022-24, checked on 2025-26):
+    # the top healthy player at the missing player's position takes a fixed slice of it, the rest of that position
+    # and the other positions take smaller slices in proportion to their own share, and the remainder goes to
+    # replacements with no history, whom this model cannot project.
+    grp = lambda r: "RB" if r.get("pos") == "RB" else ("TE" if r.get("pos") == "TE" else "WR")
+    miss_by_grp, top_of_grp = {}, {}
+    for r in rec:
+        if is_out(r):
+            miss_by_grp[grp(r)] = miss_by_grp.get(grp(r), 0.0) + (r.get("target_share") or 0)
+        elif (r.get("target_share") or 0) > (top_of_grp.get(grp(r), (None, -1))[1]):
+            top_of_grp[grp(r)] = (r.get("player_id") or r.get("player"), r.get("target_share") or 0)
+    top_rb = max((r for r in rush if not is_out(r)), key=lambda r: r.get("carry_share") or 0, default=None)
+
+    def target_bump(r):
+        if not missing_share:
+            return 0.0
+        own = r.get("target_share") or 0
+        same = miss_by_grp.get(grp(r), 0.0)
+        other = missing_share - same
+        prop = own / healthy_share
+        if (r.get("player_id") or r.get("player")) == top_of_grp.get(grp(r), (None,))[0]:
+            return max(OUT_TOP_SAME, OUT_REST_SAME * prop) * same + OUT_OTHER_GROUP * other * prop   # never less than the rest
+        return OUT_REST_SAME * same * prop + OUT_OTHER_GROUP * other * prop
+
+    def carry_bump(r):
+        if not missing_carry:
+            return 0.0
+        if r is top_rb:
+            return OUT_TOP_RB * missing_carry
+        return OUT_REST_RB * missing_carry * ((r.get("carry_share") or 0) / healthy_carry)
     res = {"team": off, "vs": dfn, "team_pass_attempts": _f(team_att, 1), "team_rush_attempts": _f(team_rush, 1),
            "plays": _f(plays, 1), "pass_ratio": _f(pass_ratio, 3), "script_pass_multiplier": _f(pmul, 3), "weather_attempts_multiplier": _f(att_rain, 3),
            "implied_margin": _f(margin, 1), "missing_target_share": _f(missing_share, 3), "missing_carry_share": _f(missing_carry, 3),
@@ -227,7 +264,7 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
         l3_team = sum(weeks_targets.get(x["week"], 0) for x in l3)
         share_l3 = (sum(x.get("targets", 0) for x in l3) / l3_team) if l3_team else None
         share_used = 0.6 * share + 0.4 * share_l3 if share_l3 is not None and len(log) >= 5 else share
-        bump = missing_share * (share_used / healthy_share) * 0.8 if missing_share else 0.0
+        bump = target_bump(r)
         share_used += bump
         exp_t = (team_att or 0) * share_used
         lg_cr, lg_ypr = pools["catch_rate"].get(P, 0.65), pools["ypr"].get(P, 11.0)
@@ -275,8 +312,8 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
         l3_team = sum(weeks_carries.get(x["week"], 0) for x in l3)
         share_l3 = (sum(x.get("carries", 0) for x in l3) / l3_team) if l3_team else None
         share_used = 0.6 * share + 0.4 * share_l3 if share_l3 is not None and len(log) >= 5 else share
-        bump = missing_carry * (share_used / healthy_carry) * 0.8 if missing_carry else 0.0
-        share_used += bump
+        bump = carry_bump(r)
+        share_used = min(0.95, share_used + bump)
         exp_c = (team_rush or 0) * share_used
         ypc = shrink(r.get("yards", 0), r.get("carries", 0), pools["ypc"], PRIOR_CARRIES)
         d_ypc = da.get("rb_yards_per_carry")

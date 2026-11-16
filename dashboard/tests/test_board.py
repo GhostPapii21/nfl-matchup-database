@@ -110,3 +110,64 @@ def test_opportunity_rain_and_defense_factors_are_bounded():
     p, r = O.script_multipliers(14)
     assert p == 0.9 and abs(r - 1.12) < 1e-9
     assert O.script_multipliers(None) == (1.0, 1.0)
+
+
+# ------------------------------------------------------------------------------------------- teammate out
+def _side(recs, rushers):
+    by_game = [{"week": w, "wr_targets": 20, "te_targets": 6, "rb_targets": 6, "carries": 25} for w in (5, 6, 7, 8, 9)]
+    return {"offense": "AAA", "defense": "BBB", "offense_produced": {"plays_pg": 62, "pass_att_pg": 34, "rush_att_pg": 25},
+            "defense_allowed": {"plays_pg": 62}, "offense_by_game": by_game, "roles": {"receivers": recs, "rushers": rushers}}
+
+
+def _r(name, pos, share, per_game):
+    log = [{"week": w, "targets": per_game, "receptions": int(per_game * 0.65), "yards": per_game * 8} for w in (5, 6, 7, 8, 9)]
+    return {"player": name, "full_name": name, "player_id": name, "pos": pos, "targets": per_game * 5, "receptions": int(per_game * 0.65) * 5,
+            "yards": per_game * 40, "target_share": share, "log": log}
+
+
+def _b(name, share, per_game):
+    log = [{"week": w, "carries": per_game, "yards": per_game * 4} for w in (5, 6, 7, 8, 9)]
+    return {"player": name, "full_name": name, "player_id": name, "pos": "RB", "carries": per_game * 5, "yards": per_game * 20,
+            "carry_share": share, "log": log}
+
+
+def _pools():
+    import numpy as np
+    one = np.array([3.0, 6.0, 9.0, 12.0, 20.0, 35.0])
+    return {"catch": {"WR": one, "TE": one, "RB": one}, "catch_rate": {"WR": 0.62, "TE": 0.7, "RB": 0.78},
+            "ypr": {"WR": 12.6, "TE": 10.5, "RB": 7.8}, "carry": np.array([0.0, 2.0, 3.0, 4.0, 5.0, 9.0]), "ypc": 4.3}
+
+
+def test_missing_receiver_helps_the_top_player_at_his_position_most():
+    from dashboard import opportunity as O
+    recs = [_r("Star WR", "WR", 0.30, 10), _r("WR Two", "WR", 0.20, 6), _r("WR Three", "WR", 0.10, 3), _r("Tight End", "TE", 0.15, 5)]
+    side = _side(recs, [])
+    base = {r["player"]: r for r in O.board_side(side, {}, None, _pools(), set())["receivers"]}
+    out = {r["player"]: r for r in O.board_side(side, {}, None, _pools(), {"Star WR"})["receivers"]}
+    assert out["Star WR"]["status"].startswith("OUT")
+    bump = {n: out[n]["inputs"]["injury_bump"] for n in ("WR Two", "WR Three", "Tight End")}
+    prop = 0.20 / 0.45                                                        # his slice of the healthy share
+    assert abs(bump["WR Two"] - max(O.OUT_TOP_SAME, O.OUT_REST_SAME * prop) * 0.30) < 1e-3
+    assert bump["WR Two"] >= O.OUT_TOP_SAME * 0.30                            # top healthy receiver: at least 18% of the missing share
+    assert bump["WR Two"] > bump["WR Three"] > 0 and bump["WR Two"] > bump["Tight End"] > 0
+    assert sum(bump.values()) < 0.30 * 0.8                                    # less than the old rule: the rest goes to replacements
+    assert out["WR Two"]["targets_mean"] > base["WR Two"]["targets_mean"]
+
+
+def test_missing_lead_back_moves_carries_to_the_next_back():
+    from dashboard import opportunity as O
+    side = _side([], [_b("Lead Back", 0.70, 17), _b("Backup", 0.20, 5), _b("Third", 0.10, 2)])
+    base = {r["player"]: r for r in O.board_side(side, {}, None, _pools(), set())["rushers"]}
+    out = {r["player"]: r for r in O.board_side(side, {}, None, _pools(), {"lead back"})["rushers"]}   # names match case-insensitively
+    assert out["Lead Back"]["status"].startswith("OUT")
+    assert abs(out["Backup"]["inputs"]["injury_bump"] - O.OUT_TOP_RB * 0.70) < 1e-3
+    assert out["Backup"]["carries_mean"] > base["Backup"]["carries_mean"] * 1.8
+    assert out["Backup"]["inputs"]["carry_share_used"] <= 0.95 and out["Third"]["inputs"]["injury_bump"] > 0
+
+
+def test_espn_out_beats_a_friday_questionable():
+    pk = {"injuries": {"official_report": [{"player": "Lead Back", "position": "RB", "game_status": "Questionable"}],
+                       "espn_live": [{"player": "Lead Back", "position": "RB", "status": "Out", "comment": "ruled out"},
+                                     {"player": "Other Guy", "position": "WR", "status": "Questionable"}]}}
+    rows = {r["player"]: r for r in X.injury_impact(pk, {}, {})}
+    assert rows["Lead Back"]["status_level"] == 3 and rows["Other Guy"]["status_level"] == 2
