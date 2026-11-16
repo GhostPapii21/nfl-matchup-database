@@ -2,13 +2,13 @@
 
 **Sunday 2026-11-15, 20:20 ET.** Site: Home; roof: outdoors; surface: fieldturf. Rest: PIT 14 days, CIN 7 days. Listed QBs: Aaron Rodgers (PIT), Joe Burrow (CIN).
 
-Market (schedule consensus, not a timestamped quote): CIN -3.5, total 49.5.
+Market (schedule consensus, not a timestamped quote): CIN -4.5, total 49.5.
 
-Generated 2026-11-14T19:43:52+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-16T02:57:52+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T19:43:51+00:00 UTC. At kickoff: 41 F, wind 0 mph , 0% chance of precipitation, Mostly Cloudy. During the game: low 39 F, wind up to 0 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-16T02:57:51+00:00 UTC. At kickoff: 42 F, wind 0 mph , 0% chance of precipitation, Mostly Cloudy. During the game: low 40 F, wind up to 0 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -46,8 +46,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | PIT 24.8 - CIN 23.8 | 48.6 | -0.9 | 42.9% | 31.4% | 46.7% | PIT 12.3 - CIN 11.2 |
-| independent | PIT 22.9 - CIN 26.1 | 49.0 | +3.2 | 60.8% | 52.6% | 51.4% | PIT 11.7 - CIN 12.4 |
+| matchup_pair | PIT 24.8 - CIN 23.8 | 48.6 | -0.9 | 42.9% | 29.5% | 46.7% | PIT 12.3 - CIN 11.2 |
+| independent | PIT 22.9 - CIN 26.1 | 49.0 | +3.2 | 60.8% | 49.2% | 51.4% | PIT 11.7 - CIN 12.4 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -338,25 +338,25 @@ Neutral-situation pass rate 60.4%; 61.5 plays per game; target share WR 56% / TE
 | defense allows | Deep middle | 7 | 2% | 43% | 13.0 | 2 |
 | defense allows | Deep right | 16 | 6% | 50% | 16.81 | 8 |
 
-### PIT lines (depth chart as of 2026-11-14T14:04:32Z)
+### PIT lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Troy Fautanu, LG Mason McCormick, C Zach Frazier, RG Brock Hoffman, RT Max Iheanachor.  
-Defensive front: LDE Yahya Black, NT Keeanu Benton, RDE Cameron Heyward, WLB T.J. Watt, SLB Alex Highsmith.
+Defensive front: LDE Derrick Harmon, NT Keeanu Benton, RDE Cameron Heyward, WLB T.J. Watt, SLB Alex Highsmith.
 
 ### PIT injuries
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
 | Cameron Heyward | DT | yes | none listed | Full Participation in Practice |  |
+| Derrick Harmon | DT | yes | Questionable | Full Participation in Practice | Foot |
 | T.J. Watt | LB | yes | none listed | Full Participation in Practice |  |
 | DeShon Elliott | S | yes | none listed | Full Participation in Practice |  |
 | Darnell Washington | TE | yes | none listed | Full Participation in Practice |  |
 | Brandin Echols | CB |  | none listed | Full Participation in Practice |  |
 | Doneiko Slaughter | CB |  | none listed | Full Participation in Practice |  |
-| Derrick Harmon | DT |  | Questionable | Full Participation in Practice | Foot |
 | Ben Skowronek | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Michael Pittman Jr. (WR) Injured Reserve; Derrick Harmon (DT) Injured Reserve; Pat Freiermuth (TE) Questionable.
+ESPN live list (designations only): Michael Pittman Jr. (WR) Injured Reserve; DeShon Elliott (S) Out; Eli Heidenreich (RB) Out; Sean Murphy-Bunting (CB) Out; Drew Allar (QB) Out; Will Howard (QB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -559,7 +559,7 @@ Neutral-situation pass rate 63.1%; 60.4 plays per game; target share WR 63% / TE
 | defense allows | Deep middle | 12 | 4% | 50% | 10.42 | 4 |
 | defense allows | Deep right | 18 | 7% | 11% | 2.5 | 2 |
 
-### CIN lines (depth chart as of 2026-11-14T14:04:32Z)
+### CIN lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Orlando Brown Jr., LG Dylan Fairchild, C Ted Karras, RG Dalton Risner, RT Amarius Mims.  
 Defensive front: LDE Boye Mafe, LDT Dexter Lawrence II, RDT Jonathan Allen, RDE Myles Murphy, WLB Demetrius Knight Jr., SLB Oren Burks.
@@ -578,7 +578,7 @@ Defensive front: LDE Boye Mafe, LDT Dexter Lawrence II, RDT Jonathan Allen, RDE 
 | Kyle Dugger | S |  | Out | Did Not Participate In Practice | Quadricep |
 | Andrei Iosivas | WR |  | Doubtful | Full Participation in Practice | Thumb |
 
-ESPN live list (designations only): Cashius Howell (DE) Injured Reserve; Jalen Davis (CB) Injured Reserve; Brian Parker II (OT) Injured Reserve; Andrei Iosivas (WR) Injured Reserve; Kyle Dugger (S) Out.
+ESPN live list (designations only): Cashius Howell (DE) Injured Reserve; Jalen Davis (CB) Injured Reserve; Brian Parker II (OT) Injured Reserve; Andrei Iosivas (WR) Injured Reserve; Landon Robinson (DT) Out; Connor Lew (C) Out; Kyle Dugger (S) Out; Myles Hinton (OT) Out; Dalton Risner (G) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -622,15 +622,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
-| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
+| games | OK | 2026-11-16T02:57:48+00:00 | 22171ef0ee81 |
+| pbp | OK | 2026-11-16T02:57:48+00:00 | 52cea14495ce |
+| rosters | OK | 2026-11-16T02:57:48+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-16T02:57:48+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-16T02:57:49+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-16T02:57:49+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-16T02:57:49+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-16T02:57:50+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-16T02:57:50+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

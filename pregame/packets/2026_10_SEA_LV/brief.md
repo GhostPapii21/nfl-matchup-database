@@ -4,7 +4,7 @@
 
 Market (schedule consensus, not a timestamped quote): LV +6.5, total 40.5.
 
-Generated 2026-11-14T19:43:48+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-15T23:27:21+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -287,9 +287,9 @@ Neutral-situation pass rate 48.0%; 63.8 plays per game; target share WR 65% / TE
 | defense allows | Deep middle | 9 | 4% | 67% | 14.33 | 4 |
 | defense allows | Deep right | 20 | 8% | 25% | 6.7 | 3 |
 
-### SEA lines (depth chart as of 2026-11-14T14:04:32Z)
+### SEA lines (depth chart as of 2026-11-15T14:41:31Z)
 
-Offensive line: LT Charles Cross, LG Quenton Nelson, C Jalen Sundell, RG Grey Zabel, RT Abraham Lucas.  
+Offensive line: LT Charles Cross, LG Quenton Nelson, C Jalen Sundell, RG Anthony Bradford, RT Abraham Lucas.  
 Defensive front: LDE Leonard Williams, NT Byron Murphy II, RDE Jarran Reed, WLB DeMarcus Lawrence, SLB Uchenna Nwosu.
 
 ### SEA injuries
@@ -299,6 +299,7 @@ Defensive front: LDE Leonard Williams, NT Byron Murphy II, RDE Jarran Reed, WLB 
 | Leonard Williams | DT | yes | Out | Did Not Participate In Practice | Stinger |
 | Jarran Reed | DT | yes | none listed | Full Participation in Practice |  |
 | Quenton Nelson | G | yes | Out | Did Not Participate In Practice | Knee |
+| Anthony Bradford | G | yes | none listed | Full Participation in Practice |  |
 | Uchenna Nwosu | LB | yes | none listed | Full Participation in Practice |  |
 | Sam Darnold | QB | yes | Out | Did Not Participate In Practice | Ribs |
 | Charles Cross | T | yes | Out | Did Not Participate In Practice | Ankle |
@@ -306,13 +307,12 @@ Defensive front: LDE Leonard Williams, NT Byron Murphy II, RDE Jarran Reed, WLB 
 | Rashid Shaheed | WR | yes | none listed | Full Participation in Practice |  |
 | Jaxon Smith-Njigba | WR | yes | none listed | Full Participation in Practice |  |
 | Brandon Pili | DT |  | none listed | Full Participation in Practice |  |
-| Anthony Bradford | G |  | none listed | Full Participation in Practice |  |
 | Patrick O'Connell | LB |  | none listed | Full Participation in Practice |  |
 | Derick Hall | LB |  | none listed | Did Not Participate In Practice |  |
 | Connor O'Toole | LB |  | none listed | Full Participation in Practice |  |
 | Drew Lock | QB |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Sam Darnold (QB) Out; Leonard Williams (DT) Out; Charles Cross (OT) Out; Quenton Nelson (G) Out.
+ESPN live list (designations only): Leonard Williams (DT) Out; Quenton Nelson (G) Out; Avery Smith (CB) Out; Charles Cross (OT) Out; Sam Darnold (QB) Out; Deven Eastern (DT) Out; Emanuel Wilson (RB) Out; Abraham Lucas (OT) Questionable; Jarran Reed (DT) Questionable; George Holani (RB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -517,7 +517,7 @@ Neutral-situation pass rate 54.8%; 60.0 plays per game; target share WR 38% / TE
 | defense allows | Deep middle | 12 | 5% | 50% | 14.42 | 4 |
 | defense allows | Deep right | 21 | 8% | 38% | 10.05 | 4 |
 
-### LV lines (depth chart as of 2026-11-14T14:04:32Z)
+### LV lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Kolton Miller, LG Spencer Burford, C Tyler Linderbaum, RG Trey Zuhn III, RT DJ Glaze.  
 Defensive front: LDE Folorunso Fatukasi, NT Adam Butler, RDE Tonka Hemingway, WLB Maxx Crosby, SLB Kwity Paye.
@@ -532,7 +532,7 @@ Defensive front: LDE Folorunso Fatukasi, NT Adam Butler, RDE Tonka Hemingway, WL
 | Ian Thomas | TE |  | none listed | Full Participation in Practice |  |
 | Dont'e Thornton Jr. | WR |  | Questionable | Did Not Participate In Practice | Back |
 
-ESPN live list (designations only): Dont'e Thornton Jr. (WR) Questionable; Thomas Booker IV (DT) Questionable.
+ESPN live list (designations only): Tristin McCollum (S) Out; Dalton Johnson (S) Out; Bryce Cabeldue (G) Out; Dont'e Thornton Jr. (WR) Out; Thomas Booker IV (DT) Out; Malik Benson (WR) Out; Brock Bowers (TE) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -576,15 +576,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
-| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
+| games | OK | 2026-11-15T23:27:15+00:00 | cd3c58097db6 |
+| pbp | OK | 2026-11-15T23:27:16+00:00 | 7038a4626d81 |
+| rosters | OK | 2026-11-15T23:27:16+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-15T23:27:16+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-15T23:27:16+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-15T23:27:16+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-15T23:27:16+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-15T23:27:17+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-15T23:27:17+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): GB -2.5, total 42.5.
 
-Generated 2026-11-14T19:43:45+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-15T19:53:14+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T19:43:43+00:00 UTC. At kickoff: 43 F, wind 1 mph W, 0% chance of precipitation, Mostly Sunny. During the game: low 43 F, wind up to 1 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-15T19:53:12+00:00 UTC. At kickoff: 43 F, wind 2 mph WSW, 0% chance of precipitation, Sunny. During the game: low 43 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -91,7 +91,7 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 0% chance of rain at kickoff, wind up to 1 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 0% chance of rain at kickoff, wind up to 2 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### MIN passing
 
@@ -331,7 +331,7 @@ Neutral-situation pass rate 51.6%; 55.6 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 14 | 6% | 43% | 17.79 | 5 |
 | defense allows | Deep right | 16 | 7% | 31% | 7.88 | 4 |
 
-### MIN lines (depth chart as of 2026-11-14T14:04:32Z)
+### MIN lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Christian Darrisaw, LG Joe Huber, C Blake Brandel, RG Will Fries, RT Brian O'Neill.  
 Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WLB Andrew Van Ginkel, SLB Dallas Turner.
@@ -354,7 +354,7 @@ Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WL
 | Jauan Jennings | WR |  | Out | Did Not Participate In Practice | Calf |
 | Jordan Addison | WR |  | Questionable | Limited Participation in Practice | Thumb |
 
-ESPN live list (designations only): Demond Claiborne (RB) Injured Reserve; Kyle Van Noy (LB) Questionable; T.J. Hockenson (TE) Out; Jordan Addison (WR) Questionable; Kyler Murray (QB) Out; Jauan Jennings (WR) Out; Blake Cashman (LB) Out; Joshua Metellus (S) Questionable; Tyrion Ingram-Dawkins (DE) Out.
+ESPN live list (designations only): Kyler Murray (QB) Out; T.J. Hockenson (TE) Out; Tyrion Ingram-Dawkins (DE) Out; Jauan Jennings (WR) Out; Blake Cashman (LB) Out; Jordan Addison (WR) Out; Max Brosmer (QB) Out; Bo Richter (LB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -557,7 +557,7 @@ Neutral-situation pass rate 55.0%; 60.8 plays per game; target share WR 65% / TE
 | defense allows | Deep middle | 10 | 3% | 40% | 8.3 | 2 |
 | defense allows | Deep right | 15 | 5% | 47% | 12.33 | 6 |
 
-### GB lines (depth chart as of 2026-11-14T14:04:32Z)
+### GB lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Jordan Morgan, LG Aaron Banks, C Sean Rhyan, RG Travis Glover, RT Anthony Belton.  
 Defensive front: LDE Karl Brooks, NT Chris McClellan, RDE Devonte Wyatt, WLB Lukas Van Ness, SLB Barryn Sorrell.
@@ -576,15 +576,15 @@ Defensive front: LDE Karl Brooks, NT Chris McClellan, RDE Devonte Wyatt, WLB Luk
 | Josh Jacobs | RB | yes | Out | Did Not Participate In Practice | Finger |
 | Xavier McKinney | S | yes | Questionable | Limited Participation in Practice | Foot |
 | Javon Bullard | S | yes | Questionable | Limited Participation in Practice | Ankle |
-| Bo Melton | WR | yes | none listed | Full Participation in Practice |  |
+| Skyy Moore | WR | yes | Questionable | Limited Participation in Practice | Ankle |
 | Kevin Zeitler | G |  | Questionable | Did Not Participate In Practice | Ankle |
 | Micah Parsons | LB |  | Out | Limited Participation in Practice | Knee |
 | Chris Brooks | RB |  | Questionable | Limited Participation in Practice | Ankle |
 | Josh Whyle | TE |  | Out | Did Not Participate In Practice | Concussion |
-| Skyy Moore | WR |  | Questionable | Limited Participation in Practice | Ankle |
+| Bo Melton | WR |  | none listed | Full Participation in Practice |  |
 | Savion Williams | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Warren Brinson (DT) Injured Reserve; Micah Parsons (DE) Out; Xavier McKinney (S) Questionable; Chris Brooks (RB) Injured Reserve; Skyy Moore (WR) Injured Reserve; Josh Whyle (TE) Out; Zaire Franklin (LB) Doubtful; Javon Bullard (S) Questionable; Lukas Van Ness (DE) Questionable; Sean Rhyan (G) Out; Travis Glover (OT) Questionable; Kevin Zeitler (G) Questionable; Josh Jacobs (RB) Out.
+ESPN live list (designations only): Warren Brinson (DT) Injured Reserve; Micah Parsons (DE) Out; Josh Whyle (TE) Injured Reserve; Sean Rhyan (G) Out; Josh Jacobs (RB) Out; Donovan Jennings (G) Out; Pierre Strong Jr. (RB) Out; Zaire Franklin (LB) Out; Kevin Zeitler (G) Out; Brandon Cisse (CB) Questionable; Skyy Moore (WR) Questionable; Bo Melton (WR) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -628,15 +628,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
-| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
+| games | OK | 2026-11-15T19:52:56+00:00 | ef32fb7dcd72 |
+| pbp | OK | 2026-11-15T19:52:56+00:00 | 786671a1ef96 |
+| rosters | OK | 2026-11-15T19:52:56+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-15T19:52:57+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-15T19:52:57+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-15T19:52:57+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-15T19:52:57+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-15T19:52:57+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-15T19:52:58+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

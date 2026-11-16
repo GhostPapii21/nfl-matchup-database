@@ -2,13 +2,13 @@
 
 **Sunday 2026-11-15, 16:25 ET.** Site: Home; roof: not listed; surface: matrixturf. Rest: SF 7 days, DAL 7 days. Listed QBs: Brock Purdy (SF), Dak Prescott (DAL).
 
-Market (schedule consensus, not a timestamped quote): DAL +4.5, total 55.5.
+Market (schedule consensus, not a timestamped quote): DAL +3.5, total 55.5.
 
-Generated 2026-11-14T19:43:50+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-15T23:27:23+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T19:43:49+00:00 UTC. At kickoff: 51 F, wind 10 mph E, 28% chance of precipitation, Chance Rain Showers. During the game: low 50 F, wind up to 10 mph, precipitation chance up to 30%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-15T23:27:22+00:00 UTC. At kickoff: 49 F, wind 10 mph ENE, 20% chance of precipitation, Slight Chance Rain Showers. During the game: low 49 F, wind up to 10 mph, precipitation chance up to 23%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
@@ -48,8 +48,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | SF 27.8 - DAL 24.3 | 52.2 | -3.5 | 34.4% | 51.1% | 42.9% | SF 14.2 - DAL 12.1 |
-| independent | SF 26.9 - DAL 27.5 | 54.4 | +0.6 | 51.9% | 64.7% | 46.4% | SF 13.9 - DAL 14.5 |
+| matchup_pair | SF 27.8 - DAL 24.3 | 52.2 | -3.5 | 34.4% | 45.1% | 42.9% | SF 14.2 - DAL 12.1 |
+| independent | SF 26.9 - DAL 27.5 | 54.4 | +0.6 | 51.9% | 61.2% | 46.4% | SF 13.9 - DAL 14.5 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -93,51 +93,51 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 28% chance of rain at kickoff, wind up to 10 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 20% chance of rain at kickoff, wind up to 10 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### SF passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 29.2 | 28.0 | 28.9 |
-| Team completion rate | 69.7% | 65.4% | 68.5% |
-| Team completions | 20.4 | 18.3 | 19.8 |
-| Team pass yards | 247.5 | 211.5 | 237.4 |
-| B.Purdy completion rate (234 attempts) | 69.7% | 65.4% | 68.5% |
-| B.Purdy yards per attempt | 8.46 | 7.44 | 8.18 |
+| Team pass attempts | 29.2 | 28.0 | 29.0 |
+| Team completion rate | 69.7% | 65.4% | 68.8% |
+| Team completions | 20.4 | 18.3 | 20.0 |
+| Team pass yards | 247.5 | 211.5 | 240.3 |
+| B.Purdy completion rate (234 attempts) | 69.7% | 65.4% | 68.8% |
+| B.Purdy yards per attempt | 8.46 | 7.44 | 8.26 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| G.Kittle | TE | 8 | 23% | 6.6 / 4.8 / 60.4 | 6.3 / 4.2 / 51.1 | 6.5 / 4.6 / 57.7 |
-| C.McCaffrey | RB | 8 | 20% | 5.6 / 4.5 / 33.8 | 5.4 / 4.1 / 28.1 | 5.6 / 4.4 / 32.1 |
-| M.Evans | WR | 6 | 17% | 6.5 / 4.5 / 83.3 | 6.2 / 4.0 / 70.7 | 6.4 / 4.4 / 79.7 |
-| D.Samuel | WR | 4 | 9% | 5.0 / 4.0 / 31.5 | 4.8 / 3.6 / 26.7 | 4.9 / 3.9 / 30.1 |
-| J.Watkins | WR | 4 | 6% | 3.2 / 2.5 / 56.0 | 3.1 / 2.2 / 47.5 | 3.2 / 2.4 / 53.6 |
-| K.Juszczyk | RB | 5 | 5% | 2.2 / 1.6 / 15.2 | 2.1 / 1.5 / 12.7 | 2.2 / 1.6 / 14.5 |
-| J.Cowing | WR | 5 | 5% | 2.2 / 1.0 / 10.4 | 2.1 / 0.9 / 8.8 | 2.2 / 1.0 / 9.9 |
-| B.Cooks | WR | 5 | 4% | 2.0 / 1.0 / 11.6 | 1.9 / 0.9 / 9.8 | 2.0 / 1.0 / 11.1 |
-| D.Robinson | WR | 3 | 4% | 3.3 / 2.7 / 35.3 | 3.2 / 2.4 / 30.0 | 3.3 / 2.6 / 33.8 |
+| G.Kittle | TE | 8 | 23% | 6.6 / 4.8 / 60.4 | 6.3 / 4.2 / 51.1 | 6.6 / 4.6 / 58.5 |
+| C.McCaffrey | RB | 8 | 20% | 5.6 / 4.5 / 33.8 | 5.4 / 4.1 / 28.1 | 5.6 / 4.4 / 32.6 |
+| M.Evans | WR | 6 | 17% | 6.5 / 4.5 / 83.3 | 6.2 / 4.0 / 70.7 | 6.4 / 4.4 / 80.7 |
+| D.Samuel | WR | 4 | 9% | 5.0 / 4.0 / 31.5 | 4.8 / 3.6 / 26.7 | 5.0 / 3.9 / 30.5 |
+| J.Watkins | WR | 4 | 6% | 3.2 / 2.5 / 56.0 | 3.1 / 2.2 / 47.5 | 3.2 / 2.4 / 54.3 |
+| K.Juszczyk | RB | 5 | 5% | 2.2 / 1.6 / 15.2 | 2.1 / 1.5 / 12.7 | 2.2 / 1.6 / 14.7 |
+| J.Cowing | WR | 5 | 5% | 2.2 / 1.0 / 10.4 | 2.1 / 0.9 / 8.8 | 2.2 / 1.0 / 10.1 |
+| B.Cooks | WR | 5 | 4% | 2.0 / 1.0 / 11.6 | 1.9 / 0.9 / 9.8 | 2.0 / 1.0 / 11.2 |
+| D.Robinson | WR | 3 | 4% | 3.3 / 2.7 / 35.3 | 3.2 / 2.4 / 30.0 | 3.3 / 2.6 / 34.2 |
 
 ### DAL passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 37.8 | 36.1 | 37.3 |
-| Team completion rate | 64.9% | 61.0% | 63.8% |
-| Team completions | 24.5 | 22.0 | 23.8 |
-| Team pass yards | 275.8 | 235.6 | 264.5 |
-| D.Prescott completion rate (302 attempts) | 64.9% | 61.0% | 63.8% |
-| D.Prescott yards per attempt | 7.3 | 6.43 | 7.06 |
+| Team pass attempts | 37.8 | 36.1 | 37.4 |
+| Team completion rate | 64.9% | 61.0% | 64.1% |
+| Team completions | 24.5 | 22.0 | 24.0 |
+| Team pass yards | 275.8 | 235.6 | 267.7 |
+| D.Prescott completion rate (302 attempts) | 64.9% | 61.0% | 64.1% |
+| D.Prescott yards per attempt | 7.3 | 6.43 | 7.13 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| C.Lamb | WR | 8 | 34% | 12.5 / 8.1 / 107.5 | 12.0 / 7.3 / 91.2 | 12.3 / 7.9 / 102.8 |
-| G.Pickens | WR | 7 | 19% | 8.0 / 5.1 / 72.1 | 7.7 / 4.6 / 61.2 | 7.9 / 5.0 / 69.0 |
-| R.Flournoy | WR | 8 | 14% | 5.4 / 3.8 / 46.6 | 5.1 / 3.4 / 39.6 | 5.3 / 3.6 / 44.6 |
-| J.Ferguson | TE | 7 | 8% | 3.6 / 2.4 / 18.6 | 3.4 / 2.2 / 15.7 | 3.5 / 2.4 / 17.8 |
-| J.Williams | RB | 7 | 8% | 3.4 / 2.7 / 13.7 | 3.3 / 2.5 / 11.4 | 3.4 / 2.7 / 13.1 |
-| B.Spann-Ford | TE | 7 | 6% | 2.7 / 1.9 / 16.6 | 2.6 / 1.7 / 14.0 | 2.7 / 1.8 / 15.8 |
-| J.Mingo | WR | 4 | 3% | 2.5 / 0.8 / 10.8 | 2.4 / 0.7 / 9.1 | 2.5 / 0.7 / 10.3 |
+| C.Lamb | WR | 8 | 34% | 12.5 / 8.1 / 107.5 | 12.0 / 7.3 / 91.2 | 12.4 / 7.9 / 104.2 |
+| G.Pickens | WR | 7 | 19% | 8.0 / 5.1 / 72.1 | 7.7 / 4.6 / 61.2 | 7.9 / 5.0 / 69.9 |
+| R.Flournoy | WR | 8 | 14% | 5.4 / 3.8 / 46.6 | 5.1 / 3.4 / 39.6 | 5.3 / 3.7 / 45.2 |
+| J.Ferguson | TE | 7 | 8% | 3.6 / 2.4 / 18.6 | 3.4 / 2.2 / 15.7 | 3.5 / 2.4 / 18.0 |
+| J.Williams | RB | 7 | 8% | 3.4 / 2.7 / 13.7 | 3.3 / 2.5 / 11.4 | 3.4 / 2.7 / 13.2 |
+| B.Spann-Ford | TE | 7 | 6% | 2.7 / 1.9 / 16.6 | 2.6 / 1.7 / 14.0 | 2.7 / 1.8 / 16.0 |
+| J.Mingo | WR | 4 | 3% | 2.5 / 0.8 / 10.8 | 2.4 / 0.7 / 9.1 | 2.5 / 0.7 / 10.4 |
 | T.Goodson | RB | 5 | 3% | 1.6 / 0.8 / 4.6 | 1.5 / 0.7 / 3.8 | 1.6 / 0.8 / 4.4 |
 
 ## SF (last 8 games: weeks 1, 2, 3, 4, 5, 6, 7, 9)
@@ -333,7 +333,7 @@ Neutral-situation pass rate 53.5%; 58.2 plays per game; target share WR 46% / TE
 | defense allows | Deep middle | 10 | 4% | 60% | 12.2 | 3 |
 | defense allows | Deep right | 25 | 9% | 32% | 10.96 | 6 |
 
-### SF lines (depth chart as of 2026-11-14T14:04:32Z)
+### SF lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Trent Williams, LG Connor Colby, C Jake Brendel, RG Dominick Puni, RT Colton McKivitz.  
 Defensive front: LDE Keion White, LDT Osa Odighizuwa, RDT DeForest Buckner, RDE Nick Bosa, WLB Dre Greenlaw, SLB Jaden Dugger.
@@ -355,7 +355,7 @@ Defensive front: LDE Keion White, LDT Osa Odighizuwa, RDT DeForest Buckner, RDE 
 | Siran Neal | S |  | none listed | Full Participation in Practice |  |
 | Demarcus Robinson | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Brandon Aiyuk (WR) Out; Upton Stout (CB) Questionable; C.J. West (DT) Injured Reserve; Mike Evans (WR) Out; Dre Greenlaw (LB) Questionable; Deommodore Lenoir (CB) Questionable; Renardo Green (CB) Questionable; Trent Williams (OT) Questionable; Gracen Halton (DT) Injured Reserve.
+ESPN live list (designations only): Brandon Aiyuk (WR) Out; Gracen Halton (DT) Injured Reserve; Nate Hobbs (CB) Injured Reserve; C.J. West (DT) Injured Reserve; Mike Evans (WR) Out; Kurtis Rourke (QB) Out; Tatum Bethune (LB) Out; Enrique Cruz Jr. (OT) Out; Brandin Cooks (WR) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -558,7 +558,7 @@ Neutral-situation pass rate 55.2%; 66.1 plays per game; target share WR 72% / TE
 | defense allows | Deep middle | 9 | 3% | 56% | 16.11 | 4 |
 | defense allows | Deep right | 26 | 10% | 35% | 9.15 | 8 |
 
-### DAL lines (depth chart as of 2026-11-14T14:04:32Z)
+### DAL lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Tyler Guyton, LG Tyler Smith, C Cooper Beebe, RG Tyler Booker, RT Terence Steele.  
 Defensive front: LDE Quinnen Williams, NT Otito Ogbonnia, RDE Kenny Clark, WLB Rashan Gary, SLB Donovan Ezeiruaku.
@@ -587,7 +587,7 @@ Defensive front: LDE Quinnen Williams, NT Otito Ogbonnia, RDE Kenny Clark, WLB R
 | George Pickens | WR |  | none listed | Full Participation in Practice |  |
 | Jonathan Mingo | WR |  | Out | Did Not Participate In Practice | Ankle |
 
-ESPN live list (designations only): Jake Ferguson (TE) Out; P.J. Locke (S) Out; Devin Moore (CB) Injured Reserve; Alijah Clark (S) Questionable; Juanyeh Thomas (S) Doubtful; Jonathan Mingo (WR) Out; DaRon Bland (CB) Questionable; Joey Porter Jr. (CB) Questionable; Donovan Ezeiruaku (LB) Out; Jonathan Bullard (DT) Questionable; Tyler Goodson (RB) Injured Reserve.
+ESPN live list (designations only): Devin Moore (CB) Injured Reserve; Tyler Goodson (RB) Injured Reserve; Juanyeh Thomas (S) Out; Jonathan Mingo (WR) Out; Derion Kendrick (CB) Out; P.J. Locke (S) Out; Ajani Cornelius (OT) Out; Donovan Ezeiruaku (LB) Out; Jake Ferguson (TE) Out; DaRon Bland (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -631,15 +631,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
-| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
+| games | OK | 2026-11-15T23:27:15+00:00 | cd3c58097db6 |
+| pbp | OK | 2026-11-15T23:27:16+00:00 | 7038a4626d81 |
+| rosters | OK | 2026-11-15T23:27:16+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-15T23:27:16+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-15T23:27:16+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-15T23:27:16+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-15T23:27:16+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-15T23:27:17+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-15T23:27:17+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 
