@@ -206,3 +206,11 @@ def test_watch_skips_players_who_are_out_and_missing_inputs():
     model = W.load_model()
     assert W.watch_side(side, {"AAA": 25.0, "BBB": 22.0}, {}, model)["receivers"] == []
     assert W.watch_side(side, None, {}, model) is None and W.watch_side(side, {"AAA": 25.0}, {}, None) is None
+
+
+def test_blend_with_book_sits_between_the_two_and_is_symmetric():
+    from dashboard import watch as W
+    b = W.blend_with_book(0.20, 0.40)
+    assert 0.20 < b < 0.40 and abs(W.blend_with_book(0.30, 0.30) - 0.30) < 1e-9
+    assert abs(W.blend_with_book(0.20, 0.40) - W.blend_with_book(0.40, 0.20)) < 1e-9
+    assert W.blend_with_book(0.0, 1.0) > 0 and W.blend_with_book(0.0, 1.0) < 1   # clipped, no log(0)

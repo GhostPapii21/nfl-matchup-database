@@ -31,6 +31,13 @@ def _sig(x: float) -> float:
     return 1 / (1 + math.exp(-x))
 
 
+def blend_with_book(p_model: float, book_break_even: float, logit_scale: float = 1.0) -> float:
+    """Even blend, on the logit scale, of the model and a book's break-even price (vig included). The graded weeks 8-9
+    ladders gave a Brier of 0.1118 for this against 0.1136 for either alone: a small gain, within noise."""
+    lg = lambda p: math.log(min(max(p, 1e-4), 1 - 1e-4) / (1 - min(max(p, 1e-4), 1 - 1e-4)))
+    return _sig(0.5 * lg(p_model) + 0.5 * logit_scale * lg(book_break_even))
+
+
 def stars(p: float, cuts: dict) -> int:
     return 3 if p >= cuts["3"] else 2 if p >= cuts["2"] else 1 if p >= cuts["1"] else 0
 
@@ -91,7 +98,7 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None) -> di
            "defense_g80_rank": d.get("g80_rank"), "defense_explosive_rank": d.get("ex_rank")}
     rec_m, rus_m = model["receiver"]["models"]["80"]["coef"], model["rusher"]["models"]["80"]["coef"]
     rec_100, rus_100 = model["receiver"]["models"]["100"]["coef"], model["rusher"]["models"]["100"]["coef"]
-    out = {"receivers": [], "rushers": [], "context": ctx, "record": model.get("star_record")}
+    out = {"receivers": [], "rushers": [], "context": ctx, "record": model.get("star_record"), "book_grade": model.get("book_grade")}
     for r in (sd.get("roles") or {}).get("receivers", []):
         o = by_player.get(r.get("player_id"))
         log = [x for x in r.get("log", [])]

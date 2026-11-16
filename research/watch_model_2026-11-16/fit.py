@@ -90,7 +90,10 @@ def main():
     res["rusher"] = fit_block(b, ["l_car", "l_ypc", "spread", "implied", "l_d"], "RB rushing yards")
     res["stars"] = {"3": 0.50, "2": 0.40, "1": 0.30}
     res["star_record"] = star_record(r, ["l_tgt", "l_yds", "implied", "team_pass", "l_ex", "g80_pg"], b, ["l_car", "l_ypc", "spread", "implied", "l_d"], res["stars"])
-    (ROOT / "dashboard" / "watch_model.json").write_text(json.dumps(res, indent=1) + "\n")
+    old = ROOT / "dashboard" / "watch_model.json"
+    if old.exists() and "book_grade" in json.loads(old.read_text()):      # written by grade_vs_books.py; keep it
+        res["book_grade"] = json.loads(old.read_text())["book_grade"]
+    old.write_text(json.dumps(res, indent=1) + "\n")
     print(json.dumps(res, indent=1))
 
 
