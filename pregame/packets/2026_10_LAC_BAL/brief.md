@@ -4,15 +4,15 @@
 
 Market (schedule consensus, not a timestamped quote): BAL -4.5, total 38.5.
 
-Generated 2026-11-14T19:43:54+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-16T04:05:36+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-14T19:43:53+00:00 UTC. At kickoff: 43 F, wind 2 mph N, 0% chance of precipitation, Clear. During the game: low 40 F, wind up to 2 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-16T04:05:34+00:00 UTC. At kickoff: 45 F, wind 5 mph NW, 0% chance of precipitation, Mostly Clear. During the game: low 40 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not quote book numbers from memory.
+No book prices in this packet: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Do not quote book numbers from memory.
 
 ## Matchup edges
 
@@ -90,7 +90,7 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 0% chance of rain at kickoff, wind up to 2 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 0% chance of rain at kickoff, wind up to 5 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### LAC passing
 
@@ -332,7 +332,7 @@ Neutral-situation pass rate 40.7%; 62.0 plays per game; target share WR 51% / TE
 | defense allows | Deep middle | 6 | 3% | 33% | 14.33 | 2 |
 | defense allows | Deep right | 16 | 7% | 62% | 19.0 | 8 |
 
-### LAC lines (depth chart as of 2026-11-14T14:04:32Z)
+### LAC lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Joe Alt, LG Kayode Awosika, C Jake Slaughter, RG Cole Strange, RT Travis Burke.  
 Defensive front: LDE Teair Tart, NT Jamaree Caldwell, RDE Justin Eboigbe, WLB Tuli Tuipulotu, SLB Khalil Mack.
@@ -342,26 +342,26 @@ Defensive front: LDE Teair Tart, NT Jamaree Caldwell, RDE Justin Eboigbe, WLB Tu
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
 | Cam Hart | CB | yes | none listed | Full Participation in Practice |  |
-| Justin Eboigbe | DE | yes | none listed | Limited Participation in Practice |  |
-| Kayode Awosika | G | yes | none listed | Limited Participation in Practice |  |
+| Justin Eboigbe | DE | yes | Questionable | Limited Participation in Practice | Ankle |
+| Kayode Awosika | G | yes | Questionable | Full Participation in Practice | Fibula |
 | Khalil Mack | LB | yes | none listed | Full Participation in Practice |  |
 | Daiyan Henley | LB | yes | none listed | Full Participation in Practice |  |
-| Keaton Mitchell | RB | yes | none listed | Limited Participation in Practice |  |
-| Ladd McConkey | WR | yes | none listed | Did Not Participate In Practice |  |
+| Keaton Mitchell | RB | yes | none listed | Full Participation in Practice |  |
+| Ladd McConkey | WR | yes | Questionable | Did Not Participate In Practice | Back |
 | Deane Leonard | CB |  | none listed | Full Participation in Practice |  |
-| Isas Waxter | CB |  | none listed | Did Not Participate In Practice |  |
-| Rodney Shelley | CB |  | none listed | Limited Participation in Practice |  |
-| Bud Dupree | DE |  | none listed | Did Not Participate In Practice |  |
-| Branson Taylor | G |  | none listed | Did Not Participate In Practice |  |
+| Isas Waxter | CB |  | Out | Did Not Participate In Practice | Ankle |
+| Rodney Shelley | CB |  | none listed | Full Participation in Practice |  |
+| Bud Dupree | DE |  | none listed | Full Participation in Practice |  |
+| Branson Taylor | G |  | Out | Did Not Participate In Practice | Ankle |
 | Alex Harkey | G |  | none listed | Full Participation in Practice |  |
-| Denzel Perryman | LB |  | none listed | Full Participation in Practice |  |
-| Kendall Williamson | S |  | none listed | Did Not Participate In Practice |  |
-| Trey Pipkins | T |  | none listed | Did Not Participate In Practice |  |
-| David Njoku | TE |  | none listed | Limited Participation in Practice |  |
+| Denzel Perryman | LB |  | Questionable | Full Participation in Practice | Pectoral |
+| Kendall Williamson | S |  | Out | Did Not Participate In Practice | Calf |
+| Trey Pipkins | T |  | Questionable | Limited Participation in Practice | Not injury related - personal matter |
+| David Njoku | TE |  | Questionable | Full Participation in Practice | Fibula |
 | Tre Harris | WR |  | none listed | Full Participation in Practice |  |
-| Brenen Thompson | WR |  | none listed | Did Not Participate In Practice |  |
+| Brenen Thompson | WR |  | Doubtful | Did Not Participate In Practice | Hamstring |
 
-ESPN live list (designations only): Kendall Williamson (S) Questionable; Kayode Awosika (G) Questionable; Rodney Shelley (CB) Questionable; Branson Taylor (G) Questionable; Brenen Thompson (WR) Questionable; Ladd McConkey (WR) Questionable; Keaton Mitchell (RB) Questionable; Deane Leonard (CB) Questionable; David Njoku (TE) Injured Reserve; Trey Pipkins III (OT) Injured Reserve.
+ESPN live list (designations only): Brenen Thompson (WR) Doubtful; David Njoku (TE) Injured Reserve; Denzel Perryman (LB) Injured Reserve; Justin Eboigbe (DT) Questionable; Isas Waxter (CB) Out; Kendall Williamson (S) Out; Kayode Awosika (G) Questionable; Trey Pipkins III (OT) Injured Reserve; Branson Taylor (G) Out; Ladd McConkey (WR) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -566,7 +566,7 @@ Neutral-situation pass rate 52.2%; 58.2 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 10 | 4% | 70% | 21.7 | 6 |
 | defense allows | Deep right | 13 | 5% | 69% | 20.0 | 5 |
 
-### BAL lines (depth chart as of 2026-11-14T14:04:32Z)
+### BAL lines (depth chart as of 2026-11-15T14:41:31Z)
 
 Offensive line: LT Ronnie Stanley, LG John Simpson, C Cam Jurgens, RG Olaivavega Ioane, RT Roger Rosengarten.  
 Defensive front: LDE Nnamdi Madubuike, NT Travis Jones, RDE Calais Campbell, WLB Mike Green, SLB Trey Hendrickson.
@@ -576,15 +576,17 @@ Defensive front: LDE Nnamdi Madubuike, NT Travis Jones, RDE Calais Campbell, WLB
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
 | Nate Wiggins | CB | yes | none listed | Full Participation in Practice |  |
+| Calais Campbell | DT | yes | none listed | Did Not Participate In Practice |  |
 | Olaivavega Ioane | G | yes | none listed | Full Participation in Practice |  |
-| Jaylinn Hawkins | S | yes | none listed | Limited Participation in Practice |  |
+| Jaylinn Hawkins | S | yes | Out | Limited Participation in Practice | Knee |
 | Kyle Hamilton | S | yes | none listed | Full Participation in Practice |  |
+| Ronnie Stanley | T | yes | none listed | Did Not Participate In Practice |  |
 | Rasheen Ali | RB |  | none listed | Full Participation in Practice |  |
-| Adam Randall | RB |  | none listed | Full Participation in Practice |  |
+| Adam Randall | RB |  | Questionable | Full Participation in Practice | Neck |
 | Matthew Hibner | TE |  | none listed | Full Participation in Practice |  |
 | Rashod Bateman | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Adisa Isaac (LB) Questionable; Lamar Jackson (QB) Injured Reserve; Jaylinn Hawkins (S) Out.
+ESPN live list (designations only): Lamar Jackson (QB) Injured Reserve; Jaylinn Hawkins (S) Out; Adam Randall (RB) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -598,9 +600,9 @@ Left for another team: Andrew Vorhees (OL) to ATL; Jake Moody (K) to ATL; Xavier
 
 | Secret | Provider | Status | Used for |
 |---|---|---|---|
-| ODDS_API_KEY | The Odds API | KEY_PRESENT | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
+| ODDS_API_KEY | The Odds API | KEY_NOT_CONFIGURED_IN_THIS_RUN | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
 | NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
-| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR: {'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'} | access check only; not used in the packet |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | access check only; not used in the packet |
 
 Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
 
@@ -620,7 +622,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
-| 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
+| 13 | Timestamped book prices | BLOCKED | No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -628,16 +630,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-14T19:43:29+00:00 | 97be37138d5c |
-| pbp | OK | 2026-11-14T19:43:29+00:00 | 90b9e3d96e1f |
-| rosters | OK | 2026-11-14T19:43:29+00:00 | d7134cc8f857 |
-| injuries | OK | 2026-11-14T19:43:29+00:00 | 87a9f1f13fc0 |
-| depth_charts | OK | 2026-11-14T19:43:29+00:00 | 3cedf53d51f0 |
-| snap_counts | OK | 2026-11-14T19:43:29+00:00 | 1d2e15675f9a |
-| ftn | OK | 2026-11-14T19:43:29+00:00 | 019f5d5f7b16 |
-| pfr_def | OK | 2026-11-14T19:43:29+00:00 | 19447a6a6bd5 |
-| espn_injuries | OK | 2026-11-14T19:43:30+00:00 |  |
+| games | OK | 2026-11-16T04:05:27+00:00 | 336090b4d670 |
+| pbp | OK | 2026-11-16T04:05:28+00:00 | 52cea14495ce |
+| rosters | OK | 2026-11-16T04:05:28+00:00 | b4f7dd20cba3 |
+| injuries | OK | 2026-11-16T04:05:29+00:00 | 87be8ab6f700 |
+| depth_charts | OK | 2026-11-16T04:05:29+00:00 | 2b712dbd51b5 |
+| snap_counts | OK | 2026-11-16T04:05:29+00:00 | 1d2e15675f9a |
+| ftn | OK | 2026-11-16T04:05:30+00:00 | 07ef9d37335f |
+| pfr_def | OK | 2026-11-16T04:05:30+00:00 | 19447a6a6bd5 |
+| espn_injuries | OK | 2026-11-16T04:05:33+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
+| book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
