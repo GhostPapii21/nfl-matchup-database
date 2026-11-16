@@ -28,15 +28,15 @@
  },
  "result": null,
  "implied_points": {
-  "BAL": 21.5,
-  "LAC": 17.0
+  "BAL": 22.0,
+  "LAC": 17.5
  },
- "generated_utc": "2026-11-16T04:05:36+00:00",
- "board_built_utc": "2026-11-16T04:06:12+00:00",
+ "generated_utc": "2026-11-16T23:41:25+00:00",
+ "board_built_utc": "2026-11-16T23:41:43+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": -4.5,
-  "total": 38.5,
+  "total": 39.5,
   "moneyline": {
    "LAC": 185.0,
    "BAL": -225.0
@@ -49,26 +49,26 @@
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/LWX/109,90/forecast/hourly",
-  "retrieved_utc": "2026-11-16T04:05:34+00:00",
+  "retrieved_utc": "2026-11-16T23:41:24+00:00",
   "kickoff_utc": "2026-11-17T01:15:00+00:00",
   "roof": "outdoors",
   "at_kickoff": {
-   "temp_f": 45,
-   "wind_mph": 5.0,
+   "temp_f": 44,
+   "wind_mph": 2.0,
    "wind_dir": "NW",
    "precip_chance_pct": 0,
    "summary": "Mostly Clear"
   },
   "during_game": {
-   "temp_f_min": 40,
-   "wind_mph_max": 5.0,
+   "temp_f_min": 41,
+   "wind_mph_max": 2.0,
    "precip_chance_pct_max": 0
   },
   "flags": []
  },
  "weather_verdict": {
   "level": "good",
-  "headline": "Clean conditions: 0% rain, wind up to 5 mph.",
+  "headline": "Clean conditions: 0% rain, wind up to 2 mph.",
   "details": []
  },
  "weather_alerts": [],
@@ -1984,7 +1984,7 @@
    "rain": {
     "status": "OK",
     "rain_chance": 0.0,
-    "wind_mph": 5.0,
+    "wind_mph": 2.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
@@ -3492,20 +3492,6 @@
      "status_level": 2
     },
     {
-     "player": "David Njoku",
-     "position": "TE",
-     "game_status": "Questionable",
-     "practice": "Full Participation in Practice",
-     "injury": "Fibula",
-     "espn": "Injured Reserve",
-     "espn_comment": "Njoku (fibula) is listed as questionable for Monday's game against the Ravens.",
-     "starter_slot": null,
-     "snap_share": 0.355,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
      "player": "Isas Waxter",
      "position": "CB",
      "game_status": "Out",
@@ -3525,22 +3511,8 @@
      "game_status": "Out",
      "practice": "Did Not Participate In Practice",
      "injury": "Ankle",
-     "espn": "Out",
-     "espn_comment": "Taylor (ankle) has been ruled out for Monday's clash against the Ravens.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
-     "player": "Denzel Perryman",
-     "position": "LB",
-     "game_status": "Questionable",
-     "practice": "Full Participation in Practice",
-     "injury": "Pectoral",
      "espn": "Injured Reserve",
-     "espn_comment": "Perryman (pectoral), who is on IR, is officially questionable to suit up against Baltimore on Monday.",
+     "espn_comment": "ir",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -3568,7 +3540,7 @@
      "practice": "Did Not Participate In Practice",
      "injury": "Hamstring",
      "espn": "Doubtful",
-     "espn_comment": "doubtful",
+     "espn_comment": "The Chargers list Thompson (hamstring) as doubtful for Monday's game against the Ravens.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -3599,6 +3571,34 @@
      "espn_comment": null,
      "starter_slot": null,
      "snap_share": 0.36,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 2
+    },
+    {
+     "player": "David Njoku",
+     "position": "TE",
+     "game_status": "Questionable",
+     "practice": "Full Participation in Practice",
+     "injury": "Fibula",
+     "espn": "Active",
+     "espn_comment": "The Chargers activated Njoku (fibula) from injured reserve ahead of Monday's game against the Ravens.",
+     "starter_slot": null,
+     "snap_share": 0.355,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 2
+    },
+    {
+     "player": "Denzel Perryman",
+     "position": "LB",
+     "game_status": "Questionable",
+     "practice": "Full Participation in Practice",
+     "injury": "Pectoral",
+     "espn": "Questionable",
+     "espn_comment": "The Chargers activated Perryman (pectoral) from the reserve/injured list ahead of Monday's game versus Baltimore.",
+     "starter_slot": null,
+     "snap_share": null,
      "next_up": null,
      "impact": "low",
      "status_level": 2
@@ -4205,7 +4205,7 @@
     "league": {
      "yards_per_target": 7.22,
      "completion_pct": 0.624,
-     "td_per_target": 0.0463
+     "td_per_target": 0.0464
     },
     "weeks": [
      2,
@@ -4301,7 +4301,7 @@
      "practice": "Full Participation in Practice",
      "injury": "Neck",
      "espn": "Injured Reserve",
-     "espn_comment": "Randall (neck), who remains on IR, has been tagged as questionable to face the Chargers on Monday.",
+     "espn_comment": "Randall (neck) was not activated from injured reserve ahead of Monday's game against the Chargers, Brian Wacker of The Baltimore Sun reports.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -4389,34 +4389,6 @@
      "starter_slot": "RG",
      "snap_share": 0.891,
      "next_up": "Ryan Neuzil",
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Zay Flowers",
-     "position": "WR",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Flowers brought in three of six targets for six yards and rushed three times for 17 yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
-     "starter_slot": "WR",
-     "snap_share": 0.727,
-     "next_up": "Rashod Bateman",
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Joe Fagnano",
-     "position": "QB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Fagnano completed 10 of 18 passes for 60 yards with no touchdowns and two interceptions while adding three rushes for 13 yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
-     "starter_slot": null,
-     "snap_share": 0.7,
-     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -4528,6 +4500,20 @@
      "espn_comment": "Walker didn't garner a target in Thursday night's 33-10 loss to the Jaguars.",
      "starter_slot": null,
      "snap_share": 0.402,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Chris Moore",
+     "position": "WR",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "The Ravens elevated Moore from the practice squad ahead of Monday's game against the Chargers.",
+     "starter_slot": null,
+     "snap_share": 0.387,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -4669,6 +4655,20 @@
      "starter_slot": "PK",
      "snap_share": null,
      "next_up": "Tyler Loop",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Nick Vannett",
+     "position": "TE",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "The Ravens elevated Vannett from the practice squad ahead of Monday's game against the Chargers.",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     }
@@ -5591,6 +5591,174 @@
       }
      }
     ]
+   },
+   "watch": {
+    "receivers": [
+     {
+      "player": "Tre Harris",
+      "player_id": "00-0040727",
+      "pos": "WR",
+      "tier": null,
+      "style": "volume",
+      "p80": 0.112,
+      "p100": 0.046,
+      "stars": 0,
+      "targets": 5.5,
+      "yds_pg": 37.4,
+      "ex_pg": 0.71,
+      "why": [
+       "team only expected to score 18",
+       "BAL has allowed 8 receivers 80+ in 9 games",
+       "a teammate's absence adds targets"
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 430,
+       "break_even": 0.1887,
+       "blend": 0.146,
+       "model_minus_price": -0.077
+      }
+     },
+     {
+      "player": "Quentin Johnston",
+      "player_id": "00-0038544",
+      "pos": "WR",
+      "tier": null,
+      "style": "volume",
+      "p80": 0.081,
+      "p100": 0.03,
+      "stars": 0,
+      "targets": 4.3,
+      "yds_pg": 37.1,
+      "ex_pg": 0.71,
+      "why": [
+       "team only expected to score 18",
+       "BAL has allowed 8 receivers 80+ in 9 games",
+       "a teammate's absence adds targets"
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 580,
+       "break_even": 0.1471,
+       "blend": 0.11,
+       "model_minus_price": -0.066
+      }
+     },
+     {
+      "player": "Charlie Kolar",
+      "player_id": "00-0038046",
+      "pos": "TE",
+      "tier": null,
+      "style": "volume",
+      "p80": 0.042,
+      "p100": 0.014,
+      "stars": 0,
+      "targets": 4.0,
+      "yds_pg": 25.8,
+      "ex_pg": 0.2,
+      "why": [
+       "team only expected to score 18",
+       "BAL has allowed 8 receivers 80+ in 9 games",
+       "a teammate's absence adds targets"
+      ]
+     },
+     {
+      "player": "Oronde Gadsden II",
+      "player_id": "00-0040189",
+      "pos": "TE",
+      "tier": null,
+      "style": "volume",
+      "p80": 0.032,
+      "p100": 0.011,
+      "stars": 0,
+      "targets": 3.9,
+      "yds_pg": 21.5,
+      "ex_pg": 0.12,
+      "why": [
+       "team only expected to score 18",
+       "BAL has allowed 8 receivers 80+ in 9 games",
+       "a teammate's absence adds targets"
+      ]
+     }
+    ],
+    "rushers": [
+     {
+      "player": "Omarion Hampton",
+      "player_id": "00-0040666",
+      "pos": "RB",
+      "p80": 0.12,
+      "p100": 0.053,
+      "stars": 0,
+      "carries": 11.5,
+      "yds_pg": 46.1,
+      "why": [
+       "11.5 carries a game"
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 880,
+       "break_even": 0.102,
+       "blend": 0.111,
+       "model_minus_price": 0.018
+      }
+     }
+    ],
+    "context": {
+     "pass_yards_last5": 198.0,
+     "pass_offense_rank": 24,
+     "implied": 17.5,
+     "defense_g80_rank": 1,
+     "defense_explosive_rank": 17
+    },
+    "record": {
+     "weeks": 22,
+     "seasons": "2025-2026",
+     "all_80_games": 399,
+     "3": {
+      "per_week": 3.7,
+      "predicted": 0.558,
+      "hit80": 0.512,
+      "hit100": 0.317
+     },
+     "2": {
+      "per_week": 5.6,
+      "predicted": 0.439,
+      "hit80": 0.431,
+      "hit100": 0.293
+     },
+     "1": {
+      "per_week": 11.3,
+      "predicted": 0.343,
+      "hit80": 0.345,
+      "hit100": 0.193
+     },
+     "all_stars": {
+      "per_week": 20.6,
+      "hit80": 0.399,
+      "share_of_all_80_games_caught": 0.454
+     }
+    },
+    "book_grade": {
+     "source": "FanDuel alt ladders, 2026 weeks 8-9, T-90 min; weights from 2022-2025 only",
+     "rungs": 402,
+     "brier": {
+      "model": 0.1136,
+      "book_price": 0.1136,
+      "book_devig": 0.1133,
+      "blend": 0.1118
+     },
+     "starred_30plus": {
+      "n": 68,
+      "hit": 0.5,
+      "model_p": 0.41,
+      "be": 0.468,
+      "roi": 0.087
+     },
+     "model_above_price_by_3pts": {
+      "n": 35,
+      "roi": -0.467
+     }
+    }
    },
    "visual": {
     "receivers": {
@@ -11630,7 +11798,7 @@
    "rain": {
     "status": "OK",
     "rain_chance": 0.0,
-    "wind_mph": 5.0,
+    "wind_mph": 2.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
@@ -13113,7 +13281,7 @@
      "practice": "Full Participation in Practice",
      "injury": "Neck",
      "espn": "Injured Reserve",
-     "espn_comment": "Randall (neck), who remains on IR, has been tagged as questionable to face the Chargers on Monday.",
+     "espn_comment": "Randall (neck) was not activated from injured reserve ahead of Monday's game against the Chargers, Brian Wacker of The Baltimore Sun reports.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -13201,34 +13369,6 @@
      "starter_slot": "RG",
      "snap_share": 0.891,
      "next_up": "Ryan Neuzil",
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Zay Flowers",
-     "position": "WR",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Flowers brought in three of six targets for six yards and rushed three times for 17 yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
-     "starter_slot": "WR",
-     "snap_share": 0.727,
-     "next_up": "Rashod Bateman",
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Joe Fagnano",
-     "position": "QB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Fagnano completed 10 of 18 passes for 60 yards with no touchdowns and two interceptions while adding three rushes for 13 yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
-     "starter_slot": null,
-     "snap_share": 0.7,
-     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -13340,6 +13480,20 @@
      "espn_comment": "Walker didn't garner a target in Thursday night's 33-10 loss to the Jaguars.",
      "starter_slot": null,
      "snap_share": 0.402,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Chris Moore",
+     "position": "WR",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "The Ravens elevated Moore from the practice squad ahead of Monday's game against the Chargers.",
+     "starter_slot": null,
+     "snap_share": 0.387,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -13481,6 +13635,20 @@
      "starter_slot": "PK",
      "snap_share": null,
      "next_up": "Tyler Loop",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Nick Vannett",
+     "position": "TE",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "The Ravens elevated Vannett from the practice squad ahead of Monday's game against the Chargers.",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     }
@@ -13796,7 +13964,7 @@
     "league": {
      "yards_per_target": 7.22,
      "completion_pct": 0.624,
-     "td_per_target": 0.0463
+     "td_per_target": 0.0464
     },
     "weeks": [
      1,
@@ -13900,20 +14068,6 @@
      "status_level": 2
     },
     {
-     "player": "David Njoku",
-     "position": "TE",
-     "game_status": "Questionable",
-     "practice": "Full Participation in Practice",
-     "injury": "Fibula",
-     "espn": "Injured Reserve",
-     "espn_comment": "Njoku (fibula) is listed as questionable for Monday's game against the Ravens.",
-     "starter_slot": null,
-     "snap_share": 0.355,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
      "player": "Isas Waxter",
      "position": "CB",
      "game_status": "Out",
@@ -13933,22 +14087,8 @@
      "game_status": "Out",
      "practice": "Did Not Participate In Practice",
      "injury": "Ankle",
-     "espn": "Out",
-     "espn_comment": "Taylor (ankle) has been ruled out for Monday's clash against the Ravens.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
-     "player": "Denzel Perryman",
-     "position": "LB",
-     "game_status": "Questionable",
-     "practice": "Full Participation in Practice",
-     "injury": "Pectoral",
      "espn": "Injured Reserve",
-     "espn_comment": "Perryman (pectoral), who is on IR, is officially questionable to suit up against Baltimore on Monday.",
+     "espn_comment": "ir",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -13976,7 +14116,7 @@
      "practice": "Did Not Participate In Practice",
      "injury": "Hamstring",
      "espn": "Doubtful",
-     "espn_comment": "doubtful",
+     "espn_comment": "The Chargers list Thompson (hamstring) as doubtful for Monday's game against the Ravens.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -14007,6 +14147,34 @@
      "espn_comment": null,
      "starter_slot": null,
      "snap_share": 0.36,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 2
+    },
+    {
+     "player": "David Njoku",
+     "position": "TE",
+     "game_status": "Questionable",
+     "practice": "Full Participation in Practice",
+     "injury": "Fibula",
+     "espn": "Active",
+     "espn_comment": "The Chargers activated Njoku (fibula) from injured reserve ahead of Monday's game against the Ravens.",
+     "starter_slot": null,
+     "snap_share": 0.355,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 2
+    },
+    {
+     "player": "Denzel Perryman",
+     "position": "LB",
+     "game_status": "Questionable",
+     "practice": "Full Participation in Practice",
+     "injury": "Pectoral",
+     "espn": "Questionable",
+     "espn_comment": "The Chargers activated Perryman (pectoral) from the reserve/injured list ahead of Monday's game versus Baltimore.",
+     "starter_slot": null,
+     "snap_share": null,
      "next_up": null,
      "impact": "low",
      "status_level": 2
@@ -15165,6 +15333,197 @@
       }
      }
     ]
+   },
+   "watch": {
+    "receivers": [
+     {
+      "player": "Zay Flowers",
+      "player_id": "00-0039064",
+      "pos": "WR",
+      "tier": "tier B",
+      "style": "volume",
+      "p80": 0.321,
+      "p100": 0.181,
+      "stars": 1,
+      "targets": 8.1,
+      "yds_pg": 66.3,
+      "ex_pg": 1.0,
+      "why": [
+       "tier B receiver: 8.3 targets and 66 yards a game"
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 118,
+       "break_even": 0.4587,
+       "blend": 0.388,
+       "model_minus_price": -0.138
+      }
+     },
+     {
+      "player": "Rashod Bateman",
+      "player_id": "00-0036550",
+      "pos": "WR",
+      "tier": null,
+      "style": "volume",
+      "p80": 0.068,
+      "p100": 0.023,
+      "stars": 0,
+      "targets": 3.5,
+      "yds_pg": 36.8,
+      "ex_pg": 0.62,
+      "why": [],
+      "book80": {
+       "book": "fanduel",
+       "american": 1200,
+       "break_even": 0.0769,
+       "blend": 0.072,
+       "model_minus_price": -0.009
+      }
+     },
+     {
+      "player": "Mark Andrews",
+      "player_id": "00-0034753",
+      "pos": "TE",
+      "tier": null,
+      "style": "volume",
+      "p80": 0.05,
+      "p100": 0.018,
+      "stars": 0,
+      "targets": 4.2,
+      "yds_pg": 23.5,
+      "ex_pg": 0.0,
+      "why": []
+     },
+     {
+      "player": "Ja'Kobi Lane",
+      "player_id": "00-0040870",
+      "pos": "WR",
+      "tier": null,
+      "style": "volume",
+      "p80": 0.047,
+      "p100": 0.015,
+      "stars": 0,
+      "targets": 3.5,
+      "yds_pg": 26.0,
+      "ex_pg": 0.0,
+      "why": [],
+      "book80": {
+       "book": "fanduel",
+       "american": 1700,
+       "break_even": 0.0556,
+       "blend": 0.051,
+       "model_minus_price": -0.009
+      }
+     },
+     {
+      "player": "Josh Cuevas",
+      "player_id": "00-0040887",
+      "pos": "TE",
+      "tier": null,
+      "style": "volume",
+      "p80": 0.032,
+      "p100": 0.009,
+      "stars": 0,
+      "targets": 2.7,
+      "yds_pg": 26.8,
+      "ex_pg": 0.2,
+      "why": []
+     },
+     {
+      "player": "Devontez Walker",
+      "player_id": "00-0039792",
+      "pos": "WR",
+      "tier": null,
+      "style": "volume",
+      "p80": 0.01,
+      "p100": 0.002,
+      "stars": 0,
+      "targets": 1.8,
+      "yds_pg": 15.0,
+      "ex_pg": 0.2,
+      "why": []
+     }
+    ],
+    "rushers": [
+     {
+      "player": "Derrick Henry",
+      "player_id": "00-0032764",
+      "pos": "RB",
+      "p80": 0.342,
+      "p100": 0.172,
+      "stars": 1,
+      "carries": 17.3,
+      "yds_pg": 68.1,
+      "why": [
+       "17.3 carries a game",
+       "favored by about 4",
+       "LAC allows 106 rushing yards a game to backs"
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": -104,
+       "break_even": 0.5098,
+       "blend": 0.424,
+       "model_minus_price": -0.168
+      }
+     }
+    ],
+    "context": {
+     "pass_yards_last5": 162.0,
+     "pass_offense_rank": 28,
+     "implied": 22.0,
+     "defense_g80_rank": 23,
+     "defense_explosive_rank": 10
+    },
+    "record": {
+     "weeks": 22,
+     "seasons": "2025-2026",
+     "all_80_games": 399,
+     "3": {
+      "per_week": 3.7,
+      "predicted": 0.558,
+      "hit80": 0.512,
+      "hit100": 0.317
+     },
+     "2": {
+      "per_week": 5.6,
+      "predicted": 0.439,
+      "hit80": 0.431,
+      "hit100": 0.293
+     },
+     "1": {
+      "per_week": 11.3,
+      "predicted": 0.343,
+      "hit80": 0.345,
+      "hit100": 0.193
+     },
+     "all_stars": {
+      "per_week": 20.6,
+      "hit80": 0.399,
+      "share_of_all_80_games_caught": 0.454
+     }
+    },
+    "book_grade": {
+     "source": "FanDuel alt ladders, 2026 weeks 8-9, T-90 min; weights from 2022-2025 only",
+     "rungs": 402,
+     "brier": {
+      "model": 0.1136,
+      "book_price": 0.1136,
+      "book_devig": 0.1133,
+      "blend": 0.1118
+     },
+     "starred_30plus": {
+      "n": 68,
+      "hit": 0.5,
+      "model_p": 0.41,
+      "be": 0.468,
+      "roi": 0.087
+     },
+     "model_above_price_by_3pts": {
+      "n": 35,
+      "roi": -0.467
+     }
+    }
    },
    "visual": {
     "receivers": {
@@ -19136,7 +19495,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-15T14:41:31Z",
+    "as_of": "2026-11-16T16:58:52Z",
     "starters": [
      {
       "slot": "WR",
@@ -19578,7 +19937,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-15T14:41:31Z",
+    "as_of": "2026-11-16T16:58:52Z",
     "starters": [
      {
       "slot": "WR",
@@ -20013,7 +20372,7 @@
      }
     },
     "home_covers_market_spread": 0.446,
-    "over_market_total": 0.744
+    "over_market_total": 0.706
    },
    "independent": {
     "home_points": 23.4,
@@ -20050,7 +20409,7 @@
      }
     },
     "home_covers_market_spread": 0.481,
-    "over_market_total": 0.626
+    "over_market_total": 0.596
    }
   },
   "note": "Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information."
@@ -20132,7 +20491,7 @@
    "phase": 13,
    "name": "Timestamped book prices",
    "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "detail": "No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total."
   },
   {
    "phase": 14,
@@ -20151,70 +20510,70 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T04:05:27+00:00",
-   "sha256": "336090b4d670af0e516b1d6b4e87e006ffb0c50e214f80ed46e7221f273650d7",
-   "bytes": 523870
+   "retrieved_utc": "2026-11-16T23:41:21+00:00",
+   "sha256": "bb84365e4d000c1908e95ecf13967628c8d43b1cce469cb0104f1966fa0927a3",
+   "bytes": 523905
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T04:05:28+00:00",
-   "sha256": "52cea14495ce3b45665057ded9e57879a47f1fe2c1ce79a2a0fa0070ab57b7d7",
-   "bytes": 10978565
+   "retrieved_utc": "2026-11-16T23:41:21+00:00",
+   "sha256": "5bf3fd3431e556d76e4f80378bd689edf1a55280de4c59078d3518b9f6b9959e",
+   "bytes": 11054587
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T04:05:28+00:00",
-   "sha256": "b4f7dd20cba3c69f4c54b736d88bd61c6aa1acf5471bb8bfcc653076dc0a1940",
-   "bytes": 819454
+   "retrieved_utc": "2026-11-16T23:41:21+00:00",
+   "sha256": "8ef5848627e0e3cfa8f5fa1d9b02240bbf3deabef88e1b14a90f3b14f7352361",
+   "bytes": 818858
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T04:05:29+00:00",
-   "sha256": "87be8ab6f700cb36d6b303e3c47b7cca4ca8e0f2e0a4bb7e0560c2ea2a90fb1b",
+   "retrieved_utc": "2026-11-16T23:41:21+00:00",
+   "sha256": "4be8d0f909f1393fa1f3a47b45a830b15da8e73a4d0fed210a1c57adc50f06ca",
    "bytes": 65722
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T04:05:29+00:00",
-   "sha256": "2b712dbd51b583707996ce2a2cadd3474ee68c63a2f1caa8c25eb69298cfcdcb",
-   "bytes": 3517745
+   "retrieved_utc": "2026-11-16T23:41:21+00:00",
+   "sha256": "cb40b454d0c640c47472e57fbe486defa8963046da0e577197fda01905b274eb",
+   "bytes": 3517732
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T04:05:29+00:00",
-   "sha256": "1d2e15675f9a3bc9eba04c1197a7650be7957b8f2fbb657c8df80d40c25e1f03",
-   "bytes": 134793
+   "retrieved_utc": "2026-11-16T23:41:22+00:00",
+   "sha256": "29653cc651000a3ba77a5c8dc10ad71ff76f6078ef5f5d032e8fbe2ce8599ab3",
+   "bytes": 142951
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T04:05:30+00:00",
-   "sha256": "07ef9d37335fa12e5bfa2b45461b77b1914843b7249f607d24f4eed5c2d9a9eb",
+   "retrieved_utc": "2026-11-16T23:41:22+00:00",
+   "sha256": "21e9470ab453f4dcd0bd7d57499bab256a83b1e42c092b32d8d12138a47969c5",
    "bytes": 289331
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T04:05:30+00:00",
-   "sha256": "19447a6a6bd5be1867241c9bbbfe7fc14c8b9b95aabd3fe9586579030381be11",
-   "bytes": 93288
+   "retrieved_utc": "2026-11-16T23:41:22+00:00",
+   "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
+   "bytes": 93708
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-16T04:05:33+00:00"
+   "retrieved_utc": "2026-11-16T23:41:23+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
    "url": "https://nflsavant.com/"
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800",
    "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
    "retrieved_utc": null
   }
