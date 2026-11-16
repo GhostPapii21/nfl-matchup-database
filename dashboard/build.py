@@ -243,8 +243,10 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
     try:  # 80-yard watch: stars from the fitted weights (dashboard/watch_model.json); the board renders without it
         model = WT.load_model()
         dctx = WT.defense_context(data.get("pbp", season), rosters, int(g["week"]))
+        dl = ROOT / "pregame" / "direct_lines" / f"{g['game_id']}.json"
+        lines = json.loads(dl.read_text()).get("rows") if dl.exists() else None
         for sd in sides.values():
-            sd["watch"] = WT.watch_side(sd, imp, dctx, model)
+            sd["watch"] = WT.watch_side(sd, imp, dctx, model, lines)
     except Exception as e:  # noqa: BLE001
         for sd in sides.values():
             sd["watch"] = {"error": f"{type(e).__name__}: {e}"[:200]}

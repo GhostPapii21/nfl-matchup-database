@@ -214,3 +214,12 @@ def test_blend_with_book_sits_between_the_two_and_is_symmetric():
     assert 0.20 < b < 0.40 and abs(W.blend_with_book(0.30, 0.30) - 0.30) < 1e-9
     assert abs(W.blend_with_book(0.20, 0.40) - W.blend_with_book(0.40, 0.20)) < 1e-9
     assert W.blend_with_book(0.0, 1.0) > 0 and W.blend_with_book(0.0, 1.0) < 1   # clipped, no log(0)
+
+
+def test_book_price_matches_names_and_rung():
+    from dashboard import watch as W
+    rows = [{"book": "fanduel", "market": "alt_receiving_yards", "player": "Ja'Marr Chase", "side": "Over", "line": 79.5, "american": 118, "break_even": 0.4587},
+            {"book": "fanduel", "market": "alt_receiving_yards", "player": "Ja'Marr Chase", "side": "Over", "line": 99.5, "american": 250, "break_even": 0.2857}]
+    assert W.book_price(rows, "Ja'Marr Chase", "alt_receiving_yards")["american"] == 118
+    assert W.book_price(rows, "JaMarr Chase Jr.", "alt_receiving_yards")["break_even"] == 0.4587
+    assert W.book_price(rows, "Ja'Marr Chase", "alt_rushing_yards") is None and W.book_price(None, "x", "alt_receiving_yards") is None

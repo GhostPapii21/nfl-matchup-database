@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import math
+import re
 from pathlib import Path
 
 import numpy as np
@@ -79,7 +80,28 @@ def _tier(tgt_pg: float, yds_pg: float) -> str | None:
     return "alpha" if tgt_pg >= 8 and yds_pg >= 70 else "tier B" if tgt_pg >= 7 and yds_pg >= 55 else None
 
 
-def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None) -> dict | None:
+def _norm(n: str) -> str:
+    return re.sub(r"[^a-z]", "", re.sub(r"\b(jr|sr|ii|iii|iv)\b\.?", "", (n or "").lower()))
+
+
+def book_price(lines: list | None, player: str, market: str, rung: float = 79.5) -> dict | None:
+    """The book's price for `player` over `rung` in an alternate-yards market (pregame/direct_lines rows), or None."""
+    want = _norm(player)
+    for r in lines or []:
+        if r.get("market") == market and r.get("line") == rung and str(r.get("side", "")).lower() == "over" and _norm(r.get("player")) == want:
+            if r.get("break_even"):
+                return {"book": r["book"], "american": r["american"], "break_even": r["break_even"]}
+    return None
+
+
+def _attach_price(e: dict, lines: list | None, market: str) -> None:
+    b = book_price(lines, e["player"], market)
+    if b:
+        e["book80"] = {**b, "blend": round(blend_with_book(e["p80"], b["break_even"]), 3),
+                       "model_minus_price": round(e["p80"] - b["break_even"], 3)}
+
+
+def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines: list | None = None) -> dict | None:
     """One side of a matchup: starred players. `sd` is a board side with roles, opportunity and offense_by_game."""
     if not model or not imp:
         return None
@@ -168,6 +190,10 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None) -> di
             why.append("a teammate's absence adds carries")
         out["rushers"].append({"player": r.get("full_name") or r["player"], "player_id": r["player_id"], "pos": "RB", "p80": round(p80, 3), "p100": round(p100, 3),
                                "stars": stars(p80, cuts), "carries": round(cpg, 1), "yds_pg": r.get("yards_pg"), "why": why})
+    for e in out["receivers"]:
+        _attach_price(e, lines, "alt_receiving_yards")
+    for e in out["rushers"]:
+        _attach_price(e, lines, "alt_rushing_yards")
     for k in ("receivers", "rushers"):
         out[k].sort(key=lambda e: -e["p80"])
     return out
