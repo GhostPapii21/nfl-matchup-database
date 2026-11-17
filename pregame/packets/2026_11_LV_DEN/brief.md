@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): DEN -10, total 40.5.
 
-Generated 2026-11-17T04:40:24+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-17T21:58:27+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-17T04:40:23+00:00 UTC. At kickoff: 48 F, wind 3 mph ENE, 1% chance of precipitation, Mostly Sunny. During the game: low 46 F, wind up to 3 mph, precipitation chance up to 2%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-17T21:58:25+00:00 UTC. At kickoff: 48 F, wind 5 mph NE, 0% chance of precipitation, Mostly Sunny. During the game: low 44 F, wind up to 5 mph, precipitation chance up to 1%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -20,31 +20,31 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Flag | Area | Offense (per game or rate) | Defense (allowed, or its own sack/pressure rate) | League avg | Ranks |
 |---|---|---|---|---|---|
-| LV OFFENCE WEAK SPOT | wide receiver yards | 78.6 | 141.9 | 149.5 | LV offence ranks 32 of 32, DEN defence ranks 13 of 32 (1 = best at its own job) |
-| LV OFFENCE ADVANTAGE | tight end yards | 135.9 | 74.2 | 54.7 | LV offence ranks 1 of 32, DEN defence ranks 29 of 32 (1 = best at its own job) |
-| LV OFFENCE ADVANTAGE | running back receiving yards | 51.9 | 42.0 | 32.9 | LV offence ranks 4 of 32, DEN defence ranks 28 of 32 (1 = best at its own job) |
-| LV OFFENCE WEAK SPOT | running back rushing yards | 60.6 | 85.9 | 92.3 | LV offence ranks 31 of 32, DEN defence ranks 14 of 32 (1 = best at its own job) |
-| DEN DEFENCE WEAK SPOT | explosive runs (15+) | 0.6 | 1.4 | 1.2 | LV offence ranks 28 of 32, DEN defence ranks 23 of 32 (1 = best at its own job) |
-| LV OFFENCE ADVANTAGE | passing yards | 266.4 | 258.1 | 237.2 | LV offence ranks 9 of 32, DEN defence ranks 26 of 32 (1 = best at its own job) |
-| LV OFFENCE STRENGTH | third-down conversions | 46.1% | 39.5% | 39.4% | LV offence ranks 4 of 32, DEN defence ranks 15 of 32 (1 = best at its own job) |
-| DEN DEFENCE ADVANTAGE | red-zone touchdowns | 48.4% | 50.0% | 58.5% | LV offence ranks 28 of 32, DEN defence ranks 7 of 32 (1 = best at its own job) |
-| DEN DEFENCE ADVANTAGE | pressure (sacks + hits) | 18.2% | 21.2% | 15.7% | LV offence ranks 26 of 32, DEN defence ranks 2 of 32 (1 = best at its own job) |
+| LV OFFENCE WEAK SPOT | wide receiver yards | 78.6 | 141.9 | 149.3 | LV offence ranks 32 of 32, DEN defence ranks 13 of 32 (1 = best at its own job) |
+| LV OFFENCE ADVANTAGE | tight end yards | 135.9 | 74.2 | 54.6 | LV offence ranks 1 of 32, DEN defence ranks 29 of 32 (1 = best at its own job) |
+| LV OFFENCE ADVANTAGE | running back receiving yards | 51.9 | 42.0 | 33.0 | LV offence ranks 4 of 32, DEN defence ranks 28 of 32 (1 = best at its own job) |
+| LV OFFENCE WEAK SPOT | running back rushing yards | 60.6 | 85.9 | 92.3 | LV offence ranks 31 of 32, DEN defence ranks 13 of 32 (1 = best at its own job) |
+| LV OFFENCE WEAK SPOT | explosive runs (15+) | 0.6 | 1.4 | 1.2 | LV offence ranks 28 of 32, DEN defence ranks 22 of 32 (1 = best at its own job) |
+| LV OFFENCE ADVANTAGE | passing yards | 266.4 | 258.1 | 236.9 | LV offence ranks 9 of 32, DEN defence ranks 26 of 32 (1 = best at its own job) |
+| LV OFFENCE STRENGTH | third-down conversions | 46.1% | 39.5% | 39.3% | LV offence ranks 4 of 32, DEN defence ranks 16 of 32 (1 = best at its own job) |
+| DEN DEFENCE ADVANTAGE | red-zone touchdowns | 48.4% | 50.0% | 58.6% | LV offence ranks 27 of 32, DEN defence ranks 7 of 32 (1 = best at its own job) |
+| DEN DEFENCE ADVANTAGE | pressure (sacks + hits) | 18.2% | 21.2% | 15.8% | LV offence ranks 26 of 32, DEN defence ranks 2 of 32 (1 = best at its own job) |
 
 ### DEN offense vs LV defense
 
 | Flag | Area | Offense (per game or rate) | Defense (allowed, or its own sack/pressure rate) | League avg | Ranks |
 |---|---|---|---|---|---|
-| LV DEFENCE WEAK SPOT | wide receiver yards | 119.0 | 174.0 | 149.5 | DEN offence ranks 27 of 32, LV defence ranks 26 of 32 (1 = best at its own job) |
-| DEN OFFENCE WEAK SPOT | tight end yards | 26.9 | 57.1 | 54.7 | DEN offence ranks 31 of 32, LV defence ranks 19 of 32 (1 = best at its own job) |
-| DEN OFFENCE STRENGTH | running back receiving yards | 54.0 | 27.1 | 32.9 | DEN offence ranks 2 of 32, LV defence ranks 8 of 32 (1 = best at its own job) |
+| LV DEFENCE WEAK SPOT | wide receiver yards | 119.0 | 174.0 | 149.3 | DEN offence ranks 27 of 32, LV defence ranks 27 of 32 (1 = best at its own job) |
+| DEN OFFENCE WEAK SPOT | tight end yards | 26.9 | 57.1 | 54.6 | DEN offence ranks 31 of 32, LV defence ranks 20 of 32 (1 = best at its own job) |
+| DEN OFFENCE STRENGTH | running back receiving yards | 54.0 | 27.1 | 33.0 | DEN offence ranks 2 of 32, LV defence ranks 8 of 32 (1 = best at its own job) |
 | LV DEFENCE WEAK SPOT | running back rushing yards | 71.6 | 145.8 | 92.3 | DEN offence ranks 27 of 32, LV defence ranks 32 of 32 (1 = best at its own job) |
 | LV DEFENCE WEAK SPOT | explosive runs (15+) | 0.6 | 2.5 | 1.2 | DEN offence ranks 28 of 32, LV defence ranks 32 of 32 (1 = best at its own job) |
-| LV DEFENCE WEAK SPOT | passing yards | 199.9 | 258.2 | 237.2 | DEN offence ranks 25 of 32, LV defence ranks 27 of 32 (1 = best at its own job) |
+| LV DEFENCE WEAK SPOT | passing yards | 199.9 | 258.2 | 236.9 | DEN offence ranks 25 of 32, LV defence ranks 27 of 32 (1 = best at its own job) |
 | LV DEFENCE WEAK SPOT | points | 23.5 | 32.8 | 23.1 | DEN offence ranks 12 of 32, LV defence ranks 32 of 32 (1 = best at its own job) |
-| LV DEFENCE WEAK SPOT | third-down conversions | 34.7% | 52.2% | 39.4% | DEN offence ranks 28 of 32, LV defence ranks 32 of 32 (1 = best at its own job) |
-| DEN OFFENCE ADVANTAGE | red-zone touchdowns | 66.7% | 69.4% | 58.5% | DEN offence ranks 8 of 32, LV defence ranks 25 of 32 (1 = best at its own job) |
-| DEN OFFENCE ADVANTAGE | sacks (pass protection vs pass rush) | 2.6% | 5.2% | 6.5% | DEN offence ranks 1 of 32, LV defence ranks 24 of 32 (1 = best at its own job) |
-| DEN OFFENCE STRENGTH | pressure (sacks + hits) | 8.1% | 14.5% | 15.7% | DEN offence ranks 2 of 32, LV defence ranks 20 of 32 (1 = best at its own job) |
+| LV DEFENCE WEAK SPOT | third-down conversions | 34.7% | 52.2% | 39.3% | DEN offence ranks 28 of 32, LV defence ranks 32 of 32 (1 = best at its own job) |
+| DEN OFFENCE ADVANTAGE | red-zone touchdowns | 66.7% | 69.4% | 58.6% | DEN offence ranks 8 of 32, LV defence ranks 25 of 32 (1 = best at its own job) |
+| DEN OFFENCE ADVANTAGE | sacks (pass protection vs pass rush) | 2.6% | 5.2% | 6.5% | DEN offence ranks 1 of 32, LV defence ranks 25 of 32 (1 = best at its own job) |
+| DEN OFFENCE STRENGTH | pressure (sacks + hits) | 8.1% | 14.5% | 15.8% | DEN offence ranks 2 of 32, LV defence ranks 20 of 32 (1 = best at its own job) |
 
 ## Team score projection (research only)
 
@@ -63,38 +63,38 @@ Bootstrap of each team's real quarter scores. 'matchup_pair' includes the oppone
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | B.Bowers | TE | receiving yards | 8 | 93.0 | 1.15 | 41.6 | 62.6 | 80.7 | 81.9 | 83.1 | 102.3 |
 | B.Bowers | TE | receptions | 8 | 6.8 | 1.15 | 3.1 | 3.9 | 4.7 | 5.5 | 6.3 | 7.5 |
-| T.Tucker | WR | receiving yards | 8 | 46.0 | 0.975 | 3.1 | 6.1 | 10.3 | 21.2 | 32.2 | 42.4 |
-| T.Tucker | WR | receptions | 8 | 3.2 | 1.0 | 0.4 | 0.7 | 1.2 | 2.2 | 3.3 | 4.0 |
-| A.Jeanty | RB | receiving yards | 8 | 49.2 | 1.138 | 10.6 | 27.0 | 41.0 | 41.4 | 41.8 | 54.6 |
-| A.Jeanty | RB | receptions | 8 | 4.9 | 1.081 | 3.2 | 3.2 | 3.2 | 3.2 | 3.2 | 4.3 |
+| T.Tucker | WR | receiving yards | 8 | 46.0 | 0.975 | 3.1 | 6.1 | 10.3 | 21.3 | 32.2 | 42.4 |
+| T.Tucker | WR | receptions | 8 | 3.2 | 1.002 | 0.4 | 0.7 | 1.2 | 2.2 | 3.3 | 4.0 |
+| A.Jeanty | RB | receiving yards | 8 | 49.1 | 1.136 | 10.6 | 26.9 | 40.9 | 41.3 | 41.7 | 54.5 |
+| A.Jeanty | RB | receptions | 8 | 4.9 | 1.08 | 3.2 | 3.2 | 3.2 | 3.2 | 3.2 | 4.3 |
 | M.Mayer | TE | receiving yards | 8 | 48.5 | 1.15 | 7.9 | 13.6 | 19.3 | 25.8 | 32.2 | 39.7 |
 | M.Mayer | TE | receptions | 8 | 4.4 | 1.15 | 1.6 | 2.0 | 2.4 | 2.8 | 3.2 | 3.4 |
-| J.Nailor | WR | receiving yards | 6 | 13.1 | 0.975 | 1.5 | 3.9 | 6.3 | 8.8 | 8.8 | 11.2 |
-| J.Nailor | WR | receptions | 6 | 1.9 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.5 |
-| A.Jeanty | RB | rushing yards | 8 | 24.9 | 0.965 | 10.7 | 12.7 | 14.6 | 15.6 | 16.6 | 22.7 |
+| J.Nailor | WR | receiving yards | 6 | 13.2 | 0.975 | 1.5 | 3.9 | 6.3 | 8.8 | 8.8 | 11.2 |
+| J.Nailor | WR | receptions | 6 | 1.9 | 1.002 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.5 |
+| A.Jeanty | RB | rushing yards | 8 | 24.9 | 0.965 | 10.7 | 12.7 | 14.6 | 15.6 | 16.7 | 22.7 |
 | M.Washington | RB | rushing yards | 8 | 29.6 | 0.965 | -0.2 | 2.5 | 5.5 | 9.8 | 14.2 | 24.1 |
 
 ### DEN offense vs LV defense
 
 | Player | Pos | Stat | G | Wtd mean | Opp factor | Floor p5 | p10 | MAIN p15 | p20 | p25 | Median |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| J.Waddle | WR | receiving yards | 8 | 41.3 | 1.082 | 14.2 | 17.6 | 20.7 | 21.9 | 23.0 | 31.9 |
-| J.Waddle | WR | receptions | 8 | 3.3 | 0.978 | 1.3 | 1.7 | 2.0 | 2.0 | 2.0 | 3.4 |
-| C.Sutton | WR | receiving yards | 8 | 36.4 | 1.082 | 9.6 | 14.9 | 19.5 | 19.9 | 20.3 | 37.9 |
-| C.Sutton | WR | receptions | 8 | 3.0 | 0.978 | 1.3 | 1.7 | 2.0 | 2.0 | 2.0 | 2.9 |
-| E.Engram | TE | receiving yards | 8 | 16.5 | 1.022 | 0.0 | 0.0 | 0.1 | 0.8 | 1.5 | 9.7 |
+| J.Waddle | WR | receiving yards | 8 | 41.3 | 1.083 | 14.2 | 17.7 | 20.7 | 21.9 | 23.0 | 31.9 |
+| J.Waddle | WR | receptions | 8 | 3.3 | 0.98 | 1.3 | 1.7 | 2.0 | 2.0 | 2.0 | 3.4 |
+| C.Sutton | WR | receiving yards | 8 | 36.4 | 1.083 | 9.6 | 14.9 | 19.5 | 19.9 | 20.3 | 37.9 |
+| C.Sutton | WR | receptions | 8 | 3.0 | 0.98 | 1.3 | 1.7 | 2.0 | 2.0 | 2.0 | 2.9 |
+| E.Engram | TE | receiving yards | 8 | 16.5 | 1.023 | 0.0 | 0.0 | 0.1 | 0.8 | 1.5 | 9.7 |
 | E.Engram | TE | receptions | 8 | 2.0 | 1.128 | 0.0 | 0.0 | 0.1 | 0.5 | 0.8 | 1.1 |
-| R.Harvey | RB | receiving yards | 5 | 35.0 | 0.912 | 5.7 | 11.3 | 17.0 | 22.6 | 28.3 | 37.4 |
+| R.Harvey | RB | receiving yards | 5 | 35.0 | 0.911 | 5.6 | 11.3 | 16.9 | 22.6 | 28.2 | 37.3 |
 | R.Harvey | RB | receptions | 5 | 3.2 | 0.868 | 0.3 | 0.7 | 1.0 | 1.4 | 1.7 | 2.6 |
 | J.Dobbins | RB | rushing yards | 8 | 38.8 | 1.15 | 17.0 | 19.0 | 21.0 | 23.0 | 25.0 | 43.7 |
 | J.Coleman | RB | rushing yards | 4 | 56.2 | 1.15 | 45.2 | 45.5 | 45.9 | 46.2 | 46.6 | 54.6 |
-| B.Nix | QB | passing yards | 8 | 207.7 | 1.044 | 117.6 | 123.5 | 131.8 | 154.8 | 177.8 | 227.7 |
+| B.Nix | QB | passing yards | 8 | 207.8 | 1.045 | 117.7 | 123.5 | 131.8 | 154.9 | 177.9 | 227.8 |
 
 The player's own games in the window (recency-weighted mean; percentiles of his game log), scaled by half of the opponent's allowed-per-game deviation from league average for that position, capped at +/-15%. This is NOT the three-model consensus and has not been validated against prices. Injury replacements, role changes and game script are not applied: the analyst must adjust for them.
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 1% chance of rain at kickoff, wind up to 3 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 0% chance of rain at kickoff, wind up to 5 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### LV passing
 
@@ -103,17 +103,17 @@ Forecast: 1% chance of rain at kickoff, wind up to 3 mph. Basis: 211 team-games 
 | Team pass attempts | 36.4 | 34.8 | 36.4 |
 | Team completion rate | 63.9% | 60.1% | 63.9% |
 | Team completions | 23.2 | 20.9 | 23.2 |
-| Team pass yards | 266.4 | 227.6 | 266.0 |
-| F.Mendoza completion rate (37 attempts, small sample) | 62.2% | 58.4% | 62.1% |
+| Team pass yards | 266.4 | 227.6 | 266.4 |
+| F.Mendoza completion rate (37 attempts, small sample) | 62.2% | 58.4% | 62.2% |
 | F.Mendoza yards per attempt | 5.16 | 4.54 | 5.16 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| B.Bowers | TE | 8 | 25% | 8.9 / 6.2 / 84.5 | 8.5 / 5.6 / 71.5 | 8.9 / 6.2 / 84.4 |
-| T.Tucker | WR | 8 | 17% | 5.9 / 3.4 / 49.0 | 5.6 / 3.0 / 41.6 | 5.9 / 3.4 / 48.9 |
-| A.Jeanty | RB | 8 | 16% | 5.8 / 4.5 / 44.6 | 5.5 / 4.1 / 37.2 | 5.7 / 4.5 / 44.5 |
-| M.Mayer | TE | 8 | 14% | 4.8 / 4.0 / 43.6 | 4.5 / 3.6 / 36.9 | 4.7 / 4.0 / 43.6 |
-| J.Nailor | WR | 6 | 9% | 4.0 / 1.8 / 14.2 | 3.8 / 1.6 / 12.0 | 4.0 / 1.8 / 14.1 |
+| B.Bowers | TE | 8 | 25% | 8.9 / 6.2 / 84.5 | 8.5 / 5.6 / 71.5 | 8.9 / 6.2 / 84.5 |
+| T.Tucker | WR | 8 | 17% | 5.9 / 3.4 / 49.0 | 5.6 / 3.0 / 41.6 | 5.9 / 3.4 / 49.0 |
+| A.Jeanty | RB | 8 | 16% | 5.8 / 4.5 / 44.6 | 5.5 / 4.1 / 37.2 | 5.8 / 4.5 / 44.6 |
+| M.Mayer | TE | 8 | 14% | 4.8 / 4.0 / 43.6 | 4.5 / 3.6 / 36.9 | 4.8 / 4.0 / 43.6 |
+| J.Nailor | WR | 6 | 9% | 4.0 / 1.8 / 14.2 | 3.8 / 1.6 / 12.0 | 4.0 / 1.8 / 14.2 |
 | C.White | WR | 6 | 6% | 2.8 / 1.2 / 18.3 | 2.7 / 1.0 / 15.6 | 2.8 / 1.2 / 18.3 |
 | M.Washington | RB | 5 | 2% | 1.2 / 0.8 / 3.0 | 1.1 / 0.7 / 2.5 | 1.2 / 0.8 / 3.0 |
 | M.Benson | WR | 3 | 2% | 2.0 / 0.3 / 2.0 | 1.9 / 0.3 / 1.7 | 2.0 / 0.3 / 2.0 |
@@ -125,20 +125,20 @@ Forecast: 1% chance of rain at kickoff, wind up to 3 mph. Basis: 211 team-games 
 | Team pass attempts | 32.4 | 31.0 | 32.4 |
 | Team completion rate | 60.6% | 57.0% | 60.6% |
 | Team completions | 19.6 | 17.6 | 19.6 |
-| Team pass yards | 199.9 | 170.8 | 199.6 |
+| Team pass yards | 199.9 | 170.8 | 199.9 |
 | B.Nix completion rate (259 attempts) | 60.6% | 57.0% | 60.6% |
 | B.Nix yards per attempt | 6.17 | 5.43 | 6.17 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| J.Waddle | WR | 8 | 21% | 6.1 / 3.6 / 41.9 | 5.9 / 3.2 / 35.5 | 6.1 / 3.6 / 41.8 |
-| C.Sutton | WR | 8 | 18% | 5.1 / 2.9 / 31.9 | 4.9 / 2.6 / 27.0 | 5.1 / 2.9 / 31.8 |
-| E.Engram | TE | 8 | 11% | 3.1 / 1.6 / 15.8 | 3.0 / 1.4 / 13.3 | 3.1 / 1.6 / 15.7 |
-| R.Harvey | RB | 5 | 10% | 4.8 / 4.2 / 38.8 | 4.6 / 3.9 / 32.3 | 4.8 / 4.2 / 38.7 |
+| J.Waddle | WR | 8 | 21% | 6.1 / 3.6 / 41.9 | 5.9 / 3.2 / 35.5 | 6.1 / 3.6 / 41.9 |
+| C.Sutton | WR | 8 | 18% | 5.1 / 2.9 / 31.9 | 4.9 / 2.6 / 27.0 | 5.1 / 2.9 / 31.9 |
+| E.Engram | TE | 8 | 11% | 3.1 / 1.6 / 15.8 | 3.0 / 1.4 / 13.3 | 3.1 / 1.6 / 15.8 |
+| R.Harvey | RB | 5 | 10% | 4.8 / 4.2 / 38.8 | 4.6 / 3.9 / 32.3 | 4.8 / 4.2 / 38.8 |
 | M.Mims | WR | 6 | 7% | 2.7 / 1.7 / 15.3 | 2.6 / 1.5 / 13.0 | 2.7 / 1.7 / 15.3 |
 | T.Franklin | WR | 7 | 6% | 2.0 / 1.3 / 14.3 | 1.9 / 1.1 / 12.1 | 2.0 / 1.3 / 14.3 |
-| J.Coleman | RB | 4 | 6% | 3.5 / 3.2 / 32.0 | 3.3 / 3.0 / 26.7 | 3.5 / 3.2 / 31.9 |
-| P.Bryant | WR | 4 | 5% | 2.8 / 2.2 / 36.8 | 2.6 / 2.0 / 31.2 | 2.7 / 2.2 / 36.7 |
+| J.Coleman | RB | 4 | 6% | 3.5 / 3.2 / 32.0 | 3.3 / 3.0 / 26.7 | 3.5 / 3.2 / 32.0 |
+| P.Bryant | WR | 4 | 5% | 2.8 / 2.2 / 36.8 | 2.6 / 2.0 / 31.2 | 2.8 / 2.2 / 36.8 |
 | J.Dobbins | RB | 5 | 4% | 2.0 / 1.8 / 6.2 | 1.9 / 1.7 / 5.2 | 2.0 / 1.8 / 6.2 |
 
 ## LV (last 8 games: weeks 3, 4, 5, 6, 7, 8, 9, 10)
@@ -148,26 +148,26 @@ Forecast: 1% chance of rain at kickoff, wind up to 3 mph. Basis: 211 team-games 
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points allowed / game | 32.8 | 32/32 | 23.1 |
-| Pass yards allowed / game | 258.2 | 27/32 | 237.2 |
-| Yards per pass attempt allowed | 8.54 | 31/32 | 7.24 |
-| Rush yards allowed / game | 151.8 | 32/32 | 99.5 |
+| Pass yards allowed / game | 258.2 | 27/32 | 236.9 |
+| Yards per pass attempt allowed | 8.54 | 31/32 | 7.23 |
+| Rush yards allowed / game | 151.8 | 32/32 | 99.3 |
 | Yards per carry allowed | 5.32 | 31/32 | 4.05 |
 | RB rush yards allowed / game | 145.8 | 32/32 | 92.3 |
-| WR yards allowed / game | 174.0 | 26/32 | 149.5 |
-| WR receptions allowed / game | 10.9 | 13/32 | 11.4 |
-| TE yards allowed / game | 57.1 | 19/32 | 54.7 |
+| WR yards allowed / game | 174.0 | 27/32 | 149.3 |
+| WR receptions allowed / game | 10.9 | 13/32 | 11.3 |
+| TE yards allowed / game | 57.1 | 20/32 | 54.6 |
 | TE receptions allowed / game | 6.8 | 29/32 | 5.4 |
-| RB receiving yards allowed / game | 27.1 | 8/32 | 32.9 |
+| RB receiving yards allowed / game | 27.1 | 8/32 | 33.0 |
 | RB receptions allowed / game | 3.2 | 3/32 | 4.4 |
-| Explosive passes (20+) allowed / game | 3.12 | 16/32 | 3.04 |
-| Explosive runs (15+) allowed / game | 2.50 | 32/32 | 1.20 |
-| Sack rate | 5.2% | 24/32 | 6.5% |
-| Pressure rate (sacks + hits) | 14.5% | 20/32 | 15.7% |
-| Third-down conversions allowed | 52.2% | 32/32 | 39.4% |
-| Red-zone TD rate allowed | 69.4% | 25/32 | 58.5% |
-| Takeaways / game | 1.38 | 8/32 | 1.22 |
+| Explosive passes (20+) allowed / game | 3.12 | 15/32 | 3.04 |
+| Explosive runs (15+) allowed / game | 2.50 | 32/32 | 1.21 |
+| Sack rate | 5.2% | 25/32 | 6.5% |
+| Pressure rate (sacks + hits) | 14.5% | 20/32 | 15.8% |
+| Third-down conversions allowed | 52.2% | 32/32 | 39.3% |
+| Red-zone TD rate allowed | 69.4% | 25/32 | 58.6% |
+| Takeaways / game | 1.38 | 9/32 | 1.23 |
 
-Blitz rate 29.1% and play-action faced 27.9% on 247 charted dropbacks (FTN). Deep passes (20+ air yards) faced 4.9 per game, 46.2% completed.
+Blitz rate 30.1% and play-action faced 28.3% on 269 charted dropbacks (FTN). Deep passes (20+ air yards) faced 4.9 per game, 46.2% completed.
 
 ### LV defense, game by game
 
@@ -240,20 +240,20 @@ Blitz rate 29.1% and play-action faced 27.9% on 247 charted dropbacks (FTN). Dee
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points / game | 24.8 | 10/32 | 22.9 |
-| Pass yards / game | 266.4 | 9/32 | 236.5 |
+| Pass yards / game | 266.4 | 9/32 | 236.6 |
 | Yards per pass attempt | 7.32 | 12/32 | 7.16 |
 | Rush yards / game | 62.6 | 32/32 | 99.4 |
 | Yards per carry | 2.98 | 32/32 | 4.05 |
 | RB rush yards / game | 60.6 | 31/32 | 92.3 |
 | WR yards / game | 78.6 | 32/32 | 148.7 |
 | TE yards / game | 135.9 | 1/32 | 54.6 |
-| RB receiving yards / game | 51.9 | 4/32 | 33.2 |
+| RB receiving yards / game | 51.9 | 4/32 | 33.3 |
 | Explosive passes (20+) / game | 3.50 | 11/32 | 3.04 |
-| Explosive runs (15+) / game | 0.62 | 28/32 | 1.19 |
+| Explosive runs (15+) / game | 0.62 | 28/32 | 1.20 |
 | Sack rate allowed | 4.8% | 9/32 | 6.5% |
-| Pressure rate allowed (sacks + hits) | 18.2% | 26/32 | 15.6% |
+| Pressure rate allowed (sacks + hits) | 18.2% | 26/32 | 15.7% |
 | Third-down conversion rate | 46.1% | 4/32 | 39.5% |
-| Red-zone TD rate | 48.4% | 28/32 | 58.0% |
+| Red-zone TD rate | 48.4% | 27/32 | 58.0% |
 
 Neutral-situation pass rate 54.6%; 60.2 plays per game; target share WR 38% / TE 41% / RB 21%.
 
@@ -314,12 +314,12 @@ Neutral-situation pass rate 54.6%; 60.2 plays per game; target share WR 38% / TE
 
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
-| offense | Shotgun | 249 | 52% | 82% | 5.9 | -0.054 |
-| offense | Under center | 186 | 39% | 38% | 4.53 | 0.0 |
-| offense | No huddle | 47 | 10% | 83% | 5.13 | 0.041 |
-| defense vs | Shotgun | 247 | 50% | 74% | 7.05 | 0.233 |
-| defense vs | Under center | 226 | 46% | 32% | 6.29 | 0.128 |
-| defense vs | No huddle | 24 | 5% | 54% | 5.67 | 0.018 |
+| offense | Shotgun | 249 | 52% | 82% | 5.9 | -0.026 |
+| offense | Under center | 186 | 39% | 38% | 4.53 | -0.01 |
+| offense | No huddle | 47 | 10% | 83% | 5.13 | 0.029 |
+| defense vs | Shotgun | 247 | 50% | 74% | 7.05 | 0.205 |
+| defense vs | Under center | 226 | 46% | 32% | 6.29 | 0.104 |
+| defense vs | No huddle | 24 | 5% | 54% | 5.67 | 0.014 |
 
 | Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
 |---|---|---|---|---|---|---|
@@ -336,7 +336,7 @@ Neutral-situation pass rate 54.6%; 60.2 plays per game; target share WR 38% / TE
 | defense allows | Deep middle | 15 | 6% | 60% | 20.07 | 7 |
 | defense allows | Deep right | 20 | 8% | 40% | 10.55 | 4 |
 
-### LV lines (depth chart as of 2026-11-16T16:58:52Z)
+### LV lines (depth chart as of 2026-11-17T16:52:03Z)
 
 Offensive line: LT Kolton Miller, LG Spencer Burford, C Tyler Linderbaum, RG Trey Zuhn III, RT DJ Glaze.  
 Defensive front: LDE Folorunso Fatukasi, NT Adam Butler, RDE Tonka Hemingway, WLB Maxx Crosby, SLB Kwity Paye.
@@ -345,15 +345,15 @@ Defensive front: LDE Folorunso Fatukasi, NT Adam Butler, RDE Tonka Hemingway, WL
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Dont'e Thornton Jr. (WR) Out; Thomas Booker IV (DT) Out; Kwity Paye (DE) Questionable; Brock Bowers (TE) Questionable.
+ESPN live list (designations only): Kwity Paye (DE) Questionable; Brock Bowers (TE) Questionable; Dont'e Thornton Jr. (WR) Questionable; Thomas Booker IV (DT) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### LV roster moves (last 4 weeks)
 
-Arrived: Chris Williams (DL) from CLE.  
-Left for another team: Kirk Cousins (QB) to MIN; Phillip Dorsett (WR) to ARI; Tyler Scott (WR) to LA; Jonah Laulu (DL) to TEN.
+Arrived: Brett Rypien (QB) from TB.  
+Left for another team: Kirk Cousins (QB) to MIN; Phillip Dorsett (WR) to ARI; Jonah Laulu (DL) to TEN.
 
 ## DEN (last 8 games: weeks 2, 3, 4, 5, 6, 7, 8, 9)
 
@@ -362,24 +362,24 @@ Left for another team: Kirk Cousins (QB) to MIN; Phillip Dorsett (WR) to ARI; Ty
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points allowed / game | 19.4 | 7/32 | 23.1 |
-| Pass yards allowed / game | 258.1 | 26/32 | 237.2 |
-| Yards per pass attempt allowed | 6.64 | 9/32 | 7.24 |
-| Rush yards allowed / game | 98.9 | 15/32 | 99.5 |
+| Pass yards allowed / game | 258.1 | 26/32 | 236.9 |
+| Yards per pass attempt allowed | 6.64 | 9/32 | 7.23 |
+| Rush yards allowed / game | 98.9 | 15/32 | 99.3 |
 | Yards per carry allowed | 4.08 | 17/32 | 4.05 |
-| RB rush yards allowed / game | 85.9 | 14/32 | 92.3 |
-| WR yards allowed / game | 141.9 | 13/32 | 149.5 |
-| WR receptions allowed / game | 11.4 | 15/32 | 11.4 |
-| TE yards allowed / game | 74.2 | 29/32 | 54.7 |
+| RB rush yards allowed / game | 85.9 | 13/32 | 92.3 |
+| WR yards allowed / game | 141.9 | 13/32 | 149.3 |
+| WR receptions allowed / game | 11.4 | 17/32 | 11.3 |
+| TE yards allowed / game | 74.2 | 29/32 | 54.6 |
 | TE receptions allowed / game | 7.5 | 31/32 | 5.4 |
-| RB receiving yards allowed / game | 42.0 | 28/32 | 32.9 |
+| RB receiving yards allowed / game | 42.0 | 28/32 | 33.0 |
 | RB receptions allowed / game | 5.1 | 25/32 | 4.4 |
 | Explosive passes (20+) allowed / game | 3.00 | 14/32 | 3.04 |
-| Explosive runs (15+) allowed / game | 1.38 | 23/32 | 1.20 |
+| Explosive runs (15+) allowed / game | 1.38 | 22/32 | 1.21 |
 | Sack rate | 6.9% | 11/32 | 6.5% |
-| Pressure rate (sacks + hits) | 21.2% | 2/32 | 15.7% |
-| Third-down conversions allowed | 39.5% | 15/32 | 39.4% |
-| Red-zone TD rate allowed | 50.0% | 7/32 | 58.5% |
-| Takeaways / game | 1.38 | 8/32 | 1.22 |
+| Pressure rate (sacks + hits) | 21.2% | 2/32 | 15.8% |
+| Third-down conversions allowed | 39.5% | 16/32 | 39.3% |
+| Red-zone TD rate allowed | 50.0% | 7/32 | 58.6% |
+| Takeaways / game | 1.38 | 9/32 | 1.23 |
 
 Blitz rate 32.4% and play-action faced 19.5% on 349 charted dropbacks (FTN). Deep passes (20+ air yards) faced 4.0 per game, 28.1% completed.
 
@@ -454,18 +454,18 @@ Blitz rate 32.4% and play-action faced 19.5% on 349 charted dropbacks (FTN). Dee
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points / game | 23.5 | 12/32 | 22.9 |
-| Pass yards / game | 199.9 | 25/32 | 236.5 |
+| Pass yards / game | 199.9 | 25/32 | 236.6 |
 | Yards per pass attempt | 6.17 | 26/32 | 7.16 |
 | Rush yards / game | 85.1 | 24/32 | 99.4 |
 | Yards per carry | 3.53 | 26/32 | 4.05 |
 | RB rush yards / game | 71.6 | 27/32 | 92.3 |
 | WR yards / game | 119.0 | 27/32 | 148.7 |
 | TE yards / game | 26.9 | 31/32 | 54.6 |
-| RB receiving yards / game | 54.0 | 2/32 | 33.2 |
+| RB receiving yards / game | 54.0 | 2/32 | 33.3 |
 | Explosive passes (20+) / game | 2.62 | 22/32 | 3.04 |
-| Explosive runs (15+) / game | 0.62 | 28/32 | 1.19 |
+| Explosive runs (15+) / game | 0.62 | 28/32 | 1.20 |
 | Sack rate allowed | 2.6% | 1/32 | 6.5% |
-| Pressure rate allowed (sacks + hits) | 8.1% | 2/32 | 15.6% |
+| Pressure rate allowed (sacks + hits) | 8.1% | 2/32 | 15.7% |
 | Third-down conversion rate | 34.7% | 28/32 | 39.5% |
 | Red-zone TD rate | 66.7% | 8/32 | 58.0% |
 
@@ -526,12 +526,12 @@ Neutral-situation pass rate 54.2%; 58.2 plays per game; target share WR 59% / TE
 
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
-| offense | Shotgun | 269 | 58% | 74% | 5.78 | 0.054 |
-| offense | Under center | 163 | 35% | 29% | 3.67 | -0.08 |
-| offense | No huddle | 34 | 7% | 82% | 5.12 | 0.12 |
-| defense vs | Shotgun | 309 | 57% | 80% | 5.34 | -0.048 |
-| defense vs | Under center | 191 | 35% | 35% | 4.41 | -0.065 |
-| defense vs | No huddle | 43 | 8% | 81% | 7.28 | 0.249 |
+| offense | Shotgun | 269 | 58% | 74% | 5.78 | 0.05 |
+| offense | Under center | 163 | 35% | 29% | 3.67 | -0.058 |
+| offense | No huddle | 34 | 7% | 82% | 5.12 | 0.099 |
+| defense vs | Shotgun | 309 | 57% | 80% | 5.34 | -0.03 |
+| defense vs | Under center | 191 | 35% | 35% | 4.41 | -0.047 |
+| defense vs | No huddle | 43 | 8% | 81% | 7.28 | 0.215 |
 
 | Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
 |---|---|---|---|---|---|---|
@@ -548,7 +548,7 @@ Neutral-situation pass rate 54.2%; 58.2 plays per game; target share WR 59% / TE
 | defense allows | Deep middle | 9 | 3% | 56% | 13.78 | 3 |
 | defense allows | Deep right | 22 | 7% | 27% | 7.86 | 6 |
 
-### DEN lines (depth chart as of 2026-11-16T16:58:52Z)
+### DEN lines (depth chart as of 2026-11-17T16:52:03Z)
 
 Offensive line: LT Garett Bolles, LG Ben Powers, C Luke Wattenberg, RG Quinn Meinerz, RT Mike McGlinchey.  
 Defensive front: LDE Zach Allen, NT D.J. Jones, RDE Malcolm Roach, WLB Jonathon Cooper, SLB Nik Bonitto.
@@ -557,7 +557,7 @@ Defensive front: LDE Zach Allen, NT D.J. Jones, RDE Malcolm Roach, WLB Jonathon 
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Eyioma Uwazurike (DE) Injured Reserve; Riley Moss (CB) Questionable; Jaylen Waddle (WR) Questionable; Brandon Jones (S) Out; Talanoa Hufanga (S) Out; Kris Abrams-Draine (CB) Out.
+ESPN live list (designations only): Eyioma Uwazurike (DE) Injured Reserve; Riley Moss (CB) Questionable; Jaylen Waddle (WR) Questionable; Talanoa Hufanga (S) Questionable; Brandon Jones (S) Questionable; Kris Abrams-Draine (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -596,15 +596,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-17T04:39:59+00:00 | 5814492ecf5b |
-| pbp | OK | 2026-11-17T04:39:59+00:00 | 5bf3fd3431e5 |
-| rosters | OK | 2026-11-17T04:39:59+00:00 | 8ef5848627e0 |
-| injuries | OK | 2026-11-17T04:40:00+00:00 | 4be8d0f909f1 |
-| depth_charts | OK | 2026-11-17T04:40:00+00:00 | cb40b454d0c6 |
-| snap_counts | OK | 2026-11-17T04:40:00+00:00 | 29653cc65100 |
-| ftn | OK | 2026-11-17T04:40:00+00:00 | 21e9470ab453 |
-| pfr_def | OK | 2026-11-17T04:40:01+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-17T04:40:01+00:00 |  |
+| games | OK | 2026-11-17T21:58:03+00:00 | f84bb068b606 |
+| pbp | OK | 2026-11-17T21:58:03+00:00 | 32334d4ae379 |
+| rosters | OK | 2026-11-17T21:58:03+00:00 | e4f81f1adc72 |
+| injuries | OK | 2026-11-17T21:58:04+00:00 | 33d3b85359fe |
+| depth_charts | OK | 2026-11-17T21:58:04+00:00 | aaca90f9afb7 |
+| snap_counts | OK | 2026-11-17T21:58:04+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-17T21:58:05+00:00 | 8db63e5eaab1 |
+| pfr_def | OK | 2026-11-17T21:58:05+00:00 | 169459009450 |
+| espn_injuries | OK | 2026-11-17T21:58:05+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

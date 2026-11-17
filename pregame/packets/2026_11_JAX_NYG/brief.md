@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): NYG +6, total 46.5.
 
-Generated 2026-11-17T04:40:11+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-17T21:58:14+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-17T04:40:09+00:00 UTC. At kickoff: 60 F, wind 6 mph NE, 27% chance of precipitation, Chance Light Rain. During the game: low 60 F, wind up to 6 mph, precipitation chance up to 27%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-17T21:58:13+00:00 UTC. At kickoff: 59 F, wind 5 mph NE, 37% chance of precipitation, Chance Light Rain. During the game: low 59 F, wind up to 5 mph, precipitation chance up to 37%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -20,26 +20,26 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Flag | Area | Offense (per game or rate) | Defense (allowed, or its own sack/pressure rate) | League avg | Ranks |
 |---|---|---|---|---|---|
-| NYG DEFENCE STRENGTH | running back receiving yards | 28.9 | 20.5 | 32.9 | JAX offence ranks 20 of 32, NYG defence ranks 4 of 32 (1 = best at its own job) |
+| NYG DEFENCE STRENGTH | running back receiving yards | 28.9 | 20.5 | 33.0 | JAX offence ranks 20 of 32, NYG defence ranks 4 of 32 (1 = best at its own job) |
 | NYG DEFENCE STRENGTH | explosive passes (20+) | 3.6 | 2.5 | 3.0 | JAX offence ranks 8 of 32, NYG defence ranks 5 of 32 (1 = best at its own job) |
-| NYG DEFENCE WEAK SPOT | explosive runs (15+) | 1.2 | 2.2 | 1.2 | JAX offence ranks 12 of 32, NYG defence ranks 31 of 32 (1 = best at its own job) |
-| NYG DEFENCE STRENGTH | passing yards | 255.9 | 198.5 | 237.2 | JAX offence ranks 12 of 32, NYG defence ranks 3 of 32 (1 = best at its own job) |
+| NYG DEFENCE WEAK SPOT | explosive runs (15+) | 1.2 | 2.2 | 1.2 | JAX offence ranks 13 of 32, NYG defence ranks 31 of 32 (1 = best at its own job) |
+| NYG DEFENCE STRENGTH | passing yards | 255.9 | 198.5 | 236.9 | JAX offence ranks 12 of 32, NYG defence ranks 3 of 32 (1 = best at its own job) |
 | JAX OFFENCE STRENGTH | points | 29.4 | 22.0 | 23.1 | JAX offence ranks 4 of 32, NYG defence ranks 15 of 32 (1 = best at its own job) |
-| JAX OFFENCE STRENGTH | third-down conversions | 46.5% | 35.9% | 39.4% | JAX offence ranks 3 of 32, NYG defence ranks 9 of 32 (1 = best at its own job) |
-| NYG DEFENCE WEAK SPOT | red-zone touchdowns | 61.5% | 76.5% | 58.5% | JAX offence ranks 11 of 32, NYG defence ranks 32 of 32 (1 = best at its own job) |
-| JAX OFFENCE ADVANTAGE | pressure (sacks + hits) | 14.2% | 12.4% | 15.7% | JAX offence ranks 8 of 32, NYG defence ranks 28 of 32 (1 = best at its own job) |
+| JAX OFFENCE STRENGTH | third-down conversions | 46.5% | 35.9% | 39.3% | JAX offence ranks 3 of 32, NYG defence ranks 10 of 32 (1 = best at its own job) |
+| NYG DEFENCE WEAK SPOT | red-zone touchdowns | 61.5% | 76.5% | 58.6% | JAX offence ranks 11 of 32, NYG defence ranks 32 of 32 (1 = best at its own job) |
+| JAX OFFENCE ADVANTAGE | pressure (sacks + hits) | 14.2% | 12.4% | 15.8% | JAX offence ranks 8 of 32, NYG defence ranks 28 of 32 (1 = best at its own job) |
 
 ### NYG offense vs JAX defense
 
 | Flag | Area | Offense (per game or rate) | Defense (allowed, or its own sack/pressure rate) | League avg | Ranks |
 |---|---|---|---|---|---|
-| JAX DEFENCE WEAK SPOT | wide receiver yards | 145.2 | 175.5 | 149.5 | NYG offence ranks 15 of 32, JAX defence ranks 27 of 32 (1 = best at its own job) |
-| JAX DEFENCE STRENGTH | tight end yards | 72.5 | 30.5 | 54.7 | NYG offence ranks 5 of 32, JAX defence ranks 1 of 32 (1 = best at its own job) |
+| JAX DEFENCE WEAK SPOT | wide receiver yards | 145.2 | 175.5 | 149.3 | NYG offence ranks 15 of 32, JAX defence ranks 28 of 32 (1 = best at its own job) |
+| JAX DEFENCE STRENGTH | tight end yards | 72.5 | 30.5 | 54.6 | NYG offence ranks 5 of 32, JAX defence ranks 1 of 32 (1 = best at its own job) |
 | JAX DEFENCE STRENGTH | explosive passes (20+) | 3.8 | 2.5 | 3.0 | NYG offence ranks 6 of 32, JAX defence ranks 5 of 32 (1 = best at its own job) |
 | JAX DEFENCE STRENGTH | points | 21.9 | 16.8 | 23.1 | NYG offence ranks 19 of 32, JAX defence ranks 2 of 32 (1 = best at its own job) |
-| JAX DEFENCE STRENGTH | red-zone touchdowns | 56.5% | 47.6% | 58.5% | NYG offence ranks 16 of 32, JAX defence ranks 4 of 32 (1 = best at its own job) |
+| JAX DEFENCE STRENGTH | red-zone touchdowns | 56.5% | 47.6% | 58.6% | NYG offence ranks 17 of 32, JAX defence ranks 4 of 32 (1 = best at its own job) |
 | JAX DEFENCE WEAK SPOT | sacks (pass protection vs pass rush) | 8.4% | 3.9% | 6.5% | NYG offence ranks 26 of 32, JAX defence ranks 32 of 32 (1 = best at its own job) |
-| NYG OFFENCE WEAK SPOT | pressure (sacks + hits) | 18.5% | 14.5% | 15.7% | NYG offence ranks 29 of 32, JAX defence ranks 21 of 32 (1 = best at its own job) |
+| NYG OFFENCE WEAK SPOT | pressure (sacks + hits) | 18.5% | 14.5% | 15.8% | NYG offence ranks 28 of 32, JAX defence ranks 21 of 32 (1 = best at its own job) |
 
 ## Team score projection (research only)
 
@@ -56,87 +56,87 @@ Bootstrap of each team's real quarter scores. 'matchup_pair' includes the oppone
 
 | Player | Pos | Stat | G | Wtd mean | Opp factor | Floor p5 | p10 | MAIN p15 | p20 | p25 | Median |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| P.Washington | WR | receiving yards | 8 | 67.8 | 0.929 | 9.4 | 12.4 | 16.0 | 23.8 | 31.6 | 58.1 |
-| P.Washington | WR | receptions | 8 | 3.7 | 0.956 | 1.0 | 1.0 | 1.0 | 1.3 | 1.7 | 3.3 |
-| J.Meyers | WR | receiving yards | 8 | 43.1 | 0.929 | 23.6 | 24.9 | 26.3 | 27.9 | 29.5 | 33.0 |
-| J.Meyers | WR | receptions | 8 | 3.2 | 0.956 | 1.3 | 1.6 | 1.9 | 1.9 | 1.9 | 2.9 |
-| B.Strange | TE | receiving yards | 8 | 39.4 | 0.954 | 11.3 | 13.9 | 16.5 | 18.1 | 19.8 | 36.2 |
+| P.Washington | WR | receiving yards | 8 | 67.8 | 0.93 | 9.4 | 12.4 | 16.0 | 23.8 | 31.6 | 58.1 |
+| P.Washington | WR | receptions | 8 | 3.7 | 0.958 | 1.0 | 1.0 | 1.0 | 1.3 | 1.7 | 3.4 |
+| J.Meyers | WR | receiving yards | 8 | 43.1 | 0.93 | 23.6 | 24.9 | 26.3 | 27.9 | 29.5 | 33.0 |
+| J.Meyers | WR | receptions | 8 | 3.2 | 0.958 | 1.3 | 1.6 | 1.9 | 1.9 | 1.9 | 2.9 |
+| B.Strange | TE | receiving yards | 8 | 39.4 | 0.955 | 11.3 | 13.9 | 16.5 | 18.1 | 19.8 | 36.3 |
 | B.Strange | TE | receptions | 8 | 3.9 | 1.07 | 2.1 | 2.1 | 2.1 | 2.1 | 2.1 | 2.7 |
-| Bri.Thomas | WR | receiving yards | 7 | 13.5 | 0.929 | 0.0 | 0.0 | 0.0 | 1.5 | 3.7 | 11.2 |
-| Bri.Thomas | WR | receptions | 7 | 1.3 | 0.956 | 0.0 | 0.0 | 0.0 | 0.2 | 0.5 | 1.0 |
+| Bri.Thomas | WR | receiving yards | 7 | 13.5 | 0.93 | 0.0 | 0.0 | 0.0 | 1.5 | 3.7 | 11.2 |
+| Bri.Thomas | WR | receptions | 7 | 1.3 | 0.958 | 0.0 | 0.0 | 0.0 | 0.2 | 0.5 | 1.0 |
 | B.Tuten | RB | receiving yards | 7 | 24.9 | 0.85 | 2.6 | 7.7 | 12.7 | 14.6 | 14.9 | 20.4 |
 | B.Tuten | RB | receptions | 7 | 2.1 | 0.854 | 1.7 | 1.7 | 1.7 | 1.7 | 1.7 | 1.7 |
-| B.Tuten | RB | rushing yards | 8 | 68.9 | 1.015 | 33.0 | 36.5 | 40.9 | 50.1 | 59.4 | 73.6 |
-| C.Rodriguez | RB | rushing yards | 8 | 26.2 | 1.015 | 5.1 | 5.1 | 5.5 | 8.3 | 11.2 | 27.4 |
-| T.Lawrence | QB | passing yards | 8 | 241.6 | 0.918 | 169.4 | 171.7 | 174.6 | 181.3 | 188.1 | 215.4 |
+| B.Tuten | RB | rushing yards | 8 | 68.9 | 1.016 | 33.0 | 36.6 | 40.9 | 50.2 | 59.4 | 73.6 |
+| C.Rodriguez | RB | rushing yards | 8 | 26.2 | 1.016 | 5.1 | 5.1 | 5.5 | 8.3 | 11.2 | 27.4 |
+| T.Lawrence | QB | passing yards | 8 | 241.7 | 0.919 | 169.5 | 171.7 | 174.6 | 181.4 | 188.1 | 215.5 |
 
 ### NYG offense vs JAX defense
 
 | Player | Pos | Stat | G | Wtd mean | Opp factor | Floor p5 | p10 | MAIN p15 | p20 | p25 | Median |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| M.Nabers | WR | receiving yards | 8 | 87.4 | 1.087 | 10.6 | 20.1 | 29.2 | 35.7 | 42.1 | 84.2 |
-| M.Nabers | WR | receptions | 8 | 7.2 | 1.077 | 2.6 | 4.1 | 5.4 | 5.4 | 5.4 | 5.9 |
+| M.Nabers | WR | receiving yards | 8 | 87.5 | 1.088 | 10.6 | 20.1 | 29.2 | 35.7 | 42.2 | 84.3 |
+| M.Nabers | WR | receptions | 8 | 7.2 | 1.079 | 2.6 | 4.1 | 5.4 | 5.4 | 5.4 | 5.9 |
 | I.Likely | TE | receiving yards | 8 | 56.4 | 0.85 | 10.5 | 10.8 | 11.9 | 17.9 | 23.8 | 50.6 |
 | I.Likely | TE | receptions | 8 | 5.5 | 0.907 | 1.8 | 1.8 | 2.0 | 2.9 | 3.9 | 5.0 |
-| M.Fields | WR | receiving yards | 8 | 46.9 | 1.087 | 20.7 | 20.7 | 20.7 | 21.1 | 21.5 | 38.0 |
-| M.Fields | WR | receptions | 8 | 2.8 | 1.077 | 2.2 | 2.2 | 2.2 | 2.2 | 2.2 | 2.2 |
-| D.Mooney | WR | receiving yards | 8 | 19.4 | 1.087 | 0.0 | 0.0 | 0.2 | 1.7 | 3.3 | 12.0 |
-| D.Mooney | WR | receptions | 8 | 1.7 | 1.077 | 0.0 | 0.0 | 0.1 | 0.4 | 0.8 | 2.2 |
-| C.Skattebo | RB | rushing yards | 6 | 65.4 | 0.888 | 36.8 | 41.7 | 46.6 | 51.5 | 51.7 | 52.8 |
-| D.Singletary | RB | rushing yards | 5 | 17.5 | 0.888 | 3.7 | 4.8 | 5.9 | 6.9 | 8.0 | 12.4 |
+| M.Fields | WR | receiving yards | 8 | 46.9 | 1.088 | 20.7 | 20.7 | 20.7 | 21.1 | 21.5 | 38.1 |
+| M.Fields | WR | receptions | 8 | 2.8 | 1.079 | 2.2 | 2.2 | 2.2 | 2.2 | 2.2 | 2.2 |
+| D.Mooney | WR | receiving yards | 8 | 19.4 | 1.088 | 0.0 | 0.0 | 0.2 | 1.7 | 3.3 | 12.0 |
+| D.Mooney | WR | receptions | 8 | 1.7 | 1.079 | 0.0 | 0.0 | 0.1 | 0.4 | 0.8 | 2.2 |
+| C.Skattebo | RB | rushing yards | 6 | 65.4 | 0.888 | 36.9 | 41.7 | 46.6 | 51.5 | 51.7 | 52.8 |
+| D.Singletary | RB | rushing yards | 5 | 17.6 | 0.888 | 3.7 | 4.8 | 5.9 | 6.9 | 8.0 | 12.4 |
 | N.Harris | RB | rushing yards | 5 | 16.1 | 0.888 | 2.5 | 3.2 | 3.9 | 4.6 | 5.3 | 8.0 |
-| J.McCarthy | QB | passing yards | 4 | 231.6 | 1.009 | 145.8 | 163.3 | 180.9 | 198.4 | 216.0 | 249.8 |
+| J.McCarthy | QB | passing yards | 4 | 231.7 | 1.01 | 145.8 | 163.4 | 181.0 | 198.5 | 216.1 | 250.0 |
 
 The player's own games in the window (recency-weighted mean; percentiles of his game log), scaled by half of the opponent's allowed-per-game deviation from league average for that position, capped at +/-15%. This is NOT the three-model consensus and has not been validated against prices. Injury replacements, role changes and game script are not applied: the analyst must adjust for them.
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 27% chance of rain at kickoff, wind up to 6 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 37% chance of rain at kickoff, wind up to 5 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### JAX passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 29.6 | 28.3 | 29.3 |
-| Team completion rate | 65.0% | 61.0% | 63.9% |
-| Team completions | 19.2 | 17.3 | 18.7 |
-| Team pass yards | 255.9 | 218.6 | 245.8 |
-| T.Lawrence completion rate (234 attempts) | 65.4% | 61.4% | 64.3% |
-| T.Lawrence yards per attempt | 8.71 | 7.67 | 8.43 |
+| Team pass attempts | 29.6 | 28.3 | 29.2 |
+| Team completion rate | 65.0% | 61.0% | 63.5% |
+| Team completions | 19.2 | 17.3 | 18.5 |
+| Team pass yards | 255.9 | 218.6 | 242.1 |
+| T.Lawrence completion rate (234 attempts) | 65.4% | 61.4% | 63.9% |
+| T.Lawrence yards per attempt | 8.71 | 7.67 | 8.33 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| P.Washington | WR | 8 | 25% | 7.2 / 3.9 / 70.2 | 6.9 / 3.5 / 59.6 | 7.2 / 3.8 / 67.3 |
-| J.Meyers | WR | 8 | 18% | 5.1 / 3.4 / 46.0 | 4.9 / 3.0 / 39.0 | 5.1 / 3.3 / 44.1 |
-| B.Strange | TE | 8 | 16% | 4.6 / 3.8 / 42.8 | 4.4 / 3.3 / 36.2 | 4.6 / 3.6 / 40.9 |
-| Bri.Thomas | WR | 7 | 9% | 3.1 / 1.4 / 15.1 | 3.0 / 1.3 / 12.8 | 3.1 / 1.4 / 14.5 |
-| B.Tuten | RB | 7 | 8% | 2.7 / 2.4 / 26.3 | 2.6 / 2.2 / 21.9 | 2.7 / 2.4 / 25.1 |
-| J.Cameron | WR | 6 | 6% | 2.5 / 1.7 / 28.3 | 2.4 / 1.5 / 24.0 | 2.5 / 1.6 / 27.1 |
-| N.Boerkircher | TE | 7 | 6% | 1.9 / 1.3 / 21.0 | 1.8 / 1.1 / 17.8 | 1.8 / 1.2 / 20.1 |
-| T.Hunter | WR | 5 | 4% | 1.8 / 1.6 / 16.6 | 1.7 / 1.4 / 14.1 | 1.8 / 1.6 / 15.9 |
+| P.Washington | WR | 8 | 25% | 7.2 / 3.9 / 70.2 | 6.9 / 3.5 / 59.6 | 7.1 / 3.7 / 66.2 |
+| J.Meyers | WR | 8 | 18% | 5.1 / 3.4 / 46.0 | 4.9 / 3.0 / 39.0 | 5.0 / 3.2 / 43.4 |
+| B.Strange | TE | 8 | 16% | 4.6 / 3.8 / 42.8 | 4.4 / 3.3 / 36.2 | 4.6 / 3.6 / 40.3 |
+| Bri.Thomas | WR | 7 | 9% | 3.1 / 1.4 / 15.1 | 3.0 / 1.3 / 12.8 | 3.1 / 1.4 / 14.3 |
+| B.Tuten | RB | 7 | 8% | 2.7 / 2.4 / 26.3 | 2.6 / 2.2 / 21.9 | 2.7 / 2.4 / 24.6 |
+| J.Cameron | WR | 6 | 6% | 2.5 / 1.7 / 28.3 | 2.4 / 1.5 / 24.0 | 2.5 / 1.6 / 26.7 |
+| N.Boerkircher | TE | 7 | 6% | 1.9 / 1.3 / 21.0 | 1.8 / 1.1 / 17.8 | 1.8 / 1.2 / 19.8 |
+| T.Hunter | WR | 5 | 4% | 1.8 / 1.6 / 16.6 | 1.7 / 1.4 / 14.1 | 1.8 / 1.5 / 15.7 |
 | L.Allen | RB | 5 | 3% | 1.6 / 0.4 / 1.8 | 1.5 / 0.4 / 1.5 | 1.6 / 0.4 / 1.7 |
 
 ### NYG passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 33.8 | 32.3 | 33.4 |
-| Team completion rate | 61.1% | 57.4% | 60.1% |
-| Team completions | 20.6 | 18.5 | 20.1 |
-| Team pass yards | 245.4 | 209.6 | 235.7 |
-| J.McCarthy completion rate (99 attempts, small sample) | 66.7% | 62.6% | 65.6% |
-| J.McCarthy yards per attempt | 9.24 | 8.13 | 8.94 |
+| Team pass attempts | 33.8 | 32.3 | 33.2 |
+| Team completion rate | 61.1% | 57.4% | 59.7% |
+| Team completions | 20.6 | 18.5 | 19.8 |
+| Team pass yards | 245.4 | 209.6 | 232.2 |
+| J.McCarthy completion rate (99 attempts, small sample) | 66.7% | 62.6% | 65.2% |
+| J.McCarthy yards per attempt | 9.24 | 8.13 | 8.83 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| M.Nabers | WR | 8 | 29% | 9.5 / 6.5 / 77.9 | 9.1 / 5.8 / 66.1 | 9.4 / 6.3 / 74.6 |
-| I.Likely | TE | 8 | 27% | 9.0 / 5.9 / 62.1 | 8.6 / 5.2 / 52.6 | 8.9 / 5.7 / 59.5 |
-| M.Fields | WR | 8 | 13% | 4.4 / 2.5 / 40.6 | 4.2 / 2.2 / 34.5 | 4.3 / 2.4 / 38.9 |
-| D.Mooney | WR | 8 | 11% | 3.6 / 1.5 / 18.5 | 3.5 / 1.3 / 15.7 | 3.6 / 1.5 / 17.7 |
-| C.Skattebo | RB | 6 | 6% | 2.8 / 2.3 / 20.0 | 2.7 / 2.1 / 16.7 | 2.8 / 2.3 / 19.1 |
-| T.Johnson | TE | 4 | 4% | 2.8 / 1.0 / 13.5 | 2.6 / 0.9 / 11.4 | 2.7 / 1.0 / 12.9 |
-| D.Singletary | RB | 4 | 3% | 2.0 / 1.5 / 10.2 | 1.9 / 1.4 / 8.5 | 2.0 / 1.5 / 9.8 |
-| T.Tracy | RB | 3 | 3% | 2.3 / 1.7 / 18.0 | 2.2 / 1.5 / 15.0 | 2.3 / 1.6 / 17.2 |
+| M.Nabers | WR | 8 | 29% | 9.5 / 6.5 / 77.9 | 9.1 / 5.8 / 66.1 | 9.3 / 6.2 / 73.4 |
+| I.Likely | TE | 8 | 27% | 9.0 / 5.9 / 62.1 | 8.6 / 5.2 / 52.6 | 8.9 / 5.6 / 58.5 |
+| M.Fields | WR | 8 | 13% | 4.4 / 2.5 / 40.6 | 4.2 / 2.2 / 34.5 | 4.3 / 2.4 / 38.3 |
+| D.Mooney | WR | 8 | 11% | 3.6 / 1.5 / 18.5 | 3.5 / 1.3 / 15.7 | 3.6 / 1.4 / 17.4 |
+| C.Skattebo | RB | 6 | 6% | 2.8 / 2.3 / 20.0 | 2.7 / 2.1 / 16.7 | 2.8 / 2.3 / 18.7 |
+| T.Johnson | TE | 4 | 4% | 2.8 / 1.0 / 13.5 | 2.6 / 0.9 / 11.4 | 2.7 / 1.0 / 12.7 |
+| D.Singletary | RB | 4 | 3% | 2.0 / 1.5 / 10.2 | 1.9 / 1.4 / 8.5 | 2.0 / 1.5 / 9.6 |
+| T.Tracy | RB | 3 | 3% | 2.3 / 1.7 / 18.0 | 2.2 / 1.5 / 15.0 | 2.3 / 1.6 / 16.9 |
 
 ## JAX (last 8 games: weeks 2, 3, 4, 5, 6, 8, 9, 10)
 
@@ -145,26 +145,26 @@ Forecast: 27% chance of rain at kickoff, wind up to 6 mph. Basis: 211 team-games
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points allowed / game | 16.8 | 2/32 | 23.1 |
-| Pass yards allowed / game | 241.6 | 17/32 | 237.2 |
-| Yards per pass attempt allowed | 6.95 | 13/32 | 7.24 |
-| Rush yards allowed / game | 80.6 | 9/32 | 99.5 |
+| Pass yards allowed / game | 241.6 | 18/32 | 236.9 |
+| Yards per pass attempt allowed | 6.95 | 13/32 | 7.23 |
+| Rush yards allowed / game | 80.6 | 9/32 | 99.3 |
 | Yards per carry allowed | 3.79 | 12/32 | 4.05 |
 | RB rush yards allowed / game | 71.6 | 7/32 | 92.3 |
-| WR yards allowed / game | 175.5 | 27/32 | 149.5 |
-| WR receptions allowed / game | 13.1 | 28/32 | 11.4 |
-| TE yards allowed / game | 30.5 | 1/32 | 54.7 |
-| TE receptions allowed / game | 4.4 | 7/32 | 5.4 |
-| RB receiving yards allowed / game | 35.6 | 18/32 | 32.9 |
+| WR yards allowed / game | 175.5 | 28/32 | 149.3 |
+| WR receptions allowed / game | 13.1 | 28/32 | 11.3 |
+| TE yards allowed / game | 30.5 | 1/32 | 54.6 |
+| TE receptions allowed / game | 4.4 | 6/32 | 5.4 |
+| RB receiving yards allowed / game | 35.6 | 18/32 | 33.0 |
 | RB receptions allowed / game | 5.5 | 29/32 | 4.4 |
 | Explosive passes (20+) allowed / game | 2.50 | 5/32 | 3.04 |
-| Explosive runs (15+) allowed / game | 1.00 | 10/32 | 1.20 |
+| Explosive runs (15+) allowed / game | 1.00 | 10/32 | 1.21 |
 | Sack rate | 3.9% | 32/32 | 6.5% |
-| Pressure rate (sacks + hits) | 14.5% | 21/32 | 15.7% |
-| Third-down conversions allowed | 34.4% | 7/32 | 39.4% |
-| Red-zone TD rate allowed | 47.6% | 4/32 | 58.5% |
-| Takeaways / game | 1.62 | 4/32 | 1.22 |
+| Pressure rate (sacks + hits) | 14.5% | 21/32 | 15.8% |
+| Third-down conversions allowed | 34.4% | 7/32 | 39.3% |
+| Red-zone TD rate allowed | 47.6% | 4/32 | 58.6% |
+| Takeaways / game | 1.62 | 4/32 | 1.23 |
 
-Blitz rate 30.7% and play-action faced 18.8% on 261 charted dropbacks (FTN). Deep passes (20+ air yards) faced 3.1 per game, 44.0% completed.
+Blitz rate 30.3% and play-action faced 21.4% on 304 charted dropbacks (FTN). Deep passes (20+ air yards) faced 3.1 per game, 44.0% completed.
 
 ### JAX defense, game by game
 
@@ -237,18 +237,18 @@ Blitz rate 30.7% and play-action faced 18.8% on 261 charted dropbacks (FTN). Dee
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points / game | 29.4 | 4/32 | 22.9 |
-| Pass yards / game | 255.9 | 12/32 | 236.5 |
+| Pass yards / game | 255.9 | 12/32 | 236.6 |
 | Yards per pass attempt | 8.64 | 2/32 | 7.16 |
-| Rush yards / game | 107.9 | 12/32 | 99.4 |
+| Rush yards / game | 107.9 | 11/32 | 99.4 |
 | Yards per carry | 3.94 | 16/32 | 4.05 |
 | RB rush yards / game | 101.2 | 9/32 | 92.3 |
 | WR yards / game | 161.1 | 10/32 | 148.7 |
 | TE yards / game | 65.9 | 7/32 | 54.6 |
-| RB receiving yards / game | 28.9 | 20/32 | 33.2 |
+| RB receiving yards / game | 28.9 | 20/32 | 33.3 |
 | Explosive passes (20+) / game | 3.62 | 8/32 | 3.04 |
-| Explosive runs (15+) / game | 1.25 | 12/32 | 1.19 |
+| Explosive runs (15+) / game | 1.25 | 13/32 | 1.20 |
 | Sack rate allowed | 5.0% | 10/32 | 6.5% |
-| Pressure rate allowed (sacks + hits) | 14.2% | 8/32 | 15.6% |
+| Pressure rate allowed (sacks + hits) | 14.2% | 8/32 | 15.7% |
 | Third-down conversion rate | 46.5% | 3/32 | 39.5% |
 | Red-zone TD rate | 61.5% | 11/32 | 58.0% |
 
@@ -312,11 +312,11 @@ Neutral-situation pass rate 53.2%; 60.0 plays per game; target share WR 62% / TE
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
 | offense | Shotgun | 248 | 52% | 77% | 6.02 | 0.112 |
-| offense | Under center | 218 | 45% | 27% | 5.56 | 0.169 |
-| offense | No huddle | 14 | 3% | 93% | 12.07 | 0.269 |
-| defense vs | Shotgun | 291 | 61% | 76% | 6.07 | -0.124 |
-| defense vs | Under center | 128 | 27% | 28% | 3.73 | -0.182 |
-| defense vs | No huddle | 55 | 12% | 86% | 6.56 | 0.114 |
+| offense | Under center | 218 | 45% | 27% | 5.56 | 0.137 |
+| offense | No huddle | 14 | 3% | 93% | 12.07 | 0.288 |
+| defense vs | Shotgun | 291 | 61% | 76% | 6.07 | -0.096 |
+| defense vs | Under center | 128 | 27% | 28% | 3.73 | -0.153 |
+| defense vs | No huddle | 55 | 12% | 86% | 6.56 | 0.122 |
 
 | Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
 |---|---|---|---|---|---|---|
@@ -333,7 +333,7 @@ Neutral-situation pass rate 53.2%; 60.0 plays per game; target share WR 62% / TE
 | defense allows | Deep middle | 5 | 2% | 80% | 27.4 | 3 |
 | defense allows | Deep right | 22 | 8% | 46% | 13.73 | 7 |
 
-### JAX lines (depth chart as of 2026-11-16T16:58:52Z)
+### JAX lines (depth chart as of 2026-11-17T16:52:03Z)
 
 Offensive line: LT Walker Little, LG Emmanuel Pregnon, C Robert Hainsey, RG Ezra Cleveland, RT Cole Van Lanen.  
 Defensive front: LDE Travon Walker, LDT Arik Armstead, RDT None, RDE Josh Hines-Allen, WLB Foyesade Oluokun, SLB Dennis Gardeck.
@@ -349,7 +349,7 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 
 ### JAX roster moves (last 4 weeks)
 
-Arrived: Davon Godchaux (DL) from NO; Jessie Bates (DB) from ATL; Jordan Davis (DL) from PHI.  
+Arrived: none.  
 Left for another team: Jacob Bobenmoyer (LS) to IND; Joey Aguilar (QB) to ARI.
 
 ## NYG (last 8 games: weeks 2, 3, 4, 5, 6, 7, 9, 10)
@@ -359,24 +359,24 @@ Left for another team: Jacob Bobenmoyer (LS) to IND; Joey Aguilar (QB) to ARI.
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points allowed / game | 22.0 | 15/32 | 23.1 |
-| Pass yards allowed / game | 198.5 | 3/32 | 237.2 |
-| Yards per pass attempt allowed | 6.35 | 4/32 | 7.24 |
-| Rush yards allowed / game | 101.4 | 16/32 | 99.5 |
-| Yards per carry allowed | 4.18 | 20/32 | 4.05 |
-| RB rush yards allowed / game | 95.1 | 18/32 | 92.3 |
-| WR yards allowed / game | 128.4 | 7/32 | 149.5 |
-| WR receptions allowed / game | 10.4 | 11/32 | 11.4 |
-| TE yards allowed / game | 49.6 | 13/32 | 54.7 |
+| Pass yards allowed / game | 198.5 | 3/32 | 236.9 |
+| Yards per pass attempt allowed | 6.35 | 4/32 | 7.23 |
+| Rush yards allowed / game | 101.4 | 16/32 | 99.3 |
+| Yards per carry allowed | 4.18 | 21/32 | 4.05 |
+| RB rush yards allowed / game | 95.1 | 19/32 | 92.3 |
+| WR yards allowed / game | 128.4 | 7/32 | 149.3 |
+| WR receptions allowed / game | 10.4 | 11/32 | 11.3 |
+| TE yards allowed / game | 49.6 | 13/32 | 54.6 |
 | TE receptions allowed / game | 6.1 | 24/32 | 5.4 |
-| RB receiving yards allowed / game | 20.5 | 4/32 | 32.9 |
+| RB receiving yards allowed / game | 20.5 | 4/32 | 33.0 |
 | RB receptions allowed / game | 3.1 | 1/32 | 4.4 |
 | Explosive passes (20+) allowed / game | 2.50 | 5/32 | 3.04 |
-| Explosive runs (15+) allowed / game | 2.25 | 31/32 | 1.20 |
+| Explosive runs (15+) allowed / game | 2.25 | 31/32 | 1.21 |
 | Sack rate | 5.8% | 19/32 | 6.5% |
-| Pressure rate (sacks + hits) | 12.4% | 28/32 | 15.7% |
-| Third-down conversions allowed | 35.9% | 9/32 | 39.4% |
-| Red-zone TD rate allowed | 76.5% | 32/32 | 58.5% |
-| Takeaways / game | 1.25 | 13/32 | 1.22 |
+| Pressure rate (sacks + hits) | 12.4% | 28/32 | 15.8% |
+| Third-down conversions allowed | 35.9% | 10/32 | 39.3% |
+| Red-zone TD rate allowed | 76.5% | 32/32 | 58.6% |
+| Takeaways / game | 1.25 | 13/32 | 1.23 |
 
 Blitz rate 44.0% and play-action faced 22.0% on 291 charted dropbacks (FTN). Deep passes (20+ air yards) faced 3.2 per game, 15.4% completed.
 
@@ -451,20 +451,20 @@ Blitz rate 44.0% and play-action faced 22.0% on 291 charted dropbacks (FTN). Dee
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points / game | 21.9 | 19/32 | 22.9 |
-| Pass yards / game | 245.4 | 15/32 | 236.5 |
+| Pass yards / game | 245.4 | 15/32 | 236.6 |
 | Yards per pass attempt | 7.27 | 14/32 | 7.16 |
 | Rush yards / game | 90.4 | 22/32 | 99.4 |
 | Yards per carry | 3.53 | 27/32 | 4.05 |
 | RB rush yards / game | 84.1 | 21/32 | 92.3 |
 | WR yards / game | 145.2 | 15/32 | 148.7 |
 | TE yards / game | 72.5 | 5/32 | 54.6 |
-| RB receiving yards / game | 27.6 | 21/32 | 33.2 |
+| RB receiving yards / game | 27.6 | 21/32 | 33.3 |
 | Explosive passes (20+) / game | 3.75 | 6/32 | 3.04 |
-| Explosive runs (15+) / game | 1.12 | 20/32 | 1.19 |
+| Explosive runs (15+) / game | 1.12 | 21/32 | 1.20 |
 | Sack rate allowed | 8.4% | 26/32 | 6.5% |
-| Pressure rate allowed (sacks + hits) | 18.5% | 29/32 | 15.6% |
+| Pressure rate allowed (sacks + hits) | 18.5% | 28/32 | 15.7% |
 | Third-down conversion rate | 36.6% | 22/32 | 39.5% |
-| Red-zone TD rate | 56.5% | 16/32 | 58.0% |
+| Red-zone TD rate | 56.5% | 17/32 | 58.0% |
 
 Neutral-situation pass rate 50.2%; 64.1 plays per game; target share WR 55% / TE 32% / RB 13%.
 
@@ -525,12 +525,12 @@ Neutral-situation pass rate 50.2%; 64.1 plays per game; target share WR 55% / TE
 
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
-| offense | Shotgun | 302 | 59% | 75% | 5.79 | 0.026 |
-| offense | Under center | 170 | 33% | 29% | 4.22 | -0.089 |
-| offense | No huddle | 41 | 8% | 80% | 5.1 | -0.234 |
-| defense vs | Shotgun | 274 | 56% | 74% | 4.99 | -0.178 |
-| defense vs | Under center | 165 | 34% | 34% | 5.59 | 0.106 |
-| defense vs | No huddle | 46 | 10% | 70% | 4.87 | 0.07 |
+| offense | Shotgun | 302 | 59% | 75% | 5.79 | 0.03 |
+| offense | Under center | 170 | 33% | 29% | 4.22 | -0.074 |
+| offense | No huddle | 41 | 8% | 80% | 5.1 | -0.192 |
+| defense vs | Shotgun | 274 | 56% | 74% | 4.99 | -0.122 |
+| defense vs | Under center | 165 | 34% | 34% | 5.59 | 0.095 |
+| defense vs | No huddle | 46 | 10% | 70% | 4.87 | 0.063 |
 
 | Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
 |---|---|---|---|---|---|---|
@@ -547,7 +547,7 @@ Neutral-situation pass rate 50.2%; 64.1 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 8 | 3% | 50% | 13.38 | 3 |
 | defense allows | Deep right | 17 | 7% | 41% | 12.18 | 6 |
 
-### NYG lines (depth chart as of 2026-11-16T16:58:52Z)
+### NYG lines (depth chart as of 2026-11-17T16:52:03Z)
 
 Offensive line: LT Andrew Thomas, LG Jon Runyan, C Bryan Hudson, RG Francis Mauigoa, RT Jermaine Eluemunor.  
 Defensive front: LDE Shelby Harris, NT DJ Reader, RDE Darius Alexander, WLB Kayvon Thibodeaux, SLB Abdul Carter.
@@ -556,15 +556,15 @@ Defensive front: LDE Shelby Harris, NT DJ Reader, RDE Darius Alexander, WLB Kayv
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Jason Pinnock (S) Questionable; Malik Harrison (LB) Out.
+ESPN live list (designations only): Jason Pinnock (S) Questionable; Malik Harrison (LB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### NYG roster moves (last 4 weeks)
 
-Arrived: none.  
-Left for another team: Jihad Ward (LB) to MIN.
+Arrived: Tavierre Thomas (DB) from MIN; Xavier Gipson (WR) from PHI.  
+Left for another team: Jason Brownlee (WR) to TEN.
 
 ## Keyed connectors in this run
 
@@ -600,15 +600,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-17T04:39:59+00:00 | 5814492ecf5b |
-| pbp | OK | 2026-11-17T04:39:59+00:00 | 5bf3fd3431e5 |
-| rosters | OK | 2026-11-17T04:39:59+00:00 | 8ef5848627e0 |
-| injuries | OK | 2026-11-17T04:40:00+00:00 | 4be8d0f909f1 |
-| depth_charts | OK | 2026-11-17T04:40:00+00:00 | cb40b454d0c6 |
-| snap_counts | OK | 2026-11-17T04:40:00+00:00 | 29653cc65100 |
-| ftn | OK | 2026-11-17T04:40:00+00:00 | 21e9470ab453 |
-| pfr_def | OK | 2026-11-17T04:40:01+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-17T04:40:01+00:00 |  |
+| games | OK | 2026-11-17T21:58:03+00:00 | f84bb068b606 |
+| pbp | OK | 2026-11-17T21:58:03+00:00 | 32334d4ae379 |
+| rosters | OK | 2026-11-17T21:58:03+00:00 | e4f81f1adc72 |
+| injuries | OK | 2026-11-17T21:58:04+00:00 | 33d3b85359fe |
+| depth_charts | OK | 2026-11-17T21:58:04+00:00 | aaca90f9afb7 |
+| snap_counts | OK | 2026-11-17T21:58:04+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-17T21:58:05+00:00 | 8db63e5eaab1 |
+| pfr_def | OK | 2026-11-17T21:58:05+00:00 | 169459009450 |
+| espn_injuries | OK | 2026-11-17T21:58:05+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

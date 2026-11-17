@@ -2,13 +2,13 @@
 
 **Thursday 2026-11-19, 20:15 ET.** Site: Home; roof: not listed; surface: astroturf. Rest: IND 4 days, HOU 4 days. Listed QBs: Daniel Jones (IND), C.J. Stroud (HOU).
 
-Market (schedule consensus, not a timestamped quote): HOU -11.5, total 44.5.
+Market (schedule consensus, not a timestamped quote): HOU -12.5, total 44.5.
 
-Generated 2026-11-17T04:40:04+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-17T21:58:08+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-17T04:40:02+00:00 UTC. At kickoff: 69 F, wind 0 mph , 1% chance of precipitation, Partly Cloudy. During the game: low 64 F, wind up to 0 mph, precipitation chance up to 1%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-17T21:58:06+00:00 UTC. At kickoff: 67 F, wind 5 mph NE, 0% chance of precipitation, Partly Cloudy. During the game: low 63 F, wind up to 5 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
@@ -20,35 +20,35 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Flag | Area | Offense (per game or rate) | Defense (allowed, or its own sack/pressure rate) | League avg | Ranks |
 |---|---|---|---|---|---|
-| HOU DEFENCE WEAK SPOT | wide receiver yards | 119.4 | 184.0 | 149.5 | IND offence ranks 26 of 32, HOU defence ranks 30 of 32 (1 = best at its own job) |
-| HOU DEFENCE ADVANTAGE | tight end yards | 40.1 | 40.5 | 54.7 | IND offence ranks 25 of 32, HOU defence ranks 4 of 32 (1 = best at its own job) |
+| HOU DEFENCE WEAK SPOT | wide receiver yards | 119.4 | 184.0 | 149.3 | IND offence ranks 26 of 32, HOU defence ranks 30 of 32 (1 = best at its own job) |
+| HOU DEFENCE ADVANTAGE | tight end yards | 40.1 | 40.5 | 54.6 | IND offence ranks 24 of 32, HOU defence ranks 4 of 32 (1 = best at its own job) |
 | HOU DEFENCE WEAK SPOT | explosive passes (20+) | 2.0 | 3.6 | 3.0 | IND offence ranks 30 of 32, HOU defence ranks 24 of 32 (1 = best at its own job) |
-| HOU DEFENCE STRENGTH | explosive runs (15+) | 1.2 | 0.8 | 1.2 | IND offence ranks 12 of 32, HOU defence ranks 4 of 32 (1 = best at its own job) |
-| HOU DEFENCE WEAK SPOT | passing yards | 182.8 | 254.2 | 237.2 | IND offence ranks 31 of 32, HOU defence ranks 24 of 32 (1 = best at its own job) |
-| HOU DEFENCE WEAK SPOT | red-zone touchdowns | 55.0% | 72.7% | 58.5% | IND offence ranks 19 of 32, HOU defence ranks 28 of 32 (1 = best at its own job) |
-| HOU DEFENCE ADVANTAGE | sacks (pass protection vs pass rush) | 8.0% | 9.5% | 6.5% | IND offence ranks 23 of 32, HOU defence ranks 2 of 32 (1 = best at its own job) |
-| HOU DEFENCE ADVANTAGE | pressure (sacks + hits) | 17.4% | 17.5% | 15.7% | IND offence ranks 23 of 32, HOU defence ranks 8 of 32 (1 = best at its own job) |
+| HOU DEFENCE STRENGTH | explosive runs (15+) | 1.2 | 0.8 | 1.2 | IND offence ranks 13 of 32, HOU defence ranks 4 of 32 (1 = best at its own job) |
+| HOU DEFENCE WEAK SPOT | passing yards | 182.8 | 254.2 | 236.9 | IND offence ranks 31 of 32, HOU defence ranks 24 of 32 (1 = best at its own job) |
+| HOU DEFENCE WEAK SPOT | red-zone touchdowns | 55.0% | 72.7% | 58.6% | IND offence ranks 19 of 32, HOU defence ranks 28 of 32 (1 = best at its own job) |
+| HOU DEFENCE ADVANTAGE | sacks (pass protection vs pass rush) | 8.0% | 9.5% | 6.5% | IND offence ranks 24 of 32, HOU defence ranks 2 of 32 (1 = best at its own job) |
+| HOU DEFENCE ADVANTAGE | pressure (sacks + hits) | 17.4% | 17.5% | 15.8% | IND offence ranks 23 of 32, HOU defence ranks 8 of 32 (1 = best at its own job) |
 
 ### HOU offense vs IND defense
 
 | Flag | Area | Offense (per game or rate) | Defense (allowed, or its own sack/pressure rate) | League avg | Ranks |
 |---|---|---|---|---|---|
-| HOU OFFENCE STRENGTH | wide receiver yards | 196.8 | 132.6 | 149.5 | HOU offence ranks 4 of 32, IND defence ranks 8 of 32 (1 = best at its own job) |
-| IND DEFENCE STRENGTH | tight end yards | 55.9 | 36.2 | 54.7 | HOU offence ranks 14 of 32, IND defence ranks 3 of 32 (1 = best at its own job) |
-| IND DEFENCE WEAK SPOT | running back receiving yards | 21.8 | 39.8 | 32.9 | HOU offence ranks 27 of 32, IND defence ranks 23 of 32 (1 = best at its own job) |
-| HOU OFFENCE WEAK SPOT | running back rushing yards | 63.0 | 98.1 | 92.3 | HOU offence ranks 29 of 32, IND defence ranks 20 of 32 (1 = best at its own job) |
+| HOU OFFENCE STRENGTH | wide receiver yards | 196.8 | 132.6 | 149.3 | HOU offence ranks 4 of 32, IND defence ranks 8 of 32 (1 = best at its own job) |
+| IND DEFENCE STRENGTH | tight end yards | 55.9 | 36.2 | 54.6 | HOU offence ranks 15 of 32, IND defence ranks 3 of 32 (1 = best at its own job) |
+| IND DEFENCE WEAK SPOT | running back receiving yards | 21.8 | 39.8 | 33.0 | HOU offence ranks 27 of 32, IND defence ranks 23 of 32 (1 = best at its own job) |
+| HOU OFFENCE WEAK SPOT | running back rushing yards | 63.0 | 98.1 | 92.3 | HOU offence ranks 29 of 32, IND defence ranks 21 of 32 (1 = best at its own job) |
 | HOU OFFENCE STRENGTH | explosive passes (20+) | 3.9 | 3.2 | 3.0 | HOU offence ranks 3 of 32, IND defence ranks 19 of 32 (1 = best at its own job) |
-| HOU OFFENCE WEAK SPOT | explosive runs (15+) | 0.1 | 1.1 | 1.2 | HOU offence ranks 32 of 32, IND defence ranks 15 of 32 (1 = best at its own job) |
-| IND DEFENCE STRENGTH | passing yards | 274.4 | 210.2 | 237.2 | HOU offence ranks 6 of 32, IND defence ranks 5 of 32 (1 = best at its own job) |
-| IND DEFENCE STRENGTH | third-down conversions | 37.8% | 30.9% | 39.4% | HOU offence ranks 18 of 32, IND defence ranks 3 of 32 (1 = best at its own job) |
-| HOU OFFENCE STRENGTH | pressure (sacks + hits) | 11.0% | 16.9% | 15.7% | HOU offence ranks 3 of 32, IND defence ranks 9 of 32 (1 = best at its own job) |
+| HOU OFFENCE WEAK SPOT | explosive runs (15+) | 0.1 | 1.1 | 1.2 | HOU offence ranks 32 of 32, IND defence ranks 14 of 32 (1 = best at its own job) |
+| IND DEFENCE STRENGTH | passing yards | 274.4 | 210.2 | 236.9 | HOU offence ranks 6 of 32, IND defence ranks 5 of 32 (1 = best at its own job) |
+| IND DEFENCE STRENGTH | third-down conversions | 37.8% | 30.9% | 39.3% | HOU offence ranks 18 of 32, IND defence ranks 3 of 32 (1 = best at its own job) |
+| HOU OFFENCE STRENGTH | pressure (sacks + hits) | 11.0% | 16.9% | 15.8% | HOU offence ranks 3 of 32, IND defence ranks 10 of 32 (1 = best at its own job) |
 
 ## Team score projection (research only)
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | IND 22.3 - HOU 25.0 | 47.3 | +2.7 | 58.9% | 18.9% | 57.5% | IND 11.3 - HOU 12.8 |
-| independent | IND 24.8 - HOU 24.6 | 49.4 | -0.2 | 48.6% | 18.9% | 62.2% | IND 13.5 - HOU 13.0 |
+| matchup_pair | IND 22.3 - HOU 25.0 | 47.3 | +2.7 | 58.9% | 17.0% | 57.5% | IND 11.3 - HOU 12.8 |
+| independent | IND 24.8 - HOU 24.6 | 49.4 | -0.2 | 48.6% | 17.9% | 62.2% | IND 13.5 - HOU 13.0 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -58,63 +58,63 @@ Bootstrap of each team's real quarter scores. 'matchup_pair' includes the oppone
 
 | Player | Pos | Stat | G | Wtd mean | Opp factor | Floor p5 | p10 | MAIN p15 | p20 | p25 | Median |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| K.Allen | WR | receiving yards | 6 | 56.3 | 1.115 | 30.4 | 31.8 | 33.2 | 34.6 | 38.5 | 60.2 |
-| K.Allen | WR | receptions | 6 | 5.8 | 1.072 | 3.5 | 3.8 | 4.0 | 4.3 | 4.6 | 5.9 |
-| J.Downs | WR | receiving yards | 7 | 36.0 | 1.115 | 18.5 | 19.2 | 19.9 | 21.2 | 22.9 | 26.8 |
-| J.Downs | WR | receptions | 7 | 3.6 | 1.072 | 2.5 | 2.8 | 3.1 | 3.2 | 3.2 | 3.2 |
-| T.Warren | TE | receiving yards | 6 | 32.0 | 0.87 | 4.6 | 8.3 | 12.0 | 15.7 | 20.7 | 37.0 |
+| K.Allen | WR | receiving yards | 6 | 56.3 | 1.116 | 30.4 | 31.8 | 33.2 | 34.6 | 38.5 | 60.3 |
+| K.Allen | WR | receptions | 6 | 5.8 | 1.074 | 3.5 | 3.8 | 4.0 | 4.3 | 4.6 | 5.9 |
+| J.Downs | WR | receiving yards | 7 | 36.0 | 1.116 | 18.5 | 19.2 | 19.9 | 21.2 | 22.9 | 26.8 |
+| J.Downs | WR | receptions | 7 | 3.6 | 1.074 | 2.5 | 2.8 | 3.1 | 3.2 | 3.2 | 3.2 |
+| T.Warren | TE | receiving yards | 6 | 32.0 | 0.871 | 4.6 | 8.3 | 12.0 | 15.7 | 20.7 | 37.0 |
 | T.Warren | TE | receptions | 6 | 4.4 | 0.942 | 2.4 | 2.8 | 3.3 | 3.8 | 3.8 | 4.2 |
-| J.Taylor | RB | receiving yards | 8 | 21.7 | 0.952 | 2.6 | 3.2 | 4.3 | 8.0 | 11.7 | 18.1 |
-| J.Taylor | RB | receptions | 8 | 3.0 | 1.081 | 1.5 | 1.8 | 2.2 | 2.2 | 2.2 | 2.2 |
-| L.Treadwell | WR | receiving yards | 8 | 23.3 | 1.115 | 7.0 | 14.1 | 20.1 | 20.5 | 20.9 | 22.9 |
-| L.Treadwell | WR | receptions | 8 | 2.1 | 1.072 | 0.4 | 0.8 | 1.1 | 1.1 | 1.1 | 2.1 |
-| J.Taylor | RB | rushing yards | 8 | 67.4 | 1.0 | 30.7 | 38.4 | 45.1 | 45.4 | 45.8 | 75.5 |
-| S.McGowan | RB | rushing yards | 8 | 39.0 | 1.0 | 14.7 | 15.4 | 16.6 | 20.4 | 24.3 | 30.0 |
-| D.Jones | QB | passing yards | 8 | 180.7 | 1.036 | 111.9 | 111.9 | 113.7 | 126.4 | 139.1 | 167.8 |
+| J.Taylor | RB | receiving yards | 8 | 21.7 | 0.95 | 2.6 | 3.2 | 4.3 | 8.0 | 11.6 | 18.1 |
+| J.Taylor | RB | receptions | 8 | 3.0 | 1.08 | 1.5 | 1.8 | 2.2 | 2.2 | 2.2 | 2.2 |
+| L.Treadwell | WR | receiving yards | 8 | 23.3 | 1.116 | 7.0 | 14.1 | 20.2 | 20.5 | 20.9 | 22.9 |
+| L.Treadwell | WR | receptions | 8 | 2.1 | 1.074 | 0.4 | 0.8 | 1.1 | 1.1 | 1.1 | 2.1 |
+| J.Taylor | RB | rushing yards | 8 | 67.4 | 1.001 | 30.7 | 38.4 | 45.1 | 45.4 | 45.8 | 75.5 |
+| S.McGowan | RB | rushing yards | 8 | 39.0 | 1.001 | 14.7 | 15.4 | 16.6 | 20.4 | 24.3 | 30.0 |
+| D.Jones | QB | passing yards | 8 | 180.8 | 1.037 | 111.9 | 111.9 | 113.8 | 126.5 | 139.2 | 167.9 |
 
 ### HOU offense vs IND defense
 
 | Player | Pos | Stat | G | Wtd mean | Opp factor | Floor p5 | p10 | MAIN p15 | p20 | p25 | Median |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| X.Hutchinson | WR | receiving yards | 8 | 36.3 | 0.944 | 11.7 | 14.1 | 16.6 | 20.6 | 24.5 | 39.2 |
-| X.Hutchinson | WR | receptions | 8 | 2.8 | 0.901 | 2.1 | 2.4 | 2.7 | 2.7 | 2.7 | 2.7 |
-| N.Collins | WR | receiving yards | 6 | 61.4 | 0.944 | 17.2 | 28.8 | 40.3 | 51.9 | 52.1 | 61.3 |
-| N.Collins | WR | receptions | 6 | 4.6 | 0.901 | 2.0 | 2.3 | 2.5 | 2.7 | 2.9 | 4.1 |
+| X.Hutchinson | WR | receiving yards | 8 | 36.4 | 0.944 | 11.8 | 14.1 | 16.6 | 20.6 | 24.6 | 39.2 |
+| X.Hutchinson | WR | receptions | 8 | 2.8 | 0.903 | 2.1 | 2.4 | 2.7 | 2.7 | 2.7 | 2.7 |
+| N.Collins | WR | receiving yards | 6 | 61.4 | 0.944 | 17.2 | 28.8 | 40.4 | 51.9 | 52.2 | 61.4 |
+| N.Collins | WR | receptions | 6 | 4.6 | 0.903 | 2.0 | 2.3 | 2.5 | 2.7 | 2.9 | 4.1 |
 | D.Schultz | TE | receiving yards | 8 | 34.2 | 0.85 | 14.4 | 19.5 | 23.9 | 24.5 | 25.1 | 26.8 |
 | D.Schultz | TE | receptions | 8 | 3.0 | 0.85 | 1.1 | 1.4 | 1.7 | 1.7 | 1.7 | 2.5 |
 | K.Boutte | WR | receiving yards | 8 | 36.3 | 0.944 | 5.3 | 10.6 | 15.3 | 17.0 | 18.6 | 28.8 |
-| K.Boutte | WR | receptions | 8 | 1.9 | 0.901 | 0.3 | 0.6 | 0.9 | 1.3 | 1.6 | 2.3 |
-| W.Marks | RB | rushing yards | 8 | 49.3 | 1.031 | 10.8 | 13.3 | 15.8 | 18.4 | 20.9 | 54.7 |
-| D.Montgomery | RB | rushing yards | 4 | 19.9 | 1.031 | 10.5 | 10.6 | 10.8 | 10.9 | 11.1 | 18.0 |
-| C.Stroud | QB | passing yards | 8 | 255.5 | 0.943 | 148.9 | 153.6 | 159.6 | 174.1 | 188.7 | 270.2 |
+| K.Boutte | WR | receptions | 8 | 1.9 | 0.903 | 0.3 | 0.6 | 0.9 | 1.3 | 1.6 | 2.3 |
+| W.Marks | RB | rushing yards | 8 | 49.3 | 1.032 | 10.8 | 13.3 | 15.8 | 18.4 | 20.9 | 54.7 |
+| D.Montgomery | RB | rushing yards | 4 | 19.9 | 1.032 | 10.5 | 10.6 | 10.8 | 10.9 | 11.1 | 18.1 |
+| C.Stroud | QB | passing yards | 8 | 255.6 | 0.944 | 149.0 | 153.6 | 159.7 | 174.2 | 188.7 | 270.4 |
 
 The player's own games in the window (recency-weighted mean; percentiles of his game log), scaled by half of the opponent's allowed-per-game deviation from league average for that position, capped at +/-15%. This is NOT the three-model consensus and has not been validated against prices. Injury replacements, role changes and game script are not applied: the analyst must adjust for them.
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 1% chance of rain at kickoff, wind up to 0 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 0% chance of rain at kickoff, wind up to 5 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### IND passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
 | Team pass attempts | 32.9 | 31.5 | 32.9 |
-| Team completion rate | 58.6% | 55.0% | 58.5% |
+| Team completion rate | 58.6% | 55.0% | 58.6% |
 | Team completions | 19.2 | 17.3 | 19.2 |
-| Team pass yards | 182.8 | 156.1 | 182.5 |
+| Team pass yards | 182.8 | 156.1 | 182.8 |
 | D.Jones completion rate (261 attempts) | 58.2% | 54.7% | 58.2% |
-| D.Jones yards per attempt | 5.57 | 4.9 | 5.56 |
+| D.Jones yards per attempt | 5.57 | 4.9 | 5.57 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
 | K.Allen | WR | 6 | 19% | 7.8 / 5.5 / 52.3 | 7.5 / 4.9 / 44.4 | 7.8 / 5.5 / 52.3 |
-| J.Downs | WR | 7 | 18% | 6.3 / 3.4 / 35.0 | 6.0 / 3.1 / 29.7 | 6.3 / 3.4 / 34.9 |
+| J.Downs | WR | 7 | 18% | 6.3 / 3.4 / 35.0 | 6.0 / 3.1 / 29.7 | 6.3 / 3.4 / 35.0 |
 | T.Warren | TE | 6 | 18% | 7.3 / 5.2 / 40.3 | 7.0 / 4.6 / 34.1 | 7.3 / 5.2 / 40.3 |
 | J.Taylor | RB | 8 | 13% | 4.0 / 2.6 / 22.1 | 3.8 / 2.4 / 18.4 | 4.0 / 2.6 / 22.1 |
 | L.Treadwell | WR | 8 | 11% | 3.5 / 2.0 / 22.2 | 3.3 / 1.8 / 18.9 | 3.5 / 2.0 / 22.2 |
 | D.Burks | WR | 7 | 4% | 1.6 / 0.9 / 8.6 | 1.5 / 0.8 / 7.3 | 1.6 / 0.9 / 8.6 |
-| A.Dulin | WR | 3 | 4% | 3.3 / 1.7 / 38.0 | 3.2 / 1.5 / 32.2 | 3.3 / 1.7 / 37.9 |
-| M.Alie-Cox | TE | 4 | 2% | 1.5 / 1.0 / 7.8 | 1.4 / 0.9 / 6.6 | 1.5 / 1.0 / 7.7 |
+| A.Dulin | WR | 3 | 4% | 3.3 / 1.7 / 38.0 | 3.2 / 1.5 / 32.2 | 3.3 / 1.7 / 38.0 |
+| M.Alie-Cox | TE | 4 | 2% | 1.5 / 1.0 / 7.8 | 1.4 / 0.9 / 6.6 | 1.5 / 1.0 / 7.8 |
 
 ### HOU passing
 
@@ -123,19 +123,19 @@ Forecast: 1% chance of rain at kickoff, wind up to 0 mph. Basis: 211 team-games 
 | Team pass attempts | 35.1 | 33.6 | 35.1 |
 | Team completion rate | 62.6% | 58.8% | 62.6% |
 | Team completions | 22.0 | 19.8 | 22.0 |
-| Team pass yards | 274.4 | 234.4 | 274.0 |
+| Team pass yards | 274.4 | 234.4 | 274.4 |
 | C.Stroud completion rate (278 attempts) | 62.9% | 59.1% | 62.9% |
-| C.Stroud yards per attempt | 7.87 | 6.92 | 7.86 |
+| C.Stroud yards per attempt | 7.87 | 6.92 | 7.87 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
 | X.Hutchinson | WR | 8 | 18% | 6.0 / 3.1 / 39.1 | 5.7 / 2.8 / 33.2 | 6.0 / 3.1 / 39.1 |
-| N.Collins | WR | 6 | 17% | 7.5 / 5.0 / 67.2 | 7.2 / 4.5 / 57.0 | 7.5 / 5.0 / 67.1 |
-| D.Schultz | TE | 8 | 15% | 5.1 / 4.0 / 44.9 | 4.9 / 3.6 / 38.0 | 5.1 / 4.0 / 44.8 |
+| N.Collins | WR | 6 | 17% | 7.5 / 5.0 / 67.2 | 7.2 / 4.5 / 57.0 | 7.5 / 5.0 / 67.2 |
+| D.Schultz | TE | 8 | 15% | 5.1 / 4.0 / 44.9 | 4.9 / 3.6 / 38.0 | 5.1 / 4.0 / 44.9 |
 | K.Boutte | WR | 8 | 10% | 3.4 / 2.2 / 37.2 | 3.2 / 2.0 / 31.6 | 3.4 / 2.2 / 37.2 |
 | J.Noel | WR | 6 | 8% | 3.5 / 2.8 / 46.3 | 3.3 / 2.5 / 39.3 | 3.5 / 2.8 / 46.3 |
 | W.Marks | RB | 8 | 8% | 2.6 / 1.9 / 14.4 | 2.5 / 1.7 / 12.0 | 2.6 / 1.9 / 14.4 |
-| T.Dell | WR | 3 | 5% | 4.7 / 2.7 / 56.3 | 4.5 / 2.4 / 47.8 | 4.7 / 2.7 / 56.2 |
+| T.Dell | WR | 3 | 5% | 4.7 / 2.7 / 56.3 | 4.5 / 2.4 / 47.8 | 4.7 / 2.7 / 56.3 |
 | F.Moreau | TE | 5 | 4% | 2.4 / 1.8 / 11.4 | 2.3 / 1.6 / 9.6 | 2.4 / 1.8 / 11.4 |
 
 ## IND (last 8 games: weeks 3, 4, 5, 6, 7, 8, 9, 10)
@@ -145,26 +145,26 @@ Forecast: 1% chance of rain at kickoff, wind up to 0 mph. Basis: 211 team-games 
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points allowed / game | 24.6 | 19/32 | 23.1 |
-| Pass yards allowed / game | 210.2 | 5/32 | 237.2 |
-| Yards per pass attempt allowed | 7.48 | 21/32 | 7.24 |
-| Rush yards allowed / game | 109.5 | 23/32 | 99.5 |
+| Pass yards allowed / game | 210.2 | 5/32 | 236.9 |
+| Yards per pass attempt allowed | 7.48 | 21/32 | 7.23 |
+| Rush yards allowed / game | 109.5 | 24/32 | 99.3 |
 | Yards per carry allowed | 4.54 | 28/32 | 4.05 |
-| RB rush yards allowed / game | 98.1 | 20/32 | 92.3 |
-| WR yards allowed / game | 132.6 | 8/32 | 149.5 |
-| WR receptions allowed / game | 9.1 | 3/32 | 11.4 |
-| TE yards allowed / game | 36.2 | 3/32 | 54.7 |
+| RB rush yards allowed / game | 98.1 | 21/32 | 92.3 |
+| WR yards allowed / game | 132.6 | 8/32 | 149.3 |
+| WR receptions allowed / game | 9.1 | 3/32 | 11.3 |
+| TE yards allowed / game | 36.2 | 3/32 | 54.6 |
 | TE receptions allowed / game | 3.5 | 1/32 | 5.4 |
-| RB receiving yards allowed / game | 39.8 | 23/32 | 32.9 |
+| RB receiving yards allowed / game | 39.8 | 23/32 | 33.0 |
 | RB receptions allowed / game | 3.6 | 9/32 | 4.4 |
 | Explosive passes (20+) allowed / game | 3.25 | 19/32 | 3.04 |
-| Explosive runs (15+) allowed / game | 1.12 | 15/32 | 1.20 |
+| Explosive runs (15+) allowed / game | 1.12 | 14/32 | 1.21 |
 | Sack rate | 7.1% | 9/32 | 6.5% |
-| Pressure rate (sacks + hits) | 16.9% | 9/32 | 15.7% |
-| Third-down conversions allowed | 30.9% | 3/32 | 39.4% |
-| Red-zone TD rate allowed | 58.8% | 17/32 | 58.5% |
-| Takeaways / game | 0.75 | 27/32 | 1.22 |
+| Pressure rate (sacks + hits) | 16.9% | 10/32 | 15.8% |
+| Third-down conversions allowed | 30.9% | 3/32 | 39.3% |
+| Red-zone TD rate allowed | 58.8% | 17/32 | 58.6% |
+| Takeaways / game | 0.75 | 27/32 | 1.23 |
 
-Blitz rate 18.9% and play-action faced 26.3% on 217 charted dropbacks (FTN). Deep passes (20+ air yards) faced 4.9 per game, 30.8% completed.
+Blitz rate 19.7% and play-action faced 26.0% on 254 charted dropbacks (FTN). Deep passes (20+ air yards) faced 4.9 per game, 30.8% completed.
 
 ### IND defense, game by game
 
@@ -237,18 +237,18 @@ Blitz rate 18.9% and play-action faced 26.3% on 217 charted dropbacks (FTN). Dee
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points / game | 19.4 | 24/32 | 22.9 |
-| Pass yards / game | 182.8 | 31/32 | 236.5 |
+| Pass yards / game | 182.8 | 31/32 | 236.6 |
 | Yards per pass attempt | 5.56 | 31/32 | 7.16 |
 | Rush yards / game | 115.6 | 9/32 | 99.4 |
-| Yards per carry | 4.34 | 11/32 | 4.05 |
+| Yards per carry | 4.34 | 10/32 | 4.05 |
 | RB rush yards / game | 109.6 | 8/32 | 92.3 |
 | WR yards / game | 119.4 | 26/32 | 148.7 |
-| TE yards / game | 40.1 | 25/32 | 54.6 |
-| RB receiving yards / game | 23.2 | 24/32 | 33.2 |
+| TE yards / game | 40.1 | 24/32 | 54.6 |
+| RB receiving yards / game | 23.2 | 24/32 | 33.3 |
 | Explosive passes (20+) / game | 2.00 | 30/32 | 3.04 |
-| Explosive runs (15+) / game | 1.25 | 12/32 | 1.19 |
-| Sack rate allowed | 8.0% | 23/32 | 6.5% |
-| Pressure rate allowed (sacks + hits) | 17.4% | 23/32 | 15.6% |
+| Explosive runs (15+) / game | 1.25 | 13/32 | 1.20 |
+| Sack rate allowed | 8.0% | 24/32 | 6.5% |
+| Pressure rate allowed (sacks + hits) | 17.4% | 23/32 | 15.7% |
 | Third-down conversion rate | 36.4% | 23/32 | 39.5% |
 | Red-zone TD rate | 55.0% | 19/32 | 58.0% |
 
@@ -311,12 +311,12 @@ Neutral-situation pass rate 51.2%; 64.0 plays per game; target share WR 59% / TE
 
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
-| offense | Shotgun | 315 | 62% | 74% | 4.9 | -0.161 |
-| offense | Under center | 179 | 35% | 28% | 3.98 | -0.145 |
-| offense | No huddle | 18 | 4% | 78% | 2.78 | -0.372 |
-| defense vs | Shotgun | 243 | 54% | 76% | 6.39 | -0.006 |
-| defense vs | Under center | 184 | 41% | 32% | 4.96 | -0.044 |
-| defense vs | No huddle | 20 | 4% | 55% | 3.05 | -0.134 |
+| offense | Shotgun | 315 | 62% | 74% | 4.9 | -0.13 |
+| offense | Under center | 179 | 35% | 28% | 3.98 | -0.107 |
+| offense | No huddle | 18 | 4% | 78% | 2.78 | -0.291 |
+| defense vs | Shotgun | 243 | 54% | 76% | 6.39 | 0.001 |
+| defense vs | Under center | 184 | 41% | 32% | 4.96 | -0.032 |
+| defense vs | No huddle | 20 | 4% | 55% | 3.05 | -0.146 |
 
 | Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
 |---|---|---|---|---|---|---|
@@ -333,24 +333,24 @@ Neutral-situation pass rate 51.2%; 64.0 plays per game; target share WR 59% / TE
 | defense allows | Deep middle | 5 | 2% | 80% | 16.2 | 3 |
 | defense allows | Deep right | 34 | 15% | 44% | 13.68 | 12 |
 
-### IND lines (depth chart as of 2026-11-16T16:58:52Z)
+### IND lines (depth chart as of 2026-11-17T16:52:03Z)
 
-Offensive line: LT Bernhard Raimann, LG Jalen Farmer, C Tanor Bortolini, RG Matt Goncalves, RT Jalen Travis.  
+Offensive line: LT Bernhard Raimann, LG Jalen Farmer, C Tanor Bortolini, RG Dalton Tucker, RT Jalen Travis.  
 Defensive front: LDE Arden Key, LDT Grover Stewart, RDT Adetomiwa Adebawore, RDE Laiatu Latu, WLB Tahj Chambers, SLB Bryce Boettcher.
 
 ### IND injuries
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Mo Alie-Cox (TE) Injured Reserve; Akeem Davis-Gaither (LB) Injured Reserve; Bernhard Raimann (OT) Questionable; Luke Rhodes (LS) Out; Jerry Tillery (DT) Out; Jaylon Carlies (LB) Out; Jalen Travis (OT) Out; Sauce Gardner (CB) Questionable; Charvarius Ward (CB) Questionable; Anthony Gould (WR) Questionable; Will Mallory (TE) Out.
+ESPN live list (designations only): Mo Alie-Cox (TE) Injured Reserve; Akeem Davis-Gaither (LB) Injured Reserve; Bernhard Raimann (OT) Questionable; Sauce Gardner (CB) Questionable; Charvarius Ward (CB) Questionable; Will Mallory (TE) Questionable; Luke Rhodes (LS) Questionable; Jerry Tillery (DT) Questionable; Jalen Travis (OT) Doubtful; Jaylon Carlies (LB) Injured Reserve; Anthony Gould (WR) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### IND roster moves (last 4 weeks)
 
-Arrived: Jacob Bobenmoyer (LS) from JAX.  
-Left for another team: Thomas Morstead (P) to TEN; Keenan Allen (WR) to SF; DeForest Buckner (DL) to SF; Quenton Nelson (OL) to SEA; Josh Sills (OL) to NYG; Josh Downs (WR) to KC.
+Arrived: none.  
+Left for another team: Thomas Morstead (P) to TEN; Keenan Allen (WR) to SF; DeForest Buckner (DL) to SF; Josh Downs (WR) to KC.
 
 ## HOU (last 8 games: weeks 2, 3, 4, 5, 6, 7, 9, 10)
 
@@ -359,26 +359,26 @@ Left for another team: Thomas Morstead (P) to TEN; Keenan Allen (WR) to SF; DeFo
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points allowed / game | 22.9 | 17/32 | 23.1 |
-| Pass yards allowed / game | 254.2 | 24/32 | 237.2 |
-| Yards per pass attempt allowed | 7.11 | 17/32 | 7.24 |
-| Rush yards allowed / game | 97.8 | 14/32 | 99.5 |
+| Pass yards allowed / game | 254.2 | 24/32 | 236.9 |
+| Yards per pass attempt allowed | 7.11 | 17/32 | 7.23 |
+| Rush yards allowed / game | 97.8 | 14/32 | 99.3 |
 | Yards per carry allowed | 3.93 | 14/32 | 4.05 |
 | RB rush yards allowed / game | 92.4 | 16/32 | 92.3 |
-| WR yards allowed / game | 184.0 | 30/32 | 149.5 |
-| WR receptions allowed / game | 13.0 | 27/32 | 11.4 |
-| TE yards allowed / game | 40.5 | 4/32 | 54.7 |
-| TE receptions allowed / game | 4.8 | 9/32 | 5.4 |
-| RB receiving yards allowed / game | 29.8 | 13/32 | 32.9 |
+| WR yards allowed / game | 184.0 | 30/32 | 149.3 |
+| WR receptions allowed / game | 13.0 | 27/32 | 11.3 |
+| TE yards allowed / game | 40.5 | 4/32 | 54.6 |
+| TE receptions allowed / game | 4.8 | 10/32 | 5.4 |
+| RB receiving yards allowed / game | 29.8 | 13/32 | 33.0 |
 | RB receptions allowed / game | 5.1 | 25/32 | 4.4 |
 | Explosive passes (20+) allowed / game | 3.62 | 24/32 | 3.04 |
-| Explosive runs (15+) allowed / game | 0.75 | 4/32 | 1.20 |
+| Explosive runs (15+) allowed / game | 0.75 | 4/32 | 1.21 |
 | Sack rate | 9.5% | 2/32 | 6.5% |
-| Pressure rate (sacks + hits) | 17.5% | 8/32 | 15.7% |
-| Third-down conversions allowed | 40.5% | 17/32 | 39.4% |
-| Red-zone TD rate allowed | 72.7% | 28/32 | 58.5% |
-| Takeaways / game | 1.12 | 18/32 | 1.22 |
+| Pressure rate (sacks + hits) | 17.5% | 8/32 | 15.8% |
+| Third-down conversions allowed | 40.5% | 17/32 | 39.3% |
+| Red-zone TD rate allowed | 72.7% | 28/32 | 58.6% |
+| Takeaways / game | 1.12 | 18/32 | 1.23 |
 
-Blitz rate 25.7% and play-action faced 21.8% on 280 charted dropbacks (FTN). Deep passes (20+ air yards) faced 3.8 per game, 36.7% completed.
+Blitz rate 25.5% and play-action faced 21.2% on 326 charted dropbacks (FTN). Deep passes (20+ air yards) faced 3.8 per game, 36.7% completed.
 
 ### HOU defense, game by game
 
@@ -451,18 +451,18 @@ Blitz rate 25.7% and play-action faced 21.8% on 280 charted dropbacks (FTN). Dee
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points / game | 25.2 | 9/32 | 22.9 |
-| Pass yards / game | 274.4 | 6/32 | 236.5 |
+| Pass yards / game | 274.4 | 6/32 | 236.6 |
 | Yards per pass attempt | 7.81 | 8/32 | 7.16 |
 | Rush yards / game | 71.1 | 28/32 | 99.4 |
 | Yards per carry | 3.35 | 28/32 | 4.05 |
 | RB rush yards / game | 63.0 | 29/32 | 92.3 |
 | WR yards / game | 196.8 | 4/32 | 148.7 |
-| TE yards / game | 55.9 | 14/32 | 54.6 |
-| RB receiving yards / game | 21.8 | 27/32 | 33.2 |
+| TE yards / game | 55.9 | 15/32 | 54.6 |
+| RB receiving yards / game | 21.8 | 27/32 | 33.3 |
 | Explosive passes (20+) / game | 3.88 | 3/32 | 3.04 |
-| Explosive runs (15+) / game | 0.12 | 32/32 | 1.19 |
+| Explosive runs (15+) / game | 0.12 | 32/32 | 1.20 |
 | Sack rate allowed | 4.5% | 7/32 | 6.5% |
-| Pressure rate allowed (sacks + hits) | 11.0% | 3/32 | 15.6% |
+| Pressure rate allowed (sacks + hits) | 11.0% | 3/32 | 15.7% |
 | Third-down conversion rate | 37.8% | 18/32 | 39.5% |
 | Red-zone TD rate | 58.6% | 13/32 | 58.0% |
 
@@ -525,12 +525,12 @@ Neutral-situation pass rate 61.3%; 59.8 plays per game; target share WR 67% / TE
 
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
-| offense | Shotgun | 321 | 67% | 76% | 6.27 | 0.112 |
-| offense | Under center | 138 | 29% | 33% | 4.79 | -0.07 |
-| offense | No huddle | 19 | 4% | 95% | 4.74 | -0.345 |
-| defense vs | Shotgun | 333 | 63% | 77% | 5.56 | 0.012 |
-| defense vs | Under center | 167 | 32% | 32% | 4.43 | -0.087 |
-| defense vs | No huddle | 25 | 5% | 72% | 3.68 | 0.043 |
+| offense | Shotgun | 321 | 67% | 76% | 6.27 | 0.102 |
+| offense | Under center | 138 | 29% | 33% | 4.79 | -0.052 |
+| offense | No huddle | 19 | 4% | 95% | 4.74 | -0.286 |
+| defense vs | Shotgun | 333 | 63% | 77% | 5.56 | 0.018 |
+| defense vs | Under center | 167 | 32% | 32% | 4.43 | -0.069 |
+| defense vs | No huddle | 25 | 5% | 72% | 3.68 | 0.016 |
 
 | Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
 |---|---|---|---|---|---|---|
@@ -547,7 +547,7 @@ Neutral-situation pass rate 61.3%; 59.8 plays per game; target share WR 67% / TE
 | defense allows | Deep middle | 15 | 5% | 53% | 15.67 | 4 |
 | defense allows | Deep right | 17 | 6% | 35% | 9.47 | 5 |
 
-### HOU lines (depth chart as of 2026-11-16T16:58:52Z)
+### HOU lines (depth chart as of 2026-11-17T16:52:03Z)
 
 Offensive line: LT Aireontae Ersery, LG Keylan Rutledge, C Evan Brown, RG Ed Ingram, RT Trent Brown.  
 Defensive front: LDE Will Anderson Jr., LDT Tommy Togiai, RDT Sheldon Rankins, RDE Danielle Hunter, WLB Henry To'oTo'o, SLB Wade Woodaz.
@@ -556,15 +556,15 @@ Defensive front: LDE Will Anderson Jr., LDT Tommy Togiai, RDT Sheldon Rankins, R
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Jaylin Smith (CB) Injured Reserve; Danielle Hunter (DE) Out; Brevin Jordan (TE) Out; Marvin Harrison Jr. (WR) Out; Woody Marks (RB) Doubtful; Jake Hummel (LB) Questionable; Azeez Al-Shaair (LB) Out.
+ESPN live list (designations only): Jaylin Smith (CB) Injured Reserve; Marvin Harrison Jr. (WR) Questionable; Woody Marks (RB) Doubtful; Jake Hummel (LB) Questionable; Danielle Hunter (DE) Questionable; Brevin Jordan (TE) Questionable; Azeez Al-Shaair (LB) Injured Reserve; Kamari Lassiter (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### HOU roster moves (last 4 weeks)
 
-Arrived: Nikko Remigio (WR) from KC.  
-Left for another team: Zaire Mitchell-Paden (TE) to CLE; Jared Wayne (WR) to MIA; Jamal Hill (LB) to JAX; Aiden Fisher (LB) to KC.
+Arrived: none.  
+Left for another team: Jamal Hill (LB) to JAX.
 
 ## Keyed connectors in this run
 
@@ -600,15 +600,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-17T04:39:59+00:00 | 5814492ecf5b |
-| pbp | OK | 2026-11-17T04:39:59+00:00 | 5bf3fd3431e5 |
-| rosters | OK | 2026-11-17T04:39:59+00:00 | 8ef5848627e0 |
-| injuries | OK | 2026-11-17T04:40:00+00:00 | 4be8d0f909f1 |
-| depth_charts | OK | 2026-11-17T04:40:00+00:00 | cb40b454d0c6 |
-| snap_counts | OK | 2026-11-17T04:40:00+00:00 | 29653cc65100 |
-| ftn | OK | 2026-11-17T04:40:00+00:00 | 21e9470ab453 |
-| pfr_def | OK | 2026-11-17T04:40:01+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-17T04:40:01+00:00 |  |
+| games | OK | 2026-11-17T21:58:03+00:00 | f84bb068b606 |
+| pbp | OK | 2026-11-17T21:58:03+00:00 | 32334d4ae379 |
+| rosters | OK | 2026-11-17T21:58:03+00:00 | e4f81f1adc72 |
+| injuries | OK | 2026-11-17T21:58:04+00:00 | 33d3b85359fe |
+| depth_charts | OK | 2026-11-17T21:58:04+00:00 | aaca90f9afb7 |
+| snap_counts | OK | 2026-11-17T21:58:04+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-17T21:58:05+00:00 | 8db63e5eaab1 |
+| pfr_def | OK | 2026-11-17T21:58:05+00:00 | 169459009450 |
+| espn_injuries | OK | 2026-11-17T21:58:05+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

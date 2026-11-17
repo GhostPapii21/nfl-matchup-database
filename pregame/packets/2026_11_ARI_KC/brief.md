@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): KC -16.5, total 41.5.
 
-Generated 2026-11-17T04:40:06+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-17T21:58:10+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-17T04:40:05+00:00 UTC. At kickoff: 46 F, wind 7 mph NNW, 1% chance of precipitation, Sunny. During the game: low 46 F, wind up to 7 mph, precipitation chance up to 1%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-17T21:58:09+00:00 UTC. At kickoff: 48 F, wind 7 mph NNW, 2% chance of precipitation, Sunny. During the game: low 48 F, wind up to 7 mph, precipitation chance up to 2%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -20,26 +20,26 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Flag | Area | Offense (per game or rate) | Defense (allowed, or its own sack/pressure rate) | League avg | Ranks |
 |---|---|---|---|---|---|
-| KC DEFENCE ADVANTAGE | wide receiver yards | 118.2 | 133.1 | 149.5 | ARI offence ranks 29 of 32, KC defence ranks 9 of 32 (1 = best at its own job) |
-| ARI OFFENCE ADVANTAGE | tight end yards | 88.2 | 65.5 | 54.7 | ARI offence ranks 2 of 32, KC defence ranks 26 of 32 (1 = best at its own job) |
-| KC DEFENCE WEAK SPOT | running back receiving yards | 19.8 | 41.2 | 32.9 | ARI offence ranks 28 of 32, KC defence ranks 26 of 32 (1 = best at its own job) |
-| KC DEFENCE STRENGTH | explosive runs (15+) | 1.2 | 0.8 | 1.2 | ARI offence ranks 12 of 32, KC defence ranks 4 of 32 (1 = best at its own job) |
+| KC DEFENCE ADVANTAGE | wide receiver yards | 118.2 | 133.1 | 149.3 | ARI offence ranks 29 of 32, KC defence ranks 9 of 32 (1 = best at its own job) |
+| ARI OFFENCE ADVANTAGE | tight end yards | 88.2 | 65.5 | 54.6 | ARI offence ranks 2 of 32, KC defence ranks 26 of 32 (1 = best at its own job) |
+| KC DEFENCE WEAK SPOT | running back receiving yards | 19.8 | 41.2 | 33.0 | ARI offence ranks 29 of 32, KC defence ranks 26 of 32 (1 = best at its own job) |
+| KC DEFENCE STRENGTH | explosive runs (15+) | 1.2 | 0.8 | 1.2 | ARI offence ranks 13 of 32, KC defence ranks 4 of 32 (1 = best at its own job) |
 | KC DEFENCE ADVANTAGE | points | 18.9 | 18.2 | 23.1 | ARI offence ranks 27 of 32, KC defence ranks 4 of 32 (1 = best at its own job) |
-| KC DEFENCE ADVANTAGE | red-zone touchdowns | 42.9% | 33.3% | 58.5% | ARI offence ranks 30 of 32, KC defence ranks 2 of 32 (1 = best at its own job) |
-| KC DEFENCE WEAK SPOT | sacks (pass protection vs pass rush) | 7.4% | 4.1% | 6.5% | ARI offence ranks 20 of 32, KC defence ranks 31 of 32 (1 = best at its own job) |
-| KC DEFENCE WEAK SPOT | pressure (sacks + hits) | 17.6% | 11.9% | 15.7% | ARI offence ranks 25 of 32, KC defence ranks 29 of 32 (1 = best at its own job) |
+| KC DEFENCE ADVANTAGE | red-zone touchdowns | 42.9% | 33.3% | 58.6% | ARI offence ranks 30 of 32, KC defence ranks 2 of 32 (1 = best at its own job) |
+| KC DEFENCE WEAK SPOT | sacks (pass protection vs pass rush) | 7.4% | 4.1% | 6.5% | ARI offence ranks 21 of 32, KC defence ranks 31 of 32 (1 = best at its own job) |
+| KC DEFENCE WEAK SPOT | pressure (sacks + hits) | 17.6% | 11.9% | 15.8% | ARI offence ranks 25 of 32, KC defence ranks 29 of 32 (1 = best at its own job) |
 
 ### KC offense vs ARI defense
 
 | Flag | Area | Offense (per game or rate) | Defense (allowed, or its own sack/pressure rate) | League avg | Ranks |
 |---|---|---|---|---|---|
-| KC OFFENCE STRENGTH | tight end yards | 81.9 | 49.8 | 54.7 | KC offence ranks 3 of 32, ARI defence ranks 14 of 32 (1 = best at its own job) |
-| KC OFFENCE ADVANTAGE | running back receiving yards | 52.6 | 40.1 | 32.9 | KC offence ranks 3 of 32, ARI defence ranks 25 of 32 (1 = best at its own job) |
+| KC OFFENCE STRENGTH | tight end yards | 81.9 | 49.8 | 54.6 | KC offence ranks 3 of 32, ARI defence ranks 14 of 32 (1 = best at its own job) |
+| KC OFFENCE ADVANTAGE | running back receiving yards | 52.6 | 40.1 | 33.0 | KC offence ranks 3 of 32, ARI defence ranks 25 of 32 (1 = best at its own job) |
 | KC OFFENCE ADVANTAGE | running back rushing yards | 114.0 | 111.4 | 92.3 | KC offence ranks 7 of 32, ARI defence ranks 28 of 32 (1 = best at its own job) |
-| KC OFFENCE STRENGTH | passing yards | 275.1 | 235.1 | 237.2 | KC offence ranks 5 of 32, ARI defence ranks 13 of 32 (1 = best at its own job) |
+| KC OFFENCE STRENGTH | passing yards | 275.1 | 235.1 | 236.9 | KC offence ranks 5 of 32, ARI defence ranks 12 of 32 (1 = best at its own job) |
 | KC OFFENCE ADVANTAGE | points | 25.8 | 30.5 | 23.1 | KC offence ranks 8 of 32, ARI defence ranks 31 of 32 (1 = best at its own job) |
-| ARI DEFENCE WEAK SPOT | third-down conversions | 38.0% | 43.9% | 39.4% | KC offence ranks 17 of 32, ARI defence ranks 23 of 32 (1 = best at its own job) |
-| KC OFFENCE ADVANTAGE | red-zone touchdowns | 67.9% | 71.4% | 58.5% | KC offence ranks 6 of 32, ARI defence ranks 26 of 32 (1 = best at its own job) |
+| ARI DEFENCE WEAK SPOT | third-down conversions | 38.0% | 43.9% | 39.3% | KC offence ranks 17 of 32, ARI defence ranks 23 of 32 (1 = best at its own job) |
+| KC OFFENCE ADVANTAGE | red-zone touchdowns | 67.9% | 71.4% | 58.6% | KC offence ranks 6 of 32, ARI defence ranks 26 of 32 (1 = best at its own job) |
 | KC OFFENCE STRENGTH | sacks (pass protection vs pass rush) | 3.4% | 6.6% | 6.5% | KC offence ranks 2 of 32, ARI defence ranks 17 of 32 (1 = best at its own job) |
 
 ## Team score projection (research only)
@@ -57,82 +57,82 @@ Bootstrap of each team's real quarter scores. 'matchup_pair' includes the oppone
 
 | Player | Pos | Stat | G | Wtd mean | Opp factor | Floor p5 | p10 | MAIN p15 | p20 | p25 | Median |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| T.McBride | TE | receiving yards | 8 | 68.1 | 1.099 | 36.4 | 38.7 | 41.5 | 47.7 | 53.8 | 65.9 |
+| T.McBride | TE | receiving yards | 8 | 68.1 | 1.1 | 36.4 | 38.7 | 41.6 | 47.7 | 53.9 | 66.0 |
 | T.McBride | TE | receptions | 8 | 8.2 | 1.105 | 6.3 | 7.1 | 7.7 | 7.7 | 7.7 | 7.7 |
-| Mi.Wilson | WR | receiving yards | 7 | 63.3 | 0.945 | 28.9 | 29.5 | 30.1 | 34.6 | 41.1 | 56.7 |
-| Mi.Wilson | WR | receptions | 7 | 5.8 | 0.962 | 3.8 | 3.8 | 3.8 | 3.8 | 3.8 | 5.8 |
-| K.Bourne | WR | receiving yards | 5 | 33.3 | 0.945 | 15.5 | 16.8 | 18.1 | 19.5 | 20.8 | 27.4 |
-| K.Bourne | WR | receptions | 5 | 2.9 | 0.962 | 1.2 | 1.3 | 1.5 | 1.7 | 1.9 | 2.9 |
-| T.Allgeier | RB | rushing yards | 8 | 38.3 | 0.908 | 1.6 | 4.2 | 6.7 | 8.9 | 11.1 | 25.9 |
-| J.Love | RB | rushing yards | 4 | 38.8 | 0.908 | 20.1 | 20.3 | 20.4 | 20.5 | 20.7 | 39.0 |
-| Z.Knight | RB | rushing yards | 5 | 28.1 | 0.908 | 7.3 | 7.3 | 7.3 | 7.3 | 7.3 | 17.3 |
+| Mi.Wilson | WR | receiving yards | 7 | 63.3 | 0.946 | 28.9 | 29.5 | 30.1 | 34.6 | 41.1 | 56.8 |
+| Mi.Wilson | WR | receptions | 7 | 5.9 | 0.963 | 3.9 | 3.9 | 3.9 | 3.9 | 3.9 | 5.8 |
+| K.Bourne | WR | receiving yards | 5 | 33.3 | 0.946 | 15.5 | 16.8 | 18.2 | 19.5 | 20.8 | 27.4 |
+| K.Bourne | WR | receptions | 5 | 3.0 | 0.963 | 1.2 | 1.3 | 1.5 | 1.7 | 1.9 | 2.9 |
+| T.Allgeier | RB | rushing yards | 8 | 38.3 | 0.909 | 1.6 | 4.2 | 6.7 | 8.9 | 11.1 | 25.9 |
+| J.Love | RB | rushing yards | 4 | 38.9 | 0.909 | 20.1 | 20.3 | 20.4 | 20.5 | 20.7 | 39.1 |
+| Z.Knight | RB | rushing yards | 5 | 28.1 | 0.909 | 7.3 | 7.3 | 7.3 | 7.3 | 7.3 | 17.3 |
 
 ### KC offense vs ARI defense
 
 | Player | Pos | Stat | G | Wtd mean | Opp factor | Floor p5 | p10 | MAIN p15 | p20 | p25 | Median |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| T.Kelce | TE | receiving yards | 8 | 51.0 | 0.955 | 19.3 | 24.4 | 29.3 | 34.0 | 38.7 | 53.5 |
+| T.Kelce | TE | receiving yards | 8 | 51.1 | 0.956 | 19.4 | 24.4 | 29.3 | 34.0 | 38.7 | 53.5 |
 | T.Kelce | TE | receptions | 8 | 3.8 | 0.988 | 2.0 | 2.0 | 2.0 | 2.0 | 2.0 | 4.0 |
-| X.Worthy | WR | receiving yards | 8 | 30.5 | 0.986 | 3.8 | 7.6 | 10.9 | 11.6 | 12.3 | 22.2 |
-| X.Worthy | WR | receptions | 8 | 3.3 | 0.901 | 0.6 | 1.3 | 1.8 | 2.2 | 2.5 | 3.2 |
-| R.Rice | WR | receiving yards | 5 | 68.6 | 0.986 | 49.1 | 49.9 | 50.7 | 51.5 | 52.2 | 80.8 |
-| R.Rice | WR | receptions | 5 | 5.0 | 0.901 | 3.8 | 4.0 | 4.1 | 4.3 | 4.5 | 4.5 |
-| K.Walker | RB | receiving yards | 7 | 24.1 | 1.109 | 2.6 | 2.9 | 3.2 | 5.1 | 7.8 | 16.6 |
-| K.Walker | RB | receptions | 7 | 3.2 | 0.968 | 1.3 | 1.5 | 1.8 | 1.9 | 1.9 | 3.9 |
-| E.Johnson | RB | receiving yards | 6 | 56.1 | 1.109 | 13.0 | 15.0 | 16.9 | 18.9 | 19.1 | 21.1 |
-| E.Johnson | RB | receptions | 6 | 3.2 | 0.968 | 1.2 | 1.5 | 1.7 | 1.9 | 1.9 | 1.9 |
-| K.Walker | RB | rushing yards | 7 | 106.9 | 1.103 | 50.6 | 61.6 | 72.5 | 76.3 | 76.7 | 112.5 |
-| E.Johnson | RB | rushing yards | 6 | 40.6 | 1.103 | 9.1 | 11.6 | 14.1 | 16.5 | 16.5 | 17.6 |
-| P.Mahomes | QB | passing yards | 8 | 273.5 | 0.996 | 185.2 | 206.1 | 224.9 | 230.8 | 236.7 | 257.9 |
+| X.Worthy | WR | receiving yards | 8 | 30.5 | 0.987 | 3.8 | 7.6 | 11.0 | 11.6 | 12.3 | 22.2 |
+| X.Worthy | WR | receptions | 8 | 3.3 | 0.903 | 0.6 | 1.3 | 1.9 | 2.2 | 2.5 | 3.2 |
+| R.Rice | WR | receiving yards | 5 | 68.7 | 0.987 | 49.1 | 49.9 | 50.7 | 51.5 | 52.3 | 80.9 |
+| R.Rice | WR | receptions | 5 | 5.1 | 0.903 | 3.8 | 4.0 | 4.2 | 4.3 | 4.5 | 4.5 |
+| K.Walker | RB | receiving yards | 7 | 24.1 | 1.107 | 2.5 | 2.9 | 3.2 | 5.1 | 7.8 | 16.6 |
+| K.Walker | RB | receptions | 7 | 3.2 | 0.967 | 1.3 | 1.5 | 1.8 | 1.9 | 1.9 | 3.9 |
+| E.Johnson | RB | receiving yards | 6 | 56.0 | 1.107 | 13.0 | 15.0 | 16.9 | 18.8 | 19.1 | 21.0 |
+| E.Johnson | RB | receptions | 6 | 3.2 | 0.967 | 1.2 | 1.5 | 1.7 | 1.9 | 1.9 | 1.9 |
+| K.Walker | RB | rushing yards | 7 | 106.9 | 1.104 | 50.7 | 61.6 | 72.5 | 76.4 | 76.7 | 112.6 |
+| E.Johnson | RB | rushing yards | 6 | 40.6 | 1.104 | 9.1 | 11.6 | 14.1 | 16.6 | 16.6 | 17.7 |
+| P.Mahomes | QB | passing yards | 8 | 273.6 | 0.996 | 185.3 | 206.2 | 225.0 | 230.9 | 236.8 | 258.0 |
 
 The player's own games in the window (recency-weighted mean; percentiles of his game log), scaled by half of the opponent's allowed-per-game deviation from league average for that position, capped at +/-15%. This is NOT the three-model consensus and has not been validated against prices. Injury replacements, role changes and game script are not applied: the analyst must adjust for them.
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 1% chance of rain at kickoff, wind up to 7 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 2% chance of rain at kickoff, wind up to 7 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### ARI passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 38.4 | 36.7 | 38.4 |
-| Team completion rate | 64.8% | 60.9% | 64.8% |
+| Team pass attempts | 38.4 | 36.7 | 38.3 |
+| Team completion rate | 64.8% | 60.9% | 64.7% |
 | Team completions | 24.9 | 22.4 | 24.8 |
-| Team pass yards | 227.0 | 193.9 | 226.7 |
-| G.Minshew completion rate (50 attempts, small sample) | 76.0% | 71.4% | 76.0% |
-| G.Minshew yards per attempt | 7.08 | 6.23 | 7.07 |
+| Team pass yards | 227.0 | 193.9 | 226.3 |
+| G.Minshew completion rate (50 attempts, small sample) | 76.0% | 71.4% | 75.9% |
+| G.Minshew yards per attempt | 7.08 | 6.23 | 7.06 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| T.McBride | TE | 8 | 26% | 9.5 / 7.6 / 62.4 | 9.1 / 6.8 / 52.8 | 9.5 / 7.6 / 62.3 |
-| Mi.Wilson | WR | 7 | 25% | 10.6 / 6.3 / 67.4 | 10.1 / 5.6 / 57.2 | 10.6 / 6.3 / 67.3 |
+| T.McBride | TE | 8 | 26% | 9.5 / 7.6 / 62.4 | 9.1 / 6.8 / 52.8 | 9.5 / 7.6 / 62.2 |
+| Mi.Wilson | WR | 7 | 25% | 10.6 / 6.3 / 67.4 | 10.1 / 5.6 / 57.2 | 10.6 / 6.3 / 67.2 |
 | K.Bourne | WR | 5 | 9% | 5.4 / 3.2 / 36.6 | 5.2 / 2.9 / 31.1 | 5.4 / 3.2 / 36.5 |
 | T.Allgeier | RB | 8 | 7% | 2.8 / 2.4 / 13.8 | 2.6 / 2.2 / 11.5 | 2.7 / 2.4 / 13.7 |
 | E.Higgins | TE | 7 | 7% | 2.9 / 2.6 / 23.1 | 2.7 / 2.3 / 19.6 | 2.9 / 2.6 / 23.1 |
 | J.Brooks | WR | 4 | 6% | 4.2 / 1.2 / 20.2 | 4.1 / 1.1 / 17.2 | 4.2 / 1.2 / 20.2 |
 | Z.Knight | RB | 4 | 4% | 2.8 / 1.5 / 9.2 | 2.6 / 1.4 / 7.7 | 2.7 / 1.5 / 9.2 |
-| R.Virgil | WR | 3 | 4% | 3.7 / 1.0 / 18.0 | 3.5 / 0.9 / 15.3 | 3.7 / 1.0 / 18.0 |
+| R.Virgil | WR | 3 | 4% | 3.7 / 1.0 / 18.0 | 3.5 / 0.9 / 15.3 | 3.7 / 1.0 / 17.9 |
 
 ### KC passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 33.9 | 32.4 | 33.9 |
-| Team completion rate | 67.9% | 63.8% | 67.9% |
+| Team pass attempts | 33.9 | 32.4 | 33.8 |
+| Team completion rate | 67.9% | 63.8% | 67.8% |
 | Team completions | 23.0 | 20.7 | 23.0 |
-| Team pass yards | 275.1 | 235.1 | 274.7 |
-| P.Mahomes completion rate (271 attempts) | 67.9% | 63.8% | 67.9% |
-| P.Mahomes yards per attempt | 8.12 | 7.14 | 8.11 |
+| Team pass yards | 275.1 | 235.1 | 274.3 |
+| P.Mahomes completion rate (271 attempts) | 67.9% | 63.8% | 67.8% |
+| P.Mahomes yards per attempt | 8.12 | 7.14 | 8.1 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
 | T.Kelce | TE | 8 | 18% | 5.6 / 4.0 / 55.1 | 5.4 / 3.6 / 46.7 | 5.6 / 4.0 / 55.0 |
 | X.Worthy | WR | 8 | 17% | 5.5 / 3.7 / 32.5 | 5.3 / 3.4 / 27.6 | 5.5 / 3.7 / 32.4 |
-| R.Rice | WR | 5 | 14% | 7.2 / 5.6 / 71.0 | 6.9 / 5.0 / 60.2 | 7.2 / 5.6 / 70.9 |
-| K.Walker | RB | 7 | 12% | 4.3 / 3.3 / 22.0 | 4.1 / 3.0 / 18.3 | 4.3 / 3.3 / 22.0 |
-| E.Johnson | RB | 6 | 8% | 3.5 / 3.0 / 43.8 | 3.3 / 2.8 / 36.5 | 3.5 / 3.0 / 43.8 |
+| R.Rice | WR | 5 | 14% | 7.2 / 5.6 / 71.0 | 6.9 / 5.0 / 60.2 | 7.2 / 5.6 / 70.8 |
+| K.Walker | RB | 7 | 12% | 4.3 / 3.3 / 22.0 | 4.1 / 3.0 / 18.3 | 4.3 / 3.3 / 21.9 |
+| E.Johnson | RB | 6 | 8% | 3.5 / 3.0 / 43.8 | 3.3 / 2.8 / 36.5 | 3.5 / 3.0 / 43.7 |
 | N.Gray | TE | 8 | 7% | 2.4 / 1.9 / 23.1 | 2.3 / 1.7 / 19.6 | 2.4 / 1.9 / 23.1 |
-| T.Thornton | WR | 3 | 6% | 4.7 / 3.7 / 73.0 | 4.5 / 3.3 / 61.9 | 4.7 / 3.7 / 72.9 |
+| T.Thornton | WR | 3 | 6% | 4.7 / 3.7 / 73.0 | 4.5 / 3.3 / 61.9 | 4.7 / 3.7 / 72.8 |
 | J.Royals | WR | 7 | 6% | 2.0 / 1.1 / 9.0 | 1.9 / 1.0 / 7.6 | 2.0 / 1.1 / 9.0 |
 | C.Allen | WR | 6 | 5% | 2.2 / 1.2 / 18.2 | 2.1 / 1.0 / 15.4 | 2.2 / 1.2 / 18.1 |
 
@@ -143,26 +143,26 @@ Forecast: 1% chance of rain at kickoff, wind up to 7 mph. Basis: 211 team-games 
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points allowed / game | 30.5 | 31/32 | 23.1 |
-| Pass yards allowed / game | 235.1 | 13/32 | 237.2 |
-| Yards per pass attempt allowed | 8.14 | 26/32 | 7.24 |
-| Rush yards allowed / game | 116.0 | 27/32 | 99.5 |
+| Pass yards allowed / game | 235.1 | 12/32 | 236.9 |
+| Yards per pass attempt allowed | 8.14 | 26/32 | 7.23 |
+| Rush yards allowed / game | 116.0 | 28/32 | 99.3 |
 | Yards per carry allowed | 4.03 | 16/32 | 4.05 |
 | RB rush yards allowed / game | 111.4 | 28/32 | 92.3 |
-| WR yards allowed / game | 145.2 | 17/32 | 149.5 |
-| WR receptions allowed / game | 9.1 | 3/32 | 11.4 |
-| TE yards allowed / game | 49.8 | 14/32 | 54.7 |
+| WR yards allowed / game | 145.2 | 17/32 | 149.3 |
+| WR receptions allowed / game | 9.1 | 3/32 | 11.3 |
+| TE yards allowed / game | 49.8 | 14/32 | 54.6 |
 | TE receptions allowed / game | 5.2 | 15/32 | 5.4 |
-| RB receiving yards allowed / game | 40.1 | 25/32 | 32.9 |
-| RB receptions allowed / game | 4.1 | 12/32 | 4.4 |
+| RB receiving yards allowed / game | 40.1 | 25/32 | 33.0 |
+| RB receptions allowed / game | 4.1 | 11/32 | 4.4 |
 | Explosive passes (20+) allowed / game | 3.25 | 19/32 | 3.04 |
-| Explosive runs (15+) allowed / game | 1.25 | 19/32 | 1.20 |
+| Explosive runs (15+) allowed / game | 1.25 | 19/32 | 1.21 |
 | Sack rate | 6.6% | 17/32 | 6.5% |
-| Pressure rate (sacks + hits) | 14.8% | 16/32 | 15.7% |
-| Third-down conversions allowed | 43.9% | 23/32 | 39.4% |
-| Red-zone TD rate allowed | 71.4% | 26/32 | 58.5% |
-| Takeaways / game | 0.62 | 31/32 | 1.22 |
+| Pressure rate (sacks + hits) | 14.8% | 17/32 | 15.8% |
+| Third-down conversions allowed | 43.9% | 23/32 | 39.3% |
+| Red-zone TD rate allowed | 71.4% | 26/32 | 58.6% |
+| Takeaways / game | 0.62 | 31/32 | 1.23 |
 
-Blitz rate 37.7% and play-action faced 25.4% on 228 charted dropbacks (FTN). Deep passes (20+ air yards) faced 3.6 per game, 37.9% completed.
+Blitz rate 36.3% and play-action faced 26.2% on 256 charted dropbacks (FTN). Deep passes (20+ air yards) faced 3.6 per game, 37.9% completed.
 
 ### ARI defense, game by game
 
@@ -235,18 +235,18 @@ Blitz rate 37.7% and play-action faced 25.4% on 228 charted dropbacks (FTN). Dee
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points / game | 18.9 | 27/32 | 22.9 |
-| Pass yards / game | 227.0 | 20/32 | 236.5 |
+| Pass yards / game | 227.0 | 20/32 | 236.6 |
 | Yards per pass attempt | 5.92 | 29/32 | 7.16 |
 | Rush yards / game | 91.0 | 20/32 | 99.4 |
 | Yards per carry | 4.09 | 14/32 | 4.05 |
 | RB rush yards / game | 84.1 | 21/32 | 92.3 |
 | WR yards / game | 118.2 | 29/32 | 148.7 |
 | TE yards / game | 88.2 | 2/32 | 54.6 |
-| RB receiving yards / game | 19.8 | 28/32 | 33.2 |
+| RB receiving yards / game | 19.8 | 29/32 | 33.3 |
 | Explosive passes (20+) / game | 2.38 | 24/32 | 3.04 |
-| Explosive runs (15+) / game | 1.25 | 12/32 | 1.19 |
-| Sack rate allowed | 7.4% | 20/32 | 6.5% |
-| Pressure rate allowed (sacks + hits) | 17.6% | 25/32 | 15.6% |
+| Explosive runs (15+) / game | 1.25 | 13/32 | 1.20 |
+| Sack rate allowed | 7.4% | 21/32 | 6.5% |
+| Pressure rate allowed (sacks + hits) | 17.6% | 25/32 | 15.7% |
 | Third-down conversion rate | 36.8% | 21/32 | 39.5% |
 | Red-zone TD rate | 42.9% | 30/32 | 58.0% |
 
@@ -309,12 +309,12 @@ Neutral-situation pass rate 49.7%; 64.8 plays per game; target share WR 51% / TE
 
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
-| offense | Shotgun | 282 | 54% | 84% | 4.86 | -0.164 |
-| offense | Under center | 183 | 35% | 34% | 4.21 | -0.032 |
-| offense | No huddle | 53 | 10% | 79% | 5.66 | 0.271 |
-| defense vs | Under center | 253 | 52% | 30% | 4.89 | 0.04 |
-| defense vs | Shotgun | 212 | 44% | 79% | 7.02 | 0.234 |
-| defense vs | No huddle | 21 | 4% | 57% | 4.95 | 0.231 |
+| offense | Shotgun | 282 | 54% | 84% | 4.86 | -0.13 |
+| offense | Under center | 183 | 35% | 34% | 4.21 | -0.024 |
+| offense | No huddle | 53 | 10% | 79% | 5.66 | 0.232 |
+| defense vs | Under center | 253 | 52% | 30% | 4.89 | 0.037 |
+| defense vs | Shotgun | 212 | 44% | 79% | 7.02 | 0.21 |
+| defense vs | No huddle | 21 | 4% | 57% | 4.95 | 0.184 |
 
 | Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
 |---|---|---|---|---|---|---|
@@ -331,7 +331,7 @@ Neutral-situation pass rate 49.7%; 64.8 plays per game; target share WR 51% / TE
 | defense allows | Deep middle | 7 | 3% | 43% | 8.86 | 2 |
 | defense allows | Deep right | 19 | 8% | 42% | 14.37 | 8 |
 
-### ARI lines (depth chart as of 2026-11-16T16:58:52Z)
+### ARI lines (depth chart as of 2026-11-17T16:52:03Z)
 
 Offensive line: LT Jayden Williams, LG Isaac Seumalo, C Hjalte Froholdt, RG Isaiah Adams, RT Elijah Wilkinson.  
 Defensive front: LDE Josh Sweat, LDT Roy Lopez, RDT Walter Nolen III, RDE Dante Stills, WLB Jack Gibbens, SLB Zaven Collins.
@@ -340,14 +340,14 @@ Defensive front: LDE Josh Sweat, LDT Roy Lopez, RDT Walter Nolen III, RDE Dante 
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Zachary Carter (DT) Injured Reserve; Gardner Minshew II (QB) Injured Reserve; Jayden Williams (OT) Out; Hjalte Froholdt (C) Out; Jon Gaines II (G) Out; Andrew Wingard (S) Out; Jordan Burch (LB) Out.
+ESPN live list (designations only): Zachary Carter (DT) Injured Reserve; Gardner Minshew II (QB) Injured Reserve; Andrew Wingard (S) Out; Jordan Burch (LB) Out; Jayden Williams (OT) Questionable; Hjalte Froholdt (C) Questionable; Jon Gaines II (G) Questionable; James Conner (RB) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### ARI roster moves (last 4 weeks)
 
-Arrived: Josh Johnson (QB) from CIN; Phillip Dorsett (WR) from LV; Joey Aguilar (QB) from JAX.  
+Arrived: none.  
 Left for another team: Jacoby Brissett (QB) to BAL; Cam Horsley (DL) to CAR.
 
 ## KC (last 8 games: weeks 2, 3, 4, 6, 7, 8, 9, 10)
@@ -357,26 +357,26 @@ Left for another team: Jacoby Brissett (QB) to BAL; Cam Horsley (DL) to CAR.
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points allowed / game | 18.2 | 4/32 | 23.1 |
-| Pass yards allowed / game | 239.9 | 16/32 | 237.2 |
-| Yards per pass attempt allowed | 6.66 | 10/32 | 7.24 |
-| Rush yards allowed / game | 86.9 | 12/32 | 99.5 |
-| Yards per carry allowed | 3.44 | 6/32 | 4.05 |
+| Pass yards allowed / game | 239.9 | 17/32 | 236.9 |
+| Yards per pass attempt allowed | 6.66 | 10/32 | 7.23 |
+| Rush yards allowed / game | 86.9 | 11/32 | 99.3 |
+| Yards per carry allowed | 3.44 | 5/32 | 4.05 |
 | RB rush yards allowed / game | 75.4 | 10/32 | 92.3 |
-| WR yards allowed / game | 133.1 | 9/32 | 149.5 |
-| WR receptions allowed / game | 10.5 | 12/32 | 11.4 |
-| TE yards allowed / game | 65.5 | 26/32 | 54.7 |
+| WR yards allowed / game | 133.1 | 9/32 | 149.3 |
+| WR receptions allowed / game | 10.5 | 12/32 | 11.3 |
+| TE yards allowed / game | 65.5 | 26/32 | 54.6 |
 | TE receptions allowed / game | 6.5 | 27/32 | 5.4 |
-| RB receiving yards allowed / game | 41.2 | 26/32 | 32.9 |
+| RB receiving yards allowed / game | 41.2 | 26/32 | 33.0 |
 | RB receptions allowed / game | 5.0 | 23/32 | 4.4 |
 | Explosive passes (20+) allowed / game | 3.25 | 19/32 | 3.04 |
-| Explosive runs (15+) allowed / game | 0.75 | 4/32 | 1.20 |
+| Explosive runs (15+) allowed / game | 0.75 | 4/32 | 1.21 |
 | Sack rate | 4.1% | 31/32 | 6.5% |
-| Pressure rate (sacks + hits) | 11.9% | 29/32 | 15.7% |
-| Third-down conversions allowed | 38.1% | 13/32 | 39.4% |
-| Red-zone TD rate allowed | 33.3% | 2/32 | 58.5% |
-| Takeaways / game | 1.25 | 13/32 | 1.22 |
+| Pressure rate (sacks + hits) | 11.9% | 29/32 | 15.8% |
+| Third-down conversions allowed | 38.1% | 14/32 | 39.3% |
+| Red-zone TD rate allowed | 33.3% | 2/32 | 58.6% |
+| Takeaways / game | 1.25 | 13/32 | 1.23 |
 
-Blitz rate 27.0% and play-action faced 28.5% on 270 charted dropbacks (FTN). Deep passes (20+ air yards) faced 4.5 per game, 38.9% completed.
+Blitz rate 26.4% and play-action faced 25.5% on 318 charted dropbacks (FTN). Deep passes (20+ air yards) faced 4.5 per game, 38.9% completed.
 
 ### KC defense, game by game
 
@@ -449,18 +449,18 @@ Blitz rate 27.0% and play-action faced 28.5% on 270 charted dropbacks (FTN). Dee
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points / game | 25.8 | 8/32 | 22.9 |
-| Pass yards / game | 275.1 | 5/32 | 236.5 |
+| Pass yards / game | 275.1 | 5/32 | 236.6 |
 | Yards per pass attempt | 8.12 | 7/32 | 7.16 |
 | Rush yards / game | 117.8 | 8/32 | 99.4 |
 | Yards per carry | 4.98 | 3/32 | 4.05 |
 | RB rush yards / game | 114.0 | 7/32 | 92.3 |
 | WR yards / game | 140.6 | 19/32 | 148.7 |
 | TE yards / game | 81.9 | 3/32 | 54.6 |
-| RB receiving yards / game | 52.6 | 3/32 | 33.2 |
+| RB receiving yards / game | 52.6 | 3/32 | 33.3 |
 | Explosive passes (20+) / game | 3.38 | 13/32 | 3.04 |
-| Explosive runs (15+) / game | 1.25 | 12/32 | 1.19 |
+| Explosive runs (15+) / game | 1.25 | 13/32 | 1.20 |
 | Sack rate allowed | 3.4% | 2/32 | 6.5% |
-| Pressure rate allowed (sacks + hits) | 17.3% | 22/32 | 15.6% |
+| Pressure rate allowed (sacks + hits) | 17.3% | 22/32 | 15.7% |
 | Third-down conversion rate | 38.0% | 17/32 | 39.5% |
 | Red-zone TD rate | 67.9% | 6/32 | 58.0% |
 
@@ -521,12 +521,12 @@ Neutral-situation pass rate 60.3%; 60.4 plays per game; target share WR 52% / TE
 
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
-| offense | Shotgun | 286 | 59% | 74% | 6.28 | 0.102 |
-| offense | Under center | 192 | 40% | 40% | 6.81 | 0.19 |
-| offense | No huddle | 5 | 1% | 100% | 8.6 | 0.128 |
-| defense vs | Shotgun | 278 | 54% | 81% | 5.35 | -0.125 |
-| defense vs | Under center | 204 | 39% | 29% | 4.89 | -0.0 |
-| defense vs | No huddle | 38 | 7% | 92% | 4.55 | -0.213 |
+| offense | Shotgun | 286 | 59% | 74% | 6.28 | 0.1 |
+| offense | Under center | 192 | 40% | 40% | 6.81 | 0.158 |
+| offense | No huddle | 5 | 1% | 100% | 8.6 | 0.13 |
+| defense vs | Shotgun | 278 | 54% | 81% | 5.35 | -0.104 |
+| defense vs | Under center | 204 | 39% | 29% | 4.89 | 0.004 |
+| defense vs | No huddle | 38 | 7% | 92% | 4.55 | -0.188 |
 
 | Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
 |---|---|---|---|---|---|---|
@@ -543,7 +543,7 @@ Neutral-situation pass rate 60.3%; 60.4 plays per game; target share WR 52% / TE
 | defense allows | Deep middle | 16 | 6% | 38% | 12.0 | 5 |
 | defense allows | Deep right | 10 | 4% | 20% | 3.7 | 1 |
 
-### KC lines (depth chart as of 2026-11-16T16:58:52Z)
+### KC lines (depth chart as of 2026-11-17T16:52:03Z)
 
 Offensive line: LT Kahlil Benson, LG Kingsley Suamataia, C Creed Humphrey, RG Trey Smith, RT Jaylon Moore.  
 Defensive front: LDE George Karlaftis, LDT Chris Jones, RDT Khyiris Tonga, RDE Felix Anudike-Uzomah, WLB Drue Tranquill, SLB Jeffrey Bassa.
@@ -552,14 +552,14 @@ Defensive front: LDE George Karlaftis, LDT Chris Jones, RDT Khyiris Tonga, RDE F
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Trey Smith (G) Questionable; Jared Wiley (TE) Out; Jaylon Moore (OT) Out; Peter Woods (DT) Out; Kenneth Walker III (RB) Out; Jaydn Ott (RB) Out.
+ESPN live list (designations only): Trey Smith (G) Questionable; Jared Wiley (TE) Out; Peter Woods (DT) Questionable; Kenneth Walker III (RB) Questionable; Jaylon Moore (OT) Questionable; Jaydn Ott (RB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### KC roster moves (last 4 weeks)
 
-Arrived: Josh Downs (WR) from IND.  
+Arrived: none.  
 Left for another team: Kader Kohou (DB) to BUF; Nikko Remigio (WR) to HOU.
 
 ## Keyed connectors in this run
@@ -596,15 +596,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-17T04:39:59+00:00 | 5814492ecf5b |
-| pbp | OK | 2026-11-17T04:39:59+00:00 | 5bf3fd3431e5 |
-| rosters | OK | 2026-11-17T04:39:59+00:00 | 8ef5848627e0 |
-| injuries | OK | 2026-11-17T04:40:00+00:00 | 4be8d0f909f1 |
-| depth_charts | OK | 2026-11-17T04:40:00+00:00 | cb40b454d0c6 |
-| snap_counts | OK | 2026-11-17T04:40:00+00:00 | 29653cc65100 |
-| ftn | OK | 2026-11-17T04:40:00+00:00 | 21e9470ab453 |
-| pfr_def | OK | 2026-11-17T04:40:01+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-17T04:40:01+00:00 |  |
+| games | OK | 2026-11-17T21:58:03+00:00 | f84bb068b606 |
+| pbp | OK | 2026-11-17T21:58:03+00:00 | 32334d4ae379 |
+| rosters | OK | 2026-11-17T21:58:03+00:00 | e4f81f1adc72 |
+| injuries | OK | 2026-11-17T21:58:04+00:00 | 33d3b85359fe |
+| depth_charts | OK | 2026-11-17T21:58:04+00:00 | aaca90f9afb7 |
+| snap_counts | OK | 2026-11-17T21:58:04+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-17T21:58:05+00:00 | 8db63e5eaab1 |
+| pfr_def | OK | 2026-11-17T21:58:05+00:00 | 169459009450 |
+| espn_injuries | OK | 2026-11-17T21:58:05+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

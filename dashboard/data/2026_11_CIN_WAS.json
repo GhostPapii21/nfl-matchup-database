@@ -31,27 +31,44 @@
   "WAS": 23.0,
   "CIN": 29.5
  },
- "generated_utc": "2026-11-17T04:40:31+00:00",
- "board_built_utc": "2026-11-17T04:42:56+00:00",
+ "generated_utc": "2026-11-17T21:58:33+00:00",
+ "board_built_utc": "2026-11-17T22:00:42+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": 6.5,
   "total": 52.5,
   "moneyline": {
-   "CIN": -305.0,
-   "WAS": 245.0
+   "CIN": -290.0,
+   "WAS": 235.0
   }
  },
  "books": {
   "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800"
  },
  "weather": {
-  "status": "KICKOFF_BEYOND_HOURLY_FORECAST: the hourly forecast covers about 6.5 days",
-  "kickoff_utc": "2026-11-24T01:15:00+00:00"
+  "status": "OK",
+  "source": "US National Weather Service hourly forecast",
+  "url": "https://api.weather.gov/gridpoints/LWX/102,73/forecast/hourly",
+  "retrieved_utc": "2026-11-17T21:58:32+00:00",
+  "kickoff_utc": "2026-11-24T01:15:00+00:00",
+  "roof": "outdoors",
+  "at_kickoff": {
+   "temp_f": 50,
+   "wind_mph": 9.0,
+   "wind_dir": "NW",
+   "precip_chance_pct": 3,
+   "summary": "Mostly Clear"
+  },
+  "during_game": {
+   "temp_f_min": 47,
+   "wind_mph_max": 9.0,
+   "precip_chance_pct_max": 3
+  },
+  "flags": []
  },
  "weather_verdict": {
-  "level": "unknown",
-  "headline": "Forecast not available (KICKOFF_BEYOND_HOURLY_FORECAST: the hourly forecast covers about 6.5 days)",
+  "level": "good",
+  "headline": "Clean conditions: 3% rain, wind up to 9 mph.",
   "details": []
  },
  "weather_alerts": [],
@@ -448,8 +465,8 @@
     "third_down_rate": 0.3925233644859813,
     "red_zone_drives": 29,
     "red_zone_td_rate": 0.7241379310344828,
-    "pass_epa_per_dropback": 0.06846736853606294,
-    "rush_epa_per_carry": -0.045217854243548294,
+    "pass_epa_per_dropback": 0.06480495337505306,
+    "rush_epa_per_carry": -0.032863852589873135,
     "neutral_pass_rate": 0.6023622047244095,
     "blitz_rate": 0.4264705882352941,
     "play_action_rate": 0.22058823529411764,
@@ -481,62 +498,62 @@
     "points_pg": {
      "rank": 21,
      "of": 32,
-     "league_avg": 23.08984375
+     "league_avg": 23.0625
     },
     "pass_yards_pg": {
      "rank": 29,
      "of": 32,
-     "league_avg": 237.1640625
+     "league_avg": 236.9296875
     },
     "rush_yards_pg": {
      "rank": 10,
      "of": 32,
-     "league_avg": 99.46484375
+     "league_avg": 99.3203125
     },
     "yards_per_carry": {
-     "rank": 8,
+     "rank": 7,
      "of": 32,
-     "league_avg": 4.048410607711333
+     "league_avg": 4.050866195943513
     },
     "rb_rush_yards_pg": {
      "rank": 11,
      "of": 32,
-     "league_avg": 92.33984375
+     "league_avg": 92.2578125
     },
     "explosive_pass_pg": {
      "rank": 19,
      "of": 32,
-     "league_avg": 3.04296875
+     "league_avg": 3.0390625
     },
     "explosive_rush_pg": {
      "rank": 2,
      "of": 32,
-     "league_avg": 1.203125
+     "league_avg": 1.2109375
     },
     "explosive_total_pg": {
      "rank": 8,
      "of": 32,
-     "league_avg": 4.24609375
+     "league_avg": 4.25
     },
     "wr_rec_yards_pg": {
      "rank": 20,
      "of": 32,
-     "league_avg": 149.49609375
+     "league_avg": 149.26171875
     },
     "te_rec_yards_pg": {
      "rank": 30,
      "of": 32,
-     "league_avg": 54.6796875
+     "league_avg": 54.57421875
     },
     "rb_rec_yards_pg": {
      "rank": 21,
      "of": 32,
-     "league_avg": 32.921875
+     "league_avg": 33.02734375
     },
     "wr_receptions_pg": {
      "rank": 29,
      "of": 32,
-     "league_avg": 11.37109375
+     "league_avg": 11.328125
     },
     "te_receptions_pg": {
      "rank": 30,
@@ -546,47 +563,47 @@
     "rb_receptions_pg": {
      "rank": 23,
      "of": 32,
-     "league_avg": 4.41015625
+     "league_avg": 4.41796875
     },
     "sack_rate": {
      "rank": 29,
      "of": 32,
-     "league_avg": 0.06522449425180897
+     "league_avg": 0.06523328561983419
     },
     "pressure_rate": {
      "rank": 25,
      "of": 32,
-     "league_avg": 0.15729382874822329
+     "league_avg": 0.15808295027282446
     },
     "third_down_rate": {
-     "rank": 14,
+     "rank": 15,
      "of": 32,
-     "league_avg": 0.39437574810558407
+     "league_avg": 0.3926302165964563
     },
     "red_zone_td_rate": {
      "rank": 27,
      "of": 32,
-     "league_avg": 0.5845037384283622
+     "league_avg": 0.5856105092616954
     },
     "pass_epa_per_dropback": {
-     "rank": 19,
+     "rank": 18,
      "of": 32,
-     "league_avg": 0.04988558850963775
+     "league_avg": 0.049829208208821765
     },
     "rush_epa_per_carry": {
-     "rank": 20,
+     "rank": 25,
      "of": 32,
-     "league_avg": -0.07763296785934773
+     "league_avg": -0.06074522417823477
     },
     "takeaways_pg": {
      "rank": 3,
      "of": 32,
-     "league_avg": 1.21875
+     "league_avg": 1.2265625
     },
     "yards_per_pass_attempt": {
      "rank": 14,
      "of": 32,
-     "league_avg": 7.23550384872807
+     "league_avg": 7.232766820984066
     }
    },
    "defense_by_game": [
@@ -1035,13 +1052,13 @@
     "third_down_rate": 0.5111111111111111,
     "red_zone_drives": 32,
     "red_zone_td_rate": 0.78125,
-    "pass_epa_per_dropback": 0.34216703001057003,
-    "rush_epa_per_carry": -0.09703195196953364,
+    "pass_epa_per_dropback": 0.3006246326713422,
+    "rush_epa_per_carry": -0.0777705303314141,
     "neutral_pass_rate": 0.6538461538461539,
-    "blitz_rate": 0.25,
-    "play_action_rate": 0.14788732394366197,
+    "blitz_rate": 0.2530487804878049,
+    "play_action_rate": 0.13719512195121952,
     "sack_rate_when_blitzing": 0.0,
-    "dropbacks_charted": 284,
+    "dropbacks_charted": 328,
     "wr_targets_pg": 23.625,
     "wr_receptions_pg": 17.375,
     "wr_rec_yards_pg": 241.375,
@@ -1068,112 +1085,112 @@
     "points_pg": {
      "rank": 3,
      "of": 32,
-     "league_avg": 22.89453125
+     "league_avg": 22.94140625
     },
     "pass_yards_pg": {
      "rank": 1,
      "of": 32,
-     "league_avg": 236.5390625
+     "league_avg": 236.63671875
     },
     "rush_yards_pg": {
      "rank": 27,
      "of": 32,
-     "league_avg": 99.3828125
+     "league_avg": 99.37890625
     },
     "yards_per_carry": {
      "rank": 21,
      "of": 32,
-     "league_avg": 4.053430976501465
+     "league_avg": 4.048712428580384
     },
     "rb_rush_yards_pg": {
      "rank": 25,
      "of": 32,
-     "league_avg": 92.28515625
+     "league_avg": 92.2734375
     },
     "explosive_pass_pg": {
      "rank": 8,
      "of": 32,
-     "league_avg": 3.03515625
+     "league_avg": 3.0390625
     },
     "explosive_rush_pg": {
      "rank": 31,
      "of": 32,
-     "league_avg": 1.19140625
+     "league_avg": 1.203125
     },
     "explosive_total_pg": {
      "rank": 17,
      "of": 32,
-     "league_avg": 4.2265625
+     "league_avg": 4.2421875
     },
     "wr_rec_yards_pg": {
      "rank": 1,
      "of": 32,
-     "league_avg": 148.71875
+     "league_avg": 148.69921875
     },
     "te_rec_yards_pg": {
-     "rank": 25,
+     "rank": 24,
      "of": 32,
-     "league_avg": 54.578125
+     "league_avg": 54.58984375
     },
     "rb_rec_yards_pg": {
      "rank": 10,
      "of": 32,
-     "league_avg": 33.17578125
+     "league_avg": 33.28125
     },
     "wr_receptions_pg": {
      "rank": 2,
      "of": 32,
-     "league_avg": 11.33984375
+     "league_avg": 11.33203125
     },
     "te_receptions_pg": {
      "rank": 20,
      "of": 32,
-     "league_avg": 5.37109375
+     "league_avg": 5.375
     },
     "rb_receptions_pg": {
      "rank": 1,
      "of": 32,
-     "league_avg": 4.4296875
+     "league_avg": 4.4609375
     },
     "sack_rate": {
      "rank": 8,
      "of": 32,
-     "league_avg": 0.06521820462232868
+     "league_avg": 0.06496619566773085
     },
     "pressure_rate": {
      "rank": 19,
      "of": 32,
-     "league_avg": 0.1562701248012647
+     "league_avg": 0.15694824043649072
     },
     "third_down_rate": {
      "rank": 2,
      "of": 32,
-     "league_avg": 0.3953756922537046
+     "league_avg": 0.39487889850473834
     },
     "red_zone_td_rate": {
      "rank": 2,
      "of": 32,
-     "league_avg": 0.5802301097289906
+     "league_avg": 0.5798771152703376
     },
     "pass_epa_per_dropback": {
      "rank": 2,
      "of": 32,
-     "league_avg": 0.041357480744246465
+     "league_avg": 0.04465239140401442
     },
     "rush_epa_per_carry": {
      "rank": 18,
      "of": 32,
-     "league_avg": -0.07853751073231133
+     "league_avg": -0.06098569749017958
     },
     "takeaways_pg": {
      "rank": 8,
      "of": 32,
-     "league_avg": 1.21484375
+     "league_avg": 1.2109375
     },
     "yards_per_pass_attempt": {
      "rank": 4,
      "of": 32,
-     "league_avg": 7.162306049138799
+     "league_avg": 7.157217024001403
     }
    },
    "offense_by_game": [
@@ -1531,7 +1548,7 @@
      "offense_rank": 1,
      "defense_value": 152.75,
      "defense_rank": 20,
-     "league_avg": 149.49609375,
+     "league_avg": 149.26171875,
      "why": "CIN offence ranks 1 of 32, WAS defence ranks 20 of 32 (1 = best at its own job)",
      "edge": "CIN OFFENCE STRENGTH"
     },
@@ -1539,11 +1556,11 @@
      "area": "tight end yards",
      "is_rate": false,
      "offense_value": 40.125,
-     "offense_rank": 25,
+     "offense_rank": 24,
      "defense_value": 76.0,
      "defense_rank": 30,
-     "league_avg": 54.6796875,
-     "why": "CIN offence ranks 25 of 32, WAS defence ranks 30 of 32 (1 = best at its own job)",
+     "league_avg": 54.57421875,
+     "why": "CIN offence ranks 24 of 32, WAS defence ranks 30 of 32 (1 = best at its own job)",
      "edge": "WAS DEFENCE WEAK SPOT"
     },
     {
@@ -1553,7 +1570,7 @@
      "offense_rank": 31,
      "defense_value": 0.625,
      "defense_rank": 2,
-     "league_avg": 1.203125,
+     "league_avg": 1.2109375,
      "why": "CIN offence ranks 31 of 32, WAS defence ranks 2 of 32 (1 = best at its own job)",
      "edge": "WAS DEFENCE ADVANTAGE"
     },
@@ -1564,7 +1581,7 @@
      "offense_rank": 1,
      "defense_value": 267.25,
      "defense_rank": 29,
-     "league_avg": 237.1640625,
+     "league_avg": 236.9296875,
      "why": "CIN offence ranks 1 of 32, WAS defence ranks 29 of 32 (1 = best at its own job)",
      "edge": "CIN OFFENCE ADVANTAGE"
     },
@@ -1575,7 +1592,7 @@
      "offense_rank": 3,
      "defense_value": 24.875,
      "defense_rank": 21,
-     "league_avg": 23.08984375,
+     "league_avg": 23.0625,
      "why": "CIN offence ranks 3 of 32, WAS defence ranks 21 of 32 (1 = best at its own job)",
      "edge": "CIN OFFENCE STRENGTH"
     },
@@ -1585,9 +1602,9 @@
      "offense_value": 0.5111111111111111,
      "offense_rank": 2,
      "defense_value": 0.3925233644859813,
-     "defense_rank": 14,
-     "league_avg": 0.39437574810558407,
-     "why": "CIN offence ranks 2 of 32, WAS defence ranks 14 of 32 (1 = best at its own job)",
+     "defense_rank": 15,
+     "league_avg": 0.3926302165964563,
+     "why": "CIN offence ranks 2 of 32, WAS defence ranks 15 of 32 (1 = best at its own job)",
      "edge": "CIN OFFENCE STRENGTH"
     },
     {
@@ -1597,7 +1614,7 @@
      "offense_rank": 2,
      "defense_value": 0.7241379310344828,
      "defense_rank": 27,
-     "league_avg": 0.5845037384283622,
+     "league_avg": 0.5856105092616954,
      "why": "CIN offence ranks 2 of 32, WAS defence ranks 27 of 32 (1 = best at its own job)",
      "edge": "CIN OFFENCE ADVANTAGE"
     },
@@ -1608,7 +1625,7 @@
      "offense_rank": 8,
      "defense_value": 0.04411764705882353,
      "defense_rank": 29,
-     "league_avg": 0.06522449425180897,
+     "league_avg": 0.06523328561983419,
      "why": "CIN offence ranks 8 of 32, WAS defence ranks 29 of 32 (1 = best at its own job)",
      "edge": "CIN OFFENCE ADVANTAGE"
     },
@@ -1619,7 +1636,7 @@
      "offense_rank": 19,
      "defense_value": 0.1411764705882353,
      "defense_rank": 25,
-     "league_avg": 0.15729382874822329,
+     "league_avg": 0.15808295027282446,
      "why": "CIN offence ranks 19 of 32, WAS defence ranks 25 of 32 (1 = best at its own job)",
      "edge": "WAS DEFENCE WEAK SPOT"
     }
@@ -1634,26 +1651,26 @@
       "target_share": 0.27946127946127947,
       "receiving_yards": {
        "games": 8,
-       "weighted_mean": 119.7,
-       "opponent_factor": 1.011,
+       "weighted_mean": 119.8,
+       "opponent_factor": 1.012,
        "p5": 39.7,
        "p10": 52.1,
-       "p15": 63.3,
-       "p20": 67.9,
-       "p25": 72.5,
+       "p15": 63.4,
+       "p20": 68.0,
+       "p25": 72.6,
        "p50": 88.5,
        "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
       },
       "receptions": {
        "games": 8,
-       "weighted_mean": 8.8,
-       "opponent_factor": 1.094,
-       "p5": 4.0,
+       "weighted_mean": 8.9,
+       "opponent_factor": 1.096,
+       "p5": 4.1,
        "p10": 4.8,
        "p15": 5.5,
        "p20": 5.9,
        "p25": 6.3,
-       "p50": 8.7,
+       "p50": 8.8,
        "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
       },
       "targets": {
@@ -1675,20 +1692,20 @@
       "target_share": 0.2255892255892256,
       "receiving_yards": {
        "games": 8,
-       "weighted_mean": 94.4,
-       "opponent_factor": 1.011,
+       "weighted_mean": 94.5,
+       "opponent_factor": 1.012,
        "p5": 25.8,
        "p10": 29.3,
        "p15": 34.1,
        "p20": 46.1,
-       "p25": 58.1,
-       "p50": 93.5,
+       "p25": 58.2,
+       "p50": 93.6,
        "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
       },
       "receptions": {
        "games": 8,
        "weighted_mean": 6.8,
-       "opponent_factor": 1.094,
+       "opponent_factor": 1.096,
        "p5": 3.3,
        "p10": 4.5,
        "p15": 5.5,
@@ -1716,8 +1733,8 @@
       "target_share": 0.16161616161616163,
       "receiving_yards": {
        "games": 8,
-       "weighted_mean": 31.9,
-       "opponent_factor": 1.085,
+       "weighted_mean": 31.8,
+       "opponent_factor": 1.083,
        "p5": 4.4,
        "p10": 6.7,
        "p15": 9.2,
@@ -1729,7 +1746,7 @@
       "receptions": {
        "games": 8,
        "weighted_mean": 5.8,
-       "opponent_factor": 1.067,
+       "opponent_factor": 1.066,
        "p5": 2.5,
        "p10": 2.9,
        "p15": 3.2,
@@ -1757,8 +1774,8 @@
       "target_share": 0.09090909090909091,
       "receiving_yards": {
        "games": 8,
-       "weighted_mean": 28.7,
-       "opponent_factor": 1.011,
+       "weighted_mean": 28.8,
+       "opponent_factor": 1.012,
        "p5": 0.0,
        "p10": 0.0,
        "p15": 0.6,
@@ -1770,7 +1787,7 @@
       "receptions": {
        "games": 8,
        "weighted_mean": 2.6,
-       "opponent_factor": 1.094,
+       "opponent_factor": 1.096,
        "p5": 0.0,
        "p10": 0.0,
        "p15": 0.1,
@@ -1798,10 +1815,10 @@
       "carry_share": 0.6217948717948718,
       "rushing_yards": {
        "games": 8,
-       "weighted_mean": 43.6,
-       "opponent_factor": 0.922,
+       "weighted_mean": 43.7,
+       "opponent_factor": 0.923,
        "p5": 18.6,
-       "p10": 27.9,
+       "p10": 28.0,
        "p15": 36.0,
        "p20": 36.0,
        "p25": 36.0,
@@ -1828,10 +1845,10 @@
       "rushing_yards": {
        "games": 8,
        "weighted_mean": 21.0,
-       "opponent_factor": 0.922,
+       "opponent_factor": 0.923,
        "p5": 5.9,
        "p10": 6.2,
-       "p15": 6.5,
+       "p15": 6.6,
        "p20": 7.2,
        "p25": 7.8,
        "p50": 11.1,
@@ -1855,14 +1872,14 @@
       "pos": "QB",
       "passing_yards": {
        "games": 8,
-       "weighted_mean": 347.7,
-       "opponent_factor": 1.063,
-       "p5": 208.4,
-       "p10": 214.7,
-       "p15": 223.5,
-       "p20": 247.4,
-       "p25": 271.2,
-       "p50": 305.2,
+       "weighted_mean": 347.8,
+       "opponent_factor": 1.064,
+       "p5": 208.5,
+       "p10": 214.8,
+       "p15": 223.6,
+       "p20": 247.5,
+       "p25": 271.3,
+       "p50": 305.4,
        "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
       },
       "pass_attempts": {
@@ -1881,7 +1898,293 @@
     ]
    },
    "rain": {
-    "status": "NOT_APPLICABLE: KICKOFF_BEYOND_HOURLY_FORECAST: the hourly forecast covers a"
+    "status": "OK",
+    "rain_chance": 0.03,
+    "wind_mph": 9.0,
+    "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
+    "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
+    "team_passing": {
+     "dry": {
+      "attempts": 37.9,
+      "completion_pct": 0.756,
+      "completions": 28.6,
+      "yards": 317.6
+     },
+     "rain": {
+      "attempts": 36.2,
+      "completion_pct": 0.71,
+      "completions": 25.7,
+      "yards": 271.4
+     },
+     "forecast": {
+      "attempts": 37.8,
+      "completion_pct": 0.754,
+      "completions": 28.5,
+      "yards": 316.2
+     }
+    },
+    "receivers": [
+     {
+      "player": "J.Chase",
+      "pos": "WR",
+      "games": 8,
+      "target_share": 0.27946127946127947,
+      "dry": {
+       "targets": 10.4,
+       "catch_rate": 0.747,
+       "receptions": 7.8,
+       "yards_per_target": 10.43,
+       "yards": 108.2
+      },
+      "rain": {
+       "targets": 9.9,
+       "catch_rate": 0.698,
+       "receptions": 6.9,
+       "yards_per_target": 9.25,
+       "yards": 91.8
+      },
+      "forecast": {
+       "targets": 10.4,
+       "catch_rate": 0.746,
+       "receptions": 7.7,
+       "yards_per_target": 10.4,
+       "yards": 107.7
+      }
+     },
+     {
+      "player": "T.Higgins",
+      "pos": "WR",
+      "games": 8,
+      "target_share": 0.2255892255892256,
+      "dry": {
+       "targets": 8.4,
+       "catch_rate": 0.746,
+       "receptions": 6.2,
+       "yards_per_target": 11.42,
+       "yards": 95.6
+      },
+      "rain": {
+       "targets": 8.0,
+       "catch_rate": 0.698,
+       "receptions": 5.6,
+       "yards_per_target": 10.13,
+       "yards": 81.1
+      },
+      "forecast": {
+       "targets": 8.4,
+       "catch_rate": 0.745,
+       "receptions": 6.2,
+       "yards_per_target": 11.38,
+       "yards": 95.2
+      }
+     },
+     {
+      "player": "C.Brown",
+      "pos": "RB",
+      "games": 8,
+      "target_share": 0.16161616161616163,
+      "dry": {
+       "targets": 6.0,
+       "catch_rate": 0.875,
+       "receptions": 5.2,
+       "yards_per_target": 4.67,
+       "yards": 28.0
+      },
+      "rain": {
+       "targets": 5.7,
+       "catch_rate": 0.841,
+       "receptions": 4.8,
+       "yards_per_target": 4.06,
+       "yards": 23.3
+      },
+      "forecast": {
+       "targets": 6.0,
+       "catch_rate": 0.874,
+       "receptions": 5.2,
+       "yards_per_target": 4.65,
+       "yards": 27.9
+      }
+     },
+     {
+      "player": "D.Meyers",
+      "pos": "WR",
+      "games": 8,
+      "target_share": 0.09090909090909091,
+      "dry": {
+       "targets": 3.4,
+       "catch_rate": 0.704,
+       "receptions": 2.4,
+       "yards_per_target": 8.3,
+       "yards": 28.0
+      },
+      "rain": {
+       "targets": 3.2,
+       "catch_rate": 0.658,
+       "receptions": 2.1,
+       "yards_per_target": 7.36,
+       "yards": 23.8
+      },
+      "forecast": {
+       "targets": 3.4,
+       "catch_rate": 0.702,
+       "receptions": 2.4,
+       "yards_per_target": 8.27,
+       "yards": 27.9
+      }
+     },
+     {
+      "player": "M.Gesicki",
+      "pos": "TE",
+      "games": 7,
+      "target_share": 0.0707070707070707,
+      "dry": {
+       "targets": 3.0,
+       "catch_rate": 0.714,
+       "receptions": 2.1,
+       "yards_per_target": 8.71,
+       "yards": 26.1
+      },
+      "rain": {
+       "targets": 2.9,
+       "catch_rate": 0.665,
+       "receptions": 1.9,
+       "yards_per_target": 7.71,
+       "yards": 22.1
+      },
+      "forecast": {
+       "targets": 3.0,
+       "catch_rate": 0.713,
+       "receptions": 2.1,
+       "yards_per_target": 8.68,
+       "yards": 26.0
+      }
+     },
+     {
+      "player": "S.Perine",
+      "pos": "RB",
+      "games": 6,
+      "target_share": 0.04040404040404041,
+      "dry": {
+       "targets": 2.0,
+       "catch_rate": 0.75,
+       "receptions": 1.5,
+       "yards_per_target": 5.42,
+       "yards": 10.8
+      },
+      "rain": {
+       "targets": 1.9,
+       "catch_rate": 0.721,
+       "receptions": 1.4,
+       "yards_per_target": 4.72,
+       "yards": 9.0
+      },
+      "forecast": {
+       "targets": 2.0,
+       "catch_rate": 0.749,
+       "receptions": 1.5,
+       "yards_per_target": 5.4,
+       "yards": 10.8
+      }
+     },
+     {
+      "player": "M.Tinsley",
+      "pos": "WR",
+      "games": 3,
+      "target_share": 0.030303030303030304,
+      "dry": {
+       "targets": 3.0,
+       "catch_rate": 0.556,
+       "receptions": 1.7,
+       "yards_per_target": 6.67,
+       "yards": 20.0
+      },
+      "rain": {
+       "targets": 2.9,
+       "catch_rate": 0.519,
+       "receptions": 1.5,
+       "yards_per_target": 5.91,
+       "yards": 17.0
+      },
+      "forecast": {
+       "targets": 3.0,
+       "catch_rate": 0.554,
+       "receptions": 1.7,
+       "yards_per_target": 6.64,
+       "yards": 19.9
+      }
+     },
+     {
+      "player": "E.All",
+      "pos": "TE",
+      "games": 3,
+      "target_share": 0.030303030303030304,
+      "dry": {
+       "targets": 3.0,
+       "catch_rate": 0.889,
+       "receptions": 2.7,
+       "yards_per_target": 6.22,
+       "yards": 18.7
+      },
+      "rain": {
+       "targets": 2.9,
+       "catch_rate": 0.828,
+       "receptions": 2.4,
+       "yards_per_target": 5.5,
+       "yards": 15.8
+      },
+      "forecast": {
+       "targets": 3.0,
+       "catch_rate": 0.887,
+       "receptions": 2.7,
+       "yards_per_target": 6.2,
+       "yards": 18.6
+      }
+     },
+     {
+      "player": "D.Sample",
+      "pos": "TE",
+      "games": 4,
+      "target_share": 0.026936026936026935,
+      "dry": {
+       "targets": 2.0,
+       "catch_rate": 0.875,
+       "receptions": 1.8,
+       "yards_per_target": 5.5,
+       "yards": 11.0
+      },
+      "rain": {
+       "targets": 1.9,
+       "catch_rate": 0.815,
+       "receptions": 1.6,
+       "yards_per_target": 4.87,
+       "yards": 9.3
+      },
+      "forecast": {
+       "targets": 2.0,
+       "catch_rate": 0.873,
+       "receptions": 1.7,
+       "yards_per_target": 5.48,
+       "yards": 10.9
+      }
+     }
+    ],
+    "listed_qb": {
+     "player": "J.Burrow",
+     "attempts_in_window": 303,
+     "small_sample": false,
+     "dry": {
+      "completion_pct": 0.756,
+      "yards_per_attempt": 8.39
+     },
+     "rain": {
+      "completion_pct": 0.71,
+      "yards_per_attempt": 7.38
+     },
+     "forecast": {
+      "completion_pct": 0.754,
+      "yards_per_attempt": 8.36
+     }
+    }
    },
    "quarterbacks": [
     {
@@ -1896,7 +2199,7 @@
      "sacks": 15,
      "yards_per_attempt": 8.386138613861386,
      "avg_depth_of_target": 7.481848184818482,
-     "epa_per_dropback": 0.3398943668511297,
+     "epa_per_dropback": 0.29971596010331264,
      "pressure_rate_faced": 0.16981132075471697,
      "log": [
       {
@@ -1985,50 +2288,50 @@
       "td": 26,
       "int": 5,
       "sack_rate": 0.047,
-      "epa_per_dropback": 0.34
+      "epa_per_dropback": 0.3
      },
      "vs_blitz": {
-      "dropbacks": 69,
-      "attempts": 63,
-      "completion_pct": 0.746,
-      "yards_per_attempt": 8.44,
+      "dropbacks": 81,
+      "attempts": 74,
+      "completion_pct": 0.784,
+      "yards_per_attempt": 9.64,
       "td": 7,
       "int": 1,
-      "sack_rate": 0.087,
-      "epa_per_dropback": 0.346
+      "sack_rate": 0.086,
+      "epa_per_dropback": 0.397
      },
      "no_blitz": {
-      "dropbacks": 206,
-      "attempts": 198,
-      "completion_pct": 0.742,
-      "yards_per_attempt": 8.08,
-      "td": 15,
+      "dropbacks": 237,
+      "attempts": 229,
+      "completion_pct": 0.747,
+      "yards_per_attempt": 7.98,
+      "td": 19,
       "int": 4,
-      "sack_rate": 0.039,
-      "epa_per_dropback": 0.285
+      "sack_rate": 0.034,
+      "epa_per_dropback": 0.267
      },
-     "blitzed_rate": 0.251,
+     "blitzed_rate": 0.255,
      "play_action": {
-      "dropbacks": 39,
-      "attempts": 34,
-      "completion_pct": 0.794,
-      "yards_per_attempt": 7.5,
+      "dropbacks": 41,
+      "attempts": 35,
+      "completion_pct": 0.8,
+      "yards_per_attempt": 7.46,
       "td": 3,
       "int": 1,
-      "sack_rate": 0.128,
-      "epa_per_dropback": -0.015
+      "sack_rate": 0.146,
+      "epa_per_dropback": -0.024
      },
      "out_of_pocket": {
-      "dropbacks": 23,
-      "attempts": 21,
-      "completion_pct": 0.667,
-      "yards_per_attempt": 10.71,
-      "td": 2,
+      "dropbacks": 34,
+      "attempts": 31,
+      "completion_pct": 0.677,
+      "yards_per_attempt": 9.45,
+      "td": 6,
       "int": 1,
-      "sack_rate": 0.087,
-      "epa_per_dropback": 0.235
+      "sack_rate": 0.088,
+      "epa_per_dropback": 0.293
      },
-     "charted_dropbacks": 275,
+     "charted_dropbacks": 318,
      "pressured": {
       "times_pressured": 67,
       "pressure_rate": 0.211,
@@ -2058,7 +2361,7 @@
       "td": 17,
       "int": 5,
       "sack_rate": 0.062,
-      "epa_per_dropback": 0.107
+      "epa_per_dropback": 0.098
      },
      "vs_man": {
       "dropbacks": 86,
@@ -2068,7 +2371,7 @@
       "td": 12,
       "int": 1,
       "sack_rate": 0.047,
-      "epa_per_dropback": 0.445
+      "epa_per_dropback": 0.389
      },
      "vs_zone": {
       "dropbacks": 190,
@@ -2078,7 +2381,7 @@
       "td": 5,
       "int": 4,
       "sack_rate": 0.068,
-      "epa_per_dropback": -0.046
+      "epa_per_dropback": -0.034
      },
      "pressured": {
       "dropbacks": 82,
@@ -2088,7 +2391,7 @@
       "td": 4,
       "int": 2,
       "sack_rate": 0.207,
-      "epa_per_dropback": -0.289
+      "epa_per_dropback": -0.213
      },
      "clean": {
       "dropbacks": 194,
@@ -2098,7 +2401,7 @@
       "td": 13,
       "int": 3,
       "sack_rate": 0.0,
-      "epa_per_dropback": 0.274
+      "epa_per_dropback": 0.229
      },
      "pressure_rate": 0.297,
      "avg_time_to_throw": 2.56
@@ -3045,20 +3348,6 @@
      "status_level": 2
     },
     {
-     "player": "Kyle Dugger",
-     "position": "S",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": null,
-     "snap_share": 0.66,
-     "next_up": null,
-     "impact": "medium",
-     "status_level": 3
-    },
-    {
      "player": "Andrei Iosivas",
      "position": "WR",
      "game_status": null,
@@ -3085,6 +3374,20 @@
      "next_up": null,
      "impact": "medium",
      "status_level": 3
+    },
+    {
+     "player": "Kyle Dugger",
+     "position": "S",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": 0.66,
+     "next_up": null,
+     "impact": "medium",
+     "status_level": 2
     },
     {
      "player": "Oren Burks",
@@ -3134,13 +3437,13 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "Hinton (illness) is inactive for Sunday's Week 10 matchup against the Steelers.",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
      "impact": "low",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Barrett Carter",
@@ -3707,7 +4010,7 @@
      "td": 12,
      "int": 2,
      "sack_rate": 0.062,
-     "epa_per_dropback": 0.309
+     "epa_per_dropback": 0.261
     },
     "allowed_vs_zone": {
      "dropbacks": 426,
@@ -3717,7 +4020,7 @@
      "td": 21,
      "int": 6,
      "sack_rate": 0.07,
-     "epa_per_dropback": 0.185
+     "epa_per_dropback": 0.158
     },
     "note": "2025 season (latest with free man/zone data). Coordinator or roster changes since then make it context, not current fact."
    },
@@ -3728,13 +4031,13 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": "C",
      "snap_share": 0.897,
      "next_up": "Nick Allegretti",
      "impact": "high",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Jacory Croskey-Merritt",
@@ -3743,23 +4046,9 @@
      "practice": null,
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "head coach Dan Quinn said Monday that while the 21-day practice window for Croskey-Merritt (groin) hasn't been opened yet, he notes that the running back is \"trending in the right direction,\" Nicki Jh",
+     "espn_comment": "The Commanders designated Croskey-Merritt (groin) for return from injured reserve Tuesday.",
      "starter_slot": null,
      "snap_share": 0.435,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
-     "player": "Colson Yankoff",
-     "position": "TE",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": null,
-     "snap_share": null,
      "next_up": null,
      "impact": "low",
      "status_level": 3
@@ -3777,6 +4066,20 @@
      "next_up": null,
      "impact": "low",
      "status_level": 3
+    },
+    {
+     "player": "Colson Yankoff",
+     "position": "TE",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 2
     },
     {
      "player": "Frankie Luvu",
@@ -4185,14 +4488,14 @@
     ],
     "secondary": [
      {
-      "player": "Kyle Dugger",
-      "slot": "S",
-      "status": "Out"
-     },
-     {
       "player": "Jalen Davis",
       "slot": "CB",
       "status": "Injured Reserve"
+     },
+     {
+      "player": "Kyle Dugger",
+      "slot": "S",
+      "status": "Questionable"
      }
     ],
     "linebackers": [],
@@ -4203,7 +4506,7 @@
      {
       "player": "Lucas Patrick",
       "slot": "C",
-      "status": "Out"
+      "status": "Questionable"
      }
     ],
     "secondary": [],
@@ -4214,12 +4517,12 @@
    "opportunity": {
     "team": "CIN",
     "vs": "WAS",
-    "team_pass_attempts": 37.0,
+    "team_pass_attempts": 36.9,
     "team_rush_attempts": 25.5,
     "plays": 63.2,
     "pass_ratio": 0.626,
     "script_pass_multiplier": 0.935,
-    "weather_attempts_multiplier": 1.0,
+    "weather_attempts_multiplier": 0.997,
     "implied_margin": 6.5,
     "missing_target_share": 0.0,
     "missing_carry_share": 0.0,
@@ -4234,7 +4537,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.731,
        "yards_per_catch": 12.9,
-       "yards_per_target": 9.42,
+       "yards_per_target": 9.39,
        "dispersion_k": 16.7,
        "def_catch_rate_allowed": 0.667,
        "def_yards_per_catch_allowed": 11.3,
@@ -4253,42 +4556,42 @@
       },
       "player_id": "00-0036900",
       "sim": {
-       "targets_raw": 11.524,
+       "targets_raw": 11.494,
        "k": 16.65,
        "catch_rate": 0.7313,
        "ypr": 12.877,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9967,
+       "rain_catch": 0.9987,
        "pool": "WR"
       },
       "targets_mean": 10.2,
-      "receptions_mean": 7.5,
-      "yards_mean": 96.1,
-      "yards_median": 86.7,
+      "receptions_mean": 7.4,
+      "yards_mean": 95.4,
+      "yards_median": 85.4,
       "yards_p25_p75": [
-       54.0,
-       129.0
+       53.0,
+       128.0
       ],
       "yards": {
-       "20": 0.952,
-       "30": 0.906,
-       "40": 0.845,
-       "50": 0.774,
-       "60": 0.707,
-       "70": 0.627,
-       "80": 0.549,
-       "90": 0.475,
-       "100": 0.404,
-       "120": 0.291
+       "20": 0.949,
+       "30": 0.902,
+       "40": 0.841,
+       "50": 0.771,
+       "60": 0.695,
+       "70": 0.624,
+       "80": 0.546,
+       "90": 0.471,
+       "100": 0.402,
+       "120": 0.285
       },
       "receptions": {
        "2": 0.976,
-       "3": 0.936,
-       "4": 0.866,
-       "5": 0.772,
-       "6": 0.662,
-       "7": 0.548,
-       "8": 0.438
+       "3": 0.932,
+       "4": 0.859,
+       "5": 0.765,
+       "6": 0.655,
+       "7": 0.545,
+       "8": 0.435
       },
       "targets_needed": {
        "50": 6,
@@ -4298,11 +4601,11 @@
        "100": 11
       },
       "targets_needed_chance": {
-       "50": 0.842,
-       "60": 0.768,
-       "70": 0.68,
-       "80": 0.59,
-       "100": 0.415
+       "50": 0.836,
+       "60": 0.761,
+       "70": 0.677,
+       "80": 0.587,
+       "100": 0.418
       }
      },
      {
@@ -4315,7 +4618,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.725,
        "yards_per_catch": 13.7,
-       "yards_per_target": 9.9,
+       "yards_per_target": 9.87,
        "dispersion_k": 11.4,
        "def_catch_rate_allowed": 0.667,
        "def_yards_per_catch_allowed": 11.3,
@@ -4334,42 +4637,42 @@
       },
       "player_id": "00-0036410",
       "sim": {
-       "targets_raw": 7.922,
+       "targets_raw": 7.901,
        "k": 11.35,
        "catch_rate": 0.7246,
        "ypr": 13.661,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9972,
+       "rain_catch": 0.9987,
        "pool": "WR"
       },
       "targets_mean": 7.0,
-      "receptions_mean": 5.1,
-      "yards_mean": 68.6,
-      "yards_median": 59.5,
+      "receptions_mean": 5.0,
+      "yards_mean": 68.3,
+      "yards_median": 59.3,
       "yards_p25_p75": [
        32.0,
-       95.0
+       94.0
       ],
       "yards": {
-       "20": 0.863,
-       "30": 0.776,
-       "40": 0.688,
-       "50": 0.586,
-       "60": 0.495,
-       "70": 0.417,
-       "80": 0.348,
-       "90": 0.276,
-       "100": 0.22,
-       "120": 0.138
+       "20": 0.86,
+       "30": 0.774,
+       "40": 0.674,
+       "50": 0.581,
+       "60": 0.494,
+       "70": 0.412,
+       "80": 0.333,
+       "90": 0.273,
+       "100": 0.221,
+       "120": 0.14
       },
       "receptions": {
-       "2": 0.91,
-       "3": 0.801,
-       "4": 0.662,
-       "5": 0.517,
-       "6": 0.384,
+       "2": 0.911,
+       "3": 0.796,
+       "4": 0.659,
+       "5": 0.511,
+       "6": 0.379,
        "7": 0.272,
-       "8": 0.187
+       "8": 0.186
       },
       "targets_needed": {
        "50": 6,
@@ -4379,10 +4682,10 @@
        "100": 11
       },
       "targets_needed_chance": {
-       "50": 0.602,
+       "50": 0.601,
        "60": 0.487,
        "70": 0.386,
-       "80": 0.297,
+       "80": 0.294,
        "100": 0.165
       }
      },
@@ -4396,7 +4699,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.79,
        "yards_per_catch": 6.2,
-       "yards_per_target": 4.92,
+       "yards_per_target": 4.91,
        "dispersion_k": 7.9,
        "def_catch_rate_allowed": 0.702,
        "def_yards_per_catch_allowed": 7.7,
@@ -4415,42 +4718,42 @@
       },
       "player_id": "00-0038597",
       "sim": {
-       "targets_raw": 6.248,
+       "targets_raw": 6.232,
        "k": 7.88,
        "catch_rate": 0.79,
        "ypr": 6.229,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9976,
+       "rain_catch": 0.9989,
        "pool": "RB"
       },
       "targets_mean": 5.5,
-      "receptions_mean": 4.4,
-      "yards_mean": 27.1,
+      "receptions_mean": 4.3,
+      "yards_mean": 27.0,
       "yards_median": 21.9,
       "yards_p25_p75": [
        10.0,
-       39.0
+       38.0
       ],
       "yards": {
-       "20": 0.541,
-       "30": 0.36,
-       "40": 0.233,
+       "20": 0.544,
+       "30": 0.358,
+       "40": 0.228,
        "50": 0.142,
        "60": 0.089,
-       "70": 0.053,
-       "80": 0.032,
-       "90": 0.019,
+       "70": 0.052,
+       "80": 0.031,
+       "90": 0.018,
        "100": 0.011,
-       "120": 0.003
+       "120": 0.004
       },
       "receptions": {
-       "2": 0.86,
-       "3": 0.713,
-       "4": 0.559,
-       "5": 0.416,
-       "6": 0.293,
-       "7": 0.2,
-       "8": 0.131
+       "2": 0.858,
+       "3": 0.715,
+       "4": 0.557,
+       "5": 0.411,
+       "6": 0.288,
+       "7": 0.199,
+       "8": 0.13
       },
       "targets_needed": {
        "50": 11,
@@ -4462,8 +4765,8 @@
       "targets_needed_chance": {
        "50": 0.082,
        "60": 0.039,
-       "70": 0.018,
-       "80": 0.009,
+       "70": 0.017,
+       "80": 0.008,
        "100": 0.002
       }
      },
@@ -4477,7 +4780,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.679,
        "yards_per_catch": 11.6,
-       "yards_per_target": 7.89,
+       "yards_per_target": 7.88,
        "dispersion_k": 3.6,
        "def_catch_rate_allowed": 0.667,
        "def_yards_per_catch_allowed": 11.3,
@@ -4496,17 +4799,17 @@
       },
       "player_id": "00-0040785",
       "sim": {
-       "targets_raw": 3.032,
+       "targets_raw": 3.024,
        "k": 3.58,
        "catch_rate": 0.6785,
        "ypr": 11.628,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9993,
+       "rain_catch": 0.9972,
        "pool": "WR"
       },
       "targets_mean": 2.7,
-      "receptions_mean": 1.9,
-      "yards_mean": 21.5,
+      "receptions_mean": 1.8,
+      "yards_mean": 21.4,
       "yards_median": 14.7,
       "yards_p25_p75": [
        1.0,
@@ -4515,23 +4818,23 @@
       "yards": {
        "20": 0.405,
        "30": 0.274,
-       "40": 0.181,
-       "50": 0.119,
-       "60": 0.076,
-       "70": 0.049,
-       "80": 0.034,
-       "90": 0.022,
-       "100": 0.013,
+       "40": 0.182,
+       "50": 0.117,
+       "60": 0.074,
+       "70": 0.047,
+       "80": 0.031,
+       "90": 0.02,
+       "100": 0.012,
        "120": 0.005
       },
       "receptions": {
        "2": 0.487,
        "3": 0.284,
        "4": 0.155,
-       "5": 0.081,
-       "6": 0.041,
-       "7": 0.02,
-       "8": 0.01
+       "5": 0.079,
+       "6": 0.038,
+       "7": 0.019,
+       "8": 0.009
       },
       "targets_needed": {
        "50": 7,
@@ -4541,10 +4844,10 @@
        "100": 13
       },
       "targets_needed_chance": {
-       "50": 0.07,
-       "60": 0.041,
+       "50": 0.072,
+       "60": 0.042,
        "70": 0.025,
-       "80": 0.01,
+       "80": 0.009,
        "100": 0.003
       }
      },
@@ -4558,7 +4861,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.73,
        "yards_per_catch": 11.4,
-       "yards_per_target": 8.33,
+       "yards_per_target": 8.31,
        "dispersion_k": 27.0,
        "def_catch_rate_allowed": 0.743,
        "def_yards_per_catch_allowed": 11.1,
@@ -4577,42 +4880,42 @@
       },
       "player_id": "00-0034829",
       "sim": {
-       "targets_raw": 3.019,
+       "targets_raw": 3.011,
        "k": 27.0,
        "catch_rate": 0.7301,
        "ypr": 11.405,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9976,
+       "rain_catch": 0.9986,
        "pool": "TE"
       },
       "targets_mean": 2.7,
       "receptions_mean": 1.9,
-      "yards_mean": 22.1,
-      "yards_median": 16.9,
+      "yards_mean": 22.0,
+      "yards_median": 16.8,
       "yards_p25_p75": [
        6.0,
        33.0
       ],
       "yards": {
-       "20": 0.446,
-       "30": 0.29,
-       "40": 0.179,
-       "50": 0.104,
-       "60": 0.063,
-       "70": 0.036,
-       "80": 0.021,
-       "90": 0.011,
-       "100": 0.006,
+       "20": 0.449,
+       "30": 0.289,
+       "40": 0.177,
+       "50": 0.107,
+       "60": 0.061,
+       "70": 0.034,
+       "80": 0.018,
+       "90": 0.01,
+       "100": 0.005,
        "120": 0.002
       },
       "receptions": {
-       "2": 0.55,
-       "3": 0.306,
-       "4": 0.149,
-       "5": 0.065,
+       "2": 0.553,
+       "3": 0.307,
+       "4": 0.148,
+       "5": 0.063,
        "6": 0.025,
-       "7": 0.011,
-       "8": 0.004
+       "7": 0.009,
+       "8": 0.003
       },
       "targets_needed": {
        "50": 7,
@@ -4622,8 +4925,8 @@
        "100": 13
       },
       "targets_needed_chance": {
-       "50": 0.036,
-       "60": 0.016,
+       "50": 0.034,
+       "60": 0.015,
        "70": 0.006,
        "80": 0.002,
        "100": 0.0
@@ -4639,7 +4942,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.735,
        "yards_per_catch": 7.5,
-       "yards_per_target": 5.51,
+       "yards_per_target": 5.52,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.702,
        "def_yards_per_catch_allowed": 7.7,
@@ -4658,12 +4961,12 @@
       },
       "player_id": "00-0033526",
       "sim": {
-       "targets_raw": 1.97,
+       "targets_raw": 1.965,
        "k": 50.0,
        "catch_rate": 0.7346,
        "ypr": 7.5,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 1.0013,
+       "rain_catch": 0.9987,
        "pool": "RB"
       },
       "targets_mean": 1.8,
@@ -4676,20 +4979,20 @@
       ],
       "yards": {
        "20": 0.165,
-       "30": 0.078,
+       "30": 0.076,
        "40": 0.039,
        "50": 0.019,
        "60": 0.009,
-       "70": 0.004,
+       "70": 0.005,
        "80": 0.002,
        "90": 0.001,
        "100": 0.001,
        "120": 0.0
       },
       "receptions": {
-       "2": 0.363,
+       "2": 0.362,
        "3": 0.149,
-       "4": 0.053,
+       "4": 0.052,
        "5": 0.016,
        "6": 0.004,
        "7": 0.001,
@@ -4720,7 +5023,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.632,
        "yards_per_catch": 11.9,
-       "yards_per_target": 7.51,
+       "yards_per_target": 7.49,
        "dispersion_k": 3.0,
        "def_catch_rate_allowed": 0.667,
        "def_yards_per_catch_allowed": 11.3,
@@ -4739,56 +5042,56 @@
       },
       "player_id": "00-0038839",
       "sim": {
-       "targets_raw": 3.057,
+       "targets_raw": 3.049,
        "k": 3.0,
        "catch_rate": 0.6322,
        "ypr": 11.871,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9986,
+       "rain_catch": 0.9964,
        "pool": "WR"
       },
       "targets_mean": 2.7,
       "receptions_mean": 1.7,
-      "yards_mean": 20.5,
-      "yards_median": 13.2,
+      "yards_mean": 20.4,
+      "yards_median": 13.1,
       "yards_p25_p75": [
        0.0,
        31.0
       ],
       "yards": {
        "20": 0.378,
-       "30": 0.264,
-       "40": 0.174,
-       "50": 0.112,
-       "60": 0.075,
-       "70": 0.048,
+       "30": 0.259,
+       "40": 0.17,
+       "50": 0.11,
+       "60": 0.073,
+       "70": 0.047,
        "80": 0.03,
-       "90": 0.019,
-       "100": 0.012,
+       "90": 0.02,
+       "100": 0.013,
        "120": 0.005
       },
       "receptions": {
-       "2": 0.459,
-       "3": 0.262,
-       "4": 0.139,
-       "5": 0.071,
-       "6": 0.037,
-       "7": 0.018,
-       "8": 0.009
+       "2": 0.457,
+       "3": 0.26,
+       "4": 0.136,
+       "5": 0.07,
+       "6": 0.036,
+       "7": 0.017,
+       "8": 0.008
       },
       "targets_needed": {
        "50": 7,
-       "60": 8,
+       "60": 9,
        "70": 10,
        "80": 11,
        "100": 14
       },
       "targets_needed_chance": {
-       "50": 0.077,
-       "60": 0.046,
-       "70": 0.018,
+       "50": 0.073,
+       "60": 0.028,
+       "70": 0.017,
        "80": 0.011,
-       "100": 0.003
+       "100": 0.002
       }
      },
      {
@@ -4801,7 +5104,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.764,
        "yards_per_catch": 9.8,
-       "yards_per_target": 7.49,
+       "yards_per_target": 7.47,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.743,
        "def_yards_per_catch_allowed": 11.1,
@@ -4820,41 +5123,41 @@
       },
       "player_id": "00-0039814",
       "sim": {
-       "targets_raw": 3.702,
+       "targets_raw": 3.693,
        "k": 50.0,
        "catch_rate": 0.764,
        "ypr": 9.803,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9969,
+       "rain_catch": 0.9978,
        "pool": "TE"
       },
       "targets_mean": 3.3,
       "receptions_mean": 2.5,
-      "yards_mean": 24.8,
-      "yards_median": 20.3,
+      "yards_mean": 24.6,
+      "yards_median": 20.2,
       "yards_p25_p75": [
        9.0,
        36.0
       ],
       "yards": {
-       "20": 0.513,
-       "30": 0.325,
-       "40": 0.203,
-       "50": 0.122,
-       "60": 0.065,
-       "70": 0.036,
-       "80": 0.02,
-       "90": 0.009,
+       "20": 0.509,
+       "30": 0.321,
+       "40": 0.199,
+       "50": 0.12,
+       "60": 0.067,
+       "70": 0.038,
+       "80": 0.019,
+       "90": 0.01,
        "100": 0.005,
        "120": 0.001
       },
       "receptions": {
-       "2": 0.69,
-       "3": 0.45,
-       "4": 0.253,
-       "5": 0.129,
-       "6": 0.061,
-       "7": 0.026,
+       "2": 0.682,
+       "3": 0.446,
+       "4": 0.251,
+       "5": 0.128,
+       "6": 0.06,
+       "7": 0.025,
        "8": 0.011
       },
       "targets_needed": {
@@ -4865,10 +5168,10 @@
        "100": 14
       },
       "targets_needed_chance": {
-       "50": 0.073,
-       "60": 0.017,
-       "70": 0.007,
-       "80": 0.003,
+       "50": 0.072,
+       "60": 0.018,
+       "70": 0.008,
+       "80": 0.004,
        "100": 0.0
       }
      },
@@ -4882,7 +5185,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.759,
        "yards_per_catch": 9.7,
-       "yards_per_target": 7.37,
+       "yards_per_target": 7.32,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.743,
        "def_yards_per_catch_allowed": 11.1,
@@ -4901,41 +5204,41 @@
       },
       "player_id": "00-0035631",
       "sim": {
-       "targets_raw": 2.146,
+       "targets_raw": 2.141,
        "k": 50.0,
        "catch_rate": 0.7588,
        "ypr": 9.717,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9932,
+       "rain_catch": 0.9977,
        "pool": "TE"
       },
       "targets_mean": 1.9,
-      "receptions_mean": 1.5,
-      "yards_mean": 14.1,
-      "yards_median": 9.6,
+      "receptions_mean": 1.4,
+      "yards_mean": 13.9,
+      "yards_median": 9.5,
       "yards_p25_p75": [
        0.0,
-       22.0
+       21.0
       ],
       "yards": {
-       "20": 0.282,
-       "30": 0.141,
-       "40": 0.072,
-       "50": 0.033,
+       "20": 0.262,
+       "30": 0.139,
+       "40": 0.066,
+       "50": 0.034,
        "60": 0.016,
-       "70": 0.007,
+       "70": 0.006,
        "80": 0.003,
-       "90": 0.002,
-       "100": 0.001,
+       "90": 0.001,
+       "100": 0.0,
        "120": 0.0
       },
       "receptions": {
-       "2": 0.416,
-       "3": 0.189,
-       "4": 0.074,
-       "5": 0.026,
+       "2": 0.413,
+       "3": 0.187,
+       "4": 0.071,
+       "5": 0.025,
        "6": 0.008,
-       "7": 0.003,
+       "7": 0.002,
        "8": 0.001
       },
       "targets_needed": {
@@ -7314,16 +7617,16 @@
         "yards": 39.7
        },
        "middle": {
-        "games": 8,
-        "targets": 3.0,
-        "catches": 2.0,
-        "yards": 17.5
+        "games": 9,
+        "targets": 2.9,
+        "catches": 1.9,
+        "yards": 16.0
        },
        "bottom": {
-        "games": 6,
-        "targets": 3.3,
-        "catches": 2.5,
-        "yards": 31.7
+        "games": 5,
+        "targets": 3.6,
+        "catches": 2.8,
+        "yards": 37.2
        }
       },
       "card": {
@@ -8529,16 +8832,13 @@
         "games": 0
        },
        "middle": {
-        "games": 2,
+        "games": 3,
         "targets": 3.0,
-        "catches": 2.5,
-        "yards": 15.5
+        "catches": 2.7,
+        "yards": 18.7
        },
        "bottom": {
-        "games": 1,
-        "targets": 3.0,
-        "catches": 3.0,
-        "yards": 25.0
+        "games": 0
        }
       },
       "card": {
@@ -8926,16 +9226,16 @@
         "yards": 11.0
        },
        "middle": {
-        "games": 7,
-        "targets": 1.9,
-        "catches": 1.6,
-        "yards": 7.9
+        "games": 8,
+        "targets": 1.8,
+        "catches": 1.5,
+        "yards": 7.5
        },
        "bottom": {
-        "games": 5,
-        "targets": 1.8,
-        "catches": 1.6,
-        "yards": 14.0
+        "games": 4,
+        "targets": 2.0,
+        "catches": 1.8,
+        "yards": 16.2
        }
       },
       "card": {
@@ -9773,13 +10073,13 @@
     "third_down_rate": 0.46153846153846156,
     "red_zone_drives": 26,
     "red_zone_td_rate": 0.38461538461538464,
-    "pass_epa_per_dropback": 0.051802139900135005,
-    "rush_epa_per_carry": -0.04007842902541246,
+    "pass_epa_per_dropback": 0.04346641979048155,
+    "rush_epa_per_carry": -0.0397665748106925,
     "neutral_pass_rate": 0.5789473684210527,
-    "blitz_rate": 0.18411552346570398,
-    "play_action_rate": 0.20938628158844766,
-    "sack_rate_when_blitzing": 0.0392156862745098,
-    "dropbacks_charted": 277,
+    "blitz_rate": 0.17252396166134185,
+    "play_action_rate": 0.20447284345047922,
+    "sack_rate_when_blitzing": 0.037037037037037035,
+    "dropbacks_charted": 313,
     "wr_targets_pg": 17.5,
     "wr_receptions_pg": 9.875,
     "wr_rec_yards_pg": 127.0,
@@ -9806,62 +10106,62 @@
     "points_pg": {
      "rank": 10,
      "of": 32,
-     "league_avg": 23.08984375
+     "league_avg": 23.0625
     },
     "pass_yards_pg": {
-     "rank": 15,
+     "rank": 16,
      "of": 32,
-     "league_avg": 237.1640625
+     "league_avg": 236.9296875
     },
     "rush_yards_pg": {
      "rank": 17,
      "of": 32,
-     "league_avg": 99.46484375
+     "league_avg": 99.3203125
     },
     "yards_per_carry": {
      "rank": 29,
      "of": 32,
-     "league_avg": 4.048410607711333
+     "league_avg": 4.050866195943513
     },
     "rb_rush_yards_pg": {
      "rank": 15,
      "of": 32,
-     "league_avg": 92.33984375
+     "league_avg": 92.2578125
     },
     "explosive_pass_pg": {
      "rank": 23,
      "of": 32,
-     "league_avg": 3.04296875
+     "league_avg": 3.0390625
     },
     "explosive_rush_pg": {
      "rank": 30,
      "of": 32,
-     "league_avg": 1.203125
+     "league_avg": 1.2109375
     },
     "explosive_total_pg": {
      "rank": 29,
      "of": 32,
-     "league_avg": 4.24609375
+     "league_avg": 4.25
     },
     "wr_rec_yards_pg": {
      "rank": 6,
      "of": 32,
-     "league_avg": 149.49609375
+     "league_avg": 149.26171875
     },
     "te_rec_yards_pg": {
      "rank": 32,
      "of": 32,
-     "league_avg": 54.6796875
+     "league_avg": 54.57421875
     },
     "rb_rec_yards_pg": {
      "rank": 14,
      "of": 32,
-     "league_avg": 32.921875
+     "league_avg": 33.02734375
     },
     "wr_receptions_pg": {
      "rank": 10,
      "of": 32,
-     "league_avg": 11.37109375
+     "league_avg": 11.328125
     },
     "te_receptions_pg": {
      "rank": 28,
@@ -9871,47 +10171,47 @@
     "rb_receptions_pg": {
      "rank": 16,
      "of": 32,
-     "league_avg": 4.41015625
+     "league_avg": 4.41796875
     },
     "sack_rate": {
      "rank": 10,
      "of": 32,
-     "league_avg": 0.06522449425180897
+     "league_avg": 0.06523328561983419
     },
     "pressure_rate": {
      "rank": 18,
      "of": 32,
-     "league_avg": 0.15729382874822329
+     "league_avg": 0.15808295027282446
     },
     "third_down_rate": {
      "rank": 28,
      "of": 32,
-     "league_avg": 0.39437574810558407
+     "league_avg": 0.3926302165964563
     },
     "red_zone_td_rate": {
      "rank": 3,
      "of": 32,
-     "league_avg": 0.5845037384283622
+     "league_avg": 0.5856105092616954
     },
     "pass_epa_per_dropback": {
-     "rank": 16,
+     "rank": 17,
      "of": 32,
-     "league_avg": 0.04988558850963775
+     "league_avg": 0.049829208208821765
     },
     "rush_epa_per_carry": {
-     "rank": 24,
+     "rank": 18,
      "of": 32,
-     "league_avg": -0.07763296785934773
+     "league_avg": -0.06074522417823477
     },
     "takeaways_pg": {
      "rank": 21,
      "of": 32,
-     "league_avg": 1.21875
+     "league_avg": 1.2265625
     },
     "yards_per_pass_attempt": {
      "rank": 16,
      "of": 32,
-     "league_avg": 7.23550384872807
+     "league_avg": 7.232766820984066
     }
    },
    "defense_by_game": [
@@ -10360,8 +10660,8 @@
     "third_down_rate": 0.3333333333333333,
     "red_zone_drives": 19,
     "red_zone_td_rate": 0.5263157894736842,
-    "pass_epa_per_dropback": 0.016717335018154516,
-    "rush_epa_per_carry": -0.14036643353751713,
+    "pass_epa_per_dropback": 0.018608409290799908,
+    "rush_epa_per_carry": -0.10908935479388307,
     "neutral_pass_rate": 0.5522388059701493,
     "blitz_rate": 0.34185303514376997,
     "play_action_rate": 0.21405750798722045,
@@ -10393,112 +10693,112 @@
     "points_pg": {
      "rank": 21,
      "of": 32,
-     "league_avg": 22.89453125
+     "league_avg": 22.94140625
     },
     "pass_yards_pg": {
      "rank": 19,
      "of": 32,
-     "league_avg": 236.5390625
+     "league_avg": 236.63671875
     },
     "rush_yards_pg": {
      "rank": 25,
      "of": 32,
-     "league_avg": 99.3828125
+     "league_avg": 99.37890625
     },
     "yards_per_carry": {
      "rank": 22,
      "of": 32,
-     "league_avg": 4.053430976501465
+     "league_avg": 4.048712428580384
     },
     "rb_rush_yards_pg": {
      "rank": 24,
      "of": 32,
-     "league_avg": 92.28515625
+     "league_avg": 92.2734375
     },
     "explosive_pass_pg": {
      "rank": 11,
      "of": 32,
-     "league_avg": 3.03515625
+     "league_avg": 3.0390625
     },
     "explosive_rush_pg": {
      "rank": 7,
      "of": 32,
-     "league_avg": 1.19140625
+     "league_avg": 1.203125
     },
     "explosive_total_pg": {
      "rank": 3,
      "of": 32,
-     "league_avg": 4.2265625
+     "league_avg": 4.2421875
     },
     "wr_rec_yards_pg": {
      "rank": 11,
      "of": 32,
-     "league_avg": 148.71875
+     "league_avg": 148.69921875
     },
     "te_rec_yards_pg": {
-     "rank": 23,
+     "rank": 22,
      "of": 32,
-     "league_avg": 54.578125
+     "league_avg": 54.58984375
     },
     "rb_rec_yards_pg": {
-     "rank": 15,
+     "rank": 16,
      "of": 32,
-     "league_avg": 33.17578125
+     "league_avg": 33.28125
     },
     "wr_receptions_pg": {
      "rank": 10,
      "of": 32,
-     "league_avg": 11.33984375
+     "league_avg": 11.33203125
     },
     "te_receptions_pg": {
-     "rank": 26,
+     "rank": 25,
      "of": 32,
-     "league_avg": 5.37109375
+     "league_avg": 5.375
     },
     "rb_receptions_pg": {
-     "rank": 18,
+     "rank": 19,
      "of": 32,
-     "league_avg": 4.4296875
+     "league_avg": 4.4609375
     },
     "sack_rate": {
      "rank": 16,
      "of": 32,
-     "league_avg": 0.06521820462232868
+     "league_avg": 0.06496619566773085
     },
     "pressure_rate": {
      "rank": 21,
      "of": 32,
-     "league_avg": 0.1562701248012647
+     "league_avg": 0.15694824043649072
     },
     "third_down_rate": {
-     "rank": 32,
+     "rank": 31,
      "of": 32,
-     "league_avg": 0.3953756922537046
+     "league_avg": 0.39487889850473834
     },
     "red_zone_td_rate": {
      "rank": 22,
      "of": 32,
-     "league_avg": 0.5802301097289906
+     "league_avg": 0.5798771152703376
     },
     "pass_epa_per_dropback": {
-     "rank": 18,
+     "rank": 19,
      "of": 32,
-     "league_avg": 0.041357480744246465
+     "league_avg": 0.04465239140401442
     },
     "rush_epa_per_carry": {
-     "rank": 23,
+     "rank": 22,
      "of": 32,
-     "league_avg": -0.07853751073231133
+     "league_avg": -0.06098569749017958
     },
     "takeaways_pg": {
      "rank": 5,
      "of": 32,
-     "league_avg": 1.21484375
+     "league_avg": 1.2109375
     },
     "yards_per_pass_attempt": {
      "rank": 17,
      "of": 32,
-     "league_avg": 7.162306049138799
+     "league_avg": 7.157217024001403
     }
    },
    "offense_by_game": [
@@ -10853,11 +11153,11 @@
      "area": "tight end yards",
      "is_rate": false,
      "offense_value": 41.375,
-     "offense_rank": 23,
+     "offense_rank": 22,
      "defense_value": 82.375,
      "defense_rank": 32,
-     "league_avg": 54.6796875,
-     "why": "WAS offence ranks 23 of 32, CIN defence ranks 32 of 32 (1 = best at its own job)",
+     "league_avg": 54.57421875,
+     "why": "WAS offence ranks 22 of 32, CIN defence ranks 32 of 32 (1 = best at its own job)",
      "edge": "CIN DEFENCE WEAK SPOT"
     },
     {
@@ -10867,7 +11167,7 @@
      "offense_rank": 11,
      "defense_value": 3.375,
      "defense_rank": 23,
-     "league_avg": 3.04296875,
+     "league_avg": 3.0390625,
      "why": "WAS offence ranks 11 of 32, CIN defence ranks 23 of 32 (1 = best at its own job)",
      "edge": "CIN DEFENCE WEAK SPOT"
     },
@@ -10878,7 +11178,7 @@
      "offense_rank": 7,
      "defense_value": 2.0,
      "defense_rank": 30,
-     "league_avg": 1.203125,
+     "league_avg": 1.2109375,
      "why": "WAS offence ranks 7 of 32, CIN defence ranks 30 of 32 (1 = best at its own job)",
      "edge": "WAS OFFENCE ADVANTAGE"
     },
@@ -10886,11 +11186,11 @@
      "area": "third-down conversions",
      "is_rate": true,
      "offense_value": 0.3333333333333333,
-     "offense_rank": 32,
+     "offense_rank": 31,
      "defense_value": 0.46153846153846156,
      "defense_rank": 28,
-     "league_avg": 0.39437574810558407,
-     "why": "WAS offence ranks 32 of 32, CIN defence ranks 28 of 32 (1 = best at its own job)",
+     "league_avg": 0.3926302165964563,
+     "why": "WAS offence ranks 31 of 32, CIN defence ranks 28 of 32 (1 = best at its own job)",
      "edge": "CIN DEFENCE WEAK SPOT"
     },
     {
@@ -10900,7 +11200,7 @@
      "offense_rank": 22,
      "defense_value": 0.38461538461538464,
      "defense_rank": 3,
-     "league_avg": 0.5845037384283622,
+     "league_avg": 0.5856105092616954,
      "why": "WAS offence ranks 22 of 32, CIN defence ranks 3 of 32 (1 = best at its own job)",
      "edge": "CIN DEFENCE STRENGTH"
     }
@@ -10928,7 +11228,7 @@
       "receptions": {
        "games": 7,
        "weighted_mean": 4.3,
-       "opponent_factor": 0.934,
+       "opponent_factor": 0.936,
        "p5": 2.8,
        "p10": 2.8,
        "p15": 2.8,
@@ -10969,7 +11269,7 @@
       "receptions": {
        "games": 8,
        "weighted_mean": 2.8,
-       "opponent_factor": 0.934,
+       "opponent_factor": 0.936,
        "p5": 1.9,
        "p10": 1.9,
        "p15": 1.9,
@@ -11051,7 +11351,7 @@
       "receptions": {
        "games": 7,
        "weighted_mean": 2.0,
-       "opponent_factor": 0.934,
+       "opponent_factor": 0.936,
        "p5": 0.3,
        "p10": 0.6,
        "p15": 0.8,
@@ -11082,17 +11382,17 @@
        "weighted_mean": 47.8,
        "opponent_factor": 0.925,
        "p5": 28.2,
-       "p10": 31.3,
-       "p15": 34.5,
-       "p20": 37.7,
-       "p25": 40.9,
+       "p10": 31.4,
+       "p15": 34.6,
+       "p20": 37.8,
+       "p25": 41.0,
        "p50": 51.8,
        "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
       },
       "receptions": {
        "games": 4,
        "weighted_mean": 2.9,
-       "opponent_factor": 0.934,
+       "opponent_factor": 0.936,
        "p5": 1.1,
        "p10": 1.2,
        "p15": 1.4,
@@ -11121,9 +11421,9 @@
       "receiving_yards": {
        "games": 7,
        "weighted_mean": 17.2,
-       "opponent_factor": 0.961,
+       "opponent_factor": 0.96,
        "p5": 2.8,
-       "p10": 3.7,
+       "p10": 3.6,
        "p15": 4.5,
        "p20": 4.8,
        "p25": 4.8,
@@ -11133,7 +11433,7 @@
       "receptions": {
        "games": 7,
        "weighted_mean": 2.2,
-       "opponent_factor": 0.996,
+       "opponent_factor": 0.995,
        "p5": 1.0,
        "p10": 1.0,
        "p15": 1.0,
@@ -11247,14 +11547,14 @@
       "pos": "QB",
       "passing_yards": {
        "games": 6,
-       "weighted_mean": 233.8,
-       "opponent_factor": 1.005,
-       "p5": 122.4,
-       "p10": 148.3,
-       "p15": 174.2,
-       "p20": 200.1,
-       "p25": 204.6,
-       "p50": 234.3,
+       "weighted_mean": 234.0,
+       "opponent_factor": 1.006,
+       "p5": 122.5,
+       "p10": 148.4,
+       "p15": 174.3,
+       "p20": 200.2,
+       "p25": 204.7,
+       "p50": 234.4,
        "label_map": "p5 Floor, p10 Slight Edge, p15 MAIN, p20 Edge, p25 Pure Edge, p50 Median (PHASE_SCRIPT labels)"
       },
       "pass_attempts": {
@@ -11273,7 +11573,266 @@
     ]
    },
    "rain": {
-    "status": "NOT_APPLICABLE: KICKOFF_BEYOND_HOURLY_FORECAST: the hourly forecast covers a"
+    "status": "OK",
+    "rain_chance": 0.03,
+    "wind_mph": 9.0,
+    "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
+    "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
+    "team_passing": {
+     "dry": {
+      "attempts": 32.8,
+      "completion_pct": 0.645,
+      "completions": 21.1,
+      "yards": 232.6
+     },
+     "rain": {
+      "attempts": 31.3,
+      "completion_pct": 0.606,
+      "completions": 19.0,
+      "yards": 198.8
+     },
+     "forecast": {
+      "attempts": 32.7,
+      "completion_pct": 0.644,
+      "completions": 21.1,
+      "yards": 231.6
+     }
+    },
+    "receivers": [
+     {
+      "player": "S.Diggs",
+      "pos": "WR",
+      "games": 7,
+      "target_share": 0.1984126984126984,
+      "dry": {
+       "targets": 7.1,
+       "catch_rate": 0.64,
+       "receptions": 4.6,
+       "yards_per_target": 6.62,
+       "yards": 47.3
+      },
+      "rain": {
+       "targets": 6.8,
+       "catch_rate": 0.598,
+       "receptions": 4.1,
+       "yards_per_target": 5.87,
+       "yards": 40.1
+      },
+      "forecast": {
+       "targets": 7.1,
+       "catch_rate": 0.639,
+       "receptions": 4.6,
+       "yards_per_target": 6.6,
+       "yards": 47.1
+      }
+     },
+     {
+      "player": "A.Williams",
+      "pos": "WR",
+      "games": 8,
+      "target_share": 0.14682539682539683,
+      "dry": {
+       "targets": 4.6,
+       "catch_rate": 0.649,
+       "receptions": 3.0,
+       "yards_per_target": 7.08,
+       "yards": 32.8
+      },
+      "rain": {
+       "targets": 4.4,
+       "catch_rate": 0.606,
+       "receptions": 2.7,
+       "yards_per_target": 6.28,
+       "yards": 27.8
+      },
+      "forecast": {
+       "targets": 4.6,
+       "catch_rate": 0.647,
+       "receptions": 3.0,
+       "yards_per_target": 7.06,
+       "yards": 32.6
+      }
+     },
+     {
+      "player": "C.Okonkwo",
+      "pos": "TE",
+      "games": 6,
+      "target_share": 0.14285714285714285,
+      "dry": {
+       "targets": 6.0,
+       "catch_rate": 0.694,
+       "receptions": 4.2,
+       "yards_per_target": 6.86,
+       "yards": 41.2
+      },
+      "rain": {
+       "targets": 5.7,
+       "catch_rate": 0.647,
+       "receptions": 3.7,
+       "yards_per_target": 6.07,
+       "yards": 34.8
+      },
+      "forecast": {
+       "targets": 6.0,
+       "catch_rate": 0.693,
+       "receptions": 4.2,
+       "yards_per_target": 6.84,
+       "yards": 41.0
+      }
+     },
+     {
+      "player": "T.Burks",
+      "pos": "WR",
+      "games": 7,
+      "target_share": 0.0992063492063492,
+      "dry": {
+       "targets": 3.6,
+       "catch_rate": 0.56,
+       "receptions": 2.0,
+       "yards_per_target": 10.4,
+       "yards": 37.1
+      },
+      "rain": {
+       "targets": 3.4,
+       "catch_rate": 0.524,
+       "receptions": 1.8,
+       "yards_per_target": 9.22,
+       "yards": 31.5
+      },
+      "forecast": {
+       "targets": 3.6,
+       "catch_rate": 0.559,
+       "receptions": 2.0,
+       "yards_per_target": 10.36,
+       "yards": 37.0
+      }
+     },
+     {
+      "player": "T.McLaurin",
+      "pos": "WR",
+      "games": 4,
+      "target_share": 0.09126984126984126,
+      "dry": {
+       "targets": 5.8,
+       "catch_rate": 0.565,
+       "receptions": 3.2,
+       "yards_per_target": 9.39,
+       "yards": 54.0
+      },
+      "rain": {
+       "targets": 5.5,
+       "catch_rate": 0.528,
+       "receptions": 2.9,
+       "yards_per_target": 8.33,
+       "yards": 45.8
+      },
+      "forecast": {
+       "targets": 5.7,
+       "catch_rate": 0.564,
+       "receptions": 3.2,
+       "yards_per_target": 9.36,
+       "yards": 53.7
+      }
+     },
+     {
+      "player": "R.White",
+      "pos": "RB",
+      "games": 7,
+      "target_share": 0.08333333333333333,
+      "dry": {
+       "targets": 3.0,
+       "catch_rate": 0.81,
+       "receptions": 2.4,
+       "yards_per_target": 6.14,
+       "yards": 18.4
+      },
+      "rain": {
+       "targets": 2.9,
+       "catch_rate": 0.778,
+       "receptions": 2.2,
+       "yards_per_target": 5.35,
+       "yards": 15.4
+      },
+      "forecast": {
+       "targets": 3.0,
+       "catch_rate": 0.809,
+       "receptions": 2.4,
+       "yards_per_target": 6.12,
+       "yards": 18.3
+      }
+     },
+     {
+      "player": "D.Brown",
+      "pos": "WR",
+      "games": 5,
+      "target_share": 0.05555555555555555,
+      "dry": {
+       "targets": 2.8,
+       "catch_rate": 0.643,
+       "receptions": 1.8,
+       "yards_per_target": 6.71,
+       "yards": 18.8
+      },
+      "rain": {
+       "targets": 2.7,
+       "catch_rate": 0.601,
+       "receptions": 1.6,
+       "yards_per_target": 5.95,
+       "yards": 16.0
+      },
+      "forecast": {
+       "targets": 2.8,
+       "catch_rate": 0.642,
+       "receptions": 1.8,
+       "yards_per_target": 6.69,
+       "yards": 18.7
+      }
+     },
+     {
+      "player": "A.Ekeler",
+      "pos": "RB",
+      "games": 5,
+      "target_share": 0.047619047619047616,
+      "dry": {
+       "targets": 2.4,
+       "catch_rate": 0.833,
+       "receptions": 2.0,
+       "yards_per_target": 6.17,
+       "yards": 14.8
+      },
+      "rain": {
+       "targets": 2.3,
+       "catch_rate": 0.801,
+       "receptions": 1.8,
+       "yards_per_target": 5.37,
+       "yards": 12.3
+      },
+      "forecast": {
+       "targets": 2.4,
+       "catch_rate": 0.832,
+       "receptions": 2.0,
+       "yards_per_target": 6.14,
+       "yards": 14.7
+      }
+     }
+    ],
+    "listed_qb": {
+     "player": "J.Daniels",
+     "attempts_in_window": 176,
+     "small_sample": false,
+     "dry": {
+      "completion_pct": 0.682,
+      "yards_per_attempt": 7.59
+     },
+     "rain": {
+      "completion_pct": 0.641,
+      "yards_per_attempt": 6.67
+     },
+     "forecast": {
+      "completion_pct": 0.681,
+      "yards_per_attempt": 7.56
+     }
+    }
    },
    "quarterbacks": [
     {
@@ -11288,7 +11847,7 @@
      "sacks": 16,
      "yards_per_attempt": 7.5852272727272725,
      "avg_depth_of_target": 7.880681818181818,
-     "epa_per_dropback": -0.032862222612811846,
+     "epa_per_dropback": -0.02337335788583961,
      "pressure_rate_faced": 0.16145833333333334,
      "log": [
       {
@@ -11359,7 +11918,7 @@
      "sacks": 3,
      "yards_per_attempt": 6.666666666666667,
      "avg_depth_of_target": 8.862745098039216,
-     "epa_per_dropback": 0.12360422255599836,
+     "epa_per_dropback": 0.10532713437014597,
      "pressure_rate_faced": 0.2777777777777778,
      "log": [
       {
@@ -11403,7 +11962,7 @@
       "td": 8,
       "int": 2,
       "sack_rate": 0.083,
-      "epa_per_dropback": -0.033
+      "epa_per_dropback": -0.023
      },
      "vs_blitz": {
       "dropbacks": 85,
@@ -11413,7 +11972,7 @@
       "td": 5,
       "int": 1,
       "sack_rate": 0.082,
-      "epa_per_dropback": 0.055
+      "epa_per_dropback": 0.051
      },
      "no_blitz": {
       "dropbacks": 107,
@@ -11423,7 +11982,7 @@
       "td": 3,
       "int": 1,
       "sack_rate": 0.084,
-      "epa_per_dropback": -0.102
+      "epa_per_dropback": -0.082
      },
      "blitzed_rate": 0.443,
      "play_action": {
@@ -11434,7 +11993,7 @@
       "td": 1,
       "int": 0,
       "sack_rate": 0.079,
-      "epa_per_dropback": 0.309
+      "epa_per_dropback": 0.222
      },
      "out_of_pocket": {
       "dropbacks": 30,
@@ -11444,7 +12003,7 @@
       "td": 0,
       "int": 0,
       "sack_rate": 0.167,
-      "epa_per_dropback": -0.069
+      "epa_per_dropback": -0.071
      },
      "charted_dropbacks": 192,
      "pressured": {
@@ -11476,7 +12035,7 @@
       "td": 8,
       "int": 3,
       "sack_rate": 0.088,
-      "epa_per_dropback": -0.029
+      "epa_per_dropback": 0.002
      },
      "vs_man": {
       "dropbacks": 70,
@@ -11486,7 +12045,7 @@
       "td": 4,
       "int": 0,
       "sack_rate": 0.114,
-      "epa_per_dropback": -0.243
+      "epa_per_dropback": -0.167
      },
      "vs_zone": {
       "dropbacks": 134,
@@ -11496,7 +12055,7 @@
       "td": 4,
       "int": 3,
       "sack_rate": 0.075,
-      "epa_per_dropback": 0.083
+      "epa_per_dropback": 0.09
      },
      "pressured": {
       "dropbacks": 68,
@@ -11506,7 +12065,7 @@
       "td": 3,
       "int": 1,
       "sack_rate": 0.265,
-      "epa_per_dropback": -0.367
+      "epa_per_dropback": -0.286
      },
      "clean": {
       "dropbacks": 136,
@@ -11516,7 +12075,7 @@
       "td": 5,
       "int": 2,
       "sack_rate": 0.0,
-      "epa_per_dropback": 0.14
+      "epa_per_dropback": 0.146
      },
      "pressure_rate": 0.333,
      "avg_time_to_throw": 2.7
@@ -12410,13 +12969,13 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": "C",
      "snap_share": 0.897,
      "next_up": "Nick Allegretti",
      "impact": "high",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Jacory Croskey-Merritt",
@@ -12425,23 +12984,9 @@
      "practice": null,
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "head coach Dan Quinn said Monday that while the 21-day practice window for Croskey-Merritt (groin) hasn't been opened yet, he notes that the running back is \"trending in the right direction,\" Nicki Jh",
+     "espn_comment": "The Commanders designated Croskey-Merritt (groin) for return from injured reserve Tuesday.",
      "starter_slot": null,
      "snap_share": 0.435,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
-    },
-    {
-     "player": "Colson Yankoff",
-     "position": "TE",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": null,
-     "snap_share": null,
      "next_up": null,
      "impact": "low",
      "status_level": 3
@@ -12459,6 +13004,20 @@
      "next_up": null,
      "impact": "low",
      "status_level": 3
+    },
+    {
+     "player": "Colson Yankoff",
+     "position": "TE",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 2
     },
     {
      "player": "Frankie Luvu",
@@ -13146,7 +13705,7 @@
      "td": 20,
      "int": 5,
      "sack_rate": 0.059,
-     "epa_per_dropback": 0.177
+     "epa_per_dropback": 0.167
     },
     "allowed_vs_zone": {
      "dropbacks": 390,
@@ -13156,7 +13715,7 @@
      "td": 13,
      "int": 8,
      "sack_rate": 0.056,
-     "epa_per_dropback": 0.181
+     "epa_per_dropback": 0.163
     },
     "note": "2025 season (latest with free man/zone data). Coordinator or roster changes since then make it context, not current fact."
    },
@@ -13174,20 +13733,6 @@
      "next_up": "Jacob Bayer",
      "impact": "high",
      "status_level": 2
-    },
-    {
-     "player": "Kyle Dugger",
-     "position": "S",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Out",
-     "espn_comment": "out",
-     "starter_slot": null,
-     "snap_share": 0.66,
-     "next_up": null,
-     "impact": "medium",
-     "status_level": 3
     },
     {
      "player": "Andrei Iosivas",
@@ -13216,6 +13761,20 @@
      "next_up": null,
      "impact": "medium",
      "status_level": 3
+    },
+    {
+     "player": "Kyle Dugger",
+     "position": "S",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "questionable",
+     "starter_slot": null,
+     "snap_share": 0.66,
+     "next_up": null,
+     "impact": "medium",
+     "status_level": 2
     },
     {
      "player": "Oren Burks",
@@ -13265,13 +13824,13 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Out",
-     "espn_comment": "Hinton (illness) is inactive for Sunday's Week 10 matchup against the Steelers.",
+     "espn": "Questionable",
+     "espn_comment": "questionable",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
      "impact": "low",
-     "status_level": 3
+     "status_level": 2
     },
     {
      "player": "Barrett Carter",
@@ -13549,7 +14108,7 @@
      {
       "player": "Lucas Patrick",
       "slot": "C",
-      "status": "Out"
+      "status": "Questionable"
      }
     ],
     "secondary": [],
@@ -13566,14 +14125,14 @@
     ],
     "secondary": [
      {
-      "player": "Kyle Dugger",
-      "slot": "S",
-      "status": "Out"
-     },
-     {
       "player": "Jalen Davis",
       "slot": "CB",
       "status": "Injured Reserve"
+     },
+     {
+      "player": "Kyle Dugger",
+      "slot": "S",
+      "status": "Questionable"
      }
     ],
     "linebackers": [],
@@ -13583,12 +14142,12 @@
    "opportunity": {
     "team": "WAS",
     "vs": "CIN",
-    "team_pass_attempts": 35.2,
+    "team_pass_attempts": 35.1,
     "team_rush_attempts": 26.0,
     "plays": 61.2,
     "pass_ratio": 0.539,
     "script_pass_multiplier": 1.065,
-    "weather_attempts_multiplier": 1.0,
+    "weather_attempts_multiplier": 0.997,
     "implied_margin": -6.5,
     "missing_target_share": 0.0,
     "missing_carry_share": 0.295,
@@ -13603,7 +14162,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.603,
        "yards_per_catch": 11.5,
-       "yards_per_target": 6.9,
+       "yards_per_target": 6.88,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.564,
        "def_yards_per_catch_allowed": 12.9,
@@ -13622,42 +14181,42 @@
       },
       "player_id": "00-0031588",
       "sim": {
-       "targets_raw": 7.77,
+       "targets_raw": 7.746,
        "k": 50.0,
        "catch_rate": 0.6026,
        "ypr": 11.45,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9973,
+       "rain_catch": 0.9984,
        "pool": "WR"
       },
-      "targets_mean": 6.9,
+      "targets_mean": 6.8,
       "receptions_mean": 4.1,
-      "yards_mean": 47.1,
-      "yards_median": 40.8,
+      "yards_mean": 46.8,
+      "yards_median": 40.7,
       "yards_p25_p75": [
        23.0,
        65.0
       ],
       "yards": {
-       "20": 0.776,
-       "30": 0.642,
+       "20": 0.775,
+       "30": 0.641,
        "40": 0.508,
-       "50": 0.391,
-       "60": 0.292,
-       "70": 0.213,
-       "80": 0.155,
-       "90": 0.107,
-       "100": 0.073,
-       "120": 0.032
+       "50": 0.39,
+       "60": 0.291,
+       "70": 0.21,
+       "80": 0.149,
+       "90": 0.104,
+       "100": 0.072,
+       "120": 0.034
       },
       "receptions": {
-       "2": 0.886,
-       "3": 0.736,
-       "4": 0.554,
-       "5": 0.389,
-       "6": 0.248,
-       "7": 0.149,
-       "8": 0.087
+       "2": 0.883,
+       "3": 0.731,
+       "4": 0.552,
+       "5": 0.385,
+       "6": 0.245,
+       "7": 0.148,
+       "8": 0.086
       },
       "targets_needed": {
        "50": 8,
@@ -13668,8 +14227,8 @@
       },
       "targets_needed_chance": {
        "50": 0.377,
-       "60": 0.278,
-       "70": 0.136,
+       "60": 0.274,
+       "70": 0.131,
        "80": 0.089,
        "100": 0.022
       }
@@ -13684,7 +14243,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.605,
        "yards_per_catch": 11.9,
-       "yards_per_target": 7.2,
+       "yards_per_target": 7.18,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.564,
        "def_yards_per_catch_allowed": 12.9,
@@ -13703,41 +14262,41 @@
       },
       "player_id": "00-0041040",
       "sim": {
-       "targets_raw": 5.355,
+       "targets_raw": 5.339,
        "k": 50.0,
        "catch_rate": 0.6054,
        "ypr": 11.898,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.997,
+       "rain_catch": 0.9969,
        "pool": "WR"
       },
       "targets_mean": 4.7,
       "receptions_mean": 2.9,
-      "yards_mean": 34.1,
-      "yards_median": 28.3,
+      "yards_mean": 33.8,
+      "yards_median": 27.2,
       "yards_p25_p75": [
        13.0,
        49.0
       ],
       "yards": {
-       "20": 0.623,
-       "30": 0.475,
-       "40": 0.34,
-       "50": 0.234,
-       "60": 0.165,
+       "20": 0.62,
+       "30": 0.474,
+       "40": 0.344,
+       "50": 0.238,
+       "60": 0.164,
        "70": 0.109,
-       "80": 0.073,
-       "90": 0.049,
-       "100": 0.031,
-       "120": 0.012
+       "80": 0.069,
+       "90": 0.045,
+       "100": 0.027,
+       "120": 0.011
       },
       "receptions": {
-       "2": 0.75,
-       "3": 0.524,
-       "4": 0.321,
-       "5": 0.182,
-       "6": 0.093,
-       "7": 0.044,
+       "2": 0.747,
+       "3": 0.523,
+       "4": 0.323,
+       "5": 0.177,
+       "6": 0.089,
+       "7": 0.043,
        "8": 0.019
       },
       "targets_needed": {
@@ -13748,10 +14307,10 @@
        "100": 14
       },
       "targets_needed_chance": {
-       "50": 0.224,
-       "60": 0.081,
+       "50": 0.221,
+       "60": 0.083,
        "70": 0.047,
-       "80": 0.013,
+       "80": 0.014,
        "100": 0.003
       }
      },
@@ -13765,7 +14324,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.701,
        "yards_per_catch": 11.1,
-       "yards_per_target": 7.82,
+       "yards_per_target": 7.79,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.707,
        "def_yards_per_catch_allowed": 12.4,
@@ -13784,41 +14343,41 @@
       },
       "player_id": "00-0037809",
       "sim": {
-       "targets_raw": 6.905,
+       "targets_raw": 6.884,
        "k": 50.0,
        "catch_rate": 0.7015,
        "ypr": 11.142,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9966,
+       "rain_catch": 0.9986,
        "pool": "TE"
       },
       "targets_mean": 6.1,
       "receptions_mean": 4.3,
-      "yards_mean": 47.8,
-      "yards_median": 42.8,
+      "yards_mean": 47.4,
+      "yards_median": 41.6,
       "yards_p25_p75": [
-       23.0,
+       24.0,
        66.0
       ],
       "yards": {
-       "20": 0.787,
-       "30": 0.664,
-       "40": 0.529,
-       "50": 0.409,
-       "60": 0.305,
-       "70": 0.222,
-       "80": 0.158,
-       "90": 0.108,
-       "100": 0.071,
-       "120": 0.031
+       "20": 0.791,
+       "30": 0.659,
+       "40": 0.526,
+       "50": 0.406,
+       "60": 0.3,
+       "70": 0.217,
+       "80": 0.148,
+       "90": 0.102,
+       "100": 0.069,
+       "120": 0.029
       },
       "receptions": {
-       "2": 0.889,
-       "3": 0.753,
-       "4": 0.584,
-       "5": 0.416,
-       "6": 0.279,
-       "7": 0.174,
+       "2": 0.894,
+       "3": 0.749,
+       "4": 0.581,
+       "5": 0.414,
+       "6": 0.272,
+       "7": 0.168,
        "8": 0.099
       },
       "targets_needed": {
@@ -13829,11 +14388,11 @@
        "100": 13
       },
       "targets_needed_chance": {
-       "50": 0.408,
-       "60": 0.294,
-       "70": 0.2,
-       "80": 0.086,
-       "100": 0.033
+       "50": 0.404,
+       "60": 0.29,
+       "70": 0.197,
+       "80": 0.082,
+       "100": 0.03
       }
      },
      {
@@ -13846,7 +14405,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.571,
        "yards_per_catch": 14.9,
-       "yards_per_target": 8.5,
+       "yards_per_target": 8.49,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.564,
        "def_yards_per_catch_allowed": 12.9,
@@ -13865,40 +14424,40 @@
       },
       "player_id": "00-0037742",
       "sim": {
-       "targets_raw": 4.504,
+       "targets_raw": 4.49,
        "k": 50.0,
        "catch_rate": 0.5707,
        "ypr": 14.897,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9991,
+       "rain_catch": 0.9982,
        "pool": "WR"
       },
       "targets_mean": 4.0,
       "receptions_mean": 2.3,
-      "yards_mean": 33.9,
+      "yards_mean": 33.7,
       "yards_median": 27.1,
       "yards_p25_p75": [
        11.0,
        50.0
       ],
       "yards": {
-       "20": 0.609,
-       "30": 0.455,
-       "40": 0.346,
-       "50": 0.246,
-       "60": 0.179,
+       "20": 0.604,
+       "30": 0.453,
+       "40": 0.343,
+       "50": 0.241,
+       "60": 0.175,
        "70": 0.123,
-       "80": 0.085,
-       "90": 0.057,
-       "100": 0.039,
+       "80": 0.087,
+       "90": 0.058,
+       "100": 0.042,
        "120": 0.018
       },
       "receptions": {
-       "2": 0.638,
-       "3": 0.392,
-       "4": 0.207,
-       "5": 0.096,
-       "6": 0.041,
+       "2": 0.634,
+       "3": 0.386,
+       "4": 0.203,
+       "5": 0.098,
+       "6": 0.044,
        "7": 0.017,
        "8": 0.006
       },
@@ -13910,11 +14469,11 @@
        "100": 12
       },
       "targets_needed_chance": {
-       "50": 0.236,
-       "60": 0.077,
-       "70": 0.041,
-       "80": 0.021,
-       "100": 0.005
+       "50": 0.234,
+       "60": 0.078,
+       "70": 0.042,
+       "80": 0.022,
+       "100": 0.006
       }
      },
      {
@@ -13927,7 +14486,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.574,
        "yards_per_catch": 14.1,
-       "yards_per_target": 8.1,
+       "yards_per_target": 8.07,
        "dispersion_k": 3.4,
        "def_catch_rate_allowed": 0.564,
        "def_yards_per_catch_allowed": 12.9,
@@ -13946,42 +14505,42 @@
       },
       "player_id": "00-0035659",
       "sim": {
-       "targets_raw": 6.63,
+       "targets_raw": 6.609,
        "k": 3.36,
        "catch_rate": 0.5737,
        "ypr": 14.121,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9962,
+       "rain_catch": 0.9982,
        "pool": "WR"
       },
       "targets_mean": 5.8,
-      "receptions_mean": 3.4,
-      "yards_mean": 47.4,
-      "yards_median": 35.8,
+      "receptions_mean": 3.3,
+      "yards_mean": 47.0,
+      "yards_median": 35.7,
       "yards_p25_p75": [
-       15.0,
+       13.0,
        68.0
       ],
       "yards": {
        "20": 0.682,
-       "30": 0.564,
-       "40": 0.465,
-       "50": 0.382,
-       "60": 0.306,
-       "70": 0.243,
+       "30": 0.569,
+       "40": 0.464,
+       "50": 0.376,
+       "60": 0.301,
+       "70": 0.242,
        "80": 0.191,
-       "90": 0.151,
-       "100": 0.12,
-       "120": 0.072
+       "90": 0.15,
+       "100": 0.118,
+       "120": 0.07
       },
       "receptions": {
-       "2": 0.723,
-       "3": 0.544,
-       "4": 0.392,
-       "5": 0.271,
-       "6": 0.184,
+       "2": 0.721,
+       "3": 0.542,
+       "4": 0.388,
+       "5": 0.27,
+       "6": 0.18,
        "7": 0.122,
-       "8": 0.079
+       "8": 0.082
       },
       "targets_needed": {
        "50": 7,
@@ -13991,11 +14550,11 @@
        "100": 13
       },
       "targets_needed_chance": {
-       "50": 0.356,
+       "50": 0.353,
        "60": 0.28,
        "70": 0.22,
-       "80": 0.172,
-       "100": 0.078
+       "80": 0.171,
+       "100": 0.076
       }
      },
      {
@@ -14008,7 +14567,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.798,
        "yards_per_catch": 7.2,
-       "yards_per_target": 5.78,
+       "yards_per_target": 5.76,
        "dispersion_k": 13.5,
        "def_catch_rate_allowed": 0.795,
        "def_yards_per_catch_allowed": 6.9,
@@ -14027,41 +14586,41 @@
       },
       "player_id": "00-0037256",
       "sim": {
-       "targets_raw": 3.248,
+       "targets_raw": 3.239,
        "k": 13.5,
        "catch_rate": 0.7982,
        "ypr": 7.245,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9958,
+       "rain_catch": 0.9988,
        "pool": "RB"
       },
       "targets_mean": 2.9,
       "receptions_mean": 2.3,
-      "yards_mean": 16.6,
-      "yards_median": 11.8,
+      "yards_mean": 16.5,
+      "yards_median": 11.7,
       "yards_p25_p75": [
        4.0,
        24.0
       ],
       "yards": {
        "20": 0.314,
-       "30": 0.176,
+       "30": 0.178,
        "40": 0.099,
        "50": 0.052,
        "60": 0.029,
-       "70": 0.017,
+       "70": 0.015,
        "80": 0.009,
-       "90": 0.005,
+       "90": 0.004,
        "100": 0.002,
        "120": 0.001
       },
       "receptions": {
        "2": 0.627,
-       "3": 0.391,
-       "4": 0.216,
-       "5": 0.109,
-       "6": 0.051,
-       "7": 0.023,
+       "3": 0.387,
+       "4": 0.213,
+       "5": 0.105,
+       "6": 0.05,
+       "7": 0.021,
        "8": 0.01
       },
       "targets_needed": {
@@ -14072,9 +14631,9 @@
        "100": 18
       },
       "targets_needed_chance": {
-       "50": 0.013,
-       "60": 0.002,
-       "70": 0.0,
+       "50": 0.012,
+       "60": 0.003,
+       "70": 0.001,
        "80": 0.0,
        "100": 0.0
       }
@@ -14089,7 +14648,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.599,
        "yards_per_catch": 12.2,
-       "yards_per_target": 7.28,
+       "yards_per_target": 7.25,
        "dispersion_k": 4.1,
        "def_catch_rate_allowed": 0.564,
        "def_yards_per_catch_allowed": 12.9,
@@ -14108,39 +14667,39 @@
       },
       "player_id": "00-0036626",
       "sim": {
-       "targets_raw": 2.94,
+       "targets_raw": 2.931,
        "k": 4.13,
        "catch_rate": 0.5987,
        "ypr": 12.16,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9962,
+       "rain_catch": 0.9984,
        "pool": "WR"
       },
       "targets_mean": 2.6,
       "receptions_mean": 1.6,
-      "yards_mean": 19.3,
+      "yards_mean": 19.0,
       "yards_median": 12.5,
       "yards_p25_p75": [
        0.0,
-       29.0
+       28.0
       ],
       "yards": {
-       "20": 0.367,
-       "30": 0.236,
-       "40": 0.156,
-       "50": 0.101,
-       "60": 0.061,
-       "70": 0.039,
-       "80": 0.024,
+       "20": 0.366,
+       "30": 0.231,
+       "40": 0.153,
+       "50": 0.096,
+       "60": 0.06,
+       "70": 0.037,
+       "80": 0.023,
        "90": 0.015,
        "100": 0.009,
        "120": 0.003
       },
       "receptions": {
-       "2": 0.432,
-       "3": 0.226,
-       "4": 0.112,
-       "5": 0.053,
+       "2": 0.431,
+       "3": 0.22,
+       "4": 0.108,
+       "5": 0.05,
        "6": 0.023,
        "7": 0.011,
        "8": 0.004
@@ -14149,14 +14708,14 @@
        "50": 7,
        "60": 9,
        "70": 10,
-       "80": 11,
+       "80": 12,
        "100": 14
       },
       "targets_needed_chance": {
-       "50": 0.062,
-       "60": 0.02,
+       "50": 0.06,
+       "60": 0.019,
        "70": 0.011,
-       "80": 0.006,
+       "80": 0.004,
        "100": 0.001
       }
      },
@@ -14170,7 +14729,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.8,
        "yards_per_catch": 7.2,
-       "yards_per_target": 5.74,
+       "yards_per_target": 5.71,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.795,
        "def_yards_per_catch_allowed": 6.9,
@@ -14189,48 +14748,48 @@
       },
       "player_id": "00-0033699",
       "sim": {
-       "targets_raw": 2.824,
+       "targets_raw": 2.815,
        "k": 50.0,
        "catch_rate": 0.8005,
        "ypr": 7.17,
-       "rain_yards": 1.0,
-       "rain_catch": 1.0,
+       "rain_yards": 0.9944,
+       "rain_catch": 0.9988,
        "pool": "RB"
       },
       "targets_mean": 2.5,
       "receptions_mean": 2.0,
-      "yards_mean": 14.4,
-      "yards_median": 10.7,
+      "yards_mean": 14.3,
+      "yards_median": 10.6,
       "yards_p25_p75": [
        3.0,
-       21.0
+       20.0
       ],
       "yards": {
-       "20": 0.269,
-       "30": 0.143,
-       "40": 0.07,
-       "50": 0.035,
+       "20": 0.266,
+       "30": 0.128,
+       "40": 0.067,
+       "50": 0.038,
        "60": 0.019,
-       "70": 0.009,
+       "70": 0.01,
        "80": 0.005,
        "90": 0.002,
        "100": 0.001,
        "120": 0.0
       },
       "receptions": {
-       "2": 0.581,
-       "3": 0.329,
-       "4": 0.161,
-       "5": 0.07,
-       "6": 0.027,
+       "2": 0.58,
+       "3": 0.327,
+       "4": 0.158,
+       "5": 0.066,
+       "6": 0.024,
        "7": 0.009,
-       "8": 0.004
+       "8": 0.003
       },
       "targets_needed": {
        "50": 9,
        "60": 11,
        "70": 13,
-       "80": 14,
+       "80": 15,
        "100": 18
       },
       "targets_needed_chance": {
@@ -14270,7 +14829,7 @@
       },
       "player_id": "00-0036415",
       "sim": {
-       "targets_raw": 4.612,
+       "targets_raw": 4.598,
        "k": 8.0,
        "catch_rate": 0.5942,
        "ypr": 12.571,
@@ -14280,32 +14839,32 @@
       },
       "targets_mean": 4.1,
       "receptions_mean": 2.4,
-      "yards_mean": 30.8,
-      "yards_median": 22.9,
+      "yards_mean": 30.6,
+      "yards_median": 23.9,
       "yards_p25_p75": [
        9.0,
-       46.0
+       45.0
       ],
       "yards": {
-       "20": 0.546,
-       "30": 0.406,
-       "40": 0.297,
-       "50": 0.212,
-       "60": 0.147,
-       "70": 0.099,
-       "80": 0.068,
-       "90": 0.046,
-       "100": 0.03,
-       "120": 0.014
+       "20": 0.551,
+       "30": 0.41,
+       "40": 0.293,
+       "50": 0.208,
+       "60": 0.144,
+       "70": 0.098,
+       "80": 0.065,
+       "90": 0.042,
+       "100": 0.027,
+       "120": 0.011
       },
       "receptions": {
-       "2": 0.639,
-       "3": 0.415,
-       "4": 0.246,
-       "5": 0.136,
-       "6": 0.07,
-       "7": 0.035,
-       "8": 0.017
+       "2": 0.641,
+       "3": 0.416,
+       "4": 0.244,
+       "5": 0.133,
+       "6": 0.067,
+       "7": 0.033,
+       "8": 0.014
       },
       "targets_needed": {
        "50": 7,
@@ -14315,11 +14874,11 @@
        "100": 14
       },
       "targets_needed_chance": {
-       "50": 0.171,
-       "60": 0.07,
-       "70": 0.042,
-       "80": 0.026,
-       "100": 0.006
+       "50": 0.169,
+       "60": 0.071,
+       "70": 0.044,
+       "80": 0.027,
+       "100": 0.005
       }
      }
     ],
@@ -19469,7 +20028,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-16T16:58:52Z",
+    "as_of": "2026-11-17T16:52:03Z",
     "starters": [
      {
       "slot": "WR",
@@ -19854,13 +20413,7 @@
    "roster_moves": {
     "window_weeks": 4,
     "arrivals_from_other_teams": [],
-    "departures_to_other_teams": [
-     {
-      "player": "Charles Snowden",
-      "position": "DL",
-      "to": "ATL"
-     }
-    ],
+    "departures_to_other_teams": [],
     "note": "From weekly roster snapshots: covers trades, waiver claims and signings of players who were on another roster. It does not say which kind of move it was."
    },
    "window": {
@@ -19879,7 +20432,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-16T16:58:52Z",
+    "as_of": "2026-11-17T16:52:03Z",
     "starters": [
      {
       "slot": "WR",
@@ -20268,7 +20821,7 @@
   "status": "RESEARCH_ONLY_NOT_VALIDATED",
   "engine": "core/period_engine_v0",
   "trials": 20000,
-  "history_games": 421,
+  "history_games": 422,
   "includes_prior_season": true,
   "samplers": {
    "matchup_pair": {
@@ -20418,8 +20971,8 @@
   {
    "phase": 12,
    "name": "Weather, roof, travel",
-   "status": "PARTIAL",
-   "detail": "Roof, surface, rest days, site; National Weather Service kickoff forecast: KICKOFF_BEYOND_HOURLY_FORECAST: the hourly forecast covers about 6.5 days."
+   "status": "AUTO",
+   "detail": "Roof, surface, rest days, site; National Weather Service kickoff forecast: OK."
   },
   {
    "phase": 13,
@@ -20444,63 +20997,63 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T04:39:59+00:00",
-   "sha256": "5814492ecf5b0f29b53e325a13fc87245bbb4233eb0e3e4696bf0b7787e3739d",
-   "bytes": 523901
+   "retrieved_utc": "2026-11-17T21:58:03+00:00",
+   "sha256": "f84bb068b60652e1edda8f2e1eb16b65714f0c8c79c8fb4a7a723f4077b36b3a",
+   "bytes": 524007
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T04:39:59+00:00",
-   "sha256": "5bf3fd3431e556d76e4f80378bd689edf1a55280de4c59078d3518b9f6b9959e",
-   "bytes": 11054587
+   "retrieved_utc": "2026-11-17T21:58:03+00:00",
+   "sha256": "32334d4ae379d25b3bbaa1b7a9fd3746c19a636b48be99ef5fa9318ac6346398",
+   "bytes": 11793343
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T04:39:59+00:00",
-   "sha256": "8ef5848627e0e3cfa8f5fa1d9b02240bbf3deabef88e1b14a90f3b14f7352361",
-   "bytes": 818858
+   "retrieved_utc": "2026-11-17T21:58:03+00:00",
+   "sha256": "e4f81f1adc7243e64290a1fff42309ed8f866628db22738ca0017633904d7751",
+   "bytes": 831441
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T04:40:00+00:00",
-   "sha256": "4be8d0f909f1393fa1f3a47b45a830b15da8e73a4d0fed210a1c57adc50f06ca",
+   "retrieved_utc": "2026-11-17T21:58:04+00:00",
+   "sha256": "33d3b85359fe41db9aa652d6a385b31e92186e143af6cdca6fab4ace981ea1d9",
    "bytes": 65722
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T04:40:00+00:00",
-   "sha256": "cb40b454d0c640c47472e57fbe486defa8963046da0e577197fda01905b274eb",
-   "bytes": 3517732
+   "retrieved_utc": "2026-11-17T21:58:04+00:00",
+   "sha256": "aaca90f9afb797e1bc5c8aa852a1032f9efd18bd10542da4180066c5f686de39",
+   "bytes": 3608664
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T04:40:00+00:00",
-   "sha256": "29653cc651000a3ba77a5c8dc10ad71ff76f6078ef5f5d032e8fbe2ce8599ab3",
-   "bytes": 142951
+   "retrieved_utc": "2026-11-17T21:58:04+00:00",
+   "sha256": "d67d94d19caca72e6977fafafc0c073e100bb56bf82561a4f62c043e257bcf77",
+   "bytes": 143614
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T04:40:00+00:00",
-   "sha256": "21e9470ab453f4dcd0bd7d57499bab256a83b1e42c092b32d8d12138a47969c5",
-   "bytes": 289331
+   "retrieved_utc": "2026-11-17T21:58:05+00:00",
+   "sha256": "8db63e5eaab15cb29258d739d19de8c57978e0ab31faff78a20c9bab6a3e98eb",
+   "bytes": 311426
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T04:40:01+00:00",
+   "retrieved_utc": "2026-11-17T21:58:05+00:00",
    "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
    "bytes": 93708
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-17T04:40:01+00:00"
+   "retrieved_utc": "2026-11-17T21:58:05+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",

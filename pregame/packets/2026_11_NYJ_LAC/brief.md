@@ -2,11 +2,9 @@
 
 **Sunday 2026-11-22, 16:05 ET.** Site: Home; roof: dome; surface: matrixturf. Rest: NYJ 7 days, LAC 6 days. Listed QBs: Geno Smith (NYJ), Justin Herbert (LAC).
 
-Market (schedule consensus, not a timestamped quote): LAC n/a, total n/a.
+Market (schedule consensus, not a timestamped quote): LAC -3.5, total 41.5.
 
-Generated 2026-11-17T04:40:22+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
-
-**Data warning.** LAC: STALE: play-by-play not posted yet for week 10 (2026_10_LAC_BAL). The trend tables for that team do not include its latest game yet; the packet will catch up on the next run.
+Generated 2026-11-17T21:58:24+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -22,33 +20,32 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Flag | Area | Offense (per game or rate) | Defense (allowed, or its own sack/pressure rate) | League avg | Ranks |
 |---|---|---|---|---|---|
-| LAC DEFENCE STRENGTH | running back receiving yards | 35.5 | 21.5 | 32.9 | NYJ offence ranks 11 of 32, LAC defence ranks 5 of 32 (1 = best at its own job) |
-| LAC DEFENCE WEAK SPOT | running back rushing yards | 96.2 | 105.5 | 92.3 | NYJ offence ranks 14 of 32, LAC defence ranks 24 of 32 (1 = best at its own job) |
-| LAC DEFENCE WEAK SPOT | points | 19.2 | 27.4 | 23.1 | NYJ offence ranks 26 of 32, LAC defence ranks 27 of 32 (1 = best at its own job) |
-| LAC DEFENCE ADVANTAGE | third-down conversions | 34.7% | 35.1% | 39.4% | NYJ offence ranks 27 of 32, LAC defence ranks 8 of 32 (1 = best at its own job) |
-| NYJ OFFENCE WEAK SPOT | red-zone touchdowns | 31.8% | 53.1% | 58.5% | NYJ offence ranks 32 of 32, LAC defence ranks 11 of 32 (1 = best at its own job) |
-| LAC DEFENCE WEAK SPOT | sacks (pass protection vs pass rush) | 9.9% | 5.1% | 6.5% | NYJ offence ranks 30 of 32, LAC defence ranks 26 of 32 (1 = best at its own job) |
-| NYJ OFFENCE WEAK SPOT | pressure (sacks + hits) | 19.7% | 16.5% | 15.7% | NYJ offence ranks 31 of 32, LAC defence ranks 11 of 32 (1 = best at its own job) |
+| LAC DEFENCE WEAK SPOT | points | 19.2 | 26.6 | 23.1 | NYJ offence ranks 26 of 32, LAC defence ranks 26 of 32 (1 = best at its own job) |
+| LAC DEFENCE ADVANTAGE | third-down conversions | 34.7% | 34.4% | 39.3% | NYJ offence ranks 27 of 32, LAC defence ranks 7 of 32 (1 = best at its own job) |
+| NYJ OFFENCE WEAK SPOT | red-zone touchdowns | 31.8% | 56.7% | 58.6% | NYJ offence ranks 32 of 32, LAC defence ranks 15 of 32 (1 = best at its own job) |
+| LAC DEFENCE WEAK SPOT | sacks (pass protection vs pass rush) | 9.9% | 5.3% | 6.5% | NYJ offence ranks 30 of 32, LAC defence ranks 24 of 32 (1 = best at its own job) |
+| LAC DEFENCE ADVANTAGE | pressure (sacks + hits) | 19.7% | 17.3% | 15.8% | NYJ offence ranks 30 of 32, LAC defence ranks 9 of 32 (1 = best at its own job) |
 
 ### LAC offense vs NYJ defense
 
 | Flag | Area | Offense (per game or rate) | Defense (allowed, or its own sack/pressure rate) | League avg | Ranks |
 |---|---|---|---|---|---|
-| NYJ DEFENCE ADVANTAGE | wide receiver yards | 122.9 | 126.2 | 149.5 | LAC offence ranks 24 of 32, NYJ defence ranks 5 of 32 (1 = best at its own job) |
-| NYJ DEFENCE WEAK SPOT | tight end yards | 46.9 | 72.8 | 54.7 | LAC offence ranks 19 of 32, NYJ defence ranks 28 of 32 (1 = best at its own job) |
-| NYJ DEFENCE WEAK SPOT | running back rushing yards | 88.6 | 131.0 | 92.3 | LAC offence ranks 16 of 32, NYJ defence ranks 31 of 32 (1 = best at its own job) |
-| NYJ DEFENCE WEAK SPOT | points | 15.1 | 28.0 | 23.1 | LAC offence ranks 32 of 32, NYJ defence ranks 28 of 32 (1 = best at its own job) |
-| NYJ DEFENCE WEAK SPOT | third-down conversions | 34.2% | 44.9% | 39.4% | LAC offence ranks 30 of 32, NYJ defence ranks 26 of 32 (1 = best at its own job) |
-| NYJ DEFENCE WEAK SPOT | red-zone touchdowns | 50.0% | 67.7% | 58.5% | LAC offence ranks 26 of 32, NYJ defence ranks 24 of 32 (1 = best at its own job) |
+| NYJ DEFENCE ADVANTAGE | wide receiver yards | 119.5 | 126.2 | 149.3 | LAC offence ranks 25 of 32, NYJ defence ranks 5 of 32 (1 = best at its own job) |
+| NYJ DEFENCE WEAK SPOT | tight end yards | 38.5 | 72.8 | 54.6 | LAC offence ranks 26 of 32, NYJ defence ranks 28 of 32 (1 = best at its own job) |
+| NYJ DEFENCE WEAK SPOT | running back rushing yards | 95.8 | 131.0 | 92.3 | LAC offence ranks 14 of 32, NYJ defence ranks 31 of 32 (1 = best at its own job) |
+| LAC OFFENCE WEAK SPOT | passing yards | 191.9 | 227.5 | 236.9 | LAC offence ranks 28 of 32, NYJ defence ranks 11 of 32 (1 = best at its own job) |
+| NYJ DEFENCE WEAK SPOT | points | 16.2 | 28.0 | 23.1 | LAC offence ranks 31 of 32, NYJ defence ranks 28 of 32 (1 = best at its own job) |
+| NYJ DEFENCE WEAK SPOT | third-down conversions | 32.8% | 44.9% | 39.3% | LAC offence ranks 32 of 32, NYJ defence ranks 26 of 32 (1 = best at its own job) |
+| NYJ DEFENCE WEAK SPOT | red-zone touchdowns | 47.1% | 67.7% | 58.6% | LAC offence ranks 28 of 32, NYJ defence ranks 24 of 32 (1 = best at its own job) |
 | LAC OFFENCE WEAK SPOT | sacks (pass protection vs pass rush) | 10.5% | 6.5% | 6.5% | LAC offence ranks 31 of 32, NYJ defence ranks 18 of 32 (1 = best at its own job) |
-| LAC OFFENCE WEAK SPOT | pressure (sacks + hits) | 19.3% | 16.0% | 15.7% | LAC offence ranks 30 of 32, NYJ defence ranks 13 of 32 (1 = best at its own job) |
+| LAC OFFENCE WEAK SPOT | pressure (sacks + hits) | 20.9% | 16.0% | 15.8% | LAC offence ranks 32 of 32, NYJ defence ranks 14 of 32 (1 = best at its own job) |
 
 ## Team score projection (research only)
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | NYJ 20.4 - LAC 23.9 | 44.3 | +3.4 | 61.2% | n/a | n/a | NYJ 9.7 - LAC 12.4 |
-| independent | NYJ 18.4 - LAC 19.6 | 38.0 | +1.2 | 54.2% | n/a | n/a | NYJ 7.6 - LAC 9.6 |
+| matchup_pair | NYJ 20.4 - LAC 23.9 | 44.3 | +3.5 | 62.2% | 46.3% | 54.0% | NYJ 9.7 - LAC 12.6 |
+| independent | NYJ 18.4 - LAC 19.8 | 38.2 | +1.4 | 54.9% | 46.4% | 38.3% | NYJ 7.6 - LAC 9.9 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -58,40 +55,40 @@ Bootstrap of each team's real quarter scores. 'matchup_pair' includes the oppone
 
 | Player | Pos | Stat | G | Wtd mean | Opp factor | Floor p5 | p10 | MAIN p15 | p20 | p25 | Median |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| G.Wilson | WR | receiving yards | 7 | 73.5 | 1.028 | 27.0 | 27.3 | 27.7 | 31.3 | 36.5 | 85.3 |
-| G.Wilson | WR | receptions | 7 | 5.5 | 1.006 | 2.3 | 2.6 | 2.9 | 3.2 | 3.5 | 6.0 |
-| A.Mitchell | WR | receiving yards | 4 | 52.7 | 1.028 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 30.3 |
-| A.Mitchell | WR | receptions | 4 | 2.6 | 1.006 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 1.5 |
-| K.Sadiq | TE | receiving yards | 8 | 21.8 | 0.967 | 1.0 | 2.0 | 2.9 | 2.9 | 2.9 | 8.7 |
-| K.Sadiq | TE | receptions | 8 | 1.7 | 0.884 | 0.3 | 0.6 | 0.9 | 0.9 | 0.9 | 0.9 |
-| M.Taylor | TE | receiving yards | 6 | 25.9 | 0.967 | 12.6 | 14.5 | 16.4 | 18.4 | 18.6 | 21.3 |
-| M.Taylor | TE | receptions | 6 | 2.9 | 0.884 | 1.3 | 1.8 | 2.2 | 2.7 | 2.7 | 3.1 |
-| B.Allen | RB | receiving yards | 8 | 11.2 | 0.85 | 0.9 | 1.8 | 2.7 | 3.6 | 4.5 | 5.9 |
-| B.Allen | RB | receptions | 8 | 2.1 | 0.883 | 0.9 | 0.9 | 0.9 | 1.2 | 1.5 | 1.8 |
-| B.Allen | RB | rushing yards | 8 | 80.2 | 1.071 | 22.1 | 29.2 | 35.7 | 38.4 | 41.0 | 73.4 |
-| B.Hall | RB | rushing yards | 3 | 48.9 | 1.071 | 35.2 | 36.2 | 37.2 | 38.1 | 39.1 | 43.9 |
-| G.Smith | QB | passing yards | 8 | 213.8 | 0.986 | 127.4 | 137.4 | 146.8 | 152.7 | 158.5 | 214.0 |
+| G.Wilson | WR | receiving yards | 7 | 73.9 | 1.034 | 27.2 | 27.5 | 27.8 | 31.4 | 36.7 | 85.8 |
+| G.Wilson | WR | receptions | 7 | 5.4 | 0.997 | 2.3 | 2.6 | 2.9 | 3.2 | 3.5 | 6.0 |
+| A.Mitchell | WR | receiving yards | 4 | 53.0 | 1.034 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 30.5 |
+| A.Mitchell | WR | receptions | 4 | 2.5 | 0.997 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 1.5 |
+| K.Sadiq | TE | receiving yards | 8 | 22.4 | 0.996 | 1.0 | 2.1 | 3.0 | 3.0 | 3.0 | 9.0 |
+| K.Sadiq | TE | receptions | 8 | 1.8 | 0.907 | 0.3 | 0.6 | 0.9 | 0.9 | 0.9 | 0.9 |
+| M.Taylor | TE | receiving yards | 6 | 26.6 | 0.996 | 12.9 | 14.9 | 16.9 | 18.9 | 19.2 | 21.9 |
+| M.Taylor | TE | receptions | 6 | 3.0 | 0.907 | 1.4 | 1.8 | 2.3 | 2.7 | 2.7 | 3.2 |
+| B.Allen | RB | receiving yards | 8 | 11.5 | 0.875 | 0.9 | 1.8 | 2.8 | 3.7 | 4.6 | 6.1 |
+| B.Allen | RB | receptions | 8 | 2.3 | 0.967 | 1.0 | 1.0 | 1.0 | 1.4 | 1.7 | 1.9 |
+| B.Allen | RB | rushing yards | 8 | 75.8 | 1.012 | 20.9 | 27.6 | 33.8 | 36.2 | 38.7 | 69.3 |
+| B.Hall | RB | rushing yards | 3 | 46.2 | 1.012 | 33.3 | 34.2 | 35.1 | 36.0 | 36.9 | 41.5 |
+| G.Smith | QB | passing yards | 8 | 217.5 | 1.003 | 129.6 | 139.8 | 149.3 | 155.3 | 161.3 | 217.7 |
 
 ### LAC offense vs NYJ defense
 
 | Player | Pos | Stat | G | Wtd mean | Opp factor | Floor p5 | p10 | MAIN p15 | p20 | p25 | Median |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| T.Harris | WR | receiving yards | 7 | 32.4 | 0.922 | 8.3 | 11.1 | 13.8 | 15.5 | 16.6 | 28.6 |
-| T.Harris | WR | receptions | 7 | 2.8 | 0.923 | 1.2 | 1.5 | 1.8 | 2.0 | 2.3 | 2.8 |
-| Q.Johnston | WR | receiving yards | 7 | 37.2 | 0.922 | 9.2 | 12.0 | 14.8 | 19.4 | 24.9 | 36.9 |
-| Q.Johnston | WR | receptions | 7 | 1.7 | 0.923 | 0.9 | 0.9 | 0.9 | 0.9 | 0.9 | 0.9 |
-| O.Gadsden | TE | receiving yards | 8 | 25.3 | 1.15 | 0.0 | 0.0 | 1.0 | 7.8 | 14.7 | 20.1 |
-| O.Gadsden | TE | receptions | 8 | 2.6 | 1.047 | 0.0 | 0.0 | 0.1 | 0.8 | 1.6 | 2.1 |
-| L.McConkey | WR | receiving yards | 6 | 42.9 | 0.922 | 3.9 | 7.8 | 11.8 | 15.7 | 19.8 | 46.6 |
-| L.McConkey | WR | receptions | 6 | 2.5 | 0.923 | 0.2 | 0.5 | 0.7 | 0.9 | 1.4 | 3.2 |
-| K.Mitchell | RB | receiving yards | 7 | 14.9 | 0.933 | -3.3 | -1.9 | -0.5 | 2.8 | 7.0 | 15.9 |
-| K.Mitchell | RB | receptions | 7 | 2.2 | 0.868 | 0.3 | 0.5 | 0.8 | 1.2 | 1.7 | 2.6 |
-| C.Kolar | TE | receiving yards | 5 | 29.8 | 1.15 | 23.0 | 23.0 | 23.0 | 23.0 | 23.0 | 24.1 |
-| C.Kolar | TE | receptions | 5 | 2.7 | 1.047 | 1.5 | 1.9 | 2.3 | 2.7 | 3.1 | 3.1 |
-| O.Hampton | RB | rushing yards | 8 | 50.5 | 1.15 | 21.5 | 22.3 | 23.7 | 29.0 | 34.2 | 50.6 |
-| K.Mitchell | RB | rushing yards | 8 | 24.9 | 1.15 | 5.4 | 6.2 | 7.1 | 8.3 | 9.5 | 20.1 |
-| K.Vidal | RB | rushing yards | 6 | 32.0 | 1.15 | 11.2 | 15.5 | 19.8 | 24.1 | 24.7 | 27.6 |
-| J.Herbert | QB | passing yards | 8 | 195.3 | 0.98 | 141.8 | 165.2 | 185.3 | 186.3 | 187.4 | 194.5 |
+| T.Harris | WR | receiving yards | 7 | 42.2 | 0.923 | 8.3 | 11.1 | 13.8 | 17.5 | 21.7 | 48.9 |
+| T.Harris | WR | receptions | 7 | 3.1 | 0.925 | 1.2 | 1.5 | 1.8 | 2.0 | 2.3 | 2.8 |
+| O.Gadsden | TE | receiving yards | 8 | 21.6 | 1.15 | 0.0 | 0.0 | 0.4 | 3.2 | 6.0 | 19.5 |
+| O.Gadsden | TE | receptions | 8 | 2.4 | 1.047 | 0.0 | 0.0 | 0.1 | 0.4 | 0.8 | 2.1 |
+| Q.Johnston | WR | receiving yards | 7 | 33.2 | 0.923 | 5.8 | 6.1 | 6.4 | 12.0 | 20.3 | 36.9 |
+| Q.Johnston | WR | receptions | 7 | 1.6 | 0.925 | 0.9 | 0.9 | 0.9 | 0.9 | 0.9 | 0.9 |
+| C.Kolar | TE | receiving yards | 6 | 27.2 | 1.15 | 19.5 | 20.7 | 21.9 | 23.0 | 23.0 | 23.6 |
+| C.Kolar | TE | receptions | 6 | 2.5 | 1.047 | 1.3 | 1.6 | 1.8 | 2.1 | 2.4 | 3.1 |
+| K.Mitchell | RB | receiving yards | 8 | 12.3 | 0.931 | -3.0 | -1.4 | 0.0 | 0.0 | 0.0 | 14.9 |
+| K.Mitchell | RB | receptions | 8 | 1.9 | 0.868 | 0.0 | 0.0 | 0.0 | 0.3 | 0.7 | 2.6 |
+| K.Vidal | RB | receiving yards | 7 | 9.3 | 0.931 | 1.0 | 3.0 | 4.9 | 5.8 | 6.1 | 10.2 |
+| K.Vidal | RB | receptions | 7 | 1.5 | 0.868 | 0.9 | 0.9 | 0.9 | 0.9 | 0.9 | 1.7 |
+| O.Hampton | RB | rushing yards | 8 | 62.0 | 1.15 | 21.5 | 22.3 | 23.7 | 29.0 | 34.2 | 58.1 |
+| K.Mitchell | RB | rushing yards | 8 | 22.5 | 1.15 | 4.6 | 4.6 | 4.7 | 5.5 | 6.3 | 20.1 |
+| K.Vidal | RB | rushing yards | 7 | 25.8 | 1.15 | 2.1 | 4.1 | 6.2 | 10.4 | 15.5 | 26.4 |
+| J.Herbert | QB | passing yards | 8 | 183.3 | 0.98 | 121.3 | 124.1 | 129.4 | 150.0 | 170.5 | 188.7 |
 
 The player's own games in the window (recency-weighted mean; percentiles of his game log), scaled by half of the opponent's allowed-per-game deviation from league average for that position, capped at +/-15%. This is NOT the three-model consensus and has not been validated against prices. Injury replacements, role changes and game script are not applied: the analyst must adjust for them.
 
@@ -102,26 +99,26 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points allowed / game | 28.0 | 28/32 | 23.1 |
-| Pass yards allowed / game | 227.5 | 11/32 | 237.2 |
-| Yards per pass attempt allowed | 7.91 | 23/32 | 7.24 |
-| Rush yards allowed / game | 139.8 | 31/32 | 99.5 |
+| Pass yards allowed / game | 227.5 | 11/32 | 236.9 |
+| Yards per pass attempt allowed | 7.91 | 24/32 | 7.23 |
+| Rush yards allowed / game | 139.8 | 31/32 | 99.3 |
 | Yards per carry allowed | 4.44 | 26/32 | 4.05 |
 | RB rush yards allowed / game | 131.0 | 31/32 | 92.3 |
-| WR yards allowed / game | 126.2 | 5/32 | 149.5 |
-| WR receptions allowed / game | 9.6 | 8/32 | 11.4 |
-| TE yards allowed / game | 72.8 | 28/32 | 54.7 |
+| WR yards allowed / game | 126.2 | 5/32 | 149.3 |
+| WR receptions allowed / game | 9.6 | 8/32 | 11.3 |
+| TE yards allowed / game | 72.8 | 28/32 | 54.6 |
 | TE receptions allowed / game | 5.9 | 22/32 | 5.4 |
-| RB receiving yards allowed / game | 28.5 | 12/32 | 32.9 |
+| RB receiving yards allowed / game | 28.5 | 12/32 | 33.0 |
 | RB receptions allowed / game | 3.2 | 3/32 | 4.4 |
-| Explosive passes (20+) allowed / game | 3.12 | 16/32 | 3.04 |
-| Explosive runs (15+) allowed / game | 1.12 | 15/32 | 1.20 |
+| Explosive passes (20+) allowed / game | 3.12 | 15/32 | 3.04 |
+| Explosive runs (15+) allowed / game | 1.12 | 14/32 | 1.21 |
 | Sack rate | 6.5% | 18/32 | 6.5% |
-| Pressure rate (sacks + hits) | 16.0% | 13/32 | 15.7% |
-| Third-down conversions allowed | 44.9% | 26/32 | 39.4% |
-| Red-zone TD rate allowed | 67.7% | 24/32 | 58.5% |
-| Takeaways / game | 1.12 | 18/32 | 1.22 |
+| Pressure rate (sacks + hits) | 16.0% | 14/32 | 15.8% |
+| Third-down conversions allowed | 44.9% | 26/32 | 39.3% |
+| Red-zone TD rate allowed | 67.7% | 24/32 | 58.6% |
+| Takeaways / game | 1.12 | 18/32 | 1.23 |
 
-Blitz rate 41.9% and play-action faced 30.7% on 241 charted dropbacks (FTN). Deep passes (20+ air yards) faced 2.6 per game, 52.4% completed.
+Blitz rate 40.7% and play-action faced 30.0% on 263 charted dropbacks (FTN). Deep passes (20+ air yards) faced 2.6 per game, 52.4% completed.
 
 ### NYJ defense, game by game
 
@@ -194,18 +191,18 @@ Blitz rate 41.9% and play-action faced 30.7% on 241 charted dropbacks (FTN). Dee
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
 | Points / game | 19.2 | 26/32 | 22.9 |
-| Pass yards / game | 237.6 | 16/32 | 236.5 |
+| Pass yards / game | 237.6 | 16/32 | 236.6 |
 | Yards per pass attempt | 7.70 | 10/32 | 7.16 |
-| Rush yards / game | 98.1 | 15/32 | 99.4 |
+| Rush yards / game | 98.1 | 16/32 | 99.4 |
 | Yards per carry | 4.49 | 9/32 | 4.05 |
-| RB rush yards / game | 96.2 | 14/32 | 92.3 |
+| RB rush yards / game | 96.2 | 13/32 | 92.3 |
 | WR yards / game | 146.2 | 14/32 | 148.7 |
-| TE yards / game | 55.9 | 14/32 | 54.6 |
-| RB receiving yards / game | 35.5 | 11/32 | 33.2 |
+| TE yards / game | 55.9 | 15/32 | 54.6 |
+| RB receiving yards / game | 35.5 | 11/32 | 33.3 |
 | Explosive passes (20+) / game | 3.00 | 18/32 | 3.04 |
-| Explosive runs (15+) / game | 1.50 | 7/32 | 1.19 |
+| Explosive runs (15+) / game | 1.50 | 7/32 | 1.20 |
 | Sack rate allowed | 9.9% | 30/32 | 6.5% |
-| Pressure rate allowed (sacks + hits) | 19.7% | 31/32 | 15.6% |
+| Pressure rate allowed (sacks + hits) | 19.7% | 30/32 | 15.7% |
 | Third-down conversion rate | 34.7% | 27/32 | 39.5% |
 | Red-zone TD rate | 31.8% | 32/32 | 58.0% |
 
@@ -268,12 +265,12 @@ Neutral-situation pass rate 49.5%; 57.4 plays per game; target share WR 57% / TE
 
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
-| offense | Shotgun | 256 | 56% | 82% | 6.06 | 0.032 |
-| offense | Under center | 180 | 39% | 32% | 4.79 | -0.091 |
-| offense | No huddle | 23 | 5% | 70% | 4.48 | -0.07 |
-| defense vs | Shotgun | 266 | 52% | 67% | 5.68 | 0.1 |
-| defense vs | Under center | 226 | 44% | 31% | 5.89 | 0.131 |
-| defense vs | No huddle | 23 | 4% | 61% | 4.3 | 0.049 |
+| offense | Shotgun | 256 | 56% | 82% | 6.06 | 0.029 |
+| offense | Under center | 180 | 39% | 32% | 4.79 | -0.085 |
+| offense | No huddle | 23 | 5% | 70% | 4.48 | -0.056 |
+| defense vs | Shotgun | 266 | 52% | 67% | 5.68 | 0.102 |
+| defense vs | Under center | 226 | 44% | 31% | 5.89 | 0.11 |
+| defense vs | No huddle | 23 | 4% | 61% | 4.3 | 0.047 |
 
 | Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
 |---|---|---|---|---|---|---|
@@ -290,7 +287,7 @@ Neutral-situation pass rate 49.5%; 57.4 plays per game; target share WR 57% / TE
 | defense allows | Deep middle | 10 | 4% | 50% | 17.8 | 5 |
 | defense allows | Deep right | 16 | 7% | 56% | 18.12 | 8 |
 
-### NYJ lines (depth chart as of 2026-11-16T16:58:52Z)
+### NYJ lines (depth chart as of 2026-11-17T16:52:03Z)
 
 Offensive line: LT Olu Fashanu, LG Dylan Parham, C Josh Myers, RG Joe Tippmann, RT Armand Membou.  
 Defensive front: LDE David Bailey, LDT Darrell Jackson Jr., RDT Jowon Briggs, RDE Kingsley Enagbare, WLB Demario Davis, SLB Trevin Wallace.
@@ -299,7 +296,7 @@ Defensive front: LDE David Bailey, LDT Darrell Jackson Jr., RDT Jowon Briggs, RD
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Omar Cooper Jr. (WR) Questionable; Trevin Wallace (LB) Out; Jarvis Brownlee Jr. (CB) Out; Geno Smith (QB) Questionable; Dylan Parham (G) Questionable.
+ESPN live list (designations only): Omar Cooper Jr. (WR) Questionable; Geno Smith (QB) Questionable; Dylan Parham (G) Questionable; Trevin Wallace (LB) Questionable; Jarvis Brownlee Jr. (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -309,39 +306,38 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 Arrived: none.  
 Left for another team: Andre Cisco (DB) to DET.
 
-## LAC (last 8 games: weeks 1, 2, 3, 4, 5, 6, 8, 9)
+## LAC (last 8 games: weeks 2, 3, 4, 5, 6, 8, 9, 10)
 
 ### LAC defense: what it allows (rank 1 = best defense)
 
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
-| Points allowed / game | 27.4 | 27/32 | 23.1 |
-| Pass yards allowed / game | 230.6 | 12/32 | 237.2 |
-| Yards per pass attempt allowed | 7.92 | 24/32 | 7.24 |
-| Rush yards allowed / game | 116.1 | 28/32 | 99.5 |
-| Yards per carry allowed | 4.26 | 22/32 | 4.05 |
-| RB rush yards allowed / game | 105.5 | 24/32 | 92.3 |
-| WR yards allowed / game | 157.9 | 21/32 | 149.5 |
-| WR receptions allowed / game | 11.5 | 17/32 | 11.4 |
-| TE yards allowed / game | 51.1 | 16/32 | 54.7 |
-| TE receptions allowed / game | 4.1 | 4/32 | 5.4 |
-| RB receiving yards allowed / game | 21.5 | 5/32 | 32.9 |
-| RB receptions allowed / game | 3.4 | 6/32 | 4.4 |
-| Explosive passes (20+) allowed / game | 2.88 | 11/32 | 3.04 |
-| Explosive runs (15+) allowed / game | 1.25 | 19/32 | 1.20 |
-| Sack rate | 5.1% | 26/32 | 6.5% |
-| Pressure rate (sacks + hits) | 16.5% | 11/32 | 15.7% |
-| Third-down conversions allowed | 35.1% | 8/32 | 39.4% |
-| Red-zone TD rate allowed | 53.1% | 11/32 | 58.5% |
-| Takeaways / game | 1.38 | 8/32 | 1.22 |
+| Points allowed / game | 26.6 | 26/32 | 23.1 |
+| Pass yards allowed / game | 238.5 | 15/32 | 236.9 |
+| Yards per pass attempt allowed | 7.82 | 22/32 | 7.23 |
+| Rush yards allowed / game | 104.6 | 19/32 | 99.3 |
+| Yards per carry allowed | 4.12 | 19/32 | 4.05 |
+| RB rush yards allowed / game | 94.5 | 18/32 | 92.3 |
+| WR yards allowed / game | 159.5 | 21/32 | 149.3 |
+| WR receptions allowed / game | 11.2 | 15/32 | 11.3 |
+| TE yards allowed / game | 54.1 | 18/32 | 54.6 |
+| TE receptions allowed / game | 4.4 | 6/32 | 5.4 |
+| RB receiving yards allowed / game | 24.8 | 6/32 | 33.0 |
+| RB receptions allowed / game | 4.1 | 11/32 | 4.4 |
+| Explosive passes (20+) allowed / game | 3.12 | 15/32 | 3.04 |
+| Explosive runs (15+) allowed / game | 1.12 | 14/32 | 1.21 |
+| Sack rate | 5.3% | 24/32 | 6.5% |
+| Pressure rate (sacks + hits) | 17.3% | 9/32 | 15.8% |
+| Third-down conversions allowed | 34.4% | 7/32 | 39.3% |
+| Red-zone TD rate allowed | 56.7% | 15/32 | 58.6% |
+| Takeaways / game | 1.62 | 4/32 | 1.23 |
 
-Blitz rate 24.7% and play-action faced 22.4% on 255 charted dropbacks (FTN). Deep passes (20+ air yards) faced 2.8 per game, 54.5% completed.
+Blitz rate 25.0% and play-action faced 24.1% on 216 charted dropbacks (FTN). Deep passes (20+ air yards) faced 2.9 per game, 52.2% completed.
 
 ### LAC defense, game by game
 
 | Wk | Opp | Pts | Pass yds | Rush yds | RB rush | WR rec-yds | TE rec-yds | RB rec-yds | Expl pass | Expl run | Sacks |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | vs ARI | 26 | 277 | 108 | 102 | 14-164 | 9-95 | 4-18 | 2 | 1 | 1 |
 | 2 | vs LV | 26 | 253 | 56 | 56 | 11-204 | 4-34 | 4-15 | 4 | 0 | 2 |
 | 3 | @ BUF | 24 | 204 | 169 | 154 | 8-110 | 3-43 | 4-50 | 3 | 3 | 4 |
 | 4 | @ SEA | 30 | 168 | 132 | 99 | 8-115 | 1-12 | 4-41 | 4 | 3 | 3 |
@@ -349,12 +345,12 @@ Blitz rate 24.7% and play-action faced 22.4% on 255 charted dropbacks (FTN). Dee
 | 6 | @ KC | 22 | 272 | 144 | 134 | 12-137 | 7-106 | 4-29 | 3 | 2 | 0 |
 | 8 | @ LA | 24 | 157 | 129 | 129 | 13-132 | 3-22 | 1-3 | 1 | 1 | 1 |
 | 9 | vs HOU | 44 | 391 | 86 | 86 | 17-334 | 2-42 | 3-15 | 5 | 0 | 1 |
+| 10 | @ BAL | 20 | 340 | 16 | 14 | 12-177 | 11-119 | 10-44 | 4 | 0 | 2 |
 
 ### Best individual lines allowed by LAC
 
 | Wk | Opp | Top receiver | Top rusher |
 |---|---|---|---|
-| 1 | ARI | T.McBride (TE) 9/13 for 95, 1 TD | T.Allgeier (RB) 17 for 61, 0 TD |
 | 2 | LV | T.Tucker (WR) 5/7 for 119, 1 TD | A.Jeanty (RB) 21 for 48, 0 TD |
 | 3 | BUF | D.Moore (WR) 6/10 for 67, 0 TD | J.Cook (RB) 24 for 154, 1 TD |
 | 4 | SEA | J.Smith-Njigba (WR) 5/6 for 76, 0 TD | E.Wilson (RB) 21 for 81, 1 TD |
@@ -362,74 +358,74 @@ Blitz rate 24.7% and play-action faced 22.4% on 255 charted dropbacks (FTN). Dee
 | 6 | KC | X.Worthy (WR) 7/7 for 73, 0 TD | K.Walker (RB) 19 for 128, 2 TD |
 | 8 | LA | P.Nacua (WR) 11/12 for 80, 1 TD | B.Corum (RB) 11 for 73, 1 TD |
 | 9 | HOU | K.Boutte (WR) 4/5 for 125, 2 TD | W.Marks (RB) 18 for 70, 0 TD |
+| 10 | BAL | M.Andrews (TE) 8/8 for 82, 0 TD | D.Henry (RB) 10 for 10, 2 TD |
 
 ### LAC run defense by direction
 
 | Direction | Carries | Yards | YPC | 15+ |
 |---|---|---|---|---|
-| middle | 87 | 354 | 4.07 | 4 |
-| right end | 23 | 97 | 4.22 | 1 |
-| left guard | 23 | 92 | 4.0 | 0 |
-| right tackle | 23 | 91 | 3.96 | 0 |
-| left end | 22 | 144 | 6.55 | 2 |
-| right guard | 21 | 73 | 3.48 | 1 |
-| left tackle | 19 | 78 | 4.11 | 2 |
+| middle | 76 | 325 | 4.28 | 4 |
+| left guard | 25 | 96 | 3.84 | 0 |
+| right tackle | 24 | 85 | 3.54 | 0 |
+| right end | 22 | 66 | 3.0 | 0 |
+| right guard | 20 | 64 | 3.2 | 1 |
+| left end | 19 | 125 | 6.58 | 2 |
+| left tackle | 17 | 76 | 4.47 | 2 |
 
 ### LAC defenders in coverage (Pro Football Reference)
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Tarheeb Still | 8 | 32 | 20 | 250 | 7.8 | 3 | 1 | 4 |
-| Cam Hart | 8 | 27 | 15 | 235 | 8.7 | 0 | 2 | 2 |
-| Genesis Smith | 8 | 25 | 13 | 205 | 8.2 | 3 | 2 | 2 |
-| Daiyan Henley | 8 | 24 | 18 | 183 | 7.6 | 0 | 1 | 3 |
-| Tony Jefferson | 8 | 17 | 12 | 134 | 7.9 | 1 | 0 | 4 |
-| Del'Shawn Phillips | 8 | 14 | 12 | 90 | 6.4 | 1 | 0 | 4 |
-| Elijah Molden | 6 | 14 | 10 | 191 | 13.6 | 1 | 0 | 1 |
-| Donte Jackson | 5 | 12 | 7 | 132 | 11.0 | 1 | 0 | 1 |
-| Derwin James | 3 | 11 | 7 | 43 | 3.9 | 1 | 0 | 3 |
+| Tarheeb Still | 7 | 29 | 18 | 222 | 7.7 | 3 | 1 | 4 |
+| Genesis Smith | 7 | 23 | 12 | 200 | 8.7 | 3 | 2 | 2 |
+| Daiyan Henley | 7 | 21 | 15 | 152 | 7.2 | 0 | 1 | 2 |
+| Cam Hart | 7 | 21 | 10 | 165 | 7.9 | 0 | 2 | 2 |
+| Tony Jefferson | 7 | 15 | 11 | 130 | 8.7 | 1 | 0 | 4 |
+| Del'Shawn Phillips | 7 | 13 | 11 | 85 | 6.5 | 1 | 0 | 3 |
 | Isas Waxter | 3 | 10 | 5 | 9 | 0.9 | 0 | 0 | 0 |
+| Elijah Molden | 5 | 10 | 8 | 147 | 14.7 | 1 | 0 | 1 |
+| Rodney Shelley | 4 | 9 | 7 | 126 | 14.0 | 2 | 0 | 2 |
+| Donte Jackson | 4 | 7 | 4 | 101 | 14.4 | 1 | 0 | 1 |
 
 ### LAC pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| Tuli Tuipulotu | 8 | 12 | 3.0 | 2 | 13 |
-| Khalil Mack | 6 | 11 | 3.0 | 5 | 6 |
+| Tuli Tuipulotu | 7 | 9 | 3.0 | 2 | 13 |
+| Khalil Mack | 5 | 9 | 3.0 | 3 | 6 |
 | Akheem Mesidor | 6 | 7 | 2.5 | 0 | 1 |
-| Daiyan Henley | 8 | 5 | 0.5 | 3 | 23 |
-| Teair Tart | 7 | 5 | 0.0 | 0 | 0 |
-| Troy Dye | 7 | 3 | 1.5 | 1 | 5 |
-| Jamaree Caldwell | 5 | 3 | 0.0 | 0 | 0 |
-| Del'Shawn Phillips | 8 | 2 | 0.0 | 0 | 10 |
+| Teair Tart | 6 | 5 | 0.0 | 0 | 0 |
+| Daiyan Henley | 7 | 4 | 0.0 | 3 | 17 |
+| Justin Eboigbe | 3 | 2 | 0.5 | 0 | 0 |
+| Jamaree Caldwell | 4 | 2 | 0.0 | 0 | 0 |
+| Troy Dye | 6 | 2 | 1.0 | 1 | 5 |
 
 ### LAC offense: what it produces (rank 1 = best offense)
 
 | Metric | Value | Rank | League avg |
 |---|---|---|---|
-| Points / game | 15.1 | 32/32 | 22.9 |
-| Pass yards / game | 201.9 | 24/32 | 236.5 |
-| Yards per pass attempt | 6.70 | 23/32 | 7.16 |
-| Rush yards / game | 96.5 | 17/32 | 99.4 |
-| Yards per carry | 3.84 | 20/32 | 4.05 |
-| RB rush yards / game | 88.6 | 16/32 | 92.3 |
-| WR yards / game | 122.9 | 24/32 | 148.7 |
-| TE yards / game | 46.9 | 19/32 | 54.6 |
-| RB receiving yards / game | 32.1 | 15/32 | 33.2 |
+| Points / game | 16.2 | 31/32 | 22.9 |
+| Pass yards / game | 191.9 | 28/32 | 236.6 |
+| Yards per pass attempt | 6.62 | 23/32 | 7.16 |
+| Rush yards / game | 103.6 | 14/32 | 99.4 |
+| Yards per carry | 3.91 | 18/32 | 4.05 |
+| RB rush yards / game | 95.8 | 14/32 | 92.3 |
+| WR yards / game | 119.5 | 25/32 | 148.7 |
+| TE yards / game | 38.5 | 26/32 | 54.6 |
+| RB receiving yards / game | 33.9 | 13/32 | 33.3 |
 | Explosive passes (20+) / game | 2.25 | 25/32 | 3.04 |
-| Explosive runs (15+) / game | 1.00 | 23/32 | 1.19 |
+| Explosive runs (15+) / game | 1.38 | 9/32 | 1.20 |
 | Sack rate allowed | 10.5% | 31/32 | 6.5% |
-| Pressure rate allowed (sacks + hits) | 19.3% | 30/32 | 15.6% |
-| Third-down conversion rate | 34.2% | 30/32 | 39.5% |
-| Red-zone TD rate | 50.0% | 26/32 | 58.0% |
+| Pressure rate allowed (sacks + hits) | 20.9% | 32/32 | 15.7% |
+| Third-down conversion rate | 32.8% | 32/32 | 39.5% |
+| Red-zone TD rate | 47.1% | 28/32 | 58.0% |
 
-Neutral-situation pass rate 40.7%; 62.0 plays per game; target share WR 51% / TE 25% / RB 24%.
+Neutral-situation pass rate 39.4%; 62.4 plays per game; target share WR 48% / TE 25% / RB 27%.
 
 ### LAC offense, game by game
 
 | Wk | Opp | Pts | Pass yds | Rush yds | RB rush | WR rec-yds | TE rec-yds | RB rec-yds | Expl pass | Expl run | Sacks taken |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | vs ARI | 14 | 209 | 52 | 52 | 10-119 | 7-90 | 0-0 | 2 | 0 | 3 |
 | 2 | vs LV | 14 | 192 | 125 | 118 | 6-108 | 6-48 | 3-36 | 1 | 1 | 3 |
 | 3 | @ BUF | 16 | 226 | 122 | 114 | 13-182 | 0-0 | 7-44 | 5 | 1 | 2 |
 | 4 | @ SEA | 23 | 189 | 110 | 109 | 5-110 | 5-36 | 9-43 | 3 | 3 | 4 |
@@ -437,8 +433,9 @@ Neutral-situation pass rate 40.7%; 62.0 plays per game; target share WR 51% / TE
 | 6 | @ KC | 6 | 204 | 54 | 43 | 9-127 | 6-37 | 7-40 | 1 | 0 | 4 |
 | 8 | @ LA | 9 | 257 | 53 | 49 | 11-154 | 6-72 | 7-31 | 4 | 0 | 2 |
 | 9 | vs HOU | 22 | 217 | 131 | 123 | 6-129 | 5-48 | 4-40 | 2 | 1 | 8 |
+| 10 | @ BAL | 23 | 129 | 109 | 109 | 6-92 | 3-23 | 3-14 | 2 | 3 | 2 |
 
-**QB J.Herbert** (8 games): 144/233, 1591 yds, 6 TD, 11 INT, 31 sacks, 6.83 yds/att, depth of target 7.8, pressured on 21.2% of dropbacks. Yards by game: W1 209, W2 192, W3 226, W4 189, W5 121, W6 204, W8 257, W9 193.
+**QB J.Herbert** (8 games): 139/224, 1511 yds, 5 TD, 10 INT, 30 sacks, 6.75 yds/att, depth of target 7.3, pressured on 23.2% of dropbacks. Yards by game: W2 192, W3 226, W4 189, W5 121, W6 204, W8 257, W9 193, W10 129.
 
 **QB D.Uiagalelei** (1 games): 2/7, 24 yds, 1 TD, 0 INT, 0 sacks, 3.43 yds/att, depth of target 7.0, pressured on 0.0% of dropbacks. Yards by game: W9 24.
 
@@ -446,23 +443,23 @@ Neutral-situation pass rate 40.7%; 62.0 plays per game; target share WR 51% / TE
 
 | Player | Pos | G | Tgt | Rec | Yds | TD | Tgt share | Air share | aDOT | RZ tgt | 20+ | Yards by game |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| T.Harris | WR | 7 | 35 | 21 | 262 | 0 | 15% | 20% | 10.7 | 4 | 5 | 20 53 76 60 16 31 6 |
-| Q.Johnston | WR | 7 | 30 | 13 | 260 | 1 | 13% | 23% | 14.3 | 0 | 5 | 17 7 40 44 57 37 58 |
-| O.Gadsden | TE | 8 | 29 | 19 | 172 | 1 | 12% | 11% | 7.2 | 6 | 1 | 32 18 0 36 0 17 52 17 |
-| L.McConkey | WR | 6 | 24 | 17 | 286 | 1 | 10% | 16% | 12.4 | 2 | 4 | 82 35 66 0 17 86 |
-| K.Mitchell | RB | 7 | 22 | 18 | 103 | 1 | 9% | -1% | -1.0 | 2 | 0 | 15 -5 24 18 0 17 34 |
-| C.Kolar | TE | 5 | 20 | 13 | 129 | 0 | 9% | 6% | 5.4 | 2 | 1 | 21 37 20 20 31 |
-| K.Vidal | RB | 6 | 17 | 10 | 56 | 1 | 7% | -0% | -0.5 | 2 | 0 | 14 11 -1 19 7 6 |
-| K.Lambert-Smith | WR | 2 | 13 | 6 | 82 | 0 | 6% | 8% | 11.5 | 2 | 1 | 32 50 |
-| O.Hampton | RB | 6 | 13 | 11 | 63 | 0 | 6% | -1% | -0.8 | 0 | 0 | 21 0 8 6 21 7 |
+| T.Harris | WR | 7 | 34 | 23 | 328 | 0 | 15% | 23% | 11.5 | 4 | 7 | 53 76 60 16 31 6 86 |
+| O.Gadsden | TE | 8 | 28 | 18 | 147 | 1 | 13% | 12% | 7.3 | 6 | 0 | 18 0 36 0 17 52 17 7 |
+| Q.Johnston | WR | 7 | 25 | 12 | 249 | 1 | 11% | 23% | 15.8 | 0 | 5 | 7 40 44 57 37 58 6 |
+| C.Kolar | TE | 6 | 23 | 15 | 145 | 0 | 10% | 7% | 5.1 | 2 | 1 | 21 37 20 20 31 16 |
+| K.Mitchell | RB | 8 | 23 | 18 | 103 | 1 | 10% | 0% | 0.0 | 2 | 0 | 15 -5 24 18 0 17 34 0 |
+| K.Vidal | RB | 7 | 19 | 12 | 70 | 1 | 9% | -1% | -0.6 | 2 | 0 | 14 11 -1 19 7 6 14 |
+| L.McConkey | WR | 5 | 17 | 12 | 204 | 0 | 8% | 12% | 11.8 | 0 | 3 | 35 66 0 17 86 |
+| O.Hampton | RB | 7 | 15 | 12 | 63 | 0 | 7% | -1% | -1.4 | 0 | 0 | 21 0 8 6 21 7 0 |
+| K.Lambert-Smith | WR | 2 | 13 | 6 | 82 | 0 | 6% | 9% | 11.5 | 2 | 1 | 32 50 |
 
 ### LAC rushers
 
 | Player | Pos | G | Car | Yds | YPC | TD | Carry share | RZ car | 15+ | Yards by game |
 |---|---|---|---|---|---|---|---|---|---|---|
-| O.Hampton | RB | 8 | 102 | 369 | 3.62 | 3 | 51% | 18 | 3 | 43 94 56 45 33 18 20 60 |
-| K.Mitchell | RB | 8 | 46 | 178 | 3.87 | 0 | 23% | 5 | 2 | 9 24 52 39 11 4 6 33 |
-| K.Vidal | RB | 6 | 36 | 162 | 4.50 | 1 | 18% | 2 | 1 | 6 25 57 21 23 30 |
+| O.Hampton | RB | 8 | 112 | 431 | 3.85 | 3 | 53% | 19 | 5 | 94 56 45 33 18 20 60 105 |
+| K.Mitchell | RB | 8 | 45 | 173 | 3.84 | 0 | 21% | 3 | 2 | 24 52 39 11 4 6 33 4 |
+| K.Vidal | RB | 7 | 38 | 162 | 4.26 | 1 | 18% | 2 | 1 | 6 25 57 21 23 30 0 |
 | J.Herbert | QB | 6 | 11 | 46 | 4.18 | 0 | 5% | 2 | 1 | 0 8 3 24 7 4 |
 | Q.Johnston | WR | 3 | 3 | 8 | 2.67 | 0 | 1% | 0 | 0 | 7 -4 5 |
 
@@ -470,58 +467,58 @@ Neutral-situation pass rate 40.7%; 62.0 plays per game; target share WR 51% / TE
 
 | Direction | Carries | Yards | YPC | 15+ |
 |---|---|---|---|---|
-| middle | 62 | 207 | 3.34 | 1 |
-| left end | 39 | 123 | 3.15 | 1 |
-| right end | 34 | 152 | 4.47 | 2 |
-| left tackle | 18 | 84 | 4.67 | 1 |
-| left guard | 18 | 57 | 3.17 | 0 |
-| right guard | 15 | 66 | 4.4 | 1 |
+| middle | 57 | 183 | 3.21 | 1 |
+| left end | 44 | 153 | 3.48 | 1 |
+| right end | 32 | 135 | 4.22 | 2 |
+| left tackle | 23 | 102 | 4.43 | 1 |
+| left guard | 21 | 60 | 2.86 | 0 |
+| right guard | 20 | 113 | 5.65 | 3 |
 | right tackle | 13 | 83 | 6.38 | 1 |
 
 ### LAC by formation and pass zone
 
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
-| offense | Shotgun | 312 | 63% | 70% | 4.98 | -0.266 |
-| offense | Under center | 160 | 32% | 34% | 4.46 | -0.132 |
-| offense | No huddle | 24 | 5% | 96% | 2.75 | -0.688 |
-| defense vs | Shotgun | 260 | 55% | 72% | 6.38 | 0.057 |
-| defense vs | Under center | 199 | 42% | 29% | 4.56 | -0.135 |
-| defense vs | No huddle | 14 | 3% | 71% | 13.79 | 0.95 |
+| offense | Shotgun | 311 | 62% | 68% | 5.04 | -0.184 |
+| offense | Under center | 164 | 33% | 33% | 4.41 | -0.089 |
+| offense | No huddle | 24 | 5% | 92% | 2.54 | -0.623 |
+| defense vs | Shotgun | 266 | 57% | 75% | 6.41 | 0.036 |
+| defense vs | Under center | 192 | 41% | 31% | 4.37 | -0.114 |
+| defense vs | No huddle | 11 | 2% | 64% | 15.27 | 0.971 |
 
 | Side | Pass zone | Attempts | Share | Completion | Yards / attempt | 20+ |
 |---|---|---|---|---|---|---|
-| offense | Short left | 58 | 24% | 69% | 5.78 | 2 |
-| offense | Short middle | 42 | 17% | 69% | 6.76 | 0 |
-| offense | Short right | 98 | 41% | 62% | 5.04 | 4 |
+| offense | Short left | 57 | 25% | 70% | 5.72 | 1 |
+| offense | Short middle | 40 | 17% | 68% | 6.25 | 0 |
+| offense | Short right | 94 | 40% | 62% | 4.73 | 4 |
 | offense | Deep left | 15 | 6% | 40% | 14.6 | 4 |
-| offense | Deep middle | 8 | 3% | 50% | 9.75 | 2 |
-| offense | Deep right | 20 | 8% | 30% | 10.25 | 6 |
-| defense allows | Short left | 69 | 30% | 70% | 6.14 | 3 |
-| defense allows | Short middle | 47 | 20% | 64% | 7.13 | 2 |
-| defense allows | Short right | 83 | 36% | 70% | 6.11 | 3 |
-| defense allows | Deep left | 12 | 5% | 42% | 15.75 | 5 |
-| defense allows | Deep middle | 6 | 3% | 33% | 14.33 | 2 |
-| defense allows | Deep right | 16 | 7% | 62% | 19.0 | 8 |
+| offense | Deep middle | 6 | 3% | 33% | 6.17 | 1 |
+| offense | Deep right | 20 | 9% | 40% | 12.9 | 8 |
+| defense allows | Short left | 68 | 28% | 71% | 6.09 | 4 |
+| defense allows | Short middle | 55 | 22% | 67% | 7.36 | 2 |
+| defense allows | Short right | 82 | 34% | 67% | 5.83 | 3 |
+| defense allows | Deep left | 11 | 4% | 36% | 14.18 | 4 |
+| defense allows | Deep middle | 10 | 4% | 50% | 15.7 | 4 |
+| defense allows | Deep right | 18 | 7% | 56% | 16.56 | 8 |
 
-### LAC lines (depth chart as of 2026-11-16T16:58:52Z)
+### LAC lines (depth chart as of 2026-11-17T16:52:03Z)
 
-Offensive line: LT Joe Alt, LG Kayode Awosika, C Jake Slaughter, RG Cole Strange, RT Travis Burke.  
+Offensive line: LT Joe Alt, LG Logan Taylor, C Jake Slaughter, RG Cole Strange, RT Travis Burke.  
 Defensive front: LDE Teair Tart, NT Jamaree Caldwell, RDE Justin Eboigbe, WLB Tuli Tuipulotu, SLB Khalil Mack.
 
 ### LAC injuries
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Branson Taylor (G) Injured Reserve; Trey Pipkins III (OT) Injured Reserve; Isas Waxter (CB) Out; Kendall Williamson (S) Out; Ladd McConkey (WR) Out; Bud Dupree (LB) Out; Justin Eboigbe (DT) Out; Brenen Thompson (WR) Out; Rodney Shelley (CB) Questionable.
+ESPN live list (designations only): Branson Taylor (G) Injured Reserve; Trey Pipkins III (OT) Injured Reserve; Justin Eboigbe (DT) Questionable; Brenen Thompson (WR) Questionable; Rodney Shelley (CB) Questionable; Kendall Williamson (S) Questionable; Isas Waxter (CB) Questionable; Ladd McConkey (WR) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
 
 ### LAC roster moves (last 4 weeks)
 
-Arrived: Zion Childress (DB) from CAR.  
-Left for another team: Marquez Valdes-Scantling (WR) to PIT; Gregory Desrosiers (RB) to NYG.
+Arrived: none.  
+Left for another team: Hayden Rucci (TE) to PHI; Gregory Desrosiers (RB) to NYG.
 
 ## Keyed connectors in this run
 
@@ -557,15 +554,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-17T04:39:59+00:00 | 5814492ecf5b |
-| pbp | OK | 2026-11-17T04:39:59+00:00 | 5bf3fd3431e5 |
-| rosters | OK | 2026-11-17T04:39:59+00:00 | 8ef5848627e0 |
-| injuries | OK | 2026-11-17T04:40:00+00:00 | 4be8d0f909f1 |
-| depth_charts | OK | 2026-11-17T04:40:00+00:00 | cb40b454d0c6 |
-| snap_counts | OK | 2026-11-17T04:40:00+00:00 | 29653cc65100 |
-| ftn | OK | 2026-11-17T04:40:00+00:00 | 21e9470ab453 |
-| pfr_def | OK | 2026-11-17T04:40:01+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-17T04:40:01+00:00 |  |
+| games | OK | 2026-11-17T21:58:03+00:00 | f84bb068b606 |
+| pbp | OK | 2026-11-17T21:58:03+00:00 | 32334d4ae379 |
+| rosters | OK | 2026-11-17T21:58:03+00:00 | e4f81f1adc72 |
+| injuries | OK | 2026-11-17T21:58:04+00:00 | 33d3b85359fe |
+| depth_charts | OK | 2026-11-17T21:58:04+00:00 | aaca90f9afb7 |
+| snap_counts | OK | 2026-11-17T21:58:04+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-17T21:58:05+00:00 | 8db63e5eaab1 |
+| pfr_def | OK | 2026-11-17T21:58:05+00:00 | 169459009450 |
+| espn_injuries | OK | 2026-11-17T21:58:05+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 
