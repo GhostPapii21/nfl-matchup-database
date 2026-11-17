@@ -2,9 +2,11 @@
 
 **Sunday 2026-11-22, 16:05 ET.** Site: Home; roof: dome; surface: matrixturf. Rest: NYJ 7 days, LAC 6 days. Listed QBs: Geno Smith (NYJ), Justin Herbert (LAC).
 
-Market (schedule consensus, not a timestamped quote): LAC -3, total 40.5.
+Market (schedule consensus, not a timestamped quote): LAC n/a, total n/a.
 
-Generated 2026-11-16T20:37:53+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-17T04:40:22+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+
+**Data warning.** LAC: STALE: play-by-play not posted yet for week 10 (2026_10_LAC_BAL). The trend tables for that team do not include its latest game yet; the packet will catch up on the next run.
 
 ## Weather
 
@@ -12,7 +14,7 @@ INDOOR
 
 ## Book prices and no-vig
 
-No book prices in this packet: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Do not quote book numbers from memory.
+No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not quote book numbers from memory.
 
 ## Matchup edges
 
@@ -45,8 +47,8 @@ No book prices in this packet: NO_KEY: set the ODDS_API_KEY repository secret to
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | NYJ 20.4 - LAC 23.9 | 44.3 | +3.4 | 61.2% | 50.1% | 58.3% | NYJ 9.7 - LAC 12.4 |
-| independent | NYJ 18.4 - LAC 19.6 | 38.0 | +1.2 | 54.2% | 47.4% | 41.4% | NYJ 7.6 - LAC 9.6 |
+| matchup_pair | NYJ 20.4 - LAC 23.9 | 44.3 | +3.4 | 61.2% | n/a | n/a | NYJ 9.7 - LAC 12.4 |
+| independent | NYJ 18.4 - LAC 19.6 | 38.0 | +1.2 | 54.2% | n/a | n/a | NYJ 7.6 - LAC 9.6 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -297,7 +299,7 @@ Defensive front: LDE David Bailey, LDT Darrell Jackson Jr., RDT Jowon Briggs, RD
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Dylan Parham (G) Questionable; Geno Smith (QB) Questionable; Omar Cooper Jr. (WR) Questionable; Trevin Wallace (LB) Out; Jarvis Brownlee Jr. (CB) Out.
+ESPN live list (designations only): Omar Cooper Jr. (WR) Questionable; Trevin Wallace (LB) Out; Jarvis Brownlee Jr. (CB) Out; Geno Smith (QB) Questionable; Dylan Parham (G) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -511,7 +513,7 @@ Defensive front: LDE Teair Tart, NT Jamaree Caldwell, RDE Justin Eboigbe, WLB Tu
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): David Njoku (TE) Injured Reserve; Denzel Perryman (LB) Injured Reserve; Justin Eboigbe (DT) Questionable; Isas Waxter (CB) Out; Kendall Williamson (S) Out; Kayode Awosika (G) Questionable; Trey Pipkins III (OT) Injured Reserve; Branson Taylor (G) Out; Ladd McConkey (WR) Out; Brenen Thompson (WR) Doubtful.
+ESPN live list (designations only): Branson Taylor (G) Injured Reserve; Trey Pipkins III (OT) Injured Reserve; Isas Waxter (CB) Out; Kendall Williamson (S) Out; Ladd McConkey (WR) Out; Bud Dupree (LB) Out; Justin Eboigbe (DT) Out; Brenen Thompson (WR) Out; Rodney Shelley (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -525,9 +527,9 @@ Left for another team: Marquez Valdes-Scantling (WR) to PIT; Gregory Desrosiers 
 
 | Secret | Provider | Status | Used for |
 |---|---|---|---|
-| ODDS_API_KEY | The Odds API | KEY_NOT_CONFIGURED_IN_THIS_RUN | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
+| ODDS_API_KEY | The Odds API | KEY_PRESENT | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
 | NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
-| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | access check only; not used in the packet |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR: {'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'} | access check only; not used in the packet |
 
 Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
 
@@ -547,7 +549,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | PARTIAL | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: INDOOR. |
-| 13 | Timestamped book prices | BLOCKED | No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total. |
+| 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -555,16 +557,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-16T20:37:20+00:00 | 6aeaa90f6e2d |
-| pbp | OK | 2026-11-16T20:37:21+00:00 | 5bf3fd3431e5 |
-| rosters | OK | 2026-11-16T20:37:21+00:00 | 8ef5848627e0 |
-| injuries | OK | 2026-11-16T20:37:21+00:00 | 4be8d0f909f1 |
-| depth_charts | OK | 2026-11-16T20:37:22+00:00 | cb40b454d0c6 |
-| snap_counts | OK | 2026-11-16T20:37:22+00:00 | 29653cc65100 |
-| ftn | OK | 2026-11-16T20:37:22+00:00 | 21e9470ab453 |
-| pfr_def | OK | 2026-11-16T20:37:22+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-16T20:37:23+00:00 |  |
+| games | OK | 2026-11-17T04:39:59+00:00 | 5814492ecf5b |
+| pbp | OK | 2026-11-17T04:39:59+00:00 | 5bf3fd3431e5 |
+| rosters | OK | 2026-11-17T04:39:59+00:00 | 8ef5848627e0 |
+| injuries | OK | 2026-11-17T04:40:00+00:00 | 4be8d0f909f1 |
+| depth_charts | OK | 2026-11-17T04:40:00+00:00 | cb40b454d0c6 |
+| snap_counts | OK | 2026-11-17T04:40:00+00:00 | 29653cc65100 |
+| ftn | OK | 2026-11-17T04:40:00+00:00 | 21e9470ab453 |
+| pfr_def | OK | 2026-11-17T04:40:01+00:00 | 169459009450 |
+| espn_injuries | OK | 2026-11-17T04:40:01+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
+| book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

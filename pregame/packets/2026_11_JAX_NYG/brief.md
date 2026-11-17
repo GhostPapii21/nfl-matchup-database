@@ -4,15 +4,15 @@
 
 Market (schedule consensus, not a timestamped quote): NYG +6, total 46.5.
 
-Generated 2026-11-16T20:37:37+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-17T04:40:11+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-16T20:37:35+00:00 UTC. At kickoff: 60 F, wind 6 mph NE, 27% chance of precipitation, Chance Light Rain. During the game: low 60 F, wind up to 6 mph, precipitation chance up to 27%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-17T04:40:09+00:00 UTC. At kickoff: 60 F, wind 6 mph NE, 27% chance of precipitation, Chance Light Rain. During the game: low 60 F, wind up to 6 mph, precipitation chance up to 27%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-No book prices in this packet: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Do not quote book numbers from memory.
+No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not quote book numbers from memory.
 
 ## Matchup edges
 
@@ -570,9 +570,9 @@ Left for another team: Jihad Ward (LB) to MIN.
 
 | Secret | Provider | Status | Used for |
 |---|---|---|---|
-| ODDS_API_KEY | The Odds API | KEY_NOT_CONFIGURED_IN_THIS_RUN | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
+| ODDS_API_KEY | The Odds API | KEY_PRESENT | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
 | NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
-| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | access check only; not used in the packet |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR: {'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'} | access check only; not used in the packet |
 
 Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
 
@@ -592,7 +592,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | PARTIAL | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
-| 13 | Timestamped book prices | BLOCKED | No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total. |
+| 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -600,16 +600,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-16T20:37:20+00:00 | 6aeaa90f6e2d |
-| pbp | OK | 2026-11-16T20:37:21+00:00 | 5bf3fd3431e5 |
-| rosters | OK | 2026-11-16T20:37:21+00:00 | 8ef5848627e0 |
-| injuries | OK | 2026-11-16T20:37:21+00:00 | 4be8d0f909f1 |
-| depth_charts | OK | 2026-11-16T20:37:22+00:00 | cb40b454d0c6 |
-| snap_counts | OK | 2026-11-16T20:37:22+00:00 | 29653cc65100 |
-| ftn | OK | 2026-11-16T20:37:22+00:00 | 21e9470ab453 |
-| pfr_def | OK | 2026-11-16T20:37:22+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-16T20:37:23+00:00 |  |
+| games | OK | 2026-11-17T04:39:59+00:00 | 5814492ecf5b |
+| pbp | OK | 2026-11-17T04:39:59+00:00 | 5bf3fd3431e5 |
+| rosters | OK | 2026-11-17T04:39:59+00:00 | 8ef5848627e0 |
+| injuries | OK | 2026-11-17T04:40:00+00:00 | 4be8d0f909f1 |
+| depth_charts | OK | 2026-11-17T04:40:00+00:00 | cb40b454d0c6 |
+| snap_counts | OK | 2026-11-17T04:40:00+00:00 | 29653cc65100 |
+| ftn | OK | 2026-11-17T04:40:00+00:00 | 21e9470ab453 |
+| pfr_def | OK | 2026-11-17T04:40:01+00:00 | 169459009450 |
+| espn_injuries | OK | 2026-11-17T04:40:01+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
+| book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-16T20:37:37+00:00",
+ "generated_utc": "2026-11-17T04:40:11+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -34,8 +34,8 @@
   "home_spread": 6.0,
   "total": 46.5,
   "moneyline": {
-   "JAX": -278.0,
-   "NYG": 225.0
+   "JAX": -265.0,
+   "NYG": 215.0
   }
  },
  "data_freshness": {
@@ -53,13 +53,13 @@
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800"
  },
  "weather": {
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/OKX/30,46/forecast/hourly",
-  "retrieved_utc": "2026-11-16T20:37:35+00:00",
+  "retrieved_utc": "2026-11-17T04:40:09+00:00",
   "kickoff_utc": "2026-11-22T18:00:00+00:00",
   "roof": "outdoors",
   "at_kickoff": {
@@ -2609,22 +2609,6 @@
       "team": "JAX"
      },
      {
-      "player": "Tanner Koziol",
-      "position": "TE",
-      "status": "Active",
-      "date": "2026-11-07T04:42Z",
-      "comment": "Koziol finished Thursday's 33-10 win over Baltimore with two catches for 15 yards on two targets.",
-      "team": "JAX"
-     },
-     {
-      "player": "Foyesade Oluokun",
-      "position": "LB",
-      "status": "Active",
-      "date": "2026-11-08T04:33Z",
-      "comment": "Oluokun recorded seven tackles (six solo), including 1.0 sacks, in Thursday's 33-10 victory over Baltimore.",
-      "team": "JAX"
-     },
-     {
       "player": "Alijah Huzzie",
       "position": "CB",
       "status": "Active",
@@ -2782,6 +2766,22 @@
       "status": "Active",
       "date": "2026-11-16T19:22Z",
       "comment": "",
+      "team": "JAX"
+     },
+     {
+      "player": "Travis Hunter",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-17T01:33Z",
+      "comment": "Hunter caught both of his targets for 16 yards, recorded a three-yard carry and contributed five tackles (three solo) and an interception during the Jaguars' 40-23 win over the Titans on Sunday.",
+      "team": "JAX"
+     },
+     {
+      "player": "Cam Little",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-17T02:34Z",
+      "comment": "Little went 4-for-4 on field-goal attempts and made all four of his PATs during Sunday's 40-23 win over the Titans.",
       "team": "JAX"
      }
     ],
@@ -6892,70 +6892,70 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:20+00:00",
-   "sha256": "6aeaa90f6e2d9fb4b8f2ea9b812acf942866ce01e482c9d28353940e38afed45",
-   "bytes": 523905
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
+   "sha256": "5814492ecf5b0f29b53e325a13fc87245bbb4233eb0e3e4696bf0b7787e3739d",
+   "bytes": 523901
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "5bf3fd3431e556d76e4f80378bd689edf1a55280de4c59078d3518b9f6b9959e",
    "bytes": 11054587
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "8ef5848627e0e3cfa8f5fa1d9b02240bbf3deabef88e1b14a90f3b14f7352361",
    "bytes": 818858
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "4be8d0f909f1393fa1f3a47b45a830b15da8e73a4d0fed210a1c57adc50f06ca",
    "bytes": 65722
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "cb40b454d0c640c47472e57fbe486defa8963046da0e577197fda01905b274eb",
    "bytes": 3517732
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "29653cc651000a3ba77a5c8dc10ad71ff76f6078ef5f5d032e8fbe2ce8599ab3",
    "bytes": 142951
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "21e9470ab453f4dcd0bd7d57499bab256a83b1e42c092b32d8d12138a47969c5",
    "bytes": 289331
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:01+00:00",
    "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
    "bytes": 93708
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-16T20:37:23+00:00"
+   "retrieved_utc": "2026-11-17T04:40:01+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
    "url": "https://nflsavant.com/"
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800",
    "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
    "retrieved_utc": null
   }
@@ -7037,7 +7037,7 @@
    "phase": 13,
    "name": "Timestamped book prices",
    "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "detail": "No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total."
   },
   {
    "phase": 14,
@@ -7053,12 +7053,12 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-16T20:37:23+00:00",
+  "checked_utc": "2026-11-17T04:40:01+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",
     "used_for": "Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT"
    },
    "NFL_BDL_API_KEY": {
     "provider": "BallDontLie NFL",
@@ -7068,7 +7068,8 @@
    "NFL_API_SPORTS_KEY": {
     "provider": "API-Sports NFL",
     "used_for": "access check only; not used in the packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT_PROVIDER_ERROR",
+    "provider_message": "{'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
    }
   },
   "note": "Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here."

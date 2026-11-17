@@ -31,8 +31,8 @@
   "BUF": 31.0,
   "MIA": 14.5
  },
- "generated_utc": "2026-11-16T20:37:40+00:00",
- "board_built_utc": "2026-11-16T20:48:07+00:00",
+ "generated_utc": "2026-11-17T04:40:13+00:00",
+ "board_built_utc": "2026-11-17T04:41:30+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": -16.5,
@@ -43,13 +43,13 @@
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800"
  },
  "weather": {
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/BUF/39,42/forecast/hourly",
-  "retrieved_utc": "2026-11-16T20:37:39+00:00",
+  "retrieved_utc": "2026-11-17T04:40:11+00:00",
   "kickoff_utc": "2026-11-22T18:00:00+00:00",
   "roof": "outdoors",
   "at_kickoff": {
@@ -3271,7 +3271,7 @@
      "practice": null,
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "Coach Jeff Hafley said Monday that it has yet to be determined whether Willis (abdomen) will need surgery to address his groin/core injury.David Furones of the South Florida Sun Sentinel reports.",
+     "espn_comment": "Head coach Jeff Hafley said Monday that Willis (groin/core) has not undergone surgery and that the Dolphins are still determining if a procedure is needed, David Furones of the South Florida Sun Senti",
      "starter_slot": null,
      "snap_share": 1.0,
      "next_up": null,
@@ -3289,6 +3289,20 @@
      "starter_slot": "C",
      "snap_share": 1.0,
      "next_up": "Andrew Meyer",
+     "impact": "high",
+     "status_level": 3
+    },
+    {
+     "player": "Zeek Biggers",
+     "position": "DT",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Out",
+     "espn_comment": "Biggers will undergo a season-ending knee surgery in the near future, Ian Rapoport of NFL Network reports.",
+     "starter_slot": "RDT",
+     "snap_share": 0.537,
+     "next_up": "Kenneth Grant",
      "impact": "high",
      "status_level": 3
     },
@@ -3313,24 +3327,10 @@
      "practice": null,
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "Phillips underwent further tests Monday on his arm injured in Sunday's 24-22 loss to the Colts, Barry Jackson of the Miami Herald reports.",
+     "espn_comment": "Phillips underwent further tests Monday on the arm he injured in Sunday's 24-22 loss to the Colts, Barry Jackson of the Miami Herald reports.",
      "starter_slot": "LDT",
      "snap_share": 0.591,
      "next_up": "Keith Cooper Jr.",
-     "impact": "high",
-     "status_level": 2
-    },
-    {
-     "player": "Zeek Biggers",
-     "position": "DT",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Questionable",
-     "espn_comment": "Biggers (knee) has been ruled out for the rest of Sunday's game against the Colts, Barry Jackson of the Miami Herald reports.",
-     "starter_slot": "RDT",
-     "snap_share": 0.537,
-     "next_up": "Kenneth Grant",
      "impact": "high",
      "status_level": 2
     },
@@ -3503,6 +3503,20 @@
      "status_level": 1
     },
     {
+     "player": "Jaylen Wright",
+     "position": "RB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Wright turned three carries into minus-2 yards, caught both of his targets for 17 yards and returned four kickoffs for 88 yards during the Dolphins' 24-22 loss to the Colts on Sunday.",
+     "starter_slot": "KR",
+     "snap_share": 0.152,
+     "next_up": "Malik Washington",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
      "player": "Tucker Addington",
      "position": "LS",
      "game_status": null,
@@ -3511,34 +3525,6 @@
      "espn": "Active",
      "espn_comment": "",
      "starter_slot": "LS",
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Brady Cook",
-     "position": "QB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "The Dolphins elevated Cook from the practice squad to the active roster Saturday.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Jalen Reagor",
-     "position": "WR",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "The Dolphins elevated Reagor from the practice squad to the active roster Saturday.",
-     "starter_slot": null,
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -3608,6 +3594,20 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Kaytron Allen",
+     "position": "RB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Allen turned his lone carry into zero yards and hauled in his lone target for minus-4 yards during the Dolphins' 24-22 loss to the Colts on Sunday.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -4112,16 +4112,16 @@
      "status_level": 1
     },
     {
-     "player": "Terrel Bernard",
-     "position": "LB",
+     "player": "Dawson Knox",
+     "position": "TE",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Bernard recorded six tackles (two solo) and a pair of pass breakups, including an interception, in Monday night's 23-6 win over the Vikings.",
-     "starter_slot": "RILB",
-     "snap_share": 0.875,
-     "next_up": "Joe Andreessen",
+     "espn_comment": "Knox caught one of his three targets for seven yards in the Bills' 31-12 win over the Jets on Sunday.",
+     "starter_slot": null,
+     "snap_share": 0.7,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -4132,7 +4132,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Coleman, who was evaluated for a head injury, was later cleared to return to Sunday's game against the Jets.",
+     "espn_comment": "Coleman caught one of three targets for 11 yards during Sunday's 31-12 win over the Jets.",
      "starter_slot": null,
      "snap_share": 0.682,
      "next_up": null,
@@ -4294,8 +4294,8 @@
      "status_level": 1
     },
     {
-     "player": "Shane Buechele",
-     "position": "QB",
+     "player": "Jude Bowry",
+     "position": "OT",
      "game_status": null,
      "practice": null,
      "injury": null,
@@ -4308,14 +4308,14 @@
      "status_level": 1
     },
     {
-     "player": "Jude Bowry",
-     "position": "OT",
+     "player": "Tyler Bass",
+     "position": "PK",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "",
-     "starter_slot": null,
+     "espn_comment": "Bass made his sole field-goal attempt and all four PATs in the Bills' 31-12 win over the Jets on Sunday.",
+     "starter_slot": "PK",
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -4431,13 +4431,13 @@
     "linebackers": [],
     "defensive_line": [
      {
-      "player": "Jordan Phillips",
-      "slot": "LDT",
-      "status": "Questionable"
-     },
-     {
       "player": "Zeek Biggers",
       "slot": "RDT",
+      "status": "Out"
+     },
+     {
+      "player": "Jordan Phillips",
+      "slot": "LDT",
       "status": "Questionable"
      }
     ]
@@ -5147,7 +5147,14 @@
       "why": [
        "team only expected to score 14",
        "a teammate's absence adds targets"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 270,
+       "break_even": 0.2703,
+       "blend": 0.222,
+       "model_minus_price": -0.089
+      }
      },
      {
       "player": "Malik Washington",
@@ -5164,7 +5171,14 @@
       "why": [
        "team only expected to score 14",
        "a teammate's absence adds targets"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 920,
+       "break_even": 0.098,
+       "blend": 0.106,
+       "model_minus_price": 0.017
+      }
      },
      {
       "player": "Greg Dulcich",
@@ -5230,7 +5244,14 @@
       "yds_pg": 67.4,
       "why": [
        "16.8 carries a game"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 164,
+       "break_even": 0.3788,
+       "blend": 0.316,
+       "model_minus_price": -0.12
+      }
      }
     ],
     "context": {
@@ -11909,16 +11930,16 @@
      "status_level": 1
     },
     {
-     "player": "Terrel Bernard",
-     "position": "LB",
+     "player": "Dawson Knox",
+     "position": "TE",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Bernard recorded six tackles (two solo) and a pair of pass breakups, including an interception, in Monday night's 23-6 win over the Vikings.",
-     "starter_slot": "RILB",
-     "snap_share": 0.875,
-     "next_up": "Joe Andreessen",
+     "espn_comment": "Knox caught one of his three targets for seven yards in the Bills' 31-12 win over the Jets on Sunday.",
+     "starter_slot": null,
+     "snap_share": 0.7,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -11929,7 +11950,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Coleman, who was evaluated for a head injury, was later cleared to return to Sunday's game against the Jets.",
+     "espn_comment": "Coleman caught one of three targets for 11 yards during Sunday's 31-12 win over the Jets.",
      "starter_slot": null,
      "snap_share": 0.682,
      "next_up": null,
@@ -12091,8 +12112,8 @@
      "status_level": 1
     },
     {
-     "player": "Shane Buechele",
-     "position": "QB",
+     "player": "Jude Bowry",
+     "position": "OT",
      "game_status": null,
      "practice": null,
      "injury": null,
@@ -12105,14 +12126,14 @@
      "status_level": 1
     },
     {
-     "player": "Jude Bowry",
-     "position": "OT",
+     "player": "Tyler Bass",
+     "position": "PK",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "",
-     "starter_slot": null,
+     "espn_comment": "Bass made his sole field-goal attempt and all four PATs in the Bills' 31-12 win over the Jets on Sunday.",
+     "starter_slot": "PK",
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -12527,7 +12548,7 @@
      "practice": null,
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "Coach Jeff Hafley said Monday that it has yet to be determined whether Willis (abdomen) will need surgery to address his groin/core injury.David Furones of the South Florida Sun Sentinel reports.",
+     "espn_comment": "Head coach Jeff Hafley said Monday that Willis (groin/core) has not undergone surgery and that the Dolphins are still determining if a procedure is needed, David Furones of the South Florida Sun Senti",
      "starter_slot": null,
      "snap_share": 1.0,
      "next_up": null,
@@ -12545,6 +12566,20 @@
      "starter_slot": "C",
      "snap_share": 1.0,
      "next_up": "Andrew Meyer",
+     "impact": "high",
+     "status_level": 3
+    },
+    {
+     "player": "Zeek Biggers",
+     "position": "DT",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Out",
+     "espn_comment": "Biggers will undergo a season-ending knee surgery in the near future, Ian Rapoport of NFL Network reports.",
+     "starter_slot": "RDT",
+     "snap_share": 0.537,
+     "next_up": "Kenneth Grant",
      "impact": "high",
      "status_level": 3
     },
@@ -12569,24 +12604,10 @@
      "practice": null,
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "Phillips underwent further tests Monday on his arm injured in Sunday's 24-22 loss to the Colts, Barry Jackson of the Miami Herald reports.",
+     "espn_comment": "Phillips underwent further tests Monday on the arm he injured in Sunday's 24-22 loss to the Colts, Barry Jackson of the Miami Herald reports.",
      "starter_slot": "LDT",
      "snap_share": 0.591,
      "next_up": "Keith Cooper Jr.",
-     "impact": "high",
-     "status_level": 2
-    },
-    {
-     "player": "Zeek Biggers",
-     "position": "DT",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Questionable",
-     "espn_comment": "Biggers (knee) has been ruled out for the rest of Sunday's game against the Colts, Barry Jackson of the Miami Herald reports.",
-     "starter_slot": "RDT",
-     "snap_share": 0.537,
-     "next_up": "Kenneth Grant",
      "impact": "high",
      "status_level": 2
     },
@@ -12759,6 +12780,20 @@
      "status_level": 1
     },
     {
+     "player": "Jaylen Wright",
+     "position": "RB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Wright turned three carries into minus-2 yards, caught both of his targets for 17 yards and returned four kickoffs for 88 yards during the Dolphins' 24-22 loss to the Colts on Sunday.",
+     "starter_slot": "KR",
+     "snap_share": 0.152,
+     "next_up": "Malik Washington",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
      "player": "Tucker Addington",
      "position": "LS",
      "game_status": null,
@@ -12767,34 +12802,6 @@
      "espn": "Active",
      "espn_comment": "",
      "starter_slot": "LS",
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Brady Cook",
-     "position": "QB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "The Dolphins elevated Cook from the practice squad to the active roster Saturday.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Jalen Reagor",
-     "position": "WR",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "The Dolphins elevated Reagor from the practice squad to the active roster Saturday.",
-     "starter_slot": null,
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -12864,6 +12871,20 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Kaytron Allen",
+     "position": "RB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Allen turned his lone carry into zero yards and hauled in his lone target for minus-4 yards during the Dolphins' 24-22 loss to the Colts on Sunday.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -12963,13 +12984,13 @@
     "linebackers": [],
     "defensive_line": [
      {
-      "player": "Jordan Phillips",
-      "slot": "LDT",
-      "status": "Questionable"
-     },
-     {
       "player": "Zeek Biggers",
       "slot": "RDT",
+      "status": "Out"
+     },
+     {
+      "player": "Jordan Phillips",
+      "slot": "LDT",
       "status": "Questionable"
      }
     ]
@@ -13760,7 +13781,14 @@
       "ex_pg": 0.6,
       "why": [
        "team expected to score 31"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 310,
+       "break_even": 0.2439,
+       "blend": 0.249,
+       "model_minus_price": 0.01
+      }
      },
      {
       "player": "Khalil Shakir",
@@ -13776,7 +13804,14 @@
       "ex_pg": 0.5,
       "why": [
        "team expected to score 31"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 850,
+       "break_even": 0.1053,
+       "blend": 0.134,
+       "model_minus_price": 0.063
+      }
      },
      {
       "player": "Dalton Kincaid",
@@ -13792,7 +13827,14 @@
       "ex_pg": 0.75,
       "why": [
        "team expected to score 31"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 1000,
+       "break_even": 0.0909,
+       "blend": 0.111,
+       "model_minus_price": 0.044
+      }
      },
      {
       "player": "Keon Coleman",
@@ -13857,7 +13899,14 @@
        "22.4 carries a game",
        "favored by about 16",
        "MIA allows 106 rushing yards a game to backs"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": -250,
+       "break_even": 0.7143,
+       "blend": 0.694,
+       "model_minus_price": -0.041
+      }
      }
     ],
     "context": {
@@ -19099,7 +19148,7 @@
    "phase": 13,
    "name": "Timestamped book prices",
    "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "detail": "No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total."
   },
   {
    "phase": 14,
@@ -19118,70 +19167,70 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:20+00:00",
-   "sha256": "6aeaa90f6e2d9fb4b8f2ea9b812acf942866ce01e482c9d28353940e38afed45",
-   "bytes": 523905
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
+   "sha256": "5814492ecf5b0f29b53e325a13fc87245bbb4233eb0e3e4696bf0b7787e3739d",
+   "bytes": 523901
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "5bf3fd3431e556d76e4f80378bd689edf1a55280de4c59078d3518b9f6b9959e",
    "bytes": 11054587
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "8ef5848627e0e3cfa8f5fa1d9b02240bbf3deabef88e1b14a90f3b14f7352361",
    "bytes": 818858
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "4be8d0f909f1393fa1f3a47b45a830b15da8e73a4d0fed210a1c57adc50f06ca",
    "bytes": 65722
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "cb40b454d0c640c47472e57fbe486defa8963046da0e577197fda01905b274eb",
    "bytes": 3517732
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "29653cc651000a3ba77a5c8dc10ad71ff76f6078ef5f5d032e8fbe2ce8599ab3",
    "bytes": 142951
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "21e9470ab453f4dcd0bd7d57499bab256a83b1e42c092b32d8d12138a47969c5",
    "bytes": 289331
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:01+00:00",
    "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
    "bytes": 93708
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-16T20:37:23+00:00"
+   "retrieved_utc": "2026-11-17T04:40:01+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
    "url": "https://nflsavant.com/"
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800",
    "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
    "retrieved_utc": null
   }

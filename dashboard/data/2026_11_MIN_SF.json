@@ -31,8 +31,8 @@
   "SF": 24.75,
   "MIN": 21.75
  },
- "generated_utc": "2026-11-16T20:38:02+00:00",
- "board_built_utc": "2026-11-16T20:42:05+00:00",
+ "generated_utc": "2026-11-17T04:40:29+00:00",
+ "board_built_utc": "2026-11-17T04:42:43+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": -3.0,
@@ -43,7 +43,7 @@
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800"
  },
  "weather": {
   "status": "NOT_MAPPED_NEUTRAL_OR_INTERNATIONAL_SITE: check the forecast by hand"
@@ -3080,7 +3080,7 @@
      "practice": null,
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "Van Ginkel (quadriceps) is questionable to return to Sunday's game against the Packers.",
+     "espn_comment": "Van Ginkel (quadriceps) is expected to practice ahead of a Week 11 road matchup against the 49ers, Kevin Seifert of ESPN.com reported Monday.",
      "starter_slot": "WLB",
      "snap_share": 0.812,
      "next_up": "Kyle Van Noy",
@@ -3125,20 +3125,6 @@
      "espn_comment": "Richter (foot) has been ruled out for the rest of Sunday's game against the Packers.",
      "starter_slot": null,
      "snap_share": 0.06,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 2
-    },
-    {
-     "player": "Jeshaun Jones",
-     "position": "WR",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Questionable",
-     "espn_comment": "Jones (shoulder) is questionable to return to Sunday's game against the Packers.",
-     "starter_slot": null,
-     "snap_share": null,
      "next_up": null,
      "impact": "low",
      "status_level": 2
@@ -3220,7 +3206,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Felton went without a target while playing six of the Vikings' 48 offensive snaps in Monday's 23-6 loss to the Bills.",
+     "espn_comment": "Felton is on track to operate in a more prominent role in Week 11 versus the 49ers, Kevin Seifert of ESPN.com reports.",
      "starter_slot": null,
      "snap_share": 0.411,
      "next_up": null,
@@ -3256,13 +3242,27 @@
      "status_level": 1
     },
     {
+     "player": "Caleb Banks",
+     "position": "DT",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "",
+     "starter_slot": "NT",
+     "snap_share": 0.256,
+     "next_up": "Domonique Orange",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
      "player": "Myles Price",
      "position": "WR",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Price caught all four targets for 49 yards and a touchdown in Sunday's 30-10 win over the Packers.",
+     "espn_comment": "Price is set for an increase in offensive workload with Jordan Addison (thumb) sidelined, Kevin Seifert of ESPN.com reports.",
      "starter_slot": "KR",
      "snap_share": 0.256,
      "next_up": "Demond Claiborne",
@@ -3284,15 +3284,15 @@
      "status_level": 1
     },
     {
-     "player": "Will Reichard",
-     "position": "PK",
+     "player": "Charles Demmings",
+     "position": "CB",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Reichard made both of his field-goal attempts during the Vikings' 23-6 loss to the Bills on Monday.",
-     "starter_slot": "PK",
-     "snap_share": null,
+     "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": 0.03,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -3305,20 +3305,6 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "Dallas caught his only target for a two-yard gain in Monday's Week 9 loss to the Bills.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Devin Culp",
-     "position": "TE",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Culp was elevated from the Vikings' practice squad to their active roster Saturday.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -3362,6 +3348,20 @@
      "espn": "Active",
      "espn_comment": "",
      "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Will Reichard",
+     "position": "PK",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Reichard made all three of his field-goal attempts and all three PATs in the Vikings' 30-10 win over the Packers on Sunday.",
+     "starter_slot": "PK",
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -3748,12 +3748,26 @@
      "practice": null,
      "injury": null,
      "espn": "Out",
-     "espn_comment": "out",
+     "espn_comment": "Head coach Kyle Shanahan said Monday that the 49ers are \"hoping to\" have Evans (Achilles) back at practice this week, Nick Wagoner of ESPN.com reports.",
      "starter_slot": "WR",
      "snap_share": 0.498,
      "next_up": "Deebo Samuel",
      "impact": "high",
      "status_level": 3
+    },
+    {
+     "player": "Renardo Green",
+     "position": "CB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "Green (back) was unable to finish Sunday's 46-40 win over the Cowboys, Jennifer Lee Chan of NBC Sports Bay Area reports.",
+     "starter_slot": "LCB",
+     "snap_share": 0.921,
+     "next_up": null,
+     "impact": "high",
+     "status_level": 2
     },
     {
      "player": "Gracen Halton",
@@ -3836,20 +3850,6 @@
      "starter_slot": "RCB",
      "snap_share": 0.951,
      "next_up": "Ephesians Prysock",
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Renardo Green",
-     "position": "CB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Green (back) is active for Sunday's game against the Cowboys.",
-     "starter_slot": "LCB",
-     "snap_share": 0.921,
-     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -4008,34 +4008,6 @@
      "status_level": 1
     },
     {
-     "player": "Jordan James",
-     "position": "RB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "James rushed three times for 11 yards and returned two kickoffs for 31 yards Sunday in a 38-17 victory versus Las Vegas.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Mac Jones",
-     "position": "QB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "The 49ers fielded trade inquiries for Jones from the Vikings leading up to Tuesday's deadline, but the quarterback is expected to remain in San Francisco, Dianna Russini of BetUS TV reports.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
      "player": "Deebo Samuel Sr.",
      "position": "WR",
      "game_status": null,
@@ -4086,6 +4058,34 @@
      "espn": "Active",
      "espn_comment": "",
      "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Jordan James",
+     "position": "RB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "James returned five kickoffs for 101 yards during the 49ers' 46-40 win over the Cowboys on Sunday.",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Eddy Pineiro",
+     "position": "PK",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Pineiro made his only field-goal attempt and went 5-for-5 on PATs during Sunday's 46-40 win over the Cowboys.",
+     "starter_slot": "PK",
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -4209,7 +4209,13 @@
    },
    "defense_units_hurt": {
     "offensive_line": [],
-    "secondary": [],
+    "secondary": [
+     {
+      "player": "Renardo Green",
+      "slot": "LCB",
+      "status": "Questionable"
+     }
+    ],
     "linebackers": [],
     "defensive_line": []
    },
@@ -4774,7 +4780,14 @@
        "team only expected to score 22",
        "SF rarely allows 80+ games",
        "a teammate's absence adds targets"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": -130,
+       "break_even": 0.5652,
+       "blend": 0.466,
+       "model_minus_price": -0.195
+      }
      },
      {
       "player": "Gavin Bartholomew",
@@ -4843,7 +4856,14 @@
       "yds_pg": 60.1,
       "why": [
        "11.3 carries a game"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 920,
+       "break_even": 0.098,
+       "blend": 0.107,
+       "model_minus_price": 0.019
+      }
      },
      {
       "player": "Jordan Mason",
@@ -4856,7 +4876,14 @@
       "yds_pg": 45.5,
       "why": [
        "10.9 carries a game"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 430,
+       "break_even": 0.1887,
+       "blend": 0.14,
+       "model_minus_price": -0.086
+      }
      }
     ],
     "context": {
@@ -4865,6 +4892,55 @@
      "implied": 21.75,
      "defense_g80_rank": 27,
      "defense_explosive_rank": 29
+    },
+    "record": {
+     "weeks": 22,
+     "seasons": "2025-2026",
+     "all_80_games": 399,
+     "3": {
+      "per_week": 3.7,
+      "predicted": 0.558,
+      "hit80": 0.512,
+      "hit100": 0.317
+     },
+     "2": {
+      "per_week": 5.6,
+      "predicted": 0.439,
+      "hit80": 0.431,
+      "hit100": 0.293
+     },
+     "1": {
+      "per_week": 11.3,
+      "predicted": 0.343,
+      "hit80": 0.345,
+      "hit100": 0.193
+     },
+     "all_stars": {
+      "per_week": 20.6,
+      "hit80": 0.399,
+      "share_of_all_80_games_caught": 0.454
+     }
+    },
+    "book_grade": {
+     "source": "FanDuel alt ladders, 2026 weeks 8-9, T-90 min; weights from 2022-2025 only",
+     "rungs": 402,
+     "brier": {
+      "model": 0.1136,
+      "book_price": 0.1136,
+      "book_devig": 0.1133,
+      "blend": 0.1118
+     },
+     "starred_30plus": {
+      "n": 68,
+      "hit": 0.5,
+      "model_p": 0.41,
+      "be": 0.468,
+      "roi": 0.087
+     },
+     "model_above_price_by_3pts": {
+      "n": 35,
+      "roi": -0.467
+     }
     }
    },
    "visual": {
@@ -11366,12 +11442,26 @@
      "practice": null,
      "injury": null,
      "espn": "Out",
-     "espn_comment": "out",
+     "espn_comment": "Head coach Kyle Shanahan said Monday that the 49ers are \"hoping to\" have Evans (Achilles) back at practice this week, Nick Wagoner of ESPN.com reports.",
      "starter_slot": "WR",
      "snap_share": 0.498,
      "next_up": "Deebo Samuel",
      "impact": "high",
      "status_level": 3
+    },
+    {
+     "player": "Renardo Green",
+     "position": "CB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "Green (back) was unable to finish Sunday's 46-40 win over the Cowboys, Jennifer Lee Chan of NBC Sports Bay Area reports.",
+     "starter_slot": "LCB",
+     "snap_share": 0.921,
+     "next_up": null,
+     "impact": "high",
+     "status_level": 2
     },
     {
      "player": "Gracen Halton",
@@ -11454,20 +11544,6 @@
      "starter_slot": "RCB",
      "snap_share": 0.951,
      "next_up": "Ephesians Prysock",
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Renardo Green",
-     "position": "CB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Green (back) is active for Sunday's game against the Cowboys.",
-     "starter_slot": "LCB",
-     "snap_share": 0.921,
-     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -11626,34 +11702,6 @@
      "status_level": 1
     },
     {
-     "player": "Jordan James",
-     "position": "RB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "James rushed three times for 11 yards and returned two kickoffs for 31 yards Sunday in a 38-17 victory versus Las Vegas.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Mac Jones",
-     "position": "QB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "The 49ers fielded trade inquiries for Jones from the Vikings leading up to Tuesday's deadline, but the quarterback is expected to remain in San Francisco, Dianna Russini of BetUS TV reports.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
      "player": "Deebo Samuel Sr.",
      "position": "WR",
      "game_status": null,
@@ -11704,6 +11752,34 @@
      "espn": "Active",
      "espn_comment": "",
      "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Jordan James",
+     "position": "RB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "James returned five kickoffs for 101 yards during the 49ers' 46-40 win over the Cowboys on Sunday.",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Eddy Pineiro",
+     "position": "PK",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Pineiro made his only field-goal attempt and went 5-for-5 on PATs during Sunday's 46-40 win over the Cowboys.",
+     "starter_slot": "PK",
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -12171,7 +12247,7 @@
      "practice": null,
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "Van Ginkel (quadriceps) is questionable to return to Sunday's game against the Packers.",
+     "espn_comment": "Van Ginkel (quadriceps) is expected to practice ahead of a Week 11 road matchup against the 49ers, Kevin Seifert of ESPN.com reported Monday.",
      "starter_slot": "WLB",
      "snap_share": 0.812,
      "next_up": "Kyle Van Noy",
@@ -12216,20 +12292,6 @@
      "espn_comment": "Richter (foot) has been ruled out for the rest of Sunday's game against the Packers.",
      "starter_slot": null,
      "snap_share": 0.06,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 2
-    },
-    {
-     "player": "Jeshaun Jones",
-     "position": "WR",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Questionable",
-     "espn_comment": "Jones (shoulder) is questionable to return to Sunday's game against the Packers.",
-     "starter_slot": null,
-     "snap_share": null,
      "next_up": null,
      "impact": "low",
      "status_level": 2
@@ -12311,7 +12373,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Felton went without a target while playing six of the Vikings' 48 offensive snaps in Monday's 23-6 loss to the Bills.",
+     "espn_comment": "Felton is on track to operate in a more prominent role in Week 11 versus the 49ers, Kevin Seifert of ESPN.com reports.",
      "starter_slot": null,
      "snap_share": 0.411,
      "next_up": null,
@@ -12347,13 +12409,27 @@
      "status_level": 1
     },
     {
+     "player": "Caleb Banks",
+     "position": "DT",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "",
+     "starter_slot": "NT",
+     "snap_share": 0.256,
+     "next_up": "Domonique Orange",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
      "player": "Myles Price",
      "position": "WR",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Price caught all four targets for 49 yards and a touchdown in Sunday's 30-10 win over the Packers.",
+     "espn_comment": "Price is set for an increase in offensive workload with Jordan Addison (thumb) sidelined, Kevin Seifert of ESPN.com reports.",
      "starter_slot": "KR",
      "snap_share": 0.256,
      "next_up": "Demond Claiborne",
@@ -12375,15 +12451,15 @@
      "status_level": 1
     },
     {
-     "player": "Will Reichard",
-     "position": "PK",
+     "player": "Charles Demmings",
+     "position": "CB",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Reichard made both of his field-goal attempts during the Vikings' 23-6 loss to the Bills on Monday.",
-     "starter_slot": "PK",
-     "snap_share": null,
+     "espn_comment": "",
+     "starter_slot": null,
+     "snap_share": 0.03,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -12396,20 +12472,6 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "Dallas caught his only target for a two-yard gain in Monday's Week 9 loss to the Bills.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
-     "player": "Devin Culp",
-     "position": "TE",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Culp was elevated from the Vikings' practice squad to their active roster Saturday.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -12453,6 +12515,20 @@
      "espn": "Active",
      "espn_comment": "",
      "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Will Reichard",
+     "position": "PK",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Reichard made all three of his field-goal attempts and all three PATs in the Vikings' 30-10 win over the Packers on Sunday.",
+     "starter_slot": "PK",
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -12523,7 +12599,13 @@
    ],
    "offense_units_hurt": {
     "offensive_line": [],
-    "secondary": [],
+    "secondary": [
+     {
+      "player": "Renardo Green",
+      "slot": "LCB",
+      "status": "Questionable"
+     }
+    ],
     "linebackers": [],
     "defensive_line": []
    },
@@ -13314,7 +13396,14 @@
        "tier B receiver: 7.1 targets and 68 yards a game",
        "MIN rarely allows 80+ games",
        "a teammate's absence adds targets"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 164,
+       "break_even": 0.3788,
+       "blend": 0.34,
+       "model_minus_price": -0.075
+      }
      },
      {
       "player": "Jordan Watkins",
@@ -13399,7 +13488,14 @@
        "12.9 carries a game",
        "favored by about 3",
        "MIN allows 103 rushing yards a game to backs"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 370,
+       "break_even": 0.2128,
+       "blend": 0.227,
+       "model_minus_price": 0.029
+      }
      }
     ],
     "context": {
@@ -13408,6 +13504,55 @@
      "implied": 24.75,
      "defense_g80_rank": 31,
      "defense_explosive_rank": 26
+    },
+    "record": {
+     "weeks": 22,
+     "seasons": "2025-2026",
+     "all_80_games": 399,
+     "3": {
+      "per_week": 3.7,
+      "predicted": 0.558,
+      "hit80": 0.512,
+      "hit100": 0.317
+     },
+     "2": {
+      "per_week": 5.6,
+      "predicted": 0.439,
+      "hit80": 0.431,
+      "hit100": 0.293
+     },
+     "1": {
+      "per_week": 11.3,
+      "predicted": 0.343,
+      "hit80": 0.345,
+      "hit100": 0.193
+     },
+     "all_stars": {
+      "per_week": 20.6,
+      "hit80": 0.399,
+      "share_of_all_80_games_caught": 0.454
+     }
+    },
+    "book_grade": {
+     "source": "FanDuel alt ladders, 2026 weeks 8-9, T-90 min; weights from 2022-2025 only",
+     "rungs": 402,
+     "brier": {
+      "model": 0.1136,
+      "book_price": 0.1136,
+      "book_devig": 0.1133,
+      "blend": 0.1118
+     },
+     "starred_30plus": {
+      "n": 68,
+      "hit": 0.5,
+      "model_p": 0.41,
+      "be": 0.468,
+      "roi": 0.087
+     },
+     "model_above_price_by_3pts": {
+      "n": 35,
+      "roi": -0.467
+     }
     }
    },
    "visual": {
@@ -18565,7 +18710,7 @@
    "phase": 13,
    "name": "Timestamped book prices",
    "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "detail": "No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total."
   },
   {
    "phase": 14,
@@ -18584,70 +18729,70 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:20+00:00",
-   "sha256": "6aeaa90f6e2d9fb4b8f2ea9b812acf942866ce01e482c9d28353940e38afed45",
-   "bytes": 523905
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
+   "sha256": "5814492ecf5b0f29b53e325a13fc87245bbb4233eb0e3e4696bf0b7787e3739d",
+   "bytes": 523901
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "5bf3fd3431e556d76e4f80378bd689edf1a55280de4c59078d3518b9f6b9959e",
    "bytes": 11054587
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "8ef5848627e0e3cfa8f5fa1d9b02240bbf3deabef88e1b14a90f3b14f7352361",
    "bytes": 818858
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "4be8d0f909f1393fa1f3a47b45a830b15da8e73a4d0fed210a1c57adc50f06ca",
    "bytes": 65722
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "cb40b454d0c640c47472e57fbe486defa8963046da0e577197fda01905b274eb",
    "bytes": 3517732
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "29653cc651000a3ba77a5c8dc10ad71ff76f6078ef5f5d032e8fbe2ce8599ab3",
    "bytes": 142951
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "21e9470ab453f4dcd0bd7d57499bab256a83b1e42c092b32d8d12138a47969c5",
    "bytes": 289331
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:01+00:00",
    "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
    "bytes": 93708
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-16T20:37:23+00:00"
+   "retrieved_utc": "2026-11-17T04:40:01+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
    "url": "https://nflsavant.com/"
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800",
    "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
    "retrieved_utc": null
   }

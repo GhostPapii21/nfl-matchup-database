@@ -31,19 +31,19 @@
   "DET": 26.5,
   "TB": 20.0
  },
- "generated_utc": "2026-11-16T20:37:46+00:00",
- "board_built_utc": "2026-11-16T20:48:29+00:00",
+ "generated_utc": "2026-11-17T04:40:17+00:00",
+ "board_built_utc": "2026-11-17T04:41:49+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": -6.5,
   "total": 46.5,
   "moneyline": {
-   "TB": 230.0,
-   "DET": -285.0
+   "TB": 225.0,
+   "DET": -278.0
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800"
  },
  "weather": {
   "status": "INDOOR",
@@ -3442,20 +3442,6 @@
      "status_level": 1
     },
     {
-     "player": "Bauer Sharp",
-     "position": "TE",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Sharp went without a target while playing 19 of the Buccaneers' 60 snaps on offense in Sunday's 16-0 win over the Falcons.",
-     "starter_slot": null,
-     "snap_share": 0.125,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
      "player": "Sean Tucker",
      "position": "RB",
      "game_status": null,
@@ -3589,6 +3575,20 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "Johnson played all 17 of his snaps on special teams and recorded one tackle in Sunday's 27-24 loss to the Bears.",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Easton Stick",
+     "position": "QB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "The Buccaneers signed Stick off their practice squad Monday, Scott Smith of the team's official site reports.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -4015,7 +4015,7 @@
      "practice": null,
      "injury": null,
      "espn": "Out",
-     "espn_comment": "Hutchison is expected to miss the remainder of the season after an initial MRI on his injured right knee Monday revealed a torn ACL, Ian Rapoport of NFL Network reports.",
+     "espn_comment": "Tests have confirmed that Hutchinson suffered a torn ACL in his right knee during Sunday's win against the Patriots in Munich, but there's no other significant damage in the knee, Tom Pelissero of Net",
      "starter_slot": null,
      "snap_share": 0.812,
      "next_up": null,
@@ -11896,7 +11896,7 @@
      "practice": null,
      "injury": null,
      "espn": "Out",
-     "espn_comment": "Hutchison is expected to miss the remainder of the season after an initial MRI on his injured right knee Monday revealed a torn ACL, Ian Rapoport of NFL Network reports.",
+     "espn_comment": "Tests have confirmed that Hutchinson suffered a torn ACL in his right knee during Sunday's win against the Patriots in Munich, but there's no other significant damage in the knee, Tom Pelissero of Net",
      "starter_slot": null,
      "snap_share": 0.812,
      "next_up": null,
@@ -12763,20 +12763,6 @@
      "status_level": 1
     },
     {
-     "player": "Bauer Sharp",
-     "position": "TE",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Sharp went without a target while playing 19 of the Buccaneers' 60 snaps on offense in Sunday's 16-0 win over the Falcons.",
-     "starter_slot": null,
-     "snap_share": 0.125,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
      "player": "Sean Tucker",
      "position": "RB",
      "game_status": null,
@@ -12910,6 +12896,20 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "Johnson played all 17 of his snaps on special teams and recorded one tackle in Sunday's 27-24 loss to the Bears.",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Easton Stick",
+     "position": "QB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "The Buccaneers signed Stick off their practice squad Monday, Scott Smith of the team's official site reports.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -18042,7 +18042,7 @@
    "phase": 13,
    "name": "Timestamped book prices",
    "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "detail": "No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total."
   },
   {
    "phase": 14,
@@ -18061,70 +18061,70 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:20+00:00",
-   "sha256": "6aeaa90f6e2d9fb4b8f2ea9b812acf942866ce01e482c9d28353940e38afed45",
-   "bytes": 523905
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
+   "sha256": "5814492ecf5b0f29b53e325a13fc87245bbb4233eb0e3e4696bf0b7787e3739d",
+   "bytes": 523901
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "5bf3fd3431e556d76e4f80378bd689edf1a55280de4c59078d3518b9f6b9959e",
    "bytes": 11054587
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "8ef5848627e0e3cfa8f5fa1d9b02240bbf3deabef88e1b14a90f3b14f7352361",
    "bytes": 818858
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "4be8d0f909f1393fa1f3a47b45a830b15da8e73a4d0fed210a1c57adc50f06ca",
    "bytes": 65722
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "cb40b454d0c640c47472e57fbe486defa8963046da0e577197fda01905b274eb",
    "bytes": 3517732
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "29653cc651000a3ba77a5c8dc10ad71ff76f6078ef5f5d032e8fbe2ce8599ab3",
    "bytes": 142951
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "21e9470ab453f4dcd0bd7d57499bab256a83b1e42c092b32d8d12138a47969c5",
    "bytes": 289331
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:01+00:00",
    "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
    "bytes": 93708
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-16T20:37:23+00:00"
+   "retrieved_utc": "2026-11-17T04:40:01+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
    "url": "https://nflsavant.com/"
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800",
    "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
    "retrieved_utc": null
   }

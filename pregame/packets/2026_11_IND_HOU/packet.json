@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-16T20:37:26+00:00",
+ "generated_utc": "2026-11-17T04:40:04+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -53,26 +53,26 @@
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800"
  },
  "weather": {
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/HGX/61,91/forecast/hourly",
-  "retrieved_utc": "2026-11-16T20:37:24+00:00",
+  "retrieved_utc": "2026-11-17T04:40:02+00:00",
   "kickoff_utc": "2026-11-20T01:15:00+00:00",
   "roof": "not listed (may be retractable: confirm open or closed)",
   "at_kickoff": {
-   "temp_f": 67,
-   "wind_mph": 5.0,
-   "wind_dir": "E",
-   "precip_chance_pct": 2,
+   "temp_f": 69,
+   "wind_mph": 0.0,
+   "wind_dir": "",
+   "precip_chance_pct": 1,
    "summary": "Partly Cloudy"
   },
   "during_game": {
-   "temp_f_min": 62,
-   "wind_mph_max": 5.0,
-   "precip_chance_pct_max": 2
+   "temp_f_min": 64,
+   "wind_mph_max": 0.0,
+   "precip_chance_pct_max": 1
   },
   "flags": []
  },
@@ -2529,14 +2529,6 @@
     "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
     "espn_live": [
      {
-      "player": "Alec Pierce",
-      "position": "WR",
-      "status": "Injured Reserve",
-      "date": "2026-11-11T17:38Z",
-      "comment": "When asked Wednesday whether Pierce (heel) has a chance to return from IR this season, Colts head coach Shane Steichen was noncommittal, James Boyd of The Athletic reports.",
-      "team": "IND"
-     },
-     {
       "player": "Mo Alie-Cox",
       "position": "TE",
       "status": "Injured Reserve",
@@ -2561,22 +2553,6 @@
       "team": "IND"
      },
      {
-      "player": "Charvarius Ward",
-      "position": "CB",
-      "status": "Questionable",
-      "date": "2026-11-15T20:07Z",
-      "comment": "Ward (shin) is questionable to return against the Dolphins on Sunday.",
-      "team": "IND"
-     },
-     {
-      "player": "Sauce Gardner",
-      "position": "CB",
-      "status": "Questionable",
-      "date": "2026-11-15T20:35Z",
-      "comment": "Gardner (calf) is questionable to return to Sunday's game against the Dolphins, Jake Arthur of Roundtable.io reports.",
-      "team": "IND"
-     },
-     {
       "player": "Luke Rhodes",
       "position": "LS",
       "status": "Out",
@@ -2587,14 +2563,6 @@
      {
       "player": "Jerry Tillery",
       "position": "DT",
-      "status": "Out",
-      "date": "2026-11-16T19:20Z",
-      "comment": "out",
-      "team": "IND"
-     },
-     {
-      "player": "Will Mallory",
-      "position": "TE",
       "status": "Out",
       "date": "2026-11-16T19:20Z",
       "comment": "out",
@@ -2617,19 +2585,35 @@
       "team": "IND"
      },
      {
-      "player": "Ashton Dulin",
-      "position": "WR",
-      "status": "Active",
-      "date": "2026-11-11T17:24Z",
-      "comment": "Head coach Shane Steichen said that Dulin will be one of the Colts receivers tasked with absorbing the snaps vacated by Keenan Allen, who was traded to the 49ers on Tuesday, Jake Arthur of Roundtable.",
+      "player": "Sauce Gardner",
+      "position": "CB",
+      "status": "Questionable",
+      "date": "2026-11-16T22:31Z",
+      "comment": "Colts head coach Shane Steichen reported Gardner suffered a left calf injury during Sunday's 24-22 win over the Dolphins and may not play Thursday versus Houston, James Boyd of The Athletic reports.",
       "team": "IND"
      },
      {
-      "player": "Deion Burks",
+      "player": "Charvarius Ward",
+      "position": "CB",
+      "status": "Questionable",
+      "date": "2026-11-16T22:38Z",
+      "comment": "Colts head coach Shane Steichen reported Ward (shin) didn't return to Sunday's 24-22 win over the Dolphins and could miss Thursday's game versus Houston, James Boyd of The Athletic reports.",
+      "team": "IND"
+     },
+     {
+      "player": "Anthony Gould",
       "position": "WR",
-      "status": "Active",
-      "date": "2026-11-11T20:45Z",
-      "comment": "Colts coach Shane Steichen said Wednesday that Burks and Anthony Gould will step into larger roles after the team traded Keenan Allen and Josh Downs, Stephen Holder of ESPN.com reports.",
+      "status": "Questionable",
+      "date": "2026-11-17T00:20Z",
+      "comment": "Gould (toe) was estimated as limited in Monday's walkthrough practice.",
+      "team": "IND"
+     },
+     {
+      "player": "Will Mallory",
+      "position": "TE",
+      "status": "Out",
+      "date": "2026-11-17T00:24Z",
+      "comment": "Mallory (hamstring) did not participate in Monday's walkthrough practice.",
       "team": "IND"
      },
      {
@@ -2681,14 +2665,6 @@
       "team": "IND"
      },
      {
-      "player": "Quez Watkins",
-      "position": "WR",
-      "status": "Active",
-      "date": "2026-11-14T17:40Z",
-      "comment": "The Colts elevated Watkins from the practice squad to the active roster Saturday.",
-      "team": "IND"
-     },
-     {
       "player": "Jonathan Taylor",
       "position": "RB",
       "status": "Active",
@@ -2726,6 +2702,30 @@
       "status": "Active",
       "date": "2026-11-16T19:19Z",
       "comment": "",
+      "team": "IND"
+     },
+     {
+      "player": "DJ Giddens",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-17T01:49Z",
+      "comment": "Giddens played two offensive snaps and didn't show up on the box score otherwise during the Colts' 24-22 win over the Dolphins on Sunday.",
+      "team": "IND"
+     },
+     {
+      "player": "Laquon Treadwell",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-17T02:03Z",
+      "comment": "Treadwell caught three passes on as many targets for 24 yards and a touchdown during Indianapolis' 24-22 win over Miami on Sunday.",
+      "team": "IND"
+     },
+     {
+      "player": "Spencer Shrader",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-17T03:43Z",
+      "comment": "Shrader made his sole field-goal attempt and converted all three PATs in the Colts' 24-22 win over the Dolphins on Sunday.",
       "team": "IND"
      }
     ],
@@ -5203,38 +5203,6 @@
       "team": "HOU"
      },
      {
-      "player": "Woody Marks",
-      "position": "RB",
-      "status": "Doubtful",
-      "date": "2026-11-15T23:18Z",
-      "comment": "Coach DeMeco Ryans acknowledged after Sunday's 27-24 loss to the Browns that Marks (concussion) is unlikely to play in Thursday night's game against the Colts, ESPN.com's DJ Bien-Aime reports.",
-      "team": "HOU"
-     },
-     {
-      "player": "David Montgomery",
-      "position": "RB",
-      "status": "Out",
-      "date": "2026-11-16T00:12Z",
-      "comment": "Texans head coach DeMeco Ryans said Sunday that he's \"not certain\" if Montgomery (groin) will be able to play Thursday against Indianapolis, DJ Bien-Aime of ESPN reports.",
-      "team": "HOU"
-     },
-     {
-      "player": "Marvin Harrison Jr.",
-      "position": "WR",
-      "status": "Out",
-      "date": "2026-11-16T19:16Z",
-      "comment": "out",
-      "team": "HOU"
-     },
-     {
-      "player": "Azeez Al-Shaair",
-      "position": "LB",
-      "status": "Out",
-      "date": "2026-11-16T19:16Z",
-      "comment": "out",
-      "team": "HOU"
-     },
-     {
       "player": "Danielle Hunter",
       "position": "DE",
       "status": "Out",
@@ -5251,27 +5219,35 @@
       "team": "HOU"
      },
      {
-      "player": "Wyatt Teller",
-      "position": "G",
+      "player": "Marvin Harrison Jr.",
+      "position": "WR",
       "status": "Out",
-      "date": "2026-11-16T19:19Z",
-      "comment": "out",
+      "date": "2026-11-17T00:44Z",
+      "comment": "Harrison (hamstring) was estimated as a non-participant on Monday's practice report.",
       "team": "HOU"
      },
      {
-      "player": "Keylan Rutledge",
-      "position": "G",
-      "status": "Out",
-      "date": "2026-11-16T19:19Z",
-      "comment": "out",
+      "player": "Woody Marks",
+      "position": "RB",
+      "status": "Doubtful",
+      "date": "2026-11-17T00:49Z",
+      "comment": "Marks (concussion) missed Monday's walkthrough.",
       "team": "HOU"
      },
      {
-      "player": "Foster Moreau",
-      "position": "TE",
-      "status": "Active",
-      "date": "2026-11-11T04:28Z",
-      "comment": "Moreau didn't log any targets or touches Sunday in a 44-22 win against the Chargers.",
+      "player": "Jake Hummel",
+      "position": "LB",
+      "status": "Questionable",
+      "date": "2026-11-17T00:53Z",
+      "comment": "questionable",
+      "team": "HOU"
+     },
+     {
+      "player": "Azeez Al-Shaair",
+      "position": "LB",
+      "status": "Out",
+      "date": "2026-11-17T01:03Z",
+      "comment": "Al-Shaair (groin) did not participate in Monday's walkthrough practice.",
       "team": "HOU"
      },
      {
@@ -5307,14 +5283,6 @@
       "team": "HOU"
      },
      {
-      "player": "Dare Ogunbowale",
-      "position": "RB",
-      "status": "Active",
-      "date": "2026-11-14T19:10Z",
-      "comment": "The Texans signed Ogunbowale to the practice squad and elevated him to the active roster Saturday.",
-      "team": "HOU"
-     },
-     {
       "player": "Trent Brown",
       "position": "OT",
       "status": "Active",
@@ -5336,14 +5304,6 @@
       "status": "Active",
       "date": "2026-11-15T17:28Z",
       "comment": "Smith (illness) is active for Sunday's game against the Browns.",
-      "team": "HOU"
-     },
-     {
-      "player": "Jake Hummel",
-      "position": "LB",
-      "status": "Active",
-      "date": "2026-11-15T17:33Z",
-      "comment": "Hummel (groin) is active  for Sunday's game against the Vikings.",
       "team": "HOU"
      },
      {
@@ -5392,6 +5352,46 @@
       "status": "Active",
       "date": "2026-11-16T05:08Z",
       "comment": "Schultz caught one pass for an 11-yard touchdown on two targets in Sunday's 27-24 loss to the Browns.",
+      "team": "HOU"
+     },
+     {
+      "player": "David Montgomery",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-17T00:44Z",
+      "comment": "Montgomery (groin) was a full participant at Monday's walkthrough.",
+      "team": "HOU"
+     },
+     {
+      "player": "Wyatt Teller",
+      "position": "G",
+      "status": "Active",
+      "date": "2026-11-17T01:10Z",
+      "comment": "Teller (illness) was a full participant in Monday's walkthrough practice.",
+      "team": "HOU"
+     },
+     {
+      "player": "Keylan Rutledge",
+      "position": "G",
+      "status": "Active",
+      "date": "2026-11-17T01:12Z",
+      "comment": "Rutledge (neck) was a full participant in Monday's walkthrough practice.",
+      "team": "HOU"
+     },
+     {
+      "player": "Dare Ogunbowale",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-17T01:41Z",
+      "comment": "Ogunbowale reverted to the Texans' practice squad Monday, per the NFL's official transaction log.",
+      "team": "HOU"
+     },
+     {
+      "player": "Ka'imi Fairbairn",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-17T03:47Z",
+      "comment": "Fairbairn converted his sole field-goal attempt and made all three PATs in the Texans' 27-24 loss to the Browns on Sunday.",
       "team": "HOU"
      }
     ],
@@ -5826,8 +5826,8 @@
    },
    "rain_adjusted": {
     "status": "OK",
-    "rain_chance": 0.02,
-    "wind_mph": 5.0,
+    "rain_chance": 0.01,
+    "wind_mph": 0.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
@@ -5844,10 +5844,10 @@
       "yards": 156.1
      },
      "forecast": {
-      "attempts": 32.8,
+      "attempts": 32.9,
       "completion_pct": 0.585,
       "completions": 19.2,
-      "yards": 182.2
+      "yards": 182.5
      }
     },
     "receivers": [
@@ -5872,10 +5872,10 @@
       },
       "forecast": {
        "targets": 7.8,
-       "catch_rate": 0.701,
+       "catch_rate": 0.702,
        "receptions": 5.5,
        "yards_per_target": 6.67,
-       "yards": 52.2
+       "yards": 52.3
       }
      },
      {
@@ -5929,7 +5929,7 @@
        "catch_rate": 0.704,
        "receptions": 5.2,
        "yards_per_target": 5.49,
-       "yards": 40.2
+       "yards": 40.3
       }
      },
      {
@@ -5956,7 +5956,7 @@
        "catch_rate": 0.656,
        "receptions": 2.6,
        "yards_per_target": 5.52,
-       "yards": 22.0
+       "yards": 22.1
       }
      },
      {
@@ -5982,7 +5982,7 @@
        "targets": 3.5,
        "catch_rate": 0.571,
        "receptions": 2.0,
-       "yards_per_target": 6.34,
+       "yards_per_target": 6.35,
        "yards": 22.2
       }
      },
@@ -6009,8 +6009,8 @@
        "targets": 1.6,
        "catch_rate": 0.545,
        "receptions": 0.9,
-       "yards_per_target": 5.44,
-       "yards": 8.5
+       "yards_per_target": 5.45,
+       "yards": 8.6
       }
      },
      {
@@ -6034,9 +6034,9 @@
       },
       "forecast": {
        "targets": 3.3,
-       "catch_rate": 0.499,
+       "catch_rate": 0.5,
        "receptions": 1.7,
-       "yards_per_target": 11.37,
+       "yards_per_target": 11.39,
        "yards": 37.9
       }
      },
@@ -6063,7 +6063,7 @@
        "targets": 1.5,
        "catch_rate": 0.666,
        "receptions": 1.0,
-       "yards_per_target": 5.15,
+       "yards_per_target": 5.16,
        "yards": 7.7
       }
      }
@@ -6447,8 +6447,8 @@
    },
    "rain_adjusted": {
     "status": "OK",
-    "rain_chance": 0.02,
-    "wind_mph": 5.0,
+    "rain_chance": 0.01,
+    "wind_mph": 0.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
@@ -6468,7 +6468,7 @@
       "attempts": 35.1,
       "completion_pct": 0.626,
       "completions": 22.0,
-      "yards": 273.6
+      "yards": 274.0
      }
     },
     "receivers": [
@@ -6496,7 +6496,7 @@
        "catch_rate": 0.52,
        "receptions": 3.1,
        "yards_per_target": 6.51,
-       "yards": 39.0
+       "yards": 39.1
       }
      },
      {
@@ -6522,8 +6522,8 @@
        "targets": 7.5,
        "catch_rate": 0.666,
        "receptions": 5.0,
-       "yards_per_target": 8.94,
-       "yards": 67.0
+       "yards_per_target": 8.95,
+       "yards": 67.1
       }
      },
      {
@@ -6547,10 +6547,10 @@
       },
       "forecast": {
        "targets": 5.1,
-       "catch_rate": 0.779,
+       "catch_rate": 0.78,
        "receptions": 4.0,
-       "yards_per_target": 8.74,
-       "yards": 44.7
+       "yards_per_target": 8.75,
+       "yards": 44.8
       }
      },
      {
@@ -6576,8 +6576,8 @@
        "targets": 3.4,
        "catch_rate": 0.666,
        "receptions": 2.2,
-       "yards_per_target": 11.01,
-       "yards": 37.1
+       "yards_per_target": 11.02,
+       "yards": 37.2
       }
      },
      {
@@ -6601,10 +6601,10 @@
       },
       "forecast": {
        "targets": 3.5,
-       "catch_rate": 0.808,
+       "catch_rate": 0.809,
        "receptions": 2.8,
-       "yards_per_target": 13.21,
-       "yards": 46.2
+       "yards_per_target": 13.22,
+       "yards": 46.3
       }
      },
      {
@@ -6630,8 +6630,8 @@
        "targets": 2.6,
        "catch_rate": 0.714,
        "receptions": 1.9,
-       "yards_per_target": 5.46,
-       "yards": 14.3
+       "yards_per_target": 5.47,
+       "yards": 14.4
       }
      },
      {
@@ -6657,7 +6657,7 @@
        "targets": 4.7,
        "catch_rate": 0.571,
        "receptions": 2.7,
-       "yards_per_target": 12.04,
+       "yards_per_target": 12.06,
        "yards": 56.2
       }
      },
@@ -6703,7 +6703,7 @@
      },
      "forecast": {
       "completion_pct": 0.629,
-      "yards_per_attempt": 7.85
+      "yards_per_attempt": 7.86
      }
     }
    }
@@ -6797,70 +6797,70 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:20+00:00",
-   "sha256": "6aeaa90f6e2d9fb4b8f2ea9b812acf942866ce01e482c9d28353940e38afed45",
-   "bytes": 523905
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
+   "sha256": "5814492ecf5b0f29b53e325a13fc87245bbb4233eb0e3e4696bf0b7787e3739d",
+   "bytes": 523901
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "5bf3fd3431e556d76e4f80378bd689edf1a55280de4c59078d3518b9f6b9959e",
    "bytes": 11054587
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "8ef5848627e0e3cfa8f5fa1d9b02240bbf3deabef88e1b14a90f3b14f7352361",
    "bytes": 818858
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "4be8d0f909f1393fa1f3a47b45a830b15da8e73a4d0fed210a1c57adc50f06ca",
    "bytes": 65722
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "cb40b454d0c640c47472e57fbe486defa8963046da0e577197fda01905b274eb",
    "bytes": 3517732
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "29653cc651000a3ba77a5c8dc10ad71ff76f6078ef5f5d032e8fbe2ce8599ab3",
    "bytes": 142951
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "21e9470ab453f4dcd0bd7d57499bab256a83b1e42c092b32d8d12138a47969c5",
    "bytes": 289331
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:01+00:00",
    "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
    "bytes": 93708
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-16T20:37:23+00:00"
+   "retrieved_utc": "2026-11-17T04:40:01+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
    "url": "https://nflsavant.com/"
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800",
    "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
    "retrieved_utc": null
   }
@@ -6942,7 +6942,7 @@
    "phase": 13,
    "name": "Timestamped book prices",
    "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "detail": "No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total."
   },
   {
    "phase": 14,
@@ -6958,12 +6958,12 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-16T20:37:23+00:00",
+  "checked_utc": "2026-11-17T04:40:01+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",
     "used_for": "Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT"
    },
    "NFL_BDL_API_KEY": {
     "provider": "BallDontLie NFL",
@@ -6973,7 +6973,8 @@
    "NFL_API_SPORTS_KEY": {
     "provider": "API-Sports NFL",
     "used_for": "access check only; not used in the packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT_PROVIDER_ERROR",
+    "provider_message": "{'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
    }
   },
   "note": "Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here."

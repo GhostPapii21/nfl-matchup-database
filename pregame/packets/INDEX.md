@@ -4,6 +4,18 @@ Research only. `projection_ready` is false. Start with `pregame/ANALYST_PROMPT.m
 
 | Game | Slot | Kickoff (ET) | Brief | Data | Updated (UTC) | Book prices | Weather | Play-by-play |
 |---|---|---|---|---|---|---|---|---|
-| LAC at BAL (week 10) | Monday Night Football | 2026-11-16 20:15 | [brief](2026_10_LAC_BAL/brief.md) | [json](2026_10_LAC_BAL/packet.json) | 2026-11-16T23:41:25+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| IND at HOU (week 11) | Thursday Night Football | 2026-11-19 20:15 | [brief](2026_11_IND_HOU/brief.md) | [json](2026_11_IND_HOU/packet.json) | 2026-11-17T04:40:04+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| ARI at KC (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_ARI_KC/brief.md) | [json](2026_11_ARI_KC/packet.json) | 2026-11-17T04:40:06+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| BAL at CAR (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_BAL_CAR/brief.md) | [json](2026_11_BAL_CAR/packet.json) | 2026-11-17T04:40:08+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | STALE |
+| JAX at NYG (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_JAX_NYG/brief.md) | [json](2026_11_JAX_NYG/packet.json) | 2026-11-17T04:40:11+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| MIA at BUF (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_MIA_BUF/brief.md) | [json](2026_11_MIA_BUF/packet.json) | 2026-11-17T04:40:13+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| NO at CHI (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_NO_CHI/brief.md) | [json](2026_11_NO_CHI/packet.json) | 2026-11-17T04:40:15+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| TB at DET (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_TB_DET/brief.md) | [json](2026_11_TB_DET/packet.json) | 2026-11-17T04:40:17+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | INDOOR | current |
+| TEN at DAL (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_TEN_DAL/brief.md) | [json](2026_11_TEN_DAL/packet.json) | 2026-11-17T04:40:19+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| NYJ at LAC (week 11) | Sunday late window | 2026-11-22 16:05 | [brief](2026_11_NYJ_LAC/brief.md) | [json](2026_11_NYJ_LAC/packet.json) | 2026-11-17T04:40:22+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | INDOOR | STALE |
+| LV at DEN (week 11) | Sunday late window | 2026-11-22 16:25 | [brief](2026_11_LV_DEN/brief.md) | [json](2026_11_LV_DEN/packet.json) | 2026-11-17T04:40:24+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| PIT at PHI (week 11) | Sunday late window | 2026-11-22 16:25 | [brief](2026_11_PIT_PHI/brief.md) | [json](2026_11_PIT_PHI/packet.json) | 2026-11-17T04:40:27+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | OK | current |
+| MIN at SF (week 11) | Sunday Night Football | 2026-11-22 20:20 | [brief](2026_11_MIN_SF/brief.md) | [json](2026_11_MIN_SF/packet.json) | 2026-11-17T04:40:29+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | NOT_MAPPED_NEUTRAL_OR_INTERNATIONAL_SITE | current |
+| CIN at WAS (week 11) | Monday Night Football | 2026-11-23 20:15 | [brief](2026_11_CIN_WAS/brief.md) | [json](2026_11_CIN_WAS/packet.json) | 2026-11-17T04:40:31+00:00 | SKIPPED_CREDIT_FLOOR: 801 - 3  | KICKOFF_BEYOND_HOURLY_FORECAST: the hour | current |
 
 Odds API credits remaining: 801 (used 19199).

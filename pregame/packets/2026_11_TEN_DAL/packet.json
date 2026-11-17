@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-16T20:37:50+00:00",
+ "generated_utc": "2026-11-17T04:40:19+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -34,8 +34,8 @@
   "home_spread": -8.5,
   "total": 54.5,
   "moneyline": {
-   "TEN": 360.0,
-   "DAL": -470.0
+   "TEN": 330.0,
+   "DAL": -425.0
   }
  },
  "data_freshness": {
@@ -53,13 +53,13 @@
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800"
  },
  "weather": {
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/FWD/78,103/forecast/hourly",
-  "retrieved_utc": "2026-11-16T20:37:48+00:00",
+  "retrieved_utc": "2026-11-17T04:40:18+00:00",
   "kickoff_utc": "2026-11-22T18:00:00+00:00",
   "roof": "not listed (may be retractable: confirm open or closed)",
   "at_kickoff": {
@@ -2542,14 +2542,6 @@
     "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
     "espn_live": [
      {
-      "player": "James Williams Sr.",
-      "position": "LB",
-      "status": "Injured Reserve",
-      "date": "2026-11-10T01:59Z",
-      "comment": "The Titans placed Williams (groin) on injured reserve Monday, Jim Wyatt of the Titans' official site reports.",
-      "team": "TEN"
-     },
-     {
       "player": "Peter Skoronski",
       "position": "G",
       "status": "Injured Reserve",
@@ -2586,7 +2578,7 @@
       "position": "WR",
       "status": "Out",
       "date": "2026-11-16T14:23Z",
-      "comment": "Titans head coach Robert Saleh said Monday that he's hopeful that Tate (shoulder) will return to action Week 11 versus the Cowboys, Jim Wyatt of the team's official site reports.",
+      "comment": "Titans head coach Robert Saleh said Monday that he's hopeful that Tate (shoulder) will return to action in Week 11 versus the Cowboys, Jim Wyatt of the team's official site reports.",
       "team": "TEN"
      },
      {
@@ -2603,14 +2595,6 @@
       "status": "Out",
       "date": "2026-11-16T20:10Z",
       "comment": "out",
-      "team": "TEN"
-     },
-     {
-      "player": "Marcus Harris",
-      "position": "CB",
-      "status": "Active",
-      "date": "2026-11-11T23:07Z",
-      "comment": "Harris (ankle) practiced in full Wednesday.",
       "team": "TEN"
      },
      {
@@ -2635,14 +2619,6 @@
       "status": "Active",
       "date": "2026-11-13T21:27Z",
       "comment": "Dike may have a significant role on offense with Carnell Tate (shoulder) ruled out for Sunday's game against Jacksonville.",
-      "team": "TEN"
-     },
-     {
-      "player": "Xavier Restrepo",
-      "position": "WR",
-      "status": "Active",
-      "date": "2026-11-14T21:57Z",
-      "comment": "The Titans elevated Restrepo from the practice squad to the active roster Saturday, Jim Wyatt of the team's official site reports.",
       "team": "TEN"
      },
      {
@@ -2739,6 +2715,30 @@
       "status": "Active",
       "date": "2026-11-16T20:09Z",
       "comment": "",
+      "team": "TEN"
+     },
+     {
+      "player": "Calvin Ridley",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-17T01:37Z",
+      "comment": "Ridley played four offensive snaps and didn't show up on the box score otherwise during the Titans' 40-23 loss to the Jaguars on Sunday.",
+      "team": "TEN"
+     },
+     {
+      "player": "Xavier Restrepo",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-17T02:29Z",
+      "comment": "Restrepo reverted to the Titans' practice squad Monday, per the NFL's transaction log.",
+      "team": "TEN"
+     },
+     {
+      "player": "Joey Slye",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-17T02:44Z",
+      "comment": "Slye made all three of his field-goal attempts and both of his extra-point tries during the Titans' 40-23 loss to the Jaguars on Sunday. He also logged a tackle and forced a fumble.",
       "team": "TEN"
      }
     ],
@@ -5261,23 +5261,15 @@
       "position": "G",
       "status": "Out",
       "date": "2026-11-16T19:21Z",
-      "comment": "Booker suffered a high ankle sprain in Sunday's 46-40 loss to the 49ers, Calvin Watkins of The Dallas Morning News  reports.",
+      "comment": "Booker suffered a high-ankle sprain in Sunday's 46-40 loss to the 49ers, Calvin Watkins of The Dallas Morning News  reports.",
       "team": "DAL"
      },
      {
       "player": "DaRon Bland",
       "position": "CB",
-      "status": "Doubtful",
+      "status": "Out",
       "date": "2026-11-16T19:32Z",
       "comment": "Bland sustained a high-ankle sprain in Sunday's 46-40 loss to the 49ers, Todd Archer of ESPN.com reports.",
-      "team": "DAL"
-     },
-     {
-      "player": "Luke Schoonmaker",
-      "position": "TE",
-      "status": "Active",
-      "date": "2026-11-11T23:49Z",
-      "comment": "Schoonmaker (groin) was a full participant in Wednesday's practice, Tommy Yarrish of the Cowboys' official site reports.",
       "team": "DAL"
      },
      {
@@ -5302,14 +5294,6 @@
       "status": "Active",
       "date": "2026-11-14T00:48Z",
       "comment": "Turpin (ribs) does not carry an injury designation into Sunday's game against the 49ers, Tommy Yarrish of the Cowboys' official site reports.",
-      "team": "DAL"
-     },
-     {
-      "player": "Israel Abanikanda",
-      "position": "RB",
-      "status": "Active",
-      "date": "2026-11-14T18:53Z",
-      "comment": "The Cowboys elevated Abanikanda from the practice squad to the active roster Saturday, Tommy Yarrish of the team's official site reports.",
       "team": "DAL"
      },
      {
@@ -5406,6 +5390,22 @@
       "status": "Active",
       "date": "2026-11-16T19:08Z",
       "comment": "",
+      "team": "DAL"
+     },
+     {
+      "player": "Israel Abanikanda",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-17T01:24Z",
+      "comment": "Abanikanda reverted to the Cowboys' practice squad Monday, per the NFL's transaction log.",
+      "team": "DAL"
+     },
+     {
+      "player": "Brandon Aubrey",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-17T02:53Z",
+      "comment": "Aubrey made both of his field-goal attempts and went 2-for-3 on extra-point tries during the Cowboys' 46-40 loss to the 49ers on Sunday.",
       "team": "DAL"
      }
     ],
@@ -6829,70 +6829,70 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:20+00:00",
-   "sha256": "6aeaa90f6e2d9fb4b8f2ea9b812acf942866ce01e482c9d28353940e38afed45",
-   "bytes": 523905
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
+   "sha256": "5814492ecf5b0f29b53e325a13fc87245bbb4233eb0e3e4696bf0b7787e3739d",
+   "bytes": 523901
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "5bf3fd3431e556d76e4f80378bd689edf1a55280de4c59078d3518b9f6b9959e",
    "bytes": 11054587
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "8ef5848627e0e3cfa8f5fa1d9b02240bbf3deabef88e1b14a90f3b14f7352361",
    "bytes": 818858
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "4be8d0f909f1393fa1f3a47b45a830b15da8e73a4d0fed210a1c57adc50f06ca",
    "bytes": 65722
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "cb40b454d0c640c47472e57fbe486defa8963046da0e577197fda01905b274eb",
    "bytes": 3517732
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "29653cc651000a3ba77a5c8dc10ad71ff76f6078ef5f5d032e8fbe2ce8599ab3",
    "bytes": 142951
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "21e9470ab453f4dcd0bd7d57499bab256a83b1e42c092b32d8d12138a47969c5",
    "bytes": 289331
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:01+00:00",
    "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
    "bytes": 93708
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-16T20:37:23+00:00"
+   "retrieved_utc": "2026-11-17T04:40:01+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
    "url": "https://nflsavant.com/"
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800",
    "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
    "retrieved_utc": null
   }
@@ -6974,7 +6974,7 @@
    "phase": 13,
    "name": "Timestamped book prices",
    "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "detail": "No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total."
   },
   {
    "phase": 14,
@@ -6990,12 +6990,12 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-16T20:37:23+00:00",
+  "checked_utc": "2026-11-17T04:40:01+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",
     "used_for": "Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT"
    },
    "NFL_BDL_API_KEY": {
     "provider": "BallDontLie NFL",
@@ -7005,7 +7005,8 @@
    "NFL_API_SPORTS_KEY": {
     "provider": "API-Sports NFL",
     "used_for": "access check only; not used in the packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT_PROVIDER_ERROR",
+    "provider_message": "{'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
    }
   },
   "note": "Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here."

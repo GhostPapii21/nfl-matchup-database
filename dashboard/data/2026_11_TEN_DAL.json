@@ -31,25 +31,25 @@
   "DAL": 31.5,
   "TEN": 23.0
  },
- "generated_utc": "2026-11-16T20:37:50+00:00",
- "board_built_utc": "2026-11-16T20:48:41+00:00",
+ "generated_utc": "2026-11-17T04:40:19+00:00",
+ "board_built_utc": "2026-11-17T04:42:00+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": -8.5,
   "total": 54.5,
   "moneyline": {
-   "TEN": 360.0,
-   "DAL": -470.0
+   "TEN": 330.0,
+   "DAL": -425.0
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800"
  },
  "weather": {
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/FWD/78,103/forecast/hourly",
-  "retrieved_utc": "2026-11-16T20:37:48+00:00",
+  "retrieved_utc": "2026-11-17T04:40:18+00:00",
   "kickoff_utc": "2026-11-22T18:00:00+00:00",
   "roof": "not listed (may be retractable: confirm open or closed)",
   "at_kickoff": {
@@ -3478,7 +3478,7 @@
      "practice": null,
      "injury": null,
      "espn": "Out",
-     "espn_comment": "Titans head coach Robert Saleh said Monday that he's hopeful that Tate (shoulder) will return to action Week 11 versus the Cowboys, Jim Wyatt of the team's official site reports.",
+     "espn_comment": "Titans head coach Robert Saleh said Monday that he's hopeful that Tate (shoulder) will return to action in Week 11 versus the Cowboys, Jim Wyatt of the team's official site reports.",
      "starter_slot": "WR",
      "snap_share": 0.81,
      "next_up": "Wan'Dale Robinson",
@@ -3540,20 +3540,6 @@
      "next_up": null,
      "impact": "medium",
      "status_level": 2
-    },
-    {
-     "player": "James Williams Sr.",
-     "position": "LB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Injured Reserve",
-     "espn_comment": "The Titans placed Williams (groin) on injured reserve Monday, Jim Wyatt of the Titans' official site reports.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
     },
     {
      "player": "Tommy Townsend",
@@ -3654,15 +3640,15 @@
      "status_level": 1
     },
     {
-     "player": "Marcus Harris",
-     "position": "CB",
+     "player": "Calvin Ridley",
+     "position": "WR",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Harris (ankle) practiced in full Wednesday.",
+     "espn_comment": "Ridley played four offensive snaps and didn't show up on the box score otherwise during the Titans' 40-23 loss to the Jaguars on Sunday.",
      "starter_slot": null,
-     "snap_share": 0.563,
+     "snap_share": 0.454,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -3688,7 +3674,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "The Titans elevated Restrepo from the practice squad to the active roster Saturday, Jim Wyatt of the team's official site reports.",
+     "espn_comment": "Restrepo reverted to the Titans' practice squad Monday, per the NFL's transaction log.",
      "starter_slot": null,
      "snap_share": 0.33,
      "next_up": null,
@@ -3802,6 +3788,20 @@
      "espn": "Active",
      "espn_comment": "",
      "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Joey Slye",
+     "position": "PK",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Slye made all three of his field-goal attempts and both of his extra-point tries during the Titans' 40-23 loss to the Jaguars on Sunday. He also logged a tackle and forced a fumble.",
+     "starter_slot": "PK",
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -4197,7 +4197,7 @@
      "practice": null,
      "injury": null,
      "espn": "Out",
-     "espn_comment": "Booker suffered a high ankle sprain in Sunday's 46-40 loss to the 49ers, Calvin Watkins of The Dallas Morning News  reports.",
+     "espn_comment": "Booker suffered a high-ankle sprain in Sunday's 46-40 loss to the 49ers, Calvin Watkins of The Dallas Morning News  reports.",
      "starter_slot": "RG",
      "snap_share": 0.925,
      "next_up": "T.J. Bass",
@@ -4210,7 +4210,7 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Doubtful",
+     "espn": "Out",
      "espn_comment": "Bland sustained a high-ankle sprain in Sunday's 46-40 loss to the 49ers, Todd Archer of ESPN.com reports.",
      "starter_slot": "RCB",
      "snap_share": 0.874,
@@ -4485,27 +4485,13 @@
      "status_level": 1
     },
     {
-     "player": "Luke Schoonmaker",
-     "position": "TE",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Schoonmaker (groin) was a full participant in Wednesday's practice, Tommy Yarrish of the Cowboys' official site reports.",
-     "starter_slot": null,
-     "snap_share": 0.167,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
      "player": "Israel Abanikanda",
      "position": "RB",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "The Cowboys elevated Abanikanda from the practice squad to the active roster Saturday, Tommy Yarrish of the team's official site reports.",
+     "espn_comment": "Abanikanda reverted to the Cowboys' practice squad Monday, per the NFL's transaction log.",
      "starter_slot": null,
      "snap_share": 0.07,
      "next_up": null,
@@ -4535,6 +4521,20 @@
      "espn": "Active",
      "espn_comment": "",
      "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Brandon Aubrey",
+     "position": "PK",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Aubrey made both of his field-goal attempts and went 2-for-3 on extra-point tries during the Cowboys' 46-40 loss to the 49ers on Sunday.",
+     "starter_slot": "PK",
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -4644,7 +4644,7 @@
      {
       "player": "DaRon Bland",
       "slot": "RCB",
-      "status": "Doubtful"
+      "status": "Out"
      },
      {
       "player": "P.J. Locke",
@@ -13109,7 +13109,7 @@
      "practice": null,
      "injury": null,
      "espn": "Out",
-     "espn_comment": "Booker suffered a high ankle sprain in Sunday's 46-40 loss to the 49ers, Calvin Watkins of The Dallas Morning News  reports.",
+     "espn_comment": "Booker suffered a high-ankle sprain in Sunday's 46-40 loss to the 49ers, Calvin Watkins of The Dallas Morning News  reports.",
      "starter_slot": "RG",
      "snap_share": 0.925,
      "next_up": "T.J. Bass",
@@ -13122,7 +13122,7 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Doubtful",
+     "espn": "Out",
      "espn_comment": "Bland sustained a high-ankle sprain in Sunday's 46-40 loss to the 49ers, Todd Archer of ESPN.com reports.",
      "starter_slot": "RCB",
      "snap_share": 0.874,
@@ -13397,27 +13397,13 @@
      "status_level": 1
     },
     {
-     "player": "Luke Schoonmaker",
-     "position": "TE",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Schoonmaker (groin) was a full participant in Wednesday's practice, Tommy Yarrish of the Cowboys' official site reports.",
-     "starter_slot": null,
-     "snap_share": 0.167,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
      "player": "Israel Abanikanda",
      "position": "RB",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "The Cowboys elevated Abanikanda from the practice squad to the active roster Saturday, Tommy Yarrish of the team's official site reports.",
+     "espn_comment": "Abanikanda reverted to the Cowboys' practice squad Monday, per the NFL's transaction log.",
      "starter_slot": null,
      "snap_share": 0.07,
      "next_up": null,
@@ -13447,6 +13433,20 @@
      "espn": "Active",
      "espn_comment": "",
      "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Brandon Aubrey",
+     "position": "PK",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Aubrey made both of his field-goal attempts and went 2-for-3 on extra-point tries during the Cowboys' 46-40 loss to the 49ers on Sunday.",
+     "starter_slot": "PK",
      "snap_share": null,
      "next_up": null,
      "impact": "low",
@@ -13848,7 +13848,7 @@
      "practice": null,
      "injury": null,
      "espn": "Out",
-     "espn_comment": "Titans head coach Robert Saleh said Monday that he's hopeful that Tate (shoulder) will return to action Week 11 versus the Cowboys, Jim Wyatt of the team's official site reports.",
+     "espn_comment": "Titans head coach Robert Saleh said Monday that he's hopeful that Tate (shoulder) will return to action in Week 11 versus the Cowboys, Jim Wyatt of the team's official site reports.",
      "starter_slot": "WR",
      "snap_share": 0.81,
      "next_up": "Wan'Dale Robinson",
@@ -13910,20 +13910,6 @@
      "next_up": null,
      "impact": "medium",
      "status_level": 2
-    },
-    {
-     "player": "James Williams Sr.",
-     "position": "LB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Injured Reserve",
-     "espn_comment": "The Titans placed Williams (groin) on injured reserve Monday, Jim Wyatt of the Titans' official site reports.",
-     "starter_slot": null,
-     "snap_share": null,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 3
     },
     {
      "player": "Tommy Townsend",
@@ -14024,15 +14010,15 @@
      "status_level": 1
     },
     {
-     "player": "Marcus Harris",
-     "position": "CB",
+     "player": "Calvin Ridley",
+     "position": "WR",
      "game_status": null,
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Harris (ankle) practiced in full Wednesday.",
+     "espn_comment": "Ridley played four offensive snaps and didn't show up on the box score otherwise during the Titans' 40-23 loss to the Jaguars on Sunday.",
      "starter_slot": null,
-     "snap_share": 0.563,
+     "snap_share": 0.454,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -14058,7 +14044,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "The Titans elevated Restrepo from the practice squad to the active roster Saturday, Jim Wyatt of the team's official site reports.",
+     "espn_comment": "Restrepo reverted to the Titans' practice squad Monday, per the NFL's transaction log.",
      "starter_slot": null,
      "snap_share": 0.33,
      "next_up": null,
@@ -14176,6 +14162,20 @@
      "next_up": null,
      "impact": "low",
      "status_level": 1
+    },
+    {
+     "player": "Joey Slye",
+     "position": "PK",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Slye made all three of his field-goal attempts and both of his extra-point tries during the Titans' 40-23 loss to the Jaguars on Sunday. He also logged a tackle and forced a fumble.",
+     "starter_slot": "PK",
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
     }
    ],
    "defense_returning": [
@@ -14262,7 +14262,7 @@
      {
       "player": "DaRon Bland",
       "slot": "RCB",
-      "status": "Doubtful"
+      "status": "Out"
      },
      {
       "player": "P.J. Locke",
@@ -20756,7 +20756,7 @@
    "phase": 13,
    "name": "Timestamped book prices",
    "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "detail": "No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total."
   },
   {
    "phase": 14,
@@ -20775,70 +20775,70 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:20+00:00",
-   "sha256": "6aeaa90f6e2d9fb4b8f2ea9b812acf942866ce01e482c9d28353940e38afed45",
-   "bytes": 523905
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
+   "sha256": "5814492ecf5b0f29b53e325a13fc87245bbb4233eb0e3e4696bf0b7787e3739d",
+   "bytes": 523901
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "5bf3fd3431e556d76e4f80378bd689edf1a55280de4c59078d3518b9f6b9959e",
    "bytes": 11054587
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "8ef5848627e0e3cfa8f5fa1d9b02240bbf3deabef88e1b14a90f3b14f7352361",
    "bytes": 818858
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "4be8d0f909f1393fa1f3a47b45a830b15da8e73a4d0fed210a1c57adc50f06ca",
    "bytes": 65722
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "cb40b454d0c640c47472e57fbe486defa8963046da0e577197fda01905b274eb",
    "bytes": 3517732
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "29653cc651000a3ba77a5c8dc10ad71ff76f6078ef5f5d032e8fbe2ce8599ab3",
    "bytes": 142951
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "21e9470ab453f4dcd0bd7d57499bab256a83b1e42c092b32d8d12138a47969c5",
    "bytes": 289331
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:01+00:00",
    "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
    "bytes": 93708
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-16T20:37:23+00:00"
+   "retrieved_utc": "2026-11-17T04:40:01+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
    "url": "https://nflsavant.com/"
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800",
    "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
    "retrieved_utc": null
   }

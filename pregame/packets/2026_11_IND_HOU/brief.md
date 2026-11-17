@@ -4,15 +4,15 @@
 
 Market (schedule consensus, not a timestamped quote): HOU -11.5, total 44.5.
 
-Generated 2026-11-16T20:37:26+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-17T04:40:04+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-16T20:37:24+00:00 UTC. At kickoff: 67 F, wind 5 mph E, 2% chance of precipitation, Partly Cloudy. During the game: low 62 F, wind up to 5 mph, precipitation chance up to 2%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-17T04:40:02+00:00 UTC. At kickoff: 69 F, wind 0 mph , 1% chance of precipitation, Partly Cloudy. During the game: low 64 F, wind up to 0 mph, precipitation chance up to 1%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
-No book prices in this packet: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Do not quote book numbers from memory.
+No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not quote book numbers from memory.
 
 ## Matchup edges
 
@@ -92,27 +92,27 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 2% chance of rain at kickoff, wind up to 5 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 1% chance of rain at kickoff, wind up to 0 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### IND passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 32.9 | 31.5 | 32.8 |
+| Team pass attempts | 32.9 | 31.5 | 32.9 |
 | Team completion rate | 58.6% | 55.0% | 58.5% |
 | Team completions | 19.2 | 17.3 | 19.2 |
-| Team pass yards | 182.8 | 156.1 | 182.2 |
+| Team pass yards | 182.8 | 156.1 | 182.5 |
 | D.Jones completion rate (261 attempts) | 58.2% | 54.7% | 58.2% |
 | D.Jones yards per attempt | 5.57 | 4.9 | 5.56 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| K.Allen | WR | 6 | 19% | 7.8 / 5.5 / 52.3 | 7.5 / 4.9 / 44.4 | 7.8 / 5.5 / 52.2 |
+| K.Allen | WR | 6 | 19% | 7.8 / 5.5 / 52.3 | 7.5 / 4.9 / 44.4 | 7.8 / 5.5 / 52.3 |
 | J.Downs | WR | 7 | 18% | 6.3 / 3.4 / 35.0 | 6.0 / 3.1 / 29.7 | 6.3 / 3.4 / 34.9 |
-| T.Warren | TE | 6 | 18% | 7.3 / 5.2 / 40.3 | 7.0 / 4.6 / 34.1 | 7.3 / 5.2 / 40.2 |
-| J.Taylor | RB | 8 | 13% | 4.0 / 2.6 / 22.1 | 3.8 / 2.4 / 18.4 | 4.0 / 2.6 / 22.0 |
+| T.Warren | TE | 6 | 18% | 7.3 / 5.2 / 40.3 | 7.0 / 4.6 / 34.1 | 7.3 / 5.2 / 40.3 |
+| J.Taylor | RB | 8 | 13% | 4.0 / 2.6 / 22.1 | 3.8 / 2.4 / 18.4 | 4.0 / 2.6 / 22.1 |
 | L.Treadwell | WR | 8 | 11% | 3.5 / 2.0 / 22.2 | 3.3 / 1.8 / 18.9 | 3.5 / 2.0 / 22.2 |
-| D.Burks | WR | 7 | 4% | 1.6 / 0.9 / 8.6 | 1.5 / 0.8 / 7.3 | 1.6 / 0.9 / 8.5 |
+| D.Burks | WR | 7 | 4% | 1.6 / 0.9 / 8.6 | 1.5 / 0.8 / 7.3 | 1.6 / 0.9 / 8.6 |
 | A.Dulin | WR | 3 | 4% | 3.3 / 1.7 / 38.0 | 3.2 / 1.5 / 32.2 | 3.3 / 1.7 / 37.9 |
 | M.Alie-Cox | TE | 4 | 2% | 1.5 / 1.0 / 7.8 | 1.4 / 0.9 / 6.6 | 1.5 / 1.0 / 7.7 |
 
@@ -123,18 +123,18 @@ Forecast: 2% chance of rain at kickoff, wind up to 5 mph. Basis: 211 team-games 
 | Team pass attempts | 35.1 | 33.6 | 35.1 |
 | Team completion rate | 62.6% | 58.8% | 62.6% |
 | Team completions | 22.0 | 19.8 | 22.0 |
-| Team pass yards | 274.4 | 234.4 | 273.6 |
+| Team pass yards | 274.4 | 234.4 | 274.0 |
 | C.Stroud completion rate (278 attempts) | 62.9% | 59.1% | 62.9% |
-| C.Stroud yards per attempt | 7.87 | 6.92 | 7.85 |
+| C.Stroud yards per attempt | 7.87 | 6.92 | 7.86 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| X.Hutchinson | WR | 8 | 18% | 6.0 / 3.1 / 39.1 | 5.7 / 2.8 / 33.2 | 6.0 / 3.1 / 39.0 |
-| N.Collins | WR | 6 | 17% | 7.5 / 5.0 / 67.2 | 7.2 / 4.5 / 57.0 | 7.5 / 5.0 / 67.0 |
-| D.Schultz | TE | 8 | 15% | 5.1 / 4.0 / 44.9 | 4.9 / 3.6 / 38.0 | 5.1 / 4.0 / 44.7 |
-| K.Boutte | WR | 8 | 10% | 3.4 / 2.2 / 37.2 | 3.2 / 2.0 / 31.6 | 3.4 / 2.2 / 37.1 |
-| J.Noel | WR | 6 | 8% | 3.5 / 2.8 / 46.3 | 3.3 / 2.5 / 39.3 | 3.5 / 2.8 / 46.2 |
-| W.Marks | RB | 8 | 8% | 2.6 / 1.9 / 14.4 | 2.5 / 1.7 / 12.0 | 2.6 / 1.9 / 14.3 |
+| X.Hutchinson | WR | 8 | 18% | 6.0 / 3.1 / 39.1 | 5.7 / 2.8 / 33.2 | 6.0 / 3.1 / 39.1 |
+| N.Collins | WR | 6 | 17% | 7.5 / 5.0 / 67.2 | 7.2 / 4.5 / 57.0 | 7.5 / 5.0 / 67.1 |
+| D.Schultz | TE | 8 | 15% | 5.1 / 4.0 / 44.9 | 4.9 / 3.6 / 38.0 | 5.1 / 4.0 / 44.8 |
+| K.Boutte | WR | 8 | 10% | 3.4 / 2.2 / 37.2 | 3.2 / 2.0 / 31.6 | 3.4 / 2.2 / 37.2 |
+| J.Noel | WR | 6 | 8% | 3.5 / 2.8 / 46.3 | 3.3 / 2.5 / 39.3 | 3.5 / 2.8 / 46.3 |
+| W.Marks | RB | 8 | 8% | 2.6 / 1.9 / 14.4 | 2.5 / 1.7 / 12.0 | 2.6 / 1.9 / 14.4 |
 | T.Dell | WR | 3 | 5% | 4.7 / 2.7 / 56.3 | 4.5 / 2.4 / 47.8 | 4.7 / 2.7 / 56.2 |
 | F.Moreau | TE | 5 | 4% | 2.4 / 1.8 / 11.4 | 2.3 / 1.6 / 9.6 | 2.4 / 1.8 / 11.4 |
 
@@ -342,7 +342,7 @@ Defensive front: LDE Arden Key, LDT Grover Stewart, RDT Adetomiwa Adebawore, RDE
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Alec Pierce (WR) Injured Reserve; Mo Alie-Cox (TE) Injured Reserve; Akeem Davis-Gaither (LB) Injured Reserve; Bernhard Raimann (OT) Questionable; Charvarius Ward (CB) Questionable; Sauce Gardner (CB) Questionable; Luke Rhodes (LS) Out; Jerry Tillery (DT) Out; Will Mallory (TE) Out; Jaylon Carlies (LB) Out; Jalen Travis (OT) Out.
+ESPN live list (designations only): Mo Alie-Cox (TE) Injured Reserve; Akeem Davis-Gaither (LB) Injured Reserve; Bernhard Raimann (OT) Questionable; Luke Rhodes (LS) Out; Jerry Tillery (DT) Out; Jaylon Carlies (LB) Out; Jalen Travis (OT) Out; Sauce Gardner (CB) Questionable; Charvarius Ward (CB) Questionable; Anthony Gould (WR) Questionable; Will Mallory (TE) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -556,7 +556,7 @@ Defensive front: LDE Will Anderson Jr., LDT Tommy Togiai, RDT Sheldon Rankins, R
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Jaylin Smith (CB) Injured Reserve; Woody Marks (RB) Doubtful; David Montgomery (RB) Out; Marvin Harrison Jr. (WR) Out; Azeez Al-Shaair (LB) Out; Danielle Hunter (DE) Out; Brevin Jordan (TE) Out; Wyatt Teller (G) Out; Keylan Rutledge (G) Out.
+ESPN live list (designations only): Jaylin Smith (CB) Injured Reserve; Danielle Hunter (DE) Out; Brevin Jordan (TE) Out; Marvin Harrison Jr. (WR) Out; Woody Marks (RB) Doubtful; Jake Hummel (LB) Questionable; Azeez Al-Shaair (LB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -570,9 +570,9 @@ Left for another team: Zaire Mitchell-Paden (TE) to CLE; Jared Wayne (WR) to MIA
 
 | Secret | Provider | Status | Used for |
 |---|---|---|---|
-| ODDS_API_KEY | The Odds API | KEY_NOT_CONFIGURED_IN_THIS_RUN | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
+| ODDS_API_KEY | The Odds API | KEY_PRESENT | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
 | NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
-| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | access check only; not used in the packet |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR: {'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'} | access check only; not used in the packet |
 
 Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
 
@@ -592,7 +592,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | PARTIAL | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
-| 13 | Timestamped book prices | BLOCKED | No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total. |
+| 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -600,16 +600,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-16T20:37:20+00:00 | 6aeaa90f6e2d |
-| pbp | OK | 2026-11-16T20:37:21+00:00 | 5bf3fd3431e5 |
-| rosters | OK | 2026-11-16T20:37:21+00:00 | 8ef5848627e0 |
-| injuries | OK | 2026-11-16T20:37:21+00:00 | 4be8d0f909f1 |
-| depth_charts | OK | 2026-11-16T20:37:22+00:00 | cb40b454d0c6 |
-| snap_counts | OK | 2026-11-16T20:37:22+00:00 | 29653cc65100 |
-| ftn | OK | 2026-11-16T20:37:22+00:00 | 21e9470ab453 |
-| pfr_def | OK | 2026-11-16T20:37:22+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-16T20:37:23+00:00 |  |
+| games | OK | 2026-11-17T04:39:59+00:00 | 5814492ecf5b |
+| pbp | OK | 2026-11-17T04:39:59+00:00 | 5bf3fd3431e5 |
+| rosters | OK | 2026-11-17T04:39:59+00:00 | 8ef5848627e0 |
+| injuries | OK | 2026-11-17T04:40:00+00:00 | 4be8d0f909f1 |
+| depth_charts | OK | 2026-11-17T04:40:00+00:00 | cb40b454d0c6 |
+| snap_counts | OK | 2026-11-17T04:40:00+00:00 | 29653cc65100 |
+| ftn | OK | 2026-11-17T04:40:00+00:00 | 21e9470ab453 |
+| pfr_def | OK | 2026-11-17T04:40:01+00:00 | 169459009450 |
+| espn_injuries | OK | 2026-11-17T04:40:01+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
+| book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

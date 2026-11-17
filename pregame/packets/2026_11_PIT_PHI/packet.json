@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-16T20:37:59+00:00",
+ "generated_utc": "2026-11-17T04:40:27+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -34,8 +34,8 @@
   "home_spread": 4.5,
   "total": 38.5,
   "moneyline": {
-   "PIT": -205.0,
-   "PHI": 170.0
+   "PIT": -218.0,
+   "PHI": 180.0
   }
  },
  "data_freshness": {
@@ -53,13 +53,13 @@
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800"
  },
  "weather": {
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/PHI/50,76/forecast/hourly",
-  "retrieved_utc": "2026-11-16T20:37:57+00:00",
+  "retrieved_utc": "2026-11-17T04:40:25+00:00",
   "kickoff_utc": "2026-11-22T21:25:00+00:00",
   "roof": "outdoors",
   "at_kickoff": {
@@ -2526,14 +2526,6 @@
     "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
     "espn_live": [
      {
-      "player": "Michael Pittman Jr.",
-      "position": "WR",
-      "status": "Injured Reserve",
-      "date": "2026-11-12T18:08Z",
-      "comment": "Pittman (foot) is warmed up with his teammates Thursday, though he remains on IR and wasn't wearing a helmet, Nick Farabaugh of PennLive.com reports.",
-      "team": "PIT"
-     },
-     {
       "player": "DeShon Elliott",
       "position": "S",
       "status": "Out",
@@ -2542,19 +2534,27 @@
       "team": "PIT"
      },
      {
-      "player": "Mason McCormick",
-      "position": "G",
-      "status": "Doubtful",
-      "date": "2026-11-16T03:00Z",
-      "comment": "McCormick suffered an ankle injury in Sunday night's game against the Bengals and will not return, Nick Farabaugh of PennLive.com reports.",
+      "player": "Roman Wilson",
+      "position": "WR",
+      "status": "Injured Reserve",
+      "date": "2026-11-16T20:37Z",
+      "comment": "Steelers head coach Mike McCarthy said that he's \"hopeful\" Wilson (finger) will be able to return from injured reserve for Sunday's game against the Eagles, Nick Farabaugh of PennLive.com reports.",
       "team": "PIT"
      },
      {
-      "player": "Patrick Queen",
-      "position": "LB",
-      "status": "Active",
-      "date": "2026-10-28T01:33Z",
-      "comment": "Queen compiled 10 tackles (seven solo), including 1.0 sacks, during Pittsburgh's win over the Saints on Sunday.",
+      "player": "Michael Pittman Jr.",
+      "position": "WR",
+      "status": "Injured Reserve",
+      "date": "2026-11-16T20:39Z",
+      "comment": "Coach Mike McCarthy said Monday that the Steelers are \"hopeful\" they can get Pittman -- who last played in Week 4 -- back from his foot injury this week, Nick Farabaugh of PennLive.com reports.",
+      "team": "PIT"
+     },
+     {
+      "player": "Mason McCormick",
+      "position": "G",
+      "status": "Doubtful",
+      "date": "2026-11-17T00:45Z",
+      "comment": "McCormick (ankle) suffered a significant injury during the Steelers' Week 10 loss to the Bengals, Brian Batko of the Pittsburgh Post-Gazette reports.",
       "team": "PIT"
      },
      {
@@ -2587,30 +2587,6 @@
       "status": "Active",
       "date": "2026-10-31T23:44Z",
       "comment": "The Steelers signed Smith off the practice squad to the active roster Saturday, Teresa Varley of the team's official site reports.",
-      "team": "PIT"
-     },
-     {
-      "player": "Darnell Washington",
-      "position": "TE",
-      "status": "Active",
-      "date": "2026-11-02T03:38Z",
-      "comment": "Washington caught three of five targets for 94 yards during Sunday's 27-6 win over the Browns.",
-      "team": "PIT"
-     },
-     {
-      "player": "Germie Bernard",
-      "position": "WR",
-      "status": "Active",
-      "date": "2026-11-02T05:26Z",
-      "comment": "Bernard caught all five of his targets for 30 yards during Sunday's 27-6 win against Cleveland.",
-      "team": "PIT"
-     },
-     {
-      "player": "Chris Boswell",
-      "position": "PK",
-      "status": "Active",
-      "date": "2026-11-03T02:06Z",
-      "comment": "Boswell made two of his three field-goal attempts and all three PATs in the Steelers' 27-6 win over the Browns on Sunday.",
       "team": "PIT"
      },
      {
@@ -2723,6 +2699,30 @@
       "status": "Active",
       "date": "2026-11-16T19:36Z",
       "comment": "",
+      "team": "PIT"
+     },
+     {
+      "player": "Darnell Washington",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-17T00:47Z",
+      "comment": "Washington caught one pass for five yards on two targets in Sunday night's loss to the Bengals.",
+      "team": "PIT"
+     },
+     {
+      "player": "Germie Bernard",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-17T01:36Z",
+      "comment": "Bernard failed to reel in any of his three targets while notching a 10-yard rush during Sunday night's 38-18 loss to the Bengals.",
+      "team": "PIT"
+     },
+     {
+      "player": "Chris Boswell",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-17T03:59Z",
+      "comment": "Boswell made his sole field-goal attempt and sole PAT in the Steelers' 38-18 loss to the Bengals on Sunday.",
       "team": "PIT"
      }
     ],
@@ -5130,11 +5130,11 @@
       "team": "PHI"
      },
      {
-      "player": "Moro Ojomo",
-      "position": "DT",
-      "status": "Active",
-      "date": "2026-10-30T20:03Z",
-      "comment": "",
+      "player": "Will Shipley",
+      "position": "RB",
+      "status": "Injured Reserve",
+      "date": "2026-11-16T20:55Z",
+      "comment": "The Eagles opened Shipley's (foot) 21-day practice window Monday.",
       "team": "PHI"
      },
      {
@@ -6721,70 +6721,70 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:20+00:00",
-   "sha256": "6aeaa90f6e2d9fb4b8f2ea9b812acf942866ce01e482c9d28353940e38afed45",
-   "bytes": 523905
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
+   "sha256": "5814492ecf5b0f29b53e325a13fc87245bbb4233eb0e3e4696bf0b7787e3739d",
+   "bytes": 523901
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "5bf3fd3431e556d76e4f80378bd689edf1a55280de4c59078d3518b9f6b9959e",
    "bytes": 11054587
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "8ef5848627e0e3cfa8f5fa1d9b02240bbf3deabef88e1b14a90f3b14f7352361",
    "bytes": 818858
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "4be8d0f909f1393fa1f3a47b45a830b15da8e73a4d0fed210a1c57adc50f06ca",
    "bytes": 65722
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "cb40b454d0c640c47472e57fbe486defa8963046da0e577197fda01905b274eb",
    "bytes": 3517732
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "29653cc651000a3ba77a5c8dc10ad71ff76f6078ef5f5d032e8fbe2ce8599ab3",
    "bytes": 142951
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "21e9470ab453f4dcd0bd7d57499bab256a83b1e42c092b32d8d12138a47969c5",
    "bytes": 289331
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:01+00:00",
    "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
    "bytes": 93708
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-16T20:37:23+00:00"
+   "retrieved_utc": "2026-11-17T04:40:01+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
    "url": "https://nflsavant.com/"
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800",
    "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
    "retrieved_utc": null
   }
@@ -6866,7 +6866,7 @@
    "phase": 13,
    "name": "Timestamped book prices",
    "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "detail": "No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total."
   },
   {
    "phase": 14,
@@ -6882,12 +6882,12 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-16T20:37:23+00:00",
+  "checked_utc": "2026-11-17T04:40:01+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",
     "used_for": "Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT"
    },
    "NFL_BDL_API_KEY": {
     "provider": "BallDontLie NFL",
@@ -6897,7 +6897,8 @@
    "NFL_API_SPORTS_KEY": {
     "provider": "API-Sports NFL",
     "used_for": "access check only; not used in the packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT_PROVIDER_ERROR",
+    "provider_message": "{'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
    }
   },
   "note": "Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here."

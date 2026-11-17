@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-16T20:37:34+00:00",
+ "generated_utc": "2026-11-17T04:40:08+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -31,19 +31,21 @@
  },
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
-  "home_spread": -2.5,
-  "total": 44.5,
+  "home_spread": null,
+  "total": null,
   "moneyline": {
-   "BAL": 114.0,
-   "CAR": -135.0
+   "BAL": null,
+   "CAR": null
   }
  },
  "data_freshness": {
   "BAL": {
-   "games_played": 9,
+   "games_played": 10,
    "games_with_plays": 9,
-   "missing_play_by_play": [],
-   "status": "OK"
+   "missing_play_by_play": [
+    "week 10 (2026_10_LAC_BAL)"
+   ],
+   "status": "STALE: play-by-play not posted yet for week 10 (2026_10_LAC_BAL)"
   },
   "CAR": {
    "games_played": 9,
@@ -53,13 +55,13 @@
   }
  },
  "books": {
-  "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices"
+  "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800"
  },
  "weather": {
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/GSP/118,65/forecast/hourly",
-  "retrieved_utc": "2026-11-16T20:37:32+00:00",
+  "retrieved_utc": "2026-11-17T04:40:07+00:00",
   "kickoff_utc": "2026-11-22T18:00:00+00:00",
   "roof": "outdoors",
   "at_kickoff": {
@@ -2546,51 +2548,75 @@
       "team": "BAL"
      },
      {
-      "player": "Jaylinn Hawkins",
-      "position": "S",
-      "status": "Out",
-      "date": "2026-11-14T19:16Z",
-      "comment": "Hawkins (knee) has been ruled out for Monday's game against the Chargers.",
-      "team": "BAL"
-     },
-     {
       "player": "Adam Randall",
       "position": "RB",
       "status": "Injured Reserve",
-      "date": "2026-11-14T23:40Z",
-      "comment": "Randall (neck), who remains on IR, has been tagged as questionable to face the Chargers on Monday.",
+      "date": "2026-11-16T23:22Z",
+      "comment": "Randall (neck/hamstring) wasn't activated from injured reserve and will remain out for Monday's game against the Chargers, Brian Wacker of The Baltimore Sun reports.",
       "team": "BAL"
      },
      {
-      "player": "Zay Flowers",
+      "player": "Aeneas Peebles",
+      "position": "DT",
+      "status": "Out",
+      "date": "2026-11-16T23:47Z",
+      "comment": "inactive",
+      "team": "BAL"
+     },
+     {
+      "player": "Chandler Rivers",
+      "position": "CB",
+      "status": "Out",
+      "date": "2026-11-16T23:47Z",
+      "comment": "inactive",
+      "team": "BAL"
+     },
+     {
+      "player": "Elijah Sarratt",
       "position": "WR",
-      "status": "Active",
-      "date": "2026-11-06T05:03Z",
-      "comment": "Flowers brought in three of six targets for six yards and rushed three times for 17 yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
+      "status": "Out",
+      "date": "2026-11-16T23:47Z",
+      "comment": "inactive",
       "team": "BAL"
      },
      {
-      "player": "Joe Fagnano",
+      "player": "Jaylinn Hawkins",
+      "position": "S",
+      "status": "Out",
+      "date": "2026-11-16T23:47Z",
+      "comment": "inactive",
+      "team": "BAL"
+     },
+     {
+      "player": "Emery Jones Jr.",
+      "position": "OT",
+      "status": "Out",
+      "date": "2026-11-16T23:47Z",
+      "comment": "inactive",
+      "team": "BAL"
+     },
+     {
+      "player": "Kedon Slovis",
       "position": "QB",
-      "status": "Active",
-      "date": "2026-11-06T05:23Z",
-      "comment": "Fagnano completed 10 of 18 passes for 60 yards with no touchdowns and two interceptions while adding three rushes for 13 yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
+      "status": "Out",
+      "date": "2026-11-17T00:09Z",
+      "comment": "Slovis (coach's decision) is inactive but serving as the Ravens' emergency No. 3 quarterback Monday night versus the Chargers.",
       "team": "BAL"
      },
      {
-      "player": "Mark Andrews",
-      "position": "TE",
-      "status": "Active",
-      "date": "2026-11-06T05:28Z",
-      "comment": "Andrews secured both targets for 19 yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
+      "player": "Olaivavega Ioane",
+      "position": "G",
+      "status": "Questionable",
+      "date": "2026-11-17T03:27Z",
+      "comment": "Ioane (shoulder) is questionable to return to Monday night's contest against the Chargers.",
       "team": "BAL"
      },
      {
-      "player": "Justice Hill",
-      "position": "RB",
-      "status": "Active",
-      "date": "2026-11-06T05:39Z",
-      "comment": "Hill rushed nine times for 85 yards and a touchdown and brought in all three targets for seven yards in the Ravens' 33-10 loss to the Jaguars on Thursday night.",
+      "player": "Nnamdi Madubuike",
+      "position": "DT",
+      "status": "Questionable",
+      "date": "2026-11-17T03:49Z",
+      "comment": "Madubuike (hamstring) has been ruled out for the remainder of Monday night's contest against the Chargers.",
       "team": "BAL"
      },
      {
@@ -2658,38 +2684,6 @@
       "team": "BAL"
      },
      {
-      "player": "Aeneas Peebles",
-      "position": "DT",
-      "status": "Active",
-      "date": "2026-11-09T20:55Z",
-      "comment": "",
-      "team": "BAL"
-     },
-     {
-      "player": "Emery Jones Jr.",
-      "position": "OT",
-      "status": "Active",
-      "date": "2026-11-09T20:55Z",
-      "comment": "",
-      "team": "BAL"
-     },
-     {
-      "player": "Kedon Slovis",
-      "position": "QB",
-      "status": "Active",
-      "date": "2026-11-09T20:55Z",
-      "comment": "",
-      "team": "BAL"
-     },
-     {
-      "player": "Elijah Sarratt",
-      "position": "WR",
-      "status": "Active",
-      "date": "2026-11-09T20:55Z",
-      "comment": "",
-      "team": "BAL"
-     },
-     {
       "player": "Ryan Neuzil",
       "position": "C",
       "status": "Active",
@@ -2722,19 +2716,27 @@
       "team": "BAL"
      },
      {
-      "player": "Olaivavega Ioane",
-      "position": "G",
-      "status": "Active",
-      "date": "2026-11-13T23:13Z",
-      "comment": "",
-      "team": "BAL"
-     },
-     {
       "player": "Rashod Bateman",
       "position": "WR",
       "status": "Active",
       "date": "2026-11-13T23:22Z",
       "comment": "Bateman (calf) was listed as a full participant on Friday's practice estimation.",
+      "team": "BAL"
+     },
+     {
+      "player": "Chris Moore",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-16T22:57Z",
+      "comment": "The Ravens elevated Moore from the practice squad ahead of Monday's game against the Chargers.",
+      "team": "BAL"
+     },
+     {
+      "player": "Nick Vannett",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-16T23:01Z",
+      "comment": "The Ravens elevated Vannett from the practice squad ahead of Monday's game against the Chargers.",
       "team": "BAL"
      }
     ],
@@ -5307,22 +5309,6 @@
       "team": "CAR"
      },
      {
-      "player": "Tommy Tremble",
-      "position": "TE",
-      "status": "Active",
-      "date": "2026-11-09T02:12Z",
-      "comment": "Tremble caught four of six targets for 24 yards and a touchdown in Sunday's 26-21 loss to the Broncos.",
-      "team": "CAR"
-     },
-     {
-      "player": "Ryan Fitzgerald",
-      "position": "PK",
-      "status": "Active",
-      "date": "2026-11-10T03:24Z",
-      "comment": "Fitzgerald missed his only field-goal attempt and went 3-for-3 on extra-point tries during Sunday's 26-21 loss to the Broncos.",
-      "team": "CAR"
-     },
-     {
       "player": "Trevor Etienne",
       "position": "RB",
       "status": "Active",
@@ -5456,6 +5442,22 @@
       "status": "Active",
       "date": "2026-11-16T18:55Z",
       "comment": "",
+      "team": "CAR"
+     },
+     {
+      "player": "Marco Wilson",
+      "position": "CB",
+      "status": "Active",
+      "date": "2026-11-17T00:31Z",
+      "comment": "The Panthers signed Wilson from the practice squad to the active roster Monday, Darin Gantt of the team's official site reports.",
+      "team": "CAR"
+     },
+     {
+      "player": "Ryan Fitzgerald",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-17T03:15Z",
+      "comment": "Fitzgerald made two of his three field-goal attempts and both PATs in the Panthers' 20-17 win over the Saints on Sunday.",
       "team": "CAR"
      }
     ],
@@ -6806,9 +6808,7 @@
       "home": 7.3,
       "away": 6.1
      }
-    },
-    "home_covers_market_spread": 0.457,
-    "over_market_total": 0.555
+    }
    },
    "independent": {
     "home_points": 20.4,
@@ -6843,9 +6843,7 @@
       "home": 6.2,
       "away": 6.4
      }
-    },
-    "home_covers_market_spread": 0.372,
-    "over_market_total": 0.461
+    }
    }
   },
   "note": "Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information."
@@ -6854,70 +6852,70 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:20+00:00",
-   "sha256": "6aeaa90f6e2d9fb4b8f2ea9b812acf942866ce01e482c9d28353940e38afed45",
-   "bytes": 523905
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
+   "sha256": "5814492ecf5b0f29b53e325a13fc87245bbb4233eb0e3e4696bf0b7787e3739d",
+   "bytes": 523901
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "5bf3fd3431e556d76e4f80378bd689edf1a55280de4c59078d3518b9f6b9959e",
    "bytes": 11054587
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:39:59+00:00",
    "sha256": "8ef5848627e0e3cfa8f5fa1d9b02240bbf3deabef88e1b14a90f3b14f7352361",
    "bytes": 818858
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:21+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "4be8d0f909f1393fa1f3a47b45a830b15da8e73a4d0fed210a1c57adc50f06ca",
    "bytes": 65722
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "cb40b454d0c640c47472e57fbe486defa8963046da0e577197fda01905b274eb",
    "bytes": 3517732
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "29653cc651000a3ba77a5c8dc10ad71ff76f6078ef5f5d032e8fbe2ce8599ab3",
    "bytes": 142951
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:00+00:00",
    "sha256": "21e9470ab453f4dcd0bd7d57499bab256a83b1e42c092b32d8d12138a47969c5",
    "bytes": 289331
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-16T20:37:22+00:00",
+   "retrieved_utc": "2026-11-17T04:40:01+00:00",
    "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
    "bytes": 93708
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-16T20:37:23+00:00"
+   "retrieved_utc": "2026-11-17T04:40:01+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
    "url": "https://nflsavant.com/"
   },
   "book_odds": {
-   "status": "NO_KEY: set the ODDS_API_KEY repository secret to include book prices",
+   "status": "SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800",
    "url": "https://the-odds-api.com (FanDuel, DraftKings, Hard Rock Bet, Caesars; Pinnacle reference)",
    "retrieved_utc": null
   }
@@ -6999,7 +6997,7 @@
    "phase": 13,
    "name": "Timestamped book prices",
    "status": "BLOCKED",
-   "detail": "No book prices: NO_KEY: set the ODDS_API_KEY repository secret to include book prices. Only the schedule's consensus spread/total."
+   "detail": "No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total."
   },
   {
    "phase": 14,
@@ -7015,12 +7013,12 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-16T20:37:23+00:00",
+  "checked_utc": "2026-11-17T04:40:01+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",
     "used_for": "Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT"
    },
    "NFL_BDL_API_KEY": {
     "provider": "BallDontLie NFL",
@@ -7030,7 +7028,8 @@
    "NFL_API_SPORTS_KEY": {
     "provider": "API-Sports NFL",
     "used_for": "access check only; not used in the packet",
-    "status": "KEY_NOT_CONFIGURED_IN_THIS_RUN"
+    "status": "KEY_PRESENT_PROVIDER_ERROR",
+    "provider_message": "{'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'}"
    }
   },
   "note": "Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here."
