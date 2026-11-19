@@ -1,4 +1,4 @@
-"""FanDuel and DraftKings NFL lines straight from the books' public web endpoints (no Odds API, no credits).
+"""FanDuel, DraftKings, Pinnacle and Caesars NFL lines straight from the books' public web endpoints (no Odds API, no credits).
 
     python -m pregame.sportsbooks                 # every listed NFL game -> pregame/direct_lines/<game_id>.json
     python -m pregame.sportsbooks --probe         # also keep truncated raw responses in pregame/direct_lines/_probe/
@@ -231,6 +231,103 @@ def fanduel(probe: dict | None = None) -> dict:
     return out
 
 
+
+# ----------------------------------------------------------------------------------------------- Pinnacle
+PIN = "https://guest.api.arcadia.pinnacle.com/0.1/leagues/889"
+CZR = "https://api.americanwagering.com/regions/us/locations/nj/brands/czr/sb/v3/sports/americanfootball/events/schedule"
+
+
+def _dec_to_american(p):
+    """Pinnacle's guest feed gives American prices already; keep the helper for decimal fallbacks."""
+    try:
+        p = float(p)
+    except (TypeError, ValueError):
+        return None
+    if abs(p) >= 100:
+        return int(p)
+    return int(round((p - 1) * 100)) if p >= 2 else int(round(-100 / (p - 1))) if p > 1 else None
+
+
+def pinnacle(probe: dict | None = None) -> dict:
+    """Pinnacle's public guest feed (the one its website reads): game lines and the player specials it posts."""
+    out = {"status": None, "rows": [], "events": {}}
+    try:
+        mu = _get(f"{PIN}/matchups")
+        time.sleep(PAUSE)
+        mk = _get(f"{PIN}/markets/straight")
+    except Exception as e:  # noqa: BLE001 - recorded, never filled in or worked around
+        out["status"] = f"FAILED: {type(e).__name__}: {e}"[:200]
+        return out
+    if probe is not None:
+        probe["pinnacle_matchups"], probe["pinnacle_markets"] = mu[:30], mk[:30]
+    games, specials = {}, {}
+    for m in mu:
+        parts = m.get("participants") or []
+        if m.get("type") == "matchup" or (parts and all(p.get("alignment") in ("home", "away") for p in parts)):
+            home = next((p.get("name") for p in parts if p.get("alignment") == "home"), None)
+            away = next((p.get("name") for p in parts if p.get("alignment") == "away"), None)
+            if home and away:
+                games[m["id"]] = m["id"]
+                out["events"][str(m["id"])] = {"name": f"{away} @ {home}", "away": team_of(away), "home": team_of(home), "start": m.get("startTime")}
+        elif m.get("special"):
+            desc = (m.get("special") or {}).get("description") or ""
+            par = (m.get("parent") or {}).get("id")
+            mm = re.match(r"(.+?)\s*\((.+)\)", desc)
+            kind = kind_of(mm.group(2)) if mm else None
+            if kind and par:
+                specials[m["id"]] = {"event": str(par), "player": mm.group(1).strip(), "kind": kind,
+                                     "names": {p.get("id"): p.get("name") for p in parts}}
+    for x in mk:
+        if x.get("period") not in (0, None) or x.get("isAlternate"):
+            continue
+        mid = x.get("matchupId")
+        if mid in games:
+            kind = {"spread": "spread", "total": "total", "moneyline": "moneyline"}.get(x.get("type"))
+            if not kind:
+                continue
+            ev = out["events"].get(str(mid), {})
+            for pr in x.get("prices", []):
+                d = pr.get("designation")
+                side = {"home": ev.get("home"), "away": ev.get("away"), "over": "Over", "under": "Under"}.get(d, d)
+                out["rows"].append(_row("pinnacle", str(mid), kind, None, side, pr.get("points"), _dec_to_american(pr.get("price"))))
+        elif mid in specials:
+            sp = specials[mid]
+            for pr in x.get("prices", []):
+                side = sp["names"].get(pr.get("participantId")) or pr.get("designation")
+                out["rows"].append(_row("pinnacle", sp["event"], sp["kind"], sp["player"], side, pr.get("points"), _dec_to_american(pr.get("price"))))
+    out["status"] = "OK" if out["rows"] else "NO_ROWS: endpoint answered but no kept markets were found (format may have changed)"
+    return out
+
+
+# ----------------------------------------------------------------------------------------------- Caesars
+def caesars(probe: dict | None = None) -> dict:
+    """Caesars' public schedule feed (game lines). Plain request only: a refusal is recorded, not worked around."""
+    out = {"status": None, "rows": [], "events": {}}
+    try:
+        doc = _get(CZR)
+    except Exception as e:  # noqa: BLE001
+        out["status"] = f"FAILED: {type(e).__name__}: {e}"[:200]
+        return out
+    if probe is not None:
+        probe["caesars_schedule"] = doc
+    for comp in doc.get("competitions", []) or []:
+        if "nfl" not in str(comp.get("name", "")).lower():
+            continue
+        for e in comp.get("events", []) or []:
+            nm = e.get("name") or ""
+            a, _, h = nm.replace("|", "").partition(" at ")
+            out["events"][str(e.get("id"))] = {"name": nm, "away": team_of(a), "home": team_of(h), "start": e.get("startTime")}
+            for m in e.get("markets", []) or []:
+                kind = kind_of(str(m.get("name", "")).replace("|", ""))
+                if not kind:
+                    continue
+                for sel in m.get("selections", []) or []:
+                    price = (sel.get("price") or {}).get("a")
+                    line = m.get("line") if m.get("line") is not None else sel.get("line")
+                    out["rows"].append(_row("caesars", str(e.get("id")), kind, None, str(sel.get("name", "")).replace("|", ""), line, price))
+    out["status"] = "OK" if out["rows"] else "NO_ROWS: endpoint answered but no kept markets were found (format may have changed)"
+    return out
+
 # ----------------------------------------------------------------------------------------------- run
 def _truncate(o, depth=0):
     if depth > 6:
@@ -270,7 +367,7 @@ def game_ids(index: Path) -> dict:
 def run(probe=False, out_dir: Path = OUT, index: Path = ROOT / "pregame" / "packets" / "latest.json") -> dict:
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     pr = {} if probe else None
-    books = {"draftkings": draftkings(pr), "fanduel": fanduel(pr)}
+    books = {"draftkings": draftkings(pr), "fanduel": fanduel(pr), "pinnacle": pinnacle(pr), "caesars": caesars(pr)}
     ids = game_ids(index)
     per_game = {}
     for name, b in books.items():
