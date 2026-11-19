@@ -32,7 +32,8 @@ FD_STATES = ("nj", "pa", "ny", "il")
 FD_AK = "FhMFpcPWXMeyZxOx"
 FD_PAGE = "https://sbapi.{st}.sportsbook.fanduel.com/api/content-managed-page?page=CUSTOM&customPageId=nfl&pbHorizontal=false&_ak={ak}&timezone=America%2FNew_York"
 FD_EVENT = "https://sbapi.{st}.sportsbook.fanduel.com/api/event-page?_ak={ak}&eventId={eid}&tab={tab}&timezone=America%2FNew_York"
-FD_TABS = ("player-receiving", "player-rushing", "receiving-props", "rushing-props", "player-props")
+FD_TABS = ("player-receiving", "player-rushing", "receiving-props", "rushing-props", "player-props", "rushing-receiving-props",
+           "player-combos", "combo-props")
 PAUSE = 0.6     # seconds between calls: a handful of requests a run, nothing more
 
 TEAMS = {"ARI": "Cardinals", "ATL": "Falcons", "BAL": "Ravens", "BUF": "Bills", "CAR": "Panthers", "CHI": "Bears", "CIN": "Bengals",
@@ -70,8 +71,10 @@ def break_even(a):
 def kind_of(name: str) -> str | None:
     """Market kind from a book's market name; None when it is not one we keep."""
     n = (name or "").lower()
-    if "rush" in n and "rec" in n:            # combined rushing + receiving yards: not a market we model
+    if "special" in n:
         return None
+    if "rush" in n and "rec" in n and "yd" in n.replace("yard", "yd"):   # combined rushing + receiving yards
+        return "alt_rush_rec_yards" if re.search(r"\balt(ernate)?\b|\d+\+", n) else "rush_rec_yards"
     if re.search(r"\balt(ernate)?\b|\d+\+", n) and "receiving" in n and "yd" in n.replace("yard", "yd"):
         return "alt_receiving_yards"
     if re.search(r"\balt(ernate)?\b|\d+\+", n) and "rush" in n and "yd" in n.replace("yard", "yd"):
@@ -331,7 +334,9 @@ def caesars(probe: dict | None = None) -> dict:
 
 # ----------------------------------------------------------------------------------------------- StartWho (aggregator)
 SW = "https://startwho.com/api/projections?sport=NFL&format=PPR&position={pos}"
-SW_KIND = {"receptions": "receptions", "receiving_yds": "receiving_yards", "rushing_yds": "rushing_yards"}
+SW_KIND = {"receptions": "receptions", "receiving_yds": "receiving_yards", "rushing_yds": "rushing_yards",
+           "rush_rec_yds": "rush_rec_yards", "rushing_receiving_yds": "rush_rec_yards", "rush_receiving_yds": "rush_rec_yards",
+           "rushing_and_receiving_yds": "rush_rec_yards", "rush_and_rec_yds": "rush_rec_yards"}
 ABBR = {f"{c} {n}".lower(): a for a, (c, n) in {
     "ARI": ("Arizona", "Cardinals"), "ATL": ("Atlanta", "Falcons"), "BAL": ("Baltimore", "Ravens"), "BUF": ("Buffalo", "Bills"),
     "CAR": ("Carolina", "Panthers"), "CHI": ("Chicago", "Bears"), "CIN": ("Cincinnati", "Bengals"), "CLE": ("Cleveland", "Browns"),
