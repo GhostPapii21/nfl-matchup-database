@@ -1,4 +1,4 @@
-name: NFL direct book lines (FanDuel, DraftKings; no Odds API)
+name: NFL direct book lines (FanDuel, Pinnacle, StartWho; no Odds API)
 
 # Pulls game lines and player props straight from FanDuel's and DraftKings' public web JSON (pregame/sportsbooks.py).
 # No API key and no Odds API credits. Unofficial feeds: a run records what each book returned, and a failed book is
@@ -33,7 +33,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Pull FanDuel and DraftKings lines
+      - name: Pull book lines
         run: |
           args=()
           if [ "${{ inputs.probe }}" = "true" ] || [ "${{ github.event_name }}" = "push" ]; then args+=(--probe); fi
@@ -44,6 +44,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p pregame/direct_lines; git add pregame/direct_lines
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
-          git commit -q -m "direct lines: FanDuel/DraftKings $(date -u +%Y-%m-%dT%H:%MZ)"
+          git commit -q -m "direct lines $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3 4; do git pull -q --no-rebase --no-edit origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0; sleep 7; done
           exit 1
