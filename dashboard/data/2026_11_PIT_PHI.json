@@ -28,18 +28,18 @@
  },
  "result": null,
  "implied_points": {
-  "PHI": 17.0,
-  "PIT": 21.5
+  "PHI": 16.5,
+  "PIT": 21.0
  },
- "generated_utc": "2026-11-17T21:58:29+00:00",
- "board_built_utc": "2026-11-17T22:00:20+00:00",
+ "generated_utc": "2026-11-19T21:57:21+00:00",
+ "board_built_utc": "2026-11-19T22:00:09+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": 4.5,
-  "total": 38.5,
+  "total": 37.5,
   "moneyline": {
-   "PIT": -218.0,
-   "PHI": 180.0
+   "PIT": -205.0,
+   "PHI": 171.0
   }
  },
  "books": {
@@ -49,26 +49,28 @@
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/PHI/50,76/forecast/hourly",
-  "retrieved_utc": "2026-11-17T21:58:27+00:00",
+  "retrieved_utc": "2026-11-19T21:57:19+00:00",
   "kickoff_utc": "2026-11-22T21:25:00+00:00",
   "roof": "outdoors",
   "at_kickoff": {
    "temp_f": 62,
-   "wind_mph": 5.0,
-   "wind_dir": "NE",
-   "precip_chance_pct": 37,
-   "summary": "Chance Light Rain"
+   "wind_mph": 10.0,
+   "wind_dir": "E",
+   "precip_chance_pct": 65,
+   "summary": "Light Rain Likely"
   },
   "during_game": {
-   "temp_f_min": 57,
-   "wind_mph_max": 5.0,
-   "precip_chance_pct_max": 37
+   "temp_f_min": 58,
+   "wind_mph_max": 10.0,
+   "precip_chance_pct_max": 77
   },
-  "flags": []
+  "flags": [
+   "PRECIP_50_PLUS"
+  ]
  },
  "weather_verdict": {
   "level": "warn",
-  "headline": "Some chance of rain (37%). Watch the forecast closer to kickoff.",
+  "headline": "Rain likely (77%). Measured rain effect: pass yards about 15% lower, catches about 6% lower.",
   "details": []
  },
  "weather_alerts": [],
@@ -508,8 +510,8 @@
     "third_down_rate": 0.4152542372881356,
     "red_zone_drives": 29,
     "red_zone_td_rate": 0.5517241379310345,
-    "pass_epa_per_dropback": 0.13300437079144628,
-    "rush_epa_per_carry": 0.005433546818145097,
+    "pass_epa_per_dropback": 0.1330043711037252,
+    "rush_epa_per_carry": 0.005433547065373655,
     "neutral_pass_rate": 0.5691699604743083,
     "blitz_rate": 0.27364864864864863,
     "play_action_rate": 0.22297297297297297,
@@ -631,12 +633,12 @@
     "pass_epa_per_dropback": {
      "rank": 25,
      "of": 32,
-     "league_avg": 0.049829208208821765
+     "league_avg": 0.04982920832479731
     },
     "rush_epa_per_carry": {
      "rank": 30,
      "of": 32,
-     "league_avg": -0.06074522417823477
+     "league_avg": -0.060745224613892736
     },
     "takeaways_pg": {
      "rank": 32,
@@ -1095,8 +1097,8 @@
     "third_down_rate": 0.39805825242718446,
     "red_zone_drives": 24,
     "red_zone_td_rate": 0.4583333333333333,
-    "pass_epa_per_dropback": -0.047695707099316344,
-    "rush_epa_per_carry": 0.1227931571257828,
+    "pass_epa_per_dropback": -0.04769570714031168,
+    "rush_epa_per_carry": 0.1227931564218855,
     "neutral_pass_rate": 0.5875706214689266,
     "blitz_rate": 0.30618892508143325,
     "play_action_rate": 0.1563517915309446,
@@ -1218,12 +1220,12 @@
     "pass_epa_per_dropback": {
      "rank": 24,
      "of": 32,
-     "league_avg": 0.04465239140401442
+     "league_avg": 0.04465239151229834
     },
     "rush_epa_per_carry": {
      "rank": 1,
      "of": 32,
-     "league_avg": -0.06098569749017958
+     "league_avg": -0.060985697844241446
     },
     "takeaways_pg": {
      "rank": 5,
@@ -1972,8 +1974,8 @@
    },
    "rain": {
     "status": "OK",
-    "rain_chance": 0.37,
-    "wind_mph": 5.0,
+    "rain_chance": 0.65,
+    "wind_mph": 10.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
@@ -1990,10 +1992,10 @@
       "yards": 191.7
      },
      "forecast": {
-      "attempts": 34.1,
-      "completion_pct": 0.589,
-      "completions": 20.1,
-      "yards": 212.3
+      "attempts": 33.7,
+      "completion_pct": 0.579,
+      "completions": 19.5,
+      "yards": 203.1
      }
     },
     "receivers": [
@@ -2017,11 +2019,11 @@
        "yards": 41.6
       },
       "forecast": {
-       "targets": 7.4,
-       "catch_rate": 0.504,
-       "receptions": 3.7,
-       "yards_per_target": 6.26,
-       "yards": 46.2
+       "targets": 7.3,
+       "catch_rate": 0.495,
+       "receptions": 3.6,
+       "yards_per_target": 6.05,
+       "yards": 44.1
       }
      },
      {
@@ -2045,10 +2047,10 @@
       },
       "forecast": {
        "targets": 5.5,
-       "catch_rate": 0.694,
-       "receptions": 3.8,
-       "yards_per_target": 6.05,
-       "yards": 33.5
+       "catch_rate": 0.681,
+       "receptions": 3.7,
+       "yards_per_target": 5.85,
+       "yards": 32.0
       }
      },
      {
@@ -2072,10 +2074,10 @@
       },
       "forecast": {
        "targets": 4.4,
-       "catch_rate": 0.684,
+       "catch_rate": 0.677,
        "receptions": 3.0,
-       "yards_per_target": 7.75,
-       "yards": 34.3
+       "yards_per_target": 7.45,
+       "yards": 32.6
       }
      },
      {
@@ -2098,11 +2100,11 @@
        "yards": 23.7
       },
       "forecast": {
-       "targets": 4.1,
-       "catch_rate": 0.65,
+       "targets": 4.0,
+       "catch_rate": 0.637,
        "receptions": 2.6,
-       "yards_per_target": 6.5,
-       "yards": 26.4
+       "yards_per_target": 6.28,
+       "yards": 25.2
       }
      },
      {
@@ -2125,11 +2127,11 @@
        "yards": 25.5
       },
       "forecast": {
-       "targets": 3.6,
-       "catch_rate": 0.605,
-       "receptions": 2.2,
-       "yards_per_target": 7.96,
-       "yards": 28.4
+       "targets": 3.5,
+       "catch_rate": 0.593,
+       "receptions": 2.1,
+       "yards_per_target": 7.69,
+       "yards": 27.1
       }
      },
      {
@@ -2152,11 +2154,11 @@
        "yards": 34.4
       },
       "forecast": {
-       "targets": 4.7,
-       "catch_rate": 0.565,
+       "targets": 4.6,
+       "catch_rate": 0.554,
        "receptions": 2.6,
-       "yards_per_target": 8.17,
-       "yards": 38.2
+       "yards_per_target": 7.9,
+       "yards": 36.5
       }
      },
      {
@@ -2180,10 +2182,10 @@
       },
       "forecast": {
        "targets": 3.4,
-       "catch_rate": 0.915,
-       "receptions": 3.2,
-       "yards_per_target": 5.71,
-       "yards": 19.7
+       "catch_rate": 0.905,
+       "receptions": 3.1,
+       "yards_per_target": 5.5,
+       "yards": 18.7
       }
      }
     ],
@@ -2200,8 +2202,8 @@
       "yards_per_attempt": 5.78
      },
      "forecast": {
-      "completion_pct": 0.594,
-      "yards_per_attempt": 6.28
+      "completion_pct": 0.584,
+      "yards_per_attempt": 6.05
      }
     }
    },
@@ -2218,7 +2220,7 @@
      "sacks": 24,
      "yards_per_attempt": 6.5677655677655675,
      "avg_depth_of_target": 7.205128205128205,
-     "epa_per_dropback": -0.03854889907198345,
+     "epa_per_dropback": -0.03854889881671082,
      "pressure_rate_faced": 0.16498316498316498,
      "log": [
       {
@@ -2307,7 +2309,7 @@
      "sacks": 0,
      "yards_per_attempt": 0.5,
      "avg_depth_of_target": 4.25,
-     "epa_per_dropback": -1.2625191180449524,
+     "epa_per_dropback": -1.2625191401453384,
      "pressure_rate_faced": 0.0,
      "log": [
       {
@@ -2387,10 +2389,10 @@
      },
      "charted_dropbacks": 297,
      "pressured": {
-      "times_pressured": 52,
-      "pressure_rate": 0.175,
-      "times_blitzed": 76,
-      "bad_throw_pct": 0.171
+      "times_pressured": 65,
+      "pressure_rate": 0.219,
+      "times_blitzed": 79,
+      "bad_throw_pct": 0.179
      },
      "red_zone": {
       "attempts": 43,
@@ -3369,13 +3371,27 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Doubtful",
-     "espn_comment": "McCormick (ankle) suffered a significant injury during the Steelers' Week 10 loss to the Bengals, Brian Batko of the Pittsburgh Post-Gazette reports.",
-     "starter_slot": "LG",
+     "espn": "Injured Reserve",
+     "espn_comment": "The Steelers placed McCormick (ankle) on injured reserve Wednesday, Teresa Varley of the team's official site reports.",
+     "starter_slot": null,
      "snap_share": 0.917,
-     "next_up": "Brock Hoffman",
+     "next_up": null,
      "impact": "high",
      "status_level": 3
+    },
+    {
+     "player": "Patrick Queen",
+     "position": "LB",
+     "game_status": null,
+     "practice": "Limited Participation in Practice",
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "Queen (hand) was a limited practice participant Wednesday, Teresa Varley of the Steelers' official site reports.",
+     "starter_slot": "RILB",
+     "snap_share": 0.999,
+     "next_up": "Carson Bruener",
+     "impact": "high",
+     "status_level": 2
     },
     {
      "player": "Michael Pittman Jr.",
@@ -3384,7 +3400,7 @@
      "practice": null,
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "Coach Mike McCarthy said Monday that the Steelers are \"hopeful\" they can get Pittman -- who last played in Week 4 -- back from his foot injury this week, Nick Farabaugh of PennLive.com reports.",
+     "espn_comment": "Pittman (foot) was listed as a full participant in Thursday's practice, Alan Saunders of SteelersNow.com reports.",
      "starter_slot": null,
      "snap_share": 0.725,
      "next_up": null,
@@ -3392,16 +3408,16 @@
      "status_level": 3
     },
     {
-     "player": "DeShon Elliott",
-     "position": "S",
+     "player": "Nick Herbig",
+     "position": "LB",
      "game_status": null,
-     "practice": null,
+     "practice": "Did Not Participate In Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "questionable",
-     "starter_slot": "SS",
-     "snap_share": 0.335,
-     "next_up": "Robert Spears-Jennings",
+     "espn_comment": "Herbig (hip) did not participate in Wednesday's practice, Teresa Varley of the Steelers' official site reports.",
+     "starter_slot": null,
+     "snap_share": 0.509,
+     "next_up": null,
      "impact": "medium",
      "status_level": 2
     },
@@ -3409,12 +3425,26 @@
      "player": "Roman Wilson",
      "position": "WR",
      "game_status": null,
-     "practice": null,
+     "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "Steelers head coach Mike McCarthy said that he's \"hopeful\" Wilson (finger) will be able to return from injured reserve for Sunday's game against the Eagles, Nick Farabaugh of PennLive.com reports.",
+     "espn_comment": "Wilson (finger), who was designated for return from injured reserve earlier Wednesday, was a full participant in his return to practice.",
      "starter_slot": null,
      "snap_share": 0.455,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 3
+    },
+    {
+     "player": "Gennings Dunker",
+     "position": "G",
+     "game_status": null,
+     "practice": "Full Participation in Practice",
+     "injury": null,
+     "espn": "Injured Reserve",
+     "espn_comment": "The Steelers designated Dunker (knee) for return to practice from injured reserve Wednesday, Teresa Varley of the team's official site reports.",
+     "starter_slot": null,
+     "snap_share": null,
      "next_up": null,
      "impact": "low",
      "status_level": 3
@@ -3423,13 +3453,27 @@
      "player": "Jalen Ramsey",
      "position": "CB",
      "game_status": null,
-     "practice": null,
+     "practice": "Did Not Participate In Practice",
      "injury": null,
-     "espn": "Active",
-     "espn_comment": "",
+     "espn": null,
+     "espn_comment": null,
      "starter_slot": "NB",
      "snap_share": 0.998,
      "next_up": "Brandin Echols",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Jaquan Brisker",
+     "position": "S",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Brisker notched 10 tackles (two solo) Sunday in a Week 10 loss to the Bengals.",
+     "starter_slot": "FS",
+     "snap_share": 0.998,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -3454,7 +3498,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Wilson totaled six tackles (three solo) and an interception during Pittsburgh's win over the Saints on Sunday.",
+     "espn_comment": "Wilson recorded 19 tackles (nine solo) in Sunday's 38-18 loss to the Bengals.",
      "starter_slot": "LILB",
      "snap_share": 0.855,
      "next_up": "Cole Holcomb",
@@ -3490,16 +3534,30 @@
      "status_level": 1
     },
     {
-     "player": "Alex Highsmith",
+     "player": "T.J. Watt",
      "position": "LB",
      "game_status": null,
-     "practice": null,
+     "practice": "Did Not Participate In Practice",
      "injury": null,
-     "espn": "Active",
-     "espn_comment": "",
-     "starter_slot": "SLB",
-     "snap_share": 0.651,
-     "next_up": "Jack Sawyer",
+     "espn": null,
+     "espn_comment": null,
+     "starter_slot": "WLB",
+     "snap_share": 0.66,
+     "next_up": "Nick Herbig",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Cameron Heyward",
+     "position": "DT",
+     "game_status": null,
+     "practice": "Did Not Participate In Practice",
+     "injury": null,
+     "espn": null,
+     "espn_comment": null,
+     "starter_slot": "RDE",
+     "snap_share": 0.639,
+     "next_up": "Kevin Jobity Jr.",
      "impact": "low",
      "status_level": 1
     },
@@ -3507,7 +3565,7 @@
      "player": "Darnell Washington",
      "position": "TE",
      "game_status": null,
-     "practice": null,
+     "practice": "Did Not Participate In Practice",
      "injury": null,
      "espn": "Active",
      "espn_comment": "Washington caught one pass for five yards on two targets in Sunday night's loss to the Bengals.",
@@ -3538,7 +3596,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "The Steelers signed Smith off the practice squad to the active roster Saturday, Teresa Varley of the team's official site reports.",
+     "espn_comment": "Smith caught two of three targets for 15 yards during Sunday night's 38-18 loss to the Bengals.",
      "starter_slot": null,
      "snap_share": 0.474,
      "next_up": null,
@@ -3574,16 +3632,16 @@
      "status_level": 1
     },
     {
-     "player": "Ben Skowronek",
-     "position": "WR",
+     "player": "DeShon Elliott",
+     "position": "S",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Skowronek (calf) was a full participant in Wednesday's practice, Teresa Varley of the Steelers' official site reports.",
-     "starter_slot": null,
-     "snap_share": 0.148,
-     "next_up": null,
+     "espn_comment": "Elliott (knee) was a limited participant in Wednesday's practice, Teresa Varley of the Steelers' official site reports.",
+     "starter_slot": "SS",
+     "snap_share": 0.335,
+     "next_up": "Robert Spears-Jennings",
      "impact": "low",
      "status_level": 1
     },
@@ -3616,13 +3674,13 @@
      "status_level": 1
     },
     {
-     "player": "Doneiko Slaughter",
-     "position": "CB",
+     "player": "Michael Pittman",
+     "position": "WR",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
-     "espn": "Active",
-     "espn_comment": "Slaughter (hamstring) was a full participant in Wednesday's practice, Teresa Varley of the Steelers' official site reports.",
+     "espn": null,
+     "espn_comment": null,
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -3999,9 +4057,9 @@
      }
     ],
     "league": {
-     "yards_per_target": 7.22,
-     "completion_pct": 0.624,
-     "td_per_target": 0.0464
+     "yards_per_target": 7.23,
+     "completion_pct": 0.623,
+     "td_per_target": 0.0466
     },
     "weeks": [
      2,
@@ -4066,10 +4124,10 @@
      "player": "Zack Baun",
      "position": "LB",
      "game_status": null,
-     "practice": null,
+     "practice": "Did Not Participate In Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "Baun (back) is questionable to return to Sunday's contest against the Giants.",
+     "espn_comment": "Baun (back) didn't practice Wednesday.",
      "starter_slot": "LILB",
      "snap_share": 0.914,
      "next_up": "Smael Mondon Jr.",
@@ -4080,10 +4138,10 @@
      "player": "DeVonta Smith",
      "position": "WR",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "questionable",
+     "espn_comment": "Smith (hamstring) is taking part in Thursday's practice, Andrew DiCecco of InsideTheBirds.com reports.",
      "starter_slot": "WR",
      "snap_share": 0.847,
      "next_up": "Dontayvion Wicks",
@@ -4091,27 +4149,13 @@
      "status_level": 2
     },
     {
-     "player": "Jihaad Campbell",
-     "position": "LB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Questionable",
-     "espn_comment": "questionable",
-     "starter_slot": "RILB",
-     "snap_share": 0.802,
-     "next_up": "Jeremiah Trotter Jr.",
-     "impact": "high",
-     "status_level": 2
-    },
-    {
      "player": "Dontayvion Wicks",
      "position": "WR",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "questionable",
+     "espn_comment": "Wicks (ankle) is participating in practice Thursday, Andrew DiCecco of InsideTheBirds.com reports.",
      "starter_slot": null,
      "snap_share": 0.776,
      "next_up": null,
@@ -4122,13 +4166,27 @@
      "player": "Britain Covey",
      "position": "WR",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Questionable",
      "espn_comment": "questionable",
      "starter_slot": "KR",
      "snap_share": null,
-     "next_up": "Darius Cooper",
+     "next_up": "Jaydon Blue",
+     "impact": "medium",
+     "status_level": 2
+    },
+    {
+     "player": "Nolan Smith Jr.",
+     "position": "LB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "Smith (illness) was limited in Wednesday's practice.",
+     "starter_slot": "WLB",
+     "snap_share": null,
+     "next_up": "Arnold Ebiketie",
      "impact": "medium",
      "status_level": 2
     },
@@ -4136,10 +4194,10 @@
      "player": "Will Shipley",
      "position": "RB",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "The Eagles opened Shipley's (foot) 21-day practice window Monday.",
+     "espn_comment": "Shipley (foot) was a limited practice participant Wednesday.",
      "starter_slot": null,
      "snap_share": 0.365,
      "next_up": null,
@@ -4150,7 +4208,7 @@
      "player": "Michael Carter II",
      "position": "CB",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Questionable",
      "espn_comment": "questionable",
@@ -4164,7 +4222,7 @@
      "player": "Jonathan Jones",
      "position": "CB",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Questionable",
      "espn_comment": "questionable",
@@ -4175,27 +4233,13 @@
      "status_level": 2
     },
     {
-     "player": "Jake Majors",
-     "position": "C",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "",
-     "starter_slot": null,
-     "snap_share": 1.0,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
      "player": "Tanner McKee",
      "position": "QB",
      "game_status": null,
-     "practice": null,
+     "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Active",
-     "espn_comment": "McKee (ribs) is active for Sunday's game against the Giants.",
+     "espn_comment": "McKee will remain in a backup role for Sunday's game against the Steelers after head coach Nick Sirianni announced Wednesday that Joe Milton will serve as the Eagles' starting quarterback for a second",
      "starter_slot": null,
      "snap_share": 1.0,
      "next_up": null,
@@ -4209,10 +4253,24 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Milton completed 18 of 34 passes for 169 yards, no touchdowns and no interceptions in Sunday's 19-11 loss to the Giants. He also rushed nine times for 64 yards, ran in a two-point conversion and lost ",
+     "espn_comment": "Head coach Nick Sirianni confirmed that Milton will remain the Eagles' starting quarterback for Sunday's game against the Steelers, according to NFL reporter Andrew Siciliano.",
      "starter_slot": null,
      "snap_share": 1.0,
      "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Andrew Mukuba",
+     "position": "S",
+     "game_status": null,
+     "practice": "Full Participation in Practice",
+     "injury": null,
+     "espn": null,
+     "espn_comment": null,
+     "starter_slot": "FS",
+     "snap_share": 0.995,
+     "next_up": "Kenny Moore II",
      "impact": "low",
      "status_level": 1
     },
@@ -4227,6 +4285,20 @@
      "starter_slot": null,
      "snap_share": 0.809,
      "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Jihaad Campbell",
+     "position": "LB",
+     "game_status": null,
+     "practice": "Full Participation in Practice",
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Campbell (hamstring/quadriceps) was a full participant in Wednesday's practice.",
+     "starter_slot": "RILB",
+     "snap_share": 0.802,
+     "next_up": "Jeremiah Trotter Jr.",
      "impact": "low",
      "status_level": 1
     },
@@ -4259,6 +4331,20 @@
      "status_level": 1
     },
     {
+     "player": "Nolan Smith",
+     "position": "LB",
+     "game_status": null,
+     "practice": "Limited Participation in Practice",
+     "injury": null,
+     "espn": null,
+     "espn_comment": null,
+     "starter_slot": null,
+     "snap_share": 0.653,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
      "player": "Jeremiah Trotter Jr.",
      "position": "LB",
      "game_status": null,
@@ -4276,7 +4362,7 @@
      "player": "Jalyx Hunt",
      "position": "LB",
      "game_status": null,
-     "practice": null,
+     "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Active",
      "espn_comment": "",
@@ -4318,7 +4404,7 @@
      "player": "Jonathan Greenard",
      "position": "LB",
      "game_status": null,
-     "practice": null,
+     "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Active",
      "espn_comment": "",
@@ -4329,30 +4415,30 @@
      "status_level": 1
     },
     {
-     "player": "Nolan Smith Jr.",
-     "position": "LB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Smith (concussion) does not carry an injury designation into Sunday's game against the Commanders.",
-     "starter_slot": "WLB",
-     "snap_share": null,
-     "next_up": "Arnold Ebiketie",
-     "impact": "low",
-     "status_level": 1
-    },
-    {
      "player": "Saquon Barkley",
      "position": "RB",
      "game_status": null,
-     "practice": null,
+     "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Active",
      "espn_comment": "Barkley rushed 13 times for 22 yards and a touchdown while failing to catch his only target in Sunday's 19-11 loss to the Giants.",
      "starter_slot": "RB",
      "snap_share": null,
-     "next_up": "Will Shipley",
+     "next_up": "Jaydon Blue",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Smael Mondon Jr.",
+     "position": "LB",
+     "game_status": null,
+     "practice": "Full Participation in Practice",
+     "injury": null,
+     "espn": null,
+     "espn_comment": null,
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -4406,6 +4492,20 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "The Eagles signed Ertz from the practice squad to the active roster Monday.",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Jaydon Blue",
+     "position": "RB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "The Eagles signed Blue from their practice squad to their active roster Tuesday.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -4519,18 +4619,23 @@
     "offensive_line": [
      {
       "player": "Mason McCormick",
-      "slot": "LG",
-      "status": "Doubtful"
+      "slot": "G",
+      "status": "Injured Reserve"
      }
     ],
-    "secondary": [
+    "secondary": [],
+    "linebackers": [
      {
-      "player": "DeShon Elliott",
-      "slot": "SS",
+      "player": "Patrick Queen",
+      "slot": "RILB",
+      "status": "Questionable"
+     },
+     {
+      "player": "Nick Herbig",
+      "slot": "LB",
       "status": "Questionable"
      }
     ],
-    "linebackers": [],
     "defensive_line": []
    },
    "defense_units_hurt": {
@@ -4541,11 +4646,6 @@
       "player": "Zack Baun",
       "slot": "LILB",
       "status": "Questionable"
-     },
-     {
-      "player": "Jihaad Campbell",
-      "slot": "RILB",
-      "status": "Questionable"
      }
     ],
     "defensive_line": []
@@ -4554,12 +4654,12 @@
    "opportunity": {
     "team": "PIT",
     "vs": "PHI",
-    "team_pass_attempts": 33.6,
+    "team_pass_attempts": 33.2,
     "team_rush_attempts": 28.7,
     "plays": 62.9,
     "pass_ratio": 0.568,
     "script_pass_multiplier": 0.955,
-    "weather_attempts_multiplier": 0.986,
+    "weather_attempts_multiplier": 0.974,
     "implied_margin": 4.5,
     "missing_target_share": 0.073,
     "missing_carry_share": 0.0,
@@ -4574,7 +4674,7 @@
        "injury_bump": 0.017,
        "catch_rate": 0.55,
        "yards_per_catch": 13.5,
-       "yards_per_target": 7.16,
+       "yards_per_target": 6.96,
        "dispersion_k": 11.8,
        "def_catch_rate_allowed": 0.602,
        "def_yards_per_catch_allowed": 14.3,
@@ -4593,56 +4693,56 @@
       },
       "player_id": "00-0035640",
       "sim": {
-       "targets_raw": 8.307,
+       "targets_raw": 8.21,
        "k": 11.75,
        "catch_rate": 0.5499,
        "ypr": 13.46,
-       "rain_yards": 0.9672,
-       "rain_catch": 0.9749,
+       "rain_yards": 0.94,
+       "rain_catch": 0.9574,
        "pool": "WR"
       },
-      "targets_mean": 7.4,
-      "receptions_mean": 4.0,
-      "yards_mean": 51.8,
-      "yards_median": 44.3,
+      "targets_mean": 7.3,
+      "receptions_mean": 3.8,
+      "yards_mean": 48.7,
+      "yards_median": 41.1,
       "yards_p25_p75": [
-       22.0,
-       73.0
+       20.0,
+       69.0
       ],
       "yards": {
-       "20": 0.774,
-       "30": 0.654,
-       "40": 0.549,
-       "50": 0.441,
-       "60": 0.345,
-       "70": 0.272,
-       "80": 0.209,
-       "90": 0.158,
-       "100": 0.119,
-       "120": 0.061
+       "20": 0.761,
+       "30": 0.638,
+       "40": 0.521,
+       "50": 0.413,
+       "60": 0.32,
+       "70": 0.246,
+       "80": 0.184,
+       "90": 0.134,
+       "100": 0.1,
+       "120": 0.051
       },
       "receptions": {
-       "2": 0.843,
-       "3": 0.687,
-       "4": 0.517,
-       "5": 0.364,
-       "6": 0.241,
-       "7": 0.152,
-       "8": 0.092
+       "2": 0.838,
+       "3": 0.67,
+       "4": 0.493,
+       "5": 0.342,
+       "6": 0.221,
+       "7": 0.138,
+       "8": 0.081
       },
       "targets_needed": {
-       "50": 7,
+       "50": 8,
        "60": 9,
-       "70": 10,
+       "70": 11,
        "80": 12,
-       "100": 14
+       "100": 15
       },
       "targets_needed_chance": {
-       "50": 0.535,
-       "60": 0.337,
-       "70": 0.26,
-       "80": 0.143,
-       "100": 0.077
+       "50": 0.426,
+       "60": 0.333,
+       "70": 0.185,
+       "80": 0.135,
+       "100": 0.05
       }
      },
      {
@@ -4655,7 +4755,7 @@
        "injury_bump": 0.013,
        "catch_rate": 0.659,
        "yards_per_catch": 11.2,
-       "yards_per_target": 7.13,
+       "yards_per_target": 6.94,
        "dispersion_k": 3.7,
        "def_catch_rate_allowed": 0.602,
        "def_yards_per_catch_allowed": 14.3,
@@ -4674,55 +4774,55 @@
       },
       "player_id": "00-0041489",
       "sim": {
-       "targets_raw": 6.145,
+       "targets_raw": 6.073,
        "k": 3.66,
        "catch_rate": 0.6585,
        "ypr": 11.206,
-       "rain_yards": 0.9668,
-       "rain_catch": 0.9761,
+       "rain_yards": 0.9411,
+       "rain_catch": 0.9578,
        "pool": "WR"
       },
       "targets_mean": 5.4,
-      "receptions_mean": 3.5,
-      "yards_mean": 37.8,
-      "yards_median": 29.2,
+      "receptions_mean": 3.4,
+      "yards_mean": 35.7,
+      "yards_median": 27.6,
       "yards_p25_p75": [
-       12.0,
-       55.0
+       11.0,
+       51.0
       ],
       "yards": {
-       "20": 0.622,
-       "30": 0.497,
-       "40": 0.379,
-       "50": 0.288,
-       "60": 0.218,
-       "70": 0.161,
-       "80": 0.116,
-       "90": 0.083,
-       "100": 0.059,
-       "120": 0.03
+       "20": 0.614,
+       "30": 0.474,
+       "40": 0.355,
+       "50": 0.262,
+       "60": 0.192,
+       "70": 0.139,
+       "80": 0.101,
+       "90": 0.073,
+       "100": 0.052,
+       "120": 0.026
       },
       "receptions": {
-       "2": 0.738,
-       "3": 0.566,
-       "4": 0.414,
-       "5": 0.29,
-       "6": 0.199,
-       "7": 0.135,
-       "8": 0.089
+       "2": 0.732,
+       "3": 0.557,
+       "4": 0.399,
+       "5": 0.277,
+       "6": 0.186,
+       "7": 0.123,
+       "8": 0.08
       },
       "targets_needed": {
        "50": 8,
        "60": 9,
-       "70": 10,
+       "70": 11,
        "80": 12,
        "100": 15
       },
       "targets_needed_chance": {
-       "50": 0.247,
-       "60": 0.188,
-       "70": 0.141,
-       "80": 0.078,
+       "50": 0.242,
+       "60": 0.183,
+       "70": 0.103,
+       "80": 0.076,
        "100": 0.03
       }
      },
@@ -4736,7 +4836,7 @@
        "injury_bump": 0.002,
        "catch_rate": 0.699,
        "yards_per_catch": 8.9,
-       "yards_per_target": 5.91,
+       "yards_per_target": 5.67,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.694,
        "def_yards_per_catch_allowed": 6.4,
@@ -4755,55 +4855,55 @@
       },
       "player_id": "00-0037228",
       "sim": {
-       "targets_raw": 4.915,
+       "targets_raw": 4.857,
        "k": 50.0,
        "catch_rate": 0.699,
        "ypr": 8.889,
-       "rain_yards": 0.9509,
-       "rain_catch": 0.9856,
+       "rain_yards": 0.9131,
+       "rain_catch": 0.9755,
        "pool": "RB"
       },
       "targets_mean": 4.3,
-      "receptions_mean": 3.0,
-      "yards_mean": 25.2,
-      "yards_median": 19.4,
+      "receptions_mean": 2.9,
+      "yards_mean": 23.6,
+      "yards_median": 18.7,
       "yards_p25_p75": [
        8.0,
-       35.0
+       34.0
       ],
       "yards": {
-       "20": 0.495,
-       "30": 0.32,
-       "40": 0.212,
-       "50": 0.132,
-       "60": 0.082,
-       "70": 0.05,
-       "80": 0.033,
-       "90": 0.02,
-       "100": 0.012,
-       "120": 0.004
+       "20": 0.461,
+       "30": 0.298,
+       "40": 0.186,
+       "50": 0.114,
+       "60": 0.069,
+       "70": 0.042,
+       "80": 0.025,
+       "90": 0.016,
+       "100": 0.008,
+       "120": 0.002
       },
       "receptions": {
-       "2": 0.764,
-       "3": 0.546,
-       "4": 0.346,
-       "5": 0.198,
-       "6": 0.105,
-       "7": 0.052,
+       "2": 0.749,
+       "3": 0.533,
+       "4": 0.336,
+       "5": 0.187,
+       "6": 0.099,
+       "7": 0.047,
        "8": 0.022
       },
       "targets_needed": {
        "50": 9,
        "60": 11,
-       "70": 12,
-       "80": 14,
-       "100": 17
+       "70": 13,
+       "80": 15,
+       "100": 18
       },
       "targets_needed_chance": {
-       "50": 0.059,
+       "50": 0.055,
        "60": 0.016,
-       "70": 0.008,
-       "80": 0.002,
+       "70": 0.004,
+       "80": 0.001,
        "100": 0.0
       }
      },
@@ -4817,7 +4917,7 @@
        "injury_bump": 0.002,
        "catch_rate": 0.698,
        "yards_per_catch": 10.3,
-       "yards_per_target": 6.98,
+       "yards_per_target": 6.8,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.723,
        "def_yards_per_catch_allowed": 10.5,
@@ -4836,41 +4936,41 @@
       },
       "player_id": "00-0036894",
       "sim": {
-       "targets_raw": 4.165,
+       "targets_raw": 4.116,
        "k": 50.0,
        "catch_rate": 0.6977,
        "ypr": 10.34,
-       "rain_yards": 0.9675,
-       "rain_catch": 0.9745,
+       "rain_yards": 0.9424,
+       "rain_catch": 0.955,
        "pool": "TE"
       },
       "targets_mean": 3.7,
-      "receptions_mean": 2.5,
-      "yards_mean": 25.1,
-      "yards_median": 20.7,
+      "receptions_mean": 2.4,
+      "yards_mean": 23.7,
+      "yards_median": 19.2,
       "yards_p25_p75": [
-       9.0,
-       36.0
+       8.0,
+       35.0
       ],
       "yards": {
-       "20": 0.509,
-       "30": 0.337,
-       "40": 0.21,
-       "50": 0.125,
-       "60": 0.072,
-       "70": 0.041,
-       "80": 0.021,
-       "90": 0.011,
-       "100": 0.006,
+       "20": 0.495,
+       "30": 0.311,
+       "40": 0.192,
+       "50": 0.104,
+       "60": 0.059,
+       "70": 0.032,
+       "80": 0.016,
+       "90": 0.009,
+       "100": 0.004,
        "120": 0.001
       },
       "receptions": {
-       "2": 0.687,
-       "3": 0.443,
-       "4": 0.249,
-       "5": 0.125,
-       "6": 0.062,
-       "7": 0.026,
+       "2": 0.668,
+       "3": 0.425,
+       "4": 0.237,
+       "5": 0.116,
+       "6": 0.053,
+       "7": 0.022,
        "8": 0.009
       },
       "targets_needed": {
@@ -4881,10 +4981,10 @@
        "100": 15
       },
       "targets_needed_chance": {
-       "50": 0.058,
-       "60": 0.028,
+       "50": 0.053,
+       "60": 0.027,
        "70": 0.006,
-       "80": 0.002,
+       "80": 0.003,
        "100": 0.0
       }
      },
@@ -4898,7 +4998,7 @@
        "injury_bump": 0.002,
        "catch_rate": 0.68,
        "yards_per_catch": 11.7,
-       "yards_per_target": 7.71,
+       "yards_per_target": 7.51,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.723,
        "def_yards_per_catch_allowed": 10.5,
@@ -4917,56 +5017,56 @@
       },
       "player_id": "00-0038558",
       "sim": {
-       "targets_raw": 3.846,
+       "targets_raw": 3.8,
        "k": 50.0,
        "catch_rate": 0.6802,
        "ypr": 11.704,
-       "rain_yards": 0.9685,
-       "rain_catch": 0.9742,
+       "rain_yards": 0.9428,
+       "rain_catch": 0.9549,
        "pool": "TE"
       },
       "targets_mean": 3.4,
-      "receptions_mean": 2.3,
-      "yards_mean": 25.4,
-      "yards_median": 20.1,
+      "receptions_mean": 2.2,
+      "yards_mean": 24.1,
+      "yards_median": 19.6,
       "yards_p25_p75": [
        8.0,
-       37.0
+       35.0
       ],
       "yards": {
-       "20": 0.515,
-       "30": 0.349,
-       "40": 0.222,
-       "50": 0.136,
-       "60": 0.081,
-       "70": 0.049,
-       "80": 0.027,
-       "90": 0.016,
-       "100": 0.009,
-       "120": 0.003
+       "20": 0.485,
+       "30": 0.32,
+       "40": 0.202,
+       "50": 0.123,
+       "60": 0.068,
+       "70": 0.04,
+       "80": 0.022,
+       "90": 0.012,
+       "100": 0.006,
+       "120": 0.002
       },
       "receptions": {
-       "2": 0.635,
-       "3": 0.382,
-       "4": 0.204,
-       "5": 0.092,
-       "6": 0.041,
-       "7": 0.017,
-       "8": 0.006
+       "2": 0.617,
+       "3": 0.372,
+       "4": 0.192,
+       "5": 0.085,
+       "6": 0.036,
+       "7": 0.014,
+       "8": 0.004
       },
       "targets_needed": {
        "50": 7,
        "60": 8,
        "70": 10,
        "80": 11,
-       "100": 13
+       "100": 14
       },
       "targets_needed_chance": {
-       "50": 0.082,
-       "60": 0.041,
-       "70": 0.009,
-       "80": 0.004,
-       "100": 0.001
+       "50": 0.078,
+       "60": 0.038,
+       "70": 0.007,
+       "80": 0.003,
+       "100": 0.0
       }
      },
      {
@@ -4984,7 +5084,7 @@
        "injury_bump": 0.001,
        "catch_rate": 0.774,
        "yards_per_catch": 6.6,
-       "yards_per_target": 4.85,
+       "yards_per_target": 4.65,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.694,
        "def_yards_per_catch_allowed": 6.4,
@@ -5003,49 +5103,49 @@
       },
       "player_id": "00-0036139",
       "sim": {
-       "targets_raw": 3.442,
+       "targets_raw": 3.401,
        "k": 50.0,
        "catch_rate": 0.7739,
        "ypr": 6.58,
-       "rain_yards": 0.9524,
-       "rain_catch": 0.9849,
+       "rain_yards": 0.9141,
+       "rain_catch": 0.9742,
        "pool": "RB"
       },
-      "targets_mean": 3.1,
+      "targets_mean": 3.0,
       "receptions_mean": 2.3,
-      "yards_mean": 14.7,
-      "yards_median": 11.0,
+      "yards_mean": 13.8,
+      "yards_median": 10.6,
       "yards_p25_p75": [
        3.0,
-       21.0
+       20.0
       ],
       "yards": {
-       "20": 0.274,
-       "30": 0.132,
-       "40": 0.065,
-       "50": 0.035,
-       "60": 0.017,
-       "70": 0.007,
-       "80": 0.003,
+       "20": 0.255,
+       "30": 0.122,
+       "40": 0.055,
+       "50": 0.026,
+       "60": 0.013,
+       "70": 0.005,
+       "80": 0.002,
        "90": 0.001,
        "100": 0.0,
        "120": 0.0
       },
       "receptions": {
-       "2": 0.649,
-       "3": 0.407,
-       "4": 0.22,
-       "5": 0.104,
-       "6": 0.044,
-       "7": 0.016,
+       "2": 0.643,
+       "3": 0.396,
+       "4": 0.209,
+       "5": 0.096,
+       "6": 0.041,
+       "7": 0.015,
        "8": 0.006
       },
       "targets_needed": {
        "50": 11,
        "60": 13,
-       "70": 15,
-       "80": 17,
-       "100": 21
+       "70": 16,
+       "80": 18,
+       "100": 22
       },
       "targets_needed_chance": {
        "50": 0.002,
@@ -5084,7 +5184,7 @@
       },
       "player_id": "00-0036252",
       "sim": {
-       "targets_raw": 4.411,
+       "targets_raw": 4.359,
        "k": 8.0,
        "catch_rate": 0.5807,
        "ypr": 12.732,
@@ -5094,32 +5194,32 @@
       },
       "targets_mean": 3.9,
       "receptions_mean": 2.3,
-      "yards_mean": 29.4,
+      "yards_mean": 28.9,
       "yards_median": 22.2,
       "yards_p25_p75": [
-       8.0,
+       7.0,
        43.0
       ],
       "yards": {
-       "20": 0.54,
-       "30": 0.397,
-       "40": 0.286,
-       "50": 0.198,
-       "60": 0.134,
-       "70": 0.09,
-       "80": 0.06,
-       "90": 0.039,
+       "20": 0.533,
+       "30": 0.39,
+       "40": 0.277,
+       "50": 0.194,
+       "60": 0.131,
+       "70": 0.089,
+       "80": 0.058,
+       "90": 0.037,
        "100": 0.025,
-       "120": 0.012
+       "120": 0.01
       },
       "receptions": {
-       "2": 0.614,
-       "3": 0.386,
-       "4": 0.221,
-       "5": 0.118,
-       "6": 0.059,
-       "7": 0.028,
-       "8": 0.013
+       "2": 0.608,
+       "3": 0.38,
+       "4": 0.216,
+       "5": 0.112,
+       "6": 0.055,
+       "7": 0.026,
+       "8": 0.012
       },
       "targets_needed": {
        "50": 7,
@@ -5129,10 +5229,10 @@
        "100": 14
       },
       "targets_needed_chance": {
-       "50": 0.154,
-       "60": 0.06,
-       "70": 0.037,
-       "80": 0.022,
+       "50": 0.149,
+       "60": 0.056,
+       "70": 0.034,
+       "80": 0.02,
        "100": 0.004
       }
      }
@@ -5304,16 +5404,23 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.234,
-      "p100": 0.115,
+      "p80": 0.231,
+      "p100": 0.112,
       "stars": 0,
       "targets": 8.0,
       "yds_pg": 49.0,
       "ex_pg": 0.75,
       "why": [
-       "team only expected to score 22",
+       "team only expected to score 21",
        "a teammate's absence adds targets"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 410,
+       "break_even": 0.1961,
+       "blend": 0.213,
+       "model_minus_price": 0.035
+      }
      },
      {
       "player": "Germie Bernard",
@@ -5321,16 +5428,23 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.121,
-      "p100": 0.048,
+      "p80": 0.119,
+      "p100": 0.047,
       "stars": 0,
       "targets": 5.9,
       "yds_pg": 35.5,
       "ex_pg": 0.38,
       "why": [
-       "team only expected to score 22",
+       "team only expected to score 21",
        "a teammate's absence adds targets"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 880,
+       "break_even": 0.102,
+       "blend": 0.11,
+       "model_minus_price": 0.017
+      }
      },
      {
       "player": "Pat Freiermuth",
@@ -5345,7 +5459,7 @@
       "yds_pg": 28.0,
       "ex_pg": 0.38,
       "why": [
-       "team only expected to score 22",
+       "team only expected to score 21",
        "a teammate's absence adds targets"
       ]
      },
@@ -5362,7 +5476,7 @@
       "yds_pg": 30.1,
       "ex_pg": 0.5,
       "why": [
-       "team only expected to score 22",
+       "team only expected to score 21",
        "a teammate's absence adds targets"
       ]
      }
@@ -5372,8 +5486,8 @@
       "player": "Jaylen Warren",
       "player_id": "00-0037228",
       "pos": "RB",
-      "p80": 0.455,
-      "p100": 0.262,
+      "p80": 0.457,
+      "p100": 0.259,
       "stars": 2,
       "carries": 14.3,
       "yds_pg": 84.1,
@@ -5381,13 +5495,20 @@
        "14.3 carries a game",
        "favored by about 4",
        "PHI allows 110 rushing yards a game to backs"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 174,
+       "break_even": 0.365,
+       "blend": 0.41,
+       "model_minus_price": 0.092
+      }
      }
     ],
     "context": {
      "pass_yards_last5": 203.0,
      "pass_offense_rank": 21,
-     "implied": 21.5,
+     "implied": 21.0,
      "defense_g80_rank": 13,
      "defense_explosive_rank": 10
     },
@@ -9562,9 +9683,9 @@
     "offense_starters": {
      "WR": "DK Metcalf",
      "LT": "Troy Fautanu",
-     "LG": "Mason McCormick",
+     "LG": "Brock Hoffman",
      "C": "Zach Frazier",
-     "RG": "Brock Hoffman",
+     "RG": "Spencer Anderson",
      "RT": "Max Iheanachor",
      "QB": "Aaron Rodgers",
      "TE": "Darnell Washington",
@@ -9670,8 +9791,8 @@
     "third_down_rate": 0.36,
     "red_zone_drives": 22,
     "red_zone_td_rate": 0.5,
-    "pass_epa_per_dropback": 0.08454378359768804,
-    "rush_epa_per_carry": -0.1246710836815699,
+    "pass_epa_per_dropback": 0.08454378451520228,
+    "rush_epa_per_carry": -0.12467108552467365,
     "neutral_pass_rate": 0.616580310880829,
     "blitz_rate": 0.2857142857142857,
     "play_action_rate": 0.13988095238095238,
@@ -9793,12 +9914,12 @@
     "pass_epa_per_dropback": {
      "rank": 21,
      "of": 32,
-     "league_avg": 0.049829208208821765
+     "league_avg": 0.04982920832479731
     },
     "rush_epa_per_carry": {
      "rank": 6,
      "of": 32,
-     "league_avg": -0.06074522417823477
+     "league_avg": -0.060745224613892736
     },
     "takeaways_pg": {
      "rank": 13,
@@ -10257,8 +10378,8 @@
     "third_down_rate": 0.35398230088495575,
     "red_zone_drives": 19,
     "red_zone_td_rate": 0.7368421052631579,
-    "pass_epa_per_dropback": -0.12104826294165914,
-    "rush_epa_per_carry": -0.13719036714924213,
+    "pass_epa_per_dropback": -0.12104826241897029,
+    "rush_epa_per_carry": -0.13719036837652931,
     "neutral_pass_rate": 0.5191489361702127,
     "blitz_rate": 0.34782608695652173,
     "play_action_rate": 0.17391304347826086,
@@ -10380,12 +10501,12 @@
     "pass_epa_per_dropback": {
      "rank": 29,
      "of": 32,
-     "league_avg": 0.04465239140401442
+     "league_avg": 0.04465239151229834
     },
     "rush_epa_per_carry": {
      "rank": 25,
      "of": 32,
-     "league_avg": -0.06098569749017958
+     "league_avg": -0.060985697844241446
     },
     "takeaways_pg": {
      "rank": 13,
@@ -11162,8 +11283,8 @@
    },
    "rain": {
     "status": "OK",
-    "rain_chance": 0.37,
-    "wind_mph": 5.0,
+    "rain_chance": 0.65,
+    "wind_mph": 10.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
@@ -11180,10 +11301,10 @@
       "yards": 164.2
      },
      "forecast": {
-      "attempts": 34.1,
-      "completion_pct": 0.582,
-      "completions": 19.8,
-      "yards": 181.8
+      "attempts": 33.7,
+      "completion_pct": 0.572,
+      "completions": 19.3,
+      "yards": 173.9
      }
     },
     "receivers": [
@@ -11208,10 +11329,10 @@
       },
       "forecast": {
        "targets": 6.1,
-       "catch_rate": 0.664,
-       "receptions": 4.1,
-       "yards_per_target": 6.07,
-       "yards": 37.4
+       "catch_rate": 0.651,
+       "receptions": 4.0,
+       "yards_per_target": 5.87,
+       "yards": 35.7
       }
      },
      {
@@ -11234,11 +11355,11 @@
        "yards": 32.6
       },
       "forecast": {
-       "targets": 5.9,
-       "catch_rate": 0.731,
-       "receptions": 4.3,
-       "yards_per_target": 6.14,
-       "yards": 36.3
+       "targets": 5.8,
+       "catch_rate": 0.717,
+       "receptions": 4.2,
+       "yards_per_target": 5.94,
+       "yards": 34.6
       }
      },
      {
@@ -11261,11 +11382,11 @@
        "yards": 72.7
       },
       "forecast": {
-       "targets": 11.5,
-       "catch_rate": 0.641,
-       "receptions": 7.4,
-       "yards_per_target": 7.04,
-       "yards": 80.8
+       "targets": 11.3,
+       "catch_rate": 0.629,
+       "receptions": 7.1,
+       "yards_per_target": 6.8,
+       "yards": 77.1
       }
      },
      {
@@ -11288,11 +11409,11 @@
        "yards": 24.2
       },
       "forecast": {
-       "targets": 4.5,
-       "catch_rate": 0.396,
-       "receptions": 1.8,
-       "yards_per_target": 5.99,
-       "yards": 26.9
+       "targets": 4.4,
+       "catch_rate": 0.389,
+       "receptions": 1.7,
+       "yards_per_target": 5.79,
+       "yards": 25.7
       }
      },
      {
@@ -11315,11 +11436,11 @@
        "yards": 35.8
       },
       "forecast": {
-       "targets": 5.5,
-       "catch_rate": 0.593,
-       "receptions": 3.3,
-       "yards_per_target": 7.22,
-       "yards": 39.8
+       "targets": 5.4,
+       "catch_rate": 0.581,
+       "receptions": 3.2,
+       "yards_per_target": 6.98,
+       "yards": 38.0
       }
      },
      {
@@ -11342,11 +11463,11 @@
        "yards": 12.8
       },
       "forecast": {
-       "targets": 4.6,
-       "catch_rate": 0.704,
+       "targets": 4.5,
+       "catch_rate": 0.696,
        "receptions": 3.2,
-       "yards_per_target": 3.13,
-       "yards": 14.4
+       "yards_per_target": 3.01,
+       "yards": 13.6
       }
      },
      {
@@ -11370,10 +11491,10 @@
       },
       "forecast": {
        "targets": 3.6,
-       "catch_rate": 0.627,
-       "receptions": 2.3,
-       "yards_per_target": 1.21,
-       "yards": 4.4
+       "catch_rate": 0.62,
+       "receptions": 2.2,
+       "yards_per_target": 1.17,
+       "yards": 4.2
       }
      },
      {
@@ -11397,10 +11518,10 @@
       },
       "forecast": {
        "targets": 1.5,
-       "catch_rate": 0.657,
-       "receptions": 1.0,
-       "yards_per_target": 4.65,
-       "yards": 6.9
+       "catch_rate": 0.65,
+       "receptions": 0.9,
+       "yards_per_target": 4.48,
+       "yards": 6.5
       }
      },
      {
@@ -11424,10 +11545,10 @@
       },
       "forecast": {
        "targets": 2.6,
-       "catch_rate": 0.365,
-       "receptions": 1.0,
-       "yards_per_target": 2.63,
-       "yards": 6.9
+       "catch_rate": 0.358,
+       "receptions": 0.9,
+       "yards_per_target": 2.54,
+       "yards": 6.6
       }
      }
     ]
@@ -11445,7 +11566,7 @@
      "sacks": 10,
      "yards_per_attempt": 5.658914728682171,
      "avg_depth_of_target": 7.24031007751938,
-     "epa_per_dropback": -0.04983156914602579,
+     "epa_per_dropback": -0.04983156927419494,
      "pressure_rate_faced": 0.16546762589928057,
      "log": [
       {
@@ -11498,7 +11619,7 @@
      "sacks": 10,
      "yards_per_attempt": 5.5964912280701755,
      "avg_depth_of_target": 6.5964912280701755,
-     "epa_per_dropback": -0.14111600821338907,
+     "epa_per_dropback": -0.14111600813753894,
      "pressure_rate_faced": 0.1774193548387097,
      "log": [
       {
@@ -12354,10 +12475,10 @@
      "player": "Zack Baun",
      "position": "LB",
      "game_status": null,
-     "practice": null,
+     "practice": "Did Not Participate In Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "Baun (back) is questionable to return to Sunday's contest against the Giants.",
+     "espn_comment": "Baun (back) didn't practice Wednesday.",
      "starter_slot": "LILB",
      "snap_share": 0.914,
      "next_up": "Smael Mondon Jr.",
@@ -12368,10 +12489,10 @@
      "player": "DeVonta Smith",
      "position": "WR",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "questionable",
+     "espn_comment": "Smith (hamstring) is taking part in Thursday's practice, Andrew DiCecco of InsideTheBirds.com reports.",
      "starter_slot": "WR",
      "snap_share": 0.847,
      "next_up": "Dontayvion Wicks",
@@ -12379,27 +12500,13 @@
      "status_level": 2
     },
     {
-     "player": "Jihaad Campbell",
-     "position": "LB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Questionable",
-     "espn_comment": "questionable",
-     "starter_slot": "RILB",
-     "snap_share": 0.802,
-     "next_up": "Jeremiah Trotter Jr.",
-     "impact": "high",
-     "status_level": 2
-    },
-    {
      "player": "Dontayvion Wicks",
      "position": "WR",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "questionable",
+     "espn_comment": "Wicks (ankle) is participating in practice Thursday, Andrew DiCecco of InsideTheBirds.com reports.",
      "starter_slot": null,
      "snap_share": 0.776,
      "next_up": null,
@@ -12410,13 +12517,27 @@
      "player": "Britain Covey",
      "position": "WR",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Questionable",
      "espn_comment": "questionable",
      "starter_slot": "KR",
      "snap_share": null,
-     "next_up": "Darius Cooper",
+     "next_up": "Jaydon Blue",
+     "impact": "medium",
+     "status_level": 2
+    },
+    {
+     "player": "Nolan Smith Jr.",
+     "position": "LB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "Smith (illness) was limited in Wednesday's practice.",
+     "starter_slot": "WLB",
+     "snap_share": null,
+     "next_up": "Arnold Ebiketie",
      "impact": "medium",
      "status_level": 2
     },
@@ -12424,10 +12545,10 @@
      "player": "Will Shipley",
      "position": "RB",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "The Eagles opened Shipley's (foot) 21-day practice window Monday.",
+     "espn_comment": "Shipley (foot) was a limited practice participant Wednesday.",
      "starter_slot": null,
      "snap_share": 0.365,
      "next_up": null,
@@ -12438,7 +12559,7 @@
      "player": "Michael Carter II",
      "position": "CB",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Questionable",
      "espn_comment": "questionable",
@@ -12452,7 +12573,7 @@
      "player": "Jonathan Jones",
      "position": "CB",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Questionable",
      "espn_comment": "questionable",
@@ -12463,27 +12584,13 @@
      "status_level": 2
     },
     {
-     "player": "Jake Majors",
-     "position": "C",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "",
-     "starter_slot": null,
-     "snap_share": 1.0,
-     "next_up": null,
-     "impact": "low",
-     "status_level": 1
-    },
-    {
      "player": "Tanner McKee",
      "position": "QB",
      "game_status": null,
-     "practice": null,
+     "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Active",
-     "espn_comment": "McKee (ribs) is active for Sunday's game against the Giants.",
+     "espn_comment": "McKee will remain in a backup role for Sunday's game against the Steelers after head coach Nick Sirianni announced Wednesday that Joe Milton will serve as the Eagles' starting quarterback for a second",
      "starter_slot": null,
      "snap_share": 1.0,
      "next_up": null,
@@ -12497,10 +12604,24 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Milton completed 18 of 34 passes for 169 yards, no touchdowns and no interceptions in Sunday's 19-11 loss to the Giants. He also rushed nine times for 64 yards, ran in a two-point conversion and lost ",
+     "espn_comment": "Head coach Nick Sirianni confirmed that Milton will remain the Eagles' starting quarterback for Sunday's game against the Steelers, according to NFL reporter Andrew Siciliano.",
      "starter_slot": null,
      "snap_share": 1.0,
      "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Andrew Mukuba",
+     "position": "S",
+     "game_status": null,
+     "practice": "Full Participation in Practice",
+     "injury": null,
+     "espn": null,
+     "espn_comment": null,
+     "starter_slot": "FS",
+     "snap_share": 0.995,
+     "next_up": "Kenny Moore II",
      "impact": "low",
      "status_level": 1
     },
@@ -12515,6 +12636,20 @@
      "starter_slot": null,
      "snap_share": 0.809,
      "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Jihaad Campbell",
+     "position": "LB",
+     "game_status": null,
+     "practice": "Full Participation in Practice",
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Campbell (hamstring/quadriceps) was a full participant in Wednesday's practice.",
+     "starter_slot": "RILB",
+     "snap_share": 0.802,
+     "next_up": "Jeremiah Trotter Jr.",
      "impact": "low",
      "status_level": 1
     },
@@ -12547,6 +12682,20 @@
      "status_level": 1
     },
     {
+     "player": "Nolan Smith",
+     "position": "LB",
+     "game_status": null,
+     "practice": "Limited Participation in Practice",
+     "injury": null,
+     "espn": null,
+     "espn_comment": null,
+     "starter_slot": null,
+     "snap_share": 0.653,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
      "player": "Jeremiah Trotter Jr.",
      "position": "LB",
      "game_status": null,
@@ -12564,7 +12713,7 @@
      "player": "Jalyx Hunt",
      "position": "LB",
      "game_status": null,
-     "practice": null,
+     "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Active",
      "espn_comment": "",
@@ -12606,7 +12755,7 @@
      "player": "Jonathan Greenard",
      "position": "LB",
      "game_status": null,
-     "practice": null,
+     "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Active",
      "espn_comment": "",
@@ -12617,30 +12766,30 @@
      "status_level": 1
     },
     {
-     "player": "Nolan Smith Jr.",
-     "position": "LB",
-     "game_status": null,
-     "practice": null,
-     "injury": null,
-     "espn": "Active",
-     "espn_comment": "Smith (concussion) does not carry an injury designation into Sunday's game against the Commanders.",
-     "starter_slot": "WLB",
-     "snap_share": null,
-     "next_up": "Arnold Ebiketie",
-     "impact": "low",
-     "status_level": 1
-    },
-    {
      "player": "Saquon Barkley",
      "position": "RB",
      "game_status": null,
-     "practice": null,
+     "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Active",
      "espn_comment": "Barkley rushed 13 times for 22 yards and a touchdown while failing to catch his only target in Sunday's 19-11 loss to the Giants.",
      "starter_slot": "RB",
      "snap_share": null,
-     "next_up": "Will Shipley",
+     "next_up": "Jaydon Blue",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Smael Mondon Jr.",
+     "position": "LB",
+     "game_status": null,
+     "practice": "Full Participation in Practice",
+     "injury": null,
+     "espn": null,
+     "espn_comment": null,
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -12694,6 +12843,20 @@
      "injury": null,
      "espn": "Active",
      "espn_comment": "The Eagles signed Ertz from the practice squad to the active roster Monday.",
+     "starter_slot": null,
+     "snap_share": null,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Jaydon Blue",
+     "position": "RB",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "The Eagles signed Blue from their practice squad to their active roster Tuesday.",
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -12806,105 +12969,108 @@
    "defenders": {
     "coverage": [
      {
-      "player": "Jalen Ramsey",
-      "games": 7,
-      "targets": 46,
-      "completions": 28,
-      "yards": 242,
-      "yards_per_target": 5.260869565217392,
-      "td_allowed": 4,
-      "interceptions": 0,
-      "missed_tackles": 2,
-      "position": "CB",
-      "raw_position": "CB",
-      "completion_pct": 0.609,
-      "grade": "neutral",
-      "why": [
-       "4 TDs allowed",
-       "only 5.3 yds/target"
-      ]
-     },
-     {
       "player": "Asante Samuel Jr.",
-      "games": 7,
-      "targets": 43,
-      "completions": 19,
-      "yards": 309,
-      "yards_per_target": 7.186046511627907,
+      "games": 8,
+      "targets": 49,
+      "completions": 23,
+      "yards": 432,
+      "yards_per_target": 8.816326530612244,
       "td_allowed": 2,
       "interceptions": 0,
       "missed_tackles": 3,
       "position": "CB",
       "raw_position": "CB",
-      "completion_pct": 0.442,
-      "grade": "neutral",
-      "why": []
-     },
-     {
-      "player": "Jamel Dean",
-      "games": 6,
-      "targets": 42,
-      "completions": 23,
-      "yards": 280,
-      "yards_per_target": 6.666666666666667,
-      "td_allowed": 0,
-      "interceptions": 1,
-      "missed_tackles": 2,
-      "position": "CB",
-      "raw_position": "CB",
-      "completion_pct": 0.548,
-      "grade": "neutral",
-      "why": []
-     },
-     {
-      "player": "Patrick Queen",
-      "games": 7,
-      "targets": 40,
-      "completions": 20,
-      "yards": 193,
-      "yards_per_target": 4.825,
-      "td_allowed": 0,
-      "interceptions": 1,
-      "missed_tackles": 5,
-      "position": "LB",
-      "raw_position": "ILB",
-      "completion_pct": 0.5,
-      "grade": "avoid",
+      "completion_pct": 0.469,
+      "grade": "target",
       "why": [
-       "only 4.8 yds/target"
+       "8.8 yds/target (league 7.2)"
       ]
      },
      {
-      "player": "Payton Wilson",
+      "player": "Jalen Ramsey",
+      "games": 8,
+      "targets": 49,
+      "completions": 31,
+      "yards": 255,
+      "yards_per_target": 5.204081632653061,
+      "td_allowed": 5,
+      "interceptions": 0,
+      "missed_tackles": 2,
+      "position": "CB",
+      "raw_position": "CB",
+      "completion_pct": 0.633,
+      "grade": "neutral",
+      "why": [
+       "5 TDs allowed",
+       "only 5.2 yds/target"
+      ]
+     },
+     {
+      "player": "Jamel Dean",
       "games": 7,
-      "targets": 39,
-      "completions": 23,
-      "yards": 194,
-      "yards_per_target": 4.9743589743589745,
+      "targets": 48,
+      "completions": 27,
+      "yards": 313,
+      "yards_per_target": 6.520833333333333,
+      "td_allowed": 0,
+      "interceptions": 1,
+      "missed_tackles": 3,
+      "position": "CB",
+      "raw_position": "CB",
+      "completion_pct": 0.562,
+      "grade": "neutral",
+      "why": []
+     },
+     {
+      "player": "Payton Wilson",
+      "games": 8,
+      "targets": 48,
+      "completions": 31,
+      "yards": 271,
+      "yards_per_target": 5.645833333333333,
+      "td_allowed": 1,
+      "interceptions": 1,
+      "missed_tackles": 7,
+      "position": "LB",
+      "raw_position": "ILB",
+      "completion_pct": 0.646,
+      "grade": "neutral",
+      "why": [
+       "7 missed tackles",
+       "only 5.6 yds/target"
+      ]
+     },
+     {
+      "player": "Patrick Queen",
+      "games": 8,
+      "targets": 46,
+      "completions": 25,
+      "yards": 226,
+      "yards_per_target": 4.913043478260869,
       "td_allowed": 0,
       "interceptions": 1,
       "missed_tackles": 5,
       "position": "LB",
       "raw_position": "ILB",
-      "completion_pct": 0.59,
+      "completion_pct": 0.543,
       "grade": "avoid",
       "why": [
-       "only 5.0 yds/target"
+       "only 4.9 yds/target"
       ]
      },
      {
       "player": "Jaquan Brisker",
-      "games": 7,
-      "targets": 36,
-      "completions": 16,
-      "yards": 243,
-      "yards_per_target": 6.75,
-      "td_allowed": 0,
+      "games": 8,
+      "targets": 41,
+      "completions": 20,
+      "yards": 298,
+      "yards_per_target": 7.2682926829268295,
+      "td_allowed": 1,
       "interceptions": 0,
       "missed_tackles": 7,
       "position": "S",
       "raw_position": "SS",
-      "completion_pct": 0.444,
+      "completion_pct": 0.488,
       "grade": "neutral",
       "why": [
        "7 missed tackles"
@@ -12912,39 +13078,53 @@
      },
      {
       "player": "Daylen Everette",
-      "games": 6,
-      "targets": 27,
-      "completions": 15,
-      "yards": 237,
-      "yards_per_target": 8.777777777777779,
+      "games": 7,
+      "targets": 30,
+      "completions": 18,
+      "yards": 274,
+      "yards_per_target": 9.133333333333333,
       "td_allowed": 1,
       "interceptions": 1,
       "missed_tackles": 0,
       "position": "CB",
       "raw_position": "CB",
-      "completion_pct": 0.556,
+      "completion_pct": 0.6,
       "grade": "target",
       "why": [
-       "8.8 yds/target (league 7.2)"
+       "9.1 yds/target (league 7.2)"
       ]
      },
      {
       "player": "Robert Spears-Jennings",
-      "games": 5,
-      "targets": 17,
-      "completions": 8,
-      "yards": 88,
-      "yards_per_target": 5.176470588235294,
+      "games": 6,
+      "targets": 20,
+      "completions": 11,
+      "yards": 123,
+      "yards_per_target": 6.15,
       "td_allowed": 0,
       "interceptions": 1,
       "missed_tackles": 1,
       "position": "S",
       "raw_position": "FS",
-      "completion_pct": 0.471,
-      "grade": "avoid",
-      "why": [
-       "only 5.2 yds/target"
-      ]
+      "completion_pct": 0.55,
+      "grade": "neutral",
+      "why": []
+     },
+     {
+      "player": "Alex Highsmith",
+      "games": 7,
+      "targets": 6,
+      "completions": 6,
+      "yards": 35,
+      "yards_per_target": 5.833333333333333,
+      "td_allowed": 1,
+      "interceptions": 0,
+      "missed_tackles": 1,
+      "position": "LB",
+      "raw_position": "OLB",
+      "completion_pct": 1.0,
+      "grade": "small sample",
+      "why": []
      },
      {
       "player": "Rayshawn Jenkins",
@@ -12961,40 +13141,24 @@
       "completion_pct": 0.333,
       "grade": "small sample",
       "why": []
-     },
-     {
-      "player": "Alex Highsmith",
-      "games": 6,
-      "targets": 5,
-      "completions": 5,
-      "yards": 32,
-      "yards_per_target": 6.4,
-      "td_allowed": 0,
-      "interceptions": 0,
-      "missed_tackles": 1,
-      "position": "LB",
-      "raw_position": "OLB",
-      "completion_pct": 1.0,
-      "grade": "small sample",
-      "why": []
      }
     ],
     "pass_rush": [
      {
       "player": "T.J. Watt",
-      "games": 6,
+      "games": 7,
       "pressures": 13,
       "sacks": 5.5,
       "hurries": 3,
-      "blitzes": 0
+      "blitzes": 1
      },
      {
       "player": "Alex Highsmith",
-      "games": 6,
+      "games": 7,
       "pressures": 10,
       "sacks": 1.5,
       "hurries": 3,
-      "blitzes": 2
+      "blitzes": 4
      },
      {
       "player": "Cameron Heyward",
@@ -13014,41 +13178,41 @@
      },
      {
       "player": "Keeanu Benton",
-      "games": 6,
-      "pressures": 4,
+      "games": 7,
+      "pressures": 5,
       "sacks": 0.5,
       "hurries": 1,
       "blitzes": 0
      },
      {
       "player": "Patrick Queen",
-      "games": 7,
-      "pressures": 4,
-      "sacks": 2.5,
+      "games": 8,
+      "pressures": 5,
+      "sacks": 3.5,
       "hurries": 0,
-      "blitzes": 22
+      "blitzes": 25
      },
      {
       "player": "Payton Wilson",
-      "games": 7,
+      "games": 8,
       "pressures": 4,
       "sacks": 1.0,
       "hurries": 2,
-      "blitzes": 15
+      "blitzes": 17
      },
      {
-      "player": "Jalen Ramsey",
-      "games": 7,
-      "pressures": 3,
-      "sacks": 2.0,
-      "hurries": 1,
-      "blitzes": 24
+      "player": "Derrick Harmon",
+      "games": 3,
+      "pressures": 4,
+      "sacks": 1.5,
+      "hurries": 2,
+      "blitzes": 0
      }
     ],
     "league": {
-     "yards_per_target": 7.22,
-     "completion_pct": 0.624,
-     "td_per_target": 0.0464
+     "yards_per_target": 7.23,
+     "completion_pct": 0.623,
+     "td_per_target": 0.0466
     },
     "weeks": [
      2,
@@ -13115,13 +13279,27 @@
      "game_status": null,
      "practice": null,
      "injury": null,
-     "espn": "Doubtful",
-     "espn_comment": "McCormick (ankle) suffered a significant injury during the Steelers' Week 10 loss to the Bengals, Brian Batko of the Pittsburgh Post-Gazette reports.",
-     "starter_slot": "LG",
+     "espn": "Injured Reserve",
+     "espn_comment": "The Steelers placed McCormick (ankle) on injured reserve Wednesday, Teresa Varley of the team's official site reports.",
+     "starter_slot": null,
      "snap_share": 0.917,
-     "next_up": "Brock Hoffman",
+     "next_up": null,
      "impact": "high",
      "status_level": 3
+    },
+    {
+     "player": "Patrick Queen",
+     "position": "LB",
+     "game_status": null,
+     "practice": "Limited Participation in Practice",
+     "injury": null,
+     "espn": "Questionable",
+     "espn_comment": "Queen (hand) was a limited practice participant Wednesday, Teresa Varley of the Steelers' official site reports.",
+     "starter_slot": "RILB",
+     "snap_share": 0.999,
+     "next_up": "Carson Bruener",
+     "impact": "high",
+     "status_level": 2
     },
     {
      "player": "Michael Pittman Jr.",
@@ -13130,7 +13308,7 @@
      "practice": null,
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "Coach Mike McCarthy said Monday that the Steelers are \"hopeful\" they can get Pittman -- who last played in Week 4 -- back from his foot injury this week, Nick Farabaugh of PennLive.com reports.",
+     "espn_comment": "Pittman (foot) was listed as a full participant in Thursday's practice, Alan Saunders of SteelersNow.com reports.",
      "starter_slot": null,
      "snap_share": 0.725,
      "next_up": null,
@@ -13138,16 +13316,16 @@
      "status_level": 3
     },
     {
-     "player": "DeShon Elliott",
-     "position": "S",
+     "player": "Nick Herbig",
+     "position": "LB",
      "game_status": null,
-     "practice": null,
+     "practice": "Did Not Participate In Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "questionable",
-     "starter_slot": "SS",
-     "snap_share": 0.335,
-     "next_up": "Robert Spears-Jennings",
+     "espn_comment": "Herbig (hip) did not participate in Wednesday's practice, Teresa Varley of the Steelers' official site reports.",
+     "starter_slot": null,
+     "snap_share": 0.509,
+     "next_up": null,
      "impact": "medium",
      "status_level": 2
     },
@@ -13155,12 +13333,26 @@
      "player": "Roman Wilson",
      "position": "WR",
      "game_status": null,
-     "practice": null,
+     "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Injured Reserve",
-     "espn_comment": "Steelers head coach Mike McCarthy said that he's \"hopeful\" Wilson (finger) will be able to return from injured reserve for Sunday's game against the Eagles, Nick Farabaugh of PennLive.com reports.",
+     "espn_comment": "Wilson (finger), who was designated for return from injured reserve earlier Wednesday, was a full participant in his return to practice.",
      "starter_slot": null,
      "snap_share": 0.455,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 3
+    },
+    {
+     "player": "Gennings Dunker",
+     "position": "G",
+     "game_status": null,
+     "practice": "Full Participation in Practice",
+     "injury": null,
+     "espn": "Injured Reserve",
+     "espn_comment": "The Steelers designated Dunker (knee) for return to practice from injured reserve Wednesday, Teresa Varley of the team's official site reports.",
+     "starter_slot": null,
+     "snap_share": null,
      "next_up": null,
      "impact": "low",
      "status_level": 3
@@ -13169,13 +13361,27 @@
      "player": "Jalen Ramsey",
      "position": "CB",
      "game_status": null,
-     "practice": null,
+     "practice": "Did Not Participate In Practice",
      "injury": null,
-     "espn": "Active",
-     "espn_comment": "",
+     "espn": null,
+     "espn_comment": null,
      "starter_slot": "NB",
      "snap_share": 0.998,
      "next_up": "Brandin Echols",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Jaquan Brisker",
+     "position": "S",
+     "game_status": null,
+     "practice": null,
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Brisker notched 10 tackles (two solo) Sunday in a Week 10 loss to the Bengals.",
+     "starter_slot": "FS",
+     "snap_share": 0.998,
+     "next_up": null,
      "impact": "low",
      "status_level": 1
     },
@@ -13200,7 +13406,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Wilson totaled six tackles (three solo) and an interception during Pittsburgh's win over the Saints on Sunday.",
+     "espn_comment": "Wilson recorded 19 tackles (nine solo) in Sunday's 38-18 loss to the Bengals.",
      "starter_slot": "LILB",
      "snap_share": 0.855,
      "next_up": "Cole Holcomb",
@@ -13236,16 +13442,30 @@
      "status_level": 1
     },
     {
-     "player": "Alex Highsmith",
+     "player": "T.J. Watt",
      "position": "LB",
      "game_status": null,
-     "practice": null,
+     "practice": "Did Not Participate In Practice",
      "injury": null,
-     "espn": "Active",
-     "espn_comment": "",
-     "starter_slot": "SLB",
-     "snap_share": 0.651,
-     "next_up": "Jack Sawyer",
+     "espn": null,
+     "espn_comment": null,
+     "starter_slot": "WLB",
+     "snap_share": 0.66,
+     "next_up": "Nick Herbig",
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Cameron Heyward",
+     "position": "DT",
+     "game_status": null,
+     "practice": "Did Not Participate In Practice",
+     "injury": null,
+     "espn": null,
+     "espn_comment": null,
+     "starter_slot": "RDE",
+     "snap_share": 0.639,
+     "next_up": "Kevin Jobity Jr.",
      "impact": "low",
      "status_level": 1
     },
@@ -13253,7 +13473,7 @@
      "player": "Darnell Washington",
      "position": "TE",
      "game_status": null,
-     "practice": null,
+     "practice": "Did Not Participate In Practice",
      "injury": null,
      "espn": "Active",
      "espn_comment": "Washington caught one pass for five yards on two targets in Sunday night's loss to the Bengals.",
@@ -13284,7 +13504,7 @@
      "practice": null,
      "injury": null,
      "espn": "Active",
-     "espn_comment": "The Steelers signed Smith off the practice squad to the active roster Saturday, Teresa Varley of the team's official site reports.",
+     "espn_comment": "Smith caught two of three targets for 15 yards during Sunday night's 38-18 loss to the Bengals.",
      "starter_slot": null,
      "snap_share": 0.474,
      "next_up": null,
@@ -13320,16 +13540,16 @@
      "status_level": 1
     },
     {
-     "player": "Ben Skowronek",
-     "position": "WR",
+     "player": "DeShon Elliott",
+     "position": "S",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
      "espn": "Active",
-     "espn_comment": "Skowronek (calf) was a full participant in Wednesday's practice, Teresa Varley of the Steelers' official site reports.",
-     "starter_slot": null,
-     "snap_share": 0.148,
-     "next_up": null,
+     "espn_comment": "Elliott (knee) was a limited participant in Wednesday's practice, Teresa Varley of the Steelers' official site reports.",
+     "starter_slot": "SS",
+     "snap_share": 0.335,
+     "next_up": "Robert Spears-Jennings",
      "impact": "low",
      "status_level": 1
     },
@@ -13362,13 +13582,13 @@
      "status_level": 1
     },
     {
-     "player": "Doneiko Slaughter",
-     "position": "CB",
+     "player": "Michael Pittman",
+     "position": "WR",
      "game_status": null,
-     "practice": null,
+     "practice": "Limited Participation in Practice",
      "injury": null,
-     "espn": "Active",
-     "espn_comment": "Slaughter (hamstring) was a full participant in Wednesday's practice, Teresa Varley of the Steelers' official site reports.",
+     "espn": null,
+     "espn_comment": null,
      "starter_slot": null,
      "snap_share": null,
      "next_up": null,
@@ -13510,11 +13730,6 @@
       "player": "Zack Baun",
       "slot": "LILB",
       "status": "Questionable"
-     },
-     {
-      "player": "Jihaad Campbell",
-      "slot": "RILB",
-      "status": "Questionable"
      }
     ],
     "defensive_line": []
@@ -13523,30 +13738,35 @@
     "offensive_line": [
      {
       "player": "Mason McCormick",
-      "slot": "LG",
-      "status": "Doubtful"
+      "slot": "G",
+      "status": "Injured Reserve"
      }
     ],
-    "secondary": [
+    "secondary": [],
+    "linebackers": [
      {
-      "player": "DeShon Elliott",
-      "slot": "SS",
+      "player": "Patrick Queen",
+      "slot": "RILB",
+      "status": "Questionable"
+     },
+     {
+      "player": "Nick Herbig",
+      "slot": "LB",
       "status": "Questionable"
      }
     ],
-    "linebackers": [],
     "defensive_line": []
    },
    "official_inactives": null,
    "opportunity": {
     "team": "PHI",
     "vs": "PIT",
-    "team_pass_attempts": 35.7,
+    "team_pass_attempts": 35.2,
     "team_rush_attempts": 25.4,
     "plays": 61.5,
     "pass_ratio": 0.563,
     "script_pass_multiplier": 1.045,
-    "weather_attempts_multiplier": 0.986,
+    "weather_attempts_multiplier": 0.974,
     "implied_margin": -4.5,
     "missing_target_share": 0.0,
     "missing_carry_share": 0.106,
@@ -13561,7 +13781,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.661,
        "yards_per_catch": 10.7,
-       "yards_per_target": 6.82,
+       "yards_per_target": 6.64,
        "dispersion_k": 35.3,
        "def_catch_rate_allowed": 0.636,
        "def_yards_per_catch_allowed": 12.5,
@@ -13580,56 +13800,56 @@
       },
       "player_id": "00-0040867",
       "sim": {
-       "targets_raw": 7.852,
+       "targets_raw": 7.76,
        "k": 35.28,
        "catch_rate": 0.6614,
        "ypr": 10.658,
-       "rain_yards": 0.9672,
-       "rain_catch": 0.9765,
+       "rain_yards": 0.9417,
+       "rain_catch": 0.9574,
        "pool": "WR"
       },
-      "targets_mean": 7.0,
-      "receptions_mean": 4.5,
-      "yards_mean": 46.6,
-      "yards_median": 40.8,
+      "targets_mean": 6.9,
+      "receptions_mean": 4.4,
+      "yards_mean": 44.0,
+      "yards_median": 39.0,
       "yards_p25_p75": [
-       23.0,
-       65.0
+       21.0,
+       61.0
       ],
       "yards": {
-       "20": 0.784,
-       "30": 0.648,
-       "40": 0.515,
-       "50": 0.388,
-       "60": 0.287,
-       "70": 0.209,
-       "80": 0.148,
-       "90": 0.099,
-       "100": 0.067,
-       "120": 0.03
+       "20": 0.762,
+       "30": 0.622,
+       "40": 0.481,
+       "50": 0.364,
+       "60": 0.259,
+       "70": 0.177,
+       "80": 0.123,
+       "90": 0.081,
+       "100": 0.057,
+       "120": 0.022
       },
       "receptions": {
-       "2": 0.904,
-       "3": 0.773,
-       "4": 0.614,
-       "5": 0.45,
-       "6": 0.306,
-       "7": 0.201,
-       "8": 0.126
+       "2": 0.895,
+       "3": 0.762,
+       "4": 0.595,
+       "5": 0.427,
+       "6": 0.289,
+       "7": 0.181,
+       "8": 0.112
       },
       "targets_needed": {
        "50": 8,
-       "60": 9,
+       "60": 10,
        "70": 11,
-       "80": 12,
-       "100": 15
+       "80": 13,
+       "100": 16
       },
       "targets_needed_chance": {
-       "50": 0.389,
-       "60": 0.292,
-       "70": 0.15,
-       "80": 0.101,
-       "100": 0.027
+       "50": 0.383,
+       "60": 0.204,
+       "70": 0.141,
+       "80": 0.062,
+       "100": 0.015
       }
      },
      {
@@ -13642,7 +13862,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.756,
        "yards_per_catch": 9.6,
-       "yards_per_target": 7.02,
+       "yards_per_target": 6.82,
        "dispersion_k": 45.0,
        "def_catch_rate_allowed": 0.763,
        "def_yards_per_catch_allowed": 10.8,
@@ -13661,55 +13881,55 @@
       },
       "player_id": "00-0034351",
       "sim": {
-       "targets_raw": 6.091,
+       "targets_raw": 6.019,
        "k": 45.0,
        "catch_rate": 0.756,
        "ypr": 9.6,
-       "rain_yards": 0.9674,
-       "rain_catch": 0.9747,
+       "rain_yards": 0.9401,
+       "rain_catch": 0.956,
        "pool": "TE"
       },
-      "targets_mean": 5.4,
-      "receptions_mean": 4.0,
-      "yards_mean": 36.7,
-      "yards_median": 33.0,
+      "targets_mean": 5.3,
+      "receptions_mean": 3.8,
+      "yards_mean": 34.6,
+      "yards_median": 30.2,
       "yards_p25_p75": [
-       17.0,
-       51.0
+       16.0,
+       48.0
       ],
       "yards": {
-       "20": 0.714,
-       "30": 0.544,
-       "40": 0.39,
-       "50": 0.263,
-       "60": 0.171,
-       "70": 0.106,
-       "80": 0.065,
-       "90": 0.038,
-       "100": 0.021,
+       "20": 0.683,
+       "30": 0.509,
+       "40": 0.357,
+       "50": 0.23,
+       "60": 0.146,
+       "70": 0.091,
+       "80": 0.055,
+       "90": 0.03,
+       "100": 0.017,
        "120": 0.006
       },
       "receptions": {
-       "2": 0.871,
-       "3": 0.716,
-       "4": 0.533,
-       "5": 0.361,
-       "6": 0.227,
-       "7": 0.136,
-       "8": 0.073
+       "2": 0.86,
+       "3": 0.694,
+       "4": 0.509,
+       "5": 0.343,
+       "6": 0.211,
+       "7": 0.123,
+       "8": 0.068
       },
       "targets_needed": {
        "50": 8,
        "60": 9,
-       "70": 10,
+       "70": 11,
        "80": 12,
        "100": 15
       },
       "targets_needed_chance": {
-       "50": 0.208,
-       "60": 0.131,
-       "70": 0.081,
-       "80": 0.028,
+       "50": 0.2,
+       "60": 0.129,
+       "70": 0.047,
+       "80": 0.027,
        "100": 0.005
       }
      },
@@ -13723,7 +13943,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.646,
        "yards_per_catch": 11.9,
-       "yards_per_target": 7.4,
+       "yards_per_target": 7.19,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.636,
        "def_yards_per_catch_allowed": 12.5,
@@ -13742,56 +13962,56 @@
       },
       "player_id": "00-0036912",
       "sim": {
-       "targets_raw": 12.118,
+       "targets_raw": 11.975,
        "k": 50.0,
        "catch_rate": 0.6455,
        "ypr": 11.858,
-       "rain_yards": 0.9664,
-       "rain_catch": 0.9756,
+       "rain_yards": 0.9397,
+       "rain_catch": 0.9574,
        "pool": "WR"
       },
-      "targets_mean": 10.6,
-      "receptions_mean": 6.7,
-      "yards_mean": 76.8,
-      "yards_median": 69.9,
+      "targets_mean": 10.5,
+      "receptions_mean": 6.5,
+      "yards_mean": 72.2,
+      "yards_median": 66.2,
       "yards_p25_p75": [
-       44.0,
-       103.0
+       41.0,
+       97.0
       ],
       "yards": {
-       "20": 0.929,
-       "30": 0.863,
-       "40": 0.783,
-       "50": 0.691,
-       "60": 0.593,
-       "70": 0.497,
-       "80": 0.408,
-       "90": 0.329,
-       "100": 0.264,
-       "120": 0.159
+       "20": 0.923,
+       "30": 0.852,
+       "40": 0.758,
+       "50": 0.656,
+       "60": 0.56,
+       "70": 0.461,
+       "80": 0.372,
+       "90": 0.299,
+       "100": 0.23,
+       "120": 0.134
       },
       "receptions": {
-       "2": 0.976,
-       "3": 0.925,
-       "4": 0.844,
-       "5": 0.733,
-       "6": 0.606,
-       "7": 0.48,
-       "8": 0.36
+       "2": 0.971,
+       "3": 0.918,
+       "4": 0.831,
+       "5": 0.712,
+       "6": 0.578,
+       "7": 0.447,
+       "8": 0.331
       },
       "targets_needed": {
        "50": 7,
        "60": 9,
        "70": 10,
-       "80": 11,
+       "80": 12,
        "100": 14
       },
       "targets_needed_chance": {
-       "50": 0.825,
-       "60": 0.654,
-       "70": 0.562,
-       "80": 0.469,
-       "100": 0.24
+       "50": 0.816,
+       "60": 0.64,
+       "70": 0.545,
+       "80": 0.363,
+       "100": 0.225
       }
      },
      {
@@ -13804,7 +14024,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.532,
        "yards_per_catch": 13.5,
-       "yards_per_target": 6.92,
+       "yards_per_target": 6.73,
        "dispersion_k": 19.9,
        "def_catch_rate_allowed": 0.636,
        "def_yards_per_catch_allowed": 12.5,
@@ -13823,42 +14043,42 @@
       },
       "player_id": "00-0040024",
       "sim": {
-       "targets_raw": 5.351,
+       "targets_raw": 5.288,
        "k": 19.95,
        "catch_rate": 0.5322,
        "ypr": 13.487,
-       "rain_yards": 0.9643,
-       "rain_catch": 0.9754,
+       "rain_yards": 0.9379,
+       "rain_catch": 0.9581,
        "pool": "WR"
       },
       "targets_mean": 4.7,
-      "receptions_mean": 2.5,
-      "yards_mean": 32.1,
-      "yards_median": 25.8,
+      "receptions_mean": 2.4,
+      "yards_mean": 30.4,
+      "yards_median": 24.0,
       "yards_p25_p75": [
-       10.0,
-       46.0
+       9.0,
+       44.0
       ],
       "yards": {
-       "20": 0.58,
-       "30": 0.428,
-       "40": 0.318,
-       "50": 0.224,
-       "60": 0.154,
-       "70": 0.108,
-       "80": 0.073,
-       "90": 0.047,
-       "100": 0.031,
-       "120": 0.012
+       "20": 0.569,
+       "30": 0.415,
+       "40": 0.293,
+       "50": 0.206,
+       "60": 0.14,
+       "70": 0.093,
+       "80": 0.062,
+       "90": 0.04,
+       "100": 0.026,
+       "120": 0.011
       },
       "receptions": {
-       "2": 0.666,
-       "3": 0.43,
-       "4": 0.246,
-       "5": 0.131,
-       "6": 0.061,
-       "7": 0.029,
-       "8": 0.012
+       "2": 0.652,
+       "3": 0.414,
+       "4": 0.231,
+       "5": 0.12,
+       "6": 0.06,
+       "7": 0.026,
+       "8": 0.011
       },
       "targets_needed": {
        "50": 8,
@@ -13868,10 +14088,10 @@
        "100": 15
       },
       "targets_needed_chance": {
-       "50": 0.15,
-       "60": 0.097,
-       "70": 0.034,
-       "80": 0.02,
+       "50": 0.146,
+       "60": 0.091,
+       "70": 0.031,
+       "80": 0.017,
        "100": 0.003
       }
      },
@@ -13885,7 +14105,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.623,
        "yards_per_catch": 12.5,
-       "yards_per_target": 7.49,
+       "yards_per_target": 7.3,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.636,
        "def_yards_per_catch_allowed": 12.5,
@@ -13904,42 +14124,42 @@
       },
       "player_id": "00-0038393",
       "sim": {
-       "targets_raw": 5.919,
+       "targets_raw": 5.849,
        "k": 50.0,
        "catch_rate": 0.6229,
        "ypr": 12.463,
-       "rain_yards": 0.9654,
-       "rain_catch": 0.9769,
+       "rain_yards": 0.9408,
+       "rain_catch": 0.9572,
        "pool": "WR"
       },
       "targets_mean": 5.2,
-      "receptions_mean": 3.2,
-      "yards_mean": 38.1,
-      "yards_median": 32.4,
+      "receptions_mean": 3.1,
+      "yards_mean": 35.9,
+      "yards_median": 29.7,
       "yards_p25_p75": [
-       15.0,
-       54.0
+       14.0,
+       51.0
       ],
       "yards": {
-       "20": 0.687,
-       "30": 0.529,
-       "40": 0.401,
-       "50": 0.287,
-       "60": 0.208,
-       "70": 0.141,
-       "80": 0.097,
-       "90": 0.062,
-       "100": 0.041,
-       "120": 0.018
+       "20": 0.656,
+       "30": 0.495,
+       "40": 0.362,
+       "50": 0.264,
+       "60": 0.181,
+       "70": 0.12,
+       "80": 0.077,
+       "90": 0.053,
+       "100": 0.034,
+       "120": 0.014
       },
       "receptions": {
-       "2": 0.789,
-       "3": 0.583,
-       "4": 0.384,
-       "5": 0.23,
-       "6": 0.126,
-       "7": 0.066,
-       "8": 0.032
+       "2": 0.777,
+       "3": 0.564,
+       "4": 0.366,
+       "5": 0.212,
+       "6": 0.114,
+       "7": 0.056,
+       "8": 0.027
       },
       "targets_needed": {
        "50": 7,
@@ -13949,11 +14169,11 @@
        "100": 14
       },
       "targets_needed_chance": {
-       "50": 0.285,
-       "60": 0.122,
-       "70": 0.074,
-       "80": 0.045,
-       "100": 0.009
+       "50": 0.278,
+       "60": 0.114,
+       "70": 0.07,
+       "80": 0.041,
+       "100": 0.007
       }
      },
      {
@@ -13966,7 +14186,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.776,
        "yards_per_catch": 6.4,
-       "yards_per_target": 4.75,
+       "yards_per_target": 4.54,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.806,
        "def_yards_per_catch_allowed": 7.0,
@@ -13985,54 +14205,54 @@
       },
       "player_id": "00-0036567",
       "sim": {
-       "targets_raw": 5.094,
+       "targets_raw": 5.035,
        "k": 50.0,
        "catch_rate": 0.7762,
        "ypr": 6.411,
-       "rain_yards": 0.9545,
-       "rain_catch": 0.986,
+       "rain_yards": 0.9119,
+       "rain_catch": 0.9748,
        "pool": "RB"
       },
       "targets_mean": 4.5,
-      "receptions_mean": 3.5,
-      "yards_mean": 21.2,
-      "yards_median": 17.4,
+      "receptions_mean": 3.4,
+      "yards_mean": 19.8,
+      "yards_median": 15.8,
       "yards_p25_p75": [
-       8.0,
-       30.0
+       7.0,
+       28.0
       ],
       "yards": {
-       "20": 0.427,
-       "30": 0.247,
-       "40": 0.138,
-       "50": 0.075,
-       "60": 0.039,
-       "70": 0.021,
-       "80": 0.011,
-       "90": 0.006,
-       "100": 0.003,
-       "120": 0.001
+       "20": 0.401,
+       "30": 0.223,
+       "40": 0.117,
+       "50": 0.06,
+       "60": 0.031,
+       "70": 0.014,
+       "80": 0.007,
+       "90": 0.003,
+       "100": 0.001,
+       "120": 0.0
       },
       "receptions": {
-       "2": 0.825,
-       "3": 0.64,
-       "4": 0.444,
-       "5": 0.278,
-       "6": 0.161,
-       "7": 0.087,
-       "8": 0.044
+       "2": 0.818,
+       "3": 0.624,
+       "4": 0.428,
+       "5": 0.265,
+       "6": 0.15,
+       "7": 0.076,
+       "8": 0.039
       },
       "targets_needed": {
-       "50": 11,
-       "60": 13,
-       "70": 15,
-       "80": 17,
-       "100": 22
+       "50": 12,
+       "60": 14,
+       "70": 16,
+       "80": 18,
+       "100": 23
       },
       "targets_needed_chance": {
-       "50": 0.021,
-       "60": 0.005,
-       "70": 0.001,
+       "50": 0.01,
+       "60": 0.002,
+       "70": 0.0,
        "80": 0.0,
        "100": 0.0
       }
@@ -14047,7 +14267,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.762,
        "yards_per_catch": 6.0,
-       "yards_per_target": 4.37,
+       "yards_per_target": 4.22,
        "dispersion_k": 8.1,
        "def_catch_rate_allowed": 0.806,
        "def_yards_per_catch_allowed": 7.0,
@@ -14066,52 +14286,52 @@
       },
       "player_id": "00-0037258",
       "sim": {
-       "targets_raw": 3.441,
+       "targets_raw": 3.401,
        "k": 8.07,
        "catch_rate": 0.7621,
        "ypr": 6.04,
-       "rain_yards": 0.9496,
-       "rain_catch": 0.9858,
+       "rain_yards": 0.9167,
+       "rain_catch": 0.9748,
        "pool": "RB"
       },
       "targets_mean": 3.0,
-      "receptions_mean": 2.3,
-      "yards_mean": 13.2,
-      "yards_median": 9.3,
+      "receptions_mean": 2.2,
+      "yards_mean": 12.5,
+      "yards_median": 9.0,
       "yards_p25_p75": [
-       3.0,
+       2.0,
        19.0
       ],
       "yards": {
-       "20": 0.243,
-       "30": 0.115,
-       "40": 0.054,
-       "50": 0.027,
-       "60": 0.013,
-       "70": 0.005,
+       "20": 0.223,
+       "30": 0.097,
+       "40": 0.047,
+       "50": 0.024,
+       "60": 0.009,
+       "70": 0.004,
        "80": 0.002,
        "90": 0.001,
        "100": 0.0,
        "120": 0.0
       },
       "receptions": {
-       "2": 0.618,
-       "3": 0.387,
-       "4": 0.217,
-       "5": 0.115,
-       "6": 0.057,
-       "7": 0.026,
-       "8": 0.011
+       "2": 0.605,
+       "3": 0.378,
+       "4": 0.21,
+       "5": 0.106,
+       "6": 0.053,
+       "7": 0.025,
+       "8": 0.012
       },
       "targets_needed": {
        "50": 12,
-       "60": 14,
+       "60": 15,
        "70": 17,
        "80": 19,
-       "100": 23
+       "100": 24
       },
       "targets_needed_chance": {
-       "50": 0.002,
+       "50": 0.003,
        "60": 0.001,
        "70": 0.0,
        "80": 0.0,
@@ -14128,7 +14348,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.772,
        "yards_per_catch": 7.2,
-       "yards_per_target": 5.32,
+       "yards_per_target": 5.06,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.806,
        "def_yards_per_catch_allowed": 7.0,
@@ -14147,39 +14367,39 @@
       },
       "player_id": "00-0034844",
       "sim": {
-       "targets_raw": 1.64,
+       "targets_raw": 1.621,
        "k": 50.0,
        "catch_rate": 0.7725,
        "ypr": 7.175,
-       "rain_yards": 0.9596,
-       "rain_catch": 0.985,
+       "rain_yards": 0.9137,
+       "rain_catch": 0.9745,
        "pool": "RB"
       },
       "targets_mean": 1.5,
       "receptions_mean": 1.1,
-      "yards_mean": 7.7,
-      "yards_median": 3.7,
+      "yards_mean": 7.2,
+      "yards_median": 3.5,
       "yards_p25_p75": [
        0.0,
        11.0
       ],
       "yards": {
-       "20": 0.113,
-       "30": 0.047,
-       "40": 0.022,
-       "50": 0.01,
-       "60": 0.005,
-       "70": 0.002,
-       "80": 0.001,
+       "20": 0.103,
+       "30": 0.041,
+       "40": 0.016,
+       "50": 0.008,
+       "60": 0.004,
+       "70": 0.001,
+       "80": 0.0,
        "90": 0.0,
        "100": 0.0,
        "120": 0.0
       },
       "receptions": {
-       "2": 0.31,
-       "3": 0.114,
-       "4": 0.036,
-       "5": 0.011,
+       "2": 0.303,
+       "3": 0.107,
+       "4": 0.033,
+       "5": 0.009,
        "6": 0.002,
        "7": 0.0,
        "8": 0.0
@@ -14189,7 +14409,7 @@
        "60": 12,
        "70": 14,
        "80": 16,
-       "100": 19
+       "100": 20
       },
       "targets_needed_chance": {
        "50": 0.0,
@@ -14209,7 +14429,7 @@
        "injury_bump": 0.0,
        "catch_rate": 0.683,
        "yards_per_catch": 10.1,
-       "yards_per_target": 6.73,
+       "yards_per_target": 6.56,
        "dispersion_k": 50.0,
        "def_catch_rate_allowed": 0.763,
        "def_yards_per_catch_allowed": 10.8,
@@ -14228,55 +14448,55 @@
       },
       "player_id": "00-0030061",
       "sim": {
-       "targets_raw": 3.279,
+       "targets_raw": 3.241,
        "k": 50.0,
        "catch_rate": 0.6832,
        "ypr": 10.14,
-       "rain_yards": 0.9711,
-       "rain_catch": 0.9733,
+       "rain_yards": 0.947,
+       "rain_catch": 0.9547,
        "pool": "TE"
       },
       "targets_mean": 2.9,
-      "receptions_mean": 2.0,
-      "yards_mean": 19.3,
-      "yards_median": 14.6,
+      "receptions_mean": 1.9,
+      "yards_mean": 18.3,
+      "yards_median": 14.2,
       "yards_p25_p75": [
        5.0,
-       29.0
+       27.0
       ],
       "yards": {
-       "20": 0.396,
-       "30": 0.241,
-       "40": 0.13,
-       "50": 0.071,
-       "60": 0.037,
-       "70": 0.018,
-       "80": 0.009,
-       "90": 0.004,
-       "100": 0.002,
+       "20": 0.366,
+       "30": 0.216,
+       "40": 0.114,
+       "50": 0.063,
+       "60": 0.031,
+       "70": 0.016,
+       "80": 0.007,
+       "90": 0.003,
+       "100": 0.001,
        "120": 0.0
       },
       "receptions": {
-       "2": 0.559,
-       "3": 0.313,
-       "4": 0.148,
-       "5": 0.064,
-       "6": 0.024,
-       "7": 0.009,
-       "8": 0.003
+       "2": 0.546,
+       "3": 0.296,
+       "4": 0.14,
+       "5": 0.058,
+       "6": 0.022,
+       "7": 0.007,
+       "8": 0.002
       },
       "targets_needed": {
        "50": 8,
-       "60": 9,
+       "60": 10,
        "70": 11,
-       "80": 12,
-       "100": 15
+       "80": 13,
+       "100": 16
       },
       "targets_needed_chance": {
-       "50": 0.023,
-       "60": 0.01,
+       "50": 0.02,
+       "60": 0.004,
        "70": 0.001,
-       "80": 0.001,
+       "80": 0.0,
        "100": 0.0
       }
      }
@@ -14505,8 +14725,8 @@
       "pos": "WR",
       "tier": "alpha",
       "style": "volume",
-      "p80": 0.436,
-      "p100": 0.28,
+      "p80": 0.431,
+      "p100": 0.276,
       "stars": 2,
       "targets": 11.5,
       "yds_pg": 85.7,
@@ -14514,9 +14734,16 @@
       "why": [
        "alpha receiver: 11.7 targets and 86 yards a game",
        "11.5 projected targets",
-       "team only expected to score 17",
+       "team only expected to score 16",
        "PIT has allowed 7 receivers 80+ in 9 games"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 320,
+       "break_even": 0.2381,
+       "blend": 0.327,
+       "model_minus_price": 0.193
+      }
      },
      {
       "player": "Makai Lemon",
@@ -14524,14 +14751,14 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.143,
-      "p100": 0.063,
+      "p80": 0.141,
+      "p100": 0.062,
       "stars": 0,
       "targets": 7.2,
       "yds_pg": 39.6,
       "ex_pg": 0.25,
       "why": [
-       "team only expected to score 17",
+       "team only expected to score 16",
        "PIT has allowed 7 receivers 80+ in 9 games"
       ]
      },
@@ -14541,14 +14768,14 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.106,
-      "p100": 0.041,
+      "p80": 0.105,
+      "p100": 0.04,
       "stars": 0,
       "targets": 5.5,
       "yds_pg": 42.2,
       "ex_pg": 0.4,
       "why": [
-       "team only expected to score 17",
+       "team only expected to score 16",
        "PIT has allowed 7 receivers 80+ in 9 games"
       ]
      },
@@ -14558,16 +14785,23 @@
       "pos": "TE",
       "tier": null,
       "style": "volume",
-      "p80": 0.098,
-      "p100": 0.039,
+      "p80": 0.097,
+      "p100": 0.038,
       "stars": 0,
       "targets": 5.9,
       "yds_pg": 38.5,
       "ex_pg": 0.0,
       "why": [
-       "team only expected to score 17",
+       "team only expected to score 16",
        "PIT has allowed 7 receivers 80+ in 9 games"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 1000,
+       "break_even": 0.0909,
+       "blend": 0.094,
+       "model_minus_price": 0.006
+      }
      },
      {
       "player": "Darius Cooper",
@@ -14575,14 +14809,14 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.064,
-      "p100": 0.023,
+      "p80": 0.063,
+      "p100": 0.022,
       "stars": 0,
       "targets": 5.0,
       "yds_pg": 28.6,
       "ex_pg": 0.43,
       "why": [
-       "team only expected to score 17",
+       "team only expected to score 16",
        "PIT has allowed 7 receivers 80+ in 9 games"
       ]
      },
@@ -14599,7 +14833,7 @@
       "yds_pg": 7.3,
       "ex_pg": 0.0,
       "why": [
-       "team only expected to score 17",
+       "team only expected to score 16",
        "PIT has allowed 7 receivers 80+ in 9 games"
       ]
      }
@@ -14610,21 +14844,28 @@
       "player_id": "00-0034844",
       "pos": "RB",
       "p80": 0.1,
-      "p100": 0.044,
+      "p100": 0.043,
       "stars": 0,
       "carries": 10.8,
       "yds_pg": 35.5,
       "why": [
        "10.8 carries a game",
        "a teammate's absence adds carries"
-      ]
+      ],
+      "book80": {
+       "book": "fanduel",
+       "american": 210,
+       "break_even": 0.3226,
+       "blend": 0.187,
+       "model_minus_price": -0.223
+      }
      },
      {
       "player": "Dameon Pierce",
       "player_id": "00-0037258",
       "pos": "RB",
-      "p80": 0.097,
-      "p100": 0.041,
+      "p80": 0.098,
+      "p100": 0.04,
       "stars": 0,
       "carries": 12.6,
       "yds_pg": 32.0,
@@ -14637,7 +14878,7 @@
     "context": {
      "pass_yards_last5": 205.0,
      "pass_offense_rank": 27,
-     "implied": 17.0,
+     "implied": 16.5,
      "defense_g80_rank": 8,
      "defense_explosive_rank": 13
     },
@@ -14708,30 +14949,30 @@
        },
        "defenders": [
         {
+         "player": "Asante Samuel Jr.",
+         "position": "CB",
+         "targets": 49,
+         "yards_per_target": 8.8,
+         "grade": "target",
+         "height_in": 70.0,
+         "weight": 180.0,
+         "forty": null
+        },
+        {
          "player": "Jalen Ramsey",
          "position": "CB",
-         "targets": 46,
-         "yards_per_target": 5.3,
+         "targets": 49,
+         "yards_per_target": 5.2,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 208.0,
          "forty": 4.41
         },
         {
-         "player": "Asante Samuel Jr.",
-         "position": "CB",
-         "targets": 43,
-         "yards_per_target": 7.2,
-         "grade": "neutral",
-         "height_in": 70.0,
-         "weight": 180.0,
-         "forty": null
-        },
-        {
          "player": "Jamel Dean",
          "position": "CB",
-         "targets": 42,
-         "yards_per_target": 6.7,
+         "targets": 48,
+         "yards_per_target": 6.5,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 206.0,
@@ -14740,8 +14981,8 @@
         {
          "player": "Daylen Everette",
          "position": "CB",
-         "targets": 27,
-         "yards_per_target": 8.8,
+         "targets": 30,
+         "yards_per_target": 9.1,
          "grade": "target",
          "height_in": 73.0,
          "weight": 196.0,
@@ -15068,30 +15309,30 @@
        },
        "defenders": [
         {
+         "player": "Payton Wilson",
+         "position": "LB",
+         "targets": 48,
+         "yards_per_target": 5.6,
+         "grade": "neutral",
+         "height_in": 76.0,
+         "weight": 242.0,
+         "forty": 4.43
+        },
+        {
          "player": "Patrick Queen",
          "position": "LB",
-         "targets": 40,
-         "yards_per_target": 4.8,
+         "targets": 46,
+         "yards_per_target": 4.9,
          "grade": "avoid",
          "height_in": 72.0,
          "weight": 227.0,
          "forty": 4.5
         },
         {
-         "player": "Payton Wilson",
-         "position": "LB",
-         "targets": 39,
-         "yards_per_target": 5.0,
-         "grade": "avoid",
-         "height_in": 76.0,
-         "weight": 242.0,
-         "forty": 4.43
-        },
-        {
          "player": "Jaquan Brisker",
          "position": "S",
-         "targets": 36,
-         "yards_per_target": 6.8,
+         "targets": 41,
+         "yards_per_target": 7.3,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 202.0,
@@ -15100,9 +15341,9 @@
         {
          "player": "Robert Spears-Jennings",
          "position": "S",
-         "targets": 17,
-         "yards_per_target": 5.2,
-         "grade": "avoid",
+         "targets": 20,
+         "yards_per_target": 6.2,
+         "grade": "neutral",
          "height_in": 73.0,
          "weight": 205.0,
          "forty": 4.32
@@ -15515,30 +15756,30 @@
        },
        "defenders": [
         {
+         "player": "Asante Samuel Jr.",
+         "position": "CB",
+         "targets": 49,
+         "yards_per_target": 8.8,
+         "grade": "target",
+         "height_in": 70.0,
+         "weight": 180.0,
+         "forty": null
+        },
+        {
          "player": "Jalen Ramsey",
          "position": "CB",
-         "targets": 46,
-         "yards_per_target": 5.3,
+         "targets": 49,
+         "yards_per_target": 5.2,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 208.0,
          "forty": 4.41
         },
         {
-         "player": "Asante Samuel Jr.",
-         "position": "CB",
-         "targets": 43,
-         "yards_per_target": 7.2,
-         "grade": "neutral",
-         "height_in": 70.0,
-         "weight": 180.0,
-         "forty": null
-        },
-        {
          "player": "Jamel Dean",
          "position": "CB",
-         "targets": 42,
-         "yards_per_target": 6.7,
+         "targets": 48,
+         "yards_per_target": 6.5,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 206.0,
@@ -15547,8 +15788,8 @@
         {
          "player": "Daylen Everette",
          "position": "CB",
-         "targets": 27,
-         "yards_per_target": 8.8,
+         "targets": 30,
+         "yards_per_target": 9.1,
          "grade": "target",
          "height_in": 73.0,
          "weight": 196.0,
@@ -15919,30 +16160,30 @@
        },
        "defenders": [
         {
+         "player": "Asante Samuel Jr.",
+         "position": "CB",
+         "targets": 49,
+         "yards_per_target": 8.8,
+         "grade": "target",
+         "height_in": 70.0,
+         "weight": 180.0,
+         "forty": null
+        },
+        {
          "player": "Jalen Ramsey",
          "position": "CB",
-         "targets": 46,
-         "yards_per_target": 5.3,
+         "targets": 49,
+         "yards_per_target": 5.2,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 208.0,
          "forty": 4.41
         },
         {
-         "player": "Asante Samuel Jr.",
-         "position": "CB",
-         "targets": 43,
-         "yards_per_target": 7.2,
-         "grade": "neutral",
-         "height_in": 70.0,
-         "weight": 180.0,
-         "forty": null
-        },
-        {
          "player": "Jamel Dean",
          "position": "CB",
-         "targets": 42,
-         "yards_per_target": 6.7,
+         "targets": 48,
+         "yards_per_target": 6.5,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 206.0,
@@ -15951,8 +16192,8 @@
         {
          "player": "Daylen Everette",
          "position": "CB",
-         "targets": 27,
-         "yards_per_target": 8.8,
+         "targets": 30,
+         "yards_per_target": 9.1,
          "grade": "target",
          "height_in": 73.0,
          "weight": 196.0,
@@ -16360,30 +16601,30 @@
        },
        "defenders": [
         {
+         "player": "Asante Samuel Jr.",
+         "position": "CB",
+         "targets": 49,
+         "yards_per_target": 8.8,
+         "grade": "target",
+         "height_in": 70.0,
+         "weight": 180.0,
+         "forty": null
+        },
+        {
          "player": "Jalen Ramsey",
          "position": "CB",
-         "targets": 46,
-         "yards_per_target": 5.3,
+         "targets": 49,
+         "yards_per_target": 5.2,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 208.0,
          "forty": 4.41
         },
         {
-         "player": "Asante Samuel Jr.",
-         "position": "CB",
-         "targets": 43,
-         "yards_per_target": 7.2,
-         "grade": "neutral",
-         "height_in": 70.0,
-         "weight": 180.0,
-         "forty": null
-        },
-        {
          "player": "Jamel Dean",
          "position": "CB",
-         "targets": 42,
-         "yards_per_target": 6.7,
+         "targets": 48,
+         "yards_per_target": 6.5,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 206.0,
@@ -16392,8 +16633,8 @@
         {
          "player": "Daylen Everette",
          "position": "CB",
-         "targets": 27,
-         "yards_per_target": 8.8,
+         "targets": 30,
+         "yards_per_target": 9.1,
          "grade": "target",
          "height_in": 73.0,
          "weight": 196.0,
@@ -16789,30 +17030,30 @@
        },
        "defenders": [
         {
+         "player": "Payton Wilson",
+         "position": "LB",
+         "targets": 48,
+         "yards_per_target": 5.6,
+         "grade": "neutral",
+         "height_in": 76.0,
+         "weight": 242.0,
+         "forty": 4.43
+        },
+        {
          "player": "Patrick Queen",
          "position": "LB",
-         "targets": 40,
-         "yards_per_target": 4.8,
+         "targets": 46,
+         "yards_per_target": 4.9,
          "grade": "avoid",
          "height_in": 72.0,
          "weight": 227.0,
          "forty": 4.5
         },
         {
-         "player": "Payton Wilson",
-         "position": "LB",
-         "targets": 39,
-         "yards_per_target": 5.0,
-         "grade": "avoid",
-         "height_in": 76.0,
-         "weight": 242.0,
-         "forty": 4.43
-        },
-        {
          "player": "Jaquan Brisker",
          "position": "S",
-         "targets": 36,
-         "yards_per_target": 6.8,
+         "targets": 41,
+         "yards_per_target": 7.3,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 202.0,
@@ -16821,9 +17062,9 @@
         {
          "player": "Robert Spears-Jennings",
          "position": "S",
-         "targets": 17,
-         "yards_per_target": 5.2,
-         "grade": "avoid",
+         "targets": 20,
+         "yards_per_target": 6.2,
+         "grade": "neutral",
          "height_in": 73.0,
          "weight": 205.0,
          "forty": 4.32
@@ -17077,30 +17318,30 @@
        },
        "defenders": [
         {
+         "player": "Payton Wilson",
+         "position": "LB",
+         "targets": 48,
+         "yards_per_target": 5.6,
+         "grade": "neutral",
+         "height_in": 76.0,
+         "weight": 242.0,
+         "forty": 4.43
+        },
+        {
          "player": "Patrick Queen",
          "position": "LB",
-         "targets": 40,
-         "yards_per_target": 4.8,
+         "targets": 46,
+         "yards_per_target": 4.9,
          "grade": "avoid",
          "height_in": 72.0,
          "weight": 227.0,
          "forty": 4.5
         },
         {
-         "player": "Payton Wilson",
-         "position": "LB",
-         "targets": 39,
-         "yards_per_target": 5.0,
-         "grade": "avoid",
-         "height_in": 76.0,
-         "weight": 242.0,
-         "forty": 4.43
-        },
-        {
          "player": "Jaquan Brisker",
          "position": "S",
-         "targets": 36,
-         "yards_per_target": 6.8,
+         "targets": 41,
+         "yards_per_target": 7.3,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 202.0,
@@ -17109,9 +17350,9 @@
         {
          "player": "Robert Spears-Jennings",
          "position": "S",
-         "targets": 17,
-         "yards_per_target": 5.2,
-         "grade": "avoid",
+         "targets": 20,
+         "yards_per_target": 6.2,
+         "grade": "neutral",
          "height_in": 73.0,
          "weight": 205.0,
          "forty": 4.32
@@ -17367,30 +17608,30 @@
        },
        "defenders": [
         {
+         "player": "Payton Wilson",
+         "position": "LB",
+         "targets": 48,
+         "yards_per_target": 5.6,
+         "grade": "neutral",
+         "height_in": 76.0,
+         "weight": 242.0,
+         "forty": 4.43
+        },
+        {
          "player": "Patrick Queen",
          "position": "LB",
-         "targets": 40,
-         "yards_per_target": 4.8,
+         "targets": 46,
+         "yards_per_target": 4.9,
          "grade": "avoid",
          "height_in": 72.0,
          "weight": 227.0,
          "forty": 4.5
         },
         {
-         "player": "Payton Wilson",
-         "position": "LB",
-         "targets": 39,
-         "yards_per_target": 5.0,
-         "grade": "avoid",
-         "height_in": 76.0,
-         "weight": 242.0,
-         "forty": 4.43
-        },
-        {
          "player": "Jaquan Brisker",
          "position": "S",
-         "targets": 36,
-         "yards_per_target": 6.8,
+         "targets": 41,
+         "yards_per_target": 7.3,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 202.0,
@@ -17399,9 +17640,9 @@
         {
          "player": "Robert Spears-Jennings",
          "position": "S",
-         "targets": 17,
-         "yards_per_target": 5.2,
-         "grade": "avoid",
+         "targets": 20,
+         "yards_per_target": 6.2,
+         "grade": "neutral",
          "height_in": 73.0,
          "weight": 205.0,
          "forty": 4.32
@@ -17796,30 +18037,30 @@
        },
        "defenders": [
         {
+         "player": "Payton Wilson",
+         "position": "LB",
+         "targets": 48,
+         "yards_per_target": 5.6,
+         "grade": "neutral",
+         "height_in": 76.0,
+         "weight": 242.0,
+         "forty": 4.43
+        },
+        {
          "player": "Patrick Queen",
          "position": "LB",
-         "targets": 40,
-         "yards_per_target": 4.8,
+         "targets": 46,
+         "yards_per_target": 4.9,
          "grade": "avoid",
          "height_in": 72.0,
          "weight": 227.0,
          "forty": 4.5
         },
         {
-         "player": "Payton Wilson",
-         "position": "LB",
-         "targets": 39,
-         "yards_per_target": 5.0,
-         "grade": "avoid",
-         "height_in": 76.0,
-         "weight": 242.0,
-         "forty": 4.43
-        },
-        {
          "player": "Jaquan Brisker",
          "position": "S",
-         "targets": 36,
-         "yards_per_target": 6.8,
+         "targets": 41,
+         "yards_per_target": 7.3,
          "grade": "neutral",
          "height_in": 73.0,
          "weight": 202.0,
@@ -17828,9 +18069,9 @@
         {
          "player": "Robert Spears-Jennings",
          "position": "S",
-         "targets": 17,
-         "yards_per_target": 5.2,
-         "grade": "avoid",
+         "targets": 20,
+         "yards_per_target": 6.2,
+         "grade": "neutral",
          "height_in": 73.0,
          "weight": 205.0,
          "forty": 4.32
@@ -19198,9 +19439,9 @@
     "defense_starters": {
      "WR": "DK Metcalf",
      "LT": "Troy Fautanu",
-     "LG": "Mason McCormick",
+     "LG": "Brock Hoffman",
      "C": "Zach Frazier",
-     "RG": "Brock Hoffman",
+     "RG": "Spencer Anderson",
      "RT": "Max Iheanachor",
      "QB": "Aaron Rodgers",
      "TE": "Darnell Washington",
@@ -19233,7 +19474,14 @@
    "name": "Pittsburgh Steelers",
    "roster_moves": {
     "window_weeks": 4,
-    "arrivals_from_other_teams": [],
+    "arrivals_from_other_teams": [
+     {
+      "player": "AJ Finley",
+      "position": "DB",
+      "from": "SEA",
+      "status": "DEV"
+     }
+    ],
     "departures_to_other_teams": [
      {
       "player": "Rayshawn Jenkins",
@@ -19259,7 +19507,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-17T16:52:03Z",
+    "as_of": "2026-11-19T16:30:49Z",
     "starters": [
      {
       "slot": "WR",
@@ -19273,7 +19521,7 @@
      },
      {
       "slot": "LG",
-      "player": "Mason McCormick",
+      "player": "Brock Hoffman",
       "group": "3WR 1TE"
      },
      {
@@ -19283,7 +19531,7 @@
      },
      {
       "slot": "RG",
-      "player": "Brock Hoffman",
+      "player": "Spencer Anderson",
       "group": "3WR 1TE"
      },
      {
@@ -19413,7 +19661,7 @@
      },
      {
       "slot": "LG",
-      "player": "Brock Hoffman"
+      "player": "Spencer Anderson"
      },
      {
       "slot": "C",
@@ -19421,7 +19669,7 @@
      },
      {
       "slot": "RG",
-      "player": "Spencer Anderson"
+      "player": "Brock Hoffman"
      },
      {
       "slot": "RT",
@@ -19658,9 +19906,20 @@
       "position": "TE",
       "from": "LAC",
       "status": "DEV"
+     },
+     {
+      "player": "Ajani Cornelius",
+      "position": "OL",
+      "from": "DAL",
+      "status": "ACT"
      }
     ],
     "departures_to_other_teams": [
+     {
+      "player": "Fred Johnson",
+      "position": "OL",
+      "to": "KC"
+     },
      {
       "player": "Jordan Davis",
       "position": "DL",
@@ -19695,7 +19954,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-17T16:52:03Z",
+    "as_of": "2026-11-19T16:30:49Z",
     "starters": [
      {
       "slot": "WR",
@@ -19839,10 +20098,6 @@
       "player": "Dontayvion Wicks"
      },
      {
-      "slot": "LT",
-      "player": "Markel Bell"
-     },
-     {
       "slot": "LG",
       "player": "Willie Lampkin"
      },
@@ -19868,7 +20123,7 @@
      },
      {
       "slot": "RB",
-      "player": "Will Shipley"
+      "player": "Jaydon Blue"
      },
      {
       "slot": "RDE",
@@ -19916,7 +20171,7 @@
      },
      {
       "slot": "KR",
-      "player": "Darius Cooper"
+      "player": "Jaydon Blue"
      }
     ]
    },
@@ -20118,7 +20373,7 @@
      }
     },
     "home_covers_market_spread": 0.63,
-    "over_market_total": 0.631
+    "over_market_total": 0.65
    },
    "independent": {
     "home_points": 20.5,
@@ -20155,7 +20410,7 @@
      }
     },
     "home_covers_market_spread": 0.53,
-    "over_market_total": 0.673
+    "over_market_total": 0.705
    }
   },
   "note": "Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information."
@@ -20224,7 +20479,7 @@
   {
    "phase": 11,
    "name": "Injury and depth chart",
-   "status": "PARTIAL",
+   "status": "AUTO",
    "detail": "Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures."
   },
   {
@@ -20256,63 +20511,63 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:03+00:00",
-   "sha256": "f84bb068b60652e1edda8f2e1eb16b65714f0c8c79c8fb4a7a723f4077b36b3a",
-   "bytes": 524007
+   "retrieved_utc": "2026-11-19T21:56:41+00:00",
+   "sha256": "845d9bfc3484e3ea48f8505f224a24e1a6ecda19154e8e62bcceb88b32bd12fb",
+   "bytes": 524059
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:03+00:00",
-   "sha256": "32334d4ae379d25b3bbaa1b7a9fd3746c19a636b48be99ef5fa9318ac6346398",
-   "bytes": 11793343
+   "retrieved_utc": "2026-11-19T21:56:41+00:00",
+   "sha256": "5a54b5ef7b9a63736497f7e0fb998e1f87aed98afda912302667ca05a7fd6387",
+   "bytes": 11776333
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:03+00:00",
-   "sha256": "e4f81f1adc7243e64290a1fff42309ed8f866628db22738ca0017633904d7751",
-   "bytes": 831441
+   "retrieved_utc": "2026-11-19T21:56:42+00:00",
+   "sha256": "bf8b55781431fd8fb7367578328584281240fd8c87b828850a77015b21c5f8bf",
+   "bytes": 833139
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:04+00:00",
-   "sha256": "33d3b85359fe41db9aa652d6a385b31e92186e143af6cdca6fab4ace981ea1d9",
-   "bytes": 65722
+   "retrieved_utc": "2026-11-19T21:56:42+00:00",
+   "sha256": "f590b3623cca888dbf83e3cf4ad02f83089f914b8a9c75d32f428921f502c80b",
+   "bytes": 68602
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:04+00:00",
-   "sha256": "aaca90f9afb797e1bc5c8aa852a1032f9efd18bd10542da4180066c5f686de39",
-   "bytes": 3608664
+   "retrieved_utc": "2026-11-19T21:56:42+00:00",
+   "sha256": "7439a2b6ccc175d6643058e2a78eee6853473d5c4b7dc773fd0ea0440089cd48",
+   "bytes": 3572983
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:04+00:00",
+   "retrieved_utc": "2026-11-19T21:56:42+00:00",
    "sha256": "d67d94d19caca72e6977fafafc0c073e100bb56bf82561a4f62c043e257bcf77",
    "bytes": 143614
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:05+00:00",
-   "sha256": "8db63e5eaab15cb29258d739d19de8c57978e0ab31faff78a20c9bab6a3e98eb",
-   "bytes": 311426
+   "retrieved_utc": "2026-11-19T21:56:43+00:00",
+   "sha256": "27afd704d1ea601806a6444499188ebcb9af9254870ab63d99a6a4a4a770e5ff",
+   "bytes": 313292
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:05+00:00",
-   "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
-   "bytes": 93708
+   "retrieved_utc": "2026-11-19T21:56:43+00:00",
+   "sha256": "fc61fb5ffaa3b6f563897e1e45536708349b68837ea28280bf6e07176a7de02f",
+   "bytes": 99913
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-17T21:58:05+00:00"
+   "retrieved_utc": "2026-11-19T21:56:43+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",

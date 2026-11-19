@@ -2,13 +2,13 @@
 
 **Monday 2026-11-23, 20:15 ET.** Site: Home; roof: outdoors; surface: grass. Rest: CIN 8 days, WAS 11 days. Listed QBs: Joe Burrow (CIN), Jayden Daniels (WAS).
 
-Market (schedule consensus, not a timestamped quote): WAS +6.5, total 52.5.
+Market (schedule consensus, not a timestamped quote): WAS +6, total 53.5.
 
-Generated 2026-11-17T21:58:33+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-19T21:57:28+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-17T21:58:32+00:00 UTC. At kickoff: 50 F, wind 9 mph NW, 3% chance of precipitation, Mostly Clear. During the game: low 47 F, wind up to 9 mph, precipitation chance up to 3%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-19T21:57:26+00:00 UTC. At kickoff: 52 F, wind 10 mph NW, 0% chance of precipitation, Mostly Clear. During the game: low 47 F, wind up to 10 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -44,8 +44,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | CIN 26.2 - WAS 23.9 | 50.1 | -2.3 | 44.6% | 60.6% | 40.3% | CIN 12.8 - WAS 11.3 |
-| independent | CIN 26.4 - WAS 21.1 | 47.5 | -5.4 | 34.7% | 48.2% | 41.1% | CIN 12.8 - WAS 9.9 |
+| matchup_pair | CIN 26.2 - WAS 23.9 | 50.1 | -2.3 | 44.6% | 58.9% | 38.3% | CIN 12.8 - WAS 11.3 |
+| independent | CIN 26.4 - WAS 21.1 | 47.5 | -5.4 | 34.7% | 47.0% | 38.4% | CIN 12.8 - WAS 9.9 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -92,52 +92,52 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 3% chance of rain at kickoff, wind up to 9 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 0% chance of rain at kickoff, wind up to 10 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### CIN passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 37.9 | 36.2 | 37.8 |
-| Team completion rate | 75.6% | 71.0% | 75.4% |
-| Team completions | 28.6 | 25.7 | 28.5 |
-| Team pass yards | 317.6 | 271.4 | 316.2 |
-| J.Burrow completion rate (303 attempts) | 75.6% | 71.0% | 75.4% |
-| J.Burrow yards per attempt | 8.39 | 7.38 | 8.36 |
+| Team pass attempts | 37.9 | 36.2 | 37.9 |
+| Team completion rate | 75.6% | 71.0% | 75.6% |
+| Team completions | 28.6 | 25.7 | 28.6 |
+| Team pass yards | 317.6 | 271.4 | 317.6 |
+| J.Burrow completion rate (303 attempts) | 75.6% | 71.0% | 75.6% |
+| J.Burrow yards per attempt | 8.39 | 7.38 | 8.39 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| J.Chase | WR | 8 | 28% | 10.4 / 7.8 / 108.2 | 9.9 / 6.9 / 91.8 | 10.4 / 7.7 / 107.7 |
-| T.Higgins | WR | 8 | 23% | 8.4 / 6.2 / 95.6 | 8.0 / 5.6 / 81.1 | 8.4 / 6.2 / 95.2 |
-| C.Brown | RB | 8 | 16% | 6.0 / 5.2 / 28.0 | 5.7 / 4.8 / 23.3 | 6.0 / 5.2 / 27.9 |
-| D.Meyers | WR | 8 | 9% | 3.4 / 2.4 / 28.0 | 3.2 / 2.1 / 23.8 | 3.4 / 2.4 / 27.9 |
-| M.Gesicki | TE | 7 | 7% | 3.0 / 2.1 / 26.1 | 2.9 / 1.9 / 22.1 | 3.0 / 2.1 / 26.0 |
+| J.Chase | WR | 8 | 28% | 10.4 / 7.8 / 108.2 | 9.9 / 6.9 / 91.8 | 10.4 / 7.8 / 108.2 |
+| T.Higgins | WR | 8 | 23% | 8.4 / 6.2 / 95.6 | 8.0 / 5.6 / 81.1 | 8.4 / 6.2 / 95.6 |
+| C.Brown | RB | 8 | 16% | 6.0 / 5.2 / 28.0 | 5.7 / 4.8 / 23.3 | 6.0 / 5.2 / 28.0 |
+| D.Meyers | WR | 8 | 9% | 3.4 / 2.4 / 28.0 | 3.2 / 2.1 / 23.8 | 3.4 / 2.4 / 28.0 |
+| M.Gesicki | TE | 7 | 7% | 3.0 / 2.1 / 26.1 | 2.9 / 1.9 / 22.1 | 3.0 / 2.1 / 26.1 |
 | S.Perine | RB | 6 | 4% | 2.0 / 1.5 / 10.8 | 1.9 / 1.4 / 9.0 | 2.0 / 1.5 / 10.8 |
-| M.Tinsley | WR | 3 | 3% | 3.0 / 1.7 / 20.0 | 2.9 / 1.5 / 17.0 | 3.0 / 1.7 / 19.9 |
-| E.All | TE | 3 | 3% | 3.0 / 2.7 / 18.7 | 2.9 / 2.4 / 15.8 | 3.0 / 2.7 / 18.6 |
-| D.Sample | TE | 4 | 3% | 2.0 / 1.8 / 11.0 | 1.9 / 1.6 / 9.3 | 2.0 / 1.7 / 10.9 |
+| M.Tinsley | WR | 3 | 3% | 3.0 / 1.7 / 20.0 | 2.9 / 1.5 / 17.0 | 3.0 / 1.7 / 20.0 |
+| E.All | TE | 3 | 3% | 3.0 / 2.7 / 18.7 | 2.9 / 2.4 / 15.8 | 3.0 / 2.7 / 18.7 |
+| D.Sample | TE | 4 | 3% | 2.0 / 1.8 / 11.0 | 1.9 / 1.6 / 9.3 | 2.0 / 1.8 / 11.0 |
 
 ### WAS passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 32.8 | 31.3 | 32.7 |
-| Team completion rate | 64.5% | 60.6% | 64.4% |
+| Team pass attempts | 32.8 | 31.3 | 32.8 |
+| Team completion rate | 64.5% | 60.6% | 64.5% |
 | Team completions | 21.1 | 19.0 | 21.1 |
-| Team pass yards | 232.6 | 198.8 | 231.6 |
-| J.Daniels completion rate (176 attempts) | 68.2% | 64.1% | 68.1% |
-| J.Daniels yards per attempt | 7.59 | 6.67 | 7.56 |
+| Team pass yards | 232.6 | 198.8 | 232.6 |
+| J.Daniels completion rate (176 attempts) | 68.2% | 64.1% | 68.2% |
+| J.Daniels yards per attempt | 7.59 | 6.67 | 7.59 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| S.Diggs | WR | 7 | 20% | 7.1 / 4.6 / 47.3 | 6.8 / 4.1 / 40.1 | 7.1 / 4.6 / 47.1 |
-| A.Williams | WR | 8 | 15% | 4.6 / 3.0 / 32.8 | 4.4 / 2.7 / 27.8 | 4.6 / 3.0 / 32.6 |
-| C.Okonkwo | TE | 6 | 14% | 6.0 / 4.2 / 41.2 | 5.7 / 3.7 / 34.8 | 6.0 / 4.2 / 41.0 |
-| T.Burks | WR | 7 | 10% | 3.6 / 2.0 / 37.1 | 3.4 / 1.8 / 31.5 | 3.6 / 2.0 / 37.0 |
-| T.McLaurin | WR | 4 | 9% | 5.8 / 3.2 / 54.0 | 5.5 / 2.9 / 45.8 | 5.7 / 3.2 / 53.7 |
-| R.White | RB | 7 | 8% | 3.0 / 2.4 / 18.4 | 2.9 / 2.2 / 15.4 | 3.0 / 2.4 / 18.3 |
-| D.Brown | WR | 5 | 6% | 2.8 / 1.8 / 18.8 | 2.7 / 1.6 / 16.0 | 2.8 / 1.8 / 18.7 |
-| A.Ekeler | RB | 5 | 5% | 2.4 / 2.0 / 14.8 | 2.3 / 1.8 / 12.3 | 2.4 / 2.0 / 14.7 |
+| S.Diggs | WR | 7 | 20% | 7.1 / 4.6 / 47.3 | 6.8 / 4.1 / 40.1 | 7.1 / 4.6 / 47.3 |
+| A.Williams | WR | 8 | 15% | 4.6 / 3.0 / 32.8 | 4.4 / 2.7 / 27.8 | 4.6 / 3.0 / 32.8 |
+| C.Okonkwo | TE | 6 | 14% | 6.0 / 4.2 / 41.2 | 5.7 / 3.7 / 34.8 | 6.0 / 4.2 / 41.2 |
+| T.Burks | WR | 7 | 10% | 3.6 / 2.0 / 37.1 | 3.4 / 1.8 / 31.5 | 3.6 / 2.0 / 37.1 |
+| T.McLaurin | WR | 4 | 9% | 5.8 / 3.2 / 54.0 | 5.5 / 2.9 / 45.8 | 5.8 / 3.2 / 54.0 |
+| R.White | RB | 7 | 8% | 3.0 / 2.4 / 18.4 | 2.9 / 2.2 / 15.4 | 3.0 / 2.4 / 18.4 |
+| D.Brown | WR | 5 | 6% | 2.8 / 1.8 / 18.8 | 2.7 / 1.6 / 16.0 | 2.8 / 1.8 / 18.8 |
+| A.Ekeler | RB | 5 | 5% | 2.4 / 2.0 / 14.8 | 2.3 / 1.8 / 12.3 | 2.4 / 2.0 / 14.8 |
 
 ## CIN (last 8 games: weeks 2, 3, 4, 5, 7, 8, 9, 10)
 
@@ -209,29 +209,29 @@ Blitz rate 17.3% and play-action faced 20.4% on 313 charted dropbacks (FTN). Dee
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Barrett Carter | 7 | 37 | 23 | 302 | 8.2 | 0 | 1 | 4 |
-| Daxton Hill | 7 | 35 | 19 | 295 | 8.4 | 1 | 0 | 2 |
-| Jordan Battle | 7 | 33 | 17 | 253 | 7.7 | 1 | 3 | 8 |
-| DJ Ivey | 6 | 28 | 14 | 147 | 5.2 | 2 | 0 | 1 |
-| Demetrius Knight | 7 | 28 | 21 | 214 | 7.6 | 1 | 1 | 1 |
-| DJ Turner | 7 | 25 | 15 | 134 | 5.4 | 1 | 0 | 3 |
+| Barrett Carter | 8 | 39 | 24 | 304 | 7.8 | 0 | 1 | 4 |
+| Jordan Battle | 8 | 39 | 21 | 298 | 7.6 | 1 | 3 | 11 |
+| Daxton Hill | 8 | 39 | 22 | 310 | 7.9 | 1 | 0 | 3 |
+| Demetrius Knight | 8 | 32 | 24 | 245 | 7.7 | 1 | 1 | 1 |
+| DJ Ivey | 7 | 30 | 15 | 174 | 5.8 | 3 | 0 | 2 |
+| DJ Turner | 8 | 29 | 17 | 162 | 5.6 | 2 | 0 | 3 |
 | Bryan Cook | 6 | 16 | 8 | 111 | 6.9 | 0 | 0 | 4 |
-| Tacario Davis | 5 | 11 | 6 | 57 | 5.2 | 0 | 0 | 0 |
+| Josh Newton | 3 | 13 | 5 | 62 | 4.8 | 1 | 0 | 1 |
+| Tacario Davis | 6 | 12 | 6 | 57 | 4.8 | 0 | 0 | 0 |
 | Jalen Davis | 2 | 9 | 4 | 94 | 10.4 | 1 | 0 | 1 |
-| Josh Newton | 2 | 8 | 4 | 58 | 7.2 | 1 | 0 | 1 |
 
 ### CIN pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| Dexter Lawrence | 7 | 12 | 5.0 | 5 | 0 |
-| Jonathan Allen | 6 | 11 | 2.0 | 3 | 0 |
+| Boye Mafe | 7 | 14 | 5.5 | 4 | 1 |
+| Dexter Lawrence | 8 | 13 | 5.0 | 6 | 0 |
+| Jonathan Allen | 7 | 12 | 3.0 | 3 | 0 |
+| Myles Murphy | 8 | 11 | 2.0 | 7 | 0 |
 | Cashius Howell | 5 | 9 | 1.0 | 4 | 0 |
-| Boye Mafe | 6 | 9 | 4.5 | 2 | 0 |
-| Myles Murphy | 7 | 8 | 1.0 | 5 | 0 |
-| Barrett Carter | 7 | 3 | 1.0 | 1 | 20 |
+| Demetrius Knight | 8 | 5 | 0.0 | 3 | 17 |
 | B.J. Hill | 3 | 3 | 0.0 | 2 | 0 |
-| Demetrius Knight | 7 | 3 | 0.0 | 2 | 14 |
+| Barrett Carter | 8 | 3 | 1.0 | 1 | 21 |
 
 ### CIN offense: what it produces (rank 1 = best offense)
 
@@ -332,7 +332,7 @@ Neutral-situation pass rate 65.4%; 60.5 plays per game; target share WR 64% / TE
 | defense allows | Deep middle | 14 | 5% | 43% | 8.93 | 4 |
 | defense allows | Deep right | 22 | 8% | 18% | 4.73 | 4 |
 
-### CIN lines (depth chart as of 2026-11-17T16:52:03Z)
+### CIN lines (depth chart as of 2026-11-19T16:30:49Z)
 
 Offensive line: LT Orlando Brown Jr., LG Dylan Fairchild, C Ted Karras, RG Dalton Risner, RT Amarius Mims.  
 Defensive front: LDE Boye Mafe, LDT Dexter Lawrence II, RDT Jonathan Allen, RDE Myles Murphy, WLB Demetrius Knight Jr., SLB Oren Burks.
@@ -341,7 +341,7 @@ Defensive front: LDE Boye Mafe, LDT Dexter Lawrence II, RDT Jonathan Allen, RDE 
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Cashius Howell (DE) Injured Reserve; Jalen Davis (CB) Injured Reserve; Brian Parker II (OT) Injured Reserve; Andrei Iosivas (WR) Injured Reserve; Dalton Risner (G) Questionable; Oren Burks (LB) Questionable; Kyle Dugger (S) Questionable; Myles Hinton (OT) Questionable.
+ESPN live list (designations only): Brian Parker II (OT) Injured Reserve; Dalton Risner (G) Questionable; Oren Burks (LB) Questionable; Kyle Dugger (S) Questionable; Dax Hill (CB) Questionable; Dylan Fairchild (G) Questionable; Andrei Iosivas (WR) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -546,7 +546,7 @@ Neutral-situation pass rate 55.2%; 60.8 plays per game; target share WR 64% / TE
 | defense allows | Deep middle | 14 | 5% | 50% | 13.93 | 5 |
 | defense allows | Deep right | 23 | 8% | 44% | 12.48 | 7 |
 
-### WAS lines (depth chart as of 2026-11-17T16:52:03Z)
+### WAS lines (depth chart as of 2026-11-19T16:30:49Z)
 
 Offensive line: LT Brandon Coleman, LG Chris Paul, C Lucas Patrick, RG Sam Cosmi, RT Josh Conerly Jr..  
 Defensive front: LDE Charles Omenihu, NT Tim Settle, RDE Shy Tuttle, WLB Odafe Oweh, SLB Dorance Armstrong.
@@ -555,7 +555,7 @@ Defensive front: LDE Charles Omenihu, NT Tim Settle, RDE Shy Tuttle, WLB Odafe O
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Laremy Tunsil (OT) Injured Reserve; Colson Yankoff (TE) Questionable; Lucas Patrick (G) Questionable; Jacory Croskey-Merritt (RB) Injured Reserve.
+ESPN live list (designations only): Laremy Tunsil (OT) Injured Reserve; Jacory Croskey-Merritt (RB) Injured Reserve; Quan Martin (S) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -594,15 +594,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-17T21:58:03+00:00 | f84bb068b606 |
-| pbp | OK | 2026-11-17T21:58:03+00:00 | 32334d4ae379 |
-| rosters | OK | 2026-11-17T21:58:03+00:00 | e4f81f1adc72 |
-| injuries | OK | 2026-11-17T21:58:04+00:00 | 33d3b85359fe |
-| depth_charts | OK | 2026-11-17T21:58:04+00:00 | aaca90f9afb7 |
-| snap_counts | OK | 2026-11-17T21:58:04+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-17T21:58:05+00:00 | 8db63e5eaab1 |
-| pfr_def | OK | 2026-11-17T21:58:05+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-17T21:58:05+00:00 |  |
+| games | OK | 2026-11-19T21:56:41+00:00 | 845d9bfc3484 |
+| pbp | OK | 2026-11-19T21:56:41+00:00 | 5a54b5ef7b9a |
+| rosters | OK | 2026-11-19T21:56:42+00:00 | bf8b55781431 |
+| injuries | OK | 2026-11-19T21:56:42+00:00 | f590b3623cca |
+| depth_charts | OK | 2026-11-19T21:56:42+00:00 | 7439a2b6ccc1 |
+| snap_counts | OK | 2026-11-19T21:56:42+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-19T21:56:43+00:00 | 27afd704d1ea |
+| pfr_def | OK | 2026-11-19T21:56:43+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-19T21:56:43+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

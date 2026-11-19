@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-22, 20:20 ET.** Site: Neutral; roof: outdoors; surface: grass. Rest: MIN 7 days, SF 7 days. Listed QBs: Kirk Cousins (MIN), Brock Purdy (SF).
 
-Market (schedule consensus, not a timestamped quote): SF -3, total 45.5.
+Market (schedule consensus, not a timestamped quote): SF -3, total 46.5.
 
-Generated 2026-11-17T21:58:31+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-19T21:57:25+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -52,8 +52,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | MIN 20.8 - SF 22.6 | 43.5 | +1.8 | 57.1% | 51.0% | 45.8% | MIN 9.9 - SF 11.5 |
-| independent | MIN 20.1 - SF 27.5 | 47.7 | +7.4 | 69.2% | 63.3% | 53.4% | MIN 9.7 - SF 13.9 |
+| matchup_pair | MIN 20.8 - SF 22.6 | 43.5 | +1.8 | 57.1% | 51.0% | 43.9% | MIN 9.9 - SF 11.5 |
+| independent | MIN 20.1 - SF 27.5 | 47.7 | +7.4 | 69.2% | 63.3% | 52.0% | MIN 9.7 - SF 13.9 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -161,29 +161,29 @@ Blitz rate 70.6% and play-action faced 21.8% on 262 charted dropbacks (FTN). Dee
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Byron Murphy | 7 | 33 | 21 | 230 | 7.0 | 0 | 4 | 3 |
-| Josh Metellus | 7 | 29 | 20 | 210 | 7.2 | 1 | 0 | 5 |
-| Isaiah Rodgers | 7 | 24 | 10 | 130 | 5.4 | 0 | 1 | 3 |
+| Byron Murphy | 8 | 35 | 23 | 246 | 7.0 | 0 | 4 | 3 |
+| Josh Metellus | 8 | 35 | 22 | 245 | 7.0 | 1 | 0 | 5 |
+| Isaiah Rodgers | 8 | 30 | 14 | 162 | 5.4 | 0 | 1 | 4 |
+| James Pierre | 8 | 24 | 12 | 106 | 4.4 | 0 | 1 | 1 |
 | Blake Cashman | 7 | 22 | 16 | 142 | 6.5 | 0 | 0 | 3 |
-| James Pierre | 7 | 20 | 10 | 80 | 4.0 | 0 | 1 | 1 |
-| Eric Wilson | 7 | 16 | 13 | 108 | 6.8 | 0 | 0 | 7 |
-| Andrew Van Ginkel | 7 | 14 | 5 | 21 | 1.5 | 0 | 1 | 4 |
-| Harrison Smith | 7 | 13 | 8 | 80 | 6.2 | 2 | 1 | 2 |
-| Jacob Thomas | 2 | 4 | 3 | 48 | 12.0 | 0 | 0 | 0 |
-| Dallas Turner | 7 | 4 | 4 | 19 | 4.8 | 0 | 0 | 4 |
+| Andrew Van Ginkel | 8 | 18 | 8 | 68 | 3.8 | 1 | 1 | 5 |
+| Harrison Smith | 8 | 17 | 9 | 85 | 5.0 | 2 | 2 | 2 |
+| Eric Wilson | 8 | 16 | 13 | 108 | 6.8 | 0 | 0 | 7 |
+| Dallas Turner | 8 | 6 | 5 | 25 | 4.2 | 0 | 0 | 4 |
+| Theo Jackson | 3 | 5 | 5 | 77 | 15.4 | 0 | 0 | 0 |
 
 ### MIN pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| Dallas Turner | 7 | 20 | 6.0 | 8 | 63 |
-| Andrew Van Ginkel | 7 | 18 | 6.0 | 4 | 51 |
-| Eric Wilson | 7 | 9 | 3.0 | 3 | 45 |
+| Dallas Turner | 8 | 22 | 7.0 | 8 | 68 |
+| Andrew Van Ginkel | 8 | 19 | 7.0 | 4 | 58 |
+| Eric Wilson | 8 | 10 | 4.0 | 3 | 49 |
 | Blake Cashman | 7 | 8 | 4.0 | 0 | 39 |
-| Harrison Smith | 7 | 4 | 0.5 | 1 | 9 |
-| Jalen Redmond | 4 | 4 | 1.0 | 1 | 0 |
-| Tyrion Ingram-Dawkins | 4 | 4 | 1.0 | 1 | 0 |
-| Ivan Pace | 4 | 3 | 1.5 | 0 | 12 |
+| Levi Drake Rodriguez | 5 | 7 | 2.0 | 2 | 0 |
+| Jalen Redmond | 5 | 6 | 2.0 | 1 | 0 |
+| Ivan Pace | 5 | 4 | 1.5 | 1 | 17 |
+| Harrison Smith | 8 | 4 | 0.5 | 1 | 9 |
 
 ### MIN offense: what it produces (rank 1 = best offense)
 
@@ -265,9 +265,9 @@ Neutral-situation pass rate 51.8%; 56.4 plays per game; target share WR 58% / TE
 
 | Side | Formation | Plays | Share | Pass rate | Yards / play | EPA / play |
 |---|---|---|---|---|---|---|
-| offense | Shotgun | 258 | 57% | 75% | 5.13 | -0.15 |
+| offense | Shotgun | 257 | 57% | 75% | 5.15 | -0.148 |
 | offense | Under center | 167 | 37% | 34% | 4.58 | -0.1 |
-| offense | No huddle | 26 | 6% | 77% | 5.0 | 0.125 |
+| offense | No huddle | 27 | 6% | 78% | 4.81 | 0.095 |
 | defense vs | Shotgun | 225 | 48% | 73% | 4.48 | -0.129 |
 | defense vs | Under center | 198 | 42% | 31% | 4.38 | -0.091 |
 | defense vs | No huddle | 44 | 9% | 84% | 3.89 | -0.242 |
@@ -287,16 +287,27 @@ Neutral-situation pass rate 51.8%; 56.4 plays per game; target share WR 58% / TE
 | defense allows | Deep middle | 13 | 6% | 38% | 11.54 | 4 |
 | defense allows | Deep right | 12 | 6% | 33% | 7.92 | 3 |
 
-### MIN lines (depth chart as of 2026-11-17T16:52:03Z)
+### MIN lines (depth chart as of 2026-11-19T16:30:49Z)
 
 Offensive line: LT Christian Darrisaw, LG Joe Huber, C Blake Brandel, RG Will Fries, RT Brian O'Neill.  
 Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WLB Andrew Van Ginkel, SLB Dallas Turner.
 
 ### MIN injuries
 
-Official report not posted yet for this week.
+| Player | Pos | Starter | Game status | Practice | Injury |
+|---|---|---|---|---|---|
+| Andrew Van Ginkel | LB | yes | none listed | Limited Participation in Practice |  |
+| Blake Cashman | LB | yes | none listed | Full Participation in Practice |  |
+| T.J. Hockenson | TE | yes | none listed | Limited Participation in Practice |  |
+| Tyrion Ingram-Dawkins | DT |  | none listed | Full Participation in Practice |  |
+| Kyle Van Noy | LB |  | none listed | Limited Participation in Practice |  |
+| Kyler Murray | QB |  | none listed | Did Not Participate In Practice |  |
+| Jay Ward | S |  | none listed | Limited Participation in Practice |  |
+| Jauan Jennings | WR |  | none listed | Full Participation in Practice |  |
+| Jordan Addison | WR |  | none listed | Did Not Participate In Practice |  |
+| Jeshaun Jones | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Bo Richter (LB) Questionable; Kyler Murray (QB) Out; T.J. Hockenson (TE) Questionable; Jordan Addison (WR) Out; Andrew Van Ginkel (LB) Questionable; Tyrion Ingram-Dawkins (DE) Questionable; Jauan Jennings (WR) Questionable; Blake Cashman (LB) Questionable.
+ESPN live list (designations only): Jordan Addison (WR) Out; Kyler Murray (QB) Out; T.J. Hockenson (TE) Questionable; Kyle Van Noy (LB) Questionable; Jay Ward (S) Questionable; Jeshaun Jones (WR) Questionable; Blake Cashman (LB) Questionable; Andrew Van Ginkel (LB) Questionable; Bo Richter (LB) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -376,29 +387,29 @@ Blitz rate 30.2% and play-action faced 21.2% on 325 charted dropbacks (FTN). Dee
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Renardo Green | 6 | 36 | 23 | 265 | 7.4 | 2 | 3 | 1 |
-| Fred Warner | 7 | 30 | 23 | 200 | 6.7 | 0 | 0 | 6 |
-| Upton Stout | 6 | 29 | 22 | 296 | 10.2 | 2 | 0 | 4 |
-| Dre Greenlaw | 6 | 26 | 21 | 125 | 4.8 | 0 | 0 | 4 |
-| Deommodore Lenoir | 7 | 26 | 19 | 172 | 6.6 | 2 | 0 | 0 |
-| Ji'Ayir Brown | 7 | 22 | 14 | 144 | 6.5 | 1 | 0 | 3 |
+| Deommodore Lenoir | 8 | 44 | 29 | 306 | 7.0 | 5 | 0 | 1 |
+| Renardo Green | 7 | 42 | 28 | 302 | 7.2 | 2 | 3 | 1 |
+| Fred Warner | 8 | 33 | 25 | 222 | 6.7 | 0 | 0 | 7 |
+| Dre Greenlaw | 7 | 33 | 24 | 143 | 4.3 | 0 | 0 | 8 |
+| Upton Stout | 7 | 32 | 24 | 319 | 10.0 | 3 | 0 | 4 |
+| Ji'Ayir Brown | 8 | 25 | 15 | 150 | 6.0 | 1 | 0 | 3 |
+| Malik Mustapha | 7 | 23 | 7 | 130 | 5.7 | 1 | 2 | 2 |
 | Jaden Dugger | 6 | 21 | 18 | 121 | 5.8 | 1 | 1 | 5 |
 | Jack Jones | 5 | 19 | 12 | 126 | 6.6 | 2 | 0 | 2 |
-| Malik Mustapha | 6 | 19 | 5 | 77 | 4.1 | 1 | 1 | 2 |
-| Marques Sigle | 4 | 7 | 3 | 35 | 5.0 | 0 | 0 | 0 |
+| Marques Sigle | 5 | 9 | 3 | 35 | 3.9 | 0 | 0 | 0 |
 
 ### SF pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| Keion White | 7 | 13 | 3.5 | 7 | 0 |
-| Osa Odighizuwa | 7 | 9 | 2.0 | 4 | 0 |
-| Romello Height | 5 | 5 | 1.5 | 0 | 0 |
-| Sebastian Valdez | 3 | 5 | 1.0 | 2 | 0 |
+| Keion White | 8 | 16 | 3.5 | 7 | 0 |
+| Osa Odighizuwa | 8 | 11 | 2.0 | 4 | 0 |
+| Sebastian Valdez | 4 | 7 | 1.0 | 3 | 0 |
 | Gracen Halton | 4 | 5 | 2.0 | 3 | 0 |
-| Fred Warner | 7 | 4 | 0.5 | 0 | 29 |
-| Khalid Kareem | 2 | 3 | 0.0 | 2 | 0 |
-| Ogbonnia Okoronkwo | 2 | 3 | 1.0 | 1 | 0 |
+| Romello Height | 5 | 5 | 1.5 | 0 | 0 |
+| Fred Warner | 8 | 5 | 0.5 | 0 | 33 |
+| Mykel Williams | 2 | 4 | 1.5 | 0 | 0 |
+| Nick Bosa | 3 | 4 | 0.0 | 3 | 0 |
 
 ### SF offense: what it produces (rank 1 = best offense)
 
@@ -499,16 +510,32 @@ Neutral-situation pass rate 54.2%; 58.0 plays per game; target share WR 45% / TE
 | defense allows | Deep middle | 13 | 4% | 54% | 10.85 | 3 |
 | defense allows | Deep right | 26 | 9% | 35% | 11.35 | 7 |
 
-### SF lines (depth chart as of 2026-11-17T16:52:03Z)
+### SF lines (depth chart as of 2026-11-19T16:30:49Z)
 
 Offensive line: LT Trent Williams, LG Connor Colby, C Jake Brendel, RG Dominick Puni, RT Colton McKivitz.  
 Defensive front: LDE Keion White, LDT Osa Odighizuwa, RDT DeForest Buckner, RDE Nick Bosa, WLB Dre Greenlaw, SLB Jaden Dugger.
 
 ### SF injuries
 
-Official report not posted yet for this week.
+| Player | Pos | Starter | Game status | Practice | Injury |
+|---|---|---|---|---|---|
+| Renardo Green | CB | yes | none listed | Limited Participation in Practice |  |
+| Upton Stout | CB | yes | none listed | Limited Participation in Practice |  |
+| Dre Greenlaw | LB | yes | none listed | Did Not Participate In Practice |  |
+| Jon Weeks | LS | yes | none listed | Full Participation in Practice |  |
+| Christian McCaffrey | RB | yes | none listed | Did Not Participate In Practice |  |
+| Ji'Ayir Brown | S | yes | none listed | Limited Participation in Practice |  |
+| Trent Williams | T | yes | none listed | Did Not Participate In Practice |  |
+| Mike Evans | WR | yes | none listed | Did Not Participate In Practice |  |
+| Nate Hobbs | CB |  | none listed | Full Participation in Practice |  |
+| Khalid Kareem | DE |  | none listed | Limited Participation in Practice |  |
+| Mykel Williams | DE |  | none listed | Full Participation in Practice |  |
+| C.J. West | DT |  | none listed | Full Participation in Practice |  |
+| Luke Gifford | LB |  | none listed | Limited Participation in Practice |  |
+| Mac Jones | QB |  | none listed | Limited Participation in Practice |  |
+| Siran Neal | S |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Gracen Halton (DT) Injured Reserve; Nate Hobbs (CB) Injured Reserve; C.J. West (DT) Injured Reserve; Mike Evans (WR) Questionable; Renardo Green (CB) Questionable.
+ESPN live list (designations only): Brandon Aiyuk (WR) Out; Dre Greenlaw (LB) Questionable; De'Zhaun Stribling (WR) Injured Reserve; Renardo Green (CB) Questionable; Luke Gifford (LB) Questionable; Khalid Kareem (DE) Questionable; Upton Stout (CB) Questionable; Siran Neal (S) Questionable; Mac Jones (QB) Questionable; Ji'Ayir Brown (S) Questionable; Christian Kirk (WR) Injured Reserve; Mike Evans (WR) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -542,7 +569,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 8 | Defender assignment and explosive allowance | PARTIAL | Per-defender targets/yards allowed (PFR) and explosive plays allowed. Who covers whom is NOT known. |
 | 9 | QB pressure, blitz, scramble | PARTIAL | Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles. |
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
-| 11 | Injury and depth chart | PARTIAL | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
+| 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | PARTIAL | Roof, surface, rest days, site; National Weather Service kickoff forecast: NOT_MAPPED_NEUTRAL_OR_INTERNATIONAL_SITE: check the forecast by hand. |
 | 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
@@ -552,15 +579,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-17T21:58:03+00:00 | f84bb068b606 |
-| pbp | OK | 2026-11-17T21:58:03+00:00 | 32334d4ae379 |
-| rosters | OK | 2026-11-17T21:58:03+00:00 | e4f81f1adc72 |
-| injuries | OK | 2026-11-17T21:58:04+00:00 | 33d3b85359fe |
-| depth_charts | OK | 2026-11-17T21:58:04+00:00 | aaca90f9afb7 |
-| snap_counts | OK | 2026-11-17T21:58:04+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-17T21:58:05+00:00 | 8db63e5eaab1 |
-| pfr_def | OK | 2026-11-17T21:58:05+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-17T21:58:05+00:00 |  |
+| games | OK | 2026-11-19T21:56:41+00:00 | 845d9bfc3484 |
+| pbp | OK | 2026-11-19T21:56:41+00:00 | 5a54b5ef7b9a |
+| rosters | OK | 2026-11-19T21:56:42+00:00 | bf8b55781431 |
+| injuries | OK | 2026-11-19T21:56:42+00:00 | f590b3623cca |
+| depth_charts | OK | 2026-11-19T21:56:42+00:00 | 7439a2b6ccc1 |
+| snap_counts | OK | 2026-11-19T21:56:42+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-19T21:56:43+00:00 | 27afd704d1ea |
+| pfr_def | OK | 2026-11-19T21:56:43+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-19T21:56:43+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

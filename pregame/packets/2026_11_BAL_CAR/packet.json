@@ -1,6 +1,6 @@
 {
  "schema": "pregame-packet/1",
- "generated_utc": "2026-11-17T21:58:12+00:00",
+ "generated_utc": "2026-11-19T21:56:53+00:00",
  "projection_ready": false,
  "status": "RESEARCH_ONLY_NOT_BETTING_ADVICE",
  "game": {
@@ -31,11 +31,11 @@
  },
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
-  "home_spread": -2.5,
-  "total": 44.5,
+  "home_spread": -3.0,
+  "total": 43.5,
   "moneyline": {
-   "BAL": 120.0,
-   "CAR": -142.0
+   "BAL": 124.0,
+   "CAR": -147.0
   }
  },
  "data_freshness": {
@@ -59,20 +59,20 @@
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/GSP/118,65/forecast/hourly",
-  "retrieved_utc": "2026-11-17T21:58:11+00:00",
+  "retrieved_utc": "2026-11-19T21:56:51+00:00",
   "kickoff_utc": "2026-11-22T18:00:00+00:00",
   "roof": "outdoors",
   "at_kickoff": {
-   "temp_f": 67,
-   "wind_mph": 7.0,
+   "temp_f": 65,
+   "wind_mph": 12.0,
    "wind_dir": "N",
-   "precip_chance_pct": 10,
-   "summary": "Mostly Sunny"
+   "precip_chance_pct": 14,
+   "summary": "Partly Sunny"
   },
   "during_game": {
-   "temp_f_min": 67,
-   "wind_mph_max": 7.0,
-   "precip_chance_pct_max": 10
+   "temp_f_min": 65,
+   "wind_mph_max": 12.0,
+   "precip_chance_pct_max": 14
   },
   "flags": []
  },
@@ -140,13 +140,13 @@
      "third_down_rate": 0.3490566037735849,
      "red_zone_drives": 29,
      "red_zone_td_rate": 0.6206896551724138,
-     "pass_epa_per_dropback": 0.08911432630226407,
-     "rush_epa_per_carry": -0.06705901217651422,
+     "pass_epa_per_dropback": 0.0891143267754181,
+     "rush_epa_per_carry": -0.06705901263308942,
      "neutral_pass_rate": 0.4731182795698925,
-     "blitz_rate": 0.33992094861660077,
-     "play_action_rate": 0.20553359683794467,
+     "blitz_rate": 0.3357142857142857,
+     "play_action_rate": 0.20357142857142857,
      "sack_rate_when_blitzing": 0.0,
-     "dropbacks_charted": 253,
+     "dropbacks_charted": 280,
      "wr_targets_pg": 17.375,
      "wr_receptions_pg": 11.125,
      "wr_rec_yards_pg": 168.625,
@@ -263,12 +263,12 @@
      "pass_epa_per_dropback": {
       "rank": 22,
       "of": 32,
-      "league_avg": 0.049829208208821765
+      "league_avg": 0.04982920832479731
      },
      "rush_epa_per_carry": {
       "rank": 13,
       "of": 32,
-      "league_avg": -0.06074522417823477
+      "league_avg": -0.060745224613892736
      },
      "takeaways_pg": {
       "rank": 24,
@@ -689,85 +689,75 @@
       6,
       7,
       8,
-      9
+      9,
+      10
      ],
      "coverage": [
       {
        "player": "Marlon Humphrey",
-       "games": 6,
-       "targets": 35,
-       "completions": 18,
-       "yards": 287,
-       "yards_per_target": 8.2,
+       "games": 7,
+       "targets": 37,
+       "completions": 19,
+       "yards": 295,
+       "yards_per_target": 7.972972972972973,
        "td_allowed": 0,
        "interceptions": 0,
-       "missed_tackles": 5
+       "missed_tackles": 6
       },
       {
        "player": "Kyle Hamilton",
-       "games": 7,
-       "targets": 27,
-       "completions": 21,
-       "yards": 214,
-       "yards_per_target": 7.925925925925926,
+       "games": 8,
+       "targets": 32,
+       "completions": 25,
+       "yards": 292,
+       "yards_per_target": 9.125,
        "td_allowed": 1,
        "interceptions": 1,
        "missed_tackles": 4
       },
       {
        "player": "Nate Wiggins",
-       "games": 5,
-       "targets": 26,
+       "games": 6,
+       "targets": 27,
        "completions": 14,
        "yards": 175,
-       "yards_per_target": 6.730769230769231,
+       "yards_per_target": 6.481481481481482,
        "td_allowed": 1,
        "interceptions": 0,
        "missed_tackles": 4
       },
       {
        "player": "Roquan Smith",
-       "games": 7,
-       "targets": 23,
-       "completions": 13,
-       "yards": 153,
-       "yards_per_target": 6.6521739130434785,
+       "games": 8,
+       "targets": 25,
+       "completions": 14,
+       "yards": 160,
+       "yards_per_target": 6.4,
        "td_allowed": 0,
        "interceptions": 0,
        "missed_tackles": 3
       },
       {
        "player": "Trenton Simpson",
-       "games": 7,
-       "targets": 19,
-       "completions": 12,
-       "yards": 81,
-       "yards_per_target": 4.2631578947368425,
+       "games": 8,
+       "targets": 22,
+       "completions": 15,
+       "yards": 103,
+       "yards_per_target": 4.681818181818182,
        "td_allowed": 0,
        "interceptions": 1,
        "missed_tackles": 0
       },
       {
        "player": "Malaki Starks",
-       "games": 7,
-       "targets": 17,
+       "games": 8,
+       "targets": 18,
        "completions": 14,
        "yards": 223,
-       "yards_per_target": 13.117647058823529,
+       "yards_per_target": 12.38888888888889,
        "td_allowed": 3,
        "interceptions": 0,
        "missed_tackles": 4
-      },
-      {
-       "player": "Chidobe Awuzie",
-       "games": 5,
-       "targets": 12,
-       "completions": 8,
-       "yards": 120,
-       "yards_per_target": 10.0,
-       "td_allowed": 0,
-       "interceptions": 0,
-       "missed_tackles": 0
       },
       {
        "player": "Chandler Rivers",
@@ -779,6 +769,17 @@
        "td_allowed": 1,
        "interceptions": 0,
        "missed_tackles": 3
+      },
+      {
+       "player": "Chidobe Awuzie",
+       "games": 6,
+       "targets": 12,
+       "completions": 8,
+       "yards": 120,
+       "yards_per_target": 10.0,
+       "td_allowed": 0,
+       "interceptions": 0,
+       "missed_tackles": 1
       },
       {
        "player": "Jaylinn Hawkins",
@@ -806,11 +807,11 @@
      "pass_rush": [
       {
        "player": "Mike Green",
-       "games": 7,
-       "pressures": 8,
-       "sacks": 2.5,
+       "games": 8,
+       "pressures": 11,
+       "sacks": 4.5,
        "hurries": 2,
-       "blitzes": 9
+       "blitzes": 11
       },
       {
        "player": "Nnamdi Madubuike",
@@ -821,28 +822,28 @@
        "blitzes": 0
       },
       {
-       "player": "Trey Hendrickson",
-       "games": 4,
-       "pressures": 6,
-       "sacks": 1.0,
-       "hurries": 1,
-       "blitzes": 2
-      },
-      {
        "player": "Calais Campbell",
-       "games": 4,
-       "pressures": 5,
+       "games": 5,
+       "pressures": 7,
        "sacks": 1.0,
        "hurries": 1,
        "blitzes": 0
       },
       {
-       "player": "Tavius Robinson",
-       "games": 4,
-       "pressures": 4,
-       "sacks": 1.5,
+       "player": "Trey Hendrickson",
+       "games": 5,
+       "pressures": 6,
+       "sacks": 1.0,
        "hurries": 1,
-       "blitzes": 7
+       "blitzes": 3
+      },
+      {
+       "player": "Trenton Simpson",
+       "games": 8,
+       "pressures": 6,
+       "sacks": 1.0,
+       "hurries": 2,
+       "blitzes": 17
       },
       {
        "player": "Ethan Burke",
@@ -853,20 +854,20 @@
        "blitzes": 4
       },
       {
-       "player": "Trenton Simpson",
-       "games": 7,
+       "player": "Tavius Robinson",
+       "games": 4,
        "pressures": 4,
-       "sacks": 1.0,
-       "hurries": 2,
-       "blitzes": 15
+       "sacks": 1.5,
+       "hurries": 1,
+       "blitzes": 7
       },
       {
-       "player": "Roquan Smith",
-       "games": 7,
-       "pressures": 3,
-       "sacks": 2.0,
-       "hurries": 0,
-       "blitzes": 17
+       "player": "Travis Jones",
+       "games": 4,
+       "pressures": 4,
+       "sacks": 0.0,
+       "hurries": 2,
+       "blitzes": 0
       }
      ]
     }
@@ -919,13 +920,13 @@
      "third_down_rate": 0.38461538461538464,
      "red_zone_drives": 24,
      "red_zone_td_rate": 0.5833333333333334,
-     "pass_epa_per_dropback": -0.009060122922661076,
-     "rush_epa_per_carry": -0.11286284261549374,
+     "pass_epa_per_dropback": -0.009060121859177357,
+     "rush_epa_per_carry": -0.11286284262075374,
      "neutral_pass_rate": 0.5086705202312138,
-     "blitz_rate": 0.336322869955157,
-     "play_action_rate": 0.2242152466367713,
-     "sack_rate_when_blitzing": 0.013333333333333334,
-     "dropbacks_charted": 223,
+     "blitz_rate": 0.31135531135531136,
+     "play_action_rate": 0.23076923076923078,
+     "sack_rate_when_blitzing": 0.023529411764705882,
+     "dropbacks_charted": 273,
      "wr_targets_pg": 15.75,
      "wr_receptions_pg": 9.75,
      "wr_rec_yards_pg": 124.875,
@@ -1042,12 +1043,12 @@
      "pass_epa_per_dropback": {
       "rank": 23,
       "of": 32,
-      "league_avg": 0.04465239140401442
+      "league_avg": 0.04465239151229834
      },
      "rush_epa_per_carry": {
       "rank": 23,
       "of": 32,
-      "league_avg": -0.06098569749017958
+      "league_avg": -0.060985697844241446
      },
      "takeaways_pg": {
       "rank": 18,
@@ -2021,7 +2022,7 @@
        "sacks": 11,
        "yards_per_attempt": 6.609090909090909,
        "avg_depth_of_target": 6.163636363636364,
-       "epa_per_dropback": -0.005760145305354671,
+       "epa_per_dropback": -0.005760143772667313,
        "pressure_rate_faced": 0.19834710743801653,
        "log": [
         {
@@ -2083,7 +2084,7 @@
        "sacks": 2,
        "yards_per_attempt": 7.083333333333333,
        "avg_depth_of_target": 8.395833333333334,
-       "epa_per_dropback": -0.01902106863483371,
+       "epa_per_dropback": -0.019021066900832887,
        "pressure_rate_faced": 0.18,
        "log": [
         {
@@ -2280,7 +2281,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-17T16:52:03Z",
+    "as_of": "2026-11-19T16:30:49Z",
     "starters": [
      {
       "slot": "WR",
@@ -2518,87 +2519,94 @@
     ]
    },
    "injuries": {
-    "official_report": [],
-    "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
+    "official_report": [
+     {
+      "player": "Nnamdi Madubuike",
+      "position": "DT",
+      "game_status": null,
+      "practice_status": "Did Not Participate In Practice",
+      "injury": null,
+      "starter": true,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Olaivavega Ioane",
+      "position": "G",
+      "game_status": null,
+      "practice_status": "Limited Participation in Practice",
+      "injury": null,
+      "starter": true,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Mike Green",
+      "position": "LB",
+      "game_status": null,
+      "practice_status": "Full Participation in Practice",
+      "injury": null,
+      "starter": true,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Jaylinn Hawkins",
+      "position": "S",
+      "game_status": null,
+      "practice_status": "Limited Participation in Practice",
+      "injury": null,
+      "starter": true,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Adam Randall",
+      "position": "RB",
+      "game_status": null,
+      "practice_status": "Full Participation in Practice",
+      "injury": null,
+      "starter": false,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Matthew Hibner",
+      "position": "TE",
+      "game_status": null,
+      "practice_status": "Full Participation in Practice",
+      "injury": null,
+      "starter": false,
+      "source": "nflverse official report"
+     }
+    ],
+    "official_report_status": "OK",
     "espn_live": [
      {
       "player": "Lamar Jackson",
       "position": "QB",
       "status": "Injured Reserve",
-      "date": "2026-11-13T14:48Z",
-      "comment": "Jackson (thumb) is \"doing well\" and is expected to be out for \"6-to-10 weeks,\" per head coach Jesse Minter.",
-      "team": "BAL"
-     },
-     {
-      "player": "Adam Randall",
-      "position": "RB",
-      "status": "Injured Reserve",
-      "date": "2026-11-16T23:22Z",
-      "comment": "Randall (neck/hamstring) wasn't activated from injured reserve and will remain out for Monday's game against the Chargers, Brian Wacker of The Baltimore Sun reports.",
-      "team": "BAL"
-     },
-     {
-      "player": "Olaivavega Ioane",
-      "position": "G",
-      "status": "Questionable",
-      "date": "2026-11-17T03:27Z",
-      "comment": "Ioane (shoulder) is questionable to return to Monday night's contest against the Chargers.",
-      "team": "BAL"
-     },
-     {
-      "player": "Nnamdi Madubuike",
-      "position": "DT",
-      "status": "Questionable",
-      "date": "2026-11-17T03:49Z",
-      "comment": "Madubuike (hamstring) has been ruled out for the remainder of Monday night's contest against the Chargers.",
+      "date": "2026-11-18T15:52Z",
+      "comment": "The Ravens believe \"there's a chance\" that Jackson (thumb) could return for their Week 16 matchup with the Browns, assuming all goes well in his recovery from right thumb surgery, Dan Graziano of ESPN",
       "team": "BAL"
      },
      {
       "player": "Jaylinn Hawkins",
       "position": "S",
       "status": "Questionable",
-      "date": "2026-11-17T12:19Z",
-      "comment": "questionable",
+      "date": "2026-11-19T01:20Z",
+      "comment": "Hawkins (knee) was a limited participant in Wednesday's practice, Jamison Hensley of ESPN.com reports.",
       "team": "BAL"
      },
      {
-      "player": "Matt Hibner",
-      "position": "TE",
-      "status": "Active",
-      "date": "2026-11-07T04:55Z",
-      "comment": "Hibner logged one reception for five yards on two targets in Thursday's loss to Baltimore.",
+      "player": "Marlon Humphrey",
+      "position": "CB",
+      "status": "Out",
+      "date": "2026-11-19T17:07Z",
+      "comment": "Ravens head coach Jesse Minter said that Humphrey won't play Sunday against the Panthers after the defensive back made a derogatory comment about the city of Baltimore in an episode of his podcast rel",
       "team": "BAL"
      },
      {
-      "player": "Roquan Smith",
-      "position": "LB",
-      "status": "Active",
-      "date": "2026-11-08T04:40Z",
-      "comment": "Smith finished with eight tackles (two solo) in Thursday's Week 9 loss to Jacksonville.",
-      "team": "BAL"
-     },
-     {
-      "player": "Malaki Starks",
-      "position": "S",
-      "status": "Active",
-      "date": "2026-11-08T04:47Z",
-      "comment": "Starks finished Baltimore's Week 9 loss to the Jaguars on Thursday with four tackles (three solo) and a forced fumble.",
-      "team": "BAL"
-     },
-     {
-      "player": "Ryan Neuzil",
-      "position": "C",
-      "status": "Active",
-      "date": "2026-11-11T00:36Z",
-      "comment": "The Ravens acquired Neuzil from the Falcons on Tuesday in exchange for guard Andrew Vorhees and a conditional 2028 sixth-round pick, Jamison Hensley of ESPN.com reports.",
-      "team": "BAL"
-     },
-     {
-      "player": "Riley Patterson",
-      "position": "PK",
-      "status": "Active",
-      "date": "2026-11-12T17:15Z",
-      "comment": "Patterson will be the Ravens' kicker for Monday night's game against the Chargers, Jamison Hensley of ESPN.com reports.",
+      "player": "Nnamdi Madubuike",
+      "position": "DT",
+      "status": "Questionable",
+      "date": "2026-11-19T20:19Z",
+      "comment": "Madubuike (hamstring) remained sidelined for Thursday's practice, Jonas Shaffer of TheBaltimoreBanner.com reports.",
       "team": "BAL"
      },
      {
@@ -2607,30 +2615,6 @@
       "status": "Active",
       "date": "2026-11-13T00:53Z",
       "comment": "Wiggins (illness) was a full participant in Thursday's practice.",
-      "team": "BAL"
-     },
-     {
-      "player": "Kyle Hamilton",
-      "position": "S",
-      "status": "Active",
-      "date": "2026-11-13T00:59Z",
-      "comment": "Hamilton (hip) practiced in full Thursday.",
-      "team": "BAL"
-     },
-     {
-      "player": "Chris Moore",
-      "position": "WR",
-      "status": "Active",
-      "date": "2026-11-16T22:57Z",
-      "comment": "The Ravens elevated Moore from the practice squad ahead of Monday's game against the Chargers.",
-      "team": "BAL"
-     },
-     {
-      "player": "Nick Vannett",
-      "position": "TE",
-      "status": "Active",
-      "date": "2026-11-16T23:01Z",
-      "comment": "The Ravens elevated Vannett from the practice squad ahead of Monday's game against the Chargers.",
       "team": "BAL"
      },
      {
@@ -2720,6 +2704,78 @@
       "date": "2026-11-17T12:17Z",
       "comment": "",
       "team": "BAL"
+     },
+     {
+      "player": "Justice Hill",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-18T00:33Z",
+      "comment": "Hill turned three carries into four yards and added five catches on seven targets for 34 yards during the Ravens' 23-20 loss to the Chargers on Monday.",
+      "team": "BAL"
+     },
+     {
+      "player": "Riley Patterson",
+      "position": "PK",
+      "status": "Active",
+      "date": "2026-11-18T01:56Z",
+      "comment": "Patterson went 2-for-2 on field-goal attempts and made both of his PATs during Monday night's 23-20 loss to the Chargers.",
+      "team": "BAL"
+     },
+     {
+      "player": "Josh Cuevas",
+      "position": "TE",
+      "status": "Active",
+      "date": "2026-11-18T02:36Z",
+      "comment": "Cuevas caught all three of his targets for 37 yards during Monday night's 23-20 loss to the Chargers.",
+      "team": "BAL"
+     },
+     {
+      "player": "Mike Green",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-18T04:03Z",
+      "comment": "Green racked up six tackles (four solo), including 2.0 sacks, in Monday's Week 10 loss to the Chargers.",
+      "team": "BAL"
+     },
+     {
+      "player": "Kyle Hamilton",
+      "position": "S",
+      "status": "Active",
+      "date": "2026-11-18T04:26Z",
+      "comment": "Hamilton posted 10 tackles (three solo) against the Chargers in Monday's Week 10 loss.",
+      "team": "BAL"
+     },
+     {
+      "player": "Roquan Smith",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-18T04:29Z",
+      "comment": "Smith finished Monday's Week 10 loss to the Chargers with eight tackles (six solo).",
+      "team": "BAL"
+     },
+     {
+      "player": "Rasheen Ali",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-18T16:14Z",
+      "comment": "Ali played all 19 of his snaps on special teams in Monday's 23-20 loss to the Chargers.",
+      "team": "BAL"
+     },
+     {
+      "player": "Adam Randall",
+      "position": "RB",
+      "status": "Active",
+      "date": "2026-11-18T19:18Z",
+      "comment": "The Ravens reinstated Randall (neck/hamstring) from injured reserve Wednesday, Ryan Mink of the team's official site reports.",
+      "team": "BAL"
+     },
+     {
+      "player": "Olaivavega Ioane",
+      "position": "G",
+      "status": "Active",
+      "date": "2026-11-19T02:19Z",
+      "comment": "Ioane (shoulder/knee) was a limited participant in Wednesday's practice.",
+      "team": "BAL"
      }
     ],
     "espn_live_status": "OK",
@@ -2796,8 +2852,8 @@
      "third_down_rate": 0.4339622641509434,
      "red_zone_drives": 22,
      "red_zone_td_rate": 0.7272727272727273,
-     "pass_epa_per_dropback": 0.004086186220316294,
-     "rush_epa_per_carry": -0.11598104619494479,
+     "pass_epa_per_dropback": 0.004086187018599812,
+     "rush_epa_per_carry": -0.11598104714749724,
      "neutral_pass_rate": 0.5347593582887701,
      "blitz_rate": 0.3247588424437299,
      "play_action_rate": 0.15755627009646303,
@@ -2919,12 +2975,12 @@
      "pass_epa_per_dropback": {
       "rank": 12,
       "of": 32,
-      "league_avg": 0.049829208208821765
+      "league_avg": 0.04982920832479731
      },
      "rush_epa_per_carry": {
       "rank": 7,
       "of": 32,
-      "league_avg": -0.06074522417823477
+      "league_avg": -0.060745224613892736
      },
      "takeaways_pg": {
       "rank": 13,
@@ -3345,9 +3401,21 @@
       6,
       7,
       8,
-      9
+      9,
+      10
      ],
      "coverage": [
+      {
+       "player": "Devin Lloyd",
+       "games": 7,
+       "targets": 45,
+       "completions": 27,
+       "yards": 237,
+       "yards_per_target": 5.266666666666667,
+       "td_allowed": 1,
+       "interceptions": 3,
+       "missed_tackles": 1
+      },
       {
        "player": "Will Lee",
        "games": 6,
@@ -3358,17 +3426,6 @@
        "td_allowed": 1,
        "interceptions": 0,
        "missed_tackles": 0
-      },
-      {
-       "player": "Devin Lloyd",
-       "games": 6,
-       "targets": 38,
-       "completions": 22,
-       "yards": 213,
-       "yards_per_target": 5.605263157894737,
-       "td_allowed": 0,
-       "interceptions": 2,
-       "missed_tackles": 1
       },
       {
        "player": "Akayleb Evans",
@@ -3383,36 +3440,36 @@
       },
       {
        "player": "Tre'von Moehrig",
-       "games": 7,
-       "targets": 24,
-       "completions": 13,
-       "yards": 123,
-       "yards_per_target": 5.125,
+       "games": 8,
+       "targets": 30,
+       "completions": 17,
+       "yards": 156,
+       "yards_per_target": 5.2,
+       "td_allowed": 0,
+       "interceptions": 0,
+       "missed_tackles": 3
+      },
+      {
+       "player": "Marco Wilson",
+       "games": 3,
+       "targets": 25,
+       "completions": 16,
+       "yards": 140,
+       "yards_per_target": 5.6,
        "td_allowed": 0,
        "interceptions": 0,
        "missed_tackles": 3
       },
       {
        "player": "Nick Scott",
-       "games": 5,
-       "targets": 21,
-       "completions": 14,
-       "yards": 153,
-       "yards_per_target": 7.285714285714286,
+       "games": 6,
+       "targets": 23,
+       "completions": 16,
+       "yards": 167,
+       "yards_per_target": 7.260869565217392,
        "td_allowed": 2,
        "interceptions": 0,
        "missed_tackles": 3
-      },
-      {
-       "player": "Marco Wilson",
-       "games": 2,
-       "targets": 19,
-       "completions": 13,
-       "yards": 126,
-       "yards_per_target": 6.631578947368421,
-       "td_allowed": 0,
-       "interceptions": 0,
-       "missed_tackles": 2
       },
       {
        "player": "Bobby Okereke",
@@ -3427,78 +3484,78 @@
       },
       {
        "player": "Zakee Wheatley",
-       "games": 6,
-       "targets": 13,
-       "completions": 7,
-       "yards": 164,
-       "yards_per_target": 12.615384615384615,
+       "games": 7,
+       "targets": 16,
+       "completions": 8,
+       "yards": 182,
+       "yards_per_target": 11.375,
        "td_allowed": 2,
        "interceptions": 1,
        "missed_tackles": 1
       },
       {
-       "player": "Lathan Ransom",
-       "games": 3,
-       "targets": 10,
-       "completions": 2,
-       "yards": 81,
-       "yards_per_target": 8.1,
-       "td_allowed": 0,
-       "interceptions": 0,
-       "missed_tackles": 4
-      },
-      {
        "player": "Chau Smith-Wade",
-       "games": 4,
-       "targets": 9,
-       "completions": 6,
-       "yards": 52,
-       "yards_per_target": 5.777777777777778,
+       "games": 5,
+       "targets": 15,
+       "completions": 9,
+       "yards": 86,
+       "yards_per_target": 5.733333333333333,
        "td_allowed": 0,
        "interceptions": 0,
        "missed_tackles": 0
+      },
+      {
+       "player": "Tyrel Dodson",
+       "games": 3,
+       "targets": 10,
+       "completions": 8,
+       "yards": 44,
+       "yards_per_target": 4.4,
+       "td_allowed": 1,
+       "interceptions": 0,
+       "missed_tackles": 2
       }
      ],
      "pass_rush": [
       {
        "player": "Princely Umanmielen",
-       "games": 6,
-       "pressures": 8,
+       "games": 7,
+       "pressures": 10,
        "sacks": 2.0,
        "hurries": 4,
        "blitzes": 1
       },
       {
        "player": "Jaelan Phillips",
-       "games": 4,
-       "pressures": 7,
-       "sacks": 1.5,
+       "games": 5,
+       "pressures": 9,
+       "sacks": 2.5,
        "hurries": 2,
        "blitzes": 0
       },
       {
        "player": "Patrick Jones II",
-       "games": 5,
-       "pressures": 6,
-       "sacks": 1.0,
+       "games": 6,
+       "pressures": 8,
+       "sacks": 2.0,
        "hurries": 4,
        "blitzes": 0
       },
       {
-       "player": "Tre'von Moehrig",
-       "games": 7,
-       "pressures": 5,
-       "sacks": 0.5,
-       "hurries": 3,
-       "blitzes": 25
-      },
-      {
        "player": "Devin Lloyd",
-       "games": 6,
+       "games": 7,
        "pressures": 5,
        "sacks": 2.0,
        "hurries": 1,
-       "blitzes": 33
+       "blitzes": 34
+      },
+      {
+       "player": "Tre'von Moehrig",
+       "games": 8,
+       "pressures": 5,
+       "sacks": 0.5,
+       "hurries": 3,
+       "blitzes": 26
       },
       {
        "player": "Trevis Gipson",
@@ -3509,12 +3566,12 @@
        "blitzes": 3
       },
       {
-       "player": "Bobby Okereke",
-       "games": 6,
-       "pressures": 3,
+       "player": "Derrick Brown",
+       "games": 5,
+       "pressures": 4,
        "sacks": 1.0,
-       "hurries": 1,
-       "blitzes": 22
+       "hurries": 0,
+       "blitzes": 0
       },
       {
        "player": "Aaron Hall",
@@ -3575,8 +3632,8 @@
      "third_down_rate": 0.36036036036036034,
      "red_zone_drives": 27,
      "red_zone_td_rate": 0.6296296296296297,
-     "pass_epa_per_dropback": 0.030050561101724466,
-     "rush_epa_per_carry": -0.004430855765857126,
+     "pass_epa_per_dropback": 0.030050561147594374,
+     "rush_epa_per_carry": -0.004430855741665093,
      "neutral_pass_rate": 0.5769230769230769,
      "blitz_rate": 0.27596439169139464,
      "play_action_rate": 0.258160237388724,
@@ -3698,12 +3755,12 @@
      "pass_epa_per_dropback": {
       "rank": 17,
       "of": 32,
-      "league_avg": 0.04465239140401442
+      "league_avg": 0.04465239151229834
      },
      "rush_epa_per_carry": {
       "rank": 9,
       "of": 32,
-      "league_avg": -0.06098569749017958
+      "league_avg": -0.060985697844241446
      },
      "takeaways_pg": {
       "rank": 8,
@@ -4678,7 +4735,7 @@
        "sacks": 27,
        "yards_per_attempt": 6.809364548494983,
        "avg_depth_of_target": 7.739130434782608,
-       "epa_per_dropback": 0.012454521437702001,
+       "epa_per_dropback": 0.012454521485119678,
        "pressure_rate_faced": 0.17177914110429449,
        "log": [
         {
@@ -4964,7 +5021,7 @@
    },
    "depth_chart": {
     "status": "OK",
-    "as_of": "2026-11-17T16:52:03Z",
+    "as_of": "2026-11-19T16:30:49Z",
     "starters": [
      {
       "slot": "WR",
@@ -5198,17 +5255,127 @@
     ]
    },
    "injuries": {
-    "official_report": [],
-    "official_report_status": "NOT_POSTED_YET_OR_EMPTY",
-    "espn_live": [
+    "official_report": [
+     {
+      "player": "Will Lee III",
+      "position": "CB",
+      "game_status": null,
+      "practice_status": "Full Participation in Practice",
+      "injury": null,
+      "starter": true,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Bobby Okereke",
+      "position": "LB",
+      "game_status": null,
+      "practice_status": "Did Not Participate In Practice",
+      "injury": null,
+      "starter": true,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Bryce Young",
+      "position": "QB",
+      "game_status": null,
+      "practice_status": "Full Participation in Practice",
+      "injury": null,
+      "starter": true,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Chuba Hubbard",
+      "position": "RB",
+      "game_status": null,
+      "practice_status": "Did Not Participate In Practice",
+      "injury": null,
+      "starter": true,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Tommy Tremble",
+      "position": "TE",
+      "game_status": null,
+      "practice_status": "Did Not Participate In Practice",
+      "injury": null,
+      "starter": true,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Mike Jackson",
+      "position": "CB",
+      "game_status": null,
+      "practice_status": "Full Participation in Practice",
+      "injury": null,
+      "starter": false,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Brady Christensen",
+      "position": "G",
+      "game_status": null,
+      "practice_status": "Full Participation in Practice",
+      "injury": null,
+      "starter": false,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Trevis Gipson",
+      "position": "LB",
+      "game_status": null,
+      "practice_status": "Limited Participation in Practice",
+      "injury": null,
+      "starter": false,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Jackson Kuwatch",
+      "position": "LB",
+      "game_status": null,
+      "practice_status": "Full Participation in Practice",
+      "injury": null,
+      "starter": false,
+      "source": "nflverse official report"
+     },
      {
       "player": "Jonathon Brooks",
       "position": "RB",
-      "status": "Injured Reserve",
-      "date": "2026-11-14T19:01Z",
-      "comment": "Brooks (groin) has been downgraded from doubtful to out for Sunday's game against the Saints, Joe Person of The Athletic reports.",
-      "team": "CAR"
+      "game_status": null,
+      "practice_status": "Full Participation in Practice",
+      "injury": null,
+      "starter": false,
+      "source": "nflverse official report"
      },
+     {
+      "player": "Isaiah Simmons",
+      "position": "S",
+      "game_status": null,
+      "practice_status": "Did Not Participate In Practice",
+      "injury": null,
+      "starter": false,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Darren Waller",
+      "position": "TE",
+      "game_status": null,
+      "practice_status": "Did Not Participate In Practice",
+      "injury": null,
+      "starter": false,
+      "source": "nflverse official report"
+     },
+     {
+      "player": "Feleipe Franks",
+      "position": "TE",
+      "game_status": null,
+      "practice_status": "Full Participation in Practice",
+      "injury": null,
+      "starter": false,
+      "source": "nflverse official report"
+     }
+    ],
+    "official_report_status": "OK",
+    "espn_live": [
      {
       "player": "Mike Jackson",
       "position": "CB",
@@ -5226,10 +5393,10 @@
       "team": "CAR"
      },
      {
-      "player": "Will Lee III",
-      "position": "CB",
+      "player": "Isaiah Simmons",
+      "position": "S",
       "status": "Questionable",
-      "date": "2026-11-17T12:19Z",
+      "date": "2026-11-18T20:16Z",
       "comment": "questionable",
       "team": "CAR"
      },
@@ -5237,56 +5404,32 @@
       "player": "Bobby Okereke",
       "position": "LB",
       "status": "Questionable",
-      "date": "2026-11-17T12:19Z",
-      "comment": "questionable",
+      "date": "2026-11-19T00:16Z",
+      "comment": "Okereke (foot) did not participate in Wednesday's practice.",
       "team": "CAR"
      },
      {
-      "player": "Trevor Etienne",
-      "position": "RB",
-      "status": "Active",
-      "date": "2026-11-11T02:45Z",
-      "comment": "Etienne carried the ball two times for seven yards and returned one punt for nine yards during Carolina'a loss Sunday to the Broncos.",
-      "team": "CAR"
-     },
-     {
-      "player": "Mitchell Evans",
+      "player": "Darren Waller",
       "position": "TE",
-      "status": "Active",
-      "date": "2026-11-11T02:50Z",
-      "comment": "Evans caught both of his two targets for 20 yards during Sunday's 26-21 loss versus the Broncos.",
+      "status": "Questionable",
+      "date": "2026-11-19T20:08Z",
+      "comment": "Waller (knee) was a limited participant in Thursday's practice, Mike Kaye of ESPN reports.",
       "team": "CAR"
      },
      {
-      "player": "John Metchie III",
-      "position": "WR",
-      "status": "Active",
-      "date": "2026-11-11T02:51Z",
-      "comment": "Metchie caught both of his targets for 40 yards Sunday in a loss to the Broncos.",
+      "player": "Jonathon Brooks",
+      "position": "RB",
+      "status": "Injured Reserve",
+      "date": "2026-11-19T20:22Z",
+      "comment": "Brooks (groin) remained a full participant in Thursday's practice, Mike Kaye of ESPN.com reports.",
       "team": "CAR"
      },
      {
-      "player": "Damien Lewis",
-      "position": "G",
-      "status": "Active",
-      "date": "2026-11-12T01:23Z",
-      "comment": "Lewis (knee) was a full participant in Wednesday's walkthrough practice.",
-      "team": "CAR"
-     },
-     {
-      "player": "Devin Lloyd",
-      "position": "LB",
-      "status": "Active",
-      "date": "2026-11-12T03:06Z",
-      "comment": "Lloyd posted eight tackles (five solo) and one pass defense during the Panthers' 26-21 loss to the Broncos in Week 9.",
-      "team": "CAR"
-     },
-     {
-      "player": "Xavier Legette",
-      "position": "WR",
-      "status": "Active",
-      "date": "2026-11-15T17:04Z",
-      "comment": "Legette (knee) is active for Sunday's game against the Saints, Darin Gantt of the Panthers' official site reports.",
+      "player": "Tommy Tremble",
+      "position": "TE",
+      "status": "Questionable",
+      "date": "2026-11-19T20:25Z",
+      "comment": "Tremble (knee) was limited in Thursday's practice, Mike Kaye of ESPN.com reports.",
       "team": "CAR"
      },
      {
@@ -5314,27 +5457,11 @@
       "team": "CAR"
      },
      {
-      "player": "Bryce Young",
-      "position": "QB",
-      "status": "Active",
-      "date": "2026-11-16T03:00Z",
-      "comment": "Young completed 17 of 30 passes for 200 yards without a touchdown or interception in Sunday's 20-17 win over the Saints. He added one rushing yard on his only carry.",
-      "team": "CAR"
-     },
-     {
       "player": "Jalen Coker",
       "position": "WR",
       "status": "Active",
       "date": "2026-11-16T04:22Z",
       "comment": "Coker failed to catch any of his four targets in Sunday's 20-17 win over the Saints.",
-      "team": "CAR"
-     },
-     {
-      "player": "Darren Waller",
-      "position": "TE",
-      "status": "Active",
-      "date": "2026-11-16T04:59Z",
-      "comment": "Waller caught two of four targets for 24 yards in Sunday's 20-17 win over the Saints.",
       "team": "CAR"
      },
      {
@@ -5394,11 +5521,59 @@
       "team": "CAR"
      },
      {
-      "player": "Tommy Tremble",
-      "position": "TE",
+      "player": "Trevor Etienne",
+      "position": "RB",
       "status": "Active",
-      "date": "2026-11-17T05:16Z",
-      "comment": "Tremble caught four of five targets for 48 yards in Sunday's 20-17 win over the Saints.",
+      "date": "2026-11-18T02:32Z",
+      "comment": "Etienne took three carries for one yard and caught both of his two targets for nine yards during Sunday's 20-17 win at New Orleans. He also returned three punts for 43 yards.",
+      "team": "CAR"
+     },
+     {
+      "player": "John Metchie III",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-18T02:34Z",
+      "comment": "Metchie caught his only target for four yards Sunday in a 20-17 win against New Orleans.",
+      "team": "CAR"
+     },
+     {
+      "player": "Xavier Legette",
+      "position": "WR",
+      "status": "Active",
+      "date": "2026-11-18T02:46Z",
+      "comment": "Legette didn't produce any output in the boxscore during Carolina's win over the Saints on Sunday.",
+      "team": "CAR"
+     },
+     {
+      "player": "Devin Lloyd",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-18T03:44Z",
+      "comment": "Lloyd registered nine tackles (five solo) and an interception in Sunday's 20-17 win over New Orleans.",
+      "team": "CAR"
+     },
+     {
+      "player": "Tyrel Dodson",
+      "position": "LB",
+      "status": "Active",
+      "date": "2026-11-18T03:52Z",
+      "comment": "Dodson logged seven tackles (two solo) Sunday in a 20-17 win over New Orleans.",
+      "team": "CAR"
+     },
+     {
+      "player": "Bryce Young",
+      "position": "QB",
+      "status": "Active",
+      "date": "2026-11-18T21:09Z",
+      "comment": "Young was listed with a sore foot on Wednesday's injury report but was a full participant in the Panthers' first Week 11 practice.",
+      "team": "CAR"
+     },
+     {
+      "player": "Will Lee III",
+      "position": "CB",
+      "status": "Active",
+      "date": "2026-11-19T00:17Z",
+      "comment": "Lee (hamstring) was a full participant in Wednesday's practice.",
       "team": "CAR"
      }
     ],
@@ -5781,28 +5956,28 @@
    },
    "rain_adjusted": {
     "status": "OK",
-    "rain_chance": 0.1,
-    "wind_mph": 7.0,
+    "rain_chance": 0.14,
+    "wind_mph": 12.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
      "dry": {
-      "attempts": 29.9,
-      "completion_pct": 0.669,
-      "completions": 20.0,
-      "yards": 202.9
+      "attempts": 29.6,
+      "completion_pct": 0.665,
+      "completions": 19.7,
+      "yards": 198.1
      },
      "rain": {
-      "attempts": 28.6,
-      "completion_pct": 0.629,
-      "completions": 18.0,
-      "yards": 173.3
+      "attempts": 28.3,
+      "completion_pct": 0.624,
+      "completions": 17.7,
+      "yards": 168.5
      },
      "forecast": {
-      "attempts": 29.7,
-      "completion_pct": 0.665,
-      "completions": 19.8,
-      "yards": 199.9
+      "attempts": 29.4,
+      "completion_pct": 0.659,
+      "completions": 19.4,
+      "yards": 193.9
      }
     },
     "receivers": [
@@ -5813,24 +5988,24 @@
       "target_share": 0.2777777777777778,
       "dry": {
        "targets": 8.1,
-       "catch_rate": 0.677,
-       "receptions": 5.5,
-       "yards_per_target": 8.28,
-       "yards": 67.2
-      },
-      "rain": {
-       "targets": 7.8,
-       "catch_rate": 0.633,
-       "receptions": 4.9,
-       "yards_per_target": 7.34,
-       "yards": 57.1
-      },
-      "forecast": {
-       "targets": 8.1,
        "catch_rate": 0.673,
        "receptions": 5.4,
-       "yards_per_target": 8.18,
-       "yards": 66.2
+       "yards_per_target": 8.09,
+       "yards": 65.1
+      },
+      "rain": {
+       "targets": 7.7,
+       "catch_rate": 0.628,
+       "receptions": 4.8,
+       "yards_per_target": 7.15,
+       "yards": 55.1
+      },
+      "forecast": {
+       "targets": 8.0,
+       "catch_rate": 0.666,
+       "receptions": 5.3,
+       "yards_per_target": 7.96,
+       "yards": 63.7
       }
      },
      {
@@ -5839,25 +6014,25 @@
       "games": 8,
       "target_share": 0.1623931623931624,
       "dry": {
-       "targets": 4.8,
-       "catch_rate": 0.763,
-       "receptions": 3.6,
-       "yards_per_target": 5.82,
-       "yards": 27.6
+       "targets": 4.6,
+       "catch_rate": 0.752,
+       "receptions": 3.5,
+       "yards_per_target": 5.67,
+       "yards": 26.3
       },
       "rain": {
-       "targets": 4.5,
-       "catch_rate": 0.711,
-       "receptions": 3.2,
-       "yards_per_target": 5.14,
-       "yards": 23.4
+       "targets": 4.4,
+       "catch_rate": 0.7,
+       "receptions": 3.1,
+       "yards_per_target": 5.0,
+       "yards": 22.2
       },
       "forecast": {
-       "targets": 4.7,
-       "catch_rate": 0.758,
-       "receptions": 3.6,
-       "yards_per_target": 5.75,
-       "yards": 27.2
+       "targets": 4.6,
+       "catch_rate": 0.745,
+       "receptions": 3.4,
+       "yards_per_target": 5.58,
+       "yards": 25.7
       }
      },
      {
@@ -5877,14 +6052,14 @@
        "catch_rate": 0.661,
        "receptions": 2.9,
        "yards_per_target": 3.35,
-       "yards": 14.6
+       "yards": 14.7
       },
       "forecast": {
        "targets": 4.6,
-       "catch_rate": 0.685,
+       "catch_rate": 0.684,
        "receptions": 3.1,
-       "yards_per_target": 3.79,
-       "yards": 17.3
+       "yards_per_target": 3.77,
+       "yards": 17.2
       }
      },
      {
@@ -5894,24 +6069,24 @@
       "target_share": 0.1111111111111111,
       "dry": {
        "targets": 3.2,
-       "catch_rate": 0.615,
+       "catch_rate": 0.611,
        "receptions": 2.0,
-       "yards_per_target": 9.54,
-       "yards": 31.0
+       "yards_per_target": 9.32,
+       "yards": 30.0
       },
       "rain": {
        "targets": 3.1,
-       "catch_rate": 0.575,
+       "catch_rate": 0.571,
        "receptions": 1.8,
-       "yards_per_target": 8.46,
-       "yards": 26.3
+       "yards_per_target": 8.24,
+       "yards": 25.4
       },
       "forecast": {
        "targets": 3.2,
-       "catch_rate": 0.611,
-       "receptions": 2.0,
-       "yards_per_target": 9.43,
-       "yards": 30.5
+       "catch_rate": 0.606,
+       "receptions": 1.9,
+       "yards_per_target": 9.17,
+       "yards": 29.4
       }
      },
      {
@@ -5921,24 +6096,24 @@
       "target_share": 0.09401709401709402,
       "dry": {
        "targets": 5.5,
-       "catch_rate": 0.5,
-       "receptions": 2.8,
-       "yards_per_target": 6.32,
-       "yards": 34.8
-      },
-      "rain": {
-       "targets": 5.3,
-       "catch_rate": 0.467,
-       "receptions": 2.5,
-       "yards_per_target": 5.6,
-       "yards": 29.5
-      },
-      "forecast": {
-       "targets": 5.5,
        "catch_rate": 0.497,
        "receptions": 2.7,
-       "yards_per_target": 6.25,
-       "yards": 34.2
+       "yards_per_target": 6.17,
+       "yards": 33.7
+      },
+      "rain": {
+       "targets": 5.2,
+       "catch_rate": 0.464,
+       "receptions": 2.4,
+       "yards_per_target": 5.46,
+       "yards": 28.5
+      },
+      "forecast": {
+       "targets": 5.4,
+       "catch_rate": 0.492,
+       "receptions": 2.7,
+       "yards_per_target": 6.07,
+       "yards": 32.9
       }
      },
      {
@@ -5947,25 +6122,25 @@
       "games": 6,
       "target_share": 0.06837606837606838,
       "dry": {
-       "targets": 2.7,
-       "catch_rate": 0.812,
-       "receptions": 2.2,
-       "yards_per_target": 10.69,
-       "yards": 28.5
+       "targets": 2.6,
+       "catch_rate": 0.801,
+       "receptions": 2.1,
+       "yards_per_target": 10.42,
+       "yards": 27.1
       },
       "rain": {
-       "targets": 2.6,
-       "catch_rate": 0.757,
+       "targets": 2.5,
+       "catch_rate": 0.745,
        "receptions": 1.9,
-       "yards_per_target": 9.45,
-       "yards": 24.1
+       "yards_per_target": 9.19,
+       "yards": 22.9
       },
       "forecast": {
-       "targets": 2.7,
-       "catch_rate": 0.807,
+       "targets": 2.6,
+       "catch_rate": 0.793,
        "receptions": 2.1,
-       "yards_per_target": 10.56,
-       "yards": 28.0
+       "yards_per_target": 10.25,
+       "yards": 26.5
       }
      },
      {
@@ -5989,9 +6164,9 @@
       },
       "forecast": {
        "targets": 2.1,
-       "catch_rate": 0.863,
+       "catch_rate": 0.862,
        "receptions": 1.8,
-       "yards_per_target": 3.09,
+       "yards_per_target": 3.08,
        "yards": 6.6
       }
      },
@@ -6001,25 +6176,25 @@
       "games": 4,
       "target_share": 0.029914529914529916,
       "dry": {
-       "targets": 1.8,
-       "catch_rate": 0.429,
-       "receptions": 0.8,
-       "yards_per_target": 4.0,
-       "yards": 7.0
-      },
-      "rain": {
-       "targets": 1.7,
-       "catch_rate": 0.401,
-       "receptions": 0.7,
-       "yards_per_target": 3.55,
-       "yards": 5.9
-      },
-      "forecast": {
        "targets": 1.7,
        "catch_rate": 0.426,
        "receptions": 0.7,
-       "yards_per_target": 3.95,
-       "yards": 6.9
+       "yards_per_target": 3.91,
+       "yards": 6.8
+      },
+      "rain": {
+       "targets": 1.7,
+       "catch_rate": 0.398,
+       "receptions": 0.7,
+       "yards_per_target": 3.46,
+       "yards": 5.7
+      },
+      "forecast": {
+       "targets": 1.7,
+       "catch_rate": 0.422,
+       "receptions": 0.7,
+       "yards_per_target": 3.84,
+       "yards": 6.6
       }
      },
      {
@@ -6028,25 +6203,25 @@
       "games": 4,
       "target_share": 0.029914529914529916,
       "dry": {
-       "targets": 1.8,
-       "catch_rate": 0.714,
+       "targets": 1.7,
+       "catch_rate": 0.704,
        "receptions": 1.2,
-       "yards_per_target": 8.86,
-       "yards": 15.5
+       "yards_per_target": 8.64,
+       "yards": 14.8
       },
       "rain": {
-       "targets": 1.7,
-       "catch_rate": 0.665,
+       "targets": 1.6,
+       "catch_rate": 0.655,
        "receptions": 1.1,
-       "yards_per_target": 7.84,
-       "yards": 13.1
+       "yards_per_target": 7.62,
+       "yards": 12.4
       },
       "forecast": {
        "targets": 1.7,
-       "catch_rate": 0.709,
+       "catch_rate": 0.697,
        "receptions": 1.2,
-       "yards_per_target": 8.75,
-       "yards": 15.3
+       "yards_per_target": 8.49,
+       "yards": 14.4
       }
      }
     ],
@@ -6055,16 +6230,16 @@
      "attempts_in_window": 110,
      "small_sample": true,
      "dry": {
-      "completion_pct": 0.691,
-      "yards_per_attempt": 6.61
+      "completion_pct": 0.686,
+      "yards_per_attempt": 6.5
      },
      "rain": {
-      "completion_pct": 0.649,
-      "yards_per_attempt": 5.81
+      "completion_pct": 0.644,
+      "yards_per_attempt": 5.7
      },
      "forecast": {
-      "completion_pct": 0.687,
-      "yards_per_attempt": 6.53
+      "completion_pct": 0.68,
+      "yards_per_attempt": 6.39
      }
     }
    }
@@ -6449,28 +6624,28 @@
    },
    "rain_adjusted": {
     "status": "OK",
-    "rain_chance": 0.1,
-    "wind_mph": 7.0,
+    "rain_chance": 0.14,
+    "wind_mph": 12.0,
     "basis": "211 team-games in rain since 2018, each compared with the same team's dry games that season",
     "note": "One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.",
     "team_passing": {
      "dry": {
-      "attempts": 37.9,
-      "completion_pct": 0.604,
-      "completions": 22.9,
-      "yards": 260.4
+      "attempts": 37.6,
+      "completion_pct": 0.6,
+      "completions": 22.5,
+      "yards": 254.2
      },
      "rain": {
-      "attempts": 36.2,
-      "completion_pct": 0.567,
-      "completions": 20.6,
-      "yards": 222.5
+      "attempts": 35.9,
+      "completion_pct": 0.563,
+      "completions": 20.2,
+      "yards": 216.3
      },
      "forecast": {
-      "attempts": 37.7,
-      "completion_pct": 0.6,
-      "completions": 22.6,
-      "yards": 256.6
+      "attempts": 37.3,
+      "completion_pct": 0.595,
+      "completions": 22.2,
+      "yards": 248.9
      }
     },
     "receivers": [
@@ -6480,25 +6655,25 @@
       "games": 8,
       "target_share": 0.2517985611510791,
       "dry": {
-       "targets": 8.8,
-       "catch_rate": 0.629,
-       "receptions": 5.5,
-       "yards_per_target": 8.37,
-       "yards": 73.2
+       "targets": 8.7,
+       "catch_rate": 0.625,
+       "receptions": 5.4,
+       "yards_per_target": 8.18,
+       "yards": 71.0
       },
       "rain": {
-       "targets": 8.4,
-       "catch_rate": 0.588,
-       "receptions": 4.9,
-       "yards_per_target": 7.42,
-       "yards": 62.1
+       "targets": 8.3,
+       "catch_rate": 0.584,
+       "receptions": 4.8,
+       "yards_per_target": 7.23,
+       "yards": 60.0
       },
       "forecast": {
-       "targets": 8.7,
-       "catch_rate": 0.624,
-       "receptions": 5.4,
-       "yards_per_target": 8.28,
-       "yards": 72.1
+       "targets": 8.6,
+       "catch_rate": 0.619,
+       "receptions": 5.3,
+       "yards_per_target": 8.05,
+       "yards": 69.4
       }
      },
      {
@@ -6507,25 +6682,25 @@
       "games": 7,
       "target_share": 0.15827338129496402,
       "dry": {
-       "targets": 6.3,
-       "catch_rate": 0.523,
-       "receptions": 3.3,
-       "yards_per_target": 5.77,
-       "yards": 36.3
+       "targets": 6.2,
+       "catch_rate": 0.519,
+       "receptions": 3.2,
+       "yards_per_target": 5.64,
+       "yards": 35.2
       },
       "rain": {
        "targets": 6.0,
-       "catch_rate": 0.489,
+       "catch_rate": 0.485,
        "receptions": 2.9,
-       "yards_per_target": 5.12,
-       "yards": 30.8
+       "yards_per_target": 4.99,
+       "yards": 29.7
       },
       "forecast": {
-       "targets": 6.3,
-       "catch_rate": 0.519,
-       "receptions": 3.3,
-       "yards_per_target": 5.71,
-       "yards": 35.7
+       "targets": 6.2,
+       "catch_rate": 0.515,
+       "receptions": 3.2,
+       "yards_per_target": 5.55,
+       "yards": 34.4
       }
      },
      {
@@ -6534,25 +6709,25 @@
       "games": 8,
       "target_share": 0.13309352517985612,
       "dry": {
-       "targets": 4.6,
-       "catch_rate": 0.622,
-       "receptions": 2.9,
-       "yards_per_target": 7.97,
-       "yards": 36.9
+       "targets": 4.5,
+       "catch_rate": 0.613,
+       "receptions": 2.8,
+       "yards_per_target": 7.78,
+       "yards": 35.1
       },
       "rain": {
-       "targets": 4.4,
-       "catch_rate": 0.579,
-       "receptions": 2.6,
-       "yards_per_target": 7.05,
-       "yards": 31.2
+       "targets": 4.3,
+       "catch_rate": 0.57,
+       "receptions": 2.5,
+       "yards_per_target": 6.86,
+       "yards": 29.6
       },
       "forecast": {
-       "targets": 4.6,
-       "catch_rate": 0.617,
-       "receptions": 2.8,
-       "yards_per_target": 7.88,
-       "yards": 36.3
+       "targets": 4.5,
+       "catch_rate": 0.607,
+       "receptions": 2.7,
+       "yards_per_target": 7.65,
+       "yards": 34.3
       }
      },
      {
@@ -6565,10 +6740,10 @@
        "catch_rate": 0.848,
        "receptions": 3.5,
        "yards_per_target": 6.33,
-       "yards": 26.1
+       "yards": 26.2
       },
       "rain": {
-       "targets": 3.9,
+       "targets": 4.0,
        "catch_rate": 0.815,
        "receptions": 3.2,
        "yards_per_target": 5.51,
@@ -6576,10 +6751,10 @@
       },
       "forecast": {
        "targets": 4.1,
-       "catch_rate": 0.845,
+       "catch_rate": 0.844,
        "receptions": 3.5,
-       "yards_per_target": 6.25,
-       "yards": 25.7
+       "yards_per_target": 6.22,
+       "yards": 25.5
       }
      },
      {
@@ -6588,25 +6763,25 @@
       "games": 8,
       "target_share": 0.1079136690647482,
       "dry": {
-       "targets": 3.8,
-       "catch_rate": 0.733,
-       "receptions": 2.8,
-       "yards_per_target": 6.73,
-       "yards": 25.2
+       "targets": 3.7,
+       "catch_rate": 0.723,
+       "receptions": 2.6,
+       "yards_per_target": 6.57,
+       "yards": 24.0
       },
       "rain": {
-       "targets": 3.6,
-       "catch_rate": 0.683,
-       "receptions": 2.5,
-       "yards_per_target": 5.96,
-       "yards": 21.4
+       "targets": 3.5,
+       "catch_rate": 0.673,
+       "receptions": 2.4,
+       "yards_per_target": 5.79,
+       "yards": 20.3
       },
       "forecast": {
-       "targets": 3.7,
-       "catch_rate": 0.728,
-       "receptions": 2.7,
-       "yards_per_target": 6.66,
-       "yards": 24.9
+       "targets": 3.6,
+       "catch_rate": 0.716,
+       "receptions": 2.6,
+       "yards_per_target": 6.46,
+       "yards": 23.5
       }
      },
      {
@@ -6616,24 +6791,24 @@
       "target_share": 0.08273381294964029,
       "dry": {
        "targets": 3.3,
-       "catch_rate": 0.652,
+       "catch_rate": 0.648,
        "receptions": 2.1,
-       "yards_per_target": 6.87,
-       "yards": 22.6
+       "yards_per_target": 6.71,
+       "yards": 21.9
       },
       "rain": {
        "targets": 3.1,
-       "catch_rate": 0.61,
+       "catch_rate": 0.606,
        "receptions": 1.9,
-       "yards_per_target": 6.09,
-       "yards": 19.2
+       "yards_per_target": 5.93,
+       "yards": 18.5
       },
       "forecast": {
-       "targets": 3.3,
-       "catch_rate": 0.648,
+       "targets": 3.2,
+       "catch_rate": 0.642,
        "receptions": 2.1,
-       "yards_per_target": 6.79,
-       "yards": 22.2
+       "yards_per_target": 6.6,
+       "yards": 21.4
       }
      },
      {
@@ -6643,24 +6818,24 @@
       "target_share": 0.046762589928057555,
       "dry": {
        "targets": 1.6,
-       "catch_rate": 0.846,
-       "receptions": 1.4,
-       "yards_per_target": 10.62,
-       "yards": 17.2
+       "catch_rate": 0.834,
+       "receptions": 1.3,
+       "yards_per_target": 10.35,
+       "yards": 16.4
       },
       "rain": {
-       "targets": 1.6,
-       "catch_rate": 0.788,
+       "targets": 1.5,
+       "catch_rate": 0.776,
        "receptions": 1.2,
-       "yards_per_target": 9.39,
-       "yards": 14.6
+       "yards_per_target": 9.13,
+       "yards": 13.9
       },
       "forecast": {
        "targets": 1.6,
-       "catch_rate": 0.84,
-       "receptions": 1.4,
-       "yards_per_target": 10.49,
-       "yards": 17.0
+       "catch_rate": 0.826,
+       "receptions": 1.3,
+       "yards_per_target": 10.18,
+       "yards": 16.1
       }
      },
      {
@@ -6670,24 +6845,24 @@
       "target_share": 0.04316546762589928,
       "dry": {
        "targets": 2.4,
-       "catch_rate": 0.583,
+       "catch_rate": 0.58,
        "receptions": 1.4,
-       "yards_per_target": 10.5,
-       "yards": 25.2
+       "yards_per_target": 10.26,
+       "yards": 24.4
       },
       "rain": {
        "targets": 2.3,
-       "catch_rate": 0.545,
-       "receptions": 1.3,
-       "yards_per_target": 9.31,
-       "yards": 21.4
+       "catch_rate": 0.542,
+       "receptions": 1.2,
+       "yards_per_target": 9.07,
+       "yards": 20.6
       },
       "forecast": {
        "targets": 2.4,
-       "catch_rate": 0.58,
+       "catch_rate": 0.574,
        "receptions": 1.4,
-       "yards_per_target": 10.38,
-       "yards": 24.8
+       "yards_per_target": 10.09,
+       "yards": 23.9
       }
      },
      {
@@ -6697,24 +6872,24 @@
       "target_share": 0.014388489208633094,
       "dry": {
        "targets": 1.3,
-       "catch_rate": 0.25,
+       "catch_rate": 0.248,
        "receptions": 0.3,
-       "yards_per_target": 6.75,
-       "yards": 9.0
+       "yards_per_target": 6.59,
+       "yards": 8.7
       },
       "rain": {
        "targets": 1.3,
-       "catch_rate": 0.234,
+       "catch_rate": 0.232,
        "receptions": 0.3,
-       "yards_per_target": 5.99,
-       "yards": 7.6
+       "yards_per_target": 5.83,
+       "yards": 7.4
       },
       "forecast": {
        "targets": 1.3,
-       "catch_rate": 0.248,
+       "catch_rate": 0.246,
        "receptions": 0.3,
-       "yards_per_target": 6.67,
-       "yards": 8.9
+       "yards_per_target": 6.49,
+       "yards": 8.5
       }
      }
     ],
@@ -6723,16 +6898,16 @@
      "attempts_in_window": 299,
      "small_sample": false,
      "dry": {
-      "completion_pct": 0.602,
-      "yards_per_attempt": 6.81
+      "completion_pct": 0.598,
+      "yards_per_attempt": 6.7
      },
      "rain": {
-      "completion_pct": 0.566,
-      "yards_per_attempt": 5.99
+      "completion_pct": 0.561,
+      "yards_per_attempt": 5.88
      },
      "forecast": {
-      "completion_pct": 0.598,
-      "yards_per_attempt": 6.73
+      "completion_pct": 0.593,
+      "yards_per_attempt": 6.58
      }
     }
    }
@@ -6779,7 +6954,7 @@
       "away": 6.1
      }
     },
-    "home_covers_market_spread": 0.465,
+    "home_covers_market_spread": 0.365,
     "over_market_total": 0.544
    },
    "independent": {
@@ -6816,8 +6991,8 @@
       "away": 6.5
      }
     },
-    "home_covers_market_spread": 0.373,
-    "over_market_total": 0.456
+    "home_covers_market_spread": 0.341,
+    "over_market_total": 0.486
    }
   },
   "note": "Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information."
@@ -6826,63 +7001,63 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:03+00:00",
-   "sha256": "f84bb068b60652e1edda8f2e1eb16b65714f0c8c79c8fb4a7a723f4077b36b3a",
-   "bytes": 524007
+   "retrieved_utc": "2026-11-19T21:56:41+00:00",
+   "sha256": "845d9bfc3484e3ea48f8505f224a24e1a6ecda19154e8e62bcceb88b32bd12fb",
+   "bytes": 524059
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:03+00:00",
-   "sha256": "32334d4ae379d25b3bbaa1b7a9fd3746c19a636b48be99ef5fa9318ac6346398",
-   "bytes": 11793343
+   "retrieved_utc": "2026-11-19T21:56:41+00:00",
+   "sha256": "5a54b5ef7b9a63736497f7e0fb998e1f87aed98afda912302667ca05a7fd6387",
+   "bytes": 11776333
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:03+00:00",
-   "sha256": "e4f81f1adc7243e64290a1fff42309ed8f866628db22738ca0017633904d7751",
-   "bytes": 831441
+   "retrieved_utc": "2026-11-19T21:56:42+00:00",
+   "sha256": "bf8b55781431fd8fb7367578328584281240fd8c87b828850a77015b21c5f8bf",
+   "bytes": 833139
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:04+00:00",
-   "sha256": "33d3b85359fe41db9aa652d6a385b31e92186e143af6cdca6fab4ace981ea1d9",
-   "bytes": 65722
+   "retrieved_utc": "2026-11-19T21:56:42+00:00",
+   "sha256": "f590b3623cca888dbf83e3cf4ad02f83089f914b8a9c75d32f428921f502c80b",
+   "bytes": 68602
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:04+00:00",
-   "sha256": "aaca90f9afb797e1bc5c8aa852a1032f9efd18bd10542da4180066c5f686de39",
-   "bytes": 3608664
+   "retrieved_utc": "2026-11-19T21:56:42+00:00",
+   "sha256": "7439a2b6ccc175d6643058e2a78eee6853473d5c4b7dc773fd0ea0440089cd48",
+   "bytes": 3572983
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:04+00:00",
+   "retrieved_utc": "2026-11-19T21:56:42+00:00",
    "sha256": "d67d94d19caca72e6977fafafc0c073e100bb56bf82561a4f62c043e257bcf77",
    "bytes": 143614
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:05+00:00",
-   "sha256": "8db63e5eaab15cb29258d739d19de8c57978e0ab31faff78a20c9bab6a3e98eb",
-   "bytes": 311426
+   "retrieved_utc": "2026-11-19T21:56:43+00:00",
+   "sha256": "27afd704d1ea601806a6444499188ebcb9af9254870ab63d99a6a4a4a770e5ff",
+   "bytes": 313292
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-17T21:58:05+00:00",
-   "sha256": "1694590094507344b746477667cb24cf8dabcfc1e3c73f22a83f7d923b5373b1",
-   "bytes": 93708
+   "retrieved_utc": "2026-11-19T21:56:43+00:00",
+   "sha256": "fc61fb5ffaa3b6f563897e1e45536708349b68837ea28280bf6e07176a7de02f",
+   "bytes": 99913
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-17T21:58:05+00:00"
+   "retrieved_utc": "2026-11-19T21:56:43+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
@@ -6958,7 +7133,7 @@
   {
    "phase": 11,
    "name": "Injury and depth chart",
-   "status": "PARTIAL",
+   "status": "AUTO",
    "detail": "Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures."
   },
   {
@@ -6987,7 +7162,7 @@
   }
  ],
  "connectors": {
-  "checked_utc": "2026-11-17T21:58:05+00:00",
+  "checked_utc": "2026-11-19T21:56:43+00:00",
   "sources": {
    "ODDS_API_KEY": {
     "provider": "The Odds API",

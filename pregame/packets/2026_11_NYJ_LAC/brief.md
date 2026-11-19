@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-22, 16:05 ET.** Site: Home; roof: dome; surface: matrixturf. Rest: NYJ 7 days, LAC 6 days. Listed QBs: Geno Smith (NYJ), Justin Herbert (LAC).
 
-Market (schedule consensus, not a timestamped quote): LAC -3.5, total 41.5.
+Market (schedule consensus, not a timestamped quote): LAC -3, total 41.5.
 
-Generated 2026-11-17T21:58:24+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-19T21:57:14+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -44,8 +44,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | NYJ 20.4 - LAC 23.9 | 44.3 | +3.5 | 62.2% | 46.3% | 54.0% | NYJ 9.7 - LAC 12.6 |
-| independent | NYJ 18.4 - LAC 19.8 | 38.2 | +1.4 | 54.9% | 46.4% | 38.3% | NYJ 7.6 - LAC 9.9 |
+| matchup_pair | NYJ 20.4 - LAC 23.9 | 44.3 | +3.5 | 62.2% | 50.5% | 54.0% | NYJ 9.7 - LAC 12.6 |
+| independent | NYJ 18.4 - LAC 19.8 | 38.2 | +1.4 | 54.9% | 47.9% | 38.3% | NYJ 7.6 - LAC 9.9 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -162,25 +162,25 @@ Blitz rate 40.7% and play-action faced 30.0% on 263 charted dropbacks (FTN). Dee
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Azareye'h Thomas | 7 | 37 | 21 | 230 | 6.2 | 3 | 0 | 5 |
-| Brandon Stephens | 7 | 35 | 17 | 260 | 7.4 | 3 | 0 | 1 |
-| Jamien Sherwood | 7 | 33 | 23 | 261 | 7.9 | 2 | 0 | 4 |
-| Dane Belton | 7 | 26 | 15 | 158 | 6.1 | 0 | 0 | 3 |
-| Demario Davis | 7 | 26 | 21 | 190 | 7.3 | 1 | 0 | 3 |
+| Brandon Stephens | 8 | 41 | 20 | 316 | 7.7 | 3 | 0 | 2 |
+| Azareye'h Thomas | 8 | 40 | 23 | 291 | 7.3 | 3 | 1 | 6 |
+| Jamien Sherwood | 8 | 36 | 26 | 284 | 7.9 | 2 | 0 | 4 |
+| Dane Belton | 8 | 28 | 15 | 158 | 5.6 | 0 | 0 | 3 |
+| Demario Davis | 8 | 27 | 22 | 197 | 7.3 | 1 | 0 | 4 |
 | Jarvis Brownlee | 6 | 22 | 14 | 170 | 7.7 | 2 | 0 | 0 |
-| Minkah Fitzpatrick | 6 | 17 | 9 | 191 | 11.2 | 1 | 1 | 1 |
-| David Bailey | 6 | 8 | 4 | 33 | 4.1 | 0 | 0 | 2 |
-| D'Angelo Ponds | 6 | 6 | 4 | 74 | 12.3 | 1 | 0 | 0 |
-| Andre Cisco | 1 | 4 | 3 | 28 | 7.0 | 0 | 0 | 0 |
+| Minkah Fitzpatrick | 7 | 18 | 9 | 191 | 10.6 | 1 | 1 | 1 |
+| David Bailey | 7 | 10 | 4 | 33 | 3.3 | 0 | 0 | 2 |
+| D'Angelo Ponds | 7 | 7 | 4 | 74 | 10.6 | 1 | 0 | 0 |
+| Will McDonald | 7 | 4 | 4 | 36 | 9.0 | 0 | 0 | 2 |
 
 ### NYJ pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| David Bailey | 6 | 13 | 5.5 | 3 | 12 |
-| Will McDonald | 6 | 8 | 2.0 | 2 | 7 |
+| David Bailey | 7 | 13 | 5.5 | 3 | 12 |
+| Will McDonald | 7 | 10 | 3.0 | 2 | 7 |
 | Kingsley Enagbare | 5 | 5 | 0.5 | 1 | 4 |
-| Demario Davis | 7 | 5 | 2.0 | 2 | 26 |
+| Demario Davis | 8 | 5 | 2.0 | 2 | 26 |
 | Jack Heflin | 2 | 4 | 0.0 | 1 | 0 |
 | Jarvis Brownlee | 6 | 4 | 1.0 | 3 | 11 |
 | Jowon Briggs | 3 | 3 | 1.0 | 0 | 0 |
@@ -287,16 +287,25 @@ Neutral-situation pass rate 49.5%; 57.4 plays per game; target share WR 57% / TE
 | defense allows | Deep middle | 10 | 4% | 50% | 17.8 | 5 |
 | defense allows | Deep right | 16 | 7% | 56% | 18.12 | 8 |
 
-### NYJ lines (depth chart as of 2026-11-17T16:52:03Z)
+### NYJ lines (depth chart as of 2026-11-19T16:30:49Z)
 
 Offensive line: LT Olu Fashanu, LG Dylan Parham, C Josh Myers, RG Joe Tippmann, RT Armand Membou.  
 Defensive front: LDE David Bailey, LDT Darrell Jackson Jr., RDT Jowon Briggs, RDE Kingsley Enagbare, WLB Demario Davis, SLB Trevin Wallace.
 
 ### NYJ injuries
 
-Official report not posted yet for this week.
+| Player | Pos | Starter | Game status | Practice | Injury |
+|---|---|---|---|---|---|
+| Dylan Parham | G | yes | none listed | Limited Participation in Practice |  |
+| Trevin Wallace | LB | yes | none listed | Limited Participation in Practice |  |
+| Geno Smith | QB | yes | none listed | Limited Participation in Practice |  |
+| Isaiah Williams | WR | yes | none listed | Did Not Participate In Practice |  |
+| Joseph Ossai | DE |  | none listed | Limited Participation in Practice |  |
+| David Onyemata | DT |  | none listed | Limited Participation in Practice |  |
+| Harrison Phillips | DT |  | none listed | Did Not Participate In Practice |  |
+| Omar Cooper Jr. | WR |  | none listed | Did Not Participate In Practice |  |
 
-ESPN live list (designations only): Omar Cooper Jr. (WR) Questionable; Geno Smith (QB) Questionable; Dylan Parham (G) Questionable; Trevin Wallace (LB) Questionable; Jarvis Brownlee Jr. (CB) Questionable.
+ESPN live list (designations only): Dylan Parham (G) Questionable; Trevin Wallace (LB) Questionable; Harrison Phillips (DT) Questionable; Omar Cooper Jr. (WR) Questionable; Isaiah Williams (WR) Questionable; David Onyemata (DT) Injured Reserve; Joseph Ossai (DE) Questionable; Geno Smith (QB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -332,7 +341,7 @@ Left for another team: Andre Cisco (DB) to DET.
 | Red-zone TD rate allowed | 56.7% | 15/32 | 58.6% |
 | Takeaways / game | 1.62 | 4/32 | 1.23 |
 
-Blitz rate 25.0% and play-action faced 24.1% on 216 charted dropbacks (FTN). Deep passes (20+ air yards) faced 2.9 per game, 52.2% completed.
+Blitz rate 24.1% and play-action faced 24.4% on 266 charted dropbacks (FTN). Deep passes (20+ air yards) faced 2.9 per game, 52.2% completed.
 
 ### LAC defense, game by game
 
@@ -376,29 +385,29 @@ Blitz rate 25.0% and play-action faced 24.1% on 216 charted dropbacks (FTN). Dee
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Tarheeb Still | 7 | 29 | 18 | 222 | 7.7 | 3 | 1 | 4 |
-| Genesis Smith | 7 | 23 | 12 | 200 | 8.7 | 3 | 2 | 2 |
-| Daiyan Henley | 7 | 21 | 15 | 152 | 7.2 | 0 | 1 | 2 |
-| Cam Hart | 7 | 21 | 10 | 165 | 7.9 | 0 | 2 | 2 |
-| Tony Jefferson | 7 | 15 | 11 | 130 | 8.7 | 1 | 0 | 4 |
-| Del'Shawn Phillips | 7 | 13 | 11 | 85 | 6.5 | 1 | 0 | 3 |
+| Tarheeb Still | 8 | 36 | 23 | 277 | 7.7 | 3 | 1 | 4 |
+| Daiyan Henley | 8 | 31 | 23 | 202 | 6.5 | 0 | 1 | 2 |
+| Cam Hart | 8 | 28 | 14 | 229 | 8.2 | 0 | 2 | 2 |
+| Genesis Smith | 8 | 24 | 13 | 206 | 8.6 | 3 | 2 | 2 |
+| Tony Jefferson | 8 | 18 | 13 | 151 | 8.4 | 1 | 0 | 4 |
+| Del'Shawn Phillips | 8 | 17 | 15 | 101 | 5.9 | 1 | 1 | 3 |
+| Elijah Molden | 6 | 13 | 11 | 192 | 14.8 | 1 | 0 | 1 |
 | Isas Waxter | 3 | 10 | 5 | 9 | 0.9 | 0 | 0 | 0 |
-| Elijah Molden | 5 | 10 | 8 | 147 | 14.7 | 1 | 0 | 1 |
-| Rodney Shelley | 4 | 9 | 7 | 126 | 14.0 | 2 | 0 | 2 |
-| Donte Jackson | 4 | 7 | 4 | 101 | 14.4 | 1 | 0 | 1 |
+| Rodney Shelley | 5 | 10 | 7 | 126 | 12.6 | 2 | 0 | 2 |
+| Donte Jackson | 5 | 10 | 6 | 148 | 14.8 | 1 | 0 | 2 |
 
 ### LAC pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| Tuli Tuipulotu | 7 | 9 | 3.0 | 2 | 13 |
+| Tuli Tuipulotu | 8 | 13 | 3.0 | 2 | 15 |
+| Akheem Mesidor | 7 | 9 | 2.5 | 1 | 1 |
 | Khalil Mack | 5 | 9 | 3.0 | 3 | 6 |
-| Akheem Mesidor | 6 | 7 | 2.5 | 0 | 1 |
-| Teair Tart | 6 | 5 | 0.0 | 0 | 0 |
-| Daiyan Henley | 7 | 4 | 0.0 | 3 | 17 |
+| Teair Tart | 7 | 6 | 0.0 | 0 | 0 |
+| Dalvin Tomlinson | 4 | 4 | 2.5 | 0 | 0 |
+| Daiyan Henley | 8 | 4 | 0.0 | 3 | 21 |
 | Justin Eboigbe | 3 | 2 | 0.5 | 0 | 0 |
 | Jamaree Caldwell | 4 | 2 | 0.0 | 0 | 0 |
-| Troy Dye | 6 | 2 | 1.0 | 1 | 5 |
 
 ### LAC offense: what it produces (rank 1 = best offense)
 
@@ -501,16 +510,28 @@ Neutral-situation pass rate 39.4%; 62.4 plays per game; target share WR 48% / TE
 | defense allows | Deep middle | 10 | 4% | 50% | 15.7 | 4 |
 | defense allows | Deep right | 18 | 7% | 56% | 16.56 | 8 |
 
-### LAC lines (depth chart as of 2026-11-17T16:52:03Z)
+### LAC lines (depth chart as of 2026-11-19T16:30:49Z)
 
 Offensive line: LT Joe Alt, LG Logan Taylor, C Jake Slaughter, RG Cole Strange, RT Travis Burke.  
 Defensive front: LDE Teair Tart, NT Jamaree Caldwell, RDE Justin Eboigbe, WLB Tuli Tuipulotu, SLB Khalil Mack.
 
 ### LAC injuries
 
-Official report not posted yet for this week.
+| Player | Pos | Starter | Game status | Practice | Injury |
+|---|---|---|---|---|---|
+| Donte Jackson | CB | yes | none listed | Limited Participation in Practice |  |
+| Khalil Mack | DE | yes | none listed | Did Not Participate In Practice |  |
+| Justin Eboigbe | DE | yes | none listed | Limited Participation in Practice |  |
+| Daiyan Henley | LB | yes | none listed | Did Not Participate In Practice |  |
+| Charlie Kolar | TE | yes | none listed | Did Not Participate In Practice |  |
+| Ladd McConkey | WR | yes | none listed | Limited Participation in Practice |  |
+| Isas Waxter | CB |  | none listed | Did Not Participate In Practice |  |
+| Rodney Shelley | CB |  | none listed | Did Not Participate In Practice |  |
+| Kendall Williamson | S |  | none listed | Limited Participation in Practice |  |
+| Trey Pipkins | T |  | none listed | Limited Participation in Practice |  |
+| Brenen Thompson | WR |  | none listed | Did Not Participate In Practice |  |
 
-ESPN live list (designations only): Branson Taylor (G) Injured Reserve; Trey Pipkins III (OT) Injured Reserve; Justin Eboigbe (DT) Questionable; Brenen Thompson (WR) Questionable; Rodney Shelley (CB) Questionable; Kendall Williamson (S) Questionable; Isas Waxter (CB) Questionable; Ladd McConkey (WR) Questionable.
+ESPN live list (designations only): Branson Taylor (G) Injured Reserve; Trey Pipkins III (OT) Injured Reserve; Justin Eboigbe (DT) Questionable; Brenen Thompson (WR) Questionable; Rodney Shelley (CB) Questionable; Kendall Williamson (S) Questionable; Isas Waxter (CB) Questionable; Donte Jackson (CB) Questionable; Charlie Kolar (TE) Questionable; Daiyan Henley (LB) Questionable; Ladd McConkey (WR) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -544,7 +565,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 8 | Defender assignment and explosive allowance | PARTIAL | Per-defender targets/yards allowed (PFR) and explosive plays allowed. Who covers whom is NOT known. |
 | 9 | QB pressure, blitz, scramble | PARTIAL | Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles. |
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
-| 11 | Injury and depth chart | PARTIAL | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
+| 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: INDOOR. |
 | 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
@@ -554,15 +575,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-17T21:58:03+00:00 | f84bb068b606 |
-| pbp | OK | 2026-11-17T21:58:03+00:00 | 32334d4ae379 |
-| rosters | OK | 2026-11-17T21:58:03+00:00 | e4f81f1adc72 |
-| injuries | OK | 2026-11-17T21:58:04+00:00 | 33d3b85359fe |
-| depth_charts | OK | 2026-11-17T21:58:04+00:00 | aaca90f9afb7 |
-| snap_counts | OK | 2026-11-17T21:58:04+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-17T21:58:05+00:00 | 8db63e5eaab1 |
-| pfr_def | OK | 2026-11-17T21:58:05+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-17T21:58:05+00:00 |  |
+| games | OK | 2026-11-19T21:56:41+00:00 | 845d9bfc3484 |
+| pbp | OK | 2026-11-19T21:56:41+00:00 | 5a54b5ef7b9a |
+| rosters | OK | 2026-11-19T21:56:42+00:00 | bf8b55781431 |
+| injuries | OK | 2026-11-19T21:56:42+00:00 | f590b3623cca |
+| depth_charts | OK | 2026-11-19T21:56:42+00:00 | 7439a2b6ccc1 |
+| snap_counts | OK | 2026-11-19T21:56:42+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-19T21:56:43+00:00 | 27afd704d1ea |
+| pfr_def | OK | 2026-11-19T21:56:43+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-19T21:56:43+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 
