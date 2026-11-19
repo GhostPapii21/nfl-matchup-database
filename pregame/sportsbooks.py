@@ -356,7 +356,7 @@ def startwho(probe: dict | None = None) -> dict:
             continue
         if probe is not None and "startwho" not in probe:
             probe["startwho"] = doc
-        for pl in doc.get("players", []) or []:
+        for pl in doc.get("players") or doc.get("projections") or []:
             if pl.get("locked"):
                 continue
             team = ABBR.get(str(pl.get("team", "")).lower())
@@ -366,17 +366,20 @@ def startwho(probe: dict | None = None) -> dict:
                 continue
             away, home = (team, o) if opp.startswith("@") else (o, team)
             ev = f"{away}@{home}"
-            out["events"][ev] = {"name": ev, "away": away, "home": home, "start": pl.get("game_kickoff_at")}
+            out["events"][ev] = {"name": ev, "away": away, "home": home, "start": pl.get("game_kickoff_at") or pl.get("gameDate")}
             for pr in pl.get("props", []) or []:
-                kind = SW_KIND.get(pr.get("prop_type"))
+                kind = SW_KIND.get(pr.get("prop_type") or pr.get("propType"))
                 if not kind:
                     continue
                 for b in pr.get("bookmakers", []) or []:
                     book = re.sub(r"[^a-z0-9]", "", str(b.get("sportsbook", "")).lower())
                     out["books_seen"].add(book)
-                    for side, k in (("Over", "over_odds"), ("Under", "under_odds")):
-                        if b.get(k) is not None:
-                            out["rows"].append(_row(book, ev, kind, pl.get("name"), side, b.get("line"), b.get(k)))
+                    if not isinstance(b, dict):
+                        continue
+                    for side, k, k2 in (("Over", "over_odds", "overOdds"), ("Under", "under_odds", "underOdds")):
+                        odds = b.get(k) if b.get(k) is not None else b.get(k2)
+                        if odds is not None:
+                            out["rows"].append(_row(book, ev, kind, pl.get("name") or pl.get("playerName"), side, b.get("line"), odds))
         time.sleep(PAUSE)
     out["books_seen"] = sorted(out["books_seen"])
     out["status"] = "OK" if out["rows"] else ("FAILED: " + "; ".join(out.get("errors", []))[:200] if out.get("errors") else "NO_ROWS")
