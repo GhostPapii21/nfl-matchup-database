@@ -373,7 +373,9 @@ def startwho(probe: dict | None = None) -> dict:
             ev = f"{away}@{home}"
             out["events"][ev] = {"name": ev, "away": away, "home": home, "start": pl.get("game_kickoff_at") or pl.get("gameDate")}
             for pr in pl.get("props", []) or []:
-                kind = SW_KIND.get(pr.get("prop_type") or pr.get("propType"))
+                pt = pr.get("prop_type") or pr.get("propType")
+                out.setdefault("prop_types", set()).add(f"{pos}:{pt}")
+                kind = SW_KIND.get(pt)
                 if not kind:
                     continue
                 for b in pr.get("bookmakers", []) or []:
@@ -387,6 +389,7 @@ def startwho(probe: dict | None = None) -> dict:
                             out["rows"].append(_row(book, ev, kind, pl.get("name") or pl.get("playerName"), side, b.get("line"), odds))
         time.sleep(PAUSE)
     out["books_seen"] = sorted(out["books_seen"])
+    out["prop_types"] = sorted(out.get("prop_types", ()))
     out["status"] = "OK" if out["rows"] else ("FAILED: " + "; ".join(out.get("errors", []))[:200] if out.get("errors") else "NO_ROWS")
     return out
 
@@ -442,7 +445,8 @@ def run(probe=False, out_dir: Path = OUT, index: Path = ROOT / "pregame" / "pack
                 per_game.setdefault(gid, {}).setdefault(key, rr)      # the same market appears on several pages
     out_dir.mkdir(parents=True, exist_ok=True)
     summary = {"retrieved_utc": now, "books": {k: {"status": v["status"], "rows": len(v["rows"]), "events": len(v["events"]),
-                                                   **({"errors": v["errors"]} if v.get("errors") else {}), **({"state": v["state"]} if v.get("state") else {})}
+                                                   **({"errors": v["errors"]} if v.get("errors") else {}), **({"state": v["state"]} if v.get("state") else {}),
+                                                   **({"prop_types": v["prop_types"]} if v.get("prop_types") else {})}
                                                for k, v in books.items()}, "games": {}}
     for gid, rows in per_game.items():
         rows = list(rows.values())
