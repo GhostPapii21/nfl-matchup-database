@@ -38,11 +38,13 @@ jobs:
           args=()
           if [ "${{ inputs.probe }}" = "true" ] || [ "${{ github.event_name }}" = "push" ]; then args+=(--probe); fi
           python -m pregame.sportsbooks "${args[@]}" | tee -a "$GITHUB_STEP_SUMMARY" || true
+      - name: Fair-price check vs Pinnacle
+        run: python research/edge_2026/fair_price.py | head -30 | tee -a "$GITHUB_STEP_SUMMARY" || true
       - name: Commit lines
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          mkdir -p pregame/direct_lines; git add pregame/direct_lines
+          mkdir -p pregame/direct_lines; git add pregame/direct_lines research/edge_2026/edges_latest.json research/edge_2026/fair_prices_latest.json
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
           git commit -q -m "direct lines $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3 4; do git pull -q --no-rebase --no-edit origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0; sleep 7; done
