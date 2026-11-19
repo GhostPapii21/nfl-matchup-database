@@ -328,6 +328,60 @@ def caesars(probe: dict | None = None) -> dict:
     out["status"] = "OK" if out["rows"] else "NO_ROWS: endpoint answered but no kept markets were found (format may have changed)"
     return out
 
+
+# ----------------------------------------------------------------------------------------------- StartWho (aggregator)
+SW = "https://startwho.com/api/projections?sport=NFL&format=PPR&position={pos}"
+SW_KIND = {"receptions": "receptions", "receiving_yds": "receiving_yards", "rushing_yds": "rushing_yards"}
+ABBR = {f"{c} {n}".lower(): a for a, (c, n) in {
+    "ARI": ("Arizona", "Cardinals"), "ATL": ("Atlanta", "Falcons"), "BAL": ("Baltimore", "Ravens"), "BUF": ("Buffalo", "Bills"),
+    "CAR": ("Carolina", "Panthers"), "CHI": ("Chicago", "Bears"), "CIN": ("Cincinnati", "Bengals"), "CLE": ("Cleveland", "Browns"),
+    "DAL": ("Dallas", "Cowboys"), "DEN": ("Denver", "Broncos"), "DET": ("Detroit", "Lions"), "GB": ("Green Bay", "Packers"),
+    "HOU": ("Houston", "Texans"), "IND": ("Indianapolis", "Colts"), "JAX": ("Jacksonville", "Jaguars"), "KC": ("Kansas City", "Chiefs"),
+    "LA": ("Los Angeles", "Rams"), "LAC": ("Los Angeles", "Chargers"), "LV": ("Las Vegas", "Raiders"), "MIA": ("Miami", "Dolphins"),
+    "MIN": ("Minnesota", "Vikings"), "NE": ("New England", "Patriots"), "NO": ("New Orleans", "Saints"), "NYG": ("New York", "Giants"),
+    "NYJ": ("New York", "Jets"), "PHI": ("Philadelphia", "Eagles"), "PIT": ("Pittsburgh", "Steelers"), "SEA": ("Seattle", "Seahawks"),
+    "SF": ("San Francisco", "49ers"), "TB": ("Tampa Bay", "Buccaneers"), "TEN": ("Tennessee", "Titans"), "WAS": ("Washington", "Commanders")}.items()}
+SW_OPP = {"LAR": "LA", "WSH": "WAS", "JAC": "JAX"}
+
+
+def startwho(probe: dict | None = None) -> dict:
+    """StartWho's public projections API: every sportsbook's player prop line it lists (DraftKings, FanDuel, Caesars, BetMGM,
+    BetRivers, Fanatics, Bovada, BetOnline). Rows carry each book's own name; 'event' is AWAY@HOME."""
+    out = {"status": None, "rows": [], "events": {}, "books_seen": set()}
+    for pos in ("WR", "TE", "RB"):
+        try:
+            doc = _get(SW.format(pos=pos))
+        except Exception as e:  # noqa: BLE001
+            out.setdefault("errors", []).append(f"{pos}: {type(e).__name__}: {e}"[:160])
+            continue
+        if probe is not None and "startwho" not in probe:
+            probe["startwho"] = doc
+        for pl in doc.get("players", []) or []:
+            if pl.get("locked"):
+                continue
+            team = ABBR.get(str(pl.get("team", "")).lower())
+            opp = str(pl.get("opponent", ""))
+            o = SW_OPP.get(opp.split()[-1], opp.split()[-1]) if opp else None
+            if not team or not o:
+                continue
+            away, home = (team, o) if opp.startswith("@") else (o, team)
+            ev = f"{away}@{home}"
+            out["events"][ev] = {"name": ev, "away": away, "home": home, "start": pl.get("game_kickoff_at")}
+            for pr in pl.get("props", []) or []:
+                kind = SW_KIND.get(pr.get("prop_type"))
+                if not kind:
+                    continue
+                for b in pr.get("bookmakers", []) or []:
+                    book = re.sub(r"[^a-z0-9]", "", str(b.get("sportsbook", "")).lower())
+                    out["books_seen"].add(book)
+                    for side, k in (("Over", "over_odds"), ("Under", "under_odds")):
+                        if b.get(k) is not None:
+                            out["rows"].append(_row(book, ev, kind, pl.get("name"), side, b.get("line"), b.get(k)))
+        time.sleep(PAUSE)
+    out["books_seen"] = sorted(out["books_seen"])
+    out["status"] = "OK" if out["rows"] else ("FAILED: " + "; ".join(out.get("errors", []))[:200] if out.get("errors") else "NO_ROWS")
+    return out
+
 # ----------------------------------------------------------------------------------------------- run
 def _truncate(o, depth=0):
     if depth > 6:
@@ -367,7 +421,7 @@ def game_ids(index: Path) -> dict:
 def run(probe=False, out_dir: Path = OUT, index: Path = ROOT / "pregame" / "packets" / "latest.json") -> dict:
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     pr = {} if probe else None
-    books = {"draftkings": draftkings(pr), "fanduel": fanduel(pr), "pinnacle": pinnacle(pr), "caesars": caesars(pr)}
+    books = {"draftkings": draftkings(pr), "fanduel": fanduel(pr), "pinnacle": pinnacle(pr), "caesars": caesars(pr), "startwho": startwho(pr)}
     ids = game_ids(index)
     per_game = {}
     for name, b in books.items():
