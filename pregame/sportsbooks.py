@@ -272,7 +272,7 @@ def pinnacle(probe: dict | None = None) -> dict:
         elif m.get("special"):
             desc = (m.get("special") or {}).get("description") or ""
             par = (m.get("parent") or {}).get("id")
-            mm = re.match(r"(.+?)\s*\((.+)\)", desc)
+            mm = re.match(r"(.+?)\s*\((.+)\)", desc) or re.match(r"(.+?)\s+Total\s+(.+)", desc)   # "Chris Olave Total Receiving Yards"
             kind = kind_of(mm.group(2)) if mm else None
             if kind and par:
                 specials[m["id"]] = {"event": str(par), "player": mm.group(1).strip(), "kind": kind,
