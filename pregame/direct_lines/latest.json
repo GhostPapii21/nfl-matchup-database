@@ -1,5 +1,5 @@
 {
- "retrieved_utc": "2026-11-19T13:13:03+00:00",
+ "retrieved_utc": "2026-11-19T17:23:46+00:00",
  "books": {
   "draftkings": {
    "status": "FAILED: HTTPError: HTTP Error 403: Forbidden",
@@ -8,13 +8,13 @@
   },
   "fanduel": {
    "status": "OK",
-   "rows": 4032,
+   "rows": 4163,
    "events": 32,
    "state": "nj"
   },
   "pinnacle": {
    "status": "OK",
-   "rows": 350,
+   "rows": 540,
    "events": 13
   },
   "caesars": {
@@ -24,7 +24,7 @@
   },
   "startwho": {
    "status": "OK",
-   "rows": 2550,
+   "rows": 2828,
    "events": 13,
    "prop_types": [
     "RB:anytime_td",
@@ -36,25 +36,12 @@
     "TE:receptions",
     "WR:anytime_td",
     "WR:receiving_yds",
-    "WR:receptions"
+    "WR:receptions",
+    "WR:rushing_yds"
    ]
   }
  },
  "games": {
-  "2026_11_LV_DEN": {
-   "draftkings": 28,
-   "fanduel": 78,
-   "pinnacle": 18,
-   "caesars": 0,
-   "startwho": 0
-  },
-  "2026_11_CIN_WAS": {
-   "draftkings": 32,
-   "fanduel": 216,
-   "pinnacle": 6,
-   "caesars": 0,
-   "startwho": 0
-  },
   "2026_12_KC_BUF": {
    "draftkings": 0,
    "fanduel": 6,
@@ -69,45 +56,10 @@
    "caesars": 0,
    "startwho": 0
   },
-  "2026_11_JAX_NYG": {
-   "draftkings": 64,
-   "fanduel": 70,
-   "pinnacle": 70,
-   "caesars": 0,
-   "startwho": 0
-  },
   "2026_12_CHI_DET": {
    "draftkings": 0,
    "fanduel": 6,
    "pinnacle": 0,
-   "caesars": 0,
-   "startwho": 0
-  },
-  "2026_11_IND_HOU": {
-   "draftkings": 56,
-   "fanduel": 356,
-   "pinnacle": 58,
-   "caesars": 0,
-   "startwho": 0
-  },
-  "2026_11_NO_CHI": {
-   "draftkings": 60,
-   "fanduel": 362,
-   "pinnacle": 64,
-   "caesars": 0,
-   "startwho": 0
-  },
-  "2026_11_MIN_SF": {
-   "draftkings": 24,
-   "fanduel": 192,
-   "pinnacle": 30,
-   "caesars": 0,
-   "startwho": 0
-  },
-  "2026_11_BAL_CAR": {
-   "draftkings": 42,
-   "fanduel": 241,
-   "pinnacle": 6,
    "caesars": 0,
    "startwho": 0
   },
@@ -146,13 +98,6 @@
    "caesars": 0,
    "startwho": 0
   },
-  "2026_11_NYJ_LAC": {
-   "draftkings": 0,
-   "fanduel": 18,
-   "pinnacle": 6,
-   "caesars": 0,
-   "startwho": 0
-  },
   "2026_12_WAS_ARI": {
    "draftkings": 0,
    "fanduel": 6,
@@ -174,27 +119,6 @@
    "caesars": 0,
    "startwho": 0
   },
-  "2026_11_ARI_KC": {
-   "draftkings": 48,
-   "fanduel": 278,
-   "pinnacle": 6,
-   "caesars": 0,
-   "startwho": 0
-  },
-  "2026_11_MIA_BUF": {
-   "draftkings": 28,
-   "fanduel": 179,
-   "pinnacle": 36,
-   "caesars": 0,
-   "startwho": 0
-  },
-  "2026_11_TEN_DAL": {
-   "draftkings": 32,
-   "fanduel": 183,
-   "pinnacle": 38,
-   "caesars": 0,
-   "startwho": 0
-  },
   "2026_12_DEN_PIT": {
    "draftkings": 0,
    "fanduel": 6,
@@ -202,24 +126,10 @@
    "caesars": 0,
    "startwho": 0
   },
-  "2026_11_PIT_PHI": {
-   "draftkings": 30,
-   "fanduel": 142,
-   "pinnacle": 6,
-   "caesars": 0,
-   "startwho": 0
-  },
   "2026_12_LV_CLE": {
    "draftkings": 0,
    "fanduel": 6,
    "pinnacle": 0,
-   "caesars": 0,
-   "startwho": 0
-  },
-  "2026_11_TB_DET": {
-   "draftkings": 32,
-   "fanduel": 231,
-   "pinnacle": 6,
    "caesars": 0,
    "startwho": 0
   },
@@ -241,6 +151,97 @@
    "draftkings": 0,
    "fanduel": 6,
    "pinnacle": 0,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_PIT_PHI": {
+   "draftkings": 42,
+   "fanduel": 254,
+   "pinnacle": 30,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_LV_DEN": {
+   "draftkings": 28,
+   "fanduel": 78,
+   "pinnacle": 18,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_CIN_WAS": {
+   "draftkings": 32,
+   "fanduel": 215,
+   "pinnacle": 6,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_JAX_NYG": {
+   "draftkings": 64,
+   "fanduel": 70,
+   "pinnacle": 70,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_TB_DET": {
+   "draftkings": 36,
+   "fanduel": 181,
+   "pinnacle": 38,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_IND_HOU": {
+   "draftkings": 64,
+   "fanduel": 359,
+   "pinnacle": 70,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_NO_CHI": {
+   "draftkings": 66,
+   "fanduel": 384,
+   "pinnacle": 68,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_MIN_SF": {
+   "draftkings": 30,
+   "fanduel": 193,
+   "pinnacle": 40,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_BAL_CAR": {
+   "draftkings": 42,
+   "fanduel": 236,
+   "pinnacle": 52,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_NYJ_LAC": {
+   "draftkings": 6,
+   "fanduel": 18,
+   "pinnacle": 16,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_ARI_KC": {
+   "draftkings": 48,
+   "fanduel": 288,
+   "pinnacle": 58,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_MIA_BUF": {
+   "draftkings": 28,
+   "fanduel": 179,
+   "pinnacle": 36,
+   "caesars": 0,
+   "startwho": 0
+  },
+  "2026_11_TEN_DAL": {
+   "draftkings": 32,
+   "fanduel": 182,
+   "pinnacle": 38,
    "caesars": 0,
    "startwho": 0
   }
