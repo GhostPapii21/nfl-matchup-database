@@ -1,0 +1,120 @@
+{
+ "schema_version": 1,
+ "status": "not_fit",
+ "fit_seasons": [],
+ "test": {
+  "status": "not_estimable",
+  "n": 0,
+  "book_brier": null,
+  "model_brier": null,
+  "roi_when_model_edge_ge_0_03": null,
+  "roi_ci95": [
+   null,
+   null
+  ],
+  "significant_coefficients": []
+ },
+ "coefficients": {
+  "b1_teammate_out_share": {
+   "estimate": null,
+   "se": null,
+   "p_value": null,
+   "significant_05": null
+  },
+  "b2_tprr_l4_minus_season": {
+   "estimate": null,
+   "se": null,
+   "p_value": null,
+   "significant_05": null
+  },
+  "b3_route_share_change": {
+   "estimate": null,
+   "se": null,
+   "p_value": null,
+   "significant_05": null
+  },
+  "b4_explosive_rate_l6": {
+   "estimate": null,
+   "se": null,
+   "p_value": null,
+   "significant_05": null
+  },
+  "b5_our_mean_minus_line_over_sd": {
+   "estimate": null,
+   "se": null,
+   "p_value": null,
+   "significant_05": null
+  }
+ },
+ "data_audit": {
+  "closed_direct_line_rows": 0,
+  "archived_alt_rows_with_outcomes": 5138,
+  "archived_alt_feature_coverage": "alt prices/outcomes are available, but they are one-sided ladders without the required route and pregame team-absence features",
+  "pbp_2026_weeks_available": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "weekly_stats_2026_weeks_available": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "injury_report_2026_weeks_available": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "participation_columns": [
+   "nflverse_game_id",
+   "team",
+   "team_abbr",
+   "list_name",
+   "position",
+   "number",
+   "player"
+  ],
+  "route_run_columns_available": false,
+  "missing_required_inputs": [
+   "A multi-season historical set of two-way player-prop prices matched to settled outcomes is not present in direct_lines history.",
+   "The available participation.csv files list game participation substitutions and do not include route runs; tprr and route_share_change cannot be computed without inventing routes.",
+   "The 2026 direct-line history is a small set of recent snapshots, and upcoming games have no settled outcomes yet."
+  ],
+  "feature_status": {
+   "teammate_out_share": "injury reports exist for some seasons, but no eligible closed prop sample is available to fit and validate this feature",
+   "tprr_l4_minus_season": "unavailable; route-run denominators are absent",
+   "route_share_change": "unavailable; route counts and team dropback route denominators are absent",
+   "explosive_rate_l6": "derivable from play-by-play, but not sufficient to fit the model by itself",
+   "our_mean_minus_line_over_sd": "derivable from player history and direct lines, but not sufficient to fit the model by itself"
+  }
+ },
+ "reason": "The available files do not contain an eligible multi-season, two-way book-prop outcome panel or route-run features. No coefficients or ROI are estimated from incomplete inputs.",
+ "model_spec": {
+  "family": "statsmodels GLM Binomial with offset=logit(p_fair_book)",
+  "features": [
+   "teammate_out_share",
+   "tprr_l4_minus_season",
+   "route_share_change",
+   "explosive_rate_l6",
+   "our_mean_minus_line_over_sd"
+  ],
+  "test_split": "chronological; fit before test season",
+  "bet_rule": "model probability minus break_even >= 0.03",
+  "roi_ci": "bootstrap over game-player-market clusters"
+ }
+}
