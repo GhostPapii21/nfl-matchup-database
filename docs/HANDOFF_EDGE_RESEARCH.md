@@ -70,3 +70,54 @@ in the form `{"coef": {...}, "fit_seasons": [...], "test": {...}}`.
   what was tested, the number, and whether it is significant.
 - Tests in `research/edge_2026/test_edge.py` (pytest): de-vig math, open/close selection, no future data in features.
 - Do not change `dashboard/` or `.github/`; the board wiring will be done afterwards from your JSON outputs.
+
+---
+
+# Phase 2 (start Monday, after Week 11's games are final)
+
+Phase 1 status (merged in #62 and #65): Task 1 works on same-line prices. Task 3's distribution scored **worse than the book**,
+so line-shifted edges (`line_shifted: true`) are not trusted. Task 2 had no closed games (n=0). Task 4 was not fit (no
+graded props, no route data). Phase 2 fixes those, in this order.
+
+**Rules (same as before, plus one):** branch `codex/edge-research-2`, change only `research/edge_2026/`, and **never commit
+`pregame/direct_lines/`** (a bot updates it hourly; old copies overwrite newer data). Before opening the PR, run
+`git diff --stat origin/main...HEAD` and confirm every path starts with `research/edge_2026/`. Fit on past seasons, test on
+2025-2026, no future data in any feature. If a result is not significant, say so plainly.
+
+## Step A - Grade the saved lines (`research/edge_2026/grade_lines.py`)
+1. Rebuild every pregame snapshot of `pregame/direct_lines/*.json` from git history (`git log --format=%H%x09%cI --
+   pregame/direct_lines/<file>`, then `git show <sha>:<file>`); keep only snapshots before kickoff (nflverse schedule).
+2. Final results: nflverse weekly `player_stats` for 2026 (receptions, receiving_yards, rushing_yards; rush_rec_yards =
+   rushing + receiving). Match players by name with `fair_price.norm_name`, plus team, and report the unmatched count.
+3. For every (game, book, player, market, line, side) take the **last pregame price** and grade it: win / loss / push
+   (whole-number lines).
+4. Output `research/edge_2026/graded_lines.parquet` (or .csv) with columns `game_id, book, player, market, line, side,
+   american, break_even, first_seen, last_seen, result, actual`; and `graded_summary.json`: hit rate vs average
+   break-even by book and market, n, and a 95% CI.
+5. Re-run `clv.py` now that games have closed and report n, mean CLV and its CI. Grade the Phase 1 candidates in
+   `edges_latest.json` (same-line and line-shifted separately): did they win, and did they beat the close?
+
+## Step B - Fix the yards distribution (`research/edge_2026/ladder.py`)
+1. Add the missing 2023 season (`play_by_play_2023.parquet` from nflverse releases). Fit seasons 2022-2024.
+2. Calibrate the shape to the books, not only to history: for each FanDuel alt ladder with a matching main line, find
+   the shape (per position and aDOT band) that best reproduces the vig-removed ladder probabilities. Compare three
+   versions: history-only, book-calibrated, and a blend.
+3. Backtest every version on graded results from Step A (Brier and log loss vs the book's own price, with bootstrap CIs).
+   Only a version that scores **no worse than the book** may be used for line shifting. Write the chosen one to
+   `research/edge_2026/dist_params.json` and make `fair_price.py` read it; with no qualifying version, turn line
+   shifting off (`line_shifted` rows excluded) and say so.
+
+## Step C - Model on top of the book price (`research/edge_2026/residual.py`)
+1. Training labels: the graded lines from Step A (2026), plus any historical prop odds already in the repo (search
+   `research/` and `pregame/` for archived odds; list what was used).
+2. Features, all known before kickoff: `teammate_out_share`, `tprr_l4 - tprr_season` and `route_share_change` (nflverse
+   participation data; when routes are missing use snap share from nflverse `snap_counts` and say which was used),
+   `explosive_rate_l6`, and `(our_mean - line)/sd` from `dashboard/data/*.json` where it exists.
+3. Fit the GLM with `offset=logit(p_fair_book)` as specified in Task 4. Report each coefficient with its SE, the
+   out-of-sample Brier vs the book alone, and the ROI of "bet when model - break_even >= 0.03" with a bootstrap 95% CI.
+   With fewer than 300 graded rows, still fit it, but label the result **too small to judge** and give the n.
+
+## Return
+PR to `main` with a plain-words README section per step: what was tested, the number, the CI, significant or not, and
+what is ready to show on the board (likely nothing yet; that's fine). Tests in `test_edge.py` for the grading (win,
+loss, push), snapshot-before-kickoff selection, and the "no worse than book" gate.
