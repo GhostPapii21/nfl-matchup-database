@@ -32,7 +32,8 @@ FD_STATES = ("nj", "pa", "ny", "il")
 FD_AK = "FhMFpcPWXMeyZxOx"
 FD_PAGE = "https://sbapi.{st}.sportsbook.fanduel.com/api/content-managed-page?page=CUSTOM&customPageId=nfl&pbHorizontal=false&_ak={ak}&timezone=America%2FNew_York"
 FD_EVENT = "https://sbapi.{st}.sportsbook.fanduel.com/api/event-page?_ak={ak}&eventId={eid}&tab={tab}&timezone=America%2FNew_York"
-FD_TABS = ("player-receiving", "player-rushing", "receiving-props", "rushing-props", "player-props")
+FD_TABS = ("player-receiving", "player-rushing", "receiving-props", "rushing-props", "player-props", "rushing-receiving-props",
+           "player-combos", "combo-props")
 PAUSE = 0.6     # seconds between calls: a handful of requests a run, nothing more
 
 TEAMS = {"ARI": "Cardinals", "ATL": "Falcons", "BAL": "Ravens", "BUF": "Bills", "CAR": "Panthers", "CHI": "Bears", "CIN": "Bengals",
@@ -70,8 +71,10 @@ def break_even(a):
 def kind_of(name: str) -> str | None:
     """Market kind from a book's market name; None when it is not one we keep."""
     n = (name or "").lower()
-    if "rush" in n and "rec" in n:            # combined rushing + receiving yards: not a market we model
+    if "special" in n:
         return None
+    if "rush" in n and "rec" in n and "yd" in n.replace("yard", "yd"):   # combined rushing + receiving yards
+        return "alt_rush_rec_yards" if re.search(r"\balt(ernate)?\b|\d+\+", n) else "rush_rec_yards"
     if re.search(r"\balt(ernate)?\b|\d+\+", n) and "receiving" in n and "yd" in n.replace("yard", "yd"):
         return "alt_receiving_yards"
     if re.search(r"\balt(ernate)?\b|\d+\+", n) and "rush" in n and "yd" in n.replace("yard", "yd"):
@@ -331,7 +334,9 @@ def caesars(probe: dict | None = None) -> dict:
 
 # ----------------------------------------------------------------------------------------------- StartWho (aggregator)
 SW = "https://startwho.com/api/projections?sport=NFL&format=PPR&position={pos}"
-SW_KIND = {"receptions": "receptions", "receiving_yds": "receiving_yards", "rushing_yds": "rushing_yards"}
+SW_KIND = {"receptions": "receptions", "receiving_yds": "receiving_yards", "rushing_yds": "rushing_yards",
+           "rush_rec_yds": "rush_rec_yards", "rushing_receiving_yds": "rush_rec_yards", "rush_receiving_yds": "rush_rec_yards",
+           "rushing_and_receiving_yds": "rush_rec_yards", "rush_and_rec_yds": "rush_rec_yards"}
 ABBR = {f"{c} {n}".lower(): a for a, (c, n) in {
     "ARI": ("Arizona", "Cardinals"), "ATL": ("Atlanta", "Falcons"), "BAL": ("Baltimore", "Ravens"), "BUF": ("Buffalo", "Bills"),
     "CAR": ("Carolina", "Panthers"), "CHI": ("Chicago", "Bears"), "CIN": ("Cincinnati", "Bengals"), "CLE": ("Cleveland", "Browns"),
@@ -368,7 +373,9 @@ def startwho(probe: dict | None = None) -> dict:
             ev = f"{away}@{home}"
             out["events"][ev] = {"name": ev, "away": away, "home": home, "start": pl.get("game_kickoff_at") or pl.get("gameDate")}
             for pr in pl.get("props", []) or []:
-                kind = SW_KIND.get(pr.get("prop_type") or pr.get("propType"))
+                pt = pr.get("prop_type") or pr.get("propType")
+                out.setdefault("prop_types", set()).add(f"{pos}:{pt}")
+                kind = SW_KIND.get(pt)
                 if not kind:
                     continue
                 for b in pr.get("bookmakers", []) or []:
@@ -382,6 +389,7 @@ def startwho(probe: dict | None = None) -> dict:
                             out["rows"].append(_row(book, ev, kind, pl.get("name") or pl.get("playerName"), side, b.get("line"), odds))
         time.sleep(PAUSE)
     out["books_seen"] = sorted(out["books_seen"])
+    out["prop_types"] = sorted(out.get("prop_types", ()))
     out["status"] = "OK" if out["rows"] else ("FAILED: " + "; ".join(out.get("errors", []))[:200] if out.get("errors") else "NO_ROWS")
     return out
 
@@ -437,7 +445,8 @@ def run(probe=False, out_dir: Path = OUT, index: Path = ROOT / "pregame" / "pack
                 per_game.setdefault(gid, {}).setdefault(key, rr)      # the same market appears on several pages
     out_dir.mkdir(parents=True, exist_ok=True)
     summary = {"retrieved_utc": now, "books": {k: {"status": v["status"], "rows": len(v["rows"]), "events": len(v["events"]),
-                                                   **({"errors": v["errors"]} if v.get("errors") else {}), **({"state": v["state"]} if v.get("state") else {})}
+                                                   **({"errors": v["errors"]} if v.get("errors") else {}), **({"state": v["state"]} if v.get("state") else {}),
+                                                   **({"prop_types": v["prop_types"]} if v.get("prop_types") else {})}
                                                for k, v in books.items()}, "games": {}}
     for gid, rows in per_game.items():
         rows = list(rows.values())
