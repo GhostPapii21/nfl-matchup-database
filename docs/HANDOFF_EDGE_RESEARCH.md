@@ -21,9 +21,14 @@ You are extending an NFL player-prop model in this repo (`GhostPapii21/nfl-match
 | Play-by-play, rosters, snaps, Next Gen Stats, participation | nflverse releases (`https://github.com/nflverse/nflverse-data/releases`) | Fit on 2022-2024, test on 2025-2026. No future data in any feature. |
 | Results to grade against | nflverse `player_stats` weekly | |
 
+Existing code to reuse: `research/edge_2026/fair_price.py` (`implied`, `devig`, `norm_name`, `game_edges`).
+
 Do **not** scrape DraftKings or Caesars directly or work around their blocks. Use only the files above and nflverse.
 
-## Task 1 - Pinnacle fair price and cross-book edges (`research/edge_2026/fair_price.py`)
+## Task 1 - Pinnacle fair price and cross-book edges (`research/edge_2026/fair_price.py`) - DONE
+Already built and tested (see `research/edge_2026/README.md`): same-line prices show no 2+ point edge. **Start at Task 3**, then add
+the line shift to `fair_price.py` with the Task 3 distribution so the 1,218 different-line prices can be compared.
+
 For each (game, player, market, line) Pinnacle posts both sides of:
 ```
 q_over = 1/dec(over), q_under = 1/dec(under)          # dec = decimal odds from american
