@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): DEN -10, total 40.5.
 
-Generated 2026-11-17T21:58:27+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-19T21:57:18+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-17T21:58:25+00:00 UTC. At kickoff: 48 F, wind 5 mph NE, 0% chance of precipitation, Mostly Sunny. During the game: low 44 F, wind up to 5 mph, precipitation chance up to 1%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-19T21:57:15+00:00 UTC. At kickoff: 47 F, wind 5 mph NNE, 0% chance of precipitation, Sunny. During the game: low 42 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -211,29 +211,29 @@ Blitz rate 30.1% and play-action faced 28.3% on 269 charted dropbacks (FTN). Dee
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Eric Stokes | 7 | 35 | 22 | 291 | 8.3 | 3 | 0 | 4 |
-| Treydan Stukes | 6 | 26 | 19 | 287 | 11.0 | 3 | 1 | 2 |
-| Hezekiah Masses | 7 | 25 | 14 | 247 | 9.9 | 4 | 1 | 4 |
-| Quay Walker | 7 | 23 | 18 | 165 | 7.2 | 0 | 0 | 1 |
-| Taron Johnson | 7 | 23 | 16 | 116 | 5.0 | 2 | 0 | 3 |
-| Jeremy Chinn | 7 | 20 | 16 | 164 | 8.2 | 0 | 1 | 3 |
-| Darien Porter | 5 | 19 | 12 | 176 | 9.3 | 1 | 0 | 3 |
-| Nakobe Dean | 7 | 19 | 15 | 156 | 8.2 | 1 | 1 | 6 |
-| Jermod McCoy | 3 | 5 | 3 | 48 | 9.6 | 1 | 0 | 0 |
-| Tommy Eichenberg | 3 | 5 | 4 | 44 | 8.8 | 1 | 0 | 1 |
+| Eric Stokes | 8 | 40 | 25 | 345 | 8.6 | 4 | 0 | 4 |
+| Taron Johnson | 8 | 27 | 19 | 135 | 5.0 | 2 | 0 | 4 |
+| Hezekiah Masses | 8 | 27 | 16 | 285 | 10.6 | 4 | 1 | 4 |
+| Treydan Stukes | 7 | 26 | 19 | 287 | 11.0 | 3 | 1 | 3 |
+| Quay Walker | 8 | 24 | 19 | 236 | 9.8 | 1 | 0 | 1 |
+| Jeremy Chinn | 8 | 21 | 17 | 171 | 8.1 | 0 | 1 | 3 |
+| Darien Porter | 6 | 20 | 13 | 192 | 9.6 | 1 | 0 | 3 |
+| Nakobe Dean | 8 | 19 | 15 | 156 | 8.2 | 1 | 1 | 6 |
+| Jermod McCoy | 4 | 6 | 4 | 71 | 11.8 | 1 | 0 | 0 |
+| Tommy Eichenberg | 4 | 5 | 4 | 44 | 8.8 | 1 | 0 | 1 |
 
 ### LV pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| Maxx Crosby | 7 | 21 | 2.5 | 7 | 0 |
-| Malcolm Koonce | 6 | 9 | 1.5 | 5 | 0 |
-| Tonka Hemingway | 4 | 5 | 1.0 | 3 | 0 |
+| Maxx Crosby | 8 | 25 | 3.5 | 10 | 0 |
+| Malcolm Koonce | 7 | 11 | 1.5 | 7 | 0 |
+| Tonka Hemingway | 5 | 6 | 1.0 | 3 | 0 |
 | Kwity Paye | 6 | 4 | 1.0 | 1 | 0 |
-| Adam Butler | 2 | 3 | 0.5 | 1 | 0 |
-| Quay Walker | 7 | 3 | 2.0 | 1 | 24 |
-| Folorunso Fatukasi | 2 | 2 | 0.0 | 1 | 0 |
-| Patrick Johnson | 2 | 2 | 0.0 | 1 | 0 |
+| Adam Butler | 3 | 4 | 0.5 | 2 | 0 |
+| Folorunso Fatukasi | 3 | 3 | 0.5 | 1 | 0 |
+| Taron Johnson | 8 | 3 | 0.5 | 1 | 17 |
+| Quay Walker | 8 | 3 | 2.0 | 1 | 26 |
 
 ### LV offense: what it produces (rank 1 = best offense)
 
@@ -336,16 +336,23 @@ Neutral-situation pass rate 54.6%; 60.2 plays per game; target share WR 38% / TE
 | defense allows | Deep middle | 15 | 6% | 60% | 20.07 | 7 |
 | defense allows | Deep right | 20 | 8% | 40% | 10.55 | 4 |
 
-### LV lines (depth chart as of 2026-11-17T16:52:03Z)
+### LV lines (depth chart as of 2026-11-19T16:30:49Z)
 
 Offensive line: LT Kolton Miller, LG Spencer Burford, C Tyler Linderbaum, RG Trey Zuhn III, RT DJ Glaze.  
 Defensive front: LDE Folorunso Fatukasi, NT Adam Butler, RDE Tonka Hemingway, WLB Maxx Crosby, SLB Kwity Paye.
 
 ### LV injuries
 
-Official report not posted yet for this week.
+| Player | Pos | Starter | Game status | Practice | Injury |
+|---|---|---|---|---|---|
+| Foley Fatukasi | DT | yes | none listed | Limited Participation in Practice |  |
+| Tonka Hemingway | DT | yes | none listed | Did Not Participate In Practice |  |
+| Matt Gay | K | yes | none listed | Limited Participation in Practice |  |
+| Brock Bowers | TE | yes | none listed | Did Not Participate In Practice |  |
+| Thomas Booker | DT |  | none listed | Full Participation in Practice |  |
+| Ian Thomas | TE |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Kwity Paye (DE) Questionable; Brock Bowers (TE) Questionable; Dont'e Thornton Jr. (WR) Questionable; Thomas Booker IV (DT) Questionable.
+ESPN live list (designations only): Matt Gay (PK) Questionable; Folorunso Fatukasi (DT) Questionable; Tonka Hemingway (DT) Questionable; Brock Bowers (TE) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -353,7 +360,7 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 ### LV roster moves (last 4 weeks)
 
 Arrived: Brett Rypien (QB) from TB.  
-Left for another team: Kirk Cousins (QB) to MIN; Phillip Dorsett (WR) to ARI; Jonah Laulu (DL) to TEN.
+Left for another team: Kirk Cousins (QB) to MIN; Phillip Dorsett (WR) to ARI; Jamari Thrash (WR) to TEN; Jonah Laulu (DL) to TEN.
 
 ## DEN (last 8 games: weeks 2, 3, 4, 5, 6, 7, 8, 9)
 
@@ -548,16 +555,26 @@ Neutral-situation pass rate 54.2%; 58.2 plays per game; target share WR 59% / TE
 | defense allows | Deep middle | 9 | 3% | 56% | 13.78 | 3 |
 | defense allows | Deep right | 22 | 7% | 27% | 7.86 | 6 |
 
-### DEN lines (depth chart as of 2026-11-17T16:52:03Z)
+### DEN lines (depth chart as of 2026-11-19T16:30:49Z)
 
 Offensive line: LT Garett Bolles, LG Ben Powers, C Luke Wattenberg, RG Quinn Meinerz, RT Mike McGlinchey.  
 Defensive front: LDE Zach Allen, NT D.J. Jones, RDE Malcolm Roach, WLB Jonathon Cooper, SLB Nik Bonitto.
 
 ### DEN injuries
 
-Official report not posted yet for this week.
+| Player | Pos | Starter | Game status | Practice | Injury |
+|---|---|---|---|---|---|
+| Riley Moss | CB | yes | none listed | Full Participation in Practice |  |
+| Zach Allen | DE | yes | none listed | Limited Participation in Practice |  |
+| Adam Prentice | FB | yes | none listed | Full Participation in Practice |  |
+| Brandon Jones | S | yes | none listed | Limited Participation in Practice |  |
+| Talanoa Hufanga | S | yes | none listed | Full Participation in Practice |  |
+| Jaylen Waddle | WR | yes | none listed | Full Participation in Practice |  |
+| Kris Abrams-Draine | CB |  | none listed | Limited Participation in Practice |  |
+| Caleb Lohner | TE |  | none listed | Full Participation in Practice |  |
+| Courtland Sutton | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Eyioma Uwazurike (DE) Injured Reserve; Riley Moss (CB) Questionable; Jaylen Waddle (WR) Questionable; Talanoa Hufanga (S) Questionable; Brandon Jones (S) Questionable; Kris Abrams-Draine (CB) Questionable.
+ESPN live list (designations only): Eyioma Uwazurike (DE) Injured Reserve; Caleb Lohner (TE) Injured Reserve; Jaylen Waddle (WR) Questionable; Brandon Jones (S) Questionable; Kris Abrams-Draine (CB) Questionable; Riley Moss (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -586,7 +603,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 8 | Defender assignment and explosive allowance | PARTIAL | Per-defender targets/yards allowed (PFR) and explosive plays allowed. Who covers whom is NOT known. |
 | 9 | QB pressure, blitz, scramble | PARTIAL | Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles. |
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
-| 11 | Injury and depth chart | PARTIAL | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
+| 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
 | 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
@@ -596,15 +613,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-17T21:58:03+00:00 | f84bb068b606 |
-| pbp | OK | 2026-11-17T21:58:03+00:00 | 32334d4ae379 |
-| rosters | OK | 2026-11-17T21:58:03+00:00 | e4f81f1adc72 |
-| injuries | OK | 2026-11-17T21:58:04+00:00 | 33d3b85359fe |
-| depth_charts | OK | 2026-11-17T21:58:04+00:00 | aaca90f9afb7 |
-| snap_counts | OK | 2026-11-17T21:58:04+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-17T21:58:05+00:00 | 8db63e5eaab1 |
-| pfr_def | OK | 2026-11-17T21:58:05+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-17T21:58:05+00:00 |  |
+| games | OK | 2026-11-19T21:56:41+00:00 | 845d9bfc3484 |
+| pbp | OK | 2026-11-19T21:56:41+00:00 | 5a54b5ef7b9a |
+| rosters | OK | 2026-11-19T21:56:42+00:00 | bf8b55781431 |
+| injuries | OK | 2026-11-19T21:56:42+00:00 | f590b3623cca |
+| depth_charts | OK | 2026-11-19T21:56:42+00:00 | 7439a2b6ccc1 |
+| snap_counts | OK | 2026-11-19T21:56:42+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-19T21:56:43+00:00 | 27afd704d1ea |
+| pfr_def | OK | 2026-11-19T21:56:43+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-19T21:56:43+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

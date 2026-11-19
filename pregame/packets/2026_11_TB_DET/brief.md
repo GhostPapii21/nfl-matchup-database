@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-22, 13:00 ET.** Site: Home; roof: dome; surface: fieldturf. Rest: TB 14 days, DET 7 days. Listed QBs: Baker Mayfield (TB), Jared Goff (DET).
 
-Market (schedule consensus, not a timestamped quote): DET -6.5, total 45.5.
+Market (schedule consensus, not a timestamped quote): DET -6, total 45.5.
 
-Generated 2026-11-17T21:58:20+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-19T21:57:07+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -49,8 +49,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | TB 23.0 - DET 25.3 | 48.3 | +2.3 | 57.1% | 29.5% | 50.6% | TB 10.9 - DET 13.0 |
-| independent | TB 22.5 - DET 28.0 | 50.5 | +5.6 | 65.4% | 46.1% | 61.4% | TB 11.4 - DET 14.0 |
+| matchup_pair | TB 23.0 - DET 25.3 | 48.3 | +2.3 | 57.1% | 30.9% | 50.6% | TB 10.9 - DET 13.0 |
+| independent | TB 22.5 - DET 28.0 | 50.5 | +5.6 | 65.4% | 47.1% | 61.4% | TB 11.4 - DET 14.0 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -150,7 +150,7 @@ Blitz rate 43.4% and play-action faced 23.2% on 297 charted dropbacks (FTN). Dee
 | 6 | PIT | D.Metcalf (WR) 11/15 for 93, 0 TD | J.Warren (RB) 14 for 50, 0 TD |
 | 7 | CAR | D.Waller (TE) 1/2 for 50, 1 TD | C.Hubbard (RB) 7 for 33, 0 TD |
 | 8 | ATL | J.Dotson (WR) 2/5 for 95, 0 TD | Bi.Robinson (RB) 19 for 76, 0 TD |
-| 9 | CHI | L.Burden (WR) 7/9 for 97, 1 TD | D.Swift (RB) 12 for 31, 0 TD |
+| 9 | CHI | L.Burden (WR) 7/10 for 97, 1 TD | D.Swift (RB) 12 for 31, 0 TD |
 
 ### TB run defense by direction
 
@@ -293,16 +293,23 @@ Neutral-situation pass rate 44.4%; 63.0 plays per game; target share WR 62% / TE
 | defense allows | Deep middle | 10 | 4% | 40% | 14.1 | 4 |
 | defense allows | Deep right | 14 | 5% | 21% | 5.93 | 3 |
 
-### TB lines (depth chart as of 2026-11-17T16:52:03Z)
+### TB lines (depth chart as of 2026-11-19T16:30:49Z)
 
 Offensive line: LT Tristan Wirfs, LG Ben Bredeson, C Graham Barton, RG Cody Mauch, RT Luke Goedeke.  
 Defensive front: LDE Calijah Kancey, NT Vita Vea, RDE A'Shawn Robinson, WLB Rueben Bain Jr., SLB Yaya Diaby.
 
 ### TB injuries
 
-Official report not posted yet for this week.
+| Player | Pos | Starter | Game status | Practice | Injury |
+|---|---|---|---|---|---|
+| Yaya Diaby | LB | yes | none listed | Limited Participation in Practice |  |
+| Baker Mayfield | QB | yes | none listed | Did Not Participate In Practice |  |
+| Antoine Winfield Jr. | S | yes | none listed | Did Not Participate In Practice |  |
+| Tristan Wirfs | T | yes | none listed | Full Participation in Practice |  |
+| Cade Otton | TE | yes | none listed | Full Participation in Practice |  |
+| Josh Hayes | CB |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Antoine Winfield Jr. (S) Questionable; Jalen McMillan (WR) Injured Reserve; Yaya Diaby (LB) Doubtful; Baker Mayfield (QB) Questionable.
+ESPN live list (designations only): Jalen McMillan (WR) Injured Reserve; Yaya Diaby (LB) Questionable; Antoine Winfield Jr. (S) Questionable; Josh Hayes (CB) Injured Reserve; Baker Mayfield (QB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -382,29 +389,29 @@ Blitz rate 26.8% and play-action faced 25.5% on 325 charted dropbacks (FTN). Dee
 
 | Defender | G | Targets | Comp | Yards | Yds/tgt | TD | INT | Missed tkl |
 |---|---|---|---|---|---|---|---|---|
-| Roger McCreary | 7 | 52 | 30 | 424 | 8.2 | 3 | 0 | 1 |
+| Roger McCreary | 8 | 57 | 32 | 434 | 7.6 | 3 | 1 | 2 |
 | Jack Campbell | 6 | 31 | 23 | 282 | 9.1 | 3 | 0 | 1 |
-| Chuck Clark | 7 | 26 | 11 | 130 | 5.0 | 0 | 1 | 3 |
+| Chuck Clark | 8 | 29 | 12 | 136 | 4.7 | 0 | 1 | 3 |
 | D.J. Reed | 6 | 26 | 14 | 186 | 7.2 | 2 | 1 | 4 |
-| Derrick Barnes | 6 | 21 | 13 | 187 | 8.9 | 1 | 0 | 1 |
-| Ennis Rakestraw | 5 | 21 | 12 | 159 | 7.6 | 0 | 0 | 2 |
+| Derrick Barnes | 7 | 24 | 16 | 226 | 9.4 | 1 | 0 | 1 |
+| Ennis Rakestraw | 6 | 22 | 13 | 169 | 7.7 | 0 | 0 | 4 |
+| Rock Ya-Sin | 6 | 21 | 11 | 82 | 3.9 | 0 | 0 | 0 |
 | Christian Izien | 3 | 18 | 13 | 99 | 5.5 | 2 | 0 | 1 |
-| Rock Ya-Sin | 5 | 13 | 10 | 77 | 5.9 | 0 | 0 | 0 |
-| Trevor Nowaske | 5 | 10 | 3 | 29 | 2.9 | 0 | 0 | 1 |
-| Malcolm Rodriguez | 5 | 8 | 7 | 29 | 3.6 | 2 | 0 | 0 |
+| Khalil Dorsey | 4 | 10 | 4 | 83 | 8.3 | 0 | 0 | 2 |
+| Trevor Nowaske | 6 | 10 | 3 | 29 | 2.9 | 0 | 0 | 1 |
 
 ### DET pass rushers
 
 | Defender | G | Pressures | Sacks | Hurries | Blitzes |
 |---|---|---|---|---|---|
-| Aidan Hutchinson | 7 | 22 | 3.0 | 8 | 6 |
-| Alim McNeill | 7 | 11 | 4.5 | 2 | 0 |
-| D.J. Wonnum | 6 | 8 | 5.0 | 1 | 1 |
-| Derrick Moore | 6 | 6 | 2.0 | 1 | 2 |
-| Skyler Gill-Howard | 6 | 6 | 2.0 | 0 | 0 |
+| Aidan Hutchinson | 8 | 23 | 4.0 | 8 | 6 |
+| Alim McNeill | 8 | 13 | 5.5 | 3 | 0 |
+| D.J. Wonnum | 7 | 10 | 6.0 | 1 | 1 |
+| Derrick Moore | 7 | 8 | 4.0 | 1 | 2 |
+| Skyler Gill-Howard | 7 | 7 | 2.0 | 1 | 0 |
 | Tyleik Williams | 3 | 5 | 0.0 | 3 | 0 |
 | Jack Campbell | 6 | 4 | 0.0 | 2 | 33 |
-| Tyler Lacy | 5 | 4 | 0.0 | 0 | 0 |
+| Derrick Barnes | 7 | 4 | 2.0 | 1 | 24 |
 
 ### DET offense: what it produces (rank 1 = best offense)
 
@@ -507,16 +514,25 @@ Neutral-situation pass rate 51.4%; 63.5 plays per game; target share WR 57% / TE
 | defense allows | Deep middle | 16 | 6% | 50% | 14.75 | 7 |
 | defense allows | Deep right | 25 | 9% | 40% | 9.6 | 7 |
 
-### DET lines (depth chart as of 2026-11-17T16:52:03Z)
+### DET lines (depth chart as of 2026-11-19T16:30:49Z)
 
 Offensive line: LT Penei Sewell, LG Christian Mahogany, C Cade Mays, RG Tate Ratledge, RT Blake Miller.  
 Defensive front: LDE Derrick Moore, LDT Alim McNeill, RDT Tyleik Williams, RDE DJ Wonnum, WLB Derrick Barnes, SLB Trevor Nowaske.
 
 ### DET injuries
 
-Official report not posted yet for this week.
+| Player | Pos | Starter | Game status | Practice | Injury |
+|---|---|---|---|---|---|
+| Cade Mays | C | yes | none listed | Did Not Participate In Practice |  |
+| D.J. Reed | CB | yes | none listed | Limited Participation in Practice |  |
+| Kerby Joseph | S | yes | none listed | Full Participation in Practice |  |
+| Khalil Dorsey | CB |  | none listed | Limited Participation in Practice |  |
+| Ennis Rakestraw Jr. | CB |  | none listed | Limited Participation in Practice |  |
+| Tyler Lacy | DE |  | none listed | Limited Participation in Practice |  |
+| Joe Bachie | LB |  | none listed | Limited Participation in Practice |  |
+| Sione Vaki | RB |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Jimmy Rolder (LB) Injured Reserve; Jack Campbell (LB) Injured Reserve; Kerby Joseph (S) Out; Aidan Hutchinson (DE) Out; D.J. Reed (CB) Questionable; Cade Mays (C) Doubtful.
+ESPN live list (designations only): Cade Mays (C) Doubtful; Khalil Dorsey (CB) Questionable; Joe Bachie (LB) Questionable; Tyler Lacy (DT) Questionable; Ennis Rakestraw Jr. (CB) Questionable; Aidan Hutchinson (DE) Injured Reserve; D.J. Reed (CB) Questionable; Sione Vaki (RB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -524,7 +540,7 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 ### DET roster moves (last 4 weeks)
 
 Arrived: Tyrus Wheat (LB) from DAL.  
-Left for another team: Bishop Fitzgerald (DB) to TEN.
+Left for another team: Chris Smith (DL) to MIA; Bishop Fitzgerald (DB) to TEN.
 
 ## Keyed connectors in this run
 
@@ -550,7 +566,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 8 | Defender assignment and explosive allowance | PARTIAL | Per-defender targets/yards allowed (PFR) and explosive plays allowed. Who covers whom is NOT known. |
 | 9 | QB pressure, blitz, scramble | PARTIAL | Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles. |
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
-| 11 | Injury and depth chart | PARTIAL | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
+| 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: INDOOR. |
 | 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
@@ -560,15 +576,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-17T21:58:03+00:00 | f84bb068b606 |
-| pbp | OK | 2026-11-17T21:58:03+00:00 | 32334d4ae379 |
-| rosters | OK | 2026-11-17T21:58:03+00:00 | e4f81f1adc72 |
-| injuries | OK | 2026-11-17T21:58:04+00:00 | 33d3b85359fe |
-| depth_charts | OK | 2026-11-17T21:58:04+00:00 | aaca90f9afb7 |
-| snap_counts | OK | 2026-11-17T21:58:04+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-17T21:58:05+00:00 | 8db63e5eaab1 |
-| pfr_def | OK | 2026-11-17T21:58:05+00:00 | 169459009450 |
-| espn_injuries | OK | 2026-11-17T21:58:05+00:00 |  |
+| games | OK | 2026-11-19T21:56:41+00:00 | 845d9bfc3484 |
+| pbp | OK | 2026-11-19T21:56:41+00:00 | 5a54b5ef7b9a |
+| rosters | OK | 2026-11-19T21:56:42+00:00 | bf8b55781431 |
+| injuries | OK | 2026-11-19T21:56:42+00:00 | f590b3623cca |
+| depth_charts | OK | 2026-11-19T21:56:42+00:00 | 7439a2b6ccc1 |
+| snap_counts | OK | 2026-11-19T21:56:42+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-19T21:56:43+00:00 | 27afd704d1ea |
+| pfr_def | OK | 2026-11-19T21:56:43+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-19T21:56:43+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 
