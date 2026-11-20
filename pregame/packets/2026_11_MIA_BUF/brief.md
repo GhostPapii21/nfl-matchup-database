@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): BUF -16.5, total 44.5.
 
-Generated 2026-11-19T21:57:00+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-20T03:39:55+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-19T21:56:58+00:00 UTC. At kickoff: 64 F, wind 6 mph S, 2% chance of precipitation, Mostly Sunny. During the game: low 61 F, wind up to 6 mph, precipitation chance up to 2%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-20T03:39:53+00:00 UTC. At kickoff: 64 F, wind 6 mph S, 2% chance of precipitation, Mostly Sunny. During the game: low 61 F, wind up to 6 mph, precipitation chance up to 2%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -355,7 +355,7 @@ Defensive front: LDE Chop Robinson, LDT Keith Cooper Jr., RDT Kenneth Grant, RDE
 | Caleb Douglas | WR |  | none listed | Limited Participation in Practice |  |
 | Chris Bell | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Malik Willis (QB) Injured Reserve; Zeek Biggers (DT) Injured Reserve; Jordan Phillips (DT) Injured Reserve; Tucker Addington (LS) Questionable; Bradley Pinion (P) Questionable; Jaylin Simpson (S) Questionable; Chris Bell (WR) Questionable; Dante Trader Jr. (S) Questionable; JuJu Brents (CB) Questionable; Jared Wayne (WR) Questionable; Aaron Brewer (C) Questionable; Darrell Baker Jr. (CB) Out; Andrew Meyer (C) Questionable; Caleb Douglas (WR) Questionable.
+ESPN live list (designations only): Malik Willis (QB) Injured Reserve; Zeek Biggers (DT) Injured Reserve; Jordan Phillips (DT) Injured Reserve; Tucker Addington (LS) Questionable; Bradley Pinion (P) Questionable; Jaylin Simpson (S) Questionable; Dante Trader Jr. (S) Questionable; JuJu Brents (CB) Questionable; Jared Wayne (WR) Questionable; Aaron Brewer (C) Questionable; Darrell Baker Jr. (CB) Out; Andrew Meyer (C) Questionable; Chris Bell (WR) Questionable; Caleb Douglas (WR) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -584,7 +584,7 @@ Defensive front: LDE T.J. Sanders, NT Deone Walker, RDE Ed Oliver, WLB Greg Rous
 | Tyrell Shavers | WR |  | none listed | Full Participation in Practice |  |
 | Keon Coleman | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Ar'maj Reed-Adams (G) Injured Reserve; Ray Davis (RB) Questionable; Damar Hamlin (S) Questionable; Amani Hooker (S) Questionable; Jackson Hawes (TE) Questionable; Christian Benford (CB) Questionable; Dorian Williams (LB) Questionable; Dee Alford (CB) Questionable; Dalton Kincaid (TE) Questionable; T.J. Sanders (DT) Questionable.
+ESPN live list (designations only): Ar'maj Reed-Adams (G) Injured Reserve; Damar Hamlin (S) Questionable; Amani Hooker (S) Questionable; Jackson Hawes (TE) Questionable; Dorian Williams (LB) Questionable; Dalton Kincaid (TE) Questionable; T.J. Sanders (DT) Questionable; Ray Davis (RB) Questionable; Dee Alford (CB) Questionable; Christian Benford (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -628,15 +628,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-19T21:56:41+00:00 | 845d9bfc3484 |
-| pbp | OK | 2026-11-19T21:56:41+00:00 | 5a54b5ef7b9a |
-| rosters | OK | 2026-11-19T21:56:42+00:00 | bf8b55781431 |
-| injuries | OK | 2026-11-19T21:56:42+00:00 | f590b3623cca |
-| depth_charts | OK | 2026-11-19T21:56:42+00:00 | 7439a2b6ccc1 |
-| snap_counts | OK | 2026-11-19T21:56:42+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-19T21:56:43+00:00 | 27afd704d1ea |
-| pfr_def | OK | 2026-11-19T21:56:43+00:00 | fc61fb5ffaa3 |
-| espn_injuries | OK | 2026-11-19T21:56:43+00:00 |  |
+| games | OK | 2026-11-20T03:39:35+00:00 | ef6c571ed1c4 |
+| pbp | OK | 2026-11-20T03:39:35+00:00 | 5a54b5ef7b9a |
+| rosters | OK | 2026-11-20T03:39:36+00:00 | bf8b55781431 |
+| injuries | OK | 2026-11-20T03:39:36+00:00 | f590b3623cca |
+| depth_charts | OK | 2026-11-20T03:39:36+00:00 | 7439a2b6ccc1 |
+| snap_counts | OK | 2026-11-20T03:39:36+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-20T03:39:36+00:00 | 27afd704d1ea |
+| pfr_def | OK | 2026-11-20T03:39:37+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-20T03:39:38+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

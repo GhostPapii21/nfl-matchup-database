@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): WAS +6, total 53.5.
 
-Generated 2026-11-19T21:57:28+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-20T03:40:23+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-19T21:57:26+00:00 UTC. At kickoff: 52 F, wind 10 mph NW, 0% chance of precipitation, Mostly Clear. During the game: low 47 F, wind up to 10 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-20T03:40:21+00:00 UTC. At kickoff: 52 F, wind 10 mph NW, 0% chance of precipitation, Mostly Clear. During the game: low 47 F, wind up to 10 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -341,7 +341,7 @@ Defensive front: LDE Boye Mafe, LDT Dexter Lawrence II, RDT Jonathan Allen, RDE 
 
 Official report not posted yet for this week.
 
-ESPN live list (designations only): Brian Parker II (OT) Injured Reserve; Dalton Risner (G) Questionable; Oren Burks (LB) Questionable; Kyle Dugger (S) Questionable; Dax Hill (CB) Questionable; Dylan Fairchild (G) Questionable; Andrei Iosivas (WR) Injured Reserve.
+ESPN live list (designations only): Kyle Dugger (S) Questionable; Dylan Fairchild (G) Questionable; Andrei Iosivas (WR) Injured Reserve; Dax Hill (CB) Questionable; Oren Burks (LB) Questionable; Swayze Bozeman (LB) Injured Reserve; Dalton Risner (G) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -594,15 +594,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-19T21:56:41+00:00 | 845d9bfc3484 |
-| pbp | OK | 2026-11-19T21:56:41+00:00 | 5a54b5ef7b9a |
-| rosters | OK | 2026-11-19T21:56:42+00:00 | bf8b55781431 |
-| injuries | OK | 2026-11-19T21:56:42+00:00 | f590b3623cca |
-| depth_charts | OK | 2026-11-19T21:56:42+00:00 | 7439a2b6ccc1 |
-| snap_counts | OK | 2026-11-19T21:56:42+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-19T21:56:43+00:00 | 27afd704d1ea |
-| pfr_def | OK | 2026-11-19T21:56:43+00:00 | fc61fb5ffaa3 |
-| espn_injuries | OK | 2026-11-19T21:56:43+00:00 |  |
+| games | OK | 2026-11-20T03:39:35+00:00 | ef6c571ed1c4 |
+| pbp | OK | 2026-11-20T03:39:35+00:00 | 5a54b5ef7b9a |
+| rosters | OK | 2026-11-20T03:39:36+00:00 | bf8b55781431 |
+| injuries | OK | 2026-11-20T03:39:36+00:00 | f590b3623cca |
+| depth_charts | OK | 2026-11-20T03:39:36+00:00 | 7439a2b6ccc1 |
+| snap_counts | OK | 2026-11-20T03:39:36+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-20T03:39:36+00:00 | 27afd704d1ea |
+| pfr_def | OK | 2026-11-20T03:39:37+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-20T03:39:38+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

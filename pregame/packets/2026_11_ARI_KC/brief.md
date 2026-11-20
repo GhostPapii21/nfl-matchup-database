@@ -2,13 +2,13 @@
 
 **Sunday 2026-11-22, 13:00 ET.** Site: Home; roof: outdoors; surface: grass. Rest: ARI 7 days, KC 7 days. Listed QBs: Gardner Minshew (ARI), Patrick Mahomes (KC).
 
-Market (schedule consensus, not a timestamped quote): KC -15.5, total 40.5.
+Market (schedule consensus, not a timestamped quote): KC -16.5, total 40.5.
 
-Generated 2026-11-19T21:56:50+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-20T03:39:44+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-19T21:56:48+00:00 UTC. At kickoff: 49 F, wind 14 mph N, 1% chance of precipitation, Sunny. During the game: low 49 F, wind up to 14 mph, precipitation chance up to 1%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-20T03:39:42+00:00 UTC. At kickoff: 49 F, wind 14 mph N, 1% chance of precipitation, Sunny. During the game: low 49 F, wind up to 14 mph, precipitation chance up to 1%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -46,8 +46,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | ARI 19.5 - KC 26.0 | 45.5 | +6.6 | 62.2% | 30.0% | 62.6% | ARI 9.6 - KC 12.9 |
-| independent | ARI 20.0 - KC 22.9 | 42.9 | +2.9 | 62.0% | 11.6% | 60.7% | ARI 9.7 - KC 11.2 |
+| matchup_pair | ARI 19.5 - KC 26.0 | 45.5 | +6.6 | 62.2% | 28.2% | 62.6% | ARI 9.6 - KC 12.9 |
+| independent | ARI 20.0 - KC 22.9 | 42.9 | +2.9 | 62.0% | 9.9% | 60.7% | ARI 9.7 - KC 11.2 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -353,7 +353,7 @@ Defensive front: LDE Josh Sweat, LDT Roy Lopez, RDT Walter Nolen III, RDE Dante 
 | Darius Robinson | DT |  | none listed | Full Participation in Practice |  |
 | Jon Gaines II | G |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Jayden Williams (OT) Questionable; Hjalte Froholdt (C) Questionable; Jon Gaines II (G) Questionable; Andrew Wingard (S) Injured Reserve; Jordan Burch (LB) Injured Reserve; Gardner Minshew II (QB) Injured Reserve; James Conner (RB) Injured Reserve; Roy Lopez (DT) Questionable; Max Melton (CB) Questionable; Walter Nolen III (DT) Questionable.
+ESPN live list (designations only): Jon Gaines II (G) Questionable; Andrew Wingard (S) Injured Reserve; Jordan Burch (LB) Injured Reserve; Gardner Minshew II (QB) Injured Reserve; James Conner (RB) Injured Reserve; Roy Lopez (DT) Questionable; Carson Beck (QB) Questionable; Hjalte Froholdt (C) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -625,15 +625,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-19T21:56:41+00:00 | 845d9bfc3484 |
-| pbp | OK | 2026-11-19T21:56:41+00:00 | 5a54b5ef7b9a |
-| rosters | OK | 2026-11-19T21:56:42+00:00 | bf8b55781431 |
-| injuries | OK | 2026-11-19T21:56:42+00:00 | f590b3623cca |
-| depth_charts | OK | 2026-11-19T21:56:42+00:00 | 7439a2b6ccc1 |
-| snap_counts | OK | 2026-11-19T21:56:42+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-19T21:56:43+00:00 | 27afd704d1ea |
-| pfr_def | OK | 2026-11-19T21:56:43+00:00 | fc61fb5ffaa3 |
-| espn_injuries | OK | 2026-11-19T21:56:43+00:00 |  |
+| games | OK | 2026-11-20T03:39:35+00:00 | ef6c571ed1c4 |
+| pbp | OK | 2026-11-20T03:39:35+00:00 | 5a54b5ef7b9a |
+| rosters | OK | 2026-11-20T03:39:36+00:00 | bf8b55781431 |
+| injuries | OK | 2026-11-20T03:39:36+00:00 | f590b3623cca |
+| depth_charts | OK | 2026-11-20T03:39:36+00:00 | 7439a2b6ccc1 |
+| snap_counts | OK | 2026-11-20T03:39:36+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-20T03:39:36+00:00 | 27afd704d1ea |
+| pfr_def | OK | 2026-11-20T03:39:37+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-20T03:39:38+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

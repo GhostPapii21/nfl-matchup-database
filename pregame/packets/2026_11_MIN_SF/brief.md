@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-22, 20:20 ET.** Site: Neutral; roof: outdoors; surface: grass. Rest: MIN 7 days, SF 7 days. Listed QBs: Kirk Cousins (MIN), Brock Purdy (SF).
 
-Market (schedule consensus, not a timestamped quote): SF -3, total 46.5.
+Market (schedule consensus, not a timestamped quote): SF -3.5, total 46.5.
 
-Generated 2026-11-19T21:57:25+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-20T03:40:20+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -52,8 +52,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | MIN 20.8 - SF 22.6 | 43.5 | +1.8 | 57.1% | 51.0% | 43.9% | MIN 9.9 - SF 11.5 |
-| independent | MIN 20.1 - SF 27.5 | 47.7 | +7.4 | 69.2% | 63.3% | 52.0% | MIN 9.7 - SF 13.9 |
+| matchup_pair | MIN 20.8 - SF 22.6 | 43.5 | +1.8 | 57.1% | 48.8% | 43.9% | MIN 9.9 - SF 11.5 |
+| independent | MIN 20.1 - SF 27.5 | 47.7 | +7.4 | 69.2% | 61.0% | 52.0% | MIN 9.7 - SF 13.9 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -307,7 +307,7 @@ Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WL
 | Jordan Addison | WR |  | none listed | Did Not Participate In Practice |  |
 | Jeshaun Jones | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Jordan Addison (WR) Out; Kyler Murray (QB) Out; T.J. Hockenson (TE) Questionable; Kyle Van Noy (LB) Questionable; Jay Ward (S) Questionable; Jeshaun Jones (WR) Questionable; Blake Cashman (LB) Questionable; Andrew Van Ginkel (LB) Questionable; Bo Richter (LB) Injured Reserve.
+ESPN live list (designations only): Jordan Addison (WR) Out; Kyler Murray (QB) Out; Jay Ward (S) Questionable; Jeshaun Jones (WR) Questionable; Andrew Van Ginkel (LB) Questionable; Bo Richter (LB) Injured Reserve; T.J. Hockenson (TE) Questionable; Isaiah Rodgers (CB) Questionable; Blake Cashman (LB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -535,7 +535,7 @@ Defensive front: LDE Keion White, LDT Osa Odighizuwa, RDT DeForest Buckner, RDE 
 | Mac Jones | QB |  | none listed | Limited Participation in Practice |  |
 | Siran Neal | S |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Brandon Aiyuk (WR) Out; Dre Greenlaw (LB) Questionable; De'Zhaun Stribling (WR) Injured Reserve; Renardo Green (CB) Questionable; Luke Gifford (LB) Questionable; Khalid Kareem (DE) Questionable; Upton Stout (CB) Questionable; Siran Neal (S) Questionable; Mac Jones (QB) Questionable; Ji'Ayir Brown (S) Questionable; Christian Kirk (WR) Injured Reserve; Mike Evans (WR) Questionable.
+ESPN live list (designations only): Brandon Aiyuk (WR) Out; De'Zhaun Stribling (WR) Injured Reserve; Luke Gifford (LB) Questionable; Khalid Kareem (DE) Questionable; Upton Stout (CB) Questionable; Ji'Ayir Brown (S) Questionable; Christian Kirk (WR) Injured Reserve; Mike Evans (WR) Questionable; Jordan James (RB) Questionable; Isaac Guerendo (RB) Out; Mac Jones (QB) Questionable; Dre Greenlaw (LB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -579,15 +579,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-19T21:56:41+00:00 | 845d9bfc3484 |
-| pbp | OK | 2026-11-19T21:56:41+00:00 | 5a54b5ef7b9a |
-| rosters | OK | 2026-11-19T21:56:42+00:00 | bf8b55781431 |
-| injuries | OK | 2026-11-19T21:56:42+00:00 | f590b3623cca |
-| depth_charts | OK | 2026-11-19T21:56:42+00:00 | 7439a2b6ccc1 |
-| snap_counts | OK | 2026-11-19T21:56:42+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-19T21:56:43+00:00 | 27afd704d1ea |
-| pfr_def | OK | 2026-11-19T21:56:43+00:00 | fc61fb5ffaa3 |
-| espn_injuries | OK | 2026-11-19T21:56:43+00:00 |  |
+| games | OK | 2026-11-20T03:39:35+00:00 | ef6c571ed1c4 |
+| pbp | OK | 2026-11-20T03:39:35+00:00 | 5a54b5ef7b9a |
+| rosters | OK | 2026-11-20T03:39:36+00:00 | bf8b55781431 |
+| injuries | OK | 2026-11-20T03:39:36+00:00 | f590b3623cca |
+| depth_charts | OK | 2026-11-20T03:39:36+00:00 | 7439a2b6ccc1 |
+| snap_counts | OK | 2026-11-20T03:39:36+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-20T03:39:36+00:00 | 27afd704d1ea |
+| pfr_def | OK | 2026-11-20T03:39:37+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-20T03:39:38+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

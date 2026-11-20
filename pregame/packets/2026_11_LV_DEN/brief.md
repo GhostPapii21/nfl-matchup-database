@@ -2,13 +2,13 @@
 
 **Sunday 2026-11-22, 16:25 ET.** Site: Home; roof: outdoors; surface: grass. Rest: LV 7 days, DEN 14 days. Listed QBs: Fernando Mendoza (LV), Bo Nix (DEN).
 
-Market (schedule consensus, not a timestamped quote): DEN -10, total 40.5.
+Market (schedule consensus, not a timestamped quote): DEN -10.5, total 40.5.
 
-Generated 2026-11-19T21:57:18+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-20T03:40:13+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-19T21:57:15+00:00 UTC. At kickoff: 47 F, wind 5 mph NNE, 0% chance of precipitation, Sunny. During the game: low 42 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-20T03:40:11+00:00 UTC. At kickoff: 47 F, wind 5 mph NNE, 0% chance of precipitation, Sunny. During the game: low 42 F, wind up to 5 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
@@ -51,7 +51,7 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
 | matchup_pair | LV 18.7 - DEN 24.9 | 43.6 | +6.2 | 74.6% | 30.1% | 57.8% | LV 8.8 - DEN 11.9 |
-| independent | LV 18.0 - DEN 22.9 | 40.9 | +4.8 | 64.6% | 32.7% | 51.1% | LV 8.1 - DEN 10.2 |
+| independent | LV 18.0 - DEN 22.9 | 40.9 | +4.8 | 64.6% | 31.4% | 51.1% | LV 8.1 - DEN 10.2 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -574,7 +574,7 @@ Defensive front: LDE Zach Allen, NT D.J. Jones, RDE Malcolm Roach, WLB Jonathon 
 | Caleb Lohner | TE |  | none listed | Full Participation in Practice |  |
 | Courtland Sutton | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Eyioma Uwazurike (DE) Injured Reserve; Caleb Lohner (TE) Injured Reserve; Jaylen Waddle (WR) Questionable; Brandon Jones (S) Questionable; Kris Abrams-Draine (CB) Questionable; Riley Moss (CB) Questionable.
+ESPN live list (designations only): Eyioma Uwazurike (DE) Injured Reserve; Caleb Lohner (TE) Injured Reserve; Brandon Jones (S) Questionable; Riley Moss (CB) Questionable; Jaylen Waddle (WR) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -613,15 +613,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-19T21:56:41+00:00 | 845d9bfc3484 |
-| pbp | OK | 2026-11-19T21:56:41+00:00 | 5a54b5ef7b9a |
-| rosters | OK | 2026-11-19T21:56:42+00:00 | bf8b55781431 |
-| injuries | OK | 2026-11-19T21:56:42+00:00 | f590b3623cca |
-| depth_charts | OK | 2026-11-19T21:56:42+00:00 | 7439a2b6ccc1 |
-| snap_counts | OK | 2026-11-19T21:56:42+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-19T21:56:43+00:00 | 27afd704d1ea |
-| pfr_def | OK | 2026-11-19T21:56:43+00:00 | fc61fb5ffaa3 |
-| espn_injuries | OK | 2026-11-19T21:56:43+00:00 |  |
+| games | OK | 2026-11-20T03:39:35+00:00 | ef6c571ed1c4 |
+| pbp | OK | 2026-11-20T03:39:35+00:00 | 5a54b5ef7b9a |
+| rosters | OK | 2026-11-20T03:39:36+00:00 | bf8b55781431 |
+| injuries | OK | 2026-11-20T03:39:36+00:00 | f590b3623cca |
+| depth_charts | OK | 2026-11-20T03:39:36+00:00 | 7439a2b6ccc1 |
+| snap_counts | OK | 2026-11-20T03:39:36+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-20T03:39:36+00:00 | 27afd704d1ea |
+| pfr_def | OK | 2026-11-20T03:39:37+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-20T03:39:38+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

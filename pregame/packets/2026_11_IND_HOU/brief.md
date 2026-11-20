@@ -4,11 +4,11 @@
 
 Market (schedule consensus, not a timestamped quote): HOU -12.5, total 44.5.
 
-Generated 2026-11-19T21:56:46+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-20T03:39:41+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-19T21:56:44+00:00 UTC. At kickoff: 67 F, wind 0 mph , 0% chance of precipitation, Partly Cloudy. During the game: low 63 F, wind up to 0 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
+National Weather Service, retrieved 2026-11-20T03:39:39+00:00 UTC. At kickoff: 64 F, wind 0 mph , 0% chance of precipitation, Patchy Fog. During the game: low 63 F, wind up to 0 mph, precipitation chance up to 0%. Roof: not listed (may be retractable: confirm open or closed). Flags: none.
 
 ## Book prices and no-vig
 
@@ -354,7 +354,7 @@ Defensive front: LDE Arden Key, LDT Grover Stewart, RDT Adetomiwa Adebawore, RDE
 | Charlie Heck | T |  | none listed | Did Not Participate In Practice |  |
 | Will Mallory | TE |  | Out | Did Not Participate In Practice | Hamstring |
 
-ESPN live list (designations only): Akeem Davis-Gaither (LB) Injured Reserve; Luke Rhodes (LS) Questionable; Jaylon Carlies (LB) Injured Reserve; Bernhard Raimann (OT) Out; Anthony Gould (WR) Questionable; Will Mallory (TE) Out; Charvarius Ward (CB) Out; Jerry Tillery (DT) Out; Jalen Travis (OT) Out; Sauce Gardner (CB) Questionable.
+ESPN live list (designations only): Akeem Davis-Gaither (LB) Injured Reserve; Jaylon Carlies (LB) Injured Reserve; Bernhard Raimann (OT) Out; Jerry Tillery (DT) Out; Jalen Travis (OT) Out; Charvarius Ward (CB) Out; Will Mallory (TE) Out; Sauce Gardner (CB) Out; Riley Leonard (QB) Out; Seth McGowan (RB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -584,7 +584,7 @@ Defensive front: LDE Will Anderson Jr., LDT Tommy Togiai, RDT Sheldon Rankins, R
 | Tank Dell | WR |  | none listed | Full Participation in Practice |  |
 | Marvin Harrison Jr. | WR |  | Out | Did Not Participate In Practice | Hamstring |
 
-ESPN live list (designations only): Azeez Al-Shaair (LB) Injured Reserve; Woody Marks (RB) Out; Marvin Harrison Jr. (WR) Out; Wyatt Teller (G) Questionable; Brevin Jordan (TE) Out; Danielle Hunter (DE) Out; Jaylin Smith (CB) Questionable; Jake Hummel (LB) Questionable.
+ESPN live list (designations only): Brevin Jordan (TE) Out; Danielle Hunter (DE) Out; Nate Thomas (OT) Out; Woody Marks (RB) Out; Marvin Harrison Jr. (WR) Out; Jake Andrews (C) Out; Wyatt Teller (G) Out; Chris Braswell (DE) Out; Sheldon Rankins (DT) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -628,15 +628,15 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-19T21:56:41+00:00 | 845d9bfc3484 |
-| pbp | OK | 2026-11-19T21:56:41+00:00 | 5a54b5ef7b9a |
-| rosters | OK | 2026-11-19T21:56:42+00:00 | bf8b55781431 |
-| injuries | OK | 2026-11-19T21:56:42+00:00 | f590b3623cca |
-| depth_charts | OK | 2026-11-19T21:56:42+00:00 | 7439a2b6ccc1 |
-| snap_counts | OK | 2026-11-19T21:56:42+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-19T21:56:43+00:00 | 27afd704d1ea |
-| pfr_def | OK | 2026-11-19T21:56:43+00:00 | fc61fb5ffaa3 |
-| espn_injuries | OK | 2026-11-19T21:56:43+00:00 |  |
+| games | OK | 2026-11-20T03:39:35+00:00 | ef6c571ed1c4 |
+| pbp | OK | 2026-11-20T03:39:35+00:00 | 5a54b5ef7b9a |
+| rosters | OK | 2026-11-20T03:39:36+00:00 | bf8b55781431 |
+| injuries | OK | 2026-11-20T03:39:36+00:00 | f590b3623cca |
+| depth_charts | OK | 2026-11-20T03:39:36+00:00 | 7439a2b6ccc1 |
+| snap_counts | OK | 2026-11-20T03:39:36+00:00 | d67d94d19cac |
+| ftn | OK | 2026-11-20T03:39:36+00:00 | 27afd704d1ea |
+| pfr_def | OK | 2026-11-20T03:39:37+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-20T03:39:38+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
 

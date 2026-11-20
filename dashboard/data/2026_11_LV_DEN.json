@@ -28,18 +28,18 @@
  },
  "result": null,
  "implied_points": {
-  "DEN": 25.25,
-  "LV": 15.25
+  "DEN": 25.5,
+  "LV": 15.0
  },
- "generated_utc": "2026-11-19T21:57:18+00:00",
- "board_built_utc": "2026-11-19T21:59:53+00:00",
+ "generated_utc": "2026-11-20T03:40:13+00:00",
+ "board_built_utc": "2026-11-20T03:42:47+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
-  "home_spread": -10.0,
+  "home_spread": -10.5,
   "total": 40.5,
   "moneyline": {
-   "LV": 428.0,
-   "DEN": -570.0
+   "LV": 455.0,
+   "DEN": -620.0
   }
  },
  "books": {
@@ -49,7 +49,7 @@
   "status": "OK",
   "source": "US National Weather Service hourly forecast",
   "url": "https://api.weather.gov/gridpoints/BOU/62,62/forecast/hourly",
-  "retrieved_utc": "2026-11-19T21:57:15+00:00",
+  "retrieved_utc": "2026-11-20T03:40:11+00:00",
   "kickoff_utc": "2026-11-22T21:25:00+00:00",
   "roof": "outdoors",
   "at_kickoff": {
@@ -3326,7 +3326,7 @@
      "practice": "Did Not Participate In Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "Bowers (ankle) was on the field for the start of Thursday's practice, Ryan McFadden of ESPN.com reports.",
+     "espn_comment": "Bowers (ankle/quadriceps) was listed as a limited participant in Thursday's practice, Ryan McFadden of ESPN.com reports.",
      "starter_slot": "TE",
      "snap_share": 0.772,
      "next_up": "Michael Mayer",
@@ -4114,7 +4114,7 @@
      "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "Waddle (concussion) was a full participant in Wednesday's practice.",
+     "espn_comment": "Waddle (concussion) was a full practice participant Thursday.",
      "starter_slot": "WR",
      "snap_share": 0.565,
      "next_up": "Courtland Sutton",
@@ -4134,20 +4134,6 @@
      "next_up": null,
      "impact": "medium",
      "status_level": 3
-    },
-    {
-     "player": "Kris Abrams-Draine",
-     "position": "CB",
-     "game_status": null,
-     "practice": "Limited Participation in Practice",
-     "injury": null,
-     "espn": "Questionable",
-     "espn_comment": "Abrams-Draine (ankle) was a limited participant in Wednesday's practice.",
-     "starter_slot": null,
-     "snap_share": 0.715,
-     "next_up": null,
-     "impact": "medium",
-     "status_level": 2
     },
     {
      "player": "Caleb Lohner",
@@ -4201,6 +4187,20 @@
      "espn_comment": "Sutton caught five of nine targets for 45 yards and a touchdown in Sunday's 26-21 win over the Panthers.",
      "starter_slot": null,
      "snap_share": 0.784,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Kris Abrams-Draine",
+     "position": "CB",
+     "game_status": null,
+     "practice": "Limited Participation in Practice",
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Abrams-Draine (ankle) practiced in full Thursday.",
+     "starter_slot": null,
+     "snap_share": 0.715,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -4515,11 +4515,6 @@
       "player": "Riley Moss",
       "slot": "RCB",
       "status": "Questionable"
-     },
-     {
-      "player": "Kris Abrams-Draine",
-      "slot": "CB",
-      "status": "Questionable"
      }
     ],
     "linebackers": [],
@@ -4541,7 +4536,7 @@
     "pass_ratio": 0.604,
     "script_pass_multiplier": 1.1,
     "weather_attempts_multiplier": 1.0,
-    "implied_margin": -10.0,
+    "implied_margin": -10.5,
     "missing_target_share": 0.0,
     "missing_carry_share": 0.0,
     "receivers": [
@@ -5228,8 +5223,8 @@
       "pos": "TE",
       "tier": "alpha",
       "style": "explosive",
-      "p80": 0.284,
-      "p100": 0.16,
+      "p80": 0.282,
+      "p100": 0.159,
       "stars": 0,
       "targets": 8.6,
       "yds_pg": 84.5,
@@ -5245,7 +5240,7 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.102,
+      "p80": 0.101,
       "p100": 0.042,
       "stars": 0,
       "targets": 5.4,
@@ -5261,7 +5256,7 @@
       "pos": "TE",
       "tier": null,
       "style": "volume",
-      "p80": 0.076,
+      "p80": 0.075,
       "p100": 0.029,
       "stars": 0,
       "targets": 4.9,
@@ -5309,7 +5304,7 @@
       "player": "Mike Washington Jr.",
       "player_id": "00-0040878",
       "pos": "RB",
-      "p80": 0.102,
+      "p80": 0.101,
       "p100": 0.045,
       "stars": 0,
       "carries": 10.4,
@@ -5321,15 +5316,15 @@
        "book": "fanduel",
        "american": 1400,
        "break_even": 0.0667,
-       "blend": 0.083,
-       "model_minus_price": 0.035
+       "blend": 0.082,
+       "model_minus_price": 0.034
       }
      }
     ],
     "context": {
      "pass_yards_last5": 245.0,
      "pass_offense_rank": 9,
-     "implied": 15.25,
+     "implied": 15.0,
      "defense_g80_rank": 12,
      "defense_explosive_rank": 24
     },
@@ -12225,7 +12220,7 @@
      "practice": "Full Participation in Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "Waddle (concussion) was a full participant in Wednesday's practice.",
+     "espn_comment": "Waddle (concussion) was a full practice participant Thursday.",
      "starter_slot": "WR",
      "snap_share": 0.565,
      "next_up": "Courtland Sutton",
@@ -12245,20 +12240,6 @@
      "next_up": null,
      "impact": "medium",
      "status_level": 3
-    },
-    {
-     "player": "Kris Abrams-Draine",
-     "position": "CB",
-     "game_status": null,
-     "practice": "Limited Participation in Practice",
-     "injury": null,
-     "espn": "Questionable",
-     "espn_comment": "Abrams-Draine (ankle) was a limited participant in Wednesday's practice.",
-     "starter_slot": null,
-     "snap_share": 0.715,
-     "next_up": null,
-     "impact": "medium",
-     "status_level": 2
     },
     {
      "player": "Caleb Lohner",
@@ -12312,6 +12293,20 @@
      "espn_comment": "Sutton caught five of nine targets for 45 yards and a touchdown in Sunday's 26-21 win over the Panthers.",
      "starter_slot": null,
      "snap_share": 0.784,
+     "next_up": null,
+     "impact": "low",
+     "status_level": 1
+    },
+    {
+     "player": "Kris Abrams-Draine",
+     "position": "CB",
+     "game_status": null,
+     "practice": "Limited Participation in Practice",
+     "injury": null,
+     "espn": "Active",
+     "espn_comment": "Abrams-Draine (ankle) practiced in full Thursday.",
+     "starter_slot": null,
+     "snap_share": 0.715,
      "next_up": null,
      "impact": "low",
      "status_level": 1
@@ -12920,7 +12915,7 @@
      "practice": "Did Not Participate In Practice",
      "injury": null,
      "espn": "Questionable",
-     "espn_comment": "Bowers (ankle) was on the field for the start of Thursday's practice, Ryan McFadden of ESPN.com reports.",
+     "espn_comment": "Bowers (ankle/quadriceps) was listed as a limited participant in Thursday's practice, Ryan McFadden of ESPN.com reports.",
      "starter_slot": "TE",
      "snap_share": 0.772,
      "next_up": "Michael Mayer",
@@ -13380,11 +13375,6 @@
       "player": "Riley Moss",
       "slot": "RCB",
       "status": "Questionable"
-     },
-     {
-      "player": "Kris Abrams-Draine",
-      "slot": "CB",
-      "status": "Questionable"
      }
     ],
     "linebackers": [],
@@ -13423,7 +13413,7 @@
     "pass_ratio": 0.556,
     "script_pass_multiplier": 0.9,
     "weather_attempts_multiplier": 1.0,
-    "implied_margin": 10.0,
+    "implied_margin": 10.5,
     "missing_target_share": 0.0,
     "missing_carry_share": 0.0,
     "receivers": [
@@ -14324,13 +14314,20 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.153,
+      "p80": 0.154,
       "p100": 0.064,
       "stars": 0,
       "targets": 5.5,
       "yds_pg": 41.9,
       "ex_pg": 0.75,
-      "why": []
+      "why": [],
+      "book80": {
+       "book": "fanduel",
+       "american": 450,
+       "break_even": 0.1818,
+       "blend": 0.167,
+       "model_minus_price": -0.028
+      }
      },
      {
       "player": "Courtland Sutton",
@@ -14338,13 +14335,20 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.115,
-      "p100": 0.046,
+      "p80": 0.116,
+      "p100": 0.047,
       "stars": 0,
       "targets": 5.4,
       "yds_pg": 31.9,
       "ex_pg": 0.38,
-      "why": []
+      "why": [],
+      "book80": {
+       "book": "fanduel",
+       "american": 750,
+       "break_even": 0.1176,
+       "blend": 0.117,
+       "model_minus_price": -0.002
+      }
      },
      {
       "player": "Pat Bryant",
@@ -14352,13 +14356,20 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.049,
+      "p80": 0.05,
       "p100": 0.014,
       "stars": 0,
       "targets": 2.6,
       "yds_pg": 36.8,
       "ex_pg": 0.75,
-      "why": []
+      "why": [],
+      "book80": {
+       "book": "fanduel",
+       "american": 920,
+       "break_even": 0.098,
+       "blend": 0.07,
+       "model_minus_price": -0.048
+      }
      },
      {
       "player": "Evan Engram",
@@ -14380,7 +14391,7 @@
       "pos": "WR",
       "tier": null,
       "style": "volume",
-      "p80": 0.018,
+      "p80": 0.019,
       "p100": 0.005,
       "stars": 0,
       "targets": 2.5,
@@ -14420,17 +14431,17 @@
       ],
       "book80": {
        "book": "fanduel",
-       "american": 154,
-       "break_even": 0.3937,
-       "blend": 0.334,
-       "model_minus_price": -0.114
+       "american": 158,
+       "break_even": 0.3876,
+       "blend": 0.332,
+       "model_minus_price": -0.108
       }
      }
     ],
     "context": {
      "pass_yards_last5": 182.0,
      "pass_offense_rank": 25,
-     "implied": 25.25,
+     "implied": 25.5,
      "defense_g80_rank": 24,
      "defense_explosive_rank": 9
     },
@@ -20088,7 +20099,7 @@
       "away": 6.5
      }
     },
-    "home_covers_market_spread": 0.327,
+    "home_covers_market_spread": 0.314,
     "over_market_total": 0.511
    }
   },
@@ -20190,63 +20201,63 @@
   "games": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-19T21:56:41+00:00",
-   "sha256": "845d9bfc3484e3ea48f8505f224a24e1a6ecda19154e8e62bcceb88b32bd12fb",
-   "bytes": 524059
+   "retrieved_utc": "2026-11-20T03:39:35+00:00",
+   "sha256": "ef6c571ed1c4d2665892ac12448caa719bf2174a9d31f7d14ccb8a424141dc08",
+   "bytes": 524116
   },
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-19T21:56:41+00:00",
+   "retrieved_utc": "2026-11-20T03:39:35+00:00",
    "sha256": "5a54b5ef7b9a63736497f7e0fb998e1f87aed98afda912302667ca05a7fd6387",
    "bytes": 11776333
   },
   "rosters": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-19T21:56:42+00:00",
+   "retrieved_utc": "2026-11-20T03:39:36+00:00",
    "sha256": "bf8b55781431fd8fb7367578328584281240fd8c87b828850a77015b21c5f8bf",
    "bytes": 833139
   },
   "injuries": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-19T21:56:42+00:00",
+   "retrieved_utc": "2026-11-20T03:39:36+00:00",
    "sha256": "f590b3623cca888dbf83e3cf4ad02f83089f914b8a9c75d32f428921f502c80b",
    "bytes": 68602
   },
   "depth_charts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-19T21:56:42+00:00",
+   "retrieved_utc": "2026-11-20T03:39:36+00:00",
    "sha256": "7439a2b6ccc175d6643058e2a78eee6853473d5c4b7dc773fd0ea0440089cd48",
    "bytes": 3572983
   },
   "snap_counts": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-19T21:56:42+00:00",
+   "retrieved_utc": "2026-11-20T03:39:36+00:00",
    "sha256": "d67d94d19caca72e6977fafafc0c073e100bb56bf82561a4f62c043e257bcf77",
    "bytes": 143614
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-19T21:56:43+00:00",
+   "retrieved_utc": "2026-11-20T03:39:36+00:00",
    "sha256": "27afd704d1ea601806a6444499188ebcb9af9254870ab63d99a6a4a4a770e5ff",
    "bytes": 313292
   },
   "pfr_def": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2026.parquet",
    "status": "OK",
-   "retrieved_utc": "2026-11-19T21:56:43+00:00",
+   "retrieved_utc": "2026-11-20T03:39:37+00:00",
    "sha256": "fc61fb5ffaa3b6f563897e1e45536708349b68837ea28280bf6e07176a7de02f",
    "bytes": 99913
   },
   "espn_injuries": {
    "status": "OK",
    "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-   "retrieved_utc": "2026-11-19T21:56:43+00:00"
+   "retrieved_utc": "2026-11-20T03:39:38+00:00"
   },
   "nfl_savant": {
    "status": "SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made",
