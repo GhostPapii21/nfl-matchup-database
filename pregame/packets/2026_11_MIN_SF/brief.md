@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-22, 20:20 ET.** Site: Neutral; roof: outdoors; surface: grass. Rest: MIN 7 days, SF 7 days. Listed QBs: Kirk Cousins (MIN), Brock Purdy (SF).
 
-Market (schedule consensus, not a timestamped quote): SF -3.5, total 46.5.
+Market (schedule consensus, not a timestamped quote): SF -3, total 46.5.
 
-Generated 2026-11-20T03:40:20+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-21T20:46:58+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,7 +12,70 @@ NOT_MAPPED_NEUTRAL_OR_INTERNATIONAL_SITE: check the forecast by hand
 
 ## Book prices and no-vig
 
-No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not quote book numbers from memory.
+Retrieved 2026-11-20T00:37:25Z UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+
+| Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
+|---|---|---|---|---|---|---|---|---|
+| spread | draftkings | SF -3.5 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-20T10:33:50Z |
+| spread | williamhill_us | SF -3.5 | -102 | -120 | 48.1% | 51.9% | 5.0% | 2026-11-20T10:33:50Z |
+| spread | fanduel | SF -3 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-20T10:33:32Z |
+| spread | betmgm | SF -3 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-20T10:33:18Z |
+| total | pinnacle | Over 46 | -116 | +101 | 51.9% | 48.1% | 3.5% | 2026-11-20T00:37:25+00:00 |
+| total | draftkings | Over 46.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-20T10:33:50Z |
+| total | williamhill_us | Over 46.5 | -108 | -113 | 49.5% | 50.5% | 5.0% | 2026-11-20T10:33:50Z |
+| total | fanduel | Over 46.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-20T10:33:32Z |
+| total | betmgm | Over 46.5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-20T10:33:18Z |
+| moneyline | draftkings | SF | -172 | +145 | 60.8% | 39.2% | 4.0% | 2026-11-20T10:33:50Z |
+| moneyline | williamhill_us | SF | -173 | +144 | 60.7% | 39.3% | 4.3% | 2026-11-20T10:33:50Z |
+| moneyline | fanduel | SF | -168 | +142 | 60.3% | 39.7% | 4.0% | 2026-11-20T10:33:32Z |
+| moneyline | betmgm | SF | -175 | +140 | 60.4% | 39.6% | 5.3% | 2026-11-20T10:33:18Z |
+
+### Player props beside the research baseline
+
+| Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Justin Jefferson | receiving yards | betmgm | 84.5 | -115 / -115 | 50.0% | n/a | 54.2 | 54.7 | 7 | -30.3 |
+| Justin Jefferson | receiving yards | betonlineag | 83.5 | -114 / -114 | 50.0% | n/a | 54.2 | 54.7 | 7 | -29.3 |
+| Justin Jefferson | receiving yards | betrivers | 83.5 | -114 / -117 | 49.7% | n/a | 54.2 | 54.7 | 7 | -29.3 |
+| Justin Jefferson | receiving yards | draftkings | 82.5 | -110 / -114 | 49.6% | 50.0% | 54.2 | 54.7 | 7 | -28.3 |
+| Justin Jefferson | receiving yards | fanduel | 82.5 | -114 / -114 | 50.0% | 50.0% | 54.2 | 54.7 | 7 | -28.3 |
+| Justin Jefferson | receiving yards | bovada | 81.5 | -115 / -115 | 50.0% | n/a | 54.2 | 54.7 | 7 | -27.3 |
+| Aaron Jones | rushing yards | bovada | 29.5 | -120 / -110 | 51.0% | n/a | 47.2 | 45.4 | 8 | 17.7 |
+| Kaelon Black | rushing yards | fanatics | 25.5 | -125 / -105 | 52.0% | n/a | 42.4 | 31.2 | 8 | 16.9 |
+| Aaron Jones | rushing yards | betonlineag | 30.5 | -115 / -112 | 50.3% | 50.0% | 47.2 | 45.4 | 8 | 16.7 |
+| Aaron Jones | rushing yards | draftkings | 30.5 | -112 / -112 | 50.0% | 50.0% | 47.2 | 45.4 | 8 | 16.7 |
+| Aaron Jones | rushing yards | fanduel | 30.5 | -114 / -114 | 50.0% | 50.0% | 47.2 | 45.4 | 8 | 16.7 |
+| Aaron Jones | rushing yards | betmgm | 30.5 | -115 / -115 | 50.0% | 50.0% | 47.2 | 45.4 | 8 | 16.7 |
+| Kaelon Black | rushing yards | betrivers | 26.5 | -115 / -114 | 50.1% | 50.0% | 42.4 | 31.2 | 8 | 15.9 |
+| Kaelon Black | rushing yards | fanduel | 26.5 | -114 / -114 | 50.0% | 50.0% | 42.4 | 31.2 | 8 | 15.9 |
+| Aaron Jones | rushing yards | betrivers | 31.5 | -118 / -113 | 50.5% | n/a | 47.2 | 45.4 | 8 | 15.7 |
+| Kaelon Black | rushing yards | betonlineag | 27.5 | -112 / -115 | 49.7% | n/a | 42.4 | 31.2 | 8 | 14.9 |
+| Kaelon Black | rushing yards | betmgm | 27.5 | -111 / -118 | 49.3% | n/a | 42.4 | 31.2 | 8 | 14.9 |
+| Kaelon Black | rushing yards | bovada | 28.5 | -115 / -115 | 50.0% | n/a | 42.4 | 31.2 | 8 | 13.9 |
+| Kaelon Black | rushing yards | draftkings | 28.5 | -111 / -113 | 49.8% | n/a | 42.4 | 31.2 | 8 | 13.9 |
+| Christian McCaffrey | rushing yards | betonlineag | 49.5 | -116 / -111 | 50.5% | 51.4% | 60.8 | 66.5 | 8 | 11.3 |
+| Christian McCaffrey | rushing yards | bovada | 49.5 | -120 / -110 | 51.0% | 51.4% | 60.8 | 66.5 | 8 | 11.3 |
+| Christian McCaffrey | rushing yards | draftkings | 49.5 | -109 / -115 | 49.4% | 51.4% | 60.8 | 66.5 | 8 | 11.3 |
+| Christian McCaffrey | rushing yards | fanduel | 49.5 | -114 / -114 | 50.0% | 51.4% | 60.8 | 66.5 | 8 | 11.3 |
+| Christian McCaffrey | rushing yards | betmgm | 49.5 | -111 / -118 | 49.3% | 51.4% | 60.8 | 66.5 | 8 | 11.3 |
+| Christian McCaffrey | rushing yards | betrivers | 50.5 | -117 / -114 | 50.3% | n/a | 60.8 | 66.5 | 8 | 10.3 |
+| George Kittle | receiving yards | fanduel | 47.5 | -114 / -114 | 50.0% | n/a | 57.6 | 61.2 | 8 | 10.1 |
+| George Kittle | receiving yards | draftkings | 49.5 | -112 / -112 | 50.0% | n/a | 57.6 | 61.2 | 8 | 8.1 |
+| Jordan Mason | rushing yards | betrivers | 45.5 | -115 / -115 | 50.0% | n/a | 39.0 | 40.6 | 4 | -6.5 |
+| George Kittle | receiving yards | bovada | 51.5 | -115 / -115 | 50.0% | n/a | 57.6 | 61.2 | 8 | 6.1 |
+| George Kittle | receiving yards | betonlineag | 52.5 | -114 / -114 | 50.0% | n/a | 57.6 | 61.2 | 8 | 5.1 |
+| Jordan Mason | rushing yards | draftkings | 43.5 | -110 / -114 | 49.6% | n/a | 39.0 | 40.6 | 4 | -4.5 |
+| Jordan Mason | rushing yards | fanduel | 43.5 | -114 / -114 | 50.0% | n/a | 39.0 | 40.6 | 4 | -4.5 |
+| Jordan Mason | rushing yards | betmgm | 43.5 | -105 / -125 | 48.0% | n/a | 39.0 | 40.6 | 4 | -4.5 |
+| Jordan Mason | rushing yards | betonlineag | 41.5 | -114 / -114 | 50.0% | n/a | 39.0 | 40.6 | 4 | -2.5 |
+| Justin Jefferson | receptions | betmgm | 7.5 | +110 / -150 | 44.2% | n/a | 5.1 | 4.2 | 7 | -2.4 |
+| George Kittle | receiving yards | betrivers | 55.5 | -115 / -115 | 50.0% | n/a | 57.6 | 61.2 | 8 | 2.1 |
+| Justin Jefferson | receptions | betonlineag | 6.5 | -149 / +115 | 56.3% | 57.1% | 5.1 | 4.2 | 7 | -1.4 |
+| Justin Jefferson | receptions | bovada | 6.5 | -145 / +110 | 55.4% | 57.1% | 5.1 | 4.2 | 7 | -1.4 |
+| Justin Jefferson | receptions | draftkings | 6.5 | -144 / +112 | 55.6% | 57.1% | 5.1 | 4.2 | 7 | -1.4 |
+| Justin Jefferson | receptions | fanduel | 6.5 | -158 / +118 | 57.2% | 57.1% | 5.1 | 4.2 | 7 | -1.4 |
+
+baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
 ## Matchup edges
 
@@ -52,8 +115,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | MIN 20.8 - SF 22.6 | 43.5 | +1.8 | 57.1% | 48.8% | 43.9% | MIN 9.9 - SF 11.5 |
-| independent | MIN 20.1 - SF 27.5 | 47.7 | +7.4 | 69.2% | 61.0% | 52.0% | MIN 9.7 - SF 13.9 |
+| matchup_pair | MIN 20.8 - SF 22.6 | 43.5 | +1.8 | 57.1% | 51.0% | 43.9% | MIN 9.9 - SF 11.5 |
+| independent | MIN 20.1 - SF 27.5 | 47.7 | +7.4 | 69.2% | 63.3% | 52.0% | MIN 9.7 - SF 13.9 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -287,7 +350,7 @@ Neutral-situation pass rate 51.8%; 56.4 plays per game; target share WR 58% / TE
 | defense allows | Deep middle | 13 | 6% | 38% | 11.54 | 4 |
 | defense allows | Deep right | 12 | 6% | 33% | 7.92 | 3 |
 
-### MIN lines (depth chart as of 2026-11-19T16:30:49Z)
+### MIN lines (depth chart as of 2026-11-21T15:17:24Z)
 
 Offensive line: LT Christian Darrisaw, LG Joe Huber, C Blake Brandel, RG Will Fries, RT Brian O'Neill.  
 Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WLB Andrew Van Ginkel, SLB Dallas Turner.
@@ -296,18 +359,21 @@ Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WL
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Andrew Van Ginkel | LB | yes | none listed | Limited Participation in Practice |  |
+| Isaiah Rodgers | CB | yes | Questionable | Limited Participation in Practice | Quadricep |
+| Andrew Van Ginkel | LB | yes | none listed | Full Participation in Practice |  |
 | Blake Cashman | LB | yes | none listed | Full Participation in Practice |  |
-| T.J. Hockenson | TE | yes | none listed | Limited Participation in Practice |  |
+| Harrison Smith | S | yes | none listed | Limited Participation in Practice |  |
+| Christian Darrisaw | T | yes | none listed | Did Not Participate In Practice |  |
+| T.J. Hockenson | TE | yes | none listed | Full Participation in Practice |  |
 | Tyrion Ingram-Dawkins | DT |  | none listed | Full Participation in Practice |  |
-| Kyle Van Noy | LB |  | none listed | Limited Participation in Practice |  |
-| Kyler Murray | QB |  | none listed | Did Not Participate In Practice |  |
-| Jay Ward | S |  | none listed | Limited Participation in Practice |  |
+| Kyle Van Noy | LB |  | none listed | Full Participation in Practice |  |
+| Kyler Murray | QB |  | Out | Did Not Participate In Practice | Hamstring |
+| Jay Ward | S |  | Questionable | Limited Participation in Practice | Knee |
 | Jauan Jennings | WR |  | none listed | Full Participation in Practice |  |
-| Jordan Addison | WR |  | none listed | Did Not Participate In Practice |  |
-| Jeshaun Jones | WR |  | none listed | Limited Participation in Practice |  |
+| Jordan Addison | WR |  | Out | Did Not Participate In Practice | Thumb |
+| Jeshaun Jones | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Jordan Addison (WR) Out; Kyler Murray (QB) Out; Jay Ward (S) Questionable; Jeshaun Jones (WR) Questionable; Andrew Van Ginkel (LB) Questionable; Bo Richter (LB) Injured Reserve; T.J. Hockenson (TE) Questionable; Isaiah Rodgers (CB) Questionable; Blake Cashman (LB) Questionable.
+ESPN live list (designations only): Jordan Addison (WR) Out; Jay Ward (S) Questionable; Bo Richter (LB) Injured Reserve; Kyler Murray (QB) Out; Isaiah Rodgers (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -510,7 +576,7 @@ Neutral-situation pass rate 54.2%; 58.0 plays per game; target share WR 45% / TE
 | defense allows | Deep middle | 13 | 4% | 54% | 10.85 | 3 |
 | defense allows | Deep right | 26 | 9% | 35% | 11.35 | 7 |
 
-### SF lines (depth chart as of 2026-11-19T16:30:49Z)
+### SF lines (depth chart as of 2026-11-21T15:17:24Z)
 
 Offensive line: LT Trent Williams, LG Connor Colby, C Jake Brendel, RG Dominick Puni, RT Colton McKivitz.  
 Defensive front: LDE Keion White, LDT Osa Odighizuwa, RDT DeForest Buckner, RDE Nick Bosa, WLB Dre Greenlaw, SLB Jaden Dugger.
@@ -519,23 +585,24 @@ Defensive front: LDE Keion White, LDT Osa Odighizuwa, RDT DeForest Buckner, RDE 
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Renardo Green | CB | yes | none listed | Limited Participation in Practice |  |
-| Upton Stout | CB | yes | none listed | Limited Participation in Practice |  |
-| Dre Greenlaw | LB | yes | none listed | Did Not Participate In Practice |  |
+| Renardo Green | CB | yes | none listed | Full Participation in Practice |  |
+| Upton Stout | CB | yes | Questionable | Limited Participation in Practice | Shoulder |
+| Dre Greenlaw | LB | yes | Questionable | Limited Participation in Practice | Neck |
 | Jon Weeks | LS | yes | none listed | Full Participation in Practice |  |
-| Christian McCaffrey | RB | yes | none listed | Did Not Participate In Practice |  |
-| Ji'Ayir Brown | S | yes | none listed | Limited Participation in Practice |  |
-| Trent Williams | T | yes | none listed | Did Not Participate In Practice |  |
-| Mike Evans | WR | yes | none listed | Did Not Participate In Practice |  |
-| Nate Hobbs | CB |  | none listed | Full Participation in Practice |  |
-| Khalid Kareem | DE |  | none listed | Limited Participation in Practice |  |
+| Christian McCaffrey | RB | yes | none listed | Full Participation in Practice |  |
+| Ji'Ayir Brown | S | yes | none listed | Full Participation in Practice |  |
+| Trent Williams | T | yes | none listed | Full Participation in Practice |  |
+| Mike Evans | WR | yes | Questionable | Limited Participation in Practice | Achilles |
+| Nate Hobbs | CB |  | Questionable | Full Participation in Practice | Groin |
+| Khalid Kareem | DE |  | Questionable | Limited Participation in Practice | Ankle |
 | Mykel Williams | DE |  | none listed | Full Participation in Practice |  |
-| C.J. West | DT |  | none listed | Full Participation in Practice |  |
-| Luke Gifford | LB |  | none listed | Limited Participation in Practice |  |
-| Mac Jones | QB |  | none listed | Limited Participation in Practice |  |
-| Siran Neal | S |  | none listed | Limited Participation in Practice |  |
+| C.J. West | DT |  | Questionable | Full Participation in Practice | Knee |
+| Luke Gifford | LB |  | Questionable | Limited Participation in Practice | Chest |
+| Mac Jones | QB |  | Questionable | Limited Participation in Practice | Illness |
+| Jordan James | RB |  | Questionable | Limited Participation in Practice | Calf |
+| Siran Neal | S |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Brandon Aiyuk (WR) Out; De'Zhaun Stribling (WR) Injured Reserve; Luke Gifford (LB) Questionable; Khalid Kareem (DE) Questionable; Upton Stout (CB) Questionable; Ji'Ayir Brown (S) Questionable; Christian Kirk (WR) Injured Reserve; Mike Evans (WR) Questionable; Jordan James (RB) Questionable; Isaac Guerendo (RB) Out; Mac Jones (QB) Questionable; Dre Greenlaw (LB) Questionable.
+ESPN live list (designations only): Brandon Aiyuk (WR) Out; De'Zhaun Stribling (WR) Injured Reserve; Luke Gifford (LB) Questionable; Khalid Kareem (DE) Questionable; Upton Stout (CB) Questionable; Christian Kirk (WR) Injured Reserve; Isaac Guerendo (RB) Out; Mike Evans (WR) Questionable; Mac Jones (QB) Questionable; Jordan James (RB) Questionable; Dre Greenlaw (LB) Questionable; Nate Hobbs (CB) Injured Reserve; C.J. West (DT) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -571,7 +638,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | PARTIAL | Roof, surface, rest days, site; National Weather Service kickoff forecast: NOT_MAPPED_NEUTRAL_OR_INTERNATIONAL_SITE: check the forecast by hand. |
-| 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
+| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, player props. No FTN model, no true opening line. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -579,16 +646,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-20T03:39:35+00:00 | ef6c571ed1c4 |
-| pbp | OK | 2026-11-20T03:39:35+00:00 | 5a54b5ef7b9a |
-| rosters | OK | 2026-11-20T03:39:36+00:00 | bf8b55781431 |
-| injuries | OK | 2026-11-20T03:39:36+00:00 | f590b3623cca |
-| depth_charts | OK | 2026-11-20T03:39:36+00:00 | 7439a2b6ccc1 |
-| snap_counts | OK | 2026-11-20T03:39:36+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-20T03:39:36+00:00 | 27afd704d1ea |
-| pfr_def | OK | 2026-11-20T03:39:37+00:00 | fc61fb5ffaa3 |
-| espn_injuries | OK | 2026-11-20T03:39:38+00:00 |  |
+| games | OK | 2026-11-21T20:46:36+00:00 | d925a4602c9a |
+| pbp | OK | 2026-11-21T20:46:36+00:00 | a2bfcd8abcec |
+| rosters | OK | 2026-11-21T20:46:36+00:00 | 6d3e9e7d489e |
+| injuries | OK | 2026-11-21T20:46:36+00:00 | f31c61c6b233 |
+| depth_charts | OK | 2026-11-21T20:46:36+00:00 | e89715eb757e |
+| snap_counts | OK | 2026-11-21T20:46:37+00:00 | 980aba4c2b5e |
+| ftn | OK | 2026-11-21T20:46:37+00:00 | d0e949df6e17 |
+| pfr_def | OK | 2026-11-21T20:46:37+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-21T20:46:38+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
+| book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

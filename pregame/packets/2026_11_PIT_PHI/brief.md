@@ -2,17 +2,80 @@
 
 **Sunday 2026-11-22, 16:25 ET.** Site: Home; roof: outdoors; surface: grass. Rest: PIT 7 days, PHI 14 days. Listed QBs: Aaron Rodgers (PIT), Joe Milton III (PHI).
 
-Market (schedule consensus, not a timestamped quote): PHI +4.5, total 38.5.
+Market (schedule consensus, not a timestamped quote): PHI +3.5, total 37.5.
 
-Generated 2026-11-20T03:40:16+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-21T20:46:57+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-20T03:40:14+00:00 UTC. At kickoff: 62 F, wind 10 mph E, 65% chance of precipitation, Light Rain Likely. During the game: low 58 F, wind up to 10 mph, precipitation chance up to 77%. Roof: outdoors. Flags: PRECIP_50_PLUS.
+National Weather Service, retrieved 2026-11-21T20:46:55+00:00 UTC. At kickoff: 62 F, wind 10 mph NE, 81% chance of precipitation, Rain. During the game: low 60 F, wind up to 10 mph, precipitation chance up to 81%. Roof: outdoors. Flags: PRECIP_50_PLUS.
 
 ## Book prices and no-vig
 
-No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not quote book numbers from memory.
+Retrieved 2026-11-20T00:37:25Z UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+
+| Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
+|---|---|---|---|---|---|---|---|---|
+| spread | draftkings | PHI +3.5 | -104 | -115 | 48.8% | 51.2% | 4.5% | 2026-11-20T10:33:50Z |
+| spread | williamhill_us | PHI +4.5 | -113 | -106 | 50.8% | 49.2% | 4.5% | 2026-11-20T10:33:50Z |
+| spread | fanduel | PHI +4.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-20T10:33:51Z |
+| spread | betmgm | PHI +4 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-20T10:33:45Z |
+| total | pinnacle | Over 37.5 | -115 | +100 | 51.7% | 48.3% | 3.5% | 2026-11-20T00:37:25+00:00 |
+| total | draftkings | Over 38.5 | -106 | -113 | 49.2% | 50.8% | 4.5% | 2026-11-20T10:33:50Z |
+| total | fanduel | Over 38.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-20T10:33:51Z |
+| total | williamhill_us | Over 38 | -110 | -109 | 50.1% | 49.9% | 4.5% | 2026-11-20T10:33:50Z |
+| total | betmgm | Over 38 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-20T10:33:45Z |
+| moneyline | draftkings | PHI | +170 | -203 | 35.6% | 64.4% | 4.0% | 2026-11-20T10:33:50Z |
+| moneyline | williamhill_us | PHI | +179 | -218 | 34.3% | 65.7% | 4.4% | 2026-11-20T10:33:50Z |
+| moneyline | fanduel | PHI | +180 | -215 | 34.4% | 65.6% | 4.0% | 2026-11-20T10:33:51Z |
+| moneyline | betmgm | PHI | +175 | -210 | 34.9% | 65.1% | 4.1% | 2026-11-20T10:33:45Z |
+
+### Player props beside the research baseline
+
+| Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Saquon Barkley | rushing yards | betrivers | 59.5 | -118 / -113 | 50.5% | n/a | 29.8 | 22.1 | 6 | -29.7 |
+| Saquon Barkley | rushing yards | betonlineag | 58.5 | -115 / -112 | 50.3% | n/a | 29.8 | 22.1 | 6 | -28.7 |
+| Saquon Barkley | rushing yards | bovada | 58.5 | -115 / -115 | 50.0% | n/a | 29.8 | 22.1 | 6 | -28.7 |
+| Saquon Barkley | rushing yards | draftkings | 58.5 | -113 / -111 | 50.2% | n/a | 29.8 | 22.1 | 6 | -28.7 |
+| Saquon Barkley | rushing yards | fanduel | 58.5 | -114 / -114 | 50.0% | n/a | 29.8 | 22.1 | 6 | -28.7 |
+| Saquon Barkley | rushing yards | betmgm | 57.5 | -115 / -115 | 50.0% | n/a | 29.8 | 22.1 | 6 | -27.7 |
+| Jaylen Warren | rushing yards | betonlineag | 65.5 | -111 / -116 | 49.5% | 49.8% | 91.2 | 106.3 | 8 | 25.7 |
+| Jaylen Warren | rushing yards | betrivers | 65.5 | -115 / -115 | 50.0% | 49.8% | 91.2 | 106.3 | 8 | 25.7 |
+| Jaylen Warren | rushing yards | fanduel | 65.5 | -114 / -114 | 50.0% | 49.8% | 91.2 | 106.3 | 8 | 25.7 |
+| Jaylen Warren | rushing yards | betmgm | 65.5 | -111 / -118 | 49.3% | 49.8% | 91.2 | 106.3 | 8 | 25.7 |
+| Jaylen Warren | rushing yards | bovada | 66.5 | -120 / -110 | 51.0% | n/a | 91.2 | 106.3 | 8 | 24.7 |
+| Jaylen Warren | rushing yards | draftkings | 66.5 | -115 / -109 | 50.6% | n/a | 91.2 | 106.3 | 8 | 24.7 |
+| DK Metcalf | receiving yards | betrivers | 39.5 | -117 / -114 | 50.3% | n/a | 54.4 | 47.4 | 8 | 14.9 |
+| Germie Bernard | receiving yards | fanduel | 25.5 | -114 / -114 | 50.0% | n/a | 38.9 | 31.8 | 8 | 13.4 |
+| Dallas Goedert | receiving yards | betonlineag | 29.5 | -115 / -112 | 50.3% | n/a | 42.9 | 45.3 | 6 | 13.4 |
+| Dallas Goedert | receiving yards | betrivers | 29.5 | -112 / -120 | 49.2% | n/a | 42.9 | 45.3 | 6 | 13.4 |
+| Dallas Goedert | receiving yards | bovada | 29.5 | -115 / -115 | 50.0% | n/a | 42.9 | 45.3 | 6 | 13.4 |
+| Dallas Goedert | receiving yards | draftkings | 29.5 | -114 / -110 | 50.4% | n/a | 42.9 | 45.3 | 6 | 13.4 |
+| Dallas Goedert | receiving yards | betmgm | 29.5 | -115 / -115 | 50.0% | n/a | 42.9 | 45.3 | 6 | 13.4 |
+| Germie Bernard | receiving yards | draftkings | 26.5 | -115 / -109 | 50.6% | n/a | 38.9 | 31.8 | 8 | 12.4 |
+| Dallas Goedert | receiving yards | fanduel | 30.5 | -114 / -114 | 50.0% | n/a | 42.9 | 45.3 | 6 | 12.4 |
+| DK Metcalf | receiving yards | betonlineag | 42.5 | -115 / -112 | 50.3% | 50.2% | 54.4 | 47.4 | 8 | 11.9 |
+| DK Metcalf | receiving yards | bovada | 42.5 | -115 / -115 | 50.0% | 50.2% | 54.4 | 47.4 | 8 | 11.9 |
+| DK Metcalf | receiving yards | draftkings | 42.5 | -110 / -114 | 49.6% | 50.2% | 54.4 | 47.4 | 8 | 11.9 |
+| DK Metcalf | receiving yards | fanduel | 42.5 | -114 / -114 | 50.0% | 50.2% | 54.4 | 47.4 | 8 | 11.9 |
+| Germie Bernard | receiving yards | betonlineag | 27.5 | -116 / -111 | 50.5% | n/a | 38.9 | 31.8 | 8 | 11.4 |
+| Germie Bernard | receiving yards | bovada | 27.5 | -115 / -115 | 50.0% | n/a | 38.9 | 31.8 | 8 | 11.4 |
+| Darnell Washington | receiving yards | draftkings | 17.5 | -116 / -108 | 50.8% | n/a | 27.7 | 16.8 | 8 | 10.2 |
+| Darnell Washington | receiving yards | fanduel | 17.5 | -114 / -114 | 50.0% | n/a | 27.7 | 16.8 | 8 | 10.2 |
+| Darnell Washington | receiving yards | betonlineag | 18.5 | -120 / -108 | 51.2% | n/a | 27.7 | 16.8 | 8 | 9.2 |
+| Darnell Washington | receiving yards | bovada | 18.5 | -120 / -110 | 51.0% | n/a | 27.7 | 16.8 | 8 | 9.2 |
+| Pat Freiermuth | receiving yards | betonlineag | 20.5 | -116 / -111 | 50.5% | n/a | 25.6 | 28.2 | 8 | 5.1 |
+| Pat Freiermuth | receiving yards | bovada | 20.5 | -120 / -110 | 51.0% | n/a | 25.6 | 28.2 | 8 | 5.1 |
+| Pat Freiermuth | receiving yards | draftkings | 20.5 | -111 / -113 | 49.8% | n/a | 25.6 | 28.2 | 8 | 5.1 |
+| Pat Freiermuth | receiving yards | fanduel | 20.5 | -114 / -114 | 50.0% | n/a | 25.6 | 28.2 | 8 | 5.1 |
+| Rico Dowdle | rushing yards | betrivers | 36.5 | -117 / -114 | 50.3% | n/a | 41.4 | 43.8 | 5 | 4.9 |
+| Rico Dowdle | rushing yards | betmgm | 36.5 | -115 / -115 | 50.0% | n/a | 41.4 | 43.8 | 5 | 4.9 |
+| Rico Dowdle | rushing yards | betonlineag | 37.5 | -112 / -115 | 49.7% | 49.6% | 41.4 | 43.8 | 5 | 3.9 |
+| Rico Dowdle | rushing yards | bovada | 37.5 | -115 / -115 | 50.0% | 49.6% | 41.4 | 43.8 | 5 | 3.9 |
+| Rico Dowdle | rushing yards | draftkings | 37.5 | -110 / -114 | 49.6% | 49.6% | 41.4 | 43.8 | 5 | 3.9 |
+
+baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
 ## Matchup edges
 
@@ -47,8 +110,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | PIT 21.8 - PHI 21.2 | 43.0 | -0.7 | 46.5% | 63.0% | 63.1% | PIT 10.3 - PHI 11.4 |
-| independent | PIT 22.7 - PHI 20.5 | 43.2 | -2.3 | 39.4% | 53.0% | 67.3% | PIT 11.4 - PHI 12.3 |
+| matchup_pair | PIT 21.8 - PHI 21.2 | 43.0 | -0.7 | 46.5% | 59.3% | 65.0% | PIT 10.3 - PHI 11.4 |
+| independent | PIT 22.7 - PHI 20.5 | 43.2 | -2.3 | 39.4% | 49.9% | 70.5% | PIT 11.4 - PHI 12.3 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -94,49 +157,49 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 65% chance of rain at kickoff, wind up to 10 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 81% chance of rain at kickoff, wind up to 10 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### PIT passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 34.6 | 33.1 | 33.7 |
-| Team completion rate | 60.3% | 56.6% | 57.9% |
-| Team completions | 20.9 | 18.8 | 19.5 |
-| Team pass yards | 224.4 | 191.7 | 203.1 |
-| A.Rodgers completion rate (273 attempts) | 60.8% | 57.1% | 58.4% |
-| A.Rodgers yards per attempt | 6.57 | 5.78 | 6.05 |
+| Team pass attempts | 34.6 | 33.1 | 33.4 |
+| Team completion rate | 60.3% | 56.6% | 57.3% |
+| Team completions | 20.9 | 18.8 | 19.2 |
+| Team pass yards | 224.4 | 191.7 | 197.9 |
+| A.Rodgers completion rate (273 attempts) | 60.8% | 57.1% | 57.8% |
+| A.Rodgers yards per attempt | 6.57 | 5.78 | 5.93 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| D.Metcalf | WR | 8 | 23% | 7.5 / 3.9 / 49.0 | 7.2 / 3.5 / 41.6 | 7.3 / 3.6 / 44.1 |
-| G.Bernard | WR | 8 | 17% | 5.6 / 4.0 / 35.5 | 5.4 / 3.6 / 30.1 | 5.5 / 3.7 / 32.0 |
-| J.Warren | RB | 8 | 14% | 4.5 / 3.1 / 36.6 | 4.3 / 2.9 / 30.5 | 4.4 / 3.0 / 32.6 |
-| P.Freiermuth | TE | 8 | 13% | 4.1 / 2.8 / 28.0 | 3.9 / 2.5 / 23.7 | 4.0 / 2.6 / 25.2 |
-| D.Washington | TE | 8 | 11% | 3.6 / 2.2 / 30.1 | 3.5 / 2.0 / 25.5 | 3.5 / 2.1 / 27.1 |
-| R.Wilson | WR | 4 | 7% | 4.8 / 2.8 / 40.5 | 4.5 / 2.5 / 34.4 | 4.6 / 2.6 / 36.5 |
-| R.Dowdle | RB | 4 | 5% | 3.5 / 3.2 / 21.0 | 3.3 / 3.0 / 17.5 | 3.4 / 3.1 / 18.7 |
+| D.Metcalf | WR | 8 | 23% | 7.5 / 3.9 / 49.0 | 7.2 / 3.5 / 41.6 | 7.2 / 3.5 / 42.9 |
+| G.Bernard | WR | 8 | 17% | 5.6 / 4.0 / 35.5 | 5.4 / 3.6 / 30.1 | 5.4 / 3.7 / 31.1 |
+| J.Warren | RB | 8 | 14% | 4.5 / 3.1 / 36.6 | 4.3 / 2.9 / 30.5 | 4.3 / 2.9 / 31.6 |
+| P.Freiermuth | TE | 8 | 13% | 4.1 / 2.8 / 28.0 | 3.9 / 2.5 / 23.7 | 4.0 / 2.5 / 24.5 |
+| D.Washington | TE | 8 | 11% | 3.6 / 2.2 / 30.1 | 3.5 / 2.0 / 25.5 | 3.5 / 2.1 / 26.4 |
+| R.Wilson | WR | 4 | 7% | 4.8 / 2.8 / 40.5 | 4.5 / 2.5 / 34.4 | 4.6 / 2.5 / 35.5 |
+| R.Dowdle | RB | 4 | 5% | 3.5 / 3.2 / 21.0 | 3.3 / 3.0 / 17.5 | 3.4 / 3.0 / 18.1 |
 
 ### PHI passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 34.6 | 33.1 | 33.7 |
-| Team completion rate | 59.6% | 56.0% | 57.2% |
-| Team completions | 20.6 | 18.5 | 19.3 |
-| Team pass yards | 192.1 | 164.2 | 173.9 |
+| Team pass attempts | 34.6 | 33.1 | 33.4 |
+| Team completion rate | 59.6% | 56.0% | 56.6% |
+| Team completions | 20.6 | 18.5 | 18.9 |
+| Team pass yards | 192.1 | 164.2 | 169.5 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| M.Lemon | WR | 8 | 19% | 6.2 / 4.2 / 39.6 | 6.0 / 3.8 / 33.6 | 6.1 / 4.0 / 35.7 |
-| D.Goedert | TE | 6 | 14% | 6.0 / 4.5 / 38.5 | 5.7 / 4.0 / 32.6 | 5.8 / 4.2 / 34.6 |
-| D.Smith | WR | 3 | 13% | 11.7 / 7.7 / 85.7 | 11.2 / 6.9 / 72.7 | 11.3 / 7.1 / 77.1 |
-| D.Cooper | WR | 7 | 12% | 4.6 / 1.9 / 28.6 | 4.4 / 1.7 / 24.2 | 4.4 / 1.7 / 25.7 |
-| D.Wicks | WR | 5 | 11% | 5.6 / 3.4 / 42.2 | 5.4 / 3.0 / 35.8 | 5.4 / 3.2 / 38.0 |
-| E.Mitchell | RB | 3 | 5% | 4.7 / 3.3 / 15.3 | 4.5 / 3.1 / 12.8 | 4.5 / 3.2 / 13.6 |
-| D.Pierce | RB | 3 | 4% | 3.7 / 2.3 / 4.7 | 3.5 / 2.1 / 3.9 | 3.6 / 2.2 / 4.2 |
-| S.Barkley | RB | 6 | 3% | 1.5 / 1.0 / 7.3 | 1.4 / 0.9 / 6.1 | 1.5 / 0.9 / 6.5 |
-| Z.Ertz | TE | 3 | 3% | 2.7 / 1.0 / 7.3 | 2.6 / 0.9 / 6.2 | 2.6 / 0.9 / 6.6 |
+| M.Lemon | WR | 8 | 19% | 6.2 / 4.2 / 39.6 | 6.0 / 3.8 / 33.6 | 6.0 / 3.9 / 34.7 |
+| D.Goedert | TE | 6 | 14% | 6.0 / 4.5 / 38.5 | 5.7 / 4.0 / 32.6 | 5.8 / 4.1 / 33.7 |
+| D.Smith | WR | 3 | 13% | 11.7 / 7.7 / 85.7 | 11.2 / 6.9 / 72.7 | 11.3 / 7.0 / 75.1 |
+| D.Cooper | WR | 7 | 12% | 4.6 / 1.9 / 28.6 | 4.4 / 1.7 / 24.2 | 4.4 / 1.7 / 25.0 |
+| D.Wicks | WR | 5 | 11% | 5.6 / 3.4 / 42.2 | 5.4 / 3.0 / 35.8 | 5.4 / 3.1 / 37.0 |
+| E.Mitchell | RB | 3 | 5% | 4.7 / 3.3 / 15.3 | 4.5 / 3.1 / 12.8 | 4.5 / 3.1 / 13.2 |
+| D.Pierce | RB | 3 | 4% | 3.7 / 2.3 / 4.7 | 3.5 / 2.1 / 3.9 | 3.5 / 2.2 / 4.0 |
+| S.Barkley | RB | 6 | 3% | 1.5 / 1.0 / 7.3 | 1.4 / 0.9 / 6.1 | 1.4 / 0.9 / 6.3 |
+| Z.Ertz | TE | 3 | 3% | 2.7 / 1.0 / 7.3 | 2.6 / 0.9 / 6.2 | 2.6 / 0.9 / 6.4 |
 
 ## PIT (last 8 games: weeks 2, 3, 4, 5, 6, 7, 8, 10)
 
@@ -333,7 +396,7 @@ Neutral-situation pass rate 58.8%; 61.0 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 6 | 2% | 50% | 15.17 | 2 |
 | defense allows | Deep right | 17 | 6% | 59% | 19.94 | 10 |
 
-### PIT lines (depth chart as of 2026-11-19T16:30:49Z)
+### PIT lines (depth chart as of 2026-11-21T15:17:24Z)
 
 Offensive line: LT Troy Fautanu, LG Brock Hoffman, C Zach Frazier, RG Spencer Anderson, RT Max Iheanachor.  
 Defensive front: LDE Derrick Harmon, NT Keeanu Benton, RDE Cameron Heyward, WLB T.J. Watt, SLB Alex Highsmith.
@@ -342,18 +405,18 @@ Defensive front: LDE Derrick Harmon, NT Keeanu Benton, RDE Cameron Heyward, WLB 
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Jalen Ramsey | CB | yes | none listed | Did Not Participate In Practice |  |
-| Cameron Heyward | DT | yes | none listed | Did Not Participate In Practice |  |
-| T.J. Watt | LB | yes | none listed | Did Not Participate In Practice |  |
-| Patrick Queen | LB | yes | none listed | Limited Participation in Practice |  |
-| DeShon Elliott | S | yes | none listed | Limited Participation in Practice |  |
-| Darnell Washington | TE | yes | none listed | Did Not Participate In Practice |  |
-| Gennings Dunker | G |  | none listed | Full Participation in Practice |  |
-| Nick Herbig | LB |  | none listed | Did Not Participate In Practice |  |
-| Michael Pittman | WR |  | none listed | Limited Participation in Practice |  |
-| Roman Wilson | WR |  | none listed | Full Participation in Practice |  |
+| Jalen Ramsey | CB | yes | none listed | Full Participation in Practice |  |
+| Cameron Heyward | DT | yes | none listed | Full Participation in Practice |  |
+| T.J. Watt | LB | yes | none listed | Full Participation in Practice |  |
+| Patrick Queen | LB | yes | Questionable | Full Participation in Practice | Hand |
+| DeShon Elliott | S | yes | Questionable | Full Participation in Practice | Knee |
+| Darnell Washington | TE | yes | none listed | Full Participation in Practice |  |
+| Gennings Dunker | G |  | Questionable | Full Participation in Practice | Knee |
+| Nick Herbig | LB |  | Questionable | Did Not Participate In Practice | Hip |
+| Michael Pittman | WR |  | Questionable | Full Participation in Practice | Foot |
+| Roman Wilson | WR |  | Questionable | Full Participation in Practice | Hand |
 
-ESPN live list (designations only): Patrick Queen (LB) Questionable; Mason McCormick (G) Injured Reserve; Gennings Dunker (G) Injured Reserve; Nick Herbig (LB) Questionable; Michael Pittman Jr. (WR) Injured Reserve; Roman Wilson (WR) Injured Reserve.
+ESPN live list (designations only): Mason McCormick (G) Injured Reserve; Gennings Dunker (G) Injured Reserve; Patrick Queen (LB) Questionable; DeShon Elliott (S) Questionable; Nick Herbig (LB) Out; Roman Wilson (WR) Questionable; Michael Pittman Jr. (WR) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -558,7 +621,7 @@ Neutral-situation pass rate 51.9%; 61.5 plays per game; target share WR 60% / TE
 | defense allows | Deep middle | 7 | 3% | 14% | 2.71 | 0 |
 | defense allows | Deep right | 28 | 10% | 61% | 16.71 | 15 |
 
-### PHI lines (depth chart as of 2026-11-19T16:30:49Z)
+### PHI lines (depth chart as of 2026-11-21T15:17:24Z)
 
 Offensive line: LT Jordan Mailata, LG Landon Dickerson, C Drew Kendall, RG Tyler Steen, RT Markel Bell.  
 Defensive front: LDE Byron Young, NT Jalen Carter, RDE Moro Ojomo, WLB Nolan Smith Jr., SLB Jonathan Greenard.
@@ -567,23 +630,23 @@ Defensive front: LDE Byron Young, NT Jalen Carter, RDE Moro Ojomo, WLB Nolan Smi
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Jonathan Greenard | LB | yes | none listed | Full Participation in Practice |  |
-| Zack Baun | LB | yes | none listed | Did Not Participate In Practice |  |
-| Nolan Smith | LB | yes | none listed | Limited Participation in Practice |  |
+| Jonathan Greenard | LB | yes | none listed | Did Not Participate In Practice |  |
+| Zack Baun | LB | yes | Out | Did Not Participate In Practice | Back |
+| Nolan Smith | LB | yes | none listed | Full Participation in Practice |  |
 | Jihaad Campbell | LB | yes | none listed | Full Participation in Practice |  |
 | Saquon Barkley | RB | yes | none listed | Full Participation in Practice |  |
 | Andrew Mukuba | S | yes | none listed | Full Participation in Practice |  |
-| DeVonta Smith | WR | yes | none listed | Limited Participation in Practice |  |
+| DeVonta Smith | WR | yes | none listed | Full Participation in Practice |  |
 | Britain Covey | WR | yes | none listed | Limited Participation in Practice |  |
-| Jonathan Jones | CB |  | none listed | Limited Participation in Practice |  |
-| Michael Carter II | CB |  | none listed | Limited Participation in Practice |  |
+| Jonathan Jones | CB |  | none listed | Full Participation in Practice |  |
+| Michael Carter II | CB |  | none listed | Full Participation in Practice |  |
 | Jalyx Hunt | LB |  | none listed | Full Participation in Practice |  |
-| Smael Mondon Jr. | LB |  | none listed | Full Participation in Practice |  |
+| Smael Mondon Jr. | LB |  | Doubtful | Did Not Participate In Practice | Ankle |
 | Tanner McKee | QB |  | none listed | Full Participation in Practice |  |
-| Will Shipley | RB |  | none listed | Limited Participation in Practice |  |
-| Dontayvion Wicks | WR |  | none listed | Limited Participation in Practice |  |
+| Will Shipley | RB |  | Questionable | Did Not Participate In Practice | Foot |
+| Dontayvion Wicks | WR |  | Out | Limited Participation in Practice | Ankle |
 
-ESPN live list (designations only): Jonathan Jones (CB) Questionable; Michael Carter II (CB) Questionable; Britain Covey (WR) Questionable; Zack Baun (LB) Questionable; Nolan Smith Jr. (LB) Questionable; Dontayvion Wicks (WR) Questionable; Will Shipley (RB) Injured Reserve; Smael Mondon Jr. (LB) Questionable.
+ESPN live list (designations only): Dontayvion Wicks (WR) Out; Smael Mondon Jr. (LB) Doubtful; Will Shipley (RB) Injured Reserve; Zack Baun (LB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -619,7 +682,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: OK. |
-| 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
+| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, player props. No FTN model, no true opening line. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -627,16 +690,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-20T03:39:35+00:00 | ef6c571ed1c4 |
-| pbp | OK | 2026-11-20T03:39:35+00:00 | 5a54b5ef7b9a |
-| rosters | OK | 2026-11-20T03:39:36+00:00 | bf8b55781431 |
-| injuries | OK | 2026-11-20T03:39:36+00:00 | f590b3623cca |
-| depth_charts | OK | 2026-11-20T03:39:36+00:00 | 7439a2b6ccc1 |
-| snap_counts | OK | 2026-11-20T03:39:36+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-20T03:39:36+00:00 | 27afd704d1ea |
-| pfr_def | OK | 2026-11-20T03:39:37+00:00 | fc61fb5ffaa3 |
-| espn_injuries | OK | 2026-11-20T03:39:38+00:00 |  |
+| games | OK | 2026-11-21T20:46:36+00:00 | d925a4602c9a |
+| pbp | OK | 2026-11-21T20:46:36+00:00 | a2bfcd8abcec |
+| rosters | OK | 2026-11-21T20:46:36+00:00 | 6d3e9e7d489e |
+| injuries | OK | 2026-11-21T20:46:36+00:00 | f31c61c6b233 |
+| depth_charts | OK | 2026-11-21T20:46:36+00:00 | e89715eb757e |
+| snap_counts | OK | 2026-11-21T20:46:37+00:00 | 980aba4c2b5e |
+| ftn | OK | 2026-11-21T20:46:37+00:00 | d0e949df6e17 |
+| pfr_def | OK | 2026-11-21T20:46:37+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-21T20:46:38+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
+| book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.

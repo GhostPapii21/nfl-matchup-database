@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-22, 13:00 ET.** Site: Home; roof: dome; surface: fieldturf. Rest: TB 14 days, DET 7 days. Listed QBs: Baker Mayfield (TB), Jared Goff (DET).
 
-Market (schedule consensus, not a timestamped quote): DET -6, total 45.5.
+Market (schedule consensus, not a timestamped quote): DET -4.5, total 46.5.
 
-Generated 2026-11-20T03:40:02+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-21T20:46:49+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,7 +12,70 @@ INDOOR
 
 ## Book prices and no-vig
 
-No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not quote book numbers from memory.
+Retrieved 2026-11-20T00:37:25Z UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+
+| Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
+|---|---|---|---|---|---|---|---|---|
+| spread | draftkings | DET -6 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-20T10:33:50Z |
+| spread | williamhill_us | DET -6 | -114 | -106 | 50.9% | 49.1% | 4.7% | 2026-11-20T10:33:50Z |
+| spread | betmgm | DET -6 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-20T10:33:43Z |
+| spread | fanduel | DET -6.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-20T10:33:32Z |
+| total | pinnacle | Over 45 | -111 | -103 | 50.9% | 49.1% | 3.4% | 2026-11-20T00:37:25+00:00 |
+| total | draftkings | Over 45.5 | -107 | -112 | 49.5% | 50.5% | 4.5% | 2026-11-20T10:33:50Z |
+| total | williamhill_us | Over 45.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-20T10:33:50Z |
+| total | fanduel | Over 45.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-20T10:33:32Z |
+| total | betmgm | Over 45.5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-20T10:33:43Z |
+| moneyline | draftkings | DET | -258 | +213 | 69.3% | 30.7% | 4.0% | 2026-11-20T10:33:50Z |
+| moneyline | williamhill_us | DET | -275 | +220 | 70.1% | 29.9% | 4.6% | 2026-11-20T10:33:50Z |
+| moneyline | fanduel | DET | -260 | +215 | 69.5% | 30.5% | 4.0% | 2026-11-20T10:33:32Z |
+| moneyline | betmgm | DET | -275 | +220 | 70.1% | 29.9% | 4.6% | 2026-11-20T10:33:43Z |
+
+### Player props beside the research baseline
+
+| Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Kenny Gainwell | rushing yards | betrivers | 15.5 | -117 / -114 | 50.3% | n/a | 36.3 | 14.2 | 8 | 20.8 |
+| Bucky Irving | rushing yards | betmgm | 66.5 | -115 / -115 | 50.0% | n/a | 87.2 | 79.8 | 8 | 20.7 |
+| Kenneth Gainwell | rushing yards | pinnacle | 16.5 | -114 / -114 | 50.0% | 50.0% | 36.3 | 14.2 | 8 | 19.8 |
+| Kenny Gainwell | rushing yards | betonlineag | 16.5 | -120 / -108 | 51.2% | n/a | 36.3 | 14.2 | 8 | 19.8 |
+| Kenny Gainwell | rushing yards | bovada | 16.5 | -120 / -110 | 51.0% | n/a | 36.3 | 14.2 | 8 | 19.8 |
+| Kenny Gainwell | rushing yards | draftkings | 16.5 | -117 / -107 | 51.0% | n/a | 36.3 | 14.2 | 8 | 19.8 |
+| Kenny Gainwell | rushing yards | fanduel | 16.5 | -114 / -114 | 50.0% | n/a | 36.3 | 14.2 | 8 | 19.8 |
+| Kenny Gainwell | rushing yards | betmgm | 16.5 | -115 / -115 | 50.0% | n/a | 36.3 | 14.2 | 8 | 19.8 |
+| Bucky Irving | rushing yards | fanduel | 67.5 | -114 / -114 | 50.0% | n/a | 87.2 | 79.8 | 8 | 19.7 |
+| Bucky Irving | rushing yards | betonlineag | 68.5 | -114 / -114 | 50.0% | 50.0% | 87.2 | 79.8 | 8 | 18.7 |
+| Bucky Irving | rushing yards | betrivers | 68.5 | -113 / -118 | 49.5% | 50.0% | 87.2 | 79.8 | 8 | 18.7 |
+| Bucky Irving | rushing yards | bovada | 69.5 | -110 / -120 | 49.0% | n/a | 87.2 | 79.8 | 8 | 17.7 |
+| Bucky Irving | rushing yards | draftkings | 69.5 | -110 / -114 | 49.6% | n/a | 87.2 | 79.8 | 8 | 17.7 |
+| Isaac TeSlaa | receiving yards | betrivers | 13.5 | -117 / -113 | 50.4% | n/a | 28.1 | 18.7 | 7 | 14.6 |
+| Tez Johnson | receiving yards | betrivers | 22.5 | -118 / -113 | 50.5% | n/a | 36.9 | 31.9 | 7 | 14.4 |
+| Isaac TeSlaa | receiving yards | betonlineag | 14.5 | -115 / -112 | 50.3% | 50.0% | 28.1 | 18.7 | 7 | 13.6 |
+| Isaac TeSlaa | receiving yards | bovada | 14.5 | -115 / -115 | 50.0% | 50.0% | 28.1 | 18.7 | 7 | 13.6 |
+| Isaac TeSlaa | receiving yards | draftkings | 14.5 | -113 / -111 | 50.2% | 50.0% | 28.1 | 18.7 | 7 | 13.6 |
+| Isaac TeSlaa | receiving yards | betmgm | 14.5 | -115 / -115 | 50.0% | 50.0% | 28.1 | 18.7 | 7 | 13.6 |
+| Emeka Egbuka | receiving yards | betmgm | 48.5 | -115 / -115 | 50.0% | n/a | 35.6 | 36.7 | 6 | -12.9 |
+| Isaac TeSlaa | receiving yards | fanduel | 15.5 | -114 / -114 | 50.0% | n/a | 28.1 | 18.7 | 7 | 12.6 |
+| Tez Johnson | receiving yards | draftkings | 24.5 | -116 / -109 | 50.7% | n/a | 36.9 | 31.9 | 7 | 12.4 |
+| Tez Johnson | receiving yards | fanduel | 24.5 | -114 / -114 | 50.0% | n/a | 36.9 | 31.9 | 7 | 12.4 |
+| Emeka Egbuka | receiving yards | draftkings | 47.5 | -109 / -115 | 49.4% | n/a | 35.6 | 36.7 | 6 | -11.9 |
+| Tez Johnson | receiving yards | betonlineag | 25.5 | -111 / -116 | 49.5% | n/a | 36.9 | 31.9 | 7 | 11.4 |
+| Tez Johnson | receiving yards | bovada | 25.5 | -110 / -120 | 49.0% | n/a | 36.9 | 31.9 | 7 | 11.4 |
+| Emeka Egbuka | receiving yards | betonlineag | 46.5 | -116 / -111 | 50.5% | n/a | 35.6 | 36.7 | 6 | -10.9 |
+| Emeka Egbuka | receiving yards | bovada | 46.5 | -115 / -115 | 50.0% | n/a | 35.6 | 36.7 | 6 | -10.9 |
+| Tez Johnson | receiving yards | betmgm | 26.5 | -105 / -125 | 48.0% | n/a | 36.9 | 31.9 | 7 | 10.4 |
+| Emeka Egbuka | receiving yards | fanduel | 45.5 | -114 / -114 | 50.0% | n/a | 35.6 | 36.7 | 6 | -9.9 |
+| Chris Godwin | receiving yards | draftkings | 33.5 | -113 / -111 | 50.2% | n/a | 24.5 | 28.0 | 8 | -9.0 |
+| Emeka Egbuka | receiving yards | betrivers | 44.5 | -115 / -115 | 50.0% | n/a | 35.6 | 36.7 | 6 | -8.9 |
+| Chris Godwin | receiving yards | betonlineag | 32.5 | -114 / -114 | 50.0% | n/a | 24.5 | 28.0 | 8 | -8.0 |
+| Chris Godwin | receiving yards | betrivers | 32.5 | -112 / -120 | 49.2% | n/a | 24.5 | 28.0 | 8 | -8.0 |
+| Chris Godwin | receiving yards | bovada | 32.5 | -115 / -115 | 50.0% | n/a | 24.5 | 28.0 | 8 | -8.0 |
+| Chris Godwin | receiving yards | fanduel | 32.5 | -114 / -114 | 50.0% | n/a | 24.5 | 28.0 | 8 | -8.0 |
+| Sam LaPorta | receiving yards | betrivers | 34.5 | -113 / -118 | 49.5% | n/a | 42.1 | 38.0 | 8 | 7.6 |
+| Jameson Williams | receiving yards | fanduel | 50.5 | -114 / -114 | 50.0% | 50.0% | 57.9 | 48.6 | 8 | 7.4 |
+| Jahmyr Gibbs | rushing yards | betrivers | 87.5 | -114 / -117 | 49.7% | n/a | 94.5 | 91.8 | 8 | 7.0 |
+| Jahmyr Gibbs | rushing yards | draftkings | 87.5 | -113 / -111 | 50.2% | n/a | 94.5 | 91.8 | 8 | 7.0 |
+
+baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
 ## Matchup edges
 
@@ -49,8 +112,8 @@ No book prices in this packet: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Do not
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | TB 23.0 - DET 25.3 | 48.3 | +2.3 | 57.1% | 30.9% | 50.6% | TB 10.9 - DET 13.0 |
-| independent | TB 22.5 - DET 28.0 | 50.5 | +5.6 | 65.4% | 47.1% | 61.4% | TB 11.4 - DET 14.0 |
+| matchup_pair | TB 23.0 - DET 25.3 | 48.3 | +2.3 | 57.1% | 35.9% | 50.6% | TB 10.9 - DET 13.0 |
+| independent | TB 22.5 - DET 28.0 | 50.5 | +5.6 | 65.4% | 51.0% | 59.7% | TB 11.4 - DET 14.0 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -293,7 +356,7 @@ Neutral-situation pass rate 44.4%; 63.0 plays per game; target share WR 62% / TE
 | defense allows | Deep middle | 10 | 4% | 40% | 14.1 | 4 |
 | defense allows | Deep right | 14 | 5% | 21% | 5.93 | 3 |
 
-### TB lines (depth chart as of 2026-11-19T16:30:49Z)
+### TB lines (depth chart as of 2026-11-21T15:17:24Z)
 
 Offensive line: LT Tristan Wirfs, LG Ben Bredeson, C Graham Barton, RG Cody Mauch, RT Luke Goedeke.  
 Defensive front: LDE Calijah Kancey, NT Vita Vea, RDE A'Shawn Robinson, WLB Rueben Bain Jr., SLB Yaya Diaby.
@@ -302,14 +365,17 @@ Defensive front: LDE Calijah Kancey, NT Vita Vea, RDE A'Shawn Robinson, WLB Rueb
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Yaya Diaby | LB | yes | none listed | Limited Participation in Practice |  |
-| Baker Mayfield | QB | yes | none listed | Did Not Participate In Practice |  |
-| Antoine Winfield Jr. | S | yes | none listed | Did Not Participate In Practice |  |
+| A'Shawn Robinson | DT | yes | none listed | Full Participation in Practice |  |
+| Yaya Diaby | LB | yes | Questionable | Full Participation in Practice | Knee |
+| Baker Mayfield | QB | yes | Questionable | Limited Participation in Practice | Foot |
+| Bucky Irving | RB | yes | none listed | Full Participation in Practice |  |
+| Antoine Winfield Jr. | S | yes | Out | Did Not Participate In Practice | Ankle |
 | Tristan Wirfs | T | yes | none listed | Full Participation in Practice |  |
 | Cade Otton | TE | yes | none listed | Full Participation in Practice |  |
-| Josh Hayes | CB |  | none listed | Full Participation in Practice |  |
+| Josh Hayes | CB |  | Out | Full Participation in Practice | Knee |
+| Chris Godwin Jr. | WR |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Jalen McMillan (WR) Injured Reserve; Yaya Diaby (LB) Questionable; Antoine Winfield Jr. (S) Questionable; Josh Hayes (CB) Injured Reserve; Baker Mayfield (QB) Questionable.
+ESPN live list (designations only): Jalen McMillan (WR) Injured Reserve; Antoine Winfield Jr. (S) Out; Yaya Diaby (LB) Questionable; Josh Hayes (CB) Injured Reserve; Baker Mayfield (QB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -514,7 +580,7 @@ Neutral-situation pass rate 51.4%; 63.5 plays per game; target share WR 57% / TE
 | defense allows | Deep middle | 16 | 6% | 50% | 14.75 | 7 |
 | defense allows | Deep right | 25 | 9% | 40% | 9.6 | 7 |
 
-### DET lines (depth chart as of 2026-11-19T16:30:49Z)
+### DET lines (depth chart as of 2026-11-21T15:17:24Z)
 
 Offensive line: LT Penei Sewell, LG Christian Mahogany, C Cade Mays, RG Tate Ratledge, RT Blake Miller.  
 Defensive front: LDE Derrick Moore, LDT Alim McNeill, RDT Tyleik Williams, RDE DJ Wonnum, WLB Derrick Barnes, SLB Trevor Nowaske.
@@ -523,16 +589,17 @@ Defensive front: LDE Derrick Moore, LDT Alim McNeill, RDT Tyleik Williams, RDE D
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Cade Mays | C | yes | none listed | Did Not Participate In Practice |  |
-| D.J. Reed | CB | yes | none listed | Limited Participation in Practice |  |
+| Cade Mays | C | yes | Out | Did Not Participate In Practice | Ankle |
+| D.J. Reed | CB | yes | Questionable | Limited Participation in Practice | Hip |
 | Kerby Joseph | S | yes | none listed | Full Participation in Practice |  |
-| Khalil Dorsey | CB |  | none listed | Limited Participation in Practice |  |
-| Ennis Rakestraw Jr. | CB |  | none listed | Limited Participation in Practice |  |
-| Tyler Lacy | DE |  | none listed | Limited Participation in Practice |  |
-| Joe Bachie | LB |  | none listed | Limited Participation in Practice |  |
-| Sione Vaki | RB |  | none listed | Limited Participation in Practice |  |
+| Khalil Dorsey | CB |  | Questionable | Limited Participation in Practice | Ankle |
+| Ennis Rakestraw Jr. | CB |  | Questionable | Limited Participation in Practice | Shoulder |
+| Tyler Lacy | DE |  | Questionable | Limited Participation in Practice | Shoulder |
+| Miles Frazier | G |  | none listed | Did Not Participate In Practice |  |
+| Joe Bachie | LB |  | Questionable | Limited Participation in Practice | Knee |
+| Sione Vaki | RB |  | Questionable | Limited Participation in Practice | Ankle |
 
-ESPN live list (designations only): Cade Mays (C) Doubtful; Khalil Dorsey (CB) Questionable; Joe Bachie (LB) Questionable; Tyler Lacy (DT) Questionable; Ennis Rakestraw Jr. (CB) Questionable; Aidan Hutchinson (DE) Injured Reserve; D.J. Reed (CB) Questionable; Sione Vaki (RB) Questionable.
+ESPN live list (designations only): Khalil Dorsey (CB) Questionable; Joe Bachie (LB) Questionable; Tyler Lacy (DT) Questionable; Ennis Rakestraw Jr. (CB) Questionable; Aidan Hutchinson (DE) Injured Reserve; Cade Mays (C) Out; Sione Vaki (RB) Questionable; D.J. Reed (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -568,7 +635,7 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 | 10 | Offensive line, pass rush, coaching | PARTIAL | Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades. |
 | 11 | Injury and depth chart | AUTO | Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures. |
 | 12 | Weather, roof, travel | AUTO | Roof, surface, rest days, site; National Weather Service kickoff forecast: INDOOR. |
-| 13 | Timestamped book prices | BLOCKED | No book prices: SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800. Only the schedule's consensus spread/total. |
+| 13 | Timestamped book prices | PARTIAL | Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, player props. No FTN model, no true opening line. |
 | 14 | Projection and simulation | PARTIAL_RESEARCH_ONLY | Period-engine team scores; player baselines. Not the three-model consensus; not validated. |
 | 15 | Final inactive pregame freeze | PENDING | Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call. |
 
@@ -576,16 +643,16 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-20T03:39:35+00:00 | ef6c571ed1c4 |
-| pbp | OK | 2026-11-20T03:39:35+00:00 | 5a54b5ef7b9a |
-| rosters | OK | 2026-11-20T03:39:36+00:00 | bf8b55781431 |
-| injuries | OK | 2026-11-20T03:39:36+00:00 | f590b3623cca |
-| depth_charts | OK | 2026-11-20T03:39:36+00:00 | 7439a2b6ccc1 |
-| snap_counts | OK | 2026-11-20T03:39:36+00:00 | d67d94d19cac |
-| ftn | OK | 2026-11-20T03:39:36+00:00 | 27afd704d1ea |
-| pfr_def | OK | 2026-11-20T03:39:37+00:00 | fc61fb5ffaa3 |
-| espn_injuries | OK | 2026-11-20T03:39:38+00:00 |  |
+| games | OK | 2026-11-21T20:46:36+00:00 | d925a4602c9a |
+| pbp | OK | 2026-11-21T20:46:36+00:00 | a2bfcd8abcec |
+| rosters | OK | 2026-11-21T20:46:36+00:00 | 6d3e9e7d489e |
+| injuries | OK | 2026-11-21T20:46:36+00:00 | f31c61c6b233 |
+| depth_charts | OK | 2026-11-21T20:46:36+00:00 | e89715eb757e |
+| snap_counts | OK | 2026-11-21T20:46:37+00:00 | 980aba4c2b5e |
+| ftn | OK | 2026-11-21T20:46:37+00:00 | d0e949df6e17 |
+| pfr_def | OK | 2026-11-21T20:46:37+00:00 | fc61fb5ffaa3 |
+| espn_injuries | OK | 2026-11-21T20:46:38+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | SKIPPED_CREDIT_FLOOR: 801 - 3 < floor 800 |  |  |
+| book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
