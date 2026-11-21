@@ -188,9 +188,9 @@ def test_four_book_freeze_stale(tmp_path):
 
 def test_four_book_freeze_missing_book(tmp_path):
     now = KO - timedelta(hours=5)
-    base = freeze_dir(tmp_path, now, books=["fanduel", "draftkings", "hardrockbet"])
+    base = freeze_dir(tmp_path, now, books=list(H.REQUIRED_BOOKS[:-1]))
     r = F.four_book_row(packet(now), now, 5, {"price_freeze_dir": base})
-    assert r["status"] == "MISSING" and "williamhill_us" in r["reason"]
+    assert r["status"] == "MISSING" and H.REQUIRED_BOOKS[-1] in r["reason"]
 
 
 def test_four_book_freeze_not_ok_or_other_game(tmp_path):
