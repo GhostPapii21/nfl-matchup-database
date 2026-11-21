@@ -120,9 +120,20 @@ def main(argv=None):
                          movement=O.record_and_movement(g.game_id, mk, ROOT / "pregame" / "line_history"))
         elif lines["status"] == "OK":
             books["status"] = "OK_BUT_GAME_NOT_LISTED"
+        if not books.get("markets"):     # no Odds API data (no credits, below the floor, or not listed): use the free direct pulls
+            from pipeline import hooks as _H
+            from pregame import direct_books as DB
+            blk = DB.books_block(g.game_id, g.home_team, g.away_team, _H.REQUIRED_BOOKS)
+            if blk:
+                blk["odds_api_status"] = books.get("status")
+                books = blk
         wx = W.forecast(g.home_team, g.roof, g.location, g.gameday, g.gametime, offline=a.offline)
         pk = PK.build(g, data=data, window=a.window, espn=espn, pbp_path=src["pbp"]["path"], sources=src_pub, books=books, weather=wx)
-        if books.get("markets"):   # same pull feeds the packet and the freeze: no second credit spend
+        if books.get("status") == "OK_DIRECT":   # free direct pulls: freeze in the format the gate's four-book check reads
+            from pregame import direct_books as DB
+            fzf = DB.write_freeze(g.game_id, str(g.gameday), g.away_team, g.home_team, books, ROOT / "pregame" / "price_freezes")
+            books["freeze"] = {"pulled_utc": books["retrieved_utc"], "files": [str(fzf.relative_to(ROOT))]}
+        elif books.get("markets"):   # same pull feeds the packet and the freeze: no second credit spend
             books["consensus"] = O.consensus(books["markets"], O.roster_from_packet(pk))
             if ev and books.get("props_status") == "OK":
                 fz = O.write_freeze(g.game_id, g.away_team, g.home_team, books["markets"], books["consensus"], ev, ROOT / "pregame" / "price_freezes",

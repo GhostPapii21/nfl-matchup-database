@@ -103,9 +103,11 @@ jobs:
             echo "$GAME: official inactives are not posted yet for both teams (exit $code). No credits spent; the next tick retries." >> "$GITHUB_STEP_SUMMARY"
           fi
 
-      - name: Fresh packet and four-book price freeze for this game
+      - name: Fresh packet and four-book price freeze for this game (free direct pulls first; Odds API only above the floor)
         if: steps.inactives.outputs.ok == '1'
-        run: python -m pregame.build_packets --game "$GAME" --no-index
+        run: |
+          python -m pregame.sportsbooks || echo "direct pull failed; the packet records what is missing"
+          python -m pregame.build_packets --game "$GAME" --no-index
 
       - name: Did prices arrive (credit floor, missing book)? If not, skip the lock and let the gate record why
         id: prices
@@ -116,7 +118,7 @@ jobs:
           from pipeline import freshness as F, phases as P
           rows = {r["source"]: r for r in F.check(P.load_packet(os.environ["GAME"]))}
           bad = [f"{k}: {rows[k]['status']} ({rows[k]['reason']})" for k in ("odds", "four_book_prices") if rows[k]["status"] != "FRESH"]
-          print("prices: " + ("fresh from all four books" if not bad else "NOT usable: " + "; ".join(bad)))
+          print("prices: " + ("fresh from all four required books" if not bad else "NOT usable: " + "; ".join(bad)))
           if not bad:
               open(os.environ["GITHUB_OUTPUT"], "a").write("ok=1\n")
           PY
@@ -135,7 +137,7 @@ jobs:
         run: |
           age="$(python -c "import json; from datetime import datetime, timezone; from pipeline import freshness as F, phases as P; pk=P.load_packet('$GAME'); t=F.parse_utc((pk.get('books') or {}).get('retrieved_utc')); print(int((datetime.now(timezone.utc)-t).total_seconds()//60) if t else 999)")"
           echo "packet prices are $age minutes old"
-          if [ "$age" -ge 10 ]; then python -m pregame.build_packets --game "$GAME" --no-index; fi
+          if [ "$age" -ge 10 ]; then python -m pregame.sportsbooks || true; python -m pregame.build_packets --game "$GAME" --no-index; fi
 
       - name: 100k entry point (fail closed; runs ./rocket for this game first)
         id: gate

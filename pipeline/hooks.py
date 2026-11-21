@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import importlib
 import json
+import os
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -36,7 +37,10 @@ from . import nfl43_exclusions
 ROOT = Path(__file__).resolve().parents[1]
 FLAGS = ROOT / "known_flags" / "KNOWN_LIMITATIONS.json"
 # Odds API book keys used in Blitz's freezes: Hard Rock Bet = hardrockbet, Caesars = williamhill_us.
-REQUIRED_BOOKS = ("fanduel", "draftkings", "hardrockbet", "williamhill_us")
+# Owner's choice (Nov 21, 2026): the four books the free direct pulls carry. Override with the repository variable
+# GATE_REQUIRED_BOOKS (comma separated, e.g. "fanduel,draftkings,hardrockbet,williamhill_us"). Pinnacle is never counted.
+REQUIRED_BOOKS = tuple(b.strip() for b in (os.environ.get("GATE_REQUIRED_BOOKS") or "fanduel,draftkings,betmgm,bovada").split(",")
+                       if b.strip() and b.strip() != "pinnacle")
 PRICE_FREEZE_DIR = ROOT / "pregame" / "price_freezes"
 SEMANTICS_BOUNDS_NAME = "SEMANTICS_BOUNDS.md"
 SEMANTICS_BOUNDS_PATH = "core/possession_engine_v0/SEMANTICS_BOUNDS.md"
