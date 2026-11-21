@@ -41,3 +41,17 @@ def test_spread_stored_from_home_side(tmp_path):
     _write(tmp_path, [_r("fanduel", "spread", None, "Kansas City Chiefs", 3.0, -115), _r("fanduel", "spread", None, "Buffalo Bills", -3.0, -105)])
     blk = D.books_block("2026_12_KC_BUF", "BUF", "KC", ("fanduel",), direct=tmp_path, grok=tmp_path / "x")
     assert blk["markets"]["spread"]["books"]["fanduel"]["line"] == -3.0
+
+
+def test_each_book_uses_only_its_newest_source(tmp_path):
+    _write(tmp_path, [_r("fanduel", "total", None, "Over", 47.5, -110), _r("fanduel", "total", None, "Under", 47.5, -110)],
+           t="2026-11-23T16:30:00Z")
+    (tmp_path / "g").mkdir()
+    (tmp_path / "g" / "2026_12_KC_BUF.json").write_text(json.dumps({"books": {"fanduel": {"retrieved_utc": "2026-11-20T10:00:00Z"},
+        "williamhill_us": {"retrieved_utc": "2026-11-23T16:00:00Z"}}, "rows": [
+        _r("fanduel", "total", None, "Over", 48.5, -110), _r("fanduel", "total", None, "Under", 48.5, -110),
+        _r("williamhill_us", "total", None, "Over", 47.5, -112), _r("williamhill_us", "total", None, "Under", 47.5, -108)]}))
+    blk = D.books_block("2026_12_KC_BUF", "BUF", "KC", ("fanduel", "williamhill_us"), direct=tmp_path, grok=tmp_path / "g")
+    assert blk["markets"]["total"]["books"]["fanduel"]["line"] == 47.5           # Friday's Grok FanDuel line ignored
+    assert blk["book_retrieved_utc"]["fanduel"] == "2026-11-23T16:30:00Z"
+    assert blk["retrieved_utc"] == "2026-11-23T16:00:00Z"

@@ -61,7 +61,13 @@ def load_rows(game_id: str, direct: Path = DIRECT, grok: Path = GROK) -> list[di
             book = str(r.get("book", "")).lower()
             out.append(dict(r, book=BOOK_KEY.get(book, book), american=a, source=src,
                             retrieved_utc=per_book.get(book) or d.get("retrieved_utc")))
-    return out
+    # One source per book: keep only that book's newest pull, so an older file never drags a fresh book's age up
+    newest = {}
+    for r in out:
+        t = _utc(r["retrieved_utc"])
+        if t and (r["book"] not in newest or t > newest[r["book"]][0]):
+            newest[r["book"]] = (t, r["source"])
+    return [r for r in out if r["book"] in newest and r["source"] == newest[r["book"]][1]]
 
 
 def _team(name, home, away):
