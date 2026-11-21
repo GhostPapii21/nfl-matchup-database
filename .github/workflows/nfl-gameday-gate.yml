@@ -73,6 +73,7 @@ jobs:
     env:
       GAME: ${{ matrix.game_id }}
       ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      GATE_REQUIRED_BOOKS: ${{ vars.GATE_REQUIRED_BOOKS }}   # blank = fanduel,draftkings,betmgm,bovada (pipeline/hooks.py)
       ODDS_CREDIT_FLOOR: ${{ inputs.credit_floor || vars.ODDS_CREDIT_FLOOR || '' }}   # blank = code default (800)
     steps:
       - uses: actions/checkout@v4
