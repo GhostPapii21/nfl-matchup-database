@@ -4,14 +4,17 @@ As of the 2026-11-06 public checkpoint. No credential is stored in this reposito
 
 | Source | Status | Usable for projection now | Where to look |
 | --- | --- | --- | --- |
-| Pinnacle | `NOLINE` for actionable use. Saved research noted Q2–Q4 spreads absent. | No | NFL-45, NFL-7 |
+| Pinnacle | `BLOCKED_NO_FREE_ACCESS`. The official API has been closed to the public since 2025-07-23. It is bespoke, needs an application to api@pinnacle.com plus a funded account, and has variable cost. The site's guest odds endpoint is internal and undocumented, so it is not used. (Checked 2026-11-21.) | No | NFL-40, NFL-45, NFL-7 |
+| Circa Sports | `FREE_PUBLIC_SHEETS`. Official betting-sheet PDFs (NFL weekly and props, CFB weekly and props) come from Circa's public Media Resources Dropbox. They are not real-time and are captured with PDF publish stamps by `python -m source_adapters.circa.sheets`. Quotes are **not parsed yet**: the PDFs have no text layer and need OCR. | Not yet (needs parsing) | NFL-40, NFL-33 |
+| BetCRIS / Bookmaker | `NOT_NEEDED`. Rico doesn't bet in the DR (2026-11-21). | No | NFL-40 |
 | DraftKings | `NOLINE`. Odds-bridge is unauthenticated. | No | NFL-45, NFL-25 |
 | FanDuel | `NOLINE`. Same connector limit. | No | NFL-45 |
 | Other books | `NOLINE`. Full-book coverage is unverified. | No | NFL-25, NFL-45 |
 | ORCA lines | `ACCESS_UNKNOWN`. Identity of the feed is unresolved. | No | [NFL-53](https://linear.app/nfl-database/issue/NFL-53/orca-lines-mirror-benchmark-accesslicense-unknown-until-retrieved), [NFL-54](https://linear.app/nfl-database/issue/NFL-54/unresolved-source-orca-lines-identityaccess-missing-book-adapters) |
 | FTN NFL model mirror | `ACCESS_UNKNOWN`. | No | [NFL-55](https://linear.app/nfl-database/issue/NFL-55/ftn-nfl-models-mirror-benchmark-accesslicense-unknown-until-retrieved) |
 | FTN charting / NGS coverage effects | Missing. Effects stay disabled. Charting parquet is hash-only. | No | NFL-47 |
-| PFF | `NOT_READY_NO_DUPLICATE`. No second browser scrape from this package. | No | NFL-48 |
+| PFF | `NOT_READY_NO_DUPLICATE`. Rico holds the **first paid tier, not PFF Pro** (2026-11-21). Plans are limited to what that tier shows; Pro-only API and facets are out of scope. No second browser scrape from this package. | No | NFL-48, NFL-47 |
+| NFL Next Gen Stats | **Public access only** (2026-11-21). Use public leaderboards and charts; no NFL Pro or paid feeds. | Research context | NFL-47 |
 | nflverse play-by-play, rosters, games, depth charts | Public files that are already materialized are included, with the nflverse license. | Research inputs only | NFL-50, [SOURCES.md](../SOURCES.md) |
 | ESPN injuries and depth for Phase 15 | `NOT_YET`. Raw ESPN response bodies are hash-only. | No | NFL-46 |
 | NWS weather | Adapter is documented. A fresh pull needs the network and is not a certified freeze. | No | NFL-56, NFL-57 |
