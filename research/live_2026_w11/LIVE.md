@@ -1,4 +1,4 @@
-# Live tracker, Week 11 (2026-11-22 22:30 UTC)
+# Live tracker, Week 11 (2026-11-22 22:35 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
@@ -15,9 +15,9 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Adonai Mitchell (NYJ) | 2 | 3.4 | 30 | 45.9 | 44.5 | 0 |  |  |
 | Garrett Wilson (NYJ) | 2 | 6.1 | 20 | 70.5 | 65.5 | 0 |  |  |
 
-## LV 0 @ DEN 17 (6:50 - 2nd)
+## LV 3 @ DEN 17 (6:04 - 2nd)
 
-68 plays. Top yards allowed by a named defender: J.Chinn (1/1, 36 yds), E.Stokes (2/2, 25 yds), T.Johnson (1/1, 20 yds), T.Hufanga (1/1, 16 yds)
+72 plays. Top yards allowed by a named defender: J.Chinn (1/1, 36 yds), E.Stokes (2/2, 25 yds), T.Johnson (1/1, 20 yds), T.Hufanga (1/1, 16 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -28,9 +28,9 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Jalen Nailor (LV) | 1 | 2.5 | 16 | 22.8 |  | 0 |  |  |
 | Jack Bech (LV) | 1 | 3.0 | 14 | 28.2 |  | 0 |  |  |
 
-## JAX 6 @ NYG 10 (11:23 - 2nd)
+## JAX 6 @ NYG 10 (10:02 - 2nd)
 
-60 plays. Top yards allowed by a named defender: J.Holland (3/3, 37 yds), A.Reese (2/2, 17 yds), D.Banks (1/1, 16 yds), T.Hunter (1/1, 11 yds)
+63 plays. Top yards allowed by a named defender: J.Holland (3/3, 37 yds), A.Reese (2/2, 17 yds), D.Banks (1/1, 16 yds), T.Hunter (1/1, 11 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
