@@ -1,6 +1,6 @@
 # Readiness report (report only)
 
-Evaluated 2026-11-22T04:50:29+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
+Evaluated 2026-11-22T05:07:17+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
 
 ## NFL-49: FAIL
 
@@ -11,13 +11,13 @@ Evaluated 2026-11-22T04:50:29+00:00 UTC by `python -m evaluation.readiness`. pro
 | NFL-49 P3 calibration evidence | FAIL | calibration_fitted_claim=False (known_flags/KNOWN_LIMITATIONS.json); no fitted calibration (NFL-45); no market meets Rico's market-readiness rule (see market table) |
 | NFL-49 P4 end-to-end acceptance | FAIL | full_integration_acceptance=False (known_flags/KNOWN_LIMITATIONS.json); production_validated=False (known_flags/KNOWN_LIMITATIONS.json); pristine evaluation status='UNSCORABLE_INSUFFICIENT_COVERAGE', games_scored=0, weeks_scored=[] vs min {'games_scored': 30, 'weeks': 3} (evaluation/EVALUATION.json); pristine_protocol_complete=False (known_flags/KNOWN_LIMITATIONS.json) |
 
-## NFL-56: FAIL
+## NFL-56: PASS
 
 | Criterion | Result | Evidence | Note |
 | --- | --- | --- | --- |
 | 1 runnable phase workflows with explicit MISSING/NOT_YET | PASS | pipeline/phases.py statuses; .github/workflows/nfl-gameday-gate.yml runs python -m pipeline.window | pipeline/workflow_to_install/nfl-source-of-truth.yml is still not installed (workflow changes need Rico) |
 | 2 news/weather adapters documented with freshness windows | PASS | docs/DATA_FRESHNESS.md (windows) + pipeline/freshness.py POLICY |  |
-| 2b freshness dated by publisher as-of time | FAIL | pipeline/freshness.py + pipeline/source_asof.py | needs the NFL-56 as-of PR merged |
+| 2b freshness dated by publisher as-of time | PASS | pipeline/freshness.py + pipeline/source_asof.py | needs the NFL-56 as-of PR merged |
 | 3 100k entrypoint exists and fails closed | PASS | pipeline/sim100k.py (no override; G0-G7 gates) |  |
 | 4 routine bootstrap without continuous sessions | PASS | workflow_dispatch on nfl-gameday-gate.yml / nfl-pregame-packets.yml, dispatched by external cron-job.org jobs (not verifiable from the repo; last verified dispatch run 44943361282 on main, success) |  |
 | 5 README distinguishes goal vs current readiness | PASS | README.md 'Projection pipeline: goal vs current status (NFL-56)' |  |

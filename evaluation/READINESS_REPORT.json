@@ -1,11 +1,11 @@
 {
  "schema": "readiness-report/1",
- "evaluated_utc": "2026-11-22T04:50:29+00:00",
+ "evaluated_utc": "2026-11-22T05:07:17+00:00",
  "report_only": true,
  "projection_ready_flag": false,
  "projection_ready_may_flip": false,
  "nfl49_pass": false,
- "nfl56_pass": false,
+ "nfl56_pass": true,
  "nfl49_pillars": [
   {
    "pillar": "NFL-49 P1 source freshness/completeness",
@@ -69,7 +69,7 @@
   },
   {
    "criterion": "2b freshness dated by publisher as-of time",
-   "pass": false,
+   "pass": true,
    "evidence": "pipeline/freshness.py + pipeline/source_asof.py",
    "note": "needs the NFL-56 as-of PR merged"
   },
