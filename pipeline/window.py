@@ -89,6 +89,8 @@ def evaluate(now: datetime | None = None, only: list[str] | None = None, root: P
 
 
 def main(argv=None) -> int:
+    from . import source_asof
+    source_asof.enable_network()   # production path: prove publisher as-of stamps (NFL-56)
     ap = argparse.ArgumentParser(description="Games due for the game-day chain now.")
     ap.add_argument("--now", help="ISO time (default: now, UTC)")
     ap.add_argument("--games", default="", help="comma list: only consider these game ids")

@@ -121,3 +121,38 @@ graded props, no route data). Phase 2 fixes those, in this order.
 PR to `main` with a plain-words README section per step: what was tested, the number, the CI, significant or not, and
 what is ready to show on the board (likely nothing yet; that's fine). Tests in `test_edge.py` for the grading (win,
 loss, push), snapshot-before-kickoff selection, and the "no worse than book" gate.
+
+---
+
+# Phase 3 (from the Week 10 model review, `docs/MODEL_REVIEW_2026_W10.md`)
+
+Same rules as Phase 2: branch `codex/model-fixes-3`, never commit `pregame/direct_lines/`, fit on past seasons and test on
+2026, say plainly when something is not significant, and confirm with `git diff --stat origin/main...HEAD` that only the
+paths named below changed. Run `python -m pytest -q pregame/tests pipeline/tests dashboard/tests grading/tests` before the PR.
+
+## A - Calibration layer for the yardage simulation (`dashboard/calibration.py`, `dashboard/opportunity.py`, tests)
+The backtest (`dashboard/results/opportunity_backtest.md`, script `dashboard/backtest_opportunity.py`) shows the simulation
+low in the middle of the range (12+ carries: said 45-55%, happened 59-67%; WR 40+ yards in 2026: said 30%, happened 34%)
+and high at the top for 100+ yards (said 34-44%, happened 22-26%).
+1. For each (stat, threshold) in the backtest, fit an isotonic or Platt calibration of simulated probability -> actual
+   hit rate on 2024-2025 only. Save as `dashboard/calibration.json`.
+2. Apply it to every threshold probability the board shows (`opportunity.py` outputs and `watch.py` p80/p100).
+3. Re-run the backtest on 2026 with and without calibration; report Brier and the calibration table for both. Keep the
+   layer only if 2026 Brier improves; otherwise leave the file in place but switched off, and say so.
+
+## B - Use the new advanced data (`research/advanced_inputs_2026/`, then `dashboard/opportunity.py` if it helps)
+`pregame/sources.py` now downloads NGS receiving/rushing/passing and PFR weekly receiving/rushing.
+1. Build per-player features as of before each game (no future weeks): NGS average separation, cushion, YAC over
+   expected, share of team intended air yards; PFR drops, broken tackles, yards after contact per attempt; NGS rush
+   yards over expected per attempt.
+2. Test each as a multiplier on top of the current projection, the same way as
+   `research/context_effects_2026-11-22/test_context.py` (Poisson GLM with offset log(projection), fit 2022-2024, test
+   2025-2026). Report multiplier, CI and test deviance.
+3. Wire into `opportunity.py` only the features that are significant and improve 2025-2026 deviance.
+4. Also replace the "Hard Rock Bet / Caesars" bettable-book labels in `pregame/render.py` and `pregame/odds.py` text with
+   the gate's required books (`pipeline.hooks.REQUIRED_BOOKS`).
+
+## C - Losing-streak factor (research only until it holds up)
+`research/context_effects_2026-11-22` found receivers on teams with 2+ straight losses gain about 5% fewer yards than
+projected (CI 0.912-0.988). Re-test after Week 14 with 2026 Weeks 11-14 as the test set. Add it to the projection only
+if it is still significant on that new data.

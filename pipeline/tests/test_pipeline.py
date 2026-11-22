@@ -27,8 +27,10 @@ def iso(dt):
 
 
 def packet(stamp, roof="outdoors"):
-    src = {k: {"status": "OK", "retrieved_utc": iso(stamp)} for k in
-           ("games", "pbp", "rosters", "depth_charts", "snap_counts", "ftn", "pfr_def", "injuries", "espn_injuries")}
+    # publisher-dated sources carry the publisher's own stamp (NFL-56); the ESPN live list is dated by its pull
+    src = {k: {"status": "OK", "retrieved_utc": iso(stamp), "source_updated_at": iso(stamp)} for k in
+           ("games", "pbp", "rosters", "depth_charts", "snap_counts", "ftn", "pfr_def", "injuries")}
+    src["espn_injuries"] = {"status": "OK", "retrieved_utc": iso(stamp)}
     team = lambda: {"offense": {"players": [{"name": "x"}], "by_game": [1], "offense_snap_share": {"x": 1}, "produced": {"pts": 1}},
                     "defense": {"allowed": {"dropbacks_charted": 30, "pts": 1}, "rank": {"pts": 1}, "defenders": [{"n": "d"}]},
                     "depth_chart": {"QB": ["x"]},
@@ -40,7 +42,7 @@ def packet(stamp, roof="outdoors"):
           "data_freshness": {"WAS": {"status": "OK"}, "NYG": {"status": "OK"}},
           "books": {"status": "OK", "retrieved_utc": iso(stamp), "markets": {"spread": {}}},
           "weather": ({"status": "INDOOR"} if roof != "outdoors" else
-                      {"status": "OK", "retrieved_utc": iso(stamp), "kickoff_utc": iso(KO)}),
+                      {"status": "OK", "retrieved_utc": iso(stamp), "source_updated_at": iso(stamp), "kickoff_utc": iso(KO)}),
           "teams": {"WAS": team(), "NYG": team()}, "team_projection": {"status": "RESEARCH_ONLY_NOT_VALIDATED"},
           "sources": src}
     pk["phase_ledger"] = [{"phase": n, "status": "AUTO", "detail": ""} for n in range(1, 16)]

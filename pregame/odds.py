@@ -216,14 +216,40 @@ def summarize_event(event, home, away) -> dict:
                           {"book": None, "note": "Pinnacle did not list this market; no sharp reference"})
         lines = {b["line"] for b in m["books"].values()}
         m["books_agree_on_line"] = len(lines) == 1
-        best = {}
-        for side in (sa, sb):
-            cand = [(b["prices"][side], name, b["line"]) for name, b in m["books"].items() if name != SHARP]   # books the user can bet
-            if cand:
-                price, name, line = max(cand, key=lambda c: 1 / implied(c[0]))
-                best[side] = {"book": name, "price": price, "line": line, "break_even": round(implied(price), 4)}
-        m["best_retail_price"] = best
+        m["best_retail_price"] = best_prices(m["books"], (sa, sb))
     return markets
+
+
+def best_prices(books: dict, sides) -> dict:
+    """Best retail price per side, compared ONLY among books at the same line (a better price at a worse number is not
+    "best"). Headline = the modal retail line; a tie is broken by the Pinnacle line (where the no-vig reference sits)
+    when a tied line matches it, otherwise no single best is named ("split"). by_line lists the
+    best price at every quoted line so the analyst can weigh a different number against the price."""
+    best = {}
+    retail = {name: b for name, b in books.items() if name != SHARP}               # books the user can bet
+    if not retail:
+        return best
+    counts = {}
+    for b in retail.values():
+        counts[b["line"]] = counts.get(b["line"], 0) + 1
+    top = max(counts.values())
+    modal = [ln for ln, c in counts.items() if c == top]
+    ref = books.get(SHARP)
+    if len(modal) > 1 and ref is not None and ref["line"] in modal:
+        modal = [ref["line"]]
+    for side in sides:
+        by_line = {}
+        for name, b in retail.items():
+            cur = by_line.get(b["line"])
+            if cur is None or 1 / implied(b["prices"][side]) > 1 / implied(cur["price"]):
+                by_line[b["line"]] = {"book": name, "price": b["prices"][side], "break_even": round(implied(b["prices"][side]), 4)}
+        if len(modal) == 1:
+            h = by_line[modal[0]]
+            best[side] = {"book": h["book"], "price": h["price"], "line": modal[0], "break_even": h["break_even"], "by_line": by_line}
+        else:
+            best[side] = {"book": None, "price": None, "line": None, "break_even": None, "by_line": by_line,
+                          "note": f"books split across lines {sorted(modal, key=lambda x: (x is None, x))}; no single best price"}
+    return best
 
 
 def record_and_movement(game_id, markets, history_dir: Path, now=None) -> dict:
