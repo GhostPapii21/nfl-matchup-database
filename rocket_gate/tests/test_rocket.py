@@ -67,10 +67,11 @@ def test_r2_fails_when_a_config_enables_still_unsupported(tmp_path):
 
 
 def test_r5_flags_locks_made_before_review(tmp_path):
-    locks = sorted((ROOT / "snapshots").glob("*/*/LOCK.json"))
+    # a lock made before the NFL-43 review (no nfl43_review recorded); locks made after acceptance correctly pass R5
+    locks = [f for f in sorted((ROOT / "snapshots").glob("*/*/LOCK.json")) if not json.loads(f.read_text()).get("nfl43_review")]
     if not locks:
         import pytest
-        pytest.skip("no locked snapshot in repo")
+        pytest.skip("no pre-review locked snapshot in repo")
     gid = locks[-1].parent.parent.name
     r = cli.r5_snapshot(gid)
     assert r["status"] == "FAIL"
