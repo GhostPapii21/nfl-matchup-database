@@ -236,3 +236,16 @@ def test_watch_rain_and_wind_lower_the_80_yard_chance():
     b = W.watch_side(wet, {"AAA": 28.0, "BBB": 21.0}, dctx, model)["receivers"][0]
     assert b["p80"] < a["p80"] and b["targets"] < a["targets"]
     assert any("rain/wind" in w for w in b["why"]) and not any("rain/wind" in w for w in a["why"])
+
+
+def test_calibration_lifts_carries_inside_range_only_and_stays_monotonic():
+    import numpy as np
+    from dashboard import opportunity as O
+    cal = O._calibration()
+    assert cal["carries"]["enabled"] and not cal["receptions"]["enabled"]
+    assert O.calibrate(0.38, "carries", 12) > 0.38                         # the simulation ran low on 12+ carries
+    assert O.calibrate(0.38, "carries", 20) == 0.38 and O.calibrate(0.30, "receptions", 4) == 0.30   # outside range / switched off
+    car = np.random.default_rng(1).poisson(12, 20000)
+    ch = O.chances(car, O.CARRY_THRESHOLDS, "carries")
+    vals = [ch[str(t)] for t in sorted(O.CARRY_THRESHOLDS)]
+    assert all(a >= b for a, b in zip(vals, vals[1:]))

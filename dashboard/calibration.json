@@ -1,0 +1,49 @@
+{
+ "receiving_yards": {
+  "const": 0.6379927462053073,
+  "lp": 0.9936140169584519,
+  "lt": -0.1275654508679283,
+  "enabled": true,
+  "range": [
+   40,
+   100
+  ]
+ },
+ "receptions": {
+  "const": 0.19999574012711152,
+  "lp": 0.9705254627895881,
+  "lt": -0.08136142141223313,
+  "enabled": false,
+  "range": [
+   4,
+   6
+  ]
+ },
+ "rushing_yards": {
+  "const": 0.8071167265297696,
+  "lp": 0.8995292779442474,
+  "lt": -0.1822238081698372,
+  "enabled": true,
+  "range": [
+   50,
+   90
+  ]
+ },
+ "carries": {
+  "const": 2.6626314296639424,
+  "lp": 0.8853337090318563,
+  "lt": -0.9469431144002027,
+  "enabled": true,
+  "range": [
+   12,
+   15
+  ]
+ },
+ "_meta": {
+  "form": "logit(p_cal) = const + lp*logit(p_sim) + lt*log(threshold)",
+  "fit": "2024-2025",
+  "tested": "2026",
+  "source": "research/calibration_2026-11-22/fit.py",
+  "range_note": "Applied only to lines inside the fitted range; outside it the raw simulation is shown. Results: research/calibration_2026-11-22/results.json"
+ }
+}
