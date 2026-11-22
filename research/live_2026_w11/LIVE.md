@@ -1,6 +1,32 @@
-# Live tracker, Week 11 (2026-11-22 21:14 UTC)
+# Live tracker, Week 11 (2026-11-22 21:19 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
+
+## BAL 33 @ CAR 35 (Final)
+
+191 plays. Top yards allowed by a named defender: K.Hamilton (5/5, 85 yds), T.Moehrig (2/2, 40 yds), W.Lee (2/3, 32 yds), T.Tampa (1/2, 27 yds)
+
+| Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
+|---|---|---|---|---|---|---|---|---|
+| Chuba Hubbard (CAR) | 0 | 3.3 | 0 | 14.9 | 20.5 | 120 | 68.9 | 74.5 |
+| Derrick Henry (BAL) | 4 | 1.6 | 17 | 5.5 | 8.5 | 94 | 48.7 | 64.5 |
+| Justice Hill (BAL) | 4 | 3.4 | 27 | 14.5 | 15.5 | 69 | 19.8 | 13.5 |
+| Zay Flowers (BAL) | 8 | 4.3 | 97 | 42.6 | 69.0 | -13 |  |  |
+| Tetairoa McMillan (CAR) | 6 | 4.7 | 71 | 55.9 | 63.5 | 0 |  |  |
+| Rashod Bateman (BAL) | 2 | 1.9 | 67 | 16.7 | 25.5 | 0 |  |  |
+
+## NYJ 3 @ LAC 0 (7:05 - 1st)
+
+19 plays. Top yards allowed by a named defender: M.Fitzpatrick (1/1, 13 yds), D.Davis (1/1, 8 yds), D.Leonard (0/1, 0 yds)
+
+| Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
+|---|---|---|---|---|---|---|---|---|
+| Adonai Mitchell (NYJ) | 1 | 3.4 | 21 | 45.9 | 44.5 | 0 |  |  |
+| Omarion Hampton (LAC) | 0 | 1.7 | 0 | 8.9 | 6.5 | 12 | 55.4 | 63.5 |
+| Breece Hall (NYJ) | 0 | 2.3 | 0 | 13.7 | 21.5 | 11 | 36.1 | 49.5 |
+| Charlie Kolar (LAC) | 1 | 2.3 | 8 | 20.7 | 13.5 | 0 |  |  |
+| Keaton Mitchell (LAC) | 1 | 1.9 | 6 | 9.9 | 7.5 | 0 | 20.5 | 11.5 |
+| Braelon Allen (NYJ) | 0 | 1.8 | 0 | 6.3 | 7.5 | 3 | 41.2 | 33.5 |
 
 ## MIA 9 @ BUF 26 (Final)
 
@@ -54,32 +80,6 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Kenny Gainwell (TB) | 4 | 1.6 | 43 | 8.8 | 12.5 | 16 | 26.8 | 17.5 |
 | Amon-Ra St. Brown (DET) | 5 | 5.2 | 37 | 57.7 | 81.5 | 0 |  |  |
 
-## PIT 16 @ PHI 19 (Final)
-
-181 plays. Top yards allowed by a named defender: J.Dean (6/7, 40 yds), K.Henry (1/1, 38 yds), M.Epps (6/6, 37 yds), J.Trotter (4/4, 36 yds)
-
-| Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
-|---|---|---|---|---|---|---|---|---|
-| Saquon Barkley (PHI) | 0 | 1.1 | 0 | 3.7 | 9.5 | 75 | 27.4 | 55.5 |
-| Darius Cooper (PHI) | 4 | 2.7 | 59 | 27.7 | 17.0 | 0 |  |  |
-| Roman Wilson (PIT) | 3 | 2.4 | 43 | 25.9 | 19.5 | 0 |  |  |
-| DeVonta Smith (PHI) | 5 | 6.9 | 41 | 71.3 | 54.5 | 0 |  |  |
-| Germie Bernard (PIT) | 6 | 3.3 | 40 | 27.3 | 28.5 | 0 |  |  |
-| Pat Freiermuth (PIT) | 5 | 2.5 | 39 | 20.6 | 21.5 | 1 |  |  |
-
-## BAL 33 @ CAR 35 (0:59 - 4th)
-
-184 plays. Top yards allowed by a named defender: K.Hamilton (5/5, 85 yds), T.Moehrig (2/2, 40 yds), W.Lee (2/3, 32 yds), T.Tampa (1/2, 27 yds)
-
-| Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
-|---|---|---|---|---|---|---|---|---|
-| Chuba Hubbard (CAR) | 0 | 3.3 | 0 | 14.9 | 20.5 | 120 | 68.9 | 74.5 |
-| Derrick Henry (BAL) | 4 | 1.6 | 17 | 5.5 | 8.5 | 94 | 48.7 | 64.5 |
-| Justice Hill (BAL) | 4 | 3.4 | 27 | 14.5 | 15.5 | 69 | 19.8 | 13.5 |
-| Zay Flowers (BAL) | 8 | 4.3 | 97 | 42.6 | 69.0 | -13 |  |  |
-| Tetairoa McMillan (CAR) | 6 | 4.7 | 71 | 55.9 | 63.5 | 0 |  |  |
-| Rashod Bateman (BAL) | 2 | 1.9 | 67 | 16.7 | 25.5 | 0 |  |  |
-
 ## ARI 7 @ KC 34 (Final)
 
 172 plays. Top yards allowed by a named defender: J.Gibbens (4/4, 50 yds), J.Canady (2/2, 35 yds), K.Clark (2/2, 35 yds), D.Tranquill (3/3, 28 yds)
@@ -93,16 +93,16 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Bam Knight (ARI) | 1 | 2.2 | 10 | 12.6 | 8.5 | 35 | 17.4 | 24.5 |
 | Xavier Worthy (KC) | 2 | 3.0 | 38 | 30.0 | 25.5 | 0 |  |  |
 
-## NYJ 3 @ LAC 0 (11:08 - 1st)
+## PIT 16 @ PHI 19 (Final)
 
-11 plays. Top yards allowed by a named defender: D.Leonard (0/1, 0 yds)
+181 plays. Top yards allowed by a named defender: J.Dean (6/7, 40 yds), K.Henry (1/1, 38 yds), M.Epps (6/6, 37 yds), J.Trotter (4/4, 36 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
-| Adonai Mitchell (NYJ) | 1 | 3.4 | 21 | 45.9 | 44.5 | 0 |  |  |
-| Breece Hall (NYJ) | 0 | 2.3 | 0 | 13.7 | 21.5 | 11 | 36.1 | 49.5 |
-| Braelon Allen (NYJ) | 0 | 1.8 | 0 | 6.3 | 7.5 | 3 | 41.2 | 33.5 |
-| Omarion Hampton (LAC) | 0 | 1.7 | 0 | 8.9 | 6.5 | 0 | 55.4 | 63.5 |
-| Kimani Vidal (LAC) | 0 | 1.7 | 0 | 8.1 | 7.5 | 0 | 23.2 | 14.5 |
-| Tre Harris (LAC) | 0 | 3.0 | 0 | 33.6 | 41.0 | 0 |  |  |
+| Saquon Barkley (PHI) | 0 | 1.1 | 0 | 3.7 | 9.5 | 75 | 27.4 | 55.5 |
+| Darius Cooper (PHI) | 4 | 2.7 | 59 | 27.7 | 17.0 | 0 |  |  |
+| Roman Wilson (PIT) | 3 | 2.4 | 43 | 25.9 | 19.5 | 0 |  |  |
+| DeVonta Smith (PHI) | 5 | 6.9 | 41 | 71.3 | 54.5 | 0 |  |  |
+| Germie Bernard (PIT) | 6 | 3.3 | 40 | 27.3 | 28.5 | 0 |  |  |
+| Pat Freiermuth (PIT) | 5 | 2.5 | 39 | 20.6 | 21.5 | 1 |  |  |
 
