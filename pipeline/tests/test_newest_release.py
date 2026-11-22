@@ -171,13 +171,13 @@ def test_ngs_coverage_gap_for_a_completed_week_team(tmp_path):
     pq.write_table(t, path)
     found = coverage.ids_in_file(path)
     completed = [{"game_id": "2026_11_IND_HOU", "week": 11, "teams": ["IND", "HOU"]}]
-    assert coverage.missing_completed(completed, found) == ["IND week 11", "HOU week 11"]
+    assert coverage.missing_completed(completed, found) == ["week 11"]
     now = KO - timedelta(hours=30)
     pk = packet(now)
     pk["sources"]["ngs_receiving"]["path"] = str(path)
     r = rows(pk, now, completed_games=lambda p: completed,
              source_coverage=lambda name, rec, p: found if name.startswith("ngs_") else None)["ngs_receiving"]
-    assert r["status"] == "GAP" and "IND week 11" in r["reason"]
+    assert r["status"] == "GAP" and "week 11" in r["reason"]
 
 
 def test_coverage_completed_games_from_schedule_scores(tmp_path):
@@ -219,3 +219,61 @@ def test_coverage_unknown_is_not_invented_as_a_gap():
     assert coverage.missing_completed(None, {"has_game_id": True, "game_ids": set(), "has_week_team": False,
                                              "weeks": set(), "week_teams": set(), "columns": []}) == []
     assert coverage.missing_completed([{"game_id": "x"}], None) == []
+
+
+def test_completed_games_filtered_to_packet_season(tmp_path):
+    import pyarrow as pa
+    import pyarrow.parquet as pq
+    t = pa.table({
+        "game_id": ["2025_11_IND_HOU", "2026_11_IND_HOU", "2026_11_PIT_PHI"],
+        "week": pa.array([11, 11, 11], type=pa.int32()),
+        "season": pa.array([2025, 2026, 2026], type=pa.int32()),
+        "game_type": ["REG", "REG", "REG"],
+        "away_team": ["IND", "IND", "PIT"],
+        "home_team": ["HOU", "HOU", "PHI"],
+        "away_score": pa.array([16, 16, None], type=pa.int32()),
+        "home_score": pa.array([20, 20, None], type=pa.int32()),
+    })
+    path = tmp_path / "games.parquet"
+    pq.write_table(t, path)
+    all_seasons = coverage.completed_games_from_schedule(path)
+    assert {g["game_id"] for g in all_seasons} == {"2025_11_IND_HOU", "2026_11_IND_HOU"}
+    only_2026 = coverage.completed_games_from_schedule(path, season=2026, season_type="REG")
+    assert [g["game_id"] for g in only_2026] == ["2026_11_IND_HOU"]
+
+
+def test_ngs_same_week_in_another_season_is_not_coverage(tmp_path):
+    import pyarrow as pa
+    import pyarrow.parquet as pq
+    t = pa.table({
+        "week": pa.array([11, 11], type=pa.int32()),
+        "season": pa.array([2025, 2025], type=pa.int32()),
+        "team_abbr": ["IND", "HOU"],
+        "player_display_name": ["A", "B"],
+        "avg_separation": [0.1, 0.2],
+    })
+    path = tmp_path / "ngs_receiving.parquet"
+    pq.write_table(t, path)
+    found = coverage.ids_in_file(path)
+    completed = [{"game_id": "2026_11_IND_HOU", "season": 2026, "week": 11, "teams": ["IND", "HOU"]}]
+    miss = coverage.missing_completed(completed, found)
+    assert miss == ["week 11 (2026)"]
+
+
+def test_ngs_partial_team_list_for_a_published_week_is_not_a_gap(tmp_path):
+    """Public NGS omits some team-weeks (minimums; LA vs LAR). The week is still covered."""
+    import pyarrow as pa
+    import pyarrow.parquet as pq
+    t = pa.table({
+        "week": pa.array([11, 11], type=pa.int32()),
+        "season": pa.array([2026, 2026], type=pa.int32()),
+        "team_abbr": ["IND", "LAR"],
+        "player_display_name": ["A", "B"],
+        "avg_time_to_throw": [2.5, 2.6],
+    })
+    path = tmp_path / "ngs_passing.parquet"
+    pq.write_table(t, path)
+    found = coverage.ids_in_file(path)
+    completed = [{"game_id": "2026_11_IND_HOU", "season": 2026, "week": 11, "teams": ["IND", "HOU"]},
+                 {"game_id": "2026_11_SF_LA", "season": 2026, "week": 11, "teams": ["SF", "LA"]}]
+    assert coverage.missing_completed(completed, found) == []

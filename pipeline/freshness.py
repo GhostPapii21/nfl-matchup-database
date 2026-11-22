@@ -238,7 +238,10 @@ def _coverage_missing(name: str, rec: dict, pk: dict, hook_impls) -> list[str] |
         completed = hi["completed_games"](pk)
     else:
         sched = coverage.source_path(_get(pk, "sources.games"), [cache_path("schedule", pk)])
-        completed = coverage.completed_games_from_schedule(sched, hook=None)
+        g = pk.get("game") or {}
+        stype = g.get("season_type") or g.get("game_type") or "REG"
+        completed = coverage.completed_games_from_schedule(
+            sched, hook=None, season=_season(pk), season_type=stype)
     if callable(hi.get("source_coverage")):
         found = hi["source_coverage"](name, rec, pk)
     else:
