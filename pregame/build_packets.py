@@ -89,7 +89,7 @@ def main(argv=None):
     if not len(slate):
         print(f"pregame: no unplayed {a.weekdays} games found from {today} (season {season}); nothing written")
         return 0
-    data = {"games": games, "rosters": rosters, "plays": M.prepare(pbp, rosters, read("ftn")),
+    data = {"games": games, "rosters": rosters, "plays": M.prepare(pbp, rosters, read("ftn")), "kneels": M.kneel_credit(pbp),
             "injuries": read("injuries"), "depth_charts": read("depth_charts"), "snap_counts": read("snap_counts"), "pfr_def": read("pfr_def")}
     espn = S.espn_injuries(offline=a.offline)
     src_pub = {k: {kk: vv for kk, vv in v.items() if kk != "path"} for k, v in src.items()}
