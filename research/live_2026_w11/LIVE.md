@@ -1,23 +1,23 @@
-# Live tracker, Week 11 (2026-11-22 21:59 UTC)
+# Live tracker, Week 11 (2026-11-22 22:04 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## NYJ 10 @ LAC 3 (6:36 - 2nd)
+## NYJ 17 @ LAC 3 (3:07 - 2nd)
 
-57 plays. Top yards allowed by a named defender: C.Hart (2/2, 21 yds), E.Molden (1/1, 19 yds), M.Fitzpatrick (1/1, 13 yds), R.Mickens (1/1, 9 yds)
+64 plays. Top yards allowed by a named defender: E.Molden (2/2, 29 yds), C.Hart (2/2, 21 yds), M.Fitzpatrick (1/1, 13 yds), R.Mickens (1/1, 9 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
-| Braelon Allen (NYJ) | 1 | 1.8 | 9 | 6.3 | 7.5 | 28 | 41.2 | 33.5 |
-| Breece Hall (NYJ) | 1 | 2.3 | 7 | 13.7 | 21.5 | 25 | 36.1 | 49.5 |
+| Braelon Allen (NYJ) | 1 | 1.8 | 9 | 6.3 | 7.5 | 31 | 41.2 | 33.5 |
+| Breece Hall (NYJ) | 1 | 2.3 | 7 | 13.7 | 21.5 | 32 | 36.1 | 49.5 |
 | Adonai Mitchell (NYJ) | 2 | 3.4 | 30 | 45.9 | 44.5 | 0 |  |  |
 | Kimani Vidal (LAC) | 0 | 1.7 | 0 | 8.1 | 7.5 | 21 | 23.2 | 14.5 |
 | Garrett Wilson (NYJ) | 2 | 6.1 | 20 | 70.5 | 65.5 | 0 |  |  |
 | Mason Taylor (NYJ) | 1 | 2.9 | 19 | 25.7 | 19.5 | 0 |  |  |
 
-## LV 0 @ DEN 3 (15:00 - 2nd)
+## LV 0 @ DEN 10 (14:50 - 2nd)
 
-39 plays. Top yards allowed by a named defender: T.Johnson (1/1, 20 yds), N.Dean (1/1, 11 yds), Q.Walker (2/2, 10 yds), J.McMillian (1/1, 6 yds)
+43 plays. Top yards allowed by a named defender: T.Johnson (1/1, 20 yds), N.Dean (1/1, 11 yds), Q.Walker (2/2, 10 yds), J.McMillian (1/1, 6 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -28,18 +28,18 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Evan Engram (DEN) | 1 | 2.1 | 11 | 15.4 | 20.5 | 0 |  |  |
 | RJ Harvey (DEN) | 0 | 3.4 | 0 | 21.3 |  | 0 | 16.0 |  |
 
-## JAX 3 @ NYG 3 (4:59 - 1st)
+## JAX 3 @ NYG 3 (4:06 - 1st)
 
-35 plays. Top yards allowed by a named defender: J.Holland (1/1, 13 yds), A.Reese (1/1, 10 yds), A.Johnson (1/2, 4 yds), J.Holland, G.Newsome (0/1, 0 yds)
+38 plays. Top yards allowed by a named defender: J.Holland (1/1, 13 yds), T.Hunter, F.Oluokun (1/1, 11 yds), A.Reese (1/1, 10 yds), A.Johnson (1/1, 4 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Chris Rodriguez Jr. (JAX) | 0 |  | 0 |  |  | 21 | 21.4 | 20.5 |
+| Malik Nabers (NYG) | 2 | 5.4 | 15 | 53.4 | 67.5 | 0 |  |  |
 | Jakobi Meyers (JAX) | 1 | 2.6 | 13 | 24.3 | 42.5 | 0 |  |  |
 | Parker Washington (JAX) | 1 | 3.0 | 10 | 35.9 | 66.5 | 0 |  |  |
 | Bhayshul Tuten (JAX) | 0 | 1.9 | 0 | 10.3 | 13.5 | 7 | 56.9 | 70.5 |
-| Malik Nabers (NYG) | 1 | 5.4 | 4 | 53.4 | 67.5 | 0 |  |  |
-| Brenton Strange (JAX) | 0 | 2.2 | 0 | 15.4 | 32.5 | 0 |  |  |
+| Cam Skattebo (NYG) | 0 | 1.9 | 0 | 9.1 | 14.5 | 3 | 48.5 | 54.5 |
 
 ## MIA 9 @ BUF 26 (Final)
 
