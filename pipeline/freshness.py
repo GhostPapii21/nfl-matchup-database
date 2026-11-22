@@ -124,16 +124,19 @@ def parse_utc(s) -> datetime | None:
 
 
 def kickoff_utc(pk: dict) -> datetime | None:
-    k = parse_utc(_get(pk, "weather.kickoff_utc"))
-    if k:
-        return k
+    """Packet kickoff, overridden by ESPN's scoreboard time for the same matchup when pipeline/kickoffs has one
+    (the nflverse schedule swapped two 2026 Week 11 slots)."""
+    from . import kickoffs
     g = pk.get("game") or {}
-    try:
-        hh, mm = str(g["kickoff_et"]).split(":")[:2]
-        d = datetime.fromisoformat(str(g["date"])).replace(hour=int(hh), minute=int(mm), tzinfo=ET)
-        return d.astimezone(timezone.utc)
-    except (KeyError, ValueError):
-        return None
+    k = parse_utc(_get(pk, "weather.kickoff_utc"))
+    if not k:
+        try:
+            hh, mm = str(g["kickoff_et"]).split(":")[:2]
+            d = datetime.fromisoformat(str(g["date"])).replace(hour=int(hh), minute=int(mm), tzinfo=ET)
+            k = d.astimezone(timezone.utc)
+        except (KeyError, ValueError):
+            k = None
+    return kickoffs.lookup(g.get("game_id"), k) or k
 
 
 def max_age_minutes(name: str, hours_to_kickoff: float | None) -> int:
