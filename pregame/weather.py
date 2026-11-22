@@ -6,6 +6,7 @@ are labelled NOT_MAPPED so the analyst checks by hand.
 from __future__ import annotations
 
 import json
+import re
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
@@ -24,6 +25,15 @@ UA = {"User-Agent": "nfl-pregame-packet/1.0 (research; public data)", "Accept": 
 def _get(url, timeout=30):
     with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout) as r:
         return json.loads(r.read())
+
+
+def _wind_mph(s) -> float:
+    """NWS windSpeed: "12 mph" or a range "10 to 20 mph". A range counts at its upper end (the weather gate is a
+    ceiling test). Anything without a number raises, which makes the forecast UNAVAILABLE rather than calm."""
+    nums = [float(x) for x in re.findall(r"\d+(?:\.\d+)?", str(s if s is not None else ""))]
+    if not nums:
+        raise ValueError(f"unparseable NWS windSpeed {s!r}")
+    return max(nums)
 
 
 def kickoff_utc(gameday: str, gametime_et: str) -> datetime:
@@ -50,7 +60,7 @@ def forecast(home, roof, site, gameday, gametime_et, *, offline=False, fetch=_ge
         game = [p for p in periods if ko - timedelta(minutes=59) <= datetime.fromisoformat(p["startTime"]).astimezone(timezone.utc) < ko + timedelta(hours=3, minutes=30)]
         if not game:
             return {"status": "KICKOFF_BEYOND_HOURLY_FORECAST: the hourly forecast covers about 6.5 days", "kickoff_utc": ko.isoformat()}
-        wind = [float(str(p.get("windSpeed", "0")).split()[0]) for p in game]
+        wind = [_wind_mph(p.get("windSpeed")) for p in game]
         pop = [(p.get("probabilityOfPrecipitation") or {}).get("value") or 0 for p in game]
         return {"status": "OK", "source": "US National Weather Service hourly forecast", "url": url,
                 "retrieved_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"), "kickoff_utc": ko.isoformat(),
