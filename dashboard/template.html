@@ -632,7 +632,7 @@ const BOARD = /*__BOARD_DATA__*/null;
   }
   function renderOverview(g) {
     const ks = sideKeys(g), s1 = g.sides[ks[0]], s2 = g.sides[ks[1]];
-    return `${bestBetsCard(g)}${watchCard(g)}${oppLeadersCard(g)}<div class="grid two">${edgesCard(s1)}${edgesCard(s2)}</div>
+    return `${gameBetsCard(g)}${bestBetsCard(g)}${watchCard(g)}${oppLeadersCard(g)}<div class="grid two">${edgesCard(s1)}${edgesCard(s2)}</div>
       <div class="grid two">${topReceiversCard(s1)}${topReceiversCard(s2)}</div>
       <div class="grid two">${targetsCard(s1)}${targetsCard(s2)}</div>
       <div class="grid two">${qbQuickCard(s1)}${qbQuickCard(s2)}</div>
@@ -1031,11 +1031,29 @@ const BOARD = /*__BOARD_DATA__*/null;
       <td style="text-align:left" class="note">${p.flags.length ? `<span class="tag t-warn">check</span> ${esc(p.flags.join("; "))}` : `${p.n_prices} prices, ${p.books.length} books`}</td></tr>`;
   }
   const BEST_HEAD = `<thead><tr><th>Player</th><th>Bet</th><th>Best book</th><th title="half our model, half the market's fair price at this exact line, vs the price's break-even">Chance vs price</th><th>EV per $1</th><th>vs FanDuel main line</th><th style="text-align:left">Prices / flags</th></tr></thead>`;
-  const BEST_SUB = "For every prop: each book's line and price, our chance at that exact line (calibrated simulation), and the market's fair chance there (Pinnacle or the books' no-vig price). The chance used is half model, half market; the model alone lost money in testing. Prices more than 3 hours older than the newest are dropped; long shots (+400 and longer) and alt-ladder rungs are never the pick. Clean picks are listed first. <b>check</b> = our model and the market disagree on the player's role by more than 15 points, prices pulled far apart, or a line gap that came through StartWho or Grok: confirm the line on the book before betting. Research only.";
+  const BEST_SUB = "For every prop: each book's line and price, our chance at that exact line (calibrated simulation), and the market's fair chance there (Pinnacle or the books' no-vig price). The chance used is half model, half market; the model alone lost money in testing. Prices more than 3 hours older than the newest are dropped; long shots (+400 and longer) and alt-ladder rungs are never the pick. Unders carry a 3-point handicap, so overs and alt-ladder rungs win close calls; alt rungs are priced from the book's own ladder. Clean picks are listed first. <b>check</b> = our model and the market disagree on the player's role by more than 15 points, prices pulled far apart, or a line gap that came through StartWho or Grok: confirm the line on the book before betting. Research only.";
+  const PERIOD_ORDER = { "Game": 0, "1st half": 1, "2nd half": 2, "1st quarter": 3, "2nd quarter": 4, "3rd quarter": 5, "4th quarter": 6 };
+  const KIND = { moneyline: "to win", spread: "spread", total: "total" };
+  function gameBetRows(g, minEv) { const b = g.game_bets; if (!b || b.error) return []; return (b.picks || []).filter((p) => p.best.ev_per_dollar >= (minEv ?? 0.02)).sort((a, b2) => (a.flags.length > 0) - (b2.flags.length > 0) || b2.best.ev_per_dollar - a.best.ev_per_dollar); }
+  function gameBetLabel(p) { const b = p.best; if (p.kind === "moneyline") return `${esc(b.side)} to win`; if (p.kind === "total") return `${esc(b.side)} ${n(b.line, 1)}`; return `${esc(b.side)} ${b.line > 0 ? "+" : ""}${n(b.line, 1)}`; }
+  function gameBetRowHtml(p, g, gi) {
+    const b = p.best, fd = p.vs_fanduel_main;
+    const game = gi === undefined ? "" : `<td><button class="linkbtn" data-enter="${gi}" data-tab-go="overview">${esc(g.game.away)} @ ${esc(g.game.home)}</button></td>`;
+    return `<tr>${game}<td>${esc(p.period)} ${esc(KIND[p.kind] || p.kind)}${b.alt ? ' <span class="tag t-primary">alt</span>' : ""}</td><td><b>${gameBetLabel(p)}</b></td><td>${esc(BOOKN[b.book] || b.book)} <b>${amer(b.american)}</b></td>
+      <td title="model ${pct(b.p_model)} · market fair ${pct(b.p_market)} (both without pushes)">${pct(b.p_bet)} <span class="note">vs ${pct(b.break_even)}</span>${b.p_push >= 0.02 ? ` <span class="note">· push ${pct(b.p_push)}</span>` : ""}</td>
+      <td><b>${b.ev_per_dollar >= 0 ? "+" : ""}${n(b.ev_per_dollar * 100, 1)}%</b></td>
+      <td style="text-align:left" class="note">${p.flags.length ? `<span class="tag t-warn">check</span> ${esc(p.flags.join("; "))}` : `${p.n_prices} prices, ${p.books.length} books`}</td></tr>`;
+  }
+  const GAME_SUB = "Moneylines, spreads and totals for the full game, each half and each quarter, including alternate lines. Our chance comes from the 250 most similar real games (2022–26, by each team's implied points), so key numbers and quarter ties are real; it is blended half and half with the market's fair price at that exact line (Pinnacle, or the books' no-vig price, shifted to alternate lines). Push = the chance the bet ties and is refunded. Research only.";
+  function gameBetsCard(g) {
+    const b = g.game_bets || {}, rows = gameBetRows(g, 0.02);
+    return `<div class="card"><h4>Best game bets: quarters, halves, alt lines</h4><div class="sub">${GAME_SUB}${b.implied_points ? ` Implied points: ${esc(g.game.home)} ${n(b.implied_points.home, 1)}, ${esc(g.game.away)} ${n(b.implied_points.away, 1)}.` : ""}</div>
+      ${b.error ? `<p class="empty">Not available: ${esc(b.error)}</p>` : rows.length ? `<table class="tbl"><thead><tr><th>Market</th><th>Bet</th><th>Best book</th><th>Chance vs price</th><th>EV per $1</th><th style="text-align:left">Prices / flags</th></tr></thead><tbody>${rows.slice(0, 14).map((p) => gameBetRowHtml(p, g)).join("")}</tbody></table>` : `<p class="empty">${esc(b.note || "No game market clears +2% EV at the current prices.")}</p>`}</div>`;
+  }
   function bestBetsCard(g) {
     const rows = bestRows(g, 0.02);
     const err = sideKeys(g).map((k) => (g.sides[k].best_bets || {}).error).find(Boolean);
-    return `<div class="card"><h4>Best bets (line and price shopping)</h4><div class="sub">${BEST_SUB}</div>
+    return `<div class="card"><h4>Best player-prop bets (line and price shopping)</h4><div class="sub">${BEST_SUB}</div>
       ${err ? `<p class="empty">Not available: ${esc(err)}</p>` : rows.length ? `<table class="tbl">${BEST_HEAD}<tbody>${rows.slice(0, 16).map((p) => bestRowHtml(p)).join("")}</tbody></table>` : '<p class="empty">No prop clears +2% EV at the current prices.</p>'}</div>`;
   }
   function oppFor(s, pid, kind) { const o = s.opportunity; if (!o || o.error) return null; return (o[kind] || []).find((x) => x.player_id === pid); }
@@ -1371,7 +1389,10 @@ const BOARD = /*__BOARD_DATA__*/null;
     const groups = []; games.forEach((g, i) => { const key = g.game.date + "|" + g.game.slot; let grp = groups.find((x) => x.key === key); if (!grp) groups.push((grp = { key, label: g.game.slot, items: [] })); grp.items.push(i); });
     return `<section class="hero"><div><div class="eyebrow">Week ${games[0] ? games[0].game.week : ""} slate</div><h1>Pick a game to step inside</h1><p class="note">Every game below opens its own room: player cards, opportunity, field view, matchups, injuries, odds and weather. <span class="hero-help">New here? <button class="linkbtn" data-howto>How to use this board</button></span></p></div></section>
       ${groups.map((grp) => `<div class="slot-h">${esc(grp.label)}</div><div class="tiles">${grp.items.map((i) => gameTile(games[i], i)).join("")}</div>`).join("")}
-      <div class="section-title">Best bets across the slate</div>
+      <div class="section-title">Best game bets across the slate: quarters, halves, alt lines</div>
+      <div class="card"><div class="sub">${GAME_SUB}</div>${(() => { const all = []; games.forEach((g, gi) => gameBetRows(g, 0.02).forEach((p) => all.push([p, g, gi]))); all.sort((a, b) => (a[0].flags.length > 0) - (b[0].flags.length > 0) || b[0].best.ev_per_dollar - a[0].best.ev_per_dollar);
+        return all.length ? `<table class="tbl"><thead><tr><th>Game</th><th>Market</th><th>Bet</th><th>Best book</th><th>Chance vs price</th><th>EV per $1</th><th style="text-align:left">Prices / flags</th></tr></thead><tbody>${all.slice(0, 20).map(([p, g, gi]) => gameBetRowHtml(p, g, gi)).join("")}</tbody></table>` : '<p class="empty">No game market clears +2% EV at the current prices.</p>'; })()}</div>
+      <div class="section-title">Best player-prop bets across the slate</div>
       <div class="card"><div class="sub">${BEST_SUB}</div>${(() => { const all = []; games.forEach((g, gi) => bestRows(g, 0.02).forEach((p) => all.push([p, gi]))); all.sort((a, b) => (a[0].flags.length > 0) - (b[0].flags.length > 0) || b[0].best.ev_per_dollar - a[0].best.ev_per_dollar);
         return all.length ? `<table class="tbl">${BEST_HEAD}<tbody>${all.slice(0, 20).map(([p, gi]) => bestRowHtml(p, gi)).join("")}</tbody></table>` : '<p class="empty">No prop clears +2% EV at the current prices.</p>'; })()}</div>
       <div class="section-title">80-yard watch</div>
