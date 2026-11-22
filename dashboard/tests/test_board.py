@@ -107,9 +107,21 @@ def test_opportunity_rain_and_defense_factors_are_bounded():
     from dashboard import opportunity as O
     assert O.def_factor(None, 0.65) == 1.0
     assert 0.8 <= O.def_factor(0.1, 0.65) <= 1.2 and 0.8 <= O.def_factor(5, 0.65) <= 1.2
-    p, r = O.script_multipliers(14)
-    assert p == 0.9 and abs(r - 1.12) < 1e-9
+    p, r = O.script_multipliers(14)                       # refit 2022-24 (research/qb_script_2026-11-22); capped at 10
+    assert abs(p - (0.9855 - 0.006)) < 1e-9 and abs(r - (1.0016 + 0.037)) < 1e-9
+    assert O.script_multipliers(14) == O.script_multipliers(10)
     assert O.script_multipliers(None) == (1.0, 1.0)
+
+
+def test_backup_qb_detection():
+    from dashboard import opportunity as O
+    phi = {"qb": {"player": "Joe Milton III"}, "quarterbacks": [{"player": "J.Hurts", "player_id": "a", "games": 4},
+                                                                {"player": "T.McKee", "player_id": "b", "games": 3}]}
+    assert O.backup_qb(phi) == {"starter": "Joe Milton III", "usual": "J.Hurts", "usual_games": 4}
+    assert O.backup_qb({"qb": {"player": "Jalen Hurts", "player_id": "a"}, "quarterbacks": phi["quarterbacks"]}) is None
+    assert O.backup_qb({"qb": {"player": "Jalen Hurts"}, "quarterbacks": phi["quarterbacks"]}) is None      # by last name
+    assert O.backup_qb({"qb": {"player": "X", "player_id": "z"}, "quarterbacks": [{"player": "Y", "player_id": "y", "games": 1}]}) is None
+    assert O.BACKUP_QB_YARDS < 1
 
 
 # ------------------------------------------------------------------------------------------- teammate out

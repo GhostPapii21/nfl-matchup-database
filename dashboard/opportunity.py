@@ -204,12 +204,38 @@ def def_factor(def_rate, league_rate):
     return max(0.8, min(1.2, 1 + DEF_WEIGHT * (def_rate / league_rate - 1)))
 
 
+# Game script, refit on 2022-24 team-games and checked on 2025-26 (research/qb_script_2026-11-22). Once a team's own pass
+# rate is in the base, the spread barely moves pass attempts (the old 1%-per-point cut did worse than no adjustment on
+# 2025-26: MAE 6.65 vs 6.52; refit 6.49). Favourites do run a little more (+0.37% per point, not +1.2%).
+SCRIPT_PASS = (0.9855, -0.0006)
+SCRIPT_RUSH = (1.0016, 0.0037)
+# Backup QB: receivers of a team starting someone other than its usual QB (most starts this season, 2+ games) gained 6.3%
+# fewer yards than the simulation (fit 2024-25, CI 1-11.5% fewer; 2026 check: 15.5% fewer). Applied to yards per catch.
+BACKUP_QB_YARDS = 0.937
+
+
 def script_multipliers(implied_margin):
-    """Team favoured by m points passes a little less and runs a little more (capped at +/-10%)."""
+    """(pass, rush) attempt multipliers for a team favoured by m points (margin capped at +/-10)."""
     if implied_margin is None:
         return 1.0, 1.0
     m = max(-10.0, min(10.0, implied_margin))
-    return 1 - 0.01 * m, 1 + 0.012 * m
+    return SCRIPT_PASS[0] + SCRIPT_PASS[1] * m, SCRIPT_RUSH[0] + SCRIPT_RUSH[1] * m
+
+
+def backup_qb(side: dict) -> dict | None:
+    """{starter, usual} when the projected starter is not the QB with the most games this season (usual needs 2+)."""
+    q, qs = side.get("qb") or {}, [x for x in side.get("quarterbacks") or [] if x.get("games")]
+    if not q.get("player") or not qs:
+        return None
+    usual = max(qs, key=lambda x: x["games"])
+    if usual["games"] < 2:
+        return None
+    if q.get("player_id"):
+        same = q["player_id"] == usual.get("player_id")
+    else:                                   # "Joe Milton III" vs "J.Milton": compare last names
+        last = lambda n: [w for w in str(n).replace(".", " ").split() if w.upper() not in {"JR", "SR", "II", "III", "IV"}][-1].lower()
+        same = last(q["player"]) == last(usual["player"])
+    return None if same else {"starter": q["player"], "usual": usual["player"], "usual_games": usual["games"]}
 
 
 # ----------------------------------------------------------------------------------------------- board integration
@@ -277,7 +303,9 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
         if r is top_rb:
             return OUT_TOP_RB * missing_carry
         return OUT_REST_RB * missing_carry * ((r.get("carry_share") or 0) / healthy_carry)
-    res = {"team": off, "vs": dfn, "team_pass_attempts": _f(team_att, 1), "team_rush_attempts": _f(team_rush, 1),
+    bqb = backup_qb(side)
+    qb_yards = BACKUP_QB_YARDS if bqb else 1.0
+    res = {"team": off, "vs": dfn, "team_pass_attempts": _f(team_att, 1), "team_rush_attempts": _f(team_rush, 1), "backup_qb": bqb,
            "plays": _f(plays, 1), "pass_ratio": _f(pass_ratio, 3), "script_pass_multiplier": _f(pmul, 3), "weather_attempts_multiplier": _f(att_rain, 3),
            "implied_margin": _f(margin, 1), "missing_target_share": _f(missing_share, 3), "missing_carry_share": _f(missing_carry, 3),
            "receivers": [], "rushers": []}
@@ -336,7 +364,7 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
             rc = rn["forecast"]["catch_rate"] / rn["dry"]["catch_rate"]
         k = _dispersion([x.get("targets") for x in log], exp_t)
         tg, rc_, yd = simulate_receiver(exp_targets=exp_t, k=k, catch_rate=cr_adj, ypr=ypr_adj, pool=pools["catch"][P],
-                                        rain_yards=ry, rain_catch=rc, seed=seed + 101 * (i + 1))
+                                        rain_yards=ry * qb_yards, rain_catch=rc, seed=seed + 101 * (i + 1))
         hist = [x.get("yards", 0) for x in log]
         pos_targets = sum(x.get(f"{pk}_targets", 0) for x in side.get("offense_by_game", [])) or 1
         slice_ = (d_yds or 0) * (r.get("targets", 0) / pos_targets)
@@ -344,7 +372,8 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
             "player": name, "pos": r.get("pos"),
             "inputs": {"target_share_window": _f(share, 3), "target_share_last3": _f(share_l3, 3), "target_share_used": _f(share_used, 3),
                        "injury_bump": _f(bump, 3), "catch_rate": _f(cr_adj, 3), "yards_per_catch": _f(ypr_adj, 1),
-                       "yards_per_target": _f(cr_adj * ypr_adj * ry, 2), "dispersion_k": _f(k, 1),
+                       "yards_per_target": _f(cr_adj * ypr_adj * ry * qb_yards, 2), "dispersion_k": _f(k, 1),
+                       "rain_yards": _f(ry, 4), "rain_catch": _f(rc, 4), "backup_qb_yards": _f(qb_yards, 3),
                        "def_catch_rate_allowed": _f(d_cr, 3), "def_yards_per_catch_allowed": _f(d_ypr, 1),
                        "league_catch_rate": _f(lg_cr, 3), "league_yards_per_catch": _f(lg_ypr, 1),
                        "position_share": _f(r.get("targets", 0) / pos_targets, 3),
@@ -353,7 +382,7 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
             "player_id": r.get("player_id"),
             "sim": {"targets_raw": _f(exp_t, 3), "k": _f(k, 2), "catch_rate": _f(cr_adj, 4), "ypr": _f(ypr_adj, 3),
                     "rain_yards": _f(ry, 4), "rain_catch": _f(rc, 4), "pool": P},
-            **summary_receiver(tg, rc_, yd, cr_adj * ypr_adj * ry)})
+            **summary_receiver(tg, rc_, yd, cr_adj * ypr_adj * ry * qb_yards)})
     for i, r in enumerate(rush):
         name = r.get("full_name") or r["player"]
         if name.lower() in out_names:
