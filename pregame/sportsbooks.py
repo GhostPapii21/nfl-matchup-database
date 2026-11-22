@@ -78,7 +78,10 @@ def game_kind(name: str) -> str | None:
     """Game markets by period: spread / total / moneyline, prefixed q1..q4 or h1/h2 for quarters and halves; alternates keep
     the base kind (every line is kept; the finder decides which is the main line). Team totals and 3-way markets are skipped."""
     n = (name or "").lower()
-    if any(w in n for w in ("player", "team total", "3-way", "3 way", "race to", "odd/even", "winning margin", "exact", "both teams", "first to")):
+    if any(w in n for w in ("player", "team total", "3-way", "3 way", "race to", "odd/even", "winning margin", "exact", "both teams", "first to",
+                            "touchdown", "(yes/no)")):
+        return None
+    if team_of(n):                                   # "1st Half BUF Bills Total Points", "DET Lions Alternate Total": team totals
         return None
     pre = next((p for k, p in PERIODS if k in n), "")
     base = ("spread" if ("spread" in n or "handicap" in n or "run line" in n) else
@@ -249,12 +252,12 @@ def fanduel(probe: dict | None = None) -> dict:
                     mm = re.search(r"(\d+(?:\.\d+)?)", name)
                     line = float(mm.group(1)) if (not line and mm) else line
                 elif kind.split("_")[-1] in ("spread", "total", "moneyline") and not kind.startswith("alt_"):
-                    mm = re.search(r"([+-]?\d+(?:\.\d+)?)\s*$", name)
+                    mm = re.search(r"\(?([+-]?\d+(?:\.\d+)?)\)?\s*$", name)      # "Over (44.5)", "Detroit Lions (-6.5)", "Lions -6.5"
                     if kind.endswith("total"):
                         side = "Over" if "over" in name.lower() else "Under" if "under" in name.lower() else name
                     else:
-                        side = re.sub(r"\s*[+-]?\d+(?:\.\d+)?\s*$", "", name).strip()
-                    if not line and mm and not kind.endswith("moneyline"):
+                        side = re.sub(r"\s*\(?[+-]?\d+(?:\.\d+)?\)?\s*$", "", name).strip()
+                    if mm and not kind.endswith("moneyline") and (not line or "(" in name):
                         line = float(mm.group(1))
                 elif kind.startswith("alt_"):
                     mm = re.search(r"(\d+)\+", name) or re.search(r"(\d+)\+", m.get("marketName", ""))

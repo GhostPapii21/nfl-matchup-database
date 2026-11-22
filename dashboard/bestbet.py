@@ -13,7 +13,9 @@ The best bet per prop is the candidate with the highest EV. Line shopping shows 
 price shopping as a better price at the same line.
 
 Prices pulled 3+ hours before the newest price for the same prop are dropped as not live; long shots (break-even under
-20%) and alt-ladder rungs are never chosen as the pick (our tail estimates were less accurate than the books' ladders). Timing flags: every price carries its pull time. A pick is flagged when (a) the books it is compared with were pulled more
+20%) are never the pick. Alt-ladder rungs can be picked: their market chance is the book's own ladder price less the
+ladder's vig (measured at the rung nearest the main line), so our tails never set the price. Unders carry a 3-point
+handicap in the ranking (owner's preference: alt lines and overs over plain unders). Timing flags: every price carries its pull time. A pick is flagged when (a) the books it is compared with were pulled more
 than 30 minutes apart, or (b) its line differs from the market's main line by 3+ (yards) / 1+ (receptions, carries) and it
 came through an aggregator (StartWho) or the Grok files rather than the book's own feed: confirm it on the book first.
 Research only."""
@@ -32,7 +34,9 @@ GAP = {"yards": 3.0, "receptions": 1.0, "carries": 1.0}
 MAX_SPREAD_MIN = 30
 STALE_MIN = 180          # a price pulled 3+ hours before the newest pull for the same prop is not treated as live
 MIN_BREAK_EVEN = 0.20
-ROLE_GAP = 0.15          # model vs market at the main line; bigger than this is usually a role/injury read, which lost money in testing    # long shots (+400 and longer) are listed in the counts but never chosen as the pick
+ROLE_GAP = 0.15
+UNDER_PENALTY = 0.03     # owner's preference: an under is picked over an over/alt line only when it is clearly better
+LADDER_DEFAULT = 1.08    # alt-ladder overround when it cannot be measured          # model vs market at the main line; bigger than this is usually a role/injury read, which lost money in testing    # long shots (+400 and longer) are listed in the counts but never chosen as the pick
 EPS = 1e-4
 
 
@@ -100,6 +104,11 @@ def _model_entries(side: dict) -> dict:
     return out
 
 
+def r_is_ladder(c):
+    """Alt-ladder rungs (anchored to the book's own ladder) may be picked; one-sided rungs inside a main market may not."""
+    return bool(c.get("ladder"))
+
+
 def _source(r):
     return "grok" if r.get("source") == "grok" else ("own feed" if r.get("book") in OWN_FEED else "StartWho")
 
@@ -155,12 +164,22 @@ def side_best_bets(side: dict, rows: list[dict], min_edge: float = 0.0) -> dict:
             return _sig(_logit(ref[near]) + _logit(p1) - _logit(p0))     # shift on the logit scale: tails stay sane
         times = [t for t in (_utc(r.get("retrieved_utc")) for r in rs) if t]
         spread_min = (max(times) - min(times)).total_seconds() / 60 if times else None
+        # alt ladders: each book's rungs are anchored to the book's own ladder (its price less the ladder's measured vig),
+        # not to our tails. The vig is measured at the rung nearest the market's main line.
+        ladder = {}
+        for bk in {r["book"] for r in rs if r["market"].startswith("alt_")}:
+            rungs = [r for r in rs if r["book"] == bk and r["market"].startswith("alt_") and r["side"] == "Over"]
+            r0 = min(rungs, key=lambda r: abs(r["line"] - main))
+            fair0 = mkt_over(r0["line"])
+            ladder[bk] = min(max(implied(r0["american"]) / fair0, 1.0), 1.25) if fair0 and abs(r0["line"] - main) <= 10 else LADDER_DEFAULT
         cands = []
         for r in rs:
             if r["book"] == "pinnacle":
                 continue
             po = p_over(table, r["line"], integer)
             pm = mkt_over(r["line"])
+            if r["market"].startswith("alt_") and r["side"] == "Over":
+                pm = min(0.99, implied(r["american"]) / ladder.get(r["book"], LADDER_DEFAULT))
             if po is None or pm is None:
                 continue
             pmod, pmk = (po, pm) if r["side"] == "Over" else (1 - po, 1 - pm)
@@ -169,14 +188,14 @@ def side_best_bets(side: dict, rows: list[dict], min_edge: float = 0.0) -> dict:
             cands.append({"book": r["book"], "side": r["side"], "line": r["line"], "american": int(r["american"]), "break_even": round(be, 4),
                           "p_model": round(pmod, 3), "p_market": round(pmk, 3), "p_bet": round(pb, 3), "edge": round(pb - be, 4),
                           "ev_per_dollar": round(pb * decimal(r["american"]) - 1, 4), "source": _source(r), "retrieved_utc": r.get("retrieved_utc"),
-                          "alt": r["market"].startswith("alt_") or "Over" not in two.get((r["book"], r["line"]), {}) or "Under" not in two.get((r["book"], r["line"]), {})})
+                          "alt": r["market"].startswith("alt_") or "Over" not in two.get((r["book"], r["line"]), {}) or "Under" not in two.get((r["book"], r["line"]), {}),
+                          "ladder": r["market"].startswith("alt_")})
         if not cands:
             continue
-        live = [c for c in cands if c["break_even"] >= MIN_BREAK_EVEN and not c["alt"]]   # two-sided main lines only: our tails were less
-        # accurate than the books' alt ladders (research/edge_2026 Task 3), so alt rungs are counted but never picked
+        live = [c for c in cands if c["break_even"] >= MIN_BREAK_EVEN and (not c["alt"] or r_is_ladder(c))]
         if not live:
             continue
-        best = max(live, key=lambda c: c["ev_per_dollar"])
+        best = max(live, key=lambda c: c["ev_per_dollar"] - (UNDER_PENALTY if c["side"] == "Under" else 0.0))
         if best["edge"] < min_edge:
             continue
         same = [c for c in cands if c["side"] == best["side"] and c["line"] == best["line"] and not c["alt"]]
