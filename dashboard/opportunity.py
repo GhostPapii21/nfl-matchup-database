@@ -17,7 +17,9 @@ Research only. Calibration is measured by dashboard/backtest_opportunity.py; see
 """
 from __future__ import annotations
 
+import json
 import math
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -115,8 +117,38 @@ def _sum_draws(rng, counts, pool, scale=1.0, shift=0.0):
     return out
 
 
-def chances(values, thresholds):
-    return {str(t): _f((values >= t).mean(), 3) for t in thresholds}
+_CAL = None
+
+
+def _calibration() -> dict:
+    """dashboard/calibration.json (research/calibration_2026-11-22/fit.py): fit 2024-25, kept only where 2026 Brier improved."""
+    global _CAL
+    if _CAL is None:
+        try:
+            _CAL = json.loads((Path(__file__).resolve().parent / "calibration.json").read_text())
+        except (OSError, ValueError):
+            _CAL = {}
+    return _CAL
+
+
+def calibrate(p: float, stat: str | None, t: float) -> float:
+    """logit(p_cal) = const + lp*logit(p) + lt*log(t), inside the fitted line range only; otherwise p unchanged."""
+    c = _calibration().get(stat or "") or {}
+    lo, hi = c.get("range", (None, None))
+    if not c.get("enabled") or lo is None or not lo <= t <= hi:
+        return p
+    q = min(max(p, 1e-3), 1 - 1e-3)
+    z = c["const"] + c["lp"] * math.log(q / (1 - q)) + c["lt"] * math.log(t)
+    return 1 / (1 + math.exp(-z))
+
+
+def chances(values, thresholds, stat=None):
+    out, prev = {}, 1.0
+    for t in sorted(thresholds):
+        p = min(prev, calibrate(float((values >= t).mean()), stat, t))     # never rises as the line rises
+        out[str(t)] = _f(p, 3)
+        prev = p
+    return out
 
 
 def _volume(rng, raw_mean, kind, k, n):
@@ -150,7 +182,7 @@ def summary_receiver(tg, rec, yds, ypt):
     need = {str(t): (math.ceil(t / ypt) if ypt and ypt > 0 else None) for t in (50, 60, 70, 80, 100)}
     return {"targets_mean": _f(tg.mean(), 1), "receptions_mean": _f(rec.mean(), 1), "yards_mean": _f(yds.mean(), 1),
             "yards_median": _f(np.median(yds), 1), "yards_p25_p75": [_f(np.percentile(yds, 25), 0), _f(np.percentile(yds, 75), 0)],
-            "yards": chances(yds, REC_THRESHOLDS), "receptions": chances(rec, CATCH_THRESHOLDS),
+            "yards": chances(yds, REC_THRESHOLDS, "receiving_yards"), "receptions": chances(rec, CATCH_THRESHOLDS, "receptions"),
             "targets_needed": need,
             "targets_needed_chance": {t: (_f((tg >= v).mean(), 3) if v is not None else None) for t, v in need.items()}}
 
@@ -158,7 +190,7 @@ def summary_receiver(tg, rec, yds, ypt):
 def summary_rusher(car, yds):
     return {"carries_mean": _f(car.mean(), 1), "yards_mean": _f(yds.mean(), 1), "yards_median": _f(np.median(yds), 1),
             "yards_p25_p75": [_f(np.percentile(yds, 25), 0), _f(np.percentile(yds, 75), 0)],
-            "yards": chances(yds, RUSH_THRESHOLDS), "carries": chances(car, CARRY_THRESHOLDS)}
+            "yards": chances(yds, RUSH_THRESHOLDS, "rushing_yards"), "carries": chances(car, CARRY_THRESHOLDS, "carries")}
 
 
 # ----------------------------------------------------------------------------------------------- inputs shared with the backtest
