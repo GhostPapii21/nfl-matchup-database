@@ -53,5 +53,6 @@ Slip status: **LOSS**
 | Leg | Result | Actual |
 |---|---|---|
 | JAX@NYG U45.5 | pending (game not started) |  |
+| JAX@NYG U47.5 (flag only) | pending (game not started) |  |
 Slip status: **pending**
 
