@@ -108,10 +108,10 @@ def test_live_windows_still_apply_to_odds_espn_and_schedule():
     assert rr["odds"]["status"] == "STALE" and rr["odds"]["cadence"] == "live_window"
     assert rr["news_injuries"]["status"] == "STALE"  # 45 min limit inside 2 h
     assert rr["schedule"]["status"] == "FRESH"  # 24 h window, 50 min old
-    # schedule 25 h old is STALE
-    pk2 = packet(now)
-    pk2["sources"]["games"]["source_updated_at"] = iso(now - timedelta(hours=25))
+    # schedule 25 h old pull is STALE (live_pull window is 24 h)
+    pk2 = packet(now - timedelta(hours=25))
     assert rows(pk2, now)["schedule"]["status"] == "STALE"
+    assert rows(pk2, now)["schedule"]["cadence"] == "live_window"
 
 
 def test_inactives_t90_unchanged():
@@ -277,3 +277,12 @@ def test_ngs_partial_team_list_for_a_published_week_is_not_a_gap(tmp_path):
     completed = [{"game_id": "2026_11_IND_HOU", "season": 2026, "week": 11, "teams": ["IND", "HOU"]},
                  {"game_id": "2026_11_SF_LA", "season": 2026, "week": 11, "teams": ["SF", "LA"]}]
     assert coverage.missing_completed(completed, found) == []
+
+
+def test_republished_schedule_uses_pull_time_window():
+    """Schedule keeps a 24 h pull-time window even if the nflverse asset was re-published after our pull."""
+    now = KO - timedelta(hours=30)
+    pk = packet(now - timedelta(hours=2))
+    del pk["sources"]["games"]["source_updated_at"]
+    r = rows(pk, now)["schedule"]
+    assert r["status"] == "FRESH" and r["cadence"] == "live_window" and r["as_of_basis"].startswith("live_pull")

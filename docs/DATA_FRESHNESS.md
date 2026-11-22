@@ -29,7 +29,7 @@ For live-window sources, limits tighten as kickoff approaches. The tightest wind
 
 | Input | Where it comes from | Cadence rule | Current when |
 | --- | --- | --- | --- |
-| Schedule (kickoff, site, listed QBs) | nflverse `games.parquet`, packet `sources.games` | live window | as-of within 24 h |
+| Schedule (kickoff, site, listed QBs) | nflverse `games.parquet`, packet `sources.games` | live window | pull within 24 h (the schedule asset updates every few minutes; pull time is the quote time) |
 | Play-by-play | nflverse, `sources.pbp` | latest release + completed games (`data_freshness` OK) | latest asset and every completed game is in it; missing a completed game is GAP |
 | Rosters | nflverse weekly rosters | latest release | latest `roster_weekly_*.parquet` asset |
 | Depth charts | nflverse | latest release | latest depth-charts asset (the former 12 h-inside-48 h clock is not used) |

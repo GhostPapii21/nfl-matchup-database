@@ -61,7 +61,7 @@ POLICY = {
     "ngs_rushing":     ("sources.ngs_rushing",  24 * 60, [],                       "Public NGS weekly rushing (RYOE, 8+ in the box). No NFL Pro."),
 }
 # How each source is dated (see module docstring). Anything not listed is 'publisher'.
-ASOF_BASIS = {"news_injuries": "live_pull", "odds": "live_pull"}
+ASOF_BASIS = {"news_injuries": "live_pull", "odds": "live_pull", "schedule": "live_pull"}
 ASOF_FIELDS = ("source_updated_at", "as_of_utc", "published_utc", "source_published_utc", "last_modified_utc")
 # Inputs with no packet field yet, or a derived game-day check. See hooks.py / ngs_matchup.py.
 HOOKED = {
@@ -296,9 +296,12 @@ def check(pk: dict, now: datetime | None = None, hook_impls=None) -> list[dict]:
         rule = cadence.rule_for(name)
         if d is None:
             # A newer release / regenerated NWS grid after our pull means our copy is not current: STALE, not a missing stamp.
-            # Lookup failures stay MISSING (UNKNOWN_NO_SOURCE_TIMESTAMP).
+            # Lookup failures stay MISSING (UNKNOWN_NO_SOURCE_TIMESTAMP). Live-window sources keep their
+            # pull-time clock instead of this latest-release superseded rule.
             s = str(why or "").lower()
-            if "superseded" in s or "re-published after our pull" in s or "regenerated after our pull" in s:
+            if rule in ("latest_release", "nws_live_grid") and (
+                "superseded" in s or "re-published after our pull" in s or "regenerated after our pull" in s
+            ):
                 rows.append(_row(name, "STALE", f"'{path}': not the latest published asset: {why}",
                                  rec.get("retrieved_utc"), basis=basis, evidence=ev))
             else:
