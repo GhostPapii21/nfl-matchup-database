@@ -22,6 +22,11 @@ DATASETS = {
     "snap_counts": "snap_counts/snap_counts_{season}.parquet",
     "ftn": "ftn_charting/ftn_charting_{season}.parquet",
     "pfr_def": "pfr_advstats/advstats_week_def_{season}.parquet",
+    "pfr_rec": "pfr_advstats/advstats_week_rec_{season}.parquet",      # drops, broken tackles, yards before/after catch
+    "pfr_rush": "pfr_advstats/advstats_week_rush_{season}.parquet",    # yards before/after contact, broken tackles
+    "ngs_receiving": "nextgen_stats/ngs_receiving.parquet",            # separation, cushion, YAC over expected, air-yard share
+    "ngs_rushing": "nextgen_stats/ngs_rushing.parquet",                # rush yards over expected, 8+ in the box rate
+    "ngs_passing": "nextgen_stats/ngs_passing.parquet",                # time to throw, aggressiveness, CPOE
 }
 REQUIRED = ("games", "pbp", "rosters")
 ESPN_INJURIES = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
