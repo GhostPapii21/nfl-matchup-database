@@ -1,23 +1,23 @@
-# Live tracker, Week 11 (2026-11-22 23:10 UTC)
+# Live tracker, Week 11 (2026-11-22 23:15 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## NYJ 20 @ LAC 17 (13:01 - 4th)
+## NYJ 20 @ LAC 17 (11:12 - 4th)
 
-125 plays. Top yards allowed by a named defender: E.Molden (2/2, 29 yds), C.Hart (2/2, 21 yds), D.Phillips (2/2, 19 yds), J.Sherwood (2/2, 17 yds)
+130 plays. Top yards allowed by a named defender: E.Molden (2/2, 29 yds), C.Hart (2/2, 21 yds), D.Phillips (2/2, 19 yds), M.Wax (1/1, 19 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Omarion Hampton (LAC) | 1 | 1.7 | 4 | 8.9 | 6.5 | 84 | 55.4 | 63.5 |
+| Breece Hall (NYJ) | 3 | 2.3 | 14 | 13.7 | 21.5 | 72 | 36.1 | 49.5 |
 | Braelon Allen (NYJ) | 1 | 1.8 | 9 | 6.3 | 7.5 | 60 | 41.2 | 33.5 |
-| Breece Hall (NYJ) | 3 | 2.3 | 14 | 13.7 | 21.5 | 40 | 36.1 | 49.5 |
 | Kimani Vidal (LAC) | 1 | 1.7 | 15 | 8.1 | 7.5 | 36 | 23.2 | 14.5 |
+| Garrett Wilson (NYJ) | 3 | 6.1 | 39 | 70.5 | 65.5 | 0 |  |  |
 | Adonai Mitchell (NYJ) | 2 | 3.4 | 30 | 45.9 | 44.5 | 0 |  |  |
-| Kenyon Sadiq (NYJ) | 3 | 2.2 | 30 | 20.1 | 24.0 | 0 |  |  |
 
-## LV 10 @ DEN 17 (Halftime)
+## LV 10 @ DEN 17 (14:55 - 3rd)
 
-103 plays. Top yards allowed by a named defender: J.Chinn (1/1, 36 yds), E.Stokes (2/2, 25 yds), T.Johnson (1/1, 20 yds), J.Barron (1/1, 19 yds)
+105 plays. Top yards allowed by a named defender: J.Chinn (1/1, 36 yds), E.Stokes (2/2, 25 yds), T.Johnson (1/1, 20 yds), J.Barron (1/1, 19 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -28,16 +28,16 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Evan Engram (DEN) | 3 | 2.1 | 24 | 15.4 | 20.5 | 0 |  |  |
 | Jalen Nailor (LV) | 1 | 2.5 | 16 | 22.8 |  | 0 |  |  |
 
-## JAX 6 @ NYG 20 (Halftime)
+## JAX 6 @ NYG 20 (14:54 - 3rd)
 
-93 plays. Top yards allowed by a named defender: J.Holland (4/4, 48 yds), T.Hunter (2/2, 21 yds), A.Reese (2/2, 17 yds), D.Banks (1/1, 16 yds)
+95 plays. Top yards allowed by a named defender: J.Holland (4/4, 48 yds), T.Hunter (2/2, 21 yds), A.Reese (2/2, 17 yds), D.Banks (1/1, 16 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Parker Washington (JAX) | 3 | 3.0 | 47 | 35.9 | 66.5 | 0 |  |  |
 | Malik Nabers (NYG) | 4 | 5.4 | 33 | 53.4 | 67.5 | 0 |  |  |
 | Bhayshul Tuten (JAX) | 2 | 1.9 | 19 | 10.3 | 13.5 | 13 | 56.9 | 70.5 |
-| Cam Skattebo (NYG) | 2 | 1.9 | 13 | 9.1 | 14.5 | 15 | 48.5 | 54.5 |
+| Cam Skattebo (NYG) | 2 | 1.9 | 13 | 9.1 | 14.5 | 17 | 48.5 | 54.5 |
 | Chris Rodriguez Jr. (JAX) | 0 |  | 0 |  |  | 27 | 21.4 | 20.5 |
 | Jakobi Meyers (JAX) | 1 | 2.6 | 13 | 24.3 | 42.5 | 0 |  |  |
 
