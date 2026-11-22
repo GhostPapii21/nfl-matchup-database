@@ -1,30 +1,30 @@
-# Live tracker, Week 11 (2026-11-22 19:28 UTC)
+# Live tracker, Week 11 (2026-11-22 19:33 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## MIA 6 @ BUF 20 (0:59 - 2nd)
+## MIA 6 @ BUF 20 (0:08 - 2nd)
 
-92 plays. Top yards allowed by a named defender: Z.Anderson (2/4, 41 yds), J.Rodriguez (3/3, 35 yds), M.Washington (1/1, 30 yds), J.Marshall (3/3, 28 yds)
+96 plays. Top yards allowed by a named defender: Z.Anderson (2/4, 41 yds), J.Rodriguez (3/3, 35 yds), M.Washington (1/1, 30 yds), J.Marshall (3/3, 28 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
-| DJ Moore (BUF) | 5 | 3.2 | 41 | 36.9 | 48.5 | 0 |  |  |
+| DJ Moore (BUF) | 6 | 3.2 | 59 | 36.9 | 48.5 | 0 |  |  |
 | Khalil Shakir (BUF) | 1 | 2.9 | 32 | 31.9 | 36.5 | 2 |  |  |
 | Dawson Knox (BUF) | 1 | 2.2 | 23 | 14.5 | 20.5 | 0 |  |  |
 | Keon Coleman (BUF) | 2 | 2.5 | 17 | 26.7 | 30.5 | 0 |  |  |
 | Caleb Douglas (MIA) | 1 | 3.7 | 14 | 44.9 | 48.5 | 0 |  |  |
 | Malik Washington (MIA) | 0 | 3.3 | 0 | 32.0 | 29.5 | 11 |  |  |
 
-## NO 7 @ CHI 16 (0:31 - 2nd)
+## NO 10 @ CHI 16 (Halftime)
 
-86 plays. Top yards allowed by a named defender: J.Blackmon (2/2, 33 yds), C.Lewis (2/2, 30 yds), N.Sewell (1/1, 24 yds), Timeout #1. (1/1, 14 yds)
+94 plays. Top yards allowed by a named defender: C.Lewis (3/3, 39 yds), J.Blackmon (2/2, 33 yds), N.Sewell (1/1, 24 yds), Timeout #1. (1/1, 14 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
+| Devaughn Vele (NO) | 3 | 2.2 | 39 | 20.2 | 22.5 | 0 |  |  |
 | Chris Olave (NO) | 2 | 4.1 | 38 | 44.1 | 68.5 | 0 |  |  |
 | Rome Odunze (CHI) | 2 | 2.7 | 35 | 30.4 | 45.5 | 0 |  |  |
 | D'Andre Swift (CHI) | 2 | 2.0 | 8 | 9.2 | 15.5 | 26 | 64.4 | 65.5 |
-| Devaughn Vele (NO) | 2 | 2.2 | 30 | 20.2 | 22.5 | 0 |  |  |
 | Colston Loveland (CHI) | 2 | 3.8 | 27 | 31.2 | 50.0 | 0 |  |  |
 | Kalif Raymond (CHI) | 1 | 1.9 | 14 | 15.0 | 21.0 | 0 |  |  |
 
@@ -80,9 +80,9 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Pat Freiermuth (PIT) | 4 | 2.5 | 26 | 20.6 | 21.5 | 0 |  |  |
 | DeVonta Smith (PHI) | 2 | 6.9 | 21 | 71.3 | 54.5 | 0 |  |  |
 
-## BAL 26 @ CAR 22 (2:00 - 2nd)
+## BAL 26 @ CAR 22 (1:15 - 2nd)
 
-84 plays. Top yards allowed by a named defender: K.Hamilton (3/3, 49 yds), T.Moehrig (2/2, 40 yds), W.Lee (1/2, 26 yds), M.Jackson (2/4, 20 yds)
+89 plays. Top yards allowed by a named defender: K.Hamilton (4/4, 56 yds), T.Moehrig (2/2, 40 yds), W.Lee (1/2, 26 yds), M.Jackson (2/4, 19 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
