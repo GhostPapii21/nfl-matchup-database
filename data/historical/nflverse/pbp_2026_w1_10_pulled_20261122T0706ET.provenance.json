@@ -1,0 +1,26 @@
+{
+  "file": "data/historical/nflverse/pbp_2026_w1_10_pulled_20261122T0706ET.parquet",
+  "source_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet",
+  "publisher": "nflverse (nflverse-data releases, CC-BY 4.0)",
+  "source_asset_updated_utc": "2026-11-22T10:02:38Z",
+  "source_asset_sha256": "8c99f074c85dd51dc9ae169d14a517ca99491d47ecee528383403838ae8fb7a6",
+  "pulled_et": "2026-11-22 07:06 AM ET / 08:06 AM AST (12:06 UTC), local pull by pregame.build_packets; digest matches the live asset",
+  "filter": "season == 2026 and week <= 10 (drops the Week 11 TNF game 2026_11_IND_HOU so the as-of file has no target-week rows); rows otherwise unchanged",
+  "sha256": "f657e45300020bf7b2a20428fc532799b80a6a37f34cb5d225b3d80d1120e33d",
+  "season": 2026,
+  "weeks_present": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "games": 150,
+  "rows": 26246,
+  "note": "Committed for G7 (as-of play-by-play) for the Week 11 Sunday/Monday configs. Research only, not validated. refs NFL-56."
+}
