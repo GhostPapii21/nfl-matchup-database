@@ -1,0 +1,51 @@
+name: NFL live play-by-play tracker
+
+# One start covers a game window: polls ESPN's public play-by-play every 5 minutes, writes research/live_<season>_w<WW>/
+# (plays, box score, defenders who allowed catches or broke up passes, live vs pregame projection) and commits.
+# Stops when every game on the date is final or after the time budget. Start it at kickoff (workflow_dispatch).
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Game date YYYYMMDD (blank = today, US Eastern)"
+        required: false
+      minutes:
+        description: "Time budget in minutes (max 350)"
+        required: false
+        default: "350"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nfl-live-tracker
+  cancel-in-progress: true
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 358
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Poll every 5 minutes and commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          DATE="${{ inputs.date }}"; [ -z "$DATE" ] && DATE="$(TZ=America/New_York date +%Y%m%d)"
+          END=$(( $(date +%s) + 60 * ${{ inputs.minutes || 350 }} ))
+          while [ "$(date +%s)" -lt "$END" ]; do
+            python scripts/live_pbp.py --date "$DATE" | tee -a "$GITHUB_STEP_SUMMARY" || true
+            git add research/live_* 2>/dev/null || true
+            if ! git diff --cached --quiet; then
+              git commit -q -m "live pbp $DATE $(date -u +%H:%MZ)"
+              for i in 1 2 3 4; do git pull -q --no-rebase --no-edit origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME" && break; sleep 7; done
+            fi
+            if python -c "import json,glob,sys; f=sorted(glob.glob('research/live_*/_state.json'))[-1:]; s=json.load(open(f[0]))['states'] if f else ['pre']; sys.exit(0 if s and all(x=='post' for x in s) else 1)"; then
+              echo "All games final."; break
+            fi
+            sleep 300
+          done
