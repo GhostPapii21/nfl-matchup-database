@@ -1,32 +1,32 @@
-# Live tracker, Week 11 (2026-11-22 23:51 UTC)
+# Live tracker, Week 11 (2026-11-22 23:56 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## LV 17 @ DEN 24 (15:00 - 4th)
+## LV 17 @ DEN 24 (12:16 - 4th)
 
-139 plays. Top yards allowed by a named defender: N.Dean (3/3, 37 yds), J.Chinn (1/1, 36 yds), E.Stokes (2/2, 25 yds), T.Johnson (2/2, 23 yds)
+145 plays. Top yards allowed by a named defender: N.Dean (3/3, 37 yds), J.Chinn (1/1, 36 yds), E.Stokes (2/2, 25 yds), T.Johnson (2/2, 23 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
-| Ashton Jeanty (LV) | 3 | 4.7 | 78 | 36.7 | 29.0 | 76 | 19.4 | 31.5 |
+| Ashton Jeanty (LV) | 3 | 4.7 | 78 | 36.7 | 29.0 | 79 | 19.4 | 31.5 |
 | Jonah Coleman (DEN) | 4 | 2.9 | 18 | 19.0 | 23.5 | 67 | 51.6 | 72.5 |
 | Jaylen Waddle (DEN) | 3 | 3.2 | 61 | 36.8 | 44.5 | 0 |  |  |
 | Evan Engram (DEN) | 5 | 2.1 | 53 | 15.4 | 20.5 | 0 |  |  |
-| Mike Washington Jr. (LV) | 0 |  | 0 |  |  | 36 | 26.8 | 25.5 |
+| Mike Washington Jr. (LV) | 0 |  | 0 |  |  | 43 | 26.8 | 25.5 |
 | Jack Bech (LV) | 2 | 3.0 | 33 | 28.2 |  | 0 |  |  |
 
-## JAX 6 @ NYG 20 (0:58 - 3rd)
+## JAX 6 @ NYG 20 (15:00 - 4th)
 
-130 plays. Top yards allowed by a named defender: J.Holland (5/5, 56 yds), T.Hunter (5/5, 41 yds), K.Merriweather (1/1, 35 yds), J.Bates (2/2, 29 yds)
+135 plays. Top yards allowed by a named defender: J.Holland (6/6, 79 yds), T.Hunter (5/5, 41 yds), K.Merriweather (1/1, 35 yds), J.Bates (2/2, 29 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Parker Washington (JAX) | 4 | 3.0 | 55 | 35.9 | 66.5 | 0 |  |  |
 | Malik Nabers (NYG) | 6 | 5.4 | 47 | 53.4 | 67.5 | 0 |  |  |
 | Bhayshul Tuten (JAX) | 2 | 1.9 | 19 | 10.3 | 13.5 | 25 | 56.9 | 70.5 |
+| Jakobi Meyers (JAX) | 2 | 2.6 | 36 | 24.3 | 42.5 | 0 |  |  |
 | Isaiah Likely (NYG) | 1 | 4.6 | 35 | 34.3 | 48.5 | 0 |  |  |
 | Cam Skattebo (NYG) | 3 | 1.9 | 14 | 9.1 | 14.5 | 18 | 48.5 | 54.5 |
-| Chris Rodriguez Jr. (JAX) | 0 |  | 0 |  |  | 28 | 21.4 | 20.5 |
 
 ## MIA 9 @ BUF 26 (Final)
 
