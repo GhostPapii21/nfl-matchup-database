@@ -1,4 +1,4 @@
-# Live tracker, Week 11 (2026-11-22 21:19 UTC)
+# Live tracker, Week 11 (2026-11-22 21:24 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
@@ -15,14 +15,14 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Tetairoa McMillan (CAR) | 6 | 4.7 | 71 | 55.9 | 63.5 | 0 |  |  |
 | Rashod Bateman (BAL) | 2 | 1.9 | 67 | 16.7 | 25.5 | 0 |  |  |
 
-## NYJ 3 @ LAC 0 (7:05 - 1st)
+## NYJ 3 @ LAC 0 (5:21 - 1st)
 
-19 plays. Top yards allowed by a named defender: M.Fitzpatrick (1/1, 13 yds), D.Davis (1/1, 8 yds), D.Leonard (0/1, 0 yds)
+23 plays. Top yards allowed by a named defender: M.Fitzpatrick (1/1, 13 yds), D.Davis (1/2, 8 yds), D.Leonard (0/1, 0 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Adonai Mitchell (NYJ) | 1 | 3.4 | 21 | 45.9 | 44.5 | 0 |  |  |
-| Omarion Hampton (LAC) | 0 | 1.7 | 0 | 8.9 | 6.5 | 12 | 55.4 | 63.5 |
+| Omarion Hampton (LAC) | 0 | 1.7 | 0 | 8.9 | 6.5 | 16 | 55.4 | 63.5 |
 | Breece Hall (NYJ) | 0 | 2.3 | 0 | 13.7 | 21.5 | 11 | 36.1 | 49.5 |
 | Charlie Kolar (LAC) | 1 | 2.3 | 8 | 20.7 | 13.5 | 0 |  |  |
 | Keaton Mitchell (LAC) | 1 | 1.9 | 6 | 9.9 | 7.5 | 0 | 20.5 | 11.5 |
