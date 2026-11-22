@@ -139,7 +139,9 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
         # Weather: the same measured rain/wind factors the yardage simulation uses (pregame/rain_model.py). Rain alone cuts
         # receiver yards about 15%; checked again on 13,526 receiver-games 2022-2026 (research/context_effects_2026-11-22).
         wam = float(opp.get("weather_attempts_multiplier") or 1.0)
-        wx = wam * float(inp.get("rain_yards") or 1.0) * float(inp.get("rain_catch") or 1.0)
+        sim = o.get("sim", {})
+        wx = (wam * float(inp.get("rain_yards") or sim.get("rain_yards") or 1.0) * float(inp.get("rain_catch") or sim.get("rain_catch") or 1.0)
+              * float(inp.get("backup_qb_yards") or 1.0))       # backup QB: research/qb_script_2026-11-22
         blend *= wam
         x = {"l_tgt": math.log(max(blend, 0.5)), "l_yds": math.log(max(yds_pg * wx, 1.0)), "implied": imp_off or 22.0, "team_pass": team_pass,
              "l_ex": math.log(min(2.0, max(0.5, d.get("ex_rate_rel", 1.0)))), "g80_pg": d.get(f"g80_{r['pos']}_pg", 0.0)}
