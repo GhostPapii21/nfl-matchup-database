@@ -1,26 +1,54 @@
 {
  "schema": "evaluation/1",
  "status": "UNSCORABLE_INSUFFICIENT_COVERAGE",
- "games_scored": 0,
- "weeks_scored": [],
+ "games_scored": 2,
+ "weeks_scored": [
+  "10"
+ ],
  "min_coverage": {
   "games_scored": 30,
   "weeks": 3
  },
  "aggregate_primary": {
-  "win_logloss": null,
-  "win_brier": null,
-  "margin_crps": null,
-  "total_crps": null
+  "win_logloss": 0.3504797324160893,
+  "win_brier": 0.09111332965586912,
+  "margin_crps": 6.9371586375500005,
+  "total_crps": 5.00397889155
  },
  "historical_pristine_claim": false,
  "independently_calibrated": false,
  "games": [
   {
+   "game_id": "2026_10_BUF_NYJ",
+   "lock": "snapshots/2026_10_BUF_NYJ/20261112T172055Z",
+   "status": "SCORED",
+   "market_comparison": "SCORED_VS_FROZEN_QUOTES",
+   "metrics": {
+    "win_logloss": 0.4632429651652468,
+    "win_brier": 0.13746317736639746,
+    "margin_crps": 9.729316153000001,
+    "total_crps": 3.5802168214000005,
+    "margin_pit": 0.092405,
+    "total_pit": 0.69235,
+    "brier_model_mean_lines": 0.18981195093879913,
+    "brier_book_mean_lines": 0.18714944
+   }
+  },
+  {
    "game_id": "2026_10_WAS_NYG",
    "lock": "snapshots/2026_10_WAS_NYG/20261112T171258Z",
-   "status": "NOT_FINAL",
-   "market_comparison": "SCORED_VS_FROZEN_QUOTES"
+   "status": "SCORED",
+   "market_comparison": "SCORED_VS_FROZEN_QUOTES",
+   "metrics": {
+    "win_logloss": 0.23771649966693187,
+    "win_brier": 0.04476348194534078,
+    "margin_crps": 4.145001122100001,
+    "total_crps": 6.4277409617000005,
+    "margin_pit": 0.71534,
+    "total_pit": 0.8338850000000001,
+    "brier_model_mean_lines": 0.2083673468151135,
+    "brier_book_mean_lines": 0.26926095083333335
+   }
   }
  ]
 }
