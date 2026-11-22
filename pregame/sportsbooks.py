@@ -33,7 +33,8 @@ FD_AK = "FhMFpcPWXMeyZxOx"
 FD_PAGE = "https://sbapi.{st}.sportsbook.fanduel.com/api/content-managed-page?page=CUSTOM&customPageId=nfl&pbHorizontal=false&_ak={ak}&timezone=America%2FNew_York"
 FD_EVENT = "https://sbapi.{st}.sportsbook.fanduel.com/api/event-page?_ak={ak}&eventId={eid}&tab={tab}&timezone=America%2FNew_York"
 FD_TABS = ("player-receiving", "player-rushing", "receiving-props", "rushing-props", "player-props", "rushing-receiving-props",
-           "player-combos", "combo-props")
+           "player-combos", "combo-props", "popular", "game-lines", "alternates", "half", "1st-half", "2nd-half", "quarters",
+           "1st-quarter", "2nd-quarter", "3rd-quarter", "4th-quarter", "spreads-totals", "team-props")
 PAUSE = 0.6     # seconds between calls: a handful of requests a run, nothing more
 
 TEAMS = {"ARI": "Cardinals", "ATL": "Falcons", "BAL": "Ravens", "BUF": "Bills", "CAR": "Panthers", "CHI": "Bears", "CIN": "Bengals",
@@ -68,9 +69,31 @@ def break_even(a):
     return round(100 / (a + 100), 4) if a > 0 else round(-a / (-a + 100), 4)
 
 
+PERIODS = (("1st quarter", "q1"), ("first quarter", "q1"), ("2nd quarter", "q2"), ("second quarter", "q2"), ("3rd quarter", "q3"),
+           ("third quarter", "q3"), ("4th quarter", "q4"), ("fourth quarter", "q4"), ("1st half", "h1"), ("first half", "h1"),
+           ("2nd half", "h2"), ("second half", "h2"))
+
+
+def game_kind(name: str) -> str | None:
+    """Game markets by period: spread / total / moneyline, prefixed q1..q4 or h1/h2 for quarters and halves; alternates keep
+    the base kind (every line is kept; the finder decides which is the main line). Team totals and 3-way markets are skipped."""
+    n = (name or "").lower()
+    if any(w in n for w in ("player", "team total", "3-way", "3 way", "race to", "odd/even", "winning margin", "exact", "both teams", "first to")):
+        return None
+    pre = next((p for k, p in PERIODS if k in n), "")
+    base = ("spread" if ("spread" in n or "handicap" in n or "run line" in n) else
+            "total" if ("total" in n and "team" not in n) or n.endswith(" o/u") else
+            "moneyline" if ("money line" in n or "moneyline" in n or n.endswith(" winner") or n in ("winner", "match winner")) else None)
+    if not base:
+        return None
+    return f"{pre}_{base}" if pre else base
+
+
 def kind_of(name: str) -> str | None:
     """Market kind from a book's market name; None when it is not one we keep."""
     n = (name or "").lower()
+    if any(k in n for k, _ in PERIODS) or "alternate spread" in n or "alternate total" in n or "alt spread" in n or "alt total" in n:
+        return game_kind(n)
     if "special" in n:
         return None
     if "rush" in n and "rec" in n and "yd" in n.replace("yard", "yd"):   # combined rushing + receiving yards
@@ -205,6 +228,9 @@ def fanduel(probe: dict | None = None) -> dict:
         for m in mk.values():
           try:
             kind = kind_of(m.get("marketName", "")) or kind_of(m.get("marketType", "").replace("_", " "))
+            seen = out.setdefault("market_names", {})
+            key = re.sub(r"^.*? - ", "", m.get("marketName", ""))[:60]
+            seen[key] = kind
             if not kind:
                 continue
             ev = str(m.get("eventId"))
@@ -222,6 +248,14 @@ def fanduel(probe: dict | None = None) -> dict:
                     side = "Over" if "over" in name.lower() else "Under" if "under" in name.lower() else name
                     mm = re.search(r"(\d+(?:\.\d+)?)", name)
                     line = float(mm.group(1)) if (not line and mm) else line
+                elif kind.split("_")[-1] in ("spread", "total", "moneyline") and not kind.startswith("alt_"):
+                    mm = re.search(r"([+-]?\d+(?:\.\d+)?)\s*$", name)
+                    if kind.endswith("total"):
+                        side = "Over" if "over" in name.lower() else "Under" if "under" in name.lower() else name
+                    else:
+                        side = re.sub(r"\s*[+-]?\d+(?:\.\d+)?\s*$", "", name).strip()
+                    if not line and mm and not kind.endswith("moneyline"):
+                        line = float(mm.group(1))
                 elif kind.startswith("alt_"):
                     mm = re.search(r"(\d+)\+", name) or re.search(r"(\d+)\+", m.get("marketName", ""))
                     player = re.sub(r"\s*\d+\+.*$", "", name).strip() or None
@@ -280,14 +314,15 @@ def pinnacle(probe: dict | None = None) -> dict:
             if kind and par:
                 specials[m["id"]] = {"event": str(par), "player": mm.group(1).strip(), "kind": kind,
                                      "names": {p.get("id"): p.get("name") for p in parts}}
+    pin_period = {0: "", 1: "h1_", 2: "h2_", 3: "q1_", 4: "q2_", 5: "q3_", 6: "q4_"}
     for x in mk:
-        if x.get("period") not in (0, None) or x.get("isAlternate"):
-            continue
         mid = x.get("matchupId")
         if mid in games:
             kind = {"spread": "spread", "total": "total", "moneyline": "moneyline"}.get(x.get("type"))
-            if not kind:
+            per = pin_period.get(x.get("period") or 0)
+            if not kind or per is None or x.get("side"):             # 'side' = team totals: skipped
                 continue
+            kind = per + kind
             ev = out["events"].get(str(mid), {})
             for pr in x.get("prices", []):
                 d = pr.get("designation")
@@ -446,7 +481,8 @@ def run(probe=False, out_dir: Path = OUT, index: Path = ROOT / "pregame" / "pack
     out_dir.mkdir(parents=True, exist_ok=True)
     summary = {"retrieved_utc": now, "books": {k: {"status": v["status"], "rows": len(v["rows"]), "events": len(v["events"]),
                                                    **({"errors": v["errors"]} if v.get("errors") else {}), **({"state": v["state"]} if v.get("state") else {}),
-                                                   **({"prop_types": v["prop_types"]} if v.get("prop_types") else {})}
+                                                   **({"prop_types": v["prop_types"]} if v.get("prop_types") else {}),
+                                                   **({"market_names": dict(sorted(v["market_names"].items()))} if v.get("market_names") else {})}
                                                for k, v in books.items()}, "games": {}}
     for gid, rows in per_game.items():
         rows = list(rows.values())
