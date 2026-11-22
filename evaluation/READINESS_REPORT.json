@@ -1,0 +1,308 @@
+{
+ "schema": "readiness-report/1",
+ "evaluated_utc": "2026-11-22T04:50:29+00:00",
+ "report_only": true,
+ "projection_ready_flag": false,
+ "projection_ready_may_flip": false,
+ "nfl49_pass": false,
+ "nfl56_pass": false,
+ "nfl49_pillars": [
+  {
+   "pillar": "NFL-49 P1 source freshness/completeness",
+   "pass": false,
+   "evidence": [
+    "Phase15='AUTO' (known_flags/KNOWN_LIMITATIONS.json)",
+    "quotes='NOLINE' (known_flags/KNOWN_LIMITATIONS.json)",
+    "per-game freshness is checked live by pipeline/freshness.py (publisher as-of time, NFL-56)"
+   ],
+   "blockers": [
+    "quotes='NOLINE' (known_flags/KNOWN_LIMITATIONS.json); no accepted quote feed for scoring"
+   ]
+  },
+  {
+   "pillar": "NFL-49 P2 integrated sim accounting",
+   "pass": true,
+   "evidence": [
+    "entrypoint_enforced=True (known_flags/KNOWN_LIMITATIONS.json)",
+    "NFL-43 review: ACCEPTED by Ghost6 for SEMANTICS_BOUNDS.md sha256 975e84cc... at 32b9b92 (Nov 12 ~3:05 PM ",
+    "still unsupported (bounded, enforced): ['kick-play fouls', 'joint_producer penalties/return yards', 'blocked kicks/onside/fakes']",
+    "SHARED_ACCOUNTING: core/possession_engine_v0/shared_accounting.py",
+    "contaminated validator superseded by core/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/validate.py"
+   ],
+   "blockers": []
+  },
+  {
+   "pillar": "NFL-49 P3 calibration evidence",
+   "pass": false,
+   "evidence": [
+    "markets passing rule: none"
+   ],
+   "blockers": [
+    "calibration_fitted_claim=False (known_flags/KNOWN_LIMITATIONS.json); no fitted calibration (NFL-45)",
+    "no market meets Rico's market-readiness rule (see market table)"
+   ]
+  },
+  {
+   "pillar": "NFL-49 P4 end-to-end acceptance",
+   "pass": false,
+   "evidence": [],
+   "blockers": [
+    "full_integration_acceptance=False (known_flags/KNOWN_LIMITATIONS.json)",
+    "production_validated=False (known_flags/KNOWN_LIMITATIONS.json)",
+    "pristine evaluation status='UNSCORABLE_INSUFFICIENT_COVERAGE', games_scored=0, weeks_scored=[] vs min {'games_scored': 30, 'weeks': 3} (evaluation/EVALUATION.json)",
+    "pristine_protocol_complete=False (known_flags/KNOWN_LIMITATIONS.json)"
+   ]
+  }
+ ],
+ "nfl56_criteria": [
+  {
+   "criterion": "1 runnable phase workflows with explicit MISSING/NOT_YET",
+   "pass": true,
+   "evidence": "pipeline/phases.py statuses; .github/workflows/nfl-gameday-gate.yml runs python -m pipeline.window",
+   "note": "pipeline/workflow_to_install/nfl-source-of-truth.yml is still not installed (workflow changes need Rico)"
+  },
+  {
+   "criterion": "2 news/weather adapters documented with freshness windows",
+   "pass": true,
+   "evidence": "docs/DATA_FRESHNESS.md (windows) + pipeline/freshness.py POLICY",
+   "note": ""
+  },
+  {
+   "criterion": "2b freshness dated by publisher as-of time",
+   "pass": false,
+   "evidence": "pipeline/freshness.py + pipeline/source_asof.py",
+   "note": "needs the NFL-56 as-of PR merged"
+  },
+  {
+   "criterion": "3 100k entrypoint exists and fails closed",
+   "pass": true,
+   "evidence": "pipeline/sim100k.py (no override; G0-G7 gates)",
+   "note": ""
+  },
+  {
+   "criterion": "4 routine bootstrap without continuous sessions",
+   "pass": true,
+   "evidence": "workflow_dispatch on nfl-gameday-gate.yml / nfl-pregame-packets.yml, dispatched by external cron-job.org jobs (not verifiable from the repo; last verified dispatch run 44943361282 on main, success)",
+   "note": ""
+  },
+  {
+   "criterion": "5 README distinguishes goal vs current readiness",
+   "pass": true,
+   "evidence": "README.md 'Projection pipeline: goal vs current status (NFL-56)'",
+   "note": ""
+  }
+ ],
+ "market_rule": {
+  "min_spots": 30,
+  "min_edge_points": 3.0,
+  "ci_lower_above": 0.0,
+  "min_weeks": 4
+ },
+ "holdout_first_week": 10,
+ "spots_excluded": {
+  "push_or_unknown": 33,
+  "no_real_price": 18,
+  "price_after_kickoff": 0,
+  "seen_week": 0
+ },
+ "markets": [
+  {
+   "market": "ALL",
+   "spots": 51,
+   "wins": 30,
+   "hit_rate": 0.5882,
+   "mean_break_even": 0.5355,
+   "edge_points": 5.27,
+   "ci95_points": [
+    -8.52,
+    18.96
+   ],
+   "weeks": [
+    10
+   ],
+   "checks": {
+    "spots>=30": true,
+    "edge>=+3pts": true,
+    "ci_lower>0": false,
+    "weeks>=4": false
+   },
+   "live": false
+  },
+  {
+   "market": "prop:carries",
+   "spots": 3,
+   "wins": 0,
+   "hit_rate": 0.0,
+   "mean_break_even": 0.5384,
+   "edge_points": -53.84,
+   "ci95_points": [
+    -54.55,
+    -53.27
+   ],
+   "weeks": [
+    10
+   ],
+   "checks": {
+    "spots>=30": false,
+    "edge>=+3pts": false,
+    "ci_lower>0": false,
+    "weeks>=4": false
+   },
+   "live": false
+  },
+  {
+   "market": "prop:passing_yards",
+   "spots": 4,
+   "wins": 2,
+   "hit_rate": 0.5,
+   "mean_break_even": 0.5289,
+   "edge_points": -2.89,
+   "ci95_points": [
+    -52.94,
+    47.17
+   ],
+   "weeks": [
+    10
+   ],
+   "checks": {
+    "spots>=30": false,
+    "edge>=+3pts": false,
+    "ci_lower>0": false,
+    "weeks>=4": false
+   },
+   "live": false
+  },
+  {
+   "market": "prop:receiving_yards",
+   "spots": 16,
+   "wins": 8,
+   "hit_rate": 0.5,
+   "mean_break_even": 0.5294,
+   "edge_points": -2.94,
+   "ci95_points": [
+    -27.97,
+    22.07
+   ],
+   "weeks": [
+    10
+   ],
+   "checks": {
+    "spots>=30": false,
+    "edge>=+3pts": false,
+    "ci_lower>0": false,
+    "weeks>=4": false
+   },
+   "live": false
+  },
+  {
+   "market": "prop:receptions",
+   "spots": 16,
+   "wins": 13,
+   "hit_rate": 0.8125,
+   "mean_break_even": 0.5455,
+   "edge_points": 26.7,
+   "ci95_points": [
+    5.72,
+    45.08
+   ],
+   "weeks": [
+    10
+   ],
+   "checks": {
+    "spots>=30": false,
+    "edge>=+3pts": true,
+    "ci_lower>0": true,
+    "weeks>=4": false
+   },
+   "live": false
+  },
+  {
+   "market": "prop:rushing_yards",
+   "spots": 6,
+   "wins": 4,
+   "hit_rate": 0.6667,
+   "mean_break_even": 0.5297,
+   "edge_points": 13.69,
+   "ci95_points": [
+    -19.68,
+    46.91
+   ],
+   "weeks": [
+    10
+   ],
+   "checks": {
+    "spots>=30": false,
+    "edge>=+3pts": true,
+    "ci_lower>0": false,
+    "weeks>=4": false
+   },
+   "live": false
+  },
+  {
+   "market": "team:moneyline",
+   "spots": 2,
+   "wins": 0,
+   "hit_rate": 0.0,
+   "mean_break_even": 0.5495,
+   "edge_points": -54.95,
+   "ci95_points": [
+    -54.95,
+    -54.95
+   ],
+   "weeks": [
+    10
+   ],
+   "checks": {
+    "spots>=30": false,
+    "edge>=+3pts": false,
+    "ci_lower>0": false,
+    "weeks>=4": false
+   },
+   "live": false
+  },
+  {
+   "market": "team:spread",
+   "spots": 2,
+   "wins": 1,
+   "hit_rate": 0.5,
+   "mean_break_even": 0.518,
+   "edge_points": -1.8,
+   "ci95_points": [
+    -52.38,
+    48.78
+   ],
+   "weeks": [
+    10
+   ],
+   "checks": {
+    "spots>=30": false,
+    "edge>=+3pts": false,
+    "ci_lower>0": false,
+    "weeks>=4": false
+   },
+   "live": false
+  },
+  {
+   "market": "team:total",
+   "spots": 2,
+   "wins": 2,
+   "hit_rate": 1.0,
+   "mean_break_even": 0.5349,
+   "edge_points": 46.51,
+   "ci95_points": [
+    46.51,
+    46.51
+   ],
+   "weeks": [
+    10
+   ],
+   "checks": {
+    "spots>=30": false,
+    "edge>=+3pts": true,
+    "ci_lower>0": true,
+    "weeks>=4": false
+   },
+   "live": false
+  }
+ ]
+}
