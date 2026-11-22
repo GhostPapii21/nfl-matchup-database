@@ -1,0 +1,142 @@
+{
+ "freeze_file": "docs/verification/nfl49_p1_quotes/freeze/2026-11-22_TB@DET/freeze_20261122T124425Z.json",
+ "meta_books": [
+  "bet365",
+  "betmgm",
+  "betrivers",
+  "draftkings",
+  "fanduel",
+  "williamhill_us"
+ ],
+ "required_books": [
+  "fanduel",
+  "draftkings",
+  "betmgm",
+  "williamhill_us"
+ ],
+ "gate_four_book_check": {
+  "status": "OK",
+  "books": {
+   "bet365": true,
+   "betmgm": true,
+   "betrivers": true,
+   "draftkings": true,
+   "fanduel": true,
+   "williamhill_us": true
+  },
+  "retrieved_utc": "2026-11-22T12:35:21Z"
+ },
+ "missing_required": [],
+ "locker_rows": {
+  "spreads": 8,
+  "totals": 9,
+  "h2h": 9
+ },
+ "locker_books_spreads": [
+  "bet365",
+  "betmgm",
+  "consensus",
+  "draftkings",
+  "fanduel",
+  "open",
+  "pinnacle",
+  "williamhill_us"
+ ],
+ "sample_rows": [
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-22T12:35:21+00:00",
+   "hold": 0.0647,
+   "implied_a": 0.5192,
+   "implied_b": 0.5455,
+   "line": 3.5,
+   "market": "spreads",
+   "novig_a": 0.4877,
+   "novig_b": 0.5123,
+   "player": null,
+   "price_a": -108,
+   "price_b": -120,
+   "reference_only": false,
+   "side_a": "Tampa Bay Buccaneers",
+   "side_b": "Detroit Lions"
+  },
+  {
+   "book": "pinnacle",
+   "book_label": "pinnacle",
+   "book_last_update": "2026-11-22T12:35:21+00:00",
+   "hold": 0.0244,
+   "implied_a": 0.5146,
+   "implied_b": 0.5098,
+   "line": 3.5,
+   "market": "spreads",
+   "novig_a": 0.5023,
+   "novig_b": 0.4977,
+   "player": null,
+   "price_a": -106,
+   "price_b": -104,
+   "reference_only": true,
+   "side_a": "Tampa Bay Buccaneers",
+   "side_b": "Detroit Lions"
+  },
+  {
+   "book": "consensus",
+   "book_label": "consensus",
+   "book_last_update": "2026-11-22T12:35:21+00:00",
+   "hold": 0.0476,
+   "implied_a": 0.5238,
+   "implied_b": 0.5238,
+   "line": 3.5,
+   "market": "spreads",
+   "novig_a": 0.5,
+   "novig_b": 0.5,
+   "player": null,
+   "price_a": -110,
+   "price_b": -110,
+   "reference_only": true,
+   "side_a": "Tampa Bay Buccaneers",
+   "side_b": "Detroit Lions"
+  },
+  {
+   "book": "draftkings",
+   "book_label": "draftkings",
+   "book_last_update": "2026-11-22T12:35:21+00:00",
+   "hold": 0.0473,
+   "implied_a": 0.5327,
+   "implied_b": 0.5146,
+   "line": 3.5,
+   "market": "spreads",
+   "novig_a": 0.5087,
+   "novig_b": 0.4913,
+   "player": null,
+   "price_a": -114,
+   "price_b": -106,
+   "reference_only": false,
+   "side_a": "Tampa Bay Buccaneers",
+   "side_b": "Detroit Lions"
+  }
+ ],
+ "provenance": {
+  "raw_sha256": "f506aa76ad44d4299e5654e1c0888c04bda3ea76af9fdb9d7e3b84b0575db2cb",
+  "source_files": [
+   {
+    "file": "pregame/direct_lines/2026_11_TB_DET.json",
+    "sha256": "9021e225b49e420f85b858a4faaf79ccbeacd59c8bea8e4ea48722f8dc32310e"
+   },
+   {
+    "file": "pregame/grok_lines/2026_11_TB_DET.json",
+    "sha256": "ca5f6b571b5278cd84818d0d658a231cf608c7e2fc66bf0d0e367b6081cd54c4"
+   }
+  ],
+  "fetch_log": [
+   {
+    "bytes": 448263,
+    "fetched_utc": "2026-11-22T12:39:52+00:00",
+    "file": "pregame/direct_lines/raw/actionnetwork_20261122T123952Z_6564b56b8411.json.gz",
+    "sha256": "6564b56b84110dca86b867dd15d271223c5760f8fad0bde5aa92a18231a52c76",
+    "source": "actionnetwork",
+    "url": "https://api.actionnetwork.com/web/v2/scoreboard/nfl?bookIds=68,69,75,123,71,79,15,30&periods=event"
+   }
+  ]
+ }
+}
