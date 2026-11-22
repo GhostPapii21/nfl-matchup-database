@@ -48,6 +48,9 @@ jobs:
       - run: python -m pip install --disable-pip-version-check -r requirements-test.txt
       - name: Check the builder before trusting its output
         run: python -m pytest -q -p no:cacheprovider pregame/tests dashboard/tests
+      - name: Fresh book lines first (free direct pulls; the board's best bets read them)
+        continue-on-error: true
+        run: python -m pregame.sportsbooks | tail -12 | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Build packets
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}   # optional: without it packets carry no book prices
@@ -74,7 +77,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pregame/packets pregame/line_history dashboard/data
+          git add pregame/packets pregame/line_history dashboard/data pregame/direct_lines pregame/price_freezes
           if git diff --cached --quiet; then
             echo "No packet changes."
           else
