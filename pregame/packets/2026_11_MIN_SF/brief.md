@@ -2,9 +2,9 @@
 
 **Sunday 2026-11-22, 20:20 ET.** Site: Neutral; roof: outdoors; surface: grass. Rest: MIN 7 days, SF 7 days. Listed QBs: Kirk Cousins (MIN), Brock Purdy (SF).
 
-Market (schedule consensus, not a timestamped quote): SF -3, total 46.5.
+Market (schedule consensus, not a timestamped quote): SF -3.5, total 46.5.
 
-Generated 2026-11-21T20:46:58+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-22T12:06:53+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
@@ -12,68 +12,62 @@ NOT_MAPPED_NEUTRAL_OR_INTERNATIONAL_SITE: check the forecast by hand
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-20T00:37:25Z UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-22T11:57:46Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: betmgm, betonlineag, betrivers, bovada, circasports, draftkings, fanatics, fanduel, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | SF -3.5 | -102 | -118 | 48.3% | 51.7% | 4.6% | 2026-11-20T10:33:50Z |
+| spread | fanduel | SF -3.5 | -102 | -125 | 47.6% | 52.4% | 6.0% | 2026-11-22T11:57:46+00:00 |
 | spread | williamhill_us | SF -3.5 | -102 | -120 | 48.1% | 51.9% | 5.0% | 2026-11-20T10:33:50Z |
-| spread | fanduel | SF -3 | -120 | +100 | 52.2% | 47.8% | 4.5% | 2026-11-20T10:33:32Z |
-| spread | betmgm | SF -3 | -118 | -102 | 51.7% | 48.3% | 4.6% | 2026-11-20T10:33:18Z |
-| total | pinnacle | Over 46 | -116 | +101 | 51.9% | 48.1% | 3.5% | 2026-11-20T00:37:25+00:00 |
-| total | draftkings | Over 46.5 | -109 | -110 | 49.9% | 50.1% | 4.5% | 2026-11-20T10:33:50Z |
+| total | fanduel | Over 46.5 | -122 | -104 | 51.9% | 48.1% | 5.9% | 2026-11-22T11:57:46+00:00 |
+| total | pinnacle | Over 46 | -110 | -104 | 50.7% | 49.3% | 3.4% | 2026-11-22T11:57:46+00:00 |
 | total | williamhill_us | Over 46.5 | -108 | -113 | 49.5% | 50.5% | 5.0% | 2026-11-20T10:33:50Z |
-| total | fanduel | Over 46.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-20T10:33:32Z |
-| total | betmgm | Over 46.5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-20T10:33:18Z |
-| moneyline | draftkings | SF | -172 | +145 | 60.8% | 39.2% | 4.0% | 2026-11-20T10:33:50Z |
+| moneyline | fanduel | SF | -166 | +140 | 60.0% | 40.0% | 4.1% | 2026-11-22T11:57:46+00:00 |
 | moneyline | williamhill_us | SF | -173 | +144 | 60.7% | 39.3% | 4.3% | 2026-11-20T10:33:50Z |
-| moneyline | fanduel | SF | -168 | +142 | 60.3% | 39.7% | 4.0% | 2026-11-20T10:33:32Z |
-| moneyline | betmgm | SF | -175 | +140 | 60.4% | 39.6% | 5.3% | 2026-11-20T10:33:18Z |
 
 ### Player props beside the research baseline
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Justin Jefferson | receiving yards | betmgm | 84.5 | -115 / -115 | 50.0% | n/a | 54.2 | 54.7 | 7 | -30.3 |
-| Justin Jefferson | receiving yards | betonlineag | 83.5 | -114 / -114 | 50.0% | n/a | 54.2 | 54.7 | 7 | -29.3 |
-| Justin Jefferson | receiving yards | betrivers | 83.5 | -114 / -117 | 49.7% | n/a | 54.2 | 54.7 | 7 | -29.3 |
-| Justin Jefferson | receiving yards | draftkings | 82.5 | -110 / -114 | 49.6% | 50.0% | 54.2 | 54.7 | 7 | -28.3 |
-| Justin Jefferson | receiving yards | fanduel | 82.5 | -114 / -114 | 50.0% | 50.0% | 54.2 | 54.7 | 7 | -28.3 |
-| Justin Jefferson | receiving yards | bovada | 81.5 | -115 / -115 | 50.0% | n/a | 54.2 | 54.7 | 7 | -27.3 |
-| Aaron Jones | rushing yards | bovada | 29.5 | -120 / -110 | 51.0% | n/a | 47.2 | 45.4 | 8 | 17.7 |
-| Kaelon Black | rushing yards | fanatics | 25.5 | -125 / -105 | 52.0% | n/a | 42.4 | 31.2 | 8 | 16.9 |
-| Aaron Jones | rushing yards | betonlineag | 30.5 | -115 / -112 | 50.3% | 50.0% | 47.2 | 45.4 | 8 | 16.7 |
-| Aaron Jones | rushing yards | draftkings | 30.5 | -112 / -112 | 50.0% | 50.0% | 47.2 | 45.4 | 8 | 16.7 |
-| Aaron Jones | rushing yards | fanduel | 30.5 | -114 / -114 | 50.0% | 50.0% | 47.2 | 45.4 | 8 | 16.7 |
-| Aaron Jones | rushing yards | betmgm | 30.5 | -115 / -115 | 50.0% | 50.0% | 47.2 | 45.4 | 8 | 16.7 |
-| Kaelon Black | rushing yards | betrivers | 26.5 | -115 / -114 | 50.1% | 50.0% | 42.4 | 31.2 | 8 | 15.9 |
-| Kaelon Black | rushing yards | fanduel | 26.5 | -114 / -114 | 50.0% | 50.0% | 42.4 | 31.2 | 8 | 15.9 |
+| Justin Jefferson | receiving yards | bovada | 106.5 | +175 / -240 | 34.0% | n/a | 54.2 | 54.7 | 7 | -52.3 |
+| Justin Jefferson | receiving yards | betrivers | 88.5 | -115 / -115 | 50.0% | n/a | 54.2 | 54.7 | 7 | -34.3 |
+| Justin Jefferson | receiving yards | draftkings | 86.5 | -114 / -110 | 50.4% | n/a | 54.2 | 54.7 | 7 | -32.3 |
+| Justin Jefferson | receiving yards | betonlineag | 86.5 | -114 / -114 | 50.0% | n/a | 54.2 | 54.7 | 7 | -32.3 |
+| Justin Jefferson | receiving yards | betmgm | 85.5 | -115 / -115 | 50.0% | n/a | 54.2 | 54.7 | 7 | -31.3 |
+| Justin Jefferson | receiving yards | circasports | 85.5 | -110 / -110 | 50.0% | n/a | 54.2 | 54.7 | 7 | -31.3 |
+| Justin Jefferson | receiving yards | fanduel | 84.5 | -113 / -113 | 50.0% | 50.6% | 54.2 | 54.7 | 7 | -30.3 |
+| Mike Evans | receiving yards | fanduel | 47.5 | -113 / -113 | 50.0% | 50.0% | 68.3 | 65.3 | 5 | 20.8 |
+| Mike Evans | receiving yards | circasports | 47.5 | -110 / -110 | 50.0% | 50.0% | 68.3 | 65.3 | 5 | 20.8 |
+| Mike Evans | receiving yards | draftkings | 48.5 | -111 / -114 | 49.7% | n/a | 68.3 | 65.3 | 5 | 19.8 |
+| Mike Evans | receiving yards | betonlineag | 48.5 | -114 / -114 | 50.0% | n/a | 68.3 | 65.3 | 5 | 19.8 |
+| Mike Evans | receiving yards | betrivers | 50.5 | -114 / -115 | 49.9% | n/a | 68.3 | 65.3 | 5 | 17.8 |
+| Aaron Jones | rushing yards | fanduel | 29.5 | -113 / -113 | 50.0% | 50.2% | 47.2 | 45.4 | 8 | 17.7 |
+| Kaelon Black | rushing yards | fanatics | 25.5 | -140 / +105 | 54.5% | n/a | 42.4 | 31.2 | 8 | 16.9 |
+| Aaron Jones | rushing yards | betmgm | 30.5 | -115 / -115 | 50.0% | n/a | 47.2 | 45.4 | 8 | 16.7 |
+| Aaron Jones | rushing yards | circasports | 30.5 | -110 / -110 | 50.0% | n/a | 47.2 | 45.4 | 8 | 16.7 |
+| Aaron Jones | rushing yards | draftkings | 31.5 | -112 / -112 | 50.0% | n/a | 47.2 | 45.4 | 8 | 15.7 |
+| Aaron Jones | rushing yards | betonlineag | 31.5 | -119 / -109 | 51.0% | n/a | 47.2 | 45.4 | 8 | 15.7 |
 | Aaron Jones | rushing yards | betrivers | 31.5 | -118 / -113 | 50.5% | n/a | 47.2 | 45.4 | 8 | 15.7 |
-| Kaelon Black | rushing yards | betonlineag | 27.5 | -112 / -115 | 49.7% | n/a | 42.4 | 31.2 | 8 | 14.9 |
-| Kaelon Black | rushing yards | betmgm | 27.5 | -111 / -118 | 49.3% | n/a | 42.4 | 31.2 | 8 | 14.9 |
-| Kaelon Black | rushing yards | bovada | 28.5 | -115 / -115 | 50.0% | n/a | 42.4 | 31.2 | 8 | 13.9 |
-| Kaelon Black | rushing yards | draftkings | 28.5 | -111 / -113 | 49.8% | n/a | 42.4 | 31.2 | 8 | 13.9 |
-| Christian McCaffrey | rushing yards | betonlineag | 49.5 | -116 / -111 | 50.5% | 51.4% | 60.8 | 66.5 | 8 | 11.3 |
-| Christian McCaffrey | rushing yards | bovada | 49.5 | -120 / -110 | 51.0% | 51.4% | 60.8 | 66.5 | 8 | 11.3 |
-| Christian McCaffrey | rushing yards | draftkings | 49.5 | -109 / -115 | 49.4% | 51.4% | 60.8 | 66.5 | 8 | 11.3 |
-| Christian McCaffrey | rushing yards | fanduel | 49.5 | -114 / -114 | 50.0% | 51.4% | 60.8 | 66.5 | 8 | 11.3 |
-| Christian McCaffrey | rushing yards | betmgm | 49.5 | -111 / -118 | 49.3% | 51.4% | 60.8 | 66.5 | 8 | 11.3 |
-| Christian McCaffrey | rushing yards | betrivers | 50.5 | -117 / -114 | 50.3% | n/a | 60.8 | 66.5 | 8 | 10.3 |
-| George Kittle | receiving yards | fanduel | 47.5 | -114 / -114 | 50.0% | n/a | 57.6 | 61.2 | 8 | 10.1 |
-| George Kittle | receiving yards | draftkings | 49.5 | -112 / -112 | 50.0% | n/a | 57.6 | 61.2 | 8 | 8.1 |
-| Jordan Mason | rushing yards | betrivers | 45.5 | -115 / -115 | 50.0% | n/a | 39.0 | 40.6 | 4 | -6.5 |
-| George Kittle | receiving yards | bovada | 51.5 | -115 / -115 | 50.0% | n/a | 57.6 | 61.2 | 8 | 6.1 |
-| George Kittle | receiving yards | betonlineag | 52.5 | -114 / -114 | 50.0% | n/a | 57.6 | 61.2 | 8 | 5.1 |
-| Jordan Mason | rushing yards | draftkings | 43.5 | -110 / -114 | 49.6% | n/a | 39.0 | 40.6 | 4 | -4.5 |
-| Jordan Mason | rushing yards | fanduel | 43.5 | -114 / -114 | 50.0% | n/a | 39.0 | 40.6 | 4 | -4.5 |
-| Jordan Mason | rushing yards | betmgm | 43.5 | -105 / -125 | 48.0% | n/a | 39.0 | 40.6 | 4 | -4.5 |
-| Jordan Mason | rushing yards | betonlineag | 41.5 | -114 / -114 | 50.0% | n/a | 39.0 | 40.6 | 4 | -2.5 |
-| Justin Jefferson | receptions | betmgm | 7.5 | +110 / -150 | 44.2% | n/a | 5.1 | 4.2 | 7 | -2.4 |
-| George Kittle | receiving yards | betrivers | 55.5 | -115 / -115 | 50.0% | n/a | 57.6 | 61.2 | 8 | 2.1 |
-| Justin Jefferson | receptions | betonlineag | 6.5 | -149 / +115 | 56.3% | 57.1% | 5.1 | 4.2 | 7 | -1.4 |
-| Justin Jefferson | receptions | bovada | 6.5 | -145 / +110 | 55.4% | 57.1% | 5.1 | 4.2 | 7 | -1.4 |
-| Justin Jefferson | receptions | draftkings | 6.5 | -144 / +112 | 55.6% | 57.1% | 5.1 | 4.2 | 7 | -1.4 |
-| Justin Jefferson | receptions | fanduel | 6.5 | -158 / +118 | 57.2% | 57.1% | 5.1 | 4.2 | 7 | -1.4 |
+| Kaelon Black | rushing yards | betmgm | 27.5 | -125 / -105 | 52.0% | n/a | 42.4 | 31.2 | 8 | 14.9 |
+| Kaelon Black | rushing yards | betrivers | 27.5 | -121 / -110 | 51.1% | n/a | 42.4 | 31.2 | 8 | 14.9 |
+| T.J. Hockenson | receiving yards | bovada | 57.5 | +140 / -185 | 39.1% | n/a | 43.2 | 33.9 | 7 | -14.3 |
+| Kaelon Black | rushing yards | fanduel | 28.5 | -113 / -113 | 50.0% | 50.4% | 42.4 | 31.2 | 8 | 13.9 |
+| Kaelon Black | rushing yards | draftkings | 28.5 | -114 / -110 | 50.4% | 50.4% | 42.4 | 31.2 | 8 | 13.9 |
+| Kaelon Black | rushing yards | betonlineag | 28.5 | -115 / -112 | 50.3% | 50.4% | 42.4 | 31.2 | 8 | 13.9 |
+| Kaelon Black | rushing yards | circasports | 28.5 | -110 / -110 | 50.0% | 50.4% | 42.4 | 31.2 | 8 | 13.9 |
+| Jordan Mason | rushing yards | bovada | 52.5 | +165 / -220 | 35.4% | n/a | 39.0 | 40.6 | 4 | -13.5 |
+| Christian McCaffrey | rushing yards | betrivers | 48.5 | -115 / -115 | 50.0% | n/a | 60.8 | 66.5 | 8 | 12.3 |
+| Christian McCaffrey | rushing yards | betmgm | 49.5 | -115 / -115 | 50.0% | n/a | 60.8 | 66.5 | 8 | 11.3 |
+| George Kittle | receiving yards | fanduel | 47.5 | -113 / -113 | 50.0% | 50.2% | 57.6 | 61.2 | 8 | 10.1 |
+| George Kittle | receiving yards | betmgm | 47.5 | -115 / -115 | 50.0% | 50.2% | 57.6 | 61.2 | 8 | 10.1 |
+| George Kittle | receiving yards | circasports | 47.5 | -110 / -110 | 50.0% | 50.2% | 57.6 | 61.2 | 8 | 10.1 |
+| Mike Evans | receiving yards | bovada | 58.5 | +140 / -185 | 39.1% | n/a | 68.3 | 65.3 | 5 | 9.8 |
+| Christian McCaffrey | rushing yards | fanduel | 51.5 | -113 / -113 | 50.0% | 50.2% | 60.8 | 66.5 | 8 | 9.3 |
+| Christian McCaffrey | rushing yards | draftkings | 51.5 | -112 / -112 | 50.0% | 50.2% | 60.8 | 66.5 | 8 | 9.3 |
+| Christian McCaffrey | rushing yards | betonlineag | 51.5 | -114 / -114 | 50.0% | 50.2% | 60.8 | 66.5 | 8 | 9.3 |
+| George Kittle | receiving yards | draftkings | 48.5 | -110 / -114 | 49.6% | n/a | 57.6 | 61.2 | 8 | 9.1 |
+| George Kittle | receiving yards | betonlineag | 48.5 | -114 / -114 | 50.0% | n/a | 57.6 | 61.2 | 8 | 9.1 |
+| George Kittle | receiving yards | betrivers | 48.5 | -118 / -113 | 50.5% | n/a | 57.6 | 61.2 | 8 | 9.1 |
+| Christian McCaffrey | rushing yards | circasports | 52.5 | -110 / -110 | 50.0% | n/a | 60.8 | 66.5 | 8 | 8.3 |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -115,8 +109,8 @@ baseline_minus_line is the research baseline against the book line. It is NOT an
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | MIN 20.8 - SF 22.6 | 43.5 | +1.8 | 57.1% | 51.0% | 43.9% | MIN 9.9 - SF 11.5 |
-| independent | MIN 20.1 - SF 27.5 | 47.7 | +7.4 | 69.2% | 63.3% | 52.0% | MIN 9.7 - SF 13.9 |
+| matchup_pair | MIN 20.8 - SF 22.6 | 43.5 | +1.8 | 57.1% | 48.8% | 43.9% | MIN 9.9 - SF 11.5 |
+| independent | MIN 20.1 - SF 27.5 | 47.7 | +7.4 | 69.2% | 61.0% | 52.0% | MIN 9.7 - SF 13.9 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -146,7 +140,7 @@ Bootstrap of each team's real quarter scores. 'matchup_pair' includes the oppone
 | G.Kittle | TE | receptions | 8 | 4.5 | 0.85 | 3.4 | 3.4 | 3.4 | 3.4 | 3.4 | 4.2 |
 | C.McCaffrey | RB | receiving yards | 8 | 49.0 | 0.865 | 13.9 | 14.8 | 15.6 | 15.9 | 16.2 | 36.3 |
 | C.McCaffrey | RB | receptions | 8 | 3.9 | 0.896 | 2.1 | 2.4 | 2.7 | 2.7 | 2.7 | 3.6 |
-| M.Evans | WR | receiving yards | 5 | 79.8 | 0.859 | 50.2 | 54.0 | 57.7 | 61.5 | 65.3 | 80.8 |
+| M.Evans | WR | receiving yards | 5 | 68.3 | 0.859 | 32.7 | 36.1 | 39.5 | 43.0 | 46.4 | 65.3 |
 | M.Evans | WR | receptions | 5 | 4.0 | 0.919 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 |
 | C.McCaffrey | RB | rushing yards | 8 | 60.8 | 1.056 | 30.2 | 36.1 | 41.9 | 46.7 | 51.5 | 66.5 |
 | K.Black | RB | rushing yards | 8 | 42.4 | 1.056 | 14.8 | 15.9 | 17.0 | 17.3 | 17.7 | 31.2 |
@@ -205,7 +199,7 @@ Blitz rate 70.6% and play-action faced 21.8% on 262 charted dropbacks (FTN). Dee
 | 5 | NO | C.Olave (WR) 4/6 for 46, 0 TD | K.Miller (RB) 10 for 30, 1 TD |
 | 7 | IND | K.Allen (WR) 3/3 for 31, 0 TD | J.Taylor (RB) 18 for 95, 1 TD |
 | 8 | DET | J.Williams (WR) 4/6 for 70, 1 TD | J.Gibbs (RB) 23 for 153, 1 TD |
-| 9 | BUF | K.Shakir (WR) 4/4 for 53, 0 TD | J.Cook (RB) 31 for 107, 1 TD |
+| 9 | BUF | K.Shakir (WR) 4/4 for 58, 0 TD | J.Cook (RB) 31 for 107, 1 TD |
 | 10 | GB | M.Golden (WR) 5/9 for 70, 0 TD | K.Johnson (RB) 10 for 42, 0 TD |
 
 ### MIN run defense by direction
@@ -308,7 +302,7 @@ Neutral-situation pass rate 51.8%; 56.4 plays per game; target share WR 58% / TE
 | A.Jones | RB | 8 | 114 | 481 | 4.22 | 2 | 63% | 12 | 8 | 105 58 94 113 26 22 16 47 |
 | J.Mason | RB | 4 | 45 | 182 | 4.04 | 0 | 25% | 3 | 0 | 68 20 35 59 |
 | D.Claiborne | RB | 2 | 6 | 13 | 2.17 | 0 | 3% | 0 | 0 | 1 12 |
-| K.Murray | QB | 3 | 4 | 21 | 5.25 | 0 | 2% | 0 | 0 | 6 1 14 |
+| K.Murray | QB | 5 | 4 | 21 | 5.25 | 0 | 2% | 0 | 0 | 0 6 0 1 14 |
 | D.Dallas | RB | 3 | 4 | 14 | 3.50 | 0 | 2% | 0 | 0 | 8 2 4 |
 
 ### MIN run game by direction
@@ -350,7 +344,7 @@ Neutral-situation pass rate 51.8%; 56.4 plays per game; target share WR 58% / TE
 | defense allows | Deep middle | 13 | 6% | 38% | 11.54 | 4 |
 | defense allows | Deep right | 12 | 6% | 33% | 7.92 | 3 |
 
-### MIN lines (depth chart as of 2026-11-21T15:17:24Z)
+### MIN lines (depth chart as of 2026-11-22T07:01:24Z)
 
 Offensive line: LT Christian Darrisaw, LG Joe Huber, C Blake Brandel, RG Will Fries, RT Brian O'Neill.  
 Defensive front: LDE Levi Drake Rodriguez, NT Caleb Banks, RDE Jalen Redmond, WLB Andrew Van Ginkel, SLB Dallas Turner.
@@ -433,7 +427,7 @@ Blitz rate 30.2% and play-action faced 21.2% on 325 charted dropbacks (FTN). Dee
 | 4 | DEN | R.Harvey (RB) 10/10 for 68, 0 TD | J.Dobbins (RB) 11 for 40, 0 TD |
 | 5 | SEA | J.Smith-Njigba (WR) 5/8 for 102, 1 TD | E.Wilson (RB) 20 for 61, 1 TD |
 | 6 | WAS | C.Okonkwo (TE) 7/7 for 69, 0 TD | R.White (RB) 7 for 27, 0 TD |
-| 7 | ATL | D.London (WR) 7/10 for 80, 1 TD | Bi.Robinson (RB) 20 for 63, 0 TD |
+| 7 | ATL | D.London (WR) 7/10 for 66, 1 TD | Bi.Robinson (RB) 20 for 63, 0 TD |
 | 9 | LV | B.Bowers (TE) 7/8 for 111, 1 TD | A.Jeanty (RB) 6 for 25, 0 TD |
 | 10 | DAL | G.Pickens (WR) 11/18 for 145, 3 TD | J.Williams (RB) 16 for 63, 0 TD |
 
@@ -520,7 +514,7 @@ Neutral-situation pass rate 54.2%; 58.0 plays per game; target share WR 45% / TE
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | G.Kittle | TE | 8 | 57 | 42 | 545 | 5 | 26% | 23% | 7.9 | 11 | 9 | 80 82 70 24 69 88 58 74 |
 | C.McCaffrey | RB | 8 | 41 | 35 | 411 | 3 | 18% | 8% | 4.0 | 7 | 3 | 43 41 18 15 53 61 19 161 |
-| M.Evans | WR | 5 | 32 | 21 | 451 | 3 | 14% | 26% | 16.1 | 4 | 9 | 54 114 76 113 94 |
+| M.Evans | WR | 5 | 32 | 21 | 371 | 3 | 14% | 26% | 16.1 | 4 | 9 | 54 34 76 113 94 |
 | D.Samuel | WR | 4 | 16 | 13 | 109 | 2 | 7% | 2% | 2.1 | 3 | 1 | 31 26 21 31 |
 | J.Watkins | WR | 5 | 16 | 12 | 273 | 1 | 7% | 14% | 16.8 | 0 | 8 | 60 22 56 86 49 |
 | K.Juszczyk | RB | 5 | 11 | 8 | 76 | 2 | 5% | 4% | 7.7 | 3 | 1 | 27 0 28 10 11 |
@@ -534,7 +528,7 @@ Neutral-situation pass rate 54.2%; 58.0 plays per game; target share WR 45% / TE
 |---|---|---|---|---|---|---|---|---|---|---|
 | C.McCaffrey | RB | 8 | 105 | 451 | 4.30 | 10 | 51% | 26 | 2 | 23 75 52 68 64 39 68 62 |
 | K.Black | RB | 8 | 65 | 291 | 4.48 | 2 | 32% | 12 | 5 | 25 17 13 16 34 63 70 53 |
-| B.Purdy | QB | 5 | 12 | 22 | 1.83 | 0 | 6% | 2 | 0 | 7 2 4 5 4 |
+| B.Purdy | QB | 8 | 12 | 22 | 1.83 | 0 | 6% | 2 | 0 | 0 0 7 2 4 5 4 0 |
 | D.Samuel | WR | 5 | 11 | 144 | 13.09 | 1 | 5% | 0 | 3 | 4 14 44 4 78 |
 | J.James | RB | 3 | 8 | 32 | 4.00 | 0 | 4% | 0 | 0 | 15 6 11 |
 
@@ -576,7 +570,7 @@ Neutral-situation pass rate 54.2%; 58.0 plays per game; target share WR 45% / TE
 | defense allows | Deep middle | 13 | 4% | 54% | 10.85 | 3 |
 | defense allows | Deep right | 26 | 9% | 35% | 11.35 | 7 |
 
-### SF lines (depth chart as of 2026-11-21T15:17:24Z)
+### SF lines (depth chart as of 2026-11-22T07:01:24Z)
 
 Offensive line: LT Trent Williams, LG Connor Colby, C Jake Brendel, RG Dominick Puni, RT Colton McKivitz.  
 Defensive front: LDE Keion White, LDT Osa Odighizuwa, RDT DeForest Buckner, RDE Nick Bosa, WLB Dre Greenlaw, SLB Jaden Dugger.
@@ -602,7 +596,7 @@ Defensive front: LDE Keion White, LDT Osa Odighizuwa, RDT DeForest Buckner, RDE 
 | Jordan James | RB |  | Questionable | Limited Participation in Practice | Calf |
 | Siran Neal | S |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Brandon Aiyuk (WR) Out; De'Zhaun Stribling (WR) Injured Reserve; Luke Gifford (LB) Questionable; Khalid Kareem (DE) Questionable; Upton Stout (CB) Questionable; Christian Kirk (WR) Injured Reserve; Isaac Guerendo (RB) Out; Mike Evans (WR) Questionable; Mac Jones (QB) Questionable; Jordan James (RB) Questionable; Dre Greenlaw (LB) Questionable; Nate Hobbs (CB) Injured Reserve; C.J. West (DT) Injured Reserve.
+ESPN live list (designations only): Brandon Aiyuk (WR) Out; De'Zhaun Stribling (WR) Injured Reserve; Luke Gifford (LB) Questionable; Khalid Kareem (DE) Questionable; Upton Stout (CB) Questionable; Christian Kirk (WR) Injured Reserve; Isaac Guerendo (RB) Out; Mike Evans (WR) Questionable; Mac Jones (QB) Questionable; Jordan James (RB) Questionable; Dre Greenlaw (LB) Questionable; Nate Hobbs (CB) Injured Reserve.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -616,9 +610,9 @@ Left for another team: Kevin Givens (DL) to IND; Naquan Jones (DL) to HOU.
 
 | Secret | Provider | Status | Used for |
 |---|---|---|---|
-| ODDS_API_KEY | The Odds API | KEY_PRESENT | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
+| ODDS_API_KEY | The Odds API | KEY_NOT_CONFIGURED_IN_THIS_RUN | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
 | NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
-| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR: {'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'} | access check only; not used in the packet |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | access check only; not used in the packet |
 
 Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
 
@@ -646,16 +640,21 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-21T20:46:36+00:00 | d925a4602c9a |
-| pbp | OK | 2026-11-21T20:46:36+00:00 | a2bfcd8abcec |
-| rosters | OK | 2026-11-21T20:46:36+00:00 | 6d3e9e7d489e |
-| injuries | OK | 2026-11-21T20:46:36+00:00 | f31c61c6b233 |
-| depth_charts | OK | 2026-11-21T20:46:36+00:00 | e89715eb757e |
-| snap_counts | OK | 2026-11-21T20:46:37+00:00 | 980aba4c2b5e |
-| ftn | OK | 2026-11-21T20:46:37+00:00 | d0e949df6e17 |
-| pfr_def | OK | 2026-11-21T20:46:37+00:00 | fc61fb5ffaa3 |
-| espn_injuries | OK | 2026-11-21T20:46:38+00:00 |  |
+| games | OK | 2026-11-22T12:06:23+00:00 | 4e2d50ee306e |
+| pbp | OK | 2026-11-22T12:06:23+00:00 | 8c99f074c85d |
+| rosters | OK | 2026-11-22T12:06:23+00:00 | a55f969ea4ba |
+| injuries | OK | 2026-11-22T12:06:23+00:00 | 072d2b830ad6 |
+| depth_charts | OK | 2026-11-22T12:06:24+00:00 | eb7dc13718e8 |
+| snap_counts | OK | 2026-11-22T12:06:24+00:00 | 980aba4c2b5e |
+| ftn | OK | 2026-11-22T12:06:24+00:00 | d0e949df6e17 |
+| pfr_def | OK | 2026-11-22T12:06:24+00:00 | b2f7b6dc4d56 |
+| pfr_rec | OK | 2026-11-22T12:06:24+00:00 | c044899de693 |
+| pfr_rush | OK | 2026-11-22T12:06:24+00:00 | e8230522afc9 |
+| ngs_receiving | OK | 2026-11-22T12:06:24+00:00 | f9b4b1f066d2 |
+| ngs_rushing | OK | 2026-11-22T12:06:24+00:00 | d7dadcb4e09a |
+| ngs_passing | OK | 2026-11-22T12:06:25+00:00 | 31e11ff3a7ed |
+| espn_injuries | OK | 2026-11-22T12:06:25+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
+| book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
