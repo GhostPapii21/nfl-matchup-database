@@ -122,3 +122,15 @@ def test_quote_ledger_provenance_and_noline(tmp_path):
     assert g["2026_10_A_B"]["quotes"][0]["book"] == "draftkings"
     assert g["2026_10_I_J"]["price_status"] == "NOLINE"
     assert L["independently_calibrated"] is False and L["market_anchored"] == "NOT_PRODUCED"
+
+
+def test_lock_after_real_espn_kickoff_is_rejected(tmp_path):
+    """Week 11: PIT@PHI's lock said 4:25 PM ET, the real kickoff was 1:00 PM. Eligibility uses ESPN's time when known."""
+    r = _root(tmp_path)
+    early = _lock(r, "2026_11_A_B", locked="2026-11-22T15:46:00+00:00", ko="2026-11-22T21:25:00+00:00")
+    late = _lock(r, "2026_11_C_D", locked="2026-11-22T19:00:00+00:00", ko="2026-11-22T21:25:00+00:00")
+    P.freeze(r, now=datetime(2026, 11, 22, 14, 0, tzinfo=timezone.utc))
+    for d in (early, late):
+        (d / "SCORE.json").write_text(json.dumps({"metrics": M, "final": {"kickoff_espn_utc": "2026-11-22T18:00:00+00:00"}}))
+    st = {g["game_id"]: g["status"] for g in P.evaluate(r)["games"]}
+    assert st == {"2026_11_A_B": "SCORED", "2026_11_C_D": "LOCKED_AFTER_KICKOFF"}
