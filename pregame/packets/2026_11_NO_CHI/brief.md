@@ -4,76 +4,70 @@
 
 Market (schedule consensus, not a timestamped quote): CHI -11.5, total 48.5.
 
-Generated 2026-11-21T20:46:47+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-22T12:06:38+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-21T20:46:46+00:00 UTC. At kickoff: 57 F, wind 15 mph WSW, 84% chance of precipitation, Rain. During the game: low 50 F, wind up to 15 mph, precipitation chance up to 84%. Roof: outdoors. Flags: WIND_15_PLUS, PRECIP_50_PLUS.
+National Weather Service, retrieved 2026-11-22T12:06:36+00:00 UTC. At kickoff: 56 F, wind 15 mph WSW, 91% chance of precipitation, Rain. During the game: low 50 F, wind up to 20 mph, precipitation chance up to 91%. Roof: outdoors. Flags: WIND_15_PLUS, PRECIP_50_PLUS.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-20T00:37:25Z UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.
+Retrieved 2026-11-22T11:57:46Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: betmgm, betonlineag, betrivers, bovada, circasports, draftkings, fanatics, fanduel, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | draftkings | CHI -11.5 | -107 | -112 | 49.5% | 50.5% | 4.5% | 2026-11-20T10:33:50Z |
+| spread | fanduel | CHI -11.5 | -113 | -113 | 50.0% | 50.0% | 6.1% | 2026-11-22T11:57:46+00:00 |
 | spread | williamhill_us | CHI -11.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-20T10:33:50Z |
-| spread | fanduel | CHI -11.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-20T10:33:48Z |
-| spread | betmgm | CHI -11.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-20T10:33:44Z |
-| total | pinnacle | Over 48.5 | -110 | -104 | 50.7% | 49.3% | 3.4% | 2026-11-20T00:37:25+00:00 |
-| total | draftkings | Over 48.5 | -108 | -111 | 49.7% | 50.3% | 4.5% | 2026-11-20T10:33:50Z |
+| total | fanduel | Over 48.5 | -115 | -113 | 50.2% | 49.8% | 6.5% | 2026-11-22T11:57:46+00:00 |
+| total | pinnacle | Over 48 | -109 | -107 | 50.2% | 49.8% | 3.8% | 2026-11-22T11:57:46+00:00 |
 | total | williamhill_us | Over 48.5 | -114 | -106 | 50.9% | 49.1% | 4.7% | 2026-11-20T10:33:50Z |
-| total | fanduel | Over 48.5 | -115 | -105 | 51.1% | 48.9% | 4.7% | 2026-11-20T10:33:48Z |
-| total | betmgm | Over 48.5 | -108 | -110 | 49.8% | 50.2% | 4.3% | 2026-11-20T10:33:44Z |
-| moneyline | draftkings | CHI | -595 | +443 | 82.3% | 17.7% | 4.0% | 2026-11-20T10:33:50Z |
+| moneyline | fanduel | CHI | -720 | +520 | 84.5% | 15.5% | 3.9% | 2026-11-22T11:57:46+00:00 |
 | moneyline | williamhill_us | CHI | -625 | +450 | 82.6% | 17.4% | 4.4% | 2026-11-20T10:33:50Z |
-| moneyline | fanduel | CHI | -770 | +540 | 85.0% | 15.0% | 4.1% | 2026-11-20T10:33:48Z |
-| moneyline | betmgm | CHI | -625 | +475 | 83.2% | 16.8% | 3.6% | 2026-11-20T10:33:44Z |
 
 ### Player props beside the research baseline
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Kyle Monangai | rushing yards | betrivers | 43.5 | -113 / -118 | 49.5% | n/a | 91.4 | 50.2 | 3 | 47.9 |
-| Kyle Monangai | rushing yards | betonlineag | 44.5 | -112 / -115 | 49.7% | 50.0% | 91.4 | 50.2 | 3 | 46.9 |
-| Kyle Monangai | rushing yards | draftkings | 44.5 | -112 / -112 | 50.0% | 50.0% | 91.4 | 50.2 | 3 | 46.9 |
-| Kyle Monangai | rushing yards | betmgm | 44.5 | -115 / -115 | 50.0% | 50.0% | 91.4 | 50.2 | 3 | 46.9 |
-| Kyle Monangai | rushing yards | bovada | 45.5 | -115 / -115 | 50.0% | n/a | 91.4 | 50.2 | 3 | 45.9 |
-| Kyle Monangai | rushing yards | fanduel | 45.5 | -114 / -114 | 50.0% | n/a | 91.4 | 50.2 | 3 | 45.9 |
-| Luther Burden | receiving yards | bovada | 58.5 | -115 / -115 | 50.0% | n/a | 75.5 | 61.1 | 8 | 17.0 |
-| Rome Odunze | receiving yards | betonlineag | 45.5 | -114 / -114 | 50.0% | 50.0% | 61.7 | 54.7 | 8 | 16.2 |
-| Rome Odunze | receiving yards | bovada | 45.5 | -115 / -115 | 50.0% | 50.0% | 61.7 | 54.7 | 8 | 16.2 |
-| Rome Odunze | receiving yards | fanduel | 45.5 | -114 / -114 | 50.0% | 50.0% | 61.7 | 54.7 | 8 | 16.2 |
-| Luther Burden | receiving yards | betonlineag | 59.5 | -109 / -119 | 49.0% | 48.1% | 75.5 | 61.1 | 8 | 16.0 |
-| Luther Burden | receiving yards | betrivers | 59.5 | -113 / -117 | 49.6% | 48.1% | 75.5 | 61.1 | 8 | 16.0 |
-| Rome Odunze | receiving yards | betrivers | 46.5 | -114 / -115 | 49.9% | n/a | 61.7 | 54.7 | 8 | 15.2 |
-| Rome Odunze | receiving yards | draftkings | 46.5 | -110 / -114 | 49.6% | n/a | 61.7 | 54.7 | 8 | 15.2 |
-| Rome Odunze | receiving yards | betmgm | 47.5 | -115 / -115 | 50.0% | n/a | 61.7 | 54.7 | 8 | 14.2 |
-| Devaughn Vele | receiving yards | betonlineag | 22.5 | -115 / -112 | 50.3% | 50.0% | 34.9 | 39.1 | 8 | 12.4 |
-| Devaughn Vele | receiving yards | betrivers | 22.5 | -120 / -112 | 50.8% | 50.0% | 34.9 | 39.1 | 8 | 12.4 |
-| Devaughn Vele | receiving yards | fanduel | 22.5 | -114 / -114 | 50.0% | 50.0% | 34.9 | 39.1 | 8 | 12.4 |
-| Devaughn Vele | receiving yards | betmgm | 22.5 | -120 / -111 | 50.9% | 50.0% | 34.9 | 39.1 | 8 | 12.4 |
-| Devaughn Vele | receiving yards | bovada | 23.5 | -115 / -115 | 50.0% | n/a | 34.9 | 39.1 | 8 | 11.4 |
-| Devaughn Vele | receiving yards | draftkings | 23.5 | -114 / -110 | 50.4% | n/a | 34.9 | 39.1 | 8 | 11.4 |
-| Alvin Kamara | rushing yards | fanduel | 6.5 | -114 / -114 | 50.0% | n/a | 17.5 | 17.2 | 8 | 11.0 |
-| Alvin Kamara | rushing yards | betonlineag | 7.5 | -114 / -114 | 50.0% | n/a | 17.5 | 17.2 | 8 | 10.0 |
-| Alvin Kamara | rushing yards | bovada | 7.5 | -115 / -115 | 50.0% | n/a | 17.5 | 17.2 | 8 | 10.0 |
-| Alvin Kamara | rushing yards | draftkings | 7.5 | -113 / -111 | 50.2% | n/a | 17.5 | 17.2 | 8 | 10.0 |
-| Alvin Kamara | rushing yards | betmgm | 7.5 | -115 / -115 | 50.0% | n/a | 17.5 | 17.2 | 8 | 10.0 |
-| Juwan Johnson | receiving yards | betrivers | 19.5 | -112 / -120 | 49.2% | 50.6% | 27.8 | 29.1 | 8 | 8.3 |
-| Juwan Johnson | receiving yards | betmgm | 19.5 | -115 / -115 | 50.0% | 50.6% | 27.8 | 29.1 | 8 | 8.3 |
-| Juwan Johnson | receiving yards | betonlineag | 20.5 | -115 / -112 | 50.3% | n/a | 27.8 | 29.1 | 8 | 7.3 |
-| Juwan Johnson | receiving yards | fanduel | 20.5 | -114 / -114 | 50.0% | n/a | 27.8 | 29.1 | 8 | 7.3 |
-| Juwan Johnson | receiving yards | bovada | 21.5 | -115 / -115 | 50.0% | n/a | 27.8 | 29.1 | 8 | 6.3 |
-| Juwan Johnson | receiving yards | draftkings | 21.5 | -110 / -114 | 49.6% | n/a | 27.8 | 29.1 | 8 | 6.3 |
-| Colston Loveland | receiving yards | bovada | 49.5 | -115 / -115 | 50.0% | n/a | 54.8 | 62.1 | 8 | 5.3 |
-| D'Andre Swift | rushing yards | betmgm | 64.5 | -115 / -115 | 50.0% | n/a | 59.6 | 55.0 | 8 | -4.9 |
-| Chris Olave | receiving yards | betrivers | 71.5 | -114 / -117 | 49.7% | n/a | 66.7 | 68.6 | 8 | -4.8 |
-| Colston Loveland | receiving yards | betonlineag | 50.5 | -114 / -114 | 50.0% | 50.0% | 54.8 | 62.1 | 8 | 4.3 |
-| Colston Loveland | receiving yards | fanatics | 50.5 | -120 / -110 | 51.0% | 50.0% | 54.8 | 62.1 | 8 | 4.3 |
-| Colston Loveland | receiving yards | draftkings | 50.5 | -110 / -114 | 49.6% | 50.0% | 54.8 | 62.1 | 8 | 4.3 |
-| Colston Loveland | receiving yards | fanduel | 50.5 | -114 / -114 | 50.0% | 50.0% | 54.8 | 62.1 | 8 | 4.3 |
-| D'Andre Swift | rushing yards | betonlineag | 63.5 | -115 / -112 | 50.3% | 50.0% | 59.6 | 55.0 | 8 | -3.9 |
+| Kyle Monangai | rushing yards | fanduel | 45.5 | -113 / -113 | 50.0% | n/a | 91.4 | 50.2 | 3 | 45.9 |
+| Kyle Monangai | rushing yards | circasports | 45.5 | -110 / -110 | 50.0% | n/a | 91.4 | 50.2 | 3 | 45.9 |
+| Kyle Monangai | rushing yards | draftkings | 46.5 | -110 / -114 | 49.6% | n/a | 91.4 | 50.2 | 3 | 44.9 |
+| Kyle Monangai | rushing yards | betonlineag | 46.5 | -108 / -120 | 48.8% | n/a | 91.4 | 50.2 | 3 | 44.9 |
+| Kyle Monangai | rushing yards | betrivers | 46.5 | -113 / -118 | 49.5% | n/a | 91.4 | 50.2 | 3 | 44.9 |
+| Kyle Monangai | rushing yards | betmgm | 47.5 | -120 / -111 | 50.9% | n/a | 91.4 | 50.2 | 3 | 43.9 |
+| Kyle Monangai | rushing yards | bovada | 56.5 | +155 / -210 | 36.7% | n/a | 91.4 | 50.2 | 3 | 34.9 |
+| Luther Burden | receiving yards | betmgm | 57.5 | -115 / -115 | 50.0% | n/a | 75.5 | 61.1 | 8 | 18.0 |
+| Luther Burden | receiving yards | draftkings | 59.5 | -112 / -112 | 50.0% | 51.8% | 75.5 | 61.1 | 8 | 16.0 |
+| Luther Burden | receiving yards | fanduel | 59.5 | -113 / -113 | 50.0% | 51.8% | 75.5 | 61.1 | 8 | 16.0 |
+| Luther Burden | receiving yards | betonlineag | 59.5 | -111 / -116 | 49.5% | 51.8% | 75.5 | 61.1 | 8 | 16.0 |
+| Luther Burden | receiving yards | betrivers | 59.5 | -113 / -117 | 49.6% | 51.8% | 75.5 | 61.1 | 8 | 16.0 |
+| Luther Burden | receiving yards | circasports | 59.5 | -110 / -110 | 50.0% | 51.8% | 75.5 | 61.1 | 8 | 16.0 |
+| Rome Odunze | receiving yards | draftkings | 44.5 | -110 / -114 | 49.6% | n/a | 60.1 | 51.2 | 8 | 15.6 |
+| Rome Odunze | receiving yards | circasports | 44.5 | -110 / -110 | 50.0% | n/a | 60.1 | 51.2 | 8 | 15.6 |
+| D'Andre Swift | rushing yards | bovada | 74.5 | +145 / -190 | 38.4% | n/a | 59.6 | 55.0 | 8 | -14.9 |
+| Rome Odunze | receiving yards | fanduel | 45.5 | -113 / -113 | 50.0% | 49.6% | 60.1 | 51.2 | 8 | 14.6 |
+| Rome Odunze | receiving yards | betonlineag | 45.5 | -115 / -112 | 50.3% | 49.6% | 60.1 | 51.2 | 8 | 14.6 |
+| Rome Odunze | receiving yards | betrivers | 46.5 | -114 / -115 | 49.9% | n/a | 60.1 | 51.2 | 8 | 13.6 |
+| Devaughn Vele | receiving yards | betmgm | 21.5 | -115 / -115 | 50.0% | n/a | 34.9 | 39.1 | 8 | 13.4 |
+| Rome Odunze | receiving yards | betmgm | 47.5 | -115 / -115 | 50.0% | n/a | 60.1 | 51.2 | 8 | 12.6 |
+| Devaughn Vele | receiving yards | fanduel | 22.5 | -113 / -113 | 50.0% | 47.1% | 34.9 | 39.1 | 8 | 12.4 |
+| Devaughn Vele | receiving yards | draftkings | 22.5 | -112 / -112 | 50.0% | 47.1% | 34.9 | 39.1 | 8 | 12.4 |
+| Devaughn Vele | receiving yards | betonlineag | 22.5 | -111 / -116 | 49.5% | 47.1% | 34.9 | 39.1 | 8 | 12.4 |
+| Devaughn Vele | receiving yards | bovada | 22.5 | -115 / -115 | 50.0% | 47.1% | 34.9 | 39.1 | 8 | 12.4 |
+| Devaughn Vele | receiving yards | betrivers | 23.5 | -117 / -114 | 50.3% | n/a | 34.9 | 39.1 | 8 | 11.4 |
+| Alvin Kamara | rushing yards | fanduel | 6.5 | -113 / -113 | 50.0% | 51.0% | 17.5 | 17.2 | 8 | 11.0 |
+| Alvin Kamara | rushing yards | draftkings | 6.5 | -101 / -124 | 47.6% | 51.0% | 17.5 | 17.2 | 8 | 11.0 |
+| Alvin Kamara | rushing yards | betonlineag | 6.5 | -109 / -119 | 49.0% | 51.0% | 17.5 | 17.2 | 8 | 11.0 |
+| Alvin Kamara | rushing yards | betmgm | 6.5 | -105 / -125 | 48.0% | 51.0% | 17.5 | 17.2 | 8 | 11.0 |
+| Alvin Kamara | rushing yards | bovada | 6.5 | -105 / -125 | 48.0% | 51.0% | 17.5 | 17.2 | 8 | 11.0 |
+| Chris Olave | receiving yards | bovada | 77.5 | +130 / -170 | 40.8% | n/a | 66.7 | 68.6 | 8 | -10.8 |
+| Travis Etienne | rushing yards | bovada | 38.5 | +175 / -240 | 34.0% | n/a | 27.9 | 22.6 | 3 | -10.6 |
+| Juwan Johnson | receiving yards | betmgm | 19.5 | -115 / -115 | 50.0% | n/a | 27.8 | 29.1 | 8 | 8.3 |
+| D'Andre Swift | rushing yards | betmgm | 67.5 | -115 / -115 | 50.0% | n/a | 59.6 | 55.0 | 8 | -7.9 |
+| Juwan Johnson | receiving yards | fanduel | 20.5 | -113 / -113 | 50.0% | 50.2% | 27.8 | 29.1 | 8 | 7.3 |
+| Juwan Johnson | receiving yards | draftkings | 20.5 | -115 / -109 | 50.6% | 50.2% | 27.8 | 29.1 | 8 | 7.3 |
+| Juwan Johnson | receiving yards | betonlineag | 20.5 | -116 / -111 | 50.5% | 50.2% | 27.8 | 29.1 | 8 | 7.3 |
+| Juwan Johnson | receiving yards | betrivers | 20.5 | -117 / -114 | 50.3% | 50.2% | 27.8 | 29.1 | 8 | 7.3 |
+| Juwan Johnson | receiving yards | bovada | 20.5 | -120 / -110 | 51.0% | 50.2% | 27.8 | 29.1 | 8 | 7.3 |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -143,7 +137,7 @@ Bootstrap of each team's real quarter scores. 'matchup_pair' includes the oppone
 | L.Burden | WR | receptions | 8 | 5.3 | 0.925 | 3.1 | 3.4 | 3.7 | 3.7 | 3.7 | 5.1 |
 | C.Loveland | TE | receiving yards | 8 | 54.8 | 1.118 | 9.6 | 15.9 | 21.9 | 26.6 | 31.3 | 62.1 |
 | C.Loveland | TE | receptions | 8 | 5.1 | 1.047 | 1.4 | 1.8 | 2.2 | 2.9 | 3.7 | 5.2 |
-| R.Odunze | WR | receiving yards | 8 | 61.7 | 0.985 | 40.4 | 41.5 | 42.4 | 42.7 | 43.1 | 54.7 |
+| R.Odunze | WR | receiving yards | 8 | 60.1 | 0.985 | 38.8 | 39.1 | 39.5 | 40.6 | 41.6 | 51.2 |
 | R.Odunze | WR | receptions | 8 | 3.5 | 0.925 | 2.8 | 2.8 | 2.8 | 2.8 | 2.8 | 3.2 |
 | K.Raymond | WR | receiving yards | 8 | 22.8 | 0.985 | 2.1 | 4.1 | 5.9 | 5.9 | 5.9 | 15.8 |
 | K.Raymond | WR | receptions | 8 | 2.6 | 0.925 | 0.6 | 1.3 | 1.8 | 1.8 | 1.8 | 2.3 |
@@ -158,52 +152,52 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 84% chance of rain at kickoff, wind up to 15 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 91% chance of rain at kickoff, wind up to 20 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### NO passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 35.1 | 33.6 | 33.8 |
-| Team completion rate | 66.4% | 62.3% | 63.0% |
-| Team completions | 23.3 | 20.9 | 21.3 |
-| Team pass yards | 207.4 | 175.3 | 180.4 |
-| T.Shough completion rate (287 attempts) | 66.4% | 62.3% | 63.0% |
-| T.Shough yards per attempt | 5.89 | 5.15 | 5.26 |
+| Team pass attempts | 34.4 | 32.8 | 32.9 |
+| Team completion rate | 65.3% | 61.2% | 61.6% |
+| Team completions | 22.4 | 20.1 | 20.3 |
+| Team pass yards | 194.3 | 162.2 | 165.1 |
+| T.Shough completion rate (287 attempts) | 65.3% | 61.2% | 61.6% |
+| T.Shough yards per attempt | 5.63 | 4.89 | 4.96 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| C.Olave | WR | 8 | 27% | 9.1 / 5.9 / 67.1 | 8.7 / 5.3 / 56.4 | 8.7 / 5.4 / 58.1 |
-| D.Vele | WR | 8 | 16% | 5.5 / 3.6 / 35.8 | 5.3 / 3.2 / 30.1 | 5.3 / 3.3 / 31.0 |
-| A.Kamara | RB | 8 | 13% | 4.4 / 3.5 / 20.1 | 4.2 / 3.2 / 16.7 | 4.2 / 3.3 / 17.2 |
-| J.Johnson | TE | 8 | 13% | 4.1 / 3.1 / 29.1 | 3.9 / 2.7 / 24.4 | 4.0 / 2.8 / 25.1 |
-| B.Lance | WR | 7 | 7% | 2.7 / 0.8 / 4.7 | 2.5 / 0.7 / 4.0 | 2.6 / 0.8 / 4.1 |
-| K.Miller | RB | 4 | 5% | 3.3 / 2.3 / 9.3 | 3.1 / 2.1 / 7.7 | 3.1 / 2.1 / 8.0 |
-| N.Fant | TE | 6 | 4% | 1.7 / 1.2 / 9.3 | 1.7 / 1.1 / 7.8 | 1.7 / 1.1 / 8.0 |
-| T.Etienne | RB | 3 | 3% | 3.0 / 2.3 / 13.0 | 2.9 / 2.2 / 10.9 | 2.9 / 2.2 / 11.2 |
+| C.Olave | WR | 8 | 27% | 8.9 / 5.7 / 61.7 | 8.5 / 5.1 / 51.4 | 8.5 / 5.1 / 52.3 |
+| D.Vele | WR | 8 | 16% | 5.4 / 3.5 / 32.8 | 5.1 / 3.1 / 27.4 | 5.2 / 3.1 / 27.8 |
+| A.Kamara | RB | 8 | 13% | 4.4 / 3.5 / 20.1 | 4.2 / 3.2 / 16.7 | 4.2 / 3.3 / 17.0 |
+| J.Johnson | TE | 8 | 13% | 3.9 / 2.8 / 25.5 | 3.7 / 2.5 / 21.2 | 3.7 / 2.5 / 21.5 |
+| B.Lance | WR | 7 | 7% | 2.6 / 0.8 / 4.4 | 2.5 / 0.7 / 3.6 | 2.5 / 0.7 / 3.7 |
+| K.Miller | RB | 4 | 5% | 3.3 / 2.3 / 9.3 | 3.1 / 2.1 / 7.7 | 3.1 / 2.1 / 7.9 |
+| N.Fant | TE | 6 | 4% | 1.6 / 1.1 / 8.1 | 1.6 / 1.0 / 6.8 | 1.6 / 1.0 / 6.9 |
+| T.Etienne | RB | 3 | 3% | 3.0 / 2.3 / 13.1 | 2.9 / 2.2 / 10.9 | 2.9 / 2.2 / 11.1 |
 
 ### CHI passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 34.5 | 33.0 | 33.2 |
-| Team completion rate | 66.2% | 62.1% | 62.8% |
-| Team completions | 22.9 | 20.5 | 20.9 |
-| Team pass yards | 240.1 | 202.9 | 208.8 |
-| C.Williams completion rate (166 attempts) | 66.9% | 62.8% | 63.4% |
-| C.Williams yards per attempt | 7.37 | 6.45 | 6.59 |
+| Team pass attempts | 33.8 | 32.2 | 32.4 |
+| Team completion rate | 65.1% | 61.0% | 61.4% |
+| Team completions | 22.0 | 19.7 | 19.9 |
+| Team pass yards | 225.0 | 187.8 | 191.2 |
+| C.Williams completion rate (166 attempts) | 65.7% | 61.6% | 62.0% |
+| C.Williams yards per attempt | 7.05 | 6.12 | 6.21 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| L.Burden | WR | 8 | 23% | 7.5 / 5.3 / 67.0 | 7.1 / 4.7 / 56.4 | 7.2 / 4.8 / 58.0 |
-| C.Loveland | TE | 8 | 21% | 6.5 / 4.2 / 40.1 | 6.2 / 3.7 / 33.6 | 6.2 / 3.8 / 34.6 |
-| R.Odunze | WR | 8 | 18% | 5.9 / 3.6 / 56.3 | 5.6 / 3.2 / 47.3 | 5.7 / 3.3 / 48.7 |
-| K.Raymond | WR | 8 | 12% | 3.9 / 2.9 / 23.8 | 3.7 / 2.6 / 20.0 | 3.8 / 2.6 / 20.6 |
-| D.Swift | RB | 8 | 10% | 3.5 / 2.9 / 19.1 | 3.4 / 2.7 / 15.9 | 3.4 / 2.7 / 16.4 |
-| C.Kmet | TE | 6 | 4% | 1.7 / 1.2 / 7.7 | 1.7 / 1.1 / 6.4 | 1.7 / 1.1 / 6.6 |
-| R.Johnson | RB | 4 | 4% | 2.8 / 2.3 / 18.6 | 2.6 / 2.1 / 15.5 | 2.7 / 2.1 / 15.9 |
-| Z.Thomas | WR | 5 | 4% | 2.0 / 1.3 / 10.0 | 1.9 / 1.2 / 8.4 | 1.9 / 1.2 / 8.6 |
-| S.Roush | TE | 4 | 3% | 1.6 / 1.1 / 12.4 | 1.6 / 1.0 / 10.4 | 1.6 / 1.0 / 10.7 |
+| L.Burden | WR | 8 | 23% | 7.3 / 5.1 / 61.6 | 7.0 / 4.5 / 51.3 | 7.0 / 4.6 / 52.2 |
+| C.Loveland | TE | 8 | 21% | 6.1 / 3.8 / 35.2 | 5.8 / 3.4 / 29.2 | 5.8 / 3.4 / 29.7 |
+| R.Odunze | WR | 8 | 18% | 5.7 / 3.5 / 50.4 | 5.5 / 3.1 / 42.0 | 5.5 / 3.1 / 42.7 |
+| K.Raymond | WR | 8 | 12% | 3.8 / 2.8 / 21.8 | 3.7 / 2.5 / 18.2 | 3.7 / 2.5 / 18.5 |
+| D.Swift | RB | 8 | 10% | 3.5 / 2.9 / 19.1 | 3.4 / 2.7 / 15.9 | 3.4 / 2.7 / 16.2 |
+| C.Kmet | TE | 6 | 4% | 1.6 / 1.1 / 6.7 | 1.6 / 1.0 / 5.6 | 1.6 / 1.0 / 5.7 |
+| R.Johnson | RB | 4 | 4% | 2.8 / 2.3 / 21.6 | 2.6 / 2.1 / 18.0 | 2.7 / 2.1 / 18.3 |
+| Z.Thomas | WR | 5 | 4% | 1.9 / 1.3 / 9.2 | 1.8 / 1.2 / 7.6 | 1.8 / 1.2 / 7.8 |
+| S.Roush | TE | 4 | 3% | 1.5 / 1.0 / 10.9 | 1.5 / 0.9 / 9.0 | 1.5 / 0.9 / 9.2 |
 
 ## NO (last 8 games: weeks 2, 3, 4, 5, 6, 7, 9, 10)
 
@@ -358,7 +352,7 @@ Neutral-situation pass rate 53.6%; 62.9 plays per game; target share WR 59% / TE
 | K.Miller | RB | 5 | 48 | 129 | 2.69 | 1 | 27% | 10 | 0 | 14 9 30 70 6 |
 | T.Etienne | RB | 3 | 29 | 96 | 3.31 | 0 | 16% | 4 | 1 | 25 57 14 |
 | A.Estime | RB | 2 | 22 | 78 | 3.55 | 1 | 12% | 4 | 1 | 72 6 |
-| T.Shough | QB | 6 | 16 | 10 | 0.62 | 2 | 9% | 9 | 0 | 12 2 -1 1 2 -6 |
+| T.Shough | QB | 7 | 16 | 10 | 0.62 | 2 | 9% | 9 | 0 | 12 0 2 -1 1 2 -6 |
 
 ### NO run game by direction
 
@@ -398,9 +392,9 @@ Neutral-situation pass rate 53.6%; 62.9 plays per game; target share WR 59% / TE
 | defense allows | Deep middle | 11 | 4% | 55% | 16.64 | 6 |
 | defense allows | Deep right | 19 | 8% | 42% | 13.0 | 5 |
 
-### NO lines (depth chart as of 2026-11-21T15:17:24Z)
+### NO lines (depth chart as of 2026-11-22T07:01:24Z)
 
-Offensive line: LT Kelvin Banks Jr., LG David Edwards, C Cesar Ruiz, RG Jeremiah Wright, RT Mason Murphy.  
+Offensive line: LT Kelvin Banks Jr., LG David Edwards, C Cesar Ruiz, RG Jeremiah Wright, RT Taliese Fuaga.  
 Defensive front: LDE Colby Wooden, NT Nathan Shepherd, RDE Vernon Broughton, WLB Carl Granderson, SLB Chase Young.
 
 ### NO injuries
@@ -409,6 +403,7 @@ Defensive front: LDE Colby Wooden, NT Nathan Shepherd, RDE Vernon Broughton, WLB
 |---|---|---|---|---|---|
 | Martin Emerson | CB | yes | Out | Did Not Participate In Practice | Concussion |
 | Pete Werner | LB | yes | Questionable | Did Not Participate In Practice | Hamstring |
+| Taliese Fuaga | T | yes | Out | Did Not Participate In Practice | Knee |
 | Erik McCoy | C |  | Out | Did Not Participate In Practice | Biceps |
 | Decamerion Richardson | CB |  | Questionable | Limited Participation in Practice | Thigh |
 | Isaiah Stalbird | LB |  | none listed | Did Not Participate In Practice |  |
@@ -416,7 +411,6 @@ Defensive front: LDE Colby Wooden, NT Nathan Shepherd, RDE Vernon Broughton, WLB
 | CJ Donaldson | RB |  | none listed | Full Participation in Practice |  |
 | Justin Reid | S |  | Out | Did Not Participate In Practice | Not injury related - personal matter |
 | Asim Richards | T |  | Out | Did Not Participate In Practice | Knee |
-| Taliese Fuaga | T |  | Out | Did Not Participate In Practice | Knee |
 | Jordyn Tyson | WR |  | none listed | Full Participation in Practice |  |
 
 ESPN live list (designations only): Christen Miller (DT) Injured Reserve; Decamerion Richardson (CB) Questionable; Pete Werner (LB) Questionable; Martin Emerson Jr. (CB) Out; Taliese Fuaga (OT) Out; Erik McCoy (C) Out; Asim Richards (OT) Out.
@@ -568,11 +562,11 @@ Neutral-situation pass rate 54.4%; 69.2 plays per game; target share WR 57% / TE
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | L.Burden | WR | 8 | 61 | 44 | 581 | 4 | 23% | 24% | 7.7 | 11 | 13 | 32 61 63 47 95 130 56 97 |
 | C.Loveland | TE | 8 | 55 | 37 | 363 | 2 | 21% | 19% | 6.7 | 10 | 2 | 3 31 57 19 65 69 65 54 |
-| R.Odunze | WR | 8 | 48 | 30 | 488 | 1 | 18% | 34% | 13.7 | 7 | 14 | 43 44 94 40 51 69 87 60 |
+| R.Odunze | WR | 8 | 48 | 30 | 476 | 1 | 18% | 34% | 13.7 | 7 | 14 | 43 44 94 40 39 69 87 60 |
 | K.Raymond | WR | 8 | 32 | 24 | 206 | 1 | 12% | 11% | 6.9 | 5 | 1 | 40 90 6 6 18 0 14 32 |
 | D.Swift | RB | 8 | 28 | 23 | 152 | 0 | 10% | -2% | -1.1 | 2 | 1 | 54 4 16 30 26 12 10 0 |
 | C.Kmet | TE | 6 | 11 | 8 | 52 | 0 | 4% | 2% | 4.0 | 1 | 0 | 0 0 13 8 3 28 |
-| R.Johnson | RB | 4 | 11 | 9 | 74 | 0 | 4% | 1% | 2.3 | 2 | 0 | 7 34 22 11 |
+| R.Johnson | RB | 4 | 11 | 9 | 86 | 0 | 4% | 1% | 2.3 | 2 | 0 | 7 34 34 11 |
 | Z.Thomas | WR | 5 | 10 | 7 | 54 | 0 | 4% | 7% | 12.7 | 0 | 0 | 1 11 25 4 13 |
 | S.Roush | TE | 4 | 7 | 5 | 56 | 0 | 3% | 1% | 3.1 | 1 | 0 | 9 16 8 23 |
 
@@ -624,7 +618,7 @@ Neutral-situation pass rate 54.4%; 69.2 plays per game; target share WR 57% / TE
 | defense allows | Deep middle | 8 | 4% | 75% | 33.5 | 5 |
 | defense allows | Deep right | 14 | 6% | 43% | 12.79 | 4 |
 
-### CHI lines (depth chart as of 2026-11-21T15:17:24Z)
+### CHI lines (depth chart as of 2026-11-22T07:01:24Z)
 
 Offensive line: LT Theo Benedet, LG Joe Thuney, C Garrett Bradbury, RG Jonah Jackson, RT Darnell Wright.  
 Defensive front: LDE Montez Sweat, LDT Grady Jarrett, RDT Jeffery Simmons, RDE James Lynch, WLB Devin Bush, SLB D'Marco Jackson.
@@ -640,7 +634,7 @@ Defensive front: LDE Montez Sweat, LDT Grady Jarrett, RDT Jeffery Simmons, RDE J
 | Malik Muhammad | CB |  | none listed | Full Participation in Practice |  |
 | Kyle Monangai | RB |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Kentavius Street (DT) Injured Reserve; Zavier Scott (RB) Injured Reserve; Zavion Thomas (WR) Questionable; Kyler Gordon (CB) Out.
+ESPN live list (designations only): Zavier Scott (RB) Injured Reserve; Zavion Thomas (WR) Questionable; Kyler Gordon (CB) Out.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -654,9 +648,9 @@ Left for another team: Jamree Kromah (DL) to MIA.
 
 | Secret | Provider | Status | Used for |
 |---|---|---|---|
-| ODDS_API_KEY | The Odds API | KEY_PRESENT | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
+| ODDS_API_KEY | The Odds API | KEY_NOT_CONFIGURED_IN_THIS_RUN | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
 | NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
-| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR: {'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'} | access check only; not used in the packet |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | access check only; not used in the packet |
 
 Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
 
@@ -684,16 +678,21 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-21T20:46:36+00:00 | d925a4602c9a |
-| pbp | OK | 2026-11-21T20:46:36+00:00 | a2bfcd8abcec |
-| rosters | OK | 2026-11-21T20:46:36+00:00 | 6d3e9e7d489e |
-| injuries | OK | 2026-11-21T20:46:36+00:00 | f31c61c6b233 |
-| depth_charts | OK | 2026-11-21T20:46:36+00:00 | e89715eb757e |
-| snap_counts | OK | 2026-11-21T20:46:37+00:00 | 980aba4c2b5e |
-| ftn | OK | 2026-11-21T20:46:37+00:00 | d0e949df6e17 |
-| pfr_def | OK | 2026-11-21T20:46:37+00:00 | fc61fb5ffaa3 |
-| espn_injuries | OK | 2026-11-21T20:46:38+00:00 |  |
+| games | OK | 2026-11-22T12:06:23+00:00 | 4e2d50ee306e |
+| pbp | OK | 2026-11-22T12:06:23+00:00 | 8c99f074c85d |
+| rosters | OK | 2026-11-22T12:06:23+00:00 | a55f969ea4ba |
+| injuries | OK | 2026-11-22T12:06:23+00:00 | 072d2b830ad6 |
+| depth_charts | OK | 2026-11-22T12:06:24+00:00 | eb7dc13718e8 |
+| snap_counts | OK | 2026-11-22T12:06:24+00:00 | 980aba4c2b5e |
+| ftn | OK | 2026-11-22T12:06:24+00:00 | d0e949df6e17 |
+| pfr_def | OK | 2026-11-22T12:06:24+00:00 | b2f7b6dc4d56 |
+| pfr_rec | OK | 2026-11-22T12:06:24+00:00 | c044899de693 |
+| pfr_rush | OK | 2026-11-22T12:06:24+00:00 | e8230522afc9 |
+| ngs_receiving | OK | 2026-11-22T12:06:24+00:00 | f9b4b1f066d2 |
+| ngs_rushing | OK | 2026-11-22T12:06:24+00:00 | d7dadcb4e09a |
+| ngs_passing | OK | 2026-11-22T12:06:25+00:00 | 31e11ff3a7ed |
+| espn_injuries | OK | 2026-11-22T12:06:25+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
+| book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
