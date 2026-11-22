@@ -223,3 +223,16 @@ def test_book_price_matches_names_and_rung():
     assert W.book_price(rows, "Ja'Marr Chase", "alt_receiving_yards")["american"] == 118
     assert W.book_price(rows, "JaMarr Chase Jr.", "alt_receiving_yards")["break_even"] == 0.4587
     assert W.book_price(rows, "Ja'Marr Chase", "alt_rushing_yards") is None and W.book_price(None, "x", "alt_receiving_yards") is None
+
+
+def test_watch_rain_and_wind_lower_the_80_yard_chance():
+    model = __import__("dashboard.watch", fromlist=["x"]).load_model()
+    dctx = {"BBB": {"games": 9, "ex_rate_rel": 1.0, "g80_WR_pg": 0.5, "g80_TE_pg": 0.1, "g80_rank": 10, "ex_rank": 10}}
+    dry, W = _watch_side([11, 10, 12, 9, 11, 10, 12, 11], [110, 95, 120, 80, 105, 99, 130, 90])
+    wet, _ = _watch_side([11, 10, 12, 9, 11, 10, 12, 11], [110, 95, 120, 80, 105, 99, 130, 90])
+    wet["opportunity"]["weather_attempts_multiplier"] = 0.957
+    wet["opportunity"]["receivers"][0]["inputs"].update(rain_yards=0.887, rain_catch=0.935)
+    a = W.watch_side(dry, {"AAA": 28.0, "BBB": 21.0}, dctx, model)["receivers"][0]
+    b = W.watch_side(wet, {"AAA": 28.0, "BBB": 21.0}, dctx, model)["receivers"][0]
+    assert b["p80"] < a["p80"] and b["targets"] < a["targets"]
+    assert any("rain/wind" in w for w in b["why"]) and not any("rain/wind" in w for w in a["why"])

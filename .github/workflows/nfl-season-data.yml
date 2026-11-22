@@ -10,7 +10,7 @@ on:
         description: "Game book weeks to fetch, e.g. 1-10 (blank = every completed week)"
         required: false
   push:
-    paths: ["data/gamebooks/fetch_gamebooks.py", "research/season_context_2026/build.py", ".github/workflows/nfl-season-data.yml"]
+    paths: ["data/gamebooks/fetch_gamebooks.py", "research/season_context_2026/build.py", "grading/scorecard.py", ".github/workflows/nfl-season-data.yml"]
   schedule:
     - cron: "0 12 * * 2"     # Tuesday ~7 AM ET
     - cron: "0 12 * * 3"     # Wednesday retry (nflverse sometimes posts late)
@@ -47,11 +47,16 @@ jobs:
         run: |
           python research/season_context_2026/build.py
           cat research/season_context_2026/AUDIT.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Grade every completed game that had a pregame packet, then rebuild the season scorecard
+        continue-on-error: true
+        run: |
+          for d in pregame/packets/2026_*/; do python -m grading.grade --game "$(basename "$d")" --write >/dev/null 2>&1 || true; done
+          python -m grading.scorecard | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/gamebooks research/season_context_2026
+          git add data/gamebooks research/season_context_2026 grading/results
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
           git commit -q -m "season data: game books and context database $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3 4; do git pull -q --no-rebase --no-edit origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0; sleep 7; done
