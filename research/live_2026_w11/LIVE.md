@@ -1,4 +1,4 @@
-# Live tracker, Week 11 (2026-11-22 21:09 UTC)
+# Live tracker, Week 11 (2026-11-22 21:14 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
@@ -54,9 +54,9 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Kenny Gainwell (TB) | 4 | 1.6 | 43 | 8.8 | 12.5 | 16 | 26.8 | 17.5 |
 | Amon-Ra St. Brown (DET) | 5 | 5.2 | 37 | 57.7 | 81.5 | 0 |  |  |
 
-## PIT 16 @ PHI 19 (1:01 - 4th)
+## PIT 16 @ PHI 19 (Final)
 
-178 plays. Top yards allowed by a named defender: J.Dean (6/7, 40 yds), K.Henry (1/1, 38 yds), M.Epps (6/6, 37 yds), J.Trotter (4/4, 36 yds)
+181 plays. Top yards allowed by a named defender: J.Dean (6/7, 40 yds), K.Henry (1/1, 38 yds), M.Epps (6/6, 37 yds), J.Trotter (4/4, 36 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -67,15 +67,15 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Germie Bernard (PIT) | 6 | 3.3 | 40 | 27.3 | 28.5 | 0 |  |  |
 | Pat Freiermuth (PIT) | 5 | 2.5 | 39 | 20.6 | 21.5 | 1 |  |  |
 
-## BAL 33 @ CAR 32 (1:51 - 4th)
+## BAL 33 @ CAR 35 (0:59 - 4th)
 
-177 plays. Top yards allowed by a named defender: K.Hamilton (5/5, 85 yds), T.Moehrig (2/2, 40 yds), W.Lee (2/3, 32 yds), T.Tampa (1/2, 27 yds)
+184 plays. Top yards allowed by a named defender: K.Hamilton (5/5, 85 yds), T.Moehrig (2/2, 40 yds), W.Lee (2/3, 32 yds), T.Tampa (1/2, 27 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Chuba Hubbard (CAR) | 0 | 3.3 | 0 | 14.9 | 20.5 | 120 | 68.9 | 74.5 |
 | Derrick Henry (BAL) | 4 | 1.6 | 17 | 5.5 | 8.5 | 94 | 48.7 | 64.5 |
-| Justice Hill (BAL) | 3 | 3.4 | 22 | 14.5 | 15.5 | 69 | 19.8 | 13.5 |
+| Justice Hill (BAL) | 4 | 3.4 | 27 | 14.5 | 15.5 | 69 | 19.8 | 13.5 |
 | Zay Flowers (BAL) | 8 | 4.3 | 97 | 42.6 | 69.0 | -13 |  |  |
 | Tetairoa McMillan (CAR) | 6 | 4.7 | 71 | 55.9 | 63.5 | 0 |  |  |
 | Rashod Bateman (BAL) | 2 | 1.9 | 67 | 16.7 | 25.5 | 0 |  |  |
@@ -93,9 +93,9 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Bam Knight (ARI) | 1 | 2.2 | 10 | 12.6 | 8.5 | 35 | 17.4 | 24.5 |
 | Xavier Worthy (KC) | 2 | 3.0 | 38 | 30.0 | 25.5 | 0 |  |  |
 
-## NYJ 0 @ LAC 0 (12:39 - 1st)
+## NYJ 3 @ LAC 0 (11:08 - 1st)
 
-6 plays. Top yards allowed by a named defender: 
+11 plays. Top yards allowed by a named defender: D.Leonard (0/1, 0 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
