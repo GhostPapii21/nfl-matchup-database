@@ -71,6 +71,8 @@ def normalize(rows, home, away):
         pre, base = _split(m)
         if base not in ("spread", "total", "moneyline") or pre not in G.PERIODS or r.get("player"):
             continue
+        if r.get("mname") and _team(r["mname"].split(" - ")[0], home, away):      # team totals filed under a game market
+            continue
         try:
             a = float(r["american"])
         except (KeyError, TypeError, ValueError):

@@ -230,7 +230,8 @@ def fanduel(probe: dict | None = None) -> dict:
             out["events"][str(e.get("eventId", eid))] = {"name": nm, "away": team_of(a), "home": team_of(h), "start": e.get("openDate")}
         for m in mk.values():
           try:
-            kind = kind_of(m.get("marketName", "")) or kind_of(m.get("marketType", "").replace("_", " "))
+            mname = m.get("marketName", "")
+            kind = kind_of(mname) or (None if team_of(mname) else kind_of(m.get("marketType", "").replace("_", " ")))
             seen = out.setdefault("market_names", {})
             key = re.sub(r"^.*? - ", "", m.get("marketName", ""))[:60]
             seen[key] = kind
