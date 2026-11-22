@@ -2,7 +2,7 @@
 
 Reuses what exists: the pregame builder (`python -m pregame.build_packets`, pregame/packet.py) pulls the data and
 writes its own phase ledger into each packet. This module re-checks that ledger input by input against the packet
-and the freshness policy, and records for every phase which inputs are FILLED, MISSING, STALE or NOT_YET. Nothing
+and the freshness policy, and records for every phase which inputs are FILLED, MISSING, STALE, GAP or NOT_YET. Nothing
 is skipped silently: a phase whose inputs are absent is MISSING, one that cannot exist yet is NOT_YET.
 
     python -m pipeline.phases --game 2026_10_WAS_NYG                 # all 15 phases, print table
@@ -10,7 +10,7 @@ is skipped silently: a phase whose inputs are absent is MISSING, one that cannot
     python -m pipeline.phases --game 2026_10_WAS_NYG --write         # also write pipeline/ledgers/<game>.json
     python -m pipeline.phases --game 2026_10_WAS_NYG --strict        # exit 3 if any phase is not filled
 
-Statuses: AUTO / PARTIAL (from the packet builder, all checked inputs present and fresh), MISSING, STALE, NOT_YET.
+Statuses: AUTO / PARTIAL (from the packet builder, all checked inputs present and fresh), MISSING, STALE, GAP, NOT_YET.
 Phase 15 (official inactives, NFL-46) is decided per game by `phase15_status` from the official-inactives hook, not by
 the packet builder's PENDING placeholder: AUTO (both clubs' official Inactives articles pulled after T-90), NOT_YET
 (before T-90) or MISSING (window open but no complete official pull, or pulled too early), always with the source and
@@ -30,19 +30,22 @@ from . import freshness, hooks
 ROOT = Path(__file__).resolve().parents[1]
 PACKETS = ROOT / "pregame" / "packets"
 LEDGERS = Path(__file__).resolve().parent / "ledgers"
-BLOCKING = ("MISSING", "STALE", "NOT_YET")
+BLOCKING = ("MISSING", "STALE", "GAP", "NOT_YET")
 
 # phase: (name, packet inputs [dotted; "teams.*." = both teams], freshness sources, inputs no free source carries)
 PHASES = {
     1: ("Slate, schedule, venue", ["game.kickoff_et", "game.date", "game.site", "game.roof", "game.listed_qbs"], ["schedule"], []),
     2: ("Player identity and position", ["teams.*.offense.players"], ["rosters"], []),
     3: ("Verified player game history", ["teams.*.offense.players", "teams.*.offense.by_game"], ["play_by_play"], []),
-    4: ("Role, snaps, routes, opportunity", ["teams.*.offense.players", "teams.*.offense.offense_snap_share"], ["snap_counts"],
-        ["routes run / route participation (no free source)"]),
+    4: ("Role, snaps, routes, opportunity", ["teams.*.offense.players", "teams.*.offense.offense_snap_share"],
+        ["snap_counts", "ngs_receiving", "ngs_rushing"],
+        ["routes run / route participation (public NGS weekly files do not carry them; listed MISSING/unknown, not zero)"]),
     5: ("Team offense/defense baselines", ["teams.*.defense.allowed", "teams.*.offense.produced", "teams.*.defense.rank"], ["play_by_play"], []),
     6: ("Opponent context and game script", ["market.home_spread", "market.total"], ["schedule"], ["the script call itself (analyst)"]),
     7: ("Coverage structure and shell", ["teams.*.defense.allowed.dropbacks_charted"], ["ftn_charting"], ["man/zone and shell (no free source)"]),
-    8: ("Defender assignment and explosive allowance", ["teams.*.defense.defenders"], ["pfr_defense"], ["who covers whom (no confirmed assignment)"]),
+    8: ("Defender assignment and explosive allowance", ["teams.*.defense.defenders"],
+        ["pfr_defense", "ngs_passing", "ngs_receiving", "ngs_rushing", "ngs_defender_matchup"],
+        ["who covers whom (no confirmed assignment); public NGS has no route/location/defender splits (listed MISSING/unknown, not zero)"]),
     9: ("QB pressure, blitz, scramble", ["teams.*.defense.allowed"], ["play_by_play", "ftn_charting"], ["true pressure rate (sacks + hits is a floor)"]),
     10: ("Offensive line, pass rush, coaching", ["teams.*.depth_chart", "game.coaches"], ["depth_charts"], ["line grades (paid source)"]),
     11: ("Injury and depth chart", ["teams.*.injuries.official_report", "teams.*.injuries.espn_live", "teams.*.depth_chart"],
@@ -126,7 +129,7 @@ def phase15_status(pk: dict, now: datetime | None = None, hook_impls=None) -> di
 def run_phase(n: int, pk: dict, fresh_rows: list[dict], gate: dict | None = None, p15: dict | None = None) -> dict:
     name, inputs, sources, unavailable = PHASES[n]
     built = {r["phase"]: r for r in pk.get("phase_ledger") or []}.get(n, {})
-    filled, missing, stale, not_yet = [], [], [], []
+    filled, missing, stale, gap, not_yet = [], [], [], [], []
     for d in inputs:
         for label, ok in _inputs(pk, d):
             (filled if ok else missing).append(label)
@@ -139,6 +142,8 @@ def run_phase(n: int, pk: dict, fresh_rows: list[dict], gate: dict | None = None
             filled.append(f"{s}: {r['status']}")
         elif r["status"] == "STALE":
             stale.append(f"{s}: {r['reason']}")
+        elif r["status"] == "GAP":
+            gap.append(f"{s}: {r['reason']}")
         elif r["status"] == "NOT_YET":
             not_yet.append(f"{s}: {r['reason']}")
         else:
@@ -151,16 +156,18 @@ def run_phase(n: int, pk: dict, fresh_rows: list[dict], gate: dict | None = None
         # NFL-46: Phase 15 is decided by the official-inactives pull, never by the packet's PENDING placeholder.
         status = p15["status"]
         line = f"official_inactives: {p15['reason']} (source: {p15['source_urls'] or p15['source']}; pulled {p15['pull_utc'] or 'never'})"
-        filled, missing, stale, not_yet = (([line], [], [], []) if status == "AUTO" else
-                                           ([], [], [], [line]) if status == "NOT_YET" else ([], [line], [], []))
+        filled, missing, stale, gap, not_yet = (([line], [], [], [], []) if status == "AUTO" else
+                                               ([], [], [], [], [line]) if status == "NOT_YET" else ([], [line], [], [], []))
         return {"phase": n, "name": name, "status": status, "packet_status": built.get("status"),
-                "filled": filled, "missing": missing, "stale": stale, "not_yet": not_yet,
+                "filled": filled, "missing": missing, "stale": stale, "gap": gap, "not_yet": not_yet,
                 "not_available_from_free_sources": unavailable, "packet_detail": built.get("detail"), "phase15": p15,
                 "command": f"python -m pipeline.phases --game {(pk.get('game') or {}).get('game_id')} --phase {n}"}
     if missing:
         status = "MISSING"
     elif stale:
         status = "STALE"
+    elif gap:
+        status = "GAP"
     elif not_yet:
         status = "NOT_YET"
     elif str(built.get("status", "")).startswith(("BLOCKED", "PENDING")) or not built:
@@ -169,7 +176,7 @@ def run_phase(n: int, pk: dict, fresh_rows: list[dict], gate: dict | None = None
     else:
         status = built["status"]
     return {"phase": n, "name": name, "status": status, "packet_status": built.get("status"),
-            "filled": filled, "missing": missing, "stale": stale, "not_yet": not_yet,
+            "filled": filled, "missing": missing, "stale": stale, "gap": gap, "not_yet": not_yet,
             "not_available_from_free_sources": unavailable, "packet_detail": built.get("detail"),
             "command": f"python -m pipeline.phases --game {(pk.get('game') or {}).get('game_id')} --phase {n}"}
 
@@ -197,9 +204,9 @@ def render(led: dict) -> str:
         L += [f"**Phase 15 (official inactives): {p15['status']}**. Source: {src}. Pulled: "
               f"{(p15['pull_utc'] + ' UTC (' + p15['pull_et'] + ')') if p15.get('pull_utc') and p15.get('pull_et') else 'not pulled'}. "
               f"{p15['reason']}", ""]
-    L += ["| Phase | Name | Status | Missing / stale / not yet |", "| --- | --- | --- | --- |"]
+    L += ["| Phase | Name | Status | Missing / stale / gap / not yet |", "| --- | --- | --- | --- |"]
     for p in led["phases"]:
-        why = "; ".join(p["missing"] + p["stale"] + p["not_yet"]) or (", ".join(p["not_available_from_free_sources"]) and
+        why = "; ".join(p["missing"] + p["stale"] + p.get("gap", []) + p["not_yet"]) or (", ".join(p["not_available_from_free_sources"]) and
                                                                      "not in free sources: " + ", ".join(p["not_available_from_free_sources"])) or "-"
         L.append(f"| {p['phase']} | {p['name']} | {p['status']} | {why.replace('|', '/')} |")
     L += ["", "| Source | Freshness | Reason |", "| --- | --- | --- |"]
@@ -215,7 +222,7 @@ def main(argv=None) -> int:
     ap.add_argument("--packet", type=Path, help="packet.json path (default pregame/packets/<game>/packet.json)")
     ap.add_argument("--phase", type=int, action="append", choices=sorted(PHASES))
     ap.add_argument("--write", action="store_true", help="write pipeline/ledgers/<game>.json and .md")
-    ap.add_argument("--strict", action="store_true", help="exit 3 if any selected phase is MISSING, STALE or NOT_YET")
+    ap.add_argument("--strict", action="store_true", help="exit 3 if any selected phase is MISSING, STALE, GAP or NOT_YET")
     a = ap.parse_args(argv)
     try:
         pk = load_packet(a.game, a.packet)

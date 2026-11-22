@@ -21,12 +21,14 @@ def test_fetch_time_alone_is_not_fresh():
     assert r["retrieved_utc"] == iso(now) and r["as_of_utc"] is None
 
 
-def test_old_publish_with_fresh_fetch_is_stale():
+def test_old_publish_of_latest_roster_release_is_fresh():
     now = KO - timedelta(hours=30)
     pk = packet(now)
     pk["sources"]["rosters"]["source_updated_at"] = iso(now - timedelta(hours=40))
     r = rows(pk, now)["rosters"]
-    assert r["status"] == "STALE" and r["age_minutes"] == 2400 and r["as_of_basis"] == "record:source_updated_at"
+    assert r["status"] == "FRESH" and r["cadence"] == "latest_release"
+    assert r["as_of_basis"] == "record:source_updated_at"
+    assert r["age_minutes"] == 2400
 
 
 def test_publish_stamp_after_pull_or_in_future_is_rejected():
