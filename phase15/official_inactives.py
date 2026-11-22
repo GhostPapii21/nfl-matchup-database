@@ -127,7 +127,138 @@ def _items(body: str) -> list[dict]:
     return out
 
 
-def fetch_team(team: str, kickoff_utc: datetime, now: datetime, getter=_get) -> dict:
+# ----------------------------------------------------------------------------------------------- roster-checked fallback
+# Most clubs do not use the "<CLUB> INACTIVES" + <li> layout: some print numbered lines under each team's name
+# ("9 RB Kenneth Walker"), others write sentences ("Baltimore's other inactives are wide receiver Elijah Sarratt, ...").
+# The fallback reads both, and keeps a name only if it is on this club's current nflverse roster, so a typo, a coach,
+# a broadcaster or the opponent's player can never enter the list.
+INACTIVE_WORDS = re.compile(r"inactive|deactivat|healthy scratch|emergency (?:third|3rd|no\. 3)", re.I)
+NUM_LINE = re.compile(rf"^(?:No\.\s*)?\d{{1,2}}\s+(?:{POS})(?:/(?:{POS}))?\s+(?P<name>[A-Z][A-Za-z.'\- ]+?(?:\s(?:Jr\.|Sr\.|II|III|IV|V))?)\s*(?:\((?P<note>[^)]*)\))?$")
+MIN_PLAYERS = 3
+ROSTER_URL = "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_{season}.parquet"
+_ROSTERS: dict = {}
+
+
+def _lines(article_html: str) -> list[str]:
+    t = re.sub(r"<(br|/p|/li|/h\d|/div|/tr)[^>]*>", "\n", article_html, flags=re.I)
+    t = _html.unescape(re.sub(r"<[^>]+>", "", t)).replace("\xa0", " ")
+    lines = [re.sub(r"\s+", " ", x).strip() for x in t.split("\n")]
+    lines = [x for x in lines if x]
+    cut = next((i for i, x in enumerate(lines) if re.fullmatch(r"Related (?:Content|Links|Articles|News)", x, flags=re.I)), len(lines))
+    return lines[:cut]
+
+
+def roster_names(team: str, season: int, cache: Path | None = None) -> list[str]:
+    """Current-week roster names for a club (nflverse weekly rosters; cached under pregame/.cache)."""
+    key = (team, season)
+    if key in _ROSTERS:
+        return _ROSTERS[key]
+    import pandas as pd
+    cache = cache or (ROOT / "pregame" / ".cache")
+    f = cache / f"roster_weekly_{season}.parquet"
+    if not f.exists():
+        cache.mkdir(parents=True, exist_ok=True)
+        req = urllib.request.Request(ROSTER_URL.format(season=season), headers={"User-Agent": "nfl-matchup-database"})
+        f.write_bytes(urllib.request.urlopen(req, timeout=60).read())
+    r = pd.read_parquet(f, columns=["team", "week", "full_name"])
+    r = r[r.team == team]
+    names = sorted(set(r[r.week == r.week.max()].full_name.dropna())) if len(r) else []
+    _ROSTERS[key] = names
+    return names
+
+
+SUFFIX = re.compile(r"\s+(?:Jr\.?|Sr\.?|II|III|IV|V)$")
+
+
+def _norm(name: str) -> str:
+    return re.sub(r"[^a-z' \-]", "", SUFFIX.sub("", name.strip()).lower().replace(".", "")).strip()
+
+
+def _match(token: str, names: list[str]) -> str | None:
+    import difflib
+    pool = {_norm(n): n for n in names}
+    best = difflib.get_close_matches(_norm(token), list(pool), n=1, cutoff=0.86)
+    return pool[best[0]] if best else None
+
+
+def _units(lines: list[str]) -> list[str]:
+    """Sentences, never running across a line break (headlines and decks are their own units)."""
+    out = []
+    for x in lines:
+        out += [u for u in re.split(r"(?<=[a-z0-9)\"'][.!?])\s+(?=[A-Z\"])", x) if u]   # not after initials like D.J.
+    return out
+
+
+def _names_in(unit: str, names: list[str]) -> list[str]:
+    """Roster names that appear in this sentence (2-3 word windows, punctuation ignored, small typos allowed)."""
+    import difflib
+    words = [w.strip(".,;:!?()\"'") for w in unit.split()]
+    words = [w for w in words if w]
+    found = []
+    for n in names:
+        k = len(_norm(n).split())
+        target = _norm(n)
+        for i in range(len(words) - k + 1):
+            win = _norm(" ".join(words[i:i + k]))
+            if win and difflib.SequenceMatcher(None, win, target).ratio() >= 0.86:
+                found.append(n)
+                break
+    return found
+
+
+def parse_roster_checked(article_html: str, team_full: str, names: list[str]) -> tuple[list[dict], str]:
+    """(players, method). List layout first (numbered lines under this club's full name), then sentences that say
+    inactive / deactivated / healthy scratch / emergency third QB. Every name must be on the club's roster."""
+    lines = _lines(article_html)
+    nums = [i for i, x in enumerate(lines) if NUM_LINE.match(x)]
+    if len(nums) >= MIN_PLAYERS:
+        heads = [i for i, x in enumerate(lines) if x.lower() == team_full.lower()]
+        if heads:
+            start = heads[0] + 1
+            end = next((i for i in range(start, len(lines)) if not NUM_LINE.match(lines[i])), len(lines))
+            out = []
+            for x in lines[start:end]:
+                m = NUM_LINE.match(x)
+                if not m:
+                    continue
+                printed = m.group("name").strip()
+                hit = _match(printed, names)
+                out.append({"name": hit or printed, "as_printed": printed, "note": m.group("note"), "roster_match": bool(hit)})
+            if len(out) >= MIN_PLAYERS:
+                return out, "numbered list under club header, roster-checked"
+    units = _units(lines)
+    full = {}                                             # roster player -> fully named somewhere in the article
+    for u in units:
+        for n in _names_in(u, names):
+            full.setdefault(n, u)
+    last = {}
+    for n in full:
+        last.setdefault(_norm(n).split()[-1], []).append(n)
+    out, seen = [], set()
+    for u in units:
+        if not INACTIVE_WORDS.search(u):
+            continue
+        here = set(_names_in(u, names))
+        words = {w.strip(".,;:!?()\"'").lower() for w in u.split()}
+        for n in full:
+            ln = _norm(n).split()[-1]
+            if n not in seen and (n in here or (len(last.get(ln, [])) == 1 and ln in words)):
+                out.append({"name": n, "as_printed": n, "note": None, "evidence": u[:200]})
+                seen.add(n)
+    return (out, "sentences naming inactive players, roster-checked") if len(out) >= MIN_PLAYERS else ([], "")
+
+
+TEAM_FULL = {"ARI": "Arizona Cardinals", "ATL": "Atlanta Falcons", "BAL": "Baltimore Ravens", "BUF": "Buffalo Bills",
+             "CAR": "Carolina Panthers", "CHI": "Chicago Bears", "CIN": "Cincinnati Bengals", "CLE": "Cleveland Browns",
+             "DAL": "Dallas Cowboys", "DEN": "Denver Broncos", "DET": "Detroit Lions", "GB": "Green Bay Packers",
+             "HOU": "Houston Texans", "IND": "Indianapolis Colts", "JAX": "Jacksonville Jaguars", "KC": "Kansas City Chiefs",
+             "LA": "Los Angeles Rams", "LAC": "Los Angeles Chargers", "LV": "Las Vegas Raiders", "MIA": "Miami Dolphins",
+             "MIN": "Minnesota Vikings", "NE": "New England Patriots", "NO": "New Orleans Saints", "NYG": "New York Giants",
+             "NYJ": "New York Jets", "PHI": "Philadelphia Eagles", "PIT": "Pittsburgh Steelers", "SEA": "Seattle Seahawks",
+             "SF": "San Francisco 49ers", "TB": "Tampa Bay Buccaneers", "TEN": "Tennessee Titans", "WAS": "Washington Commanders"}
+
+
+def fetch_team(team: str, kickoff_utc: datetime, now: datetime, getter=_get, roster=None) -> dict:
     index_url, site, nick = CLUB_SITES[team]
     res = {"team": team, "status": "MISSING", "source": "club official site", "index_url": index_url}
     try:
@@ -147,11 +278,19 @@ def fetch_team(team: str, kickoff_utc: datetime, now: datetime, getter=_get) -> 
             res.setdefault("skipped", []).append({"url": url, "published_utc": pub.isoformat() if pub else None,
                                                   "why": "not published in [T-120m, kickoff]"})
             continue
-        players = parse_inactives(art, nick)
+        players, method = parse_inactives(art, nick), "club INACTIVES heading list"
+        if not players:
+            try:
+                names = roster(team) if roster else roster_names(team, kickoff_utc.year if kickoff_utc.month > 2 else kickoff_utc.year - 1)
+            except Exception as e:  # noqa: BLE001 - no roster means no fallback, never a guess
+                names = []
+                res.setdefault("errors", []).append(f"roster: {e!r}"[:200])
+            if names:
+                players, method = parse_roster_checked(art, TEAM_FULL.get(team, team), names)
         if not players:
             res.setdefault("skipped", []).append({"url": url, "why": "no inactive list parsed"})
             continue
-        res.update(status="OK", url=url, published_utc=pub.isoformat(), players=players,
+        res.update(status="OK", url=url, published_utc=pub.isoformat(), players=players, parser=method,
                    sha256=hashlib.sha256(art.encode()).hexdigest())
         res.pop("reason", None)
         return res
