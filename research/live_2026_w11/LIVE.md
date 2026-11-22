@@ -1,14 +1,14 @@
-# Live tracker, Week 11 (2026-11-22 19:33 UTC)
+# Live tracker, Week 11 (2026-11-22 19:38 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## MIA 6 @ BUF 20 (0:08 - 2nd)
+## MIA 6 @ BUF 20 (Halftime)
 
-96 plays. Top yards allowed by a named defender: Z.Anderson (2/4, 41 yds), J.Rodriguez (3/3, 35 yds), M.Washington (1/1, 30 yds), J.Marshall (3/3, 28 yds)
+100 plays. Top yards allowed by a named defender: J.Rodriguez (4/4, 55 yds), Z.Anderson (2/4, 41 yds), M.Washington (1/1, 30 yds), J.Marshall (3/3, 28 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
-| DJ Moore (BUF) | 6 | 3.2 | 59 | 36.9 | 48.5 | 0 |  |  |
+| DJ Moore (BUF) | 7 | 3.2 | 79 | 36.9 | 48.5 | 0 |  |  |
 | Khalil Shakir (BUF) | 1 | 2.9 | 32 | 31.9 | 36.5 | 2 |  |  |
 | Dawson Knox (BUF) | 1 | 2.2 | 23 | 14.5 | 20.5 | 0 |  |  |
 | Keon Coleman (BUF) | 2 | 2.5 | 17 | 26.7 | 30.5 | 0 |  |  |
@@ -41,9 +41,9 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | George Pickens (DAL) | 3 | 5.5 | 22 | 65.5 | 70.5 | 6 |  |  |
 | Elic Ayomanor (TEN) | 1 | 3.7 | 12 | 43.2 | 43.5 | 0 |  |  |
 
-## TB 7 @ DET 10 (Halftime)
+## TB 7 @ DET 10 (13:21 - 3rd)
 
-83 plays. Top yards allowed by a named defender: T.Smith (3/3, 62 yds), B.Morrison (3/3, 60 yds), R.Ya-Sin (4/4, 33 yds), A.Anzalone (3/3, 25 yds)
+90 plays. Top yards allowed by a named defender: T.Smith (3/3, 62 yds), B.Morrison (3/3, 60 yds), R.Ya-Sin (4/4, 33 yds), A.Anzalone (4/4, 32 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -51,12 +51,12 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Jameson Williams (DET) | 2 | 2.9 | 33 | 36.0 | 50.5 | 0 |  |  |
 | Amon-Ra St. Brown (DET) | 4 | 5.2 | 30 | 57.7 | 81.5 | 0 |  |  |
 | Bucky Irving (TB) | 1 | 2.2 | 16 | 10.3 | 15.5 | 12 | 69.6 | 65.5 |
+| Jahmyr Gibbs (DET) | 2 | 3.6 | 4 | 24.0 | 33.5 | 20 | 74.6 | 85.5 |
 | Kenny Gainwell (TB) | 1 | 1.6 | 10 | 8.8 | 12.5 | 12 | 26.8 | 17.5 |
-| Tez Johnson (TB) | 2 | 1.5 | 17 | 15.7 | 20.5 | 0 |  |  |
 
-## ARI 7 @ KC 27 (Halftime)
+## ARI 7 @ KC 27 (14:16 - 3rd)
 
-92 plays. Top yards allowed by a named defender: K.Clark (2/2, 35 yds), J.Gibbens (3/3, 30 yds), K.King (2/2, 26 yds), J.Canady (1/1, 25 yds)
+96 plays. Top yards allowed by a named defender: K.Clark (2/2, 35 yds), J.Gibbens (3/3, 30 yds), K.King (2/2, 26 yds), J.Canady (1/1, 25 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -64,12 +64,12 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Travis Kelce (KC) | 6 | 3.4 | 74 | 32.5 | 41.5 | 0 |  |  |
 | Rashee Rice (KC) | 6 | 4.1 | 53 | 51.0 | 48.5 | 0 |  |  |
 | Trey McBride (ARI) | 3 | 7.1 | 17 | 57.6 | 51.5 | 4 |  |  |
+| Tyler Allgeier (ARI) | 0 | 2.6 | 0 | 14.4 | 8.5 | 11 | 28.5 | 28.5 |
 | Bam Knight (ARI) | 1 | 2.2 | 10 | 12.6 | 8.5 | 1 | 17.4 | 24.5 |
-| Elijah Higgins (ARI) | 1 | 2.2 | 4 | 17.1 | 12.5 | 0 |  |  |
 
-## PIT 3 @ PHI 13 (Halftime)
+## PIT 3 @ PHI 13 (14:04 - 3rd)
 
-82 plays. Top yards allowed by a named defender: K.Henry (1/1, 38 yds), M.Epps (3/3, 17 yds), J.Trotter (2/2, 15 yds), J.Dean (2/2, 13 yds)
+86 plays. Top yards allowed by a named defender: K.Henry (1/1, 38 yds), M.Epps (3/3, 17 yds), J.Trotter (2/2, 15 yds), J.Dean (2/2, 13 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -78,18 +78,18 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Germie Bernard (PIT) | 4 | 3.3 | 34 | 27.3 | 28.5 | 0 |  |  |
 | Darius Cooper (PHI) | 1 | 2.7 | 29 | 27.7 | 17.0 | 0 |  |  |
 | Pat Freiermuth (PIT) | 4 | 2.5 | 26 | 20.6 | 21.5 | 0 |  |  |
-| DeVonta Smith (PHI) | 2 | 6.9 | 21 | 71.3 | 54.5 | 0 |  |  |
+| Rico Dowdle (PIT) | 4 | 2.3 | 19 | 10.9 | 9.5 | 3 | 27.0 | 37.5 |
 
-## BAL 26 @ CAR 22 (1:15 - 2nd)
+## BAL 26 @ CAR 22 (0:15 - 2nd)
 
-89 plays. Top yards allowed by a named defender: K.Hamilton (4/4, 56 yds), T.Moehrig (2/2, 40 yds), W.Lee (1/2, 26 yds), M.Jackson (2/4, 19 yds)
+98 plays. Top yards allowed by a named defender: K.Hamilton (4/4, 56 yds), T.Moehrig (2/2, 40 yds), W.Lee (1/2, 26 yds), M.Jackson (2/4, 19 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
+| Justice Hill (BAL) | 3 | 3.4 | 22 | 14.5 | 15.5 | 55 | 19.8 | 13.5 |
 | Rashod Bateman (BAL) | 2 | 1.9 | 67 | 16.7 | 25.5 | 0 |  |  |
-| Justice Hill (BAL) | 1 | 3.4 | 9 | 14.5 | 15.5 | 55 | 19.8 | 13.5 |
+| Derrick Henry (BAL) | 2 | 1.6 | 8 | 5.5 | 8.5 | 55 | 48.7 | 64.5 |
 | Zay Flowers (BAL) | 5 | 4.3 | 54 | 42.6 | 69.0 | 0 |  |  |
-| Derrick Henry (BAL) | 2 | 1.6 | 8 | 5.5 | 8.5 | 45 | 48.7 | 64.5 |
 | Chuba Hubbard (CAR) | 0 | 3.3 | 0 | 14.9 | 20.5 | 51 | 68.9 | 74.5 |
 | Jalen Coker (CAR) | 1 | 2.9 | 35 | 29.0 | 42.5 | 0 |  |  |
 
