@@ -1,4 +1,4 @@
-# Live tracker, Week 11 (2026-11-22 19:43 UTC)
+# Live tracker, Week 11 (2026-11-22 19:48 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
@@ -15,22 +15,22 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Caleb Douglas (MIA) | 1 | 3.7 | 14 | 44.9 | 48.5 | 0 |  |  |
 | Malik Washington (MIA) | 0 | 3.3 | 0 | 32.0 | 29.5 | 11 |  |  |
 
-## NO 10 @ CHI 16 (Halftime)
+## NO 10 @ CHI 16 (13:37 - 3rd)
 
-94 plays. Top yards allowed by a named defender: C.Lewis (3/3, 39 yds), J.Blackmon (2/2, 33 yds), N.Sewell (1/1, 24 yds), Timeout #1. (1/1, 14 yds)
+97 plays. Top yards allowed by a named defender: C.Lewis (4/4, 49 yds), J.Blackmon (2/2, 33 yds), N.Sewell (1/1, 24 yds), Timeout #1. (1/1, 14 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
+| Chris Olave (NO) | 3 | 4.1 | 48 | 44.1 | 68.5 | 0 |  |  |
 | Devaughn Vele (NO) | 3 | 2.2 | 39 | 20.2 | 22.5 | 0 |  |  |
-| Chris Olave (NO) | 2 | 4.1 | 38 | 44.1 | 68.5 | 0 |  |  |
 | Rome Odunze (CHI) | 2 | 2.7 | 35 | 30.4 | 45.5 | 0 |  |  |
 | D'Andre Swift (CHI) | 2 | 2.0 | 8 | 9.2 | 15.5 | 26 | 64.4 | 65.5 |
 | Colston Loveland (CHI) | 2 | 3.8 | 27 | 31.2 | 50.0 | 0 |  |  |
 | Kalif Raymond (CHI) | 1 | 1.9 | 14 | 15.0 | 21.0 | 0 |  |  |
 
-## TEN 9 @ DAL 27 (14:35 - 3rd)
+## TEN 16 @ DAL 27 (13:08 - 3rd)
 
-95 plays. Top yards allowed by a named defender: Jo.Williams (4/4, 58 yds), J.Barron (3/3, 30 yds), A.Hill (1/1, 29 yds), M.Hooker (2/2, 27 yds)
+98 plays. Top yards allowed by a named defender: Jo.Williams (4/4, 58 yds), J.Barron (3/3, 30 yds), A.Hill (1/1, 29 yds), M.Hooker (2/2, 27 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -41,22 +41,22 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | George Pickens (DAL) | 3 | 5.5 | 22 | 65.5 | 70.5 | 6 |  |  |
 | Calvin Ridley (TEN) | 1 | 1.7 | 15 | 17.8 | 7.5 | 0 |  |  |
 
-## TB 7 @ DET 10 (12:25 - 3rd)
+## TB 7 @ DET 10 (11:17 - 3rd)
 
-93 plays. Top yards allowed by a named defender: T.Smith (3/3, 62 yds), B.Morrison (3/3, 60 yds), R.Ya-Sin (4/4, 33 yds), A.Anzalone (4/4, 32 yds)
+98 plays. Top yards allowed by a named defender: T.Smith (3/3, 62 yds), B.Morrison (3/3, 60 yds), R.Ya-Sin (4/4, 33 yds), A.Anzalone (4/4, 32 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Sam LaPorta (DET) | 3 | 3.1 | 62 | 28.0 | 35.0 | 0 |  |  |
+| Kenny Gainwell (TB) | 2 | 1.6 | 26 | 8.8 | 12.5 | 15 | 26.8 | 17.5 |
+| Jahmyr Gibbs (DET) | 2 | 3.6 | 4 | 24.0 | 33.5 | 30 | 74.6 | 85.5 |
 | Jameson Williams (DET) | 2 | 2.9 | 33 | 36.0 | 50.5 | 0 |  |  |
 | Amon-Ra St. Brown (DET) | 4 | 5.2 | 30 | 57.7 | 81.5 | 0 |  |  |
 | Bucky Irving (TB) | 1 | 2.2 | 16 | 10.3 | 15.5 | 12 | 69.6 | 65.5 |
-| Kenny Gainwell (TB) | 1 | 1.6 | 10 | 8.8 | 12.5 | 15 | 26.8 | 17.5 |
-| Jahmyr Gibbs (DET) | 2 | 3.6 | 4 | 24.0 | 33.5 | 20 | 74.6 | 85.5 |
 
-## ARI 7 @ KC 27 (11:53 - 3rd)
+## ARI 7 @ KC 27 (8:56 - 3rd)
 
-99 plays. Top yards allowed by a named defender: K.Clark (2/2, 35 yds), J.Gibbens (3/3, 30 yds), K.King (2/2, 26 yds), J.Canady (1/1, 25 yds)
+105 plays. Top yards allowed by a named defender: J.Canady (2/2, 35 yds), K.Clark (2/2, 35 yds), J.Gibbens (3/3, 30 yds), K.King (2/2, 26 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -67,9 +67,9 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Bam Knight (ARI) | 1 | 2.2 | 10 | 12.6 | 8.5 | 6 | 17.4 | 24.5 |
 | Tyler Allgeier (ARI) | 0 | 2.6 | 0 | 14.4 | 8.5 | 13 | 28.5 | 28.5 |
 
-## PIT 6 @ PHI 13 (13:43 - 3rd)
+## PIT 6 @ PHI 13 (12:52 - 3rd)
 
-91 plays. Top yards allowed by a named defender: K.Henry (1/1, 38 yds), M.Epps (3/3, 17 yds), J.Trotter (2/2, 15 yds), J.Dean (2/2, 13 yds)
+95 plays. Top yards allowed by a named defender: K.Henry (1/1, 38 yds), M.Epps (3/3, 17 yds), J.Trotter (2/2, 15 yds), J.Dean (2/2, 13 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
