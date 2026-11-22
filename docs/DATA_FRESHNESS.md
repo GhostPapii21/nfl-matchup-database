@@ -68,3 +68,17 @@ For live-window sources, limits tighten as kickoff approaches. The tightest wind
 - Public NGS weekly files (passing, receiving, rushing) do not include route type, target location, QB pass-location
   splits, success-by-location vs a defense, or likely defenders. Those fields are listed MISSING/unknown and are
   not filled with zero. Coverage is week/team (the files have no `game_id`).
+
+## Main-defender matchup fields (pipeline/matchup_sources.py, refs NFL-47, refs NFL-56)
+
+The `ngs_defender_matchup` row now carries a `matchup_fields` block with a status per field:
+
+| Field | Source | Status |
+|---|---|---|
+| target_location, qb_pass_location, qb_success_vs_defense | nflverse play-by-play (`pass_location` x `pass_length`, `success`, `epa`), weeks before the target week | FILLED only when the play_by_play row is FRESH; otherwise it carries that row's STALE/GAP/MISSING |
+| receiver_routes, rb_routes | nflverse `pbp_participation_<season>` `route` (2026 file not published as of 2026-11-22), else a PFF capture `routes_run` column | MISSING until one exists |
+| likely_defenders | PFF matchups tool capture (local, never committed: the repo is public and PFF is paid) | PFF_PROJECTED (candidate, unverified); VERIFIED only on rows with `assignment_evidence` |
+
+QB-vs-defense is shown side by side (QB's own zone rate next to the defense's allowed rate); no blended number is made.
+Nothing is estimated: unfilled fields are MISSING / "unknown", never zero. The row's own status (and so the 100k gate)
+is still decided by the public NGS files, as before.
