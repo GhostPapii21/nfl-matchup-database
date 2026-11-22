@@ -1,0 +1,11 @@
+nflverse_game_id,gap_id,severity,section,detail
+2026_02_MIN_CHI,supplied_identifiers,note,game_meta,nflverse_game_id and week are not printed on the game summary. Ingest supplied nflverse_game_id=2026_02_MIN_CHI and week=2.
+2026_02_MIN_CHI,field_goal_result_notation,note,field_goals,The game summary prints made field goals in parentheses and missed field goals without them ('Field Goals (made ( ) & missed)'). result reads that notation. It is not computed from the score.
+2026_02_MIN_CHI,first_half_scoring_reprint,note,scoring_plays,The first-half summary repeats the scoring plays already listed on the game summary page. Those repeat lines are not copied into scoring_plays.
+2026_02_MIN_CHI,drive_line,gap,drives,"9 6:21 1:09 5:12 Blocked FG, Downs MIN 12 11 62 5 67 4 CHI 21 Field Goal"
+2026_02_MIN_CHI,drive_line,gap,drives,"9 12:58 6:21 6:37 Punt CHI 33 12 62 0 62 3 * MIN 5 Blocked FG, Downs"
+2026_02_MIN_CHI,first_half_score_reprint,note,quarter_scores,"First-half period score lines are a reprint of quarters 1 and 2, not a second scoreboard: Vikings 3 3=6 Vikings 14:45"
+2026_02_MIN_CHI,longest_plays_unparsed,gap,longest_plays,"Ten Longest Plays is not a CSV. pdftotext can wrap a play description into the next row, so those yard and quarter cells are not reliable. The same plays remain in play_by_play."
+2026_02_MIN_CHI,attempts_differ_from_targets,note,passing,Pass attempts and receiving targets are both stored as printed. MIN printed pass attempts 20 and printed targets 19 differ; CHI printed pass attempts 35 and printed targets 30 differ.
+2026_02_MIN_CHI,first_half_defense_is_printed_subset,note,defense,The first-half defensive table lists 8 players and the final table lists 46. The first-half rows are stored as printed and were not filled from the play-by-play. Example: a first-half sack can be absent from the first-half defensive list.
+2026_02_MIN_CHI,bracket_return_rows,note,returns,[DOWNED] and [TOUCHBACK] rows are kept. The printed Total does not include them. bracket_row marks those printed labels.
