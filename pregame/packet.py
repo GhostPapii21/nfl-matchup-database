@@ -135,7 +135,8 @@ def player_baselines(off_players, opp_def_sum, league_def_avg, listed_qb=None):
             continue
         f = _factor(opp_def_sum, league_def_avg, "rb_rush_yards_pg" if r["pos"] == "RB" else "rush_yards_pg")
         out.append({"player": r["player"], "pos": r["pos"], "carry_share": r["carry_share"],
-                    "rushing_yards": _baseline([g["yards"] for g in r["log"]], f), "carries": _baseline([g["carries"] for g in r["log"]], 1.0)})
+                    "rushing_yards": _baseline([g.get("official_yards", g["yards"]) for g in r["log"]], f),   # official: scrambles + kneels count
+                    "carries": _baseline([g["carries"] for g in r["log"]], 1.0)})
     qbs = off_players["quarterbacks"]
     starter = [q for q in qbs if listed_qb and q["player"].replace(" ", "").lower() == _short(listed_qb).replace(" ", "").lower()]
     for r in (starter or qbs)[:1]:                           # the schedule's listed starter when he has thrown; else the most-used passer
@@ -292,7 +293,7 @@ def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None, books
         dc = depth_chart(team, data.get("depth_charts"))
         starters = dc.pop("starter_ids")
         d_sum, o_sum = M.summarize(d_n), M.summarize(o_n)
-        players = M.offense_players(p, team, gids, done)
+        players = M.offense_players(p, team, gids, done, kneels=data.get("kneels"))
         shares = snap_shares(team, data.get("snap_counts"), weeks)
         teams[team] = {
             "window": {"games": len(gids), "weeks": weeks, "requested": window},
