@@ -392,6 +392,84 @@ ABBR = {f"{c} {n}".lower(): a for a, (c, n) in {
 SW_OPP = {"LAR": "LA", "WSH": "WAS", "JAC": "JAX"}
 
 
+# ----------------------------------------------------------------------------------------------- Action Network (game lines)
+AN = "https://api.actionnetwork.com/web/v2/scoreboard/nfl?bookIds={ids}&periods=event"
+AN_BOOKS = {68: "draftkings", 69: "fanduel", 75: "betmgm", 123: "williamhill_us", 71: "betrivers", 79: "bet365",
+            15: "consensus", 30: "open"}                    # 15/30 are Action Network's consensus and opening line: reference only
+AN_REFERENCE = {"consensus", "open"}
+RAW_DIR = Path(__file__).resolve().parent / "direct_lines" / "raw"
+RAW_KEEP = 72
+
+
+def _get_bytes(url, timeout=30):
+    req = urllib.request.Request(url, headers=UA)
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read()
+
+
+def save_raw(source: str, body: bytes, url: str, fetched_utc: str) -> dict:
+    """Keep the exact response body (gzipped) so every quote traces to bytes: returns {url, sha256, bytes, file}."""
+    import gzip
+    import hashlib
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    sha = hashlib.sha256(body).hexdigest()
+    f = RAW_DIR / f"{source}_{fetched_utc.replace(':', '').replace('-', '')[:15]}Z_{sha[:12]}.json.gz"
+    f.write_bytes(gzip.compress(body, mtime=0))
+    old = sorted(RAW_DIR.glob(f"{source}_*.json.gz"))
+    for x in old[:-RAW_KEEP]:
+        x.unlink()
+    return {"source": source, "url": url, "sha256": sha, "bytes": len(body), "fetched_utc": fetched_utc,
+            "file": str(f.relative_to(ROOT)) if f.is_relative_to(ROOT) else str(f)}
+
+
+def actionnetwork(probe: dict | None = None) -> dict:
+    """Full-game spread, total and moneyline from Action Network's public scoreboard JSON (the feed its odds pages read):
+    DraftKings, FanDuel, BetMGM, Caesars, BetRivers, bet365, plus its consensus and opening line as references. No key.
+    The exact response is saved (pregame/direct_lines/raw/) and hashed. The feed has no per-price update time, so a book's
+    as-of time is the pull time. Public ticket/money percentages are kept for research."""
+    out = {"status": None, "rows": [], "events": {}, "fetch": []}
+    url = AN.format(ids=",".join(str(i) for i in AN_BOOKS))
+    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    try:
+        body = _get_bytes(url)
+        doc = json.loads(body.decode("utf-8", "replace"))
+    except Exception as e:  # noqa: BLE001 - recorded, never filled in
+        out["status"] = f"FAILED: {type(e).__name__}: {e}"[:200]
+        return out
+    out["fetch"].append(save_raw("actionnetwork", body, url, now))
+    if probe is not None:
+        probe["actionnetwork"] = {k: doc.get(k) for k in ("league",)} | {"games": (doc.get("games") or [])[:1]}
+    for g in doc.get("games") or []:
+        if g.get("status") not in ("scheduled", "pre_game", None):       # pregame lines only
+            continue
+        teams = {t["id"]: t.get("abbr") for t in g.get("teams") or []}
+        teams = {k: {"LAR": "LA", "WSH": "WAS", "JAC": "JAX"}.get(v, v) for k, v in teams.items()}
+        home, away = teams.get(g.get("home_team_id")), teams.get(g.get("away_team_id"))
+        if not home or not away:
+            continue
+        ev = str(g.get("id"))
+        out["events"][ev] = {"name": f"{away}@{home}", "away": away, "home": home, "start": g.get("start_time")}
+        for bid, mk in (g.get("markets") or {}).items():
+            book = AN_BOOKS.get(int(bid))
+            if not book:
+                continue
+            for kind in ("spread", "total", "moneyline"):
+                for o in ((mk.get("event") or {}).get(kind) or []):
+                    if o.get("is_live") or o.get("is_alt_market") or o.get("odds") is None:
+                        continue
+                    side = {"home": home, "away": away, "over": "Over", "under": "Under"}.get(o.get("side"))
+                    if not side:
+                        continue
+                    r = _row(book, ev, kind, None, side, None if kind == "moneyline" else o.get("value"), o.get("odds"))
+                    r["reference_only"] = book in AN_REFERENCE
+                    bi = o.get("bet_info") or {}
+                    if bi:
+                        r["public"] = {"tickets_pct": (bi.get("tickets") or {}).get("percent"), "money_pct": (bi.get("money") or {}).get("percent")}
+                    out["rows"].append(r)
+    out["status"] = "OK" if out["rows"] else "NO_ROWS: feed answered but held no pregame game lines"
+    return out
+
+
 def startwho(probe: dict | None = None) -> dict:
     """StartWho's public projections API: every sportsbook's player prop line it lists (DraftKings, FanDuel, Caesars, BetMGM,
     BetRivers, Fanatics, Bovada, BetOnline). Rows carry each book's own name; 'event' is AWAY@HOME."""
@@ -475,7 +553,9 @@ def game_ids(index: Path) -> dict:
 def run(probe=False, out_dir: Path = OUT, index: Path = ROOT / "pregame" / "packets" / "latest.json") -> dict:
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     pr = {} if probe else None
-    books = {"draftkings": draftkings(pr), "fanduel": fanduel(pr), "pinnacle": pinnacle(pr), "caesars": caesars(pr), "startwho": startwho(pr)}
+    books = {"draftkings": draftkings(pr), "fanduel": fanduel(pr), "pinnacle": pinnacle(pr), "caesars": caesars(pr), "startwho": startwho(pr), "actionnetwork": actionnetwork(pr)}
+    if books["fanduel"]["status"] == "OK":       # FanDuel's own feed is primary; Action Network's FanDuel copy is only a fallback
+        books["actionnetwork"]["rows"] = [r for r in books["actionnetwork"]["rows"] if r["book"] != "fanduel"]
     ids = game_ids(index)
     per_game = {}
     for name, b in books.items():
@@ -490,7 +570,8 @@ def run(probe=False, out_dir: Path = OUT, index: Path = ROOT / "pregame" / "pack
     summary = {"retrieved_utc": now, "books": {k: {"status": v["status"], "rows": len(v["rows"]), "events": len(v["events"]),
                                                    **({"errors": v["errors"]} if v.get("errors") else {}), **({"state": v["state"]} if v.get("state") else {}),
                                                    **({"prop_types": v["prop_types"]} if v.get("prop_types") else {}),
-                                                   **({"market_names": dict(sorted(v["market_names"].items()))} if v.get("market_names") else {})}
+                                                   **({"market_names": dict(sorted(v["market_names"].items()))} if v.get("market_names") else {}),
+                                                   **({"fetch": v["fetch"]} if v.get("fetch") else {})}
                                                for k, v in books.items()}, "games": {}}
     for gid, rows in per_game.items():
         rows = list(rows.values())

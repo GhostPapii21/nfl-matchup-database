@@ -1,0 +1,242 @@
+{
+ "schema": "snapshot-score/1",
+ "game_id": "2026_10_WAS_NYG",
+ "locked_utc": "2026-11-12T17:12:58+00:00",
+ "scored_utc": "2026-11-22T12:24:28+00:00",
+ "final": {
+  "home_score": 21,
+  "away_score": 24,
+  "source": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20261112",
+  "espn_event": "401873052",
+  "status": "STATUS_FINAL",
+  "quarters": {
+   "q1": [
+    0,
+    0
+   ],
+   "q2": [
+    7,
+    10
+   ],
+   "q3": [
+    7,
+    7
+   ],
+   "q4": [
+    7,
+    7
+   ]
+  },
+  "retrieved_utc": "2026-11-22T12:24:28+00:00"
+ },
+ "model": {
+  "p_home_win_ex_tie": 0.2115738215028995,
+  "mean_margin": -9.51043,
+  "mean_total": 34.61163
+ },
+ "metrics": {
+  "win_logloss": 0.23771649966693187,
+  "win_brier": 0.04476348194534078,
+  "margin_crps": 4.145001122100001,
+  "total_crps": 6.4277409617000005,
+  "margin_pit": 0.71534,
+  "total_pit": 0.8338850000000001,
+  "margin_abs_err": 6.5104299999999995,
+  "total_abs_err": 10.388370000000002,
+  "brier_model_mean_lines": 0.2083673468151135,
+  "brier_book_mean_lines": 0.26926095083333335
+ },
+ "vs_market": [
+  {
+   "market": "spread",
+   "book": "draftkings",
+   "side": "Washington Commanders",
+   "line": 2.5,
+   "p_model_cover": 0.82938,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.5,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.029111184399999997,
+   "brier_book": 0.25
+  },
+  {
+   "market": "spread",
+   "book": "williamhill_us",
+   "side": "Washington Commanders",
+   "line": 2.0,
+   "p_model_cover": 0.81673,
+   "p_model_push": 0.01265,
+   "p_book_novig": 0.5011,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.03358789290000001,
+   "brier_book": 0.24890121
+  },
+  {
+   "market": "spread",
+   "book": "fanduel",
+   "side": "Washington Commanders",
+   "line": 1.5,
+   "p_model_cover": 0.81673,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.4783,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.03358789290000001,
+   "brier_book": 0.27217089000000005
+  },
+  {
+   "market": "spread",
+   "book": "hardrockbet",
+   "side": "Washington Commanders",
+   "line": 2.0,
+   "p_model_cover": 0.81673,
+   "p_model_push": 0.01265,
+   "p_book_novig": 0.5,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.03358789290000001,
+   "brier_book": 0.25
+  },
+  {
+   "market": "spread",
+   "book": "pinnacle",
+   "side": "Washington Commanders",
+   "line": 2.5,
+   "p_model_cover": 0.82938,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.5127,
+   "reference_only": true,
+   "result": 1.0,
+   "brier_model": 0.029111184399999997,
+   "brier_book": 0.23746128999999996
+  },
+  {
+   "market": "total",
+   "book": "draftkings",
+   "side": "Over",
+   "line": 40.5,
+   "p_model": 0.28097,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.5174,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.5170041409000001,
+   "brier_book": 0.23290276000000001
+  },
+  {
+   "market": "total",
+   "book": "williamhill_us",
+   "side": "Over",
+   "line": 41.0,
+   "p_model": 0.2529,
+   "p_model_push": 0.02807,
+   "p_book_novig": 0.4946,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.55815841,
+   "brier_book": 0.2554291600000001
+  },
+  {
+   "market": "total",
+   "book": "fanduel",
+   "side": "Over",
+   "line": 41.5,
+   "p_model": 0.2529,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.4783,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.55815841,
+   "brier_book": 0.27217089000000005
+  },
+  {
+   "market": "total",
+   "book": "hardrockbet",
+   "side": "Over",
+   "line": 41.0,
+   "p_model": 0.2529,
+   "p_model_push": 0.02807,
+   "p_book_novig": 0.5108,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.55815841,
+   "brier_book": 0.23931663999999997
+  },
+  {
+   "market": "total",
+   "book": "pinnacle",
+   "side": "Over",
+   "line": 40.5,
+   "p_model": 0.28097,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.5171,
+   "reference_only": true,
+   "result": 1.0,
+   "brier_model": 0.5170041409000001,
+   "brier_book": 0.23319241
+  },
+  {
+   "market": "moneyline",
+   "book": "draftkings",
+   "side": "Washington Commanders",
+   "p_model_win": 0.7804,
+   "p_model_win_ex_tie": 0.7884261784971004,
+   "p_book_novig": 0.4486,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.04476348194534082,
+   "brier_book": 0.30404196
+  },
+  {
+   "market": "moneyline",
+   "book": "williamhill_us",
+   "side": "Washington Commanders",
+   "p_model_win": 0.7804,
+   "p_model_win_ex_tie": 0.7884261784971004,
+   "p_book_novig": 0.4505,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.04476348194534082,
+   "brier_book": 0.30195025
+  },
+  {
+   "market": "moneyline",
+   "book": "fanduel",
+   "side": "Washington Commanders",
+   "p_model_win": 0.7804,
+   "p_model_win_ex_tie": 0.7884261784971004,
+   "p_book_novig": 0.4533,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.04476348194534082,
+   "brier_book": 0.29888088999999995
+  },
+  {
+   "market": "moneyline",
+   "book": "hardrockbet",
+   "side": "Washington Commanders",
+   "p_model_win": 0.7804,
+   "p_model_win_ex_tie": 0.7884261784971004,
+   "p_book_novig": 0.4474,
+   "reference_only": false,
+   "result": 1.0,
+   "brier_model": 0.04476348194534082,
+   "brier_book": 0.30536675999999996
+  },
+  {
+   "market": "moneyline",
+   "book": "pinnacle",
+   "side": "Washington Commanders",
+   "p_model_win": 0.7804,
+   "p_model_win_ex_tie": 0.7884261784971004,
+   "p_book_novig": 0.456,
+   "reference_only": true,
+   "result": 1.0,
+   "brier_model": 0.04476348194534082,
+   "brier_book": 0.29593600000000003
+  }
+ ],
+ "note": "One game. Aggregate across future games under the NFL-44 protocol before any calibration claim."
+}
