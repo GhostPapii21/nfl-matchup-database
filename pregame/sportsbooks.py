@@ -266,6 +266,8 @@ def fanduel(probe: dict | None = None) -> dict:
                     player = re.sub(r"\s*\d+\+.*$", "", name).strip() or None
                     line, side = (float(mm.group(1)) - 0.5 if mm else None), "Over"
                 out["rows"].append(_row("fanduel", ev, kind, player, side, line, odds))
+                if kind.split("_")[-1] in ("spread", "total", "moneyline"):
+                    out["rows"][-1]["mname"] = m.get("marketName")         # FanDuel's own market name, for game markets
           except Exception as e:  # noqa: BLE001 - one odd market never sinks the run
             out.setdefault("errors", []).append(f"{m.get('marketName')}: {type(e).__name__}"[:120])
     out["status"] = "OK" if out["rows"] else "NO_ROWS: endpoint answered but no kept markets were found (format may have changed)"
@@ -481,7 +483,7 @@ def run(probe=False, out_dir: Path = OUT, index: Path = ROOT / "pregame" / "pack
             gid = ids.get((ev.get("away"), ev.get("home")))
             if gid:
                 rr = {k: v for k, v in r.items() if k != "event"}
-                key = tuple(rr.get(k) for k in ("book", "market", "player", "side", "line"))
+                key = tuple(rr.get(k) for k in ("book", "market", "player", "side", "line", "mname"))
                 per_game.setdefault(gid, {}).setdefault(key, rr)      # the same market appears on several pages
     out_dir.mkdir(parents=True, exist_ok=True)
     summary = {"retrieved_utc": now, "books": {k: {"status": v["status"], "rows": len(v["rows"]), "events": len(v["events"]),
