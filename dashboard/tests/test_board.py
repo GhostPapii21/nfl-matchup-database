@@ -249,3 +249,24 @@ def test_calibration_lifts_carries_inside_range_only_and_stays_monotonic():
     ch = O.chances(car, O.CARRY_THRESHOLDS, "carries")
     vals = [ch[str(t)] for t in sorted(O.CARRY_THRESHOLDS)]
     assert all(a >= b for a, b in zip(vals, vals[1:]))
+
+
+def test_backs_who_split_starts_are_scaled_back_to_the_team_total():
+    from dashboard import opportunity as O
+    a = _b("Back One", 0.60, 15)
+    b = _b("Back Two", 0.60, 15)
+    b["log"] = [{"week": w, "carries": 15, "yards": 60} for w in (5, 6, 9)]       # each started part of the season, both active now
+    a["log"] = [{"week": w, "carries": 15, "yards": 60} for w in (7, 8, 9)]
+    out = O.board_side(_side([], [a, b]), {}, None, _pools(), set())
+    used = [r["inputs"]["carry_share_used"] for r in out["rushers"]]
+    sc = out["share_scaling"]
+    assert sc["carries_scale"] < 1 and sum(used) <= sc["rb_share_of_team_carries"] + 0.01
+
+
+def test_players_with_no_recent_snaps_do_not_shrink_the_starters():
+    from dashboard import opportunity as O
+    a = _b("Starter", 0.60, 15)
+    gone = _b("Gone Back", 0.60, 15)
+    gone["log"] = [{"week": w, "carries": 15, "yards": 60} for w in (5, 6)]       # no snaps in the last two games
+    out = O.board_side(_side([], [a, gone]), {}, None, _pools(), set())
+    assert out["share_scaling"]["carries_scale"] == 1.0

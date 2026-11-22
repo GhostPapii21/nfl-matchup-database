@@ -40,3 +40,11 @@ def test_stale_prices_dropped_and_long_shots_never_picked():
             _r("fanduel", "alt_receptions", "Over", 7.5, 900)]                                    # not a modeled alt market
     p = B.side_best_bets(_side(YDS, {**RECS, "5": 0.45}), rows)["picks"][0]
     assert p["best"]["book"] != "williamhill_us" and p["best"]["break_even"] >= B.MIN_BREAK_EVEN
+
+
+def test_one_sided_ladder_rungs_in_the_main_market_are_never_the_pick():
+    rows = [_r("pinnacle", "receptions", "Over", 4.5, -110), _r("pinnacle", "receptions", "Under", 4.5, -110),
+            _r("fanduel", "receptions", "Over", 4.5, -110), _r("fanduel", "receptions", "Under", 4.5, -110),
+            _r("fanduel", "receptions", "Over", 6.5, 300)]                         # one-sided rung listed under receptions
+    picks = B.side_best_bets(_side(YDS, {**RECS, "7": 0.40}), rows)["picks"]
+    assert all(p["best"]["line"] == 4.5 for p in picks)
