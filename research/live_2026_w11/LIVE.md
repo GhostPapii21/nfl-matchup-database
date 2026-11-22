@@ -1,16 +1,16 @@
-# Live tracker, Week 11 (2026-11-22 23:05 UTC)
+# Live tracker, Week 11 (2026-11-22 23:10 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## NYJ 20 @ LAC 10 (15:00 - 4th)
+## NYJ 20 @ LAC 17 (13:01 - 4th)
 
-120 plays. Top yards allowed by a named defender: E.Molden (2/2, 29 yds), C.Hart (2/2, 21 yds), D.Phillips (2/2, 19 yds), J.Sherwood (2/2, 17 yds)
+125 plays. Top yards allowed by a named defender: E.Molden (2/2, 29 yds), C.Hart (2/2, 21 yds), D.Phillips (2/2, 19 yds), J.Sherwood (2/2, 17 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
+| Omarion Hampton (LAC) | 1 | 1.7 | 4 | 8.9 | 6.5 | 84 | 55.4 | 63.5 |
 | Braelon Allen (NYJ) | 1 | 1.8 | 9 | 6.3 | 7.5 | 60 | 41.2 | 33.5 |
 | Breece Hall (NYJ) | 3 | 2.3 | 14 | 13.7 | 21.5 | 40 | 36.1 | 49.5 |
-| Omarion Hampton (LAC) | 1 | 1.7 | 4 | 8.9 | 6.5 | 47 | 55.4 | 63.5 |
 | Kimani Vidal (LAC) | 1 | 1.7 | 15 | 8.1 | 7.5 | 36 | 23.2 | 14.5 |
 | Adonai Mitchell (NYJ) | 2 | 3.4 | 30 | 45.9 | 44.5 | 0 |  |  |
 | Kenyon Sadiq (NYJ) | 3 | 2.2 | 30 | 20.1 | 24.0 | 0 |  |  |
