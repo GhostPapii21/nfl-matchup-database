@@ -1,0 +1,160 @@
+{
+ "semantics": {
+  "status": "NFL43_SEMANTICS_V1",
+  "overtime": "official_2025_regular_season",
+  "still_unsupported": [
+   "kick-play fouls",
+   "joint_producer penalties/return yards",
+   "blocked kicks/onside/fakes"
+  ],
+  "still_unsupported_status": "OK",
+  "penalties": {
+   "mode": "canonical_log_v1",
+   "source": "data/redistributable/teams/penalty_plays_2026.csv (canonical, ESPN-reconciled 228/238)",
+   "source_pulled_et": "2026-11-01 about 9 PM ET (exact minute unknown; PENALTY_NOTES.md)",
+   "weeks_used": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "week_asof_exclusive": 11,
+   "coverage_gap_weeks": [
+    9,
+    10
+   ],
+   "unknown_weeks": [
+    9,
+    10
+   ],
+   "unknown_weeks_policy": "UNKNOWN: no canonical penalty data for these weeks; rates use weeks_used only and do not treat the gap as zero penalties",
+   "unknown_games": [
+    "2026_08_CHI_SEA",
+    "2026_08_PHI_WAS"
+   ],
+   "unknown_games_by_team": {
+    "CHI": [
+     "2026_08_CHI_SEA"
+    ],
+    "PHI": [
+     "2026_08_PHI_WAS"
+    ],
+    "SEA": [
+     "2026_08_CHI_SEA"
+    ],
+    "WAS": [
+     "2026_08_PHI_WAS"
+    ]
+   },
+   "unknown_games_for_modeled_teams": {
+    "DEN": [],
+    "LV": []
+   },
+   "unknown_games_policy": "UNKNOWN: no canonical penalty data for these weeks/games; rates use weeks_used / games present in PEN only and do not treat the gap as zero penalties",
+   "pbp_games_in_pen_weeks": 121,
+   "season_filter": "game_id present in season-filtered penalty log (file has no season column)",
+   "games_in_file": 119,
+   "kick_play_fouls_excluded": true,
+   "per_team": {
+    "DEN|offense": {
+     "fouls": 32,
+     "no_play": 32,
+     "snaps_run": 456.0,
+     "rate_per_snap": 0.06557377049180328,
+     "yards": 210
+    },
+    "DEN|defense": {
+     "fouls": 24,
+     "no_play": 18,
+     "snaps_run": 556.0,
+     "rate_per_snap": 0.041811846689895474,
+     "yards": 178
+    },
+    "LV|offense": {
+     "fouls": 22,
+     "no_play": 20,
+     "snaps_run": 510.0,
+     "rate_per_snap": 0.04150943396226415,
+     "yards": 144
+    },
+    "LV|defense": {
+     "fouls": 23,
+     "no_play": 17,
+     "snaps_run": 501.0,
+     "rate_per_snap": 0.0444015444015444,
+     "yards": 210
+    }
+   }
+  },
+  "returns": {
+   "mode": "asof_league_v1",
+   "kick_return_td_rate": 0.0006447453255963894,
+   "punt_return_td_rate": 0.0008673026886383347,
+   "source": "nflverse play_by_play (league, weeks < target)",
+   "weeks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "kickoffs": 1551,
+   "kick_return_tds": 1,
+   "punts": 1153,
+   "punt_return_tds": 1,
+   "mean_kick_return_yards": 20.48420373952289,
+   "mean_punt_return_yards": 3.980919340849957,
+   "def_return_pools": {
+    "interception": {
+     "plays": 220,
+     "return_tds": 10,
+     "mean_return_yards": 11.404545454545454
+    },
+    "fumble_lost": {
+     "plays": 170,
+     "return_tds": 7,
+     "mean_return_yards": 1.7470588235294118
+    }
+   },
+   "def_return_mode": "LEAGUE_POOL_BY_TURNOVER_KIND (all teams, weeks < target)",
+   "label": "AS_OF_LEAGUE_RATE_NOT_TEAM_FIT"
+  },
+  "rare_plays": "off"
+ },
+ "evidence_summary": {
+  "min_n_state": 5,
+  "games_with_sparse_flags": 0,
+  "sparse_rate": 0.0,
+  "games_with_coarse_flags": 25000,
+  "coarse_rate": 1.0,
+  "defense_cond_flag_events": 0,
+  "def_interaction_events": 0,
+  "blitz_strata_events": 0,
+  "blitz_coarse_down_events": 0,
+  "per_snap_coarse_fraction": 0.1070210504169112,
+  "note": "sparse_rate = hard SPARSE/EMPTY/FALLBACK only; coarse_rate = COARSE_* support gaps"
+ },
+ "history_evidence": {
+  "n_games": 19,
+  "n_plays": 1542,
+  "teams": [
+   "DEN",
+   "LV"
+  ],
+  "weeks": [
+   1,
+   10
+  ],
+  "season": 2026,
+  "source": "data/historical/nflverse/pbp_2026_w1_10_pulled_20261122T0719ET.parquet"
+ }
+}

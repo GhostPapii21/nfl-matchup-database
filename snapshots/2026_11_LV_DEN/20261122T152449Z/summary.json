@@ -1,0 +1,135 @@
+{
+ "n": 100000,
+ "home": "DEN",
+ "away": "LV",
+ "points": {
+  "DEN": 19.84754,
+  "LV": 22.05982
+ },
+ "margin_home": {
+  "mean": -2.21228,
+  "sd": 13.261092609645708,
+  "p10_25_50_75_90": [
+   -19.0,
+   -11.0,
+   -3.0,
+   7.0,
+   14.0
+  ]
+ },
+ "total": {
+  "mean": 41.90736,
+  "sd": 12.095034428657076,
+  "p10_25_50_75_90": [
+   27.0,
+   33.0,
+   41.0,
+   50.0,
+   58.0
+  ]
+ },
+ "p_home_win": 0.42368,
+ "p_away_win": 0.5642,
+ "p_tie": 0.01212,
+ "p_ot": 0.04759,
+ "halves": {
+  "h1_home": 9.43366,
+  "h1_away": 11.52843,
+  "h2_home": 10.30471,
+  "h2_away": 10.40441
+ },
+ "quarters": {
+  "q1_home": 4.23609,
+  "q1_away": 5.67521,
+  "q2_home": 5.19757,
+  "q2_away": 5.85322,
+  "q3_home": 5.09108,
+  "q3_away": 4.58894,
+  "q4_home": 5.21363,
+  "q4_away": 5.81547
+ },
+ "nfl43": {
+  "pen_yds_home": 48.50163,
+  "pen_yds_away": 43.67199,
+  "n_pen": 13.50357,
+  "ret_td_home": 0.00698,
+  "ret_td_away": 0.00796,
+  "def_td_home": 0.10757,
+  "def_td_away": 0.0567
+ },
+ "vs_market": [
+  {
+   "market": "spread",
+   "book": "fanduel",
+   "side": "DEN",
+   "line": -10.5,
+   "p_model_cover": 0.16809,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.4854,
+   "reference_only": false
+  },
+  {
+   "market": "spread",
+   "book": "williamhill_us",
+   "side": "DEN",
+   "line": -10.5,
+   "p_model_cover": 0.16809,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.488,
+   "reference_only": false
+  },
+  {
+   "market": "total",
+   "book": "fanduel",
+   "side": "Over",
+   "line": 40.5,
+   "p_model": 0.53455,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.5,
+   "reference_only": false
+  },
+  {
+   "market": "total",
+   "book": "pinnacle",
+   "side": "Over",
+   "line": 41.0,
+   "p_model": 0.48788,
+   "p_model_push": 0.04667,
+   "p_book_novig": 0.5068,
+   "reference_only": true
+  },
+  {
+   "market": "total",
+   "book": "williamhill_us",
+   "side": "Over",
+   "line": 40.5,
+   "p_model": 0.53455,
+   "p_model_push": 0.0,
+   "p_book_novig": 0.4913,
+   "reference_only": false
+  },
+  {
+   "market": "moneyline",
+   "book": "fanduel",
+   "side": "DEN",
+   "p_model_win": 0.42368,
+   "p_model_win_ex_tie": 0.4288780013766854,
+   "p_book_novig": 0.825,
+   "reference_only": false
+  },
+  {
+   "market": "moneyline",
+   "book": "williamhill_us",
+   "side": "DEN",
+   "p_model_win": 0.42368,
+   "p_model_win_ex_tie": 0.4288780013766854,
+   "p_book_novig": 0.8167,
+   "reference_only": false
+  }
+ ],
+ "market_divergence": {
+  "max_abs_moneyline_gap": 0.39612199862331454,
+  "flag": "LARGE_DIVERGENCE_TREAT_AS_MODEL_ERROR_UNTIL_SHOWN_OTHERWISE"
+ },
+ "player_outputs": "WITHHELD: the possession sim's player credits are team-bootstrap historical rows, not a player projection model; no player numbers are published from this snapshot."
+}
