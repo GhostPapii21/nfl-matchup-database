@@ -19,6 +19,7 @@ run .                                   test_*.py
 run core/period_engine_v0               tests
 run core/possession_engine_v0           tests
 run data/gamebooks                      tests
+run data/scheme_profiles                tests
 run .                                   pregame/tests
 run .                                   dashboard/tests
 run .                                   pipeline/tests

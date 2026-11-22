@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NFL team scheme and opportunity profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "projection_ready",
+    "research_only",
+    "team",
+    "season",
+    "season_type",
+    "profile_status",
+    "opportunity_status",
+    "gamebook_status",
+    "scheme_charting_status",
+    "status_reasons",
+    "window",
+    "sources",
+    "blocked",
+    "gamebook_checks",
+    "regulation",
+    "overtime",
+    "players",
+    "trends",
+    "evidence_file",
+    "generated_utc"
+  ],
+  "properties": {
+    "schema_version": {"const": "scheme_opportunity_profile/1"},
+    "projection_ready": {"const": false},
+    "research_only": {"const": true},
+    "team": {"type": "string", "minLength": 2, "maxLength": 3},
+    "repo_alias": {"type": "string"},
+    "season": {"const": 2026},
+    "season_type": {"const": "REG"},
+    "profile_status": {"enum": ["PARTIAL", "COMPLETE", "BLOCKED"]},
+    "opportunity_status": {"enum": ["PARTIAL", "COMPLETE", "BLOCKED"]},
+    "gamebook_status": {"enum": ["PARTIAL", "COMPLETE", "BLOCKED"]},
+    "scheme_charting_status": {"enum": ["PARTIAL", "COMPLETE", "BLOCKED"]},
+    "status_reasons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["last_completed_week", "games", "game_ids", "last_game_id", "last_game_date", "bye_weeks_before_last_completed_week"],
+      "properties": {
+        "last_completed_week": {"const": 9},
+        "games": {"type": "integer", "minimum": 1},
+        "game_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "pattern": "^2026_\\d{2}_[A-Z]{2,3}_[A-Z]{2,3}$"}
+        },
+        "last_game_id": {"type": "string"},
+        "last_game_date": {"type": "string", "format": "date"},
+        "bye_weeks_before_last_completed_week": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 1, "maximum": 9}
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "url", "retrieved_utc"],
+        "properties": {
+          "name": {"type": "string"},
+          "url": {"type": "string", "minLength": 8},
+          "sha256": {"type": ["string", "null"]},
+          "retrieved_utc": {"type": "string", "minLength": 10},
+          "note": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "blocked": {"$ref": "#/$defs/blocked_group"},
+    "gamebook_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["game_id", "status", "source_url"],
+        "properties": {
+          "game_id": {"type": "string"},
+          "status": {"enum": ["MATCH", "DISAGREEMENT", "NOT_PERSISTED", "VERIFIED_NOT_PERSISTED"]},
+          "source_url": {"type": ["string", "null"]},
+          "fields": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "regulation": {"$ref": "#/$defs/phase"},
+    "overtime": {"$ref": "#/$defs/phase"},
+    "players": {"$ref": "#/$defs/player_windows"},
+    "trends": {"type": "object"},
+    "evidence_file": {"const": "data/scheme_profiles/2026/evidence_plays.csv.gz"},
+    "generated_utc": {"type": "string"}
+  },
+  "$defs": {
+    "blocked_group": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_concepts",
+        "coverage_shells",
+        "man_zone",
+        "blocking_assignments",
+        "player_matchups",
+        "personnel_packages"
+      ],
+      "properties": {
+        "route_concepts": {"$ref": "#/$defs/blocked"},
+        "coverage_shells": {"$ref": "#/$defs/blocked"},
+        "man_zone": {"$ref": "#/$defs/blocked"},
+        "blocking_assignments": {"$ref": "#/$defs/blocked"},
+        "player_matchups": {"$ref": "#/$defs/blocked"},
+        "personnel_packages": {"$ref": "#/$defs/blocked"}
+      }
+    },
+    "blocked": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "value", "observed", "reason", "source_url", "retrieved_utc"],
+      "properties": {
+        "status": {"const": "BLOCKED"},
+        "value": {"const": "unknown"},
+        "observed": {"const": false},
+        "reason": {"type": "string", "minLength": 1},
+        "source_url": {"type": "string", "minLength": 8},
+        "retrieved_utc": {"type": "string"}
+      }
+    },
+    "phase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["offense", "defense"],
+      "properties": {
+        "offense": {"type": "object"},
+        "defense": {"type": "object"}
+      }
+    },
+    "player_windows": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["season", "last_5", "last_8"],
+      "properties": {
+        "season": {"$ref": "#/$defs/player_window"},
+        "last_5": {"$ref": "#/$defs/player_window"},
+        "last_8": {"$ref": "#/$defs/player_window"}
+      }
+    },
+    "player_window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["games", "requested_games", "status", "game_ids", "targets", "carries", "unassigned_pass_plays", "unassigned_rushes"],
+      "properties": {
+        "games": {"type": "integer", "minimum": 0},
+        "requested_games": {"type": "integer", "minimum": 0},
+        "status": {"enum": ["COMPLETE", "PARTIAL"]},
+        "game_ids": {"type": "array", "items": {"type": "string"}},
+        "targets": {"type": "array"},
+        "carries": {"type": "array"},
+        "unassigned_pass_plays": {"type": "object"},
+        "unassigned_rushes": {"type": "object"}
+      }
+    }
+  }
+}
