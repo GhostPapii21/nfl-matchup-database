@@ -36,6 +36,8 @@ PLAYS = {
         '(Shotgun) J.Brissett pass incomplete short right to D.Henry (W.Lee).Carolina challenged the incomplete pass ruling, and the play was REVERSED.(Shotgun) J.Brissett pass short right to D.Henry to BLT 49 for 3 yards (W.Lee). FUMBLES (W.Lee), RECOVERED by CAR-T.Dodson at 50.'),
     'int_return_tackler': ('MIA @ BUF', 2, '0:13', 'Penalty', -1,
         '(Shotgun) J.Allen pass deep right intended for K.Shakir INTERCEPTED by J.Wood at MIA 7. J.Wood to MIA 10 for 3 yards (T.Johnson; D.Moore). FUMBLES (T.Johnson), recovered by MIA-C.Johnson at MIA 6. C.Johnson pushed ob at MIA 15 for 9 yards (K.Coleman; T.Johnson).PENALTY on MIA-J.Brents, Defensive Holding, 5 yards, enforced at BUF 47 - No Play.'),
+    'no_play': ('PIT @ PHI', 2, '6:26', 'Penalty', 11,
+        '(No Huddle) A.Rodgers pass short right to B.Skowronek to PHI 37 for 11 yards (T.Woolen). ** Injury Update: PHI-J.Campbell has returned to the game. PENALTY on PIT-B.Skowronek, Illegal Shift, 5 yards, enforced at PHI 48 - No Play.')
 }
 
 
@@ -65,7 +67,7 @@ def test_pressure_bracket_is_not_the_defender():
 
 def test_timeout_group_with_no_tackler_names_nobody():
     a = lp.attribute(PLAYS["timeout1"][5])  # NO@CHI Q1 10:01, main had "Timeout #1." as a defender
-    assert a == {"pbu": None, "int": None, "dpi": [], "tacklers": [], "catch_yards": None}
+    assert a == {"pbu": None, "int": None, "dpi": [], "tacklers": [], "catch_yards": None, "no_play": False}
 
 
 def test_timeout_group_after_real_tackler():
@@ -84,8 +86,8 @@ def test_incompletion_names_verified_pbu():
 
 def test_interception_credits_interceptor_not_return_tacklers():
     assert lp.attribute(PLAYS["int"][5])["int"] == "T.Dodson"
-    a = lp.attribute(PLAYS["int_return_tackler"][5])
-    assert a["int"] == "J.Wood" and a["tacklers"] == []
+    a = lp.attribute(PLAYS["int_return_tackler"][5])  # MIA@BUF Q2 0:13: defensive holding accepted - No Play
+    assert a["no_play"] and a["int"] is None and a["tacklers"] == []
 
 
 def test_dpi_flag_is_verified():
@@ -134,3 +136,18 @@ def test_csv_keeps_original_columns_first():
     w.writerows(lp.coverage_rows(lp.coverage([_play("pressure", "ARI", "H.Wallace")])))
     row = next(csv.DictReader(io.StringIO(b.getvalue())))
     assert row["defender"] == "D.Tranquill" and row["evidence"] == "tackler, not coverage" and row["receivers_yards"] == "H.Wallace 10"
+
+
+def test_no_play_accepted_penalty_writes_no_rows():
+    # PIT@PHI Q2 6:26: catch tackled by T.Woolen, then PIT illegal shift accepted - No Play
+    a = lp.attribute(PLAYS["no_play"][5])
+    assert a["no_play"] and a["tacklers"] == [] and a["pbu"] is None and a["int"] is None
+    assert lp.coverage([_play("no_play", "PIT", "B.Skowronek")]) == {}
+
+
+def test_declined_penalty_keeps_rows():
+    # ARI@KC Q3 0:31: defensive offside declined, so the catch and K.Clark's tackle stand
+    a = lp.attribute(PLAYS["declined"][5])
+    assert not a["no_play"] and a["tacklers"] == ["K.Clark"]
+    cov = lp.coverage([_play("declined", "KC", "J.Downs")])
+    assert cov[("KC", "K.Clark", lp.TACKLER)]["yards_allowed"] == 13

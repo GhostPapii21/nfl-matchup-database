@@ -61,12 +61,21 @@ def attribute(text):
     Returns {"pbu": name|None, "int": name|None, "dpi": [names], "tacklers": [names], "catch_yards": int|None}.
     When a replay reverses the ruling, only the text after the last "REVERSED." is read. Tacklers are only read off a
     completed pass (the first parentheses right after "for N yards"/"for no gain"); interception returns are never read
-    for tacklers. "No Play" snaps are read like any other play (unchanged from the earlier tracker).
+    for tacklers. A snap wiped out by an accepted penalty ("No Play") never happened: no tackler, breakup or INT is
+    read from it, so it writes no tackler or coverage rows. The one exception is the defender flagged for defensive
+    pass interference on it, which is the coverage event itself. A declined penalty leaves the play and its rows as is.
     """
     t = text or ""
     if "REVERSED." in t:
         t = t.rsplit("REVERSED.", 1)[1]
-    out = {"pbu": None, "int": None, "dpi": [], "tacklers": [], "catch_yards": None}
+    out = {"pbu": None, "int": None, "dpi": [], "tacklers": [], "catch_yards": None, "no_play": False}
+    out["no_play"] = bool(re.search(r"\bNo Play\b", t))
+    for md in re.finditer(r"PENALTY on [A-Z]{2,3}-(" + _NAME + r"),\s*Defensive Pass Interference", t, re.I):
+        nm = md.group(1).rstrip(".")
+        if nm not in out["dpi"]:
+            out["dpi"].append(nm)
+    if out["no_play"]:
+        return out  # accepted penalty wiped the snap out: no tackler, breakup or INT credit (a DPI flag still counts)
     mi = re.search(r"INTERCEPTED by (" + _NAME + ")", t)
     if mi:
         out["int"] = mi.group(1).rstrip(".")
@@ -79,10 +88,6 @@ def attribute(text):
             if mt and _names(mt.group(2)):
                 out["tacklers"] = _names(mt.group(2))
                 out["catch_yards"] = 0 if mt.group(1) == "no gain" else int(mt.group(1).split()[0])
-    for md in re.finditer(r"PENALTY on [A-Z]{2,3}-(" + _NAME + r"),\s*Defensive Pass Interference", t, re.I):
-        nm = md.group(1).rstrip(".")
-        if nm not in out["dpi"]:
-            out["dpi"].append(nm)
     return out
 
 
