@@ -57,6 +57,7 @@ jobs:
           if [ -n "${{ inputs.games }}" ]; then args+=(--games "${{ inputs.games }}"); fi
           if [ -n "${{ inputs.open_minutes }}" ]; then args+=(--open "${{ inputs.open_minutes }}"); fi
           if [ -n "${{ inputs.close_minutes }}" ]; then args+=(--close "${{ inputs.close_minutes }}"); fi
+          python -m pipeline.kickoffs || true     # ESPN kickoff cross-check (free); fail-soft
           python -m pipeline.window "${args[@]}" | tee -a "$GITHUB_STEP_SUMMARY"
 
   game:
@@ -85,6 +86,9 @@ jobs:
           cache: pip
           cache-dependency-path: requirements-test.txt
       - run: python -m pip install --disable-pip-version-check -r requirements-test.txt
+
+      - name: Kickoff cross-check against ESPN (free; fail-soft)
+        run: python -m pipeline.kickoffs || true
 
       - name: Skip if the 100k already ran (an earlier tick finished while this one waited)
         id: skip
@@ -172,7 +176,7 @@ jobs:
           pair="$(echo "$GAME" | awk -F_ '{print $3"@"$4}')"
           git add "pregame/packets/$GAME" "phase15/inactives/$GAME" "snapshots/$GAME" 2>/dev/null || true
           git add pregame/line_history pregame/price_freezes/*_"$pair" 2>/dev/null || true
-          git add pipeline/ledgers/"$GAME".* 2>/dev/null || true
+          git add pipeline/ledgers/"$GAME".* pregame/kickoffs/latest.json 2>/dev/null || true
           if git diff --cached --quiet; then echo "Nothing to commit for $GAME."; exit 0; fi
           git commit -q -m "gameday: $GAME $(date -u +%Y-%m-%dT%H:%MZ) (100k exit ${{ steps.gate.outputs.code || 'not run' }})"
           for i in 1 2 3 4 5 6; do

@@ -59,6 +59,7 @@ def espn_final(game: dict, kickoff_utc: str) -> dict:
             q = {f"q{i+1}": [int(h["linescores"][i]["value"]), int(a["linescores"][i]["value"])]
                  for i in range(min(len(h.get("linescores", [])), len(a.get("linescores", []))))}
             return {"home_score": int(h["score"]), "away_score": int(a["score"]), "source": url, "espn_event": e["id"],
+                    "kickoff_espn_utc": (e.get("date") or comp.get("date") or "").replace("Z", "+00:00") or None,
                     "status": st, "quarters": q, "retrieved_utc": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     raise SystemExit("score: game not found on ESPN scoreboard")
 

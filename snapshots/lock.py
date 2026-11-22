@@ -175,6 +175,18 @@ def summarize(arrays: dict, lines: dict, home: str, away: str, home_name: str, a
     return s
 
 
+def effective_kickoff(g: dict):
+    """(kickoff used, config kickoff, ESPN kickoff or None). The earlier of config and ESPN: a game moved earlier
+    than the frozen config time can never be locked after its real kickoff."""
+    kickoff_config = _utc(g["kickoff_et"])
+    try:
+        from pipeline import kickoffs
+        kickoff_espn = kickoffs.lookup(g.get("game_id"), kickoff_config)
+    except Exception:
+        kickoff_espn = None
+    return min(k for k in (kickoff_config, kickoff_espn) if k is not None), kickoff_config, kickoff_espn
+
+
 def asof_checks(cfg: dict, pbp: str, now: datetime, kickoff: datetime, freeze: dict | None) -> list[str]:
     import pandas as pd
     why = []
@@ -301,7 +313,9 @@ def main(argv=None) -> int:
         print("lock: REFUSED  " + ex["reason"] + " Nothing was simulated.")
         return 2
     g = cfg["game"]
-    kickoff = _utc(g["kickoff_et"])
+    kickoff, kickoff_config, kickoff_espn = effective_kickoff(g)
+    if kickoff_espn and kickoff_espn != kickoff_config:
+        print(f"lock: kickoff in config {kickoff_config.isoformat()} != ESPN {kickoff_espn.isoformat()}; using {kickoff.isoformat()}")
     now = datetime.now(timezone.utc)
     freeze = normalize_freeze(json.loads(Path(a.price_freeze).read_text())) if a.price_freeze else None
     packet = json.loads(Path(a.packet).read_text()) if a.packet else None
@@ -351,7 +365,8 @@ def main(argv=None) -> int:
     meta = {"semantics": sim["semantics"], "evidence_summary": sim["evidence_summary"], "history_evidence": sim["history_evidence"]}
     (d / "sim_meta.json").write_text(json.dumps(meta, indent=1, default=str) + "\n")
     lock = {"schema": "snapshot-lock/1", "game_id": g["game_id"], "locked_utc": locked.isoformat(timespec="seconds"),
-            "kickoff_utc": kickoff.isoformat(), "projection_ready": False, "research_only": True,
+            "kickoff_utc": kickoff.isoformat(), "kickoff_config_utc": kickoff_config.isoformat(),
+            "kickoff_espn_utc": kickoff_espn.isoformat() if kickoff_espn else None, "projection_ready": False, "research_only": True,
             "code_commit": _git("rev-parse", "HEAD"), "code_dirty": _code_dirty(),
             "engine_tree_sha256": hashlib.sha256(b"".join(sha256(p).encode() for p in sorted(ENGINE.glob("*.py")))).hexdigest(),
             "config_id": cfg["config_id"], "model_weights_changed": False,
