@@ -250,6 +250,15 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
     except Exception as e:  # noqa: BLE001
         for sd in sides.values():
             sd["watch"] = {"error": f"{type(e).__name__}: {e}"[:200]}
+    try:  # best-bet finder: every book's line and price vs our chance at that exact line (dashboard/bestbet.py)
+        from dashboard import bestbet as BB
+        from pregame import direct_books as DB
+        all_rows = DB.load_rows(g["game_id"])
+        for sd in sides.values():
+            sd["best_bets"] = BB.side_best_bets(sd, all_rows) if all_rows else {"picks": [], "note": "no book lines pulled for this game yet"}
+    except Exception as e:  # noqa: BLE001 - the board still renders without this section
+        for sd in sides.values():
+            sd["best_bets"] = {"error": f"{type(e).__name__}: {e}"[:200]}
     try:
         add_visuals(sides, pk, data, season, games)
     except Exception as e:  # noqa: BLE001 - the board still renders without the visual views
