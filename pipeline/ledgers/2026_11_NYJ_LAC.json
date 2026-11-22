@@ -1,0 +1,2488 @@
+{
+ "schema": "nfl56-phase-ledger/1",
+ "game_id": "2026_11_NYJ_LAC",
+ "checked_utc": "2026-11-22T21:07:57+00:00",
+ "packet_generated_utc": "2026-11-22T20:37:30+00:00",
+ "projection_ready": false,
+ "research_only": true,
+ "phase15": {
+  "status": "AUTO",
+  "source": "club official site 'Inactives' article (phase15/official_inactives.py); ESPN/wire not used",
+  "source_urls": {
+   "NYJ": "https://www.newyorkjets.com/news/jets-vs-chargers-nfl-game-inactives-11-22-2026",
+   "LAC": "https://www.chargers.com/news/jets-inactives-week-11-2026"
+  },
+  "pull_utc": "2026-11-22T20:06:01+00:00",
+  "pull_et": "2026-11-22 03:06 PM ET",
+  "published_utc": {
+   "NYJ": "2026-11-22T19:35:00+00:00",
+   "LAC": "2026-11-22T19:50:00+00:00"
+  },
+  "file": "phase15/inactives/2026_11_NYJ_LAC/inactives_20261122T200601Z.json",
+  "kickoff_utc": "2026-11-22T21:05:00+00:00",
+  "posts_utc": "2026-11-22T19:35:00+00:00",
+  "checked_utc": "2026-11-22T21:07:57+00:00",
+  "inactives": {
+   "NYJ": [
+    "Jarvis Brownlee Jr.",
+    "Omar Cooper Jr.",
+    "Trevin Wallace",
+    "Isaiah Williams",
+    "Jelani Woods",
+    "Alex Harkey",
+    "Daiyan Henley",
+    "KeAndre Lambert-Smith",
+    "Tarheeb Still",
+    "Brenen Thompson",
+    "Kendall Williamson"
+   ],
+   "LAC": [
+    "Brenen Thompson",
+    "Daiyan Henley",
+    "KeAndre Lambert-Smith",
+    "Kendall Williamson",
+    "Alex Harkey",
+    "Ladd McConkey",
+    "Tarheeb Still",
+    "Trey Pipkins",
+    "Donte Jackson"
+   ]
+  },
+  "reason": "Both clubs' official Inactives articles pulled after T-90."
+ },
+ "freshness": [
+  {
+   "source": "schedule",
+   "status": "FRESH",
+   "reason": "as-of 2026-11-22T20:37:24+00:00 (live_pull (live endpoint; pull time is the quote time)) is 31 min old; limit 1440 min.",
+   "retrieved_utc": "2026-11-22T20:37:24+00:00",
+   "as_of_utc": "2026-11-22T20:37:24+00:00",
+   "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+   "as_of_evidence": null,
+   "age_minutes": 30.6,
+   "max_age_minutes": 1440,
+   "cadence": "live_window"
+  },
+  {
+   "source": "play_by_play",
+   "status": "MISSING",
+   "reason": "'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-22T20:37:25+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "rosters",
+   "status": "MISSING",
+   "reason": "'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-22T20:37:25+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "depth_charts",
+   "status": "MISSING",
+   "reason": "'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-22T20:37:25+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "snap_counts",
+   "status": "MISSING",
+   "reason": "'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-22T20:37:26+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "ftn_charting",
+   "status": "MISSING",
+   "reason": "'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-22T20:37:26+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "pfr_defense",
+   "status": "MISSING",
+   "reason": "'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-22T20:37:26+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "official_injuries",
+   "status": "MISSING",
+   "reason": "'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-22T20:37:25+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "news_injuries",
+   "status": "FRESH",
+   "reason": "as-of 2026-11-22T20:37:28+00:00 (live_pull (live endpoint; pull time is the quote time)) is 30 min old; limit 45 min.",
+   "retrieved_utc": "2026-11-22T20:37:28+00:00",
+   "as_of_utc": "2026-11-22T20:37:28+00:00",
+   "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+   "as_of_evidence": null,
+   "age_minutes": 30.5,
+   "max_age_minutes": 45,
+   "cadence": "live_window"
+  },
+  {
+   "source": "weather",
+   "status": "NOT_REQUIRED",
+   "reason": "Indoor game.",
+   "retrieved_utc": null,
+   "as_of_utc": null,
+   "as_of_basis": null,
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "nws_live_grid"
+  },
+  {
+   "source": "odds",
+   "status": "STALE",
+   "reason": "as-of 2026-11-22T20:33:25+00:00 (live_pull (live endpoint; pull time is the quote time)) is 35 min old; limit is 20 min at -0.0 h to kickoff.",
+   "retrieved_utc": "2026-11-22T20:33:25Z",
+   "as_of_utc": "2026-11-22T20:33:25+00:00",
+   "as_of_basis": "live_pull (live endpoint; pull time is the quote time)",
+   "as_of_evidence": null,
+   "age_minutes": 34.5,
+   "max_age_minutes": 20,
+   "cadence": "live_window"
+  },
+  {
+   "source": "ngs_passing",
+   "status": "MISSING",
+   "reason": "'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-22T20:37:27+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "ngs_receiving",
+   "status": "MISSING",
+   "reason": "'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-22T20:37:27+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "ngs_rushing",
+   "status": "MISSING",
+   "reason": "'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+   "retrieved_utc": "2026-11-22T20:37:27+00:00",
+   "as_of_utc": null,
+   "as_of_basis": "UNKNOWN_NO_SOURCE_TIMESTAMP",
+   "as_of_evidence": null,
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  },
+  {
+   "source": "official_inactives",
+   "status": "FRESH",
+   "reason": "Official inactives pulled after T-90 at 2026-11-22T20:06:01+00:00.",
+   "retrieved_utc": "2026-11-22T20:06:01+00:00",
+   "as_of_utc": "2026-11-22T20:06:01+00:00",
+   "as_of_basis": "t90",
+   "as_of_evidence": null,
+   "age_minutes": 61.9,
+   "max_age_minutes": null,
+   "cadence": "t90"
+  },
+  {
+   "source": "four_book_prices",
+   "status": "STALE",
+   "reason": "35 min old; limit is 20 min.",
+   "retrieved_utc": "2026-11-22T20:33:25Z",
+   "as_of_utc": null,
+   "as_of_basis": null,
+   "as_of_evidence": null,
+   "age_minutes": 34.5,
+   "max_age_minutes": 20,
+   "cadence": "live_window"
+  },
+  {
+   "source": "ngs_defender_matchup",
+   "status": "FRESH",
+   "reason": "Public NGS weekly files: FRESH. Main-defender fields: receiver_routes=MISSING; rb_routes=MISSING; target_location=MISSING; qb_pass_location=MISSING; qb_success_vs_defense=MISSING; likely_defenders=MISSING. MISSING = no source carries it (unknown, never zero); PFF_PROJECTED = candidate only, not verified.",
+   "retrieved_utc": null,
+   "as_of_utc": null,
+   "as_of_basis": null,
+   "as_of_evidence": {
+    "status": "FRESH",
+    "reason": "Public NGS weekly files are present. Wanted main-defender fields are MISSING/unknown, not zero: receiver_routes, rb_routes, target_location, qb_pass_location, qb_success_vs_defense, likely_defenders. Available public columns (cushion, separation, CPOE, RYOE, etc.) are listed in evidence.",
+    "teams": [
+     "NYJ",
+     "LAC"
+    ],
+    "week": 11,
+    "fields": {
+     "available": [
+      {
+       "source": "ngs_passing",
+       "field": "avg_time_to_throw",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "avg_completed_air_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "avg_intended_air_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "avg_air_yards_differential",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "aggressiveness",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "max_completed_air_distance",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "avg_air_yards_to_sticks",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "attempts",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "completions",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "completion_percentage",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "expected_completion_percentage",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "completion_percentage_above_expectation",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "pass_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "pass_touchdowns",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "interceptions",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "passer_rating",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "week",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "team_abbr",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "player_display_name",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "player_gsis_id",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_passing",
+       "field": "player_position",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "avg_cushion",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "avg_separation",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "percent_share_of_intended_air_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "targets",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "receptions",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "catch_percentage",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "rec_touchdowns",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "avg_yac",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "avg_expected_yac",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "avg_yac_above_expectation",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "week",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "team_abbr",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "player_display_name",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "player_gsis_id",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "player_position",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "efficiency",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "percent_attempts_gte_eight_defenders",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "avg_time_to_los",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_attempts",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "expected_rush_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_yards_over_expected",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "avg_rush_yards",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_yards_over_expected_per_att",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_pct_over_expected",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "rush_touchdowns",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "week",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "team_abbr",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "player_display_name",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "player_gsis_id",
+       "status": "available",
+       "in_file": true
+      },
+      {
+       "source": "ngs_rushing",
+       "field": "player_position",
+       "status": "available",
+       "in_file": true
+      }
+     ],
+     "missing": [
+      {
+       "source": "ngs_receiving",
+       "field": "avg_air_distance",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "listed in the NGS dictionary but not in this file"
+      },
+      {
+       "source": "ngs_receiving",
+       "field": "max_air_distance",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "listed in the NGS dictionary but not in this file"
+      },
+      {
+       "source": "public_ngs",
+       "field": "receiver_routes",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "Route type / routes run / route participation for WRs, TEs, RBs \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      },
+      {
+       "source": "public_ngs",
+       "field": "rb_routes",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "Running-back routes (split out from WR/TE routes) \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      },
+      {
+       "source": "public_ngs",
+       "field": "target_location",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "Target location splits (side and depth: left/middle/right, short/deep) \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      },
+      {
+       "source": "public_ngs",
+       "field": "qb_pass_location",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "Where the QB throws (location splits) \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      },
+      {
+       "source": "public_ngs",
+       "field": "qb_success_vs_defense",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "QB success by throw location against this defense \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      },
+      {
+       "source": "public_ngs",
+       "field": "likely_defenders",
+       "status": "MISSING",
+       "value": "unknown",
+       "reason": "Likely defender faced on a route or target location \u2014 not in the public weekly NGS releases (nflverse dictionary, 2026-11-22)."
+      }
+     ],
+     "notes": [
+      "ngs_passing: extra columns in file (not used as route/location splits): avg_air_distance, max_air_distance",
+      "ngs_receiving: extra columns in file (not used as route/location splits): avg_intended_air_yards"
+     ],
+     "wanted": {
+      "receiver_routes": "Route type / routes run / route participation for WRs, TEs, RBs",
+      "rb_routes": "Running-back routes (split out from WR/TE routes)",
+      "target_location": "Target location splits (side and depth: left/middle/right, short/deep)",
+      "qb_pass_location": "Where the QB throws (location splits)",
+      "qb_success_vs_defense": "QB success by throw location against this defense",
+      "likely_defenders": "Likely defender faced on a route or target location"
+     },
+     "dictionary": "https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html"
+    },
+    "team_coverage": {
+     "ngs_passing": {
+      "teams_in_week": [
+       "ARI",
+       "ATL",
+       "BAL",
+       "BUF",
+       "CAR",
+       "CHI",
+       "CIN",
+       "CLE",
+       "DAL",
+       "DEN",
+       "DET",
+       "GB",
+       "HOU",
+       "IND",
+       "JAX",
+       "KC",
+       "LAC",
+       "LAR",
+       "LV",
+       "MIA",
+       "MIN",
+       "NE",
+       "NO",
+       "NYG",
+       "NYJ",
+       "PHI",
+       "PIT",
+       "SEA",
+       "SF",
+       "TB",
+       "TEN",
+       "WAS"
+      ],
+      "both_teams": true
+     },
+     "ngs_receiving": {
+      "teams_in_week": [
+       "ARI",
+       "ATL",
+       "BAL",
+       "BUF",
+       "CAR",
+       "CHI",
+       "CIN",
+       "CLE",
+       "DAL",
+       "DEN",
+       "DET",
+       "GB",
+       "HOU",
+       "IND",
+       "JAX",
+       "KC",
+       "LAC",
+       "LAR",
+       "LV",
+       "MIA",
+       "MIN",
+       "NE",
+       "NO",
+       "NYG",
+       "NYJ",
+       "PHI",
+       "PIT",
+       "SEA",
+       "SF",
+       "TB",
+       "TEN",
+       "WAS"
+      ],
+      "both_teams": true
+     },
+     "ngs_rushing": {
+      "teams_in_week": [
+       "ARI",
+       "ATL",
+       "BAL",
+       "BUF",
+       "CAR",
+       "CHI",
+       "CIN",
+       "CLE",
+       "DAL",
+       "DEN",
+       "DET",
+       "GB",
+       "HOU",
+       "IND",
+       "JAX",
+       "KC",
+       "LAC",
+       "LAR",
+       "LV",
+       "MIA",
+       "MIN",
+       "NE",
+       "NO",
+       "NYG",
+       "NYJ",
+       "PHI",
+       "PIT",
+       "SEA",
+       "SF",
+       "TB",
+       "TEN",
+       "WAS"
+      ],
+      "both_teams": true
+     }
+    },
+    "files": {
+     "ngs_passing": "/home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/ngs_passing.parquet",
+     "ngs_receiving": "/home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/ngs_receiving.parquet",
+     "ngs_rushing": "/home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/ngs_rushing.parquet"
+    },
+    "matchup_fields": {
+     "receiver_routes": {
+      "field": "receiver_routes",
+      "status": "MISSING",
+      "source": "nflverse pbp_participation 2026",
+      "reason": "No nflverse pbp_participation 2026 file. nflverse had not published the 2026 participation release (releases/download/pbp_participation/pbp_participation_2026.parquet returned 404 on 2026-11-22).",
+      "as_of": null,
+      "value": "unknown"
+     },
+     "rb_routes": {
+      "field": "rb_routes",
+      "status": "MISSING",
+      "source": "nflverse pbp_participation 2026",
+      "reason": "No nflverse pbp_participation 2026 file. nflverse had not published the 2026 participation release (releases/download/pbp_participation/pbp_participation_2026.parquet returned 404 on 2026-11-22).",
+      "as_of": null,
+      "value": "unknown"
+     },
+     "target_location": {
+      "field": "target_location",
+      "status": "MISSING",
+      "source": "nflverse play-by-play 2026 (weeks 1-10, REG); /home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/play_by_play_2026.parquet",
+      "reason": "Receiver targets by pass_length x pass_location. Play-by-play freshness is MISSING, so this field is not current.",
+      "as_of": null,
+      "value": {
+       "NYJ": {
+        "S.Shepard (00-0032385)": {
+         "short_left": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -0.821
+         }
+        },
+        "T.Patrick (00-0033375)": {
+         "short_left": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.667,
+          "epa_per_att": 0.69
+         },
+         "short_right": {
+          "att": 3,
+          "cmp": 1,
+          "success_rate": 0.333,
+          "epa_per_att": -0.078
+         }
+        },
+        "G.Wilson (00-0037740)": {
+         "deep_left": {
+          "att": 7,
+          "cmp": 4,
+          "success_rate": 0.571,
+          "epa_per_att": 0.229
+         },
+         "deep_middle": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.667,
+          "epa_per_att": 1.011
+         },
+         "deep_right": {
+          "att": 11,
+          "cmp": 5,
+          "success_rate": 0.455,
+          "epa_per_att": 0.33
+         },
+         "short_left": {
+          "att": 25,
+          "cmp": 13,
+          "success_rate": 0.32,
+          "epa_per_att": -0.269
+         },
+         "short_middle": {
+          "att": 8,
+          "cmp": 6,
+          "success_rate": 0.625,
+          "epa_per_att": 0.355
+         },
+         "short_right": {
+          "att": 23,
+          "cmp": 20,
+          "success_rate": 0.696,
+          "epa_per_att": 0.443
+         }
+        },
+        "J.Woods (00-0037755)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.962
+         },
+         "short_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.676
+         },
+         "short_right": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.333,
+          "epa_per_att": -0.189
+         }
+        },
+        "J.Ruckert (00-0037805)": {
+         "short_left": {
+          "att": 4,
+          "cmp": 4,
+          "success_rate": 0.75,
+          "epa_per_att": 0.171
+         },
+         "short_middle": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 1.0,
+          "epa_per_att": 1.368
+         },
+         "short_right": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 0.0,
+          "epa_per_att": -0.216
+         }
+        },
+        "B.Hall (00-0038120)": {
+         "short_left": {
+          "att": 7,
+          "cmp": 6,
+          "success_rate": 0.714,
+          "epa_per_att": 0.258
+         },
+         "short_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.267
+         },
+         "short_right": {
+          "att": 10,
+          "cmp": 10,
+          "success_rate": 0.9,
+          "epa_per_att": 0.956
+         }
+        },
+        "I.Williams (00-0039451)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 2.091
+         },
+         "deep_middle": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 1.0,
+          "epa_per_att": 3.158
+         },
+         "deep_right": {
+          "att": 2,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.132
+         },
+         "short_left": {
+          "att": 7,
+          "cmp": 6,
+          "success_rate": 0.571,
+          "epa_per_att": 0.108
+         },
+         "short_middle": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -0.257
+         },
+         "short_right": {
+          "att": 8,
+          "cmp": 6,
+          "success_rate": 0.375,
+          "epa_per_att": -0.057
+         }
+        },
+        "B.Allen (00-0039794)": {
+         "short_left": {
+          "att": 12,
+          "cmp": 11,
+          "success_rate": 0.5,
+          "epa_per_att": -0.157
+         },
+         "short_middle": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.228
+         },
+         "short_right": {
+          "att": 12,
+          "cmp": 9,
+          "success_rate": 0.5,
+          "epa_per_att": -0.02
+         }
+        },
+        "I.Davis (00-0039798)": {
+         "short_left": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.333,
+          "epa_per_att": -0.555
+         },
+         "short_right": {
+          "att": 3,
+          "cmp": 3,
+          "success_rate": 1.0,
+          "epa_per_att": 1.678
+         }
+        },
+        "A.Mitchell (00-0039890)": {
+         "deep_left": {
+          "att": 7,
+          "cmp": 3,
+          "success_rate": 0.571,
+          "epa_per_att": 0.694
+         },
+         "deep_middle": {
+          "att": 2,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.425
+         },
+         "deep_right": {
+          "att": 10,
+          "cmp": 5,
+          "success_rate": 0.5,
+          "epa_per_att": 0.386
+         },
+         "short_left": {
+          "att": 12,
+          "cmp": 5,
+          "success_rate": 0.417,
+          "epa_per_att": 0.028
+         },
+         "short_middle": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -0.815
+         },
+         "short_right": {
+          "att": 9,
+          "cmp": 5,
+          "success_rate": 0.556,
+          "epa_per_att": 0.437
+         }
+        },
+        "A.Smith (00-0040582)": {
+         "short_middle": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.493
+         }
+        },
+        "M.Taylor (00-0040736)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.134
+         },
+         "deep_right": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": 0.161
+         },
+         "short_left": {
+          "att": 7,
+          "cmp": 5,
+          "success_rate": 0.714,
+          "epa_per_att": 0.49
+         },
+         "short_middle": {
+          "att": 8,
+          "cmp": 6,
+          "success_rate": 0.625,
+          "epa_per_att": -0.242
+         },
+         "short_right": {
+          "att": 11,
+          "cmp": 10,
+          "success_rate": 0.364,
+          "epa_per_att": 0.188
+         }
+        },
+        "K.Sadiq (00-0041032)": {
+         "deep_left": {
+          "att": 4,
+          "cmp": 2,
+          "success_rate": 0.5,
+          "epa_per_att": 0.027
+         },
+         "deep_right": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 1.0,
+          "epa_per_att": 2.022
+         },
+         "short_left": {
+          "att": 9,
+          "cmp": 6,
+          "success_rate": 0.556,
+          "epa_per_att": -0.177
+         },
+         "short_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.424
+         },
+         "short_right": {
+          "att": 17,
+          "cmp": 11,
+          "success_rate": 0.294,
+          "epa_per_att": -0.398
+         }
+        },
+        "O.Cooper (00-0041511)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 3.744
+         },
+         "deep_middle": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 1.0,
+          "epa_per_att": 2.46
+         },
+         "deep_right": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 2.571
+         },
+         "short_left": {
+          "att": 6,
+          "cmp": 5,
+          "success_rate": 0.667,
+          "epa_per_att": 1.059
+         },
+         "short_middle": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 0.5,
+          "epa_per_att": -0.254
+         },
+         "short_right": {
+          "att": 12,
+          "cmp": 9,
+          "success_rate": 0.333,
+          "epa_per_att": 0.021
+         }
+        }
+       },
+       "LAC": {
+        "D.Njoku (00-0033885)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -3.472
+         },
+         "short_middle": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 1.0,
+          "epa_per_att": 0.343
+         },
+         "short_right": {
+          "att": 5,
+          "cmp": 4,
+          "success_rate": 0.6,
+          "epa_per_att": -0.226
+         }
+        },
+        "M.Valdes-Scantling (00-0034272)": {
+         "deep_middle": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -4.477
+         },
+         "short_middle": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 0.5,
+          "epa_per_att": 0.222
+         },
+         "short_right": {
+          "att": 2,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.191
+         }
+        },
+        "A.Ingold (00-0035125)": {
+         "deep_right": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.596
+         },
+         "short_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.061
+         },
+         "short_right": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 0.5,
+          "epa_per_att": 0.631
+         }
+        },
+        "J.Herbert (00-0036355)": {
+         "short_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.54
+         }
+        },
+        "C.Kolar (00-0038046)": {
+         "short_left": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.667,
+          "epa_per_att": 0.205
+         },
+         "short_middle": {
+          "att": 5,
+          "cmp": 4,
+          "success_rate": 0.4,
+          "epa_per_att": -0.505
+         },
+         "short_right": {
+          "att": 15,
+          "cmp": 9,
+          "success_rate": 0.467,
+          "epa_per_att": -0.561
+         }
+        },
+        "K.Mitchell (00-0038454)": {
+         "deep_right": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.396
+         },
+         "short_left": {
+          "att": 6,
+          "cmp": 5,
+          "success_rate": 0.667,
+          "epa_per_att": 0.428
+         },
+         "short_middle": {
+          "att": 5,
+          "cmp": 4,
+          "success_rate": 0.6,
+          "epa_per_att": 0.079
+         },
+         "short_right": {
+          "att": 11,
+          "cmp": 9,
+          "success_rate": 0.364,
+          "epa_per_att": 0.056
+         }
+        },
+        "Q.Johnston (00-0038544)": {
+         "deep_left": {
+          "att": 5,
+          "cmp": 1,
+          "success_rate": 0.2,
+          "epa_per_att": 0.373
+         },
+         "deep_middle": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": -0.051
+         },
+         "deep_right": {
+          "att": 5,
+          "cmp": 1,
+          "success_rate": 0.2,
+          "epa_per_att": 0.194
+         },
+         "short_left": {
+          "att": 7,
+          "cmp": 5,
+          "success_rate": 0.429,
+          "epa_per_att": 0.079
+         },
+         "short_middle": {
+          "att": 3,
+          "cmp": 1,
+          "success_rate": 0.333,
+          "epa_per_att": -0.433
+         },
+         "short_right": {
+          "att": 9,
+          "cmp": 5,
+          "success_rate": 0.333,
+          "epa_per_att": 0.547
+         }
+        },
+        "D.Davis (00-0038573)": {
+         "deep_right": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.747
+         },
+         "short_left": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": -1.246
+         },
+         "short_middle": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": 1.228
+         }
+        },
+        "K.Vidal (00-0039391)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.176
+         },
+         "short_left": {
+          "att": 8,
+          "cmp": 7,
+          "success_rate": 0.5,
+          "epa_per_att": 0.122
+         },
+         "short_middle": {
+          "att": 6,
+          "cmp": 4,
+          "success_rate": 0.333,
+          "epa_per_att": 0.215
+         },
+         "short_right": {
+          "att": 4,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -1.107
+         }
+        },
+        "H.Rucci (00-0039489)": {
+         "short_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 1.626
+         }
+        },
+        "L.McConkey (00-0039915)": {
+         "deep_left": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 1.0,
+          "epa_per_att": 2.353
+         },
+         "deep_middle": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 1.0,
+          "epa_per_att": 1.238
+         },
+         "deep_right": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.333,
+          "epa_per_att": -0.043
+         },
+         "short_left": {
+          "att": 5,
+          "cmp": 3,
+          "success_rate": 0.4,
+          "epa_per_att": 0.321
+         },
+         "short_middle": {
+          "att": 5,
+          "cmp": 3,
+          "success_rate": 0.4,
+          "epa_per_att": -0.1
+         },
+         "short_right": {
+          "att": 7,
+          "cmp": 5,
+          "success_rate": 0.571,
+          "epa_per_att": -0.109
+         }
+        },
+        "K.Lambert-Smith (00-0040184)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 3.99
+         },
+         "deep_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.87
+         },
+         "deep_right": {
+          "att": 2,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.287
+         },
+         "short_left": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.0,
+          "epa_per_att": -1.074
+         },
+         "short_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 1.214
+         },
+         "short_right": {
+          "att": 5,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -2.534
+         }
+        },
+        "O.Gadsden (00-0040189)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.026
+         },
+         "deep_right": {
+          "att": 2,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.087
+         },
+         "short_left": {
+          "att": 9,
+          "cmp": 6,
+          "success_rate": 0.333,
+          "epa_per_att": -0.152
+         },
+         "short_middle": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.0,
+          "epa_per_att": -1.887
+         },
+         "short_right": {
+          "att": 16,
+          "cmp": 13,
+          "success_rate": 0.375,
+          "epa_per_att": 0.09
+         }
+        },
+        "T.Wease (00-0040311)": {
+         "short_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.29
+         },
+         "short_middle": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": -0.009
+         },
+         "short_right": {
+          "att": 2,
+          "cmp": 2,
+          "success_rate": 1.0,
+          "epa_per_att": 2.382
+         }
+        },
+        "O.Hampton (00-0040666)": {
+         "short_left": {
+          "att": 4,
+          "cmp": 3,
+          "success_rate": 0.25,
+          "epa_per_att": 0.029
+         },
+         "short_middle": {
+          "att": 4,
+          "cmp": 3,
+          "success_rate": 0.5,
+          "epa_per_att": 0.083
+         },
+         "short_right": {
+          "att": 7,
+          "cmp": 6,
+          "success_rate": 0.286,
+          "epa_per_att": 0.041
+         }
+        },
+        "T.Harris (00-0040727)": {
+         "deep_left": {
+          "att": 3,
+          "cmp": 2,
+          "success_rate": 0.333,
+          "epa_per_att": 0.915
+         },
+         "deep_middle": {
+          "att": 2,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.538
+         },
+         "deep_right": {
+          "att": 8,
+          "cmp": 5,
+          "success_rate": 0.625,
+          "epa_per_att": 0.735
+         },
+         "short_left": {
+          "att": 11,
+          "cmp": 9,
+          "success_rate": 0.455,
+          "epa_per_att": 0.329
+         },
+         "short_middle": {
+          "att": 4,
+          "cmp": 3,
+          "success_rate": 0.5,
+          "epa_per_att": 0.386
+         },
+         "short_right": {
+          "att": 12,
+          "cmp": 7,
+          "success_rate": 0.167,
+          "epa_per_att": -0.362
+         }
+        },
+        "B.Thompson (00-0041550)": {
+         "deep_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.41
+         },
+         "short_left": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 1.759
+         },
+         "short_right": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -1.954
+         }
+        }
+       }
+      }
+     },
+     "qb_pass_location": {
+      "field": "qb_pass_location",
+      "status": "MISSING",
+      "source": "nflverse play-by-play 2026 (weeks 1-10, REG); /home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/play_by_play_2026.parquet",
+      "reason": "Passer attempts, completions, nflverse success and EPA by zone. Play-by-play freshness is MISSING, so this field is not current.",
+      "as_of": null,
+      "value": {
+       "NYJ": {
+        "G.Smith (00-0030565)": {
+         "deep_left": {
+          "att": 20,
+          "cmp": 11,
+          "success_rate": 0.6,
+          "epa_per_att": 0.638
+         },
+         "deep_middle": {
+          "att": 10,
+          "cmp": 6,
+          "success_rate": 0.6,
+          "epa_per_att": 1.325
+         },
+         "deep_right": {
+          "att": 23,
+          "cmp": 13,
+          "success_rate": 0.565,
+          "epa_per_att": 0.565
+         },
+         "short_left": {
+          "att": 93,
+          "cmp": 64,
+          "success_rate": 0.516,
+          "epa_per_att": 0.112
+         },
+         "short_middle": {
+          "att": 29,
+          "cmp": 19,
+          "success_rate": 0.483,
+          "epa_per_att": -0.091
+         },
+         "short_right": {
+          "att": 116,
+          "cmp": 83,
+          "success_rate": 0.448,
+          "epa_per_att": 0.126
+         }
+        },
+        "C.Klubnik (00-0041056)": {
+         "deep_left": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": 0.231
+         },
+         "deep_right": {
+          "att": 5,
+          "cmp": 1,
+          "success_rate": 0.2,
+          "epa_per_att": -0.169
+         },
+         "short_left": {
+          "att": 7,
+          "cmp": 3,
+          "success_rate": 0.143,
+          "epa_per_att": -1.277
+         },
+         "short_middle": {
+          "att": 1,
+          "cmp": 1,
+          "success_rate": 1.0,
+          "epa_per_att": 0.74
+         },
+         "short_right": {
+          "att": 5,
+          "cmp": 5,
+          "success_rate": 1.0,
+          "epa_per_att": 0.709
+         }
+        }
+       },
+       "LAC": {
+        "J.Herbert (00-0036355)": {
+         "deep_left": {
+          "att": 15,
+          "cmp": 6,
+          "success_rate": 0.333,
+          "epa_per_att": 0.548
+         },
+         "deep_middle": {
+          "att": 8,
+          "cmp": 4,
+          "success_rate": 0.5,
+          "epa_per_att": -0.289
+         },
+         "deep_right": {
+          "att": 23,
+          "cmp": 8,
+          "success_rate": 0.304,
+          "epa_per_att": 0.054
+         },
+         "short_left": {
+          "att": 61,
+          "cmp": 45,
+          "success_rate": 0.443,
+          "epa_per_att": 0.053
+         },
+         "short_middle": {
+          "att": 42,
+          "cmp": 30,
+          "success_rate": 0.476,
+          "epa_per_att": -0.017
+         },
+         "short_right": {
+          "att": 102,
+          "cmp": 63,
+          "success_rate": 0.324,
+          "epa_per_att": -0.252
+         }
+        },
+        "D.Uiagalelei (00-0040464)": {
+         "short_left": {
+          "att": 2,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.37
+         },
+         "short_middle": {
+          "att": 3,
+          "cmp": 1,
+          "success_rate": 0.333,
+          "epa_per_att": 0.676
+         },
+         "short_right": {
+          "att": 2,
+          "cmp": 1,
+          "success_rate": 0.5,
+          "epa_per_att": -0.008
+         }
+        },
+        "T.Harris (00-0040727)": {
+         "short_left": {
+          "att": 1,
+          "cmp": 0,
+          "success_rate": 0.0,
+          "epa_per_att": -0.54
+         }
+        }
+       }
+      }
+     },
+     "qb_success_vs_defense": {
+      "field": "qb_success_vs_defense",
+      "status": "MISSING",
+      "source": "nflverse play-by-play 2026 (weeks 1-10, REG); /home/runner/work/nfl-matchup-database/nfl-matchup-database/pregame/.cache/play_by_play_2026.parquet",
+      "reason": "QB success by zone next to the opponent defense's allowed success by zone. Play-by-play freshness is MISSING, so this field is not current.",
+      "as_of": null,
+      "value": {
+       "NYJ": {
+        "opponent_defense": "LAC",
+        "defense_allowed_by_zone": {
+         "deep_left": {
+          "att": 14,
+          "cmp": 5,
+          "success_rate": 0.357,
+          "epa_per_att": 0.09
+         },
+         "deep_middle": {
+          "att": 10,
+          "cmp": 5,
+          "success_rate": 0.5,
+          "epa_per_att": 0.775
+         },
+         "deep_right": {
+          "att": 20,
+          "cmp": 12,
+          "success_rate": 0.6,
+          "epa_per_att": 0.98
+         },
+         "short_left": {
+          "att": 76,
+          "cmp": 55,
+          "success_rate": 0.474,
+          "epa_per_att": 0.106
+         },
+         "short_middle": {
+          "att": 63,
+          "cmp": 42,
+          "success_rate": 0.444,
+          "epa_per_att": -0.087
+         },
+         "short_right": {
+          "att": 98,
+          "cmp": 67,
+          "success_rate": 0.49,
+          "epa_per_att": 0.004
+         }
+        },
+        "qbs": {
+         "G.Smith (00-0030565)": {
+          "deep_left": {
+           "qb": {
+            "att": 20,
+            "cmp": 11,
+            "success_rate": 0.6,
+            "epa_per_att": 0.638
+           },
+           "defense_allowed": {
+            "att": 14,
+            "cmp": 5,
+            "success_rate": 0.357,
+            "epa_per_att": 0.09
+           }
+          },
+          "deep_middle": {
+           "qb": {
+            "att": 10,
+            "cmp": 6,
+            "success_rate": 0.6,
+            "epa_per_att": 1.325
+           },
+           "defense_allowed": {
+            "att": 10,
+            "cmp": 5,
+            "success_rate": 0.5,
+            "epa_per_att": 0.775
+           }
+          },
+          "deep_right": {
+           "qb": {
+            "att": 23,
+            "cmp": 13,
+            "success_rate": 0.565,
+            "epa_per_att": 0.565
+           },
+           "defense_allowed": {
+            "att": 20,
+            "cmp": 12,
+            "success_rate": 0.6,
+            "epa_per_att": 0.98
+           }
+          },
+          "short_left": {
+           "qb": {
+            "att": 93,
+            "cmp": 64,
+            "success_rate": 0.516,
+            "epa_per_att": 0.112
+           },
+           "defense_allowed": {
+            "att": 76,
+            "cmp": 55,
+            "success_rate": 0.474,
+            "epa_per_att": 0.106
+           }
+          },
+          "short_middle": {
+           "qb": {
+            "att": 29,
+            "cmp": 19,
+            "success_rate": 0.483,
+            "epa_per_att": -0.091
+           },
+           "defense_allowed": {
+            "att": 63,
+            "cmp": 42,
+            "success_rate": 0.444,
+            "epa_per_att": -0.087
+           }
+          },
+          "short_right": {
+           "qb": {
+            "att": 116,
+            "cmp": 83,
+            "success_rate": 0.448,
+            "epa_per_att": 0.126
+           },
+           "defense_allowed": {
+            "att": 98,
+            "cmp": 67,
+            "success_rate": 0.49,
+            "epa_per_att": 0.004
+           }
+          }
+         },
+         "C.Klubnik (00-0041056)": {
+          "deep_left": {
+           "qb": {
+            "att": 2,
+            "cmp": 1,
+            "success_rate": 0.5,
+            "epa_per_att": 0.231
+           },
+           "defense_allowed": {
+            "att": 14,
+            "cmp": 5,
+            "success_rate": 0.357,
+            "epa_per_att": 0.09
+           }
+          },
+          "deep_right": {
+           "qb": {
+            "att": 5,
+            "cmp": 1,
+            "success_rate": 0.2,
+            "epa_per_att": -0.169
+           },
+           "defense_allowed": {
+            "att": 20,
+            "cmp": 12,
+            "success_rate": 0.6,
+            "epa_per_att": 0.98
+           }
+          },
+          "short_left": {
+           "qb": {
+            "att": 7,
+            "cmp": 3,
+            "success_rate": 0.143,
+            "epa_per_att": -1.277
+           },
+           "defense_allowed": {
+            "att": 76,
+            "cmp": 55,
+            "success_rate": 0.474,
+            "epa_per_att": 0.106
+           }
+          },
+          "short_middle": {
+           "qb": {
+            "att": 1,
+            "cmp": 1,
+            "success_rate": 1.0,
+            "epa_per_att": 0.74
+           },
+           "defense_allowed": {
+            "att": 63,
+            "cmp": 42,
+            "success_rate": 0.444,
+            "epa_per_att": -0.087
+           }
+          },
+          "short_right": {
+           "qb": {
+            "att": 5,
+            "cmp": 5,
+            "success_rate": 1.0,
+            "epa_per_att": 0.709
+           },
+           "defense_allowed": {
+            "att": 98,
+            "cmp": 67,
+            "success_rate": 0.49,
+            "epa_per_att": 0.004
+           }
+          }
+         }
+        },
+        "note": "Side by side only (QB's own rate | this defense's allowed rate, same zone). No blend."
+       },
+       "LAC": {
+        "opponent_defense": "NYJ",
+        "defense_allowed_by_zone": {
+         "deep_left": {
+          "att": 15,
+          "cmp": 5,
+          "success_rate": 0.333,
+          "epa_per_att": 0.201
+         },
+         "deep_middle": {
+          "att": 12,
+          "cmp": 6,
+          "success_rate": 0.5,
+          "epa_per_att": 0.304
+         },
+         "deep_right": {
+          "att": 20,
+          "cmp": 9,
+          "success_rate": 0.4,
+          "epa_per_att": 0.283
+         },
+         "short_left": {
+          "att": 90,
+          "cmp": 57,
+          "success_rate": 0.433,
+          "epa_per_att": 0.096
+         },
+         "short_middle": {
+          "att": 51,
+          "cmp": 37,
+          "success_rate": 0.667,
+          "epa_per_att": 0.336
+         },
+         "short_right": {
+          "att": 103,
+          "cmp": 71,
+          "success_rate": 0.544,
+          "epa_per_att": 0.306
+         }
+        },
+        "qbs": {
+         "J.Herbert (00-0036355)": {
+          "deep_left": {
+           "qb": {
+            "att": 15,
+            "cmp": 6,
+            "success_rate": 0.333,
+            "epa_per_att": 0.548
+           },
+           "defense_allowed": {
+            "att": 15,
+            "cmp": 5,
+            "success_rate": 0.333,
+            "epa_per_att": 0.201
+           }
+          },
+          "deep_middle": {
+           "qb": {
+            "att": 8,
+            "cmp": 4,
+            "success_rate": 0.5,
+            "epa_per_att": -0.289
+           },
+           "defense_allowed": {
+            "att": 12,
+            "cmp": 6,
+            "success_rate": 0.5,
+            "epa_per_att": 0.304
+           }
+          },
+          "deep_right": {
+           "qb": {
+            "att": 23,
+            "cmp": 8,
+            "success_rate": 0.304,
+            "epa_per_att": 0.054
+           },
+           "defense_allowed": {
+            "att": 20,
+            "cmp": 9,
+            "success_rate": 0.4,
+            "epa_per_att": 0.283
+           }
+          },
+          "short_left": {
+           "qb": {
+            "att": 61,
+            "cmp": 45,
+            "success_rate": 0.443,
+            "epa_per_att": 0.053
+           },
+           "defense_allowed": {
+            "att": 90,
+            "cmp": 57,
+            "success_rate": 0.433,
+            "epa_per_att": 0.096
+           }
+          },
+          "short_middle": {
+           "qb": {
+            "att": 42,
+            "cmp": 30,
+            "success_rate": 0.476,
+            "epa_per_att": -0.017
+           },
+           "defense_allowed": {
+            "att": 51,
+            "cmp": 37,
+            "success_rate": 0.667,
+            "epa_per_att": 0.336
+           }
+          },
+          "short_right": {
+           "qb": {
+            "att": 102,
+            "cmp": 63,
+            "success_rate": 0.324,
+            "epa_per_att": -0.252
+           },
+           "defense_allowed": {
+            "att": 103,
+            "cmp": 71,
+            "success_rate": 0.544,
+            "epa_per_att": 0.306
+           }
+          }
+         },
+         "D.Uiagalelei (00-0040464)": {
+          "short_left": {
+           "qb": {
+            "att": 2,
+            "cmp": 0,
+            "success_rate": 0.0,
+            "epa_per_att": -0.37
+           },
+           "defense_allowed": {
+            "att": 90,
+            "cmp": 57,
+            "success_rate": 0.433,
+            "epa_per_att": 0.096
+           }
+          },
+          "short_middle": {
+           "qb": {
+            "att": 3,
+            "cmp": 1,
+            "success_rate": 0.333,
+            "epa_per_att": 0.676
+           },
+           "defense_allowed": {
+            "att": 51,
+            "cmp": 37,
+            "success_rate": 0.667,
+            "epa_per_att": 0.336
+           }
+          },
+          "short_right": {
+           "qb": {
+            "att": 2,
+            "cmp": 1,
+            "success_rate": 0.5,
+            "epa_per_att": -0.008
+           },
+           "defense_allowed": {
+            "att": 103,
+            "cmp": 71,
+            "success_rate": 0.544,
+            "epa_per_att": 0.306
+           }
+          }
+         },
+         "T.Harris (00-0040727)": {
+          "short_left": {
+           "qb": {
+            "att": 1,
+            "cmp": 0,
+            "success_rate": 0.0,
+            "epa_per_att": -0.54
+           },
+           "defense_allowed": {
+            "att": 90,
+            "cmp": 57,
+            "success_rate": 0.433,
+            "epa_per_att": 0.096
+           }
+          }
+         }
+        },
+        "note": "Side by side only (QB's own rate | this defense's allowed rate, same zone). No blend."
+       }
+      }
+     },
+     "likely_defenders": {
+      "field": "likely_defenders",
+      "status": "MISSING",
+      "source": "https://www.pff.com/tools/matchups",
+      "reason": "No PFF matchups capture at /workspace/nfl-database/pff_matchups/2026_w11/receiver_matchups.csv. Needs a signed-in browser pass on https://www.pff.com/tools/matchups (Rico's PFF tier) for week 11, saved with the columns in pipeline/matchup_sources.py.",
+      "as_of": null,
+      "value": "unknown"
+     }
+    }
+   },
+   "age_minutes": null,
+   "max_age_minutes": null,
+   "cadence": "latest_release"
+  }
+ ],
+ "phases": [
+  {
+   "phase": 1,
+   "name": "Slate, schedule, venue",
+   "status": "AUTO",
+   "packet_status": "AUTO",
+   "filled": [
+    "game.kickoff_et",
+    "game.date",
+    "game.site",
+    "game.roof",
+    "game.listed_qbs",
+    "schedule: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Schedule, kickoff, site, roof, surface, rest days, listed QBs.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 1"
+  },
+  {
+   "phase": 2,
+   "name": "Player identity and position",
+   "status": "MISSING",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.NYJ.offense.players",
+    "teams.LAC.offense.players"
+   ],
+   "missing": [
+    "rosters: 'sources.rosters': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Positions from weekly rosters (GSIS IDs). Name-only joins are used for snap counts and PFR defenders.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 2"
+  },
+  {
+   "phase": 3,
+   "name": "Verified player game history",
+   "status": "MISSING",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.NYJ.offense.players",
+    "teams.LAC.offense.players",
+    "teams.NYJ.offense.by_game",
+    "teams.LAC.offense.by_game"
+   ],
+   "missing": [
+    "play_by_play: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Per-game logs for QBs, receivers and rushers over the window, from play-by-play.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 3"
+  },
+  {
+   "phase": 4,
+   "name": "Role, snaps, routes, opportunity",
+   "status": "MISSING",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.NYJ.offense.players",
+    "teams.LAC.offense.players",
+    "teams.NYJ.offense.offense_snap_share",
+    "teams.LAC.offense.offense_snap_share"
+   ],
+   "missing": [
+    "snap_counts: 'sources.snap_counts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_receiving: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_rushing: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "routes run / route participation (public NGS weekly files do not carry them; listed MISSING/unknown, not zero)"
+   ],
+   "packet_detail": "Target share, air-yards share, carry share, red-zone looks, snap share. Routes run and route participation are NOT available.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 4"
+  },
+  {
+   "phase": 5,
+   "name": "Team offense/defense baselines",
+   "status": "MISSING",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.NYJ.defense.allowed",
+    "teams.LAC.defense.allowed",
+    "teams.NYJ.offense.produced",
+    "teams.LAC.offense.produced",
+    "teams.NYJ.defense.rank",
+    "teams.LAC.defense.rank"
+   ],
+   "missing": [
+    "play_by_play: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Allowed and produced tables with league ranks and game-by-game trends.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 5"
+  },
+  {
+   "phase": 6,
+   "name": "Opponent context and game script",
+   "status": "PARTIAL",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "market.home_spread",
+    "market.total",
+    "schedule: FRESH"
+   ],
+   "missing": [],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "the script call itself (analyst)"
+   ],
+   "packet_detail": "Market spread/total, neutral pass rate, pace. The script call itself is the analyst's.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 6"
+  },
+  {
+   "phase": 7,
+   "name": "Coverage structure and shell",
+   "status": "MISSING",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.NYJ.defense.allowed.dropbacks_charted",
+    "teams.LAC.defense.allowed.dropbacks_charted"
+   ],
+   "missing": [
+    "ftn_charting: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "man/zone and shell (no free source)"
+   ],
+   "packet_detail": "Blitz and play-action rates from FTN charting. Man/zone and shell are NOT in any free source here.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 7"
+  },
+  {
+   "phase": 8,
+   "name": "Defender assignment and explosive allowance",
+   "status": "MISSING",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.NYJ.defense.defenders",
+    "teams.LAC.defense.defenders",
+    "ngs_defender_matchup: FRESH"
+   ],
+   "missing": [
+    "pfr_defense: 'sources.pfr_def': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_passing: 'sources.ngs_passing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_receiving: 'sources.ngs_receiving': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ngs_rushing: 'sources.ngs_rushing': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "who covers whom (no confirmed assignment); public NGS has no route/location/defender splits (listed MISSING/unknown, not zero)"
+   ],
+   "packet_detail": "Per-defender targets/yards allowed (PFR) and explosive plays allowed. Who covers whom is NOT known.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 8"
+  },
+  {
+   "phase": 9,
+   "name": "QB pressure, blitz, scramble",
+   "status": "MISSING",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.NYJ.defense.allowed",
+    "teams.LAC.defense.allowed"
+   ],
+   "missing": [
+    "play_by_play: 'sources.pbp': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "ftn_charting: 'sources.ftn': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "true pressure rate (sacks + hits is a floor)"
+   ],
+   "packet_detail": "Sack rate, sacks + QB hits rate (a floor on pressure), blitz rate, scrambles.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 9"
+  },
+  {
+   "phase": 10,
+   "name": "Offensive line, pass rush, coaching",
+   "status": "MISSING",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "teams.NYJ.depth_chart",
+    "teams.LAC.depth_chart",
+    "game.coaches"
+   ],
+   "missing": [
+    "depth_charts: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "line grades (paid source)"
+   ],
+   "packet_detail": "Depth-chart line, pressure allowed, run yards by direction, pass-rush leaders. No line grades.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 10"
+  },
+  {
+   "phase": 11,
+   "name": "Injury and depth chart",
+   "status": "MISSING",
+   "packet_status": "AUTO",
+   "filled": [
+    "teams.NYJ.injuries.official_report",
+    "teams.LAC.injuries.official_report",
+    "teams.NYJ.injuries.espn_live",
+    "teams.LAC.injuries.espn_live",
+    "teams.NYJ.depth_chart",
+    "teams.LAC.depth_chart",
+    "news_injuries: FRESH"
+   ],
+   "missing": [
+    "official_injuries: 'sources.injuries': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current.",
+    "depth_charts: 'sources.depth_charts': UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; our fetch time alone does not show the data is current."
+   ],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Official weekly report and depth chart; ESPN live list when reachable. Recent roster arrivals/departures.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 11"
+  },
+  {
+   "phase": 12,
+   "name": "Weather, roof, travel",
+   "status": "AUTO",
+   "packet_status": "AUTO",
+   "filled": [
+    "game.roof",
+    "weather.status",
+    "weather: NOT_REQUIRED"
+   ],
+   "missing": [],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Roof, surface, rest days, site; National Weather Service kickoff forecast: INDOOR.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 12"
+  },
+  {
+   "phase": 13,
+   "name": "Timestamped book prices",
+   "status": "STALE",
+   "packet_status": "PARTIAL",
+   "filled": [
+    "books.markets"
+   ],
+   "missing": [],
+   "stale": [
+    "odds: as-of 2026-11-22T20:33:25+00:00 (live_pull (live endpoint; pull time is the quote time)) is 35 min old; limit is 20 min at -0.0 h to kickoff.",
+    "four_book_prices: 35 min old; limit is 20 min."
+   ],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [
+    "true opening line"
+   ],
+   "packet_detail": "Pinnacle / DraftKings / FanDuel prices with no-vig and first-seen-to-now movement, player props. No FTN model, no true opening line.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 13"
+  },
+  {
+   "phase": 14,
+   "name": "Projection and simulation (100k)",
+   "status": "PARTIAL_RESEARCH_ONLY",
+   "packet_status": "PARTIAL_RESEARCH_ONLY",
+   "filled": [
+    "team_projection"
+   ],
+   "missing": [],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Period-engine team scores; player baselines. Not the three-model consensus; not validated.",
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 14"
+  },
+  {
+   "phase": 15,
+   "name": "Final inactive pregame freeze",
+   "status": "AUTO",
+   "packet_status": "PENDING",
+   "filled": [
+    "official_inactives: Both clubs' official Inactives articles pulled after T-90. (source: {'NYJ': 'https://www.newyorkjets.com/news/jets-vs-chargers-nfl-game-inactives-11-22-2026', 'LAC': 'https://www.chargers.com/news/jets-inactives-week-11-2026'}; pulled 2026-11-22T20:06:01+00:00)"
+   ],
+   "missing": [],
+   "stale": [],
+   "gap": [],
+   "not_yet": [],
+   "not_available_from_free_sources": [],
+   "packet_detail": "Inactives post about 90 minutes before kickoff. Re-run or check them by hand before any final call.",
+   "phase15": {
+    "status": "AUTO",
+    "source": "club official site 'Inactives' article (phase15/official_inactives.py); ESPN/wire not used",
+    "source_urls": {
+     "NYJ": "https://www.newyorkjets.com/news/jets-vs-chargers-nfl-game-inactives-11-22-2026",
+     "LAC": "https://www.chargers.com/news/jets-inactives-week-11-2026"
+    },
+    "pull_utc": "2026-11-22T20:06:01+00:00",
+    "pull_et": "2026-11-22 03:06 PM ET",
+    "published_utc": {
+     "NYJ": "2026-11-22T19:35:00+00:00",
+     "LAC": "2026-11-22T19:50:00+00:00"
+    },
+    "file": "phase15/inactives/2026_11_NYJ_LAC/inactives_20261122T200601Z.json",
+    "kickoff_utc": "2026-11-22T21:05:00+00:00",
+    "posts_utc": "2026-11-22T19:35:00+00:00",
+    "checked_utc": "2026-11-22T21:07:57+00:00",
+    "inactives": {
+     "NYJ": [
+      "Jarvis Brownlee Jr.",
+      "Omar Cooper Jr.",
+      "Trevin Wallace",
+      "Isaiah Williams",
+      "Jelani Woods",
+      "Alex Harkey",
+      "Daiyan Henley",
+      "KeAndre Lambert-Smith",
+      "Tarheeb Still",
+      "Brenen Thompson",
+      "Kendall Williamson"
+     ],
+     "LAC": [
+      "Brenen Thompson",
+      "Daiyan Henley",
+      "KeAndre Lambert-Smith",
+      "Kendall Williamson",
+      "Alex Harkey",
+      "Ladd McConkey",
+      "Tarheeb Still",
+      "Trey Pipkins",
+      "Donte Jackson"
+     ]
+    },
+    "reason": "Both clubs' official Inactives articles pulled after T-90."
+   },
+   "command": "python -m pipeline.phases --game 2026_11_NYJ_LAC --phase 15"
+  }
+ ],
+ "summary": {
+  "AUTO": 3,
+  "MISSING": 9,
+  "PARTIAL": 1,
+  "PARTIAL_RESEARCH_ONLY": 1,
+  "STALE": 1
+ }
+}

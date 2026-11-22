@@ -1,0 +1,36 @@
+{
+ "cdf_sha256": "0de28198aa03be554849dd356b7a96e33307ea2f213a3c191841661f904445a3",
+ "config_id": "nyj_lac_2026-11-22_data_only_nfl43",
+ "files": {
+  "cdf": "2026_11_NYJ_LAC.rush_dist.cdf.csv",
+  "summary": "2026_11_NYJ_LAC.rush_dist.summary.csv"
+ },
+ "game_id": "2026_11_NYJ_LAC",
+ "grid": {
+  "half_lines": true,
+  "max": 250.5,
+  "min": -20.5,
+  "step": 1.0
+ },
+ "n": 100000,
+ "n_players": 16,
+ "n_trials": 100000,
+ "p_model_definition": "p_model = P(graded side) / (P(under) + P(over)) at the leg line (push removed; equal to P(side) on x.5)",
+ "p_under_definition": "p_under = P(rush_yds < line) over all sim trials; p_over = P(rush_yds > line); half lines never push",
+ "pbp": "pbp_2026_w1_10_pulled_20261122T0719ET.parquet",
+ "projection_ready": false,
+ "quantiles": [
+  0.05,
+  0.1,
+  0.25,
+  0.5,
+  0.75,
+  0.9,
+  0.95
+ ],
+ "research_only": true,
+ "rush_yds_definition": "player_box rush_yds + kneel_yds (official-stat convention: kneel-downs are rushes); 0 in trials with no carry",
+ "schema": "nfl75-rush-dist/1",
+ "seed": 1833934677,
+ "source": "core/possession_engine_v0/player_box.py per-trial lines (observational; engine unchanged)"
+}

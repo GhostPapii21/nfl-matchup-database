@@ -1,0 +1,2471 @@
+{
+ "schema": "nfl56-sim100k/2",
+ "game_id": "2026_11_NYJ_LAC",
+ "trials_requested": 100000,
+ "projection_ready": false,
+ "research_only": true,
+ "ran": true,
+ "ok": true,
+ "gates": {
+  "G0_entrypoint": "PASS",
+  "G1_flags": "PASS",
+  "G2_nfl43": "PASS",
+  "G3_packet": "PASS",
+  "G4_freshness": "PASS",
+  "G5_phases": "PASS",
+  "G7_asof": "PASS",
+  "G6_rocket": "PASS"
+ },
+ "reasons": [],
+ "checked_utc": "2026-11-22T20:37:30+00:00",
+ "entrypoint": {
+  "status": "OK",
+  "entrypoint": "core/possession_engine_v0/validation/entrypoint.py:run_validation",
+  "authorized_sha256": "8a9d72949c122923ca149b635cd04290373112abc50930b85de5332491a201a1",
+  "denied": [
+   "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py",
+   "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/role_policy_metrics.json"
+  ]
+ },
+ "result": {
+  "engine": "core/possession_engine_v0 simulate_games + NFL-43 semantics (via snapshots/lock.py run_sim)",
+  "config_id": "nyj_lac_2026-11-22_data_only_nfl43",
+  "config_path": "core/possession_engine_v0/config/nyj_lac_2026-11-22_data_only_nfl43.json",
+  "config_sha256": "7211d76541401730ab63d6bc8bbe9e597b93ac1e064924ea7f594d24cd2f1e3e",
+  "semantics_used": {
+   "penalties": "canonical_log_v1",
+   "returns": "asof_league_v1",
+   "overtime": "official_2025_regular_season"
+  },
+  "defense_interaction": {
+   "mode": "h2h_only"
+  },
+  "pbp": "pbp_2026_w1_10_pulled_20261122T0719ET.parquet",
+  "pbp_sha256": "24ea364cccf8d9d0a38e1eb435c76ff6a74b4493f67e76d60b0458bbe60e8055",
+  "price_freeze": "freeze_20261122T203730Z.json",
+  "price_freeze_pulled_utc": "2026-11-22T20:33:25Z",
+  "n": 100000,
+  "seed": 1833934677,
+  "chunks": 3,
+  "chunk_seeds": [
+   1833934677,
+   1834934680,
+   1835934683
+  ],
+  "runtime_sec": 1549.6,
+  "model_weights_changed": false,
+  "nfl42_entrypoint": {
+   "status": "OK",
+   "authorized_sha256": "8a9d72949c122923ca149b635cd04290373112abc50930b85de5332491a201a1"
+  },
+  "summary": {
+   "n": 100000,
+   "home": "LAC",
+   "away": "NYJ",
+   "points": {
+    "LAC": 16.54266,
+    "NYJ": 24.491
+   },
+   "margin_home": {
+    "mean": -7.94834,
+    "sd": 13.366334996714695,
+    "p10_25_50_75_90": [
+     -25.0,
+     -17.0,
+     -8.0,
+     1.0,
+     9.0
+    ]
+   },
+   "total": {
+    "mean": 41.03366,
+    "sd": 11.926397905671267,
+    "p10_25_50_75_90": [
+     26.0,
+     33.0,
+     40.0,
+     49.0,
+     57.0
+    ]
+   },
+   "p_home_win": 0.27314,
+   "p_away_win": 0.71954,
+   "p_tie": 0.00732,
+   "p_ot": 0.03223,
+   "halves": {
+    "h1_home": 7.86172,
+    "h1_away": 12.60478,
+    "h2_home": 8.62201,
+    "h2_away": 11.79651
+   },
+   "quarters": {
+    "q1_home": 3.46133,
+    "q1_away": 6.17236,
+    "q2_home": 4.40039,
+    "q2_away": 6.43242,
+    "q3_home": 4.24695,
+    "q3_away": 5.40436,
+    "q4_home": 4.37506,
+    "q4_away": 6.39215
+   },
+   "nfl43": {
+    "pen_yds_home": 56.62704,
+    "pen_yds_away": 57.41288,
+    "n_pen": 15.52218,
+    "ret_td_home": 0.00673,
+    "ret_td_away": 0.00614,
+    "def_td_home": 0.06267,
+    "def_td_away": 0.18492
+   },
+   "vs_market": [
+    {
+     "market": "spread",
+     "book": "fanduel",
+     "side": "New York Jets",
+     "line": 3.0,
+     "p_model_cover": 0.76982,
+     "p_model_push": 0.02426,
+     "p_book_novig": 0.487,
+     "reference_only": false
+    },
+    {
+     "market": "spread",
+     "book": "pinnacle",
+     "side": "New York Jets",
+     "line": 3.0,
+     "p_model_cover": 0.76982,
+     "p_model_push": 0.02426,
+     "p_book_novig": 0.4861,
+     "reference_only": true
+    },
+    {
+     "market": "spread",
+     "book": "consensus",
+     "side": "New York Jets",
+     "line": 3.0,
+     "p_model_cover": 0.76982,
+     "p_model_push": 0.02426,
+     "p_book_novig": 0.486,
+     "reference_only": true
+    },
+    {
+     "market": "spread",
+     "book": "draftkings",
+     "side": "New York Jets",
+     "line": 3.0,
+     "p_model_cover": 0.76982,
+     "p_model_push": 0.02426,
+     "p_book_novig": 0.4826,
+     "reference_only": false
+    },
+    {
+     "market": "spread",
+     "book": "betrivers",
+     "side": "New York Jets",
+     "line": 3.0,
+     "p_model_cover": 0.76982,
+     "p_model_push": 0.02426,
+     "p_book_novig": 0.5085,
+     "reference_only": false
+    },
+    {
+     "market": "spread",
+     "book": "betmgm",
+     "side": "New York Jets",
+     "line": 3.0,
+     "p_model_cover": 0.76982,
+     "p_model_push": 0.02426,
+     "p_book_novig": 0.4826,
+     "reference_only": false
+    },
+    {
+     "market": "spread",
+     "book": "williamhill_us",
+     "side": "New York Jets",
+     "line": 3.0,
+     "p_model_cover": 0.76982,
+     "p_model_push": 0.02426,
+     "p_book_novig": 0.4848,
+     "reference_only": false
+    },
+    {
+     "market": "spread",
+     "book": "open",
+     "side": "New York Jets",
+     "line": 9.5,
+     "p_model_cover": 0.90114,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5,
+     "reference_only": true
+    },
+    {
+     "market": "spread",
+     "book": "bet365",
+     "side": "New York Jets",
+     "line": 3.5,
+     "p_model_cover": 0.79408,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5217,
+     "reference_only": false
+    },
+    {
+     "market": "total",
+     "book": "fanduel",
+     "side": "Over",
+     "line": 42.5,
+     "p_model": 0.44584,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5146,
+     "reference_only": false
+    },
+    {
+     "market": "total",
+     "book": "pinnacle",
+     "side": "Over",
+     "line": 43.0,
+     "p_model": 0.4044,
+     "p_model_push": 0.04144,
+     "p_book_novig": 0.508,
+     "reference_only": true
+    },
+    {
+     "market": "total",
+     "book": "betrivers",
+     "side": "Over",
+     "line": 42.5,
+     "p_model": 0.44584,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5169,
+     "reference_only": false
+    },
+    {
+     "market": "total",
+     "book": "open",
+     "side": "Over",
+     "line": 41.5,
+     "p_model": 0.46712,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5,
+     "reference_only": true
+    },
+    {
+     "market": "total",
+     "book": "consensus",
+     "side": "Over",
+     "line": 43.5,
+     "p_model": 0.4044,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4924,
+     "reference_only": true
+    },
+    {
+     "market": "total",
+     "book": "draftkings",
+     "side": "Over",
+     "line": 43.5,
+     "p_model": 0.4044,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4848,
+     "reference_only": false
+    },
+    {
+     "market": "total",
+     "book": "bet365",
+     "side": "Over",
+     "line": 43.5,
+     "p_model": 0.4044,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4848,
+     "reference_only": false
+    },
+    {
+     "market": "total",
+     "book": "williamhill_us",
+     "side": "Over",
+     "line": 43.5,
+     "p_model": 0.4044,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4935,
+     "reference_only": false
+    },
+    {
+     "market": "total",
+     "book": "betmgm",
+     "side": "Over",
+     "line": 43.0,
+     "p_model": 0.4044,
+     "p_model_push": 0.04144,
+     "p_book_novig": 0.5022,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "fanduel",
+     "side": "New York Jets",
+     "p_model_win": 0.71954,
+     "p_model_win_ex_tie": 0.7248458717814401,
+     "p_book_novig": 0.3874,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "pinnacle",
+     "side": "New York Jets",
+     "p_model_win": 0.71954,
+     "p_model_win_ex_tie": 0.7248458717814401,
+     "p_book_novig": 0.3895,
+     "reference_only": true
+    },
+    {
+     "market": "moneyline",
+     "book": "consensus",
+     "side": "New York Jets",
+     "p_model_win": 0.71954,
+     "p_model_win_ex_tie": 0.7248458717814401,
+     "p_book_novig": 0.3869,
+     "reference_only": true
+    },
+    {
+     "market": "moneyline",
+     "book": "draftkings",
+     "side": "New York Jets",
+     "p_model_win": 0.71954,
+     "p_model_win_ex_tie": 0.7248458717814401,
+     "p_book_novig": 0.3817,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "betrivers",
+     "side": "New York Jets",
+     "p_model_win": 0.71954,
+     "p_model_win_ex_tie": 0.7248458717814401,
+     "p_book_novig": 0.3957,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "betmgm",
+     "side": "New York Jets",
+     "p_model_win": 0.71954,
+     "p_model_win_ex_tie": 0.7248458717814401,
+     "p_book_novig": 0.3908,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "bet365",
+     "side": "New York Jets",
+     "p_model_win": 0.71954,
+     "p_model_win_ex_tie": 0.7248458717814401,
+     "p_book_novig": 0.3855,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "williamhill_us",
+     "side": "New York Jets",
+     "p_model_win": 0.71954,
+     "p_model_win_ex_tie": 0.7248458717814401,
+     "p_book_novig": 0.3908,
+     "reference_only": false
+    }
+   ],
+   "market_divergence": {
+    "max_abs_moneyline_gap": 0.3431458717814401,
+    "flag": "LARGE_DIVERGENCE_TREAT_AS_MODEL_ERROR_UNTIL_SHOWN_OTHERWISE"
+   }
+  },
+  "player_box": {
+   "schema": "nfl75-player-box/1",
+   "reconciliation": {
+    "trials": 100000,
+    "failures": 0,
+    "first_failures": [],
+    "checks": [
+     "player_sum_eq_team",
+     "plays_eq_engine_snaps",
+     "plays_eq_play_types",
+     "pass_att_eq_targets_plus_untargeted",
+     "off_td_eq_engine_td_events",
+     "turnovers_eq_engine_turnover_events",
+     "yards_eq_engine_snap_yards",
+     "rec_yds_eq_engine_ledger",
+     "rush_yds_eq_engine_ledger",
+     "pass_yds_eq_engine_ledger",
+     "sacks_made_eq_sacks_taken"
+    ]
+   },
+   "n_columns": 205,
+   "summary": {
+    "LAC": {
+     "UNASSIGNED": {
+      "sacks_made": {
+       "mean": 3.49157,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "def_int": {
+       "mean": 0.46587,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      }
+     },
+     "O.Hampton": {
+      "carries": {
+       "mean": 13.71468,
+       "median": 14.0,
+       "p10": 9.0,
+       "p25": 11.0,
+       "p75": 16.0,
+       "p90": 18.0
+      },
+      "rush_yds": {
+       "mean": 53.78515,
+       "median": 51.0,
+       "p10": 26.0,
+       "p25": 37.0,
+       "p75": 68.0,
+       "p90": 85.0
+      },
+      "targets": {
+       "mean": 1.83344,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "fumbles_lost": {
+       "mean": 0.22205,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec": {
+       "mean": 1.46471,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec_yds": {
+       "mean": 7.66764,
+       "median": 4.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 12.0,
+       "p90": 21.0
+      },
+      "rec_td": {
+       "mean": 0.02046,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_td": {
+       "mean": 0.31616,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      }
+     },
+     "J.Herbert": {
+      "carries": {
+       "mean": 4.3601,
+       "median": 4.0,
+       "p10": 2.0,
+       "p25": 3.0,
+       "p75": 6.0,
+       "p90": 7.0
+      },
+      "rush_yds": {
+       "mean": 24.59869,
+       "median": 21.0,
+       "p10": 6.0,
+       "p25": 12.0,
+       "p75": 35.0,
+       "p90": 48.0
+      },
+      "pass_att": {
+       "mean": 28.23936,
+       "median": 28.0,
+       "p10": 22.0,
+       "p25": 25.0,
+       "p75": 32.0,
+       "p90": 35.0
+      },
+      "pass_cmp": {
+       "mean": 17.57826,
+       "median": 17.0,
+       "p10": 12.0,
+       "p25": 15.0,
+       "p75": 20.0,
+       "p90": 23.0
+      },
+      "pass_yds": {
+       "mean": 198.62645,
+       "median": 195.0,
+       "p10": 122.0,
+       "p25": 155.0,
+       "p75": 238.0,
+       "p90": 280.0
+      },
+      "sacks_taken": {
+       "mean": 3.80249,
+       "median": 4.0,
+       "p10": 2.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "sack_yds": {
+       "mean": -22.85109,
+       "median": -21.0,
+       "p10": -41.0,
+       "p25": -31.0,
+       "p75": -13.0,
+       "p90": -7.0
+      },
+      "int_thrown": {
+       "mean": 1.36404,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "fumbles_lost": {
+       "mean": 0.23644,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "pass_td": {
+       "mean": 0.95696,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "targets": {
+       "mean": 0.13503,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_td": {
+       "mean": 0.09052,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "C.Kolar": {
+      "targets": {
+       "mean": 2.71771,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 4.0,
+       "p90": 5.0
+      },
+      "rec": {
+       "mean": 1.75847,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec_yds": {
+       "mean": 17.3082,
+       "median": 16.0,
+       "p10": 0.0,
+       "p25": 5.0,
+       "p75": 26.0,
+       "p90": 37.0
+      },
+      "fumbles_lost": {
+       "mean": 0.10031,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "carries": {
+       "mean": 0.13852,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 0.41432,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 3.0
+      },
+      "rec_td": {
+       "mean": 0.03462,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_td": {
+       "mean": 0.00154,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "Q.Johnston": {
+      "carries": {
+       "mean": 0.34001,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 1.00107,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 7.0
+      },
+      "targets": {
+       "mean": 3.64677,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "rec": {
+       "mean": 1.66843,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec_yds": {
+       "mean": 31.61617,
+       "median": 21.0,
+       "p10": 0.0,
+       "p25": 6.0,
+       "p75": 56.0,
+       "p90": 77.0
+      },
+      "rec_td": {
+       "mean": 0.16485,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_td": {
+       "mean": 0.00329,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "K.Lambert-Smith": {
+      "targets": {
+       "mean": 1.36807,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec": {
+       "mean": 0.70588,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec_yds": {
+       "mean": 9.26537,
+       "median": 0.0,
+       "p10": -1.0,
+       "p25": 0.0,
+       "p75": 15.0,
+       "p90": 36.0
+      },
+      "fumbles_lost": {
+       "mean": 0.11301,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec_td": {
+       "mean": 0.07243,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "T.Harris": {
+      "targets": {
+       "mean": 4.53339,
+       "median": 4.0,
+       "p10": 2.0,
+       "p25": 3.0,
+       "p75": 6.0,
+       "p90": 7.0
+      },
+      "rec": {
+       "mean": 2.94478,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 4.0,
+       "p90": 5.0
+      },
+      "rec_yds": {
+       "mean": 42.09028,
+       "median": 36.0,
+       "p10": 6.0,
+       "p25": 18.0,
+       "p75": 60.0,
+       "p90": 85.0
+      },
+      "rec_td": {
+       "mean": 0.17141,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "pass_att": {
+       "mean": 0.13503,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "K.Vidal": {
+      "targets": {
+       "mean": 2.05129,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec": {
+       "mean": 1.26204,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec_yds": {
+       "mean": 7.93277,
+       "median": 6.0,
+       "p10": -1.0,
+       "p25": 0.0,
+       "p75": 14.0,
+       "p90": 22.0
+      },
+      "carries": {
+       "mean": 4.22863,
+       "median": 4.0,
+       "p10": 2.0,
+       "p25": 3.0,
+       "p75": 6.0,
+       "p90": 7.0
+      },
+      "rush_yds": {
+       "mean": 17.62682,
+       "median": 13.0,
+       "p10": 2.0,
+       "p25": 7.0,
+       "p75": 23.0,
+       "p90": 41.0
+      },
+      "rec_td": {
+       "mean": 0.04056,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_td": {
+       "mean": 0.14913,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "O.Gadsden": {
+      "targets": {
+       "mean": 3.21076,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 4.0,
+       "p90": 6.0
+      },
+      "rec": {
+       "mean": 2.31699,
+       "median": 2.0,
+       "p10": 1.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec_yds": {
+       "mean": 20.56991,
+       "median": 18.0,
+       "p10": 1.0,
+       "p25": 9.0,
+       "p75": 29.0,
+       "p90": 41.0
+      },
+      "rec_td": {
+       "mean": 0.10658,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "carries": {
+       "mean": 0.1282,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 0.25598,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 2.0
+      },
+      "rush_td": {
+       "mean": 0.00104,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "K.Mitchell": {
+      "carries": {
+       "mean": 5.85095,
+       "median": 6.0,
+       "p10": 3.0,
+       "p25": 4.0,
+       "p75": 7.0,
+       "p90": 9.0
+      },
+      "rush_yds": {
+       "mean": 21.23018,
+       "median": 19.0,
+       "p10": 4.0,
+       "p25": 10.0,
+       "p75": 30.0,
+       "p90": 41.0
+      },
+      "targets": {
+       "mean": 2.28778,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec": {
+       "mean": 1.86227,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec_yds": {
+       "mean": 10.12984,
+       "median": 9.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 16.0,
+       "p90": 25.0
+      },
+      "fumbles_lost": {
+       "mean": 0.11631,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec_td": {
+       "mean": 0.03307,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_td": {
+       "mean": 0.12147,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "L.McConkey": {
+      "targets": {
+       "mean": 2.75954,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 4.0,
+       "p90": 5.0
+      },
+      "rec": {
+       "mean": 1.93387,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec_yds": {
+       "mean": 34.72492,
+       "median": 29.0,
+       "p10": 0.0,
+       "p25": 12.0,
+       "p75": 53.0,
+       "p90": 76.0
+      },
+      "rec_td": {
+       "mean": 0.18706,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "A.Ingold": {
+      "targets": {
+       "mean": 0.37225,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec": {
+       "mean": 0.24533,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 1.27726,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 5.0
+      },
+      "rec_td": {
+       "mean": 0.00975,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "B.Thompson": {
+      "targets": {
+       "mean": 0.33637,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec": {
+       "mean": 0.10256,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec_yds": {
+       "mean": 1.3046,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec_td": {
+       "mean": 0.0062,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "D.Uiagalelei": {
+      "pass_att": {
+       "mean": 0.62748,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "pass_cmp": {
+       "mean": 0.12618,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "pass_yds": {
+       "mean": 1.12972,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 9.0
+      },
+      "pass_td": {
+       "mean": 0.01452,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "D.Davis": {
+      "targets": {
+       "mean": 0.48047,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec": {
+       "mean": 0.11245,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 0.71273,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 6.0
+      },
+      "carries": {
+       "mean": 0.11611,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 0.4619,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 4.0
+      },
+      "rec_td": {
+       "mean": 0.01422,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_td": {
+       "mean": 0.00152,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "D.Njoku": {
+      "targets": {
+       "mean": 0.90352,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec": {
+       "mean": 0.63405,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec_yds": {
+       "mean": 7.58833,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 13.0,
+       "p90": 22.0
+      },
+      "rec_td": {
+       "mean": 0.02602,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "T.Wease": {
+      "targets": {
+       "mean": 0.64684,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec": {
+       "mean": 0.40202,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 4.75161,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 7.0,
+       "p90": 16.0
+      },
+      "rec_td": {
+       "mean": 0.02269,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "M.Valdes-Scantling": {
+      "targets": {
+       "mean": 0.5511,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec": {
+       "mean": 0.23338,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 2.49779,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 13.0
+      },
+      "rec_td": {
+       "mean": 0.00435,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "H.Rucci": {
+      "targets": {
+       "mean": 0.05721,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec": {
+       "mean": 0.05721,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec_yds": {
+       "mean": 0.31875,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec_td": {
+       "mean": 0.05721,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     }
+    },
+    "NYJ": {
+     "G.Smith": {
+      "sacks_taken": {
+       "mean": 3.07132,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 4.0,
+       "p90": 5.0
+      },
+      "sack_yds": {
+       "mean": -26.08509,
+       "median": -24.0,
+       "p10": -47.0,
+       "p25": -36.0,
+       "p75": -15.0,
+       "p90": -7.0
+      },
+      "pass_att": {
+       "mean": 31.5387,
+       "median": 31.0,
+       "p10": 25.0,
+       "p25": 28.0,
+       "p75": 35.0,
+       "p90": 38.0
+      },
+      "pass_cmp": {
+       "mean": 21.21664,
+       "median": 21.0,
+       "p10": 16.0,
+       "p25": 18.0,
+       "p75": 24.0,
+       "p90": 27.0
+      },
+      "pass_yds": {
+       "mean": 236.04491,
+       "median": 233.0,
+       "p10": 155.0,
+       "p25": 190.0,
+       "p75": 278.0,
+       "p90": 321.0
+      },
+      "carries": {
+       "mean": 1.89662,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rush_yds": {
+       "mean": 6.78305,
+       "median": 6.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 11.0,
+       "p90": 16.0
+      },
+      "pass_td": {
+       "mean": 1.48064,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "int_thrown": {
+       "mean": 0.35732,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "fumbles_lost": {
+       "mean": 0.27311,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_td": {
+       "mean": 0.02888,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "M.Taylor": {
+      "targets": {
+       "mean": 3.23413,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 4.0,
+       "p90": 6.0
+      },
+      "rec": {
+       "mean": 2.38057,
+       "median": 2.0,
+       "p10": 1.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec_yds": {
+       "mean": 16.71435,
+       "median": 15.0,
+       "p10": 0.0,
+       "p25": 7.0,
+       "p75": 25.0,
+       "p90": 35.0
+      },
+      "rec_td": {
+       "mean": 0.21125,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "T.Patrick": {
+      "targets": {
+       "mean": 0.69206,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec": {
+       "mean": 0.34425,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 4.67597,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 12.0,
+       "p90": 15.0
+      },
+      "rec_td": {
+       "mean": 0.00585,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "C.Klubnik": {
+      "pass_att": {
+       "mean": 2.00888,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "pass_cmp": {
+       "mean": 1.15223,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "pass_yds": {
+       "mean": 14.4445,
+       "median": 9.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 24.0,
+       "p90": 37.0
+      },
+      "carries": {
+       "mean": 0.32918,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 2.85592,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 7.0,
+       "p90": 11.0
+      },
+      "sacks_taken": {
+       "mean": 0.42025,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "sack_yds": {
+       "mean": -1.67995,
+       "median": 0.0,
+       "p10": -5.0,
+       "p25": -3.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "pass_td": {
+       "mean": 0.02968,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "int_thrown": {
+       "mean": 0.10855,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_td": {
+       "mean": 0.04338,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "B.Hall": {
+      "targets": {
+       "mean": 1.898,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec": {
+       "mean": 1.79025,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec_yds": {
+       "mean": 20.15806,
+       "median": 16.0,
+       "p10": 0.0,
+       "p25": 6.0,
+       "p75": 30.0,
+       "p90": 48.0
+      },
+      "carries": {
+       "mean": 8.61997,
+       "median": 8.0,
+       "p10": 5.0,
+       "p25": 7.0,
+       "p75": 10.0,
+       "p90": 12.0
+      },
+      "rush_yds": {
+       "mean": 29.12848,
+       "median": 28.0,
+       "p10": 11.0,
+       "p25": 18.0,
+       "p75": 39.0,
+       "p90": 50.0
+      },
+      "rec_td": {
+       "mean": 0.04187,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_td": {
+       "mean": 0.21573,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "B.Allen": {
+      "carries": {
+       "mean": 14.3756,
+       "median": 14.0,
+       "p10": 10.0,
+       "p25": 12.0,
+       "p75": 17.0,
+       "p90": 19.0
+      },
+      "rush_yds": {
+       "mean": 70.06768,
+       "median": 67.0,
+       "p10": 35.0,
+       "p25": 49.0,
+       "p75": 88.0,
+       "p90": 109.0
+      },
+      "fumbles_lost": {
+       "mean": 0.11006,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "targets": {
+       "mean": 2.65986,
+       "median": 2.0,
+       "p10": 1.0,
+       "p25": 1.0,
+       "p75": 4.0,
+       "p90": 5.0
+      },
+      "rec": {
+       "mean": 2.11805,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec_yds": {
+       "mean": 9.59639,
+       "median": 8.0,
+       "p10": 0.0,
+       "p25": 2.0,
+       "p75": 16.0,
+       "p90": 23.0
+      },
+      "rush_td": {
+       "mean": 0.42631,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec_td": {
+       "mean": 0.03989,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "G.Wilson": {
+      "targets": {
+       "mean": 8.17228,
+       "median": 8.0,
+       "p10": 5.0,
+       "p25": 6.0,
+       "p75": 10.0,
+       "p90": 12.0
+      },
+      "rec": {
+       "mean": 5.20735,
+       "median": 5.0,
+       "p10": 2.0,
+       "p25": 4.0,
+       "p75": 7.0,
+       "p90": 8.0
+      },
+      "rec_yds": {
+       "mean": 64.54764,
+       "median": 61.0,
+       "p10": 24.0,
+       "p25": 40.0,
+       "p75": 85.0,
+       "p90": 109.0
+      },
+      "rec_td": {
+       "mean": 0.29192,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "fumbles_lost": {
+       "mean": 0.12205,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "A.Mitchell": {
+      "targets": {
+       "mean": 4.23059,
+       "median": 4.0,
+       "p10": 2.0,
+       "p25": 3.0,
+       "p75": 6.0,
+       "p90": 7.0
+      },
+      "rec": {
+       "mean": 2.00265,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec_yds": {
+       "mean": 35.10888,
+       "median": 29.0,
+       "p10": 0.0,
+       "p25": 14.0,
+       "p75": 52.0,
+       "p90": 75.0
+      },
+      "rec_td": {
+       "mean": 0.21481,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "A.Beck": {
+      "carries": {
+       "mean": 0.14566,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 0.26835,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 2.0
+      },
+      "rush_td": {
+       "mean": 0.00623,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "UNASSIGNED": {
+      "sacks_made": {
+       "mean": 3.80249,
+       "median": 4.0,
+       "p10": 2.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "def_int": {
+       "mean": 1.36404,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      }
+     },
+     "S.Shepard": {
+      "targets": {
+       "mean": 0.21301,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec": {
+       "mean": 0.1115,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 0.33264,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 3.0
+      },
+      "rec_td": {
+       "mean": 0.0019,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "O.Cooper": {
+      "targets": {
+       "mean": 2.78676,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 4.0,
+       "p90": 5.0
+      },
+      "rec": {
+       "mean": 2.30662,
+       "median": 2.0,
+       "p10": 1.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec_yds": {
+       "mean": 39.13425,
+       "median": 28.0,
+       "p10": 0.0,
+       "p25": 8.0,
+       "p75": 61.0,
+       "p90": 90.0
+      },
+      "rec_td": {
+       "mean": 0.31568,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      }
+     },
+     "J.Ruckert": {
+      "targets": {
+       "mean": 0.80753,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec": {
+       "mean": 0.80753,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec_yds": {
+       "mean": 4.83343,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 7.0,
+       "p90": 16.0
+      },
+      "rec_td": {
+       "mean": 0.02102,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "I.Williams": {
+      "targets": {
+       "mean": 2.53105,
+       "median": 2.0,
+       "p10": 1.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 5.0
+      },
+      "rec": {
+       "mean": 1.89724,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec_yds": {
+       "mean": 18.24758,
+       "median": 15.0,
+       "p10": 0.0,
+       "p25": 7.0,
+       "p75": 25.0,
+       "p90": 40.0
+      },
+      "carries": {
+       "mean": 0.44536,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 2.85448,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 4.0,
+       "p90": 14.0
+      },
+      "rec_td": {
+       "mean": 0.2029,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_td": {
+       "mean": 0.00487,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "I.Davis": {
+      "carries": {
+       "mean": 1.77382,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rush_yds": {
+       "mean": 5.04104,
+       "median": 4.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 9.0,
+       "p90": 13.0
+      },
+      "targets": {
+       "mean": 0.75767,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec": {
+       "mean": 0.66146,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec_yds": {
+       "mean": 8.75603,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 10.0,
+       "p90": 39.0
+      },
+      "rush_td": {
+       "mean": 0.05863,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec_td": {
+       "mean": 0.08951,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "K.Sadiq": {
+      "targets": {
+       "mean": 3.48251,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "rec": {
+       "mean": 2.26732,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec_yds": {
+       "mean": 23.99474,
+       "median": 19.0,
+       "p10": 0.0,
+       "p25": 8.0,
+       "p75": 34.0,
+       "p90": 54.0
+      },
+      "fumbles_lost": {
+       "mean": 0.15119,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec_td": {
+       "mean": 0.06582,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "carries": {
+       "mean": 0.03666,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_yds": {
+       "mean": 0.07741,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_td": {
+       "mean": 0.03666,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "J.Woods": {
+      "targets": {
+       "mean": 0.62737,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec": {
+       "mean": 0.47408,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 4.38945,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 9.0,
+       "p90": 20.0
+      },
+      "rec_td": {
+       "mean": 0.0079,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "A.Smith": {
+      "targets": {
+       "mean": 0.00654,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     }
+    }
+   },
+   "team_summary": {
+    "LAC": {
+     "TEAM": {
+      "sacks_made": {
+       "mean": 3.49157,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "plays": {
+       "mean": 61.68156,
+       "median": 62.0,
+       "p10": 53.0,
+       "p25": 57.0,
+       "p75": 66.0,
+       "p90": 71.0
+      },
+      "carries": {
+       "mean": 28.8772,
+       "median": 29.0,
+       "p10": 22.0,
+       "p25": 25.0,
+       "p75": 32.0,
+       "p90": 35.0
+      },
+      "rush_yds": {
+       "mean": 119.37411,
+       "median": 116.0,
+       "p10": 74.0,
+       "p25": 93.0,
+       "p75": 143.0,
+       "p90": 169.0
+      },
+      "pass_att": {
+       "mean": 29.00187,
+       "median": 29.0,
+       "p10": 22.0,
+       "p25": 25.0,
+       "p75": 32.0,
+       "p90": 36.0
+      },
+      "targets": {
+       "mean": 27.89154,
+       "median": 28.0,
+       "p10": 21.0,
+       "p25": 24.0,
+       "p75": 31.0,
+       "p90": 35.0
+      },
+      "pass_cmp": {
+       "mean": 17.70444,
+       "median": 18.0,
+       "p10": 12.0,
+       "p25": 15.0,
+       "p75": 21.0,
+       "p90": 23.0
+      },
+      "pass_yds": {
+       "mean": 199.75617,
+       "median": 196.0,
+       "p10": 123.0,
+       "p25": 156.0,
+       "p75": 239.0,
+       "p90": 281.0
+      },
+      "rec": {
+       "mean": 17.70444,
+       "median": 18.0,
+       "p10": 12.0,
+       "p25": 15.0,
+       "p75": 21.0,
+       "p90": 23.0
+      },
+      "rec_yds": {
+       "mean": 199.75617,
+       "median": 196.0,
+       "p10": 123.0,
+       "p25": 156.0,
+       "p75": 239.0,
+       "p90": 281.0
+      },
+      "fumbles_lost": {
+       "mean": 0.78812,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "untargeted_att": {
+       "mean": 1.11033,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 2.0
+      },
+      "other_yds": {
+       "mean": 0.0,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "sacks_taken": {
+       "mean": 3.80249,
+       "median": 4.0,
+       "p10": 2.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "sack_yds": {
+       "mean": -22.85109,
+       "median": -21.0,
+       "p10": -41.0,
+       "p25": -31.0,
+       "p75": -13.0,
+       "p90": -7.0
+      },
+      "def_int": {
+       "mean": 0.46587,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "int_thrown": {
+       "mean": 1.36404,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "pass_td": {
+       "mean": 0.97148,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 2.0
+      },
+      "rec_td": {
+       "mean": 0.97148,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 2.0
+      },
+      "rush_td": {
+       "mean": 0.68467,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "safeties_allowed": {
+       "mean": 0.08916,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     }
+    },
+    "NYJ": {
+     "TEAM": {
+      "plays": {
+       "mean": 64.66202,
+       "median": 65.0,
+       "p10": 56.0,
+       "p25": 60.0,
+       "p75": 69.0,
+       "p90": 74.0
+      },
+      "sacks_taken": {
+       "mean": 3.49157,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "sack_yds": {
+       "mean": -27.76504,
+       "median": -26.0,
+       "p10": -49.0,
+       "p25": -38.0,
+       "p75": -16.0,
+       "p90": -8.0
+      },
+      "pass_att": {
+       "mean": 33.54758,
+       "median": 33.0,
+       "p10": 27.0,
+       "p25": 30.0,
+       "p75": 37.0,
+       "p90": 41.0
+      },
+      "untargeted_att": {
+       "mean": 1.44822,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "other_yds": {
+       "mean": 0.0,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "targets": {
+       "mean": 32.09936,
+       "median": 32.0,
+       "p10": 25.0,
+       "p25": 28.0,
+       "p75": 36.0,
+       "p90": 39.0
+      },
+      "pass_cmp": {
+       "mean": 22.36887,
+       "median": 22.0,
+       "p10": 17.0,
+       "p25": 19.0,
+       "p75": 25.0,
+       "p90": 28.0
+      },
+      "pass_yds": {
+       "mean": 250.48941,
+       "median": 247.0,
+       "p10": 168.0,
+       "p25": 204.0,
+       "p75": 293.0,
+       "p90": 338.0
+      },
+      "rec": {
+       "mean": 22.36887,
+       "median": 22.0,
+       "p10": 17.0,
+       "p25": 19.0,
+       "p75": 25.0,
+       "p90": 28.0
+      },
+      "rec_yds": {
+       "mean": 250.48941,
+       "median": 247.0,
+       "p10": 168.0,
+       "p25": 204.0,
+       "p75": 293.0,
+       "p90": 338.0
+      },
+      "carries": {
+       "mean": 27.62287,
+       "median": 27.0,
+       "p10": 21.0,
+       "p25": 24.0,
+       "p75": 31.0,
+       "p90": 35.0
+      },
+      "rush_yds": {
+       "mean": 117.07641,
+       "median": 115.0,
+       "p10": 73.0,
+       "p25": 92.0,
+       "p75": 140.0,
+       "p90": 164.0
+      },
+      "pass_td": {
+       "mean": 1.51032,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec_td": {
+       "mean": 1.51032,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "sacks_made": {
+       "mean": 3.80249,
+       "median": 4.0,
+       "p10": 2.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "safeties_allowed": {
+       "mean": 0.06367,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "int_thrown": {
+       "mean": 0.46587,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "def_int": {
+       "mean": 1.36404,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "fumbles_lost": {
+       "mean": 0.65641,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rush_td": {
+       "mean": 0.82069,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      }
+     }
+    }
+   },
+   "attribution": "core/possession_engine_v0/player_box.py docstring",
+   "research_only": true
+  }
+ },
+ "status": "RAN_RESEARCH_ONLY"
+}
