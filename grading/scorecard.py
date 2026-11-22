@@ -50,7 +50,9 @@ def stars_table():
     catches = p.groupby(["game_id", "receiver_player_id"]).complete_pass.sum()
     carries = p[p.rusher_player_id.notna()].groupby(["game_id", "rusher_player_id"]).size()
     actual_of = {"receiving_yards": rec, "rushing_yards": rus, "receptions": catches, "carries": carries}
-    rows, picks = [], []
+    rows, picks, gpicks = [], [], []
+    qp = pd.read_parquet(C / "play_by_play_2026.parquet", columns=["game_id", "qtr", "total_home_score", "total_away_score"])
+    qend = qp.groupby(["game_id", "qtr"])[["total_home_score", "total_away_score"]].max()
     for r in g.itertuples():
         try:
             ko = datetime.fromisoformat(f"{r.gameday}T{r.gametime}:00-05:00").astimezone(timezone.utc)
@@ -59,6 +61,29 @@ def stars_table():
         b = pregame_board(r.game_id, ko)
         if not b:
             continue
+        if r.game_id in qend.index.get_level_values(0):
+            e = qend.loc[r.game_id]
+            cum = {int(q): (int(v.total_home_score), int(v.total_away_score)) for q, v in e.iterrows()}
+            prev, per_q = (0, 0), {}
+            for q in sorted(cum):
+                per_q[q] = (cum[q][0] - prev[0], cum[q][1] - prev[1])
+                prev = (max(prev[0], cum[q][0]), max(prev[1], cum[q][1]))
+            span = {"": (1, 2, 3, 4, 5), "h1_": (1, 2), "h2_": (3, 4), "q1_": (1,), "q2_": (2,), "q3_": (3,), "q4_": (4,)}
+            for gp in (b.get("game_bets") or {}).get("picks") or []:
+                bb, mk = gp["best"], gp["market"]
+                base = mk.split("_")[-1]
+                pre = mk[: -len(base)]
+                hp = sum(per_q.get(q, (0, 0))[0] for q in span.get(pre, ()))
+                ap = sum(per_q.get(q, (0, 0))[1] for q in span.get(pre, ()))
+                home, away = b["game"]["home"], b["game"]["away"]
+                if base == "total":
+                    x = (hp + ap - bb["line"]) * (1 if bb["side"] == "Over" else -1)
+                else:
+                    x = (hp - ap if bb["side"] == home else ap - hp) + (bb["line"] or 0)
+                res = 1 if x > 0 else (0.5 if x == 0 else 0)
+                gpicks.append({"game_id": r.game_id, "week": r.week, "market": mk, "period": gp["period"], "side": bb["side"], "line": bb["line"],
+                               "book": bb["book"], "american": bb["american"], "p_bet": bb["p_bet"], "ev": bb["ev_per_dollar"], "alt": bb.get("alt"),
+                               "flagged": bool(gp.get("flags")), "result": res})
         for side in (b.get("sides") or {}).values():
             for pk in (side.get("best_bets") or {}).get("picks") or []:
                 bb, ser = pk["best"], actual_of.get(pk["market"])
@@ -77,7 +102,7 @@ def stars_table():
                                  "stars": e.get("stars", 0), "actual_yards": None if y is None or pd.isna(y) else float(y),
                                  "hit80": None if y is None or pd.isna(y) else int(y >= 80), "fd_american": bk.get("american"),
                                  "break_even": bk.get("break_even"), "blend": bk.get("blend")})
-    return pd.DataFrame(rows), pd.DataFrame(picks)
+    return pd.DataFrame(rows), pd.DataFrame(picks), pd.DataFrame(gpicks)
 
 
 def roi(x):
@@ -90,7 +115,21 @@ def roi(x):
 
 def main():
     L = ["# Season scorecard (rebuilt weekly)", ""]
-    s, bp = stars_table()
+    s, bp, gp = stars_table()
+    if len(gp):
+        gp.to_csv(RES / "scorecard_game_bets.csv", index=False)
+        g2 = gp[gp.ev >= 0.02]
+        if len(g2):
+            def gl(x, label):
+                pnl = np.where(x.result == 1, x.american.map(american_profit), np.where(x.result == 0, -1.0, 0.0))
+                return f"| {label} | {len(x)} | {(x.result == 1).mean():.0%} | {(x.result == 0.5).mean():.0%} | {pnl.mean():+.2f} |"
+            L += [f"## Game-market picks (EV +2% or more before kickoff): {len(g2)} graded", "", "| Group | Bets | Won | Pushed | ROI per $1 |",
+                  "|---|---|---|---|---|", gl(g2, "All")]
+            for lab, m in (("Alt lines", g2.alt == True), ("Main lines", g2.alt != True), ("Quarters", g2.period.str.contains("quarter")),  # noqa: E712
+                           ("Halves", g2.period.str.contains("half")), ("Full game", g2.period == "Game")):
+                if m.any():
+                    L.append(gl(g2[m], lab))
+            L += [""]
     if len(bp):
         bp.to_csv(RES / "scorecard_best_bets.csv", index=False)
         g = bp[bp.won.notna() & (bp.ev >= 0.02)]
