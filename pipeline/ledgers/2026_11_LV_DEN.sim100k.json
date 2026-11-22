@@ -1,0 +1,2434 @@
+{
+ "schema": "nfl56-sim100k/2",
+ "game_id": "2026_11_LV_DEN",
+ "trials_requested": 100000,
+ "projection_ready": false,
+ "research_only": true,
+ "ran": true,
+ "ok": true,
+ "gates": {
+  "G0_entrypoint": "PASS",
+  "G1_flags": "PASS",
+  "G2_nfl43": "PASS",
+  "G3_packet": "PASS",
+  "G4_freshness": "PASS",
+  "G5_phases": "PASS",
+  "G7_asof": "PASS",
+  "G6_rocket": "PASS"
+ },
+ "reasons": [],
+ "checked_utc": "2026-11-22T20:32:27+00:00",
+ "entrypoint": {
+  "status": "OK",
+  "entrypoint": "core/possession_engine_v0/validation/entrypoint.py:run_validation",
+  "authorized_sha256": "8a9d72949c122923ca149b635cd04290373112abc50930b85de5332491a201a1",
+  "denied": [
+   "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/validate.py",
+   "core/possession_engine_v0/runs/dal_ind_suite_fix_2026-11-06/role_policy_metrics.json"
+  ]
+ },
+ "result": {
+  "engine": "core/possession_engine_v0 simulate_games + NFL-43 semantics (via snapshots/lock.py run_sim)",
+  "config_id": "lv_den_2026-11-22_data_only_nfl43",
+  "config_path": "core/possession_engine_v0/config/lv_den_2026-11-22_data_only_nfl43.json",
+  "config_sha256": "4216f56681ab005f075ec6179720eec48b5ffe230833b9e5f194acd0d1e2ecfa",
+  "semantics_used": {
+   "penalties": "canonical_log_v1",
+   "returns": "asof_league_v1",
+   "overtime": "official_2025_regular_season"
+  },
+  "defense_interaction": {
+   "mode": "h2h_only"
+  },
+  "pbp": "pbp_2026_w1_10_pulled_20261122T0719ET.parquet",
+  "pbp_sha256": "24ea364cccf8d9d0a38e1eb435c76ff6a74b4493f67e76d60b0458bbe60e8055",
+  "price_freeze": "freeze_20261122T203227Z.json",
+  "price_freeze_pulled_utc": "2026-11-22T20:28:28Z",
+  "n": 100000,
+  "seed": 1476728154,
+  "chunks": 3,
+  "chunk_seeds": [
+   1476728154,
+   1477728157,
+   1478728160
+  ],
+  "runtime_sec": 1265.9,
+  "model_weights_changed": false,
+  "nfl42_entrypoint": {
+   "status": "OK",
+   "authorized_sha256": "8a9d72949c122923ca149b635cd04290373112abc50930b85de5332491a201a1"
+  },
+  "summary": {
+   "n": 100000,
+   "home": "DEN",
+   "away": "LV",
+   "points": {
+    "DEN": 19.85903,
+    "LV": 22.07204
+   },
+   "margin_home": {
+    "mean": -2.21301,
+    "sd": 13.318881962833817,
+    "p10_25_50_75_90": [
+     -19.0,
+     -11.0,
+     -3.0,
+     7.0,
+     15.0
+    ]
+   },
+   "total": {
+    "mean": 41.93107,
+    "sd": 12.104270265286544,
+    "p10_25_50_75_90": [
+     27.0,
+     33.0,
+     41.0,
+     50.0,
+     58.0
+    ]
+   },
+   "p_home_win": 0.42228,
+   "p_away_win": 0.56592,
+   "p_tie": 0.0118,
+   "p_ot": 0.04708,
+   "halves": {
+    "h1_home": 9.44237,
+    "h1_away": 11.53242,
+    "h2_home": 10.30877,
+    "h2_away": 10.41542
+   },
+   "quarters": {
+    "q1_home": 4.24998,
+    "q1_away": 5.68594,
+    "q2_home": 5.19239,
+    "q2_away": 5.84648,
+    "q3_home": 5.09777,
+    "q3_away": 4.59127,
+    "q4_home": 5.211,
+    "q4_away": 5.82415
+   },
+   "nfl43": {
+    "pen_yds_home": 48.57693,
+    "pen_yds_away": 43.62229,
+    "n_pen": 13.50368,
+    "ret_td_home": 0.00713,
+    "ret_td_away": 0.00805,
+    "def_td_home": 0.10847,
+    "def_td_away": 0.05703
+   },
+   "vs_market": [
+    {
+     "market": "spread",
+     "book": "fanduel",
+     "side": "Las Vegas Raiders",
+     "line": 10.5,
+     "p_model_cover": 0.83067,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4958,
+     "reference_only": false
+    },
+    {
+     "market": "spread",
+     "book": "pinnacle",
+     "side": "Las Vegas Raiders",
+     "line": 12.0,
+     "p_model_cover": 0.85405,
+     "p_model_push": 0.00809,
+     "p_book_novig": 0.4965,
+     "reference_only": true
+    },
+    {
+     "market": "spread",
+     "book": "consensus",
+     "side": "Las Vegas Raiders",
+     "line": 10.5,
+     "p_model_cover": 0.83067,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4978,
+     "reference_only": true
+    },
+    {
+     "market": "spread",
+     "book": "draftkings",
+     "side": "Las Vegas Raiders",
+     "line": 10.5,
+     "p_model_cover": 0.83067,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4967,
+     "reference_only": false
+    },
+    {
+     "market": "spread",
+     "book": "bet365",
+     "side": "Las Vegas Raiders",
+     "line": 10.5,
+     "p_model_cover": 0.83067,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4957,
+     "reference_only": false
+    },
+    {
+     "market": "spread",
+     "book": "betrivers",
+     "side": "Las Vegas Raiders",
+     "line": 11.5,
+     "p_model_cover": 0.85405,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5,
+     "reference_only": false
+    },
+    {
+     "market": "spread",
+     "book": "betmgm",
+     "side": "Las Vegas Raiders",
+     "line": 11.5,
+     "p_model_cover": 0.85405,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5034,
+     "reference_only": false
+    },
+    {
+     "market": "spread",
+     "book": "williamhill_us",
+     "side": "Las Vegas Raiders",
+     "line": 11.5,
+     "p_model_cover": 0.85405,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5087,
+     "reference_only": false
+    },
+    {
+     "market": "spread",
+     "book": "open",
+     "side": "Las Vegas Raiders",
+     "line": 7.5,
+     "p_model_cover": 0.77559,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5,
+     "reference_only": true
+    },
+    {
+     "market": "total",
+     "book": "fanduel",
+     "side": "Over",
+     "line": 41.5,
+     "p_model": 0.4887,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4958,
+     "reference_only": false
+    },
+    {
+     "market": "total",
+     "book": "pinnacle",
+     "side": "Over",
+     "line": 41.5,
+     "p_model": 0.4887,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5,
+     "reference_only": true
+    },
+    {
+     "market": "total",
+     "book": "consensus",
+     "side": "Over",
+     "line": 41.5,
+     "p_model": 0.4887,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4902,
+     "reference_only": true
+    },
+    {
+     "market": "total",
+     "book": "open",
+     "side": "Over",
+     "line": 41.5,
+     "p_model": 0.4887,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5,
+     "reference_only": true
+    },
+    {
+     "market": "total",
+     "book": "betrivers",
+     "side": "Over",
+     "line": 41.5,
+     "p_model": 0.4887,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.486,
+     "reference_only": false
+    },
+    {
+     "market": "total",
+     "book": "bet365",
+     "side": "Over",
+     "line": 41.5,
+     "p_model": 0.4887,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4935,
+     "reference_only": false
+    },
+    {
+     "market": "total",
+     "book": "williamhill_us",
+     "side": "Over",
+     "line": 41.5,
+     "p_model": 0.4887,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.4892,
+     "reference_only": false
+    },
+    {
+     "market": "total",
+     "book": "draftkings",
+     "side": "Over",
+     "line": 40.5,
+     "p_model": 0.53525,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5164,
+     "reference_only": false
+    },
+    {
+     "market": "total",
+     "book": "betmgm",
+     "side": "Over",
+     "line": 40.5,
+     "p_model": 0.53525,
+     "p_model_push": 0.0,
+     "p_book_novig": 0.5077,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "fanduel",
+     "side": "Las Vegas Raiders",
+     "p_model_win": 0.56592,
+     "p_model_win_ex_tie": 0.5726775956284152,
+     "p_book_novig": 0.1659,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "pinnacle",
+     "side": "Las Vegas Raiders",
+     "p_model_win": 0.56592,
+     "p_model_win_ex_tie": 0.5726775956284152,
+     "p_book_novig": 0.1563,
+     "reference_only": true
+    },
+    {
+     "market": "moneyline",
+     "book": "consensus",
+     "side": "Las Vegas Raiders",
+     "p_model_win": 0.56592,
+     "p_model_win_ex_tie": 0.5726775956284152,
+     "p_book_novig": 0.1636,
+     "reference_only": true
+    },
+    {
+     "market": "moneyline",
+     "book": "open",
+     "side": "Las Vegas Raiders",
+     "p_model_win": 0.56592,
+     "p_model_win_ex_tie": 0.5726775956284152,
+     "p_book_novig": 0.2591,
+     "reference_only": true
+    },
+    {
+     "market": "moneyline",
+     "book": "draftkings",
+     "side": "Las Vegas Raiders",
+     "p_model_win": 0.56592,
+     "p_model_win_ex_tie": 0.5726775956284152,
+     "p_book_novig": 0.1787,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "betrivers",
+     "side": "Las Vegas Raiders",
+     "p_model_win": 0.56592,
+     "p_model_win_ex_tie": 0.5726775956284152,
+     "p_book_novig": 0.1654,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "betmgm",
+     "side": "Las Vegas Raiders",
+     "p_model_win": 0.56592,
+     "p_model_win_ex_tie": 0.5726775956284152,
+     "p_book_novig": 0.1613,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "bet365",
+     "side": "Las Vegas Raiders",
+     "p_model_win": 0.56592,
+     "p_model_win_ex_tie": 0.5726775956284152,
+     "p_book_novig": 0.16,
+     "reference_only": false
+    },
+    {
+     "market": "moneyline",
+     "book": "williamhill_us",
+     "side": "Las Vegas Raiders",
+     "p_model_win": 0.56592,
+     "p_model_win_ex_tie": 0.5726775956284152,
+     "p_book_novig": 0.1664,
+     "reference_only": false
+    }
+   ],
+   "market_divergence": {
+    "max_abs_moneyline_gap": 0.41637759562841525,
+    "flag": "QUARANTINE_LIKELY_MODEL_ERROR"
+   }
+  },
+  "player_box": {
+   "schema": "nfl75-player-box/1",
+   "reconciliation": {
+    "trials": 100000,
+    "failures": 0,
+    "first_failures": [],
+    "checks": [
+     "player_sum_eq_team",
+     "plays_eq_engine_snaps",
+     "plays_eq_play_types",
+     "pass_att_eq_targets_plus_untargeted",
+     "off_td_eq_engine_td_events",
+     "turnovers_eq_engine_turnover_events",
+     "yards_eq_engine_snap_yards",
+     "rec_yds_eq_engine_ledger",
+     "rush_yds_eq_engine_ledger",
+     "pass_yds_eq_engine_ledger",
+     "sacks_made_eq_sacks_taken"
+    ]
+   },
+   "n_columns": 200,
+   "summary": {
+    "DEN": {
+     "B.Nix": {
+      "pass_att": {
+       "mean": 34.67461,
+       "median": 35.0,
+       "p10": 27.0,
+       "p25": 31.0,
+       "p75": 39.0,
+       "p90": 42.0
+      },
+      "pass_cmp": {
+       "mean": 20.52163,
+       "median": 20.0,
+       "p10": 14.0,
+       "p25": 17.0,
+       "p75": 24.0,
+       "p90": 27.0
+      },
+      "pass_yds": {
+       "mean": 207.88361,
+       "median": 204.0,
+       "p10": 128.0,
+       "p25": 163.0,
+       "p75": 249.0,
+       "p90": 292.0
+      },
+      "carries": {
+       "mean": 3.27327,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 4.0,
+       "p90": 6.0
+      },
+      "rush_yds": {
+       "mean": 15.1769,
+       "median": 8.0,
+       "p10": 1.0,
+       "p25": 3.0,
+       "p75": 15.0,
+       "p90": 62.0
+      },
+      "sacks_taken": {
+       "mean": 1.48916,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "sack_yds": {
+       "mean": -7.85674,
+       "median": -7.0,
+       "p10": -18.0,
+       "p25": -12.0,
+       "p75": -1.0,
+       "p90": 0.0
+      },
+      "fumbles_lost": {
+       "mean": 0.26818,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "pass_td": {
+       "mean": 1.32318,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "int_thrown": {
+       "mean": 0.47318,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rush_td": {
+       "mean": 0.07696,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "P.Bryant": {
+      "targets": {
+       "mean": 1.78613,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec": {
+       "mean": 1.38781,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec_yds": {
+       "mean": 19.668,
+       "median": 12.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 30.0,
+       "p90": 49.0
+      },
+      "rec_td": {
+       "mean": 0.09042,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "carries": {
+       "mean": 0.12139,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 1.93633,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 16.0
+      },
+      "rush_td": {
+       "mean": 0.00088,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "J.Dobbins": {
+      "carries": {
+       "mean": 11.77132,
+       "median": 12.0,
+       "p10": 8.0,
+       "p25": 10.0,
+       "p75": 14.0,
+       "p90": 16.0
+      },
+      "rush_yds": {
+       "mean": 40.05701,
+       "median": 38.0,
+       "p10": 19.0,
+       "p25": 27.0,
+       "p75": 51.0,
+       "p90": 63.0
+      },
+      "targets": {
+       "mean": 1.28457,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec": {
+       "mean": 1.15451,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec_yds": {
+       "mean": 3.9598,
+       "median": 3.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 7.0,
+       "p90": 10.0
+      },
+      "rush_td": {
+       "mean": 0.09589,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec_td": {
+       "mean": 0.00119,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "T.Badie": {
+      "carries": {
+       "mean": 0.64269,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rush_yds": {
+       "mean": 1.9766,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 3.0,
+       "p90": 6.0
+      },
+      "targets": {
+       "mean": 0.89762,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec": {
+       "mean": 0.7505,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec_yds": {
+       "mean": 7.00549,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 12.0,
+       "p90": 27.0
+      },
+      "rec_td": {
+       "mean": 0.06735,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_td": {
+       "mean": 0.01795,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "C.Sutton": {
+      "targets": {
+       "mean": 5.38808,
+       "median": 5.0,
+       "p10": 3.0,
+       "p25": 4.0,
+       "p75": 7.0,
+       "p90": 8.0
+      },
+      "rec": {
+       "mean": 2.80888,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 4.0,
+       "p90": 5.0
+      },
+      "rec_yds": {
+       "mean": 32.05142,
+       "median": 29.0,
+       "p10": 6.0,
+       "p25": 15.0,
+       "p75": 46.0,
+       "p90": 62.0
+      },
+      "rec_td": {
+       "mean": 0.12201,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "R.Harvey": {
+      "targets": {
+       "mean": 2.93105,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 4.0,
+       "p90": 5.0
+      },
+      "rec": {
+       "mean": 2.45024,
+       "median": 2.0,
+       "p10": 1.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 5.0
+      },
+      "rec_yds": {
+       "mean": 22.186,
+       "median": 16.0,
+       "p10": 2.0,
+       "p25": 7.0,
+       "p75": 29.0,
+       "p90": 57.0
+      },
+      "carries": {
+       "mean": 2.55141,
+       "median": 2.0,
+       "p10": 1.0,
+       "p25": 1.0,
+       "p75": 4.0,
+       "p90": 5.0
+      },
+      "rush_yds": {
+       "mean": 9.07355,
+       "median": 8.0,
+       "p10": 1.0,
+       "p25": 4.0,
+       "p75": 13.0,
+       "p90": 19.0
+      },
+      "rec_td": {
+       "mean": 0.08708,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_td": {
+       "mean": 0.02486,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "J.Coleman": {
+      "carries": {
+       "mean": 5.25193,
+       "median": 5.0,
+       "p10": 2.0,
+       "p25": 4.0,
+       "p75": 7.0,
+       "p90": 8.0
+      },
+      "rush_yds": {
+       "mean": 21.18399,
+       "median": 19.0,
+       "p10": 5.0,
+       "p25": 11.0,
+       "p75": 29.0,
+       "p90": 39.0
+      },
+      "targets": {
+       "mean": 1.62044,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec": {
+       "mean": 1.49696,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec_yds": {
+       "mean": 16.23924,
+       "median": 10.0,
+       "p10": 0.0,
+       "p25": 2.0,
+       "p75": 19.0,
+       "p90": 51.0
+      },
+      "rush_td": {
+       "mean": 0.36907,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec_td": {
+       "mean": 0.02017,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "T.Franklin": {
+      "targets": {
+       "mean": 1.98243,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec": {
+       "mean": 1.24893,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec_yds": {
+       "mean": 12.84373,
+       "median": 7.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 21.0,
+       "p90": 33.0
+      },
+      "carries": {
+       "mean": 0.13169,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 0.65845,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 5.0
+      },
+      "rec_td": {
+       "mean": 0.09114,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "J.Waddle": {
+      "targets": {
+       "mean": 6.57481,
+       "median": 6.0,
+       "p10": 3.0,
+       "p25": 5.0,
+       "p75": 8.0,
+       "p90": 10.0
+      },
+      "rec": {
+       "mean": 3.69013,
+       "median": 4.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "rec_yds": {
+       "mean": 43.67366,
+       "median": 39.0,
+       "p10": 9.0,
+       "p25": 20.0,
+       "p75": 61.0,
+       "p90": 85.0
+      },
+      "carries": {
+       "mean": 0.25182,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 2.86022,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 14.0
+      },
+      "rec_td": {
+       "mean": 0.24558,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_td": {
+       "mean": 0.00128,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "N.Adkins": {
+      "carries": {
+       "mean": 0.15137,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 0.90821,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 6.0
+      },
+      "targets": {
+       "mean": 0.44325,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec": {
+       "mean": 0.38354,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 3.36009,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 18.0
+      },
+      "rec_td": {
+       "mean": 0.12387,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_td": {
+       "mean": 0.00029,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "A.Trautman": {
+      "targets": {
+       "mean": 1.45539,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec": {
+       "mean": 0.91907,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec_yds": {
+       "mean": 8.01166,
+       "median": 5.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 11.0,
+       "p90": 22.0
+      },
+      "rec_td": {
+       "mean": 0.10771,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "E.Engram": {
+      "targets": {
+       "mean": 4.03618,
+       "median": 4.0,
+       "p10": 2.0,
+       "p25": 3.0,
+       "p75": 5.0,
+       "p90": 7.0
+      },
+      "rec": {
+       "mean": 2.48811,
+       "median": 2.0,
+       "p10": 1.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 5.0
+      },
+      "rec_yds": {
+       "mean": 23.50678,
+       "median": 19.0,
+       "p10": 3.0,
+       "p25": 9.0,
+       "p75": 34.0,
+       "p90": 50.0
+      },
+      "rec_td": {
+       "mean": 0.33858,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      }
+     },
+     "M.Mims": {
+      "targets": {
+       "mean": 1.89599,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec": {
+       "mean": 1.06725,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 2.0
+      },
+      "rec_yds": {
+       "mean": 10.60626,
+       "median": 4.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 10.0,
+       "p90": 47.0
+      },
+      "carries": {
+       "mean": 0.68287,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rush_yds": {
+       "mean": 5.18133,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 9.0,
+       "p90": 14.0
+      },
+      "rec_td": {
+       "mean": 0.02276,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_td": {
+       "mean": 0.13275,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "A.Prentice": {
+      "carries": {
+       "mean": 0.01238,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_yds": {
+       "mean": 0.03714,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "targets": {
+       "mean": 0.23286,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec": {
+       "mean": 0.23286,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 1.36401,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 10.0
+      },
+      "rec_td": {
+       "mean": 0.00027,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "UNASSIGNED": {
+      "sacks_made": {
+       "mean": 2.04708,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "def_int": {
+       "mean": 0.81839,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      }
+     },
+     "L.Humphrey": {
+      "targets": {
+       "mean": 0.68066,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec": {
+       "mean": 0.44284,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 3.40747,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 8.0,
+       "p90": 10.0
+      },
+      "rec_td": {
+       "mean": 0.00505,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     }
+    },
+    "LV": {
+     "M.Washington": {
+      "carries": {
+       "mean": 8.99094,
+       "median": 9.0,
+       "p10": 5.0,
+       "p25": 7.0,
+       "p75": 11.0,
+       "p90": 13.0
+      },
+      "rush_yds": {
+       "mean": 32.12228,
+       "median": 29.0,
+       "p10": 9.0,
+       "p25": 17.0,
+       "p75": 44.0,
+       "p90": 59.0
+      },
+      "targets": {
+       "mean": 0.80018,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec": {
+       "mean": 0.42716,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 1.68402,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 4.0,
+       "p90": 7.0
+      },
+      "rush_td": {
+       "mean": 0.25018,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec_td": {
+       "mean": 0.00077,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "K.Cousins": {
+      "pass_att": {
+       "mean": 35.30173,
+       "median": 35.0,
+       "p10": 28.0,
+       "p25": 31.0,
+       "p75": 39.0,
+       "p90": 43.0
+      },
+      "pass_cmp": {
+       "mean": 22.8614,
+       "median": 23.0,
+       "p10": 17.0,
+       "p25": 19.0,
+       "p75": 26.0,
+       "p90": 29.0
+      },
+      "pass_yds": {
+       "mean": 261.9129,
+       "median": 259.0,
+       "p10": 175.0,
+       "p25": 214.0,
+       "p75": 307.0,
+       "p90": 352.0
+      },
+      "pass_td": {
+       "mean": 1.64568,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "carries": {
+       "mean": 1.22977,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rush_yds": {
+       "mean": 2.19009,
+       "median": 2.0,
+       "p10": -1.0,
+       "p25": 0.0,
+       "p75": 4.0,
+       "p90": 7.0
+      },
+      "sacks_taken": {
+       "mean": 1.36121,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "sack_yds": {
+       "mean": -8.12139,
+       "median": -8.0,
+       "p10": -19.0,
+       "p25": -12.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "int_thrown": {
+       "mean": 0.81839,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rush_td": {
+       "mean": 0.04057,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "T.Tucker": {
+      "targets": {
+       "mean": 5.94807,
+       "median": 6.0,
+       "p10": 3.0,
+       "p25": 4.0,
+       "p75": 7.0,
+       "p90": 9.0
+      },
+      "rec": {
+       "mean": 3.80122,
+       "median": 4.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "rec_yds": {
+       "mean": 57.09928,
+       "median": 52.0,
+       "p10": 16.0,
+       "p25": 31.0,
+       "p75": 78.0,
+       "p90": 104.0
+      },
+      "carries": {
+       "mean": 0.23713,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": -0.41143,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 5.0
+      },
+      "rec_td": {
+       "mean": 0.33564,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      }
+     },
+     "A.Jeanty": {
+      "carries": {
+       "mean": 14.53766,
+       "median": 14.0,
+       "p10": 10.0,
+       "p25": 12.0,
+       "p75": 17.0,
+       "p90": 19.0
+      },
+      "rush_yds": {
+       "mean": 46.21544,
+       "median": 45.0,
+       "p10": 23.0,
+       "p25": 33.0,
+       "p75": 58.0,
+       "p90": 72.0
+      },
+      "targets": {
+       "mean": 6.85633,
+       "median": 7.0,
+       "p10": 4.0,
+       "p25": 5.0,
+       "p75": 9.0,
+       "p90": 10.0
+      },
+      "rec": {
+       "mean": 5.35883,
+       "median": 5.0,
+       "p10": 3.0,
+       "p25": 4.0,
+       "p75": 7.0,
+       "p90": 8.0
+      },
+      "rec_yds": {
+       "mean": 52.79333,
+       "median": 48.0,
+       "p10": 12.0,
+       "p25": 26.0,
+       "p75": 74.0,
+       "p90": 100.0
+      },
+      "rec_td": {
+       "mean": 0.31001,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rush_td": {
+       "mean": 0.23484,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "J.Nailor": {
+      "targets": {
+       "mean": 3.81988,
+       "median": 4.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "rec": {
+       "mean": 1.71687,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec_yds": {
+       "mean": 14.70184,
+       "median": 12.0,
+       "p10": 0.0,
+       "p25": 6.0,
+       "p75": 22.0,
+       "p90": 32.0
+      },
+      "rec_td": {
+       "mean": 0.03809,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "J.Bech": {
+      "targets": {
+       "mean": 1.92511,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec": {
+       "mean": 0.92527,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec_yds": {
+       "mean": 7.08974,
+       "median": 5.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 10.0,
+       "p90": 20.0
+      },
+      "rec_td": {
+       "mean": 0.17567,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "UNASSIGNED": {
+      "sacks_made": {
+       "mean": 1.48916,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "def_int": {
+       "mean": 0.47318,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      }
+     },
+     "M.Mayer": {
+      "targets": {
+       "mean": 5.61857,
+       "median": 5.0,
+       "p10": 3.0,
+       "p25": 4.0,
+       "p75": 7.0,
+       "p90": 9.0
+      },
+      "rec": {
+       "mean": 4.66819,
+       "median": 4.0,
+       "p10": 2.0,
+       "p25": 3.0,
+       "p75": 6.0,
+       "p90": 8.0
+      },
+      "rec_yds": {
+       "mean": 46.07208,
+       "median": 43.0,
+       "p10": 15.0,
+       "p25": 27.0,
+       "p75": 62.0,
+       "p90": 81.0
+      },
+      "rec_td": {
+       "mean": 0.11411,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "carries": {
+       "mean": 0.13787,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 0.27574,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 2.0
+      },
+      "fumbles_lost": {
+       "mean": 0.10837,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "F.Mendoza": {
+      "carries": {
+       "mean": 0.78323,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rush_yds": {
+       "mean": 2.05327,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 8.0
+      },
+      "pass_att": {
+       "mean": 4.50966,
+       "median": 4.0,
+       "p10": 2.0,
+       "p25": 3.0,
+       "p75": 6.0,
+       "p90": 7.0
+      },
+      "pass_cmp": {
+       "mean": 2.74216,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 4.0,
+       "p90": 5.0
+      },
+      "pass_yds": {
+       "mean": 24.18235,
+       "median": 20.0,
+       "p10": 1.0,
+       "p25": 9.0,
+       "p75": 36.0,
+       "p90": 53.0
+      },
+      "sacks_taken": {
+       "mean": 0.68587,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "sack_yds": {
+       "mean": -5.37057,
+       "median": 0.0,
+       "p10": -15.0,
+       "p25": -9.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "pass_td": {
+       "mean": 0.07936,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_td": {
+       "mean": 0.04338,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "D.Young": {
+      "targets": {
+       "mean": 0.3592,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec": {
+       "mean": 0.22707,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 4.20106,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 27.0
+      },
+      "rec_td": {
+       "mean": 0.0242,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "B.Bowers": {
+      "targets": {
+       "mean": 8.39786,
+       "median": 8.0,
+       "p10": 5.0,
+       "p25": 6.0,
+       "p75": 10.0,
+       "p90": 12.0
+      },
+      "rec": {
+       "mean": 5.5885,
+       "median": 5.0,
+       "p10": 3.0,
+       "p25": 4.0,
+       "p75": 7.0,
+       "p90": 9.0
+      },
+      "rec_yds": {
+       "mean": 74.50251,
+       "median": 71.0,
+       "p10": 30.0,
+       "p25": 48.0,
+       "p75": 97.0,
+       "p90": 123.0
+      },
+      "rec_td": {
+       "mean": 0.46268,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "fumbles_lost": {
+       "mean": 0.18587,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "carries": {
+       "mean": 0.10024,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rush_yds": {
+       "mean": 0.20048,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "C.Heyward": {
+      "carries": {
+       "mean": 0.46031,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": -0.22808,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "targets": {
+       "mean": 0.51228,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec": {
+       "mean": 0.51228,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 3.29163,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 5.0,
+       "p90": 13.0
+      },
+      "rush_td": {
+       "mean": 0.00807,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec_td": {
+       "mean": 0.06552,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "C.White": {
+      "targets": {
+       "mean": 2.09228,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "rec": {
+       "mean": 0.93673,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec_yds": {
+       "mean": 14.91131,
+       "median": 9.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 27.0,
+       "p90": 38.0
+      },
+      "rec_td": {
+       "mean": 0.18709,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      }
+     },
+     "D.Laube": {
+      "carries": {
+       "mean": 0.46801,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": 0.87108,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 4.0
+      },
+      "targets": {
+       "mean": 0.46972,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec": {
+       "mean": 0.46972,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 1.58831,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 2.0,
+       "p90": 7.0
+      },
+      "rush_td": {
+       "mean": 0.03316,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec_td": {
+       "mean": 0.00064,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "D.Thompkins": {
+      "targets": {
+       "mean": 0.1006,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec": {
+       "mean": 0.1006,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec_yds": {
+       "mean": 0.80346,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec_td": {
+       "mean": 0.00037,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "M.Benson": {
+      "targets": {
+       "mean": 0.89651,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "carries": {
+       "mean": 0.1368,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rush_yds": {
+       "mean": -1.09378,
+       "median": 0.0,
+       "p10": -8.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "rec": {
+       "mean": 0.23891,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "rec_yds": {
+       "mean": 1.43062,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 6.0
+      },
+      "rec_td": {
+       "mean": 0.00122,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "I.Thomas": {
+      "targets": {
+       "mean": 0.72351,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec": {
+       "mean": 0.72351,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "rec_yds": {
+       "mean": 6.98147,
+       "median": 5.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 11.0,
+       "p90": 19.0
+      },
+      "rec_td": {
+       "mean": 0.02613,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     },
+     "A.Cole": {
+      "pass_att": {
+       "mean": 0.0913,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "pass_cmp": {
+       "mean": 0.0913,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "pass_yds": {
+       "mean": 1.05541,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "pass_td": {
+       "mean": 0.0171,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     }
+    }
+   },
+   "team_summary": {
+    "DEN": {
+     "TEAM": {
+      "plays": {
+       "mean": 61.00591,
+       "median": 61.0,
+       "p10": 52.0,
+       "p25": 56.0,
+       "p75": 66.0,
+       "p90": 71.0
+      },
+      "pass_att": {
+       "mean": 34.67461,
+       "median": 35.0,
+       "p10": 27.0,
+       "p25": 31.0,
+       "p75": 39.0,
+       "p90": 42.0
+      },
+      "targets": {
+       "mean": 31.20946,
+       "median": 31.0,
+       "p10": 24.0,
+       "p25": 27.0,
+       "p75": 35.0,
+       "p90": 39.0
+      },
+      "pass_cmp": {
+       "mean": 20.52163,
+       "median": 20.0,
+       "p10": 14.0,
+       "p25": 17.0,
+       "p75": 24.0,
+       "p90": 27.0
+      },
+      "pass_yds": {
+       "mean": 207.88361,
+       "median": 204.0,
+       "p10": 128.0,
+       "p25": 163.0,
+       "p75": 249.0,
+       "p90": 292.0
+      },
+      "rec": {
+       "mean": 20.52163,
+       "median": 20.0,
+       "p10": 14.0,
+       "p25": 17.0,
+       "p75": 24.0,
+       "p90": 27.0
+      },
+      "rec_yds": {
+       "mean": 207.88361,
+       "median": 204.0,
+       "p10": 128.0,
+       "p25": 163.0,
+       "p75": 249.0,
+       "p90": 292.0
+      },
+      "carries": {
+       "mean": 24.84214,
+       "median": 25.0,
+       "p10": 19.0,
+       "p25": 22.0,
+       "p75": 28.0,
+       "p90": 31.0
+      },
+      "rush_yds": {
+       "mean": 99.04973,
+       "median": 95.0,
+       "p10": 59.0,
+       "p25": 75.0,
+       "p75": 119.0,
+       "p90": 145.0
+      },
+      "other_yds": {
+       "mean": 0.0,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "sacks_taken": {
+       "mean": 1.48916,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "sack_yds": {
+       "mean": -7.85674,
+       "median": -7.0,
+       "p10": -18.0,
+       "p25": -12.0,
+       "p75": -1.0,
+       "p90": 0.0
+      },
+      "untargeted_att": {
+       "mean": 3.46515,
+       "median": 3.0,
+       "p10": 1.0,
+       "p25": 2.0,
+       "p75": 5.0,
+       "p90": 6.0
+      },
+      "fumbles_lost": {
+       "mean": 0.26818,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 1.0
+      },
+      "pass_td": {
+       "mean": 1.32318,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec_td": {
+       "mean": 1.32318,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rush_td": {
+       "mean": 0.71993,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "sacks_made": {
+       "mean": 2.04708,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "def_int": {
+       "mean": 0.81839,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "safeties_allowed": {
+       "mean": 0.04182,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "int_thrown": {
+       "mean": 0.47318,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      }
+     }
+    },
+    "LV": {
+     "TEAM": {
+      "plays": {
+       "mean": 69.03173,
+       "median": 69.0,
+       "p10": 59.0,
+       "p25": 64.0,
+       "p75": 74.0,
+       "p90": 79.0
+      },
+      "carries": {
+       "mean": 27.08196,
+       "median": 27.0,
+       "p10": 21.0,
+       "p25": 24.0,
+       "p75": 30.0,
+       "p90": 33.0
+      },
+      "rush_yds": {
+       "mean": 82.19509,
+       "median": 80.0,
+       "p10": 46.0,
+       "p25": 61.0,
+       "p75": 101.0,
+       "p90": 121.0
+      },
+      "pass_att": {
+       "mean": 39.90269,
+       "median": 40.0,
+       "p10": 32.0,
+       "p25": 36.0,
+       "p75": 44.0,
+       "p90": 48.0
+      },
+      "targets": {
+       "mean": 38.5201,
+       "median": 38.0,
+       "p10": 31.0,
+       "p25": 34.0,
+       "p75": 43.0,
+       "p90": 46.0
+      },
+      "pass_cmp": {
+       "mean": 25.69486,
+       "median": 26.0,
+       "p10": 19.0,
+       "p25": 22.0,
+       "p75": 29.0,
+       "p90": 33.0
+      },
+      "pass_yds": {
+       "mean": 287.15066,
+       "median": 285.0,
+       "p10": 196.0,
+       "p25": 237.0,
+       "p75": 335.0,
+       "p90": 381.0
+      },
+      "rec": {
+       "mean": 25.69486,
+       "median": 26.0,
+       "p10": 19.0,
+       "p25": 22.0,
+       "p75": 29.0,
+       "p90": 33.0
+      },
+      "rec_yds": {
+       "mean": 287.15066,
+       "median": 285.0,
+       "p10": 196.0,
+       "p25": 237.0,
+       "p75": 335.0,
+       "p90": 381.0
+      },
+      "other_yds": {
+       "mean": 0.0,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      },
+      "untargeted_att": {
+       "mean": 1.38259,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "sacks_made": {
+       "mean": 1.48916,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "pass_td": {
+       "mean": 1.74214,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rec_td": {
+       "mean": 1.74214,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 2.0,
+       "p90": 3.0
+      },
+      "rush_td": {
+       "mean": 0.6102,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "sacks_taken": {
+       "mean": 2.04708,
+       "median": 2.0,
+       "p10": 0.0,
+       "p25": 1.0,
+       "p75": 3.0,
+       "p90": 4.0
+      },
+      "sack_yds": {
+       "mean": -13.49196,
+       "median": -12.0,
+       "p10": -27.0,
+       "p25": -19.0,
+       "p75": -7.0,
+       "p90": 0.0
+      },
+      "fumbles_lost": {
+       "mean": 0.29424,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "int_thrown": {
+       "mean": 0.81839,
+       "median": 1.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 2.0
+      },
+      "def_int": {
+       "mean": 0.47318,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 1.0,
+       "p90": 1.0
+      },
+      "safeties_allowed": {
+       "mean": 0.05413,
+       "median": 0.0,
+       "p10": 0.0,
+       "p25": 0.0,
+       "p75": 0.0,
+       "p90": 0.0
+      }
+     }
+    }
+   },
+   "attribution": "core/possession_engine_v0/player_box.py docstring",
+   "research_only": true
+  }
+ },
+ "status": "RAN_RESEARCH_ONLY"
+}
