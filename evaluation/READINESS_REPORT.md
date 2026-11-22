@@ -1,6 +1,6 @@
 # Readiness report (report only)
 
-Evaluated 2026-11-22T05:07:42+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
+Evaluated 2026-11-22T12:35:50+00:00 UTC by `python -m evaluation.readiness`. projection_ready on main: **False**. May flip: **False**. Nothing here changes a flag.
 
 ## NFL-49: FAIL
 
@@ -9,7 +9,7 @@ Evaluated 2026-11-22T05:07:42+00:00 UTC by `python -m evaluation.readiness`. pro
 | NFL-49 P1 source freshness/completeness | FAIL | quotes='NOLINE' (known_flags/KNOWN_LIMITATIONS.json); no accepted quote feed for scoring |
 | NFL-49 P2 integrated sim accounting | PASS | entrypoint_enforced=True (known_flags/KNOWN_LIMITATIONS.json); NFL-43 review: ACCEPTED by Ghost6 for SEMANTICS_BOUNDS.md sha256 975e84cc... at 32b9b92 (Nov 12 ~3:05 PM ; still unsupported (bounded, enforced): ['kick-play fouls', 'joint_producer penalties/return yards', 'blocked kicks/onside/fakes']; SHARED_ACCOUNTING: core/possession_engine_v0/shared_accounting.py; contaminated validator superseded by core/possession_engine_v0/runs/dal_ind_invariance_decontam_2026-11-06/validate.py |
 | NFL-49 P3 calibration evidence | FAIL | calibration_fitted_claim=False (known_flags/KNOWN_LIMITATIONS.json); no fitted calibration (NFL-45); no market meets Rico's market-readiness rule (see market table) |
-| NFL-49 P4 end-to-end acceptance | FAIL | full_integration_acceptance=False (known_flags/KNOWN_LIMITATIONS.json); production_validated=False (known_flags/KNOWN_LIMITATIONS.json); pristine evaluation status='UNSCORABLE_INSUFFICIENT_COVERAGE', games_scored=0, weeks_scored=[] vs min {'games_scored': 30, 'weeks': 3} (evaluation/EVALUATION.json); pristine_protocol_complete=False (known_flags/KNOWN_LIMITATIONS.json) |
+| NFL-49 P4 end-to-end acceptance | FAIL | full_integration_acceptance=False (known_flags/KNOWN_LIMITATIONS.json); production_validated=False (known_flags/KNOWN_LIMITATIONS.json); pristine evaluation status='UNSCORABLE_INSUFFICIENT_COVERAGE', games_scored=2, weeks_scored=['10'] vs min {'games_scored': 30, 'weeks': 3} (evaluation/EVALUATION.json); pristine_protocol_complete=False (known_flags/KNOWN_LIMITATIONS.json) |
 
 ## NFL-56: PASS
 
