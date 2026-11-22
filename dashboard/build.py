@@ -203,7 +203,7 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
         weeks = tp["window"]["weeks"]
         wids = games[(games.season == season) & games.week.isin(weeks) & ((games.home_team == team) | (games.away_team == team))].game_id
         snap_off = tp["offense"].get("offense_snap_share", {})
-        snap_def = X.defense_snap_share(snaps, team, wids)
+        snap_def = X.defense_snap_share(snaps, team, wids, rosters)
         ex_team[team] = {
             "qb": X.qb_profile(data, season, team, g.get("listed_qbs", {}).get(team), weeks),
             "roles": X.receiver_roles(tp["offense"]["players"], snap_off, id_to_name),
