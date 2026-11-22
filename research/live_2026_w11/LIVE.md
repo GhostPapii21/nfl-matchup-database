@@ -1,10 +1,10 @@
-# Live tracker, Week 11 (2026-11-22 19:23 UTC)
+# Live tracker, Week 11 (2026-11-22 19:28 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## MIA 3 @ BUF 20 (1:24 - 2nd)
+## MIA 6 @ BUF 20 (0:59 - 2nd)
 
-85 plays. Top yards allowed by a named defender: Z.Anderson (2/4, 41 yds), J.Rodriguez (3/3, 35 yds), M.Washington (1/1, 30 yds), J.Marshall (2/2, 26 yds)
+92 plays. Top yards allowed by a named defender: Z.Anderson (2/4, 41 yds), J.Rodriguez (3/3, 35 yds), M.Washington (1/1, 30 yds), J.Marshall (3/3, 28 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -15,31 +15,31 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Caleb Douglas (MIA) | 1 | 3.7 | 14 | 44.9 | 48.5 | 0 |  |  |
 | Malik Washington (MIA) | 0 | 3.3 | 0 | 32.0 | 29.5 | 11 |  |  |
 
-## NO 7 @ CHI 16 (1:08 - 2nd)
+## NO 7 @ CHI 16 (0:31 - 2nd)
 
-79 plays. Top yards allowed by a named defender: J.Blackmon (2/2, 33 yds), N.Sewell (1/1, 24 yds), Timeout #1. (1/1, 14 yds), A.Jennings (1/1, 12 yds)
+86 plays. Top yards allowed by a named defender: J.Blackmon (2/2, 33 yds), C.Lewis (2/2, 30 yds), N.Sewell (1/1, 24 yds), Timeout #1. (1/1, 14 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Chris Olave (NO) | 2 | 4.1 | 38 | 44.1 | 68.5 | 0 |  |  |
 | Rome Odunze (CHI) | 2 | 2.7 | 35 | 30.4 | 45.5 | 0 |  |  |
 | D'Andre Swift (CHI) | 2 | 2.0 | 8 | 9.2 | 15.5 | 26 | 64.4 | 65.5 |
+| Devaughn Vele (NO) | 2 | 2.2 | 30 | 20.2 | 22.5 | 0 |  |  |
 | Colston Loveland (CHI) | 2 | 3.8 | 27 | 31.2 | 50.0 | 0 |  |  |
 | Kalif Raymond (CHI) | 1 | 1.9 | 14 | 15.0 | 21.0 | 0 |  |  |
-| Devaughn Vele (NO) | 1 | 2.2 | 11 | 20.2 | 22.5 | 0 |  |  |
 
-## TEN 6 @ DAL 27 (1:47 - 2nd)
+## TEN 9 @ DAL 27 (Halftime)
 
-81 plays. Top yards allowed by a named defender: Jo.Williams (4/4, 58 yds), A.Hill (1/1, 29 yds), K.Winston (2/2, 22 yds), C.Gray (2/2, 17 yds)
+91 plays. Top yards allowed by a named defender: Jo.Williams (4/4, 58 yds), A.Hill (1/1, 29 yds), K.Winston (2/2, 22 yds), C.Gray (2/2, 17 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | CeeDee Lamb (DAL) | 9 | 7.5 | 103 | 84.1 | 93.5 | 0 |  |  |
-| Tony Pollard (TEN) | 0 | 3.8 | 0 | 22.8 | 20.5 | 43 | 70.6 | 70.5 |
+| Tony Pollard (TEN) | 0 | 3.8 | 0 | 22.8 | 20.5 | 56 | 70.6 | 70.5 |
 | Chimere Dike (TEN) | 2 | 2.5 | 30 | 24.7 | 22.5 | 4 |  |  |
 | Javonte Williams (DAL) | 0 | 1.9 | 0 | 9.2 | 10.5 | 30 | 65.3 | 78.5 |
 | George Pickens (DAL) | 3 | 5.5 | 22 | 65.5 | 70.5 | 6 |  |  |
-| Ryan Flournoy (DAL) | 1 | 3.2 | 11 | 36.0 | 39.5 | 0 |  |  |
+| Elic Ayomanor (TEN) | 1 | 3.7 | 12 | 43.2 | 43.5 | 0 |  |  |
 
 ## TB 7 @ DET 10 (Halftime)
 
@@ -80,16 +80,16 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Pat Freiermuth (PIT) | 4 | 2.5 | 26 | 20.6 | 21.5 | 0 |  |  |
 | DeVonta Smith (PHI) | 2 | 6.9 | 21 | 71.3 | 54.5 | 0 |  |  |
 
-## BAL 19 @ CAR 22 (3:08 - 2nd)
+## BAL 26 @ CAR 22 (2:00 - 2nd)
 
-80 plays. Top yards allowed by a named defender: K.Hamilton (3/3, 49 yds), T.Moehrig (2/2, 40 yds), W.Lee (1/2, 26 yds), M.Jackson (2/4, 20 yds)
+84 plays. Top yards allowed by a named defender: K.Hamilton (3/3, 49 yds), T.Moehrig (2/2, 40 yds), W.Lee (1/2, 26 yds), M.Jackson (2/4, 20 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Rashod Bateman (BAL) | 2 | 1.9 | 67 | 16.7 | 25.5 | 0 |  |  |
+| Justice Hill (BAL) | 1 | 3.4 | 9 | 14.5 | 15.5 | 55 | 19.8 | 13.5 |
 | Zay Flowers (BAL) | 5 | 4.3 | 54 | 42.6 | 69.0 | 0 |  |  |
 | Derrick Henry (BAL) | 2 | 1.6 | 8 | 5.5 | 8.5 | 45 | 48.7 | 64.5 |
-| Chuba Hubbard (CAR) | 0 | 3.3 | 0 | 14.9 | 20.5 | 46 | 68.9 | 74.5 |
-| Justice Hill (BAL) | 1 | 3.4 | 9 | 14.5 | 15.5 | 36 | 19.8 | 13.5 |
+| Chuba Hubbard (CAR) | 0 | 3.3 | 0 | 14.9 | 20.5 | 51 | 68.9 | 74.5 |
 | Jalen Coker (CAR) | 1 | 2.9 | 35 | 29.0 | 42.5 | 0 |  |  |
 
