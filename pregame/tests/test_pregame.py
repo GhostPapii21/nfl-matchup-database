@@ -172,7 +172,11 @@ def test_summarize_event_reference_and_best_price():
     assert set(m["spread"]["books"]) == {"pinnacle", "draftkings", "fanduel"}          # betmgm ignored
     assert m["spread"]["reference"] == {"book": "pinnacle", "line": -4.5, "no_vig": {"BAL": 0.5, "LAC": 0.5}}
     assert m["spread"]["books_agree_on_line"] is False                                    # FanDuel hangs -4
-    assert m["total"]["best_retail_price"]["Over"] == {"book": "fanduel", "price": -110, "line": 39.5, "break_even": pytest.approx(0.5238, abs=1e-4)}
+    # Best price is compared at one line only (refs NFL-75): DK 38.5 and FD 39.5 tie, Pinnacle's 38.5 breaks it.
+    # (This assertion used to expect FD 39.5 -110 as "best", a worse number for the Over than DK 38.5 -112.)
+    ov = m["total"]["best_retail_price"]["Over"]
+    assert {k: ov[k] for k in ("book", "price", "line")} == {"book": "draftkings", "price": -112, "line": 38.5}
+    assert ov["by_line"][39.5] == {"book": "fanduel", "price": -110, "break_even": pytest.approx(0.5238, abs=1e-4)}
     assert m["moneyline"]["best_retail_price"]["LAC"]["book"] == "draftkings"            # +185 beats +180; Pinnacle is not a retail book
     prop = m["receiving_yards|Zay Flowers"]
     assert prop["books"]["draftkings"]["no_vig"]["Over"] == pytest.approx(0.5108, abs=1e-4)
