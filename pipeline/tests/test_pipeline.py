@@ -29,7 +29,8 @@ def iso(dt):
 def packet(stamp, roof="outdoors"):
     # publisher-dated sources carry the publisher's own stamp (NFL-56); the ESPN live list is dated by its pull
     src = {k: {"status": "OK", "retrieved_utc": iso(stamp), "source_updated_at": iso(stamp)} for k in
-           ("games", "pbp", "rosters", "depth_charts", "snap_counts", "ftn", "pfr_def", "injuries")}
+           ("games", "pbp", "rosters", "depth_charts", "snap_counts", "ftn", "pfr_def", "injuries",
+            "ngs_passing", "ngs_receiving", "ngs_rushing")}
     src["espn_injuries"] = {"status": "OK", "retrieved_utc": iso(stamp)}
     team = lambda: {"offense": {"players": [{"name": "x"}], "by_game": [1], "offense_snap_share": {"x": 1}, "produced": {"pts": 1}},
                     "defense": {"allowed": {"dropbacks_charted": 30, "pts": 1}, "rank": {"pts": 1}, "defenders": [{"n": "d"}]},
@@ -145,12 +146,14 @@ def test_missing_timestamp_is_missing_not_fresh():
     assert rows["odds"]["status"] == "MISSING"
 
 
-def test_pbp_lagging_a_game_is_stale():
+def test_pbp_lagging_a_game_is_gap_not_stale():
     now = KO - timedelta(hours=30)
     pk = packet(now)
     pk["data_freshness"]["NYG"]["status"] = "MISSING_GAMES"
     rows = {r["source"]: r for r in F.check(pk, now)}
-    assert rows["play_by_play"]["status"] == "STALE" and "NYG" in rows["play_by_play"]["reason"]
+    assert rows["play_by_play"]["status"] == "GAP" and "NYG" in rows["play_by_play"]["reason"]
+    assert rows["play_by_play"]["status"] != "STALE"
+    assert any(r["source"] == "play_by_play" for r in F.blocking([rows["play_by_play"]]))
 
 
 def test_indoor_weather_not_required():

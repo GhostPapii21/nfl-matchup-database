@@ -14,8 +14,9 @@ It refuses, printing every reason and exiting 2, unless ALL of these pass:
                 reviewed SEMANTICS_BOUNDS.md, with ``ot_rule`` equal to the overtime mode
   G3 packet     pregame/packets/<game>/packet.json exists
   G4 freshness  every source in pipeline/freshness.py is FRESH or NOT_REQUIRED, including the newest four-book
-                price freeze (Blitz) and official inactives pulled after T-90
-  G5 phases     phases 1-13 and 15 are not MISSING / STALE / NOT_YET
+                price freeze (Blitz) and official inactives pulled after T-90. GAP (latest release missing a
+                completed game) also refuses.
+  G5 phases     phases 1-13 and 15 are not MISSING / STALE / GAP / NOT_YET
   G7 as-of      the committed as-of play-by-play (data/historical/nflverse/pbp_<season>_w1_<wk-1>_pulled_*.parquet,
                 newest pull) exists, covers every history week, contains no week >= the target week and not the target
                 game, the config's history weeks are strictly before the target week, and now is before kickoff
