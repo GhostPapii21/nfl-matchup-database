@@ -33,7 +33,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import cadence, coverage, hooks, ngs_matchup, source_asof
+from . import cadence, coverage, hooks, matchup_sources, ngs_matchup, source_asof
 
 ET = ZoneInfo("America/New_York")
 INACTIVES_POST_MINUTES_BEFORE_KICKOFF = 90
@@ -331,11 +331,11 @@ def check(pk: dict, now: datetime | None = None, hook_impls=None) -> list[dict]:
                              rec.get("retrieved_utc"), age, allowed, stamp, basis, ev))
     rows.append(inactives_row(pk, now, ko, hook_impls))
     rows.append(four_book_row(pk, now, htk, hook_impls))
-    rows.append(ngs_matchup_row(pk_eff, hook_impls))
+    rows.append(ngs_matchup_row(pk_eff, hook_impls, rows))
     return rows
 
 
-def ngs_matchup_row(pk, hook_impls=None):
+def ngs_matchup_row(pk, hook_impls=None, prior_rows=None):
     """Game-day check: public NGS route / throw-location / success inputs for both teams (main-defender step)."""
     hi = hook_impls or {}
     if callable(hi.get("ngs_defender_matchup")):
@@ -366,7 +366,28 @@ def ngs_matchup_row(pk, hook_impls=None):
             seen.add(x)
             miss.append(x)
     res = ngs_matchup.check(teams, g.get("week"), paths, completed_missing=miss, records_ok=records_ok)
-    return _row("ngs_defender_matchup", res["status"], res["reason"], evidence=res)
+    reason = res["reason"]
+    if len(teams) == 2 and g.get("week") is not None:
+        # Fill the wanted main-defender fields from sources that carry them (pipeline/matchup_sources.py).
+        pbp_row = next((r for r in (prior_rows or []) if r.get("source") == "play_by_play"), {}) or {}
+        pbp_rec = cache_fallback("play_by_play", pk, _get(pk, "sources.pbp"))
+        pbp_path = coverage.source_path(pbp_rec, [cache_path("play_by_play", pk)]) if isinstance(pbp_rec, dict) else None
+        part = CACHE / f"pbp_participation_{_season(pk)}.parquet"
+        try:
+            mf = matchup_sources.fields(teams, _season(pk), int(g["week"]), pbp_path=pbp_path,
+                                        pbp_status=pbp_row.get("status", "unknown"), pbp_as_of=pbp_row.get("as_of_utc"),
+                                        part_path=part if part.is_file() else None,
+                                        pff_base=(hook_impls or {}).get("pff_matchups_dir"))
+        except Exception as e:  # never invent: an adapter failure leaves every field MISSING
+            mf = {k: {"field": k, "status": "MISSING", "value": "unknown", "reason": f"matchup adapter failed: {e!r}"}
+                  for k in matchup_sources.FIELDS}
+        res["matchup_fields"] = mf
+        res["fields"]["missing"] = [m for m in res["fields"]["missing"]
+                                    if not (m.get("source") == "public_ngs" and mf.get(m["field"], {}).get("status") not in (None, "MISSING"))]
+        summary = "; ".join(f"{k}={v['status']}" for k, v in mf.items())
+        reason = (f"Public NGS weekly files: {res['status']}. Main-defender fields: {summary}. "
+                  "MISSING = no source carries it (unknown, never zero); PFF_PROJECTED = candidate only, not verified.")
+    return _row("ngs_defender_matchup", res["status"], reason, evidence=res)
 
 
 def _fmt_htk(htk):
