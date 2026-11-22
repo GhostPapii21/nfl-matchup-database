@@ -236,3 +236,30 @@ Holds (-1.5 YPT or better): TE2+: 3.86 YPT on 21 tgts (league 6.71, -2.85)
 - Joshua Williams ← Ja'Marr Chase: 14 tgt, 11 rec, 141 yds
 - Marcus X. Harris ← Dohnte Meyers: 3 tgt, 3 rec, 34 yds
 
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### TEN defense vs DAL (TEN@DAL, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Joshua Williams | CB | 9 | 9 | 143 | 0 | 0 | 0 | 0 | tackler x9 | C.Lamb 3, J.Mitchell 1, G.Pickens 5 | J.Mitchell 27 short_middle Q1; G.Pickens 31 deep_middle Q3; G.Pickens 30 deep_left Q3 |
+| A.Hill (name unresolved) | unknown | 2 | 2 | 34 | 0 | 0 | 0 | 0 | tackler x2 | C.Lamb 1, J.Corbin 1 | C.Lamb 29 deep_right Q2 |
+| K.Winston (name unresolved) | unknown | 3 | 3 | 25 | 0 | 0 | 0 | 0 | tackler x3 | J.Mitchell 1, C.Lamb 1, B.Spann-Ford 1 |  |
+| Micah Robinson | CB | 1 | 1 | 24 | 0 | 0 | 0 | 0 | tackler x1 | C.Lamb 1 | C.Lamb 24 deep_left Q3 |
+| Cor'Dale Flott | CB | 2 | 2 | 17 | 0 | 0 | 0 | 0 | tackler x2 | R.Flournoy 1, C.Lamb 1 |  |
+| Cedric Gray | LB | 2 | 2 | 17 | 0 | 0 | 0 | 0 | tackler x2 | C.Lamb 1, G.Pickens 1 |  |
+| Isaiah Oliver | S | 2 | 2 | 15 | 0 | 0 | 0 | 0 | tackler x2 | C.Lamb 2 |  |
+| Keldric Faulk | DE | 1 | 1 | 7 | 0 | 0 | 0 | 0 | tackler x1 | J.Williams 1 |  |
+| J.Johnson (name unresolved) | unknown | 1 | 1 | 6 | 0 | 0 | 0 | 0 | tackler x1 | L.Schoonmaker 1 |  |
+| Jacob Martin | DE | 1 | 1 | 6 | 0 | 0 | 0 | 0 | tackler x1 | J.Williams 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 20/25 for 245 yds, 2 TD; TE 5/5 for 51 yds, 1 TD; RB 4/4 for 29 yds, 1 TD
+Explosives allowed (pass 20+/rush 15+): 5/2
+Pass rush: sacks none; QB hits S.Thomas 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+<!-- W11-GAMELOG-END -->

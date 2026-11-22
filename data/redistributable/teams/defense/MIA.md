@@ -216,3 +216,29 @@ Holds (-1.5 YPT or better): none
 - Q4 12:39 DeMario Douglas (WR) rec 48 — Chris A. Johnson [inferred; pregame matchup: ESPN cheat sheet primary (single-source; coverage.json said Jason Marshall)]; alignment: outside, offense-right side (pregame target-side proxy; ESPN season split L9/S82/R9)
 - Chris A. Johnson ← DeMario Douglas: 3 tgt, 3 rec, 76 yds
 
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### MIA defense vs BUF (MIA@BUF, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Jacob Rodriguez | LB | 7 | 7 | 67 | 0 | 0 | 0 | 0 | tackler x7 | D.Moore 2, T.Johnson 3, J.Cook 1, K.Shakir 1 | D.Moore 20 short_left Q2 |
+| Michael Taaffe | S | 2 | 2 | 61 | 0 | 0 | 0 | 0 | tackler x2 | D.Knox 1, K.Shakir 1 | D.Knox 23 short_middle Q1; K.Shakir 38 deep_right Q3 |
+| Zayne Anderson | S | 6 | 4 | 58 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x4 | K.Shakir 2, D.Moore 1, K.Latu 1, D.Knox 1, T.Johnson 1 | K.Shakir 32 deep_right Q1 |
+| J.Marshall (name unresolved) | unknown | 4 | 4 | 40 | 0 | 0 | 0 | 0 | tackler x4 | D.Moore 2, K.Coleman 1, T.Johnson 1 |  |
+| Malik Washington | WR | 1 | 1 | 30 | 0 | 0 | 0 | 0 | tackler x1 | K.Latu 1 | K.Latu 30 deep_middle Q1 |
+| Chris Johnson | CB | 6 | 5 | 28 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x5 | K.Shakir 2, R.Davis 1, T.Johnson 1, K.Coleman 1, J.Cook 1 |  |
+| JuJu Brents | CB | 3 | 2 | 27 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | D.Moore 2, K.Coleman 1 |  |
+| D.Baker (name unresolved) | unknown | 1 | 1 | 12 | 0 | 0 | 0 | 0 | tackler x1 | K.Shakir 1 |  |
+| Kyle Louis | LB | 1 | 1 | 7 | 0 | 0 | 0 | 0 | tackler x1 | T.Johnson 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 15/24 for 209 yds, 1 TD; RB 10/12 for 64 yds, 0 TD; TE 3/6 for 61 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 5/0
+Pass rush: sacks J.Brooks 1, Z.Anderson 1, K.Cooper 1; QB hits C.Robinson 1, K.Cooper 1, J.Brooks 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+<!-- W11-GAMELOG-END -->

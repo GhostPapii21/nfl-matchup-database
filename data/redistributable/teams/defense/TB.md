@@ -214,3 +214,29 @@ Holds (-1.5 YPT or better): WR1: 6.61 YPT on 54 tgts (league 8.16, -1.55); WR3+:
 - wk8 ATL@TB: Jahan Dotson (WR-deep speed) 2/5tgt 95y 0TD | shell 17 man/78 zone, MOFC 59 | One 76y deep left shot vs TB zone (MOFC 59) — pregame matchup McCollum (outside right, inferred), Winfield tackled. Deep-speed WR vs single-high zone in garbage time. [inferred]
 - wk8 ATL@TB: Bijan Robinson (RB-home-run zone runner) 19-76 0TD; 0/1tgt 0y 0TD | shell 17 man/78 zone, MOFC 59 | Script/volume; no specific matchup attribution — see explosives table. [confirmed-tackler]
 
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### TB defense vs DET (TB@DET, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Tykee Smith | S | 4 | 3 | 62 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | S.LaPorta 2, T.Conklin 1, J.Gibbs 1 | S.LaPorta 47 deep_right Q1 |
+| Benjamin Morrison | CB | 3 | 3 | 60 | 0 | 0 | 0 | 0 | tackler x3 | J.Williams 2, B.Wright 1 | B.Wright 27 deep_left Q2 |
+| Alex Anzalone | LB | 5 | 5 | 37 | 0 | 0 | 0 | 0 | tackler x5 | S.LaPorta 1, S.Vaki 1, A.St. Brown 2, J.Gibbs 1 |  |
+| Josiah Trotter | LB | 4 | 4 | 21 | 0 | 0 | 0 | 0 | tackler x4 | A.St. Brown 2, S.LaPorta 1, J.Gibbs 1 |  |
+| David Walker | LB | 1 | 1 | 15 | 0 | 0 | 0 | 0 | tackler x1 | B.Wright 1 |  |
+| Kevin Knowles | CB | 1 | 1 | 10 | 0 | 0 | 0 | 0 | tackler x1 | J.Gibbs 1 |  |
+| Keionte Scott | CB | 2 | 1 | 3 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | S.LaPorta 1, J.Williams 1 |  |
+| Yaya Diaby | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | J.Gibbs 1 |  |
+| Vita Vea | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | I.TeSlaa 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 9/13 for 130 yds, 2 TD; TE 6/9 for 122 yds, 0 TD; RB 5/6 for 27 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 3/1
+Pass rush: sacks D.Walker 1; QB hits Y.Diaby 1, V.Vea 1, R.Nunez-Roches 1, C.Kancey 1, D.Walker 1
+Video (highlight transcript) mentions: Benjamin Morrison (CB) @0:25 "TAMPA BAY. THERE'S OUTSIDE LEVERAGE BY BENJAMIN MORRISON. SOMETHING IS NOT RIGHT THERE." [coverage word: LEVERAGE]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+<!-- W11-GAMELOG-END -->

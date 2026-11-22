@@ -234,3 +234,30 @@ Holds (-1.5 YPT or better): none
 - wk8 MIN@DET: Jordan Mason (RB-power/volume early-down) 8-20 0TD | shell 18/76, MOFO 49 | Script/volume; no specific matchup attribution — see explosives table. [confirmed-tackler]
 - wk8 MIN@DET: Ben Yurosek (TE-inline) 1/2tgt 24y 0TD | shell 18/76, MOFO 49 | Script/volume; no specific matchup attribution — see explosives table. [unknown]
 
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### DET defense vs TB (TB@DET, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Rock Ya-Sin | CB | 6 | 6 | 51 | 0 | 0 | 0 | 0 | tackler x6 | E.Egbuka 1, T.Johnson 1, C.Godwin 1, T.Hurst 2, K.Gainwell 1 |  |
+| Derrick Barnes | LB | 3 | 3 | 26 | 0 | 0 | 0 | 0 | tackler x3 | K.Gainwell 2, C.Otton 1 |  |
+| Brian Branch | S | 4 | 2 | 17 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | C.Godwin 1, E.Egbuka 1, K.Gainwell 1, B.Irving 1 |  |
+| Christian Izien | S | 1 | 1 | 16 | 0 | 0 | 0 | 0 | tackler x1 | B.Irving 1 |  |
+| Chuck Clark | S | 2 | 1 | 12 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Hurst 1, E.Egbuka 1 |  |
+| Roger McCreary | CB | 2 | 1 | 10 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Hurst 2 |  |
+| DJ Wonnum | LB | 2 | 1 | 9 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Johnson 1, B.Irving 1 |  |
+| Kerby Joseph | S | 1 | 1 | 8 | 0 | 0 | 0 | 0 | tackler x1 | C.Godwin 1 |  |
+| Malcolm Rodriguez | LB | 2 | 1 | 7 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | K.Gainwell 1, B.Irving 1 |  |
+| Khalil Dorsey | CB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | T.Johnson 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 12/18 for 104 yds, 2 TD; RB 7/9 for 76 yds, 0 TD; TE 1/4 for 8 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 1/1
+Pass rush: sacks D.Wonnum 1, C.Clark 1, T.Nowaske 1, D.Moore (half) 1, M.Rodriguez (half) 1; QB hits D.Wonnum 1, A.McNeill 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+<!-- W11-GAMELOG-END -->

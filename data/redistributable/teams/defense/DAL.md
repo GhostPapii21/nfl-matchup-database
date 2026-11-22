@@ -243,3 +243,33 @@ Holds (-1.5 YPT or better): none
 - Joey Porter Jr. ← Michael Wilson: 15 tgt, 8 rec, 111 yds
 - Caleb Downs ← Kendrick Bourne: 2 tgt, 1 rec, 29 yds
 
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### DAL defense vs TEN (TEN@DAL, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Cobie Durant | CB | 3 | 3 | 41 | 0 | 0 | 0 | 0 | tackler x3 | C.Dike 2, E.Ayomanor 1 | C.Dike 22 deep_right Q1 |
+| Justin Barron | LB | 5 | 5 | 37 | 0 | 0 | 0 | 0 | tackler x5 | G.Helm 1, D.Bellinger 1, C.Dike 2, M.Carter 1 |  |
+| S.Revel (name unresolved) | unknown | 2 | 2 | 30 | 0 | 0 | 0 | 0 | tackler x2 | C.Ridley 2 | C.Ridley 21 deep_middle Q4 |
+| Malik Hooker | S | 3 | 2 | 27 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | E.Ayomanor 1, C.Ridley 2 |  |
+| Ameer Speed | CB | 2 | 1 | 11 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Dike 1, C.Ridley 1 |  |
+| Shemar James | LB | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | C.Dike 1 |  |
+| DeMarvion Overshown | LB | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | C.Dike 1 |  |
+| Caleb Downs | S | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | G.Helm 1 |  |
+| Derion Kendrick | CB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | X.Restrepo 1 |  |
+| J.Porter (name unresolved) | unknown | 2 | 1 | 4 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Tate 1, E.Ayomanor 1 |  |
+| Quinnen Williams | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | G.Helm 1 |  |
+| Dee Winters | LB | 1 | 1 | -1 | 0 | 0 | 0 | 0 | tackler x1 | C.Tate 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 17/22 for 227 yds, 2 TD; TE 3/4 for 19 yds, 0 TD; RB 1/2 for 2 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 3/0
+Pass rush: sacks J.Houston 3, E.Garcia (half) 1, D.Ezeiruaku (half) 1, Q.Williams 2; QB hits Q.Williams 2, J.Houston 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+
+<!-- W11-GAMELOG-END -->

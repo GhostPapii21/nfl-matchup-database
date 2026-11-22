@@ -240,3 +240,29 @@ By target, depth x direction (tgt / catches / yds / tacklers / PBU):
 
 Tackler-after-catch totals: T.Stevenson 4 rec/55y (A.Barner, J.Smith-Njigba, T.Horton); C.Lewis 2 rec/27y (A.Barner, J.Smith-Njigba); D.Bush 2 rec/22y (J.Smith-Njigba, Z.Charbonnet); J.Johnson 2 rec/13y (J.Smith-Njigba, T.Horton); A.Booker 1 rec/6y (J.Price); K.Gordon 1 rec/6y (Z.Charbonnet); T.Edwards 1 rec/2y (J.Price); J.Simmons 1 rec/-6y (Z.Charbonnet)
 
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### CHI defense vs NO (NO@CHI, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Cam Lewis | CB | 4 | 4 | 49 | 0 | 0 | 0 | 0 | tackler x4 | D.Vele 3, C.Olave 1 |  |
+| Jaylon Johnson | CB | 5 | 5 | 48 | 0 | 0 | 0 | 0 | tackler x5 | C.Olave 3, D.Vele 2 |  |
+| Devin Bush | LB | 4 | 4 | 31 | 0 | 0 | 0 | 0 | tackler x4 | O.Delp 1, D.Vele 2, N.Fant 1 |  |
+| T.J. Edwards | LB | 4 | 4 | 25 | 0 | 0 | 0 | 0 | tackler x4 | C.Olave 2, C.Donaldson 2 |  |
+| N.Sewell (name unresolved) | unknown | 1 | 1 | 24 | 0 | 0 | 0 | 0 | tackler x1 | C.Olave 1 | C.Olave 24 deep_left Q2 |
+| T.Stevenson (name unresolved) | unknown | 4 | 3 | 22 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | J.Tyson 1, C.Olave 2, C.Donaldson 1 |  |
+| Timeout #1. (name unresolved) | unknown | 1 | 1 | 14 | 0 | 0 | 0 | 0 | tackler x1 | C.Olave 1 |  |
+| C.Phillips (name unresolved) | unknown | 3 | 2 | 8 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | C.Donaldson 1, J.Tyson 1, N.Fant 1 |  |
+| Austin Booker | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | J.Johnson 1, T.Etienne 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 17/24 for 184 yds, 0 TD; TE 3/7 for 25 yds, 0 TD; RB 5/7 for 13 yds, 1 TD
+Explosives allowed (pass 20+/rush 15+): 1/2
+Pass rush: sacks J.Simmons 3, C.Lewis 1, M.Sweat 1, C.Phillips 1; QB hits A.Booker 1, N.Gallimore 1, M.Sweat 2
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+<!-- W11-GAMELOG-END -->

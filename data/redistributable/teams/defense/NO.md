@@ -201,3 +201,25 @@ Holds (-1.5 YPT or better): none
 - 20+ catches: J.Warren(RB) 26y short_left - J.Sanker [tackler]; D.Metcalf(WR1) 51y deep_left - J.Sanker [tackler]; G.Bernard(WR2) 20y short_middle - J.Sanker [tackler]; B.Smith(WR3+) 20y short_middle - J.Howden [tackler]
 - 15+ runs: J.Warren(RB) 29y rush middle; J.Warren(RB) 15y rush middle; R.Dowdle(RB) 16y rush right tackle
 
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### NO defense vs CHI (NO@CHI, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Jonas Sanker | S | 4 | 4 | 52 | 0 | 0 | 0 | 0 | tackler x4 | L.Burden 2, Z.Thomas 1, C.Loveland 1 | Z.Thomas 40 deep_left Q3 |
+| Julian Blackmon | S | 2 | 2 | 33 | 0 | 0 | 0 | 0 | tackler x2 | S.Roush 1, K.Raymond 1 |  |
+| Kool-Aid McKinstry | CB | 5 | 4 | 31 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x4 | D.Swift 1, R.Odunze 2, K.Raymond 1, Z.Thomas 1 |  |
+| Jordan Howden | S | 2 | 1 | 16 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | K.Raymond 1, R.Odunze 1 |  |
+| Anfernee Jennings | LB | 1 | 1 | 12 | 0 | 0 | 0 | 0 | tackler x1 | C.Loveland 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 9/13 for 125 yds, 0 TD; TE 4/4 for 48 yds, 1 TD; RB 2/3 for 8 yds, 1 TD
+Explosives allowed (pass 20+/rush 15+): 1/2
+Pass rush: sacks C.Young 1, C.Wooden 1, J.Sanker 1, J.Ridgeway 1; QB hits A.Jennings 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+<!-- W11-GAMELOG-END -->

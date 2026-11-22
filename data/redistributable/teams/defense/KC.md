@@ -222,3 +222,32 @@ Holds (-1.5 YPT or better): WR3+: 6.17 YPT on 47 tgts (league 7.67, -1.5)
 - Nohl Williams ← Jaylen Waddle: 5 tgt, 2 rec, 38 yds
 - Nohl Williams ← Marvin Mims Jr.: 3 tgt, 2 rec, 10 yds — limited his man
 
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### KC defense vs ARI (ARI@KC, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Drue Tranquill | LB | 4 | 4 | 38 | 0 | 0 | 0 | 0 | tackler x4 | H.Long 1, T.McBride 2, H.Wallace 1 |  |
+| Jadon Canady | CB | 2 | 2 | 35 | 0 | 0 | 0 | 0 | tackler x2 | H.Wallace 2 | H.Wallace 25 deep_left Q2 |
+| Jack Cochrane | LB | 1 | 1 | 17 | 0 | 0 | 0 | 0 | tackler x1 | Z.Jones 1 |  |
+| Kristian Fulton | CB | 3 | 2 | 13 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | T.McBride 2, S.Fehoko 1 |  |
+| Nick Bolton | LB | 2 | 1 | 12 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | H.Wallace 2 |  |
+| Nohl Williams | CB | 4 | 2 | 10 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | E.Higgins 1, T.McBride 1, S.Fehoko 1, H.Wallace 1 |  |
+| Ashton Gillotte | DE | 1 | 1 | 10 | 0 | 0 | 0 | 0 | tackler x1 | Z.Knight 1 |  |
+| Jaden Hicks | S | 1 | 1 | 8 | 0 | 0 | 0 | 0 | tackler x1 | T.McBride 1 |  |
+| Jeffrey Bassa | LB | 1 | 1 | 7 | 0 | 0 | 0 | 0 | tackler x1 | T.McBride 1 |  |
+| Chris Roland-Wallace | CB | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | T.McBride 1 |  |
+| Chris Jones | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | T.McBride 1 |  |
+| Felix Anudike-Uzomah | DE | 1 | 1 | 0 | 0 | 0 | 0 | 0 | tackler x1 | T.McBride 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 6/14 for 76 yds, 1 TD; TE 11/16 for 69 yds, 0 TD; RB 1/1 for 10 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 1/0
+Pass rush: sacks G.Karlaftis (half) 1, C.Jones (half) 1, G.Karlaftis 2; QB hits N.Williams 1, G.Karlaftis 3
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+<!-- W11-GAMELOG-END -->
