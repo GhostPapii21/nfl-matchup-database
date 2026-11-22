@@ -136,7 +136,12 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
         base_share = 0.6 * (inp.get("target_share_window") or 0) + 0.4 * (inp.get("target_share_last3") or 0)
         if base_share and inp.get("target_share_used"):
             blend *= max(0.5, min(2.0, inp["target_share_used"] / base_share))      # teammate-out and the like
-        x = {"l_tgt": math.log(max(blend, 0.5)), "l_yds": math.log(max(yds_pg, 1.0)), "implied": imp_off or 22.0, "team_pass": team_pass,
+        # Weather: the same measured rain/wind factors the yardage simulation uses (pregame/rain_model.py). Rain alone cuts
+        # receiver yards about 15%; checked again on 13,526 receiver-games 2022-2026 (research/context_effects_2026-11-22).
+        wam = float(opp.get("weather_attempts_multiplier") or 1.0)
+        wx = wam * float(inp.get("rain_yards") or 1.0) * float(inp.get("rain_catch") or 1.0)
+        blend *= wam
+        x = {"l_tgt": math.log(max(blend, 0.5)), "l_yds": math.log(max(yds_pg * wx, 1.0)), "implied": imp_off or 22.0, "team_pass": team_pass,
              "l_ex": math.log(min(2.0, max(0.5, d.get("ex_rate_rel", 1.0)))), "g80_pg": d.get(f"g80_{r['pos']}_pg", 0.0)}
         z80 = rec_m["const"] + sum(rec_m[k] * v for k, v in x.items())
         z100 = rec_100["const"] + sum(rec_100[k] * v for k, v in x.items())
@@ -160,6 +165,8 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
             why.append(f"{dfn} rarely allows 80+ games")
         if inp.get("injury_bump"):
             why.append("a teammate's absence adds targets")
+        if wx < 0.97:
+            why.append(f"rain/wind in the forecast cuts his yards about {round((1 - wx) * 100)}%")
         out["receivers"].append({"player": r.get("full_name") or r["player"], "player_id": r["player_id"], "pos": r["pos"], "tier": tier,
                                  "style": "explosive" if ex_pg >= 1.2 else "volume", "p80": round(p80, 3), "p100": round(p100, 3),
                                  "stars": stars(p80, cuts), "targets": round(blend, 1), "yds_pg": round(yds_pg, 1), "ex_pg": round(ex_pg, 2), "why": why})

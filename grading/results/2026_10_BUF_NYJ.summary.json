@@ -1,0 +1,111 @@
+{
+ "actual_sources": {
+  "games": {
+   "retrieved_utc": "2026-11-22T04:21:28+00:00",
+   "sha256": "024dac4b3c6a4269008fa5d0581ac8d85c8ca1d95f6808ba9a67c68fc187190e",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet"
+  },
+  "pbp": {
+   "retrieved_utc": "2026-11-22T04:21:29+00:00",
+   "sha256": "a2bfcd8abcec780fe42161cda929f15a1ee1e38736c30f92856d54f42e3951ed",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet"
+  },
+  "rosters": {
+   "retrieved_utc": "2026-11-22T04:21:29+00:00",
+   "sha256": "6d3e9e7d489ed1e86ba59de019b501756e7e4196d1bd218999ef874b31fff276",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet"
+  },
+  "snap_counts": {
+   "retrieved_utc": "2026-11-22T04:21:29+00:00",
+   "sha256": "980aba4c2b5eb06c7f056d805b00c7c27730bbba4c6abcc7520e3b2eb6d456b1",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet"
+  }
+ },
+ "counts": {
+  "player_projection": {
+   "actual_known": 40,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 40
+  },
+  "team_market": {
+   "actual_known": 6,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 6
+  },
+  "team_projection": {
+   "actual_known": 8,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 8
+  }
+ },
+ "final_score": {
+  "BUF": 31,
+  "NYJ": 12,
+  "pulled_utc": "2026-11-22T04:21:28+00:00",
+  "source": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet sha256=024dac4b3c6a4269008fa5d0581ac8d85c8ca1d95f6808ba9a67c68fc187190e"
+ },
+ "freeze_ref": "working tree",
+ "game_id": "2026_10_BUF_NYJ",
+ "graded_utc": "2026-11-22T04:21:29+00:00",
+ "holdout_by_market_type": {
+  "moneyline": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "spread": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "total": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  }
+ },
+ "kickoff_utc": "2026-11-15T18:00:00+00:00",
+ "packet_source": "git:6afcffe434b8f5336b13dd2ae392d5fe2843940f:pregame/packets/2026_10_BUF_NYJ/packet.json",
+ "projection_ready": false,
+ "research_artifacts": {
+  "official_100k": {
+   "loss": 0,
+   "push": 0,
+   "rows": 1,
+   "unknown": 0,
+   "win": 0
+  },
+  "research_team_probability": {
+   "loss": 0,
+   "push": 0,
+   "rows": 1,
+   "unknown": 0,
+   "win": 0
+  },
+  "research_team_projection": {
+   "loss": 0,
+   "push": 0,
+   "rows": 4,
+   "unknown": 0,
+   "win": 0
+  }
+ },
+ "schema": "grading.summary.v1",
+ "validation": "research only, not validated"
+}

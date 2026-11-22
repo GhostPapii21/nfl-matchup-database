@@ -1,0 +1,314 @@
+{
+ "n": 10001,
+ "seasons": [
+  2022,
+  2023,
+  2024,
+  2025,
+  2026
+ ],
+ "effects": {
+  "y_yds": {
+   "by_situation": {
+    "off_bye": {
+     "games": 735,
+     "multiplier": 0.97,
+     "ci95": [
+      0.909,
+      1.036
+     ],
+     "significant": false,
+     "train_only_multiplier": 0.931,
+     "raw_actual_vs_projection": 0.967
+    },
+    "short_week": {
+     "games": 746,
+     "multiplier": 1.061,
+     "ci95": [
+      0.997,
+      1.129
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.039,
+     "raw_actual_vs_projection": 1.05
+    },
+    "intl": {
+     "games": 231,
+     "multiplier": 0.975,
+     "ci95": [
+      0.874,
+      1.087
+     ],
+     "significant": false,
+     "train_only_multiplier": 0.976,
+     "raw_actual_vs_projection": 0.96
+    },
+    "after_intl": {
+     "games": 244,
+     "multiplier": 0.995,
+     "ci95": [
+      0.894,
+      1.107
+     ],
+     "significant": false,
+     "train_only_multiplier": 0.989,
+     "raw_actual_vs_projection": 0.984
+    },
+    "wet": {
+     "games": 549,
+     "multiplier": 0.841,
+     "ci95": [
+      0.775,
+      0.913
+     ],
+     "significant": true,
+     "train_only_multiplier": 0.814,
+     "raw_actual_vs_projection": 0.847
+    },
+    "windy": {
+     "games": 576,
+     "multiplier": 0.921,
+     "ci95": [
+      0.854,
+      0.995
+     ],
+     "significant": true,
+     "train_only_multiplier": 0.974,
+     "raw_actual_vs_projection": 0.918
+    },
+    "cold": {
+     "games": 568,
+     "multiplier": 0.961,
+     "ci95": [
+      0.888,
+      1.04
+     ],
+     "significant": false,
+     "train_only_multiplier": 0.985,
+     "raw_actual_vs_projection": 0.946
+    },
+    "indoor": {
+     "games": 3196,
+     "multiplier": 0.997,
+     "ci95": [
+      0.962,
+      1.034
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.002,
+     "raw_actual_vs_projection": 1.011
+    },
+    "lose2": {
+     "games": 2720,
+     "multiplier": 0.95,
+     "ci95": [
+      0.912,
+      0.988
+     ],
+     "significant": true,
+     "train_only_multiplier": 0.969,
+     "raw_actual_vs_projection": 0.958
+    },
+    "win3": {
+     "games": 1692,
+     "multiplier": 1.016,
+     "ci95": [
+      0.971,
+      1.063
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.018,
+     "raw_actual_vs_projection": 1.023
+    },
+    "home": {
+     "games": 4993,
+     "multiplier": 1.025,
+     "ci95": [
+      0.992,
+      1.059
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.046,
+     "raw_actual_vs_projection": 1.01
+    },
+    "qb_new": {
+     "games": 2516,
+     "multiplier": 0.99,
+     "ci95": [
+      0.95,
+      1.031
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.007,
+     "raw_actual_vs_projection": 0.981
+    },
+    "div": {
+     "games": 3688,
+     "multiplier": 0.996,
+     "ci95": [
+      0.962,
+      1.031
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.001,
+     "raw_actual_vs_projection": 0.998
+    }
+   },
+   "test_deviance_base": 73610.4,
+   "test_deviance_with_context": 73571.4,
+   "test_mae_base": 22.176,
+   "test_mae_with_context": 22.145
+  },
+  "y_tgt": {
+   "by_situation": {
+    "off_bye": {
+     "games": 735,
+     "multiplier": 0.972,
+     "ci95": [
+      0.926,
+      1.02
+     ],
+     "significant": false,
+     "train_only_multiplier": 0.958,
+     "raw_actual_vs_projection": 0.977
+    },
+    "short_week": {
+     "games": 746,
+     "multiplier": 1.052,
+     "ci95": [
+      1.005,
+      1.101
+     ],
+     "significant": true,
+     "train_only_multiplier": 1.034,
+     "raw_actual_vs_projection": 1.045
+    },
+    "intl": {
+     "games": 231,
+     "multiplier": 0.999,
+     "ci95": [
+      0.923,
+      1.081
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.0,
+     "raw_actual_vs_projection": 0.997
+    },
+    "after_intl": {
+     "games": 244,
+     "multiplier": 1.065,
+     "ci95": [
+      0.986,
+      1.149
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.034,
+     "raw_actual_vs_projection": 1.049
+    },
+    "wet": {
+     "games": 549,
+     "multiplier": 0.93,
+     "ci95": [
+      0.878,
+      0.985
+     ],
+     "significant": true,
+     "train_only_multiplier": 0.918,
+     "raw_actual_vs_projection": 0.936
+    },
+    "windy": {
+     "games": 576,
+     "multiplier": 0.982,
+     "ci95": [
+      0.929,
+      1.036
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.032,
+     "raw_actual_vs_projection": 0.976
+    },
+    "cold": {
+     "games": 568,
+     "multiplier": 0.955,
+     "ci95": [
+      0.901,
+      1.013
+     ],
+     "significant": false,
+     "train_only_multiplier": 0.99,
+     "raw_actual_vs_projection": 0.95
+    },
+    "indoor": {
+     "games": 3196,
+     "multiplier": 1.0,
+     "ci95": [
+      0.974,
+      1.028
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.003,
+     "raw_actual_vs_projection": 1.006
+    },
+    "lose2": {
+     "games": 2720,
+     "multiplier": 0.958,
+     "ci95": [
+      0.931,
+      0.986
+     ],
+     "significant": true,
+     "train_only_multiplier": 0.965,
+     "raw_actual_vs_projection": 0.966
+    },
+    "win3": {
+     "games": 1692,
+     "multiplier": 1.018,
+     "ci95": [
+      0.984,
+      1.053
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.016,
+     "raw_actual_vs_projection": 1.024
+    },
+    "home": {
+     "games": 4993,
+     "multiplier": 1.002,
+     "ci95": [
+      0.978,
+      1.026
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.012,
+     "raw_actual_vs_projection": 1.001
+    },
+    "qb_new": {
+     "games": 2516,
+     "multiplier": 0.999,
+     "ci95": [
+      0.97,
+      1.029
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.0,
+     "raw_actual_vs_projection": 0.99
+    },
+    "div": {
+     "games": 3688,
+     "multiplier": 0.994,
+     "ci95": [
+      0.969,
+      1.02
+     ],
+     "significant": false,
+     "train_only_multiplier": 1.001,
+     "raw_actual_vs_projection": 0.996
+    }
+   },
+   "test_deviance_base": 5267.6,
+   "test_deviance_with_context": 5259.3,
+   "test_mae_base": 2.059,
+   "test_mae_with_context": 2.055
+  }
+ }
+}
