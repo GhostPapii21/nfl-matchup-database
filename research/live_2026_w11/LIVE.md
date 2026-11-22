@@ -1,10 +1,10 @@
-# Live tracker, Week 11 (2026-11-22 19:07 UTC)
+# Live tracker, Week 11 (2026-11-22 19:12 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## MIA 3 @ BUF 20 (3:48 - 2nd)
+## MIA 3 @ BUF 20 (2:00 - 2nd)
 
-73 plays. Top yards allowed by a named defender: Z.Anderson (2/4, 41 yds), J.Rodriguez (3/3, 35 yds), M.Washington (1/1, 30 yds), J.Marshall (2/2, 26 yds)
+77 plays. Top yards allowed by a named defender: Z.Anderson (2/4, 41 yds), J.Rodriguez (3/3, 35 yds), M.Washington (1/1, 30 yds), J.Marshall (2/2, 26 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -15,9 +15,9 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Malik Washington (MIA) | 0 | 3.3 | 0 | 32.0 | 29.5 | 15 |  |  |
 | Caleb Douglas (MIA) | 1 | 3.7 | 14 | 44.9 | 48.5 | 0 |  |  |
 
-## NO 0 @ CHI 16 (5:54 - 2nd)
+## NO 7 @ CHI 16 (3:34 - 2nd)
 
-62 plays. Top yards allowed by a named defender: J.Blackmon (2/2, 33 yds), M.Muhammad (1/1, 24 yds), Timeout #1. (1/1, 14 yds), A.Jennings (1/1, 12 yds)
+67 plays. Top yards allowed by a named defender: J.Blackmon (2/2, 33 yds), N.Sewell (1/1, 24 yds), Timeout #1. (1/1, 14 yds), A.Jennings (1/1, 12 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -28,22 +28,22 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Kalif Raymond (CHI) | 1 | 1.9 | 14 | 15.0 | 21.0 | 0 |  |  |
 | Luther Burden III (CHI) | 2 | 3.7 | 10 | 41.7 | 60.5 | 0 |  |  |
 
-## TEN 6 @ DAL 20 (7:16 - 2nd)
+## TEN 6 @ DAL 27 (4:08 - 2nd)
 
-67 plays. Top yards allowed by a named defender: Jo.Williams (3/3, 53 yds), A.Hill (1/1, 29 yds), K.Winston (2/2, 22 yds), C.Gray (2/2, 17 yds)
+72 plays. Top yards allowed by a named defender: Jo.Williams (4/4, 58 yds), A.Hill (1/1, 29 yds), K.Winston (2/2, 22 yds), C.Gray (2/2, 17 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
-| CeeDee Lamb (DAL) | 7 | 7.5 | 95 | 84.1 | 93.5 | 0 |  |  |
+| CeeDee Lamb (DAL) | 9 | 7.5 | 103 | 84.1 | 93.5 | 0 |  |  |
 | Tony Pollard (TEN) | 0 | 3.8 | 0 | 22.8 | 20.5 | 39 | 70.6 | 70.5 |
 | Javonte Williams (DAL) | 0 | 1.9 | 0 | 9.2 | 10.5 | 30 | 65.3 | 78.5 |
 | Chimere Dike (TEN) | 2 | 2.5 | 30 | 24.7 | 22.5 | 0 |  |  |
-| George Pickens (DAL) | 1 | 5.5 | 7 | 65.5 | 70.5 | 6 |  |  |
+| George Pickens (DAL) | 3 | 5.5 | 22 | 65.5 | 70.5 | 6 |  |  |
 | Ryan Flournoy (DAL) | 1 | 3.2 | 11 | 36.0 | 39.5 | 0 |  |  |
 
-## TB 0 @ DET 10 (1:48 - 2nd)
+## TB 0 @ DET 10 (0:20 - 2nd)
 
-69 plays. Top yards allowed by a named defender: T.Smith (3/3, 62 yds), B.Morrison (3/3, 60 yds), A.Anzalone (3/3, 25 yds), R.Ya-Sin (3/3, 22 yds)
+77 plays. Top yards allowed by a named defender: T.Smith (3/3, 62 yds), B.Morrison (3/3, 60 yds), R.Ya-Sin (4/4, 33 yds), A.Anzalone (3/3, 25 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -54,22 +54,22 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Tez Johnson (TB) | 2 | 1.5 | 17 | 15.7 | 20.5 | 0 |  |  |
 | Jahmyr Gibbs (DET) | 1 | 3.6 | -3 | 24.0 | 33.5 | 18 | 74.6 | 85.5 |
 
-## ARI 7 @ KC 24 (1:54 - 2nd)
+## ARI 7 @ KC 24 (1:10 - 2nd)
 
-72 plays. Top yards allowed by a named defender: K.Clark (1/1, 26 yds), J.Canady (1/1, 25 yds), D.Burke (2/2, 19 yds), D.Tranquill (2/2, 19 yds)
+78 plays. Top yards allowed by a named defender: K.Clark (1/1, 26 yds), J.Canady (1/1, 25 yds), D.Burke (2/2, 19 yds), D.Tranquill (2/2, 19 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Emmett Johnson (KC) | 2 | 2.9 | 17 | 26.1 | 29.5 | 66 | 54.4 | 87.5 |
 | Travis Kelce (KC) | 6 | 3.4 | 74 | 32.5 | 41.5 | 0 |  |  |
 | Rashee Rice (KC) | 5 | 4.1 | 47 | 51.0 | 48.5 | 0 |  |  |
-| Trey McBride (ARI) | 2 | 7.1 | 14 | 57.6 | 51.5 | 4 |  |  |
+| Trey McBride (ARI) | 3 | 7.1 | 17 | 57.6 | 51.5 | 4 |  |  |
 | Bam Knight (ARI) | 1 | 2.2 | 10 | 12.6 | 8.5 | 1 | 17.4 | 24.5 |
 | Elijah Higgins (ARI) | 1 | 2.2 | 4 | 17.1 | 12.5 | 0 |  |  |
 
-## PIT 0 @ PHI 13 (3:23 - 2nd)
+## PIT 0 @ PHI 13 (1:55 - 2nd)
 
-67 plays. Top yards allowed by a named defender: K.Henry (1/1, 38 yds), M.Epps (3/3, 17 yds), J.Trotter (2/2, 15 yds), J.Dean (2/2, 13 yds)
+71 plays. Top yards allowed by a named defender: K.Henry (1/1, 38 yds), M.Epps (3/3, 17 yds), J.Trotter (2/2, 15 yds), J.Dean (2/2, 13 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -77,12 +77,12 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Dallas Goedert (PHI) | 1 | 4.0 | 38 | 32.8 | 31.5 | 0 |  |  |
 | Germie Bernard (PIT) | 4 | 3.3 | 34 | 27.3 | 28.5 | 0 |  |  |
 | Darius Cooper (PHI) | 1 | 2.7 | 29 | 27.7 | 17.0 | 0 |  |  |
+| Pat Freiermuth (PIT) | 4 | 2.5 | 26 | 20.6 | 21.5 | 0 |  |  |
 | DeVonta Smith (PHI) | 2 | 6.9 | 21 | 71.3 | 54.5 | 0 |  |  |
-| Rico Dowdle (PIT) | 4 | 2.3 | 19 | 10.9 | 9.5 | 1 | 27.0 | 37.5 |
 
-## BAL 19 @ CAR 14 (9:49 - 2nd)
+## BAL 19 @ CAR 14 (6:16 - 2nd)
 
-64 plays. Top yards allowed by a named defender: K.Hamilton (3/3, 49 yds), W.Lee (1/2, 26 yds), M.Jackson (1/3, 15 yds), D.Lloyd (1/1, 12 yds)
+72 plays. Top yards allowed by a named defender: K.Hamilton (3/3, 49 yds), W.Lee (1/2, 26 yds), M.Jackson (1/3, 15 yds), C.Awuzie (2/2, 15 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
