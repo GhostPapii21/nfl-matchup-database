@@ -281,6 +281,28 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
            "plays": _f(plays, 1), "pass_ratio": _f(pass_ratio, 3), "script_pass_multiplier": _f(pmul, 3), "weather_attempts_multiplier": _f(att_rain, 3),
            "implied_margin": _f(margin, 1), "missing_target_share": _f(missing_share, 3), "missing_carry_share": _f(missing_carry, 3),
            "receivers": [], "rushers": []}
+    # Shares are measured over the games each player played, so two players who split starts can both carry a full-time
+    # share into a game where both are active. Scale the active group back to what the team actually gives that group:
+    # receivers to 100% of targets, backs to the RB share of team carries this season.
+    def _used(log, weeks, key):
+        tot = sum(weeks.get(x["week"], 0) for x in log)
+        sh = (sum(x.get(key, 0) for x in log) / tot) if tot else 0.0
+        l3 = log[-3:]
+        t3 = sum(weeks.get(x["week"], 0) for x in l3)
+        s3 = (sum(x.get(key, 0) for x in l3) / t3) if t3 else None
+        return 0.6 * sh + 0.4 * s3 if s3 is not None and len(log) >= 5 else sh
+    recent = set(sorted(weeks_targets)[-2:])          # players with no snaps in the team's last two games are not in the split
+    def _active(r):
+        return (r.get("full_name") or r["player"]).lower() not in out_names and any(x.get("week") in recent for x in r.get("log", []))
+    act_rec = [r for r in rec if _active(r)]
+    act_rush = [r for r in rush if _active(r)]
+    tot_t = sum(_used(r.get("log", []), weeks_targets, "targets") + target_bump(r) for r in act_rec)
+    tot_c = sum(min(0.95, _used(r.get("log", []), weeks_carries, "carries") + carry_bump(r)) for r in act_rush)
+    rb_cap = min(0.95, sum(r.get("carries") or 0 for r in roles.get("rushers", []) if r.get("pos") == "RB") / (sum(weeks_carries.values()) or 1))
+    scale_t = min(1.0, 1.0 / tot_t) if tot_t > 1.0 else 1.0
+    scale_c = min(1.0, rb_cap / tot_c) if tot_c > rb_cap and rb_cap > 0 else 1.0
+    res["share_scaling"] = {"targets_sum": _f(tot_t, 3), "targets_scale": _f(scale_t, 3), "carries_sum": _f(tot_c, 3),
+                            "rb_share_of_team_carries": _f(rb_cap, 3), "carries_scale": _f(scale_c, 3)}
     for i, r in enumerate(rec):
         name = r.get("full_name") or r["player"]
         if name.lower() in out_names:
@@ -297,7 +319,7 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
         share_l3 = (sum(x.get("targets", 0) for x in l3) / l3_team) if l3_team else None
         share_used = 0.6 * share + 0.4 * share_l3 if share_l3 is not None and len(log) >= 5 else share
         bump = target_bump(r)
-        share_used += bump
+        share_used = (share_used + bump) * scale_t
         exp_t = (team_att or 0) * share_used
         lg_cr, lg_ypr = pools["catch_rate"].get(P, 0.65), pools["ypr"].get(P, 11.0)
         cr = shrink(r.get("receptions", 0), r.get("targets", 0), lg_cr, PRIOR_TARGETS)
@@ -345,7 +367,7 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
         share_l3 = (sum(x.get("carries", 0) for x in l3) / l3_team) if l3_team else None
         share_used = 0.6 * share + 0.4 * share_l3 if share_l3 is not None and len(log) >= 5 else share
         bump = carry_bump(r)
-        share_used = min(0.95, share_used + bump)
+        share_used = min(0.95, share_used + bump) * scale_c
         exp_c = (team_rush or 0) * share_used
         ypc = shrink(r.get("yards", 0), r.get("carries", 0), pools["ypc"], PRIOR_CARRIES)
         d_ypc = da.get("rb_yards_per_carry")

@@ -13,7 +13,7 @@ The best bet per prop is the candidate with the highest EV. Line shopping shows 
 price shopping as a better price at the same line.
 
 Prices pulled 3+ hours before the newest price for the same prop are dropped as not live; long shots (break-even under
-20%) are never chosen as the pick. Timing flags: every price carries its pull time. A pick is flagged when (a) the books it is compared with were pulled more
+20%) and alt-ladder rungs are never chosen as the pick (our tail estimates were less accurate than the books' ladders). Timing flags: every price carries its pull time. A pick is flagged when (a) the books it is compared with were pulled more
 than 30 minutes apart, or (b) its line differs from the market's main line by 3+ (yards) / 1+ (receptions, carries) and it
 came through an aggregator (StartWho) or the Grok files rather than the book's own feed: confirm it on the book first.
 Research only."""
@@ -31,7 +31,8 @@ OWN_FEED = {"fanduel", "pinnacle"}          # pulled from the book's own site; o
 GAP = {"yards": 3.0, "receptions": 1.0, "carries": 1.0}
 MAX_SPREAD_MIN = 30
 STALE_MIN = 180          # a price pulled 3+ hours before the newest pull for the same prop is not treated as live
-MIN_BREAK_EVEN = 0.20    # long shots (+400 and longer) are listed in the counts but never chosen as the pick
+MIN_BREAK_EVEN = 0.20
+ROLE_GAP = 0.15          # model vs market at the main line; bigger than this is usually a role/injury read, which lost money in testing    # long shots (+400 and longer) are listed in the counts but never chosen as the pick
 EPS = 1e-4
 
 
@@ -168,10 +169,11 @@ def side_best_bets(side: dict, rows: list[dict], min_edge: float = 0.0) -> dict:
             cands.append({"book": r["book"], "side": r["side"], "line": r["line"], "american": int(r["american"]), "break_even": round(be, 4),
                           "p_model": round(pmod, 3), "p_market": round(pmk, 3), "p_bet": round(pb, 3), "edge": round(pb - be, 4),
                           "ev_per_dollar": round(pb * decimal(r["american"]) - 1, 4), "source": _source(r), "retrieved_utc": r.get("retrieved_utc"),
-                          "alt": r["market"].startswith("alt_")})
+                          "alt": r["market"].startswith("alt_") or "Over" not in two.get((r["book"], r["line"]), {}) or "Under" not in two.get((r["book"], r["line"]), {})})
         if not cands:
             continue
-        live = [c for c in cands if c["break_even"] >= MIN_BREAK_EVEN]
+        live = [c for c in cands if c["break_even"] >= MIN_BREAK_EVEN and not c["alt"]]   # two-sided main lines only: our tails were less
+        # accurate than the books' alt ladders (research/edge_2026 Task 3), so alt rungs are counted but never picked
         if not live:
             continue
         best = max(live, key=lambda c: c["ev_per_dollar"])
@@ -182,6 +184,10 @@ def side_best_bets(side: dict, rows: list[dict], min_edge: float = 0.0) -> dict:
         flags = []
         if spread_min is not None and spread_min > MAX_SPREAD_MIN:
             flags.append(f"prices pulled {spread_min:.0f} min apart")
+        pm_main, pk_main = p_over(table, main, integer), mkt_over(main)
+        role_gap = None if pm_main is None or pk_main is None else pm_main - pk_main
+        if role_gap is not None and abs(role_gap) > ROLE_GAP:
+            flags.append(f"model and market disagree on his role (model {pm_main:.0%} vs market {pk_main:.0%} over {main:g}): check injury news and his role before betting")
         gap = abs(best["line"] - main)
         if gap >= GAP["yards" if stat == "yards" else stat] and best["source"] != "own feed":
             flags.append(f"line {best['line']:g} vs market {main:g} came via {best['source']}: confirm on {best['book']}")
@@ -191,5 +197,5 @@ def side_best_bets(side: dict, rows: list[dict], min_edge: float = 0.0) -> dict:
                       "vs_fanduel_main": ({"fanduel_line": fd["line"], "fanduel_american": fd["american"], "ev_gain": round(best["ev_per_dollar"] - fd["ev_per_dollar"], 4)}
                                           if fd else None),
                       "flags": flags})
-    picks.sort(key=lambda x: -x["best"]["ev_per_dollar"])
+    picks.sort(key=lambda x: (bool(x["flags"]), -x["best"]["ev_per_dollar"]))      # clean picks first
     return {"picks": picks, "method": "p_bet = logit average of model and market fair chance at the exact line; best = highest EV per $1"}
