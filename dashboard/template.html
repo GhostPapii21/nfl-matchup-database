@@ -147,6 +147,7 @@ tr.lo td { color: var(--muted); }
 .tag.t-boom-bust, .tag.t-deep-threat { background: var(--warn-soft); color: var(--warn); }
 .tag.t-steady, .tag.t-possession, .tag.t-rising { background: var(--good-soft); color: var(--good); }
 .tag.t-falling { background: var(--bad-soft); color: var(--bad); }
+.tag.t-warn { background: var(--warn-soft); color: var(--warn); }
 .tag.g-target { background: var(--good-soft); color: var(--good); } .tag.g-avoid { background: var(--bad-soft); color: var(--bad); }
 
 .player-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
@@ -631,7 +632,7 @@ const BOARD = /*__BOARD_DATA__*/null;
   }
   function renderOverview(g) {
     const ks = sideKeys(g), s1 = g.sides[ks[0]], s2 = g.sides[ks[1]];
-    return `${watchCard(g)}${oppLeadersCard(g)}<div class="grid two">${edgesCard(s1)}${edgesCard(s2)}</div>
+    return `${bestBetsCard(g)}${watchCard(g)}${oppLeadersCard(g)}<div class="grid two">${edgesCard(s1)}${edgesCard(s2)}</div>
       <div class="grid two">${topReceiversCard(s1)}${topReceiversCard(s2)}</div>
       <div class="grid two">${targetsCard(s1)}${targetsCard(s2)}</div>
       <div class="grid two">${qbQuickCard(s1)}${qbQuickCard(s2)}</div>
@@ -1016,6 +1017,27 @@ const BOARD = /*__BOARD_DATA__*/null;
       ${rows.length ? `<table class="tbl"><thead><tr><th></th><th>Player</th><th>80+</th><th>100+</th><th>FanDuel 80+</th><th style="text-align:left">Why</th></tr></thead><tbody>${rows.map((x) => `<tr><td class="wstars">${starStr(x.stars)}</td><td>${esc(x.player)} <span class="pos">${esc(x.pos)} · ${esc(x.off)}</span>${x.tier ? ` <span class="tag t-primary">${esc(x.tier)}</span>` : ""}</td><td><b>${pct(x.p80)}</b></td><td>${pct(x.p100)}</td><td>${(x.book80 ? `<span title="FanDuel 80+ price; blend = half model, half price">${x.book80.american > 0 ? "+" : ""}${x.book80.american} (${pct(x.book80.break_even)}) · blend ${pct(x.book80.blend)}</span>` : '<span class="note">no price</span>')}</td><td style="text-align:left" class="note">${esc((x.why || []).slice(0, 4).join(" · "))}</td></tr>`).join("")}</tbody></table>` : `<p class="empty">Nobody in this game reaches 30% for 80 yards.</p>`}
       <div class="note" style="margin-top:8px">${ctx.join("<br>")}</div></div>`;
   }
+  // ---- best-bet finder (dashboard/bestbet.py): every book's line and price vs our chance at that exact line
+  const MK = { receiving_yards: "rec yds", receptions: "receptions", rushing_yards: "rush yds", carries: "carries" };
+  const BOOKN = { fanduel: "FanDuel", draftkings: "DraftKings", betmgm: "BetMGM", bovada: "Bovada", betrivers: "BetRivers", betonlineag: "BetOnline", fanatics: "Fanatics", circasports: "Circa", williamhill_us: "Caesars", hardrockbet: "Hard Rock", pinnacle: "Pinnacle" };
+  const amer = (a) => (a > 0 ? "+" : "") + a;
+  function bestRows(g, minEv) { const rows = []; sideKeys(g).forEach((k) => { const b = g.sides[k].best_bets; if (b && !b.error) (b.picks || []).filter((p) => p.best.ev_per_dollar >= (minEv ?? 0.02)).forEach((p) => rows.push(Object.assign({ off: g.sides[k].offense, def: g.sides[k].defense }, p))); }); return rows.sort((a, b) => b.best.ev_per_dollar - a.best.ev_per_dollar); }
+  function bestRowHtml(p, gi) {
+    const b = p.best, fd = p.vs_fanduel_main;
+    const who = gi === undefined ? esc(p.player) : `<button class="linkbtn" data-enter="${gi}" data-tab-go="overview">${esc(p.player)}</button>`;
+    return `<tr><td>${who} <span class="pos">${esc(p.pos || "")} · ${esc(p.off)}</span></td><td><b>${esc(b.side)} ${n(b.line, 1)}</b> ${esc(MK[p.market] || p.market)}</td><td>${esc(BOOKN[b.book] || b.book)} <b>${amer(b.american)}</b></td>
+      <td title="model ${pct(b.p_model)} · market fair ${pct(b.p_market)}">${pct(b.p_bet)} <span class="note">vs ${pct(b.break_even)}</span></td><td><b>${b.ev_per_dollar >= 0 ? "+" : ""}${n(b.ev_per_dollar * 100, 1)}%</b></td>
+      <td class="note">${fd ? `FanDuel ${n(fd.fanduel_line, 1)} ${amer(fd.fanduel_american)}${fd.ev_gain > 0.0005 ? ` · shopping adds ${n(fd.ev_gain * 100, 1)}%` : ""}` : "–"}</td>
+      <td style="text-align:left" class="note">${p.flags.length ? `<span class="tag t-warn">check</span> ${esc(p.flags.join("; "))}` : `${p.n_prices} prices, ${p.books.length} books`}</td></tr>`;
+  }
+  const BEST_HEAD = `<thead><tr><th>Player</th><th>Bet</th><th>Best book</th><th title="half our model, half the market's fair price at this exact line, vs the price's break-even">Chance vs price</th><th>EV per $1</th><th>vs FanDuel main line</th><th style="text-align:left">Prices / flags</th></tr></thead>`;
+  const BEST_SUB = "For every prop: each book's line and price, our chance at that exact line (calibrated simulation), and the market's fair chance there (Pinnacle or the books' no-vig price). The chance used is half model, half market; the model alone lost money in testing. Prices more than 3 hours older than the newest are dropped; long shots (+400 and longer) are never the pick. <b>check</b> = prices pulled far apart, or a line gap that came through StartWho or Grok: confirm the line on the book before betting. Research only.";
+  function bestBetsCard(g) {
+    const rows = bestRows(g, 0.02);
+    const err = sideKeys(g).map((k) => (g.sides[k].best_bets || {}).error).find(Boolean);
+    return `<div class="card"><h4>Best bets (line and price shopping)</h4><div class="sub">${BEST_SUB}</div>
+      ${err ? `<p class="empty">Not available: ${esc(err)}</p>` : rows.length ? `<table class="tbl">${BEST_HEAD}<tbody>${rows.slice(0, 16).map((p) => bestRowHtml(p)).join("")}</tbody></table>` : '<p class="empty">No prop clears +2% EV at the current prices.</p>'}</div>`;
+  }
   function oppFor(s, pid, kind) { const o = s.opportunity; if (!o || o.error) return null; return (o[kind] || []).find((x) => x.player_id === pid); }
   function fieldRecCard(s, r) {
     const vis = ((s.visual || {}).receivers || {})[r.player_id] || {}, opp = oppFor(s, r.player_id, "receivers");
@@ -1349,6 +1371,9 @@ const BOARD = /*__BOARD_DATA__*/null;
     const groups = []; games.forEach((g, i) => { const key = g.game.date + "|" + g.game.slot; let grp = groups.find((x) => x.key === key); if (!grp) groups.push((grp = { key, label: g.game.slot, items: [] })); grp.items.push(i); });
     return `<section class="hero"><div><div class="eyebrow">Week ${games[0] ? games[0].game.week : ""} slate</div><h1>Pick a game to step inside</h1><p class="note">Every game below opens its own room: player cards, opportunity, field view, matchups, injuries, odds and weather. <span class="hero-help">New here? <button class="linkbtn" data-howto>How to use this board</button></span></p></div></section>
       ${groups.map((grp) => `<div class="slot-h">${esc(grp.label)}</div><div class="tiles">${grp.items.map((i) => gameTile(games[i], i)).join("")}</div>`).join("")}
+      <div class="section-title">Best bets across the slate</div>
+      <div class="card"><div class="sub">${BEST_SUB}</div>${(() => { const all = []; games.forEach((g, gi) => bestRows(g, 0.02).forEach((p) => all.push([p, gi]))); all.sort((a, b) => b[0].best.ev_per_dollar - a[0].best.ev_per_dollar);
+        return all.length ? `<table class="tbl">${BEST_HEAD}<tbody>${all.slice(0, 20).map(([p, gi]) => bestRowHtml(p, gi)).join("")}</tbody></table>` : '<p class="empty">No prop clears +2% EV at the current prices.</p>'; })()}</div>
       <div class="section-title">80-yard watch</div>
       <div class="card"><div class="sub">Starred from fitted weights (2022–26). ★★★ is 50%+ for 80 yards, ★★ 40%+, ★ 30%+. ${(() => { const r0 = games.map((g) => Object.values(g.sides).map((s) => (s.watch || {}).record).find(Boolean)).find(Boolean); return r0 ? `On 2025–26 games the stars hit ${pct(r0.all_stars.hit80)} and caught ${pct(r0.all_stars.share_of_all_80_games_caught)} of all 80-yard games, about ${n(r0.all_stars.per_week, 0)} stars a week.` : ""; })()} Tap a game for the reasons behind each star.</div>
         ${stars80.length ? `<table class="tbl"><thead><tr><th></th><th>Player</th><th>Game</th><th>80+</th><th>100+</th><th>FanDuel 80+</th><th style="text-align:left">Why</th></tr></thead><tbody>${stars80.slice(0, 24).map((x) => `<tr><td class="wstars">${starStr(x.stars)}</td><td><button class="linkbtn" data-enter="${x.gi}" data-tab-go="overview">${esc(x.player)}</button> <span class="pos">${esc(x.pos)} · ${esc(x.off)}</span></td><td>${esc(x.off)} vs ${esc(x.def)}</td><td><b>${pct(x.p80)}</b></td><td>${pct(x.p100)}</td><td>${(x.book80 ? `<span title="FanDuel 80+ price; blend = half model, half price">${x.book80.american > 0 ? "+" : ""}${x.book80.american} (${pct(x.book80.break_even)}) · blend ${pct(x.book80.blend)}</span>` : '<span class="note">no price</span>')}</td><td style="text-align:left" class="note">${esc((x.why || []).slice(0, 3).join(" · "))}</td></tr>`).join("")}</tbody></table>` : '<p class="empty">No player reaches 30% for 80 yards.</p>'}</div>

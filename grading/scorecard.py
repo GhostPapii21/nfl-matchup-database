@@ -44,10 +44,13 @@ def american_profit(a: float) -> float:
 def stars_table():
     g = pd.read_parquet(C / "games.parquet")
     g = g[(g.season == 2026) & g.home_score.notna()]
-    p = pd.read_parquet(C / "play_by_play_2026.parquet", columns=["game_id", "receiver_player_id", "receiving_yards", "rusher_player_id", "rushing_yards"])
+    p = pd.read_parquet(C / "play_by_play_2026.parquet", columns=["game_id", "receiver_player_id", "receiving_yards", "rusher_player_id", "rushing_yards", "complete_pass"])
     rec = p.groupby(["game_id", "receiver_player_id"]).receiving_yards.sum()
     rus = p.groupby(["game_id", "rusher_player_id"]).rushing_yards.sum()
-    rows = []
+    catches = p.groupby(["game_id", "receiver_player_id"]).complete_pass.sum()
+    carries = p[p.rusher_player_id.notna()].groupby(["game_id", "rusher_player_id"]).size()
+    actual_of = {"receiving_yards": rec, "rushing_yards": rus, "receptions": catches, "carries": carries}
+    rows, picks = [], []
     for r in g.itertuples():
         try:
             ko = datetime.fromisoformat(f"{r.gameday}T{r.gametime}:00-05:00").astimezone(timezone.utc)
@@ -57,6 +60,13 @@ def stars_table():
         if not b:
             continue
         for side in (b.get("sides") or {}).values():
+            for pk in (side.get("best_bets") or {}).get("picks") or []:
+                bb, ser = pk["best"], actual_of.get(pk["market"])
+                v = None if ser is None else ser.get((r.game_id, pk.get("player_id")))
+                won = None if v is None or pd.isna(v) else int((v > bb["line"]) if bb["side"] == "Over" else (v < bb["line"]))
+                picks.append({"game_id": r.game_id, "week": r.week, "player": pk.get("player"), "market": pk["market"], "side": bb["side"], "line": bb["line"],
+                              "book": bb["book"], "american": bb["american"], "p_bet": bb["p_bet"], "ev": bb["ev_per_dollar"], "flagged": bool(pk.get("flags")),
+                              "actual": v, "won": won})
             w = side.get("watch") or {}
             for kind, actual in (("receivers", rec), ("rushers", rus)):
                 for e in w.get(kind) or []:
@@ -67,7 +77,7 @@ def stars_table():
                                  "stars": e.get("stars", 0), "actual_yards": None if y is None or pd.isna(y) else float(y),
                                  "hit80": None if y is None or pd.isna(y) else int(y >= 80), "fd_american": bk.get("american"),
                                  "break_even": bk.get("break_even"), "blend": bk.get("blend")})
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows), pd.DataFrame(picks)
 
 
 def roi(x):
@@ -80,7 +90,20 @@ def roi(x):
 
 def main():
     L = ["# Season scorecard (rebuilt weekly)", ""]
-    s = stars_table()
+    s, bp = stars_table()
+    if len(bp):
+        bp.to_csv(RES / "scorecard_best_bets.csv", index=False)
+        g = bp[bp.won.notna() & (bp.ev >= 0.02)]
+        if len(g):
+            def line(x, label):
+                pnl = np.where(x.won == 1, x.american.map(american_profit), -1.0)
+                return f"| {label} | {len(x)} | {x.won.mean():.0%} | {x.p_bet.mean():.0%} | {pnl.mean():+.2f} |"
+            L += [f"## Best-bet picks (EV +2% or more on the board before kickoff): {len(g)} graded", "",
+                  "| Group | Bets | Won | Our chance | ROI per $1 |", "|---|---|---|---|---|", line(g, "All")]
+            for lab, m in (("Overs", g.side == "Over"), ("Unders", g.side == "Under"), ("No flag", ~g.flagged), ("Flagged (check line)", g.flagged)):
+                if m.any():
+                    L.append(line(g[m], lab))
+            L += [""]
     if len(s):
         s.to_csv(RES / "scorecard_stars.csv", index=False)
         g = s[s.hit80.notna()]
