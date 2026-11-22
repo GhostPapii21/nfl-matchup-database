@@ -594,11 +594,13 @@ def injury_impact(team_pk: dict, snap_share: dict, def_snaps: dict) -> list[dict
     return out
 
 
-def defense_snap_share(snaps: pd.DataFrame | None, team: str, game_ids) -> dict:
+def defense_snap_share(snaps: pd.DataFrame | None, team: str, game_ids, rosters: pd.DataFrame | None = None) -> dict:
+    """Keyed by roster full name when PFR ids map (injury reports use roster names), else PFR's name."""
     if snaps is None or not len(snaps):
         return {}
+    from pregame.packet import roster_name_key
     s = snaps[(snaps.team == team) & snaps.game_id.isin(list(game_ids)) & (snaps.defense_pct.fillna(0) > 0)]
-    return {k: _f(v, 3) for k, v in s.groupby("player").defense_pct.mean().items()}
+    return {k: _f(v, 3) for k, v in s.assign(_k=roster_name_key(s, rosters)).groupby("_k").defense_pct.mean().items()}
 
 
 # ----------------------------------------------------------------------------------------------- weather

@@ -87,11 +87,20 @@ def roster_moves(team, rosters, week, lookback=4):
             "note": "From weekly roster snapshots: covers trades, waiver claims and signings of players who were on another roster. It does not say which kind of move it was."}
 
 
-def snap_shares(team, snaps, weeks):
+def roster_name_key(snaps, rosters):
+    """Name to key snap rows by: the roster full name (what rosters, injury reports and ESPN use) through PFR id,
+    else PFR's own name. PFR writes "D.K. Metcalf" / "Brian Thomas" where rosters write "DK Metcalf" / "Brian Thomas Jr."."""
+    if rosters is None or not len(rosters) or "pfr_player_id" not in snaps or "pfr_id" not in rosters:
+        return snaps.player
+    m = rosters.dropna(subset=["pfr_id"]).drop_duplicates("pfr_id", keep="last").set_index("pfr_id").full_name
+    return snaps.pfr_player_id.map(m).fillna(snaps.player)
+
+
+def snap_shares(team, snaps, weeks, rosters=None):
     if snaps is None or not len(snaps):
         return {}
     x = snaps[(snaps.team == team) & snaps.week.isin(weeks) & (snaps.offense_snaps > 0)]
-    g = x.groupby("player").offense_pct.mean()
+    g = x.assign(_k=roster_name_key(x, rosters)).groupby("_k").offense_pct.mean()
     return {k: float(v) for k, v in g.items()}
 
 
@@ -293,7 +302,7 @@ def build(game, *, data, window=8, espn=None, pbp_path=None, sources=None, books
         starters = dc.pop("starter_ids")
         d_sum, o_sum = M.summarize(d_n), M.summarize(o_n)
         players = M.offense_players(p, team, gids, done)
-        shares = snap_shares(team, data.get("snap_counts"), weeks)
+        shares = snap_shares(team, data.get("snap_counts"), weeks, data.get("rosters"))
         teams[team] = {
             "window": {"games": len(gids), "weeks": weeks, "requested": window},
             "defense": {"allowed": d_sum, "rank": M.ranks(lg_def, team, defense=True), "by_game": M.game_log(d_n),
