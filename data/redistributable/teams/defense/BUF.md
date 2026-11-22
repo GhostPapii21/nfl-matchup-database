@@ -259,4 +259,56 @@ Pass rush: sacks G.Rousseau 2; QB hits L.Jackson 1, B.Chubb 2, A.Hooker 1, J.Sol
 Video (highlight transcript) mentions: none found / not checked
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
+#### BUF season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 27.5% | 17.9% |
+| Zone | 72.3% | 74.7% |
+| MOF closed (single-high) | 48.4% | 46.5% |
+| MOF open (two-high) | 51.6% | 49.2% |
+| Blitz | 38.0% | 28.9% |
+| Cover 0 | unknown | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 25.0% | not published |
+| Cover 2-Man | 6.9% | not published |
+| Cover 3 | 27.5% | not published |
+| Cover 4 | 11.5% | not published |
+| Cover 6 | 4.9% | not published |
+| Cover 9 | 2.2% | not published |
+| Coverage snaps | 364 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/buf). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 27.5% vs Sharp 17.9% (+9.6 pts); Blitz: StatRankings 38.0% vs Sharp 28.9% (+9.1 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Blitz: gap +9.1 pts is +5.7 vs the median gap; rank 9 StatRankings vs 14 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
 <!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## BUF season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 27.5% | 17.9% |
+| Zone | 72.3% | 74.7% |
+| MOF closed (single-high) | 48.4% | 46.5% |
+| MOF open (two-high) | 51.6% | 49.2% |
+| Blitz | 38.0% | 28.9% |
+| Cover 0 | unknown | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 25.0% | not published |
+| Cover 2-Man | 6.9% | not published |
+| Cover 3 | 27.5% | not published |
+| Cover 4 | 11.5% | not published |
+| Cover 6 | 4.9% | not published |
+| Cover 9 | 2.2% | not published |
+| Coverage snaps | 364 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/buf). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 27.5% vs Sharp 17.9% (+9.6 pts); Blitz: StatRankings 38.0% vs Sharp 28.9% (+9.1 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Blitz: gap +9.1 pts is +5.7 vs the median gap; rank 9 StatRankings vs 14 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

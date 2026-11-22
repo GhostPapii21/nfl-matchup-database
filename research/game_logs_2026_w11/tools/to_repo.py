@@ -34,4 +34,16 @@ for t, ss in by_team.items():
     txt = re.sub(re.escape(MARK_S) + r'.*?' + re.escape(MARK_E) + r'\n?', '', txt, flags=re.S)
     txt = txt.rstrip('\n') + f'\n\n{MARK_S}\n## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)\n\nFull game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.\n\n' + '\n'.join(ss) + f'\n{MARK_E}\n'
     open(p, 'w').write(txt)
+import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import cov_rates as CR
+CD = CR.load(); CS, CE = '<!-- W11-COVRATES-START refs NFL-56 -->', '<!-- W11-COVRATES-END -->'
+cov_teams = []
+for ab in sorted(CD):
+    p = f'{WT}/data/redistributable/teams/defense/{ab}.md'
+    if not os.path.exists(p): print('no team file for coverage', ab); continue
+    txt = open(p).read(); txt = re.sub(re.escape(CS) + r'.*?' + re.escape(CE) + r'\n?', '', txt, flags=re.S)
+    txt = txt.rstrip('\n') + f'\n\n{CS}\n' + CR.block(ab, CD, '##') + f'\n{CE}\n'
+    open(p, 'w').write(txt); cov_teams.append(ab)
+os.makedirs(f'{DST}/sources', exist_ok=True)
+for f in glob.glob(f'{OUT}/sources/*'): shutil.copy(f, f'{DST}/sources/')
+print('coverage-rate sections', len(cov_teams))
 print('teams updated', sorted(by_team), 'db rows added', len(new))

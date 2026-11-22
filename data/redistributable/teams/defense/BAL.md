@@ -249,3 +249,86 @@ Final **JAX 33 – BAL 10**. Source: `live/2026-11-05_JAX_BAL/pbp_live.csv` + bo
 - Explosives allowed (pass20 / 15+ / 40+): Boerkircher 52 (M.Humphrey tackler), Washington 50 TD (unattributed), Meyers 16 (C.Awuzie), Meyers 17 (K.Hamilton), Meyers 18 (T.Tampa), Strange 15 (M.Starks). **No rush10+ allowed.**
 - Tackler-after-catch totals (ledger): M.Humphrey 3/70 (Boerkircher 52, Strange 7, Koziol 11); K.Hamilton 2/28 (Meyers 17, Washington 11); K.Wallace 2/19; T.Tampa 1/18; C.Awuzie 1/16; M.Starks 1/15; R.Smith 2/15; T.Buchanan 1/8; T.Simpson 1/4.
 - Note: Strange volume low (2 targets) despite Hawkins OUT / middle-seam prior; chunk TE play was Boerkircher. Washington cleared 40+ but missed main o63.5 (61).
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### BAL defense vs CAR (BAL@CAR, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Kyle Hamilton | S | 5 | 5 | 85 | 0 | 0 | 0 | 0 | tackler x5 | T.McMillan 2, M.Evans 1, J.Coker 1, D.Waller 1 | J.Coker 35 deep_left Q1; T.McMillan 29 deep_right Q3 |
+| T.J. Tampa | CB | 2 | 1 | 27 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | D.Waller 1, J.Coker 1 | D.Waller 27 deep_middle Q3 |
+| Malaki Starks | S | 2 | 2 | 25 | 0 | 0 | 0 | 0 | tackler x2 | J.Coker 1, J.Metchie 1 |  |
+| Trenton Simpson | LB | 1 | 1 | 18 | 0 | 0 | 0 | 0 | tackler x1 | T.Tremble 1 |  |
+| Roquan Smith | LB | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | M.Evans 1, T.McMillan 1 |  |
+| Chidobe Awuzie | CB | 2 | 2 | 15 | 0 | 0 | 0 | 0 | tackler x2 | D.Waller 1, T.Etienne 1 |  |
+| Nate Wiggins | CB | 3 | 2 | 13 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | M.Evans 1, J.Coker 2 |  |
+| K'Von Wallace | CB | 1 | 1 | 13 | 0 | 0 | 0 | 0 | tackler x1 | T.McMillan 1 |  |
+| Keyon Martin | CB | 2 | 2 | 6 | 0 | 0 | 0 | 0 | tackler x2 | T.McMillan 1, M.Evans 1 |  |
+| Mike Green | LB | 1 | 1 | 6 | 0 | 0 | 0 | 0 | tackler x1 | B.Tremayne 1 |  |
+| Trey Hendrickson | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | T.McMillan 1 |  |
+| David Olajiga | DT | 1 | 1 | 0 | 0 | 0 | 0 | 0 | tackler x1 | J.Coker 1 |  |
+| Calais Campbell | DE | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | T.McMillan 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 12/19 for 143 yds, 1 TD; TE 9/9 for 104 yds, 1 TD; RB 1/1 for 7 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 4/3
+Pass rush: sacks M.Green 2, T.Jones 1; QB hits T.Hendrickson 1, C.Campbell 1, D.Olajiga 1, R.Smith 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### BAL season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 29.4% | 15.3% |
+| Zone | 70.6% | 77.9% |
+| MOF closed (single-high) | 43.6% | 38.4% |
+| MOF open (two-high) | 56.4% | 59.0% |
+| Blitz | 34.6% | 31.4% |
+| Cover 0 | 7.6% | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 30.9% | not published |
+| Cover 2-Man | 7.6% | not published |
+| Cover 3 | 24.8% | not published |
+| Cover 4 | 5.5% | not published |
+| Cover 6 | 6.1% | not published |
+| Cover 9 | 3.4% | not published |
+| Coverage snaps | 327 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/bal). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 29.4% vs Sharp 15.3% (+14.1 pts); Zone: StatRankings 70.6% vs Sharp 77.9% (-7.3 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## BAL season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 29.4% | 15.3% |
+| Zone | 70.6% | 77.9% |
+| MOF closed (single-high) | 43.6% | 38.4% |
+| MOF open (two-high) | 56.4% | 59.0% |
+| Blitz | 34.6% | 31.4% |
+| Cover 0 | 7.6% | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 30.9% | not published |
+| Cover 2-Man | 7.6% | not published |
+| Cover 3 | 24.8% | not published |
+| Cover 4 | 5.5% | not published |
+| Cover 6 | 6.1% | not published |
+| Cover 9 | 3.4% | not published |
+| Coverage snaps | 327 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/bal). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 29.4% vs Sharp 15.3% (+14.1 pts); Zone: StatRankings 70.6% vs Sharp 77.9% (-7.3 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

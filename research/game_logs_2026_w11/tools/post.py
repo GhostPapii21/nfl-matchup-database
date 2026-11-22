@@ -1,4 +1,5 @@
 """Post-processing: NGS snapshot, slip-leg results, DEFENSE_PROFILES.md, INDEX.md, defense_db rows. refs NFL-56, NFL-49."""
+import sys; sys.path.insert(0, __import__('os').path.dirname(__import__('os').path.abspath(__file__)))
 import json, glob, os, re, csv, collections, datetime, urllib.request
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); RAW = f'{OUT}/raw'
 NOWS = datetime.datetime.now().strftime('%Y-%m-%d %I:%M %p AST')
@@ -106,6 +107,17 @@ if os.path.exists(f'{OUT}/video/evidence.json'): VID = json.load(open(f'{OUT}/vi
 P = [f'# Defensive coverage profiles from Week 11 games (built {NOWS} by Blitz, refs NFL-56)', '',
      'Sources: ESPN summary JSON play text (per game, pull time in each game file), ESPN team rosters for names/positions, official NFL YouTube highlight auto-captions where noted (labeled video). No PFF/FTN paid content.',
      '**Evidence levels:** VERIFIED = play text names the defender who broke up/intercepted the pass or was flagged for DPI. tackler = defender named as tackler on a completion (not proof of coverage). video = a highlight-commentary mention (auto-captions; names can be misspelled). Man/zone, blitz and MOF shell per play are **unknown** in free data.', '']
+import cov_rates as CR
+CD = CR.load()
+P += ['## Season coverage rates, all 32 teams (public; StatRankings primary, Sharp cross-check; never mixed)', '',
+      f'StatRankings = {CR.SR_TAG}. Sharp = {CR.SH_TAG}. Copies of the source CSV and source log: sources/team_coverage_rates.csv, sources/COVERAGE_SOURCES.md.', '',
+      '| Team | Man SR / Sharp | Zone SR / Sharp | MOF closed SR / Sharp | MOF open SR / Sharp | Blitz SR / Sharp | Flags |', '|---|---|---|---|---|---|---|']
+for ab in sorted(CD):
+    sr, sh = CD[ab].get('SR'), CD[ab].get('SH')
+    fl = CR.flags(ab, CD); ol = CR.outliers(ab, CD)
+    P.append(f'| {ab} | ' + ' | '.join(f'{CR.v(sr, k)} / {CR.v(sh, k)}' for k, _ in CR.CORE) + ' | ' + (('7+ pts: ' + ', '.join(f'{x[0]} {x[3]:+}' for x in fl)) if fl else '') + ((' ; OUTLIER: ' + ', '.join(x[0] for x in ol)) if ol else '') + ' |')
+P += ['', '**Systematic gap between the sources** (definitions differ; this is why they are never averaged):', '', CR.offsets_md(CD), '',
+      'Because StatRankings man is higher than Sharp for all 32 teams, a raw 7+ point man gap is common. The OUTLIER flag marks gaps 2+ SD from the league-median gap, or ranks 10+ apart, which is the disagreement worth checking.', '']
 rows_csv = []
 for g, r in sorted(G.items()):
     away, home = g.split('@'); st = r['status']
@@ -133,6 +145,7 @@ for g, r in sorted(G.items()):
         vv = VID.get(g, {}).get(de, [])
         P.append('Video (highlight transcript) mentions: ' + ('; '.join(vv) if vv else 'none found / not checked'))
         P.append('Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).\n')
+        P.append(CR.block(de, CD, '####') + '\n')
 open(f'{OUT}/DEFENSE_PROFILES.md', 'w').write('\n'.join(P) + '\n')
 with open(f'{OUT}/data/defense_db_w11_rows.csv', 'w', newline='') as f:
     if rows_csv:

@@ -262,4 +262,56 @@ Pass rush: sacks none; QB hits S.Thomas 1
 Video (highlight transcript) mentions: none found / not checked
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
+#### TEN season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 27.7% | 17.4% |
+| Zone | 71.4% | 75.3% |
+| MOF closed (single-high) | 45.5% | 48.8% |
+| MOF open (two-high) | 54.5% | 47.1% |
+| Blitz | 24.9% | 23.7% |
+| Cover 0 | 4.6% | not published |
+| Cover 1 | 20.4% | not published |
+| Cover 2 | 24.3% | not published |
+| Cover 2-Man | unknown | not published |
+| Cover 3 | 21.0% | not published |
+| Cover 4 | 11.9% | not published |
+| Cover 6 | 10.6% | not published |
+| Cover 9 | 3.3% | not published |
+| Coverage snaps | 329 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/ten). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 27.7% vs Sharp 17.4% (+10.3 pts); MOF open (two-high): StatRankings 54.5% vs Sharp 47.1% (+7.4 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): MOF closed (single-high): gap -3.3 pts is -6.0 vs the median gap; rank 25 StatRankings vs 14 Sharp; MOF open (two-high): gap +7.4 pts is +6.6 vs the median gap; rank 8 StatRankings vs 20 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
 <!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## TEN season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 27.7% | 17.4% |
+| Zone | 71.4% | 75.3% |
+| MOF closed (single-high) | 45.5% | 48.8% |
+| MOF open (two-high) | 54.5% | 47.1% |
+| Blitz | 24.9% | 23.7% |
+| Cover 0 | 4.6% | not published |
+| Cover 1 | 20.4% | not published |
+| Cover 2 | 24.3% | not published |
+| Cover 2-Man | unknown | not published |
+| Cover 3 | 21.0% | not published |
+| Cover 4 | 11.9% | not published |
+| Cover 6 | 10.6% | not published |
+| Cover 9 | 3.3% | not published |
+| Coverage snaps | 329 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/ten). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 27.7% vs Sharp 17.4% (+10.3 pts); MOF open (two-high): StatRankings 54.5% vs Sharp 47.1% (+7.4 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): MOF closed (single-high): gap -3.3 pts is -6.0 vs the median gap; rank 25 StatRankings vs 14 Sharp; MOF open (two-high): gap +7.4 pts is +6.6 vs the median gap; rank 8 StatRankings vs 20 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

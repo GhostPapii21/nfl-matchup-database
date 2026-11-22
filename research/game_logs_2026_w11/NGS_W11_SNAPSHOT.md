@@ -1,47 +1,49 @@
-# Next Gen Stats, Week 11 statboard snapshot (pulled 2026-11-22 05:17 PM AST)
+# Next Gen Stats, Week 11 statboard snapshot (pulled 2026-11-22 05:20 PM AST)
 
 Source: nextgenstats.nfl.com public statboard API (receiving/rushing/passing, season 2026 REG week 11). **This is a live, partial snapshot**: NGS applies a minimum-volume threshold and games in progress are included mid-game. Re-pull Monday for final values.
 Not available publicly: per-player route trees / routes run by route type, alignment (slot/outside), coverage faced. NGS route charts exist as images on nextgenstats.nfl.com/charts but no public data endpoint; TODO Monday: re-pull statboard and check charts pages for W11.
 
-## receiving (35 players over NGS threshold)
+## receiving (37 players over NGS threshold)
 
 | Player | Team (from ESPN box) | targets | receptions | yards | recTouchdowns | catchPercentage | avgSeparation | avgCushion | avgIntendedAirYards | percentShareOfIntendedAirYards | avgYAC | avgYACAboveExpectation |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| DeVonta Smith | PHI | 11 | 4 | 34 | 0 | 36.36 | 1.87 | 9.02 | 12.94 | 62.41 | -0.40 | -0.89 |
 | Nico Collins | HOU | 5 | 3 | 58 | 1 | 60 | 3.24 | 9.01 | 17.87 | 49.47 | 0.76 | -0.80 |
-| Max Hurleman | PIT | 6 | 5 | 41 | 0 | 83.33 | 3.04 | 7.86 | 8.62 | 21.85 | 2.19 | -0.66 |
+| DeVonta Smith | PHI | 12 | 5 | 41 | 0 | 41.67 | 1.77 | 8.94 | 12.34 | 63.34 | -0.07 | -0.66 |
 | George Pickens | DAL | 10 | 7 | 102 | 1 | 70 | 3.00 | 7.83 | 12.21 | 50.50 | 3.01 | 0.73 |
 | CeeDee Lamb | DAL | 12 | 11 | 132 | 1 | 91.67 | 3.63 | 7.80 | 8.96 | 44.48 | 3.22 | 1.07 |
-| Rashod Bateman | BAL | 5 | 2 | 67 | 1 | 40 | 2.54 | 7.74 | 21.21 | 54.51 | 5.76 | 1.58 |
-| Zay Flowers | BAL | 11 | 8 | 97 | 0 | 72.73 | 3.07 | 7.65 | 6.47 | 36.60 | 6.90 | 3.29 |
-| Carnell Tate | TEN | 5 | 2 | 58 | 1 | 40 | 1.88 | 7.55 | 9.79 | 20.41 | 26.48 | 22.48 |
-| Devaughn Vele | NO | 7 | 7 | 76 | 0 | 100 | 3.05 | 7.50 | 9.88 | 20.78 | 0.97 | -1.84 |
-| Chris Olave | NO | 14 | 8 | 98 | 0 | 57.14 | 2.08 | 7.48 | 14.69 | 61.79 | 2.17 | 0.73 |
-| Chimere Dike | TEN | 7 | 6 | 69 | 0 | 85.71 | 4.16 | 7.28 | 8.92 | 26.02 | 8.10 | 1.45 |
-| Roman Wilson | PIT | 6 | 3 | 43 | 0 | 50 | 1.79 | 7.03 | 14.62 | 37.09 | 4.57 | 0.12 |
-| Darius Cooper | PHI | 5 | 4 | 59 | 0 | 80 | 1.95 | 6.90 | 11.13 | 24.39 | 2.35 | -3.86 |
-| Calvin Ridley | TEN | 6 | 4 | 56 | 0 | 66.67 | 3.17 | 6.83 | 12.13 | 30.33 | 1.90 | -2.88 |
-| Germie Bernard | PIT | 9 | 6 | 40 | 0 | 66.67 | 3.78 | 6.74 | 5.92 | 22.52 | 7.59 | 1.97 |
-| Jalen Coker | CAR | 5 | 2 | 41 | 0 | 40 | 4.03 | 6.70 | 8.49 | 22.96 | 4.78 | -0.90 |
+| Chris Olave | NO | 15 | 9 | 102 | 0 | 60 | 2.17 | 7.78 | 13.93 | 60.12 | 2.01 | 0.66 |
+| Rashod Bateman | BAL | 5 | 2 | 67 | 1 | 40 | 2.54 | 7.74 | 21.21 | 51.18 | 5.76 | 1.58 |
+| Zay Flowers | BAL | 11 | 8 | 97 | 0 | 72.73 | 3.07 | 7.65 | 6.47 | 34.36 | 6.90 | 3.29 |
+| Carnell Tate | TEN | 5 | 2 | 58 | 1 | 40 | 1.88 | 7.55 | 9.79 | 19.60 | 26.48 | 22.48 |
+| Devaughn Vele | NO | 7 | 7 | 76 | 0 | 100 | 3.05 | 7.50 | 9.88 | 19.91 | 0.97 | -1.84 |
+| Calvin Ridley | TEN | 6 | 5 | 68 | 1 | 83.33 | 3.64 | 7.42 | 13.78 | 33.10 | 1.52 | -2.30 |
+| Jalen Coker | CAR | 7 | 4 | 47 | 0 | 57.14 | 3.91 | 7.41 | 6.30 | 19.66 | 3.47 | -0.88 |
+| Chimere Dike | TEN | 7 | 6 | 69 | 0 | 85.71 | 4.16 | 7.28 | 8.92 | 24.99 | 8.10 | 1.45 |
+| Roman Wilson | PIT | 6 | 3 | 43 | 0 | 50 | 1.79 | 7.03 | 14.62 | 30.66 | 4.57 | 0.12 |
+| Max Hurleman | PIT | 7 | 6 | 61 | 1 | 85.71 | 2.71 | 7.02 | 10.60 | 25.93 | 1.83 | -0.55 |
+| Darius Cooper | PHI | 5 | 4 | 59 | 0 | 80 | 1.95 | 6.90 | 11.13 | 23.79 | 2.35 | -3.86 |
+| Noah Fant | NO | 5 | 2 | 19 | 0 | 40 | 2.88 | 6.76 | 7.59 | 10.93 | 5.26 | -1.49 |
+| Germie Bernard | PIT | 10 | 6 | 40 | 0 | 60 | 3.46 | 6.74 | 7.39 | 25.83 | 7.59 | 1.97 |
 | Rashee Rice | KC | 6 | 6 | 53 | 0 | 100 | 4.19 | 6.67 | 5.05 | 9.60 | 3.78 | -2.27 |
 | DJ Moore | BUF | 10 | 8 | 91 | 1 | 80 | 4.74 | 6.60 | 5.79 | 17.59 | 5.31 | -2.54 |
 | Amon-Ra St. Brown | DET | 6 | 5 | 37 | 1 | 83.33 | 2.68 | 6.56 | 6.41 | 16.20 | 1.91 | 0.15 |
 | Tyler Warren | IND | 5 | 1 | 22 | 0 | 20 | 3.16 | 6.45 | 10.05 | 17.09 | 5.75 | 3.03 |
 | Trey McBride | ARI | 14 | 9 | 54 | 0 | 64.29 | 2.80 | 6.00 | 3.23 | 22.86 | 3.36 | -0.71 |
-| Pat Freiermuth | PIT | 5 | 5 | 39 | 0 | 100 | 3.05 | 5.49 | 3.66 | 7.73 | 4.14 | 0.92 |
+| Pat Freiermuth | PIT | 5 | 5 | 39 | 0 | 100 | 3.05 | 5.49 | 3.66 | 6.39 | 4.14 | 0.92 |
 | Josh Downs | KC | 5 | 4 | 59 | 0 | 80 | 3.36 | 5.46 | 9.33 | 14.76 | 7.96 | 0.94 |
-| Malik Washington | MIA | 6 | 3 | 30 | 0 | 50 | 2.07 | 5.29 | 8.76 | 20.98 | 0.68 | -0.44 |
+| Malik Washington | MIA | 6 | 3 | 30 | 0 | 50 | 2.07 | 5.29 | 8.76 | 17.21 | 0.68 | -0.44 |
+| Emeka Egbuka | TB | 5 | 2 | 18 | 0 | 40 | 1.76 | 5.20 | 13.11 | 33.58 | -0.50 | -0.78 |
 | Travis Kelce | KC | 7 | 6 | 74 | 2 | 85.71 | 4.24 | 5.08 | 7.84 | 17.36 | 5.32 | 0.31 |
 | Khalil Shakir | BUF | 9 | 5 | 101 | 0 | 55.56 | 2.55 | 5.03 | 14.63 | 39.97 | 8.56 | 0.92 |
 | Noah Gray | KC | 5 | 3 | 21 | 0 | 60 | 2.49 | 4.93 | 3.98 | 6.29 | 5.27 | 1.16 |
-| Caleb Douglas | MIA | 9 | 2 | 30 | 0 | 22.22 | 1.98 | 4.64 | 11.78 | 42.32 | 1.20 | -1.66 |
 | Harrison Wallace III | ARI | 7 | 4 | 57 | 0 | 57.14 | 2.59 | 4.58 | 8.58 | 30.39 | 8.15 | -0.81 |
-| Mitchell Evans | CAR | 5 | 5 | 44 | 1 | 100 | 2.08 | 4.41 | 5.31 | 14.35 | 3.49 | -0.35 |
+| Caleb Douglas | MIA | 10 | 2 | 30 | 0 | 20 | 2.13 | 4.46 | 12.13 | 39.71 | 1.20 | -1.66 |
+| Mitchell Evans | CAR | 5 | 5 | 44 | 1 | 100 | 2.08 | 4.41 | 5.31 | 11.82 | 3.49 | -0.35 |
+| Tetairoa McMillan | CAR | 9 | 6 | 71 | 1 | 66.67 | 2.50 | 4.31 | 10.89 | 43.67 | 3.75 | -4.65 |
 | Sam LaPorta | DET | 6 | 3 | 62 | 0 | 50 | 1.82 | 4.22 | 11.62 | 29.36 | 9.45 | -1.94 |
-| Ted Hurst III | TB | 5 | 3 | 42 | 1 | 60 | 1.75 | 4.22 | 10.84 | 34.11 | 2.31 | 0.53 |
-| Tetairoa McMillan | CAR | 7 | 5 | 58 | 1 | 71.43 | 2.94 | 4.19 | 10.45 | 39.58 | 4.49 | -5.47 |
 | Simi Fehoko | ARI | 5 | 1 | 2 | 1 | 20 | 2.49 | 4.03 | 12.79 | 32.37 | 0 | 0 |
-| Greg Dulcich | MIA | 5 | 2 | 12 | 0 | 40 | 2.21 | 3.54 | 7.04 | 14.05 | 5.26 | -0.29 |
+| Ted Hurst III | TB | 7 | 5 | 56 | 2 | 71.43 | 1.77 | 3.59 | 9.16 | 32.84 | 2.32 | 0.79 |
+| Greg Dulcich | MIA | 7 | 2 | 12 | 0 | 28.57 | 2.23 | 3.46 | 7.13 | 16.33 | 5.26 | -0.29 |
 
 ## rushing (14 players over NGS threshold)
 

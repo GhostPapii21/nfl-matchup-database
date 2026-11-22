@@ -223,3 +223,29 @@ Holds (-1.5 YPT or better): none
 - Daxton Hill ← Wan'Dale Robinson: 7 tgt, 6 rec, 56 yds
 - DJ Ivey ← Elic Ayomanor: 5 tgt, 3 rec, 34 yds
 
+<!-- W11-COVRATES-START refs NFL-56 -->
+## CIN season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 45.4% | 27.4% |
+| Zone | 53.4% | 65.9% |
+| MOF closed (single-high) | 58.4% | 54.0% |
+| MOF open (two-high) | 41.6% | 41.7% |
+| Blitz | 18.1% | 16.7% |
+| Cover 0 | 4.2% | not published |
+| Cover 1 | 34.6% | not published |
+| Cover 2 | 25.1% | not published |
+| Cover 2-Man | 6.6% | not published |
+| Cover 3 | 18.5% | not published |
+| Cover 4 | unknown | not published |
+| Cover 6 | unknown | not published |
+| Cover 9 | 2.4% | not published |
+| Coverage snaps | 335 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/cin). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 45.4% vs Sharp 27.4% (+18.0 pts); Zone: StatRankings 53.4% vs Sharp 65.9% (-12.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

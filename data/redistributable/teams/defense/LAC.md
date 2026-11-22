@@ -223,3 +223,29 @@ Holds (-1.5 YPT or better): none
 - Q3 10:42 Blake Corum (RB) rush 23 — defender unknown [unknown; no public source]; alignment: backfield (position default)
 - Donte Jackson ← Puka Nacua: 12 tgt, 11 rec, 80 yds
 
+<!-- W11-COVRATES-START refs NFL-56 -->
+## LAC season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 32.7% | 13.4% |
+| Zone | 67.0% | 74.5% |
+| MOF closed (single-high) | 50.4% | 44.6% |
+| MOF open (two-high) | 49.6% | 50.5% |
+| Blitz | 26.2% | 23.9% |
+| Cover 0 | 5.4% | not published |
+| Cover 1 | 20.9% | not published |
+| Cover 2 | 22.9% | not published |
+| Cover 2-Man | 6.4% | not published |
+| Cover 3 | 24.6% | not published |
+| Cover 4 | 9.4% | not published |
+| Cover 6 | 6.1% | not published |
+| Cover 9 | 3.7% | not published |
+| Coverage snaps | 297 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/lac). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 32.7% vs Sharp 13.4% (+19.3 pts); Zone: StatRankings 67.0% vs Sharp 74.5% (-7.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Man: gap +19.3 pts is +3.8 vs the median gap; rank 16 StatRankings vs 26 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

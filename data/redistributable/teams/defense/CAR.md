@@ -195,3 +195,81 @@ Holds (-1.5 YPT or better): none
 - 20+ catches: C.Watson(WR2) 24y short_left - Z.Wheatley [tackler]; C.Watson(WR2) 53y deep_middle - W.Lee [tackler]; M.Golden(WR1) 24y deep_left TD - no tackler named [unattributed]
 - 15+ runs: S.Williams(WR) 18y rush right end
 
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### CAR defense vs BAL (BAL@CAR, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Tre'von Moehrig | S | 2 | 2 | 40 | 0 | 0 | 0 | 0 | tackler x2 | D.Henry 1, D.Walker 1 | D.Walker 34 deep_right Q2 |
+| Zakee Wheatley | S | 3 | 3 | 38 | 0 | 0 | 0 | 0 | tackler x3 | Z.Flowers 3 | Z.Flowers 25 deep_middle Q2 |
+| W.Lee (name unresolved) | unknown | 3 | 2 | 32 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | Z.Flowers 1, D.Henry 2 | Z.Flowers 26 short_left Q2 |
+| Tyrel Dodson | LB | 4 | 4 | 23 | 0 | 0 | 0 | 0 | tackler x4 | M.Hibner 1, J.Hill 2, M.Andrews 1 |  |
+| Chau Smith-Wade | CB | 3 | 2 | 23 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | J.Hill 1, R.Bateman 1, Z.Flowers 1 |  |
+| Mike Jackson | CB | 4 | 2 | 19 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | R.Bateman 2, Z.Flowers 2 |  |
+| Devin Lloyd | LB | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | Z.Flowers 1, J.Hill 1 |  |
+| P.Jones (name unresolved) | unknown | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | M.Hibner 1, J.Cuevas 1 |  |
+| Derrick Brown | DT | 3 | 2 | 5 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | D.Henry 1, Z.Flowers 2 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 11/17 for 198 yds, 1 TD; RB 7/10 for 41 yds, 0 TD; TE 5/8 for 34 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 4/4
+Pass rush: sacks P.Umanmielen (half) 1, D.Lloyd (half) 2, T.Gipson (half) 1, P.Umanmielen 1; QB hits T.Wharton 2, P.Jones 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### CAR season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 25.5% | 10.1% |
+| Zone | 74.5% | 84.7% |
+| MOF closed (single-high) | 59.2% | 57.0% |
+| MOF open (two-high) | 40.8% | 39.0% |
+| Blitz | 34.5% | 34.4% |
+| Cover 0 | 3.6% | not published |
+| Cover 1 | 21.2% | not published |
+| Cover 2 | 20.9% | not published |
+| Cover 2-Man | unknown | not published |
+| Cover 3 | 34.5% | not published |
+| Cover 4 | 7.3% | not published |
+| Cover 6 | 9.7% | not published |
+| Cover 9 | 1.8% | not published |
+| Coverage snaps | 330 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/car). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 25.5% vs Sharp 10.1% (+15.4 pts); Zone: StatRankings 74.5% vs Sharp 84.7% (-10.2 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## CAR season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 25.5% | 10.1% |
+| Zone | 74.5% | 84.7% |
+| MOF closed (single-high) | 59.2% | 57.0% |
+| MOF open (two-high) | 40.8% | 39.0% |
+| Blitz | 34.5% | 34.4% |
+| Cover 0 | 3.6% | not published |
+| Cover 1 | 21.2% | not published |
+| Cover 2 | 20.9% | not published |
+| Cover 2-Man | unknown | not published |
+| Cover 3 | 34.5% | not published |
+| Cover 4 | 7.3% | not published |
+| Cover 6 | 9.7% | not published |
+| Cover 9 | 1.8% | not published |
+| Coverage snaps | 330 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/car). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 25.5% vs Sharp 10.1% (+15.4 pts); Zone: StatRankings 74.5% vs Sharp 84.7% (-10.2 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

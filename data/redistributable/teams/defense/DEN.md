@@ -223,3 +223,29 @@ Holds (-1.5 YPT or better): WR3+: 5.98 YPT on 49 tgts (league 7.67, -1.69)
 - Ja'Quan McMillian ← Rashee Rice: 8 tgt, 7 rec, 53 yds
 - Riley Moss ← Xavier Worthy: 6 tgt, 3 rec, 13 yds — limited his man
 
+<!-- W11-COVRATES-START refs NFL-56 -->
+## DEN season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 45.6% | 25.1% |
+| Zone | 52.8% | 70.2% |
+| MOF closed (single-high) | 56.4% | 48.6% |
+| MOF open (two-high) | 43.6% | 47.5% |
+| Blitz | 35.2% | 33.9% |
+| Cover 0 | 4.3% | not published |
+| Cover 1 | 33.4% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | 7.8% | not published |
+| Cover 3 | unknown | not published |
+| Cover 4 | 8.6% | not published |
+| Cover 6 | 6.5% | not published |
+| Cover 9 | 2.7% | not published |
+| Coverage snaps | 371 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/den). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 45.6% vs Sharp 25.1% (+20.5 pts); Zone: StatRankings 52.8% vs Sharp 70.2% (-17.4 pts); MOF closed (single-high): StatRankings 56.4% vs Sharp 48.6% (+7.8 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

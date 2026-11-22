@@ -1,4 +1,4 @@
-# Paper slip legs vs results (unofficial check, pulled 2026-11-22 05:17 PM AST)
+# Paper slip legs vs results (unofficial check, pulled 2026-11-22 05:20 PM AST)
 
 Paper only; the official grade is the 11:45 PM ET grading routine. Legs from runs/2026-11-22_W11_PAPER_SLIPS/SLIPS.md (Ghost6-vetted version). Results from ESPN summary JSON.
 
@@ -7,7 +7,7 @@ Paper only; the official grade is the 11:45 PM ET grading routine. Legs from run
 |---|---|---|
 | NO@CHI U47.5 | WIN | 34 pts |
 | TB@DET U48.5 | LOSS | 52 pts |
-| Henry rush U67.5 (DK) | pending (in progress) |  |
+| Henry rush U67.5 (DK) | LOSS | 94 yds on 13 car |
 Slip status: **LOSS**
 
 ## S2

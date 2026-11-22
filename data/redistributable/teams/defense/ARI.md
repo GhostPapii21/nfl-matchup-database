@@ -250,4 +250,56 @@ Pass rush: sacks W.Nolen 1; QB hits J.Sweat 2, J.Gibbens 1, D.Robinson 1
 Video (highlight transcript) mentions: none found / not checked
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
+#### ARI season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 29.6% | 10.8% |
+| Zone | 70.4% | 81.2% |
+| MOF closed (single-high) | 44.1% | 33.6% |
+| MOF open (two-high) | 55.9% | 60.1% |
+| Blitz | 35.3% | 30.2% |
+| Cover 0 | 3.3% | not published |
+| Cover 1 | 18.9% | not published |
+| Cover 2 | 28.7% | not published |
+| Cover 2-Man | 7.5% | not published |
+| Cover 3 | 22.5% | not published |
+| Cover 4 | 8.5% | not published |
+| Cover 6 | 7.8% | not published |
+| Cover 9 | 1.6% | not published |
+| Coverage snaps | 307 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/ari). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 29.6% vs Sharp 10.8% (+18.8 pts); Zone: StatRankings 70.4% vs Sharp 81.2% (-10.8 pts); MOF closed (single-high): StatRankings 44.1% vs Sharp 33.6% (+10.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): MOF closed (single-high): gap +10.5 pts is +7.8 vs the median gap; rank 27 StatRankings vs 30 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
 <!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## ARI season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 29.6% | 10.8% |
+| Zone | 70.4% | 81.2% |
+| MOF closed (single-high) | 44.1% | 33.6% |
+| MOF open (two-high) | 55.9% | 60.1% |
+| Blitz | 35.3% | 30.2% |
+| Cover 0 | 3.3% | not published |
+| Cover 1 | 18.9% | not published |
+| Cover 2 | 28.7% | not published |
+| Cover 2-Man | 7.5% | not published |
+| Cover 3 | 22.5% | not published |
+| Cover 4 | 8.5% | not published |
+| Cover 6 | 7.8% | not published |
+| Cover 9 | 1.6% | not published |
+| Coverage snaps | 307 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/ari). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 29.6% vs Sharp 10.8% (+18.8 pts); Zone: StatRankings 70.4% vs Sharp 81.2% (-10.8 pts); MOF closed (single-high): StatRankings 44.1% vs Sharp 33.6% (+10.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): MOF closed (single-high): gap +10.5 pts is +7.8 vs the median gap; rank 27 StatRankings vs 30 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

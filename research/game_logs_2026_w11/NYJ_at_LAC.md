@@ -1,6 +1,6 @@
-# NYJ @ LAC - Week 11 game log (IN PROGRESS (8:26 - 1st) - partial, a later run must finish it)
+# NYJ @ LAC - Week 11 game log (IN PROGRESS (7:05 - 1st) - partial, a later run must finish it)
 
-ESPN event 401873074. Pulled 2026-11-22 05:17 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
+ESPN event 401873074. Pulled 2026-11-22 05:20 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
 
 > **IN PROGRESS: every number below is partial as of the pull time. Re-run after the final whistle.**
 
@@ -15,7 +15,7 @@ Quarter winners: Q1 NYJ (3-0); 1H NYJ (3-0).
 
 ## Result vs closing line
 
-Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:17 PM AST. Home spread shown.
+Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:20 PM AST. Home spread shown.
 
 | Book | Home spread (odds) | Total (O/U odds) |
 |---|---|---|
@@ -27,7 +27,7 @@ Action Network public scoreboard, last pre-game line per book (is_live=false), p
 | BetMGM | LAC -3 (-118) | 43.5 (-105/-112) |
 | bet365 | LAC -3.5 (-104) | 43.5 (-113/-107) |
 
-ESPN pickcenter (DraftKings): LAC -3, O/U 43.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:17 PM AST).
+ESPN pickcenter (DraftKings): LAC -3, O/U 43.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:20 PM AST).
 
 **Grading (CURRENT SCORE, NOT FINAL) vs AN consensus close (LAC -3, total 43.5):** outright winner NYJ (3-0); ATS cover NYJ; total 3 -> UNDER.
 
@@ -46,24 +46,24 @@ Scoring mix: NYJ Field Goal Good x1
 | 3rd down (conv-att) | 1-2 | 1-1 |
 | 4th down | 0-0 | 0-0 |
 | Red zone TD-trips (ESPN) | 0-0 | 0-0 |
-| Time of possession |  3:52 |  2:42 |
+| Time of possession |  3:52 |  4:03 |
 | Drives | 1 | 1 |
-| Plays | 7 | 5 |
-| Total yards | 35 | 30 |
-| Net pass yds | 21 | 21 |
-| Rush yds | 14 | 9 |
-| Rush att | 5 | 3 |
+| Plays | 7 | 7 |
+| Total yards | 35 | 41 |
+| Net pass yds | 21 | 27 |
+| Rush yds | 14 | 14 |
+| Rush att | 5 | 4 |
 | Sacks-yds lost | 0-0 | 0-0 |
 | Turnovers | 0 | 0 |
 | Penalties-yds | 0-0 | 0-0 |
-| First downs | 2 | 2 |
+| First downs | 2 | 3 |
 
 ## Drives
 
 | # | Team | Start | Q/clock | Plays | Yds | Time | Result | Reached RZ |
 |---|---|---|---|---|---|---|---|---|
 | 1 | NYJ | NYJ 33 | Q1 15:00 | 8 | 35 | 3:52 | Field Goal |  |
-| 2 | LAC | LAC 24 | Q1 11:08 | 5 | 30 | 2:42 | ? |  |
+| 2 | LAC | LAC 24 | Q1 11:08 | 7 | 41 | 4:03 | ? |  |
 
 Drive outcomes: NYJ: Field Goal 1 | LAC: ? 1
 
@@ -100,23 +100,24 @@ Target-share leader (NYJ): Adonai Mitchell 1/2 (50.0%)
 
 NYJ passing: Geno Smith 1/2, 21 yds, 0 TD, 0 INT, sacks 0-0
 
-**LAC receiving** (team targets 2)
+**LAC receiving** (team targets 3)
 
 | Player | Tgt | Rec | Yds | TD | Long | Catch% | Tgt share |
 |---|---|---|---|---|---|---|---|
-| David Njoku | 1 | 1 | 13 | 0 | 13 | 100% | 50.0% |
-| Charlie Kolar | 1 | 1 | 8 | 0 | 8 | 100% | 50.0% |
+| David Njoku | 1 | 1 | 13 | 0 | 13 | 100% | 33.3% |
+| Charlie Kolar | 1 | 1 | 8 | 0 | 8 | 100% | 33.3% |
+| Keaton Mitchell | 1 | 1 | 6 | 0 | 6 | 100% | 33.3% |
 
-Target-share leader (LAC): David Njoku 1/2 (50.0%)
+Target-share leader (LAC): David Njoku 1/3 (33.3%)
 
 **LAC rushing**
 
 | Player | Car | Yds | YPC | TD | Long | Carry share |
 |---|---|---|---|---|---|---|
-| Omarion Hampton | 2 | 7 | 3.5 | 0 | 6 | 67% |
-| Justin Herbert | 1 | 2 | 2.0 | 0 | 2 | 33% |
+| Omarion Hampton | 3 | 12 | 4.0 | 0 | 6 | 75% |
+| Justin Herbert | 1 | 2 | 2.0 | 0 | 2 | 25% |
 
-LAC passing: Justin Herbert 2/2, 21 yds, 0 TD, 0 INT, sacks 0-0
+LAC passing: Justin Herbert 3/3, 27 yds, 0 TD, 0 INT, sacks 0-0
 
 **Game target leader:** Adonai Mitchell (NYJ) 1 targets.
 
@@ -128,9 +129,10 @@ Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke u
 |---|---|---|---|---|---|---|---|---|---|---|
 | NYJ | M.Fitzpatrick | 1 | 1 | 13 | 0 | 0 | 0 | 0 | D.Njoku 1 |  |
 | NYJ | D.Davis | 1 | 1 | 8 | 0 | 0 | 0 | 0 | C.Kolar 1 |  |
+| NYJ | A.Thomas | 1 | 1 | 6 | 0 | 0 | 0 | 0 | K.Mitchell 1 |  |
 | LAC | D.Leonard | 1 | 0 | 0 | 0 | 1 | 0 | 0 | G.Wilson 1 |  |
 
-Assignment evidence count: 1 VERIFIED (PBU/INT/DPI-named), 2 tackler-not-coverage (inferred), 1 unattributed.
+Assignment evidence count: 1 VERIFIED (PBU/INT/DPI-named), 3 tackler-not-coverage (inferred), 1 unattributed.
 Most yards charged to a NYJ defender (tackler tag, not coverage): M.Fitzpatrick 1 rec / 13 yds.
 Most yards charged to a LAC defender (tackler tag, not coverage): D.Leonard 0 rec / 0 yds.
 
@@ -147,7 +149,7 @@ LAC defense sacks credited: none | QB hits [bracketed]: none
 
 ## In-game injuries (play text "was injured during the play")
 
-None noted in play text.
+- Q1 7:21: LAC K.Mitchell
 
 ## Penalties by type (play text)
 
@@ -159,7 +161,7 @@ ESPN gameInfo: {"temperature": 66, "highTemperature": 66, "lowTemperature": 66, 
 Venue: SoFi Stadium (Inglewood), indoor=None, grass=False
 Open-Meteo at kickoff hour (2026-11-22T21:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 68.3, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 6.5, "wind_gusts_10m": 7.8}
 
-## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:17 PM AST; scores: src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:17 PM AST)
+## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:20 PM AST; scores: src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:20 PM AST)
 
 | Period | Away pts | Home pts | Total | Winner | Line (home) | ATS winner | Total line | O/U |
 |---|---|---|---|---|---|---|---|---|
@@ -172,16 +174,16 @@ Open-Meteo at kickoff hour (2026-11-22T21:00Z; model value, not a stadium observ
 
 Note: books differ on whether OT counts in Q4/2H markets; 2H here includes OT if played, Q4 excludes it. Check the book rule before settling.
 
-## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:17 PM AST)
+## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:20 PM AST)
 
-Every ESPN play (16 rows incl. kickoffs, penalties, timeouts) is in `pbp/NYJ_at_LAC_pbp.csv` with down/distance, yards, YAC, home win prob and a garbage-time flag.
+Every ESPN play (19 rows incl. kickoffs, penalties, timeouts) is in `pbp/NYJ_at_LAC_pbp.csv` with down/distance, yards, YAC, home win prob and a garbage-time flag.
 
 | Team | Offensive plays counted from pbp (rush+pass att+sacks, no-plays excluded) | ESPN box Total Plays | Match |
 |---|---|---|---|
 | NYJ | 7 | 7 | yes |
-| LAC | 5 | 5 | yes |
+| LAC | 7 | 7 | yes |
 
-## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:17 PM AST)
+## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:20 PM AST)
 
 | Stat | NYJ | LAC |
 |---|---|---|
@@ -193,14 +195,14 @@ Every ESPN play (16 rows incl. kickoffs, penalties, timeouts) is in `pbp/NYJ_at_
 | Drives | 1 | 1 |
 | Turnover rate | 0.0% of drives; 0.0% of plays | 0.0% of drives; 0.0% of plays |
 
-## Scoring breakdown (src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:17 PM AST scoringPlays)
+## Scoring breakdown (src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:20 PM AST scoringPlays)
 
 | Team | Non-QB rush TD | QB rush TD | Receiving TD | Defense/ST TD | FG | Safety | Other |
 |---|---|---|---|---|---|---|---|
 | NYJ | 0 | 0 | 0 | 0 | 1 | 0 |  |
 | LAC | 0 | 0 | 0 | 0 | 0 | 0 |  |
 
-## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:17 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:17 PM AST)
+## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:20 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:20 PM AST)
 
 Players absent from the ESPN receiving box had no target or reception logged; whether they played is unknown until snap counts post (nflverse/PFR, usually Monday-Tuesday).
 
@@ -212,11 +214,12 @@ Players absent from the ESPN receiving box had no target or reception logged; wh
 | NYJ | Garrett Wilson | WR | 1 | 0 | 0% | 0 | 0 logged* | 0 logged* | 50.0% |
 | NYJ | Breece Hall | RB | 0 logged* | 0 logged* | n/a | 0 logged* | 3 | 11 | 0%* |
 | NYJ | Braelon Allen | RB | 0 logged* | 0 logged* | n/a | 0 logged* | 2 | 3 | 0%* |
-| LAC | David Njoku | TE | 1 | 1 | 100% | 13 | 0 logged* | 0 logged* | 50.0% |
-| LAC | Charlie Kolar | TE | 1 | 1 | 100% | 8 | 0 logged* | 0 logged* | 50.0% |
-| LAC | Omarion Hampton | RB | 0 logged* | 0 logged* | n/a | 0 logged* | 2 | 7 | 0%* |
+| LAC | David Njoku | TE | 1 | 1 | 100% | 13 | 0 logged* | 0 logged* | 33.3% |
+| LAC | Charlie Kolar | TE | 1 | 1 | 100% | 8 | 0 logged* | 0 logged* | 33.3% |
+| LAC | Keaton Mitchell | RB | 1 | 1 | 100% | 6 | 0 logged* | 0 logged* | 33.3% |
+| LAC | Omarion Hampton | RB | 0 logged* | 0 logged* | n/a | 0 logged* | 3 | 12 | 0%* |
 
-## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:17 PM AST)
+## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:20 PM AST)
 
 WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not chart alignment; FTN/PFF are paid and are not used). Pass location (left/middle/right) is shown as a proxy only.
 
@@ -224,8 +227,9 @@ WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not c
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
 | TE | 2 | 2 | 21 | 0 | 10.5 |
+| RB | 1 | 1 | 6 | 0 | 6.0 |
 
-NYJ defense by depth/location (proxy, not alignment): short_right 1/1 13y; short_left 1/1 8y
+NYJ defense by depth/location (proxy, not alignment): short_right 2/2 19y; short_left 1/1 8y
 
 **LAC defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
@@ -235,14 +239,14 @@ NYJ defense by depth/location (proxy, not alignment): short_right 1/1 13y; short
 LAC defense by depth/location (proxy, not alignment): deep_right 1/1 21y; short_middle 0/1 0y
 
 
-## Extras (src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:17 PM AST; derived where noted)
+## Extras (src: ESPN summary JSON event 401873074, pulled 2026-11-22 05:20 PM AST; derived where noted)
 
 | Metric | NYJ | LAC |
 |---|---|---|
-| Early-down pass rate (1st/2nd down, pass att+sacks / plays) | 20% (1/5) | 50% (2/4) |
-| Sack rate (sacks / dropbacks) | 0.0% (0/2) | 0.0% (0/2) |
-| QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 0.0% (0/2) | 0.0% (0/2) |
-| Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 21 air / 0 YAC on 1 comps | 6 air / 15 YAC on 2 comps |
+| Early-down pass rate (1st/2nd down, pass att+sacks / plays) | 20% (1/5) | 50% (3/6) |
+| Sack rate (sacks / dropbacks) | 0.0% (0/2) | 0.0% (0/3) |
+| QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 0.0% (0/2) | 0.0% (0/3) |
+| Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 21 air / 0 YAC on 1 comps | 9 air / 18 YAC on 3 comps |
 | Intended air yards on incompletions | unknown (not in ESPN; nflverse air_yards after overnight rebuild) | unknown |
 | Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 0 / 0 | 1 / 0 |
 | Penalties-yds | 0-0 | 0-0 |

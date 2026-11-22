@@ -235,3 +235,29 @@ Holds (-1.5 YPT or better): none
 - wk8 LV@NYJ: Isaiah Williams (WR-slot separator) 1/1tgt 18y 1TD | shell 21/70, MOFC/MOFO 47/47 | Script/volume; no specific matchup attribution — see explosives table. [none (no explosive)]
 - wk8 LV@NYJ: Kenyon Sadiq (TE-inline) 1/2tgt 22y 0TD | shell 21/70, MOFC/MOFO 47/47 | Script/volume; no specific matchup attribution — see explosives table. [unknown]
 
+<!-- W11-COVRATES-START refs NFL-56 -->
+## LV season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 34.2% | 21.9% |
+| Zone | 65.8% | 69.4% |
+| MOF closed (single-high) | 48.8% | 47.5% |
+| MOF open (two-high) | 51.2% | 47.5% |
+| Blitz | 30.2% | 24.9% |
+| Cover 0 | 7.8% | not published |
+| Cover 1 | 20.1% | not published |
+| Cover 2 | 29.2% | not published |
+| Cover 2-Man | 6.3% | not published |
+| Cover 3 | 23.8% | not published |
+| Cover 4 | unknown | not published |
+| Cover 6 | 6.9% | not published |
+| Cover 9 | 1.9% | not published |
+| Coverage snaps | 319 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/lv). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 34.2% vs Sharp 21.9% (+12.3 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

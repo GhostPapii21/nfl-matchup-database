@@ -1,6 +1,6 @@
 # TEN @ DAL - Week 11 game log (FINAL)
 
-ESPN event 401873073. Pulled 2026-11-22 05:17 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
+ESPN event 401873073. Pulled 2026-11-22 05:20 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
 
 ## Score by quarter
 
@@ -14,7 +14,7 @@ Who led during Q2 (score changes, clock at the play): DAL 3-13 @15:00. Leader at
 
 ## Result vs closing line
 
-Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:17 PM AST. Home spread shown.
+Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:20 PM AST. Home spread shown.
 
 | Book | Home spread (odds) | Total (O/U odds) |
 |---|---|---|
@@ -26,7 +26,7 @@ Action Network public scoreboard, last pre-game line per book (is_live=false), p
 | BetMGM | DAL -7.5 (-105) | 54.5 (-110/-108) |
 | bet365 | DAL -7.5 (-107) | 54.5 (-110/-110) |
 
-ESPN pickcenter (DraftKings): DAL -7.5, O/U 54.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:17 PM AST).
+ESPN pickcenter (DraftKings): DAL -7.5, O/U 54.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:20 PM AST).
 
 **Grading vs AN consensus close (DAL -7.5, total 54.5):** outright winner DAL (30-51); ATS cover DAL; total 81 -> OVER.
 
@@ -236,7 +236,7 @@ ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
 Venue: AT&T Stadium (Arlington), indoor=None, grass=False
 Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 58.1, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 14.0, "wind_gusts_10m": 22.1}
 
-## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:17 PM AST; scores: src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:17 PM AST)
+## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:20 PM AST; scores: src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:20 PM AST)
 
 | Period | Away pts | Home pts | Total | Winner | Line (home) | ATS winner | Total line | O/U |
 |---|---|---|---|---|---|---|---|---|
@@ -249,7 +249,7 @@ Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observ
 
 Note: books differ on whether OT counts in Q4/2H markets; 2H here includes OT if played, Q4 excludes it. Check the book rule before settling.
 
-## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:17 PM AST)
+## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:20 PM AST)
 
 Every ESPN play (181 rows incl. kickoffs, penalties, timeouts) is in `pbp/TEN_at_DAL_pbp.csv` with down/distance, yards, YAC, home win prob and a garbage-time flag.
 
@@ -258,7 +258,7 @@ Every ESPN play (181 rows incl. kickoffs, penalties, timeouts) is in `pbp/TEN_at
 | TEN | 63 | 63 | yes |
 | DAL | 63 | 63 | yes |
 
-## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:17 PM AST)
+## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:20 PM AST)
 
 | Stat | TEN | DAL |
 |---|---|---|
@@ -270,14 +270,14 @@ Every ESPN play (181 rows incl. kickoffs, penalties, timeouts) is in `pbp/TEN_at
 | Drives | 9 | 9 |
 | Turnover rate | 11.1% of drives; 1.6% of plays | 0.0% of drives; 0.0% of plays |
 
-## Scoring breakdown (src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:17 PM AST scoringPlays)
+## Scoring breakdown (src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:20 PM AST scoringPlays)
 
 | Team | Non-QB rush TD | QB rush TD | Receiving TD | Defense/ST TD | FG | Safety | Other |
 |---|---|---|---|---|---|---|---|
 | TEN | 0 | 1 | 2 | 0 | 3 | 0 |  |
 | DAL | 2 | 1 | 4 | 0 | 1 | 0 | {'2-pt attempt (see text)': 1} |
 
-## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:17 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:17 PM AST)
+## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:20 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:20 PM AST)
 
 Players absent from the ESPN receiving box had no target or reception logged; whether they played is unknown until snap counts post (nflverse/PFR, usually Monday-Tuesday).
 
@@ -304,7 +304,7 @@ Players absent from the ESPN receiving box had no target or reception logged; wh
 | DAL | Ryan Flournoy | WR | 1 | 1 | 100% | 11 | 0 logged* | 0 logged* | 3.0% |
 | DAL | Luke Schoonmaker | TE | 1 | 1 | 100% | 6 | 0 logged* | 0 logged* | 3.0% |
 
-## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:17 PM AST)
+## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:20 PM AST)
 
 WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not chart alignment; FTN/PFF are paid and are not used). Pass location (left/middle/right) is shown as a proxy only.
 
@@ -327,7 +327,7 @@ TEN defense by depth/location (proxy, not alignment): short_left 11/12 89y; shor
 DAL defense by depth/location (proxy, not alignment): short_left 8/10 118y; short_right 8/9 64y; short_middle 3/5 23y; deep_right 1/2 22y; deep_middle 1/2 21y
 
 
-## Extras (src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:17 PM AST; derived where noted)
+## Extras (src: ESPN summary JSON event 401873073, pulled 2026-11-22 05:20 PM AST; derived where noted)
 
 | Metric | TEN | DAL |
 |---|---|---|
