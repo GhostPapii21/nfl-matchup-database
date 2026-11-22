@@ -1,23 +1,23 @@
-# Live tracker, Week 11 (2026-11-22 22:04 UTC)
+# Live tracker, Week 11 (2026-11-22 22:09 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## NYJ 17 @ LAC 3 (3:07 - 2nd)
+## NYJ 17 @ LAC 3 (2:00 - 2nd)
 
-64 plays. Top yards allowed by a named defender: E.Molden (2/2, 29 yds), C.Hart (2/2, 21 yds), M.Fitzpatrick (1/1, 13 yds), R.Mickens (1/1, 9 yds)
+68 plays. Top yards allowed by a named defender: E.Molden (2/2, 29 yds), C.Hart (2/2, 21 yds), K.Enagbare (1/1, 15 yds), M.Fitzpatrick (1/1, 13 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Braelon Allen (NYJ) | 1 | 1.8 | 9 | 6.3 | 7.5 | 31 | 41.2 | 33.5 |
 | Breece Hall (NYJ) | 1 | 2.3 | 7 | 13.7 | 21.5 | 32 | 36.1 | 49.5 |
+| Kimani Vidal (LAC) | 1 | 1.7 | 15 | 8.1 | 7.5 | 21 | 23.2 | 14.5 |
 | Adonai Mitchell (NYJ) | 2 | 3.4 | 30 | 45.9 | 44.5 | 0 |  |  |
-| Kimani Vidal (LAC) | 0 | 1.7 | 0 | 8.1 | 7.5 | 21 | 23.2 | 14.5 |
 | Garrett Wilson (NYJ) | 2 | 6.1 | 20 | 70.5 | 65.5 | 0 |  |  |
 | Mason Taylor (NYJ) | 1 | 2.9 | 19 | 25.7 | 19.5 | 0 |  |  |
 
-## LV 0 @ DEN 10 (14:50 - 2nd)
+## LV 0 @ DEN 10 (13:43 - 2nd)
 
-43 plays. Top yards allowed by a named defender: T.Johnson (1/1, 20 yds), N.Dean (1/1, 11 yds), Q.Walker (2/2, 10 yds), J.McMillian (1/1, 6 yds)
+49 plays. Top yards allowed by a named defender: T.Johnson (1/1, 20 yds), N.Dean (1/1, 11 yds), Q.Walker (2/2, 10 yds), J.McMillian (1/1, 6 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -28,9 +28,9 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Evan Engram (DEN) | 1 | 2.1 | 11 | 15.4 | 20.5 | 0 |  |  |
 | RJ Harvey (DEN) | 0 | 3.4 | 0 | 21.3 |  | 0 | 16.0 |  |
 
-## JAX 3 @ NYG 3 (4:06 - 1st)
+## JAX 3 @ NYG 3 (2:39 - 1st)
 
-38 plays. Top yards allowed by a named defender: J.Holland (1/1, 13 yds), T.Hunter, F.Oluokun (1/1, 11 yds), A.Reese (1/1, 10 yds), A.Johnson (1/1, 4 yds)
+42 plays. Top yards allowed by a named defender: J.Holland (1/1, 13 yds), T.Hunter (1/1, 11 yds), A.Reese (1/1, 10 yds), A.Johnson (1/1, 4 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
