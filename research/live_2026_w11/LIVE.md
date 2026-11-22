@@ -1,10 +1,10 @@
-# Live tracker, Week 11 (2026-11-22 22:20 UTC)
+# Live tracker, Week 11 (2026-11-22 22:25 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## NYJ 17 @ LAC 3 (0:12 - 2nd)
+## NYJ 17 @ LAC 10 (Halftime)
 
-81 plays. Top yards allowed by a named defender: E.Molden (2/2, 29 yds), C.Hart (2/2, 21 yds), J.Sherwood (2/2, 17 yds), K.Enagbare (1/1, 15 yds)
+85 plays. Top yards allowed by a named defender: E.Molden (2/2, 29 yds), C.Hart (2/2, 21 yds), J.Sherwood (2/2, 17 yds), K.Enagbare (1/1, 15 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -15,27 +15,27 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Adonai Mitchell (NYJ) | 2 | 3.4 | 30 | 45.9 | 44.5 | 0 |  |  |
 | Garrett Wilson (NYJ) | 2 | 6.1 | 20 | 70.5 | 65.5 | 0 |  |  |
 
-## LV 0 @ DEN 17 (10:35 - 2nd)
+## LV 0 @ DEN 17 (9:09 - 2nd)
 
-56 plays. Top yards allowed by a named defender: J.Chinn (1/1, 36 yds), E.Stokes (2/2, 25 yds), T.Johnson (1/1, 20 yds), N.Dean (1/1, 11 yds)
+63 plays. Top yards allowed by a named defender: J.Chinn (1/1, 36 yds), E.Stokes (2/2, 25 yds), T.Johnson (1/1, 20 yds), T.Hufanga (1/1, 16 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Jaylen Waddle (DEN) | 2 | 3.2 | 43 | 36.8 | 44.5 | 0 |  |  |
 | Jonah Coleman (DEN) | 3 | 2.9 | 11 | 19.0 | 23.5 | 29 | 51.6 | 72.5 |
+| Ashton Jeanty (LV) | 1 | 4.7 | 6 | 36.7 | 29.0 | 18 | 19.4 | 31.5 |
 | Evan Engram (DEN) | 2 | 2.1 | 19 | 15.4 | 20.5 | 0 |  |  |
-| Ashton Jeanty (LV) | 1 | 4.7 | 6 | 36.7 | 29.0 | 9 | 19.4 | 31.5 |
+| Jalen Nailor (LV) | 1 | 2.5 | 16 | 22.8 |  | 0 |  |  |
 | Jack Bech (LV) | 1 | 3.0 | 14 | 28.2 |  | 0 |  |  |
-| RJ Harvey (DEN) | 0 | 3.4 | 0 | 21.3 |  | 0 | 16.0 |  |
 
-## JAX 3 @ NYG 10 (15:00 - 2nd)
+## JAX 3 @ NYG 10 (14:57 - 2nd)
 
-50 plays. Top yards allowed by a named defender: A.Reese (2/2, 17 yds), D.Banks (1/1, 16 yds), J.Holland (1/1, 13 yds), T.Hunter (1/1, 11 yds)
+52 plays. Top yards allowed by a named defender: A.Reese (2/2, 17 yds), D.Banks (1/1, 16 yds), J.Holland (1/1, 13 yds), T.Hunter (1/1, 11 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
+| Chris Rodriguez Jr. (JAX) | 0 |  | 0 |  |  | 27 | 21.4 | 20.5 |
 | Parker Washington (JAX) | 2 | 3.0 | 26 | 35.9 | 66.5 | 0 |  |  |
-| Chris Rodriguez Jr. (JAX) | 0 |  | 0 |  |  | 21 | 21.4 | 20.5 |
 | Bhayshul Tuten (JAX) | 1 | 1.9 | 8 | 10.3 | 13.5 | 7 | 56.9 | 70.5 |
 | Malik Nabers (NYG) | 2 | 5.4 | 15 | 53.4 | 67.5 | 0 |  |  |
 | Jakobi Meyers (JAX) | 1 | 2.6 | 13 | 24.3 | 42.5 | 0 |  |  |
