@@ -1,0 +1,254 @@
+{
+ "A_backup_qb": {
+  "train_2024_25": {
+   "backup": {
+    "rows": 1219,
+    "yards_ratio": 1.014,
+    "targets_ratio": 0.913,
+    "yards_per_target_ratio": 1.11,
+    "hit80": 0.087,
+    "sim80": 0.084,
+    "yards_ratio_ci95": [
+     0.965,
+     1.064
+    ]
+   },
+   "usual": {
+    "rows": 3867,
+    "yards_ratio": 1.082,
+    "targets_ratio": 0.943,
+    "yards_per_target_ratio": 1.147,
+    "hit80": 0.102,
+    "sim80": 0.088,
+    "yards_ratio_ci95": [
+     1.053,
+     1.11
+    ]
+   },
+   "relative_yards": 0.937,
+   "relative_yards_ci95": [
+    0.885,
+    0.99
+   ],
+   "relative_hit80_over_sim": 0.894,
+   "relative_targets": 0.968,
+   "relative_ypt": 0.968
+  },
+  "test_2026": {
+   "backup": {
+    "rows": 100,
+    "yards_ratio": 0.897,
+    "targets_ratio": 0.908,
+    "yards_per_target_ratio": 0.988,
+    "hit80": 0.09,
+    "sim80": 0.107,
+    "yards_ratio_ci95": [
+     0.756,
+     1.032
+    ]
+   },
+   "usual": {
+    "rows": 708,
+    "yards_ratio": 1.061,
+    "targets_ratio": 0.905,
+    "yards_per_target_ratio": 1.173,
+    "hit80": 0.109,
+    "sim80": 0.098,
+    "yards_ratio_ci95": [
+     0.999,
+     1.126
+    ]
+   },
+   "relative_yards": 0.845,
+   "relative_yards_ci95": [
+    0.704,
+    0.996
+   ],
+   "relative_hit80_over_sim": 0.759,
+   "relative_targets": 1.003,
+   "relative_ypt": 0.842
+  },
+  "all": {
+   "backup": {
+    "rows": 1319,
+    "yards_ratio": 1.004,
+    "targets_ratio": 0.913,
+    "yards_per_target_ratio": 1.1,
+    "hit80": 0.087,
+    "sim80": 0.086,
+    "yards_ratio_ci95": [
+     0.956,
+     1.049
+    ]
+   },
+   "usual": {
+    "rows": 4575,
+    "yards_ratio": 1.078,
+    "targets_ratio": 0.937,
+    "yards_per_target_ratio": 1.151,
+    "hit80": 0.103,
+    "sim80": 0.09,
+    "yards_ratio_ci95": [
+     1.053,
+     1.104
+    ]
+   },
+   "relative_yards": 0.931,
+   "relative_yards_ci95": [
+    0.883,
+    0.979
+   ],
+   "relative_hit80_over_sim": 0.885,
+   "relative_targets": 0.974,
+   "relative_ypt": 0.956
+  },
+  "test_2026_80plus": {
+   "rows": 100,
+   "hit": 0.09,
+   "sim": 0.107,
+   "adjusted": 0.095,
+   "brier_sim": 0.06449,
+   "brier_adjusted": 0.06425
+  }
+ },
+ "B_game_script": {
+  "team_games": {
+   "train": 1342,
+   "test": 654
+  },
+  "refit_cap10_coef": [
+   0.9855,
+   -0.0006
+  ],
+  "refit_capnone_coef": [
+   0.9855,
+   -0.0003
+  ],
+  "refit_cap10_qb_coef": [
+   0.9876,
+   -0.0006,
+   -0.0058
+  ],
+  "test_mae": {
+   "no_script": 6.522,
+   "current_rule": 6.653,
+   "refit_cap10": 6.486,
+   "refit_capnone": 6.487,
+   "refit_cap10_qb": 6.478
+  },
+  "test_bias": {
+   "no_script": -0.28,
+   "current_rule": -0.304,
+   "refit_cap10": 0.226,
+   "refit_capnone": 0.226,
+   "refit_cap10_qb": 0.23
+  },
+  "test_by_margin": [
+   {
+    "margin": "(-40, -10]",
+    "games": 41,
+    "actual_over_base": 0.886,
+    "current_rule": 1.1
+   },
+   {
+    "margin": "(-10, -6]",
+    "games": 80,
+    "actual_over_base": 0.987,
+    "current_rule": 1.074
+   },
+   {
+    "margin": "(-6, -3]",
+    "games": 131,
+    "actual_over_base": 1.056,
+    "current_rule": 1.039
+   },
+   {
+    "margin": "(-3, 3]",
+    "games": 194,
+    "actual_over_base": 0.981,
+    "current_rule": 0.993
+   },
+   {
+    "margin": "(3, 6]",
+    "games": 94,
+    "actual_over_base": 1.007,
+    "current_rule": 0.956
+   },
+   {
+    "margin": "(6, 10]",
+    "games": 81,
+    "actual_over_base": 0.973,
+    "current_rule": 0.923
+   },
+   {
+    "margin": "(10, 40]",
+    "games": 33,
+    "actual_over_base": 0.943,
+    "current_rule": 0.9
+   }
+  ],
+  "fav10_good_passing": {
+   "games": 32,
+   "actual_over_base": 0.943,
+   "current_rule": 0.9
+  },
+  "fav10_other": {
+   "games": 9,
+   "actual_over_base": 0.864,
+   "current_rule": 0.9
+  },
+  "rush_refit_cap10_coef": [
+   1.0016,
+   0.0037
+  ],
+  "rush_test_mae": {
+   "no_script": 5.962,
+   "current_rule": 5.991,
+   "refit_cap10": 5.94
+  },
+  "rush_test_by_margin": [
+   {
+    "margin": "(-40, -10]",
+    "games": 41,
+    "actual_over_base": 0.971,
+    "current_rule": 0.88
+   },
+   {
+    "margin": "(-10, -6]",
+    "games": 80,
+    "actual_over_base": 1.003,
+    "current_rule": 0.912
+   },
+   {
+    "margin": "(-6, -3]",
+    "games": 131,
+    "actual_over_base": 0.959,
+    "current_rule": 0.954
+   },
+   {
+    "margin": "(-3, 3]",
+    "games": 194,
+    "actual_over_base": 1.042,
+    "current_rule": 1.008
+   },
+   {
+    "margin": "(3, 6]",
+    "games": 94,
+    "actual_over_base": 1.008,
+    "current_rule": 1.053
+   },
+   {
+    "margin": "(6, 10]",
+    "games": 81,
+    "actual_over_base": 1.075,
+    "current_rule": 1.093
+   },
+   {
+    "margin": "(10, 40]",
+    "games": 33,
+    "actual_over_base": 1.079,
+    "current_rule": 1.12
+   }
+  ]
+ }
+}
