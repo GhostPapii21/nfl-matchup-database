@@ -101,7 +101,12 @@ def classify(p: Path, root: Path, fz: dict | None, proto: dict) -> tuple[str, di
     sc = p.parent / "SCORE.json"
     if not sc.exists():
         return "NOT_FINAL", None
-    return "SCORED", json.loads(sc.read_text())
+    score = json.loads(sc.read_text())
+    k = (score.get("final") or {}).get("kickoff_espn_utc")
+    real = _utc(k) if k else None
+    if real is not None and _utc(lk["locked_utc"]) >= real:      # the lock's own kickoff can be wrong (Week 11 swap)
+        return "LOCKED_AFTER_KICKOFF", None
+    return "SCORED", score
 
 
 def evaluate(root: Path = ROOT) -> dict:
