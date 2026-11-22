@@ -1,10 +1,10 @@
-# Live tracker, Week 11 (2026-11-22 23:30 UTC)
+# Live tracker, Week 11 (2026-11-22 23:35 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## NYJ 27 @ LAC 17 (4:33 - 4th)
+## NYJ 27 @ LAC 23 (1:58 - 4th)
 
-147 plays. Top yards allowed by a named defender: M.Fitzpatrick (2/2, 35 yds), E.Molden (2/2, 29 yds), C.Hart (2/2, 21 yds), D.Phillips (2/2, 19 yds)
+153 plays. Top yards allowed by a named defender: M.Fitzpatrick (2/2, 35 yds), E.Molden (2/2, 29 yds), C.Hart (2/2, 21 yds), D.Phillips (2/2, 19 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -13,11 +13,11 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Braelon Allen (NYJ) | 1 | 1.8 | 9 | 6.3 | 7.5 | 60 | 41.2 | 33.5 |
 | Kimani Vidal (LAC) | 2 | 1.7 | 18 | 8.1 | 7.5 | 36 | 23.2 | 14.5 |
 | Garrett Wilson (NYJ) | 3 | 6.1 | 39 | 70.5 | 65.5 | 0 |  |  |
-| Ladd McConkey (LAC) | 4 | 1.7 | 31 | 17.0 | 38.5 | 0 |  |  |
+| Ladd McConkey (LAC) | 5 | 1.7 | 37 | 17.0 | 38.5 | 0 |  |  |
 
-## LV 10 @ DEN 17 (7:38 - 3rd)
+## LV 16 @ DEN 17 (5:13 - 3rd)
 
-119 plays. Top yards allowed by a named defender: J.Chinn (1/1, 36 yds), E.Stokes (2/2, 25 yds), T.Johnson (2/2, 23 yds), J.Barron (1/1, 19 yds)
+124 plays. Top yards allowed by a named defender: J.Chinn (1/1, 36 yds), E.Stokes (2/2, 25 yds), T.Johnson (2/2, 23 yds), J.Barron (1/1, 19 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -26,11 +26,11 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Jaylen Waddle (DEN) | 2 | 3.2 | 43 | 36.8 | 44.5 | 0 |  |  |
 | Evan Engram (DEN) | 4 | 2.1 | 34 | 15.4 | 20.5 | 0 |  |  |
 | Jack Bech (LV) | 2 | 3.0 | 33 | 28.2 |  | 0 |  |  |
-| Jalen Nailor (LV) | 1 | 2.5 | 16 | 22.8 |  | 0 |  |  |
+| Mike Washington Jr. (LV) | 0 |  | 0 |  |  | 30 | 26.8 | 25.5 |
 
-## JAX 6 @ NYG 20 (9:09 - 3rd)
+## JAX 6 @ NYG 20 (4:49 - 3rd)
 
-111 plays. Top yards allowed by a named defender: J.Holland (4/4, 48 yds), T.Hunter (4/4, 35 yds), K.Merriweather (1/1, 35 yds), A.Reese (2/2, 17 yds)
+118 plays. Top yards allowed by a named defender: J.Holland (4/4, 48 yds), T.Hunter (5/5, 41 yds), K.Merriweather (1/1, 35 yds), A.Reese (2/2, 17 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
