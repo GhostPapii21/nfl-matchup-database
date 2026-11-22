@@ -42,7 +42,12 @@ def prepare(pbp: pd.DataFrame, rosters: pd.DataFrame, ftn: pd.DataFrame | None =
     p["dropback"] = (_num(p.qb_dropback) == 1).astype(float)
     p["att"] = ((_num(p.pass_attempt) == 1) & ~sack).astype(float)
     p["cmp"] = (_num(p.complete_pass) == 1).astype(float)
-    p["pass_yds"] = np.where(p.cmp == 1, yg, 0.0)
+    p["pass_yds"] = np.where(p.cmp == 1, yg, 0.0)            # whole play: team and position-group totals
+    # Receiver credit (official): receiving_yards stops at a lateral; the lateral receiver is credited separately.
+    rc = pd.to_numeric(p.receiving_yards, errors="coerce") if "receiving_yards" in p else pd.Series(np.nan, index=p.index)
+    p["rec_credit_yds"] = np.where(p.cmp == 1, rc.fillna(p.pass_yds), 0.0)
+    p["lat_rec_id"] = p.lateral_receiver_player_id if "lateral_receiver_player_id" in p else None
+    p["lat_rec_yds"] = _num(p.lateral_receiving_yards) if "lateral_receiving_yards" in p else 0.0
     p["pass_td"] = (_num(p.pass_touchdown) == 1).astype(float)
     p["int"] = (_num(p.interception) == 1).astype(float)
     p["fum_lost"] = (_num(p.fumble_lost) == 1).astype(float)
@@ -58,6 +63,9 @@ def prepare(pbp: pd.DataFrame, rosters: pd.DataFrame, ftn: pd.DataFrame | None =
     carry = (_num(p.rush_attempt) == 1) & ~scr
     p["carry"] = carry.astype(float)
     p["rush_yds"] = np.where(carry, yg, 0.0)
+    # Official rushing credit (what books settle on): designed runs AND scrambles, at the rusher's credited yards.
+    ry = pd.to_numeric(p.rushing_yards, errors="coerce") if "rushing_yards" in p else pd.Series(np.nan, index=p.index)
+    p["rush_credit_yds"] = np.where(carry | scr, ry.fillna(yg), 0.0)
     p["rush_td"] = (carry & (_num(p.rush_touchdown) == 1)).astype(float)
     p["xpl_rush"] = (((carry | scr)) & (yg >= EXPLOSIVE_RUSH)).astype(float)
     p["rb_carry"] = (carry & (p.rush_pos == "RB")).astype(float)
@@ -204,7 +212,14 @@ def top_lines_allowed(p: pd.DataFrame, team: str, game_ids: list[str], games: pd
     for gid in game_ids:
         x = d[d.game_id == gid]
         row = {"week": int(wk[gid]), "opp": x.posteam.iloc[0] if len(x) else None}
-        r = x[x.tgt == 1].groupby(["receiver_player_name", "rec_pos"], dropna=False).agg(t=("tgt", "sum"), c=("cmp", "sum"), y=("pass_yds", "sum"), td=("pass_td", "sum"))
+        cr = x[x.tgt == 1][["receiver_player_id", "receiver_player_name", "rec_pos", "tgt", "cmp", "rec_credit_yds", "pass_td"]]
+        lt = x[x.lat_rec_id.notna()] if "lat_rec_id" in x else x.iloc[0:0]
+        names = dict(zip(cr.receiver_player_id, zip(cr.receiver_player_name, cr.rec_pos)))
+        lt = pd.DataFrame({"receiver_player_id": lt.lat_rec_id, "tgt": 0.0, "cmp": 0.0, "rec_credit_yds": lt.lat_rec_yds, "pass_td": 0.0})
+        lt = lt[lt.receiver_player_id.isin(names)]                 # lateral-only players have no target line to report
+        lt = lt.assign(receiver_player_name=lt.receiver_player_id.map(lambda i: names[i][0]), rec_pos=lt.receiver_player_id.map(lambda i: names[i][1]))
+        cr = pd.concat([cr, lt], ignore_index=True) if len(lt) else cr
+        r = cr.groupby(["receiver_player_name", "rec_pos"], dropna=False).agg(t=("tgt", "sum"), c=("cmp", "sum"), y=("rec_credit_yds", "sum"), td=("pass_td", "sum"))
         if len(r):
             b = r.sort_values("y").iloc[-1]; nm, ps = b.name
             row["top_receiver"] = {"player": nm, "pos": None if pd.isna(ps) else ps, "targets": int(b.t), "receptions": int(b.c), "yards": int(b.y), "td": int(b.td)}
@@ -225,8 +240,19 @@ def run_direction(p: pd.DataFrame, team: str, game_ids: list[str], side: str) ->
             for k, v in r.sort_values("carries", ascending=False).iterrows()]
 
 
-def offense_players(p: pd.DataFrame, team: str, game_ids: list[str], games: pd.DataFrame) -> dict:
-    """Usage and production for the team's skill players over the window, with per-game logs."""
+def kneel_credit(pbp: pd.DataFrame) -> pd.DataFrame:
+    """Kneel-downs per (game_id, rusher_player_id): official stats count them as rushes, prepare() drops them."""
+    k = pbp[(pbp.play_type == "qb_kneel") & pbp.rusher_player_id.notna()]
+    if "two_point_attempt" in k:
+        k = k[_num(k.two_point_attempt) == 0]
+    y = pd.to_numeric(k.rushing_yards, errors="coerce").fillna(_num(k.yards_gained)) if "rushing_yards" in k else _num(k.yards_gained)
+    return (k.assign(_y=y).groupby(["game_id", "rusher_player_id"]).agg(kneels=("_y", "size"), kneel_yds=("_y", "sum")).reset_index())
+
+
+def offense_players(p: pd.DataFrame, team: str, game_ids: list[str], games: pd.DataFrame, kneels: pd.DataFrame | None = None) -> dict:
+    """Usage and production for the team's skill players over the window, with per-game logs.
+    Rushers: carries / carry_share / yards are designed runs (the carry-share basis). rush_attempts_official and
+    rushing_yards_official (and log official_yards) add scrambles and, when `kneels` (kneel_credit) is given, kneel-downs."""
     d = p[(p.posteam == team) & p.game_id.isin(game_ids)]
     wk = games.set_index("game_id").week
     order = sorted(game_ids, key=lambda g: wk[g])
@@ -234,20 +260,29 @@ def offense_players(p: pd.DataFrame, team: str, game_ids: list[str], games: pd.D
     rz = d.yardline_100 <= 20
     rec = d[d.tgt == 1].groupby(["receiver_player_id", "receiver_player_name", "rec_pos"], dropna=False)
     recs = []
+    lat = d[d.lat_rec_id.notna()].groupby(["lat_rec_id", "game_id"]).lat_rec_yds.sum() if "lat_rec_id" in d else pd.Series(dtype=float)
     for (pid, nm, ps), x in rec:
-        by = x.groupby("game_id").agg(t=("tgt", "sum"), c=("cmp", "sum"), y=("pass_yds", "sum"))
+        by = x.groupby("game_id").agg(t=("tgt", "sum"), c=("cmp", "sum"), y=("rec_credit_yds", "sum"))
+        by["y"] = by.y + pd.Series({g: float(lat.get((pid, g), 0.0)) for g in by.index}, dtype=float)   # yards after taking a lateral
         log = [{"week": int(wk[g]), "targets": int(by.t.get(g, 0)), "receptions": int(by.c.get(g, 0)), "yards": int(by.y.get(g, 0))} for g in order if g in by.index]
+        yds = float(by.y.sum())
         recs.append({"player": nm, "player_id": pid, "pos": None if pd.isna(ps) else ps, "games": len(log), "targets": int(x.tgt.sum()), "receptions": int(x.cmp.sum()),
-                     "yards": int(x.pass_yds.sum()), "td": int(x.pass_td.sum()), "target_share": _div(x.tgt.sum(), team_tgt),
+                     "yards": int(yds), "td": int(x.pass_td.sum()), "target_share": _div(x.tgt.sum(), team_tgt),
                      "air_yards_share": _div(x.air.sum(), team_air), "avg_depth_of_target": _div(x.air.sum(), x.tgt.sum()),
-                     "yards_per_target": _div(x.pass_yds.sum(), x.tgt.sum()), "explosive": int(x.xpl_pass.sum()),
+                     "yards_per_target": _div(yds, x.tgt.sum()), "explosive": int(x.xpl_pass.sum()),
                      "red_zone_targets": int(x.tgt[rz.loc[x.index]].sum()), "log": log})
-    rush = d[d.carry == 1].groupby(["rusher_player_id", "rusher_player_name", "rush_pos"], dropna=False)
+    rush = d[(d.carry == 1) | (d.scramble == 1)].groupby(["rusher_player_id", "rusher_player_name", "rush_pos"], dropna=False)
+    kn = None if kneels is None else kneels[kneels.game_id.isin(game_ids)].set_index(["rusher_player_id", "game_id"])
     rushers = []
     for (pid, nm, ps), x in rush:
-        by = x.groupby("game_id").agg(c=("carry", "sum"), y=("rush_yds", "sum"))
-        log = [{"week": int(wk[g]), "carries": int(by.c.get(g, 0)), "yards": int(by.y.get(g, 0))} for g in order if g in by.index]
+        by = x.groupby("game_id").agg(c=("carry", "sum"), y=("rush_yds", "sum"), s=("scramble", "sum"), oy=("rush_credit_yds", "sum"))
+        kc = {g: (int(kn.kneels.get((pid, g), 0)), float(kn.kneel_yds.get((pid, g), 0.0))) for g in by.index} if kn is not None else {}
+        log = [{"week": int(wk[g]), "carries": int(by.c.get(g, 0)), "yards": int(by.y.get(g, 0)),
+                "official_attempts": int(by.c[g] + by.s[g] + kc.get(g, (0, 0))[0]), "official_yards": int(by.oy[g] + kc.get(g, (0, 0.0))[1])}
+               for g in order if g in by.index]
         rushers.append({"player": nm, "player_id": pid, "pos": None if pd.isna(ps) else ps, "games": len(log), "carries": int(x.carry.sum()), "yards": int(x.rush_yds.sum()),
+                        "rush_attempts_official": int(sum(e["official_attempts"] for e in log)),
+                        "rushing_yards_official": int(sum(e["official_yards"] for e in log)), "kneels_included": kn is not None,
                         "td": int(x.rush_td.sum()), "carry_share": _div(x.carry.sum(), team_carry), "yards_per_carry": _div(x.rush_yds.sum(), x.carry.sum()),
                         "explosive": int(((x.rush_yds >= EXPLOSIVE_RUSH)).sum()), "red_zone_carries": int(x.carry[rz.loc[x.index]].sum()), "log": log})
     qb = d[d.dropback == 1].groupby(["passer_player_id", "passer_player_name"], dropna=True)
