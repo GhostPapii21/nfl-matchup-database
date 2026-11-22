@@ -1,4 +1,4 @@
-# Defensive coverage profiles from Week 11 games (built 2026-11-22 05:11 PM AST by Blitz, refs NFL-56)
+# Defensive coverage profiles from Week 11 games (built 2026-11-22 05:17 PM AST by Blitz, refs NFL-56)
 
 Sources: ESPN summary JSON play text (per game, pull time in each game file), ESPN team rosters for names/positions, official NFL YouTube highlight auto-captions where noted (labeled video). No PFF/FTN paid content.
 **Evidence levels:** VERIFIED = play text names the defender who broke up/intercepted the pass or was flagged for DPI. tackler = defender named as tackler on a completion (not proof of coverage). video = a highlight-commentary mention (auto-captions; names can be misspelled). Man/zone, blitz and MOF shell per play are **unknown** in free data.
@@ -47,7 +47,7 @@ Pass rush: sacks G.Karlaftis (half) 1, C.Jones (half) 1, G.Karlaftis 2; QB hits 
 Video (highlight transcript) mentions: none found / not checked
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
-## BAL defense vs CAR (BAL@CAR, IN PROGRESS (1:44)
+## BAL defense vs CAR (BAL@CAR, IN PROGRESS (0:22)
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -71,23 +71,23 @@ Pass rush: sacks M.Green 2, T.Jones 1; QB hits T.Hendrickson 1, C.Campbell 1, D.
 Video (highlight transcript) mentions: none found / not checked
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
-## CAR defense vs BAL (BAL@CAR, IN PROGRESS (1:44)
+## CAR defense vs BAL (BAL@CAR, IN PROGRESS (0:22)
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Tre'von Moehrig | S | 2 | 2 | 40 | 0 | 0 | 0 | 0 | tackler x2 | D.Henry 1, D.Walker 1 | D.Walker 34 deep_right Q2 |
 | Zakee Wheatley | S | 3 | 3 | 38 | 0 | 0 | 0 | 0 | tackler x3 | Z.Flowers 3 | Z.Flowers 25 deep_middle Q2 |
 | W.Lee (name unresolved) | unknown | 3 | 2 | 32 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | Z.Flowers 1, D.Henry 2 | Z.Flowers 26 short_left Q2 |
+| Tyrel Dodson | LB | 4 | 4 | 23 | 0 | 0 | 0 | 0 | tackler x4 | M.Hibner 1, J.Hill 2, M.Andrews 1 |  |
 | Chau Smith-Wade | CB | 3 | 2 | 23 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | J.Hill 1, R.Bateman 1, Z.Flowers 1 |  |
 | Mike Jackson | CB | 4 | 2 | 19 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | R.Bateman 2, Z.Flowers 2 |  |
-| Tyrel Dodson | LB | 3 | 3 | 18 | 0 | 0 | 0 | 0 | tackler x3 | M.Hibner 1, J.Hill 1, M.Andrews 1 |  |
 | Devin Lloyd | LB | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | Z.Flowers 1, J.Hill 1 |  |
 | P.Jones (name unresolved) | unknown | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | M.Hibner 1, J.Cuevas 1 |  |
 | Derrick Brown | DT | 3 | 2 | 5 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | D.Henry 1, Z.Flowers 2 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 11/17 for 198 yds, 1 TD; RB 6/9 for 36 yds, 0 TD; TE 4/7 for 25 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 11/17 for 198 yds, 1 TD; RB 7/10 for 41 yds, 0 TD; TE 5/8 for 34 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 4/4
-Pass rush: sacks P.Umanmielen (half) 1, D.Lloyd (half) 2, T.Gipson (half) 1; QB hits T.Wharton 1, P.Jones 1
+Pass rush: sacks P.Umanmielen (half) 1, D.Lloyd (half) 2, T.Gipson (half) 1, P.Umanmielen 1; QB hits T.Wharton 2, P.Jones 1
 Video (highlight transcript) mentions: none found / not checked
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
@@ -212,18 +212,20 @@ Pass rush: sacks J.Simmons 3, C.Lewis 1, M.Sweat 1, C.Phillips 1; QB hits A.Book
 Video (highlight transcript) mentions: none found / not checked
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
-## NYJ defense vs LAC (NYJ@LAC, IN PROGRESS (11:08)
+## NYJ defense vs LAC (NYJ@LAC, IN PROGRESS (8:26)
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| Minkah Fitzpatrick | S | 1 | 1 | 13 | 0 | 0 | 0 | 0 | tackler x1 | D.Njoku 1 |  |
+| Demario Davis | LB | 1 | 1 | 8 | 0 | 0 | 0 | 0 | tackler x1 | C.Kolar 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): none
+Yards allowed by target position (WR slot/outside unknown): TE 2/2 for 21 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 0/0
 Pass rush: sacks none; QB hits none
 Video (highlight transcript) mentions: none found / not checked
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
-## LAC defense vs NYJ (NYJ@LAC, IN PROGRESS (11:08)
+## LAC defense vs NYJ (NYJ@LAC, IN PROGRESS (8:26)
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -262,7 +264,7 @@ Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting)
 | J.Trotter (name unresolved) | unknown | 4 | 4 | 36 | 0 | 0 | 0 | 0 | tackler x4 | P.Freiermuth 1, R.Dowdle 1, D.Washington 1, M.Hurleman 1 |  |
 | Cooper DeJean | CB | 3 | 2 | 24 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | G.Bernard 2, P.Freiermuth 1 |  |
 | Andrew Mukuba | S | 4 | 3 | 22 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | D.Washington 1, R.Wilson 1, M.Hurleman 1, G.Bernard 1 |  |
-| Jonathan Jones | CB | 6 | 4 | 21 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x4 | M.Hurleman 2, P.Freiermuth 1, R.Wilson 3 |  |
+| Jonathan Jones | CB | 7 | 4 | 21 | 0 | 3 | 0 | 0 | VERIFIED x3, tackler x4 | M.Hurleman 3, P.Freiermuth 1, R.Wilson 3 |  |
 | DeVonta Smith (last-name match) | WR | 2 | 2 | 11 | 0 | 0 | 0 | 0 | tackler x2 | P.Freiermuth 1, G.Bernard 1 |  |
 | Jihaad Campbell | LB | 3 | 3 | 10 | 0 | 0 | 0 | 0 | tackler x3 | J.Warren 2, R.Dowdle 1 |  |
 | Jalyx Hunt | LB | 1 | 1 | 7 | 0 | 0 | 0 | 0 | tackler x1 | G.Bernard 1 |  |
@@ -270,7 +272,7 @@ Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting)
 | Quinyon Mitchell | CB | 3 | 1 | 2 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x1 | D.Metcalf 3 |  |
 | Arnold Ebiketie | LB | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tackler x1 | D.Washington 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 10/19 for 85 yds, 0 TD; RB 12/14 for 81 yds, 1 TD; TE 8/8 for 61 yds, 0 TD; unknown 0/2 for 0 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 10/19 for 85 yds, 0 TD; RB 12/15 for 81 yds, 1 TD; TE 8/8 for 61 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 2/0
 Pass rush: sacks J.Hunt 1, B.Young 2, J.Greenard 1, N.Smith 1, G.Hall 1; QB hits M.Ojomo 1
 Video (highlight transcript) mentions: none found / not checked

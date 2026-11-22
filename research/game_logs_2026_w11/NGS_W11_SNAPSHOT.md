@@ -1,4 +1,4 @@
-# Next Gen Stats, Week 11 statboard snapshot (pulled 2026-11-22 05:11 PM AST)
+# Next Gen Stats, Week 11 statboard snapshot (pulled 2026-11-22 05:17 PM AST)
 
 Source: nextgenstats.nfl.com public statboard API (receiving/rushing/passing, season 2026 REG week 11). **This is a live, partial snapshot**: NGS applies a minimum-volume threshold and games in progress are included mid-game. Re-pull Monday for final values.
 Not available publicly: per-player route trees / routes run by route type, alignment (slot/outside), coverage faced. NGS route charts exist as images on nextgenstats.nfl.com/charts but no public data endpoint; TODO Monday: re-pull statboard and check charts pages for W11.
@@ -47,39 +47,39 @@ Not available publicly: per-player route trees / routes run by route type, align
 
 | Player | Team (from ESPN box) | rushAttempts | rushYards | expectedRushYards | rushYardsOverExpected | rushYardsOverExpectedPerAtt | rushPctOverExpected | percentAttemptsGteEightDefenders | avgTimeToLos | efficiency |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Jonathan Taylor | IND | 11 | 21 | 45.01 | -24.01 | -2.18 | 0.09 | 18.18 | 2.94 | 7.87 |
-| Ollie Gordon II | MIA | 11 | 69 | 38.91 | 28.09 | 2.81 | 0.60 | 27.27 | 2.76 | 2.83 |
-| Travis Etienne | unknown | 14 | 76 | 65.32 | 10.68 | 0.76 | 0.21 | 7.14 | 2.98 | 3.03 |
-| Jahmyr Gibbs | DET | 23 | 98 | 81.16 | 18.84 | 0.86 | 0.32 | 65.22 | 2.96 | 4.26 |
 | Bucky Irving | TB | 18 | 68 | 58.39 | 9.61 | 0.53 | 0.39 | 38.89 | 3.10 | 4.13 |
-| Saquon Barkley | PHI | 17 | 75 | 56.17 | 18.83 | 1.11 | 0.35 | 11.76 | 3.13 | 4.10 |
-| James Cook | unknown | 22 | 89 | 78.22 | 10.78 | 0.49 | 0.50 | 18.18 | 2.71 | 3.73 |
-| Chuba Hubbard | CAR | 25 | 118 | 97.79 | 14.21 | 0.62 | 0.48 | 24 | 2.60 | 3.69 |
-| Derrick Henry | BAL | 13 | 94 | 68.05 | 25.95 | 2.00 | 0.62 | 23.08 | 2.84 | 2.92 |
+| Travis Etienne | unknown | 14 | 76 | 65.32 | 10.68 | 0.76 | 0.21 | 7.14 | 2.98 | 3.03 |
 | Emmett Johnson | KC | 23 | 105 | 88.70 | 16.30 | 0.71 | 0.43 | 17.39 | 2.76 | 3.52 |
-| Tony Pollard | TEN | 21 | 110 | 83.71 | 26.29 | 1.25 | 0.62 | 4.76 | 2.78 | 3.07 |
-| Javonte Williams | DAL | 18 | 67 | 70.25 | -5.25 | -0.31 | 0.29 | 22.22 | 2.72 | 3.79 |
 | David Montgomery | HOU | 26 | 107 | 115.99 | -8.99 | -0.35 | 0.42 | 15.38 | 2.82 | 3.50 |
+| Javonte Williams | DAL | 18 | 67 | 70.25 | -5.25 | -0.31 | 0.29 | 22.22 | 2.72 | 3.79 |
+| Saquon Barkley | PHI | 17 | 75 | 56.17 | 18.83 | 1.11 | 0.35 | 11.76 | 3.13 | 4.10 |
+| Ollie Gordon II | MIA | 11 | 69 | 43.94 | 25.06 | 2.28 | 0.55 | 27.27 | 2.76 | 2.83 |
+| Chuba Hubbard | CAR | 27 | 120 | 112.26 | 7.74 | 0.29 | 0.44 | 25.93 | 2.62 | 3.88 |
+| Tony Pollard | TEN | 21 | 110 | 83.71 | 26.29 | 1.25 | 0.62 | 4.76 | 2.78 | 3.07 |
+| Derrick Henry | BAL | 13 | 94 | 68.05 | 25.95 | 2.00 | 0.62 | 23.08 | 2.84 | 2.92 |
 | D'Andre Swift | CHI | 13 | 51 | 50.08 | -0.08 | -0.01 | 0.42 | 15.38 | 2.61 | 3.86 |
+| Jonathan Taylor | IND | 11 | 21 | 45.01 | -24.01 | -2.18 | 0.09 | 18.18 | 2.94 | 7.87 |
+| James Cook | unknown | 22 | 89 | 78.22 | 10.78 | 0.49 | 0.50 | 18.18 | 2.71 | 3.73 |
+| Jahmyr Gibbs | DET | 23 | 98 | 81.16 | 18.84 | 0.86 | 0.32 | 65.22 | 2.96 | 4.26 |
 
 ## passing (16 players over NGS threshold)
 
 | Player | Team (from ESPN box) | attempts | completions | passYards | avgTimeToThrow | avgCompletedAirYards | avgIntendedAirYards | aggressiveness | completionPercentageAboveExpectation | maxCompletedAirDistance |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Jared Goff | DET | 28 | 20 | 279 | 3.06 | 8.41 | 8.48 | 10.71 | 4.23 | 46.87 |
-| Aaron Rodgers | PIT | 42 | 29 | 207 | 2.47 | 1.81 | 5.63 | 14.29 | -3.44 | 34.82 |
-| Bryce Young | unknown | 25 | 18 | 217 | 2.75 | 7.08 | 7.40 | 12 | 7.93 | 45.11 |
-| Daniel Jones | IND | 27 | 12 | 144 | 3.00 | 3.28 | 10.17 | 18.52 | -9.01 | 34.46 |
-| Patrick Mahomes | unknown | 39 | 27 | 324 | 2.52 | 4.95 | 8.37 | 10.26 | 3.29 | 44.79 |
-| Josh Allen | unknown | 45 | 27 | 304 | 3.05 | 4.00 | 7.66 | 8.89 | -6.50 | 36.51 |
-| Tyler Shough | NO | 40 | 24 | 218 | 2.96 | 6.90 | 8.57 | 12.50 | -0.99 | 36.39 |
-| Kyle McCord | MIA | 27 | 10 | 84 | 3.16 | 5.98 | 9.28 | 33.33 | -17.01 | 34.48 |
-| Jacoby Brissett | BAL | 34 | 22 | 262 | 2.99 | 4.94 | 5.89 | 5.88 | -4.11 | 48.67 |
-| Josh Johnson | ARI | 31 | 18 | 155 | 2.50 | 3.83 | 6.38 | 12.90 | -9.64 | 39.50 |
-| Cam Ward | TEN | 29 | 20 | 236 | 3.10 | 5.54 | 8.57 | 17.24 | 2.25 | 28.90 |
 | Dak Prescott | DAL | 33 | 28 | 325 | 2.80 | 6.98 | 7.33 | 6.06 | 12.22 | 43.11 |
+| Baker Mayfield | TB | 33 | 20 | 187 | 2.59 | 5.02 | 6.30 | 15.15 | -4.11 | 41.30 |
+| Cam Ward | TEN | 30 | 21 | 248 | 3.35 | 6.24 | 8.92 | 16.67 | 4.86 | 47.20 |
+| Patrick Mahomes | unknown | 39 | 27 | 324 | 2.52 | 4.95 | 8.37 | 10.26 | 3.29 | 44.79 |
+| Tyler Shough | NO | 42 | 25 | 222 | 3.05 | 6.76 | 8.51 | 11.90 | -0.94 | 36.39 |
+| Bryce Young | CAR | 30 | 22 | 254 | 2.67 | 7.05 | 7.48 | 13.33 | 9.71 | 45.11 |
+| Jared Goff | DET | 28 | 20 | 279 | 3.06 | 8.41 | 8.48 | 10.71 | 4.23 | 46.87 |
+| Josh Allen | unknown | 45 | 27 | 304 | 3.05 | 4.00 | 7.66 | 8.89 | -6.50 | 36.51 |
+| Josh Johnson | ARI | 31 | 18 | 155 | 2.50 | 3.83 | 6.38 | 12.90 | -9.64 | 39.50 |
 | Caleb Williams | CHI | 23 | 15 | 181 | 2.94 | 8.58 | 10.47 | 13.04 | 3.15 | 47.07 |
-| Baker Mayfield | TB | 28 | 17 | 166 | 2.63 | 5.19 | 5.89 | 17.86 | -6.44 | 41.30 |
-| Joe Milton III | unknown | 20 | 10 | 134 | 2.65 | 10.22 | 11.41 | 10 | -14.39 | 32.68 |
+| Jacoby Brissett | BAL | 36 | 24 | 276 | 3.03 | 5.05 | 5.92 | 5.56 | -2.35 | 48.67 |
 | C.J. Stroud | HOU | 27 | 21 | 194 | 2.98 | 6.10 | 6.95 | 14.81 | 6.59 | 54.36 |
+| Joe Milton III | unknown | 21 | 11 | 141 | 2.63 | 9.81 | 11.14 | 14.29 | -10.58 | 32.68 |
+| Daniel Jones | IND | 27 | 12 | 144 | 3.00 | 3.28 | 10.17 | 18.52 | -9.01 | 34.46 |
+| Aaron Rodgers | PIT | 44 | 30 | 227 | 2.51 | 2.50 | 6.65 | 18.18 | -0.61 | 34.82 |
+| Kyle McCord | MIA | 33 | 12 | 102 | 3.10 | 6.09 | 9.26 | 30.30 | -22.76 | 34.48 |
 

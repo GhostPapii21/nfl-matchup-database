@@ -228,7 +228,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | J.Trotter (name unresolved) | unknown | 4 | 4 | 36 | 0 | 0 | 0 | 0 | tackler x4 | P.Freiermuth 1, R.Dowdle 1, D.Washington 1, M.Hurleman 1 |  |
 | Cooper DeJean | CB | 3 | 2 | 24 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | G.Bernard 2, P.Freiermuth 1 |  |
 | Andrew Mukuba | S | 4 | 3 | 22 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | D.Washington 1, R.Wilson 1, M.Hurleman 1, G.Bernard 1 |  |
-| Jonathan Jones | CB | 6 | 4 | 21 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x4 | M.Hurleman 2, P.Freiermuth 1, R.Wilson 3 |  |
+| Jonathan Jones | CB | 7 | 4 | 21 | 0 | 3 | 0 | 0 | VERIFIED x3, tackler x4 | M.Hurleman 3, P.Freiermuth 1, R.Wilson 3 |  |
 | DeVonta Smith (last-name match) | WR | 2 | 2 | 11 | 0 | 0 | 0 | 0 | tackler x2 | P.Freiermuth 1, G.Bernard 1 |  |
 | Jihaad Campbell | LB | 3 | 3 | 10 | 0 | 0 | 0 | 0 | tackler x3 | J.Warren 2, R.Dowdle 1 |  |
 | Jalyx Hunt | LB | 1 | 1 | 7 | 0 | 0 | 0 | 0 | tackler x1 | G.Bernard 1 |  |
@@ -236,7 +236,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Quinyon Mitchell | CB | 3 | 1 | 2 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x1 | D.Metcalf 3 |  |
 | Arnold Ebiketie | LB | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tackler x1 | D.Washington 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 10/19 for 85 yds, 0 TD; RB 12/14 for 81 yds, 1 TD; TE 8/8 for 61 yds, 0 TD; unknown 0/2 for 0 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 10/19 for 85 yds, 0 TD; RB 12/15 for 81 yds, 1 TD; TE 8/8 for 61 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 2/0
 Pass rush: sacks J.Hunt 1, B.Young 2, J.Greenard 1, N.Smith 1, G.Hall 1; QB hits M.Ojomo 1
 Video (highlight transcript) mentions: none found / not checked

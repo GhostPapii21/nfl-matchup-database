@@ -1,4 +1,4 @@
-# Field coverage per game (built 2026-11-22 05:11 PM AST)
+# Field coverage per game (built 2026-11-22 05:17 PM AST)
 
 | Field | NO@CHI | TB@DET | PIT@PHI | BAL@CAR (IN PROGRESS) | MIA@BUF | TEN@DAL | ARI@KC | NYJ@LAC (IN PROGRESS) | IND@HOU |
 |---|---|---|---|---|---|---|---|---|---|
@@ -7,12 +7,12 @@
 | Full-game close spread/total + ATS/total result | filled | filled | filled | filled | filled | filled | filled | filled | filled |
 | Per-period (Q1-Q4/1H/2H) lines + results | filled | filled | filled | filled | filled | filled | filled | filled | filled |
 | Scoring plays + breakdown (rush/rec/QB rush/DST/FG) | filled | filled | filled | filled | filled | filled | filled | filled | filled |
-| Full pbp, play count reconciles to ESPN | filled | filled | filled | MISMATCH | filled | filled | filled | filled | filled |
+| Full pbp, play count reconciles to ESPN | filled | filled | filled | filled | filled | filled | filled | filled | filled |
 | 3rd/4th down, RZ trips + usage, TOP, drives | filled | filled | filled | filled | filled | filled | filled | filled | filled |
 | Turnovers + rate | filled | filled | filled | filled | filled | filled | filled | filled | filled |
 | Targets/rec/catch%/yds/target share for every WR/TE/RB with a target | filled | filled | filled | filled | filled | filled | filled | filled | filled |
 | Carries/rush yds/carry share | filled | filled | filled | filled | filled | filled | filled | filled | filled |
-| Defender on pass plays | partial: 6 verified (PBU/INT/DPI), 36 tackler-only, 16 unattributed | partial: 10 verified (PBU/INT/DPI), 36 tackler-only, 13 unattributed | partial: 10 verified (PBU/INT/DPI), 39 tackler-only, 15 unattributed | partial: 9 verified (PBU/INT/DPI), 40 tackler-only, 13 unattributed | partial: 14 verified (PBU/INT/DPI), 39 tackler-only, 21 unattributed | partial: 4 verified (PBU/INT/DPI), 43 tackler-only, 15 unattributed | partial: 7 verified (PBU/INT/DPI), 40 tackler-only, 21 unattributed | partial: 1 verified (PBU/INT/DPI), 0 tackler-only, 1 unattributed | partial: 7 verified (PBU/INT/DPI), 29 tackler-only, 14 unattributed |
+| Defender on pass plays | partial: 6 verified (PBU/INT/DPI), 36 tackler-only, 16 unattributed | partial: 10 verified (PBU/INT/DPI), 36 tackler-only, 13 unattributed | partial: 11 verified (PBU/INT/DPI), 39 tackler-only, 14 unattributed | partial: 9 verified (PBU/INT/DPI), 41 tackler-only, 14 unattributed | partial: 14 verified (PBU/INT/DPI), 39 tackler-only, 21 unattributed | partial: 4 verified (PBU/INT/DPI), 43 tackler-only, 15 unattributed | partial: 7 verified (PBU/INT/DPI), 40 tackler-only, 21 unattributed | partial: 1 verified (PBU/INT/DPI), 2 tackler-only, 1 unattributed | partial: 7 verified (PBU/INT/DPI), 29 tackler-only, 14 unattributed |
 | Defense leaks by position (TE/WR/RB) | filled; WR slot vs outside unknown | filled; WR slot vs outside unknown | filled; WR slot vs outside unknown | filled; WR slot vs outside unknown | filled; WR slot vs outside unknown | filled; WR slot vs outside unknown | filled; WR slot vs outside unknown | filled; WR slot vs outside unknown | filled; WR slot vs outside unknown |
 | QB vs man/zone, blitz, MOF shell, pressure | unknown (no free charting) | unknown (no free charting) | unknown (no free charting) | unknown (no free charting) | unknown (no free charting) | unknown (no free charting) | unknown (no free charting) | unknown (no free charting) | unknown (no free charting) |
 | Weather (ESPN + Open-Meteo kickoff hour) | filled | filled | filled | filled | filled | filled | filled | filled | filled |

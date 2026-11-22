@@ -1,6 +1,6 @@
 # PIT @ PHI - Week 11 game log (FINAL)
 
-ESPN event 401873076. Pulled 2026-11-22 05:11 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
+ESPN event 401873076. Pulled 2026-11-22 05:17 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
 
 ## Score by quarter
 
@@ -14,7 +14,7 @@ Who led during Q2 (score changes, clock at the play): PHI 0-13 @15:00. Leader at
 
 ## Result vs closing line
 
-Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:11 PM AST. Home spread shown.
+Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:17 PM AST. Home spread shown.
 
 | Book | Home spread (odds) | Total (O/U odds) |
 |---|---|---|
@@ -26,7 +26,7 @@ Action Network public scoreboard, last pre-game line per book (is_live=false), p
 | BetMGM | PHI +3.5 (-110) | 37.5 (-110/-108) |
 | bet365 | PHI +3.5 (-111) | 37.5 (-110/-110) |
 
-ESPN pickcenter (DraftKings): PIT -3.5, O/U 37.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:11 PM AST).
+ESPN pickcenter (DraftKings): PIT -3.5, O/U 37.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:17 PM AST).
 
 **Grading vs AN consensus close (PHI +3.5, total 37.5):** outright winner PHI (16-19); ATS cover PHI; total 35 -> UNDER.
 
@@ -56,9 +56,9 @@ Scoring mix: PHI Field Goal Good x4; PHI Rushing Touchdown x1; PIT Field Goal Go
 | Time of possession | 35:30 | 24:30 |
 | Drives | 11 | 12 |
 | Plays | 69 | 50 |
-| Total yards | 255 | 213 |
+| Total yards | 255 | 214 |
 | Net pass yds | 182 | 123 |
-| Rush yds | 73 | 90 |
+| Rush yds | 73 | 91 |
 | Rush att | 20 | 26 |
 | Sacks-yds lost | 5-45 | 3-18 |
 | Turnovers | 0 | 1 |
@@ -91,7 +91,7 @@ Scoring mix: PHI Field Goal Good x4; PHI Rushing Touchdown x1; PIT Field Goal Go
 | 20 | PIT | PIT 31 | Q4 10:25 | 3 | 5 | 1:46 | Punt |  |
 | 21 | PHI | PHI 29 | Q4 8:39 | 9 | 34 | 4:20 | Field Goal |  |
 | 22 | PIT | PIT 28 | Q4 4:19 | 13 | 72 | 2:58 | Touchdown | yes |
-| 23 | PHI | PHI 35 | Q4 1:21 | 5 | 7 | 1:21 | End of Game |  |
+| 23 | PHI | PHI 35 | Q4 1:21 | 5 | 8 | 1:21 | End of Game |  |
 
 Drive outcomes: PIT: Downs 1, Punt 6, Field Goal 3, Touchdown 1 | PHI: Field Goal 4, Touchdown 1, Punt 4, End of Half 1, Fumble 1, End of Game 1
 
@@ -153,7 +153,7 @@ Target-share leader (PHI): DeVonta Smith 12/21 (57.1%)
 |---|---|---|---|---|---|---|
 | Saquon Barkley | 17 | 75 | 4.4 | 1 | 38 | 65% |
 | Will Shipley | 4 | 9 | 2.3 | 0 | 4 | 15% |
-| Joe Milton | 5 | 6 | 1.2 | 0 | 5 | 19% |
+| Joe Milton | 5 | 7 | 1.4 | 0 | 5 | 19% |
 
 PHI passing: Joe Milton 11/21, 141 yds, 0 TD, 0 INT, sacks 3-18
 
@@ -171,7 +171,7 @@ Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke u
 | PHI | J.Trotter | 4 | 4 | 36 | 0 | 0 | 0 | 0 | P.Freiermuth 1, R.Dowdle 1, D.Washington 1, M.Hurleman 1 |  |
 | PHI | C.DeJean | 3 | 2 | 24 | 0 | 1 | 0 | 0 | G.Bernard 2, P.Freiermuth 1 |  |
 | PHI | A.Mukuba | 4 | 3 | 22 | 0 | 1 | 0 | 0 | D.Washington 1, R.Wilson 1, M.Hurleman 1, G.Bernard 1 |  |
-| PHI | J.Jones | 6 | 4 | 21 | 0 | 2 | 0 | 0 | R.Wilson 3, M.Hurleman 2, P.Freiermuth 1 |  |
+| PHI | J.Jones | 7 | 4 | 21 | 0 | 3 | 0 | 0 | M.Hurleman 3, R.Wilson 3, P.Freiermuth 1 |  |
 | PIT | R.Spears-Jennings | 1 | 1 | 14 | 0 | 0 | 0 | 0 | D.Cooper 1 |  |
 | PHI | N.Smith | 2 | 2 | 11 | 0 | 0 | 0 | 0 | P.Freiermuth 1, G.Bernard 1 |  |
 | PIT | P.Queen | 1 | 1 | 11 | 0 | 0 | 0 | 0 | D.Smith 1 |  |
@@ -185,7 +185,7 @@ Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke u
 | PIT | J.Ramsey | 1 | 0 | 0 | 0 | 1 | 0 | 0 | D.Smith 1 |  |
 | PIT | C.Heyward | 1 | 0 | 0 | 0 | 1 | 0 | 0 | D.Smith 1 |  |
 
-Assignment evidence count: 10 VERIFIED (PBU/INT/DPI-named), 39 tackler-not-coverage (inferred), 15 unattributed.
+Assignment evidence count: 11 VERIFIED (PBU/INT/DPI-named), 39 tackler-not-coverage (inferred), 14 unattributed.
 Most yards charged to a PIT defender (tackler tag, not coverage): J.Dean 6 rec / 40 yds.
 Most yards charged to a PHI defender (tackler tag, not coverage): M.Epps 7 rec / 70 yds.
 
@@ -221,7 +221,7 @@ ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
 Venue: Lincoln Financial Field (Philadelphia), indoor=None, grass=True
 Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 63.0, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 8.0, "wind_gusts_10m": 12.5}
 
-## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:11 PM AST; scores: src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:11 PM AST)
+## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:17 PM AST; scores: src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:17 PM AST)
 
 | Period | Away pts | Home pts | Total | Winner | Line (home) | ATS winner | Total line | O/U |
 |---|---|---|---|---|---|---|---|---|
@@ -234,7 +234,7 @@ Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observ
 
 Note: books differ on whether OT counts in Q4/2H markets; 2H here includes OT if played, Q4 excludes it. Check the book rule before settling.
 
-## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:11 PM AST)
+## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:17 PM AST)
 
 Every ESPN play (181 rows incl. kickoffs, penalties, timeouts) is in `pbp/PIT_at_PHI_pbp.csv` with down/distance, yards, YAC, home win prob and a garbage-time flag.
 
@@ -243,7 +243,7 @@ Every ESPN play (181 rows incl. kickoffs, penalties, timeouts) is in `pbp/PIT_at
 | PIT | 69 | 69 | yes |
 | PHI | 50 | 50 | yes |
 
-## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:11 PM AST)
+## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:17 PM AST)
 
 | Stat | PIT | PHI |
 |---|---|---|
@@ -255,14 +255,14 @@ Every ESPN play (181 rows incl. kickoffs, penalties, timeouts) is in `pbp/PIT_at
 | Drives | 11 | 12 |
 | Turnover rate | 0.0% of drives; 0.0% of plays | 8.3% of drives; 2.0% of plays |
 
-## Scoring breakdown (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:11 PM AST scoringPlays)
+## Scoring breakdown (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:17 PM AST scoringPlays)
 
 | Team | Non-QB rush TD | QB rush TD | Receiving TD | Defense/ST TD | FG | Safety | Other |
 |---|---|---|---|---|---|---|---|
 | PIT | 0 | 0 | 1 | 0 | 3 | 0 |  |
 | PHI | 1 | 0 | 0 | 0 | 4 | 0 |  |
 
-## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:11 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:11 PM AST)
+## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:17 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:17 PM AST)
 
 Players absent from the ESPN receiving box had no target or reception logged; whether they played is unknown until snap counts post (nflverse/PFR, usually Monday-Tuesday).
 
@@ -285,7 +285,7 @@ Players absent from the ESPN receiving box had no target or reception logged; wh
 | PHI | Dallas Goedert | TE | 1 | 1 | 100% | 38 | 0 logged* | 0 logged* | 4.8% |
 | PHI | Will Shipley | RB | 0 logged* | 0 logged* | n/a | 0 logged* | 4 | 9 | 0%* |
 
-## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:11 PM AST)
+## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:17 PM AST)
 
 WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not chart alignment; FTN/PFF are paid and are not used). Pass location (left/middle/right) is shown as a proxy only.
 
@@ -301,14 +301,14 @@ PIT defense by depth/location (proxy, not alignment): short_left 5/8 61y; short_
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
 | WR | 19 | 10 | 85 | 0 | 4.5 |
-| RB | 14 | 12 | 81 | 1 | 5.8 |
+| RB | 15 | 12 | 81 | 1 | 5.4 |
 | TE | 8 | 8 | 61 | 0 | 7.6 |
-| unknown | 2 | 0 | 0 | 0 | 0.0 |
+| unknown | 1 | 0 | 0 | 0 | 0.0 |
 
 PHI defense by depth/location (proxy, not alignment): short_middle 8/9 65y; short_right 9/13 61y; deep_left 2/5 53y; short_left 11/12 48y; deep_right 0/4 0y
 
 
-## Extras (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:11 PM AST; derived where noted)
+## Extras (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:17 PM AST; derived where noted)
 
 | Metric | PIT | PHI |
 |---|---|---|

@@ -1,6 +1,6 @@
-# BAL @ CAR - Week 11 game log (IN PROGRESS (1:44 - 4th) - partial, a later run must finish it)
+# BAL @ CAR - Week 11 game log (IN PROGRESS (0:22 - 4th) - partial, a later run must finish it)
 
-ESPN event 401873068. Pulled 2026-11-22 05:11 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
+ESPN event 401873068. Pulled 2026-11-22 05:17 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
 
 > **IN PROGRESS: every number below is partial as of the pull time. Re-run after the final whistle.**
 
@@ -16,7 +16,7 @@ Who led during Q2 (score changes, clock at the play): BAL 12-7 @15:00 -> CAR 12-
 
 ## Result vs closing line
 
-Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:11 PM AST. Home spread shown.
+Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:17 PM AST. Home spread shown.
 
 | Book | Home spread (odds) | Total (O/U odds) |
 |---|---|---|
@@ -28,7 +28,7 @@ Action Network public scoreboard, last pre-game line per book (is_live=false), p
 | BetMGM | CAR -2.5 (-112) | 44.5 (-108/-110) |
 | bet365 | CAR -2.5 (-110) | 44.5 (-106/-114) |
 
-ESPN pickcenter (DraftKings): CAR -2.5, O/U 44.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:11 PM AST).
+ESPN pickcenter (DraftKings): CAR -2.5, O/U 44.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:17 PM AST).
 
 **Grading (CURRENT SCORE, NOT FINAL) vs AN consensus close (CAR -2.5, total 44.5):** outright winner CAR (33-35); ATS cover BAL; total 68 -> OVER.
 
@@ -55,20 +55,20 @@ Scoring mix: BAL Field Goal Good x1; BAL Kickoff Return Touchdown x1; BAL Passin
 
 | Stat | BAL | CAR |
 |---|---|---|
-| 3rd down (conv-att) | 4-9 | 5-13 |
-| 4th down | 1-1 | 0-0 |
+| 3rd down (conv-att) | 4-10 | 5-13 |
+| 4th down | 2-2 | 0-0 |
 | Red zone TD-trips (ESPN) | 2-3 | 3-6 |
-| Time of possession | 26:48 | 31:28 |
-| Drives | 11 | 12 |
-| Plays | 56 | 66 |
-| Total yards | 411 | 380 |
-| Net pass yds | 255 | 231 |
-| Rush yds | 156 | 149 |
-| Rush att | 21 | 33 |
-| Sacks-yds lost | 1-7 | 3-23 |
-| Turnovers | 3 | 1 |
+| Time of possession | 28:08 | 31:52 |
+| Drives | 12 | 13 |
+| Plays | 61 | 68 |
+| Total yards | 421 | 378 |
+| Net pass yds | 264 | 231 |
+| Rush yds | 157 | 147 |
+| Rush att | 22 | 35 |
+| Sacks-yds lost | 2-12 | 3-23 |
+| Turnovers | 4 | 1 |
 | Penalties-yds | 5-41 | 6-54 |
-| First downs | 22 | 23 |
+| First downs | 23 | 23 |
 
 ## Drives
 
@@ -97,8 +97,10 @@ Scoring mix: BAL Field Goal Good x1; BAL Kickoff Return Touchdown x1; BAL Passin
 | 21 | CAR | 50 | Q4 14:18 | 3 | -10 | 2:02 | Punt |  |
 | 22 | BAL | BAL 20 | Q4 12:16 | 10 | 80 | 5:44 | Touchdown | yes |
 | 23 | CAR | CAR 26 | Q4 6:32 | 12 | 55 | 4:48 | Field Goal | yes |
+| 24 | BAL | BAL 22 | Q4 1:44 | 5 | 10 | 1:20 | Interception |  |
+| 25 | CAR | BAL 44 | Q4 0:24 | 2 | -2 | 0:24 | End of Game |  |
 
-Drive outcomes: BAL: Punt 3, Touchdown 4, Field Goal 1, Fumble 2, End of Half 1 | CAR: Safety 1, Punt 4, Touchdown 4, Interception 1, Field Goal 2
+Drive outcomes: BAL: Punt 3, Touchdown 4, Field Goal 1, Fumble 2, End of Half 1, Interception 1 | CAR: Safety 1, Punt 4, Touchdown 4, Interception 1, Field Goal 2, End of Game 1
 
 ## Red zone (snaps starting at or inside the opponent 20; derived from ESPN play-by-play)
 
@@ -109,37 +111,37 @@ Drive outcomes: BAL: Punt 3, Touchdown 4, Field Goal 1, Fumble 2, End of Half 1 
 
 ## Third downs (play-by-play)
 
-BAL: 4/9 from pbp (box says 4-9). By distance: short (1-3) 1/2; medium (4-6) 2/3; long (7+) 1/4
+BAL: 4/10 from pbp (box says 4-10). By distance: short (1-3) 1/2; medium (4-6) 2/4; long (7+) 1/4
 CAR: 5/13 from pbp (box says 5-13). By distance: short (1-3) 1/4; medium (4-6) 4/7; long (7+) 0/2
 
 ## Player lines (ESPN box)
 
 
-**BAL receiving** (team targets 33)
+**BAL receiving** (team targets 36)
 
 | Player | Tgt | Rec | Yds | TD | Long | Catch% | Tgt share |
 |---|---|---|---|---|---|---|---|
-| Zay Flowers | 11 | 8 | 97 | 0 | 26 | 73% | 33.3% |
-| Rashod Bateman | 5 | 2 | 67 | 1 | 52 | 40% | 15.2% |
-| Derrick Henry | 5 | 4 | 17 | 0 | 6 | 80% | 15.2% |
-| Justice Hill | 4 | 3 | 22 | 0 | 9 | 75% | 12.1% |
-| Josh Cuevas | 3 | 1 | 8 | 0 | 8 | 33% | 9.1% |
-| Matt Hibner | 2 | 2 | 12 | 0 | 8 | 100% | 6.1% |
-| Mark Andrews | 2 | 1 | 5 | 0 | 5 | 50% | 6.1% |
-| Devontez Walker | 1 | 1 | 34 | 0 | 34 | 100% | 3.0% |
+| Zay Flowers | 11 | 8 | 97 | 0 | 26 | 73% | 30.6% |
+| Rashod Bateman | 6 | 2 | 67 | 1 | 52 | 33% | 16.7% |
+| Justice Hill | 5 | 4 | 27 | 0 | 9 | 80% | 13.9% |
+| Derrick Henry | 5 | 4 | 17 | 0 | 6 | 80% | 13.9% |
+| Mark Andrews | 3 | 2 | 14 | 0 | 9 | 67% | 8.3% |
+| Josh Cuevas | 3 | 1 | 8 | 0 | 8 | 33% | 8.3% |
+| Matt Hibner | 2 | 2 | 12 | 0 | 8 | 100% | 5.6% |
+| Devontez Walker | 1 | 1 | 34 | 0 | 34 | 100% | 2.8% |
 
-Target-share leader (BAL): Zay Flowers 11/33 (33.3%)
+Target-share leader (BAL): Zay Flowers 11/36 (30.6%)
 
 **BAL rushing**
 
 | Player | Car | Yds | YPC | TD | Long | Carry share |
 |---|---|---|---|---|---|---|
-| Derrick Henry | 13 | 94 | 7.2 | 1 | 19 | 62% |
-| Justice Hill | 6 | 69 | 11.5 | 1 | 36 | 29% |
-| Jacoby Brissett | 1 | 6 | 6.0 | 0 | 6 | 5% |
+| Derrick Henry | 13 | 94 | 7.2 | 1 | 19 | 59% |
+| Justice Hill | 6 | 69 | 11.5 | 1 | 36 | 27% |
+| Jacoby Brissett | 2 | 7 | 3.5 | 0 | 6 | 9% |
 | Zay Flowers | 1 | -13 | -13.0 | 0 | -13 | 5% |
 
-BAL passing: Jacoby Brissett 22/34, 262 yds, 1 TD, 0 INT, sacks 1-7
+BAL passing: Jacoby Brissett 24/37, 276 yds, 1 TD, 1 INT, sacks 2-12
 
 **CAR receiving** (team targets 30)
 
@@ -160,8 +162,9 @@ Target-share leader (CAR): Tetairoa McMillan 9/30 (30.0%)
 
 | Player | Car | Yds | YPC | TD | Long | Carry share |
 |---|---|---|---|---|---|---|
-| Chuba Hubbard | 27 | 120 | 4.4 | 2 | 26 | 82% |
-| Trevor Etienne | 6 | 29 | 4.8 | 0 | 19 | 18% |
+| Chuba Hubbard | 27 | 120 | 4.4 | 2 | 26 | 77% |
+| Trevor Etienne | 6 | 29 | 4.8 | 0 | 19 | 17% |
+| Bryce Young | 2 | -2 | -1.0 | 0 | -1 | 6% |
 
 CAR passing: Bryce Young 22/30, 254 yds, 2 TD, 1 INT, sacks 3-23
 
@@ -179,9 +182,9 @@ Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke u
 | CAR | W.Lee | 3 | 2 | 32 | 0 | 1 | 0 | 0 | D.Henry 2, Z.Flowers 1 | Z.Flowers 26 short_left Q2 |
 | BAL | T.Tampa | 2 | 1 | 27 | 0 | 1 | 0 | 0 | D.Waller 1, J.Coker 1 | D.Waller 27 deep_middle Q3 |
 | BAL | M.Starks | 2 | 2 | 25 | 0 | 0 | 0 | 0 | J.Coker 1, J.Metchie 1 |  |
+| CAR | T.Dodson | 4 | 4 | 23 | 0 | 0 | 0 | 0 | J.Hill 2, M.Hibner 1, M.Andrews 1 |  |
 | CAR | C.Smith-Wade | 3 | 2 | 23 | 0 | 1 | 0 | 0 | J.Hill 1, R.Bateman 1, Z.Flowers 1 |  |
 | CAR | M.Jackson | 4 | 2 | 19 | 0 | 2 | 0 | 0 | R.Bateman 2, Z.Flowers 2 |  |
-| CAR | T.Dodson | 3 | 3 | 18 | 0 | 0 | 0 | 0 | M.Hibner 1, J.Hill 1, M.Andrews 1 |  |
 | BAL | T.Simpson | 1 | 1 | 18 | 0 | 0 | 0 | 0 | T.Tremble 1 |  |
 | CAR | D.Lloyd | 2 | 2 | 16 | 0 | 0 | 0 | 0 | Z.Flowers 1, J.Hill 1 |  |
 | CAR | P.Jones | 2 | 2 | 16 | 0 | 0 | 0 | 0 | M.Hibner 1, J.Cuevas 1 |  |
@@ -196,7 +199,7 @@ Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke u
 | BAL | D.Olajiga | 1 | 1 | 0 | 0 | 0 | 0 | 0 | J.Coker 1 |  |
 | BAL | C.Campbell | 1 | 0 | 0 | 0 | 1 | 0 | 0 | T.McMillan 1 |  |
 
-Assignment evidence count: 9 VERIFIED (PBU/INT/DPI-named), 40 tackler-not-coverage (inferred), 13 unattributed.
+Assignment evidence count: 9 VERIFIED (PBU/INT/DPI-named), 41 tackler-not-coverage (inferred), 14 unattributed.
 Most yards charged to a BAL defender (tackler tag, not coverage): K.Hamilton 5 rec / 85 yds.
 Most yards charged to a CAR defender (tackler tag, not coverage): T.Moehrig 2 rec / 40 yds.
 
@@ -223,7 +226,7 @@ Most yards charged to a CAR defender (tackler tag, not coverage): T.Moehrig 2 re
 ## Pass rush (play text)
 
 BAL defense sacks credited: M.Green 2, T.Jones 1 | QB hits [bracketed]: T.Hendrickson 1, C.Campbell 1, D.Olajiga 1, R.Smith 1
-CAR defense sacks credited: P.Umanmielen (half) 1, D.Lloyd (half) 2, T.Gipson (half) 1 | QB hits [bracketed]: T.Wharton 1, P.Jones 1
+CAR defense sacks credited: P.Umanmielen (half) 1, D.Lloyd (half) 2, T.Gipson (half) 1, P.Umanmielen 1 | QB hits [bracketed]: T.Wharton 2, P.Jones 1
 
 ## In-game injuries (play text "was injured during the play")
 
@@ -238,11 +241,11 @@ CAR Unnecessary Roughness x2, CAR Defensive Pass Interference x1, CAR Defensive 
 
 ## Weather
 
-ESPN gameInfo: {"temperature": 58, "highTemperature": 58, "lowTemperature": 58, "conditionId": "Mostly cloudy", "gust": 11, "precipitation": 58}
+ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
 Venue: Bank of America Stadium (Charlotte), indoor=None, grass=False
 Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 58.8, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 8.3, "wind_gusts_10m": 13.9}
 
-## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:11 PM AST; scores: src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:11 PM AST)
+## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:17 PM AST; scores: src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:17 PM AST)
 
 | Period | Away pts | Home pts | Total | Winner | Line (home) | ATS winner | Total line | O/U |
 |---|---|---|---|---|---|---|---|---|
@@ -255,37 +258,35 @@ Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observ
 
 Note: books differ on whether OT counts in Q4/2H markets; 2H here includes OT if played, Q4 excludes it. Check the book rule before settling.
 
-## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:11 PM AST)
+## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:17 PM AST)
 
-Every ESPN play (179 rows incl. kickoffs, penalties, timeouts) is in `pbp/BAL_at_CAR_pbp.csv` with down/distance, yards, YAC, home win prob and a garbage-time flag.
+Every ESPN play (191 rows incl. kickoffs, penalties, timeouts) is in `pbp/BAL_at_CAR_pbp.csv` with down/distance, yards, YAC, home win prob and a garbage-time flag.
 
 | Team | Offensive plays counted from pbp (rush+pass att+sacks, no-plays excluded) | ESPN box Total Plays | Match |
 |---|---|---|---|
-| BAL | 56 | 56 | yes |
-| CAR | 65 | 66 | NO - see note |
+| BAL | 61 | 61 | yes |
+| CAR | 68 | 68 | yes |
 
-Mismatch note: ESPN sometimes counts aborted snaps/spikes differently or the feed is mid-update; flagged for Ghost6.
-
-## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:11 PM AST)
+## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:17 PM AST)
 
 | Stat | BAL | CAR |
 |---|---|---|
-| Turnovers | 3 | 1 |
+| Turnovers | 4 | 1 |
 | Fumbles lost | 3 | 0 |
-| INTs thrown | 0 | 1 |
-| 4th down conv-att | 1-1 | 0-0 |
+| INTs thrown | 1 | 1 |
+| 4th down conv-att | 2-2 | 0-0 |
 | Red zone TD-trips (ESPN) | 2-3 | 3-6 |
-| Drives | 11 | 12 |
-| Turnover rate | 27.3% of drives; 5.4% of plays | 8.3% of drives; 1.5% of plays |
+| Drives | 12 | 13 |
+| Turnover rate | 33.3% of drives; 6.6% of plays | 7.7% of drives; 1.5% of plays |
 
-## Scoring breakdown (src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:11 PM AST scoringPlays)
+## Scoring breakdown (src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:17 PM AST scoringPlays)
 
 | Team | Non-QB rush TD | QB rush TD | Receiving TD | Defense/ST TD | FG | Safety | Other |
 |---|---|---|---|---|---|---|---|
 | BAL | 2 | 0 | 1 | 1 | 1 | 1 |  |
 | CAR | 2 | 0 | 2 | 0 | 2 | 0 | {'2-pt attempt (see text)': 1} |
 
-## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:11 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:11 PM AST)
+## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:17 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:17 PM AST)
 
 Players absent from the ESPN receiving box had no target or reception logged; whether they played is unknown until snap counts post (nflverse/PFR, usually Monday-Tuesday).
 
@@ -293,14 +294,14 @@ Players absent from the ESPN receiving box had no target or reception logged; wh
 
 | Team | Player | Pos | Tgt | Rec | Catch% | Rec yds | Car | Rush yds | Tgt share |
 |---|---|---|---|---|---|---|---|---|---|
-| BAL | Zay Flowers | WR | 11 | 8 | 73% | 97 | 1 | -13 | 33.3% |
-| BAL | Derrick Henry | RB | 5 | 4 | 80% | 17 | 13 | 94 | 15.2% |
-| BAL | Rashod Bateman | WR | 5 | 2 | 40% | 67 | 0 logged* | 0 logged* | 15.2% |
-| BAL | Justice Hill | RB | 4 | 3 | 75% | 22 | 6 | 69 | 12.1% |
-| BAL | Josh Cuevas | TE | 3 | 1 | 33% | 8 | 0 logged* | 0 logged* | 9.1% |
-| BAL | Matt Hibner | TE | 2 | 2 | 100% | 12 | 0 logged* | 0 logged* | 6.1% |
-| BAL | Mark Andrews | TE | 2 | 1 | 50% | 5 | 0 logged* | 0 logged* | 6.1% |
-| BAL | Devontez Walker | WR | 1 | 1 | 100% | 34 | 0 logged* | 0 logged* | 3.0% |
+| BAL | Zay Flowers | WR | 11 | 8 | 73% | 97 | 1 | -13 | 30.6% |
+| BAL | Derrick Henry | RB | 5 | 4 | 80% | 17 | 13 | 94 | 13.9% |
+| BAL | Rashod Bateman | WR | 6 | 2 | 33% | 67 | 0 logged* | 0 logged* | 16.7% |
+| BAL | Justice Hill | RB | 5 | 4 | 80% | 27 | 6 | 69 | 13.9% |
+| BAL | Mark Andrews | TE | 3 | 2 | 67% | 14 | 0 logged* | 0 logged* | 8.3% |
+| BAL | Josh Cuevas | TE | 3 | 1 | 33% | 8 | 0 logged* | 0 logged* | 8.3% |
+| BAL | Matt Hibner | TE | 2 | 2 | 100% | 12 | 0 logged* | 0 logged* | 5.6% |
+| BAL | Devontez Walker | WR | 1 | 1 | 100% | 34 | 0 logged* | 0 logged* | 2.8% |
 | CAR | Tetairoa McMillan | WR | 9 | 6 | 67% | 71 | 0 logged* | 0 logged* | 30.0% |
 | CAR | Jalen Coker | WR | 7 | 4 | 57% | 47 | 0 logged* | 0 logged* | 23.3% |
 | CAR | Mitchell Evans | TE | 5 | 5 | 100% | 44 | 0 logged* | 0 logged* | 16.7% |
@@ -311,7 +312,7 @@ Players absent from the ESPN receiving box had no target or reception logged; wh
 | CAR | Tommy Tremble | TE | 1 | 1 | 100% | 18 | 0 logged* | 0 logged* | 3.3% |
 | CAR | Brycen Tremayne | WR | 1 | 1 | 100% | 6 | 0 logged* | 0 logged* | 3.3% |
 
-## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:11 PM AST)
+## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:17 PM AST)
 
 WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not chart alignment; FTN/PFF are paid and are not used). Pass location (left/middle/right) is shown as a proxy only.
 
@@ -322,30 +323,30 @@ WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not c
 | TE | 9 | 9 | 104 | 1 | 11.6 |
 | RB | 1 | 1 | 7 | 0 | 7.0 |
 
-BAL defense by depth/location (proxy, not alignment): short_middle 7/9 62y; short_right 6/9 61y; deep_left 2/2 58y; deep_right 1/1 29y; deep_middle 1/1 27y; short_left 5/7 17y
+BAL defense by depth/location (proxy, not alignment): short_middle 7/8 62y; short_right 6/9 61y; deep_left 2/2 58y; deep_right 1/1 29y; deep_middle 1/2 27y; short_left 5/7 17y
 
 **CAR defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
 | WR | 17 | 11 | 198 | 1 | 11.6 |
-| RB | 9 | 6 | 36 | 0 | 4.0 |
-| TE | 7 | 4 | 25 | 0 | 3.6 |
+| RB | 10 | 7 | 41 | 0 | 4.1 |
+| TE | 8 | 5 | 34 | 0 | 4.2 |
 
-CAR defense by depth/location (proxy, not alignment): deep_right 2/2 86y; short_left 8/10 79y; short_right 7/13 47y; deep_middle 1/2 25y; short_middle 3/5 22y; deep_left 0/1 0y
+CAR defense by depth/location (proxy, not alignment): short_left 9/11 88y; deep_right 2/2 86y; short_right 8/14 52y; deep_middle 1/2 25y; short_middle 3/5 22y; deep_left 0/1 0y
 
 
-## Extras (src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:11 PM AST; derived where noted)
+## Extras (src: ESPN summary JSON event 401873068, pulled 2026-11-22 05:17 PM AST; derived where noted)
 
 | Metric | BAL | CAR |
 |---|---|---|
-| Early-down pass rate (1st/2nd down, pass att+sacks / plays) | 54% (25/46) | 44% (23/52) |
-| Sack rate (sacks / dropbacks) | 2.9% (1/35) | 9.4% (3/32) |
-| QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 5.7% (2/35) | 12.5% (4/32) |
-| Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 33 air / 226 YAC on 21 comps | 161 air / 93 YAC on 22 comps |
+| Early-down pass rate (1st/2nd down, pass att+sacks / plays) | 57% (28/49) | 42% (23/55) |
+| Sack rate (sacks / dropbacks) | 5.1% (2/39) | 9.4% (3/32) |
+| QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 7.7% (3/39) | 12.5% (4/32) |
+| Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 44 air / 229 YAC on 23 comps | 161 air / 93 YAC on 22 comps |
 | Intended air yards on incompletions | unknown (not in ESPN; nflverse air_yards after overnight rebuild) | unknown |
 | Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 4 / 3 | 4 / 4 |
 | Penalties-yds | 5-41 | 6-54 |
-| Garbage-time offensive plays (Q3+ with home WP <5% or >95%, or Q4 margin 17+) | 0 | 0 |
+| Garbage-time offensive plays (Q3+ with home WP <5% or >95%, or Q4 margin 17+) | 1 | 2 |
 | Snap shares | unknown (nflverse/PFR snap counts post Mon-Tue) | unknown |
 
 ## QB vs coverage shell / pressure
