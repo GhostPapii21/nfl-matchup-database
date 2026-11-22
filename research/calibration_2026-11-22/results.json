@@ -1,0 +1,455 @@
+{
+ "source_rows": 8259,
+ "seasons": [
+  2024,
+  2025,
+  2026
+ ],
+ "stats": {
+  "receiving_yards": {
+   "coef": {
+    "const": 0.638,
+    "lp": 0.9936,
+    "lt": -0.1276
+   },
+   "train_rows": 27570,
+   "test_rows": 4325,
+   "brier_2026_sim": 0.10168,
+   "brier_2026_calibrated": 0.10155,
+   "kept": true,
+   "by_threshold_2026": [
+    {
+     "threshold": 40,
+     "n": 865,
+     "hit_rate": 0.335,
+     "avg_sim": 0.304,
+     "avg_calibrated": 0.333,
+     "brier_sim": 0.1741,
+     "brier_calibrated": 0.1732
+    },
+    {
+     "threshold": 60,
+     "n": 865,
+     "hit_rate": 0.182,
+     "avg_sim": 0.17,
+     "avg_calibrated": 0.185,
+     "brier_sim": 0.1216,
+     "brier_calibrated": 0.1215
+    },
+    {
+     "threshold": 70,
+     "n": 865,
+     "hit_rate": 0.128,
+     "avg_sim": 0.127,
+     "avg_calibrated": 0.137,
+     "brier_sim": 0.0941,
+     "brier_calibrated": 0.0942
+    },
+    {
+     "threshold": 80,
+     "n": 865,
+     "hit_rate": 0.099,
+     "avg_sim": 0.095,
+     "avg_calibrated": 0.101,
+     "brier_sim": 0.0792,
+     "brier_calibrated": 0.0794
+    },
+    {
+     "threshold": 100,
+     "n": 865,
+     "hit_rate": 0.047,
+     "avg_sim": 0.053,
+     "avg_calibrated": 0.056,
+     "brier_sim": 0.0393,
+     "brier_calibrated": 0.0394
+    }
+   ],
+   "calibration_2026": [
+    {
+     "bin": "[0.0, 0.1)",
+     "n": 2385,
+     "sim": 0.034,
+     "calibrated": 0.038,
+     "actual": 0.037
+    },
+    {
+     "bin": "[0.1, 0.2)",
+     "n": 756,
+     "sim": 0.145,
+     "calibrated": 0.16,
+     "actual": 0.163
+    },
+    {
+     "bin": "[0.2, 0.3)",
+     "n": 443,
+     "sim": 0.246,
+     "calibrated": 0.27,
+     "actual": 0.246
+    },
+    {
+     "bin": "[0.3, 0.4)",
+     "n": 281,
+     "sim": 0.345,
+     "calibrated": 0.375,
+     "actual": 0.37
+    },
+    {
+     "bin": "[0.4, 0.5)",
+     "n": 196,
+     "sim": 0.449,
+     "calibrated": 0.482,
+     "actual": 0.459
+    },
+    {
+     "bin": "[0.5, 0.6)",
+     "n": 144,
+     "sim": 0.547,
+     "calibrated": 0.58,
+     "actual": 0.576
+    },
+    {
+     "bin": "[0.6, 0.7)",
+     "n": 56,
+     "sim": 0.642,
+     "calibrated": 0.674,
+     "actual": 0.643
+    },
+    {
+     "bin": "[0.7, 0.8)",
+     "n": 54,
+     "sim": 0.748,
+     "calibrated": 0.776,
+     "actual": 0.815
+    },
+    {
+     "bin": "[0.8, 0.9)",
+     "n": 10,
+     "sim": 0.829,
+     "calibrated": 0.85,
+     "actual": 0.8
+    }
+   ]
+  },
+  "receptions": {
+   "coef": {
+    "const": 0.2,
+    "lp": 0.9705,
+    "lt": -0.0814
+   },
+   "train_rows": 11028,
+   "test_rows": 1730,
+   "brier_2026_sim": 0.13394,
+   "brier_2026_calibrated": 0.13396,
+   "kept": false,
+   "by_threshold_2026": [
+    {
+     "threshold": 4,
+     "n": 865,
+     "hit_rate": 0.343,
+     "avg_sim": 0.327,
+     "avg_calibrated": 0.346,
+     "brier_sim": 0.1763,
+     "brier_calibrated": 0.1762
+    },
+    {
+     "threshold": 6,
+     "n": 865,
+     "hit_rate": 0.138,
+     "avg_sim": 0.141,
+     "avg_calibrated": 0.151,
+     "brier_sim": 0.0916,
+     "brier_calibrated": 0.0917
+    }
+   ],
+   "calibration_2026": [
+    {
+     "bin": "[0.0, 0.1)",
+     "n": 590,
+     "sim": 0.04,
+     "calibrated": 0.046,
+     "actual": 0.029
+    },
+    {
+     "bin": "[0.1, 0.2)",
+     "n": 359,
+     "sim": 0.147,
+     "calibrated": 0.163,
+     "actual": 0.178
+    },
+    {
+     "bin": "[0.2, 0.3)",
+     "n": 244,
+     "sim": 0.248,
+     "calibrated": 0.268,
+     "actual": 0.238
+    },
+    {
+     "bin": "[0.3, 0.4)",
+     "n": 160,
+     "sim": 0.347,
+     "calibrated": 0.369,
+     "actual": 0.331
+    },
+    {
+     "bin": "[0.4, 0.5)",
+     "n": 133,
+     "sim": 0.446,
+     "calibrated": 0.467,
+     "actual": 0.489
+    },
+    {
+     "bin": "[0.5, 0.6)",
+     "n": 120,
+     "sim": 0.545,
+     "calibrated": 0.563,
+     "actual": 0.533
+    },
+    {
+     "bin": "[0.6, 0.7)",
+     "n": 61,
+     "sim": 0.647,
+     "calibrated": 0.661,
+     "actual": 0.672
+    },
+    {
+     "bin": "[0.7, 0.8)",
+     "n": 45,
+     "sim": 0.752,
+     "calibrated": 0.762,
+     "actual": 0.844
+    },
+    {
+     "bin": "[0.8, 0.9)",
+     "n": 16,
+     "sim": 0.837,
+     "calibrated": 0.843,
+     "actual": 0.875
+    },
+    {
+     "bin": "[0.9, 1.0)",
+     "n": 2,
+     "sim": 0.918,
+     "calibrated": 0.919,
+     "actual": 1.0
+    }
+   ]
+  },
+  "rushing_yards": {
+   "coef": {
+    "const": 0.8071,
+    "lp": 0.8995,
+    "lt": -0.1822
+   },
+   "train_rows": 4887,
+   "test_rows": 753,
+   "brier_2026_sim": 0.14267,
+   "brier_2026_calibrated": 0.14178,
+   "kept": true,
+   "by_threshold_2026": [
+    {
+     "threshold": 50,
+     "n": 251,
+     "hit_rate": 0.394,
+     "avg_sim": 0.345,
+     "avg_calibrated": 0.37,
+     "brier_sim": 0.1883,
+     "brier_calibrated": 0.1864
+    },
+    {
+     "threshold": 70,
+     "n": 251,
+     "hit_rate": 0.231,
+     "avg_sim": 0.205,
+     "avg_calibrated": 0.224,
+     "brier_sim": 0.1393,
+     "brier_calibrated": 0.1393
+    },
+    {
+     "threshold": 90,
+     "n": 251,
+     "hit_rate": 0.147,
+     "avg_sim": 0.118,
+     "avg_calibrated": 0.131,
+     "brier_sim": 0.1003,
+     "brier_calibrated": 0.0996
+    }
+   ],
+   "calibration_2026": [
+    {
+     "bin": "[0.0, 0.1)",
+     "n": 301,
+     "sim": 0.039,
+     "calibrated": 0.054,
+     "actual": 0.063
+    },
+    {
+     "bin": "[0.1, 0.2)",
+     "n": 145,
+     "sim": 0.147,
+     "calibrated": 0.176,
+     "actual": 0.166
+    },
+    {
+     "bin": "[0.2, 0.3)",
+     "n": 77,
+     "sim": 0.245,
+     "calibrated": 0.273,
+     "actual": 0.299
+    },
+    {
+     "bin": "[0.3, 0.4)",
+     "n": 73,
+     "sim": 0.34,
+     "calibrated": 0.366,
+     "actual": 0.438
+    },
+    {
+     "bin": "[0.4, 0.5)",
+     "n": 56,
+     "sim": 0.45,
+     "calibrated": 0.469,
+     "actual": 0.482
+    },
+    {
+     "bin": "[0.5, 0.6)",
+     "n": 43,
+     "sim": 0.553,
+     "calibrated": 0.566,
+     "actual": 0.581
+    },
+    {
+     "bin": "[0.6, 0.7)",
+     "n": 26,
+     "sim": 0.639,
+     "calibrated": 0.643,
+     "actual": 0.692
+    },
+    {
+     "bin": "[0.7, 0.8)",
+     "n": 20,
+     "sim": 0.749,
+     "calibrated": 0.744,
+     "actual": 0.8
+    },
+    {
+     "bin": "[0.8, 0.9)",
+     "n": 10,
+     "sim": 0.847,
+     "calibrated": 0.837,
+     "actual": 0.8
+    },
+    {
+     "bin": "[0.9, 1.0)",
+     "n": 2,
+     "sim": 0.91,
+     "calibrated": 0.898,
+     "actual": 1.0
+    }
+   ]
+  },
+  "carries": {
+   "coef": {
+    "const": 2.6626,
+    "lp": 0.8853,
+    "lt": -0.9469
+   },
+   "train_rows": 3258,
+   "test_rows": 502,
+   "brier_2026_sim": 0.16608,
+   "brier_2026_calibrated": 0.16412,
+   "kept": true,
+   "by_threshold_2026": [
+    {
+     "threshold": 12,
+     "n": 251,
+     "hit_rate": 0.426,
+     "avg_sim": 0.381,
+     "avg_calibrated": 0.432,
+     "brier_sim": 0.1659,
+     "brier_calibrated": 0.1647
+    },
+    {
+     "threshold": 15,
+     "n": 251,
+     "hit_rate": 0.327,
+     "avg_sim": 0.258,
+     "avg_calibrated": 0.28,
+     "brier_sim": 0.1663,
+     "brier_calibrated": 0.1635
+    }
+   ],
+   "calibration_2026": [
+    {
+     "bin": "[0.0, 0.1)",
+     "n": 173,
+     "sim": 0.032,
+     "calibrated": 0.053,
+     "actual": 0.092
+    },
+    {
+     "bin": "[0.1, 0.2)",
+     "n": 56,
+     "sim": 0.137,
+     "calibrated": 0.197,
+     "actual": 0.196
+    },
+    {
+     "bin": "[0.2, 0.3)",
+     "n": 35,
+     "sim": 0.254,
+     "calibrated": 0.32,
+     "actual": 0.4
+    },
+    {
+     "bin": "[0.3, 0.4)",
+     "n": 35,
+     "sim": 0.348,
+     "calibrated": 0.395,
+     "actual": 0.371
+    },
+    {
+     "bin": "[0.4, 0.5)",
+     "n": 51,
+     "sim": 0.453,
+     "calibrated": 0.504,
+     "actual": 0.51
+    },
+    {
+     "bin": "[0.5, 0.6)",
+     "n": 47,
+     "sim": 0.55,
+     "calibrated": 0.596,
+     "actual": 0.532
+    },
+    {
+     "bin": "[0.6, 0.7)",
+     "n": 42,
+     "sim": 0.648,
+     "calibrated": 0.688,
+     "actual": 0.738
+    },
+    {
+     "bin": "[0.7, 0.8)",
+     "n": 38,
+     "sim": 0.746,
+     "calibrated": 0.768,
+     "actual": 0.789
+    },
+    {
+     "bin": "[0.8, 0.9)",
+     "n": 22,
+     "sim": 0.853,
+     "calibrated": 0.863,
+     "actual": 0.909
+    },
+    {
+     "bin": "[0.9, 1.0)",
+     "n": 3,
+     "sim": 0.913,
+     "calibrated": 0.916,
+     "actual": 1.0
+    }
+   ]
+  }
+ }
+}

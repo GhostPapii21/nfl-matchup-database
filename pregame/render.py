@@ -168,7 +168,10 @@ def market_section(pk):
     cr = bk.get("api_credits") or {}
     if cr.get("warning"):
         L += [f"**Odds API credits: {cr['warning']}** ({cr.get('credits_remaining')} left).", ""]
-    L += [f"Retrieved {bk.get('retrieved_utc')} UTC. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; FanDuel, DraftKings, Hard Rock Bet and Caesars (williamhill_us) are the prices available to bet.", "",
+    listed = sorted({bn for m in (bk.get("markets") or {}).values() for bn in m.get("books", {}) if bn != "pinnacle"})
+    src = bk.get("source") or "The Odds API"
+    L += [f"Retrieved {bk.get('retrieved_utc')} UTC from {src}. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; "
+          f"books with prices here: {', '.join(listed) or 'none'}.", "",
           table(["Market", "Book", "Side A / line", "Price A", "Price B", "No-vig A", "No-vig B", "Hold", "Book updated"], rows), ""]
     cons = bk.get("consensus") or {}
     if cons:

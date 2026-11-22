@@ -130,7 +130,7 @@ Same rules as Phase 2: branch `codex/model-fixes-3`, never commit `pregame/direc
 2026, say plainly when something is not significant, and confirm with `git diff --stat origin/main...HEAD` that only the
 paths named below changed. Run `python -m pytest -q pregame/tests pipeline/tests dashboard/tests grading/tests` before the PR.
 
-## A - Calibration layer for the yardage simulation (`dashboard/calibration.py`, `dashboard/opportunity.py`, tests)
+## A - Calibration layer for the yardage simulation - DONE (`research/calibration_2026-11-22/README.md`)
 The backtest (`dashboard/results/opportunity_backtest.md`, script `dashboard/backtest_opportunity.py`) shows the simulation
 low in the middle of the range (12+ carries: said 45-55%, happened 59-67%; WR 40+ yards in 2026: said 30%, happened 34%)
 and high at the top for 100+ yards (said 34-44%, happened 22-26%).
@@ -140,7 +140,7 @@ and high at the top for 100+ yards (said 34-44%, happened 22-26%).
 3. Re-run the backtest on 2026 with and without calibration; report Brier and the calibration table for both. Keep the
    layer only if 2026 Brier improves; otherwise leave the file in place but switched off, and say so.
 
-## B - Use the new advanced data (`research/advanced_inputs_2026/`, then `dashboard/opportunity.py` if it helps)
+## B - Use the new advanced data - DONE, not wired in (`research/advanced_inputs_2026/README.md`); labels fixed
 `pregame/sources.py` now downloads NGS receiving/rushing/passing and PFR weekly receiving/rushing.
 1. Build per-player features as of before each game (no future weeks): NGS average separation, cushion, YAC over
    expected, share of team intended air yards; PFR drops, broken tackles, yards after contact per attempt; NGS rush
@@ -152,7 +152,7 @@ and high at the top for 100+ yards (said 34-44%, happened 22-26%).
 4. Also replace the "Hard Rock Bet / Caesars" bettable-book labels in `pregame/render.py` and `pregame/odds.py` text with
    the gate's required books (`pipeline.hooks.REQUIRED_BOOKS`).
 
-## C - Losing-streak factor (research only until it holds up)
+## C - Losing-streak factor (research only until it holds up) - scheduled re-test after Week 14
 `research/context_effects_2026-11-22` found receivers on teams with 2+ straight losses gain about 5% fewer yards than
 projected (CI 0.912-0.988). Re-test after Week 14 with 2026 Weeks 11-14 as the test set. Add it to the projection only
 if it is still significant on that new data.
