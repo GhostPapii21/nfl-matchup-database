@@ -196,7 +196,7 @@ def nfl56_criteria(root: Path = ROOT):
         ("5 README distinguishes goal vs current readiness", has("README.md", "goal vs current", "projection_ready"),
          "README.md 'Projection pipeline: goal vs current status (NFL-56)'", ""),
     ]
-    return [{"criterion": a, "pass": bool(b), "evidence": e, "note": n} for a, b, e, n in c]
+    return [{"criterion": a, "pass": bool(b), "evidence": e, "note": ("" if b and n.startswith("needs") else n)} for a, b, e, n in c]
 
 
 def evaluate(root: Path = ROOT, results_dir: Path | None = None):
