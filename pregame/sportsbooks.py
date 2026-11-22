@@ -254,6 +254,8 @@ def fanduel(probe: dict | None = None) -> dict:
                 elif kind.split("_")[-1] in ("spread", "total", "moneyline") and not kind.startswith("alt_"):
                     mm = re.search(r"\(?([+-]?\d+(?:\.\d+)?)\)?\s*$", name)      # "Over (44.5)", "Detroit Lions (-6.5)", "Lions -6.5"
                     if kind.endswith("total"):
+                        if team_of(name):                    # "Las Vegas Raiders Over 9.5": a team total inside a game market
+                            continue
                         side = "Over" if "over" in name.lower() else "Under" if "under" in name.lower() else name
                     else:
                         side = re.sub(r"\s*\(?[+-]?\d+(?:\.\d+)?\)?\s*$", "", name).strip()
