@@ -4,15 +4,15 @@ Research only. `projection_ready` is false. Start with `pregame/ANALYST_PROMPT.m
 
 | Game | Slot | Kickoff (ET) | Brief | Data | Updated (UTC) | Book prices | Weather | Play-by-play |
 |---|---|---|---|---|---|---|---|---|
-| ARI at KC (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_ARI_KC/brief.md) | [json](2026_11_ARI_KC/packet.json) | 2026-11-21T20:46:39+00:00 | OK | OK | current |
-| BAL at CAR (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_BAL_CAR/brief.md) | [json](2026_11_BAL_CAR/packet.json) | 2026-11-21T20:46:41+00:00 | OK | OK | current |
-| JAX at NYG (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_JAX_NYG/brief.md) | [json](2026_11_JAX_NYG/packet.json) | 2026-11-21T20:46:43+00:00 | OK | OK | current |
-| MIA at BUF (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_MIA_BUF/brief.md) | [json](2026_11_MIA_BUF/packet.json) | 2026-11-21T20:46:45+00:00 | OK | OK | current |
-| NO at CHI (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_NO_CHI/brief.md) | [json](2026_11_NO_CHI/packet.json) | 2026-11-21T20:46:47+00:00 | OK | OK | current |
-| TB at DET (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_TB_DET/brief.md) | [json](2026_11_TB_DET/packet.json) | 2026-11-21T20:46:49+00:00 | OK | INDOOR | current |
-| TEN at DAL (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_TEN_DAL/brief.md) | [json](2026_11_TEN_DAL/packet.json) | 2026-11-21T20:46:51+00:00 | OK | OK | current |
-| NYJ at LAC (week 11) | Sunday late window | 2026-11-22 16:05 | [brief](2026_11_NYJ_LAC/brief.md) | [json](2026_11_NYJ_LAC/packet.json) | 2026-11-21T20:46:53+00:00 | OK | INDOOR | current |
-| LV at DEN (week 11) | Sunday late window | 2026-11-22 16:25 | [brief](2026_11_LV_DEN/brief.md) | [json](2026_11_LV_DEN/packet.json) | 2026-11-21T20:46:55+00:00 | OK | OK | current |
-| PIT at PHI (week 11) | Sunday late window | 2026-11-22 16:25 | [brief](2026_11_PIT_PHI/brief.md) | [json](2026_11_PIT_PHI/packet.json) | 2026-11-21T20:46:57+00:00 | OK | OK | current |
-| MIN at SF (week 11) | Sunday Night Football | 2026-11-22 20:20 | [brief](2026_11_MIN_SF/brief.md) | [json](2026_11_MIN_SF/packet.json) | 2026-11-21T20:46:58+00:00 | OK | NOT_MAPPED_NEUTRAL_OR_INTERNATIONAL_SITE | current |
-| CIN at WAS (week 11) | Monday Night Football | 2026-11-23 20:15 | [brief](2026_11_CIN_WAS/brief.md) | [json](2026_11_CIN_WAS/packet.json) | 2026-11-21T20:47:00+00:00 | OK | OK | current |
+| ARI at KC (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_ARI_KC/brief.md) | [json](2026_11_ARI_KC/packet.json) | 2026-11-22T12:06:27+00:00 | OK | OK | current |
+| BAL at CAR (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_BAL_CAR/brief.md) | [json](2026_11_BAL_CAR/packet.json) | 2026-11-22T12:06:30+00:00 | OK | OK | current |
+| JAX at NYG (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_JAX_NYG/brief.md) | [json](2026_11_JAX_NYG/packet.json) | 2026-11-22T12:06:32+00:00 | OK | OK | current |
+| MIA at BUF (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_MIA_BUF/brief.md) | [json](2026_11_MIA_BUF/packet.json) | 2026-11-22T12:06:35+00:00 | OK | OK | current |
+| NO at CHI (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_NO_CHI/brief.md) | [json](2026_11_NO_CHI/packet.json) | 2026-11-22T12:06:38+00:00 | OK | OK | current |
+| TB at DET (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_TB_DET/brief.md) | [json](2026_11_TB_DET/packet.json) | 2026-11-22T12:06:40+00:00 | OK | INDOOR | current |
+| TEN at DAL (week 11) | Sunday early window | 2026-11-22 13:00 | [brief](2026_11_TEN_DAL/brief.md) | [json](2026_11_TEN_DAL/packet.json) | 2026-11-22T12:06:43+00:00 | OK | OK | current |
+| NYJ at LAC (week 11) | Sunday late window | 2026-11-22 16:05 | [brief](2026_11_NYJ_LAC/brief.md) | [json](2026_11_NYJ_LAC/packet.json) | 2026-11-22T12:06:45+00:00 | OK | INDOOR | current |
+| LV at DEN (week 11) | Sunday late window | 2026-11-22 16:25 | [brief](2026_11_LV_DEN/brief.md) | [json](2026_11_LV_DEN/packet.json) | 2026-11-22T12:06:48+00:00 | OK | OK | current |
+| PIT at PHI (week 11) | Sunday late window | 2026-11-22 16:25 | [brief](2026_11_PIT_PHI/brief.md) | [json](2026_11_PIT_PHI/packet.json) | 2026-11-22T12:06:50+00:00 | OK | OK | current |
+| MIN at SF (week 11) | Sunday Night Football | 2026-11-22 20:20 | [brief](2026_11_MIN_SF/brief.md) | [json](2026_11_MIN_SF/packet.json) | 2026-11-22T12:06:53+00:00 | OK | NOT_MAPPED_NEUTRAL_OR_INTERNATIONAL_SITE | current |
+| CIN at WAS (week 11) | Monday Night Football | 2026-11-23 20:15 | [brief](2026_11_CIN_WAS/brief.md) | [json](2026_11_CIN_WAS/packet.json) | 2026-11-22T12:06:55+00:00 | OK | OK | current |
