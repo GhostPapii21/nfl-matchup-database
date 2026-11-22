@@ -346,6 +346,30 @@ def audit(g, games, tg, p):
             flags.append(f"Week {w}: quarter scores do not add up to the final for {', '.join(bad_q)}")
         if miss_gb:
             flags.append(f"Week {w}: NFL game books missing for {len(miss_gb)} of {len(sw)} games")
+    # Second source: the official game book's quarter scores must equal the play-by-play's, quarter by quarter
+    fix = {"ARZ": "ARI", "BLT": "BAL", "CLV": "CLE", "HST": "HOU"}
+    checked, mism = 0, []
+    for f in GAMEBOOKS.glob("wk*/*/parsed/quarter_scores.csv"):
+        q = pd.read_csv(f)
+        gid = q.nflverse_game_id.iloc[0]
+        row = games[games.game_id == gid]
+        if row.empty:
+            continue
+        row = row.iloc[0]
+        ok = True
+        for r in q.itertuples():
+            t = fix.get(r.team_abbr, r.team_abbr)
+            qt = str(r.quarter)
+            if qt not in ("1", "2", "3", "4") or t not in (row.home, row.away):
+                continue
+            a_pts, h_pts = (int(x) for x in re.findall(r"(\d+)-(\d+)", row[f"q{qt}"])[0])
+            if int(r.points) != (h_pts if t == row.home else a_pts):
+                ok = False
+        checked += 1
+        if not ok:
+            mism.append(gid)
+    if mism:
+        flags.append(f"Game book and play-by-play quarter scores disagree: {', '.join(sorted(mism))}")
     teams = []
     for t in sorted(set(sched.home_team) | set(sched.away_team)):
         sch = sched[((sched.home_team == t) | (sched.away_team == t)) & (sched.week <= last_full)]
@@ -354,6 +378,7 @@ def audit(g, games, tg, p):
         if len(have) != len(sch):
             flags.append(f"{t}: {len(have)} games in the database, {len(sch)} scheduled through Week {last_full}")
     return {"season": SEASON, "through_week": int(last_full), "weeks": weeks, "teams": teams, "flags": flags,
+            "gamebook_quarters_checked": checked, "gamebook_quarter_mismatches": sorted(mism),
             "play_by_play_complete": all(not w["missing_play_by_play"] for w in weeks),
             "quarters_verified": all(not w["quarter_mismatch"] for w in weeks)}
 
@@ -361,7 +386,8 @@ def audit(g, games, tg, p):
 def write_audit_md(a):
     L = [f"# {SEASON} data audit, Weeks 1-{a['through_week']}", "",
          f"Play-by-play complete: **{'yes' if a['play_by_play_complete'] else 'NO'}**. Quarter scores add up to every final: "
-         f"**{'yes' if a['quarters_verified'] else 'NO'}**.", "",
+         f"**{'yes' if a['quarters_verified'] else 'NO'}**. Official game book quarter scores checked against play-by-play: "
+         f"**{a['gamebook_quarters_checked']} games, {len(a['gamebook_quarter_mismatches'])} disagreements**.", "",
          "| Week | Games | Final scores | Play-by-play | Quarters verified | NFL game books |", "|---|---|---|---|---|---|"]
     for w in a["weeks"]:
         L.append(f"| {w['week']} | {w['scheduled']} | {w['final_scores']} | {w['play_by_play']} | {w['quarters_sum_to_final']} | {w['gamebooks']} |")
