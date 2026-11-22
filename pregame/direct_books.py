@@ -24,6 +24,8 @@ BOOK_KEY = {"caesars": "williamhill_us", "williamhill": "williamhill_us", "hardr
 MARKET_LABEL = {"receptions": "receptions", "receiving_yards": "receiving_yards", "rushing_yards": "rushing_yards",
                 "rush_rec_yards": "rush_rec_yards"}
 MAX_HOLD, OUTLIER = 0.15, 0.12
+REFERENCE_BOOKS = {"pinnacle", "consensus", "open"}       # fair-price references: never a bettable book, never counted
+GAME_MARKET = {"moneyline": "h2h", "spread": "spreads", "total": "totals"}
 
 
 def implied(a: float) -> float:
@@ -72,6 +74,8 @@ def load_rows(game_id: str, direct: Path = DIRECT, grok: Path = GROK) -> list[di
 
 def _team(name, home, away):
     from pregame import sportsbooks as S
+    if str(name or "").upper() in (home, away):          # Action Network rows carry team codes
+        return str(name).upper()
     n = str(name or "").lower()
     ab = S.ABBR.get(n) or S.team_of(n)
     return ab if ab in (home, away) else None
@@ -123,7 +127,7 @@ def clean(prs: list[dict]) -> tuple[list[dict], list[dict]]:
     for grp in by.values():
         for p in grp:
             a = p["sides"][0]
-            others = [o["no_vig"][a] for o in grp if o is not p and o["book"] != "pinnacle"]
+            others = [o["no_vig"][a] for o in grp if o is not p and o["book"] not in REFERENCE_BOOKS]
             if len(others) >= 2 and abs(p["no_vig"][a] - statistics.median(others)) > OUTLIER:
                 dropped.append(dict(p, reason=f"no-vig {p['no_vig'][a]:.3f} vs median {statistics.median(others):.3f} of other books"))
             else:
@@ -145,7 +149,7 @@ def markets(prs: list[dict]) -> dict:
         a, b = m["sides"]
         ref = m["books"].get("pinnacle")
         m["reference"] = {"book": "pinnacle", "line": ref["line"], "no_vig": ref["no_vig"]} if ref else {"book": None, "note": "Pinnacle did not list this market"}
-        retail = {k: v for k, v in m["books"].items() if k != "pinnacle"}
+        retail = {k: v for k, v in m["books"].items() if k not in REFERENCE_BOOKS}
         lines = [v["line"] for v in retail.values()]
         m["books_agree_on_line"] = len(set(lines)) <= 1
         if lines:
@@ -176,19 +180,65 @@ def books_block(game_id: str, home: str, away: str, required: tuple, **kw) -> di
             "props_status": "OK"}
 
 
-def write_freeze(game_id: str, date: str, away: str, home: str, block: dict, out_dir: Path) -> Path:
-    """Price freeze in the format pipeline.hooks.four_book_prices reads (meta.status, meta.pulled_utc, rows[].book)."""
+def _full_name(code):
+    from pregame import sportsbooks as S
+    return next((full.title().replace("49Ers", "49ers") for full, ab in S.ABBR.items() if ab == code), code)
+
+
+def game_rows(block: dict, home: str, away: str) -> list[dict]:
+    """Full-game lines in the multibook freeze row format that snapshots/lock.py and evaluation/protocol.py read:
+    market h2h/spreads/totals, side_a = away team (or Over), side_b = home team (or Under), line from side_a's view."""
+    out = []
+    for lab, mkt in GAME_MARKET.items():
+        m = block["markets"].get(lab)
+        if not m:
+            continue
+        for bk, v in m["books"].items():
+            if lab == "total":
+                sa, sb, ka, kb, line = "Over", "Under", "Over", "Under", v["line"]
+            else:
+                sa, sb, ka, kb = _full_name(away), _full_name(home), away, home
+                line = None if lab == "moneyline" else (-v["line"] if v["line"] is not None else None)   # stored from the home side
+            pa, pb = v["prices"].get(ka), v["prices"].get(kb)
+            if pa is None or pb is None:
+                continue
+            ia, ib = implied(pa), implied(pb)
+            out.append({"book": bk, "book_label": bk, "book_last_update": v.get("last_update"), "market": mkt, "player": None,
+                        "side_a": sa, "side_b": sb, "line": line, "price_a": int(pa), "price_b": int(pb),
+                        "implied_a": round(ia, 4), "implied_b": round(ib, 4), "novig_a": round(ia / (ia + ib), 4),
+                        "novig_b": round(ib / (ia + ib), 4), "hold": round(ia + ib - 1, 4), "reference_only": bk in REFERENCE_BOOKS})
+    return out
+
+
+def write_freeze(game_id: str, date: str, away: str, home: str, block: dict, out_dir: Path, sources: list[Path] | None = None) -> Path:
+    """Price freeze readable by pipeline.hooks.four_book_prices (meta.status, pulled_utc, game-line books), snapshots/lock.py
+    and evaluation/protocol.py (multibook row format). Provenance: sha256 of every source file the prices came from, and the
+    pull's fetch log (URL, response sha256, saved raw body) from pregame/direct_lines/latest.json."""
+    import hashlib
     now = datetime.now(timezone.utc)
     d = Path(out_dir) / f"{date}_{away}@{home}"
     d.mkdir(parents=True, exist_ok=True)
-    rows = [{"book": b, "market": lab, "line": v["line"], "prices": v["prices"], "no_vig": v["no_vig"], "reference_only": b == "pinnacle"}
-            for lab, m in block["markets"].items() for b, v in m["books"].items()]
+    rows = game_rows(block, home, away)
+    props = [{"book": b, "market": lab, "line": v["line"], "prices": v["prices"], "no_vig": v["no_vig"], "reference_only": b in REFERENCE_BOOKS}
+             for lab, m in block["markets"].items() if lab not in GAME_MARKET for b, v in m["books"].items()]
+    srcs = [Path(x) for x in (sources or [DIRECT / f"{game_id}.json", GROK / f"{game_id}.json"]) if Path(x).exists()]
+    src_hash = [{"file": str(x.relative_to(ROOT)) if x.is_relative_to(ROOT) else str(x), "sha256": hashlib.sha256(x.read_bytes()).hexdigest()} for x in srcs]
+    fetch = []
+    try:
+        lat = json.loads((DIRECT / "latest.json").read_text())
+        fetch = [f for b in (lat.get("books") or {}).values() for f in (b.get("fetch") or [])]
+    except (OSError, ValueError):
+        pass
+    game_books = sorted({r["book"] for r in rows if not r["reference_only"]})
     f = d / f"freeze_{now:%Y%m%dT%H%M%SZ}.json"
-    f.write_text(json.dumps({"meta": {"status": "OK", "schema": "price-freeze/direct-1", "game_id": game_id, "game": f"{away}@{home}",
+    f.write_text(json.dumps({"meta": {"status": "OK", "schema": "price-freeze/direct-2", "game_id": game_id, "game": f"{away}@{home}",
                                       "pulled_utc": block["retrieved_utc"], "written_utc": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
-                                      "source": block["source"], "book_retrieved_utc": block["book_retrieved_utc"],
+                                      "source": block["source"], "books": game_books, "book_retrieved_utc": block["book_retrieved_utc"],
+                                      "as_of_note": "these feeds publish no per-price update time; a book's as-of time is its pull time",
+                                      "raw_sha256": hashlib.sha256(json.dumps(src_hash, sort_keys=True).encode()).hexdigest(),
+                                      "source_files": src_hash, "fetch_log": fetch,
                                       "dropped": len(block["dropped"]), "research_only": True},
-                             "rows": rows, "markets": block["markets"]}, indent=1, sort_keys=True) + "\n")
+                             "rows": rows + [dict(x, player="prop") for x in props], "markets": block["markets"]}, indent=1, sort_keys=True) + "\n")
     return f
 
 

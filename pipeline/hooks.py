@@ -37,9 +37,10 @@ from . import nfl43_exclusions
 ROOT = Path(__file__).resolve().parents[1]
 FLAGS = ROOT / "known_flags" / "KNOWN_LIMITATIONS.json"
 # Odds API book keys used in Blitz's freezes: Hard Rock Bet = hardrockbet, Caesars = williamhill_us.
-# Owner's choice (Nov 21, 2026): the four books the free direct pulls carry. Override with the repository variable
+# Owner's choice: four books with free full-game lines (FanDuel's own feed; DraftKings, BetMGM and Caesars via Action Network's
+# public scoreboard). Bovada was the Nov 21 pick but has no free game-line feed. Override with the repository variable
 # GATE_REQUIRED_BOOKS (comma separated, e.g. "fanduel,draftkings,hardrockbet,williamhill_us"). Pinnacle is never counted.
-REQUIRED_BOOKS = tuple(b.strip() for b in (os.environ.get("GATE_REQUIRED_BOOKS") or "fanduel,draftkings,betmgm,bovada").split(",")
+REQUIRED_BOOKS = tuple(b.strip() for b in (os.environ.get("GATE_REQUIRED_BOOKS") or "fanduel,draftkings,betmgm,williamhill_us").split(",")
                        if b.strip() and b.strip() != "pinnacle")
 PRICE_FREEZE_DIR = ROOT / "pregame" / "price_freezes"
 SEMANTICS_BOUNDS_NAME = "SEMANTICS_BOUNDS.md"
@@ -124,7 +125,10 @@ def four_book_prices(pk: dict, impl=None, base: Path | None = None) -> dict:
     meta = d.get("meta") or {}
     if meta.get("status") != "OK":
         return {"status": "FAILED", "reason": f"{f.name} status is {meta.get('status')!r}, not OK.", "file": str(f)}
-    books = {r.get("book") for r in d.get("rows") or [] if not r.get("reference_only")}
+    rows = [r for r in d.get("rows") or [] if not r.get("reference_only")]
+    if any(r.get("market") for r in rows):          # count only books with full-game lines: props never fill a game-line book
+        rows = [r for r in rows if r.get("market") in ("h2h", "spreads", "totals") and not r.get("player")]
+    books = {r.get("book") for r in rows}
     return {"status": "OK", "file": str(f.relative_to(ROOT)) if f.is_relative_to(ROOT) else str(f),
             "retrieved_utc": meta.get("pulled_utc"), "books": {b: True for b in sorted(b for b in books if b)},
             "props_missing": meta.get("props_missing")}
