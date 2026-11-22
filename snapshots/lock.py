@@ -229,6 +229,20 @@ def packet_prices(packet: dict) -> dict:
                      "books": books, "source": "pregame packet books block (Odds API via packet builder)"}, "rows": rows}
 
 
+def normalize_freeze(freeze: dict | None) -> dict | None:
+    """Free direct-pull freezes (pregame/direct_books.write_freeze, schema price-freeze/direct-1) carry packet-style
+    markets (moneyline/spread/total, per-book prices/no_vig). Convert their team markets to the multibook row format
+    market_lines() reads, via packet_prices(); keep the freeze's own meta (pulled_utc, status, books). Other freezes
+    pass through unchanged. Player markets are never converted."""
+    if not freeze or (freeze.get("meta") or {}).get("schema") != "price-freeze/direct-1":
+        return freeze
+    meta = dict(freeze.get("meta") or {})
+    conv = packet_prices({"books": {"retrieved_utc": meta.get("pulled_utc"), "markets": freeze.get("markets") or {}}})
+    meta["books"] = conv["meta"]["books"]
+    meta["normalized_by"] = "snapshots.lock.normalize_freeze (direct-1 markets -> multibook rows)"
+    return {"meta": meta, "rows": conv["rows"]}
+
+
 def write_report(dirp: Path, s: dict, lock: dict, cfg: dict) -> None:
     g = cfg["game"]
     L = [f"# Locked snapshot {g['away']} @ {g['home']} ({g.get('game_id')})", "",
@@ -289,7 +303,7 @@ def main(argv=None) -> int:
     g = cfg["game"]
     kickoff = _utc(g["kickoff_et"])
     now = datetime.now(timezone.utc)
-    freeze = json.loads(Path(a.price_freeze).read_text()) if a.price_freeze else None
+    freeze = normalize_freeze(json.loads(Path(a.price_freeze).read_text())) if a.price_freeze else None
     packet = json.loads(Path(a.packet).read_text()) if a.packet else None
     if freeze is None and packet is not None:
         freeze = packet_prices(packet)
