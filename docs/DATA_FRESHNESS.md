@@ -3,8 +3,25 @@
 The policy lives in code, `pipeline/freshness.py` (`POLICY`), and this page mirrors it. If they disagree, the code
 governs and this page is the bug. A test checks the main limits (`pipeline/tests/test_pipeline.py`).
 
-Age is measured from the source's own `retrieved_utc` stamp, the time this repository pulled it, against the
-check time. A source with no stamp, or with a status other than OK, counts as **MISSING**, never as fresh.
+**Age is measured from the source's as-of time, not from when we fetched it** (NFL-56, changed 2026-11-22).
+A fresh download of a file nobody has updated in three days is three days old.
+
+- *Publisher-dated* inputs (all nflverse files, NWS weather) use the publisher's own stamp for the exact copy in the
+  packet: `source_updated_at` on the record, or a stamp proven by `pipeline/source_asof.py`. For an nflverse release
+  asset, a sha256 digest match with our copy, or "asset not re-published since our pull", proves the asset's
+  `updated_at`. For NWS, `updateTime` counts only if the forecast was not regenerated after our pull. If it can't be
+  proven, the input is **MISSING (UNKNOWN_NO_SOURCE_TIMESTAMP)**: never fresh, never zero.
+- *Live endpoints* (book prices, ESPN live injury list) serve the current state at request time and carry no
+  feed-level stamp, so the pull time is the quote time. Every row labels this `live_pull`.
+- A stamp later than our pull, or in the future, is rejected. A record with no pull time is MISSING.
+- The CLI entry points (`pipeline.window`, `pipeline.phases`, `pipeline.sim100k`) resolve stamps over free public
+  APIs (GitHub releases API, api.weather.gov). Library calls and tests stay offline. Every freshness row now
+  carries `as_of_utc`, `as_of_basis` and `as_of_evidence` next to `retrieved_utc`.
+- Open policy question for Rico: snap counts and PFR defense are published weekly, so a publisher-age limit of 24 h
+  marks them STALE most days even when they are the newest data that exists. A "published after the team's last
+  completed game" rule would fit them better. The limits are unchanged here, because limits are Rico's call.
+
+A source with a status other than OK counts as **MISSING**, never as fresh.
 Limits tighten as kickoff approaches. The tightest window that applies wins.
 
 | Input | Where it comes from | Max age | Tighter near kickoff |

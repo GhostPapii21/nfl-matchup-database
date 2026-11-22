@@ -307,6 +307,8 @@ def run(game_id: str, packet: Path | None = None, engine=default_engine, **kw) -
 
 
 def main(argv=None) -> int:
+    from . import source_asof
+    source_asof.enable_network()   # production path: prove publisher as-of stamps (NFL-56)
     ap = argparse.ArgumentParser(description="NFL-56 fail-closed 100k entry point (no override).")
     ap.add_argument("--game", required=True)
     ap.add_argument("--packet", type=Path)
