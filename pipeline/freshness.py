@@ -1,8 +1,16 @@
 """Freshness policy for pregame inputs (NFL-56 item 2). Human-readable copy: docs/DATA_FRESHNESS.md.
 
 Each source has a maximum age. Some tighten as kickoff approaches (a list of (hours_to_kickoff, max_age_minutes)
-steps: the first step whose window contains the current time-to-kickoff wins). Age is measured from the source's
-own `retrieved_utc` stamp in the packet. A source with no stamp is MISSING, never assumed fresh.
+steps: the first step whose window contains the current time-to-kickoff wins).
+
+Age is measured from the source's AS-OF time, never from our fetch time (NFL-56). Each source has a basis:
+  publisher  the publisher's own update stamp for the exact copy in the packet: `source_updated_at` on the record,
+             or one proven by pipeline/source_asof.py (nflverse asset digest / not-updated-since-pull, NWS
+             updateTime). No proven stamp -> MISSING with reason UNKNOWN_NO_SOURCE_TIMESTAMP, never fresh, never zero.
+  live_pull  live endpoints that serve the current state at request time and carry no feed-level stamp (book
+             prices, ESPN live injury list). The pull time is the quote/as-of time. `retrieved_utc` is used here
+             and is labelled as such in every row.
+A publisher stamp later than our pull, or in the future, is rejected (MISSING).
 
 Statuses:
   FRESH     retrieved within the allowed age
@@ -16,7 +24,7 @@ from __future__ import annotations
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
-from . import hooks
+from . import hooks, source_asof
 
 ET = ZoneInfo("America/New_York")
 INACTIVES_POST_MINUTES_BEFORE_KICKOFF = 90
@@ -35,6 +43,9 @@ POLICY = {
     "weather":         ("weather",               6 * 60, [(12, 3 * 60), (3, 90)],  "NWS hourly forecast; outdoor games only."),
     "odds":            ("books",                 6 * 60, [(6, 60), (2, 20)],       "Book prices in the packet (Odds API, existing builder)."),
 }
+# How each source is dated (see module docstring). Anything not listed is 'publisher'.
+ASOF_BASIS = {"news_injuries": "live_pull", "odds": "live_pull"}
+ASOF_FIELDS = ("source_updated_at", "as_of_utc", "published_utc", "source_published_utc", "last_modified_utc")
 # Inputs with no packet field yet. They come from hooks and are checked separately (see hooks.py).
 HOOKED = {
     "official_inactives": "Final inactives, posted about 90 minutes before kickoff. Must be pulled after they post.",
@@ -84,14 +95,60 @@ def max_age_minutes(name: str, hours_to_kickoff: float | None) -> int:
     return allowed
 
 
-def _row(name, status, reason, retrieved=None, age=None, allowed=None):
-    return {"source": name, "status": status, "reason": reason, "retrieved_utc": retrieved,
+def _row(name, status, reason, retrieved=None, age=None, allowed=None, as_of=None, basis=None, evidence=None):
+    return {"source": name, "status": status, "reason": reason, "retrieved_utc": retrieved, "as_of_utc": as_of,
+            "as_of_basis": basis, "as_of_evidence": evidence,
             "age_minutes": None if age is None else round(age, 1), "max_age_minutes": allowed}
+
+
+def _asof_map(pk, hook_impls):
+    """publisher stamps: hook_impls['source_asof'] (callable pk -> dict, or a dict) wins; else network resolution
+    when enabled (CLI entry points); else {} (offline: only stamps already on the records count)."""
+    impl = (hook_impls or {}).get("source_asof")
+    if callable(impl):
+        return impl(pk) or {}
+    if isinstance(impl, dict):
+        return impl
+    if source_asof.enabled():
+        return source_asof.resolve(pk, POLICY)
+    return {}
+
+
+def as_of(name, rec, asof_map, now):
+    """-> (as_of datetime | None, basis, reason_if_unusable, evidence)"""
+    got = parse_utc(rec.get("retrieved_utc"))
+    if ASOF_BASIS.get(name) == "live_pull":
+        if got is None:
+            return None, "live_pull", f"no retrieved_utc; pull time unknown is treated as missing.", None
+        if got > now + CLOCK_SKEW:
+            return None, "live_pull", "pull is stamped in the future; not accepted.", None
+        return got, "live_pull (live endpoint; pull time is the quote time)", None, None
+    if got is None:
+        return None, None, "no retrieved_utc; pull time unknown is treated as missing (every figure needs a pull time).", None
+    raw = next((rec.get(f) for f in ASOF_FIELDS if rec.get(f)), None)
+    basis, ev = ("record:" + next(f for f in ASOF_FIELDS if rec.get(f))) if raw else None, None
+    if raw is None and name in asof_map:
+        a = asof_map[name]
+        raw, basis, ev = a.get("source_updated_at"), a.get("as_of_basis"), a.get("evidence")
+        if raw is None:
+            return None, basis, "UNKNOWN_NO_SOURCE_TIMESTAMP: " + str(a.get("reason")), ev
+    if raw is None:
+        return None, "UNKNOWN_NO_SOURCE_TIMESTAMP", ("UNKNOWN_NO_SOURCE_TIMESTAMP: no publisher as-of stamp for this copy; "
+                                                     "our fetch time alone does not show the data is current."), None
+    d = parse_utc(raw)
+    if d is None:
+        return None, basis, f"UNKNOWN_NO_SOURCE_TIMESTAMP: unparseable as-of stamp {raw!r}.", ev
+    if d > now + CLOCK_SKEW:
+        return None, basis, "as-of stamp is in the future; not accepted.", ev
+    if got is not None and d > got + CLOCK_SKEW:
+        return None, basis, "as-of stamp is after our pull, so it cannot describe our copy.", ev
+    return d, basis, None, ev
 
 
 def check(pk: dict, now: datetime | None = None, hook_impls=None) -> list[dict]:
     """Freshness row for every source in POLICY plus the hooked inputs. Never raises on bad packets."""
     now = now or datetime.now(timezone.utc)
+    asof_map = _asof_map(pk, hook_impls)
     ko = kickoff_utc(pk)
     htk = None if ko is None else (ko - now).total_seconds() / 3600
     rows = []
@@ -107,16 +164,19 @@ def check(pk: dict, now: datetime | None = None, hook_impls=None) -> list[dict]:
         if not st.startswith("OK"):
             rows.append(_row(name, "MISSING", f"'{path}' status is {st or 'blank'}, not OK."))
             continue
-        got = parse_utc(rec.get("retrieved_utc"))
-        if got is None:
-            rows.append(_row(name, "MISSING", f"'{path}' has no retrieved_utc timestamp; age unknown is treated as missing."))
+        d, basis, why, ev = as_of(name, rec, asof_map, now)
+        if d is None:
+            rows.append(_row(name, "MISSING", f"'{path}': {why}", rec.get("retrieved_utc"), basis=basis, evidence=ev))
             continue
-        age = (now - got).total_seconds() / 60
+        age = (now - d).total_seconds() / 60
         allowed = max_age_minutes(name, htk)
+        stamp = d.isoformat(timespec="seconds")
         if age > allowed:
-            rows.append(_row(name, "STALE", f"{age:.0f} min old; limit is {allowed} min at {_fmt_htk(htk)}.", rec.get("retrieved_utc"), age, allowed))
+            rows.append(_row(name, "STALE", f"as-of {stamp} ({basis}) is {age:.0f} min old; limit is {allowed} min at {_fmt_htk(htk)}.",
+                             rec.get("retrieved_utc"), age, allowed, stamp, basis, ev))
         else:
-            rows.append(_row(name, "FRESH", f"{age:.0f} min old; limit {allowed} min.", rec.get("retrieved_utc"), age, allowed))
+            rows.append(_row(name, "FRESH", f"as-of {stamp} ({basis}) is {age:.0f} min old; limit {allowed} min.",
+                             rec.get("retrieved_utc"), age, allowed, stamp, basis, ev))
     pbp = next((r for r in rows if r["source"] == "play_by_play" and r["status"] == "FRESH"), None)
     if pbp:
         lag = [t for t, v in (pk.get("data_freshness") or {}).items() if v.get("status") != "OK"]
