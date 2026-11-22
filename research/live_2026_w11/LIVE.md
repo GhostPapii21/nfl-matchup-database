@@ -1,75 +1,75 @@
-# Live tracker, Week 11 (2026-11-22 19:48 UTC)
+# Live tracker, Week 11 (2026-11-22 19:53 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## MIA 6 @ BUF 20 (Halftime)
+## MIA 6 @ BUF 20 (12:02 - 3rd)
 
-100 plays. Top yards allowed by a named defender: J.Rodriguez (4/4, 55 yds), Z.Anderson (2/4, 41 yds), M.Washington (1/1, 30 yds), J.Marshall (3/3, 28 yds)
+106 plays. Top yards allowed by a named defender: J.Rodriguez (4/4, 55 yds), Z.Anderson (2/4, 41 yds), M.Washington (1/1, 30 yds), J.Marshall (3/3, 28 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | DJ Moore (BUF) | 7 | 3.2 | 79 | 36.9 | 48.5 | 0 |  |  |
 | Khalil Shakir (BUF) | 1 | 2.9 | 32 | 31.9 | 36.5 | 2 |  |  |
+| Malik Washington (MIA) | 1 | 3.3 | 21 | 32.0 | 29.5 | 11 |  |  |
+| Ollie Gordon II (MIA) | 1 | 1.8 | -3 | 8.7 | 15.5 | 34 | 57.7 | 54.5 |
+| Caleb Douglas (MIA) | 2 | 3.7 | 30 | 44.9 | 48.5 | 0 |  |  |
 | Dawson Knox (BUF) | 1 | 2.2 | 23 | 14.5 | 20.5 | 0 |  |  |
-| Keon Coleman (BUF) | 2 | 2.5 | 17 | 26.7 | 30.5 | 0 |  |  |
-| Caleb Douglas (MIA) | 1 | 3.7 | 14 | 44.9 | 48.5 | 0 |  |  |
-| Malik Washington (MIA) | 0 | 3.3 | 0 | 32.0 | 29.5 | 11 |  |  |
 
-## NO 10 @ CHI 16 (13:37 - 3rd)
+## NO 10 @ CHI 16 (12:12 - 3rd)
 
-97 plays. Top yards allowed by a named defender: C.Lewis (4/4, 49 yds), J.Blackmon (2/2, 33 yds), N.Sewell (1/1, 24 yds), Timeout #1. (1/1, 14 yds)
+102 plays. Top yards allowed by a named defender: C.Lewis (4/4, 49 yds), J.Blackmon (2/2, 33 yds), N.Sewell (1/1, 24 yds), Timeout #1. (1/1, 14 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
+| D'Andre Swift (CHI) | 2 | 2.0 | 8 | 9.2 | 15.5 | 43 | 64.4 | 65.5 |
 | Chris Olave (NO) | 3 | 4.1 | 48 | 44.1 | 68.5 | 0 |  |  |
 | Devaughn Vele (NO) | 3 | 2.2 | 39 | 20.2 | 22.5 | 0 |  |  |
 | Rome Odunze (CHI) | 2 | 2.7 | 35 | 30.4 | 45.5 | 0 |  |  |
-| D'Andre Swift (CHI) | 2 | 2.0 | 8 | 9.2 | 15.5 | 26 | 64.4 | 65.5 |
 | Colston Loveland (CHI) | 2 | 3.8 | 27 | 31.2 | 50.0 | 0 |  |  |
 | Kalif Raymond (CHI) | 1 | 1.9 | 14 | 15.0 | 21.0 | 0 |  |  |
 
-## TEN 16 @ DAL 27 (13:08 - 3rd)
+## TEN 16 @ DAL 27 (9:04 - 3rd)
 
-98 plays. Top yards allowed by a named defender: Jo.Williams (4/4, 58 yds), J.Barron (3/3, 30 yds), A.Hill (1/1, 29 yds), M.Hooker (2/2, 27 yds)
+105 plays. Top yards allowed by a named defender: Jo.Williams (6/6, 97 yds), J.Barron (3/3, 30 yds), A.Hill (1/1, 29 yds), M.Hooker (2/2, 27 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | CeeDee Lamb (DAL) | 9 | 7.5 | 103 | 84.1 | 93.5 | 0 |  |  |
+| George Pickens (DAL) | 5 | 5.5 | 61 | 65.5 | 70.5 | 6 |  |  |
 | Tony Pollard (TEN) | 0 | 3.8 | 0 | 22.8 | 20.5 | 57 | 70.6 | 70.5 |
 | Chimere Dike (TEN) | 3 | 2.5 | 46 | 24.7 | 22.5 | 4 |  |  |
-| Javonte Williams (DAL) | 0 | 1.9 | 0 | 9.2 | 10.5 | 30 | 65.3 | 78.5 |
-| George Pickens (DAL) | 3 | 5.5 | 22 | 65.5 | 70.5 | 6 |  |  |
+| Javonte Williams (DAL) | 1 | 1.9 | 6 | 9.2 | 10.5 | 42 | 65.3 | 78.5 |
 | Calvin Ridley (TEN) | 1 | 1.7 | 15 | 17.8 | 7.5 | 0 |  |  |
 
-## TB 7 @ DET 10 (11:17 - 3rd)
+## TB 7 @ DET 17 (9:01 - 3rd)
 
-98 plays. Top yards allowed by a named defender: T.Smith (3/3, 62 yds), B.Morrison (3/3, 60 yds), R.Ya-Sin (4/4, 33 yds), A.Anzalone (4/4, 32 yds)
+103 plays. Top yards allowed by a named defender: T.Smith (3/3, 62 yds), B.Morrison (3/3, 60 yds), R.Ya-Sin (4/4, 33 yds), A.Anzalone (4/4, 32 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
+| Jameson Williams (DET) | 3 | 2.9 | 90 | 36.0 | 50.5 | 0 |  |  |
 | Sam LaPorta (DET) | 3 | 3.1 | 62 | 28.0 | 35.0 | 0 |  |  |
 | Kenny Gainwell (TB) | 2 | 1.6 | 26 | 8.8 | 12.5 | 15 | 26.8 | 17.5 |
-| Jahmyr Gibbs (DET) | 2 | 3.6 | 4 | 24.0 | 33.5 | 30 | 74.6 | 85.5 |
-| Jameson Williams (DET) | 2 | 2.9 | 33 | 36.0 | 50.5 | 0 |  |  |
+| Jahmyr Gibbs (DET) | 2 | 3.6 | 4 | 24.0 | 33.5 | 36 | 74.6 | 85.5 |
 | Amon-Ra St. Brown (DET) | 4 | 5.2 | 30 | 57.7 | 81.5 | 0 |  |  |
 | Bucky Irving (TB) | 1 | 2.2 | 16 | 10.3 | 15.5 | 12 | 69.6 | 65.5 |
 
-## ARI 7 @ KC 27 (8:56 - 3rd)
+## ARI 7 @ KC 27 (6:48 - 3rd)
 
-105 plays. Top yards allowed by a named defender: J.Canady (2/2, 35 yds), K.Clark (2/2, 35 yds), J.Gibbens (3/3, 30 yds), K.King (2/2, 26 yds)
+110 plays. Top yards allowed by a named defender: J.Canady (2/2, 35 yds), K.Clark (2/2, 35 yds), J.Gibbens (3/3, 30 yds), K.King (2/2, 26 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
-| Emmett Johnson (KC) | 3 | 2.9 | 26 | 26.1 | 29.5 | 66 | 54.4 | 87.5 |
+| Emmett Johnson (KC) | 3 | 2.9 | 26 | 26.1 | 29.5 | 75 | 54.4 | 87.5 |
 | Travis Kelce (KC) | 6 | 3.4 | 74 | 32.5 | 41.5 | 0 |  |  |
 | Rashee Rice (KC) | 6 | 4.1 | 53 | 51.0 | 48.5 | 0 |  |  |
 | Trey McBride (ARI) | 3 | 7.1 | 17 | 57.6 | 51.5 | 4 |  |  |
 | Bam Knight (ARI) | 1 | 2.2 | 10 | 12.6 | 8.5 | 6 | 17.4 | 24.5 |
 | Tyler Allgeier (ARI) | 0 | 2.6 | 0 | 14.4 | 8.5 | 13 | 28.5 | 28.5 |
 
-## PIT 6 @ PHI 13 (12:52 - 3rd)
+## PIT 6 @ PHI 13 (11:17 - 3rd)
 
-95 plays. Top yards allowed by a named defender: K.Henry (1/1, 38 yds), M.Epps (3/3, 17 yds), J.Trotter (2/2, 15 yds), J.Dean (2/2, 13 yds)
+98 plays. Top yards allowed by a named defender: K.Henry (1/1, 38 yds), M.Epps (3/3, 17 yds), J.Trotter (2/2, 15 yds), J.Dean (2/2, 13 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
