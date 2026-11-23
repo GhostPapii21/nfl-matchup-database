@@ -1,7 +1,7 @@
 """MIN@SF (late SNF) video-attributed coverage rows (source=video). Hand-checked from official captions. refs NFL-56, NFL-49."""
 import os, json, re, datetime
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NOWS = datetime.datetime.now().strftime('%Y-%m-%d %I:%M %p AST')
+NOWS = os.environ.get('PULLED_AS') or datetime.datetime.now().strftime('%Y-%m-%d %I:%M %p AST')
 V1 = 'NFL YouTube ceMTl2eqYDA "Minnesota Vikings vs San Francisco 49ers Game Highlights | 2026 NFL Season Week 11 Mexico City Game", CC1 captions'
 V2 = '49ers YouTube jsOA0SpFHM4 "San Francisco 49ers vs. Minnesota Vikings Highlights | Week 11", CC1 captions'
 ROWS = [  # (game, play, defender, role, evidence)

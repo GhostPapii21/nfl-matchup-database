@@ -161,9 +161,9 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | NYJ | M.Fitzpatrick | 2 | 2 | 35 | 0 | 0 | 0 | 0 | D.Njoku 1, T.Harris 1 | T.Harris 22 short_right Q4 |
 | LAC | E.Molden | 2 | 2 | 29 | 0 | 0 | 0 | 0 | M.Taylor 1, K.Sadiq 1 |  |
 | LAC | M.Wax | 2 | 2 | 28 | 0 | 0 | 0 | 0 | B.Allen 1, G.Wilson 1 |  |
+| NYJ | J.Sherwood | 3 | 3 | 25 | 0 | 0 | 0 | 0 | L.McConkey 2, Q.Johnston 1 |  |
 | LAC | C.Hart | 2 | 2 | 21 | 0 | 0 | 0 | 0 | A.Mitchell 1, G.Wilson 1 |  |
 | LAC | D.Phillips | 2 | 2 | 19 | 0 | 0 | 0 | 0 | G.Wilson 1, K.Sadiq 1 |  |
-| NYJ | J.Sherwood | 3 | 2 | 17 | 0 | 1 | 0 | 0 | L.McConkey 2, Q.Johnston 1 |  |
 | NYJ | K.Enagbare | 1 | 1 | 15 | 0 | 0 | 0 | 0 | K.Vidal 1 |  |
 | NYJ | D.Davis | 2 | 2 | 14 | 0 | 0 | 0 | 0 | C.Kolar 1, T.Harris 1 |  |
 | NYJ | B.Stephens | 2 | 2 | 12 | 0 | 0 | 0 | 0 | O.Hampton 1, D.Njoku 1 |  |
@@ -177,7 +177,7 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | LAC | D.Leonard | 1 | 0 | 0 | 0 | 1 | 0 | 0 | G.Wilson 1 |  |
 | NYJ | D.Bailey | 1 | 0 | 0 | 0 | 1 | 0 | 0 | L.McConkey 1 |  |
 
-Assignment evidence count: 4 VERIFIED (PBU/INT/DPI-named), 25 tackler-not-coverage (inferred), 11 unattributed.
+Assignment evidence count: 3 VERIFIED (PBU/INT/DPI-named), 26 tackler-not-coverage (inferred), 11 unattributed.
 Most yards charged to a NYJ defender (tackler tag, not coverage; inferred): M.Fitzpatrick 2 rec / 35 yds.
 Most VERIFIED-PBU/INT/DPI credits on a NYJ defender (the only coverage counts): A.Thomas PBU 1, INT 0, DPI 0.
 Most yards charged to a LAC defender (tackler tag, not coverage; inferred): E.Molden 2 rec / 29 yds.
@@ -212,6 +212,7 @@ LAC Unnecessary Roughness x3, LAC Ineligible Downfield Pass x1, LAC Player Out o
 ## Weather
 
 ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
+NFL game-feed weather (nflverse pbp `weather`, roof `dome`): Sunny Temp: 66° F, Humidity: 47%, Wind: W 5 mph
 Venue: SoFi Stadium (Inglewood), indoor=None, grass=False
 Open-Meteo at kickoff hour (2026-11-22T21:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 68.7, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 5.9, "wind_gusts_10m": 6.7}
 
@@ -288,12 +289,12 @@ WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not c
 **NYJ defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 10 | 6 | 60 | 1 | 6.0 |
+| WR | 10 | 7 | 68 | 1 | 6.8 |
 | TE | 4 | 3 | 29 | 0 | 7.2 |
 | RB | 4 | 4 | 28 | 0 | 7.0 |
 | unknown | 2 | 0 | 0 | 0 | 0.0 |
 
-NYJ defense by depth/location (proxy, not alignment): short_right 5/9 59y; short_left 5/7 37y; short_middle 3/3 21y; deep_right 0/1 0y
+NYJ defense by depth/location (proxy, not alignment): short_right 6/9 67y; short_left 5/7 37y; short_middle 3/3 21y; deep_right 0/1 0y
 
 **LAC defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
@@ -314,11 +315,11 @@ LAC defense by depth/location (proxy, not alignment): short_left 6/7 65y; short_
 | Sack rate (sacks / dropbacks) | 4.5% (1/22) | 23.1% (6/26) |
 | QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 0.0% (0/22) | 3.8% (1/26) |
 | Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 89 air / 87 YAC on 17 comps | 39 air / 78 YAC on 13 comps |
-| Intended air yards on incompletions | unknown (not in ESPN; nflverse air_yards after overnight rebuild) | unknown |
+| Intended air yards on incompletions | 43.0 air yds on 4 incompletions (total intended 133.0, aDOT 6.33 on 21 att; nflverse pbp) | 49.0 air yds on 6 incompletions (total intended 100.0, aDOT 4.76 on 21 att; nflverse pbp) |
 | Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 1 / 2 | 1 / 2 |
 | Penalties-yds | 4-18 | 6-50 |
 | Garbage-time offensive plays (Q3+ with home WP <5% or >95%, or Q4 margin 17+) | 2 | 0 |
-| Snap shares | unknown (nflverse/PFR snap counts post Mon-Tue) | unknown |
+| Snap shares | unknown: not posted yet (nflverse snap_counts has no row for this game as of 2026-11-23 07:10 AM AST; PFR page blocked to the box) | unknown |
 
 ## QB vs coverage shell / pressure
 
@@ -328,6 +329,51 @@ LAC defense by depth/location (proxy, not alignment): short_left 6/7 65y; short_
 | vs blitz / no blitz | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | vs MOF open / MOF closed | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | under pressure / clean | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
+
+
+
+<!-- MONDAY-FILL-START refs NFL-56 -->
+## Monday fill (2026-11-23, free nflverse releases; research only)
+
+Source: nflverse-data `pbp/play_by_play_2026.parquet` (release updated 2026-11-23T10:02:36Z, sha256 86d0a57a1f3e, pulled 2026-11-23 07:10 AM AST). Box path of the pulls: /tmp/w11fill (manifest in research/game_logs_2026_w11/monday_fill/MANIFEST.json).
+
+**Weather (NFL game feed):** Sunny Temp: 66° F, Humidity: 47%, Wind: W 5 mph (roof: dome).
+
+**Intended air yards (nflverse, 2-pt tries and no-plays excluded)**
+
+| Team | Att | Intended air yds | aDOT | Incompletions | Air yds on incompletions | INT |
+|---|---|---|---|---|---|---|
+| NYJ | 21 | 133.0 | 6.33 | 4 | 43.0 | 0 |
+| LAC | 21 | 100.0 | 4.76 | 6 | 49.0 | 0 |
+
+**Air yards by receiver (nflverse)**
+
+| Team | Receiver | Tgt | Air yds | Air share | aDOT |
+|---|---|---|---|---|---|
+| NYJ | G.Wilson | 5 | 28 | 20% | 5.6 |
+| NYJ | A.Mitchell | 3 | 72 | 52% | 24.0 |
+| NYJ | B.Hall | 3 | 4 | 3% | 1.3 |
+| NYJ | K.Sadiq | 3 | 1 | 1% | 0.3 |
+| NYJ | M.Taylor | 2 | 21 | 15% | 10.5 |
+| NYJ | S.Shepard | 2 | 12 | 9% | 6.0 |
+| NYJ | B.Allen | 1 | 2 | 1% | 2.0 |
+| NYJ | T.Patrick | 1 | -1 | -1% | -1.0 |
+| LAC | L.McConkey | 8 | 69 | 69% | 8.6 |
+| LAC | D.Njoku | 4 | 0 | 0% | 0.0 |
+| LAC | K.Vidal | 2 | 0 | 0% | 0.0 |
+| LAC | Q.Johnston | 2 | 8 | 8% | 4.0 |
+| LAC | T.Harris | 2 | 19 | 19% | 9.5 |
+| LAC | C.Kolar | 1 | 4 | 4% | 4.0 |
+| LAC | K.Mitchell | 1 | 3 | 3% | 3.0 |
+| LAC | O.Hampton | 1 | -3 | -3% | -3.0 |
+
+**PBU/INT cross-check:** ESPN-text VERIFIED PBU/INT rows 3; nflverse plays with a named pass defender or interceptor 3; matched 3; nflverse-only 0; ESPN-only 0. DPI rows (0) come from the penalty text and are not in the nflverse pass-defense fields.
+**Target cross-check (ESPN box vs nflverse, roster-ID name match):** all receivers agree.
+
+**Snap counts:** unknown: not posted yet (nflverse-data `snap_counts/snap_counts_2026.parquet` (release updated 2026-11-20T12:01:47Z, sha256 980aba4c2b5e, pulled 2026-11-23 07:10 AM AST) has no 2026_11_NYJ_LAC rows; PFR boxscore page returned a Cloudflare challenge to the box and was not bypassed)
+
+**FTN charting (blitz/rushers):** unknown: nflverse-data `ftn_charting/ftn_charting_2026.parquet` (release updated 2026-11-23T05:41:23Z, sha256 4f404f0bc3ec, pulled 2026-11-23 07:10 AM AST) has no 2026_11_NYJ_LAC rows yet
+<!-- MONDAY-FILL-END -->
 
 ## Not available from free sources (marked unknown)
 

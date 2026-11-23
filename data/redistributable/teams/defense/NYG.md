@@ -216,14 +216,14 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Jevon Holland | S | 8 | 7 | 95 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x7 | P.Washington 4, J.Meyers 2, T.Hunter 1, B.Tuten 1 | P.Washington 21 deep_left Q2; J.Meyers 23 short_left Q3 |
 | Ar'Darius Washington | S | 5 | 3 | 55 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x3 | J.Cameron 3, J.Meyers 2 | J.Meyers 26 deep_middle Q4 |
-| Deonte Banks | CB | 5 | 3 | 37 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x3 | P.Washington 3, Bri.Thomas 1, J.Cameron 1 |  |
+| Deonte Banks | CB | 6 | 3 | 37 | 0 | 2 | 1 | 0 | VERIFIED x3, tackler x3 | P.Washington 4, Bri.Thomas 1, J.Cameron 1 |  |
 | Dru Phillips (last-name match) | CB | 7 | 4 | 31 | 0 | 3 | 0 | 0 | VERIFIED x3, tackler x4 | B.Strange 2, J.Meyers 2, B.Tuten 1, P.Washington 2 | P.Washington 21 deep_right Q4 |
-| Paulson Adebo | CB | 4 | 1 | 23 | 0 | 3 | 0 | 0 | VERIFIED x3, tackler x1 | J.Meyers 2, P.Washington 2 | J.Meyers 23 deep_middle Q4 |
+| Paulson Adebo | CB | 5 | 1 | 23 | 0 | 3 | 1 | 0 | VERIFIED x4, tackler x1 | J.Meyers 3, P.Washington 2 | J.Meyers 23 deep_middle Q4 |
 | Arvell Reese | LB | 4 | 4 | 21 | 0 | 0 | 0 | 0 | tackler x4 | P.Washington 2, B.Strange 1, L.Allen 1 |  |
 | Micah McFadden | LB | 2 | 2 | 21 | 0 | 0 | 0 | 0 | tackler x2 | B.Tuten 1, C.Rodriguez 1 |  |
 | G.Newsome (name unresolved) | unknown | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | P.Washington 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 16/33 for 235 yds, 0 TD; RB 5/5 for 32 yds, 0 TD; unknown 1/3 for 18 yds, 1 TD; TE 3/4 for 16 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 16/35 for 235 yds, 0 TD; RB 5/5 for 32 yds, 0 TD; unknown 1/3 for 18 yds, 1 TD; TE 3/4 for 16 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 5/0
 Pass rush: sacks D.Reader 1, A.Carter 2; QB hits A.Reese 1, A.Carter 3, D.Reader 1, S.Harris 1, B.Okoye 1, J.Kelly 1
 Video (highlight transcript) mentions: Kayvon Thibodeaux (LB) @13:50 "BUYING TIME, SLIPS IT, PICKED OFF IN THE END ZONE BY THIBODEAUX. >> J.J.: THERE YOU GO. NOT HAPPY, YOU HAVE TO FIND A WAY TO BURN SOME O'CLOCK." [coverage word: PICKED]

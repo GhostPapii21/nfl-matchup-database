@@ -225,6 +225,7 @@ ARZ False Start x2, KC Intentional Grounding x1, KC Illegal Block Above the Wais
 ## Weather
 
 ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
+NFL game-feed weather (nflverse pbp `weather`, roof `outdoors`): Temp: 46° F, Humidity: 68%, Wind: N 20 mph
 Venue: Arrowhead Stadium (Kansas City), indoor=None, grass=True
 Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 48.1, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 15.7, "wind_gusts_10m": 25.7}
 
@@ -328,11 +329,11 @@ KC defense by depth/location (proxy, not alignment): short_right 11/17 73y; shor
 | Sack rate (sacks / dropbacks) | 9.1% (3/33) | 2.5% (1/40) |
 | QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 12.1% (4/33) | 10.0% (4/40) |
 | Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 69 air / 86 YAC on 18 comps | 157 air / 167 YAC on 27 comps |
-| Intended air yards on incompletions | unknown (not in ESPN; nflverse air_yards after overnight rebuild) | unknown |
+| Intended air yards on incompletions | 141.0 air yds on 13 incompletions (total intended 210.0, aDOT 6.77 on 31 att; nflverse pbp) | 198.0 air yds on 12 incompletions (total intended 341.0, aDOT 8.74 on 39 att; nflverse pbp) |
 | Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 4 / 2 | 1 / 0 |
 | Penalties-yds | 4-25 | 2-15 |
 | Garbage-time offensive plays (Q3+ with home WP <5% or >95%, or Q4 margin 17+) | 35 | 23 |
-| Snap shares | unknown (nflverse/PFR snap counts post Mon-Tue) | unknown |
+| Snap shares | unknown: not posted yet (nflverse snap_counts has no row for this game as of 2026-11-23 07:10 AM AST; PFR page blocked to the box) | unknown |
 
 ## QB vs coverage shell / pressure
 
@@ -342,6 +343,51 @@ KC defense by depth/location (proxy, not alignment): short_right 11/17 73y; shor
 | vs blitz / no blitz | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | vs MOF open / MOF closed | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | under pressure / clean | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
+
+
+
+<!-- MONDAY-FILL-START refs NFL-56 -->
+## Monday fill (2026-11-23, free nflverse releases; research only)
+
+Source: nflverse-data `pbp/play_by_play_2026.parquet` (release updated 2026-11-23T10:02:36Z, sha256 86d0a57a1f3e, pulled 2026-11-23 07:10 AM AST). Box path of the pulls: /tmp/w11fill (manifest in research/game_logs_2026_w11/monday_fill/MANIFEST.json).
+
+**Weather (NFL game feed):** Temp: 46° F, Humidity: 68%, Wind: N 20 mph (roof: outdoors).
+
+**Intended air yards (nflverse, 2-pt tries and no-plays excluded)**
+
+| Team | Att | Intended air yds | aDOT | Incompletions | Air yds on incompletions | INT |
+|---|---|---|---|---|---|---|
+| ARI | 31 | 210.0 | 6.77 | 13 | 141.0 | 0 |
+| KC | 39 | 341.0 | 8.74 | 12 | 198.0 | 0 |
+
+**Air yards by receiver (nflverse)**
+
+| Team | Receiver | Tgt | Air yds | Air share | aDOT |
+|---|---|---|---|---|---|
+| ARI | T.McBride | 14 | 52 | 25% | 3.7 |
+| ARI | H.Wallace | 7 | 62 | 30% | 8.9 |
+| ARI | S.Fehoko | 5 | 68 | 32% | 13.6 |
+| ARI | Z.Jones | 2 | 23 | 11% | 11.5 |
+| ARI | E.Higgins | 1 | -1 | -0% | -1.0 |
+| ARI | H.Long | 1 | 10 | 5% | 10.0 |
+| ARI | Z.Knight | 1 | -4 | -2% | -4.0 |
+| KC | T.Kelce | 7 | 58 | 18% | 8.3 |
+| KC | R.Rice | 6 | 31 | 10% | 5.2 |
+| KC | J.Downs | 5 | 50 | 16% | 10.0 |
+| KC | N.Gray | 5 | 16 | 5% | 3.2 |
+| KC | C.Allen | 4 | 79 | 24% | 19.8 |
+| KC | E.Johnson | 4 | -10 | -3% | -2.5 |
+| KC | X.Worthy | 4 | 80 | 25% | 20.0 |
+| KC | A.Armstrong | 1 | 14 | 4% | 14.0 |
+| KC | J.Royals | 1 | 4 | 1% | 4.0 |
+
+**PBU/INT cross-check:** ESPN-text VERIFIED PBU/INT rows 7; nflverse plays with a named pass defender or interceptor 7; matched 7; nflverse-only 0; ESPN-only 0. DPI rows (0) come from the penalty text and are not in the nflverse pass-defense fields.
+**Target cross-check (ESPN box vs nflverse, roster-ID name match):** all receivers agree.
+
+**Snap counts:** unknown: not posted yet (nflverse-data `snap_counts/snap_counts_2026.parquet` (release updated 2026-11-20T12:01:47Z, sha256 980aba4c2b5e, pulled 2026-11-23 07:10 AM AST) has no 2026_11_ARI_KC rows; PFR boxscore page returned a Cloudflare challenge to the box and was not bypassed)
+
+**FTN charting (blitz/rushers):** unknown: nflverse-data `ftn_charting/ftn_charting_2026.parquet` (release updated 2026-11-23T05:41:23Z, sha256 4f404f0bc3ec, pulled 2026-11-23 07:10 AM AST) has no 2026_11_ARI_KC rows yet
+<!-- MONDAY-FILL-END -->
 
 ## Not available from free sources (marked unknown)
 

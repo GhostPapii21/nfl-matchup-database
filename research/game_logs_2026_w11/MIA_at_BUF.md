@@ -172,9 +172,9 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 
 | Defense | Defender | Plays tagged | Rec | Yds | TD | PBU | INT | DPI | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|
-| MIA | J.Rodriguez | 7 | 7 | 67 | 0 | 0 | 0 | 0 | T.Johnson 3, D.Moore 2, J.Cook 1, K.Shakir 1 | D.Moore 20 short_left Q2 |
+| MIA | J.Rodriguez | 8 | 7 | 67 | 0 | 0 | 1 | 0 | T.Johnson 3, D.Moore 2, K.Latu 1, J.Cook 1, K.Shakir 1 | D.Moore 20 short_left Q2 |
 | MIA | M.Taaffe | 2 | 2 | 61 | 0 | 0 | 0 | 0 | D.Knox 1, K.Shakir 1 | D.Knox 23 short_middle Q1; K.Shakir 38 deep_right Q3 |
-| MIA | Z.Anderson | 6 | 4 | 58 | 0 | 2 | 0 | 0 | K.Shakir 2, D.Moore 1, K.Latu 1, D.Knox 1, T.Johnson 1 | K.Shakir 32 deep_right Q1 |
+| MIA | Z.Anderson | 7 | 4 | 58 | 0 | 2 | 1 | 0 | K.Shakir 3, D.Moore 1, K.Latu 1, D.Knox 1, T.Johnson 1 | K.Shakir 32 deep_right Q1 |
 | MIA | J.Marshall | 4 | 4 | 40 | 0 | 0 | 0 | 0 | D.Moore 2, K.Coleman 1, T.Johnson 1 |  |
 | MIA | M.Washington | 1 | 1 | 30 | 0 | 0 | 0 | 0 | K.Latu 1 | K.Latu 30 deep_middle Q1 |
 | BUF | D.Igbinosun | 4 | 2 | 29 | 0 | 2 | 0 | 1 | C.Douglas 3, M.Washington 1, C.Bell 1 | M.Washington 21 deep_left Q3 |
@@ -189,14 +189,17 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | BUF | J.Hancock | 3 | 2 | 6 | 0 | 1 | 0 | 0 | M.Washington 1, G.Dulcich 1, O.Gordon 1 |  |
 | BUF | K.Elarms-Orr | 1 | 1 | 5 | 0 | 0 | 0 | 0 | G.Dulcich 1 |  |
 | BUF | D.Alford | 2 | 1 | 4 | 0 | 1 | 0 | 0 | M.Washington 2 |  |
+| MIA | C.Robinson | 1 | 0 | 0 | 0 | 1 | 0 | 0 | K.Latu 1 |  |
 | BUF | D.Walker | 1 | 0 | 0 | 0 | 1 | 0 | 0 | M.Washington 1 |  |
+| BUF | D.Hamlin | 1 | 0 | 0 | 0 | 0 | 1 | 0 | C.Bell 1 |  |
+| BUF | M.Hoecht | 1 | 0 | 0 | 0 | 1 | 0 | 0 | C.Bell 1 |  |
 | BUF | T.White | 1 | 0 | 0 | 0 | 1 | 0 | 0 | K.Coleman 1 |  |
 | BUF | S.Thompson | 1 | 0 | 0 | 0 | 1 | 0 | 0 | C.Douglas 1 |  |
 | BUF | E.Oliver | 1 | 1 | -3 | 0 | 0 | 0 | 0 | O.Gordon 1 |  |
 
-Assignment evidence count: 15 VERIFIED (PBU/INT/DPI-named), 39 tackler-not-coverage (inferred), 21 unattributed.
+Assignment evidence count: 18 VERIFIED (PBU/INT/DPI-named), 39 tackler-not-coverage (inferred), 21 unattributed.
 Most yards charged to a MIA defender (tackler tag, not coverage; inferred): J.Rodriguez 7 rec / 67 yds.
-Most VERIFIED-PBU/INT/DPI credits on a MIA defender (the only coverage counts): Z.Anderson PBU 2, INT 0, DPI 0.
+Most VERIFIED-PBU/INT/DPI credits on a MIA defender (the only coverage counts): Z.Anderson PBU 2, INT 1, DPI 0.
 Most yards charged to a BUF defender (tackler tag, not coverage; inferred): D.Igbinosun 2 rec / 29 yds.
 Most VERIFIED-PBU/INT/DPI credits on a BUF defender (the only coverage counts): D.Igbinosun PBU 2, INT 0, DPI 1.
 
@@ -231,6 +234,7 @@ BUF Offensive Holding x3, MIA Unnecessary Roughness x1, BUF Defensive Offside x1
 ## Weather
 
 ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
+NFL game-feed weather (nflverse pbp `weather`, roof `outdoors`): Fair Temp: 64° F, Humidity: 43%, Wind: S 12 mph
 Venue: Highmark Stadium (Orchard Park), indoor=None, grass=True
 Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 65.4, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 10.8, "wind_gusts_10m": 17.7}
 
@@ -309,20 +313,20 @@ WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not c
 **MIA defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 24 | 15 | 209 | 1 | 8.7 |
+| WR | 25 | 15 | 209 | 1 | 8.4 |
 | RB | 12 | 10 | 64 | 0 | 5.3 |
-| TE | 6 | 3 | 61 | 0 | 10.2 |
+| TE | 7 | 3 | 61 | 0 | 8.7 |
 
-MIA defense by depth/location (proxy, not alignment): short_left 9/12 100y; short_right 11/15 78y; deep_right 2/7 70y; deep_middle 2/3 48y; short_middle 4/5 38y
+MIA defense by depth/location (proxy, not alignment): short_left 9/12 100y; short_right 11/15 78y; deep_right 2/7 70y; deep_middle 2/3 48y; short_middle 4/7 38y
 
 **BUF defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 21 | 7 | 85 | 0 | 4.0 |
+| WR | 22 | 7 | 85 | 0 | 3.9 |
 | TE | 7 | 2 | 12 | 0 | 1.7 |
 | RB | 4 | 3 | 5 | 0 | 1.2 |
 
-BUF defense by depth/location (proxy, not alignment): short_left 4/11 32y; short_middle 2/2 31y; deep_left 1/4 21y; short_right 5/12 18y; deep_right 0/1 0y; deep_middle 0/2 0y
+BUF defense by depth/location (proxy, not alignment): short_left 4/11 32y; short_middle 2/2 31y; deep_left 1/4 21y; short_right 5/12 18y; deep_right 0/1 0y; deep_middle 0/3 0y
 
 
 ## Extras (src: ESPN summary JSON event 401873070, pulled 2026-11-22 09:36 PM AST; derived where noted)
@@ -333,11 +337,11 @@ BUF defense by depth/location (proxy, not alignment): short_left 4/11 32y; short
 | Sack rate (sacks / dropbacks) | 5.7% (2/35) | 6.1% (3/49) |
 | QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 17.1% (6/35) | 6.1% (3/49) |
 | Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 77 air / 25 YAC on 12 comps | 140 air / 194 YAC on 28 comps |
-| Intended air yards on incompletions | unknown (not in ESPN; nflverse air_yards after overnight rebuild) | unknown |
+| Intended air yards on incompletions | 206.0 air yds on 20 incompletions (total intended 302.0, aDOT 9.15 on 33 att; nflverse pbp) | 214.0 air yds on 16 incompletions (total intended 381.0, aDOT 8.28 on 46 att; nflverse pbp) |
 | Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 5 / 0 | 1 / 2 |
 | Penalties-yds | 3-25 | 7-48 |
 | Garbage-time offensive plays (Q3+ with home WP <5% or >95%, or Q4 margin 17+) | 34 | 29 |
-| Snap shares | unknown (nflverse/PFR snap counts post Mon-Tue) | unknown |
+| Snap shares | unknown: not posted yet (nflverse snap_counts has no row for this game as of 2026-11-23 07:10 AM AST; PFR page blocked to the box) | unknown |
 
 ## QB vs coverage shell / pressure
 
@@ -347,6 +351,52 @@ BUF defense by depth/location (proxy, not alignment): short_left 4/11 32y; short
 | vs blitz / no blitz | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | vs MOF open / MOF closed | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | under pressure / clean | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
+
+
+
+<!-- MONDAY-FILL-START refs NFL-56 -->
+## Monday fill (2026-11-23, free nflverse releases; research only)
+
+Source: nflverse-data `pbp/play_by_play_2026.parquet` (release updated 2026-11-23T10:02:36Z, sha256 86d0a57a1f3e, pulled 2026-11-23 07:10 AM AST). Box path of the pulls: /tmp/w11fill (manifest in research/game_logs_2026_w11/monday_fill/MANIFEST.json).
+
+**Weather (NFL game feed):** Fair Temp: 64° F, Humidity: 43%, Wind: S 12 mph (roof: outdoors).
+
+**Intended air yards (nflverse, 2-pt tries and no-plays excluded)**
+
+| Team | Att | Intended air yds | aDOT | Incompletions | Air yds on incompletions | INT |
+|---|---|---|---|---|---|---|
+| MIA | 33 | 302.0 | 9.15 | 20 | 206.0 | 1 |
+| BUF | 46 | 381.0 | 8.28 | 16 | 214.0 | 2 |
+
+**Air yards by receiver (nflverse)**
+
+| Team | Receiver | Tgt | Air yds | Air share | aDOT |
+|---|---|---|---|---|---|
+| MIA | C.Douglas | 10 | 124 | 41% | 12.4 |
+| MIA | G.Dulcich | 7 | 45 | 15% | 6.4 |
+| MIA | M.Washington | 6 | 47 | 16% | 7.8 |
+| MIA | C.Bell | 4 | 54 | 18% | 13.5 |
+| MIA | O.Gordon | 3 | -5 | -2% | -1.7 |
+| MIA | D.Herman | 1 | 7 | 2% | 7.0 |
+| MIA | J.Tolbert | 1 | 13 | 4% | 13.0 |
+| MIA | K.Coleman | 1 | 17 | 6% | 17.0 |
+| BUF | D.Moore | 10 | 56 | 16% | 5.6 |
+| BUF | K.Shakir | 9 | 133 | 37% | 14.8 |
+| BUF | T.Johnson | 8 | -7 | -2% | -0.9 |
+| BUF | K.Coleman | 4 | 60 | 17% | 15.0 |
+| BUF | K.Latu | 4 | 53 | 15% | 13.2 |
+| BUF | D.Knox | 3 | 11 | 3% | 3.7 |
+| BUF | J.Cook | 2 | -8 | -2% | -4.0 |
+| BUF | R.Davis | 2 | -7 | -2% | -3.5 |
+| BUF | T.Shavers | 2 | 71 | 20% | 35.5 |
+
+**PBU/INT cross-check:** ESPN-text VERIFIED PBU/INT rows 17; nflverse plays with a named pass defender or interceptor 17; matched 17; nflverse-only 0; ESPN-only 0. DPI rows (1) come from the penalty text and are not in the nflverse pass-defense fields.
+**Target cross-check (ESPN box vs nflverse, roster-ID name match):** all receivers agree.
+
+**Snap counts:** unknown: not posted yet (nflverse-data `snap_counts/snap_counts_2026.parquet` (release updated 2026-11-20T12:01:47Z, sha256 980aba4c2b5e, pulled 2026-11-23 07:10 AM AST) has no 2026_11_MIA_BUF rows; PFR boxscore page returned a Cloudflare challenge to the box and was not bypassed)
+
+**FTN charting (blitz/rushers):** unknown: nflverse-data `ftn_charting/ftn_charting_2026.parquet` (release updated 2026-11-23T05:41:23Z, sha256 4f404f0bc3ec, pulled 2026-11-23 07:10 AM AST) has no 2026_11_MIA_BUF rows yet
+<!-- MONDAY-FILL-END -->
 
 ## Not available from free sources (marked unknown)
 

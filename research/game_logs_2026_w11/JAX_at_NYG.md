@@ -181,10 +181,10 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | NYG | A.Washington | 5 | 3 | 55 | 0 | 2 | 0 | 0 | J.Cameron 3, J.Meyers 2 | J.Meyers 26 deep_middle Q4 |
 | JAX | T.Hunter | 6 | 6 | 49 | 0 | 0 | 0 | 0 | M.Nabers 5, X.Gipson 1 |  |
 | JAX | J.Bates | 3 | 3 | 48 | 0 | 0 | 0 | 0 | C.Manhertz 1, T.Johnson 1, M.Fields 1 |  |
-| NYG | D.Banks | 5 | 3 | 37 | 0 | 2 | 0 | 0 | P.Washington 3, Bri.Thomas 1, J.Cameron 1 |  |
+| NYG | D.Banks | 6 | 3 | 37 | 0 | 2 | 1 | 0 | P.Washington 4, Bri.Thomas 1, J.Cameron 1 |  |
 | JAX | K.Merriweather | 2 | 1 | 35 | 0 | 1 | 0 | 0 | I.Likely 1, C.Skattebo 1 | I.Likely 35 short_middle Q3 |
 | NYG | A.Phillips | 7 | 4 | 31 | 0 | 3 | 0 | 0 | B.Strange 2, J.Meyers 2, P.Washington 2, B.Tuten 1 | P.Washington 21 deep_right Q4 |
-| NYG | P.Adebo | 4 | 1 | 23 | 0 | 3 | 0 | 0 | J.Meyers 2, P.Washington 2 | J.Meyers 23 deep_middle Q4 |
+| NYG | P.Adebo | 5 | 1 | 23 | 0 | 3 | 1 | 0 | J.Meyers 3, P.Washington 2 | J.Meyers 23 deep_middle Q4 |
 | NYG | A.Reese | 4 | 4 | 21 | 0 | 0 | 0 | 0 | P.Washington 2, B.Strange 1, L.Allen 1 |  |
 | NYG | M.McFadden | 2 | 2 | 21 | 0 | 0 | 0 | 0 | B.Tuten 1, C.Rodriguez 1 |  |
 | JAX | J.Lewis | 1 | 1 | 11 | 0 | 0 | 0 | 0 | C.Skattebo 1 |  |
@@ -198,11 +198,11 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | JAX | T.Walker | 2 | 0 | 0 | 0 | 2 | 0 | 0 | M.Nabers 2 |  |
 | JAX | A.Armstead | 1 | 0 | 0 | 0 | 1 | 0 | 0 | D.Mooney 1 |  |
 
-Assignment evidence count: 21 VERIFIED (PBU/INT/DPI-named), 41 tackler-not-coverage (inferred), 22 unattributed.
+Assignment evidence count: 23 VERIFIED (PBU/INT/DPI-named), 41 tackler-not-coverage (inferred), 22 unattributed.
 Most yards charged to a JAX defender (tackler tag, not coverage; inferred): T.Hunter 6 rec / 49 yds.
 Most VERIFIED-PBU/INT/DPI credits on a JAX defender (the only coverage counts): M.Brown PBU 1, INT 0, DPI 1.
 Most yards charged to a NYG defender (tackler tag, not coverage; inferred): J.Holland 7 rec / 95 yds.
-Most VERIFIED-PBU/INT/DPI credits on a NYG defender (the only coverage counts): A.Phillips PBU 3, INT 0, DPI 0.
+Most VERIFIED-PBU/INT/DPI credits on a NYG defender (the only coverage counts): P.Adebo PBU 3, INT 1, DPI 0.
 
 ## Explosive plays (pass 20+, rush 15+)
 
@@ -235,6 +235,7 @@ JAX False Start x3, JAX Offensive Holding x2, NYG Offensive Holding x2, NYG Ille
 ## Weather
 
 ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
+NFL game-feed weather (nflverse pbp `weather`, roof `outdoors`): Fog/Mist Temp: 60° F, Humidity: 84%, Wind: E 3 mph
 Venue: MetLife Stadium (East Rutherford), indoor=None, grass=False
 Open-Meteo at kickoff hour (2026-11-22T21:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 60.4, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 7.0, "wind_gusts_10m": 12.3}
 
@@ -314,22 +315,22 @@ WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not c
 **JAX defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 24 | 12 | 98 | 1 | 4.1 |
+| WR | 24 | 11 | 90 | 1 | 3.8 |
 | TE | 5 | 3 | 64 | 0 | 12.8 |
 | RB | 8 | 4 | 19 | 0 | 2.4 |
 | unknown | 1 | 0 | 0 | 0 | 0.0 |
 
-JAX defense by depth/location (proxy, not alignment): short_middle 7/11 102y; short_right 7/9 48y; short_left 5/9 31y; deep_right 0/3 0y; deep_middle 0/4 0y; deep_left 0/2 0y
+JAX defense by depth/location (proxy, not alignment): short_middle 7/11 102y; short_right 7/9 48y; short_left 4/9 23y; deep_right 0/3 0y; deep_middle 0/4 0y; deep_left 0/2 0y
 
 **NYG defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 33 | 16 | 235 | 0 | 7.1 |
+| WR | 35 | 16 | 235 | 0 | 6.7 |
 | RB | 5 | 5 | 32 | 0 | 6.4 |
 | unknown | 3 | 1 | 18 | 1 | 6.0 |
 | TE | 4 | 3 | 16 | 0 | 4.0 |
 
-NYG defense by depth/location (proxy, not alignment): short_left 9/17 102y; short_middle 7/11 70y; deep_middle 3/6 67y; deep_left 1/4 21y; deep_right 1/2 21y; short_right 4/5 20y
+NYG defense by depth/location (proxy, not alignment): short_left 9/19 102y; short_middle 7/11 70y; deep_middle 3/6 67y; deep_left 1/4 21y; deep_right 1/2 21y; short_right 4/5 20y
 
 
 ## Extras (src: ESPN summary JSON event 401873069, pulled 2026-11-22 09:36 PM AST; derived where noted)
@@ -339,12 +340,12 @@ NYG defense by depth/location (proxy, not alignment): short_left 9/17 102y; shor
 | Early-down pass rate (1st/2nd down, pass att+sacks / plays) | 75% (38/51) | 60% (29/48) |
 | Sack rate (sacks / dropbacks) | 5.9% (3/51) | 2.5% (1/40) |
 | QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 15.7% (8/51) | 5.0% (2/40) |
-| Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 201 air / 100 YAC on 25 comps | 119 air / 62 YAC on 19 comps |
-| Intended air yards on incompletions | unknown (not in ESPN; nflverse air_yards after overnight rebuild) | unknown |
+| Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 201 air / 100 YAC on 25 comps | 111 air / 62 YAC on 18 comps |
+| Intended air yards on incompletions | 328.0 air yds on 20 incompletions (total intended 550.0, aDOT 11.7 on 47 att; nflverse pbp) | 368.0 air yds on 21 incompletions (total intended 477.0, aDOT 12.23 on 39 att; nflverse pbp) |
 | Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 1 / 1 | 5 / 0 |
 | Penalties-yds | 13-107 | 6-46 |
 | Garbage-time offensive plays (Q3+ with home WP <5% or >95%, or Q4 margin 17+) | 4 | 2 |
-| Snap shares | unknown (nflverse/PFR snap counts post Mon-Tue) | unknown |
+| Snap shares | unknown: not posted yet (nflverse snap_counts has no row for this game as of 2026-11-23 07:10 AM AST; PFR page blocked to the box) | unknown |
 
 ## QB vs coverage shell / pressure
 
@@ -354,6 +355,54 @@ NYG defense by depth/location (proxy, not alignment): short_left 9/17 102y; shor
 | vs blitz / no blitz | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | vs MOF open / MOF closed | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | under pressure / clean | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
+
+
+
+<!-- MONDAY-FILL-START refs NFL-56 -->
+## Monday fill (2026-11-23, free nflverse releases; research only)
+
+Source: nflverse-data `pbp/play_by_play_2026.parquet` (release updated 2026-11-23T10:02:36Z, sha256 86d0a57a1f3e, pulled 2026-11-23 07:10 AM AST). Box path of the pulls: /tmp/w11fill (manifest in research/game_logs_2026_w11/monday_fill/MANIFEST.json).
+
+**Weather (NFL game feed):** Fog/Mist Temp: 60° F, Humidity: 84%, Wind: E 3 mph (roof: outdoors).
+
+**Intended air yards (nflverse, 2-pt tries and no-plays excluded)**
+
+| Team | Att | Intended air yds | aDOT | Incompletions | Air yds on incompletions | INT |
+|---|---|---|---|---|---|---|
+| JAX | 47 | 550.0 | 11.7 | 20 | 328.0 | 2 |
+| NYG | 39 | 477.0 | 12.23 | 21 | 368.0 | 0 |
+
+**Air yards by receiver (nflverse)**
+
+| Team | Receiver | Tgt | Air yds | Air share | aDOT |
+|---|---|---|---|---|---|
+| JAX | P.Washington | 17 | 263 | 49% | 15.5 |
+| JAX | J.Meyers | 10 | 118 | 22% | 11.8 |
+| JAX | J.Cameron | 7 | 99 | 18% | 14.1 |
+| JAX | B.Strange | 3 | 11 | 2% | 3.7 |
+| JAX | B.Tuten | 3 | -6 | -1% | -2.0 |
+| JAX | Bri.Thomas | 3 | 59 | 11% | 19.7 |
+| JAX | C.Rodriguez | 1 | 3 | 1% | 3.0 |
+| JAX | L.Allen | 1 | -1 | -0% | -1.0 |
+| JAX | T.Hunter | 1 | -6 | -1% | -6.0 |
+| NYG | M.Nabers | 12 | 137 | 29% | 11.4 |
+| NYG | C.Skattebo | 7 | -16 | -3% | -2.3 |
+| NYG | D.Mooney | 5 | 171 | 37% | 34.2 |
+| NYG | M.Fields | 5 | 83 | 18% | 16.6 |
+| NYG | I.Likely | 3 | 21 | 4% | 7.0 |
+| NYG | J.Hyatt | 2 | 40 | 9% | 20.0 |
+| NYG | C.Manhertz | 1 | 11 | 2% | 11.0 |
+| NYG | D.Singletary | 1 | 1 | 0% | 1.0 |
+| NYG | T.Johnson | 1 | 12 | 3% | 12.0 |
+| NYG | X.Gipson | 1 | 6 | 1% | 6.0 |
+
+**PBU/INT cross-check:** ESPN-text VERIFIED PBU/INT rows 22; nflverse plays with a named pass defender or interceptor 22; matched 22; nflverse-only 0; ESPN-only 0. DPI rows (1) come from the penalty text and are not in the nflverse pass-defense fields.
+**Target cross-check (ESPN box vs nflverse, roster-ID name match):** all receivers agree.
+
+**Snap counts:** unknown: not posted yet (nflverse-data `snap_counts/snap_counts_2026.parquet` (release updated 2026-11-20T12:01:47Z, sha256 980aba4c2b5e, pulled 2026-11-23 07:10 AM AST) has no 2026_11_JAX_NYG rows; PFR boxscore page returned a Cloudflare challenge to the box and was not bypassed)
+
+**FTN charting (blitz/rushers):** unknown: nflverse-data `ftn_charting/ftn_charting_2026.parquet` (release updated 2026-11-23T05:41:23Z, sha256 4f404f0bc3ec, pulled 2026-11-23 07:10 AM AST) has no 2026_11_JAX_NYG rows yet
+<!-- MONDAY-FILL-END -->
 
 ## Not available from free sources (marked unknown)
 

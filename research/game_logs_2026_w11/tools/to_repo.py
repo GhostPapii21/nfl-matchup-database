@@ -20,10 +20,20 @@ orig = subprocess.run(['git', '-C', WT, 'show', f'{base}:data/redistributable/te
 assert orig, 'could not read base defense_db.csv'
 fields = next(csv.reader(io.StringIO(orig.splitlines()[0])))
 KEY = lambda r: (r.get('team', ''), r.get('short', ''), r.get('defender', ''), r.get('scope', ''), str(r.get('week', '')), r.get('game', ''))
+def _rows_to_csv(rows, fields):
+    b = io.StringIO(); w = csv.DictWriter(b, fieldnames=fields, lineterminator='\n'); w.writerows(rows); return [b.getvalue()]
 base_rows = list(csv.DictReader(io.StringIO(orig))); have = {KEY(r) for r in base_rows}
 base_games = {r.get('game') for r in base_rows if str(r.get('week')) == '11' and 'refs NFL-56' in r.get('method', '')}
 cand = list(csv.DictReader(open(f'{OUT}/data/defense_db_w11_rows.csv'))) if os.path.exists(f'{OUT}/data/defense_db_w11_rows.csv') else []
 # skip any game whose W11 builder rows are already on base (game-level dedupe), then any exact key already present
+# 2026-11-23 Monday correction run (REPLACE_W11=1): the INT parser fix changes W11 builder rows already on main, so drop
+# base W11 builder rows for the games being rebuilt and append the corrected rows (still deduped by key).
+if os.environ.get('REPLACE_W11'):
+    cand_games = {r.get('game') for r in cand}
+    dropped = [r for r in base_rows if str(r.get('week')) == '11' and 'refs NFL-56' in r.get('method', '') and r.get('game') in cand_games]
+    base_rows = [r for r in base_rows if r not in dropped]; have = {KEY(r) for r in base_rows}; base_games = set()
+    print(f'REPLACE_W11: dropped {len(dropped)} earlier W11 builder rows for {len(cand_games)} games')
+    orig = orig.splitlines()[0] + '\n' + ''.join(_rows_to_csv(base_rows, fields))
 new = [r for r in cand if r.get('game') not in base_games and KEY(r) not in have]
 print(f'defense_db.csv base rows {len(base_rows)} (W11 builder games on base: {len(base_games)}); candidate rows {len(cand)}; skipped as already on base {len(cand) - len(new)}; appended {len(new)}; after {len(base_rows) + len(new)}')
 dup = len(base_rows) + len(new) - len({KEY(r) for r in base_rows} | {KEY(r) for r in new})

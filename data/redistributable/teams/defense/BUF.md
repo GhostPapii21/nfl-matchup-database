@@ -251,14 +251,16 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Kaleb Elarms-Orr | LB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | G.Dulcich 1 |  |
 | Dee Alford | CB | 2 | 1 | 4 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | M.Washington 2 |  |
 | Deone Walker | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | M.Washington 1 |  |
+| Damar Hamlin | S | 1 | 0 | 0 | 0 | 0 | 1 | 0 | VERIFIED x1 | C.Bell 1 |  |
+| Michael Hoecht | DE | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | C.Bell 1 |  |
 | Tre'Davious White | CB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | K.Coleman 1 |  |
 | Shaq Thompson | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | C.Douglas 1 |  |
 | Ed Oliver | DT | 1 | 1 | -3 | 0 | 0 | 0 | 0 | tackler x1 | O.Gordon 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 7/21 for 85 yds, 0 TD; TE 2/7 for 12 yds, 0 TD; RB 3/4 for 5 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 7/22 for 85 yds, 0 TD; TE 2/7 for 12 yds, 0 TD; RB 3/4 for 5 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 1/2
 Pass rush: sacks G.Rousseau 2; QB hits L.Jackson 1, B.Chubb 2, A.Hooker 1, J.Solomon 1, D.Carter 1
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: Kaleb Elarms-Orr (LB) @5:51 "AND THEY'RE GOING TO BE WELL     SHORT OF THE FIRST DOWN MARKER. EVERYONE COVERED DOWN THE FIELD. ELARMS-ORR. IS THERE TO MAKE THE OPEN FIELD  TACKLE FOR THE BILLS." [coverage word: COVERED]; Maxwell Hairston (CB) @8:38 "DOES A LITTLE PIROUETTE AND      SLINGS ONE TO THE END ZONE AND IT'S BATTED DOWN.                MAXWELL HAIRSTON WAS THERE FOR THE BILLS.                       SPOT START." [coverage word: ZONE]; Amani Hooker (S) @9:58 "OF NICE PLAYS, BLITZING AND IN   THE RUN GAME EARLIER THIS GAME. BUT HOOKER ALLOWS THIS SECONDARY TO REALLY COME TOGETHER. SPERO: MCCOY TRYING TO THREAD    THE NEEDLE." [coverage word: BLITZING]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### BUF season coverage rates (public, season-level; NOT game-level)

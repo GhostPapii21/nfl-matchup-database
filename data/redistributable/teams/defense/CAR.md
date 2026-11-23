@@ -208,18 +208,18 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Tre'von Moehrig | S | 2 | 2 | 40 | 0 | 0 | 0 | 0 | tackler x2 | D.Henry 1, D.Walker 1 | D.Walker 34 deep_right Q2 |
 | Zakee Wheatley | S | 3 | 3 | 38 | 0 | 0 | 0 | 0 | tackler x3 | Z.Flowers 3 | Z.Flowers 25 deep_middle Q2 |
-| W.Lee (name unresolved) | unknown | 3 | 2 | 32 | 0 | 1 | 0 | 1 | VERIFIED x2, tackler x2 | J.Lane 1, Z.Flowers 1, D.Henry 2 | Z.Flowers 26 short_left Q2 |
-| Tyrel Dodson | LB | 4 | 4 | 23 | 0 | 0 | 0 | 0 | tackler x4 | M.Hibner 1, J.Hill 2, M.Andrews 1 |  |
+| W.Lee (name unresolved) | unknown | 4 | 3 | 35 | 0 | 1 | 0 | 1 | VERIFIED x2, tackler x3 | J.Lane 1, Z.Flowers 1, D.Henry 2, R.Bateman 1 | Z.Flowers 26 short_left Q2 |
+| Tyrel Dodson | LB | 5 | 4 | 23 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x4 | M.Hibner 1, J.Hill 2, M.Andrews 1, R.Bateman 1 |  |
 | Chau Smith-Wade | CB | 3 | 2 | 23 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | J.Hill 1, R.Bateman 1, Z.Flowers 1 |  |
 | Mike Jackson | CB | 4 | 2 | 19 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | R.Bateman 2, Z.Flowers 2 |  |
 | Devin Lloyd | LB | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | Z.Flowers 1, J.Hill 1 |  |
 | P.Jones (name unresolved) | unknown | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | M.Hibner 1, J.Cuevas 1 |  |
 | Derrick Brown | DT | 3 | 2 | 5 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | D.Henry 1, Z.Flowers 2 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 11/17 for 198 yds, 1 TD; RB 7/10 for 41 yds, 0 TD; TE 5/8 for 34 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 11/18 for 198 yds, 1 TD; RB 8/10 for 44 yds, 0 TD; TE 5/8 for 34 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 4/4
 Pass rush: sacks P.Umanmielen (half) 1, D.Lloyd (half) 2, T.Gipson (half) 1, P.Umanmielen 1; QB hits T.Wharton 2, P.Jones 1
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: Jaycee Horn (CB) @2:49 "FROM HILL AND HILL PICKS UP      ANOTHER RAVENS FIRST DOWN. SUPPOSED TO BE HIM AND HORN AS   THAT CORNER TOP CORNER DUO. >> Kenny: DOTSON HAS RETURNED    FOR CAROLINA." [coverage word: CORNER]; Tyrel Dodson (LB) @15:51 "PRESSURE, STAYS ON HIS FEET,     SPINS AND NOW HE THROWS. IT IS PICKED OFF BY DODSON!      DODSON COMES UP WITH THE BRISSETT DOES EVERYTHING HE CAN  TO STAY ALIVE AND JUST MADE A" [coverage word: PICKED]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### CAR season coverage rates (public, season-level; NOT game-level)

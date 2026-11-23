@@ -262,7 +262,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Kyle Hamilton | S | 5 | 5 | 85 | 0 | 0 | 0 | 0 | tackler x5 | T.McMillan 2, M.Evans 1, J.Coker 1, D.Waller 1 | J.Coker 35 deep_left Q1; T.McMillan 29 deep_right Q3 |
-| T.J. Tampa | CB | 2 | 1 | 27 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | D.Waller 1, J.Coker 1 | D.Waller 27 deep_middle Q3 |
+| T.J. Tampa | CB | 3 | 1 | 27 | 0 | 1 | 1 | 0 | VERIFIED x2, tackler x1 | D.Waller 1, J.Coker 1, T.McMillan 1 | D.Waller 27 deep_middle Q3 |
 | Malaki Starks | S | 2 | 2 | 25 | 0 | 0 | 0 | 0 | tackler x2 | J.Coker 1, J.Metchie 1 |  |
 | Trenton Simpson | LB | 1 | 1 | 18 | 0 | 0 | 0 | 0 | tackler x1 | T.Tremble 1 |  |
 | Roquan Smith | LB | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | M.Evans 1, T.McMillan 1 |  |
@@ -275,10 +275,10 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | David Olajiga | DT | 1 | 1 | 0 | 0 | 0 | 0 | 0 | tackler x1 | J.Coker 1 |  |
 | Calais Campbell | DE | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | T.McMillan 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 12/19 for 143 yds, 1 TD; TE 9/9 for 104 yds, 1 TD; RB 1/1 for 7 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 12/20 for 143 yds, 1 TD; TE 9/9 for 104 yds, 1 TD; RB 1/1 for 7 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 4/3
 Pass rush: sacks M.Green 2, T.Jones 1; QB hits T.Hendrickson 1, C.Campbell 1, D.Olajiga 1, R.Smith 1
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: T.J. Tampa (CB) @10:51 "DIVING INTERCEPTION MADE BY      T.J. TAMPA.                           YOU JUST TALKED ABOUT HIM A THE JETS, AND NOW WALKER TODAY.  THERE HAVE BEEN NO OTHER" [coverage word: INTERCEPTION]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### BAL season coverage rates (public, season-level; NOT game-level)

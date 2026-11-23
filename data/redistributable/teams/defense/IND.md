@@ -245,20 +245,21 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| CJ Allen | LB | 6 | 6 | 41 | 0 | 0 | 0 | 0 | tackler x6 | X.Hutchinson 1, M.Klein 1, E.Demercado 2, K.Boutte 1, N.Collins 1 | K.Boutte 20 short_middle Q2 |
+| CJ Allen | LB | 6 | 6 | 37 | 0 | 0 | 0 | 0 | tackler x6 | X.Hutchinson 1, M.Klein 1, E.Demercado 2, K.Boutte 1, N.Collins 1 |  |
 | Bryce Boettcher | LB | 2 | 2 | 12 | 0 | 0 | 0 | 0 | tackler x2 | M.Klein 1, F.Moreau 1 |  |
 | Johnathan Edwards | CB | 1 | 1 | 11 | 0 | 0 | 0 | 0 | tackler x1 | D.Schultz 1 |  |
 | Austin Ajiake | LB | 3 | 2 | 11 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | N.Collins 1, D.Montgomery 2 |  |
 | Arden Key | DE | 1 | 1 | 10 | 0 | 0 | 0 | 0 | tackler x1 | T.Dell 1 |  |
+| A.J. Haulcy | S | 2 | 1 | 9 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x1 | N.Collins 1, D.Montgomery 1 |  |
 | Kapena Gushiken | CB | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | T.Dell 1 |  |
-| A.J. Haulcy | S | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | D.Montgomery 1 |  |
 | Justin Walley | CB | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | D.Montgomery 1 |  |
 | Hunter Wohler | S | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | M.Klein 1 |  |
 | Caden Curry | LB | 1 | 1 | 2 | 0 | 0 | 0 | 0 | tackler x1 | X.Hutchinson 1 |  |
+| Cam Bynum | S | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | N.Collins 1 |  |
 | Jaylahn Tuimoloau | DE | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | X.Hutchinson 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 10/13 for 142 yds, 2 TD; TE 6/6 for 43 yds, 1 TD; RB 5/6 for 13 yds, 0 TD
-Explosives allowed (pass 20+/rush 15+): 3/2
+Yards allowed by target position (WR slot/outside unknown): WR 10/14 for 138 yds, 2 TD; TE 6/6 for 43 yds, 1 TD; RB 5/6 for 13 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 2/2
 Pass rush: sacks A.Adebawore 1; QB hits none
 Video (highlight transcript) mentions: A.J. Haulcy (S) @1:44 "HAVE BEEN PICKED AFTER A DOUBLE TAP. AJ. HAULCY ABLE TO COME UP WITH IT. LOOKED LIKE IT WAS BATTED" [coverage word: PICKED]; Cam Bynum (S) @2:00 "HE'S RUNNING BACK. HE GOES OFF OF HIS HELMET. HE ENDS UP INTERCEPTING IT. GOES OFF OF BYNUM BACK TO INTERCEPTION. SECOND AND NINE." [coverage word: INTERCEPTING]; Cameron Ball (DT) @6:14 "IF HE MISSES THIS WITH HIS FIELD POSITION AND THE TEXANS GETTING THE BALL TO START THE SECOND HALF. YEAH, THEY GET THE BALL ON THE OTHER SIDE OF THE 50 AND" [coverage word: MISSES]; Austin Ajiake (LB) @7:17 "PRESSURE THROWS INCOMPLETE. INTENDED FOR MONTGOMERY. GOOD COVERAGE THAT TIME. AJIAKE IN THE MIDDLE. SO IT'S FOURTH DOWN AND SIX. IN COMES THE FIELD GOAL" [coverage word: COVERAGE]; Cam Bynum (S) @10:22 "AND MEANWHILE THE PRESSURE WAS PUT ON THAT TIME BLITZ COMING IN FORCING THAT THROW CAM BYNUM PUT IT ON. ALMOST HAD THAT PICK BEFORE BUT IT WAS OVERTURNED THAT" [coverage word: BLITZ]; Bryce Boettcher (LB) @11:40 "CORNER? HE CAN NOT. AND THAT TIME IT'S BRYCE BOETTCHER THE ROOKIE OUT OF OREGON WHO STOPS HIM TURNED THE BALL OVER ON DOWNS WITH" [coverage word: CORNER]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).

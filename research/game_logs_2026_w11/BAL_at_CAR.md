@@ -105,7 +105,7 @@ Drive outcomes: BAL: Punt 3, Touchdown 4, Field Goal 1, Fumble 2, End of Half 1,
 **BAL**: 3 trips -> drive 5: Field Goal, drive 12: Touchdown, drive 22: Touchdown
   Usage inside the 20: D.Henry 3 car/1 tgt/1 TD; Z.Flowers 0 car/2 tgt/0 TD; J.Hill 1 car/1 tgt/1 TD; R.Bateman 0 car/1 tgt/0 TD
 **CAR**: 6 trips -> drive 9: Touchdown, drive 11: Touchdown, drive 15: Touchdown, drive 17: Interception, drive 19: Field Goal, drive 23: Field Goal
-  Usage inside the 20: C.Hubbard 6 car/0 tgt/1 TD; T.Etienne 2 car/0 tgt/0 TD; T.McMillan 0 car/2 tgt/1 TD; M.Evans 0 car/1 tgt/0 TD; J.Coker 0 car/1 tgt/0 TD
+  Usage inside the 20: C.Hubbard 6 car/0 tgt/1 TD; T.McMillan 0 car/3 tgt/1 TD; T.Etienne 2 car/0 tgt/0 TD; M.Evans 0 car/1 tgt/0 TD; J.Coker 0 car/1 tgt/0 TD
 
 ## Third downs (play-by-play)
 
@@ -177,10 +177,10 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | BAL | K.Hamilton | 5 | 5 | 85 | 0 | 0 | 0 | 0 | T.McMillan 2, M.Evans 1, J.Coker 1, D.Waller 1 | J.Coker 35 deep_left Q1; T.McMillan 29 deep_right Q3 |
 | CAR | T.Moehrig | 2 | 2 | 40 | 0 | 0 | 0 | 0 | D.Henry 1, D.Walker 1 | D.Walker 34 deep_right Q2 |
 | CAR | Z.Wheatley | 3 | 3 | 38 | 0 | 0 | 0 | 0 | Z.Flowers 3 | Z.Flowers 25 deep_middle Q2 |
-| CAR | W.Lee | 3 | 2 | 32 | 0 | 1 | 0 | 1 | D.Henry 2, J.Lane 1, Z.Flowers 1 | Z.Flowers 26 short_left Q2 |
-| BAL | T.Tampa | 2 | 1 | 27 | 0 | 1 | 0 | 0 | D.Waller 1, J.Coker 1 | D.Waller 27 deep_middle Q3 |
+| CAR | W.Lee | 4 | 3 | 35 | 0 | 1 | 0 | 1 | D.Henry 2, J.Lane 1, Z.Flowers 1, R.Bateman 1 | Z.Flowers 26 short_left Q2 |
+| BAL | T.Tampa | 3 | 1 | 27 | 0 | 1 | 1 | 0 | D.Waller 1, J.Coker 1, T.McMillan 1 | D.Waller 27 deep_middle Q3 |
 | BAL | M.Starks | 2 | 2 | 25 | 0 | 0 | 0 | 0 | J.Coker 1, J.Metchie 1 |  |
-| CAR | T.Dodson | 4 | 4 | 23 | 0 | 0 | 0 | 0 | J.Hill 2, M.Hibner 1, M.Andrews 1 |  |
+| CAR | T.Dodson | 5 | 4 | 23 | 0 | 0 | 1 | 0 | J.Hill 2, M.Hibner 1, M.Andrews 1, R.Bateman 1 |  |
 | CAR | C.Smith-Wade | 3 | 2 | 23 | 0 | 1 | 0 | 0 | J.Hill 1, R.Bateman 1, Z.Flowers 1 |  |
 | CAR | M.Jackson | 4 | 2 | 19 | 0 | 2 | 0 | 0 | R.Bateman 2, Z.Flowers 2 |  |
 | BAL | T.Simpson | 1 | 1 | 18 | 0 | 0 | 0 | 0 | T.Tremble 1 |  |
@@ -197,9 +197,9 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | BAL | D.Olajiga | 1 | 1 | 0 | 0 | 0 | 0 | 0 | J.Coker 1 |  |
 | BAL | C.Campbell | 1 | 0 | 0 | 0 | 1 | 0 | 0 | T.McMillan 1 |  |
 
-Assignment evidence count: 10 VERIFIED (PBU/INT/DPI-named), 41 tackler-not-coverage (inferred), 14 unattributed.
+Assignment evidence count: 11 VERIFIED (PBU/INT/DPI-named), 42 tackler-not-coverage (inferred), 14 unattributed.
 Most yards charged to a BAL defender (tackler tag, not coverage; inferred): K.Hamilton 5 rec / 85 yds.
-Most VERIFIED-PBU/INT/DPI credits on a BAL defender (the only coverage counts): T.Hendrickson PBU 1, INT 0, DPI 0.
+Most VERIFIED-PBU/INT/DPI credits on a BAL defender (the only coverage counts): T.Tampa PBU 1, INT 1, DPI 0.
 Most yards charged to a CAR defender (tackler tag, not coverage; inferred): T.Moehrig 2 rec / 40 yds.
 Most VERIFIED-PBU/INT/DPI credits on a CAR defender (the only coverage counts): W.Lee PBU 1, INT 0, DPI 1.
 
@@ -243,6 +243,7 @@ CAR Unnecessary Roughness x2, CAR Defensive Pass Interference x1, CAR Defensive 
 ## Weather
 
 ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
+NFL game-feed weather (nflverse pbp `weather`, roof `outdoors`): Misting Temp: 58° F, Humidity: 92%, Wind: N 8 mph
 Venue: Bank of America Stadium (Charlotte), indoor=None, grass=False
 Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 58.8, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 8.3, "wind_gusts_10m": 13.9}
 
@@ -320,20 +321,20 @@ WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not c
 **BAL defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 19 | 12 | 143 | 1 | 7.5 |
+| WR | 20 | 12 | 143 | 1 | 7.2 |
 | TE | 9 | 9 | 104 | 1 | 11.6 |
 | RB | 1 | 1 | 7 | 0 | 7.0 |
 
-BAL defense by depth/location (proxy, not alignment): short_middle 7/8 62y; short_right 6/9 61y; deep_left 2/2 58y; deep_right 1/1 29y; deep_middle 1/2 27y; short_left 5/7 17y
+BAL defense by depth/location (proxy, not alignment): short_middle 7/8 62y; short_right 6/10 61y; deep_left 2/2 58y; deep_right 1/1 29y; deep_middle 1/2 27y; short_left 5/7 17y
 
 **CAR defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 17 | 11 | 198 | 1 | 11.6 |
-| RB | 10 | 7 | 41 | 0 | 4.1 |
+| WR | 18 | 11 | 198 | 1 | 11.0 |
+| RB | 10 | 8 | 44 | 0 | 4.4 |
 | TE | 8 | 5 | 34 | 0 | 4.2 |
 
-CAR defense by depth/location (proxy, not alignment): short_left 9/11 88y; deep_right 2/2 86y; short_right 8/14 52y; deep_middle 1/2 25y; short_middle 3/5 22y; deep_left 0/1 0y
+CAR defense by depth/location (proxy, not alignment): short_left 9/11 88y; deep_right 2/2 86y; short_right 9/15 55y; deep_middle 1/2 25y; short_middle 3/5 22y; deep_left 0/1 0y
 
 
 ## Extras (src: ESPN summary JSON event 401873068, pulled 2026-11-22 09:36 PM AST; derived where noted)
@@ -344,11 +345,11 @@ CAR defense by depth/location (proxy, not alignment): short_left 9/11 88y; deep_
 | Sack rate (sacks / dropbacks) | 5.1% (2/39) | 9.4% (3/32) |
 | QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 7.7% (3/39) | 12.5% (4/32) |
 | Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 44 air / 229 YAC on 23 comps | 161 air / 93 YAC on 22 comps |
-| Intended air yards on incompletions | unknown (not in ESPN; nflverse air_yards after overnight rebuild) | unknown |
+| Intended air yards on incompletions | 122.0 air yds on 12 incompletions (total intended 257.0, aDOT 6.95 on 37 att; nflverse pbp) | 59.0 air yds on 7 incompletions (total intended 221.0, aDOT 7.37 on 30 att; nflverse pbp) |
 | Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 4 / 3 | 4 / 4 |
 | Penalties-yds | 5-41 | 6-54 |
 | Garbage-time offensive plays (Q3+ with home WP <5% or >95%, or Q4 margin 17+) | 1 | 2 |
-| Snap shares | unknown (nflverse/PFR snap counts post Mon-Tue) | unknown |
+| Snap shares | unknown: not posted yet (nflverse snap_counts has no row for this game as of 2026-11-23 07:10 AM AST; PFR page blocked to the box) | unknown |
 
 ## QB vs coverage shell / pressure
 
@@ -358,6 +359,51 @@ CAR defense by depth/location (proxy, not alignment): short_left 9/11 88y; deep_
 | vs blitz / no blitz | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | vs MOF open / MOF closed | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | under pressure / clean | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
+
+
+
+<!-- MONDAY-FILL-START refs NFL-56 -->
+## Monday fill (2026-11-23, free nflverse releases; research only)
+
+Source: nflverse-data `pbp/play_by_play_2026.parquet` (release updated 2026-11-23T10:02:36Z, sha256 86d0a57a1f3e, pulled 2026-11-23 07:10 AM AST). Box path of the pulls: /tmp/w11fill (manifest in research/game_logs_2026_w11/monday_fill/MANIFEST.json).
+
+**Weather (NFL game feed):** Misting Temp: 58° F, Humidity: 92%, Wind: N 8 mph (roof: outdoors).
+
+**Intended air yards (nflverse, 2-pt tries and no-plays excluded)**
+
+| Team | Att | Intended air yds | aDOT | Incompletions | Air yds on incompletions | INT |
+|---|---|---|---|---|---|---|
+| BAL | 37 | 257.0 | 6.95 | 12 | 122.0 | 1 |
+| CAR | 30 | 221.0 | 7.37 | 7 | 59.0 | 1 |
+
+**Air yards by receiver (nflverse)**
+
+| Team | Receiver | Tgt | Air yds | Air share | aDOT |
+|---|---|---|---|---|---|
+| BAL | Z.Flowers | 11 | 65 | 31% | 5.9 |
+| BAL | R.Bateman | 6 | 117 | 55% | 19.5 |
+| BAL | D.Henry | 5 | -7 | -3% | -1.4 |
+| BAL | J.Hill | 5 | -4 | -2% | -0.8 |
+| BAL | J.Cuevas | 3 | 11 | 5% | 3.7 |
+| BAL | M.Andrews | 3 | 15 | 7% | 5.0 |
+| BAL | M.Hibner | 2 | -1 | -0% | -0.5 |
+| BAL | D.Walker | 1 | 16 | 8% | 16.0 |
+| CAR | T.McMillan | 9 | 86 | 39% | 9.6 |
+| CAR | J.Coker | 7 | 47 | 21% | 6.7 |
+| CAR | M.Evans | 5 | 30 | 14% | 6.0 |
+| CAR | D.Waller | 3 | 31 | 14% | 10.3 |
+| CAR | J.Metchie | 3 | 11 | 5% | 3.7 |
+| CAR | B.Tremayne | 1 | 5 | 2% | 5.0 |
+| CAR | T.Etienne | 1 | -3 | -1% | -3.0 |
+| CAR | T.Tremble | 1 | 14 | 6% | 14.0 |
+
+**PBU/INT cross-check:** ESPN-text VERIFIED PBU/INT rows 10; nflverse plays with a named pass defender or interceptor 10; matched 10; nflverse-only 0; ESPN-only 0. DPI rows (1) come from the penalty text and are not in the nflverse pass-defense fields.
+**Target cross-check (ESPN box vs nflverse, roster-ID name match):** BAL matthewhibner ESPN 0 / nflverse 2; BAL Matt Hibner ESPN 2 / nflverse 0 (zero on one side = name-spelling mismatch between feeds, counts agree)
+
+**Snap counts:** unknown: not posted yet (nflverse-data `snap_counts/snap_counts_2026.parquet` (release updated 2026-11-20T12:01:47Z, sha256 980aba4c2b5e, pulled 2026-11-23 07:10 AM AST) has no 2026_11_BAL_CAR rows; PFR boxscore page returned a Cloudflare challenge to the box and was not bypassed)
+
+**FTN charting (blitz/rushers):** unknown: nflverse-data `ftn_charting/ftn_charting_2026.parquet` (release updated 2026-11-23T05:41:23Z, sha256 4f404f0bc3ec, pulled 2026-11-23 07:10 AM AST) has no 2026_11_BAL_CAR rows yet
+<!-- MONDAY-FILL-END -->
 
 ## Not available from free sources (marked unknown)
 

@@ -247,7 +247,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Travon Walker | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | M.Nabers 2 |  |
 | Arik Armstead | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | D.Mooney 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 12/24 for 98 yds, 1 TD; TE 3/5 for 64 yds, 0 TD; RB 4/8 for 19 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 11/24 for 90 yds, 1 TD; TE 3/5 for 64 yds, 0 TD; RB 4/8 for 19 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 1/1
 Pass rush: sacks J.Hines-Allen 1; QB hits F.Oluokun 1, T.Walker 1
 Video (highlight transcript) mentions: none found / not checked

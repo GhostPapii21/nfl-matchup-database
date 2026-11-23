@@ -184,7 +184,7 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | MIN | A.Van Ginkel | 2 | 2 | 19 | 0 | 0 | 0 | 0 | K.Juszczyk 1, C.McCaffrey 1 |  |
 | MIN | D.Orange | 1 | 1 | 19 | 0 | 0 | 0 | 0 | J.Watkins 1 |  |
 | MIN | H.Smith | 1 | 1 | 17 | 0 | 0 | 0 | 0 | K.Allen 1 |  |
-| SF | J.Brown | 2 | 2 | 16 | 0 | 0 | 0 | 0 | A.Jones 1, T.Hockenson 1 |  |
+| SF | J.Brown | 3 | 2 | 16 | 0 | 0 | 1 | 0 | A.Jones 1, T.Hockenson 1, T.Felton 1 |  |
 | SF | E.Prysock | 2 | 2 | 15 | 0 | 0 | 0 | 0 | T.Felton 1, J.Jefferson 1 |  |
 | MIN | J.Metellus | 1 | 1 | 9 | 0 | 0 | 0 | 0 | G.Kittle 1 |  |
 | SF | F.Warner | 2 | 1 | 8 | 0 | 1 | 0 | 0 | T.Felton 2 |  |
@@ -198,7 +198,7 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | SF | D.Buckner | 1 | 1 | -1 | 0 | 0 | 0 | 0 | J.Mason 1 |  |
 | MIN | E.Williams | 1 | 1 | -3 | 0 | 0 | 0 | 0 | D.Samuel 1 |  |
 
-Assignment evidence count: 6 VERIFIED (PBU/INT/DPI-named), 47 tackler-not-coverage (inferred), 15 unattributed.
+Assignment evidence count: 7 VERIFIED (PBU/INT/DPI-named), 47 tackler-not-coverage (inferred), 15 unattributed.
 Most yards charged to a MIN defender (tackler tag, not coverage; inferred): J.Pierre 3 rec / 47 yds.
 Most VERIFIED-PBU/INT/DPI credits on a MIN defender (the only coverage counts): B.Murphy PBU 1, INT 0, DPI 0.
 Most yards charged to a SF defender (tackler tag, not coverage; inferred): R.Green 9 rec / 64 yds.
@@ -235,6 +235,7 @@ SF False Start x2, SF Defensive Offside x1, SF Roughing the Passer x1, MIN Illeg
 ## Weather
 
 ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
+NFL game-feed weather (nflverse pbp `weather`, roof `outdoors`): Cloudy Temp: 63° F, Humidity: 70%, Wind: N 16 mph
 Venue: Estadio Banorte (Mexico City), indoor=None, grass=True
 Open-Meteo at kickoff hour (2026-11-23T01:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 61.2, "precipitation": 0.012, "rain": 0.012, "wind_speed_10m": 2.1, "wind_gusts_10m": 14.1}
 
@@ -324,11 +325,11 @@ MIN defense by depth/location (proxy, not alignment): short_right 9/11 113y; sho
 **SF defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 29 | 19 | 182 | 0 | 6.3 |
+| WR | 30 | 19 | 182 | 0 | 6.1 |
 | TE | 10 | 7 | 60 | 0 | 6.0 |
 | RB | 3 | 3 | 22 | 0 | 7.3 |
 
-SF defense by depth/location (proxy, not alignment): short_left 15/18 91y; short_right 10/12 89y; deep_left 2/4 54y; deep_right 1/4 22y; short_middle 1/3 8y; deep_middle 0/1 0y
+SF defense by depth/location (proxy, not alignment): short_left 15/18 91y; short_right 10/12 89y; deep_left 2/4 54y; deep_right 1/4 22y; short_middle 1/4 8y; deep_middle 0/1 0y
 
 
 ## Extras (src: ESPN summary JSON event 401873077, pulled 2026-11-23 02:03 AM AST; derived where noted)
@@ -339,11 +340,11 @@ SF defense by depth/location (proxy, not alignment): short_left 15/18 91y; short
 | Sack rate (sacks / dropbacks) | 2.3% (1/44) | 3.6% (1/28) |
 | QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 11.4% (5/44) | 10.7% (3/28) |
 | Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 140 air / 124 YAC on 29 comps | 137 air / 123 YAC on 22 comps |
-| Intended air yards on incompletions | unknown (not in ESPN; nflverse air_yards after overnight rebuild) | unknown |
+| Intended air yards on incompletions | 233.0 air yds on 13 incompletions (total intended 378.0, aDOT 8.79 on 43 att; nflverse pbp) | 22.0 air yds on 5 incompletions (total intended 151.0, aDOT 5.59 on 27 att; nflverse pbp) |
 | Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 2 / 1 | 4 / 1 |
 | Penalties-yds | 3-23 | 6-49 |
 | Garbage-time offensive plays (Q3+ with home WP <5% or >95%, or Q4 margin 17+) | 31 | 25 |
-| Snap shares | unknown (nflverse/PFR snap counts post Mon-Tue) | unknown |
+| Snap shares | unknown: not posted yet (nflverse snap_counts has no row for this game as of 2026-11-23 07:10 AM AST; PFR page blocked to the box) | unknown |
 
 ## QB vs coverage shell / pressure
 
@@ -353,7 +354,6 @@ SF defense by depth/location (proxy, not alignment): short_left 15/18 91y; short
 | vs blitz / no blitz | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | vs MOF open / MOF closed | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | under pressure / clean | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
-
 
 <!-- VIDEO-ROWS-START -->
 ## Coverage defender from official video (source=video)
@@ -371,6 +371,54 @@ Evidence count after video: 6 VERIFIED (PBU/INT/DPI-named), 47 tackler-not-cover
 Broadcast (NBC) also notes the altitude ("a mile and a third high... Estadio Banorte, the highest stadium to host an NFL game"); captions do not mention rain.
 Weather effect: Open-Meteo model (raw/wx_401873077.json, venue coords 19.3029,-99.1505) shows light rain 0.012 in/hr at 01Z and 02Z, 0.0 by 03Z, 60-61 F, wind 2 mph (gusts 8-14). ESPN gameInfo has no weather block and no stadium observation exists in free data; no pbp or caption reference to rain or a wet ball, so any effect on the game is unknown (not evidenced).
 <!-- VIDEO-ROWS-END -->
+
+
+
+<!-- MONDAY-FILL-START refs NFL-56 -->
+## Monday fill (2026-11-23, free nflverse releases; research only)
+
+Source: nflverse-data `pbp/play_by_play_2026.parquet` (release updated 2026-11-23T10:02:36Z, sha256 86d0a57a1f3e, pulled 2026-11-23 07:10 AM AST). Box path of the pulls: /tmp/w11fill (manifest in research/game_logs_2026_w11/monday_fill/MANIFEST.json).
+
+**Weather (NFL game feed):** Cloudy Temp: 63° F, Humidity: 70%, Wind: N 16 mph (roof: outdoors).
+
+**Intended air yards (nflverse, 2-pt tries and no-plays excluded)**
+
+| Team | Att | Intended air yds | aDOT | Incompletions | Air yds on incompletions | INT |
+|---|---|---|---|---|---|---|
+| MIN | 43 | 378.0 | 8.79 | 13 | 233.0 | 1 |
+| SF | 27 | 151.0 | 5.59 | 5 | 22.0 | 0 |
+
+**Air yards by receiver (nflverse)**
+
+| Team | Receiver | Tgt | Air yds | Air share | aDOT |
+|---|---|---|---|---|---|
+| MIN | T.Felton | 12 | 109 | 29% | 9.1 |
+| MIN | J.Jefferson | 9 | 121 | 32% | 13.4 |
+| MIN | T.Hockenson | 7 | 39 | 10% | 5.6 |
+| MIN | J.Jennings | 6 | 66 | 18% | 11.0 |
+| MIN | G.Bartholomew | 3 | 30 | 8% | 10.0 |
+| MIN | M.Price | 2 | 12 | 3% | 6.0 |
+| MIN | A.Jones | 1 | -5 | -1% | -5.0 |
+| MIN | D.Dallas | 1 | 1 | 0% | 1.0 |
+| MIN | J.Jones | 1 | 8 | 2% | 8.0 |
+| MIN | J.Mason | 1 | -3 | -1% | -3.0 |
+| SF | M.Evans | 7 | 87 | 56% | 12.4 |
+| SF | D.Samuel | 4 | -6 | -4% | -1.5 |
+| SF | K.Allen | 4 | 34 | 22% | 8.5 |
+| SF | C.McCaffrey | 3 | -9 | -6% | -3.0 |
+| SF | G.Kittle | 3 | 21 | 14% | 7.0 |
+| SF | K.Juszczyk | 2 | 8 | 5% | 4.0 |
+| SF | J.Watkins | 1 | 11 | 7% | 11.0 |
+| SF | K.Black | 1 | 3 | 2% | 3.0 |
+| SF | L.Farrell | 1 | 7 | 4% | 7.0 |
+
+**PBU/INT cross-check:** ESPN-text VERIFIED PBU/INT rows 7; nflverse plays with a named pass defender or interceptor 7; matched 7; nflverse-only 0; ESPN-only 0. DPI rows (0) come from the penalty text and are not in the nflverse pass-defense fields.
+**Target cross-check (ESPN box vs nflverse, roster-ID name match):** all receivers agree.
+
+**Snap counts:** unknown: not posted yet (nflverse-data `snap_counts/snap_counts_2026.parquet` (release updated 2026-11-20T12:01:47Z, sha256 980aba4c2b5e, pulled 2026-11-23 07:10 AM AST) has no 2026_11_MIN_SF rows; PFR boxscore page returned a Cloudflare challenge to the box and was not bypassed)
+
+**FTN charting (blitz/rushers):** unknown: nflverse-data `ftn_charting/ftn_charting_2026.parquet` (release updated 2026-11-23T05:41:23Z, sha256 4f404f0bc3ec, pulled 2026-11-23 07:10 AM AST) has no 2026_11_MIN_SF rows yet
+<!-- MONDAY-FILL-END -->
 
 ## Not available from free sources (marked unknown)
 

@@ -227,20 +227,21 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Jacob Rodriguez | LB | 7 | 7 | 67 | 0 | 0 | 0 | 0 | tackler x7 | D.Moore 2, T.Johnson 3, J.Cook 1, K.Shakir 1 | D.Moore 20 short_left Q2 |
+| Jacob Rodriguez | LB | 8 | 7 | 67 | 0 | 0 | 1 | 0 | VERIFIED x1, tackler x7 | D.Moore 2, T.Johnson 3, K.Latu 1, J.Cook 1, K.Shakir 1 | D.Moore 20 short_left Q2 |
 | Michael Taaffe | S | 2 | 2 | 61 | 0 | 0 | 0 | 0 | tackler x2 | D.Knox 1, K.Shakir 1 | D.Knox 23 short_middle Q1; K.Shakir 38 deep_right Q3 |
-| Zayne Anderson | S | 6 | 4 | 58 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x4 | K.Shakir 2, D.Moore 1, K.Latu 1, D.Knox 1, T.Johnson 1 | K.Shakir 32 deep_right Q1 |
+| Zayne Anderson | S | 7 | 4 | 58 | 0 | 2 | 1 | 0 | VERIFIED x3, tackler x4 | K.Shakir 3, D.Moore 1, K.Latu 1, D.Knox 1, T.Johnson 1 | K.Shakir 32 deep_right Q1 |
 | J.Marshall (name unresolved) | unknown | 4 | 4 | 40 | 0 | 0 | 0 | 0 | tackler x4 | D.Moore 2, K.Coleman 1, T.Johnson 1 |  |
 | Malik Washington | WR | 1 | 1 | 30 | 0 | 0 | 0 | 0 | tackler x1 | K.Latu 1 | K.Latu 30 deep_middle Q1 |
 | Chris Johnson | CB | 6 | 5 | 28 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x5 | K.Shakir 2, R.Davis 1, T.Johnson 1, K.Coleman 1, J.Cook 1 |  |
 | JuJu Brents | CB | 3 | 2 | 27 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | D.Moore 2, K.Coleman 1 |  |
 | D.Baker (name unresolved) | unknown | 1 | 1 | 12 | 0 | 0 | 0 | 0 | tackler x1 | K.Shakir 1 |  |
 | Kyle Louis | LB | 1 | 1 | 7 | 0 | 0 | 0 | 0 | tackler x1 | T.Johnson 1 |  |
+| Chop Robinson | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | K.Latu 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 15/24 for 209 yds, 1 TD; RB 10/12 for 64 yds, 0 TD; TE 3/6 for 61 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 15/25 for 209 yds, 1 TD; RB 10/12 for 64 yds, 0 TD; TE 3/7 for 61 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 5/0
 Pass rush: sacks J.Brooks 1, Z.Anderson 1, K.Cooper 1; QB hits C.Robinson 1, K.Cooper 1, J.Brooks 1
-Video (highlight transcript) mentions: none found / not checked
+Video (highlight transcript) mentions: Jacob Rodriguez (LB) @6:02 "DEFLECTED.                       IN THE AIR AND ITS PICKED. TAKEN BY RODRIGUEZ.              AND THAT WAS THE TURNING POINT PLAY THAT JEFF HAFLEY FROM HIS   DEFENSE." [coverage word: DEFLECTED]; Zayne Anderson (S) @7:11 "-- INTERCEPTED.                  SECOND TAKEAWAY FOR MIAMI. IT'S ZAYNE ANDERSON.             SO ALLEN AGAIN TRYING TO MAKE TRADER HAS HIS SECOND CAREER     PICK." [coverage word: INTERCEPTED]; Jordyn Brooks (LB) @10:57 "THEY RING HIM UP FOR 38.         ADAM: THIS IS ONE OF THE FEW BUT THE THREAT BRINGS BROOKS OUT OF THE COVERAGE AND THAT OPENS UP THAT HOLE.                    SPERO: SHAKIR ONE OF THE FASTEST" [coverage word: COVERAGE]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### MIA season coverage rates (public, season-level; NOT game-level)

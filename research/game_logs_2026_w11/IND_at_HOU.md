@@ -169,7 +169,7 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | Defense | Defender | Plays tagged | Rec | Yds | TD | PBU | INT | DPI | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|
 | HOU | R.Blankenship | 3 | 3 | 41 | 0 | 0 | 0 | 0 | A.Dulin 1, A.Gould 1, J.Taylor 1 | A.Gould 31 short_left Q1 |
-| IND | C.Allen | 6 | 6 | 41 | 0 | 0 | 0 | 0 | E.Demercado 2, X.Hutchinson 1, M.Klein 1, K.Boutte 1, N.Collins 1 | K.Boutte 20 short_middle Q2 |
+| IND | C.Allen | 6 | 6 | 37 | 0 | 0 | 0 | 0 | E.Demercado 2, X.Hutchinson 1, M.Klein 1, K.Boutte 1, N.Collins 1 |  |
 | HOU | J.Pitre | 1 | 1 | 26 | 0 | 0 | 0 | 0 | Q.Watkins 1 | Q.Watkins 26 deep_right Q1 |
 | HOU | D.Stingley | 1 | 1 | 25 | 0 | 0 | 0 | 0 | A.Dulin 1 | A.Dulin 25 short_middle Q1 |
 | HOU | H.To'oTo'o | 3 | 3 | 25 | 0 | 0 | 0 | 0 | S.McGowan 1, T.Warren 1, J.Taylor 1 | T.Warren 22 deep_right Q2 |
@@ -179,21 +179,22 @@ Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who bro
 | IND | A.Ajiake | 3 | 2 | 11 | 0 | 1 | 0 | 0 | D.Montgomery 2, N.Collins 1 |  |
 | HOU | W.Woodaz | 2 | 2 | 11 | 0 | 0 | 0 | 0 | D.Giddens 1, J.Taylor 1 |  |
 | IND | A.Key | 1 | 1 | 10 | 0 | 0 | 0 | 0 | T.Dell 1 |  |
+| IND | A.Haulcy | 2 | 1 | 9 | 0 | 0 | 1 | 0 | N.Collins 1, D.Montgomery 1 |  |
 | IND | K.Gushiken | 1 | 1 | 9 | 0 | 0 | 0 | 0 | T.Dell 1 |  |
-| IND | A.Haulcy | 1 | 1 | 9 | 0 | 0 | 0 | 0 | D.Montgomery 1 |  |
 | IND | J.Walley | 1 | 1 | 3 | 0 | 0 | 0 | 0 | D.Montgomery 1 |  |
 | IND | H.Wohler | 1 | 1 | 3 | 0 | 0 | 0 | 0 | M.Klein 1 |  |
 | IND | C.Curry | 1 | 1 | 2 | 0 | 0 | 0 | 0 | X.Hutchinson 1 |  |
-| HOU | K.Lassiter | 1 | 0 | 0 | 0 | 1 | 0 | 0 | D.Burks 1 |  |
+| HOU | K.Lassiter | 2 | 0 | 0 | 0 | 1 | 1 | 0 | D.Burks 2 |  |
+| IND | C.Bynum | 1 | 0 | 0 | 0 | 1 | 0 | 0 | N.Collins 1 |  |
 | HOU | J.Hansen | 2 | 0 | 0 | 0 | 2 | 0 | 0 | T.Warren 2 |  |
 | IND | J.Tuimoloau | 1 | 0 | 0 | 0 | 1 | 0 | 0 | X.Hutchinson 1 |  |
 | HOU | T.Togiai | 2 | 1 | -1 | 0 | 1 | 0 | 0 | J.Taylor 1, T.Warren 1 |  |
 
-Assignment evidence count: 7 VERIFIED (PBU/INT/DPI-named), 29 tackler-not-coverage (inferred), 14 unattributed.
-Most yards charged to a IND defender (tackler tag, not coverage; inferred): C.Allen 6 rec / 41 yds.
-Most VERIFIED-PBU/INT/DPI credits on a IND defender (the only coverage counts): A.Ajiake PBU 1, INT 0, DPI 0.
+Assignment evidence count: 9 VERIFIED (PBU/INT/DPI-named), 29 tackler-not-coverage (inferred), 14 unattributed.
+Most yards charged to a IND defender (tackler tag, not coverage; inferred): C.Allen 6 rec / 37 yds.
+Most VERIFIED-PBU/INT/DPI credits on a IND defender (the only coverage counts): A.Haulcy PBU 0, INT 1, DPI 0.
 Most yards charged to a HOU defender (tackler tag, not coverage; inferred): R.Blankenship 3 rec / 41 yds.
-Most VERIFIED-PBU/INT/DPI credits on a HOU defender (the only coverage counts): J.Hansen PBU 2, INT 0, DPI 0.
+Most VERIFIED-PBU/INT/DPI credits on a HOU defender (the only coverage counts): K.Lassiter PBU 1, INT 1, DPI 0.
 
 ## Explosive plays (pass 20+, rush 15+)
 
@@ -206,7 +207,6 @@ Most VERIFIED-PBU/INT/DPI credits on a HOU defender (the only coverage counts): 
 | 2 | 7:38 | HOU | pass | K.Boutte | 24 | (no tackler named) |
 | 2 | 5:03 | IND | pass | T.Warren | 22 | H.To'oTo'o |
 | 2 | 2:00 | HOU | rush | D.Montgomery | 15 | A.Haulcy |
-| 2 | 0:59 | HOU | pass | K.Boutte | 20 | C.Allen |
 | 4 | 5:26 | HOU | rush | C.Stroud | 26 | C.Bynum |
 
 ## Pass rush (play text)
@@ -231,6 +231,7 @@ HST False Start x2, IND Defensive Holding x1, HST Illegal Use of Hands x1, IND O
 ## Weather
 
 ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
+NFL game-feed weather (nflverse pbp `weather`, roof `open`): Mostly Cloudy Temp: 68° F, Humidity: 72%, Wind: NE 4 mph
 Venue: Reliant Stadium (Houston), indoor=None, grass=False
 Open-Meteo at kickoff hour (2026-11-20T01:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 68.0, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 3.4, "wind_gusts_10m": 6.3}
 
@@ -310,20 +311,20 @@ WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not c
 **IND defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 13 | 10 | 142 | 2 | 10.9 |
+| WR | 14 | 10 | 138 | 2 | 9.9 |
 | TE | 6 | 6 | 43 | 1 | 7.2 |
 | RB | 6 | 5 | 13 | 0 | 2.2 |
 
-IND defense by depth/location (proxy, not alignment): short_middle 7/9 70y; deep_right 1/1 42y; short_right 6/8 35y; short_left 6/6 27y; deep_middle 1/1 24y
+IND defense by depth/location (proxy, not alignment): short_middle 7/9 66y; deep_right 1/2 42y; short_right 6/8 35y; short_left 6/6 27y; deep_middle 1/1 24y
 
 **HOU defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 13 | 5 | 104 | 0 | 8.0 |
+| WR | 14 | 5 | 104 | 0 | 7.4 |
 | TE | 5 | 1 | 22 | 0 | 4.4 |
 | RB | 7 | 6 | 18 | 0 | 2.6 |
 
-HOU defense by depth/location (proxy, not alignment): short_middle 4/7 54y; deep_right 2/4 48y; short_left 4/7 41y; short_right 2/4 1y; deep_left 0/2 0y; deep_middle 0/1 0y
+HOU defense by depth/location (proxy, not alignment): short_middle 4/7 54y; deep_right 2/4 48y; short_left 4/7 41y; short_right 2/4 1y; deep_middle 0/2 0y; deep_left 0/2 0y
 
 
 ## Extras (src: ESPN summary JSON event 401873066, pulled 2026-11-22 09:36 PM AST; derived where noted)
@@ -334,20 +335,180 @@ HOU defense by depth/location (proxy, not alignment): short_middle 4/7 54y; deep
 | Sack rate (sacks / dropbacks) | 6.7% (2/30) | 3.6% (1/28) |
 | QB-hit rate (plays with a [bracketed] hit / dropbacks) - pressure proxy; true pressure rate unknown (charting is paid) | 13.3% (4/30) | 0.0% (0/28) |
 | Completed air yards / YAC (ESPN yardsAfterCatch; air = gain - YAC on completions) | 50 air / 94 YAC on 12 comps | 111 air / 67 YAC on 20 comps |
-| Intended air yards on incompletions | unknown (not in ESPN; nflverse air_yards after overnight rebuild) | unknown |
-| Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 3 / 2 | 4 / 0 |
+| Intended air yards on incompletions | 212.0 air yds on 16 incompletions (total intended 301.0, aDOT 10.38 on 29 att; nflverse pbp) | 19.0 air yds on 5 incompletions (total intended 173.0, aDOT 6.41 on 27 att; nflverse pbp) |
+| Explosive plays allowed by this team's defense (pass 20+ / rush 15+) | 2 / 2 | 4 / 0 |
 | Penalties-yds | 2-15 | 4-23 |
 | Garbage-time offensive plays (Q3+ with home WP <5% or >95%, or Q4 margin 17+) | 19 | 32 |
-| Snap shares | unknown (nflverse/PFR snap counts post Mon-Tue) | unknown |
+| Snap shares (offense, WR/TE/RB; full table in Monday fill below) | Laquon Treadwell (WR) 40 (80%); Tyler Warren (TE) 38 (76%); Jonathan Taylor (RB) 34 (68%); Deion Burks (WR) 32 (64%); Anthony Gould (WR) 29 (58%); Andrew Ogletree (TE) 24 (48%); Ashton Dulin (WR) 22 (44%); Seth McGowan (RB) 9 (18%); Pharaoh Brown (TE) 8 (16%); DJ Giddens (RB) 7 (14%); Quez Watkins (WR) 5 (10%); Nick Westbrook-Ikhine (WR) 2 (4%) | Nico Collins (WR) 59 (89%); Xavier Hutchinson (WR) 54 (82%); David Montgomery (RB) 48 (73%); Dalton Schultz (TE) 36 (55%); Kayshon Boutte (WR) 34 (52%); Foster Moreau (TE) 30 (45%); Tank Dell (WR) 29 (44%); Emari Demercado (RB) 17 (26%); Marlin Klein (TE) 16 (24%) |
 
 ## QB vs coverage shell / pressure
 
 | Split | Status |
 |---|---|
 | vs man / vs zone | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
-| vs blitz / no blitz | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
+| vs blitz / no blitz | filled from FTN charting via nflverse (see Monday fill below) |
 | vs MOF open / MOF closed | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
 | under pressure / clean | unknown: no free play-level source charts this (FTN/PFF are paid and are not used). Season-level Sharp shell rates stay in the defense DB profiles. |
+
+
+
+<!-- MONDAY-FILL-START refs NFL-56 -->
+## Monday fill (2026-11-23, free nflverse releases; research only)
+
+Source: nflverse-data `pbp/play_by_play_2026.parquet` (release updated 2026-11-23T10:02:36Z, sha256 86d0a57a1f3e, pulled 2026-11-23 07:10 AM AST). Box path of the pulls: /tmp/w11fill (manifest in research/game_logs_2026_w11/monday_fill/MANIFEST.json).
+
+**Weather (NFL game feed):** Mostly Cloudy Temp: 68° F, Humidity: 72%, Wind: NE 4 mph (roof: open).
+
+**Intended air yards (nflverse, 2-pt tries and no-plays excluded)**
+
+| Team | Att | Intended air yds | aDOT | Incompletions | Air yds on incompletions | INT |
+|---|---|---|---|---|---|---|
+| IND | 29 | 301.0 | 10.38 | 16 | 212.0 | 1 |
+| HOU | 27 | 173.0 | 6.41 | 5 | 19.0 | 1 |
+
+**Air yards by receiver (nflverse)**
+
+| Team | Receiver | Tgt | Air yds | Air share | aDOT |
+|---|---|---|---|---|---|
+| IND | J.Taylor | 5 | -8 | -3% | -1.6 |
+| IND | T.Warren | 5 | 46 | 15% | 9.2 |
+| IND | A.Dulin | 4 | 56 | 18% | 14.0 |
+| IND | A.Gould | 3 | 25 | 8% | 8.3 |
+| IND | D.Burks | 3 | 74 | 24% | 24.7 |
+| IND | Q.Watkins | 3 | 99 | 33% | 33.0 |
+| IND | D.Giddens | 1 | 4 | 1% | 4.0 |
+| IND | L.Treadwell | 1 | 6 | 2% | 6.0 |
+| IND | S.McGowan | 1 | 1 | 0% | 1.0 |
+| HOU | N.Collins | 5 | 94 | 51% | 18.8 |
+| HOU | D.Montgomery | 4 | 4 | 2% | 1.0 |
+| HOU | M.Klein | 4 | 24 | 13% | 6.0 |
+| HOU | T.Dell | 4 | 26 | 14% | 6.5 |
+| HOU | X.Hutchinson | 3 | 3 | 2% | 1.0 |
+| HOU | E.Demercado | 2 | -12 | -7% | -6.0 |
+| HOU | K.Boutte | 2 | 39 | 21% | 19.5 |
+| HOU | D.Schultz | 1 | 4 | 2% | 4.0 |
+| HOU | F.Moreau | 1 | 1 | 0% | 1.0 |
+
+**PBU/INT cross-check:** ESPN-text VERIFIED PBU/INT rows 9; nflverse plays with a named pass defender or interceptor 9; matched 9; nflverse-only 0; ESPN-only 0. DPI rows (0) come from the penalty text and are not in the nflverse pass-defense fields.
+**Target cross-check (ESPN box vs nflverse, roster-ID name match):** all receivers agree.
+
+**Snap counts** (nflverse-data `snap_counts/snap_counts_2026.parquet` (release updated 2026-11-20T12:01:47Z, sha256 980aba4c2b5e, pulled 2026-11-23 07:10 AM AST) (PFR-sourced))
+
+| Team | Player | Pos | Off snaps | Off % | Def snaps | Def % | ST % |
+|---|---|---|---|---|---|---|---|
+| IND | Luke Tenuta | T | 50 | 100% | 0 | 0% | 14% |
+| IND | Dalton Tucker | G | 50 | 100% | 0 | 0% | 14% |
+| IND | Matt Goncalves | G | 50 | 100% | 0 | 0% | 14% |
+| IND | Jalen Farmer | G | 50 | 100% | 0 | 0% | 14% |
+| IND | Tanor Bortolini | C | 50 | 100% | 0 | 0% | 0% |
+| IND | Daniel Jones | QB | 47 | 94% | 0 | 0% | 0% |
+| IND | Laquon Treadwell | WR | 40 | 80% | 0 | 0% | 0% |
+| IND | Tyler Warren | TE | 38 | 76% | 0 | 0% | 0% |
+| IND | Jonathan Taylor | RB | 34 | 68% | 0 | 0% | 0% |
+| IND | Deion Burks | WR | 32 | 64% | 0 | 0% | 10% |
+| IND | Anthony Gould | WR | 29 | 58% | 0 | 0% | 14% |
+| IND | Andrew Ogletree | TE | 24 | 48% | 0 | 0% | 67% |
+| IND | Ashton Dulin | WR | 22 | 44% | 0 | 0% | 48% |
+| IND | Seth McGowan | RB | 9 | 18% | 0 | 0% | 29% |
+| IND | Pharaoh Brown | TE | 8 | 16% | 0 | 0% | 52% |
+| IND | DJ Giddens | RB | 7 | 14% | 0 | 0% | 0% |
+| IND | Quez Watkins | WR | 5 | 10% | 0 | 0% | 0% |
+| IND | Anthony Richardson | QB | 3 | 6% | 0 | 0% | 0% |
+| IND | Nick Westbrook-Ikhine | WR | 2 | 4% | 0 | 0% | 48% |
+| IND | Camryn Bynum | S | 0 | 0% | 66 | 100% | 19% |
+| IND | CJ Allen | LB | 0 | 0% | 66 | 100% | 0% |
+| IND | Justin Walley | CB | 0 | 0% | 62 | 94% | 19% |
+| IND | Bryce Boettcher | LB | 0 | 0% | 54 | 82% | 14% |
+| IND | A.J. Haulcy | S | 0 | 0% | 51 | 77% | 0% |
+| IND | Kapena Gushiken | CB | 0 | 0% | 47 | 71% | 19% |
+| IND | Adetomiwa Adebawore | DT | 0 | 0% | 47 | 71% | 19% |
+| IND | Laiatu Latu | DE | 0 | 0% | 47 | 71% | 0% |
+| IND | Grover Stewart | DT | 0 | 0% | 43 | 65% | 33% |
+| IND | Johnathan Edwards | CB | 0 | 0% | 42 | 64% | 19% |
+| IND | Arden Key | DE | 0 | 0% | 37 | 56% | 19% |
+| IND | JT Tuimoloau | DE | 0 | 0% | 33 | 50% | 19% |
+| IND | Kenneth Harris | CB | 0 | 0% | 28 | 42% | 5% |
+| IND | Tim Smith | DT | 0 | 0% | 26 | 39% | 19% |
+| IND | Kevin Givens | DT | 0 | 0% | 20 | 30% | 0% |
+| IND | Austin Ajiake | LB | 0 | 0% | 19 | 29% | 86% |
+| IND | Caden Curry | DE | 0 | 0% | 18 | 27% | 67% |
+| IND | Hunter Wohler | S | 0 | 0% | 15 | 23% | 57% |
+| IND | George Gumbs | DE | 0 | 0% | 4 | 6% | 52% |
+| IND | Jonathan Owens | S | 0 | 0% | 1 | 2% | 62% |
+| IND | Tahj Chambers | LB | 0 | 0% | 0 | 0% | 81% |
+| IND | West Weeks | LB | 0 | 0% | 0 | 0% | 38% |
+| IND | Spencer Shrader | K | 0 | 0% | 0 | 0% | 29% |
+| IND | Rigoberto Sanchez | P | 0 | 0% | 0 | 0% | 29% |
+| IND | Luke Rhodes | LS | 0 | 0% | 0 | 0% | 29% |
+| IND | Natrone Brooks | CB | 0 | 0% | 0 | 0% | 29% |
+| IND | Sedrick Van Pran-Granger | C | 0 | 0% | 0 | 0% | 14% |
+| HOU | Ed Ingram | G | 66 | 100% | 0 | 0% | 19% |
+| HOU | Aireontae Ersery | T | 66 | 100% | 0 | 0% | 19% |
+| HOU | C.J. Stroud | QB | 66 | 100% | 0 | 0% | 0% |
+| HOU | Evan Brown | C | 66 | 100% | 0 | 0% | 0% |
+| HOU | Braden Smith | T | 59 | 89% | 0 | 0% | 19% |
+| HOU | Nico Collins | WR | 59 | 89% | 0 | 0% | 0% |
+| HOU | Keylan Rutledge | C | 54 | 82% | 0 | 0% | 19% |
+| HOU | Xavier Hutchinson | WR | 54 | 82% | 0 | 0% | 0% |
+| HOU | David Montgomery | RB | 48 | 73% | 0 | 0% | 0% |
+| HOU | Dalton Schultz | TE | 36 | 55% | 0 | 0% | 0% |
+| HOU | Kayshon Boutte | WR | 34 | 52% | 0 | 0% | 0% |
+| HOU | Foster Moreau | TE | 30 | 45% | 0 | 0% | 48% |
+| HOU | Tank Dell | WR | 29 | 44% | 0 | 0% | 0% |
+| HOU | Emari Demercado | RB | 17 | 26% | 0 | 0% | 0% |
+| HOU | Marlin Klein | TE | 16 | 24% | 0 | 0% | 29% |
+| HOU | Febechi Nwaiwu | G | 12 | 18% | 0 | 0% | 19% |
+| HOU | Blake Fisher | T | 7 | 11% | 0 | 0% | 19% |
+| HOU | Trent Brown | T | 7 | 11% | 0 | 0% | 19% |
+| HOU | Derek Stingley Jr. | CB | 0 | 0% | 50 | 100% | 14% |
+| HOU | Calen Bullock | S | 0 | 0% | 50 | 100% | 0% |
+| HOU | Kamari Lassiter | CB | 0 | 0% | 50 | 100% | 0% |
+| HOU | Henry To'oTo'o | LB | 0 | 0% | 50 | 100% | 0% |
+| HOU | Jalen Pitre | S | 0 | 0% | 50 | 100% | 0% |
+| HOU | Reed Blankenship | S | 0 | 0% | 49 | 98% | 14% |
+| HOU | Jadeveon Clowney | DE | 0 | 0% | 40 | 80% | 0% |
+| HOU | Will Anderson | DE | 0 | 0% | 38 | 76% | 0% |
+| HOU | Jake Hansen | LB | 0 | 0% | 32 | 64% | 62% |
+| HOU | Tommy Togiai | DT | 0 | 0% | 32 | 64% | 0% |
+| HOU | Sheldon Rankins | DT | 0 | 0% | 29 | 58% | 0% |
+| HOU | Logan Hall | DT | 0 | 0% | 22 | 44% | 14% |
+| HOU | Wade Woodaz | LB | 0 | 0% | 16 | 32% | 48% |
+| HOU | Dominique Robinson | DE | 0 | 0% | 15 | 30% | 67% |
+| HOU | Kayden McDonald | DT | 0 | 0% | 12 | 24% | 14% |
+| HOU | Naquan Jones | DT | 0 | 0% | 12 | 24% | 14% |
+| HOU | Kamari Ramsey | S | 0 | 0% | 2 | 4% | 24% |
+| HOU | Ja'Marcus Ingram | S | 0 | 0% | 1 | 2% | 48% |
+| HOU | Chad Muma | LB | 0 | 0% | 0 | 0% | 81% |
+| HOU | Tremon Smith | CB | 0 | 0% | 0 | 0% | 81% |
+| HOU | M.J. Stewart | S | 0 | 0% | 0 | 0% | 81% |
+| HOU | Jake Hummel | LB | 0 | 0% | 0 | 0% | 76% |
+| HOU | Cade Stover | TE | 0 | 0% | 0 | 0% | 67% |
+| HOU | Jaylin Smith | CB | 0 | 0% | 0 | 0% | 43% |
+| HOU | Ka'imi Fairbairn | K | 0 | 0% | 0 | 0% | 43% |
+| HOU | Kai Kroeger | P | 0 | 0% | 0 | 0% | 33% |
+| HOU | Austin Brinkman | LS | 0 | 0% | 0 | 0% | 33% |
+| HOU | Nikko Remigio | WR | 0 | 0% | 0 | 0% | 29% |
+| HOU | Chris Braswell | DE | 0 | 0% | 0 | 0% | 5% |
+
+**QB vs blitz / rush size / play action (FTN charting)** (nflverse-data `ftn_charting/ftn_charting_2026.parquet` (release updated 2026-11-23T05:41:23Z, sha256 4f404f0bc3ec, pulled 2026-11-23 07:10 AM AST); FTN Data via nflverse (CC-BY-SA 4.0)). Man/zone and MOF shell stay unknown: the public FTN fields carry no coverage type.
+
+| Offense | Split | Dropbacks | Comp-Att | Yds | Sacks | INT | EPA/db |
+|---|---|---|---|---|---|---|---|
+| IND | vs_blitz | 4 | 1-4 | 26 | 0 | 0 | -0.016 |
+| IND | vs_no_blitz | 28 | 11-25 | 106 | 2 | 1 | -0.364 |
+| IND | vs_5plus_rushers | 4 | 1-4 | 26 | 0 | 0 | -0.016 |
+| IND | vs_4_or_fewer | 28 | 11-25 | 106 | 2 | 1 | -0.364 |
+| IND | play_action | 4 | 2-4 | 33 | 0 | 0 | 0.462 |
+| IND | out_of_pocket | 5 | 0-4 | 3 | 0 | 0 | -0.875 |
+| IND | defense blitz rate faced | 32 charted | | | | | blitz rate 12%; drops 1; contested targets 6 |
+| HOU | vs_blitz | 6 | 4-6 | 78 | 0 | 0 | 0.873 |
+| HOU | vs_no_blitz | 25 | 17-21 | 140 | 1 | 1 | 0.144 |
+| HOU | vs_5plus_rushers | 6 | 4-6 | 78 | 0 | 0 | 0.873 |
+| HOU | vs_4_or_fewer | 25 | 17-21 | 140 | 1 | 1 | 0.144 |
+| HOU | play_action | 4 | 3-3 | 54 | 0 | 0 | 0.776 |
+| HOU | out_of_pocket | 6 | 2-3 | 52 | 0 | 0 | 0.622 |
+| HOU | defense blitz rate faced | 31 charted | | | | | blitz rate 19%; drops 0; contested targets 6 |
+<!-- MONDAY-FILL-END -->
 
 ## Not available from free sources (marked unknown)
 

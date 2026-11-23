@@ -1,4 +1,4 @@
-# Paper slip legs vs results (unofficial check, pulled 2026-11-23 02:05 AM AST)
+# Paper slip legs vs results (unofficial check, pulled 2026-11-23 07:18 AM AST)
 
 Paper only; the official grade is the 11:45 PM ET grading routine. Legs from runs/2026-11-22_W11_PAPER_SLIPS/SLIPS.md (Ghost6-vetted version). Results from ESPN summary JSON.
 
