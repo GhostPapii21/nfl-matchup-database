@@ -94,6 +94,40 @@ def book_price(lines: list | None, player: str, market: str, rung: float = 79.5)
     return None
 
 
+GATE_KEY = {"WR": "wr_rec_yards_pg", "TE": "te_rec_yards_pg", "RB": "rb_rush_yards_pg"}
+
+
+def defensive_gate(sd: dict, pos: str) -> dict | None:
+    """What this defense allows to his position, ranked (32 = allows the most). Shown beside each star; it does not
+    move the star: the star weights already carry the defense (80-yard games allowed to the position for receivers, RB
+    yards a game for backs), and on 2022-26 an extra gate term did not clear the bar -- starred receivers vs the softest
+    third hit 42% against 41% predicted, starred backs vs the softest third 36% against 44%
+    (research/defense_gate_2026-11-23)."""
+    k = GATE_KEY.get(pos)
+    r = ((sd.get("defense_rank") or {}).get(k) or {}) if k else {}
+    if not r.get("rank"):
+        return None
+    allowed = (sd.get("defense_allowed") or {}).get(k)
+    label = "soft" if r["rank"] >= 23 else "tough" if r["rank"] <= 10 else "middle"
+    return {"label": label, "rank": r["rank"], "of": r.get("of", 32), "allowed_pg": round(allowed, 1) if allowed else None,
+            "league_avg": round(r["league_avg"], 1) if r.get("league_avg") else None}
+
+
+def pressure_note(sd: dict) -> str | None:
+    """Context only: the defense blitzes or pressures a lot and this QB is much worse (or better) against it. Pressure and
+    blitz matchups did not predict 80-yard games on 2022-25 (research/defense_gate_2026-11-23)."""
+    cp, qb = sd.get("coverage_profile") or {}, ((sd.get("qb") or {}).get("this_season") or {})
+    vb, nb = qb.get("vs_blitz") or {}, qb.get("no_blitz") or {}
+    rate = cp.get("five_plus_rushers_rate")
+    if not rate or not vb.get("yards_per_attempt") or not nb.get("yards_per_attempt") or (vb.get("dropbacks") or 0) < 40 or rate < 0.33:
+        return None
+    d = vb["yards_per_attempt"] - nb["yards_per_attempt"]
+    if abs(d) < 1.0:
+        return None
+    return (f"defense sends 5+ rushers {rate:.0%} of dropbacks; {(sd.get('qb') or {}).get('player')} averages "
+            f"{vb['yards_per_attempt']:.1f} yards an attempt vs the blitz, {nb['yards_per_attempt']:.1f} without")
+
+
 ROLE_GAP80 = 0.15     # model 15+ points off the book's 80+ price: Week 11's Smith (backup QB), Monangai and Allen (split backs)
 
 
@@ -225,10 +259,15 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
             why.append(f"splits the backfield (another back averages {mate_car:.0f} carries)")
         out["rushers"].append({"player": r.get("full_name") or r["player"], "player_id": r["player_id"], "pos": "RB", "p80": round(p80, 3), "p100": round(p100, 3),
                                "stars": stars(p80, cuts), "carries": round(cpg, 1), "yds_pg": r.get("yards_pg"), "why": why})
+    pn = pressure_note(sd)
     for e in out["receivers"]:
         _attach_price(e, lines, "alt_receiving_yards", cuts)
+        e["gate"] = defensive_gate(sd, e.get("pos"))
+        if pn:
+            e["pressure_note"] = pn
     for e in out["rushers"]:
         _attach_price(e, lines, "alt_rushing_yards", cuts)
+        e["gate"] = defensive_gate(sd, "RB")
     for k in ("receivers", "rushers"):
         out[k].sort(key=lambda e: -e["p80"])
     return out
