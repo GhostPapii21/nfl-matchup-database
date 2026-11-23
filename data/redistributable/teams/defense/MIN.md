@@ -198,3 +198,29 @@ Holds (-1.5 YPT or better): RB: 4.03 YPT on 32 tgts (league 5.61, -1.58); WR3+: 
 - wk8 MIN@DET: Sione Vaki (RB-power/volume early-down) 11-65 0TD; 1/1tgt 5y 0TD | shell 5 man/87 zone, MOFO 61, blitz 71% | RB2 in DET run script (11-65). [confirmed-tackler]
 - wk8 MIN@DET: Amon-Ra St. Brown (WR-slot separator) 1-10 0TD; 7/8tgt 46y 0TD | shell 5 man/87 zone, MOFO 61, blitz 71% | Slot volume (7/8) but capped 46y — MIN soft-middle zone gave catches, not yards. [none (no explosive)]
 
+<!-- W11-COVRATES-START refs NFL-56 -->
+## MIN season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 26.7% | 5.2% |
+| Zone | 73.0% | 86.9% |
+| MOF closed (single-high) | 40.3% | 28.2% |
+| MOF open (two-high) | 59.7% | 65.6% |
+| Blitz | 74.4% | 69.2% |
+| Cover 0 | unknown | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 32.7% | not published |
+| Cover 2-Man | 10.7% | not published |
+| Cover 3 | 25.3% | not published |
+| Cover 4 | 11.3% | not published |
+| Cover 6 | unknown | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 300 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/min). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 26.7% vs Sharp 5.2% (+21.5 pts); Zone: StatRankings 73.0% vs Sharp 86.9% (-13.9 pts); MOF closed (single-high): StatRankings 40.3% vs Sharp 28.2% (+12.1 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): MOF closed (single-high): gap +12.1 pts is +9.4 vs the median gap; rank 30 StatRankings vs 32 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

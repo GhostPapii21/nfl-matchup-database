@@ -192,3 +192,83 @@ Holds (-1.5 YPT or better): RB: 3.65 YPT on 40 tgts (league 5.61, -1.96)
 - 20+ catches: M.Nabers(WR1) 42y deep_right - K.Lassiter [tackler]; M.Fields(WR2) 47y short_right - K.Lassiter [tackler]; T.Fidone(TE2+) 29y deep_left - M.Stewart [tackler]; M.Nabers(WR1) 27y deep_left - D.Stingley [tackler]; M.Fields(WR2) 20y deep_right - C.Bullock [tackler]
 - 15+ runs: C.Skattebo(RB) 19y rush right end; C.Skattebo(RB) 16y rush right guard; C.Skattebo(RB) 42y rush middle; D.Singletary(RB) 30y rush middle
 
+
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### HOU defense vs IND (IND@HOU, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Reed Blankenship | S | 3 | 3 | 41 | 0 | 0 | 0 | 0 | tackler x3 | A.Dulin 1, A.Gould 1, J.Taylor 1 | A.Gould 31 short_left Q1 |
+| Jalen Pitre | S | 1 | 1 | 26 | 0 | 0 | 0 | 0 | tackler x1 | Q.Watkins 1 | Q.Watkins 26 deep_right Q1 |
+| D.Stingley (name unresolved) | unknown | 1 | 1 | 25 | 0 | 0 | 0 | 0 | tackler x1 | A.Dulin 1 | A.Dulin 25 short_middle Q1 |
+| Henry To'oTo'o | LB | 3 | 3 | 25 | 0 | 0 | 0 | 0 | tackler x3 | S.McGowan 1, T.Warren 1, J.Taylor 1 | T.Warren 22 deep_right Q2 |
+| Calen Bullock | S | 2 | 1 | 17 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | A.Gould 1, A.Dulin 1 |  |
+| Wade Woodaz | LB | 2 | 2 | 11 | 0 | 0 | 0 | 0 | tackler x2 | D.Giddens 1, J.Taylor 1 |  |
+| Kamari Lassiter | CB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | D.Burks 1 |  |
+| Jake Hansen | LB | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | T.Warren 2 |  |
+| Tommy Togiai | DT | 2 | 1 | -1 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | J.Taylor 1, T.Warren 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 5/13 for 104 yds, 0 TD; TE 1/5 for 22 yds, 0 TD; RB 6/7 for 18 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 4/0
+Pass rush: sacks J.Clowney 1, W.Anderson 1; QB hits W.Anderson 3, L.Hall 1
+Video (highlight transcript) mentions: Jalen Pitre (S) @3:34 "THEY'LL SPOT IT AT THE 48. WELL THE RIGHT TIME TO CALL THIS SCREEN BECAUSE OF THE BLITZ RIGHT HERE FROM PITRE. WITH THE THIRD AND 19. COLTS DOWN 7 TO 3." [coverage word: BLITZ]; Calen Bullock (S) @10:57 "ZONE AND DOUBLE COVERAGE. BROKEN UP. INCOMPLETE. INTENDED FOR DULIN BULLOCK BUT THE TALENT IS HERE. PRESSURE AGAIN." [coverage word: ZONE]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### HOU season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 31.9% | 13.9% |
+| Zone | 67.8% | 81.8% |
+| MOF closed (single-high) | 52.1% | 55.6% |
+| MOF open (two-high) | 47.9% | 43.0% |
+| Blitz | 24.5% | 23.5% |
+| Cover 0 | 3.7% | not published |
+| Cover 1 | 22.5% | not published |
+| Cover 2 | 23.8% | not published |
+| Cover 2-Man | 5.8% | not published |
+| Cover 3 | 27.0% | not published |
+| Cover 4 | 8.6% | not published |
+| Cover 6 | 7.3% | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 382 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/hou). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 31.9% vs Sharp 13.9% (+18.0 pts); Zone: StatRankings 67.8% vs Sharp 81.8% (-14.0 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Zone: gap -14.0 pts is -4.6 vs the median gap; rank 15 StatRankings vs 5 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## HOU season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 31.9% | 13.9% |
+| Zone | 67.8% | 81.8% |
+| MOF closed (single-high) | 52.1% | 55.6% |
+| MOF open (two-high) | 47.9% | 43.0% |
+| Blitz | 24.5% | 23.5% |
+| Cover 0 | 3.7% | not published |
+| Cover 1 | 22.5% | not published |
+| Cover 2 | 23.8% | not published |
+| Cover 2-Man | 5.8% | not published |
+| Cover 3 | 27.0% | not published |
+| Cover 4 | 8.6% | not published |
+| Cover 6 | 7.3% | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 382 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/hou). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 31.9% vs Sharp 13.9% (+18.0 pts); Zone: StatRankings 67.8% vs Sharp 81.8% (-14.0 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Zone: gap -14.0 pts is -4.6 vs the median gap; rank 15 StatRankings vs 5 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

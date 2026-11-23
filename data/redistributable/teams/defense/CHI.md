@@ -240,3 +240,82 @@ By target, depth x direction (tgt / catches / yds / tacklers / PBU):
 
 Tackler-after-catch totals: T.Stevenson 4 rec/55y (A.Barner, J.Smith-Njigba, T.Horton); C.Lewis 2 rec/27y (A.Barner, J.Smith-Njigba); D.Bush 2 rec/22y (J.Smith-Njigba, Z.Charbonnet); J.Johnson 2 rec/13y (J.Smith-Njigba, T.Horton); A.Booker 1 rec/6y (J.Price); K.Gordon 1 rec/6y (Z.Charbonnet); T.Edwards 1 rec/2y (J.Price); J.Simmons 1 rec/-6y (Z.Charbonnet)
 
+
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### CHI defense vs NO (NO@CHI, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Cam Lewis | CB | 4 | 4 | 49 | 0 | 0 | 0 | 0 | tackler x4 | D.Vele 3, C.Olave 1 |  |
+| Jaylon Johnson | CB | 5 | 5 | 48 | 0 | 0 | 0 | 0 | tackler x5 | C.Olave 3, D.Vele 2 |  |
+| Devin Bush | LB | 4 | 4 | 31 | 0 | 0 | 0 | 0 | tackler x4 | O.Delp 1, D.Vele 2, N.Fant 1 |  |
+| T.J. Edwards | LB | 4 | 4 | 25 | 0 | 0 | 0 | 0 | tackler x4 | C.Olave 2, C.Donaldson 2 |  |
+| N.Sewell (name unresolved) | unknown | 1 | 1 | 24 | 0 | 0 | 0 | 0 | tackler x1 | C.Olave 1 | C.Olave 24 deep_left Q2 |
+| T.Stevenson (name unresolved) | unknown | 4 | 3 | 22 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | J.Tyson 1, C.Olave 2, C.Donaldson 1 |  |
+| C.Phillips (name unresolved) | unknown | 3 | 2 | 8 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | C.Donaldson 1, J.Tyson 1, N.Fant 1 |  |
+| Austin Booker | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | J.Johnson 1, T.Etienne 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 17/24 for 184 yds, 0 TD; TE 3/6 for 25 yds, 0 TD; RB 5/7 for 13 yds, 1 TD; unknown 0/1 for 0 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 1/2
+Pass rush: sacks J.Simmons 3, C.Lewis 1, M.Sweat 1, C.Phillips 1; QB hits A.Booker 1, N.Gallimore 1, M.Sweat 2
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### CHI season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 36.2% | 27.2% |
+| Zone | 63.4% | 68.8% |
+| MOF closed (single-high) | 50.7% | 50.5% |
+| MOF open (two-high) | 49.3% | 45.8% |
+| Blitz | 38.6% | 32.4% |
+| Cover 0 | unknown | not published |
+| Cover 1 | 26.6% | not published |
+| Cover 2 | 29.7% | not published |
+| Cover 2-Man | 6.6% | not published |
+| Cover 3 | 21.4% | not published |
+| Cover 4 | 5.2% | not published |
+| Cover 6 | 5.2% | not published |
+| Cover 9 | 1.7% | not published |
+| Coverage snaps | 290 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/chi). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 36.2% vs Sharp 27.2% (+9.0 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Man: gap +9.0 pts is -6.5 vs the median gap; rank 14 StatRankings vs 4 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## CHI season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 36.2% | 27.2% |
+| Zone | 63.4% | 68.8% |
+| MOF closed (single-high) | 50.7% | 50.5% |
+| MOF open (two-high) | 49.3% | 45.8% |
+| Blitz | 38.6% | 32.4% |
+| Cover 0 | unknown | not published |
+| Cover 1 | 26.6% | not published |
+| Cover 2 | 29.7% | not published |
+| Cover 2-Man | 6.6% | not published |
+| Cover 3 | 21.4% | not published |
+| Cover 4 | 5.2% | not published |
+| Cover 6 | 5.2% | not published |
+| Cover 9 | 1.7% | not published |
+| Coverage snaps | 290 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/chi). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 36.2% vs Sharp 27.2% (+9.0 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Man: gap +9.0 pts is -6.5 vs the median gap; rank 14 StatRankings vs 4 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

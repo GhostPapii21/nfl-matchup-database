@@ -233,3 +233,82 @@ Holds (-1.5 YPT or better): WR1: 6.43 YPT on 63 tgts (league 8.16, -1.73); WR3+:
 - wk8 CLE@PIT: KC Concepcion (WR-X outside volume) 3/4tgt 37y 0TD | shell 13/82, MOFO 52 (two-high zone) | Script/volume; no specific matchup attribution — see explosives table. [inferred]
 - wk8 CLE@PIT: Denzel Boston (WR-X outside volume) 6/11tgt 37y 0TD | shell 13/82, MOFO 52 (two-high zone) | Script/volume; no specific matchup attribution — see explosives table. [none (no explosive)]
 
+
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### PIT defense vs PHI (PIT@PHI, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Jamel Dean | CB | 6 | 6 | 40 | 0 | 0 | 0 | 0 | tackler x6 | M.Lemon 1, D.Smith 4, D.Cooper 1 |  |
+| KJ Henry | LB | 1 | 1 | 38 | 0 | 0 | 0 | 0 | tackler x1 | D.Goedert 1 | D.Goedert 38 short_left Q1 |
+| Robert Spears-Jennings | S | 1 | 1 | 14 | 0 | 0 | 0 | 0 | tackler x1 | D.Cooper 1 |  |
+| Patrick Queen | LB | 1 | 1 | 11 | 0 | 0 | 0 | 0 | tackler x1 | D.Smith 1 |  |
+| Daylen Everette | CB | 2 | 1 | 9 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | D.Cooper 2 |  |
+| Payton Wilson | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | D.Smith 1 |  |
+| Jalen Ramsey | CB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | D.Smith 1 |  |
+| Cameron Heyward | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | D.Smith 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 10/19 for 103 yds, 0 TD; TE 1/1 for 38 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 2/1
+Pass rush: sacks A.Highsmith 2, J.Sawyer 1; QB hits none
+Video (highlight transcript) mentions: T.J. Watt (LB) @0:28 "LITTLE NOD TO MAKE IT SEEM LIKE HE IS GOING TO HAVE A PEEL BACK BLOCK, HE IS ABLE TO AVOID IT. WATT MISSES BY GOING AROUND THAT BLOCK. BARKLEY, IT'S A RACE AT THAT" [coverage word: MISSES]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### PIT season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 17.7% | 11.9% |
+| Zone | 81.8% | 81.3% |
+| MOF closed (single-high) | 45.3% | 43.6% |
+| MOF open (two-high) | 54.7% | 51.4% |
+| Blitz | 28.2% | 27.3% |
+| Cover 0 | 3.7% | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 22.8% | not published |
+| Cover 2-Man | unknown | not published |
+| Cover 3 | 30.2% | not published |
+| Cover 4 | 16.8% | not published |
+| Cover 6 | 10.0% | not published |
+| Cover 9 | 1.4% | not published |
+| Coverage snaps | 351 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/pit). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** none at 7+ pts
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## PIT season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 17.7% | 11.9% |
+| Zone | 81.8% | 81.3% |
+| MOF closed (single-high) | 45.3% | 43.6% |
+| MOF open (two-high) | 54.7% | 51.4% |
+| Blitz | 28.2% | 27.3% |
+| Cover 0 | 3.7% | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 22.8% | not published |
+| Cover 2-Man | unknown | not published |
+| Cover 3 | 30.2% | not published |
+| Cover 4 | 16.8% | not published |
+| Cover 6 | 10.0% | not published |
+| Cover 9 | 1.4% | not published |
+| Coverage snaps | 351 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/pit). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** none at 7+ pts
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

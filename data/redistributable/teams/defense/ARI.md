@@ -224,3 +224,84 @@ Holds (-1.5 YPT or better): none
 - Max Melton ← George Pickens: 4 tgt, 2 rec, 48 yds
 - Garrett Williams ← Ryan Flournoy: 4 tgt, 3 rec, 38 yds
 
+
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### ARI defense vs KC (ARI@KC, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Kei'Trel Clark | CB | 4 | 4 | 63 | 0 | 0 | 0 | 0 | tackler x4 | R.Rice 1, J.Downs 2, E.Johnson 1 | J.Downs 26 short_left Q2 |
+| Jack Gibbens | LB | 4 | 4 | 50 | 0 | 0 | 0 | 0 | tackler x4 | E.Johnson 1, N.Gray 1, C.Allen 1, X.Worthy 1 | X.Worthy 20 short_middle Q3 |
+| Budda Baker | S | 3 | 3 | 27 | 0 | 0 | 0 | 0 | tackler x3 | T.Kelce 1, N.Gray 2 |  |
+| Kalen King | CB | 2 | 2 | 26 | 0 | 0 | 0 | 0 | tackler x2 | R.Rice 1, J.Downs 1 |  |
+| Denzel Burke | CB | 3 | 2 | 19 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | T.Kelce 2, A.Armstrong 1 |  |
+| Ma.Wilson (name unresolved) | unknown | 3 | 3 | 19 | 0 | 0 | 0 | 0 | tackler x3 | J.Downs 1, R.Rice 2 |  |
+| Zaven Collins | LB | 2 | 2 | 14 | 0 | 0 | 0 | 0 | tackler x2 | R.Rice 1, E.Johnson 1 |  |
+| Roy Lopez | DT | 2 | 1 | 12 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | N.Gray 1, T.Kelce 1 |  |
+| W.Williams (name unresolved) | unknown | 1 | 1 | 11 | 0 | 0 | 0 | 0 | tackler x1 | R.Rice 1 |  |
+| Cody Simon | LB | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | E.Johnson 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 14/21 for 191 yds, 1 TD; TE 9/12 for 95 yds, 2 TD; RB 4/4 for 38 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 4/2
+Pass rush: sacks W.Nolen 1; QB hits J.Sweat 2, J.Gibbens 1, D.Robinson 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### ARI season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 29.6% | 10.8% |
+| Zone | 70.4% | 81.2% |
+| MOF closed (single-high) | 44.1% | 33.6% |
+| MOF open (two-high) | 55.9% | 60.1% |
+| Blitz | 35.3% | 30.2% |
+| Cover 0 | 3.3% | not published |
+| Cover 1 | 18.9% | not published |
+| Cover 2 | 28.7% | not published |
+| Cover 2-Man | 7.5% | not published |
+| Cover 3 | 22.5% | not published |
+| Cover 4 | 8.5% | not published |
+| Cover 6 | 7.8% | not published |
+| Cover 9 | 1.6% | not published |
+| Coverage snaps | 307 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/ari). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 29.6% vs Sharp 10.8% (+18.8 pts); Zone: StatRankings 70.4% vs Sharp 81.2% (-10.8 pts); MOF closed (single-high): StatRankings 44.1% vs Sharp 33.6% (+10.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): MOF closed (single-high): gap +10.5 pts is +7.8 vs the median gap; rank 27 StatRankings vs 30 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## ARI season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 29.6% | 10.8% |
+| Zone | 70.4% | 81.2% |
+| MOF closed (single-high) | 44.1% | 33.6% |
+| MOF open (two-high) | 55.9% | 60.1% |
+| Blitz | 35.3% | 30.2% |
+| Cover 0 | 3.3% | not published |
+| Cover 1 | 18.9% | not published |
+| Cover 2 | 28.7% | not published |
+| Cover 2-Man | 7.5% | not published |
+| Cover 3 | 22.5% | not published |
+| Cover 4 | 8.5% | not published |
+| Cover 6 | 7.8% | not published |
+| Cover 9 | 1.6% | not published |
+| Coverage snaps | 307 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/ari). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 29.6% vs Sharp 10.8% (+18.8 pts); Zone: StatRankings 70.4% vs Sharp 81.2% (-10.8 pts); MOF closed (single-high): StatRankings 44.1% vs Sharp 33.6% (+10.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): MOF closed (single-high): gap +10.5 pts is +7.8 vs the median gap; rank 27 StatRankings vs 30 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

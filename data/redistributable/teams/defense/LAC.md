@@ -223,3 +223,83 @@ Holds (-1.5 YPT or better): none
 - Q3 10:42 Blake Corum (RB) rush 23 — defender unknown [unknown; no public source]; alignment: backfield (position default)
 - Donte Jackson ← Puka Nacua: 12 tgt, 11 rec, 80 yds
 
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### LAC defense vs NYJ (NYJ@LAC, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Elijah Molden | CB | 2 | 2 | 29 | 0 | 0 | 0 | 0 | tackler x2 | M.Taylor 1, K.Sadiq 1 |  |
+| Marlowe Wax | LB | 2 | 2 | 28 | 0 | 0 | 0 | 0 | tackler x2 | B.Allen 1, G.Wilson 1 |  |
+| Cam Hart | CB | 2 | 2 | 21 | 0 | 0 | 0 | 0 | tackler x2 | A.Mitchell 1, G.Wilson 1 |  |
+| Del'Shawn Phillips | LB | 2 | 2 | 19 | 0 | 0 | 0 | 0 | tackler x2 | G.Wilson 1, K.Sadiq 1 |  |
+| RJ Mickens | S | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | K.Sadiq 1 |  |
+| Tony Jefferson | S | 1 | 1 | 6 | 0 | 0 | 0 | 0 | tackler x1 | M.Taylor 1 |  |
+| Donte Jackson | CB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | T.Patrick 1 |  |
+| Caleb Murphy | LB | 1 | 1 | 4 | 0 | 0 | 0 | 0 | tackler x1 | B.Hall 1 |  |
+| Denzel Perryman | LB | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | B.Hall 1 |  |
+| Deane Leonard | CB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | G.Wilson 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 8/10 for 98 yds, 2 TD; TE 5/5 for 55 yds, 0 TD; RB 4/4 for 23 yds, 1 TD; unknown 0/1 for 0 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 1/2
+Pass rush: sacks T.Dye 1, C.Murphy 1; QB hits none
+Video (highlight transcript) mentions: Donte Jackson (CB) @2:35 "THE BACK OF THE END ZONE. AND HIS EYES GOING THERE, JUST FREEZES DONTE JACKSON JUST ENOUGH TO ALLOW BREECE HALL TO >> Adam: THANKS FOR BREAKING THAT DOWN." [coverage word: ZONE]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### LAC season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 32.7% | 13.4% |
+| Zone | 67.0% | 74.5% |
+| MOF closed (single-high) | 50.4% | 44.6% |
+| MOF open (two-high) | 49.6% | 50.5% |
+| Blitz | 26.2% | 23.9% |
+| Cover 0 | 5.4% | not published |
+| Cover 1 | 20.9% | not published |
+| Cover 2 | 22.9% | not published |
+| Cover 2-Man | 6.4% | not published |
+| Cover 3 | 24.6% | not published |
+| Cover 4 | 9.4% | not published |
+| Cover 6 | 6.1% | not published |
+| Cover 9 | 3.7% | not published |
+| Coverage snaps | 297 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/lac). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 32.7% vs Sharp 13.4% (+19.3 pts); Zone: StatRankings 67.0% vs Sharp 74.5% (-7.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Man: gap +19.3 pts is +3.8 vs the median gap; rank 16 StatRankings vs 26 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## LAC season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 32.7% | 13.4% |
+| Zone | 67.0% | 74.5% |
+| MOF closed (single-high) | 50.4% | 44.6% |
+| MOF open (two-high) | 49.6% | 50.5% |
+| Blitz | 26.2% | 23.9% |
+| Cover 0 | 5.4% | not published |
+| Cover 1 | 20.9% | not published |
+| Cover 2 | 22.9% | not published |
+| Cover 2-Man | 6.4% | not published |
+| Cover 3 | 24.6% | not published |
+| Cover 4 | 9.4% | not published |
+| Cover 6 | 6.1% | not published |
+| Cover 9 | 3.7% | not published |
+| Coverage snaps | 297 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/lac). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 32.7% vs Sharp 13.4% (+19.3 pts); Zone: StatRankings 67.0% vs Sharp 74.5% (-7.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Man: gap +19.3 pts is +3.8 vs the median gap; rank 16 StatRankings vs 26 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

@@ -216,3 +216,81 @@ Holds (-1.5 YPT or better): none
 - wk8 LV@NYJ: Ashton Jeanty (RB-power/volume early-down) 2-9 0TD; 3/4tgt 64y 0TD | shell 24/67, MOFO 50 | Receiving role (3/4, 64y incl. 23/27y vs Ponds-area, inferred) though only 2 carries. [unknown]
 - wk8 LV@NYJ: Jalen Nailor (WR-deep speed) 4/4tgt 38y 1TD | shell 24/67, MOFO 50 | Red-zone TD vs NYJ zone. [none (no explosive)]
 
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### NYJ defense vs LAC (NYJ@LAC, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Minkah Fitzpatrick | S | 2 | 2 | 35 | 0 | 0 | 0 | 0 | tackler x2 | D.Njoku 1, T.Harris 1 | T.Harris 22 short_right Q4 |
+| Jamien Sherwood | LB | 3 | 2 | 17 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | Q.Johnston 1, L.McConkey 2 |  |
+| Kingsley Enagbare | LB | 1 | 1 | 15 | 0 | 0 | 0 | 0 | tackler x1 | K.Vidal 1 |  |
+| Demario Davis | LB | 2 | 2 | 14 | 0 | 0 | 0 | 0 | tackler x2 | C.Kolar 1, T.Harris 1 |  |
+| Brandon Stephens | CB | 2 | 2 | 12 | 0 | 0 | 0 | 0 | tackler x2 | O.Hampton 1, D.Njoku 1 |  |
+| Azareye'h Thomas | CB | 3 | 2 | 10 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | K.Mitchell 1, D.Njoku 1, L.McConkey 1 |  |
+| D'Angelo Ponds | CB | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | K.Vidal 1 |  |
+| David Bailey | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | L.McConkey 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 6/10 for 60 yds, 1 TD; TE 3/4 for 29 yds, 0 TD; RB 4/4 for 28 yds, 0 TD; unknown 0/2 for 0 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 1/2
+Pass rush: sacks D.Bailey 2, H.Phillips 1, J.Briggs 1, J.Heflin (half) 1, D.Jackson (half) 1, J.Sherwood 1, J.Briggs (half) 1, M.Fitzpatrick (half) 1; QB hits D.Bailey 1
+Video (highlight transcript) mentions: Minkah Fitzpatrick (S) @7:50 "AND IT IS HAMPTON ALONG THE EDGE WITH THE BEST L.A. RUN OF THE DAY. FITZPATRICK THE TACKLE DOWN IN THE RED ZONE. >> Drew: YEAH." [coverage word: ZONE]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### NYJ season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 38.5% | 26.8% |
+| Zone | 61.5% | 63.7% |
+| MOF closed (single-high) | 46.3% | 46.1% |
+| MOF open (two-high) | 53.7% | 48.8% |
+| Blitz | 40.4% | 38.3% |
+| Cover 0 | 3.8% | not published |
+| Cover 1 | 26.1% | not published |
+| Cover 2 | 30.6% | not published |
+| Cover 2-Man | 8.6% | not published |
+| Cover 3 | unknown | not published |
+| Cover 4 | 6.4% | not published |
+| Cover 6 | 5.1% | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 314 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/nyj). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 38.5% vs Sharp 26.8% (+11.7 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## NYJ season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 38.5% | 26.8% |
+| Zone | 61.5% | 63.7% |
+| MOF closed (single-high) | 46.3% | 46.1% |
+| MOF open (two-high) | 53.7% | 48.8% |
+| Blitz | 40.4% | 38.3% |
+| Cover 0 | 3.8% | not published |
+| Cover 1 | 26.1% | not published |
+| Cover 2 | 30.6% | not published |
+| Cover 2-Man | 8.6% | not published |
+| Cover 3 | unknown | not published |
+| Cover 4 | 6.4% | not published |
+| Cover 6 | 5.1% | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 314 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/nyj). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 38.5% vs Sharp 26.8% (+11.7 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

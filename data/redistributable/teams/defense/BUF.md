@@ -231,3 +231,86 @@ Holds (-1.5 YPT or better): WR2: 6.7 YPT on 43 tgts (league 8.2, -1.5)
 - Christian Benford ← Ja'Kobi Lane: 1 tgt, 1 rec, 13 yds
 - Dee Alford ← Zay Flowers: 4 tgt, 0 rec, 0 yds — limited his man
 
+
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### BUF defense vs MIA (MIA@BUF, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Davison Igbinosun | CB | 4 | 2 | 29 | 0 | 2 | 0 | 1 | VERIFIED x3, tackler x2 | C.Douglas 3, M.Washington 1, C.Bell 1 | M.Washington 21 deep_left Q3 |
+| Jalon Kilgore | S | 2 | 2 | 24 | 0 | 0 | 0 | 0 | tackler x2 | G.Dulcich 1, J.Tolbert 1 |  |
+| Maxwell Hairston | CB | 2 | 1 | 16 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Douglas 2 |  |
+| Amani Hooker | S | 2 | 1 | 14 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Douglas 1, G.Dulcich 1 |  |
+| Cole Bishop | S | 2 | 1 | 7 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | D.Herman 1, G.Dulcich 1 |  |
+| Jordan Hancock | CB | 3 | 2 | 6 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | M.Washington 1, G.Dulcich 1, O.Gordon 1 |  |
+| Kaleb Elarms-Orr | LB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | G.Dulcich 1 |  |
+| Dee Alford | CB | 2 | 1 | 4 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | M.Washington 2 |  |
+| Deone Walker | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | M.Washington 1 |  |
+| Tre'Davious White | CB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | K.Coleman 1 |  |
+| Shaq Thompson | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | C.Douglas 1 |  |
+| Ed Oliver | DT | 1 | 1 | -3 | 0 | 0 | 0 | 0 | tackler x1 | O.Gordon 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 7/21 for 85 yds, 0 TD; TE 2/7 for 12 yds, 0 TD; RB 3/4 for 5 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 1/2
+Pass rush: sacks G.Rousseau 2; QB hits L.Jackson 1, B.Chubb 2, A.Hooker 1, J.Solomon 1, D.Carter 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### BUF season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 27.5% | 17.9% |
+| Zone | 72.3% | 74.7% |
+| MOF closed (single-high) | 48.4% | 46.5% |
+| MOF open (two-high) | 51.6% | 49.2% |
+| Blitz | 38.0% | 28.9% |
+| Cover 0 | unknown | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 25.0% | not published |
+| Cover 2-Man | 6.9% | not published |
+| Cover 3 | 27.5% | not published |
+| Cover 4 | 11.5% | not published |
+| Cover 6 | 4.9% | not published |
+| Cover 9 | 2.2% | not published |
+| Coverage snaps | 364 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/buf). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 27.5% vs Sharp 17.9% (+9.6 pts); Blitz: StatRankings 38.0% vs Sharp 28.9% (+9.1 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Blitz: gap +9.1 pts is +5.7 vs the median gap; rank 9 StatRankings vs 14 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## BUF season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 27.5% | 17.9% |
+| Zone | 72.3% | 74.7% |
+| MOF closed (single-high) | 48.4% | 46.5% |
+| MOF open (two-high) | 51.6% | 49.2% |
+| Blitz | 38.0% | 28.9% |
+| Cover 0 | unknown | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 25.0% | not published |
+| Cover 2-Man | 6.9% | not published |
+| Cover 3 | 27.5% | not published |
+| Cover 4 | 11.5% | not published |
+| Cover 6 | 4.9% | not published |
+| Cover 9 | 2.2% | not published |
+| Coverage snaps | 364 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/buf). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 27.5% vs Sharp 17.9% (+9.6 pts); Blitz: StatRankings 38.0% vs Sharp 28.9% (+9.1 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Blitz: gap +9.1 pts is +5.7 vs the median gap; rank 9 StatRankings vs 14 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

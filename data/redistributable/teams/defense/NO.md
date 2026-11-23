@@ -201,3 +201,79 @@ Holds (-1.5 YPT or better): none
 - 20+ catches: J.Warren(RB) 26y short_left - J.Sanker [tackler]; D.Metcalf(WR1) 51y deep_left - J.Sanker [tackler]; G.Bernard(WR2) 20y short_middle - J.Sanker [tackler]; B.Smith(WR3+) 20y short_middle - J.Howden [tackler]
 - 15+ runs: J.Warren(RB) 29y rush middle; J.Warren(RB) 15y rush middle; R.Dowdle(RB) 16y rush right tackle
 
+
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### NO defense vs CHI (NO@CHI, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Jonas Sanker | S | 4 | 4 | 52 | 0 | 0 | 0 | 0 | tackler x4 | L.Burden 2, Z.Thomas 1, C.Loveland 1 | Z.Thomas 40 deep_left Q3 |
+| Julian Blackmon | S | 2 | 2 | 33 | 0 | 0 | 0 | 0 | tackler x2 | S.Roush 1, K.Raymond 1 |  |
+| Kool-Aid McKinstry | CB | 5 | 4 | 31 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x4 | D.Swift 1, R.Odunze 2, K.Raymond 1, Z.Thomas 1 |  |
+| Jordan Howden | S | 2 | 1 | 16 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | K.Raymond 1, R.Odunze 1 |  |
+| Anfernee Jennings | LB | 1 | 1 | 12 | 0 | 0 | 0 | 0 | tackler x1 | C.Loveland 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 9/13 for 125 yds, 0 TD; TE 4/4 for 48 yds, 1 TD; RB 2/3 for 8 yds, 1 TD
+Explosives allowed (pass 20+/rush 15+): 1/2
+Pass rush: sacks C.Young 1, C.Wooden 1, J.Sanker 1, J.Ridgeway 1; QB hits A.Jennings 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### NO season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 38.2% | 16.7% |
+| Zone | 59.6% | 73.9% |
+| MOF closed (single-high) | 64.9% | 64.3% |
+| MOF open (two-high) | 35.1% | 31.8% |
+| Blitz | 39.1% | 33.9% |
+| Cover 0 | 3.1% | not published |
+| Cover 1 | 30.1% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | 5.0% | not published |
+| Cover 3 | 28.6% | not published |
+| Cover 4 | 5.0% | not published |
+| Cover 6 | 5.0% | not published |
+| Cover 9 | 2.5% | not published |
+| Coverage snaps | 322 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/no). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 38.2% vs Sharp 16.7% (+21.5 pts); Zone: StatRankings 59.6% vs Sharp 73.9% (-14.3 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## NO season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 38.2% | 16.7% |
+| Zone | 59.6% | 73.9% |
+| MOF closed (single-high) | 64.9% | 64.3% |
+| MOF open (two-high) | 35.1% | 31.8% |
+| Blitz | 39.1% | 33.9% |
+| Cover 0 | 3.1% | not published |
+| Cover 1 | 30.1% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | 5.0% | not published |
+| Cover 3 | 28.6% | not published |
+| Cover 4 | 5.0% | not published |
+| Cover 6 | 5.0% | not published |
+| Cover 9 | 2.5% | not published |
+| Coverage snaps | 322 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/no). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 38.2% vs Sharp 16.7% (+21.5 pts); Zone: StatRankings 59.6% vs Sharp 73.9% (-14.3 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

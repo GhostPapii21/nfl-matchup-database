@@ -226,3 +226,29 @@ Holds (-1.5 YPT or better): TE1: 5.57 YPT on 28 tgts (league 7.39, -1.82); WR2: 
 - 20+ catches: J.Coker(WR2) 26y short_middle TD - no tackler named [unattributed]
 - 15+ runs: C.Hubbard(RB) 18y rush left tackle
 
+<!-- W11-COVRATES-START refs NFL-56 -->
+## GB season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 24.1% | 13.5% |
+| Zone | 75.4% | 78.5% |
+| MOF closed (single-high) | 36.5% | 34.7% |
+| MOF open (two-high) | 63.5% | 61.0% |
+| Blitz | 36.8% | 33.3% |
+| Cover 0 | 3.8% | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 35.1% | not published |
+| Cover 2-Man | 8.2% | not published |
+| Cover 3 | 21.8% | not published |
+| Cover 4 | 11.8% | not published |
+| Cover 6 | unknown | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 390 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/gb). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 24.1% vs Sharp 13.5% (+10.6 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

@@ -223,3 +223,86 @@ Final **JAX 33 – BAL 10**. Vs BAL offense with UDFA QB J.Fagnano (10/18, 60 yd
 - Tackler-after-catch / INT ledger: M.Brown 5 tags (4 rec/28 + 1 INT); F.Oluokun 2/9 (both Flowers); A.Johnson 2/9; T.Hunter 1/12 (Andrews); T.Walker 1/−3 (Flowers); V.Miller 1/2; J.Lewis 1 INT.
 
 **Run defense:** Henry 17/57 (long 8) — no explosive. Hill 9/85 with **65-yd TD** Q4 (only rush10+/40+ of the game; JAX D allowed 1 explosive). Flowers 3/17 rush; Fagnano 3/13.
+
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### JAX defense vs NYG (JAX@NYG, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Travis Hunter | WR | 6 | 6 | 49 | 0 | 0 | 0 | 0 | tackler x6 | M.Nabers 5, X.Gipson 1 |  |
+| Brenden Bates (last-name match) | TE | 3 | 3 | 48 | 0 | 0 | 0 | 0 | tackler x3 | C.Manhertz 1, T.Johnson 1, M.Fields 1 |  |
+| Kaevon Merriweather | S | 2 | 1 | 35 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | I.Likely 1, C.Skattebo 1 | I.Likely 35 short_middle Q3 |
+| Jourdan Lewis | CB | 1 | 1 | 11 | 0 | 0 | 0 | 0 | tackler x1 | C.Skattebo 1 |  |
+| Montaric Brown | CB | 2 | 1 | 6 | 0 | 1 | 0 | 1 | VERIFIED x2, tackler x1 | M.Fields 2, J.Hyatt 1 |  |
+| Dennis Gardeck | LB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | D.Singletary 1 |  |
+| Foyesade Oluokun | LB | 2 | 1 | 4 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Skattebo 1, J.Hyatt 1 |  |
+| A.Johnson (name unresolved) | unknown | 3 | 1 | 4 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x1 | M.Nabers 1, I.Likely 1, M.Fields 1 |  |
+| Josh Hines-Allen | DE | 2 | 1 | 2 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Skattebo 2 |  |
+| Ventrell Miller | LB | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tackler x1 | C.Skattebo 1 |  |
+| Travon Walker | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | M.Nabers 2 |  |
+| Arik Armstead | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | D.Mooney 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 12/24 for 98 yds, 1 TD; TE 3/5 for 64 yds, 0 TD; RB 4/8 for 19 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 1/1
+Pass rush: sacks J.Hines-Allen 1; QB hits F.Oluokun 1, T.Walker 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### JAX season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 26.2% | 17.2% |
+| Zone | 73.8% | 77.7% |
+| MOF closed (single-high) | 47.5% | 45.8% |
+| MOF open (two-high) | 52.5% | 51.2% |
+| Blitz | 32.6% | 27.4% |
+| Cover 0 | 5.0% | not published |
+| Cover 1 | 18.6% | not published |
+| Cover 2 | 26.8% | not published |
+| Cover 2-Man | unknown | not published |
+| Cover 3 | 24.0% | not published |
+| Cover 4 | 10.4% | not published |
+| Cover 6 | 7.3% | not published |
+| Cover 9 | 5.0% | not published |
+| Coverage snaps | 317 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/jax). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 26.2% vs Sharp 17.2% (+9.0 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## JAX season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 26.2% | 17.2% |
+| Zone | 73.8% | 77.7% |
+| MOF closed (single-high) | 47.5% | 45.8% |
+| MOF open (two-high) | 52.5% | 51.2% |
+| Blitz | 32.6% | 27.4% |
+| Cover 0 | 5.0% | not published |
+| Cover 1 | 18.6% | not published |
+| Cover 2 | 26.8% | not published |
+| Cover 2-Man | unknown | not published |
+| Cover 3 | 24.0% | not published |
+| Cover 4 | 10.4% | not published |
+| Cover 6 | 7.3% | not published |
+| Cover 9 | 5.0% | not published |
+| Coverage snaps | 317 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/jax). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 26.2% vs Sharp 17.2% (+9.0 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

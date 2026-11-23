@@ -203,3 +203,29 @@ Holds (-1.5 YPT or better): TE1: 5.82 YPT on 38 tgts (league 7.39, -1.57); TE2+:
 - Top receivers: D.London (WR1, intermediate (aDOT 8-13)) 7/10 80y 1TD; Bi.Robinson (RB, short/YAC (aDOT <8)) 5/5 45y; K.Pitts (TE1, short/YAC (aDOT <8)) 5/5 22y 1TD; A.Hooper (TE2+, short/YAC (aDOT <8)) 2/2 21y
 - 20+ catches: D.London(WR1) 21y deep_left TD - no tackler named [unattributed]
 
+<!-- W11-COVRATES-START refs NFL-56 -->
+## SF season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 29.6% | 11.2% |
+| Zone | 69.3% | 82.8% |
+| MOF closed (single-high) | 59.0% | 56.2% |
+| MOF open (two-high) | 41.0% | 39.5% |
+| Blitz | 31.8% | 26.8% |
+| Cover 0 | unknown | not published |
+| Cover 1 | 25.0% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | 3.2% | not published |
+| Cover 3 | 29.9% | not published |
+| Cover 4 | 8.6% | not published |
+| Cover 6 | 7.8% | not published |
+| Cover 9 | 2.6% | not published |
+| Coverage snaps | 348 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/sf). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 29.6% vs Sharp 11.2% (+18.4 pts); Zone: StatRankings 69.3% vs Sharp 82.8% (-13.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

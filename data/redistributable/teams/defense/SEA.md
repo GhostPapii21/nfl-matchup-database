@@ -238,3 +238,29 @@ By target, depth x direction (tgt / catches / yds / tacklers / PBU):
 
 Tackler-after-catch totals: J.Love 3 rec/50y (K.Raymond, L.Burden, R.Odunze); E.Jones 4 rec/43y (C.Loveland, L.Burden); D.Witherspoon 4 rec/41y (C.Loveland, D.Swift, R.Johnson, R.Odunze); J.Jobe 4 rec/35y (K.Raymond, L.Burden, R.Odunze, Z.Thomas); N.Pritchett 1 rec/22y (R.Odunze); N.Emmanwori 2 rec/19y (C.Loveland, L.Burden); J.Jackson 1 rec/9y (C.Loveland); J.Reed 1 rec/8y (D.Swift); T.Okada 1 rec/5y (L.Burden); B.Murphy 1 rec/0y (C.Loveland)
 
+<!-- W11-COVRATES-START refs NFL-56 -->
+## SEA season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 20.7% | 9.8% |
+| Zone | 79.3% | 85.4% |
+| MOF closed (single-high) | 43.0% | 41.2% |
+| MOF open (two-high) | 57.0% | 56.9% |
+| Blitz | 24.9% | 22.4% |
+| Cover 0 | unknown | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 37.1% | not published |
+| Cover 2-Man | 6.3% | not published |
+| Cover 3 | 28.1% | not published |
+| Cover 4 | unknown | not published |
+| Cover 6 | 6.6% | not published |
+| Cover 9 | 1.5% | not published |
+| Coverage snaps | 334 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/sea). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 20.7% vs Sharp 9.8% (+10.9 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

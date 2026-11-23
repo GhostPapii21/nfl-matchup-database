@@ -215,3 +215,85 @@ Holds (-1.5 YPT or better): none
 - 20+ catches: T.Burks(WR3+) 21y deep_right - T.Woolen [tackler]; S.Diggs(WR1) 20y short_middle - K.Moore [tackler]; C.Okonkwo(TE1) 21y deep_left - A.Mukuba [tackler]; T.Burks(WR3+) 53y deep_right - Q.Mitchell [tackler]; A.Williams(WR2) 30y deep_right - K.Moore [tackler]
 - 15+ runs: A.Ekeler(RB) 18y rush left end; R.White(RB) 33y rush left tackle
 
+
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### PHI defense vs PIT (PIT@PHI, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Marcus Epps | S | 7 | 7 | 70 | 0 | 0 | 0 | 0 | tackler x7 | G.Bernard 3, R.Dowdle 1, P.Freiermuth 1, R.Wilson 1, M.Hurleman 1 | R.Wilson 33 deep_left Q3 |
+| J.Trotter (name unresolved) | unknown | 4 | 4 | 36 | 0 | 0 | 0 | 0 | tackler x4 | P.Freiermuth 1, R.Dowdle 1, D.Washington 1, M.Hurleman 1 |  |
+| Cooper DeJean | CB | 3 | 2 | 24 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | G.Bernard 2, P.Freiermuth 1 |  |
+| Andrew Mukuba | S | 4 | 3 | 22 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | D.Washington 1, R.Wilson 1, M.Hurleman 1, G.Bernard 1 |  |
+| Jonathan Jones | CB | 7 | 4 | 21 | 0 | 3 | 0 | 0 | VERIFIED x3, tackler x4 | M.Hurleman 3, P.Freiermuth 1, R.Wilson 3 |  |
+| DeVonta Smith (last-name match) | WR | 2 | 2 | 11 | 0 | 0 | 0 | 0 | tackler x2 | P.Freiermuth 1, G.Bernard 1 |  |
+| Jihaad Campbell | LB | 3 | 3 | 10 | 0 | 0 | 0 | 0 | tackler x3 | J.Warren 2, R.Dowdle 1 |  |
+| Jalyx Hunt | LB | 1 | 1 | 7 | 0 | 0 | 0 | 0 | tackler x1 | G.Bernard 1 |  |
+| Riq Woolen (last-name match) | CB | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | R.Dowdle 1 |  |
+| Quinyon Mitchell | CB | 3 | 1 | 2 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x1 | D.Metcalf 3 |  |
+| Arnold Ebiketie | LB | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tackler x1 | D.Washington 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 16/27 for 146 yds, 1 TD; TE 8/8 for 61 yds, 0 TD; RB 6/8 for 20 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 2/0
+Pass rush: sacks J.Hunt 1, B.Young 2, J.Greenard 1, N.Smith 1, G.Hall 1; QB hits M.Ojomo 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### PHI season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 38.1% | 18.2% |
+| Zone | 61.9% | 73.1% |
+| MOF closed (single-high) | 58.1% | 52.1% |
+| MOF open (two-high) | 41.9% | 41.6% |
+| Blitz | 29.8% | 25.1% |
+| Cover 0 | 5.0% | not published |
+| Cover 1 | 28.9% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | 4.1% | not published |
+| Cover 3 | 24.2% | not published |
+| Cover 4 | 8.5% | not published |
+| Cover 6 | 10.4% | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 318 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/phi). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 38.1% vs Sharp 18.2% (+19.9 pts); Zone: StatRankings 61.9% vs Sharp 73.1% (-11.2 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
+<!-- W11-COVRATES-START refs NFL-56 -->
+## PHI season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 38.1% | 18.2% |
+| Zone | 61.9% | 73.1% |
+| MOF closed (single-high) | 58.1% | 52.1% |
+| MOF open (two-high) | 41.9% | 41.6% |
+| Blitz | 29.8% | 25.1% |
+| Cover 0 | 5.0% | not published |
+| Cover 1 | 28.9% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | 4.1% | not published |
+| Cover 3 | 24.2% | not published |
+| Cover 4 | 8.5% | not published |
+| Cover 6 | 10.4% | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 318 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/phi). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 38.1% vs Sharp 18.2% (+19.9 pts); Zone: StatRankings 61.9% vs Sharp 73.1% (-11.2 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->
