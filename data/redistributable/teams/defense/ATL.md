@@ -228,3 +228,29 @@ Holds (-1.5 YPT or better): none
 - wk8 ATL@TB: Bucky Irving (RB-home-run zone runner) 27-170 1TD | shell 22/70, MOFC 60 | Rain (5.7mm) + TB lead → 56 rushes/3 passes; ATL run D 4.09 YPC, missed fits by Bates/Daniels/Henderson on 4 explosives (46y Henderson). Game-script RB rule spot. [confirmed-tackler]
 - wk8 ATL@TB: Kenny Gainwell (RB-receiving/scat (used as volume back in rain)) 25-140 0TD; 0/1tgt 0y 0TD | shell 22/70, MOFC 60 | RB2 volume in rain run-fest (25 car); ATL edge contain failed (left/right end 28y, 20y). RB2 should be modeled when weather-flagged. [confirmed-tackler]
 
+<!-- W11-COVRATES-START refs NFL-56 -->
+## ATL season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 37.6% | 21.9% |
+| Zone | 62.1% | 70.8% |
+| MOF closed (single-high) | 60.2% | 60.7% |
+| MOF open (two-high) | 39.8% | 33.5% |
+| Blitz | 26.6% | 23.3% |
+| Cover 0 | unknown | not published |
+| Cover 1 | 32.5% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | 3.7% | not published |
+| Cover 3 | 25.1% | not published |
+| Cover 4 | 9.6% | not published |
+| Cover 6 | 8.5% | not published |
+| Cover 9 | 1.9% | not published |
+| Coverage snaps | 375 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/atl). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 37.6% vs Sharp 21.9% (+15.7 pts); Zone: StatRankings 62.1% vs Sharp 70.8% (-8.7 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->

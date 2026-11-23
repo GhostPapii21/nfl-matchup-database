@@ -232,3 +232,29 @@ Holds (-1.5 YPT or better): RB: 3.59 YPT on 39 tgts (league 5.61, -2.02); TE1: 5
 - wk8 CLE@PIT: Rico Dowdle (RB-receiving/scat) 15-56 1TD | shell 42 man/54, MOFC 73 (single-high man) | Script/volume; no specific matchup attribution — see explosives table. [confirmed-tackler]
 - wk8 CLE@PIT: Pat Freiermuth (TE-move/seam) 1-1 1TD; 2/2tgt 35y 0TD | shell 42 man/54, MOFC 73 (single-high man) | Script/volume; no specific matchup attribution — see explosives table. [inferred]
 
+<!-- W11-COVRATES-START refs NFL-56 -->
+## CLE season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 54.8% | 44.4% |
+| Zone | 44.6% | 51.5% |
+| MOF closed (single-high) | 68.6% | 72.3% |
+| MOF open (two-high) | 31.4% | 24.5% |
+| Blitz | 29.6% | 28.5% |
+| Cover 0 | unknown | not published |
+| Cover 1 | 49.3% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | unknown | not published |
+| Cover 3 | unknown | not published |
+| Cover 4 | unknown | not published |
+| Cover 6 | 4.4% | not published |
+| Cover 9 | 2.8% | not published |
+| Coverage snaps | 363 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/cle). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 54.8% vs Sharp 44.4% (+10.4 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+<!-- W11-COVRATES-END -->
