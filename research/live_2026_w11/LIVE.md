@@ -1,16 +1,16 @@
-# Live tracker, Week 11 (2026-11-23 01:51 UTC)
+# Live tracker, Week 11 (2026-11-23 01:56 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## MIN 0 @ SF 7 (3:44 - 1st)
+## MIN 7 @ SF 7 (1:13 - 1st)
 
-29 plays. Top yards allowed by a named defender: D.Lenoir (1/3, 29 yds), J.Pierre (1/1, 18 yds), B.Murphy (1/1, 14 yds), M.Mustapha (1/1, 9 yds)
+36 plays. Top yards allowed by a named defender: D.Lenoir (1/4, 29 yds), J.Pierre (1/1, 18 yds), R.Green (1/1, 16 yds), B.Murphy (1/1, 14 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
+| T.J. Hockenson (MIN) | 2 | 4.6 | 36 | 34.8 | 44.5 | 0 |  |  |
 | Justin Jefferson (MIN) | 1 | 6.1 | 29 | 63.7 | 86.5 | 0 |  |  |
 | Deebo Samuel Sr. (SF) | 1 | 2.5 | 18 | 21.8 | 25.5 | 7 |  | 7.5 |
-| T.J. Hockenson (MIN) | 1 | 4.6 | 20 | 34.8 | 44.5 | 0 |  |  |
 | George Kittle (SF) | 1 | 4.3 | 17 | 44.9 | 47.5 | 0 |  |  |
 | Mike Evans (SF) | 1 | 4.0 | 14 | 48.1 | 48.5 | 0 |  |  |
 | Jordan Mason (MIN) | 0 |  | 0 |  | 3.5 | 9 | 35.8 | 43.5 |
