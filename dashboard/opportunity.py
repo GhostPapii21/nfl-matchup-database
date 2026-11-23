@@ -209,9 +209,25 @@ def def_factor(def_rate, league_rate):
 # 2025-26: MAE 6.65 vs 6.52; refit 6.49). Favourites do run a little more (+0.37% per point, not +1.2%).
 SCRIPT_PASS = (0.9855, -0.0006)
 SCRIPT_RUSH = (1.0016, 0.0037)
-# Backup QB: receivers of a team starting someone other than its usual QB (most starts this season, 2+ games) gained 6.3%
-# fewer yards than the simulation (fit 2024-25, CI 1-11.5% fewer; 2026 check: 15.5% fewer). Applied to yards per catch.
-BACKUP_QB_YARDS = 0.937
+# Backup QB: receivers of a team starting someone other than its usual QB (most starts this season, 2+ games), when that
+# QB is a true backup (under 8 starts for any team in the last two seasons), gained 9.1% fewer yards than the simulation
+# (fit 2024-25, 747 receiver-games, CI 2.5-15.6% fewer; 2026 check: 15.6% fewer). A veteran starter who changed teams
+# (Cousins, LV -> MIN in 2026) showed no reliable drop (0.979, CI 0.90-1.05), so no factor for him.
+# research/qb_script_2026-11-22. Applied to yards per catch.
+BACKUP_QB_YARDS = 0.909
+VETERAN_STARTS = 8
+
+
+def qb_recent_starts(games, qb_id: str, season: int, week: int) -> int:
+    """Regular-season starts by this QB for any team in the two seasons before (season, week)."""
+    g = games[games.game_type == "REG"] if "game_type" in games else games
+    k = season * 100 + week
+    n = 0
+    for col in ("home_qb_id", "away_qb_id"):
+        x = g[g[col] == qb_id]
+        kk = x.season * 100 + x.week
+        n += int(((kk < k) & (kk >= k - 200)).sum())
+    return n
 
 
 def script_multipliers(implied_margin):
@@ -235,7 +251,11 @@ def backup_qb(side: dict) -> dict | None:
     else:                                   # "Joe Milton III" vs "J.Milton": compare last names
         last = lambda n: [w for w in str(n).replace(".", " ").split() if w.upper() not in {"JR", "SR", "II", "III", "IV"}][-1].lower()
         same = last(q["player"]) == last(usual["player"])
-    return None if same else {"starter": q["player"], "usual": usual["player"], "usual_games": usual["games"]}
+    if same:
+        return None
+    vet = (q.get("recent_starts") or 0) >= VETERAN_STARTS
+    return {"starter": q["player"], "usual": usual["player"], "usual_games": usual["games"], "starter_recent_starts": q.get("recent_starts"),
+            "veteran": vet}
 
 
 # ----------------------------------------------------------------------------------------------- board integration
@@ -304,7 +324,7 @@ def board_side(side: dict, game: dict, implied: dict | None, pools: dict, injuri
             return OUT_TOP_RB * missing_carry
         return OUT_REST_RB * missing_carry * ((r.get("carry_share") or 0) / healthy_carry)
     bqb = backup_qb(side)
-    qb_yards = BACKUP_QB_YARDS if bqb else 1.0
+    qb_yards = BACKUP_QB_YARDS if bqb and not bqb["veteran"] else 1.0
     res = {"team": off, "vs": dfn, "team_pass_attempts": _f(team_att, 1), "team_rush_attempts": _f(team_rush, 1), "backup_qb": bqb,
            "plays": _f(plays, 1), "pass_ratio": _f(pass_ratio, 3), "script_pass_multiplier": _f(pmul, 3), "weather_attempts_multiplier": _f(att_rain, 3),
            "implied_margin": _f(margin, 1), "missing_target_share": _f(missing_share, 3), "missing_carry_share": _f(missing_carry, 3),

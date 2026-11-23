@@ -117,7 +117,13 @@ def test_backup_qb_detection():
     from dashboard import opportunity as O
     phi = {"qb": {"player": "Joe Milton III"}, "quarterbacks": [{"player": "J.Hurts", "player_id": "a", "games": 4},
                                                                 {"player": "T.McKee", "player_id": "b", "games": 3}]}
-    assert O.backup_qb(phi) == {"starter": "Joe Milton III", "usual": "J.Hurts", "usual_games": 4}
+    assert O.backup_qb(phi) == {"starter": "Joe Milton III", "usual": "J.Hurts", "usual_games": 4, "starter_recent_starts": None, "veteran": False}
+    vet = {"qb": {"player": "Kirk Cousins", "player_id": "c", "recent_starts": 24}, "quarterbacks": [{"player": "K.Murray", "player_id": "m", "games": 5}]}
+    assert O.backup_qb(vet)["veteran"] is True                     # changed teams, not a backup: no yards factor
+    import pandas as pd
+    g = pd.DataFrame({"game_type": "REG", "season": [2025, 2026, 2026, 2026], "week": [3, 2, 9, 12],
+                      "home_qb_id": ["c", "x", "c", "c"], "away_qb_id": ["y", "c", "z", "z"]})
+    assert O.qb_recent_starts(g, "c", 2026, 11) == 3               # 2025 wk3, 2026 wk2, 2026 wk9; not wk12
     assert O.backup_qb({"qb": {"player": "Jalen Hurts", "player_id": "a"}, "quarterbacks": phi["quarterbacks"]}) is None
     assert O.backup_qb({"qb": {"player": "Jalen Hurts"}, "quarterbacks": phi["quarterbacks"]}) is None      # by last name
     assert O.backup_qb({"qb": {"player": "X", "player_id": "z"}, "quarterbacks": [{"player": "Y", "player_id": "y", "games": 1}]}) is None

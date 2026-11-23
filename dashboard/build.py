@@ -236,6 +236,12 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
         out_names = {x["player"] for x in sd.get("offense_injuries", []) if x.get("status_level", 0) >= 3}
         out_names |= set(inactives.get(sd.get("offense"), []))
         sd["official_inactives"] = sorted(inactives.get(sd.get("offense"), [])) if inactives else None
+        try:   # starts by the projected QB for any team in the last two seasons (veteran vs true backup)
+            q = sd.get("qb") or {}
+            if q.get("player_id") and q.get("recent_starts") is None:
+                q["recent_starts"] = OP.qb_recent_starts(games, q["player_id"], season, int(g.get("week") or grow.get("week") or 0))
+        except Exception:  # noqa: BLE001
+            pass
         try:
             sd["opportunity"] = OP.board_side(sd, g, imp, pools, out_names, seed=sum(map(ord, g["game_id"] + key))) if pools else None
         except Exception as e:  # noqa: BLE001 - the board still renders without this section
