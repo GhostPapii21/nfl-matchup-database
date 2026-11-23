@@ -1,10 +1,10 @@
-# Live tracker, Week 11 (2026-11-23 03:42 UTC)
+# Live tracker, Week 11 (2026-11-23 03:48 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## MIN 10 @ SF 28 (2:20 - 3rd)
+## MIN 10 @ SF 28 (15:00 - 4th)
 
-121 plays. Top yards allowed by a named defender: R.Green (7/7, 56 yds), J.Pierre (3/3, 47 yds), T.Jackson (1/1, 34 yds), D.Lenoir (1/4, 29 yds)
+126 plays. Top yards allowed by a named defender: R.Green (7/7, 56 yds), J.Pierre (3/3, 47 yds), T.Jackson (1/1, 34 yds), D.Lenoir (1/4, 29 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
