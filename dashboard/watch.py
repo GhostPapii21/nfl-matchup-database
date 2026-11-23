@@ -94,6 +94,27 @@ def book_price(lines: list | None, player: str, market: str, rung: float = 79.5)
     return None
 
 
+def shadow_role(model: dict, p80: float, log: list, team_t: dict, cuts: dict) -> dict | None:
+    """Side-by-side only, never moves a star (owner, 2026-11-23). Rising role: his target share in his last game against
+    his season share, added on the logit scale. Passed the held-out test (2025-26 log loss 0.2691 -> 0.2684, z 2.1;
+    research/shadow_2026-11-23); graded weekly against the live stars before it can replace anything."""
+    w = (model.get("shadow") or {}).get("role_last1")
+    if not w or len(log) < 2:
+        return None
+    tot = sum(team_t.get(x["week"], 0) for x in log)
+    last = log[-1]
+    lt = team_t.get(last["week"], 0)
+    if not tot or not lt:
+        return None
+    share, share1 = sum(x.get("targets", 0) for x in log) / tot, last.get("targets", 0) / lt
+    if share <= 0:
+        return None
+    x = math.log(min(max(share1 / share, 0.2), 4.0))
+    lg = math.log(min(max(p80, 1e-4), 1 - 1e-4) / (1 - min(max(p80, 1e-4), 1 - 1e-4)))
+    p = _sig(lg + w["const"] + w["last1"] * x)
+    return {"p80": round(p, 3), "stars": stars(p, cuts), "season_share": round(share, 3), "last_game_share": round(share1, 3), "candidate": "rising role"}
+
+
 GATE_KEY = {"WR": "wr_rec_yards_pg", "TE": "te_rec_yards_pg", "RB": "rb_rush_yards_pg"}
 
 
@@ -246,7 +267,8 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
             why.append(f"rain/wind in the forecast cuts his yards about {round((1 - wx) * 100)}%")
         out["receivers"].append({"player": r.get("full_name") or r["player"], "player_id": r["player_id"], "pos": r["pos"], "tier": tier,
                                  "style": "explosive" if ex_pg >= 1.2 else "volume", "p80": round(p80, 3), "p100": round(p100, 3),
-                                 "stars": stars(p80, cuts), "targets": round(blend, 1), "yds_pg": round(yds_pg, 1), "ex_pg": round(ex_pg, 2), "why": why})
+                                 "stars": stars(p80, cuts), "targets": round(blend, 1), "yds_pg": round(yds_pg, 1), "ex_pg": round(ex_pg, 2), "why": why,
+                                 **({"shadow": sh} if (sh := shadow_role(model, p80, log, team_t, cuts)) else {})})
     rb_cpg = {}
     for r in (sd.get("roles") or {}).get("rushers") or []:
         o = by_player.get(r.get("player_id"))

@@ -358,3 +358,18 @@ def test_health_flags_questionable_concussion_returning():
     h = W.health_flags(sd, "Tee Higgins")
     assert h["returning"]["games_missed"] == 3 and "status" not in h
     assert W.health_flags(sd, "Other Guy") is None and W.health_flags(sd, "Nobody") is None
+
+
+def test_shadow_role_runs_side_by_side_without_moving_stars():
+    from dashboard import watch as W
+    model = W.load_model()
+    assert model["shadow"]["role_last1"]["last1"] > 0
+    team_t = {w: 36 for w in range(1, 9)}
+    log = [{"week": w, "targets": 5} for w in range(1, 8)] + [{"week": 8, "targets": 12}]       # role jumped last game
+    sh = W.shadow_role(model, 0.32, log, team_t, model["stars"])
+    assert sh["p80"] > 0.32 and sh["last_game_share"] > sh["season_share"]
+    flat = W.shadow_role(model, 0.32, [{"week": w, "targets": 5} for w in range(1, 9)], team_t, model["stars"])
+    assert abs(flat["p80"] - 0.32) < 0.01
+    alpha, _ = _watch_side([11, 10, 12, 9, 11, 10, 12, 11], [110, 95, 120, 80, 105, 99, 130, 90])
+    e = W.watch_side(alpha, {"AAA": 28.0, "BBB": 21.0}, {"BBB": {"g80_WR_pg": 0.5}}, model)["receivers"][0]
+    assert "shadow" in e and e["stars"] == W.stars(e["p80"], model["stars"])          # live stars still from the board's p80
