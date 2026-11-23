@@ -135,7 +135,7 @@ for g, r in sorted(G.items()):
                 rows_csv.append({'team': de, 'defender': full.replace(' (last-name match)', '').replace(' (name unresolved)', ''), 'short': short, 'gsis_id': '', 'pos': pos, 'scope': 'game', 'week': '11', 'game': g, 'games': '1',
                                  'tags': v['tags'], 'rec': float(v['rec']), 'yds': float(v['yds']), 'ypt': round(v['yds'] / v['tags'], 2) if v['tags'] else '', 'td': v['td'], 'exp20': len(v['big']), 'pbu': v['pbu'], 'ints': v['int'], 'dpi': v['dpi'],
                                  'tags_pg': float(v['tags']), 'yds_pg': float(v['yds']), 'def_snap_pct': '', 'receivers': ', '.join(f'{k}x{n}' for k, n in v['vs'].items()), 'explosives': '; '.join(v['big']),
-                                 'method': 'tackler/PBU tag, not true coverage (W11 ESPN play text, refs NFL-56)'})
+                                 'method': 'tackler/PBU tag, not true coverage (W11 ESPN play text, refs NFL-56); only pbu/ints/dpi are VERIFIED coverage, rec/yds are inferred tackler tags'})
         lk = r.get('leaks', {}).get(de, {})
         P.append('\nYards allowed by target position (WR slot/outside unknown): ' + ('; '.join(f'{k} {v[1]}/{v[0]} for {v[2]} yds, {v[3]} TD' for k, v in sorted(lk.items(), key=lambda kv: -kv[1][2])) or 'none'))
         ex = r.get('extras', {}).get('explosives_allowed', {}).get(de)

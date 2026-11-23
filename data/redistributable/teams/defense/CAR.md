@@ -195,6 +195,8 @@ Holds (-1.5 YPT or better): none
 - 20+ catches: C.Watson(WR2) 24y short_left - Z.Wheatley [tackler]; C.Watson(WR2) 53y deep_middle - W.Lee [tackler]; M.Golden(WR1) 24y deep_left TD - no tackler named [unattributed]
 - 15+ runs: S.Williams(WR) 18y rush right end
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 
@@ -206,7 +208,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Tre'von Moehrig | S | 2 | 2 | 40 | 0 | 0 | 0 | 0 | tackler x2 | D.Henry 1, D.Walker 1 | D.Walker 34 deep_right Q2 |
 | Zakee Wheatley | S | 3 | 3 | 38 | 0 | 0 | 0 | 0 | tackler x3 | Z.Flowers 3 | Z.Flowers 25 deep_middle Q2 |
-| W.Lee (name unresolved) | unknown | 3 | 2 | 32 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | Z.Flowers 1, D.Henry 2 | Z.Flowers 26 short_left Q2 |
+| W.Lee (name unresolved) | unknown | 3 | 2 | 32 | 0 | 1 | 0 | 1 | VERIFIED x2, tackler x2 | J.Lane 1, Z.Flowers 1, D.Henry 2 | Z.Flowers 26 short_left Q2 |
 | Tyrel Dodson | LB | 4 | 4 | 23 | 0 | 0 | 0 | 0 | tackler x4 | M.Hibner 1, J.Hill 2, M.Andrews 1 |  |
 | Chau Smith-Wade | CB | 3 | 2 | 23 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | J.Hill 1, R.Bateman 1, Z.Flowers 1 |  |
 | Mike Jackson | CB | 4 | 2 | 19 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | R.Bateman 2, Z.Flowers 2 |  |

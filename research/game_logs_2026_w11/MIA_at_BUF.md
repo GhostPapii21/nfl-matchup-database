@@ -1,6 +1,6 @@
 # MIA @ BUF - Week 11 game log (FINAL)
 
-ESPN event 401873070. Pulled 2026-11-22 05:20 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
+ESPN event 401873070. Pulled 2026-11-22 09:36 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
 
 ## Score by quarter
 
@@ -14,7 +14,7 @@ Who led during Q2 (score changes, clock at the play): BUF 0-6 @15:00. Leader at 
 
 ## Result vs closing line
 
-Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:20 PM AST. Home spread shown.
+Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 09:36 PM AST. Home spread shown.
 
 | Book | Home spread (odds) | Total (O/U odds) |
 |---|---|---|
@@ -26,7 +26,7 @@ Action Network public scoreboard, last pre-game line per book (is_live=false), p
 | BetMGM | BUF -17 (-108) | 45 (-110/-108) |
 | bet365 | BUF -16.5 (-115) | 44.5 (-115/-105) |
 
-ESPN pickcenter (DraftKings): BUF -16.5, O/U 45.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:20 PM AST).
+ESPN pickcenter (DraftKings): BUF -16.5, O/U 45.5 (ESPN-displayed pre-game line; pulled 2026-11-22 09:36 PM AST).
 
 **Grading vs AN consensus close (BUF -16.5, total 45):** outright winner BUF (9-26); ATS cover BUF; total 35 -> UNDER.
 
@@ -168,7 +168,7 @@ BUF passing: Tommy Doman Jr. 1/1, 30 yds, 0 TD, 0 INT, sacks 0-0
 
 ## Defenders named on pass plays (ESPN play text)
 
-Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke up or intercepted the pass (the defender at the catch point). **tackler, not coverage** = defender named as tackler on a completion (often but not always the man in coverage). DPI = flagged defender. Free sources never name the assigned coverage defender on completions.
+Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who broke up or intercepted the pass, or who was flagged for DPI; these are the only coverage counts. **tackler, not coverage** = defender named as tackler on a completion (inferred; not counted as coverage). No Play rule: a snap wiped out by an accepted penalty writes no tackler/PBU/INT rows; a DPI flag on it still counts. Declined penalties keep their rows. Free sources never name the assigned coverage defender on completions.
 
 | Defense | Defender | Plays tagged | Rec | Yds | TD | PBU | INT | DPI | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -177,7 +177,7 @@ Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke u
 | MIA | Z.Anderson | 6 | 4 | 58 | 0 | 2 | 0 | 0 | K.Shakir 2, D.Moore 1, K.Latu 1, D.Knox 1, T.Johnson 1 | K.Shakir 32 deep_right Q1 |
 | MIA | J.Marshall | 4 | 4 | 40 | 0 | 0 | 0 | 0 | D.Moore 2, K.Coleman 1, T.Johnson 1 |  |
 | MIA | M.Washington | 1 | 1 | 30 | 0 | 0 | 0 | 0 | K.Latu 1 | K.Latu 30 deep_middle Q1 |
-| BUF | D.Igbinosun | 4 | 2 | 29 | 0 | 2 | 0 | 0 | C.Douglas 2, M.Washington 1, C.Bell 1 | M.Washington 21 deep_left Q3 |
+| BUF | D.Igbinosun | 4 | 2 | 29 | 0 | 2 | 0 | 1 | C.Douglas 3, M.Washington 1, C.Bell 1 | M.Washington 21 deep_left Q3 |
 | MIA | C.Johnson | 6 | 5 | 28 | 0 | 1 | 0 | 0 | K.Shakir 2, R.Davis 1, T.Johnson 1, K.Coleman 1, J.Cook 1 |  |
 | MIA | J.Brents | 3 | 2 | 27 | 0 | 1 | 0 | 0 | D.Moore 2, K.Coleman 1 |  |
 | BUF | J.Kilgore | 2 | 2 | 24 | 0 | 0 | 0 | 0 | G.Dulcich 1, J.Tolbert 1 |  |
@@ -194,9 +194,11 @@ Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke u
 | BUF | S.Thompson | 1 | 0 | 0 | 0 | 1 | 0 | 0 | C.Douglas 1 |  |
 | BUF | E.Oliver | 1 | 1 | -3 | 0 | 0 | 0 | 0 | O.Gordon 1 |  |
 
-Assignment evidence count: 14 VERIFIED (PBU/INT/DPI-named), 39 tackler-not-coverage (inferred), 21 unattributed.
-Most yards charged to a MIA defender (tackler tag, not coverage): J.Rodriguez 7 rec / 67 yds.
-Most yards charged to a BUF defender (tackler tag, not coverage): D.Igbinosun 2 rec / 29 yds.
+Assignment evidence count: 15 VERIFIED (PBU/INT/DPI-named), 39 tackler-not-coverage (inferred), 21 unattributed.
+Most yards charged to a MIA defender (tackler tag, not coverage; inferred): J.Rodriguez 7 rec / 67 yds.
+Most VERIFIED-PBU/INT/DPI credits on a MIA defender (the only coverage counts): Z.Anderson PBU 2, INT 0, DPI 0.
+Most yards charged to a BUF defender (tackler tag, not coverage; inferred): D.Igbinosun 2 rec / 29 yds.
+Most VERIFIED-PBU/INT/DPI credits on a BUF defender (the only coverage counts): D.Igbinosun PBU 2, INT 0, DPI 1.
 
 ## Explosive plays (pass 20+, rush 15+)
 
@@ -232,7 +234,7 @@ ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
 Venue: Highmark Stadium (Orchard Park), indoor=None, grass=True
 Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 65.4, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 10.8, "wind_gusts_10m": 17.7}
 
-## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:20 PM AST; scores: src: ESPN summary JSON event 401873070, pulled 2026-11-22 05:20 PM AST)
+## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 09:36 PM AST; scores: src: ESPN summary JSON event 401873070, pulled 2026-11-22 09:36 PM AST)
 
 | Period | Away pts | Home pts | Total | Winner | Line (home) | ATS winner | Total line | O/U |
 |---|---|---|---|---|---|---|---|---|
@@ -245,7 +247,7 @@ Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observ
 
 Note: books differ on whether OT counts in Q4/2H markets; 2H here includes OT if played, Q4 excludes it. Check the book rule before settling.
 
-## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873070, pulled 2026-11-22 05:20 PM AST)
+## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873070, pulled 2026-11-22 09:36 PM AST)
 
 Every ESPN play (187 rows incl. kickoffs, penalties, timeouts) is in `pbp/MIA_at_BUF_pbp.csv` with down/distance, yards, YAC, home win prob and a garbage-time flag.
 
@@ -254,7 +256,7 @@ Every ESPN play (187 rows incl. kickoffs, penalties, timeouts) is in `pbp/MIA_at
 | MIA | 55 | 55 | yes |
 | BUF | 76 | 76 | yes |
 
-## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873070, pulled 2026-11-22 05:20 PM AST)
+## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873070, pulled 2026-11-22 09:36 PM AST)
 
 | Stat | MIA | BUF |
 |---|---|---|
@@ -266,14 +268,14 @@ Every ESPN play (187 rows incl. kickoffs, penalties, timeouts) is in `pbp/MIA_at
 | Drives | 10 | 11 |
 | Turnover rate | 10.0% of drives; 1.8% of plays | 18.2% of drives; 2.6% of plays |
 
-## Scoring breakdown (src: ESPN summary JSON event 401873070, pulled 2026-11-22 05:20 PM AST scoringPlays)
+## Scoring breakdown (src: ESPN summary JSON event 401873070, pulled 2026-11-22 09:36 PM AST scoringPlays)
 
 | Team | Non-QB rush TD | QB rush TD | Receiving TD | Defense/ST TD | FG | Safety | Other |
 |---|---|---|---|---|---|---|---|
 | MIA | 0 | 0 | 0 | 0 | 3 | 0 |  |
 | BUF | 1 | 0 | 1 | 0 | 4 | 0 |  |
 
-## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873070, pulled 2026-11-22 05:20 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:20 PM AST)
+## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873070, pulled 2026-11-22 09:36 PM AST; positions: ESPN team roster API, pulled 2026-11-22 09:36 PM AST)
 
 Players absent from the ESPN receiving box had no target or reception logged; whether they played is unknown until snap counts post (nflverse/PFR, usually Monday-Tuesday).
 
@@ -300,7 +302,7 @@ Players absent from the ESPN receiving box had no target or reception logged; wh
 | BUF | Ray Davis | RB | 2 | 1 | 50% | 6 | 1 | 3 | 4.5% |
 | BUF | Tyrell Shavers | WR | 2 | 0 | 0% | 0 | 0 logged* | 0 logged* | 4.5% |
 
-## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:20 PM AST)
+## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 09:36 PM AST)
 
 WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not chart alignment; FTN/PFF are paid and are not used). Pass location (left/middle/right) is shown as a proxy only.
 
@@ -323,7 +325,7 @@ MIA defense by depth/location (proxy, not alignment): short_left 9/12 100y; shor
 BUF defense by depth/location (proxy, not alignment): short_left 4/11 32y; short_middle 2/2 31y; deep_left 1/4 21y; short_right 5/12 18y; deep_right 0/1 0y; deep_middle 0/2 0y
 
 
-## Extras (src: ESPN summary JSON event 401873070, pulled 2026-11-22 05:20 PM AST; derived where noted)
+## Extras (src: ESPN summary JSON event 401873070, pulled 2026-11-22 09:36 PM AST; derived where noted)
 
 | Metric | MIA | BUF |
 |---|---|---|

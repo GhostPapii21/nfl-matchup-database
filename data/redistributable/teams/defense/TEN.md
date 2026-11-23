@@ -236,6 +236,8 @@ Holds (-1.5 YPT or better): TE2+: 3.86 YPT on 21 tgts (league 6.71, -2.85)
 - Joshua Williams ← Ja'Marr Chase: 14 tgt, 11 rec, 141 yds
 - Marcus X. Harris ← Dohnte Meyers: 3 tgt, 3 rec, 34 yds
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 
@@ -257,7 +259,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Jacob Martin | DE | 1 | 1 | 6 | 0 | 0 | 0 | 0 | tackler x1 | J.Williams 1 |  |
 
 Yards allowed by target position (WR slot/outside unknown): WR 20/25 for 245 yds, 2 TD; TE 5/5 for 51 yds, 1 TD; RB 4/4 for 29 yds, 1 TD
-Explosives allowed (pass 20+/rush 15+): 5/2
+Explosives allowed (pass 20+/rush 15+): 5/3
 Pass rush: sacks none; QB hits S.Thomas 1
 Video (highlight transcript) mentions: none found / not checked
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).

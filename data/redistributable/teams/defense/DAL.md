@@ -243,6 +243,8 @@ Holds (-1.5 YPT or better): none
 - Joey Porter Jr. ← Michael Wilson: 15 tgt, 8 rec, 111 yds
 - Caleb Downs ← Kendrick Bourne: 2 tgt, 1 rec, 29 yds
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 
@@ -259,7 +261,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Ameer Speed | CB | 2 | 1 | 11 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Dike 1, C.Ridley 1 |  |
 | Shemar James | LB | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | C.Dike 1 |  |
 | DeMarvion Overshown | LB | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | C.Dike 1 |  |
-| Caleb Downs | S | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | G.Helm 1 |  |
+| Caleb Downs | S | 1 | 1 | 5 | 0 | 0 | 0 | 1 | VERIFIED x1, tackler x1 | C.Tate 1, G.Helm 1 |  |
 | Derion Kendrick | CB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | X.Restrepo 1 |  |
 | J.Porter (name unresolved) | unknown | 2 | 1 | 4 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Tate 1, E.Ayomanor 1 |  |
 | Quinnen Williams | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | G.Helm 1 |  |

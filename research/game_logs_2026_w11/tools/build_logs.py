@@ -42,16 +42,18 @@ def an_lines(away, home):
 OFFTYPES = {'Rush', 'Pass Reception', 'Pass Incompletion', 'Sack', 'Passing Touchdown', 'Rushing Touchdown', 'Pass Interception Return', 'Interception Return Touchdown', 'Fumble Recovery (Own)', 'Fumble Recovery (Opponent)', 'Fumble Return Touchdown'}
 NAME = r"[A-Z][A-Za-z'\.\-]+(?: [A-Z][A-Za-z'\.\-]+)?"
 def tacklers(text):
-    m = re.search(r'for (-?\d+|no gain) yards?[^()]*\(([^)]*)\)', text) or re.search(r'for no gain \(([^)]*)\)', text)
+    # group right after the yardage only (trailing injury/replay/penalty/timeout notes are not tacklers)
+    m = re.search(r'for (?:-?\d+ yards?|no gain)\s*(?:,\s*TOUCHDOWN\.?\s*)?\(([^()]*)\)', text)
     if not m: return []
-    s = m.group(m.lastindex)
-    return [x.strip() for x in re.split(r'[;,]', s) if x.strip() and 'Shotgun' not in x and 'Huddle' not in x]
+    return [x.strip() for x in re.split(r'[;,]', m.group(1)) if x.strip() and 'Shotgun' not in x and 'Huddle' not in x and not re.match(r'Timeout #', x.strip())]
 
 def parse_pass(text):
     t = re.sub(r'^\s*\([^)]*\)\s*', '', text)
     m = re.search(r'(\S+) pass (incomplete )?(short|deep)? ?(left|middle|right)? ?to ([A-Z][\w\.\'\-]+(?: [A-Z][\w\.\'\-]+)?)', t)
     if not m: return None
-    d = {'qb': m.group(1), 'inc': bool(m.group(2)), 'depth': m.group(3) or '?', 'dir': m.group(4) or '?', 'target': m.group(5).rstrip('.,')}
+    tgt = re.split(r'\.(?=[A-Z]{2,})', m.group(5))[0]
+    tgt = ' '.join(w for w in tgt.split() if not re.fullmatch(r'[A-Z]{2,}\.?', w))
+    d = {'qb': m.group(1), 'inc': bool(m.group(2)), 'depth': m.group(3) or '?', 'dir': m.group(4) or '?', 'target': tgt.rstrip('.,')}
     rest = t[m.end():]
     ym = re.search(r'for (-?\d+) yards?', rest); d['yds'] = int(ym.group(1)) if ym else (0 if 'no gain' in rest else None)
     d['td'] = 'TOUCHDOWN' in rest
@@ -252,7 +254,7 @@ def build(ev):
         top = max(allp, key=lambda x: x[2]); W(f'\n**Game target leader:** {top[1]} ({top[0]}) {top[2]} targets.'); rec['game_target_leader'] = top
     # defenders
     W('\n## Defenders named on pass plays (ESPN play text)\n')
-    W('Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke up or intercepted the pass (the defender at the catch point). **tackler, not coverage** = defender named as tackler on a completion (often but not always the man in coverage). DPI = flagged defender. Free sources never name the assigned coverage defender on completions.\n')
+    W('Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who broke up or intercepted the pass, or who was flagged for DPI; these are the only coverage counts. **tackler, not coverage** = defender named as tackler on a completion (inferred; not counted as coverage). No Play rule: a snap wiped out by an accepted penalty writes no tackler/PBU/INT rows; a DPI flag on it still counts. Declined penalties keep their rows. Free sources never name the assigned coverage defender on completions.\n')
     dlog = []; dagg = collections.defaultdict(lambda: {'tags': 0, 'rec': 0, 'yds': 0, 'td': 0, 'pbu': 0, 'int': 0, 'dpi': 0, 'big': [], 'vs': collections.Counter(), 'team': ''})
     sacks = collections.Counter(); hits = collections.Counter(); explos = []; injuries = []; pens = collections.Counter()
     for dr, p in plays:
@@ -266,7 +268,13 @@ def build(ev):
                 for s in re.split(r'[;,]| and ', sm.group(1).replace('sack split by ', '')): sacks[(de, s.strip() + (' (half)' if 'split' in sm.group(1) else ''))] += 1
         for h in re.findall(r'\[([^\]]+)\]', txt):
             for x in re.split(r'[;,]', h): hits[(de, x.strip())] += 1
-        if ' pass ' in txt and 'No Play' not in txt and 'sacked' not in txt:
+        if ' pass ' in txt and 'No Play' in txt and dpi and 'sacked' not in txt:
+            # No Play rule (Ghost6, PR #107): the snap never happened -> no tackler/PBU/INT rows; the DPI flag still counts
+            pp = parse_pass(txt)
+            if pp:
+                a = dagg[(dpi.group(1), dpi.group(2))]; a['team'] = dpi.group(1); a['dpi'] += 1; a['vs'][pp['target']] += 1
+                dlog.append({'q': p['period']['number'], 'clock': p['clock']['displayValue'], 'off': off, 'def': de, 'qb': pp['qb'], 'target': pp['target'], 'depth': pp['depth'], 'dir': pp['dir'], 'result': 'DPI', 'yds': int(dpi.group(3)), 'defender': dpi.group(2), 'evidence': 'VERIFIED-DPI (flagged defender; No Play)', 'text': txt})
+        elif ' pass ' in txt and 'No Play' not in txt and 'sacked' not in txt:
             pp = parse_pass(txt)
             if not pp: continue
             if pp['yds'] is not None and pp['yds'] >= 20 and not pp['inc']: explos.append((p['period']['number'], p['clock']['displayValue'], off, 'pass', pp['target'], pp['yds'], ', '.join(pp['tack']) or '(no tackler named)'))
@@ -302,8 +310,14 @@ def build(ev):
     for tm in (away, home):
         tg = [(w, a) for (de, w), a in dagg.items() if de == tm]
         if tg:
-            w, a = max(tg, key=lambda x: x[1]['yds']); W(f'Most yards charged to a {tm} defender (tackler tag, not coverage): {w} {a["rec"]} rec / {a["yds"]} yds.')
+            w, a = max(tg, key=lambda x: x[1]['yds']); W(f'Most yards charged to a {tm} defender (tackler tag, not coverage; inferred): {w} {a["rec"]} rec / {a["yds"]} yds.')
             rec.setdefault('most_beaten', {})[tm] = (w, a['rec'], a['yds'])
+        vg = [(w, a) for w, a in tg if a['pbu'] + a['int'] + a['dpi']]
+        if vg:
+            w, a = max(vg, key=lambda x: (x[1]['pbu'] + x[1]['int'] + x[1]['dpi'], x[1]['dpi'])); W(f'Most VERIFIED-PBU/INT/DPI credits on a {tm} defender (the only coverage counts): {w} PBU {a["pbu"]}, INT {a["int"]}, DPI {a["dpi"]}.')
+            rec.setdefault('most_verified', {})[tm] = (w, a['pbu'], a['int'], a['dpi'])
+        else:
+            W(f'VERIFIED-PBU/INT/DPI credits on a {tm} defender: none named.'); rec.setdefault('most_verified', {})[tm] = None
     W('\n## Explosive plays (pass 20+, rush 15+)\n'); W('| Q | Clock | Off | Type | Player | Yds | Tackler (not coverage) |'); W('|---|---|---|---|---|---|---|')
     for e in explos: W('| ' + ' | '.join(map(str, e)) + ' |')
     rec['explosives'] = explos
@@ -341,7 +355,10 @@ def build(ev):
 
 os.makedirs(f'{OUT}/data', exist_ok=True)
 recs = []
+EXCLUDE = {'MIN@SF', 'MIN VS SF', 'CIN@WSH', 'CIN @ WSH'}  # in progress / MNF: logged by a later run
 for ev in sb['events']:
+    if ev['status']['type']['name'] != 'STATUS_FINAL' or ev['shortName'].replace(' @ ', '@') in EXCLUDE or ev['shortName'] in EXCLUDE:
+        print('skip', ev['shortName'], ev['status']['type']['name']); continue
     r = build(ev)
     if r: recs.append(r); print(r['game'], r['status'])
 json.dump(recs, open(f'{OUT}/data/_all_games.json', 'w'), indent=1, default=str)

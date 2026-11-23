@@ -1,6 +1,6 @@
 # PIT @ PHI - Week 11 game log (FINAL)
 
-ESPN event 401873076. Pulled 2026-11-22 05:20 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
+ESPN event 401873076. Pulled 2026-11-22 09:36 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
 
 ## Score by quarter
 
@@ -14,7 +14,7 @@ Who led during Q2 (score changes, clock at the play): PHI 0-13 @15:00. Leader at
 
 ## Result vs closing line
 
-Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:20 PM AST. Home spread shown.
+Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 09:36 PM AST. Home spread shown.
 
 | Book | Home spread (odds) | Total (O/U odds) |
 |---|---|---|
@@ -26,7 +26,7 @@ Action Network public scoreboard, last pre-game line per book (is_live=false), p
 | BetMGM | PHI +3.5 (-110) | 37.5 (-110/-108) |
 | bet365 | PHI +3.5 (-111) | 37.5 (-110/-110) |
 
-ESPN pickcenter (DraftKings): PIT -3.5, O/U 37.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:20 PM AST).
+ESPN pickcenter (DraftKings): PIT -3.5, O/U 37.5 (ESPN-displayed pre-game line; pulled 2026-11-22 09:36 PM AST).
 
 **Grading vs AN consensus close (PHI +3.5, total 37.5):** outright winner PHI (16-19); ATS cover PHI; total 35 -> UNDER.
 
@@ -98,9 +98,9 @@ Drive outcomes: PIT: Downs 1, Punt 6, Field Goal 3, Touchdown 1 | PHI: Field Goa
 ## Red zone (snaps starting at or inside the opponent 20; derived from ESPN play-by-play)
 
 **PIT**: 3 trips -> drive 9: Field Goal, drive 16: Field Goal, drive 22: Touchdown
-  Usage inside the 20: M.Hurleman 0 car/2 tgt/1 TD; G.Bernard 0 car/2 tgt/0 TD; P.Freiermuth 0 car/1 tgt/0 TD; J.Warren 0 car/1 tgt/0 TD; R.Wilson 0 car/1 tgt/0 TD; G.Bernard.PENALTY 0 car/1 tgt/0 TD
+  Usage inside the 20: G.Bernard 0 car/3 tgt/0 TD; M.Hurleman 0 car/2 tgt/1 TD; P.Freiermuth 0 car/1 tgt/0 TD; J.Warren 0 car/1 tgt/0 TD; R.Wilson 0 car/1 tgt/0 TD
 **PHI**: 1 trips -> drive 4: Field Goal
-  Usage inside the 20: J.Milton 1 car/0 tgt/0 TD; S.Barkley 1 car/0 tgt/0 TD; M.Lemon 0 car/1 tgt/0 TD
+  Usage inside the 20: J.Milton 1 car/0 tgt/0 TD; S.Barkley 1 car/0 tgt/0 TD; M.Lemon.Penalty 0 car/1 tgt/0 TD
 
 ## Third downs (play-by-play)
 
@@ -161,7 +161,7 @@ PHI passing: Joe Milton 11/21, 141 yds, 0 TD, 0 INT, sacks 3-18
 
 ## Defenders named on pass plays (ESPN play text)
 
-Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke up or intercepted the pass (the defender at the catch point). **tackler, not coverage** = defender named as tackler on a completion (often but not always the man in coverage). DPI = flagged defender. Free sources never name the assigned coverage defender on completions.
+Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who broke up or intercepted the pass, or who was flagged for DPI; these are the only coverage counts. **tackler, not coverage** = defender named as tackler on a completion (inferred; not counted as coverage). No Play rule: a snap wiped out by an accepted penalty writes no tackler/PBU/INT rows; a DPI flag on it still counts. Declined penalties keep their rows. Free sources never name the assigned coverage defender on completions.
 
 | Defense | Defender | Plays tagged | Rec | Yds | TD | PBU | INT | DPI | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -186,8 +186,10 @@ Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke u
 | PIT | C.Heyward | 1 | 0 | 0 | 0 | 1 | 0 | 0 | D.Smith 1 |  |
 
 Assignment evidence count: 11 VERIFIED (PBU/INT/DPI-named), 39 tackler-not-coverage (inferred), 14 unattributed.
-Most yards charged to a PIT defender (tackler tag, not coverage): J.Dean 6 rec / 40 yds.
-Most yards charged to a PHI defender (tackler tag, not coverage): M.Epps 7 rec / 70 yds.
+Most yards charged to a PIT defender (tackler tag, not coverage; inferred): J.Dean 6 rec / 40 yds.
+Most VERIFIED-PBU/INT/DPI credits on a PIT defender (the only coverage counts): D.Everette PBU 1, INT 0, DPI 0.
+Most yards charged to a PHI defender (tackler tag, not coverage; inferred): M.Epps 7 rec / 70 yds.
+Most VERIFIED-PBU/INT/DPI credits on a PHI defender (the only coverage counts): J.Jones PBU 3, INT 0, DPI 0.
 
 ## Explosive plays (pass 20+, rush 15+)
 
@@ -221,7 +223,7 @@ ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
 Venue: Lincoln Financial Field (Philadelphia), indoor=None, grass=True
 Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 63.0, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 8.0, "wind_gusts_10m": 12.5}
 
-## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:20 PM AST; scores: src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:20 PM AST)
+## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 09:36 PM AST; scores: src: ESPN summary JSON event 401873076, pulled 2026-11-22 09:36 PM AST)
 
 | Period | Away pts | Home pts | Total | Winner | Line (home) | ATS winner | Total line | O/U |
 |---|---|---|---|---|---|---|---|---|
@@ -234,7 +236,7 @@ Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observ
 
 Note: books differ on whether OT counts in Q4/2H markets; 2H here includes OT if played, Q4 excludes it. Check the book rule before settling.
 
-## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:20 PM AST)
+## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873076, pulled 2026-11-22 09:36 PM AST)
 
 Every ESPN play (181 rows incl. kickoffs, penalties, timeouts) is in `pbp/PIT_at_PHI_pbp.csv` with down/distance, yards, YAC, home win prob and a garbage-time flag.
 
@@ -243,7 +245,7 @@ Every ESPN play (181 rows incl. kickoffs, penalties, timeouts) is in `pbp/PIT_at
 | PIT | 69 | 69 | yes |
 | PHI | 50 | 50 | yes |
 
-## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:20 PM AST)
+## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873076, pulled 2026-11-22 09:36 PM AST)
 
 | Stat | PIT | PHI |
 |---|---|---|
@@ -255,14 +257,14 @@ Every ESPN play (181 rows incl. kickoffs, penalties, timeouts) is in `pbp/PIT_at
 | Drives | 11 | 12 |
 | Turnover rate | 0.0% of drives; 0.0% of plays | 8.3% of drives; 2.0% of plays |
 
-## Scoring breakdown (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:20 PM AST scoringPlays)
+## Scoring breakdown (src: ESPN summary JSON event 401873076, pulled 2026-11-22 09:36 PM AST scoringPlays)
 
 | Team | Non-QB rush TD | QB rush TD | Receiving TD | Defense/ST TD | FG | Safety | Other |
 |---|---|---|---|---|---|---|---|
 | PIT | 0 | 0 | 1 | 0 | 3 | 0 |  |
 | PHI | 1 | 0 | 0 | 0 | 4 | 0 |  |
 
-## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:20 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:20 PM AST)
+## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873076, pulled 2026-11-22 09:36 PM AST; positions: ESPN team roster API, pulled 2026-11-22 09:36 PM AST)
 
 Players absent from the ESPN receiving box had no target or reception logged; whether they played is unknown until snap counts post (nflverse/PFR, usually Monday-Tuesday).
 
@@ -271,7 +273,7 @@ Players absent from the ESPN receiving box had no target or reception logged; wh
 | Team | Player | Pos | Tgt | Rec | Catch% | Rec yds | Car | Rush yds | Tgt share |
 |---|---|---|---|---|---|---|---|---|---|
 | PIT | Germie Bernard | WR | 10 | 6 | 60% | 40 | 0 logged* | 0 logged* | 23.3% |
-| PIT | Max Hurleman | RB | 7 | 6 | 86% | 61 | 0 logged* | 0 logged* | 16.3% |
+| PIT | Max Hurleman | WR | 7 | 6 | 86% | 61 | 0 logged* | 0 logged* | 16.3% |
 | PIT | Roman Wilson | WR | 6 | 3 | 50% | 43 | 0 logged* | 0 logged* | 14.0% |
 | PIT | Rico Dowdle | RB | 5 | 4 | 80% | 19 | 5 | 15 | 11.6% |
 | PIT | Pat Freiermuth | TE | 5 | 5 | 100% | 39 | 1 | 1 | 11.6% |
@@ -285,30 +287,30 @@ Players absent from the ESPN receiving box had no target or reception logged; wh
 | PHI | Dallas Goedert | TE | 1 | 1 | 100% | 38 | 0 logged* | 0 logged* | 4.8% |
 | PHI | Will Shipley | RB | 0 logged* | 0 logged* | n/a | 0 logged* | 4 | 9 | 0%* |
 
-## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:20 PM AST)
+## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 09:36 PM AST)
 
 WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not chart alignment; FTN/PFF are paid and are not used). Pass location (left/middle/right) is shown as a proxy only.
 
 **PIT defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 20 | 10 | 103 | 0 | 5.2 |
+| WR | 19 | 10 | 103 | 0 | 5.4 |
 | TE | 1 | 1 | 38 | 0 | 38.0 |
+| unknown | 1 | 0 | 0 | 0 | 0.0 |
 
 PIT defense by depth/location (proxy, not alignment): short_left 5/8 61y; short_middle 3/5 32y; deep_left 1/2 29y; short_right 2/5 19y; deep_middle 0/1 0y
 
 **PHI defense allowed, by target position**
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
-| WR | 19 | 10 | 85 | 0 | 4.5 |
-| RB | 15 | 12 | 81 | 1 | 5.4 |
+| WR | 27 | 16 | 146 | 1 | 5.4 |
 | TE | 8 | 8 | 61 | 0 | 7.6 |
-| unknown | 1 | 0 | 0 | 0 | 0.0 |
+| RB | 8 | 6 | 20 | 0 | 2.5 |
 
 PHI defense by depth/location (proxy, not alignment): short_middle 8/9 65y; short_right 9/13 61y; deep_left 2/5 53y; short_left 11/12 48y; deep_right 0/4 0y
 
 
-## Extras (src: ESPN summary JSON event 401873076, pulled 2026-11-22 05:20 PM AST; derived where noted)
+## Extras (src: ESPN summary JSON event 401873076, pulled 2026-11-22 09:36 PM AST; derived where noted)
 
 | Metric | PIT | PHI |
 |---|---|---|

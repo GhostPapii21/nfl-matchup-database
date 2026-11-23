@@ -1,4 +1,4 @@
-# Paper slip legs vs results (unofficial check, pulled 2026-11-22 05:20 PM AST)
+# Paper slip legs vs results (unofficial check, pulled 2026-11-22 09:36 PM AST)
 
 Paper only; the official grade is the 11:45 PM ET grading routine. Legs from runs/2026-11-22_W11_PAPER_SLIPS/SLIPS.md (Ghost6-vetted version). Results from ESPN summary JSON.
 
@@ -52,7 +52,7 @@ Slip status: **LOSS**
 ## FLAG (not on a slip)
 | Leg | Result | Actual |
 |---|---|---|
-| JAX@NYG U45.5 | pending (game not started) |  |
-| JAX@NYG U47.5 (flag only) | pending (game not started) |  |
-Slip status: **pending**
+| JAX@NYG U45.5 | WIN | 41 pts |
+| JAX@NYG U47.5 (flag only) | WIN | 41 pts |
+Slip status: **WIN**
 

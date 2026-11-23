@@ -13,7 +13,10 @@ open(f'{DST}/RAW_SOURCES.md', 'w').write('# Raw pulls (kept on the box, not comm
 # defense_db.csv: append W11 game rows (FINAL games only), replacing any earlier W11 rows from this builder
 dbp = f'{WT}/data/redistributable/teams/defense/defense_db.csv'
 import subprocess, io
-orig = subprocess.run(['git', '-C', WT, 'show', 'HEAD:data/redistributable/teams/defense/defense_db.csv'], capture_output=True).stdout.decode('utf-8')
+# base = the file as it is on the merge-base with origin/main, so re-runs replace (not re-append) this builder's W11 rows
+base = subprocess.run(['git', '-C', WT, 'merge-base', 'HEAD', 'origin/main'], capture_output=True, text=True).stdout.strip()
+orig = subprocess.run(['git', '-C', WT, 'show', f'{base}:data/redistributable/teams/defense/defense_db.csv'], capture_output=True).stdout.decode('utf-8')
+assert orig and 'W11 ESPN play text, refs NFL-56' not in orig, 'base defense_db.csv already has W11 builder rows'
 fields = next(csv.reader(io.StringIO(orig.splitlines()[0])))
 new = list(csv.DictReader(open(f'{OUT}/data/defense_db_w11_rows.csv'))) if os.path.exists(f'{OUT}/data/defense_db_w11_rows.csv') else []
 buf = io.StringIO(); w = csv.DictWriter(buf, fieldnames=fields, lineterminator='\n'); w.writerows({k: r.get(k, '') for k in fields} for r in new)

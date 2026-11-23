@@ -223,6 +223,61 @@ Holds (-1.5 YPT or better): WR3+: 5.98 YPT on 49 tgts (league 7.67, -1.69)
 - Ja'Quan McMillian ← Rashee Rice: 8 tgt, 7 rec, 53 yds
 - Riley Moss ← Xavier Worthy: 6 tgt, 3 rec, 13 yds — limited his man
 
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### DEN defense vs LV (LV@DEN, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| D.Key (name unresolved) | unknown | 2 | 2 | 47 | 0 | 0 | 0 | 0 | tackler x2 | T.Tucker 1, A.Jeanty 1 | T.Tucker 39 deep_left Q4 |
+| Ja'Quan McMillian | CB | 3 | 3 | 28 | 0 | 0 | 0 | 0 | tackler x3 | A.Jeanty 1, M.Mayer 1, J.Bech 1 |  |
+| Justin Strnad | LB | 3 | 3 | 22 | 0 | 0 | 0 | 0 | tackler x3 | A.Jeanty 1, J.Bech 2 |  |
+| Riley Moss | CB | 2 | 2 | 21 | 0 | 0 | 0 | 0 | tackler x2 | J.Bech 2 |  |
+| Jahdae Barron | CB | 1 | 1 | 19 | 0 | 0 | 0 | 0 | tackler x1 | J.Bech 1 |  |
+| Talanoa Hufanga | S | 2 | 1 | 16 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | J.Nailor 1, T.Tucker 1 |  |
+| P.Surtain (name unresolved) | unknown | 1 | 1 | 11 | 0 | 0 | 0 | 0 | tackler x1 | T.Tucker 1 |  |
+| Alex Singleton | LB | 2 | 1 | 5 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | M.Mayer 1, J.Bech 1 |  |
+| Jonathon Cooper | LB | 2 | 1 | 4 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | A.Jeanty 1, M.Mayer 1 |  |
+| Zach Allen | DE | 3 | 0 | 0 | 0 | 3 | 0 | 0 | VERIFIED x3 | T.Tucker 1, J.Bech 1, A.Jeanty 1 |  |
+| D.J. Jones | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | A.Jeanty 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 12/24 for 164 yds, 2 TD; RB 5/8 for 90 yds, 1 TD; TE 2/5 for 23 yds, 1 TD
+Explosives allowed (pass 20+/rush 15+): 2/1
+Pass rush: sacks J.Cooper 2, A.Singleton 1, Z.Allen (half) 1, N.Bonitto (half) 1, M.Roach 1; QB hits J.Cooper 1, D.Tillman 1, J.Strnad 1, Q.Robinson 1, Z.Allen 1, T.Hufanga 1
+Video (highlight transcript) mentions: Ja'Quan McMillian (CB) @16:18 "COMPLETES IT TO BECH. [WHISTLE] >> Andrew: OUT OF BOUNDS, WITH McMILLIAN ON THE COVERAGE. THROW THIS BALL OFF. WE'LL SEE IF HE CAN KEEP THESE" [coverage word: COVERAGE]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### DEN season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 45.6% | 25.1% |
+| Zone | 52.8% | 70.2% |
+| MOF closed (single-high) | 56.4% | 48.6% |
+| MOF open (two-high) | 43.6% | 47.5% |
+| Blitz | 35.2% | 33.9% |
+| Cover 0 | 4.3% | not published |
+| Cover 1 | 33.4% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | 7.8% | not published |
+| Cover 3 | unknown | not published |
+| Cover 4 | 8.6% | not published |
+| Cover 6 | 6.5% | not published |
+| Cover 9 | 2.7% | not published |
+| Coverage snaps | 371 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/den). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 45.6% vs Sharp 25.1% (+20.5 pts); Zone: StatRankings 52.8% vs Sharp 70.2% (-17.4 pts); MOF closed (single-high): StatRankings 56.4% vs Sharp 48.6% (+7.8 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
 <!-- W11-COVRATES-START refs NFL-56 -->
 ## DEN season coverage rates (public, season-level; NOT game-level)
 

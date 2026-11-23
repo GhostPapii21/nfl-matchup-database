@@ -222,6 +222,8 @@ Holds (-1.5 YPT or better): WR3+: 6.17 YPT on 47 tgts (league 7.67, -1.5)
 - Nohl Williams ← Jaylen Waddle: 5 tgt, 2 rec, 38 yds
 - Nohl Williams ← Marvin Mims Jr.: 3 tgt, 2 rec, 10 yds — limited his man
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 

@@ -234,6 +234,8 @@ Holds (-1.5 YPT or better): none
 - wk8 MIN@DET: Jordan Mason (RB-power/volume early-down) 8-20 0TD | shell 18/76, MOFO 49 | Script/volume; no specific matchup attribution — see explosives table. [confirmed-tackler]
 - wk8 MIN@DET: Ben Yurosek (TE-inline) 1/2tgt 24y 0TD | shell 18/76, MOFO 49 | Script/volume; no specific matchup attribution — see explosives table. [unknown]
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 
@@ -245,12 +247,12 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Rock Ya-Sin | CB | 6 | 6 | 51 | 0 | 0 | 0 | 0 | tackler x6 | E.Egbuka 1, T.Johnson 1, C.Godwin 1, T.Hurst 2, K.Gainwell 1 |  |
 | Derrick Barnes | LB | 3 | 3 | 26 | 0 | 0 | 0 | 0 | tackler x3 | K.Gainwell 2, C.Otton 1 |  |
-| Brian Branch | S | 4 | 2 | 17 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | C.Godwin 1, E.Egbuka 1, K.Gainwell 1, B.Irving 1 |  |
+| Brian Branch | S | 4 | 2 | 17 | 0 | 2 | 0 | 1 | VERIFIED x3, tackler x2 | C.Godwin 1, E.Egbuka 1, K.Gainwell 1, B.Irving 1, T.Hurst 1 |  |
 | Christian Izien | S | 1 | 1 | 16 | 0 | 0 | 0 | 0 | tackler x1 | B.Irving 1 |  |
 | Chuck Clark | S | 2 | 1 | 12 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Hurst 1, E.Egbuka 1 |  |
 | Roger McCreary | CB | 2 | 1 | 10 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Hurst 2 |  |
 | DJ Wonnum | LB | 2 | 1 | 9 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Johnson 1, B.Irving 1 |  |
-| Kerby Joseph | S | 1 | 1 | 8 | 0 | 0 | 0 | 0 | tackler x1 | C.Godwin 1 |  |
+| Kerby Joseph | S | 1 | 1 | 8 | 0 | 0 | 0 | 1 | VERIFIED x1, tackler x1 | C.Godwin 1, B.Sharp 1 |  |
 | Malcolm Rodriguez | LB | 2 | 1 | 7 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | K.Gainwell 1, B.Irving 1 |  |
 | Khalil Dorsey | CB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | T.Johnson 1 |  |
 

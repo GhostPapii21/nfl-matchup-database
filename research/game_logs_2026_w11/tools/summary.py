@@ -6,16 +6,16 @@ G = json.load(open(f'{OUT}/data/_all_games.json'))
 sb = json.load(open(f'{OUT}/raw/scoreboard.json'))
 started = {r['game'] for r in G}
 I = [f'# Week 11 game logs - index (built {NOWS}, Blitz, refs NFL-56, refs NFL-49)', '', 'Research only. projection_ready stays false. No picks. Sources and pull times are inside each game file.', '',
-     '| Game | Status | Quarter winners (Q1-Q4) | 1H | Close (AN consensus) | ATS | Total | RZ trips (TD) | Game target leader | Most yds on a named defender (tackler tag) | Verified / tackler / unattributed pass plays |', '|---|---|---|---|---|---|---|---|---|---|---|']
+     '| Game | Status | Quarter winners (Q1-Q4) | 1H | Close (AN consensus) | ATS | Total | RZ trips (TD) | Game target leader | Most yds on a named defender (tackler tag, inferred) | Most VERIFIED-PBU/INT/DPI credits | Verified / tackler / unattributed pass plays |', '|---|---|---|---|---|---|---|---|---|---|---|---|']
 for r in G:
     q = ', '.join(f'{l} {w}' for l, w, a, h in r['quarters'][:5]); a1, h1 = r['first_half']; away, home = r['game'].split('@')
     ats = r.get('ats', {})
     rz = '; '.join(f"{t} {len(v['trips'])} ({sum(1 for x in v['trips'] if x == 'Touchdown')})" for t, v in r.get('red_zone', {}).items())
     tl = r.get('game_target_leader'); mb = r.get('most_beaten', {})
     ac = r.get('assign_counts', {})
-    I.append(f"| {r['game']} | {r['status'].split(' - partial')[0]} | {q} | {away if a1>h1 else home if h1>a1 else 'TIE'} {a1}-{h1} | {home} {ats.get('home_spread','unknown')}, {ats.get('total_line','unknown')} | {ats.get('cover','unknown') if 'FINAL' in r['status'] else 'n/a (in progress)'} | {ats.get('total','?')} {ats.get('total_res','unknown') if 'FINAL' in r['status'] else '(in progress)'} | {rz} | {f'{tl[1]} ({tl[0]}) {tl[2]}' if tl else 'unknown'} | {'; '.join(f'{t}: {v[0]} {v[1]}-{v[2]}' for t, v in mb.items())} | {ac.get('verified')}/{ac.get('tackler_inferred')}/{ac.get('unattributed')} |")
-ns = [e['shortName'] + ' (' + e['status']['type']['shortDetail'] + ')' for e in sb['events'] if e['status']['type']['name'] == 'STATUS_SCHEDULED']
-I += ['', 'Not started at pull time (no log yet; a later run logs them): ' + ', '.join(ns), '',
+    I.append(f"| {r['game']} | {r['status'].split(' - partial')[0]} | {q} | {away if a1>h1 else home if h1>a1 else 'TIE'} {a1}-{h1} | {home} {ats.get('home_spread','unknown')}, {ats.get('total_line','unknown')} | {ats.get('cover','unknown') if 'FINAL' in r['status'] else 'n/a (in progress)'} | {ats.get('total','?')} {ats.get('total_res','unknown') if 'FINAL' in r['status'] else '(in progress)'} | {rz} | {f'{tl[1]} ({tl[0]}) {tl[2]}' if tl else 'unknown'} | {'; '.join(f'{t}: {v[0]} {v[1]}-{v[2]}' for t, v in mb.items())} | {'; '.join((f'{t}: {v[0]} PBU {v[1]}/INT {v[2]}/DPI {v[3]}' if v else f'{t}: none named') for t, v in r.get('most_verified', {}).items())} | {ac.get('verified')}/{ac.get('tackler_inferred')}/{ac.get('unattributed')} |")
+ns = [e['shortName'] + ' (' + e['status']['type']['shortDetail'] + ')' for e in sb['events'] if e['status']['type']['name'] != 'STATUS_FINAL']
+I += ['', 'Not logged in this run (not final at pull time; a later run logs them): ' + ', '.join(ns), '',
       'Files: one `<AWAY>_at_<HOME>.md` per game, `pbp/` full play-by-play CSVs, `data/` JSON (pass-play defender log per game), DEFENSE_PROFILES.md, NGS_W11_SNAPSHOT.md, VIDEO_EVIDENCE.md, SLIP_LEG_RESULTS.md, COVERAGE_MATRIX.md, EXTRAS_TO_CAPTURE.md.']
 open(f'{OUT}/INDEX.md', 'w').write('\n'.join(I) + '\n')
 FIELDS = [('Quarter scores, quarter/1H/2H winners', lambda r: 'filled'), ('Q2 leader track', lambda r: 'filled' if r.get('q2_leaders') else 'unknown'),

@@ -234,6 +234,8 @@ Holds (-1.5 YPT or better): none
 - wk8 IND@JAX: Parker Washington (WR-slot separator) 1-10 0TD; 1/2tgt 16y 0TD | shell 26/67, MOFC 50 | Script/volume; no specific matchup attribution — see explosives table. [confirmed-tackler]
 - wk8 IND@JAX: Brian Thomas Jr. (WR-deep speed) 1/2tgt 12y 1TD | shell 26/67, MOFC 50 | Script/volume; no specific matchup attribution — see explosives table. [none (no explosive)]
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 

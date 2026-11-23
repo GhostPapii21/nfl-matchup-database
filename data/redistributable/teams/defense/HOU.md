@@ -192,6 +192,8 @@ Holds (-1.5 YPT or better): RB: 3.65 YPT on 40 tgts (league 5.61, -1.96)
 - 20+ catches: M.Nabers(WR1) 42y deep_right - K.Lassiter [tackler]; M.Fields(WR2) 47y short_right - K.Lassiter [tackler]; T.Fidone(TE2+) 29y deep_left - M.Stewart [tackler]; M.Nabers(WR1) 27y deep_left - D.Stingley [tackler]; M.Fields(WR2) 20y deep_right - C.Bullock [tackler]
 - 15+ runs: C.Skattebo(RB) 19y rush right end; C.Skattebo(RB) 16y rush right guard; C.Skattebo(RB) 42y rush middle; D.Singletary(RB) 30y rush middle
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 

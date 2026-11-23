@@ -1,4 +1,4 @@
-# Defensive coverage profiles from Week 11 games (built 2026-11-22 05:20 PM AST by Blitz, refs NFL-56)
+# Defensive coverage profiles from Week 11 games (built 2026-11-22 09:36 PM AST by Blitz, refs NFL-56)
 
 Sources: ESPN summary JSON play text (per game, pull time in each game file), ESPN team rosters for names/positions, official NFL YouTube highlight auto-captions where noted (labeled video). No PFF/FTN paid content.
 **Evidence levels:** VERIFIED = play text names the defender who broke up/intercepted the pass or was flagged for DPI. tackler = defender named as tackler on a completion (not proof of coverage). video = a highlight-commentary mention (auto-captions; names can be misspelled). Man/zone, blitz and MOF shell per play are **unknown** in free data.
@@ -203,7 +203,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Tre'von Moehrig | S | 2 | 2 | 40 | 0 | 0 | 0 | 0 | tackler x2 | D.Henry 1, D.Walker 1 | D.Walker 34 deep_right Q2 |
 | Zakee Wheatley | S | 3 | 3 | 38 | 0 | 0 | 0 | 0 | tackler x3 | Z.Flowers 3 | Z.Flowers 25 deep_middle Q2 |
-| W.Lee (name unresolved) | unknown | 3 | 2 | 32 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | Z.Flowers 1, D.Henry 2 | Z.Flowers 26 short_left Q2 |
+| W.Lee (name unresolved) | unknown | 3 | 2 | 32 | 0 | 1 | 0 | 1 | VERIFIED x2, tackler x2 | J.Lane 1, Z.Flowers 1, D.Henry 2 | Z.Flowers 26 short_left Q2 |
 | Tyrel Dodson | LB | 4 | 4 | 23 | 0 | 0 | 0 | 0 | tackler x4 | M.Hibner 1, J.Hill 2, M.Andrews 1 |  |
 | Chau Smith-Wade | CB | 3 | 2 | 23 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | J.Hill 1, R.Bateman 1, Z.Flowers 1 |  |
 | Mike Jackson | CB | 4 | 2 | 19 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | R.Bateman 2, Z.Flowers 2 |  |
@@ -334,6 +334,189 @@ The two sources use different charting definitions: never mix or average them. S
 **Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Zone: gap -14.0 pts is -4.6 vs the median gap; rank 15 StatRankings vs 5 Sharp
 Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
 
+## JAX defense vs NYG (JAX@NYG, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Travis Hunter | WR | 6 | 6 | 49 | 0 | 0 | 0 | 0 | tackler x6 | M.Nabers 5, X.Gipson 1 |  |
+| Brenden Bates (last-name match) | TE | 3 | 3 | 48 | 0 | 0 | 0 | 0 | tackler x3 | C.Manhertz 1, T.Johnson 1, M.Fields 1 |  |
+| Kaevon Merriweather | S | 2 | 1 | 35 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | I.Likely 1, C.Skattebo 1 | I.Likely 35 short_middle Q3 |
+| Jourdan Lewis | CB | 1 | 1 | 11 | 0 | 0 | 0 | 0 | tackler x1 | C.Skattebo 1 |  |
+| Montaric Brown | CB | 2 | 1 | 6 | 0 | 1 | 0 | 1 | VERIFIED x2, tackler x1 | M.Fields 2, J.Hyatt 1 |  |
+| Dennis Gardeck | LB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | D.Singletary 1 |  |
+| Foyesade Oluokun | LB | 2 | 1 | 4 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Skattebo 1, J.Hyatt 1 |  |
+| A.Johnson (name unresolved) | unknown | 3 | 1 | 4 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x1 | M.Nabers 1, I.Likely 1, M.Fields 1 |  |
+| Josh Hines-Allen | DE | 2 | 1 | 2 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Skattebo 2 |  |
+| Ventrell Miller | LB | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tackler x1 | C.Skattebo 1 |  |
+| Travon Walker | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | M.Nabers 2 |  |
+| Arik Armstead | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | D.Mooney 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 12/24 for 98 yds, 1 TD; TE 3/5 for 64 yds, 0 TD; RB 4/8 for 19 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 1/1
+Pass rush: sacks J.Hines-Allen 1; QB hits F.Oluokun 1, T.Walker 1
+Video (highlight transcript) mentions: none found / not checked
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### JAX season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 26.2% | 17.2% |
+| Zone | 73.8% | 77.7% |
+| MOF closed (single-high) | 47.5% | 45.8% |
+| MOF open (two-high) | 52.5% | 51.2% |
+| Blitz | 32.6% | 27.4% |
+| Cover 0 | 5.0% | not published |
+| Cover 1 | 18.6% | not published |
+| Cover 2 | 26.8% | not published |
+| Cover 2-Man | unknown | not published |
+| Cover 3 | 24.0% | not published |
+| Cover 4 | 10.4% | not published |
+| Cover 6 | 7.3% | not published |
+| Cover 9 | 5.0% | not published |
+| Coverage snaps | 317 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/jax). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 26.2% vs Sharp 17.2% (+9.0 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+## NYG defense vs JAX (JAX@NYG, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Jevon Holland | S | 8 | 7 | 95 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x7 | P.Washington 4, J.Meyers 2, T.Hunter 1, B.Tuten 1 | P.Washington 21 deep_left Q2; J.Meyers 23 short_left Q3 |
+| Ar'Darius Washington | S | 5 | 3 | 55 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x3 | J.Cameron 3, J.Meyers 2 | J.Meyers 26 deep_middle Q4 |
+| Deonte Banks | CB | 5 | 3 | 37 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x3 | P.Washington 3, Bri.Thomas 1, J.Cameron 1 |  |
+| Dru Phillips (last-name match) | CB | 7 | 4 | 31 | 0 | 3 | 0 | 0 | VERIFIED x3, tackler x4 | B.Strange 2, J.Meyers 2, B.Tuten 1, P.Washington 2 | P.Washington 21 deep_right Q4 |
+| Paulson Adebo | CB | 4 | 1 | 23 | 0 | 3 | 0 | 0 | VERIFIED x3, tackler x1 | J.Meyers 2, P.Washington 2 | J.Meyers 23 deep_middle Q4 |
+| Arvell Reese | LB | 4 | 4 | 21 | 0 | 0 | 0 | 0 | tackler x4 | P.Washington 2, B.Strange 1, L.Allen 1 |  |
+| Micah McFadden | LB | 2 | 2 | 21 | 0 | 0 | 0 | 0 | tackler x2 | B.Tuten 1, C.Rodriguez 1 |  |
+| G.Newsome (name unresolved) | unknown | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | P.Washington 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 16/33 for 235 yds, 0 TD; RB 5/5 for 32 yds, 0 TD; unknown 1/3 for 18 yds, 1 TD; TE 3/4 for 16 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 5/0
+Pass rush: sacks D.Reader 1, A.Carter 2; QB hits A.Reese 1, A.Carter 3, D.Reader 1, S.Harris 1, B.Okoye 1, J.Kelly 1
+Video (highlight transcript) mentions: Kayvon Thibodeaux (LB) @13:50 "BUYING TIME, SLIPS IT, PICKED OFF IN THE END ZONE BY THIBODEAUX. >> J.J.: THERE YOU GO. NOT HAPPY, YOU HAVE TO FIND A WAY TO BURN SOME O'CLOCK." [coverage word: PICKED]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### NYG season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 47.2% | 25.6% |
+| Zone | 52.1% | 69.1% |
+| MOF closed (single-high) | 52.5% | 47.9% |
+| MOF open (two-high) | 47.5% | 49.4% |
+| Blitz | 42.9% | 38.4% |
+| Cover 0 | 11.1% | not published |
+| Cover 1 | 31.5% | not published |
+| Cover 2 | 25.2% | not published |
+| Cover 2-Man | 4.6% | not published |
+| Cover 3 | unknown | not published |
+| Cover 4 | unknown | not published |
+| Cover 6 | 6.9% | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 305 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/nyg). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 47.2% vs Sharp 25.6% (+21.6 pts); Zone: StatRankings 52.1% vs Sharp 69.1% (-17.0 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+## LV defense vs DEN (LV@DEN, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Eric Stokes | CB | 3 | 3 | 43 | 0 | 0 | 0 | 1 | VERIFIED x1, tackler x3 | J.Coleman 1, J.Waddle 3 | J.Waddle 24 deep_right Q2 |
+| Nakobe Dean | LB | 4 | 3 | 37 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | E.Engram 2, J.Waddle 1, J.Coleman 1 |  |
+| Jeremy Chinn | S | 1 | 1 | 36 | 0 | 0 | 0 | 0 | tackler x1 | M.Mims 1 | M.Mims 36 deep_left Q2 |
+| Taron Johnson | CB | 3 | 3 | 32 | 0 | 0 | 0 | 0 | tackler x3 | P.Bryant 3 | P.Bryant 20 deep_left Q1 |
+| Jermod McCoy | CB | 4 | 3 | 32 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | J.Waddle 2, E.Engram 2 |  |
+| Quay Walker | LB | 4 | 4 | 23 | 0 | 0 | 0 | 0 | tackler x4 | J.Coleman 2, N.Adkins 1, E.Engram 1 |  |
+| Treydan Stukes | S | 2 | 1 | 21 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | J.Waddle 1, E.Engram 1 | E.Engram 21 short_left Q4 |
+| Maxx Crosby | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | C.Sutton 1, M.Mims 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 7/16 for 129 yds, 0 TD; TE 8/11 for 78 yds, 1 TD; RB 4/5 for 18 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 4/0
+Pass rush: sacks N.Dean 1; QB hits M.Koonce 1, M.Crosby 1
+Video (highlight transcript) mentions: Jermod McCoy (CB) @2:04 "AT WADDLE -- GOOD COVERAGE ON THE PLAY. THE ROOKIE OUT OF TENNESSEE. >> Logan: McCOY DRAWING A TOUGH WILL LUTZ. OUT OF THE HOLD OF THE PUNTER," [coverage word: COVERAGE]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### LV season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 34.2% | 21.9% |
+| Zone | 65.8% | 69.4% |
+| MOF closed (single-high) | 48.8% | 47.5% |
+| MOF open (two-high) | 51.2% | 47.5% |
+| Blitz | 30.2% | 24.9% |
+| Cover 0 | 7.8% | not published |
+| Cover 1 | 20.1% | not published |
+| Cover 2 | 29.2% | not published |
+| Cover 2-Man | 6.3% | not published |
+| Cover 3 | 23.8% | not published |
+| Cover 4 | unknown | not published |
+| Cover 6 | 6.9% | not published |
+| Cover 9 | 1.9% | not published |
+| Coverage snaps | 319 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/lv). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 34.2% vs Sharp 21.9% (+12.3 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+## DEN defense vs LV (LV@DEN, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| D.Key (name unresolved) | unknown | 2 | 2 | 47 | 0 | 0 | 0 | 0 | tackler x2 | T.Tucker 1, A.Jeanty 1 | T.Tucker 39 deep_left Q4 |
+| Ja'Quan McMillian | CB | 3 | 3 | 28 | 0 | 0 | 0 | 0 | tackler x3 | A.Jeanty 1, M.Mayer 1, J.Bech 1 |  |
+| Justin Strnad | LB | 3 | 3 | 22 | 0 | 0 | 0 | 0 | tackler x3 | A.Jeanty 1, J.Bech 2 |  |
+| Riley Moss | CB | 2 | 2 | 21 | 0 | 0 | 0 | 0 | tackler x2 | J.Bech 2 |  |
+| Jahdae Barron | CB | 1 | 1 | 19 | 0 | 0 | 0 | 0 | tackler x1 | J.Bech 1 |  |
+| Talanoa Hufanga | S | 2 | 1 | 16 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | J.Nailor 1, T.Tucker 1 |  |
+| P.Surtain (name unresolved) | unknown | 1 | 1 | 11 | 0 | 0 | 0 | 0 | tackler x1 | T.Tucker 1 |  |
+| Alex Singleton | LB | 2 | 1 | 5 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | M.Mayer 1, J.Bech 1 |  |
+| Jonathon Cooper | LB | 2 | 1 | 4 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | A.Jeanty 1, M.Mayer 1 |  |
+| Zach Allen | DE | 3 | 0 | 0 | 0 | 3 | 0 | 0 | VERIFIED x3 | T.Tucker 1, J.Bech 1, A.Jeanty 1 |  |
+| D.J. Jones | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | A.Jeanty 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 12/24 for 164 yds, 2 TD; RB 5/8 for 90 yds, 1 TD; TE 2/5 for 23 yds, 1 TD
+Explosives allowed (pass 20+/rush 15+): 2/1
+Pass rush: sacks J.Cooper 2, A.Singleton 1, Z.Allen (half) 1, N.Bonitto (half) 1, M.Roach 1; QB hits J.Cooper 1, D.Tillman 1, J.Strnad 1, Q.Robinson 1, Z.Allen 1, T.Hufanga 1
+Video (highlight transcript) mentions: Ja'Quan McMillian (CB) @16:18 "COMPLETES IT TO BECH. [WHISTLE] >> Andrew: OUT OF BOUNDS, WITH McMILLIAN ON THE COVERAGE. THROW THIS BALL OFF. WE'LL SEE IF HE CAN KEEP THESE" [coverage word: COVERAGE]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### DEN season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 45.6% | 25.1% |
+| Zone | 52.8% | 70.2% |
+| MOF closed (single-high) | 56.4% | 48.6% |
+| MOF open (two-high) | 43.6% | 47.5% |
+| Blitz | 35.2% | 33.9% |
+| Cover 0 | 4.3% | not published |
+| Cover 1 | 33.4% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | 7.8% | not published |
+| Cover 3 | unknown | not published |
+| Cover 4 | 8.6% | not published |
+| Cover 6 | 6.5% | not published |
+| Cover 9 | 2.7% | not published |
+| Coverage snaps | 371 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/den). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 45.6% vs Sharp 25.1% (+20.5 pts); Zone: StatRankings 52.8% vs Sharp 70.2% (-17.4 pts); MOF closed (single-high): StatRankings 56.4% vs Sharp 48.6% (+7.8 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
 ## MIA defense vs BUF (MIA@BUF, FINAL)
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
@@ -383,7 +566,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Davison Igbinosun | CB | 4 | 2 | 29 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | C.Douglas 2, M.Washington 1, C.Bell 1 | M.Washington 21 deep_left Q3 |
+| Davison Igbinosun | CB | 4 | 2 | 29 | 0 | 2 | 0 | 1 | VERIFIED x3, tackler x2 | C.Douglas 3, M.Washington 1, C.Bell 1 | M.Washington 21 deep_left Q3 |
 | Jalon Kilgore | S | 2 | 2 | 24 | 0 | 0 | 0 | 0 | tackler x2 | G.Dulcich 1, J.Tolbert 1 |  |
 | Maxwell Hairston | CB | 2 | 1 | 16 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Douglas 2 |  |
 | Amani Hooker | S | 2 | 1 | 14 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Douglas 1, G.Dulcich 1 |  |
@@ -478,11 +661,10 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | T.J. Edwards | LB | 4 | 4 | 25 | 0 | 0 | 0 | 0 | tackler x4 | C.Olave 2, C.Donaldson 2 |  |
 | N.Sewell (name unresolved) | unknown | 1 | 1 | 24 | 0 | 0 | 0 | 0 | tackler x1 | C.Olave 1 | C.Olave 24 deep_left Q2 |
 | T.Stevenson (name unresolved) | unknown | 4 | 3 | 22 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | J.Tyson 1, C.Olave 2, C.Donaldson 1 |  |
-| Timeout #1. (name unresolved) | unknown | 1 | 1 | 14 | 0 | 0 | 0 | 0 | tackler x1 | C.Olave 1 |  |
 | C.Phillips (name unresolved) | unknown | 3 | 2 | 8 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | C.Donaldson 1, J.Tyson 1, N.Fant 1 |  |
 | Austin Booker | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | J.Johnson 1, T.Etienne 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 17/24 for 184 yds, 0 TD; TE 3/7 for 25 yds, 0 TD; RB 5/7 for 13 yds, 1 TD
+Yards allowed by target position (WR slot/outside unknown): WR 17/24 for 184 yds, 0 TD; TE 3/6 for 25 yds, 0 TD; RB 5/7 for 13 yds, 1 TD; unknown 0/1 for 0 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 1/2
 Pass rush: sacks J.Simmons 3, C.Lewis 1, M.Sweat 1, C.Phillips 1; QB hits A.Booker 1, N.Gallimore 1, M.Sweat 2
 Video (highlight transcript) mentions: none found / not checked
@@ -513,18 +695,23 @@ The two sources use different charting definitions: never mix or average them. S
 **Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Man: gap +9.0 pts is -6.5 vs the median gap; rank 14 StatRankings vs 4 Sharp
 Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
 
-## NYJ defense vs LAC (NYJ@LAC, IN PROGRESS (7:05)
+## NYJ defense vs LAC (NYJ@LAC, FINAL)
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Minkah Fitzpatrick | S | 1 | 1 | 13 | 0 | 0 | 0 | 0 | tackler x1 | D.Njoku 1 |  |
-| Demario Davis | LB | 1 | 1 | 8 | 0 | 0 | 0 | 0 | tackler x1 | C.Kolar 1 |  |
-| Azareye'h Thomas | CB | 1 | 1 | 6 | 0 | 0 | 0 | 0 | tackler x1 | K.Mitchell 1 |  |
+| Minkah Fitzpatrick | S | 2 | 2 | 35 | 0 | 0 | 0 | 0 | tackler x2 | D.Njoku 1, T.Harris 1 | T.Harris 22 short_right Q4 |
+| Jamien Sherwood | LB | 3 | 2 | 17 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | Q.Johnston 1, L.McConkey 2 |  |
+| Kingsley Enagbare | LB | 1 | 1 | 15 | 0 | 0 | 0 | 0 | tackler x1 | K.Vidal 1 |  |
+| Demario Davis | LB | 2 | 2 | 14 | 0 | 0 | 0 | 0 | tackler x2 | C.Kolar 1, T.Harris 1 |  |
+| Brandon Stephens | CB | 2 | 2 | 12 | 0 | 0 | 0 | 0 | tackler x2 | O.Hampton 1, D.Njoku 1 |  |
+| Azareye'h Thomas | CB | 3 | 2 | 10 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x2 | K.Mitchell 1, D.Njoku 1, L.McConkey 1 |  |
+| D'Angelo Ponds | CB | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | K.Vidal 1 |  |
+| David Bailey | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | L.McConkey 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): TE 2/2 for 21 yds, 0 TD; RB 1/1 for 6 yds, 0 TD
-Explosives allowed (pass 20+/rush 15+): 0/0
-Pass rush: sacks none; QB hits none
-Video (highlight transcript) mentions: none found / not checked
+Yards allowed by target position (WR slot/outside unknown): WR 6/10 for 60 yds, 1 TD; TE 3/4 for 29 yds, 0 TD; RB 4/4 for 28 yds, 0 TD; unknown 0/2 for 0 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 1/2
+Pass rush: sacks D.Bailey 2, H.Phillips 1, J.Briggs 1, J.Heflin (half) 1, D.Jackson (half) 1, J.Sherwood 1, J.Briggs (half) 1, M.Fitzpatrick (half) 1; QB hits D.Bailey 1
+Video (highlight transcript) mentions: Minkah Fitzpatrick (S) @7:50 "AND IT IS HAMPTON ALONG THE EDGE WITH THE BEST L.A. RUN OF THE DAY. FITZPATRICK THE TACKLE DOWN IN THE RED ZONE. >> Drew: YEAH." [coverage word: ZONE]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### NYJ season coverage rates (public, season-level; NOT game-level)
@@ -552,16 +739,25 @@ The two sources use different charting definitions: never mix or average them. S
 **Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
 Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
 
-## LAC defense vs NYJ (NYJ@LAC, IN PROGRESS (7:05)
+## LAC defense vs NYJ (NYJ@LAC, FINAL)
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| Elijah Molden | CB | 2 | 2 | 29 | 0 | 0 | 0 | 0 | tackler x2 | M.Taylor 1, K.Sadiq 1 |  |
+| Marlowe Wax | LB | 2 | 2 | 28 | 0 | 0 | 0 | 0 | tackler x2 | B.Allen 1, G.Wilson 1 |  |
+| Cam Hart | CB | 2 | 2 | 21 | 0 | 0 | 0 | 0 | tackler x2 | A.Mitchell 1, G.Wilson 1 |  |
+| Del'Shawn Phillips | LB | 2 | 2 | 19 | 0 | 0 | 0 | 0 | tackler x2 | G.Wilson 1, K.Sadiq 1 |  |
+| RJ Mickens | S | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | K.Sadiq 1 |  |
+| Tony Jefferson | S | 1 | 1 | 6 | 0 | 0 | 0 | 0 | tackler x1 | M.Taylor 1 |  |
+| Donte Jackson | CB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | T.Patrick 1 |  |
+| Caleb Murphy | LB | 1 | 1 | 4 | 0 | 0 | 0 | 0 | tackler x1 | B.Hall 1 |  |
+| Denzel Perryman | LB | 1 | 1 | 3 | 0 | 0 | 0 | 0 | tackler x1 | B.Hall 1 |  |
 | Deane Leonard | CB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | G.Wilson 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 1/2 for 21 yds, 0 TD
-Explosives allowed (pass 20+/rush 15+): 1/0
-Pass rush: sacks none; QB hits none
-Video (highlight transcript) mentions: none found / not checked
+Yards allowed by target position (WR slot/outside unknown): WR 8/10 for 98 yds, 2 TD; TE 5/5 for 55 yds, 0 TD; RB 4/4 for 23 yds, 1 TD; unknown 0/1 for 0 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 1/2
+Pass rush: sacks T.Dye 1, C.Murphy 1; QB hits none
+Video (highlight transcript) mentions: Donte Jackson (CB) @2:35 "THE BACK OF THE END ZONE. AND HIS EYES GOING THERE, JUST FREEZES DONTE JACKSON JUST ENOUGH TO ALLOW BREECE HALL TO >> Adam: THANKS FOR BREAKING THAT DOWN." [coverage word: ZONE]
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
 
 #### LAC season coverage rates (public, season-level; NOT game-level)
@@ -602,7 +798,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Jalen Ramsey | CB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | D.Smith 1 |  |
 | Cameron Heyward | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | D.Smith 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 10/20 for 103 yds, 0 TD; TE 1/1 for 38 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 10/19 for 103 yds, 0 TD; TE 1/1 for 38 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 2/1
 Pass rush: sacks A.Highsmith 2, J.Sawyer 1; QB hits none
 Video (highlight transcript) mentions: T.J. Watt (LB) @0:28 "LITTLE NOD TO MAKE IT SEEM LIKE HE IS GOING TO HAVE A PEEL BACK BLOCK, HE IS ABLE TO AVOID IT. WATT MISSES BY GOING AROUND THAT BLOCK. BARKLEY, IT'S A RACE AT THAT" [coverage word: MISSES]
@@ -649,7 +845,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Quinyon Mitchell | CB | 3 | 1 | 2 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x1 | D.Metcalf 3 |  |
 | Arnold Ebiketie | LB | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tackler x1 | D.Washington 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 10/19 for 85 yds, 0 TD; RB 12/15 for 81 yds, 1 TD; TE 8/8 for 61 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 16/27 for 146 yds, 1 TD; TE 8/8 for 61 yds, 0 TD; RB 6/8 for 20 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 2/0
 Pass rush: sacks J.Hunt 1, B.Young 2, J.Greenard 1, N.Smith 1, G.Hall 1; QB hits M.Ojomo 1
 Video (highlight transcript) mentions: none found / not checked
@@ -731,12 +927,12 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Rock Ya-Sin | CB | 6 | 6 | 51 | 0 | 0 | 0 | 0 | tackler x6 | E.Egbuka 1, T.Johnson 1, C.Godwin 1, T.Hurst 2, K.Gainwell 1 |  |
 | Derrick Barnes | LB | 3 | 3 | 26 | 0 | 0 | 0 | 0 | tackler x3 | K.Gainwell 2, C.Otton 1 |  |
-| Brian Branch | S | 4 | 2 | 17 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | C.Godwin 1, E.Egbuka 1, K.Gainwell 1, B.Irving 1 |  |
+| Brian Branch | S | 4 | 2 | 17 | 0 | 2 | 0 | 1 | VERIFIED x3, tackler x2 | C.Godwin 1, E.Egbuka 1, K.Gainwell 1, B.Irving 1, T.Hurst 1 |  |
 | Christian Izien | S | 1 | 1 | 16 | 0 | 0 | 0 | 0 | tackler x1 | B.Irving 1 |  |
 | Chuck Clark | S | 2 | 1 | 12 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Hurst 1, E.Egbuka 1 |  |
 | Roger McCreary | CB | 2 | 1 | 10 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Hurst 2 |  |
 | DJ Wonnum | LB | 2 | 1 | 9 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Johnson 1, B.Irving 1 |  |
-| Kerby Joseph | S | 1 | 1 | 8 | 0 | 0 | 0 | 0 | tackler x1 | C.Godwin 1 |  |
+| Kerby Joseph | S | 1 | 1 | 8 | 0 | 0 | 0 | 1 | VERIFIED x1, tackler x1 | C.Godwin 1, B.Sharp 1 |  |
 | Malcolm Rodriguez | LB | 2 | 1 | 7 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | K.Gainwell 1, B.Irving 1 |  |
 | Khalil Dorsey | CB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | T.Johnson 1 |  |
 
@@ -787,7 +983,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Jacob Martin | DE | 1 | 1 | 6 | 0 | 0 | 0 | 0 | tackler x1 | J.Williams 1 |  |
 
 Yards allowed by target position (WR slot/outside unknown): WR 20/25 for 245 yds, 2 TD; TE 5/5 for 51 yds, 1 TD; RB 4/4 for 29 yds, 1 TD
-Explosives allowed (pass 20+/rush 15+): 5/2
+Explosives allowed (pass 20+/rush 15+): 5/3
 Pass rush: sacks none; QB hits S.Thomas 1
 Video (highlight transcript) mentions: none found / not checked
 Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
@@ -828,7 +1024,7 @@ Game-level shells/coverage for Week 11: unknown unless video names them (see VID
 | Ameer Speed | CB | 2 | 1 | 11 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Dike 1, C.Ridley 1 |  |
 | Shemar James | LB | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | C.Dike 1 |  |
 | DeMarvion Overshown | LB | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | C.Dike 1 |  |
-| Caleb Downs | S | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | G.Helm 1 |  |
+| Caleb Downs | S | 1 | 1 | 5 | 0 | 0 | 0 | 1 | VERIFIED x1, tackler x1 | C.Tate 1, G.Helm 1 |  |
 | Derion Kendrick | CB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | X.Restrepo 1 |  |
 | J.Porter (name unresolved) | unknown | 2 | 1 | 4 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Tate 1, E.Ayomanor 1 |  |
 | Quinnen Williams | DT | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | G.Helm 1 |  |

@@ -1,6 +1,6 @@
 # NO @ CHI - Week 11 game log (FINAL)
 
-ESPN event 401873071. Pulled 2026-11-22 05:20 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
+ESPN event 401873071. Pulled 2026-11-22 09:36 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
 
 ## Score by quarter
 
@@ -14,7 +14,7 @@ Who led during Q2 (score changes, clock at the play): CHI 0-3 @15:00. Leader at 
 
 ## Result vs closing line
 
-Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:20 PM AST. Home spread shown.
+Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 09:36 PM AST. Home spread shown.
 
 | Book | Home spread (odds) | Total (O/U odds) |
 |---|---|---|
@@ -26,7 +26,7 @@ Action Network public scoreboard, last pre-game line per book (is_live=false), p
 | BetMGM | CHI -12 (-110) | 47.5 (-110/-108) |
 | bet365 | CHI -11.5 (-113) | 47.5 (-112/-108) |
 
-ESPN pickcenter (DraftKings): CHI -12.5, O/U 48.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:20 PM AST).
+ESPN pickcenter (DraftKings): CHI -12.5, O/U 48.5 (ESPN-displayed pre-game line; pulled 2026-11-22 09:36 PM AST).
 
 **Grading vs AN consensus close (CHI -11.5, total 47.5):** outright winner CHI (13-21); ATS cover NO; total 34 -> UNDER.
 
@@ -96,7 +96,7 @@ Drive outcomes: CHI: Field Goal 2, Downs 1, Touchdown 2, Interception 1, Punt 3,
 ## Red zone (snaps starting at or inside the opponent 20; derived from ESPN play-by-play)
 
 **NO**: 2 trips -> drive 8: Touchdown, drive 19: Downs
-  Usage inside the 20: T.Etienne 2 car/0 tgt/0 TD; N.Fant 0 car/2 tgt/0 TD; A.Kamara 0 car/1 tgt/1 TD; D.Vele 0 car/1 tgt/0 TD; T.Shough 1 car/0 tgt/0 TD
+  Usage inside the 20: T.Etienne 2 car/0 tgt/0 TD; A.Kamara 0 car/1 tgt/1 TD; D.Vele 0 car/1 tgt/0 TD; T.Shough 1 car/0 tgt/0 TD; N.Fant 0 car/1 tgt/0 TD; N.Fant.Penalty 0 car/1 tgt/0 TD
 **CHI**: 3 trips -> drive 5: Touchdown, drive 7: Touchdown, drive 14: Field Goal
   Usage inside the 20: D.Swift 1 car/1 tgt/1 TD; R.Odunze 0 car/2 tgt/0 TD; K.Monangai 1 car/0 tgt/0 TD; C.Loveland 0 car/1 tgt/1 TD
 
@@ -172,7 +172,7 @@ CHI passing: Caleb Williams 15/23, 181 yds, 2 TD, 1 INT, sacks 2-16
 
 ## Defenders named on pass plays (ESPN play text)
 
-Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke up or intercepted the pass (the defender at the catch point). **tackler, not coverage** = defender named as tackler on a completion (often but not always the man in coverage). DPI = flagged defender. Free sources never name the assigned coverage defender on completions.
+Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who broke up or intercepted the pass, or who was flagged for DPI; these are the only coverage counts. **tackler, not coverage** = defender named as tackler on a completion (inferred; not counted as coverage). No Play rule: a snap wiped out by an accepted penalty writes no tackler/PBU/INT rows; a DPI flag on it still counts. Declined penalties keep their rows. Free sources never name the assigned coverage defender on completions.
 
 | Defense | Defender | Plays tagged | Rec | Yds | TD | PBU | INT | DPI | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -186,14 +186,15 @@ Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke u
 | CHI | N.Sewell | 1 | 1 | 24 | 0 | 0 | 0 | 0 | C.Olave 1 | C.Olave 24 deep_left Q2 |
 | CHI | T.Stevenson | 4 | 3 | 22 | 0 | 1 | 0 | 0 | C.Olave 2, J.Tyson 1, C.Donaldson 1 |  |
 | NO | J.Howden | 2 | 1 | 16 | 0 | 1 | 0 | 0 | K.Raymond 1, R.Odunze 1 |  |
-| CHI | Timeout #1. | 1 | 1 | 14 | 0 | 0 | 0 | 0 | C.Olave 1 |  |
 | NO | A.Jennings | 1 | 1 | 12 | 0 | 0 | 0 | 0 | C.Loveland 1 |  |
 | CHI | C.Phillips | 3 | 2 | 8 | 0 | 1 | 0 | 0 | C.Donaldson 1, J.Tyson 1, N.Fant 1 |  |
 | CHI | A.Booker | 2 | 0 | 0 | 0 | 2 | 0 | 0 | J.Johnson 1, T.Etienne 1 |  |
 
-Assignment evidence count: 6 VERIFIED (PBU/INT/DPI-named), 36 tackler-not-coverage (inferred), 16 unattributed.
-Most yards charged to a NO defender (tackler tag, not coverage): J.Sanker 4 rec / 52 yds.
-Most yards charged to a CHI defender (tackler tag, not coverage): C.Lewis 4 rec / 49 yds.
+Assignment evidence count: 6 VERIFIED (PBU/INT/DPI-named), 35 tackler-not-coverage (inferred), 17 unattributed.
+Most yards charged to a NO defender (tackler tag, not coverage; inferred): J.Sanker 4 rec / 52 yds.
+Most VERIFIED-PBU/INT/DPI credits on a NO defender (the only coverage counts): K.McKinstry PBU 1, INT 0, DPI 0.
+Most yards charged to a CHI defender (tackler tag, not coverage; inferred): C.Lewis 4 rec / 49 yds.
+Most VERIFIED-PBU/INT/DPI credits on a CHI defender (the only coverage counts): A.Booker PBU 2, INT 0, DPI 0.
 
 ## Explosive plays (pass 20+, rush 15+)
 
@@ -227,7 +228,7 @@ ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
 Venue: Soldier Field (Chicago), indoor=None, grass=True
 Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 55.1, "precipitation": 0.055, "rain": 0.055, "wind_speed_10m": 10.1, "wind_gusts_10m": 21.3}
 
-## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:20 PM AST; scores: src: ESPN summary JSON event 401873071, pulled 2026-11-22 05:20 PM AST)
+## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 09:36 PM AST; scores: src: ESPN summary JSON event 401873071, pulled 2026-11-22 09:36 PM AST)
 
 | Period | Away pts | Home pts | Total | Winner | Line (home) | ATS winner | Total line | O/U |
 |---|---|---|---|---|---|---|---|---|
@@ -240,7 +241,7 @@ Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observ
 
 Note: books differ on whether OT counts in Q4/2H markets; 2H here includes OT if played, Q4 excludes it. Check the book rule before settling.
 
-## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873071, pulled 2026-11-22 05:20 PM AST)
+## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873071, pulled 2026-11-22 09:36 PM AST)
 
 Every ESPN play (178 rows incl. kickoffs, penalties, timeouts) is in `pbp/NO_at_CHI_pbp.csv` with down/distance, yards, YAC, home win prob and a garbage-time flag.
 
@@ -249,7 +250,7 @@ Every ESPN play (178 rows incl. kickoffs, penalties, timeouts) is in `pbp/NO_at_
 | NO | 71 | 71 | yes |
 | CHI | 58 | 58 | yes |
 
-## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873071, pulled 2026-11-22 05:20 PM AST)
+## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873071, pulled 2026-11-22 09:36 PM AST)
 
 | Stat | NO | CHI |
 |---|---|---|
@@ -261,14 +262,14 @@ Every ESPN play (178 rows incl. kickoffs, penalties, timeouts) is in `pbp/NO_at_
 | Drives | 11 | 11 |
 | Turnover rate | 18.2% of drives; 2.8% of plays | 18.2% of drives; 3.4% of plays |
 
-## Scoring breakdown (src: ESPN summary JSON event 401873071, pulled 2026-11-22 05:20 PM AST scoringPlays)
+## Scoring breakdown (src: ESPN summary JSON event 401873071, pulled 2026-11-22 09:36 PM AST scoringPlays)
 
 | Team | Non-QB rush TD | QB rush TD | Receiving TD | Defense/ST TD | FG | Safety | Other |
 |---|---|---|---|---|---|---|---|
 | NO | 0 | 0 | 1 | 0 | 2 | 0 |  |
 | CHI | 0 | 0 | 2 | 0 | 2 | 1 |  |
 
-## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873071, pulled 2026-11-22 05:20 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:20 PM AST)
+## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873071, pulled 2026-11-22 09:36 PM AST; positions: ESPN team roster API, pulled 2026-11-22 09:36 PM AST)
 
 Players absent from the ESPN receiving box had no target or reception logged; whether they played is unknown until snap counts post (nflverse/PFR, usually Monday-Tuesday).
 
@@ -297,7 +298,7 @@ Players absent from the ESPN receiving box had no target or reception logged; wh
 | CHI | Sam Roush | TE | 1 | 1 | 100% | 19 | 0 logged* | 0 logged* | 4.8% |
 | CHI | Salvon Ahmed | RB | 0 logged* | 0 logged* | n/a | 0 logged* | 6 | 33 | 0%* |
 
-## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:20 PM AST)
+## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 09:36 PM AST)
 
 WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not chart alignment; FTN/PFF are paid and are not used). Pass location (left/middle/right) is shown as a proxy only.
 
@@ -314,13 +315,14 @@ NO defense by depth/location (proxy, not alignment): deep_left 4/5 91y; short_mi
 | Pos | Tgt | Rec | Yds | TD | Yds/tgt |
 |---|---|---|---|---|---|
 | WR | 24 | 17 | 184 | 0 | 7.7 |
-| TE | 7 | 3 | 25 | 0 | 3.6 |
+| TE | 6 | 3 | 25 | 0 | 4.2 |
 | RB | 7 | 5 | 13 | 1 | 1.9 |
+| unknown | 1 | 0 | 0 | 0 | 0.0 |
 
 CHI defense by depth/location (proxy, not alignment): short_right 7/10 57y; deep_left 3/6 57y; short_left 7/13 47y; short_middle 7/7 42y; deep_middle 1/1 19y; deep_right 0/1 0y
 
 
-## Extras (src: ESPN summary JSON event 401873071, pulled 2026-11-22 05:20 PM AST; derived where noted)
+## Extras (src: ESPN summary JSON event 401873071, pulled 2026-11-22 09:36 PM AST; derived where noted)
 
 | Metric | NO | CHI |
 |---|---|---|

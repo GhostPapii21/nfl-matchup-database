@@ -204,6 +204,58 @@ Holds (-1.5 YPT or better): TE1: 4.88 YPT on 32 tgts (league 7.39, -2.51); WR1: 
 - Top receivers: D.Schultz (TE1, short/YAC (aDOT <8)) 5/6 45y; T.Dell (WR3+, deep (aDOT 13+)) 1/1 43y; K.Boutte (WR3+, intermediate (aDOT 8-13)) 1/2 25y; X.Hutchinson (WR1, intermediate (aDOT 8-13)) 3/6 17y 1TD
 - 20+ catches: K.Boutte(WR3+) 25y deep_middle - J.Pinnock [tackler]; T.Dell(WR3+) 43y deep_middle - A.Phillips [tackler]
 
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### NYG defense vs JAX (JAX@NYG, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Jevon Holland | S | 8 | 7 | 95 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x7 | P.Washington 4, J.Meyers 2, T.Hunter 1, B.Tuten 1 | P.Washington 21 deep_left Q2; J.Meyers 23 short_left Q3 |
+| Ar'Darius Washington | S | 5 | 3 | 55 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x3 | J.Cameron 3, J.Meyers 2 | J.Meyers 26 deep_middle Q4 |
+| Deonte Banks | CB | 5 | 3 | 37 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x3 | P.Washington 3, Bri.Thomas 1, J.Cameron 1 |  |
+| Dru Phillips (last-name match) | CB | 7 | 4 | 31 | 0 | 3 | 0 | 0 | VERIFIED x3, tackler x4 | B.Strange 2, J.Meyers 2, B.Tuten 1, P.Washington 2 | P.Washington 21 deep_right Q4 |
+| Paulson Adebo | CB | 4 | 1 | 23 | 0 | 3 | 0 | 0 | VERIFIED x3, tackler x1 | J.Meyers 2, P.Washington 2 | J.Meyers 23 deep_middle Q4 |
+| Arvell Reese | LB | 4 | 4 | 21 | 0 | 0 | 0 | 0 | tackler x4 | P.Washington 2, B.Strange 1, L.Allen 1 |  |
+| Micah McFadden | LB | 2 | 2 | 21 | 0 | 0 | 0 | 0 | tackler x2 | B.Tuten 1, C.Rodriguez 1 |  |
+| G.Newsome (name unresolved) | unknown | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | P.Washington 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 16/33 for 235 yds, 0 TD; RB 5/5 for 32 yds, 0 TD; unknown 1/3 for 18 yds, 1 TD; TE 3/4 for 16 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 5/0
+Pass rush: sacks D.Reader 1, A.Carter 2; QB hits A.Reese 1, A.Carter 3, D.Reader 1, S.Harris 1, B.Okoye 1, J.Kelly 1
+Video (highlight transcript) mentions: Kayvon Thibodeaux (LB) @13:50 "BUYING TIME, SLIPS IT, PICKED OFF IN THE END ZONE BY THIBODEAUX. >> J.J.: THERE YOU GO. NOT HAPPY, YOU HAVE TO FIND A WAY TO BURN SOME O'CLOCK." [coverage word: PICKED]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### NYG season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 47.2% | 25.6% |
+| Zone | 52.1% | 69.1% |
+| MOF closed (single-high) | 52.5% | 47.9% |
+| MOF open (two-high) | 47.5% | 49.4% |
+| Blitz | 42.9% | 38.4% |
+| Cover 0 | 11.1% | not published |
+| Cover 1 | 31.5% | not published |
+| Cover 2 | 25.2% | not published |
+| Cover 2-Man | 4.6% | not published |
+| Cover 3 | unknown | not published |
+| Cover 4 | unknown | not published |
+| Cover 6 | 6.9% | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 305 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/nyg). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 47.2% vs Sharp 25.6% (+21.6 pts); Zone: StatRankings 52.1% vs Sharp 69.1% (-17.0 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
 <!-- W11-COVRATES-START refs NFL-56 -->
 ## NYG season coverage rates (public, season-level; NOT game-level)
 

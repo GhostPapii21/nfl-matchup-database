@@ -235,6 +235,58 @@ Holds (-1.5 YPT or better): none
 - wk8 LV@NYJ: Isaiah Williams (WR-slot separator) 1/1tgt 18y 1TD | shell 21/70, MOFC/MOFO 47/47 | Script/volume; no specific matchup attribution — see explosives table. [none (no explosive)]
 - wk8 LV@NYJ: Kenyon Sadiq (TE-inline) 1/2tgt 22y 0TD | shell 21/70, MOFC/MOFO 47/47 | Script/volume; no specific matchup attribution — see explosives table. [unknown]
 
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### LV defense vs DEN (LV@DEN, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Eric Stokes | CB | 3 | 3 | 43 | 0 | 0 | 0 | 1 | VERIFIED x1, tackler x3 | J.Coleman 1, J.Waddle 3 | J.Waddle 24 deep_right Q2 |
+| Nakobe Dean | LB | 4 | 3 | 37 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | E.Engram 2, J.Waddle 1, J.Coleman 1 |  |
+| Jeremy Chinn | S | 1 | 1 | 36 | 0 | 0 | 0 | 0 | tackler x1 | M.Mims 1 | M.Mims 36 deep_left Q2 |
+| Taron Johnson | CB | 3 | 3 | 32 | 0 | 0 | 0 | 0 | tackler x3 | P.Bryant 3 | P.Bryant 20 deep_left Q1 |
+| Jermod McCoy | CB | 4 | 3 | 32 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | J.Waddle 2, E.Engram 2 |  |
+| Quay Walker | LB | 4 | 4 | 23 | 0 | 0 | 0 | 0 | tackler x4 | J.Coleman 2, N.Adkins 1, E.Engram 1 |  |
+| Treydan Stukes | S | 2 | 1 | 21 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | J.Waddle 1, E.Engram 1 | E.Engram 21 short_left Q4 |
+| Maxx Crosby | DE | 2 | 0 | 0 | 0 | 2 | 0 | 0 | VERIFIED x2 | C.Sutton 1, M.Mims 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 7/16 for 129 yds, 0 TD; TE 8/11 for 78 yds, 1 TD; RB 4/5 for 18 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 4/0
+Pass rush: sacks N.Dean 1; QB hits M.Koonce 1, M.Crosby 1
+Video (highlight transcript) mentions: Jermod McCoy (CB) @2:04 "AT WADDLE -- GOOD COVERAGE ON THE PLAY. THE ROOKIE OUT OF TENNESSEE. >> Logan: McCOY DRAWING A TOUGH WILL LUTZ. OUT OF THE HOLD OF THE PUNTER," [coverage word: COVERAGE]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### LV season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 34.2% | 21.9% |
+| Zone | 65.8% | 69.4% |
+| MOF closed (single-high) | 48.8% | 47.5% |
+| MOF open (two-high) | 51.2% | 47.5% |
+| Blitz | 30.2% | 24.9% |
+| Cover 0 | 7.8% | not published |
+| Cover 1 | 20.1% | not published |
+| Cover 2 | 29.2% | not published |
+| Cover 2-Man | 6.3% | not published |
+| Cover 3 | 23.8% | not published |
+| Cover 4 | unknown | not published |
+| Cover 6 | 6.9% | not published |
+| Cover 9 | 1.9% | not published |
+| Coverage snaps | 319 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/lv). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 34.2% vs Sharp 21.9% (+12.3 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
 <!-- W11-COVRATES-START refs NFL-56 -->
 ## LV season coverage rates (public, season-level; NOT game-level)
 

@@ -215,6 +215,8 @@ Holds (-1.5 YPT or better): none
 - 20+ catches: T.Burks(WR3+) 21y deep_right - T.Woolen [tackler]; S.Diggs(WR1) 20y short_middle - K.Moore [tackler]; C.Okonkwo(TE1) 21y deep_left - A.Mukuba [tackler]; T.Burks(WR3+) 53y deep_right - Q.Mitchell [tackler]; A.Williams(WR2) 30y deep_right - K.Moore [tackler]
 - 15+ runs: A.Ekeler(RB) 18y rush left end; R.White(RB) 33y rush left tackle
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 
@@ -236,7 +238,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 | Quinyon Mitchell | CB | 3 | 1 | 2 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x1 | D.Metcalf 3 |  |
 | Arnold Ebiketie | LB | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tackler x1 | D.Washington 1 |  |
 
-Yards allowed by target position (WR slot/outside unknown): WR 10/19 for 85 yds, 0 TD; RB 12/15 for 81 yds, 1 TD; TE 8/8 for 61 yds, 0 TD; unknown 0/1 for 0 yds, 0 TD
+Yards allowed by target position (WR slot/outside unknown): WR 16/27 for 146 yds, 1 TD; TE 8/8 for 61 yds, 0 TD; RB 6/8 for 20 yds, 0 TD
 Explosives allowed (pass 20+/rush 15+): 2/0
 Pass rush: sacks J.Hunt 1, B.Young 2, J.Greenard 1, N.Smith 1, G.Hall 1; QB hits M.Ojomo 1
 Video (highlight transcript) mentions: none found / not checked

@@ -250,6 +250,8 @@ Final **JAX 33 – BAL 10**. Source: `live/2026-11-05_JAX_BAL/pbp_live.csv` + bo
 - Tackler-after-catch totals (ledger): M.Humphrey 3/70 (Boerkircher 52, Strange 7, Koziol 11); K.Hamilton 2/28 (Meyers 17, Washington 11); K.Wallace 2/19; T.Tampa 1/18; C.Awuzie 1/16; M.Starks 1/15; R.Smith 2/15; T.Buchanan 1/8; T.Simpson 1/4.
 - Note: Strange volume low (2 targets) despite Hawkins OUT / middle-seam prior; chunk TE play was Boerkircher. Washington cleared 40+ but missed main o63.5 (61).
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 

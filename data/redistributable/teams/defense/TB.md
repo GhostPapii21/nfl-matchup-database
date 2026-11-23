@@ -214,6 +214,8 @@ Holds (-1.5 YPT or better): WR1: 6.61 YPT on 54 tgts (league 8.16, -1.55); WR3+:
 - wk8 ATL@TB: Jahan Dotson (WR-deep speed) 2/5tgt 95y 0TD | shell 17 man/78 zone, MOFC 59 | One 76y deep left shot vs TB zone (MOFC 59) — pregame matchup McCollum (outside right, inferred), Winfield tackled. Deep-speed WR vs single-high zone in garbage time. [inferred]
 - wk8 ATL@TB: Bijan Robinson (RB-home-run zone runner) 19-76 0TD; 0/1tgt 0y 0TD | shell 17 man/78 zone, MOFC 59 | Script/volume; no specific matchup attribution — see explosives table. [confirmed-tackler]
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 

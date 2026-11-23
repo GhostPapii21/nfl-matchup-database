@@ -1,6 +1,6 @@
 # ARI @ KC - Week 11 game log (FINAL)
 
-ESPN event 401873067. Pulled 2026-11-22 05:20 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
+ESPN event 401873067. Pulled 2026-11-22 09:36 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
 
 ## Score by quarter
 
@@ -14,7 +14,7 @@ Who led during Q2 (score changes, clock at the play): KC 0-14 @15:00. Leader at 
 
 ## Result vs closing line
 
-Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:20 PM AST. Home spread shown.
+Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 09:36 PM AST. Home spread shown.
 
 | Book | Home spread (odds) | Total (O/U odds) |
 |---|---|---|
@@ -26,7 +26,7 @@ Action Network public scoreboard, last pre-game line per book (is_live=false), p
 | BetMGM | KC -15.5 (-102) | 40.5 (-108/-110) |
 | bet365 | KC -15.5 (-110) | 40.5 (-107/-113) |
 
-ESPN pickcenter (DraftKings): KC -14.5, O/U 40.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:20 PM AST).
+ESPN pickcenter (DraftKings): KC -14.5, O/U 40.5 (ESPN-displayed pre-game line; pulled 2026-11-22 09:36 PM AST).
 
 **Grading vs AN consensus close (KC -15.5, total 40.5):** outright winner KC (7-34); ATS cover KC; total 41 -> OVER.
 
@@ -164,7 +164,7 @@ KC passing: Justin Fields 0/1, 0 yds, 0 TD, 0 INT, sacks 0-0
 
 ## Defenders named on pass plays (ESPN play text)
 
-Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke up or intercepted the pass (the defender at the catch point). **tackler, not coverage** = defender named as tackler on a completion (often but not always the man in coverage). DPI = flagged defender. Free sources never name the assigned coverage defender on completions.
+Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who broke up or intercepted the pass, or who was flagged for DPI; these are the only coverage counts. **tackler, not coverage** = defender named as tackler on a completion (inferred; not counted as coverage). No Play rule: a snap wiped out by an accepted penalty writes no tackler/PBU/INT rows; a DPI flag on it still counts. Declined penalties keep their rows. Free sources never name the assigned coverage defender on completions.
 
 | Defense | Defender | Plays tagged | Rec | Yds | TD | PBU | INT | DPI | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -192,8 +192,10 @@ Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke u
 | KC | F.Anudike-Uzomah | 1 | 1 | 0 | 0 | 0 | 0 | 0 | T.McBride 1 |  |
 
 Assignment evidence count: 7 VERIFIED (PBU/INT/DPI-named), 40 tackler-not-coverage (inferred), 21 unattributed.
-Most yards charged to a ARI defender (tackler tag, not coverage): K.Clark 4 rec / 63 yds.
-Most yards charged to a KC defender (tackler tag, not coverage): D.Tranquill 4 rec / 38 yds.
+Most yards charged to a ARI defender (tackler tag, not coverage; inferred): K.Clark 4 rec / 63 yds.
+Most VERIFIED-PBU/INT/DPI credits on a ARI defender (the only coverage counts): D.Burke PBU 1, INT 0, DPI 0.
+Most yards charged to a KC defender (tackler tag, not coverage; inferred): D.Tranquill 4 rec / 38 yds.
+Most VERIFIED-PBU/INT/DPI credits on a KC defender (the only coverage counts): N.Williams PBU 2, INT 0, DPI 0.
 
 ## Explosive plays (pass 20+, rush 15+)
 
@@ -226,7 +228,7 @@ ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
 Venue: Arrowhead Stadium (Kansas City), indoor=None, grass=True
 Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 48.1, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 15.7, "wind_gusts_10m": 25.7}
 
-## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:20 PM AST; scores: src: ESPN summary JSON event 401873067, pulled 2026-11-22 05:20 PM AST)
+## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 09:36 PM AST; scores: src: ESPN summary JSON event 401873067, pulled 2026-11-22 09:36 PM AST)
 
 | Period | Away pts | Home pts | Total | Winner | Line (home) | ATS winner | Total line | O/U |
 |---|---|---|---|---|---|---|---|---|
@@ -239,7 +241,7 @@ Open-Meteo at kickoff hour (2026-11-22T18:00Z; model value, not a stadium observ
 
 Note: books differ on whether OT counts in Q4/2H markets; 2H here includes OT if played, Q4 excludes it. Check the book rule before settling.
 
-## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873067, pulled 2026-11-22 05:20 PM AST)
+## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873067, pulled 2026-11-22 09:36 PM AST)
 
 Every ESPN play (172 rows incl. kickoffs, penalties, timeouts) is in `pbp/ARI_at_KC_pbp.csv` with down/distance, yards, YAC, home win prob and a garbage-time flag.
 
@@ -248,7 +250,7 @@ Every ESPN play (172 rows incl. kickoffs, penalties, timeouts) is in `pbp/ARI_at
 | ARI | 55 | 55 | yes |
 | KC | 72 | 72 | yes |
 
-## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873067, pulled 2026-11-22 05:20 PM AST)
+## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873067, pulled 2026-11-22 09:36 PM AST)
 
 | Stat | ARI | KC |
 |---|---|---|
@@ -260,14 +262,14 @@ Every ESPN play (172 rows incl. kickoffs, penalties, timeouts) is in `pbp/ARI_at
 | Drives | 9 | 10 |
 | Turnover rate | 0.0% of drives; 0.0% of plays | 0.0% of drives; 0.0% of plays |
 
-## Scoring breakdown (src: ESPN summary JSON event 401873067, pulled 2026-11-22 05:20 PM AST scoringPlays)
+## Scoring breakdown (src: ESPN summary JSON event 401873067, pulled 2026-11-22 09:36 PM AST scoringPlays)
 
 | Team | Non-QB rush TD | QB rush TD | Receiving TD | Defense/ST TD | FG | Safety | Other |
 |---|---|---|---|---|---|---|---|
 | ARI | 0 | 0 | 1 | 0 | 0 | 0 |  |
 | KC | 1 | 0 | 3 | 0 | 2 | 0 |  |
 
-## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873067, pulled 2026-11-22 05:20 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:20 PM AST)
+## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873067, pulled 2026-11-22 09:36 PM AST; positions: ESPN team roster API, pulled 2026-11-22 09:36 PM AST)
 
 Players absent from the ESPN receiving box had no target or reception logged; whether they played is unknown until snap counts post (nflverse/PFR, usually Monday-Tuesday).
 
@@ -295,7 +297,7 @@ Players absent from the ESPN receiving box had no target or reception logged; wh
 | KC | Jaydn Ott | RB | 0 logged* | 0 logged* | n/a | 0 logged* | 5 | 12 | 0%* |
 | KC | Nate Carter | RB | 0 logged* | 0 logged* | n/a | 0 logged* | 1 | 3 | 0%* |
 
-## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:20 PM AST)
+## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 09:36 PM AST)
 
 WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not chart alignment; FTN/PFF are paid and are not used). Pass location (left/middle/right) is shown as a proxy only.
 
@@ -318,7 +320,7 @@ ARI defense by depth/location (proxy, not alignment): short_right 12/15 120y; sh
 KC defense by depth/location (proxy, not alignment): short_right 11/17 73y; short_middle 3/4 29y; short_left 3/7 28y; deep_left 1/1 25y; deep_right 0/2 0y
 
 
-## Extras (src: ESPN summary JSON event 401873067, pulled 2026-11-22 05:20 PM AST; derived where noted)
+## Extras (src: ESPN summary JSON event 401873067, pulled 2026-11-22 09:36 PM AST; derived where noted)
 
 | Metric | ARI | KC |
 |---|---|---|

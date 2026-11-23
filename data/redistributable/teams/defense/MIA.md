@@ -216,6 +216,8 @@ Holds (-1.5 YPT or better): none
 - Q4 12:39 DeMario Douglas (WR) rec 48 — Chris A. Johnson [inferred; pregame matchup: ESPN cheat sheet primary (single-source; coverage.json said Jason Marshall)]; alignment: outside, offense-right side (pregame target-side proxy; ESPN season split L9/S82/R9)
 - Chris A. Johnson ← DeMario Douglas: 3 tgt, 3 rec, 76 yds
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 

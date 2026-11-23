@@ -231,6 +231,8 @@ Holds (-1.5 YPT or better): WR2: 6.7 YPT on 43 tgts (league 8.2, -1.5)
 - Christian Benford ← Ja'Kobi Lane: 1 tgt, 1 rec, 13 yds
 - Dee Alford ← Zay Flowers: 4 tgt, 0 rec, 0 yds — limited his man
 
+
+
 <!-- W11-GAMELOG-START refs NFL-56 -->
 ## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
 
@@ -240,7 +242,7 @@ Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/IN
 
 | Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Davison Igbinosun | CB | 4 | 2 | 29 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | C.Douglas 2, M.Washington 1, C.Bell 1 | M.Washington 21 deep_left Q3 |
+| Davison Igbinosun | CB | 4 | 2 | 29 | 0 | 2 | 0 | 1 | VERIFIED x3, tackler x2 | C.Douglas 3, M.Washington 1, C.Bell 1 | M.Washington 21 deep_left Q3 |
 | Jalon Kilgore | S | 2 | 2 | 24 | 0 | 0 | 0 | 0 | tackler x2 | G.Dulcich 1, J.Tolbert 1 |  |
 | Maxwell Hairston | CB | 2 | 1 | 16 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Douglas 2 |  |
 | Amani Hooker | S | 2 | 1 | 14 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | C.Douglas 1, G.Dulcich 1 |  |

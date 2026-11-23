@@ -1,6 +1,6 @@
 # IND @ HOU - Week 11 game log (FINAL)
 
-ESPN event 401873066. Pulled 2026-11-22 05:20 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
+ESPN event 401873066. Pulled 2026-11-22 09:36 PM AST. Sources: ESPN summary JSON (play-by-play, box, drives), Action Network public scoreboard (pre-game lines). Research only, refs NFL-56.
 
 ## Score by quarter
 
@@ -14,7 +14,7 @@ Who led during Q2 (score changes, clock at the play): HOU 3-7 @15:00. Leader at 
 
 ## Result vs closing line
 
-Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 05:20 PM AST. Home spread shown.
+Action Network public scoreboard, last pre-game line per book (is_live=false), pulled 2026-11-22 09:36 PM AST. Home spread shown.
 
 | Book | Home spread (odds) | Total (O/U odds) |
 |---|---|---|
@@ -26,7 +26,7 @@ Action Network public scoreboard, last pre-game line per book (is_live=false), p
 | BetMGM | HOU -12.5 (-105) | 44 (-108/-110) |
 | bet365 | HOU -12.5 (-109) | 44.5 (-104/-116) |
 
-ESPN pickcenter (DraftKings): HOU -12.5, O/U 44.5 (ESPN-displayed pre-game line; pulled 2026-11-22 05:20 PM AST).
+ESPN pickcenter (DraftKings): HOU -12.5, O/U 44.5 (ESPN-displayed pre-game line; pulled 2026-11-22 09:36 PM AST).
 
 **Grading vs AN consensus close (HOU -12.5, total 44.5):** outright winner HOU (3-26); ATS cover HOU; total 29 -> UNDER.
 
@@ -164,7 +164,7 @@ HOU passing: C.J. Stroud 21/27, 194 yds, 3 TD, 1 INT, sacks 1-7
 
 ## Defenders named on pass plays (ESPN play text)
 
-Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke up or intercepted the pass (the defender at the catch point). **tackler, not coverage** = defender named as tackler on a completion (often but not always the man in coverage). DPI = flagged defender. Free sources never name the assigned coverage defender on completions.
+Evidence labels: **VERIFIED-PBU/INT/DPI** = play text names the defender who broke up or intercepted the pass, or who was flagged for DPI; these are the only coverage counts. **tackler, not coverage** = defender named as tackler on a completion (inferred; not counted as coverage). No Play rule: a snap wiped out by an accepted penalty writes no tackler/PBU/INT rows; a DPI flag on it still counts. Declined penalties keep their rows. Free sources never name the assigned coverage defender on completions.
 
 | Defense | Defender | Plays tagged | Rec | Yds | TD | PBU | INT | DPI | Receivers | 20+ allowed |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -190,8 +190,10 @@ Evidence labels: **VERIFIED-PBU/INT** = play text names the defender who broke u
 | HOU | T.Togiai | 2 | 1 | -1 | 0 | 1 | 0 | 0 | J.Taylor 1, T.Warren 1 |  |
 
 Assignment evidence count: 7 VERIFIED (PBU/INT/DPI-named), 29 tackler-not-coverage (inferred), 14 unattributed.
-Most yards charged to a IND defender (tackler tag, not coverage): C.Allen 6 rec / 41 yds.
-Most yards charged to a HOU defender (tackler tag, not coverage): R.Blankenship 3 rec / 41 yds.
+Most yards charged to a IND defender (tackler tag, not coverage; inferred): C.Allen 6 rec / 41 yds.
+Most VERIFIED-PBU/INT/DPI credits on a IND defender (the only coverage counts): A.Ajiake PBU 1, INT 0, DPI 0.
+Most yards charged to a HOU defender (tackler tag, not coverage; inferred): R.Blankenship 3 rec / 41 yds.
+Most VERIFIED-PBU/INT/DPI credits on a HOU defender (the only coverage counts): J.Hansen PBU 2, INT 0, DPI 0.
 
 ## Explosive plays (pass 20+, rush 15+)
 
@@ -232,7 +234,7 @@ ESPN gameInfo: MISSING (ESPN gameInfo has no weather block for this game)
 Venue: Reliant Stadium (Houston), indoor=None, grass=False
 Open-Meteo at kickoff hour (2026-11-20T01:00Z; model value, not a stadium observation; ignore if indoor): {"temperature_2m": 68.0, "precipitation": 0.0, "rain": 0.0, "wind_speed_10m": 3.4, "wind_gusts_10m": 6.3}
 
-## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 05:20 PM AST; scores: src: ESPN summary JSON event 401873066, pulled 2026-11-22 05:20 PM AST)
+## Period spread and total results (lines: Action Network public scoreboard pre-game is_live=false, consensus unless noted, pulled 2026-11-22 09:36 PM AST; scores: src: ESPN summary JSON event 401873066, pulled 2026-11-22 09:36 PM AST)
 
 | Period | Away pts | Home pts | Total | Winner | Line (home) | ATS winner | Total line | O/U |
 |---|---|---|---|---|---|---|---|---|
@@ -245,7 +247,7 @@ Open-Meteo at kickoff hour (2026-11-20T01:00Z; model value, not a stadium observ
 
 Note: books differ on whether OT counts in Q4/2H markets; 2H here includes OT if played, Q4 excludes it. Check the book rule before settling.
 
-## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873066, pulled 2026-11-22 05:20 PM AST)
+## Full play-by-play and play-count reconciliation (src: ESPN summary JSON event 401873066, pulled 2026-11-22 09:36 PM AST)
 
 Every ESPN play (159 rows incl. kickoffs, penalties, timeouts) is in `pbp/IND_at_HOU_pbp.csv` with down/distance, yards, YAC, home win prob and a garbage-time flag.
 
@@ -254,7 +256,7 @@ Every ESPN play (159 rows incl. kickoffs, penalties, timeouts) is in `pbp/IND_at
 | IND | 48 | 48 | yes |
 | HOU | 65 | 65 | yes |
 
-## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873066, pulled 2026-11-22 05:20 PM AST)
+## Turnovers, 4th down, red zone (src: ESPN summary JSON event 401873066, pulled 2026-11-22 09:36 PM AST)
 
 | Stat | IND | HOU |
 |---|---|---|
@@ -266,14 +268,14 @@ Every ESPN play (159 rows incl. kickoffs, penalties, timeouts) is in `pbp/IND_at
 | Drives | 10 | 10 |
 | Turnover rate | 10.0% of drives; 2.1% of plays | 10.0% of drives; 1.5% of plays |
 
-## Scoring breakdown (src: ESPN summary JSON event 401873066, pulled 2026-11-22 05:20 PM AST scoringPlays)
+## Scoring breakdown (src: ESPN summary JSON event 401873066, pulled 2026-11-22 09:36 PM AST scoringPlays)
 
 | Team | Non-QB rush TD | QB rush TD | Receiving TD | Defense/ST TD | FG | Safety | Other |
 |---|---|---|---|---|---|---|---|
 | IND | 0 | 0 | 0 | 0 | 1 | 0 |  |
 | HOU | 0 | 0 | 3 | 0 | 1 | 1 |  |
 
-## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873066, pulled 2026-11-22 05:20 PM AST; positions: ESPN team roster API, pulled 2026-11-22 05:20 PM AST)
+## WR / TE / RB usage with positions (box: src: ESPN summary JSON event 401873066, pulled 2026-11-22 09:36 PM AST; positions: ESPN team roster API, pulled 2026-11-22 09:36 PM AST)
 
 Players absent from the ESPN receiving box had no target or reception logged; whether they played is unknown until snap counts post (nflverse/PFR, usually Monday-Tuesday).
 
@@ -301,7 +303,7 @@ Players absent from the ESPN receiving box had no target or reception logged; wh
 | HOU | Dalton Schultz | TE | 1 | 1 | 100% | 11 | 0 logged* | 0 logged* | 3.8% |
 | HOU | Foster Moreau | TE | 1 | 1 | 100% | 8 | 0 logged* | 0 logged* | 3.8% |
 
-## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 05:20 PM AST)
+## Defensive leaks by target position (derived from ESPN play text + roster positions, 2026-11-22 09:36 PM AST)
 
 WR slot vs outside alignment is **unknown** in free data (ESPN/nflverse do not chart alignment; FTN/PFF are paid and are not used). Pass location (left/middle/right) is shown as a proxy only.
 
@@ -324,7 +326,7 @@ IND defense by depth/location (proxy, not alignment): short_middle 7/9 70y; deep
 HOU defense by depth/location (proxy, not alignment): short_middle 4/7 54y; deep_right 2/4 48y; short_left 4/7 41y; short_right 2/4 1y; deep_left 0/2 0y; deep_middle 0/1 0y
 
 
-## Extras (src: ESPN summary JSON event 401873066, pulled 2026-11-22 05:20 PM AST; derived where noted)
+## Extras (src: ESPN summary JSON event 401873066, pulled 2026-11-22 09:36 PM AST; derived where noted)
 
 | Metric | IND | HOU |
 |---|---|---|

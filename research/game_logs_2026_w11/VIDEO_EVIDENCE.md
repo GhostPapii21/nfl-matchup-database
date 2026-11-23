@@ -86,3 +86,42 @@ Other mentions without a coverage word (count only): none
 
 Scheme words in commentary (counts, not charting): {}
 
+## LV@DEN: Las Vegas Raiders vs Denver Broncos Game Highlights | 2026 NFL Season Week 11
+URL https://www.youtube.com/watch?v=i13fzifkiE8 | track: English - CC1 | retrieved via Firecrawl youtube-com/video_transcript
+
+### LV defenders mentioned near a coverage word (1)
+- Jermod McCoy (CB) @2:04 "AT WADDLE -- GOOD COVERAGE ON THE PLAY. THE ROOKIE OUT OF TENNESSEE. >> Logan: McCOY DRAWING A TOUGH WILL LUTZ. OUT OF THE HOLD OF THE PUNTER," [coverage word: COVERAGE]
+Other mentions without a coverage word (count only): Jermod McCoy x2, Eric Stokes x1, Nakobe Dean x1, Maxx Crosby x7
+
+### DEN defenders mentioned near a coverage word (1)
+- Ja'Quan McMillian (CB) @16:18 "COMPLETES IT TO BECH. [WHISTLE] >> Andrew: OUT OF BOUNDS, WITH McMILLIAN ON THE COVERAGE. THROW THIS BALL OFF. WE'LL SEE IF HE CAN KEEP THESE" [coverage word: COVERAGE]
+Other mentions without a coverage word (count only): Alex Singleton x3, Que Robinson x1, Nik Bonitto x3, Zach Allen x2, Jonathon Cooper x2, Justin Strnad x1
+
+Scheme words in commentary (counts, not charting): {'zone': 4, 'coverage': 4, 'blitz': 2, 'blitzes': 1, 'beat': 1, 'interception': 2, 'intercepted': 1, 'picked': 1}
+
+## NYJ@LAC: New York Jets vs. Los Angeles Chargers Highlights | NFL 2026 Season Week 11
+URL https://www.youtube.com/watch?v=gvZYsXcr_6g | track: English - CC1 | retrieved via Firecrawl youtube-com/video_transcript
+
+### NYJ defenders mentioned near a coverage word (1)
+- Minkah Fitzpatrick (S) @7:50 "AND IT IS HAMPTON ALONG THE EDGE WITH THE BEST L.A. RUN OF THE DAY. FITZPATRICK THE TACKLE DOWN IN THE RED ZONE. >> Drew: YEAH." [coverage word: ZONE]
+Other mentions without a coverage word (count only): David Bailey x5, Harrison Phillips x1, Minkah Fitzpatrick x2, D'Angelo Ponds x2, Jowon Briggs x2
+
+### LAC defenders mentioned near a coverage word (1)
+- Donte Jackson (CB) @2:35 "THE BACK OF THE END ZONE. AND HIS EYES GOING THERE, JUST FREEZES DONTE JACKSON JUST ENOUGH TO ALLOW BREECE HALL TO >> Adam: THANKS FOR BREAKING THAT DOWN." [coverage word: ZONE]
+Other mentions without a coverage word (count only): Khalil Mack x2, Akheem Mesidor x2, Tuli Tuipulotu x2, Deane Leonard x1, Cam Hart x2, Tarheeb Still x3, Elijah Molden x1, Tony Jefferson x1
+
+Scheme words in commentary (counts, not charting): {'zone': 10, 'blitz': 1, 'man-to-man': 1, 'coverage': 1, 'beat': 1}
+
+## JAX@NYG: Jacksonville Jaguars vs. New York Giants Game Highlights | NFL 2026 Season Week 11
+URL https://www.youtube.com/watch?v=VFJ5DTTNN9A | track: English - CC1 | retrieved via Firecrawl youtube-com/video_transcript
+
+### JAX defenders mentioned near a coverage word (0)
+- none
+Other mentions without a coverage word (count only): Josh Hines-Allen x1, Ventrell Miller x1
+
+### NYG defenders mentioned near a coverage word (1)
+- Kayvon Thibodeaux (LB) @13:50 "BUYING TIME, SLIPS IT, PICKED OFF IN THE END ZONE BY THIBODEAUX. >> J.J.: THERE YOU GO. NOT HAPPY, YOU HAVE TO FIND A WAY TO BURN SOME O'CLOCK." [coverage word: PICKED]
+Other mentions without a coverage word (count only): Abdul Carter x1, Dru Phillips x2
+
+Scheme words in commentary (counts, not charting): {'zone': 13, 'blitz': 1, 'coverage': 1, 'picked': 2, 'beat': 1, 'blitzing': 1, 'broke up': 1, 'interception': 1, 'missing': 1, 'burn': 1, 'corner': 1}
+
