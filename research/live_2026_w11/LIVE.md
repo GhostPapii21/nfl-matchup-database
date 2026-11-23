@@ -1,10 +1,10 @@
-# Live tracker, Week 11 (2026-11-23 01:31 UTC)
+# Live tracker, Week 11 (2026-11-23 01:36 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## MIN 0 @ SF 7 (11:16 - 1st)
+## MIN 0 @ SF 7 (9:57 - 1st)
 
-9 plays. Top yards allowed by a named defender: J.Pierre (1/1, 18 yds), B.Murphy (1/1, 14 yds), A.Van Ginkel (1/1, 6 yds)
+13 plays. Top yards allowed by a named defender: J.Pierre (1/1, 18 yds), B.Murphy (1/1, 14 yds), M.Mustapha (1/1, 9 yds), A.Van Ginkel (1/1, 6 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
