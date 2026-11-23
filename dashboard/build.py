@@ -257,6 +257,11 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
         all_rows = DB.load_rows(g["game_id"])
         for sd in sides.values():
             sd["best_bets"] = BB.side_best_bets(sd, all_rows) if all_rows else {"picks": [], "note": "no book lines pulled for this game yet"}
+            try:   # every book's main yardage line vs the projection (dashboard/book_lines.py)
+                from dashboard import book_lines as BL
+                BL.attach(sd, all_rows)
+            except Exception as e:  # noqa: BLE001
+                sd.setdefault("data_gaps", []).append(f"book lines: {type(e).__name__}: {e}"[:200])
         try:   # game markets: full game, halves, quarters; moneylines, spreads, totals and alternates (dashboard/gamebets.py)
             from dashboard import gamebets as GBT
             game_bets = GBT.game_best_bets(all_rows, g["home"], g["away"]) if all_rows else {"picks": [], "note": "no book lines yet"}
