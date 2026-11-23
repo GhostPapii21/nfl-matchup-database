@@ -21,3 +21,14 @@ are in, how swingy a player is adds nothing we can measure.
 `dashboard/watch.py` `shadow_role`: the board's receiver 80+ chance plus 0.219 x log(last game's target share / season
 share) on the logit scale (weight fit on 2022-26 with the board's own weights fixed, z 2.6). Stored as `shadow` on each
 receiver; the live stars never use it. First game: CIN@WAS, Nov 23 (`live/2026_11_CIN_WAS.json`, saved before kickoff).
+
+## Season by season (`by_season.py`; hold out one season, fit on all the others)
+| Held out | Rising role: log loss / Brier, base -> with | Stars hit, base -> with |
+|---|---|---|
+| 2023 | 0.27365 -> 0.27277 / 0.08297 -> 0.08279 (better) | 39.5% (200) -> 40.0% (195) |
+| 2024 | 0.28286 -> 0.28355 / 0.08634 -> 0.08672 (worse) | 39.0% (154) -> 39.8% (161) |
+| 2025 | 0.26266 -> 0.26170 / 0.07609 -> 0.07596 (better) | 36.7% (166) -> 36.5% (167) |
+
+Rising role helped in 2 of 3 seasons, with a small effect; the weight points the same way every year (z 2.0 / 3.1 / 2.0).
+Streakiness and man vs zone each helped in 1 of 3, by tiny amounts. Rising role stays in the side-by-side run; it has to
+beat the live stars on the weekly grading before it replaces anything.
