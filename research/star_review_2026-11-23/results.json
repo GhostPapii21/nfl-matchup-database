@@ -1,0 +1,220 @@
+{
+ "receivers": {
+  "base": {
+   "logloss": 0.26911,
+   "brier": 0.07834
+  },
+  "n_train": 5826,
+  "n_test": 2244,
+  "candidates": {
+   "true_backup": {
+    "logloss": 0.26903,
+    "brier": 0.07832,
+    "coef": -0.1101,
+    "z": -0.8,
+    "rows_with_flag_test": 316,
+    "keep": false
+   },
+   "vet_new": {
+    "logloss": 0.2694,
+    "brier": 0.07843,
+    "coef": -0.0966,
+    "z": -0.52,
+    "rows_with_flag_test": 201,
+    "keep": false
+   },
+   "fav": {
+    "logloss": 0.26875,
+    "brier": 0.07825,
+    "coef": -0.0135,
+    "z": -1.04,
+    "rows_with_flag_test": 1146,
+    "keep": false
+   }
+  }
+ },
+ "backs": {
+  "base": {
+   "logloss": 0.58089,
+   "brier": 0.19724
+  },
+  "n_train": 1271,
+  "n_test": 584,
+  "candidates": {
+   "split": {
+    "logloss": 0.57552,
+    "brier": 0.19489,
+    "coef": -0.4033,
+    "z": -2.13,
+    "rows_with_flag_test": 104,
+    "keep": true
+   },
+   "mate_car": {
+    "logloss": 0.57521,
+    "brier": 0.19484,
+    "coef": -0.0314,
+    "z": -2.12,
+    "rows_with_flag_test": 104,
+    "keep": true
+   },
+   "true_backup": {
+    "logloss": 0.58184,
+    "brier": 0.19772,
+    "coef": 0.1906,
+    "z": 0.96,
+    "rows_with_flag_test": 64,
+    "keep": false
+   }
+  }
+ },
+ "star_groups_heldout_2025_26": {
+  "3": {
+   "players": 82,
+   "per_week": 3.7,
+   "predicted": 0.558,
+   "hit80": 0.512,
+   "hit80_ci95": [
+    0.404,
+    0.62
+   ],
+   "gap_points": -4.5,
+   "rec": {
+    "players": 38,
+    "predicted": 0.552,
+    "hit80": 0.579
+   },
+   "rush": {
+    "players": 44,
+    "predicted": 0.562,
+    "hit80": 0.455
+   }
+  },
+  "2": {
+   "players": 123,
+   "per_week": 5.6,
+   "predicted": 0.439,
+   "hit80": 0.431,
+   "hit80_ci95": [
+    0.343,
+    0.518
+   ],
+   "gap_points": -0.9,
+   "rec": {
+    "players": 54,
+    "predicted": 0.446,
+    "hit80": 0.407
+   },
+   "rush": {
+    "players": 69,
+    "predicted": 0.435,
+    "hit80": 0.449
+   }
+  },
+  "1": {
+   "players": 249,
+   "per_week": 11.3,
+   "predicted": 0.343,
+   "hit80": 0.345,
+   "hit80_ci95": [
+    0.286,
+    0.404
+   ],
+   "gap_points": 0.2,
+   "rec": {
+    "players": 122,
+    "predicted": 0.342,
+    "hit80": 0.303
+   },
+   "rush": {
+    "players": 127,
+    "predicted": 0.344,
+    "hit80": 0.386
+   }
+  }
+ },
+ "star_groups_heldout_2025_26_with_mate_car": {
+  "3": {
+   "players": 78,
+   "per_week": 3.5,
+   "predicted": 0.561,
+   "hit80": 0.538,
+   "hit80_ci95": [
+    0.428,
+    0.649
+   ],
+   "gap_points": -2.3,
+   "rec": {
+    "players": 38,
+    "predicted": 0.552,
+    "hit80": 0.579
+   },
+   "rush": {
+    "players": 40,
+    "predicted": 0.569,
+    "hit80": 0.5
+   }
+  },
+  "2": {
+   "players": 131,
+   "per_week": 6.0,
+   "predicted": 0.444,
+   "hit80": 0.45,
+   "hit80_ci95": [
+    0.365,
+    0.536
+   ],
+   "gap_points": 0.7,
+   "rec": {
+    "players": 54,
+    "predicted": 0.446,
+    "hit80": 0.407
+   },
+   "rush": {
+    "players": 77,
+    "predicted": 0.442,
+    "hit80": 0.481
+   }
+  },
+  "1": {
+   "players": 246,
+   "per_week": 11.2,
+   "predicted": 0.344,
+   "hit80": 0.333,
+   "hit80_ci95": [
+    0.274,
+    0.392
+   ],
+   "gap_points": -1.1,
+   "rec": {
+    "players": 122,
+    "predicted": 0.342,
+    "hit80": 0.303
+   },
+   "rush": {
+    "players": 124,
+    "predicted": 0.347,
+    "hit80": 0.363
+   }
+  }
+ },
+ "rusher_weights_all_seasons_with_mate_car": {
+  "80": {
+   "const": -14.7992,
+   "l_car": 2.0534,
+   "l_ypc": 2.6257,
+   "spread": 0.0207,
+   "implied": -0.0168,
+   "l_d": 1.0928,
+   "mate_car": -0.0425
+  },
+  "100": {
+   "const": -16.3986,
+   "l_car": 1.9474,
+   "l_ypc": 2.9061,
+   "spread": -0.0012,
+   "implied": 0.0295,
+   "l_d": 1.0265,
+   "mate_car": -0.0556
+  }
+ }
+}

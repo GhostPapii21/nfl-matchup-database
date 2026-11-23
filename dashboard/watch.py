@@ -94,11 +94,25 @@ def book_price(lines: list | None, player: str, market: str, rung: float = 79.5)
     return None
 
 
-def _attach_price(e: dict, lines: list | None, market: str) -> None:
+ROLE_GAP80 = 0.15     # model 15+ points off the book's 80+ price: Week 11's Smith (backup QB), Monangai and Allen (split backs)
+
+
+def _attach_price(e: dict, lines: list | None, market: str, cuts: dict | None = None) -> None:
+    """Adds the book's 80+ price. With a price, the stars come from the blend of model and price (Nov 23, 2026): the blend
+    was the most accurate of the three on the held-out weeks 8-9 ladders (Brier 0.1118 vs 0.1136), and on Week 11 the
+    blend's stars hit 14 of 26 against the model's 12 of 27 (research/star_review_2026-11-23)."""
     b = book_price(lines, e["player"], market)
-    if b:
-        e["book80"] = {**b, "blend": round(blend_with_book(e["p80"], b["break_even"]), 3),
-                       "model_minus_price": round(e["p80"] - b["break_even"], 3)}
+    if not b:
+        return
+    blend = blend_with_book(e["p80"], b["break_even"])
+    gap = e["p80"] - b["break_even"]
+    e["book80"] = {**b, "blend": round(blend, 3), "model_minus_price": round(gap, 3)}
+    if cuts:
+        e["stars_model"], e["stars"], e["star_basis"] = e["stars"], stars(blend, cuts), "model + FanDuel price"
+        if e["stars"] != e["stars_model"]:
+            e.setdefault("why", []).append(f"the FanDuel price moves this from {e['stars_model']} to {e['stars']} stars")
+    if abs(gap) >= ROLE_GAP80:
+        e.setdefault("why", []).append(f"model {e['p80']:.0%} vs FanDuel {b['break_even']:.0%}: a big disagreement, check the QB and his role")
 
 
 def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines: list | None = None) -> dict | None:
@@ -172,11 +186,19 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
         out["receivers"].append({"player": r.get("full_name") or r["player"], "player_id": r["player_id"], "pos": r["pos"], "tier": tier,
                                  "style": "explosive" if ex_pg >= 1.2 else "volume", "p80": round(p80, 3), "p100": round(p100, 3),
                                  "stars": stars(p80, cuts), "targets": round(blend, 1), "yds_pg": round(yds_pg, 1), "ex_pg": round(ex_pg, 2), "why": why})
+    rb_cpg = {}
+    for r in (sd.get("roles") or {}).get("rushers") or []:
+        o = by_player.get(r.get("player_id"))
+        if o and not o.get("status") and r.get("pos") == "RB" and r.get("log"):
+            rb_cpg[r.get("player_id")] = float(np.mean([x.get("carries", 0) for x in r["log"]]))
     for r in (sd.get("roles") or {}).get("rushers", []):
         o = by_player.get(r.get("player_id"))
         log = r.get("log", [])
         if not o or o.get("status") or len(log) < 3 or r.get("pos") != "RB":
             continue
+        # split backfield: the busiest other active back who comes in averaging 10+ carries (0 if none).
+        # Fit 2022-26 with the other weights (research/star_review_2026-11-23): -0.04 log-odds per carry he averages.
+        mate_car = max([c for pid, c in rb_cpg.items() if pid != r.get("player_id") and c >= 10] or [0.0])
         carries = [x.get("carries", 0) for x in log]
         cpg = 0.6 * float(np.mean(carries)) + 0.4 * float(np.mean(carries[-3:]))
         inp = o.get("inputs", {})
@@ -188,6 +210,8 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
         ypc = (sum(x.get("yards", 0) for x in log) + 4.3 * 40) / (sum(carries) + 40)
         rb_allowed = (sd.get("defense_allowed") or {}).get("rb_rush_yards_pg") or 92.5
         x = {"l_car": math.log(cpg), "l_ypc": math.log(ypc), "spread": margin, "implied": imp_off or 22.0, "l_d": math.log(max(rb_allowed, 20.0))}
+        if "mate_car" in rus_m:
+            x["mate_car"] = mate_car
         p80 = _sig(rus_m["const"] + sum(rus_m[k] * v for k, v in x.items()))
         p100 = _sig(rus_100["const"] + sum(rus_100[k] * v for k, v in x.items()))
         why = [f"{cpg:.1f} carries a game"]
@@ -197,12 +221,14 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
             why.append(f"{dfn} allows {rb_allowed:.0f} rushing yards a game to backs")
         if inp.get("injury_bump"):
             why.append("a teammate's absence adds carries")
+        if mate_car:
+            why.append(f"splits the backfield (another back averages {mate_car:.0f} carries)")
         out["rushers"].append({"player": r.get("full_name") or r["player"], "player_id": r["player_id"], "pos": "RB", "p80": round(p80, 3), "p100": round(p100, 3),
                                "stars": stars(p80, cuts), "carries": round(cpg, 1), "yds_pg": r.get("yards_pg"), "why": why})
     for e in out["receivers"]:
-        _attach_price(e, lines, "alt_receiving_yards")
+        _attach_price(e, lines, "alt_receiving_yards", cuts)
     for e in out["rushers"]:
-        _attach_price(e, lines, "alt_rushing_yards")
+        _attach_price(e, lines, "alt_rushing_yards", cuts)
     for k in ("receivers", "rushers"):
         out[k].sort(key=lambda e: -e["p80"])
     return out
