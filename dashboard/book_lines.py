@@ -45,6 +45,10 @@ def player_lines(rows: list[dict]) -> dict:
                 d = abs(qo / (qo + qu) - 0.5)
                 if bk not in books or d < books[bk][1]:
                     books[bk] = (ln, d)
+        # a book whose only two-sided line is priced far from even (Bovada's +150/-200 rungs, research/bovada_2026-11-23)
+        # is posting an alternate line, not a main line: listed separately, never in the main-line comparison
+        alt_only = sorted(bk for bk, v in books.items() if v[1] > 0.10)
+        books = {bk: v for bk, v in books.items() if v[1] <= 0.10}
         if not books:
             continue
         lines = {bk: v[0] for bk, v in sorted(books.items())}
@@ -55,7 +59,7 @@ def player_lines(rows: list[dict]) -> dict:
         odd = sorted(bk for bk, ln in lines.items() if abs(ln - med) > tol) if len(lines) >= 3 else []
         good = [ln for bk, ln in lines.items() if bk not in odd]
         out.setdefault(nm, {})[base] = {"books": lines, "median": statistics.median(good) if good else med, "n": len(good),
-                                       "outliers": odd, "alt_books": sorted({r["book"] for r in rs if r["alt"]})}
+                                       "outliers": odd, "alt_only_books": alt_only, "alt_books": sorted({r["book"] for r in rs if r["alt"]})}
     return out
 
 

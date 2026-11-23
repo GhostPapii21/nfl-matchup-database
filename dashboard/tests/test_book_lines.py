@@ -29,3 +29,10 @@ def test_attach_model_minus_median():
     e = side["opportunity"]["receivers"][0]["book_lines"]["receiving_yards"]
     assert e["model"] == 82.0 and e["model_minus_median"] == 6.5 and e["books"]["draftkings"] == 75.5
     assert "book_lines" not in side["opportunity"]["receivers"][1]
+
+
+def test_lopsided_only_line_is_not_a_main_line():
+    rows = [_r(b, 75.5, s, -110) for b in ("draftkings", "betmgm") for s in ("Over", "Under")]
+    rows += [_r("bovada", 92.5, "Over", 150), _r("bovada", 92.5, "Under", -200)]      # fair over about 37%: an alt rung
+    x = BL.player_lines(rows)["tee higgins"]["receiving_yards"]
+    assert "bovada" not in x["books"] and x["alt_only_books"] == ["bovada"] and x["median"] == 75.5
