@@ -99,6 +99,30 @@ def pools_for(data: X.Data, season: int) -> dict | None:
     return _POOLS[season]
 
 
+def starting_qb(listed: str | None, tp: dict, inactive: list, pbp, team: str, weeks: list) -> str | None:
+    """The schedule's listed QB, unless he is ruled out (injury report Out/IR or game-day inactive): then the team's QB
+    with the most dropbacks this season who is not out. Week 11: the schedule listed Tyler Huntley for BAL; Jacoby
+    Brissett started."""
+    if not listed:
+        return listed
+    out = {str(n).lower() for n in inactive}
+    for x in (tp.get("injuries") or tp.get("offense", {}).get("injuries") or []):
+        st = str(x.get("game_status") or x.get("status") or x.get("espn") or "").lower()
+        if st.startswith("out") or "reserve" in st or st == "ir":
+            out.add(str(x.get("player") or "").lower())
+    same = lambda a, b: a.split()[-1] == b.split()[-1] and a[:1] == b[:1]
+    if not any(same(listed.lower(), o) for o in out if o):
+        return listed
+    if pbp is None:
+        return listed
+    db = pbp[(pbp.qb_dropback == 1) & (pbp.posteam == team) & pbp.week.isin(weeks)]
+    for name, _ in db.passer_player_name.dropna().value_counts().items():      # "J.Brissett"
+        nm = str(name).lower().replace(".", ". ")
+        if not any(same(nm, o) for o in out if o) and not same(nm, listed.lower()):
+            return str(name)
+    return listed
+
+
 def official_inactives(pk: dict) -> dict:
     """Game-day inactives by team from the newest verified club-site pull (phase15/inactives/<game>/), or {}.
     Read-only, no network: the pull itself is `python -m phase15.official_inactives`."""
@@ -198,6 +222,10 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
     if rosters is not None:
         id_to_name = dict(zip(rosters.gsis_id, rosters.full_name))
     ex_team = {}
+    try:
+        inactive_now = official_inactives(pk)
+    except Exception:  # noqa: BLE001
+        inactive_now = {}
     for team, opp in ((away, home), (home, away)):
         tp = pk["teams"][team]
         weeks = tp["window"]["weeks"]
@@ -205,7 +233,8 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
         snap_off = tp["offense"].get("offense_snap_share", {})
         snap_def = X.defense_snap_share(snaps, team, wids, rosters)
         ex_team[team] = {
-            "qb": X.qb_profile(data, season, team, g.get("listed_qbs", {}).get(team), weeks),
+            "qb": X.qb_profile(data, season, team, starting_qb(g.get("listed_qbs", {}).get(team), tp, inactive_now.get(team, []),
+                                                            data.get("pbp", season), team, weeks), weeks),
             "roles": X.receiver_roles(tp["offense"]["players"], snap_off, id_to_name),
             "returning": X.returning_players(snaps, games, season, team, g["date"]),
             "injuries": X.injury_impact(tp, snap_off, snap_def),

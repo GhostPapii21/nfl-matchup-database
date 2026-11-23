@@ -318,3 +318,13 @@ def test_watch_stars_use_the_blend_when_a_price_exists():
     f = {"player": "Nobody", "p80": 0.45, "stars": 2}
     W._attach_price(f, [], "alt_receiving_yards", cuts)
     assert f["stars"] == 2 and "book80" not in f                     # no price: model stars stand
+
+
+def test_starting_qb_skips_a_listed_qb_who_is_out():
+    import pandas as pd
+    from dashboard import build as B
+    pbp = pd.DataFrame({"qb_dropback": 1, "posteam": "BAL", "week": [1, 1, 2, 3, 3, 3],
+                        "passer_player_name": ["L.Jackson", "L.Jackson", "T.Huntley", "J.Brissett", "J.Brissett", "T.Huntley"]})
+    assert B.starting_qb("Tyler Huntley", {"injuries": []}, [], pbp, "BAL", [1, 2, 3]) == "Tyler Huntley"
+    tp = {"injuries": [{"player": "Lamar Jackson", "game_status": "Out"}]}
+    assert B.starting_qb("Tyler Huntley", tp, ["Tyler Huntley"], pbp, "BAL", [1, 2, 3]) == "J.Brissett"
