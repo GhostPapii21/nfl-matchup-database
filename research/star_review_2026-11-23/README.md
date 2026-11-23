@@ -46,3 +46,11 @@ Week 11 Sunday (27 stars): ★★★ 3 of 3, ★★ 4 of 9 (expected 4.0), ★ 5
 Stars from the model+price blend: the blend was the most accurate on the held-out weeks 8-9 FanDuel ladders
 (`research/watch_model_2026-11-16`, Brier 0.1118 vs 0.1136); Week 11: blend stars 14 of 26, model stars 12 of 27.
 Research only.
+
+## Follow-ups from the owner's box-score review (same day)
+| Point | What the data says | Change |
+|---|---|---|
+| Flowers/Henry: what does CAR allow? | CAR ranked 12th vs running backs and among the tougher defenses vs WRs going in: no matchup trigger. RB yards allowed is already one of the backs' star weights (`l_d`). Yards allowed to opposing lead receivers did not predict 80+ games (watch_model_2026-11-16). Henry's 94 came on 13 carries (7.2 a carry). | None |
+| Baltimore's QB | The board listed **Tyler Huntley** (schedule file); **Jacoby Brissett** started. | `dashboard/build.py` `starting_qb`: if the listed QB is Out/IR or a game-day inactive, the team's most-used active QB is used. A coach's choice with nobody ruled out still can't be seen before the inactives. |
+| Breece Hall vs LAC | LAC ranked 18th vs backs (middle). Hall's 20 carries vs 13.7 projected was the split with Braelon Allen going his way. Rush+receiving yards and touchdown props are not in our book feed yet. | None yet |
+| Josh Allen throwing while ahead | Teams with a high pass rate when leading by 7+ threw no more than the refit rule as favourites (2025-26 thirds: 1.00 / 1.00 / 0.99 of expected; 710 favourite games). BUF threw 22 times in Week 10. | None (`research/qb_script_2026-11-22/pass_when_ahead.py`) |

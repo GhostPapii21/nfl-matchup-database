@@ -318,3 +318,43 @@ def test_watch_stars_use_the_blend_when_a_price_exists():
     f = {"player": "Nobody", "p80": 0.45, "stars": 2}
     W._attach_price(f, [], "alt_receiving_yards", cuts)
     assert f["stars"] == 2 and "book80" not in f                     # no price: model stars stand
+
+
+def test_starting_qb_skips_a_listed_qb_who_is_out():
+    import pandas as pd
+    from dashboard import build as B
+    pbp = pd.DataFrame({"qb_dropback": 1, "posteam": "BAL", "week": [1, 1, 2, 3, 3, 3],
+                        "passer_player_name": ["L.Jackson", "L.Jackson", "T.Huntley", "J.Brissett", "J.Brissett", "T.Huntley"]})
+    assert B.starting_qb("Tyler Huntley", {"injuries": []}, [], pbp, "BAL", [1, 2, 3]) == "Tyler Huntley"
+    tp = {"injuries": [{"player": "Lamar Jackson", "game_status": "Out"}]}
+    assert B.starting_qb("Tyler Huntley", tp, ["Tyler Huntley"], pbp, "BAL", [1, 2, 3]) == "J.Brissett"
+    packet_shape = {"injuries": {"official_report": [{"player": "Tyler Huntley", "game_status": "Out"}, "junk"], "espn": [{"player": "Lamar Jackson", "status": "Out"}]}}
+    assert B.starting_qb("Tyler Huntley", packet_shape, [], pbp, "BAL", [1, 2, 3]) == "J.Brissett"
+    assert B._safe_starting_qb("Tyler Huntley", None, [], pbp, "BAL", [1]) == "Tyler Huntley"      # bad input never breaks the build
+
+
+def test_defensive_gate_and_pressure_note():
+    from dashboard import watch as W
+    sd = {"defense_rank": {"wr_rec_yards_pg": {"rank": 28, "of": 32, "league_avg": 149.3}, "rb_rush_yards_pg": {"rank": 3, "of": 32}},
+          "defense_allowed": {"wr_rec_yards_pg": 181.0},
+          "coverage_profile": {"five_plus_rushers_rate": 0.41},
+          "qb": {"player": "J.McCarthy", "this_season": {"vs_blitz": {"dropbacks": 60, "yards_per_attempt": 5.1}, "no_blitz": {"yards_per_attempt": 7.0}}}}
+    g = W.defensive_gate(sd, "WR")
+    assert g["label"] == "soft" and g["rank"] == 28 and g["allowed_pg"] == 181.0
+    assert W.defensive_gate(sd, "RB")["label"] == "tough" and W.defensive_gate(sd, "TE") is None
+    assert "5+ rushers 41%" in W.pressure_note(sd)
+    sd["coverage_profile"]["five_plus_rushers_rate"] = 0.20
+    assert W.pressure_note(sd) is None
+
+
+def test_health_flags_questionable_concussion_returning():
+    from dashboard import watch as W
+    sd = {"offense_injuries": [{"player": "Brock Bowers", "game_status": "Questionable", "injury": "Concussion"},
+                               {"player": "Other Guy", "game_status": "Out", "injury": "Knee"}],
+          "returning": [{"player": "Tee Higgins", "unit": "offense", "games_missed": 3, "games_since_return": 0, "snap_pct_before": 0.88,
+                         "snap_pct_last_game": 0.0, "status": "Back this week"}]}
+    b = W.health_flags(sd, "Brock Bowers")
+    assert b["status"] == "Questionable" and b["concussion"] and any("inactives" in n for n in b["notes"])
+    h = W.health_flags(sd, "Tee Higgins")
+    assert h["returning"]["games_missed"] == 3 and "status" not in h
+    assert W.health_flags(sd, "Other Guy") is None and W.health_flags(sd, "Nobody") is None
