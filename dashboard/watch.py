@@ -18,6 +18,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from dashboard.extras import player_is_out
+
 MODEL_PATH = Path(__file__).resolve().parent / "watch_model.json"
 
 
@@ -155,6 +157,15 @@ def health_flags(sd: dict, player: str) -> dict | None:
     return out
 
 
+def unavailable(sd: dict, player: str) -> bool:
+    """True when he is Out, Doubtful, or on IR with no current official game designation. The 80+ watch excludes him."""
+    want = _norm(player)
+    for x in sd.get("offense_injuries") or []:
+        if _norm(x.get("player")) == want and player_is_out(x):
+            return True
+    return False
+
+
 ROLE_GAP80 = 0.15     # model 15+ points off the book's 80+ price: Week 11's Smith (backup QB), Monangai and Allen (split backs)
 
 
@@ -199,7 +210,7 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
     for r in (sd.get("roles") or {}).get("receivers", []):
         o = by_player.get(r.get("player_id"))
         log = [x for x in r.get("log", [])]
-        if not o or o.get("status") or len(log) < 3 or r.get("pos") not in ("WR", "TE") or not team_pass:
+        if not o or o.get("status") or unavailable(sd, r.get("full_name") or r["player"]) or len(log) < 3 or r.get("pos") not in ("WR", "TE") or not team_pass:
             continue
         tgt_pg = float(np.mean([x.get("targets", 0) for x in log]))
         yds_pg = float(np.mean([x.get("yards", 0) for x in log]))
@@ -250,12 +261,12 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
     rb_cpg = {}
     for r in (sd.get("roles") or {}).get("rushers") or []:
         o = by_player.get(r.get("player_id"))
-        if o and not o.get("status") and r.get("pos") == "RB" and r.get("log"):
+        if o and not o.get("status") and not unavailable(sd, r.get("full_name") or r["player"]) and r.get("pos") == "RB" and r.get("log"):
             rb_cpg[r.get("player_id")] = float(np.mean([x.get("carries", 0) for x in r["log"]]))
     for r in (sd.get("roles") or {}).get("rushers", []):
         o = by_player.get(r.get("player_id"))
         log = r.get("log", [])
-        if not o or o.get("status") or len(log) < 3 or r.get("pos") != "RB":
+        if not o or o.get("status") or unavailable(sd, r.get("full_name") or r["player"]) or len(log) < 3 or r.get("pos") != "RB":
             continue
         # split backfield: the busiest other active back who comes in averaging 10+ carries (0 if none).
         # Fit 2022-26 with the other weights (research/star_review_2026-11-23): -0.04 log-odds per carry he averages.

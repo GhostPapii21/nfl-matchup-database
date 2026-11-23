@@ -16,10 +16,14 @@ import statistics
 from datetime import datetime, timedelta
 
 from dashboard import gamemodel as G
+from pregame.direct_books import REFERENCE_BOOKS
 
 EPS = 1e-4
 MIN_BREAK_EVEN = 0.20
 STALE_MIN = 180
+# "open" is the Action Network opening line, re-emitted with the current pull's timestamp. It is not a live
+# book and is never bettable (W11 CIN@WAS: the finder treated open CIN -1.5 -110 and ML -125 as best prices).
+OPENING_BOOKS = {"open"}
 PERIOD_LABEL = {"": "Game", "h1_": "1st half", "h2_": "2nd half", "q1_": "1st quarter", "q2_": "2nd quarter", "q3_": "3rd quarter", "q4_": "4th quarter"}
 
 
@@ -63,9 +67,22 @@ def _team(name, home, away):
     return ab if ab in (home, away) else None
 
 
+def quote_status(r, newest=None):
+    """(is_current, reason_if_not). Stale or opening quotes must not receive an EV and are never a pick."""
+    book = str(r.get("book") or "").lower()
+    if book in OPENING_BOOKS:
+        return False, "opening line, not a current timestamped quote"
+    t = _utc(r.get("t") or r.get("retrieved_utc"))
+    if t is None:
+        return False, "no timestamp"
+    if newest and t < newest - timedelta(minutes=STALE_MIN):
+        return False, f"pulled more than {STALE_MIN} minutes before the newest quote"
+    return True, None
+
+
 def normalize(rows, home, away):
-    """Game-market rows -> {market, side (team code / Over / Under), line (bet side's view; None for moneyline), price, book, t}."""
-    out = []
+    """Game-market rows -> (current quotes, stale quotes). Current quotes require a timestamp and are not openers."""
+    parsed = []
     for r in rows:
         m = r.get("market") or ""
         pre, base = _split(m)
@@ -86,11 +103,17 @@ def normalize(rows, home, away):
         line = None if base == "moneyline" else (float(r["line"]) if r.get("line") is not None else None)
         if side is None or (base != "moneyline" and line is None) or (base == "total" and line <= 0):
             continue
-        out.append({"market": m, "side": side, "line": line, "american": a, "book": r.get("book"), "t": r.get("retrieved_utc"), "source": r.get("source")})
-    newest = max((x for x in (_utc(r["t"]) for r in out) if x), default=None)
-    if newest:
-        out = [r for r in out if (_utc(r["t"]) or newest) >= newest - timedelta(minutes=STALE_MIN)]
-    return out
+        parsed.append({"market": m, "side": side, "line": line, "american": a, "book": r.get("book"), "t": r.get("retrieved_utc"), "source": r.get("source")})
+    # Newest clock among timestamped, non-opening books only, so a same-timestamp "open" row cannot keep openers live.
+    newest = max((t for t in (_utc(r["t"]) for r in parsed if str(r.get("book") or "").lower() not in OPENING_BOOKS) if t), default=None)
+    current, stale = [], []
+    for r in parsed:
+        ok, reason = quote_status(r, newest)
+        if ok:
+            current.append(r)
+        else:
+            stale.append({**r, "stale_reason": reason, "ev_per_dollar": None})
+    return current, stale
 
 
 def _key(r, home):
@@ -123,10 +146,13 @@ def implied_points(norm, home):
 
 
 def game_best_bets(rows, home, away, nb=None, min_edge=0.0):
-    norm = normalize(rows, home, away)
+    norm, stale = normalize(rows, home, away)
+    stale_quotes = [{"book": r.get("book"), "market": r.get("market"), "side": r.get("side"), "line": r.get("line"),
+                     "american": r.get("american"), "t": r.get("t"), "reason": r.get("stale_reason"),
+                     "ev_per_dollar": None} for r in stale]
     imp = implied_points(norm, home)
     if not imp:
-        return {"picks": [], "note": "no full-game spread and total posted yet"}
+        return {"picks": [], "note": "no full-game spread and total posted yet", "stale_quotes": stale_quotes}
     nb = G.neighbors(*imp) if nb is None else nb
     by_market = {}
     for r in norm:
@@ -171,7 +197,7 @@ def game_best_bets(rows, home, away, nb=None, min_edge=0.0):
         main_k = min(ref, key=lambda k: abs(ref[k] - 0.5))
         cands = []
         for r in rs:
-            if r["book"] == "pinnacle":
+            if str(r.get("book") or "").lower() in REFERENCE_BOOKS:
                 continue
             k = _key(r, home)
             o = G.outcome(nb, market, r["side"], r["line"], home, away)
@@ -204,4 +230,5 @@ def game_best_bets(rows, home, away, nb=None, min_edge=0.0):
                                           if fd else None), "flags": flags})
     picks.sort(key=lambda x: (bool(x["flags"]), -x["best"]["ev_per_dollar"]))
     return {"picks": picks, "implied_points": {"home": round(imp[0], 1), "away": round(imp[1], 1)}, "neighbors": int(len(nb)),
+            "stale_quotes": stale_quotes,
             "method": "250 most similar games 2022-2026 by implied points, blended with the market's fair price at each line"}

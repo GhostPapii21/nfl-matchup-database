@@ -191,6 +191,54 @@ def test_espn_out_beats_a_friday_questionable():
     assert rows["Lead Back"]["status_level"] == 3 and rows["Other Guy"]["status_level"] == 2
 
 
+def test_official_questionable_is_not_overridden_by_stale_ir():
+    """Current official Q (IR return expected) must not count as out, so teammates do not get a carry bump."""
+    pk = {"injuries": {"official_report": [{"player": "Jacory Croskey-Merritt", "position": "RB", "game_status": "Questionable",
+                                            "practice_status": "Full Participation in Practice", "injury": "Groin"}],
+                       "espn_live": [{"player": "Jacory Croskey-Merritt", "position": "RB", "status": "Injured Reserve",
+                                      "comment": "slated to be activated from IR"}]}}
+    rows = {r["player"]: r for r in X.injury_impact(pk, {}, {})}
+    assert rows["Jacory Croskey-Merritt"]["status_level"] == 2
+    assert not X.player_is_out(rows["Jacory Croskey-Merritt"])
+    # bump path: JCM is not in out_names, so the next back is not credited with his carries
+    side = _side([], [_b("Jacory Croskey-Merritt", 0.30, 8), _b("Rachaad White", 0.40, 10), _b("Austin Ekeler", 0.25, 6)])
+    base = {r["player"]: r for r in __import__("dashboard.opportunity", fromlist=["x"]).board_side(side, {}, None, _pools(), set())["rushers"]}
+    still = {r["player"]: r for r in __import__("dashboard.opportunity", fromlist=["x"]).board_side(
+        side, {}, None, _pools(), {n for n, r in rows.items() if r["status_level"] >= 3})["rushers"]}
+    assert still["Jacory Croskey-Merritt"].get("status") is None
+    assert still["Rachaad White"]["inputs"]["injury_bump"] == 0
+    assert abs(still["Rachaad White"]["carries_mean"] - base["Rachaad White"]["carries_mean"]) < 0.15
+
+
+def test_roster_ir_fills_a_missing_season_ending_listing_and_does_not_override_official_q():
+    """Season-ending IR can fall off the official report and ESPN's 25-entry cap; weekly roster RES still counts as out."""
+    reserve = [{"player": "Terry McLaurin", "position": "WR", "status": "Injured Reserve", "roster_status": "RES"}]
+    pk = {"injuries": {"official_report": [{"player": "Rachaad White", "position": "RB", "game_status": "Questionable"}],
+                       "espn_live": []}}
+    rows = {r["player"]: r for r in X.injury_impact(pk, {}, {}, reserve)}
+    assert rows["Terry McLaurin"]["status_level"] == 3 and X.player_is_out(rows["Terry McLaurin"])
+    assert rows["Rachaad White"]["status_level"] == 2
+    # official Q plus roster RES on the same player stays Q
+    pk2 = {"injuries": {"official_report": [{"player": "Jacory Croskey-Merritt", "position": "RB", "game_status": "Questionable"}],
+                        "espn_live": []}}
+    rows2 = {r["player"]: r for r in X.injury_impact(pk2, {}, {},
+                                                     [{"player": "Jacory Croskey-Merritt", "status": "Injured Reserve"}])}
+    assert rows2["Jacory Croskey-Merritt"]["status_level"] == 2
+
+
+def test_roster_reserve_players_reads_latest_week_at_or_before_the_game():
+    rost = pd.DataFrame([
+        {"full_name": "Terry McLaurin", "team": "WAS", "week": 6, "status": "ACT", "position": "WR"},
+        {"full_name": "Terry McLaurin", "team": "WAS", "week": 8, "status": "RES", "position": "WR"},
+        {"full_name": "Active Guy", "team": "WAS", "week": 8, "status": "ACT", "position": "WR"},
+        {"full_name": "Other Team IR", "team": "CIN", "week": 8, "status": "RES", "position": "WR"},
+        {"full_name": "Future Week", "team": "WAS", "week": 12, "status": "RES", "position": "WR"},
+    ])
+    names = {r["player"] for r in X.roster_reserve_players(rost, "WAS", 11)}
+    assert names == {"Terry McLaurin"}
+    assert X.roster_reserve_players(None, "WAS", 11) == []
+
+
 # ------------------------------------------------------------------------------------------- 80-yard watch
 def _watch_side(log_t, log_y, share=0.30):
     from dashboard import watch as W
@@ -224,6 +272,24 @@ def test_watch_skips_players_who_are_out_and_missing_inputs():
     model = W.load_model()
     assert W.watch_side(side, {"AAA": 25.0, "BBB": 22.0}, {}, model)["receivers"] == []
     assert W.watch_side(side, None, {}, model) is None and W.watch_side(side, {"AAA": 25.0}, {}, None) is None
+
+
+def test_watch_excludes_ir_and_out_even_if_opportunity_still_projects_them():
+    """80+ watch must drop season-ending IR / Out players (W11: McLaurin stayed on the board)."""
+    from dashboard import watch as W
+    side, _ = _watch_side([8, 9, 10, 9, 8, 7, 6, 5], [70, 80, 90, 60, 55, 50, 40, 30])
+    model = W.load_model()
+    dctx = {"BBB": {"games": 9, "ex_rate_rel": 1.0, "g80_WR_pg": 0.5, "g80_TE_pg": 0.1, "g80_rank": 10, "ex_rank": 10}}
+    imp = {"AAA": 25.0, "BBB": 22.0}
+    assert W.watch_side(side, imp, dctx, model)["receivers"]  # still projected, no injury row
+    side["offense_injuries"] = [{"player": "Star", "game_status": None, "espn": "Injured Reserve", "status_level": 3}]
+    assert W.watch_side(side, imp, dctx, model)["receivers"] == []
+    side["offense_injuries"] = [{"player": "Star", "game_status": "Out", "status_level": 3}]
+    assert W.watch_side(side, imp, dctx, model)["receivers"] == []
+    # official Q (expected IR return) stays on the watch; health flags still apply
+    side["offense_injuries"] = [{"player": "Star", "game_status": "Questionable", "espn": "Injured Reserve", "status_level": 2}]
+    rec = W.watch_side(side, imp, dctx, model)["receivers"]
+    assert rec and rec[0]["player"] == "Star"
 
 
 def test_blend_with_book_sits_between_the_two_and_is_symmetric():
