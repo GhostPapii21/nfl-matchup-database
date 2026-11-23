@@ -1,4 +1,4 @@
-# Defensive coverage profiles from Week 11 games (built 2026-11-22 09:36 PM AST by Blitz, refs NFL-56)
+# Defensive coverage profiles from Week 11 games (built 2026-11-23 02:05 AM AST by Blitz, refs NFL-56)
 
 Sources: ESPN summary JSON play text (per game, pull time in each game file), ESPN team rosters for names/positions, official NFL YouTube highlight auto-captions where noted (labeled video). No PFF/FTN paid content.
 **Evidence levels:** VERIFIED = play text names the defender who broke up/intercepted the pass or was flagged for DPI. tackler = defender named as tackler on a completion (not proof of coverage). video = a highlight-commentary mention (auto-captions; names can be misspelled). Man/zone, blitz and MOF shell per play are **unknown** in free data.
@@ -608,6 +608,103 @@ Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages
 The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
 **Source disagreement (7+ pts):** Man: StatRankings 27.5% vs Sharp 17.9% (+9.6 pts); Blitz: StatRankings 38.0% vs Sharp 28.9% (+9.1 pts)
 **Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): Blitz: gap +9.1 pts is +5.7 vs the median gap; rank 9 StatRankings vs 14 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+## MIN defense vs SF (MIN@SF, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| James Pierre | CB | 3 | 3 | 47 | 0 | 0 | 0 | 0 | tackler x3 | D.Samuel 1, M.Evans 1, C.McCaffrey 1 | M.Evans 29 short_right Q2 |
+| Blake Cashman | LB | 4 | 4 | 42 | 0 | 0 | 0 | 0 | tackler x4 | M.Evans 2, K.Juszczyk 1, L.Farrell 1 |  |
+| B.Murphy (name unresolved) | unknown | 4 | 3 | 35 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | M.Evans 1, K.Allen 3 |  |
+| Theo Jackson | S | 1 | 1 | 34 | 0 | 0 | 0 | 0 | tackler x1 | M.Evans 1 | M.Evans 34 deep_middle Q1 |
+| Andrew Van Ginkel | LB | 2 | 2 | 19 | 0 | 0 | 0 | 0 | tackler x2 | K.Juszczyk 1, C.McCaffrey 1 |  |
+| Domonique Orange | DT | 1 | 1 | 19 | 0 | 0 | 0 | 0 | tackler x1 | J.Watkins 1 |  |
+| Harrison Smith | S | 1 | 1 | 17 | 0 | 0 | 0 | 0 | tackler x1 | K.Allen 1 |  |
+| Joshua Metellus | S | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | G.Kittle 1 |  |
+| I.Pace (name unresolved) | unknown | 1 | 1 | 7 | 0 | 0 | 0 | 0 | tackler x1 | K.Black 1 |  |
+| Jak.Thomas (name unresolved) | unknown | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | D.Samuel 1 |  |
+| Kyle Van Noy | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | C.McCaffrey 1 |  |
+| Elijah Williams | DE | 1 | 1 | -3 | 0 | 0 | 0 | 0 | tackler x1 | D.Samuel 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 13/16 for 186 yds, 1 TD; TE 4/4 for 41 yds, 2 TD; RB 5/6 for 33 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 2/1
+Pass rush: sacks E.Wilson 1; QB hits J.Redmond 2, A.Van Ginkel 2
+Video (highlight transcript) mentions: Harrison Smith (S) @7:55 "IN THE BACK CORNER WORKING ONE-ON-ONE AGAINST HARRISON SMITH. IT WAS A BEAUTIFUL MOVE. A LOT OF SPACE BACK THERE. AND SO FAR, THESE VETERAN" [coverage word: CORNER]; Harrison Smith (S) @2:43 "IN THE BACK CORNER WORKING ONE-ON-ONE AGAINST HARRISON SMITH. IT WAS A BEAUTIFUL MOVE. A LOT OF SPACE BACK THERE. AND SO FAR, THESE VETERAN" [coverage word: CORNER]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### MIN season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 26.7% | 5.2% |
+| Zone | 73.0% | 86.9% |
+| MOF closed (single-high) | 40.3% | 28.2% |
+| MOF open (two-high) | 59.7% | 65.6% |
+| Blitz | 74.4% | 69.2% |
+| Cover 0 | unknown | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 32.7% | not published |
+| Cover 2-Man | 10.7% | not published |
+| Cover 3 | 25.3% | not published |
+| Cover 4 | 11.3% | not published |
+| Cover 6 | unknown | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 300 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/min). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 26.7% vs Sharp 5.2% (+21.5 pts); Zone: StatRankings 73.0% vs Sharp 86.9% (-13.9 pts); MOF closed (single-high): StatRankings 40.3% vs Sharp 28.2% (+12.1 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): MOF closed (single-high): gap +12.1 pts is +9.4 vs the median gap; rank 30 StatRankings vs 32 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+## SF defense vs MIN (MIN@SF, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Renardo Green | CB | 9 | 9 | 64 | 0 | 0 | 0 | 0 | tackler x9 | T.Hockenson 1, J.Jefferson 4, T.Felton 1, J.Jennings 2, M.Price 1 |  |
+| Deommodore Lenoir | CB | 4 | 2 | 54 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | J.Jennings 2, J.Jefferson 2 | J.Jefferson 29 deep_left Q1; J.Jefferson 25 deep_left Q3 |
+| Upton Stout | CB | 2 | 2 | 42 | 0 | 0 | 0 | 0 | tackler x2 | T.Hockenson 1, M.Price 1 | T.Hockenson 20 short_right Q1; M.Price 22 deep_right Q4 |
+| Garret Wallow | LB | 3 | 3 | 25 | 0 | 0 | 0 | 0 | tackler x3 | T.Hockenson 2, D.Dallas 1 |  |
+| Malik Mustapha | S | 3 | 3 | 22 | 0 | 0 | 0 | 0 | tackler x3 | J.Jennings 1, T.Felton 2 |  |
+| Ji'Ayir Brown | S | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | A.Jones 1, T.Hockenson 1 |  |
+| Ephesians Prysock | CB | 2 | 2 | 15 | 0 | 0 | 0 | 0 | tackler x2 | T.Felton 1, J.Jefferson 1 |  |
+| Fred Warner | LB | 2 | 1 | 8 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Felton 2 |  |
+| Siran Neal | S | 1 | 1 | 8 | 0 | 0 | 0 | 0 | tackler x1 | J.Jones 1 |  |
+| Jaden Dugger | LB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | G.Bartholomew 1 |  |
+| Osa Odighizuwa | DT | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tackler x1 | T.Hockenson 1 |  |
+| Marques Sigle | S | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | T.Felton 1 |  |
+| DeForest Buckner | DT | 1 | 1 | -1 | 0 | 0 | 0 | 0 | tackler x1 | J.Mason 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 19/29 for 182 yds, 0 TD; TE 7/10 for 60 yds, 0 TD; RB 3/3 for 22 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 4/1
+Pass rush: sacks O.Odighizuwa (half) 1, D.Buckner (half) 1; QB hits O.Odighizuwa 1, N.Bosa 2, M.Williams 1, C.West 1
+Video (highlight transcript) mentions: Deommodore Lenoir (CB) @4:12 ">> Cris: I THINK COUSINS IS ANNOYED A LITTLE BIT, TOO. IN FOR THE TOUCHDOWN. HE DROVE LENOIR INTO THE END ZONE. >> Cris: THE OUTSIDE ZONE COMING" [coverage word: ZONE]; Deommodore Lenoir (CB) @4:08 "CUTS IT BACK AND LOST THE BALL. IT'S PICKED UP BY DEOMMODORE LENOIR. HE'S COMING BACK THE OTHER WAY. TILLMAN. HE'S THE NEW GUY THAT PUNCHES" [coverage word: PICKED]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### SF season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 29.6% | 11.2% |
+| Zone | 69.3% | 82.8% |
+| MOF closed (single-high) | 59.0% | 56.2% |
+| MOF open (two-high) | 41.0% | 39.5% |
+| Blitz | 31.8% | 26.8% |
+| Cover 0 | unknown | not published |
+| Cover 1 | 25.0% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | 3.2% | not published |
+| Cover 3 | 29.9% | not published |
+| Cover 4 | 8.6% | not published |
+| Cover 6 | 7.8% | not published |
+| Cover 9 | 2.6% | not published |
+| Coverage snaps | 348 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/sf). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 29.6% vs Sharp 11.2% (+18.4 pts); Zone: StatRankings 69.3% vs Sharp 82.8% (-13.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
 Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
 
 ## NO defense vs CHI (NO@CHI, FINAL)

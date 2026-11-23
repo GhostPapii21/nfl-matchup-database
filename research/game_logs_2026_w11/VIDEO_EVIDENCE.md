@@ -125,3 +125,31 @@ Other mentions without a coverage word (count only): Abdul Carter x1, Dru Philli
 
 Scheme words in commentary (counts, not charting): {'zone': 13, 'blitz': 1, 'coverage': 1, 'picked': 2, 'beat': 1, 'blitzing': 1, 'broke up': 1, 'interception': 1, 'missing': 1, 'burn': 1, 'corner': 1}
 
+## MIN@SF: Minnesota Vikings vs San Francisco 49ers Game Highlights | 2026 NFL Season Week 11 Mexico City Game
+URL https://www.youtube.com/watch?v=ceMTl2eqYDA | track: English - CC1 | retrieved via Firecrawl youtube-com/video_transcript
+
+### MIN defenders mentioned near a coverage word (1)
+- Harrison Smith (S) @7:55 "IN THE BACK CORNER WORKING ONE-ON-ONE AGAINST HARRISON SMITH. IT WAS A BEAUTIFUL MOVE. A LOT OF SPACE BACK THERE. AND SO FAR, THESE VETERAN" [coverage word: CORNER]
+Other mentions without a coverage word (count only): Harrison Smith x2, Jalen Redmond x1
+
+### SF defenders mentioned near a coverage word (1)
+- Deommodore Lenoir (CB) @4:12 ">> Cris: I THINK COUSINS IS ANNOYED A LITTLE BIT, TOO. IN FOR THE TOUCHDOWN. HE DROVE LENOIR INTO THE END ZONE. >> Cris: THE OUTSIDE ZONE COMING" [coverage word: ZONE]
+Other mentions without a coverage word (count only): Fred Warner x3, Deommodore Lenoir x1, Nick Bosa x7, DeForest Buckner x1, Ji'Ayir Brown x1
+
+Scheme words in commentary (counts, not charting): {'zone': 7, 'corner': 3, 'miss': 1, 'beat': 3, 'coverage': 1, 'intercepted': 1}
+
+## MIN@SF: San Francisco 49ers vs. Minnesota Vikings Highlights | Week 11
+URL https://www.youtube.com/watch?v=jsOA0SpFHM4 | track: English - CC1 | retrieved via Firecrawl youtube-com/video_transcript
+
+### MIN defenders mentioned near a coverage word (2)
+- Harrison Smith (S) @7:55 "IN THE BACK CORNER WORKING ONE-ON-ONE AGAINST HARRISON SMITH. IT WAS A BEAUTIFUL MOVE. A LOT OF SPACE BACK THERE. AND SO FAR, THESE VETERAN" [coverage word: CORNER]
+- Harrison Smith (S) @2:43 "IN THE BACK CORNER WORKING ONE-ON-ONE AGAINST HARRISON SMITH. IT WAS A BEAUTIFUL MOVE. A LOT OF SPACE BACK THERE. AND SO FAR, THESE VETERAN" [coverage word: CORNER]
+Other mentions without a coverage word (count only): Harrison Smith x1
+
+### SF defenders mentioned near a coverage word (2)
+- Deommodore Lenoir (CB) @4:12 ">> Cris: I THINK COUSINS IS ANNOYED A LITTLE BIT, TOO. IN FOR THE TOUCHDOWN. HE DROVE LENOIR INTO THE END ZONE. >> Cris: THE OUTSIDE ZONE COMING" [coverage word: ZONE]
+- Deommodore Lenoir (CB) @4:08 "CUTS IT BACK AND LOST THE BALL. IT'S PICKED UP BY DEOMMODORE LENOIR. HE'S COMING BACK THE OTHER WAY. TILLMAN. HE'S THE NEW GUY THAT PUNCHES" [coverage word: PICKED]
+Other mentions without a coverage word (count only): Fred Warner x2
+
+Scheme words in commentary (counts, not charting): {'zone': 2, 'coverage': 1, 'corner': 2, 'beat': 1, 'intercepted': 1, 'picked': 1}
+

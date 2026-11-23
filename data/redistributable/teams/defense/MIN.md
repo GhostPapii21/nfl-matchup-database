@@ -198,6 +198,62 @@ Holds (-1.5 YPT or better): RB: 4.03 YPT on 32 tgts (league 5.61, -1.58); WR3+: 
 - wk8 MIN@DET: Sione Vaki (RB-power/volume early-down) 11-65 0TD; 1/1tgt 5y 0TD | shell 5 man/87 zone, MOFO 61, blitz 71% | RB2 in DET run script (11-65). [confirmed-tackler]
 - wk8 MIN@DET: Amon-Ra St. Brown (WR-slot separator) 1-10 0TD; 7/8tgt 46y 0TD | shell 5 man/87 zone, MOFO 61, blitz 71% | Slot volume (7/8) but capped 46y — MIN soft-middle zone gave catches, not yards. [none (no explosive)]
 
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### MIN defense vs SF (MIN@SF, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| James Pierre | CB | 3 | 3 | 47 | 0 | 0 | 0 | 0 | tackler x3 | D.Samuel 1, M.Evans 1, C.McCaffrey 1 | M.Evans 29 short_right Q2 |
+| Blake Cashman | LB | 4 | 4 | 42 | 0 | 0 | 0 | 0 | tackler x4 | M.Evans 2, K.Juszczyk 1, L.Farrell 1 |  |
+| B.Murphy (name unresolved) | unknown | 4 | 3 | 35 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x3 | M.Evans 1, K.Allen 3 |  |
+| Theo Jackson | S | 1 | 1 | 34 | 0 | 0 | 0 | 0 | tackler x1 | M.Evans 1 | M.Evans 34 deep_middle Q1 |
+| Andrew Van Ginkel | LB | 2 | 2 | 19 | 0 | 0 | 0 | 0 | tackler x2 | K.Juszczyk 1, C.McCaffrey 1 |  |
+| Domonique Orange | DT | 1 | 1 | 19 | 0 | 0 | 0 | 0 | tackler x1 | J.Watkins 1 |  |
+| Harrison Smith | S | 1 | 1 | 17 | 0 | 0 | 0 | 0 | tackler x1 | K.Allen 1 |  |
+| Joshua Metellus | S | 1 | 1 | 9 | 0 | 0 | 0 | 0 | tackler x1 | G.Kittle 1 |  |
+| I.Pace (name unresolved) | unknown | 1 | 1 | 7 | 0 | 0 | 0 | 0 | tackler x1 | K.Black 1 |  |
+| Jak.Thomas (name unresolved) | unknown | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | D.Samuel 1 |  |
+| Kyle Van Noy | LB | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | C.McCaffrey 1 |  |
+| Elijah Williams | DE | 1 | 1 | -3 | 0 | 0 | 0 | 0 | tackler x1 | D.Samuel 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 13/16 for 186 yds, 1 TD; TE 4/4 for 41 yds, 2 TD; RB 5/6 for 33 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 2/1
+Pass rush: sacks E.Wilson 1; QB hits J.Redmond 2, A.Van Ginkel 2
+Video (highlight transcript) mentions: Harrison Smith (S) @7:55 "IN THE BACK CORNER WORKING ONE-ON-ONE AGAINST HARRISON SMITH. IT WAS A BEAUTIFUL MOVE. A LOT OF SPACE BACK THERE. AND SO FAR, THESE VETERAN" [coverage word: CORNER]; Harrison Smith (S) @2:43 "IN THE BACK CORNER WORKING ONE-ON-ONE AGAINST HARRISON SMITH. IT WAS A BEAUTIFUL MOVE. A LOT OF SPACE BACK THERE. AND SO FAR, THESE VETERAN" [coverage word: CORNER]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### MIN season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 26.7% | 5.2% |
+| Zone | 73.0% | 86.9% |
+| MOF closed (single-high) | 40.3% | 28.2% |
+| MOF open (two-high) | 59.7% | 65.6% |
+| Blitz | 74.4% | 69.2% |
+| Cover 0 | unknown | not published |
+| Cover 1 | unknown | not published |
+| Cover 2 | 32.7% | not published |
+| Cover 2-Man | 10.7% | not published |
+| Cover 3 | 25.3% | not published |
+| Cover 4 | 11.3% | not published |
+| Cover 6 | unknown | not published |
+| Cover 9 | unknown | not published |
+| Coverage snaps | 300 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/min). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 26.7% vs Sharp 5.2% (+21.5 pts); Zone: StatRankings 73.0% vs Sharp 86.9% (-13.9 pts); MOF closed (single-high): StatRankings 40.3% vs Sharp 28.2% (+12.1 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): MOF closed (single-high): gap +12.1 pts is +9.4 vs the median gap; rank 30 StatRankings vs 32 Sharp
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
 <!-- W11-COVRATES-START refs NFL-56 -->
 ## MIN season coverage rates (public, season-level; NOT game-level)
 

@@ -6,6 +6,7 @@ import json, re, os, datetime, collections, urllib.request
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(OUT, 'raw'); os.makedirs(RAW, exist_ok=True)
 STADIUM = {'ARI': (33.5276, -112.2626), 'ATL': (33.7554, -84.4009), 'BAL': (39.278, -76.6227), 'BUF': (42.7738, -78.787), 'CAR': (35.2258, -80.8528), 'CHI': (41.8623, -87.6167), 'CIN': (39.0955, -84.5161), 'CLE': (41.5061, -81.6995), 'DAL': (32.7473, -97.0945), 'DEN': (39.7439, -105.0201), 'DET': (42.34, -83.0456), 'GB': (44.5013, -88.0622), 'HOU': (29.6847, -95.4107), 'IND': (39.7601, -86.1639), 'JAX': (30.3239, -81.6373), 'KC': (39.0489, -94.4839), 'LV': (36.0909, -115.1833), 'LAC': (33.9535, -118.3392), 'MIA': (25.958, -80.2389), 'MIN': (44.9737, -93.2575), 'NE': (42.0909, -71.2643), 'NO': (29.9511, -90.0812), 'NYG': (40.8135, -74.0745), 'NYJ': (40.8135, -74.0745), 'PHI': (39.9008, -75.1675), 'PIT': (40.4468, -80.0158), 'SF': (37.4033, -121.9694), 'SEA': (47.5952, -122.3316), 'TB': (27.9759, -82.5033), 'TEN': (36.1665, -86.7713), 'WSH': (38.9076, -76.8645)}
+NEUTRAL = {'Estadio Banorte': (19.3029, -99.1505), 'Estadio Azteca': (19.3029, -99.1505)}  # neutral-site venue coords (Mexico City)
 AN_BOOKS = {15: 'consensus', 30: 'open', 68: 'DraftKings', 69: 'FanDuel', 75: 'BetMGM', 71: 'BetRivers', 79: 'bet365'}
 UA = {'User-Agent': 'Mozilla/5.0'}
 def get(url, path):
@@ -335,7 +336,8 @@ def build(ev):
     venue = d.get('gameInfo', {}).get('venue', {})
     W(f"Venue: {venue.get('fullName')} ({venue.get('address',{}).get('city')}), indoor={venue.get('indoor')}, grass={venue.get('grass')}")
     co = STADIUM.get(home)
-    if co and not d['header']['competitions'][0].get('neutralSite'):
+    if d['header']['competitions'][0].get('neutralSite'): co = NEUTRAL.get(venue.get('fullName'))
+    if co:
         try:
             ko = datetime.datetime.strptime(ev['date'], '%Y-%m-%dT%H:%MZ'); hr = ko.strftime('%Y-%m-%dT%H:00')
             om = get(f'https://api.open-meteo.com/v1/forecast?latitude={co[0]}&longitude={co[1]}&hourly=temperature_2m,precipitation,rain,wind_speed_10m,wind_gusts_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=UTC&start_date={ko.date()}&end_date={ko.date()}', f'{RAW}/wx_{eid}.json')
@@ -356,9 +358,15 @@ def build(ev):
 os.makedirs(f'{OUT}/data', exist_ok=True)
 recs = []
 EXCLUDE = {'MIN@SF', 'MIN VS SF', 'CIN@WSH', 'CIN @ WSH'}  # in progress / MNF: logged by a later run
+ONLY = os.environ.get('ONLY')  # e.g. ONLY='MIN VS SF' (late-game run 2026-11-23): build just that game, merge into _all_games.json
+if ONLY: EXCLUDE = {'CIN@WSH', 'CIN @ WSH'}
 for ev in sb['events']:
     if ev['status']['type']['name'] != 'STATUS_FINAL' or ev['shortName'].replace(' @ ', '@') in EXCLUDE or ev['shortName'] in EXCLUDE:
         print('skip', ev['shortName'], ev['status']['type']['name']); continue
+    if ONLY and ev['shortName'] != ONLY: continue
     r = build(ev)
     if r: recs.append(r); print(r['game'], r['status'])
+if ONLY:
+    prev = [r for r in json.load(open(f'{OUT}/data/_all_games.json')) if r['game'] not in {x['game'] for x in recs}]
+    recs = prev + recs
 json.dump(recs, open(f'{OUT}/data/_all_games.json', 'w'), indent=1, default=str)

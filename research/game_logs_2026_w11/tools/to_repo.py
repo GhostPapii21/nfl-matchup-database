@@ -1,6 +1,6 @@
 """Copy logs into the repo worktree and add W11 rows/sections to the defense DB. refs NFL-56, NFL-49."""
 import os, shutil, glob, csv, json, re, datetime
-OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); WT = '/tmp/nfl56-w11-logs'
+OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); WT = os.environ.get('WT', '/tmp/nfl56-w11-logs')
 DST = f'{WT}/research/game_logs_2026_w11'
 if os.path.exists(DST): shutil.rmtree(DST)
 os.makedirs(DST)
@@ -13,12 +13,21 @@ open(f'{DST}/RAW_SOURCES.md', 'w').write('# Raw pulls (kept on the box, not comm
 # defense_db.csv: append W11 game rows (FINAL games only), replacing any earlier W11 rows from this builder
 dbp = f'{WT}/data/redistributable/teams/defense/defense_db.csv'
 import subprocess, io
-# base = the file as it is on the merge-base with origin/main, so re-runs replace (not re-append) this builder's W11 rows
+# base = the file as it is on the merge-base with origin/main. Re-runs and late-game runs dedupe by row key, so rows
+# already on main (e.g. the 11 games merged in PR #106) are never re-appended.
 base = subprocess.run(['git', '-C', WT, 'merge-base', 'HEAD', 'origin/main'], capture_output=True, text=True).stdout.strip()
 orig = subprocess.run(['git', '-C', WT, 'show', f'{base}:data/redistributable/teams/defense/defense_db.csv'], capture_output=True).stdout.decode('utf-8')
-assert orig and 'W11 ESPN play text, refs NFL-56' not in orig, 'base defense_db.csv already has W11 builder rows'
+assert orig, 'could not read base defense_db.csv'
 fields = next(csv.reader(io.StringIO(orig.splitlines()[0])))
-new = list(csv.DictReader(open(f'{OUT}/data/defense_db_w11_rows.csv'))) if os.path.exists(f'{OUT}/data/defense_db_w11_rows.csv') else []
+KEY = lambda r: (r.get('team', ''), r.get('short', ''), r.get('defender', ''), r.get('scope', ''), str(r.get('week', '')), r.get('game', ''))
+base_rows = list(csv.DictReader(io.StringIO(orig))); have = {KEY(r) for r in base_rows}
+base_games = {r.get('game') for r in base_rows if str(r.get('week')) == '11' and 'refs NFL-56' in r.get('method', '')}
+cand = list(csv.DictReader(open(f'{OUT}/data/defense_db_w11_rows.csv'))) if os.path.exists(f'{OUT}/data/defense_db_w11_rows.csv') else []
+# skip any game whose W11 builder rows are already on base (game-level dedupe), then any exact key already present
+new = [r for r in cand if r.get('game') not in base_games and KEY(r) not in have]
+print(f'defense_db.csv base rows {len(base_rows)} (W11 builder games on base: {len(base_games)}); candidate rows {len(cand)}; skipped as already on base {len(cand) - len(new)}; appended {len(new)}; after {len(base_rows) + len(new)}')
+dup = len(base_rows) + len(new) - len({KEY(r) for r in base_rows} | {KEY(r) for r in new})
+print('duplicate keys after merge:', dup)
 buf = io.StringIO(); w = csv.DictWriter(buf, fieldnames=fields, lineterminator='\n'); w.writerows({k: r.get(k, '') for k in fields} for r in new)
 open(dbp, 'wb').write((orig if orig.endswith('\n') else orig + '\n').encode('utf-8'))
 open(dbp, 'a', newline='').write(buf.getvalue())

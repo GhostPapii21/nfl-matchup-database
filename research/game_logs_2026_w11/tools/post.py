@@ -69,6 +69,8 @@ LEGS = {'S1': [('NO@CHI U47.5', lambda: total_leg('NO@CHI', 'FULL', 47.5)), ('TB
                ('DET -3.5', lambda: spread_leg('TB@DET', 'FULL', 'DET', -3.5)), ('NO@CHI 1H U25.5', lambda: total_leg('NO@CHI', '1H', 25.5)), ('TB@DET Q2 U13.5 (stale FD)', lambda: total_leg('TB@DET', 'Q2', 13.5))],
         'S5': [('NO@CHI alt U48.5', lambda: total_leg('NO@CHI', 'FULL', 48.5)), ('TB@DET alt U49.5', lambda: total_leg('TB@DET', 'FULL', 49.5)), ('CIN@WAS alt U55.5 (MNF)', lambda: total_leg('CIN@WSH', 'FULL', 55.5)),
                ('CIN@WAS Q2 U16.5 (MNF)', lambda: total_leg('CIN@WSH', 'Q2', 16.5)), ('NO@CHI 1H U24.5', lambda: total_leg('NO@CHI', '1H', 24.5)), ('TB@DET 1H U25.5', lambda: total_leg('TB@DET', '1H', 25.5)), ('DET 1H -2.5', lambda: spread_leg('TB@DET', '1H', 'DET', -2.5))],
+        'FOCUS9 Saved Slip 4 (uncleared, paper only; runs/2026-11-22_W11_FOCUS9/SAVED_UNCLEARED_SLIPS.md)': [('MIN@SF 1H U23.5 (DK -112, VegasInsider Sat 5:00 PM AST)', lambda: total_leg('MIN@SF', '1H', 23.5))],
+        'MIN@SF excluded read (not on a slip; PAPER_SLIPS SLIPS.md Excluded)': [('MIN@SF U46.5 (excluded: model 48% vs 53.5% no-vig)', lambda: total_leg('MIN@SF', 'FULL', 46.5))],
         'FLAG (not on a slip)': [('JAX@NYG U45.5', lambda: total_leg('JAX@NYG', 'FULL', 45.5)), ('JAX@NYG U47.5 (flag only)', lambda: total_leg('JAX@NYG', 'FULL', 47.5))]}
 S = [f'# Paper slip legs vs results (unofficial check, pulled {NOWS})', '', 'Paper only; the official grade is the 11:45 PM ET grading routine. Legs from runs/2026-11-22_W11_PAPER_SLIPS/SLIPS.md (Ghost6-vetted version). Results from ESPN summary JSON.', '']
 for s, legs in LEGS.items():
