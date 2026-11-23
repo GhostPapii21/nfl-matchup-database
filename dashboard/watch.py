@@ -128,6 +128,33 @@ def pressure_note(sd: dict) -> str | None:
             f"{vb['yards_per_attempt']:.1f} yards an attempt vs the blitz, {nb['yards_per_attempt']:.1f} without")
 
 
+def health_flags(sd: dict, player: str) -> dict | None:
+    """His own status going in: Questionable/Doubtful on the report, a concussion listing, or back from missed games.
+    Tags only. On 2025-26 (research/injury_context_2026-11-23): starred players listed Questionable hit 30% against 39%
+    predicted (27 players; a lean, not proven), and about a quarter of Questionable players do not play at all, so wait for
+    the inactives (T-90). Players back from 1-2 or 3+ missed games, or from a concussion listing, hit about as often as the
+    model said (99 / 28 / 46 receiver games) -- no evidence for an automatic downgrade."""
+    want = _norm(player)
+    inj = next((x for x in sd.get("offense_injuries") or [] if _norm(x.get("player")) == want), None)
+    ret = next((x for x in sd.get("returning") or [] if _norm(x.get("player")) == want and x.get("unit") == "offense"), None)
+    out, notes = {}, []
+    if inj and str(inj.get("game_status") or "") in ("Questionable", "Doubtful"):
+        out["status"] = inj["game_status"]
+        notes.append(f"listed {inj['game_status']} ({inj.get('injury') or 'injury'}): wait for the inactives before betting"
+                     + ("; Doubtful players usually sit" if inj["game_status"] == "Doubtful" else ""))
+    if inj and "concuss" in str(inj.get("injury") or "").lower():
+        out["concussion"] = True
+        notes.append("on the report with a concussion")
+    if ret and (ret.get("games_since_return") or 0) <= 2:
+        out["returning"] = {k: ret.get(k) for k in ("games_missed", "games_since_return", "snap_pct_before", "snap_pct_last_game", "status")}
+        notes.append(f"back after missing {ret.get('games_missed')} game(s); {ret.get('status', '').lower()} "
+                     f"({(ret.get('snap_pct_last_game') or 0):.0%} of snaps last game vs {(ret.get('snap_pct_before') or 0):.0%} before)")
+    if not out:
+        return None
+    out["notes"] = notes
+    return out
+
+
 ROLE_GAP80 = 0.15     # model 15+ points off the book's 80+ price: Week 11's Smith (backup QB), Monangai and Allen (split backs)
 
 
@@ -260,6 +287,11 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
         out["rushers"].append({"player": r.get("full_name") or r["player"], "player_id": r["player_id"], "pos": "RB", "p80": round(p80, 3), "p100": round(p100, 3),
                                "stars": stars(p80, cuts), "carries": round(cpg, 1), "yds_pg": r.get("yards_pg"), "why": why})
     pn = pressure_note(sd)
+    for e in out["receivers"] + out["rushers"]:
+        hf = health_flags(sd, e["player"])
+        if hf:
+            e["health"] = hf
+            e.setdefault("why", []).extend(hf["notes"])
     for e in out["receivers"]:
         _attach_price(e, lines, "alt_receiving_yards", cuts)
         e["gate"] = defensive_gate(sd, e.get("pos"))

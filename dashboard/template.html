@@ -1007,9 +1007,12 @@ const BOARD = /*__BOARD_DATA__*/null;
   // ---- 80-yard watch (dashboard/watch.py): stars from fitted weights
   const starStr = (k) => "★".repeat(k) + "☆".repeat(3 - k);
   function watchFor(s, pid) { const w = s.watch; if (!w || w.error) return null; return (w.receivers || []).concat(w.rushers || []).find((x) => x.player_id === pid) || null; }
-  function gateTag(x) { const G = x.gate; if (!G) return "";
+  function healthTag(x) { const H = x.health; if (!H) return "";
+    const lab = H.status ? (H.status === "Doubtful" ? "D" : "Q") : H.concussion ? "concussion" : "back from injury";
+    return ` <span class="tag t-warn" title="${esc((H.notes || []).join("; "))}">${lab}</span>`; }
+  function gateTag(x) { const G = x.gate; if (!G) return healthTag(x);
     const t = `Defense allows ${G.allowed_pg ?? "–"} a game to his position (league ${G.league_avg ?? "–"}), ${G.rank} of ${G.of} (32 = most allowed). Context: already counted in the stars.${x.pressure_note ? " " + x.pressure_note + "." : ""}`;
-    return ` <span class="tag ${G.label === "soft" ? "t-primary" : G.label === "tough" ? "t-warn" : ""}" title="${esc(t)}">${G.label} gate</span>`; }
+    return ` <span class="tag ${G.label === "soft" ? "t-primary" : G.label === "tough" ? "t-warn" : ""}" title="${esc(t)}">${G.label} gate</span>` + healthTag(x); }
   function watchBadge(x) { return x && x.stars ? `<span class="wstars" title="${esc("80+ yds " + pct(x.p80) + ", 100+ " + pct(x.p100) + ". " + (x.why || []).join("; "))}">${starStr(x.stars)}</span>` : ""; }
   function watchRows(s, min) { const w = s.watch; if (!w || w.error) return []; return (w.receivers || []).concat(w.rushers || []).filter((x) => x.stars >= (min || 1)).sort((a, b) => b.p80 - a.p80); }
   function watchCard(g) {

@@ -345,3 +345,16 @@ def test_defensive_gate_and_pressure_note():
     assert "5+ rushers 41%" in W.pressure_note(sd)
     sd["coverage_profile"]["five_plus_rushers_rate"] = 0.20
     assert W.pressure_note(sd) is None
+
+
+def test_health_flags_questionable_concussion_returning():
+    from dashboard import watch as W
+    sd = {"offense_injuries": [{"player": "Brock Bowers", "game_status": "Questionable", "injury": "Concussion"},
+                               {"player": "Other Guy", "game_status": "Out", "injury": "Knee"}],
+          "returning": [{"player": "Tee Higgins", "unit": "offense", "games_missed": 3, "games_since_return": 0, "snap_pct_before": 0.88,
+                         "snap_pct_last_game": 0.0, "status": "Back this week"}]}
+    b = W.health_flags(sd, "Brock Bowers")
+    assert b["status"] == "Questionable" and b["concussion"] and any("inactives" in n for n in b["notes"])
+    h = W.health_flags(sd, "Tee Higgins")
+    assert h["returning"]["games_missed"] == 3 and "status" not in h
+    assert W.health_flags(sd, "Other Guy") is None and W.health_flags(sd, "Nobody") is None

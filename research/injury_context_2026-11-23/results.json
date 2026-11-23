@@ -1,0 +1,165 @@
+{
+ "receivers_defense_missing_coverage_starters": {
+  "coef_per_missing": 0.1625,
+  "z": 1.51,
+  "heldout_logloss": [
+   0.26911,
+   0.27159
+  ],
+  "heldout_brier": [
+   0.07834,
+   0.07908
+  ],
+  "by_missing_2025_26": [
+   {
+    "missing": 0,
+    "games": 1366,
+    "predicted": 0.115,
+    "hit80": 0.112
+   },
+   {
+    "missing": 1,
+    "games": 700,
+    "predicted": 0.104,
+    "hit80": 0.081
+   },
+   {
+    "missing": 2,
+    "games": 178,
+    "predicted": 0.109,
+    "hit80": 0.09
+   }
+  ]
+ },
+ "receivers_player_flags_2025_26": [
+  {
+   "label": "first game back after missing 1-2 games",
+   "games": 99,
+   "predicted": 0.093,
+   "hit80": 0.091,
+   "hit80_ci95": [
+    0.034,
+    0.148
+   ],
+   "ratio": 0.97,
+   "starred": {
+    "n": 6,
+    "predicted": 0.404,
+    "hit80": 0.667
+   }
+  },
+  {
+   "label": "first game back after missing 3+ games",
+   "games": 28,
+   "predicted": 0.105,
+   "hit80": 0.179,
+   "hit80_ci95": [
+    0.037,
+    0.32
+   ],
+   "ratio": 1.7,
+   "starred": {
+    "n": 2,
+    "predicted": 0.416,
+    "hit80": 0.0
+   }
+  },
+  {
+   "label": "listed Questionable that week",
+   "games": 103,
+   "predicted": 0.164,
+   "hit80": 0.146,
+   "hit80_ci95": [
+    0.078,
+    0.214
+   ],
+   "ratio": 0.89,
+   "starred": {
+    "n": 19,
+    "predicted": 0.399,
+    "hit80": 0.316
+   }
+  },
+  {
+   "label": "concussion listing in the previous 3 weeks",
+   "games": 46,
+   "predicted": 0.09,
+   "hit80": 0.13,
+   "hit80_ci95": [
+    0.033,
+    0.228
+   ],
+   "ratio": 1.46,
+   "starred": {
+    "n": 1,
+    "predicted": 0.333,
+    "hit80": 1.0
+   }
+  }
+ ],
+ "backs_defense_missing_lb_db_starters": {
+  "coef_per_missing": 0.0055,
+  "z": 0.04,
+  "heldout_logloss": [
+   0.57521,
+   0.57499
+  ],
+  "heldout_brier": [
+   0.19484,
+   0.19479
+  ],
+  "by_missing_2025_26": [
+   {
+    "missing": 0,
+    "games": 327,
+    "predicted": 0.288,
+    "hit80": 0.315
+   },
+   {
+    "missing": 1,
+    "games": 199,
+    "predicted": 0.282,
+    "hit80": 0.256
+   },
+   {
+    "missing": 2,
+    "games": 58,
+    "predicted": 0.283,
+    "hit80": 0.328
+   }
+  ]
+ },
+ "backs_player_flags_2025_26": [
+  {
+   "label": "first game back after missing 1-2 games",
+   "games": 9,
+   "note": "too few"
+  },
+  {
+   "label": "first game back after missing 3+ games",
+   "games": 5,
+   "note": "too few"
+  },
+  {
+   "label": "listed Questionable that week",
+   "games": 26,
+   "predicted": 0.239,
+   "hit80": 0.154,
+   "hit80_ci95": [
+    0.015,
+    0.293
+   ],
+   "ratio": 0.64,
+   "starred": {
+    "n": 8,
+    "predicted": 0.368,
+    "hit80": 0.25
+   }
+  },
+  {
+   "label": "concussion listing in the previous 3 weeks",
+   "games": 0,
+   "note": "too few"
+  }
+ ]
+}
