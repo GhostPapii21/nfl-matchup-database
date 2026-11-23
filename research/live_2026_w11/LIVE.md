@@ -1,10 +1,10 @@
-# Live tracker, Week 11 (2026-11-23 04:18 UTC)
+# Live tracker, Week 11 (2026-11-23 04:23 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## MIN 10 @ SF 35 (2:45 - 4th)
+## MIN 10 @ SF 35 (1:47 - 4th)
 
-158 plays. Top yards allowed by a named defender: R.Green (9/9, 64 yds), J.Pierre (3/3, 47 yds), T.Jackson (1/1, 34 yds), D.Lenoir (1/4, 29 yds)
+163 plays. Top yards allowed by a named defender: R.Green (9/9, 64 yds), J.Pierre (3/3, 47 yds), T.Jackson (1/1, 34 yds), D.Lenoir (1/4, 29 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -13,7 +13,7 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Christian McCaffrey (SF) | 2 | 3.4 | 13 | 26.0 | 33.5 | 49 | 44.8 | 51.5 |
 | T.J. Hockenson (MIN) | 6 | 4.6 | 55 | 34.8 | 44.5 | 0 |  |  |
 | Deebo Samuel Sr. (SF) | 3 | 2.5 | 20 | 21.8 | 25.5 | 27 |  | 7.5 |
-| Jordan Mason (MIN) | 1 |  | -1 |  | 3.5 | 41 | 35.8 | 43.5 |
+| Tai Felton (MIN) | 6 | 1.7 | 42 | 14.6 | 13.5 | 0 |  |  |
 
 ## MIA 9 @ BUF 26 (Final)
 
