@@ -1,19 +1,19 @@
-# Live tracker, Week 11 (2026-11-23 02:11 UTC)
+# Live tracker, Week 11 (2026-11-23 02:16 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## MIN 7 @ SF 14 (12:32 - 2nd)
+## MIN 7 @ SF 14 (8:57 - 2nd)
 
-48 plays. Top yards allowed by a named defender: T.Jackson (1/1, 34 yds), D.Lenoir (1/4, 29 yds), D.Orange (1/1, 19 yds), J.Pierre (1/1, 18 yds)
+54 plays. Top yards allowed by a named defender: R.Green (3/3, 34 yds), T.Jackson (1/1, 34 yds), D.Lenoir (1/4, 29 yds), D.Orange (1/1, 19 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Mike Evans (SF) | 2 | 4.0 | 48 | 48.1 | 48.5 | 0 |  |  |
+| Justin Jefferson (MIN) | 2 | 6.1 | 36 | 63.7 | 86.5 | 0 |  |  |
 | T.J. Hockenson (MIN) | 2 | 4.6 | 36 | 34.8 | 44.5 | 0 |  |  |
-| Justin Jefferson (MIN) | 1 | 6.1 | 29 | 63.7 | 86.5 | 0 |  |  |
 | George Kittle (SF) | 2 | 4.3 | 25 | 44.9 | 47.5 | 0 |  |  |
 | Deebo Samuel Sr. (SF) | 1 | 2.5 | 18 | 21.8 | 25.5 | 7 |  | 7.5 |
-| Jordan Watkins (SF) | 1 | 2.0 | 19 | 22.7 | 7.5 | 0 |  |  |
+| Tai Felton (MIN) | 3 | 1.7 | 24 | 14.6 | 13.5 | 0 |  |  |
 
 ## MIA 9 @ BUF 26 (Final)
 
