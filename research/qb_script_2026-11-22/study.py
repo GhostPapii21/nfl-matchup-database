@@ -48,6 +48,23 @@ def team_games(g):
             seen[q] = seen.get(q, 0) + 1
     t["usual_qb"], t["n_prior"] = usual, n_prior
     t["backup"] = (t.n_prior >= 2) & t.usual_qb.notna() & (t.qb != t.usual_qb)
+    # starts the QB made for ANY team in the previous 34 team-weeks (about two seasons) before this game: a veteran
+    # starter who changed teams (Cousins, LV -> MIN in 2026) is not a backup in the usual sense
+    g = pd.read_parquet(C / "games.parquet")
+    g = g[g.game_type == "REG"]
+    st = pd.concat([g[["season", "week", "home_qb_id"]].rename(columns={"home_qb_id": "qb"}), g[["season", "week", "away_qb_id"]].rename(columns={"away_qb_id": "qb"})]).dropna()
+    st["k"] = st.season * 100 + st.week
+    by = {q: np.sort(d.k.to_numpy()) for q, d in st.groupby("qb")}
+    def recent(q, s, w):
+        a = by.get(q)
+        if a is None:
+            return 0
+        k = s * 100 + w
+        lo = (s - 2) * 100 + w
+        return int(((a < k) & (a >= lo)).sum())
+    t["qb_recent_starts"] = [recent(q, s, w) for q, s, w in zip(t.qb, t.season, t.week)]
+    t["backup_vet"] = t.backup & (t.qb_recent_starts >= 8)
+    t["backup_true"] = t.backup & (t.qb_recent_starts < 8)
     return t
 
 
@@ -63,7 +80,7 @@ def study_backup(t):
             fr.append(q[["season", "week", "posteam", col]].dropna().rename(columns={col: "player_id", "posteam": "team"}))
     st = pd.concat(fr).drop_duplicates(["player_id", "season", "week"])
     bt = bt.merge(st, left_on=["player", "season", "week"], right_on=["player_id", "season", "week"], how="inner")
-    bt = bt.merge(t[["season", "week", "team", "backup", "n_prior"]], on=["season", "week", "team"], how="inner")
+    bt = bt.merge(t[["season", "week", "team", "backup", "backup_vet", "backup_true", "n_prior"]], on=["season", "week", "team"], how="inner")
     bt = bt[bt.n_prior >= 2]
 
     def summ(d):
@@ -96,6 +113,13 @@ def study_backup(t):
                      "relative_hit80_over_sim": round((bk.a_y80.mean() / bk.p_y80.mean()) / (us.a_y80.mean() / us.p_y80.mean()), 3),
                      "relative_targets": round(summ(bk)["targets_ratio"] / summ(us)["targets_ratio"], 3),
                      "relative_ypt": round(summ(bk)["yards_per_target_ratio"] / summ(us)["yards_per_target_ratio"], 3)}
+    for flag in ("backup_vet", "backup_true"):
+        for name, d in (("train_2024_25", bt[bt.season <= 2025]), ("test_2026", bt[bt.season == 2026]), ("all", bt)):
+            bk, us = d[d[flag]], d[~d.backup]
+            if len(bk) >= 5:
+                out[f"{flag}_{name}"] = {"rows": int(len(bk)), "relative_yards": round(summ(bk)["yards_ratio"] / summ(us)["yards_ratio"], 3),
+                                         "relative_yards_ci95": rel_ci(bk, us), "relative_targets": round(summ(bk)["targets_ratio"] / summ(us)["targets_ratio"], 3),
+                                         "relative_ypt": round(summ(bk)["yards_per_target_ratio"] / summ(us)["yards_per_target_ratio"], 3)}
     # does scaling the backup-game yards by the train multiplier improve 80+ calibration on the test year?
     tr = out["train_2024_25"]["relative_yards"]
     te = bt[(bt.season == 2026) & bt.backup]
