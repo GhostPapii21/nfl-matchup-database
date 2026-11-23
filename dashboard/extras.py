@@ -562,8 +562,82 @@ def returning_players(snaps: pd.DataFrame | None, games: pd.DataFrame, season: i
     return out[:10]
 
 
-def injury_impact(team_pk: dict, snap_share: dict, def_snaps: dict) -> list[dict]:
-    """Official report plus ESPN, one row per player, with how much that player plays and who is next up."""
+# Official game designations vs roster labels. ESPN "Out" is a later game ruling and still beats a Friday
+# Questionable. ESPN "Injured Reserve" and weekly-roster RES are roster tags: they must not override a current
+# official Questionable (W11: Croskey-Merritt listed Q and expected off IR, but ESPN still said IR, so the board
+# bumped Rachaad White as if JCM were out). Long-term IR names can also fall off ESPN's 25-entry cap (W11: McLaurin).
+_ROSTER_LABELS = {"injured reserve", "reserve", "res", "ir"}
+_GAME_OUT = {"out", "doubtful"}
+
+
+def _status_token(st) -> str:
+    return str(st or "").strip().lower()
+
+
+def _level(st, *, ir_counts_as_out: bool) -> int:
+    s = _status_token(st)
+    if not s:
+        return 0
+    if s in _GAME_OUT:
+        return 3
+    if s in _ROSTER_LABELS:
+        return 3 if ir_counts_as_out else 0
+    if s == "questionable":
+        return 2
+    return 1
+
+
+def status_level(game_status=None, espn=None, roster_status=None) -> int:
+    """1 = active/unknown, 2 = Questionable, 3 = Out / Doubtful / IR with no current official game designation."""
+    official = _status_token(game_status)
+    ir_counts = official not in {"questionable", "out", "doubtful"}
+    return max(_level(game_status, ir_counts_as_out=True),
+               _level(espn, ir_counts_as_out=ir_counts),
+               _level(roster_status, ir_counts_as_out=ir_counts), 1)
+
+
+def roster_reserve_players(rosters, team: str, week: int | None) -> list[dict]:
+    """Players on Injured Reserve (nflverse weekly roster status RES) as of the latest week at or before `week`."""
+    if rosters is None or not len(rosters):
+        return []
+    r = rosters[rosters.team == team] if "team" in rosters.columns else rosters.iloc[0:0]
+    if not len(r) or "status" not in r.columns or "full_name" not in r.columns:
+        return []
+    if week is not None and "week" in r.columns:
+        prior = r[r.week <= int(week)]
+        r = prior if len(prior) else r
+    if "week" in r.columns:
+        latest = r.week.max()
+        r = r[r.week == latest]
+    else:
+        latest = week
+    out = []
+    for row in r.itertuples():
+        if str(getattr(row, "status", "") or "") == "RES":
+            out.append({"player": row.full_name, "position": getattr(row, "position", None),
+                        "status": "Injured Reserve", "roster_status": "RES",
+                        "as_of_week": int(latest) if latest is not None else None})
+    return out
+
+
+def player_is_out(inj_row: dict | None) -> bool:
+    """True when this injury row means the player is out of the game (no projection, no carry/target bump to him)."""
+    if not inj_row:
+        return False
+    if inj_row.get("status_level") is not None:
+        try:
+            return int(inj_row["status_level"]) >= 3
+        except (TypeError, ValueError):
+            pass
+    return status_level(inj_row.get("game_status"), inj_row.get("espn"), inj_row.get("roster_status")) >= 3
+
+
+def injury_impact(team_pk: dict, snap_share: dict, def_snaps: dict, roster_reserve: list[dict] | None = None) -> list[dict]:
+    """Official report plus ESPN, one row per player, with how much that player plays and who is next up.
+
+    Optional `roster_reserve` fills in long-term IR players who dropped off the official weekly report and ESPN's
+    25-entry cap. A current official Questionable/Out/Doubtful is never overridden by a stale IR roster tag.
+    """
     rows = {}
     starters = {s["player"]: s["slot"] for s in team_pk.get("depth_chart", {}).get("starters", [])}
     second = {}
@@ -576,6 +650,13 @@ def injury_impact(team_pk: dict, snap_share: dict, def_snaps: dict) -> list[dict
         x = rows.setdefault(r["player"], {"player": r["player"], "position": r.get("position"), "game_status": None,
                                           "practice": None, "injury": None})
         x["espn"] = r.get("status"); x["espn_comment"] = r.get("comment")
+    for r in roster_reserve or []:
+        name = r.get("player") or r.get("full_name")
+        if not name:
+            continue
+        x = rows.setdefault(name, {"player": name, "position": r.get("position"), "game_status": None,
+                                   "practice": None, "injury": None, "espn": None, "espn_comment": None})
+        x["roster_status"] = r.get("status") or r.get("roster_status") or "Injured Reserve"
     out = []
     for name, x in rows.items():
         share = snap_share.get(name) or def_snaps.get(name)
@@ -583,9 +664,9 @@ def injury_impact(team_pk: dict, snap_share: dict, def_snaps: dict) -> list[dict
         x["starter_slot"] = slot
         x["snap_share"] = share
         x["next_up"] = second.get(slot) if slot else None
-        # The stronger of the two reports wins: a Friday "Questionable" that ESPN has since moved to "Out" is out.
-        lvl = lambda st: 3 if st in ("out", "injured reserve", "doubtful") else 2 if st == "questionable" else 1
-        weight = max(lvl((x.get("game_status") or "").lower()), lvl((x.get("espn") or "").lower()))
+        # The stronger *game* designation wins: a Friday "Questionable" that ESPN has since moved to "Out" is out.
+        # A stale IR roster tag does not beat a current official Questionable.
+        weight = status_level(x.get("game_status"), x.get("espn"), x.get("roster_status"))
         imp = (share or 0) + (0.5 if slot else 0)
         x["impact"] = "high" if imp >= 0.9 and weight >= 2 else "medium" if imp >= 0.5 and weight >= 2 else "low"
         x["status_level"] = weight
