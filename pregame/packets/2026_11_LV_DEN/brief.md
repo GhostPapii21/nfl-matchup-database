@@ -2,92 +2,77 @@
 
 **Sunday 2026-11-22, 16:25 ET.** Site: Home; roof: outdoors; surface: grass. Rest: LV 7 days, DEN 14 days. Listed QBs: Fernando Mendoza (LV), Bo Nix (DEN).
 
-Market (schedule consensus, not a timestamped quote): DEN -10.5, total 40.5.
+Market (schedule consensus, not a timestamped quote): DEN -11.5, total 41.5.
 
-Generated 2026-11-22T20:32:26+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-23T00:28:52+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-22T20:32:25+00:00 UTC. At kickoff: 45 F, wind 6 mph N, 0% chance of precipitation, Partly Sunny. During the game: low 42 F, wind up to 7 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
+National Weather Service, retrieved 2026-11-23T00:28:49+00:00 UTC. At kickoff: 42 F, wind 6 mph N, 0% chance of precipitation, Mostly Sunny. During the game: low 42 F, wind up to 6 mph, precipitation chance up to 0%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-22T20:28:28Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: bet365, betmgm, betonlineag, betrivers, bovada, circasports, consensus, draftkings, fanatics, fanduel, open, williamhill_us.
+Retrieved 2026-11-20T10:33:18Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: betmgm, draftkings, fanduel, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | DEN -10.5 | -115 | -111 | 50.4% | 49.6% | 6.1% | 2026-11-22T20:28:28+00:00 |
-| spread | pinnacle | DEN -12 | -107 | -104 | 50.3% | 49.6% | 2.7% | 2026-11-22T20:28:28+00:00 |
-| spread | consensus | DEN -10.5 | -111 | -109 | 50.2% | 49.8% | 4.8% | 2026-11-22T20:28:28+00:00 |
-| spread | draftkings | DEN -10.5 | -111 | -108 | 50.3% | 49.7% | 4.5% | 2026-11-22T20:28:28+00:00 |
-| spread | bet365 | DEN -10.5 | -112 | -108 | 50.4% | 49.6% | 4.8% | 2026-11-22T20:28:28+00:00 |
-| spread | betrivers | DEN -11.5 | -112 | -112 | 50.0% | 50.0% | 5.7% | 2026-11-22T20:28:28+00:00 |
-| spread | betmgm | DEN -11.5 | -105 | -108 | 49.7% | 50.3% | 3.1% | 2026-11-22T20:28:28+00:00 |
-| spread | williamhill_us | DEN -11.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-22T20:28:28+00:00 |
-| spread | open | DEN -7.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-22T20:28:28+00:00 |
-| total | fanduel | Over 41.5 | -111 | -115 | 49.6% | 50.4% | 6.1% | 2026-11-22T20:28:28+00:00 |
-| total | pinnacle | Over 41.5 | -107 | -107 | 50.0% | 50.0% | 3.4% | 2026-11-22T20:28:28+00:00 |
-| total | consensus | Over 41.5 | -105 | -114 | 49.0% | 51.0% | 4.5% | 2026-11-22T20:28:28+00:00 |
-| total | open | Over 41.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-22T20:28:28+00:00 |
-| total | betrivers | Over 41.5 | -104 | -117 | 48.6% | 51.4% | 4.9% | 2026-11-22T20:28:28+00:00 |
-| total | bet365 | Over 41.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-22T20:28:28+00:00 |
-| total | williamhill_us | Over 41.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-22T20:28:28+00:00 |
-| total | draftkings | Over 40.5 | -117 | -102 | 51.6% | 48.4% | 4.4% | 2026-11-22T20:28:28+00:00 |
-| total | betmgm | Over 40.5 | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-22T20:28:28+00:00 |
-| moneyline | fanduel | DEN | -650 | +480 | 83.4% | 16.6% | 3.9% | 2026-11-22T20:28:28+00:00 |
-| moneyline | pinnacle | DEN | -673 | +520 | 84.4% | 15.6% | 3.2% | 2026-11-22T20:28:28+00:00 |
-| moneyline | consensus | DEN | -650 | +490 | 83.6% | 16.4% | 3.6% | 2026-11-22T20:28:28+00:00 |
-| moneyline | open | DEN | -340 | +270 | 74.1% | 25.9% | 4.3% | 2026-11-22T20:28:28+00:00 |
-| moneyline | draftkings | DEN | -587 | +438 | 82.1% | 17.9% | 4.0% | 2026-11-22T20:28:28+00:00 |
-| moneyline | betrivers | DEN | -715 | +475 | 83.5% | 16.5% | 5.1% | 2026-11-22T20:28:28+00:00 |
-| moneyline | betmgm | DEN | -650 | +500 | 83.9% | 16.1% | 3.3% | 2026-11-22T20:28:28+00:00 |
-| moneyline | bet365 | DEN | -700 | +500 | 84.0% | 16.0% | 4.2% | 2026-11-22T20:28:28+00:00 |
-| moneyline | williamhill_us | DEN | -675 | +475 | 83.4% | 16.6% | 4.5% | 2026-11-22T20:28:28+00:00 |
+| spread | fanduel | DEN -7.5 | +320 | -500 | 22.2% | 77.8% | 7.1% | 2026-11-23T00:24:00+00:00 |
+| spread | draftkings | DEN -10.5 | -105 | -115 | 48.9% | 51.1% | 4.7% | 2026-11-20T10:33:50Z |
+| spread | williamhill_us | DEN -10.5 | -104 | -115 | 48.8% | 51.2% | 4.5% | 2026-11-20T10:33:50Z |
+| spread | betmgm | DEN -10 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-20T10:33:18Z |
+| total | fanduel | Over 55.5 | +154 | -210 | 36.8% | 63.2% | 7.1% | 2026-11-23T00:24:00+00:00 |
+| total | draftkings | Over 40.5 | -107 | -113 | 49.4% | 50.6% | 4.7% | 2026-11-20T10:33:50Z |
+| total | williamhill_us | Over 40.5 | -106 | -114 | 49.1% | 50.9% | 4.7% | 2026-11-20T10:33:50Z |
+| total | betmgm | Over 40.5 | -110 | -108 | 50.2% | 49.8% | 4.3% | 2026-11-20T10:33:18Z |
+| moneyline | fanduel | DEN | -6000 | +1400 | 93.7% | 6.3% | 5.0% | 2026-11-23T00:24:00+00:00 |
+| moneyline | draftkings | DEN | -620 | +455 | 82.7% | 17.3% | 4.1% | 2026-11-20T10:33:50Z |
+| moneyline | williamhill_us | DEN | -560 | +425 | 81.7% | 18.3% | 3.9% | 2026-11-20T10:33:50Z |
+| moneyline | betmgm | DEN | -550 | +425 | 81.6% | 18.4% | 3.7% | 2026-11-20T10:33:18Z |
 
 ### Player props beside the research baseline
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Jonah Coleman | rushing yards | bovada | 91.5 | +220 / -300 | 29.4% | n/a | 56.2 | 54.6 | 4 | -35.3 |
-| Ashton Jeanty | rushing yards | bovada | 42.5 | +165 / -220 | 35.4% | n/a | 24.9 | 22.7 | 8 | -17.6 |
-| J.K. Dobbins | rushing yards | fanduel | 21.5 | -113 / -113 | 50.0% | 51.6% | 38.8 | 43.7 | 8 | 17.3 |
-| Jonah Coleman | rushing yards | betrivers | 73.5 | -127 / -114 | 51.2% | n/a | 56.2 | 54.6 | 4 | -17.3 |
-| J.K. Dobbins | rushing yards | draftkings | 22.5 | -115 / -109 | 50.6% | n/a | 38.8 | 43.7 | 8 | 16.3 |
-| J.K. Dobbins | rushing yards | betonlineag | 22.5 | -116 / -111 | 50.5% | n/a | 38.8 | 43.7 | 8 | 16.3 |
-| J.K. Dobbins | rushing yards | betrivers | 22.5 | -122 / -118 | 50.4% | n/a | 38.8 | 43.7 | 8 | 16.3 |
-| J.K. Dobbins | rushing yards | bovada | 22.5 | -120 / -110 | 51.0% | n/a | 38.8 | 43.7 | 8 | 16.3 |
-| Jonah Coleman | rushing yards | betmgm | 72.5 | -115 / -115 | 50.0% | n/a | 56.2 | 54.6 | 4 | -16.3 |
-| Michael Mayer | receiving yards | fanduel | 32.5 | -113 / -113 | 50.0% | 50.0% | 48.5 | 39.7 | 8 | 16.0 |
-| J.K. Dobbins | rushing yards | betmgm | 23.5 | -111 / -120 | 49.1% | n/a | 38.8 | 43.7 | 8 | 15.3 |
-| Jonah Coleman | rushing yards | fanduel | 71.5 | -113 / -113 | 50.0% | 48.7% | 56.2 | 54.6 | 4 | -15.3 |
-| Jonah Coleman | rushing yards | draftkings | 71.5 | -111 / -112 | 49.9% | 48.7% | 56.2 | 54.6 | 4 | -15.3 |
-| Jonah Coleman | rushing yards | betonlineag | 71.5 | -114 / -114 | 50.0% | 48.7% | 56.2 | 54.6 | 4 | -15.3 |
-| Michael Mayer | receiving yards | draftkings | 33.5 | -109 / -115 | 49.4% | n/a | 48.5 | 39.7 | 8 | 15.0 |
-| Jonah Coleman | rushing yards | circasports | 69.5 | -110 / -110 | 50.0% | n/a | 56.2 | 54.6 | 4 | -13.3 |
-| Jaylen Waddle | receiving yards | bovada | 54.5 | +140 / -185 | 39.1% | n/a | 41.3 | 31.9 | 8 | -13.2 |
-| Jalen Nailor | receiving yards | fanduel | 21.5 | -113 / -113 | 50.0% | 49.6% | 13.2 | 11.2 | 6 | -8.3 |
-| Ashton Jeanty | rushing yards | draftkings | 32.5 | -115 / -109 | 50.6% | n/a | 24.9 | 22.7 | 8 | -7.6 |
-| Ashton Jeanty | rushing yards | betonlineag | 32.5 | -115 / -112 | 50.3% | n/a | 24.9 | 22.7 | 8 | -7.6 |
-| Ashton Jeanty | rushing yards | betrivers | 32.5 | -121 / -120 | 50.1% | n/a | 24.9 | 22.7 | 8 | -7.6 |
-| Ashton Jeanty | rushing yards | betmgm | 32.5 | -111 / -120 | 49.1% | n/a | 24.9 | 22.7 | 8 | -7.6 |
-| Ashton Jeanty | rushing yards | fanduel | 31.5 | -113 / -113 | 50.0% | 49.6% | 24.9 | 22.7 | 8 | -6.6 |
-| Tre Tucker | receiving yards | fanduel | 39.5 | -113 / -113 | 50.0% | n/a | 46.0 | 42.4 | 8 | 6.5 |
-| Jalen Nailor | receiving yards | draftkings | 19.5 | -108 / -116 | 49.2% | n/a | 13.2 | 11.2 | 6 | -6.3 |
-| Jalen Nailor | receiving yards | bovada | 19.5 | -110 / -120 | 49.0% | n/a | 13.2 | 11.2 | 6 | -6.3 |
-| Jaylen Waddle | receiving yards | betrivers | 47.5 | -122 / -118 | 50.4% | n/a | 41.3 | 31.9 | 8 | -6.2 |
-| Michael Mayer | receiving yards | bovada | 42.5 | +150 / -200 | 37.5% | n/a | 48.5 | 39.7 | 8 | 6.0 |
-| Courtland Sutton | receiving yards | bovada | 41.5 | +155 / -210 | 36.7% | n/a | 36.4 | 37.9 | 8 | -5.1 |
-| Courtland Sutton | receiving yards | fanduel | 31.5 | -113 / -113 | 50.0% | 50.0% | 36.4 | 37.9 | 8 | 4.9 |
-| Courtland Sutton | receiving yards | draftkings | 31.5 | -114 / -110 | 50.4% | 50.0% | 36.4 | 37.9 | 8 | 4.9 |
-| Courtland Sutton | receiving yards | betonlineag | 31.5 | -114 / -114 | 50.0% | 50.0% | 36.4 | 37.9 | 8 | 4.9 |
-| Courtland Sutton | receiving yards | circasports | 31.5 | -110 / -110 | 50.0% | 50.0% | 36.4 | 37.9 | 8 | 4.9 |
-| Jaylen Waddle | receiving yards | betmgm | 45.5 | -115 / -115 | 50.0% | n/a | 41.3 | 31.9 | 8 | -4.2 |
-| Ashton Jeanty | rushing yards | circasports | 28.5 | -110 / -110 | 50.0% | n/a | 24.9 | 22.7 | 8 | -3.6 |
-| Jaylen Waddle | receiving yards | draftkings | 44.5 | -113 / -111 | 50.2% | n/a | 41.3 | 31.9 | 8 | -3.2 |
-| Jaylen Waddle | receiving yards | betonlineag | 44.5 | -115 / -112 | 50.3% | n/a | 41.3 | 31.9 | 8 | -3.2 |
-| Evan Engram | receiving yards | draftkings | 19.5 | -113 / -111 | 50.2% | n/a | 16.5 | 9.7 | 8 | -3.0 |
-| Evan Engram | receiving yards | betonlineag | 19.5 | -112 / -115 | 49.7% | n/a | 16.5 | 9.7 | 8 | -3.0 |
-| Evan Engram | receiving yards | betrivers | 19.5 | -120 / -121 | 49.9% | n/a | 16.5 | 9.7 | 8 | -3.0 |
+| Jonah Coleman | rushing yards | fanduel | 117.5 | -122 / -108 | 51.4% | n/a | 56.2 | 54.6 | 4 | -61.3 |
+| J.K. Dobbins | rushing yards | draftkings | 24.5 | -114 / -110 | 50.4% | n/a | 38.8 | 43.7 | 8 | 14.3 |
+| Jonah Coleman | rushing yards | betmgm | 69.5 | -115 / -115 | 50.0% | n/a | 56.2 | 54.6 | 4 | -13.3 |
+| Jonah Coleman | rushing yards | draftkings | 68.5 | -111 / -113 | 49.8% | n/a | 56.2 | 54.6 | 4 | -12.3 |
+| Ashton Jeanty | rushing yards | betmgm | 33.5 | -115 / -115 | 50.0% | n/a | 24.9 | 22.7 | 8 | -8.6 |
+| Ashton Jeanty | rushing yards | draftkings | 31.5 | -116 / -108 | 50.8% | n/a | 24.9 | 22.7 | 8 | -6.6 |
+| Evan Engram | receiving yards | draftkings | 21.5 | -109 / -116 | 49.3% | n/a | 16.5 | 9.7 | 8 | -5.0 |
+| Evan Engram | receiving yards | betmgm | 19.5 | -120 / -110 | 51.0% | n/a | 16.5 | 9.7 | 8 | -3.0 |
+| Jaylen Waddle | receiving yards | draftkings | 42.5 | -113 / -111 | 50.2% | n/a | 41.3 | 31.9 | 8 | -1.2 |
+| Courtland Sutton | receiving yards | draftkings | 35.5 | -110 / -114 | 49.6% | n/a | 36.4 | 37.9 | 8 | 0.9 |
+| Tre Tucker | receptions | fanduel | 2.5 | +235 / -340 | 27.9% | n/a | 3.2 | 4.0 | 8 | 0.7 |
+| Courtland Sutton | receptions | draftkings | 3.5 | +103 / -132 | 46.4% | n/a | 3.0 | 2.9 | 8 | -0.5 |
+| Evan Engram | receptions | draftkings | 2.5 | -111 / -115 | 49.6% | n/a | 2.0 | 1.1 | 8 | -0.5 |
+| Evan Engram | receptions | betmgm | 2.5 | -105 / -125 | 48.0% | n/a | 2.0 | 1.1 | 8 | -0.5 |
+| Jalen Nailor | receptions | fanduel | 1.5 | +350 / -550 | 20.8% | n/a | 1.9 | 1.5 | 6 | 0.4 |
+| Jaylen Waddle | receptions | fanduel | 3.5 | +350 / -550 | 20.8% | n/a | 3.3 | 3.4 | 8 | -0.2 |
+| Jaylen Waddle | receptions | draftkings | 3.5 | -132 / +103 | 53.6% | n/a | 3.3 | 3.4 | 8 | -0.2 |
+| Jack Bech | receptions | fanduel | 6.5 | +370 / -600 | 19.9% | n/a | n/a | n/a | n/a | n/a |
+| Bo Nix | rushing yards | fanduel | 6.5 | +102 / -136 | 46.2% | n/a | n/a | n/a | n/a | n/a |
+| Bo Nix | rushing yards | draftkings | 10.5 | -111 / -113 | 49.8% | n/a | n/a | n/a | n/a | n/a |
+| Bo Nix | rushing yards | betmgm | 10.5 | -120 / -110 | 51.0% | n/a | n/a | n/a | n/a | n/a |
+| Ashton Jeanty | receiving yards | draftkings | 28.5 | -113 / -111 | 50.2% | n/a | n/a | n/a | n/a | n/a |
+| Ashton Jeanty | receiving yards | betmgm | 29.5 | -125 / -105 | 52.0% | n/a | n/a | n/a | n/a | n/a |
+| Pat Bryant | receiving yards | draftkings | 26.5 | -116 / -109 | 50.7% | n/a | n/a | n/a | n/a | n/a |
+| Jonah Coleman | receiving yards | draftkings | 22.5 | -108 / -116 | 49.2% | n/a | n/a | n/a | n/a | n/a |
+| Jonah Coleman | receiving yards | betmgm | 22.5 | -115 / -115 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Marvin Mims Jr. | receiving yards | draftkings | 9.5 | -108 / -116 | 49.2% | n/a | n/a | n/a | n/a | n/a |
+| Ashton Jeanty | receptions | draftkings | 3.5 | -155 / +122 | 57.4% | n/a | n/a | n/a | n/a | n/a |
+| Ashton Jeanty | receptions | betmgm | 4.5 | +120 / -160 | 42.5% | n/a | n/a | n/a | n/a | n/a |
+| Jonah Coleman | receptions | draftkings | 3.5 | +109 / -139 | 45.1% | n/a | n/a | n/a | n/a | n/a |
+| Jonah Coleman | receptions | betmgm | 3.5 | +100 / -135 | 46.5% | n/a | n/a | n/a | n/a | n/a |
+| Pat Bryant | receptions | draftkings | 2.5 | -109 / -117 | 49.2% | n/a | n/a | n/a | n/a | n/a |
+| Marvin Mims Jr. | receptions | draftkings | 1.5 | +155 / -199 | 37.1% | n/a | n/a | n/a | n/a | n/a |
+| Jonah Coleman | rush rec yards | draftkings | 94.5 | -115 / -111 | 50.4% | n/a | n/a | n/a | n/a | n/a |
+| Jonah Coleman | rush rec yards | betmgm | 96.5 | -115 / -115 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Ashton Jeanty | rush rec yards | draftkings | 64.5 | -115 / -111 | 50.4% | n/a | n/a | n/a | n/a | n/a |
+| Ashton Jeanty | rush rec yards | betmgm | 66.5 | -115 / -115 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Mike Washington Jr. | rushing yards | draftkings | 24.5 | -109 / -115 | 49.4% | n/a | n/a | n/a | n/a | n/a |
+| Mike Washington Jr. | rushing yards | betmgm | 25.5 | -115 / -115 | 50.0% | n/a | n/a | n/a | n/a | n/a |
+| Fernando Mendoza | rushing yards | draftkings | 18.5 | -106 / -119 | 48.6% | n/a | n/a | n/a | n/a | n/a |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -127,8 +112,8 @@ baseline_minus_line is the research baseline against the book line. It is NOT an
 
 | Sampler | Mean score | Total | Home margin | Home win | Home covers | Over | First half |
 |---|---|---|---|---|---|---|---|
-| matchup_pair | LV 18.7 - DEN 24.9 | 43.6 | +6.2 | 74.6% | 30.1% | 57.8% | LV 8.8 - DEN 11.9 |
-| independent | LV 18.0 - DEN 22.9 | 40.9 | +4.8 | 64.6% | 31.4% | 51.1% | LV 8.1 - DEN 10.2 |
+| matchup_pair | LV 18.7 - DEN 24.9 | 43.6 | +6.2 | 74.6% | 28.3% | 50.1% | LV 8.8 - DEN 11.9 |
+| independent | LV 18.0 - DEN 22.9 | 40.9 | +4.8 | 64.6% | 28.5% | 47.2% | LV 8.1 - DEN 10.2 |
 
 Bootstrap of each team's real quarter scores. 'matchup_pair' includes the opponent's defence; 'independent' is the legacy sampler. No injuries, no weather, no fitted calibration. On 2026 weeks 1-8 neither sampler beat the market; treat probabilities near the market number as no information.
 
@@ -171,7 +156,7 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 0% chance of rain at kickoff, wind up to 7 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 0% chance of rain at kickoff, wind up to 6 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### LV passing
 
@@ -430,7 +415,7 @@ Defensive front: LDE Folorunso Fatukasi, NT Adam Butler, RDE Tonka Hemingway, WL
 | Thomas Booker | DT |  | none listed | Full Participation in Practice |  |
 | Ian Thomas | TE |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Brock Bowers (TE) Out; Dalton Johnson (S) Out; Tristin McCollum (S) Out; Bryce Cabeldue (G) Out; Tonka Hemingway (DT) Out; Malik Benson (WR) Out; Dont'e Thornton Jr. (WR) Out.
+ESPN live list (designations only): Brock Bowers (TE) Out; Dalton Johnson (S) Out; Tristin McCollum (S) Out; Bryce Cabeldue (G) Out; Tonka Hemingway (DT) Out; Malik Benson (WR) Out; Dont'e Thornton Jr. (WR) Out; Dareke Young (WR) Questionable; Adam Butler (DT) Questionable; Tim Keenan III (DT) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -663,7 +648,7 @@ A player missing from the report is UNKNOWN, not healthy. Final inactives post a
 |---|---|---|---|
 | ODDS_API_KEY | The Odds API | KEY_PRESENT | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
 | NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
-| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | access check only; not used in the packet |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR: {'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'} | access check only; not used in the packet |
 
 Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
 
@@ -691,20 +676,20 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-22T20:32:21+00:00 | 80744c3d88a3 |
-| pbp | OK | 2026-11-22T20:32:21+00:00 | f2410a7ef9cd |
-| rosters | OK | 2026-11-22T20:32:21+00:00 | c43582ebed71 |
-| injuries | OK | 2026-11-22T20:32:21+00:00 | cbe8fc920c64 |
-| depth_charts | OK | 2026-11-22T20:32:22+00:00 | eaa813404b3b |
-| snap_counts | OK | 2026-11-22T20:32:22+00:00 | 980aba4c2b5e |
-| ftn | OK | 2026-11-22T20:32:22+00:00 | d0e949df6e17 |
-| pfr_def | OK | 2026-11-22T20:32:22+00:00 | b2f7b6dc4d56 |
-| pfr_rec | OK | 2026-11-22T20:32:23+00:00 | c044899de693 |
-| pfr_rush | OK | 2026-11-22T20:32:23+00:00 | e8230522afc9 |
-| ngs_receiving | OK | 2026-11-22T20:32:23+00:00 | 69a9cf35c11f |
-| ngs_rushing | OK | 2026-11-22T20:32:23+00:00 | 1e898de8de66 |
-| ngs_passing | OK | 2026-11-22T20:32:24+00:00 | da2b955ac320 |
-| espn_injuries | OK | 2026-11-22T20:32:24+00:00 |  |
+| games | OK | 2026-11-23T00:28:43+00:00 | 6a7997900438 |
+| pbp | OK | 2026-11-23T00:28:43+00:00 | c2912a2c1a2e |
+| rosters | OK | 2026-11-23T00:28:43+00:00 | c43582ebed71 |
+| injuries | OK | 2026-11-23T00:28:43+00:00 | cbe8fc920c64 |
+| depth_charts | OK | 2026-11-23T00:28:43+00:00 | eaa813404b3b |
+| snap_counts | OK | 2026-11-23T00:28:43+00:00 | 980aba4c2b5e |
+| ftn | OK | 2026-11-23T00:28:44+00:00 | d0e949df6e17 |
+| pfr_def | OK | 2026-11-23T00:28:44+00:00 | b2f7b6dc4d56 |
+| pfr_rec | OK | 2026-11-23T00:28:44+00:00 | c044899de693 |
+| pfr_rush | OK | 2026-11-23T00:28:44+00:00 | e8230522afc9 |
+| ngs_receiving | OK | 2026-11-23T00:28:44+00:00 | 69a9cf35c11f |
+| ngs_rushing | OK | 2026-11-23T00:28:44+00:00 | 1e898de8de66 |
+| ngs_passing | OK | 2026-11-23T00:28:44+00:00 | da2b955ac320 |
+| espn_injuries | OK | 2026-11-23T00:28:45+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
 | book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 

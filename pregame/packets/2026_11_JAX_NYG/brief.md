@@ -1,73 +1,77 @@
-# JAX at NYG: Week 11, Sunday early window
+# JAX at NYG: Week 11, Sunday late window
 
-**Sunday 2026-11-22, 13:00 ET.** Site: Home; roof: outdoors; surface: fieldturf. Rest: JAX 7 days, NYG 10 days. Listed QBs: Trevor Lawrence (JAX), J.J. McCarthy (NYG).
+**Sunday 2026-11-22, 16:25 ET.** Site: Home; roof: outdoors; surface: fieldturf. Rest: JAX 7 days, NYG 10 days. Listed QBs: Trevor Lawrence (JAX), J.J. McCarthy (NYG).
 
 Market (schedule consensus, not a timestamped quote): NYG +6, total 45.5.
 
-Generated 2026-11-22T12:06:32+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
+Generated 2026-11-23T00:28:48+00:00 UTC. **Research only. `projection_ready` is false. Not betting advice.** Every number below is a count of recorded plays; a missing value is unknown, not zero.
 
 ## Weather
 
-National Weather Service, retrieved 2026-11-22T12:06:30+00:00 UTC. At kickoff: 61 F, wind 6 mph NE, 63% chance of precipitation, Light Rain Likely. During the game: low 61 F, wind up to 7 mph, precipitation chance up to 71%. Roof: outdoors. Flags: PRECIP_50_PLUS.
+National Weather Service, retrieved 2026-11-23T00:28:45+00:00 UTC. At kickoff: 57 F, wind 5 mph N, 27% chance of precipitation, Chance Light Rain. During the game: low 57 F, wind up to 5 mph, precipitation chance up to 27%. Roof: outdoors. Flags: none.
 
 ## Book prices and no-vig
 
-Retrieved 2026-11-22T11:57:46Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: betmgm, betonlineag, betrivers, bovada, circasports, draftkings, fanatics, fanduel, williamhill_us.
+Retrieved 2026-11-20T10:33:43Z UTC from direct pulls (pregame/direct_lines) + Grok files when present; no Odds API. No-vig = each side's share of the two implied probabilities. Pinnacle is the sharp reference; books with prices here: betmgm, draftkings, fanduel, williamhill_us.
 
 | Market | Book | Side A / line | Price A | Price B | No-vig A | No-vig B | Hold | Book updated |
 |---|---|---|---|---|---|---|---|---|
-| spread | fanduel | NYG +5.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-22T11:57:46+00:00 |
+| spread | fanduel | NYG -7.5 | +114 | -152 | 43.6% | 56.4% | 7.0% | 2026-11-23T00:24:00+00:00 |
+| spread | draftkings | NYG +6 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-20T10:33:50Z |
 | spread | williamhill_us | NYG +6 | -108 | -112 | 49.6% | 50.4% | 4.8% | 2026-11-20T10:33:50Z |
-| total | fanduel | Over 46.5 | +100 | -120 | 47.8% | 52.2% | 4.5% | 2026-11-22T11:57:46+00:00 |
-| total | pinnacle | Over 45 | -106 | -108 | 49.8% | 50.2% | 3.4% | 2026-11-22T11:57:46+00:00 |
+| spread | betmgm | NYG +6 | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-20T10:33:43Z |
+| total | fanduel | Over 39.5 | +158 | -215 | 36.2% | 63.8% | 7.0% | 2026-11-23T00:24:00+00:00 |
+| total | draftkings | Over 46.5 | -113 | -106 | 50.8% | 49.2% | 4.5% | 2026-11-20T10:33:50Z |
 | total | williamhill_us | Over 46.5 | -110 | -110 | 50.0% | 50.0% | 4.8% | 2026-11-20T10:33:50Z |
-| moneyline | fanduel | NYG | +215 | -260 | 30.5% | 69.5% | 4.0% | 2026-11-22T11:57:46+00:00 |
+| total | betmgm | Over 46.5 | -112 | -105 | 50.8% | 49.2% | 4.0% | 2026-11-20T10:33:43Z |
+| moneyline | draftkings | NYG | +211 | -256 | 30.9% | 69.1% | 4.1% | 2026-11-20T10:33:50Z |
 | moneyline | williamhill_us | NYG | +215 | -265 | 30.4% | 69.6% | 4.3% | 2026-11-20T10:33:50Z |
+| moneyline | betmgm | NYG | +220 | -275 | 29.9% | 70.1% | 4.6% | 2026-11-20T10:33:43Z |
 
 ### Player props beside the research baseline
 
 | Player | Stat | Book | Line | Over / Under | No-vig over | Pinnacle no-vig over (same line) | Baseline mean | Baseline median | G | Baseline - line |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Bhayshul Tuten | rushing yards | bovada | 90.5 | +220 / -300 | 29.4% | n/a | 68.9 | 73.6 | 8 | -21.6 |
-| Malik Nabers | receiving yards | betmgm | 66.5 | -115 / -115 | 50.0% | n/a | 87.5 | 84.3 | 8 | 21.0 |
-| Malik Nabers | receiving yards | draftkings | 67.5 | -111 / -113 | 49.8% | n/a | 87.5 | 84.3 | 8 | 20.0 |
-| Malik Nabers | receiving yards | betonlineag | 67.5 | -114 / -114 | 50.0% | n/a | 87.5 | 84.3 | 8 | 20.0 |
-| Malik Nabers | receiving yards | betrivers | 67.5 | -118 / -113 | 50.5% | n/a | 87.5 | 84.3 | 8 | 20.0 |
-| Malik Nabers | receiving yards | circasports | 67.5 | -110 / -110 | 50.0% | n/a | 87.5 | 84.3 | 8 | 20.0 |
+| Cam Skattebo | rushing yards | fanduel | 28.5 | -118 / -112 | 50.6% | n/a | 65.4 | 52.8 | 6 | 36.9 |
+| Parker Washington | receiving yards | fanduel | 100.5 | -118 / -112 | 50.6% | n/a | 67.8 | 58.1 | 8 | -32.7 |
+| Brenton Strange | receiving yards | fanduel | 16.5 | -112 / -118 | 49.4% | n/a | 39.4 | 36.3 | 8 | 22.9 |
+| Malik Nabers | receiving yards | draftkings | 65.5 | -114 / -110 | 50.4% | n/a | 87.5 | 84.3 | 8 | 22.0 |
+| Malik Nabers | receiving yards | betmgm | 65.5 | -115 / -115 | 50.0% | n/a | 87.5 | 84.3 | 8 | 22.0 |
+| Malachi Fields | receiving yards | draftkings | 27.5 | -115 / -109 | 50.6% | n/a | 46.9 | 38.1 | 8 | 19.4 |
 | Malachi Fields | receiving yards | betmgm | 27.5 | -115 / -115 | 50.0% | n/a | 46.9 | 38.1 | 8 | 19.4 |
-| Malachi Fields | receiving yards | draftkings | 28.5 | -114 / -110 | 50.4% | n/a | 46.9 | 38.1 | 8 | 18.4 |
-| Malachi Fields | receiving yards | betonlineag | 28.5 | -114 / -114 | 50.0% | n/a | 46.9 | 38.1 | 8 | 18.4 |
-| Malachi Fields | receiving yards | bovada | 28.5 | -115 / -115 | 50.0% | n/a | 46.9 | 38.1 | 8 | 18.4 |
-| Malik Nabers | receiving yards | fanduel | 69.5 | -113 / -113 | 50.0% | 45.3% | 87.5 | 84.3 | 8 | 18.0 |
-| Malachi Fields | receiving yards | fanduel | 29.5 | -113 / -113 | 50.0% | 51.7% | 46.9 | 38.1 | 8 | 17.4 |
-| Malachi Fields | receiving yards | circasports | 29.5 | -110 / -110 | 50.0% | 51.7% | 46.9 | 38.1 | 8 | 17.4 |
-| Malachi Fields | receiving yards | betrivers | 30.5 | -117 / -114 | 50.3% | n/a | 46.9 | 38.1 | 8 | 16.4 |
-| Isaiah Likely | receiving yards | circasports | 45.5 | -110 / -110 | 50.0% | n/a | 56.4 | 50.6 | 8 | 10.9 |
-| Cam Skattebo | rushing yards | draftkings | 54.5 | -115 / -109 | 50.6% | 50.6% | 65.4 | 52.8 | 6 | 10.9 |
-| Cam Skattebo | rushing yards | fanduel | 54.5 | -113 / -113 | 50.0% | 50.6% | 65.4 | 52.8 | 6 | 10.9 |
-| Cam Skattebo | rushing yards | betonlineag | 54.5 | -118 / -110 | 50.8% | 50.6% | 65.4 | 52.8 | 6 | 10.9 |
-| Cam Skattebo | rushing yards | betrivers | 54.5 | -115 / -115 | 50.0% | 50.6% | 65.4 | 52.8 | 6 | 10.9 |
-| Cam Skattebo | rushing yards | circasports | 54.5 | -110 / -110 | 50.0% | 50.6% | 65.4 | 52.8 | 6 | 10.9 |
-| Malik Nabers | receiving yards | bovada | 77.5 | +130 / -170 | 40.8% | n/a | 87.5 | 84.3 | 8 | 10.0 |
-| Cam Skattebo | rushing yards | betmgm | 55.5 | -111 / -118 | 49.3% | n/a | 65.4 | 52.8 | 6 | 9.9 |
-| Isaiah Likely | receiving yards | fanduel | 47.5 | -113 / -113 | 50.0% | n/a | 56.4 | 50.6 | 8 | 8.9 |
-| Isaiah Likely | receiving yards | betonlineag | 48.5 | -114 / -114 | 50.0% | n/a | 56.4 | 50.6 | 8 | 7.9 |
-| Brenton Strange | receiving yards | betmgm | 31.5 | -115 / -115 | 50.0% | n/a | 39.4 | 36.3 | 8 | 7.9 |
-| Jakobi Meyers | receiving yards | bovada | 50.5 | +145 / -190 | 38.4% | n/a | 43.1 | 33.0 | 8 | -7.4 |
-| Devin Singletary | rushing yards | fanduel | 10.5 | -113 / -113 | 50.0% | 48.5% | 17.6 | 12.4 | 5 | 7.1 |
-| Devin Singletary | rushing yards | fanatics | 10.5 | -120 / -110 | 51.0% | 48.5% | 17.6 | 12.4 | 5 | 7.1 |
-| Isaiah Likely | receiving yards | draftkings | 49.5 | -114 / -110 | 50.4% | n/a | 56.4 | 50.6 | 8 | 6.9 |
-| Brenton Strange | receiving yards | draftkings | 32.5 | -109 / -115 | 49.4% | 50.0% | 39.4 | 36.3 | 8 | 6.9 |
-| Brenton Strange | receiving yards | fanduel | 32.5 | -113 / -113 | 50.0% | 50.0% | 39.4 | 36.3 | 8 | 6.9 |
-| Brenton Strange | receiving yards | betonlineag | 32.5 | -112 / -115 | 49.7% | 50.0% | 39.4 | 36.3 | 8 | 6.9 |
-| Brenton Strange | receiving yards | circasports | 32.5 | -110 / -110 | 50.0% | 50.0% | 39.4 | 36.3 | 8 | 6.9 |
-| Parker Washington | receiving yards | bovada | 74.5 | +130 / -170 | 40.8% | n/a | 67.8 | 58.1 | 8 | -6.7 |
-| Chris Rodriguez | rushing yards | fanduel | 19.5 | -113 / -113 | 50.0% | n/a | 26.2 | 27.4 | 8 | 6.7 |
-| Chris Rodriguez | rushing yards | betonlineag | 19.5 | -116 / -111 | 50.5% | n/a | 26.2 | 27.4 | 8 | 6.7 |
-| Chris Rodriguez | rushing yards | betmgm | 19.5 | -111 / -118 | 49.3% | n/a | 26.2 | 27.4 | 8 | 6.7 |
-| Devin Singletary | rushing yards | draftkings | 11.5 | -106 / -118 | 48.7% | n/a | 17.6 | 12.4 | 5 | 6.1 |
-| Devin Singletary | rushing yards | betonlineag | 11.5 | -109 / -119 | 49.0% | n/a | 17.6 | 12.4 | 5 | 6.1 |
-| Devin Singletary | rushing yards | betrivers | 11.5 | -112 / -120 | 49.2% | n/a | 17.6 | 12.4 | 5 | 6.1 |
+| Cam Skattebo | rushing yards | betmgm | 53.5 | -120 / -111 | 50.9% | n/a | 65.4 | 52.8 | 6 | 11.9 |
+| Cam Skattebo | rushing yards | draftkings | 54.5 | -114 / -110 | 50.4% | n/a | 65.4 | 52.8 | 6 | 10.9 |
+| Devin Singletary | rushing yards | betmgm | 10.5 | -110 / -120 | 49.0% | n/a | 17.6 | 12.4 | 5 | 7.1 |
+| Devin Singletary | rushing yards | draftkings | 11.5 | -112 / -112 | 50.0% | n/a | 17.6 | 12.4 | 5 | 6.1 |
+| Brenton Strange | receiving yards | draftkings | 33.5 | -112 / -112 | 50.0% | n/a | 39.4 | 36.3 | 8 | 5.9 |
+| Brenton Strange | receiving yards | betmgm | 34.5 | -111 / -118 | 49.3% | n/a | 39.4 | 36.3 | 8 | 4.9 |
+| Darnell Mooney | receiving yards | draftkings | 14.5 | -111 / -113 | 49.8% | n/a | 19.4 | 12.0 | 8 | 4.9 |
+| Parker Washington | receptions | fanduel | 8.5 | +140 / -180 | 39.3% | n/a | 3.7 | 3.4 | 8 | -4.8 |
+| Darnell Mooney | receiving yards | betmgm | 15.5 | -115 / -115 | 50.0% | n/a | 19.4 | 12.0 | 8 | 3.9 |
+| Parker Washington | receiving yards | betmgm | 64.5 | -115 / -115 | 50.0% | n/a | 67.8 | 58.1 | 8 | 3.3 |
+| Isaiah Likely | receiving yards | draftkings | 53.5 | -112 / -112 | 50.0% | n/a | 56.4 | 50.6 | 8 | 2.9 |
+| Parker Washington | receiving yards | draftkings | 65.5 | -111 / -113 | 49.8% | n/a | 67.8 | 58.1 | 8 | 2.3 |
+| Isaiah Likely | receiving yards | betmgm | 54.5 | -115 / -115 | 50.0% | n/a | 56.4 | 50.6 | 8 | 1.9 |
+| Malik Nabers | receptions | draftkings | 5.5 | -117 / -109 | 50.8% | n/a | 7.2 | 5.9 | 8 | 1.7 |
+| Malik Nabers | receptions | betmgm | 5.5 | -120 / -110 | 51.0% | n/a | 7.2 | 5.9 | 8 | 1.7 |
+| Parker Washington | receptions | draftkings | 4.5 | +100 / -128 | 47.1% | n/a | 3.7 | 3.4 | 8 | -0.8 |
+| Parker Washington | receptions | betmgm | 4.5 | -105 / -125 | 48.0% | n/a | 3.7 | 3.4 | 8 | -0.8 |
+| Jakobi Meyers | receptions | fanduel | 2.5 | -166 / +124 | 58.3% | n/a | 3.2 | 2.9 | 8 | 0.7 |
+| Jakobi Meyers | receiving yards | betmgm | 42.5 | -115 / -115 | 50.0% | n/a | 43.1 | 33.0 | 8 | 0.6 |
+| Brenton Strange | receptions | fanduel | 3.5 | -114 / -114 | 50.0% | n/a | 3.9 | 2.7 | 8 | 0.4 |
+| Brenton Strange | receptions | draftkings | 3.5 | +116 / -149 | 43.6% | n/a | 3.9 | 2.7 | 8 | 0.4 |
+| Brenton Strange | receptions | betmgm | 3.5 | +120 / -160 | 42.5% | n/a | 3.9 | 2.7 | 8 | 0.4 |
+| Jakobi Meyers | receiving yards | fanduel | 43.5 | -112 / -118 | 49.4% | n/a | 43.1 | 33.0 | 8 | -0.4 |
+| Jakobi Meyers | receiving yards | draftkings | 43.5 | -110 / -115 | 49.5% | n/a | 43.1 | 33.0 | 8 | -0.4 |
+| Jakobi Meyers | receptions | draftkings | 3.5 | +105 / -135 | 45.9% | n/a | 3.2 | 2.9 | 8 | -0.3 |
+| Jakobi Meyers | receptions | betmgm | 3.5 | +100 / -135 | 46.5% | n/a | 3.2 | 2.9 | 8 | -0.3 |
+| Malachi Fields | receptions | draftkings | 2.5 | +115 / -146 | 43.9% | n/a | 2.8 | 2.2 | 8 | 0.3 |
+| Malachi Fields | receptions | betmgm | 2.5 | +100 / -135 | 46.5% | n/a | 2.8 | 2.2 | 8 | 0.3 |
+| Darnell Mooney | receptions | draftkings | 1.5 | +103 / -131 | 46.5% | n/a | 1.7 | 2.2 | 8 | 0.2 |
+| Darnell Mooney | receptions | betmgm | 1.5 | -105 / -125 | 48.0% | n/a | 1.7 | 2.2 | 8 | 0.2 |
+| Brian Thomas Jr. | receiving yards | fanduel | 0.5 | +154 / -210 | 36.8% | n/a | n/a | n/a | n/a | n/a |
+| Bhayshul Tuten | receptions | fanduel | 3.5 | +114 / -152 | 43.6% | n/a | n/a | n/a | n/a | n/a |
+| Bhayshul Tuten | receiving yards | fanduel | 20.5 | +118 / -158 | 42.8% | n/a | n/a | n/a | n/a | n/a |
 
 baseline_minus_line is the research baseline against the book line. It is NOT an edge: the baseline has not beaten the market in testing, uses 3-8 games, and ignores injuries and script. Use it to find props worth a full review.
 
@@ -148,52 +152,52 @@ The player's own games in the window (recency-weighted mean; percentiles of his 
 
 ## Rain-adjusted passing (measured)
 
-Forecast: 63% chance of rain at kickoff, wind up to 7 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
+Forecast: 27% chance of rain at kickoff, wind up to 5 mph. Basis: 211 team-games in rain since 2018, each compared with the same team's dry games that season. One measured rain step; wind above 10 mph is the severity dial (the data cannot grade rain as light or heavy). 'dry' is no rain at the forecast wind; 'forecast' weights rain by the chance of rain at kickoff. Baselines are the last-eight-game averages, before any injury or role change.
 
 ### JAX passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 29.6 | 28.3 | 28.8 |
-| Team completion rate | 65.0% | 61.0% | 62.5% |
-| Team completions | 19.2 | 17.3 | 18.0 |
-| Team pass yards | 255.9 | 218.6 | 232.4 |
-| T.Lawrence completion rate (234 attempts) | 65.4% | 61.4% | 62.9% |
-| T.Lawrence yards per attempt | 8.71 | 7.67 | 8.05 |
+| Team pass attempts | 29.6 | 28.3 | 29.3 |
+| Team completion rate | 65.0% | 61.0% | 63.9% |
+| Team completions | 19.2 | 17.3 | 18.7 |
+| Team pass yards | 255.9 | 218.6 | 245.8 |
+| T.Lawrence completion rate (234 attempts) | 65.4% | 61.4% | 64.3% |
+| T.Lawrence yards per attempt | 8.71 | 7.67 | 8.43 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| P.Washington | WR | 8 | 25% | 7.2 / 3.9 / 70.2 | 6.9 / 3.5 / 59.6 | 7.1 / 3.6 / 63.5 |
-| J.Meyers | WR | 8 | 18% | 5.1 / 3.4 / 46.0 | 4.9 / 3.0 / 39.0 | 5.0 / 3.1 / 41.6 |
-| B.Strange | TE | 8 | 16% | 4.6 / 3.8 / 42.8 | 4.4 / 3.3 / 36.2 | 4.5 / 3.5 / 38.6 |
-| Bri.Thomas | WR | 7 | 9% | 3.1 / 1.4 / 15.1 | 3.0 / 1.3 / 12.8 | 3.1 / 1.3 / 13.7 |
-| B.Tuten | RB | 7 | 8% | 2.7 / 2.4 / 26.3 | 2.6 / 2.2 / 21.9 | 2.6 / 2.3 / 23.5 |
-| J.Cameron | WR | 6 | 6% | 2.5 / 1.7 / 28.3 | 2.4 / 1.5 / 24.0 | 2.4 / 1.6 / 25.6 |
-| N.Boerkircher | TE | 7 | 6% | 1.9 / 1.3 / 21.0 | 1.8 / 1.1 / 17.8 | 1.8 / 1.2 / 18.9 |
-| T.Hunter | WR | 5 | 4% | 1.8 / 1.6 / 16.6 | 1.7 / 1.4 / 14.1 | 1.8 / 1.5 / 15.0 |
-| L.Allen | RB | 5 | 3% | 1.6 / 0.4 / 1.8 | 1.5 / 0.4 / 1.5 | 1.6 / 0.4 / 1.6 |
+| P.Washington | WR | 8 | 25% | 7.2 / 3.9 / 70.2 | 6.9 / 3.5 / 59.6 | 7.2 / 3.8 / 67.3 |
+| J.Meyers | WR | 8 | 18% | 5.1 / 3.4 / 46.0 | 4.9 / 3.0 / 39.0 | 5.1 / 3.3 / 44.1 |
+| B.Strange | TE | 8 | 16% | 4.6 / 3.8 / 42.8 | 4.4 / 3.3 / 36.2 | 4.6 / 3.6 / 40.9 |
+| Bri.Thomas | WR | 7 | 9% | 3.1 / 1.4 / 15.1 | 3.0 / 1.3 / 12.8 | 3.1 / 1.4 / 14.5 |
+| B.Tuten | RB | 7 | 8% | 2.7 / 2.4 / 26.3 | 2.6 / 2.2 / 21.9 | 2.7 / 2.4 / 25.1 |
+| J.Cameron | WR | 6 | 6% | 2.5 / 1.7 / 28.3 | 2.4 / 1.5 / 24.0 | 2.5 / 1.6 / 27.1 |
+| N.Boerkircher | TE | 7 | 6% | 1.9 / 1.3 / 21.0 | 1.8 / 1.1 / 17.8 | 1.8 / 1.2 / 20.1 |
+| T.Hunter | WR | 5 | 4% | 1.8 / 1.6 / 16.6 | 1.7 / 1.4 / 14.1 | 1.8 / 1.6 / 15.9 |
+| L.Allen | RB | 5 | 3% | 1.6 / 0.4 / 1.8 | 1.5 / 0.4 / 1.5 | 1.6 / 0.4 / 1.7 |
 
 ### NYG passing
 
 | Line | Dry | Rain | At the forecast |
 |---|---|---|---|
-| Team pass attempts | 33.8 | 32.3 | 32.8 |
-| Team completion rate | 61.1% | 57.4% | 58.8% |
-| Team completions | 20.6 | 18.5 | 19.3 |
-| Team pass yards | 245.4 | 209.6 | 222.9 |
-| J.McCarthy completion rate (99 attempts, small sample) | 66.7% | 62.6% | 64.1% |
-| J.McCarthy yards per attempt | 9.24 | 8.13 | 8.54 |
+| Team pass attempts | 33.8 | 32.3 | 33.4 |
+| Team completion rate | 61.1% | 57.4% | 60.1% |
+| Team completions | 20.6 | 18.5 | 20.1 |
+| Team pass yards | 245.4 | 209.6 | 235.7 |
+| J.McCarthy completion rate (99 attempts, small sample) | 66.7% | 62.6% | 65.6% |
+| J.McCarthy yards per attempt | 9.24 | 8.13 | 8.94 |
 
 | Receiver | Pos | G | Share | Dry: tgt / rec / yds | Rain: tgt / rec / yds | Forecast: tgt / rec / yds |
 |---|---|---|---|---|---|---|
-| M.Nabers | WR | 8 | 29% | 9.5 / 6.5 / 77.9 | 9.1 / 5.8 / 66.1 | 9.2 / 6.1 / 70.4 |
-| I.Likely | TE | 8 | 27% | 9.0 / 5.9 / 62.1 | 8.6 / 5.2 / 52.6 | 8.8 / 5.5 / 56.0 |
-| M.Fields | WR | 8 | 13% | 4.4 / 2.5 / 40.6 | 4.2 / 2.2 / 34.5 | 4.3 / 2.3 / 36.7 |
-| D.Mooney | WR | 8 | 11% | 3.6 / 1.5 / 18.5 | 3.5 / 1.3 / 15.7 | 3.5 / 1.4 / 16.7 |
-| C.Skattebo | RB | 6 | 6% | 2.8 / 2.3 / 20.0 | 2.7 / 2.1 / 16.7 | 2.8 / 2.2 / 17.9 |
-| T.Johnson | TE | 4 | 4% | 2.8 / 1.0 / 13.5 | 2.6 / 0.9 / 11.4 | 2.7 / 0.9 / 12.2 |
-| D.Singletary | RB | 4 | 3% | 2.0 / 1.5 / 10.2 | 1.9 / 1.4 / 8.5 | 1.9 / 1.4 / 9.2 |
-| T.Tracy | RB | 3 | 3% | 2.3 / 1.7 / 18.0 | 2.2 / 1.5 / 15.0 | 2.3 / 1.6 / 16.1 |
+| M.Nabers | WR | 8 | 29% | 9.5 / 6.5 / 77.9 | 9.1 / 5.8 / 66.1 | 9.4 / 6.3 / 74.6 |
+| I.Likely | TE | 8 | 27% | 9.0 / 5.9 / 62.1 | 8.6 / 5.2 / 52.6 | 8.9 / 5.7 / 59.5 |
+| M.Fields | WR | 8 | 13% | 4.4 / 2.5 / 40.6 | 4.2 / 2.2 / 34.5 | 4.3 / 2.4 / 38.9 |
+| D.Mooney | WR | 8 | 11% | 3.6 / 1.5 / 18.5 | 3.5 / 1.3 / 15.7 | 3.6 / 1.5 / 17.7 |
+| C.Skattebo | RB | 6 | 6% | 2.8 / 2.3 / 20.0 | 2.7 / 2.1 / 16.7 | 2.8 / 2.3 / 19.1 |
+| T.Johnson | TE | 4 | 4% | 2.8 / 1.0 / 13.5 | 2.6 / 0.9 / 11.4 | 2.7 / 1.0 / 12.9 |
+| D.Singletary | RB | 4 | 3% | 2.0 / 1.5 / 10.2 | 1.9 / 1.4 / 8.5 | 2.0 / 1.5 / 9.8 |
+| T.Tracy | RB | 3 | 3% | 2.3 / 1.7 / 18.0 | 2.2 / 1.5 / 15.0 | 2.3 / 1.6 / 17.2 |
 
 ## JAX (last 8 games: weeks 2, 3, 4, 5, 6, 8, 9, 10)
 
@@ -390,22 +394,22 @@ Neutral-situation pass rate 53.2%; 60.0 plays per game; target share WR 62% / TE
 | defense allows | Deep middle | 5 | 2% | 80% | 27.4 | 3 |
 | defense allows | Deep right | 22 | 8% | 46% | 13.73 | 7 |
 
-### JAX lines (depth chart as of 2026-11-22T07:01:24Z)
+### JAX lines (depth chart as of 2026-11-22T15:12:52Z)
 
-Offensive line: LT Walker Little, LG Emmanuel Pregnon, C Jonah Monheim, RG Ezra Cleveland, RT Cole Van Lanen.  
+Offensive line: LT Walker Little, LG Emmanuel Pregnon, C Robert Hainsey, RG Ezra Cleveland, RT Cole Van Lanen.  
 Defensive front: LDE Travon Walker, LDT Arik Armstead, RDT Jordan Davis, RDE Josh Hines-Allen, WLB Foyesade Oluokun, SLB Dennis Gardeck.
 
 ### JAX injuries
 
 | Player | Pos | Starter | Game status | Practice | Injury |
 |---|---|---|---|---|---|
-| Jonah Monheim | C | yes | none listed | Limited Participation in Practice |  |
+| Robert Hainsey | C | yes | Out | Did Not Participate In Practice | Knee |
 | Travon Walker | DE | yes | none listed | Full Participation in Practice |  |
 | Arik Armstead | DT | yes | none listed | Full Participation in Practice |  |
 | Bhayshul Tuten | RB | yes | none listed | Limited Participation in Practice |  |
 | Antonio Johnson | S | yes | none listed | Limited Participation in Practice |  |
 | Cole Van Lanen | T | yes | none listed | Limited Participation in Practice |  |
-| Robert Hainsey | C |  | Out | Did Not Participate In Practice | Knee |
+| Jonah Monheim | C |  | none listed | Limited Participation in Practice |  |
 | BJ Green II | DE |  | Out | Full Participation in Practice | Forearm |
 | Danny Striggow | DE |  | Questionable | Limited Participation in Practice | Concussion |
 | Matt Dickerson | DT |  | Questionable | Limited Participation in Practice | Neck |
@@ -414,7 +418,7 @@ Defensive front: LDE Travon Walker, LDT Arik Armstead, RDT Jordan Davis, RDE Jos
 | LeQuint Allen Jr. | RB |  | none listed | Limited Participation in Practice |  |
 | Jakobi Meyers | WR |  | none listed | Limited Participation in Practice |  |
 
-ESPN live list (designations only): Robert Hainsey (C) Out; Matt Dickerson (DE) Questionable; B.J. Green II (DE) Injured Reserve; Danny Striggow (DE) Out.
+ESPN live list (designations only): B.J. Green II (DE) Injured Reserve; CJ Williams (WR) Out; Danny Striggow (DE) Out; Albert Regis (DT) Out; Robert Hainsey (C) Out; Jalen Huskey (S) Out; Matt Dickerson (DE) Out; Jarrian Jones (CB) Questionable; Walker Little (OT) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -619,7 +623,7 @@ Neutral-situation pass rate 50.2%; 64.1 plays per game; target share WR 55% / TE
 | defense allows | Deep middle | 8 | 3% | 50% | 13.38 | 3 |
 | defense allows | Deep right | 17 | 7% | 41% | 12.18 | 6 |
 
-### NYG lines (depth chart as of 2026-11-22T07:01:24Z)
+### NYG lines (depth chart as of 2026-11-22T15:12:52Z)
 
 Offensive line: LT Andrew Thomas, LG Jon Runyan, C Bryan Hudson, RG Francis Mauigoa, RT Jermaine Eluemunor.  
 Defensive front: LDE Shelby Harris, NT DJ Reader, RDE Darius Alexander, WLB Kayvon Thibodeaux, SLB Abdul Carter.
@@ -637,7 +641,7 @@ Defensive front: LDE Shelby Harris, NT DJ Reader, RDE Darius Alexander, WLB Kayv
 | Elijah Campbell | S |  | none listed | Limited Participation in Practice |  |
 | Jason Pinnock | S |  | none listed | Full Participation in Practice |  |
 
-ESPN live list (designations only): Tyrone Tracy Jr. (RB) Injured Reserve.
+ESPN live list (designations only): Tyrone Tracy Jr. (RB) Injured Reserve; Jason Pinnock (S) Out; Josh Sills (G) Out; Nic Jones (CB) Out; J.C. Davis (OT) Out; Greg Desrosiers Jr. (RB) Out; Thomas Fidone II (TE) Out; Darius Alexander (DT) Out; Greg Newsome II (CB) Questionable.
 ESPN returns at most 25 entries per team, newest first; older entries (long-term injured reserve) can be cut off. 'Active' means ESPN lists the player with no game designation.
 
 A player missing from the report is UNKNOWN, not healthy. Final inactives post about 90 minutes before kickoff and are not in this file.
@@ -651,9 +655,9 @@ Left for another team: Jason Brownlee (WR) to TEN.
 
 | Secret | Provider | Status | Used for |
 |---|---|---|---|
-| ODDS_API_KEY | The Odds API | KEY_NOT_CONFIGURED_IN_THIS_RUN | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
+| ODDS_API_KEY | The Odds API | KEY_PRESENT | Pinnacle / DraftKings / FanDuel prices, props and line movement in every packet |
 | NFL_BDL_API_KEY | BallDontLie NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | second-source check of the slate (schedule and teams) |
-| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_NOT_CONFIGURED_IN_THIS_RUN | access check only; not used in the packet |
+| NFL_API_SPORTS_KEY | API-Sports NFL | KEY_PRESENT_PROVIDER_ERROR: {'plan': 'Free plans do not have access to this season, try from 2022 to 2024.'} | access check only; not used in the packet |
 
 Scheduled runs only see GitHub repository secrets. A key connected inside a chat tool is not visible here.
 
@@ -681,21 +685,21 @@ Scheduled runs only see GitHub repository secrets. A key connected inside a chat
 
 | Dataset | Status | Retrieved (UTC) | SHA-256 (first 12) |
 |---|---|---|---|
-| games | OK | 2026-11-22T12:06:23+00:00 | 4e2d50ee306e |
-| pbp | OK | 2026-11-22T12:06:23+00:00 | 8c99f074c85d |
-| rosters | OK | 2026-11-22T12:06:23+00:00 | a55f969ea4ba |
-| injuries | OK | 2026-11-22T12:06:23+00:00 | 072d2b830ad6 |
-| depth_charts | OK | 2026-11-22T12:06:24+00:00 | eb7dc13718e8 |
-| snap_counts | OK | 2026-11-22T12:06:24+00:00 | 980aba4c2b5e |
-| ftn | OK | 2026-11-22T12:06:24+00:00 | d0e949df6e17 |
-| pfr_def | OK | 2026-11-22T12:06:24+00:00 | b2f7b6dc4d56 |
-| pfr_rec | OK | 2026-11-22T12:06:24+00:00 | c044899de693 |
-| pfr_rush | OK | 2026-11-22T12:06:24+00:00 | e8230522afc9 |
-| ngs_receiving | OK | 2026-11-22T12:06:24+00:00 | f9b4b1f066d2 |
-| ngs_rushing | OK | 2026-11-22T12:06:24+00:00 | d7dadcb4e09a |
-| ngs_passing | OK | 2026-11-22T12:06:25+00:00 | 31e11ff3a7ed |
-| espn_injuries | OK | 2026-11-22T12:06:25+00:00 |  |
+| games | OK | 2026-11-23T00:28:43+00:00 | 6a7997900438 |
+| pbp | OK | 2026-11-23T00:28:43+00:00 | c2912a2c1a2e |
+| rosters | OK | 2026-11-23T00:28:43+00:00 | c43582ebed71 |
+| injuries | OK | 2026-11-23T00:28:43+00:00 | cbe8fc920c64 |
+| depth_charts | OK | 2026-11-23T00:28:43+00:00 | eaa813404b3b |
+| snap_counts | OK | 2026-11-23T00:28:43+00:00 | 980aba4c2b5e |
+| ftn | OK | 2026-11-23T00:28:44+00:00 | d0e949df6e17 |
+| pfr_def | OK | 2026-11-23T00:28:44+00:00 | b2f7b6dc4d56 |
+| pfr_rec | OK | 2026-11-23T00:28:44+00:00 | c044899de693 |
+| pfr_rush | OK | 2026-11-23T00:28:44+00:00 | e8230522afc9 |
+| ngs_receiving | OK | 2026-11-23T00:28:44+00:00 | 69a9cf35c11f |
+| ngs_rushing | OK | 2026-11-23T00:28:44+00:00 | 1e898de8de66 |
+| ngs_passing | OK | 2026-11-23T00:28:44+00:00 | da2b955ac320 |
+| espn_injuries | OK | 2026-11-23T00:28:45+00:00 |  |
 | nfl_savant | SAME_DATA_AS_NFLVERSE_PBP: its season download is the nflverse play-by-play (checked 2026-11-11), so no second download is made |  |  |
-| book_odds | NO_KEY: set the ODDS_API_KEY repository secret to include book prices |  |  |
+| book_odds | UNAVAILABLE: HTTPError: HTTP Error 401: Unauthorized |  |  |
 
 Play-by-play, rosters, injuries, depth charts, snap counts and PFR advanced defense: nflverse (github.com/nflverse/nflverse-data). FTN charting via nflverse: FTN Data, CC-BY-SA 4.0. Third-party data keep their own terms; see SOURCES.md.
