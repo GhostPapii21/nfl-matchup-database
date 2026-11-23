@@ -126,17 +126,19 @@
    "l_ypc",
    "spread",
    "implied",
-   "l_d"
+   "l_d",
+   "mate_car"
   ],
   "models": {
    "80": {
     "coef": {
-     "const": -15.601,
-     "l_car": 2.3911,
-     "l_ypc": 2.394,
-     "spread": 0.0185,
-     "implied": -0.0196,
-     "l_d": 1.1389
+     "const": -14.7992,
+     "l_car": 2.0534,
+     "l_ypc": 2.6257,
+     "spread": 0.0207,
+     "implied": -0.0168,
+     "l_d": 1.0928,
+     "mate_car": -0.0425
     },
     "z": {
      "const": -9.43,
@@ -177,12 +179,13 @@
    },
    "100": {
     "coef": {
-     "const": -17.3203,
-     "l_car": 2.3525,
-     "l_ypc": 2.6163,
-     "spread": -0.0034,
-     "implied": 0.0263,
-     "l_d": 1.0756
+     "const": -16.3986,
+     "l_car": 1.9474,
+     "l_ypc": 2.9061,
+     "spread": -0.0012,
+     "implied": 0.0295,
+     "l_d": 1.0265,
+     "mate_car": -0.0556
     },
     "z": {
      "const": -8.65,
@@ -228,7 +231,8 @@
    "spread": 11.8,
    "implied": -7.1,
    "l_d": 28.3
-  }
+  },
+  "note": "mate_car added Nov 23, 2026 (research/star_review_2026-11-23): held-out 2025-26 log loss 0.5809 -> 0.5752, Brier 0.1972 -> 0.1948"
  },
  "stars": {
   "3": 0.5,
@@ -240,21 +244,21 @@
   "seasons": "2025-2026",
   "all_80_games": 399,
   "3": {
-   "per_week": 3.7,
-   "predicted": 0.558,
-   "hit80": 0.512,
+   "per_week": 3.5,
+   "predicted": 0.561,
+   "hit80": 0.538,
    "hit100": 0.317
   },
   "2": {
-   "per_week": 5.6,
-   "predicted": 0.439,
-   "hit80": 0.431,
+   "per_week": 6.0,
+   "predicted": 0.444,
+   "hit80": 0.45,
    "hit100": 0.293
   },
   "1": {
-   "per_week": 11.3,
-   "predicted": 0.343,
-   "hit80": 0.345,
+   "per_week": 11.2,
+   "predicted": 0.344,
+   "hit80": 0.333,
    "hit100": 0.193
   },
   "all_stars": {
