@@ -1,6 +1,19 @@
-# Live tracker, Week 11 (2026-11-23 01:26 UTC)
+# Live tracker, Week 11 (2026-11-23 01:31 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
+
+## MIN 0 @ SF 7 (11:16 - 1st)
+
+9 plays. Top yards allowed by a named defender: J.Pierre (1/1, 18 yds), B.Murphy (1/1, 14 yds), A.Van Ginkel (1/1, 6 yds)
+
+| Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
+|---|---|---|---|---|---|---|---|---|
+| Deebo Samuel Sr. (SF) | 1 | 2.5 | 18 | 21.8 | 25.5 | 7 |  | 7.5 |
+| George Kittle (SF) | 1 | 4.3 | 17 | 44.9 | 47.5 | 0 |  |  |
+| Mike Evans (SF) | 1 | 4.0 | 14 | 48.1 | 48.5 | 0 |  |  |
+| Christian McCaffrey (SF) | 0 | 3.4 | 0 | 26.0 | 33.5 | 10 | 44.8 | 51.5 |
+| Justin Jefferson (MIN) | 0 | 6.1 | 0 | 63.7 | 86.5 | 0 |  |  |
+| Aaron Jones (MIN) | 0 | 2.0 | 0 | 7.6 | 10.0 | 0 | 32.5 | 30.5 |
 
 ## MIA 9 @ BUF 26 (Final)
 
@@ -131,17 +144,4 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Bhayshul Tuten (JAX) | 3 | 1.9 | 20 | 10.3 | 13.5 | 33 | 56.9 | 70.5 |
 | Cam Skattebo (NYG) | 3 | 1.9 | 14 | 9.1 | 14.5 | 34 | 48.5 | 54.5 |
 | Chris Rodriguez Jr. (JAX) | 1 |  | 13 |  |  | 28 | 21.4 | 20.5 |
-
-## MIN 0 @ SF 0 (14:55 - 1st)
-
-2 plays. Top yards allowed by a named defender: 
-
-| Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
-|---|---|---|---|---|---|---|---|---|
-| Christian McCaffrey (SF) | 0 | 3.4 | 0 | 26.0 | 33.5 | 3 | 44.8 | 51.5 |
-| Justin Jefferson (MIN) | 0 | 6.1 | 0 | 63.7 | 86.5 | 0 |  |  |
-| Aaron Jones (MIN) | 0 | 2.0 | 0 | 7.6 | 10.0 | 0 | 32.5 | 30.5 |
-| T.J. Hockenson (MIN) | 0 | 4.6 | 0 | 34.8 | 44.5 | 0 |  |  |
-| Jordan Mason (MIN) | 0 |  | 0 |  | 3.5 | 0 | 35.8 | 43.5 |
-| Myles Price (MIN) | 0 | 2.2 | 0 | 19.3 | 7.5 | 0 |  |  |
 
