@@ -1,17 +1,17 @@
-# Live tracker, Week 11 (2026-11-23 03:17 UTC)
+# Live tracker, Week 11 (2026-11-23 03:22 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## MIN 10 @ SF 28 (15:00 - 3rd)
+## MIN 10 @ SF 28 (12:39 - 3rd)
 
-93 plays. Top yards allowed by a named defender: J.Pierre (3/3, 47 yds), R.Green (3/3, 34 yds), T.Jackson (1/1, 34 yds), D.Lenoir (1/4, 29 yds)
+97 plays. Top yards allowed by a named defender: J.Pierre (3/3, 47 yds), R.Green (4/4, 39 yds), T.Jackson (1/1, 34 yds), D.Lenoir (1/4, 29 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
 | Mike Evans (SF) | 5 | 4.0 | 91 | 48.1 | 48.5 | 0 |  |  |
-| T.J. Hockenson (MIN) | 4 | 4.6 | 40 | 34.8 | 44.5 | 0 |  |  |
+| Justin Jefferson (MIN) | 3 | 6.1 | 61 | 63.7 | 86.5 | 1 |  |  |
+| T.J. Hockenson (MIN) | 5 | 4.6 | 48 | 34.8 | 44.5 | 0 |  |  |
 | Christian McCaffrey (SF) | 1 | 3.4 | 0 | 26.0 | 33.5 | 40 | 44.8 | 51.5 |
-| Justin Jefferson (MIN) | 2 | 6.1 | 36 | 63.7 | 86.5 | 1 |  |  |
 | George Kittle (SF) | 2 | 4.3 | 25 | 44.9 | 47.5 | 0 |  |  |
 | Deebo Samuel Sr. (SF) | 1 | 2.5 | 18 | 21.8 | 25.5 | 7 |  | 7.5 |
 
