@@ -849,13 +849,16 @@ const BOARD = /*__BOARD_DATA__*/null;
   function oppLeadersCard(g) {
     const rows = [];
     Object.values(g.sides).forEach((s) => { const o = s.opportunity; if (!o || o.error) return;
-      (o.receivers || []).filter((r) => !r.status).forEach((r) => rows.push([s.offense, r.player, r.pos, r.yards_median, (r.yards || {})["70"], (r.yards || {})["80"], "rec"]));
-      (o.rushers || []).filter((r) => !r.status).forEach((r) => rows.push([s.offense, r.player, r.pos, r.yards_median, (r.yards || {})["70"], (r.yards || {})["80"], "rush"])); });
+      (o.receivers || []).filter((r) => !r.status).forEach((r) => rows.push([s.offense, r.player, r.pos, r.yards_median, (r.yards || {})["70"], (r.yards || {})["80"], "rec", (r.book_lines || {}).receiving_yards]));
+      (o.rushers || []).filter((r) => !r.status).forEach((r) => rows.push([s.offense, r.player, r.pos, r.yards_median, (r.yards || {})["70"], (r.yards || {})["80"], "rush", (r.book_lines || {}).rushing_yards])); });
     rows.sort((a, b) => (b[4] || 0) - (a[4] || 0));
     if (!rows.length) return "";
-    return `<div class="card"><h4>Who has the opportunity</h4><div class="sub">Chance of 70+ and 80+ yards in this game, from volume and efficiency against this defense</div><div class="tablewrap"><table>
-      <thead><tr><th>Player</th><th>Type</th><th>Median yds</th><th>70+</th><th>80+</th></tr></thead><tbody>
-      ${rows.slice(0, 10).map((x) => `<tr><td>${esc(x[0])} ${esc(x[1])} <span class="note">${esc(x[2])}</span></td><td>${x[6] === "rec" ? "receiving" : "rushing"}</td><td>${n(x[3], 0)}</td><td>${pct(x[4])}</td><td>${pct(x[5])}</td></tr>`).join("")}</tbody></table></div></div>`;
+    const bl = (L, bk) => L && L.books && isNum(L.books[bk]) ? `${n(L.books[bk], 1)}${(L.outliers || []).includes(bk) ? "?" : ""}` : "–";
+    const diff = (x) => { const L = x[7]; if (!L || !isNum(L.median) || !isNum(x[3])) return "–"; const d = x[3] - L.median;
+      return `<b style="color:${d >= 5 ? "var(--good)" : d <= -5 ? "var(--bad)" : "inherit"}">${d > 0 ? "+" : ""}${n(d, 0)}</b>`; };
+    return `<div class="card"><h4>Who has the opportunity</h4><div class="sub">Chance of 70+ and 80+ yards in this game, from volume and efficiency against this defense, against each book's main yardage line. "Books" is the median main line across every book we pull (DraftKings, FanDuel, BetMGM, BetRivers, Pinnacle and others); a "?" is a line far from the other books, kept out of the median. Model − books above +5 means we project more than the market.</div><div class="tablewrap"><table>
+      <thead><tr><th>Player</th><th>Type</th><th>Median yds</th><th>70+</th><th>80+</th><th>DK</th><th>BetMGM</th><th>Caesars</th><th>FanDuel</th><th>Books</th><th>Model − books</th></tr></thead><tbody>
+      ${rows.slice(0, 10).map((x) => `<tr><td>${esc(x[0])} ${esc(x[1])} <span class="note">${esc(x[2])}</span></td><td>${x[6] === "rec" ? "receiving" : "rushing"}</td><td>${n(x[3], 0)}</td><td>${pct(x[4])}</td><td>${pct(x[5])}</td><td>${bl(x[7], "draftkings")}</td><td>${bl(x[7], "betmgm")}</td><td>${bl(x[7], "williamhill_us")}</td><td>${bl(x[7], "fanduel")}</td><td>${x[7] && isNum(x[7].median) ? n(x[7].median, 1) + ` <span class="note">(${x[7].n})</span>` : "–"}</td><td>${diff(x)}</td></tr>`).join("")}</tbody></table></div></div>`;
   }
 
   // ---------------------------------------------------------------- field view (visual matchups)

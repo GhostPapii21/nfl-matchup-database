@@ -32,7 +32,7 @@
   "CIN": 30.25
  },
  "generated_utc": "2026-11-23T00:29:00+00:00",
- "board_built_utc": "2026-11-23T00:30:09+00:00",
+ "board_built_utc": "2026-11-23T01:09:34+00:00",
  "market": {
   "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
   "home_spread": 6.0,
@@ -6959,11 +6959,11 @@
      "line": null,
      "american": -125,
      "break_even": 0.5556,
-     "p_model": 0.724,
+     "p_model": 0.72,
      "p_market": 0.715,
-     "p_bet": 0.72,
+     "p_bet": 0.718,
      "p_push": 0.028,
-     "ev_per_dollar": 0.287,
+     "ev_per_dollar": 0.2834,
      "alt": false,
      "t": "2026-11-23T00:24:00+00:00",
      "source": "direct"
@@ -6983,8 +6983,35 @@
     "vs_fanduel_main": {
      "line": null,
      "american": -290,
-     "ev_gain": 0.3184
+     "ev_gain": 0.3175
     },
+    "flags": []
+   },
+   {
+    "market": "h1_spread",
+    "period": "1st half",
+    "kind": "spread",
+    "best": {
+     "book": "fanduel",
+     "side": "WAS",
+     "line": -4.5,
+     "american": 400,
+     "break_even": 0.2,
+     "p_model": 0.26,
+     "p_market": 0.253,
+     "p_bet": 0.256,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.2816,
+     "alt": true,
+     "t": "2026-11-23T00:24:00+00:00",
+     "source": "direct"
+    },
+    "n_prices": 44,
+    "books": [
+     "fanduel"
+    ],
+    "main_line_home_or_over": 4.0,
+    "vs_fanduel_main": null,
     "flags": []
    },
    {
@@ -7019,33 +7046,6 @@
     "flags": []
    },
    {
-    "market": "h1_spread",
-    "period": "1st half",
-    "kind": "spread",
-    "best": {
-     "book": "fanduel",
-     "side": "WAS",
-     "line": -4.5,
-     "american": 400,
-     "break_even": 0.2,
-     "p_model": 0.256,
-     "p_market": 0.249,
-     "p_bet": 0.252,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.2618,
-     "alt": true,
-     "t": "2026-11-23T00:24:00+00:00",
-     "source": "direct"
-    },
-    "n_prices": 44,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": 4.0,
-    "vs_fanduel_main": null,
-    "flags": []
-   },
-   {
     "market": "spread",
     "period": "Game",
     "kind": "spread",
@@ -7055,11 +7055,11 @@
      "line": -1.5,
      "american": -110,
      "break_even": 0.5238,
-     "p_model": 0.688,
+     "p_model": 0.684,
      "p_market": 0.593,
-     "p_bet": 0.642,
+     "p_bet": 0.64,
      "p_push": 0.0,
-     "ev_per_dollar": 0.2251,
+     "ev_per_dollar": 0.2211,
      "alt": true,
      "t": "2026-11-23T00:24:00+00:00",
      "source": "direct"
@@ -7080,37 +7080,6 @@
     "flags": []
    },
    {
-    "market": "q1_moneyline",
-    "period": "1st quarter",
-    "kind": "moneyline",
-    "best": {
-     "book": "fanduel",
-     "side": "WAS",
-     "line": null,
-     "american": 160,
-     "break_even": 0.3846,
-     "p_model": 0.44,
-     "p_market": 0.402,
-     "p_bet": 0.421,
-     "p_push": 0.072,
-     "ev_per_dollar": 0.0871,
-     "alt": false,
-     "t": "2026-11-23T00:24:00+00:00",
-     "source": "direct"
-    },
-    "n_prices": 2,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": null,
-    "vs_fanduel_main": {
-     "line": null,
-     "american": 160,
-     "ev_gain": 0.0
-    },
-    "flags": []
-   },
-   {
     "market": "total",
     "period": "Game",
     "kind": "total",
@@ -7120,11 +7089,11 @@
      "line": 49.5,
      "american": 162,
      "break_even": 0.3817,
-     "p_model": 0.432,
-     "p_market": 0.397,
-     "p_bet": 0.414,
+     "p_model": 0.436,
+     "p_market": 0.401,
+     "p_bet": 0.418,
      "p_push": 0.0,
-     "ev_per_dollar": 0.0852,
+     "ev_per_dollar": 0.0956,
      "alt": true,
      "t": "2026-11-23T00:24:00+00:00",
      "source": "direct"
@@ -7144,7 +7113,38 @@
     "vs_fanduel_main": {
      "line": 54.5,
      "american": -110,
-     "ev_gain": 0.0945
+     "ev_gain": 0.1011
+    },
+    "flags": []
+   },
+   {
+    "market": "q1_moneyline",
+    "period": "1st quarter",
+    "kind": "moneyline",
+    "best": {
+     "book": "fanduel",
+     "side": "WAS",
+     "line": null,
+     "american": 160,
+     "break_even": 0.3846,
+     "p_model": 0.442,
+     "p_market": 0.402,
+     "p_bet": 0.422,
+     "p_push": 0.068,
+     "ev_per_dollar": 0.0904,
+     "alt": false,
+     "t": "2026-11-23T00:24:00+00:00",
+     "source": "direct"
+    },
+    "n_prices": 2,
+    "books": [
+     "fanduel"
+    ],
+    "main_line_home_or_over": null,
+    "vs_fanduel_main": {
+     "line": null,
+     "american": 160,
+     "ev_gain": 0.0
     },
     "flags": []
    },
@@ -7265,37 +7265,6 @@
     "flags": []
    },
    {
-    "market": "q3_spread",
-    "period": "3rd quarter",
-    "kind": "spread",
-    "best": {
-     "book": "fanduel",
-     "side": "CIN",
-     "line": -1.5,
-     "american": 104,
-     "break_even": 0.4902,
-     "p_model": 0.548,
-     "p_market": 0.466,
-     "p_bet": 0.507,
-     "p_push": 0.0,
-     "ev_per_dollar": 0.0345,
-     "alt": false,
-     "t": "2026-11-23T00:24:00+00:00",
-     "source": "direct"
-    },
-    "n_prices": 2,
-    "books": [
-     "fanduel"
-    ],
-    "main_line_home_or_over": 1.5,
-    "vs_fanduel_main": {
-     "line": -1.5,
-     "american": 104,
-     "ev_gain": 0.0
-    },
-    "flags": []
-   },
-   {
     "market": "q1_total",
     "period": "1st quarter",
     "kind": "total",
@@ -7320,6 +7289,37 @@
     ],
     "main_line_home_or_over": 10.0,
     "vs_fanduel_main": null,
+    "flags": []
+   },
+   {
+    "market": "q3_spread",
+    "period": "3rd quarter",
+    "kind": "spread",
+    "best": {
+     "book": "fanduel",
+     "side": "CIN",
+     "line": -1.5,
+     "american": 104,
+     "break_even": 0.4902,
+     "p_model": 0.544,
+     "p_market": 0.466,
+     "p_bet": 0.505,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.0304,
+     "alt": false,
+     "t": "2026-11-23T00:24:00+00:00",
+     "source": "direct"
+    },
+    "n_prices": 2,
+    "books": [
+     "fanduel"
+    ],
+    "main_line_home_or_over": 1.5,
+    "vs_fanduel_main": {
+     "line": -1.5,
+     "american": 104,
+     "ev_gain": 0.0
+    },
     "flags": []
    },
    {
@@ -7411,6 +7411,37 @@
     "vs_fanduel_main": {
      "line": null,
      "american": -178,
+     "ev_gain": 0.0
+    },
+    "flags": []
+   },
+   {
+    "market": "q4_total",
+    "period": "4th quarter",
+    "kind": "total",
+    "best": {
+     "book": "fanduel",
+     "side": "Under",
+     "line": 15.5,
+     "american": -116,
+     "break_even": 0.537,
+     "p_model": 0.564,
+     "p_market": 0.513,
+     "p_bet": 0.539,
+     "p_push": 0.0,
+     "ev_per_dollar": 0.0029,
+     "alt": false,
+     "t": "2026-11-23T00:24:00+00:00",
+     "source": "direct"
+    },
+    "n_prices": 2,
+    "books": [
+     "fanduel"
+    ],
+    "main_line_home_or_over": 15.5,
+    "vs_fanduel_main": {
+     "line": 15.5,
+     "american": -116,
      "ev_gain": 0.0
     },
     "flags": []
@@ -9342,10 +9373,10 @@
      },
      "charted_dropbacks": 318,
      "pressured": {
-      "times_pressured": 73,
-      "pressure_rate": 0.23,
-      "times_blitzed": 84,
-      "bad_throw_pct": 0.107
+      "times_pressured": 67,
+      "pressure_rate": 0.211,
+      "times_blitzed": 70,
+      "bad_throw_pct": 0.116
      },
      "red_zone": {
       "attempts": 47,
@@ -9370,7 +9401,7 @@
       "td": 17,
       "int": 5,
       "sack_rate": 0.062,
-      "epa_per_dropback": 0.098
+      "epa_per_dropback": 0.107
      },
      "vs_man": {
       "dropbacks": 86,
@@ -9380,7 +9411,7 @@
       "td": 12,
       "int": 1,
       "sack_rate": 0.047,
-      "epa_per_dropback": 0.389
+      "epa_per_dropback": 0.445
      },
      "vs_zone": {
       "dropbacks": 190,
@@ -9390,7 +9421,7 @@
       "td": 5,
       "int": 4,
       "sack_rate": 0.068,
-      "epa_per_dropback": -0.034
+      "epa_per_dropback": -0.046
      },
      "pressured": {
       "dropbacks": 82,
@@ -9400,7 +9431,7 @@
       "td": 4,
       "int": 2,
       "sack_rate": 0.207,
-      "epa_per_dropback": -0.213
+      "epa_per_dropback": -0.289
      },
      "clean": {
       "dropbacks": 194,
@@ -9410,7 +9441,7 @@
       "td": 13,
       "int": 3,
       "sack_rate": 0.0,
-      "epa_per_dropback": 0.229
+      "epa_per_dropback": 0.274
      },
      "pressure_rate": 0.297,
      "avg_time_to_throw": 2.56
@@ -11146,9 +11177,9 @@
      }
     ],
     "league": {
-     "yards_per_target": 7.22,
+     "yards_per_target": 7.23,
      "completion_pct": 0.623,
-     "td_per_target": 0.0467
+     "td_per_target": 0.0466
     },
     "weeks": [
      2,
@@ -11194,7 +11225,7 @@
      "td": 12,
      "int": 2,
      "sack_rate": 0.062,
-     "epa_per_dropback": 0.261
+     "epa_per_dropback": 0.309
     },
     "allowed_vs_zone": {
      "dropbacks": 426,
@@ -11204,7 +11235,7 @@
      "td": 21,
      "int": 6,
      "sack_rate": 0.07,
-     "epa_per_dropback": 0.158
+     "epa_per_dropback": 0.185
     },
     "note": "2025 season (latest with free man/zone data). Coordinator or roster changes since then make it context, not current fact."
    },
@@ -11885,6 +11916,47 @@
        "70": 0.675,
        "80": 0.587,
        "100": 0.415
+      },
+      "book_lines": {
+       "receiving_yards": {
+        "books": {
+         "betmgm": 96.5,
+         "betonlineag": 95.5,
+         "betrivers": 93.5,
+         "bovada": 115.5,
+         "circasports": 94.5,
+         "draftkings": 95.5,
+         "fanatics": 90.5,
+         "fanduel": 94.5,
+         "pinnacle": 94.5
+        },
+        "median": 94.5,
+        "n": 8,
+        "outliers": [
+         "bovada"
+        ],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 85.1,
+        "model_minus_median": -9.4
+       },
+       "receptions": {
+        "books": {
+         "betmgm": 8.5,
+         "betonlineag": 8.5,
+         "bovada": 7.5,
+         "draftkings": 7.5,
+         "fanduel": 8.5,
+         "pinnacle": 8.5
+        },
+        "median": 8.5,
+        "n": 6,
+        "outliers": [],
+        "alt_books": [],
+        "model": 7.4,
+        "model_minus_median": -1.1
+       }
       }
      },
      {
@@ -11969,6 +12041,46 @@
        "70": 0.384,
        "80": 0.292,
        "100": 0.162
+      },
+      "book_lines": {
+       "receiving_yards": {
+        "books": {
+         "betmgm": 76.5,
+         "betonlineag": 76.5,
+         "betrivers": 74.5,
+         "bovada": 96.5,
+         "circasports": 75.5,
+         "draftkings": 76.5,
+         "fanduel": 75.5,
+         "pinnacle": 75.5
+        },
+        "median": 75.5,
+        "n": 7,
+        "outliers": [
+         "bovada"
+        ],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 59.1,
+        "model_minus_median": -16.4
+       },
+       "receptions": {
+        "books": {
+         "betmgm": 5.5,
+         "betonlineag": 5.5,
+         "bovada": 5.5,
+         "draftkings": 5.5,
+         "fanduel": 5.5,
+         "pinnacle": 5.5
+        },
+        "median": 5.5,
+        "n": 6,
+        "outliers": [],
+        "alt_books": [],
+        "model": 5.0,
+        "model_minus_median": -0.5
+       }
       }
      },
      {
@@ -12053,6 +12165,44 @@
        "70": 0.016,
        "80": 0.007,
        "100": 0.002
+      },
+      "book_lines": {
+       "receiving_yards": {
+        "books": {
+         "betmgm": 27.5,
+         "betonlineag": 25.5,
+         "betrivers": 28.5,
+         "bovada": 25.5,
+         "circasports": 26.5,
+         "draftkings": 25.5,
+         "fanduel": 26.5,
+         "pinnacle": 26.5
+        },
+        "median": 26.5,
+        "n": 8,
+        "outliers": [],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 21.7,
+        "model_minus_median": -4.8
+       },
+       "receptions": {
+        "books": {
+         "betmgm": 4.5,
+         "betonlineag": 4.5,
+         "bovada": 4.5,
+         "draftkings": 4.5,
+         "fanduel": 4.5,
+         "pinnacle": 4.5
+        },
+        "median": 4.5,
+        "n": 6,
+        "outliers": [],
+        "alt_books": [],
+        "model": 4.3,
+        "model_minus_median": -0.2
+       }
       }
      },
      {
@@ -12137,6 +12287,40 @@
        "70": 0.024,
        "80": 0.008,
        "100": 0.003
+      },
+      "book_lines": {
+       "receiving_yards": {
+        "books": {
+         "betmgm": 21.5,
+         "betonlineag": 21.5,
+         "bovada": 21.5,
+         "draftkings": 21.5,
+         "fanduel": 20.5
+        },
+        "median": 21.5,
+        "n": 5,
+        "outliers": [],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 13.7,
+        "model_minus_median": -7.8
+       },
+       "receptions": {
+        "books": {
+         "betmgm": 2.5,
+         "betonlineag": 2.5,
+         "bovada": 2.5,
+         "draftkings": 2.5,
+         "fanduel": 2.5
+        },
+        "median": 2.5,
+        "n": 5,
+        "outliers": [],
+        "alt_books": [],
+        "model": 1.8,
+        "model_minus_median": -0.7
+       }
       }
      },
      {
@@ -12221,6 +12405,45 @@
        "70": 0.006,
        "80": 0.002,
        "100": 0.0
+      },
+      "book_lines": {
+       "receiving_yards": {
+        "books": {
+         "betmgm": 26.5,
+         "betonlineag": 26.5,
+         "betrivers": 25.5,
+         "bovada": 26.5,
+         "circasports": 24.5,
+         "draftkings": 26.5,
+         "fanduel": 24.5,
+         "pinnacle": 24.5
+        },
+        "median": 26.0,
+        "n": 8,
+        "outliers": [],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 16.8,
+        "model_minus_median": -9.2
+       },
+       "receptions": {
+        "books": {
+         "betmgm": 2.5,
+         "betonlineag": 2.5,
+         "bovada": 2.5,
+         "draftkings": 2.5,
+         "fanatics": 2.5,
+         "fanduel": 2.5,
+         "pinnacle": 2.5
+        },
+        "median": 2.5,
+        "n": 7,
+        "outliers": [],
+        "alt_books": [],
+        "model": 1.9,
+        "model_minus_median": -0.6
+       }
       }
      },
      {
@@ -12305,6 +12528,42 @@
        "70": 0.0,
        "80": 0.0,
        "100": 0.0
+      },
+      "book_lines": {
+       "receiving_yards": {
+        "books": {
+         "betmgm": 6.5,
+         "betonlineag": 5.5,
+         "bovada": 7.5,
+         "draftkings": 7.5,
+         "fanduel": 5.5,
+         "pinnacle": 5.5
+        },
+        "median": 6.0,
+        "n": 6,
+        "outliers": [],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 5.0,
+        "model_minus_median": -1.0
+       },
+       "receptions": {
+        "books": {
+         "betmgm": 1.5,
+         "betonlineag": 1.5,
+         "bovada": 1.5,
+         "draftkings": 1.5,
+         "fanduel": 1.5,
+         "pinnacle": 1.5
+        },
+        "median": 1.5,
+        "n": 6,
+        "outliers": [],
+        "alt_books": [],
+        "model": 1.3,
+        "model_minus_median": -0.2
+       }
       }
      },
      {
@@ -12557,6 +12816,42 @@
        "70": 0.0,
        "80": 0.0,
        "100": 0.0
+      },
+      "book_lines": {
+       "receiving_yards": {
+        "books": {
+         "betmgm": 6.5,
+         "betonlineag": 6.5,
+         "bovada": 6.5,
+         "draftkings": 6.5,
+         "fanduel": 6.5,
+         "pinnacle": 6.5
+        },
+        "median": 6.5,
+        "n": 6,
+        "outliers": [],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 9.5,
+        "model_minus_median": 3.0
+       },
+       "receptions": {
+        "books": {
+         "betmgm": 1.5,
+         "betonlineag": 1.5,
+         "bovada": 1.5,
+         "draftkings": 1.5,
+         "fanduel": 1.5,
+         "pinnacle": 1.5
+        },
+        "median": 1.5,
+        "n": 6,
+        "outliers": [],
+        "alt_books": [],
+        "model": 1.4,
+        "model_minus_median": -0.1
+       }
       }
      }
     ],
@@ -12611,6 +12906,31 @@
        "15": 0.316,
        "18": 0.134,
        "20": 0.073
+      },
+      "book_lines": {
+       "rushing_yards": {
+        "books": {
+         "betmgm": 44.5,
+         "betonlineag": 44.5,
+         "betrivers": 46.5,
+         "bovada": 54.5,
+         "circasports": 44.5,
+         "draftkings": 44.5,
+         "fanatics": 40.5,
+         "fanduel": 44.5,
+         "pinnacle": 44.5
+        },
+        "median": 44.5,
+        "n": 8,
+        "outliers": [
+         "bovada"
+        ],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 39.3,
+        "model_minus_median": -5.2
+       }
       }
      },
      {
@@ -12663,6 +12983,27 @@
        "15": 0.119,
        "18": 0.043,
        "20": 0.026
+      },
+      "book_lines": {
+       "rushing_yards": {
+        "books": {
+         "betmgm": 20.5,
+         "betonlineag": 20.5,
+         "betrivers": 22.5,
+         "bovada": 20.5,
+         "draftkings": 20.5,
+         "fanduel": 20.5,
+         "pinnacle": 20.5
+        },
+        "median": 20.5,
+        "n": 7,
+        "outliers": [],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 18.5,
+        "model_minus_median": -2.0
+       }
       }
      }
     ],
@@ -19789,10 +20130,10 @@
      },
      "charted_dropbacks": 192,
      "pressured": {
-      "times_pressured": 46,
-      "pressure_rate": 0.24,
-      "times_blitzed": 73,
-      "bad_throw_pct": 0.157
+      "times_pressured": 44,
+      "pressure_rate": 0.229,
+      "times_blitzed": 55,
+      "bad_throw_pct": 0.164
      },
      "red_zone": {
       "attempts": 20,
@@ -19817,7 +20158,7 @@
       "td": 8,
       "int": 3,
       "sack_rate": 0.088,
-      "epa_per_dropback": 0.002
+      "epa_per_dropback": -0.029
      },
      "vs_man": {
       "dropbacks": 70,
@@ -19827,7 +20168,7 @@
       "td": 4,
       "int": 0,
       "sack_rate": 0.114,
-      "epa_per_dropback": -0.167
+      "epa_per_dropback": -0.243
      },
      "vs_zone": {
       "dropbacks": 134,
@@ -19837,7 +20178,7 @@
       "td": 4,
       "int": 3,
       "sack_rate": 0.075,
-      "epa_per_dropback": 0.09
+      "epa_per_dropback": 0.083
      },
      "pressured": {
       "dropbacks": 68,
@@ -19847,7 +20188,7 @@
       "td": 3,
       "int": 1,
       "sack_rate": 0.265,
-      "epa_per_dropback": -0.286
+      "epa_per_dropback": -0.367
      },
      "clean": {
       "dropbacks": 136,
@@ -19857,7 +20198,7 @@
       "td": 5,
       "int": 2,
       "sack_rate": 0.0,
-      "epa_per_dropback": 0.146
+      "epa_per_dropback": 0.14
      },
      "pressure_rate": 0.333,
      "avg_time_to_throw": 2.7
@@ -21568,9 +21909,9 @@
      }
     ],
     "league": {
-     "yards_per_target": 7.22,
+     "yards_per_target": 7.23,
      "completion_pct": 0.623,
-     "td_per_target": 0.0467
+     "td_per_target": 0.0466
     },
     "weeks": [
      2,
@@ -21616,7 +21957,7 @@
      "td": 20,
      "int": 5,
      "sack_rate": 0.059,
-     "epa_per_dropback": 0.167
+     "epa_per_dropback": 0.177
     },
     "allowed_vs_zone": {
      "dropbacks": 390,
@@ -21626,7 +21967,7 @@
      "td": 13,
      "int": 8,
      "sack_rate": 0.056,
-     "epa_per_dropback": 0.163
+     "epa_per_dropback": 0.181
     },
     "note": "2025 season (latest with free man/zone data). Coordinator or roster changes since then make it context, not current fact."
    },
@@ -22265,6 +22606,46 @@
        "70": 0.097,
        "80": 0.061,
        "100": 0.012
+      },
+      "book_lines": {
+       "receiving_yards": {
+        "books": {
+         "betmgm": 45.5,
+         "betonlineag": 47.5,
+         "betrivers": 47.5,
+         "bovada": 57.5,
+         "circasports": 46.5,
+         "draftkings": 47.5,
+         "fanduel": 46.5,
+         "pinnacle": 46.5
+        },
+        "median": 46.5,
+        "n": 7,
+        "outliers": [
+         "bovada"
+        ],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 37.8,
+        "model_minus_median": -8.7
+       },
+       "receptions": {
+        "books": {
+         "betmgm": 4.5,
+         "betonlineag": 4.5,
+         "bovada": 4.5,
+         "draftkings": 4.5,
+         "fanduel": 4.5,
+         "pinnacle": 4.5
+        },
+        "median": 4.5,
+        "n": 6,
+        "outliers": [],
+        "alt_books": [],
+        "model": 3.8,
+        "model_minus_median": -0.7
+       }
       }
      },
      {
@@ -22349,6 +22730,46 @@
        "70": 0.034,
        "80": 0.009,
        "100": 0.001
+      },
+      "book_lines": {
+       "receiving_yards": {
+        "books": {
+         "betmgm": 36.5,
+         "betonlineag": 35.5,
+         "betrivers": 37.5,
+         "bovada": 44.5,
+         "circasports": 35.5,
+         "draftkings": 34.5,
+         "fanduel": 35.5,
+         "pinnacle": 35.5
+        },
+        "median": 35.5,
+        "n": 7,
+        "outliers": [
+         "bovada"
+        ],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 25.2,
+        "model_minus_median": -10.3
+       },
+       "receptions": {
+        "books": {
+         "betmgm": 3.5,
+         "betonlineag": 3.5,
+         "bovada": 3.5,
+         "draftkings": 3.5,
+         "fanduel": 3.5,
+         "pinnacle": 3.5
+        },
+        "median": 3.5,
+        "n": 6,
+        "outliers": [],
+        "alt_books": [],
+        "model": 2.6,
+        "model_minus_median": -0.9
+       }
       }
      },
      {
@@ -22433,6 +22854,44 @@
        "70": 0.096,
        "80": 0.057,
        "100": 0.021
+      },
+      "book_lines": {
+       "receiving_yards": {
+        "books": {
+         "betmgm": 43.5,
+         "betonlineag": 44.5,
+         "betrivers": 43.5,
+         "bovada": 55.5,
+         "circasports": 43.5,
+         "draftkings": 45.5,
+         "fanduel": 43.5,
+         "pinnacle": 43.5
+        },
+        "median": 43.5,
+        "n": 7,
+        "outliers": [
+         "bovada"
+        ],
+        "alt_books": [],
+        "model": 38.0,
+        "model_minus_median": -5.5
+       },
+       "receptions": {
+        "books": {
+         "betmgm": 4.5,
+         "betonlineag": 4.5,
+         "bovada": 4.5,
+         "draftkings": 4.5,
+         "fanduel": 4.5,
+         "pinnacle": 4.5
+        },
+        "median": 4.5,
+        "n": 6,
+        "outliers": [],
+        "alt_books": [],
+        "model": 3.9,
+        "model_minus_median": -0.6
+       }
       }
      },
      {
@@ -22517,6 +22976,43 @@
        "70": 0.029,
        "80": 0.014,
        "100": 0.003
+      },
+      "book_lines": {
+       "receiving_yards": {
+        "books": {
+         "betmgm": 28.5,
+         "betonlineag": 27.5,
+         "betrivers": 30.5,
+         "bovada": 27.5,
+         "draftkings": 27.5,
+         "fanduel": 30.5,
+         "pinnacle": 30.5
+        },
+        "median": 28.5,
+        "n": 7,
+        "outliers": [],
+        "alt_books": [
+         "fanduel"
+        ],
+        "model": 23.5,
+        "model_minus_median": -5.0
+       },
+       "receptions": {
+        "books": {
+         "betmgm": 2.5,
+         "betonlineag": 2.5,
+         "bovada": 2.5,
+         "draftkings": 2.5,
+         "fanduel": 2.5,
+         "pinnacle": 2.5
+        },
+        "median": 2.5,
+        "n": 6,
+        "outliers": [],
+        "alt_books": [],
+        "model": 2.1,
+        "model_minus_median": -0.4
+       }
       }
      },
      {
