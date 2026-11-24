@@ -1,0 +1,140 @@
+{
+ "trait": {
+  "defense_weeks": 2444,
+  "corr_prior_vs_this_week": 0.115,
+  "slope": 0.255,
+  "def_sep_sd": 0.334,
+  "this_week_gap_sd": 0.741
+ },
+ "receivers_80plus": {
+  "base": {
+   "logloss": 0.26911,
+   "brier": 0.07834
+  },
+  "n_train": 5826,
+  "n_test": 2244,
+  "candidates": {
+   "def_sep": {
+    "logloss": 0.26915,
+    "brier": 0.07834,
+    "coef": 0.1007,
+    "z": 0.72,
+    "rows_with_flag_test": 822,
+    "keep": false
+   }
+  }
+ },
+ "wr1_80plus": {
+  "base": {
+   "logloss": 0.55855,
+   "brier": 0.18709
+  },
+  "n_train": 1014,
+  "n_test": 346,
+  "candidates": {
+   "def_sep": {
+    "logloss": 0.55778,
+    "brier": 0.18691,
+    "coef": 0.2032,
+    "z": 0.96,
+    "rows_with_flag_test": 131,
+    "keep": false
+   }
+  }
+ },
+ "wr1_2025_26_by_defense_third": [
+  {
+   "defense": "takes away separation",
+   "games": 116,
+   "yards_avg": 66.6,
+   "hit80": 0.276,
+   "his_avg_coming_in": 71.0
+  },
+  {
+   "defense": "middle",
+   "games": 115,
+   "yards_avg": 51.9,
+   "hit80": 0.226,
+   "his_avg_coming_in": 67.0
+  },
+  {
+   "defense": "gives separation",
+   "games": 115,
+   "yards_avg": 66.2,
+   "hit80": 0.322,
+   "his_avg_coming_in": 70.4
+  }
+ ],
+ "2026_now_takes_away_most": [
+  {
+   "defense": "HOU",
+   "sep_vs_norm_yards": -0.44
+  },
+  {
+   "defense": "IND",
+   "sep_vs_norm_yards": -0.43
+  },
+  {
+   "defense": "DEN",
+   "sep_vs_norm_yards": -0.34
+  },
+  {
+   "defense": "CIN",
+   "sep_vs_norm_yards": -0.27
+  },
+  {
+   "defense": "DET",
+   "sep_vs_norm_yards": -0.24
+  },
+  {
+   "defense": "NYG",
+   "sep_vs_norm_yards": -0.19
+  },
+  {
+   "defense": "BUF",
+   "sep_vs_norm_yards": -0.18
+  },
+  {
+   "defense": "PHI",
+   "sep_vs_norm_yards": -0.15
+  }
+ ],
+ "2026_now_gives_most": [
+  {
+   "defense": "SF",
+   "sep_vs_norm_yards": 0.22
+  },
+  {
+   "defense": "LAC",
+   "sep_vs_norm_yards": 0.24
+  },
+  {
+   "defense": "JAX",
+   "sep_vs_norm_yards": 0.26
+  },
+  {
+   "defense": "WAS",
+   "sep_vs_norm_yards": 0.28
+  },
+  {
+   "defense": "ARI",
+   "sep_vs_norm_yards": 0.31
+  },
+  {
+   "defense": "LV",
+   "sep_vs_norm_yards": 0.32
+  },
+  {
+   "defense": "SEA",
+   "sep_vs_norm_yards": 0.35
+  },
+  {
+   "defense": "MIN",
+   "sep_vs_norm_yards": 0.56
+  }
+ ],
+ "2026_WAS_CIN": {
+  "CIN": -0.27,
+  "WAS": 0.28
+ }
+}

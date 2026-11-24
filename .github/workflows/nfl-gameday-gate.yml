@@ -108,6 +108,12 @@ jobs:
             echo "$GAME: official inactives are not posted yet for both teams (exit $code). No credits spent; the next tick retries." >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      - name: Game-day brief (weather now, who is out, each defense, reads; fail-soft, never blocks the lock)
+        if: steps.skip.outputs.done != '1'
+        timeout-minutes: 8
+        continue-on-error: true
+        run: python -m dashboard.brief --game "$GAME" | tee -a "$GITHUB_STEP_SUMMARY" || true
+
       - name: Fresh packet and four-book price freeze for this game (free direct pulls first; Odds API only above the floor)
         if: steps.inactives.outputs.ok == '1'
         run: |
@@ -177,6 +183,7 @@ jobs:
           git add "pregame/packets/$GAME" "phase15/inactives/$GAME" "snapshots/$GAME" 2>/dev/null || true
           git add pregame/line_history pregame/price_freezes/*_"$pair" 2>/dev/null || true
           git add pipeline/ledgers/"$GAME".* pregame/kickoffs/latest.json 2>/dev/null || true
+          git add research/briefs/*/"$GAME" 2>/dev/null || true
           if git diff --cached --quiet; then echo "Nothing to commit for $GAME."; exit 0; fi
           git commit -q -m "gameday: $GAME $(date -u +%Y-%m-%dT%H:%MZ) (100k exit ${{ steps.gate.outputs.code || 'not run' }})"
           for i in 1 2 3 4 5 6; do

@@ -24,6 +24,7 @@ EXTRA_DATASETS = {
     "participation": "pbp_participation/pbp_participation_{season}.parquet",
     "games": "schedules/games.parquet",
     "combine": "combine/combine.parquet",
+    "ngs_receiving": "nextgen_stats/ngs_receiving.parquet",
 }
 
 TEAM_NAMES = {
@@ -374,12 +375,45 @@ def qb_profile(data: Data, season: int, team: str, qb_name: str | None, weeks: l
 
 
 # ----------------------------------------------------------------------------------------------- defense profile
-def coverage_profile(data: Data, season: int, team: str) -> dict | None:
-    """Last season's man/zone mix, top shells and pressure for this defense (NGS participation)."""
+def blitz_this_season(data: Data, season: int, team: str, weeks=None) -> dict | None:
+    """This season's blitz and 5+ rusher rates for a defense, from FTN charting (free via nflverse), over `weeks` when
+    given (the board's pre-game window), with the league average and rank (1 = blitzes most).
+    Added Nov 24, 2026: the board had been showing last season's rate (WAS 27% from 2025) while Washington was blitzing
+    42% of dropbacks in 2026, 3rd most in the league."""
+    ftn, pb = data.get("ftn", season), data.get("pbp", season)
+    if ftn is None or pb is None or not len(ftn):
+        return None
+    d = pb[(pb.qb_dropback == 1) & (pb.season_type == "REG")]
+    if weeks is not None:
+        d = d[d.week.isin(list(weeks))]
+    j = d.merge(ftn[["nflverse_game_id", "nflverse_play_id", "n_blitzers", "n_pass_rushers"]],
+                left_on=["game_id", "play_id"], right_on=["nflverse_game_id", "nflverse_play_id"], how="inner")
+    if not len(j):
+        return None
+    g = j.groupby("defteam").agg(n=("play_id", "size"), blitz=("n_blitzers", lambda x: float((x.fillna(0) > 0).mean())),
+                                 five=("n_pass_rushers", lambda x: float((x.fillna(0) >= 5).mean())))
+    g = g[g.n >= 50]
+    if team not in g.index:
+        return None
+    r = g.loc[team]
+    return {"season": season, "dropbacks": int(r.n), "blitz_rate": _f(r.blitz), "five_plus_rushers_rate": _f(r.five),
+            "league_blitz_rate": _f(g.blitz.mean()), "blitz_rank": int(g.blitz.rank(ascending=False, method="min")[team]), "of": int(len(g)),
+            "source": "FTN charting via nflverse (n_blitzers > 0; n_pass_rushers >= 5)"}
+
+
+def coverage_profile(data: Data, season: int, team: str, weeks=None) -> dict | None:
+    """Last season's man/zone mix and shells (NGS participation; the current season is not published), with this
+    season's blitz and 5+ rusher rates from FTN charting when available (those replace last season's numbers)."""
     prev = season - 1
+    cur = None
+    try:
+        cur = blitz_this_season(data, season, team, weeks)
+    except Exception:  # noqa: BLE001 - fall back to last season's rates
+        cur = None
     pp, pb = data.get("participation", prev), data.get("pbp", prev)
     if pp is None or pb is None:
-        return None
+        return {"season": season, "five_plus_rushers_rate": cur["five_plus_rushers_rate"], "blitz_this_season": cur,
+                "note": "this season's blitz rate only; no man/zone data"} if cur else None
     d = pb[(pb.defteam == team) & (pb.qb_dropback == 1) & (pb.season_type == "REG")]
     j = d.merge(pp[["nflverse_game_id", "play_id", "defense_man_zone_type", "defense_coverage_type", "was_pressure", "number_of_pass_rushers"]],
                 left_on=["game_id", "play_id"], right_on=["nflverse_game_id", "play_id"], how="inner")
@@ -389,12 +423,16 @@ def coverage_profile(data: Data, season: int, team: str) -> dict | None:
     shells = j.defense_coverage_type.value_counts(normalize=True).head(4)
     man = j[j.defense_man_zone_type == "MAN_COVERAGE"]
     zone = j[j.defense_man_zone_type == "ZONE_COVERAGE"]
+    last5 = _f(_div((j.number_of_pass_rushers.fillna(0) >= 5).sum(), len(j)))
     return {"season": prev, "dropbacks": int(len(j)), "man_rate": _f(len(man) / len(j)), "zone_rate": _f(len(zone) / len(j)),
             "shells": [{"shell": k.replace("_", " ").title(), "rate": _f(v)} for k, v in shells.items()],
             "pressure_rate": _f(_div((j.was_pressure == True).sum(), j.was_pressure.notna().sum())),  # noqa: E712
-            "five_plus_rushers_rate": _f(_div((j.number_of_pass_rushers.fillna(0) >= 5).sum(), len(j))),
+            "five_plus_rushers_rate": cur["five_plus_rushers_rate"] if cur else last5,
+            "five_plus_rushers_season": season if cur else prev, "five_plus_rushers_rate_last_season": last5,
+            "blitz_this_season": cur,
             "allowed_vs_man": _pass_line(man), "allowed_vs_zone": _pass_line(zone),
-            "note": f"{prev} season (latest with free man/zone data). Coordinator or roster changes since then make it context, not current fact."}
+            "note": f"Man/zone and shells: {prev} season (latest with free man/zone data); coordinator or roster changes since then make "
+                    f"them context, not current fact. Blitz and 5+ rusher rates: {season if cur else prev}."}
 
 
 def defenders_with_positions(packet_def: dict, rosters: pd.DataFrame | None, team: str, pfr_def: pd.DataFrame | None, weeks) -> dict:

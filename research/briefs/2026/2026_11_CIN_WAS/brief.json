@@ -1,0 +1,562 @@
+{
+ "game_id": "2026_11_CIN_WAS",
+ "made_utc": "2026-11-24T05:34:23+00:00",
+ "board_built_utc": "2026-11-23T22:36:33+00:00",
+ "game": {
+  "game_id": "2026_11_CIN_WAS",
+  "season": 2026,
+  "week": 11,
+  "away": "CIN",
+  "home": "WAS",
+  "date": "2026-11-23",
+  "weekday": "Monday",
+  "kickoff_et": "20:15",
+  "slot": "Monday Night Football",
+  "site": "Home",
+  "stadium_id": "WAS00",
+  "roof": "outdoors",
+  "surface": "grass",
+  "away_rest_days": 8,
+  "home_rest_days": 11,
+  "division_game": false,
+  "listed_qbs": {
+   "CIN": "Joe Burrow",
+   "WAS": "Jayden Daniels"
+  },
+  "coaches": {
+   "CIN": "Zac Taylor",
+   "WAS": "Dan Quinn"
+  }
+ },
+ "implied_points": {
+  "WAS": 23.75,
+  "CIN": 30.25
+ },
+ "market": {
+  "source": "nflverse schedule (consensus line at retrieval; not a timestamped book quote)",
+  "home_spread": 6.0,
+  "total": 54.5,
+  "moneyline": {
+   "CIN": -300.0,
+   "WAS": 244.0
+  }
+ },
+ "weather": {
+  "status": "OK",
+  "board": {
+   "wind_mph_max": 9.0,
+   "precip_pct_max": 10,
+   "retrieved_utc": "2026-11-23T22:36:11+00:00"
+  },
+  "flag": "WORSE THAN THE BOARD: rain chance now 34% (board had 10%). Rain cuts receiver yards about 16% and 15+ mph wind about 8% (research/context_effects_2026-11-22): shade WR yards down; tight-end and running-back catches hold up better.",
+  "forecast_now": {
+   "wind_mph_max": 9.0,
+   "precip_pct_max": 34,
+   "summary": "Scattered Rain Showers"
+  },
+  "observed_now": {
+   "station": "KCGS",
+   "at": "2026-11-24T04:55:00+00:00",
+   "text": "",
+   "wind_mph": 10.3
+  }
+ },
+ "inactives_used": {
+  "CIN": [
+   "Kyle Dugger",
+   "Dalton Risner",
+   "Myles Hinton",
+   "Cam Grandy",
+   "Landon Robinson"
+  ],
+  "WAS": [
+   "Amik Robertson",
+   "Athan Kaliakmanis",
+   "Robert Henry Jr.",
+   "Ricky Barber",
+   "Tanoa Togiai"
+  ]
+ },
+ "availability": [
+  {
+   "team": "WAS",
+   "player": "Terry McLaurin",
+   "flag": "ROLE IN DOUBT",
+   "note": "3% of targets last game vs 19% on the season, not on the report: his targets may go elsewhere"
+  },
+  {
+   "team": "WAS",
+   "player": "Rachaad White",
+   "flag": "QUESTIONABLE",
+   "note": "Questionable (Heel): confirm he is active"
+  },
+  {
+   "team": "WAS",
+   "player": "Jacory Croskey-Merritt",
+   "flag": "QUESTIONABLE",
+   "note": "Questionable (Groin): confirm he is active"
+  }
+ ],
+ "defenses": [
+  {
+   "defense": "WAS",
+   "blitz_rate": 0.265,
+   "blitz_rank": null,
+   "blitz_season": 2025,
+   "pressure_rank": 25,
+   "pass_yards_rank": 29,
+   "wr_rank": 20,
+   "te_rank": 30,
+   "rb_rush_rank": 11,
+   "separation": {
+    "vs_norm_yards": 0.05,
+    "rank": 20,
+    "of": 32
+   },
+   "most_yards_allowed": [
+    {
+     "player": "Amik Robertson",
+     "pos": "CB",
+     "yards": 443,
+     "targets": 63,
+     "grade": "neutral"
+    },
+    {
+     "player": "Sonny Styles",
+     "pos": "LB",
+     "yards": 298,
+     "targets": 44,
+     "grade": "neutral"
+    },
+    {
+     "player": "Rasul Douglas",
+     "pos": "CB",
+     "yards": 249,
+     "targets": 37,
+     "grade": "avoid"
+    }
+   ]
+  },
+  {
+   "defense": "CIN",
+   "blitz_rate": 0.177,
+   "blitz_rank": null,
+   "blitz_season": 2025,
+   "pressure_rank": 18,
+   "pass_yards_rank": 16,
+   "wr_rank": 6,
+   "te_rank": 32,
+   "rb_rush_rank": 15,
+   "separation": {
+    "vs_norm_yards": -0.19,
+    "rank": 6,
+    "of": 32
+   },
+   "most_yards_allowed": [
+    {
+     "player": "Daxton Hill",
+     "pos": "CB",
+     "yards": 310,
+     "targets": 39,
+     "grade": "neutral"
+    },
+    {
+     "player": "Barrett Carter",
+     "pos": "LB",
+     "yards": 304,
+     "targets": 39,
+     "grade": "neutral"
+    },
+    {
+     "player": "Jordan Battle",
+     "pos": "S",
+     "yards": 298,
+     "targets": 39,
+     "grade": "avoid"
+    }
+   ]
+  }
+ ],
+ "reads": [
+  {
+   "team": "WAS",
+   "player": "Rachaad White",
+   "pos": "RB",
+   "market": "receptions",
+   "line": 1.5,
+   "side": "Over",
+   "p_model": 0.677,
+   "p_market": 0.58,
+   "p_blend": 0.63,
+   "rank_score": 0.63,
+   "model_shift_removed": -0.351,
+   "books": 5,
+   "flags": []
+  },
+  {
+   "team": "CIN",
+   "player": "Dohnte Meyers",
+   "pos": "WR",
+   "market": "receptions",
+   "line": 2.5,
+   "side": "Under",
+   "p_model": 0.644,
+   "p_market": 0.594,
+   "p_blend": 0.619,
+   "rank_score": 0.589,
+   "model_shift_removed": -0.351,
+   "books": 1,
+   "flags": []
+  },
+  {
+   "team": "WAS",
+   "player": "Antonio Williams",
+   "pos": "WR",
+   "market": "receptions",
+   "line": 3.5,
+   "side": "Under",
+   "p_model": 0.645,
+   "p_market": 0.541,
+   "p_blend": 0.594,
+   "rank_score": 0.564,
+   "model_shift_removed": -0.351,
+   "books": 7,
+   "flags": []
+  },
+  {
+   "team": "CIN",
+   "player": "Mike Gesicki",
+   "pos": "TE",
+   "market": "receptions",
+   "line": 2.5,
+   "side": "Under",
+   "p_model": 0.62,
+   "p_market": 0.537,
+   "p_blend": 0.579,
+   "rank_score": 0.549,
+   "model_shift_removed": -0.351,
+   "books": 7,
+   "flags": []
+  },
+  {
+   "team": "WAS",
+   "player": "Chig Okonkwo",
+   "pos": "TE",
+   "market": "receiving_yards",
+   "line": 42.5,
+   "side": "Over",
+   "p_model": 0.597,
+   "p_market": 0.5,
+   "p_blend": 0.549,
+   "rank_score": 0.549,
+   "model_shift_removed": -0.422,
+   "books": 7,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "WAS",
+   "player": "Treylon Burks",
+   "pos": "WR",
+   "market": "receptions",
+   "line": 2.5,
+   "side": "Under",
+   "p_model": 0.564,
+   "p_market": 0.594,
+   "p_blend": 0.579,
+   "rank_score": 0.549,
+   "model_shift_removed": -0.351,
+   "books": 3,
+   "flags": []
+  },
+  {
+   "team": "WAS",
+   "player": "Jacory Croskey-Merritt",
+   "pos": "RB",
+   "market": "rushing_yards",
+   "line": 37.5,
+   "side": "Over",
+   "p_model": 0.592,
+   "p_market": 0.499,
+   "p_blend": 0.546,
+   "rank_score": 0.546,
+   "model_shift_removed": 0.0,
+   "books": 6,
+   "flags": []
+  },
+  {
+   "team": "WAS",
+   "player": "Austin Ekeler",
+   "pos": "RB",
+   "market": "receptions",
+   "line": 1.5,
+   "side": "Over",
+   "p_model": 0.626,
+   "p_market": 0.412,
+   "p_blend": 0.52,
+   "rank_score": 0.52,
+   "model_shift_removed": -0.351,
+   "books": 5,
+   "flags": []
+  },
+  {
+   "team": "WAS",
+   "player": "Chig Okonkwo",
+   "pos": "TE",
+   "market": "receptions",
+   "line": 4.5,
+   "side": "Under",
+   "p_model": 0.558,
+   "p_market": 0.536,
+   "p_blend": 0.547,
+   "rank_score": 0.517,
+   "model_shift_removed": -0.351,
+   "books": 6,
+   "flags": []
+  },
+  {
+   "team": "WAS",
+   "player": "Treylon Burks",
+   "pos": "WR",
+   "market": "receiving_yards",
+   "line": 30.5,
+   "side": "Over",
+   "p_model": 0.524,
+   "p_market": 0.505,
+   "p_blend": 0.515,
+   "rank_score": 0.515,
+   "model_shift_removed": -0.422,
+   "books": 7,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "CIN",
+   "player": "Ja'Marr Chase",
+   "pos": "WR",
+   "market": "receiving_yards",
+   "line": 100.5,
+   "side": "Over",
+   "p_model": 0.518,
+   "p_market": 0.502,
+   "p_blend": 0.51,
+   "rank_score": 0.51,
+   "model_shift_removed": -0.422,
+   "books": 7,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "CIN",
+   "player": "Tee Higgins",
+   "pos": "WR",
+   "market": "receptions",
+   "line": 5.5,
+   "side": "Under",
+   "p_model": 0.537,
+   "p_market": 0.543,
+   "p_blend": 0.54,
+   "rank_score": 0.51,
+   "model_shift_removed": -0.351,
+   "books": 7,
+   "flags": []
+  },
+  {
+   "team": "CIN",
+   "player": "Dohnte Meyers",
+   "pos": "WR",
+   "market": "receiving_yards",
+   "line": 20.5,
+   "side": "Over",
+   "p_model": 0.498,
+   "p_market": 0.51,
+   "p_blend": 0.504,
+   "rank_score": 0.504,
+   "model_shift_removed": -0.422,
+   "books": 7,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "CIN",
+   "player": "Chase Brown",
+   "pos": "RB",
+   "market": "receiving_yards",
+   "line": 27.5,
+   "side": "Over",
+   "p_model": 0.507,
+   "p_market": 0.495,
+   "p_blend": 0.501,
+   "rank_score": 0.501,
+   "model_shift_removed": -0.422,
+   "books": 8,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "CIN",
+   "player": "Chase Brown",
+   "pos": "RB",
+   "market": "rushing_yards",
+   "line": 44.5,
+   "side": "Under",
+   "p_model": 0.556,
+   "p_market": 0.5,
+   "p_blend": 0.528,
+   "rank_score": 0.498,
+   "model_shift_removed": 0.0,
+   "books": 7,
+   "flags": []
+  },
+  {
+   "team": "CIN",
+   "player": "Chase Brown",
+   "pos": "RB",
+   "market": "receptions",
+   "line": 4.5,
+   "side": "Under",
+   "p_model": 0.505,
+   "p_market": 0.541,
+   "p_blend": 0.523,
+   "rank_score": 0.493,
+   "model_shift_removed": -0.351,
+   "books": 6,
+   "flags": []
+  },
+  {
+   "team": "CIN",
+   "player": "Mike Gesicki",
+   "pos": "TE",
+   "market": "receiving_yards",
+   "line": 25.5,
+   "side": "Under",
+   "p_model": 0.546,
+   "p_market": 0.497,
+   "p_blend": 0.522,
+   "rank_score": 0.492,
+   "model_shift_removed": -0.422,
+   "books": 8,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "WAS",
+   "player": "Stefon Diggs",
+   "pos": "WR",
+   "market": "receptions",
+   "line": 4.5,
+   "side": "Under",
+   "p_model": 0.581,
+   "p_market": 0.457,
+   "p_blend": 0.519,
+   "rank_score": 0.489,
+   "model_shift_removed": -0.351,
+   "books": 7,
+   "flags": []
+  },
+  {
+   "team": "WAS",
+   "player": "Stefon Diggs",
+   "pos": "WR",
+   "market": "receiving_yards",
+   "line": 51.5,
+   "side": "Under",
+   "p_model": 0.535,
+   "p_market": 0.5,
+   "p_blend": 0.518,
+   "rank_score": 0.488,
+   "model_shift_removed": -0.422,
+   "books": 7,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "WAS",
+   "player": "Antonio Williams",
+   "pos": "WR",
+   "market": "receiving_yards",
+   "line": 36.5,
+   "side": "Under",
+   "p_model": 0.531,
+   "p_market": 0.5,
+   "p_blend": 0.516,
+   "rank_score": 0.486,
+   "model_shift_removed": -0.422,
+   "books": 8,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  },
+  {
+   "team": "CIN",
+   "player": "Tee Higgins",
+   "pos": "WR",
+   "market": "receiving_yards",
+   "line": 75.5,
+   "side": "Under",
+   "p_model": 0.511,
+   "p_market": 0.493,
+   "p_blend": 0.502,
+   "rank_score": 0.472,
+   "model_shift_removed": -0.422,
+   "books": 8,
+   "flags": [
+    "weather worse than the board: shade yards down"
+   ]
+  }
+ ],
+ "picks": [
+  {
+   "team": "WAS",
+   "player": "Rachaad White",
+   "pos": "RB",
+   "market": "receptions",
+   "line": 1.5,
+   "side": "Over",
+   "p_model": 0.677,
+   "p_market": 0.58,
+   "p_blend": 0.63,
+   "rank_score": 0.63,
+   "model_shift_removed": -0.351,
+   "books": 5,
+   "flags": []
+  },
+  {
+   "team": "CIN",
+   "player": "Dohnte Meyers",
+   "pos": "WR",
+   "market": "receptions",
+   "line": 2.5,
+   "side": "Under",
+   "p_model": 0.644,
+   "p_market": 0.594,
+   "p_blend": 0.619,
+   "rank_score": 0.589,
+   "model_shift_removed": -0.351,
+   "books": 1,
+   "flags": []
+  },
+  {
+   "team": "WAS",
+   "player": "Antonio Williams",
+   "pos": "WR",
+   "market": "receptions",
+   "line": 3.5,
+   "side": "Under",
+   "p_model": 0.645,
+   "p_market": 0.541,
+   "p_blend": 0.594,
+   "rank_score": 0.564,
+   "model_shift_removed": -0.351,
+   "books": 7,
+   "flags": []
+  }
+ ]
+}

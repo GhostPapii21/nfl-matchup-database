@@ -373,3 +373,24 @@ def test_shadow_role_runs_side_by_side_without_moving_stars():
     alpha, _ = _watch_side([11, 10, 12, 9, 11, 10, 12, 11], [110, 95, 120, 80, 105, 99, 130, 90])
     e = W.watch_side(alpha, {"AAA": 28.0, "BBB": 21.0}, {"BBB": {"g80_WR_pg": 0.5}}, model)["receivers"][0]
     assert "shadow" in e and e["stars"] == W.stars(e["p80"], model["stars"])          # live stars still from the board's p80
+
+
+def test_blitz_rate_comes_from_this_season():
+    import pandas as pd
+    from dashboard import extras as X
+
+    class D:
+        def __init__(self, t): self.t = t
+        def get(self, name, season): return self.t.get((name, season))
+    rows, ftn = [], []
+    for i in range(200):
+        for team, blitz in (("WAS", i % 5 < 2), ("CIN", i % 6 == 0)):
+            rows.append({"game_id": f"g{team}", "play_id": i, "defteam": team, "qb_dropback": 1, "season_type": "REG", "week": 1 + i % 9})
+            ftn.append({"nflverse_game_id": f"g{team}", "nflverse_play_id": i, "n_blitzers": 1 if blitz else 0, "n_pass_rushers": 5 if blitz else 4})
+    data = D({("pbp", 2026): pd.DataFrame(rows), ("ftn", 2026): pd.DataFrame(ftn)})
+    b = X.blitz_this_season(data, 2026, "WAS")
+    assert b["blitz_rate"] == 0.4 and b["blitz_rank"] == 1 and b["season"] == 2026
+    assert X.blitz_this_season(data, 2026, "WAS", weeks=[1, 2, 3, 4, 5])["dropbacks"] < 200
+    assert X.blitz_this_season(data, 2026, "WAS", weeks=[1]) is None          # under 50 dropbacks: no rate
+    cp = X.coverage_profile(data, 2026, "WAS")                 # no 2025 participation: this season's rate only
+    assert cp["five_plus_rushers_rate"] == 0.4 and cp["blitz_this_season"]["season"] == 2026
