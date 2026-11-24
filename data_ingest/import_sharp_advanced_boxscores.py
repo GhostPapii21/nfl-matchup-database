@@ -16,6 +16,7 @@ SOURCE_PAGE = "https://www.sharpfootballanalysis.com/analysis/nfl-advanced-box-s
 DATASETS = {
     "team": "sharp_advanced_boxscore_team_game",
     "quarter": "sharp_advanced_boxscore_quarter",
+    "catalog": "sharp_advanced_boxscore_metric_catalog",
 }
 
 def load_jsonl(path):
@@ -62,6 +63,28 @@ def prepare_rows(db, data_dir):
             out.append((record_id(dataset, row), dataset, gid, row["team"], row["week"],
                         SOURCE_PAGE, retrieved, row.get("source_generated_utc"),
                         json.dumps(payload, separators=(",", ":"), sort_keys=True)))
+    # Store the publisher's metric dictionary in the database too, so consumers
+    # can interpret raw numerator/denominator fields without reading a repo file.
+    manifest = json.loads((Path(data_dir) / "manifest.json").read_text(encoding="utf-8"))
+    dataset = DATASETS["catalog"]
+    for definition in manifest["metric_catalog"]:
+        key = definition["key"]
+        rid = hashlib.sha256((dataset + "|" + key).encode()).hexdigest()
+        payload = {
+            "source": "Sharp Football Analysis",
+            "source_page": SOURCE_PAGE,
+            "metric_key": key,
+            "group": definition["group"],
+            "label": definition["label"],
+            "kind": definition["kind"],
+            "numerator": definition.get("num"),
+            "denominator": definition.get("den"),
+            "higher_is_better": definition.get("hi_good"),
+            "definition": definition,
+        }
+        out.append((rid, dataset, None, None, None, SOURCE_PAGE, retrieved,
+                    manifest.get("source_generated_utc"),
+                    json.dumps(payload, separators=(",", ":"), sort_keys=True)))
     return out
 
 def run(db_path, data_dir, apply=False):
@@ -95,6 +118,7 @@ def run(db_path, data_dir, apply=False):
                 "source_rows":len(rows),"unique_rows":unique,
                 "team_game_rows":sum(r[1]==DATASETS["team"] for r in rows),
                 "quarter_rows":sum(r[1]==DATASETS["quarter"] for r in rows),
+                "metric_catalog_rows":sum(r[1]==DATASETS["catalog"] for r in rows),
                 "existing_source_rows":len(existing),"new_or_updated_rows":len(rows),
                 "game_id_matches":matched,"unmatched_or_ambiguous":len(rows)-matched,
                 "sqlite_integrity":integrity,"model_weights_changed":False}
