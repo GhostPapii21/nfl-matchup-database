@@ -97,7 +97,8 @@ def run(db_path, data_dir, apply=False):
             raise RuntimeError("supplemental_records schema mismatch; missing " + repr(sorted(required-cols)))
         rows = prepare_rows(db, data_dir)
         unique = len({r[0] for r in rows})
-        matched = sum(r[2] is not None for r in rows)
+        linkable_rows = [r for r in rows if r[1] in (DATASETS["team"], DATASETS["quarter"])]
+        matched = sum(r[2] is not None for r in linkable_rows)
         if unique != len(rows):
             raise RuntimeError("Duplicate deterministic record IDs in source package")
         existing = {r[0] for r in db.execute("SELECT record_id FROM supplemental_records WHERE dataset IN (?,?)", tuple(DATASETS.values()))}
@@ -120,7 +121,7 @@ def run(db_path, data_dir, apply=False):
                 "quarter_rows":sum(r[1]==DATASETS["quarter"] for r in rows),
                 "metric_catalog_rows":sum(r[1]==DATASETS["catalog"] for r in rows),
                 "existing_source_rows":len(existing),"new_or_updated_rows":len(rows),
-                "game_id_matches":matched,"unmatched_or_ambiguous":len(rows)-matched,
+                "game_id_matches":matched,"unmatched_or_ambiguous":len(linkable_rows)-matched,
                 "sqlite_integrity":integrity,"model_weights_changed":False}
     finally:
         db.close()
