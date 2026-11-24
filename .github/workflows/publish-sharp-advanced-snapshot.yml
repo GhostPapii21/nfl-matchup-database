@@ -1,0 +1,86 @@
+name: Publish Sharp Advanced Box Score Snapshot
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data_packages/sharp_advanced_2026_w1_10/**"
+      - "data_ingest/publish_sharp_snapshot.py"
+      - "data_ingest/import_sharp_advanced_boxscores.py"
+      - "data_ingest/validate_sharp_advanced_boxscores.py"
+      - "data_ingest/test_sharp_advanced_import.py"
+      - ".github/workflows/publish-sharp-advanced-snapshot.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sharp-advanced-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out public database
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate complete Sharp source package
+        run: python data_ingest/validate_sharp_advanced_boxscores.py --root .
+
+      - name: Run importer regression tests
+        run: python -m unittest data_ingest.test_sharp_advanced_import -v
+
+      - name: Import, reconcile ESPN results, and rebuild public SQLite snapshot
+        run: python data_ingest/publish_sharp_snapshot.py --repo-root . --audit-output /tmp/sharp_advanced_publication_audit.json
+
+      - name: Run public export regression tests
+        run: python -m unittest test_export -v
+
+      - name: Check patch formatting
+        run: git diff --check
+
+      - name: Commit the verified public snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add nfl_matchups.sqlite.gz manifest.json schema.sql DATA_GAPS.md
+          if git diff --cached --quiet; then
+            echo "No public snapshot changes to commit."
+          else
+            git commit -m "Publish Sharp advanced box scores Weeks 1-10"
+            git push origin HEAD:main
+          fi
+
+      - name: Verify anonymous public download and checksums
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            if python verify_publication.py --root .; then
+              exit 0
+            fi
+            echo "Public CDN has not converged yet (attempt $attempt); retrying."
+            sleep 10
+          done
+          echo "Public archive checksum verification failed."
+          exit 1
+
+      - name: Preserve machine-readable import audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sharp-advanced-weeks-1-10-publication-audit
+          path: /tmp/sharp_advanced_publication_audit.json
+          if-no-files-found: ignore
+          retention-days: 90

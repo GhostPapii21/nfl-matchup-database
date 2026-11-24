@@ -59,7 +59,7 @@ The repository is the single source of truth for every step from pulling data to
 
 ## Coverage
 
-The initial release covers all 93 games in Weeks 1–6 and 13 Week 7 games, including all 12 October 25 games. Consult `manifest.json` for the latest game counts and dates. Layers include ESPN play-by-play and player/box-score statistics, offensive and defensive profiles, external observations and gaps, supplemental public datasets, and official NGS chart URL indexes.
+The public game index includes 150 completed games from 2026 regular-season Weeks 1–10. Sharp advanced box-score coverage includes 300 team-game observations, 1,224 team-quarter/OT observations, and all 43 publisher metric definitions across box, efficiency, passing, and rushing/personnel groups. The 43 Weeks 8–10 game-index rows were added from ESPN event records after their final scores and team identities were cross-checked against the NFLverse schedule. Other layers, including play-by-play, ESPN box scores, player statistics, NGS charts, and supplemental sources, are not necessarily complete for all 150 games; use `manifest.json`, source timestamps, and `DATA_GAPS.md` to determine coverage.
 
 Supplemental coverage is strongest for Weeks 1–6: FTN charting, snap counts, PFR advanced statistics, weekly injuries, NGS aggregate statistics, pregame depth charts and Sharp advanced box scores. Do not assume every layer covers every game. Query tables and inspect source timestamps before combining records.
 
