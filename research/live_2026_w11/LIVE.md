@@ -1,10 +1,10 @@
-# Live tracker, Week 11 (2026-11-24 03:17 UTC)
+# Live tracker, Week 11 (2026-11-24 03:22 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## CIN 17 @ WAS 10 (7:04 - 3rd)
+## CIN 17 @ WAS 10 (4:38 - 3rd)
 
-109 plays. Top yards allowed by a named defender: J.Reaves (3/4, 59 yds), J.Newton (3/4, 59 yds), S.Styles (3/3, 20 yds), J.Battle (2/2, 18 yds)
+114 plays. Top yards allowed by a named defender: J.Reaves (3/4, 59 yds), J.Newton (3/4, 59 yds), S.Styles (3/3, 20 yds), J.Battle (2/2, 18 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
@@ -13,5 +13,5 @@ Defender = the defender the play text names: on a catch, the tackler (often, not
 | Chase Brown (CIN) | 5 | 4.2 | 30 | 21.1 | 26.5 | 6 | 41.5 | 44.5 |
 | Chig Okonkwo (WAS) | 1 | 4.2 | 32 | 41.7 | 44.0 | 0 |  |  |
 | Tee Higgins (CIN) | 1 | 4.9 | 31 | 57.3 | 76.5 | 0 |  |  |
-| Antonio Williams (WAS) | 3 | 2.9 | 23 | 28.3 | 35.5 | 0 |  |  |
+| Treylon Burks (WAS) | 2 | 2.3 | 30 | 26.0 | 29.5 | 0 |  |  |
 
