@@ -24,6 +24,7 @@ EXTRA_DATASETS = {
     "participation": "pbp_participation/pbp_participation_{season}.parquet",
     "games": "schedules/games.parquet",
     "combine": "combine/combine.parquet",
+    "ngs_receiving": "nextgen_stats/ngs_receiving.parquet",
 }
 
 TEAM_NAMES = {
