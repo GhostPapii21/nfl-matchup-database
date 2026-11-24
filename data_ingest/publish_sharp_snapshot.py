@@ -136,7 +136,7 @@ def parse_existing_event(raw, game_id):
         raise RuntimeError(f"Existing games.data is invalid JSON for {game_id}: {exc}")
 
 def legacy_hash(db, where_sql, params=()):
-    rows = db.execute("SELECT * FROM external_observations WHERE " + where_sql + " ORDER BY observation_id", params).fetchall()
+    rows = [tuple(r) for r in db.execute("SELECT * FROM external_observations WHERE " + where_sql + " ORDER BY observation_id", params).fetchall()]
     serial = json.dumps(rows, separators=(",", ":"), ensure_ascii=False)
     return len(rows), sha256_bytes(serial.encode("utf-8"))
 
