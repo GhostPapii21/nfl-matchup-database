@@ -1,0 +1,141 @@
+{
+ "actual_sources": {
+  "games": {
+   "retrieved_utc": "2026-11-24T05:38:58+00:00",
+   "sha256": "df5c61dd0744329919e7fd3829df8bb54bb8142e3106f0647075c4493db4ac27",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet"
+  },
+  "pbp": {
+   "retrieved_utc": "2026-11-24T05:38:58+00:00",
+   "sha256": "d8782243a144a98dccd5fa91cb379b6004a697f49966d0209da5d875a3928692",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.parquet"
+  },
+  "rosters": {
+   "retrieved_utc": "2026-11-24T05:38:58+00:00",
+   "sha256": "8b17e639cdd2d655d7270b69fbd9dc178d89b64e4234cb38c57d1b7ee203b9fd",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.parquet"
+  },
+  "snap_counts": {
+   "retrieved_utc": "2026-11-24T05:38:58+00:00",
+   "sha256": "cfbe0260477f668c30ccd10d3976a0d9b7b1cf7732e1a2684c43fbf314f86ea1",
+   "status": "OK",
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2026.parquet"
+  }
+ },
+ "counts": {
+  "flagged_prop": {
+   "actual_known": 187,
+   "closing_known": 216,
+   "edges": 0,
+   "rows": 216
+  },
+  "player_projection": {
+   "actual_known": 36,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 44
+  },
+  "team_market": {
+   "actual_known": 6,
+   "closing_known": 4,
+   "edges": 0,
+   "rows": 6
+  },
+  "team_projection": {
+   "actual_known": 8,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 8
+  }
+ },
+ "final_score": {
+  "CIN": 20,
+  "WAS": 22,
+  "pulled_utc": "2026-11-24T05:38:58+00:00",
+  "source": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.parquet sha256=df5c61dd0744329919e7fd3829df8bb54bb8142e3106f0647075c4493db4ac27"
+ },
+ "freeze_ref": "working tree",
+ "game_id": "2026_11_CIN_WAS",
+ "graded_utc": "2026-11-24T05:39:01+00:00",
+ "holdout_by_market_type": {
+  "moneyline": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "receiving_yards": {
+   "beat_close": 1,
+   "did_not_beat": 7,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 8,
+   "positive": false
+  },
+  "receptions": {
+   "beat_close": 1,
+   "did_not_beat": 8,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 9,
+   "positive": false
+  },
+  "rushing_yards": {
+   "beat_close": 2,
+   "did_not_beat": 1,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 3,
+   "positive": false
+  },
+  "spread": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "total": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  }
+ },
+ "kickoff_utc": "2026-11-24T01:15:00+00:00",
+ "packet_source": "git:79cad7336375250787b66106d142551cdf1b101d:pregame/packets/2026_11_CIN_WAS/packet.json",
+ "projection_ready": false,
+ "research_artifacts": {
+  "official_100k": {
+   "loss": 0,
+   "push": 0,
+   "rows": 1,
+   "unknown": 0,
+   "win": 0
+  },
+  "research_team_probability": {
+   "loss": 0,
+   "push": 0,
+   "rows": 3,
+   "unknown": 0,
+   "win": 0
+  },
+  "research_team_projection": {
+   "loss": 0,
+   "push": 0,
+   "rows": 12,
+   "unknown": 0,
+   "win": 0
+  }
+ },
+ "schema": "grading.summary.v1",
+ "validation": "research only, not validated"
+}

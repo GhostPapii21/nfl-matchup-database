@@ -1,7 +1,7 @@
 {
  "schema": "evaluation/1",
  "status": "UNSCORABLE_INSUFFICIENT_COVERAGE",
- "games_scored": 13,
+ "games_scored": 14,
  "weeks_scored": [
   "10",
   "11"
@@ -11,10 +11,10 @@
   "weeks": 3
  },
  "aggregate_primary": {
-  "win_logloss": 0.48264777230768074,
-  "win_brier": 0.1570590364609729,
-  "margin_crps": 6.146503015707693,
-  "total_crps": 8.506593949276922
+  "win_logloss": 0.5430989285706114,
+  "win_brier": 0.1844541399774475,
+  "margin_crps": 6.171881299321428,
+  "total_crps": 8.347443619349999
  },
  "historical_pristine_claim": false,
  "independently_calibrated": false,
@@ -94,6 +94,22 @@
    "lock": "snapshots/2026_11_CIN_WAS/20261122T162606Z",
    "status": "NOT_FINAL",
    "market_comparison": "SCORED_VS_FROZEN_QUOTES"
+  },
+  {
+   "game_id": "2026_11_CIN_WAS",
+   "lock": "snapshots/2026_11_CIN_WAS/20261124T004416Z",
+   "status": "SCORED",
+   "market_comparison": "SCORED_VS_FROZEN_QUOTES",
+   "metrics": {
+    "win_logloss": 1.3289639599887089,
+    "win_brier": 0.5405904856916169,
+    "margin_crps": 6.501798986299999,
+    "total_crps": 6.278489330300001,
+    "margin_pit": 0.760985,
+    "total_pit": 0.20023,
+    "brier_model_mean_lines": 0.3550072702972056,
+    "brier_book_mean_lines": 0.3429282805555556
+   }
   },
   {
    "game_id": "2026_11_JAX_NYG",
