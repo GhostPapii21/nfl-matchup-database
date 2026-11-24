@@ -251,7 +251,7 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
             "injuries": X.injury_impact(tp, snap_off, snap_def),
             "roster_moves": tp.get("roster_moves", {}),
             "defenders": X.defenders_with_positions(tp["defense"].get("defenders", {}), rosters, team, pfr_def, weeks),
-            "coverage_profile": X.coverage_profile(data, season, team),
+            "coverage_profile": X.coverage_profile(data, season, team, weeks),
             "window": tp["window"],
             "trends": X.team_trends(games, season, team, g["date"]),
             "quarters": X.quarter_scoring(data.get("pbp", season), team, weeks),
@@ -266,6 +266,11 @@ def build_game(pk: dict, data: X.Data, games: pd.DataFrame, *, offline: bool) ->
             "defense_injuries": e_def["injuries"], "defense_returning": e_def["returning"],
             "offense_units_hurt": X.unit_injuries(e_off["injuries"]), "defense_units_hurt": X.unit_injuries(e_def["injuries"]),
         })
+    for sd in sides.values():       # this season's blitz rate (FTN) where the packet has none
+        bt = ((sd.get("coverage_profile") or {}).get("blitz_this_season")) or {}
+        da = sd.get("defense_allowed")
+        if bt and isinstance(da, dict) and da.get("blitz_rate") is None:
+            da["blitz_rate"] = bt.get("blitz_rate")
     result = None
     if len(row) and pd.notna(grow.get("home_score")):
         result = {"away_score": int(grow["away_score"]), "home_score": int(grow["home_score"])}
