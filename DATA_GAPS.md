@@ -45,7 +45,7 @@ Sharp alignment/scheme freshness, complete routes and coverage assignments remai
 
 ## Sharp advanced box-score package — 2026-11-24
 
-An authorized normalized source package has been staged in `data_packages/sharp_advanced_2026_w1_10/`: 150 completed Weeks 1–10 games, 300 team-game rows, 1,224 team-quarter rows (including overtime where present), and the publisher's 43-metric catalog. `data_ingest/import_sharp_advanced_boxscores.py` provides a dry-run-first, idempotent import into the existing `supplemental_records` table. This package commit does not by itself prove that the current published SQLite archive contains the new records: the import must be run against the private source database, followed by the standard audited exporter and anonymous publication verification. Existing 84 Week 7 observations are preserved; no model weights or projection readiness flags are changed.
+The authorized Sharp package is imported into the public SQLite snapshot and independently verified. It contains 150 completed Weeks 1–10 games, 300 team-game rows, 1,224 team-quarter/OT rows and 43 metric-catalog records (1,567 new supplemental records total). All 150 source games map to unique ESPN event IDs; final status, home/away identities and scores were checked against the NFLverse schedule. The 84 pre-existing Week 7 Sharp observations and all 8,260 pre-existing Sharp advanced observations remain unchanged. The public archive checksum was verified after anonymous download. No model weights or projection-readiness settings changed.
 
 ## Sharp advanced box-score public integration — 2026-11-24
 
