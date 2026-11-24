@@ -32,7 +32,7 @@ DATASETS = {
     "quarter": "sharp_advanced_boxscore_quarter_2026",
     "catalog": "sharp_advanced_boxscore_metric_catalog_2026",
 }
-TEAM_ALIAS = {"LA": "LAR", "LAR": "LAR"}
+TEAM_ALIAS = {"LA": "LAR", "LAR": "LAR", "WAS": "WSH", "WSH": "WSH"}
 
 def sha256_bytes(data):
     return hashlib.sha256(data).hexdigest()
