@@ -1,10 +1,10 @@
-# Live tracker, Week 11 (2026-11-24 02:12 UTC)
+# Live tracker, Week 11 (2026-11-24 02:17 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## CIN 3 @ WAS 0 (5:32 - 2nd)
+## CIN 3 @ WAS 0 (4:33 - 2nd)
 
-60 plays. Top yards allowed by a named defender: J.Battle (2/2, 18 yds), S.Styles (2/2, 18 yds), J.Reaves (2/3, 15 yds), R.Douglas (2/4, 13 yds)
+63 plays. Top yards allowed by a named defender: J.Battle (2/2, 18 yds), S.Styles (2/2, 18 yds), J.Reaves (2/3, 15 yds), T.Amos (3/3, 15 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
