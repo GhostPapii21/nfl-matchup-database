@@ -25,3 +25,10 @@ The model tree follows the same rule. nflverse play-by-play, roster, game, and d
 ## Sharp advanced box-score package — 2026 Weeks 1–10
 
 The repository includes a normalized publisher-data package under `data_packages/sharp_advanced_2026_w1_10/`, covering 150 games, 300 team-game records and 1,224 team-quarter records (including overtime periods where present). It preserves the publisher's 43 metric definitions and raw metric numerators/denominators. The repository owner reports holding written permission for public redistribution; the permission letter is retained outside the repository. Import is performed through `data_ingest/import_sharp_advanced_boxscores.py` into `supplemental_records`; the public SQLite snapshot must be rebuilt and independently verified after the private source database import.
+
+
+## Sharp advanced box-score package — 2026 Weeks 1–10
+
+- Publisher metrics: Sharp Football Analysis [NFL Advanced Box Scores](https://www.sharpfootballanalysis.com/stats-nfl/nfl-advanced-box-scores/), including the source team-game and quarter JSON assets. Public redistribution permission is reported by the repository owner and retained outside the repository.
+- Game identity and final-score crosswalk: [NFLverse schedules](https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv) mapped source game IDs to ESPN event IDs; [ESPN NFL scoreboard](https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard) independently verified final status, home/away teams, and scores for each of the 150 Weeks 1–10 games.
+- The package is stored in `data_packages/sharp_advanced_2026_w1_10/`. The public snapshot records 300 team-game rows, 1,224 team-quarter/OT rows and 43 metric-catalog records. Existing 84 Week 7 Sharp advanced observations are retained in `external_observations` unchanged.
