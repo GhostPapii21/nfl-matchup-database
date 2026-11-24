@@ -36,3 +36,19 @@ def test_lopsided_only_line_is_not_a_main_line():
     rows += [_r("bovada", 92.5, "Over", 150), _r("bovada", 92.5, "Under", -200)]      # fair over about 37%: an alt rung
     x = BL.player_lines(rows)["tee higgins"]["receiving_yards"]
     assert "bovada" not in x["books"] and x["alt_only_books"] == ["bovada"] and x["median"] == 75.5
+
+
+def test_catch_or_yards_lean():
+    rows = []
+    for b in ("draftkings", "betmgm", "fanduel"):
+        rows += [_r(b, 5.5, "Over", -110, market="receptions"), _r(b, 5.5, "Under", -110, market="receptions"),
+                 _r(b, 67.5, "Over", -110), _r(b, 67.5, "Under", -110)]
+    e = {"player": "Tee Higgins", "yards_median": 55.0, "receptions_mean": 6.4,
+         "receptions": {"5": 0.80, "6": 0.62, "7": 0.40}, "yards": {"60": 0.45, "70": 0.36}}
+    side = {"opportunity": {"receivers": [e], "rushers": []},
+            "qb": {"player": "Short Thrower"}, "quarterbacks": [{"player": "U.Usual", "games": 6, "avg_depth_of_target": 8.5},
+                                                                {"player": "S.Thrower", "games": 2, "avg_depth_of_target": 6.0}]}
+    BL.attach(side, rows)
+    L = e["lean"]
+    assert L["lean"] == "receptions" and L["edge_receptions"] > 0 > L["edge_yards"]
+    assert "shorter" in L["qb_depth"]

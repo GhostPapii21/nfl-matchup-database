@@ -203,6 +203,63 @@ Holds (-1.5 YPT or better): TE1: 5.82 YPT on 38 tgts (league 7.39, -1.57); TE2+:
 - Top receivers: D.London (WR1, intermediate (aDOT 8-13)) 7/10 80y 1TD; Bi.Robinson (RB, short/YAC (aDOT <8)) 5/5 45y; K.Pitts (TE1, short/YAC (aDOT <8)) 5/5 22y 1TD; A.Hooper (TE2+, short/YAC (aDOT <8)) 2/2 21y
 - 20+ catches: D.London(WR1) 21y deep_left TD - no tackler named [unattributed]
 
+
+<!-- W11-GAMELOG-START refs NFL-56 -->
+## Week 11 game log (2026-11-22, ESPN play text; tackler/PBU tag, not true coverage)
+
+Full game file: research/game_logs_2026_w11/. Evidence levels: VERIFIED = PBU/INT/DPI-named; tackler = named tackler on a completion. Man/zone, blitz and MOF shell are unknown in free data.
+
+### SF defense vs MIN (MIN@SF, FINAL)
+
+| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Renardo Green | CB | 9 | 9 | 64 | 0 | 0 | 0 | 0 | tackler x9 | T.Hockenson 1, J.Jefferson 4, T.Felton 1, J.Jennings 2, M.Price 1 |  |
+| Deommodore Lenoir | CB | 4 | 2 | 54 | 0 | 2 | 0 | 0 | VERIFIED x2, tackler x2 | J.Jennings 2, J.Jefferson 2 | J.Jefferson 29 deep_left Q1; J.Jefferson 25 deep_left Q3 |
+| Upton Stout | CB | 2 | 2 | 42 | 0 | 0 | 0 | 0 | tackler x2 | T.Hockenson 1, M.Price 1 | T.Hockenson 20 short_right Q1; M.Price 22 deep_right Q4 |
+| Garret Wallow | LB | 3 | 3 | 25 | 0 | 0 | 0 | 0 | tackler x3 | T.Hockenson 2, D.Dallas 1 |  |
+| Malik Mustapha | S | 3 | 3 | 22 | 0 | 0 | 0 | 0 | tackler x3 | J.Jennings 1, T.Felton 2 |  |
+| Ji'Ayir Brown | S | 2 | 2 | 16 | 0 | 0 | 0 | 0 | tackler x2 | A.Jones 1, T.Hockenson 1 |  |
+| Ephesians Prysock | CB | 2 | 2 | 15 | 0 | 0 | 0 | 0 | tackler x2 | T.Felton 1, J.Jefferson 1 |  |
+| Fred Warner | LB | 2 | 1 | 8 | 0 | 1 | 0 | 0 | VERIFIED x1, tackler x1 | T.Felton 2 |  |
+| Siran Neal | S | 1 | 1 | 8 | 0 | 0 | 0 | 0 | tackler x1 | J.Jones 1 |  |
+| Jaden Dugger | LB | 1 | 1 | 5 | 0 | 0 | 0 | 0 | tackler x1 | G.Bartholomew 1 |  |
+| Osa Odighizuwa | DT | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tackler x1 | T.Hockenson 1 |  |
+| Marques Sigle | S | 1 | 0 | 0 | 0 | 1 | 0 | 0 | VERIFIED x1 | T.Felton 1 |  |
+| DeForest Buckner | DT | 1 | 1 | -1 | 0 | 0 | 0 | 0 | tackler x1 | J.Mason 1 |  |
+
+Yards allowed by target position (WR slot/outside unknown): WR 19/29 for 182 yds, 0 TD; TE 7/10 for 60 yds, 0 TD; RB 3/3 for 22 yds, 0 TD
+Explosives allowed (pass 20+/rush 15+): 4/1
+Pass rush: sacks O.Odighizuwa (half) 1, D.Buckner (half) 1; QB hits O.Odighizuwa 1, N.Bosa 2, M.Williams 1, C.West 1
+Video (highlight transcript) mentions: Deommodore Lenoir (CB) @4:12 ">> Cris: I THINK COUSINS IS ANNOYED A LITTLE BIT, TOO. IN FOR THE TOUCHDOWN. HE DROVE LENOIR INTO THE END ZONE. >> Cris: THE OUTSIDE ZONE COMING" [coverage word: ZONE]; Deommodore Lenoir (CB) @4:08 "CUTS IT BACK AND LOST THE BALL. IT'S PICKED UP BY DEOMMODORE LENOIR. HE'S COMING BACK THE OTHER WAY. TILLMAN. HE'S THE NEW GUY THAT PUNCHES" [coverage word: PICKED]
+Man/zone, blitz rate, MOF shell this game: unknown (no free play-level charting).
+
+#### SF season coverage rates (public, season-level; NOT game-level)
+
+| Rate | StatRankings CoverageIQ (primary) | Sharp Football Analysis (cross-check) |
+|---|---|---|
+| Man | 29.6% | 11.2% |
+| Zone | 69.3% | 82.8% |
+| MOF closed (single-high) | 59.0% | 56.2% |
+| MOF open (two-high) | 41.0% | 39.5% |
+| Blitz | 31.8% | 26.8% |
+| Cover 0 | unknown | not published |
+| Cover 1 | 25.0% | not published |
+| Cover 2 | unknown | not published |
+| Cover 2-Man | 3.2% | not published |
+| Cover 3 | 29.9% | not published |
+| Cover 4 | 8.6% | not published |
+| Cover 6 | 7.8% | not published |
+| Cover 9 | 2.6% | not published |
+| Coverage snaps | 348 | not published |
+
+Sources: StatRankings = StatRankings CoverageIQ, thru games of 2026-11-20 (pages updated 2026-11-21 7:32 PM AST), pulled 2026-11-22 5:03 PM AST (https://statrankings.com/nfl/coverage/team/sf). Sharp = Sharp Football Analysis, thru Week 10 (updated 2026-11-17), pulled 2026-11-22 5:04 PM AST (https://www.sharpfootballanalysis.com/stats-nfl/nfl-coverage-schemes/; blitz from the Sharp defensive-tendencies page, same update day).
+The two sources use different charting definitions: never mix or average them. StatRankings shell rates (Cover 0-9) are filled only where the public ranking articles list the team (top 25); blank = unknown, not zero. Week 11 Sunday games are in neither source.
+**Source disagreement (7+ pts):** Man: StatRankings 29.6% vs Sharp 11.2% (+18.4 pts); Zone: StatRankings 69.3% vs Sharp 82.8% (-13.5 pts)
+**Outlier vs the usual source gap** (gap 2+ SD away from the league-median gap, or ranks 10+ apart): none
+Game-level shells/coverage for Week 11: unknown unless video names them (see VIDEO_EVIDENCE.md).
+
+<!-- W11-GAMELOG-END -->
+
 <!-- W11-COVRATES-START refs NFL-56 -->
 ## SF season coverage rates (public, season-level; NOT game-level)
 

@@ -1,4 +1,4 @@
-# Paper slip legs vs results (unofficial check, pulled 2026-11-22 09:36 PM AST)
+# Paper slip legs vs results (unofficial check, pulled 2026-11-23 02:05 AM AST)
 
 Paper only; the official grade is the 11:45 PM ET grading routine. Legs from runs/2026-11-22_W11_PAPER_SLIPS/SLIPS.md (Ghost6-vetted version). Results from ESPN summary JSON.
 
@@ -48,6 +48,18 @@ Slip status: **LOSS**
 | TB@DET 1H U25.5 | WIN | 17 pts |
 | DET 1H -2.5 | WIN | TB 7 - DET 10 |
 Slip status: **LOSS**
+
+## FOCUS9 Saved Slip 4 (uncleared, paper only; runs/2026-11-22_W11_FOCUS9/SAVED_UNCLEARED_SLIPS.md)
+| Leg | Result | Actual |
+|---|---|---|
+| MIN@SF 1H U23.5 (DK -112, VegasInsider Sat 5:00 PM AST) | LOSS | 38 pts |
+Slip status: **LOSS**
+
+## MIN@SF excluded read (not on a slip; PAPER_SLIPS SLIPS.md Excluded)
+| Leg | Result | Actual |
+|---|---|---|
+| MIN@SF U46.5 (excluded: model 48% vs 53.5% no-vig) | WIN | 45 pts |
+Slip status: **WIN**
 
 ## FLAG (not on a slip)
 | Leg | Result | Actual |

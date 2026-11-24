@@ -1,0 +1,116 @@
+{
+ "streak_and_role": {
+  "train": 5826,
+  "test": 2244,
+  "base": {
+   "logloss": 0.26911,
+   "brier": 0.07834
+  },
+  "candidates": {
+   "streak: spread (l_cv)": {
+    "logloss": 0.2691,
+    "brier": 0.07833,
+    "coef": {
+     "l_cv": -0.0162
+    },
+    "z": {
+     "l_cv": -0.15
+    },
+    "pass": false
+   },
+   "streak: 80+ game share": {
+    "logloss": 0.26945,
+    "brier": 0.0785,
+    "coef": {
+     "big80": 0.2259
+    },
+    "z": {
+     "big80": 0.77
+    },
+    "pass": false
+   },
+   "streak: 20+ catch rate": {
+    "logloss": 0.26914,
+    "brier": 0.0783,
+    "coef": {
+     "ex20_rate": -0.9928
+    },
+    "z": {
+     "ex20_rate": -0.8
+    },
+    "pass": false
+   },
+   "streak: all three": {
+    "logloss": 0.2695,
+    "brier": 0.07848,
+    "coef": {
+     "l_cv": -0.0106,
+     "big80": 0.2462,
+     "ex20_rate": -1.0811
+    },
+    "z": {
+     "l_cv": -0.1,
+     "big80": 0.83,
+     "ex20_rate": -0.87
+    },
+    "pass": false
+   },
+   "role: 3-game trend": {
+    "logloss": 0.26912,
+    "brier": 0.07834,
+    "coef": {
+     "trend": -0.1233
+    },
+    "z": {
+     "trend": -0.53
+    },
+    "pass": false
+   },
+   "role: last game": {
+    "logloss": 0.26838,
+    "brier": 0.07825,
+    "coef": {
+     "last1": 0.2021
+    },
+    "z": {
+     "last1": 2.05
+    },
+    "pass": true
+   },
+   "role: both": {
+    "logloss": 0.26817,
+    "brier": 0.07826,
+    "coef": {
+     "trend": -0.4144,
+     "last1": 0.2795
+    },
+    "z": {
+     "trend": -1.59,
+     "last1": 2.51
+    },
+    "pass": true
+   }
+  }
+ },
+ "coverage": {
+  "train": 2948,
+  "test": 969,
+  "base": {
+   "logloss": 0.38857,
+   "brier": 0.11952
+  },
+  "candidates": {
+   "man vs zone match": {
+    "logloss": 0.38965,
+    "brier": 0.12004,
+    "coef": {
+     "cov_match": 1.4181
+    },
+    "z": {
+     "cov_match": 1.25
+    },
+    "pass": false
+   }
+  }
+ }
+}

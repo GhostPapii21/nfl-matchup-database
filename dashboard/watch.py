@@ -94,11 +94,107 @@ def book_price(lines: list | None, player: str, market: str, rung: float = 79.5)
     return None
 
 
-def _attach_price(e: dict, lines: list | None, market: str) -> None:
+def shadow_role(model: dict, p80: float, log: list, team_t: dict, cuts: dict) -> dict | None:
+    """Side-by-side only, never moves a star (owner, 2026-11-23). Rising role: his target share in his last game against
+    his season share, added on the logit scale. Passed the held-out test (2025-26 log loss 0.2691 -> 0.2684, z 2.1;
+    research/shadow_2026-11-23); graded weekly against the live stars before it can replace anything."""
+    w = (model.get("shadow") or {}).get("role_last1")
+    if not w or len(log) < 2:
+        return None
+    tot = sum(team_t.get(x["week"], 0) for x in log)
+    last = log[-1]
+    lt = team_t.get(last["week"], 0)
+    if not tot or not lt:
+        return None
+    share, share1 = sum(x.get("targets", 0) for x in log) / tot, last.get("targets", 0) / lt
+    if share <= 0:
+        return None
+    x = math.log(min(max(share1 / share, 0.2), 4.0))
+    lg = math.log(min(max(p80, 1e-4), 1 - 1e-4) / (1 - min(max(p80, 1e-4), 1 - 1e-4)))
+    p = _sig(lg + w["const"] + w["last1"] * x)
+    return {"p80": round(p, 3), "stars": stars(p, cuts), "season_share": round(share, 3), "last_game_share": round(share1, 3), "candidate": "rising role"}
+
+
+GATE_KEY = {"WR": "wr_rec_yards_pg", "TE": "te_rec_yards_pg", "RB": "rb_rush_yards_pg"}
+
+
+def defensive_gate(sd: dict, pos: str) -> dict | None:
+    """What this defense allows to his position, ranked (32 = allows the most). Shown beside each star; it does not
+    move the star: the star weights already carry the defense (80-yard games allowed to the position for receivers, RB
+    yards a game for backs), and on 2022-26 an extra gate term did not clear the bar -- starred receivers vs the softest
+    third hit 42% against 41% predicted, starred backs vs the softest third 36% against 44%
+    (research/defense_gate_2026-11-23)."""
+    k = GATE_KEY.get(pos)
+    r = ((sd.get("defense_rank") or {}).get(k) or {}) if k else {}
+    if not r.get("rank"):
+        return None
+    allowed = (sd.get("defense_allowed") or {}).get(k)
+    label = "soft" if r["rank"] >= 23 else "tough" if r["rank"] <= 10 else "middle"
+    return {"label": label, "rank": r["rank"], "of": r.get("of", 32), "allowed_pg": round(allowed, 1) if allowed else None,
+            "league_avg": round(r["league_avg"], 1) if r.get("league_avg") else None}
+
+
+def pressure_note(sd: dict) -> str | None:
+    """Context only: the defense blitzes or pressures a lot and this QB is much worse (or better) against it. Pressure and
+    blitz matchups did not predict 80-yard games on 2022-25 (research/defense_gate_2026-11-23)."""
+    cp, qb = sd.get("coverage_profile") or {}, ((sd.get("qb") or {}).get("this_season") or {})
+    vb, nb = qb.get("vs_blitz") or {}, qb.get("no_blitz") or {}
+    rate = cp.get("five_plus_rushers_rate")
+    if not rate or not vb.get("yards_per_attempt") or not nb.get("yards_per_attempt") or (vb.get("dropbacks") or 0) < 40 or rate < 0.33:
+        return None
+    d = vb["yards_per_attempt"] - nb["yards_per_attempt"]
+    if abs(d) < 1.0:
+        return None
+    return (f"defense sends 5+ rushers {rate:.0%} of dropbacks; {(sd.get('qb') or {}).get('player')} averages "
+            f"{vb['yards_per_attempt']:.1f} yards an attempt vs the blitz, {nb['yards_per_attempt']:.1f} without")
+
+
+def health_flags(sd: dict, player: str) -> dict | None:
+    """His own status going in: Questionable/Doubtful on the report, a concussion listing, or back from missed games.
+    Tags only. On 2025-26 (research/injury_context_2026-11-23): starred players listed Questionable hit 30% against 39%
+    predicted (27 players; a lean, not proven), and about a quarter of Questionable players do not play at all, so wait for
+    the inactives (T-90). Players back from 1-2 or 3+ missed games, or from a concussion listing, hit about as often as the
+    model said (99 / 28 / 46 receiver games) -- no evidence for an automatic downgrade."""
+    want = _norm(player)
+    inj = next((x for x in sd.get("offense_injuries") or [] if _norm(x.get("player")) == want), None)
+    ret = next((x for x in sd.get("returning") or [] if _norm(x.get("player")) == want and x.get("unit") == "offense"), None)
+    out, notes = {}, []
+    if inj and str(inj.get("game_status") or "") in ("Questionable", "Doubtful"):
+        out["status"] = inj["game_status"]
+        notes.append(f"listed {inj['game_status']} ({inj.get('injury') or 'injury'}): wait for the inactives before betting"
+                     + ("; Doubtful players usually sit" if inj["game_status"] == "Doubtful" else ""))
+    if inj and "concuss" in str(inj.get("injury") or "").lower():
+        out["concussion"] = True
+        notes.append("on the report with a concussion")
+    if ret and (ret.get("games_since_return") or 0) <= 2:
+        out["returning"] = {k: ret.get(k) for k in ("games_missed", "games_since_return", "snap_pct_before", "snap_pct_last_game", "status")}
+        notes.append(f"back after missing {ret.get('games_missed')} game(s); {ret.get('status', '').lower()} "
+                     f"({(ret.get('snap_pct_last_game') or 0):.0%} of snaps last game vs {(ret.get('snap_pct_before') or 0):.0%} before)")
+    if not out:
+        return None
+    out["notes"] = notes
+    return out
+
+
+ROLE_GAP80 = 0.15     # model 15+ points off the book's 80+ price: Week 11's Smith (backup QB), Monangai and Allen (split backs)
+
+
+def _attach_price(e: dict, lines: list | None, market: str, cuts: dict | None = None) -> None:
+    """Adds the book's 80+ price. With a price, the stars come from the blend of model and price (Nov 23, 2026): the blend
+    was the most accurate of the three on the held-out weeks 8-9 ladders (Brier 0.1118 vs 0.1136), and on Week 11 the
+    blend's stars hit 14 of 26 against the model's 12 of 27 (research/star_review_2026-11-23)."""
     b = book_price(lines, e["player"], market)
-    if b:
-        e["book80"] = {**b, "blend": round(blend_with_book(e["p80"], b["break_even"]), 3),
-                       "model_minus_price": round(e["p80"] - b["break_even"], 3)}
+    if not b:
+        return
+    blend = blend_with_book(e["p80"], b["break_even"])
+    gap = e["p80"] - b["break_even"]
+    e["book80"] = {**b, "blend": round(blend, 3), "model_minus_price": round(gap, 3)}
+    if cuts:
+        e["stars_model"], e["stars"], e["star_basis"] = e["stars"], stars(blend, cuts), "model + FanDuel price"
+        if e["stars"] != e["stars_model"]:
+            e.setdefault("why", []).append(f"the FanDuel price moves this from {e['stars_model']} to {e['stars']} stars")
+    if abs(gap) >= ROLE_GAP80:
+        e.setdefault("why", []).append(f"model {e['p80']:.0%} vs FanDuel {b['break_even']:.0%}: a big disagreement, check the QB and his role")
 
 
 def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines: list | None = None) -> dict | None:
@@ -171,12 +267,21 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
             why.append(f"rain/wind in the forecast cuts his yards about {round((1 - wx) * 100)}%")
         out["receivers"].append({"player": r.get("full_name") or r["player"], "player_id": r["player_id"], "pos": r["pos"], "tier": tier,
                                  "style": "explosive" if ex_pg >= 1.2 else "volume", "p80": round(p80, 3), "p100": round(p100, 3),
-                                 "stars": stars(p80, cuts), "targets": round(blend, 1), "yds_pg": round(yds_pg, 1), "ex_pg": round(ex_pg, 2), "why": why})
+                                 "stars": stars(p80, cuts), "targets": round(blend, 1), "yds_pg": round(yds_pg, 1), "ex_pg": round(ex_pg, 2), "why": why,
+                                 **({"shadow": sh} if (sh := shadow_role(model, p80, log, team_t, cuts)) else {})})
+    rb_cpg = {}
+    for r in (sd.get("roles") or {}).get("rushers") or []:
+        o = by_player.get(r.get("player_id"))
+        if o and not o.get("status") and r.get("pos") == "RB" and r.get("log"):
+            rb_cpg[r.get("player_id")] = float(np.mean([x.get("carries", 0) for x in r["log"]]))
     for r in (sd.get("roles") or {}).get("rushers", []):
         o = by_player.get(r.get("player_id"))
         log = r.get("log", [])
         if not o or o.get("status") or len(log) < 3 or r.get("pos") != "RB":
             continue
+        # split backfield: the busiest other active back who comes in averaging 10+ carries (0 if none).
+        # Fit 2022-26 with the other weights (research/star_review_2026-11-23): -0.04 log-odds per carry he averages.
+        mate_car = max([c for pid, c in rb_cpg.items() if pid != r.get("player_id") and c >= 10] or [0.0])
         carries = [x.get("carries", 0) for x in log]
         cpg = 0.6 * float(np.mean(carries)) + 0.4 * float(np.mean(carries[-3:]))
         inp = o.get("inputs", {})
@@ -188,6 +293,8 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
         ypc = (sum(x.get("yards", 0) for x in log) + 4.3 * 40) / (sum(carries) + 40)
         rb_allowed = (sd.get("defense_allowed") or {}).get("rb_rush_yards_pg") or 92.5
         x = {"l_car": math.log(cpg), "l_ypc": math.log(ypc), "spread": margin, "implied": imp_off or 22.0, "l_d": math.log(max(rb_allowed, 20.0))}
+        if "mate_car" in rus_m:
+            x["mate_car"] = mate_car
         p80 = _sig(rus_m["const"] + sum(rus_m[k] * v for k, v in x.items()))
         p100 = _sig(rus_100["const"] + sum(rus_100[k] * v for k, v in x.items()))
         why = [f"{cpg:.1f} carries a game"]
@@ -197,12 +304,24 @@ def watch_side(sd: dict, imp: dict | None, dctx: dict, model: dict | None, lines
             why.append(f"{dfn} allows {rb_allowed:.0f} rushing yards a game to backs")
         if inp.get("injury_bump"):
             why.append("a teammate's absence adds carries")
+        if mate_car:
+            why.append(f"splits the backfield (another back averages {mate_car:.0f} carries)")
         out["rushers"].append({"player": r.get("full_name") or r["player"], "player_id": r["player_id"], "pos": "RB", "p80": round(p80, 3), "p100": round(p100, 3),
                                "stars": stars(p80, cuts), "carries": round(cpg, 1), "yds_pg": r.get("yards_pg"), "why": why})
+    pn = pressure_note(sd)
+    for e in out["receivers"] + out["rushers"]:
+        hf = health_flags(sd, e["player"])
+        if hf:
+            e["health"] = hf
+            e.setdefault("why", []).extend(hf["notes"])
     for e in out["receivers"]:
-        _attach_price(e, lines, "alt_receiving_yards")
+        _attach_price(e, lines, "alt_receiving_yards", cuts)
+        e["gate"] = defensive_gate(sd, e.get("pos"))
+        if pn:
+            e["pressure_note"] = pn
     for e in out["rushers"]:
-        _attach_price(e, lines, "alt_rushing_yards")
+        _attach_price(e, lines, "alt_rushing_yards", cuts)
+        e["gate"] = defensive_gate(sd, "RB")
     for k in ("receivers", "rushers"):
         out[k].sort(key=lambda e: -e["p80"])
     return out

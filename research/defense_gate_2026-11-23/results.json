@@ -1,0 +1,146 @@
+{
+ "receivers": {
+  "base": {
+   "logloss": 0.26911,
+   "brier": 0.07834
+  },
+  "n_train": 5826,
+  "n_test": 2244,
+  "candidates": {
+   "gate_ypg": {
+    "logloss": 0.26885,
+    "brier": 0.07822,
+    "coef": 0.5959,
+    "z": 1.85,
+    "rows_with_flag_test": 2244,
+    "keep": false
+   },
+   "gate_worst5": {
+    "logloss": 0.26877,
+    "brier": 0.07819,
+    "coef": 0.2284,
+    "z": 1.79,
+    "rows_with_flag_test": 414,
+    "keep": false
+   },
+   "opp_ypa": {
+    "logloss": 0.26906,
+    "brier": 0.07833,
+    "coef": -0.9547,
+    "z": -1.08,
+    "rows_with_flag_test": 2244,
+    "keep": false
+   }
+  }
+ },
+ "receivers_starred_by_gate": [
+  {
+   "gate": "tough",
+   "starred": 72,
+   "predicted": 0.397,
+   "hit80": 0.375,
+   "gap_points": -2.2
+  },
+  {
+   "gate": "middle",
+   "starred": 71,
+   "predicted": 0.412,
+   "hit80": 0.338,
+   "gap_points": -7.4
+  },
+  {
+   "gate": "soft",
+   "starred": 71,
+   "predicted": 0.407,
+   "hit80": 0.423,
+   "gap_points": 1.6
+  }
+ ],
+ "receivers_pressure_blitz": {
+  "rows_train": 4797,
+  "rows_test_2025": 1574,
+  "base": {
+   "logloss": 0.27679,
+   "brier": 0.08103
+  },
+  "candidates": {
+   "press_match": {
+    "logloss": 0.27688,
+    "brier": 0.08101,
+    "coef": -3.2713,
+    "z": -2.88,
+    "keep": false
+   },
+   "blitz_match": {
+    "logloss": 0.2768,
+    "brier": 0.08105,
+    "coef": -1.3488,
+    "z": -0.52,
+    "keep": false
+   },
+   "def_pressure_rel": {
+    "logloss": 0.27679,
+    "brier": 0.08104,
+    "coef": 0.6746,
+    "z": 1.89,
+    "keep": false
+   },
+   "def_blitz_rel": {
+    "logloss": 0.27684,
+    "brier": 0.08102,
+    "coef": 0.2626,
+    "z": 1.42,
+    "keep": false
+   }
+  }
+ },
+ "backs": {
+  "base": {
+   "logloss": 0.57521,
+   "brier": 0.19484
+  },
+  "n_train": 1271,
+  "n_test": 584,
+  "candidates": {
+   "gate_ypc": {
+    "logloss": 0.57581,
+    "brier": 0.1951,
+    "coef": 0.8308,
+    "z": 1.0,
+    "rows_with_flag_test": 584,
+    "keep": false
+   },
+   "gate_worst5": {
+    "logloss": 0.57657,
+    "brier": 0.19539,
+    "coef": 0.0847,
+    "z": 0.4,
+    "rows_with_flag_test": 127,
+    "keep": false
+   }
+  }
+ },
+ "backs_starred_by_gate": [
+  {
+   "gate": "tough",
+   "starred": 81,
+   "predicted": 0.396,
+   "hit80": 0.432,
+   "gap_points": 3.6
+  },
+  {
+   "gate": "middle",
+   "starred": 80,
+   "predicted": 0.409,
+   "hit80": 0.475,
+   "gap_points": 6.6
+  },
+  {
+   "gate": "soft",
+   "starred": 80,
+   "predicted": 0.439,
+   "hit80": 0.362,
+   "gap_points": -7.7
+  }
+ ]
+}
