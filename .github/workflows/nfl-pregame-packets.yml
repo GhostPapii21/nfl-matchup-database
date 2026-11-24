@@ -72,12 +72,13 @@ jobs:
         continue-on-error: true   # a board failure never blocks the packets
         run: |
           python -m pip install --disable-pip-version-check pillow
+          python -m pregame.coverage_rates || true     # this season's man/zone (Sharp public table, at most daily); fail-soft
           python -m dashboard.build
       - name: Commit refreshed packets
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add pregame/packets pregame/line_history dashboard/data pregame/direct_lines pregame/price_freezes
+          git add pregame/packets pregame/line_history dashboard/data pregame/direct_lines pregame/price_freezes data/coverage
           if git diff --cached --quiet; then
             echo "No packet changes."
           else
