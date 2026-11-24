@@ -457,7 +457,9 @@ def publish(repo_root, audit_path):
 - The pre-existing 84 Week 7 Sharp observations were preserved byte-for-byte at the row level (SHA-256: {import_audit['legacy_week7_sharp_sha256_after']}). All {import_audit['all_existing_sharp_advanced_observations']} pre-existing Sharp advanced observations were also preserved unchanged.
 - All four publisher metric groups are present in the database catalog: box, efficiency, passing, and rushing/personnel. No model weights or projection-readiness settings were changed.
 """
-        gap_path.write_text(old_gaps.rstrip() + note, encoding="utf-8")
+        marker = "## Sharp advanced box-score public integration"
+        if marker not in old_gaps:
+            gap_path.write_text(old_gaps.rstrip() + note, encoding="utf-8")
         # Export from the imported copy. The private/public input archive is not overwritten in place.
         sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
         from export_snapshot import build
