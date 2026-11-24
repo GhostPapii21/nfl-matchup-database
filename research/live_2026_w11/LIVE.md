@@ -1,10 +1,10 @@
-# Live tracker, Week 11 (2026-11-24 04:18 UTC)
+# Live tracker, Week 11 (2026-11-24 04:23 UTC)
 
 Defender = the defender the play text names: on a catch, the tackler (often, not always, the man in coverage); on an incompletion, the defender credited with the breakup.
 
-## CIN 20 @ WAS 19 (0:05 - 4th)
+## CIN 20 @ WAS 22 (Final)
 
-179 plays. Top yards allowed by a named defender: J.Reaves (4/5, 91 yds), J.Newton (4/5, 88 yds), B.Cook (2/2, 35 yds), D.Turner (4/4, 32 yds)
+181 plays. Top yards allowed by a named defender: J.Reaves (4/5, 91 yds), J.Newton (4/5, 88 yds), D.Turner (5/5, 74 yds), R.Douglas (5/7, 29 yds)
 
 | Player | Rec | Proj | Rec yds | Proj (med) | Line | Rush yds | Proj (med) | Line |
 |---|---|---|---|---|---|---|---|---|
