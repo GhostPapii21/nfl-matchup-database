@@ -1,0 +1,116 @@
+{
+ "actual_sources": {
+  "espn_summary": {
+   "retrieved_utc": "2026-11-23T05:37:41+00:00",
+   "sha256": "76af649bd95a4757e6ce58087d3973a9fde563ecb7f9e9ddfa8acf42b8958ccf",
+   "status": "STATUS_FINAL",
+   "url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873068"
+  }
+ },
+ "counts": {
+  "flagged_prop": {
+   "actual_known": 144,
+   "closing_known": 162,
+   "edges": 0,
+   "rows": 162
+  },
+  "player_projection": {
+   "actual_known": 36,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 41
+  },
+  "team_market": {
+   "actual_known": 6,
+   "closing_known": 4,
+   "edges": 0,
+   "rows": 6
+  },
+  "team_projection": {
+   "actual_known": 8,
+   "closing_known": 0,
+   "edges": 0,
+   "rows": 8
+  }
+ },
+ "final_score": {
+  "BAL": 33,
+  "CAR": 35,
+  "pulled_utc": "2026-11-23T05:37:41+00:00",
+  "source": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873068 saved grading/results/sources/espn_summary_2026_11_BAL_CAR_401873068.json sha256_full_response=76af649bd95a4757e6ce58087d3973a9fde563ecb7f9e9ddfa8acf42b8958ccf"
+ },
+ "freeze_ref": "working tree",
+ "game_id": "2026_11_BAL_CAR",
+ "graded_utc": "2026-11-23T05:37:41+00:00",
+ "holdout_by_market_type": {
+  "moneyline": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "receiving_yards": {
+   "beat_close": 1,
+   "did_not_beat": 7,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 8,
+   "positive": false
+  },
+  "receptions": {
+   "beat_close": 1,
+   "did_not_beat": 8,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 9,
+   "positive": false
+  },
+  "rushing_yards": {
+   "beat_close": 2,
+   "did_not_beat": 1,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 3,
+   "positive": false
+  },
+  "spread": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  },
+  "total": {
+   "beat_close": 0,
+   "did_not_beat": 0,
+   "holdout_ready": false,
+   "min_n": 30,
+   "n": 0,
+   "positive": false
+  }
+ },
+ "kickoff_utc": "2026-11-22T18:00:00+00:00",
+ "packet_source": "git:3d117a40f57092fd3ee474a34dbf37b3f518e899:pregame/packets/2026_11_BAL_CAR/packet.json",
+ "projection_ready": false,
+ "research_artifacts": {
+  "research_team_probability": {
+   "loss": 0,
+   "push": 0,
+   "rows": 1,
+   "unknown": 0,
+   "win": 0
+  },
+  "research_team_projection": {
+   "loss": 0,
+   "push": 0,
+   "rows": 4,
+   "unknown": 0,
+   "win": 0
+  }
+ },
+ "schema": "grading.summary.v1",
+ "validation": "research only, not validated"
+}
