@@ -159,7 +159,10 @@ def defense_card(side: dict, sep: dict) -> dict:
     bt = cp.get("blitz_this_season") or {}
     rk = lambda k: (dr.get(k) or {}).get("rank")
     cov = sorted(((side.get("defenders") or {}).get("coverage") or []), key=lambda c: -(c.get("yards") or 0))[:3]
-    return {"defense": side["defense"], "blitz_rate": bt.get("blitz_rate") or cp.get("five_plus_rushers_rate"), "blitz_rank": bt.get("blitz_rank"),
+    sc = cp.get("coverage_this_season") or {}
+    return {"defense": side["defense"], "man_rate": cp.get("man_rate"), "zone_rate": cp.get("zone_rate"), "two_high_rate": sc.get("two_high_rate"),
+            "coverage_season": cp.get("man_zone_season") or cp.get("season"),
+            "blitz_rate": bt.get("blitz_rate") or cp.get("five_plus_rushers_rate"), "blitz_rank": bt.get("blitz_rank"),
             "blitz_season": bt.get("season") or cp.get("five_plus_rushers_season") or cp.get("season"),
             "pressure_rank": rk("pressure_rate"), "pass_yards_rank": rk("pass_yards_pg"), "wr_rank": rk("wr_rec_yards_pg"),
             "te_rank": rk("te_rec_yards_pg"), "rb_rush_rank": rk("rb_rush_yards_pg"), "separation": sep.get(side["defense"]),
@@ -275,11 +278,11 @@ def to_md(b: dict) -> str:
     L += [f"- **{a['flag']}** {a['player']} ({a['team']}): {a['note']}" for a in b["availability"]] or ["- Nothing flagged."]
     if not b["inactives_used"]:
         L.append("- Official inactives not pulled yet: re-run after T-90.")
-    L += ["", "## 3. Each defense now", "| Defense | Blitz | Pressure rank | Pass yds rank | vs WR / TE / RB-rush rank | Separation vs norm | Allows the most |",
-          "|---|---|---|---|---|---|---|"]
+    L += ["", "## 3. Each defense now", "| Defense | Man / zone / two-high | Blitz | Pressure rank | Pass yds rank | vs WR / TE / RB-rush rank | Separation vs norm | Allows the most |",
+          "|---|---|---|---|---|---|---|---|"]
     for d in b["defenses"]:
         s = d.get("separation") or {}
-        L.append(f"| {d['defense']} | {pct(d['blitz_rate'])}{' (rank ' + str(d['blitz_rank']) + ')' if d.get('blitz_rank') else ''} {d.get('blitz_season') or ''} | "
+        L.append(f"| {d['defense']} | {pct(d.get('man_rate'))} / {pct(d.get('zone_rate'))} / {pct(d.get('two_high_rate'))} ({d.get('coverage_season') or ''}) | {pct(d['blitz_rate'])}{' (rank ' + str(d['blitz_rank']) + ')' if d.get('blitz_rank') else ''} {d.get('blitz_season') or ''} | "
                  f"{d.get('pressure_rank') or '–'} | {d.get('pass_yards_rank') or '–'} | {d.get('wr_rank') or '–'} / {d.get('te_rank') or '–'} / {d.get('rb_rush_rank') or '–'} | "
                  f"{('%+.2f yds (rank %s of %s)' % (s['vs_norm_yards'], s['rank'], s['of'])) if s else '–'} | "
                  + "; ".join(f"{c['player']} {c['yards']} yds" for c in d["most_yards_allowed"]) + " |")

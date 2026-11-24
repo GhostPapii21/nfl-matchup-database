@@ -401,6 +401,21 @@ def blitz_this_season(data: Data, season: int, team: str, weeks=None) -> dict | 
             "source": "FTN charting via nflverse (n_blitzers > 0; n_pass_rushers >= 5)"}
 
 
+def this_season_coverage(season: int, team: str) -> dict | None:
+    """This season's man/zone and middle-of-field open/closed rates (Sharp Football Analysis public table;
+    pregame/coverage_rates.py). None when not pulled."""
+    try:
+        from pregame import coverage_rates as CR
+        r = CR.load(season).get(team)
+    except Exception:  # noqa: BLE001
+        return None
+    if not r or r.get("man_pct") is None:
+        return None
+    pct = lambda k: _f(r[k] / 100) if r.get(k) is not None else None
+    return {"season": season, "man_rate": pct("man_pct"), "zone_rate": pct("zone_pct"), "two_high_rate": pct("mofo_pct"),
+            "one_high_rate": pct("mofc_pct"), "source": r.get("source"), "source_updated": r.get("source_updated")}
+
+
 def coverage_profile(data: Data, season: int, team: str, weeks=None) -> dict | None:
     """Last season's man/zone mix and shells (NGS participation; the current season is not published), with this
     season's blitz and 5+ rusher rates from FTN charting when available (those replace last season's numbers)."""
@@ -424,15 +439,19 @@ def coverage_profile(data: Data, season: int, team: str, weeks=None) -> dict | N
     man = j[j.defense_man_zone_type == "MAN_COVERAGE"]
     zone = j[j.defense_man_zone_type == "ZONE_COVERAGE"]
     last5 = _f(_div((j.number_of_pass_rushers.fillna(0) >= 5).sum(), len(j)))
-    return {"season": prev, "dropbacks": int(len(j)), "man_rate": _f(len(man) / len(j)), "zone_rate": _f(len(zone) / len(j)),
+    sc = this_season_coverage(season, team)
+    return {"season": prev, "dropbacks": int(len(j)),
+            "man_rate": sc["man_rate"] if sc else _f(len(man) / len(j)), "zone_rate": sc["zone_rate"] if sc else _f(len(zone) / len(j)),
+            "man_zone_season": season if sc else prev, "coverage_this_season": sc,
+            "man_rate_last_season": _f(len(man) / len(j)), "zone_rate_last_season": _f(len(zone) / len(j)),
             "shells": [{"shell": k.replace("_", " ").title(), "rate": _f(v)} for k, v in shells.items()],
             "pressure_rate": _f(_div((j.was_pressure == True).sum(), j.was_pressure.notna().sum())),  # noqa: E712
             "five_plus_rushers_rate": cur["five_plus_rushers_rate"] if cur else last5,
             "five_plus_rushers_season": season if cur else prev, "five_plus_rushers_rate_last_season": last5,
             "blitz_this_season": cur,
             "allowed_vs_man": _pass_line(man), "allowed_vs_zone": _pass_line(zone),
-            "note": f"Man/zone and shells: {prev} season (latest with free man/zone data); coordinator or roster changes since then make "
-                    f"them context, not current fact. Blitz and 5+ rusher rates: {season if cur else prev}."}
+            "note": f"Man/zone rates: {season if sc else prev} ({sc['source'] + ', updated ' + str(sc['source_updated']) if sc else 'NGS participation'}). "
+                    f"Shells and the vs-man / vs-zone splits: {prev} (latest free play-level data). Blitz and 5+ rusher rates: {season if cur else prev}."}
 
 
 def defenders_with_positions(packet_def: dict, rosters: pd.DataFrame | None, team: str, pfr_def: pd.DataFrame | None, weeks) -> dict:

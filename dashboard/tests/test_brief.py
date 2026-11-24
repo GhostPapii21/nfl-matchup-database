@@ -65,3 +65,17 @@ def test_reads_remove_slate_lean_and_picks_follow_the_rules():
     assert len(names) == len(set(names)) and len(picks) <= 3                 # one per player, three per team
     assert "Echo Five" not in names and "Delta Four" not in names
     assert not any(p["player"] == "Bravo Two" and p["market"] == "receiving_yards" and p["side"] == "Over" for p in picks)
+
+
+def test_sharp_coverage_parser_and_board_hookup():
+    from pregame import coverage_rates as CR
+    html = ("<p>Updated: November 17</p><table><thead><tr><th>Team</th><th>Man Rate</th><th>Zone Rate</th><th>Middle Closed Rate</th>"
+            "<th>Middle Open Rate</th></tr></thead><tbody>"
+            + "".join(f"<tr><td>{n}</td><td>{10 + i}</td><td>{70 - i}</td><td>40.0</td><td>55.5</td></tr>" for i, n in enumerate(CR.NAME2AB))
+            + "</tbody></table><table><tr><td>other</td></tr></table>")
+    got = CR.parse(html)
+    assert len(got["teams"]) == 32 and got["updated"] == "November 17"
+    assert got["teams"]["WAS"]["mofo_pct"] == 55.5 and got["teams"]["LA"]["man_pct"] == 10 + list(CR.NAME2AB).index("Los Angeles Rams")
+    from dashboard import extras as X
+    sc = X.this_season_coverage(2026, "WAS")
+    assert sc is None or (0 <= sc["man_rate"] <= 1 and sc["season"] == 2026)
