@@ -143,7 +143,7 @@ def legacy_hash(db, where_sql, params=()):
 def load_jsonl(path):
     return [json.loads(line) for line in Path(path).read_text(encoding="utf-8").splitlines() if line.strip()]
 
-def source_comparison(team_rows, quarter_rows):
+def source_comparison(team_rows, quarter_rows, package_manifest):
     source_team = fetch_json(SHARP_TEAM_URL)
     source_quarter = fetch_json(SHARP_QUARTER_URL)
     source_games = {g["id"]: g for g in source_team["schedule"] if 1 <= int(g["w"]) <= 10}
@@ -180,6 +180,13 @@ def source_comparison(team_rows, quarter_rows):
             raise RuntimeError(f"Sharp quarter source mismatch: {key}")
     if len(source_team["stats"]) != 43:
         raise RuntimeError(f"Sharp metric catalog expected 43 definitions, got {len(source_team['stats'])}")
+    if package_manifest.get("metric_catalog") != source_team["stats"]:
+        raise RuntimeError("Packaged metric catalog differs from fresh Sharp source definitions")
+    groups = {}
+    for definition in source_team["stats"]:
+        groups[definition["group"]] = groups.get(definition["group"], 0) + 1
+    if groups != {"box": 15, "eff": 10, "pass": 11, "run": 7}:
+        raise RuntimeError(f"Unexpected Sharp category coverage: {groups}")
     return {
         "team_game_source_exact_matches": len(expected_team),
         "quarter_source_exact_matches": len(expected_quarter),
@@ -195,7 +202,7 @@ def import_into_db(db_path, package_dir):
     package_manifest = json.loads((package_dir / "manifest.json").read_text(encoding="utf-8"))
     if len(team_rows) != 300 or len(quarter_rows) != 1224 or len(package_manifest["metric_catalog"]) != 43:
         raise RuntimeError("Sharp package row/catalog totals do not match expected 300/1224/43")
-    source_check = source_comparison(team_rows, quarter_rows)
+    source_check = source_comparison(team_rows, quarter_rows, package_manifest)
 
     schedule_raw, schedule = schedule_rows()
     if set(schedule) != {r["source_game_id"] for r in team_rows}:
@@ -347,9 +354,9 @@ def import_into_db(db_path, package_dir):
         # Idempotent insert: a pre-existing deterministic ID must match the same record.
         existing_ids = {r[0]: r for r in db.execute(
             "SELECT record_id,dataset,game_id,team_id,week,source_url,asset_updated_at,data "
-            "FROM supplemental_records WHERE record_id IN (" + ",".join("?" for _ in new_records) + ")",
-            [r[0] for r in new_records]
-        )} if new_records else {}
+            "FROM supplemental_records WHERE dataset IN (?,?,?)",
+            (DATASETS["team"], DATASETS["quarter"], DATASETS["catalog"])
+        )}
         for r in new_records:
             old = existing_ids.get(r[0])
             if old:
