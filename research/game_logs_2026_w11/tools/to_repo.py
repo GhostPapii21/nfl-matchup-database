@@ -9,7 +9,7 @@ os.makedirs(f'{DST}/video', exist_ok=True); shutil.copy(f'{OUT}/video/assignment
 for sub in ('pbp', 'data', 'tools'):
     shutil.copytree(f'{OUT}/{sub}', f'{DST}/{sub}', ignore=shutil.ignore_patterns('__pycache__'))
 # raw ESPN JSON kept out of git (size); list what was pulled
-open(f'{DST}/RAW_SOURCES.md', 'w').write('# Raw pulls (kept on the box, not committed)\n\n' + '\n'.join(f'- {os.path.basename(f)} ({os.path.getsize(f)//1024} KB, mtime {datetime.datetime.fromtimestamp(os.path.getmtime(f)).strftime("%Y-%m-%d %I:%M %p AST")})' for f in sorted(glob.glob(f'{OUT}/raw/*.json'))) + '\n\nBox path: /workspace/runs/2026-11-22_W11_GAME_LOGS/raw/\n')
+open(f'{DST}/RAW_SOURCES.md', 'w').write('# Raw pulls (kept on the box, not committed)\n\n' + '\n'.join(f'- {os.path.basename(f)} ({os.path.getsize(f)//1024} KB, mtime {datetime.datetime.fromtimestamp(os.path.getmtime(f)).strftime("%Y-%m-%d %I:%M %p " + __import__("time").strftime("%Z"))})' for f in sorted(glob.glob(f'{OUT}/raw/*.json'))) + '\n\nBox path: /workspace/runs/2026-11-22_W11_GAME_LOGS/raw/\n')
 # defense_db.csv: append W11 game rows (FINAL games only), replacing any earlier W11 rows from this builder
 dbp = f'{WT}/data/redistributable/teams/defense/defense_db.csv'
 import subprocess, io

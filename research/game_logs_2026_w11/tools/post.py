@@ -2,7 +2,7 @@
 import sys; sys.path.insert(0, __import__('os').path.dirname(__import__('os').path.abspath(__file__)))
 import json, glob, os, re, csv, collections, datetime, urllib.request
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); RAW = f'{OUT}/raw'
-NOWS = datetime.datetime.now().strftime('%Y-%m-%d %I:%M %p AST')
+NOWS = datetime.datetime.now().strftime('%Y-%m-%d %I:%M %p ' + __import__('time').strftime('%Z'))
 G = {r['game']: r for r in json.load(open(f'{OUT}/data/_all_games.json'))}
 # ---------- NGS
 UA = {'User-Agent': 'Mozilla/5.0', 'Referer': 'https://nextgenstats.nfl.com/'}
@@ -69,9 +69,12 @@ LEGS = {'S1': [('NO@CHI U47.5', lambda: total_leg('NO@CHI', 'FULL', 47.5)), ('TB
                ('DET -3.5', lambda: spread_leg('TB@DET', 'FULL', 'DET', -3.5)), ('NO@CHI 1H U25.5', lambda: total_leg('NO@CHI', '1H', 25.5)), ('TB@DET Q2 U13.5 (stale FD)', lambda: total_leg('TB@DET', 'Q2', 13.5))],
         'S5': [('NO@CHI alt U48.5', lambda: total_leg('NO@CHI', 'FULL', 48.5)), ('TB@DET alt U49.5', lambda: total_leg('TB@DET', 'FULL', 49.5)), ('CIN@WAS alt U55.5 (MNF)', lambda: total_leg('CIN@WSH', 'FULL', 55.5)),
                ('CIN@WAS Q2 U16.5 (MNF)', lambda: total_leg('CIN@WSH', 'Q2', 16.5)), ('NO@CHI 1H U24.5', lambda: total_leg('NO@CHI', '1H', 24.5)), ('TB@DET 1H U25.5', lambda: total_leg('TB@DET', '1H', 25.5)), ('DET 1H -2.5', lambda: spread_leg('TB@DET', '1H', 'DET', -2.5))],
-        'FOCUS9 Saved Slip 4 (uncleared, paper only; runs/2026-11-22_W11_FOCUS9/SAVED_UNCLEARED_SLIPS.md)': [('MIN@SF 1H U23.5 (DK -112, VegasInsider Sat 5:00 PM AST)', lambda: total_leg('MIN@SF', '1H', 23.5))],
+        'FOCUS9 Saved Slip 4 (uncleared, paper only; runs/2026-11-22_W11_FOCUS9/SAVED_UNCLEARED_SLIPS.md)': [('MIN@SF 1H U23.5 (DK -112, VegasInsider Sat 5:00 PM AST)', lambda: total_leg('MIN@SF', '1H', 23.5)),
+               ('CIN@WAS 1H U27.5 (MNF; DK -120, VegasInsider Sat 5:00 PM AST)', lambda: total_leg('CIN@WSH', '1H', 27.5)), ('Jayden Daniels rush U36.5 (MNF; DK -108, STALE Nov 20)', lambda: rush_leg('CIN@WSH', 'WSH', 'Jayden Daniels', 36.5, 'U'))],
+        'FOCUS9 Slip D (cleared 8-leg, paper only; runs/2026-11-22_W11_FOCUS9/SLIPS.md) - MNF leg only': [('CIN@WAS U54.5 (DK -114, VegasInsider Sat 5:00 PM AST)', lambda: total_leg('CIN@WSH', 'FULL', 54.5))],
         'MIN@SF excluded read (not on a slip; PAPER_SLIPS SLIPS.md Excluded)': [('MIN@SF U46.5 (excluded: model 48% vs 53.5% no-vig)', lambda: total_leg('MIN@SF', 'FULL', 46.5))],
         'FLAG (not on a slip)': [('JAX@NYG U45.5', lambda: total_leg('JAX@NYG', 'FULL', 45.5)), ('JAX@NYG U47.5 (flag only)', lambda: total_leg('JAX@NYG', 'FULL', 47.5))]}
+STATUS_OVERRIDE = {'FOCUS9 Slip D (cleared 8-leg, paper only; runs/2026-11-22_W11_FOCUS9/SLIPS.md) - MNF leg only': 'LOSS (full slip; Sunday legs Henry U62.5 and Mayfield U10.5 missed, graded in runs/2026-11-22_W11_FOCUS9/GRADES.md); this MNF leg WIN'}
 S = [f'# Paper slip legs vs results (unofficial check, pulled {NOWS})', '', 'Paper only; the official grade is the 11:45 PM ET grading routine. Legs from runs/2026-11-22_W11_PAPER_SLIPS/SLIPS.md (Ghost6-vetted version). Results from ESPN summary JSON.', '']
 for s, legs in LEGS.items():
     S += [f'## {s}', '| Leg | Result | Actual |', '|---|---|---|']
@@ -79,6 +82,7 @@ for s, legs in LEGS.items():
     for n, f in legs:
         res, act = f(); out.append(res); S.append(f'| {n} | {res} | {act or ""} |')
     st = 'LOSS' if 'LOSS' in out else ('WIN' if all(x in ('WIN', 'PUSH') for x in out) else 'pending')
+    st = STATUS_OVERRIDE.get(s, st)
     S += [f'Slip status: **{st}**', '']
 open(f'{OUT}/SLIP_LEG_RESULTS.md', 'w').write('\n'.join(S) + '\n')
 print('\n'.join(S))
@@ -87,6 +91,7 @@ sb = json.load(open(f'{RAW}/scoreboard.json'))
 ab2id = {}
 for e in sb['events']:
     for c in e['competitions'][0]['competitors']: ab2id[c['team']['abbreviation']] = c['team']['id']
+SFX_GAMES = {'CIN@WSH'}
 def rmap(team):
     fn = f"{RAW}/roster_{ab2id.get(team)}.json"
     m = {}
@@ -96,9 +101,13 @@ def rmap(team):
             f_, l_ = a.get('firstName', ''), a.get('lastName', '')
             for k in {f'{f_[:1]}.{l_}', f'{f_[:2]}.{l_}'}: m.setdefault(k, []).append((a['displayName'], a.get('position', {}).get('abbreviation', 'unknown')))
             m.setdefault('LAST:' + l_, []).append((a['displayName'], a.get('position', {}).get('abbreviation', 'unknown')))
+            l2 = re.sub(r'\s+(Jr\.?|Sr\.?|II|III|IV|V)$', '', l_)
+            if l2 != l_:
+                for k in {f'{f_[:1]}.{l2}', f'{f_[:2]}.{l2}'}: m.setdefault('SFX:' + k, []).append((a['displayName'], a.get('position', {}).get('abbreviation', 'unknown')))
     return m
-def who(m, short):
+def who(m, short, game=None):
     c = m.get(short)
+    if not c and game in SFX_GAMES: c = m.get('SFX:' + short)  # name-suffix fallback (DJ Turner II, Demetrius Knight Jr.); MNF late run only, earlier games unchanged
     if c and len(c) == 1: return c[0]
     if not c and '.' in short:
         c2 = m.get('LAST:' + short.split('.', 1)[1])
@@ -129,7 +138,7 @@ for g, r in sorted(G.items()):
         ds = [(k.split('|', 1)[1], v) for k, v in r.get('defenders', {}).items() if k.startswith(de + '|')]
         P.append('| Defender | Pos | Tags | Rec allowed | Yds | TD | PBU | INT | DPI | Evidence | Receivers | 20+ allowed |'); P.append('|---|---|---|---|---|---|---|---|---|---|---|---|')
         for short, v in sorted(ds, key=lambda x: -x[1]['yds']):
-            full, pos = who(m, short); ev = 'VERIFIED x%d' % (v['pbu'] + v['int'] + v['dpi']) if (v['pbu'] + v['int'] + v['dpi']) else ''
+            full, pos = who(m, short, g); ev = 'VERIFIED x%d' % (v['pbu'] + v['int'] + v['dpi']) if (v['pbu'] + v['int'] + v['dpi']) else ''
             ev = ', '.join(x for x in (ev, 'tackler x%d' % v['rec'] if v['rec'] else '') if x)
             rc = ', '.join(f'{k} {n}' for k, n in v['vs'].items())
             P.append(f"| {full} | {pos} | {v['tags']} | {v['rec']} | {v['yds']} | {v['td']} | {v['pbu']} | {v['int']} | {v['dpi']} | {ev} | {rc} | {'; '.join(v['big'])} |")

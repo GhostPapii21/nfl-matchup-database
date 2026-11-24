@@ -1,4 +1,4 @@
-# Week 11 game logs - index (built 2026-11-23 02:05 AM AST, Blitz, refs NFL-56, refs NFL-49)
+# Week 11 game logs - index (built 2026-11-24 01:05 AM EST, Blitz, refs NFL-56, refs NFL-49)
 
 Research only. projection_ready stays false. No picks. Sources and pull times are inside each game file.
 
@@ -16,7 +16,8 @@ Research only. projection_ready stays false. No picks. Sources and pull times ar
 | JAX@NYG | FINAL | Q1 NYG, Q2 NYG, Q3 TIE, Q4 JAX | NYG 6-20 | NYG 6, 44.5 | NYG | 41 UNDER | JAX 5 (1); NYG 3 (2) | Parker Washington (JAX) 17 | JAX: T.Hunter 6-49; NYG: J.Holland 7-95 | JAX: M.Brown PBU 1/INT 0/DPI 1; NYG: A.Phillips PBU 3/INT 0/DPI 0 | 21/41/22 |
 | IND@HOU | FINAL | Q1 HOU, Q2 HOU, Q3 HOU, Q4 TIE | HOU 3-17 | HOU -12.5, 44.5 | HOU | 29 UNDER | IND 1 (0); HOU 2 (1) | Tyler Warren (IND) 5 | IND: C.Allen 6-41; HOU: R.Blankenship 3-41 | IND: A.Ajiake PBU 1/INT 0/DPI 0; HOU: J.Hansen PBU 2/INT 0/DPI 0 | 7/29/14 |
 | MIN@SF | FINAL | Q1 TIE, Q2 SF, Q3 TIE, Q4 SF | SF 10-28 | SF -4.5, 45.5 | SF | 45 UNDER | MIN 3 (1); SF 4 (4) | Tai Felton (MIN) 12 | MIN: J.Pierre 3-47; SF: R.Green 9-64 | MIN: B.Murphy PBU 1/INT 0/DPI 0; SF: D.Lenoir PBU 2/INT 0/DPI 0 | 6/47/15 |
+| CIN@WSH | FINAL | Q1 TIE, Q2 CIN, Q3 CIN, Q4 WSH | CIN 10-7 | WSH 6.5, 54.5 | WSH | 42 UNDER | CIN 2 (1); WSH 4 (1) | Antonio Williams (WSH) 11 | CIN: J.Newton 4-88; WSH: J.Reaves 4-91 | CIN: D.Hill PBU 0/INT 0/DPI 1; WSH: R.Douglas PBU 2/INT 0/DPI 0 | 6/48/20 |
 
-Not logged in this run (not final at pull time; a later run logs them): CIN @ WSH (11/23 - 8:15 PM EST)
+All 13 Week 11 games are FINAL and logged (CIN@WSH MNF added by the late run).
 
 Files: one `<AWAY>_at_<HOME>.md` per game, `pbp/` full play-by-play CSVs, `data/` JSON (pass-play defender log per game), DEFENSE_PROFILES.md, NGS_W11_SNAPSHOT.md, VIDEO_EVIDENCE.md, SLIP_LEG_RESULTS.md, COVERAGE_MATRIX.md, EXTRAS_TO_CAPTURE.md.
