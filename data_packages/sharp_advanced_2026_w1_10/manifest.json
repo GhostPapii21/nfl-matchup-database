@@ -1,0 +1,443 @@
+{
+  "source": "Sharp Football Analysis",
+  "source_page": "https://www.sharpfootballanalysis.com/analysis/nfl-advanced-box-scores/",
+  "source_data_urls": [
+    "https://rmsummerlin.github.io/SFAStatsPages/data/boxscore_2026.json",
+    "https://rmsummerlin.github.io/SFAStatsPages/data/boxscore_q_2026.json"
+  ],
+  "season": 2026,
+  "weeks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "source_generated_utc": "2026-11-24 02:15:25",
+  "quarter_source_generated_utc": "2026-11-23 17:01:09",
+  "completed_games": 150,
+  "team_game_rows": 300,
+  "quarter_team_rows": 1224,
+  "metric_count": 43,
+  "metric_catalog": [
+    {
+      "key": "plays",
+      "group": "box",
+      "label": "Plays",
+      "kind": "n",
+      "num": "plays",
+      "den": null,
+      "hi_good": null
+    },
+    {
+      "key": "yds",
+      "group": "box",
+      "label": "Total yards",
+      "kind": "yds",
+      "num": "yds",
+      "den": null,
+      "hi_good": true
+    },
+    {
+      "key": "ypp",
+      "group": "box",
+      "label": "Yards per play",
+      "kind": "r1",
+      "num": "yds",
+      "den": "plays",
+      "hi_good": true
+    },
+    {
+      "key": "pyds",
+      "group": "box",
+      "label": "Net passing yards",
+      "kind": "yds",
+      "num": "pass_yds",
+      "den": null,
+      "hi_good": true
+    },
+    {
+      "key": "ryds",
+      "group": "box",
+      "label": "Rushing yards",
+      "kind": "yds",
+      "num": "rush_yds",
+      "den": null,
+      "hi_good": true
+    },
+    {
+      "key": "fd",
+      "group": "box",
+      "label": "First downs",
+      "kind": "n",
+      "num": "fd",
+      "den": null,
+      "hi_good": true
+    },
+    {
+      "key": "td",
+      "group": "box",
+      "label": "Offensive touchdowns",
+      "kind": "n",
+      "num": "td",
+      "den": null,
+      "hi_good": true
+    },
+    {
+      "key": "third",
+      "group": "box",
+      "label": "Third down",
+      "kind": "frac",
+      "num": "third_conv",
+      "den": "third",
+      "hi_good": true
+    },
+    {
+      "key": "fourth",
+      "group": "box",
+      "label": "Fourth down",
+      "kind": "frac",
+      "num": "fourth_conv",
+      "den": "fourth",
+      "hi_good": true
+    },
+    {
+      "key": "to",
+      "group": "box",
+      "label": "Turnovers",
+      "kind": "n",
+      "num": "to",
+      "den": null,
+      "hi_good": false
+    },
+    {
+      "key": "drives",
+      "group": "box",
+      "label": "Drives",
+      "kind": "n",
+      "num": "drives",
+      "den": null,
+      "hi_good": null
+    },
+    {
+      "key": "ppd",
+      "group": "box",
+      "label": "Points per drive",
+      "kind": "r2",
+      "num": "drive_pts",
+      "den": "drives",
+      "hi_good": true
+    },
+    {
+      "key": "start",
+      "group": "box",
+      "label": "Average start",
+      "kind": "yl",
+      "num": "drive_start",
+      "den": "drives",
+      "hi_good": false
+    },
+    {
+      "key": "rz",
+      "group": "box",
+      "label": "Red zone TDs",
+      "kind": "frac",
+      "num": "rz_td",
+      "den": "rz_trips",
+      "hi_good": true
+    },
+    {
+      "key": "top",
+      "group": "box",
+      "label": "Time of possession",
+      "kind": "clock",
+      "num": "top",
+      "den": null,
+      "hi_good": true
+    },
+    {
+      "key": "epa",
+      "group": "eff",
+      "label": "EPA per play",
+      "kind": "epa",
+      "num": "epa",
+      "den": "plays",
+      "hi_good": true
+    },
+    {
+      "key": "sr",
+      "group": "eff",
+      "label": "Success rate",
+      "kind": "pct",
+      "num": "succ",
+      "den": "plays",
+      "hi_good": true
+    },
+    {
+      "key": "db_epa",
+      "group": "eff",
+      "label": "EPA per dropback",
+      "kind": "epa",
+      "num": "db_epa",
+      "den": "db",
+      "hi_good": true
+    },
+    {
+      "key": "db_sr",
+      "group": "eff",
+      "label": "Dropback success",
+      "kind": "pct",
+      "num": "db_succ",
+      "den": "db",
+      "hi_good": true
+    },
+    {
+      "key": "run_epa",
+      "group": "eff",
+      "label": "EPA per rush",
+      "kind": "epa",
+      "num": "run_epa",
+      "den": "run",
+      "hi_good": true
+    },
+    {
+      "key": "run_sr",
+      "group": "eff",
+      "label": "Rush success",
+      "kind": "pct",
+      "num": "run_succ",
+      "den": "run",
+      "hi_good": true
+    },
+    {
+      "key": "early",
+      "group": "eff",
+      "label": "Early-down success",
+      "kind": "pct",
+      "num": "early_succ",
+      "den": "early",
+      "hi_good": true
+    },
+    {
+      "key": "explo",
+      "group": "eff",
+      "label": "Explosive plays",
+      "kind": "n",
+      "num": "explo",
+      "den": null,
+      "hi_good": true
+    },
+    {
+      "key": "explo_r",
+      "group": "eff",
+      "label": "Explosive play rate",
+      "kind": "pct",
+      "num": "explo",
+      "den": "plays",
+      "hi_good": true
+    },
+    {
+      "key": "to_epa",
+      "group": "eff",
+      "label": "Turnover EPA",
+      "kind": "epasum",
+      "num": "to_epa",
+      "den": null,
+      "hi_good": true
+    },
+    {
+      "key": "cmp",
+      "group": "pass",
+      "label": "Completions",
+      "kind": "frac",
+      "num": "cmp",
+      "den": "att",
+      "hi_good": true
+    },
+    {
+      "key": "nyd",
+      "group": "pass",
+      "label": "Net yards per dropback",
+      "kind": "r1",
+      "num": "pass_yds",
+      "den": "pass_plays",
+      "hi_good": true
+    },
+    {
+      "key": "adot",
+      "group": "pass",
+      "label": "Average depth of target",
+      "kind": "r1",
+      "num": "air",
+      "den": "att",
+      "hi_good": null
+    },
+    {
+      "key": "deep",
+      "group": "pass",
+      "label": "Deep target rate",
+      "kind": "pct",
+      "num": "deep",
+      "den": "att",
+      "hi_good": null
+    },
+    {
+      "key": "prsr",
+      "group": "pass",
+      "label": "Pressure rate allowed",
+      "kind": "pct",
+      "num": "prsr",
+      "den": "db",
+      "hi_good": false
+    },
+    {
+      "key": "sack",
+      "group": "pass",
+      "label": "Sack rate",
+      "kind": "pct",
+      "num": "sack",
+      "den": "db",
+      "hi_good": false
+    },
+    {
+      "key": "blitz",
+      "group": "pass",
+      "label": "Blitz rate faced",
+      "kind": "pct",
+      "num": "blitz",
+      "den": "db",
+      "hi_good": null
+    },
+    {
+      "key": "pa",
+      "group": "pass",
+      "label": "Play-action rate",
+      "kind": "pct",
+      "num": "pa",
+      "den": "db",
+      "hi_good": null
+    },
+    {
+      "key": "pa_epa",
+      "group": "pass",
+      "label": "Play-action EPA",
+      "kind": "epa",
+      "num": "pa_epa",
+      "den": "pa",
+      "hi_good": true
+    },
+    {
+      "key": "ttt",
+      "group": "pass",
+      "label": "Time to throw",
+      "kind": "sec",
+      "num": "ttt",
+      "den": "ttt_n",
+      "hi_good": null
+    },
+    {
+      "key": "man",
+      "group": "pass",
+      "label": "Man coverage faced",
+      "kind": "pct",
+      "num": "man",
+      "den": "cov",
+      "hi_good": null
+    },
+    {
+      "key": "ypc",
+      "group": "run",
+      "label": "Yards per carry",
+      "kind": "r1",
+      "num": "rush_yds",
+      "den": "rush_plays",
+      "hi_good": true
+    },
+    {
+      "key": "ybc",
+      "group": "run",
+      "label": "Yards before contact",
+      "kind": "r1",
+      "num": "ybc",
+      "den": "ybc_n",
+      "hi_good": true
+    },
+    {
+      "key": "yac",
+      "group": "run",
+      "label": "Yards after contact",
+      "kind": "r1",
+      "num": "yac_run",
+      "den": "yac_n",
+      "hi_good": true
+    },
+    {
+      "key": "p11",
+      "group": "run",
+      "label": "11 personnel",
+      "kind": "pct",
+      "num": "p11",
+      "den": "pers_n",
+      "hi_good": null
+    },
+    {
+      "key": "p12",
+      "group": "run",
+      "label": "12 personnel",
+      "kind": "pct",
+      "num": "p12",
+      "den": "pers_n",
+      "hi_good": null
+    },
+    {
+      "key": "shotgun",
+      "group": "run",
+      "label": "Shotgun rate",
+      "kind": "pct",
+      "num": "shotgun",
+      "den": "sg_n",
+      "hi_good": null
+    },
+    {
+      "key": "nh",
+      "group": "run",
+      "label": "No-huddle rate",
+      "kind": "pct",
+      "num": "nh",
+      "den": "huddle_n",
+      "hi_good": null
+    }
+  ],
+  "team_game_rows_by_week": {
+    "1": 32,
+    "2": 32,
+    "3": 32,
+    "4": 32,
+    "5": 30,
+    "6": 28,
+    "7": 28,
+    "8": 28,
+    "9": 30,
+    "10": 28
+  },
+  "quarter_rows_by_week": {
+    "1": 130,
+    "2": 132,
+    "3": 128,
+    "4": 128,
+    "5": 126,
+    "6": 116,
+    "7": 114,
+    "8": 116,
+    "9": 122,
+    "10": 112
+  },
+  "quarter_records_include_overtime": true,
+  "authorization": "Repository owner reports written permission for public redistribution; permission letter retained outside the repository.",
+  "model_weights_changed": false
+}
