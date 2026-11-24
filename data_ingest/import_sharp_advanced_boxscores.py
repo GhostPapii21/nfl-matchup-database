@@ -101,7 +101,7 @@ def run(db_path, data_dir, apply=False):
         matched = sum(r[2] is not None for r in linkable_rows)
         if unique != len(rows):
             raise RuntimeError("Duplicate deterministic record IDs in source package")
-        existing = {r[0] for r in db.execute("SELECT record_id FROM supplemental_records WHERE dataset IN (?,?)", tuple(DATASETS.values()))}
+        existing = {r[0] for r in db.execute("SELECT record_id FROM supplemental_records WHERE dataset IN (?,?,?)", tuple(DATASETS.values()))}
         if apply:
             db.execute("BEGIN IMMEDIATE")
             db.executemany("""INSERT INTO supplemental_records
