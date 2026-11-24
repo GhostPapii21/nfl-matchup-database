@@ -1,6 +1,6 @@
-# 2026 data audit, Weeks 1-10
+# 2026 data audit, Weeks 1-11
 
-Play-by-play complete: **yes**. Quarter scores add up to every final: **yes**. Official game book quarter scores checked against play-by-play: **150 games, 0 disagreements**.
+Play-by-play complete: **yes**. Quarter scores add up to every final: **yes**. Official game book quarter scores checked against play-by-play: **163 games, 0 disagreements**.
 
 | Week | Games | Final scores | Play-by-play | Quarters verified | NFL game books |
 |---|---|---|---|---|---|
@@ -14,6 +14,7 @@ Play-by-play complete: **yes**. Quarter scores add up to every final: **yes**. O
 | 8 | 14 | 14 | 14 | 14 | 14 |
 | 9 | 15 | 15 | 15 | 15 | 15 |
 | 10 | 14 | 14 | 14 | 14 | 14 |
+| 11 | 13 | 13 | 13 | 13 | 13 |
 
 ## Flags
 
