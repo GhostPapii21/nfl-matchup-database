@@ -3,7 +3,7 @@ import sqlite3
 import tempfile
 import unittest
 from pathlib import Path
-from import_sharp_advanced_boxscores import run
+from data_ingest.import_sharp_advanced_boxscores import run
 
 class SharpAdvancedImportTests(unittest.TestCase):
     def test_dry_run_then_idempotent_import(self):
