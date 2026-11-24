@@ -46,3 +46,12 @@ Sharp alignment/scheme freshness, complete routes and coverage assignments remai
 ## Sharp advanced box-score package — 2026-11-24
 
 An authorized normalized source package has been staged in `data_packages/sharp_advanced_2026_w1_10/`: 150 completed Weeks 1–10 games, 300 team-game rows, 1,224 team-quarter rows (including overtime where present), and the publisher's 43-metric catalog. `data_ingest/import_sharp_advanced_boxscores.py` provides a dry-run-first, idempotent import into the existing `supplemental_records` table. This package commit does not by itself prove that the current published SQLite archive contains the new records: the import must be run against the private source database, followed by the standard audited exporter and anonymous publication verification. Existing 84 Week 7 observations are preserved; no model weights or projection readiness flags are changed.
+
+## Sharp advanced box-score public integration — 2026-11-24
+
+- Imported 300 team-game observations, 1,224 team-quarter/OT observations and 43 metric-catalog definitions (1,567 supplemental records total) for 2026 regular-season Weeks 1–10.
+- The package's 300 team-game and 1,224 quarter records were compared field-for-field with fresh Sharp source JSON; all matched exactly.
+- All 150 Sharp source games mapped one-to-one to unique ESPN game IDs. ESPN final scores and home/away team identities were independently checked against the NFLverse schedule for all 150 games. No unmatched or ambiguous game IDs remain.
+- The public game index was extended with 43 previously absent completed ESPN game records so all Sharp observations have a canonical game link. Other play-by-play/player-stat layers are not implied complete for those added games.
+- The pre-existing 84 Week 7 Sharp observations were preserved byte-for-byte at the row level (SHA-256: acc54e7d7570794340fd8874e5f455244e25ffa52cf59731e9716dba4fa98a51). All 8260 pre-existing Sharp advanced observations were also preserved unchanged.
+- All four publisher metric groups are present in the database catalog: box, efficiency, passing, and rushing/personnel. No model weights or projection-readiness settings were changed.
