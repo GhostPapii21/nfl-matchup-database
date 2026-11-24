@@ -17,6 +17,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import sys
 import sqlite3
 import tempfile
 import time
@@ -458,6 +459,7 @@ def publish(repo_root, audit_path):
 """
         gap_path.write_text(old_gaps.rstrip() + note, encoding="utf-8")
         # Export from the imported copy. The private/public input archive is not overwritten in place.
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
         from export_snapshot import build
         result = build(source_db, repo_root, gaps=gap_path, force=True)
         if result.get("status") != "READY_TO_PUBLISH":
