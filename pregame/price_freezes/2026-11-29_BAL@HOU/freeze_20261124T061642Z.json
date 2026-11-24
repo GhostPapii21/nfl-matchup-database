@@ -1,0 +1,351 @@
+{
+ "markets": {
+  "moneyline": {
+   "best_retail_price": {
+    "BAL": {
+     "book": "fanduel",
+     "break_even": 0.2778,
+     "line": null,
+     "price": 260.0
+    },
+    "HOU": {
+     "book": "fanduel",
+     "break_even": 0.7619,
+     "line": null,
+     "price": -320.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.0397,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": null,
+     "no_vig": {
+      "BAL": 0.2672,
+      "HOU": 0.7328
+     },
+     "prices": {
+      "BAL": 260.0,
+      "HOU": -320.0
+     },
+     "source": "direct"
+    },
+    "pinnacle": {
+     "hold": 0.0348,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": null,
+     "no_vig": {
+      "BAL": 0.2699,
+      "HOU": 0.7301
+     },
+     "prices": {
+      "BAL": 258.0,
+      "HOU": -309.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": null,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "BAL": 0.2672,
+     "HOU": 0.7328
+    }
+   },
+   "reference": {
+    "book": "pinnacle",
+    "line": null,
+    "no_vig": {
+     "BAL": 0.2699,
+     "HOU": 0.7301
+    }
+   },
+   "sides": [
+    "HOU",
+    "BAL"
+   ]
+  },
+  "spread": {
+   "best_retail_price": {
+    "BAL": {
+     "book": "fanduel",
+     "break_even": 0.5305,
+     "line": -6.5,
+     "price": -113.0
+    },
+    "HOU": {
+     "book": "fanduel",
+     "break_even": 0.5305,
+     "line": -6.5,
+     "price": -113.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.061,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": -6.5,
+     "no_vig": {
+      "BAL": 0.5,
+      "HOU": 0.5
+     },
+     "prices": {
+      "BAL": -113.0,
+      "HOU": -113.0
+     },
+     "source": "direct"
+    },
+    "pinnacle": {
+     "hold": 0.0305,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": -7.0,
+     "no_vig": {
+      "BAL": 0.5148,
+      "HOU": 0.4852
+     },
+     "prices": {
+      "BAL": -113.0,
+      "HOU": -100.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": -6.5,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "BAL": 0.5,
+     "HOU": 0.5
+    }
+   },
+   "reference": {
+    "book": "pinnacle",
+    "line": -7.0,
+    "no_vig": {
+     "BAL": 0.5148,
+     "HOU": 0.4852
+    }
+   },
+   "sides": [
+    "HOU",
+    "BAL"
+   ]
+  },
+  "total": {
+   "best_retail_price": {
+    "Over": {
+     "book": "fanduel",
+     "break_even": 0.5305,
+     "line": 46.5,
+     "price": -113.0
+    },
+    "Under": {
+     "book": "fanduel",
+     "break_even": 0.5305,
+     "line": 46.5,
+     "price": -113.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.061,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": 46.5,
+     "no_vig": {
+      "Over": 0.5,
+      "Under": 0.5
+     },
+     "prices": {
+      "Over": -113.0,
+      "Under": -113.0
+     },
+     "source": "direct"
+    },
+    "pinnacle": {
+     "hold": 0.0337,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": 46.5,
+     "no_vig": {
+      "Over": 0.4955,
+      "Under": 0.5045
+     },
+     "prices": {
+      "Over": -105.0,
+      "Under": -109.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": 46.5,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    }
+   },
+   "reference": {
+    "book": "pinnacle",
+    "line": 46.5,
+    "no_vig": {
+     "Over": 0.4955,
+     "Under": 0.5045
+    }
+   },
+   "sides": [
+    "Over",
+    "Under"
+   ]
+  }
+ },
+ "meta": {
+  "as_of_note": "these feeds publish no per-price update time; a book's as-of time is its pull time",
+  "book_retrieved_utc": {
+   "fanduel": "2026-11-24T06:11:38Z",
+   "pinnacle": "2026-11-24T06:11:38Z"
+  },
+  "books": [
+   "fanduel"
+  ],
+  "dropped": 0,
+  "fetch_log": [
+   {
+    "bytes": 375409,
+    "fetched_utc": "2026-11-24T06:16:19+00:00",
+    "file": "pregame/direct_lines/raw/actionnetwork_20261124T061619Z_cd20a4e6a715.json.gz",
+    "sha256": "cd20a4e6a7156283a739d9c0411283eca898408a139c8018572fc45e97fea315",
+    "source": "actionnetwork",
+    "url": "https://api.actionnetwork.com/web/v2/scoreboard/nfl?bookIds=68,69,75,123,71,79,15,30&periods=event"
+   }
+  ],
+  "game": "BAL@HOU",
+  "game_id": "2026_12_BAL_HOU",
+  "pulled_utc": "2026-11-24T06:11:38Z",
+  "raw_sha256": "ea8a579dcd5a85870bab5199e982c64a4d0e2b4e15d53ce6fefc8721ebac5de6",
+  "research_only": true,
+  "schema": "price-freeze/direct-2",
+  "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
+  "source_files": [
+   {
+    "file": "pregame/direct_lines/2026_12_BAL_HOU.json",
+    "sha256": "dd36b331f517477f8d0fe2db4934807474e29ca23f832a5361a284650f5f0090"
+   }
+  ],
+  "status": "OK",
+  "written_utc": "2026-11-24T06:16:42Z"
+ },
+ "rows": [
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.0397,
+   "implied_a": 0.2778,
+   "implied_b": 0.7619,
+   "line": null,
+   "market": "h2h",
+   "novig_a": 0.2672,
+   "novig_b": 0.7328,
+   "player": null,
+   "price_a": 260,
+   "price_b": -320,
+   "reference_only": false,
+   "side_a": "Baltimore Ravens",
+   "side_b": "Houston Texans"
+  },
+  {
+   "book": "pinnacle",
+   "book_label": "pinnacle",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.0348,
+   "implied_a": 0.2793,
+   "implied_b": 0.7555,
+   "line": null,
+   "market": "h2h",
+   "novig_a": 0.2699,
+   "novig_b": 0.7301,
+   "player": null,
+   "price_a": 258,
+   "price_b": -309,
+   "reference_only": true,
+   "side_a": "Baltimore Ravens",
+   "side_b": "Houston Texans"
+  },
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.061,
+   "implied_a": 0.5305,
+   "implied_b": 0.5305,
+   "line": 6.5,
+   "market": "spreads",
+   "novig_a": 0.5,
+   "novig_b": 0.5,
+   "player": null,
+   "price_a": -113,
+   "price_b": -113,
+   "reference_only": false,
+   "side_a": "Baltimore Ravens",
+   "side_b": "Houston Texans"
+  },
+  {
+   "book": "pinnacle",
+   "book_label": "pinnacle",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.0305,
+   "implied_a": 0.5305,
+   "implied_b": 0.5,
+   "line": 7.0,
+   "market": "spreads",
+   "novig_a": 0.5148,
+   "novig_b": 0.4852,
+   "player": null,
+   "price_a": -113,
+   "price_b": -100,
+   "reference_only": true,
+   "side_a": "Baltimore Ravens",
+   "side_b": "Houston Texans"
+  },
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.061,
+   "implied_a": 0.5305,
+   "implied_b": 0.5305,
+   "line": 46.5,
+   "market": "totals",
+   "novig_a": 0.5,
+   "novig_b": 0.5,
+   "player": null,
+   "price_a": -113,
+   "price_b": -113,
+   "reference_only": false,
+   "side_a": "Over",
+   "side_b": "Under"
+  },
+  {
+   "book": "pinnacle",
+   "book_label": "pinnacle",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.0337,
+   "implied_a": 0.5122,
+   "implied_b": 0.5215,
+   "line": 46.5,
+   "market": "totals",
+   "novig_a": 0.4955,
+   "novig_b": 0.5045,
+   "player": null,
+   "price_a": -105,
+   "price_b": -109,
+   "reference_only": true,
+   "side_a": "Over",
+   "side_b": "Under"
+  }
+ ]
+}

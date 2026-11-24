@@ -1,0 +1,351 @@
+{
+ "markets": {
+  "moneyline": {
+   "best_retail_price": {
+    "CAR": {
+     "book": "fanduel",
+     "break_even": 0.4425,
+     "line": null,
+     "price": 126.0
+    },
+    "TB": {
+     "book": "fanduel",
+     "break_even": 0.5968,
+     "line": null,
+     "price": -148.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.0393,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": null,
+     "no_vig": {
+      "CAR": 0.4258,
+      "TB": 0.5742
+     },
+     "prices": {
+      "CAR": 126.0,
+      "TB": -148.0
+     },
+     "source": "direct"
+    },
+    "pinnacle": {
+     "hold": 0.0308,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": null,
+     "no_vig": {
+      "CAR": 0.4059,
+      "TB": 0.5941
+     },
+     "prices": {
+      "CAR": 139.0,
+      "TB": -158.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": null,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "CAR": 0.4258,
+     "TB": 0.5742
+    }
+   },
+   "reference": {
+    "book": "pinnacle",
+    "line": null,
+    "no_vig": {
+     "CAR": 0.4059,
+     "TB": 0.5941
+    }
+   },
+   "sides": [
+    "TB",
+    "CAR"
+   ]
+  },
+  "spread": {
+   "best_retail_price": {
+    "CAR": {
+     "book": "fanduel",
+     "break_even": 0.5098,
+     "line": -2.5,
+     "price": -104.0
+    },
+    "TB": {
+     "book": "fanduel",
+     "break_even": 0.5495,
+     "line": -2.5,
+     "price": -122.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.0594,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": -2.5,
+     "no_vig": {
+      "CAR": 0.4812,
+      "TB": 0.5188
+     },
+     "prices": {
+      "CAR": -104.0,
+      "TB": -122.0
+     },
+     "source": "direct"
+    },
+    "pinnacle": {
+     "hold": 0.0308,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": -3.0,
+     "no_vig": {
+      "CAR": 0.5125,
+      "TB": 0.4875
+     },
+     "prices": {
+      "CAR": -112.0,
+      "TB": -101.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": -2.5,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "CAR": 0.4812,
+     "TB": 0.5188
+    }
+   },
+   "reference": {
+    "book": "pinnacle",
+    "line": -3.0,
+    "no_vig": {
+     "CAR": 0.5125,
+     "TB": 0.4875
+    }
+   },
+   "sides": [
+    "TB",
+    "CAR"
+   ]
+  },
+  "total": {
+   "best_retail_price": {
+    "Over": {
+     "book": "fanduel",
+     "break_even": 0.5305,
+     "line": 43.5,
+     "price": -113.0
+    },
+    "Under": {
+     "book": "fanduel",
+     "break_even": 0.5305,
+     "line": 43.5,
+     "price": -113.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.061,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": 43.5,
+     "no_vig": {
+      "Over": 0.5,
+      "Under": 0.5
+     },
+     "prices": {
+      "Over": -113.0,
+      "Under": -113.0
+     },
+     "source": "direct"
+    },
+    "pinnacle": {
+     "hold": 0.0338,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": 43.5,
+     "no_vig": {
+      "Over": 0.5023,
+      "Under": 0.4977
+     },
+     "prices": {
+      "Over": -108.0,
+      "Under": -106.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": 43.5,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    }
+   },
+   "reference": {
+    "book": "pinnacle",
+    "line": 43.5,
+    "no_vig": {
+     "Over": 0.5023,
+     "Under": 0.4977
+    }
+   },
+   "sides": [
+    "Over",
+    "Under"
+   ]
+  }
+ },
+ "meta": {
+  "as_of_note": "these feeds publish no per-price update time; a book's as-of time is its pull time",
+  "book_retrieved_utc": {
+   "fanduel": "2026-11-24T06:11:38Z",
+   "pinnacle": "2026-11-24T06:11:38Z"
+  },
+  "books": [
+   "fanduel"
+  ],
+  "dropped": 0,
+  "fetch_log": [
+   {
+    "bytes": 375409,
+    "fetched_utc": "2026-11-24T06:16:19+00:00",
+    "file": "pregame/direct_lines/raw/actionnetwork_20261124T061619Z_cd20a4e6a715.json.gz",
+    "sha256": "cd20a4e6a7156283a739d9c0411283eca898408a139c8018572fc45e97fea315",
+    "source": "actionnetwork",
+    "url": "https://api.actionnetwork.com/web/v2/scoreboard/nfl?bookIds=68,69,75,123,71,79,15,30&periods=event"
+   }
+  ],
+  "game": "CAR@TB",
+  "game_id": "2026_12_CAR_TB",
+  "pulled_utc": "2026-11-24T06:11:38Z",
+  "raw_sha256": "6ef341cec26dd1daad982b1d8c1d40b28680da6c91fe81c143978859f904a16f",
+  "research_only": true,
+  "schema": "price-freeze/direct-2",
+  "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
+  "source_files": [
+   {
+    "file": "pregame/direct_lines/2026_12_CAR_TB.json",
+    "sha256": "66e925d5a4c30675f984f74d02fd1eb479b5be42cfe138d053d9ce9509a9e613"
+   }
+  ],
+  "status": "OK",
+  "written_utc": "2026-11-24T06:17:17Z"
+ },
+ "rows": [
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.0393,
+   "implied_a": 0.4425,
+   "implied_b": 0.5968,
+   "line": null,
+   "market": "h2h",
+   "novig_a": 0.4258,
+   "novig_b": 0.5742,
+   "player": null,
+   "price_a": 126,
+   "price_b": -148,
+   "reference_only": false,
+   "side_a": "Carolina Panthers",
+   "side_b": "Tampa Bay Buccaneers"
+  },
+  {
+   "book": "pinnacle",
+   "book_label": "pinnacle",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.0308,
+   "implied_a": 0.4184,
+   "implied_b": 0.6124,
+   "line": null,
+   "market": "h2h",
+   "novig_a": 0.4059,
+   "novig_b": 0.5941,
+   "player": null,
+   "price_a": 139,
+   "price_b": -158,
+   "reference_only": true,
+   "side_a": "Carolina Panthers",
+   "side_b": "Tampa Bay Buccaneers"
+  },
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.0594,
+   "implied_a": 0.5098,
+   "implied_b": 0.5495,
+   "line": 2.5,
+   "market": "spreads",
+   "novig_a": 0.4812,
+   "novig_b": 0.5188,
+   "player": null,
+   "price_a": -104,
+   "price_b": -122,
+   "reference_only": false,
+   "side_a": "Carolina Panthers",
+   "side_b": "Tampa Bay Buccaneers"
+  },
+  {
+   "book": "pinnacle",
+   "book_label": "pinnacle",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.0308,
+   "implied_a": 0.5283,
+   "implied_b": 0.5025,
+   "line": 3.0,
+   "market": "spreads",
+   "novig_a": 0.5125,
+   "novig_b": 0.4875,
+   "player": null,
+   "price_a": -112,
+   "price_b": -101,
+   "reference_only": true,
+   "side_a": "Carolina Panthers",
+   "side_b": "Tampa Bay Buccaneers"
+  },
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.061,
+   "implied_a": 0.5305,
+   "implied_b": 0.5305,
+   "line": 43.5,
+   "market": "totals",
+   "novig_a": 0.5,
+   "novig_b": 0.5,
+   "player": null,
+   "price_a": -113,
+   "price_b": -113,
+   "reference_only": false,
+   "side_a": "Over",
+   "side_b": "Under"
+  },
+  {
+   "book": "pinnacle",
+   "book_label": "pinnacle",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.0338,
+   "implied_a": 0.5192,
+   "implied_b": 0.5146,
+   "line": 43.5,
+   "market": "totals",
+   "novig_a": 0.5023,
+   "novig_b": 0.4977,
+   "player": null,
+   "price_a": -108,
+   "price_b": -106,
+   "reference_only": true,
+   "side_a": "Over",
+   "side_b": "Under"
+  }
+ ]
+}

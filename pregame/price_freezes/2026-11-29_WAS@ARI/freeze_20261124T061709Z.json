@@ -1,0 +1,242 @@
+{
+ "markets": {
+  "moneyline": {
+   "best_retail_price": {
+    "ARI": {
+     "book": "fanduel",
+     "break_even": 0.25,
+     "line": null,
+     "price": 300.0
+    },
+    "WAS": {
+     "book": "fanduel",
+     "break_even": 0.7895,
+     "line": null,
+     "price": -375.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.0395,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": null,
+     "no_vig": {
+      "ARI": 0.2405,
+      "WAS": 0.7595
+     },
+     "prices": {
+      "ARI": 300.0,
+      "WAS": -375.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": null,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "ARI": 0.2405,
+     "WAS": 0.7595
+    }
+   },
+   "reference": {
+    "book": null,
+    "note": "Pinnacle did not list this market"
+   },
+   "sides": [
+    "ARI",
+    "WAS"
+   ]
+  },
+  "spread": {
+   "best_retail_price": {
+    "ARI": {
+     "book": "fanduel",
+     "break_even": 0.5413,
+     "line": 7.5,
+     "price": -118.0
+    },
+    "WAS": {
+     "book": "fanduel",
+     "break_even": 0.5192,
+     "line": 7.5,
+     "price": -108.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.0605,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": 7.5,
+     "no_vig": {
+      "ARI": 0.5104,
+      "WAS": 0.4896
+     },
+     "prices": {
+      "ARI": -118.0,
+      "WAS": -108.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": 7.5,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "ARI": 0.5104,
+     "WAS": 0.4896
+    }
+   },
+   "reference": {
+    "book": null,
+    "note": "Pinnacle did not list this market"
+   },
+   "sides": [
+    "ARI",
+    "WAS"
+   ]
+  },
+  "total": {
+   "best_retail_price": {
+    "Over": {
+     "book": "fanduel",
+     "break_even": 0.5305,
+     "line": 41.5,
+     "price": -113.0
+    },
+    "Under": {
+     "book": "fanduel",
+     "break_even": 0.5305,
+     "line": 41.5,
+     "price": -113.0
+    }
+   },
+   "books": {
+    "fanduel": {
+     "hold": 0.061,
+     "last_update": "2026-11-24T06:11:38+00:00",
+     "line": 41.5,
+     "no_vig": {
+      "Over": 0.5,
+      "Under": 0.5
+     },
+     "prices": {
+      "Over": -113.0,
+      "Under": -113.0
+     },
+     "source": "direct"
+    }
+   },
+   "books_agree_on_line": true,
+   "consensus": {
+    "line": 41.5,
+    "n_books_at_line": 1,
+    "no_vig": {
+     "Over": 0.5,
+     "Under": 0.5
+    }
+   },
+   "reference": {
+    "book": null,
+    "note": "Pinnacle did not list this market"
+   },
+   "sides": [
+    "Over",
+    "Under"
+   ]
+  }
+ },
+ "meta": {
+  "as_of_note": "these feeds publish no per-price update time; a book's as-of time is its pull time",
+  "book_retrieved_utc": {
+   "fanduel": "2026-11-24T06:11:38Z"
+  },
+  "books": [
+   "fanduel"
+  ],
+  "dropped": 0,
+  "fetch_log": [
+   {
+    "bytes": 375409,
+    "fetched_utc": "2026-11-24T06:16:19+00:00",
+    "file": "pregame/direct_lines/raw/actionnetwork_20261124T061619Z_cd20a4e6a715.json.gz",
+    "sha256": "cd20a4e6a7156283a739d9c0411283eca898408a139c8018572fc45e97fea315",
+    "source": "actionnetwork",
+    "url": "https://api.actionnetwork.com/web/v2/scoreboard/nfl?bookIds=68,69,75,123,71,79,15,30&periods=event"
+   }
+  ],
+  "game": "WAS@ARI",
+  "game_id": "2026_12_WAS_ARI",
+  "pulled_utc": "2026-11-24T06:11:38Z",
+  "raw_sha256": "9e694785df068377b11aaef2c87efddf9d8bf9c5d1c48848a49566aae748c25d",
+  "research_only": true,
+  "schema": "price-freeze/direct-2",
+  "source": "direct pulls (pregame/direct_lines) + Grok files when present; no Odds API",
+  "source_files": [
+   {
+    "file": "pregame/direct_lines/2026_12_WAS_ARI.json",
+    "sha256": "5637e0f9dd7d79f8f7985d3245f2417d3b6c1a92553618bd0d6c2c2758277ce8"
+   }
+  ],
+  "status": "OK",
+  "written_utc": "2026-11-24T06:17:09Z"
+ },
+ "rows": [
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.0395,
+   "implied_a": 0.7895,
+   "implied_b": 0.25,
+   "line": null,
+   "market": "h2h",
+   "novig_a": 0.7595,
+   "novig_b": 0.2405,
+   "player": null,
+   "price_a": -375,
+   "price_b": 300,
+   "reference_only": false,
+   "side_a": "Washington Commanders",
+   "side_b": "Arizona Cardinals"
+  },
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.0605,
+   "implied_a": 0.5192,
+   "implied_b": 0.5413,
+   "line": -7.5,
+   "market": "spreads",
+   "novig_a": 0.4896,
+   "novig_b": 0.5104,
+   "player": null,
+   "price_a": -108,
+   "price_b": -118,
+   "reference_only": false,
+   "side_a": "Washington Commanders",
+   "side_b": "Arizona Cardinals"
+  },
+  {
+   "book": "fanduel",
+   "book_label": "fanduel",
+   "book_last_update": "2026-11-24T06:11:38+00:00",
+   "hold": 0.061,
+   "implied_a": 0.5305,
+   "implied_b": 0.5305,
+   "line": 41.5,
+   "market": "totals",
+   "novig_a": 0.5,
+   "novig_b": 0.5,
+   "player": null,
+   "price_a": -113,
+   "price_b": -113,
+   "reference_only": false,
+   "side_a": "Over",
+   "side_b": "Under"
+  }
+ ]
+}
